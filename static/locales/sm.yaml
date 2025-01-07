@@ -95,14 +95,11 @@ Subscriptions:
   Subscriptions: ''
   # channels that were likely deleted
   Error Channels: ''
-  Latest Subscriptions: ''
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: ''
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   Disabled Automatic Fetching: ''
   Empty Channels: ''
-  'Getting Subscriptions. Please wait.': ''
   Empty Posts: ''
-  Refresh Subscriptions: ''
   Load More Videos: ''
   Load More Posts: ''
   Subscriptions Tabs: ''
@@ -355,7 +352,6 @@ Settings:
     Hide Subscriptions Community: ''
   Data Settings:
     Data Settings: ''
-    Select Import Type: ''
     Select Export Type: ''
     Import Subscriptions: ''
     Subscription File: ''
@@ -433,8 +429,6 @@ Settings:
   Password Dialog:
     Password: ''
     Enter Password To Unlock: ''
-    Password Incorrect: ''
-    Unlock: ''
   Password Settings:
     Password Settings: ''
     Set Password To Prevent Access: ''
@@ -485,7 +479,6 @@ Profile:
   Delete Profile: ''
   Are you sure you want to delete this profile?: ''
   All subscriptions will also be deleted.: ''
-  Profile could not be found: ''
   Your profile name cannot be empty: ''
   Profile has been created: ''
   Profile has been updated: ''
@@ -587,7 +580,6 @@ Video:
   Autoplay: ''
   Starting soon, please refresh the page to check again: ''
   # As in a Live Video
-  Premieres on: ''
   Premieres: ''
   Upcoming: ''
   Live: ''
@@ -595,7 +587,6 @@ Video:
   Live Chat: ''
   Enable Live Chat: ''
   Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
   Live chat is enabled. Chat messages will appear here once sent.: ''
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
@@ -632,13 +623,6 @@ Video:
       reversing playlists: ''
       shuffling playlists: ''
       looping playlists: ''
-#& Videos
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: ''
-    Oldest: ''
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -687,7 +671,6 @@ Comments:
   Click to View Comments: ''
   Getting comment replies, please wait: ''
   There are no more comments for this video: ''
-  Show Comments: ''
   Hide Comments: ''
   Top comments: ''
   Newest first: ''
@@ -702,7 +685,6 @@ Comments:
   And others: ''
   There are no comments available for this video: ''
   Load More Comments: ''
-  No more comments available: ''
   Pinned by: ''
   Member: ''
   Subscribed: ''

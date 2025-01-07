@@ -45,8 +45,6 @@ Global:
     Watching Count: 1 assistindo | {count} assistindo
     Like Count: 1 curtida | {count} curtidas
     Comment Count: 1 comentário | {count} comentários
-  Input Tags:
-    Length Requirement: A tag deve ter pelo menos {number} caracteres
 Search / Go to URL: 'Pesquisar ou digitar URL'
   # In Filter Button
 Search Filters:
@@ -98,14 +96,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Inscrições'
-  Latest Subscriptions: 'Últimas inscrições'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sua
     lista de inscrições está vazia no momento. Se quiser importar suas inscrições,
     acesse "Configurações de dados" e selecione "Importar inscrições" ou pesquise
     um canal para inscrever-se.'
-  'Getting Subscriptions.  Please wait.': 'Buscando inscrições. Por favor, aguarde.'
-  Refresh Subscriptions: Atualizar inscrições
-  'Getting Subscriptions. Please wait.': Obtendo inscrições. Por favor, aguarde.
   Load More Videos: Carregar mais vídeos
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil tem um grande número de inscrições. Forçando RSS para evitar limitação
@@ -202,8 +196,6 @@ User Playlists:
       Video has been removed: Vídeo removido
       This playlist is already being used for quick bookmark.: Esta playlist já está
         sendo usada como "Quick Bookmark".
-      Playlist {playlistName} is the new quick bookmark playlist.: Playlist "{playlistName}"
-        é a nova playlist em "Quick Bookmark".
       This playlist has a video with a duration error: Esta playlist contém pelo menos
         um vídeo que não tem duração, ela será classificada como se sua duração fosse
         zero.
@@ -425,7 +417,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Intervalo do próximo vídeo da lista de reprodução
     Next Video Interval: Temporizador de contagem regressiva para reprodução automática
     Display Play Button In Video Player: Mostrar botão "Reproduzir" no centro do player
     Scroll Volume Over Video Player: Alterar volume ao rolar sobre o player
@@ -492,7 +483,6 @@ Settings:
     Invalid history file: Arquivo de histórico inválido
     All subscriptions have been successfully imported: Todas as inscrições foram importadas
       com sucesso
-    Select Import Type: Selecionar tipo de importação
     Data Settings: Dados
     Export History: Exportar histórico
     Import History: Importar histórico
@@ -665,8 +655,6 @@ Settings:
     Remove Password: Remover senha
     Set Password To Prevent Access: Defina uma senha para impedir o acesso às configurações
   Password Dialog:
-    Unlock: Desbloquear
-    Password Incorrect: Senha incorreta
     Password: Senha
     Enter Password To Unlock: Digite a senha para desbloquear as configurações
   Sort Settings Sections (A-Z): Classificar seções de configurações (A-Z)
@@ -791,8 +779,6 @@ Video:
   Enable Live Chat: 'Habilitar chat ao vivo'
   Live Chat is currently not supported in this build.: 'Chat ao vivo não é suportado
     nessa versão.'
-  'Chat is disabled or the Live Stream has ended.': 'O chat está desativado ou a transmissão
-    ao vivo terminou.'
   Live chat is enabled. Chat messages will appear here once sent.: 'O chat ao vivo
     está ativado. As mensagens aparecerão aqui depois de enviadas.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'O
@@ -847,8 +833,6 @@ Video:
     OpeningTemplate: Abrindo {videoOrPlaylist} em {externalPlayer}...
     OpenInTemplate: Abrir em {externalPlayer}
     video: vídeo
-  Premieres on: Estreia em
-  Premieres in: Estréias em
   Premieres: Estreia
   Scroll to Bottom: Ir para o final
   Show Super Chat Comment: Mostrar comentários de Super Chat
@@ -903,12 +887,6 @@ Video:
     pois exigem componentes proprietários e de código fechado. Se quiser assistir
     a esse vídeo, acesse o site oficial do YouTube em um navegador da Web habilitado
     para DRM.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Novos'
-    Oldest: 'Antigos'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -967,7 +945,6 @@ Comments:
   Comments: 'Comentários'
   Click to View Comments: 'Mostrar comentários'
   Getting comment replies, please wait: 'Buscando respostas, por favor, aguarde'
-  Show Comments: 'Mostrar comentários'
   Hide Comments: 'Ocultar comentários'
   # Context: View 10 Replies, View 1 Reply
   View: 'Visualizar'
@@ -977,7 +954,6 @@ Comments:
   There are no comments available for this video: 'Não há comentários disponíveis
     neste vídeo'
   Load More Comments: 'Buscar mais comentários'
-  No more comments available: Não existem mais comentários
   Newest first: Mais recentes primeiro
   Top comments: Melhores comentários
   There are no more comments for this video: Não há mais comentários para este vídeo
@@ -1019,7 +995,6 @@ Profile:
   Create New Profile: Criar novo perfil
   All Channels: Todos os canais
   All subscriptions will also be deleted.: Todas as inscrições serão também excluídas.
-  Profile could not be found: Perfil não encontrado
   Are you sure you want to delete this profile?: Tem certeza de que quer excluir este
     perfil?
   Make Default Profile: Tornar perfil padrão

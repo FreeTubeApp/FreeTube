@@ -56,8 +56,6 @@ Global:
 # Search Bar
     Like Count: 1 лайк | {count} лайкаў
     Comment Count: 1 каментарый | {count} каментарыяў
-  Input Tags:
-    Length Requirement: Даўжыня цэтліка павінна быць не менш за {number} сімвалаў
 Search / Go to URL: 'Пошук / Перайсці да URL'
 Search Bar:
   Clear Input: 'Ачысціць увод'
@@ -113,7 +111,6 @@ Subscriptions:
   Subscriptions: 'Падпіскі'
   # channels that were likely deleted
   Error Channels: 'Каналы з памылкамі'
-  Latest Subscriptions: 'Апошнія падпіскі'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'У
     гэтага профілю вялікая колькасць падпісак.  Прымусовае выкарыстанне RSS, каб пазбегнуць
     абмежавання хуткасці'
@@ -124,9 +121,7 @@ Subscriptions:
   Disabled Automatic Fetching: 'Вы адключылі аўтаматычнае загрузку падпісак. Каб убачыць
     іх тут, абнавіце падпіскі.'
   Empty Channels: 'На каналах, на якія вы падпісаны, зараз няма відэа.'
-  'Getting Subscriptions. Please wait.': 'Атрыманне падпісак. Калі ласка, пачакайце.'
   Empty Posts: 'На каналах, на якія вы падпісаны, зараз няма паведамленняў.'
-  Refresh Subscriptions: ''
   Load More Videos: 'Загрузіць больш відэа'
   Load More Posts: 'Загрузіць больш паведамленняў'
   Subscriptions Tabs: 'Укладкі падпісак'
@@ -189,8 +184,6 @@ User Playlists:
         быў паспяхова створаны.
   SinglePlaylistView:
     Toast:
-      Playlist {playlistName} is the new quick bookmark playlist.: Плэй-ліст {playlistName}
-        - гэта новы плэй-ліст з хуткай закладкай.
       This playlist is protected and cannot be removed.: Гэты плэй-ліст абаронены
         і не можа быць выдалены.
       This video cannot be moved up.: Гэта відэа нельга перамясціць уверх.
@@ -534,7 +527,6 @@ Settings:
       Праверце яшчэ раз, ці правільны ідэнтыфікатар.
   Data Settings:
     Data Settings: 'Даныя'
-    Select Import Type: 'Выбраць тып імпарту'
     Select Export Type: 'Выбраць тып экспарту'
     Import Subscriptions: 'Імпарт падпісак'
     Subscription File: 'Файл падпіскі'
@@ -635,8 +627,6 @@ Settings:
   Password Dialog:
     Password: 'Пароль'
     Enter Password To Unlock: 'Каб разблакіраваць налады, увядзіце пароль'
-    Password Incorrect: 'Пароль няправільны'
-    Unlock: 'Разблакіраваць'
   Password Settings:
     Password Settings: 'Пароль'
     Set Password To Prevent Access: 'Задайце пароль, каб забараніць доступ да налад'
@@ -693,7 +683,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Вы ўпэўнены, што хочаце выдаліць
     гэты профіль?'
   All subscriptions will also be deleted.: 'Усе падпіскі таксама будуць выдалены.'
-  Profile could not be found: 'Профіль не знойдзены'
   Your profile name cannot be empty: 'Назва вашага профілю не можа быць пустой'
   Profile has been created: 'Профіль створаны'
   Profile has been updated: 'Профіль абноўлены'
@@ -819,7 +808,6 @@ Video:
   Starting soon, please refresh the page to check again: 'Хутка пачнецца, абнавіце
     старонку, каб праверыць яшчэ раз'
   # As in a Live Video
-  Premieres on: 'Прэм''еры на'
   Premieres: 'Прэм''еры'
   Upcoming: 'Хутка'
   Live: 'Ужывую'
@@ -828,8 +816,6 @@ Video:
   Enable Live Chat: 'Уключыць жывы чат'
   Live Chat is currently not supported in this build.: 'Жывы чат зараз не падтрымліваецца
     ў гэтай зборцы.'
-  'Chat is disabled or the Live Stream has ended.': 'Чат адключаны або жывая трансляцыя
-    скончылася.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Жывы чат уключаны.  Паведамленні
     чата з''явяцца тут пасля адпраўкі.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Жывы
@@ -906,12 +892,6 @@ Video:
     You appear to be offline: Здаецца, вы па-за сеткай.
     Playback will resume automatically when your connection comes back: Прайграванне
       ўзновіцца аўтаматычна, калі падключэнне адновіцца.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Новыя'
-    Oldest: 'Старыя'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -981,7 +961,6 @@ Comments:
   Click to View Comments: 'Націсніце, каб праглядзець каментарыі'
   Getting comment replies, please wait: 'Атрымліваюцца адказы на каментарыі, пачакайце'
   There are no more comments for this video: 'Да гэтага відэа больш няма каментарыяў'
-  Show Comments: 'Паказаць каментарыі'
   Hide Comments: 'Схаваць каментарыі'
   Top comments: 'Папулярныя каментарыі'
   Newest first: 'Спачатку новыя'
@@ -996,7 +975,6 @@ Comments:
   And others: 'і інш'
   There are no comments available for this video: 'Да гэтага відэа няма каментарыяў'
   Load More Comments: 'Загрузіць больш каментарыяў'
-  No more comments available: 'Больш каментарыяў няма'
   Pinned by: 'Замацавана'
   Member: 'Член'
   Subscribed: 'Падпісан'

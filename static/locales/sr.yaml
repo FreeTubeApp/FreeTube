@@ -45,8 +45,6 @@ Global:
   Community: Заједница
   Shorts: Shorts
   Sort By: Сортирање по
-  Input Tags:
-    Length Requirement: Ознака мора да има најмање {number} знакова
 Version {versionNumber} is now available!  Click for more details: 'Верзија {versionNumber}
   је сада достуна!  Кликните за више детаља'
 Download From Site: 'Преузми са сајта'
@@ -105,7 +103,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Праћења'
-  Latest Subscriptions: 'Најновија праћења'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Овај
     профил има велики број праћења.  Присиљавање RSS-а да се избегне ограничавање
     брзине'
@@ -113,8 +110,6 @@ Subscriptions:
     листа праћења је тренутно празна. Ако желите да увезете своја праћења, можете
     отићи у Подешавања података и изабрати Увоз праћења или можете претражити канал
     и запратити га.'
-  'Getting Subscriptions. Please wait.': 'Набављање праћења. Сачекајте.'
-  Refresh Subscriptions: 'Освежи праћења'
   Load More Videos: 'Учитај више видео снимака'
   Load More Posts: Учитај више објава
   Empty Channels: Канали које пратите тренутно немају ниједан видео снимак.
@@ -191,8 +186,6 @@ User Playlists:
         за брзо обележавање
       This playlist is already being used for quick bookmark.: Ова плејлиста се већ
         користи за брзо обележавање.
-      Playlist {playlistName} is the new quick bookmark playlist.: Плејлиста {playlistName}
-        је нова плејлиста за брзо обележавање.
       This playlist has a video with a duration error: Ова плејлиста садржи најмање
         један видео снимак који нема трајање, биће сортиран као да је његово трајање
         нула.
@@ -420,7 +413,6 @@ Settings:
     Proxy Videos Through Invidious: 'Прокси видео снимци преко Invidious-а'
     Autoplay Playlists: 'Аутоматски пусти плејлисте'
     Enable Theatre Mode by Default: 'Подразумевано омогући биоскопски режим'
-    Playlist Next Video Interval: 'Интервал следећег видеа из плејлисте'
     Default Volume: 'Подразумевана јачина звука'
     Default Playback Rate: 'Подразумевана брзина репродукције'
     Default Video Format:
@@ -550,7 +542,6 @@ Settings:
     Show Added Items: Прикажи додате предмете
   Data Settings:
     Data Settings: 'Подаци'
-    Select Import Type: 'Избор врсте увоза'
     Select Export Type: 'Избор врсте извоза'
     Import Subscriptions: 'Увоз праћења'
     Export Subscriptions: 'Извоз праћења'
@@ -668,10 +659,8 @@ Settings:
     Hide Search Bar: Сакриј траку за претрагу
     Parental Control Settings: Родитељска контрола
   Password Dialog:
-    Password Incorrect: Лозинка нетачна
     Password: Лозинка
     Enter Password To Unlock: Унесите лозинку да бисте откључали подешавања
-    Unlock: Откључај
   Sort Settings Sections (A-Z): Сортирање одељка подешавања (A-Z)
   Return to Settings Menu: Врати се у мени подешавања
 About:
@@ -720,7 +709,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Желите ли заиста да избришете овај
     профил?'
   All subscriptions will also be deleted.: 'Сва праћења ће такође бити избрисана.'
-  Profile could not be found: 'Није могуће пронаћи профил'
   Your profile name cannot be empty: 'Име профила не може бити празно'
   Profile has been created: 'Профил је направљен'
   Profile has been updated: 'Профил је ажуриран'
@@ -857,8 +845,6 @@ Video:
   Enable Live Chat: 'Омогући ћаскање уживо'
   Live Chat is currently not supported in this build.: 'Ћаскање уживо тренутно није
     подржано у овом издању.'
-  'Chat is disabled or the Live Stream has ended.': 'Ћаскање је онемогућено или је
-    стрим уживо завршен.'
   Published:
     In less than a minute: За мање од једног минута
   Upcoming: Предстојеће
@@ -891,7 +877,6 @@ Video:
   Streamed on: Стримовано
   video only: само видео снимак
   Pause on Current Video: Паузирај на тренутном видео снимку
-  Premieres on: Премијера на
   audio only: само аудио снимак (звук)
   Show Super Chat Comment: Прикажи Super Chat коментар
   Scroll to Bottom: Превуци до дна
@@ -1064,7 +1049,6 @@ Change Format:
     за овај видео снимак
 Comments:
   Comments: Коментари
-  Show Comments: Прикажи коментаре
   View: Погледај
   Click to View Comments: Кликни да видиш коментаре
   From {channelName}: од {channelName}
@@ -1075,7 +1059,6 @@ Comments:
   Hide Comments: Сакриј коментаре
   Show More Replies: Прикажи више одговора
   Pinned by: Закачио
-  No more comments available: Нема више доступних коментара
   Hearted: Са срцем
   There are no comments available for this video: Нема доступних коментара за овај
     видео снимак
@@ -1116,10 +1099,6 @@ Up Next: Следеће
 Loop is now disabled: Понављање је сада онемогућено
 Playing Next Video: Пуштање следећег видео снимка
 The playlist has been reversed: Плејлиста је обрнута
-Videos:
-  Sort By:
-    Oldest: Најстарије
-    Newest: Најновије
 Playlist will pause when current video is finished: Плејлиста ће се паузирати када
   се тренутни видео снимак заврши
 Local API Error (Click to copy): Грешка локалног API-ја (Кликнути за копирање)

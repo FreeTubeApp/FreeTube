@@ -83,13 +83,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '구독'
-  Latest Subscriptions: '최근 구독'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: '이
     프로필에는 많은 구독이 있습니다. RSS가 속도 제한을 피하도록 강요합니다'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '구독한
     채널이 없습니다. 구독 피드를 보려면 원하시는 채널을 구독하세요'
-  'Getting Subscriptions. Please wait.': '구독 목록을 가져오는 중입니다. 잠시만 기다려 주세요.'
-  Refresh Subscriptions: '구독 피드 새로 고침'
   Load More Videos: '더 많은 동영상 불러오기'
   Error Channels: 오류가 있는 채널
   Disabled Automatic Fetching: 자동 구독 정보 수집이 비활성화 되어 있습니다. 구독을 새로고침해주세요.
@@ -240,7 +237,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: 재생 목록 다음 비디오 간격
     Fast-Forward / Rewind Interval: 빨리 감기/되감기 간격
     Next Video Interval: 다음 비디오 재생 간격
     Scroll Volume Over Video Player: 플레이어 위로 스크롤하여 볼륨조정
@@ -304,7 +300,6 @@ Settings:
     Hide Channels Placeholder: 채널 이름이나 ID를 입력하세요
   Data Settings:
     Data Settings: '데이터 설정'
-    Select Import Type: '가져오기 유형 선택'
     Select Export Type: '내보내기 유형 선택'
     Import Subscriptions: '구독 목록 가져오기'
     Export Subscriptions: '구독 목록 내보내기'
@@ -387,10 +382,8 @@ Settings:
     Hide Search Bar: 검색 막대 숨기기
     Show Family Friendly Only: 가족 친목만 표시
   Password Dialog:
-    Password Incorrect: 비밀번호가 일치하지 않습니다
     Password: 비밀번호
     Enter Password To Unlock: 설정을 활성화하기 위해서 비밀번호를 입력하세요
-    Unlock: 활성화
   Experimental Settings:
     Experimental Settings: 실험적 기능 설정
     Warning: 본 설정들은 실험적 기능이며, 활성화 되었을 때 충돌을 유발할 수 있습니다. 백업을 하는 것을 강력히 권장합니다. 모든 책임은
@@ -442,7 +435,6 @@ Profile:
   Delete Profile: '프로필 삭제'
   Are you sure you want to delete this profile?: '이 프로필을 삭제하시겠습니까?'
   All subscriptions will also be deleted.: '모든 구독도 삭제됩니다.'
-  Profile could not be found: '프로필을 찾을 수 없습니다'
   Your profile name cannot be empty: '프로필 이름은 비워 둘 수 없습니다'
   Profile has been created: '프로필이 생성되었습니다'
   Profile has been updated: '프로필이 업데이트되었습니다'
@@ -523,7 +515,6 @@ Video:
   Live Chat: '라이브 채팅'
   Enable Live Chat: '라이브 채팅 활성화'
   Live Chat is currently not supported in this build.: '라이브 채팅은 현재 이 빌드에서 지원되지 않습니다.'
-  'Chat is disabled or the Live Stream has ended.': '채팅이 비활성화되었거나 라이브 스트림이 종료되었습니다.'
   Live chat is enabled. Chat messages will appear here once sent.: '라이브 채팅이 활성화되었습니다.   채팅
     메시지가 전송되면 여기에 표시됩니다.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '라이브
@@ -540,7 +531,6 @@ Video:
   Video has been saved: 동영상이 저장되었습니다
   Video has been removed from your saved list: 저장된 목록에서 동영상이 제거되었습니다
   Save Video: 비디오 저장
-  Premieres on: 개봉일
   External Player:
     Unsupported Actions:
       opening specific video in a playlist (falling back to opening the video): 재생
@@ -569,12 +559,6 @@ Video:
   Upcoming: 공개 예정
   Show Super Chat Comment: 슈퍼채팅 댓글 보이기
   Scroll to Bottom: 맨 아래로 스크롤하기
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: '최신의'
-    Oldest: '오래된'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -615,7 +599,6 @@ Comments:
   Click to View Comments: '댓글을 보려면 클릭하세요'
   Getting comment replies, please wait: '댓글의 답글을 받는 중입니다. 잠시만 기다려 주세요'
   There are no more comments for this video: '이 영상에 대한 댓글이 더 이상 없습니다'
-  Show Comments: '댓글 보기'
   Hide Comments: '댓글 숨기기'
   Top comments: '인기 댓글'
   Newest first: '최신 우선'
@@ -626,7 +609,6 @@ Comments:
   Reply: '회신'
   There are no comments available for this video: '이 영상에 대한 댓글이 없습니다'
   Load More Comments: '더 많은 댓글 불러오기'
-  No more comments available: '더 이상 사용할 수 있는 댓글이 없습니다'
   Show More Replies: 더 많은 답글 보기
   From {channelName}: '{channelName}에서'
   Pinned by: 고정된 댓글

@@ -84,11 +84,8 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscripcions'
-  Latest Subscriptions: 'Últimes subscripcions'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'La
     teva llista de subscripcions està buida. Afegeix subscripcions per veure-les aquí.'
-  'Getting Subscriptions. Please wait.': 'Obtenint subscripcions. Si us plau, espera.'
-  Refresh Subscriptions: 'Actualitzar subscripcions'
   Load More Videos: Carregar més vídeos
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Aquest
     perfil té un gran nombre de subscripcions. Forçant RSS per evitar la limitació
@@ -260,7 +257,6 @@ Settings:
     Fetch Feeds from RSS: 'Recupera els canals de continguts des de l''RSS'
   Data Settings:
     Data Settings: 'Configuració de les dades'
-    Select Import Type: 'Selecciona tipus d''importació'
     Select Export Type: 'Selecciona tipus d''exportació'
     Import Subscriptions: 'Importa les subscripcions'
     Export Subscriptions: 'Exporta subscripcions'
@@ -390,7 +386,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Estàs segur que vols suprimir aquest
     perfil?'
   All subscriptions will also be deleted.: 'També se suprimiran totes les subscripcions.'
-  Profile could not be found: 'No s''ha pogut trobar el perfil'
   Your profile name cannot be empty: 'El nom del perfil no pot estar buit'
   Profile has been created: 'S''ha creat el perfil'
   Profile has been updated: 'S''ha actualitzat el perfil'
@@ -475,8 +470,6 @@ Video:
   Enable Live Chat: 'Activa el xat en directe'
   Live Chat is currently not supported in this build.: 'No s’admet el xat en directe
     en aquesta construcció.'
-  'Chat is disabled or the Live Stream has ended.': 'El Xat està desactivat o la Reproducció
-    En Directe ha finalitzat.'
   Live chat is enabled. Chat messages will appear here once sent.: 'El Xat En Directe
     està activat. Els missatges del Xat apareixeran ací una vegada s''envien.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'El
@@ -502,7 +495,6 @@ Video:
     playlist: llista de reproducció
     UnsupportedActionTemplate: '{externalPlayer} no suporta: {action}'
   Save Video: Desa el Vídeo
-  Premieres on: S'estrena el
   audio only: només àudio
   Video has been saved: El vídeo s'ha desat
   Video has been removed from your saved list: S'ha suprimit el vídeo de la llista
@@ -516,12 +508,6 @@ Video:
   Download Video: Descàrrega El Vídeo
   video only: només vídeo
   Streamed on: Retransmès en directe el
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Més Nou'
-    Oldest: 'Més Vell'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About

@@ -36,8 +36,6 @@ Global:
   Community: Comunidade
 
   Shorts: Cortos
-  Input Tags:
-    Length Requirement: A etiqueta debe ser de polo menos {number} caracteres.
   Live: En vivo
   Sort By: 'Ordenar por'
 Version {versionNumber} is now available!  Click for more details: 'A versión {versionNumber}
@@ -86,14 +84,11 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscricións'
-  Latest Subscriptions: 'Últimas subscricións'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Este
     perfil ten un gran número de subscricións.  Forzar ás RSS para evitar a limitación
     da taxa'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
     túa listaxe de subscricións está baleira. Engade algunhas para as ver aquí.'
-  'Getting Subscriptions. Please wait.': 'Obtendo subscricións. Por favor, agarda.'
-  Refresh Subscriptions: 'Actualizar subscricións'
   Load More Videos: 'Cargar máis vídeos'
   Error Channels: Canles con erros
   Disabled Automatic Fetching: Desactivaches a obtención automática de subscricións.
@@ -322,7 +317,6 @@ Settings:
       maiúsculas
   Data Settings:
     Data Settings: 'Axustes dos datos'
-    Select Import Type: 'Escoller tipo de importación'
     Select Export Type: 'Escoller tipo de exportación'
     Import Subscriptions: 'Importar subscricións'
     Export Subscriptions: 'Exportar subscricións'
@@ -431,8 +425,6 @@ Settings:
   Password Dialog:
     Password: Contrasinal
     Enter Password To Unlock: Introduce o contrasinal para desbloqueala configuración
-    Password Incorrect: Contrasinal incorrecto
-    Unlock: Desbloquear
 About:
   #On About page
   About: 'Sobre'
@@ -476,7 +468,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Estás seguro de querer eliminar
     este perfil?'
   All subscriptions will also be deleted.: 'Tamén se eliminarán tódalas subscricións.'
-  Profile could not be found: 'Non se atopou o perfil'
   Your profile name cannot be empty: 'O nome do perfil non pode estar en branco'
   Profile has been created: 'Creouse o perfil'
   Profile has been updated: 'Actualizouse o perfil'
@@ -580,8 +571,6 @@ Video:
   Enable Live Chat: 'Activar chat en vivo'
   Live Chat is currently not supported in this build.: 'O chat en vivo non está soportado
     nesta versión.'
-  'Chat is disabled or the Live Stream has ended.': 'O chat foi desactivado ou a transmisión
-    en vivo rematou.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Chat en vivo activado.  As
     mensaxes aparecerán aquí ao seren enviadas.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Chat
@@ -623,17 +612,10 @@ Video:
   Video has been removed from your saved list: Eliminouse este vídeo da lista de gardados
   Video has been saved: Gardouse o vídeo
   Save Video: Gardar vídeo
-  Premieres on: Estrease o
   Premieres: Estreos
   Show Super Chat Comment: Mostralos comentarios do Super Chat
   Scroll to Bottom: Desprácese ata abaixo
   Upcoming: Próximamente
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Máis recente'
-    Oldest: 'Máis antigo'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -681,7 +663,6 @@ Comments:
   Getting comment replies, please wait: 'Obtendo respostas ao comentario. Por favor,
     agarda'
   There are no more comments for this video: 'Non hai máis comentarios neste vídeo'
-  Show Comments: 'Amosar comentarios'
   Hide Comments: 'Agochar comentarios'
   Top comments: 'Comentarios destacados'
   Newest first: 'Máis recentes'
@@ -692,7 +673,6 @@ Comments:
   Reply: 'Resposta'
   There are no comments available for this video: 'Este vídeo non contén ningún comentario'
   Load More Comments: 'Cargar máis comentarios'
-  No more comments available: 'Non hai máis comentarios'
   Pinned by: Fixado por
   And others: e outros
   Member: Membro

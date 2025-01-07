@@ -90,14 +90,11 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Prenumeratos'
-  Latest Subscriptions: 'Naujausios prenumeratos'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Šiame
     profilyje yra daug prenumeratų.   Vengiant ribojimų RSS bus naudojamas priverstinai'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Jūsų
     prenumeratų sąrašas šiuo metu tuščias. Pridėkite prenumeratas, kad jas pamatytumėte
     čia.'
-  'Getting Subscriptions. Please wait.': 'Gaunamos prenumeratos. Prašome luktelėti.'
-  Refresh Subscriptions: 'Atnaujinti prenumeratas'
   Load More Videos: 'Įkelti daugiau vaizdo įrašų'
   Error Channels: Kanalai su klaidomis
   Disabled Automatic Fetching: Išjungėte automatinį prenumeratų gavimą. Atnaujinkite
@@ -346,7 +343,6 @@ Settings:
     Hide Channel Shorts: Slėpti Kanalo Šortus
   Data Settings:
     Data Settings: 'Duomenų nustatymai'
-    Select Import Type: 'Pasirinkti importavimo tipą'
     Select Export Type: 'Pasirinkti eksportavimo tipą'
     Import Subscriptions: 'Importuoti prenumeratas'
     Export Subscriptions: 'Eksportuoti prenumeratas'
@@ -435,7 +431,6 @@ Settings:
       Labai rekomenduojama iš anksto pasidaryti atsargines kopijas. Naudokite savo
       rizika!
   Password Dialog:
-    Password Incorrect: Slaptažodis Neteisingas
     Password: Slaptažodis
     Enter Password To Unlock: Įveskite slaptažodį į atrakintumėte nustatymus
 About:
@@ -481,7 +476,6 @@ Profile:
   Delete Profile: 'Ištrinti profilį'
   Are you sure you want to delete this profile?: 'Ar tikrai norite ištrinti šį profilį?'
   All subscriptions will also be deleted.: 'Taip pat bus ištrintos visos prenumeratos.'
-  Profile could not be found: 'Nepavyko rasti profilio'
   Your profile name cannot be empty: 'Jūsų profilio vardas negali būti tuščias'
   Profile has been created: 'Profilis sukurtas'
   Profile has been updated: 'Profilis atnaujintas'
@@ -573,8 +567,6 @@ Video:
   Enable Live Chat: 'Įgalinti tiesioginę diskusiją'
   Live Chat is currently not supported in this build.: 'Šioje versijoje tiesioginė
     diskusija kol kas nepalaikoma.'
-  'Chat is disabled or the Live Stream has ended.': 'Pokalbiai yra išjungti arba tiesioginė
-    transliacija baigta.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Tiesioginė diskusija
     yra įgalinta.  Čia bus rodomi pokalbio pranešimai.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Tiesioginė
@@ -613,14 +605,7 @@ Video:
       shuffling playlists: 'maišomi grojaraščiai'
       looping playlists: 'ciklu sukami grojaraščiai'
 #& Videos
-  Premieres on: Premjera
   Premieres: Premjera
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Naujausi'
-    Oldest: 'Seniausi'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -665,7 +650,6 @@ Comments:
   Click to View Comments: 'Spustelėkite norėdami peržiūrėti komentarus'
   Getting comment replies, please wait: 'Gaunami atsakymai į komentarus, palaukite'
   There are no more comments for this video: 'Šiame vaizdo įraše nėra daugiau komentarų'
-  Show Comments: 'Rodyti komentarus'
   Hide Comments: 'Slėpti komentarus'
   Top comments: 'Top komentarai'
   Newest first: 'Naujausi viršuje'
@@ -677,7 +661,6 @@ Comments:
   There are no comments available for this video: 'Šiam vaizdo įrašui nėra parašytų
     komentarų'
   Load More Comments: 'Įkelti daugiau komentarų'
-  No more comments available: 'Daugiau komentarų nėra'
   Show More Replies: Rodyti daugiau atsakymų
   From {channelName}: nuo {channelName}
   And others: ir kt.

@@ -74,7 +74,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'সদস্যতা'
-  Latest Subscriptions: 'শেষ সদস্যতা'
   Error Channels: ত্রুটিপূর্ণ চ্যানেল
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': আপনার
     সাবস্ক্রিপশন লিস্ট খালি, দেখতে সাবস্ক্রিপশন করুন
@@ -84,9 +83,7 @@ Subscriptions:
   Empty Posts: আপনার সাবস্ক্রাইব কৃত চ্যানেলে কোন পোস্ট নেই ।
   All Subscription Tabs Hidden: সকল সাবস্ক্রিপশন ট্যা গোপন করা হয়েছে ।এখানে কনটেন্ট
     দেখতে কিছু ট্যাব আনহাইড করুন"{subsection}"এর "{settingsSection}"।
-  'Getting Subscriptions. Please wait.': সাবস্ক্রিপশন আনা হচ্ছে ।অপেক্ষা করুন ।
   Load More Videos: অতিরিক্ত ভিডিও লোড করুন
-  Refresh Subscriptions: সাবস্ক্রিপশন রিফ্রেশ করুন
   Disabled Automatic Fetching: আপনি সাবস্ক্রিপশন পেচ বন্ধ করে রেখেছেন। সাবস্ক্রিপশন
     রিফ্রেশ করুন দেখার জন্য।
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: এই

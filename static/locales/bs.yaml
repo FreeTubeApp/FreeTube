@@ -74,15 +74,12 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Pretplate'
-  Latest Subscriptions: 'Najnovije pretplate'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Ovaj
     profil ima veliki broj pretplata. Prisiljavanje RSS-a da izbjegne ograničenje
     brzine'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaša
     lista pretplata je trenutno prazna. Počnite dodavati pretplate da biste ih vidjeli
     ovdje.'
-  'Getting Subscriptions. Please wait.': 'Preuzimanje pretplata. Molimo sačekajte.'
-  Refresh Subscriptions: 'Osvježi pretplate'
   Load More Videos: 'Očitaj više videozapisa'
 Trending:
   Trending: 'U trendu'

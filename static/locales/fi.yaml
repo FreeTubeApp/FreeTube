@@ -88,12 +88,8 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Tilaukset'
-  Latest Subscriptions: 'Viimeisimmät tilaukset'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sinulla
     ei juuri nyt ole tilauksia. Tilaa kanavia nähdäksesi ne täällä.'
-  'Getting Subscriptions.  Please wait.': 'Haetaan tilauksia. Odota hetki.'
-  Refresh Subscriptions: Päivitä tilaukset
-  Getting Subscriptions. Please wait.: Haetaan tilauksia. Odota hetki.
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Tällä
     profiililla on paljon tilauksia.  Pakotetaan RSS nopeuden rajoittamisen välttämiseksi
   Load More Videos: Lataa lisää videoita
@@ -402,7 +398,6 @@ Settings:
     Export Subscriptions: Vie tilaukset
     Import Subscriptions: Tuo tilaukset
     Select Export Type: Valitse Viennin tyyppi
-    Select Import Type: Valitse Tuonnin tyyppi
     Data Settings: Data-asetukset
     Manage Subscriptions: Hallitse tilauksia
     All playlists has been successfully imported: Kaikki soittolistat on onnistuneesti
@@ -521,8 +516,6 @@ Settings:
   Password Dialog:
     Password: Salasana
     Enter Password To Unlock: Syötä salasana avataksesi asetukset
-    Password Incorrect: Salasana on virheellinen
-    Unlock: Avaa lukitus
   Password Settings:
     Set Password To Prevent Access: Aseta salasana estääksesi pääsyn asetuksiin
     Password Settings: Salasana-asetukset
@@ -637,8 +630,6 @@ Video:
   Enable Live Chat: 'Ota live-keskustelu käyttöön'
   Live Chat is currently not supported in this build.: 'Live-keskustelua ei tueta
     tässä versiossa.'
-  'Chat is disabled or the Live Stream has ended.': 'Keskustelu on poistettu käytöstä
-    tai suora lähetys on päättynyt.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Live-keskustelu
     on käytössä. Lähetetyt viestit näkyvät tässä.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Live-keskustelua
@@ -696,7 +687,6 @@ Video:
     luettelostasi
   Video has been saved: Video on tallennettu
   Save Video: Tallenna video
-  Premieres on: Julkaistaan
   Premieres: Ensilähetykset
   Show Super Chat Comment: Näytä Super Chat -kommentti
   Scroll to Bottom: Vieritä Alaspäin
@@ -706,12 +696,6 @@ Video:
   Pause on Current Video: Keskeytä nykyiseen videoon
   Unhide Channel: Näytä kanava
   Hide Channel: Piilota kanava
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Uusin'
-    Oldest: 'Vanhin'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -757,7 +741,6 @@ Comments:
   Comments: 'Kommentit'
   Click to View Comments: 'Napsauta avataksesi kommentit'
   Getting comment replies, please wait: 'Haetaan vastauksia, odota hetki'
-  Show Comments: 'Näytä kommentit'
   Hide Comments: 'Piilota kommentit'
   # Context: View 10 Replies, View 1 Reply
   View: 'Näytä'
@@ -767,7 +750,6 @@ Comments:
   There are no comments available for this video: 'Tähän videoon ei ole yhtään kommenttia'
   Load More Comments: 'Lataa lisää kommentteja'
   There are no more comments for this video: Ei ole enempää kommentteja tälle videolle
-  No more comments available: Ei enempää kommentteja
   Newest first: Uusimmat ensin
   Top comments: Suosituimmat kommentit
   Show More Replies: Näytä enemmän vastauksia
@@ -809,7 +791,6 @@ Profile:
   Profile has been updated: Profiili on päivitetty
   Profile has been created: Profiili on luotu
   Your profile name cannot be empty: Profiililla täytyy olla nimi
-  Profile could not be found: Profiilia ei löydetty
   All subscriptions will also be deleted.: Kaikki tilaukset tullaan myös poistamaan.
   Are you sure you want to delete this profile?: Haluatko varmasti poistaa tämän profiilin?
   Delete Profile: Poista profiili

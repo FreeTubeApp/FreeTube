@@ -43,8 +43,6 @@ Global:
     Comment Count: Iruzkin 1 | {count} iruzkin
   Live: Zuzenekoa
   Shorts: Laburrak
-  Input Tags:
-    Length Requirement: Etiketak {number} karaktere izan behar ditu gutxienez
   Community: Komunitatea
   Sort By: Honen arabera ordenatu
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
@@ -105,15 +103,12 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Harpidetzak'
-  Latest Subscriptions: 'Azken harpidetzak'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Honako
     profilak harpidetza anitz ditu. RSS behartu abiadura muga saihesteko'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Zure
     harpidetza-zerrenda hutsik dago. Zure harpidetzak inportatu nahi badituzu, Datuen
     konfigurazioa atalera joan eta Inportaziorako harpidetzak aukera ditzakezu, edo
     kanal bat bilatu eta harpidetza egin dezakezu.'
-  'Getting Subscriptions. Please wait.': 'Harpidetzak eskuratzen. Itxaron mesedez.'
-  Refresh Subscriptions: 'Harpidetzak freskatu'
   Load More Videos: 'Bideo gehiago kargatu'
   Error Channels: Akatsak dituzten kateak
   Disabled Automatic Fetching: Harpidetza-bilaketa automatikoa desgaitu duzu. Freskatu
@@ -212,8 +207,6 @@ User Playlists:
       This playlist does not exist: Erreprodukzio-zerrenda hau ez da existitzen
       This playlist is already being used for quick bookmark.: Erreprodukzio-zerrenda
         hau laster-markak egiteko erabiltzen ari da dagoeneko.
-      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
-        erreprodukzio-zerrenda laster-marken erreprodukzio-zerrenda azkarra da.'
       This playlist has a video with a duration error: Erreprodukzio-zerrenda honek
         iraupenik ez duen bideo bat du gutxienez. Hortaz, zero balitz bezala sailkatuko
         da.
@@ -549,7 +542,6 @@ Settings:
     Show Added Items: Erakutsi gehitutako elementuak
   Data Settings:
     Data Settings: 'Datuak'
-    Select Import Type: 'Hautatu Inportazio mota'
     Select Export Type: 'Hautatu esportazio mota'
     Import Subscriptions: 'Harpidetzak inportatu'
     Export Subscriptions: 'Harpidetzak esportatu'
@@ -664,8 +656,6 @@ Settings:
     Hide Search Bar: Bilaketa barra ezkutatu
   Password Dialog:
     Password: Pasahitza
-    Password Incorrect: Pasahitza okerra
-    Unlock: Desblokeatu
     Enter Password To Unlock: Sartu pasahitza ezarpenak desblokeatzeko
   Experimental Settings:
     Replace HTTP Cache: Ordeztu HTTP cachea
@@ -726,7 +716,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Ziur al zaude profil hau ezabatu
     nahi duzula?'
   All subscriptions will also be deleted.: 'Harpidetza guztiak ere ezabatuko dira.'
-  Profile could not be found: 'Ezin izan da profila aurkitu'
   Your profile name cannot be empty: 'Zure profilaren izena ezin da hutsik egon'
   Profile has been created: 'Profila ongi eratu da'
   Profile has been updated: 'Profila ongi eguneratu da'
@@ -866,8 +855,6 @@ Video:
   Enable Live Chat: 'Zuzeneko txata aktibatu'
   Live Chat is currently not supported in this build.: 'Zuzeneko txata ez da oraindik
     onartzen konpilazio honetan.'
-  'Chat is disabled or the Live Stream has ended.': 'Txata desgaituta dago edo zuzeneko
-    igorpena amaitu da.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Zuzeneko txata
     gaituta dago. Txat-mezuak bidalitakoan hemen agertuko dira.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Zuzeneko
@@ -906,7 +893,6 @@ Video:
     recap: Laburpen
     filler: Betegarria
     intro: Sarrera
-  Premieres on: Estreinaldiak
   Hide Channel: Kanala ezkutatu
   Unhide Channel: Kanala erakutsi
   Premieres: Estreinaldiak
@@ -960,12 +946,6 @@ Video:
   DRMProtected: DRM babestutako bideoak ezin dira erreproduzitu FreeTube-n, kode itxiko
     osagai jabedunak behar baitituzte. Bideo hau ikusi nahi baduzu, ikusi YouTube
     webgune ofizialean DRM gaituta duen web arakatzaile batean.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Berriena'
-    Oldest: 'Zaharrena'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -1027,7 +1007,6 @@ Comments:
   Getting comment replies, please wait: 'Iruzkinen erantzunak eskuratzen. Itxaron
     mesedez'
   There are no more comments for this video: 'Ez dago iruzkin gehiagorik bideo honentzat'
-  Show Comments: 'Iruzkinak erakutsi'
   Hide Comments: 'Iruzkinak ezkutatu'
   Top comments: 'Iruzkin nagusiak'
   Newest first: 'Berrienak lehenik'
@@ -1039,7 +1018,6 @@ Comments:
   There are no comments available for this video: 'Ez da iruzkin eskuragarririk bideo
     honentzat'
   Load More Comments: 'Iruzkin gehiago kargatu'
-  No more comments available: 'Iruzkin eskuragarri gehiagorik ez'
   Member: Kide
   Show More Replies: Erantzun gehiago erakutsi
   And others: eta bestelakoak

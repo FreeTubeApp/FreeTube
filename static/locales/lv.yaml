@@ -57,8 +57,6 @@ Global:
 # Search Bar
     Like Count: 1 patikšana | {count} patikšanas
     Comment Count: 1 viedoklis | {count} viedokļi
-  Input Tags:
-    Length Requirement: Birkai jābūt vismaz {number} simbolus garai
 Search / Go to URL: 'Meklē / Dodies uz URL'
 Search Bar:
   Clear Input: 'Tīrīt ievadi'
@@ -114,7 +112,6 @@ Subscriptions:
   Subscriptions: 'Abonementi'
   # channels that were likely deleted
   Error Channels: 'Kanāli ar kļūdām'
-  Latest Subscriptions: 'Jaunākie abonementi'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Šim
     profilam ir daudz abonementu.  Piespiežu RSS, lai izvairītos no ierobežojumiem'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tavs
@@ -124,9 +121,7 @@ Subscriptions:
   Disabled Automatic Fetching: 'Tu esi izslēdzis automātisko abonementu iegūšanu.
     Atsvaidzini abonementus, lai redzētu tos šeit.'
   Empty Channels: 'Taviem abonētajiem kanāliem pašreiz nav neviena video.'
-  'Getting Subscriptions. Please wait.': 'Iegūst abonementus. Lūdzu gaidi.'
   Empty Posts: 'Taviem abonētajiem kanāliem pašreiz nav neviena ieraksta.'
-  Refresh Subscriptions: ''
   Load More Videos: 'Ielādē vairāk video'
   Load More Posts: 'Ielādēt vairāk ierakstus'
   Subscriptions Tabs: 'Abonementu cilnes'
@@ -202,8 +197,6 @@ User Playlists:
         tika dzēsts.'
       "{videoCount} video(s) have been removed": 1 video tika noņemts | {videoCount}
         video tika noņemti
-      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
-        atskaņošanas saraksts ir jaunais ātrās grāmatzīmes atskaņošanas saraksts.'
     Search for Videos: Meklē video
   You have no playlists. Click on the create new playlist button to create a new one.: Tev
     nav atskaņošanas sarakstu. Spied uz "Izveido jaunu atskaņošanas sarakstu", lai
@@ -473,7 +466,6 @@ Settings:
       frāze
   Data Settings:
     Data Settings: 'Datu'
-    Select Import Type: 'Izvēlēties importa veidu'
     Select Export Type: 'Izvēlēties eksporta veidu'
     Import Subscriptions: 'Ievest abonementus'
     Subscription File: 'Aboenementu datne'
@@ -560,8 +552,6 @@ Settings:
   Password Dialog:
     Password: 'Parole'
     Enter Password To Unlock: 'Ievadi paroli, lai atslēgtu iestatījumus'
-    Password Incorrect: 'Parole nepareiza'
-    Unlock: 'Atslēgt'
   Password Settings:
     Password Settings: 'Paroles'
     Set Password To Prevent Access: 'Uzstādi paroli, lai neļautu piekļūt uzstādījumiem'
@@ -617,7 +607,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Vai tu esi drošs, ka gribi dzēst
     šo profilu?'
   All subscriptions will also be deleted.: 'Arī visi abonementi tiks izdzēsti.'
-  Profile could not be found: 'Profils netika atrasts'
   Your profile name cannot be empty: 'Tavs profila vārds nevar būt tukšs'
   Profile has been created: 'Profils tika izveidots'
   Profile has been updated: 'Profils tika atjaunināts'
@@ -726,7 +715,6 @@ Video:
   Starting soon, please refresh the page to check again: 'Drīz sāksies, lūdzu atsvaidzini
     lapu, lai pārbaudītu vēlreiz'
   # As in a Live Video
-  Premieres on: 'Pirmizrādes'
   Premieres: 'Pirmizrādes'
   Upcoming: 'Tuvojošās'
   Live: 'Tiešraidē'
@@ -734,7 +722,6 @@ Video:
   Live Chat: 'Tiešraides čats'
   Enable Live Chat: 'Iespējo tiešraides čatu'
   Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
   Live chat is enabled. Chat messages will appear here once sent.: ''
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
@@ -771,13 +758,6 @@ Video:
       reversing playlists: ''
       shuffling playlists: ''
       looping playlists: ''
-#& Videos
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: ''
-    Oldest: ''
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -826,7 +806,6 @@ Comments:
   Click to View Comments: ''
   Getting comment replies, please wait: ''
   There are no more comments for this video: ''
-  Show Comments: ''
   Hide Comments: ''
   Top comments: ''
   Newest first: ''
@@ -841,7 +820,6 @@ Comments:
   And others: ''
   There are no comments available for this video: ''
   Load More Comments: ''
-  No more comments available: ''
   Pinned by: ''
   Member: ''
   Subscribed: ''

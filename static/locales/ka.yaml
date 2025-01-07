@@ -84,15 +84,11 @@ Subscriptions:
   Subscriptions: 'გამოწერები'
   # channels that were likely deleted
   Error Channels: 'შეცდომების მქონე არხები'
-  Latest Subscriptions: 'უახლესი გამოწერები'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'ამ
     ანგარიშს აქვს გამოწერების დიდი რაოდენობა. იძულებით გამოიყენება RSS, რათა არ მოხდეს
     ტარიფის შეზღუდვა'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'თქვენი
     გამოწერების სია ამჟამად ცარიელია. დაამატეთ გამოწერები, რათა ნახოთ ისინი'
-  'Getting Subscriptions. Please wait.': 'მიმდინარეობს გამოწერების მიღება. გთხოვთ,
-    დაელოდოთ.'
-  Refresh Subscriptions: 'გამოწერების განახლება'
   Load More Videos: 'მეტი ვიდეოს ჩატვირთვა'
 More: 'მეტი'
 Channels:

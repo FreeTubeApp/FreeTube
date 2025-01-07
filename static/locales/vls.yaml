@@ -57,8 +57,6 @@ Global:
     Like Count: '1 die et gjist vindt | {count} die et gjist vindn'
     Comment Count: '1 reactie | {count} reacties'
     Watching Count: '1 ant kiekn | {count} ant kiekn'
-  Input Tags:
-    Length Requirement: 'Trefwoord moet te minste {number} karakters lang zîn'
 
 # Search Bar
 Search / Go to URL: 'Zoekn / Nar URL goane'
@@ -124,7 +122,6 @@ Subscriptions:
   Subscriptions: 'Abonnees'
   # channels that were likely deleted
   Error Channels: 'Kanoaln me foutn'
-  Latest Subscriptions: 'De latste abonnees'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: ''
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tstoat
     vo de moment nietn in jon lîste van abonnees. Vo der te ziene goaj moetn startn
@@ -132,7 +129,6 @@ Subscriptions:
   Disabled Automatic Fetching: 'Gêit otomoatisch abonnees ipoaln ofgezet. Erload jon
     abonnees voor ze ier te ziene.'
   Empty Channels: 'Jon geabonneerde kanoaln ein vo de moment gin videos.'
-  'Getting Subscriptions. Please wait.': 'Abonnees ant ipoaln. Efkes wachtn.'
   Empty Posts: 'Der zin vo de moment gin berichtn van jon geabonneerde kanoaln.'
   Load More Videos: 'Mjir videos loadn'
   Load More Posts: 'Mjir berichtn loadn'
@@ -228,7 +224,6 @@ User Playlists:
       There were no videos to remove.: ''
       This playlist is protected and cannot be removed.: ''
       Playlist {playlistName} has been deleted.: ''
-      Playlist {playlistName} is the new quick bookmark playlist.: ''
 
       This playlist does not exist: ''
   AddVideoPrompt:
@@ -505,7 +500,6 @@ Settings:
     Hide Subscriptions Community: ''
   Data Settings:
     Data Settings: ''
-    Select Import Type: ''
     Select Export Type: ''
     Import Subscriptions: ''
     Subscription File: ''
@@ -588,8 +582,6 @@ Settings:
   Password Dialog:
     Password: ''
     Enter Password To Unlock: ''
-    Password Incorrect: ''
-    Unlock: ''
   Password Settings:
     Password Settings: ''
     Set Password To Prevent Access: ''
@@ -645,7 +637,6 @@ Profile:
   Delete Profile: ''
   Are you sure you want to delete this profile?: ''
   All subscriptions will also be deleted.: ''
-  Profile could not be found: ''
   Your profile name cannot be empty: ''
   Profile has been created: ''
   Profile has been updated: ''
@@ -755,7 +746,6 @@ Video:
   Autoplay: ''
   Starting soon, please refresh the page to check again: ''
   # As in a Live Video
-  Premieres on: ''
   Premieres: ''
   Upcoming: ''
   Live: ''
@@ -763,7 +753,6 @@ Video:
   Live Chat: ''
   Enable Live Chat: ''
   Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
   Live chat is enabled. Chat messages will appear here once sent.: ''
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
@@ -827,13 +816,6 @@ Video:
     You appear to be offline: ''
     Playback will resume automatically when your connection comes back: ''
     Skipped segment: ''
-#& Videos
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: ''
-    Oldest: ''
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -891,7 +873,6 @@ Comments:
   Click to View Comments: ''
   Getting comment replies, please wait: ''
   There are no more comments for this video: ''
-  Show Comments: ''
   Hide Comments: ''
   Top comments: ''
   Newest first: ''
@@ -907,7 +888,6 @@ Comments:
   There are no comments available for this video: ''
   There are no comments available for this post: ''
   Load More Comments: ''
-  No more comments available: ''
   Pinned by: ''
   Member: ''
   Subscribed: ''

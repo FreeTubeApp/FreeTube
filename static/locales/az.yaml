@@ -91,7 +91,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abunəliklər'
-  Latest Subscriptions: 'Ən Son Abunəliklər'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Bu
     profilin çoxlu sayda abunəsi var. Sürət məhdudiyyətinin qarşısını almaq üçün RSS-i
     zorlanır'
@@ -99,9 +98,6 @@ Subscriptions:
     siyahınız hazırda boşdur. Abunəliklərinizi idxal etmək istəyirsinizsə, Məlumat
     Parametrlərinə gedib ''Abunəlikləri İdxal Et'' seçimini edə bilərsiniz və ya bir
     kanal axtarıb abunə ola bilərsiniz.'
-  'Getting Subscriptions. Please wait.': 'Abunəliklərin əldə edilməsi. Zəhmət olmasa,
-    gözləyin.'
-  Refresh Subscriptions: 'Abunəlikləri Yeniləyin'
   Load More Videos: 'Daha çox Video Yüklə'
   Error Channels: Xətalı Kanallar
   Load More Posts: Daha çox elan yüklə
@@ -163,8 +159,6 @@ User Playlists:
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Bu
         pleylist indi {oldPlaylistName} əvəzinə sürətli əlfəcin üçün istifadə olunur.
         Geri almaq üçün bura kliklə
-      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
-        yeni sürətli əlfəcin pleylistidir.'
       Playlist has been updated.: Pleylist yeniləndi.
       Reverted to use {oldPlaylistName} for quick bookmark: Sürətli əlfəcin üçün {oldPlaylistName}
         istifadəsinə geri qaytarıldı
@@ -349,8 +343,6 @@ Global:
     Comment Count: 1 şərh | {sayı} şərhlər
   Videos: Videolar
   Live: Canlı
-  Input Tags:
-    Length Requirement: Etiket ən azı {number} simvol uzunluğunda olmalıdır
   Community: İcma
   Shorts: Shorts
   Sort By: 'Çeşidləmə'

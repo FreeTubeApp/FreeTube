@@ -45,8 +45,6 @@ Global:
     Watching Count: 1 a assistir | {count} a assistir
     Like Count: 1 gosto | {count} gostos
     Comment Count: 1 comentário | {count} comentários
-  Input Tags:
-    Length Requirement: A etiqueta tem que ter, pelo menos, {number} caracteres
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
   está disponível! Clique aqui para mais informações.'
 Download From Site: 'Descarregar do site'
@@ -105,13 +103,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscrições'
-  Latest Subscriptions: 'Subscrições recentes'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
     sua lista de subscrições está vazia. Se quiser importar subscrições, pode aceder
     às definições de dados e selecionar Importar subscrições. Em alternativa, pode
     procurar os canais e efetuar a subscrição.'
-  'Getting Subscriptions. Please wait.': 'A carregar subscrições. Por favor aguarde.'
-  Refresh Subscriptions: 'Recarregar subscrições'
   Load More Videos: Carregar mais vídeos
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil contém um elevado número de subscrições. A forçar utilização de RSS para
@@ -193,8 +188,6 @@ User Playlists:
         0 segundos.
       Reverted to use {oldPlaylistName} for quick bookmark: Revertido para usar {oldPlaylistName}
         para favoritos rápidos
-      Playlist {playlistName} is the new quick bookmark playlist.: Revertido para
-        usar {oldPlaylistName} para favoritos rápidos
     Search for Videos: Procurar vídeos
   AddVideoPrompt:
     Search in Playlists: Procurar nas listas de reprodução
@@ -462,7 +455,6 @@ Settings:
     Confirm Before Unsubscribing: Impedir cancelamento acidental de subscrições
   Data Settings:
     Data Settings: 'Dados'
-    Select Import Type: 'Selecione o tipo de importação'
     Select Export Type: 'Selecione o tipo de exportação'
     Import Subscriptions: 'Importar subscrições'
     Export Subscriptions: 'Exportar subscrições'
@@ -628,9 +620,7 @@ Settings:
       É altamente recomendado fazer cópias de segurança. Use por sua conta e risco!
   Password Dialog:
     Enter Password To Unlock: Indique a palavra-passe para desbloquear as definições
-    Password Incorrect: Palavra-passe incorreta
     Password: Palavra-passe
-    Unlock: Desbloquear
   Password Settings:
     Password Settings: Palavra-passe
     Set Password To Prevent Access: Defina uma palavra-passe para impedir o acesso
@@ -686,7 +676,6 @@ Profile:
     este perfil?'
   All subscriptions will also be deleted.: 'Todas as subscrições associadas a este
     perfil também serão eliminadas.'
-  Profile could not be found: 'Perfil não encontrado'
   Your profile name cannot be empty: 'O nome do perfil não pode ficar vazio'
   Profile has been created: 'Perfil criado'
   Profile has been updated: 'Perfil atualizado'
@@ -815,8 +804,6 @@ Video:
   Enable Live Chat: 'Permitir conversa em direto'
   Live Chat is currently not supported in this build.: 'A conversa em direto não é
     permitida nesta versão.'
-  'Chat is disabled or the Live Stream has ended.': 'A conversa ou a emissão em direto
-    terminou.'
   Live chat is enabled. Chat messages will appear here once sent.: 'A conversa em
     direto está ativada. As mensagens vão aparecer aqui.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'A
@@ -869,8 +856,6 @@ Video:
   Video has been removed from your saved list: O vídeo foi removido da lista de guardados
   Video has been saved: O vídeo foi guardado
   Save Video: Guardar vídeo
-  Premieres on: Estreia a
-  Premieres in: Estreia em
   Premieres: Estreias
   Scroll to Bottom: Deslocar para baixo
   Show Super Chat Comment: Mostrar comentário do Super Chat
@@ -919,12 +904,6 @@ Video:
     pois requerem que o utilizador inicie sessão com uma conta que tenha confirmação
     da sua idade..
   Unlisted: Não listado
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Recentes'
-    Oldest: 'Antigos'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -982,7 +961,6 @@ Comments:
   Click to View Comments: 'Clique para ver comentários'
   Getting comment replies, please wait: 'A obter respostas ao comentário, por favor
     aguarde'
-  Show Comments: 'Mostrar comentários'
   Hide Comments: 'Ocultar comentários'
   # Context: View 10 Replies, View 1 Reply
   View: 'Ver'
@@ -992,7 +970,6 @@ Comments:
   There are no comments available for this video: 'Este vídeo não tem comentários'
   Load More Comments: 'Carregar mais comentários'
   There are no more comments for this video: Não há mais comentários para este vídeo
-  No more comments available: Não existem mais comentários
   Show More Replies: Mostrar mais respostas
   Newest first: Mais recentes
   Top comments: Melhores comentários

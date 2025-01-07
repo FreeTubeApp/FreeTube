@@ -45,8 +45,6 @@ Global:
     Watching Count: עוקב/ת | {count} עוקבים
     Like Count: לייק | {count} לייקים
     Comment Count: תגובה | {count} תגובות
-  Input Tags:
-    Length Requirement: התגית חייבת להיות באורך של {number} תווים לפחות
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber}
   זמינה מעתה!  לחיצה תציג פרטים נוספים'
 Download From Site: 'הורדה מהאתר'
@@ -105,12 +103,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'מינויים'
-  Latest Subscriptions: 'מינויים אחרונים'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'רשימת
     המינויים שלך ריקה כרגע. כדי לייבא את המינויים שלך ניתן לגשת להגדרות הנתונים ולבחור
     בייבוא מנויים או לחפש ערוצים ולהירשם אליהם.'
-  'Getting Subscriptions. Please wait.': 'מינויים נאספים. נא להמתין.'
-  Refresh Subscriptions: 'רענון מינויים'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: לפרופיל
     זה יש מספר רב של מינויים. עוברים לעדכוני RSS כדי להימנע מהגבלות קצב
   Load More Videos: לטעון סרטונים נוספים
@@ -190,8 +185,6 @@ User Playlists:
       Playlist has been updated.: רשימת השידורים עודכנה.
       There was an issue with updating this playlist.: הייתה בעיה בעדכון רשימת השידורים
         הזו.
-      Playlist {playlistName} is the new quick bookmark playlist.: רשימת השידורים
-        {playlistName} היא רשימת הסימנייה המהירה החדשה.
       This playlist has a video with a duration error: רשימת הנגינה הזאת מכילה סרטון
         אחד לפחות שאין לו אורך, הם ימוינו כאילו המשך שלהם הוא אפס.
     Search for Videos: חיפוש סרטונים
@@ -406,7 +399,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: מרווח זמן לפני ניגון הסרטון הבא בפלייליסט
     Next Video Interval: מתזמן ספירה לאחור של נגינה אוטומטית
     Display Play Button In Video Player: הצגת כפתור הניגון בתוך נגן הווידאו
     Scroll Volume Over Video Player: גלילה על הסרטון לשינוי עוצמת השמע
@@ -463,7 +455,6 @@ Settings:
     To: עד
   Data Settings:
     Data Settings: 'נתונים'
-    Select Import Type: 'נא לבחור את תסדיר הייבוא'
     Select Export Type: 'נא לבחור את תסדיר הייצוא'
     Import Subscriptions: 'ייבוא מינויים'
     Export Subscriptions: 'ייצוא מינויים'
@@ -626,8 +617,6 @@ Settings:
     Warning: הגדרות אלו הן ניסיוניות, הן גורמות לקריסות כשהן מופעלות. מומלץ מאוד לבצע
       גיבויים. השימוש על אחריותך בלבד!
   Password Dialog:
-    Password Incorrect: הסיסמה שגויה
-    Unlock: שחרור
     Password: סיסמה
     Enter Password To Unlock: נא למלא סיסמה כדי לשחרר את ההגדרות
   Password Settings:
@@ -681,7 +670,6 @@ Profile:
   Delete Profile: 'מחיקת פרופיל'
   Are you sure you want to delete this profile?: 'רוצים למחוק את הפרופיל?'
   All subscriptions will also be deleted.: 'גם כל המינויים יימחקו.'
-  Profile could not be found: 'לא ניתן למצוא את הפרופיל'
   Your profile name cannot be empty: 'לא ניתן לרוקן את הפרופיל שלך'
   Profile has been created: 'הפרופיל נוצר'
   Profile has been updated: 'הפרופיל עודכן'
@@ -805,7 +793,6 @@ Video:
   Live Chat: 'צ׳אט'
   Enable Live Chat: 'הפעלת צ׳אט'
   Live Chat is currently not supported in this build.: 'הצ׳אט כרגע לא נתמך בגרסה זו.'
-  'Chat is disabled or the Live Stream has ended.': 'הצ׳אט נחסם או שהשידור החי נגמר.'
   Live chat is enabled. Chat messages will appear here once sent.: 'הצ׳אט מופעל. ההודעות
     תופענה פה כאשר תישלחנה.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'מנגנון
@@ -826,7 +813,6 @@ Video:
   Video has been removed from your saved list: הסרטון הוסר מרשימת השמורים שלך
   Video has been saved: סרטון נשמר
   Save Video: שמירת סרטון
-  Premieres on: שידור הבכורה ב־
   Sponsor Block category:
     outro: סיום
     self-promotion: קידום עצמי
@@ -851,7 +837,6 @@ Video:
       looping playlists: לולאה על רשימות נגינה
       opening specific video in a playlist (falling back to opening the video): פתיחת
         סרטון מסוים ברשימת נגינה (ייסוג לפתיחת הסרטון)
-  Premieres in: בכורה בעוד
   Premieres: בכורות
   Scroll to Bottom: גלילה לתחתית
   Show Super Chat Comment: הצגת הערת סופר צ׳אט
@@ -901,12 +886,6 @@ Video:
   DeArrow:
     Show Modified Details: הצגת פרטים לאחר שינוי
     Show Original Details: הצגת פרטים מקוריים
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'הכי חדש'
-    Oldest: 'הכי ישן'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -958,7 +937,6 @@ Comments:
   Click to View Comments: 'לחיצה לצפייה בתגובות'
   Getting comment replies, please wait: 'תשובות לתגובה נטענות, נא להמתין'
   There are no more comments for this video: 'לסרטון הזה אין תגובות'
-  Show Comments: 'הצגת תגובות'
   Hide Comments: 'הסתרת תגובות'
   # Context: View 10 Replies, View 1 Reply
   View: 'צפייה'
@@ -969,7 +947,6 @@ Comments:
   Load More Comments: 'טעינת תגובות נוספות'
   Newest first: החדשות ביותר תחילה
   Top comments: תגובות מובילות
-  No more comments available: אין עוד תגובות זמינות
   Show More Replies: הצגת תגובות נוספות
   From {channelName}: מערוץ {channelName}
   And others: ואחרים

@@ -54,8 +54,6 @@ Global:
     Like Count: ''
     Comment Count: ''
     Watching Count: ''
-  Input Tags:
-    Length Requirement: ''
 
 # Search Bar
 Search / Go to URL: ''
@@ -125,12 +123,10 @@ Subscriptions:
   Subscriptions: ''
   # channels that were likely deleted
   Error Channels: ''
-  Latest Subscriptions: ''
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: ''
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   Disabled Automatic Fetching: ''
   Empty Channels: ''
-  'Getting Subscriptions. Please wait.': ''
   Empty Posts: ''
   Load More Videos: ''
   Load More Posts: ''
@@ -228,7 +224,6 @@ User Playlists:
       There were no videos to remove.: ''
       This playlist is protected and cannot be removed.: ''
       Playlist {playlistName} has been deleted.: ''
-      Playlist {playlistName} is the new quick bookmark playlist.: ''
 
       This playlist does not exist: ''
 
@@ -541,7 +536,6 @@ Settings:
     Show Added Items: ''
   Data Settings:
     Data Settings: ''
-    Select Import Type: ''
     Select Export Type: ''
     Import Subscriptions: ''
     Subscription File: ''
@@ -625,8 +619,6 @@ Settings:
   Password Dialog:
     Password: ''
     Enter Password To Unlock: ''
-    Password Incorrect: ''
-    Unlock: ''
   Password Settings:
     Password Settings: ''
     Set Password To Prevent Access: ''
@@ -682,7 +674,6 @@ Profile:
   Delete Profile: ''
   Are you sure you want to delete this profile?: ''
   All subscriptions will also be deleted.: ''
-  Profile could not be found: ''
   Your profile name cannot be empty: ''
   Profile has been created: ''
   Profile has been updated: ''
@@ -799,7 +790,6 @@ Video:
   Autoplay: ''
   Starting soon, please refresh the page to check again: ''
   # As in a Live Video
-  Premieres on: ''
   Premieres: ''
   Upcoming: ''
   Unlisted: ''
@@ -808,7 +798,6 @@ Video:
   Live Chat: ''
   Enable Live Chat: ''
   Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
   Live chat is enabled. Chat messages will appear here once sent.: ''
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
@@ -875,13 +864,6 @@ Video:
     You appear to be offline: ''
     Playback will resume automatically when your connection comes back: ''
     Skipped segment: ''
-#& Videos
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: ''
-    Oldest: ''
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -944,7 +926,6 @@ Comments:
   Click to View Comments: ''
   Getting comment replies, please wait: ''
   There are no more comments for this video: ''
-  Show Comments: ''
   Hide Comments: ''
   Top comments: ''
   Newest first: ''
@@ -960,7 +941,6 @@ Comments:
   There are no comments available for this video: ''
   There are no comments available for this post: ''
   Load More Comments: ''
-  No more comments available: ''
   Pinned by: ''
   Member: ''
   Subscribed: ''

@@ -78,13 +78,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'सदस्यताहरु'
-  Latest Subscriptions: 'नवीनतम सदस्यताहरू'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'यो
     प्रोफाइलमा ठुलो सङ्ख्यामा सदस्यताहरू छन्। दर सिमित हुनबाट बच्न RSS लाई बल गरिँदै'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'तपाईँको
     सदस्यता सूची अहिले खाली छ। तिनीहरूलाई यहाँ हेर्न सदस्यताहरू थप्न सुरु गर्नुहोस्।'
-  'Getting Subscriptions. Please wait.': 'सदस्यताहरू प्राप्त गरिँदै छ। कृपया पर्खनुहोस्।'
-  Refresh Subscriptions: 'सदस्यताहरू ताजा पार्नुहोस्'
   Load More Videos: 'थप भिडियोहरू लोड गर्नुहोस्'
 More: 'थप'
 Trending:

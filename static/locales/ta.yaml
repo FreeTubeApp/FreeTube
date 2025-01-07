@@ -56,9 +56,6 @@ Global:
     Like Count: '1 லைக் | {count} விருப்பங்கள்'
     Comment Count: '1 கருத்து | {count} கருத்துகள்'
     Watching Count: '1 பார்ப்பது | {count} பார்ப்பது'
-  Input Tags:
-    Length Requirement: 'குறிச்சொல் குறைந்தபட்சம் {number} எழுத்துக்கள் நீளமாக இருக்க
-      வேண்டும்'
 
 # Search Bar
 Search / Go to URL: 'தேடு / முகவரி க்குச் செல்லவும்'
@@ -129,7 +126,6 @@ Subscriptions:
   Subscriptions: 'சந்தாக்கள்'
   # channels that were likely deleted
   Error Channels: 'பிழைகள் கொண்ட சேனல்கள்'
-  Latest Subscriptions: 'அண்மைக் கால சந்தாக்கள்'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'இந்த
     சுயவிவரத்தில் அதிக எண்ணிக்கையிலான சந்தாக்கள் உள்ளன. விகிதத்தைக் கட்டுப்படுத்துவதைத்
     தவிர்க்க ஆர்.எச்.எச்'
@@ -140,7 +136,6 @@ Subscriptions:
   Disabled Automatic Fetching: 'தானியங்கி சந்தா பெறுவதை நீங்கள் முடக்கியுள்ளீர்கள்.
     சந்தாக்களை இங்கே காண புதுப்பிக்கவும்.'
   Empty Channels: 'உங்கள் சந்தா சேனல்களில் தற்போது எந்த வீடியோக்களும் இல்லை.'
-  'Getting Subscriptions. Please wait.': 'சந்தாக்களைப் பெறுதல். தயவுசெய்து காத்திருங்கள்.'
   Empty Posts: 'உங்கள் சந்தா சேனல்களில் தற்போது எந்த இடுகைகளும் இல்லை.'
   Load More Videos: 'மேலும் வீடியோக்களை ஏற்றவும்'
   Load More Posts: 'மேலும் இடுகைகளை ஏற்றவும்'
@@ -265,8 +260,6 @@ User Playlists:
       This playlist is protected and cannot be removed.: 'இந்த பிளேலிச்ட் பாதுகாக்கப்படுகிறது
         மற்றும் அகற்ற முடியாது.'
       Playlist {playlistName} has been deleted.: 'பிளேலிச்ட் {playlistName} நீக்கப்பட்டது.'
-      Playlist {playlistName} is the new quick bookmark playlist.: 'பிளேலிச்ட் {playlistName}
-        என்பது புதிய விரைவான புத்தகக்குறி பிளேலிச்ட் ஆகும்.'
 
       This playlist does not exist: 'இந்த பிளேலிச்ட் இல்லை'
 
@@ -603,7 +596,6 @@ Settings:
     Hide Channel Home: சேனல் "முகப்பு" தாவலை மறைக்கவும்
   Data Settings:
     Data Settings: 'தகவல்கள்'
-    Select Import Type: 'இறக்குமதி வகையைத் தேர்ந்தெடுக்கவும்'
     Select Export Type: 'ஏற்றுமதி வகையைத் தேர்ந்தெடுக்கவும்'
     Import Subscriptions: 'சந்தாக்களை இறக்குமதி செய்யுங்கள்'
     Subscription File: 'சந்தா கோப்பு'
@@ -713,8 +705,6 @@ Settings:
   Password Dialog:
     Password: 'கடவுச்சொல்'
     Enter Password To Unlock: 'அமைப்புகளைத் திறக்க கடவுச்சொல்லை உள்ளிடவும்'
-    Password Incorrect: 'கடவுச்சொல் தவறானது'
-    Unlock: 'திறக்க'
   Password Settings:
     Password Settings: 'கடவுச்சொல்'
     Set Password To Prevent Access: 'அமைப்புகளுக்கான அணுகலைத் தடுக்க கடவுச்சொல்லை
@@ -771,7 +761,6 @@ Profile:
   Delete Profile: 'சுயவிவரத்தை நீக்கு'
   Are you sure you want to delete this profile?: 'இந்த சுயவிவரத்தை நீக்க விரும்புகிறீர்களா?'
   All subscriptions will also be deleted.: 'அனைத்து சந்தாக்களும் நீக்கப்படும்.'
-  Profile could not be found: 'சுயவிவரத்தைக் கண்டுபிடிக்க முடியவில்லை'
   Your profile name cannot be empty: 'உங்கள் சுயவிவர பெயர் காலியாக இருக்க முடியாது'
   Profile has been created: 'சுயவிவரம் உருவாக்கப்பட்டுள்ளது'
   Profile has been updated: 'சுயவிவரம் புதுப்பிக்கப்பட்டுள்ளது'
@@ -910,7 +899,6 @@ Video:
   Starting soon, please refresh the page to check again: 'விரைவில் தொடங்கி, மீண்டும்
     சரிபார்க்க பக்கத்தைப் புதுப்பிக்கவும்'
   # As in a Live Video
-  Premieres on: 'பிரீமியர்ச் ஆன்'
   Premieres: 'பிரீமியர்ச்'
   Upcoming: 'வரவிருக்கும்'
   Unlisted: 'பட்டியலிடப்படாதது'
@@ -920,8 +908,6 @@ Video:
   Enable Live Chat: 'நேரடி அரட்டையை இயக்கவும்'
   Live Chat is currently not supported in this build.: 'இந்த கட்டமைப்பில் நேரடி அரட்டை
     தற்போது ஆதரிக்கப்படவில்லை.'
-  'Chat is disabled or the Live Stream has ended.': 'அரட்டை முடக்கப்பட்டுள்ளது அல்லது
-    நேரடி ச்ட்ரீம் முடிந்தது.'
   Live chat is enabled. Chat messages will appear here once sent.: 'நேரடி அரட்டை இயக்கப்பட்டது.
     அரட்டை செய்திகள் அனுப்பப்பட்டவுடன் இங்கே தோன்றும்.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'லைவ்
@@ -1025,12 +1011,6 @@ Video:
   DeArrow:
     Show Original Details: அசல் விவரங்களைக் காட்டு
     Show Modified Details: மாற்றியமைக்கப்பட்ட விவரங்களைக் காட்டு
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'புதியது'
-    Oldest: 'பழமையானது'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -1101,7 +1081,6 @@ Comments:
   Click to View Comments: 'கருத்துகளைக் காண சொடுக்கு செய்க'
   Getting comment replies, please wait: 'கருத்து பதில்களைப் பெறுதல், தயவுசெய்து காத்திருங்கள்'
   There are no more comments for this video: 'இந்த வீடியோவுக்கு இனி கருத்துகள் இல்லை'
-  Show Comments: 'கருத்துகளைக் காட்டு'
   Hide Comments: 'கருத்துகளை மறைக்கவும்'
   Top comments: 'சிறந்த கருத்துகள்'
   Newest first: 'புதிய முதல்'
@@ -1119,7 +1098,6 @@ Comments:
   There are no comments available for this post: 'இந்த இடுகைக்கு எந்தக் கருத்தும்
     கிடைக்கவில்லை'
   Load More Comments: 'மேலும் கருத்துகளை ஏற்றவும்'
-  No more comments available: 'மேலும் கருத்துகள் கிடைக்கவில்லை'
   Pinned by: 'பின்'
   Member: 'உறுப்பினர்'
   Subscribed: 'சந்தா'

@@ -43,8 +43,6 @@ Global:
     View Count: 1 vizionare | {count} vizionări
     Channel Count: 1 canal | {count} canale
     Watching Count: 1 se uită | {count} se uită
-  Input Tags:
-    Length Requirement: Eticheta trebuie să aibă cel puțin {number} caractere
 Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber}
   este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
@@ -102,12 +100,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonamente'
-  Latest Subscriptions: 'Ultimele abonamente'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Lista
     dvs. de abonamente este momentan goală. Începeți să adăugați abonamente pentru
     a le vedea aici.'
-  'Getting Subscriptions. Please wait.': 'Se obțin abonamentele. Vă rugăm să așteptați.'
-  Refresh Subscriptions: 'Reîmprospătați abonamentele'
   Load More Videos: Încarcă mai mult
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Acest
     profil are un număr mare de abonamente.  Se forțează RSS pentru a evita limitarea
@@ -438,7 +433,6 @@ Settings:
     Confirm Before Unsubscribing: Confirmă înainte de dezabonare
   Data Settings:
     Data Settings: 'Setări de date'
-    Select Import Type: 'Selectează tipul de import'
     Select Export Type: 'Selectează tipul de export'
     Import Subscriptions: 'Importă abonamente'
     Export Subscriptions: 'Exportați abonamentele'
@@ -576,8 +570,6 @@ Settings:
     Show Family Friendly Only: Arata numai conținut family friendly
     Hide Search Bar: Ascunde bara de căutare
   Password Dialog:
-    Password Incorrect: Parolă incorectă
-    Unlock: Deblocați
     Password: Parolă
     Enter Password To Unlock: Introduceți parola pentru a debloca setările
   Password Settings:
@@ -638,7 +630,6 @@ Profile:
     acest profil?'
   All subscriptions will also be deleted.: 'De asemenea, toate abonamentele vor fi
     șterse.'
-  Profile could not be found: 'Profilul nu a putut fi găsit'
   Your profile name cannot be empty: 'Numele profilului nu poate fi gol'
   Profile has been created: 'Profilul a fost creat'
   Profile has been updated: 'Profilul a fost actualizat'
@@ -761,8 +752,6 @@ Video:
   Enable Live Chat: 'Activați Chat-ul în direct'
   Live Chat is currently not supported in this build.: 'Chat-ul în direct nu este
     în prezent acceptat în această versiune.'
-  'Chat is disabled or the Live Stream has ended.': 'Chat-ul este dezactivat sau transmisia
-    în direct s-a încheiat.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Chat-ul în direct
     este activat.  Mesajele de chat vor apărea aici după ce sunt trimise.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Chat-ul
@@ -809,8 +798,6 @@ Video:
     ta de salvări
   Video has been saved: Videoclipul a fost salvat
   Save Video: Salvați video
-  Premieres on: Premieră pe
-  Premieres in: Are premiera în
   Scroll to Bottom: Derulați până jos
   Upcoming: Urmează
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Chatul
@@ -821,12 +808,6 @@ Video:
   Pause on Current Video: Pauză la videoclipul curent
   Hide Channel: Ascunde canalul
   Unhide Channel: Arată canalul
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Cele mai noi'
-    Oldest: 'Cele mai vechi'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -872,7 +853,6 @@ Comments:
     să așteptați'
   There are no more comments for this video: 'Nu mai există niciun comentariu pentru
     acest videoclip'
-  Show Comments: 'Afișați comentariile'
   Hide Comments: 'Ascundeți comentariile'
   # Context: View 10 Replies, View 1 Reply
   View: 'Vizualizați'
@@ -882,7 +862,6 @@ Comments:
   There are no comments available for this video: 'Nu există comentarii disponibile
     pentru acest videoclip'
   Load More Comments: 'Încărcați mai multe comentarii'
-  No more comments available: Nu mai sunt disponibile alte comentarii
   Show More Replies: Afișați mai multe răspunsuri
   Newest first: Începând cu cele mai noi
   Top comments: Cele mai bune comentarii

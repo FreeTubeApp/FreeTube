@@ -57,8 +57,6 @@ Global:
 # Search Bar
     Like Count: 1 hoffi | {count} hoffi
     Comment Count: 1 sylw | {count} sylw
-  Input Tags:
-    Length Requirement: Rhaid i'r tag fod yn o leiaf {number} nod
 Search / Go to URL: 'Chwilio / Mynd i URL'
 Search Bar:
   Clear Input: 'Clirio Mewnbwn'
@@ -116,7 +114,6 @@ Subscriptions:
   Subscriptions: 'Tanysgrifiadau'
   # channels that were likely deleted
   Error Channels: 'Sianeli gyda Gwallau'
-  Latest Subscriptions: 'Tanysgrifiadau Diweddaraf'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Mae
     gan y proffil hwn nifer fawr o danysgrifiadau.  Yn gorfodi RSS i osgoi cyfyngu
     ar gyfraddau'
@@ -127,10 +124,7 @@ Subscriptions:
   Disabled Automatic Fetching: 'Rydych wedi analluogi cyrchu tanysgrifiad awtomatig.
     Adnewyddwch danysgrifiadau i''w gweld yma.'
   Empty Channels: 'Nid oes gan eich sianeli tanysgrifio unrhyw fideos ar hyn o bryd.'
-  'Getting Subscriptions. Please wait.': 'Wrthi''n nôl Tanysgrifiadau. Arhoswch os
-    gwelwch yn dda.'
   Empty Posts: 'Nid oes gan eich sianeli tanysgrifio unrhyw bostiadau ar hyn o bryd.'
-  Refresh Subscriptions: 'Adnewyddu Tanysgrifiadau'
   Load More Videos: 'Llwytho Mwy o Fideos'
   Load More Posts: 'Llwytho Mwy o Bostiadau'
   Subscriptions Tabs: 'Tabiau Tanysgrifio'
@@ -225,8 +219,6 @@ User Playlists:
         fideo wedi'u dileu
       This playlist is now used for quick bookmark: Mae'r rhestr chwarae hon bellach
         yn cael ei defnyddio ar gyfer nodau tudalen cyflym
-      Playlist {playlistName} is the new quick bookmark playlist.: Rhestr chwarae
-        {playlistName} yw'r rhestr chwarae nodau tudalen cyflym newydd.
       This playlist is protected and cannot be removed.: Mae'r rhestr chwarae hon
         wedi'i diogelu ac nid oes modd ei dileu.
       Playlist {playlistName} has been deleted.: Mae rhestr chwarae {playlistName}
@@ -580,7 +572,6 @@ Settings:
     Hide Channel Home: Cuddio Tab Sianel "Cartref"
   Data Settings:
     Data Settings: 'Data'
-    Select Import Type: 'Dewis y Math o Fewnforio'
     Select Export Type: 'Dewis y Math o Allforio'
     Import Subscriptions: 'Mewnforio Tanysgrifiadau'
     Subscription File: 'Ffeil Tanysgrifio'
@@ -690,8 +681,6 @@ Settings:
   Password Dialog:
     Password: 'Cyfrinair'
     Enter Password To Unlock: 'Rhowch gyfrinair i ddatgloi gosodiadau'
-    Password Incorrect: 'Cyfrinair Anghywir'
-    Unlock: 'Datgloi'
   Password Settings:
     Password Settings: 'Cyfrinair'
     Set Password To Prevent Access: 'Gosod cyfrinair i atal mynediad i osodiadau'
@@ -751,7 +740,6 @@ Profile:
     proffil hwn?'
   All subscriptions will also be deleted.: 'Bydd pob tanysgrifiad hefyd yn cael ei
     ddileu.'
-  Profile could not be found: 'Nid oedd modd dod o hyd i broffil'
   Your profile name cannot be empty: 'Ni all eich enw proffil fod yn wag'
   Profile has been created: 'Mae proffil wedi''i greu'
   Profile has been updated: 'Mae''r proffil wedi''i ddiweddaru'
@@ -882,7 +870,6 @@ Video:
   Starting soon, please refresh the page to check again: 'Yn dechrau''n fuan, adnewyddwch
     y dudalen i wirio eto'
   # As in a Live Video
-  Premieres on: 'Premières ar'
   Premieres: 'Premières'
   Upcoming: 'I ddod'
   Live: 'Byw'
@@ -891,8 +878,6 @@ Video:
   Enable Live Chat: 'Galluogi Sgwrsio Byw'
   Live Chat is currently not supported in this build.: 'Nid yw Sgwrsio Byw yn cael
     ei gefnogi yn yr fersiwn hwn ar hyn o bryd.'
-  'Chat is disabled or the Live Stream has ended.': 'Mae Sgwrsio wedi''i analluogi
-    neu mae''r Llif Byw wedi dod i ben.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Mae sgwrsio byw
     wedi''i galluogi.  Bydd negeseuon sgwrsio yn ymddangos yma ar ôl eu hanfon.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Nid
@@ -982,12 +967,6 @@ Video:
     angen cydrannau ffynhonnell caeedig perchnogol arnynt. Os ydych chi am wylio'r
     fideo hwn, gwyliwch ef ar wefan swyddogol YouTube mewn porwr gwe sydd wedi'i alluogi
     i chwarae DRM.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Diweddaraf'
-    Oldest: 'Hynaf'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -1061,7 +1040,6 @@ Comments:
   Getting comment replies, please wait: 'Yn derbyn atebion sylwadau, arhoswch'
   There are no more comments for this video: 'Nid oes mwy o sylwadau ar gyfer y fideo
     hwn'
-  Show Comments: 'Dangos Sylwadau'
   Hide Comments: 'Cuddio Sylwadau'
   Top comments: 'Sylwadau poblogaidd'
   Newest first: 'Diweddaraf yn gyntaf'
@@ -1077,7 +1055,6 @@ Comments:
   There are no comments available for this video: 'Nid oes unrhyw sylwadau ar gael
     ar gyfer y fideo hwn'
   Load More Comments: 'Llwytho Rhagor o Sylwadau'
-  No more comments available: 'Dim mwy o sylwadau ar gael'
   Pinned by: 'Piniwyd gan'
   Member: 'Aelod'
   Subscribed: 'Tanysgrifiwyd'

@@ -58,8 +58,6 @@ Global:
     Like Count: '1 like | {count} like'
     Comment Count: '1 evezhiadenn | {count} evezhiadenn'
     Watching Count: '1 den o sellet | {count} den o sellet'
-  Input Tags:
-    Length Requirement: 'An dikedenn a rank bezañ {number} arouezenn enni da nebeutañ'
 
 # Search Bar
 Search / Go to URL: 'Klask / Mont betek un URL'
@@ -131,7 +129,6 @@ Subscriptions:
   Subscriptions: 'Koumanantoù'
   # channels that were likely deleted
   Error Channels: 'Chadennoù gant fazioù'
-  Latest Subscriptions: 'Koumanantoù diwezhañ'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Ur
     bochad koumanantoù en deus ar profil-mañ. Ar wazh RSS a yelo en tu all d''ar vevenn
     lakaet'
@@ -142,8 +139,6 @@ Subscriptions:
   Disabled Automatic Fetching: 'Diweredekaet ho peus an adtapout koumanantoù ent emgefreek.
     Hizivaat ar c''houmanantoù evit gwelet anezho.'
   Empty Channels: 'N''eus video ebet gant ar chadennoù heuliet ganeoc''h evit poent.'
-  'Getting Subscriptions. Please wait.': 'O kerc''hat ar c''houmanantoù. Gortozit
-    mar plij.'
   Empty Posts: 'N''eus kemennadenn ebet gant ar chadennoù heuliet ganeoc''h evit poent.'
   Load More Videos: 'Kargañ muioc''h a videoioù'
   Load More Posts: 'Kargañ muioc''h a bennadoù'
@@ -270,8 +265,6 @@ User Playlists:
         ha ne c''hall ket bezañ dilamet.'
       Playlist {playlistName} has been deleted.: 'Dilamet eo bet ar roll-videoioù
         {playlistName}.'
-      Playlist {playlistName} is the new quick bookmark playlist.: 'Ar roll-videoioù
-        {playlistName} a zo bremañ roll-videoioù nevez ar sinedoù prim.'
 
       This playlist does not exist: 'N''eus ket eus ar roll-videoioù-mañ'
 
@@ -598,7 +591,6 @@ Settings:
     Hide Subscriptions Community: 'Kuzhat Kumuniezh ar c''houmanantoù'
   Data Settings:
     Data Settings: 'Roadennoù'
-    Select Import Type: 'Choaz doare enporzhiañ'
     Select Export Type: 'Choaz doare ezporzhiañ'
     Import Subscriptions: 'Enporzhiañ ho koumanantoù'
     Subscription File: 'Restr ar c''houmanant'
@@ -703,8 +695,6 @@ Settings:
   Password Dialog:
     Password: 'Ger-tremen'
     Enter Password To Unlock: 'Enankit ar ger-tremen evit dibrennañ an arventennoù'
-    Password Incorrect: 'Ger-tremen direizh'
-    Unlock: 'Dibrennañ'
   Password Settings:
     Password Settings: 'Ger-tremen'
     Set Password To Prevent Access: 'Lakaat ur ger-tremen evit gwareziñ an arventennoù'
@@ -762,7 +752,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Ha sur oc''h e faot deoc''h dilemel
     ar profil-mañ ?'
   All subscriptions will also be deleted.: 'An holl goumanantoù a vo ivez dilamet.'
-  Profile could not be found: 'N''eus ket bet gallet kavout ar profil'
   Your profile name cannot be empty: 'Ne c''hall ket anv ar profil bezañ goullo'
   Profile has been created: 'Krouet eo bet ar profil'
   Profile has been updated: 'Hizivaet eo bet ar profil'
@@ -895,7 +884,6 @@ Video:
   Starting soon, please refresh the page to check again: 'Kregiñ a raio a-benn nebeut,
     freskait ar bajenn evit gwiriañ en-dro'
   # As in a Live Video
-  Premieres on: 'Rakskignañ war'
   Premieres: 'Rakskignañ'
   Upcoming: 'A-benn nebeut'
   Live: 'End-eeun'
@@ -904,8 +892,6 @@ Video:
   Enable Live Chat: 'Gweredekaat ar flapañ war-eeun'
   Live Chat is currently not supported in this build.: 'N''eo ket skoret ar flapañ
     war-eeun gant ar stumm-añ evit poent.'
-  'Chat is disabled or the Live Stream has ended.': 'Dihegerz eo ar flapañ war-eeun
-    pe ez eo echu ar skignañ war-eeun.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Gweredekaet eo
     ar flapañ war-eeun.  Diskouezet e vo ar c''hemennadennoù amañ ur wech kaset.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'N''eo
@@ -984,12 +970,6 @@ Video:
     peogwir eo ret bezañ luget gant ur gont Google ha paeañ ur c'houmanant d'ar chadenn.
   AgeRestricted: N'haller ket sellet ouzh ar videoioù gant ur vevenn oad war FreeTube,
     peogwir eo ret bezañ luget gant ur gont Google kadarnaet gant hoc'h oad.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Nevesañ'
-    Oldest: 'Koshañ'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -1062,7 +1042,6 @@ Comments:
   Getting comment replies, please wait: 'O kerc''hat respontoù an evezhiadennoù, gortozit
     mar plij'
   There are no more comments for this video: 'Evezhiadenn ouzhpenn ebet evit ar video-mañ'
-  Show Comments: 'Diskouez an evezhiadennoù'
   Hide Comments: 'Kuzhat an evezhiadennoù'
   Top comments: 'Evezhiadennoù gwellañ'
   Newest first: 'Nevesañ da gentañ'
@@ -1080,7 +1059,6 @@ Comments:
   There are no comments available for this post: 'N''eus evezhiadenn ebet evit ar
     gemennadenn-mañ'
   Load More Comments: 'Kargañ muioc''h a evezhiadennoù'
-  No more comments available: 'Evezhiadenn ouzhpenn ebet'
   Pinned by: 'Spilhennet gant'
   Member: 'Ezel'
   Subscribed: 'Koumanantet'

@@ -47,8 +47,6 @@ Global:
     Watching Count: 1 espectador | {count} espectadores
     Comment Count: 1 comentario | {count} comentarios
     Like Count: 1 me gusta | {count} me gustan
-  Input Tags:
-    Length Requirement: La etiqueta debe tener al menos {number} caracteres
 Search / Go to URL: 'Buscar / Ir a la URL'
   # In Filter Button
 Search Filters:
@@ -100,13 +98,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
-  Latest Subscriptions: 'Últimas suscripciones'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu
     lista de suscripciones está vacía. Si deseas importar tus suscripciones puedes
     ir a Configuración de datos y seleccionar Importar suscripciones o puedes buscar
     un canal y suscribirte.'
-  'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, espere.'
-  Refresh Subscriptions: 'Recargar suscripciones'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil tiene muchas suscripciones. Forzar RSS para evitar la limitación de velocidad
   Load More Videos: Cargar más vídeos
@@ -187,8 +182,6 @@ User Playlists:
         para un marcador rápido
       This playlist is already being used for quick bookmark.: Esta lista de reproducción
         ya se utiliza como marcador rápido.
-      Playlist {playlistName} is the new quick bookmark playlist.: L lista de reproducción
-        {playlistName} es la nueva lista de reproducción de marcadores rápidos.
       This playlist has a video with a duration error: Esta lista de reproducción
         contiene al menos un vídeo sin duración, se ordenará como si su duración fuera
         cero.
@@ -419,7 +412,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Intervalo de Siguiente Video en Playlist
     Next Video Interval: Temporizador de cuenta atrás de reproducción automática
     Display Play Button In Video Player: Mostrar el botón de reproducción sobre el
       vídeo
@@ -481,7 +473,6 @@ Settings:
     To: A
   Data Settings:
     Data Settings: 'Datos'
-    Select Import Type: 'Seleccionar tipo de importación'
     Select Export Type: 'Seleccionar tipo de exportación'
     Import Subscriptions: 'Importar suscripciones'
     Export Subscriptions: 'Exportar suscripciones'
@@ -662,8 +653,6 @@ Settings:
   Password Dialog:
     Password: Contraseña
     Enter Password To Unlock: Introduce la contraseña para desbloquear los ajustes
-    Password Incorrect: Contraseña incorrecta
-    Unlock: Desbloquear
   Sort Settings Sections (A-Z): Ordenar secciones de configuración (A-Z)
   Return to Settings Menu: Volver a los Ajustes
 About:
@@ -711,7 +700,6 @@ Profile:
   Are you sure you want to delete this profile?: '¿Seguro de que quieres borrar este
     perfil?'
   All subscriptions will also be deleted.: 'Las suscripciones también serán borradas.'
-  Profile could not be found: 'No se pudo encontrar el perfil'
   Your profile name cannot be empty: 'Tu nombre de perfil no puede estar vacío'
   Profile has been created: 'Se ha creado el perfil'
   Profile has been updated: 'El perfil se ha actualizado'
@@ -838,8 +826,6 @@ Video:
   Enable Live Chat: 'Activar chat en directo'
   Live Chat is currently not supported in this build.: 'El chat en directo no está
     soportado de momento en esta versión.'
-  'Chat is disabled or the Live Stream has ended.': 'El chat está desactivado o la
-    emisión ha acabado.'
   Live chat is enabled. Chat messages will appear here once sent.: 'El chat en directo
     está activado. Los mensajes aparecerán aquí en cuanto se envíen.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Actualmente
@@ -893,8 +879,6 @@ Video:
       starting video at offset: iniciar el vídeo en un punto dado
     UnsupportedActionTemplate: '{externalPlayer} no soporta: {action}'
     OpeningTemplate: Abriendo {videoOrPlaylist} en {externalPlayer}...
-  Premieres on: Se estrena el
-  Premieres in: Estrenos en
   Premieres: Estrenos
   Show Super Chat Comment: Mostrar los comentarios del Super Chat
   Scroll to Bottom: Desplazarse hacia abajo
@@ -946,12 +930,6 @@ Video:
   DeArrow:
     Show Original Details: Mostrar detalles originales
     Show Modified Details: Mostrar detalles modificados
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'El más reciente'
-    Oldest: 'El más antiguo'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -1008,7 +986,6 @@ Comments:
   Comments: 'Comentarios'
   Click to View Comments: 'Pulse para ver comentarios'
   Getting comment replies, please wait: 'Obteniendo las respuestas. Espere'
-  Show Comments: 'Mostrar comentarios'
   Hide Comments: 'Ocultar comentarios'
   # Context: View 10 Replies, View 1 Reply
   View: 'Ver'
@@ -1020,7 +997,6 @@ Comments:
   There are no more comments for this video: No hay más comentarios en este vídeo
   Newest first: Los más recientes primero
   Top comments: Mejores comentarios
-  No more comments available: No hay más comentarios
   Show More Replies: Mostrar más respuestas
   From {channelName}: de {channelName}
   And others: y otros

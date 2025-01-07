@@ -45,8 +45,6 @@ Global:
     Channel Count: 1 channel | {count} channels
     Like Count: 1 like | {count} likes
     Comment Count: 1 comment | {count} comments
-  Input Tags:
-    Length Requirement: Tag must be at least {number} characters long
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
   is now available!  Click for more details'
 Download From Site: 'Download from site'
@@ -105,13 +103,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscriptions'
-  Latest Subscriptions: 'Latest subscriptions'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Your
     Subscription list is currently empty. If you want to import your subscriptions
     you can go to Data Settings and select Import Subscriptions or you can search
     for a channel and subscribe to them.'
-  'Getting Subscriptions. Please wait.': 'Getting Subscriptions. Please wait.'
-  Refresh Subscriptions: 'Refresh Subscriptions'
   Load More Videos: Load more videos
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
@@ -188,8 +183,6 @@ User Playlists:
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: This
         playlist is now used for quick bookmark instead of {oldPlaylistName}. Click
         here to undo
-      Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName}
-        is the new quick bookmark playlist.
       This playlist is already being used for quick bookmark.: This playlist is already
         being used for quick bookmark.
     Search for Videos: Search for videos
@@ -426,7 +419,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Playlist Next Video Interval
     Next Video Interval: Autoplay Countdown Timer
     Display Play Button In Video Player: Display play button in video player
     Enter Fullscreen on Display Rotate: Enter fullscreen on display rotate
@@ -495,7 +487,6 @@ Settings:
     To: To
   Data Settings:
     Data Settings: 'Data'
-    Select Import Type: 'Select import type'
     Select Export Type: 'Select export type'
     Import Subscriptions: 'Import subscriptions'
     Export Subscriptions: 'Export Subscriptions'
@@ -656,8 +647,6 @@ Settings:
   Password Dialog:
     Password: Password
     Enter Password To Unlock: Enter password to unlock settings
-    Unlock: Unlock
-    Password Incorrect: Password incorrect
   Password Settings:
     Set Password To Prevent Access: Set a password to prevent access to settings
     Remove Password: Remove password
@@ -711,7 +700,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Are you sure you want to delete
     this profile?'
   All subscriptions will also be deleted.: 'All subscriptions will also be deleted.'
-  Profile could not be found: 'Profile could not be found'
   Your profile name cannot be empty: 'Your profile name cannot be empty'
   Profile has been created: 'Profile has been created'
   Profile has been updated: 'Profile has been updated'
@@ -842,8 +830,6 @@ Video:
   Enable Live Chat: 'Enable Live Chat'
   Live Chat is currently not supported in this build.: 'Live Chat is currently not
     supported in this build.'
-  'Chat is disabled or the Live Stream has ended.': 'Chat is disabled or the Live
-    Stream has ended.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Live chat is enabled.  Chat
     messages will appear here once sent.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Live
@@ -890,8 +876,6 @@ Video:
       reversing playlists: reversing playlists
       shuffling playlists: shuffling playlists
       looping playlists: looping playlists
-  Premieres on: Premieres on
-  Premieres in: Premieres in
   Premieres: Premieres
   Show Super Chat Comment: Show Super Chat comment
   Scroll to Bottom: Scroll to bottom
@@ -941,12 +925,6 @@ Video:
   DeArrow:
     Show Original Details: Show Original Details
     Show Modified Details: Show Modified Details
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Newest'
-    Oldest: 'Oldest'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -1001,7 +979,6 @@ Comments:
   Getting comment replies, please wait: 'Getting comment replies, please wait'
   There are no more comments for this video: 'There are no more comments for this
     video'
-  Show Comments: 'Show Comments'
   Hide Comments: 'Hide Comments'
   # Context: View 10 Replies, View 1 Reply
   View: 'View'
@@ -1011,7 +988,6 @@ Comments:
   There are no comments available for this video: 'There are no comments available
     for this video'
   Load More Comments: 'Load More Comments'
-  No more comments available: No more comments available
   Newest first: Newest First
   Top comments: Top comments
   Show More Replies: Show more replies

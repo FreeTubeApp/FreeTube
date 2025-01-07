@@ -81,7 +81,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'دنبال کرده ها'
-  Latest Subscriptions: 'اخرین دنبال کرده ها'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'این
     پروفایل تعداد زیادی اشتراک دارد. اجبار RSS برای جلوگیری از محدودیت نرخ'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'لیست
@@ -89,8 +88,6 @@ Subscriptions:
     شروع کنید. اگر می‌خواهید اشتراک‌های خود را وارد کنید، می‌توانید به تنظیمات داده
     رفته و وارد کردن اشتراک‌ها را انتخاب کنید یا می‌توانید کانالی را جستجو کرده و
     در آن‌ها مشترک شوید.'
-  'Getting Subscriptions. Please wait.': 'درحال گرفتن دنبال کرده ها.لطفا صبر کنید.'
-  Refresh Subscriptions: 'تازه سازی دنبال کرده ها'
   Load More Videos: 'بارگیری ویدیو های بیشتر'
   Error Channels: کانال های خطادار
   Subscriptions Tabs: برگه های اشتراک
@@ -164,8 +161,6 @@ User Playlists:
       "{videoCount} video(s) have been removed": 1 ویدئو حذف شد | {videoCount} ویدیو
         حذف شد
       Playlist {playlistName} has been deleted.: فهرست پخش {playlistName} حذف شد.
-      Playlist {playlistName} is the new quick bookmark playlist.: لیست پخش {playlistName}
-        یک فهرست پخش نشانک سریع جدید است.
       This video cannot be moved up.: این ویدئو را نمی‌توان به بالا منتقل کرد.
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: این
         لیست پخش اکنون برای نشانک سریع به جای {oldPlaylistName} استفاده می شود. برای
@@ -518,7 +513,6 @@ Settings:
       می شود
   Data Settings:
     Data Settings: 'داده ها'
-    Select Import Type: 'انتخاب روش وارد کردن فایل بک آپ'
     Select Export Type: 'انتخاب روش پشتیبان گیری'
     Import Subscriptions: 'وارد کردن بک آپ دنبال شوندگان'
     Export Subscriptions: 'ذخیره (پشتیبان گیری)دنبال شوندگان'
@@ -632,8 +626,6 @@ Settings:
   Password Dialog:
     Password: کلمه عبور
     Enter Password To Unlock: برای باز کردن قفل تنظیمات رمز عبور را وارد کنید
-    Password Incorrect: رمز عبور اشتباه است
-    Unlock: باز کردن
   Sort Settings Sections (A-Z): مرتب‌سازی بخش‌های تنظیمات (آ-ی)
   Return to Settings Menu: بازگشت به منوی تنظیمات
 Channel:
@@ -729,8 +721,6 @@ Video:
   Play Previous Video: پخش ویدیوی قبلی
   Autoplay: پخش خودکار
   Started streaming on: پخش جریانی را شروع کرد
-  'Chat is disabled or the Live Stream has ended.': چت غیرفعال است یا پخش زنده به
-    پایان رسیده است.
   Copy YouTube Channel Link: لینک کانال یوتیوب را کپی کنید
   Views: دیده شده ها
   Live Chat is currently not supported in this build.: گفتگوی زنده در حال حاضر در
@@ -776,7 +766,6 @@ Video:
     نیاز است.
   Premieres: نخستین نمایش
   Upcoming: نزدیک
-  Premieres on: اولین نمایش در
   Live chat is enabled. Chat messages will appear here once sent.: چت زنده فعال است.
     پیام‌های گپ پس از ارسال در اینجا ظاهر می‌شوند.
   Scroll to Bottom: به پایین بروید
@@ -962,8 +951,6 @@ Global:
     Like Count: 1 پسند | {count} پسند
     Comment Count: 1 نظر | {count} نظر
   Community: جامعه
-  Input Tags:
-    Length Requirement: برچسب باید حداقل {number} کاراکتر داشته باشد
 Share:
   Share Playlist: لیست پخش را به اشتراک بگذارید
   Share Channel: اشتراک گذاری کانال
@@ -1023,14 +1010,12 @@ Comments:
   From {channelName}: از {channelName}
   And others: و دیگران
   Load More Comments: بارگذاری نظرات بیشتر
-  No more comments available: نظر دیگری در دسترس نیست
   There are no comments available for this video: هیچ نظری برای این ویدیو موجود نیست
   View: مشاهده
   Reply: پاسخ
   Comments: نظرات
   Getting comment replies, please wait: در حال دریافت پاسخ نظرات، لطفا صبر کنید
   There are no more comments for this video: هیچ نظر دیگری برای این ویدیو وجود ندارد
-  Show Comments: نمایش نظرات
   Hide Comments: پنهان کردن نظرات
   Top comments: نظرات برتر
   Show More Replies: نمایش پاسخ های بیشتر
@@ -1080,7 +1065,6 @@ Profile:
   Subscription List: نمایه پیش فرض شما به نمایه اصلی شما تغییر یافته است
   Select All: انتخاب همه
   Delete Profile: حذف پروفایل
-  Profile could not be found: پروفایل پیدا نشد
   All subscriptions will also be deleted.: تمامی اشتراک ها نیز حذف خواهند شد.
   Your profile name cannot be empty: نام پروفایل شما نمی تواند خالی باشد
   Other Channels: کانال های دیگر
@@ -1130,10 +1114,6 @@ Playlist:
     Custom: سفارشی
     AuthorAscending: نویسنده (آ-ی)
 Mini Player: مینی پلیر
-Videos:
-  Sort By:
-    Newest: جدیدترین
-    Oldest: قدیمی ترین
 Up Next: تا بعدی
 Feed:
   Refresh Feed: تازه‌سازی {subscriptionName}

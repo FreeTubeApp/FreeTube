@@ -53,8 +53,6 @@ Global:
     Subscriber Count: ''
     View Count: ''
     Watching Count: ''
-  Input Tags:
-    Length Requirement: ''
 
 # Search Bar
 Search / Go to URL: ''
@@ -119,12 +117,10 @@ Subscriptions:
   Subscriptions: ''
   # channels that were likely deleted
   Error Channels: ''
-  Latest Subscriptions: ''
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: ''
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   Disabled Automatic Fetching: ''
   Empty Channels: ''
-  'Getting Subscriptions. Please wait.': ''
   Empty Posts: ''
   Load More Videos: ''
   Load More Posts: ''
@@ -220,7 +216,6 @@ User Playlists:
       There were no videos to remove.: ''
       This playlist is protected and cannot be removed.: ''
       Playlist {playlistName} has been deleted.: ''
-      Playlist {playlistName} is the new quick bookmark playlist.: ''
 
       This playlist does not exist: ''
   AddVideoPrompt:
@@ -503,7 +498,6 @@ Settings:
     Hide Channel Home: Versteek kanaal-“tuis”-oortjie
   Data Settings:
     Data Settings: 'Data'
-    Select Import Type: 'Kies invoertipe'
     Select Export Type: 'Kies uitstuurtipe'
     Import Subscriptions: 'Voer intekenings in'
     Subscription File: 'Intekeninglêer'
@@ -611,8 +605,6 @@ Settings:
   Password Dialog:
     Password: 'Wagwoord'
     Enter Password To Unlock: 'Voer wagwoord in om instellings te ontgrendel'
-    Password Incorrect: 'Verkeerde wagwoord'
-    Unlock: 'Ontgrendel'
   Password Settings:
     Password Settings: 'Wagwoord'
     Set Password To Prevent Access: 'Stel ’n wagwoord in om toegang tot instellings
@@ -670,7 +662,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Is u seker u wil hierdie profiel
     skrap?'
   All subscriptions will also be deleted.: 'Alle intekeninge sal ook geskrap word.'
-  Profile could not be found: 'Profiel kon nie gevind word nie'
   Your profile name cannot be empty: 'U profielnaam kan nie leeg wees nie'
   Profile has been created: 'Profiel is geskep'
   Profile has been updated: 'Profiel is bygewerk'
@@ -800,7 +791,6 @@ Video:
   Starting soon, please refresh the page to check again: 'Begin binnekort, verfris
     asb. die blad om weer na te gaan'
   # As in a Live Video
-  Premieres on: 'Première op'
   Premieres: 'Première'
   Upcoming: 'Komend'
   Live: 'Regstreeks'
@@ -809,8 +799,6 @@ Video:
   Enable Live Chat: 'Aktiveer regstreekse klets'
   Live Chat is currently not supported in this build.: 'Regstreekse klets word nie
     in hierdie bou gesteun nie.'
-  'Chat is disabled or the Live Stream has ended.': 'Klets is gedeaktiveer of die
-    regstreekse klets is beëindig.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Regstreekse klets
     is geaktiveer.  Kletsboodskappe sal hier verskyn.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Regstreekse
@@ -892,12 +880,6 @@ Video:
   DeArrow:
     Show Original Details: Toon oorspronklike details
     Show Modified Details: Toon gewysigde details
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Nuutste'
-    Oldest: 'Oudste'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -966,7 +948,6 @@ Comments:
   Getting comment replies, please wait: 'Kommentare word opgehaal, wag asb.'
   There are no more comments for this video: 'Daar is geen verdere kommentare vir
     hierdie video nie'
-  Show Comments: 'Toon kommentare'
   Hide Comments: 'Versteek kommentare'
   Top comments: 'Topkommentare'
   Newest first: 'Nuutste eerste'
@@ -982,7 +963,6 @@ Comments:
   There are no comments available for this video: 'Daar is geen reaksies beskikbaar
     vir hierdie video nie'
   Load More Comments: 'Laai nog kommentare'
-  No more comments available: 'Geen kommentare meer beskikbaar'
   Pinned by: 'Vasgemaak deur'
   Member: 'Lid'
   Subscribed: 'Ingeteken'

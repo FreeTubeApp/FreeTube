@@ -98,13 +98,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnenter'
-  Latest Subscriptions: 'Seneste Abonnenter'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din
     Abonnementsliste er i øjeblikket tom. Hvis du vil importere dine abonnementer,
     kan du gå til Dataindstillinger og vælge Importér Abonnementer, eller du kan søge
     efter en kanal og abonnere på den.'
-  'Getting Subscriptions. Please wait.': 'Henter Abonnenter. Vent venligst.'
-  Refresh Subscriptions: 'Opdatér Abonnenter'
   Load More Videos: Indlæs Flere Videoer
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne
     profil har et stort antal abonnenter. Gennemtvinger RSS for at undgå adgangsbegrænsning
@@ -399,7 +396,6 @@ Settings:
     Confirm Before Unsubscribing: Bekræft Før Afmelding
   Data Settings:
     Data Settings: 'Dataindstillinger'
-    Select Import Type: 'Vælg Importtype'
     Select Export Type: 'Vælg Eksporttype'
     Import Subscriptions: 'Importér Abonnementer'
     Export Subscriptions: 'Eksportér Abonnementer'
@@ -539,8 +535,6 @@ Settings:
   Password Dialog:
     Password: Adgangskode
     Enter Password To Unlock: Indtast adgangskode for at låse indstillinger op
-    Unlock: Lås op
-    Password Incorrect: Forkert Adgangskode
   Experimental Settings:
     Experimental Settings: Eksperimentelle Indstillinger
     Warning: Disse indstillinger er eksperimentelle og kan forårsage nedbrud, mens
@@ -591,7 +585,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Er du sikker på, at du vil slette
     denne profil?'
   All subscriptions will also be deleted.: 'Alle abonnementer vil også blive slettede.'
-  Profile could not be found: 'Profil kunne ikke findes'
   Your profile name cannot be empty: 'Dit profilnavn må ikke være tomt'
   Profile has been created: 'Profil er blevet oprettet'
   Profile has been updated: 'Profil er blevet opdateret'
@@ -704,8 +697,6 @@ Video:
   Enable Live Chat: 'Aktivér Direkte Chat'
   Live Chat is currently not supported in this build.: 'Direkte Chat understøttes
     i øjeblikket ikke i dette build.'
-  'Chat is disabled or the Live Stream has ended.': 'Chat er deaktiveret, eller Livestream
-    er slut.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Direkte chat er
     aktiveret.  Chatbeskeder vil fremgå her, når de er sendt.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direkte
@@ -726,7 +717,6 @@ Video:
   audio only: kun lyd
   video only: kun video
   Download Video: Hent Video
-  Premieres on: Har premiere på
   Sponsor Block category:
     intro: Intro
     sponsor: Sponsor
@@ -769,12 +759,6 @@ Video:
     Skipped segment: Sprang {segmentCategory} segment over
     Playback will resume automatically when your connection comes back: Afspilning
       genoptager automatisk, når din forbindelse vender tilbage.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Nyeste'
-    Oldest: 'Ældste'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -822,7 +806,6 @@ Comments:
   Getting comment replies, please wait: 'Får kommentarsvar, vent venligst'
   There are no more comments for this video: 'Der er ikke flere kommentarer til denne
     video'
-  Show Comments: 'Vis Kommentarer'
   Hide Comments: 'Skjul Kommentarer'
   # Context: View 10 Replies, View 1 Reply
   View: 'Vis'
@@ -832,7 +815,6 @@ Comments:
   There are no comments available for this video: 'Der er ingen kommentarer tilgængelige
     til denne video'
   Load More Comments: 'Indlæs Flere Kommentarer'
-  No more comments available: Ikke flere kommentarer tilgængelige
   Newest first: Nyeste Først
   Top comments: Topkommentarer
   From {channelName}: fra {channelName}

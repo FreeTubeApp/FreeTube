@@ -69,12 +69,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
-  Latest Subscriptions: 'Últimas suscripciones'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Su
     lista de suscripción está actualmente vacía. Comience a agregar suscripciones
     para verlas aquí.'
-  'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, esperá.'
-  Refresh Subscriptions: 'Actualizar suscripciones'
   Load More Videos: Cargar más videos
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil tiene un gran número de suscriptores. Forzando RSS para evitar límites
@@ -294,7 +291,6 @@ Settings:
     Fetch Feeds from RSS: Obtener feeds desde RSS
   Data Settings:
     Data Settings: 'Configuraciones de datos'
-    Select Import Type: 'Seleccionar tipo de importación'
     Select Export Type: 'Seleccionar tipo para exportar'
     Import Subscriptions: 'Importar suscripciones'
     Export Subscriptions: 'Exportar suscripciones'

@@ -45,8 +45,6 @@ Global:
     Watching Count: 1 lượt xem | {count} lượt xem
     Like Count: '{count} lượt thích'
     Comment Count: '{count} bình luận'
-  Input Tags:
-    Length Requirement: 1 đang xem | {number} đang xem
 Search / Go to URL: 'Tìm kiếm / Đi đến URL'
   # In Filter Button
 Search Filters:
@@ -98,15 +96,11 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Đăng ký'
-  Latest Subscriptions: 'Đăng ký mới nhất'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Danh
     sách Đăng ký đang trống. Bắt đầu bằng cách tìm kiếm và đăng ký các kênh hoặc nhập
     các đăng ký hiện có của bạn bằng cách đi đến Cài đặt dữ liệu và nhấn vào Nhập
     đăng ký.'
-  'Getting Subscriptions.  Please wait.': 'Đang lấy Đăng ký. Vui lòng đợi.'
-  'Getting Subscriptions. Please wait.': Đang lấy Đăng ký. Vui lòng chờ.
   Load More Videos: Tải thêm video
-  Refresh Subscriptions: Tải lại đăng ký
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Hồ
     sơ này có nhiều đăng ký.  Đang buộc RSS để tránh bị giới hạn
   Error Channels: Các kênh có lỗi
@@ -177,8 +171,6 @@ User Playlists:
       There were no videos to remove.: Không có video nào để xóa.
       This playlist is already being used for quick bookmark.: Danh sách phát này
         đã được dùng cho dấu trang nhanh rồi.
-      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
-        giờ đã là danh sách phát cho dấu trang nhanh.'
       This playlist has a video with a duration error: Danh sách phát này có chứa
         một video trở lên không có thông tin thời lượng và sẽ được coi như thời lượng
         bằng không.
@@ -462,7 +454,6 @@ Settings:
     Export Subscriptions: Xuất đăng ký
     Import Subscriptions: Nhập đăng ký
     Select Export Type: Chọn kiểu xuất ra
-    Select Import Type: Chọn kiểu nhập vào
     Data Settings: Dữ liệu
     Manage Subscriptions: Quản lý đăng ký
     Import Playlists: Nhập danh sách phát
@@ -613,9 +604,7 @@ Settings:
     Download Settings: Tải xuống
   Password Dialog:
     Password: Mật khẩu
-    Password Incorrect: Mật khẩu sai
     Enter Password To Unlock: Nhập mật khẩu để mở cài đặt
-    Unlock: Mở khoá
   Password Settings:
     Set Password To Prevent Access: Đặt mặt khẩu để ngăn truy cập cài đặt
     Password Settings: Mật khẩu
@@ -745,8 +734,6 @@ Video:
   Enable Live Chat: 'Bật chat trực tiếp'
   Live Chat is currently not supported in this build.: 'Chat trực tiếp không được
     hỗ trợ trong bản build này.'
-  'Chat is disabled or the Live Stream has ended.': 'Chat đã bị tắt hoặc Live Stream
-    đã kết thúc.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Chat trực tiếp
     đã bật. Thông điệp chat sẽ hiện ra ở đây khi gửi.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Chat
@@ -782,7 +769,6 @@ Video:
     outro: Kết thúc
     recap: Tóm tắt
     filler: Bộ lọc
-  Premieres on: Công chiếu vào lúc
   Streamed on: Phát trực tiếp vào lúc
   Started streaming on: Bắt đầu.phát trực tiếp vào lúc
   External Player:
@@ -857,12 +843,6 @@ Video:
   DeArrow:
     Show Modified Details: Hiện thông tin đã sửa đổi
     Show Original Details: Hiện thông tin gốc
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Mới nhất'
-    Oldest: 'Cũ nhất'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -915,7 +895,6 @@ Comments:
   Comments: 'Bình luận'
   Click to View Comments: 'Nhấn để xem bình luận'
   Getting comment replies, please wait: 'Đang lấy trả lời bình luận, vui lòng chờ'
-  Show Comments: 'Xem bình luận'
   Hide Comments: 'Ẩn bình luận'
   # Context: View 10 Replies, View 1 Reply
   View: 'Xem'
@@ -925,7 +904,6 @@ Comments:
   There are no comments available for this video: 'Không có bình luận nào cho video
     này'
   Load More Comments: 'Tải thêm bình luận'
-  No more comments available: Không còn bình luận có sẵn
   Newest first: Mới nhất trước
   Top comments: Top bình luận
   There are no more comments for this video: Không có bình luận cho video này
@@ -986,7 +964,6 @@ Profile:
   Profile has been updated: Profile đã được cập nhật
   Profile has been created: Profile đã được tạo
   Your profile name cannot be empty: Tên hồ sơ của bạn không được để trống
-  Profile could not be found: Hồ sơ không thể tìm thấy được
   All subscriptions will also be deleted.: Tất cả đăng ký đều sẽ bị xóa.
   Are you sure you want to delete this profile?: Bạn có chắc muốn xóa hồ sơ này?
   Delete Profile: Xóa hồ sơ

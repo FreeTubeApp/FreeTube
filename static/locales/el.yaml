@@ -85,12 +85,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Συνδρομές'
-  Latest Subscriptions: 'Τελευταίες Συνδρομές'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Η
     λίστα Συνδρομών σας είναι προς το παρόν κενή. Προσθέστε Συνδρομές για να εμφανιστούν
     εδώ.'
-  'Getting Subscriptions. Please wait.': 'Ανάκτηση Συνδρομών. Παρακαλώ περιμένετε.'
-  Refresh Subscriptions: 'Ανανέωση Συνδρομών'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Αυτό
     το προφίλ διαθέτει ήδη ένα μεγάλο αριθμό Συνδρομών. Εξαναγκασμένη εναλλαγή σε
     λειτουργία RSS για αποφυγή περιορισμού των κλήσεων
@@ -261,7 +258,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Παύση μεταξύ Βίντεο στη λίστα αναπαραγωγής
     Next Video Interval: Επόμενο διάστημα του βίντεο
     Scroll Volume Over Video Player: Αυξομείωση έντασης ήχου με κύλιση πάνω στο πρόγραμμα
       αναπαραγωγής βίντεο
@@ -316,7 +312,6 @@ Settings:
     Fetch Automatically: Αυτόματη Λήψη Τροφοδοσίας
   Data Settings:
     Data Settings: 'Ρυθμίσεις Δεδομένων'
-    Select Import Type: 'Επιλογή Τρόπου Εισαγωγής'
     Select Export Type: 'Επιλογή Τρόπου Εξαγωγής'
     Import Subscriptions: 'Εισαγωγή Συνδρομών'
     Export Subscriptions: 'Εξαγωγή Συνδρομών'
@@ -459,8 +454,6 @@ Settings:
     Download in app: Λήψη στην εφαρμογή
     Open in web browser: Άνοιγμα στο πρόγραμμα περιήγησης ιστού
   Password Dialog:
-    Password Incorrect: Λάθος κωδικός
-    Unlock: Ξεκλείδωμα
     Enter Password To Unlock: Εισαγάγετε τον κωδικό πρόσβασης για να ξεκλειδώσετε
       τις ρυθμίσεις
     Password: Κωδικός πρόσβασης
@@ -525,7 +518,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Είστε βέβαιοι ότι θέλετε να διαγράψετε
     αυτό το προφίλ;'
   All subscriptions will also be deleted.: 'Επίσης θα διαγραφούν και όλες οι συνδρομές.'
-  Profile could not be found: 'Δεν ήταν δυνατή η εύρεση του προφίλ'
   Your profile name cannot be empty: 'Το όνομα του προφίλ σας δεν μπορεί να είναι
     άδειο'
   Profile has been created: 'Το προφίλ σας έχει δημιουργηθεί'
@@ -654,8 +646,6 @@ Video:
   Enable Live Chat: 'Ενεργοποίηση Ζωντανής συνομιλίας'
   Live Chat is currently not supported in this build.: 'Η ζωντανή συνομιλία δεν υποστηρίζεται
     προς το παρόν σε αυτήν την έκδοση.'
-  'Chat is disabled or the Live Stream has ended.': 'Η συνομιλία είναι απενεργοποιημένη
-    ή η ζωντανή ροή έχει τερματιστεί.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Η ζωντανή συνομιλία
     είναι ενεργοποιημένη.  Τα μηνύματα συνομιλίας θα εμφανίζονται εδώ μόλις σταλούν.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Η
@@ -705,7 +695,6 @@ Video:
     playlist: λίστα αναπαραγωγής
     OpeningTemplate: Άνοιγμα {videoOrPlaylist} σε {externalPlayer}...
     UnsupportedActionTemplate: 'Το {externalPlayer} δεν υποστηρίζει: {action}'
-  Premieres on: Πρεμιέρες στις
   Show Super Chat Comment: Εμφάνιση Σχολίου Super Chat
   Scroll to Bottom: Κύλιση προς τα Κάτω
   Premieres: Πρεμιέρες
@@ -716,12 +705,6 @@ Video:
   Pause on Current Video: Παύση στο Τρέχον Βίντεο
   Unhide Channel: Εμφάνιση καναλιού
   Hide Channel: Απόκρυψη καναλιού
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Νεότερο'
-    Oldest: 'Παλαιότερο'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -766,7 +749,6 @@ Comments:
   Comments: 'Σχόλια'
   Click to View Comments: 'Κάντε κλικ για να δείτε σχόλια'
   Getting comment replies, please wait: 'Λήψη απαντήσεων σε σχόλια, παρακαλώ περιμένετε'
-  Show Comments: 'Εμφάνιση σχολίων'
   Hide Comments: 'Απόκρυψη σχολίων'
   # Context: View 10 Replies, View 1 Reply
   View: 'Προβολή'
@@ -777,7 +759,6 @@ Comments:
     αυτό το βίντεο'
   Load More Comments: 'Φόρτωση περισσότερων σχολίων'
   Newest first: Νεότερο πρώτα
-  No more comments available: Δεν υπάρχουν άλλα διαθέσιμα σχόλια
   Top comments: Κορυφαία σχόλια
   There are no more comments for this video: Δεν υπάρχουν άλλα σχόλια για αυτό το
     βίντεο
