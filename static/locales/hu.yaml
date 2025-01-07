@@ -200,8 +200,8 @@ User Playlists:
         egy olyan videót tartalmaz, amelynek nincs időtartama, ezért úgy lesz rendezve,
         mintha az időtartamuk nulla lenne.
     Search for Videos: Videók keresése
-  Are you sure you want to delete this playlist? This cannot be undone: Biztos, hogy
-    törölni szeretné ezt a lejátszási listát? Ezt nem lehet visszacsinálni.
+  Are you sure you want to delete this playlist? This cannot be undone: Biztosan törölni
+    szeretné ezt a lejátszási listát? Ezt nem lehet visszacsinálni.
   Sort By:
     LatestPlayedFirst: Nemrég játszott
     EarliestCreatedFirst: Legkorábban létrehozott
@@ -472,7 +472,7 @@ Settings:
     Autoplay Interruption Timer: Automatikus lejátszás megszakításának időköze
   Privacy Settings:
     Privacy Settings: 'Adatvédelem'
-    Remember History: 'Előzmények megjegyzése'
+    Remember History: 'Megtekintési előzmények megjegyzése'
     Save Watched Progress: 'Megtekintési előrehaladás mentése'
     Clear Search Cache: 'Keresési gyorsítótár törlése'
     Are you sure you want to clear out your search cache?: 'Biztosan törli a keresési
@@ -491,6 +491,12 @@ Settings:
     Remove All Playlists: Minden lejátszási lista eltávolítása
     Are you sure you want to remove all your playlists?: Biztosan el akarja távolítani
       az összes lejátszási listáját?
+    Remember Search History: Keresési előzmények megjegyzése
+    Clear Search History and Cache: Keresés előzményeinek és gyorsítótárának törlése
+    Are you sure you want to clear out your search history and cache?: Biztosan törölni
+      szeretné a keresési előzményeket és a gyorsítótárat?
+    Search history and cache have been cleared: A keresési előzmények és a gyorsítótár
+      törlésre került
   Subscription Settings:
     Subscription Settings: 'Feliratkozás'
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
@@ -1169,6 +1175,7 @@ Default Invidious instance has been set to {instance}: 'Az alapértelmezett Invi
   {instance} beállítva'
 Search Bar:
   Clear Input: Bemenet törlése
+  Remove: Eltávolítás
 External link opening has been disabled in the general settings: A külső hivatkozás
   megnyitása le van tiltva az általános beállításokban
 Are you sure you want to open this link?: Biztosan megnyitja ezt a hivatkozást?
