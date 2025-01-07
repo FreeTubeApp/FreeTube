@@ -459,7 +459,7 @@ Settings:
     Autoplay Interruption Timer: Viivituse taimer järgmise video esitamise katkestamisel
   Privacy Settings:
     Privacy Settings: 'Privaatsus'
-    Remember History: 'Jäta ajalugu meelde'
+    Remember History: 'Jäta vaatamiste ajalugu meelde'
     Save Watched Progress: 'Salvesta vaatamise olek'
     Clear Search Cache: 'Kustuta otsingute ajalugu'
     Are you sure you want to clear out your search cache?: 'Kas sa oled kindel, et
@@ -479,6 +479,13 @@ Settings:
     Remove All Playlists: Eemalda kõik esitusloendid
     Are you sure you want to remove all your playlists?: Kas sa oled kindel, et soovid
       kõik esitusloendid eemaldada?
+    Clear Search History and Cache: Kustuta otsinguajalugu ja sellega seotud puhverdatud
+      andmed
+    Remember Search History: Jäta otsinguajalugu meelde
+    Are you sure you want to clear out your search history and cache?: Kas sa oled
+      kindel, et soovid kustutada otsinguajaloo ja sellega seotud puhverdatud andmed?
+    Search history and cache have been cleared: Otsinguajalugu ja sellega seotud puhverdatud
+      andmed on kustutatud
   Subscription Settings:
     Subscription Settings: 'Tellimused'
     Hide Videos on Watch: 'Vaatamisel peida videod'
@@ -1136,6 +1143,7 @@ Default Invidious instance has been set to {instance}: Vaikimisi kasutatav Invid
   teenus on {instance}
 Search Bar:
   Clear Input: Kustuta sisend
+  Remove: Eemalda
 External link opening has been disabled in the general settings: Väliste linkide avamine
   on üldistes seadistustes keelatud
 Are you sure you want to open this link?: Oled kindel, et soovid seda linki avada?
