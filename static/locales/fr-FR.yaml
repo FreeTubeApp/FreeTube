@@ -507,6 +507,12 @@ Settings:
     Remove All Playlists: Supprimer toutes les listes de lecture
     Are you sure you want to remove all your playlists?: Êtes-vous sûr de vouloir
       supprimer toutes vos listes de lecture ?
+    Remember Search History: Conserver l'historique de recherche
+    Are you sure you want to clear out your search history and cache?: Êtes-vous sûr
+      de vouloir effacer votre historique de recherche et votre cache ?
+    Clear Search History and Cache: Effacer l'historique de recherche et le cache
+    Search history and cache have been cleared: L'historique de recherche et le cache
+      ont été effacés
   Data Settings:
     How do I import my subscriptions?: Comment importer mes abonnements ?
     Subscriptions have been successfully exported: Les abonnements ont été exportés
@@ -1198,6 +1204,7 @@ Default Invidious instance has been set to {instance}: L'instance Invidious par 
   a été définie sur {instance}
 Search Bar:
   Clear Input: Effacer l'entrée
+  Remove: Supprimer
 Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
 External link opening has been disabled in the general settings: L'ouverture des liens
   externes a été désactivée dans les paramètres généraux
