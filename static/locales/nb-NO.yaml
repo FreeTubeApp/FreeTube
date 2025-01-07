@@ -164,7 +164,8 @@ User Playlists:
     Toast:
       You haven't selected any playlist yet.: Du har ikke valgt noen spillelister
         enda.
-      "{videoCount} video(s) added to 1 playlist": 1 video lagt til 1 spilleliste | {videoCount} videoer lagt til 1 spilleliste
+      "{videoCount} video(s) added to 1 playlist": 1 video lagt til 1 spilleliste
+        | {videoCount} videoer lagt til 1 spilleliste
   Cancel: Avbryt
   Add to Playlist: Legg til spilleliste
   This playlist currently has no videos.: Denne spillelisten har ikke noen videoer
