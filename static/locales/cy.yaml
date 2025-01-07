@@ -333,6 +333,8 @@ Settings:
     Auto Load Next Page:
       Label: Llwytho'r Dudalen Nesaf yn Awtomatig
       Tooltip: Llwytho tudalennau a sylwadau ychwanegol yn awtomatig.
+    Open Deep Links In New Window: Agor URLs Wedi'u Pasio i FreeTube mewn Ffenest
+      Newydd
   Theme Settings:
     Theme Settings: 'Thema'
     Match Top Bar with Main Color: 'Cydweddu Bar Uchaf gyda Phrif Lliw'
@@ -356,6 +358,7 @@ Settings:
       Nordic: Nordaidd
       Gruvbox Dark: Gruvbox Tywyll
       Gruvbox Light: Golau Gruvbox
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Thema Prif Lliw'
       Red: 'Coch'
@@ -382,7 +385,7 @@ Settings:
       Dracula Red: 'Coch Draciwla'
       Dracula Yellow: 'Melyn Draciwla'
       Catppuccin Mocha Rosewater: 'Catppuccin Mocha Rosewater'
-      Catppuccin Mocha Flamingo: 'Catppuccin Mocha Flamingo'
+      Catppuccin Mocha Flamingo: 'Catppuccin Mocha Fflamingo'
       Catppuccin Mocha Pink: 'Catppuccin Mocha Pinc'
       Catppuccin Mocha Mauve: 'Catppuccin Mocha Mauve'
       Catppuccin Mocha Red: 'Catppuccin Mocha Coch'
@@ -413,6 +416,20 @@ Settings:
       Solarized Yellow: Melyn Heulog
       Solarized Blue: Glas Heulog
       Solarized Cyan: Cyan Heulog
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Fflamingo
+      Catppuccin Frappe Blue: Catppuccin Frappe Glas
+      Catppuccin Frappe Sky: Catppuccin Frappe awyr
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Saffir
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Dŵr Rhosyn
+      Catppuccin Frappe Pink: Catppuccin Frappe Pinc
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Red: Catppuccin Frappe Coch
+      Catppuccin Frappe Maroon: Catppuccin Frappe Marŵn
+      Catppuccin Frappe Peach: Catppuccin Frappe Peach
+      Catppuccin Frappe Yellow: Catppuccin Frappe Melyn
+      Catppuccin Frappe Green: Catppuccin Frappe Gwyrdd
+      Catppuccin Frappe Teal: Corhwyaden Frappe Catppuccin
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lafant
     Secondary Color Theme: 'Thema Lliw Eilaidd'
         #* Main Color Theme
   Player Settings:
@@ -429,7 +446,7 @@ Settings:
     Skip by Scrolling Over Video Player: 'Neidio drwy Sgrolio Dros Chwaraewr Fideo'
     Display Play Button In Video Player: 'Dangos Botwm Chwarae yn y Chwaraewr Fideo'
     Enter Fullscreen on Display Rotate: 'Mynd i''r Sgrin Lawn wrth Cylchdroi Dangosydd'
-    Next Video Interval: 'Ysbaid Fideo Nesaf'
+    Next Video Interval: 'Amserydd Cyfrif Down Autoplay'
     Fast-Forward / Rewind Interval: 'Ysbaid Ymlaen / Nôl Cyflym'
     Default Volume: 'Sain Rhagosodedig'
     Default Playback Rate: 'Cyfradd Chwarae Rhagosodedig'
@@ -467,6 +484,7 @@ Settings:
       Error:
         Forbidden Characters: 'Nodau Gwaharddedig'
         Empty File Name: 'Enw Ffeil Gwag'
+    Autoplay Interruption Timer: Amserydd Ymyrraeth Awtochwarae
   External Player Settings:
     External Player Settings: 'Chwaraewr Allanol'
     External Player: 'Chwaraewr Allanol'
@@ -505,6 +523,9 @@ Settings:
     Fetch Feeds from RSS: 'Nôl Llif o''r RSS'
     Fetch Automatically: 'Nôl Llif yn Awtomatig'
     Confirm Before Unsubscribing: Cadarnhau Cyn Dad-danysgrifio
+    To: At
+    'Limit the number of videos displayed for each channel': Cyfyngu ar nifer y fideos
+      sy'n cael eu dangos ar gyfer pob sianel
   Distraction Free Settings:
     Distraction Free Settings: 'Dim Tarfu'
     Sections:
@@ -542,11 +563,11 @@ Settings:
       Gwiriwch eto a yw''r ID yn gywir.'
     Hide Channels Already Exists: 'Mae ID y sianel eisoes yn bodoli'
     Hide Featured Channels: 'Cuddio Sianeli Nodwedd'
-    Hide Channel Playlists: 'Cuddio Rhestrau Chwarae Sianel'
-    Hide Channel Community: 'Cuddio Cymuned Sianel'
-    Hide Channel Shorts: 'Cuddio Byrion Sianel'
-    Hide Channel Podcasts: 'Cuddio Podlediadau Sianel'
-    Hide Channel Releases: 'Cuddio Fideos Newydd Sianel'
+    Hide Channel Playlists: 'Cuddio Tab "Rhestrau Chwarae" Sianel'
+    Hide Channel Community: 'Cuddio Tab Sianel "Cymuned"'
+    Hide Channel Shorts: 'Cuddio Tab Sianel "Byrion"'
+    Hide Channel Podcasts: 'Cuddio Tab Sianel "Podlediadau"'
+    Hide Channel Releases: 'Cuddio Tab Sianel "Rhyddhau"'
     Hide Subscriptions Videos: 'Cuddio Fideos Tanysgrifiadau'
     Hide Subscriptions Shorts: 'Cuddio Tanysgrifiadau Byrion'
     Hide Subscriptions Live: 'Cuddio Tanysgrifiadau Byw'
@@ -555,6 +576,8 @@ Settings:
       Cynnwys Testun
     Hide Videos and Playlists Containing Text Placeholder: Gair, Darn o Arian, neu
       Ymadrodd
+    Show Added Items: Dangos Eitemau Ychwanegwyd
+    Hide Channel Home: Cuddio Tab Sianel "Cartref"
   Data Settings:
     Data Settings: 'Data'
     Select Import Type: 'Dewis y Math o Fewnforio'
@@ -823,6 +846,9 @@ Channel:
     View Full Post: Gweld Post Llawn
     Viewing Posts Only Supported By Invidious: Dim ond Invidious sy'n cefnogi Gweld
       Postiadau. Ewch i dab cymunedol sianel i weld cynnwys yno heb Invidious.
+  Home:
+    Home: Cartref
+    View Playlist: Gweld Rhestr Chwarae
 Video:
   Mark As Watched: 'Marcio wedi''i Wylio'
   Remove From History: 'Dileu o''r Hanes'
@@ -925,7 +951,7 @@ Video:
       Stats: Ystadegau
       Video ID: 'ID fideo: {videoId}'
       Media Formats: 'Fformatau Cyfryngau: {formats}'
-      CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Codecau: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       Player Dimensions: 'Dimensiynau Chwaraewr: {width}x{height}'
     You appear to be offline: Mae'n ymddangos eich bod all-lein.
     Playback will resume automatically when your connection comes back: Bydd chwarae'n
@@ -949,6 +975,13 @@ Video:
   Unlisted: Heb ei restru
   IP block: Mae YouTube wedi rhwystro'ch cyfeiriad IP rhag gwylio fideos. Ceisiwch
     newid i VPN neu ddirprwy arall.
+  DeArrow:
+    Show Modified Details: Dangos Manylion Addasedig
+    Show Original Details: Dangos Manylion Gwreiddiol
+  DRMProtected: Nid oes modd chwarae fideos gwarchodedig DRM yn FreeTube, gan fod
+    angen cydrannau ffynhonnell caeedig perchnogol arnynt. Os ydych chi am wylio'r
+    fideo hwn, gwyliwch ef ar wefan swyddogol YouTube mewn porwr gwe sydd wedi'i alluogi
+    i chwarae DRM.
 Videos:
   #& Sort By
   Sort By:
@@ -975,6 +1008,8 @@ Playlist:
     AuthorAscending: Awdur (A-Z)
     VideoDurationAscending: Hyd (Byrraf gyntaf)
     DateAddedOldest: Ychwanegwyd yn gyntaf yn gyntaf
+    PublishedNewest: Cyhoeddwyd diwethaf gyntaf
+    PublishedOldest: Cyhoeddwyd gyntaf yn gyntaf
 Change Format:
   Change Media Formats: 'Newid Fformatau Cyfryngau'
   Use Dash Formats: 'Defnyddio Fformatau DASH'
@@ -1069,6 +1104,9 @@ Tooltips:
     External Link Handling: |
       Dewiswch yr ymddygiad rhagosodedig pan fydd dolen, nad oes modd ei hagor yn FreeTube, yn cael ei chlicio.
       Fel rhagosodiad bydd FreeTube yn agor y ddolen a gliciwyd yn eich porwr rhagosodedig.
+    Open Deep Links In New Window: Mae URLau wedi'u trosglwyddo i FreeTube, megis
+      trwy ailgyfeirio estyniadau porwr neu ymresymiadau llinell orchymyn, yn cael
+      eu hagor mewn ffenestr newydd.
   Player Settings:
     Proxy Videos Through Invidious: 'Bydd yn cysylltu ag Invidious i weini fideos
       yn lle gwneud cysylltiad uniongyrchol â YouTube.'
@@ -1093,7 +1131,8 @@ Tooltips:
       PATH. Os oes angen, mae modd gosod llwybr cyfaddas yma.'
     Ignore Warnings: 'Atal rhybuddion pan nad yw''r chwaraewr allanol cyfredol yn
       cefnogi''r weithred gyfredol (e.e. gwrthdroi rhestri chwarae, ac ati).'
-    Custom External Player Arguments: ''
+    Custom External Player Arguments: 'Unrhyw ymresymiadau llinell orchymyn cyfaddas
+      rydych am eu trosglwyddo i''r chwaraewr allanol.'
     DefaultCustomArgumentsTemplate: "(Rhagosodiad: '{defaultCustomArguments}')"
     Ignore Default Arguments: Peidiwch ag anfon unrhyw ymresymiadau rhagosodedig at
       y chwaraewr allanol ar wahân i'r URL fideo (e.e. cyfradd chwarae, URL rhestr
@@ -1161,7 +1200,7 @@ External link opening has been disabled in the general settings: 'Mae agor dolen
 Downloading has completed: 'Mae "{videoTitle}" wedi gorffen llwytho i lawr'
 Starting download: 'Yn dechrau llwytho i lawr o "{videoTitle}"'
 Downloading failed: 'Bu problem wrth lwytho "{videoTitle}" i lawr'
-Screenshot Success: ''
+Screenshot Success: 'Llun sgrin wedi''i gadw'
 Screenshot Error: 'Methodd y llun sgrin. {error}'
 Channel Hidden: 'Mae {channel} wedi''i ychwanegu at hidlydd sianeli'
 Channel Unhidden: '{channel} wedi''i dynnu o''r hidlydd sianeli'
@@ -1204,3 +1243,76 @@ Display Label: '{label}: {value}'
 Trimmed input must be at least N characters long: Rhaid i fewnbwn wedi'i docio fod
   o leiaf 1 nod o hyd | Rhaid i fewnbwn wedi'i docio fod o leiaf {length} nod
 Tag already exists: Mae'r tag "{tagName}" eisoes yn bodoli
+KeyboardShortcutPrompt:
+  Search in New Window: Chwilio mewn ffenestr newydd
+  Last Frame: Ffrâm flaenorol (tra wedi oedi)
+  Next Frame: Ffrâm nesaf (tra wedi oedi)
+  Volume Up: Cynyddu lefel y sain
+  Volume Down: Gostwng lefel y sain
+  Show Keyboard Shortcuts: Dangos llwybrau byr bysellfwrdd
+  Focus Secondary Search: Canolbwyntiwch ar yr ail far chwilio (os oes un yn bresennol)
+  Captions: Toglo capsiynau YMLAEN/DIFFODD
+  Stats: Dangos ystadegau fideo
+  Fullscreen: Toglo sgrin lawn
+  Small Fast Forward: Eiliadau Ymlaen Cyflym X yn seiliedig ar yr Ysbaid Cyflym Ymlaen
+    a'r Gyfradd Chwarae Fideo gyfredol
+  Keyboard Shortcuts: Llwybrau Byr Bysellfwrdd
+  Sections:
+    Video:
+      Playback: Fideo: Chwarae
+      General: Fideo: Cyffredinol
+    App:
+      Situational: 'Ap: Sefyllfaol'
+      General: Ap: Cyffredinol
+  History Forward: Ymlaen un dudalen
+  New Window: Creu ffenestr newydd
+  Large Rewind: Nôl 10 eiliad / Nôl fideo yn seiliedig ar y Gyfradd Chwarae Fideo
+    gyfredol
+  Play: Toglo chwarae / oedi
+  Mute: Toglo tewi
+  Decrease Video Speed: Lleihau cyflymder fideo yn seiliedig ar Ysbaid Cyfradd Chwarae
+    Fideo
+  Full Window: Toglo ffenestr lawn
+  Skip by Tenths: Symud trwy fideo yn ôl canran (3 symudiad i 30% o'i hyd )
+  Take Screenshot: Tynnu llun sgrin
+  History Backward: Nôl un dudalen
+  Navigate to Settings: Llywio i'r dudalen Gosodiadau
+  Navigate to History: Llywio i'r dudalen Hanes
+  Refresh: Adnewyddu llif gyda'r cynnwys diweddaraf
+  Picture in Picture: Toglo modd Llun-mewn-Llun
+  Large Fast Forward: Ymlaen 10 eiliad / Ymlaen Cyflym Fideo yn seiliedig ar y Gyfradd
+    Chwarae Fideo gyfredol
+  Increase Video Speed: Cynyddu cyflymder fideo yn seiliedig ar Ysbaid Cyfradd Chwarae
+    Fideo
+  Theatre Mode: Toglo modd theatr
+  Minimize Window: Lleihau ffenestr
+  Close Window: Cau ffenestr
+  Restart Window: Ailgychwyn ffenestr
+  Force Restart Window: Gorfodi ailgychwyn ffenestr
+  Toggle Developer Tools: Toglo offer datblygwr
+  Reset Zoom: Ailosod lefel chwyddo / graddfa UI
+  Zoom In: Chwyddo mewn
+  Zoom Out: Chwyddo allan
+  Focus Search: Canolbwyntio ar y bar chwilio
+  Small Rewind: Mynd nôl X eiliadau yn seiliedig ar yr Ysbaid Ailddirwyn a'r Gyfradd
+    Chwarae Fideo gyfredol
+  Last Chapter: Pennod Olaf
+  Next Chapter: Pennod Nesaf
+Description:
+  Expand Description: '...rhagor'
+  Collapse Description: Dangos llai
+shortcutJoinOperator: +
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Keys:
+  arrowup: Saeth i Fyny
+  ctrl: Ctrl
+  arrowdown: Saeth i Lawr
+  arrowright: Saeth Dde
+  arrowleft: Saeth Chwith
+  shift: Shift
+  plus: Plws
+  alt: Alt
+  enter: Enter
+Right-click or hold to see history: De-gliciwch neu ddal i weld yr hanes
+Autoplay Interruption Timer: Diddymwyd awtochwarae oherwydd {autoplayInterruptionIntervalHours}
+  awr o heb ei ddefnyddio
