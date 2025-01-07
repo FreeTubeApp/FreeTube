@@ -226,6 +226,24 @@ class Playlists {
   }
 }
 
+class SearchHistory {
+  static find() {
+    return db.searchHistory.findAsync({}).sort({ lastUpdatedAt: -1 })
+  }
+
+  static upsert(searchHistoryEntry) {
+    return db.searchHistory.updateAsync({ _id: searchHistoryEntry._id }, searchHistoryEntry, { upsert: true })
+  }
+
+  static delete(_id) {
+    return db.searchHistory.removeAsync({ _id: _id })
+  }
+
+  static deleteAll() {
+    return db.searchHistory.removeAsync({}, { multi: true })
+  }
+}
+
 class SubscriptionCache {
   static find() {
     return db.subscriptionCache.findAsync({})
@@ -311,6 +329,7 @@ function compactAllDatastores() {
     db.history.compactDatafileAsync(),
     db.profiles.compactDatafileAsync(),
     db.playlists.compactDatafileAsync(),
+    db.searchHistory.compactDatafileAsync(),
     db.subscriptionCache.compactDatafileAsync(),
   ])
 }
@@ -320,6 +339,7 @@ export {
   History as history,
   Profiles as profiles,
   Playlists as playlists,
+  SearchHistory as searchHistory,
   SubscriptionCache as subscriptionCache,
 
   compactAllDatastores,

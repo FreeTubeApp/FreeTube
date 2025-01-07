@@ -232,6 +232,7 @@ const state = {
   proxyVideos: !process.env.SUPPORTS_LOCAL_API,
   region: 'US',
   rememberHistory: true,
+  rememberSearchHistory: true,
   saveWatchedProgress: true,
   saveVideoHistoryWithLastViewedPlaylist: true,
   showFamilyFriendlyOnly: false,
@@ -497,6 +498,25 @@ const customActions = {
 
           default:
             console.error('history: invalid sync event received')
+        }
+      })
+
+      ipcRenderer.on(IpcChannels.SYNC_SEARCH_HISTORY, (_, { event, data }) => {
+        switch (event) {
+          case SyncEvents.GENERAL.UPSERT:
+            commit('upsertSearchHistoryEntryToList', data)
+            break
+
+          case SyncEvents.GENERAL.DELETE:
+            commit('removeSearchHistoryEntryFromList', data)
+            break
+
+          case SyncEvents.GENERAL.DELETE_ALL:
+            commit('setSearchHistoryEntries', [])
+            break
+
+          default:
+            console.error('search history: invalid sync event received')
         }
       })
 

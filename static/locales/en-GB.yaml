@@ -463,7 +463,8 @@ Settings:
         Name: None
   Privacy Settings:
     Privacy Settings: 'Privacy'
-    Remember History: 'Remember History'
+    Remember History: 'Remember Watch History'
+    Remember Search History: 'Remember Search History'
     Save Watched Progress: 'Save Watched Progress'
     Clear Search Cache: 'Clear Search Cache'
     Are you sure you want to clear out your search cache?: 'Are you sure you want

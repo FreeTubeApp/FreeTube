@@ -64,6 +64,7 @@ Global:
 Search / Go to URL: Search / Go to URL
 Search Bar:
   Clear Input: Clear Input
+  Remove: Remove
 Search character limit: Search query is over the {searchCharacterLimit} character limit
 Search Listing:
   Label:
@@ -479,13 +480,14 @@ Settings:
         Name: None
   Privacy Settings:
     Privacy Settings: Privacy
-    Remember History: Remember History
+    Remember History: Remember Watch History
+    Remember Search History: Remember Search History
     Save Watched Progress: Save Watched Progress
     Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed Playlist
-    Clear Search Cache: Clear Search Cache
-    Are you sure you want to clear out your search cache?: Are you sure you want to
-      clear out your search cache?
-    Search cache has been cleared: Search cache has been cleared
+    Clear Search History and Cache: Clear Search History and Cache
+    Are you sure you want to clear out your search history and cache?: Are you sure you want to
+      clear out your search history and cache?
+    Search history and cache have been cleared: Search history and cache have been cleared
     Remove Watch History: Remove Watch History
     Are you sure you want to remove your entire watch history?: Are you sure you want
       to remove your entire watch history?

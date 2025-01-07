@@ -843,6 +843,10 @@ const mutations = {
     vueSet(state.deArrowCache, payload.videoId, payload)
   },
 
+  removeFromSessionSearchHistory (state, query) {
+    state.sessionSearchHistory = state.sessionSearchHistory.filter((search) => search.query !== query)
+  },
+
   addToSessionSearchHistory (state, payload) {
     const sameSearch = state.sessionSearchHistory.findIndex((search) => {
       return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)

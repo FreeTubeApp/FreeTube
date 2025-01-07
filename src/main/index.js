@@ -1343,6 +1343,51 @@ function runApp() {
 
   // *********** //
 
+  // ************** //
+  // Search History
+  ipcMain.handle(IpcChannels.DB_SEARCH_HISTORY, async (event, { action, data }) => {
+    try {
+      switch (action) {
+        case DBActions.GENERAL.FIND:
+          return await baseHandlers.searchHistory.find()
+
+        case DBActions.GENERAL.UPSERT:
+          await baseHandlers.searchHistory.upsert(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SEARCH_HISTORY,
+            event,
+            { event: SyncEvents.GENERAL.UPSERT, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE:
+          await baseHandlers.searchHistory.delete(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SEARCH_HISTORY,
+            event,
+            { event: SyncEvents.GENERAL.DELETE, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE_ALL:
+          await baseHandlers.searchHistory.deleteAll()
+          syncOtherWindows(
+            IpcChannels.SYNC_SEARCH_HISTORY,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_ALL }
+          )
+          return null
+
+        default:
+          // eslint-disable-next-line no-throw-literal
+          throw 'invalid search history db action'
+      }
+    } catch (err) {
+      if (typeof err === 'string') throw err
+      else throw err.toString()
+    }
+  })
+
   // *********** //
   // Profiles
   ipcMain.handle(IpcChannels.DB_SUBSCRIPTION_CACHE, async (event, { action, data }) => {
