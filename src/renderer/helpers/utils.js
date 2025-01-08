@@ -56,16 +56,16 @@ export function getIconForSortPreference(sortPreference) {
  * @param {Date|undefined} premiereDate
  */
 export function calculatePublishedDate(publishedText, isLive = false, isUpcoming = false, premiereDate = undefined) {
-  const date = new Date()
+  const now = Date.now()
 
   if (isLive) {
-    return date.getTime()
+    return now
   } else if (isUpcoming) {
     if (premiereDate) {
       return premiereDate.getTime()
     } else {
       // should never happen but just to be sure that we always return a number
-      return date.getTime()
+      return now
     }
   }
 
@@ -97,7 +97,7 @@ export function calculatePublishedDate(publishedText, isLive = false, isUpcoming
     timeSpan = timeAmount * 31556952000
   }
 
-  return date.getTime() - timeSpan
+  return now - timeSpan
 }
 
 /**
