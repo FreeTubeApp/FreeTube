@@ -452,7 +452,7 @@ Settings:
     Autoplay Interruption Timer: Timer za prekidanje automatske reprodukcije
   Privacy Settings:
     Privacy Settings: 'Privatnost'
-    Remember History: 'Zapamti povijest'
+    Remember History: 'Zapamti povijest gledanja'
     Save Watched Progress: 'Spremi napredak gledanja'
     Clear Search Cache: 'Isprazni predmemoriju pretrage'
     Are you sure you want to clear out your search cache?: 'Stvarno želiš isprazniti
@@ -471,6 +471,12 @@ Settings:
     All playlists have been removed: Sve zbirke su uklonjene
     Are you sure you want to remove all your playlists?: Stvarno želiš ukloniti sve
       tvoje zbirke?
+    Remember Search History: Zapamti povijest pretraživanja
+    Clear Search History and Cache: Izbriši povijest pretraživanja i predmemoriju
+    Search history and cache have been cleared: Povijest pretraživanja i predmemorija
+      su izbrisani
+    Are you sure you want to clear out your search history and cache?: Stvarno želiš
+      izbrisati povijest pretraživanja i predmemoriju?
   Subscription Settings:
     Subscription Settings: 'Pretplata'
     Hide Videos on Watch: 'Sakrij video nakon gledanja'
@@ -1128,6 +1134,7 @@ External link opening has been disabled in the general settings: Otvaranje ekste
   poveznice je deaktivirano u općim postavkama
 Search Bar:
   Clear Input: Izbriši unos
+  Remove: Ukloni
 Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu?
 Downloading failed: Došlo je do problema prilikom preuzimanja „{videoTitle}”
 Downloading has completed: „{videoTitle}” je preuzeto
