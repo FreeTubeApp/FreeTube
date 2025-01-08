@@ -289,6 +289,7 @@ Settings:
       Solarized Light: ソラライズド・ライト
       Gruvbox Dark: Gruvbox ダーク
       Gruvbox Light: Gruvbox ライト
+      Catppuccin Frappe: キャプチーノ・フラッペ
     Main Color Theme:
       Main Color Theme: 'テーマのメイン カラー'
       Red: '赤'
@@ -346,6 +347,20 @@ Settings:
       Gruvbox Dark Yellow: Gruvbox ダークイエロー
       Gruvbox Dark Purple: Gruvbox ダークパープル
       Gruvbox Light Orange: Gruvbox ライトオレンジ
+      Catppuccin Frappe Sky: キャプチーノ・フラッペ スカイ
+      Catppuccin Frappe Rosewater: キャプチーノ・フラッペ ローズウォーター
+      Catppuccin Frappe Flamingo: キャプチーノ・フラッペ フラミンゴ
+      Catppuccin Frappe Pink: キャプチーノ・フラッペ ピンク
+      Catppuccin Frappe Mauve: キャプチーノ・フラッペ モーブ
+      Catppuccin Frappe Red: キャプチーノ・フラッペ レッド
+      Catppuccin Frappe Maroon: キャプチーノ・フラッペ マルーン
+      Catppuccin Frappe Peach: キャプチーノ・フラッペ ピーチ
+      Catppuccin Frappe Yellow: キャプチーノ・フラッペ イエロー
+      Catppuccin Frappe Green: キャプチーノ・フラッペ グリーン
+      Catppuccin Frappe Teal: キャプチーノ・フラッペ ティール
+      Catppuccin Frappe Blue: キャプチーノ・フラッペ ブルー
+      Catppuccin Frappe Lavender: キャプチーノ・フラッペ ラベンダー
+      Catppuccin Frappe Sapphire: キャプチーノ・フラッペ サファイア
     Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
     UI Scale: UIの拡大率
@@ -414,7 +429,7 @@ Settings:
     To: 上限
   Privacy Settings:
     Save Watched Progress: 再生位置の保存
-    Remember History: 履歴の保存
+    Remember History: 視聴履歴を保存する
     Watch history has been cleared: 視聴履歴を削除しました
     Are you sure you want to remove your entire watch history?: 視聴履歴をすべて削除しますか？
     Remove Watch History: 視聴履歴の削除
@@ -428,6 +443,10 @@ Settings:
     Remove All Playlists: 再生リストをすべて削除
     All playlists have been removed: すべての再生リストが削除されました
     Are you sure you want to remove all your playlists?: すべての再生リストを削除してもよろしいですか？
+    Remember Search History: 検索履歴を記憶する
+    Are you sure you want to clear out your search history and cache?: 本当に検索履歴とキャッシュを削除しますか？
+    Clear Search History and Cache: 検索履歴とキャッシュを削除する
+    Search history and cache have been cleared: 検索履歴とキャッシュが削除されました
   Data Settings:
     How do I import my subscriptions?: 登録チャンネルをインポートするには？
     Unknown data key: 不明なデータキー
@@ -793,6 +812,8 @@ Video:
   DeArrow:
     Show Original Details: 元の情報を表示
     Show Modified Details: 変更された詳細を表示
+  DRMProtected: 
+    DRM保護された動画はFreeTubeでは再生できません。これらの動画には、独自の非オープンソースのコンポーネントが必要です。この動画を視聴したい場合は、DRM対応のウェブブラウザで公式のYouTubeウェブサイトでご覧ください。
 Videos:
   #& Sort By
   Sort By:
@@ -819,6 +840,8 @@ Playlist:
     VideoTitleAscending: タイトル（A-Z）
     VideoDurationAscending: 再生時間（短い順）
     VideoDurationDescending: 再生時間（長い順）
+    PublishedNewest: 新しい公開動画順
+    PublishedOldest: 古い公開動画順
 Change Format:
   Change Media Formats: '動画形式の変更'
   Use Dash Formats: 'DASH 形式の使用'
@@ -993,6 +1016,7 @@ Default Invidious instance has been set to {instance}: デフォルトの Invidi
 External link opening has been disabled in the general settings: 一般設定で外部リンクの表示は無効になっています
 Search Bar:
   Clear Input: 入力の消去
+  Remove: 削除
 Are you sure you want to open this link?: このリンクを開きますか？
 Starting download: '"{videoTitle}" のダウンロードを開始します'
 Downloading has completed: '"{videoTitle}" のダウンロードが完了しました'
@@ -1065,8 +1089,50 @@ Keys:
   arrowleft: 左矢印
   arrowright: 右矢印
   arrowup: 上矢印
+  shift: Shift
+  plus: +
+  enter: Enter
 Right-click or hold to see history: 右クリックまたは長押しで 履歴 を表示
 Autoplay Interruption Timer: '{autoplayInterruptionIntervalHours} 時間の無操作状態が続いたため、自動再生をキャンセルしました'
 Description:
   Expand Description: '...もっと見る'
   Collapse Description: 表示を減らす
+KeyboardShortcutPrompt:
+  Navigate to Settings: 設定ページに移動する
+  History Forward: １ページ進む
+  New Window: 新しいウィンドウを開く
+  Navigate to History: 履歴ページに移動する
+  Refresh: 最新のコンテンツでフィードを更新
+  Focus Secondary Search: 補助検索バーに移動（存在する場合）
+  Captions: 字幕を オン/オフ 切り替え
+  Stats: 動画の統計情報を表示
+  History Backward: １ページ戻る
+  Fullscreen: フルスクリーンの切り替え
+  Full Window: フルウィンドウの切り替え
+  Theatre Mode: シアターモードの切り替え
+  Take Screenshot: スクリーンショットを撮る
+  Minimize Window: ウィンドウの最小化
+  Play: 再生 / 一時停止 の切り替え
+  Large Fast Forward: 10秒進む / 現在の動画再生速度に基づいて動画を早送り
+  Mute: ミュートの切り替え
+  Decrease Video Speed: 再生速度間隔に基づいて動画の速度を下げる
+  Increase Video Speed: 再生速度間隔に基づいて動画の速度を上げる
+  Reset Zoom: ズームレベル / UI拡大率をリセット
+  Zoom In: 拡大
+  Zoom Out: 縮小
+  Restart Window: ウィンドウを再起動
+  Force Restart Window: ウィンドウを強制再起動
+  Toggle Developer Tools: 開発者ツールの切り替え
+  Focus Search: 検索バーにフォーカスする
+  Keyboard Shortcuts: キーボード ショートカット
+  Sections:
+    Video:
+      Playback: '動画: 再生'
+      General: '動画: 一般'
+    App:
+      Situational: 'アプリ: 状況対応'
+      General: 'アプリ: 一般'
+  Show Keyboard Shortcuts: キーボード ショートカットを表示する
+  Picture in Picture: 子画面モードの切り替え
+  Large Rewind: 10秒巻き戻し / 現在の動画再生速度に基づき動画を巻き戻す
+  Close Window: ウィンドウを閉じる
