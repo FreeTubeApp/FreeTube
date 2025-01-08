@@ -430,7 +430,7 @@ Settings:
     Are you sure you want to remove your entire watch history?: 您确认想移除您的全部观看历史记录？
     Are you sure you want to clear out your search cache?: 您确定想清除您的搜索缓存？
     Save Watched Progress: 保存观看进度
-    Remember History: 记住历史记录
+    Remember History: 记住观看历史
     Privacy Settings: 隐私
     Watch history has been cleared: 观看历史记录已清除
     Remove Watch History: 移除观看历史记录
@@ -442,6 +442,10 @@ Settings:
     All playlists have been removed: 已删除所有播放列表
     Remove All Playlists: 删除所有播放列表
     Are you sure you want to remove all your playlists?: 你确定要删除所有播放列表吗？
+    Clear Search History and Cache: 清除搜索历史和缓存
+    Remember Search History: 记住搜索历史
+    Are you sure you want to clear out your search history and cache?: 你确定要清除搜索历史和缓存吗？
+    Search history and cache have been cleared: 已清除搜索历史和缓存
   Data Settings:
     Subscriptions have been successfully exported: 订阅已成功导出
     This might take a while, please wait: 这可能需要一段时间，请稍候
@@ -994,6 +998,7 @@ More: 更多
 Open New Window: 打开新窗口
 Search Bar:
   Clear Input: 清空输入
+  Remove: 删除
 Are you sure you want to open this link?: 您确定要打开此链接吗？
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 类型，不能在应用程序中打开
 External link opening has been disabled in the general settings: 外部链接打开在常规设置中被禁用
