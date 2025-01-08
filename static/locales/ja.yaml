@@ -1085,10 +1085,10 @@ shortcutJoinOperator: +
 Keys:
   alt: Alt
   ctrl: Ctrl
-  arrowdown: 下矢印
-  arrowleft: 左矢印
-  arrowright: 右矢印
-  arrowup: 上矢印
+  arrowdown: ↓
+  arrowleft: ←
+  arrowright: →
+  arrowup: ↑
   shift: Shift
   plus: +
   enter: Enter
@@ -1102,7 +1102,7 @@ KeyboardShortcutPrompt:
   History Forward: １ページ進む
   New Window: 新しいウィンドウを開く
   Navigate to History: 履歴ページに移動する
-  Refresh: 最新のコンテンツでフィードを更新
+  Refresh: フィードを最新の状態に更新
   Focus Secondary Search: 補助検索バーに移動（存在する場合）
   Captions: 字幕を オン/オフ 切り替え
   Stats: 動画の統計情報を表示
@@ -1136,3 +1136,13 @@ KeyboardShortcutPrompt:
   Picture in Picture: 子画面モードの切り替え
   Large Rewind: 10秒巻き戻し / 現在の動画再生速度に基づき動画を巻き戻す
   Close Window: ウィンドウを閉じる
+  Search in New Window: 新しいウィンドウで検索
+  Volume Down: 音量を下げる
+  Last Frame: 前のフレーム (一時停止中)
+  Next Frame: 次のフレーム (一時停止中)
+  Volume Up: 音量を上げる
+  Small Rewind: 巻き戻し間隔と現在の再生速度に基づいてX秒巻き戻す
+  Small Fast Forward: 早送り間隔と現在の再生速度に基づいてX秒早送り
+  Last Chapter: 前のチャプター
+  Next Chapter: 次のチャプター
+  Skip by Tenths: 動画をパーセンテージでスキップ (3回スキップで全体の30%に移動)
