@@ -487,6 +487,12 @@ Settings:
     Are you sure you want to remove all your playlists?: Ertu viss um að þú viljir
       fjarlægja alla spilunarlistana þína?
     All playlists have been removed: Allir spilunarlistar hafa verið fjarlægðir
+    Clear Search History and Cache: Hreinsa leitarferil og biðminni
+    Are you sure you want to clear out your search history and cache?: Ertu viss um
+      að þú viljir hreinsa leitarferilinn þinn og biðminnið?
+    Search history and cache have been cleared: Leitarferill og biðminni hafa verið
+      hreinsuð
+    Remember Search History: Muna leitarferil
   Subscription Settings:
     Subscription Settings: 'Áskrift'
     Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
@@ -1160,6 +1166,7 @@ Default Invidious instance has been set to {instance}: Sjálfgefið Invidious-ti
   hefur verið stillt sem {instance}
 Search Bar:
   Clear Input: Hreinsa reit
+  Remove: Fjarlægja
 External link opening has been disabled in the general settings: Opnun ytri tengla
   hefur verið gerð óvirk í almennum stillingum
 Are you sure you want to open this link?: Ertu viss um að þú viljir opna þennan tengil?
