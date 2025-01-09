@@ -273,8 +273,8 @@ Settings:
     трэба перазапусціць, каб змены ўступілі ў сілу. Перазапусціць і прымяніць змены?'
   General Settings:
     General Settings: 'Агульныя'
-    Check for Updates: 'Праверыць наяўнасць абнаўленняў'
-    Check for Latest Blog Posts: 'Праверыць апошнія паведамленні ў блогу'
+    Check for Updates: 'Правяраць наяўнасць абнаўленняў'
+    Check for Latest Blog Posts: 'Правяраць апошнія паведамленні ў блогу'
     Fallback to Non-Preferred Backend on Failure: 'Вяртанне да непераважнага бэкэнда
       ў выпадку няўдачы'
     Enable Search Suggestions: 'Уключыць прапановы пошуку'
@@ -497,7 +497,7 @@ Settings:
     Subscription Settings: 'Падпіскі'
     Hide Videos on Watch: 'Хаваць відэа пасля прагляду'
     Fetch Feeds from RSS: 'Атрымліваць стужкі з RSS'
-    Fetch Automatically: 'Аўтаматычна атрымліваць стужку'
+    Fetch Automatically: 'Атрымліваць стужку аўтаматычна'
     Confirm Before Unsubscribing: Пацвердзіце перад тым як адпісацца
   Distraction Free Settings:
     Distraction Free Settings: 'Адцягненне ўвагі'
@@ -512,7 +512,7 @@ Settings:
     Hide Channel Subscribers: 'Хаваць падпісчыкаў каналу'
     Hide Comment Likes: 'Хаваць лайкі да каментарыяў'
     Hide Recommended Videos: 'Хаваць рэкамендаваныя відэа'
-    Hide Trending Videos: 'Схаваць трэндавыя відэа'
+    Hide Trending Videos: 'Хаваць відэа ў трэндзе'
     Hide Popular Videos: 'Хаваць папулярныя відэа'
     Hide Playlists: 'Хаваць плэй-лісты'
     Hide Live Chat: 'Хаваць жывы чат'
@@ -636,10 +636,10 @@ Settings:
     Show Family Friendly Only: 'Паказаць толькі для сямейнага прагляду'
     Hide Search Bar: 'Хаваць панэль пошуку'
   Download Settings:
-    Download Settings: 'Спампоўка'
-    Ask Download Path: 'Пытаць шлях спампоўкі'
+    Download Settings: 'Спампоўванне'
+    Ask Download Path: 'Пытаць шлях спампоўвання'
     Choose Path: 'Выберыце шлях'
-    Download Behavior: 'Паводзіны спампоўкі'
+    Download Behavior: 'Паводзіны для спампоўвання'
     Download in app: 'Спампоўваць у праграме'
     Open in web browser: 'Адкрываць у вэб-браўзеры'
   Experimental Settings:
@@ -663,7 +663,7 @@ About:
   About: 'Пра FreeTube'
   Beta: 'Бэта-версія'
   Source code: 'Зыходны код'
-  Downloads / Changelog: 'Спампоўкі / Журнал змяненняў'
+  Downloads / Changelog: 'Спампоўванне / Журнал змяненняў'
   GitHub releases: 'Выпускі GitHub'
   Help: 'Даведка'
   FreeTube Wiki: 'FreeTube Вікі'
@@ -680,7 +680,7 @@ About:
   Chat on Matrix: 'Чат у Matrix'
   Please read the: 'Прачытайце'
   room rules: 'правілы пакоя'
-  Translate: 'Перакласці'
+  Translate: 'Пераклад'
   Credits: 'Удзельнікі'
   FreeTube is made possible by: 'FreeTube стаў магчымым дзякуючы'
   these people and projects: 'гэтым людзям і праектам'
@@ -1114,9 +1114,9 @@ Default Invidious instance has been cleared: 'Экземпляр Invidious па 
   працягнуць прайграванне, уключыце цыкл'
 External link opening has been disabled in the general settings: 'Адкрыццё вонкавых
   спасылак было адключана ў агульных наладах'
-Downloading has completed: 'Спампоўка "{videoTitle}" скончана'
-Starting download: 'Пачатак спампоўкі "{videoTitle}"'
-Downloading failed: 'Узнікла праблема спампоўкі "{videoTitle}"'
+Downloading has completed: 'Спампоўванне «{videoTitle}» завершана'
+Starting download: 'Пачалося спампоўванне «{videoTitle}»'
+Downloading failed: 'Узнікла праблема са спампоўваннем «{videoTitle}»'
 Screenshot Success: 'Здымак захаваны як "{filePath}"'
 Screenshot Error: 'Здымак не ўдаўся. {error}'
 
@@ -1145,7 +1145,7 @@ Cancel: Адмена
 checkmark: ✓
 Close Banner: Закрыць банер
 Go to page: Перайсці да {page}
-Moments Ago: хвіліны таму
+Moments Ago: толькі што
 Yes, Restart: Так, перазапусціць
 Yes, Open Link: Так, адкрыць спасылку
 Tag already exists: Цэтлік "{tagName}" ужо існуе
