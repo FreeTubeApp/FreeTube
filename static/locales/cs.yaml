@@ -458,7 +458,7 @@ Settings:
     Autoplay Interruption Timer: Čas přerušení automatického přehrávání
   Privacy Settings:
     Privacy Settings: 'Soukromí'
-    Remember History: 'Zapamatovat historii'
+    Remember History: 'Zapamatovat historii sledování'
     Save Watched Progress: 'Uložit průběh zhlédnutých videí'
     Clear Search Cache: 'Vymazat mezipaměť vyhledávání'
     Are you sure you want to clear out your search cache?: 'Opravdu chcete vymazat
@@ -477,6 +477,12 @@ Settings:
     Remove All Playlists: Odstranit všechny playlisty
     Are you sure you want to remove all your playlists?: Opravdu chcete odstranit
       všechny své playlisty?
+    Remember Search History: Zapamatovat historii vyhledávání
+    Are you sure you want to clear out your search history and cache?: Opravdu chcete
+      vymazat svou historii a mezipaměť vyhledávání?
+    Clear Search History and Cache: Vymazat historii a mezipaměť vyhledávání
+    Search history and cache have been cleared: Historie a mezipaměť vyhledávání byly
+      vymazány
   Subscription Settings:
     Subscription Settings: 'Odběry'
     Hide Videos on Watch: 'Skrýt přehraná videa'
@@ -1121,6 +1127,7 @@ Default Invidious instance has been set to {instance}: Výchozí instance Invidi
   byla nastavena na {instance}
 Search Bar:
   Clear Input: Vymazat
+  Remove: Odstranit
 External link opening has been disabled in the general settings: Otevírání externích
   odkazů bylo zakázáno v obecných nastaveních
 Are you sure you want to open this link?: Opravdu chcete otevřít tento dokaz?
