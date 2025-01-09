@@ -92,11 +92,15 @@
           :placeholder="$t('Search / Go to URL')"
           class="searchInput"
           :is-search="true"
-          :data-list="searchSuggestionsDataList"
+          :data-list="activeDataList"
+          :data-list-properties="activeDataListProperties"
           :spellcheck="false"
           :show-clear-text-button="true"
+          :show-data-when-empty="true"
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
+          @clear="() => lastSuggestionQuery = ''"
+          @remove="removeSearchHistoryEntryInDbAndCache"
         />
         <font-awesome-icon
           class="navFilterIcon navIcon"

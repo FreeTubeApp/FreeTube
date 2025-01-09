@@ -939,7 +939,7 @@ function setMultiplePublishedTimestamps(videos) {
  */
 function setPublishedTimestamp(video) {
   if (video.liveNow) {
-    video.published = new Date().getTime()
+    video.published = Date.now()
   } else if (video.isUpcoming) {
     video.published = video.premiereTimestamp * 1000
   } else if (typeof video.published === 'number') {

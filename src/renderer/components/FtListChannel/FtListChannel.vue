@@ -74,7 +74,7 @@
 <script setup>
 import { computed } from 'vue'
 
-import FtSubscribeButton from '../ft-subscribe-button/ft-subscribe-button.vue'
+import FtSubscribeButton from '../FtSubscribeButton/FtSubscribeButton.vue'
 
 import store from '../../store/index'
 

@@ -33,6 +33,7 @@ Forward: 'Naprej'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videoposnetki'
+  Sort By: 'Razvrstitev'
 
 Version {versionNumber} is now available!  Click for more details: 'Na voljo je različica
   {versionNumber}!·  Za več podrobnosti kliknite tukaj'
@@ -46,7 +47,6 @@ Search / Go to URL: 'Išči/pojdi na URL naslov'
 Search Filters:
   Search Filters: 'Iskalni filtri'
   Sort By:
-    Sort By: 'Razvrstitev'
     Most Relevant: 'Ustreznost'
     Rating: 'Ocena'
     Upload Date: 'Datum nastanka'
@@ -81,12 +81,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Naročnine'
-  Latest Subscriptions: 'Najnovejše naročnine'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaš
     seznam naročnin je trenutno prazen. Začnite dodajati naročnine, da jih boste videli
     tukaj.'
-  'Getting Subscriptions. Please wait.': 'Pridobivamo naročnine. Prosimo, počakajte.'
-  Refresh Subscriptions: 'Osveži naročnine'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ta
     profil ima veliko količino naročnin.· Da bi se izognili omejitvi hitrosti, bo
     uporabljen RSS
@@ -243,7 +240,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Razmik med videoposnetki v seznamu predvajanja
     Screenshot:
       File Name Tooltip: Spodaj lahko uporabite spremenljivke. %Y leto 4 števke. %M
         mesec 2 števki. %D dan 2 števki. %H ura 2 števki. %N minuta 2 števki. %S sekunda
@@ -288,7 +284,6 @@ Settings:
     Fetch Feeds from RSS: 'Pridobi vire iz RSS'
   Data Settings:
     Data Settings: 'Podatkovne nastavitve'
-    Select Import Type: 'Izberi uvozno obliko'
     Select Export Type: 'Izberi izvozno obliko'
     Import Subscriptions: 'Uvozi naročnine'
     Export Subscriptions: 'Izvozi naročnine'
@@ -409,7 +404,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Ste prepričani, da želite izbrisati
     ta profil?'
   All subscriptions will also be deleted.: 'Izbrisane bodo tudi vse naročnine.'
-  Profile could not be found: 'Profila ni bilo mogoče najti'
   Your profile name cannot be empty: 'Ime profila ne sme biti prazno'
   Profile has been created: 'Profil je bil ustvarjen'
   Profile has been updated: 'Profil je bil posodobljen'
@@ -447,7 +441,6 @@ Channel:
   Added channel to your subscriptions: 'Kanal je bil dodan v vaše naročnine'
   Search Channel: 'Preišči kanal'
   Your search results have returned 0 results: 'Najdenih ni bilo nobenih rezultatov'
-  Sort By: 'Razvrstitev'
   Videos:
     Videos: 'Videoposnetki'
     This channel does not currently have any videos: 'Ta kanal trenutno nima nobenih
@@ -496,8 +489,6 @@ Video:
   Enable Live Chat: 'Vklopi klepet v živo'
   Live Chat is currently not supported in this build.: 'Klepet v živo v tej različici
     trenutno ni podprt.'
-  'Chat is disabled or the Live Stream has ended.': 'Ali je klepet izklopljen ali
-    pa se je neposredni prenos že končal.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Pogovor v živo
     je vklopljen.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Klepet
@@ -520,12 +511,6 @@ Video:
     seznama
   Video has been saved: Videoposnetek je bil shranjen
   Save Video: Shrani videoposnetek
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Najnovejši'
-    Oldest: 'Najstarejši'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -568,7 +553,6 @@ Comments:
   Getting comment replies, please wait: 'Pridobivanje odgovorov na komentar. Prosimo,
     počakajte'
   There are no more comments for this video: 'Za ta posnetek ni več komentarjev'
-  Show Comments: 'Prikaži komentarje'
   Hide Comments: 'Skrij komentarje'
   # Context: View 10 Replies, View 1 Reply
   View: 'Pokaži'
@@ -579,8 +563,6 @@ Comments:
   Load More Comments: 'Naloži več komentarjev'
   Newest first: Najnovejši komentarji
   Top comments: Najbolje ocenjeni komentarji
-  Sort by: Razvrstitev
-  No more comments available: Ni več komentarjev
   Show More Replies: Pokaži več odgovorov
   Member: Član
 Up Next: 'Naslednje na sporedu'

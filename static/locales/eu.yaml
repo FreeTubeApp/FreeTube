@@ -43,9 +43,8 @@ Global:
     Comment Count: Iruzkin 1 | {count} iruzkin
   Live: Zuzenekoa
   Shorts: Laburrak
-  Input Tags:
-    Length Requirement: Etiketak {number} karaktere izan behar ditu gutxienez
   Community: Komunitatea
+  Sort By: Honen arabera ordenatu
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   bertsioa erabilgarri! Klikatu azalpen gehiagorako'
 Download From Site: 'Webgunetik jaitsi'
@@ -58,7 +57,6 @@ Search / Go to URL: 'Bilatu / Helbidera joan'
 Search Filters:
   Search Filters: 'Bilaketa iragazkiak'
   Sort By:
-    Sort By: 'Ordenatze irizpidea'
     Most Relevant: 'Egokitasuna'
     Rating: 'Balorazioa'
     Upload Date: 'Igoera data'
@@ -105,15 +103,12 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Harpidetzak'
-  Latest Subscriptions: 'Azken harpidetzak'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Honako
     profilak harpidetza anitz ditu. RSS behartu abiadura muga saihesteko'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Zure
     harpidetza-zerrenda hutsik dago. Zure harpidetzak inportatu nahi badituzu, Datuen
     konfigurazioa atalera joan eta Inportaziorako harpidetzak aukera ditzakezu, edo
     kanal bat bilatu eta harpidetza egin dezakezu.'
-  'Getting Subscriptions. Please wait.': 'Harpidetzak eskuratzen. Itxaron mesedez.'
-  Refresh Subscriptions: 'Harpidetzak freskatu'
   Load More Videos: 'Bideo gehiago kargatu'
   Error Channels: Akatsak dituzten kateak
   Disabled Automatic Fetching: Harpidetza-bilaketa automatikoa desgaitu duzu. Freskatu
@@ -176,7 +171,6 @@ User Playlists:
     EarliestCreatedFirst: Lehenen sortuak
     LatestPlayedFirst: Duela gutxi erreproduzitua
     EarliestPlayedFirst: Lehenen erreproduzitua
-    Sort By: Ordenatu honen arabera
     NameAscending: A-Z
     EarliestUpdatedFirst: Lehenen eguneratuak
     LatestUpdatedFirst: Eguneratu berriak
@@ -213,8 +207,6 @@ User Playlists:
       This playlist does not exist: Erreprodukzio-zerrenda hau ez da existitzen
       This playlist is already being used for quick bookmark.: Erreprodukzio-zerrenda
         hau laster-markak egiteko erabiltzen ari da dagoeneko.
-      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
-        erreprodukzio-zerrenda laster-marken erreprodukzio-zerrenda azkarra da.'
       This playlist has a video with a duration error: Erreprodukzio-zerrenda honek
         iraupenik ez duen bideo bat du gutxienez. Hortaz, zero balitz bezala sailkatuko
         da.
@@ -339,6 +331,7 @@ Settings:
       Solarized Light: Solarizatu argia
       Gruvbox Dark: Gruvbox Iluna
       Gruvbox Light: Gruvbox Argia
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Oinarrizko koloreen gaia'
       Red: 'Gorria'
@@ -396,6 +389,20 @@ Settings:
       Gruvbox Light Purple: Gruvbox Ubel Argia
       Gruvbox Dark Blue: Gruvbox Urdin Iluna
       Gruvbox Dark Green: Gruvbox Berde Iluna
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Red: Catppuccin Frappe Gorria
+      Catppuccin Frappe Peach: Catppuccin Frappe Mertxika
+      Catppuccin Frappe Green: Catppuccin Frappe Berdea
+      Catppuccin Frappe Teal: Catppuccin Frappe Zertzeta
+      Catppuccin Frappe Sky: Catppuccin Frappe Zerua
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Zafiroa
+      Catppuccin Frappe Blue: Catppuccin Frappe Urdina
+      Catppuccin Frappe Lavender: Catppuccin Frappe Izpilikua
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Urlarrosa
+      Catppuccin Frappe Mauve: Catppuccin Frappe Ubela
+      Catppuccin Frappe Pink: Catppuccin Frappe Larrosa
+      Catppuccin Frappe Maroon: Catppuccin Frappe Marroia
+      Catppuccin Frappe Yellow: Catppuccin Frappe Horia
     Secondary Color Theme: 'Gaiaren bigarren mailako kolorea'
         #* Main Color Theme
     Hide Side Bar Labels: Ezkutatu alboko barraren etiketak
@@ -531,9 +538,9 @@ Settings:
     Hide Channels Disabled Message: Kanal batzuk IDa erabiliz blokeatu dira eta ez
       dira prozesatu. Eginbidea blokeatuta dago ID horiek eguneratzen ari diren bitartean
     Hide Channel Home: Ezkutatu kanala "Hasierako" fitxa
+    Show Added Items: Erakutsi gehitutako elementuak
   Data Settings:
     Data Settings: 'Datuak'
-    Select Import Type: 'Hautatu Inportazio mota'
     Select Export Type: 'Hautatu esportazio mota'
     Import Subscriptions: 'Harpidetzak inportatu'
     Export Subscriptions: 'Harpidetzak esportatu'
@@ -648,8 +655,6 @@ Settings:
     Hide Search Bar: Bilaketa barra ezkutatu
   Password Dialog:
     Password: Pasahitza
-    Password Incorrect: Pasahitza okerra
-    Unlock: Desblokeatu
     Enter Password To Unlock: Sartu pasahitza ezarpenak desblokeatzeko
   Experimental Settings:
     Replace HTTP Cache: Ordeztu HTTP cachea
@@ -710,7 +715,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Ziur al zaude profil hau ezabatu
     nahi duzula?'
   All subscriptions will also be deleted.: 'Harpidetza guztiak ere ezabatuko dira.'
-  Profile could not be found: 'Ezin izan da profila aurkitu'
   Your profile name cannot be empty: 'Zure profilaren izena ezin da hutsik egon'
   Profile has been created: 'Profila ongi eratu da'
   Profile has been updated: 'Profila ongi eguneratu da'
@@ -753,7 +757,6 @@ Channel:
   Added channel to your subscriptions: 'Kanala zure harpidetzetara gehitu da'
   Search Channel: 'Kanala bilatu'
   Your search results have returned 0 results: 'Zure bilaketak 0 emaitza lortu ditu'
-  Sort By: 'Ordenatu honen arabera'
   Videos:
     Videos: 'Bideoak'
     This channel does not currently have any videos: 'Kanal honek ez du bideorik'
@@ -851,8 +854,6 @@ Video:
   Enable Live Chat: 'Zuzeneko txata aktibatu'
   Live Chat is currently not supported in this build.: 'Zuzeneko txata ez da oraindik
     onartzen konpilazio honetan.'
-  'Chat is disabled or the Live Stream has ended.': 'Txata desgaituta dago edo zuzeneko
-    igorpena amaitu da.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Zuzeneko txata
     gaituta dago. Txat-mezuak bidalitakoan hemen agertuko dira.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Zuzeneko
@@ -891,7 +892,6 @@ Video:
     recap: Laburpen
     filler: Betegarria
     intro: Sarrera
-  Premieres on: Estreinaldiak
   Hide Channel: Kanala ezkutatu
   Unhide Channel: Kanala erakutsi
   Premieres: Estreinaldiak
@@ -942,12 +942,9 @@ Video:
   DeArrow:
     Show Original Details: Erakutsi jatorrizko xehetasunak
     Show Modified Details: Erakutsi aldatutako xehetasunak
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Berriena'
-    Oldest: 'Zaharrena'
-    #& Most Popular
+  DRMProtected: DRM babestutako bideoak ezin dira erreproduzitu FreeTube-n, kode itxiko
+    osagai jabedunak behar baitituzte. Bideo hau ikusi nahi baduzu, ikusi YouTube
+    webgune ofizialean DRM gaituta duen web arakatzaile batean.
 #& Playlists
 Playlist:
   #& About
@@ -959,7 +956,6 @@ Playlist:
 #& Views
   Playlist: Erreprodukzio-zerrenda
   Sort By:
-    Sort By: Honen arabera ordenatu
     DateAddedNewest: Azken gehitua lehenengo
     Custom: Pertsonalizatua
     DateAddedOldest: Lehenago gehitutakoak lehenengo
@@ -969,6 +965,8 @@ Playlist:
     AuthorDescending: Egilea (Z-A)
     VideoDurationDescending: Iraupena (luzeenetik laburrenera)
     VideoDurationAscending: Iraupena (laburrenetik luzeenera)
+    PublishedNewest: Argitaratutako azkenak lehenik
+    PublishedOldest: Argitaratutako lehenak lehenik
 Change Format:
   Change Media Formats: 'Bideoen formatuak aldatu'
   Use Dash Formats: 'DASH formatuak erabili'
@@ -1008,9 +1006,7 @@ Comments:
   Getting comment replies, please wait: 'Iruzkinen erantzunak eskuratzen. Itxaron
     mesedez'
   There are no more comments for this video: 'Ez dago iruzkin gehiagorik bideo honentzat'
-  Show Comments: 'Iruzkinak erakutsi'
   Hide Comments: 'Iruzkinak ezkutatu'
-  Sort by: 'Honen arabera sailkatuta'
   Top comments: 'Iruzkin nagusiak'
   Newest first: 'Berrienak lehenik'
   # Context: View 10 Replies, View 1 Reply
@@ -1021,7 +1017,6 @@ Comments:
   There are no comments available for this video: 'Ez da iruzkin eskuragarririk bideo
     honentzat'
   Load More Comments: 'Iruzkin gehiago kargatu'
-  No more comments available: 'Iruzkin eskuragarri gehiagorik ez'
   Member: Kide
   Show More Replies: Erantzun gehiago erakutsi
   And others: eta bestelakoak
@@ -1152,7 +1147,7 @@ Downloading has completed: '"{videoTitle}" deskargatu egin da'
 Unknown YouTube url type, cannot be opened in app: Youtube-ko URL mota ezezaguna,
   ezin da aplikazioan ireki
 Downloading failed: Akats bat gertatu da "{videoTitle}" deskargatzerakoan
-Screenshot Success: Pantaila-argazkia gode da "{filePath}" gisa
+Screenshot Success: Pantaila-argazkia gode da
 Screenshot Error: Pantaila-argazkiak huts egin du. {error}
 Starting download: '"{videoTitle}"-ren deskarga abiatzen'
 New Window: Leiho berria
@@ -1226,6 +1221,9 @@ Keys:
   arrowdown: Gezia behera
   alt: Alt
   ctrl: Ctrl
+  shift: Txanda
+  enter: Sartu
+  plus: Gehi
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Right-click or hold to see history: Egin klik eskuineko botoiarekin edo mantendu sakatuta
@@ -1235,3 +1233,58 @@ Autoplay Interruption Timer: Erreprodukzio automatikoa bertan behera utzi da {au
 Description:
   Collapse Description: Gutxiago erakutsi
   Expand Description: '...gehiago'
+KeyboardShortcutPrompt:
+  Skip by Tenths: Saltatu bideoa ehunekoaren arabera (3 jauzi iraupenaren %30era iristeko)
+  New Window: Sortu leiho berri bat
+  Navigate to Settings: Nabigatu Ezarpenak orrialdera
+  Navigate to History: Nabigatu Historia orrialdera
+  Refresh: Freskatu jarioa azken edukiarekin
+  Volume Down: Bolumena jaitsi
+  Small Rewind: Birbobinatu X segundo Atzerako tartean eta uneko bideo-erreprodukzio-tasaren
+    arabera
+  Small Fast Forward: Aurrera egin X segundo Atzerako tartean eta uneko bideo-erreprodukzio-tasaren
+    arabera
+  Last Chapter: Azken Atala
+  Next Chapter: Hurrengo Atala
+  Captions: Txandakatu ON/OFF epigrafeak
+  Stats: Erakutsi bideoaren estatistikak
+  Fullscreen: Aldatu pantaila osora
+  History Forward: Egin orrialde bat aurrera
+  Focus Secondary Search: Bigarren mailako bilaketa-barran zentratu (bat badago)
+  Play: Txandakatu erreproduzitu/gelditu
+  Large Fast Forward: Egin aurrera 10 segundo / Egin aurrera bideoa egungo bideoaren
+    erreprodukzio tasan oinarrituta
+  Large Rewind: Birbobinatu 10 segundo / Birbobinatu bideoa uneko bideo-erreprodukzio
+    tasan oinarrituta
+  Full Window: Aldatu leiho osora
+  Theatre Mode: Aldatu antzerki modura
+  Decrease Video Speed: Murriztu bideoaren abiadura bideoaren erreprodukzio-tasa-tartearen
+    arabera
+  Increase Video Speed: Handitu bideoaren abiadura bideoaren erreprodukzio tasaren
+    tartean oinarrituta
+  Search in New Window: Bilatu leiho berrian
+  Last Frame: Aurreko fotograma (geldituta dagoen bitartean)
+  Next Frame: Hurrengo fotograma (geldituta dagoen bitartean)
+  Volume Up: Bolumena igo
+  Restart Window: Berrabiarazi leihoa
+  Force Restart Window: Behartu leihoaren berrabiaraztea
+  Toggle Developer Tools: Aldatu garatzailearen tresnak
+  Reset Zoom: Berrezarri zoom maila / Erabiltzaile Interfazearen eskala
+  Zoom In: Zoom-a handitu
+  Zoom Out: Zoom-a txikitu
+  Focus Search: Fokuratu bilaketa-barran
+  Keyboard Shortcuts: Teklatuko laster-bideak
+  Sections:
+    Video:
+      Playback: 'Bideoa: Erreprodukzioa'
+      General: 'Bideoa: Orokorra'
+    App:
+      Situational: 'App: Egoera mailakoa'
+      General: 'App: Orokorra'
+  Picture in Picture: Aldatu irudian-irudian modura
+  Mute: Aldatu mutu
+  Take Screenshot: Hartu pantaila-argazkia
+  Minimize Window: Minimizatu leihoa
+  Close Window: Itxi leihoa
+  Show Keyboard Shortcuts: Erakutsi teklatuko laster-bideak
+  History Backward: Egin orrialde bat atzera

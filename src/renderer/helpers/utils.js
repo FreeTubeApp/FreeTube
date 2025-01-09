@@ -30,6 +30,7 @@ export function getIconForSortPreference(sortPreference) {
     case 'latest_created_first':
     case 'latest_played_first':
     case 'date_added_descending':
+    case 'published_descending':
     case 'last':
     case 'newest':
     case 'popular':
@@ -40,6 +41,7 @@ export function getIconForSortPreference(sortPreference) {
     case 'earliest_created_first':
     case 'earliest_played_first':
     case 'date_added_ascending':
+    case 'published_ascending':
     case 'oldest':
     default:
       // quantity ascending
@@ -54,16 +56,16 @@ export function getIconForSortPreference(sortPreference) {
  * @param {Date|undefined} premiereDate
  */
 export function calculatePublishedDate(publishedText, isLive = false, isUpcoming = false, premiereDate = undefined) {
-  const date = new Date()
+  const now = Date.now()
 
   if (isLive) {
-    return date.getTime()
+    return now
   } else if (isUpcoming) {
     if (premiereDate) {
       return premiereDate.getTime()
     } else {
       // should never happen but just to be sure that we always return a number
-      return date.getTime()
+      return now
     }
   }
 
@@ -95,7 +97,7 @@ export function calculatePublishedDate(publishedText, isLive = false, isUpcoming
     timeSpan = timeAmount * 31556952000
   }
 
-  return date.getTime() - timeSpan
+  return now - timeSpan
 }
 
 /**
@@ -614,7 +616,7 @@ export function getVideoParamsFromUrl(url) {
   const paramsObject = { videoId: null, timestamp: null, playlistId: null }
   try {
     urlObject = new URL(url)
-  } catch (e) {
+  } catch {
     return paramsObject
   }
 
@@ -756,7 +758,7 @@ export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayM
     return ''
   }
 
-  const now = new Date().getTime()
+  const now = Date.now()
   // Convert from ms to second
   // For easier code interpretation the value is made to be positive
   let timeDiffFromNow = ((now - date) / 1000)

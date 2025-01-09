@@ -194,6 +194,7 @@ export default defineComponent({
         this.grabHistory()
         this.grabAllPlaylists()
         this.grabAllSubscriptions()
+        this.grabSearchHistoryEntries()
 
         if (process.env.IS_ELECTRON) {
           ipcRenderer = require('electron').ipcRenderer
@@ -352,7 +353,8 @@ export default defineComponent({
     },
 
     handleKeyboardShortcuts: function (event) {
-      if (event.shiftKey && event.key === '?') {
+      // ignore user typing in HTML `input` elements
+      if (event.shiftKey && event.key === '?' && event.target.tagName !== 'INPUT') {
         this.$store.commit('setIsKeyboardShortcutPromptShown', !this.isKeyboardShortcutPromptShown)
       }
 
@@ -579,6 +581,7 @@ export default defineComponent({
       'grabHistory',
       'grabAllPlaylists',
       'grabAllSubscriptions',
+      'grabSearchHistoryEntries',
       'getYoutubeUrlInfo',
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',

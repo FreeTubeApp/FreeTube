@@ -36,6 +36,7 @@ Global:
   Shorts: Stuttmyndir
   Live: Í beinni
   Community: Samfélag
+  Sort By: Raða eftir
 
   Counts:
     Video Count: 1 myndskeið | {count} myndskeið
@@ -45,8 +46,6 @@ Global:
     Watching Count: 1 að horfa | {count} að horfa
     Like Count: 1 líkaði | {count} líkaði
     Comment Count: 1 athugasemd | {count} athugasemdir
-  Input Tags:
-    Length Requirement: Merki þarf að vera a.m.k. {number} stafa langt
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber}
   er tiltæk!  Smelltu til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'
@@ -59,7 +58,6 @@ Search / Go to URL: 'Leita / Fara á slóð'
 Search Filters:
   Search Filters: 'Leitarsíur'
   Sort By:
-    Sort By: 'Raða eftir'
     Most Relevant: 'Mest viðeigandi'
     Rating: 'Einkunn'
     Upload Date: 'Dags. innsendingar'
@@ -107,7 +105,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Áskriftir'
-  Latest Subscriptions: 'Síðustu áskriftir'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Þetta
     notkunarsnið er með mikinn fjölda áskrifta. Þvinga notkun á RSS til að forðast
     takmarkanir á magni'
@@ -115,8 +112,6 @@ Subscriptions:
     með áskriftum er tómur í augnablikinu. Ef þú vilt flytja inn áskriftirnar þínar,
     geturðu farið í stillingar gagna og valið ''Flytja inn áskriftir'' eða leitað
     að rás og gerst áskrifandi að henni.'
-  'Getting Subscriptions. Please wait.': 'Sæki áskriftir. Hinkraðu aðeins.'
-  Refresh Subscriptions: 'Endurlesa áskriftir'
   Load More Videos: 'Hlaða inn fleiri myndskeiðum'
   Error Channels: Hugbúnaðarrásir með villum
   Disabled Automatic Fetching: Þú hefur gert sjálfvirkt niðurhal áskrifta óvirkt.
@@ -152,7 +147,6 @@ User Playlists:
   Cancel: Hætta við
   Edit Playlist Info: Breyta upplýsingum spilunarlista
   Sort By:
-    Sort By: Raða eftir
     NameDescending: Ö-A
     LatestCreatedFirst: Nýlega útbúið
     EarliestCreatedFirst: Fyrst búið til
@@ -191,8 +185,6 @@ User Playlists:
         Smelltu hér til að afturkalla
       Reverted to use {oldPlaylistName} for quick bookmark: Snéri aftur í að nota
         {oldPlaylistName} undir flýtibókamerki
-      Playlist {playlistName} is the new quick bookmark playlist.: Spilunarlistinn
-        {playlistName} er nýi spilunarlistinn með flýtibókamerkjum.
       This playlist is already being used for quick bookmark.: Þessi spilunarlisti
         er nú þegar notaður undir flýtibókamerki.
       This playlist has a video with a duration error: Spilunarlistinn inniheldur
@@ -337,6 +329,7 @@ Settings:
       Solarized Light: Sólaríserað ljóst
       Gruvbox Dark: Gruvbox dökkt
       Gruvbox Light: Gruvbox ljóst
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -371,7 +364,7 @@ Settings:
       Catppuccin Mocha Teal: Catppuccin Mocha sægrænt
       Catppuccin Mocha Sky: Catppuccin Mocha himinblátt
       Catppuccin Mocha Blue: Catppuccin Mocha blátt
-      Catppuccin Mocha Lavender: Catppuccin Mocha lavender
+      Catppuccin Mocha Lavender: Catppuccin Mocha lavander
       Catppuccin Mocha Pink: Catppuccin Mocha bleikt
       Catppuccin Mocha Peach: Catppuccin Mocha ferskju
       Catppuccin Mocha Yellow: Catppuccin Mocha gult
@@ -394,6 +387,20 @@ Settings:
       Gruvbox Dark Orange: Gruvbox dökkappelsínugult
       Gruvbox Dark Blue: Gruvbox dökkblátt
       Gruvbox Dark Purple: Gruvbox dökkfjólublátt
+      Catppuccin Frappe Lavender: Catppuccin Frappe lavander
+      Catppuccin Frappe Rosewater: Catppuccin Frappe rósavatn
+      Catppuccin Frappe Flamingo: Catppuccin Frappe flamingó
+      Catppuccin Frappe Pink: Catppuccin Frappe bleikt
+      Catppuccin Frappe Mauve: Catppuccin Frappe lillablátt
+      Catppuccin Frappe Red: Catppuccin Frappe rautt
+      Catppuccin Frappe Maroon: Catppuccin Frappe kastaníubrúnt
+      Catppuccin Frappe Peach: Catppuccin Frappe ferskju
+      Catppuccin Frappe Yellow: Catppuccin Frappe gult
+      Catppuccin Frappe Green: Catppuccin Frappe grænt
+      Catppuccin Frappe Teal: Catppuccin Frappe sægrænt
+      Catppuccin Frappe Sky: Catppuccin Frappe himinblátt
+      Catppuccin Frappe Sapphire: Catppuccin Frappe safír
+      Catppuccin Frappe Blue: Catppuccin Frappe blátt
     Secondary Color Theme: 'Aukalitur þema'
         #* Main Color Theme
     Hide Side Bar Labels: Fela skýringar á hliðarstiku
@@ -405,7 +412,6 @@ Settings:
     Autoplay Videos: 'Spila myndskeið sjálfkrafa'
     Proxy Videos Through Invidious: 'Beina myndskeiðum í gegnum Invidious-milliþjón'
     Autoplay Playlists: 'Spila spilunarlista sjálfkrafa'
-    Playlist Next Video Interval: 'Millibil afspilunar næsta myndskeiðs í spilunarlista'
     Default Volume: 'Sjálfgefinn hljóðstyrkur'
     Default Playback Rate: 'Sjálfgefinn afspilunarhraði'
     Default Video Format:
@@ -472,6 +478,12 @@ Settings:
     Are you sure you want to remove all your playlists?: Ertu viss um að þú viljir
       fjarlægja alla spilunarlistana þína?
     All playlists have been removed: Allir spilunarlistar hafa verið fjarlægðir
+    Clear Search History and Cache: Hreinsa leitarferil og biðminni
+    Are you sure you want to clear out your search history and cache?: Ertu viss um
+      að þú viljir hreinsa leitarferilinn þinn og biðminnið?
+    Search history and cache have been cleared: Leitarferill og biðminni hafa verið
+      hreinsuð
+    Remember Search History: Muna leitarferil
   Subscription Settings:
     Subscription Settings: 'Áskrift'
     Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
@@ -534,7 +546,6 @@ Settings:
     Show Added Items: Sýna atriði sem bætt hefur verið við
   Data Settings:
     Data Settings: 'Gögn'
-    Select Import Type: 'Veldu tegund innflutnings'
     Select Export Type: 'Veldu tegund útflutnings'
     Import Subscriptions: 'Flytja inn áskriftir'
     Export Subscriptions: 'Flytja út áskriftir'
@@ -652,9 +663,7 @@ Settings:
     Replace HTTP Cache: Skipta út HTTP-skyndiminni
   Password Dialog:
     Password: Lykilorð
-    Password Incorrect: Rangt lykilorð
     Enter Password To Unlock: Settu inn lykilorð til að aflæsa stillingum
-    Unlock: Aflæsa
   Password Settings:
     Set Password To Prevent Access: Settu lykilorð til að hindra aðgang að stillingum
     Set Password: Setja lykilorð
@@ -709,7 +718,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Ertu viss um að þú viljir eyða þessu
     notkunarsniði?'
   All subscriptions will also be deleted.: 'Öllum áskriftum verður einnig eytt.'
-  Profile could not be found: 'Notkunarsnið fannst ekki'
   Your profile name cannot be empty: 'Nafn notkunarsniðsins má ekki vera tómt'
   Profile has been created: 'Notkunarsnið hefur verið útbúið'
   Profile has been updated: 'Notkunarsnið hefur verið uppfært'
@@ -752,7 +760,6 @@ Channel:
   Added channel to your subscriptions: 'Bætti rás í áskriftirnar þínar'
   Search Channel: 'Leita á rás'
   Your search results have returned 0 results: 'Leitin skilaði 0 niðurstöðum'
-  Sort By: 'Raða eftir'
   Videos:
     Videos: 'Myndskeið'
     This channel does not currently have any videos: 'Þessi rás er ekki með nein myndskeið'
@@ -847,8 +854,6 @@ Video:
   Enable Live Chat: 'Virkja spjall í beinni'
   Live Chat is currently not supported in this build.: 'Spjall í beinni er ekki stutt
     í þessari byggingarútgáfu.'
-  'Chat is disabled or the Live Stream has ended.': 'Spjall er óvirkt eða að beinu
-    streymi er lokið.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Beint spjall er
     virkt. Skilaboð spjallsins munu birtast hér.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Spjall
@@ -887,8 +892,6 @@ Video:
     playlist: spilunarlisti
     video: myndskeið
     OpenInTemplate: Opna í {externalPlayer}
-  Premieres on: Frumsýnt
-  Premieres in: Frumsýnt eftir
   Premieres: Frumsýnt
   Show Super Chat Comment: Birta athugasemd Super Chat
   Scroll to Bottom: Skruna neðst
@@ -940,12 +943,10 @@ Video:
   DeArrow:
     Show Original Details: Birta upprunalegar nánari upplýsingar
     Show Modified Details: Birta breyttar nánari upplýsingar
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Nýjast'
-    Oldest: 'Elst'
-    #& Most Popular
+  DRMProtected: Ekki er hægt að spila DRM-varin myndskeið í FreeTube, þar sem þau
+    krefjast notkunar lokaðs séreignarhugbúnaðar. Ef þú vilt endilega horfa á þetta
+    myndskeið, skaltu gera það á opinbera YouTube-vefsvæðinu í vafra með uppsettum
+    DRM-hugbúnaði.
 #& Playlists
 Playlist:
   #& About
@@ -958,7 +959,6 @@ Playlist:
   Playlist: Spilunarlisti
   Sort By:
     AuthorAscending: Höfundur (A-Ö)
-    Sort By: Raða eftir
     DateAddedNewest: Nýlegast bætt við fyrst
     AuthorDescending: Höfundur (Ö-A)
     VideoTitleAscending: Titill (A-Ö)
@@ -967,6 +967,8 @@ Playlist:
     DateAddedOldest: Elsta bætt við fyrst
     VideoDurationAscending: Tímalengd (stysta fyrst)
     VideoDurationDescending: Tímalengd (lengsta fyrst)
+    PublishedOldest: Elsta útgefna myndskeið fyrst
+    PublishedNewest: Síðast útgefna myndskeið fyrst
 Change Format:
   Change Media Formats: 'Skipta um myndskeiðasnið'
   Use Dash Formats: 'Nota DASH-skráasnið'
@@ -1002,9 +1004,7 @@ Comments:
   Getting comment replies, please wait: 'Sæki svör við athugasemdum, bíddu aðeins'
   There are no more comments for this video: 'Það eru engar fleiri athugasemdir við
     þetta myndskeið'
-  Show Comments: 'Birta athugasemdir'
   Hide Comments: 'Fela athugasemdir'
-  Sort by: 'Raða eftir'
   Top comments: 'Efstu athugasemdir'
   Newest first: 'Nýjasta fyrst'
   # Context: View 10 Replies, View 1 Reply
@@ -1015,7 +1015,6 @@ Comments:
   There are no comments available for this video: 'Engar athugasemdir eru tiltækar
     fyrir þetta myndskeið'
   Load More Comments: 'Hlaða inn fleiri athugasemdum'
-  No more comments available: 'Engar fleiri athugasemdir eru tiltækar'
   Show More Replies: Birta fleiri svör
   From {channelName}: frá {channelName}
   And others: og fleirum
@@ -1142,6 +1141,7 @@ Default Invidious instance has been set to {instance}: Sjálfgefið Invidious-ti
   hefur verið stillt sem {instance}
 Search Bar:
   Clear Input: Hreinsa reit
+  Remove: Fjarlægja
 External link opening has been disabled in the general settings: Opnun ytri tengla
   hefur verið gerð óvirk í almennum stillingum
 Are you sure you want to open this link?: Ertu viss um að þú viljir opna þennan tengil?
@@ -1221,6 +1221,9 @@ Keys:
   ctrl: Ctrl
   arrowdown: Niður-ör
   arrowup: Upp-ör
+  shift: Shift
+  enter: Enter
+  plus: Plús
 Right-click or hold to see history: Hægri-smelltu til að sjá feril
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
@@ -1229,3 +1232,57 @@ Autoplay Interruption Timer: Hætt sjálfvirkri spilun vegna {autoplayInterrupti
 Description:
   Expand Description: '...meira'
   Collapse Description: Birta minna
+KeyboardShortcutPrompt:
+  Sections:
+    Video:
+      Playback: Myndskeið: Afspilun
+      General: Myndskeið: Almennt
+    App:
+      Situational: 'Forrit: Aðstaða'
+      General: Forrit: Almennt
+  Show Keyboard Shortcuts: Birta flýtivísanir á lyklaborði
+  Captions: Víxla skýringartextum af/á
+  Full Window: Víxla fullum glugga af/á
+  Theatre Mode: Víxla bíóham af/á
+  Restart Window: Endurræsa glugga
+  Force Restart Window: Þvinga endurræsingu glugga
+  Toggle Developer Tools: Víxla forritunarverkfærum af/á
+  Play: Víxla spilun / í bið
+  Next Frame: Næsti rammi (í bið)
+  Volume Up: Auka hljóðstyrk
+  Focus Search: Færa virkni í leitarreitinn
+  Search in New Window: Leita í nýjum glugga
+  Last Frame: Fyrri rammi (í bið)
+  Volume Down: Minnka hljóðstyrk
+  Last Chapter: Síðasti kafli
+  Next Chapter: Næsti kafli
+  Small Rewind: Spóla til baka um X sekúndur út frá hámarksbili milli afspilana og
+    fyrirliggjandi afspilunarhraða
+  Small Fast Forward: Spóla áfram um X sekúndur út frá hámarksbili milli afspilana
+    og fyrirliggjandi afspilunarhraða
+  History Backward: Fara til baka um eina síðu
+  History Forward: Fara áfram um eina síðu
+  New Window: Búa til nýjan glugga
+  Navigate to Settings: Fara á stillingasíðuna
+  Navigate to History: Fara á ferilssíðuna
+  Refresh: Endurlesa streymi með nýjasta efni
+  Large Rewind: Spóla til baka um 10 sekúndur / Spóla myndskeið til baka út frá fyrirliggjandi
+    afspilunarhraða
+  Fullscreen: Víxla skjáfylli af/á
+  Stats: Birta tölfræði myndskeiðs
+  Picture in Picture: Víxla mynd-í-mynd-ham af/á
+  Decrease Video Speed: Minnka afspilunarhraða út frá hámarksbili milli afspilunar
+    myndskeiða
+  Mute: Víxla hljóði af/á
+  Large Fast Forward: Spóla áfram um 10 sekúndur / Spóla myndskeið áfram út frá fyrirliggjandi
+    afspilunarhraða
+  Increase Video Speed: Auka afspilunarhraða út frá hámarksbili milli afspilunar myndskeiða
+  Take Screenshot: Taka skjámynd
+  Minimize Window: Lágmarka glugga
+  Close Window: Loka glugga
+  Reset Zoom: Endurstilla aðdráttarstig / kvarða viðmóts
+  Zoom In: Renna að
+  Zoom Out: Renna frá
+  Skip by Tenths: Hoppa í prósentum í gegnum myndskeið (3 sleppir yfir á 30% tímalengdar)
+  Keyboard Shortcuts: Flýtivísanir á lyklaborði
+  Focus Secondary Search: Færa virkni í hinn leitarreitinn (ef annar er til staðar)

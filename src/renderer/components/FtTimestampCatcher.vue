@@ -6,20 +6,25 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useRouter } from 'vue-router/composables'
 
 const props = defineProps({
   inputHtml: {
     type: String,
     default: ''
-  }
+  },
+  linkTabIndex: {
+    type: String,
+    default: '0'
+  },
 })
 
 const router = useRouter()
 const videoId = router.currentRoute.params.id
 
-/** @type {string} */
-const displayText = props.inputHtml.replaceAll(/(?:(\d+):)?(\d+):(\d+)/g, (timestamp, hours, minutes, seconds) => {
+/** @type {import('vue').ComputedRef<string>} */
+const displayText = computed(() => props.inputHtml.replaceAll(/(?:(\d+):)?(\d+):(\d+)/g, (timestamp, hours, minutes, seconds) => {
   let time = 60 * Number(minutes) + Number(seconds)
 
   if (hours) {
@@ -34,8 +39,8 @@ const displayText = props.inputHtml.replaceAll(/(?:(\d+):)?(\d+):(\d+)/g, (times
   }).href
 
   // Adding the URL lets the user open the video in a new window at this timestamp
-  return `<a href="${url}" onclick="event.preventDefault();this.dispatchEvent(new CustomEvent('timestamp-clicked',{bubbles:true,detail:${time}}));window.scrollTo(0,0)">${timestamp}</a>`
-})
+  return `<a tabindex="${props.linkTabIndex}" href="${url}" onclick="event.preventDefault();this.dispatchEvent(new CustomEvent('timestamp-clicked',{bubbles:true,detail:${time}}));window.scrollTo(0,0)">${timestamp}</a>`
+}))
 
 const emit = defineEmits(['timestamp-event'])
 

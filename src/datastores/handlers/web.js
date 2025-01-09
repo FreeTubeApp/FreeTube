@@ -24,4 +24,4 @@ class Settings {
 export { Settings as settings }
 
 // These classes don't require any changes from the base classes, so can be exported as-is.
-export { history, profiles, playlists, subscriptionCache } from './base'
+export { history, profiles, playlists, searchHistory, subscriptionCache } from './base'

@@ -241,7 +241,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import FtCard from '../ft-card/ft-card.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
-import FtSubscribeButton from '../ft-subscribe-button/ft-subscribe-button.vue'
+import FtSubscribeButton from '../FtSubscribeButton/FtSubscribeButton.vue'
 import FtInput from '../ft-input/ft-input.vue'
 
 import store from '../../store/index'

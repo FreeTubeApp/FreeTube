@@ -50,11 +50,13 @@ export default defineComponent({
     showFamilyFriendlyOnly: function() {
       return this.$store.getters.getShowFamilyFriendlyOnly
     },
+
+    rememberSearchHistory: function () {
+      return this.$store.getters.getRememberSearchHistory
+    },
   },
   watch: {
     $route () {
-      // react to route changes...
-
       const query = this.$route.params.query
       let features = this.$route.query.features
       // if page gets refreshed and there's only one feature then it will be a string
@@ -108,6 +110,15 @@ export default defineComponent({
     this.checkSearchCache(payload)
   },
   methods: {
+    updateSearchHistoryEntry: function () {
+      const persistentSearchHistoryPayload = {
+        _id: this.query,
+        lastUpdatedAt: Date.now()
+      }
+
+      this.$store.dispatch('updateSearchHistoryEntry', persistentSearchHistoryPayload)
+    },
+
     checkSearchCache: function (payload) {
       if (payload.query.length > SEARCH_CHAR_LIMIT) {
         console.warn(`Search character limit is: ${SEARCH_CHAR_LIMIT}`)
@@ -135,6 +146,10 @@ export default defineComponent({
             this.performSearchInvidious(payload, { resetSearchPage: true })
             break
         }
+      }
+
+      if (this.rememberSearchHistory) {
+        this.updateSearchHistoryEntry()
       }
     },
 

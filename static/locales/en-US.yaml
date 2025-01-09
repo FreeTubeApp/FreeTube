@@ -48,6 +48,7 @@ Global:
   Shorts: Shorts
   Live: Live
   Community: Community
+  Sort By: Sort By
   Counts:
     Video Count: 1 video | {count} videos
     Channel Count: 1 channel | {count} channels
@@ -56,13 +57,12 @@ Global:
     Like Count: 1 like | {count} likes
     Comment Count: 1 comment | {count} comments
     Watching Count: 1 watching | {count} watching
-  Input Tags:
-    Length Requirement: Tag must be at least {number} characters long
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
 Search Bar:
   Clear Input: Clear Input
+  Remove: Remove
 Search character limit: Search query is over the {searchCharacterLimit} character limit
 Search Listing:
   Label:
@@ -79,7 +79,6 @@ Search Listing:
 Search Filters:
   Search Filters: Search Filters
   Sort By:
-    Sort By: Sort By
     Most Relevant: Most Relevant
     Rating: Rating
     Upload Date: Upload Date
@@ -128,13 +127,11 @@ Subscriptions:
   Subscriptions: Subscriptions
   # channels that were likely deleted
   Error Channels: Channels with Errors
-  Latest Subscriptions: Latest Subscriptions
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your Subscription list is currently empty. If you want to import your subscriptions you can go to Data Settings and select Import Subscriptions or you can search for a channel and subscribe to them.
   Disabled Automatic Fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
   Empty Channels: Your subscribed channels currently does not have any videos.
-  'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
   Empty Posts: Your subscribed channels currently do not have any posts.
   Load More Videos: Load More Videos
   Load More Posts: Load More Posts
@@ -199,8 +196,6 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: Are you sure you want to delete this playlist? This cannot be undone.
 
   Sort By:
-    Sort By: Sort By
-
     NameAscending: 'A-Z'
     NameDescending: 'Z-A'
 
@@ -234,7 +229,6 @@ User Playlists:
       There were no videos to remove.: There were no videos to remove.
       This playlist is protected and cannot be removed.: This playlist is protected and cannot be removed.
       Playlist {playlistName} has been deleted.: Playlist {playlistName} has been deleted.
-      Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName} is the new quick bookmark playlist.
 
       This playlist does not exist: This playlist does not exist
 
@@ -336,6 +330,7 @@ Settings:
       System Default: System Default
       Light: Light
       Dracula: Dracula
+      Catppuccin Frappe: Catppuccin Frappe
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
@@ -369,6 +364,20 @@ Settings:
       Dracula Purple: Dracula Purple
       Dracula Red: Dracula Red
       Dracula Yellow: Dracula Yellow
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Red: Catppuccin Frappe Red
+      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
+      Catppuccin Frappe Peach: Catppuccin Frappe Peach
+      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
+      Catppuccin Frappe Green: Catppuccin Frappe Green
+      Catppuccin Frappe Teal: Catppuccin Frappe Teal
+      Catppuccin Frappe Sky: Catppuccin Frappe Sky
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
+      Catppuccin Frappe Blue: Catppuccin Frappe Blue
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
       Catppuccin Mocha Pink: Catppuccin Mocha Pink
@@ -471,13 +480,14 @@ Settings:
         Name: None
   Privacy Settings:
     Privacy Settings: Privacy
-    Remember History: Remember History
+    Remember History: Remember Watch History
+    Remember Search History: Remember Search History
     Save Watched Progress: Save Watched Progress
     Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed Playlist
-    Clear Search Cache: Clear Search Cache
-    Are you sure you want to clear out your search cache?: Are you sure you want to
-      clear out your search cache?
-    Search cache has been cleared: Search cache has been cleared
+    Clear Search History and Cache: Clear Search History and Cache
+    Are you sure you want to clear out your search history and cache?: Are you sure you want to
+      clear out your search history and cache?
+    Search history and cache have been cleared: Search history and cache have been cleared
     Remove Watch History: Remove Watch History
     Are you sure you want to remove your entire watch history?: Are you sure you want
       to remove your entire watch history?
@@ -545,7 +555,6 @@ Settings:
     Show Added Items: Show Added Items
   Data Settings:
     Data Settings: Data
-    Select Import Type: Select Import Type
     Select Export Type: Select Export Type
     Import Subscriptions: Import Subscriptions
     Subscription File: Subscription File
@@ -643,8 +652,6 @@ Settings:
   Password Dialog:
     Password: Password
     Enter Password To Unlock: Enter password to unlock settings
-    Password Incorrect: Password Incorrect
-    Unlock: Unlock
   Password Settings:
     Password Settings: Password
     Set Password To Prevent Access: Set a password to prevent access to settings
@@ -701,7 +708,6 @@ Profile:
   Are you sure you want to delete this profile?: Are you sure you want to delete this
     profile?
   All subscriptions will also be deleted.: All subscriptions will also be deleted.
-  Profile could not be found: Profile could not be found
   Your profile name cannot be empty: Your profile name cannot be empty
   Profile has been created: Profile has been created
   Profile has been updated: Profile has been updated
@@ -738,7 +744,6 @@ Channel:
   Search Channel: Search Channel
   Your search results have returned 0 results: Your search results have returned 0
     results
-  Sort By: Sort By
   This channel does not exist: This channel does not exist
   This channel does not allow searching: This channel does not allow searching
   This channel is age-restricted and currently cannot be viewed in FreeTube.: This channel is age-restricted and currently cannot be viewed in FreeTube.
@@ -796,6 +801,7 @@ Video:
   IP block: 'YouTube has blocked your IP address from watching videos. Please try switching to a different VPN or proxy.'
   MembersOnly: Members-only videos cannot be watched with FreeTube as they require Google login and paid membership to the uploader's channel.
   AgeRestricted: Age-restricted videos cannot be watched with FreeTube as they require Google login and using an age-verified YouTube account.
+  DRMProtected: DRM protected videos cannot be played in FreeTube, as they require proprietary, closed source components. If you want to watch this video please watch it on the official YouTube website in a DRM enabled web browser.
   More Options: More Options
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History
@@ -828,7 +834,6 @@ Video:
   Starting soon, please refresh the page to check again: Starting soon, please refresh
     the page to check again
   # As in a Live Video
-  Premieres on: Premieres on
   Premieres: Premieres
   Upcoming: Upcoming
   Unlisted: Unlisted
@@ -838,8 +843,6 @@ Video:
   Enable Live Chat: Enable Live Chat
   Live Chat is currently not supported in this build.: Live Chat is currently not
     supported in this build.
-  'Chat is disabled or the Live Stream has ended.': Chat is disabled or the Live Stream
-    has ended.
   Live chat is enabled. Chat messages will appear here once sent.: Live chat is enabled.  Chat
     messages will appear here once sent.
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Live
@@ -909,13 +912,6 @@ Video:
     You appear to be offline: You appear to be offline.
     Playback will resume automatically when your connection comes back: Playback will resume automatically when your connection comes back.
     Skipped segment: 'Skipped {segmentCategory} segment'
-#& Videos
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: Newest
-    Oldest: Oldest
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -923,9 +919,10 @@ Playlist:
   View Full Playlist: View Full Playlist
   Last Updated On: Last Updated On
   Sort By:
-    Sort By: Sort By
     DateAddedNewest: Latest added first
     DateAddedOldest: Earliest added first
+    PublishedNewest: Latest published first
+    PublishedOldest: Earliest published first
     AuthorAscending: Author (A-Z)
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
@@ -980,9 +977,7 @@ Comments:
   Click to View Comments: Click to View Comments
   Getting comment replies, please wait: Getting comment replies, please wait
   There are no more comments for this video: There are no more comments for this video
-  Show Comments: Show Comments
   Hide Comments: Hide Comments
-  Sort by: Sort by
   Top comments: Top comments
   Newest first: Newest First
   View {replyCount} replies: View {replyCount} replies
@@ -998,7 +993,6 @@ Comments:
     for this video
   There are no comments available for this post: There are no comments available for this post
   Load More Comments: Load More Comments
-  No more comments available: No more comments available
   Pinned by: Pinned by
   Member: Member
   Subscribed: Subscribed

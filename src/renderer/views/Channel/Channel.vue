@@ -45,7 +45,7 @@
           :value="videoSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
-          :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :placeholder="$t('Global.Sort By')"
           :icon="getIconForSortPreference(videoSortBy)"
           @change="videoSortBy = $event"
         />
@@ -55,7 +55,7 @@
           :value="shortSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
-          :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :placeholder="$t('Global.Sort By')"
           :icon="getIconForSortPreference(shortSortBy)"
           @change="shortSortBy = $event"
         />
@@ -65,7 +65,7 @@
           :value="liveSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
-          :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :placeholder="$t('Global.Sort By')"
           :icon="getIconForSortPreference(liveSortBy)"
           @change="liveSortBy = $event"
         />
@@ -75,7 +75,7 @@
           :value="playlistSortBy"
           :select-names="playlistSelectNames"
           :select-values="playlistSelectValues"
-          :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :placeholder="$t('Global.Sort By')"
           :icon="getIconForSortPreference(playlistSortBy)"
           @change="playlistSortBy = $event"
         />

@@ -3,49 +3,43 @@
     v-if="shownDescription.length > 0"
     :class="{ videoDescription: true, short: !showFullDescription }"
   >
-    <template v-if="showControls">
-      <span
-        v-if="showFullDescription"
-        class="descriptionStatus"
-        role="button"
-        tabindex="0"
-        @click="collapseDescription"
-        @keydown.space.prevent="collapseDescription"
-        @keydown.enter.prevent="collapseDescription"
-      >
-        {{ $t("Description.Collapse Description") }}
-      </span>
-      <span
-        v-else
-        class="descriptionStatus"
-        role="button"
-        tabindex="0"
-        @keydown.space.prevent="expandDescription"
-        @keydown.enter.prevent="expandDescription"
-      >
-        {{ $t("Description.Expand Description") }}
-      </span>
-      <div
-        v-if="!showFullDescription"
-        class="overlay"
-        @click="expandDescription"
-        @keydown.space.prevent="expandDescription"
-        @keydown.enter.prevent="expandDescription"
-      />
-    </template>
+    <span
+      v-if="showControls && !showFullDescription"
+      class="descriptionStatus"
+      role="button"
+      tabindex="0"
+      @click="expandDescription"
+      @keydown.space.prevent="expandDescription"
+      @keydown.enter.prevent="expandDescription"
+    >
+      {{ $t("Description.Expand Description") }}
+    </span>
     <FtTimestampCatcher
       ref="descriptionContainer"
       class="description"
-      :input-html="shownDescription"
+      :input-html="processedShownDescription"
+      :link-tab-index="linkTabIndex"
       @timestamp-event="onTimestamp"
+      @click.native="expandDescriptionWithClick"
     />
+    <span
+      v-if="showControls && showFullDescription"
+      class="descriptionStatus"
+      role="button"
+      tabindex="0"
+      @click="collapseDescription"
+      @keydown.space.prevent="collapseDescription"
+      @keydown.enter.prevent="collapseDescription"
+    >
+      {{ $t("Description.Collapse Description") }}
+    </span>
   </FtCard>
 </template>
 
 <script setup>
 import autolinker from 'autolinker'
 
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtTimestampCatcher from '../FtTimestampCatcher.vue'
 
@@ -86,11 +80,31 @@ if (props.descriptionHtml !== '') {
   }
 }
 
+const processedShownDescription = computed(() => {
+  if (shownDescription === '') { return shownDescription }
+
+  return processDescriptionHtml(shownDescription, linkTabIndex.value)
+})
+
+const linkTabIndex = computed(() => {
+  return showFullDescription.value ? '0' : '-1'
+})
+
 /**
  * @param {number} timestamp
  */
 function onTimestamp(timestamp) {
   emit('timestamp-event', timestamp)
+}
+
+/**
+ @param {PointerEvent} e
+ */
+function expandDescriptionWithClick(e) {
+  // Ignore link clicks
+  if (e.target.tagName === 'A') { return }
+
+  expandDescription()
 }
 
 /**
@@ -148,6 +162,16 @@ function parseDescriptionHtml(descriptionText) {
     .replaceAll('href="/', 'href="https://www.youtube.com/')
     .replaceAll('href="/hashtag/', 'href="https://wwww.youtube.com/hashtag/')
     .replaceAll('yt.www.watch.player.seekTo', 'changeDuration')
+}
+
+/**
+ * @param {string} descriptionText
+ * @param {string} tabIndex
+ * @returns {string}
+ */
+function processDescriptionHtml(descriptionText, tabIndex) {
+  return descriptionText
+    .replaceAll('<a', `<a tabindex="${tabIndex}"`)
 }
 </script>
 

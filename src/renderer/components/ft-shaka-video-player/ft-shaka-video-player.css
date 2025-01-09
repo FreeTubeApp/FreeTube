@@ -91,6 +91,35 @@
   /* user-select is intentionally not disabled, so that you can select and copy the stats */
 }
 
+.valueChangePopup {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1.1em;
+  background-color: rgb(0 0 0 / 70%);
+  color: #fff;
+  width: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
 .offlineWrapper {
   position: absolute;
   top: 20px;

@@ -93,7 +93,7 @@ const actions = {
     payload.lastUpdatedAt = Date.now()
     // Ensure all videos has required attributes
 
-    const currentTime = new Date().getTime()
+    const currentTime = Date.now()
 
     if (Array.isArray(payload.videos)) {
       payload.videos.forEach(videoData => {
@@ -173,7 +173,7 @@ const actions = {
     try {
       const { _id, videoData } = payload
       if (videoData.timeAdded == null) {
-        videoData.timeAdded = new Date().getTime()
+        videoData.timeAdded = Date.now()
       }
       if (videoData.playlistItemId == null) {
         videoData.playlistItemId = generateRandomUniqueId()
@@ -195,7 +195,7 @@ const actions = {
     try {
       const { _id, videos } = payload
 
-      const currentTime = new Date().getTime()
+      const currentTime = Date.now()
 
       const newVideoObjects = videos.map((video) => {
         // Create a new object to prevent changing existing values outside
@@ -241,7 +241,7 @@ const actions = {
         })
       } else {
         const dateNow = Date.now()
-        const currentTime = new Date().getTime()
+        const currentTime = Date.now()
 
         payload.forEach((playlist) => {
           let anythingUpdated = false

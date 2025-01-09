@@ -17,11 +17,11 @@ Delete: 'Izbriši'
 Select all: 'Odaberi sve'
 Reload: 'Učitaj ponovo'
 Force Reload: 'Prisili ponovno učitavanje'
-Toggle Developer Tools: 'Uključi alate za programere'
+Toggle Developer Tools: 'Uključi/Isključi alate za programere'
 Actual size: 'Stvarna veličina'
 Zoom in: 'Uvećaj prikaz'
 Zoom out: 'Umanji prikaz'
-Toggle fullscreen: 'Uključi/isključi cjeloekranski prikaz'
+Toggle fullscreen: 'Uključi/Isključi cjeloekranski prikaz'
 Window: 'Prozor'
 Minimize: 'Smanji prozor'
 Close: 'Zatvori'
@@ -35,6 +35,7 @@ Global:
   Shorts: Kratka videa
   Live: Uživo
   Community: Zajednica
+  Sort By: Redoslijed
 
 # Search Bar
   Counts:
@@ -45,14 +46,11 @@ Global:
     Channel Count: 1 kanal | {count} kanala
     Comment Count: 1 komentar | {count} komentara
     Like Count: 1 lajk | {count} lajkova
-  Input Tags:
-    Length Requirement: Oznaka mora imati barem {number} znakova
 Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtri pretrage'
   Sort By:
-    Sort By: 'Redoslijed'
     Most Relevant: 'Najrelevantniji'
     Rating: 'Ocjena'
     Upload Date: 'Datum prijenosa'
@@ -99,13 +97,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Pretplate'
-  Latest Subscriptions: 'Najnovije pretplate'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tvoj
     popis pretplata je trenutačno prazan. Ako želiš uvesti tvoje pretplate, idi u
     postavke podataka i odaberi „Uvezi pretplate” ili traži kanale i pretplati se
     na njih.'
-  'Getting Subscriptions. Please wait.': 'Preuzimanje pretplata. Pričekaj.'
-  Refresh Subscriptions: 'Aktualiziraj pretplate'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ovaj
     profil sadrži velik broj pretplata. Za izbjegavanje ograničenja stope koristit
     će se RSS
@@ -147,7 +142,6 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: Stvarno želiš
     izbrisati ovu zbirku? To se ne može poništiti.
   Sort By:
-    Sort By: Redoslijed
     NameAscending: A-Z
     NameDescending: Z-A
     LatestCreatedFirst: Nedavno stvoreno
@@ -188,8 +182,6 @@ User Playlists:
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ova
         se zbirka sada koristi za brze zabilješke umjesto zbirke „{oldPlaylistName}”.
         Pritisni ovdje za poništavanje
-      Playlist {playlistName} is the new quick bookmark playlist.: Zbirka „{playlistName}”
-        je nova zbirka za brze zabilješke.
       This playlist is already being used for quick bookmark.: Ova se zbirka već koristi
         za brze zabilješke.
       This playlist has a video with a duration error: Ova zbirka sadrži barem jedan
@@ -299,6 +291,7 @@ Settings:
     Auto Load Next Page:
       Label: Automatski učitaj sljedeću stranicu
       Tooltip: Automatski učitaj dodatne stranice i komentare.
+    Open Deep Links In New Window: Otvori URL-ove proslijeđene FreeTubeu u novom prozoru
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Uskladi gornju traku s glavnom bojom'
@@ -315,6 +308,9 @@ Settings:
       Nordic: Nordic
       Solarized Dark: Solarna tamna
       Solarized Light: Solarna svijetla
+      Gruvbox Dark: Gruvbox tamna
+      Gruvbox Light: Gruvbox svijetla
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -340,7 +336,7 @@ Settings:
       Dracula Purple: 'Drakula ljubičasta'
       Dracula Red: 'Drakula crvena'
       Dracula Yellow: 'Drakula žuta'
-      Catppuccin Mocha Rosewater: Catppuccin Mocha ruža
+      Catppuccin Mocha Rosewater: Catppuccin Mocha ružina vodica
       Catppuccin Mocha Flamingo: Catppuccin Mocha flamingo
       Catppuccin Mocha Pink: Catppuccin Mocha ružičasta
       Catppuccin Mocha Mauve: Catppuccin Mocha ljubičasta
@@ -362,6 +358,30 @@ Settings:
       Solarized Magenta: Solarna magenta
       Solarized Violet: Solarna ljubičasta
       Solarized Cyan: Solarna cijan
+      Gruvbox Light Orange: Gruvbox svjetlonarančasta
+      Gruvbox Dark Green: Gruvbox tamnozelena
+      Catppuccin Frappe Pink: Catppuccin Frappe ružičasta
+      Catppuccin Frappe Rosewater: Catppuccin Frappe ružina vodica
+      Catppuccin Frappe Flamingo: Catppuccin Frappe flamingo
+      Catppuccin Frappe Mauve: Catppuccin Frappe purpurna
+      Catppuccin Frappe Red: Catppuccin Frappe crvena
+      Catppuccin Frappe Maroon: Catppuccin Frappe kestenjasta
+      Catppuccin Frappe Peach: Catppuccin Frappe breskva
+      Catppuccin Frappe Yellow: Catppuccin Frappe žuta
+      Catppuccin Frappe Green: Catppuccin Frappe zelena
+      Catppuccin Frappe Teal: Catppuccin Frappe tirkiz
+      Catppuccin Frappe Sky: Catppuccin Frappe nebo
+      Catppuccin Frappe Sapphire: Catppuccin Frappe safir
+      Catppuccin Frappe Blue: Catppuccin Frappe plava
+      Catppuccin Frappe Lavender: Catppuccin Frappe lavanda
+      Gruvbox Dark Yellow: Gruvbox tamnožuta
+      Gruvbox Dark Blue: Gruvbox tamnoplava
+      Gruvbox Dark Purple: Gruvbox tamnoljubičasta
+      Gruvbox Dark Aqua: Gruvbox tamna voda
+      Gruvbox Dark Orange: Gruvbox tamnonarančasta
+      Gruvbox Light Red: Gruvbox svjetlocrvena
+      Gruvbox Light Blue: Gruvbox svjetloplava
+      Gruvbox Light Purple: Gruvbox svjetloljubičasta
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
     UI Scale: Uvećanje korisničkog sučelja
@@ -395,8 +415,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Interval sljedećeg videa zbirke
-    Next Video Interval: Interval za sljedeći video
+    Next Video Interval: Timer za odbrojavanje automatske reprodukcije
     Scroll Volume Over Video Player: Mijenjaj glasnoću u video playeru
     Display Play Button In Video Player: Prikaži gumb za pokretanje u video playeru
     Fast-Forward / Rewind Interval: Interval za premotavanje naprijed/natrag
@@ -421,9 +440,10 @@ Settings:
     Enter Fullscreen on Display Rotate: Koristi cjeloekranski prikaz pri okretanju
       ekrana
     Skip by Scrolling Over Video Player: Preskoči pomicanjem preko video playera
+    Autoplay Interruption Timer: Timer za prekidanje automatske reprodukcije
   Privacy Settings:
     Privacy Settings: 'Privatnost'
-    Remember History: 'Zapamti povijest'
+    Remember History: 'Zapamti povijest gledanja'
     Save Watched Progress: 'Spremi napredak gledanja'
     Clear Search Cache: 'Isprazni predmemoriju pretrage'
     Are you sure you want to clear out your search cache?: 'Stvarno želiš isprazniti
@@ -442,6 +462,12 @@ Settings:
     All playlists have been removed: Sve zbirke su uklonjene
     Are you sure you want to remove all your playlists?: Stvarno želiš ukloniti sve
       tvoje zbirke?
+    Remember Search History: Zapamti povijest pretraživanja
+    Clear Search History and Cache: Izbriši povijest pretraživanja i predmemoriju
+    Search history and cache have been cleared: Povijest pretraživanja i predmemorija
+      su izbrisani
+    Are you sure you want to clear out your search history and cache?: Stvarno želiš
+      izbrisati povijest pretraživanja i predmemoriju?
   Subscription Settings:
     Subscription Settings: 'Pretplata'
     Hide Videos on Watch: 'Sakrij video nakon gledanja'
@@ -449,6 +475,9 @@ Settings:
     Fetch Automatically: Automatski dohvati feed
     Confirm Before Unsubscribing: Izbjegni slučajno otkazivanje pretplate
 
+    'Limit the number of videos displayed for each channel': Ograniči broj prikazanih
+      videa za svaki kanal
+    To: Na
   Data Settings:
     Unknown data key: Nepoznat podatkovni ključ
     Unable to write file: Datoteka se ne može zapisati
@@ -476,7 +505,6 @@ Settings:
     Export Subscriptions: Izvezi pretplate
     Import Subscriptions: Uvezi pretplate
     Select Export Type: Odaberi vrstu izvoza
-    Select Import Type: Odaberi vrstu uvoza
     Data Settings: Podaci
     How do I import my subscriptions?: Kako uvesti pretplate?
     Manage Subscriptions: Upravljaj pretplatama
@@ -519,17 +547,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: Prikaži naslove bez pretjeranog
       korištenja velikih slova i interpunkcije
     Hide Featured Channels: Sakrij istaknute kanale
-    Hide Channel Playlists: Sakrij kanal zbirki
-    Hide Channel Community: Sakrij kanal zajednice
-    Hide Channel Shorts: Sakrij kanal kratkih videa
+    Hide Channel Playlists: Sakrij karticu „Zbirke” kanala
+    Hide Channel Community: Sakrij karticu „Zajednica” kanala
+    Hide Channel Shorts: Sakrij karticu „Kratka videa” kanala
     Sections:
       Watch Page: Stranica gledanja
       General: Opće
       Side Bar: Bočna traka
       Channel Page: Stranica kanala
       Subscriptions Page: Stranica pretplata
-    Hide Channel Podcasts: Sakrij kanal podcastova
-    Hide Channel Releases: Sakrij kanal izdanja
+    Hide Channel Podcasts: Sakrij karticu „Podcasti” kanala
+    Hide Channel Releases: Sakrij karticu „Izdanja” kanala
     Hide Subscriptions Shorts: Sakrij pretplate kratkih videa
     Hide Subscriptions Live: Sakrij pretplate videa uživo
     Hide Subscriptions Videos: Sakrij pretplate videa
@@ -544,6 +572,8 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Riječ, fragment riječi
       ili fraza
     Hide Videos and Playlists Containing Text: Sakrij videa i zbirke koji sadrže tekst
+    Hide Channel Home: Sakrij karticu „Početna” kanala
+    Show Added Items: Prikaži dodane stavke
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -562,6 +592,10 @@ Settings:
     Proxy Protocol: Protokol posrednika
     Enable Tor / Proxy: Aktiviraj Tor/Posrednik
     Proxy Settings: Posrednik
+    Proxy Warning: FreeTube nema ugrađeni proxy, ali se može povezati s vanjskim proxyjem,
+      poput onog koji radi na tvom računalu poput Tor-a ili eksternog proxyja, poput
+      SOCKS5 proxyja koji pružaju neki VPN-ovi. Ako je aktiviran, provjeri je li tvoj
+      proxy/Tor pravilno konfiguriran, inače FreeTube neće moći dohvatiti nikoje podatke.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Obavijesti kad se preskoči segment sponzora
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API-a za blokiranja
@@ -607,8 +641,6 @@ Settings:
     Experimental Settings: Eksperimentalno
     Replace HTTP Cache: Zamijeni HTTP predmemoriju
   Password Dialog:
-    Password Incorrect: Lozinka neispravna
-    Unlock: Otključaj
     Enter Password To Unlock: Za otključavanje postavki upiši lozinku
     Password: Lozinka
   Password Settings:
@@ -662,7 +694,6 @@ Profile:
   Delete Profile: 'Izbriši profil'
   Are you sure you want to delete this profile?: 'Stvarno želiš izbrisati ovaj profil?'
   All subscriptions will also be deleted.: 'Izbrisat će se i sve pretplate.'
-  Profile could not be found: 'Profil nije pronađen'
   Your profile name cannot be empty: 'Ime profila ne smije biti prazno'
   Profile has been created: 'Profil je stvoren'
   Profile has been updated: 'Profil je aktualiziran'
@@ -701,7 +732,6 @@ Channel:
   Unsubscribe: 'Otkaži pretplatu'
   Search Channel: 'Pretraži kanal'
   Your search results have returned 0 results: 'Pretraživanje je vratilo 0 rezultata'
-  Sort By: 'Redoslijed'
   Videos:
     Videos: 'Videa'
     This channel does not currently have any videos: 'Na ovom kanalu trenutačno nema
@@ -761,6 +791,9 @@ Channel:
     Podcasts: Podcasti
     This channel does not currently have any podcasts: Ovaj kanal trenutačno nema
       podcastova
+  Home:
+    Home: Početna
+    View Playlist: Pogledaj zbirku
 Video:
   Mark As Watched: 'Označi kao pogledano'
   Remove From History: 'Ukloni iz povijesti'
@@ -781,8 +814,6 @@ Video:
   Enable Live Chat: 'Aktiviraj razgovor uživo'
   Live Chat is currently not supported in this build.: 'Razgovor uživo trenutačno
     nije podržan u ovoj verziji.'
-  'Chat is disabled or the Live Stream has ended.': 'Razgovor je deaktiviran ili je
-    prijenos uživo završio.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Razgovor uživo
     je aktiviran. Poruke razgovora pojavit će se ovdje nakon slanja.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Razgovor
@@ -837,8 +868,6 @@ Video:
     playlist: zbirka
     video: video
     OpenInTemplate: Otvori u {externalPlayer}
-  Premieres on: Premijera
-  Premieres in: Premijera u
   Premieres: Premijere
   Show Super Chat Comment: Prikaži Super Chat komentar
   Scroll to Bottom: Pomakni se skroz dolje
@@ -885,12 +914,12 @@ Video:
     na jedan drugi VPN ili proxy.
   AgeRestricted: Videa s dobnim ograničenjem se ne mogu gledati s FreeTubeom jer zahtijevaju
     prijavu na Google i korištenje YouTube računa s dobnom provjerom.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Najnoviji'
-    Oldest: 'Najstariji'
-    #& Most Popular
+  DeArrow:
+    Show Original Details: Prikaži detalje originala
+    Show Modified Details: Prikaži detalje promjena
+  DRMProtected: DRM-om zaštićena videa ne mogu se reproducirati u FreeTubeu jer zahtijevaju
+    vlasničke komponente zatvorenog koda. Ako želiš gledati ovaj video, gledaj ga
+    na službenoj YouTube web stranici u web pregledniku s aktiviranim DRM-om.
 #& Playlists
 Playlist:
   #& About
@@ -902,7 +931,6 @@ Playlist:
 #& Views
   Playlist: Zbirka
   Sort By:
-    Sort By: Redoslijed
     DateAddedNewest: Najprije najnovije dodane
     DateAddedOldest: Najprije najranije dodane
     AuthorAscending: Autor (A-Z)
@@ -912,6 +940,8 @@ Playlist:
     Custom: Prilagođeno
     VideoDurationDescending: Trajanje (najprije najduže)
     VideoDurationAscending: Trajanje (najprije najkraće)
+    PublishedNewest: Najprije najnovije izdane
+    PublishedOldest: Najprije najranije izdane
 Change Format:
   Change Media Formats: 'Promijeni videoformate'
   Use Dash Formats: 'Koristi DASH formate'
@@ -946,7 +976,6 @@ Comments:
   Comments: 'Komentari'
   Click to View Comments: 'Pritisni za prikaz komentara'
   Getting comment replies, please wait: 'Preuzimaju se odgovori na komentare. Pričekaj'
-  Show Comments: 'Prikaži komentare'
   Hide Comments: 'Sakrij komentare'
   # Context: View 10 Replies, View 1 Reply
   View: 'Pogledaj'
@@ -956,10 +985,8 @@ Comments:
   There are no comments available for this video: 'Za ovaj video nema komentara'
   Load More Comments: 'Učitaj još komentara'
   There are no more comments for this video: Nema daljnjih komentara za ovaj video
-  No more comments available: Nema daljnjih komentara
   Newest first: Najprije najnovije
   Top comments: Najpopularniji komentari
-  Sort by: Redoslijed
   Show More Replies: Prikaži više odgovora
   From {channelName}: od {channelName}
   And others: i drugi
@@ -1027,6 +1054,9 @@ Tooltips:
     External Link Handling: "Odaberi standardno ponašanje kad se pritisne poveznica
       koja se ne može otvoriti u FreeTubeu.\nFreeTube takve poveznice otvara u tvom
       standardnom pregledniku.\n"
+    Open Deep Links In New Window: URL adrese koje su proslijeđene na FreeTube, kao
+      što su proširenja preglednika za preusmjeravanje ili argumenti naredbenog retka,
+      otvaraju se u novom prozoru.
   Subscription Settings:
     Fetch Feeds from RSS: Kada je aktivirano, FreeTube će koristiti RSS umjesto vlastite
       standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava
@@ -1079,11 +1109,12 @@ External link opening has been disabled in the general settings: Otvaranje ekste
   poveznice je deaktivirano u općim postavkama
 Search Bar:
   Clear Input: Izbriši unos
+  Remove: Ukloni
 Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu?
 Downloading failed: Došlo je do problema prilikom preuzimanja „{videoTitle}”
 Downloading has completed: „{videoTitle}” je preuzeto
 Starting download: Početak preuzimanja „{videoTitle}”
-Screenshot Success: Snimka ekrana je spremljena pod „{filePath}”
+Screenshot Success: Snimka ekrana je spremljena
 Screenshot Error: Neuspjela snimka ekrana. {error}
 New Window: Novi prozor
 Channels:
@@ -1147,3 +1178,77 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Blokirano je otvaranje potencijalno nesigurnog
   URL-a: „{url}”.'
+Right-click or hold to see history: Pritisni desnu tipku miša ili zadrži za prikaz
+  povijest
+Description:
+  Expand Description: … više
+  Collapse Description: Prikaži manje
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Tipkovnički prečaci
+  Close Window: Zatvori prozor
+  Toggle Developer Tools: Uključi/Isključi alate za programere
+  Volume Up: Povećaj glasnoću
+  Volume Down: Smanji glasnoću
+  Force Restart Window: Prisili ponovno pokretanje prozora
+  History Backward: Idi jednu stranicu natrag
+  New Window: Stvori novi prozor
+  Show Keyboard Shortcuts: Prikaži tipkovničke prečace
+  Focus Secondary Search: Fokusiraj sekundarnu traku pretrage (ako postoji)
+  Captions: UKLJ./ISKLJ. titlove
+  Stats: Prikaži statistiku videa
+  Navigate to Settings: Idi na stranicu „Postavke”
+  Navigate to History: Idi na stranicu „Povijest”
+  Refresh: Osvježi feed s najnovijim sadržajem
+  Picture in Picture: Uključi/Isključi modus „Slika-u-slici”
+  Play: Uključi/Isključi reprodukciju/pauza
+  Full Window: Uključi/Isključi prikaz u cijelom prozoru
+  Theatre Mode: Uključi/Isključi kazališni modus
+  Take Screenshot: Snimi snimku ekrana
+  Minimize Window: Sklopi prozor
+  Restart Window: Ponovo pokreni prozor
+  Focus Search: Fokusiraj traku pretrage
+  Search in New Window: Traži u novom prozoru
+  History Forward: Idi jednu stranicu naprijed
+  Last Chapter: Zadnje poglavlje
+  Next Chapter: Sljedeće poglavlje
+  Fullscreen: Uključi/Isključi cjeloekranski prikaz
+  Mute: Uključi/Isključi zvuk
+  Sections:
+    Video:
+      General: 'Video: Općenito'
+      Playback: 'Video: Reprodukcija'
+    App:
+      Situational: 'Aplikacija: Situacijski'
+      General: 'Aplikacija: Općenito'
+  Reset Zoom: Resetiraj razinu zumiranja / veličinu korisničkog sučelja
+  Zoom In: Uvećaj prikaz
+  Last Frame: Prethodni kadar (prilikom pauze)
+  Next Frame: Sljedeći kadar (prilikom pauze)
+  Zoom Out: Umanji prikaz
+  Skip by Tenths: Postotno preskakanje kroz video (3 preskakanja do 30 % trajanja)
+  Decrease Video Speed: Smanji brzinu videa na temelju intervala brzine reprodukcije
+    videa
+  Small Fast Forward: Premotaj X sekundi naprijed na temelju intervala premotavanja
+    naprijed i trenutačne brzine reprodukcije videa
+  Small Rewind: Premotaj X sekundi natrag na temelju intervala premotavanja natrag
+    i trenutačne brzine reprodukcije videa
+  Large Rewind: Premotaj 10 sekundi natrag / Premotaj video natrag na temelju trenutačne
+    brzine reprodukcije videa
+  Large Fast Forward: Premotaj 10 sekundi naprijed / Premotaj video naprijed na temelju
+    trenutačne brzine reprodukcije videa
+  Increase Video Speed: Povećaj brzinu videa na temelju intervala brzine reprodukcije
+    videa
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Strelica dolje
+  arrowleft: Strelica lijevo
+  arrowright: Strelica desno
+  arrowup: Strelica gore
+  shift: Shift
+  enter: Enter
+  plus: Plus
+Autoplay Interruption Timer: Automatska reprodukcija je prekinuta zbog {autoplayInterruptionIntervalHours}
+  sata neaktivnosti

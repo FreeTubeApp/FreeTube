@@ -33,6 +33,7 @@ import {
   faCircleUser,
   faClapperboard,
   faClock,
+  faClockRotateLeft,
   faClone,
   faComment,
   faCommentDots,
@@ -113,6 +114,9 @@ import {
   faUsers,
   faUsersSlash,
   faWifi,
+  faVolumeHigh,
+  faVolumeLow,
+  faVolumeMute,
   faXmark
 } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -154,6 +158,7 @@ library.add(
   faCircleUser,
   faClapperboard,
   faClock,
+  faClockRotateLeft,
   faClone,
   faComment,
   faCommentDots,
@@ -234,6 +239,9 @@ library.add(
   faUsers,
   faUsersSlash,
   faWifi,
+  faVolumeHigh,
+  faVolumeLow,
+  faVolumeMute,
   faXmark,
 
   // solid icons

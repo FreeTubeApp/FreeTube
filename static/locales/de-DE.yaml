@@ -34,6 +34,7 @@ Global:
   Shorts: Kurzvideos
   Live: Live
   Community: Gemeinschaft
+  Sort By: Sortieren nach
 
 # Search Bar
   Counts:
@@ -44,14 +45,11 @@ Global:
     Watching Count: 1 Zuschauer | {count} Zuschauer
     Comment Count: 1 Kommentar | {count} Kommentare
     Like Count: 1 Gefällt mir | {count} Gefällt mir
-  Input Tags:
-    Length Requirement: Der Tag muss mindestens {number} Zeichen lang sein
 Search / Go to URL: Suche / Gehe zur URL
   # In Filter Button
 Search Filters:
   Search Filters: Suchfilter
   Sort By:
-    Sort By: Sortieren nach
     Most Relevant: Am relevantesten
     Rating: Bewertung
     Upload Date: Hochladedatum
@@ -99,14 +97,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Abos
-  Latest Subscriptions: Neueste Abos
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Ihre
     Aboliste ist derzeit leer. Wenn Sie Ihre Abos importieren möchten, können Sie
     zu den Dateneinstellungen gehen und "Abos importieren" wählen oder Sie können
     nach einem Kanal suchen und ihn abonnieren.
-  'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
-  Refresh Subscriptions: Abos aktualisieren
-  Getting Subscriptions. Please wait.: Abos werden geladen. Bitte warten.
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dieses
     Profil hat eine große Anzahl von Abos.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen
     erzwingen
@@ -155,7 +149,6 @@ User Playlists:
     dass du diese Wiedergabeliste löschen möchtest? Dies kann nicht rückgängig gemacht
     werden.
   Sort By:
-    Sort By: Sortieren nach
     NameAscending: A-Z
     NameDescending: Z-A
     LatestCreatedFirst: Kürzlich erstellt
@@ -196,8 +189,6 @@ User Playlists:
         Klicke hier zum zurücksetzen
       Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} wird
         wieder für Schnelles Merken genutzt'
-      Playlist {playlistName} is the new quick bookmark playlist.: Wiedergabeliste
-        {playlistName} ist die neue Wiedergabeliste für schnelle Lesezeichen.
       This playlist is already being used for quick bookmark.: Diese Wiedergabeliste
         wird bereits für schnelle Lesezeichen verwendet.
       This playlist has a video with a duration error: Diese Wiedergabeliste enthält
@@ -337,6 +328,7 @@ Settings:
       Solarized Light: Solarisiert Hell
       Gruvbox Light: Gruvbox Hell
       Gruvbox Dark: Gruvbox Dunkel
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -394,6 +386,20 @@ Settings:
       Gruvbox Dark Aqua: Gruvbox dunkles Wasser
       Gruvbox Light Orange: Gruvbox Hellorange
       Gruvbox Dark Blue: Gruvbox Dunkelblau
+      Catppuccin Frappe Yellow: Catppuccin Frappe gelb
+      Catppuccin Frappe Sky: Catppuccin Frappe himmelblau
+      Catppuccin Frappe Mauve: Catppuccin Frappe malvenfarben
+      Catppuccin Frappe Blue: Catppuccin Frappe blau
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Red: Catppuccin Frappe rot
+      Catppuccin Frappe Teal: Catppuccin Frappe blaugrün
+      Catppuccin Frappe Peach: Catppuccin Frappe pfirsichfarben
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosenwasser
+      Catppuccin Frappe Green: Catppuccin Frappe grün
+      Catppuccin Frappe Sapphire: Catppuccin Frappe saphirblau
+      Catppuccin Frappe Pink: Catppuccin Frappe pink
+      Catppuccin Frappe Lavender: Catppuccin Frappe lavendelfarben
+      Catppuccin Frappe Maroon: Catppuccin Frappe kastanienbraun
     Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
@@ -428,13 +434,12 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
-    Playlist Next Video Interval: Zeit zwischen automatischer Videowiedergabe
     Next Video Interval: Automatischer Wiedergabe-Timer
     Display Play Button In Video Player: Wiedergabetaste im Videoabspieler anzeigen
     Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
     Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
     Scroll Playback Rate Over Video Player: Scroll-Wiedergaberate über Videoabspieler
-    Video Playback Rate Interval: Intervall für die Videowiedergabegeschwindigkeit
+    Video Playback Rate Interval: Video-Wiedergabegeschwindigkeitsintervall
     Max Video Playback Rate: Maximale Wiedergabegeschwindigkeit
     Screenshot:
       Enable: Bildschirmfoto aktivieren
@@ -474,7 +479,7 @@ Settings:
       deinen Suchcache löschen möchtest?
     Clear Search Cache: Suchcache löschen
     Save Watched Progress: Videofortschritt speichern
-    Remember History: Verlauf merken
+    Remember History: Wiedergabeverlauf merken
     Privacy Settings: Datenschutz
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bist
       du sicher, dass du alle Abos und Profile löschen möchtest?  Diese Aktion kann
@@ -486,6 +491,11 @@ Settings:
     All playlists have been removed: Alle Wiedergabelisten wurden entfernt
     Are you sure you want to remove all your playlists?: Bist du sicher, dass du alle
       deine Wiedergabelisten entfernen möchtest?
+    Remember Search History: Suchverlauf merken
+    Are you sure you want to clear out your search history and cache?: Bist du sicher,
+      dass du deinen Suchverlauf und Cache löschen möchtest?
+    Clear Search History and Cache: Suchverlauf und Cache löschen
+    Search history and cache have been cleared: Suchverlauf und Cache wurden gelöscht
   Data Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abos?
     Unknown data key: Unbekannter Datenschlüssel
@@ -515,7 +525,6 @@ Settings:
     Export Subscriptions: Abos exportieren
     Import Subscriptions: Abos importieren
     Select Export Type: Exporttyp auswählen
-    Select Import Type: Importtyp auswählen
     Data Settings: Daten
     Manage Subscriptions: Abos verwalten
     Export Playlists: Wiedergabelisten exportieren
@@ -663,8 +672,6 @@ Settings:
   Password Dialog:
     Password: Passwort
     Enter Password To Unlock: Passwort eingeben, um die Einstellungen zu entsperren
-    Password Incorrect: Falsches Passwort
-    Unlock: Entsperren
   Password Settings:
     Remove Password: Passwort entfernen
     Password Settings: Passwort
@@ -709,7 +716,6 @@ Channel:
   Unsubscribe: Deabonnieren
   Search Channel: Kanal durchsuchen
   Your search results have returned 0 results: Deine Suche hat 0 Ergebnisse geliefert
-  Sort By: Sortieren nach
   Videos:
     Videos: Videos
     This channel does not currently have any videos: Dieser Kanal hat aktuell keine
@@ -791,8 +797,6 @@ Video:
   Enable Live Chat: Live-Chat aktivieren
   Live Chat is currently not supported in this build.: Live-Chat wird in diesem Build
     derzeit nicht unterstützt.
-  'Chat is disabled or the Live Stream has ended.': Chat ist deaktiviert oder der
-    Livestream ist beendet.
   Live chat is enabled. Chat messages will appear here once sent.: Live-Chat ist aktiviert.
     Chat-Nachrichten werden hier angezeigt, sobald sie gesendet wurden.
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Live-Chat
@@ -852,8 +856,6 @@ Video:
     OpeningTemplate: '{videoOrPlaylist} wird in {externalPlayer} geöffnet ...'
     playlist: Wiedergabeliste
     video: Video
-  Premieres on: Premiere am
-  Premieres in: Premieren in
   Premieres: Premiere
   Show Super Chat Comment: Super-Chat-Kommentar anzeigen
   Scroll to Bottom: Nach unten scrollen
@@ -905,12 +907,10 @@ Video:
   DeArrow:
     Show Modified Details: Geänderte Details anzeigen
     Show Original Details: Originaldetails anzeigen
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: Neueste
-    Oldest: Älteste
-    #& Most Popular
+  DRMProtected: DRM-geschützte Videos können in FreeTube nicht abgespielt werden,
+    da sie proprietäre, Closed-Source-Komponenten benötigen. Wenn Sie dieses Video
+    ansehen möchten, schauen Sie es sich bitte auf der offiziellen YouTube-Website
+    in einem DRM-fähigen Webbrowser an.
 #& Playlists
 Playlist:
   #& About
@@ -923,7 +923,6 @@ Playlist:
 #& Views
   Sort By:
     VideoTitleDescending: Titel (Z-A)
-    Sort By: Sortieren nach
     DateAddedNewest: Zuletzt hinzugefügt zuerst
     DateAddedOldest: Am frühesten hinzugefügt zuerst
     AuthorAscending: Autor (A-Z)
@@ -932,6 +931,8 @@ Playlist:
     Custom: Benutzerdefiniert
     VideoDurationAscending: Dauer (Kürzeste zuerst)
     VideoDurationDescending: Dauer (Längste zuerst)
+    PublishedNewest: Zuletzt veröffentlicht zuerst
+    PublishedOldest: Älteste veröffentlicht zuerst
 Change Format:
   Change Media Formats: Medienformate ändern
   Use Dash Formats: DASH-Formate verwenden
@@ -969,7 +970,6 @@ Comments:
   Click to View Comments: Klicke, um Kommentare anzuzeigen
   Getting comment replies, please wait: Antworten auf Kommentare werden geladen, bitte
     warten
-  Show Comments: Kommentare anzeigen
   Hide Comments: Kommentare ausblenden
   # Context: View 10 Replies, View 1 Reply
   View: Anzeigen
@@ -980,10 +980,8 @@ Comments:
   Load More Comments: Weitere Kommentare laden
   There are no more comments for this video: Es gibt keine weiteren Kommentare zu
     diesem Video
-  No more comments available: Keine weiteren Kommentare verfügbar
   Newest first: Neueste zuerst
   Top comments: Top-Kommentare
-  Sort by: Sortieren nach
   Show More Replies: Weitere Antworten anzeigen
   From {channelName}: von {channelName}
   And others: und andere
@@ -1027,7 +1025,6 @@ Profile:
   Profile has been created: Profil wurde erstellt
   Profile has been updated: Profil wurde aktualisiert
   Your profile name cannot be empty: Dein Profilname darf nicht leer sein
-  Profile could not be found: Profil wurde nicht gefunden
   All subscriptions will also be deleted.: Alle Abos werden ebenfalls gelöscht.
   Are you sure you want to delete this profile?: Bist du sicher, dass du dieses Profil
     löschen willst?
@@ -1167,6 +1164,7 @@ Default Invidious instance has been set to {instance}: Standardmäßige Invidiou
   wurde auf {instance} festgelegt
 Search Bar:
   Clear Input: Eingabe löschen
+  Remove: Entfernen
 Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen
   willst?
 External link opening has been disabled in the general settings: Das Öffnen externer
@@ -1174,7 +1172,7 @@ External link opening has been disabled in the general settings: Das Öffnen ext
 Downloading has completed: „{videoTitle}“ wurde vollständig heruntergeladen
 Starting download: Herunterladen von „{videoTitle}“ wird gestartet
 Downloading failed: Beim Herunterladen von „{videoTitle}“ gab es ein Problem
-Screenshot Success: Bildschirmfoto als „{filePath}“ gespeichert
+Screenshot Success: Bildschirmfoto gespeichert
 Screenshot Error: Bildschirmfoto fehlgeschlagen. {error}
 New Window: Neues Fenster
 Channels:
@@ -1247,6 +1245,9 @@ Keys:
   ctrl: Strg
   alt: Alt
   arrowright: Pfeil nach rechts
+  plus: Plus
+  enter: Enter
+  shift: Shift
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: Mit der rechten Maustaste klicken oder halten,
@@ -1256,3 +1257,59 @@ Autoplay Interruption Timer: Automatische Wiedergabe wurde aufgrund von {autopla
 Description:
   Collapse Description: Weniger anzeigen
   Expand Description: '...mehr'
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Tastenkombinationen
+  Sections:
+    Video:
+      Playback: 'Video: Wiedergabe'
+      General: 'Video: Allgemein'
+    App:
+      Situational: 'Anwendung: Situationsbezogen'
+      General: 'Anwendung: Allgemein'
+  History Backward: Eine Seite zurückgehen
+  New Window: Ein neues Fenster erzeugen
+  Navigate to Settings: Zur Einstellungsseite navigieren
+  Navigate to History: Zur Verlaufsseite navigieren
+  Stats: Video-Statistiken anzeigen
+  Fullscreen: Vollbildmodus umschalten
+  Decrease Video Speed: Verringern der Videogeschwindigkeit basierend auf dem Intervall
+    der Videowiedergaberate
+  Take Screenshot: Bildschirmfoto erstellen
+  Minimize Window: Fenster minimieren
+  Close Window: Fenster schließen
+  Restart Window: Fenster neu starten
+  Reset Zoom: Zoomstufe / UI-Skalierung zurücksetzen
+  Zoom In: Vergrößern
+  Zoom Out: Verkleinern
+  Focus Search: Fokus auf die Suchleiste
+  Search in New Window: In einem neuen Fenster suchen
+  Refresh: Feed mit aktuellen Inhalten aktualisieren
+  Large Fast Forward: 10 Sekunden vorspulen / Schnelles Vorspulen des Videos basierend
+    auf der aktuellen Videowiedergaberate
+  Mute: Stummschaltung
+  Force Restart Window: Fenster Neustart erzwingen
+  Volume Up: Lautstärke erhöhen
+  Volume Down: Lautstärke vermindern
+  Next Chapter: Nächstes Kapitel
+  Last Chapter: Letztes Kapitel
+  Show Keyboard Shortcuts: Tastaturkürzel anzeigen
+  History Forward: Eine Seite nach vorne gehen
+  Increase Video Speed: Erhöhen der Videogeschwindigkeit basierend auf dem Intervall
+    der Videowiedergaberate
+  Large Rewind: 10 Sekunden zurückspulen / Video basierend auf der aktuellen Videowiedergaberate
+    zurückspulen
+  Full Window: Ganzes Fenster umschalten
+  Theatre Mode: Theatermodus umschalten
+  Toggle Developer Tools: Entwicklerwerkzeuge umschalten
+  Play: Wiedergabe/Pause umschalten
+  Focus Secondary Search: Fokus auf die sekundäre Suchleiste (falls eine vorhanden
+    ist)
+  Captions: Untertitel EIN/AUS umschalten
+  Picture in Picture: Bild-in-Bild-Modus umschalten
+  Last Frame: Vorheriges Bild (bei pausierter Wiedergabe)
+  Small Fast Forward: X Sekunden schnell vorspulen, basierend auf dem Schnellvorspulintervall
+    und der aktuellen Videowiedergaberate
+  Skip by Tenths: Prozentuales Überspringen des Videos (3 Sprünge bis 30 % der Dauer)
+  Next Frame: Nächstes Bild (bei pausierter Wiedergabe)
+  Small Rewind: X Sekunden zurückspulen, basierend auf dem Rückspulintervall und der
+    aktuellen Videowiedergaberate

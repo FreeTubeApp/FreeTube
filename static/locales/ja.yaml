@@ -33,6 +33,7 @@ Global:
   Shorts: ショート動画
   Live: ライブ配信
   Community: コミュニティ
+  Sort By: 並び替え
 
 # Search Bar
   Counts:
@@ -43,14 +44,11 @@ Global:
     Channel Count: 1 チャンネル | {count} チャンネル
     Comment Count: 1 コメント｜{count} コメント
     Like Count: 1 いいね｜{count} いいね
-  Input Tags:
-    Length Requirement: タグは最低でも {number} 文字以上である必要があります
 Search / Go to URL: '検索 / URL に移動'
   # In Filter Button
 Search Filters:
   Search Filters: '検索の絞り込み'
   Sort By:
-    Sort By: '並べ替え'
     Most Relevant: '関連度'
     Rating: '評価'
     Upload Date: 'アップロード日'
@@ -97,11 +95,7 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '登録チャンネル'
-  Latest Subscriptions: '最新の登録'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録チャンネルリストは現在空です。登録チャンネルをインポートするには、設定からデータの設定に移動して登録チャンネルをインポートするか、チャンネルを検索して登録することができます。'
-  'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
-  Refresh Subscriptions: 登録チャンネルの更新
-  Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。しばらくお待ちください。
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: このプロファイルの登録チャンネル数が多いようです。接続制限を回避するため
     RSS を使用します
   Load More Videos: もっと見る
@@ -135,7 +129,6 @@ User Playlists:
     EarliestUpdatedFirst: 最も古い更新
     EarliestPlayedFirst: 最も古い再生
     LatestPlayedFirst: 最も新しい再生
-    Sort By: 並び替え順
     LatestCreatedFirst: 最も新しい作成日
     NameDescending: Z-A
   Remove from Favorites: '{playlistName} から削除'
@@ -168,8 +161,6 @@ User Playlists:
       There were no videos to remove.: 削除する動画はありません。
       This playlist does not exist: この再生リストは存在しません
       This playlist is already being used for quick bookmark.: この再生リストはすでにクイックブックマークとして使用されています。
-      Playlist {playlistName} is the new quick bookmark playlist.: 再生リスト {playlistName}
-        が新しいクイックブックマーク再生リストです。
       This playlist has a video with a duration error: このプレイリストには、再生時間のない動画が少なくとも
         1 つ含まれています。これらの動画は、再生時間が 0 であるかのように並べられます。
     Search for Videos: 動画検索
@@ -290,6 +281,7 @@ Settings:
       Solarized Light: ソラライズド・ライト
       Gruvbox Dark: Gruvbox ダーク
       Gruvbox Light: Gruvbox ライト
+      Catppuccin Frappe: キャプチーノ・フラッペ
     Main Color Theme:
       Main Color Theme: 'テーマのメイン カラー'
       Red: '赤'
@@ -347,6 +339,20 @@ Settings:
       Gruvbox Dark Yellow: Gruvbox ダークイエロー
       Gruvbox Dark Purple: Gruvbox ダークパープル
       Gruvbox Light Orange: Gruvbox ライトオレンジ
+      Catppuccin Frappe Sky: キャプチーノ・フラッペ スカイ
+      Catppuccin Frappe Rosewater: キャプチーノ・フラッペ ローズウォーター
+      Catppuccin Frappe Flamingo: キャプチーノ・フラッペ フラミンゴ
+      Catppuccin Frappe Pink: キャプチーノ・フラッペ ピンク
+      Catppuccin Frappe Mauve: キャプチーノ・フラッペ モーブ
+      Catppuccin Frappe Red: キャプチーノ・フラッペ レッド
+      Catppuccin Frappe Maroon: キャプチーノ・フラッペ マルーン
+      Catppuccin Frappe Peach: キャプチーノ・フラッペ ピーチ
+      Catppuccin Frappe Yellow: キャプチーノ・フラッペ イエロー
+      Catppuccin Frappe Green: キャプチーノ・フラッペ グリーン
+      Catppuccin Frappe Teal: キャプチーノ・フラッペ ティール
+      Catppuccin Frappe Blue: キャプチーノ・フラッペ ブルー
+      Catppuccin Frappe Lavender: キャプチーノ・フラッペ ラベンダー
+      Catppuccin Frappe Sapphire: キャプチーノ・フラッペ サファイア
     Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
     UI Scale: UIの拡大率
@@ -380,7 +386,6 @@ Settings:
       1440p: '1440p'
       4k: '4K'
       8k: '8K'
-    Playlist Next Video Interval: 次の再生リストを再生する間隔
     Next Video Interval: 次の動画までの間隔
     Fast-Forward / Rewind Interval: 早送り/巻き戻し間隔
     Display Play Button In Video Player: 動画プレーヤーに再生ボタンを表示する
@@ -414,7 +419,7 @@ Settings:
     To: 上限
   Privacy Settings:
     Save Watched Progress: 再生位置の保存
-    Remember History: 履歴の保存
+    Remember History: 視聴履歴を保存する
     Watch history has been cleared: 視聴履歴を削除しました
     Are you sure you want to remove your entire watch history?: 視聴履歴をすべて削除しますか？
     Remove Watch History: 視聴履歴の削除
@@ -428,6 +433,10 @@ Settings:
     Remove All Playlists: 再生リストをすべて削除
     All playlists have been removed: すべての再生リストが削除されました
     Are you sure you want to remove all your playlists?: すべての再生リストを削除してもよろしいですか？
+    Remember Search History: 検索履歴を記憶する
+    Are you sure you want to clear out your search history and cache?: 本当に検索履歴とキャッシュを削除しますか？
+    Clear Search History and Cache: 検索履歴とキャッシュを削除する
+    Search history and cache have been cleared: 検索履歴とキャッシュが削除されました
   Data Settings:
     How do I import my subscriptions?: 登録チャンネルをインポートするには？
     Unknown data key: 不明なデータキー
@@ -451,7 +460,6 @@ Settings:
     Export Subscriptions: 登録チャンネルのエクスポート
     Import Subscriptions: 登録チャンネルのインポート
     Select Export Type: エクスポート形式の選択
-    Select Import Type: インポート形式の選択
     Data Settings: データ
     Manage Subscriptions: 登録チャンネルの管理
     Playlist insufficient data: 再生リスト「{playlist}」のデータが不十分なため、項目をスキップします
@@ -582,9 +590,7 @@ Settings:
     Remove Password: パスワードの削除
   Password Dialog:
     Enter Password To Unlock: パスワードを入力して設定を解除
-    Password Incorrect: パスワードが正しくありません
     Password: パスワード
-    Unlock: ロック解除
   Sort Settings Sections (A-Z): 設定項目の並べ替え（A-Z）
   Return to Settings Menu: 設定に戻る
 About:
@@ -622,7 +628,6 @@ Channel:
   Unsubscribe: '登録解除'
   Search Channel: 'チャンネル内検索'
   Your search results have returned 0 results: '検索結果が0件です'
-  Sort By: '並べ替え'
   Videos:
     Videos: '動画'
     This channel does not currently have any videos: 'このチャンネルには動画がありません'
@@ -693,7 +698,6 @@ Video:
   Live Chat: 'ライブチャット'
   Enable Live Chat: 'ライブチャットの有効化'
   Live Chat is currently not supported in this build.: '現在、このビルドはライブチャットに未対応です。'
-  'Chat is disabled or the Live Stream has ended.': 'チャットが無効化されているか、ライブ配信は終了しています。'
   Live chat is enabled. Chat messages will appear here once sent.: 'ライブチャットは有効です。チャットが送信されるとここに表示されます。'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '現在、ライブチャットは
     Invidious API では未対応です。直接 YouTube への接続が必要です。'
@@ -748,8 +752,6 @@ Video:
     playlist: 再生リスト
     video: 動画
     OpenInTemplate: '{externalPlayer} で開く'
-  Premieres on: プレミア公開日時
-  Premieres in: 配信開始まで
   Premieres: プレミア公開
   Show Super Chat Comment: Super Chat のコメント表示
   Scroll to Bottom: 下までスクロール
@@ -794,12 +796,8 @@ Video:
   DeArrow:
     Show Original Details: 元の情報を表示
     Show Modified Details: 変更された詳細を表示
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: '新しい'
-    Oldest: '古い'
-    #& Most Popular
+  DRMProtected:
+    DRM保護された動画はFreeTubeでは再生できません。これらの動画には、独自の非オープンソースのコンポーネントが必要です。この動画を視聴したい場合は、DRM対応のウェブブラウザで公式のYouTubeウェブサイトでご覧ください。
 #& Playlists
 Playlist:
   #& About
@@ -818,9 +816,10 @@ Playlist:
     AuthorAscending: 著者名（A-Z）
     AuthorDescending: 著者名（Z-A）
     VideoTitleAscending: タイトル（A-Z）
-    Sort By: 並び替え
     VideoDurationAscending: 再生時間（短い順）
     VideoDurationDescending: 再生時間（長い順）
+    PublishedNewest: 新しい公開動画順
+    PublishedOldest: 古い公開動画順
 Change Format:
   Change Media Formats: '動画形式の変更'
   Use Dash Formats: 'DASH 形式の使用'
@@ -850,7 +849,6 @@ Comments:
   Comments: 'コメント'
   Click to View Comments: 'コメント表示'
   Getting comment replies, please wait: 'コメント返信を取得中。お待ちください'
-  Show Comments: 'コメント表示'
   Hide Comments: 'コメント非表示'
   # Context: View 10 Replies, View 1 Reply
   View: '表示'
@@ -862,8 +860,6 @@ Comments:
   There are no more comments for this video: この動画へのコメントはまだありません
   Top comments: 評価順
   Newest first: 新しい順
-  No more comments available: これ以上のコメントはありません
-  Sort by: 並べ替え
   Show More Replies: 返信をもっと見る
   And others: その他
   Pinned by: 固定
@@ -900,7 +896,6 @@ Profile:
   Profile has been updated: プロファイルを更新しました
   Profile has been created: プロファイルを作成しました
   Your profile name cannot be empty: プロファイル名は空にできません
-  Profile could not be found: プロファイルが見つかりません
   All subscriptions will also be deleted.: すべての登録チャンネルも削除されます。
   Are you sure you want to delete this profile?: このプロファイルを削除しますか？
   Delete Profile: プロファイルの削除
@@ -996,6 +991,7 @@ Default Invidious instance has been set to {instance}: デフォルトの Invidi
 External link opening has been disabled in the general settings: 一般設定で外部リンクの表示は無効になっています
 Search Bar:
   Clear Input: 入力の消去
+  Remove: 削除
 Are you sure you want to open this link?: このリンクを開きますか？
 Starting download: '"{videoTitle}" のダウンロードを開始します'
 Downloading has completed: '"{videoTitle}" のダウンロードが完了しました'
@@ -1064,12 +1060,64 @@ shortcutJoinOperator: +
 Keys:
   alt: Alt
   ctrl: Ctrl
-  arrowdown: 下矢印
-  arrowleft: 左矢印
-  arrowright: 右矢印
-  arrowup: 上矢印
+  arrowdown: ↓
+  arrowleft: ←
+  arrowright: →
+  arrowup: ↑
+  shift: Shift
+  plus: +
+  enter: Enter
 Right-click or hold to see history: 右クリックまたは長押しで 履歴 を表示
 Autoplay Interruption Timer: '{autoplayInterruptionIntervalHours} 時間の無操作状態が続いたため、自動再生をキャンセルしました'
 Description:
   Expand Description: '...もっと見る'
   Collapse Description: 表示を減らす
+KeyboardShortcutPrompt:
+  Navigate to Settings: 設定ページに移動する
+  History Forward: １ページ進む
+  New Window: 新しいウィンドウを開く
+  Navigate to History: 履歴ページに移動する
+  Refresh: フィードを最新の状態に更新
+  Focus Secondary Search: 補助検索バーに移動（存在する場合）
+  Captions: 字幕を オン/オフ 切り替え
+  Stats: 動画の統計情報を表示
+  History Backward: １ページ戻る
+  Fullscreen: フルスクリーンの切り替え
+  Full Window: フルウィンドウの切り替え
+  Theatre Mode: シアターモードの切り替え
+  Take Screenshot: スクリーンショットを撮る
+  Minimize Window: ウィンドウの最小化
+  Play: 再生 / 一時停止 の切り替え
+  Large Fast Forward: 10秒進む / 現在の動画再生速度に基づいて動画を早送り
+  Mute: ミュートの切り替え
+  Decrease Video Speed: 再生速度間隔に基づいて動画の速度を下げる
+  Increase Video Speed: 再生速度間隔に基づいて動画の速度を上げる
+  Reset Zoom: ズームレベル / UI拡大率をリセット
+  Zoom In: 拡大
+  Zoom Out: 縮小
+  Restart Window: ウィンドウを再起動
+  Force Restart Window: ウィンドウを強制再起動
+  Toggle Developer Tools: 開発者ツールの切り替え
+  Focus Search: 検索バーにフォーカスする
+  Keyboard Shortcuts: キーボード ショートカット
+  Sections:
+    Video:
+      Playback: '動画: 再生'
+      General: '動画: 一般'
+    App:
+      Situational: 'アプリ: 状況対応'
+      General: 'アプリ: 一般'
+  Show Keyboard Shortcuts: キーボード ショートカットを表示する
+  Picture in Picture: 子画面モードの切り替え
+  Large Rewind: 10秒巻き戻し / 現在の動画再生速度に基づき動画を巻き戻す
+  Close Window: ウィンドウを閉じる
+  Search in New Window: 新しいウィンドウで検索
+  Volume Down: 音量を下げる
+  Last Frame: 前のフレーム (一時停止中)
+  Next Frame: 次のフレーム (一時停止中)
+  Volume Up: 音量を上げる
+  Small Rewind: 巻き戻し間隔と現在の再生速度に基づいてX秒巻き戻す
+  Small Fast Forward: 早送り間隔と現在の再生速度に基づいてX秒早送り
+  Last Chapter: 前のチャプター
+  Next Chapter: 次のチャプター
+  Skip by Tenths: 動画をパーセンテージでスキップ (3回スキップで全体の30%に移動)

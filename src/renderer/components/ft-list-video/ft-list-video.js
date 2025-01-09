@@ -766,7 +766,7 @@ export default defineComponent({
         viewCount: this.viewCount,
         lengthSeconds: this.data.lengthSeconds,
         watchProgress: 0,
-        timeWatched: new Date().getTime(),
+        timeWatched: Date.now(),
         isLive: false,
         type: 'video'
       }
@@ -789,6 +789,9 @@ export default defineComponent({
         description: this.description,
         viewCount: this.viewCount,
         lengthSeconds: this.data.lengthSeconds,
+        published: this.published,
+        premiereDate: this.data.premiereDate,
+        premiereTimestamp: this.data.premiereTimestamp,
       }
 
       this.showAddToPlaylistPromptForManyVideos({ videos: [videoData] })
@@ -838,6 +841,9 @@ export default defineComponent({
         author: this.channelName,
         authorId: this.channelId,
         lengthSeconds: this.data.lengthSeconds,
+        published: this.published,
+        premiereDate: this.data.premiereDate,
+        premiereTimestamp: this.data.premiereTimestamp,
       }
 
       this.addVideo({

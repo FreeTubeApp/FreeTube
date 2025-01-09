@@ -35,6 +35,7 @@ Global:
   Shorts: Shorts
   Live: Наживо
   Community: Спільнота
+  Sort By: Сортувати за
 
   Counts:
     Video Count: 1 відео | {count} відео
@@ -44,8 +45,6 @@ Global:
     Watching Count: 1 глядач | {count} глядачів
     Like Count: 1 вподобання | {count} вподобань
     Comment Count: 1 коментар | {count} коментарів
-  Input Tags:
-    Length Requirement: Тег повинен мати довжину не менше {number} символів
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова
   версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
 Download From Site: 'Завантажити з сайту'
@@ -58,7 +57,6 @@ Search / Go to URL: 'Пошук / Перейти по URL'
 Search Filters:
   Search Filters: 'Фільтри пошуку'
   Sort By:
-    Sort By: 'Впорядковувати за'
     Most Relevant: 'Найвідповідніші'
     Rating: 'Рейтинг'
     Upload Date: 'Час вивантаження'
@@ -105,7 +103,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Підписки'
-  Latest Subscriptions: 'Останні підписки'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Цей
     профіль має велику кількість підписок. Використайте RSS щоб уникнути обмеження
     швидкості'
@@ -113,8 +110,6 @@ Subscriptions:
     список підписок наразі порожній. Якщо ви хочете імпортувати свої підписки, перейдіть
     до налаштувань даних і виберіть "Імпортувати підписки", або ви можете знайти канал
     і підписатися на нього.'
-  'Getting Subscriptions. Please wait.': 'Отримання Підписок. Будь ласка, зачекайте.'
-  Refresh Subscriptions: 'Оновити Підписки'
   Load More Videos: 'Завантажити більше відео'
   Error Channels: Канали з помилками
   Disabled Automatic Fetching: Ви вимкнули автоматичне отримання підписок. Оновіть
@@ -159,7 +154,6 @@ User Playlists:
   Remove Watched Videos: Вилучити з переглянутих відео
   Delete Playlist: Видалити добірку
   Sort By:
-    Sort By: Сортувати за
     LatestPlayedFirst: Нещодавно переглянуті
     EarliestPlayedFirst: Найдавніше переглянуті
     NameAscending: А-Я
@@ -201,8 +195,6 @@ User Playlists:
       There was an issue with updating this playlist.: Сталася помилка при оновленні
         цієї добірки.
       There were no videos to remove.: Відео для видалення не знайдено.
-      Playlist {playlistName} is the new quick bookmark playlist.: Добірка {playlistName}
-        тепер є новою швидкою закладкою.
     Search for Videos: Пошук відео
   The playlist has been successfully exported: Добірку успішно експортовано
   Export Playlist: Експортувати цю добірку
@@ -336,6 +328,7 @@ Settings:
       Nordic: Нордичний
       Gruvbox Light: Gruvbox Світлий
       Solarized Dark: Solarized Темна
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Основна кольорова тема'
       Red: 'Червона'
@@ -393,6 +386,20 @@ Settings:
       Solarized Red: Solarized Червоний
       Gruvbox Dark Yellow: Gruvbox Темно Жовтий
       Solarized Blue: Solarized Голубий
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
+      Catppuccin Frappe Blue: Catppuccin Frappe Blue
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
+      Catppuccin Frappe Teal: Catppuccin Frappe Teal
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Green: Catppuccin Frappe Green
+      Catppuccin Frappe Red: Catppuccin Frappe Red
+      Catppuccin Frappe Peach: Catppuccin Frappe Peach
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Sky: Catppuccin Frappe Sky
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
+      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
     Hide Side Bar Labels: Сховати мітки бічної панелі
@@ -423,7 +430,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Інтервал відтворення наступного відео
     Next Video Interval: Таймер автозапуску
     Scroll Volume Over Video Player: Прокручування гучності на відеопрогравачі
     Display Play Button In Video Player: Показувати кнопку відтворення у відеопрогравачі
@@ -453,7 +459,7 @@ Settings:
     Autoplay Interruption Timer: Таймер переривання автозапуску
   Privacy Settings:
     Privacy Settings: 'Конфіденційність'
-    Remember History: 'Збрігати історію'
+    Remember History: 'Зберігати історію переглядів'
     Save Watched Progress: 'Зберігати прогрес перегляду'
     Clear Search Cache: 'Очистити пошуковий кеш'
     Are you sure you want to clear out your search cache?: 'Дійсно бажаєте очистити
@@ -472,6 +478,11 @@ Settings:
     Remove All Playlists: Видалити всі добірки
     Are you sure you want to remove all your playlists?: Ви впевнені, що хочете видалити
       всі свої добірки?
+    Remember Search History: Зберігати історію пошуку
+    Search history and cache have been cleared: Історію пошуку та кеш очищено
+    Clear Search History and Cache: Очистити історію пошуку та кеш
+    Are you sure you want to clear out your search history and cache?: Ви впевнені,
+      що хочете очистити історію пошуку та кеш?
   Subscription Settings:
     Subscription Settings: 'Підписка'
     Hide Videos on Watch: 'Ховати відео при перегляді'
@@ -534,7 +545,6 @@ Settings:
     Show Added Items: Показати додані елементи
   Data Settings:
     Data Settings: 'Дані'
-    Select Import Type: 'Оберіть тип імпорту'
     Select Export Type: 'Оберіть тип експорту'
     Import Subscriptions: 'Імпортувати підписки'
     Export Subscriptions: 'Експортувати підписки'
@@ -648,8 +658,6 @@ Settings:
       збоїв. Радимо робити резервні копії. Використовуйте на свій страх і ризик!
   Password Dialog:
     Enter Password To Unlock: Введіть пароль, щоб розблокувати налаштування
-    Unlock: Розблокувати
-    Password Incorrect: Пароль неправильний
     Password: Пароль
   Password Settings:
     Password Settings: Пароль
@@ -703,7 +711,6 @@ Profile:
   Delete Profile: 'Видалити профіль'
   Are you sure you want to delete this profile?: 'Справді видалити цей профіль?'
   All subscriptions will also be deleted.: 'Усі підписки також буде видалено.'
-  Profile could not be found: 'Не вдалося знайти профіль'
   Your profile name cannot be empty: 'Ім''я профілю не може бути порожнім'
   Profile has been created: 'Профіль створено'
   Profile has been updated: 'Профіль оновлено'
@@ -744,7 +751,6 @@ Channel:
   Added channel to your subscriptions: 'Додано канал до підписок'
   Search Channel: 'Шукати на каналі'
   Your search results have returned 0 results: 'Пошук дав 0 результатів'
-  Sort By: 'Впорядковувати за'
   Videos:
     Videos: 'Відео'
     This channel does not currently have any videos: 'Наразі на цьому каналі немає
@@ -834,8 +840,6 @@ Video:
   Enable Live Chat: 'Увімкнути чат у реальному часі'
   Live Chat is currently not supported in this build.: 'Чат в режимі реального часу
     наразі не підтримується в цій збірці.'
-  'Chat is disabled or the Live Stream has ended.': 'Чат вимкнено, а пряму трансляцію
-    завершено.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Чат увімкнено.  Повідомлення
     чату з''являться тут після надсилання.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Чат
@@ -877,8 +881,6 @@ Video:
     playlist: список відтворення
     video: відео
     OpenInTemplate: Відкрити у {externalPlayer}
-  Premieres on: Прем'єри
-  Premieres in: Прем'єри в
   Premieres: Прем'єри
   Scroll to Bottom: Прокрутити до кінця
   Show Super Chat Comment: Показати коментар із суперчату
@@ -930,12 +932,9 @@ Video:
   MembersOnly: Відео, доступні лише для учасників, не можна переглядати за допомогою
     FreeTube, оскільки вони вимагають входу через Google та платної підписки на канал
     завантажувача.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Найновіші'
-    Oldest: 'Найдавніші'
-    #& Most Popular
+  DRMProtected: Відео, захищені DRM, неможливо відтворити у FreeTube, оскільки для
+    цього потрібні пропрієтарні компоненти з закритим вихідним кодом. Щоб переглянути
+    це відео, скористайтеся офіційним сайтом YouTube у веб-браузері з підтримкою DRM.
 #& Playlists
 Playlist:
   #& About
@@ -955,8 +954,9 @@ Playlist:
     AuthorAscending: Автор (А-Я)
     AuthorDescending: Автор (Я-А)
     VideoDurationAscending: Тривалість (спочатку найкоротші)
-    Sort By: Сортувати за
     DateAddedNewest: Спочатку новіші добавлені
+    PublishedNewest: Останні опубліковані першими
+    PublishedOldest: Найдавніші опубліковані першими
 Change Format:
   Change Media Formats: 'Зміна форматів відео'
   Use Dash Formats: 'Використовувати формати DASH'
@@ -995,9 +995,7 @@ Comments:
   Click to View Comments: 'Клацніть, щоб переглянути коментарі'
   Getting comment replies, please wait: 'Отримання відповідей на коментарі, зачекайте'
   There are no more comments for this video: 'Більше немає коментарів до цього відео'
-  Show Comments: 'Показати коментарі'
   Hide Comments: 'Сховати коментарі'
-  Sort by: 'Впорядковувати за'
   Top comments: 'Найпопулярніші коментарі'
   Newest first: 'Спочатку новіші'
   # Context: View 10 Replies, View 1 Reply
@@ -1007,7 +1005,6 @@ Comments:
   Reply: 'Відповідь'
   There are no comments available for this video: 'Немає коментарів до цього відео'
   Load More Comments: 'Завантажити більше коментарів'
-  No more comments available: 'Більше немає коментарів'
   Show More Replies: Показати інші відповіді
   From {channelName}: від {channelName}
   And others: та інших
@@ -1129,6 +1126,7 @@ Default Invidious instance has been set to {instance}: 'Типовим екзе�
   встановлено {instance}'
 Search Bar:
   Clear Input: Очистити поле
+  Remove: Видалити
 External link opening has been disabled in the general settings: Відкриття зовнішнього
   посилання вимкнено в загальних налаштуваннях
 Are you sure you want to open this link?: Ви впевнені, що хочете відкрити це посилання?
@@ -1199,6 +1197,9 @@ Keys:
   arrowdown: Стрілка вниз
   arrowleft: Стрілка вліво
   arrowup: Стрілка вгору
+  shift: Shift
+  enter: Enter
+  plus: Плюс
 checkmark: ✓
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Age Restricted:
@@ -1216,3 +1217,58 @@ Autoplay Interruption Timer: Автозапуск скасовано через 
 Description:
   Expand Description: '...докладніше'
   Collapse Description: Показати менше
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Гарячі клавіші
+  Sections:
+    Video:
+      Playback: 'Відео: Відтворення'
+      General: 'Відео: Загальні'
+    App:
+      Situational: 'Додаток: Ситуаційне'
+      General: 'Додаток: Загальне'
+  Show Keyboard Shortcuts: Показати клавіатурні скорочення
+  History Backward: Повернутися на одну сторінку назад
+  History Forward: Перейти на одну сторінку вперед
+  Navigate to Settings: Перейти до сторінки налаштувань
+  Navigate to History: Перейти на сторінку Історії
+  Focus Secondary Search: Зосередитись на вторинній панелі пошуку (якщо вона є)
+  Captions: Перемикати субтитри УВІМК/ВИМК
+  Stats: Показати статистику відео
+  Fullscreen: Перемкнути на повний екран
+  Picture in Picture: Перемкнути режим "Картинка в картинці"
+  Large Rewind: Перемотати на 10 секунд / Перемотати відео в залежності від поточної
+    швидкості відтворення
+  Play: Перемикання відтворення/паузи
+  Mute: Перемкнути беззвучний режим
+  Increase Video Speed: Збільшити швидкість відео відповідно до інтервалу швидкості
+    відтворення відео
+  Full Window: Переключити на повний екран
+  Take Screenshot: Зробити скріншот
+  Minimize Window: Згорнути вікно
+  Close Window: Закрити вікно
+  Restart Window: Перезапустити вікно
+  Force Restart Window: Примусово перезапустити вікно
+  Refresh: Оновити стрічку з останнім вмістом
+  Large Fast Forward: Перемотати вперед на 10 секунд / Швидка перемотка відео відповідно
+    до поточної швидкості відтворення
+  Decrease Video Speed: Зменшити швидкість відео відповідно до інтервалу швидкості
+    відтворення відео
+  New Window: Створити нове вікно
+  Theatre Mode: Переключити на театральний режим
+  Toggle Developer Tools: Перемикнути інструменти розробника
+  Reset Zoom: Скинути рівень масштабування / шкалу інтерфейсу
+  Zoom In: Масштабувати вперед
+  Zoom Out: Масштабувати назад
+  Focus Search: Зосередитися на рядку пошуку
+  Search in New Window: Пошук у новому вікні
+  Last Frame: Попередній кадр (під час паузи)
+  Next Frame: Наступний кадр (під час паузи)
+  Volume Up: Збільшити гучність
+  Volume Down: Зменшити гучність
+  Small Rewind: Перемотати на X секунд згідно з інтервалом перемотування та поточним
+    коефіцієнтом відтворення відео
+  Small Fast Forward: Перемотати вперед на X секунд згідно з інтервалом перемотування
+    вперед та поточним коефіцієнтом відтворення відео
+  Last Chapter: Останній розділ
+  Skip by Tenths: Пропустити відео на певний відсоток (3 пропуски до 30% тривалості)
+  Next Chapter: Наступний розділ
