@@ -22,7 +22,15 @@
       @volumechange="updateVolume"
       @timeupdate="handleTimeupdate"
     />
+    <!--
+      VR playback is only possible for VR videos with "EQUIRECTANGULAR" projection
+      This intentionally doesn't use the "useVrMode" computed prop,
+      as that changes depending on the active format,
+      but as we initialize the shaka-player UI once per watch page,
+      the canvas has to exist even in audio-only mode, because the user may switch to DASH later.
+    -->
     <canvas
+      v-if="vrProjection === 'EQUIRECTANGULAR'"
       ref="vrCanvas"
       class="vrCanvas"
     />
