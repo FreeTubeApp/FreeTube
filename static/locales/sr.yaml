@@ -462,7 +462,7 @@ Settings:
     Autoplay Interruption Timer: Тајмер за прекид аутоплеја
   Privacy Settings:
     Privacy Settings: 'Приватност'
-    Remember History: 'Запамти историју'
+    Remember History: 'Запамти историју гледања'
     Save Watched Progress: 'Сачувај напредак одгледаног'
     Clear Search Cache: 'Очисти кеш претраге'
     Are you sure you want to clear out your search cache?: 'Желите ли заиста да очистите
@@ -481,6 +481,12 @@ Settings:
     Remove All Playlists: Уклони све плејлисте
     Are you sure you want to remove all your playlists?: Желите ли заиста да уклоните
       све своје плејлисте?
+    Remember Search History: Запамти историју претраге
+    Search history and cache have been cleared: Историја претраге и кеш меморија су
+      обрисани
+    Clear Search History and Cache: Очисти историју претраге и кеш меморију
+    Are you sure you want to clear out your search history and cache?: Желите ли заиста
+      да очистите историју претраге и кеш меморију?
   Subscription Settings:
     Subscription Settings: 'Праћење'
     Hide Videos on Watch: 'Сакриј видео снимке на гледању'
@@ -1095,6 +1101,7 @@ Unknown YouTube url type, cannot be opened in app: Непозната врста
   не може се отворити у апликацији
 Search Bar:
   Clear Input: Очисти унос
+  Remove: Уклони
 Up Next: Следеће
 Loop is now disabled: Понављање је сада онемогућено
 Playing Next Video: Пуштање следећег видео снимка
