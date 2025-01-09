@@ -105,9 +105,9 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Feliratkozások'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
-    feliratkozások listája jelenleg üres. Ha importálni szeretné előfizetéseit, lépjen
-    az Adatok beállításaiba és válassza a feliratkozások importálása lehetőséget,
-    vagy kereshet csatornákat és feliratkozhat rájuk.'
+    feliratkozások listája jelenleg üres. Ha importálni szeretné feliratkozásait,
+    akkor lépjen az Adatok beállításaiba és válassza a feliratkozások importálása
+    lehetőséget, vagy kereshet csatornákat és feliratkozhat rájuk.'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ez
     a profil nagyszámú feliratkozást tartalmaz. RSS kényszerítése a sebességkorlátozás
     elkerülésére
@@ -881,8 +881,8 @@ Video:
   Sponsor Block category:
     music offtopic: Témán kívüli zene
     interaction: Interakció
-    self-promotion: Önreklám
-    outro: Kivezetés
+    self-promotion: Önreklámozás
+    outro: Befejezés
     intro: Bevezetés
     sponsor: Szponzor
     filler: Kitöltő
@@ -1081,8 +1081,8 @@ Tooltips:
       vagy parancssori argumentumok átirányításával, új ablakban nyílnak meg.
   Subscription Settings:
     Fetch Feeds from RSS: Amikor engedélyezve van, a FreeTube az RSS-t fogja használni
-      az alapértelmezett módszer helyett az előfizetéses hírcsatorna lekérdezéséhez.
-      Az RSS gyorsabb és megakadályozza az IP-blokkolást, de nem nyújt bizonyos információkat,
+      az alapértelmezett módszer helyett a feliratkozási hírfolyam lekérdezéséhez.
+      Az RSS gyorsabb és megakadályozza az IP-tiltást, de nem tartalmaz bizonyos információkat,
       például a videó időtartamát, az élő állapotot vagy a közösségi hozzászólásokat
     Fetch Automatically: Amikor engedélyezve van, a FreeTube új ablak megnyitásakor
       és profilváltáskor automatikusan lekéri az feliratkozási hírfolyamot.
