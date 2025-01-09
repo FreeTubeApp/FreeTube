@@ -107,6 +107,7 @@ const SyncEvents = {
     UPSERT_VIDEO: 'sync-playlists-upsert-video',
     UPSERT_VIDEOS: 'sync-playlists-upsert-videos',
     DELETE_VIDEO: 'sync-playlists-delete-video',
+    DELETE_VIDEOS: 'sync-playlists-delete-videos',
   },
 
   SUBSCRIPTION_CACHE: {
