@@ -40,6 +40,8 @@ Global:
     Channel Count: 1 kanal | {count} kanal
     View Count: 1 ditonton | {count} ditonton
     Watching Count: 1 sedang menonton | {count} sedang menonton
+    Comment Count: 1 komentar | {count} komentar
+    Like Count: 1 suka | {count} suka
   Community: Komunitas
   Live: Siaran Langsung
   Shorts: Shorts
@@ -88,6 +90,17 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Tidak ada hasil lagi untuk pencarian
     ini
+  Features:
+    Features: Fitur
+    Live: Langsung
+    HDR: HDR
+    HD: HD
+    Subtitles: Subtitel
+    4K: 4K
+    3D: 3D
+    360 Video: Video 360
+    Location: Lokasi
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Langganan'
@@ -126,6 +139,11 @@ User Playlists:
   Sort By:
     NameDescending: Z-A
     NameAscending: A-Z
+    LatestUpdatedFirst: Baru-baru Ini Diperbarui
+    EarliestCreatedFirst: Paling Awal Dibuat
+    EarliestUpdatedFirst: Paling Awal Diperbarui
+    LatestPlayedFirst: Baru-baru Ini Diputar
+    LatestCreatedFirst: Baru-baru Ini Dibuat
   CreatePlaylistPrompt:
     Create: Buat
     New Playlist Name: Nama Daftar Putar yang Baru
@@ -171,6 +189,8 @@ User Playlists:
   Playlist Description: Deskripsi Daftar Putar
   This playlist currently has no videos.: Daftar putar ini belum mempunyai video apa
     pun.
+  Export Playlist: Ekspor Daftar Putar Ini
+  The playlist has been successfully exported: Daftar putar berhasil diekspor
 History:
   # On History Page
   History: 'Riwayat'
@@ -887,3 +907,14 @@ Ok: Oke
 Yes, Open Link: Ya, Buka Tautan
 checkmark: ✓
 Close Banner: Tutup Banner
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Subtitel
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Baru
+    3D: 3D
+Search character limit: Kata pencarian melebihi batas {searchCharacterLimit} karakter
+Right-click or hold to see history: Klik kanan atau tahan untuk melihat riwayat
