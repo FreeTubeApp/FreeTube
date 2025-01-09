@@ -44,8 +44,6 @@ Global:
     View Count: 1 visualização | {count} visualizações
     Watching Count: 1 a assistir | {count} a assistir
     Channel Count: 1 canal | {count} canais
-  Input Tags:
-    Length Requirement: A etiqueta tem que ter, pelo menos, {number} caracteres
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
   está disponível! Clique aqui para mais informações.
 Download From Site: Descarregar do site
@@ -104,14 +102,11 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Subscrições
-  Latest Subscriptions: Subscrições recentes
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil contém um elevado número de subscrições. A forçar utilização de RSS para
     evitar que a sua rede seja bloqueada.
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': A
     sua lista de subscrições está vazia. Adicione algumas para as ver aqui.
-  'Getting Subscriptions. Please wait.': A carregar subscrições. Por favor aguarde.
-  Refresh Subscriptions: Recarregar subscrições
   Load More Videos: Carregar mais vídeos
   Error Channels: Canais com erros
   Disabled Automatic Fetching: Desativou a atualização automática de subscrições.
@@ -487,7 +482,6 @@ Settings:
       que contenham textos
   Data Settings:
     Data Settings: Definições de dados
-    Select Import Type: Selecione o tipo de importação
     Select Export Type: Selecione o tipo de exportação
     Import Subscriptions: Importar subscrições
     Export Subscriptions: Exportar subscrições
@@ -601,8 +595,6 @@ Settings:
   Password Dialog:
     Password: Palavra-passe
     Enter Password To Unlock: Indique a palavra-passe para desbloquear as definições
-    Password Incorrect: Palavra-passe incorreta
-    Unlock: Desbloquear
   Password Settings:
     Password Settings: Definições de palavra-passe
     Set Password To Prevent Access: Defina uma palavra-passe para impedir o acesso
@@ -655,7 +647,6 @@ Profile:
     este perfil?
   All subscriptions will also be deleted.: Todas as subscrições associadas a este
     perfil também serão eliminadas.
-  Profile could not be found: Perfil não encontrado
   Your profile name cannot be empty: O nome do perfil não pode ficar vazio
   Profile has been created: Perfil criado
   Profile has been updated: Perfil atualizado
@@ -784,8 +775,6 @@ Video:
   Enable Live Chat: Permitir conversa em direto
   Live Chat is currently not supported in this build.: A conversa em direto não é
     permitida nesta versão.
-  'Chat is disabled or the Live Stream has ended.': A conversa ou a emissão em direto
-    terminou.
   Live chat is enabled. Chat messages will appear here once sent.: A conversa em direto
     está ativada. As mensagens vão aparecer aqui.
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': A
@@ -829,7 +818,6 @@ Video:
     sponsor: Patrocinador
     recap: Recapitulação
     filler: Preenchimento
-  Premieres on: Estreia a
   Premieres: Estreias
   Show Super Chat Comment: Mostrar comentário do Super Chat
   Scroll to Bottom: Deslocar para baixo
@@ -841,12 +829,6 @@ Video:
   Hide Channel: Ocultar canal
   Unhide Channel: Mostrar canal
   More Options: Mais opções
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: Recentes
-    Oldest: Antigos
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -902,7 +884,6 @@ Comments:
   Getting comment replies, please wait: A obter respostas ao comentário, por favor
     aguarde
   There are no more comments for this video: Não há mais comentários para este vídeo
-  Show Comments: Mostrar comentários
   Hide Comments: Ocultar comentários
   Top comments: Melhores comentários
   Newest first: Mais recentes
@@ -913,7 +894,6 @@ Comments:
   Reply: Resposta
   There are no comments available for this video: Este vídeo não tem comentários
   Load More Comments: Carregar mais comentários
-  No more comments available: Não existem mais comentários
   Show More Replies: Mostrar mais respostas
   And others: e outros
   From {channelName}: de {channelName}

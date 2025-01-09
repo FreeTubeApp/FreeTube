@@ -75,13 +75,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
-  Latest Subscriptions: 'Últimas Suscripciones'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu
     lista de Suscripción está actualmente vacía. Empieza añadiendo suscripciones para
     verlas ahí.'
-  'Getting Subscriptions.  Please wait.': 'Obteniendo Suscripciones. Por favor espere.'
-  Refresh Subscriptions: Actulizar Suscripciones
-  Getting Subscriptions. Please wait.: Obteniendo Suscripciones. Por favor espere.
   Load More Videos: Cargar más videos
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil tiene un gran número de suscripciones. Forzando RSS para evitar limitaciones
@@ -259,7 +255,6 @@ Settings:
     Export Subscriptions: Exportar Suscripciones
     Import Subscriptions: Importar Suscripciones
     Select Export Type: Seleccionar tipo de exportación
-    Select Import Type: Seleccionar tipo de importación
     Data Settings: Ajustes de datos
     All watched history has been successfully exported: Historial de reproducciones
       se exportó con éxito
@@ -419,8 +414,6 @@ Video:
   Enable Live Chat: 'Activar chat en vivo'
   Live Chat is currently not supported in this build.: 'El chat en vivo no esta soportado
     actualmente en esta compilación.'
-  'Chat is disabled or the Live Stream has ended.': 'El chat esta desactivado o la
-    transmisión en vivo ha terminado.'
   Live chat is enabled. Chat messages will appear here once sent.: 'El chat en vivo
     esta activado. Los mensajes del chat aparecerán aquí cuando sean enviados.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'El
@@ -470,14 +463,7 @@ Video:
   Open Channel in Invidious: Abrir canal en Invidious
   Copy Invidious Channel Link: Copiar link del canal en Invidious
   Copy YouTube Channel Link: Copiar link del canal en YouTube
-  Premieres on: En estreno
   Download Video: Descargar video
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Mas nuevo'
-    Oldest: 'Mas viejo'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -520,7 +506,6 @@ Comments:
   Click to View Comments: 'Presione para Ver Comentarios'
   Getting comment replies, please wait: 'Recibiendo respuestas de comentarios, por
     favor espere'
-  Show Comments: 'Mostrar comentarios'
   Hide Comments: 'Esconde comentarios'
   # Context: View 10 Replies, View 1 Reply
   View: 'Vista'
@@ -538,7 +523,6 @@ Comments:
   There are no more comments for this video: No hay más comentarios en este video
   Newest first: Más recientes
   Show More Replies: Mostrar más respuestas
-  No more comments available: No hay más comentarios disponibles
 Up Next: 'A continuación'
 
 # Toast Messages
@@ -570,7 +554,6 @@ Profile:
   Profile has been updated: El perfil ha sido actualizado
   Profile has been created: El profil ha sido creado
   Your profile name cannot be empty: Su nombre de perfil no puede estar vacío
-  Profile could not be found: No se puede localizar el perfil
   All subscriptions will also be deleted.: Todas las suscripciones serán borradas
     también.
   Are you sure you want to delete this profile?: ¿Está seguro que quiere borrar este

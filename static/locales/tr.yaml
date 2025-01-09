@@ -45,8 +45,6 @@ Global:
     Watching Count: 1 izliyor | {count} izliyor
     Like Count: 1 beğenme | {count} beğenme
     Comment Count: 1 yorum | {count} yorum
-  Input Tags:
-    Length Requirement: Etiket en az {number} karakter uzunluğunda olmalıdır
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
@@ -105,12 +103,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonelikler'
-  Latest Subscriptions: 'En Yeni'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abonelik
     listeniz şu anda boş. Aboneliklerinizi içe aktarmak istiyorsanız Veri Ayarları''na
     gidip Abonelikleri İçe Aktar''ı seçebilir veya bir kanal arayıp abone olabilirsiniz.'
-  'Getting Subscriptions. Please wait.': 'Abonelikler yükleniyor. Lütfen bekleyin.'
-  Refresh Subscriptions: 'Abonelikleri Yenile'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Bu
     profilin çok sayıda abonesi var.  Hız sınırlamalarından kaçınmak için RSS zorlanıyor
   Load More Videos: Daha Fazla Video Yükle
@@ -183,8 +178,6 @@ User Playlists:
         kullanımına geri dönüldü
       This playlist is now used for quick bookmark: Bu oynatma listesi artık hızlı
         yer imi için kullanılıyor
-      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
-        oynatma listesi yeni hızlı yer imi oynatma listesi.'
       This playlist is already being used for quick bookmark.: Bu oynatma listesi
         zaten hızlı yer imi için kullanılıyor.
       This playlist has a video with a duration error: Bu oynatma listesi süresi olmayan
@@ -417,7 +410,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Oynatma Listesi Sonraki Video Aralığı
     Next Video Interval: Otomatik Oynatma Geri Sayım Sayacı
     Scroll Volume Over Video Player: Ses Düzeyini Video Oynatıcı Üzerinden Kaydır
     Display Play Button In Video Player: Video Oynatıcıda Oynatma Düğmesini Göster
@@ -476,7 +468,6 @@ Settings:
     To: Kadar
   Data Settings:
     Data Settings: 'Veri'
-    Select Import Type: 'İçe Aktarma Türünü Seç'
     Select Export Type: 'Dışa Aktarma Türünü Seç'
     Import Subscriptions: 'Abonelikleri İçe Aktar'
     Export Subscriptions: 'Abonelikleri Dışa Aktar'
@@ -647,8 +638,6 @@ Settings:
       aittir!
     Experimental Settings: Deneysel
   Password Dialog:
-    Password Incorrect: Parola Yanlış
-    Unlock: Kilidi aç
     Password: Parola
     Enter Password To Unlock: Ayarların kilidini açmak için parolayı girin
   Password Settings:
@@ -704,7 +693,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Bu profili silmek istediğinizden
     emin misiniz?'
   All subscriptions will also be deleted.: 'Tüm abonelikler de silinecek.'
-  Profile could not be found: 'Profil bulunamadı'
   Your profile name cannot be empty: 'Profil adı boş bırakılamaz'
   Profile has been created: 'Profil oluşturuldu'
   Profile has been updated: 'Profil güncellendi'
@@ -834,8 +822,6 @@ Video:
   Live Chat: 'Canlı Sohbet'
   Enable Live Chat: 'Canlı Sohbeti Etkinleştir'
   Live Chat is currently not supported in this build.: 'Canlı Sohbet bu sürümde desteklenmiyor.'
-  'Chat is disabled or the Live Stream has ended.': 'Sohbet devre dışı bırakıldı veya
-    Canlı Yayın sona erdi.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Canlı Sohbet etkinleştirildi.
     Sohbet mesajları gönderildikten sonra burada görünecektir.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Canlı
@@ -881,8 +867,6 @@ Video:
     playlist: oynatma listesi
     video: video
     OpenInTemplate: '{externalPlayer} içinde aç'
-  Premieres on: İlk gösterim tarihi
-  Premieres in: İlk gösterim
   Premieres: İlk gösterim
   Scroll to Bottom: Aşağıya Kaydır
   Show Super Chat Comment: Süper Sohbet Yorumunu Göster
@@ -935,12 +919,6 @@ Video:
   DeArrow:
     Show Original Details: Düzenlenmemiş Detayları Göster
     Show Modified Details: Düzenlenmiş Detayları Göster
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'En yeni'
-    Oldest: 'En eski'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -996,7 +974,6 @@ Comments:
   Click to View Comments: 'Yorumları Görüntülemek İçin Tıklayın'
   Getting comment replies, please wait: 'Yorum yanıtları yükleniyor, lütfen bekleyin'
   There are no more comments for this video: 'Bu video için daha fazla yorum yok'
-  Show Comments: 'Yorumları Göster'
   Hide Comments: 'Yorumları Gizle'
   # Context: View 10 Replies, View 1 Reply
   View: 'Görüntüle'
@@ -1007,7 +984,6 @@ Comments:
   Load More Comments: 'Daha Fazla Yorum Yükle'
   Newest first: En yeni ilk önce
   Top comments: En iyi yorumlar
-  No more comments available: Başka yorum yok
   Show More Replies: Daha Fazla Yanıt Göster
   From {channelName}: "{channelName}'den"
   And others: ve diğerleri

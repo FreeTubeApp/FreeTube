@@ -53,9 +53,6 @@ Subscriptions:
     کی سبسکرپشن کی فہرست فی الحال خالی ہے۔ اگر آپ اپنی سبسکرپشنز امپورٹ کرنا چاہتے
     ہیں تو آپ ڈیٹا سیٹنگز میں جا کر امپورٹ سبسکرپشنز کو منتخب کر سکتے ہیں یا آپ کوئی
     چینل تلاش کر کے سبسکرائب کر سکتے ہیں۔'
-  'Getting Subscriptions. Please wait.': 'سبسکرپشنز حاصل کرنا۔ برائے مہربانی انتظار
-    کریں.'
-  Refresh Subscriptions: 'سبسکرپشنز کو ریفریش کریں۔'
   Load More Videos: 'مزید ویڈیوز لوڈ کریں'
 More: 'مزید'
 Channels:
@@ -128,7 +125,6 @@ Profile:
   Are you sure you want to delete this profile?: 'کیا آپ واقعی اسے حذف کرنا چاہتے
     ہیں۔ پروفائل؟'
   All subscriptions will also be deleted.: 'تمام سبسکرپشنز بھی حذف کر دی جائیں گی۔'
-  Profile could not be found: 'پروفائل نہیں مل سکا'
   Your profile name cannot be empty: 'آپ کا پروفائل نام خالی نہیں ہو سکتا'
   Profile has been created: 'پروفائل بن گیا ہے'
   Profile has been updated: 'پروفائل اپ ڈیٹ کر دیا گیا'

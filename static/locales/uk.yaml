@@ -45,8 +45,6 @@ Global:
     Watching Count: 1 глядач | {count} глядачів
     Like Count: 1 вподобання | {count} вподобань
     Comment Count: 1 коментар | {count} коментарів
-  Input Tags:
-    Length Requirement: Тег повинен мати довжину не менше {number} символів
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова
   версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
 Download From Site: 'Завантажити з сайту'
@@ -105,7 +103,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Підписки'
-  Latest Subscriptions: 'Останні підписки'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Цей
     профіль має велику кількість підписок. Використайте RSS щоб уникнути обмеження
     швидкості'
@@ -113,8 +110,6 @@ Subscriptions:
     список підписок наразі порожній. Якщо ви хочете імпортувати свої підписки, перейдіть
     до налаштувань даних і виберіть "Імпортувати підписки", або ви можете знайти канал
     і підписатися на нього.'
-  'Getting Subscriptions. Please wait.': 'Отримання Підписок. Будь ласка, зачекайте.'
-  Refresh Subscriptions: 'Оновити Підписки'
   Load More Videos: 'Завантажити більше відео'
   Error Channels: Канали з помилками
   Disabled Automatic Fetching: Ви вимкнули автоматичне отримання підписок. Оновіть
@@ -200,8 +195,6 @@ User Playlists:
       There was an issue with updating this playlist.: Сталася помилка при оновленні
         цієї добірки.
       There were no videos to remove.: Відео для видалення не знайдено.
-      Playlist {playlistName} is the new quick bookmark playlist.: Добірка {playlistName}
-        тепер є новою швидкою закладкою.
     Search for Videos: Пошук відео
   The playlist has been successfully exported: Добірку успішно експортовано
   Export Playlist: Експортувати цю добірку
@@ -438,7 +431,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Інтервал відтворення наступного відео
     Next Video Interval: Таймер автозапуску
     Scroll Volume Over Video Player: Прокручування гучності на відеопрогравачі
     Display Play Button In Video Player: Показувати кнопку відтворення у відеопрогравачі
@@ -554,7 +546,6 @@ Settings:
     Show Added Items: Показати додані елементи
   Data Settings:
     Data Settings: 'Дані'
-    Select Import Type: 'Оберіть тип імпорту'
     Select Export Type: 'Оберіть тип експорту'
     Import Subscriptions: 'Імпортувати підписки'
     Export Subscriptions: 'Експортувати підписки'
@@ -668,8 +659,6 @@ Settings:
       збоїв. Радимо робити резервні копії. Використовуйте на свій страх і ризик!
   Password Dialog:
     Enter Password To Unlock: Введіть пароль, щоб розблокувати налаштування
-    Unlock: Розблокувати
-    Password Incorrect: Пароль неправильний
     Password: Пароль
   Password Settings:
     Password Settings: Пароль
@@ -723,7 +712,6 @@ Profile:
   Delete Profile: 'Видалити профіль'
   Are you sure you want to delete this profile?: 'Справді видалити цей профіль?'
   All subscriptions will also be deleted.: 'Усі підписки також буде видалено.'
-  Profile could not be found: 'Не вдалося знайти профіль'
   Your profile name cannot be empty: 'Ім''я профілю не може бути порожнім'
   Profile has been created: 'Профіль створено'
   Profile has been updated: 'Профіль оновлено'
@@ -853,8 +841,6 @@ Video:
   Enable Live Chat: 'Увімкнути чат у реальному часі'
   Live Chat is currently not supported in this build.: 'Чат в режимі реального часу
     наразі не підтримується в цій збірці.'
-  'Chat is disabled or the Live Stream has ended.': 'Чат вимкнено, а пряму трансляцію
-    завершено.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Чат увімкнено.  Повідомлення
     чату з''являться тут після надсилання.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Чат
@@ -896,8 +882,6 @@ Video:
     playlist: список відтворення
     video: відео
     OpenInTemplate: Відкрити у {externalPlayer}
-  Premieres on: Прем'єри
-  Premieres in: Прем'єри в
   Premieres: Прем'єри
   Scroll to Bottom: Прокрутити до кінця
   Show Super Chat Comment: Показати коментар із суперчату
@@ -952,12 +936,6 @@ Video:
   DRMProtected: Відео, захищені DRM, неможливо відтворити у FreeTube, оскільки для
     цього потрібні пропрієтарні компоненти з закритим вихідним кодом. Щоб переглянути
     це відео, скористайтеся офіційним сайтом YouTube у веб-браузері з підтримкою DRM.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Найновіші'
-    Oldest: 'Найдавніші'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -1018,7 +996,6 @@ Comments:
   Click to View Comments: 'Клацніть, щоб переглянути коментарі'
   Getting comment replies, please wait: 'Отримання відповідей на коментарі, зачекайте'
   There are no more comments for this video: 'Більше немає коментарів до цього відео'
-  Show Comments: 'Показати коментарі'
   Hide Comments: 'Сховати коментарі'
   Top comments: 'Найпопулярніші коментарі'
   Newest first: 'Спочатку новіші'
@@ -1029,7 +1006,6 @@ Comments:
   Reply: 'Відповідь'
   There are no comments available for this video: 'Немає коментарів до цього відео'
   Load More Comments: 'Завантажити більше коментарів'
-  No more comments available: 'Більше немає коментарів'
   Show More Replies: Показати інші відповіді
   From {channelName}: від {channelName}
   And others: та інших

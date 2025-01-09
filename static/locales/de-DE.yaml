@@ -45,8 +45,6 @@ Global:
     Watching Count: 1 Zuschauer | {count} Zuschauer
     Comment Count: 1 Kommentar | {count} Kommentare
     Like Count: 1 Gefällt mir | {count} Gefällt mir
-  Input Tags:
-    Length Requirement: Der Tag muss mindestens {number} Zeichen lang sein
 Search / Go to URL: Suche / Gehe zur URL
   # In Filter Button
 Search Filters:
@@ -99,14 +97,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Abos
-  Latest Subscriptions: Neueste Abos
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Ihre
     Aboliste ist derzeit leer. Wenn Sie Ihre Abos importieren möchten, können Sie
     zu den Dateneinstellungen gehen und "Abos importieren" wählen oder Sie können
     nach einem Kanal suchen und ihn abonnieren.
-  'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
-  Refresh Subscriptions: Abos aktualisieren
-  Getting Subscriptions. Please wait.: Abos werden geladen. Bitte warten.
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dieses
     Profil hat eine große Anzahl von Abos.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen
     erzwingen
@@ -195,8 +189,6 @@ User Playlists:
         Klicke hier zum zurücksetzen
       Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} wird
         wieder für Schnelles Merken genutzt'
-      Playlist {playlistName} is the new quick bookmark playlist.: Wiedergabeliste
-        {playlistName} ist die neue Wiedergabeliste für schnelle Lesezeichen.
       This playlist is already being used for quick bookmark.: Diese Wiedergabeliste
         wird bereits für schnelle Lesezeichen verwendet.
       This playlist has a video with a duration error: Diese Wiedergabeliste enthält
@@ -442,7 +434,6 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
-    Playlist Next Video Interval: Zeit zwischen automatischer Videowiedergabe
     Next Video Interval: Automatischer Wiedergabe-Timer
     Display Play Button In Video Player: Wiedergabetaste im Videoabspieler anzeigen
     Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
@@ -534,7 +525,6 @@ Settings:
     Export Subscriptions: Abos exportieren
     Import Subscriptions: Abos importieren
     Select Export Type: Exporttyp auswählen
-    Select Import Type: Importtyp auswählen
     Data Settings: Daten
     Manage Subscriptions: Abos verwalten
     Export Playlists: Wiedergabelisten exportieren
@@ -682,8 +672,6 @@ Settings:
   Password Dialog:
     Password: Passwort
     Enter Password To Unlock: Passwort eingeben, um die Einstellungen zu entsperren
-    Password Incorrect: Falsches Passwort
-    Unlock: Entsperren
   Password Settings:
     Remove Password: Passwort entfernen
     Password Settings: Passwort
@@ -809,8 +797,6 @@ Video:
   Enable Live Chat: Live-Chat aktivieren
   Live Chat is currently not supported in this build.: Live-Chat wird in diesem Build
     derzeit nicht unterstützt.
-  'Chat is disabled or the Live Stream has ended.': Chat ist deaktiviert oder der
-    Livestream ist beendet.
   Live chat is enabled. Chat messages will appear here once sent.: Live-Chat ist aktiviert.
     Chat-Nachrichten werden hier angezeigt, sobald sie gesendet wurden.
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Live-Chat
@@ -870,8 +856,6 @@ Video:
     OpeningTemplate: '{videoOrPlaylist} wird in {externalPlayer} geöffnet ...'
     playlist: Wiedergabeliste
     video: Video
-  Premieres on: Premiere am
-  Premieres in: Premieren in
   Premieres: Premiere
   Show Super Chat Comment: Super-Chat-Kommentar anzeigen
   Scroll to Bottom: Nach unten scrollen
@@ -927,12 +911,6 @@ Video:
     da sie proprietäre, Closed-Source-Komponenten benötigen. Wenn Sie dieses Video
     ansehen möchten, schauen Sie es sich bitte auf der offiziellen YouTube-Website
     in einem DRM-fähigen Webbrowser an.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: Neueste
-    Oldest: Älteste
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -992,7 +970,6 @@ Comments:
   Click to View Comments: Klicke, um Kommentare anzuzeigen
   Getting comment replies, please wait: Antworten auf Kommentare werden geladen, bitte
     warten
-  Show Comments: Kommentare anzeigen
   Hide Comments: Kommentare ausblenden
   # Context: View 10 Replies, View 1 Reply
   View: Anzeigen
@@ -1003,7 +980,6 @@ Comments:
   Load More Comments: Weitere Kommentare laden
   There are no more comments for this video: Es gibt keine weiteren Kommentare zu
     diesem Video
-  No more comments available: Keine weiteren Kommentare verfügbar
   Newest first: Neueste zuerst
   Top comments: Top-Kommentare
   Show More Replies: Weitere Antworten anzeigen
@@ -1049,7 +1025,6 @@ Profile:
   Profile has been created: Profil wurde erstellt
   Profile has been updated: Profil wurde aktualisiert
   Your profile name cannot be empty: Dein Profilname darf nicht leer sein
-  Profile could not be found: Profil wurde nicht gefunden
   All subscriptions will also be deleted.: Alle Abos werden ebenfalls gelöscht.
   Are you sure you want to delete this profile?: Bist du sicher, dass du dieses Profil
     löschen willst?

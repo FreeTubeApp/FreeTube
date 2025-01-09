@@ -75,12 +75,8 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'بەشداریکراوەکان'
-  Latest Subscriptions: 'تازەترین بەشداریکراوەکان'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'لیستی
     بەشداریکرداوەکانت لە ئێستادا بەتاڵە. بەشداری لە کەناڵێک بکە بۆ ئەوەی بیانبینیت'
-  'Getting Subscriptions. Please wait.': 'بەشداریکراوەکان وەردەگیرێن. تکایە چاوەڕوان
-    بە.'
-  Refresh Subscriptions: 'بەشداریکراوەکان تازە بکەرەوە'
   Load More Videos: ڤیدیۆی زیاتر بهێنە
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: .ئەم
     پرۆفایلە ژمارەیەکی زۆری هەیە لە سەبسکریپشن. بۆ دورکەوتنەوە لە سنوور دانان (رسس)
@@ -174,7 +170,6 @@ Profile:
   Are you sure you want to delete this profile?: 'ئایە دڵنیایت کە دەتەوێت ئەم پڕۆفایلە
     بسڕیتەوە؟'
   All subscriptions will also be deleted.: 'هەموو بەشداریکردنەکانیش بە هامەنشێوە دەسڕێنەوە.'
-  Profile could not be found: 'پڕۆفایلەکە ناتواندرێت بدۆزرێتەوە'
   Your profile name cannot be empty: 'ناوی پڕۆفایلەکەت نابێت بەتاڵبێت'
   Profile has been created: 'پڕۆفایلەکە دروستکرا'
   Profile has been updated: 'پرۆفایلەکە تازەکرایەوە'

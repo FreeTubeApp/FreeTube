@@ -46,8 +46,6 @@ Global:
     Watching Count: 1 néző | {count} néző
     Like Count: 1 embernek tetszik | {count} embernek tetszik
     Comment Count: 1 hozzászólás | {count} hozzászólás
-  Input Tags:
-    Length Requirement: A címkének legalább {number} karakter hosszúnak kell lennie
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber}
   verzió már elérhető! Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
@@ -106,14 +104,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Feliratkozások'
-  Latest Subscriptions: 'Legfrissebb feliratkozások'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
     feliratkozások listája jelenleg üres. Ha importálni szeretné előfizetéseit, lépjen
     az Adatok beállításaiba és válassza a feliratkozások importálása lehetőséget,
     vagy kereshet csatornákat és feliratkozhat rájuk.'
-  'Getting Subscriptions. Please wait.': 'Feliratkozások megszerzése. Kis türelmet
-    kérünk.'
-  Refresh Subscriptions: 'Feliratkozások frissítése'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ez
     a profil nagyszámú feliratkozást tartalmaz. RSS kényszerítése a sebességkorlátozás
     elkerülésére
@@ -192,8 +186,6 @@ User Playlists:
         Kattintson ide a visszavonáshoz
       Reverted to use {oldPlaylistName} for quick bookmark: Visszaállítva a(z) {oldPlaylistName}
         használatára a gyors könyvjelzőhöz
-      Playlist {playlistName} is the new quick bookmark playlist.: A(z) {playlistName}
-        lejátszási lista az új gyors könyvjelző lejátszási lista.
       This playlist is already being used for quick bookmark.: Ez a lejátszási lista
         már használatban van mint gyors könyvjelző.
       This playlist has a video with a duration error: Ez a lejátszási lista legalább
@@ -442,7 +434,6 @@ Settings:
       1440p: '1440p'
       4k: '4K'
       8k: '8K'
-    Playlist Next Video Interval: Lejátszási lista következő videó intervalluma
     Next Video Interval: Automatikus lejátszás időköze
     Scroll Volume Over Video Player: A hangerő szintjét a videolejátszó feletti kerékkel
       szabályozhatja
@@ -508,7 +499,6 @@ Settings:
     To: 'Ennyire'
   Data Settings:
     Data Settings: 'Adat'
-    Select Import Type: 'Importálási típus kiválasztása'
     Select Export Type: 'Exportálási típus kiválasztása'
     Import Subscriptions: 'Feliratkozások importálása'
     Export Subscriptions: 'Feliratkozások exportálása'
@@ -680,8 +670,6 @@ Settings:
       vannak. Erősen ajánlott biztonsági mentéseket készíteni. Csak saját felelősségre
       használja!
   Password Dialog:
-    Password Incorrect: Helytelen jelszó
-    Unlock: Feloldás
     Enter Password To Unlock: Jelszó megadása a beállítások feloldásához
     Password: Jelszó
   Password Settings:
@@ -737,7 +725,6 @@ Profile:
   Delete Profile: 'Profil törlése'
   Are you sure you want to delete this profile?: 'Biztosan törli ezt a profilt?'
   All subscriptions will also be deleted.: 'Az összes feliratkozás is törlődik.'
-  Profile could not be found: 'A profil nem található'
   Your profile name cannot be empty: 'A profil neve nem lehet üres'
   Profile has been created: 'Profil létrehozva'
   Profile has been updated: 'A profil frissült'
@@ -869,8 +856,6 @@ Video:
   Enable Live Chat: 'Élő csevegés engedélyezése'
   Live Chat is currently not supported in this build.: 'Az élő csevegés jelenleg nem
     támogatott ebben a build-ban.'
-  'Chat is disabled or the Live Stream has ended.': 'Csevegés letiltva vagy az élő
-    adatfolyam véget ért.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Élő csevegés engedélyezve.
     A csevegőüzenetek itt jelennek meg, miután elküldték.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Az
@@ -919,7 +904,6 @@ Video:
     playlist: lejátszási lista
     video: videó
     OpenInTemplate: 'Megnyitás itt: {externalPlayer}'
-  Premieres on: 'Bemutató dátuma'
   Premieres: Első előadások
   Show Super Chat Comment: Super Chat hozzászólás megjelenítése
   Scroll to Bottom: Görgetés legalulra
@@ -973,12 +957,6 @@ Video:
     mivel ezekhez zárt forráskódú, tulajdonosi komponensekre van szükség. Ha meg szeretné
     nézni ezt a videót, akkor tekintse meg a YouTube hivatalos weboldalán egy DRM-képes
     böngészőben.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Legújabb'
-    Oldest: 'Legrégebbi'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -1039,7 +1017,6 @@ Comments:
   Getting comment replies, please wait: 'Hozzászólásra adott válaszok beolvasása.
     Kis türelmet kérünk'
   There are no more comments for this video: 'Ehhez a videóhoz nincsenek további hozzászólások'
-  Show Comments: 'Hozzászólások megjelenítése'
   Hide Comments: 'Hozzászólások elrejtése'
   # Context: View 10 Replies, View 1 Reply
   View: 'Megjelenítés'
@@ -1049,7 +1026,6 @@ Comments:
   There are no comments available for this video: 'Ehhez a videóhoz még nincsenek
     hozzászólások'
   Load More Comments: 'További hozzászólások betöltése'
-  No more comments available: Nincs több hozzászólás
   Newest first: Legújabb elöl
   Top comments: Legnépszerűbb hozzászólások
   Show More Replies: További válaszok megjelenítése

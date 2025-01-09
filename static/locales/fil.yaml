@@ -71,13 +71,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Mga Suskripsyon'
-  Latest Subscriptions: 'Mga Pinakabagong Suskripsyon'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ang
     iyong listahan ng Suskripsyon ay kasalukuyang walang laman. Simulang magdagdag
     ng mga suskripsyon upang makita ang mga ito dito.'
-  'Getting Subscriptions. Please wait.': 'Kinukuha ang mga suskripsyon. Maghintay
-    lang po.'
-  Refresh Subscriptions: 'I-refresh ang mga Suskripsyon'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Maraming
     subscriptions itong profile.   Pilitin na iwasan ang rate limiting
 Trending:
@@ -101,8 +97,6 @@ Global:
   Videos: Mga Video
   Shorts: Mga Shorts
   Sort By: 'Pag-uri-uriin ayon'
-  Input Tags:
-    Length Requirement: Ang Tag ay dapat {number} na kahaba ng character
   Community: Komunidad
 Search Bar:
   Clear Input: Alisin ang Input

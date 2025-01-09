@@ -44,8 +44,6 @@ Global:
     Channel Count: 1 チャンネル | {count} チャンネル
     Comment Count: 1 コメント｜{count} コメント
     Like Count: 1 いいね｜{count} いいね
-  Input Tags:
-    Length Requirement: タグは最低でも {number} 文字以上である必要があります
 Search / Go to URL: '検索 / URL に移動'
   # In Filter Button
 Search Filters:
@@ -97,11 +95,7 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '登録チャンネル'
-  Latest Subscriptions: '最新の登録'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録チャンネルリストは現在空です。登録チャンネルをインポートするには、設定からデータの設定に移動して登録チャンネルをインポートするか、チャンネルを検索して登録することができます。'
-  'Getting Subscriptions.  Please wait.': '登録を取得中。お待ちください...'
-  Refresh Subscriptions: 登録チャンネルの更新
-  Getting Subscriptions. Please wait.: 登録チャンネルの内容を取得中。しばらくお待ちください。
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: このプロファイルの登録チャンネル数が多いようです。接続制限を回避するため
     RSS を使用します
   Load More Videos: もっと見る
@@ -167,8 +161,6 @@ User Playlists:
       There were no videos to remove.: 削除する動画はありません。
       This playlist does not exist: この再生リストは存在しません
       This playlist is already being used for quick bookmark.: この再生リストはすでにクイックブックマークとして使用されています。
-      Playlist {playlistName} is the new quick bookmark playlist.: 再生リスト {playlistName}
-        が新しいクイックブックマーク再生リストです。
       This playlist has a video with a duration error: このプレイリストには、再生時間のない動画が少なくとも
         1 つ含まれています。これらの動画は、再生時間が 0 であるかのように並べられます。
     Search for Videos: 動画検索
@@ -395,7 +387,6 @@ Settings:
       1440p: '1440p'
       4k: '4K'
       8k: '8K'
-    Playlist Next Video Interval: 次の再生リストを再生する間隔
     Next Video Interval: 次の動画までの間隔
     Fast-Forward / Rewind Interval: 早送り/巻き戻し間隔
     Display Play Button In Video Player: 動画プレーヤーに再生ボタンを表示する
@@ -470,7 +461,6 @@ Settings:
     Export Subscriptions: 登録チャンネルのエクスポート
     Import Subscriptions: 登録チャンネルのインポート
     Select Export Type: エクスポート形式の選択
-    Select Import Type: インポート形式の選択
     Data Settings: データ
     Manage Subscriptions: 登録チャンネルの管理
     Playlist insufficient data: 再生リスト「{playlist}」のデータが不十分なため、項目をスキップします
@@ -592,7 +582,7 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 試験的
-    Warning: 
+    Warning:
       これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
     Password Settings: パスワード
@@ -601,9 +591,7 @@ Settings:
     Remove Password: パスワードの削除
   Password Dialog:
     Enter Password To Unlock: パスワードを入力して設定を解除
-    Password Incorrect: パスワードが正しくありません
     Password: パスワード
-    Unlock: ロック解除
   Sort Settings Sections (A-Z): 設定項目の並べ替え（A-Z）
   Return to Settings Menu: 設定に戻る
 About:
@@ -711,7 +699,6 @@ Video:
   Live Chat: 'ライブチャット'
   Enable Live Chat: 'ライブチャットの有効化'
   Live Chat is currently not supported in this build.: '現在、このビルドはライブチャットに未対応です。'
-  'Chat is disabled or the Live Stream has ended.': 'チャットが無効化されているか、ライブ配信は終了しています。'
   Live chat is enabled. Chat messages will appear here once sent.: 'ライブチャットは有効です。チャットが送信されるとここに表示されます。'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '現在、ライブチャットは
     Invidious API では未対応です。直接 YouTube への接続が必要です。'
@@ -766,8 +753,6 @@ Video:
     playlist: 再生リスト
     video: 動画
     OpenInTemplate: '{externalPlayer} で開く'
-  Premieres on: プレミア公開日時
-  Premieres in: 配信開始まで
   Premieres: プレミア公開
   Show Super Chat Comment: Super Chat のコメント表示
   Scroll to Bottom: 下までスクロール
@@ -812,14 +797,8 @@ Video:
   DeArrow:
     Show Original Details: 元の情報を表示
     Show Modified Details: 変更された詳細を表示
-  DRMProtected: 
+  DRMProtected:
     DRM保護された動画はFreeTubeでは再生できません。これらの動画には、独自の非オープンソースのコンポーネントが必要です。この動画を視聴したい場合は、DRM対応のウェブブラウザで公式のYouTubeウェブサイトでご覧ください。
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: '新しい'
-    Oldest: '古い'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -871,7 +850,6 @@ Comments:
   Comments: 'コメント'
   Click to View Comments: 'コメント表示'
   Getting comment replies, please wait: 'コメント返信を取得中。お待ちください'
-  Show Comments: 'コメント表示'
   Hide Comments: 'コメント非表示'
   # Context: View 10 Replies, View 1 Reply
   View: '表示'
@@ -883,7 +861,6 @@ Comments:
   There are no more comments for this video: この動画へのコメントはまだありません
   Top comments: 評価順
   Newest first: 新しい順
-  No more comments available: これ以上のコメントはありません
   Show More Replies: 返信をもっと見る
   And others: その他
   Pinned by: 固定
@@ -920,7 +897,6 @@ Profile:
   Profile has been updated: プロファイルを更新しました
   Profile has been created: プロファイルを作成しました
   Your profile name cannot be empty: プロファイル名は空にできません
-  Profile could not be found: プロファイルが見つかりません
   All subscriptions will also be deleted.: すべての登録チャンネルも削除されます。
   Are you sure you want to delete this profile?: このプロファイルを削除しますか？
   Delete Profile: プロファイルの削除
@@ -1001,7 +977,7 @@ Tooltips:
       ID は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}"
       項目の "{subsection}" にあります
-    Hide Videos and Playlists Containing Text: FreeTube 
+    Hide Videos and Playlists Containing Text: FreeTube
       全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
   SponsorBlock Settings:
     UseDeArrowTitles: 動画のタイトルを DeArrow からユーザーが投稿したタイトルに置き換えます。

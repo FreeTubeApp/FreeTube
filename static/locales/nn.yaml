@@ -89,14 +89,11 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnement'
-  Latest Subscriptions: 'Siste abonnement'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Denne
     profilen har ei stor mengd abonnentar. Tvinger RSS til å unngå å avgrense hastigheita'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Di
     abonnementliste er tom for augeblikket. Start å legge til fleire abonnement for
     å sjå dei her.'
-  'Getting Subscriptions. Please wait.': 'Henter abonnement. Ver venleg og vent.'
-  Refresh Subscriptions: 'Oppdater abonnement'
   Load More Videos: 'Last inn fleire videoar'
   Error Channels: Kanalar med feil
   Disabled Automatic Fetching: Du har deaktivert automatisk henting av abonnement.
@@ -325,7 +322,6 @@ Settings:
     Hide Channels Placeholder: Kanalnamn eller kanal-ID
   Data Settings:
     Data Settings: 'Datainnstillingar'
-    Select Import Type: 'Vel importtype'
     Select Export Type: 'Vel eksporttype'
     Import Subscriptions: 'Importer abonnement'
     Export Subscriptions: 'Eksporter abonnement'
@@ -425,8 +421,6 @@ Settings:
   Password Dialog:
     Enter Password To Unlock: Skriv inn passord for å låse opp innstillingar
     Password: Passord
-    Unlock: Lås opp
-    Password Incorrect: Feil passord
   Password Settings:
     Set Password To Prevent Access: Angi eit passord for å forhindre tilgang til innstillingane
     Password Settings: Passordinnstillingar
@@ -475,7 +469,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Er du sikker på at du vil fjerne
     denne profilet?'
   All subscriptions will also be deleted.: 'Alle abonnement vil òg bli sletta.'
-  Profile could not be found: 'Profil ikkje funne'
   Your profile name cannot be empty: 'Profilnamnet ditt kan ikkje vere tomt'
   Profile has been created: 'Profilet har blitt laga'
   Profile has been updated: 'Profilet har blitt oppdatert'
@@ -569,8 +562,6 @@ Video:
   Enable Live Chat: 'Slå på direktechat'
   Live Chat is currently not supported in this build.: 'Direktechat er ikkje støtta
     i den noverande versjonen.'
-  'Chat is disabled or the Live Stream has ended.': 'Chatten er slått av eller direktesendinga
-    er avslutta.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Direktechat er
     slått på. Chatmeldingar vil bli vist her når dei er sendt.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direktechat
@@ -609,17 +600,10 @@ Video:
       reversing playlists: speler av spelelister baklengs
       opening specific video in a playlist (falling back to opening the video): opner
         valt video i ei speleliste (faller tilbake til å opne videoen)
-  Premieres on: Har premiere
   Show Super Chat Comment: Vis super-chat-kommentar
   Premieres: Premiere
   Scroll to Bottom: Rull til botn
   Upcoming: Komande
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Nyaste'
-    Oldest: 'Eldste'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -666,7 +650,6 @@ Comments:
   Getting comment replies, please wait: 'Laster inn kommentarar. Ver venleg og vent'
   There are no more comments for this video: 'Det finst ingen fleire kommentarar for
     denne videoen'
-  Show Comments: 'Vis kommentarar'
   Hide Comments: 'Skjul kommentarar'
   Top comments: 'Toppkommentarar'
   Newest first: 'Nyaste først'
@@ -678,7 +661,6 @@ Comments:
   There are no comments available for this video: 'Det er ingen kommentarar tilgjengeleg
     for denne videoen'
   Load More Comments: 'Last inn fleire kommentarar'
-  No more comments available: 'Ingen fleire kommentarar tilgjengeleg'
   Show More Replies: Vis fleire svar
   Pinned by: Festa av
   And others: og andre

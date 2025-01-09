@@ -46,8 +46,6 @@ Global:
     Watching Count: 1 гледане | {count} гледания
     Like Count: 1 харесване | {count} харесвания
     Comment Count: 1 коментар | {count} коментара
-  Input Tags:
-    Length Requirement: Дължината на етикета трябва да бъде поне {number} знака
 Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber}
   е вече налична! Щракнете за повече детайли'
 Download From Site: 'Сваляне от сайта'
@@ -106,13 +104,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Абонаменти'
-  Latest Subscriptions: 'Последни абонаменти'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Списъкът
     с абонаменти е празен. Ако искате да внесете абонаментите си, отидете в "Настройки
     на данни" и изберете "Внасяне на абонаменти" или можете да потърсите канал и да
     се абонирате за него.'
-  'Getting Subscriptions. Please wait.': 'Получаване на абонаменти. Моля, изчакайте.'
-  Refresh Subscriptions: 'Опресняване на абонаментите'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Този
     профил има голям брой абонаменти. Принудително използване на RSS за заобикаляне
     на ограниченията
@@ -175,8 +170,6 @@ User Playlists:
       This playlist does not exist: Този плейлист не съществува
       This playlist is already being used for quick bookmark.: Този плейлист вече
         се използва за бързи отметки.
-      Playlist {playlistName} is the new quick bookmark playlist.: Плейлиста {playlistName}
-        е новият списък за бързи отметки.
       This playlist has a video with a duration error: Този плейлист съдържа поне
         едно видео, което няма продължителност, той ще бъде подреден така, сякаш продължителността
         му е нула.
@@ -436,7 +429,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Интервал за следващо видео в плейлист
     Next Video Interval: Таймер за обратно броене при автоматично възпроизвеждане
     Display Play Button In Video Player: Показване на бутона за възпроизвеждане във
       видео плейъра
@@ -497,7 +489,6 @@ Settings:
     To: на
   Data Settings:
     Data Settings: 'Данни'
-    Select Import Type: 'Избор на тип за внасяне'
     Select Export Type: 'Избор на тип за изнасяне'
     Import Subscriptions: 'Внасяне на абонаменти'
     Export Subscriptions: 'Изнасяне на абонаменти'
@@ -676,8 +667,6 @@ Settings:
     Remove Password: Премахване на паролата
   Password Dialog:
     Enter Password To Unlock: Въведете парола за отключване на настройките
-    Password Incorrect: Грешна парола
-    Unlock: Отключване
     Password: Парола
   Sort Settings Sections (A-Z): Подреждане на секциите на настройките (А-Я)
   Return to Settings Menu: Връщане към менюто с настройки
@@ -726,7 +715,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Сигурни ли сте, че искате да изтриете
     профила?'
   All subscriptions will also be deleted.: 'Всички абонаменти също ще бъдат изтрити.'
-  Profile could not be found: 'Профилът не можа да бъде намерен'
   Your profile name cannot be empty: 'Името на профила не може да е празно'
   Profile has been created: 'Профилът беше създаден'
   Profile has been updated: 'Профилът беше актуализиран'
@@ -858,8 +846,6 @@ Video:
   Enable Live Chat: 'Активиране чата на живо'
   Live Chat is currently not supported in this build.: 'Чатът на живо не се поддръжа
     в тази версия.'
-  'Chat is disabled or the Live Stream has ended.': 'Чатът е деактивиран или предаването
-    на живо е приключило.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Чатът на живо
     е активиран. Съобщенията ще се появят тук когато бъдат изпратени.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Чатът
@@ -906,8 +892,6 @@ Video:
     playlist: плейлист
     video: видео
     OpenInTemplate: Отваряне във {externalPlayer}
-  Premieres on: Премиера на
-  Premieres in: Премиери в
   Premieres: Премиерa
   Show Super Chat Comment: Показване на Super Chat коментар
   Scroll to Bottom: Превъртане в долната част
@@ -961,12 +945,6 @@ Video:
     тъй като изискват собствени компоненти със затворен код. Ако искате да гледате
     това видео, моля, използвайте официалния уебсайт на YouTube в уеб браузър поддържащ
     DRM.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Най-нов'
-    Oldest: 'Най-стар'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -1023,7 +1001,6 @@ Comments:
   Getting comment replies, please wait: 'Получаване на отговори на коментара, моля
     изчакайте'
   There are no more comments for this video: 'Към това видео няма повече коментари'
-  Show Comments: 'Показване на коментари'
   Hide Comments: 'Скриване на коментарите'
   # Context: View 10 Replies, View 1 Reply
   View: 'Показване на'
@@ -1032,7 +1009,6 @@ Comments:
   Reply: 'Отговор'
   There are no comments available for this video: 'Към това видео няма коментари'
   Load More Comments: 'Зареждане на още коментари'
-  No more comments available: Не са налични повече коментари
   Newest first: Първо най-новите
   Top comments: Последни коментари
   Show More Replies: Показване на още отговори

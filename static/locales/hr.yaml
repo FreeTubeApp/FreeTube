@@ -46,8 +46,6 @@ Global:
     Channel Count: 1 kanal | {count} kanala
     Comment Count: 1 komentar | {count} komentara
     Like Count: 1 lajk | {count} lajkova
-  Input Tags:
-    Length Requirement: Oznaka mora imati barem {number} znakova
 Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
 Search Filters:
@@ -99,13 +97,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Pretplate'
-  Latest Subscriptions: 'Najnovije pretplate'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tvoj
     popis pretplata je trenutačno prazan. Ako želiš uvesti tvoje pretplate, idi u
     postavke podataka i odaberi „Uvezi pretplate” ili traži kanale i pretplati se
     na njih.'
-  'Getting Subscriptions. Please wait.': 'Preuzimanje pretplata. Pričekaj.'
-  Refresh Subscriptions: 'Aktualiziraj pretplate'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ovaj
     profil sadrži velik broj pretplata. Za izbjegavanje ograničenja stope koristit
     će se RSS
@@ -187,8 +182,6 @@ User Playlists:
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ova
         se zbirka sada koristi za brze zabilješke umjesto zbirke „{oldPlaylistName}”.
         Pritisni ovdje za poništavanje
-      Playlist {playlistName} is the new quick bookmark playlist.: Zbirka „{playlistName}”
-        je nova zbirka za brze zabilješke.
       This playlist is already being used for quick bookmark.: Ova se zbirka već koristi
         za brze zabilješke.
       This playlist has a video with a duration error: Ova zbirka sadrži barem jedan
@@ -423,7 +416,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Interval sljedećeg videa zbirke
     Next Video Interval: Timer za odbrojavanje automatske reprodukcije
     Scroll Volume Over Video Player: Mijenjaj glasnoću u video playeru
     Display Play Button In Video Player: Prikaži gumb za pokretanje u video playeru
@@ -508,7 +500,6 @@ Settings:
     Export Subscriptions: Izvezi pretplate
     Import Subscriptions: Uvezi pretplate
     Select Export Type: Odaberi vrstu izvoza
-    Select Import Type: Odaberi vrstu uvoza
     Data Settings: Podaci
     How do I import my subscriptions?: Kako uvesti pretplate?
     Manage Subscriptions: Upravljaj pretplatama
@@ -645,8 +636,6 @@ Settings:
     Experimental Settings: Eksperimentalno
     Replace HTTP Cache: Zamijeni HTTP predmemoriju
   Password Dialog:
-    Password Incorrect: Lozinka neispravna
-    Unlock: Otključaj
     Enter Password To Unlock: Za otključavanje postavki upiši lozinku
     Password: Lozinka
   Password Settings:
@@ -700,7 +689,6 @@ Profile:
   Delete Profile: 'Izbriši profil'
   Are you sure you want to delete this profile?: 'Stvarno želiš izbrisati ovaj profil?'
   All subscriptions will also be deleted.: 'Izbrisat će se i sve pretplate.'
-  Profile could not be found: 'Profil nije pronađen'
   Your profile name cannot be empty: 'Ime profila ne smije biti prazno'
   Profile has been created: 'Profil je stvoren'
   Profile has been updated: 'Profil je aktualiziran'
@@ -821,8 +809,6 @@ Video:
   Enable Live Chat: 'Aktiviraj razgovor uživo'
   Live Chat is currently not supported in this build.: 'Razgovor uživo trenutačno
     nije podržan u ovoj verziji.'
-  'Chat is disabled or the Live Stream has ended.': 'Razgovor je deaktiviran ili je
-    prijenos uživo završio.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Razgovor uživo
     je aktiviran. Poruke razgovora pojavit će se ovdje nakon slanja.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Razgovor
@@ -877,8 +863,6 @@ Video:
     playlist: zbirka
     video: video
     OpenInTemplate: Otvori u {externalPlayer}
-  Premieres on: Premijera
-  Premieres in: Premijera u
   Premieres: Premijere
   Show Super Chat Comment: Prikaži Super Chat komentar
   Scroll to Bottom: Pomakni se skroz dolje
@@ -931,12 +915,6 @@ Video:
   DRMProtected: DRM-om zaštićena videa ne mogu se reproducirati u FreeTubeu jer zahtijevaju
     vlasničke komponente zatvorenog koda. Ako želiš gledati ovaj video, gledaj ga
     na službenoj YouTube web stranici u web pregledniku s aktiviranim DRM-om.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Najnoviji'
-    Oldest: 'Najstariji'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -993,7 +971,6 @@ Comments:
   Comments: 'Komentari'
   Click to View Comments: 'Pritisni za prikaz komentara'
   Getting comment replies, please wait: 'Preuzimaju se odgovori na komentare. Pričekaj'
-  Show Comments: 'Prikaži komentare'
   Hide Comments: 'Sakrij komentare'
   # Context: View 10 Replies, View 1 Reply
   View: 'Pogledaj'
@@ -1003,7 +980,6 @@ Comments:
   There are no comments available for this video: 'Za ovaj video nema komentara'
   Load More Comments: 'Učitaj još komentara'
   There are no more comments for this video: Nema daljnjih komentara za ovaj video
-  No more comments available: Nema daljnjih komentara
   Newest first: Najprije najnovije
   Top comments: Najpopularniji komentari
   Show More Replies: Prikaži više odgovora

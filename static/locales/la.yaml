@@ -75,11 +75,8 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscriptio'
-  Latest Subscriptions: 'Tardus Subscriptio'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Subscription
     vestri album sit vacua. Incipe addere subscriptions videre hic.'
-  'Getting Subscriptions. Please wait.': 'Questus subnotationes. Placet exspectare.'
-  Refresh Subscriptions: 'Refectorius Subnotationes'
   Load More Videos: Voce plus Movens Imaginibus
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Haec
     profile copia subscriptioni habet. Impono RSS ut impedio restrictionis per celeritatis

@@ -45,8 +45,6 @@ Global:
     Watching Count: 1 aan het kijken | {count} aan het kijken
     Channel Count: 1 kanaal | {count} kanalen
   Community: Gemeen­schap
-  Input Tags:
-    Length Requirement: Tag moet minstens {number} tekens lang zijn
 Search / Go to URL: 'Zoeken / Ga naar URL'
   # In Filter Button
 Search Filters:
@@ -99,11 +97,8 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementen'
-  Latest Subscriptions: 'Nieuwste abonnementen'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Uw
     abonnementen­lĳst is momenteel leeg. Voeg abonnementen toe om ze hier te zien.'
-  Refresh Subscriptions: Abonnementen vernieuwen
-  Getting Subscriptions. Please wait.: Abonnementen ophalen, even geduld.
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dit
     profiel heeft een groot aantal abonnementen. RSS wordt geforceerd om rate-limiting
     te vermijden
@@ -217,8 +212,6 @@ User Playlists:
         bij het bij­werken van deze afspeel­lijst.
       This playlist is already being used for quick bookmark.: Deze afspeel­lĳst wordt
         al gebruikt voor snel opslaan.
-      Playlist {playlistName} is the new quick bookmark playlist.: '{playlistName}
-        is de nieuwe afspeel­lĳst voor snel opslaan.'
     Search for Videos: Zoeken naar video's
   You have no playlists. Click on the create new playlist button to create a new one.: U
     heeft geen afspeellijsten. Druk op de knop om er één aan te maken.
@@ -393,7 +386,6 @@ Settings:
       1440p: '1440p'
       4k: '2160p (4K)'
       8k: '4320p (8K)'
-    Playlist Next Video Interval: Afspeellijst Volgende Video Tussentijd
     Next Video Interval: Wachtpauze voor volgende video
     Display Play Button In Video Player: Afspeelknop in videokader weergeven
     Scroll Volume Over Video Player: Volume veranderen door in het videokader te scrollen
@@ -469,7 +461,6 @@ Settings:
     Export Subscriptions: Abonnementen exporteren
     Import Subscriptions: Abonnementen importeren
     Select Export Type: Exporteertype selecteren
-    Select Import Type: Importeertype selecteren
     Data Settings: Gegevens­instellingen
     How do I import my subscriptions?: Hoe importeer ik mijn abonnementen?
     Unknown data key: Onbekende datasleutel
@@ -623,8 +614,6 @@ Settings:
       te beperken
   Password Dialog:
     Password: Wachtwoord
-    Password Incorrect: Wachtwoord onjuist
-    Unlock: Ontgrendelen
     Enter Password To Unlock: Voer wachtwoord in om instellingen te ontgrendelen
   Sort Settings Sections (A-Z): Instellingen­secties sorteren (A-Z)
 About:
@@ -744,8 +733,6 @@ Video:
   Enable Live Chat: 'Livechat inschakelen'
   Live Chat is currently not supported in this build.: 'Livechat wordt in deze versie
     nog niet ondersteund.'
-  'Chat is disabled or the Live Stream has ended.': 'Chat is uitgeschakeld of de livestream
-    is beëindigd.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Livechat is ingeschakeld.
     Chats zullen hier verschijnen.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Livechat
@@ -800,7 +787,6 @@ Video:
     playlist: afspeellijst
     video: video
     OpenInTemplate: Openen in {externalPlayer}
-  Premieres on: Gaat in première op
   Premieres: Premières
   Scroll to Bottom: Helemaal naar onderen scrollen
   Upcoming: Aankomend
@@ -811,12 +797,6 @@ Video:
   Hide Channel: Kanaal verbergen
   Unhide Channel: Kanaal tonen
   More Options: Meer opties
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Nieuwste'
-    Oldest: 'Oudste'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -868,7 +848,6 @@ Comments:
   Comments: 'Opmerkingen'
   Click to View Comments: 'Klik om reacties te tonen'
   Getting comment replies, please wait: 'Reacties worden verzameld, even geduld aub'
-  Show Comments: 'Opmerkingen weergeven'
   Hide Comments: 'Opmerkingen verbergen'
   # Context: View 10 Replies, View 1 Reply
   View: 'Bekijken'
@@ -880,7 +859,6 @@ Comments:
   Load More Comments: 'Meer opmerkingen laden'
   There are no more comments for this video: Er zijn geen verdere reacties op deze
     video
-  No more comments available: Er zijn geen reacties meer beschikbaar
   Newest first: Nieuwste eerst
   Top comments: Beste opmerkingen
   Show More Replies: Meer reacties tonen
@@ -921,7 +899,6 @@ Profile:
   Profile has been updated: Profiel is bijgewerkt
   Profile has been created: Profiel is aangemaakt
   Your profile name cannot be empty: Uw profielnaam mag niet leeg zijn
-  Profile could not be found: Profiel kan niet worden gevonden
   All subscriptions will also be deleted.: Alle abonnementen zullen ook worden verwijderd.
   Are you sure you want to delete this profile?: Weet u zeker dat u dit profiel wilt
     verwijderen?

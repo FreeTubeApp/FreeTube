@@ -45,8 +45,6 @@ Global:
     Channel Count: 1 kanal | {count} kanaler
     Like Count: 1 gillning | {count} gillningar
     Comment Count: 1 kommentar | {count} kommentarer
-  Input Tags:
-    Length Requirement: Taggen måste vara minst {number} tecken långt
 Version {versionNumber} is now available!  Click for more details: 'Versionen {versionNumber}
   är nu tillgänglig! Klicka för mer detaljer'
 Download From Site: 'Ladda ner från sajten'
@@ -104,11 +102,8 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Prenumerationer'
-  Latest Subscriptions: 'Senaste prenumerationer'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Lägg
     till prenumerationer för att se dem här.'
-  'Getting Subscriptions. Please wait.': 'Hämtar prenumerationer. Snälla vänta.'
-  Refresh Subscriptions: 'Uppdatera prenumerationer'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denna
     profil har ett stort antal prenumerationer. Tvingar RSS för att undvika hastighetsbegränsning
   Load More Videos: Se mer
@@ -398,7 +393,6 @@ Settings:
     Fetch Automatically: Hämta flöde automatiskt
   Data Settings:
     Data Settings: 'Datainställningar'
-    Select Import Type: 'Välj import-typen'
     Select Export Type: 'Välj export-typen'
     Import Subscriptions: 'Importera prenumerationer'
     Export Subscriptions: 'Exportera prenumerationer'
@@ -533,8 +527,6 @@ Settings:
   Password Dialog:
     Password: Lösenord
     Enter Password To Unlock: Ange lösenord för att låsa upp inställningar
-    Password Incorrect: Fel lösenord
-    Unlock: Lås upp
   Download Settings:
     Ask Download Path: Välj nerladdningsmapp varje gång
     Download Settings: Nerladdningsinställningar
@@ -596,7 +588,6 @@ Profile:
   Delete Profile: 'Ta bort profil'
   Are you sure you want to delete this profile?: 'Vill du verkligen ta bort profilen?'
   All subscriptions will also be deleted.: 'Alla prenumerationer raderas också.'
-  Profile could not be found: 'Profilen kunde inte hittas'
   Your profile name cannot be empty: 'Ditt profilnamn får inte vara tomt'
   Profile has been created: 'Profil har skapats'
   Profile has been updated: 'Profilen har uppdaterats'
@@ -719,8 +710,6 @@ Video:
   Enable Live Chat: 'Aktivera livechatt'
   Live Chat is currently not supported in this build.: 'Livechatt stöds för närvarande
     inte i denna version.'
-  'Chat is disabled or the Live Stream has ended.': 'Chatten är inaktiverad eller
-    så har Live strömmen avslutats.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Livechatt är aktiverat.
     Meddelanden visas här när de har skickats.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Livechatt
@@ -767,7 +756,6 @@ Video:
     playlist: spellista
     video: video
     OpenInTemplate: Öppna i {externalPlayer}
-  Premieres on: Har premiär den
   Premieres: Premiärer
   Upcoming: Kommande
   Show Super Chat Comment: Visa Super Chat-kommentarer
@@ -777,12 +765,6 @@ Video:
   Pause on Current Video: Pausa på aktuell video
   Unhide Channel: Visa kanal
   Hide Channel: Dölj kanal
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Nyaste'
-    Oldest: 'Äldsta'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -825,7 +807,6 @@ Comments:
   Getting comment replies, please wait: 'Hämtar kommentar svar, vänligen vänta'
   There are no more comments for this video: 'Det finns inga fler kommentarer för
     videon'
-  Show Comments: 'Visa kommentarer'
   Hide Comments: 'Dölj kommentarer'
   # Context: View 10 Replies, View 1 Reply
   View: 'Visa'
@@ -837,7 +818,6 @@ Comments:
   Load More Comments: 'Fler kommentarer'
   Newest first: Nyaste först
   Top comments: Toppkommentarer
-  No more comments available: Det finns inga fler kommentarer
   Show More Replies: Visa fler svar
   From {channelName}: från {channelName}
   And others: och andra

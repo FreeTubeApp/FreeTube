@@ -46,8 +46,6 @@ Global:
     Watching Count: 1 að horfa | {count} að horfa
     Like Count: 1 líkaði | {count} líkaði
     Comment Count: 1 athugasemd | {count} athugasemdir
-  Input Tags:
-    Length Requirement: Merki þarf að vera a.m.k. {number} stafa langt
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber}
   er tiltæk!  Smelltu til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'
@@ -107,7 +105,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Áskriftir'
-  Latest Subscriptions: 'Síðustu áskriftir'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Þetta
     notkunarsnið er með mikinn fjölda áskrifta. Þvinga notkun á RSS til að forðast
     takmarkanir á magni'
@@ -115,8 +112,6 @@ Subscriptions:
     með áskriftum er tómur í augnablikinu. Ef þú vilt flytja inn áskriftirnar þínar,
     geturðu farið í stillingar gagna og valið ''Flytja inn áskriftir'' eða leitað
     að rás og gerst áskrifandi að henni.'
-  'Getting Subscriptions. Please wait.': 'Sæki áskriftir. Hinkraðu aðeins.'
-  Refresh Subscriptions: 'Endurlesa áskriftir'
   Load More Videos: 'Hlaða inn fleiri myndskeiðum'
   Error Channels: Hugbúnaðarrásir með villum
   Disabled Automatic Fetching: Þú hefur gert sjálfvirkt niðurhal áskrifta óvirkt.
@@ -190,8 +185,6 @@ User Playlists:
         Smelltu hér til að afturkalla
       Reverted to use {oldPlaylistName} for quick bookmark: Snéri aftur í að nota
         {oldPlaylistName} undir flýtibókamerki
-      Playlist {playlistName} is the new quick bookmark playlist.: Spilunarlistinn
-        {playlistName} er nýi spilunarlistinn með flýtibókamerkjum.
       This playlist is already being used for quick bookmark.: Þessi spilunarlisti
         er nú þegar notaður undir flýtibókamerki.
       This playlist has a video with a duration error: Spilunarlistinn inniheldur
@@ -420,7 +413,6 @@ Settings:
     Proxy Videos Through Invidious: 'Beina myndskeiðum í gegnum Invidious-milliþjón'
     Autoplay Playlists: 'Spila spilunarlista sjálfkrafa'
     Enable Theatre Mode by Default: 'Sjálfgefið virkja bíóham (theater mode)'
-    Playlist Next Video Interval: 'Millibil afspilunar næsta myndskeiðs í spilunarlista'
     Default Volume: 'Sjálfgefinn hljóðstyrkur'
     Default Playback Rate: 'Sjálfgefinn afspilunarhraði'
     Default Video Format:
@@ -555,7 +547,6 @@ Settings:
     Show Added Items: Sýna atriði sem bætt hefur verið við
   Data Settings:
     Data Settings: 'Gögn'
-    Select Import Type: 'Veldu tegund innflutnings'
     Select Export Type: 'Veldu tegund útflutnings'
     Import Subscriptions: 'Flytja inn áskriftir'
     Export Subscriptions: 'Flytja út áskriftir'
@@ -673,9 +664,7 @@ Settings:
     Replace HTTP Cache: Skipta út HTTP-skyndiminni
   Password Dialog:
     Password: Lykilorð
-    Password Incorrect: Rangt lykilorð
     Enter Password To Unlock: Settu inn lykilorð til að aflæsa stillingum
-    Unlock: Aflæsa
   Password Settings:
     Set Password To Prevent Access: Settu lykilorð til að hindra aðgang að stillingum
     Set Password: Setja lykilorð
@@ -730,7 +719,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Ertu viss um að þú viljir eyða þessu
     notkunarsniði?'
   All subscriptions will also be deleted.: 'Öllum áskriftum verður einnig eytt.'
-  Profile could not be found: 'Notkunarsnið fannst ekki'
   Your profile name cannot be empty: 'Nafn notkunarsniðsins má ekki vera tómt'
   Profile has been created: 'Notkunarsnið hefur verið útbúið'
   Profile has been updated: 'Notkunarsnið hefur verið uppfært'
@@ -867,8 +855,6 @@ Video:
   Enable Live Chat: 'Virkja spjall í beinni'
   Live Chat is currently not supported in this build.: 'Spjall í beinni er ekki stutt
     í þessari byggingarútgáfu.'
-  'Chat is disabled or the Live Stream has ended.': 'Spjall er óvirkt eða að beinu
-    streymi er lokið.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Beint spjall er
     virkt. Skilaboð spjallsins munu birtast hér.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Spjall
@@ -907,8 +893,6 @@ Video:
     playlist: spilunarlisti
     video: myndskeið
     OpenInTemplate: Opna í {externalPlayer}
-  Premieres on: Frumsýnt
-  Premieres in: Frumsýnt eftir
   Premieres: Frumsýnt
   Show Super Chat Comment: Birta athugasemd Super Chat
   Scroll to Bottom: Skruna neðst
@@ -964,12 +948,6 @@ Video:
     krefjast notkunar lokaðs séreignarhugbúnaðar. Ef þú vilt endilega horfa á þetta
     myndskeið, skaltu gera það á opinbera YouTube-vefsvæðinu í vafra með uppsettum
     DRM-hugbúnaði.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Nýjast'
-    Oldest: 'Elst'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -1027,7 +1005,6 @@ Comments:
   Getting comment replies, please wait: 'Sæki svör við athugasemdum, bíddu aðeins'
   There are no more comments for this video: 'Það eru engar fleiri athugasemdir við
     þetta myndskeið'
-  Show Comments: 'Birta athugasemdir'
   Hide Comments: 'Fela athugasemdir'
   Top comments: 'Efstu athugasemdir'
   Newest first: 'Nýjasta fyrst'
@@ -1039,7 +1016,6 @@ Comments:
   There are no comments available for this video: 'Engar athugasemdir eru tiltækar
     fyrir þetta myndskeið'
   Load More Comments: 'Hlaða inn fleiri athugasemdum'
-  No more comments available: 'Engar fleiri athugasemdir eru tiltækar'
   Show More Replies: Birta fleiri svör
   From {channelName}: frá {channelName}
   And others: og fleirum

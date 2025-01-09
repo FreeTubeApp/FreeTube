@@ -46,8 +46,6 @@ Global:
     Video Count: 1 video | {count} videoer
     View Count: 1 visning | {count} visninger
     Like Count: 1 liker | {count} liker
-  Input Tags:
-    Length Requirement: Etiketten må minst være {number} tegn lang.
 Search / Go to URL: 'Søk/gå til nettadresse'
   # In Filter Button
 Search Filters:
@@ -99,12 +97,8 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementer'
-  Latest Subscriptions: 'Siste abonnementer'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Du
     har ikke lagt til noen abonnementer i listen din. Legg til noen for å se dem her.'
-  'Getting Subscriptions.  Please wait.': 'Henter abonnementer. Vent.'
-  Refresh Subscriptions: Oppdater abonnementer
-  Getting Subscriptions. Please wait.: Henter abonnementer. Vennligst vent.
   Load More Videos: Last inn flere videoer
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne
     profilen har mange abonnementer. Påtvinger RSS for å unngå adgangsbegrensning
@@ -358,7 +352,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Intervall for avspilling av neste i spilleliste
     Next Video Interval: Tid mellom videoer
     Scroll Volume Over Video Player: Rullelydstyrkejustering i videospilleren
     Display Play Button In Video Player: Vis avspillingsknappen i videoavspilleren
@@ -446,7 +439,6 @@ Settings:
     Export Subscriptions: Eksporter abonnementer
     Import Subscriptions: Importer abonnementer
     Select Export Type: Velg eksporttype
-    Select Import Type: Velg importtype
     Data Settings: Innstillinger for data
     All playlists has been successfully imported: Importerte alle spillelister
     Subscription File: Abonnementsfil
@@ -568,9 +560,7 @@ Settings:
     Set Password To Prevent Access: Sett et passord for å forhindre tilgang til innstillingene
     Set Password: Sett passord
   Password Dialog:
-    Unlock: Lås opp
     Enter Password To Unlock: Skriv inn passord for å låse opp innstillinger
-    Password Incorrect: Feil passord
     Password: Passord
   Return to Settings Menu: Gå tilbake til menyen for innstillinger
 About:
@@ -678,8 +668,6 @@ Video:
   Enable Live Chat: 'Slå på direktechat'
   Live Chat is currently not supported in this build.: 'Direktechat støttes ikke i
     denne versjonen.'
-  'Chat is disabled or the Live Stream has ended.': 'Sludringen er slått av, eller
-    så er direktesendingen avsluttet.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Direktechat er
     påslått. Meldinger vil vises her når de er sendt.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direktechat
@@ -735,17 +723,10 @@ Video:
     OpenInTemplate: Åpne i {externalPlayer}
   Show Super Chat Comment: Vis supersludringskommentar
   Scroll to Bottom: Rull til bunnen
-  Premieres on: Har première
   Premieres: Première
   Upcoming: Kommende
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Direktechat
     er ikke tilgjengelig for denne strømmen. Opplasteren kan ha skrudd det av.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Nyeste'
-    Oldest: 'Eldste'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -789,7 +770,6 @@ Comments:
   Comments: 'Kommentarer'
   Click to View Comments: 'Klikk her for å vise kommentarer'
   Getting comment replies, please wait: 'Henter kommentarsvar …'
-  Show Comments: 'Vis kommentarer'
   Hide Comments: 'Skjul kommentarer'
   # Context: View 10 Replies, View 1 Reply
   View: 'Vis'
@@ -799,7 +779,6 @@ Comments:
   There are no comments available for this video: 'Det er ingen kommentarer tilgjengelige
     på denne videoen'
   Load More Comments: 'Last inn flere kommentarer'
-  No more comments available: Ingen flere kommentarer tilgjengelig
   Newest first: Nyeste først
   There are no more comments for this video: Ingen flere kommentarer for denne videoen
   Top comments: Toppkommentarer
@@ -839,7 +818,6 @@ Profile:
   Profile has been updated: Profilen har blitt oppdatert
   Profile has been created: Profilen har blitt opprettet
   Your profile name cannot be empty: Profilnavnet ditt kan ikke stå tomt
-  Profile could not be found: Fant ikke profilen
   All subscriptions will also be deleted.: Alle abonnementer vil også bli slettet.
   Are you sure you want to delete this profile?: Er du sikker på at du vil slette
     denne profilen?

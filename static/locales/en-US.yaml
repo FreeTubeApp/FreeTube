@@ -57,8 +57,6 @@ Global:
     Like Count: 1 like | {count} likes
     Comment Count: 1 comment | {count} comments
     Watching Count: 1 watching | {count} watching
-  Input Tags:
-    Length Requirement: Tag must be at least {number} characters long
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
@@ -129,13 +127,11 @@ Subscriptions:
   Subscriptions: Subscriptions
   # channels that were likely deleted
   Error Channels: Channels with Errors
-  Latest Subscriptions: Latest Subscriptions
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: This
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your Subscription list is currently empty. If you want to import your subscriptions you can go to Data Settings and select Import Subscriptions or you can search for a channel and subscribe to them.
   Disabled Automatic Fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
   Empty Channels: Your subscribed channels currently does not have any videos.
-  'Getting Subscriptions. Please wait.': Getting Subscriptions. Please wait.
   Empty Posts: Your subscribed channels currently do not have any posts.
   Load More Videos: Load More Videos
   Load More Posts: Load More Posts
@@ -233,7 +229,6 @@ User Playlists:
       There were no videos to remove.: There were no videos to remove.
       This playlist is protected and cannot be removed.: This playlist is protected and cannot be removed.
       Playlist {playlistName} has been deleted.: Playlist {playlistName} has been deleted.
-      Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName} is the new quick bookmark playlist.
 
       This playlist does not exist: This playlist does not exist
 
@@ -555,7 +550,6 @@ Settings:
     Show Added Items: Show Added Items
   Data Settings:
     Data Settings: Data
-    Select Import Type: Select Import Type
     Select Export Type: Select Export Type
     Import Subscriptions: Import Subscriptions
     Subscription File: Subscription File
@@ -653,8 +647,6 @@ Settings:
   Password Dialog:
     Password: Password
     Enter Password To Unlock: Enter password to unlock settings
-    Password Incorrect: Password Incorrect
-    Unlock: Unlock
   Password Settings:
     Password Settings: Password
     Set Password To Prevent Access: Set a password to prevent access to settings
@@ -711,7 +703,6 @@ Profile:
   Are you sure you want to delete this profile?: Are you sure you want to delete this
     profile?
   All subscriptions will also be deleted.: All subscriptions will also be deleted.
-  Profile could not be found: Profile could not be found
   Your profile name cannot be empty: Your profile name cannot be empty
   Profile has been created: Profile has been created
   Profile has been updated: Profile has been updated
@@ -838,7 +829,6 @@ Video:
   Starting soon, please refresh the page to check again: Starting soon, please refresh
     the page to check again
   # As in a Live Video
-  Premieres on: Premieres on
   Premieres: Premieres
   Upcoming: Upcoming
   Unlisted: Unlisted
@@ -848,8 +838,6 @@ Video:
   Enable Live Chat: Enable Live Chat
   Live Chat is currently not supported in this build.: Live Chat is currently not
     supported in this build.
-  'Chat is disabled or the Live Stream has ended.': Chat is disabled or the Live Stream
-    has ended.
   Live chat is enabled. Chat messages will appear here once sent.: Live chat is enabled.  Chat
     messages will appear here once sent.
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Live
@@ -919,13 +907,6 @@ Video:
     You appear to be offline: You appear to be offline.
     Playback will resume automatically when your connection comes back: Playback will resume automatically when your connection comes back.
     Skipped segment: 'Skipped {segmentCategory} segment'
-#& Videos
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: Newest
-    Oldest: Oldest
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -991,7 +972,6 @@ Comments:
   Click to View Comments: Click to View Comments
   Getting comment replies, please wait: Getting comment replies, please wait
   There are no more comments for this video: There are no more comments for this video
-  Show Comments: Show Comments
   Hide Comments: Hide Comments
   Top comments: Top comments
   Newest first: Newest First
@@ -1008,7 +988,6 @@ Comments:
     for this video
   There are no comments available for this post: There are no comments available for this post
   Load More Comments: Load More Comments
-  No more comments available: No more comments available
   Pinned by: Pinned by
   Member: Member
   Subscribed: Subscribed

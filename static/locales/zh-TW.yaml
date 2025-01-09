@@ -44,8 +44,6 @@ Global:
     Watching Count: 1 個正在觀看 | {count} 個正在觀看
     Comment Count: 1 則留言 | {count} 則留言
     Like Count: 1 個喜歡 | {count} 個喜歡
-  Input Tags:
-    Length Requirement: 標籤必須至少 {number} 個字元長
 Search / Go to URL: '搜尋/ 前往網址'
   # In Filter Button
 Search Filters:
@@ -97,11 +95,7 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '訂閱'
-  Latest Subscriptions: '最新訂閱'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。如果您想要匯入您的訂閱，您可以前往「資料設定」，然後選取「匯入訂閱」，或者您也可以搜尋頻道並訂閱。'
-  'Getting Subscriptions.  Please wait.': '抓取訂閱中。請稍等。'
-  Refresh Subscriptions: 重新整理訂閱內容的影片
-  Getting Subscriptions. Please wait.: 正在取得訂閱中，請稍候....
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
     強制使用 RSS 以防止速率限制
   Load More Videos: 載入更多影片
@@ -168,8 +162,6 @@ User Playlists:
       Reverted to use {oldPlaylistName} for quick bookmark: 恢復為使用 {oldPlaylistName}
         進行快速書籤
       This playlist is already being used for quick bookmark.: 此播放清單已用於快速書籤。
-      Playlist {playlistName} is the new quick bookmark playlist.: 播放清單 {playlistName}
-        是新的快速書籤播放清單。
       This playlist has a video with a duration error: 此播放清單至少包含一個沒有時間長度的影片，則會以時間長度為零的方式排序。
     Search for Videos: 搜尋影片
   AddVideoPrompt:
@@ -376,7 +368,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: 播放清單 下一個影片間隔時間
     Next Video Interval: 自動播放倒數計時器
     Scroll Volume Over Video Player: 在影片播放器上捲動以變更音量
     Display Play Button In Video Player: 在影片播放器中顯示播放按鈕
@@ -448,7 +439,6 @@ Settings:
     Export Subscriptions: 匯出訂閱
     Import Subscriptions: 匯入訂閱
     Select Export Type: 選取匯出類型
-    Select Import Type: 選取匯入類型
     Data Settings: 資料
     Manage Subscriptions: 管理訂閱
     Import Playlists: 匯入播放清單
@@ -577,8 +567,6 @@ Settings:
   Password Dialog:
     Password: 密碼
     Enter Password To Unlock: 輸入密碼以解鎖設定
-    Password Incorrect: 密碼不正確
-    Unlock: 解鎖
   Sort Settings Sections (A-Z): 對設定區塊進行排序 (A-Z)
   Return to Settings Menu: 回到設定選單
 About:
@@ -686,7 +674,6 @@ Video:
   Live Chat: '直播聊天室'
   Enable Live Chat: '啟用直播聊天室'
   Live Chat is currently not supported in this build.: '直播聊天室在此版本中目前不被支援。'
-  'Chat is disabled or the Live Stream has ended.': '直播聊天室功能被停用或者直播已經結束。'
   Live chat is enabled. Chat messages will appear here once sent.: '直播聊天結束。 聊天訊息一旦傳送將出現在這裡。'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '直播聊天室目前不被Invidious
     API支援。 需要直接連線YouTube。'
@@ -740,8 +727,6 @@ Video:
     playlist: 播放清單
     video: 視訊
     OpenInTemplate: 在 {externalPlayer} 中開啟
-  Premieres on: 首映日期
-  Premieres in: 首映於
   Premieres: 首映
   Show Super Chat Comment: 顯示超級聊天留言
   Scroll to Bottom: 捲動至底部
@@ -785,12 +770,6 @@ Video:
   DeArrow:
     Show Original Details: 顯示原始詳細資訊
     Show Modified Details: 顯示修改後的詳細資訊
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: '最新'
-    Oldest: '最舊'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -840,7 +819,6 @@ Comments:
   Comments: '留言'
   Click to View Comments: '點擊查看留言'
   Getting comment replies, please wait: '正在取得留言回覆，請稍候'
-  Show Comments: '查看留言'
   Hide Comments: '隱藏留言'
   # Context: View 10 Replies, View 1 Reply
   View: '觀看'
@@ -852,7 +830,6 @@ Comments:
   There are no more comments for this video: 此影片無更多留言
   Newest first: 最新優先
   Top comments: 最熱門留言
-  No more comments available: 沒有更多留言
   Show More Replies: 顯示更多回覆
   And others: 與其他人
   From {channelName}: 來自 {channelName}
@@ -889,7 +866,6 @@ Profile:
   Profile has been updated: 設定檔已更新
   Profile has been created: 設定檔已建立
   Your profile name cannot be empty: 您的設定檔名稱不能為空
-  Profile could not be found: 找不到設定檔
   All subscriptions will also be deleted.: 所有訂閱將會被刪除。
   Are you sure you want to delete this profile?: 您確定您想刪除此設定檔嗎？
   Delete Profile: 刪除設定檔

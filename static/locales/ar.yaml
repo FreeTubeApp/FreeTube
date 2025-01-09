@@ -46,8 +46,6 @@ Global:
     Watching Count: 1 مشاهد | {count} مشاهدون
     Like Count: إعجاب واحد |{count} إعجاب
     Comment Count: تعليق واحد | {count} تعليقًا
-  Input Tags:
-    Length Requirement: يجب أن يبلغ طول العلامة {number} حرفًا على الأقل
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
 Search Filters:
@@ -99,12 +97,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'الاشتراكات'
-  Latest Subscriptions: 'أحدث الاشتراكات'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'قائمة
     اشتراكك فارغة حاليًا. إذا كنت ترغب في استيراد اشتراكاتك، فيمكنك الانتقال إلى إعدادات
     البيانات وتحديد استيراد الاشتراكات أو يمكنك البحث عن قناة والاشتراك فيها.'
-  'Getting Subscriptions. Please wait.': 'جاري تحميل الاشتراكات. يرجى الانتظار.'
-  Refresh Subscriptions: 'تحديث الاشتراكات'
   Load More Videos: حمّل المزيد من الفيديوهات
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: لدى
     هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول للاشتراكات
@@ -182,8 +177,6 @@ User Playlists:
         للإشارة المرجعية السريعة
       This playlist is already being used for quick bookmark.: يتم استخدام قائمة التشغيل
         هذه بالفعل لوضع إشارة مرجعية سريعة.
-      Playlist {playlistName} is the new quick bookmark playlist.: قائمة التشغيل {playlistName}
-        هي قائمة تشغيل الإشارات المرجعية السريعة الجديدة.
       This playlist has a video with a duration error: تحتوي قائمة التشغيل هذه على
         مقطع فيديو واحد على الأقل ليس له مدة، وسيتم فرزه كما لو كانت مدته صفرًا.
     Search for Videos: ‬البحث عن مقاطع الفيديو
@@ -393,7 +386,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '‍8k'
-    Playlist Next Video Interval: الفاصل الزمني لتشغيل الفيديو التالي في قائمة التشغيل
     Next Video Interval: الفاصل الزمني للفيديو التالي
     Scroll Volume Over Video Player: تمرير مستوى الصوت عبر مشغل الفيديو
     Display Play Button In Video Player: عرض زر التشغيل في مشغل الفيديو
@@ -474,7 +466,6 @@ Settings:
     Export Subscriptions: تصدير الاشتراكات
     Import Subscriptions: استيراد الاشتراكات
     Select Export Type: حدّد نوع التصدير
-    Select Import Type: حدّد نوع الاستيراد
     Data Settings: البيانات
     Manage Subscriptions: إدارة الإشتراكات
     All playlists has been successfully imported: تم استيراد جميع قوائم التشغيل بنجاح
@@ -614,10 +605,8 @@ Settings:
     Password Settings: كلمة المرور
     Set Password: ضبط كلمة السر
   Password Dialog:
-    Password Incorrect: كلمة المرور غير صحيحة
     Password: كلمة السر
     Enter Password To Unlock: أدخل كلمة المرور لإلغاء قفل الإعدادات
-    Unlock: الغاء القفل
   Sort Settings Sections (A-Z): أقسام إعدادات الفرز (من الألف إلى الياء)
   Return to Settings Menu: العودة إلى قائمة الإعدادات
 About:
@@ -664,7 +653,6 @@ Profile:
   Are you sure you want to delete this profile?: 'هل أنت متأكد أنك تريد حذف هذا الملف
     الشخصي؟'
   All subscriptions will also be deleted.: 'ستُمحى جميع الاشتراكات أيضاً.'
-  Profile could not be found: 'لم يتم العثور على الملف الشخصي'
   Your profile name cannot be empty: 'لا يمكن أن يكون اسم ملفك الشخصي فارغاً'
   Profile has been created: 'تم إنشاء الملف الشخصي'
   Profile has been updated: 'تم تحديث الملف الشخصي'
@@ -784,8 +772,6 @@ Video:
   Enable Live Chat: 'فعّل المحادثة المباشرة'
   Live Chat is currently not supported in this build.: 'المحادثة المباشرة غير مدعومة
     حالياً في هذا الإصدار.'
-  'Chat is disabled or the Live Stream has ended.': 'المحادثة معطلة أو انتهى البث
-    المباشر.'
   Live chat is enabled. Chat messages will appear here once sent.: 'تم تمكين المحادثة
     المباشرة. ستظهر رسائل المحادثة هنا بمجرد إرسالها.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'المحادثة
@@ -838,8 +824,6 @@ Video:
     playlist: قائمة التشغيل
     video: فيديو
     OpenInTemplate: فتح في {externalPlayer}
-  Premieres on: العرض الأول بتاريخ
-  Premieres in: العرض الأول في
   Premieres: العرض الأولي
   Scroll to Bottom: انتقل إلى الأسفل
   Show Super Chat Comment: إظهار تعليق Super Chat
@@ -887,12 +871,6 @@ Video:
     تتطلب تسجيل الدخول إلى Google واستخدام حساب YouTube تم التحقق من عمره.
   MembersOnly: لا يمكن مشاهدة مقاطع الفيديو الخاصة بالأعضاء فقط مع FreeTube لأنها
     تتطلب تسجيل الدخول إلى Google والعضوية المدفوعة لقناة القائم بالتحميل.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'الأحدث'
-    Oldest: 'الأقدم'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -943,7 +921,6 @@ Comments:
   Comments: 'التعليقات'
   Click to View Comments: 'انقر لمشاهدة التعليقات'
   Getting comment replies, please wait: 'جاري الحصول على ردود التعليق, يرجى الانتظار'
-  Show Comments: 'إظهار التعليقات'
   Hide Comments: 'إخفاء التعليقات'
   # Context: View 10 Replies, View 1 Reply
   View: 'عرض'
@@ -953,7 +930,6 @@ Comments:
   There are no comments available for this video: 'لا يتوفر تعليقات لهذا الفيديو'
   Load More Comments: 'تحميل المزيد من التعليقات'
   There are no more comments for this video: لا يوجد المزيد من التعليقات لهذا الفيديو
-  No more comments available: لا يتوفر المزيد من التعليقات
   Newest first: الأحدث أولاً
   Top comments: أهم التعليقات
   Show More Replies: إظهار المزيد من الردود

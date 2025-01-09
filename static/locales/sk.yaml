@@ -44,8 +44,6 @@ Global:
   Community: Komunita
   Shorts: Shorts
   Sort By: 'Triediť podľa'
-  Input Tags:
-    Length Requirement: Štítok musí mať aspoň {number} znakov
 Search / Go to URL: 'Hľadať / Ísť na URL adresu'
   # In Filter Button
 Search Filters:
@@ -97,13 +95,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odbery'
-  Latest Subscriptions: 'Najnovšie odbery'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Váš
     zoznam odberov je prázdny. Začnite pridávať odbery aby sa tu zobrazili.'
-  'Getting Subscriptions.  Please wait.': 'Získavanie odberov. Prosím čakajte.'
   Load More Videos: Načítať viac videí
-  Refresh Subscriptions: Obnoviť odbery
-  'Getting Subscriptions. Please wait.': Sťahujem odbery, prosím čakajte.
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Tento
     profil má priveľa odberov. Vynucujem RSS na obídenie limitov
   Empty Channels: Vaše odoberané kanály v súčasnosti nemajú žiadne videá.
@@ -264,7 +258,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Čas spustenia nasledujúceho videa v zozname videí
     Next Video Interval: Interval Nasledujúceho Videa
     Scroll Playback Rate Over Video Player: Posúvanie vo videu kolieskom myši cez
       prehrávač videa
@@ -306,7 +299,6 @@ Settings:
     Export Subscriptions: Exportovať Odbery
     Import Subscriptions: Importovať odbery
     Select Export Type: Vybrať typ exportu
-    Select Import Type: Vybrať typ importu
     Data Settings: Nastavenia dát
     Manage Subscriptions: Spravovať odbery
   Distraction Free Settings:
@@ -443,8 +435,6 @@ Video:
   Enable Live Chat: 'Povoliť Live Chat'
   Live Chat is currently not supported in this build.: 'Live chat nie je v tejto verzií
     momentálne podporovaný.'
-  'Chat is disabled or the Live Stream has ended.': 'Chat je zakázaný alebo sa priamy
-    prenos skončil.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Live chat je povolený.
     Po odoslaní sa tu zobrazia četové správy.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Live
@@ -494,13 +484,6 @@ Video:
     UnsupportedActionTemplate: '{externalPlayer} nepodporuje: {action}'
     video: video
     OpeningTemplate: Otvára sa {videoOrPlaylist} v {externalPlayer}...
-  Premieres on: Premiéruje o
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Najnovšie'
-    Oldest: 'Najstaršie'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -545,7 +528,6 @@ Comments:
   Click to View Comments: 'Kliknutím zobrazíte komentáre'
   Getting comment replies, please wait: 'Získavanie odpovedí na komentáre, čakajte
     prosím'
-  Show Comments: 'Zobraziť Komentáre'
   Hide Comments: 'Skryť komentáre'
   # Context: View 10 Replies, View 1 Reply
   View: 'Pozrieť'
@@ -556,7 +538,6 @@ Comments:
     žiadne komentáre'
   Load More Comments: 'Načítať ďalšie komentáre'
   There are no more comments for this video: K tomuto videu nie sú žiadne ďalšie komentáre
-  No more comments available: Žiadne daľšie komentáre nie sú k dispozícií
   Newest first: Najnovšie najprv
   Top comments: Najlepšie komentáre
   Pinned by: Pripnuté používateľom
@@ -655,7 +636,6 @@ Profile:
   Profile has been updated: Profil aktualizovaný
   Profile has been created: Profil vytvorený
   Your profile name cannot be empty: Meno nesmie byť prázdne
-  Profile could not be found: Profil nenájdený
   All subscriptions will also be deleted.: Budú tiež odstránené všetky odbery.
   Are you sure you want to delete this profile?: Naozaj chcete odstrániť tento profil?
   Delete Profile: Zmazať profil

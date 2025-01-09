@@ -45,8 +45,6 @@ Global:
     Watching Count: 1 sledující | {count} sledujících
     Like Count: 1 líbí se mi | {count} líbí se mi
     Comment Count: 1 komentář | {count} komentářů
-  Input Tags:
-    Length Requirement: Štítek musí být dlouhý alespoň {number} znaků
 Version {versionNumber} is now available!  Click for more details: 'Je k dispozici
   verze {versionNumber}! Klikněte pro více informací'
 Download From Site: 'Stáhnout ze stránky'
@@ -106,15 +104,12 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odběry'
-  Latest Subscriptions: 'Nejnovější odběry'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Tento
     profil má velký počet odběrů.  Vynucení RSS, aby se zabránilo omezení rychlosti'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Váš
     seznam odběrů je prázdný. Pokud chcete importovat své odběry, přejděte do Nastavení
     dat a vyberte Importovat odběry. Můžete také jednoduše vyhledat kanál a přihlásit
     se u něj k odběru.'
-  'Getting Subscriptions. Please wait.': 'Získávám odběry. Prosím čekejte.'
-  Refresh Subscriptions: 'Obnovit odběry'
   Load More Videos: 'Načíst více videí'
   Error Channels: Kanály s chybami
   Empty Channels: Vaše odebírané kanály momentálně nemají žádná videa.
@@ -189,8 +184,6 @@ User Playlists:
         pro rychlé uložení
       This playlist is already being used for quick bookmark.: Tento playlist je již
         používán pro rychlou záložku.
-      Playlist {playlistName} is the new quick bookmark playlist.: Playlist {playlistName}
-        je nový playlist rychlé záložky.
       This playlist has a video with a duration error: Tento playlist obsahuje nejméně
         jedno video, které nemá dobu trvání. Bude seřazeno tak, jako by mělo dobu
         trvání nula.
@@ -437,7 +430,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Interval pro další video na playlistu
     Next Video Interval: Čas do automatického přehrání
     Display Play Button In Video Player: Zobrazit tlačítko Přehrát v přehrávači videa
     Scroll Volume Over Video Player: Měnit hlasitost posuvem kolečka myši na přehrávači
@@ -547,7 +539,6 @@ Settings:
     Show Added Items: Zobrazit přidané položky
   Data Settings:
     Data Settings: 'Data'
-    Select Import Type: 'Vybrat typ importu'
     Select Export Type: 'Vybrat typ exportu'
     Import Subscriptions: 'Importovat odběry'
     Export Subscriptions: 'Exportovat odebírané kanály'
@@ -663,8 +654,6 @@ Settings:
   Password Dialog:
     Enter Password To Unlock: Pro odemknutí nastavení zadejte heslo
     Password: Heslo
-    Password Incorrect: Nesprávné heslo
-    Unlock: Odemknout
   Password Settings:
     Password Settings: Heslo
     Set Password To Prevent Access: Nastavte heslo pro zabránění přístupu k nastavení
@@ -716,7 +705,6 @@ Profile:
   Delete Profile: 'Odstranit profil'
   Are you sure you want to delete this profile?: 'Opravdu chcete odstranit tento profil?'
   All subscriptions will also be deleted.: 'Budou také odstraněny všechny odběry.'
-  Profile could not be found: 'Profil nebyl nalezen'
   Your profile name cannot be empty: 'Jméno profilu nemůže být prázdné'
   Profile has been created: 'Profil byl vytvořen'
   Profile has been updated: 'Profil byl upraven'
@@ -849,8 +837,6 @@ Video:
   Enable Live Chat: 'Zapnout živý chat'
   Live Chat is currently not supported in this build.: 'Živý chat není v této verzi
     programu podporován.'
-  'Chat is disabled or the Live Stream has ended.': 'Chat je zakázán nebo živý přenos
-    byl ukončen.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Živý chat je povolen.  Po
     odeslání se zde zobrazí zprávy chatu.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Živý
@@ -893,8 +879,6 @@ Video:
     OpeningTemplate: Otevřít {videoOrPlaylist} v {externalPlayer}...
     video: video
     OpenInTemplate: Otevřít v {externalPlayer}
-  Premieres on: Premiéra
-  Premieres in: Premiéra za
   Premieres: Premiéra
   Show Super Chat Comment: Zobrazit komentář Super Chat
   Scroll to Bottom: Posunout dolů
@@ -948,12 +932,6 @@ Video:
     proprietární komponenty s uzavřeným zdrojovým kódem. Pokud chcete toto video sledovat,
     přehrajte si ho na oficiálních stránkách YouTube ve webovém prohlížeči s podporou
     DRM.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Nejnovější'
-    Oldest: 'Nejstarší'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -1014,7 +992,6 @@ Comments:
   Click to View Comments: 'Kliknutím zobrazíte komentáře'
   Getting comment replies, please wait: 'Načítání odpovědí na komentář, čekejte prosím'
   There are no more comments for this video: 'U tohoto videa nejsou žádné další komentáře'
-  Show Comments: 'Zobrazit komentáře'
   Hide Comments: 'Skrýt komentáře'
   Top comments: 'Nejlepší komentáře'
   Newest first: 'Nejnovější první'
@@ -1026,7 +1003,6 @@ Comments:
   There are no comments available for this video: 'K tomuto videu nejsou dostupné
     žádné komentáře'
   Load More Comments: 'Načíst další komentáře'
-  No more comments available: 'Žádné další komentáře nejsou k dispozici'
   Show More Replies: Načíst více výsledků
   Pinned by: připnuto uživatelem
   From {channelName}: od {channelName}
