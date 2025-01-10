@@ -582,7 +582,7 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 試験的
-    Warning:
+    Warning: 
       これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
     Password Settings: パスワード
@@ -797,7 +797,7 @@ Video:
   DeArrow:
     Show Original Details: 元の情報を表示
     Show Modified Details: 変更された詳細を表示
-  DRMProtected:
+  DRMProtected: 
     DRM保護された動画はFreeTubeでは再生できません。これらの動画には、独自の非オープンソースのコンポーネントが必要です。この動画を視聴したい場合は、DRM対応のウェブブラウザで公式のYouTubeウェブサイトでご覧ください。
 #& Playlists
 Playlist:
@@ -977,7 +977,7 @@ Tooltips:
       ID は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}"
       項目の "{subsection}" にあります
-    Hide Videos and Playlists Containing Text: FreeTube
+    Hide Videos and Playlists Containing Text: FreeTube 
       全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
   SponsorBlock Settings:
     UseDeArrowTitles: 動画のタイトルを DeArrow からユーザーが投稿したタイトルに置き換えます。
@@ -1080,7 +1080,7 @@ KeyboardShortcutPrompt:
   Navigate to History: 履歴ページに移動する
   Refresh: フィードを最新の状態に更新
   Focus Secondary Search: 補助検索バーに移動（存在する場合）
-  Captions: 字幕を オン/オフ 切り替え
+  Captions: 字幕 オン/オフ の切り替え
   Stats: 動画の統計情報を表示
   History Backward: １ページ戻る
   Fullscreen: フルスクリーンの切り替え
