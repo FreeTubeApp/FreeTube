@@ -8,12 +8,12 @@ import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import {
   ctrlFHandler,
+  debounce,
   formatNumber,
   showToast,
   getTodayDateStrLocalTimezone,
   writeFileWithPicker,
 } from '../../helpers/utils'
-import debounce from 'lodash.debounce'
 import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 
 export default defineComponent({

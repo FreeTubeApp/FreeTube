@@ -1,6 +1,5 @@
 import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
-import debounce from 'lodash.debounce'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../ft-prompt/ft-prompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
@@ -9,6 +8,7 @@ import FtInput from '../../components/ft-input/ft-input.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import {
+  debounce,
   showToast,
   ctrlFHandler,
   getIconForSortPreference

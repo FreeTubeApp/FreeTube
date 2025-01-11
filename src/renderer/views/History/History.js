@@ -1,6 +1,5 @@
 import { defineComponent } from 'vue'
 import { isNavigationFailure, NavigationFailureType } from 'vue-router'
-import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
@@ -9,7 +8,7 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
-import { ctrlFHandler } from '../../helpers/utils'
+import { ctrlFHandler, debounce } from '../../helpers/utils'
 
 const identity = (v) => v
 

@@ -1,6 +1,5 @@
 import { defineComponent, nextTick } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
-import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
@@ -16,6 +15,7 @@ import {
   parseLocalPlaylistVideo,
 } from '../../helpers/api/local'
 import {
+  debounce,
   extractNumberFromString,
   getIconForSortPreference,
   showToast,
