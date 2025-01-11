@@ -1042,7 +1042,7 @@ export function debounce(func, wait) {
 
   // Using a fully fledged function here instead of an arrow function
   // so that we can get `this` and pass it onto the original function.
-  // Vue components using options API use `this` alot.
+  // Vue components using the options API use `this` alot.
   return function (...args) {
     const context = this
 
