@@ -3,9 +3,6 @@
     :label="title"
     @click="hideCreatePlaylistPrompt"
   >
-    <h2 class="center">
-      {{ title }}
-    </h2>
     <ft-flex-box>
       <ft-input
         ref="playlistNameInput"

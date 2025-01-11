@@ -1,61 +1,61 @@
 <template>
   <FtPrompt
     theme="slim"
-    :label="title"
     @click="hideSearchFilters"
   >
-    <div>
+    <template #label="{ labelId }">
       <h2
+        :id="labelId"
         class="center"
-        name="title"
       >
         {{ title }}
       </h2>
-      <FtFlexBox class="radioFlexBox">
-        <FtRadioButton
-          v-model="sortByValue"
-          :title="$t('Global.Sort By')"
-          :labels="sortByLabels"
-          :values="SORT_BY_VALUES"
-          class="searchRadio"
-        />
-        <FtRadioButton
-          v-model="timeValue"
-          :title="$t('Search Filters.Time.Time')"
-          :labels="timeLabels"
-          :values="TIME_VALUES"
-          class="searchRadio"
-        />
-        <FtRadioButton
-          v-model="typeValue"
-          :title="$t('Search Filters.Type.Type')"
-          :labels="typeLabels"
-          :values="TYPE_VALUES"
-          class="searchRadio"
-        />
-        <FtRadioButton
-          v-model="durationValue"
-          :title="$t('Search Filters.Duration.Duration')"
-          :labels="durationLabels"
-          :values="DURATION_VALUES"
-          class="searchRadio"
-        />
-        <FtCheckboxList
-          v-model="featuresValue"
-          :title="$t('Search Filters.Features.Features')"
-          :labels="featureLabels"
-          :values="FEATURE_VALUES"
-          class="searchRadio"
-        />
-      </FtFlexBox>
-      <div class="searchFilterCloseButtonContainer">
-        <FtButton
-          :label="$t('Close')"
-          background-color="var(--primary-color)"
-          text-color="var(--text-with-main-color)"
-          @click="hideSearchFilters"
-        />
-      </div>
+    </template>
+
+    <FtFlexBox class="radioFlexBox">
+      <FtRadioButton
+        v-model="sortByValue"
+        :title="$t('Global.Sort By')"
+        :labels="sortByLabels"
+        :values="SORT_BY_VALUES"
+        class="searchRadio"
+      />
+      <FtRadioButton
+        v-model="timeValue"
+        :title="$t('Search Filters.Time.Time')"
+        :labels="timeLabels"
+        :values="TIME_VALUES"
+        class="searchRadio"
+      />
+      <FtRadioButton
+        v-model="typeValue"
+        :title="$t('Search Filters.Type.Type')"
+        :labels="typeLabels"
+        :values="TYPE_VALUES"
+        class="searchRadio"
+      />
+      <FtRadioButton
+        v-model="durationValue"
+        :title="$t('Search Filters.Duration.Duration')"
+        :labels="durationLabels"
+        :values="DURATION_VALUES"
+        class="searchRadio"
+      />
+      <FtCheckboxList
+        v-model="featuresValue"
+        :title="$t('Search Filters.Features.Features')"
+        :labels="featureLabels"
+        :values="FEATURE_VALUES"
+        class="searchRadio"
+      />
+    </FtFlexBox>
+    <div class="searchFilterCloseButtonContainer">
+      <FtButton
+        :label="$t('Close')"
+        background-color="var(--primary-color)"
+        text-color="var(--text-with-main-color)"
+        @click="hideSearchFilters"
+      />
     </div>
   </FtPrompt>
 </template>
@@ -66,7 +66,7 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtRadioButton from '../FtRadioButton/FtRadioButton.vue'
-import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtCheckboxList from '../FtCheckboxList/FtCheckboxList.vue'
 

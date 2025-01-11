@@ -34,7 +34,6 @@
       <ft-prompt
         v-if="useModal"
         :autosize="true"
-        :label="sanitizeForHtmlId(`iconButtonPrompt-${title}`)"
         @click="dropdownShown = false"
       >
         <slot>
