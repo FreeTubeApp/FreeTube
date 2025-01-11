@@ -33,8 +33,8 @@
     >
       <ft-prompt
         v-if="useModal"
-        :label="title"
         :autosize="true"
+        :label="title"
         @click="dropdownShown = false"
       >
         <slot>
