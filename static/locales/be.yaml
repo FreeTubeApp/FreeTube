@@ -1139,7 +1139,7 @@ Search Listing:
 Yes, Delete: Так, выдаліць
 Feed:
   Refresh Feed: Абнавіць {subscriptionName}
-  Feed Last Updated: 'Апошняе абнаўленне стужкі {feedName}: {date}'
+  Feed Last Updated: 'Апошняе абнаўленне стужкі «{feedName}»: {date}'
 Display Label: '{label}: {value}'
 Cancel: Адмена
 checkmark: ✓
@@ -1194,8 +1194,14 @@ KeyboardShortcutPrompt:
   Restart Window: Перазапусціць акно
   Zoom Out: Паменшыць
   Search in New Window: Пошук у новым акне
+  Picture in Picture: Уключыць/выключыць міні-прайгравальнік
+  Large Rewind: Пераматаць назад на 10 секунд / Пераматаць назад згодна з бягучай
+    хуткасцю прайгравання
+  Large Fast Forward: Пераматаць уперад на 10 секунд / Пераматаць уперад згодна з
+    бягучай хуткасцю прайгравання
 Keys:
   arrowup: Стрэлка ўверх
   arrowright: Стрэлка ўправа
   arrowdown: Стрэлка ўніз
   arrowleft: Стрэлка ўлева
+  plus: Плюс
