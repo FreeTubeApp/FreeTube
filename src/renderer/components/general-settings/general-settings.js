@@ -7,9 +7,8 @@ import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../ft-button/ft-button.vue'
 
-import debounce from 'lodash.debounce'
 import allLocales from '../../../../static/locales/activeLocales.json'
-import { randomArrayItem, showToast } from '../../helpers/utils'
+import { debounce, randomArrayItem, showToast } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 
 export default defineComponent({

@@ -64,7 +64,6 @@
     "autolinker": "^4.1.0",
     "bgutils-js": "^3.1.2",
     "electron-context-menu": "^4.0.4",
-    "lodash.debounce": "^4.0.8",
     "marked": "^15.0.5",
     "path-browserify": "^1.0.1",
     "portal-vue": "^2.1.7",

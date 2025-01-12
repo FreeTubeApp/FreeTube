@@ -84,10 +84,9 @@ import FtInput from '../../components/ft-input/ft-input.vue'
 import FtSubscribeButton from '../../components/FtSubscribeButton/FtSubscribeButton.vue'
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getLocalChannel, parseLocalChannelHeader } from '../../helpers/api/local'
-import { ctrlFHandler } from '../../helpers/utils'
+import { ctrlFHandler, debounce } from '../../helpers/utils'
 import { useI18n } from '../../composables/use-i18n-polyfill.js'
 import store from '../../store/index'
-import debounce from 'lodash.debounce'
 
 const route = useRoute()
 const router = useRouter()

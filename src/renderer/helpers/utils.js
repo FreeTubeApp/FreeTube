@@ -1030,3 +1030,27 @@ export function localizeAndAddKeyboardShortcutToActionTitle(localizedActionTitle
   const localizedShortcut = getLocalizedShortcut(unlocalizedShortcut)
   return addKeyboardShortcutToActionTitle(localizedActionTitle, localizedShortcut)
 }
+
+/**
+ * @template {Function} T
+ * @param {T} func
+ * @param {number} wait
+ * @returns {T}
+ */
+export function debounce(func, wait) {
+  let timeout
+
+  // Using a fully fledged function here instead of an arrow function
+  // so that we can get `this` and pass it onto the original function.
+  // Vue components using the options API use `this` alot.
+  return function (...args) {
+    const context = this
+
+    clearTimeout(timeout)
+
+    timeout = setTimeout(() => {
+      timeout = null
+      func.apply(context, args)
+    }, wait)
+  }
+}
