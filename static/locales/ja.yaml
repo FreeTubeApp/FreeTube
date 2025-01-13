@@ -419,8 +419,8 @@ Settings:
     'Limit the number of videos displayed for each channel': 各チャンネルに表示する動画の数を制限する
     To: 上限
   Privacy Settings:
-    Save Watched Progress: 再生位置の保存
-    Remember History: 視聴履歴を保存する
+    Save Watched Progress: 再生位置を記憶する
+    Remember History: 視聴履歴を記憶する
     Watch history has been cleared: 視聴履歴を削除しました
     Are you sure you want to remove your entire watch history?: 視聴履歴をすべて削除しますか？
     Remove Watch History: 視聴履歴の削除
@@ -428,7 +428,7 @@ Settings:
     Are you sure you want to clear out your search cache?: 検索キャッシュを削除しますか？
     Clear Search Cache: 検索キャッシュの削除
     Privacy Settings: プライバシー
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録チャンネルとプロファイルを削除しますか？元に戻せません。
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録チャンネルとプロファイルを削除しますか？これは元に戻せません。
     Remove All Subscriptions / Profiles: 登録とプロファイルをすべて削除
     Save Watched Videos With Last Viewed Playlist: 視聴済み動画を最後に見た再生リストと共に保存する
     Remove All Playlists: 再生リストをすべて削除
