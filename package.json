@@ -64,7 +64,7 @@
     "autolinker": "^4.1.0",
     "bgutils-js": "^3.1.2",
     "electron-context-menu": "^4.0.4",
-    "marked": "^15.0.5",
+    "marked": "^15.0.6",
     "path-browserify": "^1.0.1",
     "portal-vue": "^2.1.7",
     "process": "^0.11.10",
