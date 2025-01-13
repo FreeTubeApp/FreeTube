@@ -444,39 +444,39 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
-    Fetch Feeds from RSS: Получать ленты из RSS
-    Fetch Automatically: Автоматически получать ленту
-    Confirm Before Unsubscribing: Подтвердить, прежде чем отписаться
+    Fetch Feeds from RSS: Загружать Ленты из RSS
+    Fetch Automatically: Автоматически загружать ленту
+    Confirm Before Unsubscribing: Запрашивать Подтверждение Перед Отпиской
 
-    'Limit the number of videos displayed for each channel': Ограничьте количество
+    'Limit the number of videos displayed for each channel': Ограничить количество
       видео, отображаемых на каждом канале
     To: В
   Privacy Settings:
-    Watch history has been cleared: История просмотров очищена
-    Are you sure you want to remove your entire watch history?: Выполнить удаление
-      всей истории просмотра?
-    Remove Watch History: Удалить историю просмотров
+    Watch history has been cleared: История Просмотров очищена
+    Are you sure you want to remove your entire watch history?: Вы уверены, что хотите
+      удалить всю историю просмотра?
+    Remove Watch History: Удалить Историю Просмотров
     Search cache has been cleared: Поисковой кэш был очищен
     Are you sure you want to clear out your search cache?: Выполнить очистку кэша
       поиска?
     Clear Search Cache: Очистить кэш поиска
-    Save Watched Progress: Сохранять ход просмотра
-    Remember History: Вспомните историю часов
+    Save Watched Progress: Сохранять Прогресс Просмотра
+    Remember History: Сохранять Историю Просмотров
     Privacy Settings: Конфиденциальность
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Выполнить
-      удаление всех подписок и учётных записей?  Невозможно отменить.
-    Remove All Subscriptions / Profiles: Удалить все подписки/профили
-    Save Watched Videos With Last Viewed Playlist: Сохранить просмотренные видео с
-      последней просмотренной подборкой
-    Are you sure you want to remove all your playlists?: Ты действительно хочешь удалить
-      все свои подборки?
-    All playlists have been removed: Все подборки были удалены
-    Remove All Playlists: Удалить все подборки
-    Clear Search History and Cache: Очистить историю поиска и кэш
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Вы
+      уверены, что хотите удалить все подписки и профили? Это действие безвозвратно.
+    Remove All Subscriptions / Profiles: Удалить все Подписки/Профили
+    Save Watched Videos With Last Viewed Playlist: Сохранить Просмотренные Видео С
+      Последним Просмотренным Плейлистом
+    Are you sure you want to remove all your playlists?: Вы действительно хотите удалить
+      все свои Плейлисты?
+    All playlists have been removed: Все Плейлисты были удалены
+    Remove All Playlists: Удалить Все Плейлисты
+    Clear Search History and Cache: Очистить Историю Поиска и Кэш
     Are you sure you want to clear out your search history and cache?: Вы уверены,
       что хотите очистить историю поиска и кэш?
     Search history and cache have been cleared: История поиска и кэш были очищены
-    Remember Search History: Запомнить историю поиска
+    Remember Search History: Сохранять Историю Поисков
   Data Settings:
     How do I import my subscriptions?: Как импортировать подписки?
     Unknown data key: Неизвестный ключ данных
@@ -527,13 +527,13 @@ Settings:
   Distraction Free Settings:
     Hide Live Chat: Скрыть чат прямой трансляции
     Hide Popular Videos: Скрыть популярные видео
-    Hide Trending Videos: Скрыть видео в тренде
-    Hide Recommended Videos: Скрыть рекомендуемые видео
+    Hide Trending Videos: Скрыть Видео в Тренде
+    Hide Recommended Videos: Скрыть Рекомендуемые Видео
     Distraction Free Settings: Отвлекающие элементы
-    Hide Comment Likes: Скрыть лайки в комментариях
-    Hide Channel Subscribers: Скрыть подписчиков канала
-    Hide Video Likes And Dislikes: Скрыть лайки и дизлайки к видео
-    Hide Video Views: Скрыть просмотры видео
+    Hide Comment Likes: Скрыть Лайки Комментариев
+    Hide Channel Subscribers: Скрыть Количество Подписчиков
+    Hide Video Likes And Dislikes: Скрыть Лайки и Дизлайки
+    Hide Video Views: Скрыть Количество Просмотров
     Hide Active Subscriptions: Скрыть действующие подписки
     Hide Playlists: Скрыть подборки
     Hide Live Streams: Скрыть прямые трансляции
@@ -551,11 +551,11 @@ Settings:
     Hide Channel Community: Скрыть вкладку "Сообщество" канала
     Hide Channel Shorts: Скрыть вкладку "Шорты" канала
     Sections:
-      Side Bar: Боковая полоса
-      Channel Page: Страница канала
-      Watch Page: Страница просмотра
+      Side Bar: Боковая Панель
+      Channel Page: Страница Канала
+      Watch Page: Страница Просмотра
       General: Основные
-      Subscriptions Page: Страница подписок
+      Subscriptions Page: Страница Подписок
     Hide Channel Releases: Скрыть вкладку "Релизы" канала
     Hide Subscriptions Videos: Скрыть видео из подписок
     Hide Subscriptions Live: Скрыть трансляции из подписок
@@ -1210,7 +1210,7 @@ Keys:
   arrowup: Стрелка вверх
   shift: Shift
   enter: Enter
-  plus: Plus
+  plus: Плюс
 Right-click or hold to see history: ПКМ или зажми для просмотра истории
 KeyboardShortcutPrompt:
   Captions: Включение/выключение титров
@@ -1239,6 +1239,34 @@ KeyboardShortcutPrompt:
   Refresh: Обновляйте ленту с последними материалами
   Stats: Показать статистику видео
   Fullscreen: Переключить полноэкранный режим
+  Close Window: Закрыть окно
+  Volume Down: Уменьшить громкость
+  Last Frame: Предыдущий кадр (при паузе)
+  Last Chapter: Последняя глава
+  Next Chapter: Следующая глава
+  Small Rewind: Перемотать назад на X секунд на основе интервала перемотки и текущей
+    скорости воспроизведения видео
+  Small Fast Forward: Перемотать вперед на X секунд на основе интервала быстрой перемотки
+    и текущей скорости воспроизведения видео
+  Decrease Video Speed: Уменьшить скорость воспроизведения видео на основе интервала
+    скорости воспроизведения
+  Increase Video Speed: Увеличить скорость воспроизведения видео на основе интервала
+    скорости воспроизведения
+  Full Window: Переключить на полноэкранный режим
+  Theatre Mode: Переключить на театральный режим
+  Force Restart Window: Принудительно перезапустить окно
+  Toggle Developer Tools: Включить/выключить инструменты разработчика
+  Reset Zoom: Сбросить уровень масштабирования
+  Zoom In: Увеличить масштаб
+  Zoom Out: Уменьшить масштаб
+  Focus Search: Перевести фокус на строку поиска
+  Next Frame: Следующий кадр (при паузе)
+  Volume Up: Увеличить громкость
+  Take Screenshot: Сделать Снимок Экрана
+  Minimize Window: Свернуть окно
+  Restart Window: Перезапустить окно
+  Search in New Window: Выполнить поиск в отдельном окне
+  Skip by Tenths: Пропустить видео на определённый процент (3 пропуска для 30%)
 Description:
   Expand Description: '...больше'
   Collapse Description: Показать меньше
