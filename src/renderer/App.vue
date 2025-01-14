@@ -17,10 +17,17 @@
     />
     <ft-prompt
       v-if="showReleaseNotes"
-      :label="changeLogTitle"
       theme="readable-width"
       @click="showReleaseNotes = !showReleaseNotes"
     >
+      <template #label="{ labelId }">
+        <h1
+          :id="labelId"
+          class="changeLogTitle"
+        >
+          {{ changeLogTitle }}
+        </h1>
+      </template>
       <span
         class="changeLogText"
         lang="en"

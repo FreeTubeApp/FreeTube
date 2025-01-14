@@ -1,4 +1,4 @@
-import { Innertube, Misc, Mixins, Parser, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
+import { ClientType, Innertube, Misc, Mixins, Parser, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { IpcChannels, SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -215,8 +215,40 @@ export async function getLocalVideoInfo(id) {
 
   const info = await webInnertube.getInfo(id)
 
-  const hasTrailer = info.has_trailer
-  const trailerIsAgeRestricted = info.getTrailerInfo() === null
+  let hasTrailer = info.has_trailer
+  let trailerIsAgeRestricted = info.getTrailerInfo() === null
+
+  if (
+    ((info.playability_status.status === 'UNPLAYABLE' || info.playability_status.status === 'LOGIN_REQUIRED') &&
+      info.playability_status.reason === 'Sign in to confirm your age') ||
+    (hasTrailer && trailerIsAgeRestricted)
+  ) {
+    const webEmbeddedInnertube = await createInnertube({ clientType: ClientType.WEB_EMBEDDED })
+    webEmbeddedInnertube.session.context.client.visitorData = webInnertube.session.context.client.visitorData
+
+    if (poToken) {
+      webEmbeddedInnertube.session.po_token = poToken
+    }
+
+    const videoId = hasTrailer && trailerIsAgeRestricted ? info.playability_status.error_screen.video_id : id
+
+    // getBasicInfo needs the signature timestamp (sts) from inside the player
+    webEmbeddedInnertube.session.player = webInnertube.session.player
+
+    const bypassedInfo = await webEmbeddedInnertube.getBasicInfo(videoId, 'WEB_EMBEDDED')
+
+    if (bypassedInfo.playability_status.status === 'OK' && bypassedInfo.streaming_data) {
+      info.playability_status = bypassedInfo.playability_status
+      info.streaming_data = bypassedInfo.streaming_data
+      info.basic_info.start_timestamp = bypassedInfo.basic_info.start_timestamp
+      info.basic_info.duration = bypassedInfo.basic_info.duration
+      info.captions = bypassedInfo.captions
+      info.storyboards = bypassedInfo.storyboards
+
+      hasTrailer = false
+      trailerIsAgeRestricted = false
+    }
+  }
 
   if ((info.playability_status.status === 'UNPLAYABLE' && (!hasTrailer || trailerIsAgeRestricted)) ||
     info.playability_status.status === 'LOGIN_REQUIRED') {
@@ -238,8 +270,8 @@ export async function getLocalVideoInfo(id) {
   }
 
   if (info.streaming_data) {
-    decipherFormats(info.streaming_data.formats, webInnertube.actions.session.player)
-    decipherFormats(info.streaming_data.adaptive_formats, webInnertube.actions.session.player)
+    decipherFormats(info.streaming_data.formats, webInnertube.session.player)
+    decipherFormats(info.streaming_data.adaptive_formats, webInnertube.session.player)
 
     if (info.streaming_data.dash_manifest_url) {
       let url = info.streaming_data.dash_manifest_url

@@ -8,10 +8,8 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 
-import debounce from 'lodash.debounce'
-
 import { IpcChannels } from '../../../constants'
-import { showToast } from '../../helpers/utils'
+import { debounce, showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'ProxySettings',

@@ -102,7 +102,7 @@ import FtSelect from './ft-select/ft-select.vue'
 import FtToggleSwitch from './ft-toggle-switch/ft-toggle-switch.vue'
 import FtSlider from './ft-slider/ft-slider.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
-import FtPrompt from './ft-prompt/ft-prompt.vue'
+import FtPrompt from './FtPrompt/FtPrompt.vue'
 
 import store from '../store/index'
 

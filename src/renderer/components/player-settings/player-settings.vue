@@ -43,10 +43,11 @@
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Autoplay Videos')"
+          :label="$t('Settings.Player Settings.Play Next Video')"
           :compact="true"
-          :default-value="autoplayVideos"
-          @change="updateAutoplayVideos"
+          :disabled="hideRecommendedVideos"
+          :default-value="playNextVideo"
+          @change="updatePlayNextVideo"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Autoplay Playlists')"
@@ -55,11 +56,10 @@
           @change="updateAutoplayPlaylists"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Play Next Video')"
+          :label="$t('Settings.Player Settings.Autoplay Videos')"
           :compact="true"
-          :disabled="hideRecommendedVideos"
-          :default-value="playNextVideo"
-          @change="updatePlayNextVideo"
+          :default-value="autoplayVideos"
+          @change="updateAutoplayVideos"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Display Play Button In Video Player')"

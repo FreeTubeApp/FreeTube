@@ -1,6 +1,5 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
-import debounce from 'lodash.debounce'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtTooltip from '../../components/ft-tooltip/ft-tooltip.vue'
@@ -12,7 +11,7 @@ import FtInput from '../../components/ft-input/ft-input.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
-import { ctrlFHandler, getIconForSortPreference } from '../../helpers/utils'
+import { ctrlFHandler, debounce, getIconForSortPreference } from '../../helpers/utils'
 import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 
 const SORT_BY_VALUES = {

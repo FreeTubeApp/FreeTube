@@ -418,8 +418,8 @@ Settings:
     'Limit the number of videos displayed for each channel': 各チャンネルに表示する動画の数を制限する
     To: 上限
   Privacy Settings:
-    Save Watched Progress: 再生位置の保存
-    Remember History: 視聴履歴を保存する
+    Save Watched Progress: 再生位置を記憶する
+    Remember History: 視聴履歴を記憶する
     Watch history has been cleared: 視聴履歴を削除しました
     Are you sure you want to remove your entire watch history?: 視聴履歴をすべて削除しますか？
     Remove Watch History: 視聴履歴の削除
@@ -427,7 +427,7 @@ Settings:
     Are you sure you want to clear out your search cache?: 検索キャッシュを削除しますか？
     Clear Search Cache: 検索キャッシュの削除
     Privacy Settings: プライバシー
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録チャンネルとプロファイルを削除しますか？元に戻せません。
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: すべての登録チャンネルとプロファイルを削除しますか？これは元に戻せません。
     Remove All Subscriptions / Profiles: 登録とプロファイルをすべて削除
     Save Watched Videos With Last Viewed Playlist: 視聴済み動画を最後に見た再生リストと共に保存する
     Remove All Playlists: 再生リストをすべて削除
@@ -581,7 +581,7 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 試験的
-    Warning:
+    Warning: 
       これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
     Password Settings: パスワード
@@ -796,7 +796,7 @@ Video:
   DeArrow:
     Show Original Details: 元の情報を表示
     Show Modified Details: 変更された詳細を表示
-  DRMProtected:
+  DRMProtected: 
     DRM保護された動画はFreeTubeでは再生できません。これらの動画には、独自の非オープンソースのコンポーネントが必要です。この動画を視聴したい場合は、DRM対応のウェブブラウザで公式のYouTubeウェブサイトでご覧ください。
 #& Playlists
 Playlist:
@@ -976,7 +976,7 @@ Tooltips:
       ID は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}"
       項目の "{subsection}" にあります
-    Hide Videos and Playlists Containing Text: FreeTube
+    Hide Videos and Playlists Containing Text: FreeTube 
       全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
   SponsorBlock Settings:
     UseDeArrowTitles: 動画のタイトルを DeArrow からユーザーが投稿したタイトルに置き換えます。
@@ -1079,7 +1079,7 @@ KeyboardShortcutPrompt:
   Navigate to History: 履歴ページに移動する
   Refresh: フィードを最新の状態に更新
   Focus Secondary Search: 補助検索バーに移動（存在する場合）
-  Captions: 字幕を オン/オフ 切り替え
+  Captions: 字幕 オン/オフ の切り替え
   Stats: 動画の統計情報を表示
   History Backward: １ページ戻る
   Fullscreen: フルスクリーンの切り替え

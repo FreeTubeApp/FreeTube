@@ -3,17 +3,20 @@
     :label="$t('KeyboardShortcutPrompt.Keyboard Shortcuts')"
     @click="hideKeyboardShortcutPrompt"
   >
-    <div class="titleAndCloseButton">
-      <h2>
-        {{ $t('KeyboardShortcutPrompt.Keyboard Shortcuts') }}
-      </h2>
-      <FtIconButton
-        :title="$t('Close')"
-        :icon="['fas', 'xmark']"
-        theme="destructive"
-        @click="hideKeyboardShortcutPrompt"
-      />
-    </div>
+    <template #label="{ labelId }">
+      <div class="titleAndCloseButton">
+        <h2 :id="labelId">
+          {{ $t('KeyboardShortcutPrompt.Keyboard Shortcuts') }}
+        </h2>
+        <FtIconButton
+          :title="$t('Close')"
+          :icon="['fas', 'xmark']"
+          theme="destructive"
+          @click="hideKeyboardShortcutPrompt"
+        />
+      </div>
+    </template>
+
     <div
       v-if="primarySections"
       class="primarySections"
@@ -58,7 +61,7 @@
 import { computed } from 'vue'
 import { KeyboardShortcuts } from '../../../constants'
 import { getLocalizedShortcut } from '../../helpers/utils'
-import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import store from '../../store/index'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'

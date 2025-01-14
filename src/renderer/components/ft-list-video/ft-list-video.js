@@ -9,10 +9,10 @@ import {
   openExternalLink,
   showToast,
   toDistractionFreeTitle,
-  deepCopy
+  deepCopy,
+  debounce
 } from '../../helpers/utils'
 import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock'
-import debounce from 'lodash.debounce'
 import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 
 export default defineComponent({
