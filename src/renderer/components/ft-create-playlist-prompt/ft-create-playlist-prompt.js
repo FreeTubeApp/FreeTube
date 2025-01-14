@@ -1,7 +1,7 @@
 import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtPlaylistSelector from '../ft-playlist-selector/ft-playlist-selector.vue'

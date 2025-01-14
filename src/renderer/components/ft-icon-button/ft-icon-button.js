@@ -1,5 +1,5 @@
 import { defineComponent, nextTick } from 'vue'
-import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
 const LONG_CLICK_BOUNDARY_MS = 500

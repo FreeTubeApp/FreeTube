@@ -5,9 +5,6 @@
     :inert="showingCreatePlaylistPrompt"
     @click="hide"
   >
-    <h2 class="heading">
-      {{ title }}
-    </h2>
     <p class="selected-count">
       {{ $tc('User Playlists.AddVideoPrompt.N playlists selected', selectedPlaylistCount, {
         playlistCount: selectedPlaylistCount,

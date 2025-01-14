@@ -4,7 +4,7 @@ import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
-import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import {
   ctrlFHandler,

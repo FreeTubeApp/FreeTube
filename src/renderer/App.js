@@ -4,7 +4,7 @@ import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
 import SideNav from './components/SideNav/SideNav.vue'
 import FtNotificationBanner from './components/ft-notification-banner/ft-notification-banner.vue'
-import FtPrompt from './components/ft-prompt/ft-prompt.vue'
+import FtPrompt from './components/FtPrompt/FtPrompt.vue'
 import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
 import FtProgressBar from './components/FtProgressBar/FtProgressBar.vue'
@@ -261,7 +261,7 @@ export default defineComponent({
               .replaceAll(/https:\/\/github\.com\/FreeTubeApp\/FreeTube\/pull\/(\d+)/g, '[#$1]($&)')
 
             // Add the title
-            changelog = `# ${json[0].name}\n${changelog}`
+            changelog = `${changelog}`
 
             this.updateChangelog = marked.parse(changelog)
             this.changeLogTitle = json[0].name

@@ -92,7 +92,7 @@ import { useId } from '../../composables/use-id-polyfill'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtButton from '../../components/ft-button/ft-button.vue'
-import FtPrompt from '../../components/ft-prompt/ft-prompt.vue'
+import FtPrompt from '../FtPrompt/FtPrompt.vue'
 
 import store from '../../store/index'
 
