@@ -864,7 +864,6 @@ Video:
   Reverse Playlist: 'Gwrthdroi Rhestr Chwarae'
   Play Next Video: 'Chwarae''r Fideo Nesaf'
   Play Previous Video: 'Chwarae''r Fideo Blaenorol'
-  Pause on Current Video: 'Oedi ar y Fideo Cyfredol'
   Watched: 'Wedi gwylio'
   Autoplay: 'Awtochwarae'
   Starting soon, please refresh the page to check again: 'Yn dechrau''n fuan, adnewyddwch
@@ -1157,10 +1156,6 @@ Shuffle is now enabled: 'Cymysgu nawr wedi''i alluogi'
 The playlist has been reversed: 'Mae''r rhestr chwarae wedi''i wrthdroi'
 Playing Next Video: 'Yn Chwarae''r Fideo Nesaf'
 Playing Previous Video: 'Yn Chwarae''r Fideo Blaenorol'
-Playlist will not pause when current video is finished: 'Bydd y rhestr chwarae ddim
-  yn oedi pan fydd y fideo cyfredol wedi''i orffen'
-Playlist will pause when current video is finished: 'Bydd y rhestr chwarae yn oedi
-  pan fydd y fideo cyfredol wedi gorffen'
 Playing Next Video Interval: 'Chwarae''r fideo nesaf mewn dim o dro. Cliciwch i ddiddymu.
   | Yn chwarae''r fideo nesaf ymhen {nextVideoInterval} eiliad. Cliciwch i ddiddymu.
   | Yn chwarae''r fideo nesaf ymhen {nextVideoInterval} eiliad. Cliciwch i ddiddymu.'

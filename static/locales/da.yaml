@@ -749,7 +749,6 @@ Video:
   Premieres: Premierer
   Upcoming: Kommende
   Scroll to Bottom: Rul til Bunden
-  Pause on Current Video: Pause på Nuværende Video
   Player:
     Stats:
       Video ID: 'Video-ID: {videoId}'
@@ -929,10 +928,6 @@ Playing Next Video Interval: Afspiller næste video om lidt. Klik for at afbryde
 Preferences: Præferencer
 Go to page: Gå til {page}
 Close Banner: Luk Banner
-Playlist will not pause when current video is finished: Playliste sættes ikke på pause,
-  når nuværende video er færdig
-Playlist will pause when current video is finished: Playliste vil sættes på pause,
-  når nuværende video er færdig
 Clipboard:
   Cannot access clipboard without a secure connection: Kan ikke tilgå udklipsholder
     uden en sikker forbindelse

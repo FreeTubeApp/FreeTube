@@ -709,7 +709,6 @@ Video:
   Reverse Playlist: ''
   Play Next Video: 'Atskaņo nākamo video'
   Play Previous Video: 'Atskaņo iepriekšējo video'
-  Pause on Current Video: 'Apturēt uz pašreizējā video'
   Watched: 'Skatīts'
   Autoplay: 'Autoatskaņošana'
   Starting soon, please refresh the page to check again: 'Drīz sāksies, lūdzu atsvaidzini
@@ -871,8 +870,6 @@ Shuffle is now enabled: ''
 The playlist has been reversed: ''
 Playing Next Video: ''
 Playing Previous Video: ''
-Playlist will not pause when current video is finished: ''
-Playlist will pause when current video is finished: ''
 Playing Next Video Interval: ''
 Canceled next video autoplay: ''
 

@@ -732,7 +732,6 @@ Video:
   Scroll to Bottom: 捲動至底部
   Upcoming: 即將到來
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 即時聊天在此串流不可用。其可能被上傳者停用了。
-  Pause on Current Video: 暫停目前影片
   Unhide Channel: 顯示頻道
   Hide Channel: 隱藏頻道
   More Options: 更多選項
@@ -983,8 +982,6 @@ Ok: 確定
 Hashtag:
   Hashtag: 主題標籤
   This hashtag does not currently have any videos: 此標籤目前沒有任何影片
-Playlist will pause when current video is finished: 當目前影片結束時，播放清單將會暫停
-Playlist will not pause when current video is finished: 當目前影片結束時，播放清單將不會暫停
 Channel Hidden: '{channel} 已新增至頻道過濾條件'
 Go to page: 到 {page}
 Channel Unhidden: '{channel} 已從頻道過濾條件移除'

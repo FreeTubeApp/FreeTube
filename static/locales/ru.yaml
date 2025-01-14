@@ -834,7 +834,6 @@ Video:
   Upcoming: Предстоящее
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Чат
     прямой трансляции недоступен. Возможно, он был отключён владельцем канала.
-  Pause on Current Video: Остановиться на текущем видео
   Hide Channel: Скрыть канал
   Unhide Channel: Показать канал
   More Options: Больше настроек
@@ -1162,10 +1161,6 @@ Hashtag:
   Hashtag: Распределительная метка
   This hashtag does not currently have any videos: Этой распределительной метки пока
     нет ни у одного видео
-Playlist will not pause when current video is finished: Подборка не будет останавливаться,
-  если текущее видео закончится
-Playlist will pause when current video is finished: Подборка остановится, если текущее
-  видео закончится
 Channel Unhidden: '{channel} удалён из канального фильтровщика'
 Channel Hidden: '{channel} добавлен в канальный фильтровщик'
 Age Restricted:

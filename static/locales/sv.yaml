@@ -762,7 +762,6 @@ Video:
   Scroll to Bottom: Skrolla till botten
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Livechatt
     är inte tillgängligt för den här strömmen. Den kan ha inaktiverats av uppladdaren.
-  Pause on Current Video: Pausa på aktuell video
   Unhide Channel: Visa kanal
   Hide Channel: Dölj kanal
 #& Playlists
@@ -953,10 +952,6 @@ Hashtag:
   Hashtag: Hashtaggar
   This hashtag does not currently have any videos: Den här hashtaggen har för närvarande
     inga videor
-Playlist will pause when current video is finished: Spellistan pausas när den aktuella
-  videon är klar
-Playlist will not pause when current video is finished: Spellistan kommer inte att
-  pausas när den aktuella videon är klar
 Channel Hidden: '{channel} har lagts till i kanalfiltret'
 Go to page: Gå till {page}
 Channel Unhidden: '{channel} har tagits bort från kanalfiltret'

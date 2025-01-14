@@ -785,7 +785,6 @@ Video:
   Reverse Playlist: 'Keer afspeellys om'
   Play Next Video: 'Speel volgende video af'
   Play Previous Video: 'Speel vorige video af'
-  Pause on Current Video: 'Laat wag by huidige video'
   Watched: 'Gekyk'
   Autoplay: 'Outo-afspeel'
   Starting soon, please refresh the page to check again: 'Begin binnekort, verfris
@@ -1062,10 +1061,6 @@ Shuffle is now enabled: 'Skommel is nou geaktiveer'
 The playlist has been reversed: 'Die afspeellys speel van agter af'
 Playing Next Video: 'Speel volgende video af'
 Playing Previous Video: 'Speel vorige video af'
-Playlist will not pause when current video is finished: 'Afspeellys sal nie wag wanneer
-  huidige video klaar is nie'
-Playlist will pause when current video is finished: 'Afspeellys sal wag wanneer huidige
-  video klaar is'
 Playing Next Video Interval: 'Volgende video word afgespeel. Klik om te kanselleer.
   | Volgende video word oor {nextVideoInterval} sekond afgespeel. Klik om te kanselleer.
   | Volgende video word oor {nextVideoInterval} sekondes afgespeel. Klik om te kanselleer.'

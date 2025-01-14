@@ -826,7 +826,6 @@ Video:
   Reverse Playlist: 'Перавернуць плэй-ліст'
   Play Next Video: 'Прайграць наступнае відэа'
   Play Previous Video: 'Прайграць папярэдняе відэа'
-  Pause on Current Video: 'Прыпыніць на бягучым відэа'
   Watched: 'Прагледжанае'
   Autoplay: 'Аўтапрайграванне'
   Starting soon, please refresh the page to check again: 'Хутка пачнецца, абнавіце
@@ -1096,10 +1095,6 @@ Shuffle is now enabled: 'Перамешванне ўключана'
 The playlist has been reversed: 'Плэй-ліст перавернуты'
 Playing Next Video: 'Прайграванне наступнага відэа'
 Playing Previous Video: 'Прайграванне папярэдняга відэа'
-Playlist will not pause when current video is finished: 'Плэй-ліст не будзе прыпынены,
-  калі бягучае відэа будзе завершана'
-Playlist will pause when current video is finished: 'Плэй-ліст будзе прыпынены, калі
-  бягучае відэа будзе завершана'
 Playing Next Video Interval: 'Прайграванне наступнага відэа ў самыя кароткія тэрміны.
   Націсніце, каб адмяніць. | Прайграванне наступнага відэа праз {nextVideoInterval}
   секунды. Націсніце, каб адмяніць. | Прайграванне наступнага відэа праз {nextVideoInterval}
