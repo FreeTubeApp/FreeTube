@@ -54,6 +54,8 @@
 :deep(.shaka-overflow-menu),
 :deep(.shaka-settings-menu) {
   background: var(--card-bg-color) !important;
+  max-height: 200px;
+
 }
 
 :deep(.shaka-overflow-menu button),

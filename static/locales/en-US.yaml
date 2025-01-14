@@ -414,11 +414,11 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: Player
-    Play Next Video: Play Next Video
+    Play Next Video: Autoplay Recommended Videos
+    Autoplay Playlists: Autoplay Playlist Videos
+    Autoplay Videos: Start Videos Automatically
     Turn on Subtitles by Default: Turn on Subtitles by Default
-    Autoplay Videos: Autoplay Videos
     Proxy Videos Through Invidious: Proxy Videos Through Invidious
-    Autoplay Playlists: Autoplay Playlists
     Enable Theatre Mode by Default: Enable Theatre Mode by Default
     Scroll Volume Over Video Player: Scroll Volume Over Video Player
     Scroll Playback Rate Over Video Player: Scroll Playback Rate Over Video Player
@@ -883,6 +883,8 @@ Video:
   Player:
     TranslatedCaptionTemplate: '{language} (translated from "{originalLanguage}")'
     Audio Tracks: Audio Tracks
+    Autoplay is off: Autoplay is off
+    Autoplay is on: Autoplay is on
     Theatre Mode: Theater Mode
     Exit Theatre Mode: Exit Theater Mode
     Full Window: Full Window
@@ -1075,8 +1077,6 @@ Shuffle is now enabled: Shuffle is now enabled
 The playlist has been reversed: The playlist has been reversed
 Playing Next Video: Playing Next Video
 Playing Previous Video: Playing Previous Video
-Playlist will not pause when current video is finished: Playlist will not pause when current video is finished
-Playlist will pause when current video is finished: Playlist will pause when current video is finished
 Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing next video in {nextVideoInterval} second. Click to cancel. | Playing next video in {nextVideoInterval} seconds. Click to cancel.
 Canceled next video autoplay: Canceled next video autoplay
 Autoplay Interruption Timer: Autoplay canceled due to {autoplayInterruptionIntervalHours} hours of inactivity
