@@ -360,11 +360,11 @@ Settings:
     Hide FreeTube Header Logo: 隐藏 FreeTube 标题徽标
   Player Settings:
     Player Settings: '播放器'
-    Play Next Video: '播放下一视频'
+    Play Next Video: '自动播放推荐的视频'
     Turn on Subtitles by Default: '默认开启字幕'
-    Autoplay Videos: '自动播放视频'
+    Autoplay Videos: '自动开始视频'
     Proxy Videos Through Invidious: '通过Invidious代理视频'
-    Autoplay Playlists: '自动播放列表'
+    Autoplay Playlists: '自动播放播放列表视频'
     Enable Theatre Mode by Default: '默认允许剧场模式'
     Default Volume: '默认音量'
     Default Playback Rate: '默认回放速率'
@@ -786,6 +786,8 @@ Video:
     TranslatedCaptionTemplate: '{language} (翻译自 "{originalLanguage}")'
     Exit Theatre Mode: 推出影院模式
     Skipped segment: 跳过了 {segmentCategory} 部分
+    Autoplay is off: 自动播放关闭
+    Autoplay is on: 自动播放开启
   IP block: 你的 IP 地址被 Youtube 禁止观看视频。请试着切换到不同的 VPN 或代理。
   MembersOnly: 无法用 FreeTube 观看仅供会员的视频，因这些视频需要 Google 登录以及上传者频道的付费会员身份。
   AgeRestricted: 无法用 FreeTube 观看受限年龄的视频，因这些视频需要 Google 登录并使用验证过年龄的 YouTube 账户。
