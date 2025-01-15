@@ -400,11 +400,11 @@ Settings:
     Hide FreeTube Header Logo: Peida FreeTube'i päise logo
   Player Settings:
     Player Settings: 'Meediamängija'
-    Play Next Video: 'Esita ka järgmist videot'
+    Play Next Video: 'Esita soovitatud videoid automaatselt'
     Turn on Subtitles by Default: 'Vaikimisi näita subtiitreid'
-    Autoplay Videos: 'Esita videod automaatselt'
+    Autoplay Videos: 'Alusta videote esitust automaatselt'
     Proxy Videos Through Invidious: 'Puhverda videosid Invidious''e veebiteenuse kaudu'
-    Autoplay Playlists: 'Mängi esitusloendit automaatselt'
+    Autoplay Playlists: 'Mängi esitusloendi videoid automaatselt'
     Enable Theatre Mode by Default: 'Vaikimisi kasuta teatrivaadet (laia vaadet)'
     Default Volume: 'Vaikimisi helivaljus'
     Default Playback Rate: 'Vaikimisi videoesituse kiirus'
@@ -925,6 +925,8 @@ Video:
     Playback will resume automatically when your connection comes back: Taasesitus
       jätkub automaatselt niipea, kui sinu seadme võrguühendus taastub.
     You appear to be offline: Sa ei tundu olema võrgus.
+    Autoplay is off: Automaatne esitamine on kasutusel
+    Autoplay is on: Automaatne esitamine pole kasutusel
   IP block: YouTube on blokeerinud sinu nutiseadme IP-aadressilt videote vaatamise.
     Palun kasuta mõnda muud VPN-teenust või puhverserverit.
   MembersOnly: Kuna vajalik on sisselogimine Google'i kontoga ja tasuline liikmelisus
