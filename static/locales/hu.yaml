@@ -408,11 +408,11 @@ Settings:
     Hide FreeTube Header Logo: FreeTube logo elrejtése a fejlécből
   Player Settings:
     Player Settings: 'Lejátszó'
-    Play Next Video: 'Következő videó lejátszása'
+    Play Next Video: 'Ajánlott videók automatikus lejátszása'
     Turn on Subtitles by Default: 'Feliratok bekapcsolása alapértelemezetten'
-    Autoplay Videos: 'Videók automatikus lejátszása'
+    Autoplay Videos: 'Videók automatikus elindítása'
     Proxy Videos Through Invidious: 'Videók proxyzása az Invidiouson keresztül'
-    Autoplay Playlists: 'Lejátszási listák automatikus lejátszása'
+    Autoplay Playlists: 'Lejátszási lista az automatikus videó-lejátszáshoz'
     Enable Theatre Mode by Default: 'A mozimód bekapcsolása alapértelmezetten'
     Default Volume: 'Alapértelmezett hangerő'
     Default Playback Rate: 'Alapértelmezett lejátszási sebesség'
@@ -943,6 +943,8 @@ Video:
     Show Stats: Statisztika megjelenítése
     Playback will resume automatically when your connection comes back: A lejátszás
       automatikusan folytatódik, amikor a kapcsolat helyreáll.
+    Autoplay is off: Az automatikus lejátszás ki van kapcsolva
+    Autoplay is on: Az automatikus lejátszás be van kapcsolva
   IP block: A YouTube letiltotta az IP-címét a videók megtekintéséhez. Próbáljon meg
     másik VPN-re vagy proxyra váltani.
   Unlisted: Listázatlan
