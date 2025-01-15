@@ -411,11 +411,11 @@ Settings:
     Hide FreeTube Header Logo: Masquer le logo d'en-tête de FreeTube
   Player Settings:
     Player Settings: 'Lecteur'
-    Play Next Video: 'Lire la vidéo suivante'
+    Play Next Video: 'Lecture automatique des vidéos recommandées'
     Turn on Subtitles by Default: 'Activer les sous-titres par défaut'
-    Autoplay Videos: 'Lecture automatique des vidéos'
+    Autoplay Videos: 'Démarrer les vidéos automatiquement'
     Proxy Videos Through Invidious: 'Proxy vidéo via Invidious'
-    Autoplay Playlists: 'Lecture automatique des listes de lecture'
+    Autoplay Playlists: 'Lire automatiquement les vidéos des listes de lecture'
     Enable Theatre Mode by Default: 'Activer le mode cinéma par défaut'
     Default Volume: 'Volume par défaut'
     Default Playback Rate: 'Vitesse de lecture par défaut'
@@ -907,6 +907,8 @@ Video:
     You appear to be offline: Vous semblez être hors ligne.
     Playback will resume automatically when your connection comes back: La lecture
       reprendra automatiquement quand votre connexion reviendra.
+    Autoplay is on: La lecture automatique est activée
+    Autoplay is off: La lecture automatique est désactivée
   IP block: YouTube a bloqué votre adresse IP pour le visionnage de vidéos. Veuillez
     essayer de changer de VPN ou de proxy.
   Unlisted: Non répertorié
