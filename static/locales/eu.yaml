@@ -409,9 +409,9 @@ Settings:
     Hide FreeTube Header Logo: Ezkutatu FreeTube goiburuko logotipoa
   Player Settings:
     Player Settings: 'Erreproduzitzailea'
-    Play Next Video: 'Hurrengo bideoa erreproduzitu'
+    Play Next Video: 'Gomendatutako bideoak automatikoki erreproduzitu'
     Turn on Subtitles by Default: 'Aktibatu Azpitituluak lehenespenez'
-    Autoplay Videos: 'Bideoen erreprodukzio automatikoa'
+    Autoplay Videos: 'Hasi bideoak erreproduzitzen automatikoki'
     Proxy Videos Through Invidious: 'Invidious bitarteko Proxy bideoak'
     Autoplay Playlists: 'Automatikoki erreproduzitu erreprodukzio-zerrendak'
     Enable Theatre Mode by Default: 'Gaitu antzerki modua lehenespenez'
@@ -461,7 +461,7 @@ Settings:
     Autoplay Interruption Timer: Erreprodukzio automatikoa eteteko tenporizadorea
   Privacy Settings:
     Privacy Settings: 'Pribatutasuna'
-    Remember History: 'Historikoa oroitu'
+    Remember History: 'Ikusitakoaren historikoa oroitu'
     Save Watched Progress: 'Ikusitakoaren progresioa gorde'
     Clear Search Cache: 'Bilaketen cachea ezabatu'
     Are you sure you want to clear out your search cache?: 'Ziur al zaude bilaketa-cachea
@@ -481,6 +481,12 @@ Settings:
     Remove All Playlists: Kendu erreprodukzio-zerrenda guztiak
     Are you sure you want to remove all your playlists?: Ziur erreprodukzio-zerrenda
       guztiak kendu nahi dituzula?
+    Clear Search History and Cache: Garbitu bilaketen historikoa eta cache-a
+    Remember Search History: Bilatutakoaren historikoa oroitu
+    Are you sure you want to clear out your search history and cache?: Ziur al zaude
+      bilaketen historikoa eta cache-a garbitu nahi dituzula?
+    Search history and cache have been cleared: Bilaketen historikoa eta cache-a garbitu
+      berri dira
   Subscription Settings:
     Subscription Settings: 'Harpidetza'
     Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
@@ -932,6 +938,8 @@ Video:
     Playback will resume automatically when your connection comes back: Erreprodukzioa
       automatikoki berrekingo da konexioa itzultzen denean.
     Full Window: Pantaila osoa
+    Autoplay is off: Autoerreprodukzioa desaktibatuta dago
+    Autoplay is on: Autoerreprodukzioa aktibatuta dago
   MembersOnly: Kideentzat baino ez diren bideoak ezin dira FreeTube-rekin ikusi, Googleren
     saioa hastea eta eduki sortzailearen kanalari ordaindutako bazkidetza eskatzen
     baitute.
@@ -1136,6 +1144,7 @@ Yes: 'Bai'
 No: 'Ez'
 Search Bar:
   Clear Input: Sarrera garbitu
+  Remove: Kendu
 Are you sure you want to open this link?: Ziur al zaude ataka hau ireki nahi duzula?
 Open New Window: Leiho berria ireki
 Default Invidious instance has been set to {instance}: 'Lehenetsitako Individious-eko
