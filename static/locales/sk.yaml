@@ -238,6 +238,7 @@ Settings:
     Autoplay Videos: 'Automaticky prehrávať nasledujúce video'
     Proxy Videos Through Invidious: 'Prehnať videá cez Invidious'
     Autoplay Playlists: 'Automaticky prehrávať nasledujúce videá v zoznamoch videí'
+    Enable Theatre Mode by Default: 'Predvolene zapínať Kino mód'
     Default Volume: 'Predvolená hlasitosť'
     Default Playback Rate: 'Východzia rýchlosť prehrávania'
     Default Video Format:

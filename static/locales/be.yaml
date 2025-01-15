@@ -411,6 +411,7 @@ Settings:
     Autoplay Videos: 'Аўтапрайграванне відэа'
     Proxy Videos Through Invidious: 'Глядзець відэа праз проксі Invidious'
     Autoplay Playlists: 'Аўтапрайграванне плэй-лістоў'
+    Enable Theatre Mode by Default: 'Уключыць рэжым тэатра па змаўчанні'
     Scroll Volume Over Video Player: 'Прагортваць гучнасці па-над відэапрайгравальнікам'
     Scroll Playback Rate Over Video Player: 'Прагортваць хуткасць прайгравання па-над
       відэапрайгравальнікам'

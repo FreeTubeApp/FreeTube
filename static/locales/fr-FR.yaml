@@ -416,6 +416,7 @@ Settings:
     Autoplay Videos: 'Démarrer les vidéos automatiquement'
     Proxy Videos Through Invidious: 'Proxy vidéo via Invidious'
     Autoplay Playlists: 'Lire automatiquement les vidéos des listes de lecture'
+    Enable Theatre Mode by Default: 'Activer le mode cinéma par défaut'
     Default Volume: 'Volume par défaut'
     Default Playback Rate: 'Vitesse de lecture par défaut'
     Default Video Format:

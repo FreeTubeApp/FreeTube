@@ -412,6 +412,7 @@ Settings:
     Autoplay Videos: 'Ræsa myndskeið sjálfkrafa'
     Proxy Videos Through Invidious: 'Beina myndskeiðum í gegnum Invidious-milliþjón'
     Autoplay Playlists: 'Spila sjálfkrafa myndskeið í spilunarlista'
+    Enable Theatre Mode by Default: 'Sjálfgefið virkja bíóham (theater mode)'
     Default Volume: 'Sjálfgefinn hljóðstyrkur'
     Default Playback Rate: 'Sjálfgefinn afspilunarhraði'
     Default Video Format:

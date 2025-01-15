@@ -366,6 +366,7 @@ Settings:
     Autoplay Videos: 'شغًل الفيديوهات تلقائياً'
     Proxy Videos Through Invidious: 'استخدم Invidious كوسيط للفيديوهات'
     Autoplay Playlists: 'شغّل قوائم التشغيل تلقائياً'
+    Enable Theatre Mode by Default: 'فعّل وضع المسرح بشكل افتراضي'
     Default Volume: 'مستوى الصوت الافتراضي'
     Default Playback Rate: 'معدّل سرعة التشغيل الافتراضية'
     Default Video Format:

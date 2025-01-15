@@ -205,6 +205,7 @@ Settings:
     Proxy Videos Through Invidious: 'Fes servir Invidious com a intermediari per baixar
       els vídeos'
     Autoplay Playlists: 'Reprodueix automàticament les llistes de reproducció'
+    Enable Theatre Mode by Default: 'Activa el mode teatre per defecte'
     Default Volume: 'Volum per defecte'
     Default Playback Rate: 'Velocitat de reproducció predeterminada'
     Default Video Format:

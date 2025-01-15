@@ -217,6 +217,7 @@ Settings:
     Autoplay Videos: '동영상 자동재생'
     Proxy Videos Through Invidious: 'Invidious를 통한 프록시 비디오'
     Autoplay Playlists: '재생목록 자동재생'
+    Enable Theatre Mode by Default: '기본으로 극장모드 설정'
     Default Volume: '기본 음량'
     Default Playback Rate: '기본 재생속도'
     Default Video Format:

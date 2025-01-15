@@ -409,6 +409,7 @@ Settings:
     Autoplay Videos: 'Автоматично пускане на видеата'
     Proxy Videos Through Invidious: 'Прекарване на видеата през Invidious'
     Autoplay Playlists: 'Автоматични плейлисти'
+    Enable Theatre Mode by Default: 'Активиране на широкоекранен режим по подразбиране'
     Default Volume: 'Сила на звука'
     Default Playback Rate: 'Скорост на възпроизвеждане'
     Default Video Format:

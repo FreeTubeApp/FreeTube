@@ -349,6 +349,7 @@ Settings:
     Autoplay Videos: 'Autoatskaņot video'
     Proxy Videos Through Invidious: 'Starpniekot video caur Invidious'
     Autoplay Playlists: 'Autoatskaņot sarakstus'
+    Enable Theatre Mode by Default: ''
     Scroll Volume Over Video Player: ''
     Scroll Playback Rate Over Video Player: 'Ritināt atskaņošanas ātrumu pāri video
       atskaņotājam'

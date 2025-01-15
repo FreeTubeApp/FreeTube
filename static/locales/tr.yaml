@@ -390,6 +390,7 @@ Settings:
     Autoplay Videos: 'Videoları Otomatik Başlat'
     Proxy Videos Through Invidious: 'Videolari Invidious Üzerinden Aktar'
     Autoplay Playlists: 'Oytma Listelerini Otomatik Başlat'
+    Enable Theatre Mode by Default: 'Sinema Modunu Öntanımlı Olarak Etkinleştir'
     Default Volume: 'Öntanımlı Ses Düzeyi'
     Default Playback Rate: 'Öntanımlı Oynatma Hızı'
     Default Video Format:

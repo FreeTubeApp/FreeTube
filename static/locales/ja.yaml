@@ -367,6 +367,7 @@ Settings:
     Autoplay Videos: '動画の自動再生'
     Proxy Videos Through Invidious: '動画を Invidious プロキシを経由して取得'
     Autoplay Playlists: '再生リストの自動再生'
+    Enable Theatre Mode by Default: 'デフォルトでシアターモードを有効にする'
     Default Volume: 'デフォルトの音量'
     Default Playback Rate: 'デフォルトの再生速度'
     Default Video Format:

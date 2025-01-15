@@ -332,6 +332,7 @@ Settings:
     Autoplay Videos: 'Spill av videoer automatisk'
     Proxy Videos Through Invidious: 'Mellomtjen videoer gjennom Invidious'
     Autoplay Playlists: 'Spill av spillelister automatisk'
+    Enable Theatre Mode by Default: 'Kinomodus som forvalg'
     Default Volume: 'Standardvolum'
     Default Playback Rate: 'Avspillingshastighet'
     Default Video Format:

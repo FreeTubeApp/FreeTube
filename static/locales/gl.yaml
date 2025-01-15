@@ -225,6 +225,7 @@ Settings:
     Autoplay Videos: 'Reproducir vídeos automaticamente'
     Proxy Videos Through Invidious: 'Utilizar Invidious como intermediario'
     Autoplay Playlists: 'Reproducir listaxes de reprodución automaticamente'
+    Enable Theatre Mode by Default: 'Activar modo cinema por defecto'
     Default Volume: 'Volume predeterminado'
     Default Playback Rate: 'Velocidade de reprodución predeterminada'
     Default Video Format:

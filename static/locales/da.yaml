@@ -324,6 +324,7 @@ Settings:
     Autoplay Videos: 'Autospil Videoer'
     Proxy Videos Through Invidious: 'Kør Videoer Gennem Invidious-Proxy'
     Autoplay Playlists: 'Autospil Playlister'
+    Enable Theatre Mode by Default: 'Aktivér Biograftilstand som Standard'
     Default Volume: 'Standard Lydstyrke'
     Default Playback Rate: 'Standard Afspilningshastighed'
     Default Video Format:

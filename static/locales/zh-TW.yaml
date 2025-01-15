@@ -348,6 +348,7 @@ Settings:
     Autoplay Videos: '自動播放影片'
     Proxy Videos Through Invidious: '透過Invidious代理影片'
     Autoplay Playlists: '自動播放 播放清單'
+    Enable Theatre Mode by Default: '預設開啟劇場模式'
     Default Volume: '預設音量'
     Default Playback Rate: '預設播放速度'
     Default Video Format:

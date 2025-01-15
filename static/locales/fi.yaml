@@ -299,6 +299,7 @@ Settings:
     Autoplay Videos: 'Toista videot automaattisesti'
     Proxy Videos Through Invidious: 'Välitä videot Invidiousin kautta'
     Autoplay Playlists: 'Toista soittolistat automaattisesti'
+    Enable Theatre Mode by Default: 'Ota teatteritila käyttöön oletusarvoisesti'
     Default Volume: 'Äänenvoimakkuuden oletusarvo'
     Default Playback Rate: 'Toiston oletusnopeus'
     Default Video Format:

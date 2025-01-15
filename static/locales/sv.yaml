@@ -325,6 +325,7 @@ Settings:
     Autoplay Videos: 'Autospela video'
     Proxy Videos Through Invidious: 'Proxy Videos Genom Invidious'
     Autoplay Playlists: 'Autospela spellistor'
+    Enable Theatre Mode by Default: 'Aktivera Bioläge som standard'
     Default Volume: 'Standardvolym'
     Default Playback Rate: 'Standard uppspelningshastighet'
     Default Video Format:

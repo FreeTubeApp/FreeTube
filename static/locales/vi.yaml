@@ -372,6 +372,7 @@ Settings:
     Autoplay Videos: 'Tự phát video'
     Proxy Videos Through Invidious: 'Proxy video qua Invidious'
     Autoplay Playlists: 'Tự phát video trong danh sách phát'
+    Enable Theatre Mode by Default: 'Bật chế độ rạp hát theo mặc định'
     Default Volume: 'Âm lượng mặc định'
     Default Playback Rate: 'Tốc độ phát mặc định'
     Default Video Format:
