@@ -399,11 +399,11 @@ Settings:
     Hide FreeTube Header Logo: Nascondi il logo dell'intestazione di FreeTube
   Player Settings:
     Player Settings: 'Lettore'
-    Play Next Video: 'Riproduci il prossimo video'
+    Play Next Video: 'Riproduzione automatica dei video consigliati'
     Turn on Subtitles by Default: 'Abilita i sottotitoli per impostazione predefinita'
-    Autoplay Videos: 'Riproduci i video automaticamente'
+    Autoplay Videos: 'Avvia video automaticamente'
     Proxy Videos Through Invidious: 'Proxy dei video tramite Invidious'
-    Autoplay Playlists: 'Riproduci le playlist automaticamente'
+    Autoplay Playlists: 'Riproduzione automatica dei video della playlist'
     Enable Theatre Mode by Default: 'Abilita la modalità teatro come predefinita'
     Default Volume: 'Volume predefinito'
     Default Playback Rate: 'Velocità di riproduzione predefinita'
@@ -891,6 +891,8 @@ Video:
     Playback will resume automatically when your connection comes back: La riproduzione
       riprenderà automaticamente quando verrà ripristinata la connessione.
     Skipped segment: Segmento {segmentCategory} saltato
+    Autoplay is off: La riproduzione automatica è disattivata
+    Autoplay is on: La riproduzione automatica è attiva
   IP block: YouTube ha bloccato il tuo indirizzo IP impedendogli di guardare i video.
     Prova a passare a una VPN o a un proxy diverso.
   Unlisted: Non elencato
