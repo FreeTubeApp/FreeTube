@@ -405,11 +405,11 @@ Settings:
     Hide FreeTube Header Logo: Skrýt logo FreeTube v záhlaví
   Player Settings:
     Player Settings: 'Přehrávač'
-    Play Next Video: 'Přehrát další video'
+    Play Next Video: 'Automaticky přehrávat doporučená videa'
     Turn on Subtitles by Default: 'Ve výchozím nastavení zapnout titulky'
-    Autoplay Videos: 'Automaticky přehrávat videa'
+    Autoplay Videos: 'Automaticky spouštět videa'
     Proxy Videos Through Invidious: 'Proxy videa prostřednictvím Invidious'
-    Autoplay Playlists: 'Automaticky přehrávat playlist'
+    Autoplay Playlists: 'Automaticky přehrávat videa v playlistu'
     Enable Theatre Mode by Default: 'Ve výchozím nastavení povolit režim kino'
     Default Volume: 'Výchozí hlasitost'
     Default Playback Rate: 'Výchozí rychlost přehrávání'
@@ -924,6 +924,8 @@ Video:
     You appear to be offline: Zdá se, že jste offline.
     Playback will resume automatically when your connection comes back: Přehrávání
       bude automaticky pokračovat, jakmile budete opět připojeni.
+    Autoplay is off: Automatické přehrávání je vypnuto
+    Autoplay is on: Automatické přehrávání je zapnuto
   IP block: YouTube zablokoval sledování videí z vaší IP adresy. Zkuste prosím přepnout
     na jinou VPN nebo proxy.
   Unlisted: Neveřejné
