@@ -409,11 +409,11 @@ Settings:
     Hide FreeTube Header Logo: FreeTube-Titellogo ausblenden
   Player Settings:
     Player Settings: Videoabspieler
-    Play Next Video: Nächstes Video abspielen
+    Play Next Video: Empfohlene Videos automatisch abspielen
     Turn on Subtitles by Default: Untertitel standardmäßig aktivieren
-    Autoplay Videos: Videos automatisch abspielen
+    Autoplay Videos: Videos automatisch starten
     Proxy Videos Through Invidious: Proxy-Videos durch Invidious
-    Autoplay Playlists: Wiedergabelisten automatisch abspielen
+    Autoplay Playlists: Wiedergabelisten-Videos automatisch abspielen
     Enable Theatre Mode by Default: Kinomodus standardmäßig aktivieren
     Default Volume: Standard-Lautstärke
     Default Playback Rate: Standard-Wiedergabegeschwindigkeit
@@ -895,6 +895,8 @@ Video:
     TranslatedCaptionTemplate: '{language} (übersetzt von {originalLanguage})'
     Exit Full Window: Vollständiges Fenster beenden
     Hide Stats: Statistiken ausblenden
+    Autoplay is off: Automatische Wiedergabe ist ausgeschaltet
+    Autoplay is on: Automatische Wiedergabe ist eingeschaltet
   IP block: YouTube hat Ihre IP-Adresse für die Videowiedergabe gesperrt. Bitte versuchen
     Sie, zu einem anderen VPN oder Proxy zu wechseln.
   Unlisted: Nicht gelistet
