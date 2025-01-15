@@ -406,11 +406,11 @@ Settings:
     Hide FreeTube Header Logo: Сховати логотип FreeTube із заголовка
   Player Settings:
     Player Settings: 'Плеєр'
-    Play Next Video: 'Грати наступне відео'
+    Play Next Video: 'Автовідтворення рекомендованих відео'
     Turn on Subtitles by Default: 'Увімкнути субтитри за замовченням'
-    Autoplay Videos: 'Автоматичне відтворення відео'
+    Autoplay Videos: 'Автоматично запускати відео'
     Proxy Videos Through Invidious: 'Проксі-відео через Invidious'
-    Autoplay Playlists: 'Автовідтворення добірок'
+    Autoplay Playlists: 'Автовідтворення відео з добірки'
     Enable Theatre Mode by Default: 'Типово увімкнути режим театру'
     Default Volume: 'Типова гучність'
     Default Playback Rate: 'Типова швидкість відтворення'
@@ -920,6 +920,8 @@ Video:
     Theatre Mode: Режим кінотеатру
     Hide Stats: Сховати статистику
     Skipped segment: Пропущено сегмент {segmentCategory}
+    Autoplay is off: Автовідтворення вимкнено
+    Autoplay is on: Автовідтворення увімкнено
   IP block: YouTube заблокував вашу IP-адресу для перегляду відео. Будь ласка, спробуйте
     змінити VPN або проксі.
   Unlisted: Не в списку
