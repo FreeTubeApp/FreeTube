@@ -599,7 +599,7 @@ export async function getPicturesPath() {
 
 export function extractNumberFromString(str) {
   if (typeof str === 'string') {
-    return parseInt(str.replaceAll(/\D+/g, ''))
+    return parseInt(str.replaceAll(/\D+/g, '')) || 0
   } else {
     return NaN
   }
