@@ -631,6 +631,8 @@ function runApp() {
     }
   }
 
+  const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
+
   async function createWindow(
     {
       replaceMainWindow = true,
@@ -774,18 +776,10 @@ function runApp() {
     }
 
     // load root file/url
-    if (process.env.NODE_ENV === 'development') {
-      let devStartupURL = 'http://localhost:9080'
-      if (windowStartupUrl != null) {
-        devStartupURL = windowStartupUrl
-      }
-      newWindow.loadURL(devStartupURL)
+    if (windowStartupUrl != null) {
+      newWindow.loadURL(windowStartupUrl)
     } else {
-      if (windowStartupUrl != null) {
-        newWindow.loadURL(windowStartupUrl)
-      } else {
-        newWindow.loadURL('app://bundle/index.html')
-      }
+      newWindow.loadURL(ROOT_APP_URL)
     }
 
     if (typeof searchQueryText === 'string' && searchQueryText.length > 0) {
@@ -1011,12 +1005,39 @@ function runApp() {
     return powerSaveBlocker.start('prevent-display-sleep')
   })
 
-  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (_e, { windowStartupUrl = null, searchQueryText = null } = { }) => {
+  ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (event, path, query, searchQueryText) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
+    if (path == null && query == null && searchQueryText == null) {
+      createWindow({ replaceMainWindow: false, showWindowNow: true })
+      return
+    }
+
+    if (
+      typeof path !== 'string' ||
+      (typeof query !== 'object' && query != null) ||
+      (typeof searchQueryText !== 'string' && searchQueryText != null)
+    ) {
+      return
+    }
+
+    if (path.charAt(0) !== '/') {
+      path = `/${path}`
+    }
+
+    let windowStartupUrl = `${ROOT_APP_URL}#${path}`
+
+    if (query) {
+      windowStartupUrl += '?' + new URLSearchParams(query).toString()
+    }
+
     createWindow({
       replaceMainWindow: false,
       showWindowNow: true,
-      windowStartupUrl: windowStartupUrl,
-      searchQueryText: searchQueryText
+      windowStartupUrl,
+      searchQueryText
     })
   })
 
