@@ -362,11 +362,11 @@ Settings:
     Hide FreeTube Header Logo: FreeTube ヘッダー ロゴの非表示
   Player Settings:
     Player Settings: 'プレーヤー'
-    Play Next Video: '次の動画の自動再生'
+    Play Next Video: 'おすすめの動画を自動再生'
     Turn on Subtitles by Default: 'デフォルトで字幕を有効にする'
-    Autoplay Videos: '動画の自動再生'
+    Autoplay Videos: '動画を自動的に再生する'
     Proxy Videos Through Invidious: '動画を Invidious プロキシを経由して取得'
-    Autoplay Playlists: '再生リストの自動再生'
+    Autoplay Playlists: '再生リスト動画の自動再生'
     Enable Theatre Mode by Default: 'デフォルトでシアターモードを有効にする'
     Default Volume: 'デフォルトの音量'
     Default Playback Rate: 'デフォルトの再生速度'
@@ -745,7 +745,7 @@ Video:
       shuffling playlists: シャッフル再生リスト
       reversing playlists: 再生リストを反転させる
       opening specific video in a playlist (falling back to opening the video): 再生リストで特定の動画を開く
-        (ビデオを開く前にフォールバック)
+        (動画を開く前にフォールバック)
       opening playlists: 再生リストを開く
       setting a playback rate: 再生レートの設定
       starting video at offset: オフセットで動画の再生
@@ -789,6 +789,8 @@ Video:
     Hide Stats: 統計を隠す
     Take Screenshot: スクリーンショットを撮る
     Show Stats: 統計を表示
+    Autoplay is off: 自動再生 オフ
+    Autoplay is on: 自動再生 オン
   IP block: YouTube はあなたのIPアドレスからの動画視聴をブロックしました。別の VPN またはプロキシに切り替えてみてください。
   Unlisted: 限定公開
   MembersOnly: メンバー限定動画は Google にログインし、投稿チャンネルに課金する必要があるので FreeTube から直接見ることはできません。
@@ -1110,7 +1112,7 @@ KeyboardShortcutPrompt:
       General: 'アプリ: 一般'
   Show Keyboard Shortcuts: キーボード ショートカットを表示する
   Picture in Picture: 子画面モードの切り替え
-  Large Rewind: 10秒巻き戻し / 現在の動画再生速度に基づき動画を巻き戻す
+  Large Rewind: 10秒巻き戻し / 現在の動画再生速度に基づいて動画を巻き戻す
   Close Window: ウィンドウを閉じる
   Search in New Window: 新しいウィンドウで検索
   Volume Down: 音量を下げる
