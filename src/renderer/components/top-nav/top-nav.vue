@@ -94,7 +94,6 @@
           :is-search="true"
           :data-list="activeDataList"
           :data-list-properties="activeDataListProperties"
-          :spellcheck="false"
           :show-clear-text-button="true"
           :show-data-when-empty="true"
           @input="getSearchSuggestionsDebounce"

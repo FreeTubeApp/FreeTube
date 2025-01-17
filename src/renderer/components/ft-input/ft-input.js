@@ -55,10 +55,6 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
-    spellcheck: {
-      type: Boolean,
-      default: true
-    },
     dataList: {
       type: Array,
       default: () => { return [] }
