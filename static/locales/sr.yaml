@@ -407,11 +407,11 @@ Settings:
     Hide Side Bar Labels: Сакриј ознаке бочне траке
   Player Settings:
     Player Settings: 'Плејер'
-    Play Next Video: 'Пусти следећи видео снимак'
+    Play Next Video: 'Аутоматски пусти препоручене видео снимке'
     Turn on Subtitles by Default: 'Подразумевано укључи титлове'
-    Autoplay Videos: 'Аутоматски пусти видео снимак'
+    Autoplay Videos: 'Аутоматски пусти видео снимке'
     Proxy Videos Through Invidious: 'Прокси видео снимци преко Invidious-а'
-    Autoplay Playlists: 'Аутоматски пусти плејлисте'
+    Autoplay Playlists: 'Аутоматски пусти видео снимке с плејлисте'
     Enable Theatre Mode by Default: 'Подразумевано омогући биоскопски режим'
     Default Volume: 'Подразумевана јачина звука'
     Default Playback Rate: 'Подразумевана брзина репродукције'
@@ -927,6 +927,8 @@ Video:
     Playback will resume automatically when your connection comes back: Репродукција
       ће се аутоматски наставити када се ваша интернет веза врати.
     Skipped segment: Прескочен сегмент „{segmentCategory}“
+    Autoplay is off: Аутоматско пуштање је искључено
+    Autoplay is on: Аутоматско пуштање је укључено
   IP block: YouTube је блокирао вашу IP адресу за гледање видео снимака. Покушајте
     прећи на други VPN или прокси.
   Unlisted: По позиву
