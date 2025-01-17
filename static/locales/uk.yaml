@@ -387,19 +387,19 @@ Settings:
       Gruvbox Dark Yellow: Gruvbox Темно Жовтий
       Solarized Blue: Solarized Голубий
       Catppuccin Frappe Rosewater: Капучино фрапе з рожевою водою
-      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
-      Catppuccin Frappe Blue: Catppuccin Frappe Blue
-      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
-      Catppuccin Frappe Teal: Catppuccin Frappe Teal
+      Catppuccin Frappe Sapphire: Капучино фрапе сапфіровий
+      Catppuccin Frappe Blue: Капучино фрапе синій
+      Catppuccin Frappe Lavender: Капучино фрапе лавандовий
+      Catppuccin Frappe Teal: Капучино фрапе бірюзовий
       Catppuccin Frappe Flamingo: Капучино фрапе Фламінго
-      Catppuccin Frappe Green: Catppuccin Frappe Green
-      Catppuccin Frappe Red: Catppuccin Frappe Red
-      Catppuccin Frappe Peach: Catppuccin Frappe Peach
+      Catppuccin Frappe Green: Капучино фрапе зелений
+      Catppuccin Frappe Red: Капучино фрапе червоний
+      Catppuccin Frappe Peach: Капучино фрапе персиковий
       Catppuccin Frappe Pink: Капучино фрапе рожевий
-      Catppuccin Frappe Sky: Catppuccin Frappe Sky
-      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
-      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
-      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
+      Catppuccin Frappe Sky: Капучино фрапе небесний
+      Catppuccin Frappe Mauve: Капучино фрапе фіолетовий
+      Catppuccin Frappe Maroon: Капучино фрапе бордовий
+      Catppuccin Frappe Yellow: Капучино фрапе жовтий
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
     Hide Side Bar Labels: Сховати мітки бічної панелі
@@ -587,9 +587,9 @@ Settings:
       Label: Експортувати добірки для старих версій FreeTube
       Tooltip: "Ця опція експортує відео з усіх добірок в одну добірку під назвою
         \"Улюблені\".\nЯк експортувати та імпортувати відео з добірок для старої версії
-        FreeTube:\n1. Експортуйте свої добірки з увімкненою цією опцією.\n2. Видаліть
-        усі свої наявні добірки за допомогою опції \"Видалити всі добірки\" в налаштуваннях
-        конфіденційності.\n3. Запустіть стару версію FreeTube та імпортуйте експортовані
+        FreeTube:\n1. Експортуйте свої добірки увімкнувши цю опцію.\n2. Видаліть усі
+        свої наявні добірки за допомогою опції \"Вилучити всі добірки\" в налаштуваннях
+        приватності..\n3. Запустіть стару версію FreeTube та імпортуйте експортовані
         добірки."
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Помилка
