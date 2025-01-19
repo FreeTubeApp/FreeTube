@@ -50,7 +50,7 @@
         :type="inputType"
         :placeholder="placeholder"
         :disabled="disabled"
-        :spellcheck="spellcheck"
+        :spellcheck="false"
         :aria-label="!showLabel ? placeholder : null"
         @input="e => handleInput(e.target.value)"
         @focus="handleFocus"

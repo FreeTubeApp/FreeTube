@@ -9,7 +9,6 @@
         :value="query"
         :show-clear-text-button="true"
         :show-action-button="false"
-        :spellcheck="false"
         :maxlength="255"
         @input="(input) => handleQueryChange(input)"
         @clear="() => handleQueryChange('')"

@@ -235,7 +235,6 @@
           class="screenshotFilenamePatternInput"
           placeholder=""
           :value="screenshotFilenamePattern"
-          :spellcheck="false"
           :show-action-button="false"
           :show-label="false"
           @input="handleScreenshotFilenamePatternChanged"
