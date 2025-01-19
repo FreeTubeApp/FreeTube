@@ -862,7 +862,6 @@ Video:
   Upcoming: Demnächst
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-Chat
     ist für diesen Stream nicht verfügbar. Möglicherweise wurde es vom Uploader deaktiviert.
-  Pause on Current Video: Pause für aktuelles Video
   Unhide Channel: Kanal anzeigen
   Hide Channel: Kanal ausblenden
   More Options: Weitere Optionen
@@ -1202,10 +1201,6 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Dieser Hashtag enthält derzeit
     keine Videos
-Playlist will pause when current video is finished: Wiedergabeliste wird pausiert,
-  wenn das aktuelle Video beendet ist
-Playlist will not pause when current video is finished: Wiedergabeliste wird nicht
-  pausiert, wenn das aktuelle Video beendet ist
 Channel Hidden: '{channel} wurde zum Kanalfilter hinzugefügt'
 Go to page: Gehe zu {page}
 Channel Unhidden: '{channel} wurde aus dem Kanalfilter entfernt'

@@ -900,7 +900,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Spjall
     í beinni er ekki tiltækt fyrir þetta streymi. Sá sem sendi þetta inn gæti hafa
     gert það óvirkt.
-  Pause on Current Video: Setja núverandi myndskeið í bið
   Unhide Channel: Birta rás
   Hide Channel: Fela rás
   More Options: Fleiri valkostir
@@ -1178,10 +1177,6 @@ Hashtag:
   Hashtag: Myllumerki
   This hashtag does not currently have any videos: Þetta myllumerki er í augnablikinu
     ekki með nein myndskeið
-Playlist will pause when current video is finished: Spilunarlisti mun fara í bið eftir
-  að núverandi myndskeið klárast
-Playlist will not pause when current video is finished: Spilunarlisti mun ekki fara
-  í bið eftir að núverandi myndskeið klárast
 Go to page: Fara á {page}
 Channel Hidden: '{channel} bætt við rásasíu'
 Channel Unhidden: '{channel} fjarlægt úr rásasíu'

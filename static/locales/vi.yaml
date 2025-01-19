@@ -798,7 +798,6 @@ Video:
     tắt chức năng này.
   Hide Channel: Ẩn kênh này
   More Options: Tùy chọn khác
-  Pause on Current Video: Tạm dừng trên video hiện tại
   Show Super Chat Comment: Hiển thị bình luận Super Chat
   Upcoming: Sắp ra mắt
   Premieres: Công chiếu
@@ -1117,11 +1116,7 @@ Age Restricted:
   This channel is age restricted: Kênh này bị giới hạn độ tuổi
   This video is age restricted: Video này bị giới hạn độ tuổi
 Preferences: Tuỳ chỉnh
-Playlist will not pause when current video is finished: Danh sách phát sẽ không tạm
-  dừng khi video hiện tại kết thúc
 Channel Hidden: '{channel} đã thêm vào bộ lọc kênh'
-Playlist will pause when current video is finished: Danh sách phát sẽ tạm dừng khi
-  video hiện tại kết thúc
 Trimmed input must be at least N characters long: Dữ liệu nhập bị cắt bớt phải dài
   ít nhất 1 ký tự | Dữ liệu nhập bị cắt bớt phải dài ít nhất {length} ký tự
 Feed:

@@ -755,7 +755,6 @@ Video:
   Show Super Chat Comment: 显示超级聊天评论
   Upcoming: 即将到来
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 实时聊天对此音视频流不可用。上传者可能禁用了它。
-  Pause on Current Video: 当前视频播完后不自动播放列表中下一视频
   Unhide Channel: 显示频道
   Hide Channel: 隐藏频道
   More Options: 更多选项
@@ -1012,8 +1011,6 @@ Ok: 好
 Hashtag:
   Hashtag: 话题标签
   This hashtag does not currently have any videos: 此话题标签下当前没有任何短视频
-Playlist will pause when current video is finished: 当前视频播完后播放列表会暂停
-Playlist will not pause when current video is finished: 当前视频播完后播放列表不会暂停
 Go to page: 转到页{page}
 Channel Hidden: '{channel} 频道已添加到频道过滤器'
 Channel Unhidden: 从频道过滤器删除了{channel} 频道

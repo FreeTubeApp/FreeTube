@@ -825,7 +825,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': A
     conversa em direto não está disponível para esta emissão. Pode ter sido desativada
     pelo publicador.
-  Pause on Current Video: Pausa no vídeo atual
   Hide Channel: Ocultar canal
   Unhide Channel: Mostrar canal
   More Options: Mais opções
@@ -1041,10 +1040,6 @@ Hashtag:
 Go to page: Ir para {page}
 Channel Hidden: '{channel} adicionado ao filtro do canal'
 Channel Unhidden: '{channel} removido do filtro do canal'
-Playlist will not pause when current video is finished: A lista de reprodução não
-  será colocada em pausa quando o vídeo atual terminar
-Playlist will pause when current video is finished: A lista de reprodução será colocada
-  em pausa quando o vídeo atual terminar
 Close Banner: Fechar banner
 Feed:
   Feed Last Updated: 'Última atualização de {feedName}: {date}'

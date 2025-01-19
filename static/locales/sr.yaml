@@ -882,7 +882,6 @@ Video:
     омогућено.  Поруке ћаскања ће се појавити овде када буду послате.
   Streamed on: Стримовано
   video only: само видео снимак
-  Pause on Current Video: Паузирај на тренутном видео снимку
   audio only: само аудио снимак (звук)
   Show Super Chat Comment: Прикажи Super Chat коментар
   Scroll to Bottom: Превуци до дна
@@ -1108,8 +1107,6 @@ Up Next: Следеће
 Loop is now disabled: Понављање је сада онемогућено
 Playing Next Video: Пуштање следећег видео снимка
 The playlist has been reversed: Плејлиста је обрнута
-Playlist will pause when current video is finished: Плејлиста ће се паузирати када
-  се тренутни видео снимак заврши
 Local API Error (Click to copy): Грешка локалног API-ја (Кликнути за копирање)
 Channels:
   Search bar placeholder: Претрага канала
@@ -1126,8 +1123,6 @@ Playing Next Video Interval: Пуштање следећег видео сним
   | Пушта се следећи видео снимак за {nextVideoInterval} секунду. Кликнути за отказивање.
   | Пушта се следећи видео за {nextVideoInterval} секунди. Кликнути за отказивање.
 No: Не
-Playlist will not pause when current video is finished: Плејлиста се неће паузирати
-  када се тренутни видео снимак заврши
 Yes: Да
 Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'Листа поглавља је видљива,

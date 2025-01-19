@@ -805,7 +805,6 @@ Video:
     de persoana care a încărcat.
   Premieres: Premiere
   Show Super Chat Comment: Afișați comentariul Super Chat
-  Pause on Current Video: Pauză la videoclipul curent
   Hide Channel: Ascunde canalul
   Unhide Channel: Arată canalul
 #& Playlists
@@ -1006,10 +1005,6 @@ Hashtag:
   This hashtag does not currently have any videos: Acest hashtag nu are momentan niciun
     videoclip
 Ok: OK
-Playlist will pause when current video is finished: Lista de redare se va întrerupe
-  când videoclipul curent este terminat
-Playlist will not pause when current video is finished: Lista de redare nu se va întrerupe
-  când videoclipul curent este terminat
 Go to page: Mergeți la {page}
 Close Banner: Închideți bannerul
 Age Restricted:

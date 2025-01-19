@@ -582,7 +582,7 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 試験的
-    Warning: 
+    Warning:
       これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
     Password Settings: パスワード
@@ -758,7 +758,6 @@ Video:
   Scroll to Bottom: 下までスクロール
   Upcoming: 近日公開
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': この配信ではライブチャットは使用できません。配信者によって無効に設定されているようです。
-  Pause on Current Video: 現在の動画を一時停止
   Hide Channel: チャンネルを非表示
   Unhide Channel: チャンネルを表示
   More Options: その他の設定
@@ -799,7 +798,7 @@ Video:
   DeArrow:
     Show Original Details: 元の情報を表示
     Show Modified Details: 変更された詳細を表示
-  DRMProtected: 
+  DRMProtected:
     DRM保護された動画はFreeTubeでは再生できません。これらの動画には、独自の非オープンソースのコンポーネントが必要です。この動画を視聴したい場合は、DRM対応のウェブブラウザで公式のYouTubeウェブサイトでご覧ください。
 #& Playlists
 Playlist:
@@ -979,7 +978,7 @@ Tooltips:
       ID は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}"
       項目の "{subsection}" にあります
-    Hide Videos and Playlists Containing Text: FreeTube 
+    Hide Videos and Playlists Containing Text: FreeTube
       全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
   SponsorBlock Settings:
     UseDeArrowTitles: 動画のタイトルを DeArrow からユーザーが投稿したタイトルに置き換えます。
@@ -1024,8 +1023,6 @@ Ok: オーケー
 Hashtag:
   Hashtag: ハッシュタグ
   This hashtag does not currently have any videos: このハッシュタグには現在動画がありません
-Playlist will pause when current video is finished: 現在の動画が終了すると、再生リストが一時停止します
-Playlist will not pause when current video is finished: 現在の動画が終了しても、再生リストは一旦停止しません
 Close Banner: バナーを閉じる
 Go to page: '{page} を表示'
 Search character limit: 検索クエリが {searchCharacterLimit} 文字の制限を超えています

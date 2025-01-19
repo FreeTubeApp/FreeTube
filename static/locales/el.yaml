@@ -702,7 +702,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': "Η
     Zωντανή συνομιλία δεν είναι διαθέσιμη για αυτήν τη ροή.\nΜπορεί να έχει απενεργοποιηθεί
     από τον χρήστη."
-  Pause on Current Video: Παύση στο Τρέχον Βίντεο
   Unhide Channel: Εμφάνιση καναλιού
   Hide Channel: Απόκρυψη καναλιού
 #& Playlists
@@ -917,10 +916,6 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Αυτό το hashtag δεν έχει προς το
     παρόν κανένα βίντεο
-Playlist will pause when current video is finished: Η Λίστα Αναπαραγωγής θα σταματήσει
-  όταν ολοκληρωθεί το τρέχον βίντεο
-Playlist will not pause when current video is finished: Η Λίστα Αναπαραγωγής δεν θα
-  σταματήσει όταν ολοκληρωθεί το τρέχον βίντεο
 Channel Hidden: Το {channel} προστέθηκε στο φίλτρο καναλιού
 Go to page: Μετάβαση σε {page}
 Channel Unhidden: Το {channel} καταργήθηκε από το φίλτρο καναλιού

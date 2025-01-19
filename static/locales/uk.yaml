@@ -888,7 +888,6 @@ Video:
   Upcoming: Незабаром
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Спілкування
     наживо недоступне для цієї трансляції. Можливо, вивантажувач вимкнув його.
-  Pause on Current Video: Призупинити на поточному відео
   Unhide Channel: Показати канал
   Hide Channel: Сховати канал
   Player:
@@ -1165,10 +1164,6 @@ Ok: Гаразд
 Hashtag:
   Hashtag: Хештег
   This hashtag does not currently have any videos: За цим хештегом наразі немає відео
-Playlist will pause when current video is finished: Список відтворення призупиняється,
-  коли поточне відео завершено
-Playlist will not pause when current video is finished: Список відтворення не призупиняється,
-  коли поточне відео завершено
 Channel Hidden: '{channel} додано до фільтра каналу'
 Go to page: Перейти до {page}
 Channel Unhidden: '{channel} вилучено з фільтра каналу'

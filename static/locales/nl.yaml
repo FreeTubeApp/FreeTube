@@ -791,7 +791,6 @@ Video:
   Scroll to Bottom: Helemaal naar onderen scrollen
   Upcoming: Aankomend
   Show Super Chat Comment: Superchat-opmerking tonen
-  Pause on Current Video: Pauzeren bij huidige video
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-chat
     is niet beschikbaar voor deze stream. Mogelijk is deze uitgeschakeld door de uploader.
   Hide Channel: Kanaal verbergen
@@ -1065,10 +1064,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Geen toegang tot klembord zonder
     een beveiligde verbinding
   Copy failed: Kopiëren naar klembord mislukt
-Playlist will pause when current video is finished: Afspeellijst zal pauzeren wanneer
-  de huidige video is afgelopen
-Playlist will not pause when current video is finished: Afspeellijst zal niet pauzeren
-  wanneer de huidige video is afgelopen
 Go to page: Pagina {page}
 Tag already exists: Tag ‘{tagName}’ bestaat al
 Channel Unhidden: ‘{channel}’ verwijderd uit kanaal­filter

@@ -693,7 +693,6 @@ Video:
   Upcoming: Tuleva
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-chat
     ei ole käytettävissä tässä suoratoistossa. Lataaja on saattanut poistaa sen käytöstä.
-  Pause on Current Video: Keskeytä nykyiseen videoon
   Unhide Channel: Näytä kanava
   Hide Channel: Piilota kanava
 #& Playlists
@@ -935,10 +934,6 @@ Hashtag:
   Hashtag: Avainsana
   This hashtag does not currently have any videos: Tällä avainsanalla ei ole tällä
     hetkellä yhtään videota
-Playlist will pause when current video is finished: Soittolista keskeytetään, kun
-  nykyinen video päättyy
-Playlist will not pause when current video is finished: Soittolistaa ei keskeytetä,
-  kun nykyinen video päättyy
 Channel Hidden: '{channel} lisätty kanavasuodattimeen'
 Go to page: Siirry sivulle {page}
 Channel Unhidden: '{channel} poistettu kanavasuodattimesta'

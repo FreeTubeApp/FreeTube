@@ -807,7 +807,6 @@ Video:
     Audio Tracks: تراک صوتی
     Theatre Mode: حالت تئاتر
   Hide Channel: مخفی‌کردن کانال
-  Pause on Current Video: توقف در ویدیو فعلی
   IP block: YouTube آدرس نشانی شما را از تماشای ویدیو مسدود کرده است. لطفاً سعی کنید
     به فیلترشکن یا پروکسی دیگری بروید.
   More Options: گزینه‌های بیشتر
@@ -1135,8 +1134,6 @@ Age Restricted:
   This channel is age restricted: این کانال دارای محدودیت سنی می باشد
 Search character limit: عبارت جستجو از حد مجاز نویسه {searchCharacterLimit} فراتر
   است
-Playlist will pause when current video is finished: پس از پایان ویدیوی فعلی، فهرست
-  پخش متوقف می‌شود
 Yes, Delete: بله حذف شود
 Yes, Restart: بله شروع دوباره
 Cancel: لغو
@@ -1151,8 +1148,6 @@ Yes, Open Link: بله بازکردن پیوند
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Right-click or hold to see history: برای دیدن تاریخچه کلیک راست کرده یا نگه دارید
 Moments Ago: لحظاتی پیش
-Playlist will not pause when current video is finished: پس از اتمام ویدیوی فعلی، لیست
-  پخش متوقف نمی شود
 Display Label: '{label}: {value}'
 Autoplay Interruption Timer: پخش خودکار به دلیل {autoplayInterruptionIntervalHours}
   ساعت عدم فعالیت لغو شد

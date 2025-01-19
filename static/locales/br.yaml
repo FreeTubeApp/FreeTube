@@ -878,7 +878,6 @@ Video:
   Reverse Playlist: 'Cheñch tu ar roll-videoioù'
   Play Next Video: 'Lenn ar video da heul'
   Play Previous Video: 'Lenn ar video a-raok'
-  Pause on Current Video: 'Ehan war ar video bremanel'
   Watched: 'Lennet'
   Autoplay: 'Lenn emgefreek'
   Starting soon, please refresh the page to check again: 'Kregiñ a raio a-benn nebeut,
@@ -1159,10 +1158,6 @@ Shuffle is now enabled: 'Gweredekaet eo ar Mesk-ha-mesk bremañ'
 The playlist has been reversed: 'Eilpennet eo bet ar roll-videoioù'
 Playing Next Video: 'Lenn ar video da-heul'
 Playing Previous Video: 'Lenn ar video a-raok'
-Playlist will not pause when current video is finished: 'Ne vo ket ehanet ar roll-videoioù
-  pa vo echu da lenn ar video-mañ'
-Playlist will pause when current video is finished: 'Ehanet e vo ar roll-videoioù
-  pa vo echu da lenn ar video-mañ'
 Playing Next Video Interval: 'Lenn ar video da-heul a-benn nebeud-tre. Klikit evit
   nullañ. | Lenn ar video da-heul a-benn {nextVideoInterval} eilenn. Klikit evit nullañ.
   | Lenn ar video da-heul a-benn {nextVideoInterval} eilenn. Klikit evit nullañ.'

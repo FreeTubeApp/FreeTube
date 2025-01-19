@@ -892,7 +892,6 @@ Video:
   Upcoming: Tulemas
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Otsevestlus
     pole selle videovoo puhul saadaval. Võib-olla on üleslaadija vestluse keelanud.
-  Pause on Current Video: Peata hetkel esitatav video
   Unhide Channel: Näita kanalit
   Hide Channel: Peida kanal
   More Options: Veel valikuid
@@ -1157,10 +1156,6 @@ Hashtag:
   Hashtag: Teemaviide
   This hashtag does not currently have any videos: Selle teemaviite ehk haaksõna alusel
     ei leidu hetkel ühtegi videot
-Playlist will pause when current video is finished: Hetkel mängiva video lõppemisel
-  esitusloendi esitamine peatub
-Playlist will not pause when current video is finished: Hetkel mängiva video lõppemisel
-  esitusloendi esitamine jätkub
 Channel Hidden: '{channel} on lisatud kanalite filtrisse'
 Go to page: 'Ava leht: {page}'
 Channel Unhidden: '{channel} on eemaldatud kanalite filtrist'

@@ -874,7 +874,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Le
     chat en direct n'est pas disponible pour ce flux. Il a peut-être été désactivé
     par le téléchargeur.
-  Pause on Current Video: Pause sur la vidéo en cours
   Hide Channel: Cacher la chaîne
   Unhide Channel: Rétablir la chaîne
   More Options: Plus d'options
@@ -1216,10 +1215,6 @@ Hashtag:
   Hashtag: Mot-clé
   This hashtag does not currently have any videos: Ce mot-clé n'a actuellement aucune
     vidéo
-Playlist will pause when current video is finished: La liste de lecture se met en
-  pause lorsque la vidéo en cours est terminée
-Playlist will not pause when current video is finished: La liste de lecture ne se
-  met pas en pause lorsque la vidéo en cours est terminée
 Go to page: Aller à {page}
 Channel Hidden: '{channel} ajouté au filtre de chaîne'
 Channel Unhidden: '{channel} retiré du filtre de chaîne'

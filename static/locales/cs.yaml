@@ -891,7 +891,6 @@ Video:
   Upcoming: Nadcházející
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Živý
     chat není pro tento stream k dispozici. Je možné, že byl vypnut nahrávajícím.
-  Pause on Current Video: Pozastavit na současném videu
   Unhide Channel: Zobrazit kanál
   Hide Channel: Skrýt kanál
   More Options: Další možnosti
@@ -1162,10 +1161,6 @@ Ok: Ok
 Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Tento hashtag nemá žádná videa
-Playlist will pause when current video is finished: Po přehrání aktuálního videa bude
-  playlist pozastaven
-Playlist will not pause when current video is finished: Po přehrání aktuálního videa
-  nebude playlist pozastaven
 Channel Hidden: Kanál {channel} přidán do filtru kanálů
 Go to page: Přejít na {page}
 Channel Unhidden: Kanál {channel} odebrán z filtrů kanálů

@@ -874,7 +874,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Canlı
     sohbet bu yayın için kullanılamıyor. Yükleyen tarafından devre dışı bırakılmış
     olabilir.
-  Pause on Current Video: Geçerli Videoda Duraklat
   Unhide Channel: Kanalı Göster
   Hide Channel: Kanalı Gizle
   More Options: Daha Fazla Seçenek
@@ -1143,10 +1142,6 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Bu hashtag'in şu anda herhangi
     bir videosu yok
-Playlist will pause when current video is finished: Geçerli video bittiğinde oynatma
-  listesi duraklatılacak
-Playlist will not pause when current video is finished: Geçerli video bittiğinde oynatma
-  listesi duraklatılmayacak
 Channel Hidden: '{channel} kanal filtresine eklendi'
 Go to page: '{page}. sayfaya git'
 Channel Unhidden: '{channel} kanal filtresinden kaldırıldı'

@@ -875,7 +875,6 @@ Video:
   Upcoming: Predstojeći
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Razgovor
     uživo nije dostupan za ovaj prijenos. Možda ga je autor deaktivirao.
-  Pause on Current Video: Zaustavi trenutačni video
   Unhide Channel: Prikaži kanal
   Hide Channel: Sakrij kanal
   More Options: Više opcija
@@ -1141,10 +1140,6 @@ Ok: U redu
 Hashtag:
   This hashtag does not currently have any videos: Ovaj hashtag trenutačno nema videa
   Hashtag: Hashtag
-Playlist will pause when current video is finished: Zbirka će se zaustaviti kada trenutačni
-  video završi
-Playlist will not pause when current video is finished: Zbirka se neće zaustaviti
-  kada trenutačni video završi
 Go to page: Idi na {page}
 Channel Hidden: '{channel} je dodan u filtar kanala'
 Channel Unhidden: '{channel} je uklonjen iz filtra kanala'

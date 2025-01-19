@@ -905,7 +905,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Zuzeneko
     txata ez dago erabilgarri zuzeneko honentzat. Baliteke igo duenak desgaitu izana.
   Show Super Chat Comment: Erakutsi Super txat iruzkina
-  Pause on Current Video: Gelditu uneko bideoa
   More Options: Aukera gehiago
   Upcoming: Datozenak
   Scroll to Bottom: Joan Beherantz
@@ -1174,10 +1173,6 @@ Close Banner: Itxi iragarkia
 Age Restricted:
   This channel is age restricted: Kanal hau adin mugatuta dago
   This video is age restricted: Bideo hau adin mugatuta dago
-Playlist will not pause when current video is finished: Erreprodukzio-zerrenda ez
-  da etengo uneko bideoa amaitzen denean
-Playlist will pause when current video is finished: Erreprodukzio-zerrenda pausatu
-  egingo da uneko bideoa amaitzen denean
 Channel Unhidden: '{channel} kanalaren iragazkitik kendu da'
 Clipboard:
   Cannot access clipboard without a secure connection: Ezin da arbelera sartu konexio
