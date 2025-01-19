@@ -11,6 +11,7 @@ import {
   DBActions,
   SyncEvents,
   ABOUT_BITCOIN_ADDRESS,
+  KeyboardShortcuts,
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
@@ -1765,6 +1766,20 @@ function runApp() {
             },
             type: 'normal',
           },
+          ...(process.platform === 'darwin'
+            ? [
+                {
+                  label: 'Back',
+                  accelerator: KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD_ALT_MAC,
+                  click: (_menuItem, browserWindow, _event) => {
+                    if (browserWindow == null) { return }
+
+                    browserWindow.webContents.navigationHistory.goBack()
+                  },
+                  visible: false,
+                },
+              ]
+            : []),
           {
             label: 'Forward',
             accelerator: 'Alt+Right',
@@ -1775,6 +1790,20 @@ function runApp() {
             },
             type: 'normal',
           },
+          ...(process.platform === 'darwin'
+            ? [
+                {
+                  label: 'Forward',
+                  accelerator: KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD_ALT_MAC,
+                  click: (_menuItem, browserWindow, _event) => {
+                    if (browserWindow == null) { return }
+
+                    browserWindow.webContents.navigationHistory.goForward()
+                  },
+                  visible: false,
+                },
+              ]
+            : []),
         ]
       },
       {

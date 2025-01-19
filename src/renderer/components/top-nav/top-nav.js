@@ -100,16 +100,26 @@ export default defineComponent({
     },
 
     forwardText: function () {
+      const shortcuts = [KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD]
+      if (process.platform === 'darwin') {
+        shortcuts.push(KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD_ALT_MAC)
+      }
+
       return localizeAndAddKeyboardShortcutToActionTitle(
         this.$t('Forward'),
-        KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD
+        shortcuts,
       ) + this.navigationHistoryAddendum
     },
 
     backwardText: function () {
+      const shortcuts = [KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD]
+      if (process.platform === 'darwin') {
+        shortcuts.push(KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD_ALT_MAC)
+      }
+
       return localizeAndAddKeyboardShortcutToActionTitle(
         this.$t('Back'),
-        KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD
+        shortcuts,
       ) + this.navigationHistoryAddendum
     },
 

@@ -113,57 +113,60 @@ const primarySections = computed(() => [
 
 const isMac = process.platform === 'darwin'
 
-const localizedShortcutNameDictionary = computed(() => {
-  return new Map([
-    ['SHOW_SHORTCUTS', t('KeyboardShortcutPrompt.Show Keyboard Shortcuts')],
-    ['HISTORY_BACKWARD', t('KeyboardShortcutPrompt.History Backward')],
-    ['HISTORY_FORWARD', t('KeyboardShortcutPrompt.History Forward')],
-    ['FULLSCREEN', t('KeyboardShortcutPrompt.Fullscreen')],
-    ['NAVIGATE_TO_SETTINGS', t('KeyboardShortcutPrompt.Navigate to Settings')],
-    (
-      isMac
-        ? ['NAVIGATE_TO_HISTORY_MAC', t('KeyboardShortcutPrompt.Navigate to History')]
-        : ['NAVIGATE_TO_HISTORY', t('KeyboardShortcutPrompt.Navigate to History')]
-    ),
-    ['NEW_WINDOW', t('KeyboardShortcutPrompt.New Window')],
-    ['MINIMIZE_WINDOW', t('KeyboardShortcutPrompt.Minimize Window')],
-    ['CLOSE_WINDOW', t('KeyboardShortcutPrompt.Close Window')],
-    ['RESTART_WINDOW', t('KeyboardShortcutPrompt.Restart Window')],
-    ['FORCE_RESTART_WINDOW', t('KeyboardShortcutPrompt.Force Restart Window')],
-    ['TOGGLE_DEVTOOLS', t('KeyboardShortcutPrompt.Toggle Developer Tools')],
-    ['RESET_ZOOM', t('KeyboardShortcutPrompt.Reset Zoom')],
-    ['ZOOM_IN', t('KeyboardShortcutPrompt.Zoom In')],
-    ['ZOOM_OUT', t('KeyboardShortcutPrompt.Zoom Out')],
-    ['FOCUS_SEARCH', t('KeyboardShortcutPrompt.Focus Search')],
-    ['SEARCH_IN_NEW_WINDOW', t('KeyboardShortcutPrompt.Search in New Window')],
+const localizedShortcutNameToShortcutsMappings = computed(() => {
+  return [
+    [t('KeyboardShortcutPrompt.Show Keyboard Shortcuts'), ['SHOW_SHORTCUTS']],
+    [t('KeyboardShortcutPrompt.History Backward'), [
+      'HISTORY_BACKWARD',
+      ...isMac ? ['HISTORY_BACKWARD_ALT_MAC'] : [],
+    ]],
+    [t('KeyboardShortcutPrompt.History Forward'), [
+      'HISTORY_FORWARD',
+      ...isMac ? ['HISTORY_FORWARD_ALT_MAC'] : [],
+    ]],
+    [t('KeyboardShortcutPrompt.Navigate to Settings'), ['NAVIGATE_TO_SETTINGS']],
+    [t('KeyboardShortcutPrompt.Navigate to History'), [
+      isMac ? 'NAVIGATE_TO_HISTORY_MAC' : 'NAVIGATE_TO_HISTORY',
+    ]],
+    [t('KeyboardShortcutPrompt.New Window'), ['NEW_WINDOW']],
+    [t('KeyboardShortcutPrompt.Minimize Window'), ['MINIMIZE_WINDOW']],
+    [t('KeyboardShortcutPrompt.Close Window'), ['CLOSE_WINDOW']],
+    [t('KeyboardShortcutPrompt.Restart Window'), ['RESTART_WINDOW']],
+    [t('KeyboardShortcutPrompt.Force Restart Window'), ['FORCE_RESTART_WINDOW']],
+    [t('KeyboardShortcutPrompt.Toggle Developer Tools'), ['TOGGLE_DEVTOOLS']],
+    [t('KeyboardShortcutPrompt.Reset Zoom'), ['RESET_ZOOM']],
+    [t('KeyboardShortcutPrompt.Zoom In'), ['ZOOM_IN']],
+    [t('KeyboardShortcutPrompt.Zoom Out'), ['ZOOM_OUT']],
+    [t('KeyboardShortcutPrompt.Focus Search'), ['FOCUS_SEARCH']],
+    [t('KeyboardShortcutPrompt.Search in New Window'), ['SEARCH_IN_NEW_WINDOW']],
 
-    ['REFRESH', t('KeyboardShortcutPrompt.Refresh')],
-    ['FOCUS_SECONDARY_SEARCH', t('KeyboardShortcutPrompt.Focus Secondary Search')],
+    [t('KeyboardShortcutPrompt.Refresh'), ['REFRESH']],
+    [t('KeyboardShortcutPrompt.Focus Secondary Search'), ['FOCUS_SECONDARY_SEARCH']],
 
-    ['CAPTIONS', t('KeyboardShortcutPrompt.Captions')],
-    ['THEATRE_MODE', t('KeyboardShortcutPrompt.Theatre Mode')],
-    ['FULLSCREEN', t('KeyboardShortcutPrompt.Fullscreen')],
-    ['FULLWINDOW', t('KeyboardShortcutPrompt.Full Window')],
-    ['PICTURE_IN_PICTURE', t('KeyboardShortcutPrompt.Picture in Picture')],
-    ['MUTE', t('KeyboardShortcutPrompt.Mute')],
-    ['VOLUME_UP', t('KeyboardShortcutPrompt.Volume Up')],
-    ['VOLUME_DOWN', t('KeyboardShortcutPrompt.Volume Down')],
-    ['TAKE_SCREENSHOT', t('KeyboardShortcutPrompt.Take Screenshot')],
-    ['STATS', t('KeyboardShortcutPrompt.Stats')],
+    [t('KeyboardShortcutPrompt.Captions'), ['CAPTIONS']],
+    [t('KeyboardShortcutPrompt.Theatre Mode'), ['THEATRE_MODE']],
+    [t('KeyboardShortcutPrompt.Fullscreen'), ['FULLSCREEN']],
+    [t('KeyboardShortcutPrompt.Full Window'), ['FULLWINDOW']],
+    [t('KeyboardShortcutPrompt.Picture in Picture'), ['PICTURE_IN_PICTURE']],
+    [t('KeyboardShortcutPrompt.Mute'), ['MUTE']],
+    [t('KeyboardShortcutPrompt.Volume Up'), ['VOLUME_UP']],
+    [t('KeyboardShortcutPrompt.Volume Down'), ['VOLUME_DOWN']],
+    [t('KeyboardShortcutPrompt.Take Screenshot'), ['TAKE_SCREENSHOT']],
+    [t('KeyboardShortcutPrompt.Stats'), ['STATS']],
 
-    ['PLAY', t('KeyboardShortcutPrompt.Play')],
-    ['LARGE_REWIND', t('KeyboardShortcutPrompt.Large Rewind')],
-    ['LARGE_FAST_FORWARD', t('KeyboardShortcutPrompt.Large Fast Forward')],
-    ['SMALL_REWIND', t('KeyboardShortcutPrompt.Small Rewind')],
-    ['SMALL_FAST_FORWARD', t('KeyboardShortcutPrompt.Small Fast Forward')],
-    ['DECREASE_VIDEO_SPEED', t('KeyboardShortcutPrompt.Decrease Video Speed')],
-    ['INCREASE_VIDEO_SPEED', t('KeyboardShortcutPrompt.Increase Video Speed')],
-    ['SKIP_N_TENTHS', t('KeyboardShortcutPrompt.Skip by Tenths')],
-    ['LAST_CHAPTER', t('KeyboardShortcutPrompt.Last Chapter')],
-    ['NEXT_CHAPTER', t('KeyboardShortcutPrompt.Next Chapter')],
-    ['LAST_FRAME', t('KeyboardShortcutPrompt.Last Frame')],
-    ['NEXT_FRAME', t('KeyboardShortcutPrompt.Next Frame')],
-  ])
+    [t('KeyboardShortcutPrompt.Play'), ['PLAY']],
+    [t('KeyboardShortcutPrompt.Large Rewind'), ['LARGE_REWIND']],
+    [t('KeyboardShortcutPrompt.Large Fast Forward'), ['LARGE_FAST_FORWARD']],
+    [t('KeyboardShortcutPrompt.Small Rewind'), ['SMALL_REWIND']],
+    [t('KeyboardShortcutPrompt.Small Fast Forward'), ['SMALL_FAST_FORWARD']],
+    [t('KeyboardShortcutPrompt.Decrease Video Speed'), ['DECREASE_VIDEO_SPEED']],
+    [t('KeyboardShortcutPrompt.Increase Video Speed'), ['INCREASE_VIDEO_SPEED']],
+    [t('KeyboardShortcutPrompt.Skip by Tenths'), ['SKIP_N_TENTHS']],
+    [t('KeyboardShortcutPrompt.Last Chapter'), ['LAST_CHAPTER']],
+    [t('KeyboardShortcutPrompt.Next Chapter'), ['NEXT_CHAPTER']],
+    [t('KeyboardShortcutPrompt.Last Frame'), ['LAST_FRAME']],
+    [t('KeyboardShortcutPrompt.Next Frame'), ['NEXT_FRAME']],
+  ]
 })
 
 function hideKeyboardShortcutPrompt() {
@@ -171,15 +174,16 @@ function hideKeyboardShortcutPrompt() {
 }
 
 function getLocalizedShortcutNamesAndValues(dictionary) {
-  const localizedDictionary = localizedShortcutNameDictionary.value
-  return Object.entries(dictionary)
-    .filter(([key]) =>
-      localizedDictionary.has(key)
+  const shortcutNameToShortcutsMappings = localizedShortcutNameToShortcutsMappings.value
+  const shortcutLabelSeparator = t('shortcutLabelSeparator')
+
+  return shortcutNameToShortcutsMappings
+    .filter(([_localizedShortcutName, shortcutCodes]) =>
+      shortcutCodes.some(shortcutCode => Object.hasOwn(dictionary, shortcutCode))
     )
-    .map(([shortcutNameKey, shortcut]) => {
-      const localizedShortcutName = localizedDictionary.get(shortcutNameKey)
-      const localizedShortcut = getLocalizedShortcut(shortcut)
-      return [localizedShortcutName, localizedShortcut]
+    .map(([localizedShortcutName, shortcutCodes]) => {
+      const localizedShortcuts = shortcutCodes.map(code => getLocalizedShortcut(dictionary[code]))
+      return [localizedShortcutName, localizedShortcuts.join(shortcutLabelSeparator)]
     })
 }
 
