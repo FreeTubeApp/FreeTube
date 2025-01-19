@@ -298,6 +298,17 @@
   :deep(.shaka-tooltips-on button:hover::after) {
     margin-bottom: 8px;
   }
+
+  /*
+    similar to the styling that shaka-player applies with last-child
+    needed as we have made the controls a lot wider than they were intended to be :/
+   */
+  :deep(.shaka-tooltips-on button:nth-last-child(2):active::after),
+  :deep(.shaka-tooltips-on button:nth-last-child(2):focus-visible::after),
+  :deep(.shaka-tooltips-on button:nth-last-child(2):hover::after) {
+    left: 32px;
+    transform: translateX(-80%);
+  }
 }
 
 @media only screen and (width <=1350px) {
