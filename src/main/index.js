@@ -1017,8 +1017,8 @@ function runApp() {
 
     if (
       typeof path !== 'string' ||
-      (typeof query !== 'object' && query != null) ||
-      (typeof searchQueryText !== 'string' && searchQueryText != null)
+      (query != null && typeof query !== 'object') ||
+      (searchQueryText != null && typeof searchQueryText !== 'string')
     ) {
       return
     }
