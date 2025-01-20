@@ -1,6 +1,5 @@
 <template>
   <FtFlexBox
-    ref="sideNav"
     class="sideNav"
     :class="[{closed: !isOpen}, applyHiddenLabels]"
     role="navigation"

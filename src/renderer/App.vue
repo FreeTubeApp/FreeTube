@@ -109,7 +109,6 @@
       >
         <!-- <keep-alive> -->
         <RouterView
-          ref="router"
           class="routerView"
         />
         <!-- </keep-alive> -->
