@@ -187,6 +187,8 @@ User Playlists:
       This playlist has a video with a duration error: Tento playlist obsahuje nejméně
         jedno video, které nemá dobu trvání. Bude seřazeno tak, jako by mělo dobu
         trvání nula.
+      Video has been removed. Click here to undo.: Video bylo odstraněno. Klikněte
+        sem pro zrušení akce.
     Search for Videos: Hledat videa
   Are you sure you want to delete this playlist? This cannot be undone: Opravdu chcete
     odstranit tento playlist? Tato akce je nevratná.
@@ -406,7 +408,7 @@ Settings:
   Player Settings:
     Player Settings: 'Přehrávač'
     Play Next Video: 'Automaticky přehrávat doporučená videa'
-    Turn on Subtitles by Default: 'Ve výchozím nastavení zapnout titulky'
+    Turn on Subtitles by Default: 'Ve výchozím nastavení povolit titulky'
     Autoplay Videos: 'Automaticky spouštět videa'
     Proxy Videos Through Invidious: 'Proxy videa prostřednictvím Invidious'
     Autoplay Playlists: 'Automaticky přehrávat videa v playlistu'
@@ -456,6 +458,12 @@ Settings:
     Enter Fullscreen on Display Rotate: Při otočení displeje přejít na celou obrazovku
     Skip by Scrolling Over Video Player: Posouvat čas posuvem kolečka myši na přehrávači
     Autoplay Interruption Timer: Čas přerušení automatického přehrávání
+    Default Viewing Mode:
+      Theater: Kino
+      Default Viewing Mode: Výchozí režim sledování
+      Full Screen: Celá obrazovka
+      External Player: Externí přehrávač ({externalPlayerName})
+      Picture in Picture: Obraz v obraze
   Privacy Settings:
     Privacy Settings: 'Soukromí'
     Remember History: 'Zapamatovat historii sledování'
