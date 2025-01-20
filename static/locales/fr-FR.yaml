@@ -1324,3 +1324,4 @@ KeyboardShortcutPrompt:
   Full Window: Activer/désactiver la fenêtre maximisée
   Skip by Tenths: Sauter dans la vidéo par pourcentage (3 sauts pour atteindre 30
     % de la durée)
+shortcutLabelSeparator: ｜
