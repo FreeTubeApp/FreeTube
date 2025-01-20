@@ -194,6 +194,8 @@ User Playlists:
       This playlist has a video with a duration error: Diese Wiedergabeliste enthält
         mindestens ein Video ohne Dauer. Daher wird die Wiedergabeliste so sortiert,
         als ob die Dauer null wäre.
+      Video has been removed. Click here to undo.: Video wurde entfernt. Klicke hier,
+        um das Entfernen rückgängig zu machen.
     Search for Videos: Nach Videos suchen
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
