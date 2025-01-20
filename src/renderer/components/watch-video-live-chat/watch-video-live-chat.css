@@ -125,11 +125,10 @@
 }
 
 .upperSuperChatMessage {
-  margin-block-start: -15px;
-  inline-size: 100%;
+  inline-size: 55px;
   block-size: 55px;
   background-color: var(--primary-color-hover);
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px 0;
 }
 
 .openedSuperChat .superChatMessage {
@@ -142,6 +141,7 @@
 
 .comment .upperSuperChatMessage {
   padding: 0;
+  margin-block-start: -5px;
 }
 
 .comment {
@@ -154,8 +154,8 @@
 
 .upperSuperChatMessage .channelThumbnail {
   inline-size: 45px;
-  margin-inline-start: 10px;
-  margin-block-start: 5px;
+  margin-inline: 5px;
+  margin-block: 5px;
 }
 
 .upperSuperChatMessage .channelName {
