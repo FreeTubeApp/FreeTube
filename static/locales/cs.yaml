@@ -1268,3 +1268,4 @@ KeyboardShortcutPrompt:
   Small Rewind: Přeskočit zpět o X sekund v závislosti na intervalu přetáčení zpět
     a aktuální rychlosti přehrávání videa
   Skip by Tenths: Přeskočit skrz video podle procenta (3 přeskočí na 30 % doby trvání)
+shortcutLabelSeparator: ｜
