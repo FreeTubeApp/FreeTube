@@ -132,6 +132,18 @@ export default defineComponent({
       type: String,
       default: null
     },
+    startInFullscreen: {
+      type: Boolean,
+      default: false
+    },
+    startInFullwindow: {
+      type: Boolean,
+      default: false
+    },
+    startInPip: {
+      type: Boolean,
+      default: false
+    },
     currentPlaybackRate: {
       type: Number,
       default: 1
@@ -172,10 +184,14 @@ export default defineComponent({
     const isLive = ref(false)
 
     const useOverFlowMenu = ref(false)
-    const fullWindowEnabled = ref(false)
     const forceAspectRatio = ref(false)
 
     const activeLegacyFormat = shallowRef(null)
+
+    const fullWindowEnabled = ref(false)
+    const startInFullwindow = props.startInFullwindow
+    let startInFullscreen = props.startInFullscreen
+    let startInPip = props.startInPip
 
     /**
      * @type {{
@@ -1117,6 +1133,15 @@ export default defineComponent({
       emit('ended')
     }
 
+    function handleCanPlay() {
+      // PiP can only be activated once the video's readState and video track are populated
+      if (startInPip && props.format !== 'audio' && ui.getControls().isPiPAllowed() && process.env.IS_ELECTRON) {
+        startInPip = false
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send(IpcChannels.REQUEST_PIP)
+      }
+    }
+
     function updateVolume() {
       const video_ = video.value
       // https://docs.videojs.com/html5#volume
@@ -1719,6 +1744,12 @@ export default defineComponent({
         }
       })
 
+      if (startInFullwindow) {
+        events.dispatchEvent(new CustomEvent('setFullWindow', {
+          detail: true
+        }))
+      }
+
       /**
        * @implements {shaka.extern.IUIElement.Factory}
        */
@@ -1809,7 +1840,7 @@ export default defineComponent({
     /**
      * As shaka-player doesn't let you unregister custom control factories,
      * overwrite them with `null` instead so the referenced objects
-     * (e.g. {@linkcode events}, {@linkcode fullWindowEnabled}) can get gargabe collected
+     * (e.g. {@linkcode events}, {@linkcode fullWindowEnabled}) can get garbage collected
      */
     function cleanUpCustomPlayerControls() {
       shakaControls.registerElement('ft_audio_tracks', null)
@@ -2633,6 +2664,12 @@ export default defineComponent({
       if (props.chapters.length > 0) {
         createChapterMarkers()
       }
+
+      if (startInFullscreen && process.env.IS_ELECTRON) {
+        startInFullscreen = false
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send(IpcChannels.REQUEST_FULLSCREEN)
+      }
     }
 
     watch(
@@ -2844,11 +2881,25 @@ export default defineComponent({
      * Vue's lifecycle hooks are synchonous, so if we destroy the player in {@linkcode onBeforeUnmount},
      * it won't be finished in time, as the player destruction is asynchronous.
      * To workaround that we destroy the player first and wait for it to finish before we unmount this component.
+     *
+     * @returns {Promise<{ startNextVideoInFullscreen: boolean, startNextVideoInFullwindow: boolean, startNextVideoInPip: boolean }>}
      */
     async function destroyPlayer() {
       ignoreErrors = true
 
+      let uiState = { startNextVideoInFullscreen: false, startNextVideoInFullwindow: false, startNextVideoInPip: false }
+
       if (ui) {
+        if (ui.getControls()) {
+          // save the state of player settings to reinitialize them upon next creation
+          const controls = ui.getControls()
+          uiState = {
+            startNextVideoInFullscreen: controls.isFullScreenEnabled(),
+            startNextVideoInFullwindow: fullWindowEnabled.value,
+            startNextVideoInPip: controls.isPiPEnabled()
+          }
+        }
+
         // destroying the ui also destroys the player
         await ui.destroy()
         ui = null
@@ -2867,6 +2918,8 @@ export default defineComponent({
       if (video.value) {
         video.value.ui = null
       }
+
+      return uiState
     }
 
     expose({
@@ -2920,6 +2973,7 @@ export default defineComponent({
 
       handlePlay,
       handlePause,
+      handleCanPlay,
       handleEnded,
       updateVolume,
       handleTimeupdate,
