@@ -201,10 +201,10 @@ class Playlists {
     }
   }
 
-  static deleteVideoIdsByPlaylistId(_id, videoIds) {
+  static deleteVideoIdsByPlaylistId(_id, playlistItemIds) {
     return db.playlists.updateAsync(
       { _id },
-      { $pull: { videos: { videoId: { $in: videoIds } } } },
+      { $pull: { videos: { playlistItemId: { $in: playlistItemIds } } } },
       { upsert: true }
     )
   }

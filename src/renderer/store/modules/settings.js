@@ -573,6 +573,10 @@ const customActions = {
             commit('removeVideo', data)
             break
 
+          case SyncEvents.PLAYLISTS.DELETE_VIDEOS:
+            commit('removeVideos', data)
+            break
+
           default:
             console.error('playlists: invalid sync event received')
         }

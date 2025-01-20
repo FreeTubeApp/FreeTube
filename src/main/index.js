@@ -1354,9 +1354,12 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_IDS:
-          await baseHandlers.playlists.deleteVideoIdsByPlaylistId(data._id, data.videoIds)
-          // TODO: Syncing (implement only when it starts being used)
-          // syncOtherWindows(IpcChannels.SYNC_PLAYLISTS, event, { event: '_', data })
+          await baseHandlers.playlists.deleteVideoIdsByPlaylistId(data._id, data.playlistItemIds)
+          syncOtherWindows(
+            IpcChannels.SYNC_PLAYLISTS,
+            event,
+            { event: SyncEvents.PLAYLISTS.DELETE_VIDEOS, data }
+          )
           return null
 
         case DBActions.PLAYLISTS.DELETE_ALL_VIDEOS:
