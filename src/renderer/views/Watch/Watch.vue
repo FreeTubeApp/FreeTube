@@ -150,6 +150,7 @@
         :in-user-playlist="!!selectedUserPlaylist"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
+        :license="license"
         @change-format="handleFormatChange"
         @pause-player="pausePlayer"
         @set-info-area-sticky="infoAreaSticky = $event"

@@ -114,6 +114,10 @@ export default defineComponent({
     isUnlisted: {
       type: Boolean,
       required: false
+    },
+    license: {
+      type: String,
+      default: null,
     }
   },
   emits: ['change-format', 'pause-player', 'set-info-area-sticky', 'scroll-to-info-area'],
