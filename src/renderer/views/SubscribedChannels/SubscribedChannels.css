@@ -50,7 +50,6 @@
   text-overflow: ellipsis;
   overflow-wrap: break-word;
   inline-size: 100%;
-  display: box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   padding-block: 0;
