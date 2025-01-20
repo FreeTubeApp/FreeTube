@@ -121,6 +121,7 @@
   background-color: var(--primary-color);
   border-radius: 5px;
   position: relative;
+  max-inline-size: 90%;
 }
 
 .upperSuperChatMessage {
@@ -181,6 +182,7 @@
 .liveChatComments {
   inline-size: 100%;
   overflow-y: auto;
+  font-size: var(--chat-font-size);
 }
 
 .chatContent {
