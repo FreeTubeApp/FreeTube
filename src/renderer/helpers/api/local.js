@@ -1,4 +1,4 @@
-import { ClientType, Innertube, Misc, Mixins, Parser, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
+import { ClientType, Innertube, Misc, Parser, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { IpcChannels, SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -265,10 +265,7 @@ export async function getLocalVideoInfo(id) {
   }
 
   if (hasTrailer && info.playability_status.status !== 'OK') {
-    /** @type {import('youtubei.js').YTNodes.PlayerLegacyDesktopYpcTrailer | import('youtubei.js').YTNodes.YpcTrailer} */
-    const trailerScreen = info.playability_status.error_screen
-
-    const trailerInfo = new Mixins.MediaInfo([{ data: trailerScreen.trailer.player_response }])
+    const trailerInfo = info.getTrailerInfo()
 
     // don't override the timestamp of when the video will premiere for upcoming videos
     if (info.playability_status.status !== 'LIVE_STREAM_OFFLINE') {
