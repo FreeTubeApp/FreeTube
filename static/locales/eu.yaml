@@ -210,6 +210,8 @@ User Playlists:
       This playlist has a video with a duration error: Erreprodukzio-zerrenda honek
         iraupenik ez duen bideo bat du gutxienez. Hortaz, zero balitz bezala sailkatuko
         da.
+      Video has been removed. Click here to undo.: Bideoa kendu da. Egin klik hemen
+        desegiteko.
     Search for Videos: Bilatu bideoak
   AddVideoPrompt:
     Added {count} Times: Gehitu da | {count} aldiz gehitu da
