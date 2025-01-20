@@ -299,6 +299,7 @@ const state = {
   // If the playlist is removed quick bookmark is disabled
   quickBookmarkTargetPlaylistId: 'favorites',
   generalAutoLoadMorePaginatedItemsEnabled: false,
+  chatFontSize: 12,
 
   // The settings below have side effects
   currentLocale: 'system',
@@ -398,6 +399,10 @@ const sideEffectHandlers = {
       const { webFrame } = require('electron')
       webFrame.setZoomFactor(value / 100)
     }
+  },
+
+  chatFontSize: (_, value) => {
+    sessionStorage.setItem('chatFontSize', value)
   }
 }
 

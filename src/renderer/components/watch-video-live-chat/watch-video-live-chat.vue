@@ -126,7 +126,7 @@
       <div
         ref="liveChatComments"
         class="liveChatComments"
-        :style="{ blockSize: chatHeight }"
+        :style="{ blockSize: chatHeight, fontSize: chatFontSize }"
         @mousewheel="e => onScroll(e)"
         @scrollend="e => onScroll(e, true)"
       >

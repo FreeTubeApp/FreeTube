@@ -86,7 +86,10 @@ export default defineComponent({
 
     formattedWatchingCount: function () {
       return this.watchingCount !== null ? formatNumber(this.watchingCount) : '0'
-    }
+    },
+    chatFontSize: function () {
+      return this.$store.getters.getChatFontSize + 'px'
+    },
   },
   beforeDestroy: function () {
     this.hasEnded = true

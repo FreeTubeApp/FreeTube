@@ -39,8 +39,8 @@
         />
       </div>
     </div>
-    <template v-if="usingElectron">
-      <FtFlexBox>
+    <FtFlexBox>
+      <template v-if="usingElectron">
         <FtSlider
           :label="$t('Settings.Theme Settings.UI Scale')"
           :default-value="uiScale"
@@ -50,9 +50,17 @@
           value-extension="%"
           @change="updateUiScale"
         />
-      </FtFlexBox>
-      <br>
-    </template>
+      </template>
+      <FtSlider
+        :label="$t('Settings.Theme Settings.Chat Font Size')"
+        :default-value="chatFontSize"
+        :min-value="6"
+        :max-value="96"
+        :step="1"
+        value-extension="px"
+        @change="updateChatFontSize"
+      />
+    </FtFlexBox>
     <FtFlexBox>
       <FtSelect
         :placeholder="$t('Settings.Theme Settings.Base Theme.Base Theme')"
@@ -263,6 +271,16 @@ const uiScale = computed(() => store.getters.getUiScale)
  */
 function updateUiScale(value) {
   store.dispatch('updateUiScale', value)
+}
+
+/** @type {import('vue').ComputedRef<number>} */
+const chatFontSize = computed(() => store.getters.getChatFontSize)
+
+/**
+ * @param {number} value
+ */
+function updateChatFontSize(value) {
+  store.dispatch('updateChatFontSize', value)
 }
 
 /** @type {boolean} */
