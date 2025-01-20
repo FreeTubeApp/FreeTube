@@ -412,7 +412,7 @@ Settings:
   Player Settings:
     Player Settings: Videoabspieler
     Play Next Video: Empfohlene Videos automatisch abspielen
-    Turn on Subtitles by Default: Untertitel standardmäßig aktivieren
+    Turn on Subtitles by Default: Untertitel standardmäßig einschalten
     Autoplay Videos: Videos automatisch starten
     Proxy Videos Through Invidious: Proxy-Videos durch Invidious
     Autoplay Playlists: Wiedergabelisten-Videos automatisch abspielen
@@ -461,6 +461,12 @@ Settings:
     Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoabspieler
     Autoplay Interruption Timer: Automatische Wiedergabe Unterbrechungs-Timer
+    Default Viewing Mode:
+      Theater: Theater
+      Picture in Picture: Bild im Bild
+      External Player: Externer Player ({externalPlayerName})
+      Full Screen: Vollbild
+      Default Viewing Mode: Standard-Ansichtsmodus
   Subscription Settings:
     Subscription Settings: Abo
     Hide Videos on Watch: Videos bei Wiedergabe ausblenden
