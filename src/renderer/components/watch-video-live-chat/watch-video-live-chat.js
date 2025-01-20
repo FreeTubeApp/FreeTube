@@ -90,6 +90,9 @@ export default defineComponent({
     chatFontSize: function () {
       return this.$store.getters.getChatFontSize + 'px'
     },
+    donationTopMargin: function () {
+      return 'calc(4px - ' + this.$store.getters.getChatFontSize + 'px' + ')'
+    },
   },
   beforeDestroy: function () {
     this.hasEnded = true

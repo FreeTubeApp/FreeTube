@@ -154,6 +154,7 @@
               </p>
               <p
                 class="donationAmount"
+                :style="{ top: donationTopMargin }"
               >
                 {{ comment.superChat.amount }}
               </p>
