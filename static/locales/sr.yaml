@@ -189,6 +189,8 @@ User Playlists:
       This playlist has a video with a duration error: Ова плејлиста садржи најмање
         један видео снимак који нема трајање, биће сортиран као да је његово трајање
         нула.
+      Video has been removed. Click here to undo.: Видео снимак је уклоњен. Додирните
+        овде да поништите.
     Search for Videos: Претрага видео снимака
   Are you sure you want to delete this playlist? This cannot be undone: Желите ли
     заиста да избришете ову плејлисту? Ово се не може поништити.
@@ -408,7 +410,7 @@ Settings:
   Player Settings:
     Player Settings: 'Плејер'
     Play Next Video: 'Аутоматски пусти препоручене видео снимке'
-    Turn on Subtitles by Default: 'Подразумевано укључи титлове'
+    Turn on Subtitles by Default: 'Подразумевано омогући титлове'
     Autoplay Videos: 'Аутоматски пусти видео снимке'
     Proxy Videos Through Invidious: 'Прокси видео снимци преко Invidious-а'
     Autoplay Playlists: 'Аутоматски пусти видео снимке с плејлисте'
@@ -460,6 +462,12 @@ Settings:
     Display Play Button In Video Player: Прикажи дугме за пуштање у плејеру видео
       снимка
     Autoplay Interruption Timer: Тајмер за прекид аутоплеја
+    Default Viewing Mode:
+      Theater: Биоскоп
+      Default Viewing Mode: Подразумевани режим гледања
+      Full Screen: Цео екран
+      External Player: Спољни плејер ({externalPlayerName})
+      Picture in Picture: Слика у слици
   Privacy Settings:
     Privacy Settings: 'Приватност'
     Remember History: 'Запамти историју гледања'
@@ -1265,3 +1273,4 @@ KeyboardShortcutPrompt:
   Volume Down: Смањивање јачине звука
   Small Fast Forward: Брзо премотавање унапред X секунди засновано на интервалу брзог
     премотавања унапред и тренутној брзини репродукције видео снимка
+shortcutLabelSeparator: ｜
