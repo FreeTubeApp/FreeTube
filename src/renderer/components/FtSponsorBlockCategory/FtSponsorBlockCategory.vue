@@ -1,14 +1,14 @@
 <template>
   <div class="sponsorBlockCategory">
     <div
-      :id="sanitizedId"
+      :id="id"
       class="sponsorTitle"
     >
       {{ translatedCategoryName }}
     </div>
     <FtSelect
-      :sanitized-id="sanitizedId + 'categoryColor'"
-      :describe-by-id="sanitizedId"
+      :sanitized-id="id + 'categoryColor'"
+      :describe-by-id="id"
       :placeholder="$t('Settings.SponsorBlock Settings.Category Color')"
       :value="sponsorBlockValues.color"
       :select-names="colorNames"
@@ -19,8 +19,8 @@
       @change="updateColor"
     />
     <FtSelect
-      :sanitized-id="sanitizedId + 'skipOption'"
-      :describe-by-id="sanitizedId"
+      :sanitized-id="id + 'skipOption'"
+      :describe-by-id="id"
       :placeholder="$t('Settings.SponsorBlock Settings.Skip Options.Skip Option')"
       :value="sponsorBlockValues.skip"
       :select-names="skipNames"
@@ -33,6 +33,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import { useId } from '../../composables/use-id-polyfill'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtSelect from '../ft-select/ft-select.vue'
@@ -40,7 +41,6 @@ import FtSelect from '../ft-select/ft-select.vue'
 import store from '../../store/index'
 
 import { colors } from '../../helpers/colors'
-import { sanitizeForHtmlId } from '../../helpers/accessibility'
 import { useColorTranslations } from '../../composables/colors'
 
 const props = defineProps({
@@ -69,8 +69,7 @@ const skipNames = computed(() => [
 const COLOR_VALUES = colors.map(color => color.name)
 const colorNames = useColorTranslations()
 
-// TODO: Replace with `useId()` in Vue 3
-const sanitizedId = sanitizeForHtmlId(props.categoryName)
+const id = useId()
 
 /** @type {import('vue').ComputedRef<{ color: string, skip: string }>} */
 const sponsorBlockValues = computed(() => {

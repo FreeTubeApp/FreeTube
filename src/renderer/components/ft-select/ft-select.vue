@@ -3,7 +3,7 @@
     <select
       :id="sanitizedId ?? sanitizedPlaceholder"
       ref="select"
-      :describe-by-id="describeById"
+      :aria-describedby="describeById"
       class="select-text"
       :class="{disabled: disabled}"
       :value="value"
