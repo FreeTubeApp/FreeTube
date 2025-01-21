@@ -75,7 +75,7 @@
     "vue-observe-visibility": "^1.0.0",
     "vue-router": "^3.6.5",
     "vuex": "^3.6.2",
-    "youtubei.js": "^12.2.0"
+    "youtubei.js": "^13.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",

@@ -691,8 +691,8 @@ export function parseLocalChannelHeader(channel, onlyIdNameThumbnail = false) {
 
         subscriberText = header.content.metadata.metadata_rows
           .flatMap(row => row.metadata_parts ? row.metadata_parts : [])
-          .find(part => part.text.text?.includes('subscriber'))
-          ?.text.text
+          .find(part => part.text?.text?.includes('subscriber'))
+          ?.text?.text
       }
 
       break
