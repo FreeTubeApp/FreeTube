@@ -47,7 +47,6 @@
       <span class="playlistIcons">
         <ft-icon-button
           v-if="showPlaylists"
-          ref="addToPlaylistIcon"
           :title="$t('User Playlists.Add to Playlist')"
           :icon="['fas', 'plus']"
           class="addToPlaylistIcon"

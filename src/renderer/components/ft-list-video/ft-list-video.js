@@ -800,10 +800,6 @@ export default defineComponent({
       this.addToPlaylistPromptCloseCallback = () => {
         // Run once only
         this.addToPlaylistPromptCloseCallback = null
-
-        // `thumbnailLink` is a `router-link`
-        // `focus()` can only be called on the actual element
-        this.$refs.addToPlaylistIcon?.$el?.focus()
       }
     },
 
