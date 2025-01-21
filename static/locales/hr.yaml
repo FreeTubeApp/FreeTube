@@ -187,6 +187,8 @@ User Playlists:
       This playlist has a video with a duration error: Ova zbirka sadrži barem jedan
         video koji nema trajanje. Video će se svrstati kao da je njegovo trajanje
         nula.
+      Video has been removed. Click here to undo.: Video je uklonjen. Klikni ovdje
+        za poništavanje uklanjanja.
     Search for Videos: Traži videa
   AddVideoPrompt:
     N playlists selected: 'Odabrano: {playlistCount}'
@@ -391,11 +393,11 @@ Settings:
     Hide FreeTube Header Logo: Sakrij FreeTube logotip u zaglavlju
   Player Settings:
     Player Settings: 'Player'
-    Play Next Video: 'Reproduciraj sljedeći video'
+    Play Next Video: 'Automatski reproduciraj preporučena videa'
     Turn on Subtitles by Default: 'Standardno uključi titlove'
-    Autoplay Videos: 'Automatski reproduciraj videa'
+    Autoplay Videos: 'Pokreni videa automatski'
     Proxy Videos Through Invidious: 'Koristi Invidious kao posrednika videa'
-    Autoplay Playlists: 'Automatski reproduciraj zbirke'
+    Autoplay Playlists: 'Automatski reproduciraj videa zbirki'
     Enable Theatre Mode by Default: 'Standardno aktiviraj kazališni modus'
     Default Volume: 'Standardna glasnoća'
     Default Playback Rate: 'Standardna brzina reprodukcije'
@@ -907,6 +909,8 @@ Video:
     Audio Tracks: Audio snimke
     Exit Theatre Mode: Zatvori kazališni modus
     Full Window: Cjeloekranski prikaz
+    Autoplay is off: Automatska reprodukcija je isključena
+    Autoplay is on: Automatska reprodukcija je uključena
   MembersOnly: Videa koja su namijenjena samo za članove ne mogu se gledati putem
     FreeTubea jer zahtijevaju prijavu na Google i plaćeno članstvo na kanalu prenositelja.
   Unlisted: Skriveni za javnost
