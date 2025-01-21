@@ -184,6 +184,8 @@ User Playlists:
       This playlist has a video with a duration error: Questa playlist contiene almeno
         un video che non ha durata; verranno ordinati come se la loro durata fosse
         zero.
+      Video has been removed. Click here to undo.: Il video è stato rimosso. Clicca
+        qui per annullare.
     Search for Videos: Ricerca nei video
   Are you sure you want to delete this playlist? This cannot be undone: Sei sicuro
     di voler eliminare questa playlist? Questa operazione non può essere annullata.
@@ -451,6 +453,12 @@ Settings:
     Enter Fullscreen on Display Rotate: Entra a schermo intero su Ruota schermo
     Skip by Scrolling Over Video Player: Salta tramite scorrimento sul lettore video
     Autoplay Interruption Timer: Timer di interruzione della riproduzione automatica
+    Default Viewing Mode:
+      Full Screen: Schermo intero
+      Picture in Picture: Immagine nell'immagine
+      External Player: Lettore esterno ({externalPlayerName})
+      Default Viewing Mode: Modalità di visualizzazione predefinita
+      Theater: Teatro
   Privacy Settings:
     Privacy Settings: 'Privacy'
     Remember History: 'Ricorda la Cronologia delle visualizzazioni'
