@@ -35,16 +35,12 @@
   .optionsRow {
     /* Switch to rows from columns */
     grid-template-columns: auto;
-    /* stylelint-disable-next-line declaration-property-value-no-unknown */
-    grid-template-rows: repeat(auto-fit, auto);
     align-items: stretch;
   }
 
   .tightOptions {
     /* Switch to rows from columns */
     grid-template-columns: auto;
-    /* stylelint-disable-next-line declaration-property-value-no-unknown */
-    grid-template-rows: repeat(auto-fit, auto);
     align-items: stretch;
   }
 }
