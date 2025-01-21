@@ -201,6 +201,8 @@ User Playlists:
       This playlist has a video with a duration error: Selles esitusloendis on vähemalt
         üks video, millel puudub kestus. Järjestamisel me sel puhul arvestame kestuseks
         nulli.
+      Video has been removed. Click here to undo.: Video on eemaldatud. Tagasipööramiseks
+        klõpsi siin.
     Search for Videos: Otsi videoid
   Are you sure you want to delete this playlist? This cannot be undone: Kas sa oled
     kindel, et soovid selle esitusloendi kustutada? Seda tegevust ei saa tagasi pöörata.
@@ -450,6 +452,12 @@ Settings:
     Skip by Scrolling Over Video Player: Jäta vahele, kerides üle videopleieri
     Enter Fullscreen on Display Rotate: Ekraani pööramisel ava täisekraanivaade
     Autoplay Interruption Timer: Viivituse taimer järgmise video esitamise katkestamisel
+    Default Viewing Mode:
+      Full Screen: Täisekraanivaade
+      External Player: Väline meediamängija ({externalPlayerName})
+      Theater: Teatrivaade
+      Default Viewing Mode: Vaikimisi vaade
+      Picture in Picture: Pilt pildis vaade
   Privacy Settings:
     Privacy Settings: 'Privaatsus'
     Remember History: 'Jäta vaatamiste ajalugu meelde'
