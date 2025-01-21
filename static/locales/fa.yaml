@@ -182,6 +182,8 @@ User Playlists:
       This playlist has a video with a duration error: این لیست پخش شامل حداقل یک
         ویدیو است که مدت زمان ندارد، به گونه‌ای مرتب می‌شود که گویی مدت زمان آنها
         صفر است.
+      Video has been removed. Click here to undo.: ویدیو حذف شد. برای لغو اینجا کلیک
+        کنید.
     Search for Videos: جستجوی ویدئوها
   Sort By:
     EarliestUpdatedFirst: اولین به روز شده
@@ -306,6 +308,7 @@ Settings:
       Gruvbox Dark: جعبه تیره تاریک
       Gruvbox Light: جعبه تیره روشن
       Nordic: شمال اروپا
+      Catppuccin Frappe: تم رنگ کت پوچین فراپه
     Main Color Theme:
       Main Color Theme: 'رنگ تم اصلی'
       Red: 'قرمز'
@@ -369,11 +372,11 @@ Settings:
     Hide FreeTube Header Logo: لوگوی سربرگ FreeTube را مخفی کنید
   Player Settings:
     Player Settings: 'پخش کننده'
-    Play Next Video: 'پخش ویدیو بعدی'
+    Play Next Video: 'پخش اتوماتیک ویدیو پیشنهادی'
     Turn on Subtitles by Default: 'فعال کردن زیرنویس به عنوان پیشفرض'
     Autoplay Videos: 'پخش خودکار ویدیو ها'
     Proxy Videos Through Invidious: 'پروکسی ویدیو ها از طریق Invidious'
-    Autoplay Playlists: 'پخش خودکار فهرست های پخش'
+    Autoplay Playlists: 'پخش خودکار فهرست  پخش'
     Enable Theatre Mode by Default: 'فعال کردن حالت تئاتر به عنوان پیشفرض'
     Scroll Volume Over Video Player: 'کنترل صدا با حرکت اسکرول موس روی پخش کننده ویدیو'
     Display Play Button In Video Player: 'نمایش دکمه پخش داخل پخش کننده ویدیو'
@@ -420,6 +423,11 @@ Settings:
       Folder Button: پوشه را انتخاب کنید
     Skip by Scrolling Over Video Player: با پیمایش روی پخش‌کننده ویدیو از آن بگذرید
     Autoplay Interruption Timer: تایمر وقفه پخش خودکار
+    Default Viewing Mode:
+      Theater: تئاتر
+      Default Viewing Mode: حالت تماشای پیش‌فرض
+      Full Screen: تمام صفحه
+      Picture in Picture: تصویر در تصویر
   External Player Settings:
     External Player Settings: 'پخش کننده خارجی'
     External Player: 'پخش کننده خارجی'
@@ -893,6 +901,7 @@ Tooltips:
       و یک کش تصویر سفارشی در حافظه را فعال می کند. منجر به افزایش مصرف رم خواهد شد.
 Search Bar:
   Clear Input: پاک کردن ورودی
+  Remove: حذف
 Are you sure you want to open this link?: آیا مطمئن هستید که میخواهید این لینک را
   باز کنید؟
 About:
