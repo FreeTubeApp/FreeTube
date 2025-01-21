@@ -18,6 +18,7 @@ const isDevMode = process.env.NODE_ENV === 'development'
 
 const { version: swiperVersion } = JSON.parse(fs.readFileSync(path.join(__dirname, '../node_modules/swiper/package.json')))
 
+/** @type {import('webpack').Configuration} */
 const config = {
   name: 'web',
   mode: process.env.NODE_ENV,

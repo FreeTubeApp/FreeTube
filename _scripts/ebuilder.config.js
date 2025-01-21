@@ -1,5 +1,6 @@
 const { name, productName } = require('../package.json')
 
+/** @type {import('electron-builder').Configuration} */
 const config = {
   appId: `io.freetubeapp.${name}`,
   copyright: 'Copyleft © 2020-2025 freetubeapp@protonmail.com',
