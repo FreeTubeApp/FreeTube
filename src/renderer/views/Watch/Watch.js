@@ -82,7 +82,6 @@ export default defineComponent({
       isUpcoming: false,
       isPostLiveDvr: false,
       isUnlisted: false,
-      license: null,
       upcomingTimestamp: null,
       upcomingTimeLeft: null,
       /** @type {'dash' | 'audio' | 'legacy'} */
@@ -409,7 +408,7 @@ export default defineComponent({
         // extract localised title first and fall back to the not localised one
         this.videoTitle = result.primary_info?.title.text ?? result.basic_info.title
         this.videoViewCount = result.basic_info.view_count ?? (result.primary_info.view_count ? extractNumberFromString(result.primary_info.view_count.text) : null)
-        this.license = result.secondary_info.metadata.rows.matchCondition(element => element.title.text === 'License')?.contents[0].text
+        this.license = result.secondary_info.metadata.rows.find(element => element.title.text === 'License')?.contents[0].text
 
         this.channelId = result.basic_info.channel_id ?? result.secondary_info.owner?.author.id
         this.channelName = result.basic_info.author ?? result.secondary_info.owner?.author.name

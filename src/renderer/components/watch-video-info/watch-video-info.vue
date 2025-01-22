@@ -141,12 +141,6 @@
         />
       </div>
     </div>
-    <div
-      v-if="license"
-      class="license"
-    >
-      {{ license }}
-    </div>
   </ft-card>
 </template>
 

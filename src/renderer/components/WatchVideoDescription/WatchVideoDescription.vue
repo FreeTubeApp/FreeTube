@@ -23,6 +23,12 @@
       @click.native="expandDescriptionWithClick"
     />
     <span
+      v-if="license"
+      class="license"
+    >
+      {{ license }}
+    </span>
+    <span
       v-if="showControls && showFullDescription"
       class="descriptionStatus"
       role="button"
@@ -51,6 +57,10 @@ const props = defineProps({
   descriptionHtml: {
     type: String,
     default: ''
+  },
+  license: {
+    type: String,
+    default: null,
   }
 })
 
