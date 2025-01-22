@@ -190,6 +190,8 @@ User Playlists:
       This playlist has a video with a duration error: Spilunarlistinn inniheldur
         a.m.k. eitt myndskeið sem er ekki með neina tímalengd; það verður flokkað
         eins og tímalengdin sé núll.
+      Video has been removed. Click here to undo.: Myndskeiðið hefur verið fjarlægt.
+        Smelltu hér til að afturkalla.
     Search for Videos: Leita að myndskeiðum
   AddVideoPrompt:
     N playlists selected: '{playlistCount} valin'
@@ -408,7 +410,7 @@ Settings:
   Player Settings:
     Player Settings: 'Spilari'
     Play Next Video: 'Spila sjálfkrafa myndskeið sem mælt er með'
-    Turn on Subtitles by Default: 'Sjálfgefið kveikja á skjátextum'
+    Turn on Subtitles by Default: 'Sjálfgefið virkja skjátexta'
     Autoplay Videos: 'Ræsa myndskeið sjálfkrafa'
     Proxy Videos Through Invidious: 'Beina myndskeiðum í gegnum Invidious-milliþjón'
     Autoplay Playlists: 'Spila sjálfkrafa myndskeið í spilunarlista'
@@ -457,6 +459,12 @@ Settings:
     Enter Fullscreen on Display Rotate: Fara í skjáfylli við snúning á skjá
     Skip by Scrolling Over Video Player: Sleppa með því að skruna ofan á myndspilara
     Autoplay Interruption Timer: Niðurtalning í stöðvun á sjálfvirkri spilun
+    Default Viewing Mode:
+      Theater: Bíóhamur
+      Default Viewing Mode: Sjálfgefinn skoðunarhamur
+      Full Screen: Skjáfylli
+      Picture in Picture: Mynd-í-mynd
+      External Player: Utanaðkomandi spilari ({externalPlayerName})
   Privacy Settings:
     Privacy Settings: 'Gagnaleynd'
     Remember History: 'Muna áhorfsferil'
@@ -1284,3 +1292,4 @@ KeyboardShortcutPrompt:
   Skip by Tenths: Hoppa í prósentum í gegnum myndskeið (3 sleppir yfir á 30% tímalengdar)
   Keyboard Shortcuts: Flýtivísanir á lyklaborði
   Focus Secondary Search: Færa virkni í hinn leitarreitinn (ef annar er til staðar)
+shortcutLabelSeparator: ｜
