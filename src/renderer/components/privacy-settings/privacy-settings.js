@@ -5,6 +5,7 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
+import FtSelect from '../ft-select/ft-select.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { showToast } from '../../helpers/utils'
 
@@ -15,7 +16,8 @@ export default defineComponent({
     'ft-button': FtButton,
     'ft-toggle-switch': FtToggleSwitch,
     'ft-flex-box': FtFlexBox,
-    'ft-prompt': FtPrompt
+    'ft-prompt': FtPrompt,
+    'ft-select': FtSelect,
   },
   data: function () {
     return {
@@ -36,8 +38,15 @@ export default defineComponent({
     rememberHistory: function () {
       return this.$store.getters.getRememberHistory
     },
-    saveWatchedProgress: function () {
-      return this.$store.getters.getSaveWatchedProgress
+    watchedProgressSavingMode() {
+      return this.$store.getters.getWatchedProgressSavingMode
+    },
+    watchedProgressSavingModeValueNamePairs() {
+      return [
+        ['auto', this.$t('Settings.Privacy Settings.Watched Progress Saving Mode.Modes.Auto')],
+        ['semi-auto', this.$t('Settings.Privacy Settings.Watched Progress Saving Mode.Modes.Semi-auto')],
+        ['never', this.$t('Settings.Privacy Settings.Watched Progress Saving Mode.Modes.Never')],
+      ]
     },
     saveVideoHistoryWithLastViewedPlaylist: function () {
       return this.$store.getters.getSaveVideoHistoryWithLastViewedPlaylist
@@ -69,7 +78,7 @@ export default defineComponent({
 
     handleRememberHistory: function (value) {
       if (!value) {
-        this.updateSaveWatchedProgress(false)
+        this.updateWatchedProgressSavingMode('never')
       }
 
       this.updateRememberHistory(value)
@@ -123,7 +132,7 @@ export default defineComponent({
       'updateRememberHistory',
       'removeAllHistory',
       'updateRememberSearchHistory',
-      'updateSaveWatchedProgress',
+      'updateWatchedProgressSavingMode',
       'updateSaveVideoHistoryWithLastViewedPlaylist',
       'clearSessionSearchHistory',
       'removeAllSearchHistoryEntries',

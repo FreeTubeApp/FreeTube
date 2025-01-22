@@ -116,7 +116,13 @@ export default defineComponent({
       required: false
     }
   },
-  emits: ['change-format', 'pause-player', 'set-info-area-sticky', 'scroll-to-info-area'],
+  emits: [
+    'change-format',
+    'pause-player',
+    'set-info-area-sticky',
+    'scroll-to-info-area',
+    'save-watched-progress',
+  ],
   computed: {
     hideSharingActions: function() {
       return this.$store.getters.getHideSharingActions
@@ -140,6 +146,10 @@ export default defineComponent({
 
     showPlaylists: function () {
       return !this.$store.getters.getHidePlaylists
+    },
+
+    watchedProgressSavingInSemiAutoMode() {
+      return this.$store.getters.getWatchedProgressSavingMode === 'semi-auto'
     },
 
     downloadLinkOptions: function () {
@@ -407,6 +417,10 @@ export default defineComponent({
 
     changeFormat: function(value) {
       this.$emit('change-format', value)
+    },
+
+    saveWatchedProgressManually() {
+      this.$emit('save-watched-progress')
     },
 
     ...mapActions([
