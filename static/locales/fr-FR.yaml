@@ -188,6 +188,8 @@ User Playlists:
       This playlist has a video with a duration error: Cette liste de lecture contient
         au moins une vidéo qui n'a pas de durée, elle sera triée comme si la durée
         était nulle.
+      Video has been removed. Click here to undo.: La vidéo a été supprimée. Cliquez
+        ici pour annuler.
     Search for Videos: Rechercher des vidéos
   Are you sure you want to delete this playlist? This cannot be undone: Êtes-vous
     sûr(e) de vouloir supprimer cette liste de lecture ? Cette opération ne peut pas
@@ -464,6 +466,12 @@ Settings:
     Enter Fullscreen on Display Rotate: Entrer en plein écran sur l'affichage Rotation
     Skip by Scrolling Over Video Player: Sauter en faisant défiler le lecteur vidéo
     Autoplay Interruption Timer: Minuteur d'arrêt de la lecture automatique
+    Default Viewing Mode:
+      Default Viewing Mode: Mode d'affichage par défaut
+      Picture in Picture: Image dans l'image
+      External Player: Logiciel externe ({externalPlayerName})
+      Full Screen: Plein écran
+      Theater: Théâtre
   Subscription Settings:
     Subscription Settings: 'Abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
