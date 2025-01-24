@@ -7,7 +7,7 @@
       v-if="isLoading"
       :fullscreen="true"
     />
-    <div
+    <ft-card
       v-if="!isLoading"
       class="playlistInfoContainer"
       :class="{
@@ -41,7 +41,7 @@
         @prompt-open="promptOpen = true"
         @prompt-close="promptOpen = false"
       />
-    </div>
+    </ft-card>
 
     <ft-card
       v-if="!isLoading"
