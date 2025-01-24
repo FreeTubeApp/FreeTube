@@ -468,10 +468,10 @@ Settings:
     Autoplay Interruption Timer: Minuteur d'arrêt de la lecture automatique
     Default Viewing Mode:
       Default Viewing Mode: Mode d'affichage par défaut
-      Picture in Picture: Image dans l'image
-      External Player: Logiciel externe ({externalPlayerName})
+      Picture in Picture: Mode image dans l’image
+      External Player: Lecteur externe ({externalPlayerName})
       Full Screen: Plein écran
-      Theater: Théâtre
+      Theater: Mode cinéma
   Subscription Settings:
     Subscription Settings: 'Abonnements'
     Hide Videos on Watch: 'Masquer les vidéos visionnées'
