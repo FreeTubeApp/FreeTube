@@ -100,6 +100,8 @@ Search Filters:
     4K: 4K
     3D: 3D
     Location: Location
+  Apply: 'Apply'
+  Close: 'Close'
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscriptions'

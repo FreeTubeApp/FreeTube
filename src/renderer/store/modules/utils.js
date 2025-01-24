@@ -18,6 +18,7 @@ import {
 } from '../../helpers/utils'
 
 const state = {
+  topNavInstance: null,
   isSideNavOpen: false,
   outlinesHidden: true,
   sessionSearchHistory: [],
@@ -65,6 +66,10 @@ const state = {
 }
 
 const getters = {
+  getTopNavInstance(state) {
+    return state.topNavInstance
+  },
+
   getIsSideNavOpen(state) {
     return state.isSideNavOpen
   },
@@ -278,6 +283,23 @@ const actions = {
       console.error(err)
       showToast(errorMessage)
     }
+  },
+
+  applyFilters({ state, rootGetters }, { queryText, searchSettings }) {
+    const topNavInstance = rootGetters.getTopNavInstance
+    if (topNavInstance && topNavInstance.goToSearch) {
+      topNavInstance.goToSearch(queryText, { searchSettings })
+    } else {
+      console.error('Unable to find goToSearch method in top-nav instance.')
+    }
+    this.dispatch('hideSearchFilters')
+  },
+  performSearch({ state }) {
+    const searchSettings = state.searchSettings
+    const queryText = state.sessionSearchHistory.length
+      ? state.sessionSearchHistory[0].query
+      : ''
+    this.dispatch('goToSearch', { queryText, searchSettings })
   },
 
   parseScreenshotCustomFileName: function({ rootState }, payload) {
@@ -805,6 +827,10 @@ const actions = {
 }
 
 const mutations = {
+  setTopNavInstance(state, instance) {
+    state.topNavInstance = instance
+  },
+
   toggleSideNav (state) {
     state.isSideNavOpen = !state.isSideNavOpen
   },
