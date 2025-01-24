@@ -49,7 +49,6 @@
     "pack:web": "webpack --mode=production --node-env=production --config _scripts/webpack.web.config.js",
     "pack:botGuardScript": "webpack --config _scripts/webpack.botGuardScript.config.js",
     "postinstall": "run-s --silent rebuild:electron patch-shaka",
-    "prettier": "prettier --write \"{src,_scripts}/**/*.{js,vue}\"",
     "rebuild:electron": "electron-builder install-app-deps",
     "release": "run-s test build",
     "ci": "yarn install --silent --frozen-lockfile"
