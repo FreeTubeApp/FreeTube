@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
-import SubscriptionsTabUI from '../subscriptions-tab-ui/subscriptions-tab-ui.vue'
+import SubscriptionsTabUI from '../SubscriptionsTabUi/SubscriptionsTabUi.vue'
 
 import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 import { getLocalChannelCommunity } from '../../helpers/api/local'
