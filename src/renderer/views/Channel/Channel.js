@@ -26,6 +26,7 @@ import {
   getInvidiousChannelPlaylists,
   getInvidiousChannelPodcasts,
   getInvidiousChannelReleases,
+  getInvidiousChannelCourses,
   getInvidiousChannelShorts,
   getInvidiousChannelVideos,
   invidiousGetChannelId,
@@ -87,6 +88,7 @@ export default defineComponent({
       liveContinuationData: null,
       releaseContinuationData: null,
       podcastContinuationData: null,
+      coursesContinuationData: null,
       playlistContinuationData: null,
       searchContinuationData: null,
       communityContinuationData: null,
@@ -112,6 +114,7 @@ export default defineComponent({
       latestLive: [],
       latestReleases: [],
       latestPodcasts: [],
+      latestCourses: [],
       latestPlaylists: [],
       latestCommunityPosts: [],
       searchResults: [],
@@ -134,6 +137,7 @@ export default defineComponent({
         'live',
         'releases',
         'podcasts',
+        'courses',
         'playlists',
         'community',
         'about'
@@ -144,6 +148,7 @@ export default defineComponent({
         'live',
         'releases',
         'podcasts',
+        'courses',
         'playlists',
         'community',
         'about'
@@ -234,6 +239,8 @@ export default defineComponent({
           return !isNullOrEmpty(this.releaseContinuationData)
         case 'podcasts':
           return !isNullOrEmpty(this.podcastContinuationData)
+        case 'courses':
+          return !isNullOrEmpty(this.coursesContinuationData)
         case 'playlists':
           return !isNullOrEmpty(this.playlistContinuationData)
         case 'community':
@@ -259,6 +266,10 @@ export default defineComponent({
 
     hideChannelReleases: function() {
       return this.$store.getters.getHideChannelReleases
+    },
+
+    hideChannelCourses: function() {
+      return this.$store.getters.getHideChannelCourses
     },
 
     hideChannelPlaylists: function() {
@@ -300,6 +311,10 @@ export default defineComponent({
 
       if (this.hideChannelReleases) {
         indexToRemove.push(values.indexOf('releases'))
+      }
+
+      if (this.hideChannelCourses) {
+        indexToRemove.push(values.indexOf('courses'))
       }
 
       if (this.hideChannelHome) {
@@ -666,6 +681,11 @@ export default defineComponent({
         if (!this.hideChannelReleases && (channel.has_releases || this.isArtistTopicChannel)) {
           tabs.push('releases')
           this.getChannelReleasesLocal()
+        }
+
+        if (!this.hideChannelCourses && channel.has_courses) {
+          tabs.push('courses')
+          this.getChannelCoursesLocal()
         }
 
         if (!this.hideChannelPlaylists) {
@@ -1119,6 +1139,10 @@ export default defineComponent({
           this.channelInvidiousReleases()
         }
 
+        if (!this.hideChannelCourses && response.tabs.includes('courses')) {
+          this.channelInvidiousCourses()
+        }
+
         if (!this.hideChannelPlaylists && response.tabs.includes('playlists')) {
           this.getPlaylistsInvidious()
         }
@@ -1553,7 +1577,7 @@ export default defineComponent({
 
         const parsedPodcasts = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
         this.latestPodcasts = this.latestPodcasts.concat(parsedPodcasts)
-        this.releaseContinuationData = continuation.has_continuation ? continuation : null
+        this.podcastContinuationData = continuation.has_continuation ? continuation : null
       } catch (err) {
         console.error(err)
         const errorMessage = this.$t('Local API Error (Click to copy)')
@@ -1597,6 +1621,108 @@ export default defineComponent({
       getInvidiousChannelPodcasts(this.id, this.podcastContinuationData).then((response) => {
         this.podcastContinuationData = response.continuation || null
         this.latestPodcasts = this.latestPodcasts.concat(response.playlists)
+        this.isElementListLoading = false
+      }).catch((err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          this.getChannelLocal()
+        } else {
+          this.isLoading = false
+        }
+      })
+    },
+
+    getChannelCoursesLocal: async function () {
+      this.isElementListLoading = true
+      const expectedId = this.id
+
+      try {
+        /**
+         * @type {import('youtubei.js').YT.Channel}
+         */
+        const channel = this.channelInstance
+        const coursesTab = await channel.getCourses()
+
+        if (expectedId !== this.id) {
+          return
+        }
+
+        this.latestCourses = coursesTab.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
+        this.coursesContinuationData = coursesTab.has_continuation ? coursesTab : null
+        this.isElementListLoading = false
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (this.backendPreference === 'local' && this.backendFallback) {
+          showToast(this.$t('Falling back to Invidious API'))
+          this.channelInvidiousCourses()
+        } else {
+          this.isLoading = false
+        }
+      }
+    },
+
+    getChannelCoursesLocalMore: async function () {
+      try {
+        /**
+         * @type {import('youtubei.js').YT.ChannelListContinuation}
+         */
+        const continuation = await this.coursesContinuationData.getContinuation()
+
+        const parsedCourses = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, this.id, this.channelName))
+        this.latestCourses = this.latestCourses.concat(parsedCourses)
+        this.coursesContinuationData = continuation.has_continuation ? continuation : null
+      } catch (err) {
+        console.error(err)
+        const errorMessage = this.$t('Local API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+      }
+    },
+
+    channelInvidiousCourses: function() {
+      this.isElementListLoading = true
+
+      getInvidiousChannelCourses(this.id).then((response) => {
+        this.coursesContinuationData = response.continuation || null
+        this.latestCourses = response.playlists
+        this.isElementListLoading = false
+      }).catch(async (err) => {
+        console.error(err)
+        const errorMessage = this.$t('Invidious API Error (Click to copy)')
+        showToast(`${errorMessage}: ${err}`, 10000, () => {
+          copyToClipboard(err)
+        })
+        if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+          showToast(this.$t('Falling back to Local API'))
+          if (!this.channelInstance) {
+            this.channelInstance = await getLocalChannel(this.id)
+          }
+          this.getChannelCoursesLocal()
+        } else {
+          this.isLoading = false
+        }
+      })
+    },
+
+    channelInvidiousCoursesMore: function () {
+      if (this.coursesContinuationData === null) {
+        console.warn('There are no more courses available for this channel')
+        return
+      }
+
+      getInvidiousChannelCourses(this.id, this.coursesContinuationData).then((response) => {
+        this.coursesContinuationData = response.continuation || null
+        this.latestCourses = this.latestCourses.concat(response.playlists)
         this.isElementListLoading = false
       }).catch((err) => {
         console.error(err)
@@ -1773,10 +1899,25 @@ export default defineComponent({
           }
           break
         case 'releases':
-          this.getChannelReleasesLocalMore()
+          if (this.apiUsed === 'local') {
+            this.getChannelReleasesLocalMore()
+          } else {
+            this.channelInvidiousReleasesMore()
+          }
           break
         case 'podcasts':
-          this.getChannelPodcastsLocalMore()
+          if (this.apiUsed === 'local') {
+            this.getChannelPodcastsLocalMore()
+          } else {
+            this.channelInvidiousPodcastsMore()
+          }
+          break
+        case 'courses':
+          if (this.apiUsed === 'local') {
+            this.getChannelCoursesLocalMore()
+          } else {
+            this.channelInvidiousCoursesMore()
+          }
           break
         case 'playlists':
           switch (this.apiUsed) {
