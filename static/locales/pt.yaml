@@ -42,9 +42,9 @@ Global:
     Video Count: 1 vídeo | {count} vídeos
     Subscriber Count: 1 subscritor | {count} subscritores
     View Count: 1 visualização | {count} visualizações
-    Watching Count: 1 a assistir | {count} a assistir
-    Like Count: 1 gosto | {count} gostos
-    Comment Count: 1 comentário | {count} comentários
+    Watching Count: 1 assistindo | {count} assistindo
+    Like Count: 1 curtida | {count} curtidas
+    Comment Count: 1 comentários | {count} comentários
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
   está disponível! Clique aqui para mais informações.'
 Download From Site: 'Descarregar do site'
@@ -179,8 +179,8 @@ User Playlists:
       Playlist {playlistName} has been deleted.: A lista de reprodução {playlistName}
         foi eliminada.
       This playlist does not exist: Esta lista de reprodução não existe
-      This playlist is now used for quick bookmark: Esta lista de reprodução é agora
-        usada como marcador rápido
+      This playlist is now used for quick bookmark: Esta playlist agora está sendo
+        usado como marcador
       This playlist is already being used for quick bookmark.: Esta lista de reprodução
         já está a ser usada como marcador rápido.
       This playlist has a video with a duration error: Esta lista de reprodução contém
@@ -188,9 +188,11 @@ User Playlists:
         fosse zero.
       Reverted to use {oldPlaylistName} for quick bookmark: Revertido para utilizar
         {oldPlaylistName} para o marcador rápido
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Esta
-        lista de reprodução é agora utilizada como marcador rápido em vez de {oldPlaylistName}.
-        Clique aqui para desfazer
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: A
+        playlist agora é usada como marcador ao invés da {oldPlaylistName}. Clique
+        aqui para desfazer
+      Video has been removed. Click here to undo.: O vídeo foi removido. Clique aqui
+        para desfazer.
     Search for Videos: Procurar vídeos
   AddVideoPrompt:
     Search in Playlists: Procurar nas listas de reprodução
@@ -231,8 +233,7 @@ User Playlists:
   Playlist Description: Descrição da lista de reprodução
   Add to Favorites: Adicionar a {playlistName}
   Remove from Favorites: Remover de {playlistName}
-  Enable Quick Bookmark With This Playlist: Ativar marcador rápido para esta lista
-    de reprodução
+  Enable Quick Bookmark With This Playlist: Habilitar marcador para esta playlist
   Playlists with Matching Videos: Listas de reprodução coincidentes
   Quick Bookmark Enabled: Marcador rápido ativado
   Remove Duplicate Videos: Remover duplicados
@@ -323,6 +324,7 @@ Settings:
       Solarized Light: Claro solar
       Gruvbox Dark: Gruvbox Escuro
       Gruvbox Light: Luz Gruvbox
+      Catppuccin Frappe: Frapé de catppuccin
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
@@ -370,6 +372,30 @@ Settings:
       Solarized Blue: Azul solar
       Solarized Cyan: Ciano solar
       Solarized Green: Verde solar
+      Catppuccin Frappe Sapphire: Frapé de Catppuccin safira
+      Gruvbox Light Red: Gruvbox vermelho claro
+      Catppuccin Frappe Red: Frapé de Catppuccin vermelho
+      Catppuccin Frappe Rosewater: Frapé de Catppuccin com água de rosas
+      Catppuccin Frappe Pink: Frapé de Catppuccin com rosas
+      Gruvbox Dark Green: Gruvbox verde escuro
+      Catppuccin Frappe Mauve: Frapé de Catppuccin Mauve
+      Catppuccin Frappe Lavender: Frapé de Catppuccin lavanda
+      Gruvbox Light Blue: Gruvbox azul claro
+      Catppuccin Frappe Maroon: Frapé de Catppuccin castanho
+      Catppuccin Frappe Blue: Frapé de Catppuccin azul
+      Gruvbox Dark Blue: Gruvbox azul escuro
+      Gruvbox Dark Yellow: Gruvbox amarelo escuro
+      Catppuccin Frappe Flamingo: Frapé de Catppuccin Flamingo
+      Gruvbox Dark Purple: Gruvbox roxo escuro
+      Gruvbox Dark Orange: Gruvbox laranja escuro
+      Gruvbox Light Orange: Gruvbox laranja claro
+      Catppuccin Frappe Peach: Frapé de Catppuccin pêssego
+      Catppuccin Frappe Yellow: Frapé de Catppuccin amarelo
+      Catppuccin Frappe Green: Frapé de Catppuccin verde
+      Catppuccin Frappe Teal: Frapé de Catppuccin verde-azulado
+      Catppuccin Frappe Sky: Frapé de Catppuccin céu
+      Gruvbox Dark Aqua: Gruvbox água escura
+      Gruvbox Light Purple: Gruvbox violeta claro
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da interface
@@ -379,11 +405,11 @@ Settings:
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube no topo
   Player Settings:
     Player Settings: 'Reprodutor'
-    Play Next Video: 'Reproduzir vídeo seguinte'
-    Turn on Subtitles by Default: 'Ativar legendas automaticamente'
+    Play Next Video: 'Reproduzir automaticamente os vídeos recomendados'
+    Turn on Subtitles by Default: 'Ativar legendas por predefinição'
     Autoplay Videos: 'Reproduzir vídeos automaticamente'
     Proxy Videos Through Invidious: 'Utilizar Invidious com proxy'
-    Autoplay Playlists: 'Reproduzir listas de reprodução automaticamente'
+    Autoplay Playlists: 'Reproduzir automaticamente vídeos da lista de reprodução'
     Enable Theatre Mode by Default: 'Ativar modo cinema por omissão'
     Default Volume: 'Volume padrão'
     Default Playback Rate: 'Velocidade de reprodução padrão'
@@ -405,7 +431,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Fast-Forward / Rewind Interval: Tempo a avançar / recuar
-    Next Video Interval: Intervalo entre vídeos
+    Next Video Interval: Temporizador de contagem decrescente de reprodução automática
     Display Play Button In Video Player: Mostrar botão "Reproduzir" no reprodutor
     Scroll Volume Over Video Player: Alterar volume com a roda do rato por cima do
       reprodutor
@@ -431,9 +457,16 @@ Settings:
     Enter Fullscreen on Display Rotate: Ativar modo de ecrã completo ao rodar o ecrã
     Skip by Scrolling Over Video Player: Avançar ou recuar no vídeo com a roda do
       rato
+    Default Viewing Mode:
+      Full Screen: Ecrã completo
+      Picture in Picture: Imagem sobre imagem
+      External Player: Reprodutor externo ({externalPlayerName})
+      Default Viewing Mode: Modo de visualização predefinido
+      Theater: Teatro
+    Autoplay Interruption Timer: Temporizador de interrupção da reprodução automática
   Privacy Settings:
     Privacy Settings: 'Privacidade'
-    Remember History: 'Memorizar histórico'
+    Remember History: 'Memorizar histórico de visualizados'
     Save Watched Progress: 'Guardar progresso de reprodução'
     Clear Search Cache: 'Limpar cache de pesquisas'
     Are you sure you want to clear out your search cache?: 'Tem a certeza de que pretende
@@ -453,12 +486,21 @@ Settings:
     All playlists have been removed: Todas as listas de reprodução foram removidas
     Are you sure you want to remove all your playlists?: Tem a certeza de que pretende
       remover todas as suas listas de reprodução?
+    Search history and cache have been cleared: O histórico de pesquisa e a cache
+      foram limpos
+    Are you sure you want to clear out your search history and cache?: Tem a certeza
+      de que pretende limpar o histórico de pesquisa e a cache?
+    Remember Search History: Memorizar histórico de pesquisa
+    Clear Search History and Cache: Limpar o histórico de pesquisa e a cache
   Subscription Settings:
     Subscription Settings: 'Subscrição'
     Hide Videos on Watch: 'Ocultar vídeos visualizados'
     Fetch Feeds from RSS: 'Obter subscrições através de RSS'
     Fetch Automatically: Obter fontes automaticamente
     Confirm Before Unsubscribing: Impedir cancelamento acidental de subscrições
+    To: A
+    'Limit the number of videos displayed for each channel': Limitar o número de vídeos
+      apresentados para cada canal
   Data Settings:
     Data Settings: 'Dados'
     Select Export Type: 'Selecione o tipo de exportação'
@@ -573,17 +615,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: Mostrar títulos sem maiúsculas
       ou pontuação em excesso
     Hide Featured Channels: Ocultar canais em destaque
-    Hide Channel Playlists: Ocultar listas de reprodução dos canais
-    Hide Channel Community: Ocultar canal Comunidade
-    Hide Channel Shorts: Ocultar curtos do canal
+    Hide Channel Playlists: Ocultar separador "Listas de reprodução" nos canais
+    Hide Channel Community: Ocultar separador "Comunidade" nos canais
+    Hide Channel Shorts: Ocultar separador "Curtos" nos canais
     Sections:
       Side Bar: Barra lateral
       Channel Page: Página do canal
       Watch Page: Ver página
       General: Geral
       Subscriptions Page: Página de subscrições
-    Hide Channel Podcasts: Ocultar podcasts do canal
-    Hide Channel Releases: Ocultar novidades do canal
+    Hide Channel Podcasts: Ocultar separador "Podcasts" nos canais
+    Hide Channel Releases: Ocultar separador "Lançamentos" nos canais
     Hide Subscriptions Videos: Ocultar subscrições de vídeos
     Hide Subscriptions Shorts: Ocultar subscrições de curtos
     Hide Subscriptions Live: Ocultar subscrições de emissões em direto
@@ -598,8 +640,10 @@ Settings:
       se o ID indicado está correto.
     Hide Videos and Playlists Containing Text Placeholder: Palavra, fragmento de palavra
       ou frase
-    Hide Videos and Playlists Containing Text: Ocultar vídeos e listas de reprodução
-      que contenham textos
+    Hide Videos and Playlists Containing Text: Esconda videos e playlist contendo
+      texto
+    Show Added Items: Mostrar itens adicionados
+    Hide Channel Home: Ocultar o separador “Página inicial” do canal
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo
     Custom External Player Executable: Executável do reprodutor externo
@@ -650,15 +694,15 @@ About:
   Email: E-mail
   Donate: Doar
   these people and projects: estas pessoas e projetos
-  FreeTube is made possible by: FreeTube existe graças a
+  FreeTube is made possible by: O FreeTube existe graças a
   Credits: Créditos
   Translate: Traduzir
   room rules: regras da sala de conversa
   Please read the: Por favor leia as
   Chat on Matrix: Conversa no Matrix
   Mastodon: Mastodon
-  Please check for duplicates before posting: Por favor verifique se este problema
-    já foi reportado
+  Please check for duplicates before posting: Antes de reportar verifique se alguém
+    já reportou o mesmo problema
   GitHub issues: Problemas no GitHub
   Report a problem: Reportar um problema
   FreeTube Wiki: Wiki FreeTube
@@ -789,6 +833,9 @@ Channel:
     Podcasts: Podcasts
     This channel does not currently have any podcasts: Este canal não tem, atualmente,
       quaisquer podcasts
+  Home:
+    View Playlist: Ver lista de reprodução
+    Home: Página inicial
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Remover do histórico'
@@ -908,6 +955,8 @@ Video:
     Playback will resume automatically when your connection comes back: A reprodução
       será retomada automaticamente quando a conexão for restabelecida.
     Skipped segment: Segmento {segmentCategory} ignorado
+    Autoplay is on: A reprodução automática está ativada
+    Autoplay is off: A reprodução automática está desativada
   MembersOnly: Os vídeos só para membros não podem ser visualizados com o FreeTube,
     uma vez que requerem um início de sessão do Google e uma inscrição paga no canal
     do autor do vídeo.
@@ -918,6 +967,12 @@ Video:
     YouTube com idade verificada.
   Unlisted: Não listado
 #& Playlists
+  DeArrow:
+    Show Original Details: Mostrar detalhes originais
+    Show Modified Details: Mostrar detalhes modificados
+  DRMProtected: Os vídeos protegidos por DRM não podem ser reproduzidos no FreeTube,
+    uma vez que requerem componentes proprietários e de código fechado. Se quiser
+    ver este vídeo, veja-o no sítio Web oficial do YouTube num navegador Web com DRM.
 Playlist:
   #& About
   View Full Playlist: 'Ver lista de reprodução completa'
@@ -937,6 +992,8 @@ Playlist:
     Custom: Personalizado
     VideoDurationDescending: Duração (longos primeiro)
     VideoDurationAscending: Duração (curtos primeiro)
+    PublishedNewest: Última publicação primeiro
+    PublishedOldest: Mais antigo publicado primeiro
 Change Format:
   Change Media Formats: 'Alterar formatos multimédia'
   Use Dash Formats: 'Utilizar formatos DASH'
@@ -971,7 +1028,7 @@ Share:
 Mini Player: 'Mini-reprodutor'
 Comments:
   Comments: 'Comentários'
-  Click to View Comments: 'Clique para ver comentários'
+  Click to View Comments: 'Clicar para ver os comentários'
   Getting comment replies, please wait: 'A obter respostas ao comentário, por favor
     aguarde'
   Hide Comments: 'Ocultar comentários'
@@ -1064,8 +1121,8 @@ Tooltips:
       a velocidade de reprodução. Prima e mantenha premida a tecla Ctrl (tecla Comando
       em Mac) e clique com o botão esquerdo do rato para voltar rapidamente à velocidade
       de reprodução padrão (1 a não ser que tenha sido alterada nas definições).
-    Skip by Scrolling Over Video Player: Utilizar roda do rato para ignorar vídeo,
-      estilo MPV.
+    Skip by Scrolling Over Video Player: Utilizar roda do rato para avançar ou recuar
+      o vídeo, estilo MPV.
   General Settings:
     Region for Trending: A região permite-lhe escolher de que país virão os vídeos
       na secção de tendências.
@@ -1095,19 +1152,25 @@ Tooltips:
       exata e diferencia maiúsculas de minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição global "{appWideSetting}",
       existente na secção "{subsection}" de "{settingsSection}"
+    Hide Videos and Playlists Containing Text: Introduza uma palavra, fragmento de
+      palavra ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar
+      todos os vídeos e listas de reprodução cujos títulos originais a contenham em
+      todo o FreeTube, excluindo apenas o histórico, as suas listas de reprodução
+      e os vídeos dentro das listas de reprodução.
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador
       a partir do DeArrow.
     UseDeArrowThumbnails: Substituir miniaturas do vídeo por miniaturas DeArrow.
 Search Bar:
   Clear Input: Limpar entrada
+  Remove: Remover
 Are you sure you want to open this link?: Tem a certeza de que deseja abrir esta hiperligação?
 External link opening has been disabled in the general settings: A abertura de hiperligações
   externas foi desativada nas definições
 Starting download: A descarregar "{videoTitle}"
 Downloading failed: Ocorreu um erro ao descarregar "{videoTitle}"
 Downloading has completed: '"{videoTitle}" foi descarregado'
-Screenshot Success: Captura de ecrã guardada como "{filePath}"
+Screenshot Success: Captura de ecrã guardada
 Screenshot Error: Erro ao capturar o ecrã. {error}
 New Window: Nova janela
 Channels:
@@ -1123,6 +1186,7 @@ Chapters:
   Chapters: Capítulos
   'Chapters list visible, current chapter: {chapterName}': 'Lista de capítulos visível,
     capítulo atual: {chapterName}'
+  Key Moments: Momentos-chave
 Clipboard:
   Copy failed: Falha ao copiar para a área de transferência
   Cannot access clipboard without a secure connection: Não é possível aceder à área
@@ -1172,3 +1236,74 @@ KeyboardShortcutPrompt:
   Play: Alternar entre reprodução / pausa
   Large Fast Forward: Avançar 10 segundos / avanço rápido do vídeo com base na velocidade
     de reprodução do vídeo atual
+  Sections:
+    App:
+      Situational: 'Aplicação: situacional'
+      General: Aplicação: geral
+    Video:
+      Playback: Vídeo: reprodução
+      General: Vídeo: geral
+  History Backward: Retroceder uma página
+  Minimize Window: Minimizar janela
+  Zoom In: Ampliar
+  Skip by Tenths: Avançar ou recuar o vídeo por percentagem (3 saltos para 30% da
+    duração)
+  Keyboard Shortcuts: Atalhos de teclado
+  Zoom Out: Diminuir
+  Force Restart Window: Forçar reinicialização da janela
+  Toggle Developer Tools: Alternar ferramentas de programador
+  Full Window: Alternar modo janela inteira
+  Next Frame: Fotograma seguinte (durante a pausa)
+  Show Keyboard Shortcuts: Mostrar atalhos de teclado
+  Volume Up: Aumentar volume
+  Next Chapter: Próximo capítulo
+  Volume Down: Diminuir volume
+  Focus Search: Concentrar na barra de pesquisa
+  Search in New Window: Pesquisar numa nova janela
+  Last Chapter: Último capítulo
+  Increase Video Speed: Aumentar a velocidade do vídeo com base no intervalo da velocidade
+    de reprodução de vídeo
+  Navigate to History: Navegar para a página Histórico
+  Stats: Mostrar estatísticas do vídeo
+  Fullscreen: Alternar ecrã completo
+  Picture in Picture: Alternar o modo de imagem na imagem
+  Mute: Ativar ou desativar som
+  Theatre Mode: Alternar modo teatro
+  Take Screenshot: Tirar uma captura de ecrã
+  Restart Window: Reiniciar janela
+  Last Frame: Fotograma anterior (durante a pausa)
+  Focus Secondary Search: Concentrar na barra de pesquisa secundária (se existir)
+  History Forward: Avançar uma página
+  New Window: Criar uma nova janela
+  Navigate to Settings: Navegar para a página Definições
+  Refresh: Atualizar o feed com o conteúdo mais recente
+  Decrease Video Speed: Diminuir a velocidade do vídeo com base no intervalo da velocidade
+    de reprodução de vídeo
+  Small Rewind: Retroceder X segundos com base no intervalo de retrocesso e na velocidade
+    de reprodução de vídeo atual
+  Small Fast Forward: Avanço rápido de X segundos com base no intervalo de avanço
+    rápido e na velocidade de reprodução de vídeo atual
+shortcutLabelSeparator: ｜
+Keys:
+  arrowleft: Seta para a esquerda
+  arrowright: Seta para a direita
+  arrowup: Seta para cima
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Seta para baixo
+  plus: Mais
+  shift: Shift
+  enter: Enter
+Description:
+  Expand Description: '...mais'
+  Collapse Description: Mostrar menos
+'Blocked opening potentially unsafe URL': 'Bloqueada a abertura de um URL potencialmente
+  inseguro: “{url}”.'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Right-click or hold to see history: Clique com o botão direito do rato ou mantenha-o
+  premido para ver o histórico
+Trimmed input must be at least N characters long: A entrada cortada deve ter pelo
+  menos 1 carácter | A entrada cortada deve ter pelo menos {length} caracteres
+Autoplay Interruption Timer: Reprodução automática cancelada devido a {autoplayInterruptionIntervalHours}
+  horas de inatividade
+shortcutJoinOperator: +
