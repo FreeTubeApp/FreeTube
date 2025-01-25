@@ -2,10 +2,10 @@
 Locale Name: 'Português'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta parte do aplicativo ainda não está pronta. Volte mais tarde quando já houver
+  Esta parte da aplicação ainda não está pronta. Volte mais tarde quando já houver
   progresso.
 # Webkit Menu Bar
-File: 'Arquivo'
+File: 'Ficheiro'
 Quit: 'Sair'
 Edit: 'Editar'
 Undo: 'Desfazer'
@@ -294,13 +294,14 @@ Settings:
     Current Invidious Instance: Instância Invidious atual
     System Default: Definido no sistema
     External Link Handling:
-      External Link Handling: Gestão de ligações externas
-      Open Link: Abrir ligação
-      Ask Before Opening Link: Perguntar antes de abrir a ligação
+      External Link Handling: Gestão de hiperligações externas
+      Open Link: Abrir hiperligação
+      Ask Before Opening Link: Perguntar antes de abrir a hiperligação
       No Action: Nenhuma ação
     Auto Load Next Page:
       Label: Carregar seguinte automaticamente
       Tooltip: Carrega as páginas e comentários automaticamente.
+    Open Deep Links In New Window: Abrir URLs passados para o FreeTube numa nova janela
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Utilizar cor principal na barra superior'
@@ -784,11 +785,12 @@ Video:
   Video has been marked as watched: 'O vídeo foi marcado como visto'
   Video has been removed from your history: 'O vídeo foi removido do histórico'
   Open in YouTube: 'Abrir no YouTube'
-  Copy YouTube Link: 'Copiar ligação do YouTube'
+  Copy YouTube Link: 'Copiar hiperligação do YouTube'
   Open YouTube Embedded Player: 'Abrir reprodutor YouTube nativo'
-  Copy YouTube Embedded Player Link: 'Copiar ligação do reprodutor integrado do YouTube'
+  Copy YouTube Embedded Player Link: 'Copiar hiperligação do reprodutor integrado
+    do YouTube'
   Open in Invidious: 'Abrir no Invidious'
-  Copy Invidious Link: 'Copiar ligação Invidious'
+  Copy Invidious Link: 'Copiar hiperligação Invidious'
   Views: 'Visualizações'
   Loop Playlist: 'Repetir lista de reprodução'
   Shuffle Playlist: 'Baralhar lista de reprodução'
@@ -806,9 +808,9 @@ Video:
     permitida nesta versão.'
   Live chat is enabled. Chat messages will appear here once sent.: 'A conversa em
     direto está ativada. As mensagens vão aparecer aqui.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'A
-    conversa em direto não se encontra a funcionar com a API Invividious. É necessária
-    uma ligação direta ao YouTube.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Atualmente,
+    a conversa em direto não é suportada pela API Invidious. É necessária uma conexão
+    direta ao YouTube.'
   Published:
     In less than a minute: Em menos de um minuto
   Published on: 'Publicado a'
@@ -849,9 +851,9 @@ Video:
   audio only: apenas áudio
   video only: apenas vídeo
   Download Video: Descarregar vídeo
-  Copy Invidious Channel Link: Copiar ligação do canal do Invidious
+  Copy Invidious Channel Link: Copiar hiperligação do canal do Invidious
   Open Channel in Invidious: Abrir canal no Invidious
-  Copy YouTube Channel Link: Copiar ligação do canal do YouTube
+  Copy YouTube Channel Link: Copiar hiperligação do canal do YouTube
   Open Channel in YouTube: Abrir canal no YouTube
   Video has been removed from your saved list: O vídeo foi removido da lista de guardados
   Video has been saved: O vídeo foi guardado
@@ -878,7 +880,7 @@ Video:
       Stats: Estatísticas
       Video ID: 'ID do vídeo: {videoId}'
       CodecAudio: 'Codificador: {audioCodec} ({audioItag})'
-      Buffered: 'A processar: {bufferedPercentage}%'
+      Buffered: 'Armazenado em buffer: {bufferedPercentage}%'
       CodecsVideoAudio: 'Codificadores: {videoCodec} ({videoItag}) / {audioCodec}
         ({audioItag})'
       CodecsVideoAudioNoItags: 'Codificadores: {videoCodec} / {audioCodec}'
@@ -890,18 +892,18 @@ Video:
     Take Screenshot: Captura de ecrã
     Show Stats: Mostrar estatísticas
     Hide Stats: Ocultar estatísticas
-    You appear to be offline: Parece que está offline.
+    You appear to be offline: Parece que não tem conexão à Internet.
     Playback will resume automatically when your connection comes back: A reprodução
-      será retomada assim que se estabeleça uma nova ligação.
+      será retomada automaticamente quando a conexão for restabelecida.
     Skipped segment: Segmento {segmentCategory} ignorado
   MembersOnly: Os vídeos apenas disponíveis para membros não podem ser vistos nesta
     aplicação pois requerem que o utilizador inicie sessão e que tenha uma subscrição
     paga.
   IP block: O YouTube está a impedir o seu IP de ver vídeos. Experimente utilizar
     outra VPN ou proxy.
-  AgeRestricted: Os vídeos com restrição de idade não podem ser vistos nesta aplicação
-    pois requerem que o utilizador inicie sessão com uma conta que tenha confirmação
-    da sua idade..
+  AgeRestricted: Os vídeos com restrições de idade não podem ser vistos com o FreeTube,
+    uma vez que requerem o início de sessão no Google e a utilização de uma conta
+    YouTube com idade verificada.
   Unlisted: Não listado
 #& Playlists
 Playlist:
@@ -932,14 +934,14 @@ Change Format:
     para este vídeo'
   Audio formats are not available for this video: 'Os formatos de áudio não estão
     disponíveis para este vídeo'
-  Legacy formats are not available for this video: Este vídeo não permite formatos
-    antigos
+  Legacy formats are not available for this video: Os formatos antigos não estão disponíveis
+    para este vídeo
 Share:
   Share Video: 'Partilhar vídeo'
   Share Playlist: 'Partilhar lista'
   Include Timestamp: 'Incluir posição temporal'
-  Copy Link: 'Copiar ligação'
-  Open Link: 'Abrir ligação'
+  Copy Link: 'Copiar hiperligação'
+  Open Link: 'Abrir hiperligação'
   Copy Embed: 'Copiar incorporado'
   Open Embed: 'Abrir incorporado'
   # On Click
@@ -1043,8 +1045,8 @@ Tooltips:
       Os formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos
       estão limitados a um máximo de 720p, mas usam menos largura de banda. Os formatos
       de áudio são apenas para emissões sem vídeo.
-    Proxy Videos Through Invidious: Estabelece uma ligação a Invidious para obter
-      vídeos em vez de fazer uma ligação direta ao YouTube.
+    Proxy Videos Through Invidious: Estabelece uma conexão ao Invidious para obter
+      vídeos em vez de fazer uma conexão direta ao YouTube.
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, prima e mantenha
       premida a tecla Ctrl (Comando em Mac) e desloque a roda do rato para controlar
       a taxa de reprodução. Prima e mantenha premida a tecla Ctrl (Comando em Mac)
@@ -1065,9 +1067,12 @@ Tooltips:
     Preferred API Backend: Escolha o sistema que o FreeTube usa para se ligar ao YouTube.
       A API local é um extrator incorporado. A API Invidious requer um servidor Invidious
       para fazer a ligação.
-    External Link Handling: "Escolha o comportamento padrão quando uma ligação, que
-      não pode ser aberta no FreeTube, é clicada.\nPor definição, FreeTube abrirá
-      a ligação no seu navegador de Internet.\n"
+    External Link Handling: "Escolha o comportamento padrão quando uma hiperligação,
+      que não pode ser aberta no FreeTube, é clicada.\nPor definição, o FreeTube abrirá
+      a hiperligação no seu navegador de Internet.\n"
+    Open Deep Links In New Window: Os URLs passados para o FreeTube, como por extensões
+      de navegador de redirecionamento ou argumentos de linha de comando, são abertos
+      numa nova janela.
   Experimental Settings:
     Replace HTTP Cache: Desativa a cache HTTP Electron e ativa uma cache de imagem
       na memória personalizada. Implica o aumento da utilização de memória RAM.
@@ -1084,8 +1089,8 @@ Tooltips:
     UseDeArrowThumbnails: Substituir miniaturas do vídeo por miniaturas DeArrow.
 Search Bar:
   Clear Input: Limpar entrada
-Are you sure you want to open this link?: Tem a certeza de que deseja abrir esta ligação?
-External link opening has been disabled in the general settings: A abertura de ligaçoes
+Are you sure you want to open this link?: Tem a certeza de que deseja abrir esta hiperligação?
+External link opening has been disabled in the general settings: A abertura de hiperligações
   externas foi desativada nas definições
 Starting download: A descarregar "{videoTitle}"
 Downloading failed: Ocorreu um erro ao descarregar "{videoTitle}"
@@ -1108,8 +1113,8 @@ Chapters:
     capítulo atual: {chapterName}'
 Clipboard:
   Copy failed: Falha ao copiar para a área de transferência
-  Cannot access clipboard without a secure connection: Não pode aceder à área de transferência
-    sem uma ligação segura
+  Cannot access clipboard without a secure connection: Não é possível aceder à área
+    de transferência sem uma conexão segura
 Preferences: Preferências
 Ok: OK
 Hashtag:
@@ -1131,15 +1136,16 @@ Display Label: '{label}: {value}'
 Moments Ago: há momentos
 checkmark: ✓
 Yes, Delete: Sim, eliminar
-Yes, Open Link: Sim, abrir ligação
+Yes, Open Link: Sim, abrir hiperligação
 Cancel: Cancelar
-Search character limit: 'A pesquisa excede o limite de caracteres permitidos: {searchCharacterLimit}'
+Search character limit: 'A pesquisa excede o limite de {searchCharacterLimit} caracteres
+  permitidos'
 Yes, Restart: Sim, reiniciar
 Search Listing:
   Label:
     4K: 4K
     Subtitles: Legendas
-    Closed Captions: Legendas fechadas
+    Closed Captions: Legendas de áudio
     8K: 8K
     VR180: VR180
     360 Video: 360°
