@@ -1716,7 +1716,7 @@ export async function getLocalCommunityPost(postId, channelId) {
   }
 
   const postPage = await innertube.getPost(postId, channelId)
-  return parseLocalCommunityPost(postPage.posts.first())
+  return parseLocalCommunityPost(postPage.posts[0])
 }
 
 /**
