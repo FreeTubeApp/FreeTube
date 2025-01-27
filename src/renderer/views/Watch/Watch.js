@@ -114,6 +114,8 @@ export default defineComponent({
       captions: [],
       /** @type {'EQUIRECTANGULAR' | 'EQUIRECTANGULAR_THREED_TOP_BOTTOM' | 'MESH'| null} */
       vrProjection: null,
+      autoplayNextRecommendedVideo: false,
+      autoplayNextPlaylistVideo: false,
       recommendedVideos: [],
       downloadLinks: [],
       watchingPlaylist: false,
@@ -182,15 +184,15 @@ export default defineComponent({
       return this.$store.getters.getDefaultVideoFormat
     },
     autoplayEnabled: function () {
-      return this.watchingPlaylist ? this.autoplayPlaylists : this.playNextVideo
+      return this.watchingPlaylist ? this.autoplayNextPlaylistVideo : this.autoplayNextRecommendedVideo
     },
     thumbnailPreference: function () {
       return this.$store.getters.getThumbnailPreference
     },
-    playNextVideo: function () {
+    autoplayNextRecommendedVideoByDefault: function () {
       return this.$store.getters.getPlayNextVideo
     },
-    autoplayPlaylists: function () {
+    autoplayNextPlaylistVideoByDefault: function () {
       return this.$store.getters.getAutoplayPlaylists
     },
     hideRecommendedVideos: function () {
@@ -319,6 +321,9 @@ export default defineComponent({
   created: function () {
     this.videoId = this.$route.params.id
     this.activeFormat = this.defaultVideoFormat
+    // So that the value for this session remains unchanged even if setting changed
+    this.autoplayNextRecommendedVideo = this.autoplayNextRecommendedVideoByDefault
+    this.autoplayNextPlaylistVideo = this.autoplayNextPlaylistVideoByDefault
 
     this.checkIfTimestamp()
     this.currentPlaybackRate = this.$store.getters.getDefaultPlayback
@@ -1679,9 +1684,9 @@ export default defineComponent({
       }
 
       if (this.watchingPlaylist) {
-        this.updateAutoplayPlaylists(!this.autoplayEnabled)
+        this.autoplayNextPlaylistVideo = !this.autoplayEnabled
       } else {
-        this.updatePlayNextVideo(!this.autoplayEnabled)
+        this.autoplayNextRecommendedVideo = !this.autoplayEnabled
       }
     },
 
@@ -1711,8 +1716,6 @@ export default defineComponent({
 
     ...mapActions([
       'updateHistory',
-      'updateAutoplayPlaylists',
-      'updatePlayNextVideo',
       'updateWatchProgress',
       'updateLastViewedPlaylist',
       'updatePlaylistLastPlayedAt',
