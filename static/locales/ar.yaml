@@ -548,6 +548,8 @@ Settings:
     Hide Videos and Playlists Containing Text: إخفاء مقاطع الفيديو وقوائم التشغيل
       التي تحتوي على نص
     Hide Videos and Playlists Containing Text Placeholder: كلمة أو جزء كلمة أو عبارة
+    Hide Channel Home: إخفاء علامة التبويب "الصفحة الرئيسية" للقناة
+    Show Added Items: إظهار العناصر المضافة
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -767,6 +769,9 @@ Channel:
     Releases: الاصدارات
     This channel does not currently have any releases: هذه القناة ليس لديها أي إصدارات
       حاليا
+  Home:
+    Home: الصفحة الرئيسية
+    View Playlist: إظهار قائمة التشغيل
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
   Remove From History: 'إزالة من سجلّ المشاهدة'
@@ -888,6 +893,12 @@ Video:
   MembersOnly: لا يمكن مشاهدة مقاطع الفيديو الخاصة بالأعضاء فقط مع FreeTube لأنها
     تتطلب تسجيل الدخول إلى Google والعضوية المدفوعة لقناة القائم بالتحميل.
 #& Playlists
+  DeArrow:
+    Show Modified Details: إظهار التفاصيل المعدلة
+    Show Original Details: إظهار التفاصيل الأصلية
+  DRMProtected: لا يمكن تشغيل مقاطع الفيديو المحمية بنظام إدارة الحقوق الرقمية في
+    FreeTube، لأنها تتطلب مكونات خاصة ومغلقة المصدر. إذا كنت ترغب في مشاهدة هذا الفيديو،
+    فيرجى مشاهدته على موقع يوتيوب الرسمي في متصفح ويب يدعم إدارة الحقوق الرقمية.
 Playlist:
   #& About
   View Full Playlist: 'عرض قائمة التشغيل بالكامل'
@@ -907,6 +918,8 @@ Playlist:
     Custom: مُخصّص
     VideoDurationDescending: المدة (الاطول أولاً)
     VideoDurationAscending: المدة (الأقصر أولاً)
+    PublishedNewest: آخر نشر أولا
+    PublishedOldest: الأقدم نشر أولا
 Change Format:
   Change Media Formats: 'تغيير تنسيقات الفيديو'
   Use Dash Formats: 'استخدم تنسيقات DASH'
@@ -998,6 +1011,8 @@ Tooltips:
       الافتراضي.\n"
     Region for Trending: الانتشار المحلي (Trend) يسمح لك بأن تشاهد الفيديوهات الأكثر
       انتشارا حسب الدولة. ليست كل الدول المعروضة في هذه القائمة مدعومة من طرف يوتيوب.
+    Open Deep Links In New Window: يتم فتح عناوين URL التي تم تمريرها إلى FreeTube،
+      مثل إعادة توجيه ملحقات المتصفح أو حجج سطر الأوامر، في نافذة جديدة.
   Player Settings:
     Proxy Videos Through Invidious: سيتم الاتصال بـ Invidious لعرض مقاطع الفيديو بدلاً
       من إجراء اتصال مباشر بـ YouTube.
@@ -1133,3 +1148,63 @@ Search Listing:
 'Blocked opening potentially unsafe URL': 'تم حظر فتح الرابط الذي يحتمل أن يكون غير
   آمن: "{url}".'
 Right-click or hold to see history: انقر زر الفارة الأيمن أو اضغط مطولا لعرض السجل
+KeyboardShortcutPrompt:
+  Force Restart Window: إجبار إعادة تشغيل النافذة
+  Toggle Developer Tools: تبديل أدوات المطور
+  Zoom In: تكبير
+  Zoom Out: تصغير
+  Last Frame: الإطار السابق (أثناء التوقف مؤقتا)
+  Next Frame: الإطار التالي (أثناء التوقف مؤقتا)
+  Minimize Window: تصغير النافذة
+  Close Window: أغلاق النافذة
+  Reset Zoom: إعادة تعيين مستوى التكبير/مقياس واجهة المستخدم
+  Skip by Tenths: تخطي الفيديو حسب النسبة المئوية (3 تخطيات إلى 30٪ من المدة)
+  Small Fast Forward: للأمام السريع X ثواني استنادا إلى الفاصل الزمني للأمام السريع
+    ومعدل تشغيل الفيديو الحالي
+  Keyboard Shortcuts: اختصارات لوحة المفاتيح
+  Sections:
+    Video:
+      Playback: 'فيديو: تشغيل'
+      General: 'فيديو: عام'
+    App:
+      Situational: 'التطبيق: ظرفي'
+      General: 'التطبيق: عام'
+  Show Keyboard Shortcuts: إظهار اختصارات لوحة المفاتيح
+  History Backward: انتقل إلى الخلف صفحة واحدة
+  Navigate to History: انتقل إلى صفحة السجل التاريخي
+  Refresh: تحديث الخلاصة بأحدث محتوى
+  Focus Secondary Search: التركيز على شريط البحث الثانوي (إذا كان موجودا)
+  Mute: تبديل كتم الصوت
+  Focus Search: التركيز على شريط البحث
+  Search in New Window: البحث في نافذة جديدة
+  Volume Up: زيادة الحجم
+  Volume Down: تقليل الحجم
+  Small Rewind: الترجيع X ثانية استنادا إلى فاصل الترجيع ومعدل تشغيل الفيديو الحالي
+  Last Chapter: الفصل الأخير
+  Next Chapter: الفصل التالي
+  Decrease Video Speed: تقليل سرعة الفيديو بناء على الفاصل الزمني لمعدل تشغيل الفيديو
+  Restart Window: إعادة تشغيل النافذة
+  Increase Video Speed: زيادة سرعة الفيديو استنادا إلى الفاصل الزمني لمعدل تشغيل الفيديو
+  Full Window: تبديل النافذة الكاملة
+  Theatre Mode: تبديل وضع المسرح
+  Take Screenshot: أخذ لقطة شاشة
+  History Forward: انتقل إلى الأمام صفحة واحدة
+  New Window: إنشاء نافذة جديدة
+  Navigate to Settings: انتقل إلى صفحة الإعدادات
+Keys:
+  arrowright: ‫ السهم الأيمن
+  enter: Enter
+  plus: Plus
+  arrowup: السهم لأعلى
+  ctrl: Ctrl
+  alt: Alt
+  shift: Shift
+  arrowdown: السهم لأسفل
+  arrowleft: السهم الأيسر
+Description:
+  Collapse Description: إظهار أقل
+  Expand Description: '...المزيد'
+Autoplay Interruption Timer: تم إلغاء التشغيل التلقائي بسبب {autoplayInterruptionIntervalHours}
+  ساعات من عدم النشاط
+shortcutJoinOperator: +
+shortcutLabelSeparator: '|'
