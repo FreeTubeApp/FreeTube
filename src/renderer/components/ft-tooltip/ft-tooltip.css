@@ -25,7 +25,7 @@
   transition-duration: 275ms;
   transition-property: opacity, transform, visibility;
   visibility: hidden;
-  z-index: 4;
+  z-index: 2;
 }
 
 .text.bottom {
