@@ -1,6 +1,3 @@
-import fs from 'fs/promises'
-import path from 'path'
-
 import { computed, defineComponent, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
 import shaka from 'shaka-player'
 import { useI18n } from '../../composables/use-i18n-polyfill'
@@ -24,11 +21,9 @@ import {
 } from '../../helpers/player/utils'
 import {
   addKeyboardShortcutToActionTitle,
-  getPicturesPath,
   showToast,
   writeFileWithPicker
 } from '../../helpers/utils'
-import { pathExists } from '../../helpers/filesystem'
 
 /** @typedef {import('../../helpers/sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
 
@@ -342,11 +337,6 @@ export default defineComponent({
     /** @type {import('vue').ComputedRef<boolean>} */
     const screenshotAskPath = computed(() => {
       return store.getters.getScreenshotAskPath
-    })
-
-    /** @type {import('vue').ComputedRef<string>} */
-    const screenshotFolder = computed(() => {
-      return store.getters.getScreenshotFolderPath
     })
 
     /** @type {import('vue').ComputedRef<boolean>} */
@@ -1602,16 +1592,16 @@ export default defineComponent({
 
       const filenameWithExtension = `${filename}.${format}`
 
-      if (!process.env.IS_ELECTRON || screenshotAskPath.value) {
-        const wasPlaying = !video_.paused
-        if (wasPlaying) {
-          video_.pause()
-        }
+      const wasPlaying = !video_.paused
+      if (wasPlaying) {
+        video_.pause()
+      }
 
-        try {
-          /** @type {Blob} */
-          const blob = await new Promise((resolve) => canvas.toBlob(resolve, mimeType, imageQuality))
+      try {
+        /** @type {Blob} */
+        const blob = await new Promise((resolve) => canvas.toBlob(resolve, mimeType, imageQuality))
 
+        if (!process.env.IS_ELECTRON || screenshotAskPath.value) {
           const saved = await writeFileWithPicker(
             filenameWithExtension,
             blob,
@@ -1625,53 +1615,24 @@ export default defineComponent({
           if (saved) {
             showToast(t('Screenshot Success'))
           }
-        } catch (error) {
-          console.error(error)
-          showToast(t('Screenshot Error', { error }))
-        }
+        } else {
+          const arrayBuffer = await blob.arrayBuffer()
 
+          const { ipcRenderer } = require('electron')
+
+          await ipcRenderer.invoke(IpcChannels.WRITE_SCREENSHOT, filenameWithExtension, arrayBuffer)
+
+          showToast(t('Screenshot Success'))
+        }
+      } catch (error) {
+        console.error(error)
+        showToast(t('Screenshot Error', { error }))
+      } finally {
         canvas.remove()
 
         if (wasPlaying) {
           video_.play()
         }
-      } else {
-        let dirPath
-
-        if (screenshotFolder.value === '') {
-          dirPath = path.join(await getPicturesPath(), 'Freetube')
-        } else {
-          dirPath = screenshotFolder.value
-        }
-
-        if (!(await pathExists(dirPath))) {
-          try {
-            await fs.mkdir(dirPath, { recursive: true })
-          } catch (err) {
-            console.error(err)
-            showToast(t('Screenshot Error', { error: err }))
-            canvas.remove()
-            return
-          }
-        }
-
-        const filePath = path.join(dirPath, filenameWithExtension)
-
-        canvas.toBlob((result) => {
-          result.arrayBuffer().then(ab => {
-            const arr = new Uint8Array(ab)
-
-            fs.writeFile(filePath, arr)
-              .then(() => {
-                showToast(t('Screenshot Success'))
-              })
-              .catch((err) => {
-                console.error(err)
-                showToast(t('Screenshot Error', { error: err }))
-              })
-          })
-        }, mimeType, imageQuality)
-        canvas.remove()
       }
     }
 

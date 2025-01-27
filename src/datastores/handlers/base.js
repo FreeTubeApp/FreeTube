@@ -77,6 +77,10 @@ class Settings {
     }
   }
 
+  static _findScreenshotFolderPath() {
+    return db.settings.findOneAsync({ _id: 'screenshotFolderPath' })
+  }
+
   static _updateBounds(value) {
     return db.settings.updateAsync({ _id: 'bounds' }, { _id: 'bounds', value }, { upsert: true })
   }

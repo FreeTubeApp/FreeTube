@@ -1010,6 +1010,40 @@ function runApp() {
     })
   }
 
+  ipcMain.handle(IpcChannels.WRITE_SCREENSHOT, async (event, filename, arrayBuffer) => {
+    if (!isFreeTubeUrl(event.senderFrame.url) || typeof filename !== 'string' || !(arrayBuffer instanceof ArrayBuffer)) {
+      return
+    }
+
+    const screenshotFolderPath = await baseHandlers.settings._findScreenshotFolderPath()
+
+    let directory
+    if (screenshotFolderPath && screenshotFolderPath.value.length > 0) {
+      directory = screenshotFolderPath.value
+    } else {
+      directory = path.join(app.getPath('pictures'), 'FreeTube')
+    }
+
+    directory = path.normalize(directory)
+
+    const filePath = path.resolve(directory, filename)
+
+    // Ensure that we are only writing inside of the expected directory
+    if (path.dirname(filePath) !== directory) {
+      throw new Error('Invalid save location')
+    }
+
+    try {
+      await asyncFs.mkdir(directory, { recursive: true })
+
+      await asyncFs.writeFile(filePath, new DataView(arrayBuffer))
+    } catch (error) {
+      console.error('WRITE_SCREENSHOT failed', error)
+      // throw a new error so that we don't expose the real error to the renderer
+      throw new Error('Failed to save')
+    }
+  })
+
   ipcMain.on(IpcChannels.STOP_POWER_SAVE_BLOCKER, (_, id) => {
     powerSaveBlocker.stop(id)
   })
