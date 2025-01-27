@@ -60,7 +60,7 @@
 .navOption .navLabel {
   margin-inline-start: 40px;
   overflow: hidden;
-  word-break: break-word;
+  word-wrap: break-word;
 }
 
 .navOption:hover,
@@ -94,7 +94,7 @@
 .navChannel .navLabel {
   overflow: hidden;
   margin-inline-start: 40px;
-  word-break: break-word;
+  word-wrap: break-word;
   font-size: 12px;
 }
 

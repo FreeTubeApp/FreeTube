@@ -99,6 +99,7 @@
   margin-inline-start: $effect-distance;
 
   &.filterChanged {
+    /* stylelint-disable-next-line declaration-property-value-no-unknown */
     box-shadow: 0 0 $effect-distance var(--primary-color);
     color: var(--primary-color);
 
