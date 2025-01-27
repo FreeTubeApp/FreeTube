@@ -224,7 +224,7 @@ export default defineComponent({
     handleInvidiousInstanceInput: function (input) {
       let instance = input
       // If NOT something like https:// (1-2 slashes), remove trailing slash
-      if (!/^(https?):(\/){1,2}$/.test(input)) {
+      if (!/^https?:\/{1,2}$/.test(input)) {
         instance = input.replace(/\/$/, '')
       }
       this.setCurrentInvidiousInstanceBounce(instance)

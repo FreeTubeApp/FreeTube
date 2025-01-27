@@ -17,17 +17,14 @@
       </div>
     </template>
 
-    <div
-      v-if="primarySections"
-      class="primarySections"
-    >
+    <div class="primarySections">
       <div
         v-for="(primarySection, index) of primarySections"
         :key="index"
         class="primarySection"
       >
         <div
-          v-for="secondarySection in primarySection.secondarySections"
+          v-for="secondarySection in primarySection"
           :key="secondarySection.title"
           class="secondarySection"
         >
@@ -85,30 +82,26 @@ const situationalAppShortcuts = computed(() =>
 )
 
 const primarySections = computed(() => [
-  {
-    secondarySections: [
-      {
-        title: t('KeyboardShortcutPrompt.Sections.Video.Playback'),
-        shortcutDictionary: playbackPlayerShortcuts.value
-      },
-      {
-        title: t('KeyboardShortcutPrompt.Sections.Video.General'),
-        shortcutDictionary: generalPlayerShortcuts.value
-      },
-    ]
-  },
-  {
-    secondarySections: [
-      {
-        title: t('KeyboardShortcutPrompt.Sections.App.General'),
-        shortcutDictionary: generalAppShortcuts.value
-      },
-      {
-        title: t('KeyboardShortcutPrompt.Sections.App.Situational'),
-        shortcutDictionary: situationalAppShortcuts.value
-      }
-    ]
-  }
+  [
+    {
+      title: t('KeyboardShortcutPrompt.Sections.Video.Playback'),
+      shortcutDictionary: playbackPlayerShortcuts.value
+    },
+    {
+      title: t('KeyboardShortcutPrompt.Sections.Video.General'),
+      shortcutDictionary: generalPlayerShortcuts.value
+    },
+  ],
+  [
+    {
+      title: t('KeyboardShortcutPrompt.Sections.App.General'),
+      shortcutDictionary: generalAppShortcuts.value
+    },
+    {
+      title: t('KeyboardShortcutPrompt.Sections.App.Situational'),
+      shortcutDictionary: situationalAppShortcuts.value
+    }
+  ]
 ])
 
 const isMac = process.platform === 'darwin'

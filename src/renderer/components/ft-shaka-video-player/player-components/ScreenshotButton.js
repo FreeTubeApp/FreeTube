@@ -15,8 +15,7 @@ export class ScreenshotButton extends shaka.ui.Element {
 
     /** @private */
     this.button_ = document.createElement('button')
-    this.button_.classList.add('screenshot-button')
-    this.button_.classList.add('shaka-tooltip')
+    this.button_.classList.add('screenshot-button', 'shaka-tooltip')
 
     const icon = document.createElement('i')
     icon.classList.add('material-icons-round')
@@ -25,8 +24,7 @@ export class ScreenshotButton extends shaka.ui.Element {
     this.button_.appendChild(icon)
 
     const label = document.createElement('label')
-    label.classList.add('shaka-overflow-button-label')
-    label.classList.add('shaka-overflow-menu-only')
+    label.classList.add('shaka-overflow-button-label', 'shaka-overflow-menu-only')
 
     /** @private */
     this.nameSpan_ = document.createElement('span')
