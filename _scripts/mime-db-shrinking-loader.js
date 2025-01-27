@@ -8,18 +8,15 @@
 module.exports = function (source) {
   const original = JSON.parse(source)
 
-  const reduced = {}
+  // Only the extensions field is needed, see: https://github.com/kevva/ext-list/blob/v2.2.2/index.js
 
-  for (const mimeType of Object.keys(original)) {
-    if (mimeType.startsWith('image/') && original[mimeType].extensions &&
-      (!mimeType.startsWith('image/x-') || mimeType === 'image/x-icon' || mimeType === 'image/x-ms-bmp') &&
-      (!mimeType.startsWith('image/vnd.') || mimeType === 'image/vnd.microsoft.icon')) {
-      // Only the extensions field is needed, see: https://github.com/kevva/ext-list/blob/v2.2.2/index.js
-      reduced[mimeType] = {
-        extensions: original[mimeType].extensions
-      }
-    }
-  }
-
-  return JSON.stringify(reduced)
+  return JSON.stringify({
+    'image/apng': { extensions: original['image/apng'].extensions },
+    'image/avif': { extensions: original['image/avif'].extensions },
+    'image/gif': { extensions: original['image/gif'].extensions },
+    'image/jpeg': { extensions: original['image/jpeg'].extensions },
+    'image/png': { extensions: original['image/png'].extensions },
+    'image/svg+xml': { extensions: original['image/svg+xml'].extensions },
+    'image/webp': { extensions: original['image/webp'].extensions }
+  })
 }
