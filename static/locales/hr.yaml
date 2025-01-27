@@ -187,6 +187,8 @@ User Playlists:
       This playlist has a video with a duration error: Ova zbirka sadrži barem jedan
         video koji nema trajanje. Video će se svrstati kao da je njegovo trajanje
         nula.
+      Video has been removed. Click here to undo.: Video je uklonjen. Klikni ovdje
+        za poništavanje uklanjanja.
     Search for Videos: Traži videa
   AddVideoPrompt:
     N playlists selected: 'Odabrano: {playlistCount}'
@@ -391,11 +393,11 @@ Settings:
     Hide FreeTube Header Logo: Sakrij FreeTube logotip u zaglavlju
   Player Settings:
     Player Settings: 'Player'
-    Play Next Video: 'Reproduciraj sljedeći video'
+    Play Next Video: 'Automatski reproduciraj preporučena videa'
     Turn on Subtitles by Default: 'Standardno uključi titlove'
-    Autoplay Videos: 'Automatski reproduciraj videa'
+    Autoplay Videos: 'Pokreni videa automatski'
     Proxy Videos Through Invidious: 'Koristi Invidious kao posrednika videa'
-    Autoplay Playlists: 'Automatski reproduciraj zbirke'
+    Autoplay Playlists: 'Automatski reproduciraj videa zbirki'
     Enable Theatre Mode by Default: 'Standardno aktiviraj kazališni modus'
     Default Volume: 'Standardna glasnoća'
     Default Playback Rate: 'Standardna brzina reprodukcije'
@@ -442,6 +444,12 @@ Settings:
       ekrana
     Skip by Scrolling Over Video Player: Preskoči pomicanjem preko video playera
     Autoplay Interruption Timer: Timer za prekidanje automatske reprodukcije
+    Default Viewing Mode:
+      Theater: Kino
+      Default Viewing Mode: Standardni modus gledanja
+      Full Screen: Cijeli ekran
+      Picture in Picture: Slika u slici
+      External Player: Eksterni Player ({externalPlayerName})
   Privacy Settings:
     Privacy Settings: 'Privatnost'
     Remember History: 'Zapamti povijest gledanja'
@@ -903,10 +911,12 @@ Video:
       će se automatski nastaviti nakon što se veza ponovo uspostavi.
     TranslatedCaptionTemplate: '{language} (izvorni jezik prijevoda: {originalLanguage})'
     Exit Full Window: Zatvori cjeloekranski prikaz
-    Theatre Mode: Kazališni modus
+    Theatre Mode: Kinematografski modus
     Audio Tracks: Audio snimke
-    Exit Theatre Mode: Zatvori kazališni modus
+    Exit Theatre Mode: Zatvori kinematografski modus
     Full Window: Cjeloekranski prikaz
+    Autoplay is off: Automatska reprodukcija je isključena
+    Autoplay is on: Automatska reprodukcija je uključena
   MembersOnly: Videa koja su namijenjena samo za članove ne mogu se gledati putem
     FreeTubea jer zahtijevaju prijavu na Google i plaćeno članstvo na kanalu prenositelja.
   Unlisted: Skriveni za javnost
@@ -1190,15 +1200,15 @@ KeyboardShortcutPrompt:
   New Window: Stvori novi prozor
   Show Keyboard Shortcuts: Prikaži tipkovničke prečace
   Focus Secondary Search: Fokusiraj sekundarnu traku pretrage (ako postoji)
-  Captions: UKLJ./ISKLJ. titlove
+  Captions: Uključi/Isključi titlove
   Stats: Prikaži statistiku videa
   Navigate to Settings: Idi na stranicu „Postavke”
   Navigate to History: Idi na stranicu „Povijest”
   Refresh: Osvježi feed s najnovijim sadržajem
-  Picture in Picture: Uključi/Isključi modus „Slika-u-slici”
+  Picture in Picture: Uključi/Isključi modus „Slika u slici”
   Play: Uključi/Isključi reprodukciju/pauza
   Full Window: Uključi/Isključi prikaz u cijelom prozoru
-  Theatre Mode: Uključi/Isključi kazališni modus
+  Theatre Mode: Uključi/Isključi kinematografski modus
   Take Screenshot: Snimi snimku ekrana
   Minimize Window: Sklopi prozor
   Restart Window: Ponovo pokreni prozor
@@ -1248,3 +1258,4 @@ Keys:
   plus: Plus
 Autoplay Interruption Timer: Automatska reprodukcija je prekinuta zbog {autoplayInterruptionIntervalHours}
   sata neaktivnosti
+shortcutLabelSeparator: ｜

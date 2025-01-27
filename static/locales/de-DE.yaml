@@ -194,6 +194,8 @@ User Playlists:
       This playlist has a video with a duration error: Diese Wiedergabeliste enthält
         mindestens ein Video ohne Dauer. Daher wird die Wiedergabeliste so sortiert,
         als ob die Dauer null wäre.
+      Video has been removed. Click here to undo.: Video wurde entfernt. Klicke hier,
+        um das Entfernen rückgängig zu machen.
     Search for Videos: Nach Videos suchen
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
@@ -410,7 +412,7 @@ Settings:
   Player Settings:
     Player Settings: Videoabspieler
     Play Next Video: Empfohlene Videos automatisch abspielen
-    Turn on Subtitles by Default: Untertitel standardmäßig aktivieren
+    Turn on Subtitles by Default: Untertitel standardmäßig einschalten
     Autoplay Videos: Videos automatisch starten
     Proxy Videos Through Invidious: Proxy-Videos durch Invidious
     Autoplay Playlists: Wiedergabelisten-Videos automatisch abspielen
@@ -459,6 +461,12 @@ Settings:
     Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoabspieler
     Autoplay Interruption Timer: Automatische Wiedergabe Unterbrechungs-Timer
+    Default Viewing Mode:
+      Theater: Theater
+      Picture in Picture: Bild im Bild
+      External Player: Externer Player ({externalPlayerName})
+      Full Screen: Vollbild
+      Default Viewing Mode: Standard-Ansichtsmodus
   Subscription Settings:
     Subscription Settings: Abo
     Hide Videos on Watch: Videos bei Wiedergabe ausblenden
@@ -1173,7 +1181,7 @@ External link opening has been disabled in the general settings: Das Öffnen ext
 Downloading has completed: „{videoTitle}“ wurde vollständig heruntergeladen
 Starting download: Herunterladen von „{videoTitle}“ wird gestartet
 Downloading failed: Beim Herunterladen von „{videoTitle}“ gab es ein Problem
-Screenshot Success: Bildschirmfoto gespeichert
+Screenshot Success: Gespeichertes Bildschirmfoto
 Screenshot Error: Bildschirmfoto fehlgeschlagen. {error}
 New Window: Neues Fenster
 Channels:

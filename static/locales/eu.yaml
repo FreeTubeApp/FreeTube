@@ -210,6 +210,8 @@ User Playlists:
       This playlist has a video with a duration error: Erreprodukzio-zerrenda honek
         iraupenik ez duen bideo bat du gutxienez. Hortaz, zero balitz bezala sailkatuko
         da.
+      Video has been removed. Click here to undo.: Bideoa kendu da. Egin klik hemen
+        desegiteko.
     Search for Videos: Bilatu bideoak
   AddVideoPrompt:
     Added {count} Times: Gehitu da | {count} aldiz gehitu da
@@ -459,6 +461,12 @@ Settings:
     Skip by Scrolling Over Video Player: Saltatu bideo-erreproduzitzailean korrituz
     Enter Fullscreen on Display Rotate: Sartu pantaila osoko pantaila biratu pantailan
     Autoplay Interruption Timer: Erreprodukzio automatikoa eteteko tenporizadorea
+    Default Viewing Mode:
+      Default Viewing Mode: Ikusteko modu lehenetsia
+      Full Screen: Pantaila osoa
+      Picture in Picture: Irudia Irudian
+      External Player: Kanpo erreproduzitzailea ({externalPlayerName})
+      Theater: Antzerkia
   Privacy Settings:
     Privacy Settings: 'Pribatutasuna'
     Remember History: 'Ikusitakoaren historikoa oroitu'
@@ -1293,3 +1301,4 @@ KeyboardShortcutPrompt:
   Close Window: Itxi leihoa
   Show Keyboard Shortcuts: Erakutsi teklatuko laster-bideak
   History Backward: Egin orrialde bat atzera
+shortcutLabelSeparator: ｜

@@ -195,6 +195,8 @@ User Playlists:
       There was an issue with updating this playlist.: Сталася помилка при оновленні
         цієї добірки.
       There were no videos to remove.: Відео для видалення не знайдено.
+      Video has been removed. Click here to undo.: Відео видалено. Натисніть тут,
+        щоб скасувати.
     Search for Videos: Пошук відео
   The playlist has been successfully exported: Добірку успішно експортовано
   Export Playlist: Експортувати цю добірку
@@ -407,7 +409,7 @@ Settings:
   Player Settings:
     Player Settings: 'Плеєр'
     Play Next Video: 'Автовідтворення рекомендованих відео'
-    Turn on Subtitles by Default: 'Увімкнути субтитри за замовченням'
+    Turn on Subtitles by Default: 'Увімкнути субтитри за замовчуванням'
     Autoplay Videos: 'Автоматично запускати відео'
     Proxy Videos Through Invidious: 'Проксі-відео через Invidious'
     Autoplay Playlists: 'Автовідтворення відео з добірки'
@@ -458,6 +460,12 @@ Settings:
       екрана
     Skip by Scrolling Over Video Player: Пропустити гортанням відеопрогравача
     Autoplay Interruption Timer: Таймер переривання автозапуску
+    Default Viewing Mode:
+      Picture in Picture: Картинка в картинці
+      Theater: Театр
+      External Player: Зовнішній плеєр ({externalPlayerName})
+      Default Viewing Mode: Режим перегляду за замовчуванням
+      Full Screen: Повноекранний режим
   Privacy Settings:
     Privacy Settings: 'Конфіденційність'
     Remember History: 'Зберігати історію переглядів'
@@ -1270,3 +1278,4 @@ KeyboardShortcutPrompt:
   Last Chapter: Останній розділ
   Skip by Tenths: Пропустити відео на певний відсоток (3 пропуски до 30% тривалості)
   Next Chapter: Наступний розділ
+shortcutLabelSeparator: ｜

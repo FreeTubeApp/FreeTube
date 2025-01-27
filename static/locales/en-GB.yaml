@@ -185,6 +185,8 @@ User Playlists:
         here to undo
       This playlist is already being used for quick bookmark.: This playlist is already
         being used for quick bookmark.
+      Video has been removed. Click here to undo.: Video has been removed. Click here
+        to undo.
     Search for Videos: Search for videos
   AddVideoPrompt:
     N playlists selected: '{playlistCount} selected'
@@ -384,6 +386,12 @@ Settings:
       Catppuccin Frappe Pink: Catppuccin Frappe Pink
       Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
       Catppuccin Frappe Red: Catppuccin Frappe Red
+      Catppuccin Frappe Sky: Catppuccin Frappe Sky
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
+      Catppuccin Frappe Blue: Catppuccin Frappe Blue
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
+      Catppuccin Frappe Teal: Catppuccin Frappe Teal
+      Catppuccin Frappe Green: Catppuccin Frappe Green
     Secondary Color Theme: 'Secondary colour theme'
         #* Main Color Theme
     UI Scale: UI Scale
@@ -393,11 +401,11 @@ Settings:
     Hide FreeTube Header Logo: Hide FreeTube header logo
   Player Settings:
     Player Settings: 'Player'
-    Play Next Video: 'Play next video'
-    Turn on Subtitles by Default: 'Turn on subtitles by default'
-    Autoplay Videos: 'Autoplay Videos'
+    Play Next Video: 'Autoplay Recommended Videos'
+    Turn on Subtitles by Default: 'Enable Subtitles by Default'
+    Autoplay Videos: 'Start Videos Automatically'
     Proxy Videos Through Invidious: 'Proxy Videos Through Invidious'
-    Autoplay Playlists: 'Autoplay Playlists'
+    Autoplay Playlists: 'Autoplay Playlist Videos'
     Enable Theatre Mode by Default: 'Enable Theatre Mode by Default'
     Scroll Volume Over Video Player: 'Scroll Volume Over Video Player'
     Default Volume: 'Default volume'
@@ -443,6 +451,12 @@ Settings:
       File Name Label: Filename pattern
     Skip by Scrolling Over Video Player: Skip by scrolling over video player
     Autoplay Interruption Timer: Autoplay Interruption Timer
+    Default Viewing Mode:
+      Default Viewing Mode: Default Viewing Mode
+      Full Screen: Full Screen
+      Picture in Picture: Picture in Picture
+      External Player: External Player ({externalPlayerName})
+      Theater: Cinema
   External Player Settings:
     External Player Settings: External Player
     External Player: External Player
@@ -476,6 +490,11 @@ Settings:
     All playlists have been removed: All playlists have been removed
     Are you sure you want to remove all your playlists?: Are you sure you want to
       remove all your playlists?
+    Are you sure you want to clear out your search history and cache?: Are you sure
+      you want to clear out your search history and cache?
+    Clear Search History and Cache: Clear Search History and Cache
+    Search history and cache have been cleared: Search history and cache have been
+      cleared
   Subscription Settings:
     Subscription Settings: 'Subscription'
     Hide Videos on Watch: 'Hide Videos on Watch'
@@ -587,6 +606,7 @@ Settings:
     Hide Videos and Playlists Containing Text: Hide videos and playlists containing
       text
     Hide Channel Home: Hide Channel "Home" Tab
+    Show Added Items: Show Added Items
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -914,6 +934,8 @@ Video:
     Playback will resume automatically when your connection comes back: Playback will
       resume automatically when your connection comes back.
     Skipped segment: 'Skipped {segmentCategory} segment'
+    Autoplay is off: Autoplay is off
+    Autoplay is on: Autoplay is on
   IP block: YouTube has blocked your IP address from watching videos. Please try switching
     to a different VPN or proxy.
   Unlisted: Unlisted
@@ -925,6 +947,9 @@ Video:
     Show Original Details: Show Original Details
     Show Modified Details: Show Modified Details
 #& Playlists
+  DRMProtected: DRM protected videos cannot be played in FreeTube, as they require
+    proprietary, closed source components. If you want to watch this video please
+    watch it on the official YouTube website in a DRM enabled web browser.
 Playlist:
   #& About
   Playlist: Playlist
@@ -944,6 +969,8 @@ Playlist:
     VideoTitleAscending: Title (A-Z)
     VideoDurationAscending: Duration (Shortest first)
     VideoDurationDescending: Duration (Longest first)
+    PublishedNewest: Latest published first
+    PublishedOldest: Earliest published first
 Change Format:
   Change Media Formats: 'Change Media Formats'
   Use Dash Formats: 'Use DASH Formats'
@@ -1107,6 +1134,7 @@ Default Invidious instance has been set to {instance}: Default Invidious instanc
   has been set to {instance}
 Search Bar:
   Clear Input: Clear input
+  Remove: Remove
 External link opening has been disabled in the general settings: External link opening
   has been disabled in the general settings
 Are you sure you want to open this link?: Are you sure you want to open this link?
@@ -1181,8 +1209,64 @@ Keys:
   ctrl: Ctrl
   alt: Alt
   arrowdown: Down Arrow
+  enter: Enter
+  shift: Shift
+  plus: Plus
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: Right-click or hold to see history
 Autoplay Interruption Timer: Autoplay cancelled due to {autoplayInterruptionIntervalHours}
   hours of inactivity
+KeyboardShortcutPrompt:
+  Zoom Out: Zoom out
+  Volume Down: Decrease volume
+  Decrease Video Speed: Decrease video speed based on Video Playback Rate Interval
+  Small Fast Forward: Fast-Forward X seconds based on the Fast-Forward Interval and
+    current Video Playback Rate
+  Small Rewind: Rewind X seconds based on the Rewind Interval and current Video Playback
+    Rate
+  Focus Secondary Search: Focus on the secondary search bar (if one is present)
+  Captions: Toggle captions ON/OFF
+  Fullscreen: Toggle fullscreen
+  Large Fast Forward: Forward 10 seconds / Fast-Forward video based on current Video
+    Playback Rate
+  Mute: Toggle mute
+  Next Frame: Next frame (while paused)
+  Restart Window: Restart window
+  Force Restart Window: Force restart window
+  Toggle Developer Tools: Toggle developer tools
+  Reset Zoom: Reset zoom level / UI scale
+  Zoom In: Zoom in
+  Increase Video Speed: Increase video speed based on Video Playback Rate Interval
+  Take Screenshot: Take screenshot
+  Full Window: Toggle full window
+  Theatre Mode: Toggle cinema mode
+  Minimize Window: Minimise window
+  Close Window: Close window
+  Search in New Window: Search in a new window
+  Next Chapter: Next Chapter
+  Skip by Tenths: Skip through video by percentage (3 skips to 30% of duration)
+  Play: Toggle play/pause
+  Keyboard Shortcuts: Keyboard Shortcuts
+  Sections:
+    Video:
+      Playback: Video: Playback
+      General: Video: General
+    App:
+      Situational: 'App: Situational'
+      General: App: General
+  Show Keyboard Shortcuts: Show keyboard shortcuts
+  History Backward: Go back one page
+  History Forward: Go forward one page
+  New Window: Create a new window
+  Navigate to Settings: Navigate to the Settings page
+  Navigate to History: Navigate to the History page
+  Refresh: Refresh feed with latest content
+  Large Rewind: Rewind 10 seconds / Rewind video based on current Video Playback Rate
+  Volume Up: Increase volume
+  Picture in Picture: Toggle Picture-in-Picture mode
+  Last Frame: Previous frame (while paused)
+  Stats: Show video statistics
+  Focus Search: Focus on the search bar
+  Last Chapter: Last Chapter
+shortcutLabelSeparator: ｜

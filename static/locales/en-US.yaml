@@ -214,6 +214,7 @@ User Playlists:
       This video cannot be moved up.: This video cannot be moved up.
       This video cannot be moved down.: This video cannot be moved down.
       Video has been removed: Video has been removed
+      Video has been removed. Click here to undo.: Video has been removed. Click here to undo.
       There was a problem with removing this video: There was a problem with removing this video
 
       This playlist is already being used for quick bookmark.: This playlist is already being used for quick bookmark.
@@ -417,9 +418,14 @@ Settings:
     Play Next Video: Autoplay Recommended Videos
     Autoplay Playlists: Autoplay Playlist Videos
     Autoplay Videos: Start Videos Automatically
-    Turn on Subtitles by Default: Turn on Subtitles by Default
+    Turn on Subtitles by Default: Enable Subtitles by Default
     Proxy Videos Through Invidious: Proxy Videos Through Invidious
-    Enable Theatre Mode by Default: Enable Theatre Mode by Default
+    Default Viewing Mode:
+      Theater: Theater
+      Default Viewing Mode: Default Viewing Mode
+      Full Screen: Full Screen
+      Picture in Picture: Picture in Picture
+      External Player: External Player ({externalPlayerName})
     Scroll Volume Over Video Player: Scroll Volume Over Video Player
     Scroll Playback Rate Over Video Player: Scroll Playback Rate Over Video Player
     Skip by Scrolling Over Video Player: Skip by Scrolling Over Video Player

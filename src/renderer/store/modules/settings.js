@@ -166,7 +166,7 @@ const state = {
   defaultProfile: MAIN_PROFILE_ID,
   defaultQuality: '720',
   defaultSkipInterval: 5,
-  defaultTheatreMode: false,
+  defaultViewingMode: 'default',
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
   displayVideoPlayButton: false,
@@ -571,6 +571,10 @@ const customActions = {
 
           case SyncEvents.PLAYLISTS.DELETE_VIDEO:
             commit('removeVideo', data)
+            break
+
+          case SyncEvents.PLAYLISTS.DELETE_VIDEOS:
+            commit('removeVideos', data)
             break
 
           default:

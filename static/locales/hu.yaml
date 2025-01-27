@@ -191,6 +191,8 @@ User Playlists:
       This playlist has a video with a duration error: Ez a lejátszási lista legalább
         egy olyan videót tartalmaz, amelynek nincs időtartama, ezért úgy lesz rendezve,
         mintha az időtartamuk nulla lenne.
+      Video has been removed. Click here to undo.: A videó etávolításra került. Kattintson
+        ide a visszavonáshoz.
     Search for Videos: Videók keresése
   Are you sure you want to delete this playlist? This cannot be undone: Biztosan törölni
     szeretné ezt a lejátszási listát? Ezt nem lehet visszacsinálni.
@@ -409,7 +411,7 @@ Settings:
   Player Settings:
     Player Settings: 'Lejátszó'
     Play Next Video: 'Ajánlott videók automatikus lejátszása'
-    Turn on Subtitles by Default: 'Feliratok bekapcsolása alapértelemezetten'
+    Turn on Subtitles by Default: 'Feliratok engedélyezése alapértelemezetten'
     Autoplay Videos: 'Videók automatikus elindítása'
     Proxy Videos Through Invidious: 'Videók proxyzása az Invidiouson keresztül'
     Autoplay Playlists: 'Lejátszási lista az automatikus videó-lejátszáshoz'
@@ -461,6 +463,12 @@ Settings:
     Enter Fullscreen on Display Rotate: Teljes képernyős mód a kijelzőn forgatáshoz
     Skip by Scrolling Over Video Player: Kihagyás a Videolejátszó felett görgetve
     Autoplay Interruption Timer: Automatikus lejátszás megszakításának időköze
+    Default Viewing Mode:
+      Full Screen: Teljes képernyő
+      Theater: Színház
+      Picture in Picture: Kép a képben
+      External Player: Külső lejátszó ({externalPlayerName})
+      Default Viewing Mode: Alapértelmezett nézetmód
   Privacy Settings:
     Privacy Settings: 'Adatvédelem'
     Remember History: 'Megtekintési előzmények megjegyzése'

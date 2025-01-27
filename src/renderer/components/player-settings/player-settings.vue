@@ -19,12 +19,6 @@
           @change="updateEnableSubtitlesByDefault"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Enable Theatre Mode by Default')"
-          :compact="true"
-          :default-value="defaultTheatreMode"
-          @change="updateDefaultTheatreMode"
-        />
-        <ft-toggle-switch
           :label="$t('Settings.Player Settings.Scroll Volume Over Video Player')"
           :compact="true"
           :disabled="videoSkipMouseScroll"
@@ -82,6 +76,41 @@
       </div>
     </div>
     <ft-flex-box>
+      <ft-select
+        :placeholder="$t('Settings.Player Settings.Default Viewing Mode.Default Viewing Mode')"
+        :value="defaultViewingMode"
+        :select-names="viewingModeNames"
+        :select-values="viewingModeValues"
+        :icon="['fas', 'expand']"
+        @change="updateDefaultViewingMode"
+      />
+      <ft-select
+        :placeholder="$t('Settings.Player Settings.Default Video Format.Default Video Format')"
+        :value="defaultVideoFormat"
+        :select-names="formatNames"
+        :select-values="formatValues"
+        :tooltip="$t('Tooltips.Player Settings.Default Video Format')"
+        :icon="['fas', 'file-video']"
+        @change="updateDefaultVideoFormat"
+      />
+      <ft-select
+        :placeholder="$t('Settings.Player Settings.Default Quality.Default Quality')"
+        :value="defaultQuality"
+        :select-names="qualityNames"
+        :select-values="qualityValues"
+        :icon="['fas', 'photo-film']"
+        @change="updateDefaultQuality"
+      />
+      <ft-select
+        :placeholder="$t('Settings.Player Settings.Video Playback Rate Interval')"
+        :value="videoPlaybackRateInterval"
+        :select-names="playbackRateIntervalValues"
+        :select-values="playbackRateIntervalValues"
+        :icon="['fas', 'gauge']"
+        @change="updateVideoPlaybackRateInterval"
+      />
+    </ft-flex-box>
+    <ft-flex-box>
       <ft-slider
         :label="$t('Settings.Player Settings.Next Video Interval')"
         :default-value="defaultInterval"
@@ -135,33 +164,6 @@
         :step="1"
         value-extension="x"
         @change="updateMaxVideoPlaybackRate"
-      />
-      <ft-select
-        :placeholder="$t('Settings.Player Settings.Video Playback Rate Interval')"
-        :value="videoPlaybackRateInterval"
-        :select-names="playbackRateIntervalValues"
-        :select-values="playbackRateIntervalValues"
-        :icon="['fas', 'gauge']"
-        @change="updateVideoPlaybackRateInterval"
-      />
-    </ft-flex-box>
-    <ft-flex-box>
-      <ft-select
-        :placeholder="$t('Settings.Player Settings.Default Video Format.Default Video Format')"
-        :value="defaultVideoFormat"
-        :select-names="formatNames"
-        :select-values="formatValues"
-        :tooltip="$t('Tooltips.Player Settings.Default Video Format')"
-        :icon="['fas', 'file-video']"
-        @change="updateDefaultVideoFormat"
-      />
-      <ft-select
-        :placeholder="$t('Settings.Player Settings.Default Quality.Default Quality')"
-        :value="defaultQuality"
-        :select-names="qualityNames"
-        :select-values="qualityValues"
-        :icon="['fas', 'photo-film']"
-        @change="updateDefaultQuality"
       />
     </ft-flex-box>
     <br>

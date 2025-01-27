@@ -163,6 +163,7 @@ User Playlists:
       This playlist is already being used for quick bookmark.: この再生リストはすでにクイックブックマークとして使用されています。
       This playlist has a video with a duration error: このプレイリストには、再生時間のない動画が少なくとも
         1 つ含まれています。これらの動画は、再生時間が 0 であるかのように並べられます。
+      Video has been removed. Click here to undo.: 動画が削除されました。元に戻すにはここをクリック。
     Search for Videos: 動画検索
   Save Changes: 変更の保存
   Move Video Up: 動画を上へ移動
@@ -410,6 +411,12 @@ Settings:
     Enter Fullscreen on Display Rotate: 画面の回転時に全画面表示にする
     Skip by Scrolling Over Video Player: 動画プレーヤーをスクロールして動画をスキップ
     Autoplay Interruption Timer: 自動再生の停止タイマー
+    Default Viewing Mode:
+      Theater: シアター
+      Default Viewing Mode: デフォルト表示モード
+      Picture in Picture: 子画面表示
+      Full Screen: フルスクリーン
+      External Player: 外部プレーヤー ({externalPlayerName})
   Subscription Settings:
     Subscription Settings: '登録チャンネル'
     Hide Videos on Watch: '視聴済みの動画を非表示にする'
@@ -962,7 +969,7 @@ Tooltips:
       はクリックしたリンクをデフォルトのブラウザで開きます。\n"
     Open Deep Links In New Window: FreeTube に渡された URL は、ブラウザの拡張機能やコマンドライン引数などによって、新しいウィンドウで開かれます。
   External Player Settings:
-    Custom External Player Arguments: '外部プレイヤーに渡したいカスタムコマンドライン引数。'
+    Custom External Player Arguments: '外部プレーヤーに渡したいカスタムコマンドライン引数。'
     Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（再生リストを逆順にするなど）に警告を抑制します。
     Custom External Player Executable: デフォルトでは、FreeTube は選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
       パスをここで設定できます。

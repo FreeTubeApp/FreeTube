@@ -8,7 +8,7 @@
   color: var(--tertiary-text-color);
 }
 
-.subscriptionTabs {
+.tabs {
   inline-size: 100%;
   margin-block: -3px 10px;
   color: var(--tertiary-text-color);
@@ -28,6 +28,7 @@
   font-size: 15px;
   cursor: pointer;
   align-self: flex-end;
+  text-transform: uppercase;
 }
 
 .tab:hover {

@@ -173,6 +173,8 @@ User Playlists:
       This playlist has a video with a duration error: Този плейлист съдържа поне
         едно видео, което няма продължителност, той ще бъде подреден така, сякаш продължителността
         му е нула.
+      Video has been removed. Click here to undo.: Видеото е премахнато. Щракнете
+        тук, за отмяна.
     Search for Videos: Търсене за видеа
   CreatePlaylistPrompt:
     Toast:
@@ -456,6 +458,12 @@ Settings:
     Enter Fullscreen on Display Rotate: Режим на цял екран при завъртане на дисплея
     Skip by Scrolling Over Video Player: Превъртане над видео плейъра
     Autoplay Interruption Timer: Таймер за прекъсване на автоматичното възпроизвеждане
+    Default Viewing Mode:
+      Full Screen: Цял екран
+      External Player: Външен плейър ({externalPlayerName})
+      Theater: Широк екран
+      Default Viewing Mode: Режим на гледане по подразбиране
+      Picture in Picture: Картина в картината
   Privacy Settings:
     Privacy Settings: 'Поверителност'
     Remember History: 'Запазване на историята с гледания'
@@ -1281,3 +1289,4 @@ KeyboardShortcutPrompt:
   Search in New Window: Търсене в нов прозорец
   Small Fast Forward: Превъртане напред с X секунди въз основа на интервала и текущата
     скорост на възпроизвеждане на видео
+shortcutLabelSeparator: '|'

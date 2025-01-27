@@ -72,7 +72,7 @@ export default defineComponent({
       userPlaylistVisibleLimit: 100,
       continuationData: null,
       isLoadingMore: false,
-      getPlaylistInfoDebounce: function() {},
+      getPlaylistInfoDebounce: function () { },
       playlistInEditMode: false,
       forceListView: false,
       alreadyShownNotice: false,
@@ -80,6 +80,9 @@ export default defineComponent({
       videoSearchQuery: '',
 
       promptOpen: false,
+      deletedVideoIds: [],
+      deletedPlaylistItemIds: [],
+      isUndoToast: false
     }
   },
   computed: {
@@ -101,7 +104,7 @@ export default defineComponent({
     currentLocale: function () {
       return this.$i18n.locale
     },
-    playlistId: function() {
+    playlistId: function () {
       return this.$route.params.id
     },
     listType: function () {
@@ -126,7 +129,7 @@ export default defineComponent({
         return []
       }
     },
-    selectedUserPlaylistVideoCount: function() {
+    selectedUserPlaylistVideoCount: function () {
       return this.selectedUserPlaylistVideos.length
     },
 
@@ -242,25 +245,25 @@ export default defineComponent({
     },
   },
   watch: {
-    $route () {
+    $route() {
       // react to route changes...
       this.getPlaylistInfoDebounce()
     },
-    userPlaylistsReady () {
+    userPlaylistsReady() {
       // Fetch from local store when playlist data ready
       if (!this.isUserPlaylistRequested) { return }
 
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylist () {
+    selectedUserPlaylist() {
       // Fetch from local store when current user playlist changed
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylistLastUpdatedAt () {
+    selectedUserPlaylistLastUpdatedAt() {
       // Re-fetch from local store when current user playlist updated
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylistVideoCount () {
+    selectedUserPlaylistVideoCount() {
       // Monitoring `selectedUserPlaylistVideos` makes this function called
       // Even when the same array object is returned
       // So length is monitored instead
@@ -586,14 +589,48 @@ export default defineComponent({
 
     removeVideoFromPlaylist: function (videoId, playlistItemId) {
       try {
-        this.removeVideo({
-          _id: this.playlistId,
-          videoId: videoId,
-          playlistItemId: playlistItemId,
+        const playlistItems = [].concat(this.playlistItems)
+        const tempPlaylistItems = [].concat(this.playlistItems)
+        let isUndoClicked = false
+
+        const videoIndex = this.playlistItems.findIndex((video) => {
+          return video.videoId === videoId && video.playlistItemId === playlistItemId
         })
-        // Update playlist's `lastUpdatedAt`
-        this.updatePlaylist({ _id: this.playlistId })
-        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Video has been removed'))
+
+        if (videoIndex !== -1) {
+          this.deletedVideoIds.push(this.playlistItems[videoIndex].videoId)
+          this.deletedPlaylistItemIds.push(this.playlistItems[videoIndex].playlistItemId)
+          playlistItems.splice(videoIndex, 1)
+          this.playlistItems = playlistItems
+
+          // Only show toast when no existing toast shown
+          if (!this.isUndoToast) {
+            this.isUndoToast = true
+            showToast(
+              this.$t('User Playlists.SinglePlaylistView.Toast["Video has been removed. Click here to undo."]'),
+              5000,
+              () => {
+                this.playlistItems = tempPlaylistItems
+                isUndoClicked = true
+                this.isUndoToast = false
+                this.deletedVideoIds = []
+                this.deletedPlaylistItemIds = []
+              }
+            )
+            setTimeout(() => {
+              if (!isUndoClicked) {
+                this.removeVideos({
+                  _id: this.playlistId,
+                  videoIds: this.deletedVideoIds,
+                  playlistItemIds: this.deletedPlaylistItemIds,
+                })
+                this.deletedVideoIds = []
+                this.deletedPlaylistItemIds = []
+                this.isUndoToast = false
+              }
+            }, 5000)
+          }
+        }
       } catch (e) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with removing this video'))
         console.error(e)
@@ -648,7 +685,7 @@ export default defineComponent({
       'updateSubscriptionDetails',
       'updatePlaylist',
       'updateUserPlaylistSortOrder',
-      'removeVideo',
+      'removeVideos',
     ]),
 
     ...mapMutations([

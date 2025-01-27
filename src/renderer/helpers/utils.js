@@ -232,18 +232,11 @@ export async function openExternalLink(url) {
  * @param {object} params.query the query params to use (optional)
  * @param {string} params.searchQueryText the text to show in the search bar in the new window (optional)
  */
-export function openInternalPath({ path, query = {}, doCreateNewWindow, searchQueryText = null }) {
+export function openInternalPath({ path, query = undefined, doCreateNewWindow, searchQueryText = null }) {
   if (process.env.IS_ELECTRON && doCreateNewWindow) {
     const { ipcRenderer } = require('electron')
 
-    // Combine current document path and new "hash" as new window startup URL
-    const newWindowStartupURL = new URL(window.location.href)
-    newWindowStartupURL.hash = `${path}?${(new URLSearchParams(query)).toString()}`
-
-    ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, {
-      windowStartupUrl: newWindowStartupURL.toString(),
-      searchQueryText
-    })
+    ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, path, query, searchQueryText)
   } else {
     router.push({
       path,

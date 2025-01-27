@@ -1,6 +1,3 @@
-import fs from 'fs/promises'
-import path from 'path'
-
 import { computed, defineComponent, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
 import shaka from 'shaka-player'
 import { useI18n } from '../../composables/use-i18n-polyfill'
@@ -24,11 +21,9 @@ import {
 } from '../../helpers/player/utils'
 import {
   addKeyboardShortcutToActionTitle,
-  getPicturesPath,
   showToast,
   writeFileWithPicker
 } from '../../helpers/utils'
-import { pathExists } from '../../helpers/filesystem'
 
 /** @typedef {import('../../helpers/sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
 
@@ -132,6 +127,18 @@ export default defineComponent({
       type: String,
       default: null
     },
+    startInFullscreen: {
+      type: Boolean,
+      default: false
+    },
+    startInFullwindow: {
+      type: Boolean,
+      default: false
+    },
+    startInPip: {
+      type: Boolean,
+      default: false
+    },
     currentPlaybackRate: {
       type: Number,
       default: 1
@@ -172,10 +179,14 @@ export default defineComponent({
     const isLive = ref(false)
 
     const useOverFlowMenu = ref(false)
-    const fullWindowEnabled = ref(false)
     const forceAspectRatio = ref(false)
 
     const activeLegacyFormat = shallowRef(null)
+
+    const fullWindowEnabled = ref(false)
+    const startInFullwindow = props.startInFullwindow
+    let startInFullscreen = props.startInFullscreen
+    let startInPip = props.startInPip
 
     /**
      * @type {{
@@ -326,11 +337,6 @@ export default defineComponent({
     /** @type {import('vue').ComputedRef<boolean>} */
     const screenshotAskPath = computed(() => {
       return store.getters.getScreenshotAskPath
-    })
-
-    /** @type {import('vue').ComputedRef<string>} */
-    const screenshotFolder = computed(() => {
-      return store.getters.getScreenshotFolderPath
     })
 
     /** @type {import('vue').ComputedRef<boolean>} */
@@ -1117,6 +1123,15 @@ export default defineComponent({
       emit('ended')
     }
 
+    function handleCanPlay() {
+      // PiP can only be activated once the video's readState and video track are populated
+      if (startInPip && props.format !== 'audio' && ui.getControls().isPiPAllowed() && process.env.IS_ELECTRON) {
+        startInPip = false
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send(IpcChannels.REQUEST_PIP)
+      }
+    }
+
     function updateVolume() {
       const video_ = video.value
       // https://docs.videojs.com/html5#volume
@@ -1577,16 +1592,16 @@ export default defineComponent({
 
       const filenameWithExtension = `${filename}.${format}`
 
-      if (!process.env.IS_ELECTRON || screenshotAskPath.value) {
-        const wasPlaying = !video_.paused
-        if (wasPlaying) {
-          video_.pause()
-        }
+      const wasPlaying = !video_.paused
+      if (wasPlaying) {
+        video_.pause()
+      }
 
-        try {
-          /** @type {Blob} */
-          const blob = await new Promise((resolve) => canvas.toBlob(resolve, mimeType, imageQuality))
+      try {
+        /** @type {Blob} */
+        const blob = await new Promise((resolve) => canvas.toBlob(resolve, mimeType, imageQuality))
 
+        if (!process.env.IS_ELECTRON || screenshotAskPath.value) {
           const saved = await writeFileWithPicker(
             filenameWithExtension,
             blob,
@@ -1600,53 +1615,24 @@ export default defineComponent({
           if (saved) {
             showToast(t('Screenshot Success'))
           }
-        } catch (error) {
-          console.error(error)
-          showToast(t('Screenshot Error', { error }))
-        }
+        } else {
+          const arrayBuffer = await blob.arrayBuffer()
 
+          const { ipcRenderer } = require('electron')
+
+          await ipcRenderer.invoke(IpcChannels.WRITE_SCREENSHOT, filenameWithExtension, arrayBuffer)
+
+          showToast(t('Screenshot Success'))
+        }
+      } catch (error) {
+        console.error(error)
+        showToast(t('Screenshot Error', { error }))
+      } finally {
         canvas.remove()
 
         if (wasPlaying) {
           video_.play()
         }
-      } else {
-        let dirPath
-
-        if (screenshotFolder.value === '') {
-          dirPath = path.join(await getPicturesPath(), 'Freetube')
-        } else {
-          dirPath = screenshotFolder.value
-        }
-
-        if (!(await pathExists(dirPath))) {
-          try {
-            await fs.mkdir(dirPath, { recursive: true })
-          } catch (err) {
-            console.error(err)
-            showToast(t('Screenshot Error', { error: err }))
-            canvas.remove()
-            return
-          }
-        }
-
-        const filePath = path.join(dirPath, filenameWithExtension)
-
-        canvas.toBlob((result) => {
-          result.arrayBuffer().then(ab => {
-            const arr = new Uint8Array(ab)
-
-            fs.writeFile(filePath, arr)
-              .then(() => {
-                showToast(t('Screenshot Success'))
-              })
-              .catch((err) => {
-                console.error(err)
-                showToast(t('Screenshot Error', { error: err }))
-              })
-          })
-        }, mimeType, imageQuality)
-        canvas.remove()
       }
     }
 
@@ -1718,6 +1704,12 @@ export default defineComponent({
           document.body.classList.remove('playerFullWindow')
         }
       })
+
+      if (startInFullwindow) {
+        events.dispatchEvent(new CustomEvent('setFullWindow', {
+          detail: true
+        }))
+      }
 
       /**
        * @implements {shaka.extern.IUIElement.Factory}
@@ -1809,7 +1801,7 @@ export default defineComponent({
     /**
      * As shaka-player doesn't let you unregister custom control factories,
      * overwrite them with `null` instead so the referenced objects
-     * (e.g. {@linkcode events}, {@linkcode fullWindowEnabled}) can get gargabe collected
+     * (e.g. {@linkcode events}, {@linkcode fullWindowEnabled}) can get garbage collected
      */
     function cleanUpCustomPlayerControls() {
       shakaControls.registerElement('ft_audio_tracks', null)
@@ -2633,6 +2625,12 @@ export default defineComponent({
       if (props.chapters.length > 0) {
         createChapterMarkers()
       }
+
+      if (startInFullscreen && process.env.IS_ELECTRON) {
+        startInFullscreen = false
+        const { ipcRenderer } = require('electron')
+        ipcRenderer.send(IpcChannels.REQUEST_FULLSCREEN)
+      }
     }
 
     watch(
@@ -2844,11 +2842,25 @@ export default defineComponent({
      * Vue's lifecycle hooks are synchonous, so if we destroy the player in {@linkcode onBeforeUnmount},
      * it won't be finished in time, as the player destruction is asynchronous.
      * To workaround that we destroy the player first and wait for it to finish before we unmount this component.
+     *
+     * @returns {Promise<{ startNextVideoInFullscreen: boolean, startNextVideoInFullwindow: boolean, startNextVideoInPip: boolean }>}
      */
     async function destroyPlayer() {
       ignoreErrors = true
 
+      let uiState = { startNextVideoInFullscreen: false, startNextVideoInFullwindow: false, startNextVideoInPip: false }
+
       if (ui) {
+        if (ui.getControls()) {
+          // save the state of player settings to reinitialize them upon next creation
+          const controls = ui.getControls()
+          uiState = {
+            startNextVideoInFullscreen: controls.isFullScreenEnabled(),
+            startNextVideoInFullwindow: fullWindowEnabled.value,
+            startNextVideoInPip: controls.isPiPEnabled()
+          }
+        }
+
         // destroying the ui also destroys the player
         await ui.destroy()
         ui = null
@@ -2867,6 +2879,8 @@ export default defineComponent({
       if (video.value) {
         video.value.ui = null
       }
+
+      return uiState
     }
 
     expose({
@@ -2920,6 +2934,7 @@ export default defineComponent({
 
       handlePlay,
       handlePause,
+      handleCanPlay,
       handleEnded,
       updateVolume,
       handleTimeupdate,

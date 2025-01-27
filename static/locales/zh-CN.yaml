@@ -161,6 +161,7 @@ User Playlists:
       This playlist is already being used for quick bookmark.: 此播放列表已被用于快速书签。
       This playlist has a video with a duration error: 此播放列表包含至少一个没有持续时间的视频，排序时将按照持续时间为
         0 对待此视频。
+      Video has been removed. Click here to undo.: 视频已被删除。单击此处撤销。
     Search for Videos: 搜索视频
   Are you sure you want to delete this playlist? This cannot be undone: 你确定要删除此播放列表吗？此操作无法撤销。
   Sort By:
@@ -408,6 +409,12 @@ Settings:
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
     Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
     Autoplay Interruption Timer: 自动播放中断计时器
+    Default Viewing Mode:
+      Default Viewing Mode: 默认观看模式
+      Picture in Picture: 画中画
+      External Player: 外部播放器({externalPlayerName})
+      Theater: 影院
+      Full Screen: 全屏
   Subscription Settings:
     Subscription Settings: '订阅'
     Hide Videos on Watch: '观看时隐藏视频'
@@ -1109,3 +1116,4 @@ KeyboardShortcutPrompt:
   Minimize Window: 最小化窗口
   Zoom Out: 放大
   Next Chapter: 下一章节
+shortcutLabelSeparator: ｜

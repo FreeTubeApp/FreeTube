@@ -16,6 +16,9 @@ const IpcChannels = {
   APP_READY: 'app-ready',
   RELAUNCH_REQUEST: 'relaunch-request',
 
+  REQUEST_FULLSCREEN: 'request-fullscreen',
+  REQUEST_PIP: 'request-pip',
+
   SEARCH_INPUT_HANDLING_READY: 'search-input-handling-ready',
   UPDATE_SEARCH_INPUT_TEXT: 'update-search-input-text',
 
@@ -45,6 +48,8 @@ const IpcChannels = {
   SET_INVIDIOUS_AUTHORIZATION: 'set-invidious-authorization',
 
   GENERATE_PO_TOKEN: 'generate-po-token',
+
+  WRITE_SCREENSHOT: 'write-screenshot',
 }
 
 const DBActions = {
@@ -109,6 +114,7 @@ const SyncEvents = {
     UPSERT_VIDEO: 'sync-playlists-upsert-video',
     UPSERT_VIDEOS: 'sync-playlists-upsert-videos',
     DELETE_VIDEO: 'sync-playlists-delete-video',
+    DELETE_VIDEOS: 'sync-playlists-delete-videos',
   },
 
   SUBSCRIPTION_CACHE: {

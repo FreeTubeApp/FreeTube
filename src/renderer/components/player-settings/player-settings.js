@@ -125,8 +125,18 @@ export default defineComponent({
       return this.$store.getters.getDefaultQuality
     },
 
-    defaultTheatreMode: function () {
-      return this.$store.getters.getDefaultTheatreMode
+    defaultViewingMode: function () {
+      const defaultViewingMode = this.$store.getters.getDefaultViewingMode
+      if ((defaultViewingMode === 'external_player' && (!process.env.IS_ELECTRON || this.externalPlayer === '')) ||
+        (!process.env.IS_ELECTRON && (defaultViewingMode === 'fullscreen' || defaultViewingMode === 'pip'))) {
+        return 'default'
+      }
+
+      return defaultViewingMode
+    },
+
+    externalPlayer: function () {
+      return this.$store.getters.getExternalPlayer
     },
 
     hideRecommendedVideos: function () {
@@ -181,6 +191,46 @@ export default defineComponent({
         this.$t('Settings.Player Settings.Default Quality.144p'),
         this.$t('Settings.Player Settings.Default Quality.Auto')
       ]
+    },
+
+    viewingModeNames: function () {
+      const viewingModeNames = [
+        this.$t('Settings.General Settings.Thumbnail Preference.Default'),
+        this.$t('Settings.Player Settings.Default Viewing Mode.Theater'),
+        this.$t('Video.Player.Full Window'),
+      ]
+
+      if (process.env.IS_ELECTRON) {
+        viewingModeNames.push(
+          this.$t('Settings.Player Settings.Default Viewing Mode.Full Screen'),
+          this.$t('Settings.Player Settings.Default Viewing Mode.Picture in Picture')
+        )
+        if (this.externalPlayer !== '') {
+          viewingModeNames.push(
+            this.$t('Settings.Player Settings.Default Viewing Mode.External Player', { externalPlayerName: this.externalPlayer })
+          )
+        }
+      }
+
+      return viewingModeNames
+    },
+
+    viewingModeValues: function () {
+      const viewingModeValues = [
+        'default',
+        'theatre',
+        'fullwindow'
+      ]
+
+      if (process.env.IS_ELECTRON) {
+        viewingModeValues.push('fullscreen', 'pip')
+
+        if (this.externalPlayer !== '') {
+          viewingModeValues.push('external_player')
+        }
+      }
+
+      return viewingModeValues
     },
 
     enableScreenshot: function() {
@@ -296,7 +346,7 @@ export default defineComponent({
       'updatePlayNextVideo',
       'updateEnableSubtitlesByDefault',
       'updateProxyVideos',
-      'updateDefaultTheatreMode',
+      'updateDefaultViewingMode',
       'updateDefaultSkipInterval',
       'updateDefaultInterval',
       'updateDefaultVolume',
