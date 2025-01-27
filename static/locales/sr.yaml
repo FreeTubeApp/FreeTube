@@ -819,8 +819,6 @@ Channel:
     votes: 'Гласова: {votes}'
     Video hidden by FreeTube: Видео снимак сакрио је FreeTube
     View Full Post: Погледај целу објаву
-    Viewing Posts Only Supported By Invidious: Гледање објава подржава само Invidious.
-      Идите на картицу заједнице канала да видите садржај тамо без Invidious-a.
   Live:
     Live: Уживо
     This channel does not currently have any live streams: Овај канал тренутно нема
