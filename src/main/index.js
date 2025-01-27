@@ -1126,7 +1126,12 @@ function runApp() {
 
       return contents.buffer
     } catch (e) {
-      console.error(e)
+      // Don't log the error if the file doesn't exist as we'll just fetch it from YouTube
+      // this usually happens when YouTube updates their player JavaScript
+      if (e.code !== 'ENOENT') {
+        console.error(e)
+      }
+
       return undefined
     }
   })
