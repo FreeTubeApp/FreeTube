@@ -11,8 +11,7 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
   constructor(activeLegacyFormat, legacyFormats, events, parent, controls) {
     super(parent, controls, 'settings')
 
-    this.button.classList.add('legacy-quality-button')
-    this.button.classList.add('shaka-tooltip-status')
+    this.button.classList.add('legacy-quality-button', 'shaka-tooltip-status')
     this.menu.classList.add('legacy-qualities')
 
     /** @private */
@@ -86,8 +85,7 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
     span.classList.add('shaka-chosen-item')
 
     const icon = document.createElement('i')
-    icon.classList.add('material-icons-round')
-    icon.classList.add('shaka-chosen-item')
+    icon.classList.add('material-icons-round', 'shaka-chosen-item')
     icon.textContent = 'done'
     icon.ariaHidden = 'true'
     button.appendChild(icon)

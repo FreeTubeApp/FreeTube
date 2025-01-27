@@ -594,7 +594,7 @@ export function youtubeImageUrlToInvidious(url, currentInstance = null) {
  * @returns {string}
  */
 export function invidiousImageUrlToInvidious(url, currentInstance = null) {
-  return url.replaceAll(/(\/ggpht\/)/g, `${currentInstance}/ggpht/`)
+  return url.replaceAll('/ggpht/', `${currentInstance}/ggpht/`)
 }
 
 /**

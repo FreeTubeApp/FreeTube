@@ -16,8 +16,7 @@ export class TheatreModeButton extends shaka.ui.Element {
 
     /** @private */
     this.button_ = document.createElement('button')
-    this.button_.classList.add('theatre-button')
-    this.button_.classList.add('shaka-tooltip')
+    this.button_.classList.add('theatre-button', 'shaka-tooltip')
 
     /** @private */
     this.icon_ = document.createElement('i')
@@ -27,8 +26,7 @@ export class TheatreModeButton extends shaka.ui.Element {
     this.button_.appendChild(this.icon_)
 
     const label = document.createElement('label')
-    label.classList.add('shaka-overflow-button-label')
-    label.classList.add('shaka-overflow-menu-only')
+    label.classList.add('shaka-overflow-button-label', 'shaka-overflow-menu-only')
 
     /** @private */
     this.nameSpan_ = document.createElement('span')
