@@ -42,7 +42,14 @@
         @prompt-close="promptOpen = false"
       />
     </div>
-
+    <div
+      v-if="playlistItems.length > 0"
+      class="playlistDurationContainer"
+    >
+      <p class="totalDuration">
+        {{ $t('User Playlists.TotalTimePlaylist', { duration: totalPlaylistDuration }) }}
+      </p>
+    </div>
     <ft-card
       v-if="!isLoading"
       class="playlistItemsCard"

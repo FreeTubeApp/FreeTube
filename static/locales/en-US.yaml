@@ -195,6 +195,8 @@ User Playlists:
   Cannot delete the quick bookmark target playlist.: Cannot delete the quick bookmark target playlist.
   Are you sure you want to delete this playlist? This cannot be undone: Are you sure you want to delete this playlist? This cannot be undone.
 
+  TotalTimePlaylist: "Total time: {duration}"
+
   Sort By:
     NameAscending: 'A-Z'
     NameDescending: 'Z-A'
