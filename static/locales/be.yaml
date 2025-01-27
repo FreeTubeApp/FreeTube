@@ -797,9 +797,6 @@ Channel:
     Hide Answers: 'Схаваць адказы'
     Video hidden by FreeTube: Відэа схавана FreeTube'ам
     View Full Post: Глядзець поўны пост
-    Viewing Posts Only Supported By Invidious: Прагляд паведамленняў падтрымліваецца
-      толькі ў Invidious. Перайдзіце на ўкладку супольнасці канала, каб праглядзець
-      там змесціва без Invidious.
 Video:
   Mark As Watched: 'Пазначыць як прагледжанае'
   Remove From History: 'Выдаліць з гісторыі'
