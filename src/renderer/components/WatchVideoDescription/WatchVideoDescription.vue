@@ -23,7 +23,7 @@
       @click.native="expandDescriptionWithClick"
     />
     <span
-      v-if="license"
+      v-if="license && showFullDescription"
       class="license"
     >
       {{ license }}
