@@ -244,9 +244,6 @@ export default defineComponent({
       return this.sortByValues
     },
     totalPlaylistDuration() {
-      if (!this.playlistItems || this.playlistItems.length === 0) {
-        return '0h 0m 0s'
-      }
       const totalSeconds = this.playlistItems.reduce((acc, video) => {
         return acc + (video.lengthSeconds || 0)
       }, 0)
@@ -687,12 +684,15 @@ export default defineComponent({
         throw failure
       }
     },
-    formatDuration(totalSeconds) {
-      const hours = Math.floor(totalSeconds / 3600)
-      const minutes = Math.floor((totalSeconds % 3600) / 60)
-      const seconds = totalSeconds % 60
 
-      return `${hours}h ${minutes}m ${seconds}s`
+    formatDuration(totalSeconds, locale = 'en') {
+      const duration = {
+        hours: Math.floor(totalSeconds / 3600),
+        minutes: Math.floor((totalSeconds % 3600) / 60),
+        seconds: totalSeconds % 60,
+      }
+
+      return new Intl.DurationFormat(locale, { style: 'short' }).format(duration)
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),

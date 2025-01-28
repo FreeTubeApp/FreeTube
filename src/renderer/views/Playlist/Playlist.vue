@@ -7,48 +7,50 @@
       v-if="isLoading"
       :fullscreen="true"
     />
-    <div
-      v-if="!isLoading"
-      class="playlistInfoContainer"
-      :class="{
-        promptOpen,
-      }"
-    >
-      <playlist-info
-        :id="playlistId"
-        :first-video-id="firstVideoId"
-        :first-video-playlist-item-id="firstVideoPlaylistItemId"
-        :playlist-thumbnail="playlistThumbnail"
-        :title="playlistTitle"
-        :channel-name="channelName"
-        :channel-thumbnail="channelThumbnail"
-        :channel-id="channelId"
-        :last-updated="lastUpdated"
-        :description="playlistDescription"
-        :video-count="videoCount"
-        :videos="playlistItems"
-        :view-count="viewCount"
-        :info-source="infoSource"
-        :more-video-data-available="moreVideoDataAvailable"
-        :search-video-mode-allowed="isUserPlaylistRequested && videoCount > 1"
-        :search-video-mode-enabled="playlistInVideoSearchMode"
-        :search-query-text="searchQueryTextRequested"
-        :theme="listType === 'list' ? 'base' : 'top-bar'"
-        class="playlistInfo"
-        @enter-edit-mode="playlistInEditMode = true"
-        @exit-edit-mode="playlistInEditMode = false"
-        @search-video-query-change="(v) => handleVideoSearchQueryChange(v)"
-        @prompt-open="promptOpen = true"
-        @prompt-close="promptOpen = false"
-      />
-    </div>
-    <div
-      v-if="playlistItems.length > 0"
-      class="playlistDurationContainer"
-    >
-      <p class="totalDuration">
-        {{ $t('User Playlists.TotalTimePlaylist', { duration: totalPlaylistDuration }) }}
-      </p>
+    <div class="playlistInfoWrapper">
+      <div
+        v-if="!isLoading"
+        class="playlistInfoContainer"
+        :class="{
+          promptOpen,
+        }"
+      >
+        <playlist-info
+          :id="playlistId"
+          :first-video-id="firstVideoId"
+          :first-video-playlist-item-id="firstVideoPlaylistItemId"
+          :playlist-thumbnail="playlistThumbnail"
+          :title="playlistTitle"
+          :channel-name="channelName"
+          :channel-thumbnail="channelThumbnail"
+          :channel-id="channelId"
+          :last-updated="lastUpdated"
+          :description="playlistDescription"
+          :video-count="videoCount"
+          :videos="playlistItems"
+          :view-count="viewCount"
+          :info-source="infoSource"
+          :more-video-data-available="moreVideoDataAvailable"
+          :search-video-mode-allowed="isUserPlaylistRequested && videoCount > 1"
+          :search-video-mode-enabled="playlistInVideoSearchMode"
+          :search-query-text="searchQueryTextRequested"
+          :theme="listType === 'list' ? 'base' : 'top-bar'"
+          class="playlistInfo"
+          @enter-edit-mode="playlistInEditMode = true"
+          @exit-edit-mode="playlistInEditMode = false"
+          @search-video-query-change="(v) => handleVideoSearchQueryChange(v)"
+          @prompt-open="promptOpen = true"
+          @prompt-close="promptOpen = false"
+        />
+      </div>
+      <div
+        v-if="playlistItems.length > 0"
+        class="playlistDurationContainer"
+      >
+        <p class="totalDuration">
+          {{ $t('User Playlists.TotalTimePlaylist', { duration: totalPlaylistDuration }) }}
+        </p>
+      </div>
     </div>
     <ft-card
       v-if="!isLoading"
