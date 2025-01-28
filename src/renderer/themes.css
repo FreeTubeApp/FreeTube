@@ -1142,45 +1142,45 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .mainEverforestLightRed {
-  --primary-color: #f85552;
-  --primary-color-hover: #f97775;
-  --primary-color-active: #d63e3b;
+  --primary-color: #d83532;
+  --primary-color-hover: #e84e3f;
+  --primary-color-active: #b83232;
 }
 
 .mainEverforestLightOrange {
-  --primary-color: #f57d26;
-  --primary-color-hover: #f79f48;
-  --primary-color-active: #d55f0a;
+  --primary-color: #d55d0f;
+  --primary-color-hover: #e66f10;
+  --primary-color-active: #b64f00;
 }
 
 .mainEverforestLightYellow {
-  --primary-color: #dfa000;
-  --primary-color-hover: #f1b222;
-  --primary-color-active: #b97e00;
+  --primary-color: #a96e00;
+  --primary-color-hover: #c88b00;
+  --primary-color-active: #8b6e00;
 }
 
 .mainEverforestLightGreen {
-  --primary-color: #8da101;
-  --primary-color-hover: #9fb323;
-  --primary-color-active: #6d7e01;
+  --primary-color: #6d8100;
+  --primary-color-hover: #8da101;
+  --primary-color-active: #4f5f00;
 }
 
 .mainEverforestLightAqua {
-  --primary-color: #35a77c;
-  --primary-color-hover: #57c99e;
+  --primary-color: #25976c;
+  --primary-color-hover: #46b38a;
   --primary-color-active: #0d7e51;
 }
 
 .mainEverforestLightBlue {
-  --primary-color: #3a94c5;
-  --primary-color-hover: #5cb6e7;
+  --primary-color: #2a84b5;
+  --primary-color-hover: #4aa2d3;
   --primary-color-active: #0a7ea5;
 }
 
 .mainEverforestLightPurple {
-  --primary-color: #df69ba;
-  --primary-color-hover: #f08adb;
-  --primary-color-active: #b73a8a;
+  --primary-color: #cf59aa;
+  --primary-color-hover: #e77dc9;
+  --primary-color-active: #a63f9a;
 }
 
 /*************** SECONDARY THEME COLOR DEFINTIONS ***************/
