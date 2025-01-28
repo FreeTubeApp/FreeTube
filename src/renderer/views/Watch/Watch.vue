@@ -17,7 +17,7 @@
     >
       <div class="videoAreaMargin">
         <ft-shaka-video-player
-          v-if="!isLoading && !isUpcoming && !errorMessage"
+          v-if="!isLoading && !isUpcoming && !errorMessage && defaultViewingMode !== 'ivembed' && defaultViewingMode != 'ytembed'"
           ref="player"
           :manifest-src="manifestSrc"
           :manifest-mime-type="manifestMimeType"
@@ -49,6 +49,24 @@
           @toggle-autoplay="toggleAutoplay"
           @playback-rate-updated="updatePlaybackRate"
         />
+        <div
+          v-if="defaultViewingMode === 'ivembed' || defaultViewingMode === 'ytembed'"
+          class="ytIframe"
+        >
+          <iframe
+            class="player"
+            width="100%"
+            height="auto"
+            :src="defaultViewingMode === 'ytembed' ? `https://www.youtube.com/embed/${videoId}` : `${currentInvidiousInstanceUrl}/embed/${videoId}`"
+            frameborder="0"
+            :title="'YouTube video player'"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="no-referrer"
+            allowfullscreen
+            credentialless
+            sandbox="allow-same-origin allow-scripts"
+          />
+        </div>
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"
           class="videoPlayer"

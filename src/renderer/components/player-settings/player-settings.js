@@ -212,6 +212,10 @@ export default defineComponent({
         }
       }
 
+      viewingModeNames.push(
+        this.$t('Settings.Player Settings.Default Viewing Mode.Invidious Embed'),
+        this.$t('Settings.Player Settings.Default Viewing Mode.YouTube Embed')
+      )
       return viewingModeNames
     },
 
@@ -219,7 +223,7 @@ export default defineComponent({
       const viewingModeValues = [
         'default',
         'theatre',
-        'fullwindow'
+        'fullwindow',
       ]
 
       if (process.env.IS_ELECTRON) {
@@ -229,6 +233,8 @@ export default defineComponent({
           viewingModeValues.push('external_player')
         }
       }
+
+      viewingModeValues.push('ivembed', 'ytembed')
 
       return viewingModeValues
     },
