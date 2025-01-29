@@ -658,17 +658,17 @@ function runApp() {
         case 'catppuccin-frappe':
           return '#303446'
         case 'everforest-dark-hard':
-          return '#1E2326'
+          return '#272e33'
         case 'everforest-dark-medium':
-          return '#232A2E'
+          return '#2d353b'
         case 'everforest-dark-low':
-          return '#293136'
+          return '#333c43'
         case 'everforest-light-hard':
-          return '#F2EFDF'
+          return '#fffbef'
         case 'everforest-light-medium':
-          return '#EFE8D4'
+          return '#fdf6e3'
         case 'everforest-light-low':
-          return '#E5DFC5'
+          return '#f3ead3'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
