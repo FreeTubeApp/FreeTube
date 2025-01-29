@@ -22,7 +22,8 @@ import {
 import {
   addKeyboardShortcutToActionTitle,
   showToast,
-  writeFileWithPicker
+  writeFileWithPicker,
+  throttle,
 } from '../../helpers/utils'
 
 /** @typedef {import('../../helpers/sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
@@ -944,13 +945,13 @@ export default defineComponent({
 
         if (event.ctrlKey || event.metaKey) {
           if (videoPlaybackRateMouseScroll.value) {
-            mouseScrollPlaybackRate(event)
+            mouseScrollPlaybackRateHandler(event)
           }
         } else {
           if (videoVolumeMouseScroll.value) {
-            mouseScrollVolume(event)
+            mouseScrollVolumeHandler(event)
           } else if (videoSkipMouseScroll.value) {
-            mouseScrollSkip(event)
+            mouseScrollSkipHandler(event)
           }
         }
       }
@@ -988,7 +989,7 @@ export default defineComponent({
       }
 
       // make scrolling over volume slider change the volume
-      container.value.querySelector('.shaka-volume-bar').addEventListener('wheel', mouseScrollVolume)
+      container.value.querySelector('.shaka-volume-bar').addEventListener('wheel', mouseScrollVolumeHandler)
 
       // title overlay when the video is fullscreened
       // placing this inside the controls container so that we can fade it in and out at the same time as the controls
@@ -1970,31 +1971,47 @@ export default defineComponent({
 
     // #region mouse scroll handlers
 
+    const mouseScrollThrottleWaitMs = 100
+
     /**
      * @param {WheelEvent} event
      */
     function mouseScrollPlaybackRate(event) {
-      event.preventDefault()
-
       if ((event.deltaY < 0 || event.deltaX > 0)) {
         changePlayBackRate(0.05)
       } else if ((event.deltaY > 0 || event.deltaX < 0)) {
         changePlayBackRate(-0.05)
       }
     }
+    const mouseScrollPlaybackRateThrottle = throttle(mouseScrollPlaybackRate, mouseScrollThrottleWaitMs)
+    /**
+     * @param {WheelEvent} event
+     */
+    function mouseScrollPlaybackRateHandler(event) {
+      event.preventDefault()
+
+      mouseScrollPlaybackRateThrottle(event)
+    }
 
     /**
      * @param {WheelEvent} event
      */
     function mouseScrollSkip(event) {
+      if ((event.deltaY < 0 || event.deltaX > 0)) {
+        seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate(), true)
+      } else if ((event.deltaY > 0 || event.deltaX < 0)) {
+        seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate(), true)
+      }
+    }
+    const mouseScrollSkipThrottle = throttle(mouseScrollSkip, mouseScrollThrottleWaitMs)
+    /**
+     * @param {WheelEvent} event
+     */
+    function mouseScrollSkipHandler(event) {
       if (canSeek()) {
         event.preventDefault()
 
-        if ((event.deltaY < 0 || event.deltaX > 0)) {
-          seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate(), true)
-        } else if ((event.deltaY > 0 || event.deltaX < 0)) {
-          seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate(), true)
-        }
+        mouseScrollSkipThrottle(event)
       }
     }
 
@@ -2002,24 +2019,31 @@ export default defineComponent({
      * @param {WheelEvent} event
      */
     function mouseScrollVolume(event) {
+      const video_ = video.value
+
+      if (video_.muted && (event.deltaY < 0 || event.deltaX > 0)) {
+        video_.muted = false
+        video_.volume = 0
+      }
+
+      if (!video_.muted) {
+        if ((event.deltaY < 0 || event.deltaX > 0)) {
+          changeVolume(0.05)
+        } else if ((event.deltaY > 0 || event.deltaX < 0)) {
+          changeVolume(-0.05)
+        }
+      }
+    }
+    const mouseScrollVolumeThrottle = throttle(mouseScrollVolume, mouseScrollThrottleWaitMs)
+    /**
+     * @param {WheelEvent} event
+     */
+    function mouseScrollVolumeHandler(event) {
       if (!event.ctrlKey && !event.metaKey) {
         event.preventDefault()
         event.stopPropagation()
 
-        const video_ = video.value
-
-        if (video_.muted && (event.deltaY < 0 || event.deltaX > 0)) {
-          video_.muted = false
-          video_.volume = 0
-        }
-
-        if (!video_.muted) {
-          if ((event.deltaY < 0 || event.deltaX > 0)) {
-            changeVolume(0.05)
-          } else if ((event.deltaY > 0 || event.deltaX < 0)) {
-            changeVolume(-0.05)
-          }
-        }
+        mouseScrollVolumeThrottle(event)
       }
     }
 
