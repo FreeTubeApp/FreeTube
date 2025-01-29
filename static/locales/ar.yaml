@@ -308,9 +308,9 @@ Settings:
       Nordic: بلدان الشمال الأوروبي
       Solarized Dark: مظلم مشمس
       Solarized Light: مشمس داكن
-      Catppuccin Frappe: Catppuccin Frappe
-      Gruvbox Light: Gruvbox Light
-      Gruvbox Dark: Gruvbox Dark
+      Catppuccin Frappe: كاتبوتشين فرابيه
+      Gruvbox Light: صندوق مضيء
+      Gruvbox Dark: صندوق عاتم
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -358,30 +358,30 @@ Settings:
       Solarized Blue: مشمس أزرق
       Solarized Cyan: مشمس سماوي
       Solarized Green: مشمس أخضر
-      Catppuccin Frappe Sky: Catppuccin Frappe Sky
-      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
-      Gruvbox Dark Blue: Gruvbox Dark Blue
-      Gruvbox Dark Purple: Gruvbox Dark Purple
-      Gruvbox Dark Orange: Gruvbox Dark Orange
-      Gruvbox Light Red: Gruvbox Light Red
-      Gruvbox Dark Yellow: Gruvbox Dark Yellow
-      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
-      Gruvbox Dark Aqua: Gruvbox Dark Aqua
-      Gruvbox Light Blue: Gruvbox Light Blue
-      Gruvbox Light Purple: Gruvbox Light Purple
-      Catppuccin Frappe Red: Catppuccin Frappe Red
-      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
-      Catppuccin Frappe Green: Catppuccin Frappe Green
-      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
-      Catppuccin Frappe Pink: Catppuccin Frappe Pink
-      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
-      Catppuccin Frappe Peach: Catppuccin Frappe Peach
-      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
-      Catppuccin Frappe Teal: Catppuccin Frappe Teal
-      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
-      Catppuccin Frappe Blue: Catppuccin Frappe Blue
-      Gruvbox Dark Green: Gruvbox Dark Green
-      Gruvbox Light Orange: ­Gruvbox Light Orange
+      Catppuccin Frappe Sky: كاتبوتشينو فرابيه سماوي
+      Catppuccin Frappe Lavender: كاتبوتشين فرابيه أرجواني
+      Gruvbox Dark Blue: صندوق أزرق غامق
+      Gruvbox Dark Purple: صندوق بنفسجي غامق
+      Gruvbox Dark Orange: صندوق برتقالي غامق
+      Gruvbox Light Red: صندوق أحمر فاتح
+      Gruvbox Dark Yellow: صندوق أصفر غامق
+      Catppuccin Frappe Flamingo: كاتبوتشينو فرابيه فلامنجو
+      Gruvbox Dark Aqua: صندوق مائي داكن
+      Gruvbox Light Blue: صندوق أزرق فاتح
+      Gruvbox Light Purple: صندوق بنفسجي فاتح
+      Catppuccin Frappe Red: كاتبوتشيني فرابيه أحمر
+      Catppuccin Frappe Maroon: كاتبوتشينو فرابيه كستنائي
+      Catppuccin Frappe Green: كاتبوتشيني فرابيه أخضر
+      Catppuccin Frappe Rosewater: كاتبوتشيني فرابيه ماء الورد
+      Catppuccin Frappe Pink: كاتبوتشين فرابيه وردي
+      Catppuccin Frappe Mauve: كاتبوتشيني فرابيه بنفسجي فاتح
+      Catppuccin Frappe Peach: كاتبوتشيني فرابيه خوخ
+      Catppuccin Frappe Yellow: كاتبوتشيني فرابيه أصفر
+      Catppuccin Frappe Teal: كاتبوتشين فرابيه أزرق مخضر
+      Catppuccin Frappe Sapphire: كاتبوتشينو فرابيه ياقوت
+      Catppuccin Frappe Blue: كاتبوتشينو فرابيه أزرق
+      Gruvbox Dark Green: صندوق أخضر غامق
+      Gruvbox Light Orange: صندوق برتقالي فاتح
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم
@@ -416,7 +416,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '‍8k'
-    Next Video Interval: التشغيل التلقائي لمؤقت العد التنازلي
+    Next Video Interval: العد التنازلي للتشغيل التلقائي
     Scroll Volume Over Video Player: تمرير مستوى الصوت عبر مشغل الفيديو
     Display Play Button In Video Player: عرض زر التشغيل في مشغل الفيديو
     Fast-Forward / Rewind Interval: الفاصل الزمني السريع للأمام / الترجيع
@@ -434,10 +434,10 @@ Settings:
       Folder Label: موقع لقطة الشاشة
       Format Label: صيغة لقطة الشاشة
       Quality Label: جودة لقطة الشاشة
-      File Name Tooltip: يمكنك استخدام المتغيرات أدناه. %Y السنة 4 أرقام. %M رقمان
-        في الشهر. %D يوم 2 أرقام. %H ساعة 2 رقم. %N دقيقة 2 أرقام. %S رقمان ثانيان.
-        %T ميلي ثانية 3 أرقام. %s فيديو ثاني. %t فيديو ميلي ثانية 3 أرقام. %i معرف
-        فيديو.
+      File Name Tooltip: يمكنك استخدام المتغيرات أدناه. %Y السنة 4 أرقام. %M الشهر
+        رقمان. %D اليوم رقمان. %H الساعة رقمان. %N الدقيقة رقمان. %S الثانية رقمان.
+        %T الجزء من الثانية 3 أرقام. %s الثانية للفيديو رقمان. %t الجزء من الثانية
+        للفيديو 3 أرقام. %i رقم معرف الفيديو.
     Enter Fullscreen on Display Rotate: وضع ملء الشاشة عند تدوير الشاشة
     Skip by Scrolling Over Video Player: تخطي بالتمرير فوق مشغل الفيديو
     Default Viewing Mode:
@@ -446,7 +446,7 @@ Settings:
       Default Viewing Mode: وضع العرض الافتراضي
       Theater: مسرح
       Full Screen: ملء الشاشة
-    Autoplay Interruption Timer: مؤقت انقطاع التشغيل التلقائي
+    Autoplay Interruption Timer: مؤقت مقاطعة التشغيل التلقائي
   Privacy Settings:
     Privacy Settings: 'الخصوصية'
     Remember History: 'تذكر سجل المشاهدة'
@@ -948,8 +948,8 @@ Playlist:
     Custom: مُخصّص
     VideoDurationDescending: المدة (الاطول أولاً)
     VideoDurationAscending: المدة (الأقصر أولاً)
-    PublishedNewest: آخر نشر أولا
-    PublishedOldest: الأقدم نشر أولا
+    PublishedNewest: أحدث منشور أولاً
+    PublishedOldest: أقدم منشور أولاً
 Change Format:
   Change Media Formats: 'تغيير تنسيقات الفيديو'
   Use Dash Formats: 'استخدم تنسيقات DASH'
@@ -1116,7 +1116,7 @@ Downloading has completed: 'انتهى تنزيل "{videoTitle}"'
 Downloading failed: حدثت مشكلة أثناء تنزيل "{videoTitle}"
 Downloading canceled: تم إلغاء التحميل من قبل المستخدم
 Starting download: بدء تنزيل "{videoTitle}"
-Screenshot Success: لقطة شاشة محفوظة
+Screenshot Success: تم حفظ لقطة الشاشة
 Screenshot Error: فشل أخذ لقطة للشاشة. {error}
 New Window: نافذة جديدة
 Channels:
