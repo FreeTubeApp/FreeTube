@@ -181,7 +181,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --secondary-card-bg-color: rgb(0 0 0 / 75%);
   --scrollbar-color: #515151;
   --scrollbar-color-hover: #424242;
-  --side-nav-color: #0f0f0f;
+  --side-nav-color: #000;
   --side-nav-hover-color: #212121;
   --side-nav-active-color: #303030;
   --search-bar-color: #262626;
@@ -313,7 +313,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --secondary-card-bg-color: #282a36;
   --scrollbar-color: #44475a;
   --scrollbar-color-hover: #3d4051;
-  --side-nav-color: #44475a;
+  --side-nav-color: #33353f;
   --side-nav-hover-color: #57596b;
   --side-nav-active-color: #3d4051;
   --search-bar-color: #3e3f4a;
