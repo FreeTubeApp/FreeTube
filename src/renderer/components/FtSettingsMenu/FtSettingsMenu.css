@@ -108,6 +108,11 @@
   .header {
     font-size: 32px;
   }
+
+  /* hide the settings icon on mobile to avoid confusion */
+  .headingIcon {
+    display: none;
+  }
 }
 
 /* small height or width mobile breakpoint; intermediary text */
