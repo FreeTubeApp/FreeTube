@@ -954,6 +954,7 @@ Default Invidious instance has been cleared: 預設 Invidious 站台已被清除
 Default Invidious instance has been set to {instance}: 預設 Invidious 站台已被設定為 {instance}
 Search Bar:
   Clear Input: 清除輸入
+  Remove: 移除
 External link opening has been disabled in the general settings: 已在一般設定中停用外部連結開啟
 Are you sure you want to open this link?: 您確定您想要開啟此連結嗎？
 Downloading failed: 下載「{videoTitle}」時發生問題
