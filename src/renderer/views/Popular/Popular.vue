@@ -11,6 +11,7 @@
       <h2>
         <FontAwesomeIcon
           :icon="['fas', 'users']"
+          class="headingIcon"
           fixed-width
         />
         {{ $t("Most Popular") }}
