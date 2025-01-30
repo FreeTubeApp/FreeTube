@@ -54,7 +54,12 @@ const state = {
   externalPlayerValues: [],
   externalPlayerCmdArguments: {},
   lastPopularRefreshTimestamp: '',
-  lastTrendingRefreshTimestamp: '',
+  lastTrendingRefreshTimestamp: {
+    default: '',
+    music: '',
+    gaming: '',
+    movies: ''
+  },
   subscriptionFirstAutoFetchRunData: {
     videos: false,
     liveStreams: false,
@@ -905,21 +910,24 @@ const mutations = {
     state.trendingCache[page] = value
   },
 
-  setLastTrendingRefreshTimestamp (state, timestamp) {
-    state.lastTrendingRefreshTimestamp = timestamp
+  /**
+   * @param {typeof state} state
+   * @param {{page: 'default' | 'music' | 'gaming' | 'movies', timestamp: Date}} param1
+   */
+  setLastTrendingRefreshTimestamp (state, { page, timestamp }) {
+    state.lastTrendingRefreshTimestamp[page] = timestamp
   },
 
   setLastPopularRefreshTimestamp (state, timestamp) {
     state.lastPopularRefreshTimestamp = timestamp
   },
 
-  clearTrendingCache(state) {
-    state.trendingCache = {
-      default: null,
-      music: null,
-      gaming: null,
-      movies: null
-    }
+  /**
+   * @param {typeof state} state
+   * @param {'default' | 'music' | 'gaming' | 'movies'} page
+   */
+  clearTrendingCache(state, page) {
+    state.trendingCache[page] = null
   },
 
   setCachedPlaylist(state, value) {

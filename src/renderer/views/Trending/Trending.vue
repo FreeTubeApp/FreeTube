@@ -1,11 +1,6 @@
 <template>
   <div>
-    <FtLoader
-      v-if="isLoading"
-      :fullscreen="true"
-    />
     <FtCard
-      v-else
       class="card"
     >
       <h2>
@@ -106,14 +101,21 @@
           {{ $t("Trending.Movies").toUpperCase() }}
         </div>
       </FtFlexBox>
-      <FtElementList
+      <div
         id="trendingPanel"
         role="tabpanel"
-        :data="shownResults"
-      />
+      >
+        <FtLoader
+          v-if="isLoading[currentTab]"
+        />
+        <FtElementList
+          v-else
+          :data="shownResults"
+        />
+      </div>
     </FtCard>
     <FtRefreshWidget
-      :disable-refresh="isLoading"
+      :disable-refresh="isLoading[currentTab]"
       :last-refresh-timestamp="lastTrendingRefreshTimestamp"
       :title="$t('Trending.Trending')"
       @click="getTrendingInfo(true)"
@@ -152,7 +154,7 @@ const backendFallback = computed(() => {
 })
 
 const lastTrendingRefreshTimestamp = computed(() => {
-  return getRelativeTimeFromDate(store.getters.getLastTrendingRefreshTimestamp, true)
+  return getRelativeTimeFromDate(store.getters.getLastTrendingRefreshTimestamp[currentTab.value], true)
 })
 
 /** @type {import('vue').ComputedRef<string>} */
@@ -165,7 +167,7 @@ const trendingCache = computed(() => {
   return store.getters.getTrendingCache
 })
 
-const isLoading = ref(false)
+const isLoading = ref({ default: false, music: false, gaming: false, movies: false })
 const shownResults = shallowRef([])
 
 /** @type {import('vue').Ref<'default' | 'music' | 'gaming' | 'movies'>} */
@@ -190,7 +192,7 @@ function getTrendingInfo(refresh = false) {
       trendingInstance = null
     }
 
-    store.commit('clearTrendingCache')
+    store.commit('clearTrendingCache', currentTab.value)
   }
 
   if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
@@ -199,17 +201,17 @@ function getTrendingInfo(refresh = false) {
     getTrendingInfoLocal()
   }
 
-  store.commit('setLastTrendingRefreshTimestamp', new Date())
+  store.commit('setLastTrendingRefreshTimestamp', { page: currentTab.value, timestamp: new Date() })
 }
 
 async function getTrendingInfoLocal() {
-  isLoading.value = true
+  isLoading.value[currentTab.value] = true
 
   try {
     const { results, instance } = await getLocalTrending(region.value, currentTab.value, trendingInstance)
 
     shownResults.value = results
-    isLoading.value = false
+    isLoading.value[currentTab.value] = false
     trendingInstance = instance
 
     store.commit('setTrendingCache', { value: results, page: currentTab.value })
@@ -226,13 +228,13 @@ async function getTrendingInfoLocal() {
       showToast(t('Falling back to Invidious API'))
       getTrendingInfoInvidious()
     } else {
-      isLoading.value = false
+      isLoading.value[currentTab.value] = false
     }
   }
 }
 
 function getTrendingInfoInvidious() {
-  isLoading.value = true
+  isLoading.value[currentTab.value] = true
 
   getInvidiousTrending(currentTab.value, region.value).then((items) => {
     if (!items) {
@@ -240,7 +242,7 @@ function getTrendingInfoInvidious() {
     }
 
     shownResults.value = items
-    isLoading.value = false
+    isLoading.value[currentTab.value] = false
     store.commit('setTrendingCache', { value: items, page: currentTab.value })
     nextTick(() => {
       focusTab(currentTab.value)
@@ -256,7 +258,7 @@ function getTrendingInfoInvidious() {
       showToast(t('Falling back to Local API'))
       getTrendingInfoLocal()
     } else {
-      isLoading.value = false
+      isLoading.value[currentTab.value] = false
     }
   })
 }
@@ -332,7 +334,7 @@ function keyboardShortcutHandler(event) {
   switch (event.key.toLowerCase()) {
     case 'f5':
     case KeyboardShortcuts.APP.SITUATIONAL.REFRESH:
-      if (!isLoading.value) {
+      if (!isLoading.value[currentTab.value]) {
         getTrendingInfo(true)
       }
       break
