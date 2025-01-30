@@ -1,7 +1,14 @@
 <template>
   <div>
     <ft-card class="card">
-      <h2>{{ $t('Channels.Title') }}</h2>
+      <h2>
+        <FontAwesomeIcon
+          :icon="['fas', 'user-check']"
+          class="headingIcon"
+          fixed-width
+        />
+        {{ $t('Channels.Title') }}
+      </h2>
       <ft-input
         v-show="subscribedChannels.length > 0"
         ref="searchBarChannels"

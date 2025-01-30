@@ -8,7 +8,13 @@
       v-else
       class="card"
     >
-      <h2>{{ $t("Most Popular") }}</h2>
+      <h2>
+        <FontAwesomeIcon
+          :icon="['fas', 'users']"
+          fixed-width
+        />
+        {{ $t("Most Popular") }}
+      </h2>
       <ft-element-list
         :data="shownResults"
       />

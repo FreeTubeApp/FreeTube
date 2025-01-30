@@ -55,6 +55,10 @@
   grid-area: content;
 }
 
+.headingIcon {
+  color: var(--primary-color);
+}
+
 @media only screen and (width <=650px) {
   .about-chunks {
     grid-template-columns: 1fr;
