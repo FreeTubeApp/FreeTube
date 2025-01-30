@@ -912,10 +912,9 @@ const mutations = {
 
   /**
    * @param {typeof state} state
-   * @param {'default' | 'music' | 'gaming' | 'movies'} page
-   * @param {Date} timestamp
+   * @param {{page: 'default' | 'music' | 'gaming' | 'movies', timestamp: Date}} param1
    */
-  setLastTrendingRefreshTimestamp (state, page, timestamp) {
+  setLastTrendingRefreshTimestamp (state, { page, timestamp }) {
     state.lastTrendingRefreshTimestamp[page] = timestamp
   },
 

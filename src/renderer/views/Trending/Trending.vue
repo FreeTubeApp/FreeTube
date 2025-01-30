@@ -154,7 +154,7 @@ const backendFallback = computed(() => {
 })
 
 const lastTrendingRefreshTimestamp = computed(() => {
-  return getRelativeTimeFromDate(store.getters.getLastTrendingRefreshTimestamp[currentTab], true)
+  return getRelativeTimeFromDate(store.getters.getLastTrendingRefreshTimestamp[currentTab.value], true)
 })
 
 /** @type {import('vue').ComputedRef<string>} */
@@ -201,7 +201,7 @@ function getTrendingInfo(refresh = false) {
     getTrendingInfoLocal()
   }
 
-  store.commit('setLastTrendingRefreshTimestamp', currentTab.value, new Date())
+  store.commit('setLastTrendingRefreshTimestamp', { page: currentTab.value, timestamp: new Date() })
 }
 
 async function getTrendingInfoLocal() {
