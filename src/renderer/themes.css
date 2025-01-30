@@ -49,7 +49,7 @@ body:not(.hotPink, .pastelPink) {
 .light,
 .system[data-system-theme*='dark'],
 .dark,
-.black
+.black,
 
 /* Given that the Hot Pink theme does not need link underlining due to meeting
 WCAG 2 Level AA (https://webaim.org/resources/linkcontrastchecker/?fcolor=FFFFFF&bcolor=DE1C85&lcolor=000000),
