@@ -33,7 +33,7 @@ Forward: 'Áfram'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Myndskeið'
-  Shorts: Stuttmyndir
+  Shorts: Símamyndir
   Live: Í beinni
   Community: Samfélag
   Sort By: Raða eftir
@@ -530,13 +530,13 @@ Settings:
       Watch Page: Áhorfssíða
       General: Almennt
       Subscriptions Page: Áskriftasíða
-    Hide Channel Shorts: Fela stuttmyndaflipa rása
+    Hide Channel Shorts: Fela símamyndaflipa rása
     Hide Channel Playlists: Fela spilunarlistaflipa rása
     Hide Channel Community: Fela samfélagsflipa rása
     Hide Featured Channels: Fela rásir í deiglunni
     Hide Channel Podcasts: Fela hlaðvarpsflipa rása
     Hide Channel Releases: Fela útgáfuflipa rása
-    Hide Subscriptions Shorts: Fela stuttmyndir áskrifta
+    Hide Subscriptions Shorts: Fela símamyndir áskrifta
     Hide Subscriptions Live: Fela bein streymi áskrifta
     Hide Subscriptions Videos: Fela myndskeið áskrifta
     Hide Profile Pictures in Comments: Fela auðkennismyndir í athugasemdum
@@ -814,7 +814,7 @@ Channel:
       færslur á Invidious. Farðu á samfélagsflipa rásar til að skoða efni þar án Invidious.
   Shorts:
     This channel does not currently have any shorts: Þessi rás er í augnablikinu ekki
-      með neinar stuttmyndir
+      með neinar símamyndir
   Releases:
     Releases: Útgáfur
     This channel does not currently have any releases: Þessi rás er ekki með neinar
