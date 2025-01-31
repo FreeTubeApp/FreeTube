@@ -76,7 +76,7 @@ jobs:
       run: |
         sudo apt install desktop-file-utils
         cd build
-        appimage="FreeTube-${{ steps.versionNumber.outputs.result }}.AppImage"
+        appimage="FreeTube-${{ steps.getPackageInfo.outputs.version }}.AppImage"
         wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
         chmod +x ./"$appimage" ./appimagetool.AppImage
         ./"$appimage" --appimage-extract && rm -f ./"$appimage"
