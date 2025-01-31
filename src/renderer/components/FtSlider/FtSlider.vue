@@ -21,10 +21,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { randomUUID } from 'crypto'
-import { useI18n } from '../../composables/use-i18n-polyfill'
-
-const { t } = useI18n()
+import { useId } from '../../composables/use-id-polyfill.js'
 
 const props = defineProps({
   label: {
@@ -59,7 +56,7 @@ const props = defineProps({
 
 const emit = defineEmits(['change'])
 
-const id = randomUUID()
+const id = useId()
 const currentValue = ref(props.defaultValue)
 
 const displayLabel = computed(() => {
