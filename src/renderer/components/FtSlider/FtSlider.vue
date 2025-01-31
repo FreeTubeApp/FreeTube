@@ -14,7 +14,7 @@
       @change="change"
     >
     <span>
-      {{ t('Display Label', {label: label, value: displayLabel}) }}
+      {{ $t('Display Label', {label: label, value: displayLabel}) }}
     </span>
   </label>
 </template>
