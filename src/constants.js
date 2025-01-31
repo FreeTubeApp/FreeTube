@@ -5,6 +5,7 @@ const IpcChannels = {
   OPEN_EXTERNAL_LINK: 'open-external-link',
   GET_SYSTEM_LOCALE: 'get-system-locale',
   GET_PICTURES_PATH: 'get-pictures-path',
+  GET_NAVIGATION_HISTORY: 'get-navigation-history',
   SHOW_OPEN_DIALOG: 'show-open-dialog',
   SHOW_SAVE_DIALOG: 'show-save-dialog',
   STOP_POWER_SAVE_BLOCKER: 'stop-power-save-blocker',
@@ -14,6 +15,9 @@ const IpcChannels = {
   NATIVE_THEME_UPDATE: 'native-theme-update',
   APP_READY: 'app-ready',
   RELAUNCH_REQUEST: 'relaunch-request',
+
+  REQUEST_FULLSCREEN: 'request-fullscreen',
+  REQUEST_PIP: 'request-pip',
 
   SEARCH_INPUT_HANDLING_READY: 'search-input-handling-ready',
   UPDATE_SEARCH_INPUT_TEXT: 'update-search-input-text',
@@ -25,10 +29,12 @@ const IpcChannels = {
   DB_HISTORY: 'db-history',
   DB_PROFILES: 'db-profiles',
   DB_PLAYLISTS: 'db-playlists',
+  DB_SEARCH_HISTORY: 'db-search-history',
   DB_SUBSCRIPTION_CACHE: 'db-subscription-cache',
 
   SYNC_SETTINGS: 'sync-settings',
   SYNC_HISTORY: 'sync-history',
+  SYNC_SEARCH_HISTORY: 'sync-search-history',
   SYNC_PROFILES: 'sync-profiles',
   SYNC_PLAYLISTS: 'sync-playlists',
   SYNC_SUBSCRIPTION_CACHE: 'sync-subscription-cache',
@@ -39,7 +45,11 @@ const IpcChannels = {
   PLAYER_CACHE_GET: 'player-cache-get',
   PLAYER_CACHE_SET: 'player-cache-set',
 
-  SET_INVIDIOUS_AUTHORIZATION: 'set-invidious-authorization'
+  SET_INVIDIOUS_AUTHORIZATION: 'set-invidious-authorization',
+
+  GENERATE_PO_TOKEN: 'generate-po-token',
+
+  WRITE_SCREENSHOT: 'write-screenshot',
 }
 
 const DBActions = {
@@ -85,6 +95,7 @@ const SyncEvents = {
     CREATE: 'sync-create',
     UPSERT: 'sync-upsert',
     DELETE: 'sync-delete',
+    DELETE_MULTIPLE: 'sync-delete-multiple',
     DELETE_ALL: 'sync-delete-all'
   },
 
@@ -101,7 +112,9 @@ const SyncEvents = {
 
   PLAYLISTS: {
     UPSERT_VIDEO: 'sync-playlists-upsert-video',
+    UPSERT_VIDEOS: 'sync-playlists-upsert-videos',
     DELETE_VIDEO: 'sync-playlists-delete-video',
+    DELETE_VIDEOS: 'sync-playlists-delete-videos',
   },
 
   SUBSCRIPTION_CACHE: {
@@ -110,6 +123,71 @@ const SyncEvents = {
     UPDATE_SHORTS_BY_CHANNEL: 'sync-subscriptions-update-shorts-by-channel',
     UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL: 'sync-subscriptions-update-shorts-with-channel-page-shorts-by-channel',
     UPDATE_COMMUNITY_POSTS_BY_CHANNEL: 'sync-subscriptions-update-community-posts-by-channel',
+  },
+}
+
+/*
+  DEV NOTE: Duplicate any and all changes made here to our [official documentation site here](https://github.com/FreeTubeApp/FreeTube-Docs/blob/master/usage/keyboard-shortcuts.md)
+  to have them reflect on the [keyboard shortcut reference webpage](https://docs.freetubeapp.io/usage/keyboard-shortcuts).
+  Please also update the [keyboard shortcut modal](src/renderer/components/FtKeyboardShortcutPrompt/FtKeyboardShortcutPrompt.vue)
+*/
+const KeyboardShortcuts = {
+  APP: {
+    GENERAL: {
+      SHOW_SHORTCUTS: 'shift+?',
+      HISTORY_BACKWARD: 'alt+arrowleft',
+      HISTORY_FORWARD: 'alt+arrowright',
+      HISTORY_BACKWARD_ALT_MAC: 'cmd+[',
+      HISTORY_FORWARD_ALT_MAC: 'cmd+]',
+      FULLSCREEN: 'f11',
+      NAVIGATE_TO_SETTINGS: 'ctrl+,',
+      NAVIGATE_TO_HISTORY: 'ctrl+H',
+      NAVIGATE_TO_HISTORY_MAC: 'cmd+Y',
+      NEW_WINDOW: 'ctrl+N',
+      MINIMIZE_WINDOW: 'ctrl+M',
+      CLOSE_WINDOW: 'ctrl+W',
+      RESTART_WINDOW: 'ctrl+R',
+      FORCE_RESTART_WINDOW: 'ctrl+shift+R',
+      TOGGLE_DEVTOOLS: 'ctrl+shift+I',
+      FOCUS_SEARCH: 'alt+D',
+      SEARCH_IN_NEW_WINDOW: 'shift+enter',
+      RESET_ZOOM: 'ctrl+0',
+      ZOOM_IN: 'ctrl+plus',
+      ZOOM_OUT: 'ctrl+-'
+
+    },
+    SITUATIONAL: {
+      REFRESH: 'r',
+      FOCUS_SECONDARY_SEARCH: 'ctrl+F'
+    },
+  },
+  VIDEO_PLAYER: {
+    GENERAL: {
+      CAPTIONS: 'c',
+      THEATRE_MODE: 't',
+      FULLSCREEN: 'f',
+      FULLWINDOW: 's',
+      PICTURE_IN_PICTURE: 'i',
+      MUTE: 'm',
+      VOLUME_UP: 'arrowup',
+      VOLUME_DOWN: 'arrowdown',
+      STATS: 'd',
+      TAKE_SCREENSHOT: 'u',
+    },
+    PLAYBACK: {
+      PLAY: 'k',
+      LARGE_REWIND: 'j',
+      LARGE_FAST_FORWARD: 'l',
+      SMALL_REWIND: 'arrowleft',
+      SMALL_FAST_FORWARD: 'arrowright',
+      DECREASE_VIDEO_SPEED: 'o',
+      INCREASE_VIDEO_SPEED: 'p',
+      SKIP_N_TENTHS: '0..9',
+      LAST_CHAPTER: 'ctrl+arrowleft',
+      NEXT_CHAPTER: 'ctrl+arrowright',
+      LAST_FRAME: ',',
+      NEXT_FRAME: '.',
+    }
   },
 }
 
@@ -125,6 +203,12 @@ const PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD = 500
 // YouTube search character limit is 100 characters
 const SEARCH_CHAR_LIMIT = 100
 
+// max # of results we show for search suggestions
+const SEARCH_RESULTS_DISPLAY_LIMIT = 14
+
+// max # of search history results we show when mixed with YT search suggestions
+const MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT = 4
+
 // Displayed on the about page and used in the main.js file to only allow bitcoin URLs with this wallet address to be opened
 const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
@@ -132,9 +216,12 @@ export {
   IpcChannels,
   DBActions,
   SyncEvents,
+  KeyboardShortcuts,
   MAIN_PROFILE_ID,
   MOBILE_WIDTH_THRESHOLD,
   PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD,
   SEARCH_CHAR_LIMIT,
+  SEARCH_RESULTS_DISPLAY_LIMIT,
+  MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT,
   ABOUT_BITCOIN_ADDRESS,
 }

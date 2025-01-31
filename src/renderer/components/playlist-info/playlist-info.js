@@ -4,14 +4,17 @@ import FtShareButton from '../ft-share-button/ft-share-button.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
-import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import {
   ctrlFHandler,
+  debounce,
   formatNumber,
   showToast,
+  getTodayDateStrLocalTimezone,
+  writeFileWithPicker,
 } from '../../helpers/utils'
-import debounce from 'lodash.debounce'
+import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 
 export default defineComponent({
   name: 'PlaylistInfo',
@@ -199,7 +202,7 @@ export default defineComponent({
 
     thumbnail: function () {
       if (this.thumbnailPreference === 'hidden' || !this.firstVideoIdExists) {
-        return require('../../assets/img/thumbnail_placeholder.svg')
+        return thumbnailPlaceholder
       }
 
       let baseUrl = 'https://i.ytimg.com'
@@ -262,6 +265,15 @@ export default defineComponent({
       return this.selectedUserPlaylist.videos.length - this.userPlaylistUniqueVideoIds.size
     },
 
+    exportPlaylistButtonVisible: function() {
+      // Most UI should be invisible in edit mode
+      if (this.editMode) { return false }
+      // Only online playlists can be shared
+      if (!this.isUserPlaylist) { return false }
+
+      return this.videoCount > 0
+    },
+
     deletePlaylistButtonVisible: function() {
       if (!this.isUserPlaylist) { return false }
       // Cannot delete during edit
@@ -275,7 +287,6 @@ export default defineComponent({
       // Only online playlists can be shared
       if (this.isUserPlaylist) { return false }
 
-      // Cannot delete protected playlist
       return !this.hideSharingActions
     },
 
@@ -410,6 +421,35 @@ export default defineComponent({
 
     handlePlaylistDeleteDisabledClick: function () {
       showToast(this.playlistDeletionDisabledLabel)
+    },
+
+    handlePlaylistExport: async function () {
+      const dateStr = getTodayDateStrLocalTimezone()
+      const title = this.selectedUserPlaylist.playlistName.replaceAll(/[ "%*/:<>?\\|]/g, '_')
+      const exportFileName = 'freetube-playlist-' + title + '-' + dateStr + '.db'
+
+      const data = JSON.stringify(this.selectedUserPlaylist) + '\n'
+
+      // See data-settings.js `promptAndWriteToFile`
+
+      try {
+        const response = await writeFileWithPicker(
+          exportFileName,
+          data,
+          this.$t('Settings.Data Settings.Playlist File'),
+          'application/x-freetube-db',
+          '.db',
+          'single-playlist-export',
+          'downloads'
+        )
+
+        if (response) {
+          showToast(this.$t('User Playlists.The playlist has been successfully exported'))
+        }
+      } catch (error) {
+        const message = this.$t('Settings.Data Settings.Unable to write file')
+        showToast(`${message}: ${error}`)
+      }
     },
 
     exitEditMode: function () {

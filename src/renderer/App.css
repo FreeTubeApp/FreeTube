@@ -36,12 +36,18 @@
   user-select: unset;
 }
 
+.changeLogTitle {
+  padding-inline: 16px;
+  overflow-wrap: break-word;
+  margin-block-end: 16px;
+}
+
 .changeLogText {
   overflow-y: scroll;
   block-size: 40vh;
   display: block;
   padding-inline: 16px;
-  margin-block: 16px;
+  margin-block-end: 16px;
   overflow-wrap: break-word;
 }
 

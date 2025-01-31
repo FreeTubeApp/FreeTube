@@ -34,6 +34,16 @@ Forward: 'Framover'
 Global:
   Videos: 'Videoar'
 
+  Counts:
+    Comment Count: 1 kommentar | {count} kommentarar
+    Video Count: 1 video | {count} videoar
+    Channel Count: 1 kanal | {count} kanalar
+    Subscriber Count: 1 abonnent | {count} abonnentar
+    View Count: 1 visning | {count} visningar
+  Shorts: Shorts
+  Live: Direkte
+  Community: Fellesskap
+  Sort By: 'Sorter etter'
 Version {versionNumber} is now available!  Click for more details: 'Versjon {versionNumber}
   er no tilgjengeleg! Klikk for meir informasjon'
 Download From Site: 'Last ned frå nettstaden'
@@ -46,7 +56,6 @@ Search / Go to URL: 'Søk/gå til nettadresse'
 Search Filters:
   Search Filters: 'Søkefilter'
   Sort By:
-    Sort By: 'Sorter etter'
     Most Relevant: 'Mest relevant'
     Rating: 'Vurdering'
     Upload Date: 'Opplastingsdato'
@@ -80,14 +89,11 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnement'
-  Latest Subscriptions: 'Siste abonnement'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Denne
     profilen har ei stor mengd abonnentar. Tvinger RSS til å unngå å avgrense hastigheita'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Di
     abonnementliste er tom for augeblikket. Start å legge til fleire abonnement for
     å sjå dei her.'
-  'Getting Subscriptions. Please wait.': 'Henter abonnement. Ver venleg og vent.'
-  Refresh Subscriptions: 'Oppdater abonnement'
   Load More Videos: 'Last inn fleire videoar'
   Error Channels: Kanalar med feil
   Disabled Automatic Fetching: Du har deaktivert automatisk henting av abonnement.
@@ -264,8 +270,7 @@ Settings:
         %M for månad, med to siffer. %D for dag, med to siffer. %H for time, med to
         siffer. %N for minutt, med to siffer. %S for sekund, med to siffer. %T for
         millisekund, med tre siffer. %s for videosekund. %t for videomillisekund,
-        med tre siffer. %i for Video-ID. Du kan òg bruke "\" eller "/" for å lage
-        undermapper.
+        med tre siffer. %i for Video-ID.
     Fast-Forward / Rewind Interval: Intervall for framover- og bakoverspoling
     Skip by Scrolling Over Video Player: Hopp over ved å blad over videoavspelaren
     Scroll Playback Rate Over Video Player: Blaavspelingshastigheit over videoavspelar
@@ -317,7 +322,6 @@ Settings:
     Hide Channels Placeholder: Kanalnamn eller kanal-ID
   Data Settings:
     Data Settings: 'Datainnstillingar'
-    Select Import Type: 'Vel importtype'
     Select Export Type: 'Vel eksporttype'
     Import Subscriptions: 'Importer abonnement'
     Export Subscriptions: 'Eksporter abonnement'
@@ -417,8 +421,6 @@ Settings:
   Password Dialog:
     Enter Password To Unlock: Skriv inn passord for å låse opp innstillingar
     Password: Passord
-    Unlock: Lås opp
-    Password Incorrect: Feil passord
   Password Settings:
     Set Password To Prevent Access: Angi eit passord for å forhindre tilgang til innstillingane
     Password Settings: Passordinnstillingar
@@ -467,7 +469,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Er du sikker på at du vil fjerne
     denne profilet?'
   All subscriptions will also be deleted.: 'Alle abonnement vil òg bli sletta.'
-  Profile could not be found: 'Profil ikkje funne'
   Your profile name cannot be empty: 'Profilnamnet ditt kan ikkje vere tomt'
   Profile has been created: 'Profilet har blitt laga'
   Profile has been updated: 'Profilet har blitt oppdatert'
@@ -505,7 +506,6 @@ Channel:
   Added channel to your subscriptions: 'Lagt til kanal til dine abonnentar'
   Search Channel: 'Søk i kanal'
   Your search results have returned 0 results: 'Søket gitt gav 0 resultat'
-  Sort By: 'Sorter etter'
   Videos:
     Videos: 'Videoar'
     This channel does not currently have any videos: 'Kanalen har ingen videoar enda'
@@ -562,8 +562,6 @@ Video:
   Enable Live Chat: 'Slå på direktechat'
   Live Chat is currently not supported in this build.: 'Direktechat er ikkje støtta
     i den noverande versjonen.'
-  'Chat is disabled or the Live Stream has ended.': 'Chatten er slått av eller direktesendinga
-    er avslutta.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Direktechat er
     slått på. Chatmeldingar vil bli vist her når dei er sendt.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direktechat
@@ -573,39 +571,10 @@ Video:
   video only: 'berre video'
   audio only: 'berre lyd'
   Published:
-    Jan: 'Jan'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Mai'
-    Jun: 'Jun'
-    Jul: 'Jul'
-    Aug: 'Aug'
-    Sep: 'Sep'
-    Oct: 'Okt'
-    Nov: 'Nov'
-    Dec: 'Des'
-    Second: 'Sekund'
-    Seconds: 'Sekund'
-    Minute: 'Minutt'
-    Minutes: 'Minutt'
-    Hour: 'Time'
-    Hours: 'Timar'
-    Day: 'Dag'
-    Days: 'Dagar'
-    Week: 'Veke'
-    Weeks: 'Veker'
-    Month: 'Månad'
-    Months: 'Månadar'
-    Year: 'År'
-    Years: 'År'
-    Ago: 'Sidan'
-    Upcoming: 'Har premiere på'
     In less than a minute: Om mindre enn eit minutt
   Published on: 'Publisert på'
   Streamed on: 'Strauma på'
   Started streaming on: 'Begynte å straume på'
-  Publicationtemplate: '{number} {unit} sidan'
 #& Videos
   Sponsor Block category:
     outro: Avslutting
@@ -631,17 +600,10 @@ Video:
       reversing playlists: speler av spelelister baklengs
       opening specific video in a playlist (falling back to opening the video): opner
         valt video i ei speleliste (faller tilbake til å opne videoen)
-  Premieres on: Har premiere
   Show Super Chat Comment: Vis super-chat-kommentar
   Premieres: Premiere
   Scroll to Bottom: Rull til botn
   Upcoming: Komande
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Nyaste'
-    Oldest: 'Eldste'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -688,9 +650,7 @@ Comments:
   Getting comment replies, please wait: 'Laster inn kommentarar. Ver venleg og vent'
   There are no more comments for this video: 'Det finst ingen fleire kommentarar for
     denne videoen'
-  Show Comments: 'Vis kommentarar'
   Hide Comments: 'Skjul kommentarar'
-  Sort by: 'Sorter etter'
   Top comments: 'Toppkommentarar'
   Newest first: 'Nyaste først'
   # Context: View 10 Replies, View 1 Reply
@@ -701,7 +661,6 @@ Comments:
   There are no comments available for this video: 'Det er ingen kommentarar tilgjengeleg
     for denne videoen'
   Load More Comments: 'Last inn fleire kommentarar'
-  No more comments available: 'Ingen fleire kommentarar tilgjengeleg'
   Show More Replies: Vis fleire svar
   Pinned by: Festa av
   And others: og andre
@@ -760,7 +719,7 @@ Tooltips:
       ekstern videoavspelar. Ver merksam på at Invidious-innstillingar ikkje påverker
       den eksterne videoavspelaren.
     Custom External Player Arguments: Eventuelle eigendefinerte kommandolinjeargument,
-      åtskilt med semikolon (";"), du vil at skal bli sendt til den eksterne videoavspelaren.
+      du vil at skal bli sendt til den eksterne videoavspelaren.
   Experimental Settings:
     Replace HTTP Cache: Deaktiver Electrons diskbaserte HTTP-hurtiglager og aktiver
       eit eigendefinert biletehurtiglager i minnet. Dette vil føre til ei auking i
@@ -830,3 +789,12 @@ Default Invidious instance has been set to {instance}: Standard-Invidious-førek
   har blitt satt til {instance}
 External link opening has been disabled in the general settings: Opening av eksterne
   lenker har blitt deaktivert i innstillingane
+Go to page: Gå til {page}
+Search Listing:
+  Label:
+    8K: 8K
+    New: Ny
+    3D: 3D
+    4K: 4K
+    Subtitles: Undertekstar
+    Closed Captions: Undertekstar

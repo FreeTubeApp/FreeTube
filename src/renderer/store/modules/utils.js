@@ -33,6 +33,7 @@ const state = {
   showProgressBar: false,
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
+  isKeyboardShortcutPromptShown: false,
   showSearchFilters: false,
   searchFilterValueChanged: false,
   progressBarPercentage: 0,
@@ -53,13 +54,19 @@ const state = {
   externalPlayerValues: [],
   externalPlayerCmdArguments: {},
   lastPopularRefreshTimestamp: '',
-  lastTrendingRefreshTimestamp: '',
+  lastTrendingRefreshTimestamp: {
+    default: '',
+    music: '',
+    gaming: '',
+    movies: ''
+  },
   subscriptionFirstAutoFetchRunData: {
     videos: false,
     liveStreams: false,
     shorts: false,
     communityPosts: false,
   },
+  appTitle: ''
 }
 
 const getters = {
@@ -97,6 +104,10 @@ const getters = {
 
   getSearchFilterValueChanged(state) {
     return state.searchFilterValueChanged
+  },
+
+  getIsKeyboardShortcutPromptShown(state) {
+    return state.isKeyboardShortcutPromptShown
   },
 
   getShowAddToPlaylistPrompt(state) {
@@ -175,6 +186,9 @@ const getters = {
   getSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
     return state.subscriptionFirstAutoFetchRunData.communityPosts === true
   },
+  getAppTitle (state) {
+    return state.appTitle
+  }
 }
 
 const actions = {
@@ -272,44 +286,34 @@ const actions = {
   },
 
   parseScreenshotCustomFileName: function({ rootState }, payload) {
-    return new Promise((resolve, reject) => {
-      const { pattern = rootState.settings.screenshotFilenamePattern, date, playerTime, videoId } = payload
-      const keywords = [
-        ['%Y', date.getFullYear()], // year 4 digits
-        ['%M', (date.getMonth() + 1).toString().padStart(2, '0')], // month 2 digits
-        ['%D', date.getDate().toString().padStart(2, '0')], // day 2 digits
-        ['%H', date.getHours().toString().padStart(2, '0')], // hour 2 digits
-        ['%N', date.getMinutes().toString().padStart(2, '0')], // minute 2 digits
-        ['%S', date.getSeconds().toString().padStart(2, '0')], // second 2 digits
-        ['%T', date.getMilliseconds().toString().padStart(3, '0')], // millisecond 3 digits
-        ['%s', parseInt(playerTime)], // video position second n digits
-        ['%t', (playerTime % 1).toString().slice(2, 5) || '000'], // video position millisecond 3 digits
-        ['%i', videoId] // video id
-      ]
+    const { pattern = rootState.settings.screenshotFilenamePattern, date, playerTime, videoId } = payload
+    const keywords = [
+      ['%Y', date.getFullYear()], // year 4 digits
+      ['%M', (date.getMonth() + 1).toString().padStart(2, '0')], // month 2 digits
+      ['%D', date.getDate().toString().padStart(2, '0')], // day 2 digits
+      ['%H', date.getHours().toString().padStart(2, '0')], // hour 2 digits
+      ['%N', date.getMinutes().toString().padStart(2, '0')], // minute 2 digits
+      ['%S', date.getSeconds().toString().padStart(2, '0')], // second 2 digits
+      ['%T', date.getMilliseconds().toString().padStart(3, '0')], // millisecond 3 digits
+      ['%s', parseInt(playerTime)], // video position second n digits
+      ['%t', (playerTime % 1).toString().slice(2, 5) || '000'], // video position millisecond 3 digits
+      ['%i', videoId] // video id
+    ]
 
-      let parsedString = pattern
-      for (const [key, value] of keywords) {
-        parsedString = parsedString.replaceAll(key, value)
-      }
+    let parsedString = pattern
+    for (const [key, value] of keywords) {
+      parsedString = parsedString.replaceAll(key, value)
+    }
 
-      if (parsedString !== replaceFilenameForbiddenChars(parsedString)) {
-        reject(new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Forbidden Characters')))
-      }
+    if (parsedString !== replaceFilenameForbiddenChars(parsedString)) {
+      throw new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Forbidden Characters'))
+    }
 
-      let filename
-      if (parsedString.indexOf(path.sep) !== -1) {
-        const lastIndex = parsedString.lastIndexOf(path.sep)
-        filename = parsedString.substring(lastIndex + 1)
-      } else {
-        filename = parsedString
-      }
+    if (!parsedString) {
+      throw new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Empty File Name'))
+    }
 
-      if (!filename) {
-        reject(new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Empty File Name')))
-      }
-
-      resolve(parsedString)
-    })
+    return parsedString
   },
 
   showAddToPlaylistPromptForManyVideos ({ commit }, { videos: videoObjectArray, newPlaylistDefaultProperties }) {
@@ -384,6 +388,14 @@ const actions = {
     commit('setShowCreatePlaylistPrompt', false)
   },
 
+  showKeyboardShortcutPrompt ({ commit }) {
+    commit('setIsKeyboardShortcutPromptShown', true)
+  },
+
+  hideKeyboardShortcutPrompt ({ commit }) {
+    commit('setIsKeyboardShortcutPromptShown', false)
+  },
+
   showSearchFilters ({ commit }) {
     commit('setShowSearchFilters', true)
   },
@@ -410,7 +422,7 @@ const actions = {
     commit('setRegionValues', regionValues)
   },
 
-  async getYoutubeUrlInfo({ state }, urlStr) {
+  async getYoutubeUrlInfo({ rootState, state }, urlStr) {
     // Returns
     // - urlType [String] `video`, `playlist`
     //
@@ -630,8 +642,11 @@ const actions = {
             }
             subPath = 'community'
             break
-          default:
+          case 'videos':
             subPath = 'videos'
+            break
+          default:
+            subPath = rootState.settings.backendPreference === 'local' && !rootState.settings.hideChannelHome ? 'home' : 'videos'
             break
         }
         return {
@@ -689,20 +704,19 @@ const actions = {
     const customArgs = rootState.settings.externalPlayerCustomArgs
 
     if (ignoreDefaultArgs) {
-      if (typeof customArgs === 'string' && customArgs !== '') {
-        const custom = customArgs.split(';')
+      if (typeof customArgs === 'string' && customArgs !== '[]') {
+        const custom = JSON.parse(customArgs)
         args.push(...custom)
       }
       if (payload.videoId != null) args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
     } else {
       // Append custom user-defined arguments,
       // or use the default ones specified for the external player.
-      if (typeof customArgs === 'string' && customArgs !== '') {
-        const custom = customArgs.split(';')
+      if (typeof customArgs === 'string' && customArgs !== '[]') {
+        const custom = JSON.parse(customArgs)
         args.push(...custom)
-      } else if (typeof cmdArgs.defaultCustomArguments === 'string' && cmdArgs.defaultCustomArguments !== '') {
-        const defaultCustomArguments = cmdArgs.defaultCustomArguments.split(';')
-        args.push(...defaultCustomArguments)
+      } else if (Array.isArray(cmdArgs.defaultCustomArguments)) {
+        args.push(...cmdArgs.defaultCustomArguments)
       }
 
       if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
@@ -834,6 +848,10 @@ const mutations = {
     vueSet(state.deArrowCache, payload.videoId, payload)
   },
 
+  removeFromSessionSearchHistory (state, query) {
+    state.sessionSearchHistory = state.sessionSearchHistory.filter((search) => search.query !== query)
+  },
+
   addToSessionSearchHistory (state, payload) {
     const sameSearch = state.sessionSearchHistory.findIndex((search) => {
       return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
@@ -859,6 +877,10 @@ const mutations = {
 
   setShowCreatePlaylistPrompt (state, payload) {
     state.showCreatePlaylistPrompt = payload
+  },
+
+  setIsKeyboardShortcutPromptShown (state, payload) {
+    state.isKeyboardShortcutPromptShown = payload
   },
 
   setShowSearchFilters (state, payload) {
@@ -888,21 +910,24 @@ const mutations = {
     state.trendingCache[page] = value
   },
 
-  setLastTrendingRefreshTimestamp (state, timestamp) {
-    state.lastTrendingRefreshTimestamp = timestamp
+  /**
+   * @param {typeof state} state
+   * @param {{page: 'default' | 'music' | 'gaming' | 'movies', timestamp: Date}} param1
+   */
+  setLastTrendingRefreshTimestamp (state, { page, timestamp }) {
+    state.lastTrendingRefreshTimestamp[page] = timestamp
   },
 
   setLastPopularRefreshTimestamp (state, timestamp) {
     state.lastPopularRefreshTimestamp = timestamp
   },
 
-  clearTrendingCache(state) {
-    state.trendingCache = {
-      default: null,
-      music: null,
-      gaming: null,
-      movies: null
-    }
+  /**
+   * @param {typeof state} state
+   * @param {'default' | 'music' | 'gaming' | 'movies'} page
+   */
+  clearTrendingCache(state, page) {
+    state.trendingCache[page] = null
   },
 
   setCachedPlaylist(state, value) {
@@ -957,6 +982,11 @@ const mutations = {
     state.externalPlayerCmdArguments = value
   },
 
+  // Use this to set the app title / document.title
+  setAppTitle (state, value) {
+    state.appTitle = value
+  },
+
   setSubscriptionForVideosFirstAutoFetchRun (state) {
     state.subscriptionFirstAutoFetchRunData.videos = true
   },
@@ -968,7 +998,7 @@ const mutations = {
   },
   setSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
     state.subscriptionFirstAutoFetchRunData.communityPosts = true
-  },
+  }
 }
 
 export default {

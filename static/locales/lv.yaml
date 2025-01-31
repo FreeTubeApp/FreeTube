@@ -1,7 +1,8 @@
 # Put the name of your locale in the same language
 Locale Name: 'Latviešu'
 # Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >
+'This part of the app is not ready yet. Come back later when progress has been made.': >-
+  Šī aplikācijas sadaļa vēl nav gatava. Atnāc vēlāk, kad būs veikti uzlabojumi.
 
 # Webkit Menu Bar
 File: 'Datne'
@@ -30,10 +31,13 @@ Back: 'Atpakaļ'
 Forward: 'Uz priekšu'
 Open New Window: 'Atvērt jaunu logu'
 
-Version {versionNumber} is now available!  Click for more details: ''
+Version {versionNumber} is now available!  Click for more details: 'Versija {versionNumber}
+  tagad ir pieejama!  Spied, lai skatītu detaļas'
 Download From Site: 'Lejuplādēt no vietnes'
-A new blog is now available, {blogTitle}. Click to view more: ''
-Are you sure you want to open this link?: ''
+A new blog is now available, {blogTitle}. Click to view more: 'Jauns emuāra ieraksts
+  ir pieejams, {blogTitle}. Spied, lai skatītu vairāk'
+Are you sure you want to open this link?: 'Vai esi pārliecināts, ka vēlies atvērt
+  šo saiti?'
 
 # Global
 # Anything shared among components / views should be put here
@@ -42,22 +46,24 @@ Global:
   Shorts: 'Īsie'
   Live: 'Tiešraides'
   Community: 'Kopiena'
+  Sort By: Kārto pēc
   Counts:
-    Video Count: ''
-    Channel Count: ''
-    Subscriber Count: ''
-    View Count: ''
-    Watching Count: ''
+    Video Count: '1 video | {count} video'
+    Channel Count: '1 kanāls | {count} kanāli'
+    Subscriber Count: '1 abonents | {count} abonenti'
+    View Count: '1 skatījums | {count} skatījumi'
+    Watching Count: '1 skatās | {count} skatās'
 
 # Search Bar
-Search / Go to URL: ''
+    Like Count: 1 patikšana | {count} patikšanas
+    Comment Count: 1 viedoklis | {count} viedokļi
+Search / Go to URL: 'Meklē / Dodies uz URL'
 Search Bar:
   Clear Input: 'Tīrīt ievadi'
   # In Filter Button
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'Meklēšanas atlase'
   Sort By:
-    Sort By: ''
     Most Relevant: 'Visatbilstošākie'
     Rating: 'Vērtējums'
     Upload Date: 'Augšuplādes datums'
@@ -84,84 +90,181 @@ Search Filters:
     Medium (4 - 20 minutes): 'Vidējs (4 - 20 minūtes)'
     Long (> 20 minutes): 'Ilgs (> 20 minūtes)'
   # On Search Page
-  Search Results: ''
-  Fetching results. Please wait: ''
-  Fetch more results: ''
-  There are no more results for this search: ''
+  Search Results: 'Meklēšanas rezultāti'
+  Fetching results. Please wait: 'Iegūst rezultātus. Lūdzu gaidi'
+  Fetch more results: 'Iegūt vairāk rezultātu'
+  There are no more results for this search: 'Šim meklējumam nav vairāk rezultātu'
 # Sidebar
+  Features:
+    HD: HD
+    4K: 4K
+    360 Video: 360 Video
+    Location: Atrašanās vieta
+    Live: Tiešraide
+    3D: 3D
+    HDR: HDR
+    VR180: VR180
+    Features: Īpašības
+    Subtitles: Paraksti
+    Creative Commons: Creative Commons
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
+  Subscriptions: 'Abonementi'
   # channels that were likely deleted
-  Error Channels: ''
-  Latest Subscriptions: ''
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
-  Disabled Automatic Fetching: ''
-  Empty Channels: ''
-  'Getting Subscriptions. Please wait.': ''
-  Empty Posts: ''
-  Refresh Subscriptions: ''
-  Load More Videos: ''
+  Error Channels: 'Kanāli ar kļūdām'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Šim
+    profilam ir daudz abonementu.  Piespiežu RSS, lai izvairītos no ierobežojumiem'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tavs
+    abonementu saraksts ir tukšs. Ja vēlies ievest savus abonementus, dodies uz "Datņu
+    iestatījumiem" un izvēlies "Ievest abonementus", vai arī vari meklēt kanālus un
+    abonēt tos.'
+  Disabled Automatic Fetching: 'Tu esi izslēdzis automātisko abonementu iegūšanu.
+    Atsvaidzini abonementus, lai redzētu tos šeit.'
+  Empty Channels: 'Taviem abonētajiem kanāliem pašreiz nav neviena video.'
+  Empty Posts: 'Taviem abonētajiem kanāliem pašreiz nav neviena ieraksta.'
+  Load More Videos: 'Ielādē vairāk video'
   Load More Posts: 'Ielādēt vairāk ierakstus'
-  Subscriptions Tabs: ''
-  All Subscription Tabs Hidden: ''
-More: ''
+  Subscriptions Tabs: 'Abonementu cilnes'
+  All Subscription Tabs Hidden: 'Visas abonementu cilnes ir paslēptas. Lai redzētu
+    saturu šeit, lūdzu atslēp dažas cilnes "{settingsSection}" sadaļā "{subsection}".'
+More: 'Vairāk'
 Channels:
-  Channels: ''
-  Title: ''
-  Search bar placeholder: ''
-  Count: ''
-  Empty: ''
-  Unsubscribe Prompt: ''
+  Channels: 'Kanāli'
+  Title: 'Kanālu saraksts'
+  Search bar placeholder: 'Meklē kanālus'
+  Count: '{number} kanāls(-i) atrasti.'
+  Empty: 'Tavs kanālu saraksts pašreiz ir tukšs.'
+  Unsubscribe Prompt: 'Vai esi drošs, ka vēlies atcelt abonementu no "{channelName}"?'
 Trending:
-  Trending: ''
-  Default: ''
+  Trending: 'Tendences'
+  Default: 'Noklusējuma'
   Music: 'Mūzika'
   Gaming: 'Spēles'
   Movies: 'Filmas'
-  Trending Tabs: ''
-Most Popular: ''
-Playlists: ''
+  Trending Tabs: 'Tendenču cilnes'
+Most Popular: 'Vispopulārākie'
+Playlists: 'Atskaņošanas saraksti'
 User Playlists:
-  Your Playlists: ''
-  Empty Search Message: ''
-  Search bar placeholder: ''
+  Your Playlists: 'Tavi atskaņošanas saraksti'
+  Empty Search Message: 'Šajā atskaņošanas sarakstā nav video, kas atbilst tavam meklējumam'
+  Search bar placeholder: 'Meklē atskaņošanas sarakstus'
+  Playlist Description: Atskaņošanas saraksta apraksts
+  Sort By:
+    NameDescending: Z-A
+    NameAscending: A-Z
+    EarliestUpdatedFirst: Visagrāk atjaunināti
+    LatestPlayedFirst: Nesen atskaņoti
+    LatestUpdatedFirst: Nesen atjaunināti
+    LatestCreatedFirst: Nesen izveidoti
+    EarliestCreatedFirst: Visagrāk izveidoti
+    EarliestPlayedFirst: Visagrāk atskaņoti
+  Cannot delete the quick bookmark target playlist.: Nevar izdzēst ātrās grāmatzīmes
+    mērķa atskaņošanas sarakstu.
+  Delete Playlist: Dzēs atskaņošanas sarakstu
+  Remove from Favorites: Noņem no {playlistName}
+  Move Video Up: Pārvieto video augšup
+  Save Changes: Saglabā izmaiņas
+  Edit Playlist Info: Rediģē atskaņošanas saraksta info
+  Copy Playlist: Kopē atskaņošanas sarakstu
+  Remove Watched Videos: Noņem skatītos video
+  SinglePlaylistView:
+    Toast:
+      This playlist is already being used for quick bookmark.: Šis atskaņošanas saraksts
+        jau tiek lietots priekš ātrās grāmatzīmes.
+      This playlist is now used for quick bookmark: Šis atskaņošanas saraksts tagad
+        tiek lietots priekš ātrās grāmatzīmes
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Šis
+        atskaņošanas saraksts tagad tiek lietots priekš ātrās grāmatzīmes {oldPlaylistName}
+        vietā. Spied šeit, lai atceltu
+      Playlist name cannot be empty. Please input a name.: Atskaņošanas saraksta nosaukums
+        nevar būt tukšs. Lūdzu ievadi nosaukumu.
+      Playlist has been updated.: Atskaņošanas saraksts tika atjaunināts.
+      Video has been removed: Video tika noņemts
+      This video cannot be moved up.: Šo video nevar pārvietot augšup.
+      This video cannot be moved down.: Šo video nevar pārvietot lejup.
+      Reverted to use {oldPlaylistName} for quick bookmark: Atgriezts pie {oldPlaylistName}
+        priekš ātrās grāmatzīmes
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Daži
+        video atskaņošanas sarakstā vēl nav ielādēti. Spied šeit, lai kopētu tik un
+        tā.
+      There was an issue with updating this playlist.: Radās problēma atjauninot šo
+        atskaņošanas sarakstu.
+      There was a problem with removing this video: Radās problēma noņemot video
+      This playlist is protected and cannot be removed.: Šis atskaņošanas saraksts
+        ir aizsargāts un nevar tikt noņemts.
+      There were no videos to remove.: Nebija video, ko noņemt.
+      Playlist {playlistName} has been deleted.: '{playlistName} atskaņošanas saraksts
+        tika dzēsts.'
+      "{videoCount} video(s) have been removed": 1 video tika noņemts | {videoCount}
+        video tika noņemti
+    Search for Videos: Meklē video
+  You have no playlists. Click on the create new playlist button to create a new one.: Tev
+    nav atskaņošanas sarakstu. Spied uz "Izveido jaunu atskaņošanas sarakstu", lai
+    izveidotu jaunu.
+  This playlist currently has no videos.: Šajā atskaņošanas sarakstā pašreiz nav video.
+  Add to Favorites: Pievieno pie {playlistName}
+  Move Video Down: Pārvieto video lejup
+  Cancel: Atcel
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Vai
+    esi drošs, ka vēlies noņemt 1 skatīto video no šī atskaņošanas saraksta? To nevar
+    atcelt. | Vai esi drošs, ka vēlies noņemt {playlistItemCount} skatītos video no
+    šī atskaņošanas saraksta? To nevar atcelt.
+  Are you sure you want to delete this playlist? This cannot be undone: Vai esi drošs,
+    ka vēlies dzēst šo atskaņošanas sarakstu? To nevar atcelt.
+  Playlist Name: Atskaņošanas saraksta nosaukums
+  Create New Playlist: Izveido jaunu atskaņošanas sarakstu
+  Playlists with Matching Videos: Atskaņošanas saraksti ar atbilstošiem video
+  Remove Duplicate Videos: Noņem video dublikātus
+  Enable Quick Bookmark With This Playlist: Iespējo ātro grāmatzīmi ar šo atskaņošanas
+    sarakstu
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Vai
+    esi drošs, ka vēlies noņemt 1 video dublikātu no šī atskaņošanas saraksta? To
+    nevar atcelt. | Vai esi drošs, ka vēlies noņemt {playlistItemCount} video dublikātus
+    no šī atskaņošanas saraksta? To nevar atcelt.
+  Add to Playlist: Pievieno atskaņošanas sarakstam
+  Remove from Playlist: Noņem no atskaņošanas saraksta
+  Quick Bookmark Enabled: Atrā grāmatzīme iespējota
+  CreatePlaylistPrompt:
+    Toast:
+      There was an issue with creating the playlist.: Izveidojot atskaņošanas sarakstu
+        radās kļūda.
 History:
   # On History Page
-  History: ''
-  Watch History: ''
-  Your history list is currently empty.: ''
+  History: 'Vēsture'
+  Watch History: 'Skatīšanās vēsture'
+  Your history list is currently empty.: 'Tava skatīšanās vēsture pašreiz ir tukša.'
   Empty Search Message: ''
-  Search bar placeholder: ""
+  Search bar placeholder: "Meklē vēsturē"
+  Case Sensitive Search: Reģistrjūtīga meklēšana
 Settings:
   # On Settings Page
-  Settings: ''
+  Settings: 'Iestatījumi'
   The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
-    General Settings: 'Galvenie iestatījumi'
+    General Settings: 'Galvenie'
     Check for Updates: 'Pārbaudīt atjauninājumus'
     Check for Latest Blog Posts: 'Skatīt jaunākos bloga ierakstus'
     Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
-    Default Landing Page: ''
+    Enable Search Suggestions: 'Iespējo meklēšanas ieteikumus'
+    Default Landing Page: 'Noklusējuma sākumlapa'
     Locale Preference: 'Vietas iestatījums'
-    System Default: ''
+    System Default: 'Sistēmas noklusējums'
     Preferred API Backend:
-      Preferred API Backend: ''
+      Preferred API Backend: 'Vēlamā API aizmugure'
       Local API: 'Vietējais API'
-      Invidious API: ''
+      Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: 'Video skata veids'
       Grid: 'Režģis'
       List: 'Saraksts'
     Thumbnail Preference:
       Thumbnail Preference: 'Sīktēlu iestatījums'
-      Default: ''
+      Default: 'Noklusējums'
       Beginning: 'Sākums'
       Middle: 'Vidus'
       End: 'Beigas'
       Hidden: 'Paslēpts'
+      Blur: Aizmiglo
     Current Invidious Instance: 'Pašreizējais Invidious gadījums'
     The currently set default instance is {instance}: ''
     No default instance has been set: ''
@@ -177,10 +280,12 @@ Settings:
       Open Link: 'Atvērt saiti'
       Ask Before Opening Link: 'Jautāt pirms saites atvēršanas'
       No Action: 'Nedarīt neko'
+    Auto Load Next Page:
+      Label: Autoielādē nākamo lapu
   Theme Settings:
-    Theme Settings: 'Izskata iestatījumi'
-    Match Top Bar with Main Color: ''
-    Expand Side Bar by Default: ''
+    Theme Settings: 'Izskats'
+    Match Top Bar with Main Color: 'Saskaņo augšmalu ar galveno krāsu'
+    Expand Side Bar by Default: 'Izvērs sānu malu pēc noklusējuma'
     Disable Smooth Scrolling: 'Atspējot plūdeno ritināšanu'
     UI Scale: 'Saskarnes izmērs'
     Hide Side Bar Labels: 'Paslēpt sānu paneļa etiķetes'
@@ -189,12 +294,13 @@ Settings:
       Base Theme: 'Pamata izskats'
       Black: 'Melns'
       Dark: 'Tumšs'
-      System Default: ''
+      System Default: 'Sistēmas noklusējums'
       Light: 'Gaišs'
       Dracula: 'Drakula'
       Catppuccin Mocha: 'Kaķpučīn moka'
       Pastel Pink: 'Pasteļu rozā'
       Hot Pink: 'Karsti rozā'
+      Nordic: Ziemeļvalsts
     Main Color Theme:
       Main Color Theme: 'Galvenās krāsas izskats'
       Red: 'Sarkans'
@@ -237,7 +343,7 @@ Settings:
     Secondary Color Theme: 'Otrās krāsas izskats'
         #* Main Color Theme
   Player Settings:
-    Player Settings: 'Atskaņotāja iestatījumi'
+    Player Settings: 'Atskaņotāja'
     Play Next Video: 'Atskaņot nākamo video'
     Turn on Subtitles by Default: ''
     Autoplay Videos: 'Autoatskaņot video'
@@ -252,18 +358,18 @@ Settings:
     Enter Fullscreen on Display Rotate: 'Pagriežot ekrānu pārslēgt uz pilnekrānu'
     Next Video Interval: 'Nākošā video intervāls'
     Fast-Forward / Rewind Interval: ''
-    Default Volume: ''
-    Default Playback Rate: ''
+    Default Volume: 'Noklusējuma skaļums'
+    Default Playback Rate: 'Noklusējuma atskaņošanas ātrums'
     Max Video Playback Rate: 'Maksimālais video atskaņošanas ātrums'
     Video Playback Rate Interval: 'Video atskaņošanas ātruma intervāls'
     Default Video Format:
-      Default Video Format: ''
+      Default Video Format: 'Noklusējuma video formāts'
       Dash Formats: 'DASH formāti'
       Legacy Formats: 'Mantojuma formāti'
       Audio Formats: 'Audio formāti'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
+      Default Quality: 'Noklusējuma kvalitāte'
+      Auto: 'Auto'
       144p: '144p'
       240p: '240p'
       360p: '360p'
@@ -286,7 +392,7 @@ Settings:
         Forbidden Characters: 'Aizliegtās rakstzīmes'
         Empty File Name: 'Tukšs datnes nosaukums'
   External Player Settings:
-    External Player Settings: 'Ārējā atskaņotāja iestatījumi'
+    External Player Settings: 'Ārējā atskaņotāja'
     External Player: 'Ārējais atskaņotājs'
     Ignore Unsupported Action Warnings: 'Ignorēt neatbalstītas darbības brīdinājumus'
     Custom External Player Executable: 'Pielāgota ārējā atskaņotāja izpilddatne'
@@ -294,30 +400,33 @@ Settings:
     Players:
       None:
         Name: 'Nekas'
+    Ignore Default Arguments: Ignorēt noklusējuma argumentus
   Privacy Settings:
-    Privacy Settings: 'Privātuma iestatījumi'
+    Privacy Settings: 'Privātuma'
     Remember History: 'Atcerēties vēsturi'
     Save Watched Progress: 'Saglabāt skatīto attīstību'
     Save Watched Videos With Last Viewed Playlist: ''
-    Clear Search Cache: ''
+    Clear Search Cache: 'Iztīri meklēšanas kešatmiņu'
     Are you sure you want to clear out your search cache?: ''
-    Search cache has been cleared: ''
+    Search cache has been cleared: 'Meklēšanas kešatmiņa tika iztīrīta'
     Remove Watch History: 'Noņemt skatīšanās vēsturi'
     Are you sure you want to remove your entire watch history?: 'Vai tu esi pārliecināts,
       ka vēlies noņemt visu skatīšanās vēsturi?'
     Watch history has been cleared: 'Skatīšanās vēsture tika noņemta'
-    Remove All Subscriptions / Profiles: ''
+    Remove All Subscriptions / Profiles: 'Noņemt visus abonementus / profilus'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    All playlists have been removed: Visi atskaņošanas saraksti tika noņemti
+    Remove All Playlists: Noņemt visus atskaņošanas sarakstus
   Subscription Settings:
-    Subscription Settings: ''
+    Subscription Settings: 'Abonementu'
     Hide Videos on Watch: 'Paslēpt video pēc skatīšanas'
     Fetch Feeds from RSS: 'Iegūt plūsmu no RSS'
     Fetch Automatically: 'Iegūt plūsmu automātiski'
   Distraction Free Settings:
-    Distraction Free Settings: 'Beztraucēšanas iestatījumi'
+    Distraction Free Settings: 'Beztraucēšanas'
     Sections:
       Side Bar: 'Sānu panelis'
-      Subscriptions Page: ''
+      Subscriptions Page: 'Abonementu lapa'
       Channel Page: 'Kanāla lapa'
       Watch Page: 'Skatīšanās lapa'
       General: 'Galvenais'
@@ -330,37 +439,39 @@ Settings:
     Hide Popular Videos: 'Paslēpt populāros video'
     Hide Playlists: 'Paslēpt sarakstus'
     Hide Live Chat: 'Paslēpt dzīvo čatu'
-    Hide Active Subscriptions: ''
+    Hide Active Subscriptions: 'Paslēp aktīvos abonementus'
     Hide Video Description: 'Paslēpt video aprakstu'
     Hide Comments: 'Paslēpt komentārus'
     Hide Profile Pictures in Comments: 'Paslēpt kontu atēlus komentāros'
     Display Titles Without Excessive Capitalisation: 'Attēlot nosaukumus nepārspīlējot
-      ar lielajiem burtiem'
+      ar lielajiem burtiem un interpunkciju'
     Hide Live Streams: 'Paslēpt dzīvās straumes'
     Hide Upcoming Premieres: 'Paslēpt tuvojošās pirmizrādes'
     Hide Sharing Actions: 'Paslēpt dalīšanās darbības'
     Hide Chapters: 'Paslēpt nodaļas'
     Hide Channels: 'Kanālos paslēpt video'
-    Hide Channels Placeholder: 'Kanāla vārds vai ID'
+    Hide Channels Placeholder: 'Kanāla ID'
     Hide Featured Channels: 'Paslēpt izceltos kanālus'
     Hide Channel Playlists: 'Kanālā paslēpt sarakstus'
     Hide Channel Community: 'Kanālā paslēpt kopienu'
     Hide Channel Shorts: 'Kanālā paslēpt īsos'
     Hide Channel Podcasts: 'Kanālā paslēpt podkāstus'
     Hide Channel Releases: 'Kanālā paslēpt relīzes'
-    Hide Subscriptions Videos: ''
-    Hide Subscriptions Shorts: ''
-    Hide Subscriptions Live: ''
-    Hide Subscriptions Community: ''
+    Hide Subscriptions Videos: 'Paslēp abonementu video'
+    Hide Subscriptions Shorts: 'Paslēp abonementu īsos video'
+    Hide Subscriptions Live: 'Paslēp abonementu tiešraides'
+    Hide Subscriptions Community: 'Paslēp abonementu komūnu'
+    Hide Channels Already Exists: Kanāla ID jau eksistē
+    Hide Videos and Playlists Containing Text Placeholder: Vārds, vārda daļa, vai
+      frāze
   Data Settings:
-    Data Settings: 'Datu iestatījumi'
-    Select Import Type: 'Izvēlēties importa veidu'
+    Data Settings: 'Datu'
     Select Export Type: 'Izvēlēties eksporta veidu'
-    Import Subscriptions: ''
-    Subscription File: ''
+    Import Subscriptions: 'Ievest abonementus'
+    Subscription File: 'Aboenementu datne'
     History File: 'Vēstures datne'
-    Playlist File: ''
-    Export Subscriptions: ''
+    Playlist File: 'Atskaņošanas saraksta datne'
+    Export Subscriptions: 'Izvest abonementus'
     Export FreeTube: 'Eksportēt FreeTube'
     Export YouTube: 'Eksportēt YouTube'
     Export NewPipe: 'Eksportēt NewPipe'
@@ -371,11 +482,13 @@ Settings:
     Profile object has insufficient data, skipping item: 'Profila objektam nav pietiekami
       datu, izlaiž vienumu'
     All subscriptions and profiles have been successfully imported: ''
-    All subscriptions have been successfully imported: ''
-    Invalid subscriptions file: ''
+    All subscriptions have been successfully imported: 'Visi abonementi tika veiksmīgi
+      ievesti'
+    Invalid subscriptions file: 'Nederīga abonementu datne'
     This might take a while, please wait: 'Tas var aizņemt kādu laiku, lūdzu gaidiet'
     Invalid history file: 'Nederīga vēstures datne'
-    Subscriptions have been successfully exported: ''
+    Subscriptions have been successfully exported: 'Visi abonementi tika veiksmīgi
+      izvesti'
     History object has insufficient data, skipping item: 'Vēstures objektam nav pietiekami
       datu, izlaiž vienumu'
     All watched history has been successfully imported: 'Visa skatīšanās vēstures
@@ -389,9 +502,9 @@ Settings:
     Unable to write file: 'Nespēj ierakstīt datni'
     Unknown data key: 'Nezināma datu atslēga'
     How do I import my subscriptions?: ''
-    Manage Subscriptions: ''
+    Manage Subscriptions: 'Pārvaldīt abonementus'
   Proxy Settings:
-    Proxy Settings: 'Starpniekserveru iestatījumi'
+    Proxy Settings: 'Starpniekserveru'
     Enable Tor / Proxy: 'Iespējot Tor / starpniekserveri'
     Proxy Protocol: 'Starpniekservera protokols'
     Proxy Host: 'Starpniekservera saimnieks'
@@ -407,7 +520,7 @@ Settings:
     Error getting network information. Is your proxy configured properly?: 'Kļūda
       saņemot tīkla informāciju. Vai jūsu starpniekserveris ir uzstādīts pareizi?'
   SponsorBlock Settings:
-    SponsorBlock Settings: 'SponsorBlock iestatījumi'
+    SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Iespējot SponsorBlock'
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': ''
     Notify when sponsor segment is skipped: 'Ziņot, kad sponsora gabals tiek izlaists'
@@ -419,32 +532,33 @@ Settings:
       Prompt To Skip: 'Jautāt, lai izlaistu'
       Do Nothing: 'Nedarīt neko'
     Category Color: 'Iedalījuma krāsa'
+    UseDeArrowThumbnails: Izmanto DeArrow priekš sīktēliem
   Parental Control Settings:
-    Parental Control Settings: 'Vecāku vadības iestatījumi'
+    Parental Control Settings: 'Vecāku vadības'
     Hide Unsubscribe Button: 'Paslēpt Atabonēt pogu'
     Show Family Friendly Only: 'Rādīt tikai ģimenei draudzīgi'
-    Hide Search Bar: ''
+    Hide Search Bar: 'Paslēp meklēšanas joslu'
   Download Settings:
-    Download Settings: 'Lejuplādes iestatījumi'
+    Download Settings: 'Lejuplādes'
     Ask Download Path: 'Jautāt lejuplādes ceļu'
     Choose Path: 'Izvēlēties ceļu'
     Download Behavior: 'Lejuplādes uzvedība'
     Download in app: 'Lejuplādēt aplikācijā'
     Open in web browser: 'Atvērt tīkla pārlūkā'
   Experimental Settings:
-    Experimental Settings: 'Izmēģinājuma iestatījumi'
+    Experimental Settings: 'Izmēģinājuma'
     Warning: ''
     Replace HTTP Cache: 'Aizvietot HTTP kešatmiņu'
   Password Dialog:
     Password: 'Parole'
     Enter Password To Unlock: 'Ievadi paroli, lai atslēgtu iestatījumus'
-    Password Incorrect: 'Parole nepareiza'
-    Unlock: 'Atslēgt'
   Password Settings:
-    Password Settings: 'Paroles iestatījumi'
+    Password Settings: 'Paroles'
     Set Password To Prevent Access: 'Uzstādi paroli, lai neļautu piekļūt uzstādījumiem'
     Set Password: 'Uzstādi paroli'
     Remove Password: 'Noņem paroli'
+  Return to Settings Menu: Atgriezies iestatījumu izvēlnē
+  Sort Settings Sections (A-Z): Kārto iestatījumu sadaļas (A-Z)
 About:
   #On About page
   About: 'Par'
@@ -472,8 +586,10 @@ About:
   these people and projects: 'šie cilvēki un apvienības'
   Donate: 'Ziedot'
 
+  Licensed under the: Licenzēts ar
+  AGPLv3: AGPLv3
 Profile:
-  Profile Settings: 'Profila iestatījumi'
+  Profile Settings: 'Profila'
   Toggle Profile List: 'Pārslēgt profilu sarakstu'
   Profile Select: 'Izvēlēties profilu'
   Profile Filter: 'Profilu filtrs'
@@ -486,22 +602,21 @@ Profile:
   Profile Preview: 'Profila priekšskatījums'
   Create Profile: 'Veidot profilu'
   Update Profile: 'Atjaunināt profilu'
-  Make Default Profile: ''
+  Make Default Profile: 'Izveido noklusējuma profilu'
   Delete Profile: 'Dzēst profilu'
   Are you sure you want to delete this profile?: 'Vai tu esi drošs, ka gribi dzēst
     šo profilu?'
-  All subscriptions will also be deleted.: ''
-  Profile could not be found: 'Profils netika atrasts'
+  All subscriptions will also be deleted.: 'Arī visi abonementi tiks izdzēsti.'
   Your profile name cannot be empty: 'Tavs profila vārds nevar būt tukšs'
   Profile has been created: 'Profils tika izveidots'
   Profile has been updated: 'Profils tika atjaunināts'
   Your default profile has been set to {profile}: ''
   Removed {profile} from your profiles: ''
   Your default profile has been changed to your primary profile: ''
-  '{profile} is now the active profile': ''
-  Subscription List: ''
+  '{profile} is now the active profile': '{profile} tagad ir aktīvais profils'
+  Subscription List: 'Abonementu saraksts'
   Other Channels: 'Citi kanāli'
-  '{number} selected': ''
+  '{number} selected': '{number} izvēlēts'
   Select All: 'Izvēlēties visus'
   Select None: 'Neizvēlēties nevienu'
   Delete Selected: 'Dzēst izvēlētos'
@@ -512,6 +627,9 @@ Profile:
   : ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
 #On Channel Page
+  Create Profile Name: Izveido profila vārdu
+  Profile Name: Profila vārds
+  Edit Profile Name: Rediģē profila vārdu
 Channel:
   Subscribe: 'Abonē'
   Unsubscribe: 'Atabonē'
@@ -520,7 +638,6 @@ Channel:
   Added channel to your subscriptions: ''
   Search Channel: ''
   Your search results have returned 0 results: ''
-  Sort By: 'Kārto pēc'
   This channel does not exist: 'Šis kanāls nepastāv'
   This channel does not allow searching: 'Šis kanāls neatļauj meklēšanu'
   This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Šim
@@ -592,13 +709,11 @@ Video:
   Reverse Playlist: ''
   Play Next Video: 'Atskaņo nākamo video'
   Play Previous Video: 'Atskaņo iepriekšējo video'
-  Pause on Current Video: 'Apturēt uz pašreizējā video'
   Watched: 'Skatīts'
   Autoplay: 'Autoatskaņošana'
   Starting soon, please refresh the page to check again: 'Drīz sāksies, lūdzu atsvaidzini
     lapu, lai pārbaudītu vēlreiz'
   # As in a Live Video
-  Premieres on: 'Pirmizrādes'
   Premieres: 'Pirmizrādes'
   Upcoming: 'Tuvojošās'
   Live: 'Tiešraidē'
@@ -606,7 +721,6 @@ Video:
   Live Chat: 'Tiešraides čats'
   Enable Live Chat: 'Iespējo tiešraides čatu'
   Live Chat is currently not supported in this build.: ''
-  'Chat is disabled or the Live Stream has ended.': ''
   Live chat is enabled. Chat messages will appear here once sent.: ''
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
@@ -616,39 +730,10 @@ Video:
   video only: ''
   audio only: ''
   Published:
-    Jan: ''
-    Feb: ''
-    Mar: ''
-    Apr: ''
-    May: ''
-    Jun: ''
-    Jul: ''
-    Aug: ''
-    Sep: ''
-    Oct: ''
-    Nov: ''
-    Dec: ''
-    Second: ''
-    Seconds: ''
-    Minute: ''
-    Minutes: ''
-    Hour: ''
-    Hours: ''
-    Day: ''
-    Days: ''
-    Week: ''
-    Weeks: ''
-    Month: ''
-    Months: ''
-    Year: ''
-    Years: ''
-    Ago: ''
-    Upcoming: ''
     In less than a minute: ''
   Published on: ''
   Streamed on: ''
   Started streaming on: ''
-  Publicationtemplate: ''
   Sponsor Block category:
     sponsor: ''
     intro: ''
@@ -672,13 +757,6 @@ Video:
       reversing playlists: ''
       shuffling playlists: ''
       looping playlists: ''
-#& Videos
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: ''
-    Oldest: ''
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -727,9 +805,7 @@ Comments:
   Click to View Comments: ''
   Getting comment replies, please wait: ''
   There are no more comments for this video: ''
-  Show Comments: ''
   Hide Comments: ''
-  Sort by: ''
   Top comments: ''
   Newest first: ''
   View {replyCount} replies: ''
@@ -743,7 +819,6 @@ Comments:
   And others: ''
   There are no comments available for this video: ''
   Load More Comments: ''
-  No more comments available: ''
   Pinned by: ''
   Member: ''
   Subscribed: ''
@@ -795,8 +870,6 @@ Shuffle is now enabled: ''
 The playlist has been reversed: ''
 Playing Next Video: ''
 Playing Previous Video: ''
-Playlist will not pause when current video is finished: ''
-Playlist will pause when current video is finished: ''
 Playing Next Video Interval: ''
 Canceled next video autoplay: ''
 
@@ -816,3 +889,19 @@ Hashtag:
 Yes: ''
 No: ''
 Ok: ''
+Search character limit: Meklējamā frāze pārsniedz {searchCharacterLimit} simbolu ierobežojumu
+Feed:
+  Refresh Feed: Atsvaidzini {subscriptionName}
+  Feed Last Updated: '{feedName} barotne pēdējoreiz atjaunināta: {date}'
+Go to page: Iet uz {page}
+Close Banner: Aizvērt karogu
+Search Listing:
+  Label:
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Jauns
+    3D: 3D
+    Subtitles: Paraksti
+    Closed Captions: Slēgtie paraksti
+    4K: 4K

@@ -33,12 +33,13 @@ Global:
 
 # Search Bar
   Community: Comunidad
+  Live: En vivo
+  Sort By: 'Ordenar por'
 Search / Go to URL: 'Buscar / Ir a la URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtros de búsqueda'
   Sort By:
-    Sort By: 'Ordenar por'
     Most Relevant: 'Más relevante'
     Rating: 'Clasificación'
     Upload Date: 'Fecha de carga'
@@ -68,16 +69,15 @@ Search Filters:
   Fetch more results: 'Obtener más resultados'
 # Sidebar
   There are no more results for this search: No hay más resultados para ésta búsqueda
+  Features:
+    Features: Características
+    Subtitles: Subtitulos
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
-  Latest Subscriptions: 'Últimas Suscripciones'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu
     lista de Suscripción está actualmente vacía. Empieza añadiendo suscripciones para
     verlas ahí.'
-  'Getting Subscriptions.  Please wait.': 'Obteniendo Suscripciones. Por favor espere.'
-  Refresh Subscriptions: Actulizar Suscripciones
-  Getting Subscriptions. Please wait.: Obteniendo Suscripciones. Por favor espere.
   Load More Videos: Cargar más videos
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil tiene un gran número de suscripciones. Forzando RSS para evitar limitaciones
@@ -255,7 +255,6 @@ Settings:
     Export Subscriptions: Exportar Suscripciones
     Import Subscriptions: Importar Suscripciones
     Select Export Type: Seleccionar tipo de exportación
-    Select Import Type: Seleccionar tipo de importación
     Data Settings: Ajustes de datos
     All watched history has been successfully exported: Historial de reproducciones
       se exportó con éxito
@@ -366,7 +365,6 @@ Channel:
   Search Channel: 'Buscar canal'
   Your search results have returned 0 results: 'Los resultados de su búsqueda han
     arrojado 0 resultados'
-  Sort By: 'Ordenar por'
   Videos:
     Videos: 'Videos'
     This channel does not currently have any videos: 'Este canal no tiene ningun video
@@ -416,44 +414,12 @@ Video:
   Enable Live Chat: 'Activar chat en vivo'
   Live Chat is currently not supported in this build.: 'El chat en vivo no esta soportado
     actualmente en esta compilación.'
-  'Chat is disabled or the Live Stream has ended.': 'El chat esta desactivado o la
-    transmisión en vivo ha terminado.'
   Live chat is enabled. Chat messages will appear here once sent.: 'El chat en vivo
     esta activado. Los mensajes del chat aparecerán aquí cuando sean enviados.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'El
     chat en vivo no esta soportado actualmente con la API de Invidious. Es necesaria
     una conexión directa a YouTube.'
-  Published:
-    Jan: 'Ene'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Abr'
-    May: 'May'
-    Jun: 'Jun'
-    Jul: 'Jul'
-    Aug: 'Ago'
-    Sep: 'Sep'
-    Oct: 'Oct'
-    Nov: 'Nov'
-    Dec: 'Dic'
-    Second: 'Segundo'
-    Seconds: 'Segundos'
-    Hour: 'Hora'
-    Hours: 'Horas'
-    Day: 'Dia'
-    Days: 'Dias'
-    Week: 'Semana'
-    Weeks: 'Semanas'
-    Month: 'Mes'
-    Months: 'Meses'
-    Year: 'Año'
-    Years: 'Años'
-    Ago: 'Hace'
-    Upcoming: 'Pronto en estreno'
-    Minutes: minutos
-    Minute: minuto
   Published on: 'Publicado en'
-  Publicationtemplate: 'Hace {number} {unit}'
 #& Videos
   Autoplay: Reproducción Automática
   Play Previous Video: Reproducir el video anterior
@@ -497,14 +463,7 @@ Video:
   Open Channel in Invidious: Abrir canal en Invidious
   Copy Invidious Channel Link: Copiar link del canal en Invidious
   Copy YouTube Channel Link: Copiar link del canal en YouTube
-  Premieres on: En estreno
   Download Video: Descargar video
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Mas nuevo'
-    Oldest: 'Mas viejo'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -547,7 +506,6 @@ Comments:
   Click to View Comments: 'Presione para Ver Comentarios'
   Getting comment replies, please wait: 'Recibiendo respuestas de comentarios, por
     favor espere'
-  Show Comments: 'Mostrar comentarios'
   Hide Comments: 'Esconde comentarios'
   # Context: View 10 Replies, View 1 Reply
   View: 'Vista'
@@ -564,9 +522,7 @@ Comments:
   And others: y otros
   There are no more comments for this video: No hay más comentarios en este video
   Newest first: Más recientes
-  Sort by: Ordenar por
   Show More Replies: Mostrar más respuestas
-  No more comments available: No hay más comentarios disponibles
 Up Next: 'A continuación'
 
 # Toast Messages
@@ -598,7 +554,6 @@ Profile:
   Profile has been updated: El perfil ha sido actualizado
   Profile has been created: El profil ha sido creado
   Your profile name cannot be empty: Su nombre de perfil no puede estar vacío
-  Profile could not be found: No se puede localizar el perfil
   All subscriptions will also be deleted.: Todas las suscripciones serán borradas
     también.
   Are you sure you want to delete this profile?: ¿Está seguro que quiere borrar este
@@ -661,8 +616,8 @@ Tooltips:
       problema, FreeTube intentará usar automáticamente otra API como método de respaldo
       al activar esta opción.
   External Player Settings:
-    Custom External Player Arguments: Cualquier argumento, con separaciones de punto
-      y coma (';'), que deseé anticipar al reproductor externo.
+    Custom External Player Arguments: Cualquier argumento, que deseé anticipar al
+      reproductor externo.
     DefaultCustomArgumentsTemplate: "(Por defecto: '{defaultCustomArguments}')"
     External Player: Elegir un reproductor externo mostrará un ícono, para abrir el
       video (o lista, si es compatible) en el reproductor externo, sobre la miniatura
@@ -718,3 +673,8 @@ Channels:
   Channels: Canales
   Title: Lista de Canales
   Search bar placeholder: Buscar Canales
+Search Listing:
+  Label:
+    Subtitles: Subtítulos
+    New: Nuevo
+Go to page: Ir a {page}

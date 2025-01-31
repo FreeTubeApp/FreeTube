@@ -76,6 +76,22 @@
         >
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
+            v-if="visibleTabs.includes('home')"
+            id="homeTab"
+            class="tab"
+            :class="{ selectedTab: currentTab === 'home' }"
+            role="tab"
+            :aria-selected="String(currentTab === 'home')"
+            aria-controls="homePanel"
+            :tabindex="(currentTab === 'home' || currentTab === 'search') ? 0 : -1"
+            @click="changeTab('home')"
+            @keydown.left.right="focusTab('home', $event)"
+            @keydown.enter.space.prevent="changeTab('home')"
+          >
+            {{ $t("Channel.Home.Home").toUpperCase() }}
+          </div>
+          <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
+          <div
             v-if="visibleTabs.includes('videos')"
             id="videosTab"
             class="tab"
@@ -207,6 +223,7 @@
           v-if="showSearchBar"
           ref="searchBar"
           :placeholder="$t('Channel.Search Channel')"
+          :value="query"
           :show-clear-text-button="true"
           class="channelSearch"
           :maxlength="255"
@@ -224,7 +241,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import FtCard from '../ft-card/ft-card.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtShareButton from '../ft-share-button/ft-share-button.vue'
-import FtSubscribeButton from '../ft-subscribe-button/ft-subscribe-button.vue'
+import FtSubscribeButton from '../FtSubscribeButton/FtSubscribeButton.vue'
 import FtInput from '../ft-input/ft-input.vue'
 
 import store from '../../store/index'
@@ -275,19 +292,26 @@ const props = defineProps({
   currentTab: {
     type: String,
     default: 'videos'
-  }
+  },
+  query: {
+    type: String,
+    default: ''
+  },
 })
 
 const emit = defineEmits(['change-tab', 'search', 'subscribed'])
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const hideChannelSubscriptions = computed(() => {
   return store.getters.getHideChannelSubscriptions
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const hideSharingActions = computed(() => {
   return store.getters.getHideSharingActions
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
 const hideUnsubscribeButton = computed(() => {
   return store.getters.getHideUnsubscribeButton
 })

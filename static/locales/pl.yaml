@@ -34,6 +34,7 @@ Global:
   Shorts: Filmy Short
   Live: Transmisje
   Community: Społeczność
+  Sort By: Sortuj według
 
 # Search Bar
   Counts:
@@ -44,14 +45,11 @@ Global:
     Watching Count: 1 oglądający | {count} oglądających
     Like Count: Jedno polubienie | {count} polubie(ń/nia)
     Comment Count: Jeden komentarz | {count} komentarz(e/y)
-  Input Tags:
-    Length Requirement: Tag musi mieć przynajmniej {number} znak(i/ów)
 Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtry wyszukiwania'
   Sort By:
-    Sort By: 'Sortuj według'
     Most Relevant: 'Trafność'
     Rating: 'Ocena'
     Upload Date: 'Data przesłania'
@@ -98,13 +96,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subskrypcje'
-  Latest Subscriptions: 'Ostatnie subskrypcje'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Twoja
     lista subskrypcji jest obecnie pusta. Możesz zaimportować swoje subskrypcje w
     Ustawieniach danych, klikając w „Zaimportuj subskrypcje”.'
-  'Getting Subscriptions.  Please wait.': 'Pobieranie subskrypcji. Proszę czekać...'
-  Refresh Subscriptions: Odśwież subskrypcje
-  Getting Subscriptions. Please wait.: Pobieranie subskrypcji. Proszę poczekać.
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ten
     profil posiada dużą liczbę subskrypcji. Wymuszenie RSS w celu uniknięcia ograniczenia
     dostępu
@@ -182,13 +176,13 @@ User Playlists:
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Teraz
         ta playlista, zamiast „{oldPlaylistName}”, będzie używana dla funkcji Szybkiej
         Zakładki . Kliknij tutaj, by cofnąć zmianę
-      Playlist {playlistName} is the new quick bookmark playlist.: Playlista „{playlistName}”
-        jest od teraz playlistą używaną dla funkcji Szybkiej Zakładki.
       This playlist is already being used for quick bookmark.: Ta playlista jest już
         używana dla funkcji Szybkiej Zakładki.
       This playlist has a video with a duration error: Ta playlista zawiera przynajmniej
         jeden film bez określonego czasu trwania. Będą one rozmieszczone tak, jakby
         ich czas trwania wynosił zero.
+      Video has been removed. Click here to undo.: Wideo zostało usunięte. Kliknij
+        aby powrócić.
     Search for Videos: Szukaj filmów
   Are you sure you want to delete this playlist? This cannot be undone: Czy na pewno
     chcesz usunąć tę playlistę? Nie można cofnąć tej czynności.
@@ -197,7 +191,6 @@ User Playlists:
     EarliestCreatedFirst: Utworzone najdawniej
     LatestCreatedFirst: Utworzone ostatnio
     EarliestUpdatedFirst: Zmieniane najdawniej
-    Sort By: Sortuj według
     NameDescending: Z-A
     EarliestPlayedFirst: Odtwarzane najdawniej
     LatestUpdatedFirst: Zmieniane ostatnio
@@ -244,6 +237,9 @@ User Playlists:
     na pewno chcesz usunąć 1 zduplikowany film z tej listy odtwarzania? Nie można
     tego cofnąć. | Czy na pewno chcesz usunąć {playlistItemCount} duplikatów wideo
     z tej listy odtwarzania? Nie można tego cofnąć.
+  Export Playlist: Eksportuj listę odtwarzania
+  The playlist has been successfully exported: Lista odtwarzania została pomyślnie
+    wyeksportowana
 History:
   # On History Page
   History: 'Historia'
@@ -301,6 +297,8 @@ Settings:
     Auto Load Next Page:
       Tooltip: Wczytuj kolejne strony oraz komentarze automatycznie.
       Label: Automatycznie wczytaj kolejną stronę
+    Open Deep Links In New Window: Odnośniki URL przekazane do FreeTube otwieraj w
+      nowym oknie
   Theme Settings:
     Theme Settings: 'Wygląd'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
@@ -317,6 +315,9 @@ Settings:
       Nordic: Nordycki
       Solarized Light: Nasłoneczniony jasny
       Solarized Dark: Nasłoneczniony ciemny
+      Gruvbox Dark: Gruvbox ciemny
+      Gruvbox Light: Gruvbox jasny
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -364,6 +365,30 @@ Settings:
       Solarized Cyan: Nasłoneczniony cyjan
       Solarized Green: Nasłoneczniony zielony
       Solarized Yellow: Nasłoneczniony żółty
+      Gruvbox Dark Green: Gruvbox ciemnozielony
+      Gruvbox Dark Yellow: Gruvbox żółty
+      Gruvbox Dark Blue: Gruvbox niebieski
+      Gruvbox Dark Purple: Gruvbox ciemnopurpurowy
+      Gruvbox Dark Aqua: Gruvbox ciemny wodny
+      Gruvbox Dark Orange: Gruvbox ciemnopomarańczowy
+      Gruvbox Light Red: Gruvbox jasnoczerwony
+      Gruvbox Light Blue: Gruvbox jasnoniebieski
+      Gruvbox Light Purple: Gruvbox jasnopurpurowy
+      Gruvbox Light Orange: Gruvbox jasnopomarańczowy
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Szafirowy
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Woda Różana
+      Catppuccin Frappe Blue: Catppuccin Frappe Niebieski
+      Catppuccin Frappe Pink: Catppuccin Frappe Różowy
+      Catppuccin Frappe Red: Catppuccin Frappe Czerwony
+      Catppuccin Frappe Sky: Catppuccin Frappe Kolor nieba
+      Catppuccin Frappe Teal: Catppuccin Frappe Turkusowy
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flaming
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Maroon: Catppuccin Frappe Kasztanowy
+      Catppuccin Frappe Peach: Catppuccin Frappe Brzoskwiniowy
+      Catppuccin Frappe Yellow: Catppuccin Frappe Żółty
+      Catppuccin Frappe Green: Catppuccin Frappe Zielony
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lawendowy
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI
@@ -373,7 +398,7 @@ Settings:
     Hide FreeTube Header Logo: Schowaj logo FreeTube z paska górnego
   Player Settings:
     Player Settings: 'Odtwarzacz'
-    Play Next Video: 'Odtwórz następny film'
+    Play Next Video: 'Automatycznie odtwórz polecany film'
     Turn on Subtitles by Default: 'Domyślnie odtwarzaj z napisami'
     Autoplay Videos: 'Autoodtwarzanie filmów'
     Proxy Videos Through Invidious: 'Odtwarzaj filmy przez proxy Invidious'
@@ -398,8 +423,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: Przerwa przed kolejną pozycją playlisty
-    Next Video Interval: Czas do następnego filmu
+    Next Video Interval: Czas do następnego autoodtwarzania
     Scroll Volume Over Video Player: Kontroluj głośność kółkiem myszy na obszarze
       odtwarzacza
     Display Play Button In Video Player: Pokaż przycisk odtwarzania na odtwarzaczu
@@ -418,8 +442,7 @@ Settings:
       File Name Tooltip: 'Możesz użyć następujących zmiennych: %Y Rok 4 cyfry. %M
         Miesiąc 2 cyfry. %D Dzień 2 cyfry. %H Godzina 2 cyfry. %N Minuta 2 cyfry.
         %S Sekunda 2 cyfry. %T Milisekunda 3 cyfry. %s Sekunda filmu. %t Milisekunda
-        filmu 3 cyfry. %i ID filmu. Możesz również tworzyć podfoldery używając „\”
-        albo „/”.'
+        filmu 3 cyfry. %i ID filmu.'
       Error:
         Forbidden Characters: Niedozwolone znaki
         Empty File Name: Pusta nazwa pliku
@@ -428,15 +451,23 @@ Settings:
       orientacji ekranu
     Skip by Scrolling Over Video Player: Przewijaj film kółkiem myszy na obszarze
       odtwarzacza
+    Autoplay Interruption Timer: Czas do przerwania autoodtwarzania
+    Default Viewing Mode:
+      Theater: Tryb kina
+      Picture in Picture: Obraz w obrazie
+      External Player: Zewnętrzny odtwarzacz ({externalPlayerName})
+      Default Viewing Mode: Domyślny tryb odtwarzania
+      Full Screen: Pełny ekran
   Subscription Settings:
     Subscription Settings: 'Subskrypcje'
     Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
     Fetch Feeds from RSS: Pobierz subskrypcje z RSS
     Fetch Automatically: Automatycznie odświeżaj subskrypcje
-    Only Show Latest Video for Each Channel: Pokaż tylko najnowszy film z każdego
-      kanału
     Confirm Before Unsubscribing: Uniknij przypadkowego usunięcia subskrypcji
 
+    To: do
+    'Limit the number of videos displayed for each channel': Ogranicz liczbę filmów
+      wyświetlanych dla każdego z kanałów
   Privacy Settings:
     Watch history has been cleared: Historia oglądania została wyczyszczona
     Are you sure you want to remove your entire watch history?: Jesteś pewny/a, że
@@ -459,6 +490,12 @@ Settings:
     Remove All Playlists: Usuń wszystkie playlisty
     Are you sure you want to remove all your playlists?: Czy na pewno usunąć wszystkie
       Twoje playlisty?
+    Are you sure you want to clear out your search history and cache?: Na pewno usunąć
+      historię wyszukiwania i pamięć podręczną?
+    Remember Search History: Pamiętaj historię wyszukiwania
+    Clear Search History and Cache: Wyczyść historię wyszukiwania i pamięć podręczną
+    Search history and cache have been cleared: Historia wyszukiwania i pamięć podręczna
+      została wyczyszczona
   Data Settings:
     How do I import my subscriptions?: Jak mogę zaimportować swoje subskrypcje?
     Unknown data key: Nieznany klucz danych
@@ -489,7 +526,6 @@ Settings:
     Export Subscriptions: Wyeksportuj subskrypcje
     Import Subscriptions: Zaimportuj subskrypcje
     Select Export Type: Wybierz typ eksportu
-    Select Import Type: Wybierz typ importu
     Data Settings: Dane
     Manage Subscriptions: Zarządzaj subskrypcjami
     Export Playlists: Wyeksportuj playlisty
@@ -531,18 +567,18 @@ Settings:
     Hide Channels Placeholder: ID kanału
     Display Titles Without Excessive Capitalisation: Wyświetlaj tytuły nie nadużywając
       wielkich liter i interpunkcji
-    Hide Channel Community: Schowaj społeczność kanału
-    Hide Channel Shorts: Schowaj filmy Short kanału
+    Hide Channel Community: Schowaj kartę kanału „Społeczność”
+    Hide Channel Shorts: Schowaj kartę kanału „Filmy Short”
     Hide Featured Channels: Schowaj polecane kanały
-    Hide Channel Playlists: Schowaj playlisty kanału
+    Hide Channel Playlists: Schowaj kartę kanału „Playlisty”
     Sections:
       Side Bar: Pasek boczny
       Channel Page: Strona kanału
       General: Ogólne
       Watch Page: Strona odtwarzacza
       Subscriptions Page: Strona subskrypcji
-    Hide Channel Releases: Schowaj wydawnictwa kanału
-    Hide Channel Podcasts: Schowaj podkasty kanału
+    Hide Channel Releases: Schowaj kartę kanału „Wydawnictwa”
+    Hide Channel Podcasts: Schowaj kartę kanału „Podkasty”
     Hide Subscriptions Videos: Schowaj filmy z subskrypcji
     Hide Subscriptions Shorts: Schowaj filmy Short z subskrypcji
     Hide Subscriptions Live: Schowaj transmisje live z subskrypcji
@@ -551,7 +587,7 @@ Settings:
     Hide Channels Invalid: Podane ID kanału jest niepoprawne
     Hide Channels Disabled Message: Niektóre z kanałów nie zostały przetworzone, ponieważ
       zostały zablokowane po swoim ID. Funkcja jest zablokowana, aż do momentu, w
-      którym zostaną one zaktualizowane.
+      którym zostaną one zaktualizowane
     Hide Channels Already Exists: To ID kanału już jest
     Hide Channels API Error: Nie udało się wyszukać użytkownika po podanym ID. Proszę
       sprawdzić, czy wpisane ID jest poprawne.
@@ -559,6 +595,8 @@ Settings:
       poniższy tekst
     Hide Videos and Playlists Containing Text Placeholder: Słowo, fragment słowa,
       lub wyrażenie
+    Hide Channel Home: Schowaj kartę kanału „Główna”
+    Show Added Items: Pokaż dodane rzeczy
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -578,6 +616,11 @@ Settings:
     Proxy Protocol: Protokół proxy
     Enable Tor / Proxy: Włącz Tor / Proxy
     Proxy Settings: Proxy
+    Proxy Warning: FreeTube nie ma wbudowanego proxy, ale może połączyć z zewnętrznym
+      proxy. Na przykład z uruchomionym na Twoim komputerze, jak Tor, albo z uruchomionym
+      na zewnętrznym serwerze, takim jak SOCKS5 proxy, oferowanym przez niektórych
+      dostawców VPN. Po włączeniu upewnij się, że twoje proxy lub Tor są skonfigurowane
+      poprawnie, by FreeTube był w stanie wymieniać jakiekolwiek dane.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Powiadamiaj, kiedy segment sponsorowany
       zostanie pominięty
@@ -625,9 +668,7 @@ Settings:
     Warning: Te ustawienia są w fazie testów i po włączeniu mogą powodować wywalanie
       się programu. Zalecane jest stworzenie kopii zapasowej. Używaj na własne ryzyko!
   Password Dialog:
-    Unlock: Odblokuj
     Enter Password To Unlock: Wprowadź hasło, by odblokować ustawienia
-    Password Incorrect: Niepoprawne hasło
     Password: Hasło
   Password Settings:
     Password Settings: Hasło
@@ -671,7 +712,6 @@ Channel:
   Unsubscribe: 'Odsubskrybuj'
   Search Channel: 'Przeszukaj kanał'
   Your search results have returned 0 results: 'Twoje zapytanie zwróciło 0 wyników'
-  Sort By: 'Sortuj według'
   Videos:
     Videos: 'Filmy'
     This channel does not currently have any videos: 'Ten kanał nie ma obecnie żadnych
@@ -718,7 +758,7 @@ Channel:
     View Full Post: Zobacz całe posty
     Viewing Posts Only Supported By Invidious: Wyświetlanie postów jest wspierane
       tylko przez Invidious. Możesz zobaczyć zawartość nie korzystając z Invidious,
-      przechodząc do zakładki „Społeczność” danego kanału.
+      przechodząc do karty „Społeczność” danego kanału.
   Live:
     Live: Transmisje
     This channel does not currently have any live streams: Ten kanał nie ma obecnie
@@ -733,6 +773,9 @@ Channel:
   Podcasts:
     Podcasts: Podkasty
     This channel does not currently have any podcasts: Ten kanał nie ma żadnych podkastów
+  Home:
+    Home: Główna
+    View Playlist: Zobacz playlistę
 Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
@@ -753,46 +796,14 @@ Video:
   Enable Live Chat: 'Włącz czat na żywo'
   Live Chat is currently not supported in this build.: 'Czat na żywo nie jest obecnie
     wspierany w tej kompilacji.'
-  'Chat is disabled or the Live Stream has ended.': 'Czat jest wyłączony, lub transmisja
-    na żywo zakończyła się.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Czat na żywo jest
     włączony. Wiadomości z czatu pojawią się tutaj po wysłaniu.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Czat
     na żywo nie wspiera obecnie API Invidious. Konieczne jest połączenie bezpośrednie
     z YouTube.'
   Published:
-    Jan: 'sty.'
-    Feb: 'lut.'
-    Mar: 'mar.'
-    Apr: 'kwi.'
-    May: 'maj'
-    Jun: 'cze.'
-    Jul: 'lip.'
-    Aug: 'sie.'
-    Sep: 'wrz.'
-    Oct: 'paź.'
-    Nov: 'lis.'
-    Dec: 'gru.'
-    Second: 'sekundę'
-    Seconds: 'sekund/y'
-    Hour: 'godzinę'
-    Hours: 'godzin/y'
-    Day: 'dzień'
-    Days: 'dni'
-    Week: 'tydzień'
-    Weeks: 'tygodni/e'
-    Month: 'miesiąc'
-    Months: 'miesiące/y'
-    Year: 'rok'
-    Years: 'lat/a'
-    Ago: 'temu'
-    Upcoming: 'Premiera'
-    Minutes: minut/y
-    Minute: minutę
-    Less than a minute: mniej niż minutę
     In less than a minute: Za mniej niż minutę
   Published on: 'Opublikowano'
-  Publicationtemplate: '{number} {unit} temu'
 #& Videos
   Autoplay: Autoodtwarzanie
   Play Previous Video: Odtwórz poprzedni film
@@ -839,8 +850,6 @@ Video:
     playlist: playlisty
     video: filmu
     OpenInTemplate: Otwórz w {externalPlayer}
-  Premieres on: Premiera
-  Premieres in: Premiera za
   Premieres: Premiery
   Show Super Chat Comment: Pokazuj komentarze z „Superczatu”
   Scroll to Bottom: Przewiń do końca
@@ -848,7 +857,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Czat
     na żywo jest nie dostępny dla tej transmisji. Być może został on wyłączony przez
     osobę wstawiającą.
-  Pause on Current Video: Zatrzymaj po tym filmie
   Unhide Channel: Pokaż kanał
   Hide Channel: Ukryj kanał
   More Options: Więcej opcji
@@ -881,14 +889,22 @@ Video:
       zostanie wznowione, jak tylko połączenie zostanie odzyskane.
     Skipped segment: Pominięto segment {segmentCategory}
     Full Window: Pełny ekran
+    Autoplay is off: Autoodtwarzanie jest wyłączone
+    Autoplay is on: Autoodtwarzanie jest włączone
   IP block: YouTube uniemożliwił odtworzenie filmów blokując Twój adres IP. Możesz
     spróbować przełączyć się na inny, korzystając z VPN lub proxy.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Najnowsze'
-    Oldest: 'Najstarsze'
-    #& Most Popular
+  AgeRestricted: Filmy z ograniczeniem wiekowym nie mogą być odtwarzane przez FreeTube,
+    ponieważ wymagają danych logowania do konta Google z potwierdzonym wiekiem użytkownika.
+  MembersOnly: Filmy tylko dla wspierających nie mogą być odtwarzane przez FreeTube,
+    ponieważ wymagają danych logowania do konta Googla oraz płatną subskrypcje kanału.
+  Unlisted: Niepubliczny
+  DeArrow:
+    Show Original Details: Pokaż szczegóły oryginału
+    Show Modified Details: Pokaż zmodyfikowane szczegóły
+  DRMProtected: FreeTube nie może odtwarzać filmów chronionych przez DRM, ponieważ
+    wymagają one obsługi zastrzeżonych prawnie komponentów o zamkniętym kodzie. By
+    obejrzeć ten film, możesz odwiedzić oficjalną stronę YouTube, korzystając z przeglądarki
+    z włączoną obsługą DRM.
 #& Playlists
 Playlist:
   #& About
@@ -905,11 +921,12 @@ Playlist:
     Custom: Własny porządek
     DateAddedOldest: Od najstarszych
     DateAddedNewest: Od najnowszych
-    Sort By: Sortuj
     AuthorAscending: Po autorze (A-Z)
     AuthorDescending: Po autorze (Z-A)
     VideoDurationDescending: Czas trwania (od najdłuższych)
     VideoDurationAscending: Czas trwania (od najkrótszych)
+    PublishedNewest: Od ostatnio opublikowanych
+    PublishedOldest: Od najwcześniej opublikowanych
 Change Format:
   Change Media Formats: 'Zmień formaty wideo'
   Use Dash Formats: 'Użyj formatów DASH'
@@ -945,7 +962,6 @@ Comments:
   Click to View Comments: 'Kliknij, aby zobaczyć komentarze'
   Getting comment replies, please wait: 'Pobieranie odpowiedzi do komentarza, proszę
     poczekać'
-  Show Comments: 'Pokaż komentarze'
   Hide Comments: 'Schowaj komentarze'
   # Context: View 10 Replies, View 1 Reply
   View: 'Zobacz'
@@ -956,10 +972,8 @@ Comments:
     tego filmu'
   Load More Comments: 'Pokaż więcej komentarzy'
   There are no more comments for this video: Nie ma więcej komentarzy pod tym filmem
-  No more comments available: Nie ma więcej komentarzy
   Newest first: Najpierw najnowsze
   Top comments: Najlepsze komentarze
-  Sort by: Sortuj według
   Show More Replies: Pokaż więcej odpowiedzi
   And others: i innych
   Pinned by: Przypięty przez
@@ -1000,7 +1014,6 @@ Profile:
   Profile has been updated: Zaktualizowano profil
   Profile has been created: Utworzono profil
   Your profile name cannot be empty: Nazwa profilu nie może być pusta
-  Profile could not be found: Nie odnaleziono profilu
   All subscriptions will also be deleted.: Wszystkie subskrypcje również zostaną usunięte.
   Are you sure you want to delete this profile?: Czy jesteś pewny/a, że chcesz usunąć
     ten profil?
@@ -1072,6 +1085,9 @@ Tooltips:
     External Link Handling: "Wybierz domyślne zachowanie kiedy odnośnik, który nie
       może zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy
       kliknięty odnośnik w domyślnej przeglądarce.\n"
+    Open Deep Links In New Window: Odnośniki URL przekazane do FreeTube (np. przez
+      rozszerzenie przeglądarki, albo argumenty linii komend) są otwierane w nowym
+      oknie.
   Player Settings:
     Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów.
       Formaty DASH obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
@@ -1092,7 +1108,7 @@ Tooltips:
       ikony, która otworzy film (playlistę, jeśli są obsługiwane) w zewnętrznym odtwarzaczu.
       Uwaga! Ustawienia Invidious nie mają wpływu na zewnętrzny odtwarzacz.
     Custom External Player Arguments: Wszelkie niestandardowe argumenty wiersza poleceń,
-      oddzielone średnikami (';'), które chcesz przekazać do zewnętrznego odtwarzacza.
+      które chcesz przekazać do zewnętrznego odtwarzacza.
     Custom External Player Executable: FreeTube domyślnie przyjmie, że wybrany odtwarzacz
       jest do znalezienia za pomocą zmiennej środowiskowej PATH. Jeśli trzeba, można
       tutaj ustawić niestandardową ścieżkę.
@@ -1133,6 +1149,7 @@ Default Invidious instance has been set to {instance}: Domyślna instancja Invid
   została ustawiona na {instance}
 Search Bar:
   Clear Input: Wyczyść pole
+  Remove: Usuń
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych
   odnośników zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
@@ -1162,16 +1179,13 @@ Chapters:
     obecny rozdział: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Spis treści schowany, obecny
     rozdział: {chapterName}'
+  Key Moments: Kluczowe momenty
 Preferences: Preferencje
 Ok: Ok
 Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Nie ma na razie żadnych filmów
     z takim hashtagiem
-Playlist will pause when current video is finished: Playlista zatrzyma się, gdy obecny
-  film się zakończy
-Playlist will not pause when current video is finished: Playlista nie zatrzyma się,
-  gdy obecny film się zakończy
 Channel Hidden: '{channel} dodany do filtra kanałów'
 Go to page: Idź do {page}
 Channel Unhidden: '{channel} usunięty z filtra kanału'
@@ -1205,3 +1219,78 @@ Search Listing:
     360 Video: 360°
 'Blocked opening potentially unsafe URL': 'Zablokowano otwarcie potencjalnie niebezpiecznego
   URL: "{url}".'
+Keys:
+  arrowup: Strzałka do góry
+  arrowright: Strzałka w prawo
+  arrowleft: Strzałka w lewo
+  arrowdown: Strzałka w dół
+  alt: Alt
+  ctrl: Ctrl
+  enter: Enter
+  plus: Plus
+  shift: Shift
+Right-click or hold to see history: Kliknij prawym lub przytrzymaj, by zobaczyć historię
+shortcutJoinOperator: +
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Autoplay Interruption Timer: Automatyczne odtwarzanie zostało anulowane, z powodu
+  {autoplayInterruptionIntervalHours} godzin(y) braku aktywności
+Description:
+  Expand Description: '...więcej'
+  Collapse Description: Zwiń
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Skróty
+  Sections:
+    Video:
+      Playback: Filmy: Odtwarzanie
+      General: Filmy: Ogólne
+    App:
+      Situational: 'Aplikacja: Kontekstowe'
+      General: Aplikacja: Ogólne
+  New Window: Otwórz nowe okno
+  Navigate to Settings: Przejdź do strony Ustawień
+  Navigate to History: Przejdź do strony Historii
+  Focus Secondary Search: Przełącz na drugi pasek wyszukiwania (jeżeli dostępny)
+  Captions: Przełącz napisy WŁĄCZ/WYŁĄCZ
+  Show Keyboard Shortcuts: Pokaż skróty
+  History Forward: Dalej jedną stronę
+  Refresh: Wczytaj ponownie subskrypcje z nową zawartością
+  History Backward: Wróć o jedną stronę
+  Fullscreen: Przełącz na pełny ekran
+  Picture in Picture: Przełącz na tryb obraz w obrazie
+  Decrease Video Speed: Zwolnij odtwarzanie filmu o wartość przeskoku w wyborze prędkości
+    odtwarzania filmu
+  Full Window: Przełącz na pełne okno
+  Take Screenshot: Zrób zrzut ekranu
+  Minimize Window: Zminimalizuj okno
+  Volume Up: Podgłośnij
+  Volume Down: Ścisz
+  Last Chapter: Poprzedni rozdział
+  Next Chapter: Następny rozdział
+  Skip by Tenths: Przeskakuj przez film o wartość procentową („3” przeskakuje do 30%
+    długości)
+  Small Rewind: Przewiń o X sekund wstecz, bazując na interwale przewijania oraz obecnej
+    prędkości odtwarzania
+  Small Fast Forward: Przewiń o X sekund do przodu, bazując na interwale przewijania
+    oraz obecnej prędkości odtwarzania
+  Reset Zoom: Resetuj stopień przybliżenia / skalę UI
+  Zoom Out: Pomniejsz
+  Play: Przełącz na odtwarzanie/wstrzymanie
+  Mute: Przełącz na wyciszony
+  Search in New Window: Wyszukaj w nowym oknie
+  Increase Video Speed: Przyśpiesz odtwarzanie filmu o wartość przeskoku w wyborze
+    prędkości odtwarzania filmu
+  Theatre Mode: Przełącz na tryb kina
+  Close Window: Zamknij okno
+  Force Restart Window: Wymuś zrestartowanie okna
+  Toggle Developer Tools: Przełącz narzędzia deweloperskie
+  Zoom In: Powiększ
+  Focus Search: Przełącz na pasek wyszukiwania
+  Last Frame: Poprzednia klatka (podczas wstrzymania)
+  Next Frame: Następna klatka (podczas wstrzymania)
+  Restart Window: Zrestartuj okno
+  Large Rewind: Przewiń o 10 sekund wstecz / Przewiń film wstecz, bazując na obecnej
+    prędkości odtwarzania
+  Large Fast Forward: Przewiń o 10 sekund do przodu / Przewiń film do przodu, bazując
+    na obecnej prędkości odtwarzania
+  Stats: Pokaż statystyki filmu
+shortcutLabelSeparator: ｜

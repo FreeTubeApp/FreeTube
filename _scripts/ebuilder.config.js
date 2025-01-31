@@ -2,7 +2,7 @@ const { name, productName } = require('../package.json')
 
 const config = {
   appId: `io.freetubeapp.${name}`,
-  copyright: 'Copyleft © 2020-2024 freetubeapp@protonmail.com',
+  copyright: 'Copyleft © 2020-2025 freetubeapp@protonmail.com',
   // asar: false,
   // compression: 'store',
   productName,
@@ -11,9 +11,9 @@ const config = {
   },
   protocols: [
     {
-      name: "FreeTube",
+      name: 'FreeTube',
       schemes: [
-        "freetube"
+        'freetube'
       ]
     }
   ],
@@ -52,19 +52,19 @@ const config = {
   // https://github.com/jordansissel/fpm/issues/1503
   // https://github.com/jgraph/drawio-desktop/issues/259
   rpm: {
-    fpm: [`--rpm-rpmbuild-define=_build_id_links none`]
+    fpm: ['--rpm-rpmbuild-define=_build_id_links none']
   },
   deb: {
     depends: [
-      "libgtk-3-0",
-      "libnotify4",
-      "libnss3",
-      "libxss1",
-      "libxtst6",
-      "xdg-utils",
-      "libatspi2.0-0",
-      "libuuid1",
-      "libsecret-1-0"
+      'libgtk-3-0',
+      'libnotify4',
+      'libnss3',
+      'libxss1',
+      'libxtst6',
+      'xdg-utils',
+      'libatspi2.0-0',
+      'libuuid1',
+      'libsecret-1-0'
     ]
   },
   mac: {

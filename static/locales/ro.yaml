@@ -36,14 +36,13 @@ Global:
   Shorts: Shorts
   Live: Live
   Community: Comunitate
+  Sort By: Sortează după
   Counts:
     Video Count: 1 videoclip | {count} videoclipuri
     Subscriber Count: 1 abonat | {count} de abonați
     View Count: 1 vizionare | {count} vizionări
     Channel Count: 1 canal | {count} canale
     Watching Count: 1 se uită | {count} se uită
-  Input Tags:
-    Length Requirement: Eticheta trebuie să aibă cel puțin {number} caractere
 Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber}
   este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
@@ -56,7 +55,6 @@ Search / Go to URL: 'Căutare / Accesați URL-ul'
 Search Filters:
   Search Filters: 'Filtre de căutare'
   Sort By:
-    Sort By: 'Sortează după'
     Most Relevant: 'Cele mai relevante'
     Rating: 'Evaluare'
     Upload Date: 'Data încărcării'
@@ -102,12 +100,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonamente'
-  Latest Subscriptions: 'Ultimele abonamente'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Lista
     dvs. de abonamente este momentan goală. Începeți să adăugați abonamente pentru
     a le vedea aici.'
-  'Getting Subscriptions. Please wait.': 'Se obțin abonamentele. Vă rugăm să așteptați.'
-  Refresh Subscriptions: 'Reîmprospătați abonamentele'
   Load More Videos: Încarcă mai mult
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Acest
     profil are un număr mare de abonamente.  Se forțează RSS pentru a evita limitarea
@@ -140,7 +135,6 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Activați marcajul rapid cu această listă
     de redare
   Sort By:
-    Sort By: Sortează după
     NameDescending: Z-A
     LatestCreatedFirst: Creat recent
     NameAscending: A-Z
@@ -400,8 +394,7 @@ Settings:
       File Name Tooltip: Puteți utiliza variabilele de mai jos. %Y Anul 4 cifre. %M
         Luna 2 cifre. %D Ziua 2 cifre. %H Ora 2 cifre. %N Minute 2 cifre. %S Secunda
         2 cifre. %T Milisecundă 3 cifre. %s Secunda video. %t Milisecundă video 3
-        cifre. %i Video ID. De asemenea, puteți utiliza "\" sau "/" pentru a crea
-        subfoldere.
+        cifre. %i Video ID.
       Enable: Activează captura de ecran
       Format Label: Formatul capturii de ecran
     Video Playback Rate Interval: Intervalul de redare video
@@ -438,11 +431,8 @@ Settings:
     Fetch Feeds from RSS: 'Preluare de fluxuri din RSS'
     Fetch Automatically: Preluați feedul automat
     Confirm Before Unsubscribing: Confirmă înainte de dezabonare
-    Only Show Latest Video for Each Channel: Arată doar cele mai noi videoclipuri
-      pentru fiecare canal
   Data Settings:
     Data Settings: 'Setări de date'
-    Select Import Type: 'Selectează tipul de import'
     Select Export Type: 'Selectează tipul de export'
     Import Subscriptions: 'Importă abonamente'
     Export Subscriptions: 'Exportați abonamentele'
@@ -580,8 +570,6 @@ Settings:
     Show Family Friendly Only: Arata numai conținut family friendly
     Hide Search Bar: Ascunde bara de căutare
   Password Dialog:
-    Password Incorrect: Parolă incorectă
-    Unlock: Deblocați
     Password: Parolă
     Enter Password To Unlock: Introduceți parola pentru a debloca setările
   Password Settings:
@@ -642,7 +630,6 @@ Profile:
     acest profil?'
   All subscriptions will also be deleted.: 'De asemenea, toate abonamentele vor fi
     șterse.'
-  Profile could not be found: 'Profilul nu a putut fi găsit'
   Your profile name cannot be empty: 'Numele profilului nu poate fi gol'
   Profile has been created: 'Profilul a fost creat'
   Profile has been updated: 'Profilul a fost actualizat'
@@ -685,7 +672,6 @@ Channel:
   Search Channel: 'Căutare canal'
   Your search results have returned 0 results: 'Rezultatele căutării tale au returnat
     0 rezultate'
-  Sort By: 'Sortați după'
   Videos:
     Videos: 'Videoclipuri'
     This channel does not currently have any videos: 'Acest canal nu are în prezent
@@ -766,46 +752,14 @@ Video:
   Enable Live Chat: 'Activați Chat-ul în direct'
   Live Chat is currently not supported in this build.: 'Chat-ul în direct nu este
     în prezent acceptat în această versiune.'
-  'Chat is disabled or the Live Stream has ended.': 'Chat-ul este dezactivat sau transmisia
-    în direct s-a încheiat.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Chat-ul în direct
     este activat.  Mesajele de chat vor apărea aici după ce sunt trimise.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Chat-ul
     în direct nu este acceptat în prezent cu API-ul Invidious.  Este necesară o conexiune
     directă la YouTube.'
   Published:
-    Jan: 'Ian'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Mai'
-    Jun: 'iun'
-    Jul: 'Iul'
-    Aug: 'Aug'
-    Sep: 'Sep'
-    Oct: 'Oct'
-    Nov: 'Noi'
-    Dec: 'Dec'
-    Second: 'Secundă'
-    Seconds: 'Secunde'
-    Minute: 'Minut'
-    Minutes: 'Minute'
-    Hour: 'Oră'
-    Hours: 'Ore'
-    Day: 'Zi'
-    Days: 'Zile'
-    Week: 'Săptămână'
-    Weeks: 'Săptămâni'
-    Month: 'Lună'
-    Months: 'Luni'
-    Year: 'An'
-    Years: 'Ani'
-    Ago: 'În urmă'
-    Upcoming: 'În premieră la'
-    Less than a minute: Mai putin de un minut
     In less than a minute: În mai puțin de un minut
   Published on: 'Publicat pe'
-  Publicationtemplate: 'acum {number} {unit}'
 #& Videos
   External Player:
     Unsupported Actions:
@@ -844,8 +798,6 @@ Video:
     ta de salvări
   Video has been saved: Videoclipul a fost salvat
   Save Video: Salvați video
-  Premieres on: Premieră pe
-  Premieres in: Are premiera în
   Scroll to Bottom: Derulați până jos
   Upcoming: Urmează
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Chatul
@@ -853,15 +805,8 @@ Video:
     de persoana care a încărcat.
   Premieres: Premiere
   Show Super Chat Comment: Afișați comentariul Super Chat
-  Pause on Current Video: Pauză la videoclipul curent
   Hide Channel: Ascunde canalul
   Unhide Channel: Arată canalul
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Cele mai noi'
-    Oldest: 'Cele mai vechi'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -907,7 +852,6 @@ Comments:
     să așteptați'
   There are no more comments for this video: 'Nu mai există niciun comentariu pentru
     acest videoclip'
-  Show Comments: 'Afișați comentariile'
   Hide Comments: 'Ascundeți comentariile'
   # Context: View 10 Replies, View 1 Reply
   View: 'Vizualizați'
@@ -917,11 +861,9 @@ Comments:
   There are no comments available for this video: 'Nu există comentarii disponibile
     pentru acest videoclip'
   Load More Comments: 'Încărcați mai multe comentarii'
-  No more comments available: Nu mai sunt disponibile alte comentarii
   Show More Replies: Afișați mai multe răspunsuri
   Newest first: Începând cu cele mai noi
   Top comments: Cele mai bune comentarii
-  Sort by: Sortați după
   And others: și altele
   From {channelName}: de la {channelName}
   Pinned by: Lipit de
@@ -977,8 +919,7 @@ Tooltips:
       când se deschide o fereastră nouă și când schimbați profilul.
   External Player Settings:
     Custom External Player Arguments: Orice argumente personalizate din linia de comandă,
-      separate prin punct și virgulă (";"), pe care doriți să le transmiteți playerului
-      extern.
+      pe care doriți să le transmiteți playerului extern.
     Ignore Warnings: Suprimarea avertismentelor în cazul în care playerul extern curent
       nu acceptă acțiunea curentă (de exemplu, inversarea listelor de redare etc.).
     Custom External Player Executable: În mod implicit, FreeTube va presupune că playerul
@@ -1064,10 +1005,6 @@ Hashtag:
   This hashtag does not currently have any videos: Acest hashtag nu are momentan niciun
     videoclip
 Ok: OK
-Playlist will pause when current video is finished: Lista de redare se va întrerupe
-  când videoclipul curent este terminat
-Playlist will not pause when current video is finished: Lista de redare nu se va întrerupe
-  când videoclipul curent este terminat
 Go to page: Mergeți la {page}
 Close Banner: Închideți bannerul
 Age Restricted:

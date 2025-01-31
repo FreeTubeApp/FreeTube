@@ -25,7 +25,7 @@ Zoom in: 'Павялічыць'
 Zoom out: 'Паменшыць'
 Toggle fullscreen: 'Пераключыць поўнаэкранны рэжым'
 Window: 'Акно'
-Minimize: 'Мінімізаваць'
+Minimize: 'Згарнуць'
 Close: 'Закрыць'
 Back: 'Назад'
 Forward: 'Наперад'
@@ -45,6 +45,7 @@ Global:
   Shorts: 'Кароткія відэа'
   Live: 'Ужывую'
   Community: 'Супольнасць'
+  Sort By: Сартаваць
   Counts:
     Video Count: '1 відэа | {count} відэа'
     Channel Count: '1 канал | {count} каналы(аў)'
@@ -55,16 +56,14 @@ Global:
 # Search Bar
     Like Count: 1 лайк | {count} лайкаў
     Comment Count: 1 каментарый | {count} каментарыяў
-  Input Tags:
-    Length Requirement: Даўжыня цэтліка павінна быць не менш за {number} сімвалаў
 Search / Go to URL: 'Пошук / Перайсці да URL'
 Search Bar:
   Clear Input: 'Ачысціць увод'
   # In Filter Button
+  Remove: Выдаліць
 Search Filters:
   Search Filters: 'Фільтры пошуку'
   Sort By:
-    Sort By: 'Сартаваць'
     Most Relevant: 'Найбольш рэлевантныя'
     Rating: 'Рэйтынг'
     Upload Date: 'Дата запампоўкі'
@@ -113,7 +112,6 @@ Subscriptions:
   Subscriptions: 'Падпіскі'
   # channels that were likely deleted
   Error Channels: 'Каналы з памылкамі'
-  Latest Subscriptions: 'Апошнія падпіскі'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'У
     гэтага профілю вялікая колькасць падпісак.  Прымусовае выкарыстанне RSS, каб пазбегнуць
     абмежавання хуткасці'
@@ -124,9 +122,7 @@ Subscriptions:
   Disabled Automatic Fetching: 'Вы адключылі аўтаматычнае загрузку падпісак. Каб убачыць
     іх тут, абнавіце падпіскі.'
   Empty Channels: 'На каналах, на якія вы падпісаны, зараз няма відэа.'
-  'Getting Subscriptions. Please wait.': 'Атрыманне падпісак. Калі ласка, пачакайце.'
   Empty Posts: 'На каналах, на якія вы падпісаны, зараз няма паведамленняў.'
-  Refresh Subscriptions: ''
   Load More Videos: 'Загрузіць больш відэа'
   Load More Posts: 'Загрузіць больш паведамленняў'
   Subscriptions Tabs: 'Укладкі падпісак'
@@ -189,8 +185,6 @@ User Playlists:
         быў паспяхова створаны.
   SinglePlaylistView:
     Toast:
-      Playlist {playlistName} is the new quick bookmark playlist.: Плэй-ліст {playlistName}
-        - гэта новы плэй-ліст з хуткай закладкай.
       This playlist is protected and cannot be removed.: Гэты плэй-ліст абаронены
         і не можа быць выдалены.
       This video cannot be moved up.: Гэта відэа нельга перамясціць уверх.
@@ -239,7 +233,6 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: Вы ўпэўнены,
     што хочаце выдаліць плэй-ліст? Гэта нельга адмяніць.
   Sort By:
-    Sort By: Сартаваць
     EarliestPlayedFirst: Раней прайгравалі
     NameDescending: Я-А
     LatestCreatedFirst: Нядаўна створаны
@@ -263,6 +256,8 @@ User Playlists:
     ўпэўнены, што хочаце выдаліць 1 дублікат відэа з гэтага плэй-ліста? Гэта нельга
     адмяніць. | Вы ўпэўнены, што хочаце выдаліць {playlistItemCount} дублікатаў відэа
     з гэтага плэй-ліста? Гэта нельга адмяніць.
+  Export Playlist: Экспартаваць плэй-ліст
+  The playlist has been successfully exported: Плэй-ліст паспяхова экспартаваны
 History:
   # On History Page
   History: 'Гісторыя'
@@ -278,8 +273,8 @@ Settings:
     трэба перазапусціць, каб змены ўступілі ў сілу. Перазапусціць і прымяніць змены?'
   General Settings:
     General Settings: 'Агульныя'
-    Check for Updates: 'Праверыць наяўнасць абнаўленняў'
-    Check for Latest Blog Posts: 'Праверыць апошнія паведамленні ў блогу'
+    Check for Updates: 'Правяраць наяўнасць абнаўленняў'
+    Check for Latest Blog Posts: 'Правяраць апошнія паведамленні ў блогу'
     Fallback to Non-Preferred Backend on Failure: 'Вяртанне да непераважнага бэкэнда
       ў выпадку няўдачы'
     Enable Search Suggestions: 'Уключыць прапановы пошуку'
@@ -341,8 +336,11 @@ Settings:
       Pastel Pink: 'Пастэльна-ружовая'
       Hot Pink: 'Ярка-ружовая'
       Nordic: Nordic
-      Solarized Dark: Solarized Цёмная
-      Solarized Light: Solarized Светлая
+      Solarized Dark: Solarized цёмная
+      Solarized Light: Solarized светлая
+      Gruvbox Dark: Gruvbox цёмная
+      Catppuccin Frappe: Catppuccin Frappe
+      Gruvbox Light: Gruvbox светлая
     Main Color Theme:
       Main Color Theme: 'Асноўны колер тэмы'
       Red: 'Чырвоны'
@@ -390,6 +388,20 @@ Settings:
       Solarized Green: Solarized Зялёны
       Solarized Blue: Solarized Сіні
       Solarized Yellow: Solarized Жоўты
+      Catppuccin Frappe Red: Catppuccin Frappe Чырвоны
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Ружовая вада
+      Catppuccin Frappe Pink: Catppuccin Frappe Ружовы
+      Catppuccin Frappe Maroon: Catppuccin Frappe Бардовы
+      Catppuccin Frappe Peach: Catppuccin Frappe Персікавы
+      Catppuccin Frappe Yellow: Catppuccin Frappe Жоўты
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Сапфір
+      Catppuccin Frappe Blue: Catppuccin Frappe Сіні
+      Catppuccin Frappe Lavender: Catppuccin Frappe Лаванда
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Фламінга
+      Catppuccin Frappe Mauve: Catppuccin Frappe Ліловы
+      Catppuccin Frappe Green: Catppuccin Frappe Зялёны
+      Catppuccin Frappe Sky: Catppuccin Frappe Неба
+      Catppuccin Frappe Teal: Catppuccin Frappe Бірузовы
     Secondary Color Theme: 'Другасны колер тэмы'
         #* Main Color Theme
   Player Settings:
@@ -417,7 +429,7 @@ Settings:
       Default Video Format: 'Фармат відэа па змаўчанні'
       Dash Formats: 'Фарматы DASH'
       Legacy Formats: 'Састарэлыя фарматы'
-      Audio Formats: 'Аўдыё фарматы'
+      Audio Formats: 'Аўдыяфарматы'
     Default Quality:
       Default Quality: 'Якасць па змаўчанні'
       Auto: 'Аўта'
@@ -441,8 +453,7 @@ Settings:
       File Name Tooltip: 'Вы можаце выкарыстоўваць пераменныя ніжэй. %Y Год 4 лічбы.
         %M Месяц 2 лічбы. %D Дні 2 лічбы. %H Гадзіны 2 лічбы. %N Хвіліны 2 лічбы.
         %S Секунды 2 лічбы. %T Мілісекунды 3 лічбы. %s Секунды відэа. %t Мілісекунды
-        відэа 3 лічбы. %i Ідэнтыфікатар відэа. Вы таксама можаце выкарыстоўваць "\"
-        або "/" для стварэння падпапак.'
+        відэа 3 лічбы. %i Ідэнтыфікатар відэа.'
       Error:
         Forbidden Characters: 'Забароненыя сімвалы'
         Empty File Name: 'Пустая назва файла'
@@ -478,14 +489,16 @@ Settings:
       усе свае плэй-лісты?
     Remove All Playlists: Выдаліць усе плэй-лісты
     All playlists have been removed: Усе плэй-лісты былі выдалены
+    Clear Search History and Cache: Ачысціць гісторыю пошуку і кэш
+    Are you sure you want to clear out your search history and cache?: Сапраўды ачысціць
+      гісторыю пошуку і кэш?
+    Search history and cache have been cleared: Гісторыя пошуку і кэш ачышчаны
   Subscription Settings:
     Subscription Settings: 'Падпіскі'
     Hide Videos on Watch: 'Хаваць відэа пасля прагляду'
     Fetch Feeds from RSS: 'Атрымліваць стужкі з RSS'
-    Fetch Automatically: 'Аўтаматычна атрымліваць стужку'
+    Fetch Automatically: 'Атрымліваць стужку аўтаматычна'
     Confirm Before Unsubscribing: Пацвердзіце перад тым як адпісацца
-    Only Show Latest Video for Each Channel: Паказваць толькі апошняе відэа для кожнага
-      канала
   Distraction Free Settings:
     Distraction Free Settings: 'Адцягненне ўвагі'
     Sections:
@@ -499,7 +512,7 @@ Settings:
     Hide Channel Subscribers: 'Хаваць падпісчыкаў каналу'
     Hide Comment Likes: 'Хаваць лайкі да каментарыяў'
     Hide Recommended Videos: 'Хаваць рэкамендаваныя відэа'
-    Hide Trending Videos: 'Схаваць трэндавыя відэа'
+    Hide Trending Videos: 'Хаваць відэа ў трэндзе'
     Hide Popular Videos: 'Хаваць папулярныя відэа'
     Hide Playlists: 'Хаваць плэй-лісты'
     Hide Live Chat: 'Хаваць жывы чат'
@@ -523,7 +536,7 @@ Settings:
     Hide Channel Releases: 'Хаваць выпускі канала'
     Hide Subscriptions Videos: 'Хаваць відэа з падпісак'
     Hide Subscriptions Shorts: 'Хаваць кароткія відэа з падпісак'
-    Hide Subscriptions Live: 'Хаваць жывыя трансляцыі з падпісак'
+    Hide Subscriptions Live: 'Хаваць трансляцыі з падпісак'
     Hide Subscriptions Community: 'Хаваць супольнасць падпісак'
     Hide Channels Already Exists: Ідэнтыфікатар канала ўжо існуе
     Hide Videos and Playlists Containing Text: Хаваць відэа і плэй-лісты, якія змяшчаюць
@@ -538,7 +551,6 @@ Settings:
       Праверце яшчэ раз, ці правільны ідэнтыфікатар.
   Data Settings:
     Data Settings: 'Даныя'
-    Select Import Type: 'Выбраць тып імпарту'
     Select Export Type: 'Выбраць тып экспарту'
     Import Subscriptions: 'Імпарт падпісак'
     Subscription File: 'Файл падпіскі'
@@ -624,10 +636,10 @@ Settings:
     Show Family Friendly Only: 'Паказаць толькі для сямейнага прагляду'
     Hide Search Bar: 'Хаваць панэль пошуку'
   Download Settings:
-    Download Settings: 'Спампоўка'
-    Ask Download Path: 'Пытаць шлях спампоўкі'
+    Download Settings: 'Спампоўванне'
+    Ask Download Path: 'Пытаць шлях спампоўвання'
     Choose Path: 'Выберыце шлях'
-    Download Behavior: 'Паводзіны спампоўкі'
+    Download Behavior: 'Паводзіны для спампоўвання'
     Download in app: 'Спампоўваць у праграме'
     Open in web browser: 'Адкрываць у вэб-браўзеры'
   Experimental Settings:
@@ -639,8 +651,6 @@ Settings:
   Password Dialog:
     Password: 'Пароль'
     Enter Password To Unlock: 'Каб разблакіраваць налады, увядзіце пароль'
-    Password Incorrect: 'Пароль няправільны'
-    Unlock: 'Разблакіраваць'
   Password Settings:
     Password Settings: 'Пароль'
     Set Password To Prevent Access: 'Задайце пароль, каб забараніць доступ да налад'
@@ -653,7 +663,7 @@ About:
   About: 'Пра FreeTube'
   Beta: 'Бэта-версія'
   Source code: 'Зыходны код'
-  Downloads / Changelog: 'Спампоўкі / Журнал змяненняў'
+  Downloads / Changelog: 'Спампоўванне / Журнал змяненняў'
   GitHub releases: 'Выпускі GitHub'
   Help: 'Даведка'
   FreeTube Wiki: 'FreeTube Вікі'
@@ -670,7 +680,7 @@ About:
   Chat on Matrix: 'Чат у Matrix'
   Please read the: 'Прачытайце'
   room rules: 'правілы пакоя'
-  Translate: 'Перакласці'
+  Translate: 'Пераклад'
   Credits: 'Удзельнікі'
   FreeTube is made possible by: 'FreeTube стаў магчымым дзякуючы'
   these people and projects: 'гэтым людзям і праектам'
@@ -697,7 +707,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Вы ўпэўнены, што хочаце выдаліць
     гэты профіль?'
   All subscriptions will also be deleted.: 'Усе падпіскі таксама будуць выдалены.'
-  Profile could not be found: 'Профіль не знойдзены'
   Your profile name cannot be empty: 'Назва вашага профілю не можа быць пустой'
   Profile has been created: 'Профіль створаны'
   Profile has been updated: 'Профіль абноўлены'
@@ -736,7 +745,6 @@ Channel:
   Added channel to your subscriptions: 'Канал дададзены да вашых падпісак'
   Search Channel: 'Шукаць на канале'
   Your search results have returned 0 results: 'Пошук даў 0 вынікаў'
-  Sort By: 'Сартаваць'
   This channel does not exist: 'Гэты канал не існуе'
   This channel does not allow searching: 'Гэты канал не дазваляе шукаць'
   This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Гэты
@@ -818,13 +826,11 @@ Video:
   Reverse Playlist: 'Перавернуць плэй-ліст'
   Play Next Video: 'Прайграць наступнае відэа'
   Play Previous Video: 'Прайграць папярэдняе відэа'
-  Pause on Current Video: 'Прыпыніць на бягучым відэа'
   Watched: 'Прагледжанае'
   Autoplay: 'Аўтапрайграванне'
   Starting soon, please refresh the page to check again: 'Хутка пачнецца, абнавіце
     старонку, каб праверыць яшчэ раз'
   # As in a Live Video
-  Premieres on: 'Прэм''еры на'
   Premieres: 'Прэм''еры'
   Upcoming: 'Хутка'
   Live: 'Ужывую'
@@ -833,8 +839,6 @@ Video:
   Enable Live Chat: 'Уключыць жывы чат'
   Live Chat is currently not supported in this build.: 'Жывы чат зараз не падтрымліваецца
     ў гэтай зборцы.'
-  'Chat is disabled or the Live Stream has ended.': 'Чат адключаны або жывая трансляцыя
-    скончылася.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Жывы чат уключаны.  Паведамленні
     чата з''явяцца тут пасля адпраўкі.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Жывы
@@ -848,39 +852,10 @@ Video:
   video only: 'толькі відэа'
   audio only: 'толькі аўдыё'
   Published:
-    Jan: 'Сту'
-    Feb: 'Лют'
-    Mar: 'Сак'
-    Apr: 'Кра'
-    May: 'Май'
-    Jun: 'Чэр'
-    Jul: 'Ліп'
-    Aug: 'Жні'
-    Sep: 'Вер'
-    Oct: 'Кас'
-    Nov: 'Ліс'
-    Dec: 'Сне'
-    Second: 'Секунда'
-    Seconds: 'Секунды'
-    Minute: 'Хвіліна'
-    Minutes: 'Хвілін'
-    Hour: 'Гадзіна'
-    Hours: 'Гадзін'
-    Day: 'Дзень'
-    Days: 'Дзён'
-    Week: 'Тыдзень'
-    Weeks: 'Тыдняў'
-    Month: 'Месяц'
-    Months: 'Месяцаў'
-    Year: 'Год'
-    Years: 'Гадоў'
-    Ago: 'Таму'
-    Upcoming: 'Прэм''еры на'
     In less than a minute: 'Менш чым праз хвіліну'
   Published on: 'Апублікавана'
   Streamed on: 'Транслявалася'
   Started streaming on: 'Трансляцыя пачалася'
-  Publicationtemplate: '{number} {unit} таму'
   Sponsor Block category:
     sponsor: 'Спонсар'
     intro: 'Увядзенне'
@@ -940,12 +915,6 @@ Video:
     You appear to be offline: Здаецца, вы па-за сеткай.
     Playback will resume automatically when your connection comes back: Прайграванне
       ўзновіцца аўтаматычна, калі падключэнне адновіцца.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Новыя'
-    Oldest: 'Старыя'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -958,7 +927,6 @@ Playlist:
 #& Views
   Sort By:
     AuthorAscending: Аўтар (А-Я)
-    Sort By: Сартаваць
     Custom: Карыстальніцкі
     AuthorDescending: Аўтар (Я-А)
     DateAddedNewest: Новыя спачатку
@@ -1016,9 +984,7 @@ Comments:
   Click to View Comments: 'Націсніце, каб праглядзець каментарыі'
   Getting comment replies, please wait: 'Атрымліваюцца адказы на каментарыі, пачакайце'
   There are no more comments for this video: 'Да гэтага відэа больш няма каментарыяў'
-  Show Comments: 'Паказаць каментарыі'
   Hide Comments: 'Схаваць каментарыі'
-  Sort by: 'Сартаваць'
   Top comments: 'Папулярныя каментарыі'
   Newest first: 'Спачатку новыя'
   View {replyCount} replies: 'Праглядзець {replyCount} адказаў'
@@ -1032,7 +998,6 @@ Comments:
   And others: 'і інш'
   There are no comments available for this video: 'Да гэтага відэа няма каментарыяў'
   Load More Comments: 'Загрузіць больш каментарыяў'
-  No more comments available: 'Больш каментарыяў няма'
   Pinned by: 'Замацавана'
   Member: 'Член'
   Subscribed: 'Падпісан'
@@ -1083,8 +1048,7 @@ Tooltips:
     Ignore Warnings: 'Адключыць папярэджанні, калі бягучы вонкавы прайгравальнік не
       падтрымлівае бягучае дзеянне (напрыклад, пераварочванне плэй-ліста і г.д.).'
     Custom External Player Arguments: 'Любыя карыстальніцкія аргументы каманднага
-      радка, падзеленыя кропкай з коскай ('';''), якія вы хочаце перадаць вонкаваму
-      прайгравальніку.'
+      радка, якія вы хочаце перадаць вонкаваму прайгравальніку.'
     DefaultCustomArgumentsTemplate: "(Па змаўчанні: '{defaultCustomArguments}')"
     Ignore Default Arguments: Не адпраўляйце ніякіх аргументаў па змаўчанні на вонкавы
       прайгравальнік, акрамя URL-адраса відэа (напрыклад, частата прайгравання, URL-адрас
@@ -1131,10 +1095,6 @@ Shuffle is now enabled: 'Перамешванне ўключана'
 The playlist has been reversed: 'Плэй-ліст перавернуты'
 Playing Next Video: 'Прайграванне наступнага відэа'
 Playing Previous Video: 'Прайграванне папярэдняга відэа'
-Playlist will not pause when current video is finished: 'Плэй-ліст не будзе прыпынены,
-  калі бягучае відэа будзе завершана'
-Playlist will pause when current video is finished: 'Плэй-ліст будзе прыпынены, калі
-  бягучае відэа будзе завершана'
 Playing Next Video Interval: 'Прайграванне наступнага відэа ў самыя кароткія тэрміны.
   Націсніце, каб адмяніць. | Прайграванне наступнага відэа праз {nextVideoInterval}
   секунды. Націсніце, каб адмяніць. | Прайграванне наступнага відэа праз {nextVideoInterval}
@@ -1149,9 +1109,9 @@ Default Invidious instance has been cleared: 'Экземпляр Invidious па 
   працягнуць прайграванне, уключыце цыкл'
 External link opening has been disabled in the general settings: 'Адкрыццё вонкавых
   спасылак было адключана ў агульных наладах'
-Downloading has completed: 'Спампоўка "{videoTitle}" скончана'
-Starting download: 'Пачатак спампоўкі "{videoTitle}"'
-Downloading failed: 'Узнікла праблема спампоўкі "{videoTitle}"'
+Downloading has completed: 'Спампоўванне «{videoTitle}» завершана'
+Starting download: 'Пачалося спампоўванне «{videoTitle}»'
+Downloading failed: 'Узнікла праблема са спампоўваннем «{videoTitle}»'
 Screenshot Success: 'Здымак захаваны як "{filePath}"'
 Screenshot Error: 'Здымак не ўдаўся. {error}'
 
@@ -1174,13 +1134,13 @@ Search Listing:
 Yes, Delete: Так, выдаліць
 Feed:
   Refresh Feed: Абнавіць {subscriptionName}
-  Feed Last Updated: 'Апошняе абнаўленне стужкі {feedName}: {date}'
+  Feed Last Updated: 'Апошняе абнаўленне стужкі «{feedName}»: {date}'
 Display Label: '{label}: {value}'
 Cancel: Адмена
 checkmark: ✓
 Close Banner: Закрыць банер
 Go to page: Перайсці да {page}
-Moments Ago: хвіліны таму
+Moments Ago: толькі што
 Yes, Restart: Так, перазапусціць
 Yes, Open Link: Так, адкрыць спасылку
 Tag already exists: Цэтлік "{tagName}" ужо існуе
@@ -1194,3 +1154,49 @@ Age Restricted:
 'Blocked opening potentially unsafe URL': 'Заблакіравана адкрыццё патэнцыйна небяспечнага
   URL: "{url}".'
 Channel Unhidden: '{channel} выдалены з фільтра каналаў'
+KeyboardShortcutPrompt:
+  Show Keyboard Shortcuts: Паказаць спалучэнні клавіш
+  Last Frame: Папярэдні кадр (падчас паўзы)
+  Take Screenshot: Зрабіць здымак экрана
+  Keyboard Shortcuts: Спалучэнні клавіш
+  Sections:
+    Video:
+      Playback: Відэа: Прайграванне
+      General: Відэа: Агульныя
+    App:
+      General: Праграма: Агульныя
+  History Forward: Перайсці на адну старонку наперад
+  New Window: Стварыць новае акно
+  Navigate to Settings: Перайсці на старонку налад
+  Navigate to History: Перайсці на старонку гісторыі
+  Refresh: Абнавіць стужку з новым змесцівам
+  Captions: Уключыць/выключыць субцітры
+  Stats: Паказаць статыстыку відэа
+  Fullscreen: Уключыць/выключыць поўнаэкранны рэжым
+  Play: Уключыць прайграванне/паўзу
+  Force Restart Window: Прымусова перазапусціць акно
+  Toggle Developer Tools: Уключыць/выключыць інструменты распрацоўшчыка
+  Zoom In: Павялічыць
+  Next Frame: Наступны кадр (падчас паўзы)
+  Volume Down: Паменшыць гучнасць
+  Volume Up: Павялічыць гучнасць
+  Next Chapter: Наступны раздзел
+  History Backward: Вярнуцца на адну старонку назад
+  Mute: Уключыць/выключыць гук
+  Theatre Mode: Уключыць/выключыць рэжым тэатра
+  Minimize Window: Згарнуць акно
+  Close Window: Закрыць акно
+  Restart Window: Перазапусціць акно
+  Zoom Out: Паменшыць
+  Search in New Window: Пошук у новым акне
+  Picture in Picture: Уключыць/выключыць міні-прайгравальнік
+  Large Rewind: Пераматаць назад на 10 секунд / Пераматаць назад згодна з бягучай
+    хуткасцю прайгравання
+  Large Fast Forward: Пераматаць уперад на 10 секунд / Пераматаць уперад згодна з
+    бягучай хуткасцю прайгравання
+Keys:
+  arrowup: Стрэлка ўверх
+  arrowright: Стрэлка ўправа
+  arrowdown: Стрэлка ўніз
+  arrowleft: Стрэлка ўлева
+  plus: Плюс

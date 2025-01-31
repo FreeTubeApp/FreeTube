@@ -11,8 +11,7 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
   constructor(activeLegacyFormat, legacyFormats, events, parent, controls) {
     super(parent, controls, 'settings')
 
-    this.button.classList.add('legacy-quality-button')
-    this.button.classList.add('shaka-tooltip-status')
+    this.button.classList.add('legacy-quality-button', 'shaka-tooltip-status')
     this.menu.classList.add('legacy-qualities')
 
     /** @private */
@@ -22,15 +21,8 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
 
     const sortedLegacyFormats = [...legacyFormats]
 
-    // Invidious doesn't return the height or width for the legacy formats, so we have to use the bitrate instead
-    if (typeof legacyFormats[0].width === 'undefined' || typeof legacyFormats[0].height === 'undefined') {
-      sortedLegacyFormats.sort((a, b) => {
-        return b.bitrate - a.bitrate
-      })
-    } else {
-      const isPortrait = legacyFormats[0].height > legacyFormats[0].width
-      sortedLegacyFormats.sort((a, b) => isPortrait ? b.width - a.width : b.height - a.height)
-    }
+    const isPortrait = legacyFormats[0].height > legacyFormats[0].width
+    sortedLegacyFormats.sort((a, b) => isPortrait ? b.width - a.width : b.height - a.height)
 
     /** @private */
     this.legacyFormats_ = sortedLegacyFormats
@@ -93,8 +85,7 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
     span.classList.add('shaka-chosen-item')
 
     const icon = document.createElement('i')
-    icon.classList.add('material-icons-round')
-    icon.classList.add('shaka-chosen-item')
+    icon.classList.add('material-icons-round', 'shaka-chosen-item')
     icon.textContent = 'done'
     icon.ariaHidden = 'true'
     button.appendChild(icon)

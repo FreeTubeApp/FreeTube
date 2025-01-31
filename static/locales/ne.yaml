@@ -35,6 +35,9 @@ Download From Site: 'साइटबाट डाउनलोड गर्नु
 A new blog is now available, {blogTitle}. Click to view more: 'एउटा नयाँ ब्लग उपलब्ध
   छ, {blogTitle}। थप बुझ्न यहाँ थिच्नुहोस्'
 
+Global:
+  Sort By: 'क्रमबद्ध गर्नुहोस्'
+
 # Search Bar
 Search / Go to URL: 'खोज्नुहोस् / URL मा जानुहोस्'
 Search Bar:
@@ -43,7 +46,6 @@ Search Bar:
 Search Filters:
   Search Filters: 'खोजी फिल्टरहरू'
   Sort By:
-    Sort By: 'क्रमबद्ध गर्नुहोस्'
     Most Relevant: 'सबैभन्दा प्रासङ्गिक'
     Rating: 'रेटिङ्ग'
     Upload Date: 'प्रकाशित मिति'
@@ -76,13 +78,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'सदस्यताहरु'
-  Latest Subscriptions: 'नवीनतम सदस्यताहरू'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'यो
     प्रोफाइलमा ठुलो सङ्ख्यामा सदस्यताहरू छन्। दर सिमित हुनबाट बच्न RSS लाई बल गरिँदै'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'तपाईँको
     सदस्यता सूची अहिले खाली छ। तिनीहरूलाई यहाँ हेर्न सदस्यताहरू थप्न सुरु गर्नुहोस्।'
-  'Getting Subscriptions. Please wait.': 'सदस्यताहरू प्राप्त गरिँदै छ। कृपया पर्खनुहोस्।'
-  Refresh Subscriptions: 'सदस्यताहरू ताजा पार्नुहोस्'
   Load More Videos: 'थप भिडियोहरू लोड गर्नुहोस्'
 More: 'थप'
 Trending:

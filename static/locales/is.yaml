@@ -33,9 +33,10 @@ Forward: 'Áfram'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Myndskeið'
-  Shorts: Stuttmyndir
+  Shorts: Símamyndir
   Live: Í beinni
   Community: Samfélag
+  Sort By: Raða eftir
 
   Counts:
     Video Count: 1 myndskeið | {count} myndskeið
@@ -45,8 +46,6 @@ Global:
     Watching Count: 1 að horfa | {count} að horfa
     Like Count: 1 líkaði | {count} líkaði
     Comment Count: 1 athugasemd | {count} athugasemdir
-  Input Tags:
-    Length Requirement: Merki þarf að vera a.m.k. {number} stafa langt
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber}
   er tiltæk!  Smelltu til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'
@@ -59,7 +58,6 @@ Search / Go to URL: 'Leita / Fara á slóð'
 Search Filters:
   Search Filters: 'Leitarsíur'
   Sort By:
-    Sort By: 'Raða eftir'
     Most Relevant: 'Mest viðeigandi'
     Rating: 'Einkunn'
     Upload Date: 'Dags. innsendingar'
@@ -107,15 +105,13 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Áskriftir'
-  Latest Subscriptions: 'Síðustu áskriftir'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Þetta
     notkunarsnið er með mikinn fjölda áskrifta. Þvinga notkun á RSS til að forðast
     takmarkanir á magni'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Listi
-    með áskriftum er tómur í augnablikinu. Gerstu áskrifandi að rásum og þær munu
-    birtast hér.'
-  'Getting Subscriptions. Please wait.': 'Sæki áskriftir. Hinkraðu aðeins.'
-  Refresh Subscriptions: 'Endurlesa áskriftir'
+    með áskriftum er tómur í augnablikinu. Ef þú vilt flytja inn áskriftirnar þínar,
+    geturðu farið í stillingar gagna og valið ''Flytja inn áskriftir'' eða leitað
+    að rás og gerst áskrifandi að henni.'
   Load More Videos: 'Hlaða inn fleiri myndskeiðum'
   Error Channels: Hugbúnaðarrásir með villum
   Disabled Automatic Fetching: Þú hefur gert sjálfvirkt niðurhal áskrifta óvirkt.
@@ -151,7 +147,6 @@ User Playlists:
   Cancel: Hætta við
   Edit Playlist Info: Breyta upplýsingum spilunarlista
   Sort By:
-    Sort By: Raða eftir
     NameDescending: Ö-A
     LatestCreatedFirst: Nýlega útbúið
     EarliestCreatedFirst: Fyrst búið til
@@ -190,10 +185,13 @@ User Playlists:
         Smelltu hér til að afturkalla
       Reverted to use {oldPlaylistName} for quick bookmark: Snéri aftur í að nota
         {oldPlaylistName} undir flýtibókamerki
-      Playlist {playlistName} is the new quick bookmark playlist.: Spilunarlistinn
-        {playlistName} er nýi spilunarlistinn með flýtibókamerkjum.
       This playlist is already being used for quick bookmark.: Þessi spilunarlisti
         er nú þegar notaður undir flýtibókamerki.
+      This playlist has a video with a duration error: Spilunarlistinn inniheldur
+        a.m.k. eitt myndskeið sem er ekki með neina tímalengd; það verður flokkað
+        eins og tímalengdin sé núll.
+      Video has been removed. Click here to undo.: Myndskeiðið hefur verið fjarlægt.
+        Smelltu hér til að afturkalla.
     Search for Videos: Leita að myndskeiðum
   AddVideoPrompt:
     N playlists selected: '{playlistCount} valin'
@@ -249,6 +247,8 @@ User Playlists:
     viss um að þú viljir fjarlægja 1 áhorft myndskeið af þessum spilunarlista? Þetta
     er ekki hægt að afturkalla. | Ertu viss um að þú viljir fjarlægja {playlistItemCount}
     áhorfð myndskeið af þessum spilunarlista? Þetta er ekki hægt að afturkalla.
+  Export Playlist: Flytja út þennan spilunarlista
+  The playlist has been successfully exported: Það tókst að flytja út þennan spilunarlista
 History:
   # On History Page
   History: 'Áhorf'
@@ -309,6 +309,7 @@ Settings:
     Auto Load Next Page:
       Label: Hlaða næstu síðu sjálfvirkt
       Tooltip: Hlaða viðbótarsíðum og athugasemdum sjálfkrafa inn.
+    Open Deep Links In New Window: Opna slóðir sem beint er til FreeTube í nýjum glugga
   Theme Settings:
     Theme Settings: 'Þema'
     Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
@@ -328,6 +329,9 @@ Settings:
       Nordic: Norrænt
       Solarized Dark: Sólaríserað dökkt
       Solarized Light: Sólaríserað ljóst
+      Gruvbox Dark: Gruvbox dökkt
+      Gruvbox Light: Gruvbox ljóst
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -362,7 +366,7 @@ Settings:
       Catppuccin Mocha Teal: Catppuccin Mocha sægrænt
       Catppuccin Mocha Sky: Catppuccin Mocha himinblátt
       Catppuccin Mocha Blue: Catppuccin Mocha blátt
-      Catppuccin Mocha Lavender: Catppuccin Mocha lavender
+      Catppuccin Mocha Lavender: Catppuccin Mocha lavander
       Catppuccin Mocha Pink: Catppuccin Mocha bleikt
       Catppuccin Mocha Peach: Catppuccin Mocha ferskju
       Catppuccin Mocha Yellow: Catppuccin Mocha gult
@@ -375,19 +379,42 @@ Settings:
       Solarized Magenta: Sólaríserað blárautt
       Solarized Red: Sólaríserað rautt
       Solarized Green: Sólaríserað grænt
+      Gruvbox Dark Green: Gruvbox dökkgrænt
+      Gruvbox Dark Yellow: Gruvbox dökkgult
+      Gruvbox Dark Aqua: Gruvbox dökksægrænt
+      Gruvbox Light Red: Gruvbox ljósrautt
+      Gruvbox Light Blue: Gruvbox ljósblátt
+      Gruvbox Light Purple: Gruvbox ljósfjólublátt
+      Gruvbox Light Orange: Gruvbox ljósappelsínugult
+      Gruvbox Dark Orange: Gruvbox dökkappelsínugult
+      Gruvbox Dark Blue: Gruvbox dökkblátt
+      Gruvbox Dark Purple: Gruvbox dökkfjólublátt
+      Catppuccin Frappe Lavender: Catppuccin Frappe lavander
+      Catppuccin Frappe Rosewater: Catppuccin Frappe rósavatn
+      Catppuccin Frappe Flamingo: Catppuccin Frappe flamingó
+      Catppuccin Frappe Pink: Catppuccin Frappe bleikt
+      Catppuccin Frappe Mauve: Catppuccin Frappe lillablátt
+      Catppuccin Frappe Red: Catppuccin Frappe rautt
+      Catppuccin Frappe Maroon: Catppuccin Frappe kastaníubrúnt
+      Catppuccin Frappe Peach: Catppuccin Frappe ferskju
+      Catppuccin Frappe Yellow: Catppuccin Frappe gult
+      Catppuccin Frappe Green: Catppuccin Frappe grænt
+      Catppuccin Frappe Teal: Catppuccin Frappe sægrænt
+      Catppuccin Frappe Sky: Catppuccin Frappe himinblátt
+      Catppuccin Frappe Sapphire: Catppuccin Frappe safír
+      Catppuccin Frappe Blue: Catppuccin Frappe blátt
     Secondary Color Theme: 'Aukalitur þema'
         #* Main Color Theme
     Hide Side Bar Labels: Fela skýringar á hliðarstiku
     Hide FreeTube Header Logo: Fela táknmynd FreeTube í haus
   Player Settings:
     Player Settings: 'Spilari'
-    Play Next Video: 'Spila næsta myndskeið'
-    Turn on Subtitles by Default: 'Sjálfgefið kveikja á skjátextum'
-    Autoplay Videos: 'Spila myndskeið sjálfkrafa'
+    Play Next Video: 'Spila sjálfkrafa myndskeið sem mælt er með'
+    Turn on Subtitles by Default: 'Sjálfgefið virkja skjátexta'
+    Autoplay Videos: 'Ræsa myndskeið sjálfkrafa'
     Proxy Videos Through Invidious: 'Beina myndskeiðum í gegnum Invidious-milliþjón'
-    Autoplay Playlists: 'Spila spilunarlista sjálfkrafa'
+    Autoplay Playlists: 'Spila sjálfkrafa myndskeið í spilunarlista'
     Enable Theatre Mode by Default: 'Sjálfgefið virkja bíóham (theater mode)'
-    Playlist Next Video Interval: 'Millibil afspilunar næsta myndskeiðs í spilunarlista'
     Default Volume: 'Sjálfgefinn hljóðstyrkur'
     Default Playback Rate: 'Sjálfgefinn afspilunarhraði'
     Default Video Format:
@@ -407,7 +434,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Bil í næsta myndskeið
+    Next Video Interval: Niðurtalning í sjálfvirka spilun
     Display Play Button In Video Player: Birta afspilunarhnapp í myndspilara
     Scroll Volume Over Video Player: Skruna hljóðstyrk ofan á myndspilara
     Fast-Forward / Rewind Interval: Millibil hraðspólunar / spóla til baka
@@ -424,14 +451,20 @@ Settings:
       File Name Tooltip: Þú getur notað breyturnar hér fyrir neðan. %Y ár 4-stafa.
         %M mánuður 2-stafa. %D dagur 2-stafa. %H klukkustundir 2-stafa. %N mínútur
         2-stafa. %S sekúndur 2-stafa. %T millísekúndur 3-stafa. %s sekúndur í myndskeiði.
-        %t millísekúndur í myndskeiði 3-stafa. %i auðkenni myndskeiðs. Þú getur líka
-        notað "\" eða "/" til að útbúa undirmöppur.
+        %t millísekúndur í myndskeiði 3-stafa. %i auðkenni myndskeiðs.
       Ask Path: Spyrja um möppu til að vista í
       Folder Label: Mappa undir skjámyndir
       Folder Button: Veldu möppu
       File Name Label: Mynstur skráaheita
     Enter Fullscreen on Display Rotate: Fara í skjáfylli við snúning á skjá
     Skip by Scrolling Over Video Player: Sleppa með því að skruna ofan á myndspilara
+    Autoplay Interruption Timer: Niðurtalning í stöðvun á sjálfvirkri spilun
+    Default Viewing Mode:
+      Theater: Bíóhamur
+      Default Viewing Mode: Sjálfgefinn skoðunarhamur
+      Full Screen: Skjáfylli
+      Picture in Picture: Mynd-í-mynd
+      External Player: Utanaðkomandi spilari ({externalPlayerName})
   Privacy Settings:
     Privacy Settings: 'Gagnaleynd'
     Remember History: 'Muna áhorfsferil'
@@ -454,14 +487,21 @@ Settings:
     Are you sure you want to remove all your playlists?: Ertu viss um að þú viljir
       fjarlægja alla spilunarlistana þína?
     All playlists have been removed: Allir spilunarlistar hafa verið fjarlægðir
+    Clear Search History and Cache: Hreinsa leitarferil og biðminni
+    Are you sure you want to clear out your search history and cache?: Ertu viss um
+      að þú viljir hreinsa leitarferilinn þinn og biðminnið?
+    Search history and cache have been cleared: Leitarferill og biðminni hafa verið
+      hreinsuð
+    Remember Search History: Muna leitarferil
   Subscription Settings:
     Subscription Settings: 'Áskrift'
     Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
     Fetch Feeds from RSS: 'Ná í streymi úr RSS'
     Fetch Automatically: Sækja streymi sjálfvirkt
-    Only Show Latest Video for Each Channel: Aðeins birta nýjasta myndskeið fyrir
-      hverja myndskeiðarás
     Confirm Before Unsubscribing: Staðfesta uppsögn áskriftar
+    To: Við
+    'Limit the number of videos displayed for each channel': Takmarka fjölda myndskeiða
+      sem birt eru fyrir hverja rás
   Distraction Free Settings:
     Distraction Free Settings: 'Truflanaminnkandi'
     Hide Video Views: 'Fela fjölda áhorfa á myndskeið'
@@ -490,13 +530,13 @@ Settings:
       Watch Page: Áhorfssíða
       General: Almennt
       Subscriptions Page: Áskriftasíða
-    Hide Channel Shorts: Fela stuttmyndir rása
-    Hide Channel Playlists: Fela spilunarlista rása
-    Hide Channel Community: Fela samfélag rása
+    Hide Channel Shorts: Fela símamyndaflipa rása
+    Hide Channel Playlists: Fela spilunarlistaflipa rása
+    Hide Channel Community: Fela samfélagsflipa rása
     Hide Featured Channels: Fela rásir í deiglunni
-    Hide Channel Podcasts: Fela hlaðvörp rása
-    Hide Channel Releases: Fela útgáfur rása
-    Hide Subscriptions Shorts: Fela stuttmyndir áskrifta
+    Hide Channel Podcasts: Fela hlaðvarpsflipa rása
+    Hide Channel Releases: Fela útgáfuflipa rása
+    Hide Subscriptions Shorts: Fela símamyndir áskrifta
     Hide Subscriptions Live: Fela bein streymi áskrifta
     Hide Subscriptions Videos: Fela myndskeið áskrifta
     Hide Profile Pictures in Comments: Fela auðkennismyndir í athugasemdum
@@ -511,9 +551,10 @@ Settings:
     Hide Videos and Playlists Containing Text: Fela myndskeið og spilunarlista sem
       innihalda texta
     Hide Videos and Playlists Containing Text Placeholder: Orð, orðhluti eða setning
+    Hide Channel Home: Fela "Heim"-flipa rása
+    Show Added Items: Sýna atriði sem bætt hefur verið við
   Data Settings:
     Data Settings: 'Gögn'
-    Select Import Type: 'Veldu tegund innflutnings'
     Select Export Type: 'Veldu tegund útflutnings'
     Import Subscriptions: 'Flytja inn áskriftir'
     Export Subscriptions: 'Flytja út áskriftir'
@@ -579,6 +620,11 @@ Settings:
     City: 'Borg/Sveitarfélag'
     Error getting network information. Is your proxy configured properly?: 'Það tókst
       ekki að sækja upplýsingar um netkerfið. Er milliþjónninn rétt uppsettur?'
+    Proxy Warning: FreeTube er ekki með innbyggðan milliþjón en getur tengst við utanaðkomandi
+      milliþjóna, til dæmis einhvern sem keyrir á vélinni þinni eins og Tor eða fjartengdan
+      milliþjón á borð við SOCKS5-milliþjóna sem sumar VPN-þjónustur bjóða. Ef þetta
+      er virkt skaltu ganga úr skugga um að milliþjónninn/Tor sé rétt stillt, annars
+      mun FreeTube ekki geta sótt nein gögn.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Láta vita þegar kostaður hluti er hunsaður
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-slóð
@@ -626,9 +672,7 @@ Settings:
     Replace HTTP Cache: Skipta út HTTP-skyndiminni
   Password Dialog:
     Password: Lykilorð
-    Password Incorrect: Rangt lykilorð
     Enter Password To Unlock: Settu inn lykilorð til að aflæsa stillingum
-    Unlock: Aflæsa
   Password Settings:
     Set Password To Prevent Access: Settu lykilorð til að hindra aðgang að stillingum
     Set Password: Setja lykilorð
@@ -683,7 +727,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Ertu viss um að þú viljir eyða þessu
     notkunarsniði?'
   All subscriptions will also be deleted.: 'Öllum áskriftum verður einnig eytt.'
-  Profile could not be found: 'Notkunarsnið fannst ekki'
   Your profile name cannot be empty: 'Nafn notkunarsniðsins má ekki vera tómt'
   Profile has been created: 'Notkunarsnið hefur verið útbúið'
   Profile has been updated: 'Notkunarsnið hefur verið uppfært'
@@ -726,7 +769,6 @@ Channel:
   Added channel to your subscriptions: 'Bætti rás í áskriftirnar þínar'
   Search Channel: 'Leita á rás'
   Your search results have returned 0 results: 'Leitin skilaði 0 niðurstöðum'
-  Sort By: 'Raða eftir'
   Videos:
     Videos: 'Myndskeið'
     This channel does not currently have any videos: 'Þessi rás er ekki með nein myndskeið'
@@ -768,9 +810,11 @@ Channel:
     votes: '{votes} atkvæði'
     Video hidden by FreeTube: Myndskeið falið af FreeTube
     View Full Post: Skoða alla færsluna
+    Viewing Posts Only Supported By Invidious: Einungis er hægt að skoða innsendar
+      færslur á Invidious. Farðu á samfélagsflipa rásar til að skoða efni þar án Invidious.
   Shorts:
     This channel does not currently have any shorts: Þessi rás er í augnablikinu ekki
-      með neinar stuttmyndir
+      með neinar símamyndir
   Releases:
     Releases: Útgáfur
     This channel does not currently have any releases: Þessi rás er ekki með neinar
@@ -779,6 +823,9 @@ Channel:
     Podcasts: Hlaðvörp
     This channel does not currently have any podcasts: Þessi rás er ekki með nein
       hlaðvörp í augnablikinu
+  Home:
+    Home: Heim
+    View Playlist: Skoða spilunarlista
 Video:
   Mark As Watched: 'Merkja sem búið að horfa á'
   Remove From History: 'Fjarlægja úr áhorfsferli'
@@ -816,8 +863,6 @@ Video:
   Enable Live Chat: 'Virkja spjall í beinni'
   Live Chat is currently not supported in this build.: 'Spjall í beinni er ekki stutt
     í þessari byggingarútgáfu.'
-  'Chat is disabled or the Live Stream has ended.': 'Spjall er óvirkt eða að beinu
-    streymi er lokið.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Beint spjall er
     virkt. Skilaboð spjallsins munu birtast hér.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Spjall
@@ -827,40 +872,10 @@ Video:
   video only: 'einungis myndmerki'
   audio only: 'einungis hljóð'
   Published:
-    Jan: 'Jan'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Apr'
-    May: 'Maí'
-    Jun: 'Jún'
-    Jul: 'Júl'
-    Aug: 'Ágú'
-    Sep: 'Sep'
-    Oct: 'Okt'
-    Nov: 'Nóv'
-    Dec: 'Des'
-    Second: 'sekúndu'
-    Seconds: 'sekúndum'
-    Minute: 'mínútu'
-    Minutes: 'mínútum'
-    Hour: 'klukkustund'
-    Hours: 'klukkustundum'
-    Day: 'degi'
-    Days: 'dögum'
-    Week: 'viku'
-    Weeks: 'vikum'
-    Month: 'mánuði'
-    Months: 'mánuðum'
-    Year: 'ári'
-    Years: 'árum'
-    Ago: 'síðan'
-    Upcoming: 'Frumsýnt'
-    Less than a minute: Minna en mínútu
     In less than a minute: eftir minna en mínútu
   Published on: 'Gefið út'
   Streamed on: 'Streymt'
   Started streaming on: 'Byrjaði streymi'
-  Publicationtemplate: 'Fyrir {number} {unit} síðan'
 #& Videos
   Sponsor Block category:
     music offtopic: Tónlist óskyld efni
@@ -886,8 +901,6 @@ Video:
     playlist: spilunarlisti
     video: myndskeið
     OpenInTemplate: Opna í {externalPlayer}
-  Premieres on: Frumsýnt
-  Premieres in: Frumsýnt eftir
   Premieres: Frumsýnt
   Show Super Chat Comment: Birta athugasemd Super Chat
   Scroll to Bottom: Skruna neðst
@@ -895,7 +908,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Spjall
     í beinni er ekki tiltækt fyrir þetta streymi. Sá sem sendi þetta inn gæti hafa
     gert það óvirkt.
-  Pause on Current Video: Setja núverandi myndskeið í bið
   Unhide Channel: Birta rás
   Hide Channel: Fela rás
   More Options: Fleiri valkostir
@@ -914,6 +926,8 @@ Video:
       Video ID: 'Auðkenni myndskeiðs: {videoId}'
       Media Formats: 'Snið efnis: {formats}'
       CodecAudio: 'Kóðunarlykill: {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Römmum sleppt: {droppedFrames} / Rammar alls:
+        {totalFrames}'
     TranslatedCaptionTemplate: '{language} (þýtt úr "{originalLanguage}")'
     Take Screenshot: Taka skjámynd
     Hide Stats: Fela tölfræði
@@ -925,12 +939,24 @@ Video:
     Exit Full Window: Hætta í skjáfylli
     Playback will resume automatically when your connection comes back: Afspilun heldur
       sjálfkrafa áfram þegar tenging næst aftur.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Nýjast'
-    Oldest: 'Elst'
-    #& Most Popular
+    Exit Theatre Mode: Fara út úr bíóham
+    Theatre Mode: Bíóhamur
+    Autoplay is off: Slökkt er á sjálfvirkri afspilun
+    Autoplay is on: Kveikt er á sjálfvirkri afspilun
+  Unlisted: Óskráð
+  MembersOnly: Ekki er hægt að horfa á myndskeið einungis fyrir meðlimi með FreeTube
+    þar sem þau krefjast innskráningar á Google og greiddu þátttökugjaldi á rás innsendandans.
+  AgeRestricted: Ekki er hægt að horfa á aldurstakmörkuð myndskeið með FreeTube þar
+    sem þau krefjast innskráningar á Google og notkunar á aldursvottuðum YouTube-reikningi.
+  IP block: YouTube hefur útilokað IP-vistfang þitt frá því að horfa á myndskeið.
+    Prófaðu að skipta yfir á annan VPN eða milliþjón.
+  DeArrow:
+    Show Original Details: Birta upprunalegar nánari upplýsingar
+    Show Modified Details: Birta breyttar nánari upplýsingar
+  DRMProtected: Ekki er hægt að spila DRM-varin myndskeið í FreeTube, þar sem þau
+    krefjast notkunar lokaðs séreignarhugbúnaðar. Ef þú vilt endilega horfa á þetta
+    myndskeið, skaltu gera það á opinbera YouTube-vefsvæðinu í vafra með uppsettum
+    DRM-hugbúnaði.
 #& Playlists
 Playlist:
   #& About
@@ -943,7 +969,6 @@ Playlist:
   Playlist: Spilunarlisti
   Sort By:
     AuthorAscending: Höfundur (A-Ö)
-    Sort By: Raða eftir
     DateAddedNewest: Nýlegast bætt við fyrst
     AuthorDescending: Höfundur (Ö-A)
     VideoTitleAscending: Titill (A-Ö)
@@ -952,6 +977,8 @@ Playlist:
     DateAddedOldest: Elsta bætt við fyrst
     VideoDurationAscending: Tímalengd (stysta fyrst)
     VideoDurationDescending: Tímalengd (lengsta fyrst)
+    PublishedOldest: Elsta útgefna myndskeið fyrst
+    PublishedNewest: Síðast útgefna myndskeið fyrst
 Change Format:
   Change Media Formats: 'Skipta um myndskeiðasnið'
   Use Dash Formats: 'Nota DASH-skráasnið'
@@ -987,9 +1014,7 @@ Comments:
   Getting comment replies, please wait: 'Sæki svör við athugasemdum, bíddu aðeins'
   There are no more comments for this video: 'Það eru engar fleiri athugasemdir við
     þetta myndskeið'
-  Show Comments: 'Birta athugasemdir'
   Hide Comments: 'Fela athugasemdir'
-  Sort by: 'Raða eftir'
   Top comments: 'Efstu athugasemdir'
   Newest first: 'Nýjasta fyrst'
   # Context: View 10 Replies, View 1 Reply
@@ -1000,7 +1025,6 @@ Comments:
   There are no comments available for this video: 'Engar athugasemdir eru tiltækar
     fyrir þetta myndskeið'
   Load More Comments: 'Hlaða inn fleiri athugasemdum'
-  No more comments available: 'Engar fleiri athugasemdir eru tiltækar'
   Show More Replies: Birta fleiri svör
   From {channelName}: frá {channelName}
   And others: og fleirum
@@ -1031,6 +1055,9 @@ Tooltips:
     External Link Handling: "Veldu sjálfgefna hegðun þegar smellt er á tengil sem
       ekki er hægt að opna í FreeTube.\nSjálfgefið mun FreeTube opna viðkomandi tengil
       í sjálfgefna vafranum þínum.\n"
+    Open Deep Links In New Window: Slóðir sem beint er til FreeTube, til dæmis með
+      endurbeiningum vafraviðbóta eða skipanalínuviðföngum, verða opnaðar í nýjum
+      glugga.
   Player Settings:
     Proxy Videos Through Invidious: 'Mun tengjast við Invidious til að miðla myndskeiðum
       í stað þess að tengjast beint við YouTube.'
@@ -1056,8 +1083,8 @@ Tooltips:
     Fetch Automatically: Þegar þetta er virkt, mun FreeTube sækja sjálfkrafa áskriftarstreymin
       þín þegar nýr gluggi er opnaður og þegar skipt er um notkunarsnið.
   External Player Settings:
-    Custom External Player Arguments: Öll sérsniðin skipanaviðföng og rofar, aðskilin
-      með semíkommum (';'), sem beina á til utanaðkomandi spilarans.
+    Custom External Player Arguments: Öll sérsniðin skipanaviðföng og rofar, sem beina
+      á til utanaðkomandi spilarans.
     Ignore Warnings: Hunsa aðvarinir þegar valinn utanaðkomandi spilari styður ekki
       viðkomandi aðgerð (t.d. að snúa við spilunarlista, o.s.frv.).
     Custom External Player Executable: Sjálfgefið gengur FreeTube út frá því að valinn
@@ -1124,6 +1151,7 @@ Default Invidious instance has been set to {instance}: Sjálfgefið Invidious-ti
   hefur verið stillt sem {instance}
 Search Bar:
   Clear Input: Hreinsa reit
+  Remove: Fjarlægja
 External link opening has been disabled in the general settings: Opnun ytri tengla
   hefur verið gerð óvirk í almennum stillingum
 Are you sure you want to open this link?: Ertu viss um að þú viljir opna þennan tengil?
@@ -1131,7 +1159,7 @@ Downloading has completed: Búið er að sækja "{videoTitle}"
 Starting download: Byrja að sækja "{videoTitle}"
 Downloading failed: Vandamál kom upp við að sækja "{videoTitle}"
 Screenshot Error: Skjámyndataka mistókst. {error}
-Screenshot Success: Vistaði skjámynd sem "{filePath}"
+Screenshot Success: Vistaði skjámynd
 New Window: Nýr gluggi
 Channels:
   Search bar placeholder: Leita í rásum
@@ -1150,16 +1178,13 @@ Chapters:
     núverandi kafli: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Listi yfir kafla falinn,
     núverandi kafli: {chapterName}'
+  Key Moments: Helstu augnablik
 Preferences: Kjörstillingar
 Ok: Í lagi
 Hashtag:
   Hashtag: Myllumerki
   This hashtag does not currently have any videos: Þetta myllumerki er í augnablikinu
     ekki með nein myndskeið
-Playlist will pause when current video is finished: Spilunarlisti mun fara í bið eftir
-  að núverandi myndskeið klárast
-Playlist will not pause when current video is finished: Spilunarlisti mun ekki fara
-  í bið eftir að núverandi myndskeið klárast
 Go to page: Fara á {page}
 Channel Hidden: '{channel} bætt við rásasíu'
 Channel Unhidden: '{channel} fjarlægt úr rásasíu'
@@ -1195,3 +1220,76 @@ Search Listing:
     360 Video: 360°
     New: Nýtt
     3D: 3D
+Keys:
+  arrowright: Hægri-ör
+  arrowleft: Vinstri-ör
+  alt: Alt
+  ctrl: Ctrl
+  arrowdown: Niður-ör
+  arrowup: Upp-ör
+  shift: Shift
+  enter: Enter
+  plus: Plús
+Right-click or hold to see history: Hægri-smelltu til að sjá feril
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Autoplay Interruption Timer: Hætt sjálfvirkri spilun vegna {autoplayInterruptionIntervalHours}
+  klst án aðgerða
+Description:
+  Expand Description: '...meira'
+  Collapse Description: Birta minna
+KeyboardShortcutPrompt:
+  Sections:
+    Video:
+      Playback: Myndskeið: Afspilun
+      General: Myndskeið: Almennt
+    App:
+      Situational: 'Forrit: Aðstaða'
+      General: Forrit: Almennt
+  Show Keyboard Shortcuts: Birta flýtivísanir á lyklaborði
+  Captions: Víxla skýringartextum af/á
+  Full Window: Víxla fullum glugga af/á
+  Theatre Mode: Víxla bíóham af/á
+  Restart Window: Endurræsa glugga
+  Force Restart Window: Þvinga endurræsingu glugga
+  Toggle Developer Tools: Víxla forritunarverkfærum af/á
+  Play: Víxla spilun / í bið
+  Next Frame: Næsti rammi (í bið)
+  Volume Up: Auka hljóðstyrk
+  Focus Search: Færa virkni í leitarreitinn
+  Search in New Window: Leita í nýjum glugga
+  Last Frame: Fyrri rammi (í bið)
+  Volume Down: Minnka hljóðstyrk
+  Last Chapter: Síðasti kafli
+  Next Chapter: Næsti kafli
+  Small Rewind: Spóla til baka um X sekúndur út frá hámarksbili milli afspilana og
+    fyrirliggjandi afspilunarhraða
+  Small Fast Forward: Spóla áfram um X sekúndur út frá hámarksbili milli afspilana
+    og fyrirliggjandi afspilunarhraða
+  History Backward: Fara til baka um eina síðu
+  History Forward: Fara áfram um eina síðu
+  New Window: Búa til nýjan glugga
+  Navigate to Settings: Fara á stillingasíðuna
+  Navigate to History: Fara á ferilssíðuna
+  Refresh: Endurlesa streymi með nýjasta efni
+  Large Rewind: Spóla til baka um 10 sekúndur / Spóla myndskeið til baka út frá fyrirliggjandi
+    afspilunarhraða
+  Fullscreen: Víxla skjáfylli af/á
+  Stats: Birta tölfræði myndskeiðs
+  Picture in Picture: Víxla mynd-í-mynd-ham af/á
+  Decrease Video Speed: Minnka afspilunarhraða út frá hámarksbili milli afspilunar
+    myndskeiða
+  Mute: Víxla hljóði af/á
+  Large Fast Forward: Spóla áfram um 10 sekúndur / Spóla myndskeið áfram út frá fyrirliggjandi
+    afspilunarhraða
+  Increase Video Speed: Auka afspilunarhraða út frá hámarksbili milli afspilunar myndskeiða
+  Take Screenshot: Taka skjámynd
+  Minimize Window: Lágmarka glugga
+  Close Window: Loka glugga
+  Reset Zoom: Endurstilla aðdráttarstig / kvarða viðmóts
+  Zoom In: Renna að
+  Zoom Out: Renna frá
+  Skip by Tenths: Hoppa í prósentum í gegnum myndskeið (3 sleppir yfir á 30% tímalengdar)
+  Keyboard Shortcuts: Flýtivísanir á lyklaborði
+  Focus Secondary Search: Færa virkni í hinn leitarreitinn (ef annar er til staðar)
+shortcutLabelSeparator: ｜

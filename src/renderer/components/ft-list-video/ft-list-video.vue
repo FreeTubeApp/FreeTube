@@ -14,7 +14,8 @@
       <router-link
         class="thumbnailLink"
         tabindex="-1"
-        :to="watchPageLinkTo"
+        :to="watchVideoRouterLink"
+        @click.native="handleWatchPageLinkClick"
       >
         <img
           :src="thumbnail"
@@ -34,7 +35,7 @@
         {{ isLive ? $t("Video.Live") : (isUpcoming ? $t("Video.Upcoming") : displayDuration) }}
       </div>
       <ft-icon-button
-        v-if="externalPlayer !== ''"
+        v-if="externalPlayer !== '' && !externalPlayerIsDefaultViewingMode"
         :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
         :icon="['fas', 'external-link-alt']"
         class="externalPlayerIcon"
@@ -46,7 +47,6 @@
       <span class="playlistIcons">
         <ft-icon-button
           v-if="showPlaylists"
-          ref="addToPlaylistIcon"
           :title="$t('User Playlists.Add to Playlist')"
           :icon="['fas', 'plus']"
           class="addToPlaylistIcon"
@@ -112,7 +112,8 @@
     <div class="info">
       <router-link
         class="title"
-        :to="watchPageLinkTo"
+        :to="watchVideoRouterLink"
+        @click.native="handleWatchPageLinkClick"
       >
         <h3 class="h3Title">
           {{ displayTitle }}
@@ -206,17 +207,31 @@
           {{ $t('Search Listing.Label.Subtitles') }}
         </div>
       </div>
-      <ft-icon-button
-        class="optionsButton"
-        :icon="['fas', 'ellipsis-v']"
-        :title="$t('Video.More Options')"
-        theme="base-no-default"
-        :size="16"
-        :use-shadow="false"
-        dropdown-position-x="left"
-        :dropdown-options="dropdownOptions"
-        @click="handleOptionsClick"
-      />
+      <div class="buttonStack">
+        <ft-icon-button
+          class="optionsButton"
+          :icon="['fas', 'ellipsis-v']"
+          :title="$t('Video.More Options')"
+          theme="base-no-default"
+          :size="16"
+          :use-shadow="false"
+          dropdown-position-x="left"
+          :dropdown-options="dropdownOptions"
+          @click="handleOptionsClick"
+        />
+        <font-awesome-icon
+          v-if="deArrowChangedContent || deArrowTogglePinned"
+          :title="deArrowToggleTitle"
+          :icon="['far', 'dot-circle']"
+          class="optionsButton deArrowToggleButton"
+          :class="{ alwaysVisible: deArrowTogglePinned }"
+          tabindex="0"
+          role="button"
+          @click="toggleDeArrow"
+          @keydown.enter.prevent="toggleDeArrow"
+          @keydown.space.prevent="toggleDeArrow"
+        />
+      </div>
       <p
         v-if="description && effectiveListTypeIsList && appearance === 'result'"
         class="description"

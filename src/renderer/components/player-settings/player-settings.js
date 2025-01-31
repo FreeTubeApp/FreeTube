@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
-import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
+import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtSlider from '../ft-slider/ft-slider.vue'
@@ -51,11 +51,13 @@ export default defineComponent({
       ],
       screenshotFormatNames: [
         'PNG',
-        'JPEG'
+        'JPEG',
+        'WebP'
       ],
       screenshotFormatValues: [
         'png',
-        'jpg'
+        'jpg',
+        'webp'
       ],
       screenshotFolderPlaceholder: '',
       screenshotFilenameExample: '',
@@ -95,6 +97,10 @@ export default defineComponent({
       return this.backendPreference !== 'invidious' && !this.backendFallback
     },
 
+    defaultAutoplayInterruptionIntervalHours: function () {
+      return parseInt(this.$store.getters.getDefaultAutoplayInterruptionIntervalHours)
+    },
+
     defaultSkipInterval: function () {
       return parseInt(this.$store.getters.getDefaultSkipInterval)
     },
@@ -119,8 +125,18 @@ export default defineComponent({
       return this.$store.getters.getDefaultQuality
     },
 
-    defaultTheatreMode: function () {
-      return this.$store.getters.getDefaultTheatreMode
+    defaultViewingMode: function () {
+      const defaultViewingMode = this.$store.getters.getDefaultViewingMode
+      if ((defaultViewingMode === 'external_player' && (!process.env.IS_ELECTRON || this.externalPlayer === '')) ||
+        (!process.env.IS_ELECTRON && (defaultViewingMode === 'fullscreen' || defaultViewingMode === 'pip'))) {
+        return 'default'
+      }
+
+      return defaultViewingMode
+    },
+
+    externalPlayer: function () {
+      return this.$store.getters.getExternalPlayer
     },
 
     hideRecommendedVideos: function () {
@@ -175,6 +191,46 @@ export default defineComponent({
         this.$t('Settings.Player Settings.Default Quality.144p'),
         this.$t('Settings.Player Settings.Default Quality.Auto')
       ]
+    },
+
+    viewingModeNames: function () {
+      const viewingModeNames = [
+        this.$t('Settings.General Settings.Thumbnail Preference.Default'),
+        this.$t('Settings.Player Settings.Default Viewing Mode.Theater'),
+        this.$t('Video.Player.Full Window'),
+      ]
+
+      if (process.env.IS_ELECTRON) {
+        viewingModeNames.push(
+          this.$t('Settings.Player Settings.Default Viewing Mode.Full Screen'),
+          this.$t('Settings.Player Settings.Default Viewing Mode.Picture in Picture')
+        )
+        if (this.externalPlayer !== '') {
+          viewingModeNames.push(
+            this.$t('Settings.Player Settings.Default Viewing Mode.External Player', { externalPlayerName: this.externalPlayer })
+          )
+        }
+      }
+
+      return viewingModeNames
+    },
+
+    viewingModeValues: function () {
+      const viewingModeValues = [
+        'default',
+        'theatre',
+        'fullwindow'
+      ]
+
+      if (process.env.IS_ELECTRON) {
+        viewingModeValues.push('fullscreen', 'pip')
+
+        if (this.externalPlayer !== '') {
+          viewingModeValues.push('external_player')
+        }
+      }
+
+      return viewingModeValues
     },
 
     enableScreenshot: function() {
@@ -271,7 +327,7 @@ export default defineComponent({
     getScreenshotFilenameExample: function(pattern) {
       return this.parseScreenshotCustomFileName({
         pattern: pattern || this.screenshotDefaultPattern,
-        date: new Date(Date.now()),
+        date: new Date(),
         playerTime: 123.456,
         videoId: 'dQw4w9WgXcQ'
       }).then(res => {
@@ -286,10 +342,11 @@ export default defineComponent({
     ...mapActions([
       'updateAutoplayVideos',
       'updateAutoplayPlaylists',
+      'updateDefaultAutoplayInterruptionIntervalHours',
       'updatePlayNextVideo',
       'updateEnableSubtitlesByDefault',
       'updateProxyVideos',
-      'updateDefaultTheatreMode',
+      'updateDefaultViewingMode',
       'updateDefaultSkipInterval',
       'updateDefaultInterval',
       'updateDefaultVolume',

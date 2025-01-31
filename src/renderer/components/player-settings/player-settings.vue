@@ -19,12 +19,6 @@
           @change="updateEnableSubtitlesByDefault"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Enable Theatre Mode by Default')"
-          :compact="true"
-          :default-value="defaultTheatreMode"
-          @change="updateDefaultTheatreMode"
-        />
-        <ft-toggle-switch
           :label="$t('Settings.Player Settings.Scroll Volume Over Video Player')"
           :compact="true"
           :disabled="videoSkipMouseScroll"
@@ -49,10 +43,11 @@
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Autoplay Videos')"
+          :label="$t('Settings.Player Settings.Play Next Video')"
           :compact="true"
-          :default-value="autoplayVideos"
-          @change="updateAutoplayVideos"
+          :disabled="hideRecommendedVideos"
+          :default-value="playNextVideo"
+          @change="updatePlayNextVideo"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Autoplay Playlists')"
@@ -61,11 +56,10 @@
           @change="updateAutoplayPlaylists"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Play Next Video')"
+          :label="$t('Settings.Player Settings.Autoplay Videos')"
           :compact="true"
-          :disabled="hideRecommendedVideos"
-          :default-value="playNextVideo"
-          @change="updatePlayNextVideo"
+          :default-value="autoplayVideos"
+          @change="updateAutoplayVideos"
         />
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Display Play Button In Video Player')"
@@ -82,15 +76,41 @@
       </div>
     </div>
     <ft-flex-box>
-      <ft-slider
-        :label="$t('Settings.Player Settings.Fast-Forward / Rewind Interval')"
-        :default-value="defaultSkipInterval"
-        :min-value="1"
-        :max-value="70"
-        :step="1"
-        value-extension="s"
-        @change="updateDefaultSkipInterval"
+      <ft-select
+        :placeholder="$t('Settings.Player Settings.Default Viewing Mode.Default Viewing Mode')"
+        :value="defaultViewingMode"
+        :select-names="viewingModeNames"
+        :select-values="viewingModeValues"
+        :icon="['fas', 'expand']"
+        @change="updateDefaultViewingMode"
       />
+      <ft-select
+        :placeholder="$t('Settings.Player Settings.Default Video Format.Default Video Format')"
+        :value="defaultVideoFormat"
+        :select-names="formatNames"
+        :select-values="formatValues"
+        :tooltip="$t('Tooltips.Player Settings.Default Video Format')"
+        :icon="['fas', 'file-video']"
+        @change="updateDefaultVideoFormat"
+      />
+      <ft-select
+        :placeholder="$t('Settings.Player Settings.Default Quality.Default Quality')"
+        :value="defaultQuality"
+        :select-names="qualityNames"
+        :select-values="qualityValues"
+        :icon="['fas', 'photo-film']"
+        @change="updateDefaultQuality"
+      />
+      <ft-select
+        :placeholder="$t('Settings.Player Settings.Video Playback Rate Interval')"
+        :value="videoPlaybackRateInterval"
+        :select-names="playbackRateIntervalValues"
+        :select-values="playbackRateIntervalValues"
+        :icon="['fas', 'gauge']"
+        @change="updateVideoPlaybackRateInterval"
+      />
+    </ft-flex-box>
+    <ft-flex-box>
       <ft-slider
         :label="$t('Settings.Player Settings.Next Video Interval')"
         :default-value="defaultInterval"
@@ -99,6 +119,24 @@
         :step="1"
         value-extension="s"
         @change="updateDefaultInterval"
+      />
+      <ft-slider
+        :label="$t('Settings.Player Settings.Autoplay Interruption Timer')"
+        :default-value="defaultAutoplayInterruptionIntervalHours"
+        :min-value="1"
+        :max-value="12"
+        :step="1"
+        value-extension="h"
+        @change="updateDefaultAutoplayInterruptionIntervalHours"
+      />
+      <ft-slider
+        :label="$t('Settings.Player Settings.Fast-Forward / Rewind Interval')"
+        :default-value="defaultSkipInterval"
+        :min-value="1"
+        :max-value="70"
+        :step="1"
+        value-extension="s"
+        @change="updateDefaultSkipInterval"
       />
       <ft-slider
         :label="$t('Settings.Player Settings.Default Volume')"
@@ -127,45 +165,16 @@
         value-extension="x"
         @change="updateMaxVideoPlaybackRate"
       />
-      <ft-select
-        :placeholder="$t('Settings.Player Settings.Video Playback Rate Interval')"
-        :value="videoPlaybackRateInterval"
-        :select-names="playbackRateIntervalValues"
-        :select-values="playbackRateIntervalValues"
-        :icon="['fas', 'gauge']"
-        @change="updateVideoPlaybackRateInterval"
-      />
-    </ft-flex-box>
-    <ft-flex-box>
-      <ft-select
-        :placeholder="$t('Settings.Player Settings.Default Video Format.Default Video Format')"
-        :value="defaultVideoFormat"
-        :select-names="formatNames"
-        :select-values="formatValues"
-        :tooltip="$t('Tooltips.Player Settings.Default Video Format')"
-        :icon="['fas', 'file-video']"
-        @change="updateDefaultVideoFormat"
-      />
-      <ft-select
-        :placeholder="$t('Settings.Player Settings.Default Quality.Default Quality')"
-        :value="defaultQuality"
-        :select-names="qualityNames"
-        :select-values="qualityValues"
-        :icon="['fas', 'photo-film']"
-        @change="updateDefaultQuality"
-      />
     </ft-flex-box>
     <br>
-    <ft-flex-box
-      v-if="usingElectron"
-    >
+    <ft-flex-box>
       <ft-toggle-switch
         :label="$t('Settings.Player Settings.Screenshot.Enable')"
         :default-value="enableScreenshot"
         @change="updateEnableScreenshot"
       />
     </ft-flex-box>
-    <div v-if="usingElectron && enableScreenshot">
+    <div v-if="enableScreenshot">
       <ft-flex-box>
         <ft-select
           :placeholder="$t('Settings.Player Settings.Screenshot.Format Label')"
@@ -182,11 +191,11 @@
           :max-value="100"
           :step="1"
           value-extension="%"
-          :disabled="screenshotFormat !== 'jpg'"
+          :disabled="screenshotFormat === 'png'"
           @change="updateScreenshotQuality"
         />
       </ft-flex-box>
-      <ft-flex-box>
+      <ft-flex-box v-if="usingElectron">
         <ft-toggle-switch
           :label="$t('Settings.Player Settings.Screenshot.Ask Path')"
           :default-value="screenshotAskPath"
@@ -214,7 +223,6 @@
         />
       </ft-flex-box>
       <ft-flex-box
-        v-if="usingElectron"
         class="screenshotFolderContainer"
       >
         <p class="screenshotFilenamePatternTitle">
@@ -229,14 +237,13 @@
           class="screenshotFilenamePatternInput"
           placeholder=""
           :value="screenshotFilenamePattern"
-          :spellcheck="false"
           :show-action-button="false"
           :show-label="false"
           @input="handleScreenshotFilenamePatternChanged"
         />
         <ft-input
           class="screenshotFilenamePatternExample"
-          :placeholder="`${screenshotFilenameExample}`"
+          :placeholder="screenshotFilenameExample"
           :show-action-button="false"
           :show-label="false"
           :disabled="true"

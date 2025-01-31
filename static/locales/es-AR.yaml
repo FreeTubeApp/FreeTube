@@ -35,7 +35,6 @@ Search / Go to URL: 'Buscar / Ir a URL'
 Search Filters:
   Search Filters: 'Filtros de búsqueda'
   Sort By:
-    Sort By: 'Ordenar por'
     Most Relevant: 'Más relevante'
     Rating: 'Clasificación'
     Upload Date: 'Fecha de carga'
@@ -70,12 +69,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
-  Latest Subscriptions: 'Últimas suscripciones'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Su
     lista de suscripción está actualmente vacía. Comience a agregar suscripciones
     para verlas aquí.'
-  'Getting Subscriptions. Please wait.': 'Obteniendo suscripciones. Por favor, esperá.'
-  Refresh Subscriptions: 'Actualizar suscripciones'
   Load More Videos: Cargar más videos
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil tiene un gran número de suscriptores. Forzando RSS para evitar límites
@@ -258,8 +254,7 @@ Settings:
       File Name Tooltip: 'Podés utilizar las siguientes variables: %Y Año (4 dígitos).
         %M Mes (2 dígitos). %D Día (2 dígitos). %H Hora (2 dígitos). %N Minuto (2
         dígitos). %S Segundo (2 dígitos). %T Milisegundo (3 dígitos). %s Segundo del
-        Video. %t Milisegundo del Video (3 dígitos). %i ID del Video. También podés
-        utilizar "" o "/" para crear subcarpetas.'
+        Video. %t Milisegundo del Video (3 dígitos). %i ID del Video.'
       File Name Label: Formato de Nombre de Archivo
     Scroll Volume Over Video Player: Barra de volumen en el reproductor
     Skip by Scrolling Over Video Player: Saltar Deslizando sobre el Reproductor de
@@ -296,7 +291,6 @@ Settings:
     Fetch Feeds from RSS: Obtener feeds desde RSS
   Data Settings:
     Data Settings: 'Configuraciones de datos'
-    Select Import Type: 'Seleccionar tipo de importación'
     Select Export Type: 'Seleccionar tipo para exportar'
     Import Subscriptions: 'Importar suscripciones'
     Export Subscriptions: 'Exportar suscripciones'
@@ -452,6 +446,7 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: En vivo
+  Sort By: 'Ordenar por'
 Channels:
   Search bar placeholder: Buscar Canales
   Unsubscribe Prompt: ¿Deseás confirmar la desuscripción de "{channelName}"?

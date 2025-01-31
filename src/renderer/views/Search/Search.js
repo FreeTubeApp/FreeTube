@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { mapMutations } from 'vuex'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
@@ -6,11 +7,11 @@ import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-w
 import {
   copyToClipboard,
   searchFiltersMatch,
-  setPublishedTimestampsInvidious,
   showToast,
 } from '../../helpers/utils'
 import { getLocalSearchContinuation, getLocalSearchResults } from '../../helpers/api/local'
-import { invidiousAPICall } from '../../helpers/api/invidious'
+import { getInvidiousSearchResults } from '../../helpers/api/invidious'
+import packageDetails from '../../../../package.json'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
 export default defineComponent({
@@ -49,11 +50,13 @@ export default defineComponent({
     showFamilyFriendlyOnly: function() {
       return this.$store.getters.getShowFamilyFriendlyOnly
     },
+
+    rememberSearchHistory: function () {
+      return this.$store.getters.getRememberSearchHistory
+    },
   },
   watch: {
     $route () {
-      // react to route changes...
-
       const query = this.$route.params.query
       let features = this.$route.query.features
       // if page gets refreshed and there's only one feature then it will be a string
@@ -76,11 +79,13 @@ export default defineComponent({
 
       this.query = query
 
+      this.setAppTitle(`${this.query} - ${packageDetails.productName}`)
       this.checkSearchCache(payload)
     }
   },
   mounted: function () {
     this.query = this.$route.params.query
+    this.setAppTitle(`${this.query} - ${packageDetails.productName}`)
 
     let features = this.$route.query.features
     // if page gets refreshed and there's only one feature then it will be a string
@@ -105,6 +110,15 @@ export default defineComponent({
     this.checkSearchCache(payload)
   },
   methods: {
+    updateSearchHistoryEntry: function () {
+      const persistentSearchHistoryPayload = {
+        _id: this.query,
+        lastUpdatedAt: Date.now()
+      }
+
+      this.$store.dispatch('updateSearchHistoryEntry', persistentSearchHistoryPayload)
+    },
+
     checkSearchCache: function (payload) {
       if (payload.query.length > SEARCH_CHAR_LIMIT) {
         console.warn(`Search character limit is: ${SEARCH_CHAR_LIMIT}`)
@@ -132,6 +146,10 @@ export default defineComponent({
             this.performSearchInvidious(payload, { resetSearchPage: true })
             break
         }
+      }
+
+      if (this.rememberSearchHistory) {
+        this.updateSearchHistoryEntry()
       }
     },
 
@@ -221,37 +239,17 @@ export default defineComponent({
         this.isLoading = true
       }
 
-      const searchPayload = {
-        resource: 'search',
-        id: '',
-        params: {
-          q: payload.query,
-          page: this.searchPage,
-          sort_by: payload.searchSettings.sortBy,
-          date: payload.searchSettings.time,
-          duration: payload.searchSettings.duration,
-          type: payload.searchSettings.type,
-          features: payload.searchSettings.features.join(',')
-        }
-      }
-
-      invidiousAPICall(searchPayload).then((result) => {
-        if (!result) {
+      getInvidiousSearchResults(payload.query, this.searchPage, payload.searchSettings).then((results) => {
+        if (!results) {
           return
         }
 
         this.apiUsed = 'invidious'
 
-        const returnData = result.filter((item) => {
-          return item.type === 'video' || item.type === 'channel' || item.type === 'playlist' || item.type === 'hashtag'
-        })
-
-        setPublishedTimestampsInvidious(returnData.filter(item => item.type === 'video'))
-
         if (this.searchPage !== 1) {
-          this.shownResults = this.shownResults.concat(returnData)
+          this.shownResults = this.shownResults.concat(results)
         } else {
-          this.shownResults = returnData
+          this.shownResults = results
         }
 
         this.isLoading = false
@@ -268,7 +266,7 @@ export default defineComponent({
 
         this.$store.commit('addToSessionSearchHistory', historyPayload)
 
-        this.updateSubscriptionDetails(returnData)
+        this.updateSubscriptionDetails(results)
       }).catch((err) => {
         console.error(err)
         const errorMessage = this.$t('Invidious API Error (Click to copy)')
@@ -360,6 +358,10 @@ export default defineComponent({
       } else if (channels.length > 1) {
         this.$store.dispatch('batchUpdateSubscriptionDetails', channels)
       }
-    }
+    },
+
+    ...mapMutations([
+      'setAppTitle',
+    ]),
   }
 })

@@ -31,12 +31,15 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
   padding-inline-start: 46px;
 }
 
-.ft-input-component:focus-within .clearInputTextButton {
+.ft-input-component:focus-within .clearInputTextButton,
+.ft-input-component.showOptions .clearInputTextButton {
   opacity: 0.5;
 }
 
-.clearTextButtonVisible .clearInputTextButton.visible,
-.ft-input-component:focus-within .clearInputTextButton.visible {
+
+.ft-input-component.inputDataPresent .clearInputTextButton.visible,
+.clearTextButtonVisible:not(.showOptions) .clearInputTextButton.visible,
+.ft-input-component:focus-within:not(.showOptions) .clearInputTextButton.visible {
   cursor: pointer;
   opacity: 1;
 }
@@ -200,10 +203,30 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
 }
 
 .list li {
-  display: block;
+  display: flex;
+  justify-content: space-between;
   padding-block: 0;
-  padding-inline: 15px;
   line-height: 2rem;
+  padding-inline: 15px;
+}
+
+.searchResultIcon {
+  opacity: 0.6;
+  padding-inline-end: 10px;
+  inline-size: 16px;
+  block-size: 16px;
+}
+
+.removeButton {
+  text-decoration: none;
+  float: var(--float-right-ltr-rtl-value);
+  font-size: 13px;
+}
+
+.removeButton:hover,
+.removeButtonSelected {
+  text-decoration: underline;
+  font-weight: bold;
 }
 
 .hover {

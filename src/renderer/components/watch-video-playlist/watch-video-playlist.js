@@ -3,7 +3,7 @@ import { mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtListVideoNumbered from '../ft-list-video-numbered/ft-list-video-numbered.vue'
-import { copyToClipboard, setPublishedTimestampsInvidious, showToast } from '../../helpers/utils'
+import { copyToClipboard, showToast } from '../../helpers/utils'
 import {
   getLocalPlaylist,
   parseLocalPlaylistVideo,
@@ -48,7 +48,6 @@ export default defineComponent({
       shuffleEnabled: false,
       loopEnabled: false,
       reversePlaylist: false,
-      pauseOnCurrentVideo: false,
       prevVideoBeforeDeletion: null,
       channelName: '',
       channelId: '',
@@ -294,16 +293,6 @@ export default defineComponent({
       })
     },
 
-    togglePauseOnCurrentVideo: function () {
-      if (this.pauseOnCurrentVideo) {
-        this.pauseOnCurrentVideo = false
-        showToast(this.$t('Playlist will not pause when current video is finished'))
-      } else {
-        this.pauseOnCurrentVideo = true
-        showToast(this.$t('Playlist will pause when current video is finished'))
-      }
-    },
-
     playNextVideo: function () {
       const playlistInfo = {
         playlistId: this.playlistId,
@@ -471,7 +460,6 @@ export default defineComponent({
         this.channelName = result.author
         this.channelId = result.authorId
 
-        setPublishedTimestampsInvidious(result.videos)
         this.playlistItems = this.playlistItems.concat(result.videos)
 
         this.isLoading = false

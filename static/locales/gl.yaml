@@ -36,9 +36,8 @@ Global:
   Community: Comunidade
 
   Shorts: Cortos
-  Input Tags:
-    Length Requirement: A etiqueta debe ser de polo menos {number} caracteres.
   Live: En vivo
+  Sort By: 'Ordenar por'
 Version {versionNumber} is now available!  Click for more details: 'A versión {versionNumber}
   está dispoñible!  Fai clic para veres máis detalles'
 Download From Site: 'Descargar do sitio'
@@ -51,7 +50,6 @@ Search / Go to URL: 'Buscar / Ir a URL'
 Search Filters:
   Search Filters: 'Buscar filtros'
   Sort By:
-    Sort By: 'Clasificar por'
     Most Relevant: 'Máis relevante'
     Rating: 'Valoración'
     Upload Date: 'Data de subida'
@@ -86,14 +84,11 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscricións'
-  Latest Subscriptions: 'Últimas subscricións'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Este
     perfil ten un gran número de subscricións.  Forzar ás RSS para evitar a limitación
     da taxa'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
     túa listaxe de subscricións está baleira. Engade algunhas para as ver aquí.'
-  'Getting Subscriptions. Please wait.': 'Obtendo subscricións. Por favor, agarda.'
-  Refresh Subscriptions: 'Actualizar subscricións'
   Load More Videos: 'Cargar máis vídeos'
   Error Channels: Canles con erros
   Disabled Automatic Fetching: Desactivaches a obtención automática de subscricións.
@@ -265,8 +260,7 @@ Settings:
       File Name Tooltip: Podes usalas variables a continuación. %Y 4 díxitos do ano.
         %M Mes 2 díxitos. %D Día 2 díxitos. %H Hora 2 díxitos. %N minutos 2 díxitos.
         %S Segundo 2 díxitos. %T Milisegundos 3 díxitos. %s segundo de vídeo. %t Video
-        Milisegundos 3 díxitos. ID de vídeo %i. Tamén podes usar "\" ou "/" para crear
-        subcartafoles.
+        Milisegundos 3 díxitos. ID de vídeo %i.
       Folder Button: Seleccione un cartafol
       File Name Label: Patrón do nome do fixeiro
       Enable: Activalas capturas da pantalla
@@ -323,7 +317,6 @@ Settings:
       maiúsculas
   Data Settings:
     Data Settings: 'Axustes dos datos'
-    Select Import Type: 'Escoller tipo de importación'
     Select Export Type: 'Escoller tipo de exportación'
     Import Subscriptions: 'Importar subscricións'
     Export Subscriptions: 'Exportar subscricións'
@@ -432,8 +425,6 @@ Settings:
   Password Dialog:
     Password: Contrasinal
     Enter Password To Unlock: Introduce o contrasinal para desbloqueala configuración
-    Password Incorrect: Contrasinal incorrecto
-    Unlock: Desbloquear
 About:
   #On About page
   About: 'Sobre'
@@ -477,7 +468,6 @@ Profile:
   Are you sure you want to delete this profile?: 'Estás seguro de querer eliminar
     este perfil?'
   All subscriptions will also be deleted.: 'Tamén se eliminarán tódalas subscricións.'
-  Profile could not be found: 'Non se atopou o perfil'
   Your profile name cannot be empty: 'O nome do perfil non pode estar en branco'
   Profile has been created: 'Creouse o perfil'
   Profile has been updated: 'Actualizouse o perfil'
@@ -515,7 +505,6 @@ Channel:
   Added channel to your subscriptions: 'Canle engadida ás túas subscricións'
   Search Channel: 'Buscar na canle'
   Your search results have returned 0 results: 'A busca non atopou resultados'
-  Sort By: 'Ordenar por'
   Videos:
     Videos: 'Vídeos'
     This channel does not currently have any videos: 'Esta canle aínda non ten ningún
@@ -582,8 +571,6 @@ Video:
   Enable Live Chat: 'Activar chat en vivo'
   Live Chat is currently not supported in this build.: 'O chat en vivo non está soportado
     nesta versión.'
-  'Chat is disabled or the Live Stream has ended.': 'O chat foi desactivado ou a transmisión
-    en vivo rematou.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Chat en vivo activado.  As
     mensaxes aparecerán aquí ao seren enviadas.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Chat
@@ -593,39 +580,10 @@ Video:
   video only: 'Só vídeo'
   audio only: 'Só audio'
   Published:
-    Jan: 'Xan'
-    Feb: 'Feb'
-    Mar: 'Mar'
-    Apr: 'Abr'
-    May: 'Mai'
-    Jun: 'Xuñ'
-    Jul: 'Xul'
-    Aug: 'Ago'
-    Sep: 'Set'
-    Oct: 'Out'
-    Nov: 'Nov'
-    Dec: 'Dec'
-    Second: 'Segundo'
-    Seconds: 'Segundos'
-    Minute: 'Minuto'
-    Minutes: 'Minutos'
-    Hour: 'Hora'
-    Hours: 'Horas'
-    Day: 'Día'
-    Days: 'Días'
-    Week: 'Semana'
-    Weeks: 'Semanas'
-    Month: 'Mes'
-    Months: 'Meses'
-    Year: 'Ano'
-    Years: 'Anos'
-    Ago: 'Hai'
-    Upcoming: 'Estrea'
     In less than a minute: En menos dun minuto
   Published on: 'Publicado'
   Streamed on: 'Transmitido'
   Started streaming on: 'A transmisión comezou'
-  Publicationtemplate: 'Fai {number} {unit}'
 #& Videos
   External Player:
     Unsupported Actions:
@@ -654,17 +612,10 @@ Video:
   Video has been removed from your saved list: Eliminouse este vídeo da lista de gardados
   Video has been saved: Gardouse o vídeo
   Save Video: Gardar vídeo
-  Premieres on: Estrease o
   Premieres: Estreos
   Show Super Chat Comment: Mostralos comentarios do Super Chat
   Scroll to Bottom: Desprácese ata abaixo
   Upcoming: Próximamente
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'Máis recente'
-    Oldest: 'Máis antigo'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -712,9 +663,7 @@ Comments:
   Getting comment replies, please wait: 'Obtendo respostas ao comentario. Por favor,
     agarda'
   There are no more comments for this video: 'Non hai máis comentarios neste vídeo'
-  Show Comments: 'Amosar comentarios'
   Hide Comments: 'Agochar comentarios'
-  Sort by: 'Ordenar por'
   Top comments: 'Comentarios destacados'
   Newest first: 'Máis recentes'
   # Context: View 10 Replies, View 1 Reply
@@ -724,7 +673,6 @@ Comments:
   Reply: 'Resposta'
   There are no comments available for this video: 'Este vídeo non contén ningún comentario'
   Load More Comments: 'Cargar máis comentarios'
-  No more comments available: 'Non hai máis comentarios'
   Pinned by: Fixado por
   And others: e outros
   Member: Membro
@@ -778,7 +726,7 @@ Tooltips:
       teu feed da subscrición, cando se abra unha nova ventá e cando cambies de perfil.
   External Player Settings:
     Custom External Player Arguments: Calquera argumento de liña de comandos personalizado,
-      separado por puntos e coma (';'), que desexa que se pase ao reprodutor externo.
+      que desexa que se pase ao reprodutor externo.
     Ignore Warnings: Suprime avisos para cando os reprodutores externos actuais non
       apoian a acción actual (e.g. Invertendo listas de reprodución, etc.).
     Custom External Player Executable: Por defecto, FreeTube asumirá que o reprodutor

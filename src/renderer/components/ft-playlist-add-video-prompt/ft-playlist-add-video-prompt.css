@@ -1,7 +1,3 @@
-.heading {
-  text-align: center;
-}
-
 .selected-count {
   text-align: center;
 }
@@ -39,14 +35,12 @@
   .optionsRow {
     /* Switch to rows from columns */
     grid-template-columns: auto;
-    grid-template-rows: repeat(auto-fit, auto);
     align-items: stretch;
   }
 
   .tightOptions {
     /* Switch to rows from columns */
     grid-template-columns: auto;
-    grid-template-rows: repeat(auto-fit, auto);
     align-items: stretch;
   }
 }

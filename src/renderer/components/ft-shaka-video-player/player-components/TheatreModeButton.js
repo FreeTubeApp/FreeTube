@@ -1,6 +1,8 @@
 import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
+import { KeyboardShortcuts } from '../../../../constants'
+import { addKeyboardShortcutToActionTitle } from '../../../helpers/utils'
 
 export class TheatreModeButton extends shaka.ui.Element {
   /**
@@ -14,8 +16,7 @@ export class TheatreModeButton extends shaka.ui.Element {
 
     /** @private */
     this.button_ = document.createElement('button')
-    this.button_.classList.add('theatre-button')
-    this.button_.classList.add('shaka-tooltip')
+    this.button_.classList.add('theatre-button', 'shaka-tooltip')
 
     /** @private */
     this.icon_ = document.createElement('i')
@@ -25,8 +26,7 @@ export class TheatreModeButton extends shaka.ui.Element {
     this.button_.appendChild(this.icon_)
 
     const label = document.createElement('label')
-    label.classList.add('shaka-overflow-button-label')
-    label.classList.add('shaka-overflow-menu-only')
+    label.classList.add('shaka-overflow-button-label', 'shaka-overflow-menu-only')
 
     /** @private */
     this.nameSpan_ = document.createElement('span')
@@ -67,12 +67,15 @@ export class TheatreModeButton extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.nameSpan_.textContent = i18n.t('Video.Player.Theatre Mode')
-
     this.icon_.textContent = this.theatreModeEnabled_ ? 'monitor' : 'tv'
 
     this.currentState_.textContent = this.localization.resolve(this.theatreModeEnabled_ ? 'ON' : 'OFF')
 
-    this.button_.ariaLabel = this.theatreModeEnabled_ ? i18n.t('Video.Player.Exit Theatre Mode') : i18n.t('Video.Player.Theatre Mode')
+    const baseAriaLabel = this.theatreModeEnabled_ ? i18n.t('Video.Player.Exit Theatre Mode') : i18n.t('Video.Player.Theatre Mode')
+
+    this.nameSpan_.textContent = this.button_.ariaLabel = addKeyboardShortcutToActionTitle(
+      baseAriaLabel,
+      KeyboardShortcuts.VIDEO_PLAYER.GENERAL.THEATRE_MODE
+    )
   }
 }

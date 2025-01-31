@@ -1,16 +1,17 @@
 import { defineComponent } from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/top-nav/top-nav.vue'
-import SideNav from './components/side-nav/side-nav.vue'
+import SideNav from './components/SideNav/SideNav.vue'
 import FtNotificationBanner from './components/ft-notification-banner/ft-notification-banner.vue'
-import FtPrompt from './components/ft-prompt/ft-prompt.vue'
+import FtPrompt from './components/FtPrompt/FtPrompt.vue'
 import FtButton from './components/ft-button/ft-button.vue'
 import FtToast from './components/ft-toast/ft-toast.vue'
-import FtProgressBar from './components/ft-progress-bar/ft-progress-bar.vue'
+import FtProgressBar from './components/FtProgressBar/FtProgressBar.vue'
 import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
 import FtCreatePlaylistPrompt from './components/ft-create-playlist-prompt/ft-create-playlist-prompt.vue'
-import FtSearchFilters from './components/ft-search-filters/ft-search-filters.vue'
+import FtKeyboardShortcutPrompt from './components/FtKeyboardShortcutPrompt/FtKeyboardShortcutPrompt.vue'
+import FtSearchFilters from './components/FtSearchFilters/FtSearchFilters.vue'
 import { marked } from 'marked'
 import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
@@ -32,7 +33,8 @@ export default defineComponent({
     FtProgressBar,
     FtPlaylistAddVideoPrompt,
     FtCreatePlaylistPrompt,
-    FtSearchFilters
+    FtSearchFilters,
+    FtKeyboardShortcutPrompt,
   },
   data: function () {
     return {
@@ -71,6 +73,9 @@ export default defineComponent({
     checkForBlogPosts: function () {
       return this.$store.getters.getCheckForBlogPosts
     },
+    isKeyboardShortcutPromptShown: function () {
+      return this.$store.getters.getIsKeyboardShortcutPromptShown
+    },
     showAddToPlaylistPrompt: function () {
       return this.$store.getters.getShowAddToPlaylistPrompt
     },
@@ -82,7 +87,7 @@ export default defineComponent({
     },
     windowTitle: function () {
       const routePath = this.$route.path
-      if (!routePath.startsWith('/channel/') && !routePath.startsWith('/watch/') && !routePath.startsWith('/hashtag/') && !routePath.startsWith('/playlist/')) {
+      if (!routePath.startsWith('/channel/') && !routePath.startsWith('/watch/') && !routePath.startsWith('/hashtag/') && !routePath.startsWith('/playlist/') && !routePath.startsWith('/search/')) {
         let title = translateWindowTitle(this.$route.meta.title)
         if (!title) {
           title = packageDetails.productName
@@ -97,6 +102,7 @@ export default defineComponent({
     externalPlayer: function () {
       return this.$store.getters.getExternalPlayer
     },
+
     defaultInvidiousInstance: function () {
       return this.$store.getters.getDefaultInvidiousInstance
     },
@@ -142,6 +148,14 @@ export default defineComponent({
 
     externalLinkHandling: function () {
       return this.$store.getters.getExternalLinkHandling
+    },
+
+    appTitle: function () {
+      return this.$store.getters.getAppTitle
+    },
+
+    openDeepLinksInNewWindow: function () {
+      return this.$store.getters.getOpenDeepLinksInNewWindow
     }
   },
   watch: {
@@ -154,10 +168,11 @@ export default defineComponent({
     secColor: 'checkThemeSettings',
 
     locale: 'setLocale',
+
+    appTitle: 'setDocumentTitle'
   },
   created () {
     this.checkThemeSettings()
-    this.setWindowTitle()
     this.setLocale()
   },
   mounted: function () {
@@ -179,6 +194,7 @@ export default defineComponent({
         this.grabHistory()
         this.grabAllPlaylists()
         this.grabAllSubscriptions()
+        this.grabSearchHistoryEntries()
 
         if (process.env.IS_ELECTRON) {
           ipcRenderer = require('electron').ipcRenderer
@@ -203,10 +219,16 @@ export default defineComponent({
         if (this.$router.currentRoute.path === '/') {
           this.$router.replace({ path: this.landingPage })
         }
+
+        this.setWindowTitle()
       })
     })
   },
   methods: {
+    setDocumentTitle: function(value) {
+      document.title = value
+      this.$nextTick(() => this.$refs.topNav?.setActiveNavigationHistoryEntryTitle(value))
+    },
     checkThemeSettings: function () {
       const theme = {
         baseTheme: this.baseTheme || 'dark',
@@ -239,7 +261,7 @@ export default defineComponent({
               .replaceAll(/https:\/\/github\.com\/FreeTubeApp\/FreeTube\/pull\/(\d+)/g, '[#$1]($&)')
 
             // Add the title
-            changelog = `# ${json[0].name}\n${changelog}`
+            changelog = `${changelog}`
 
             this.updateChangelog = marked.parse(changelog)
             this.changeLogTitle = json[0].name
@@ -331,6 +353,11 @@ export default defineComponent({
     },
 
     handleKeyboardShortcuts: function (event) {
+      // ignore user typing in HTML `input` elements
+      if (event.shiftKey && event.key === '?' && event.target.tagName !== 'INPUT') {
+        this.$store.commit('setIsKeyboardShortcutPromptShown', !this.isKeyboardShortcutPromptShown)
+      }
+
       if (event.altKey) {
         switch (event.key) {
           case 'D':
@@ -512,9 +539,9 @@ export default defineComponent({
     },
 
     enableOpenUrl: function () {
-      ipcRenderer.on(IpcChannels.OPEN_URL, (event, url) => {
+      ipcRenderer.on(IpcChannels.OPEN_URL, (event, url, { isLaunchLink = false } = { }) => {
         if (url) {
-          this.handleYoutubeLink(url)
+          this.handleYoutubeLink(url, { doCreateNewWindow: this.openDeepLinksInNewWindow && !isLaunchLink })
         }
       })
 
@@ -535,7 +562,7 @@ export default defineComponent({
 
     setWindowTitle: function() {
       if (this.windowTitle !== null) {
-        document.title = this.windowTitle
+        this.setAppTitle(this.windowTitle)
       }
     },
 
@@ -554,17 +581,24 @@ export default defineComponent({
       'grabHistory',
       'grabAllPlaylists',
       'grabAllSubscriptions',
+      'grabSearchHistoryEntries',
       'getYoutubeUrlInfo',
       'getExternalPlayerCmdArgumentsData',
       'fetchInvidiousInstances',
       'fetchInvidiousInstancesFromFile',
       'setRandomCurrentInvidiousInstance',
       'setupListenersToSyncWindows',
+      'hideKeyboardShortcutPrompt',
+      'showKeyboardShortcutPrompt',
       'updateBaseTheme',
       'updateMainColor',
       'updateSecColor',
       'showOutlines',
       'hideOutlines',
+    ]),
+
+    ...mapMutations([
+      'setAppTitle'
     ])
   }
 })

@@ -35,6 +35,7 @@ Global:
   Shorts: القصيرة
   Live: بث مباشر
   Community: المجتمع
+  Sort By: ترتيب حسب
 
 # Search Bar
   Counts:
@@ -43,16 +44,13 @@ Global:
     Subscriber Count: 1 مشترك | {count} مشتركين
     View Count: 1 مشاهدة | {count} مشاهدات
     Watching Count: 1 مشاهد | {count} مشاهدون
-    Like Count: إعجاب واحد |{ count} إعجاب
+    Like Count: إعجاب واحد |{count} إعجاب
     Comment Count: تعليق واحد | {count} تعليقًا
-  Input Tags:
-    Length Requirement: يجب أن يبلغ طول العلامة {number} حرفًا على الأقل
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
 Search Filters:
   Search Filters: 'فلاتر البحث'
   Sort By:
-    Sort By: 'ترتيب حسب'
     Most Relevant: 'الأكثر صلة'
     Rating: 'التقييم'
     Upload Date: 'تاريخ الرفع'
@@ -99,12 +97,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'الاشتراكات'
-  Latest Subscriptions: 'أحدث الاشتراكات'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'قائمة
     اشتراكك فارغة حاليًا. إذا كنت ترغب في استيراد اشتراكاتك، فيمكنك الانتقال إلى إعدادات
     البيانات وتحديد استيراد الاشتراكات أو يمكنك البحث عن قناة والاشتراك فيها.'
-  'Getting Subscriptions. Please wait.': 'جاري تحميل الاشتراكات. يرجى الانتظار.'
-  Refresh Subscriptions: 'تحديث الاشتراكات'
   Load More Videos: حمّل المزيد من الفيديوهات
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: لدى
     هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول للاشتراكات
@@ -145,7 +140,6 @@ User Playlists:
   Cancel: إلغاء
   Delete Playlist: حذف قائمة التشغيل
   Sort By:
-    Sort By: ترتيب حسب
     LatestCreatedFirst: تم إنشاؤها مؤخرًا
     LatestUpdatedFirst: تم تحديثه مؤخرا
     NameAscending: أ-ي
@@ -183,10 +177,9 @@ User Playlists:
         للإشارة المرجعية السريعة
       This playlist is already being used for quick bookmark.: يتم استخدام قائمة التشغيل
         هذه بالفعل لوضع إشارة مرجعية سريعة.
-      Playlist {playlistName} is the new quick bookmark playlist.: قائمة التشغيل {playlistName}
-        هي قائمة تشغيل الإشارات المرجعية السريعة الجديدة.
       This playlist has a video with a duration error: تحتوي قائمة التشغيل هذه على
         مقطع فيديو واحد على الأقل ليس له مدة، وسيتم فرزه كما لو كانت مدته صفرًا.
+      Video has been removed. Click here to undo.: تمت حذف الفيديو. انقر هنا للتراجع.
     Search for Videos: ‬البحث عن مقاطع الفيديو
   AddVideoPrompt:
     Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص
@@ -239,6 +232,8 @@ User Playlists:
     أنت متأكد أنك تريد إزالة مقطع فيديو مكرر واحد من قائمة التشغيل هذه؟ هذا لا يمكن
     التراجع عنها. | هل أنت متأكد أنك تريد إزالة {playlistItemCount} من مقاطع الفيديو
     المكررة من قائمة التشغيل هذه؟ هذا لا يمكن التراجع عنها.
+  Export Playlist: تصدير قائمة التشغيل هذه
+  The playlist has been successfully exported: تم تصدير قائمة التشغيل بنجاح
 History:
   # On History Page
   History: 'السجلّ'
@@ -295,6 +290,8 @@ Settings:
     Auto Load Next Page:
       Label: تحميل تلقائي للصفحة التالية
       Tooltip: قم بتحميل الصفحات والتعليقات الإضافية تلقائيًا.
+    Open Deep Links In New Window: افتح عناوين URL التي تم تمريرها إلى FreeTube في
+      نافذة جديدة
   Theme Settings:
     Theme Settings: 'السِمة'
     Match Top Bar with Main Color: 'طابق الشريط العلوي مع اللون الأساسي'
@@ -311,6 +308,9 @@ Settings:
       Nordic: بلدان الشمال الأوروبي
       Solarized Dark: مظلم مشمس
       Solarized Light: مشمس داكن
+      Catppuccin Frappe: كاتبوتشين فرابيه
+      Gruvbox Light: صندوق مضيء
+      Gruvbox Dark: صندوق عاتم
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -358,6 +358,30 @@ Settings:
       Solarized Blue: مشمس أزرق
       Solarized Cyan: مشمس سماوي
       Solarized Green: مشمس أخضر
+      Catppuccin Frappe Sky: كاتبوتشينو فرابيه سماوي
+      Catppuccin Frappe Lavender: كاتبوتشين فرابيه أرجواني
+      Gruvbox Dark Blue: صندوق أزرق غامق
+      Gruvbox Dark Purple: صندوق بنفسجي غامق
+      Gruvbox Dark Orange: صندوق برتقالي غامق
+      Gruvbox Light Red: صندوق أحمر فاتح
+      Gruvbox Dark Yellow: صندوق أصفر غامق
+      Catppuccin Frappe Flamingo: كاتبوتشينو فرابيه فلامنجو
+      Gruvbox Dark Aqua: صندوق مائي داكن
+      Gruvbox Light Blue: صندوق أزرق فاتح
+      Gruvbox Light Purple: صندوق بنفسجي فاتح
+      Catppuccin Frappe Red: كاتبوتشيني فرابيه أحمر
+      Catppuccin Frappe Maroon: كاتبوتشينو فرابيه كستنائي
+      Catppuccin Frappe Green: كاتبوتشيني فرابيه أخضر
+      Catppuccin Frappe Rosewater: كاتبوتشيني فرابيه ماء الورد
+      Catppuccin Frappe Pink: كاتبوتشين فرابيه وردي
+      Catppuccin Frappe Mauve: كاتبوتشيني فرابيه بنفسجي فاتح
+      Catppuccin Frappe Peach: كاتبوتشيني فرابيه خوخ
+      Catppuccin Frappe Yellow: كاتبوتشيني فرابيه أصفر
+      Catppuccin Frappe Teal: كاتبوتشين فرابيه أزرق مخضر
+      Catppuccin Frappe Sapphire: كاتبوتشينو فرابيه ياقوت
+      Catppuccin Frappe Blue: كاتبوتشينو فرابيه أزرق
+      Gruvbox Dark Green: صندوق أخضر غامق
+      Gruvbox Light Orange: صندوق برتقالي فاتح
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم
@@ -367,9 +391,9 @@ Settings:
     Hide FreeTube Header Logo: إخفاء شعار رأس FreeTube
   Player Settings:
     Player Settings: 'المشغل'
-    Play Next Video: 'شغل الفيديو التالي'
+    Play Next Video: 'التشغيل التلقائي لمقاطع الفيديو الموصى بها'
     Turn on Subtitles by Default: 'شغّل الترجمات بشكل افتراضي'
-    Autoplay Videos: 'شغًل الفيديوهات تلقائياً'
+    Autoplay Videos: 'شغًل مقاطع الفيديو تلقائياً'
     Proxy Videos Through Invidious: 'استخدم Invidious كوسيط للفيديوهات'
     Autoplay Playlists: 'شغّل قوائم التشغيل تلقائياً'
     Enable Theatre Mode by Default: 'فعّل وضع المسرح بشكل افتراضي'
@@ -392,8 +416,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '‍8k'
-    Playlist Next Video Interval: الفاصل الزمني لتشغيل الفيديو التالي في قائمة التشغيل
-    Next Video Interval: الفاصل الزمني للفيديو التالي
+    Next Video Interval: العد التنازلي للتشغيل التلقائي
     Scroll Volume Over Video Player: تمرير مستوى الصوت عبر مشغل الفيديو
     Display Play Button In Video Player: عرض زر التشغيل في مشغل الفيديو
     Fast-Forward / Rewind Interval: الفاصل الزمني السريع للأمام / الترجيع
@@ -412,14 +435,21 @@ Settings:
       Format Label: صيغة لقطة الشاشة
       Quality Label: جودة لقطة الشاشة
       File Name Tooltip: يمكنك استخدام المتغيرات أدناه. %Y السنة 4 أرقام. %M الشهر
-        2 أرقام. % D اليوم 2 أرقام. ٪ H ساعة 2 أرقام. % N دقيقة 2 أرقام. %S الثانية
-        2 أرقام. % T ميلي ثانية 3 أرقام. %s الفيديو الثاني. % t فيديو ميلي ثانية 3
-        أرقام. %i معرف الفيديو. يمكنك أيضا استخدام "\" أو "/" لإنشاء مجلدات فرعية.
+        رقمان. %D اليوم رقمان. %H الساعة رقمان. %N الدقيقة رقمان. %S الثانية رقمان.
+        %T الجزء من الثانية 3 أرقام. %s الثانية للفيديو رقمان. %t الجزء من الثانية
+        للفيديو 3 أرقام. %i رقم معرف الفيديو.
     Enter Fullscreen on Display Rotate: وضع ملء الشاشة عند تدوير الشاشة
     Skip by Scrolling Over Video Player: تخطي بالتمرير فوق مشغل الفيديو
+    Default Viewing Mode:
+      Picture in Picture: صورة في صورة
+      External Player: مشغل خارجي ({externalPlayerName})
+      Default Viewing Mode: وضع العرض الافتراضي
+      Theater: مسرح
+      Full Screen: ملء الشاشة
+    Autoplay Interruption Timer: مؤقت مقاطعة التشغيل التلقائي
   Privacy Settings:
     Privacy Settings: 'الخصوصية'
-    Remember History: 'تذّكر سجلّ المشاهدة'
+    Remember History: 'تذكر سجل المشاهدة'
     Save Watched Progress: 'حفظ نسبة المشاهدة'
     Clear Search Cache: 'مسح ذاكرة التخزين المؤقت للبحث'
     Are you sure you want to clear out your search cache?: 'هل أنت متأكد أنك تريد
@@ -439,14 +469,21 @@ Settings:
     Remove All Playlists: إزالة كافة قوائم التشغيل
     Are you sure you want to remove all your playlists?: هل أنت متأكد أنك تريد إزالة
       جميع قوائم التشغيل الخاصة بك؟
+    Are you sure you want to clear out your search history and cache?: هل أنت متأكد
+      من أنك تريد مسح سجل البحث وذاكرة التخزين المؤقت؟
+    Remember Search History: تذكر سجل البحث
+    Clear Search History and Cache: مسح سجل البحث وذاكرة التخزين المؤقت
+    Search history and cache have been cleared: تم مسح سجل البحث وذاكرة التخزين المؤقت
   Subscription Settings:
     Subscription Settings: 'الاشتراك'
     Hide Videos on Watch: 'أخفِ الفيديوهات عند مشاهدتها'
     Fetch Feeds from RSS: 'جلب المحتوى عن طريق RSS'
     Fetch Automatically: جلب الخلاصة تلقائيا
-    Only Show Latest Video for Each Channel: عرض أحدث فيديو فقط لكل قناة
     Confirm Before Unsubscribing: تجنب إلغاء الاشتراك عن طريق الخطأ
 
+    To: إلى
+    'Limit the number of videos displayed for each channel': تحديد عدد مقاطع الفيديو
+      المعروضة لكل قناة
   Data Settings:
     How do I import my subscriptions?: كيف استورد اشتراكاتي؟
     Unknown data key: مفتاح البيانات مجهول
@@ -474,7 +511,6 @@ Settings:
     Export Subscriptions: تصدير الاشتراكات
     Import Subscriptions: استيراد الاشتراكات
     Select Export Type: حدّد نوع التصدير
-    Select Import Type: حدّد نوع الاستيراد
     Data Settings: البيانات
     Manage Subscriptions: إدارة الإشتراكات
     All playlists has been successfully imported: تم استيراد جميع قوائم التشغيل بنجاح
@@ -517,17 +553,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: عرض العناوين بدون استخدام الأحرف
       الكبيرة وعلامات الترقيم بشكل مفرط
     Hide Featured Channels: إخفاء القنوات المميزة
-    Hide Channel Playlists: إخفاء قوائم تشغيل القناة
-    Hide Channel Community: إخفاء مجتمع القناة
-    Hide Channel Shorts: إخفاء Shorts القناة
+    Hide Channel Playlists: إخفاء علامة التبويب "قوائم التشغيل" للقناة
+    Hide Channel Community: إخفاء علامة التبويب "المجتمع" للقناة
+    Hide Channel Shorts: إخفاء علامة التبويب "المقاطع القصيرة" للقناة
     Sections:
       Side Bar: الشريط الجانبي
       Channel Page: صفحة القناة
       Watch Page: صفحة المشاهدة
       General: عام
       Subscriptions Page: صفحة الاشتراكات
-    Hide Channel Podcasts: إخفاء بودكاست القناة
-    Hide Channel Releases: إخفاء إصدارات القناة
+    Hide Channel Podcasts: إخفاء علامة التبويب "بودكاستات" للقناة
+    Hide Channel Releases: إخفاء علامة التبويب "إصدارات" للقناة
     Hide Subscriptions Live: إخفاء الاشتراكات مباشرة
     Hide Subscriptions Shorts: إخفاء الاشتراكات الفيدوهات القصيرة
     Hide Subscriptions Videos: إخفاء مقاطع فيديو الاشتراكات
@@ -542,6 +578,8 @@ Settings:
     Hide Videos and Playlists Containing Text: إخفاء مقاطع الفيديو وقوائم التشغيل
       التي تحتوي على نص
     Hide Videos and Playlists Containing Text Placeholder: كلمة أو جزء كلمة أو عبارة
+    Hide Channel Home: إخفاء علامة التبويب "الصفحة الرئيسية" للقناة
+    Show Added Items: إظهار العناصر المضافة
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -560,6 +598,10 @@ Settings:
       في جلب معلومات الشبكة. هل ضبطت إعدادات وكيلك بصورة صحيحة؟
     Clicking on Test Proxy will send a request to: النقر على اختبار البروكسي سيؤدي
       إلى إرسال طلب إلى
+    Proxy Warning: لا يحتوي FreeTube على وكيل مدمج ولكن يمكنه الاتصال بوكيل خارجي،
+      مثل وكيل يعمل على جهازك مثل Tor أو وكيل خارجي مثل وكيل SOCKS5 الذي توفره بعض
+      شبكات VPN. إذا تم التمكين، فتأكد من تكوين الوكيل/الاختصاص الخاص بك بشكل صحيح،
+      وإلا فلن يتمكن FreeTube من جلب أي بيانات.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: تنبيه عندما يتم تخطي شريحة الراعي
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
@@ -610,10 +652,8 @@ Settings:
     Password Settings: كلمة المرور
     Set Password: ضبط كلمة السر
   Password Dialog:
-    Password Incorrect: كلمة المرور غير صحيحة
     Password: كلمة السر
     Enter Password To Unlock: أدخل كلمة المرور لإلغاء قفل الإعدادات
-    Unlock: الغاء القفل
   Sort Settings Sections (A-Z): أقسام إعدادات الفرز (من الألف إلى الياء)
   Return to Settings Menu: العودة إلى قائمة الإعدادات
 About:
@@ -660,7 +700,6 @@ Profile:
   Are you sure you want to delete this profile?: 'هل أنت متأكد أنك تريد حذف هذا الملف
     الشخصي؟'
   All subscriptions will also be deleted.: 'ستُمحى جميع الاشتراكات أيضاً.'
-  Profile could not be found: 'لم يتم العثور على الملف الشخصي'
   Your profile name cannot be empty: 'لا يمكن أن يكون اسم ملفك الشخصي فارغاً'
   Profile has been created: 'تم إنشاء الملف الشخصي'
   Profile has been updated: 'تم تحديث الملف الشخصي'
@@ -700,7 +739,6 @@ Channel:
   Unsubscribe: 'إلغاء الاشتراك'
   Search Channel: 'ابحث في القناة'
   Your search results have returned 0 results: 'لم تُعد نتيجة بحثك أي نتائج'
-  Sort By: 'فرز بحسب'
   Videos:
     Videos: 'الفيديوهات'
     This channel does not currently have any videos: 'لا تحتوي هذه القناة على أي فيديوهات
@@ -761,6 +799,9 @@ Channel:
     Releases: الاصدارات
     This channel does not currently have any releases: هذه القناة ليس لديها أي إصدارات
       حاليا
+  Home:
+    Home: الصفحة الرئيسية
+    View Playlist: إظهار قائمة التشغيل
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
   Remove From History: 'إزالة من سجلّ المشاهدة'
@@ -781,45 +822,13 @@ Video:
   Enable Live Chat: 'فعّل المحادثة المباشرة'
   Live Chat is currently not supported in this build.: 'المحادثة المباشرة غير مدعومة
     حالياً في هذا الإصدار.'
-  'Chat is disabled or the Live Stream has ended.': 'المحادثة معطلة أو انتهى البث
-    المباشر.'
   Live chat is enabled. Chat messages will appear here once sent.: 'تم تمكين المحادثة
     المباشرة. ستظهر رسائل المحادثة هنا بمجرد إرسالها.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'المحادثة
     المباشرة غير مدعومة حالياً مع Invidious API. يلزم الاتصال المباشر بيوتيوب.'
   Published:
-    Jan: 'يناير'
-    Feb: 'فبراير'
-    Mar: 'مارس'
-    Apr: 'أبريل'
-    May: 'مايو'
-    Jun: 'يونيو'
-    Jul: 'يوليو'
-    Aug: 'أغسطس'
-    Sep: 'سبتمبر'
-    Oct: 'أكتوبر'
-    Nov: 'نوفمبر'
-    Dec: 'ديسمبر'
-    Second: 'ثانية'
-    Seconds: 'ثواني'
-    Minute: 'دقيقة'
-    Minutes: 'دقائق'
-    Hour: 'ساعة'
-    Hours: 'ساعات'
-    Day: 'يوم'
-    Days: 'أيام'
-    Week: 'أسبوع'
-    Weeks: 'أسابيع'
-    Month: 'شهر'
-    Months: 'شهور'
-    Year: 'سنة'
-    Years: 'سنوات'
-    Ago: 'منذ'
-    Upcoming: 'يبدأ العرض'
-    Less than a minute: أقل من دقيقة
     In less than a minute: في أقل من دقيقة
   Published on: 'نُشر في'
-  Publicationtemplate: 'قبل {number} {unit}'
 #& Videos
   Autoplay: تشغيل تلقائي
   Play Previous Video: شغل الفيديو السابق
@@ -865,20 +874,17 @@ Video:
     playlist: قائمة التشغيل
     video: فيديو
     OpenInTemplate: فتح في {externalPlayer}
-  Premieres on: العرض الأول بتاريخ
-  Premieres in: العرض الأول في
   Premieres: العرض الأولي
   Scroll to Bottom: انتقل إلى الأسفل
   Show Super Chat Comment: إظهار تعليق Super Chat
   Upcoming: القادمة
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': الدردشة
     المباشرة غير متاحة لهذا البث. ربما تم تعطيلها من قبل القائم بالتحميل.
-  Pause on Current Video: توقف مؤقتًا على الفيديو الحالي
   Unhide Channel: عرض القناة
   Hide Channel: إخفاء القناة
   More Options: المزيد من الخيارات
   Player:
-    TranslatedCaptionTemplate: '{language} (مترجمة من "{ originalLanguage }")'
+    TranslatedCaptionTemplate: '{language} (مترجمة من "{originalLanguage}")'
     Stats:
       Volume: 'الحجم: {volumePercentage}%'
       CodecAudio: 'برنامج الترميز: {audioCodec} ({audioItag})'
@@ -907,15 +913,22 @@ Video:
     Exit Full Window: الخروج من وضع الشاشة الكاملة
     Take Screenshot: اخذ لقطة الشاشة
     Hide Stats: اخفاء الاحصائيات
+    Autoplay is off: التشغيل التلقائي متوقف
+    Autoplay is on: التشغيل التلقائي مفعل
   IP block: حظر YouTube عنوان IP الخاص بك من مشاهدة مقاطع الفيديو. يرجى محاولة التبديل
     إلى VPN أو وكيل مختلف.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: 'الأحدث'
-    Oldest: 'الأقدم'
-    #& Most Popular
+  Unlisted: غير مدرج
+  AgeRestricted: لا يمكن مشاهدة مقاطع الفيديو المقيدة حسب العمر مع FreeTube لأنها
+    تتطلب تسجيل الدخول إلى Google واستخدام حساب YouTube تم التحقق من عمره.
+  MembersOnly: لا يمكن مشاهدة مقاطع الفيديو الخاصة بالأعضاء فقط مع FreeTube لأنها
+    تتطلب تسجيل الدخول إلى Google والعضوية المدفوعة لقناة القائم بالتحميل.
 #& Playlists
+  DeArrow:
+    Show Modified Details: إظهار التفاصيل المعدلة
+    Show Original Details: إظهار التفاصيل الأصلية
+  DRMProtected: لا يمكن تشغيل مقاطع الفيديو المحمية بنظام إدارة الحقوق الرقمية في
+    FreeTube، لأنها تتطلب مكونات خاصة ومغلقة المصدر. إذا كنت ترغب في مشاهدة هذا الفيديو،
+    فيرجى مشاهدته على موقع يوتيوب الرسمي في متصفح ويب يدعم إدارة الحقوق الرقمية.
 Playlist:
   #& About
   View Full Playlist: 'عرض قائمة التشغيل بالكامل'
@@ -926,7 +939,6 @@ Playlist:
 #& Views
   Playlist: قائمة التشغيل
   Sort By:
-    Sort By: ترتيب حسب
     DateAddedNewest: آخر مضاف أولا
     DateAddedOldest: الأقدم إضافتا أولا
     AuthorAscending: الكاتب (A-Z)
@@ -936,6 +948,8 @@ Playlist:
     Custom: مُخصّص
     VideoDurationDescending: المدة (الاطول أولاً)
     VideoDurationAscending: المدة (الأقصر أولاً)
+    PublishedNewest: أحدث منشور أولاً
+    PublishedOldest: أقدم منشور أولاً
 Change Format:
   Change Media Formats: 'تغيير تنسيقات الفيديو'
   Use Dash Formats: 'استخدم تنسيقات DASH'
@@ -966,7 +980,6 @@ Comments:
   Comments: 'التعليقات'
   Click to View Comments: 'انقر لمشاهدة التعليقات'
   Getting comment replies, please wait: 'جاري الحصول على ردود التعليق, يرجى الانتظار'
-  Show Comments: 'إظهار التعليقات'
   Hide Comments: 'إخفاء التعليقات'
   # Context: View 10 Replies, View 1 Reply
   View: 'عرض'
@@ -976,10 +989,8 @@ Comments:
   There are no comments available for this video: 'لا يتوفر تعليقات لهذا الفيديو'
   Load More Comments: 'تحميل المزيد من التعليقات'
   There are no more comments for this video: لا يوجد المزيد من التعليقات لهذا الفيديو
-  No more comments available: لا يتوفر المزيد من التعليقات
   Newest first: الأحدث أولاً
   Top comments: أهم التعليقات
-  Sort by: الترتيب حسب
   Show More Replies: إظهار المزيد من الردود
   Pinned by: تم التثبيت بواسطة
   And others: و اخرين
@@ -1030,6 +1041,8 @@ Tooltips:
       الافتراضي.\n"
     Region for Trending: الانتشار المحلي (Trend) يسمح لك بأن تشاهد الفيديوهات الأكثر
       انتشارا حسب الدولة. ليست كل الدول المعروضة في هذه القائمة مدعومة من طرف يوتيوب.
+    Open Deep Links In New Window: يتم فتح عناوين URL التي تم تمريرها إلى FreeTube،
+      مثل إعادة توجيه ملحقات المتصفح أو حجج سطر الأوامر، في نافذة جديدة.
   Player Settings:
     Proxy Videos Through Invidious: سيتم الاتصال بـ Invidious لعرض مقاطع الفيديو بدلاً
       من إجراء اتصال مباشر بـ YouTube.
@@ -1050,8 +1063,8 @@ Tooltips:
     Fetch Automatically: عند التمكين ، سيقوم FreeTube تلقائيا بجلب خلاصة الاشتراك
       الخاصة بك عند فتح نافذة جديدة وعند تبديل ملف التعريف.
   External Player Settings:
-    Custom External Player Arguments: أي وسيطات سطر أوامر مخصصة مفصولة بفواصل منقوطة
-      (';')، تريد تمريرها إلى المشغل الخارجي.
+    Custom External Player Arguments: أي وسيطات سطر أوامر مخصصة تريد تمريرها إلى المشغل
+      الخارجي.
     Ignore Warnings: منع التحذيرات عندما لا يدعم اللاعب الخارجي الحالي الإجراء الحالي
       (على سبيل المثال، عكس قوائم التشغيل، وما إلى ذلك).
     Custom External Player Executable: بشكل افتراضي ، ستفترض FreeTube أنه يمكن العثور
@@ -1095,6 +1108,7 @@ Default Invidious instance has been set to {instance}: تم تعيين المث�
   إلى {instance}
 Search Bar:
   Clear Input: مسح المدخلات
+  Remove: إزالة
 External link opening has been disabled in the general settings: تم تعطيل فتح الارتباط
   الخارجي في الإعدادات العامة
 Are you sure you want to open this link?: هل أنت متأكد أنك تريد فتح هذا الرابط؟
@@ -1102,7 +1116,7 @@ Downloading has completed: 'انتهى تنزيل "{videoTitle}"'
 Downloading failed: حدثت مشكلة أثناء تنزيل "{videoTitle}"
 Downloading canceled: تم إلغاء التحميل من قبل المستخدم
 Starting download: بدء تنزيل "{videoTitle}"
-Screenshot Success: تم حفظ لقطة الشاشة كا"{filePath}"
+Screenshot Success: تم حفظ لقطة الشاشة
 Screenshot Error: فشل أخذ لقطة للشاشة. {error}
 New Window: نافذة جديدة
 Channels:
@@ -1122,16 +1136,13 @@ Chapters:
     الحالي: {chapterName}'
   'Chapters list visible, current chapter: {chapterName}': 'قائمة الفصول المرئية ،
     الفصل الحالي: {chapterName}'
+  Key Moments: ‌العناصر الرئيسية
 Preferences: التفضيلات
 Ok: موافق
 Hashtag:
   This hashtag does not currently have any videos: هذا الهاشتاج ليس لديه حاليا أي
     مقاطع فيديو
   Hashtag: هاشتاج
-Playlist will pause when current video is finished: ستتوقف قائمة التشغيل مؤقتًا عند
-  انتهاء الفيديو الحالي
-Playlist will not pause when current video is finished: لن تتوقف قائمة التشغيل مؤقتًا
-  عند انتهاء الفيديو الحالي
 Channel Hidden: تم إضافة {channel} إلى مرشح القناة
 Go to page: إذهب إلى {page}
 Channel Unhidden: تمت إزالة {channel} من مرشح القناة
@@ -1166,3 +1177,73 @@ Search Listing:
     3D: ثلاثي الابعاد
 'Blocked opening potentially unsafe URL': 'تم حظر فتح الرابط الذي يحتمل أن يكون غير
   آمن: "{url}".'
+Right-click or hold to see history: انقر زر الفارة الأيمن أو اضغط مطولا لعرض السجل
+KeyboardShortcutPrompt:
+  Force Restart Window: إجبار إعادة تشغيل النافذة
+  Toggle Developer Tools: تبديل أدوات المطور
+  Zoom In: تقريب
+  Zoom Out: تبعيد
+  Last Frame: الإطار السابق (أثناء التوقف مؤقتا)
+  Next Frame: الإطار التالي (أثناء التوقف مؤقتا)
+  Minimize Window: تصغير النافذة
+  Close Window: أغلاق النافذة
+  Reset Zoom: إعادة تعيين مستوى التكبير/مقياس واجهة المستخدم
+  Skip by Tenths: تخطي الفيديو حسب النسبة المئوية (3 تخطيات إلى 30٪ من المدة)
+  Small Fast Forward: للأمام السريع X ثواني استنادا إلى الفاصل الزمني للأمام السريع
+    ومعدل تشغيل الفيديو الحالي
+  Keyboard Shortcuts: اختصارات لوحة المفاتيح
+  Sections:
+    Video:
+      Playback: 'فيديو: تشغيل'
+      General: 'فيديو: عام'
+    App:
+      Situational: 'التطبيق: ظرفي'
+      General: 'التطبيق: عام'
+  Show Keyboard Shortcuts: إظهار اختصارات لوحة المفاتيح
+  History Backward: انتقل إلى الخلف صفحة واحدة
+  Navigate to History: انتقل إلى صفحة السجل التاريخي
+  Refresh: تحديث الخلاصة بأحدث محتوى
+  Focus Secondary Search: التركيز على شريط البحث الثانوي (إذا كان موجودا)
+  Mute: تبديل كتم الصوت
+  Focus Search: التركيز على شريط البحث
+  Search in New Window: البحث في نافذة جديدة
+  Volume Up: زيادة الحجم
+  Volume Down: تقليل الحجم
+  Small Rewind: الترجيع X ثانية استنادا إلى فاصل الترجيع ومعدل تشغيل الفيديو الحالي
+  Last Chapter: الفصل الأخير
+  Next Chapter: الفصل التالي
+  Decrease Video Speed: تقليل سرعة الفيديو بناء على الفاصل الزمني لمعدل تشغيل الفيديو
+  Restart Window: إعادة تشغيل النافذة
+  Increase Video Speed: زيادة سرعة الفيديو استنادا إلى الفاصل الزمني لمعدل تشغيل الفيديو
+  Full Window: تبديل النافذة الكاملة
+  Theatre Mode: تبديل وضع المسرح
+  Take Screenshot: أخذ لقطة شاشة
+  History Forward: انتقل إلى الأمام صفحة واحدة
+  New Window: إنشاء نافذة جديدة
+  Navigate to Settings: انتقل إلى صفحة الإعدادات
+  Captions: تبديل التسميات التوضيحية مفعل/معطل
+  Large Fast Forward: إلى الأمام 10 ثوان / فيديو سريع إلى الأمام استنادا إلى معدل
+    تشغيل الفيديو الحالي
+  Fullscreen: تبديل ملء الشاشة
+  Stats: إظهار إحصائيات الفيديو
+  Picture in Picture: تبديل وضع الصورة داخل الصورة
+  Large Rewind: الترجيع 10 ثوان / الترجيع الفيديو استنادا إلى معدل تشغيل الفيديو الحالي
+  Play: تبديل التشغيل/الإيقاف المؤقت
+Keys:
+  arrowright: ‫ السهم الأيمن
+  enter: Enter
+  plus: Plus
+  arrowup: السهم لأعلى
+  ctrl: Ctrl
+  alt: Alt
+  shift: Shift
+  arrowdown: السهم لأسفل
+  arrowleft: السهم الأيسر
+Description:
+  Collapse Description: إظهار أقل
+  Expand Description: '...المزيد'
+Autoplay Interruption Timer: تم إلغاء التشغيل التلقائي بسبب {autoplayInterruptionIntervalHours}
+  ساعات من عدم النشاط
+shortcutJoinOperator: +
+shortcutLabelSeparator: '|'
+KeyboardShortcutTemplate: '{label} ({shortcut})'

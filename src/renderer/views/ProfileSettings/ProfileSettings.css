@@ -12,14 +12,14 @@ h2 {
   margin-inline: auto;
 }
 
-.profileList > .openedProfile {
+.openedProfile {
   background-color: var(--primary-text-color);
   transition: background 0.2s ease-out;
   color: var(--card-bg-color);
 }
 
-.profileList > .openedProfile:hover,
-.profileList > .openedProfile:focus-visible {
+.openedProfile:hover,
+.openedProfile:focus-visible {
   background-color: var(--tertiary-text-color);
   transition: background 0.2s ease-in;
 }

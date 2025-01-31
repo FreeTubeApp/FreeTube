@@ -26,4 +26,5 @@ export const settings = new Datastore({ filename: dbPath('settings'), autoload: 
 export const profiles = new Datastore({ filename: dbPath('profiles'), autoload: true })
 export const playlists = new Datastore({ filename: dbPath('playlists'), autoload: true })
 export const history = new Datastore({ filename: dbPath('history'), autoload: true })
+export const searchHistory = new Datastore({ filename: dbPath('search-history'), autoload: true })
 export const subscriptionCache = new Datastore({ filename: dbPath('subscription-cache'), autoload: true })

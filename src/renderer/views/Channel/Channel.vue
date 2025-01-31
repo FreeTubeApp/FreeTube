@@ -17,9 +17,10 @@
       :is-subscribed="isSubscribed"
       :visible-tabs="tabInfoValues"
       :current-tab="currentTab"
+      :query="lastSearchQuery"
       class="card channelDetails"
       @change-tab="changeTab"
-      @search="newSearch"
+      @search="newSearchWithStatePersist"
       @subscribed="handleSubscription"
     />
     <ft-card
@@ -44,7 +45,7 @@
           :value="videoSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
-          :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :placeholder="$t('Global.Sort By')"
           :icon="getIconForSortPreference(videoSortBy)"
           @change="videoSortBy = $event"
         />
@@ -54,7 +55,7 @@
           :value="shortSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
-          :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :placeholder="$t('Global.Sort By')"
           :icon="getIconForSortPreference(shortSortBy)"
           @change="shortSortBy = $event"
         />
@@ -64,7 +65,7 @@
           :value="liveSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
-          :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :placeholder="$t('Global.Sort By')"
           :icon="getIconForSortPreference(liveSortBy)"
           @change="liveSortBy = $event"
         />
@@ -74,18 +75,25 @@
           :value="playlistSortBy"
           :select-names="playlistSelectNames"
           :select-values="playlistSelectValues"
-          :placeholder="$t('Search Filters.Sort By.Sort By')"
+          :placeholder="$t('Global.Sort By')"
           :icon="getIconForSortPreference(playlistSortBy)"
           @change="playlistSortBy = $event"
         />
       </div>
       <ft-loader
-        v-if="isElementListLoading"
+        v-if="isCurrentTabLoading"
       />
       <div
         v-if="currentTab !== 'about' && !isElementListLoading"
         class="elementList"
       >
+        <ChannelHome
+          v-show="currentTab === 'home'"
+          id="homePanel"
+          :shelves="homeData"
+          role="tabpanel"
+          aria-labelledby="homeTab"
+        />
         <ft-element-list
           v-show="currentTab === 'videos'"
           id="videoPanel"
@@ -200,7 +208,7 @@
           :use-channels-hidden-preference="false"
         />
         <ft-flex-box
-          v-if="currentTab === 'search' && searchResults.length === 0"
+          v-if="currentTab === 'search' && !isSearchTabLoading && searchResults.length === 0"
         >
           <p class="message">
             {{ $t("Channel.Your search results have returned 0 results") }}

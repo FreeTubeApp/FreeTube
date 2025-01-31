@@ -1,6 +1,5 @@
 import { defineComponent, nextTick } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
-import debounce from 'lodash.debounce'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
@@ -16,9 +15,9 @@ import {
   parseLocalPlaylistVideo,
 } from '../../helpers/api/local'
 import {
+  debounce,
   extractNumberFromString,
   getIconForSortPreference,
-  setPublishedTimestampsInvidious,
   showToast,
   deepCopy,
 } from '../../helpers/utils'
@@ -26,6 +25,7 @@ import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../help
 import { getSortedPlaylistItems, videoDurationPresent, videoDurationWithFallback, SORT_BY_VALUES } from '../../helpers/playlists'
 import packageDetails from '../../../../package.json'
 import { MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
+import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 
 export default defineComponent({
   name: 'Playlist',
@@ -72,7 +72,7 @@ export default defineComponent({
       userPlaylistVisibleLimit: 100,
       continuationData: null,
       isLoadingMore: false,
-      getPlaylistInfoDebounce: function() {},
+      getPlaylistInfoDebounce: function () { },
       playlistInEditMode: false,
       forceListView: false,
       alreadyShownNotice: false,
@@ -80,6 +80,9 @@ export default defineComponent({
       videoSearchQuery: '',
 
       promptOpen: false,
+      deletedVideoIds: [],
+      deletedPlaylistItemIds: [],
+      isUndoToast: false
     }
   },
   computed: {
@@ -101,7 +104,7 @@ export default defineComponent({
     currentLocale: function () {
       return this.$i18n.locale
     },
-    playlistId: function() {
+    playlistId: function () {
       return this.$route.params.id
     },
     listType: function () {
@@ -126,7 +129,7 @@ export default defineComponent({
         return []
       }
     },
-    selectedUserPlaylistVideoCount: function() {
+    selectedUserPlaylistVideoCount: function () {
       return this.selectedUserPlaylistVideos.length
     },
 
@@ -215,6 +218,10 @@ export default defineComponent({
             return this.$t('Playlist.Sort By.DateAddedNewest')
           case SORT_BY_VALUES.DateAddedOldest:
             return this.$t('Playlist.Sort By.DateAddedOldest')
+          case SORT_BY_VALUES.PublishedNewest:
+            return this.$t('Playlist.Sort By.PublishedNewest')
+          case SORT_BY_VALUES.PublishedOldest:
+            return this.$t('Playlist.Sort By.PublishedOldest')
           case SORT_BY_VALUES.VideoTitleAscending:
             return this.$t('Playlist.Sort By.VideoTitleAscending')
           case SORT_BY_VALUES.VideoTitleDescending:
@@ -238,25 +245,25 @@ export default defineComponent({
     },
   },
   watch: {
-    $route () {
+    $route() {
       // react to route changes...
       this.getPlaylistInfoDebounce()
     },
-    userPlaylistsReady () {
+    userPlaylistsReady() {
       // Fetch from local store when playlist data ready
       if (!this.isUserPlaylistRequested) { return }
 
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylist () {
+    selectedUserPlaylist() {
       // Fetch from local store when current user playlist changed
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylistLastUpdatedAt () {
+    selectedUserPlaylistLastUpdatedAt() {
       // Re-fetch from local store when current user playlist updated
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylistVideoCount () {
+    selectedUserPlaylistVideoCount() {
       // Monitoring `selectedUserPlaylistVideos` makes this function called
       // Even when the same array object is returned
       // So length is monitored instead
@@ -270,7 +277,7 @@ export default defineComponent({
     this.getPlaylistInfoDebounce = debounce(this.getPlaylistInfo, 100)
 
     if (this.isUserPlaylistRequested && this.searchQueryTextPresent) {
-      this.videoSearchQuery = this.searchQueryTextRequested
+      this.handleVideoSearchQueryChange(this.searchQueryTextRequested)
     }
   },
   mounted: function () {
@@ -312,10 +319,13 @@ export default defineComponent({
         if (result.info.author) {
           channelName = result.info.author.name
         } else {
-          const subtitle = result.info.subtitle.toString()
-
-          const index = subtitle.lastIndexOf('•')
-          channelName = subtitle.substring(0, index).trim()
+          const subtitle = result.info.subtitle?.toString()
+          if (subtitle) {
+            const index = subtitle.lastIndexOf('•')
+            channelName = subtitle.substring(0, index).trim()
+          } else {
+            channelName = ''
+          }
         }
 
         const playlistItems = result.items.map(parseLocalPlaylistVideo)
@@ -383,8 +393,6 @@ export default defineComponent({
 
         const dateString = new Date(result.updated * 1000)
         this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
-
-        setPublishedTimestampsInvidious(result.videos)
 
         this.playlistItems = result.videos
 
@@ -581,14 +589,48 @@ export default defineComponent({
 
     removeVideoFromPlaylist: function (videoId, playlistItemId) {
       try {
-        this.removeVideo({
-          _id: this.playlistId,
-          videoId: videoId,
-          playlistItemId: playlistItemId,
+        const playlistItems = [].concat(this.playlistItems)
+        const tempPlaylistItems = [].concat(this.playlistItems)
+        let isUndoClicked = false
+
+        const videoIndex = this.playlistItems.findIndex((video) => {
+          return video.videoId === videoId && video.playlistItemId === playlistItemId
         })
-        // Update playlist's `lastUpdatedAt`
-        this.updatePlaylist({ _id: this.playlistId })
-        showToast(this.$t('User Playlists.SinglePlaylistView.Toast.Video has been removed'))
+
+        if (videoIndex !== -1) {
+          this.deletedVideoIds.push(this.playlistItems[videoIndex].videoId)
+          this.deletedPlaylistItemIds.push(this.playlistItems[videoIndex].playlistItemId)
+          playlistItems.splice(videoIndex, 1)
+          this.playlistItems = playlistItems
+
+          // Only show toast when no existing toast shown
+          if (!this.isUndoToast) {
+            this.isUndoToast = true
+            showToast(
+              this.$t('User Playlists.SinglePlaylistView.Toast["Video has been removed. Click here to undo."]'),
+              5000,
+              () => {
+                this.playlistItems = tempPlaylistItems
+                isUndoClicked = true
+                this.isUndoToast = false
+                this.deletedVideoIds = []
+                this.deletedPlaylistItemIds = []
+              }
+            )
+            setTimeout(() => {
+              if (!isUndoClicked) {
+                this.removeVideos({
+                  _id: this.playlistId,
+                  videoIds: this.deletedVideoIds,
+                  playlistItemIds: this.deletedPlaylistItemIds,
+                })
+                this.deletedVideoIds = []
+                this.deletedPlaylistItemIds = []
+                this.isUndoToast = false
+              }
+            }, 5000)
+          }
+        }
       } catch (e) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with removing this video'))
         console.error(e)
@@ -602,11 +644,39 @@ export default defineComponent({
         playlistTitle,
         channelName,
       ].filter(v => v).join(' | ')
-      document.title = `${titleText} - ${packageDetails.productName}`
+      this.setAppTitle(`${titleText} - ${packageDetails.productName}`)
     },
 
     handleResize: function () {
       this.forceListView = window.innerWidth <= MOBILE_WIDTH_THRESHOLD || window.innerHeight <= PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD
+    },
+
+    handleVideoSearchQueryChange(val) {
+      this.videoSearchQuery = val
+
+      this.saveStateInRouter(val)
+    },
+
+    async saveStateInRouter(query) {
+      const routeQuery = {
+        playlistType: this.$route.query.playlistType,
+      }
+      if (query !== '') {
+        routeQuery.searchQueryText = query
+      }
+
+      try {
+        await this.$router.replace({
+          path: `/playlist/${this.playlistId}`,
+          query: routeQuery,
+        })
+      } catch (failure) {
+        if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+          return
+        }
+
+        throw failure
+      }
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),
@@ -615,10 +685,11 @@ export default defineComponent({
       'updateSubscriptionDetails',
       'updatePlaylist',
       'updateUserPlaylistSortOrder',
-      'removeVideo',
+      'removeVideos',
     ]),
 
     ...mapMutations([
+      'setAppTitle',
       'setCachedPlaylist'
     ])
   }

@@ -36,6 +36,7 @@ Global:
   Live: 실시간
   Community: 커뮤니티
   Shorts: 쇼츠
+  Sort By: '정렬하기'
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   버전이 사용가능합니다! 클릭하여 자세한 정보를 확인하세요'
 Download From Site: '사이트로부터 다운로드'
@@ -48,7 +49,6 @@ Search / Go to URL: '검색 / URL로 이동'
 Search Filters:
   Search Filters: '검색필터'
   Sort By:
-    Sort By: '정렬'
     Most Relevant: '관련성'
     Rating: '평가순'
     Upload Date: '업로드일자'
@@ -83,13 +83,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '구독'
-  Latest Subscriptions: '최근 구독'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: '이
     프로필에는 많은 구독이 있습니다. RSS가 속도 제한을 피하도록 강요합니다'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '구독한
     채널이 없습니다. 구독 피드를 보려면 원하시는 채널을 구독하세요'
-  'Getting Subscriptions. Please wait.': '구독 목록을 가져오는 중입니다. 잠시만 기다려 주세요.'
-  Refresh Subscriptions: '구독 피드 새로 고침'
   Load More Videos: '더 많은 동영상 불러오기'
   Error Channels: 오류가 있는 채널
   Disabled Automatic Fetching: 자동 구독 정보 수집이 비활성화 되어 있습니다. 구독을 새로고침해주세요.
@@ -240,7 +237,6 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Playlist Next Video Interval: 재생 목록 다음 비디오 간격
     Fast-Forward / Rewind Interval: 빨리 감기/되감기 간격
     Next Video Interval: 다음 비디오 재생 간격
     Scroll Volume Over Video Player: 플레이어 위로 스크롤하여 볼륨조정
@@ -260,8 +256,7 @@ Settings:
       Quality Label: 스크린샷 품질
       File Name Label: 파일 이름 패턴
       File Name Tooltip: 아래 변수를 사용할 수 있습니다. %Y 년 4자리. %M 월 2자리. %D 일 2자리. %H 시간 2자리.
-        %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID. "\" 또는
-        "/" 를 사용하여 하위 폴더를 만들 수도 있습니다.
+        %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID.
     Skip by Scrolling Over Video Player: 비디오 플레이어를 스크롤하여 건너뛰기
     Enter Fullscreen on Display Rotate: 화면 회전 시 전체화면 활성화하기
   Privacy Settings:
@@ -305,7 +300,6 @@ Settings:
     Hide Channels Placeholder: 채널 이름이나 ID를 입력하세요
   Data Settings:
     Data Settings: '데이터 설정'
-    Select Import Type: '가져오기 유형 선택'
     Select Export Type: '내보내기 유형 선택'
     Import Subscriptions: '구독 목록 가져오기'
     Export Subscriptions: '구독 목록 내보내기'
@@ -388,10 +382,8 @@ Settings:
     Hide Search Bar: 검색 막대 숨기기
     Show Family Friendly Only: 가족 친목만 표시
   Password Dialog:
-    Password Incorrect: 비밀번호가 일치하지 않습니다
     Password: 비밀번호
     Enter Password To Unlock: 설정을 활성화하기 위해서 비밀번호를 입력하세요
-    Unlock: 활성화
   Experimental Settings:
     Experimental Settings: 실험적 기능 설정
     Warning: 본 설정들은 실험적 기능이며, 활성화 되었을 때 충돌을 유발할 수 있습니다. 백업을 하는 것을 강력히 권장합니다. 모든 책임은
@@ -443,7 +435,6 @@ Profile:
   Delete Profile: '프로필 삭제'
   Are you sure you want to delete this profile?: '이 프로필을 삭제하시겠습니까?'
   All subscriptions will also be deleted.: '모든 구독도 삭제됩니다.'
-  Profile could not be found: '프로필을 찾을 수 없습니다'
   Your profile name cannot be empty: '프로필 이름은 비워 둘 수 없습니다'
   Profile has been created: '프로필이 생성되었습니다'
   Profile has been updated: '프로필이 업데이트되었습니다'
@@ -476,7 +467,6 @@ Channel:
   Added channel to your subscriptions: '구독에 채널을 추가했습니다'
   Search Channel: '채널 검색'
   Your search results have returned 0 results: '0 건이 검색되었습니다'
-  Sort By: '정렬하기'
   Videos:
     Videos: '비디오'
     This channel does not currently have any videos: '이 채널에는 현재 비디오가 없습니다'
@@ -525,7 +515,6 @@ Video:
   Live Chat: '라이브 채팅'
   Enable Live Chat: '라이브 채팅 활성화'
   Live Chat is currently not supported in this build.: '라이브 채팅은 현재 이 빌드에서 지원되지 않습니다.'
-  'Chat is disabled or the Live Stream has ended.': '채팅이 비활성화되었거나 라이브 스트림이 종료되었습니다.'
   Live chat is enabled. Chat messages will appear here once sent.: '라이브 채팅이 활성화되었습니다.   채팅
     메시지가 전송되면 여기에 표시됩니다.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '라이브
@@ -534,44 +523,14 @@ Video:
   video only: '비디오만'
   audio only: '오디오만'
   Published:
-    Jan: '1월'
-    Feb: '2월'
-    Mar: '3월'
-    Apr: '4월'
-    May: '5월'
-    Jun: '6월'
-    Jul: '7월'
-    Aug: '8월'
-    Sep: '9월'
-    Oct: '10월'
-    Nov: '11월'
-    Dec: '12월'
-    Second: '초'
-    Seconds: '초'
-    Minute: '분'
-    Minutes: '분'
-    Hour: '시'
-    Hours: '시'
-    Day: '일'
-    Days: '일'
-    Week: '주'
-    Weeks: '주'
-    Month: '월'
-    Months: '월'
-    Year: '년'
-    Years: '년'
-    Ago: '전에'
-    Upcoming: '초연일'
     In less than a minute: 1분 이내에
   Published on: '게시일'
   Streamed on: '스트리밍됨'
   Started streaming on: '스트리밍 시작'
-  Publicationtemplate: '{number} {unit} 전'
 #& Videos
   Video has been saved: 동영상이 저장되었습니다
   Video has been removed from your saved list: 저장된 목록에서 동영상이 제거되었습니다
   Save Video: 비디오 저장
-  Premieres on: 개봉일
   External Player:
     Unsupported Actions:
       opening specific video in a playlist (falling back to opening the video): 재생
@@ -600,12 +559,6 @@ Video:
   Upcoming: 공개 예정
   Show Super Chat Comment: 슈퍼채팅 댓글 보이기
   Scroll to Bottom: 맨 아래로 스크롤하기
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: '최신의'
-    Oldest: '오래된'
-    #& Most Popular
 #& Playlists
 Playlist:
   #& About
@@ -646,9 +599,7 @@ Comments:
   Click to View Comments: '댓글을 보려면 클릭하세요'
   Getting comment replies, please wait: '댓글의 답글을 받는 중입니다. 잠시만 기다려 주세요'
   There are no more comments for this video: '이 영상에 대한 댓글이 더 이상 없습니다'
-  Show Comments: '댓글 보기'
   Hide Comments: '댓글 숨기기'
-  Sort by: '정렬 기준'
   Top comments: '인기 댓글'
   Newest first: '최신 우선'
   # Context: View 10 Replies, View 1 Reply
@@ -658,7 +609,6 @@ Comments:
   Reply: '회신'
   There are no comments available for this video: '이 영상에 대한 댓글이 없습니다'
   Load More Comments: '더 많은 댓글 불러오기'
-  No more comments available: '더 이상 사용할 수 있는 댓글이 없습니다'
   Show More Replies: 더 많은 답글 보기
   From {channelName}: '{channelName}에서'
   Pinned by: 고정된 댓글

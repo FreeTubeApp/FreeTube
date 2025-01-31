@@ -13,24 +13,32 @@
         @click="toggleSideNav"
         @keydown.enter.prevent="toggleSideNav"
       />
-      <font-awesome-icon
-        :aria-disabled="isArrowBackwardDisabled"
-        class="navIcon"
-        :class="{ arrowBackwardDisabled: isArrowBackwardDisabled}"
+      <ft-icon-button
+        class="navIconButton"
+        :disabled="isArrowBackwardDisabled"
+        :class="{ arrowDisabled: isArrowBackwardDisabled }"
         :icon="['fas', 'arrow-left']"
-        role="button"
-        tabindex="0"
+        :theme="null"
+        :size="20"
+        :use-shadow="false"
+        dropdown-position-x="right"
+        :dropdown-options="navigationHistoryDropdownOptions"
+        :open-on-right-or-long-click="true"
         :title="backwardText"
         @click="historyBack"
         @keydown.enter.prevent="historyBack"
       />
-      <font-awesome-icon
-        :aria-disabled="isArrowForwardDisabled"
-        class="navIcon"
-        :class="{ arrowForwardDisabled: isArrowForwardDisabled}"
+      <ft-icon-button
+        class="navIconButton"
+        :disabled="isArrowForwardDisabled"
+        :class="{ arrowDisabled: isArrowForwardDisabled }"
         :icon="['fas', 'arrow-right']"
-        role="button"
-        tabindex="0"
+        :theme="null"
+        :size="20"
+        :use-shadow="false"
+        dropdown-position-x="right"
+        :dropdown-options="navigationHistoryDropdownOptions"
+        :open-on-right-or-long-click="true"
         :title="forwardText"
         @click="historyForward"
         @keydown.enter.prevent="historyForward"
@@ -76,7 +84,6 @@
       <div
         v-if="!hideSearchBar"
         v-show="showSearchContainer"
-        ref="searchContainer"
         class="searchContainer"
       >
         <ft-input
@@ -84,11 +91,14 @@
           :placeholder="$t('Search / Go to URL')"
           class="searchInput"
           :is-search="true"
-          :data-list="searchSuggestionsDataList"
-          :spellcheck="false"
+          :data-list="activeDataList"
+          :data-list-properties="activeDataListProperties"
           :show-clear-text-button="true"
+          :show-data-when-empty="true"
           @input="getSearchSuggestionsDebounce"
           @click="goToSearch"
+          @clear="() => lastSuggestionQuery = ''"
+          @remove="removeSearchHistoryEntryInDbAndCache"
         />
         <font-awesome-icon
           class="navFilterIcon navIcon"

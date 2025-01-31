@@ -1,6 +1,8 @@
 export const SORT_BY_VALUES = {
   DateAddedNewest: 'date_added_descending',
   DateAddedOldest: 'date_added_ascending',
+  PublishedNewest: 'published_descending',
+  PublishedOldest: 'published_ascending',
   AuthorAscending: 'author_ascending',
   AuthorDescending: 'author_descending',
   VideoTitleAscending: 'video_title_ascending',
@@ -48,12 +50,21 @@ export function videoDurationWithFallback(video) {
   return 0
 }
 
+function publishedWithFallback(video) {
+  const published = video.published
+  return typeof published === 'number' && !isNaN(published) && published !== 0 ? published : 0
+}
+
 function compareTwoPlaylistItems(a, b, sortOrder, collator) {
   switch (sortOrder) {
     case SORT_BY_VALUES.DateAddedNewest:
       return b.timeAdded - a.timeAdded
     case SORT_BY_VALUES.DateAddedOldest:
       return a.timeAdded - b.timeAdded
+    case SORT_BY_VALUES.PublishedNewest:
+      return publishedWithFallback(b) - publishedWithFallback(a)
+    case SORT_BY_VALUES.PublishedOldest:
+      return publishedWithFallback(a) - publishedWithFallback(b)
     case SORT_BY_VALUES.VideoTitleAscending:
       return collator.compare(a.title, b.title)
     case SORT_BY_VALUES.VideoTitleDescending:

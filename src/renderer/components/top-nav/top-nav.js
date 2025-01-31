@@ -1,18 +1,19 @@
 import { defineComponent } from 'vue'
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 import FtInput from '../ft-input/ft-input.vue'
 import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
-import debounce from 'lodash.debounce'
+import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 
-import { IpcChannels, MOBILE_WIDTH_THRESHOLD } from '../../../constants'
-import { openInternalPath } from '../../helpers/utils'
+import { IpcChannels, KeyboardShortcuts, MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT, MOBILE_WIDTH_THRESHOLD, SEARCH_RESULTS_DISPLAY_LIMIT } from '../../../constants'
+import { debounce, localizeAndAddKeyboardShortcutToActionTitle, openInternalPath } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
-import { invidiousAPICall } from '../../helpers/api/invidious'
+import { getInvidiousSearchSuggestions } from '../../helpers/api/invidious'
 
 export default defineComponent({
   name: 'TopNav',
   components: {
+    FtIconButton,
     FtInput,
     FtProfileSelector
   },
@@ -31,6 +32,10 @@ export default defineComponent({
       showSearchContainer: true,
       isArrowBackwardDisabled,
       isArrowForwardDisabled,
+      navigationHistoryDropdownActiveEntry: null,
+      navigationHistoryDropdownOptions: [],
+      isLoadingNavigationHistory: false,
+      pendingNavigationHistoryLabel: null,
       searchSuggestionsDataList: [],
       lastSuggestionQuery: ''
     }
@@ -86,25 +91,102 @@ export default defineComponent({
       return this.$store.getters.getSearchFilterValueChanged
     },
 
+    navigationHistoryAddendum: function () {
+      if (this.navigationHistoryDropdownOptions.length === 0) {
+        return ''
+      }
+
+      return '\n' + this.$t('Right-click or hold to see history')
+    },
+
     forwardText: function () {
-      return this.$t('Forward')
+      const shortcuts = [KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD]
+      if (process.platform === 'darwin') {
+        shortcuts.push(KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD_ALT_MAC)
+      }
+
+      return localizeAndAddKeyboardShortcutToActionTitle(
+        this.$t('Forward'),
+        shortcuts,
+      ) + this.navigationHistoryAddendum
     },
 
     backwardText: function () {
-      return this.$t('Back')
+      const shortcuts = [KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD]
+      if (process.platform === 'darwin') {
+        shortcuts.push(KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD_ALT_MAC)
+      }
+
+      return localizeAndAddKeyboardShortcutToActionTitle(
+        this.$t('Back'),
+        shortcuts,
+      ) + this.navigationHistoryAddendum
     },
 
     newWindowText: function () {
-      return this.$t('Open New Window')
-    }
+      return localizeAndAddKeyboardShortcutToActionTitle(
+        this.$t('Open New Window'),
+        KeyboardShortcuts.APP.GENERAL.NEW_WINDOW
+      )
+    },
+
+    usingOnlySearchHistoryResults: function () {
+      return this.lastSuggestionQuery === ''
+    },
+
+    latestMatchingSearchHistoryNames: function () {
+      return this.$store.getters.getLatestMatchingSearchHistoryNames(this.lastSuggestionQuery)
+        .slice(0, MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT)
+    },
+
+    latestSearchHistoryNames: function () {
+      return this.$store.getters.getLatestSearchHistoryNames
+    },
+
+    activeDataList: function () {
+      // show latest search history when the search bar is empty
+      if (this.usingOnlySearchHistoryResults) {
+        return this.$store.getters.getLatestSearchHistoryNames
+      }
+
+      const searchResults = [...this.latestMatchingSearchHistoryNames]
+
+      if (this.enableSearchSuggestions) {
+        for (const searchSuggestion of this.searchSuggestionsDataList) {
+          // prevent duplicate results between search history entries and YT search suggestions
+          if (this.latestMatchingSearchHistoryNames.includes(searchSuggestion)) {
+            continue
+          }
+
+          searchResults.push(searchSuggestion)
+
+          if (searchResults.length === SEARCH_RESULTS_DISPLAY_LIMIT) {
+            break
+          }
+        }
+      }
+
+      return searchResults
+    },
+
+    activeDataListProperties: function () {
+      const searchHistoryEntriesCount = this.usingOnlySearchHistoryResults ? this.latestSearchHistoryNames.length : this.latestMatchingSearchHistoryNames.length
+      return this.activeDataList.map((_, i) => {
+        const isSearchHistoryEntry = i < searchHistoryEntriesCount
+        return isSearchHistoryEntry
+          ? { isRemoveable: true, iconName: 'clock-rotate-left' }
+          : { isRemoveable: false, iconName: 'magnifying-glass' }
+      })
+    },
   },
   watch: {
     $route: function () {
+      this.setNavigationHistoryDropdownOptions()
       if ('navigation' in window) {
         this.isArrowForwardDisabled = !window.navigation.canGoForward
         this.isArrowBackwardDisabled = !window.navigation.canGoBack
       }
-    }
+    },
   },
   mounted: function () {
     let previousWidth = window.innerWidth
@@ -264,12 +346,15 @@ export default defineComponent({
     },
 
     getSearchSuggestionsDebounce: function (query) {
+      const trimmedQuery = query.trim()
+      if (trimmedQuery === this.lastSuggestionQuery) {
+        return
+      }
+
+      this.lastSuggestionQuery = trimmedQuery
+
       if (this.enableSearchSuggestions) {
-        const trimmedQuery = query.trim()
-        if (trimmedQuery !== this.lastSuggestionQuery) {
-          this.lastSuggestionQuery = trimmedQuery
-          this.debounceSearchResults(trimmedQuery)
-        }
+        this.debounceSearchResults(trimmedQuery)
       }
     },
 
@@ -301,15 +386,7 @@ export default defineComponent({
         return
       }
 
-      const searchPayload = {
-        resource: 'search/suggestions',
-        id: '',
-        params: {
-          q: query
-        }
-      }
-
-      invidiousAPICall(searchPayload).then((results) => {
+      getInvidiousSearchSuggestions(query).then((results) => {
         this.searchSuggestionsDataList = results.suggestions
       }).catch((err) => {
         console.error(err)
@@ -326,12 +403,46 @@ export default defineComponent({
       this.showSearchContainer = !this.showSearchContainer
     },
 
-    historyBack: function () {
-      this.$router.back()
+    setNavigationHistoryDropdownOptions: async function() {
+      if (process.env.IS_ELECTRON) {
+        this.isLoadingNavigationHistory = true
+        const { ipcRenderer } = require('electron')
+
+        const dropdownOptions = await ipcRenderer.invoke(IpcChannels.GET_NAVIGATION_HISTORY)
+
+        const activeEntry = dropdownOptions.find(option => option.active)
+
+        if (this.pendingNavigationHistoryLabel) {
+          activeEntry.label = this.pendingNavigationHistoryLabel
+        }
+
+        this.navigationHistoryDropdownOptions = dropdownOptions
+        this.navigationHistoryDropdownActiveEntry = activeEntry
+        this.isLoadingNavigationHistory = false
+      }
     },
 
-    historyForward: function () {
-      this.$router.forward()
+    goToOffset: function (offset) {
+      // no point navigating to the current route
+      if (offset !== 0) {
+        this.$router.go(offset)
+      }
+    },
+
+    historyBack: function (offset) {
+      if (offset != null) {
+        this.goToOffset(offset)
+      } else {
+        this.$router.back()
+      }
+    },
+
+    historyForward: function (offset) {
+      if (offset != null) {
+        this.goToOffset(offset)
+      } else {
+        this.$router.forward()
+      }
     },
 
     toggleSideNav: function () {
@@ -352,9 +463,26 @@ export default defineComponent({
     updateSearchInputText: function (text) {
       this.$refs.searchInput.updateInputData(text)
     },
+    setActiveNavigationHistoryEntryTitle(value) {
+      if (this.isLoadingNavigationHistory) {
+        this.pendingNavigationHistoryLabel = value
+      } else if (this.navigationHistoryDropdownActiveEntry) {
+        this.navigationHistoryDropdownActiveEntry.label = value
+      }
+    },
+    removeSearchHistoryEntryInDbAndCache(query) {
+      this.removeSearchHistoryEntry(query)
+      this.removeFromSessionSearchHistory(query)
+    },
+
     ...mapActions([
       'getYoutubeUrlInfo',
+      'removeSearchHistoryEntry',
       'showSearchFilters'
+    ]),
+
+    ...mapMutations([
+      'removeFromSessionSearchHistory'
     ])
   }
 })

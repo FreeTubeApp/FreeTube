@@ -37,7 +37,7 @@
         class="playlistInfo"
         @enter-edit-mode="playlistInEditMode = true"
         @exit-edit-mode="playlistInEditMode = false"
-        @search-video-query-change="(v) => videoSearchQuery = v"
+        @search-video-query-change="(v) => handleVideoSearchQueryChange(v)"
         @prompt-open="promptOpen = true"
         @prompt-close="promptOpen = false"
       />
@@ -56,7 +56,7 @@
           :value="sortOrder"
           :select-names="sortBySelectNames"
           :select-values="sortBySelectValues"
-          :placeholder="$t('Playlist.Sort By.Sort By')"
+          :placeholder="$t('Global.Sort By')"
           :icon="getIconForSortPreference(sortOrder)"
           @change="updateUserPlaylistSortOrder"
         />

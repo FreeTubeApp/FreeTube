@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
-import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
+import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtSelect from '../ft-select/ft-select.vue'
@@ -8,10 +8,8 @@ import FtInput from '../ft-input/ft-input.vue'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 
-import debounce from 'lodash.debounce'
-
 import { IpcChannels } from '../../../constants'
-import { showToast } from '../../helpers/utils'
+import { debounce, showToast } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'ProxySettings',

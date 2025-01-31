@@ -5,9 +5,6 @@
     :inert="showingCreatePlaylistPrompt"
     @click="hide"
   >
-    <h2 class="heading">
-      {{ title }}
-    </h2>
     <p class="selected-count">
       {{ $tc('User Playlists.AddVideoPrompt.N playlists selected', selectedPlaylistCount, {
         playlistCount: selectedPlaylistCount,
@@ -54,7 +51,7 @@
         :value="sortBy"
         :select-names="sortBySelectNames"
         :select-values="sortBySelectValues"
-        :placeholder="$t('User Playlists.Sort By.Sort By')"
+        :placeholder="$t('Global.Sort By')"
         :icon="getIconForSortPreference(sortBy)"
         @change="sortBy = $event"
       />

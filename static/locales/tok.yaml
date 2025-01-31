@@ -21,16 +21,16 @@ Actual size: 'suli lon'
 Zoom in: 'lukin suli'
 Zoom out: 'lukin lili'
 Toggle fullscreen: 'ante e sitelin suli'
-Window: 'sitelin'
+Window: 'lupa'
 Minimize: 'kama lili'
 Close: 'pini'
 Back: 'tawa monsi'
 Forward: 'tawa sinpin'
-Open New Window: 'open lon sitelin sin'
+Open New Window: 'open lon lupa sin'
 
 Version {versionNumber} is now available!  Click for more details: 'ilo pi nanpa {versionNumber}
-  li lon! open la, sina ken sona mute.'
-Download From Site: 'poki e sitelin ni'
+  li lon! open la, sina ken sona mute'
+Download From Site: 'kama jo tan lipu'
 A new blog is now available, {blogTitle}. Click to view more: 'lipu sin li lon. ona
   li {blogTitle}. open la, sina ken lukin mute.'
 Are you sure you want to open this link?: 'sina wile ala wile open e ni?'
@@ -43,16 +43,59 @@ Search Bar:
 Search Filters:
   Search Filters: 'alasa kepeken nasin'
   Sort By:
-    Sort By: 'nasin li seme?'
     Most Relevant: 'sama e wile sina'
     Rating: 'pona'
+  Duration:
+    All Durations: tenpo ali
+    Duration: tenpo
+  Features:
+    Live: tenpo ni
+    3D: 3D
+    4K: 4K
+    HD: HD
+    HDR: HDR
+    VR180: VR180
+  Time:
+    Any Time: tenpo ali
+    Time: tenpo
 Settings:
   # On Settings Page
   General Settings: {}
   Theme Settings: {}
   Player Settings:
     Screenshot: {}
+    Default Quality:
+      4k: 4K
   SponsorBlock Settings: {}
 Video:
   External Player: {}
+  Live: tenpo ni
 Tooltips: {}
+Global:
+  Community: kulupu
+  Videos: sitelen tawa
+  Shorts: lili
+  Live: tenpo ni
+  Sort By: 'nasin li seme?'
+  Counts:
+    Video Count: 1 sitelen tawa | {count} sitelen tawa
+    Subscriber Count: 1 jan li kama jo | {count} jan li kama jo
+    View Count: 1 lukin | {count} lukin
+    Watching Count: 1 jan li lukin | {count} jan li lukin
+    Channel Count: 1 toki nasin | {count} toki nasin
+    Like Count: 1 musi | {count} musi
+    Comment Count: 1 toki | {count} toki
+Close Banner: pini e sitelen esun
+New Window: lupa sin
+Preferences: wile
+Go to page: tawa lipu
+Search Listing:
+  Label:
+    New: sin
+    4K: 4K
+    8K: 8K
+    360 Video: 360°
+Channel:
+  Live:
+    Live: tenpo ni
+More: mute

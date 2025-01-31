@@ -93,7 +93,7 @@ const actions = {
     payload.lastUpdatedAt = Date.now()
     // Ensure all videos has required attributes
 
-    const currentTime = new Date().getTime()
+    const currentTime = Date.now()
 
     if (Array.isArray(payload.videos)) {
       payload.videos.forEach(videoData => {
@@ -173,7 +173,7 @@ const actions = {
     try {
       const { _id, videoData } = payload
       if (videoData.timeAdded == null) {
-        videoData.timeAdded = new Date().getTime()
+        videoData.timeAdded = Date.now()
       }
       if (videoData.playlistItemId == null) {
         videoData.playlistItemId = generateRandomUniqueId()
@@ -195,7 +195,7 @@ const actions = {
     try {
       const { _id, videos } = payload
 
-      const currentTime = new Date().getTime()
+      const currentTime = Date.now()
 
       const newVideoObjects = videos.map((video) => {
         // Create a new object to prevent changing existing values outside
@@ -210,7 +210,11 @@ const actions = {
         }
         // Undesired attributes, even with `null` values
         [
+          'authorUrl',
           'description',
+          'index',
+          'liveNow',
+          'videoThumbnails',
           'viewCount',
         ].forEach(attrName => {
           if (typeof videoData[attrName] !== 'undefined') {
@@ -237,7 +241,7 @@ const actions = {
         })
       } else {
         const dateNow = Date.now()
-        const currentTime = new Date().getTime()
+        const currentTime = Date.now()
 
         payload.forEach((playlist) => {
           let anythingUpdated = false
@@ -404,7 +408,7 @@ const actions = {
   async removeVideo({ commit }, payload) {
     try {
       const { _id, videoId, playlistItemId } = payload
-      await DBPlaylistHandlers.deleteVideoIdByPlaylistId({ _id, videoId, playlistItemId })
+      await DBPlaylistHandlers.deleteVideoIdByPlaylistId(_id, videoId, playlistItemId)
       commit('removeVideo', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -413,8 +417,8 @@ const actions = {
 
   async removeVideos({ commit }, payload) {
     try {
-      const { _id, videoIds } = payload
-      await DBPlaylistHandlers.deleteVideoIdsByPlaylistId(_id, videoIds)
+      const { _id, playlistItemIds } = payload
+      await DBPlaylistHandlers.deleteVideoIdsByPlaylistId(_id, playlistItemIds)
       commit('removeVideos', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -480,10 +484,13 @@ const mutations = {
     }
   },
 
-  removeVideos(state, { _id, videoId }) {
+  removeVideos(state, { _id, playlistItemIds }) {
     const playlist = state.playlists.find(playlist => playlist._id === _id)
     if (playlist) {
-      playlist.videos = playlist.videos.filter(video => videoId.indexOf(video) === -1)
+      playlist.videos = playlist.videos.filter(video => {
+        const playlistItemIdMatches = playlistItemIds.includes(video.playlistItemId)
+        return !playlistItemIdMatches
+      })
     }
   },
 

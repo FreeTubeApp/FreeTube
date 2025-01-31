@@ -3,6 +3,17 @@
     :title="$t('Settings.Proxy Settings.Proxy Settings')"
   >
     <ft-flex-box class="settingsFlexStart500px">
+      <p
+        v-if="useProxy"
+        class="proxy-warning"
+      >
+        <font-awesome-icon
+          :icon="['fas', 'circle-exclamation']"
+          class="warning-icon"
+          fixed-width
+        />
+        {{ $t('Settings.Proxy Settings.Proxy Warning') }}
+      </p>
       <ft-toggle-switch
         :label="$t('Settings.Proxy Settings.Enable Tor / Proxy')"
         :default-value="useProxy"

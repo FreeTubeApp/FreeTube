@@ -7,7 +7,9 @@
       forceTextColor: forceTextColor,
       showActionButton: showActionButton,
       showClearTextButton: showClearTextButton,
-      clearTextButtonVisible: inputDataPresent,
+      clearTextButtonVisible: inputDataPresent || showOptions,
+      inputDataPresent: inputDataPresent,
+      showOptions: showOptions,
       disabled: disabled
     }"
   >
@@ -29,7 +31,7 @@
       :icon="['fas', 'times-circle']"
       class="clearInputTextButton"
       :class="{
-        visible: inputDataPresent
+        visible: inputDataPresent || showOptions
       }"
       tabindex="0"
       role="button"
@@ -43,13 +45,12 @@
         :id="id"
         ref="input"
         :value="inputDataDisplayed"
-        :list="idDataList"
         class="ft-input"
         :maxlength="maxlength"
         :type="inputType"
         :placeholder="placeholder"
         :disabled="disabled"
-        :spellcheck="spellcheck"
+        :spellcheck="false"
         :aria-label="!showLabel ? placeholder : null"
         @input="e => handleInput(e.target.value)"
         @focus="handleFocus"
@@ -69,22 +70,39 @@
     </span>
     <div class="options">
       <ul
-        v-if="inputData !== '' && visibleDataList.length > 0 && searchState.showOptions"
-        :id="idDataList"
+        v-if="showOptions"
         class="list"
         @mouseenter="searchState.isPointerInList = true"
         @mouseleave="searchState.isPointerInList = false"
       >
         <!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
         <li
-          v-for="(list, index) in visibleDataList"
+          v-for="(entry, index) in visibleDataList"
           :key="index"
-          :class="searchState.selectedOption === index ? 'hover': ''"
+          :class="{ hover: searchState.selectedOption === index }"
           @click="handleOptionClick(index)"
           @mouseenter="searchState.selectedOption = index"
-          @mouseleave="searchState.selectedOption = -1"
+          @mouseleave="searchState.selectedOption = -1; removeButtonSelectedIndex = -1"
         >
-          {{ list }}
+          <div>
+            <font-awesome-icon
+              v-if="dataListProperties[index]?.iconName"
+              :icon="['fas', dataListProperties[index].iconName]"
+              class="searchResultIcon"
+            />
+            <span>{{ entry }}</span>
+          </div>
+          <a
+            v-if="dataListProperties[index]?.isRemoveable"
+            class="removeButton"
+            :class="{ removeButtonSelected: removeButtonSelectedIndex === index}"
+            role="button"
+            :aria-label="$t('Search Bar.Remove')"
+            href="javascript:void(0)"
+            @click.prevent.stop="handleRemoveClick(index)"
+          >
+            {{ $t('Search Bar.Remove') }}
+          </a>
         </li>
         <!-- skipped -->
       </ul>

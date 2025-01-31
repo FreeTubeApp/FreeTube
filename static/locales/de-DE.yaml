@@ -34,6 +34,7 @@ Global:
   Shorts: Kurzvideos
   Live: Live
   Community: Gemeinschaft
+  Sort By: Sortieren nach
 
 # Search Bar
   Counts:
@@ -44,14 +45,11 @@ Global:
     Watching Count: 1 Zuschauer | {count} Zuschauer
     Comment Count: 1 Kommentar | {count} Kommentare
     Like Count: 1 Gefällt mir | {count} Gefällt mir
-  Input Tags:
-    Length Requirement: Der Tag muss mindestens {number} Zeichen lang sein
 Search / Go to URL: Suche / Gehe zur URL
   # In Filter Button
 Search Filters:
   Search Filters: Suchfilter
   Sort By:
-    Sort By: Sortieren nach
     Most Relevant: Am relevantesten
     Rating: Bewertung
     Upload Date: Hochladedatum
@@ -99,14 +97,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Abos
-  Latest Subscriptions: Neueste Abos
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Ihre
     Aboliste ist derzeit leer. Wenn Sie Ihre Abos importieren möchten, können Sie
     zu den Dateneinstellungen gehen und "Abos importieren" wählen oder Sie können
     nach einem Kanal suchen und ihn abonnieren.
-  'Getting Subscriptions.  Please wait.': Rufe Abonnements ab. Bitte warten.
-  Refresh Subscriptions: Abos aktualisieren
-  Getting Subscriptions. Please wait.: Abos werden geladen. Bitte warten.
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dieses
     Profil hat eine große Anzahl von Abos.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen
     erzwingen
@@ -155,7 +149,6 @@ User Playlists:
     dass du diese Wiedergabeliste löschen möchtest? Dies kann nicht rückgängig gemacht
     werden.
   Sort By:
-    Sort By: Sortieren nach
     NameAscending: A-Z
     NameDescending: Z-A
     LatestCreatedFirst: Kürzlich erstellt
@@ -196,13 +189,13 @@ User Playlists:
         Klicke hier zum zurücksetzen
       Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} wird
         wieder für Schnelles Merken genutzt'
-      Playlist {playlistName} is the new quick bookmark playlist.: Wiedergabeliste
-        {playlistName} ist die neue Wiedergabeliste für schnelle Lesezeichen.
       This playlist is already being used for quick bookmark.: Diese Wiedergabeliste
         wird bereits für schnelle Lesezeichen verwendet.
       This playlist has a video with a duration error: Diese Wiedergabeliste enthält
         mindestens ein Video ohne Dauer. Daher wird die Wiedergabeliste so sortiert,
         als ob die Dauer null wäre.
+      Video has been removed. Click here to undo.: Video wurde entfernt. Klicke hier,
+        um das Entfernen rückgängig zu machen.
     Search for Videos: Nach Videos suchen
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
@@ -256,6 +249,9 @@ User Playlists:
     möchten? Dies kann nicht rückgängig gemacht werden. | Sind Sie sicher, dass Sie
     {playlistItemCount} angesehene Videos aus dieser Wiedergabeliste entfernen möchten?
     Dies kann nicht rückgängig gemacht werden.
+  Export Playlist: Diese Wiedergabeliste exportieren
+  The playlist has been successfully exported: Die Wiedergabeliste wurde erfolgreich
+    exportiert
 History:
   # On History Page
   History: Verlauf
@@ -269,8 +265,8 @@ Settings:
   Settings: Einstellungen
   General Settings:
     General Settings: Allgemein
-    Fallback to Non-Preferred Backend on Failure: Falle zu nicht-präferiertem System
-      bei Fehlschlag zurück
+    Fallback to Non-Preferred Backend on Failure: Bei Ausfall auf nicht bevorzugtes
+      Backend zurückgreifen
     Enable Search Suggestions: Suchvorschläge aktivieren
     Default Landing Page: Standard Startseite
 
@@ -293,7 +289,7 @@ Settings:
       Blur: Unschärfe
     Region for Trending: Region für Trends
         #! List countries
-    Check for Latest Blog Posts: Nach aktuellsten Blogeinträgen suchen
+    Check for Latest Blog Posts: Nach neuesten Blogeinträgen suchen
     Check for Updates: Auf Aktualisierungen prüfen
     View all Invidious instance information: Alle Informationen zur Invidious-Instanz
       anzeigen
@@ -314,6 +310,8 @@ Settings:
     Auto Load Next Page:
       Label: Nächste Seite automatisch laden
       Tooltip: Zusätzliche Seiten und Kommentare automatisch laden.
+    Open Deep Links In New Window: An FreeTube übergebene URLs in einem neuen Fenster
+      öffnen
   Theme Settings:
     Theme Settings: Farbschema
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -330,6 +328,9 @@ Settings:
       Nordic: Nordic
       Solarized Dark: Solarisiert Dunkel
       Solarized Light: Solarisiert Hell
+      Gruvbox Light: Gruvbox Hell
+      Gruvbox Dark: Gruvbox Dunkel
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -377,6 +378,30 @@ Settings:
       Solarized Cyan: Solarisiertes Cyan
       Solarized Violet: Solarisiertes Violett
       Solarized Green: Solarisiertes Grün
+      Gruvbox Dark Green: Gruvbox Dunkelgrün
+      Gruvbox Dark Yellow: Gruvbox Dunkelgelb
+      Gruvbox Dark Purple: Gruvbox Dunkellila
+      Gruvbox Light Red: Gruvbox Hellrot
+      Gruvbox Light Blue: Gruvbox Hellblau
+      Gruvbox Light Purple: Gruvbox Helllila
+      Gruvbox Dark Orange: Gruvbox Dunkelorange
+      Gruvbox Dark Aqua: Gruvbox dunkles Wasser
+      Gruvbox Light Orange: Gruvbox Hellorange
+      Gruvbox Dark Blue: Gruvbox Dunkelblau
+      Catppuccin Frappe Yellow: Catppuccin Frappe gelb
+      Catppuccin Frappe Sky: Catppuccin Frappe himmelblau
+      Catppuccin Frappe Mauve: Catppuccin Frappe malvenfarben
+      Catppuccin Frappe Blue: Catppuccin Frappe blau
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Red: Catppuccin Frappe rot
+      Catppuccin Frappe Teal: Catppuccin Frappe blaugrün
+      Catppuccin Frappe Peach: Catppuccin Frappe pfirsichfarben
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosenwasser
+      Catppuccin Frappe Green: Catppuccin Frappe grün
+      Catppuccin Frappe Sapphire: Catppuccin Frappe saphirblau
+      Catppuccin Frappe Pink: Catppuccin Frappe pink
+      Catppuccin Frappe Lavender: Catppuccin Frappe lavendelfarben
+      Catppuccin Frappe Maroon: Catppuccin Frappe kastanienbraun
     Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
@@ -386,11 +411,11 @@ Settings:
     Hide FreeTube Header Logo: FreeTube-Titellogo ausblenden
   Player Settings:
     Player Settings: Videoabspieler
-    Play Next Video: Nächstes Video abspielen
-    Turn on Subtitles by Default: Untertitel standardmäßig aktivieren
-    Autoplay Videos: Videos automatisch abspielen
+    Play Next Video: Empfohlene Videos automatisch abspielen
+    Turn on Subtitles by Default: Untertitel standardmäßig einschalten
+    Autoplay Videos: Videos automatisch starten
     Proxy Videos Through Invidious: Proxy-Videos durch Invidious
-    Autoplay Playlists: Wiedergabelisten automatisch abspielen
+    Autoplay Playlists: Wiedergabelisten-Videos automatisch abspielen
     Enable Theatre Mode by Default: Kinomodus standardmäßig aktivieren
     Default Volume: Standard-Lautstärke
     Default Playback Rate: Standard-Wiedergabegeschwindigkeit
@@ -411,13 +436,12 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
-    Playlist Next Video Interval: Zeit zwischen automatischer Videowiedergabe
-    Next Video Interval: Intervall bis zum nächsten Video
+    Next Video Interval: Automatischer Wiedergabe-Timer
     Display Play Button In Video Player: Wiedergabetaste im Videoabspieler anzeigen
     Scroll Volume Over Video Player: Lautstärke durch Scrollen auf Video ändern
     Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
     Scroll Playback Rate Over Video Player: Scroll-Wiedergaberate über Videoabspieler
-    Video Playback Rate Interval: Intervall für die Videowiedergabegeschwindigkeit
+    Video Playback Rate Interval: Video-Wiedergabegeschwindigkeitsintervall
     Max Video Playback Rate: Maximale Wiedergabegeschwindigkeit
     Screenshot:
       Enable: Bildschirmfoto aktivieren
@@ -433,19 +457,26 @@ Settings:
       File Name Tooltip: Du kannst die folgenden Variablen verwenden. %Y Jahr 4-stellig.
         %M Monat 2 Ziffern. %D Tag 2 Ziffern. %H Stunde 2 Ziffern. %N Minute 2 Ziffern.
         %S Sekunde 2 Ziffern. %T Millisekunde 3 Ziffern. %s Video-Sekunde. %t Video
-        Millisekunde 3 Ziffern. %i Video-ID. Du kannst auch \ oder / verwenden, um
-        Unterordner zu erstellen.
+        Millisekunde 3 Ziffern. %i Video-ID.
     Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen über den Videoabspieler
+    Autoplay Interruption Timer: Automatische Wiedergabe Unterbrechungs-Timer
+    Default Viewing Mode:
+      Theater: Theater
+      Picture in Picture: Bild im Bild
+      External Player: Externer Player ({externalPlayerName})
+      Full Screen: Vollbild
+      Default Viewing Mode: Standard-Ansichtsmodus
   Subscription Settings:
     Subscription Settings: Abo
     Hide Videos on Watch: Videos bei Wiedergabe ausblenden
     Fetch Feeds from RSS: Feeds von RSS abrufen
     Fetch Automatically: Feed automatisch abrufen
-    Only Show Latest Video for Each Channel: Nur das neueste Video für jeden Kanal
-      anzeigen
     Confirm Before Unsubscribing: Unbeabsichtigtes Deabonnieren verhindern
 
+    'Limit the number of videos displayed for each channel': Die Anzahl der für jeden
+      Kanal angezeigten Videos begrenzen
+    To: Limitieren auf
   Privacy Settings:
     Watch history has been cleared: Wiedergabeverlauf wurde gelöscht
     Are you sure you want to remove your entire watch history?: Bist du sicher, dass
@@ -456,7 +487,7 @@ Settings:
       deinen Suchcache löschen möchtest?
     Clear Search Cache: Suchcache löschen
     Save Watched Progress: Videofortschritt speichern
-    Remember History: Verlauf merken
+    Remember History: Wiedergabeverlauf merken
     Privacy Settings: Datenschutz
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bist
       du sicher, dass du alle Abos und Profile löschen möchtest?  Diese Aktion kann
@@ -468,6 +499,11 @@ Settings:
     All playlists have been removed: Alle Wiedergabelisten wurden entfernt
     Are you sure you want to remove all your playlists?: Bist du sicher, dass du alle
       deine Wiedergabelisten entfernen möchtest?
+    Remember Search History: Suchverlauf merken
+    Are you sure you want to clear out your search history and cache?: Bist du sicher,
+      dass du deinen Suchverlauf und Cache löschen möchtest?
+    Clear Search History and Cache: Suchverlauf und Cache löschen
+    Search history and cache have been cleared: Suchverlauf und Cache wurden gelöscht
   Data Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abos?
     Unknown data key: Unbekannter Datenschlüssel
@@ -497,7 +533,6 @@ Settings:
     Export Subscriptions: Abos exportieren
     Import Subscriptions: Abos importieren
     Select Export Type: Exporttyp auswählen
-    Select Import Type: Importtyp auswählen
     Data Settings: Daten
     Manage Subscriptions: Abos verwalten
     Export Playlists: Wiedergabelisten exportieren
@@ -542,9 +577,9 @@ Settings:
     Hide Channels Placeholder: Kanal-ID
     Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
       und Zeichensetzung anzeigen
-    Hide Channel Playlists: Kanal-Wiedergabelisten ausblenden
-    Hide Channel Community: Kanal-Gemeinschaft ausblenden
-    Hide Channel Shorts: Kanal-Kurzvideos ausblenden
+    Hide Channel Playlists: 'Tab „Wiedergabelisten“ des Kanals ausblenden'
+    Hide Channel Community: 'Tab „Gemeinschaft“ des Kanals ausblenden'
+    Hide Channel Shorts: 'Tab „Kurzvideos“ des Kanals ausblenden'
     Hide Featured Channels: Hervorgehobene Kanäle ausblenden
     Sections:
       Side Bar: Seitenleiste
@@ -552,11 +587,11 @@ Settings:
       General: Allgemein
       Watch Page: Seite beobachten
       Subscriptions Page: Abos-Seite
-    Hide Channel Podcasts: Kanal-Podcasts ausblenden
+    Hide Channel Podcasts: 'Tab „Podcasts“ des Kanals ausblenden'
     Hide Subscriptions Videos: Abo-Videos ausblenden
     Hide Subscriptions Shorts: Abo-Kurzvideos ausblenden
-    Hide Channel Releases: Kanalveröffentlichungen ausblenden
-    Hide Subscriptions Live: Live der Abos ausblenden
+    Hide Channel Releases: 'Tab „Veröffentlichungen“ des Kanals ausblenden'
+    Hide Subscriptions Live: Abo-Live ausblenden
     Hide Profile Pictures in Comments: Profilbilder in den Kommentaren ausblenden
     Hide Subscriptions Community: Abo-Gemeinschaft ausblenden
     Hide Channels Invalid: Kanal-ID war ungültig
@@ -565,10 +600,12 @@ Settings:
     Hide Channels Already Exists: Kanal-ID bereits vorhanden
     Hide Channels API Error: Fehler beim Abrufen von Benutzern mit der bereitgestellten
       ID. Bitte überprüfen Sie erneut, ob der Ausweis korrekt ist.
-    Hide Videos and Playlists Containing Text: Videos und Playlisten verstecken, die
-      Text enthalten
-    Hide Videos and Playlists Containing Text Placeholder: Wort, Teil eines Wortes
-      oder Satz
+    Hide Videos and Playlists Containing Text: Videos und Wiedergabelisten, die Text
+      enthalten, ausblenden
+    Hide Videos and Playlists Containing Text Placeholder: Wort, Wortfragment oder
+      Phrase
+    Hide Channel Home: 'Tab „Startseite“ des Kanals ausblenden'
+    Show Added Items: Hinzugefügte Elemente anzeigen
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
@@ -588,6 +625,11 @@ Settings:
     Proxy Protocol: Proxy-Protokoll
     Enable Tor / Proxy: Tor / Proxy aktivieren
     Proxy Settings: Proxy
+    Proxy Warning: FreeTube hat keinen eingebauten Proxy, kann aber mit einem externen
+      Proxy verbunden werden, wie z. B. einem, der auf deinem Rechner läuft wie Tor,
+      oder einem externen Proxy wie einem SOCKS5-Proxy, der von einigen VPNs bereitgestellt
+      wird. Falls aktiviert, stelle sicher, dass dein Proxy/Tor richtig konfiguriert
+      ist, oder FreeTube wird keine Daten abrufen können.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Benachrichtigen, wenn ein Sponsorsegment
       übersprungen wird
@@ -603,7 +645,7 @@ Settings:
       Do Nothing: Nichts tun
     Category Color: Kategoriefarbe
     UseDeArrowTitles: DeArrow-Videotitel verwenden
-    UseDeArrowThumbnails: Nutze DeArrow für Thumbnails
+    UseDeArrowThumbnails: DeArrow für Miniaturansichten verwenden
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
       Thumbnail Generator API URL (Standard ist https://dearrow-thumb.ajay.app)
   External Player Settings:
@@ -616,7 +658,7 @@ Settings:
     Players:
       None:
         Name: Keine
-    Ignore Default Arguments: Ignoriere Standardargument
+    Ignore Default Arguments: Standardargumente ignorieren
   Download Settings:
     Download Settings: Herunterladen
     Ask Download Path: Nach dem Herunterladepfad fragen
@@ -638,15 +680,13 @@ Settings:
   Password Dialog:
     Password: Passwort
     Enter Password To Unlock: Passwort eingeben, um die Einstellungen zu entsperren
-    Password Incorrect: Falsches Passwort
-    Unlock: Entsperren
   Password Settings:
     Remove Password: Passwort entfernen
     Password Settings: Passwort
     Set Password To Prevent Access: Passwort festlegen, um den Zugriff auf die Einstellungen
       zu verhindern
     Set Password: Passwort festlegen
-  Sort Settings Sections (A-Z): Einstellungsbereiche sortieren (A-Z)
+  Sort Settings Sections (A-Z): Einstellungsabschnitte sortieren (A-Z)
   Return to Settings Menu: Zurück zum Einstellungsmenü
 About:
   #On About page
@@ -684,7 +724,6 @@ Channel:
   Unsubscribe: Deabonnieren
   Search Channel: Kanal durchsuchen
   Your search results have returned 0 results: Deine Suche hat 0 Ergebnisse geliefert
-  Sort By: Sortieren nach
   Videos:
     Videos: Videos
     This channel does not currently have any videos: Dieser Kanal hat aktuell keine
@@ -747,6 +786,9 @@ Channel:
     Releases: Veröffentlichungen
     This channel does not currently have any releases: Dieser Kanal hat derzeit keine
       Veröffentlichungen
+  Home:
+    Home: Startseite
+    View Playlist: Wiedergabeliste anzeigen
 Video:
   Open in YouTube: In YouTube öffnen
   Copy YouTube Link: YouTube-Link kopieren
@@ -763,46 +805,14 @@ Video:
   Enable Live Chat: Live-Chat aktivieren
   Live Chat is currently not supported in this build.: Live-Chat wird in diesem Build
     derzeit nicht unterstützt.
-  'Chat is disabled or the Live Stream has ended.': Chat ist deaktiviert oder der
-    Livestream ist beendet.
   Live chat is enabled. Chat messages will appear here once sent.: Live-Chat ist aktiviert.
     Chat-Nachrichten werden hier angezeigt, sobald sie gesendet wurden.
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Live-Chat
     wird von der Invidious-API derzeit nicht unterstützt. Eine direkte Verbindung
     zu YouTube ist erforderlich.
   Published:
-    Jan: Jan
-    Feb: Feb
-    Mar: Mär
-    Apr: Apr
-    May: Mai
-    Jun: Jun
-    Jul: Jul
-    Aug: Aug
-    Sep: Sep
-    Oct: Okt
-    Nov: Nov
-    Dec: Dez
-    Second: Sekunde
-    Seconds: Sekunden
-    Hour: Stunde
-    Hours: Stunden
-    Day: Tag
-    Days: Tage
-    Week: Woche
-    Weeks: Wochen
-    Month: Monat
-    Months: Monate
-    Year: Jahr
-    Years: Jahre
-    Ago: vor
-    Upcoming: Premiere am
-    Minutes: Minuten
-    Minute: Minute
-    Less than a minute: Weniger als einer Minute
     In less than a minute: In weniger als einer Minute
   Published on: Veröffentlicht am
-  Publicationtemplate: vor {number} {unit}
 
 #& Videos
   Video has been removed from your history: Video wurde aus deinem Verlauf entfernt
@@ -854,15 +864,12 @@ Video:
     OpeningTemplate: '{videoOrPlaylist} wird in {externalPlayer} geöffnet ...'
     playlist: Wiedergabeliste
     video: Video
-  Premieres on: Premiere am
-  Premieres in: Premieren in
   Premieres: Premiere
   Show Super Chat Comment: Super-Chat-Kommentar anzeigen
   Scroll to Bottom: Nach unten scrollen
   Upcoming: Demnächst
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-Chat
     ist für diesen Stream nicht verfügbar. Möglicherweise wurde es vom Uploader deaktiviert.
-  Pause on Current Video: Pause für aktuelles Video
   Unhide Channel: Kanal anzeigen
   Hide Channel: Kanal ausblenden
   More Options: Weitere Optionen
@@ -890,19 +897,29 @@ Video:
       CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
     You appear to be offline: Sie scheinen offline zu sein.
     Playback will resume automatically when your connection comes back: Die Wiedergabe
-      wird automatisch wieder aufgenommen, wenn Ihre Verbindung zurückkommt.
+      wird automatisch fortgesetzt, wenn deine Verbindung wiederhergestellt ist.
     Skipped segment: 'Segment {segmentCategory} übersprungen'
     TranslatedCaptionTemplate: '{language} (übersetzt von {originalLanguage})'
     Exit Full Window: Vollständiges Fenster beenden
     Hide Stats: Statistiken ausblenden
+    Autoplay is off: Automatische Wiedergabe ist ausgeschaltet
+    Autoplay is on: Automatische Wiedergabe ist eingeschaltet
   IP block: YouTube hat Ihre IP-Adresse für die Videowiedergabe gesperrt. Bitte versuchen
     Sie, zu einem anderen VPN oder Proxy zu wechseln.
-Videos:
-  #& Sort By
-  Sort By:
-    Newest: Neueste
-    Oldest: Älteste
-    #& Most Popular
+  Unlisted: Nicht gelistet
+  MembersOnly: Videos, die nur für Mitglieder bestimmt sind, können mit FreeTube nicht
+    angesehen werden, da sie einen Google-Login und eine kostenpflichtige Mitgliedschaft
+    im Kanal des Hochladers erfordern.
+  AgeRestricted: Videos mit Altersbeschränkung können mit FreeTube nicht angesehen
+    werden, da sie eine Google-Anmeldung und die Verwendung eines altersgeprüften
+    YouTube-Kontos erfordern.
+  DeArrow:
+    Show Modified Details: Geänderte Details anzeigen
+    Show Original Details: Originaldetails anzeigen
+  DRMProtected: DRM-geschützte Videos können in FreeTube nicht abgespielt werden,
+    da sie proprietäre, Closed-Source-Komponenten benötigen. Wenn Sie dieses Video
+    ansehen möchten, schauen Sie es sich bitte auf der offiziellen YouTube-Website
+    in einem DRM-fähigen Webbrowser an.
 #& Playlists
 Playlist:
   #& About
@@ -915,7 +932,6 @@ Playlist:
 #& Views
   Sort By:
     VideoTitleDescending: Titel (Z-A)
-    Sort By: Sortieren nach
     DateAddedNewest: Zuletzt hinzugefügt zuerst
     DateAddedOldest: Am frühesten hinzugefügt zuerst
     AuthorAscending: Autor (A-Z)
@@ -924,6 +940,8 @@ Playlist:
     Custom: Benutzerdefiniert
     VideoDurationAscending: Dauer (Kürzeste zuerst)
     VideoDurationDescending: Dauer (Längste zuerst)
+    PublishedNewest: Zuletzt veröffentlicht zuerst
+    PublishedOldest: Älteste veröffentlicht zuerst
 Change Format:
   Change Media Formats: Medienformate ändern
   Use Dash Formats: DASH-Formate verwenden
@@ -961,7 +979,6 @@ Comments:
   Click to View Comments: Klicke, um Kommentare anzuzeigen
   Getting comment replies, please wait: Antworten auf Kommentare werden geladen, bitte
     warten
-  Show Comments: Kommentare anzeigen
   Hide Comments: Kommentare ausblenden
   # Context: View 10 Replies, View 1 Reply
   View: Anzeigen
@@ -972,10 +989,8 @@ Comments:
   Load More Comments: Weitere Kommentare laden
   There are no more comments for this video: Es gibt keine weiteren Kommentare zu
     diesem Video
-  No more comments available: Keine weiteren Kommentare verfügbar
   Newest first: Neueste zuerst
   Top comments: Top-Kommentare
-  Sort by: Sortieren nach
   Show More Replies: Weitere Antworten anzeigen
   From {channelName}: von {channelName}
   And others: und andere
@@ -1019,7 +1034,6 @@ Profile:
   Profile has been created: Profil wurde erstellt
   Profile has been updated: Profil wurde aktualisiert
   Your profile name cannot be empty: Dein Profilname darf nicht leer sein
-  Profile could not be found: Profil wurde nicht gefunden
   All subscriptions will also be deleted.: Alle Abos werden ebenfalls gelöscht.
   Are you sure you want to delete this profile?: Bist du sicher, dass du dieses Profil
     löschen willst?
@@ -1082,6 +1096,9 @@ Tooltips:
     External Link Handling: "Wähle das Standardverhalten, wenn ein Link angeklickt
       wird, der nicht in FreeTube geöffnet werden kann.\nStandardmäßig wird FreeTube
       den angeklickten Link in deinem Standardbrowser öffnen.\n"
+    Open Deep Links In New Window: URLs die an FreeTube übergeben werden, z. B. durch
+      Redirect-Browser-Erweiterungen oder Befehlszeilenargumente, werden in einem
+      neuen Fenster geöffnet.
   Subscription Settings:
     Fetch Feeds from RSS: Wenn aktiviert, verwendet FreeTube RSS anstelle der Standardmethode,
       um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Blockierung,
@@ -1106,8 +1123,7 @@ Tooltips:
       zu springen, MPV-Stil.
   External Player Settings:
     Custom External Player Arguments: Alle benutzerdefinierten Befehlszeilenargumente,
-      getrennt durch Semikolon (';'), die an den externen Abspieler übergeben werden
-      sollen.
+      die an den externen Abspieler übergeben werden sollen.
     Ignore Warnings: Warnungen unterdrücken, wenn der aktuelle externe Abspieler die
       aktuelle Aktion nicht unterstützt (z. B. das Umkehren von Wiedergabelisten usw.).
     Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass
@@ -1141,7 +1157,8 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Videotitel durch von Benutzern eingereichte Titel von DeArrow
       ersetzen.
-    UseDeArrowThumbnails: Ersetze Video-Thumbnails mit Thumbnails von DeArrow.
+    UseDeArrowThumbnails: Video-Miniaturansichten durch Miniaturansichten von DeArrow
+      ersetzen.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
   klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
@@ -1156,6 +1173,7 @@ Default Invidious instance has been set to {instance}: Standardmäßige Invidiou
   wurde auf {instance} festgelegt
 Search Bar:
   Clear Input: Eingabe löschen
+  Remove: Entfernen
 Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen
   willst?
 External link opening has been disabled in the general settings: Das Öffnen externer
@@ -1163,7 +1181,7 @@ External link opening has been disabled in the general settings: Das Öffnen ext
 Downloading has completed: „{videoTitle}“ wurde vollständig heruntergeladen
 Starting download: Herunterladen von „{videoTitle}“ wird gestartet
 Downloading failed: Beim Herunterladen von „{videoTitle}“ gab es ein Problem
-Screenshot Success: Bildschirmfoto als „{filePath}“ gespeichert
+Screenshot Success: Gespeichertes Bildschirmfoto
 Screenshot Error: Bildschirmfoto fehlgeschlagen. {error}
 New Window: Neues Fenster
 Channels:
@@ -1184,16 +1202,13 @@ Chapters:
     aktuelles Kapitel: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste ausgeblendet,
     aktuelles Kapitel: {chapterName}'
+  Key Moments: Schlüsselmomente
 Preferences: Einstellungen
 Ok: OK
 Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Dieser Hashtag enthält derzeit
     keine Videos
-Playlist will pause when current video is finished: Wiedergabeliste wird pausiert,
-  wenn das aktuelle Video beendet ist
-Playlist will not pause when current video is finished: Wiedergabeliste wird nicht
-  pausiert, wenn das aktuelle Video beendet ist
 Channel Hidden: '{channel} wurde zum Kanalfilter hinzugefügt'
 Go to page: Gehe zu {page}
 Channel Unhidden: '{channel} wurde aus dem Kanalfilter entfernt'
@@ -1214,7 +1229,7 @@ Feed:
 Yes, Delete: Ja, löschen
 Cancel: Abbrechen
 Search character limit: Die Suche ist länger als das {searchCharacterLimit}-Zeichen-Limit
-Yes, Restart: Ja, neustarten
+Yes, Restart: Ja, neu starten
 Yes, Open Link: Ja, Link öffnen
 Search Listing:
   Label:
@@ -1228,3 +1243,79 @@ Search Listing:
     3D: 3D
 'Blocked opening potentially unsafe URL': 'Das Öffnen einer potenziell unsicheren
   URL wurde blockiert: „{url}“.'
+Keys:
+  arrowdown: Pfeil nach unten
+  arrowleft: Pfeil nach links
+  arrowup: Pfeil nach oben
+  ctrl: Strg
+  alt: Alt
+  arrowright: Pfeil nach rechts
+  plus: Plus
+  enter: Enter
+  shift: Shift
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Right-click or hold to see history: Mit der rechten Maustaste klicken oder halten,
+  um den Verlauf zu sehen
+Autoplay Interruption Timer: Automatische Wiedergabe wurde aufgrund von {autoplayInterruptionIntervalHours}
+  Stunden Inaktivität abgebrochen
+Description:
+  Collapse Description: Weniger anzeigen
+  Expand Description: '...mehr'
+KeyboardShortcutPrompt:
+  Keyboard Shortcuts: Tastenkombinationen
+  Sections:
+    Video:
+      Playback: 'Video: Wiedergabe'
+      General: 'Video: Allgemein'
+    App:
+      Situational: 'Anwendung: Situationsbezogen'
+      General: 'Anwendung: Allgemein'
+  History Backward: Eine Seite zurückgehen
+  New Window: Ein neues Fenster erzeugen
+  Navigate to Settings: Zur Einstellungsseite navigieren
+  Navigate to History: Zur Verlaufsseite navigieren
+  Stats: Video-Statistiken anzeigen
+  Fullscreen: Vollbildmodus umschalten
+  Decrease Video Speed: Verringern der Videogeschwindigkeit basierend auf dem Intervall
+    der Videowiedergaberate
+  Take Screenshot: Bildschirmfoto erstellen
+  Minimize Window: Fenster minimieren
+  Close Window: Fenster schließen
+  Restart Window: Fenster neu starten
+  Reset Zoom: Zoomstufe / UI-Skalierung zurücksetzen
+  Zoom In: Vergrößern
+  Zoom Out: Verkleinern
+  Focus Search: Fokus auf die Suchleiste
+  Search in New Window: In einem neuen Fenster suchen
+  Refresh: Feed mit aktuellen Inhalten aktualisieren
+  Large Fast Forward: 10 Sekunden vorspulen / Schnelles Vorspulen des Videos basierend
+    auf der aktuellen Videowiedergaberate
+  Mute: Stummschaltung
+  Force Restart Window: Fenster Neustart erzwingen
+  Volume Up: Lautstärke erhöhen
+  Volume Down: Lautstärke vermindern
+  Next Chapter: Nächstes Kapitel
+  Last Chapter: Letztes Kapitel
+  Show Keyboard Shortcuts: Tastaturkürzel anzeigen
+  History Forward: Eine Seite nach vorne gehen
+  Increase Video Speed: Erhöhen der Videogeschwindigkeit basierend auf dem Intervall
+    der Videowiedergaberate
+  Large Rewind: 10 Sekunden zurückspulen / Video basierend auf der aktuellen Videowiedergaberate
+    zurückspulen
+  Full Window: Ganzes Fenster umschalten
+  Theatre Mode: Theatermodus umschalten
+  Toggle Developer Tools: Entwicklerwerkzeuge umschalten
+  Play: Wiedergabe/Pause umschalten
+  Focus Secondary Search: Fokus auf die sekundäre Suchleiste (falls eine vorhanden
+    ist)
+  Captions: Untertitel EIN/AUS umschalten
+  Picture in Picture: Bild-in-Bild-Modus umschalten
+  Last Frame: Vorheriges Bild (bei pausierter Wiedergabe)
+  Small Fast Forward: X Sekunden schnell vorspulen, basierend auf dem Schnellvorspulintervall
+    und der aktuellen Videowiedergaberate
+  Skip by Tenths: Prozentuales Überspringen des Videos (3 Sprünge bis 30 % der Dauer)
+  Next Frame: Nächstes Bild (bei pausierter Wiedergabe)
+  Small Rewind: X Sekunden zurückspulen, basierend auf dem Rückspulintervall und der
+    aktuellen Videowiedergaberate
+shortcutLabelSeparator: ｜

@@ -1,6 +1,8 @@
 import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
+import { KeyboardShortcuts } from '../../../../constants'
+import { addKeyboardShortcutToActionTitle } from '../../../helpers/utils'
 
 export class ScreenshotButton extends shaka.ui.Element {
   /**
@@ -13,8 +15,7 @@ export class ScreenshotButton extends shaka.ui.Element {
 
     /** @private */
     this.button_ = document.createElement('button')
-    this.button_.classList.add('screenshot-button')
-    this.button_.classList.add('shaka-tooltip')
+    this.button_.classList.add('screenshot-button', 'shaka-tooltip')
 
     const icon = document.createElement('i')
     icon.classList.add('material-icons-round')
@@ -23,8 +24,7 @@ export class ScreenshotButton extends shaka.ui.Element {
     this.button_.appendChild(icon)
 
     const label = document.createElement('label')
-    label.classList.add('shaka-overflow-button-label')
-    label.classList.add('shaka-overflow-menu-only')
+    label.classList.add('shaka-overflow-button-label', 'shaka-overflow-menu-only')
 
     /** @private */
     this.nameSpan_ = document.createElement('span')
@@ -49,8 +49,10 @@ export class ScreenshotButton extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.nameSpan_.textContent = i18n.t('Video.Player.Take Screenshot')
-
-    this.button_.ariaLabel = i18n.t('Video.Player.Take Screenshot')
+    const label = addKeyboardShortcutToActionTitle(
+      i18n.t('Video.Player.Take Screenshot'),
+      KeyboardShortcuts.VIDEO_PLAYER.GENERAL.TAKE_SCREENSHOT
+    )
+    this.nameSpan_.textContent = this.button_.ariaLabel = label
   }
 }

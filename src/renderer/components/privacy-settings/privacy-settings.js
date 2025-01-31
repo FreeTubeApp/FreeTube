@@ -1,10 +1,10 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
-import FtSettingsSection from '../ft-settings-section/ft-settings-section.vue'
+import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtPrompt from '../ft-prompt/ft-prompt.vue'
+import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { showToast } from '../../helpers/utils'
 
@@ -30,6 +30,9 @@ export default defineComponent({
     }
   },
   computed: {
+    rememberSearchHistory: function () {
+      return this.$store.getters.getRememberSearchHistory
+    },
     rememberHistory: function () {
       return this.$store.getters.getRememberHistory
     },
@@ -60,7 +63,8 @@ export default defineComponent({
       if (option !== 'delete') { return }
 
       this.clearSessionSearchHistory()
-      showToast(this.$t('Settings.Privacy Settings.Search cache has been cleared'))
+      this.removeAllSearchHistoryEntries()
+      showToast(this.$t('Settings.Privacy Settings.Search history and cache have been cleared'))
     },
 
     handleRememberHistory: function (value) {
@@ -118,9 +122,11 @@ export default defineComponent({
     ...mapActions([
       'updateRememberHistory',
       'removeAllHistory',
+      'updateRememberSearchHistory',
       'updateSaveWatchedProgress',
       'updateSaveVideoHistoryWithLastViewedPlaylist',
       'clearSessionSearchHistory',
+      'removeAllSearchHistoryEntries',
       'updateProfile',
       'removeProfile',
       'updateActiveProfile',
