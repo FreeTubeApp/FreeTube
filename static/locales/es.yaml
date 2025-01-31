@@ -185,6 +185,8 @@ User Playlists:
       This playlist has a video with a duration error: Esta lista de reproducción
         contiene al menos un vídeo sin duración, se ordenará como si su duración fuera
         cero.
+      Video has been removed. Click here to undo.: El video ha sido eliminado. Clickea
+        aquí para cancelar.
     Search for Videos: Buscar vídeos
   Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro
     de que quieres borrar esta lista de reproducción? Esto no se puede deshacer.
@@ -321,6 +323,7 @@ Settings:
       Solarized Dark: Solarized oscuro
       Gruvbox Dark: Gruvbox oscuro
       Gruvbox Light: Gruvbox claro
+      Catppuccin Frappe: Frappe Capuchino
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -441,9 +444,14 @@ Settings:
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor
       de vídeo
     Autoplay Interruption Timer: Temporizador de interrupción de reproducción automática
+    Default Viewing Mode:
+      Theater: Teatro
+      Default Viewing Mode: Vista predeterminada
+      External Player: Reproductor externo ({nombreReproductorExterno})
+      Full Screen: Pantalla Completa
   Privacy Settings:
     Privacy Settings: 'Privacidad'
-    Remember History: 'Recordar historial'
+    Remember History: 'Guardar Historial'
     Save Watched Progress: 'Guardar progreso reproducido'
     Clear Search Cache: 'Borrar cache de búsqueda'
     Are you sure you want to clear out your search cache?: '¿Seguro que quieres borrar
@@ -462,6 +470,12 @@ Settings:
     Remove All Playlists: Eliminar todas las listas de reproducción
     Are you sure you want to remove all your playlists?: ¿Estás seguro de que quieres
       eliminar todas tus listas de reproducción?
+    Remember Search History: Guardar Historial de Búsquedas
+    Are you sure you want to clear out your search history and cache?: Está seguro
+      de que quiere borrar su historial de búsqueda y cache?
+    Search history and cache have been cleared: El historial de búsquedas y el cache
+      han sido borrados
+    Clear Search History and Cache: Borrar Historial de Búsquedas y Cache
   Subscription Settings:
     Subscription Settings: 'Suscripción'
     Hide Videos on Watch: 'Ocultar vídeos vistos'
@@ -918,6 +932,8 @@ Video:
     Theatre Mode: Modo cine
     Exit Theatre Mode: Salir del modo cine
     Full Window: Pantalla completa
+    Autoplay is off: La reproducción automática está desactivada
+    Autoplay is on: La reproducción automática está activada
   IP block: YouTube ha bloqueado tu dirección IP para ver vídeos. Por favor, intenta
     cambiar a otra VPN o proxy.
   MembersOnly: Los videos solo para miembros no se pueden ver con FreeTube ya que
@@ -930,6 +946,10 @@ Video:
     Show Original Details: Mostrar detalles originales
     Show Modified Details: Mostrar detalles modificados
 #& Playlists
+  DRMProtected: Los videos restringidos con DRM no pueden reproducirse en FreeTube,
+    dado que requieren componentes propietarias de fuente cerrada. Si desea ver este
+    video, por favor véalo en la página oficial de YouTube con un buscador que tenga
+    DRM habilitado.
 Playlist:
   #& About
   View Full Playlist: 'Ver la lista de reproducción completa'
@@ -949,6 +969,8 @@ Playlist:
     VideoTitleDescending: Título (Z-A)
     VideoDurationAscending: Duración (primero la más corta)
     VideoDurationDescending: Duración (la más larga primero)
+    PublishedNewest: Presentar primero los últimos publicados
+    PublishedOldest: Presentar primero los primeramente publicados
 Change Format:
   Change Media Formats: 'Cambiar formato de vídeo'
   Use Dash Formats: 'Utilizar formatos DASH'
@@ -1127,6 +1149,7 @@ Default Invidious instance has been set to {instance}: La instancia de Invidious
   ha sido establecida como {instance}
 Search Bar:
   Clear Input: Borrar entrada
+  Remove: Eliminar
 External link opening has been disabled in the general settings: Se ha desactivado
   la apertura de enlaces externos en la configuración general
 Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir este
@@ -1211,3 +1234,5 @@ Autoplay Interruption Timer: Reproducción automática cancelada debido a {autop
 Description:
   Expand Description: '...más'
   Collapse Description: Mostrar menos
+KeyboardShortcutPrompt:
+  New Window: Crear una nueva ventana
