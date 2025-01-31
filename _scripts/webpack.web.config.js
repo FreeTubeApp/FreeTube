@@ -162,6 +162,7 @@ const config = {
     fallback: {
       'fs/promises': path.resolve(__dirname, '_empty.js'),
       path: require.resolve('path-browserify'),
+      crypto: false
     },
     extensions: ['.js', '.vue']
   },
