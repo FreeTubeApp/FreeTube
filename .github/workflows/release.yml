@@ -59,6 +59,10 @@ jobs:
       id: getPackageInfo
       uses: jaywcjlove/github-action-package@main
 
+    - name: Install libarchive-tools
+      if: startsWith(matrix.os, 'ubuntu')
+      run: sudo apt update; sudo apt -y install libarchive-tools; echo "Version Number ${{ toJson(job) }} ${{ toJson(needs) }}"
+
     - name: Build x64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'x64')
       run: yarn run build
