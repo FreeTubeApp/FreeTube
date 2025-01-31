@@ -49,7 +49,13 @@ body:not(.hotPink, .pastelPink) {
 .light,
 .system[data-system-theme*='dark'],
 .dark,
-.black,
+.black {
+  --logo-icon: url('../../_icons/iconColorSmall.svg');
+  --logo-text: url('../../_icons/textColorSmall.svg');
+  --logo-primary-color: #f33;
+  --logo-secondary-color: #29abe1;
+  --logo-tertiary-color: #000;
+}
 
 /* Given that the Hot Pink theme does not need link underlining due to meeting
 WCAG 2 Level AA (https://webaim.org/resources/linkcontrastchecker/?fcolor=FFFFFF&bcolor=DE1C85&lcolor=000000),
