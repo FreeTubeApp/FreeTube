@@ -1266,32 +1266,32 @@ KeyboardShortcutPrompt:
       Playback: 'Video: Wiedergabe'
       General: 'Video: Allgemein'
     App:
-      Situational: 'Anwendung: Situationsbezogen'
-      General: 'Anwendung: Allgemein'
+      Situational: 'App: Situationsbezogen'
+      General: 'App: Allgemein'
   History Backward: Eine Seite zurückgehen
-  New Window: Ein neues Fenster erzeugen
+  New Window: Ein neues Fenster öffnen
   Navigate to Settings: Zur Einstellungsseite navigieren
   Navigate to History: Zur Verlaufsseite navigieren
   Stats: Video-Statistiken anzeigen
   Fullscreen: Vollbildmodus umschalten
   Decrease Video Speed: Verringern der Videogeschwindigkeit basierend auf dem Intervall
     der Videowiedergaberate
-  Take Screenshot: Bildschirmfoto erstellen
+  Take Screenshot: Screenshot erstellen
   Minimize Window: Fenster minimieren
   Close Window: Fenster schließen
   Restart Window: Fenster neu starten
   Reset Zoom: Zoomstufe / UI-Skalierung zurücksetzen
   Zoom In: Vergrößern
   Zoom Out: Verkleinern
-  Focus Search: Fokus auf die Suchleiste
+  Focus Search: Suchleiste fokussieren
   Search in New Window: In einem neuen Fenster suchen
   Refresh: Feed mit aktuellen Inhalten aktualisieren
   Large Fast Forward: 10 Sekunden vorspulen / Schnelles Vorspulen des Videos basierend
     auf der aktuellen Videowiedergaberate
   Mute: Stummschaltung
-  Force Restart Window: Fenster Neustart erzwingen
+  Force Restart Window: Neustart des Fensters erzwingen
   Volume Up: Lautstärke erhöhen
-  Volume Down: Lautstärke vermindern
+  Volume Down: Lautstärke verringern
   Next Chapter: Nächstes Kapitel
   Last Chapter: Letztes Kapitel
   Show Keyboard Shortcuts: Tastaturkürzel anzeigen
@@ -1302,7 +1302,7 @@ KeyboardShortcutPrompt:
     zurückspulen
   Full Window: Ganzes Fenster umschalten
   Theatre Mode: Theatermodus umschalten
-  Toggle Developer Tools: Entwicklerwerkzeuge umschalten
+  Toggle Developer Tools: Entwicklungswerkzeuge umschalten
   Play: Wiedergabe/Pause umschalten
   Focus Secondary Search: Fokus auf die sekundäre Suchleiste (falls eine vorhanden
     ist)
@@ -1310,9 +1310,9 @@ KeyboardShortcutPrompt:
   Picture in Picture: Bild-in-Bild-Modus umschalten
   Last Frame: Vorheriges Bild (bei pausierter Wiedergabe)
   Small Fast Forward: X Sekunden schnell vorspulen, basierend auf dem Schnellvorspulintervall
-    und der aktuellen Videowiedergaberate
-  Skip by Tenths: Prozentuales Überspringen des Videos (3 Sprünge bis 30 % der Dauer)
+    und der aktuellen Wiedergabegeschwindigkeit
+  Skip by Tenths: Prozentuales Überspringen des Videos (3 Sprünge bis 30% der Dauer)
   Next Frame: Nächstes Bild (bei pausierter Wiedergabe)
   Small Rewind: X Sekunden zurückspulen, basierend auf dem Rückspulintervall und der
-    aktuellen Videowiedergaberate
+    aktuellen Wiedergabegeschwindigkeit
 shortcutLabelSeparator: ｜
