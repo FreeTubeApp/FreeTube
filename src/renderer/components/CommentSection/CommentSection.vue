@@ -363,6 +363,9 @@ const nextPageToken = shallowRef(null)
 // we need to react to new replies and showReplies being toggled
 const commentData = ref([])
 
+/** @type {import('youtubei.js').YT.Comments | undefined} */
+let localCommentsInstance
+
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
 const backendPreference = computed(() => {
   return store.getters.getBackendPreference
@@ -538,8 +541,13 @@ async function getCommentDataLocal(more = false) {
     let comments
     if (more) {
       comments = await nextPageToken.value.getContinuation()
+    } else if (localCommentsInstance) {
+      comments = await localCommentsInstance.applySort(sortNewest.value ? 'NEWEST_FIRST' : 'TOP_COMMENTS')
+      localCommentsInstance = comments
     } else {
-      comments = await getLocalComments(props.id, sortNewest.value)
+      comments = await getLocalComments(props.id)
+      sortNewest.value = comments.header?.sort_menu?.sub_menu_items?.[1].selected ?? false
+      localCommentsInstance = comments
     }
 
     const parsedComments = comments.contents
@@ -575,6 +583,7 @@ async function getCommentDataLocal(more = false) {
       nextPageToken.value = null
       isLoading.value = false
       showComments.value = true
+      localCommentsInstance = undefined
       return
     }
     // endregion No comment detection
@@ -585,6 +594,7 @@ async function getCommentDataLocal(more = false) {
       copyToClipboard(err)
     })
     if (backendFallback.value && backendPreference.value === 'local') {
+      localCommentsInstance = undefined
       showToast(t('Falling back to Invidious API'))
       getCommentDataInvidious()
     } else {

@@ -291,11 +291,10 @@ export async function getLocalVideoInfo(id) {
 
 /**
  * @param {string} id
- * @param {boolean | undefined} sortByNewest
  */
-export async function getLocalComments(id, sortByNewest = false) {
+export async function getLocalComments(id) {
   const innertube = await createInnertube()
-  return innertube.getComments(id, sortByNewest ? 'NEWEST_FIRST' : 'TOP_COMMENTS')
+  return innertube.getComments(id)
 }
 
 // I know `type & type` is typescript syntax and not valid jsdoc but I couldn't get @extends or @augments to work
