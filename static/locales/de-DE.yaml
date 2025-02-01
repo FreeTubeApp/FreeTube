@@ -45,7 +45,7 @@ Global:
     Watching Count: 1 Zuschauer | {count} Zuschauende
     Comment Count: 1 Kommentar | {count} Kommentare
     Like Count: 1 Gefällt mir | {count} Gefällt mir
-Search / Go to URL: Suche / Gehe zur URL
+Search / Go to URL: Suchen / URL öffnen
   # In Filter Button
 Search Filters:
   Search Filters: Suchfilter
@@ -1207,7 +1207,7 @@ Hashtag:
   This hashtag does not currently have any videos: Dieser Hashtag enthält derzeit
     keine Videos
 Channel Hidden: '{channel} wurde zum Kanalfilter hinzugefügt'
-Go to page: Gehe zu {page}
+Go to page: Zu {page} gehen
 Channel Unhidden: '{channel} wurde aus dem Kanalfilter entfernt'
 Trimmed input must be at least N characters long: Gekürzte Eingaben müssen mindestens
   1 Zeichen lang sein | Gekürzte Eingaben müssen mindestens {length} Zeichen lang
