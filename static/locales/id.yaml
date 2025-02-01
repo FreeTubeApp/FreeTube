@@ -1079,6 +1079,8 @@ Tooltips:
     External Link Handling: "Pilih perilaku default ketika tautan, yang tidak dapat
       dibuka di FreeTube, diklik.\nSecara default FreeTube akan membuka tautan yang
       diklik dengan browser default Anda.\n"
+    Open Deep Links In New Window: URL yang diteruskan ke FreeTube, seperti melalui
+      ekstensi browser pengalihan atau argumen baris perintah, dibuka di jendela baru.
   External Player Settings:
     Custom External Player Arguments: Semua argumen perintah khusus, yang Anda ingin
       gunakan dengan pemutar eksternal.
@@ -1091,6 +1093,9 @@ Tooltips:
       membuka video (daftar putar jika didukung) di dalam pemutar eksternal, pada
       thumbnail. Peringatan, pengaturan Invidious tidak berdampak pada pemutar eksternal.
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Jangan kirim argumen default apa pun ke pemutar eksternal
+      selain URL video (misalnya kecepatan pemutaran, URL daftar putar, dll.). Argumen
+      khusus akan tetap diteruskan.
   SponsorBlock Settings:
     UseDeArrowTitles: Gunakan judul video dari judul yang disarankan oleh pengguna
       dari DeArrow.
@@ -1099,6 +1104,15 @@ Tooltips:
     Hide Channels: Masukkan ID Kanal untuk menyembunyikan semua video, daftar putar,
       dan kanal itu sendiri dari pencarian, halaman tren, halaman video popular, dan
       bagian rekomendasi. ID Kanal yang dimasukkan harus sesuai.
+    Hide Subscriptions Live: Pengaturan ini digantikan oleh pengaturan "{appWideSetting}"
+      di seluruh aplikasi, di bagian "{subsection}" dari "{settingsSection}"
+    Hide Videos and Playlists Containing Text: Masukkan kata, pecahan kata, atau frasa
+      (tanpa memperhatikan huruf besar/kecil) untuk menyembunyikan semua video & daftar
+      putar yang judul aslinya memuatnya di seluruh FreeTube, kecuali hanya Riwayat,
+      Daftar Putar Anda, dan video di dalam daftar putar.
+  Experimental Settings:
+    Replace HTTP Cache: Menonaktifkan cache HTTP berbasis disk Electron dan mengaktifkan
+      cache gambar dalam memori khusus. Akan menyebabkan peningkatan penggunaan RAM.
 Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk membatalkan.
   | Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk membatalkan.
   | Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk membatalkan.
@@ -1136,8 +1150,8 @@ Screenshot Error: Tangkap layar gagal. {error}
 Feed:
   Refresh Feed: Muat Ulang {subscriptionName}
   Feed Last Updated: 'Umpan {feedName} terakhir diperbarui: {date}'
-Screenshot Success: Tangkapan layar disimpan sebagai "{filePath}"
-Moments Ago: saat yang lalu
+Screenshot Success: Tangkapan layar disimpan
+Moments Ago: beberapa saat yang lalu
 Yes, Delete: Ya, Hapus
 Yes, Restart: Ya, Mulai Ulang
 Cancel: Batal
@@ -1158,3 +1172,88 @@ Search Listing:
     Closed Captions: Tutup Caption
 Search character limit: Kata pencarian melebihi batas {searchCharacterLimit} karakter
 Right-click or hold to see history: Klik kanan atau tahan untuk melihat riwayat
+KeyboardShortcutPrompt:
+  Sections:
+    App:
+      General: 'Aplikasi: Umum'
+      Situational: 'Aplikasi: Situasional'
+    Video:
+      General: 'Video: Umum'
+      Playback: 'Video: Pemutaran ulang'
+  Show Keyboard Shortcuts: Tampilkan pintasan keyboard
+  Captions: Aktifkan/Nonaktifkan teks
+  Stats: Tampilkan statistik video
+  Fullscreen: Beralih ke layar penuh
+  Picture in Picture: Beralih ke mode Gambar-dalam-Gambar
+  Decrease Video Speed: Kurangi kecepatan video berdasarkan Interval Kecepatan Pemutaran
+    Video
+  Increase Video Speed: Meningkatkan kecepatan video berdasarkan Interval Kecepatan
+    Pemutaran Video
+  Full Window: Alihkan jendela penuh
+  Theatre Mode: Beralih ke mode teater
+  Zoom Out: Perkecil
+  Focus Search: Fokus pada bilah pencarian
+  Next Frame: Bingkai berikutnya (saat dijeda)
+  Volume Up: Meningkatkan volume
+  Volume Down: Kurangi volume
+  Small Rewind: Putar ulang X detik berdasarkan Interval Putar Ulang dan Kecepatan
+    Pemutaran Video saat ini
+  Small Fast Forward: Percepatan X detik berdasarkan Interval Percepatan dan Kecepatan
+    Pemutaran Video saat ini
+  Next Chapter: Bab Berikutnya
+  Skip by Tenths: Lewati video berdasarkan persentase (3 kali lompatan untuk 30% durasi)
+  Keyboard Shortcuts: Pintasan keyboard
+  History Backward: Kembali satu halaman
+  History Forward: Maju satu halaman
+  New Window: Buat jendela baru
+  Navigate to Settings: Navigasi ke halaman Pengaturan
+  Navigate to History: Navigasi ke halaman Riwayat
+  Refresh: Segarkan umpan dengan konten terbaru
+  Focus Secondary Search: Fokus pada bilah pencarian sekunder (jika ada)
+  Take Screenshot: Ambil tangkapan layar
+  Minimize Window: Minimalkan jendela
+  Close Window: Tutup jendela
+  Search in New Window: Cari di jendela baru
+  Large Fast Forward: Maju 10 detik / Percepat video berdasarkan Kecepatan Pemutaran
+    Video saat ini
+  Last Chapter: Bab Terakhir
+  Large Rewind: Putar ulang 10 detik / Putar ulang video berdasarkan Kecepatan Pemutaran
+    Video saat ini
+  Play: Beralih putar/jeda
+  Mute: Alihkan bisu
+  Force Restart Window: Paksa mulai ulang jendela
+  Restart Window: Mulai ulang jendela
+  Toggle Developer Tools: Beralih alat pengembang
+  Reset Zoom: Setel ulang tingkat zoom / skala UI
+  Zoom In: Perbesar
+  Last Frame: Bingkai sebelumnya (saat dijeda)
+Tag already exists: Tag "{tagName}" sudah ada
+Channel Unhidden: '{channel} dihapus dari filter saluran'
+Keys:
+  ctrl: Ctrl
+  plus: Plus
+  shift: Shift
+  arrowup: Panah atas
+  arrowdown: Panah Bawah
+  alt: Alt
+  arrowright: Panah kanan
+  arrowleft: Panah Kiri
+  enter: Enter
+Autoplay Interruption Timer: Putar otomatis dibatalkan karena {autoplayInterruptionIntervalHours}
+  jam tidak aktif
+Hashtag:
+  This hashtag does not currently have any videos: Tagar ini saat ini tidak memiliki
+    video apa pun
+  Hashtag: Hastage
+Display Label: '{label}: {nilai}'
+Channel Hidden: '{channel} ditambahkan ke filter saluran'
+Age Restricted:
+  This video is age restricted: Video ini dibatasi usia
+  This channel is age restricted: Saluran ini dibatasi usia
+Trimmed input must be at least N characters long: Input yang dipangkas harus memiliki
+  panjang minimal 1 karakter | Input yang dipangkas harus memiliki panjang minimal
+  {length} karakter
+'Blocked opening potentially unsafe URL': 'Pembukaan URL yang berpotensi tidak aman
+  diblokir: "{url}".'
+KeyboardShortcutTemplate: '{label} ({pintasan})'
+shortcutJoinOperator: +
