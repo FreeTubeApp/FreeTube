@@ -434,7 +434,7 @@ Settings:
     Next Video Interval: Countdown für Automatische Wiedergabe
     Display Play Button In Video Player: Wiedergabetaste im Video-Player anzeigen
     Scroll Volume Over Video Player: Lautstärke durch Scrollen ändern
-    Fast-Forward / Rewind Interval: Intervall für schnelles Vor-/Zurückspulen
+    Fast-Forward / Rewind Interval: Intervall für Vor-/Zurückspulen
     Scroll Playback Rate Over Video Player: Abspielgeschwindigkeit durch Scrollen
       ändern
     Video Playback Rate Interval: Intervall für Geschwindigkeitseinstellung
@@ -971,7 +971,7 @@ Share:
 Mini Player: Mini-Video-Player
 Comments:
   Comments: Kommentare
-  Click to View Comments: Klicke, um Kommentare anzuzeigen
+  Click to View Comments: Kommentare anzeigen
   Getting comment replies, please wait: Antworten auf Kommentare werden geladen, bitte
     warten
   Hide Comments: Kommentare ausblenden
@@ -1014,7 +1014,7 @@ Shuffle is now enabled: Zufallswiedergabe ist jetzt aktiviert
 Playing Next Video: Nächstes Video wird abgespielt
 Playing Previous Video: Vorheriges Video wird abgespielt
 Canceled next video autoplay: Automatische Wiedergabe des nächsten Videos abgebrochen
-'The playlist has ended. Enable loop to continue playing': 'Die Playlist ist beendet.
+'The playlist has ended. Enable loop to continue playing': 'Ende der Playlist erreicht.
   Aktiviere die Wiederholung, um die Wiedergabe fortzusetzen'
 
 Yes: Ja
@@ -1286,8 +1286,8 @@ KeyboardShortcutPrompt:
   Focus Search: Suchleiste fokussieren
   Search in New Window: In einem neuen Fenster suchen
   Refresh: Feed mit aktuellen Inhalten aktualisieren
-  Large Fast Forward: 10 Sekunden vorspulen / Schnelles Vorspulen des Videos basierend
-    auf der aktuellen Videowiedergaberate
+  Large Fast Forward: 10 Sekunden vorspulen / Vorspulen basierend auf der aktuellen
+    Wiedergabegeschwindigkeit
   Mute: Stummschaltung
   Force Restart Window: Neustart des Fensters erzwingen
   Volume Up: Lautstärke erhöhen
@@ -1298,8 +1298,8 @@ KeyboardShortcutPrompt:
   History Forward: Eine Seite nach vorne gehen
   Increase Video Speed: Erhöhen der Videogeschwindigkeit basierend auf dem Intervall
     der Videowiedergaberate
-  Large Rewind: 10 Sekunden zurückspulen / Video basierend auf der aktuellen Videowiedergaberate
-    zurückspulen
+  Large Rewind: 10 Sekunden zurückspulen / Zurückspulen basierend auf der aktuellen
+    Wiedergabegeschwindigkeit
   Full Window: Ganzes Fenster umschalten
   Theatre Mode: Theatermodus umschalten
   Toggle Developer Tools: Entwicklungswerkzeuge umschalten
@@ -1309,8 +1309,8 @@ KeyboardShortcutPrompt:
   Captions: Untertitel EIN/AUS umschalten
   Picture in Picture: Bild-in-Bild-Modus umschalten
   Last Frame: Vorheriges Bild (bei pausierter Wiedergabe)
-  Small Fast Forward: X Sekunden schnell vorspulen, basierend auf dem Schnellvorspulintervall
-    und der aktuellen Wiedergabegeschwindigkeit
+  Small Fast Forward: X Sekunden vorspulen, basierend auf dem Vorspulintervall und
+    der aktuellen Wiedergabegeschwindigkeit
   Skip by Tenths: Prozentuales Überspringen des Videos (3 Sprünge bis 30% der Dauer)
   Next Frame: Nächstes Bild (bei pausierter Wiedergabe)
   Small Rewind: X Sekunden zurückspulen, basierend auf dem Rückspulintervall und der
