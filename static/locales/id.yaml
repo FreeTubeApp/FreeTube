@@ -101,11 +101,14 @@ Search Filters:
     360 Video: Video 360
     Location: Lokasi
     VR180: VR180
+    Creative Commons: Hak Cipta Creative Commons
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Langganan'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Daftar
-    Langganan Anda kosong. Mulai tambahkan langganan untuk melihatnya di sini.'
+    Langganan Anda saat ini kosong. Jika Anda ingin mengimpor langganan, Anda dapat
+    membuka Setelan Data dan memilih Impor Langganan atau Anda dapat mencari saluran
+    dan berlangganan saluran tersebut.'
   Load More Videos: Muat Lebih Banyak Video
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Profil
     ini berlangganan ke banyak kanal. Beralih ke RSS untuk menghindari pembatasan
@@ -117,6 +120,8 @@ Subscriptions:
   Disabled Automatic Fetching: Anda telah mematikan pengambilan langganan otomatis.
     Muat ulang langganan untuk melihat mereka.
   Error Channels: Kanal dengan Galat
+  All Subscription Tabs Hidden: Semua tab langganan disembunyikan. Untuk melihat konten
+    di sini, harap tampilkan beberapa tab di bagian "{subsection}" di "{settingsSection}".
 Trending:
   Trending: 'Sedang Tren'
   Movies: Film
@@ -129,7 +134,7 @@ Playlists: 'Daftar Putar'
 User Playlists:
   Your Playlists: 'Daftar Putar Anda'
   Search bar placeholder: Cari Daftar Putar
-  Empty Search Message: Tidak ada video di dalam daftar putar ini yang cocok dengan
+  Empty Search Message: Tidak ada video dalam daftar putar ini yang sesuai dengan
     pencarian Anda
   Remove from Favorites: Hapus dari {playlistName}
   Move Video Up: Pindah Video Ke Atas
@@ -191,14 +196,17 @@ User Playlists:
     pun.
   Export Playlist: Ekspor Daftar Putar Ini
   The playlist has been successfully exported: Daftar putar berhasil diekspor
+  You have no playlists. Click on the create new playlist button to create a new one.: Anda
+    tidak memiliki daftar putar. Klik tombol buat daftar putar baru untuk membuat
+    daftar putar baru.
 History:
   # On History Page
   History: 'Riwayat'
   Watch History: 'Riwayat Tontonan'
   Your history list is currently empty.: 'Daftar riwayat Anda kosong.'
   Search bar placeholder: Cari di Riwayat
-  Empty Search Message: Tidak ada video di dalam riwayat pemutaran yang cocok dengan
-    pencarian Anda
+  Empty Search Message: Tidak ada video dalam riwayat Anda yang cocok dengan pencarian
+    Anda
 Settings:
   # On Settings Page
   Settings: 'Pengaturan'
@@ -316,7 +324,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Interval Video Selanjutnya
+    Next Video Interval: Penghitung Waktu Mundur Putar Otomatis
     Display Play Button In Video Player: Tampilkan Tombol Putar di Dalam Pemutar Video
     Scroll Volume Over Video Player: Gulir Volume di Atas Pemutar Video
     Fast-Forward / Rewind Interval: Interval Fast-Forward / Rewind
@@ -363,7 +371,7 @@ Settings:
     Fetch Feeds from RSS: 'Ambil Umpan dari RSS'
     Fetch Automatically: Ambil Umpan Secara Otomatis
   Data Settings:
-    Data Settings: 'Pengaturan Data'
+    Data Settings: 'data'
     Select Export Type: 'Pilih Tipe Ekspor'
     Import Subscriptions: 'Impor Langganan'
     Export Subscriptions: 'Ekspor Langganan'
@@ -413,7 +421,7 @@ Settings:
     Hide Trending Videos: Sembunyikan Video yang Sedang Tren
     Hide Live Chat: Sembunyikan Obrolan Langsung
     Hide Popular Videos: Sembunyikan Video Populer
-    Distraction Free Settings: Pengaturan Bebas Gangguan
+    Distraction Free Settings: Bebas Gangguan
     Hide Video Likes And Dislikes: Sembunyikan Suka dan Tidak Suka Video
     Hide Video Views: Sembunyikan Tinjauan Video
     Hide Active Subscriptions: Sembunyikan Langganan Aktif
@@ -468,13 +476,13 @@ Settings:
     Proxy Host: Hos Proksi
     Proxy Protocol: Protokol Proksi
     Enable Tor / Proxy: Aktifkan Tor / Proksi
-    Proxy Settings: Pengaturan Proksi
+    Proxy Settings: Proksi
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Beri tahu saat segmen sponsor dilewati
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Url SponsorBlock
       API (Default is https://sponsor.ajay.app)
     Enable SponsorBlock: Aktifkan SponsorBlock
-    SponsorBlock Settings: Pengaturan SponsorBlock
+    SponsorBlock Settings: SponsorBlok
     UseDeArrowTitles: Gunakan Judul Video dari DeArrow
     Skip Options:
       Skip Option: Pilihan Melewati
@@ -490,13 +498,13 @@ Settings:
     Custom External Player Executable: Aplikasi Pemutar Eksternal
     Ignore Unsupported Action Warnings: Abaikan Peringatan Tindakan yang Tidak Didukung
     External Player: Pemutar Eksternal
-    External Player Settings: Pengaturan Pemutar Eksternal
+    External Player Settings: Pemutar Eksternal
     Players:
       None:
         Name: Nihil
   Download Settings:
     Ask Download Path: Minta jalur unduhan
-    Download Settings: Pengaturan Unduh
+    Download Settings: Unduh
     Choose Path: Pilih Tempat
     Open in web browser: Buka di peramban web
     Download Behavior: Tindakan Unduhan
@@ -588,7 +596,7 @@ Profile:
     kanal tersebut dari profil yang lain.'
 #On Channel Page
   Profile Filter: Filter Profil
-  Profile Settings: Pengaturan Profil
+  Profile Settings: Profil
   Profile Name: Nama Profil
   Edit Profile Name: Sunting Nama Profil
   Create Profile Name: Buat Nama Profil
@@ -804,10 +812,10 @@ This video is unavailable because of missing formats. This can happen due to cou
   wilayah.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Ketika diaktifkan, FreeTube akan menggunakan RSS untuk mengambil
-      feed langganan Anda. RSS lebih cepat dan terhindar dari pemblokiran berbasis
-      IP, tetapi tidak menyediakan informasi tertentu seperti durasi video atau status
-      siaran langsung
+    Fetch Feeds from RSS: Saat diaktifkan, FreeTube akan menggunakan RSS, bukan metode
+      default untuk mengambil umpan langganan Anda. RSS lebih cepat dan mencegah pemblokiran
+      IP, tetapi tidak memberikan informasi tertentu seperti durasi video, status
+      langsung, atau kiriman komunitas
     Fetch Automatically: Ketika dinyalakan, FreeTube akan mengambil secara otomatis
       umpan langganan Anda ketika jendala baru dibuka atau ketika profil Anda berubah.
   Player Settings:
@@ -871,6 +879,7 @@ Unknown YouTube url type, cannot be opened in app: Tipe URL YouTube tidak dikena
 Open New Window: Buka Jendela Baru
 Search Bar:
   Clear Input: Hapus Masukan
+  Remove: Buang
 External link opening has been disabled in the general settings: Pembukaan tautan
   eksternal telah dimatikan pada pengaturan umum
 Are you sure you want to open this link?: Yakin ingin membuka tautan ini?
@@ -897,6 +906,7 @@ Clipboard:
 Screenshot Error: Tangkap layar gagal. {error}
 Feed:
   Refresh Feed: Muat Ulang {subscriptionName}
+  Feed Last Updated: 'Umpan {feedName} terakhir diperbarui: {date}'
 Screenshot Success: Tangkapan layar disimpan sebagai "{filePath}"
 Moments Ago: saat yang lalu
 Yes, Delete: Ya, Hapus
@@ -916,5 +926,6 @@ Search Listing:
     360 Video: 360°
     New: Baru
     3D: 3D
+    Closed Captions: Tutup Caption
 Search character limit: Kata pencarian melebihi batas {searchCharacterLimit} karakter
 Right-click or hold to see history: Klik kanan atau tahan untuk melihat riwayat
