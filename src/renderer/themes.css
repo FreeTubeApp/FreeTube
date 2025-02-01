@@ -49,8 +49,7 @@ body:not(.hotPink, .pastelPink) {
 .light,
 .system[data-system-theme*='dark'],
 .dark,
-.black,
-.gray {
+.black {
   --logo-icon: url('../../_icons/iconColorSmall.svg');
   --logo-text: url('../../_icons/textColorSmall.svg');
   --logo-primary-color: #f33;
@@ -185,20 +184,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --side-nav-hover-color: #212121;
   --side-nav-active-color: #303030;
   --search-bar-color: #262626;
-}
-
-.gray {
-  --primary-text-color: #eee;
-  --secondary-text-color: #e0e0e0;
-  --tertiary-text-color: #f5f5f5;
-  --title-color: #eee;
-  --bg-color: #212121;
-  --card-bg-color: #303030;
-  --secondary-card-bg-color: rgb(0 0 0 / 75%);
-  --side-nav-color: #262626;
-  --side-nav-hover-color: #212121;
-  --side-nav-active-color: #303030;
-  --search-bar-color: #212121;
 }
 
 .nordic {
