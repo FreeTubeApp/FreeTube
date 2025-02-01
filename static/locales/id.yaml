@@ -1285,3 +1285,7 @@ Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'Daftar bab terlihat, bab
     saat ini: {chapterName}'
   Chapters: Bab-bab
+shortcutLabelSeparator: ' '
+Description:
+  Collapse Description: Tampilkan lebih sedikit
+  Expand Description: '...lanjutan'
