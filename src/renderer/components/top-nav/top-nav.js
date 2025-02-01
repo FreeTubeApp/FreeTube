@@ -217,7 +217,7 @@ export default defineComponent({
       const doCreateNewWindow = event && event.shiftKey
 
       if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
-        this.$refs.searchInput.blur()
+        this.$refs.searchContainer.blur()
         this.showSearchContainer = false
       } else {
         this.$refs.searchInput.blur()

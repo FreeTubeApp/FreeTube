@@ -45,6 +45,7 @@
       />
       <font-awesome-icon
         v-if="!hideSearchBar"
+        ref="searchContainer"
         class="navSearchIcon navIcon"
         :icon="['fas', 'search']"
         role="button"
