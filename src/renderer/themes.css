@@ -29,7 +29,6 @@ body {
   --logo-tertiary-color: var(--primary-text-color);
 }
 
-
 /*************** RULE TWEAKS ***************/
 
 /* Default sidenav hover text color and primary input color not needed to be changed for most themes */
@@ -2003,4 +2002,10 @@ a:visited {
 ::-webkit-scrollbar-thumb:hover,
 ::-webkit-scrollbar-thumb:focus {
   background: var(--scrollbar-color-hover);
+}
+
+/***** REMOVE MAIN SCROLLBAR WHEN PROMPT IS OPEN ******/
+
+body:has(.app):has(.vue-portal-target):has(.prompt) {
+  overflow: hidden;
 }

@@ -56,7 +56,7 @@
 </template>
 
 <script setup>
-import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useId } from '../../composables/use-id-polyfill'
 
 import store from '../../store/index'
@@ -121,14 +121,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleEscape, true)
-  document.body.style.overflow = ''
   nextTick(() => lastActiveElement?.focus())
-})
-
-watch(promptCard, (val) => {
-  if (val) {
-    document.body.style.overflow = 'hidden'
-  }
 })
 
 /**
