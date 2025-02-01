@@ -44,7 +44,7 @@ Global:
     Like Count: 1 suka | {count} suka
   Community: Komunitas
   Live: Siaran Langsung
-  Shorts: Shorts
+  Shorts: Video Singkat
   Sort By: Urut Menurut
 Version {versionNumber} is now available!  Click for more details: 'Versi {versionNumber}
   sekarang tersedia!  Klik untuk detail lebih lanjut'
@@ -278,7 +278,7 @@ Settings:
       Invidious API: 'API Invidious'
     Video View Type:
       Video View Type: 'Tipe Tampilan Video'
-      Grid: 'Grid'
+      Grid: 'Kotak²'
       List: 'Daftar'
     Thumbnail Preference:
       Thumbnail Preference: 'Preferensi Thumbnail'
@@ -339,7 +339,7 @@ Settings:
       Blue: 'Biru'
       Light Blue: 'Biru Muda'
       Cyan: 'Sian'
-      Teal: 'Teal'
+      Teal: 'biru kehijauan'
       Green: 'Hijau'
       Light Green: 'Hijau Muda'
       Lime: 'Lime'
@@ -361,7 +361,7 @@ Settings:
       Solarized Orange: Solari orange
       Gruvbox Dark Blue: Gruvbox biru tua
       Catppuccin Mocha Maroon: Catpucin Mocha Maroon
-      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Flamingo: Catpuccin Mocha Flamingo
       Catppuccin Mocha Pink: Catpucin Mocha Pink
       Gruvbox Dark Orange: Gruvbox orange tua
       Catppuccin Frappe Flamingo: Flamingo Cappuccin Frappe
@@ -370,9 +370,9 @@ Settings:
       Catppuccin Mocha Sky: Catpucin Mocha Sky
       Solarized Green: Solari hijau
       Solarized Cyan: Solari Biru kehijauan
-      Catppuccin Mocha Peach: Catppuccin Mocha Peach
+      Catppuccin Mocha Peach: Catpuccin Mocha Peach
       Catppuccin Mocha Yellow: Catpucin Mocha Kuning
-      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Rosewater: Catpuccin Mocha Rosewater
       Gruvbox Dark Yellow: Gruvbox Kuning Tua
       Gruvbox Light Purple: Gruvbox ungu terang
       Gruvbox Light Orange: Gruvbox orange terang
@@ -693,7 +693,7 @@ About:
   room rules: aturan kamar
   Please read the: Silakan baca
   Chat on Matrix: Mengobrol di Matrix
-  Mastodon: Mastodon
+  Mastodon: mastodon
   Email: Surel
   Blog: Blog
   Website: Situs web
@@ -709,7 +709,7 @@ About:
   Beta: Beta
   Discussions: Diskusi
   Licensed under the: Dilisensikan dengan lisensi
-  AGPLv3: AGPLv3
+  AGPLv3: Agplv3
 Profile:
   Profile Select: 'Pilih Profil'
   All Channels: 'Semua Kanal'
@@ -881,7 +881,7 @@ Video:
     interaction: Interaksi
     music offtopic: Musik Non-Topik
     self-promotion: Promosi Diri Sendiri
-    outro: Outro
+    outro: outro
     intro: Intro
     sponsor: Sponsor
     recap: Rekap
@@ -936,12 +936,17 @@ Video:
       Player Dimensions: 'Dimensi Pemain: {width}x{height}'
       Stats: Statistik
       Bandwidth: 'bandwidth: {bandwidth} kbps'
+      CodecsVideoAudioNoItags: 'Kodek: {videoCodec} / {audioCodec}'
     Show Stats: Tampilkan Statistik
     Full Window: Jendela Penuh
     Hide Stats: Sembunyikan Statistik
     Theatre Mode: Mode Teater
     Exit Theatre Mode: Keluar dari Mode Teater
     Take Screenshot: Ambil Tangkapan Layar
+    You appear to be offline: Anda tampaknya sedang offline.
+    Playback will resume automatically when your connection comes back: Pemutaran
+      ulang akan dilanjutkan secara otomatis ketika koneksi Anda kembali.
+    Skipped segment: Melewati segmen {segmentCategory}
   More Options: Lebih Banyak Pilihan
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Obrolan
     Langsung tidak tersedia untuk streaming ini. Mungkin telah dinonaktifkan oleh
@@ -964,6 +969,18 @@ Playlist:
 #* Published
 #& Views
   Playlist: Daftar Putar
+  Sort By:
+    PublishedNewest: Terbaru dipublikasikan pertama kali
+    PublishedOldest: Paling awal diterbitkan pertama kali
+    AuthorAscending: Penulis (A-Z)
+    Custom: Aturan sendiri
+    VideoTitleAscending: Judul (A-Z)
+    DateAddedOldest: Yang paling awal ditambahkan terlebih dahulu
+    DateAddedNewest: Terbaru ditambahkan pertama
+    VideoDurationAscending: Durasi (Terpendek dulu)
+    VideoDurationDescending: Durasi (Terpanjang dulu)
+    VideoTitleDescending: Judul (Z-A)
+    AuthorDescending: Penulis (Z-A)
 Change Format:
   Change Media Formats: 'Ubah Format Video'
   Use Dash Formats: 'Gunakan Format DASH'
@@ -973,6 +990,8 @@ Change Format:
     video ini'
   Audio formats are not available for this video: 'Format audio tidak tersedia untuk
     video ini'
+  Legacy formats are not available for this video: Format lama tidak tersedia untuk
+    video ini
 Share:
   Share Video: 'Bagikan Video'
   Share Playlist: 'Bagikan Daftar Putar'
@@ -1016,6 +1035,8 @@ Comments:
   View {replyCount} replies: Lihat {replyCount} balasan
   Subscribed: Berlangganan
   Hearted: Disukai
+  There are no comments available for this post: Tidak ada komentar yang tersedia
+    untuk posting ini
 Up Next: 'Akan Datang'
 
 # Toast Messages
@@ -1257,3 +1278,10 @@ Trimmed input must be at least N characters long: Input yang dipangkas harus mem
   diblokir: "{url}".'
 KeyboardShortcutTemplate: '{label} ({pintasan})'
 shortcutJoinOperator: +
+Chapters:
+  Key Moments: Momen-momen penting
+  'Chapters list hidden, current chapter: {chapterName}': 'Daftar bab tersembunyi,
+    bab saat ini: {chapterName}'
+  'Chapters list visible, current chapter: {chapterName}': 'Daftar bab terlihat, bab
+    saat ini: {chapterName}'
+  Chapters: Bab-bab
