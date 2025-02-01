@@ -199,6 +199,8 @@ User Playlists:
       This playlist has a video with a duration error: Esta playlist contém pelo menos
         um vídeo que não tem duração, ela será classificada como se sua duração fosse
         zero.
+      Video has been removed. Click here to undo.: O vídeo foi removido. Clique aqui
+        para desfazer.
     Search for Videos: Pesquisar vídeos
   AddVideoPrompt:
     Toast:
@@ -392,11 +394,11 @@ Settings:
     Hide FreeTube Header Logo: Ocultar logotipo FreeTube na barra superior
   Player Settings:
     Player Settings: 'Player'
-    Play Next Video: 'Reproduzir próximo vídeo'
+    Play Next Video: 'Reprodução automática de vídeos recomendados'
     Turn on Subtitles by Default: 'Ativar legendas por padrão'
-    Autoplay Videos: 'Reprodução automática de vídeos'
+    Autoplay Videos: 'Iniciar reprodução dos vídeos automaticamente'
     Proxy Videos Through Invidious: 'Usar o Invidious como proxy'
-    Autoplay Playlists: 'Reprodução automática das playlists'
+    Autoplay Playlists: 'Reprodução automática dos vídeos da playlist'
     Enable Theatre Mode by Default: 'Habilitar "Modo Teatro" por padrão'
     Default Volume: 'Volume padrão'
     Default Playback Rate: 'Velocidade de reprodução'
@@ -445,6 +447,12 @@ Settings:
       para o modo paisagem
     Skip by Scrolling Over Video Player: Pular vídeo ao rolar sobre o player
     Autoplay Interruption Timer: Temporizador de interrupção para reprodução automática
+    Default Viewing Mode:
+      Theater: Teatro
+      Default Viewing Mode: Modo de visualização padrão
+      Full Screen: Tela cheia
+      Picture in Picture: Picture in Picture (PiP)
+      External Player: Player externo ({externalPlayerName})
   Subscription Settings:
     Subscription Settings: 'Inscrições'
     Hide Videos on Watch: 'Ocultar vídeos após assisti-los'
@@ -465,7 +473,7 @@ Settings:
       limpar o cache de buscas?
     Clear Search Cache: Limpar cache de buscas
     Save Watched Progress: Habilitar histórico de exibição
-    Remember History: Lembrar histórico
+    Remember History: Lembrar histórico de exibição
     Privacy Settings: Privacidade
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Tem
       certeza de que deseja remover todas as inscrições e perfis? Isto não pode ser
@@ -477,6 +485,12 @@ Settings:
     Are you sure you want to remove all your playlists?: Tem certeza de que deseja
       remover todas as suas playlists?
     Remove All Playlists: Remover todas as playlists
+    Remember Search History: Lembrar histórico de buscas
+    Clear Search History and Cache: Limpar histórico de pesquisa e o cache
+    Search history and cache have been cleared: O histórico de pesquisa e o cache
+      foram removidos
+    Are you sure you want to clear out your search history and cache?: Tem certeza
+      de que deseja limpar o histórico de pesquisa e o cache?
   Data Settings:
     Subscriptions have been successfully exported: Inscrições foram exportadas com
       sucesso
@@ -872,6 +886,8 @@ Video:
     TranslatedCaptionTemplate: '{language} (traduzido do "{originalLanguage}")'
     Show Stats: Mostrar estatísticas
     Exit Full Window: Sair do preenchimento de janela
+    Autoplay is off: A reprodução automática está desativada
+    Autoplay is on: A reprodução automática está ativada
   IP block: O YouTube bloqueou seu endereço IP para assistir a vídeos. Tente mudar
     para uma VPN ou proxy diferente.
   Unlisted: Não listado
@@ -1273,3 +1289,4 @@ KeyboardShortcutPrompt:
   Reset Zoom: Redefinir o nível de zoom / Escala da Interface do Usuário
   Next Chapter: Próximo capítulo
   Skip by Tenths: Pular vídeo por porcentagem (3 pulos até 30% da duração)
+shortcutLabelSeparator: ｜
