@@ -175,6 +175,8 @@ User Playlists:
         для быстрого создания закладок.
       This playlist has a video with a duration error: Этот плейлист содержит хотя-бы
         одно видео без продолжтельности, оно будет отсротрированно как с нулевой продолжительностью.
+      Video has been removed. Click here to undo.: Видео было удалено. Нажмите здесь,
+        чтобы Нажмите здесь, чтобы отменить прсмотр
     Search for Videos: Поиск видео
   AddVideoPrompt:
     N playlists selected: '{playlistCount} выбрано'
@@ -389,11 +391,11 @@ Settings:
     Hide FreeTube Header Logo: Скрыть значок FreeTube
   Player Settings:
     Player Settings: 'Проигрыватель'
-    Play Next Video: 'Воспроизводить следующее видео'
+    Play Next Video: 'Автоматическое воспроизведение рекомендуемых видеороликов'
     Turn on Subtitles by Default: 'Субтитры по умолчанию включены'
     Autoplay Videos: 'Автовоспроизведение видео'
     Proxy Videos Through Invidious: 'Смотреть видео через прокси Invidious'
-    Autoplay Playlists: 'Автовоспроизведение подборок'
+    Autoplay Playlists: 'Автоматическое воспроизведение видео из списка'
     Enable Theatre Mode by Default: 'Включать режим широкого экрана'
     Default Volume: 'Громкость по умолчанию'
     Default Playback Rate: 'Скорость воспроизведения по умолчанию'
@@ -441,6 +443,12 @@ Settings:
       дисплея
     Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
     Autoplay Interruption Timer: Таймер прерывания автоигры
+    Default Viewing Mode:
+      Theater: Режим широко экрана
+      Default Viewing Mode: Режим просмотра по умолчанию
+      Full Screen: На весь экран
+      Picture in Picture: Режим "Картинка в картинке"
+      External Player: Внешний проигрыватель
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
@@ -866,6 +874,8 @@ Video:
     Take Screenshot: Сделать Снимок Экрана
     Show Stats: Показать Статистику
     Hide Stats: Скрыть Статистику
+    Autoplay is on: Включить авто воспроизведение
+    Autoplay is off: Отключить авто воспроизведение
   IP block: YouTube заблокировал ваш IP-адрес для просмотра видео. Пожалуйста, попробуйте
     переключиться на другой VPN или прокси.
   MembersOnly: Видео только для подписчиков нельзя смотреть на FreeTube, так как для
