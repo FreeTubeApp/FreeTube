@@ -2006,6 +2006,6 @@ a:visited {
 
 /***** REMOVE MAIN SCROLLBAR WHEN PROMPT IS OPEN ******/
 
-body:has(.app):has(.vue-portal-target):has(.prompt) {
+body:has(.prompt) {
   overflow: hidden;
 }
