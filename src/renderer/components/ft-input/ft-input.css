@@ -210,6 +210,18 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
   padding-inline: 15px;
 }
 
+.optionWrapper {
+  display: flex;
+  align-items: center;
+  inline-size: 80%;
+}
+
+.optionWrapper span {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .searchResultIcon {
   opacity: 0.6;
   padding-inline-end: 10px;
