@@ -43,7 +43,7 @@ Global:
     Subscriber Count: 1 subscritor | {count} subscritores
     View Count: 1 visualização | {count} visualizações
     Watching Count: 1 assistindo | {count} assistindo
-    Like Count: 1 curtida | {count} curtidas
+    Like Count: 1 gosto | {count} gostos
     Comment Count: 1 comentários | {count} comentários
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
   está disponível! Clique aqui para mais informações.'
@@ -52,7 +52,7 @@ A new blog is now available, {blogTitle}. Click to view more: 'Está disponível
   novo blogue, {blogTitle}. Clique para ver mais.'
 
 # Search Bar
-Search / Go to URL: 'Pesquisar / ir para o URL'
+Search / Go to URL: 'Pesquisar/Ir para o URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtros de pesquisa'
@@ -62,7 +62,7 @@ Search Filters:
     Upload Date: 'Data de publicação'
     View Count: 'Visualizações'
   Time:
-    Time: 'Intervalo de tempo'
+    Time: 'Tempo'
     Any Time: 'Sempre'
     Last Hour: 'Última hora'
     Today: 'Hoje'
@@ -135,8 +135,8 @@ User Playlists:
   Search bar placeholder: Procurar listas de reprodução
   Empty Search Message: Não há vídeos nesta lista de reprodução que coincidam com
     a sua pesquisa
-  This playlist currently has no videos.: Esta lista de reprodução não tem vídeos
-    atualmente.
+  This playlist currently has no videos.: Esta lista de reprodução não tem, atualmente,
+    quaisquer vídeos.
   Create New Playlist: Criar nova lista de reprodução
   Add to Playlist: Adicionar à lista de reprodução
   Remove from Playlist: Remover da lista de reprodução
@@ -226,8 +226,8 @@ User Playlists:
         de reprodução.
   Move Video Up: Mover vídeo para cima
   You have no playlists. Click on the create new playlist button to create a new one.: Não
-    tem listas de reprodução. Clique no botão de criar uma nova lista de reprodução
-    para criar uma.
+    tem listas de reprodução. Clique no botão Criar uma nova lista de reprodução para
+    criar uma.
   Move Video Down: Mover vídeo para baixo
   Edit Playlist Info: Editar informação da lista de reprodução
   Playlist Description: Descrição da lista de reprodução
