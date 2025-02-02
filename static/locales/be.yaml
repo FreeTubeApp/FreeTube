@@ -402,15 +402,25 @@ Settings:
       Catppuccin Frappe Green: Catppuccin Frappe Зялёны
       Catppuccin Frappe Sky: Catppuccin Frappe Неба
       Catppuccin Frappe Teal: Catppuccin Frappe Бірузовы
+      Gruvbox Dark Aqua: Gruvbox Цёмная Аква
+      Gruvbox Light Orange: Gruvbox Светла-аранжавы
+      Gruvbox Dark Purple: Gruvbox Цёмна-фіялетавы
+      Gruvbox Light Blue: Gruvbox Светла-сіні
+      Gruvbox Light Purple: Gruvbox Светла-фіялетавы
+      Gruvbox Dark Green: Gruvbox Цёмна-зялёны
+      Gruvbox Dark Yellow: Gruvbox Цёмна-жоўты
+      Gruvbox Dark Blue: Gruvbox Цёмна-сіні
+      Gruvbox Dark Orange: Gruvbox Цёмна-аранжавы
+      Gruvbox Light Red: Gruvbox Светла-чырвоны
     Secondary Color Theme: 'Другасны колер тэмы'
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Прайгравальнік'
-    Play Next Video: 'Прайграваць наступнае відэа'
+    Play Next Video: 'Аўтапрайграванне рэкамендаваных відэа'
     Turn on Subtitles by Default: 'Уключыць субцітры па змаўчанні'
-    Autoplay Videos: 'Аўтапрайграванне відэа'
+    Autoplay Videos: 'Запускаць відэа аўтаматычна'
     Proxy Videos Through Invidious: 'Глядзець відэа праз проксі Invidious'
-    Autoplay Playlists: 'Аўтапрайграванне плэй-лістоў'
+    Autoplay Playlists: 'Аўтапрайграванне відэа з плэй-лістоў'
     Enable Theatre Mode by Default: 'Уключыць рэжым тэатра па змаўчанні'
     Scroll Volume Over Video Player: 'Прагортваць гучнасці па-над відэапрайгравальнікам'
     Scroll Playback Rate Over Video Player: 'Прагортваць хуткасць прайгравання па-над
@@ -457,6 +467,12 @@ Settings:
       Error:
         Forbidden Characters: 'Забароненыя сімвалы'
         Empty File Name: 'Пустая назва файла'
+    Default Viewing Mode:
+      Theater: Тэатр
+      Default Viewing Mode: Рэжым прагляду па змаўчанні
+      Full Screen: Поўны экран
+      External Player: Вонкавы прайгравальнік ({externalPlayerName})
+      Picture in Picture: Выява ў Выяве
   External Player Settings:
     External Player Settings: 'Вонкавы прайгравальнік'
     External Player: 'Вонкавы прайгравальнік'
@@ -470,7 +486,7 @@ Settings:
     Ignore Default Arguments: Ігнараваць аргументы па змаўчанні
   Privacy Settings:
     Privacy Settings: 'Прыватнасць'
-    Remember History: 'Памятаць гісторыю'
+    Remember History: 'Памятаць гісторыю прагляду'
     Save Watched Progress: 'Захоўваць прагрэс прагляду'
     Save Watched Videos With Last Viewed Playlist: 'Захоўваць прагледжаныя відэа з
       апошнім прагледжаным плэй-лістам'
@@ -493,12 +509,14 @@ Settings:
     Are you sure you want to clear out your search history and cache?: Сапраўды ачысціць
       гісторыю пошуку і кэш?
     Search history and cache have been cleared: Гісторыя пошуку і кэш ачышчаны
+    Remember Search History: Памятаць гісторыю пошуку
   Subscription Settings:
     Subscription Settings: 'Падпіскі'
     Hide Videos on Watch: 'Хаваць відэа пасля прагляду'
     Fetch Feeds from RSS: 'Атрымліваць стужкі з RSS'
     Fetch Automatically: 'Атрымліваць стужку аўтаматычна'
     Confirm Before Unsubscribing: Пацвердзіце перад тым як адпісацца
+    To: Да
   Distraction Free Settings:
     Distraction Free Settings: 'Адцягненне ўвагі'
     Sections:
@@ -529,11 +547,11 @@ Settings:
     Hide Channels: 'Хаваць відэа з каналаў'
     Hide Channels Placeholder: 'Ідэнтыфікатар канала'
     Hide Featured Channels: 'Хаваць прапанаваныя каналы'
-    Hide Channel Playlists: 'Хаваць плэй-лісты канала'
-    Hide Channel Community: 'Хаваць супольнасць канала'
-    Hide Channel Shorts: 'Хаваць кароткія відэа канала'
-    Hide Channel Podcasts: 'Хаваць падкасты канала'
-    Hide Channel Releases: 'Хаваць выпускі канала'
+    Hide Channel Playlists: 'Хаваць укладку "Плэй-лісты" канала'
+    Hide Channel Community: 'Хаваць укладку "Супольнасць" канала'
+    Hide Channel Shorts: 'Хаваць укладку "Кароткія відэа" канала'
+    Hide Channel Podcasts: 'Хаваць укладку "Падкасты" канала'
+    Hide Channel Releases: 'Хаваць укладку "Выпускі" канала'
     Hide Subscriptions Videos: 'Хаваць відэа з падпісак'
     Hide Subscriptions Shorts: 'Хаваць кароткія відэа з падпісак'
     Hide Subscriptions Live: 'Хаваць трансляцыі з падпісак'
@@ -549,6 +567,8 @@ Settings:
     Hide Channels Invalid: Памылковы ідэнтыфікатар канала
     Hide Channels API Error: Памылка атрымання карыстальніка з указаным ідэнтыфікатарам.
       Праверце яшчэ раз, ці правільны ідэнтыфікатар.
+    Hide Channel Home: Хаваць галоўную старонку канала
+    Show Added Items: Паказаць дададзеныя элементы
   Data Settings:
     Data Settings: 'Даныя'
     Select Export Type: 'Выбраць тып экспарту'
@@ -800,6 +820,9 @@ Channel:
     Viewing Posts Only Supported By Invidious: Прагляд паведамленняў падтрымліваецца
       толькі ў Invidious. Перайдзіце на ўкладку супольнасці канала, каб праглядзець
       там змесціва без Invidious.
+  Home:
+    Home: Галоўная старонка
+    View Playlist: Праглядзець плэй-ліст
 Video:
   Mark As Watched: 'Пазначыць як прагледжанае'
   Remove From History: 'Выдаліць з гісторыі'
@@ -916,6 +939,12 @@ Video:
     Playback will resume automatically when your connection comes back: Прайграванне
       ўзновіцца аўтаматычна, калі падключэнне адновіцца.
 #& Playlists
+    Autoplay is off: Аўтапрайграванне выключана
+    Autoplay is on: Аўтапрайграванне ўключана
+  Unlisted: Не ў спісе
+  DeArrow:
+    Show Original Details: Паказаць арыгінальныя дэталі
+    Show Modified Details: Паказаць змененыя дэталі
 Playlist:
   #& About
   Playlist: 'Плэй-ліст'
@@ -935,6 +964,8 @@ Playlist:
     VideoTitleDescending: Назва (Я-А)
     VideoDurationAscending: Працягласць (спачатку кароткія)
     VideoDurationDescending: Працягласць (спачатку доўгія)
+    PublishedNewest: Апошнія апублікаваныя спачатку
+    PublishedOldest: Раней апублікаваныя спачатку
 Change Format:
   Change Media Formats: 'Змяніць фарматы медыя'
   Use Dash Formats: 'Выкарыстоўваць фарматы DASH'
@@ -978,6 +1009,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Спіс раздзелаў схаваны,
     бягучы раздзел: {chapterName}'
 
+  Key Moments: Ключавыя моманты
 Mini Player: 'Міні плэер'
 Comments:
   Comments: 'Каментарыі'
@@ -1112,7 +1144,7 @@ External link opening has been disabled in the general settings: 'Адкрыцц
 Downloading has completed: 'Спампоўванне «{videoTitle}» завершана'
 Starting download: 'Пачалося спампоўванне «{videoTitle}»'
 Downloading failed: 'Узнікла праблема са спампоўваннем «{videoTitle}»'
-Screenshot Success: 'Здымак захаваны як "{filePath}"'
+Screenshot Success: 'Здымак захаваны'
 Screenshot Error: 'Здымак не ўдаўся. {error}'
 
 Hashtag:
@@ -1165,6 +1197,7 @@ KeyboardShortcutPrompt:
       General: Відэа: Агульныя
     App:
       General: Праграма: Агульныя
+      Situational: 'Праграма: Сітуацыйныя'
   History Forward: Перайсці на адну старонку наперад
   New Window: Стварыць новае акно
   Navigate to Settings: Перайсці на старонку налад
@@ -1183,7 +1216,7 @@ KeyboardShortcutPrompt:
   Next Chapter: Наступны раздзел
   History Backward: Вярнуцца на адну старонку назад
   Mute: Уключыць/выключыць гук
-  Theatre Mode: Уключыць/выключыць рэжым тэатра
+  Theatre Mode: Пераключыць рэжым тэатра
   Minimize Window: Згарнуць акно
   Close Window: Закрыць акно
   Restart Window: Перазапусціць акно
@@ -1194,9 +1227,26 @@ KeyboardShortcutPrompt:
     хуткасцю прайгравання
   Large Fast Forward: Пераматаць уперад на 10 секунд / Пераматаць уперад згодна з
     бягучай хуткасцю прайгравання
+  Reset Zoom: Скінуць узровень павелічэння / UI шкалу
+  Focus Search: Засяродзіцца на панэлі пошуку
+  Full Window: Пераключыць поўнае акно
+  Last Chapter: Апошні раздзел
 Keys:
   arrowup: Стрэлка ўверх
   arrowright: Стрэлка ўправа
   arrowdown: Стрэлка ўніз
   arrowleft: Стрэлка ўлева
   plus: Плюс
+  enter: Enter
+  shift: Shift
+  alt: Alt
+  ctrl: Ctrl
+shortcutLabelSeparator: ｜
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Description:
+  Expand Description: '...больш'
+  Collapse Description: Паказаць менш
+Right-click or hold to see history: ПКМ альбо ўтрымлівайце для прагляду гісторыі
+Autoplay Interruption Timer: Аўтапрайграванне адменена з-за {autoplayInterruptionIntervalHours}
+  гадзін бяздзейнасці
