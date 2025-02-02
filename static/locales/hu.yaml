@@ -123,13 +123,13 @@ Subscriptions:
   Load More Posts: További bejegyzések betöltése
   Empty Posts: A feliratkozott csatornáinak jelenleg nincsenek bejegyzései.
 Trending:
-  Trending: 'Népszerűek'
-  Trending Tabs: Népszerű lapok
+  Trending: 'Felkapott'
+  Trending Tabs: Felkapott lapok
   Movies: Filmek
   Gaming: Játék
   Music: Zene
   Default: Alapértelmezett
-Most Popular: 'Legnépszerűbbek'
+Most Popular: 'Legnépszerűbb'
 Playlists: 'Lejátszási listák'
 User Playlists:
   Your Playlists: 'Az Ön lejátszási listái'
@@ -290,7 +290,7 @@ Settings:
       End: 'Vég'
       Hidden: Rejtett
       Blur: Elhomályosítás
-    Region for Trending: 'Népszerűek innen'
+    Region for Trending: 'Felkapottak régiója'
         #! List countries
     View all Invidious instance information: Az Invidious-példányok listájának megtekintése
     System Default: Rendszer alapértelmezett
@@ -1074,8 +1074,8 @@ Tooltips:
     Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a FreeTube használ
       az adatok megszerzéséhez. A helyi-API egy beépített kinyerő. Az Invidious-API
       használatához Invidious-kiszolgáló szükséges.
-    Region for Trending: A népszerűeknél a körzettel kiválaszthatja, mely ország népszerű
-      videóit szeretné megjeleníteni.
+    Region for Trending: A felkapottak régiója lehetővé teszi a választást, hogy melyik
+      ország felkapott videóit szeretné megtekinteni.
     Invidious Instance: Invidious-példány, amelyhez a FreeTube csatlakozni fog az
       API-hívásokhoz.
     Thumbnail Preference: A FreeTube összes miniatűrjét a videó egy képkockája váltja
@@ -1131,10 +1131,10 @@ Tooltips:
     Replace HTTP Cache: Letiltja az Electron lemez alapú HTTP-gyorsítótárát, és engedélyezi
       az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
   Distraction Free Settings:
-    Hide Channels: Csatornaazonosító megadása, hogy elrejtse az összes videót, lejátszási
-      listát és magát a csatornát, nehogy megjelenjen a keresésben, a felkapott, legnépszerűbb
-      és legnépszerűbb. A megadott csatornaazonosítónak teljes egyezésnek kell lennie,
-      és megkülönbözteti a kis- és nagybetűket.
+    Hide Channels: Adjon meg egy csatornaazonosítót, hogy elrejtse az összes videót,
+      lejátszási listát és magát a csatornát a keresési eredményekből, a felkapottak
+      közül, a legnépszerűbbekből és az ajánlottak közül. A megadott csatornaazonosítónak
+      pontosan egyeznie kell, valamint kis- és nagybetűérzékeny.
     Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}”
       beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
     Hide Videos and Playlists Containing Text: Adjon meg egy szót, szótöredéket vagy
