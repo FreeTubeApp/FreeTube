@@ -1,10 +1,10 @@
 import { set as vueSet, del as vueDel } from 'vue'
 import { DBHistoryHandlers } from '../../../datastores/handlers/index'
-import { SORT_BY_VALUES } from '../../helpers/history'
+import { HISTORY_SORT_BY_VALUES } from '../../../constants'
 
 const state = {
   historyCacheSorted: [],
-  useAscendingOrder: SORT_BY_VALUES['DateAddedNewest'],
+  useAscendingOrder: HISTORY_SORT_BY_VALUES.DateAddedNewest,
 
   // Vuex doesn't support Maps, so we have to use an object here instead
   // TODO: switch to a Map during the Pinia migration
@@ -20,7 +20,7 @@ const getters = {
     return state.historyCacheById
   },
 
-  getSortOrder(state) {
+  getHistorySortOrder(state) {
     return state.useAscendingOrder
   }
 }
@@ -37,15 +37,6 @@ const actions = {
 
       commit('setHistoryCacheSorted', results)
       commit('setHistoryCacheById', resultsById)
-    } catch (errMessage) {
-      console.error(errMessage)
-    }
-  },
-
-  async selectSort({ commit }, sort) {
-    try {
-      const order = sort
-      commit('setSortOrder', order)
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -124,9 +115,8 @@ const mutations = {
     state.historyCacheSorted = historyCacheSorted
   },
 
-  setSortOrder(state, order) {
+  setHistorySortOrder(state, order) {
     state.useAscendingOrder = order
-    return state.useAscendingOrder
   },
 
   setHistoryCacheById(state, historyCacheById) {

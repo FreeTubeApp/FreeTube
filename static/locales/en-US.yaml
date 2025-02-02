@@ -49,6 +49,8 @@ Global:
   Live: Live
   Community: Community
   Sort By: Sort By
+  DateWatchedOldest: Earliest Watched First
+  DateWatchedNewest: Latest Watched First
   Counts:
     Video Count: 1 video | {count} videos
     Channel Count: 1 channel | {count} channels
@@ -265,10 +267,6 @@ History:
   Empty Search Message: There are no videos in your history that match your search
   Search bar placeholder: "Search in History"
   Case Sensitive Search: Case Sensitive Search
-  Sort By:
-    Sort By: Sort By
-    DateWatchedOldest: Earliest Watched First
-    DateWatchedNewest: Latest Watched First
 Settings:
   # On Settings Page
   Settings: Settings

@@ -9,10 +9,9 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
-import { ctrlFHandler, debounce } from '../../helpers/utils'
-import { mapActions } from 'vuex'
-import { getIconForSortPreference } from '../../helpers/utils'
-import { SORT_BY_VALUES } from '../../helpers/history'
+import { ctrlFHandler, debounce, getIconForSortPreference } from '../../helpers/utils'
+import { mapMutations } from 'vuex'
+import { HISTORY_SORT_BY_VALUES } from '../../../constants'
 
 const identity = (v) => v
 
@@ -54,15 +53,15 @@ export default defineComponent({
   computed: {
     sortByNames: function () {
       return [
-        this.$t('History.Sort By.DateWatchedNewest'),
-        this.$t('History.Sort By.DateWatchedOldest'),
+        this.$t('Global.DateWatchedNewest'),
+        this.$t('Global.DateWatchedOldest'),
       ]
     },
     sortOrder: function() {
-      return this.$store.getters.getSortOrder
+      return this.$store.getters.getHistorySortOrder
     },
     historyCacheSorted: function () {
-      return this.sortOrder === SORT_BY_VALUES['DateAddedNewest'] ? this.$store.getters.getHistoryCacheSorted : this.$store.getters.getHistoryCacheSorted.toReversed()
+      return this.sortOrder === HISTORY_SORT_BY_VALUES.DateAddedNewest ? this.$store.getters.getHistoryCacheSorted : this.$store.getters.getHistoryCacheSorted.toReversed()
     },
     fullData: function () {
       if (this.historyCacheSorted.length < this.dataLimit) {
@@ -72,7 +71,7 @@ export default defineComponent({
       }
     },
     sortByValues() {
-      return Object.values(SORT_BY_VALUES)
+      return Object.values(HISTORY_SORT_BY_VALUES)
     }
   },
   watch: {
@@ -199,8 +198,8 @@ export default defineComponent({
       ctrlFHandler(event, this.$refs.searchBar)
     },
     getIconForSortPreference: (s) => getIconForSortPreference(s),
-    ...mapActions([
-      'selectSort'
+    ...mapMutations([
+      'setHistorySortOrder'
     ])
   }
 })
