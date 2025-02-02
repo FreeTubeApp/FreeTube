@@ -174,6 +174,8 @@ User Playlists:
       This playlist has a video with a duration error: Danh sách phát này có chứa
         một video trở lên không có thông tin thời lượng và sẽ được coi như thời lượng
         bằng không.
+      Video has been removed. Click here to undo.: Video đã được xóa. Nhấn vào đây
+        để hoàn tác.
     Search for Videos: Tìm kiếm video
   You have no playlists. Click on the create new playlist button to create a new one.: Bạn
     đang không có danh sách phát nào. Nhấn vào nút tạo danh sách phát mới để tạo một
@@ -313,6 +315,7 @@ Settings:
       Solarized Light: Solarized Sáng
       Gruvbox Dark: Gruvbox Tối
       Gruvbox Light: Gruvbox Sáng
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Màu chủ đề chính'
       Red: 'Đỏ'
@@ -416,6 +419,12 @@ Settings:
     Video Playback Rate Interval: Khoảng cách tốc độ phát
     Enter Fullscreen on Display Rotate: Bật toàn màn hình khi xoay
     Skip by Scrolling Over Video Player: Tua video bằng con lăn chuột
+    Default Viewing Mode:
+      Theater: Rạp hát
+      Default Viewing Mode: Chế độ xem mặc định
+      Full Screen: Toàn màn hình
+      Picture in Picture: Hình trong hình
+      External Player: Trình phát ngoài ({externalPlayerName})
   Subscription Settings:
     Subscription Settings: 'Đăng ký'
     Hide Videos on Watch: 'Ẩn video khi đã xem'
@@ -497,27 +506,29 @@ Settings:
       Channel Page: Trang kênh
       Subscriptions Page: Trang đăng ký
       Watch Page: Trang trình chiếu video
-    Hide Channel Playlists: Ẩn danh sách phát của kênh
+    Hide Channel Playlists: Ẩn trang "Danh sách phát" của kênh
     Hide Featured Channels: Ẩn các kênh nổi bật
     Hide Channels Placeholder: ID kênh
     Hide Profile Pictures in Comments: Ẩn ảnh đại diện trong bình luận
     Hide Chapters: Ẩn các chương
     Hide Channels: Ẩn video từ các kênh
-    Hide Channel Releases: Ẩn nhạc của kênh
+    Hide Channel Releases: Ẩn trang "Xuất bản" của kênh
     Hide Videos and Playlists Containing Text: Ẩn các video và danh sách phát có chứa
     Hide Channels Invalid: ID kênh không hợp lệ
-    Hide Channel Community: Ẩn cộng đồng của kênh
-    Hide Channel Shorts: Ẩn short của kênh
+    Hide Channel Community: Ẩn trang "Cộng đồng" của kênh
+    Hide Channel Shorts: Ẩn trang "Shorts" của kênh
     Hide Subscriptions Shorts: Ẩn short từ các đăng ký
     Hide Subscriptions Live: Ẩn video phát trực tiếp từ các đăng ký
     Hide Upcoming Premieres: Ẩn video sắp ra mắt
-    Hide Channel Podcasts: Ẩn podcast của kênh
+    Hide Channel Podcasts: Ẩn trang "Podcast" của kênh
     Hide Subscriptions Community: Ẩn bài đăng cộng đồng từ các đăng ký
     Hide Channels Already Exists: ID kênh đã tồn tại
     Hide Videos and Playlists Containing Text Placeholder: Từ, tiếng, hoặc cụm từ
     Hide Subscriptions Videos: Ẩn video từ các đăng ký
     Display Titles Without Excessive Capitalisation: Hiển thị tiêu đề không viết hoa
       quá mức
+    Show Added Items: Hiện các mục đã thêm
+    Hide Channel Home: Ẩn "Trang chủ" của kênh
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bạn
       có muốn xóa toàn bộ đăng ký và hồ sơ không? Điều này không thể phục hồi.
@@ -531,7 +542,7 @@ Settings:
       bộ đệm của tìm kiếm?
     Clear Search Cache: Xóa cache tìm kiếm
     Save Watched Progress: Lưu quá trình xem
-    Remember History: Nhớ lịch sử
+    Remember History: Nhớ lịch sử xem
     Privacy Settings: Quyền riêng tư
     Remove All Playlists: Xóa tất cả danh sách phát
     Are you sure you want to remove all your playlists?: Bạn có chắc muốn xóa tất
@@ -539,6 +550,11 @@ Settings:
     All playlists have been removed: Đã xóa tất cả các danh sách phát
     Save Watched Videos With Last Viewed Playlist: Lưu video đã xem với danh sách
       phát được xem lần cuối
+    Remember Search History: Nhớ lịch sử tìm kiếm
+    Clear Search History and Cache: Xóa lịch sử tìm kiếm và bộ đệm
+    Are you sure you want to clear out your search history and cache?: Bạn có chắc
+      muốn xóa lịch sử tìm kiếm và bộ đệm của bạn?
+    Search history and cache have been cleared: Đã xóa lịch sử tìm kiếm và bộ đệm
   The app needs to restart for changes to take effect. Restart and apply change?: Ứng
     dụng cần được khởi động lại để chỉnh sửa có hiệu nghiệm. Khởi động lại và áp dụng
     cài đặt?
@@ -700,6 +716,9 @@ Channel:
     Hide Answers: Ẩn Câu trả lời
     Video hidden by FreeTube: FreeTube đã ẩn video này
     View Full Post: Mở rộng bài đăng
+    Viewing Posts Only Supported By Invidious: Việc xem các bài đăng chỉ được hỗ trợ
+      qua Invidious. Hãy đi đến trang Cộng đồng của kênh để xem nội dung này mà không
+      cần Invidious.
   Releases:
     Releases: Xuất bản
     This channel does not currently have any releases: Kênh này hiện không có bất
@@ -828,9 +847,11 @@ Video:
     Audio Tracks: Rãnh âm thanh
     Theatre Mode: Chế độ rạp hát
     Exit Theatre Mode: Thoát chế độ rạp hát
-    Full Window: Toàn màn hình
-    Exit Full Window: Thoát toàn màn hình
+    Full Window: Toàn cửa sổ
+    Exit Full Window: Thoát toàn cửa sổ
     Take Screenshot: Chụp ảnh màn hình
+    Autoplay is off: Tự động phát đang tắt
+    Autoplay is on: Tự động phát đang bật
   MembersOnly: Các video trả phí không thể được xem qua FreeTube vì chúng yêu cầu
     đăng nhập qua một tài khoản Google có đăng kí trả phí với kênh đã đăng các video
     đó.
@@ -843,6 +864,7 @@ Video:
     Show Modified Details: Hiện thông tin đã sửa đổi
     Show Original Details: Hiện thông tin gốc
 #& Playlists
+  Unlisted: Không liệt kê
 Playlist:
   #& About
   View Full Playlist: 'Xem danh sách phát hoàn chỉnh'
@@ -993,6 +1015,7 @@ Version {versionNumber} is now available!  Click for more details: Phiên bản 
 Open New Window: Mở cửa sổ mới
 Search Bar:
   Clear Input: Xóa đầu vào
+  Remove: Xóa bỏ
 More: Thêm
 Are you sure you want to open this link?: Bạn có chắc là bạn muốn mở liên kết này
   không?
@@ -1085,7 +1108,7 @@ External link opening has been disabled in the general settings: Tính năng m�
   kết bên ngoài đã bị tắt trong cài đặt chung
 Downloading failed: Đã xảy ra sự cố trong quá trình tải xuống "{videoTitle}"
 Default Invidious instance has been cleared: Phiên bản Invidious mặc định đã bị xóa
-Screenshot Success: Ảnh chụp màn hình đã lưu thành "{filePath}"
+Screenshot Success: Ảnh chụp màn hình đã lưu
 Screenshot Error: Chụp màn hình không thành công. {error}
 Default Invidious instance has been set to {instance}: Phiên bản Invidious mặc định
   đã được đặt thành {instance}
@@ -1151,9 +1174,62 @@ Keys:
   arrowleft: Mũi tên trái
   arrowright: Mũi tên phải
   arrowup: Mũi tên lên
+  plus: Cộng
+  shift: Shift
+  enter: Enter
 Right-click or hold to see history: Giữ hoặc nhấn chuột phải để xem lịch sử
 Autoplay Interruption Timer: Tự động phát bị hủy do không có hành động trong {autoplayInterruptionIntervalHours}
   giờ
 Description:
   Expand Description: '...thêm'
   Collapse Description: Ẩn bớt
+KeyboardShortcutPrompt:
+  Mute: Bật/Tắt tiếng
+  Next Chapter: Tua đến chương sau
+  Skip by Tenths: Tua đến 0~9 phần mười của video
+  Keyboard Shortcuts: Phím tắt bàn phím
+  Sections:
+    Video:
+      Playback: 'Video: Phát lại'
+      General: 'Video: Chung'
+    App:
+      Situational: 'Ứng dụng: Theo bối cảnh'
+      General: 'Ứng dụng: Chung'
+  History Backward: Lùi một trang
+  Refresh: Cập nhật luồng video
+  Focus Secondary Search: Đặt con trỏ bàn phím vào thanh tìm kiếm phụ (nếu có)
+  Stats: Hiện thống kê video
+  Fullscreen: Bật/tắt toàn màn hình
+  Captions: Bật/tắt phụ đề
+  Picture in Picture: Bặt/tắt hình trong hình
+  Full Window: Bật/tắt toàn cửa sổ
+  Reset Zoom: Đặt lại tỉ lệ phóng UI
+  Large Rewind: Tua lại video 2 nấc theo cài đặt nhân tốc độ phát lại
+  Zoom In: Phóng to
+  Next Frame: Khung ảnh sau (khi tạm dừng)
+  Volume Up: Tăng âm lượng
+  Small Rewind: Tua lại video 1 nấc theo cài đặt nhân tốc độ phát lại
+  Toggle Developer Tools: Hiện công cụ nhà phát triển
+  Small Fast Forward: Tua đi video 1 nấc theo cài đặt nhân tốc độ phát lại
+  Decrease Video Speed: Giảm tốc độ video 1 nấc theo cài đặt
+  Last Chapter: Tua về chương trước
+  Volume Down: Giảm âm lượng
+  Increase Video Speed: Tăng tốc độ video 1 nấc theo cài đặt
+  New Window: Tạo cửa sổ mới
+  Play: Phát/tạm dừng
+  Large Fast Forward: Tua đi video 2 nấc theo cài đặt nhân tốc độ phát lại
+  Take Screenshot: Chụp ảnh màn hình
+  Zoom Out: Thu nhỏ
+  Focus Search: Đặt con trỏ bàn phím vào thanh tìm kiếm
+  Show Keyboard Shortcuts: Hiện phím tắt bàn phím
+  History Forward: Tiến một trang
+  Navigate to Settings: Đi đến trang Cài đặt
+  Navigate to History: Đi đến trang Lịch sử
+  Minimize Window: Thu nhỏ cửa sổ
+  Theatre Mode: Bật/tắt chế độ rạp hát
+  Close Window: Đóng cửa sổ
+  Restart Window: Tải lại cửa sổ
+  Force Restart Window: Buộc tải lại cửa sổ
+  Search in New Window: Tìm kiếm trong cửa sổ mới
+  Last Frame: Khung ảnh trước (khi tạm dừng)
+shortcutLabelSeparator: ｜
