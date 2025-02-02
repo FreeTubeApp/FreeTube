@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
-import FtSlider from '../ft-slider/ft-slider.vue'
+import FtSlider from '../FtSlider/FtSlider.vue'
 
 export default defineComponent({
   name: 'SubscriptionSettings',
