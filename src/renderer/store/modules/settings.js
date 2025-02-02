@@ -206,6 +206,7 @@ const state = {
   hideUnsubscribeButton: false,
   hideSearchBar: false,
   showFamilyFriendlyOnly: false,
+  hideCreateNewProfileButton: false,
   hideSharingActions: false,
   hideSubscriptionsVideos: false,
   hideSubscriptionsShorts: false,
