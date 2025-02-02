@@ -187,6 +187,7 @@ User Playlists:
         הזו.
       This playlist has a video with a duration error: רשימת הנגינה הזאת מכילה סרטון
         אחד לפחות שאין לו אורך, הם ימוינו כאילו המשך שלהם הוא אפס.
+      Video has been removed. Click here to undo.: הסרטון הוסר. לחיצה תחזיר אותו.
     Search for Videos: חיפוש סרטונים
   Cannot delete the quick bookmark target playlist.: לא ניתן למחוק את רשימת הנגינה
     ביעד הסימניות הזריזות.
@@ -424,6 +425,12 @@ Settings:
     Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
     Skip by Scrolling Over Video Player: אפשר לדלג על ידי גלילה על נגן הווידאו
     Autoplay Interruption Timer: מתזמן הפרעת ניגון אוטומטי
+    Default Viewing Mode:
+      Theater: תיאטרון
+      Default Viewing Mode: מצב צפייה כברירת מחדל
+      Full Screen: מסך מלא
+      Picture in Picture: תמונה בתוך תמונה
+      External Player: נגן חיצוני ({externalPlayerName})
   Privacy Settings:
     Privacy Settings: 'פרטיות'
     Remember History: 'לזכור את היסטוריית הצפייה'
@@ -444,6 +451,11 @@ Settings:
     All playlists have been removed: כל רשימות הנגינה הוסרו
     Are you sure you want to remove all your playlists?: האם אתה בטוח שברצונך למחוק
       את כל רשימות השידורים שלך?
+    Clear Search History and Cache: פינוי היסטוריית החיפוש והמטמון
+    Are you sure you want to clear out your search history and cache?: לפנות את היסטוריית
+      החיפוש ואת המטמון שלך?
+    Search history and cache have been cleared: היסטוריית החיפוש והמטמון נמחקו
+    Remember Search History: לזכור את היסטוריית החיפוש
   Subscription Settings:
     Subscription Settings: 'מינוי'
     Hide Videos on Watch: 'הסתרת סרטונים לאחר הצפייה'
@@ -1046,6 +1058,7 @@ More: עוד
 Open New Window: פתיחת חלון חדש
 Search Bar:
   Clear Input: פינוי הקלט
+  Remove: הסרה
 Are you sure you want to open this link?: לפתוח את הקישור הזה?
 Unknown YouTube url type, cannot be opened in app: סוג כתובת לא ידוע ל־YouTube, לא
   ניתן לפתיחה ביישום
@@ -1133,3 +1146,24 @@ Description:
   Expand Description: …עוד
 Autoplay Interruption Timer: ניגון אוטומטי בוטל עקב {autoplayInterruptionIntervalHours}
   שעות של חוסר פעילות
+KeyboardShortcutPrompt:
+  Focus Search: התמקדות על סרגל החיפוש
+  Next Chapter: הפרק הבא
+  Search in New Window: חיפוש בחלון חדש
+  Zoom Out: התרחקות
+  Zoom In: התקרבות
+  Reset Zoom: איפוס המרחק / קנה מידת ממשק המשתמש
+  Force Restart Window: אילוץ הפעלת החלון מחדש
+  Close Window: סגירת החלון
+  Next Frame: התמונית הבאה (תוך כדי השהייה)
+  Last Frame: התמונית הקודמת (תוך כדי השהייה)
+  Last Chapter: הפרק האחרון
+  Skip by Tenths: דילוג בתוך הווידאו באחוזים (3 דילוגים ל־30% ממשך הנגינה)
+  Volume Up: הגברת עוצמת השמע
+  Volume Down: הנמכת עוצמת השמע
+  Restart Window: הפעלת החלון מחדש
+  Full Window: מסך מלא/רגיל
+  Toggle Developer Tools: הצגת/הסתרת כלי פיתוח
+  Minimize Window: מזעור החלון
+  Take Screenshot: צילום המסך
+  Theatre Mode: מעבר/חזרה ממצב תיאטרון
