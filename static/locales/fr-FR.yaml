@@ -311,8 +311,8 @@ Settings:
     Auto Load Next Page:
       Label: Chargement automatique de la page suivante
       Tooltip: Chargement automatique des pages supplémentaires et des commentaires.
-    Open Deep Links In New Window: Les URL ouvertes ont été transmises à FreeTube
-      dans une nouvelle fenêtre
+    Open Deep Links In New Window: Ouvrir les URL transmises à FreeTube dans une nouvelle
+      fenêtre
   Theme Settings:
     Theme Settings: 'Thème'
     Match Top Bar with Main Color: 'Faire correspondre la barre supérieure à la couleur
@@ -390,7 +390,7 @@ Settings:
       Gruvbox Light Orange: Gruvbox Orange Clair
       Gruvbox Dark Green: Gruvbox Vert Sombre
       Gruvbox Dark Blue: Gruvbox Bleu Sombre
-      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamant Rose
       Catppuccin Frappe Pink: Catppuccin Frappe Rose
       Catppuccin Frappe Rosewater: Catppuccin Frappe Eau de rose
       Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
@@ -438,9 +438,9 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Minuteur de lecture automatique
-    Scroll Volume Over Video Player: Contrôler le niveau du volume avec la molette
-      au dessus du lecteur vidéo
+    Next Video Interval: Décompte de la lecture automatique
+    Scroll Volume Over Video Player: Contrôler le volume via la molette au dessus
+      du lecteur vidéo
     Display Play Button In Video Player: Afficher le bouton de lecture dans le lecteur
       vidéo
     Fast-Forward / Rewind Interval: Intervalle d'avance / de recul rapide
@@ -673,9 +673,9 @@ Settings:
     Download Settings: 'Téléchargement'
     Ask Download Path: 'Demander l''emplacement de téléchargement'
     Choose Path: 'Choisir l''emplacement'
-    Download Behavior: Comportement de téléchargement
-    Download in app: Télécharger dans l'application
-    Open in web browser: Ouvrir dans le navigateur web
+    Download Behavior: Méthode de téléchargement
+    Download in app: Via l'application
+    Open in web browser: via le navigateur web
   Parental Control Settings:
     Hide Unsubscribe Button: Masquer le bouton de désabonnement
     Hide Search Bar: Masquer la barre de recherche
@@ -1131,9 +1131,9 @@ Tooltips:
     External Link Handling: "Choisissez le comportement par défaut quand on clique
       sur un lien qui ne peut être ouvert dans FreeTube.\nPar défaut, FreeTube ouvrira
       le lien dans votre navigateur par défaut.\n"
-    Open Deep Links In New Window: Les URL transmises à FreeTube, par des extensions
-      de redirection d'un navigateur ou par les arguments de la ligne de commande,
-      sont ouvertes dans une nouvelle fenêtre.
+    Open Deep Links In New Window: Les URL transmises à FreeTube, par exemple via
+      des extensions de redirection d'un navigateur web ou via des arguments en ligne
+      de commande, seront ouvertes dans une nouvelle fenêtre.
   External Player Settings:
     Custom External Player Arguments: Tous les arguments de ligne de commande personnalisés,
       que vous souhaitez transmettre au lecteur externe.
