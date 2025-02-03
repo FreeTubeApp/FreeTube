@@ -14,14 +14,14 @@ Cut: 'Kes'
 Copy: 'Kopyala'
 Paste: 'Yapıştır'
 Delete: 'Sil'
-Select all: 'Tümünü Seç'
-Reload: 'Yeniden Yükle'
-Force Reload: 'Zorla Yeniden Yükle'
+Select all: 'Tümünü seç'
+Reload: 'Yeniden yükle'
+Force Reload: 'Zorla yeniden yükle'
 Toggle Developer Tools: 'Geliştirici Seçeneklerini Aç/Kapat'
-Actual size: 'Gerçek Boyut'
+Actual size: 'Gerçek boyut'
 Zoom in: 'Yakınlaştır'
 Zoom out: 'Uzaklaştır'
-Toggle fullscreen: 'Tam Ekran Yap'
+Toggle fullscreen: 'Tam ekran'
 Window: 'Pencere'
 Minimize: 'Küçült'
 Close: 'Kapat'
@@ -182,6 +182,8 @@ User Playlists:
         zaten hızlı yer imi için kullanılıyor.
       This playlist has a video with a duration error: Bu oynatma listesi süresi olmayan
         en az bir video içeriyor, süreleri sıfırmış gibi sıralanacaktır.
+      Video has been removed. Click here to undo.: Video kaldırıldı. Geri almak için
+        buraya tıklayın.
     Search for Videos: Video Ara
   AddVideoPrompt:
     Select a playlist to add your N videos to: Videonuzu eklemek için bir oynatma
@@ -385,11 +387,11 @@ Settings:
     Hide FreeTube Header Logo: FreeTube Başlık Logosunu Gizle
   Player Settings:
     Player Settings: 'Oynatıcı'
-    Play Next Video: 'Sonraki Videoyu Oynat'
-    Turn on Subtitles by Default: 'Alt Yazıları Öntanımlı Olarak Aç'
-    Autoplay Videos: 'Videoları Otomatik Başlat'
+    Play Next Video: 'Önerilen Videoları Otomatik Oynat'
+    Turn on Subtitles by Default: 'Altyazıları Sürekli Etkinleştir'
+    Autoplay Videos: 'Videoları Otomatik Oynat'
     Proxy Videos Through Invidious: 'Videolari Invidious Üzerinden Aktar'
-    Autoplay Playlists: 'Oytma Listelerini Otomatik Başlat'
+    Autoplay Playlists: 'Oynatma Listelerini Otomatik Oynat'
     Enable Theatre Mode by Default: 'Sinema Modunu Öntanımlı Olarak Etkinleştir'
     Default Volume: 'Öntanımlı Ses Düzeyi'
     Default Playback Rate: 'Öntanımlı Oynatma Hızı'
@@ -436,9 +438,15 @@ Settings:
     Enter Fullscreen on Display Rotate: Ekran Döndürüldüğünde Tam Ekrana Geç
     Skip by Scrolling Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Atla
     Autoplay Interruption Timer: Otomatik Oynatma Durdurma Sayacı
+    Default Viewing Mode:
+      Picture in Picture: Resim içinde Resim
+      Full Screen: Tam Ekran
+      Default Viewing Mode: Varsayılan Görüntüleme Modu
+      Theater: Sinema
+      External Player: Harici Oynatıcı ({externalPlayerName})
   Privacy Settings:
     Privacy Settings: 'Gizlilik'
-    Remember History: 'Geçmişi Hatırla'
+    Remember History: 'İzleme Geçmişini Hatırla'
     Save Watched Progress: 'Kaldığım Yeri Hatırla'
     Clear Search Cache: 'Arama Önbelleğini Temizle'
     Are you sure you want to clear out your search cache?: 'Arama önbelleğini temizlemek
@@ -457,6 +465,11 @@ Settings:
     Remove All Playlists: Tüm Oynatma Listelerini Kaldır
     Are you sure you want to remove all your playlists?: Tüm oynatma listelerinizi
       kaldırmak istediğinizden emin misiniz?
+    Remember Search History: Arama Geçmişini Hatırla
+    Are you sure you want to clear out your search history and cache?: Arama geçmişinizi
+      ve önbelleğinizi temizlemek istediğinizden emin misiniz?
+    Search history and cache have been cleared: Arama geçmişi ve önbellek temizlendi
+    Clear Search History and Cache: Arama Geçmişini ve Önbelleği Temizle
   Subscription Settings:
     Subscription Settings: 'Abonelik'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
@@ -569,6 +582,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Sözcük, Sözcük Parçası
       veya İfade
     Hide Channel Home: Kanal "Ana Sayfasını" Gizle Sekmesi
+    Show Added Items: Eklenen Öğeleri Göster
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -588,10 +602,11 @@ Settings:
     Proxy Protocol: Vekil Sunucu Protokolü
     Enable Tor / Proxy: Tor / Vekil Sunucu Etkinleştir
     Proxy Settings: Vekil Sunucu
-    Proxy Warning: FreeTube yerleşik bir proxy'ye sahip değildir, ancak Tor gibi makinenizde
-      çalışan bir proxy veya bazı VPN'ler tarafından sağlanan SOCKS5 proxy gibi harici
-      bir proxy'ye bağlanabilir. Etkinleştirilmişse, proxy/Tor'unuzun düzgün yapılandırıldığından
-      emin olun, aksi takdirde FreeTube herhangi bir veri alamayacaktır.
+    Proxy Warning: FreeTube yerleşik bir vekil sunucusu sağlamaz fakat cihazınızda
+      çalışan Tor veya bazı VPN'ler tarafından sağlanan harici vekil sunucu SOCKS5
+      gibi harici bir vekil sunucuya bağlanabilir. İzin verildiği takdirde, vekil
+      sunucu/Tor ağının düzgün ayarlandığından emin olun, aksi takdirde FreeTube herhangi
+      bir veri sağlayamayacaktır.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Sponsor bölümü atlandığında bildir
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
@@ -907,18 +922,23 @@ Video:
     Playback will resume automatically when your connection comes back: Bağlantınız
       geri geldiğinde oynatma otomatik olarak devam edecektir.
     Skipped segment: '{segmentCategory} bölümü atlandı'
+    Autoplay is off: Otomatik oynat kapalı
+    Autoplay is on: Otomatik oynat açık
   IP block: YouTube, IP adresinizin video izlemesini engelledi. Lütfen farklı bir
     VPN veya vekil sunucuya geçmeyi deneyin.
   Unlisted: Listelenmemiş
   AgeRestricted: Yaş sınırlamalı videolar, Google hesabına giriş ve yaş doğrulaması
     yapılmış bir YouTube hesabının kullanımını gerektirdiği için FreeTube üzerinden
     izlenemez.
-  MembersOnly: Yalnızca üyelere özel videolar, Google girişi ve yükleyicinin kanalına
-    ücretli üyelik gerektirdiğinden FreeTube ile izlenemez.
+  MembersOnly: Sadece üyelere özel videolar, Google hesabına giriş ve yükleyicinin
+    kanalına ücretli abonelik gerektirdiği için FreeTube üzerinden izlenemez.
   DeArrow:
     Show Original Details: Düzenlenmemiş Detayları Göster
     Show Modified Details: Düzenlenmiş Detayları Göster
 #& Playlists
+  DRMProtected: DRM korumalı videolar, özel kapalı kaynak bileşenleri gerektirdiğinden
+    FreeTube ile oynatılamaz. Bu videoyu izlemek istiyorsanız lütfen resmi YouTube
+    web sitesinde DRM etkinleştirilmiş bir web tarayıcısında izleyin.
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'
@@ -938,6 +958,8 @@ Playlist:
     Custom: Özel
     VideoDurationAscending: Süre (Önce en kısa)
     VideoDurationDescending: Süre (Önce en uzun)
+    PublishedOldest: En erken yayınlanan ilk
+    PublishedNewest: En son yayınlanan ilk
 Change Format:
   Change Media Formats: 'Medya Biçimlerini Değiştir'
   Use Dash Formats: 'DASH Biçimlerini Kullan'
@@ -1105,6 +1127,7 @@ Default Invidious instance has been set to {instance}: Öntanımlı Invidious ö
   {instance} olarak ayarlandı
 Search Bar:
   Clear Input: Girişi Temizle
+  Remove: Kaldır
 External link opening has been disabled in the general settings: Harici bağlantı açma
   genel ayarlarda devre dışı bırakıldı
 Are you sure you want to open this link?: Bu bağlantıyı açmak istediğinizden emin
@@ -1115,7 +1138,7 @@ Downloading has completed: '"{videoTitle}" indirme işlemi tamamlandı'
 Downloading failed: '"{videoTitle}" indirilirken bir sorun oluştu'
 Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor" moduna
   geri dönülüyor.
-Screenshot Success: Ekran görüntüsü "{filePath}" olarak kaydedildi
+Screenshot Success: Ekran görüntüsü kaydedildi
 Screenshot Error: Ekran görüntüsü başarısız oldu. {error}
 New Window: Yeni Pencere
 Channels:
@@ -1184,6 +1207,9 @@ Keys:
   ctrl: Ctrl
   arrowright: Sağ Ok
   alt: Alt
+  enter: Enter
+  shift: Shift
+  plus: Plus
 shortcutJoinOperator: +
 Right-click or hold to see history: Geçmişi görmek için sağ tıklayın ya da basılı
   tutun
@@ -1192,3 +1218,33 @@ Description:
   Collapse Description: Daha az göster
 Autoplay Interruption Timer: Otomatik oynatma, {autoplayInterruptionIntervalHours}
   saattir aktif olmadığı için iptal edildi
+shortcutLabelSeparator: ｜
+KeyboardShortcutPrompt:
+  Full Window: Tam pencereyi değiştir
+  Theatre Mode: Sinema modunu değiştir
+  Close Window: Pencereyi kapat
+  Fullscreen: Tam ekranı değiştir
+  Increase Video Speed: Video Oynatma Hızı Aralığına göre video hızını artır
+  Large Rewind: 10 saniye geri sar / Mevcut Video Oynatma Hızına göre videoyu geri
+    sar
+  Minimize Window: Pencereyi küçült
+  Take Screenshot: Ekran görüntüsü al
+  Restart Window: Pencereyi yeniden başlat
+  History Backward: Bir sayfa geriye git
+  Skip by Tenths: Videoyu yüzdeye göre atla (3 atlayışla sürenin %30'una ulaş)
+  Refresh: Beslemeyi en son içerikle yenileyin
+  Focus Secondary Search: İkincil arama çubuğuna odaklan (varsa)
+  New Window: Yeni bir pencere oluştur
+  Navigate to History: Geçmiş sayfasına git
+  Navigate to Settings: Ayarlar sayfasına git
+  Captions: Altyazıları AÇ/KAPAT
+  Stats: Video istatistiklerini göster
+  Play: Oynat/duraklat değiştir
+  Mute: Sesi kapat
+  Decrease Video Speed: Video Oynatma Hızı Aralığına göre video hızını azalt
+  Force Restart Window: Pencereyi zorla yeniden başlat
+  Large Fast Forward: 10 saniye ileri / Mevcut Video Oynatma Hızına göre videoyu ileri
+    sar
+  Keyboard Shortcuts: Klavye Kısayolları
+  History Forward: Bir sayfa ileri git
+  Picture in Picture: Resim içinde Resim modu değiştir
