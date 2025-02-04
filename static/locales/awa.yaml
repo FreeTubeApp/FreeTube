@@ -139,10 +139,10 @@ Subscriptions:
   Disabled Automatic Fetching: 'तू अपने आप सदस्सता लावै का स्वचालित सदस्यता लावै का
     बंद केहे अहा। उनका हिंया देखै की ताईं सदस्सता का रिफ्रेस करा।'
   Empty Channels: 'तुम्हार सब्सक्राइब कीन गवा चैनल पै येह समय कवनो वीडियो नाही है।'
-  Empty Posts: ''
-  Load More Videos: ''
-  Load More Posts: ''
-  Subscriptions Tabs: ''
+  Empty Posts: 'तोहरे सब्सक्राइब किहे चैनलन मा फिलहाल कौनो पोस्ट नाय अहै।'
+  Load More Videos: 'अउर वीडियो अपलोड करैं'
+  Load More Posts: 'अउर पोस्ट लोड करा'
+  Subscriptions Tabs: 'सब्सक्रिप्सन टैब्स'
   All Subscription Tabs Hidden: ''
 More: ''
 Channels:
