@@ -312,15 +312,16 @@ Settings:
       Dark: 'Koyu'
       Light: 'Açık'
       Dracula: 'Drakula'
-      System Default: Sistem Öntanımlı Değeri
+      System Default: Sistem Varsayılanı
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Pembe
       Hot Pink: Sıcak Pembe
       Nordic: Nord
       Solarized Light: Solarized Açık
       Solarized Dark: Solarized Koyu
-      Gruvbox Dark: Gruvbox Karanlık
+      Gruvbox Dark: Gruvbox Koyu
       Gruvbox Light: Gruvbox Aydınlık
+      Catppuccin Frappe: Catppuccin Buzlu
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -378,6 +379,20 @@ Settings:
       Gruvbox Light Orange: Gruvbox Açık Turuncu
       Gruvbox Light Red: Gruvbox Açık Kırmızı
       Gruvbox Light Blue: Gruvbox Açık Mavi
+      Catppuccin Frappe Pink: Catppuccin Frappe Pembe
+      Catppuccin Frappe Red: Catppuccin Frappe Kırmızı
+      Catppuccin Frappe Maroon: Catppuccin Frappe Bordo
+      Catppuccin Frappe Peach: Catppuccin Frappe Şeftali
+      Catppuccin Frappe Sky: Catppuccin Frappe Gök
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Safir
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavanta
+      Catppuccin Frappe Teal: Catppuccin Frappe Deniz
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Gül Rengi
+      Catppuccin Frappe Yellow: Catppuccin Frappe Sarı
+      Catppuccin Frappe Mauve: Catppuccin Frappe Leylak
+      Catppuccin Frappe Green: Catppuccin Frappe Yeşil
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Blue: Catppuccin Frappe Mavi
     Secondary Color Theme: 'İkincil Renk Teması'
         #* Main Color Theme
     UI Scale: Kullanıcı Arayüzü Ölçeği
@@ -478,7 +493,7 @@ Settings:
     Confirm Before Unsubscribing: Abonelikten Çıkmadan Önce Onayla
     'Limit the number of videos displayed for each channel': Her kanal için gösterilen
       video sayısını sınırlayın
-    To: Kadar
+    To: To
   Data Settings:
     Data Settings: 'Veri'
     Select Export Type: 'Dışa Aktarma Türünü Seç'
@@ -1248,3 +1263,27 @@ KeyboardShortcutPrompt:
   Keyboard Shortcuts: Klavye Kısayolları
   History Forward: Bir sayfa ileri git
   Picture in Picture: Resim içinde Resim modu değiştir
+  Volume Up: Ses seviyesini artır
+  Next Chapter: Sonraki Bölüm
+  Zoom Out: Uzaklaştır
+  Focus Search: Arama çubuğuna odaklan
+  Search in New Window: Yeni bir pencerede ara
+  Last Frame: Önceki kare (duraklatılmışken)
+  Reset Zoom: Yakınlaştırma seviyesini / UI ölçeğini sıfırla
+  Zoom In: Yakınlaştır
+  Next Frame: Sonraki kare (duraklatılmışken)
+  Small Fast Forward: Hızlı İleri Sarma Aralığı ve geçerli Video Oynatma Hızına göre
+    X saniye ileri sar
+  Small Rewind: Geri Sarma Aralığı ve geçerli Video Oynatma Hızına göre X saniye geri
+    sar
+  Toggle Developer Tools: Geliştirici araçlarını aç kapat
+  Volume Down: Ses seviyesini azalt
+  Sections:
+    App:
+      General: Uygulama: Genel
+      Situational: 'Uygulama: Durumsal'
+    Video:
+      General: Video: Genel
+      Playback: Video: Oynatım
+  Last Chapter: Son Bölüm
+  Show Keyboard Shortcuts: Klavye kısayollarını göster
