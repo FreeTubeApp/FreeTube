@@ -349,6 +349,7 @@ Settings:
       Catppuccin Frappe Sky: Catppuccin Frappe Sky
       Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
       Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
     Secondary Color Theme: '次要主題色'
         #* Main Color Theme
     UI Scale: UI縮放
@@ -358,11 +359,11 @@ Settings:
     Hide FreeTube Header Logo: 隱藏 FreeTube 標題圖示
   Player Settings:
     Player Settings: '播放器'
-    Play Next Video: '播放下一部影片'
-    Turn on Subtitles by Default: '預設開啟字幕'
-    Autoplay Videos: '自動播放影片'
+    Play Next Video: '自動播放建議影片'
+    Turn on Subtitles by Default: '預設啟用字幕'
+    Autoplay Videos: '自動開始播放影片'
     Proxy Videos Through Invidious: '透過Invidious代理影片'
-    Autoplay Playlists: '自動播放 播放清單'
+    Autoplay Playlists: '自動播放播放清單影片'
     Enable Theatre Mode by Default: '預設開啟劇場模式'
     Default Volume: '預設音量'
     Default Playback Rate: '預設播放速度'
@@ -406,6 +407,12 @@ Settings:
     Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
     Skip by Scrolling Over Video Player: 捲動影片播放器跳過
     Autoplay Interruption Timer: 自動播放中斷計時器
+    Default Viewing Mode:
+      Theater: 劇院
+      Default Viewing Mode: 預設觀賞模式
+      Full Screen: 全螢幕
+      Picture in Picture: 畫中畫
+      External Player: 外部播放器（{externalPlayerName}）
   Subscription Settings:
     Subscription Settings: '訂閱'
     Hide Videos on Watch: '觀看時隱藏影片'
@@ -431,6 +438,10 @@ Settings:
     Remove All Playlists: 移除所有播放清單
     All playlists have been removed: 所有播放清單已被移除
     Are you sure you want to remove all your playlists?: 您確定要移除所有播放清單嗎？
+    Are you sure you want to clear out your search history and cache?: 您確定要清除搜尋紀錄與快取嗎？
+    Remember Search History: 儲存搜尋紀錄
+    Clear Search History and Cache: 清除搜尋紀錄與快取
+    Search history and cache have been cleared: 已清除搜尋紀錄與快取
   Data Settings:
     How do I import my subscriptions?: 我要如何匯入我的訂閱？
     Unknown data key: 未知的資料金鑰
@@ -777,6 +788,8 @@ Video:
     You appear to be offline: 您似乎已離線。
     Playback will resume automatically when your connection comes back: 當您的連線恢復時，將會自動繼續播放。
     Skipped segment: 已跳過 {segmentCategory} 段
+    Autoplay is on: 自動播放已開啟
+    Autoplay is off: 自動播放已關閉
   IP block: YouTube 已封鎖您的 IP 位址，因此無法觀看影片。請嘗試切換到其他 VPN 或代理伺服器。
   MembersOnly: 會員專屬影片無法使用 FreeTube 觀看，因為這些影片需要 Google 登入並且必須訂閱上傳者的付費頻道。
   AgeRestricted: 由於需要 Google 登入並使用經過年齡驗證的 YouTube 帳戶，FreeTube 無法觀看有限制年齡的影片。
@@ -785,6 +798,8 @@ Video:
     Show Original Details: 顯示原始詳細資訊
     Show Modified Details: 顯示修改後的詳細資訊
 #& Playlists
+  DRMProtected: 受 DRM 保護的影片無法在 FreeTube 上播放，因為它們需要專屬的封閉原始碼元件。如果您想觀賞此影片，請使用支援 DRM 的網路瀏覽器在
+    YouTube 官方網站觀賞。
 Playlist:
   #& About
   View Full Playlist: '觀看完整播放清單'
@@ -804,6 +819,8 @@ Playlist:
     Custom: 自訂
     VideoDurationDescending: 持續時間（最長優先）
     VideoDurationAscending: 持續時間（最短優先）
+    PublishedOldest: 最早發佈優先
+    PublishedNewest: 最後發佈優先
 Change Format:
   Change Media Formats: '變更影片格式'
   Use Dash Formats: '使用 DASH 格式'
@@ -1039,8 +1056,61 @@ Keys:
   arrowleft: 向左方向鍵
   arrowright: 向右方向鍵
   arrowup: 向上方向鍵
+  shift: Shift
+  enter: Enter
+  plus: 加號
 Right-click or hold to see history: 右鍵點選或按住不放可以檢視歷史紀錄
 Autoplay Interruption Timer: 自動播放因 {autoplayInterruptionIntervalHours} 小時未活動而取消
 Description:
   Collapse Description: 顯示較少
   Expand Description: ……更多
+KeyboardShortcutPrompt:
+  History Forward: 前進一頁
+  Navigate to History: 前往紀錄頁面
+  Refresh: 以最新內容重新整理 feed
+  Captions: 切換開啟/關閉字幕
+  Stats: 顯示影片統計資料
+  Large Rewind: 快退 10 秒 / 根據目前的影片播放速率快退影片
+  Keyboard Shortcuts: 鍵盤快捷鍵
+  Sections:
+    Video:
+      Playback: 影片：播放
+      General: 影片：一般
+    App:
+      Situational: 應用程式：情境
+      General: 應用程式：一般
+  Show Keyboard Shortcuts: 顯示鍵盤快捷鍵
+  History Backward: 回上一頁
+  Large Fast Forward: 快轉 10 秒 / 根據目前的影片播放速率快轉影片
+  Mute: 切換靜音
+  Decrease Video Speed: 根據影片播放速率間隔降低影片速度
+  Increase Video Speed: 根據影片播放速率間隔增加影片速度
+  Theatre Mode: 切換劇院模式
+  Focus Secondary Search: 焦點置於次要搜尋列（若有）
+  Take Screenshot: 拍攝螢幕截圖
+  Force Restart Window: 強制重新啟動視窗
+  New Window: 建立新視窗
+  Navigate to Settings: 前往設定頁面
+  Focus Search: 將焦點置於搜尋列
+  Search in New Window: 在新視窗中搜尋
+  Last Frame: 前一個畫面（在暫停時）
+  Volume Down: 降低音量
+  Small Rewind: 根據快退間隔與目前的影片播放速率快退 X 秒
+  Small Fast Forward: 根據快轉間隔與目前的影片播放速率快轉 X 秒
+  Last Chapter: 上一章
+  Next Chapter: 下一章
+  Skip by Tenths: 按百分比跳過影片（3 次跳過 30% 的影片時間）
+  Toggle Developer Tools: 切換開發者工具
+  Reset Zoom: 重設縮放層級 / 使用者介面縮放比例
+  Zoom In: 放大
+  Zoom Out: 縮小
+  Next Frame: 下一個畫面（在暫停時）
+  Volume Up: 提高音量
+  Fullscreen: 切換全螢幕
+  Picture in Picture: 切換畫中畫模式
+  Play: 切換播放/暫停
+  Full Window: 切換全視窗
+  Minimize Window: 最小化視窗
+  Close Window: 關閉視窗
+  Restart Window: 重新啟動視窗
+shortcutLabelSeparator: ｜
