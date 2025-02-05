@@ -1120,3 +1120,48 @@ Description:
   Expand Description: …nog
 Autoplay Interruption Timer: Outo-afspeel is gekanselleer weens {autoplayInterruptionIntervalHours}
   uur van onaktiwiteit
+KeyboardShortcutPrompt:
+  Navigate to Settings: Navigeer na die instellingsblad
+  Force Restart Window: Dwing herbegin van venster
+  Play: Tokkel afspeel/wag
+  Navigate to History: Navigeer na die geskiedenisblad
+  Refresh: Verfris voer met nuutste inhoud
+  Last Frame: Vorige raam (terwyl wagtend)
+  Volume Up: Maak harder
+  Volume Down: Maak sagter
+  Small Rewind: Spoel X sekondes terug gebaseer op die Terugspoelinterval en huidige
+    video-afspeeltempo
+  Small Fast Forward: Spoel X sekondes vorentoe gebaseer op die Vorentoespoelinterval
+    en huidige video-afspeeltempo
+  Mute: Tokkel demper
+  Search in New Window: Soek in ’n nuwe venster
+  Large Rewind: Spel 10 sekondes terug / Spoel video terug gebaseer op huidige video-afspeeltempo
+  Decrease Video Speed: Vertraag videospoed gebaseer op video-afspeeltempo-interval
+  Reset Zoom: Herstel zoemvlak / Koppelvlakskaal
+  Next Frame: Volgende raam (terwyl wagtend)
+  Show Keyboard Shortcuts: Toon sneltoetse
+  History Backward: Gaan een blad terug
+  History Forward: Gaan een blad vorentoe
+  New Window: Skep ’n nuwe venster
+  Captions: Tokkel onderskrifte AAN/AF
+  Stats: Toon videostatistieke
+  Fullscreen: Tokkel volskerm
+  Picture in Picture: Tokkel beeld-in-beeldmodus
+  Increase Video Speed: Versnel videospoed gebaseer op huidige video-afspeeltempo-interval
+  Full Window: Tokkel volle venster
+  Theatre Mode: Tokkel teatermodus
+  Take Screenshot: Maak skermkiekie
+  Minimize Window: Verklein venster
+  Close Window: Sluit venster
+  Zoom In: Zoem in
+  Focus Search: Fokus op die soekbalk
+  Zoom Out: Zoem uit
+  Next Chapter: Volgende hoofstuk
+  Skip by Tenths: Slaan oor video op persentasie (3 oorslane vir 30% van videoduur)
+  Last Chapter: Laaste hoofstuk
+  Toggle Developer Tools: Tokkel ontwikkelaarsnutsmiddels
+  Focus Secondary Search: Fokus op die sekondêre soekbalk (indien een teenwoordig
+    is)
+  Large Fast Forward: Spoel 10 sekondes vorentoe / Spoel video vorentoe gebaseer op
+    huidige video-afspeeltempo
+  Restart Window: Herbegin venster
