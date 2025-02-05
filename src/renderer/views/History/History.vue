@@ -8,7 +8,14 @@
       v-show="!isLoading"
       class="card"
     >
-      <h2>{{ $t("History.History") }}</h2>
+      <h2>
+        <FontAwesomeIcon
+          :icon="['fas', 'history']"
+          class="headingIcon"
+          fixed-width
+        />
+        {{ $t("History.History") }}
+      </h2>
       <ft-input
         v-show="fullData.length > 0"
         ref="searchBar"

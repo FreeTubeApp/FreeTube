@@ -1,9 +1,14 @@
 <template>
   <div>
     <FtCard class="card">
-      <h1>
+      <h2>
+        <FontAwesomeIcon
+          :icon="['fas', 'info-circle']"
+          class="headingIcon"
+          fixed-width
+        />
         {{ $t("About.About") }}
-      </h1>
+      </h2>
       <section class="brand">
         <FtLogoFull class="logo" />
         <div class="version">
