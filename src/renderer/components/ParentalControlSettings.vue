@@ -30,6 +30,12 @@
           :default-value="hideCreateNewProfileButton"
           @change="updateHideCreateNewProfileButton"
         />
+        <FtToggleSwitch
+          :label="$t('Settings.Parental Control Settings.Hide Video & Channel Info')"
+          compact
+          :default-value="hideVideoChannelInfo"
+          @change="updateHideVideoChannelInfo"
+        />
       </div>
     </div>
   </FtSettingsSection>
@@ -59,6 +65,10 @@ const hideCreateNewProfileButton = computed(() => {
   return store.getters.getHideCreateNewProfileButton
 })
 
+const hideVideoChannelInfo = computed(() => {
+  return store.getters.getHideVideoChannelInfo
+})
+
 /**
  * @param {boolean} value
  */
@@ -85,5 +95,12 @@ function updateShowFamilyFriendlyOnly(value) {
  */
 function updateHideCreateNewProfileButton(value) {
   store.dispatch('updateHideCreateNewProfileButton', value)
+}
+
+/**
+ * @param {boolean} value
+ */
+function updateHideVideoChannelInfo(value) {
+  store.dispatch('updateHideVideoChannelInfo', value)
 }
 </script>

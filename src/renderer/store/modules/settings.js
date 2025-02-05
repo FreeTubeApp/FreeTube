@@ -207,6 +207,7 @@ const state = {
   hideSearchBar: false,
   showFamilyFriendlyOnly: false,
   hideCreateNewProfileButton: false,
+  hideVideoChannelInfo: false,
   hideSharingActions: false,
   hideSubscriptionsVideos: false,
   hideSubscriptionsShorts: false,
