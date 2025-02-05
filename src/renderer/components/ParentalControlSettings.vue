@@ -16,6 +16,12 @@
           :default-value="showFamilyFriendlyOnly"
           @change="updateShowFamilyFriendlyOnly"
         />
+        <FtToggleSwitch
+          :label="$t('Settings.Parental Control Settings.Hide Video & Channel Info')"
+          compact
+          :default-value="hideVideoChannelInfo"
+          @change="updateHideVideoChannelInfo"
+        />
       </div>
       <div class="switchColumn">
         <FtToggleSwitch
@@ -29,12 +35,6 @@
           compact
           :default-value="hideCreateNewProfileButton"
           @change="updateHideCreateNewProfileButton"
-        />
-        <FtToggleSwitch
-          :label="$t('Settings.Parental Control Settings.Hide Video & Channel Info')"
-          compact
-          :default-value="hideVideoChannelInfo"
-          @change="updateHideVideoChannelInfo"
         />
       </div>
     </div>
