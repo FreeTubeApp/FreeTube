@@ -163,6 +163,7 @@ User Playlists:
         進行快速書籤
       This playlist is already being used for quick bookmark.: 此播放清單已用於快速書籤。
       This playlist has a video with a duration error: 此播放清單至少包含一個沒有時間長度的影片，則會以時間長度為零的方式排序。
+      Video has been removed. Click here to undo.: 已移除影片。點選此處以還原。
     Search for Videos: 搜尋影片
   AddVideoPrompt:
     Select a playlist to add your N videos to: 選擇要新增影片的播放清單 | 選擇播放清單以將您的 {videoCount}
@@ -277,6 +278,7 @@ Settings:
       Solarized Light: Solarized Light
       Gruvbox Dark: Gruvbox 深色
       Gruvbox Light: Gruvbox 淺色
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -334,6 +336,19 @@ Settings:
       Gruvbox Light Blue: Gruvbox 淺藍色
       Gruvbox Light Purple: Gruvbox 淺紫色
       Gruvbox Light Orange: Gruvbox 淺橘色
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Red: Catppuccin Frappe Red
+      Catppuccin Frappe Peach: Catppuccin Frappe Peach
+      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
+      Catppuccin Frappe Green: Catppuccin Frappe Green
+      Catppuccin Frappe Teal: Catppuccin Frappe Teal
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
+      Catppuccin Frappe Blue: Catppuccin Frappe Blue
+      Catppuccin Frappe Sky: Catppuccin Frappe Sky
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
     Secondary Color Theme: '次要主題色'
         #* Main Color Theme
     UI Scale: UI縮放
