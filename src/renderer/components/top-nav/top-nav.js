@@ -189,6 +189,7 @@ export default defineComponent({
     },
   },
   mounted: function () {
+    this.$store.commit('setTopNavInstance', this)
     let previousWidth = window.innerWidth
     if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
       this.showSearchContainer = false
@@ -209,27 +210,22 @@ export default defineComponent({
         previousWidth = window.innerWidth
       }
     })
-
     this.debounceSearchResults = debounce(this.getSearchSuggestions, 200)
   },
   methods: {
-    goToSearch: async function (queryText, { event }) {
+    goToSearch: async function (queryText, { event, searchSettings = null } = {}) {
       const doCreateNewWindow = event && event.shiftKey
-
       if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
         this.$refs.searchContainer.blur()
         this.showSearchContainer = false
       } else {
         this.$refs.searchInput.blur()
       }
-
       clearLocalSearchSuggestionsSession()
-
       this.getYoutubeUrlInfo(queryText).then((result) => {
         switch (result.urlType) {
           case 'video': {
             const { videoId, timestamp, playlistId } = result
-
             const query = {}
             if (timestamp) {
               query.timestamp = timestamp
@@ -237,7 +233,6 @@ export default defineComponent({
             if (playlistId && playlistId.length > 0) {
               query.playlistId = playlistId
             }
-
             openInternalPath({
               path: `/watch/${videoId}`,
               query,
@@ -246,10 +241,8 @@ export default defineComponent({
             })
             break
           }
-
           case 'playlist': {
             const { playlistId, query } = result
-
             openInternalPath({
               path: `/playlist/${playlistId}`,
               query,
@@ -258,10 +251,8 @@ export default defineComponent({
             })
             break
           }
-
           case 'search': {
             const { searchQuery, query } = result
-
             openInternalPath({
               path: `/search/${encodeURIComponent(searchQuery)}`,
               query,
@@ -270,7 +261,6 @@ export default defineComponent({
             })
             break
           }
-
           case 'hashtag': {
             const { hashtag } = result
             openInternalPath({
@@ -278,13 +268,10 @@ export default defineComponent({
               doCreateNewWindow,
               searchQueryText: `#${hashtag}`,
             })
-
             break
           }
-
           case 'post': {
             const { postId, query } = result
-
             openInternalPath({
               path: `/post/${postId}`,
               query,
@@ -293,10 +280,8 @@ export default defineComponent({
             })
             break
           }
-
           case 'channel': {
             const { channelId, subPath, url } = result
-
             openInternalPath({
               path: `/channel/${channelId}/${subPath}`,
               doCreateNewWindow,
@@ -307,31 +292,30 @@ export default defineComponent({
             })
             break
           }
-
           case 'invalid_url':
           default: {
+            // If searchSettings is provided (e.g., from the Apply button), use it.
+            const queryParams = searchSettings || {
+              sortBy: this.searchSettings.sortBy,
+              time: this.searchSettings.time,
+              type: this.searchSettings.type,
+              duration: this.searchSettings.duration,
+              features: this.searchSettings.features,
+            }
             openInternalPath({
               path: `/search/${encodeURIComponent(queryText)}`,
-              query: {
-                sortBy: this.searchSettings.sortBy,
-                time: this.searchSettings.time,
-                type: this.searchSettings.type,
-                duration: this.searchSettings.duration,
-                features: this.searchSettings.features,
-              },
+              query: queryParams,
               doCreateNewWindow,
               searchQueryText: queryText,
             })
           }
         }
-
         if (doCreateNewWindow) {
-          // Query text copied to new window = can be removed from current window
+          // Query text copied to new window = can be removed from the current window
           this.updateSearchInputText('')
         }
       })
     },
-
     focusSearch: function () {
       if (!this.hideSearchBar) {
         // In order to prevent Klipper's "Synchronize contents of the clipboard
