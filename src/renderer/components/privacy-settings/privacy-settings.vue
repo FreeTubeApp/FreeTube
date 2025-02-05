@@ -20,12 +20,15 @@
         />
       </div>
       <div class="switchColumn">
-        <ft-toggle-switch
-          :label="$t('Settings.Privacy Settings.Save Watched Progress')"
-          :compact="true"
+        <ft-select
+          :placeholder="$t('Settings.Privacy Settings.Save Watched Progress')"
+          :value="watchedProgressSavingMode"
+          :select-names="watchedProgressSavingModeValueNamePairs.map(p => p[1])"
+          :select-values="watchedProgressSavingModeValueNamePairs.map(p => p[0])"
+          :icon="['fas', 'bars-progress']"
+          :tooltip="$t('Settings.Privacy Settings.Watched Progress Saving Mode.Tooltip')"
           :disabled="!rememberHistory"
-          :default-value="saveWatchedProgress"
-          @change="updateSaveWatchedProgress"
+          @change="updateWatchedProgressSavingMode"
         />
       </div>
       <div class="switchColumn">

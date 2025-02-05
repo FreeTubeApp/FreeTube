@@ -56,7 +56,7 @@ export default defineComponent({
   },
   beforeRouteLeave: async function (to, from, next) {
     this.handleRouteChange()
-    window.removeEventListener('beforeunload', this.handleWatchProgress)
+    window.removeEventListener('beforeunload', this.handleWatchProgressAutoSave)
     document.removeEventListener('keydown', this.resetAutoplayInterruptionTimeout)
     document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
 
@@ -153,8 +153,11 @@ export default defineComponent({
     rememberHistory: function () {
       return this.$store.getters.getRememberHistory
     },
-    saveWatchedProgress: function () {
-      return this.$store.getters.getSaveWatchedProgress
+    watchedProgressSavingEnabled: function () {
+      return this.$store.getters.getWatchedProgressSavingMode !== 'never'
+    },
+    autosaveWatchedProgress: function () {
+      return this.$store.getters.getWatchedProgressSavingMode === 'auto'
     },
     saveVideoHistoryWithLastViewedPlaylist: function () {
       return this.$store.getters.getSaveVideoHistoryWithLastViewedPlaylist
@@ -265,7 +268,7 @@ export default defineComponent({
 
       if (this.timestamp !== null && this.timestamp < this.videoLengthSeconds) {
         return this.timestamp
-      } else if (this.saveWatchedProgress && this.historyEntryExists) {
+      } else if (this.watchedProgressSavingEnabled && this.historyEntryExists) {
         // For UX consistency, no progress reading if writing disabled
 
         /** @type {number} */
@@ -356,7 +359,7 @@ export default defineComponent({
       document.addEventListener('keydown', this.resetAutoplayInterruptionTimeout)
       document.addEventListener('click', this.resetAutoplayInterruptionTimeout)
 
-      window.addEventListener('beforeunload', this.handleWatchProgress)
+      window.addEventListener('beforeunload', this.handleWatchProgressAutoSave)
       this.resetAutoplayInterruptionTimeout()
     },
 
@@ -1116,16 +1119,29 @@ export default defineComponent({
       this.updateHistory(videoData)
     },
 
-    handleWatchProgress: function () {
-      if (this.rememberHistory && this.saveWatchedProgress && !this.isUpcoming &&
-        !this.isLoading && !this.isLive && this.$refs.player?.hasLoaded) {
-        const currentTime = this.getWatchedProgress()
-        const payload = {
-          videoId: this.videoId,
-          watchProgress: currentTime
-        }
-        this.updateWatchProgress(payload)
+    handleWatchProgressManualSave() {
+      // Should be called by manual action, settings should be checked in UI
+      this._saveWatchProgress()
+      showToast(this.$t('Video.Watched Progress Saved'))
+    },
+    handleWatchProgressAutoSave() {
+      if (!this.rememberHistory || !this.autosaveWatchedProgress) { return }
+      this._saveWatchProgress()
+    },
+    handleWatchProgressAutoSaveWhenProgressEnabled() {
+      if (!this.rememberHistory || !this.watchedProgressSavingEnabled) { return }
+      this._saveWatchProgress()
+    },
+    _saveWatchProgress() {
+      if (this.isUpcoming || this.isLive) { return }
+      if (this.isLoading || !this.$refs.player?.hasLoaded) { return }
+
+      const currentTime = this.getWatchedProgress()
+      const payload = {
+        videoId: this.videoId,
+        watchProgress: currentTime
       }
+      this.updateWatchProgress(payload)
     },
 
     handlePlaylistPersisting: function () {
@@ -1277,6 +1293,7 @@ export default defineComponent({
     },
 
     handleVideoEnded: function () {
+      this.handleWatchProgressAutoSaveWhenProgressEnabled()
       if (!this.autoplayEnabled) {
         return
       }
@@ -1361,7 +1378,7 @@ export default defineComponent({
       this.videoChapters = []
       this.videoChaptersKind = 'chapters'
 
-      this.handleWatchProgress()
+      this.handleWatchProgressAutoSave()
     },
 
     /**
@@ -1381,12 +1398,12 @@ export default defineComponent({
       } else if (error.code === Code.BAD_HTTP_STATUS) {
         switch (error.data[1]) {
           case 429:
-            this.handleWatchProgress()
+            this.handleWatchProgressAutoSaveWhenProgressEnabled()
 
             this.errorMessage = '[BAD_HTTP_STATUS: 429] Ratelimited'
             return
           case 403:
-            this.handleWatchProgress()
+            this.handleWatchProgressAutoSaveWhenProgressEnabled()
 
             if (new Date() > this.streamingDataExpiryDate) {
               this.errorMessage = '[BAD_HTTP_STATUS: 403] YouTube watch session expired. Please reopen this video.'
@@ -1404,7 +1421,7 @@ export default defineComponent({
       } else if (error.code === Code.VIDEO_ERROR) {
         if (this.activeFormat === 'legacy') {
           if (new Date() > this.streamingDataExpiryDate) {
-            this.handleWatchProgress()
+            this.handleWatchProgressAutoSaveWhenProgressEnabled()
 
             this.errorMessage = '[VIDEO_ERROR] YouTube watch session expired. Please reopen this video.'
             this.customErrorIcon = ['fas', 'clock']
