@@ -212,6 +212,11 @@ const MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT = 4
 // Displayed on the about page and used in the main.js file to only allow bitcoin URLs with this wallet address to be opened
 const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
+const HISTORY_SORT_BY_VALUES = {
+  DateAddedNewest: 'newestFirst',
+  DateAddedOldest: 'oldestFirst',
+}
+
 export {
   IpcChannels,
   DBActions,
@@ -224,4 +229,5 @@ export {
   SEARCH_RESULTS_DISPLAY_LIMIT,
   MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT,
   ABOUT_BITCOIN_ADDRESS,
+  HISTORY_SORT_BY_VALUES
 }
