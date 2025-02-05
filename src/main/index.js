@@ -34,7 +34,14 @@ if (process.argv.includes('--version')) {
   printHelp()
   app.exit()
 } else {
-  runApp()
+  // Only allow single instance of the application
+  // Exit if we didn't get the lock, because another instance already has it
+  if (process.env.NODE_ENV !== 'development' && !app.requestSingleInstanceLock()) {
+    app.exit()
+  } else {
+    baseHandlers.loadDatastores()
+    runApp()
+  }
 }
 
 function printHelp() {
@@ -254,12 +261,6 @@ function runApp() {
   }
 
   if (process.env.NODE_ENV !== 'development') {
-    // Only allow single instance of the application
-    const gotTheLock = app.requestSingleInstanceLock()
-    if (!gotTheLock) {
-      app.quit()
-    }
-
     app.on('second-instance', (_, commandLine, __) => {
       // Someone tried to run a second instance
       if (typeof commandLine !== 'undefined') {
