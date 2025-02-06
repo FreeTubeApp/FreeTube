@@ -366,6 +366,20 @@ Settings:
       Gruvbox Dark Green: جعبه‌تیره سبز
       Gruvbox Light Blue: جعبه‌تیره آبی روشن
       Gruvbox Light Purple: جعبه‌تیره ارغوانی روشن
+      Catppuccin Frappe Sky: کتپوچین فراپه آسمانی
+      Catppuccin Frappe Peach: کتپوچین فراپه هلویی
+      Catppuccin Frappe Lavender: کتپوچین فراپه اسطوخودوس
+      Catppuccin Frappe Flamingo: کتپوچین فراپه فلامینگو
+      Catppuccin Frappe Green: کتپوچین فراپه سبز
+      Catppuccin Frappe Teal: کتپوچین فراپه آبی رنگ
+      Catppuccin Frappe Rosewater: کتپوچین فراپه گلاب
+      Catppuccin Frappe Yellow: کتپوچین فراپه زرد
+      Catppuccin Frappe Pink: کتپوچین فراپه صورتی
+      Catppuccin Frappe Mauve: کتپوچین فراپه ارغوانی
+      Catppuccin Frappe Maroon: کتپوچین فراپه مارون
+      Catppuccin Frappe Sapphire: کتپوچین فراپه یاقوت کبود
+      Catppuccin Frappe Blue: کتپوچین فراپه آبی
+      Catppuccin Frappe Red: کتپوچین فراپه قرمز
     Secondary Color Theme: 'رنگ دوم تم'
         #* Main Color Theme
     Hide Side Bar Labels: مخفی کردن عنوان های ستون فرعی
@@ -428,6 +442,7 @@ Settings:
       Default Viewing Mode: حالت تماشای پیش‌فرض
       Full Screen: تمام صفحه
       Picture in Picture: تصویر در تصویر
+      External Player: ‍پخش کننده خارجی ({externalPlayerName})
   External Player Settings:
     External Player Settings: 'پخش کننده خارجی'
     External Player: 'پخش کننده خارجی'
@@ -460,6 +475,12 @@ Settings:
     Remove All Playlists: حذف تمام لیست های پخش
     Are you sure you want to remove all your playlists?: آیا مطمئنید که می‌خواهید
       همه فهرست‌های پخش خود را حذف کنید؟
+    Clear Search History and Cache: تاریخچه جستجو و حافظه پنهان را پاک کنید
+    Remember Search History: سابقه جستجو را به خاطر بسپارید
+    Are you sure you want to clear out your search history and cache?: آیا مطمئنید
+      که می‌خواهید سابقه جستجو و حافظه پنهان خود را پاک کنید؟
+    Search history and cache have been cleared: سابقه جستجو و حافظه پنهان پاک شده
+      است
   Subscription Settings:
     Subscription Settings: 'دنبال شوندگان'
     Hide Videos on Watch: 'مخفی کردن ویدیو ها هنگام تماشا'
@@ -519,6 +540,7 @@ Settings:
     Hide Channels Disabled Message: برخی از کانال‌ها با استفاده از شناسه مسدود شدند
       و پردازش نشدند. در حالی که آن شناسه ها در حال به روز رسانی هستند، ویژگی مسدود
       می شود
+    Show Added Items: نمایش موارد اضافه شده
   Data Settings:
     Data Settings: 'داده ها'
     Select Export Type: 'انتخاب روش پشتیبان گیری'
@@ -814,6 +836,8 @@ Video:
       اتصال شما، پخش به طور خودکار از سر گرفته می شود.
     Audio Tracks: تراک صوتی
     Theatre Mode: حالت تئاتر
+    Autoplay is off: پخش خودکار خاموش است
+    Autoplay is on: پخش خودکار روشن است
   Hide Channel: مخفی‌کردن کانال
   IP block: YouTube آدرس نشانی شما را از تماشای ویدیو مسدود کرده است. لطفاً سعی کنید
     به فیلترشکن یا پروکسی دیگری بروید.
@@ -827,6 +851,9 @@ Video:
   DeArrow:
     Show Original Details: نمایش جزئیات اصلی
     Show Modified Details: نمایش جزئیات اصلاح شده
+  DRMProtected: ویدیوهای محافظت شده DRM را نمی توان در FreeTube پخش کرد، زیرا به اجزای
+    اختصاصی و منبع بسته نیاز دارند. اگر می‌خواهید این ویدیو را تماشا کنید، لطفاً آن
+    را در وب‌سایت رسمی YouTube در یک مرورگر وب با قابلیت DRM تماشا کنید.
 Tooltips:
   General Settings:
     External Link Handling: "وقتی روی پیوندی که در FreeTube باز نمی شود، روی آن کلیک
@@ -1121,6 +1148,8 @@ Playlist:
     VideoTitleDescending: عنوان (ی-آ)
     Custom: سفارشی
     AuthorAscending: نویسنده (آ-ی)
+    PublishedNewest: جدیدترین منتشر شده اول
+    PublishedOldest: قدیمی‌ترین منتشر شده اول
 Mini Player: مینی پلیر
 Up Next: تا بعدی
 Feed:
@@ -1168,6 +1197,60 @@ Keys:
   arrowleft: فلش چپ
   arrowright: ‌فلش راست
   arrowup: فلش بالا
+  shift: شیفت
+  enter: Enter
+  plus: بعلاوه
 Description:
   Expand Description: '...بیشتر'
   Collapse Description: نمایش کمتر
+KeyboardShortcutPrompt:
+  Show Keyboard Shortcuts: نمایش کلیدهای میانبر
+  Fullscreen: تغییر تمام صفحه
+  Large Rewind: 10 ثانیه به عقب برگردانید / بر اساس نرخ پخش ویدیوی فعلی، آن را به
+    عقب برگردانید
+  Large Fast Forward: 10 ثانیه به جلو / ویدیو به جلو بر اساس نرخ پخش فعلی ویدیو
+  Mute: تغییر به بی‌صدا
+  Decrease Video Speed: بر اساس فاصله زمانی سرعت پخش ویدیو، سرعت ویدیو را کاهش دهید
+  Increase Video Speed: بر اساس فاصله زمانی سرعت پخش ویدیو، سرعت ویدیو را افزایش دهید
+  Take Screenshot: گرفتن عکس صفحه
+  Minimize Window: کوچک‌کردن پنجره
+  Close Window: بستن پنجره
+  Restart Window: راه‌اندازی دوباره پنجره
+  Force Restart Window: راه اندازی‌مجدد اجباری پنجره
+  Toggle Developer Tools: حالت ابزارهای توسعه دهنده
+  Next Frame: فریم بعدی (حین مکث)
+  Volume Up: افزایش صدا
+  Volume Down: کاهش صدا
+  Theatre Mode: تغییر حالت تئاتر
+  Full Window: تغییر تمام پنجره
+  Keyboard Shortcuts: کلیدهای میانبر
+  Sections:
+    Video:
+      Playback: ویدئو: بازپخش
+      General: ویدئو: عمومی
+    App:
+      Situational: 'برنامه: وضعیتی'
+      General: برنامه: عمومی
+  New Window: ایجاد پنجره جدید
+  Navigate to Settings: به صفحه تنظیمات بروید
+  Navigate to History: به صفحه تاریخچه بروید
+  Refresh: فید را با جدیدترین محتوا به‌روز کنید
+  Reset Zoom: بازنشانی سطح بزرگنمایی / مقیاس رابط‌کاربری
+  Zoom In: بزرگنمایی
+  Zoom Out: کوچک‌نمایی
+  Focus Search: تمرکز روی نوار جستجو
+  Search in New Window: جستجو در پنجره جدید
+  Last Frame: فریم قبلی (حین مکث)
+  Small Rewind: بر اساس فاصله زمانی معکوس و سرعت پخش فعلی ویدیو، X ثانیه به عقب برگردانید
+  Small Fast Forward: بر اساس فاصله زمانی معکوس و سرعت پخش فعلی ویدیو، X ثانیه به
+    جلو بروید
+  Last Chapter: آخرین بخش
+  Next Chapter: بخش بعدی
+  Focus Secondary Search: روی نوار جستجوی ثانویه تمرکز کنید (در صورت وجود)
+  Captions: زیرنویس‌ها را روشن/خاموش کنید
+  Stats: نمایش آمار ویدئویی
+  History Backward: یک صفحه به عقب برگرد
+  History Forward: یک صفحه جلو بروید
+  Picture in Picture: تغییر حالت تصویر در تصویر
+  Play: تغییر به پخش/مکث
+shortcutLabelSeparator: ｜
