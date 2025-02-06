@@ -505,7 +505,7 @@ Settings:
     Are you sure you want to remove all your playlists?: Êtes-vous sûr de vouloir
       supprimer toutes vos listes de lecture ?
     Remember Search History: Conserver l'historique de recherche
-    Are you sure you want to clear out your search history and cache?: Êtes-vous sûr
+    Are you sure you want to clear out your search history and cache?: Êtes-vous sûr(e)
       de vouloir effacer votre historique de recherche et votre cache ?
     Clear Search History and Cache: Effacer l'historique de recherche et le cache
     Search history and cache have been cleared: L'historique de recherche et le cache
@@ -675,7 +675,7 @@ Settings:
     Choose Path: 'Choisir l''emplacement'
     Download Behavior: Méthode de téléchargement
     Download in app: Via l'application
-    Open in web browser: via le navigateur web
+    Open in web browser: Via le navigateur web
   Parental Control Settings:
     Hide Unsubscribe Button: Masquer le bouton de désabonnement
     Hide Search Bar: Masquer la barre de recherche
