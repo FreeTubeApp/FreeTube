@@ -899,6 +899,7 @@ Playlist:
 #& Views
     VideoDurationAscending: Duur (korste eerste)
     VideoDurationDescending: Duur (langste eerste)
+    PublishedOldest: Vroegste gepubliseer eerste
 Change Format:
   Change Media Formats: 'Verander mediaformate'
   Use Dash Formats: 'Gebruik DASH-formate'
@@ -1115,6 +1116,9 @@ Keys:
   arrowdown: Afpyltjie
   ctrl: Ctrl
   arrowleft: Linkspyltjie
+  shift: Wissel
+  enter: Doen
+  plus: Plus
 Description:
   Collapse Description: Toon minder
   Expand Description: …nog
@@ -1165,3 +1169,12 @@ KeyboardShortcutPrompt:
   Large Fast Forward: Spoel 10 sekondes vorentoe / Spoel video vorentoe gebaseer op
     huidige video-afspeeltempo
   Restart Window: Herbegin venster
+  Sections:
+    Video:
+      General: 'Video: Algemeen'
+      Playback: 'Video: Afspeel'
+    App:
+      Situational: 'Toep: Omstandigheid'
+      General: 'Toep: Algemeen'
+  Keyboard Shortcuts: Sneltoetse
+shortcutLabelSeparator: ｜
