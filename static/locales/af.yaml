@@ -444,16 +444,19 @@ Settings:
     Subscription Settings: ''
     Hide Videos on Watch: ''
     Fetch Feeds from RSS: ''
-    Fetch Automatically: ''
-    Confirm Before Unsubscribing: ''
+    Fetch Automatically: 'Haal voer outomaties op'
+    Confirm Before Unsubscribing: 'Bevestig voor uittekening'
+    'Limit the number of videos displayed for each channel': Beperk die aantal video’s
+      wat vir elke kanaal vertoon word
+    To: tot
   Distraction Free Settings:
-    Distraction Free Settings: ''
+    Distraction Free Settings: 'Afleidingsvry'
     Sections:
-      Side Bar: ''
-      Subscriptions Page: ''
-      Channel Page: ''
-      Watch Page: ''
-      General: ''
+      Side Bar: 'Systaaf'
+      Subscriptions Page: 'Intekenblad'
+      Channel Page: 'Kanaalblad'
+      Watch Page: 'Kykblad'
+      General: 'Algemeen'
     Hide Video Views: 'Versteek video-kyke'
     Hide Video Likes And Dislikes: 'Versteek Hou van en Hou nie van'
     Hide Channel Subscribers: 'Versteek kanaalintekenare'
