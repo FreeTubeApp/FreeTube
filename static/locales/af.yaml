@@ -454,22 +454,23 @@ Settings:
       Channel Page: ''
       Watch Page: ''
       General: ''
-    Hide Video Views: ''
-    Hide Video Likes And Dislikes: ''
-    Hide Channel Subscribers: ''
-    Hide Comment Likes: ''
-    Hide Recommended Videos: ''
-    Hide Trending Videos: ''
-    Hide Popular Videos: ''
-    Hide Playlists: ''
-    Hide Live Chat: ''
-    Hide Active Subscriptions: ''
-    Hide Video Description: ''
-    Hide Comments: ''
-    Hide Profile Pictures in Comments: ''
-    Display Titles Without Excessive Capitalisation: ''
-    Hide Live Streams: ''
-    Hide Upcoming Premieres: ''
+    Hide Video Views: 'Versteek video-kyke'
+    Hide Video Likes And Dislikes: 'Versteek Hou van en Hou nie van'
+    Hide Channel Subscribers: 'Versteek kanaalintekenare'
+    Hide Comment Likes: 'Versteek Hou van op kommentare'
+    Hide Recommended Videos: 'Versteek aanbevolde video’s'
+    Hide Trending Videos: 'Versteek stygende video’s'
+    Hide Popular Videos: 'Versteek gewilde video’s'
+    Hide Playlists: 'Versteek afspeellyste'
+    Hide Live Chat: 'Versteek regstreekse klets'
+    Hide Active Subscriptions: 'Versteek aktiewe intekeninge'
+    Hide Video Description: 'Versteek videobeskrywing'
+    Hide Comments: 'Versteek kommentaar'
+    Hide Profile Pictures in Comments: 'Versteek profielprente in kommentaar'
+    Display Titles Without Excessive Capitalisation: 'Toon titels sonder oormatige
+      hooflettergebruik en interpunksie'
+    Hide Live Streams: 'Versteek direkte strome'
+    Hide Upcoming Premieres: 'Versteek komende premières'
     Hide Sharing Actions: 'Versteek deel-aksies'
     Hide Chapters: 'Versteek hoofstukke'
     Hide Channels: 'Versteek video’s van kanale'
@@ -869,6 +870,8 @@ Video:
       outomaties hervat wanneer u verbinding terug kom.'
     Skipped segment: 'Segment {segmentCategory} oorgeslaan'
 #& Videos
+    Autoplay is off: Outo-afspeel is af
+    Autoplay is on: Outo-afspeel is aan
   Unlisted: Ongelys
   IP block: YouTube het u IP-adres versper en u kan nie video’s kyk nie. Verander
     u VPN of instaanbediener.
@@ -880,6 +883,9 @@ Video:
     Show Original Details: Toon oorspronklike details
     Show Modified Details: Toon gewysigde details
 #& Playlists
+  DRMProtected: DRM-beskermde video’s kan nie in FreeTube afgespeel word nie omdat
+    dit eiendoms geslotebronkomponente vereis. Indien u die video wil kyk, doen dit
+    asb. op die amptelike YouTube-webwerf in ’n webblaaier met DRM geaktiveer.
 Playlist:
   #& About
   Playlist: 'Afspeellys'
@@ -900,6 +906,7 @@ Playlist:
     VideoDurationAscending: Duur (korste eerste)
     VideoDurationDescending: Duur (langste eerste)
     PublishedOldest: Vroegste gepubliseer eerste
+    PublishedNewest: Laaste gepubliseer eerste
 Change Format:
   Change Media Formats: 'Verander mediaformate'
   Use Dash Formats: 'Gebruik DASH-formate'
