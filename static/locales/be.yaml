@@ -31,8 +31,8 @@ Back: 'Назад'
 Forward: 'Наперад'
 Open New Window: 'Адкрыць новае акно'
 
-Version {versionNumber} is now available!  Click for more details: 'Версія {versionNumber}
-  цяпер даступная!  Націсніце для больш падрабязнай інфармацыі'
+Version {versionNumber} is now available!  Click for more details: 'Даступна версія
+  {versionNumber}!  Націсніце, каб даведацца больш'
 Download From Site: 'Спампаваць з сайта'
 A new blog is now available, {blogTitle}. Click to view more: 'Даступны новы блог,
   {blogTitle}. Націсніце, каб паглядзець больш'
@@ -426,7 +426,7 @@ Settings:
     Scroll Playback Rate Over Video Player: 'Прагортваць хуткасць прайгравання па-над
       відэапрайгравальнікам'
     Skip by Scrolling Over Video Player: 'Прапусціць, прагарнуўшы відэапрайгравальнік'
-    Display Play Button In Video Player: 'Адлюстроўваць кнопку прайгравання ў відэапрайгравальніку'
+    Display Play Button In Video Player: 'Паказваць кнопку прайгравання ў відэапрайгравальніку'
     Enter Fullscreen on Display Rotate: 'Пераходзіць у поўнаэкранны рэжым пры павароце
       дысплэя'
     Next Video Interval: 'Інтэрвал да наступнага відэа'
@@ -538,8 +538,8 @@ Settings:
     Hide Video Description: 'Хаваць апісанне відэа'
     Hide Comments: 'Хаваць каментарыі'
     Hide Profile Pictures in Comments: 'Хаваць фатаграфіі профіляў у каментарыях'
-    Display Titles Without Excessive Capitalisation: 'Адлюстроўвайце загалоўкі без
-      празмерных вялікіх літар і знакаў прыпынку'
+    Display Titles Without Excessive Capitalisation: 'Паказваць загалоўкі без празмерных
+      вялікіх літар і знакаў прыпынку'
     Hide Live Streams: 'Хаваць жывыя трансляцыі'
     Hide Upcoming Premieres: 'Хаваць будучыя прэм''еры'
     Hide Sharing Actions: 'Хаваць дзеянні абагульвання'
@@ -664,9 +664,9 @@ Settings:
     Open in web browser: 'Адкрываць у вэб-браўзеры'
   Experimental Settings:
     Experimental Settings: 'Эксперыменты'
-    Warning: 'Гэтыя налады з''яўляюцца эксперыментальнымі, яны могуць выклікаць збоі,
-      пакуль уключаны. Настойліва рэкамендуецца рабіць рэзервовыя копіі. Выкарыстоўвайце
-      на свой страх і рызыку!'
+    Warning: 'Гэтыя налады эксперыментальныя і могуць выклікаць збоі праграмы. Вы
+      выкарыстоўвайце іх на свой страх і рызыку. Настойліва рэкамендуем рабіць рэзервовыя
+      копіі!'
     Replace HTTP Cache: 'Замяніць кэш HTTP'
   Password Dialog:
     Password: 'Пароль'
@@ -676,7 +676,7 @@ Settings:
     Set Password To Prevent Access: 'Задайце пароль, каб забараніць доступ да налад'
     Set Password: 'Задаць пароль'
     Remove Password: 'Выдаліць пароль'
-  Sort Settings Sections (A-Z): Сартаваць раздзелы налад (А-Я)
+  Sort Settings Sections (A-Z): Упарадкаваць раздзелы налад (А-Я)
   Return to Settings Menu: Вярнуцца ў меню налад
 About:
   #On About page
