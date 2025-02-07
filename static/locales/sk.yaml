@@ -22,7 +22,7 @@ Zoom out: 'Oddialiť'
 Toggle fullscreen: 'Prepnúť na celú obrazovku'
 Window: 'Okno'
 Minimize: 'Minimalizovať'
-Close: 'Zavrieť'
+Close: 'Zatvoriť'
 Back: 'Dozadu'
 Forward: 'Dopredu'
 
@@ -38,7 +38,7 @@ Global:
     Channel Count: 1 kanál | {count} kanálov
     View Count: 1 pozretie | {count} pozretí
     Watching Count: 1 sledujúci | {count} sledujúcich
-    Like Count: 1 páči sa | {count} páči sa
+    Like Count: 1 like | {count} likes
     Comment Count: 1 komentár | {count} komentárov
   Live: Naživo
   Community: Komunita
@@ -52,7 +52,7 @@ Search Filters:
     Most Relevant: 'Najvhodnejšie'
     Rating: 'Hodnotenie'
     Upload Date: 'Dátum nahratia'
-    View Count: 'Počet zobrazení'
+    View Count: 'Počet zhliadnutí'
   Time:
     Time: 'Čas'
     Any Time: 'Kedykoľvek'
@@ -701,10 +701,10 @@ Profile:
   Profile Filter: Filter Profilov
   Profile Settings: Profil
 A new blog is now available, {blogTitle}. Click to view more: 'Dostupný nový článok
-  na blogu: {blogTitle}. Klikni pre viac informácií'
+  na blogu: {blogTitle}. Kliknite pre viac info'
 Download From Site: Stiahnuť z webu
 Version {versionNumber} is now available!  Click for more details: Verzia {versionNumber}
-  je k dispozícii! Klikni pre viac informácií
+  je k dispozícii! Kliknite pre viac info
 Locale Name: Slovenčina
 Playing Next Video Interval: Prehrávanie ďalšieho videa za chvíľu. Kliknutím zrušíte.
   | Prehráva sa ďalšie video o {nextVideoInterval} sekundu. Kliknutím zrušíte. | Prehráva
@@ -731,8 +731,8 @@ Channels:
   Empty: Váš zoznam kanálov je momentálne prázdny.
   Unsubscribe Prompt: Určite sa chcete odhlásiť z odberu "{channelName}"?
 Preferences: Predvoľby
-Close Banner: Zavrieť banner
-Search character limit: Vyhľadávaný výraz presahuje povolený limit {searchCharacterLimit}
+Close Banner: Zatvoriť panel
+Search character limit: Hľadaný výraz presahuje povolený limit {searchCharacterLimit}
   znakov
 Search Listing:
   Label:
