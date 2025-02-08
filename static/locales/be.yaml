@@ -36,7 +36,7 @@ Version {versionNumber} is now available!  Click for more details: 'Даступ
 Download From Site: 'Спампаваць з сайта'
 A new blog is now available, {blogTitle}. Click to view more: 'Даступны новы блог,
   {blogTitle}. Націсніце, каб паглядзець больш'
-Are you sure you want to open this link?: 'Вы ўпэўнены, што хочаце адкрыць гэтую спасылку?'
+Are you sure you want to open this link?: 'Сапраўды хочаце адкрыць гэтую спасылку?'
 
 # Global
 # Anything shared among components / views should be put here
@@ -45,7 +45,7 @@ Global:
   Shorts: 'Кароткія відэа'
   Live: 'Ужывую'
   Community: 'Супольнасць'
-  Sort By: Сартаваць
+  Sort By: Сартаванне
   Counts:
     Video Count: '1 відэа | {count} відэа'
     Channel Count: '1 канал | {count} каналы(аў)'
@@ -58,7 +58,7 @@ Global:
     Comment Count: 1 каментарый | {count} каментарыяў
 Search / Go to URL: 'Пошук / Перайсці да URL'
 Search Bar:
-  Clear Input: 'Ачысціць увод'
+  Clear Input: 'Ачысціць поле ўводу'
   # In Filter Button
   Remove: Выдаліць
 Search Filters:
@@ -135,7 +135,7 @@ Channels:
   Search bar placeholder: 'Пошук каналаў'
   Count: '{number} каналы(аў) знойдзена.'
   Empty: 'Ваш спіс каналаў зараз пусты.'
-  Unsubscribe Prompt: 'Вы сапраўды хочаце адпісацца ад "{channelName}"?'
+  Unsubscribe Prompt: 'Сапраўды хочаце адпісацца ад «{channelName}»?'
 Trending:
   Trending: 'У трэндзе'
   Default: 'Па змаўчанні'
@@ -216,6 +216,8 @@ User Playlists:
       This playlist has a video with a duration error: Гэты плэй-ліст змяшчае прынамсі
         адно відэа без працягласці. Яно будзе адсартаваны так, як быццам іх працягласць
         роўная нулю.
+      Video has been removed. Click here to undo.: Відэа было выдалена. Націсніце
+        сюды, каб адрабіць.
     Search for Videos: Пошук відэа
   You have no playlists. Click on the create new playlist button to create a new one.: У
     вас няма плэй-лістоў. Націсніце на кнопку стварыць новы плэй-ліст, каб стварыць
@@ -230,8 +232,8 @@ User Playlists:
   Copy Playlist: Скапіяваць плэй-ліст
   Remove Watched Videos: Выдаліць прагледжаныя відэа
   Delete Playlist: Выдаліць плэй-ліст
-  Are you sure you want to delete this playlist? This cannot be undone: Вы ўпэўнены,
-    што хочаце выдаліць плэй-ліст? Гэта нельга адмяніць.
+  Are you sure you want to delete this playlist? This cannot be undone: Сапраўды выдаліць
+    плэй-ліст? Гэта дзеянне нельга адмяніць.
   Sort By:
     EarliestPlayedFirst: Раней прайгравалі
     NameDescending: Я-А
@@ -248,14 +250,14 @@ User Playlists:
   Save Changes: Захаваць змены
   Enable Quick Bookmark With This Playlist: Уключыць хуткую закладку для гэтага плэй-ліста
   Remove Duplicate Videos: Выдаліць дублікаты відэа
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Вы
-    ўпэўнены, што хочаце выдаліць 1 прагледжанае відэа з гэтага плэй-ліста? Гэта нельга
-    адмяніць. | Вы ўпэўнены, што хочаце выдаліць {playlistItemCount} прагледжаных
-    відэа з гэтага плэй-ліста? Гэта нельга адмяніць.
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Вы
-    ўпэўнены, што хочаце выдаліць 1 дублікат відэа з гэтага плэй-ліста? Гэта нельга
-    адмяніць. | Вы ўпэўнены, што хочаце выдаліць {playlistItemCount} дублікатаў відэа
-    з гэтага плэй-ліста? Гэта нельга адмяніць.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Сапраўды
+    выдаліць 1 прагледжанае відэа з плэй-ліста? Гэта дзеянне нельга адмяніць. | Сапраўды
+    выдаліць {playlistItemCount} прагледжаных відэа з плэй-ліста? Гэта дзеянне нельга
+    адмяніць.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Сапраўды
+    выдаліць 1 дублікат відэа з плэй-ліста? Гэта дзеянне нельга адмяніць. | Сапраўды
+    выдаліць {playlistItemCount} дублікатаў відэа з плэй-ліста? Гэта дзеянне нельга
+    адмяніць.
   Export Playlist: Экспартаваць плэй-ліст
   The playlist has been successfully exported: Плэй-ліст паспяхова экспартаваны
 History:
@@ -495,13 +497,13 @@ Settings:
       ачысціць кэш пошуку?'
     Search cache has been cleared: 'Кэш пошуку ачышчаны'
     Remove Watch History: 'Выдаліць гісторыю праглядаў'
-    Are you sure you want to remove your entire watch history?: 'Вы ўпэўнены, што
-      хочаце выдаліць усю гісторыю праглядаў?'
+    Are you sure you want to remove your entire watch history?: 'Сапраўды выдаліць
+      усю гісторыю праглядаў?'
     Watch history has been cleared: 'Гісторыя праглядаў ачышчана'
     Remove All Subscriptions / Profiles: 'Выдаліць усе падпіскі / профілі'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Вы
-      ўпэўнены, што хочаце выдаліць усе падпіскі і профілі?  Гэта нельга адмяніць.'
-    Are you sure you want to remove all your playlists?: Вы ўпэўнены, што хочаце выдаліць
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Сапраўды
+      выдаліць усе падпіскі і профілі?  Гэта дзеянне нельга адмяніць.'
+    Are you sure you want to remove all your playlists?: Сапраўды хочаце выдаліць
       усе свае плэй-лісты?
     Remove All Playlists: Выдаліць усе плэй-лісты
     All playlists have been removed: Усе плэй-лісты былі выдалены
@@ -522,12 +524,12 @@ Settings:
     Sections:
       Side Bar: 'Бакавая панэль'
       Subscriptions Page: 'Старонка падпісак'
-      Channel Page: 'Старонка каналу'
+      Channel Page: 'Старонка канала'
       Watch Page: 'Старонка прагляду'
       General: 'Агульныя'
     Hide Video Views: 'Хаваць прагляды відэа'
     Hide Video Likes And Dislikes: 'Хаваць лайкі і дызлайкі да відэа'
-    Hide Channel Subscribers: 'Хаваць падпісчыкаў каналу'
+    Hide Channel Subscribers: 'Хаваць падпісчыкаў канала'
     Hide Comment Likes: 'Хаваць лайкі да каментарыяў'
     Hide Recommended Videos: 'Хаваць рэкамендаваныя відэа'
     Hide Trending Videos: 'Хаваць відэа ў трэндзе'
@@ -724,13 +726,13 @@ Profile:
   Update Profile: 'Абнавіць профіль'
   Make Default Profile: 'Зрабіць профілем па змаўчанні'
   Delete Profile: 'Выдаліць профіль'
-  Are you sure you want to delete this profile?: 'Вы ўпэўнены, што хочаце выдаліць
-    гэты профіль?'
+  Are you sure you want to delete this profile?: 'Сапраўды выдаліць гэты профіль?'
   All subscriptions will also be deleted.: 'Усе падпіскі таксама будуць выдалены.'
   Your profile name cannot be empty: 'Назва вашага профілю не можа быць пустой'
   Profile has been created: 'Профіль створаны'
   Profile has been updated: 'Профіль абноўлены'
-  Your default profile has been set to {profile}: 'Профілем па змаўчанню заданы {profile}'
+  Your default profile has been set to {profile}: 'Профілем па змаўчанні зададзены
+    {profile}'
   Removed {profile} from your profiles: '{profile} выдалены з вашых профіляў'
   Your default profile has been changed to your primary profile: 'Ваш профіль па змаўчанні
     быў зменены на асноўны'
@@ -745,31 +747,30 @@ Profile:
   No channel(s) have been selected: 'Канал(-ы) не выбраны'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : 'Гэта ваш асноўны профіль.  Вы ўпэўнены, што хочаце выдаліць выбраныя каналы?  Тыя
-    ж каналы будуць выдалены ў любым профілі, у якім яны знаходзяцца.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Вы
-    ўпэўнены, што хочаце выдаліць выбраныя каналы?  Канал не будзе выдалены з іншых
-    профіляў.'
+  : 'Гэта ваш асноўны профіль.  Сапраўды выдаліць выбраныя каналы?  Яны будуць выдалены
+    з кожнага профілю, у якім знаходзяцца.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Сапраўды
+    выдаліць выбраныя каналы?  Канал не будзе выдалены з іншых профіляў.'
 #On Channel Page
   Edit Profile Name: Рэдагаваць назву профілю
   Create Profile Name: Стварыце назву профілю
   Profile Name: Назва профілю
-  Close Profile Dropdown: Зачыніць выпадное меню профілю
+  Close Profile Dropdown: Закрыць выпадное меню профілю
   Open Profile Dropdown: Адкрыць выпадное меню профілю
 Channel:
   Subscribe: 'Падпісацца'
   Unsubscribe: 'Адпісацца'
   Channel has been removed from your subscriptions: 'Канал быў выдалены з вашых падпісак'
-  Removed subscription from {count} other channel(s): 'Выдалена падпіска з {count}
-    іншых каналаў'
+  Removed subscription from {count} other channel(s): 'Падпіска выдалена з {count}
+    іншага канала(ў)'
   Added channel to your subscriptions: 'Канал дададзены да вашых падпісак'
-  Search Channel: 'Шукаць на канале'
+  Search Channel: 'Пошук на канале'
   Your search results have returned 0 results: 'Пошук даў 0 вынікаў'
   This channel does not exist: 'Гэты канал не існуе'
   This channel does not allow searching: 'Гэты канал не дазваляе шукаць'
   This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Гэты
     канал абмежаваны па ўзросце, і зараз яго нельга праглядаць у FreeTube.'
-  Channel Tabs: 'Укладкі каналу'
+  Channel Tabs: 'Укладкі канала'
   Videos:
     Videos: 'Відэа'
     This channel does not currently have any videos: 'Зараз на гэтым канале няма відэа'
@@ -1228,9 +1229,10 @@ KeyboardShortcutPrompt:
   Large Fast Forward: Пераматаць уперад на 10 секунд / Пераматаць уперад згодна з
     бягучай хуткасцю прайгравання
   Reset Zoom: Скінуць узровень павелічэння / UI шкалу
-  Focus Search: Засяродзіцца на панэлі пошуку
+  Focus Search: Перанесці фокус на панэль пошуку
   Full Window: Пераключыць поўнае акно
   Last Chapter: Апошні раздзел
+  Focus Secondary Search: Перанесці фокус на другасную панэль пошуку (калі яна ёсць)
 Keys:
   arrowup: Стрэлка ўверх
   arrowright: Стрэлка ўправа
