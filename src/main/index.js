@@ -1738,6 +1738,24 @@ function runApp() {
     const hidePlaylists = (await sidenavSettings.hidePlaylists)?.value
 
     const template = [
+      ...process.platform === 'darwin'
+        ? [
+            {
+              label: app.getName(),
+              submenu: [
+                { role: 'about' },
+                { type: 'separator' },
+                { role: 'services' },
+                { type: 'separator' },
+                { role: 'hide' },
+                { role: 'hideothers' },
+                { role: 'unhide' },
+                { type: 'separator' },
+                { role: 'quit' }
+              ]
+            }
+          ]
+        : [],
       {
         label: 'File',
         submenu: [
@@ -1945,31 +1963,15 @@ function runApp() {
           { role: 'minimize' },
           { role: 'close' }
         ]
-      }
+      },
+      ...process.platform === 'darwin'
+        ? [
+            { role: 'window' },
+            { role: 'help' },
+            { role: 'services' }
+          ]
+        : []
     ]
-
-    if (process.platform === 'darwin') {
-      template.unshift({
-        label: app.getName(),
-        submenu: [
-          { role: 'about' },
-          { type: 'separator' },
-          { role: 'services' },
-          { type: 'separator' },
-          { role: 'hide' },
-          { role: 'hideothers' },
-          { role: 'unhide' },
-          { type: 'separator' },
-          { role: 'quit' }
-        ]
-      })
-
-      template.push(
-        { role: 'window' },
-        { role: 'help' },
-        { role: 'services' }
-      )
-    }
 
     const menu = Menu.buildFromTemplate(template)
     Menu.setApplicationMenu(menu)

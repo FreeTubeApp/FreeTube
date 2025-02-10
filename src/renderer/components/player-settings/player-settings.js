@@ -198,18 +198,19 @@ export default defineComponent({
         this.$t('Settings.General Settings.Thumbnail Preference.Default'),
         this.$t('Settings.Player Settings.Default Viewing Mode.Theater'),
         this.$t('Video.Player.Full Window'),
+
+        ...process.env.IS_ELECTRON
+          ? [
+              this.$t('Settings.Player Settings.Default Viewing Mode.Full Screen'),
+              this.$t('Settings.Player Settings.Default Viewing Mode.Picture in Picture')
+            ]
+          : []
       ]
 
-      if (process.env.IS_ELECTRON) {
+      if (process.env.IS_ELECTRON && this.externalPlayer !== '') {
         viewingModeNames.push(
-          this.$t('Settings.Player Settings.Default Viewing Mode.Full Screen'),
-          this.$t('Settings.Player Settings.Default Viewing Mode.Picture in Picture')
+          this.$t('Settings.Player Settings.Default Viewing Mode.External Player', { externalPlayerName: this.externalPlayer })
         )
-        if (this.externalPlayer !== '') {
-          viewingModeNames.push(
-            this.$t('Settings.Player Settings.Default Viewing Mode.External Player', { externalPlayerName: this.externalPlayer })
-          )
-        }
       }
 
       return viewingModeNames
@@ -219,15 +220,15 @@ export default defineComponent({
       const viewingModeValues = [
         'default',
         'theatre',
-        'fullwindow'
+        'fullwindow',
+
+        ...process.env.IS_ELECTRON
+          ? ['fullscreen', 'pip']
+          : []
       ]
 
-      if (process.env.IS_ELECTRON) {
-        viewingModeValues.push('fullscreen', 'pip')
-
-        if (this.externalPlayer !== '') {
-          viewingModeValues.push('external_player')
-        }
+      if (process.env.IS_ELECTRON && this.externalPlayer !== '') {
+        viewingModeValues.push('external_player')
       }
 
       return viewingModeValues
