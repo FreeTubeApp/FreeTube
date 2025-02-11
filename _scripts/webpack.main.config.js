@@ -5,6 +5,7 @@ const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 
+/** @type {import('webpack').Configuration} */
 const config = {
   name: 'main',
   mode: process.env.NODE_ENV,
