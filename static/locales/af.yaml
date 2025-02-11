@@ -409,41 +409,56 @@ Settings:
       Ask Path: ''
       Folder Label: ''
       Folder Button: ''
-      File Name Label: ''
-      File Name Tooltip: ''
+      File Name Label: 'Lêernaampatroon'
+      File Name Tooltip: 'U kan die volgende veranderlike gebruik; %Y viersyferjaartal,
+        %M tweesyvermaandtal, %D tweesyferdagtal, %H tweesyferuurtal, %N tweesyferminuuttal,
+        %S tweesefersekondetal, %T driesyfermillisekondtal, %s tweesyfervideosekond,
+        %t driesyfervideomillisekond, %i video-ID.'
       Error:
-        Forbidden Characters: ''
-        Empty File Name: ''
+        Forbidden Characters: 'Ontoelaatbare karakters'
+        Empty File Name: 'Leë lêernaam'
   External Player Settings:
-    External Player Settings: ''
-    External Player: ''
-    Ignore Unsupported Action Warnings: ''
-    Ignore Default Arguments: ''
-    Custom External Player Executable: ''
-    Custom External Player Arguments: ''
+    External Player Settings: 'Eksterne speler'
+    External Player: 'Eksterne speler'
+    Ignore Unsupported Action Warnings: 'Ignoreer waarskuwings vir nie-ondersteunde
+      aksies'
+    Ignore Default Arguments: 'Ignoreer verstekargumente'
+    Custom External Player Executable: 'Stel uitvoerbare lêer van eksterne videospeler
+      in'
+    Custom External Player Arguments: 'Aangepaste argumente vir eksterne videospeler'
     Players:
       None:
-        Name: ''
+        Name: 'Geen'
   Privacy Settings:
-    Privacy Settings: ''
-    Remember History: ''
-    Save Watched Progress: ''
-    Save Watched Videos With Last Viewed Playlist: ''
+    Privacy Settings: 'Privaatheid'
+    Remember History: 'Onthou kykgeskiedenis'
+    Save Watched Progress: 'Bewaar videovoortgang'
+    Save Watched Videos With Last Viewed Playlist: 'Hou gekykte video’s by met die
+      afspeellys ‘Laaste gekyk’'
     Clear Search Cache: ''
     Are you sure you want to clear out your search cache?: ''
     Search cache has been cleared: ''
-    Remove Watch History: ''
-    Are you sure you want to remove your entire watch history?: ''
-    Watch history has been cleared: ''
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
-    Remove All Playlists: ''
-    All playlists have been removed: ''
-    Are you sure you want to remove all your playlists?: ''
+    Remove Watch History: 'Verwyder kykgeskiedenis'
+    Are you sure you want to remove your entire watch history?: 'Is u seker u wil
+      u hele kykgeskiedenis verwyder?'
+    Watch history has been cleared: 'Kykgeskiedenis is gewis'
+    Remove All Subscriptions / Profiles: 'Verwyder alle intekeninge / profiele'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Is
+      u seker u wil alle intekeninge en proviele verwyder?  Dit kan nie ontdaan word
+      nie.'
+    Remove All Playlists: 'Verwyder alle afspeellyste'
+    All playlists have been removed: 'Alle afspeellyste is verwyder'
+    Are you sure you want to remove all your playlists?: 'Is u seker u wil alle afspeellyste
+      verwyder?'
+    Are you sure you want to clear out your search history and cache?: Is u seker
+      u wil u soekgeskiedenis en kasgeheue wis?
+    Search history and cache have been cleared: Soekgeskiedenis en kasgeheue is gewis
+    Remember Search History: Onthou soekgeskiedenis
+    Clear Search History and Cache: Wis soekgeskiedenis en kasgeheue
   Subscription Settings:
-    Subscription Settings: ''
-    Hide Videos on Watch: ''
-    Fetch Feeds from RSS: ''
+    Subscription Settings: 'Intekening'
+    Hide Videos on Watch: 'Versteek alle gekykte video’s'
+    Fetch Feeds from RSS: 'Haal voer vanaf RSS op'
     Fetch Automatically: 'Haal voer outomaties op'
     Confirm Before Unsubscribing: 'Bevestig voor uittekening'
     'Limit the number of videos displayed for each channel': Beperk die aantal video’s
