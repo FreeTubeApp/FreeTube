@@ -34,7 +34,7 @@ const state = {
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
   isKeyboardShortcutPromptShown: false,
-  areVimWaypointsShown: false,
+  areVimWaypointsShown: { visible: false, pressed: [] },
   showSearchFilters: false,
   searchFilterValueChanged: false,
   progressBarPercentage: 0,
@@ -1012,8 +1012,22 @@ const mutations = {
     state.isKeyboardShortcutPromptShown = payload
   },
 
-  setAreVimWaypointsShown(state, payload) {
-    console.warn(payload)
+  setAreVimWaypointsShown(state, { visible, key }) {
+    state.areVimWaypointsShown.visible = visible
+    if (visible === false) {
+      document.querySelectorAll('.vimHint').forEach(el => el.remove())
+      state.areVimWaypointsShown.pressed = []
+      return
+    }
+
+    if (key) {
+      if (!Array.isArray(state.areVimWaypointsShown.pressed)) {
+        state.areVimWaypointsShown.pressed = []
+      }
+      state.areVimWaypointsShown.pressed.push(key)
+    }
+    console.warn('state after', state.areVimWaypointsShown.pressed)
+
     function getClickableElements() {
       return [
         ...document.querySelectorAll(
@@ -1114,6 +1128,7 @@ const mutations = {
         }
         Object.assign(span.style, hintStyles)
         span.textContent = hints[hintIndex++]
+        span.classList.add('vimHint')
         span.style.padding = '1px 2px'
         span.style.letterSpacing = '0.5px'
 
@@ -1129,7 +1144,6 @@ const mutations = {
     }
     const elements = getClickableElements()
     displayHints(elements)
-    state.areVimWaypointsShown = payload
   },
 
   setShowSearchFilters(state, payload) {

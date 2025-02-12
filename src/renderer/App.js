@@ -357,9 +357,9 @@ export default defineComponent({
 
     handleKeyboardShortcuts: function (event) {
       if (this.areVimWaypointsShown && ['Esc', 'Escape'].includes(event.key)) {
-        this.hideVimWaypoints()
+        this.$store.commit('setAreVimWaypointsShown', { visible: false })
       } else if (this.areVimWaypointsShown) {
-        this.$store.commit('setAreVimWaypointsShown', { visible: true })
+        this.$store.commit('setAreVimWaypointsShown', { visible: true, key: event.key })
       }
       // ignore user typing in HTML `input` elements
       if (event.shiftKey && event.key === '?' && event.target.tagName !== 'INPUT') {
