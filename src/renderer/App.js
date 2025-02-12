@@ -156,6 +156,10 @@ export default defineComponent({
 
     openDeepLinksInNewWindow: function () {
       return this.$store.getters.getOpenDeepLinksInNewWindow
+    },
+
+    enableVimNavigation: function () {
+      return this.$store.getters.getEnableVimNavigation
     }
   },
   watch: {
