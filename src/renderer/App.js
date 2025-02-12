@@ -356,10 +356,12 @@ export default defineComponent({
     },
 
     handleKeyboardShortcuts: function (event) {
-      if (this.areVimWaypointsShown && ['Esc', 'Escape'].includes(event.key)) {
-        this.$store.commit('setAreVimWaypointsShown', { visible: false })
-      } else if (this.areVimWaypointsShown) {
-        this.$store.commit('setAreVimWaypointsShown', { visible: true, key: event.key })
+      // If this.areVimWaypointsShown.selector starts with an f it means
+      // the user is in nav mode so capture any input and pass it to
+      // setAreVimWaypointsShown
+      if (this.areVimWaypointsShown.selector[0] === 'f') {
+        this.$store.commit('setAreVimWaypointsShown', { key: event.key })
+        return
       }
       // ignore user typing in HTML `input` elements
       if (event.shiftKey && event.key === '?' && event.target.tagName !== 'INPUT') {
@@ -376,8 +378,8 @@ export default defineComponent({
       }
       switch (event.key) {
         case 'f':
-          if (!this.areVimWaypointsShown && event.target.tagName !== 'INPUT') {
-            this.$store.commit('setAreVimWaypointsShown', { visible: true })
+          if (event.target.tagName !== 'INPUT') {
+            this.$store.commit('setAreVimWaypointsShown', { key: event.key })
           }
           break
         case 'Tab':

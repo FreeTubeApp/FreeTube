@@ -34,7 +34,7 @@ const state = {
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
   isKeyboardShortcutPromptShown: false,
-  areVimWaypointsShown: { visible: false, pressed: [] },
+  areVimWaypointsShown: { selector: [] },
   showSearchFilters: false,
   searchFilterValueChanged: false,
   progressBarPercentage: 0,
@@ -1012,22 +1012,19 @@ const mutations = {
     state.isKeyboardShortcutPromptShown = payload
   },
 
-  setAreVimWaypointsShown(state, { visible, key }) {
-    state.areVimWaypointsShown.visible = visible
-    if (visible === false) {
+  setAreVimWaypointsShown(state, { key }) {
+    if (key === 'f' && !document.querySelector('.vimHint')) {
+      const elements = getClickableElements()
+      displayHints(elements)
+      state.areVimWaypointsShown.selector.push(key)
+    } else if (['Esc', 'Escape'].includes(key)) {
       document.querySelectorAll('.vimHint').forEach(el => el.remove())
-      state.areVimWaypointsShown.pressed = []
-      return
+      state.areVimWaypointsShown.selector = []
+    } else {
+      state.areVimWaypointsShown.selector.push(key)
+      const selector = state.areVimWaypointsShown.selector.slice(1).join('')
+      console.warn(selector)
     }
-
-    if (key) {
-      if (!Array.isArray(state.areVimWaypointsShown.pressed)) {
-        state.areVimWaypointsShown.pressed = []
-      }
-      state.areVimWaypointsShown.pressed.push(key)
-    }
-    console.warn('state after', state.areVimWaypointsShown.pressed)
-
     function getClickableElements() {
       return [
         ...document.querySelectorAll(
@@ -1107,6 +1104,10 @@ const mutations = {
 
     // Function to generate hint labels
     function displayHints(elements) {
+      if (!elements.length) {
+        state.areVimWaypointsShown.selector = []
+        return
+      }
       let hintIndex = 0
 
       const minChars = 2
@@ -1142,8 +1143,6 @@ const mutations = {
         element.setAttribute('data-hint', span.textContent)
       })
     }
-    const elements = getClickableElements()
-    displayHints(elements)
   },
 
   setShowSearchFilters(state, payload) {
