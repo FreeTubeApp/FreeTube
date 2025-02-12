@@ -14,7 +14,7 @@ import {
   searchFiltersMatch,
   showExternalPlayerUnsupportedActionToast,
   showSaveDialog,
-  showToast
+  showToast,
 } from '../../helpers/utils'
 
 const state = {
@@ -26,7 +26,7 @@ const state = {
     default: null,
     music: null,
     gaming: null,
-    movies: null
+    movies: null,
   },
   cachedPlaylist: null,
   deArrowCache: {},
@@ -34,6 +34,7 @@ const state = {
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
   isKeyboardShortcutPromptShown: false,
+  areVimWaypointsShown: false,
   showSearchFilters: false,
   searchFilterValueChanged: false,
   progressBarPercentage: 0,
@@ -58,7 +59,7 @@ const state = {
     default: '',
     music: '',
     gaming: '',
-    movies: ''
+    movies: '',
   },
   subscriptionFirstAutoFetchRunData: {
     videos: false,
@@ -66,7 +67,7 @@ const state = {
     shorts: false,
     communityPosts: false,
   },
-  appTitle: ''
+  appTitle: '',
 }
 
 const getters = {
@@ -108,6 +109,10 @@ const getters = {
 
   getIsKeyboardShortcutPromptShown(state) {
     return state.isKeyboardShortcutPromptShown
+  },
+
+  getAreVimWaypointsShown(state) {
+    return state.areVimWaypointsShown
   },
 
   getShowAddToPlaylistPrompt(state) {
@@ -162,7 +167,7 @@ const getters = {
     return state.externalPlayerValues
   },
 
-  getExternalPlayerCmdArguments (state) {
+  getExternalPlayerCmdArguments(state) {
     return state.externalPlayerCmdArguments
   },
 
@@ -177,18 +182,18 @@ const getters = {
   getSubscriptionForVideosFirstAutoFetchRun(state) {
     return state.subscriptionFirstAutoFetchRunData.videos === true
   },
-  getSubscriptionForLiveStreamsFirstAutoFetchRun (state) {
+  getSubscriptionForLiveStreamsFirstAutoFetchRun(state) {
     return state.subscriptionFirstAutoFetchRunData.liveStreams === true
   },
-  getSubscriptionForShortsFirstAutoFetchRun (state) {
+  getSubscriptionForShortsFirstAutoFetchRun(state) {
     return state.subscriptionFirstAutoFetchRunData.shorts === true
   },
-  getSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
+  getSubscriptionForCommunityPostsFirstAutoFetchRun(state) {
     return state.subscriptionFirstAutoFetchRunData.communityPosts === true
   },
-  getAppTitle (state) {
+  getAppTitle(state) {
     return state.appTitle
-  }
+  },
 }
 
 const actions = {
@@ -217,9 +222,9 @@ const actions = {
         filters: [
           {
             name: extension.toUpperCase(),
-            extensions: [extension]
-          }
-        ]
+            extensions: [extension],
+          },
+        ],
       }
       const response = await showSaveDialog(options)
 
@@ -285,8 +290,13 @@ const actions = {
     }
   },
 
-  parseScreenshotCustomFileName: function({ rootState }, payload) {
-    const { pattern = rootState.settings.screenshotFilenamePattern, date, playerTime, videoId } = payload
+  parseScreenshotCustomFileName: function ({ rootState }, payload) {
+    const {
+      pattern = rootState.settings.screenshotFilenamePattern,
+      date,
+      playerTime,
+      videoId,
+    } = payload
     const keywords = [
       ['%Y', date.getFullYear()], // year 4 digits
       ['%M', (date.getMonth() + 1).toString().padStart(2, '0')], // month 2 digits
@@ -297,7 +307,7 @@ const actions = {
       ['%T', date.getMilliseconds().toString().padStart(3, '0')], // millisecond 3 digits
       ['%s', parseInt(playerTime)], // video position second n digits
       ['%t', (playerTime % 1).toString().slice(2, 5) || '000'], // video position millisecond 3 digits
-      ['%i', videoId] // video id
+      ['%i', videoId], // video id
     ]
 
     let parsedString = pattern
@@ -306,17 +316,26 @@ const actions = {
     }
 
     if (parsedString !== replaceFilenameForbiddenChars(parsedString)) {
-      throw new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Forbidden Characters'))
+      throw new Error(
+        i18n.t(
+          'Settings.Player Settings.Screenshot.Error.Forbidden Characters',
+        ),
+      )
     }
 
     if (!parsedString) {
-      throw new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Empty File Name'))
+      throw new Error(
+        i18n.t('Settings.Player Settings.Screenshot.Error.Empty File Name'),
+      )
     }
 
     return parsedString
   },
 
-  showAddToPlaylistPromptForManyVideos ({ commit }, { videos: videoObjectArray, newPlaylistDefaultProperties }) {
+  showAddToPlaylistPromptForManyVideos(
+    { commit },
+    { videos: videoObjectArray, newPlaylistDefaultProperties },
+  ) {
     let videoDataValid = true
     if (!Array.isArray(videoObjectArray)) {
       videoDataValid = false
@@ -344,7 +363,9 @@ const actions = {
       // Using `every` to loop and `return false` to break
       videoObjectArray.every((video) => {
         const videoPropertyKeys = Object.keys(video)
-        const missingKeysHere = requiredVideoKeys.filter(x => !videoPropertyKeys.includes(x))
+        const missingKeysHere = requiredVideoKeys.filter(
+          (x) => !videoPropertyKeys.includes(x),
+        )
         if (missingKeysHere.length > 0) {
           videoDataValid = false
           missingKeys = missingKeysHere
@@ -357,7 +378,8 @@ const actions = {
 
     if (!videoDataValid) {
       // Print error and abort
-      const errorMsgText = 'Incorrect videos data passed when opening playlist prompt'
+      const errorMsgText =
+        'Incorrect videos data passed when opening playlist prompt'
       console.error(errorMsgText)
       console.error({
         videoObjectArray,
@@ -373,50 +395,101 @@ const actions = {
     }
   },
 
-  hideAddToPlaylistPrompt ({ commit }) {
+  hideAddToPlaylistPrompt({ commit }) {
     commit('setShowAddToPlaylistPrompt', false)
     // The default value properties are only valid until prompt is closed
     commit('resetNewPlaylistDefaultProperties')
   },
 
-  showCreatePlaylistPrompt ({ commit }, data) {
+  showCreatePlaylistPrompt({ commit }, data) {
     commit('setShowCreatePlaylistPrompt', true)
     commit('setNewPlaylistVideoObject', data)
   },
 
-  hideCreatePlaylistPrompt ({ commit }) {
+  hideCreatePlaylistPrompt({ commit }) {
     commit('setShowCreatePlaylistPrompt', false)
   },
 
-  showKeyboardShortcutPrompt ({ commit }) {
+  showKeyboardShortcutPrompt({ commit }) {
     commit('setIsKeyboardShortcutPromptShown', true)
   },
 
-  hideKeyboardShortcutPrompt ({ commit }) {
+  hideKeyboardShortcutPrompt({ commit }) {
     commit('setIsKeyboardShortcutPromptShown', false)
   },
 
-  showSearchFilters ({ commit }) {
+  showVimWaypoints({ commit }) {
+    console.warn('show')
+    function getClickableElements() {
+      return [
+        ...document.querySelectorAll(
+          'a, button, [type="button"], [type="submit"], [role="tab"], [role="button"], input[type="text"], [role="link"]',
+        ),
+      ]
+    }
+
+    // Function to generate hint labels
+    function generateHintLabels(elements) {
+      const hints = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      let hintIndex = 0
+
+      elements.forEach((element) => {
+        const span = document.createElement('span')
+        span.style.position = 'absolute'
+        span.style.backgroundColor = 'yellow'
+        span.style.color = 'black'
+        span.style.zIndex = 10000 // Ensure it is above other content
+        span.textContent = hints[hintIndex++ % hints.length]
+        span.style.padding = '2px'
+
+        const rect = element.getBoundingClientRect()
+        span.style.top = `${window.scrollY + rect.top}px`
+        span.style.left = `${window.scrollX + rect.left}px`
+
+        document.body.appendChild(span)
+
+        // Assign a data attribute for easy access
+        element.setAttribute('data-hint', span.textContent)
+      })
+    }
+    const elements = getClickableElements()
+    generateHintLabels(elements)
+
+    commit('setAreVimWaypointsShown', true)
+  },
+
+  hideVimWaypoints({ commit }) {
+    console.warn('hide')
+    commit('setAreVimWaypointsShown', false)
+  },
+
+  showSearchFilters({ commit }) {
     commit('setShowSearchFilters', true)
   },
 
-  hideSearchFilters ({ commit }) {
+  hideSearchFilters({ commit }) {
     commit('setShowSearchFilters', false)
   },
 
-  updateShowProgressBar ({ commit }, value) {
+  updateShowProgressBar({ commit }, value) {
     commit('setShowProgressBar', value)
   },
 
-  async getRegionData ({ commit }, locale) {
+  async getRegionData({ commit }, locale) {
     const localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
 
-    const url = createWebURL(`/static/geolocations/${localePathExists ? locale : 'en-US'}.json`)
+    const url = createWebURL(
+      `/static/geolocations/${localePathExists ? locale : 'en-US'}.json`,
+    )
 
     const countries = await (await fetch(url)).json()
 
-    const regionNames = countries.map((entry) => { return entry.name })
-    const regionValues = countries.map((entry) => { return entry.code })
+    const regionNames = countries.map((entry) => {
+      return entry.name
+    })
+    const regionValues = countries.map((entry) => {
+      return entry.code
+    })
 
     commit('setRegionNames', regionNames)
     commit('setRegionValues', regionValues)
@@ -460,7 +533,7 @@ const actions = {
         urlType: 'video',
         videoId,
         playlistId,
-        timestamp
+        timestamp,
       }
     }
 
@@ -469,7 +542,7 @@ const actions = {
       url = new URL(urlStr)
     } catch {
       return {
-        urlType: 'invalid_url'
+        urlType: 'invalid_url',
       }
     }
     let urlType = 'unknown'
@@ -485,7 +558,7 @@ const actions = {
       ['search', /^\/results|search\/?$/],
       ['hashtag', hashtagPattern],
       ['channel', channelPattern],
-      ['post', postPattern]
+      ['post', postPattern],
     ])
 
     for (const [type, pattern] of typePatterns) {
@@ -513,7 +586,7 @@ const actions = {
         return {
           urlType: 'playlist',
           playlistId,
-          query
+          query,
         }
       }
 
@@ -539,7 +612,7 @@ const actions = {
           time: searchSettings.time,
           type: searchSettings.type,
           duration: searchSettings.duration,
-          features: searchSettings.features
+          features: searchSettings.features,
         }
 
         for (const [param, value] of url.searchParams) {
@@ -549,7 +622,7 @@ const actions = {
         return {
           urlType: 'search',
           searchQuery,
-          query
+          query,
         }
       }
 
@@ -559,7 +632,7 @@ const actions = {
 
         return {
           urlType: 'hashtag',
-          hashtag
+          hashtag,
         }
       }
 
@@ -570,7 +643,7 @@ const actions = {
         return {
           urlType: 'post',
           postId,
-          query
+          query,
         }
       }
       /*
@@ -637,7 +710,7 @@ const actions = {
               return {
                 urlType: 'post',
                 postId,
-                query
+                query,
               }
             }
             subPath = 'community'
@@ -646,7 +719,11 @@ const actions = {
             subPath = 'videos'
             break
           default:
-            subPath = rootState.settings.backendPreference === 'local' && !rootState.settings.hideChannelHome ? 'home' : 'videos'
+            subPath =
+              rootState.settings.backendPreference === 'local' &&
+              !rootState.settings.hideChannelHome
+                ? 'home'
+                : 'videos'
             break
         }
         return {
@@ -655,52 +732,63 @@ const actions = {
           subPath,
           // The original URL could be from Invidious.
           // We need to make sure it starts with youtube.com, so that YouTube's resolve endpoint can recognise it
-          url: `https://www.youtube.com${url.pathname}`
+          url: `https://www.youtube.com${url.pathname}`,
         }
       }
 
       default: {
         // Unknown URL type
         return {
-          urlType: 'unknown'
+          urlType: 'unknown',
         }
       }
     }
   },
 
-  clearSessionSearchHistory ({ commit }) {
+  clearSessionSearchHistory({ commit }) {
     commit('setSessionSearchHistory', [])
   },
 
-  async getExternalPlayerCmdArgumentsData ({ commit }) {
+  async getExternalPlayerCmdArgumentsData({ commit }) {
     const url = createWebURL('/static/external-player-map.json')
     const externalPlayerMap = await (await fetch(url)).json()
     // Sort external players alphabetically & case-insensitive, keep default entry at the top
     const playerNone = externalPlayerMap.shift()
-    externalPlayerMap.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }))
+    externalPlayerMap.sort((a, b) =>
+      a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }),
+    )
     externalPlayerMap.unshift(playerNone)
 
-    const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
-    const externalPlayerValues = externalPlayerMap.map((entry) => { return entry.value })
-    const externalPlayerCmdArguments = externalPlayerMap.reduce((result, item) => {
-      result[item.value] = item.cmdArguments
-      return result
-    }, {})
+    const externalPlayerNames = externalPlayerMap.map((entry) => {
+      return entry.name
+    })
+    const externalPlayerValues = externalPlayerMap.map((entry) => {
+      return entry.value
+    })
+    const externalPlayerCmdArguments = externalPlayerMap.reduce(
+      (result, item) => {
+        result[item.value] = item.cmdArguments
+        return result
+      },
+      {},
+    )
 
     commit('setExternalPlayerNames', externalPlayerNames)
     commit('setExternalPlayerValues', externalPlayerValues)
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
 
-  openInExternalPlayer ({ state, rootState }, payload) {
+  openInExternalPlayer({ state, rootState }, payload) {
     const args = []
     const externalPlayer = rootState.settings.externalPlayer
     const cmdArgs = state.externalPlayerCmdArguments[externalPlayer]
-    const executable = rootState.settings.externalPlayerExecutable !== ''
-      ? rootState.settings.externalPlayerExecutable
-      : cmdArgs.defaultExecutable
+    const executable =
+      rootState.settings.externalPlayerExecutable !== ''
+        ? rootState.settings.externalPlayerExecutable
+        : cmdArgs.defaultExecutable
     const ignoreWarnings = rootState.settings.externalPlayerIgnoreWarnings
-    const ignoreDefaultArgs = rootState.settings.externalPlayerIgnoreDefaultArgs
+    const ignoreDefaultArgs =
+      rootState.settings.externalPlayerIgnoreDefaultArgs
     const customArgs = rootState.settings.externalPlayerCustomArgs
 
     if (ignoreDefaultArgs) {
@@ -708,7 +796,11 @@ const actions = {
         const custom = JSON.parse(customArgs)
         args.push(...custom)
       }
-      if (payload.videoId != null) args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+      if (payload.videoId != null) {
+        args.push(
+          `${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`,
+        )
+      }
     } else {
       // Append custom user-defined arguments,
       // or use the default ones specified for the external player.
@@ -719,11 +811,17 @@ const actions = {
         args.push(...cmdArgs.defaultCustomArguments)
       }
 
-      if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
+      if (
+        payload.watchProgress > 0 &&
+        payload.watchProgress < payload.videoLength - 10
+      ) {
         if (typeof cmdArgs.startOffset === 'string') {
           if (cmdArgs.defaultExecutable.startsWith('mpc')) {
             // For mpc-hc and mpc-be, which require startOffset to be in milliseconds
-            args.push(cmdArgs.startOffset, (Math.trunc(payload.watchProgress) * 1000))
+            args.push(
+              cmdArgs.startOffset,
+              Math.trunc(payload.watchProgress) * 1000,
+            )
           } else if (cmdArgs.startOffset.endsWith('=')) {
             // For players using `=` in arguments
             // e.g. vlc --start-time=xxxxx
@@ -734,7 +832,12 @@ const actions = {
             args.push(cmdArgs.startOffset, Math.trunc(payload.watchProgress))
           }
         } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.starting video at offset'))
+          showExternalPlayerUnsupportedActionToast(
+            externalPlayer,
+            i18n.t(
+              'Video.External Player.Unsupported Actions.starting video at offset',
+            ),
+          )
         }
       }
 
@@ -742,17 +845,31 @@ const actions = {
         if (typeof cmdArgs.playbackRate === 'string') {
           args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
         } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.setting a playback rate'))
+          showExternalPlayerUnsupportedActionToast(
+            externalPlayer,
+            i18n.t(
+              'Video.External Player.Unsupported Actions.setting a playback rate',
+            ),
+          )
         }
       }
 
       // Check whether the video is in a playlist
-      if (typeof cmdArgs.playlistUrl === 'string' && payload.playlistId != null && payload.playlistId !== '') {
+      if (
+        typeof cmdArgs.playlistUrl === 'string' &&
+        payload.playlistId != null &&
+        payload.playlistId !== ''
+      ) {
         if (payload.playlistIndex != null) {
           if (typeof cmdArgs.playlistIndex === 'string') {
             args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)'))
+            showExternalPlayerUnsupportedActionToast(
+              externalPlayer,
+              i18n.t(
+                'Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)',
+              ),
+            )
           }
         }
 
@@ -760,7 +877,12 @@ const actions = {
           if (typeof cmdArgs.playlistReverse === 'string') {
             args.push(cmdArgs.playlistReverse)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.reversing playlists'))
+            showExternalPlayerUnsupportedActionToast(
+              externalPlayer,
+              i18n.t(
+                'Video.External Player.Unsupported Actions.reversing playlists',
+              ),
+            )
           }
         }
 
@@ -768,7 +890,12 @@ const actions = {
           if (typeof cmdArgs.playlistShuffle === 'string') {
             args.push(cmdArgs.playlistShuffle)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.shuffling playlists'))
+            showExternalPlayerUnsupportedActionToast(
+              externalPlayer,
+              i18n.t(
+                'Video.External Player.Unsupported Actions.shuffling playlists',
+              ),
+            )
           }
         }
 
@@ -776,41 +903,74 @@ const actions = {
           if (typeof cmdArgs.playlistLoop === 'string') {
             args.push(cmdArgs.playlistLoop)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.looping playlists'))
+            showExternalPlayerUnsupportedActionToast(
+              externalPlayer,
+              i18n.t(
+                'Video.External Player.Unsupported Actions.looping playlists',
+              ),
+            )
           }
         }
 
         // If the player supports opening playlists but not indexes, send only the video URL if an index is specified
-        if (cmdArgs.playlistIndex == null && payload.playlistIndex != null && payload.playlistIndex !== '') {
-          args.push(`${cmdArgs.videoUrl}https://youtube.com/watch?v=${payload.videoId}`)
+        if (
+          cmdArgs.playlistIndex == null &&
+          payload.playlistIndex != null &&
+          payload.playlistIndex !== ''
+        ) {
+          args.push(
+            `${cmdArgs.videoUrl}https://youtube.com/watch?v=${payload.videoId}`,
+          )
         } else {
-          args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+          args.push(
+            `${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`,
+          )
         }
       } else {
-        if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.opening playlists'))
+        if (
+          payload.playlistId != null &&
+          payload.playlistId !== '' &&
+          !ignoreWarnings
+        ) {
+          showExternalPlayerUnsupportedActionToast(
+            externalPlayer,
+            i18n.t(
+              'Video.External Player.Unsupported Actions.opening playlists',
+            ),
+          )
         }
         if (payload.videoId != null) {
-          args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+          args.push(
+            `${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`,
+          )
         }
       }
     }
 
-    const videoOrPlaylist = payload.playlistId != null && payload.playlistId !== ''
-      ? i18n.t('Video.External Player.playlist')
-      : i18n.t('Video.External Player.video')
+    const videoOrPlaylist =
+      payload.playlistId != null && payload.playlistId !== ''
+        ? i18n.t('Video.External Player.playlist')
+        : i18n.t('Video.External Player.video')
 
-    showToast(i18n.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
+    showToast(
+      i18n.t('Video.External Player.OpeningTemplate', {
+        videoOrPlaylist,
+        externalPlayer,
+      }),
+    )
 
     if (process.env.IS_ELECTRON) {
       const { ipcRenderer } = require('electron')
-      ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
+      ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, {
+        executable,
+        args,
+      })
     }
   },
 }
 
 const mutations = {
-  toggleSideNav (state) {
+  toggleSideNav(state) {
     state.isSideNavOpen = !state.isSideNavOpen
   },
 
@@ -818,23 +978,23 @@ const mutations = {
     state.outlinesHidden = value
   },
 
-  setShowProgressBar (state, value) {
+  setShowProgressBar(state, value) {
     state.showProgressBar = value
   },
 
-  setProgressBarPercentage (state, value) {
+  setProgressBarPercentage(state, value) {
     state.progressBarPercentage = value
   },
 
-  setSessionSearchHistory (state, history) {
+  setSessionSearchHistory(state, history) {
     state.sessionSearchHistory = history
   },
 
-  setDeArrowCache (state, cache) {
+  setDeArrowCache(state, cache) {
     state.deArrowCache = cache
   },
 
-  addVideoToDeArrowCache (state, payload) {
+  addVideoToDeArrowCache(state, payload) {
     const sameVideo = state.deArrowCache[payload.videoId]
 
     if (!sameVideo) {
@@ -844,24 +1004,30 @@ const mutations = {
     }
   },
 
-  addThumbnailToDeArrowCache (state, payload) {
+  addThumbnailToDeArrowCache(state, payload) {
     vueSet(state.deArrowCache, payload.videoId, payload)
   },
 
-  removeFromSessionSearchHistory (state, query) {
-    state.sessionSearchHistory = state.sessionSearchHistory.filter((search) => search.query !== query)
+  removeFromSessionSearchHistory(state, query) {
+    state.sessionSearchHistory = state.sessionSearchHistory.filter(
+      (search) => search.query !== query,
+    )
   },
 
-  addToSessionSearchHistory (state, payload) {
+  addToSessionSearchHistory(state, payload) {
     const sameSearch = state.sessionSearchHistory.findIndex((search) => {
-      return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
+      return (
+        search.query === payload.query &&
+        searchFiltersMatch(payload.searchSettings, search.searchSettings)
+      )
     })
 
     if (sameSearch !== -1) {
       state.sessionSearchHistory[sameSearch].data = payload.data
       if (payload.nextPageRef) {
         // Local API
-        state.sessionSearchHistory[sameSearch].nextPageRef = payload.nextPageRef
+        state.sessionSearchHistory[sameSearch].nextPageRef =
+          payload.nextPageRef
       } else if (payload.searchPage) {
         // Invidious API
         state.sessionSearchHistory[sameSearch].searchPage = payload.searchPage
@@ -871,42 +1037,46 @@ const mutations = {
     }
   },
 
-  setShowAddToPlaylistPrompt (state, payload) {
+  setShowAddToPlaylistPrompt(state, payload) {
     state.showAddToPlaylistPrompt = payload
   },
 
-  setShowCreatePlaylistPrompt (state, payload) {
+  setShowCreatePlaylistPrompt(state, payload) {
     state.showCreatePlaylistPrompt = payload
   },
 
-  setIsKeyboardShortcutPromptShown (state, payload) {
+  setIsKeyboardShortcutPromptShown(state, payload) {
     state.isKeyboardShortcutPromptShown = payload
   },
 
-  setShowSearchFilters (state, payload) {
+  setAreVimWaypointsShown(state, payload) {
+    state.areVimWaypointsShown = payload
+  },
+
+  setShowSearchFilters(state, payload) {
     state.showSearchFilters = payload
   },
 
-  setToBeAddedToPlaylistVideoList (state, payload) {
+  setToBeAddedToPlaylistVideoList(state, payload) {
     state.toBeAddedToPlaylistVideoList = payload
   },
 
-  setNewPlaylistDefaultProperties (state, payload) {
+  setNewPlaylistDefaultProperties(state, payload) {
     state.newPlaylistDefaultProperties = payload
   },
-  resetNewPlaylistDefaultProperties (state) {
+  resetNewPlaylistDefaultProperties(state) {
     state.newPlaylistDefaultProperties = {}
   },
 
-  setNewPlaylistVideoObject (state, payload) {
+  setNewPlaylistVideoObject(state, payload) {
     state.newPlaylistVideoObject = payload
   },
 
-  setPopularCache (state, value) {
+  setPopularCache(state, value) {
     state.popularCache = value
   },
 
-  setTrendingCache (state, { value, page }) {
+  setTrendingCache(state, { value, page }) {
     state.trendingCache[page] = value
   },
 
@@ -914,11 +1084,11 @@ const mutations = {
    * @param {typeof state} state
    * @param {{page: 'default' | 'music' | 'gaming' | 'movies', timestamp: Date}} param1
    */
-  setLastTrendingRefreshTimestamp (state, { page, timestamp }) {
+  setLastTrendingRefreshTimestamp(state, { page, timestamp }) {
     state.lastTrendingRefreshTimestamp[page] = timestamp
   },
 
-  setLastPopularRefreshTimestamp (state, timestamp) {
+  setLastPopularRefreshTimestamp(state, timestamp) {
     state.lastPopularRefreshTimestamp = timestamp
   },
 
@@ -934,76 +1104,76 @@ const mutations = {
     state.cachedPlaylist = value
   },
 
-  setSearchFilterValueChanged (state, value) {
+  setSearchFilterValueChanged(state, value) {
     state.searchFilterValueChanged = value
   },
 
-  setSearchSortBy (state, value) {
+  setSearchSortBy(state, value) {
     state.searchSettings.sortBy = value
   },
 
-  setSearchTime (state, value) {
+  setSearchTime(state, value) {
     state.searchSettings.time = value
   },
 
-  setSearchType (state, value) {
+  setSearchType(state, value) {
     state.searchSettings.type = value
   },
 
-  setSearchDuration (state, value) {
+  setSearchDuration(state, value) {
     state.searchSettings.duration = value
   },
 
-  setSearchFeatures (state, value) {
+  setSearchFeatures(state, value) {
     state.searchSettings.features = value
   },
 
-  setRegionNames (state, value) {
+  setRegionNames(state, value) {
     state.regionNames = value
   },
 
-  setRegionValues (state, value) {
+  setRegionValues(state, value) {
     state.regionValues = value
   },
 
-  setRecentBlogPosts (state, value) {
+  setRecentBlogPosts(state, value) {
     state.recentBlogPosts = value
   },
 
-  setExternalPlayerNames (state, value) {
+  setExternalPlayerNames(state, value) {
     state.externalPlayerNames = value
   },
 
-  setExternalPlayerValues (state, value) {
+  setExternalPlayerValues(state, value) {
     state.externalPlayerValues = value
   },
 
-  setExternalPlayerCmdArguments (state, value) {
+  setExternalPlayerCmdArguments(state, value) {
     state.externalPlayerCmdArguments = value
   },
 
   // Use this to set the app title / document.title
-  setAppTitle (state, value) {
+  setAppTitle(state, value) {
     state.appTitle = value
   },
 
-  setSubscriptionForVideosFirstAutoFetchRun (state) {
+  setSubscriptionForVideosFirstAutoFetchRun(state) {
     state.subscriptionFirstAutoFetchRunData.videos = true
   },
-  setSubscriptionForLiveStreamsFirstAutoFetchRun (state) {
+  setSubscriptionForLiveStreamsFirstAutoFetchRun(state) {
     state.subscriptionFirstAutoFetchRunData.liveStreams = true
   },
-  setSubscriptionForShortsFirstAutoFetchRun (state) {
+  setSubscriptionForShortsFirstAutoFetchRun(state) {
     state.subscriptionFirstAutoFetchRunData.shorts = true
   },
-  setSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
+  setSubscriptionForCommunityPostsFirstAutoFetchRun(state) {
     state.subscriptionFirstAutoFetchRunData.communityPosts = true
-  }
+  },
 }
 
 export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 }

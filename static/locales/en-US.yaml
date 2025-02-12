@@ -1144,6 +1144,7 @@ KeyboardShortcutPrompt:
       Situational: 'App: Situational'
       General: App: General
   Show Keyboard Shortcuts: Show keyboard shortcuts
+  Show Vim Waypoints: Show Vim waypoints
   History Backward: Go back one page
   History Forward: Go forward one page
   New Window: Create a new window

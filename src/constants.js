@@ -135,6 +135,7 @@ const KeyboardShortcuts = {
   APP: {
     GENERAL: {
       SHOW_SHORTCUTS: 'shift+?',
+      SHOW_VIM_WAYPOINTS: 'f',
       HISTORY_BACKWARD: 'alt+arrowleft',
       HISTORY_FORWARD: 'alt+arrowright',
       HISTORY_BACKWARD_ALT_MAC: 'cmd+[',

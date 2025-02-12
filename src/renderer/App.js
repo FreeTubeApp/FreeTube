@@ -76,6 +76,9 @@ export default defineComponent({
     isKeyboardShortcutPromptShown: function () {
       return this.$store.getters.getIsKeyboardShortcutPromptShown
     },
+    areVimWaypointsShown: function () {
+      return this.$store.getters.getAreVimWaypointsShown
+    },
     showAddToPlaylistPrompt: function () {
       return this.$store.getters.getShowAddToPlaylistPrompt
     },
@@ -367,6 +370,14 @@ export default defineComponent({
         }
       }
       switch (event.key) {
+        case 'f':
+          console.warn('f was pressed')
+          if (!this.areVimWaypointsShown) {
+            console.warn('showing waypoints')
+            this.showVimWaypoints()
+            // this.$store.commit('setAreVimWaypointsShown', true)
+          }
+          break
         case 'Tab':
           this.showOutlines()
           break
@@ -590,6 +601,8 @@ export default defineComponent({
       'setupListenersToSyncWindows',
       'hideKeyboardShortcutPrompt',
       'showKeyboardShortcutPrompt',
+      'showVimWaypoints',
+      'hideVimWaypoints',
       'updateBaseTheme',
       'updateMainColor',
       'updateSecColor',

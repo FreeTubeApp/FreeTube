@@ -109,6 +109,7 @@ const isMac = process.platform === 'darwin'
 const localizedShortcutNameToShortcutsMappings = computed(() => {
   return [
     [t('KeyboardShortcutPrompt.Show Keyboard Shortcuts'), ['SHOW_SHORTCUTS']],
+    [t('KeyboardShortcutPrompt.Show Vim Waypoints'), ['SHOW_VIM_WAYPOINTS']],
     [t('KeyboardShortcutPrompt.History Backward'), [
       'HISTORY_BACKWARD',
       ...isMac ? ['HISTORY_BACKWARD_ALT_MAC'] : [],
