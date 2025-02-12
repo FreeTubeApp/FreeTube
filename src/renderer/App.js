@@ -356,6 +356,11 @@ export default defineComponent({
     },
 
     handleKeyboardShortcuts: function (event) {
+      if (this.areVimWaypointsShown && ['Esc', 'Escape'].includes(event.key)) {
+        this.hideVimWaypoints()
+      } else if (this.areVimWaypointsShown) {
+        this.$store.commit('setAreVimWaypointsShown', { visible: true, foobar: 'asdf' })
+      }
       // ignore user typing in HTML `input` elements
       if (event.shiftKey && event.key === '?' && event.target.tagName !== 'INPUT') {
         this.$store.commit('setIsKeyboardShortcutPromptShown', !this.isKeyboardShortcutPromptShown)
@@ -371,11 +376,8 @@ export default defineComponent({
       }
       switch (event.key) {
         case 'f':
-          console.warn('f was pressed')
           if (!this.areVimWaypointsShown) {
-            console.warn('showing waypoints')
-            this.showVimWaypoints()
-            // this.$store.commit('setAreVimWaypointsShown', true)
+            this.$store.commit('setAreVimWaypointsShown', { visible: true })
           }
           break
         case 'Tab':

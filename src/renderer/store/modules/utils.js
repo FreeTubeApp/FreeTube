@@ -419,52 +419,10 @@ const actions = {
   },
 
   showVimWaypoints({ commit }) {
-    console.warn('show')
-    function getClickableElements() {
-      return [
-        ...document.querySelectorAll(
-          'a, button, [type="button"], [type="submit"], [role="tab"], [role="button"], input[type="text"], [role="link"]',
-        ),
-      ]
-    }
-
-    // Function to generate hint labels
-    function generateHintLabels(elements) {
-      const hints = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-      let hintIndex = 0
-
-      elements.forEach((element) => {
-        const span = document.createElement('span')
-        span.style.position = 'absolute'
-        span.style.background = 'linear-gradient(to bottom, #fff204 0%, #d8cb03 100%)'
-        span.style.fontSize = '13px'
-        span.style.fontFamily = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif'
-        span.style.fontWeight = '600'
-        span.style.borderRadius = '3px'
-        span.style.color = 'black'
-        span.style.zIndex = 10000 // Ensure it is above other content
-        span.textContent = hints[hintIndex++ % hints.length]
-        span.style.padding = '1px 2px'
-        span.style.letterSpacing = '0.5px'
-
-        const rect = element.getBoundingClientRect()
-        span.style.top = `${window.scrollY + rect.top}px`
-        span.style.left = `${window.scrollX + rect.left}px`
-
-        document.body.appendChild(span)
-
-        // Assign a data attribute for easy access
-        element.setAttribute('data-hint', span.textContent)
-      })
-    }
-    const elements = getClickableElements()
-    generateHintLabels(elements)
-
     commit('setAreVimWaypointsShown', true)
   },
 
   hideVimWaypoints({ commit }) {
-    console.warn('hide')
     commit('setAreVimWaypointsShown', false)
   },
 
@@ -1055,6 +1013,49 @@ const mutations = {
   },
 
   setAreVimWaypointsShown(state, payload) {
+    console.warn(payload)
+    function getClickableElements() {
+      return [
+        ...document.querySelectorAll(
+          'a, button, [type="button"], [type="submit"], [role="tab"], [role="button"], input[type="text"], [role="link"]',
+        ),
+      ]
+    }
+
+    // Function to generate hint labels
+    function generateHintLabels(elements) {
+      const hints = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      let hintIndex = 0
+
+      elements.forEach((element) => {
+        const span = document.createElement('span')
+        const hintStyles = {
+          position: 'absolute',
+          background: 'linear-gradient(to bottom, #fff204 0%, #d8cb03 100%)',
+          fontSize: '13px',
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif',
+          fontWeight: '600',
+          borderRadius: '3px',
+          color: 'black',
+          zIndex: '10000', // Ensure it is above other content
+        }
+        Object.assign(span.style, hintStyles)
+        span.textContent = hints[hintIndex++ % hints.length]
+        span.style.padding = '1px 2px'
+        span.style.letterSpacing = '0.5px'
+
+        const rect = element.getBoundingClientRect()
+        span.style.top = `${window.scrollY + rect.top}px`
+        span.style.left = `${window.scrollX + rect.left}px`
+
+        document.body.appendChild(span)
+
+        // Assign a data attribute for easy access
+        element.setAttribute('data-hint', span.textContent)
+      })
+    }
+    const elements = getClickableElements()
+    generateHintLabels(elements)
     state.areVimWaypointsShown = payload
   },
 
