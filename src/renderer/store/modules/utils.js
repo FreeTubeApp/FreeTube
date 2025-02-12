@@ -1022,10 +1022,82 @@ const mutations = {
       ]
     }
 
+    function numberToHintStr(number, chars, digits = 0) {
+      const base = chars.length
+      const hintStr = []
+      let remainder = 0
+
+      while (true) {
+        remainder = number % base
+        hintStr.unshift(chars[remainder])
+        number -= remainder
+        number = Math.floor(number / base)
+        if (number <= 0) {
+          break
+        }
+      }
+
+      // Pad the hint string to ensure its length is at least 'digits'.
+      while (hintStr.length < digits) {
+        hintStr.unshift(chars[0])
+      }
+
+      return hintStr.join('')
+    }
+
+    // Example usage: Generate hints for all link elements
+    function generateHints(minChars, chars) {
+      // Get all anchor (A) elements from the document.
+      const elems = document.querySelectorAll(
+        'a, button, [type="button"], [type="submit"], [role="tab"], [role="button"], input[type="text"], [role="link"]',
+      )
+      const numLinks = elems.length
+
+      // Determine the minimum number of digits needed for the hints.
+      const needed = Math.max(
+        minChars,
+        Math.ceil(Math.log(numLinks) / Math.log(chars.length)),
+      )
+
+      let shortCount = 0
+      if (needed > minChars && needed > 1) {
+        const totalSpace = Math.pow(chars.length, needed)
+        shortCount = Math.floor((totalSpace - numLinks) / (chars.length - 1))
+      }
+
+      const longCount = numLinks - shortCount
+      const strings = []
+
+      if (needed > 1) {
+        for (let i = 0; i < shortCount; i++) {
+          strings.push(numberToHintStr(i, chars, needed - 1))
+        }
+      }
+
+      const start = shortCount * chars.length
+      for (let i = start; i < start + longCount; i++) {
+        strings.push(numberToHintStr(i, chars, needed))
+      }
+
+      return shuffleHints(strings, chars.length)
+    }
+
+    function shuffleHints(hints, base) {
+      // Implementing a simple shuffle function
+      for (let i = hints.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [hints[i], hints[j]] = [hints[j], hints[i]]
+      }
+      return hints
+    }
+
     // Function to generate hint labels
-    function generateHintLabels(elements) {
-      const hints = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    function displayHints(elements) {
       let hintIndex = 0
+
+      const minChars = 2
+      const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      const hints = generateHints(minChars, charset)
 
       elements.forEach((element) => {
         const span = document.createElement('span')
@@ -1033,14 +1105,15 @@ const mutations = {
           position: 'absolute',
           background: 'linear-gradient(to bottom, #fff204 0%, #d8cb03 100%)',
           fontSize: '13px',
-          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif',
+          fontFamily:
+            '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif',
           fontWeight: '600',
           borderRadius: '3px',
           color: 'black',
           zIndex: '10000', // Ensure it is above other content
         }
         Object.assign(span.style, hintStyles)
-        span.textContent = hints[hintIndex++ % hints.length]
+        span.textContent = hints[hintIndex++]
         span.style.padding = '1px 2px'
         span.style.letterSpacing = '0.5px'
 
@@ -1055,7 +1128,7 @@ const mutations = {
       })
     }
     const elements = getClickableElements()
-    generateHintLabels(elements)
+    displayHints(elements)
     state.areVimWaypointsShown = payload
   },
 
