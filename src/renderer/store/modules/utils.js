@@ -1013,18 +1013,42 @@ const mutations = {
   },
 
   setAreVimWaypointsShown(state, { key }) {
+    const selectedLetterColor = '#D4AC3A'
     if (key === 'f' && !document.querySelector('.vimHint')) {
       const elements = getClickableElements()
       displayHints(elements)
       state.areVimWaypointsShown.selector.push(key)
-    } else if (['Esc', 'Escape'].includes(key)) {
-      document.querySelectorAll('.vimHint').forEach(el => el.remove())
-      state.areVimWaypointsShown.selector = []
+    } else if (['Esc', 'Escape'].includes(key) | (key === 'Backspace' && state.areVimWaypointsShown.selector.length === 1)) {
+      close()
+      return
+    } else if (key === 'Backspace') {
+      state.areVimWaypointsShown.selector.pop()
     } else {
       state.areVimWaypointsShown.selector.push(key)
-      const selector = state.areVimWaypointsShown.selector.slice(1).join('')
-      console.warn(selector)
     }
+    const keys = state.areVimWaypointsShown.selector.slice(1).join('').toUpperCase()
+    const selector = keys.length ? `[data-hint-index^="${keys}"]` : '.vimHint'
+    const selectedHints = document.querySelectorAll(selector)
+    if (selectedHints.length === 1) {
+      selectedHints[0].click()
+      close()
+    }
+
+    selectedHints.forEach(el => {
+      for (let i = 0; i < el.children.length; i++) {
+        if (i < keys.length) {
+          el.children[i].style.color = selectedLetterColor
+        } else {
+          el.children[i].style = ''
+        }
+      }
+    })
+
+    function close() {
+      document.querySelectorAll('.vimHint').forEach(el => el.remove())
+      state.areVimWaypointsShown.selector = []
+    }
+    console.warn(selector)
     function getClickableElements() {
       return [
         ...document.querySelectorAll(
@@ -1115,7 +1139,7 @@ const mutations = {
       const hints = generateHints(minChars, charset)
 
       elements.forEach((element) => {
-        const span = document.createElement('span')
+        const containerSpan = document.createElement('span')
         const hintStyles = {
           position: 'absolute',
           background: 'linear-gradient(to bottom, #fff204 0%, #d8cb03 100%)',
@@ -1126,21 +1150,32 @@ const mutations = {
           borderRadius: '3px',
           color: 'black',
           zIndex: '10000', // Ensure it is above other content
+          padding: '1px 2px',
+          letterSpacing: '0.5px',
+          display: 'flex', // Use flexbox for letter alignment
         }
-        Object.assign(span.style, hintStyles)
-        span.textContent = hints[hintIndex++]
-        span.classList.add('vimHint')
-        span.style.padding = '1px 2px'
-        span.style.letterSpacing = '0.5px'
+        Object.assign(containerSpan.style, hintStyles)
+        containerSpan.classList.add('vimHint')
+
+        const hint = hints[hintIndex++]
+        containerSpan.dataset.hintIndex = hint
+        // Create individual spans for each letter
+        hint.split('').forEach((letter) => {
+          const letterSpan = document.createElement('span')
+          letterSpan.textContent = letter
+          letterSpan.classList.add('vimHint-letter')
+          containerSpan.appendChild(letterSpan)
+        })
 
         const rect = element.getBoundingClientRect()
-        span.style.top = `${window.scrollY + rect.top}px`
-        span.style.left = `${window.scrollX + rect.left}px`
+        containerSpan.addEventListener(('click'), (e) => element.click())
+        containerSpan.style.top = `${window.scrollY + rect.top}px`
+        containerSpan.style.left = `${window.scrollX + rect.left}px`
 
-        document.body.appendChild(span)
+        document.body.appendChild(containerSpan)
 
         // Assign a data attribute for easy access
-        element.setAttribute('data-hint', span.textContent)
+        element.setAttribute('data-hint', hint)
       })
     }
   },
