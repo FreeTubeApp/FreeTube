@@ -359,7 +359,7 @@ export default defineComponent({
       if (this.areVimWaypointsShown && ['Esc', 'Escape'].includes(event.key)) {
         this.hideVimWaypoints()
       } else if (this.areVimWaypointsShown) {
-        this.$store.commit('setAreVimWaypointsShown', { visible: true, foobar: 'asdf' })
+        this.$store.commit('setAreVimWaypointsShown', { visible: true })
       }
       // ignore user typing in HTML `input` elements
       if (event.shiftKey && event.key === '?' && event.target.tagName !== 'INPUT') {
@@ -376,7 +376,7 @@ export default defineComponent({
       }
       switch (event.key) {
         case 'f':
-          if (!this.areVimWaypointsShown) {
+          if (!this.areVimWaypointsShown && event.target.tagName !== 'INPUT') {
             this.$store.commit('setAreVimWaypointsShown', { visible: true })
           }
           break
