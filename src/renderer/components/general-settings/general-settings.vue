@@ -45,6 +45,13 @@
           :tooltip="$t('Tooltips.General Settings.Open Deep Links In New Window')"
           @change="updateOpenDeepLinksInNewWindow"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.General Settings.Enable VIM key-bindings')"
+          :default-value="enableVimNavigation"
+          :compact="true"
+          :tooltip="$t('Tooltips.General Settings.Enable VIM key-bindings')"
+          @change="updateEnableVimNavigation"
+        />
       </div>
     </div>
     <div class="switchGrid">

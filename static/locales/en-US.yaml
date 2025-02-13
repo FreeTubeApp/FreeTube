@@ -275,6 +275,7 @@ Settings:
   General Settings:
     General Settings: General
     Check for Updates: Check for Updates
+    Enable VIM key-bindings: Enable navigation using VIM key-bindings
     Check for Latest Blog Posts: Check for Latest Blog Posts
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
@@ -1008,6 +1009,7 @@ Description:
 #Tooltips
 Tooltips:
   General Settings:
+    Enable VIM key-bindings: Allow navigation using VIM hotkeys.
     Preferred API Backend: Choose the backend that FreeTube uses to obtain data. The
       local API is a built-in extractor. The Invidious API requires an Invidious server
       to connect to.
