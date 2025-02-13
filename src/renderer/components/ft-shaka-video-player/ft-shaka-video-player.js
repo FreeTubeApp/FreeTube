@@ -2310,7 +2310,6 @@ export default defineComponent({
         (store.getters.getAreVimWaypointsShown.length &&
           store.getters.getAreVimWaypointsShown.selector[0] === 'f')
       if (passToVim) {
-        console.warn('pass to vim')
         return
       }
       if (!player || !hasLoaded.value) {

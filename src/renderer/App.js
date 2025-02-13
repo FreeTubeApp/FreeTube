@@ -50,10 +50,7 @@ export default defineComponent({
       isPromptOpen: false,
       lastExternalLinkToBeOpened: '',
       showExternalLinkOpeningPrompt: false,
-      externalLinkOpeningPromptValues: [
-        'yes',
-        'no'
-      ]
+      externalLinkOpeningPromptValues: ['yes', 'no'],
     }
   },
   computed: {
@@ -64,8 +61,14 @@ export default defineComponent({
       return this.$store.getters.getOutlinesHidden
     },
     isLocaleRightToLeft: function () {
-      return this.locale === 'ar' || this.locale === 'fa' || this.locale === 'he' ||
-        this.locale === 'ur' || this.locale === 'yi' || this.locale === 'ku'
+      return (
+        this.locale === 'ar' ||
+        this.locale === 'fa' ||
+        this.locale === 'he' ||
+        this.locale === 'ur' ||
+        this.locale === 'yi' ||
+        this.locale === 'ku'
+      )
     },
     checkForUpdates: function () {
       return this.$store.getters.getCheckForUpdates
@@ -90,7 +93,13 @@ export default defineComponent({
     },
     windowTitle: function () {
       const routePath = this.$route.path
-      if (!routePath.startsWith('/channel/') && !routePath.startsWith('/watch/') && !routePath.startsWith('/hashtag/') && !routePath.startsWith('/playlist/') && !routePath.startsWith('/search/')) {
+      if (
+        !routePath.startsWith('/channel/') &&
+        !routePath.startsWith('/watch/') &&
+        !routePath.startsWith('/hashtag/') &&
+        !routePath.startsWith('/playlist/') &&
+        !routePath.startsWith('/search/')
+      ) {
         let title = translateWindowTitle(this.$route.meta.title)
         if (!title) {
           title = packageDetails.productName
@@ -130,23 +139,22 @@ export default defineComponent({
       return this.$store.getters.getSecColor
     },
 
-    locale: function() {
+    locale: function () {
       return this.$i18n.locale
     },
 
     systemTheme: function () {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      return window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
     },
 
-    landingPage: function() {
+    landingPage: function () {
       return '/' + this.$store.getters.getLandingPage
     },
 
     externalLinkOpeningPromptNames: function () {
-      return [
-        this.$t('Yes, Open Link'),
-        this.$t('No')
-      ]
+      return [this.$t('Yes, Open Link'), this.$t('No')]
     },
 
     externalLinkHandling: function () {
@@ -163,7 +171,7 @@ export default defineComponent({
 
     enableVimNavigation: function () {
       return this.$store.getters.getEnableVimNavigation
-    }
+    },
   },
   watch: {
     windowTitle: 'setWindowTitle',
@@ -176,9 +184,9 @@ export default defineComponent({
 
     locale: 'setLocale',
 
-    appTitle: 'setDocumentTitle'
+    appTitle: 'setDocumentTitle',
   },
-  created () {
+  created() {
     this.checkThemeSettings()
     this.setLocale()
   },
@@ -191,7 +199,7 @@ export default defineComponent({
         await this.setRandomCurrentInvidiousInstance()
       }
 
-      this.fetchInvidiousInstances().then(e => {
+      this.fetchInvidiousInstances().then((e) => {
         if (this.defaultInvidiousInstance === '') {
           this.setRandomCurrentInvidiousInstance()
         }
@@ -232,15 +240,17 @@ export default defineComponent({
     })
   },
   methods: {
-    setDocumentTitle: function(value) {
+    setDocumentTitle: function (value) {
       document.title = value
-      this.$nextTick(() => this.$refs.topNav?.setActiveNavigationHistoryEntryTitle(value))
+      this.$nextTick(() =>
+        this.$refs.topNav?.setActiveNavigationHistoryEntryTitle(value),
+      )
     },
     checkThemeSettings: function () {
       const theme = {
         baseTheme: this.baseTheme || 'dark',
         mainColor: this.mainColor || 'mainRed',
-        secColor: this.secColor || 'secBlue'
+        secColor: this.secColor || 'secBlue',
       }
 
       this.updateTheme(theme)
@@ -253,7 +263,8 @@ export default defineComponent({
 
     checkForNewUpdates: function () {
       if (this.checkForUpdates) {
-        const requestUrl = 'https://api.github.com/repos/freetubeapp/freetube/releases?per_page=1'
+        const requestUrl =
+          'https://api.github.com/repos/freetubeapp/freetube/releases?per_page=1'
 
         fetch(requestUrl)
           .then((response) => response.json())
@@ -265,7 +276,10 @@ export default defineComponent({
               // Link usernames to their GitHub profiles
               .replaceAll(/@(\S+)\b/g, '[@$1](https://github.com/$1)')
               // Shorten pull request links to #1234
-              .replaceAll(/https:\/\/github\.com\/FreeTubeApp\/FreeTube\/pull\/(\d+)/g, '[#$1]($&)')
+              .replaceAll(
+                /https:\/\/github\.com\/FreeTubeApp\/FreeTube\/pull\/(\d+)/g,
+                '[#$1]($&)',
+              )
 
             // Add the title
             changelog = `${changelog}`
@@ -273,7 +287,10 @@ export default defineComponent({
             this.updateChangelog = marked.parse(changelog)
             this.changeLogTitle = json[0].name
 
-            this.updateBannerMessage = this.$t('Version {versionNumber} is now available!  Click for more details', { versionNumber })
+            this.updateBannerMessage = this.$t(
+              'Version {versionNumber} is now available!  Click for more details',
+              { versionNumber },
+            )
 
             const appVersion = packageDetails.version.split('.')
             const latestVersion = versionNumber.split('.')
@@ -282,12 +299,19 @@ export default defineComponent({
               this.showUpdatesBanner = true
             } else if (parseInt(appVersion[1]) < parseInt(latestVersion[1])) {
               this.showUpdatesBanner = true
-            } else if (parseInt(appVersion[2]) < parseInt(latestVersion[2]) && parseInt(appVersion[1]) <= parseInt(latestVersion[1])) {
+            } else if (
+              parseInt(appVersion[2]) < parseInt(latestVersion[2]) &&
+              parseInt(appVersion[1]) <= parseInt(latestVersion[1])
+            ) {
               this.showUpdatesBanner = true
             }
           })
           .catch((error) => {
-            console.error('errored while checking for updates', requestUrl, error)
+            console.error(
+              'errored while checking for updates',
+              requestUrl,
+              error,
+            )
           })
       }
     },
@@ -301,17 +325,28 @@ export default defineComponent({
         }
 
         fetch('https://write.as/freetube/feed/')
-          .then(response => response.text())
-          .then(response => {
-            const xmlDom = new DOMParser().parseFromString(response, 'application/xml')
+          .then((response) => response.text())
+          .then((response) => {
+            const xmlDom = new DOMParser().parseFromString(
+              response,
+              'application/xml',
+            )
 
             const latestBlog = xmlDom.querySelector('item')
-            const latestPubDate = new Date(latestBlog.querySelector('pubDate').textContent)
+            const latestPubDate = new Date(
+              latestBlog.querySelector('pubDate').textContent,
+            )
 
-            if (lastAppWasRunning === null || latestPubDate > lastAppWasRunning) {
+            if (
+              lastAppWasRunning === null ||
+              latestPubDate > lastAppWasRunning
+            ) {
               const title = latestBlog.querySelector('title').textContent
 
-              this.blogBannerMessage = this.$t('A new blog is now available, {blogTitle}. Click to view more', { blogTitle: title })
+              this.blogBannerMessage = this.$t(
+                'A new blog is now available, {blogTitle}. Click to view more',
+                { blogTitle: title },
+              )
               this.latestBlogUrl = latestBlog.querySelector('link').textContent
               this.showBlogBanner = true
             }
@@ -341,7 +376,7 @@ export default defineComponent({
       this.showBlogBanner = false
     },
 
-    handlePromptPortalUpdate: function(newVal) {
+    handlePromptPortalUpdate: function (newVal) {
       this.isPromptOpen = newVal
     },
 
@@ -353,6 +388,26 @@ export default defineComponent({
     },
 
     activateKeyboardShortcuts: function () {
+      if (this.enableVimNavigation) {
+        document.addEventListener('keydown', (e) => {
+          // Only handle if not in an input field and not in waypoint mode
+          if (e.target.tagName !== 'INPUT' && !this.areVimWaypointsShown.selector.length) {
+            if (e.key === 'j') {
+              // If the 'J' key is pressed
+              window.scrollBy({
+                top: 30,
+                behavior: 'auto'
+              })
+            } else if (e.key === 'k') {
+              // If the 'K' key is pressed
+              window.scrollBy({
+                top: -30,
+                behavior: 'auto'
+              })
+            }
+          }
+        })
+      }
       document.addEventListener('keydown', this.handleKeyboardShortcuts)
       document.addEventListener('mousedown', () => {
         this.hideOutlines()
@@ -363,13 +418,24 @@ export default defineComponent({
       // If this.areVimWaypointsShown.selector starts with an f it means
       // the user is in nav mode so capture any input and pass it to
       // setAreVimWaypointsShown
-      if (this.areVimWaypointsShown.selector[0] === 'f' && !event.ctrlKey && this.enableVimNavigation) {
+      if (
+        this.areVimWaypointsShown.selector[0] === 'f' &&
+        !event.ctrlKey &&
+        this.enableVimNavigation
+      ) {
         this.$store.commit('setAreVimWaypointsShown', { key: event.key })
         return
       }
       // ignore user typing in HTML `input` elements
-      if (event.shiftKey && event.key === '?' && event.target.tagName !== 'INPUT') {
-        this.$store.commit('setIsKeyboardShortcutPromptShown', !this.isKeyboardShortcutPromptShown)
+      if (
+        event.shiftKey &&
+        event.key === '?' &&
+        event.target.tagName !== 'INPUT'
+      ) {
+        this.$store.commit(
+          'setIsKeyboardShortcutPromptShown',
+          !this.isKeyboardShortcutPromptShown,
+        )
       }
 
       if (event.altKey) {
@@ -382,7 +448,11 @@ export default defineComponent({
       }
       switch (event.key) {
         case 'f':
-          if (event.target.tagName !== 'INPUT' && this.enableVimNavigation && !event.ctrlKey) {
+          if (
+            event.target.tagName !== 'INPUT' &&
+            this.enableVimNavigation &&
+            !event.ctrlKey
+          ) {
             this.$store.commit('setAreVimWaypointsShown', { key: event.key })
           }
           break
@@ -391,8 +461,10 @@ export default defineComponent({
           break
         case 'L':
         case 'l':
-          if ((process.platform !== 'darwin' && event.ctrlKey) ||
-            (process.platform === 'darwin' && event.metaKey)) {
+          if (
+            (process.platform !== 'darwin' && event.ctrlKey) ||
+            (process.platform === 'darwin' && event.metaKey)
+          ) {
             this.$refs.topNav.focusSearch()
           }
           break
@@ -400,7 +472,9 @@ export default defineComponent({
     },
 
     openAllLinksExternally: function () {
-      const isExternalLink = (event) => event.target.tagName === 'A' && !event.target.href.startsWith(window.location.origin)
+      const isExternalLink = (event) =>
+        event.target.tagName === 'A' &&
+        !event.target.href.startsWith(window.location.origin)
 
       document.addEventListener('click', (event) => {
         if (isExternalLink(event)) {
@@ -423,18 +497,23 @@ export default defineComponent({
       event.preventDefault()
 
       // Check if it's a YouTube link
-      const youtubeUrlPattern = /^https?:\/\/((www\.)?youtube\.com(\/embed)?|youtu\.be)\/.*$/
+      const youtubeUrlPattern =
+        /^https?:\/\/((www\.)?youtube\.com(\/embed)?|youtu\.be)\/.*$/
       const isYoutubeLink = youtubeUrlPattern.test(el.href)
 
       if (isYoutubeLink) {
         // `auxclick` is the event type for non-left click
         // https://developer.mozilla.org/en-US/docs/Web/API/Element/auxclick_event
         this.handleYoutubeLink(el.href, {
-          doCreateNewWindow: event.type === 'auxclick'
+          doCreateNewWindow: event.type === 'auxclick',
         })
       } else if (this.externalLinkHandling === 'doNothing') {
         // Let user know opening external link is disabled via setting
-        showToast(this.$t('External link opening has been disabled in the general settings'))
+        showToast(
+          this.$t(
+            'External link opening has been disabled in the general settings',
+          ),
+        )
       } else if (this.externalLinkHandling === 'openLinkAfterPrompt') {
         // Storing the URL is necessary as
         // there is no other way to pass the URL to click callback
@@ -446,7 +525,7 @@ export default defineComponent({
       }
     },
 
-    handleYoutubeLink: function (href, { doCreateNewWindow = false } = { }) {
+    handleYoutubeLink: function (href, { doCreateNewWindow = false } = {}) {
       this.getYoutubeUrlInfo(href).then((result) => {
         switch (result.urlType) {
           case 'video': {
@@ -463,7 +542,7 @@ export default defineComponent({
             openInternalPath({
               path: `/watch/${videoId}`,
               query,
-              doCreateNewWindow
+              doCreateNewWindow,
             })
             break
           }
@@ -474,7 +553,7 @@ export default defineComponent({
             openInternalPath({
               path: `/playlist/${playlistId}`,
               query,
-              doCreateNewWindow
+              doCreateNewWindow,
             })
             break
           }
@@ -486,7 +565,7 @@ export default defineComponent({
               path: `/search/${encodeURIComponent(searchQuery)}`,
               query,
               doCreateNewWindow,
-              searchQueryText: searchQuery
+              searchQueryText: searchQuery,
             })
             break
           }
@@ -495,7 +574,7 @@ export default defineComponent({
             const { hashtag } = result
             openInternalPath({
               path: `/hashtag/${encodeURIComponent(hashtag)}`,
-              doCreateNewWindow
+              doCreateNewWindow,
             })
             break
           }
@@ -506,7 +585,7 @@ export default defineComponent({
             openInternalPath({
               path: `/post/${postId}`,
               query,
-              doCreateNewWindow
+              doCreateNewWindow,
             })
             break
           }
@@ -518,8 +597,8 @@ export default defineComponent({
               path: `/channel/${channelId}/${subPath}`,
               doCreateNewWindow,
               query: {
-                url
-              }
+                url,
+              },
             })
             break
           }
@@ -531,7 +610,9 @@ export default defineComponent({
 
           default: {
             // Unknown URL type
-            showToast(this.$t('Unknown YouTube url type, cannot be opened in app'))
+            showToast(
+              this.$t('Unknown YouTube url type, cannot be opened in app'),
+            )
           }
         }
       })
@@ -542,27 +623,40 @@ export default defineComponent({
      * all systems running the electron app.
      */
     watchSystemTheme: function () {
-      ipcRenderer.on(IpcChannels.NATIVE_THEME_UPDATE, (event, shouldUseDarkColors) => {
-        document.body.dataset.systemTheme = shouldUseDarkColors ? 'dark' : 'light'
-      })
+      ipcRenderer.on(
+        IpcChannels.NATIVE_THEME_UPDATE,
+        (event, shouldUseDarkColors) => {
+          document.body.dataset.systemTheme = shouldUseDarkColors
+            ? 'dark'
+            : 'light'
+        },
+      )
     },
 
     enableSetSearchQueryText: function () {
-      ipcRenderer.on(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, (event, searchQueryText) => {
-        if (searchQueryText) {
-          this.$refs.topNav.updateSearchInputText(searchQueryText)
-        }
-      })
+      ipcRenderer.on(
+        IpcChannels.UPDATE_SEARCH_INPUT_TEXT,
+        (event, searchQueryText) => {
+          if (searchQueryText) {
+            this.$refs.topNav.updateSearchInputText(searchQueryText)
+          }
+        },
+      )
 
       ipcRenderer.send(IpcChannels.SEARCH_INPUT_HANDLING_READY)
     },
 
     enableOpenUrl: function () {
-      ipcRenderer.on(IpcChannels.OPEN_URL, (event, url, { isLaunchLink = false } = { }) => {
-        if (url) {
-          this.handleYoutubeLink(url, { doCreateNewWindow: this.openDeepLinksInNewWindow && !isLaunchLink })
-        }
-      })
+      ipcRenderer.on(
+        IpcChannels.OPEN_URL,
+        (event, url, { isLaunchLink = false } = {}) => {
+          if (url) {
+            this.handleYoutubeLink(url, {
+              doCreateNewWindow: this.openDeepLinksInNewWindow && !isLaunchLink,
+            })
+          }
+        },
+      )
 
       ipcRenderer.send(IpcChannels.APP_READY)
     },
@@ -579,13 +673,13 @@ export default defineComponent({
       }
     },
 
-    setWindowTitle: function() {
+    setWindowTitle: function () {
       if (this.windowTitle !== null) {
         this.setAppTitle(this.windowTitle)
       }
     },
 
-    setLocale: function() {
+    setLocale: function () {
       document.documentElement.setAttribute('lang', this.locale)
       if (this.isLocaleRightToLeft) {
         document.body.dir = 'rtl'
@@ -618,8 +712,6 @@ export default defineComponent({
       'hideOutlines',
     ]),
 
-    ...mapMutations([
-      'setAppTitle'
-    ])
-  }
+    ...mapMutations(['setAppTitle']),
+  },
 })
