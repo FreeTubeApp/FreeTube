@@ -194,6 +194,10 @@ const getters = {
   getAppTitle(state) {
     return state.appTitle
   },
+  getEnableVimNavigation(state, _, rootState) {
+    return rootState.settings.enableVimNavigation
+  },
+
 }
 
 const actions = {
@@ -1168,7 +1172,7 @@ const mutations = {
         })
 
         const rect = element.getBoundingClientRect()
-        containerSpan.addEventListener(('click'), () => element.click())
+        containerSpan.addEventListener(('click'), () => element.dispatchEvent(new Event('click')))
         containerSpan.style.top = `${window.scrollY + rect.top}px`
         containerSpan.style.left = `${window.scrollX + rect.left}px`
 

@@ -382,7 +382,7 @@ export default defineComponent({
       }
       switch (event.key) {
         case 'f':
-          if (event.target.tagName !== 'INPUT' && this.enableVimNavigation) {
+          if (event.target.tagName !== 'INPUT' && this.enableVimNavigation && !event.ctrlKey) {
             this.$store.commit('setAreVimWaypointsShown', { key: event.key })
           }
           break
