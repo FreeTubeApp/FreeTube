@@ -359,7 +359,7 @@ export default defineComponent({
       // If this.areVimWaypointsShown.selector starts with an f it means
       // the user is in nav mode so capture any input and pass it to
       // setAreVimWaypointsShown
-      if (this.areVimWaypointsShown.selector[0] === 'f') {
+      if (this.areVimWaypointsShown.selector[0] === 'f' && !event.ctrlKey) {
         this.$store.commit('setAreVimWaypointsShown', { key: event.key })
         return
       }

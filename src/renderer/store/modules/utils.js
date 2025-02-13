@@ -1168,7 +1168,7 @@ const mutations = {
         })
 
         const rect = element.getBoundingClientRect()
-        containerSpan.addEventListener(('click'), (e) => element.click())
+        containerSpan.addEventListener(('click'), () => element.click())
         containerSpan.style.top = `${window.scrollY + rect.top}px`
         containerSpan.style.left = `${window.scrollX + rect.left}px`
 
