@@ -389,6 +389,9 @@ export default defineComponent({
 
     activateKeyboardShortcuts: function () {
       if (this.enableVimNavigation) {
+        ['click', 'scroll'].forEach(eventName => document.addEventListener(eventName, e => {
+          this.$store.commit('setAreVimWaypointsShown', { key: 'Esc' })
+        }))
         document.addEventListener('keydown', (e) => {
           // Only handle if not in an input field and not in waypoint mode
           if (e.target.tagName !== 'INPUT' && !this.areVimWaypointsShown.selector.length) {
