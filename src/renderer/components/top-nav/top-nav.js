@@ -100,10 +100,14 @@ export default defineComponent({
     },
 
     forwardText: function () {
-      const shortcuts = [KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD]
-      if (process.platform === 'darwin') {
-        shortcuts.push(KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD_ALT_MAC)
-      }
+      const shortcuts = process.platform === 'darwin'
+        ? [
+            KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD,
+            KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD_ALT_MAC
+          ]
+        : [
+            KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD
+          ]
 
       return localizeAndAddKeyboardShortcutToActionTitle(
         this.$t('Forward'),
@@ -112,10 +116,14 @@ export default defineComponent({
     },
 
     backwardText: function () {
-      const shortcuts = [KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD]
-      if (process.platform === 'darwin') {
-        shortcuts.push(KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD_ALT_MAC)
-      }
+      const shortcuts = process.platform === 'darwin'
+        ? [
+            KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD,
+            KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD_ALT_MAC
+          ]
+        : [
+            KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD
+          ]
 
       return localizeAndAddKeyboardShortcutToActionTitle(
         this.$t('Back'),

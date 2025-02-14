@@ -41,6 +41,7 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
+      'process.platform': `'${process.platform}'`,
       'process.env.IS_ELECTRON_MAIN': true
     })
   ],
