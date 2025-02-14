@@ -1,7 +1,14 @@
 <template>
   <div>
     <FtCard class="card">
-      <h2>{{ $t("Subscriptions.Subscriptions") }}</h2>
+      <h2>
+        <FontAwesomeIcon
+          :icon="['fas', 'rss']"
+          class="subscriptionIcon"
+          fixed-width
+        />
+        {{ $t("Subscriptions.Subscriptions") }}
+      </h2>
       <FtFlexBox
         class="tabs"
         role="tablist"
@@ -21,6 +28,11 @@
           @keydown.space.enter.prevent="changeTab('videos')"
           @keydown.left.right="focusTab($event, 'videos')"
         >
+          <FontAwesomeIcon
+            :icon="['fa', 'video']"
+            class="subscriptionIcon"
+            fixed-width
+          />
           {{ $t("Global.Videos") }}
         </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
@@ -37,6 +49,11 @@
           @keydown.space.enter.prevent="changeTab('shorts')"
           @keydown.left.right="focusTab($event, 'shorts')"
         >
+          <FontAwesomeIcon
+            :icon="['fa', 'clapperboard']"
+            class="subscriptionIcon"
+            fixed-width
+          />
           {{ $t("Global.Shorts") }}
         </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
@@ -53,6 +70,11 @@
           @keydown.space.enter.prevent="changeTab('live')"
           @keydown.left.right="focusTab($event, 'live')"
         >
+          <FontAwesomeIcon
+            :icon="['fa', 'tower-broadcast']"
+            class="subscriptionIcon"
+            fixed-width
+          />
           {{ $t("Global.Live") }}
         </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
@@ -69,6 +91,11 @@
           @keydown.space.enter.prevent="changeTab('community')"
           @keydown.left.right="focusTab($event, 'community')"
         >
+          <FontAwesomeIcon
+            :icon="['fa', 'message']"
+            class="subscriptionIcon"
+            fixed-width
+          />
           {{ $t("Global.Community") }}
         </div>
       </FtFlexBox>

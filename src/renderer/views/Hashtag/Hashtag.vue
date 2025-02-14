@@ -8,7 +8,15 @@
       v-else
       class="card"
     >
-      <h2>{{ hashtag }}</h2>
+      <h2>
+        <font-awesome-icon
+          :icon="['fas', 'hashtag']"
+          aria-hidden="false"
+          class="headingIcon"
+          fixed-width
+        />
+        {{ hashtag }}
+      </h2>
       <FtElementList
         v-if="videos.length > 0"
         :data="videos"
@@ -103,12 +111,13 @@ function resetData() {
 
 async function getHashtag() {
   const hashtagInRoute = decodeURIComponent(route.params.hashtag)
+  hashtag.value = hashtagInRoute
   if (process.env.SUPPORTS_LOCAL_API && backendPreference.value === 'local') {
     await getLocalHashtag(hashtagInRoute)
   } else {
     await getInvidiousHashtag(hashtagInRoute)
   }
-  store.commit('setAppTitle', `${hashtag.value} - ${packageDetails.productName}`)
+  store.commit('setAppTitle', `#${hashtag.value} - ${packageDetails.productName}`)
 }
 
 /**
@@ -118,7 +127,6 @@ async function getHashtag() {
 async function getInvidiousHashtag(hashtagInRoute, page) {
   try {
     const fetchedVideos = await getHashtagInvidious(hashtagInRoute, page)
-    hashtag.value = '#' + hashtagInRoute
     isLoading.value = false
     apiUsed.value = 'invidious'
     videos.value = videos.value.concat(fetchedVideos)
@@ -132,7 +140,7 @@ async function getInvidiousHashtag(hashtagInRoute, page) {
     if (process.env.SUPPORTS_LOCAL_API && backendPreference.value === 'invidious' && backendFallback.value) {
       showToast(t('Falling back to Local API'))
       resetData()
-      getLocalHashtag(hashtag)
+      getLocalHashtag(hashtagInRoute)
     } else {
       isLoading.value = false
     }
@@ -145,25 +153,6 @@ async function getInvidiousHashtag(hashtagInRoute, page) {
 async function getLocalHashtag(hashtagInRoute) {
   try {
     const hashtagData = await getHashtagLocal(hashtagInRoute)
-
-    const header = hashtagData.header
-    if (header) {
-      switch (header.type) {
-        case 'HashtagHeader':
-          hashtag.value = header.hashtag.toString()
-          break
-        case 'PageHeader':
-          hashtag.value = header.content.title.text
-          break
-        default:
-          console.error(`Unknown hashtag header type: ${header.type}, falling back to query parameter.`)
-          hashtag.value = `#${hashtagInRoute}`
-      }
-    } else {
-      console.error(' Hashtag header missing, probably a layout change, falling back to query parameter.')
-      hashtag.value = `#${hashtagInRoute}`
-    }
-
     videos.value = hashtagData.videos.map(parseLocalListVideo)
     apiUsed.value = 'local'
     hashtagContinuationData.value = hashtagData.has_continuation ? hashtagData : null
@@ -198,9 +187,8 @@ async function getLocalHashtagMore() {
     })
     if (backendPreference.value === 'local' && backendFallback.value) {
       showToast(t('Falling back to Invidious API'))
-      const hashtagWithoutSymbol = hashtag.value.substring(1)
       resetData()
-      getInvidiousHashtag(hashtagWithoutSymbol)
+      getInvidiousHashtag(hashtag)
     } else {
       isLoading.value = false
     }
