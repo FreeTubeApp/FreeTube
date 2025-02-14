@@ -51,7 +51,7 @@ Global:
     Channel Count: '1 канал | {count} каналы(аў)'
     Subscriber Count: '1 падпісчык | {count} падпісчыкі(аў)'
     View Count: '1 прагляд | {count} прагляды(аў)'
-    Watching Count: '1 гледач | {count} гледачы(оў)'
+    Watching Count: '1 глядач | {count} гледачы(оў)'
 
 # Search Bar
     Like Count: 1 лайк | {count} лайкаў
@@ -158,7 +158,7 @@ User Playlists:
     Save: Захаваць
     N playlists selected: '{playlistCount} выбрана'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      відэа ўжо дадзена'
+      відэа ўжо дададзена'
     Toast:
       You haven't selected any playlist yet.: Вы яшчэ не выбралі плэй-ліст.
       "{videoCount} video(s) added to {playlistCount} playlists": 1 відэа дададзена
@@ -323,7 +323,7 @@ Settings:
     Theme Settings: 'Тэма'
     Match Top Bar with Main Color: 'Выкарыстоўваць асноўны колер да верхняй панэлі'
     Expand Side Bar by Default: 'Разгарнуць бакавую панэль па змаўчанні'
-    Disable Smooth Scrolling: 'Адключыць плыўную пракрутку'
+    Disable Smooth Scrolling: 'Адключыць плаўную прагортку'
     UI Scale: 'Маштаб інтэрфейсу'
     Hide Side Bar Labels: 'Схаваць надпісы на бакавой панэлі'
     Hide FreeTube Header Logo: 'Схаваць лагатып загалоўка FreeTube'
@@ -424,10 +424,12 @@ Settings:
     Proxy Videos Through Invidious: 'Глядзець відэа праз проксі Invidious'
     Autoplay Playlists: 'Аўтапрайграванне відэа з плэй-лістоў'
     Enable Theatre Mode by Default: 'Уключыць рэжым тэатра па змаўчанні'
-    Scroll Volume Over Video Player: 'Прагортваць гучнасці па-над відэапрайгравальнікам'
-    Scroll Playback Rate Over Video Player: 'Прагортваць хуткасць прайгравання па-над
-      відэапрайгравальнікам'
-    Skip by Scrolling Over Video Player: 'Прапусціць, прагарнуўшы відэапрайгравальнік'
+    Scroll Volume Over Video Player: 'Над відэапрайгравальнікам змяняць гучнасць колам
+      мышы'
+    Scroll Playback Rate Over Video Player: 'Над відэапрайгравальнікам змяняць хуткасць
+      прайгравання колам мышы'
+    Skip by Scrolling Over Video Player: 'Над відэапрайгравальнікам прапускаць відэа
+      колам мышы'
     Display Play Button In Video Player: 'Паказваць кнопку прайгравання ў відэапрайгравальніку'
     Enter Fullscreen on Display Rotate: 'Пераходзіць у поўнаэкранны рэжым пры павароце
       дысплэя'
@@ -874,7 +876,7 @@ Video:
   Scroll to Bottom: 'Пракруціць уніз'
   Download Video: 'Спампаваць відэа'
   video only: 'толькі відэа'
-  audio only: 'толькі аўдыё'
+  audio only: 'толькі аўдыя'
   Published:
     In less than a minute: 'Менш чым праз хвіліну'
   Published on: 'Апублікавана'
@@ -1064,13 +1066,13 @@ Tooltips:
       абмежаваныя максімумам 720p, але выкарыстоўваюць меншую паласу прапускання.
       Аўдыяфарматы - гэта толькі аўдыяпатокі.'
     Scroll Playback Rate Over Video Player: 'Калі курсор знаходзіцца над відэа, націсніце
-      і ўтрымлівайце клавішу Control (клавіша Command на Mac) і пракручвайце кола
-      мышы наперад або назад, каб кіраваць хуткасцю прайгравання. Націсніце і ўтрымлівайце
-      клавішу Control (клавіша Command на Mac) і пстрыкніце левай кнопкай мышы, каб
+      і ўтрымлівайце клавішу Control (клавіша Command на Mac) і круціце кола мышы
+      ўверх або ўніз, каб кіраваць хуткасцю прайгравання. Націсніце і ўтрымлівайце
+      клавішу Control (клавіша Command на Mac) і націсніце левай кнопкай мышы, каб
       хутка вярнуцца да хуткасці прайгравання па змаўчанні (1x, калі яна не была зменена
       ў наладах).'
-    Skip by Scrolling Over Video Player: 'Выкарыстоўвайце кола прагорткі, каб прапускаць
-      відэа ў стылі MPV.'
+    Skip by Scrolling Over Video Player: 'Выкарыстоўваць кола мышы, каб прапускаць
+      відэа як у MPV.'
   External Player Settings:
     External Player: 'Пры выбары вонкавага прайгравальніка на мініяцюры будзе адлюстроўвацца
       значок для адкрыцця відэа (плэй-ліста, калі падтрымліваецца) у вонкавым прайгравальніку.
@@ -1249,6 +1251,7 @@ shortcutJoinOperator: +
 Description:
   Expand Description: '...больш'
   Collapse Description: Паказаць менш
-Right-click or hold to see history: ПКМ альбо ўтрымлівайце для прагляду гісторыі
+Right-click or hold to see history: ПКМ або працяглае націсканне, каб праглядзець
+  гісторыю
 Autoplay Interruption Timer: Аўтапрайграванне адменена з-за {autoplayInterruptionIntervalHours}
   гадзін бяздзейнасці
