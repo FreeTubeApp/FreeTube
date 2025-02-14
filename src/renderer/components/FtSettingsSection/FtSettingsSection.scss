@@ -6,6 +6,10 @@
   }
 }
 
+.settingsSection:not(.hideOnMobile) {
+  margin-block-end: inherit;
+}
+
 .sectionHeader {
   cursor: pointer;
   display: block;
