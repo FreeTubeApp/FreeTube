@@ -273,7 +273,7 @@ export default defineComponent({
      */
     handleKeyDown: function (event) {
       // Update Input box value if enter key was pressed and option selected
-      if (event.key === 'Enter') {
+      if (event.key === 'Enter' && !event.isComposing) {
         if (this.removeButtonSelectedIndex !== -1) {
           this.handleRemoveClick(this.removeButtonSelectedIndex)
         } else if (this.searchState.selectedOption !== -1) {
