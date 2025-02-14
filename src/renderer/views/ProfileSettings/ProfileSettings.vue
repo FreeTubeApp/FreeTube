@@ -20,6 +20,7 @@
         v-if="!isNewProfileOpen"
       >
         <FtButton
+          v-if="!hideCreateNewProfileButton"
           :label="$t('Profile.Create New Profile')"
           @click="openSettingsForNewProfile"
         />
@@ -88,6 +89,11 @@ const openSettingsProfile = shallowRef(null)
 /** @type {import('vue').ComputedRef<Profile[]>} */
 const profileList = computed(() => {
   return store.getters.getProfileList
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideCreateNewProfileButton = computed(() => {
+  return store.getters.getHideCreateNewProfileButton
 })
 
 watch(profileList, () => {
