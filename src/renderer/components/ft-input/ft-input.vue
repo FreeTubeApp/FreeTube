@@ -84,7 +84,7 @@
           @mouseenter="searchState.selectedOption = index"
           @mouseleave="searchState.selectedOption = -1; removeButtonSelectedIndex = -1"
         >
-          <div>
+          <div class="optionWrapper">
             <font-awesome-icon
               v-if="dataListProperties[index]?.iconName"
               :icon="['fas', dataListProperties[index].iconName]"
