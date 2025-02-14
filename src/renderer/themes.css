@@ -89,7 +89,10 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .nordic,
 .solarizedDark,
 .gruvboxDark,
-.catppuccinFrappe {
+.catppuccinFrappe,
+.everforestDarkHard,
+.everforestDarkMedium,
+.everforestDarkLow {
   --primary-shadow-color: rgb(0 0 0 / 75%);
 
   .invidiousLogo {
@@ -401,6 +404,119 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-text: url('../../_icons/textCatppuccinFrappeLightSmall.svg');
 }
 
+.everforestDarkHard {
+  --primary-text-color: #d3c6aa;
+  --secondary-text-color: #d3c6aa;
+  --tertiary-text-color: #d3c6aa;
+  --title-color: var(--accent-color);
+  --bg-color: #272e33;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #1e2326;
+  --secondary-card-bg-color: #272e33;
+  --scrollbar-color: #394146;
+  --scrollbar-color-hover: #3f4b48;
+  --side-nav-color: #1e2326;
+  --side-nav-hover-color: #0e1316;
+  --side-nav-active-color: #0e1316;
+  --search-bar-color: #2e383c;
+  --logo-icon: url('../../_icons/iconEverforestLightHardSmall.svg');
+  --logo-text: url('../../_icons/textEverforestLightHardSmall.svg');
+}
+
+.everforestDarkMedium {
+  --primary-text-color: #d3c6aa;
+  --secondary-text-color: #d3c6aa;
+  --tertiary-text-color: #d3c6aa;
+  --title-color: var(--accent-color);
+  --bg-color: #2d353b;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #232a2e;
+  --secondary-card-bg-color: #2d353b;
+  --scrollbar-color: #3f484e;
+  --scrollbar-color-hover: #46534f;
+  --side-nav-color: #232a2e;
+  --side-nav-hover-color: #131a1e;
+  --side-nav-active-color: #131a1e;
+  --search-bar-color: #343f44;
+  --logo-icon: url('../../_icons/iconEverforestLightMediumSmall.svg');
+  --logo-text: url('../../_icons/textEverforestLightMediumSmall.svg');
+}
+
+.everforestDarkLow {
+  --primary-text-color: #d3c6aa;
+  --secondary-text-color: #d3c6aa;
+  --tertiary-text-color: #d3c6aa;
+  --title-color: var(--accent-color);
+  --bg-color: #333c43;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #293136;
+  --secondary-card-bg-color: #333c43;
+  --scrollbar-color: #454f56;
+  --scrollbar-color-hover: #4d5b56;
+  --side-nav-color: #293136;
+  --side-nav-hover-color: #192126;
+  --side-nav-active-color: #192126;
+  --search-bar-color: #3a464c;
+  --logo-icon: url('../../_icons/iconEverforestLightLowSmall.svg');
+  --logo-text: url('../../_icons/textEverforestLightLowSmall.svg');
+}
+
+.everforestLightHard {
+  --primary-text-color: #3c4a52;
+  --secondary-text-color: #3c4a52;
+  --tertiary-text-color: #3c4a52;
+  --title-color: var(--accent-color);
+  --bg-color: #fffbef;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #f2efdf;
+  --secondary-card-bg-color: #fffbef;
+  --scrollbar-color: #d8d5c5;
+  --scrollbar-color-hover: #aeb5a2;
+  --side-nav-color: #f2efdf;
+  --side-nav-hover-color: #e2dfcf;
+  --side-nav-active-color: #e2dfcf;
+  --search-bar-color: #f8f5e4;
+  --logo-icon: url('../../_icons/iconEverforestDarkHardSmall.svg');
+  --logo-text: url('../../_icons/textEverforestDarkHardSmall.svg');
+}
+
+.everforestLightMedium {
+  --primary-text-color: #3c4a52;
+  --secondary-text-color: #3c4a52;
+  --tertiary-text-color: #3c4a52;
+  --title-color: var(--accent-color);
+  --bg-color: #fdf6e3;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #efe8d4;
+  --secondary-card-bg-color: #fdf6e3;
+  --scrollbar-color: #d0ccb7;
+  --scrollbar-color-hover: #adb39f;
+  --side-nav-color: #efe8d4;
+  --side-nav-hover-color: #dfd8c4;
+  --side-nav-active-color: #dfd8c4;
+  --search-bar-color: #f4f0d9;
+  --logo-icon: url('../../_icons/iconEverforestDarkMediumSmall.svg');
+  --logo-text: url('../../_icons/textEverforestDarkMediumSmall.svg');
+}
+
+.everforestLightLow {
+  --primary-text-color: #3c4a52;
+  --secondary-text-color: #3c4a52;
+  --tertiary-text-color: #3c4a52;
+  --title-color: var(--accent-color);
+  --bg-color: #f3ead3;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #eee8ce;
+  --secondary-card-bg-color: #f3ead3;
+  --scrollbar-color: #c8c3aa;
+  --scrollbar-color-hover: #a9b09b;
+  --side-nav-color: #eee8ce;
+  --side-nav-hover-color: #d5cfb5;
+  --side-nav-active-color: #d5cfb5;
+  --search-bar-color: #eae4ca;
+  --logo-icon: url('../../_icons/iconEverforestDarkLowSmall.svg');
+  --logo-text: url('../../_icons/textEverforestDarkLowSmall.svg');
+}
 
 /*************** PRIMARY THEME COLOR DEFINTIONS ***************/
 
@@ -946,6 +1062,109 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color: #babbf1;
   --primary-color-hover: #c9c9f3;
   --primary-color-active: #8a8abf;
+}
+
+.mainEverforestDarkRed,
+.mainEverforestDarkOrange,
+.mainEverforestDarkYellow,
+.mainEverforestDarkGreen,
+.mainEverforestDarkAqua,
+.mainEverforestDarkBlue,
+.mainEverforestDarkPurple,
+.mainEverforestLightRed,
+.mainEverforestLightOrange,
+.mainEverforestLightYellow,
+.mainEverforestLightGreen,
+.mainEverforestLightAqua,
+.mainEverforestLightBlue,
+.mainEverforestLightPurple {
+  --text-with-main-color: #1e2326;
+  --logo-icon-bar-color: url('../../_icons/iconEverforestDarkHardSmall.svg');
+  --logo-text-bar-color: url('../../_icons/textEverforestDarkHardSmall.svg');
+}
+
+.mainEverforestDarkRed {
+  --primary-color: #e67e80;
+  --primary-color-hover: #e89e9f;
+  --primary-color-active: #d65f61;
+}
+
+.mainEverforestDarkOrange {
+  --primary-color: #e69875;
+  --primary-color-hover: #e8b095;
+  --primary-color-active: #b96e4f;
+}
+
+.mainEverforestDarkYellow {
+  --primary-color: #dbbc7f;
+  --primary-color-hover: #ddcc9f;
+  --primary-color-active: #bbae5f;
+}
+
+.mainEverforestDarkGreen {
+  --primary-color: #a7c080;
+  --primary-color-hover: #b9d09f;
+  --primary-color-active: #8b9e5f;
+}
+
+.mainEverforestDarkAqua {
+  --primary-color: #83c092;
+  --primary-color-hover: #95d0b0;
+  --primary-color-active: #6da07f;
+}
+
+.mainEverforestDarkBlue {
+  --primary-color: #7fbbb3;
+  --primary-color-hover: #91cbc3;
+  --primary-color-active: #5f9b93;
+}
+
+.mainEverforestDarkPurple {
+  --primary-color: #d699b6;
+  --primary-color-hover: #e6b9d6;
+  --primary-color-active: #b67a96;
+}
+
+.mainEverforestLightRed {
+  --primary-color: #d83532;
+  --primary-color-hover: #e84e3f;
+  --primary-color-active: #b83232;
+}
+
+.mainEverforestLightOrange {
+  --primary-color: #d55d0f;
+  --primary-color-hover: #e66f10;
+  --primary-color-active: #b64f00;
+}
+
+.mainEverforestLightYellow {
+  --primary-color: #a96e00;
+  --primary-color-hover: #c88b00;
+  --primary-color-active: #8b6e00;
+}
+
+.mainEverforestLightGreen {
+  --primary-color: #6d8100;
+  --primary-color-hover: #8da101;
+  --primary-color-active: #4f5f00;
+}
+
+.mainEverforestLightAqua {
+  --primary-color: #25976c;
+  --primary-color-hover: #46b38a;
+  --primary-color-active: #0d7e51;
+}
+
+.mainEverforestLightBlue {
+  --primary-color: #2a84b5;
+  --primary-color-hover: #4aa2d3;
+  --primary-color-active: #0a7ea5;
+}
+
+.mainEverforestLightPurple {
+  --primary-color: #cf59aa;
+  --primary-color-hover: #e77dc9;
+  --primary-color-active: #a63f9a;
 }
 
 /*************** SECONDARY THEME COLOR DEFINTIONS ***************/
@@ -1878,6 +2097,190 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-opacity2: rgb(187 188 242 / 12%);
   --accent-color-opacity3: rgb(187 188 242 / 16%);
   --accent-color-opacity4: rgb(187 188 242 / 24%);
+}
+
+.secEverforestDarkRed,
+.secEverforestDarkOrange,
+.secEverforestDarkYellow,
+.secEverforestDarkGreen,
+.secEverforestDarkAqua,
+.secEverforestDarkBlue,
+.secEverforestDarkPurple,
+.secEverforestLightRed,
+.secEverforestLightOrange,
+.secEverforestLightYellow,
+.secEverforestLightGreen,
+.secEverforestLightAqua,
+.secEverforestLightBlue,
+.secEverforestLightPurple {
+  --text-with-accent-color: #1e2326;
+}
+
+.secEverforestDarkRed {
+  --accent-color: #e67e80;
+  --accent-color-hover: #e78b8d;
+  --accent-color-active: #d66f71;
+  --accent-color-light: #f68e90;
+  --accent-color-visited: #d66f71;
+  --accent-color-opacity1: rgb(230 126 128 / 4%);
+  --accent-color-opacity2: rgb(230 126 128 / 12%);
+  --accent-color-opacity3: rgb(230 126 128 / 16%);
+  --accent-color-opacity4: rgb(230 126 128 / 24%);
+}
+
+.secEverforestDarkOrange {
+  --accent-color: #e69875;
+  --accent-color-hover: #e6a383;
+  --accent-color-active: #d68360;
+  --accent-color-light: #f6a885;
+  --accent-color-visited: #d68360;
+  --accent-color-opacity1: rgb(230 152 117 / 4%);
+  --accent-color-opacity2: rgb(230 152 117 / 12%);
+  --accent-color-opacity3: rgb(230 152 117 / 16%);
+}
+
+.secEverforestDarkYellow {
+  --accent-color: #dbbc7f;
+  --accent-color-hover: #ddc98f;
+  --accent-color-active: #c8a76b;
+  --accent-color-light: #ebcc8f;
+  --accent-color-visited: #c8a76b;
+  --accent-color-opacity1: rgb(219 188 127 / 4%);
+  --accent-color-opacity2: rgb(219 188 127 / 12%);
+  --accent-color-opacity3: rgb(219 188 127 / 16%);
+  --accent-color-opacity4: rgb(219 188 127 / 24%);
+}
+
+.secEverforestDarkGreen {
+  --accent-color: #a7c080;
+  --accent-color-hover: #b1c98f;
+  --accent-color-active: #8fa76b;
+  --accent-color-light: #b7d090;
+  --accent-color-visited: #8fa76b;
+  --accent-color-opacity1: rgb(167 192 128 / 4%);
+  --accent-color-opacity2: rgb(167 192 128 / 12%);
+  --accent-color-opacity3: rgb(167 192 128 / 16%);
+  --accent-color-opacity4: rgb(167 192 128 / 24%);
+}
+
+.secEverforestDarkAqua {
+  --accent-color: #83c092;
+  --accent-color-hover: #8dc99f;
+  --accent-color-active: #6ba77b;
+  --accent-color-light: #93d0a2;
+  --accent-color-visited: #6ba77b;
+  --accent-color-opacity1: rgb(131 192 146 / 4%);
+  --accent-color-opacity2: rgb(131 192 146 / 12%);
+  --accent-color-opacity3: rgb(131 192 146 / 16%);
+  --accent-color-opacity4: rgb(131 192 146 / 24%);
+}
+
+.secEverforestDarkBlue {
+  --accent-color: #7fbbb3;
+  --accent-color-hover: #8cc9c1;
+  --accent-color-active: #6ba79f;
+  --accent-color-light: #8fcbc3;
+  --accent-color-visited: #6ba79f;
+  --accent-color-opacity1: rgb(127 187 179 / 4%);
+  --accent-color-opacity2: rgb(127 187 179 / 12%);
+  --accent-color-opacity3: rgb(127 187 179 / 16%);
+  --accent-color-opacity4: rgb(127 187 179 / 24%);
+}
+
+.secEverforestDarkPurple {
+  --accent-color: #d699b6;
+  --accent-color-hover: #dca3c0;
+  --accent-color-active: #c883a0;
+  --accent-color-light: #e6a9c6;
+  --accent-color-visited: #c883a0;
+  --accent-color-opacity1: rgb(214 153 182 / 4%);
+  --accent-color-opacity2: rgb(214 153 182 / 12%);
+  --accent-color-opacity3: rgb(214 153 182 / 16%);
+  --accent-color-opacity4: rgb(214 153 182 / 24%);
+}
+
+.secEverforestLightRed {
+  --accent-color: #f85552;
+  --accent-color-hover: #f96360;
+  --accent-color-active: #e64441;
+  --accent-color-light: #f97673;
+  --accent-color-visited: #e64441;
+  --accent-color-opacity1: rgb(248 85 82 / 4%);
+  --accent-color-opacity2: rgb(248 85 82 / 12%);
+  --accent-color-opacity3: rgb(248 85 82 / 16%);
+  --accent-color-opacity4: rgb(248 85 82 / 24%);
+}
+
+.secEverforestLightOrange {
+  --accent-color: #f57d26;
+  --accent-color-hover: #f68b34;
+  --accent-color-active: #e66f10;
+  --accent-color-light: #f79f5a;
+  --accent-color-visited: #e66f10;
+  --accent-color-opacity1: rgb(245 125 38 / 4%);
+  --accent-color-opacity2: rgb(245 125 38 / 12%);
+  --accent-color-opacity3: rgb(245 125 38 / 16%);
+  --accent-color-opacity4: rgb(245 125 38 / 24%);
+}
+
+.secEverforestLightYellow {
+  --accent-color: #dfa000;
+  --accent-color-hover: #e0ad0e;
+  --accent-color-active: #c88b00;
+  --accent-color-light: #f0c000;
+  --accent-color-visited: #c88b00;
+  --accent-color-opacity1: rgb(223 160 0 / 4%);
+  --accent-color-opacity2: rgb(223 160 0 / 12%);
+  --accent-color-opacity3: rgb(223 160 0 / 16%);
+  --accent-color-opacity4: rgb(223 160 0 / 24%);
+}
+
+.secEverforestLightGreen {
+  --accent-color: #8da101;
+  --accent-color-hover: #9dbf0f;
+  --accent-color-active: #7b8f00;
+  --accent-color-light: #a5d000;
+  --accent-color-visited: #7b8f00;
+  --accent-color-opacity1: rgb(141 161 1 / 4%);
+  --accent-color-opacity2: rgb(141 161 1 / 12%);
+  --accent-color-opacity3: rgb(141 161 1 / 16%);
+  --accent-color-opacity4: rgb(141 161 1 / 24%);
+}
+
+.secEverforestLightAqua {
+  --accent-color: #35a77c;
+  --accent-color-hover: #46b38a;
+  --accent-color-active: #24a569;
+  --accent-color-light: #5ad0a0;
+  --accent-color-visited: #24a569;
+  --accent-color-opacity1: rgb(53 167 124 / 4%);
+  --accent-color-opacity2: rgb(53 167 124 / 12%);
+  --accent-color-opacity3: rgb(53 167 124 / 16%);
+  --accent-color-opacity4: rgb(53 167 124 / 24%);
+}
+
+.secEverforestLightBlue {
+  --accent-color: #3a94c5;
+  --accent-color-hover: #4aa2d3;
+  --accent-color-active: #2881b2;
+  --accent-color-light: #5ab0e0;
+  --accent-color-visited: #2881b2;
+  --accent-color-opacity1: rgb(58 148 197 / 4%);
+  --accent-color-opacity2: rgb(58 148 197 / 12%);
+  --accent-color-opacity3: rgb(58 148 197 / 16%);
+  --accent-color-opacity4: rgb(58 148 197 / 24%);
+}
+
+.secEverforestLightPurple {
+  --accent-color: #df69ba;
+  --accent-color-hover: #e77dc9;
+  --accent-color-active: #c84f9a;
+  --accent-color-light: #f09ed0;
+  --accent-color-visited: #c84f9a;
+  --accent-color-opacity1: rgb(223 105 186 / 4%);
+  --accent-color-opacity2: rgb(223 105 186 / 12%);
+  --accent-color-opacity3: rgb(223 105 186 / 16%);
+  --accent-color-opacity4: rgb(223 105 186 / 24%);
 }
 
 /*************** DESTRUCTIVE THEME COLOR OVERRIDES ***************/
