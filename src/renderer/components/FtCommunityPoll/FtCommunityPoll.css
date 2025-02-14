@@ -9,7 +9,7 @@
   border-style: solid;
   border-width: 2px;
   display: block;
-  float: var(--float-left-ltr-rtl-value);
+  float: inline-start;
   block-size: 10px;
   position: relative;
   inline-size: 10px;
@@ -18,7 +18,7 @@
 .filled-circle {
   border-radius: 50%;
   background-color: #000;
-  float: var(--float-left-ltr-rtl-value);
+  float: inline-start;
   block-size: 6px;
   inset-inline-start: 2px;
   inset-block-start: 2px;

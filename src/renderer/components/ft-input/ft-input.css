@@ -219,7 +219,7 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
 
 .removeButton {
   text-decoration: none;
-  float: var(--float-right-ltr-rtl-value);
+  float: inline-end;
   font-size: 13px;
 }
 

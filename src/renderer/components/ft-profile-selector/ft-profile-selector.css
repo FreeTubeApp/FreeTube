@@ -37,7 +37,7 @@
   overflow-y: auto;
 
   /*
-  profile list max height: 90% of window size - 100 px. It's scaled to be 340px on 800x600 resolution. 
+  profile list max height: 90% of window size - 100 px. It's scaled to be 340px on 800x600 resolution.
   Offset of 100px is to compensate for the fixed size of elements above the list, which takes more screen space on lower resolutions
   */
   max-block-size: calc(90vh - 100px);
@@ -65,7 +65,7 @@ Height adjust for profile list so it won't cover navbar.  */
 }
 
 .profile .colorOption {
-  float: var(--float-left-ltr-rtl-value);
+  float: inline-start;
   position: relative;
   inset-block-end: 5px;
   margin: 10px;
@@ -85,7 +85,7 @@ Height adjust for profile list so it won't cover navbar.  */
 }
 
 .profileSettings {
-  float: var(--float-right-ltr-rtl-value);
+  float: inline-end;
   position: absolute;
   inset-block-start: 10px;
   inset-inline-end: 5px;

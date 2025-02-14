@@ -25,7 +25,7 @@
   margin: 5px;
   border-radius: 5px;
   display: flex;
-  float: var(--float-left-ltr-rtl-value);
+  float: inline-start;
 }
 
 .ft-tag-box li>span {
