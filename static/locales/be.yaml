@@ -48,10 +48,10 @@ Global:
   Sort By: Сартаванне
   Counts:
     Video Count: '1 відэа | {count} відэа'
-    Channel Count: '1 канал | {count} каналы(аў)'
-    Subscriber Count: '1 падпісчык | {count} падпісчыкі(аў)'
-    View Count: '1 прагляд | {count} прагляды(аў)'
-    Watching Count: '1 глядач | {count} гледачы(оў)'
+    Channel Count: '1 канал | {count} каналаў'
+    Subscriber Count: '1 падпісчык | {count} падпісчыкаў'
+    View Count: '1 прагляд | {count} праглядаў'
+    Watching Count: '1 глядач | {count} гледачоў'
 
 # Search Bar
     Like Count: 1 лайк | {count} лайкаў
@@ -300,9 +300,9 @@ Settings:
       Hidden: 'Схавана'
       Blur: Размыты
     Current Invidious Instance: 'Бягучы экзэмпляр Invidious'
-    The currently set default instance is {instance}: 'Бягучы ўсталяваны экзэмпляр
-      па змаўчанні: {instance}'
-    No default instance has been set: 'Экземпляр па змаўчанні не ўсталяваны'
+    The currently set default instance is {instance}: 'Бягучы экзэмпляр па змаўчанні:
+      {instance}'
+    No default instance has been set: 'Экзэмпляр па змаўчанні не зададзены'
     Current instance will be randomized on startup: 'Бягучы экзэмпляр будзе рандомізаваны
       пры запуску'
     Set Current Instance as Default: 'Усталяваць бягучы экзэмпляр па змаўчанні'
@@ -421,7 +421,7 @@ Settings:
     Play Next Video: 'Аўтапрайграванне рэкамендаваных відэа'
     Turn on Subtitles by Default: 'Уключыць субцітры па змаўчанні'
     Autoplay Videos: 'Запускаць відэа аўтаматычна'
-    Proxy Videos Through Invidious: 'Глядзець відэа праз проксі Invidious'
+    Proxy Videos Through Invidious: 'Прагляд відэа праз проксі Invidious'
     Autoplay Playlists: 'Аўтапрайграванне відэа з плэй-лістоў'
     Enable Theatre Mode by Default: 'Уключыць рэжым тэатра па змаўчанні'
     Scroll Volume Over Video Player: 'Над відэапрайгравальнікам змяняць гучнасць колам
@@ -519,8 +519,10 @@ Settings:
     Hide Videos on Watch: 'Хаваць відэа пасля прагляду'
     Fetch Feeds from RSS: 'Атрымліваць стужкі з RSS'
     Fetch Automatically: 'Атрымліваць стужку аўтаматычна'
-    Confirm Before Unsubscribing: Пацвердзіце перад тым як адпісацца
+    Confirm Before Unsubscribing: Пацвярджаць адпісванне
     To: Да
+    'Limit the number of videos displayed for each channel': Абмежаваць колькасць
+      відэа, якія паказваюцца на кожным канале
   Distraction Free Settings:
     Distraction Free Settings: 'Адцягненне ўвагі'
     Sections:
@@ -544,18 +546,18 @@ Settings:
     Hide Profile Pictures in Comments: 'Хаваць фатаграфіі профіляў у каментарыях'
     Display Titles Without Excessive Capitalisation: 'Паказваць загалоўкі без празмерных
       вялікіх літар і знакаў прыпынку'
-    Hide Live Streams: 'Хаваць жывыя трансляцыі'
+    Hide Live Streams: 'Хаваць жывыя эфіры'
     Hide Upcoming Premieres: 'Хаваць будучыя прэм''еры'
     Hide Sharing Actions: 'Хаваць дзеянні абагульвання'
     Hide Chapters: 'Хаваць раздзелы'
     Hide Channels: 'Хаваць відэа з каналаў'
     Hide Channels Placeholder: 'Ідэнтыфікатар канала'
     Hide Featured Channels: 'Хаваць прапанаваныя каналы'
-    Hide Channel Playlists: 'Хаваць укладку "Плэй-лісты" канала'
-    Hide Channel Community: 'Хаваць укладку "Супольнасць" канала'
-    Hide Channel Shorts: 'Хаваць укладку "Кароткія відэа" канала'
-    Hide Channel Podcasts: 'Хаваць укладку "Падкасты" канала'
-    Hide Channel Releases: 'Хаваць укладку "Выпускі" канала'
+    Hide Channel Playlists: 'Хаваць укладку «Плэй-лісты»'
+    Hide Channel Community: 'Хаваць укладку «Супольнасць»'
+    Hide Channel Shorts: 'Хаваць укладку «Кароткія відэа»'
+    Hide Channel Podcasts: 'Хаваць укладку «Падкасты»'
+    Hide Channel Releases: 'Хаваць укладку «Выпускі»'
     Hide Subscriptions Videos: 'Хаваць відэа з падпісак'
     Hide Subscriptions Shorts: 'Хаваць кароткія відэа з падпісак'
     Hide Subscriptions Live: 'Хаваць трансляцыі з падпісак'
@@ -571,7 +573,7 @@ Settings:
     Hide Channels Invalid: Памылковы ідэнтыфікатар канала
     Hide Channels API Error: Памылка атрымання карыстальніка з указаным ідэнтыфікатарам.
       Праверце яшчэ раз, ці правільны ідэнтыфікатар.
-    Hide Channel Home: Хаваць галоўную старонку канала
+    Hide Channel Home: Хаваць укладку «Галоўная старонка»
     Show Added Items: Паказаць дададзеныя элементы
   Data Settings:
     Data Settings: 'Даныя'
@@ -579,7 +581,7 @@ Settings:
     Import Subscriptions: 'Імпарт падпісак'
     Subscription File: 'Файл падпіскі'
     History File: 'Файл гісторыі'
-    Playlist File: 'Файл плэй-лісту'
+    Playlist File: 'Файл плэй-ліста'
     Export Subscriptions: 'Экспарт падпісак'
     Export FreeTube: 'Экспарт FreeTube'
     Export YouTube: 'Экспарт YouTube'
@@ -1051,7 +1053,7 @@ Tooltips:
       рэзервовага метаду, калі ён уключаны.'
     Thumbnail Preference: 'Усе мініяцюры FreeTube будуць заменены кадрам відэа замест
       мініяцюры па змаўчанні.'
-    Invidious Instance: 'Экземпляр Invidious, да якога FreeTube будзе падключацца
+    Invidious Instance: 'Экзэмпляр Invidious, да якога FreeTube будзе падключацца
       для выклікаў API.'
     Region for Trending: 'Рэгіён трэндаў дазваляе вам выбраць папулярныя відэа краіны,
       якія вы жадаеце паказваць.'
@@ -1136,9 +1138,9 @@ Playing Next Video Interval: 'Прайграванне наступнага ві
   секунд. Націсніце, каб адмяніць.'
 Canceled next video autoplay: 'Аўтапрайграванне наступнага відэа адменена'
 
-Default Invidious instance has been set to {instance}: 'Экземпляр Invidious па змаўчанні
+Default Invidious instance has been set to {instance}: 'Экзэмпляр Invidious па змаўчанні
   быў усталяваны ў {instance}'
-Default Invidious instance has been cleared: 'Экземпляр Invidious па змаўчанні быў
+Default Invidious instance has been cleared: 'Экзэмпляр Invidious па змаўчанні быў
   выдалены'
 'The playlist has ended. Enable loop to continue playing': 'Плэй-ліст скончыўся.  Каб
   працягнуць прайграванне, уключыце цыкл'
