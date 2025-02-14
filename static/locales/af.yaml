@@ -356,14 +356,21 @@ Settings:
       Catppuccin Mocha Sapphire: ''
       Catppuccin Mocha Blue: ''
       Catppuccin Mocha Lavender: ''
-      Solarized Yellow: ''
-      Solarized Orange: ''
-      Solarized Red: ''
+      Solarized Yellow: 'Sonbeligte geel'
+      Solarized Orange: 'Sonbeligte oranje'
+      Solarized Red: 'Sonbeligte rooi'
       Solarized Magenta: 'Sonbeligte magenta'
       Solarized Violet: 'Sonbeligte violet'
       Solarized Blue: 'Sonbeligte blou'
       Solarized Cyan: 'Sonbeligte siaan'
       Solarized Green: 'Sonbeligte groen'
+      Gruvbox Light Orange: Gruvbox ligoranje
+      Gruvbox Dark Purple: Gruvbox donkerpers
+      Gruvbox Dark Aqua: Gruvbox donkerakwa
+      Gruvbox Dark Orange: Gruvbox donkeroranje
+      Gruvbox Light Red: Gruvbox ligrooi
+      Gruvbox Light Blue: Gruvbox ligblou
+      Gruvbox Light Purple: Gruvbox ligpers
     Secondary Color Theme: 'Sekondêre kleurtema'
         #* Main Color Theme
   Player Settings:
@@ -371,12 +378,13 @@ Settings:
     Play Next Video: 'Speel aanbevole video’s outomaties af'
     Turn on Subtitles by Default: 'Aktiveer onderskrifte by verstek'
     Autoplay Videos: 'Begin video’s outomaties'
-    Proxy Videos Through Invidious: ''
+    Proxy Videos Through Invidious: 'Speel videos d.m.v. Invidious-proksie af'
     Autoplay Playlists: 'Speel video’s in afspeellys outomaties af'
     Enable Theatre Mode by Default: ''
-    Scroll Volume Over Video Player: ''
-    Scroll Playback Rate Over Video Player: ''
-    Skip by Scrolling Over Video Player: ''
+    Scroll Volume Over Video Player: 'Verander volume deur in die videobeeld te rol'
+    Scroll Playback Rate Over Video Player: 'Bepaal afspeelsnelheid deur in die videobeeld
+      te rol'
+    Skip by Scrolling Over Video Player: 'Slaan oor deur in die videospeler te rol'
     Display Play Button In Video Player: 'Toon afspeelknop in videospeler'
     Enter Fullscreen on Display Rotate: 'Betree volskerm wanneer skerm gedraai word'
     Next Video Interval: 'Outo-afspeelafteller'
@@ -418,6 +426,12 @@ Settings:
         Forbidden Characters: 'Ontoelaatbare karakters'
         Empty File Name: 'Leë lêernaam'
     Autoplay Interruption Timer: Outo-afspeel-steurteller
+    Default Viewing Mode:
+      Theater: Teater
+      Default Viewing Mode: Verstekkykmodus
+      Full Screen: Volskerm
+      Picture in Picture: Beeld-in-beeld
+      External Player: Eksterne speler ({externalPlayerName})
   External Player Settings:
     External Player Settings: 'Eksterne speler'
     External Player: 'Eksterne speler'
