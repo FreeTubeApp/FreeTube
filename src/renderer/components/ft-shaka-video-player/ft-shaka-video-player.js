@@ -1,13 +1,4 @@
-import {
-  computed,
-  defineComponent,
-  onBeforeUnmount,
-  onMounted,
-  reactive,
-  ref,
-  shallowRef,
-  watch,
-} from 'vue'
+import { computed, defineComponent, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
 import shaka from 'shaka-player'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
@@ -26,13 +17,9 @@ import {
   logShakaError,
   repairInvidiousManifest,
   sortCaptions,
-  translateSponsorBlockCategory,
+  translateSponsorBlockCategory
 } from '../../helpers/player/utils'
-import {
-  addKeyboardShortcutToActionTitle,
-  showToast,
-  writeFileWithPicker,
-} from '../../helpers/utils'
+import { addKeyboardShortcutToActionTitle, showToast, writeFileWithPicker } from '../../helpers/utils'
 
 /** @typedef {import('../../helpers/sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
 
@@ -55,15 +42,13 @@ const shakaControlKeysToShortcuts = {
   PLAY: KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.PLAY,
   PAUSE: KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.PLAY,
   PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
-  ENTER_PICTURE_IN_PICTURE:
-    KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
-  EXIT_PICTURE_IN_PICTURE:
-    KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
+  ENTER_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
+  EXIT_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
   CAPTIONS: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS,
   FULL_SCREEN: store.getters.getEnableVimNavigation
     ? KeyboardShortcuts.VIDEO_PLAYER.VIM_ENABLED_FULLSCREEN
     : KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN,
-  EXIT_FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN,
+  EXIT_FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN
 }
 
 /** @type {Map<string, string>} */
@@ -74,98 +59,90 @@ export default defineComponent({
   props: {
     format: {
       type: String,
-      required: true,
+      required: true
     },
     manifestSrc: {
       type: String,
-      required: true,
+      required: true
     },
     manifestMimeType: {
       type: String,
-      required: true,
+      required: true
     },
     legacyFormats: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     startTime: {
       type: Number,
-      default: null,
+      default: null
     },
     captions: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     chapters: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     currentChapterIndex: {
       type: Number,
-      default: 0,
+      default: 0
     },
     storyboardSrc: {
       type: String,
-      default: '',
+      default: ''
     },
     videoId: {
       type: String,
-      default: '',
+      default: ''
     },
     title: {
       type: String,
-      default: '',
+      default: ''
     },
     thumbnail: {
       type: String,
-      default: '',
+      default: ''
     },
     theatrePossible: {
       type: Boolean,
-      default: false,
+      default: false
     },
     useTheatreMode: {
       type: Boolean,
-      default: false,
+      default: false
     },
     autoplayPossible: {
       type: Boolean,
-      default: false,
+      default: false
     },
     autoplayEnabled: {
       type: Boolean,
-      default: false,
+      default: false
     },
     vrProjection: {
       type: String,
-      default: null,
+      default: null
     },
     startInFullscreen: {
       type: Boolean,
-      default: false,
+      default: false
     },
     startInFullwindow: {
       type: Boolean,
-      default: false,
+      default: false
     },
     startInPip: {
       type: Boolean,
-      default: false,
+      default: false
     },
     currentPlaybackRate: {
       type: Number,
-      default: 1,
-    },
+      default: 1
+    }
   },
-  emits: [
-    'error',
-    'loaded',
-    'ended',
-    'timeupdate',
-    'toggle-autoplay',
-    'toggle-theatre-mode',
-    'playback-rate-updated',
-  ],
+  emits: ['error', 'loaded', 'ended', 'timeupdate', 'toggle-autoplay', 'toggle-theatre-mode', 'playback-rate-updated'],
   setup: function (props, { emit, expose }) {
     const { locale, t } = useI18n()
 
@@ -225,10 +202,7 @@ export default defineComponent({
     /** @type {number|null} */
     let restoreCaptionIndex = null
 
-    if (
-      store.getters.getEnableSubtitlesByDefault &&
-      sortedCaptions.length > 0
-    ) {
+    if (store.getters.getEnableSubtitlesByDefault && sortedCaptions.length > 0) {
       restoreCaptionIndex = 0
     }
 
@@ -237,11 +211,11 @@ export default defineComponent({
       resolution: {
         width: 0,
         height: 0,
-        frameRate: 0,
+        frameRate: 0
       },
       playerDimensions: {
         width: 0,
-        height: 0,
+        height: 0
       },
       bitrate: '0',
       volume: '100',
@@ -249,14 +223,14 @@ export default defineComponent({
       buffered: '0',
       frames: {
         totalFrames: 0,
-        droppedFrames: 0,
+        droppedFrames: 0
       },
       codecs: {
         audioItag: '',
         audioCodec: '',
         videoItag: '',
-        videoCodec: '',
-      },
+        videoCodec: ''
+      }
     })
 
     // #region settings
@@ -273,7 +247,7 @@ export default defineComponent({
 
     watch(displayVideoPlayButton, (newValue) => {
       ui.configure({
-        addBigPlayButton: newValue,
+        addBigPlayButton: newValue
       })
     })
 
@@ -284,7 +258,7 @@ export default defineComponent({
 
     watch(defaultSkipInterval, (newValue) => {
       ui.configure({
-        tapSeekDistance: newValue,
+        tapSeekDistance: newValue
       })
     })
 
@@ -305,7 +279,7 @@ export default defineComponent({
 
     watch(enterFullscreenOnDisplayRotate, (newValue) => {
       ui.configure({
-        enableFullscreenOnRotation: newValue,
+        enableFullscreenOnRotation: newValue
       })
     })
 
@@ -333,7 +307,7 @@ export default defineComponent({
 
     watch(playbackRates, (newValue) => {
       ui.configure({
-        playbackRates: newValue,
+        playbackRates: newValue
       })
     })
 
@@ -389,16 +363,7 @@ export default defineComponent({
       }
 
       /** @type {SponsorBlockCategory[]} */
-      const sponsorCategories = [
-        'sponsor',
-        'selfpromo',
-        'interaction',
-        'intro',
-        'outro',
-        'preview',
-        'music_offtopic',
-        'filler',
-      ]
+      const sponsorCategories = ['sponsor', 'selfpromo', 'interaction', 'intro', 'outro', 'preview', 'music_offtopic', 'filler']
 
       /** @type {Set<SponsorBlockCategory>} */
       const autoSkip = new Set()
@@ -490,10 +455,7 @@ export default defineComponent({
       let segments, averageDuration
 
       try {
-        ({ segments, averageDuration } = await getSponsorBlockSegments(
-          props.videoId,
-          sponsorSkips.value.seekBar,
-        ))
+        ({ segments, averageDuration } = await getSponsorBlockSegments(props.videoId, sponsorSkips.value.seekBar))
       } catch (e) {
         console.error(e)
         segments = []
@@ -535,10 +497,7 @@ export default defineComponent({
           (segment.startTime <= currentTime ||
             // if we already have a segment to skip, check if there are any that are less than 150ms later,
             // so that we can skip them all in one go (especially useful on slow connections)
-            (newTime > 0 &&
-              (segment.startTime < newTime ||
-                segment.startTime - newTime <= 0.15) &&
-              segment.endTime > newTime))
+            (newTime > 0 && (segment.startTime < newTime || segment.startTime - newTime <= 0.15) && segment.endTime > newTime))
         ) {
           newTime = segment.endTime
           skippedSegments.push(segment)
@@ -565,16 +524,12 @@ export default defineComponent({
         skippedSegments.forEach(({ uuid, category }) => {
           // if the element already exists, just update the timeout, instead of creating a duplicate
           // can happen at the end of the video sometimes
-          const existingSkip = skippedSponsorBlockSegments.value.find(
-            (skipped) => skipped.uuid === uuid,
-          )
+          const existingSkip = skippedSponsorBlockSegments.value.find((skipped) => skipped.uuid === uuid)
           if (existingSkip) {
             clearTimeout(existingSkip.timeoutId)
 
             existingSkip.timeoutId = setTimeout(() => {
-              const index = skippedSponsorBlockSegments.value.findIndex(
-                (skipped) => skipped.uuid === uuid,
-              )
+              const index = skippedSponsorBlockSegments.value.findIndex((skipped) => skipped.uuid === uuid)
               skippedSponsorBlockSegments.value.splice(index, 1)
             }, 2000)
           } else {
@@ -582,11 +537,9 @@ export default defineComponent({
               uuid,
               translatedCategory: translateSponsorBlockCategory(category),
               timeoutId: setTimeout(() => {
-                const index = skippedSponsorBlockSegments.value.findIndex(
-                  (skipped) => skipped.uuid === uuid,
-                )
+                const index = skippedSponsorBlockSegments.value.findIndex((skipped) => skipped.uuid === uuid)
                 skippedSponsorBlockSegments.value.splice(index, 1)
-              }, 2000),
+              }, 2000)
             })
           }
         })
@@ -602,9 +555,7 @@ export default defineComponent({
         return true
       }
 
-      const match = props.manifestSrc.match(
-        /\/(?:manifest|playlist)_duration\/(\d+)\//,
-      )
+      const match = props.manifestSrc.match(/\/(?:manifest|playlist)_duration\/(\d+)\//)
 
       // Check how many seconds we are allowed to seek, 30 is too short, 3600 is an hour which is great
       return match != null && parseInt(match[1] || '0') > 30
@@ -622,7 +573,7 @@ export default defineComponent({
         streaming: {
           bufferingGoal: 180,
           rebufferingGoal: 0.02,
-          bufferBehind: 300,
+          bufferBehind: 300
         },
         manifest: {
           disableVideo: format === 'audio',
@@ -630,14 +581,14 @@ export default defineComponent({
           // makes captions work for live streams and doesn't seem to have any negative affect on VOD videos
           segmentRelativeVttTiming: true,
           dash: {
-            manifestPreprocessorTXml: manifestPreprocessorTXml,
-          },
+            manifestPreprocessorTXml: manifestPreprocessorTXml
+          }
         },
         abr: {
           enabled: useAutoQuality,
 
           // This only affects the "auto" quality, users can still manually select whatever quality they want.
-          restrictToElementSize: true,
+          restrictToElementSize: true
         },
         autoShowText: shaka.config.AutoShowText.NEVER,
 
@@ -645,14 +596,12 @@ export default defineComponent({
         // - `smooth`: without dropping frames
         // - `powerEfficient` the spec is quite vague but in Chromium it should prioritise hardware decoding when available
         // https://developer.mozilla.org/en-US/docs/Web/API/MediaCapabilities/decodingInfo
-        preferredDecodingAttributes:
-          format === 'dash' ? ['smooth', 'powerEfficient'] : [],
+        preferredDecodingAttributes: format === 'dash' ? ['smooth', 'powerEfficient'] : [],
 
         // Electron doesn't like YouTube's vp9 VR video streams and throws:
         // "CHUNK_DEMUXER_ERROR_APPEND_FAILED: Projection element is incomplete; ProjectionPoseYaw required."
         // So use the AV1 and h264 codecs instead which it doesn't reject
-        preferredVideoCodecs:
-          typeof props.vrProjection === 'string' ? ['av01', 'avc1'] : [],
+        preferredVideoCodecs: typeof props.vrProjection === 'string' ? ['av01', 'avc1'] : []
       }
     }
 
@@ -661,10 +610,7 @@ export default defineComponent({
      */
     function manifestPreprocessorTXml(mpdNode) {
       /** @type {shaka.extern.xml.Node[]} */
-      const periods =
-        mpdNode.children?.filter(
-          (child) => typeof child !== 'string' && child.tagName === 'Period',
-        ) ?? []
+      const periods = mpdNode.children?.filter((child) => typeof child !== 'string' && child.tagName === 'Period') ?? []
 
       sortAdapationSetsByCodec(periods)
 
@@ -674,11 +620,7 @@ export default defineComponent({
         // and a shorter one for low latency streams
         // If we don't add a little bit of a delay, we get presented with a loading symbol every 5 seconds,
         // while shaka-player processes the new manifest and segments
-        const minimumUpdatePeriod = parseFloat(
-          mpdNode.attributes.minimumUpdatePeriod.match(
-            /^PT(\d+(?:\.\d+)?)S$/,
-          )[1],
-        )
+        const minimumUpdatePeriod = parseFloat(mpdNode.attributes.minimumUpdatePeriod.match(/^PT(\d+(?:\.\d+)?)S$/)[1])
         mpdNode.attributes.suggestedPresentationDelay = `PT${(minimumUpdatePeriod * 2).toFixed(3)}S`
 
         // fix live streams with subtitles having duplicate Representation ids
@@ -689,15 +631,9 @@ export default defineComponent({
           const representations = []
 
           for (const periodChild of period.children) {
-            if (
-              typeof periodChild !== 'string' &&
-              periodChild.tagName === 'AdaptationSet'
-            ) {
+            if (typeof periodChild !== 'string' && periodChild.tagName === 'AdaptationSet') {
               for (const adaptationSetChild of periodChild.children) {
-                if (
-                  typeof adaptationSetChild !== 'string' &&
-                  adaptationSetChild.tagName === 'Representation'
-                ) {
+                if (typeof adaptationSetChild !== 'string' && adaptationSetChild.tagName === 'Representation') {
                   representations.push(adaptationSetChild)
                 }
               }
@@ -733,10 +669,7 @@ export default defineComponent({
       const getCodecsPrefix = (adaptationSet) => {
         const codecs =
           adaptationSet.attributes.codecs ??
-          adaptationSet.children.find(
-            (child) =>
-              typeof child !== 'string' && child.tagName === 'Representation',
-          ).attributes.codecs
+          adaptationSet.children.find((child) => typeof child !== 'string' && child.tagName === 'Representation').attributes.codecs
 
         return codecs.split('.')[0]
       }
@@ -752,47 +685,32 @@ export default defineComponent({
         'av01',
         'vp09',
         'vp9',
-        'avc1',
+        'avc1'
       ]
 
       for (const period of periods) {
-        period.children?.sort(
-          (
-            /** @type {shaka.extern.xml.Node | string} */ a,
-            /** @type {shaka.extern.xml.Node | string} */ b,
-          ) => {
-            if (
-              typeof a === 'string' ||
-              a.tagName !== 'AdaptationSet' ||
-              typeof b === 'string' ||
-              b.tagName !== 'AdaptationSet'
-            ) {
-              return 0
-            }
+        period.children?.sort((/** @type {shaka.extern.xml.Node | string} */ a, /** @type {shaka.extern.xml.Node | string} */ b) => {
+          if (typeof a === 'string' || a.tagName !== 'AdaptationSet' || typeof b === 'string' || b.tagName !== 'AdaptationSet') {
+            return 0
+          }
 
-            const typeA =
-              a.attributes.contentType || a.attributes.mimeType.split('/')[0]
-            const typeB =
-              b.attributes.contentType || b.attributes.mimeType.split('/')[0]
+          const typeA = a.attributes.contentType || a.attributes.mimeType.split('/')[0]
+          const typeB = b.attributes.contentType || b.attributes.mimeType.split('/')[0]
 
-            // always place image and text tracks AdaptionSets last in the manifest
+          // always place image and text tracks AdaptionSets last in the manifest
 
-            if (typeA !== 'video' && typeA !== 'audio') {
-              return 1
-            }
-            if (typeB !== 'video' && typeB !== 'audio') {
-              return -1
-            }
+          if (typeA !== 'video' && typeA !== 'audio') {
+            return 1
+          }
+          if (typeB !== 'video' && typeB !== 'audio') {
+            return -1
+          }
 
-            const codecsPrefixA = getCodecsPrefix(a)
-            const codecsPrefixB = getCodecsPrefix(b)
+          const codecsPrefixA = getCodecsPrefix(a)
+          const codecsPrefixB = getCodecsPrefix(b)
 
-            return (
-              codecPriorities.indexOf(codecsPrefixA) -
-              codecPriorities.indexOf(codecsPrefixB)
-            )
-          },
-        )
+          return codecPriorities.indexOf(codecsPrefixA) - codecPriorities.indexOf(codecsPrefixB)
+        })
       }
     }
 
@@ -801,35 +719,22 @@ export default defineComponent({
     // #region UI config
 
     const useVrMode = computed(() => {
-      return (
-        props.format === 'dash' && props.vrProjection === 'EQUIRECTANGULAR'
-      )
+      return props.format === 'dash' && props.vrProjection === 'EQUIRECTANGULAR'
     })
 
     const uiConfig = computed(() => {
       /** @type {shaka.extern.UIConfiguration} */
       const uiConfig = {
-        controlPanelElements: [
-          'play_pause',
-          'mute',
-          'volume',
-          'time_and_duration',
-          'spacer',
-        ],
+        controlPanelElements: ['play_pause', 'mute', 'volume', 'time_and_duration', 'spacer'],
         overflowMenuButtons: [],
 
         // only set this to label when we actually have labels, so that the warning doesn't show up
         // about it being set to labels, but that the audio tracks don't have labels
-        trackLabelFormat: hasMultipleAudioTracks.value
-          ? TrackLabelFormat.LABEL
-          : TrackLabelFormat.LANGUAGE,
+        trackLabelFormat: hasMultipleAudioTracks.value ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE,
         // Only set it to label if we added the captions ourselves,
         // some live streams come with subtitles in the DASH manifest, but without labels
-        textTrackLabelFormat:
-          sortedCaptions.length > 0
-            ? TrackLabelFormat.LABEL
-            : TrackLabelFormat.LANGUAGE,
-        displayInVrMode: useVrMode.value,
+        textTrackLabelFormat: sortedCaptions.length > 0 ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE,
+        displayInVrMode: useVrMode.value
       }
 
       /** @type {string[]} */
@@ -847,7 +752,7 @@ export default defineComponent({
           'ft_full_window',
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'recenter_vr',
-          'toggle_stereoscopic',
+          'toggle_stereoscopic'
         ]
 
         elementList = uiConfig.overflowMenuButtons
@@ -866,7 +771,7 @@ export default defineComponent({
           'picture_in_picture',
           'ft_theatre_mode',
           'ft_full_window',
-          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
+          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality'
         )
 
         elementList = uiConfig.controlPanelElements
@@ -906,9 +811,7 @@ export default defineComponent({
         const indexRecenterVr = elementList.indexOf('recenter_vr')
         elementList.splice(indexRecenterVr, 1)
 
-        const indexToggleStereoscopic = elementList.indexOf(
-          'toggle_stereoscopic',
-        )
+        const indexToggleStereoscopic = elementList.indexOf('toggle_stereoscopic')
         elementList.splice(indexToggleStereoscopic, 1)
       }
 
@@ -931,10 +834,10 @@ export default defineComponent({
           contextMenuElements: ['ft_stats'],
           enableTooltips: true,
           seekBarColors: {
-            played: 'var(--primary-color)',
+            played: 'var(--primary-color)'
           },
           volumeBarColors: {
-            level: 'var(--primary-color)',
+            level: 'var(--primary-color)'
           },
 
           // these have their own watchers
@@ -948,7 +851,7 @@ export default defineComponent({
 
           // TODO: enable this when electron gets document PiP support
           // https://github.com/electron/electron/issues/39633
-          preferDocumentPictureInPicture: false,
+          preferDocumentPictureInPicture: false
         }
 
         // Combine the config objects so we only need to do one configure call
@@ -1008,41 +911,21 @@ export default defineComponent({
       /** @type {HTMLDivElement} */
       const controlsContainer = ui.getControls().getControlsContainer()
 
-      controlsContainer.removeEventListener(
-        'wheel',
-        handleControlsContainerWheel,
-      )
-      controlsContainer.removeEventListener(
-        'click',
-        handleControlsContainerClick,
-        true,
-      )
+      controlsContainer.removeEventListener('wheel', handleControlsContainerWheel)
+      controlsContainer.removeEventListener('click', handleControlsContainerClick, true)
 
       if (!useVrMode.value) {
-        if (
-          videoVolumeMouseScroll.value ||
-          videoSkipMouseScroll.value ||
-          videoPlaybackRateMouseScroll.value
-        ) {
-          controlsContainer.addEventListener(
-            'wheel',
-            handleControlsContainerWheel,
-          )
+        if (videoVolumeMouseScroll.value || videoSkipMouseScroll.value || videoPlaybackRateMouseScroll.value) {
+          controlsContainer.addEventListener('wheel', handleControlsContainerWheel)
         }
 
         if (videoPlaybackRateMouseScroll.value) {
-          controlsContainer.addEventListener(
-            'click',
-            handleControlsContainerClick,
-            true,
-          )
+          controlsContainer.addEventListener('click', handleControlsContainerClick, true)
         }
       }
 
       // make scrolling over volume slider change the volume
-      container.value
-        .querySelector('.shaka-volume-bar')
-        .addEventListener('wheel', mouseScrollVolume)
+      container.value.querySelector('.shaka-volume-bar').addEventListener('wheel', mouseScrollVolume)
 
       // title overlay when the video is fullscreened
       // placing this inside the controls container so that we can fade it in and out at the same time as the controls
@@ -1099,11 +982,11 @@ export default defineComponent({
         if (newValue !== oldValue) {
           events.dispatchEvent(
             new CustomEvent('setAutoplay', {
-              detail: newValue,
-            }),
+              detail: newValue
+            })
           )
         }
-      },
+      }
     )
 
     /** @type {ResizeObserver|null} */
@@ -1111,9 +994,7 @@ export default defineComponent({
 
     /** @type {ResizeObserverCallback} */
     function resized(entries) {
-      useOverFlowMenu.value =
-        entries[0].contentBoxSize[0].inlineSize <=
-        USE_OVERFLOW_MENU_WIDTH_THRESHOLD
+      useOverFlowMenu.value = entries[0].contentBoxSize[0].inlineSize <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
     }
 
     // #endregion UI config
@@ -1141,10 +1022,7 @@ export default defineComponent({
           await store.dispatch('cachePlayerLocale', shakaLocale)
         }
 
-        localization.insert(
-          shakaLocale,
-          new Map(Object.entries(cachedLocales[shakaLocale])),
-        )
+        localization.insert(shakaLocale, new Map(Object.entries(cachedLocales[shakaLocale])))
 
         loadedLocales.add(shakaLocale)
       }
@@ -1154,29 +1032,18 @@ export default defineComponent({
       // Add the keyboard shortcut to the label for the default Shaka controls
 
       const shakaControlKeysToShortcutLocalizations = new Map()
-      Object.entries(shakaControlKeysToShortcuts).forEach(
-        ([shakaControlKey, shortcut]) => {
-          const originalLocalization = localization.resolve(shakaControlKey)
-          if (originalLocalization === '') {
-            // e.g., A Shaka localization key in shakaControlKeysToShortcuts has fallen out of date and need to be updated
-            console.error(
-              'Mising Shaka localization key "%s"',
-              shakaControlKey,
-            )
-            return
-          }
+      Object.entries(shakaControlKeysToShortcuts).forEach(([shakaControlKey, shortcut]) => {
+        const originalLocalization = localization.resolve(shakaControlKey)
+        if (originalLocalization === '') {
+          // e.g., A Shaka localization key in shakaControlKeysToShortcuts has fallen out of date and need to be updated
+          console.error('Mising Shaka localization key "%s"', shakaControlKey)
+          return
+        }
 
-          const localizationWithShortcut = addKeyboardShortcutToActionTitle(
-            originalLocalization,
-            shortcut,
-          )
+        const localizationWithShortcut = addKeyboardShortcutToActionTitle(originalLocalization, shortcut)
 
-          shakaControlKeysToShortcutLocalizations.set(
-            shakaControlKey,
-            localizationWithShortcut,
-          )
-        },
-      )
+        shakaControlKeysToShortcutLocalizations.set(shakaControlKey, localizationWithShortcut)
+      })
 
       localization.insert(shakaLocale, shakaControlKeysToShortcutLocalizations)
 
@@ -1194,9 +1061,7 @@ export default defineComponent({
     async function startPowerSaveBlocker() {
       if (process.env.IS_ELECTRON && powerSaveBlocker === null) {
         const { ipcRenderer } = require('electron')
-        powerSaveBlocker = await ipcRenderer.invoke(
-          IpcChannels.START_POWER_SAVE_BLOCKER,
-        )
+        powerSaveBlocker = await ipcRenderer.invoke(IpcChannels.START_POWER_SAVE_BLOCKER)
       }
     }
 
@@ -1240,12 +1105,7 @@ export default defineComponent({
 
     function handleCanPlay() {
       // PiP can only be activated once the video's readState and video track are populated
-      if (
-        startInPip &&
-        props.format !== 'audio' &&
-        ui.getControls().isPiPAllowed() &&
-        process.env.IS_ELECTRON
-      ) {
+      if (startInPip && props.format !== 'audio' && ui.getControls().isPiPAllowed() && process.env.IS_ELECTRON) {
         startInPip = false
         const { ipcRenderer } = require('electron')
         ipcRenderer.send(IpcChannels.REQUEST_PIP)
@@ -1284,11 +1144,7 @@ export default defineComponent({
         updateStats()
       }
 
-      if (
-        useSponsorBlock.value &&
-        sponsorBlockSegments.length > 0 &&
-        canSeek()
-      ) {
+      if (useSponsorBlock.value && sponsorBlockSegments.length > 0 && canSeek()) {
         skipSponsorBlockSegments(currentTime)
       }
     }
@@ -1304,10 +1160,7 @@ export default defineComponent({
 
         // only when we aren't proxying through Invidious,
         // it doesn't like the range param and makes get requests to youtube anyway
-        if (
-          url.hostname.endsWith('.googlevideo.com') &&
-          url.pathname === '/videoplayback'
-        ) {
+        if (url.hostname.endsWith('.googlevideo.com') && url.pathname === '/videoplayback') {
           request.method = 'POST'
           request.body = new Uint8Array([0x78, 0]) // protobuf: { 15: 0 } (no idea what it means but this is what YouTube uses)
 
@@ -1328,28 +1181,16 @@ export default defineComponent({
      */
     async function responseFilter(type, response, context) {
       if (type === RequestType.SEGMENT) {
-        if (
-          response.data &&
-          response.data.byteLength > 4 &&
-          new DataView(response.data).getUint32(0) === HTTP_IN_HEX
-        ) {
+        if (response.data && response.data.byteLength > 4 && new DataView(response.data).getUint32(0) === HTTP_IN_HEX) {
           // Interpret the response data as a URL string.
-          const responseAsString = shaka.util.StringUtils.fromUTF8(
-            response.data,
-          )
+          const responseAsString = shaka.util.StringUtils.fromUTF8(response.data)
 
-          const retryParameters =
-            player.getConfiguration().streaming.retryParameters
+          const retryParameters = player.getConfiguration().streaming.retryParameters
 
           // Make another request for the redirect URL.
           const uris = [responseAsString]
-          const redirectRequest = shaka.net.NetworkingEngine.makeRequest(
-            uris,
-            retryParameters,
-          )
-          const requestOperation = player
-            .getNetworkingEngine()
-            .request(type, redirectRequest, context)
+          const redirectRequest = shaka.net.NetworkingEngine.makeRequest(uris, retryParameters)
+          const requestOperation = player.getNetworkingEngine().request(type, redirectRequest, context)
           const redirectResponse = await requestOperation.promise
 
           // Modify the original response to contain the results of the redirect
@@ -1370,18 +1211,12 @@ export default defineComponent({
           ) {
             const stringBody = new TextDecoder().decode(response.data)
             // position:0% for LTR text and position:100% for RTL text
-            const cleaned = stringBody.replaceAll(
-              / align:start position:(?:10)?0%$/gm,
-              '',
-            )
+            const cleaned = stringBody.replaceAll(/ align:start position:(?:10)?0%$/gm, '')
 
             response.data = new TextEncoder().encode(cleaned).buffer
           }
         }
-      } else if (
-        type === RequestType.MANIFEST &&
-        context.type === AdvancedRequestType.MEDIA_PLAYLIST
-      ) {
+      } else if (type === RequestType.MANIFEST && context.type === AdvancedRequestType.MEDIA_PLAYLIST) {
         const url = new URL(response.uri)
 
         let modifiedText
@@ -1393,26 +1228,16 @@ export default defineComponent({
         if (url.searchParams.has('local')) {
           const stringBody = new TextDecoder().decode(response.data)
 
-          modifiedText = stringBody.replaceAll(
-            /https?:\/\/.+$/gm,
-            hlsProxiedUrlReplacer,
-          )
+          modifiedText = stringBody.replaceAll(/https?:\/\/.+$/gm, hlsProxiedUrlReplacer)
         }
 
         // The audio-only streams are actually raw AAC, so correct the file extension from `.ts` to `.aac`
-        if (
-          /\/itag\/23[34]\//.test(url.pathname) ||
-          url.searchParams.get('itag') === '233' ||
-          url.searchParams.get('itag') === '234'
-        ) {
+        if (/\/itag\/23[34]\//.test(url.pathname) || url.searchParams.get('itag') === '233' || url.searchParams.get('itag') === '234') {
           if (!modifiedText) {
             modifiedText = new TextDecoder().decode(response.data)
           }
 
-          modifiedText = modifiedText.replaceAll(
-            '/file/seg.ts',
-            '/file/seg.aac',
-          )
+          modifiedText = modifiedText.replaceAll('/file/seg.ts', '/file/seg.aac')
         }
 
         if (modifiedText) {
@@ -1464,9 +1289,7 @@ export default defineComponent({
         variants = variants.filter((variant) => variant.label === label)
       } else if (hasMultipleAudioTracks.value) {
         // default audio track
-        variants = variants.filter((variant) =>
-          variant.audioRoles.includes('main'),
-        )
+        variants = variants.filter((variant) => variant.audioRoles.includes('main'))
       }
 
       const isPortrait = variants[0].height > variants[0].width
@@ -1481,9 +1304,7 @@ export default defineComponent({
         })
       }
 
-      matches.sort((a, b) =>
-        isPortrait ? b.width - a.width : b.height - a.height,
-      )
+      matches.sort((a, b) => (isPortrait ? b.width - a.width : b.height - a.height))
 
       let chosenVariant
 
@@ -1491,9 +1312,7 @@ export default defineComponent({
         const width = matches[0].width
         const height = matches[0].height
 
-        matches = matches.filter(
-          (variant) => variant.width === width && variant.height === height,
-        )
+        matches = matches.filter((variant) => variant.width === width && variant.height === height)
 
         chosenVariant = findMostSimilarAudioBandwidth(matches, audioBandwidth)
       } else {
@@ -1507,10 +1326,7 @@ export default defineComponent({
      * @param {number|null} playbackPosition
      * @param {number|undefined} previousQuality
      */
-    async function setLegacyQuality(
-      playbackPosition = null,
-      previousQuality = undefined,
-    ) {
+    async function setLegacyQuality(playbackPosition = null, previousQuality = undefined) {
       if (typeof previousQuality === 'undefined') {
         if (defaultQuality.value === 'auto') {
           previousQuality = Infinity
@@ -1546,9 +1362,9 @@ export default defineComponent({
         new CustomEvent('setLegacyFormat', {
           detail: {
             format: matches[0],
-            playbackPosition,
-          },
-        }),
+            playbackPosition
+          }
+        })
       )
     }
 
@@ -1569,7 +1385,7 @@ export default defineComponent({
       const playerDimensions = video_.getBoundingClientRect()
       stats.playerDimensions = {
         width: Math.floor(playerDimensions.width),
-        height: Math.floor(playerDimensions.height),
+        height: Math.floor(playerDimensions.height)
       }
 
       if (!hasLoaded.value) {
@@ -1579,9 +1395,7 @@ export default defineComponent({
             if (showStats.value) {
               if (props.format !== 'legacy') {
                 updateQualityStats({
-                  newTrack: player
-                    .getVariantTracks()
-                    .find((track) => track.active),
+                  newTrack: player.getVariantTracks().find((track) => track.active)
                 })
               }
 
@@ -1589,8 +1403,8 @@ export default defineComponent({
             }
           },
           {
-            once: true,
-          },
+            once: true
+          }
         )
 
         return
@@ -1598,7 +1412,7 @@ export default defineComponent({
 
       if (props.format !== 'legacy') {
         updateQualityStats({
-          newTrack: player.getVariantTracks().find((track) => track.active),
+          newTrack: player.getVariantTracks().find((track) => track.active)
         })
       }
 
@@ -1656,9 +1470,7 @@ export default defineComponent({
 
       const { fps, bitrate, mimeType, itag, width, height } = newFormat
 
-      const codecsMatch = mimeType.match(
-        /codecs="(?<videoCodec>.+), ?(?<audioCodec>.+)"/,
-      )
+      const codecsMatch = mimeType.match(/codecs="(?<videoCodec>.+), ?(?<audioCodec>.+)"/)
 
       stats.codecs.audioItag = itag
       stats.codecs.audioCodec = codecsMatch.groups.audioCodec
@@ -1678,7 +1490,7 @@ export default defineComponent({
       const playerDimensions = video.value.getBoundingClientRect()
       stats.playerDimensions = {
         width: Math.floor(playerDimensions.width),
-        height: Math.floor(playerDimensions.height),
+        height: Math.floor(playerDimensions.height)
       }
 
       const playerStats = player.getStats()
@@ -1686,7 +1498,7 @@ export default defineComponent({
       if (props.format !== 'audio') {
         stats.frames = {
           droppedFrames: playerStats.droppedFrames,
-          totalFrames: playerStats.decodedFrames,
+          totalFrames: playerStats.decodedFrames
         }
       }
 
@@ -1759,7 +1571,7 @@ export default defineComponent({
         filename = await store.dispatch('parseScreenshotCustomFileName', {
           date: new Date(),
           playerTime: video_.currentTime,
-          videoId: props.videoId,
+          videoId: props.videoId
         })
       } catch (err) {
         console.error(`Parse failed: ${err.message}`)
@@ -1777,9 +1589,7 @@ export default defineComponent({
 
       try {
         /** @type {Blob} */
-        const blob = await new Promise((resolve) =>
-          canvas.toBlob(resolve, mimeType, imageQuality),
-        )
+        const blob = await new Promise((resolve) => canvas.toBlob(resolve, mimeType, imageQuality))
 
         if (!process.env.IS_ELECTRON || screenshotAskPath.value) {
           const saved = await writeFileWithPicker(
@@ -1789,7 +1599,7 @@ export default defineComponent({
             mimeType,
             `.${format}`,
             'player-screenshots',
-            'pictures',
+            'pictures'
           )
 
           if (saved) {
@@ -1800,11 +1610,7 @@ export default defineComponent({
 
           const { ipcRenderer } = require('electron')
 
-          await ipcRenderer.invoke(
-            IpcChannels.WRITE_SCREENSHOT,
-            filenameWithExtension,
-            arrayBuffer,
-          )
+          await ipcRenderer.invoke(IpcChannels.WRITE_SCREENSHOT, filenameWithExtension, arrayBuffer)
 
           showToast(t('Screenshot Success'))
         }
@@ -1814,10 +1620,7 @@ export default defineComponent({
       } finally {
         canvas.remove()
 
-        if (
-          (!process.env.IS_ELECTRON || screenshotAskPath.value) &&
-          wasPlaying
-        ) {
+        if ((!process.env.IS_ELECTRON || screenshotAskPath.value) && wasPlaying) {
           video_.play()
         }
       }
@@ -1827,11 +1630,7 @@ export default defineComponent({
 
     // #region custom player controls
 
-    const {
-      ContextMenu: shakaContextMenu,
-      Controls: shakaControls,
-      OverflowMenu: shakaOverflowMenu,
-    } = shaka.ui
+    const { ContextMenu: shakaContextMenu, Controls: shakaControls, OverflowMenu: shakaOverflowMenu } = shaka.ui
 
     function registerAudioTrackSelection() {
       /** @implements {shaka.extern.IUIElement.Factory} */
@@ -1841,14 +1640,8 @@ export default defineComponent({
         }
       }
 
-      shakaControls.registerElement(
-        'ft_audio_tracks',
-        new AudioTrackSelectionFactory(),
-      )
-      shakaOverflowMenu.registerElement(
-        'ft_audio_tracks',
-        new AudioTrackSelectionFactory(),
-      )
+      shakaControls.registerElement('ft_audio_tracks', new AudioTrackSelectionFactory())
+      shakaOverflowMenu.registerElement('ft_audio_tracks', new AudioTrackSelectionFactory())
     }
 
     function registerAutoplayToggle() {
@@ -1861,23 +1654,12 @@ export default defineComponent({
        */
       class AutoplayToggleFactory {
         create(rootElement, controls) {
-          return new AutoplayToggle(
-            props.autoplayEnabled,
-            events,
-            rootElement,
-            controls,
-          )
+          return new AutoplayToggle(props.autoplayEnabled, events, rootElement, controls)
         }
       }
 
-      shakaControls.registerElement(
-        'ft_autoplay_toggle',
-        new AutoplayToggleFactory(),
-      )
-      shakaOverflowMenu.registerElement(
-        'ft_autoplay_toggle',
-        new AutoplayToggleFactory(),
-      )
+      shakaControls.registerElement('ft_autoplay_toggle', new AutoplayToggleFactory())
+      shakaOverflowMenu.registerElement('ft_autoplay_toggle', new AutoplayToggleFactory())
     }
 
     function registerTheatreModeButton() {
@@ -1890,48 +1672,34 @@ export default defineComponent({
        */
       class TheatreModeButtonFactory {
         create(rootElement, controls) {
-          return new TheatreModeButton(
-            props.useTheatreMode,
-            events,
-            rootElement,
-            controls,
-          )
+          return new TheatreModeButton(props.useTheatreMode, events, rootElement, controls)
         }
       }
 
-      shakaControls.registerElement(
-        'ft_theatre_mode',
-        new TheatreModeButtonFactory(),
-      )
-      shakaOverflowMenu.registerElement(
-        'ft_theatre_mode',
-        new TheatreModeButtonFactory(),
-      )
+      shakaControls.registerElement('ft_theatre_mode', new TheatreModeButtonFactory())
+      shakaOverflowMenu.registerElement('ft_theatre_mode', new TheatreModeButtonFactory())
     }
 
     function registerFullWindowButton() {
-      events.addEventListener(
-        'setFullWindow',
-        (/** @type {CustomEvent} */ event) => {
-          if (event.detail) {
-            window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
-          }
+      events.addEventListener('setFullWindow', (/** @type {CustomEvent} */ event) => {
+        if (event.detail) {
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+        }
 
-          fullWindowEnabled.value = event.detail
+        fullWindowEnabled.value = event.detail
 
-          if (fullWindowEnabled.value) {
-            document.body.classList.add('playerFullWindow')
-          } else {
-            document.body.classList.remove('playerFullWindow')
-          }
-        },
-      )
+        if (fullWindowEnabled.value) {
+          document.body.classList.add('playerFullWindow')
+        } else {
+          document.body.classList.remove('playerFullWindow')
+        }
+      })
 
       if (startInFullwindow) {
         events.dispatchEvent(
           new CustomEvent('setFullWindow', {
-            detail: true,
-          }),
+            detail: true
+          })
         )
       }
 
@@ -1940,96 +1708,58 @@ export default defineComponent({
        */
       class FullWindowButtonFactory {
         create(rootElement, controls) {
-          return new FullWindowButton(
-            fullWindowEnabled.value,
-            events,
-            rootElement,
-            controls,
-          )
+          return new FullWindowButton(fullWindowEnabled.value, events, rootElement, controls)
         }
       }
 
-      shakaControls.registerElement(
-        'ft_full_window',
-        new FullWindowButtonFactory(),
-      )
-      shakaOverflowMenu.registerElement(
-        'ft_full_window',
-        new FullWindowButtonFactory(),
-      )
+      shakaControls.registerElement('ft_full_window', new FullWindowButtonFactory())
+      shakaOverflowMenu.registerElement('ft_full_window', new FullWindowButtonFactory())
     }
 
     function registerLegacyQualitySelection() {
-      events.addEventListener(
-        'setLegacyFormat',
-        async (/** @type {CustomEvent} */ event) => {
-          const {
-            format,
-            playbackPosition,
-            restoreCaptionIndex: restoreCaptionIndex_ = null,
-          } = event.detail
+      events.addEventListener('setLegacyFormat', async (/** @type {CustomEvent} */ event) => {
+        const { format, playbackPosition, restoreCaptionIndex: restoreCaptionIndex_ = null } = event.detail
 
-          if (restoreCaptionIndex_ !== null) {
-            restoreCaptionIndex = restoreCaptionIndex_
-          }
+        if (restoreCaptionIndex_ !== null) {
+          restoreCaptionIndex = restoreCaptionIndex_
+        }
 
-          activeLegacyFormat.value = event.detail.format
-          try {
-            await player.load(format.url, playbackPosition, format.mimeType)
-          } catch (error) {
-            handleError(error, 'setLegacyFormat', event.detail)
-          }
-        },
-      )
+        activeLegacyFormat.value = event.detail.format
+        try {
+          await player.load(format.url, playbackPosition, format.mimeType)
+        } catch (error) {
+          handleError(error, 'setLegacyFormat', event.detail)
+        }
+      })
 
       /**
        * @implements {shaka.extern.IUIElement.Factory}
        */
       class LegacyQualitySelectionFactory {
         create(rootElement, controls) {
-          return new LegacyQualitySelection(
-            activeLegacyFormat.value,
-            props.legacyFormats,
-            events,
-            rootElement,
-            controls,
-          )
+          return new LegacyQualitySelection(activeLegacyFormat.value, props.legacyFormats, events, rootElement, controls)
         }
       }
 
-      shakaControls.registerElement(
-        'ft_legacy_quality',
-        new LegacyQualitySelectionFactory(),
-      )
-      shakaOverflowMenu.registerElement(
-        'ft_legacy_quality',
-        new LegacyQualitySelectionFactory(),
-      )
+      shakaControls.registerElement('ft_legacy_quality', new LegacyQualitySelectionFactory())
+      shakaOverflowMenu.registerElement('ft_legacy_quality', new LegacyQualitySelectionFactory())
     }
 
     function registerStatsButton() {
-      events.addEventListener(
-        'setStatsVisibility',
-        (/** @type {CustomEvent} */ event) => {
-          showStats.value = event.detail
+      events.addEventListener('setStatsVisibility', (/** @type {CustomEvent} */ event) => {
+        showStats.value = event.detail
 
-          if (showStats.value) {
-            gatherInitialStatsValues()
-          }
-        },
-      )
+        if (showStats.value) {
+          gatherInitialStatsValues()
+        }
+      })
 
       /**
        * @implements {shaka.extern.IUIElement.Factory}
        */
       class StatsButtonFactory {
         create(rootElement, controls) {
-          return new StatsButton(
-            showStats.value,
-            events,
-            rootElement,
-            controls,
-          )
+          return new StatsButton(showStats.value, events, rootElement, controls)
         }
       }
 
@@ -2050,14 +1780,8 @@ export default defineComponent({
         }
       }
 
-      shakaControls.registerElement(
-        'ft_screenshot',
-        new ScreenshotButtonFactory(),
-      )
-      shakaOverflowMenu.registerElement(
-        'ft_screenshot',
-        new ScreenshotButtonFactory(),
-      )
+      shakaControls.registerElement('ft_screenshot', new ScreenshotButtonFactory())
+      shakaOverflowMenu.registerElement('ft_screenshot', new ScreenshotButtonFactory())
     }
 
     /**
@@ -2108,9 +1832,7 @@ export default defineComponent({
         volumeBar.value = newValue
       }
 
-      volumeBar.dispatchEvent(
-        new Event('input', { bubbles: true, cancelable: true }),
-      )
+      volumeBar.dispatchEvent(new Event('input', { bubbles: true, cancelable: true }))
 
       let messageIcon
       if (newValue <= 0) {
@@ -2133,10 +1855,7 @@ export default defineComponent({
 
       // The following error is thrown if you go below 0.07:
       // The provided playback rate (0.05) is not in the supported playback range.
-      if (
-        newPlaybackRate > 0.07 &&
-        newPlaybackRate <= maxVideoPlaybackRate.value
-      ) {
+      if (newPlaybackRate > 0.07 && newPlaybackRate <= maxVideoPlaybackRate.value) {
         video_.playbackRate = newPlaybackRate
         video_.defaultPlaybackRate = newPlaybackRate
 
@@ -2213,15 +1932,9 @@ export default defineComponent({
         event.preventDefault()
 
         if (event.deltaY < 0 || event.deltaX > 0) {
-          seekBySeconds(
-            defaultSkipInterval.value * video.value.playbackRate,
-            true,
-          )
+          seekBySeconds(defaultSkipInterval.value * video.value.playbackRate, true)
         } else if (event.deltaY > 0 || event.deltaX < 0) {
-          seekBySeconds(
-            -defaultSkipInterval.value * video.value.playbackRate,
-            true,
-          )
+          seekBySeconds(-defaultSkipInterval.value * video.value.playbackRate, true)
         }
       }
     }
@@ -2267,11 +1980,8 @@ export default defineComponent({
       const currentChapter = props.currentChapterIndex
       return (
         props.chapters.length > 0 &&
-        (direction === 'previous'
-          ? currentChapter > 0
-          : props.chapters.length - 1 !== currentChapter) &&
-        ((process.platform !== 'darwin' && event.ctrlKey) ||
-          (process.platform === 'darwin' && event.metaKey))
+        (direction === 'previous' ? currentChapter > 0 : props.chapters.length - 1 !== currentChapter) &&
+        ((process.platform !== 'darwin' && event.ctrlKey) || (process.platform === 'darwin' && event.metaKey))
       )
     }
 
@@ -2307,8 +2017,7 @@ export default defineComponent({
         // If vim keys are enabled, ctrl is not held down, and the key is not f, j, or k.
         (vimEnabled && !event.ctrlKey && ['f', 'j', 'k'].includes(event.key)) || // OR
         // The waypoints are already on the screen
-        (store.getters.getAreVimWaypointsShown.length &&
-          store.getters.getAreVimWaypointsShown.selector[0] === 'f')
+        (store.getters.getAreVimWaypointsShown.length && store.getters.getAreVimWaypointsShown.selector[0] === 'f')
       if (passToVim) {
         return
       }
@@ -2316,10 +2025,7 @@ export default defineComponent({
         return
       }
 
-      if (
-        document.activeElement.classList.contains('ft-input') ||
-        event.altKey
-      ) {
+      if (document.activeElement.classList.contains('ft-input') || event.altKey) {
         return
       }
 
@@ -2334,8 +2040,8 @@ export default defineComponent({
         if (fullWindowEnabled.value) {
           events.dispatchEvent(
             new CustomEvent('setFullWindow', {
-              detail: !fullWindowEnabled.value,
-            }),
+              detail: !fullWindowEnabled.value
+            })
           )
         }
 
@@ -2343,11 +2049,7 @@ export default defineComponent({
       }
 
       // allow chapter jump keyboard shortcuts
-      if (
-        event.ctrlKey &&
-        (process.platform === 'darwin' ||
-          (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight'))
-      ) {
+      if (event.ctrlKey && (process.platform === 'darwin' || (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight'))) {
         return
       }
 
@@ -2361,9 +2063,7 @@ export default defineComponent({
       switch (event.key.toLowerCase()) {
         case ' ':
         case 'spacebar': // older browsers might return spacebar instead of a space character
-        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK[
-          vimEnabled ? 'VIM_ENABLED_PLAY' : 'PLAY'
-        ]:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK[vimEnabled ? 'VIM_ENABLED_PLAY' : 'PLAY']:
           // Toggle Play/Pause
           event.preventDefault()
           video_.paused ? video_.play() : video_.pause()
@@ -2388,9 +2088,7 @@ export default defineComponent({
           event.preventDefault()
           changePlayBackRate(videoPlaybackRateInterval.value)
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL[
-          vimEnabled ? 'VIM_ENABLED_FULLSCREEN' : 'FULLSCREEN'
-        ]:
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL[vimEnabled ? 'VIM_ENABLED_FULLSCREEN' : 'FULLSCREEN']:
           // Toggle full screen
           event.preventDefault()
           ui.getControls().toggleFullScreen()
@@ -2403,9 +2101,7 @@ export default defineComponent({
             video_.muted = isMuted
 
             const messageIcon = isMuted ? 'volume-mute' : 'volume-high'
-            const message = isMuted
-              ? '0%'
-              : `${Math.round(video_.volume * 100)}%`
+            const message = isMuted ? '0%' : `${Math.round(video_.volume * 100)}%`
             showValueChange(message, messageIcon)
           }
           break
@@ -2432,8 +2128,7 @@ export default defineComponent({
           event.preventDefault()
           if (canChapterJump(event, 'previous')) {
             // Jump to the previous chapter
-            video_.currentTime =
-              props.chapters[props.currentChapterIndex - 1].startSeconds
+            video_.currentTime = props.chapters[props.currentChapterIndex - 1].startSeconds
           } else {
             // Rewind by the time-skip interval (in seconds)
             seekBySeconds(-defaultSkipInterval.value * video_.playbackRate)
@@ -2443,8 +2138,7 @@ export default defineComponent({
           event.preventDefault()
           if (canChapterJump(event, 'next')) {
             // Jump to the next chapter
-            video_.currentTime =
-              props.chapters[props.currentChapterIndex + 1].startSeconds
+            video_.currentTime = props.chapters[props.currentChapterIndex + 1].startSeconds
           } else {
             // Fast-Forward by the time-skip interval (in seconds)
             seekBySeconds(defaultSkipInterval.value * video_.playbackRate)
@@ -2502,8 +2196,8 @@ export default defineComponent({
 
           events.dispatchEvent(
             new CustomEvent('setStatsVisibility', {
-              detail: !showStats.value,
-            }),
+              detail: !showStats.value
+            })
           )
           break
         case 'escape':
@@ -2513,8 +2207,8 @@ export default defineComponent({
 
             events.dispatchEvent(
               new CustomEvent('setFullWindow', {
-                detail: false,
-              }),
+                detail: false
+              })
             )
           }
           break
@@ -2523,8 +2217,8 @@ export default defineComponent({
           event.preventDefault()
           events.dispatchEvent(
             new CustomEvent('setFullWindow', {
-              detail: !fullWindowEnabled.value,
-            }),
+              detail: !fullWindowEnabled.value
+            })
           )
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.THEATRE_MODE:
@@ -2534,8 +2228,8 @@ export default defineComponent({
 
             events.dispatchEvent(
               new CustomEvent('toggleTheatreMode', {
-                detail: !props.useTheatreMode,
-              }),
+                detail: !props.useTheatreMode
+              })
             )
           }
           break
@@ -2561,10 +2255,7 @@ export default defineComponent({
     function handleError(error, context, details) {
       // These two errors are just wrappers around another error, so use the original error instead
       // As they can be nested (e.g. multiple googlevideo redirects because the Invidious server was far away from the user) we should pick the inner most one
-      while (
-        error.code === shaka.util.Error.Code.REQUEST_FILTER_ERROR ||
-        error.code === shaka.util.Error.Code.RESPONSE_FILTER_ERROR
-      ) {
+      while (error.code === shaka.util.Error.Code.REQUEST_FILTER_ERROR || error.code === shaka.util.Error.Code.RESPONSE_FILTER_ERROR) {
         error = error.data[0]
       }
 
@@ -2602,7 +2293,7 @@ export default defineComponent({
           markerDiv.style.left = `${(segment.startTime / duration) * 100}%`
 
           return markerDiv
-        }),
+        })
       )
     }
 
@@ -2630,7 +2321,7 @@ export default defineComponent({
           markerDiv.style.left = `calc(${(chapter.startSeconds / duration) * 100}% - 1px)`
 
           return markerDiv
-        }),
+        })
       )
     }
 
@@ -2638,15 +2329,9 @@ export default defineComponent({
      * @param {HTMLDivElement[]} markers
      */
     function addMarkers(markers) {
-      const seekBarContainer = container.value.querySelector(
-        '.shaka-seek-bar-container',
-      )
+      const seekBarContainer = container.value.querySelector('.shaka-seek-bar-container')
 
-      if (
-        seekBarContainer.firstElementChild?.classList.contains(
-          'markerContainer',
-        )
-      ) {
+      if (seekBarContainer.firstElementChild?.classList.contains('markerContainer')) {
         /** @type {HTMLDivElement} */
         const markerBar = seekBarContainer.firstElementChild
 
@@ -2657,10 +2342,7 @@ export default defineComponent({
 
         markers.forEach((marker) => markerBar.appendChild(marker))
 
-        seekBarContainer.insertBefore(
-          markerBar,
-          seekBarContainer.firstElementChild,
-        )
+        seekBarContainer.insertBefore(markerBar, seekBarContainer.firstElementChild)
       }
     }
 
@@ -2713,12 +2395,7 @@ export default defineComponent({
 
       const localPlayer = new shaka.Player()
 
-      ui = new shaka.ui.Overlay(
-        localPlayer,
-        container.value,
-        videoElement,
-        vrCanvas.value,
-      )
+      ui = new shaka.ui.Overlay(localPlayer, container.value, videoElement, vrCanvas.value)
 
       // This has to be called after creating the UI, so that the player uses the UI's UITextDisplayer
       // otherwise it uses the browsers native captions which get displayed underneath the UI controls
@@ -2737,13 +2414,9 @@ export default defineComponent({
         isBuffering.value = event.buffering
       })
 
-      player.addEventListener('error', (event) =>
-        handleError(event.detail, 'shaka error handler'),
-      )
+      player.addEventListener('error', (event) => handleError(event.detail, 'shaka error handler'))
 
-      player.configure(
-        getPlayerConfig(props.format, defaultQuality.value === 'auto'),
-      )
+      player.configure(getPlayerConfig(props.format, defaultQuality.value === 'auto'))
 
       if (process.env.SUPPORTS_LOCAL_API) {
         player.getNetworkingEngine().registerRequestFilter(requestFilter)
@@ -2770,9 +2443,7 @@ export default defineComponent({
       if (ui.isMobile()) {
         useOverFlowMenu.value = true
       } else {
-        useOverFlowMenu.value =
-          container.value.getBoundingClientRect().width <=
-          USE_OVERFLOW_MENU_WIDTH_THRESHOLD
+        useOverFlowMenu.value = container.value.getBoundingClientRect().width <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
 
         resizeObserver = new ResizeObserver(resized)
         resizeObserver.observe(container.value)
@@ -2792,15 +2463,13 @@ export default defineComponent({
 
       if (props.format !== 'legacy') {
         player.addEventListener('streaming', () => {
-          hasMultipleAudioTracks.value =
-            player.getAudioLanguagesAndRoles().length > 1
+          hasMultipleAudioTracks.value = player.getAudioLanguagesAndRoles().length > 1
 
           if (props.format === 'dash') {
             const firstVariant = player.getVariantTracks()[0]
 
             // force the player aspect ratio to 16:9 to avoid overflowing the layout
-            forceAspectRatio.value =
-              firstVariant.width / firstVariant.height < 1.5
+            forceAspectRatio.value = firstVariant.width / firstVariant.height < 1.5
           }
         })
       } else {
@@ -2830,11 +2499,7 @@ export default defineComponent({
     async function performFirstLoad() {
       if (props.format === 'dash' || props.format === 'audio') {
         try {
-          await player.load(
-            props.manifestSrc,
-            props.startTime,
-            props.manifestMimeType,
-          )
+          await player.load(props.manifestSrc, props.startTime, props.manifestMimeType)
 
           if (defaultQuality.value !== 'auto') {
             if (props.format === 'dash') {
@@ -2844,26 +2509,17 @@ export default defineComponent({
 
               if (hasMultipleAudioTracks.value) {
                 // default audio track
-                variants = variants.filter((variant) =>
-                  variant.audioRoles.includes('main'),
-                )
+                variants = variants.filter((variant) => variant.audioRoles.includes('main'))
               }
 
-              const highestBandwidth = Math.max(
-                ...variants.map((variant) => variant.audioBandwidth),
-              )
-              variants = variants.filter(
-                (variant) => variant.audioBandwidth === highestBandwidth,
-              )
+              const highestBandwidth = Math.max(...variants.map((variant) => variant.audioBandwidth))
+              variants = variants.filter((variant) => variant.audioBandwidth === highestBandwidth)
 
               player.selectVariantTrack(variants[0])
             }
           }
         } catch (error) {
-          handleError(
-            error,
-            'loading dash/audio manifest and setting default quality in mounted',
-          )
+          handleError(error, 'loading dash/audio manifest and setting default quality in mounted')
         }
       } else {
         await setLegacyQuality(props.startTime)
@@ -2901,10 +2557,7 @@ export default defineComponent({
                   let text = await response.text()
 
                   // position:0% for LTR text and position:100% for RTL text
-                  text = text.replaceAll(
-                    / align:start position:(?:10)?0%$/gm,
-                    '',
-                  )
+                  text = text.replaceAll(/ align:start position:(?:10)?0%$/gm, '')
 
                   const url = `data:${caption.mimeType};charset=utf-8,${encodeURIComponent(text)}`
 
@@ -2914,7 +2567,7 @@ export default defineComponent({
                     'captions',
                     caption.mimeType,
                     undefined, // codec, only needed if the captions are inside a container (e.g. mp4)
-                    caption.label,
+                    caption.label
                   )
                 } catch (error) {
                   if (error instanceof shaka.util.Error) {
@@ -2923,7 +2576,7 @@ export default defineComponent({
                     console.error(error)
                   }
                 }
-              })(),
+              })()
             )
           } else {
             promises.push(
@@ -2934,11 +2587,9 @@ export default defineComponent({
                   'captions',
                   caption.mimeType,
                   undefined, // codec, only needed if the captions are inside a container (e.g. mp4)
-                  caption.label,
+                  caption.label
                 )
-                .catch((error) =>
-                  handleError(error, 'addTextTrackAsync', caption),
-                ),
+                .catch((error) => handleError(error, 'addTextTrackAsync', caption))
             )
           }
         } else {
@@ -2950,11 +2601,9 @@ export default defineComponent({
                 'captions',
                 caption.mimeType,
                 undefined, // codec, only needed if the captions are inside a container (e.g. mp4)
-                caption.label,
+                caption.label
               )
-              .catch((error) =>
-                handleError(error, 'addTextTrackAsync', caption),
-              ),
+              .catch((error) => handleError(error, 'addTextTrackAsync', caption))
           )
         }
       }
@@ -2965,14 +2614,7 @@ export default defineComponent({
           // If an error occurs with them, it's not critical
           player
             .addThumbnailsTrack(props.storyboardSrc, 'text/vtt')
-            .catch((error) =>
-              logShakaError(
-                error,
-                'addThumbnailsTrack',
-                props.videoId,
-                props.storyboardSrc,
-              ),
-            ),
+            .catch((error) => logShakaError(error, 'addThumbnailsTrack', props.videoId, props.storyboardSrc))
         )
       }
 
@@ -3026,9 +2668,7 @@ export default defineComponent({
 
           ignoreErrors = false
 
-          player.configure(
-            getPlayerConfig(newFormat, defaultQuality.value === 'auto'),
-          )
+          player.configure(getPlayerConfig(newFormat, defaultQuality.value === 'auto'))
 
           await performFirstLoad()
           return
@@ -3038,10 +2678,7 @@ export default defineComponent({
 
         const wasPaused = video_.paused
 
-        let useAutoQuality =
-          oldFormat === 'legacy'
-            ? defaultQuality.value === 'auto'
-            : player.getConfiguration().abr.enabled
+        let useAutoQuality = oldFormat === 'legacy' ? defaultQuality.value === 'auto' : player.getConfiguration().abr.enabled
 
         if (!wasPaused) {
           video_.pause()
@@ -3049,9 +2686,7 @@ export default defineComponent({
 
         const playbackPosition = video_.currentTime
 
-        const activeCaptionIndex = player
-          .getTextTracks()
-          .findIndex((caption) => caption.active)
+        const activeCaptionIndex = player.getTextTracks().findIndex((caption) => caption.active)
 
         if (activeCaptionIndex >= 0 && player.isTextTrackVisible()) {
           restoreCaptionIndex = activeCaptionIndex
@@ -3072,15 +2707,10 @@ export default defineComponent({
             const legacyFormat = activeLegacyFormat.value
 
             if (!useAutoQuality) {
-              dimension =
-                legacyFormat.height > legacyFormat.width
-                  ? legacyFormat.width
-                  : legacyFormat.height
+              dimension = legacyFormat.height > legacyFormat.width ? legacyFormat.width : legacyFormat.height
             }
           } else if (oldFormat !== 'legacy') {
-            const track = player
-              .getVariantTracks()
-              .find((track) => track.active)
+            const track = player.getVariantTracks().find((track) => track.active)
 
             if (typeof track.audioBandwidth === 'number') {
               audioBandwidth = track.audioBandwidth
@@ -3091,11 +2721,7 @@ export default defineComponent({
             }
           }
 
-          if (
-            oldFormat === 'audio' &&
-            newFormat === 'dash' &&
-            !useAutoQuality
-          ) {
+          if (oldFormat === 'audio' && newFormat === 'dash' && !useAutoQuality) {
             if (defaultQuality.value !== 'auto') {
               dimension = defaultQuality.value
             } else {
@@ -3113,11 +2739,7 @@ export default defineComponent({
           player.configure(getPlayerConfig(newFormat, useAutoQuality))
 
           try {
-            await player.load(
-              props.manifestSrc,
-              playbackPosition,
-              props.manifestMimeType,
-            )
+            await player.load(props.manifestSrc, playbackPosition, props.manifestMimeType)
 
             if (useAutoQuality) {
               if (label) {
@@ -3130,24 +2752,16 @@ export default defineComponent({
                 let variants = player.getVariantTracks()
 
                 if (label) {
-                  variants = variants.filter(
-                    (variant) => variant.label === label,
-                  )
+                  variants = variants.filter((variant) => variant.label === label)
                 }
 
                 let chosenVariant
 
                 if (typeof audioBandwidth === 'number') {
-                  chosenVariant = findMostSimilarAudioBandwidth(
-                    variants,
-                    audioBandwidth,
-                  )
+                  chosenVariant = findMostSimilarAudioBandwidth(variants, audioBandwidth)
                 } else {
                   chosenVariant = variants.reduce((previous, current) => {
-                    return previous === null ||
-                      current.bandwidth > previous.bandwidth
-                      ? current
-                      : previous
+                    return previous === null || current.bandwidth > previous.bandwidth ? current : previous
                   }, null)
                 }
 
@@ -3155,25 +2769,16 @@ export default defineComponent({
               }
             }
           } catch (error) {
-            handleError(
-              error,
-              'loading dash/audio manifest for format switch',
-              `${oldFormat} -> ${newFormat}`,
-            )
+            handleError(error, 'loading dash/audio manifest for format switch', `${oldFormat} -> ${newFormat}`)
           }
           activeLegacyFormat.value = null
         } else {
           let previousQuality
 
           if (oldFormat === 'dash') {
-            const previousTrack = player
-              .getVariantTracks()
-              .find((track) => track.active)
+            const previousTrack = player.getVariantTracks().find((track) => track.active)
 
-            previousQuality =
-              previousTrack.height > previousTrack.width
-                ? previousTrack.width
-                : previousTrack.height
+            previousQuality = previousTrack.height > previousTrack.width ? previousTrack.width : previousTrack.height
           }
 
           try {
@@ -3188,7 +2793,7 @@ export default defineComponent({
         if (wasPaused) {
           video_.pause()
         }
-      },
+      }
     )
 
     // #endregion setup
@@ -3215,9 +2820,7 @@ export default defineComponent({
         navigator.mediaSession.playbackState = 'none'
       }
 
-      skippedSponsorBlockSegments.value.forEach((segment) =>
-        clearTimeout(segment.timeoutId),
-      )
+      skippedSponsorBlockSegments.value.forEach((segment) => clearTimeout(segment.timeoutId))
 
       window.removeEventListener('online', onlineHandler)
       window.removeEventListener('offline', offlineHandler)
@@ -3259,7 +2862,7 @@ export default defineComponent({
       let uiState = {
         startNextVideoInFullscreen: false,
         startNextVideoInFullwindow: false,
-        startNextVideoInPip: false,
+        startNextVideoInPip: false
       }
 
       if (ui) {
@@ -3269,7 +2872,7 @@ export default defineComponent({
           uiState = {
             startNextVideoInFullscreen: controls.isFullScreenEnabled(),
             startNextVideoInFullwindow: fullWindowEnabled.value,
-            startNextVideoInPip: controls.isPiPEnabled(),
+            startNextVideoInPip: controls.isPiPEnabled()
           }
         }
 
@@ -3302,7 +2905,7 @@ export default defineComponent({
       pause,
       getCurrentTime,
       setCurrentTime,
-      destroyPlayer,
+      destroyPlayer
     })
 
     // #endregion functions used by the watch page
@@ -3353,7 +2956,7 @@ export default defineComponent({
 
       valueChangeMessage,
       valueChangeIcon,
-      showValueChangePopup,
+      showValueChangePopup
     }
-  },
+  }
 })
