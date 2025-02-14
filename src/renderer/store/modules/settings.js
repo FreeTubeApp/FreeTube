@@ -225,6 +225,7 @@ const state = {
   onlyShowLatestFromChannel: false,
   onlyShowLatestFromChannelNumber: 1,
   openDeepLinksInNewWindow: false,
+  enableVimNavigation: false,
   playNextVideo: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',

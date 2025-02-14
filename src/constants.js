@@ -135,6 +135,7 @@ const KeyboardShortcuts = {
   APP: {
     GENERAL: {
       SHOW_SHORTCUTS: 'shift+?',
+      SHOW_VIM_WAYPOINTS: 'f',
       HISTORY_BACKWARD: 'alt+arrowleft',
       HISTORY_FORWARD: 'alt+arrowright',
       HISTORY_BACKWARD_ALT_MAC: 'cmd+[',
@@ -166,6 +167,7 @@ const KeyboardShortcuts = {
       CAPTIONS: 'c',
       THEATRE_MODE: 't',
       FULLSCREEN: 'f',
+      VIM_ENABLED_FULLSCREEN: 'f10',
       FULLWINDOW: 's',
       PICTURE_IN_PICTURE: 'i',
       MUTE: 'm',
@@ -176,7 +178,9 @@ const KeyboardShortcuts = {
     },
     PLAYBACK: {
       PLAY: 'k',
+      VIM_ENABLED_PLAY: 't',
       LARGE_REWIND: 'j',
+      VIM_ENABLED_LARGE_REWIND: 'h',
       LARGE_FAST_FORWARD: 'l',
       SMALL_REWIND: 'arrowleft',
       SMALL_FAST_FORWARD: 'arrowright',
