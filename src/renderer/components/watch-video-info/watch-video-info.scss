@@ -66,26 +66,33 @@
 
   .videoOptions {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
     gap: 4px;
 
-    @media screen and (width <= 680px) {
+    @media screen and (width <= 380px) {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-block-start: 10px;
+    }
+  }
+
+  .videoOptionsMobileRow {
+    display: flex;
+    gap: 4px;
+
+    @media screen and (width <= 730px) {
       :deep(.iconDropdown) {
         inset-inline: auto calc(50% - 20px);
       }
     }
 
     @media screen and (width <= 460px) {
-      flex-wrap: nowrap;
-
       :deep(.iconDropdown) {
         inset-inline: auto;
       }
     }
   }
 
-  @media screen and (width <= 460px) {
+  @media screen and (width <= 730px) {
     flex-direction: column;
     align-items: flex-start;
     margin-block-start: 10px;

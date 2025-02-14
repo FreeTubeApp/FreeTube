@@ -85,60 +85,70 @@
         </div>
       </div>
       <div class="videoOptions">
-        <ft-icon-button
-          v-if="showPlaylists && !isUpcoming"
-          :title="$t('User Playlists.Add to Playlist')"
-          :icon="['fas', 'plus']"
-          class="option"
-          theme="base"
-          @click="togglePlaylistPrompt"
-        />
-        <ft-icon-button
-          v-if="isQuickBookmarkEnabled"
-          :title="quickBookmarkIconText"
-          :icon="isInQuickBookmarkPlaylist ? ['fas', 'check'] : ['fas', 'bookmark']"
-          class="quickBookmarkVideoIcon"
-          :class="{
-            bookmarked: isInQuickBookmarkPlaylist,
-          }"
-          :theme="quickBookmarkIconTheme"
-          @click="toggleQuickBookmarked"
-        />
-        <ft-icon-button
-          v-if="externalPlayer !== ''"
-          :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
-          :icon="['fas', 'external-link-alt']"
-          class="option"
-          theme="secondary"
-          @click="handleExternalPlayer"
-        />
-        <ft-icon-button
-          v-if="!isUpcoming && downloadLinks.length > 0"
-          ref="downloadButton"
-          :title="$t('Video.Download Video')"
-          class="option"
-          theme="secondary"
-          :icon="['fas', 'download']"
-          :return-index="true"
-          :dropdown-options="downloadLinkOptions"
-          @click="handleDownload"
-        />
-        <ft-icon-button
-          v-if="!isUpcoming"
-          :title="$t('Change Format.Change Media Formats')"
-          class="option"
-          theme="secondary"
-          :icon="['fas', 'file-video']"
-          :dropdown-options="formatTypeOptions"
-          @click="changeFormat($event)"
-        />
-        <ft-share-button
-          v-if="!hideSharingActions"
-          :id="id"
-          :get-timestamp="getTimestamp"
-          :playlist-id="playlistId"
-          class="option"
-        />
+        <span class="videoOptionsMobileRow">
+          <ft-icon-button
+            v-if="showPlaylists && !isUpcoming"
+            :title="$t('User Playlists.Add to Playlist')"
+            :icon="['fas', 'plus']"
+            class="option"
+            theme="base"
+            @click="togglePlaylistPrompt"
+          />
+          <ft-icon-button
+            v-if="isQuickBookmarkEnabled"
+            :title="quickBookmarkIconText"
+            :icon="isInQuickBookmarkPlaylist ? ['fas', 'check'] : ['fas', 'bookmark']"
+            class="quickBookmarkVideoIcon"
+            :class="{
+              bookmarked: isInQuickBookmarkPlaylist,
+            }"
+            :theme="quickBookmarkIconTheme"
+            @click="toggleQuickBookmarked"
+          />
+          <ft-icon-button
+            v-if="watchedProgressSavingInSemiAutoMode"
+            :title="$t('Video.Save Watched Progress')"
+            :icon="['fas', 'bars-progress']"
+            @click="saveWatchedProgressManually"
+          />
+        </span>
+        <span class="videoOptionsMobileRow">
+          <ft-icon-button
+            v-if="externalPlayer !== ''"
+            :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
+            :icon="['fas', 'external-link-alt']"
+            class="option"
+            theme="secondary"
+            @click="handleExternalPlayer"
+          />
+          <ft-icon-button
+            v-if="!isUpcoming && downloadLinks.length > 0"
+            ref="downloadButton"
+            :title="$t('Video.Download Video')"
+            class="option"
+            theme="secondary"
+            :icon="['fas', 'download']"
+            :return-index="true"
+            :dropdown-options="downloadLinkOptions"
+            @click="handleDownload"
+          />
+          <ft-icon-button
+            v-if="!isUpcoming"
+            :title="$t('Change Format.Change Media Formats')"
+            class="option"
+            theme="secondary"
+            :icon="['fas', 'file-video']"
+            :dropdown-options="formatTypeOptions"
+            @click="changeFormat($event)"
+          />
+          <ft-share-button
+            v-if="!hideSharingActions"
+            :id="id"
+            :get-timestamp="getTimestamp"
+            :playlist-id="playlistId"
+            class="option"
+          />
+        </span>
       </div>
     </div>
   </ft-card>
