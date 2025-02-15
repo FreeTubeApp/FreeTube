@@ -270,6 +270,7 @@ export async function getLocalVideoInfo(id) {
   }
 
   if (info.streaming_data) {
+    sortStreams(info.streaming_data)
     decipherFormats(info.streaming_data.formats, webInnertube.session.player)
     decipherFormats(info.streaming_data.adaptive_formats, webInnertube.session.player)
 
@@ -287,6 +288,16 @@ export async function getLocalVideoInfo(id) {
   }
 
   return info
+}
+
+/**
+ * Sort the video's streams so that higher bitrate streams appear first.
+ * Workaround to make the player always select high-quality audio.
+ * @param {import('youtubei.js').APIResponseTypes.IStreamingData} data
+ */
+function sortStreams(data) {
+  data.formats.sort((a, b) => b.bitrate - a.bitrate)
+  data.adaptive_formats.sort((a, b) => b.bitrate - a.bitrate)
 }
 
 /**
