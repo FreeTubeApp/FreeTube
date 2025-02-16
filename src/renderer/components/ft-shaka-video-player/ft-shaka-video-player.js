@@ -742,7 +742,7 @@ export default defineComponent({
       for (const period of periods) {
         period.children
           ?.filter(child => typeof child !== 'string' && child.tagName === 'AdaptationSet' &&
-            (child.attributes.contentType === 'audio' || child.attributes.mimeType.split('/')[0] === 'audio'))
+            (child.attributes.contentType === 'audio' || child.attributes.mimeType.startsWith('audio/'))
           .forEach(adaptationSet => {
             adaptationSet.children.sort((a, b) => {
               if (a.tagName === 'AudioChannelConfiguration' && b.tagName !== 'AudioChannelConfiguration') {
