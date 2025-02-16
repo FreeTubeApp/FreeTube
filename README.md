@@ -24,7 +24,7 @@ Available for Windows (10 and later), Mac (macOS 11 and later) & Linux thanks to
 > [!NOTE] 
 > FreeTube is currently in Beta. While it should work well for most users, there are still bugs and missing features that need to be addressed.
 >
-> If you have an idea or if you found a bug, please submit a [GitHub issue](https://github.com/FreeTubeApp/FreeTube/issues/new/choose) so that we can track it.  Please search [the existing issues](https://github.com/FreeTubeApp/FreeTube/issues) before submitting to prevent duplicates!
+> If you have an idea or if you found a bug, please submit a [GitHub issue](https://github.com/FreeTubeApp/FreeTube/issues/new/choose) so that we can track it.  Please [search the existing issues](https://github.com/FreeTubeApp/FreeTube/issues?q=is%3Aissue+sort%3Arelevance-desc) before submitting to prevent duplicates!
 
 ## Screenshots
 <img src="https://i.imgur.com/zFgZUUV.png" width=300> <img src="https://i.imgur.com/9evYHgN.png" width=300> <img src="https://i.imgur.com/yT2UzPa.png" width=300> <img src="https://i.imgur.com/47zIEt4.png" width=300> <img src="https://i.imgur.com/hFB2fKC.png" width=300>
