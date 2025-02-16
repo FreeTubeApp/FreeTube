@@ -53,76 +53,82 @@ const IpcChannels = {
 }
 
 const DBActions = {
+  // The constants in the GENERAL group are usally intermingeled with the ones in other groups, so they need unique values.
+  // The other groups however are usually not mixed (e.g. HISTORY and PROFILES),
+  // so they can have similar values (as long as they don't overlap with the GENERAL group).
   GENERAL: {
-    CREATE: 'db-action-create',
-    FIND: 'db-action-find',
-    UPSERT: 'db-action-upsert',
-    DELETE: 'db-action-delete',
-    DELETE_MULTIPLE: 'db-action-delete-multiple',
-    DELETE_ALL: 'db-action-delete-all'
+    CREATE: 0,
+    FIND: 1,
+    UPSERT: 2,
+    DELETE: 3,
+    DELETE_MULTIPLE: 4,
+    DELETE_ALL: 5
   },
 
   HISTORY: {
-    OVERWRITE: 'db-action-history-overwrite',
-    UPDATE_WATCH_PROGRESS: 'db-action-history-update-watch-progress',
-    UPDATE_PLAYLIST: 'db-action-history-update-playlist',
+    OVERWRITE: 6,
+    UPDATE_WATCH_PROGRESS: 7,
+    UPDATE_PLAYLIST: 8,
   },
 
   PROFILES: {
-    ADD_CHANNEL: 'db-action-profiles-add-channel',
-    REMOVE_CHANNEL: 'db-action-profiles-remove-channel'
+    ADD_CHANNEL: 6,
+    REMOVE_CHANNEL: 7
   },
 
   PLAYLISTS: {
-    UPSERT_VIDEO: 'db-action-playlists-upsert-video-by-playlist-name',
-    UPSERT_VIDEOS: 'db-action-playlists-upsert-videos-by-playlist-name',
-    DELETE_VIDEO_ID: 'db-action-playlists-delete-video-by-playlist-name',
-    DELETE_VIDEO_IDS: 'db-action-playlists-delete-video-ids',
-    DELETE_ALL_VIDEOS: 'db-action-playlists-delete-all-videos',
+    UPSERT_VIDEO: 6,
+    UPSERT_VIDEOS: 7,
+    DELETE_VIDEO_ID: 8,
+    DELETE_VIDEO_IDS: 9,
+    DELETE_ALL_VIDEOS: 10,
   },
 
   SUBSCRIPTION_CACHE: {
-    UPDATE_VIDEOS_BY_CHANNEL: 'db-action-subscriptions-update-videos-by-channel',
-    UPDATE_LIVE_STREAMS_BY_CHANNEL: 'db-action-subscriptions-update-live-streams-by-channel',
-    UPDATE_SHORTS_BY_CHANNEL: 'db-action-subscriptions-update-shorts-by-channel',
-    UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL: 'db-action-subscriptions-update-shorts-with-channel-page-shorts-by-channel',
-    UPDATE_COMMUNITY_POSTS_BY_CHANNEL: 'db-action-subscriptions-update-community-posts-by-channel',
+    UPDATE_VIDEOS_BY_CHANNEL: 6,
+    UPDATE_LIVE_STREAMS_BY_CHANNEL: 7,
+    UPDATE_SHORTS_BY_CHANNEL: 8,
+    UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL: 8,
+    UPDATE_COMMUNITY_POSTS_BY_CHANNEL: 9,
   },
 }
 
 const SyncEvents = {
+  // The constants in the GENERAL group are usally intermingeled with the ones in other groups, so they need unique values.
+  // The other groups however are usually not mixed (e.g. HISTORY and PROFILES),
+  // so they can have similar values (as long as they don't overlap with the GENERAL group).
   GENERAL: {
-    CREATE: 'sync-create',
-    UPSERT: 'sync-upsert',
-    DELETE: 'sync-delete',
-    DELETE_MULTIPLE: 'sync-delete-multiple',
-    DELETE_ALL: 'sync-delete-all'
+    CREATE: 0,
+    UPSERT: 1,
+    DELETE: 2,
+    DELETE_MULTIPLE: 3,
+    DELETE_ALL: 4
   },
 
   HISTORY: {
-    OVERWRITE: 'sync-history-overwrite',
-    UPDATE_WATCH_PROGRESS: 'sync-history-update-watch-progress',
-    UPDATE_PLAYLIST: 'sync-history-update-playlist',
+    OVERWRITE: 5,
+    UPDATE_WATCH_PROGRESS: 6,
+    UPDATE_PLAYLIST: 7,
   },
 
   PROFILES: {
-    ADD_CHANNEL: 'sync-profiles-add-channel',
-    REMOVE_CHANNEL: 'sync-profiles-remove-channel'
+    ADD_CHANNEL: 5,
+    REMOVE_CHANNEL: 6
   },
 
   PLAYLISTS: {
-    UPSERT_VIDEO: 'sync-playlists-upsert-video',
-    UPSERT_VIDEOS: 'sync-playlists-upsert-videos',
-    DELETE_VIDEO: 'sync-playlists-delete-video',
-    DELETE_VIDEOS: 'sync-playlists-delete-videos',
+    UPSERT_VIDEO: 5,
+    UPSERT_VIDEOS: 6,
+    DELETE_VIDEO: 7,
+    DELETE_VIDEOS: 8,
   },
 
   SUBSCRIPTION_CACHE: {
-    UPDATE_VIDEOS_BY_CHANNEL: 'sync-subscriptions-update-videos-by-channel',
-    UPDATE_LIVE_STREAMS_BY_CHANNEL: 'sync-subscriptions-update-live-streams-by-channel',
-    UPDATE_SHORTS_BY_CHANNEL: 'sync-subscriptions-update-shorts-by-channel',
-    UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL: 'sync-subscriptions-update-shorts-with-channel-page-shorts-by-channel',
-    UPDATE_COMMUNITY_POSTS_BY_CHANNEL: 'sync-subscriptions-update-community-posts-by-channel',
+    UPDATE_VIDEOS_BY_CHANNEL: 5,
+    UPDATE_LIVE_STREAMS_BY_CHANNEL: 6,
+    UPDATE_SHORTS_BY_CHANNEL: 7,
+    UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL: 8,
+    UPDATE_COMMUNITY_POSTS_BY_CHANNEL: 9,
   },
 }
 
