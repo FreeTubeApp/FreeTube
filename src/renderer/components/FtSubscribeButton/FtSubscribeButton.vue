@@ -2,17 +2,19 @@
   <div
     ref="subscribeButton"
     class="ftSubscribeButton"
-    :class="{ dropdownOpened: isProfileDropdownOpen}"
     @focusout="handleProfileDropdownFocusOut"
   >
     <div
       class="buttonList"
-      :class="{ hasProfileDropdownToggle: isProfileDropdownEnabled}"
     >
       <FtButton
         :label="subscribedText"
         :no-border="true"
         class="subscribeButton"
+        :class="{
+          hasProfileDropdownToggle: isProfileDropdownEnabled,
+          dropdownOpened: isProfileDropdownOpen
+        }"
         background-color="var(--primary-color)"
         text-color="var(--text-with-main-color)"
         @click="handleSubscription(activeProfile)"
@@ -30,6 +32,7 @@
         :no-border="true"
         :title="isProfileDropdownOpen ? $t('Profile.Close Profile Dropdown') : $t('Profile.Open Profile Dropdown')"
         class="profileDropdownToggle"
+        :class="{ dropdownOpened: isProfileDropdownOpen}"
         background-color="var(--primary-color)"
         text-color="var(--text-with-main-color)"
         :aria-expanded="isProfileDropdownOpen"
@@ -311,4 +314,4 @@ function isProfileSubscribed(profile) {
 }
 </script>
 
-<style scoped lang="scss" src="./FtSubscribeButton.scss" />
+<style scoped src="./FtSubscribeButton.css" />
