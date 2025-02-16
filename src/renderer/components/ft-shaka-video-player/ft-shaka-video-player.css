@@ -44,6 +44,11 @@
   flex-direction: column-reverse;
 }
 
+/* Ensure that the thumbnail preview doesn't block clicks (e.g. click to pause) */
+:deep(#shaka-player-ui-thumbnail-container) {
+  pointer-events: none;
+}
+
 /*
   Apply the active FreeTube base theme to shaka-player's menus.
   Usually we go for classes and not element names,
