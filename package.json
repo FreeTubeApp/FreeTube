@@ -96,7 +96,7 @@
     "eslint-plugin-vue": "^9.32.0",
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
     "eslint-plugin-yml": "^1.16.0",
-    "globals": "^15.14.0",
+    "globals": "^15.15.0",
     "html-webpack-plugin": "^5.6.3",
     "js-yaml": "^4.1.0",
     "json-minimizer-webpack-plugin": "^5.0.0",
