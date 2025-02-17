@@ -1910,16 +1910,10 @@ body[class*='Red'][class*='Purple'] * {
 /*************** LEFT-TO-RIGHT AND RIGHT-TO-LEFT RULES ***************/
 
 body[dir='ltr'] {
-  --ltr-or-rtl: ltr;
-  --float-left-ltr-rtl-value: left;
-  --float-right-ltr-rtl-value: right;
   --horizontal-directionality-coefficient: 1;
 }
 
 body[dir='rtl'] {
-  --ltr-or-rtl: rtl;
-  --float-left-ltr-rtl-value: right;
-  --float-right-ltr-rtl-value: left;
   --horizontal-directionality-coefficient: -1;
 }
 
