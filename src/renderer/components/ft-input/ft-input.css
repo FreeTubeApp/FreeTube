@@ -213,7 +213,7 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
 .optionWrapper {
   display: flex;
   align-items: baseline;
-  inline-size: 85%;
+  overflow: hidden;
 }
 
 .optionWrapper span {
