@@ -59,12 +59,8 @@ class Settings {
     })
   }
 
-  static _findBounds() {
-    return db.settings.findOneAsync({ _id: 'bounds' })
-  }
-
-  static _findTheme() {
-    return db.settings.findOneAsync({ _id: 'baseTheme' })
+  static _findOne(_id) {
+    return db.settings.findOneAsync({ _id })
   }
 
   static _findSidenavSettings() {
@@ -75,10 +71,6 @@ class Settings {
       backendPreference: db.settings.findOneAsync({ _id: 'backendPreference' }),
       hidePlaylists: db.settings.findOneAsync({ _id: 'hidePlaylists' }),
     }
-  }
-
-  static _findScreenshotFolderPath() {
-    return db.settings.findOneAsync({ _id: 'screenshotFolderPath' })
   }
 
   static _updateBounds(value) {

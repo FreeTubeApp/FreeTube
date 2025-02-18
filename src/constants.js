@@ -6,7 +6,6 @@ const IpcChannels = {
   GET_SYSTEM_LOCALE: 'get-system-locale',
   GET_PICTURES_PATH: 'get-pictures-path',
   GET_NAVIGATION_HISTORY: 'get-navigation-history',
-  SHOW_OPEN_DIALOG: 'show-open-dialog',
   SHOW_SAVE_DIALOG: 'show-save-dialog',
   STOP_POWER_SAVE_BLOCKER: 'stop-power-save-blocker',
   START_POWER_SAVE_BLOCKER: 'start-power-save-blocker',
@@ -49,6 +48,7 @@ const IpcChannels = {
 
   GENERATE_PO_TOKENS: 'generate-po-tokens',
 
+  CHOOSE_DEFAULT_FOLDER: 'choose-default-folder',
   WRITE_SCREENSHOT: 'write-screenshot',
 }
 
@@ -124,6 +124,11 @@ const SyncEvents = {
     UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL: 'sync-subscriptions-update-shorts-with-channel-page-shorts-by-channel',
     UPDATE_COMMUNITY_POSTS_BY_CHANNEL: 'sync-subscriptions-update-community-posts-by-channel',
   },
+}
+
+const DefaultFolderKind = {
+  DOWNLOADS: 0,
+  SCREENSHOTS: 1
 }
 
 /*
@@ -216,6 +221,7 @@ export {
   IpcChannels,
   DBActions,
   SyncEvents,
+  DefaultFolderKind,
   KeyboardShortcuts,
   MAIN_PROFILE_ID,
   MOBILE_WIDTH_THRESHOLD,
