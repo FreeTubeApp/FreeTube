@@ -70,7 +70,6 @@ export function getFirstCharacter(text, locale) {
     return ''
   }
 
-  // Firefox only received support for Intl.Segmenter support in version 125 (2024-04-16)
   if (Intl.Segmenter) {
     const segmenter = new Intl.Segmenter([locale, 'en'], { granularity: 'grapheme' })
 
