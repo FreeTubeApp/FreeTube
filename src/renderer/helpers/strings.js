@@ -71,15 +71,11 @@ export function getFirstCharacter(text, locale) {
   }
 
   // Firefox only received support for Intl.Segmenter support in version 125 (2024-04-16)
-  // so fallback to Array.from just in case.
-  // TODO: Remove fallback in the future
   if (Intl.Segmenter) {
     const segmenter = new Intl.Segmenter([locale, 'en'], { granularity: 'grapheme' })
 
     // Use iterator directly as we only need the first segment
     const firstSegment = segmenter.segment(text)[Symbol.iterator]().next().value
     return firstSegment.segment
-  } else {
-    return Array.from(text)[0]
   }
 }
