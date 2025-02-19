@@ -8,7 +8,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
-import { IpcChannels } from '../../../constants'
+import { DefaultFolderKind, IpcChannels } from '../../../constants'
 import path from 'path'
 import { getPicturesPath } from '../../helpers/utils'
 
@@ -198,18 +198,19 @@ export default defineComponent({
         this.$t('Settings.General Settings.Thumbnail Preference.Default'),
         this.$t('Settings.Player Settings.Default Viewing Mode.Theater'),
         this.$t('Video.Player.Full Window'),
+
+        ...process.env.IS_ELECTRON
+          ? [
+              this.$t('Settings.Player Settings.Default Viewing Mode.Full Screen'),
+              this.$t('Settings.Player Settings.Default Viewing Mode.Picture in Picture')
+            ]
+          : []
       ]
 
-      if (process.env.IS_ELECTRON) {
+      if (process.env.IS_ELECTRON && this.externalPlayer !== '') {
         viewingModeNames.push(
-          this.$t('Settings.Player Settings.Default Viewing Mode.Full Screen'),
-          this.$t('Settings.Player Settings.Default Viewing Mode.Picture in Picture')
+          this.$t('Settings.Player Settings.Default Viewing Mode.External Player', { externalPlayerName: this.externalPlayer })
         )
-        if (this.externalPlayer !== '') {
-          viewingModeNames.push(
-            this.$t('Settings.Player Settings.Default Viewing Mode.External Player', { externalPlayerName: this.externalPlayer })
-          )
-        }
       }
 
       return viewingModeNames
@@ -219,15 +220,15 @@ export default defineComponent({
       const viewingModeValues = [
         'default',
         'theatre',
-        'fullwindow'
+        'fullwindow',
+
+        ...process.env.IS_ELECTRON
+          ? ['fullscreen', 'pip']
+          : []
       ]
 
-      if (process.env.IS_ELECTRON) {
-        viewingModeValues.push('fullscreen', 'pip')
-
-        if (this.externalPlayer !== '') {
-          viewingModeValues.push('external_player')
-        }
+      if (process.env.IS_ELECTRON && this.externalPlayer !== '') {
+        viewingModeValues.push('external_player')
       }
 
       return viewingModeValues
@@ -300,15 +301,7 @@ export default defineComponent({
       // only use with electron
       if (process.env.IS_ELECTRON) {
         const { ipcRenderer } = require('electron')
-        const folder = await ipcRenderer.invoke(
-          IpcChannels.SHOW_OPEN_DIALOG,
-          { properties: ['openDirectory'] }
-        )
-
-        if (!folder.canceled) {
-          await this.updateScreenshotFolderPath(folder.filePaths[0])
-          this.getScreenshotFolderPlaceholder()
-        }
+        ipcRenderer.send(IpcChannels.CHOOSE_DEFAULT_FOLDER, DefaultFolderKind.SCREENSHOTS)
       }
     },
 
@@ -364,7 +357,6 @@ export default defineComponent({
       'updateScreenshotFormat',
       'updateScreenshotQuality',
       'updateScreenshotAskPath',
-      'updateScreenshotFolderPath',
       'updateScreenshotFilenamePattern',
       'parseScreenshotCustomFileName',
     ])

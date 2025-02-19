@@ -12,6 +12,7 @@ import {
   SyncEvents,
   ABOUT_BITCOIN_ADDRESS,
   KeyboardShortcuts,
+  DefaultFolderKind,
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
@@ -643,7 +644,7 @@ function runApp() {
       searchQueryText = null
     } = { }) {
     // Syncing new window background to theme choice.
-    const windowBackground = await baseHandlers.settings._findTheme().then((setting) => {
+    const windowBackground = await baseHandlers.settings._findOne('baseTheme').then((setting) => {
       if (!setting) {
         return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
       }
@@ -745,7 +746,7 @@ function runApp() {
       height: 800
     })
 
-    const boundsDoc = await baseHandlers.settings._findBounds()
+    const boundsDoc = await baseHandlers.settings._findOne('bounds')
     if (typeof boundsDoc?.value === 'object') {
       const { maximized, fullScreen, ...bounds } = boundsDoc.value
       const windowVisible = screen.getAllDisplays().some(display => {
@@ -989,14 +990,6 @@ function runApp() {
     sender.executeJavaScript('document.querySelector("video.player").ui.getControls().togglePiP()', true)
   })
 
-  ipcMain.handle(IpcChannels.SHOW_OPEN_DIALOG, async ({ sender }, options) => {
-    const senderWindow = findSenderWindow(sender)
-    if (senderWindow) {
-      return await dialog.showOpenDialog(senderWindow, options)
-    }
-    return await dialog.showOpenDialog(options)
-  })
-
   ipcMain.handle(IpcChannels.SHOW_SAVE_DIALOG, async ({ sender }, options) => {
     const senderWindow = findSenderWindow(sender)
     if (senderWindow) {
@@ -1011,12 +1004,58 @@ function runApp() {
     })
   }
 
+  ipcMain.on(IpcChannels.CHOOSE_DEFAULT_FOLDER, async (event, kind) => {
+    if (!isFreeTubeUrl(event.senderFrame.url) || (kind !== DefaultFolderKind.DOWNLOADS && kind !== DefaultFolderKind.SCREENSHOTS)) {
+      return
+    }
+
+    const settingId = kind === DefaultFolderKind.DOWNLOADS ? 'downloadFolderPath' : 'screenshotFolderPath'
+
+    let currentPath = (await baseHandlers.settings._findOne(settingId))?.value
+
+    if (typeof currentPath !== 'string' || currentPath.length === 0) {
+      currentPath = app.getPath(kind === DefaultFolderKind.DOWNLOADS ? 'downloads' : 'pictures')
+    }
+
+    const dialogOptions = {
+      defaultPath: currentPath,
+      properties: ['openDirectory']
+    }
+
+    let result
+
+    const window = BrowserWindow.fromWebContents(event.sender)
+    if (window) {
+      result = await dialog.showOpenDialog(window, dialogOptions)
+    } else {
+      result = await dialog.showOpenDialog(dialogOptions)
+    }
+
+    if (result.canceled) {
+      return
+    }
+
+    await baseHandlers.settings.upsert(settingId, result.filePaths[0])
+
+    const syncPayload = {
+      event: SyncEvents.GENERAL.UPSERT,
+      data: {
+        _id: settingId,
+        value: result.filePaths[0]
+      }
+    }
+
+    BrowserWindow.getAllWindows().forEach((window) => {
+      window.webContents.send(IpcChannels.SYNC_SETTINGS, syncPayload)
+    })
+  })
+
   ipcMain.handle(IpcChannels.WRITE_SCREENSHOT, async (event, filename, arrayBuffer) => {
     if (!isFreeTubeUrl(event.senderFrame.url) || typeof filename !== 'string' || !(arrayBuffer instanceof ArrayBuffer)) {
       return
     }
 
-    const screenshotFolderPath = await baseHandlers.settings._findScreenshotFolderPath()
+    const screenshotFolderPath = await baseHandlers.settings._findOne('screenshotFolderPath')
 
     let directory
     if (screenshotFolderPath && screenshotFolderPath.value.length > 0) {
@@ -1172,6 +1211,12 @@ function runApp() {
           return await baseHandlers.settings.find()
 
         case DBActions.GENERAL.UPSERT:
+          // These two are only allowed to be changed by the CHOOSE_DEFAULT_FOLDER IPC action
+          // to avoid the "write to default folder" IPC calls being abused to write to arbitrary locations
+          if (data._id === 'downloadFolderPath' || data._id === 'screenshotFolderPath') {
+            return null
+          }
+
           await baseHandlers.settings.upsert(data._id, data.value)
           syncOtherWindows(
             IpcChannels.SYNC_SETTINGS,
@@ -1738,6 +1783,24 @@ function runApp() {
     const hidePlaylists = (await sidenavSettings.hidePlaylists)?.value
 
     const template = [
+      ...process.platform === 'darwin'
+        ? [
+            {
+              label: app.getName(),
+              submenu: [
+                { role: 'about' },
+                { type: 'separator' },
+                { role: 'services' },
+                { type: 'separator' },
+                { role: 'hide' },
+                { role: 'hideothers' },
+                { role: 'unhide' },
+                { type: 'separator' },
+                { role: 'quit' }
+              ]
+            }
+          ]
+        : [],
       {
         label: 'File',
         submenu: [
@@ -1945,31 +2008,15 @@ function runApp() {
           { role: 'minimize' },
           { role: 'close' }
         ]
-      }
+      },
+      ...process.platform === 'darwin'
+        ? [
+            { role: 'window' },
+            { role: 'help' },
+            { role: 'services' }
+          ]
+        : []
     ]
-
-    if (process.platform === 'darwin') {
-      template.unshift({
-        label: app.getName(),
-        submenu: [
-          { role: 'about' },
-          { type: 'separator' },
-          { role: 'services' },
-          { type: 'separator' },
-          { role: 'hide' },
-          { role: 'hideothers' },
-          { role: 'unhide' },
-          { type: 'separator' },
-          { role: 'quit' }
-        ]
-      })
-
-      template.push(
-        { role: 'window' },
-        { role: 'help' },
-        { role: 'services' }
-      )
-    }
 
     const menu = Menu.buildFromTemplate(template)
     Menu.setApplicationMenu(menu)

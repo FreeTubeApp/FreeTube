@@ -319,9 +319,9 @@ Settings:
       Nordic: Nord
       Solarized Light: Solarized Açık
       Solarized Dark: Solarized Koyu
-      Gruvbox Dark: Gruvbox Koyu
+      Gruvbox Dark: Gruvbox Dark
       Gruvbox Light: Gruvbox Aydınlık
-      Catppuccin Frappe: Catppuccin Buzlu
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -361,14 +361,14 @@ Settings:
       Catppuccin Mocha Yellow: Catppuccin Mocha Sarı
       Catppuccin Mocha Green: Catppuccin Mocha Yeşil
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavanta
-      Solarized Yellow: Solarized Sarı
-      Solarized Orange: Solarized Turuncu
-      Solarized Magenta: Solarized Eflatun
-      Solarized Violet: Solarized Menekşe
-      Solarized Red: Solarized Kırmızı
-      Solarized Blue: Solarized Mavi
-      Solarized Cyan: Solarized Camgöbeği
-      Solarized Green: Solarized Yeşil
+      Solarized Yellow: Güneş Yanığı Sarısı
+      Solarized Orange: Güneş Yanığı Turuncusu
+      Solarized Magenta: Güneş Yanığı Eflatunu
+      Solarized Violet: Güneş Yanığı Menekşesi
+      Solarized Red: Güneş Yanığı Kırmızısı
+      Solarized Blue: Güneş Yanığı Mavisi
+      Solarized Cyan: Güneş Yanığı Camgöbeği
+      Solarized Green: Güneş Yanığı Yeşili
       Gruvbox Dark Green: Gruvbox Koyu Yeşil
       Gruvbox Dark Yellow: Gruvbox Koyu Sarı
       Gruvbox Dark Aqua: Gruvbox Koyu Deniz Mavisi
@@ -377,7 +377,7 @@ Settings:
       Gruvbox Dark Orange: Gruvbox Koyu Turuncu
       Gruvbox Light Purple: Gruvbox Açık Mor
       Gruvbox Light Orange: Gruvbox Açık Turuncu
-      Gruvbox Light Red: Gruvbox Açık Kırmızı
+      Gruvbox Light Red: Gruvbox Parlak Kırmızı
       Gruvbox Light Blue: Gruvbox Açık Mavi
       Catppuccin Frappe Pink: Catppuccin Frappe Pembe
       Catppuccin Frappe Red: Catppuccin Frappe Kırmızı

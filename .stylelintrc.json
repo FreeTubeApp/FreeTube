@@ -30,6 +30,6 @@
       }
     ],
     "a11y/no-outline-none": true,
-    "liberty/use-logical-spec": ["always", { "except": ["float"] }]
+    "liberty/use-logical-spec": ["always"]
   }
 }

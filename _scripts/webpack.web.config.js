@@ -119,6 +119,7 @@ const config = {
   },
   plugins: [
     new webpack.DefinePlugin({
+      'process.platform': 'undefined',
       'process.env.IS_ELECTRON': false,
       'process.env.IS_ELECTRON_MAIN': false,
       'process.env.SUPPORTS_LOCAL_API': false,
