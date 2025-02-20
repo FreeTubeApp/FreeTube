@@ -974,7 +974,7 @@ export function parseChannelHomeTab(homeTab, channelId, channelName) {
           title: shelf.title?.text,
           content: shelf.contents.map(e => parseListItem(e.content, channelId, channelName)),
           subtitle: shelf.subtitle?.text,
-          playlistId: shelf.endpoint?.metadata.url.includes('/playlist') ? shelf.endpoint?.metadata.url.replace('/playlist?list=', '') : null
+          playlistId: shelf.endpoint?.metadata.url?.includes('/playlist') ? shelf.endpoint?.metadata.url.replace('/playlist?list=', '') : null
         })
       }
     }
