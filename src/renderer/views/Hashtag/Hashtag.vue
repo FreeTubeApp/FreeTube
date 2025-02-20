@@ -188,7 +188,7 @@ async function getLocalHashtagMore() {
     if (backendPreference.value === 'local' && backendFallback.value) {
       showToast(t('Falling back to Invidious API'))
       resetData()
-      getInvidiousHashtag(hashtag)
+      getInvidiousHashtag(hashtag.value)
     } else {
       isLoading.value = false
     }
