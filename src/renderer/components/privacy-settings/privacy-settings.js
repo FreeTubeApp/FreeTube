@@ -28,7 +28,12 @@ export default defineComponent({
       promptValues: [
         'delete',
         'cancel'
-      ]
+      ],
+      watchedProgressSavingModeValues: [
+        'auto',
+        'semi-auto',
+        'never',
+      ],
     }
   },
   computed: {
@@ -40,13 +45,6 @@ export default defineComponent({
     },
     watchedProgressSavingMode() {
       return this.$store.getters.getWatchedProgressSavingMode
-    },
-    watchedProgressSavingModeValues() {
-      return [
-        'auto',
-        'semi-auto',
-        'never',
-      ]
     },
     watchedProgressSavingModeNames() {
       return [
