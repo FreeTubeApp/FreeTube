@@ -41,11 +41,18 @@ export default defineComponent({
     watchedProgressSavingMode() {
       return this.$store.getters.getWatchedProgressSavingMode
     },
-    watchedProgressSavingModeValueNamePairs() {
+    watchedProgressSavingModeValues() {
       return [
-        ['auto', this.$t('Settings.Privacy Settings.Watched Progress Saving Mode.Modes.Auto')],
-        ['semi-auto', this.$t('Settings.Privacy Settings.Watched Progress Saving Mode.Modes.Semi-auto')],
-        ['never', this.$t('Settings.Privacy Settings.Watched Progress Saving Mode.Modes.Never')],
+        'auto',
+        'semi-auto',
+        'never',
+      ]
+    },
+    watchedProgressSavingModeNames() {
+      return [
+        this.$t('Settings.Privacy Settings.Watched Progress Saving Mode.Modes.Auto'),
+        this.$t('Settings.Privacy Settings.Watched Progress Saving Mode.Modes.Semi-auto'),
+        this.$t('Settings.Privacy Settings.Watched Progress Saving Mode.Modes.Never'),
       ]
     },
     saveVideoHistoryWithLastViewedPlaylist: function () {

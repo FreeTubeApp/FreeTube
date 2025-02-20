@@ -23,8 +23,8 @@
         <ft-select
           :placeholder="$t('Settings.Privacy Settings.Save Watched Progress')"
           :value="watchedProgressSavingMode"
-          :select-names="watchedProgressSavingModeValueNamePairs.map(p => p[1])"
-          :select-values="watchedProgressSavingModeValueNamePairs.map(p => p[0])"
+          :select-names="watchedProgressSavingModeNames"
+          :select-values="watchedProgressSavingModeValues"
           :icon="['fas', 'bars-progress']"
           :tooltip="$t('Settings.Privacy Settings.Watched Progress Saving Mode.Tooltip')"
           :disabled="!rememberHistory"
