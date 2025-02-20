@@ -401,7 +401,9 @@ export default defineComponent({
             this.errorChannels.push(channel)
           }
 
-          return []
+          return {
+            videos: []
+          }
         }
 
         return await parseYouTubeRSSFeed(await response.text(), channel.id)
