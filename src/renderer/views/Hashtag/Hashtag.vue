@@ -110,23 +110,21 @@ function resetData() {
 }
 
 async function getHashtag() {
-  const hashtagInRoute = decodeURIComponent(route.params.hashtag)
-  hashtag.value = hashtagInRoute
+  hashtag.value = decodeURIComponent(route.params.hashtag)
   if (process.env.SUPPORTS_LOCAL_API && backendPreference.value === 'local') {
-    await getLocalHashtag(hashtagInRoute)
+    await getLocalHashtag()
   } else {
-    await getInvidiousHashtag(hashtagInRoute)
+    await getInvidiousHashtag()
   }
   store.commit('setAppTitle', `#${hashtag.value} - ${packageDetails.productName}`)
 }
 
 /**
- * @param {string} hashtagInRoute
  * @param {number} page
  */
-async function getInvidiousHashtag(hashtagInRoute, page) {
+async function getInvidiousHashtag(page = 1) {
   try {
-    const fetchedVideos = await getHashtagInvidious(hashtagInRoute, page)
+    const fetchedVideos = await getHashtagInvidious(hashtag.value, page)
     isLoading.value = false
     apiUsed.value = 'invidious'
     videos.value = videos.value.concat(fetchedVideos)
@@ -140,19 +138,16 @@ async function getInvidiousHashtag(hashtagInRoute, page) {
     if (process.env.SUPPORTS_LOCAL_API && backendPreference.value === 'invidious' && backendFallback.value) {
       showToast(t('Falling back to Local API'))
       resetData()
-      getLocalHashtag(hashtagInRoute)
+      getLocalHashtag()
     } else {
       isLoading.value = false
     }
   }
 }
 
-/**
- * @param {string} hashtagInRoute
- */
-async function getLocalHashtag(hashtagInRoute) {
+async function getLocalHashtag() {
   try {
-    const hashtagData = await getHashtagLocal(hashtagInRoute)
+    const hashtagData = await getHashtagLocal(hashtag.value)
     videos.value = hashtagData.videos.map(parseLocalListVideo)
     apiUsed.value = 'local'
     hashtagContinuationData.value = hashtagData.has_continuation ? hashtagData : null
@@ -166,7 +161,7 @@ async function getLocalHashtag(hashtagInRoute) {
     if (backendPreference.value === 'local' && backendFallback.value) {
       showToast(t('Falling back to Invidious API'))
       resetData()
-      getInvidiousHashtag(hashtag)
+      getInvidiousHashtag()
     } else {
       isLoading.value = false
     }
@@ -188,7 +183,7 @@ async function getLocalHashtagMore() {
     if (backendPreference.value === 'local' && backendFallback.value) {
       showToast(t('Falling back to Invidious API'))
       resetData()
-      getInvidiousHashtag(hashtag.value)
+      getInvidiousHashtag()
     } else {
       isLoading.value = false
     }
@@ -199,7 +194,7 @@ function handleFetchMore() {
   if (process.env.SUPPORTS_LOCAL_API && apiUsed.value === 'local') {
     getLocalHashtagMore()
   } else if (apiUsed.value === 'invidious') {
-    getInvidiousHashtag(hashtag.value.substring(1), pageNumber.value)
+    getInvidiousHashtag(pageNumber.value)
   }
 }
 </script>
