@@ -505,7 +505,7 @@ Settings:
     Are you sure you want to remove all your playlists?: Êtes-vous sûr de vouloir
       supprimer toutes vos listes de lecture ?
     Remember Search History: Conserver l'historique de recherche
-    Are you sure you want to clear out your search history and cache?: Êtes-vous sûr
+    Are you sure you want to clear out your search history and cache?: Êtes-vous sûr(e)
       de vouloir effacer votre historique de recherche et votre cache ?
     Clear Search History and Cache: Effacer l'historique de recherche et le cache
     Search history and cache have been cleared: L'historique de recherche et le cache
@@ -585,18 +585,18 @@ Settings:
     Hide Channels Placeholder: Identifiant de la chaîne
     Display Titles Without Excessive Capitalisation: Afficher les titres sans majuscules
       ni ponctuation excessives
-    Hide Channel Playlists: Masquer l'onglet de la chaîne "Listes de lecture"
+    Hide Channel Playlists: Masquer l'onglet de la chaîne « Listes de lecture »
     Hide Featured Channels: Masquer les chaînes en vedette
-    Hide Channel Community: Masquer l'onglet de la chaîne "Communauté"
-    Hide Channel Shorts: Masquer l'onglet "Shorts" de la chaîne
+    Hide Channel Community: Masquer l'onglet de la chaîne « Communauté »
+    Hide Channel Shorts: Masquer l'onglet « Shorts » de la chaîne
     Sections:
       Channel Page: Page de la chaîne
       Side Bar: Barre latérale
       Watch Page: Page de lecture
       General: Général
       Subscriptions Page: Page Abonnements
-    Hide Channel Podcasts: Masquer l'onglet de la chaîne "Podcasts"
-    Hide Channel Releases: Masquer l'onglet de la chaîne "Publications"
+    Hide Channel Podcasts: Masquer l'onglet de la chaîne « Podcasts »
+    Hide Channel Releases: Masquer l'onglet de la chaîne « Publications »
     Hide Subscriptions Videos: Masquer les vidéos des abonnements
     Hide Subscriptions Shorts: Masquer les shorts des abonnements
     Hide Subscriptions Live: Masquer les diffusions en direct des abonnements
@@ -613,7 +613,7 @@ Settings:
       lecture contenant du texte
     Hide Videos and Playlists Containing Text Placeholder: Mot, fragment de mot ou
       phrase
-    Hide Channel Home: Masquer l'onglet "Accueil" de la chaîne
+    Hide Channel Home: Masquer l'onglet « Accueil » de la chaîne
     Show Added Items: Afficher les éléments ajoutés
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
@@ -675,7 +675,7 @@ Settings:
     Choose Path: 'Choisir l''emplacement'
     Download Behavior: Méthode de téléchargement
     Download in app: Via l'application
-    Open in web browser: via le navigateur web
+    Open in web browser: Via le navigateur web
   Parental Control Settings:
     Hide Unsubscribe Button: Masquer le bouton de désabonnement
     Hide Search Bar: Masquer la barre de recherche

@@ -61,6 +61,7 @@ Search / Go to URL: 'Chwilio / Mynd i URL'
 Search Bar:
   Clear Input: 'Clirio Mewnbwn'
   # In Filter Button
+  Remove: Tynnu
 Search Filters:
   Search Filters: 'Hidlyddion Chwilio'
   Sort By:
@@ -228,6 +229,8 @@ User Playlists:
       There was an issue with updating this playlist.: Bu anhawster gyda diweddaru'r
         rhestr chwarae hon.
       This playlist does not exist: Nid yw'r rhestr chwarae hon yn bodoli
+      Video has been removed. Click here to undo.: Mae'r fideo wedi'i dynnu. Cliciwch
+        i ddadwneud.
     Search for Videos: Chwilio am Fideos
   CreatePlaylistPrompt:
     Toast:
@@ -426,11 +429,11 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Chwaraewr'
-    Play Next Video: 'Chwarae Fideo Nesaf'
-    Turn on Subtitles by Default: 'Troi Isdeitlau ymlaen fel rhagosodiad'
-    Autoplay Videos: 'Awto-chwarae Fideos'
+    Play Next Video: 'Awtochwarae Fidoes wedi''u Hargymell'
+    Turn on Subtitles by Default: 'Galluogi Isdeitlau Drwy Rhagosodiad'
+    Autoplay Videos: 'Cychwyn Fideos yn Awtomatig'
     Proxy Videos Through Invidious: 'Fideos Dirprwy Trwy Invidious'
-    Autoplay Playlists: 'Awto-chwarae Rhestrau Chwarae'
+    Autoplay Playlists: 'Awtochwarae Fideos Rhestrau Chwarae'
     Enable Theatre Mode by Default: 'Galluogi Modd Theatr fel rhagosodiad'
     Scroll Volume Over Video Player: 'Sgrolio Sain Dros Chwaraewr Fideo'
     Scroll Playback Rate Over Video Player: 'Sgrolio Graddfa Chwarae Nôl Dros Chwaraewr
@@ -477,6 +480,12 @@ Settings:
         Forbidden Characters: 'Nodau Gwaharddedig'
         Empty File Name: 'Enw Ffeil Gwag'
     Autoplay Interruption Timer: Amserydd Ymyrraeth Awtochwarae
+    Default Viewing Mode:
+      Default Viewing Mode: Y Modd Gwylio Rhagosodedig
+      Full Screen: Sgrin Lawn
+      Picture in Picture: Llun mewn Llun
+      External Player: Chwaraewr Allanol ({externalPlayerName})
+      Theater: Theatr
   External Player Settings:
     External Player Settings: 'Chwaraewr Allanol'
     External Player: 'Chwaraewr Allanol'
@@ -489,7 +498,7 @@ Settings:
     Ignore Default Arguments: Anwybyddu Ymresymiadau Rhagosodedig
   Privacy Settings:
     Privacy Settings: 'Preifatrwydd'
-    Remember History: 'Cofio Hanes'
+    Remember History: 'Cofio Hanes Gwylio'
     Save Watched Progress: 'Cadw''r Cynnydd Gwylio'
     Save Watched Videos With Last Viewed Playlist: 'Cadw Fideos Wedi''u Gwylio Gyda
       Rhestr Chwarae Gwylio Diwethaf'
@@ -509,6 +518,12 @@ Settings:
     Remove All Playlists: Dileu Pob Rhestr Chwarae
     Are you sure you want to remove all your playlists?: Ydych chi'n siŵr eich bod
       am ddileu eich holl restrau chwarae?
+    Remember Search History: Cofio Hanes Chwilio
+    Clear Search History and Cache: Clirio Hanes Chwilio a'r Storfa
+    Are you sure you want to clear out your search history and cache?: Ydych chi'n
+      siŵr eich bod eisiau clirio'ch hanes chwilio a'r storfa?
+    Search history and cache have been cleared: Mae'r hanes chwilio a'r storfa wedi'u
+      clirio
   Subscription Settings:
     Subscription Settings: 'Tanysgrifiad'
     Hide Videos on Watch: 'Cuddio Fideos wrth Wylio'
@@ -950,6 +965,8 @@ Video:
     Exit Theatre Mode: Gadael y Modd Theatr
     Exit Full Window: Gadael Ffenest Lawn
     Hide Stats: Cuddio Ystadegau
+    Autoplay is on: Awtochwarae ymlaen
+    Autoplay is off: Awtochwarae i ffwrdd
   More Options: Rhagor o Ddewisiadau
   AgeRestricted: Nid oes modd gwylio fideos â chyfyngiad oedran gyda FreeTube gan
     fod angen mewngofnodi Google a defnyddio cyfrif YouTube a ddilysir yn ôl oedran
@@ -1288,3 +1305,4 @@ Keys:
 Right-click or hold to see history: De-gliciwch neu ddal i weld yr hanes
 Autoplay Interruption Timer: Diddymwyd awtochwarae oherwydd {autoplayInterruptionIntervalHours}
   awr o heb ei ddefnyddio
+shortcutLabelSeparator: ｜

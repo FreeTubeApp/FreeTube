@@ -24,6 +24,7 @@ const processLocalesPlugin = new ProcessLocalesPlugin({
   outputDir: 'static/locales',
 })
 
+/** @type {import('webpack').Configuration} */
 const config = {
   name: 'renderer',
   mode: process.env.NODE_ENV,
@@ -122,6 +123,7 @@ const config = {
   plugins: [
     processLocalesPlugin,
     new webpack.DefinePlugin({
+      'process.platform': `'${process.platform}'`,
       'process.env.IS_ELECTRON': true,
       'process.env.IS_ELECTRON_MAIN': false,
       'process.env.SUPPORTS_LOCAL_API': true,

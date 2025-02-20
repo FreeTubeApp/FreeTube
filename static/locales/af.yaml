@@ -356,120 +356,154 @@ Settings:
       Catppuccin Mocha Sapphire: ''
       Catppuccin Mocha Blue: ''
       Catppuccin Mocha Lavender: ''
-      Solarized Yellow: ''
-      Solarized Orange: ''
-      Solarized Red: ''
-      Solarized Magenta: ''
-      Solarized Violet: ''
-      Solarized Blue: ''
-      Solarized Cyan: ''
-      Solarized Green: ''
-    Secondary Color Theme: ''
+      Solarized Yellow: 'Sonbeligte geel'
+      Solarized Orange: 'Sonbeligte oranje'
+      Solarized Red: 'Sonbeligte rooi'
+      Solarized Magenta: 'Sonbeligte magenta'
+      Solarized Violet: 'Sonbeligte violet'
+      Solarized Blue: 'Sonbeligte blou'
+      Solarized Cyan: 'Sonbeligte siaan'
+      Solarized Green: 'Sonbeligte groen'
+      Gruvbox Light Orange: Gruvbox ligoranje
+      Gruvbox Dark Purple: Gruvbox donkerpers
+      Gruvbox Dark Aqua: Gruvbox donkerakwa
+      Gruvbox Dark Orange: Gruvbox donkeroranje
+      Gruvbox Light Red: Gruvbox ligrooi
+      Gruvbox Light Blue: Gruvbox ligblou
+      Gruvbox Light Purple: Gruvbox ligpers
+    Secondary Color Theme: 'Sekondêre kleurtema'
         #* Main Color Theme
   Player Settings:
-    Player Settings: ''
-    Play Next Video: ''
-    Turn on Subtitles by Default: ''
-    Autoplay Videos: ''
-    Proxy Videos Through Invidious: ''
-    Autoplay Playlists: ''
+    Player Settings: 'Speler'
+    Play Next Video: 'Speel aanbevole video’s outomaties af'
+    Turn on Subtitles by Default: 'Aktiveer onderskrifte by verstek'
+    Autoplay Videos: 'Begin video’s outomaties'
+    Proxy Videos Through Invidious: 'Speel videos d.m.v. Invidious-proksie af'
+    Autoplay Playlists: 'Speel video’s in afspeellys outomaties af'
     Enable Theatre Mode by Default: ''
-    Scroll Volume Over Video Player: ''
-    Scroll Playback Rate Over Video Player: ''
-    Skip by Scrolling Over Video Player: ''
-    Display Play Button In Video Player: ''
-    Enter Fullscreen on Display Rotate: ''
-    Next Video Interval: ''
-    Fast-Forward / Rewind Interval: ''
-    Default Volume: ''
-    Default Playback Rate: ''
-    Max Video Playback Rate: ''
-    Video Playback Rate Interval: ''
+    Scroll Volume Over Video Player: 'Verander volume deur in die videobeeld te rol'
+    Scroll Playback Rate Over Video Player: 'Bepaal afspeelsnelheid deur in die videobeeld
+      te rol'
+    Skip by Scrolling Over Video Player: 'Slaan oor deur in die videospeler te rol'
+    Display Play Button In Video Player: 'Toon afspeelknop in videospeler'
+    Enter Fullscreen on Display Rotate: 'Betree volskerm wanneer skerm gedraai word'
+    Next Video Interval: 'Outo-afspeelafteller'
+    Fast-Forward / Rewind Interval: 'Vorentoe-/Terugspoelinterval'
+    Default Volume: 'Verstekvolume'
+    Default Playback Rate: 'Verstekafspeelsnelheid'
+    Max Video Playback Rate: 'Maksimum video-afspeelsnelheid'
+    Video Playback Rate Interval: 'Video-afspeelsnelheidinterval'
     Default Video Format:
-      Default Video Format: ''
-      Dash Formats: ''
-      Legacy Formats: ''
-      Audio Formats: ''
+      Default Video Format: 'Verstekvideoformaat'
+      Dash Formats: 'DASH-formate'
+      Legacy Formats: 'Verouderde formate'
+      Audio Formats: 'Oudioformate'
     Default Quality:
-      Default Quality: ''
-      Auto: ''
-      144p: ''
-      240p: ''
-      360p: ''
-      480p: ''
-      720p: ''
-      1080p: ''
-      1440p: ''
-      4k: ''
-      8k: ''
+      Default Quality: 'Verstekkwaliteit'
+      Auto: 'Outomaties'
+      144p: '144p'
+      240p: '240p'
+      360p: '360p'
+      480p: '480p'
+      720p: '720p'
+      1080p: '1080p'
+      1440p: '1440p'
+      4k: '4k'
+      8k: '8k'
     Screenshot:
-      Enable: ''
-      Format Label: ''
-      Quality Label: ''
-      Ask Path: ''
-      Folder Label: ''
-      Folder Button: ''
-      File Name Label: ''
-      File Name Tooltip: ''
+      Enable: 'Aktiveer skermkiekie'
+      Format Label: 'Skermkiekieformaat'
+      Quality Label: 'Skermkiekiekwaliteit'
+      Ask Path: 'Vra watter vouer om in te bewaar'
+      Folder Label: 'Skermkiekievouer'
+      Folder Button: 'Kies vouer'
+      File Name Label: 'Lêernaampatroon'
+      File Name Tooltip: 'U kan die volgende veranderlike gebruik; %Y viersyferjaartal,
+        %M tweesyvermaandtal, %D tweesyferdagtal, %H tweesyferuurtal, %N tweesyferminuuttal,
+        %S tweesefersekondetal, %T driesyfermillisekondtal, %s tweesyfervideosekond,
+        %t driesyfervideomillisekond, %i video-ID.'
       Error:
-        Forbidden Characters: ''
-        Empty File Name: ''
+        Forbidden Characters: 'Ontoelaatbare karakters'
+        Empty File Name: 'Leë lêernaam'
+    Autoplay Interruption Timer: Outo-afspeel-steurteller
+    Default Viewing Mode:
+      Theater: Teater
+      Default Viewing Mode: Verstekkykmodus
+      Full Screen: Volskerm
+      Picture in Picture: Beeld-in-beeld
+      External Player: Eksterne speler ({externalPlayerName})
   External Player Settings:
-    External Player Settings: ''
-    External Player: ''
-    Ignore Unsupported Action Warnings: ''
-    Ignore Default Arguments: ''
-    Custom External Player Executable: ''
-    Custom External Player Arguments: ''
+    External Player Settings: 'Eksterne speler'
+    External Player: 'Eksterne speler'
+    Ignore Unsupported Action Warnings: 'Ignoreer waarskuwings vir nie-ondersteunde
+      aksies'
+    Ignore Default Arguments: 'Ignoreer verstekargumente'
+    Custom External Player Executable: 'Stel uitvoerbare lêer van eksterne videospeler
+      in'
+    Custom External Player Arguments: 'Aangepaste argumente vir eksterne videospeler'
     Players:
       None:
-        Name: ''
+        Name: 'Geen'
   Privacy Settings:
-    Privacy Settings: ''
-    Remember History: ''
-    Save Watched Progress: ''
-    Save Watched Videos With Last Viewed Playlist: ''
+    Privacy Settings: 'Privaatheid'
+    Remember History: 'Onthou kykgeskiedenis'
+    Save Watched Progress: 'Bewaar videovoortgang'
+    Save Watched Videos With Last Viewed Playlist: 'Hou gekykte video’s by met die
+      afspeellys ‘Laaste gekyk’'
     Clear Search Cache: ''
     Are you sure you want to clear out your search cache?: ''
     Search cache has been cleared: ''
-    Remove Watch History: ''
-    Are you sure you want to remove your entire watch history?: ''
-    Watch history has been cleared: ''
-    Remove All Subscriptions / Profiles: ''
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
-    Remove All Playlists: ''
-    All playlists have been removed: ''
-    Are you sure you want to remove all your playlists?: ''
+    Remove Watch History: 'Verwyder kykgeskiedenis'
+    Are you sure you want to remove your entire watch history?: 'Is u seker u wil
+      u hele kykgeskiedenis verwyder?'
+    Watch history has been cleared: 'Kykgeskiedenis is gewis'
+    Remove All Subscriptions / Profiles: 'Verwyder alle intekeninge / profiele'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Is
+      u seker u wil alle intekeninge en proviele verwyder?  Dit kan nie ontdaan word
+      nie.'
+    Remove All Playlists: 'Verwyder alle afspeellyste'
+    All playlists have been removed: 'Alle afspeellyste is verwyder'
+    Are you sure you want to remove all your playlists?: 'Is u seker u wil alle afspeellyste
+      verwyder?'
+    Are you sure you want to clear out your search history and cache?: Is u seker
+      u wil u soekgeskiedenis en kasgeheue wis?
+    Search history and cache have been cleared: Soekgeskiedenis en kasgeheue is gewis
+    Remember Search History: Onthou soekgeskiedenis
+    Clear Search History and Cache: Wis soekgeskiedenis en kasgeheue
   Subscription Settings:
-    Subscription Settings: ''
-    Hide Videos on Watch: ''
-    Fetch Feeds from RSS: ''
-    Fetch Automatically: ''
-    Confirm Before Unsubscribing: ''
+    Subscription Settings: 'Intekening'
+    Hide Videos on Watch: 'Versteek alle gekykte video’s'
+    Fetch Feeds from RSS: 'Haal voer vanaf RSS op'
+    Fetch Automatically: 'Haal voer outomaties op'
+    Confirm Before Unsubscribing: 'Bevestig voor uittekening'
+    'Limit the number of videos displayed for each channel': Beperk die aantal video’s
+      wat vir elke kanaal vertoon word
+    To: tot
   Distraction Free Settings:
-    Distraction Free Settings: ''
+    Distraction Free Settings: 'Afleidingsvry'
     Sections:
-      Side Bar: ''
-      Subscriptions Page: ''
-      Channel Page: ''
-      Watch Page: ''
-      General: ''
-    Hide Video Views: ''
-    Hide Video Likes And Dislikes: ''
-    Hide Channel Subscribers: ''
-    Hide Comment Likes: ''
-    Hide Recommended Videos: ''
-    Hide Trending Videos: ''
-    Hide Popular Videos: ''
-    Hide Playlists: ''
-    Hide Live Chat: ''
-    Hide Active Subscriptions: ''
-    Hide Video Description: ''
-    Hide Comments: ''
-    Hide Profile Pictures in Comments: ''
-    Display Titles Without Excessive Capitalisation: ''
-    Hide Live Streams: ''
-    Hide Upcoming Premieres: ''
+      Side Bar: 'Systaaf'
+      Subscriptions Page: 'Intekenblad'
+      Channel Page: 'Kanaalblad'
+      Watch Page: 'Kykblad'
+      General: 'Algemeen'
+    Hide Video Views: 'Versteek video-kyke'
+    Hide Video Likes And Dislikes: 'Versteek Hou van en Hou nie van'
+    Hide Channel Subscribers: 'Versteek kanaalintekenare'
+    Hide Comment Likes: 'Versteek Hou van op kommentare'
+    Hide Recommended Videos: 'Versteek aanbevolde video’s'
+    Hide Trending Videos: 'Versteek stygende video’s'
+    Hide Popular Videos: 'Versteek gewilde video’s'
+    Hide Playlists: 'Versteek afspeellyste'
+    Hide Live Chat: 'Versteek regstreekse klets'
+    Hide Active Subscriptions: 'Versteek aktiewe intekeninge'
+    Hide Video Description: 'Versteek videobeskrywing'
+    Hide Comments: 'Versteek kommentaar'
+    Hide Profile Pictures in Comments: 'Versteek profielprente in kommentaar'
+    Display Titles Without Excessive Capitalisation: 'Toon titels sonder oormatige
+      hooflettergebruik en interpunksie'
+    Hide Live Streams: 'Versteek direkte strome'
+    Hide Upcoming Premieres: 'Versteek komende premières'
     Hide Sharing Actions: 'Versteek deel-aksies'
     Hide Chapters: 'Versteek hoofstukke'
     Hide Channels: 'Versteek video’s van kanale'
@@ -869,6 +903,8 @@ Video:
       outomaties hervat wanneer u verbinding terug kom.'
     Skipped segment: 'Segment {segmentCategory} oorgeslaan'
 #& Videos
+    Autoplay is off: Outo-afspeel is af
+    Autoplay is on: Outo-afspeel is aan
   Unlisted: Ongelys
   IP block: YouTube het u IP-adres versper en u kan nie video’s kyk nie. Verander
     u VPN of instaanbediener.
@@ -880,6 +916,9 @@ Video:
     Show Original Details: Toon oorspronklike details
     Show Modified Details: Toon gewysigde details
 #& Playlists
+  DRMProtected: DRM-beskermde video’s kan nie in FreeTube afgespeel word nie omdat
+    dit eiendoms geslotebronkomponente vereis. Indien u die video wil kyk, doen dit
+    asb. op die amptelike YouTube-webwerf in ’n webblaaier met DRM geaktiveer.
 Playlist:
   #& About
   Playlist: 'Afspeellys'
@@ -899,6 +938,8 @@ Playlist:
 #& Views
     VideoDurationAscending: Duur (korste eerste)
     VideoDurationDescending: Duur (langste eerste)
+    PublishedOldest: Vroegste gepubliseer eerste
+    PublishedNewest: Laaste gepubliseer eerste
 Change Format:
   Change Media Formats: 'Verander mediaformate'
   Use Dash Formats: 'Gebruik DASH-formate'
@@ -1115,8 +1156,65 @@ Keys:
   arrowdown: Afpyltjie
   ctrl: Ctrl
   arrowleft: Linkspyltjie
+  shift: Wissel
+  enter: Doen
+  plus: Plus
 Description:
   Collapse Description: Toon minder
   Expand Description: …nog
 Autoplay Interruption Timer: Outo-afspeel is gekanselleer weens {autoplayInterruptionIntervalHours}
   uur van onaktiwiteit
+KeyboardShortcutPrompt:
+  Navigate to Settings: Navigeer na die instellingsblad
+  Force Restart Window: Dwing herbegin van venster
+  Play: Tokkel afspeel/wag
+  Navigate to History: Navigeer na die geskiedenisblad
+  Refresh: Verfris voer met nuutste inhoud
+  Last Frame: Vorige raam (terwyl wagtend)
+  Volume Up: Maak harder
+  Volume Down: Maak sagter
+  Small Rewind: Spoel X sekondes terug gebaseer op die Terugspoelinterval en huidige
+    video-afspeeltempo
+  Small Fast Forward: Spoel X sekondes vorentoe gebaseer op die Vorentoespoelinterval
+    en huidige video-afspeeltempo
+  Mute: Tokkel demper
+  Search in New Window: Soek in ’n nuwe venster
+  Large Rewind: Spel 10 sekondes terug / Spoel video terug gebaseer op huidige video-afspeeltempo
+  Decrease Video Speed: Vertraag videospoed gebaseer op video-afspeeltempo-interval
+  Reset Zoom: Herstel zoemvlak / Koppelvlakskaal
+  Next Frame: Volgende raam (terwyl wagtend)
+  Show Keyboard Shortcuts: Toon sneltoetse
+  History Backward: Gaan een blad terug
+  History Forward: Gaan een blad vorentoe
+  New Window: Skep ’n nuwe venster
+  Captions: Tokkel onderskrifte AAN/AF
+  Stats: Toon videostatistieke
+  Fullscreen: Tokkel volskerm
+  Picture in Picture: Tokkel beeld-in-beeldmodus
+  Increase Video Speed: Versnel videospoed gebaseer op huidige video-afspeeltempo-interval
+  Full Window: Tokkel volle venster
+  Theatre Mode: Tokkel teatermodus
+  Take Screenshot: Maak skermkiekie
+  Minimize Window: Verklein venster
+  Close Window: Sluit venster
+  Zoom In: Zoem in
+  Focus Search: Fokus op die soekbalk
+  Zoom Out: Zoem uit
+  Next Chapter: Volgende hoofstuk
+  Skip by Tenths: Slaan oor video op persentasie (3 oorslane vir 30% van videoduur)
+  Last Chapter: Laaste hoofstuk
+  Toggle Developer Tools: Tokkel ontwikkelaarsnutsmiddels
+  Focus Secondary Search: Fokus op die sekondêre soekbalk (indien een teenwoordig
+    is)
+  Large Fast Forward: Spoel 10 sekondes vorentoe / Spoel video vorentoe gebaseer op
+    huidige video-afspeeltempo
+  Restart Window: Herbegin venster
+  Sections:
+    Video:
+      General: 'Video: Algemeen'
+      Playback: 'Video: Afspeel'
+    App:
+      Situational: 'Toep: Omstandigheid'
+      General: 'Toep: Algemeen'
+  Keyboard Shortcuts: Sneltoetse
+shortcutLabelSeparator: ｜

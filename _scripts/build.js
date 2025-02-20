@@ -6,6 +6,7 @@ const Platform = builder.Platform
 const Arch = builder.Arch
 const args = process.argv
 
+/** @type {Map<import('electron-builder').Platform, Map<import('electron-builder').Arch, Array<string>>>} */
 let targets
 const platform = os.platform()
 

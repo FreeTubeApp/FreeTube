@@ -31,12 +31,12 @@ Back: 'Назад'
 Forward: 'Наперад'
 Open New Window: 'Адкрыць новае акно'
 
-Version {versionNumber} is now available!  Click for more details: 'Версія {versionNumber}
-  цяпер даступная!  Націсніце для больш падрабязнай інфармацыі'
+Version {versionNumber} is now available!  Click for more details: 'Даступна версія
+  {versionNumber}!  Націсніце, каб даведацца больш'
 Download From Site: 'Спампаваць з сайта'
 A new blog is now available, {blogTitle}. Click to view more: 'Даступны новы блог,
   {blogTitle}. Націсніце, каб паглядзець больш'
-Are you sure you want to open this link?: 'Вы ўпэўнены, што хочаце адкрыць гэтую спасылку?'
+Are you sure you want to open this link?: 'Сапраўды хочаце адкрыць гэтую спасылку?'
 
 # Global
 # Anything shared among components / views should be put here
@@ -45,20 +45,20 @@ Global:
   Shorts: 'Кароткія відэа'
   Live: 'Ужывую'
   Community: 'Супольнасць'
-  Sort By: Сартаваць
+  Sort By: Сартаванне
   Counts:
     Video Count: '1 відэа | {count} відэа'
-    Channel Count: '1 канал | {count} каналы(аў)'
-    Subscriber Count: '1 падпісчык | {count} падпісчыкі(аў)'
-    View Count: '1 прагляд | {count} прагляды(аў)'
-    Watching Count: '1 гледач | {count} гледачы(оў)'
+    Channel Count: '1 канал | {count} каналаў'
+    Subscriber Count: '1 падпісчык | {count} падпісчыкаў'
+    View Count: '1 прагляд | {count} праглядаў'
+    Watching Count: '1 глядач | {count} гледачоў'
 
 # Search Bar
     Like Count: 1 лайк | {count} лайкаў
     Comment Count: 1 каментарый | {count} каментарыяў
 Search / Go to URL: 'Пошук / Перайсці да URL'
 Search Bar:
-  Clear Input: 'Ачысціць увод'
+  Clear Input: 'Ачысціць поле ўводу'
   # In Filter Button
   Remove: Выдаліць
 Search Filters:
@@ -135,7 +135,7 @@ Channels:
   Search bar placeholder: 'Пошук каналаў'
   Count: '{number} каналы(аў) знойдзена.'
   Empty: 'Ваш спіс каналаў зараз пусты.'
-  Unsubscribe Prompt: 'Вы сапраўды хочаце адпісацца ад "{channelName}"?'
+  Unsubscribe Prompt: 'Сапраўды хочаце адпісацца ад «{channelName}»?'
 Trending:
   Trending: 'У трэндзе'
   Default: 'Па змаўчанні'
@@ -158,7 +158,7 @@ User Playlists:
     Save: Захаваць
     N playlists selected: '{playlistCount} выбрана'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      відэа ўжо дадзена'
+      відэа ўжо дададзена'
     Toast:
       You haven't selected any playlist yet.: Вы яшчэ не выбралі плэй-ліст.
       "{videoCount} video(s) added to {playlistCount} playlists": 1 відэа дададзена
@@ -216,6 +216,8 @@ User Playlists:
       This playlist has a video with a duration error: Гэты плэй-ліст змяшчае прынамсі
         адно відэа без працягласці. Яно будзе адсартаваны так, як быццам іх працягласць
         роўная нулю.
+      Video has been removed. Click here to undo.: Відэа было выдалена. Націсніце
+        сюды, каб адрабіць.
     Search for Videos: Пошук відэа
   You have no playlists. Click on the create new playlist button to create a new one.: У
     вас няма плэй-лістоў. Націсніце на кнопку стварыць новы плэй-ліст, каб стварыць
@@ -230,8 +232,8 @@ User Playlists:
   Copy Playlist: Скапіяваць плэй-ліст
   Remove Watched Videos: Выдаліць прагледжаныя відэа
   Delete Playlist: Выдаліць плэй-ліст
-  Are you sure you want to delete this playlist? This cannot be undone: Вы ўпэўнены,
-    што хочаце выдаліць плэй-ліст? Гэта нельга адмяніць.
+  Are you sure you want to delete this playlist? This cannot be undone: Сапраўды выдаліць
+    плэй-ліст? Гэта дзеянне нельга адмяніць.
   Sort By:
     EarliestPlayedFirst: Раней прайгравалі
     NameDescending: Я-А
@@ -248,14 +250,14 @@ User Playlists:
   Save Changes: Захаваць змены
   Enable Quick Bookmark With This Playlist: Уключыць хуткую закладку для гэтага плэй-ліста
   Remove Duplicate Videos: Выдаліць дублікаты відэа
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Вы
-    ўпэўнены, што хочаце выдаліць 1 прагледжанае відэа з гэтага плэй-ліста? Гэта нельга
-    адмяніць. | Вы ўпэўнены, што хочаце выдаліць {playlistItemCount} прагледжаных
-    відэа з гэтага плэй-ліста? Гэта нельга адмяніць.
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Вы
-    ўпэўнены, што хочаце выдаліць 1 дублікат відэа з гэтага плэй-ліста? Гэта нельга
-    адмяніць. | Вы ўпэўнены, што хочаце выдаліць {playlistItemCount} дублікатаў відэа
-    з гэтага плэй-ліста? Гэта нельга адмяніць.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Сапраўды
+    выдаліць 1 прагледжанае відэа з плэй-ліста? Гэта дзеянне нельга адмяніць. | Сапраўды
+    выдаліць {playlistItemCount} прагледжаных відэа з плэй-ліста? Гэта дзеянне нельга
+    адмяніць.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Сапраўды
+    выдаліць 1 дублікат відэа з плэй-ліста? Гэта дзеянне нельга адмяніць. | Сапраўды
+    выдаліць {playlistItemCount} дублікатаў відэа з плэй-ліста? Гэта дзеянне нельга
+    адмяніць.
   Export Playlist: Экспартаваць плэй-ліст
   The playlist has been successfully exported: Плэй-ліст паспяхова экспартаваны
 History:
@@ -298,9 +300,9 @@ Settings:
       Hidden: 'Схавана'
       Blur: Размыты
     Current Invidious Instance: 'Бягучы экзэмпляр Invidious'
-    The currently set default instance is {instance}: 'Бягучы ўсталяваны экзэмпляр
-      па змаўчанні: {instance}'
-    No default instance has been set: 'Экземпляр па змаўчанні не ўсталяваны'
+    The currently set default instance is {instance}: 'Бягучы экзэмпляр па змаўчанні:
+      {instance}'
+    No default instance has been set: 'Экзэмпляр па змаўчанні не зададзены'
     Current instance will be randomized on startup: 'Бягучы экзэмпляр будзе рандомізаваны
       пры запуску'
     Set Current Instance as Default: 'Усталяваць бягучы экзэмпляр па змаўчанні'
@@ -321,7 +323,7 @@ Settings:
     Theme Settings: 'Тэма'
     Match Top Bar with Main Color: 'Выкарыстоўваць асноўны колер да верхняй панэлі'
     Expand Side Bar by Default: 'Разгарнуць бакавую панэль па змаўчанні'
-    Disable Smooth Scrolling: 'Адключыць плыўную пракрутку'
+    Disable Smooth Scrolling: 'Адключыць плаўную прагортку'
     UI Scale: 'Маштаб інтэрфейсу'
     Hide Side Bar Labels: 'Схаваць надпісы на бакавой панэлі'
     Hide FreeTube Header Logo: 'Схаваць лагатып загалоўка FreeTube'
@@ -419,14 +421,16 @@ Settings:
     Play Next Video: 'Аўтапрайграванне рэкамендаваных відэа'
     Turn on Subtitles by Default: 'Уключыць субцітры па змаўчанні'
     Autoplay Videos: 'Запускаць відэа аўтаматычна'
-    Proxy Videos Through Invidious: 'Глядзець відэа праз проксі Invidious'
+    Proxy Videos Through Invidious: 'Прагляд відэа праз проксі Invidious'
     Autoplay Playlists: 'Аўтапрайграванне відэа з плэй-лістоў'
     Enable Theatre Mode by Default: 'Уключыць рэжым тэатра па змаўчанні'
-    Scroll Volume Over Video Player: 'Прагортваць гучнасці па-над відэапрайгравальнікам'
-    Scroll Playback Rate Over Video Player: 'Прагортваць хуткасць прайгравання па-над
-      відэапрайгравальнікам'
-    Skip by Scrolling Over Video Player: 'Прапусціць, прагарнуўшы відэапрайгравальнік'
-    Display Play Button In Video Player: 'Адлюстроўваць кнопку прайгравання ў відэапрайгравальніку'
+    Scroll Volume Over Video Player: 'Над відэапрайгравальнікам змяняць гучнасць колам
+      мышы'
+    Scroll Playback Rate Over Video Player: 'Над відэапрайгравальнікам змяняць хуткасць
+      прайгравання колам мышы'
+    Skip by Scrolling Over Video Player: 'Над відэапрайгравальнікам прапускаць відэа
+      колам мышы'
+    Display Play Button In Video Player: 'Паказваць кнопку прайгравання ў відэапрайгравальніку'
     Enter Fullscreen on Display Rotate: 'Пераходзіць у поўнаэкранны рэжым пры павароце
       дысплэя'
     Next Video Interval: 'Інтэрвал да наступнага відэа'
@@ -495,13 +499,13 @@ Settings:
       ачысціць кэш пошуку?'
     Search cache has been cleared: 'Кэш пошуку ачышчаны'
     Remove Watch History: 'Выдаліць гісторыю праглядаў'
-    Are you sure you want to remove your entire watch history?: 'Вы ўпэўнены, што
-      хочаце выдаліць усю гісторыю праглядаў?'
+    Are you sure you want to remove your entire watch history?: 'Сапраўды выдаліць
+      усю гісторыю праглядаў?'
     Watch history has been cleared: 'Гісторыя праглядаў ачышчана'
     Remove All Subscriptions / Profiles: 'Выдаліць усе падпіскі / профілі'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Вы
-      ўпэўнены, што хочаце выдаліць усе падпіскі і профілі?  Гэта нельга адмяніць.'
-    Are you sure you want to remove all your playlists?: Вы ўпэўнены, што хочаце выдаліць
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Сапраўды
+      выдаліць усе падпіскі і профілі?  Гэта дзеянне нельга адмяніць.'
+    Are you sure you want to remove all your playlists?: Сапраўды хочаце выдаліць
       усе свае плэй-лісты?
     Remove All Playlists: Выдаліць усе плэй-лісты
     All playlists have been removed: Усе плэй-лісты былі выдалены
@@ -515,19 +519,21 @@ Settings:
     Hide Videos on Watch: 'Хаваць відэа пасля прагляду'
     Fetch Feeds from RSS: 'Атрымліваць стужкі з RSS'
     Fetch Automatically: 'Атрымліваць стужку аўтаматычна'
-    Confirm Before Unsubscribing: Пацвердзіце перад тым як адпісацца
+    Confirm Before Unsubscribing: Пацвярджаць адпісванне
     To: Да
+    'Limit the number of videos displayed for each channel': Абмежаваць колькасць
+      відэа, якія паказваюцца на кожным канале
   Distraction Free Settings:
     Distraction Free Settings: 'Адцягненне ўвагі'
     Sections:
       Side Bar: 'Бакавая панэль'
       Subscriptions Page: 'Старонка падпісак'
-      Channel Page: 'Старонка каналу'
+      Channel Page: 'Старонка канала'
       Watch Page: 'Старонка прагляду'
       General: 'Агульныя'
     Hide Video Views: 'Хаваць прагляды відэа'
     Hide Video Likes And Dislikes: 'Хаваць лайкі і дызлайкі да відэа'
-    Hide Channel Subscribers: 'Хаваць падпісчыкаў каналу'
+    Hide Channel Subscribers: 'Хаваць падпісчыкаў канала'
     Hide Comment Likes: 'Хаваць лайкі да каментарыяў'
     Hide Recommended Videos: 'Хаваць рэкамендаваныя відэа'
     Hide Trending Videos: 'Хаваць відэа ў трэндзе'
@@ -538,20 +544,20 @@ Settings:
     Hide Video Description: 'Хаваць апісанне відэа'
     Hide Comments: 'Хаваць каментарыі'
     Hide Profile Pictures in Comments: 'Хаваць фатаграфіі профіляў у каментарыях'
-    Display Titles Without Excessive Capitalisation: 'Адлюстроўвайце загалоўкі без
-      празмерных вялікіх літар і знакаў прыпынку'
-    Hide Live Streams: 'Хаваць жывыя трансляцыі'
+    Display Titles Without Excessive Capitalisation: 'Паказваць загалоўкі без празмерных
+      вялікіх літар і знакаў прыпынку'
+    Hide Live Streams: 'Хаваць жывыя эфіры'
     Hide Upcoming Premieres: 'Хаваць будучыя прэм''еры'
     Hide Sharing Actions: 'Хаваць дзеянні абагульвання'
     Hide Chapters: 'Хаваць раздзелы'
     Hide Channels: 'Хаваць відэа з каналаў'
     Hide Channels Placeholder: 'Ідэнтыфікатар канала'
     Hide Featured Channels: 'Хаваць прапанаваныя каналы'
-    Hide Channel Playlists: 'Хаваць укладку "Плэй-лісты" канала'
-    Hide Channel Community: 'Хаваць укладку "Супольнасць" канала'
-    Hide Channel Shorts: 'Хаваць укладку "Кароткія відэа" канала'
-    Hide Channel Podcasts: 'Хаваць укладку "Падкасты" канала'
-    Hide Channel Releases: 'Хаваць укладку "Выпускі" канала'
+    Hide Channel Playlists: 'Хаваць укладку «Плэй-лісты»'
+    Hide Channel Community: 'Хаваць укладку «Супольнасць»'
+    Hide Channel Shorts: 'Хаваць укладку «Кароткія відэа»'
+    Hide Channel Podcasts: 'Хаваць укладку «Падкасты»'
+    Hide Channel Releases: 'Хаваць укладку «Выпускі»'
     Hide Subscriptions Videos: 'Хаваць відэа з падпісак'
     Hide Subscriptions Shorts: 'Хаваць кароткія відэа з падпісак'
     Hide Subscriptions Live: 'Хаваць трансляцыі з падпісак'
@@ -567,7 +573,7 @@ Settings:
     Hide Channels Invalid: Памылковы ідэнтыфікатар канала
     Hide Channels API Error: Памылка атрымання карыстальніка з указаным ідэнтыфікатарам.
       Праверце яшчэ раз, ці правільны ідэнтыфікатар.
-    Hide Channel Home: Хаваць галоўную старонку канала
+    Hide Channel Home: Хаваць укладку «Галоўная старонка»
     Show Added Items: Паказаць дададзеныя элементы
   Data Settings:
     Data Settings: 'Даныя'
@@ -575,7 +581,7 @@ Settings:
     Import Subscriptions: 'Імпарт падпісак'
     Subscription File: 'Файл падпіскі'
     History File: 'Файл гісторыі'
-    Playlist File: 'Файл плэй-лісту'
+    Playlist File: 'Файл плэй-ліста'
     Export Subscriptions: 'Экспарт падпісак'
     Export FreeTube: 'Экспарт FreeTube'
     Export YouTube: 'Экспарт YouTube'
@@ -664,9 +670,9 @@ Settings:
     Open in web browser: 'Адкрываць у вэб-браўзеры'
   Experimental Settings:
     Experimental Settings: 'Эксперыменты'
-    Warning: 'Гэтыя налады з''яўляюцца эксперыментальнымі, яны могуць выклікаць збоі,
-      пакуль уключаны. Настойліва рэкамендуецца рабіць рэзервовыя копіі. Выкарыстоўвайце
-      на свой страх і рызыку!'
+    Warning: 'Гэтыя налады эксперыментальныя і могуць выклікаць збоі праграмы. Вы
+      выкарыстоўвайце іх на свой страх і рызыку. Настойліва рэкамендуем рабіць рэзервовыя
+      копіі!'
     Replace HTTP Cache: 'Замяніць кэш HTTP'
   Password Dialog:
     Password: 'Пароль'
@@ -676,7 +682,7 @@ Settings:
     Set Password To Prevent Access: 'Задайце пароль, каб забараніць доступ да налад'
     Set Password: 'Задаць пароль'
     Remove Password: 'Выдаліць пароль'
-  Sort Settings Sections (A-Z): Сартаваць раздзелы налад (А-Я)
+  Sort Settings Sections (A-Z): Упарадкаваць раздзелы налад (А-Я)
   Return to Settings Menu: Вярнуцца ў меню налад
 About:
   #On About page
@@ -724,13 +730,13 @@ Profile:
   Update Profile: 'Абнавіць профіль'
   Make Default Profile: 'Зрабіць профілем па змаўчанні'
   Delete Profile: 'Выдаліць профіль'
-  Are you sure you want to delete this profile?: 'Вы ўпэўнены, што хочаце выдаліць
-    гэты профіль?'
+  Are you sure you want to delete this profile?: 'Сапраўды выдаліць гэты профіль?'
   All subscriptions will also be deleted.: 'Усе падпіскі таксама будуць выдалены.'
   Your profile name cannot be empty: 'Назва вашага профілю не можа быць пустой'
   Profile has been created: 'Профіль створаны'
   Profile has been updated: 'Профіль абноўлены'
-  Your default profile has been set to {profile}: 'Профілем па змаўчанню заданы {profile}'
+  Your default profile has been set to {profile}: 'Профілем па змаўчанні зададзены
+    {profile}'
   Removed {profile} from your profiles: '{profile} выдалены з вашых профіляў'
   Your default profile has been changed to your primary profile: 'Ваш профіль па змаўчанні
     быў зменены на асноўны'
@@ -745,31 +751,30 @@ Profile:
   No channel(s) have been selected: 'Канал(-ы) не выбраны'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : 'Гэта ваш асноўны профіль.  Вы ўпэўнены, што хочаце выдаліць выбраныя каналы?  Тыя
-    ж каналы будуць выдалены ў любым профілі, у якім яны знаходзяцца.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Вы
-    ўпэўнены, што хочаце выдаліць выбраныя каналы?  Канал не будзе выдалены з іншых
-    профіляў.'
+  : 'Гэта ваш асноўны профіль.  Сапраўды выдаліць выбраныя каналы?  Яны будуць выдалены
+    з кожнага профілю, у якім знаходзяцца.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Сапраўды
+    выдаліць выбраныя каналы?  Канал не будзе выдалены з іншых профіляў.'
 #On Channel Page
   Edit Profile Name: Рэдагаваць назву профілю
   Create Profile Name: Стварыце назву профілю
   Profile Name: Назва профілю
-  Close Profile Dropdown: Зачыніць выпадное меню профілю
+  Close Profile Dropdown: Закрыць выпадное меню профілю
   Open Profile Dropdown: Адкрыць выпадное меню профілю
 Channel:
   Subscribe: 'Падпісацца'
   Unsubscribe: 'Адпісацца'
   Channel has been removed from your subscriptions: 'Канал быў выдалены з вашых падпісак'
-  Removed subscription from {count} other channel(s): 'Выдалена падпіска з {count}
-    іншых каналаў'
+  Removed subscription from {count} other channel(s): 'Падпіска выдалена з {count}
+    іншага канала(ў)'
   Added channel to your subscriptions: 'Канал дададзены да вашых падпісак'
-  Search Channel: 'Шукаць на канале'
+  Search Channel: 'Пошук на канале'
   Your search results have returned 0 results: 'Пошук даў 0 вынікаў'
   This channel does not exist: 'Гэты канал не існуе'
   This channel does not allow searching: 'Гэты канал не дазваляе шукаць'
   This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Гэты
     канал абмежаваны па ўзросце, і зараз яго нельга праглядаць у FreeTube.'
-  Channel Tabs: 'Укладкі каналу'
+  Channel Tabs: 'Укладкі канала'
   Videos:
     Videos: 'Відэа'
     This channel does not currently have any videos: 'Зараз на гэтым канале няма відэа'
@@ -873,7 +878,7 @@ Video:
   Scroll to Bottom: 'Пракруціць уніз'
   Download Video: 'Спампаваць відэа'
   video only: 'толькі відэа'
-  audio only: 'толькі аўдыё'
+  audio only: 'толькі аўдыя'
   Published:
     In less than a minute: 'Менш чым праз хвіліну'
   Published on: 'Апублікавана'
@@ -1048,7 +1053,7 @@ Tooltips:
       рэзервовага метаду, калі ён уключаны.'
     Thumbnail Preference: 'Усе мініяцюры FreeTube будуць заменены кадрам відэа замест
       мініяцюры па змаўчанні.'
-    Invidious Instance: 'Экземпляр Invidious, да якога FreeTube будзе падключацца
+    Invidious Instance: 'Экзэмпляр Invidious, да якога FreeTube будзе падключацца
       для выклікаў API.'
     Region for Trending: 'Рэгіён трэндаў дазваляе вам выбраць папулярныя відэа краіны,
       якія вы жадаеце паказваць.'
@@ -1063,13 +1068,13 @@ Tooltips:
       абмежаваныя максімумам 720p, але выкарыстоўваюць меншую паласу прапускання.
       Аўдыяфарматы - гэта толькі аўдыяпатокі.'
     Scroll Playback Rate Over Video Player: 'Калі курсор знаходзіцца над відэа, націсніце
-      і ўтрымлівайце клавішу Control (клавіша Command на Mac) і пракручвайце кола
-      мышы наперад або назад, каб кіраваць хуткасцю прайгравання. Націсніце і ўтрымлівайце
-      клавішу Control (клавіша Command на Mac) і пстрыкніце левай кнопкай мышы, каб
+      і ўтрымлівайце клавішу Control (клавіша Command на Mac) і круціце кола мышы
+      ўверх або ўніз, каб кіраваць хуткасцю прайгравання. Націсніце і ўтрымлівайце
+      клавішу Control (клавіша Command на Mac) і націсніце левай кнопкай мышы, каб
       хутка вярнуцца да хуткасці прайгравання па змаўчанні (1x, калі яна не была зменена
       ў наладах).'
-    Skip by Scrolling Over Video Player: 'Выкарыстоўвайце кола прагорткі, каб прапускаць
-      відэа ў стылі MPV.'
+    Skip by Scrolling Over Video Player: 'Выкарыстоўваць кола мышы, каб прапускаць
+      відэа як у MPV.'
   External Player Settings:
     External Player: 'Пры выбары вонкавага прайгравальніка на мініяцюры будзе адлюстроўвацца
       значок для адкрыцця відэа (плэй-ліста, калі падтрымліваецца) у вонкавым прайгравальніку.
@@ -1133,9 +1138,9 @@ Playing Next Video Interval: 'Прайграванне наступнага ві
   секунд. Націсніце, каб адмяніць.'
 Canceled next video autoplay: 'Аўтапрайграванне наступнага відэа адменена'
 
-Default Invidious instance has been set to {instance}: 'Экземпляр Invidious па змаўчанні
+Default Invidious instance has been set to {instance}: 'Экзэмпляр Invidious па змаўчанні
   быў усталяваны ў {instance}'
-Default Invidious instance has been cleared: 'Экземпляр Invidious па змаўчанні быў
+Default Invidious instance has been cleared: 'Экзэмпляр Invidious па змаўчанні быў
   выдалены'
 'The playlist has ended. Enable loop to continue playing': 'Плэй-ліст скончыўся.  Каб
   працягнуць прайграванне, уключыце цыкл'
@@ -1228,9 +1233,10 @@ KeyboardShortcutPrompt:
   Large Fast Forward: Пераматаць уперад на 10 секунд / Пераматаць уперад згодна з
     бягучай хуткасцю прайгравання
   Reset Zoom: Скінуць узровень павелічэння / UI шкалу
-  Focus Search: Засяродзіцца на панэлі пошуку
+  Focus Search: Перанесці фокус на панэль пошуку
   Full Window: Пераключыць поўнае акно
   Last Chapter: Апошні раздзел
+  Focus Secondary Search: Перанесці фокус на другасную панэль пошуку (калі яна ёсць)
 Keys:
   arrowup: Стрэлка ўверх
   arrowright: Стрэлка ўправа
@@ -1247,6 +1253,7 @@ shortcutJoinOperator: +
 Description:
   Expand Description: '...больш'
   Collapse Description: Паказаць менш
-Right-click or hold to see history: ПКМ альбо ўтрымлівайце для прагляду гісторыі
+Right-click or hold to see history: ПКМ або працяглае націсканне, каб праглядзець
+  гісторыю
 Autoplay Interruption Timer: Аўтапрайграванне адменена з-за {autoplayInterruptionIntervalHours}
   гадзін бяздзейнасці

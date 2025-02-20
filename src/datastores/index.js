@@ -22,9 +22,9 @@ if (process.env.IS_ELECTRON_MAIN) {
   dbPath = (dbName) => `${dbName}.db`
 }
 
-export const settings = new Datastore({ filename: dbPath('settings'), autoload: true })
-export const profiles = new Datastore({ filename: dbPath('profiles'), autoload: true })
-export const playlists = new Datastore({ filename: dbPath('playlists'), autoload: true })
-export const history = new Datastore({ filename: dbPath('history'), autoload: true })
-export const searchHistory = new Datastore({ filename: dbPath('search-history'), autoload: true })
-export const subscriptionCache = new Datastore({ filename: dbPath('subscription-cache'), autoload: true })
+export const settings = new Datastore({ filename: dbPath('settings'), autoload: !process.env.IS_ELECTRON_MAIN })
+export const profiles = new Datastore({ filename: dbPath('profiles'), autoload: !process.env.IS_ELECTRON_MAIN })
+export const playlists = new Datastore({ filename: dbPath('playlists'), autoload: !process.env.IS_ELECTRON_MAIN })
+export const history = new Datastore({ filename: dbPath('history'), autoload: !process.env.IS_ELECTRON_MAIN })
+export const searchHistory = new Datastore({ filename: dbPath('search-history'), autoload: !process.env.IS_ELECTRON_MAIN })
+export const subscriptionCache = new Datastore({ filename: dbPath('subscription-cache'), autoload: !process.env.IS_ELECTRON_MAIN })
