@@ -20,7 +20,8 @@ export default {
   ],
   rules: {
     'selector-no-qualifying-type': [
-      true, {
+      true,
+      {
         ignore: ['attribute']
       }
     ],
