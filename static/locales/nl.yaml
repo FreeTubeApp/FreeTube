@@ -259,22 +259,22 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: 'Terugvallen op alternatieve backend
       bij problemen'
     Enable Search Suggestions: 'Zoeksuggesties inschakelen'
-    Default Landing Page: 'Standaard­hoofdpagina'
+    Default Landing Page: 'Standaard startscherm'
     Locale Preference: 'Regiovoorkeur'
     Preferred API Backend:
       Preferred API Backend: 'Voorkeurs-API-back-end'
       Local API: 'Lokale API'
       Invidious API: 'Invidious-API'
     Video View Type:
-      Video View Type: 'Video­weergave­type'
+      Video View Type: 'Type videoweergave'
       Grid: 'Raster'
       List: 'Lijst'
     Thumbnail Preference:
-      Thumbnail Preference: 'Miniatuur­voorkeur'
+      Thumbnail Preference: 'Miniatuurvoorkeur'
       Default: 'Standaard'
       Beginning: 'Begin'
       Middle: 'Midden'
-      End: 'Eind'
+      End: 'Einde'
       Hidden: Verborgen
       Blur: Vervagen
     Region for Trending: 'Regio voor trending'
@@ -284,23 +284,24 @@ Settings:
     View all Invidious instance information: Bekijk alle Invidious-instantiegegevens
     System Default: Systeemstandaard
     Current Invidious Instance: Huidige Invidious-instantie
-    Clear Default Instance: Standaard­instantie wissen
+    Clear Default Instance: Standaardinstantie wissen
     Set Current Instance as Default: Huidige instantie instellen als standaard
-    Current instance will be randomized on startup: Momenteel gebruikte instantie
-      zal willekeurig worden gekozen bij het starten
-    No default instance has been set: Er is geen standaard­instantie ingesteld
-    The currently set default instance is {instance}: De momenteel als standaard ingestelde
-      instantie is {instance}
+    Current instance will be randomized on startup: Instantie zal willekeurig worden
+      gekozen bij het starten
+    No default instance has been set: Er is geen standaardinstantie ingesteld
+    The currently set default instance is {instance}: '{instance} is momenteel de
+      standaard instantie'
     External Link Handling:
-      Ask Before Opening Link: Vraag bij het openen van koppelingen
+      Ask Before Opening Link: Vragen bij het openen van koppelingen
       No Action: Geen actie
       External Link Handling: Externe links openen
       Open Link: Koppeling openen
     Auto Load Next Page:
-      Tooltip: Laad automatisch extra pagina's en opmerkingen.
-      Label: Automatich volgende pagina laden
+      Tooltip: Extra pagina's en opmerkingen automatisch laden.
+      Label: Volgende pagina automatisch laden
+    Open Deep Links In New Window: Open URL's in een nieuw venster
   Theme Settings:
-    Theme Settings: 'Thema-instellingen'
+    Theme Settings: 'Thema'
     Match Top Bar with Main Color: 'Primaire themakleur gebruiken voor bovenste balk'
     Base Theme:
       Base Theme: 'Basisthema'
@@ -310,11 +311,14 @@ Settings:
       Dracula: 'Dracula'
       System Default: Systeemstandaard
       Catppuccin Mocha: Catppuccin-mokka
-      Pastel Pink: Pastel­roze
-      Hot Pink: Heet-roze
-      Nordic: Noords
+      Pastel Pink: Pastelroze
+      Hot Pink: Hot Pink
+      Nordic: Noors
       Solarized Dark: Gesolariseerd donker
       Solarized Light: Gesolariseerd licht
+      Gruvbox Light: Gruvbox licht
+      Gruvbox Dark: Gruvbox donker
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Primaire themakleur'
       Red: 'Rood'
@@ -348,11 +352,11 @@ Settings:
       Catppuccin Mocha Flamingo: Catppuccin Mokka Flamingo
       Catppuccin Mocha Pink: Catppuccin Mokka Roze
       Catppuccin Mocha Mauve: Catppuccin Mokka Mauve
-      Catppuccin Mocha Red: Catppuccin Mocha Roze
+      Catppuccin Mocha Red: Catppuccin Mokka Rood
       Catppuccin Mocha Peach: Catppuccin Mokka Perzik
       Catppuccin Mocha Yellow: Catppuccin Mokka Geel
       Catppuccin Mocha Sapphire: Catppuccin Mokka Saffier
-      Catppuccin Mocha Teal: Catppuccin Mokka Wintertaling
+      Catppuccin Mocha Teal: Catppuccin Mokka blauwgroen
       Catppuccin Mocha Sky: Catppuccin Mokka Hemel
       Solarized Yellow: Gesolariseerd geel
       Solarized Orange: Gesolariseerd oranje
@@ -362,16 +366,40 @@ Settings:
       Solarized Blue: Gesolariseerd blauw
       Solarized Cyan: Gesolariseerd cyaan
       Solarized Green: Gesolariseerd groen
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe roze
+      Catppuccin Frappe Mauve: Catppuccin Frappe lila
+      Catppuccin Frappe Red: Catppuccin Frappe Rood
+      Catppuccin Frappe Peach: Catppuccin Frappe Perzik
+      Catppuccin Frappe Yellow: Catppuccin Frappe Geel
+      Catppuccin Frappe Green: Catppuccin Frappe Groen
+      Catppuccin Frappe Teal: Catppuccin Frappe groenblauw
+      Catppuccin Frappe Sky: Catppuccin Frappe lichtblauw
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Saffier
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavendel
+      Gruvbox Dark Yellow: Gruvbox donkergeel
+      Gruvbox Dark Orange: Gruvbox donkeroranje
+      Gruvbox Light Red: Gruvbox lichtrood
+      Gruvbox Light Purple: Gruvbox lichtpaars
+      Gruvbox Light Orange: Gruvbox lichtoranje
+      Catppuccin Frappe Blue: Catppuccin Frappe Blauw
+      Gruvbox Dark Blue: Gruvbox donkerblauw
+      Gruvbox Dark Aqua: Gruvbox donker aqua
+      Gruvbox Dark Purple: Gruvbox donkerroze
+      Gruvbox Light Blue: Gruvbox lichtblauw
+      Catppuccin Frappe Maroon: Catppuccin Frappe kastanjebruin
+      Gruvbox Dark Green: Gruvbox Donkergroen
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
     Secondary Color Theme: 'Secundaire themakleur'
         #* Main Color Theme
-    UI Scale: Interface­schaal
+    UI Scale: Interface schaal
     Expand Side Bar by Default: Zijbalk standaard uitklappen
     Disable Smooth Scrolling: Vloeiend scrollen uitschakelen
     Hide Side Bar Labels: Labels in zĳbalk verbergen
-    Hide FreeTube Header Logo: FreeTube-koplogo verbergen
+    Hide FreeTube Header Logo: FreeTube headerlogo verbergen
   Player Settings:
-    Player Settings: 'Videospelerinstellingen'
-    Play Next Video: 'Volgende video afspelen'
+    Player Settings: 'Speler'
+    Play Next Video: 'Aanbevolen video''s automatisch afspelen'
     Turn on Subtitles by Default: 'Ondertiteling standaard inschakelen'
     Autoplay Videos: 'Video''s automatisch afspelen'
     Proxy Videos Through Invidious: 'Video''s via Invidious-proxy afspelen'
@@ -382,7 +410,7 @@ Settings:
     Default Video Format:
       Default Video Format: 'Standaard­video­formaat'
       Dash Formats: 'DASH-formaten'
-      Legacy Formats: 'Verouderde formaten'
+      Legacy Formats: 'Legacy formaten'
       Audio Formats: 'Audioformaten'
     Default Quality:
       Default Quality: 'Standaard­kwaliteit'
@@ -396,11 +424,12 @@ Settings:
       1440p: '1440p'
       4k: '2160p (4K)'
       8k: '4320p (8K)'
-    Next Video Interval: Wachtpauze voor volgende video
-    Display Play Button In Video Player: Afspeelknop in videokader weergeven
-    Scroll Volume Over Video Player: Volume veranderen door in het videokader te scrollen
+    Next Video Interval: Pauze voor volgende video
+    Display Play Button In Video Player: Afspeelknop in videospeler weergeven
+    Scroll Volume Over Video Player: Volume aanpassen door op de video te scrollen
     Fast-Forward / Rewind Interval: Snelheid van doorspoelen/terugspoelen
-    Scroll Playback Rate Over Video Player: Afspeelsnelheid op videospeler scrollen
+    Scroll Playback Rate Over Video Player: Afspeelsnelheid aanpassen door op de video
+      te scrollen
     Max Video Playback Rate: Maximale afspeelsnelheid
     Video Playback Rate Interval: Interval video-afspeelsnelheid
     Screenshot:
@@ -419,8 +448,14 @@ Settings:
         uur; %N tweecijferige minuut; %S tweecijferige seconde; %T driecijferige milliseconde;
         %s tweecijferige seconde in de video; %t driecijferige milliseconde in de
         video; %i ID van de video.'
-    Skip by Scrolling Over Video Player: Overslaan door over de videospeler te scrollen
+    Skip by Scrolling Over Video Player: Overslaan door op de video te scrollen
     Enter Fullscreen on Display Rotate: Volledig scherm bij draaien van scherm
+    Default Viewing Mode:
+      Theater: Theater
+      Default Viewing Mode: Standaard afspeelmode
+      Full Screen: Volledig scherm
+      Picture in Picture: Beeld in beeld
+      External Player: Externe speler
   Privacy Settings:
     Privacy Settings: 'Privacy-instellingen'
     Remember History: 'Kijkgeschiedenis onthouden'
