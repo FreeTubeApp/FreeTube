@@ -129,12 +129,12 @@ User Playlists:
       This playlist does not exist: Denne spillelisten finnes ikke
       This video cannot be moved down.: Denne videoen kan ikke bli flyttet ned.
       Video has been removed: Videoen har blitt fjernet
-      There were no videos to remove.: Det var ingen videoer å fjerne
+      There were no videos to remove.: Det var ingen videoer å fjerne.
       There was an issue with updating this playlist.: Det oppstod et problem ved
         oppdateringen av denne spillelisten.
       "{videoCount} video(s) have been removed": 1 video har blitt fjernet | {videoCount}
         videoer har blitt fjernet
-      Playlist has been updated.: Spilleliste har blitt endret
+      Playlist has been updated.: Spilleliste har blitt endret.
       There was a problem with removing this video: Det oppstod et problem ved fjerningen
         av denne videoen
       This video cannot be moved up.: Denne videoen kan ikke bli flyttet opp.
@@ -147,6 +147,20 @@ User Playlists:
         her for å kopiere, uansett.
       Playlist name cannot be empty. Please input a name.: Spillelisten må ha et navn.
         Vennligst gi den et navn.
+      This playlist is now used for quick bookmark: Denne spillelisten blir nå brukt
+        for hurtigbokmerke
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Denne
+        spillelisten blir nå brukt for hurtigbokmerke istedenfor {oldPlaylistName}.
+        Klikk her for a angre
+      Reverted to use {oldPlaylistName} for quick bookmark: Reverserte til å bruke
+        {oldPlaylistName} for hurtigbokmerke
+      This playlist has a video with a duration error: Denne spillelisten inneholder
+        minst en video som ikke har en avspillingslengde, den blir sortert som om
+        avspillingslengden er null.
+      Video has been removed. Click here to undo.: Videoen har blitt fjernet. Klikk
+        her for å angre.
+      This playlist is already being used for quick bookmark.: Denne spillelisten
+        er allerede i bruk for hurtigbokmerke.
     Search for Videos: Søk etter videoer
   AddVideoPrompt:
     Allow Adding Duplicate Video(s): Tillat å legge til dupliserte videoer
@@ -160,6 +174,14 @@ User Playlists:
         enda.
       "{videoCount} video(s) added to 1 playlist": 1 video lagt til 1 spilleliste
         | {videoCount} videoer lagt til 1 spilleliste
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video lagt til
+        {playlistCount} spillelister | {videoCount} videoer lagt til  {playlistCount}
+        spillelister
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Videoer allerede lagt til'
+    Added {count} Times: Allerede lagt til | Lagt til {count} ganger
+    Select a playlist to add your N videos to: Velg en spilleliste å legge videoen
+      til | Velg en spilleliste å legge dine {videoCount} videoer til
   Cancel: Avbryt
   Add to Playlist: Legg til spilleliste
   This playlist currently has no videos.: Denne spillelisten har ikke noen videoer
@@ -212,6 +234,10 @@ User Playlists:
     du sikker på at du vil fjerne 1 sett video fra denne spillelisten? Dette kan ikke
     bli omgjort. | Er du sikker på at du vil fjerne {playlistItemCount} sette videoer
     fra denne spillelisten? Dette kan ikke bli omgjort.
+  Cannot delete the quick bookmark target playlist.: Kan ikke slette spillelisten
+    til hurtigbokmerket.
+  Enable Quick Bookmark With This Playlist: Slå på hurtigbokmerke med denne spillelisten
+  Quick Bookmark Enabled: Hurtigbokmerke aktivert
 History:
   # On History Page
   History: 'Historikk'
@@ -219,6 +245,7 @@ History:
   Your history list is currently empty.: 'Din historikk er for tiden tom.'
   Empty Search Message: Ingen videoer i historikken din samsvarer med søket ditt
   Search bar placeholder: Søk i historikk
+  Case Sensitive Search: Søket skiller mellom store og små bokstaver
 Settings:
   # On Settings Page
   Settings: 'Innstillinger'
@@ -244,6 +271,7 @@ Settings:
       Middle: 'Midten'
       End: 'Slutten'
       Hidden: Skjult
+      Blur: Uskarpt
     Region for Trending: 'Region for "På vei opp"'
         #! List countries
     Check for Updates: Se etter oppdateringer
@@ -265,6 +293,7 @@ Settings:
     Auto Load Next Page:
       Label: Last inn den neste siden automatisk
       Tooltip: Last inn flere sider og kommentarer automatisk.
+    Open Deep Links In New Window: Åpne linker gitt til FreeTube i nytt vindu
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Tilpass topplinjen slik at den har samme farge
@@ -279,6 +308,11 @@ Settings:
       Catppuccin Mocha: Catppuccin-mokka
       Pastel Pink: Pastellrosa
       Nordic: Nordisk
+      Gruvbox Light: Gruvbox lys
+      Gruvbox Dark: Gruvbox mørk
+      Solarized Dark: Solarisert mørk
+      Catppuccin Frappe: Catppuccin Frappe
+      Solarized Light: Solarisert lys
     Main Color Theme:
       Main Color Theme: 'Hovedfarge'
       Red: 'Rød'
@@ -318,6 +352,14 @@ Settings:
       Catppuccin Mocha Green: Catppuccin-mokka-grønn
       Catppuccin Mocha Teal: Catppuccin-mokka-blågrønn
       Catppuccin Mocha Rosewater: Catppuccin-mokka-rosévann
+      Solarized Yellow: Solarisert gul
+      Solarized Orange: Solarisert oransje
+      Solarized Red: Solarisert rød
+      Solarized Magenta: Solarisert magenta
+      Solarized Cyan: Solarisert cyan
+      Solarized Blue: Solarisert blå
+      Solarized Green: Solarisert grønn
+      Solarized Violet: Solarisert fiolett
     Secondary Color Theme: 'Sekundærfarge'
         #* Main Color Theme
     UI Scale: Grensesnittskala
@@ -377,6 +419,13 @@ Settings:
     Video Playback Rate Interval: Intervall for videoavspillingshastighet
     Enter Fullscreen on Display Rotate: Fullskjermsvisning når skjermen roteres
     Skip by Scrolling Over Video Player: Hopp over ved å rulle over videoavspiller
+    Default Viewing Mode:
+      Default Viewing Mode: Standard visningsmodus
+      Full Screen: Fullskjerm
+      Theater: Teater
+      Picture in Picture: Bilde-i-bilde
+      External Player: Ekstern avspiller ({externalPlayerName})
+    Autoplay Interruption Timer: Automatisk avspilling avbruddstidtaker
   Privacy Settings:
     Privacy Settings: 'Innstillinger for personvern'
     Remember History: 'Husk historikk'
@@ -509,6 +558,8 @@ Settings:
     Hide Channels Already Exists: Kanal-ID-en finnes allerede
     Hide Videos and Playlists Containing Text Placeholder: Ord, del av ord eller setning
     Hide Channels Invalid: Kanal-ID-en var ugyldig
+    Hide Channels Disabled Message: Noen kanaler ble blokkert med ID og ble ikke prosessert.
+      Funksjonen er blokkert mens disse ID-ene blir oppdatert
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på ny for å ta i bruk endringene?
   SponsorBlock Settings:
@@ -563,6 +614,7 @@ Settings:
     Enter Password To Unlock: Skriv inn passord for å låse opp innstillinger
     Password: Passord
   Return to Settings Menu: Gå tilbake til menyen for innstillinger
+  Sort Settings Sections (A-Z): Sorter innstillingsseksjonene (A-Z)
 About:
   #On About page
   About: 'Om'
@@ -635,6 +687,13 @@ Channel:
   Channel Tabs: Kanalfaner
   Community:
     This channel currently does not have any posts: Denne kanalen har ingen oppføringer
+    Hide Answers: Skjul svar
+    votes: '{votes} stemmer'
+    View Full Post: Se hele innlegget
+    Video hidden by FreeTube: Video skjult av FreeTube
+    Viewing Posts Only Supported By Invidious: Vise innlegg er bare stølttet av Invidious.
+      Gå til kanalens fellesskapside for å se innholdet der uten Invidious.
+    Reveal Answers: Avslør svar
   Shorts:
     This channel does not currently have any shorts: Denne kanalen har ingen Shorts-videoer
   Live:
@@ -728,6 +787,51 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Direktechat
     er ikke tilgjengelig for denne strømmen. Opplasteren kan ha skrudd det av.
 #& Playlists
+  Player:
+    Take Screenshot: Ta et skjermbilde
+    Stats:
+      Video ID: 'Video ID: {videoId}'
+      Media Formats: 'Medieformater: {formats}'
+      Buffered: 'Bufret: {bufferedPercentage}%'
+      Volume: 'Dataområde: {volumePercentage}%'
+      Resolution: 'Oppløsning: {width}x{height}@{frameRate}'
+      Stats: Statistikk
+      CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Kodeker: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Player Dimensions: 'Avspillerdimensjoner: {width}x{height}'
+      CodecsVideoAudioNoItags: 'Kodeker: {videoCodec} / {audioCodec}'
+      Bandwidth: 'Båndbredde: {bandwidth} kbps'
+      Dropped Frames / Total Frames: 'Tapte rammer: {droppedFrames} / Totale rammer:
+        {totalFrames}'
+      Bitrate: 'Bitrate: {bitrate} kbps'
+    Audio Tracks: Lydspor
+    Show Stats: Vis statistikk
+    Theatre Mode: Teatermodus
+    Hide Stats: Skjul statistikk
+    Full Window: Fullt vindu
+    TranslatedCaptionTemplate: '{language} (Oversatt fra "{originalLanguage}")'
+    Skipped segment: Hoppet over {segmentCategory} segment
+    Autoplay is on: Automatisk avspilling er slått på
+    Exit Full Window: Forlat fullskjerm
+    Autoplay is off: Automatisk avspilling er slått av
+    Exit Theatre Mode: Forlat teatermodus
+    Playback will resume automatically when your connection comes back: Avspilling
+      vil fortsette automatisk når din tilkobling kommer tilbake.
+    You appear to be offline: Du ser ut til å være frakoblet.
+  Unlisted: Ikke oppført
+  Unhide Channel: Vis kanal
+  More Options: Flere valg
+  Hide Channel: Skjul kanal
+  AgeRestricted: Videoer med aldersbegrensning kan ikke bli sett med FreeTube ettersom
+    det krever en Google pålogging og at man bruker en YouTube bruker med verifisert
+    alder.
+  MembersOnly: Videoer kun for medlemmer kan ikke bli sett med FreeTube ettersom de
+    krever en Google pålogging og betalt medlemsskap i opplasterens kanal.
+  IP block: YouTube har blokkert din IP adresse fra å se videoer. Prøv å bytte til
+    en annen VPN eller Proxy.
+  DRMProtected: DRM beskyttede videoer kan ikke bli avspilt i FreeTube, ettersom det
+    krever proprietære komponenter med lukket kildekode. Gå til den offisielle YouTube
+    nettsiden i en DRM aktivert nettleser for å spille av denne videoen.
 Playlist:
   #& About
   View Full Playlist: 'Vis full spilleliste'
@@ -737,6 +841,18 @@ Playlist:
 #* Published
 #& Views
   Playlist: Spilleliste
+  Sort By:
+    PublishedNewest: Siste publisert først
+    AuthorAscending: Forfatter (A-Z)
+    VideoDurationDescending: Varighet (Lengst først)
+    PublishedOldest: Tidligste publisert først
+    DateAddedNewest: Siste lagt til først
+    VideoTitleAscending: Tittel (A-Z)
+    DateAddedOldest: Tidligste lagt til først
+    AuthorDescending: Forfatter (Z-A)
+    VideoTitleDescending: Tittel (Z-A)
+    Custom: Tilpasset
+    VideoDurationAscending: Varighet (Kortest først)
 Change Format:
   Change Media Formats: 'Endre videoformater'
   Use Dash Formats: 'Bruk DASH-formater'
@@ -745,6 +861,8 @@ Change Format:
   Audio formats are not available for this video: Lydformater er ikke tilgjengelig
     for denne videoen
   Dash formats are not available for this video: DASH-formater er ikke tilgjengelig
+    for denne videoen
+  Legacy formats are not available for this video: Eldre formater er ikke tilgjengelig
     for denne videoen
 Share:
   Share Video: 'Del video'
@@ -934,6 +1052,7 @@ External link opening has been disabled in the general settings: Åpning av ekst
   lenker er avskrudd i de generelle innstillingene
 Search Bar:
   Clear Input: Tøm inndata
+  Remove: Fjern
 Are you sure you want to open this link?: Er du sikker på at du vil åpne denne lenken?
 New Window: Nytt vindu
 Channels:
@@ -979,6 +1098,7 @@ Search Listing:
     3D: 3D
 Feed:
   Refresh Feed: Oppdater {subscriptionName}
+  Feed Last Updated: '{feedName} feed sist oppdatert: {date}'
 Yes, Delete: Ja, slett
 Keys:
   alt: Alt
@@ -987,6 +1107,9 @@ Keys:
   arrowright: Høyre piltast
   ctrl: Ctrl
   arrowdown: Piltast ned
+  enter: Enter
+  plus: Pluss
+  shift: Skift
 Right-click or hold to see history: Høyreklikk eller hold musepekeren over for å se
   historikk
 Close Banner: Lukk banner
@@ -996,3 +1119,51 @@ Yes, Open Link: Ja, åpne lenke
 Display Label: '{label}: {value}'
 Go to page: Gå til {page}
 Search character limit: Spørringen er over tegngrensen på {searchCharacterLimit}
+KeyboardShortcutPrompt:
+  Last Chapter: Forrige kapittel
+  Next Chapter: Neste kapittel
+  Navigate to History: Naviger til historie
+  Fullscreen: Veksle fullskjermsvisning
+  Sections:
+    Video:
+      General: Video: Generelt
+      Playback: Video: Avspilling
+    App:
+      Situational: 'App: Situasjonsmessig'
+      General: App: Generelt
+  Show Keyboard Shortcuts: Vis tastatursnarveier
+  Large Rewind: Spol tilbake 10 sekunder/ spol tilbake video basert på gjeldende videoavspillingshastighet
+  Play: Spill av/pause
+  Refresh: Oppdater feed med siste innhold
+  Focus Secondary Search: Fokuser på sekundært søkefelt (om synlig)
+  Captions: Slå bildetekst PÅ/AV
+  Stats: Vis videostatistikk
+  Picture in Picture: veksle Bilde-i-bilde modus
+  Large Fast Forward: Spol fremover 10 sekunder/ spol video basert på gjeldende videoavspillingshastighet
+  Increase Video Speed: Øk video hastighet basert på gjeldende avspillingshastighetsintervallet
+  Full Window: Fullt vindu
+  Close Window: Lukk vindu
+  Restart Window: Start vindu på nytt
+  Volume Down: Senk volum
+  Zoom In: Zoom inn
+  Zoom Out: Zoom ut
+  Next Frame: Neste ramme (pauset)
+  Volume Up: Øk volum
+  Focus Search: Fokuser på søkefeltet
+  Search in New Window: Søk i et nytt vindu
+  Last Frame: Forrige ramme (pauset)
+  Reset Zoom: Tilbakestill zoom nivå / UI-skala
+  Skip by Tenths: Hopp gjennom videoen basert på prosent (3 hopp for 30% av varigheten)
+  Small Rewind: Spol tilbake X sekunder basert på spoleintervallet og satt avspillingshastighet
+  Small Fast Forward: Spol fremover X sekunder basert på spole fremover intervallet
+    og satt avspillingshastighet
+  Decrease Video Speed: Senk video hastighet basert på gjeldende avspillingshastighetsintervallet
+  Take Screenshot: Ta et skjermbilde
+  Mute: Slå av lyd
+  History Backward: Gå tilbake en side
+  New Window: Opprett nytt vindu
+  Navigate to Settings: Naviger til innstillinger
+  Keyboard Shortcuts: Tastatursnarveier
+  History Forward: Gå fremover en side
+Moments Ago: Øyeblikk siden
+shortcutLabelSeparator: ｜
