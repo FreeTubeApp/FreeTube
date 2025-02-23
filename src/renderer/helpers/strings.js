@@ -70,11 +70,9 @@ export function getFirstCharacter(text, locale) {
     return ''
   }
 
-  if (Intl.Segmenter) {
-    const segmenter = new Intl.Segmenter([locale, 'en'], { granularity: 'grapheme' })
+  const segmenter = new Intl.Segmenter([locale, 'en'], { granularity: 'grapheme' })
 
-    // Use iterator directly as we only need the first segment
-    const firstSegment = segmenter.segment(text)[Symbol.iterator]().next().value
-    return firstSegment.segment
-  }
+  // Use iterator directly as we only need the first segment
+  const firstSegment = segmenter.segment(text)[Symbol.iterator]().next().value
+  return firstSegment.segment
 }
