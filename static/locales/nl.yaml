@@ -16,13 +16,13 @@ Copy: 'Kopiëren'
 Paste: 'Plakken'
 Delete: 'Verwijderen'
 Select all: 'Alles selecteren'
-Reload: 'Herlaad'
+Reload: 'Herladen'
 Force Reload: 'Geforceerd herladen'
-Toggle Developer Tools: 'Ontwikkel­gereedschap omschakelen'
-Actual size: 'Echte grootte'
+Toggle Developer Tools: 'Ontwikkelgereedschap aan/uit'
+Actual size: 'Werkelijke grootte'
 Zoom in: 'Inzoomen'
 Zoom out: 'Uitzoomen'
-Toggle fullscreen: 'Volledig scherm omschakelen'
+Toggle fullscreen: 'Volledig scherm aan/uit'
 Window: 'Venster'
 Minimize: 'Minimaliseren'
 Close: 'Sluiten'
@@ -44,19 +44,21 @@ Global:
     View Count: 1 weergave | {count} weergaven
     Watching Count: 1 aan het kijken | {count} aan het kijken
     Channel Count: 1 kanaal | {count} kanalen
-  Community: Gemeen­schap
+    Like Count: 1 vind ik leuk | {count} vind ik leuks
+    Comment Count: 1 commentaar | {count} commentaren
+  Community: Gemeenschap
 Search / Go to URL: 'Zoeken / Ga naar URL'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Zoek­filters'
+  Search Filters: 'Zoekfilters'
   Sort By:
-    Most Relevant: 'Meest relevant'
+    Most Relevant: 'Relevantie'
     Rating: 'Beoordeling'
-    Upload Date: 'Upload­datum'
+    Upload Date: 'Uploaddatum'
     View Count: 'Aantal weergaven'
   Time:
-    Time: 'Tijd'
-    Any Time: 'Ooit'
+    Time: 'Lengte'
+    Any Time: 'Altijd'
     Last Hour: 'Afgelopen uur'
     Today: 'Vandaag'
     This Week: 'Deze week'
@@ -70,177 +72,185 @@ Search Filters:
     #& Playlists
     Movies: Films
   Duration:
-    Duration: 'Tijds­duur'
-    All Durations: 'Alle tijds­duren'
+    Duration: 'Lengte'
+    All Durations: 'Alle lengtes'
     Short (< 4 minutes): 'Kort (< 4 minuten)'
     Long (> 20 minutes): 'Lang (> 20 minuten)'
   # On Search Page
     Medium (4 - 20 minutes): Gemiddeld (4 - 20 minuten)
-  Search Results: 'Zoek­resultaten'
-  Fetching results. Please wait: 'Resultaten ophalen, even geduld'
+  Search Results: 'Zoekresultaten'
+  Fetching results. Please wait: 'Resultaten ophalen, even geduld...'
   Fetch more results: 'Meer resultaten ophalen'
 # Sidebar
-  There are no more results for this search: Er zijn geen verdere resultaten voor
-    deze zoek­opdracht
+  There are no more results for this search: Er zijn geen resultaten meer voor deze
+    zoekopdracht
   Features:
     Features: Functies
     4K: 4K
     HD: HD
     3D: 3D
-    Subtitles: Onder­titels
+    Subtitles: Ondertiteling
     Live: Live
     Creative Commons: Creative Commons
     HDR: HDR
-    360 Video: 360°
+    360 Video: 360° Video
     Location: Locatie
     VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementen'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Uw
-    abonnementen­lĳst is momenteel leeg. Voeg abonnementen toe om ze hier te zien.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Je
+    abonnementenlĳst is momenteel leeg. Ga naar instellingen en selecteer "importeer
+    abonnementen" als je jouw abonnementen wilt importeren. Je kunt ook zoeken naar
+    een kanaal en hierop abonneren.'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dit
-    profiel heeft een groot aantal abonnementen. RSS wordt geforceerd om rate-limiting
+    profiel heeft een groot aantal abonnees. RSS wordt geforceerd om rate-limiting
     te vermijden
   Load More Videos: Meer video's laden
   Error Channels: Kanalen met fouten
   Disabled Automatic Fetching: U heeft het automatisch ophalen van abonnementen uitgeschakeld.
-    Vernieuw abonnementen om ze hier te zien.
-  Empty Channels: De kanalen waarop u geabonneerd bent hebben momenteel geen video's.
-  Subscriptions Tabs: Abonnement­tabbladen
-  All Subscription Tabs Hidden: Alle abonnement­tabbladen zijn verborgen. Om de inhoud
-    hier te zien moet u enkele tabbladen zichtbaar maken in de sectie ‘{subsection}’
-    onder ‘{settingsSection}’.
+    Ververs abonnementen om ze hier te zien.
+  Empty Channels: Er zijn geen videoś beschikbaar in de kanalen waarop je bent geabonneerd.
+  Subscriptions Tabs: Abonnement tabbladen
+  All Subscription Tabs Hidden: Alle abonnement tabbladen zijn verborgen. Om de inhoud
+    hier te kunnen zien moet je de tabbladen zichtbaar maken in de sectie "{subsection}"
+    onder "{settingsSection}".
   Load More Posts: Meer berichten laden
   Empty Posts: De kanalen waarop u geabonneerd bent hebben momenteel geen berichten.
 Trending:
   Trending: 'Trending'
-  Trending Tabs: Tending-tabbladen
+  Trending Tabs: Trending
   Movies: Films
   Gaming: Gaming
   Music: Muziek
   Default: Standaard
-Most Popular: 'Populairst'
-Playlists: 'Afspeel­lĳsten'
+Most Popular: 'Populairste'
+Playlists: 'Afspeellĳsten'
 User Playlists:
-  Your Playlists: 'Uw afspeel­lĳsten'
-  Search bar placeholder: Zoeken naar afspeel­lĳsten
-  Empty Search Message: Deze afspeel­lĳst bevat geen video's die overeen­komen met
-    de zoek­opdracht
+  Your Playlists: 'Jouw afspeellĳsten'
+  Search bar placeholder: Zoeken naar afspeellĳsten
+  Empty Search Message: Deze afspeellĳst bevat geen video's die overeenkomen met je
+    zoekopdracht
   Cancel: Annuleren
-  Playlist Name: Afspeel­lijst­naam
-  Playlist Description: Afspeel­lijst­omschrijving
-  Delete Playlist: Afspeel­lijst verwijderen
+  Playlist Name: Afspeellijst naam
+  Playlist Description: Afspeellijst omschrijving
+  Delete Playlist: Afspeellijst verwijderen
   Sort By:
-    LatestCreatedFirst: On­langs aan­gemaakt
+    LatestCreatedFirst: Recent toegevoegd
     NameDescending: Z - A
     NameAscending: A - Z
     EarliestPlayedFirst: Eerst gespeeld
-    EarliestCreatedFirst: Eerst aangemaakt
-    LatestUpdatedFirst: Laatst bijgewerkt
-    EarliestUpdatedFirst: Eerst bijgewerkt
-    LatestPlayedFirst: Meest recent afgespeeld
+    EarliestCreatedFirst: Oudste
+    LatestUpdatedFirst: Recent bijgewerkt
+    EarliestUpdatedFirst: Oudste
+    LatestPlayedFirst: Recent afgespeeld
   CreatePlaylistPrompt:
     Create: Aanmaken
-    New Playlist Name: Naam voor nieuwe afspeel­lijst
+    New Playlist Name: Naam voor nieuwe afspeellijst
     Toast:
-      Playlist {playlistName} has been successfully created.: Afspeel­lijst ‘{playlistName}’
-        is succes­vol aan­gemaakt.
+      Playlist {playlistName} has been successfully created.: Afspeellijst ‘{playlistName}’
+        is succesvol aangemaakt.
       There was an issue with creating the playlist.: Er is een probleem opgetreden
-        bij het maken van de afspeel­lijst.
+        bij het maken van de afspeellijst.
       There is already a playlist with this name. Please pick a different name.: Er
-        is al een afspeel­lijst met deze naam. Kies een andere naam.
+        is al een afspeellijst met deze naam. Kies een andere naam.
   AddVideoPrompt:
     Save: Opslaan
     N playlists selected: '{playlistCount} geselecteerd'
-    Search in Playlists: Zoeken in afspeel­lijsten
+    Search in Playlists: Zoeken in afspeellijsten
     Toast:
-      You haven't selected any playlist yet.: U heeft nog geen afspeel­lijst geselecteerd.
-      "{videoCount} video(s) added to 1 playlist": 1 video toegevoegd aan een afspeellijst
-        | {videoCount} video's toegevoegd aan een afspeellijst
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video toe­gevoegd
-        aan {playlistCount} afspeel­lijsten | {videoCount} video's toe­gevoegd aan
-        {playlistCount} afspeel­lijsten
-    Select a playlist to add your N videos to: Selecteer een afspeellijst om uw video
-      aan toe te voegen | Selecteer een afspeellijst om uw {videoCount} video's aan
+      You haven't selected any playlist yet.: U heeft nog geen afspeellijst geselecteerd.
+      "{videoCount} video(s) added to 1 playlist": 1 video toegevoegd aan 1 afspeellijst
+        | {videoCount} video's toegevoegd aan 1 afspeellijst
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video toegevoegd
+        aan {playlistCount} afspeellijsten | {videoCount} video's toegevoegd aan {playlistCount}
+        afspeellijsten
+    Select a playlist to add your N videos to: Selecteer een afspeellijst om je video
+      aan toe te voegen | Selecteer een afspeellijst om je {videoCount} video's aan
       toe te voegen
-    Added {count} Times: 'Video is al toe­gevoegd | {count} keer toe­gevoegd'
+    Added {count} Times: 'Video is al toegevoegd | {count} keer toegevoegd'
     Allow Adding Duplicate Video(s): Toevoegen van dubbele video's toestaan
     "{videoCount}/{totalVideoCount} Videos Will Be Added": "{videoCount}/{totalVideoCount}
       video's zullen worden toegevoegd"
     "{videoCount}/{totalVideoCount} Videos Already Added": "{videoCount}/{totalVideoCount}
       video's zijn al toegevoegd"
   Save Changes: Wijzigingen opslaan
-  Copy Playlist: Afspeel­lijst kopiëren
-  Create New Playlist: Nieuwe afspeel­lijst aanmaken
-  Add to Playlist: Toevoegen aan afspeel­lijst
+  Copy Playlist: Afspeellijst kopiëren
+  Create New Playlist: Maak nieuwe afspeellijst
+  Add to Playlist: Toevoegen aan afspeellijst
   Move Video Up: Video omhoog verplaatsen
   Move Video Down: Video omlaag verplaatsen
   Remove from Playlist: Verwijderen uit afspeellijst
-  Edit Playlist Info: Afspeel­lijst­info bewerken
+  Edit Playlist Info: Afspeellijst informatie bewerken
   Remove Watched Videos: Bekeken video's verwijderen
   Add to Favorites: Toevoegen aan {playlistName}
   Remove from Favorites: Verwijderen uit {playlistName}
   SinglePlaylistView:
     Toast:
       Video has been removed: Video is verwijderd
-      Playlist has been updated.: De afspeel­lijst is bijgewerkt.
+      Playlist has been updated.: De afspeellijst is bijgewerkt.
       This video cannot be moved up.: Deze video kan niet omhoog verplaatst worden.
       This video cannot be moved down.: Deze video kan niet omlaag verplaatst worden.
-      Playlist {playlistName} has been deleted.: Afspeel­lijst ‘{playlistName}’ is
+      Playlist {playlistName} has been deleted.: Afspeellijst ‘{playlistName}’ is
         verwijderd.
-      This playlist does not exist: Deze afspeel­lijst bestaat niet
+      This playlist does not exist: Deze afspeellijst bestaat niet
       There were no videos to remove.: Er zijn geen video's om te verwijderen.
-      There was a problem with removing this video: Er is een probleem opgetreden
-        bij het verwijderen van deze video
-      This playlist is now used for quick bookmark: Deze afspeel­lijst wordt nu gebruikt
-        voor snelle blad­wijzers
+      There was a problem with removing this video: Er is een probleem met het verwijderen
+        van deze video
+      This playlist is now used for quick bookmark: Deze afspeellijst wordt nu gebruikt
+        met snelle bladwijzers
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Deze
         afspeellijst wordt nu gebruikt voor snelle bladwijzers in plaats van {oldPlaylistName}.
-        Druk hier om ongedaan te maken
-      Reverted to use {oldPlaylistName} for quick bookmark: Terug­gekeerd naar het
-        gebruik van {oldPlaylistName} voor snelle blad­wijzers
+        Klik hier om ongedaan te maken
+      Reverted to use {oldPlaylistName} for quick bookmark: Teruggekeerd naar het
+        gebruik van {oldPlaylistName} voor snelle bladwijzers
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Sommige
-        video's in de afspeel­lijst zijn nog niet geladen. Druk hier om toch te kopiëren.
+        video's in de afspeellijst zijn nog niet geladen. Klik hier om toch te kopiëren.
       "{videoCount} video(s) have been removed": 1 video verwijderd | {videoCount}
         video's verwijderd
-      This playlist is protected and cannot be removed.: Deze afspeel­lijst is beschermd
+      This playlist is protected and cannot be removed.: Deze afspeellijst is beveiligd
         en kan niet worden verwijderd.
-      Playlist name cannot be empty. Please input a name.: De naam van de afspeel­lijst
-        mag niet leeg zijn. Voer een naam in.
+      Playlist name cannot be empty. Please input a name.: De naam van de afspeellijst
+        mag niet leeg zijn. Voer een naam in alstjeblieft.
       There was an issue with updating this playlist.: Er is een probleem opgetreden
-        bij het bij­werken van deze afspeel­lijst.
-      This playlist is already being used for quick bookmark.: Deze afspeel­lĳst wordt
-        al gebruikt voor snel opslaan.
+        bij het bijwerken van deze afspeellijst.
+      This playlist is already being used for quick bookmark.: Deze afspeellĳst wordt
+        al gebruikt met snelle bladwijzer.
+      Video has been removed. Click here to undo.: De video is verwijderd. Klik hier
+        om ongedaan te maken.
+      This playlist has a video with a duration error: Deze afspeellijst heeft minimaal
+        1 video zonder tijdsduur en zal worden gesorteerd alsof de tijdsduur nul is.
     Search for Videos: Zoeken naar video's
-  You have no playlists. Click on the create new playlist button to create a new one.: U
-    heeft geen afspeellijsten. Druk op de knop om er één aan te maken.
-  This playlist currently has no videos.: Deze afspeel­lijst bevat geen video's.
-  Enable Quick Bookmark With This Playlist: Snelle blad­wijzers inschakelen voor deze
-    afspeel­lijst
+  You have no playlists. Click on the create new playlist button to create a new one.: Je
+    hebt geen afspeellijsten. Klik op "maak nieuwe playlist" om er één te maken.
+  This playlist currently has no videos.: Deze afspeellijst bevat momenteel geen video's.
+  Enable Quick Bookmark With This Playlist: Snelle Bladwijzers inschakelen voor deze
+    afspeellijst
   Are you sure you want to delete this playlist? This cannot be undone: Weet u zeker
-    dat u deze afspeel­lijst wilt verwijderen? Dit kan niet ongedaan gemaakt worden.
-  Playlists with Matching Videos: Afspeel­lĳsten met overeen­komende video's
+    dat u deze afspeellijst wilt verwijderen? Dit kan niet ongedaan worden gemaakt.
+  Playlists with Matching Videos: Afspeellĳsten met overeenkomende video's
   Quick Bookmark Enabled: Snel opslaan ingeschakeld
-  Cannot delete the quick bookmark target playlist.: Kan afspeel­lĳst voor snel opslaan
+  Cannot delete the quick bookmark target playlist.: Kan afspeellĳst voor snel opslaan
     niet verwĳderen.
   Remove Duplicate Videos: Dubbele video's verwĳderen
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Weet
-    u zeker dat u één dubbele video uit deze afspeellĳst wilt verwijderen? Dit kan
-    niet ongedaan gemaakt worden. | Weet u zeker dat u {playlistItemCount} dubbele
-    video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan gemaakt worden.
+    je zeker dat je 1 dubbele video uit deze afspeellĳst wilt verwijderen? Dit kan
+    niet ongedaan worden gemaakt. | Weet je zeker dat je {playlistItemCount} dubbele
+    video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan worden gemaakt.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Weet
-    u zeker dat u één bekeken video uit deze afspeellĳst wilt verwijderen? Dit kan
-    niet ongedaan gemaakt worden. | Weet u zeker dat u {playlistItemCount} bekeken
-    video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan gemaakt worden.
+    je zeker dat je 1 bekeken video uit deze afspeellĳst wilt verwijderen? Dit kan
+    niet ongedaan worden gemaakt. | Weet je zeker dat je {playlistItemCount} bekeken
+    video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan worden gemaakt.
+  Export Playlist: Deze afspeellijst exporteren
+  The playlist has been successfully exported: De afspeellijst is succesvol geëxporteerd
 History:
   # On History Page
   History: 'Geschiedenis'
   Watch History: 'Kijkgeschiedenis'
-  Your history list is currently empty.: 'Uw geschiedenis is momenteel leeg.'
+  Your history list is currently empty.: 'Er is momenteel geen geschiedenis.'
   Search bar placeholder: In geschiedenis zoeken
-  Empty Search Message: Geschiedenis bevat geen video's die overeen­komen met de zoek­opdracht
-  Case Sensitive Search: Hoofdletter­gevoelige zoek­opdracht
+  Empty Search Message: Geschiedenis bevat geen video's die overeenkomen met de zoekopdracht
+  Case Sensitive Search: Hoofdlettergevoelige zoekopdracht
 Settings:
   # On Settings Page
   Settings: 'Instellingen'
@@ -269,8 +279,8 @@ Settings:
       Blur: Vervagen
     Region for Trending: 'Regio voor trending'
         #! List countries
-    Check for Latest Blog Posts: Op nieuwe blog­posts controleren
-    Check for Updates: Op updates controleren
+    Check for Latest Blog Posts: Op nieuwe blogpost controleren
+    Check for Updates: Controleer op updates
     View all Invidious instance information: Bekijk alle Invidious-instantiegegevens
     System Default: Systeemstandaard
     Current Invidious Instance: Huidige Invidious-instantie
@@ -540,9 +550,9 @@ Settings:
     Hide Channels Disabled Message: Sommige kanalen zijn geblokkeerd met behulp van
       ID en zijn niet verwerkt. De functie is geblokkeerd terwijl deze ID's worden
       bij­gewerkt
-  The app needs to restart for changes to take effect. Restart and apply change?: De
-    app moet opnieuw worden gestart om veranderingen aan te brengen. Wilt u de app
-    opnieuw starten en veranderingen toepassen?
+  The app needs to restart for changes to take effect. Restart and apply change?: Het
+    programma moet opnieuw worden gestart voordat de veranderingen effect hebben.
+    Wilt u het programma nu opnieuw starten en de veranderingen toepassen?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fout bij
       het opvragen van netwerkinformatie. Is uw proxy correct geconfigureerd?
@@ -615,7 +625,8 @@ Settings:
   Password Dialog:
     Password: Wachtwoord
     Enter Password To Unlock: Voer wachtwoord in om instellingen te ontgrendelen
-  Sort Settings Sections (A-Z): Instellingen­secties sorteren (A-Z)
+  Sort Settings Sections (A-Z): Instellingen secties sorteren (A-Z)
+  Return to Settings Menu: Terugkeren naar instellingen menu
 About:
   #On About page
   About: 'Over'
@@ -937,7 +948,7 @@ Profile:
   Close Profile Dropdown: Profiel­menu sluiten
   Open Profile Dropdown: Profiel­menu openen
 A new blog is now available, {blogTitle}. Click to view more: 'Een nieuwe blogpost
-  is beschikbaar: {blogTitle}. Druk voor meer informatie'
+  is beschikbaar: {blogTitle}. Klik voor meer informatie'
 Download From Site: Van website downloaden
 Version {versionNumber} is now available!  Click for more details: Versie {versionNumber}
   is nu beschikbaar! Klik voor meer informatie
@@ -1030,6 +1041,7 @@ Default Invidious instance has been set to {instance}: Standaard Invidious-insta
 Are you sure you want to open this link?: Weet u zeker dat u deze link wilt openen?
 Search Bar:
   Clear Input: Invoer wissen
+  Remove: Verwijderen
 External link opening has been disabled in the general settings: Het openen van externe
   links is uitgeschakeld in de algemene instellingen
 Downloading canceled: De gebruiker heeft de download geannuleerd
@@ -1041,12 +1053,12 @@ Download folder does not exist: De download map "$" bestaat niet. Valt terug op 
 New Window: Nieuw venster
 Screenshot Success: Schermafbeelding opgeslagen als "{filePath}"
 Channels:
-  Title: Kanaal­lijst
+  Title: Kanalen lijst
   Search bar placeholder: Kanalen zoeken
-  Count: '{number} kanaal/kanalen gevonden'
+  Count: '{number} kanaal/kanalen gevonden.'
   Channels: Kanalen
-  Empty: Uw lijst van kanalen is momenteel leeg.
-  Unsubscribe Prompt: Weet u zeker dat u zich wilt deabonneren van ‘{channelName}’?
+  Empty: Op dit moment is je kanalen lijst leeg.
+  Unsubscribe Prompt: weet je zeker dat je je van "{channelName}" wilt uitschrijven?
 Screenshot Error: Schermafbeelding kon niet worden opgeslagen. {error}
 Preferences: Voorkeuren
 Hashtag:
@@ -1068,7 +1080,7 @@ Go to page: Pagina {page}
 Tag already exists: Tag ‘{tagName}’ bestaat al
 Channel Unhidden: ‘{channel}’ verwijderd uit kanaal­filter
 Channel Hidden: ‘{channel}’ toe­gevoegd aan kanaal­filter
-Close Banner: Banier sluiten
+Close Banner: Banner sluiten
 Age Restricted:
   This channel is age restricted: Dit kanaal heeft een leeftijds­beperking
   This video is age restricted: Deze video heeft een leeftijds­beperking
@@ -1079,16 +1091,23 @@ Display Label: '{label}: {value}'
 Yes, Delete: Ja, verwĳderen
 Yes, Restart: Ja, herstarten
 Feed:
-  Feed Last Updated: Feed {feedName} laatst bĳgewerkt op {date}
-  Refresh Feed: '{subscriptionName} verversen'
+  Feed Last Updated: 'Feed "{feedName}" laatst bĳgewerkt op: "{date}"'
+  Refresh Feed: '"{subscriptionName}" verversen'
 Yes, Open Link: Ja, link openen
 Cancel: Annuleren
 Moments Ago: momenten geleden
-Search character limit: Zoek­opdracht overschrĳdt de teken­limiet van {searchCharacterLimit}
+Search character limit: Zoekopdracht overschrĳdt de tekemlimiet van {searchCharacterLimit}
 Search Listing:
   Label:
     4K: 4K
-    Subtitles: Ondertitels
-    Closed Captions: Gesloten ondertitels
+    Subtitles: Ondertiteling
+    Closed Captions: Ingesloten ondertiteling
+    3D: 3D
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Nieuw
 'Blocked opening potentially unsafe URL': 'Openen van mogelijk onveilige URL geblokkeerd:
   ‘{url}’.'
+Right-click or hold to see history: Rechts klikken of vasthouden om kijkgeschiedenis
+  weer te geven
