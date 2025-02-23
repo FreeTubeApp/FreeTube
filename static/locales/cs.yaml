@@ -330,6 +330,12 @@ Settings:
       Gruvbox Dark: Gruvbox tmavý
       Gruvbox Light: Gruvbox světlý
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Hard: Everforest Dark Hard
+      Everforest Dark Low: Everforest Dark Low
+      Everforest Light Hard: Everforest Light Hard
+      Everforest Light Medium: Everforest Light Medium
+      Everforest Light Low: Everforest Light Low
+      Everforest Dark Medium: Everforest Dark Medium
     Main Color Theme:
       Main Color Theme: 'Hlavní barva motivu'
       Red: 'Červená'
@@ -401,6 +407,20 @@ Settings:
       Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
       Catppuccin Frappe Sky: Catppuccin Frappe Sky
       Catppuccin Frappe Blue: Catppuccin Frappe Blue
+      Everforest Light Aqua: Everforest Light Aqua
+      Everforest Dark Green: Everforest Dark Green
+      Everforest Dark Aqua: Everforest Dark Aqua
+      Everforest Dark Blue: Everforest Dark Blue
+      Everforest Dark Purple: Everforest Dark Purple
+      Everforest Light Red: Everforest Light Red
+      Everforest Light Orange: Everforest Light Orange
+      Everforest Light Yellow: Everforest Light Yellow
+      Everforest Light Green: Everforest Light Green
+      Everforest Light Purple: Everforest Light Purple
+      Everforest Dark Orange: Everforest Dark Orange
+      Everforest Light Blue: Everforest Light Blue
+      Everforest Dark Red: Everforest Dark Red
+      Everforest Dark Yellow: Everforest Dark Yellow
     Secondary Color Theme: 'Sekundární barva motivu'
         #* Main Color Theme
     Hide Side Bar Labels: Skrýt popisky na bočním panelu
