@@ -333,6 +333,12 @@ Settings:
       Gruvbox Light: Gruvbox Clair
       Gruvbox Dark: Gruvbox Sombre
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Light Hard: Jungle Dur Clair
+      Everforest Light Low: Jungle Faible Clair
+      Everforest Dark Low: Jungle Bas Sombre
+      Everforest Light Medium: Jungle Médian Clair
+      Everforest Dark Hard: Jungle Dur Sombre
+      Everforest Dark Medium: Jungle Médian Sombre
     Main Color Theme:
       Main Color Theme: 'Couleur principale du thème'
       Red: 'Rouge'
@@ -384,7 +390,7 @@ Settings:
       Gruvbox Dark Purple: Gruvbox Violet Sombre
       Gruvbox Dark Aqua: Gruvbox Eau Sombre
       Gruvbox Dark Orange: Gruvbox Orange Sombre
-      Gruvbox Light Red: Gruvbox Rouge Sombre
+      Gruvbox Light Red: Gruvbox Rouge Clair
       Gruvbox Light Blue: Gruvbox Bleu Clair
       Gruvbox Light Purple: Gruvbox Violet Clair
       Gruvbox Light Orange: Gruvbox Orange Clair
@@ -404,6 +410,20 @@ Settings:
       Catppuccin Frappe Sapphire: Catppuccin Frappe Saphir
       Catppuccin Frappe Blue: Catppuccin Frappe Bleu
       Catppuccin Frappe Lavender: Catppuccin Frappe Lavande
+      Everforest Dark Yellow: Jungle Jaune Sombre
+      Everforest Dark Aqua: Jungle Cyan Sombre
+      Everforest Light Red: Jungle Rouge Clair
+      Everforest Light Orange: Jungle Orange Clair
+      Everforest Light Green: Jungle Vert Clair
+      Everforest Light Aqua: Jungle Cyan Clair
+      Everforest Light Blue: Jungle Bleu Clair
+      Everforest Dark Purple: Jungle Violet Sombre
+      Everforest Dark Green: Jungle Vert Sombre
+      Everforest Dark Orange: Jungle Orange Sombre
+      Everforest Dark Blue: Jungle Bleu Sombre
+      Everforest Light Purple: Jungle Violet Clair
+      Everforest Dark Red: Jungle Rouge Sombre
+      Everforest Light Yellow: Jungle Jaune Clair
     Secondary Color Theme: 'Couleur secondaire du thème'
         #* Main Color Theme
     UI Scale: Échelle de l'interface utilisateur
