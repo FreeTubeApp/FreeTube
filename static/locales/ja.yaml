@@ -283,6 +283,12 @@ Settings:
       Gruvbox Dark: Gruvbox ダーク
       Gruvbox Light: Gruvbox ライト
       Catppuccin Frappe: キャプチーノ・フラッペ
+      Everforest Dark Low: エバーフォレスト・ダーク・ロー
+      Everforest Light Hard: エバーフォレスト・ライト・ハード
+      Everforest Light Medium: エバーフォレスト・ライト・ミディアム
+      Everforest Light Low: エバーフォレスト・ライト・ロー
+      Everforest Dark Hard: エバーフォレスト・ダーク・ハード
+      Everforest Dark Medium: エバーフォレスト・ダーク・ミディアム
     Main Color Theme:
       Main Color Theme: 'テーマのメイン カラー'
       Red: '赤'
@@ -354,6 +360,20 @@ Settings:
       Catppuccin Frappe Blue: キャプチーノ・フラッペ ブルー
       Catppuccin Frappe Lavender: キャプチーノ・フラッペ ラベンダー
       Catppuccin Frappe Sapphire: キャプチーノ・フラッペ サファイア
+      Everforest Dark Orange: エバーフォレスト・ダークオレンジ
+      Everforest Dark Aqua: エバーフォレスト・ダークアクア
+      Everforest Dark Blue: エバーフォレスト・ダークブルー
+      Everforest Light Red: エバーフォレスト・ライトレッド
+      Everforest Light Green: エバーフォレスト・ライトグリーン
+      Everforest Light Aqua: エバーフォレスト・ライトアクア
+      Everforest Light Yellow: エバーフォレスト・ライトイエロー
+      Everforest Dark Red: エバーフォレスト・ダークレッド
+      Everforest Dark Yellow: エバーフォレスト・ダークイエロー
+      Everforest Dark Green: エバーフォレスト・ダークグリーン
+      Everforest Dark Purple: エバーフォレスト・ダークパープル
+      Everforest Light Orange: エバーフォレスト・ライトオレンジ
+      Everforest Light Blue: エバーフォレスト・ライトブルー
+      Everforest Light Purple: エバーフォレスト・ライトパープル
     Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
     UI Scale: UIの拡大率
