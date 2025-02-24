@@ -322,6 +322,12 @@ Settings:
       Gruvbox Dark: Gruuvimasina tume
       Gruvbox Light: Gruuvimasina hele
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Low: Lahja ja tume alatine mets (Everforest Dark Low)
+      Everforest Light Hard: Tõsine ja hele alatine mets (Everforest Light Hard)
+      Everforest Light Low: Lahja ja hele alatine mets (Everforest Light Low)
+      Everforest Dark Hard: Tõsine ja tume alatine mets (Everforest Dark Hard)
+      Everforest Light Medium: Keskmine ja hele alatine mets (Everforest Light Medium)
+      Everforest Dark Medium: Keskmine ja tume alatine mets (Everforest Dark Medium)
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -340,13 +346,13 @@ Settings:
       Amber: 'Merevaigukollane'
       Orange: 'Oranž'
       Deep Orange: 'Sügavoranž'
-      Dracula Cyan: 'Dracula Rohekassinine'
-      Dracula Green: 'Dracula Roheline'
-      Dracula Orange: 'Dracula Oranž'
-      Dracula Pink: 'Dracula Roosa'
-      Dracula Purple: 'Dracula Purpurpunane'
-      Dracula Red: 'Dracula Punane'
-      Dracula Yellow: 'Dracula Kollane'
+      Dracula Cyan: 'Dracula rohekassinine'
+      Dracula Green: 'Dracula roheline'
+      Dracula Orange: 'Dracula oranž'
+      Dracula Pink: 'Dracula roosa'
+      Dracula Purple: 'Dracula purpurpunane'
+      Dracula Red: 'Dracula punane'
+      Dracula Yellow: 'Dracula kollane'
       Catppuccin Mocha Blue: Catppuccin Mocha Sinine
       Catppuccin Mocha Maroon: Catppuccin Mocha Kastanipunane
       Catppuccin Mocha Pink: Catppuccin Mocha Roosa
@@ -373,11 +379,11 @@ Settings:
       Gruvbox Light Blue: Gruuvimasina helesinine
       Gruvbox Dark Green: Gruuvimasina tumeroheline
       Gruvbox Light Red: Gruuvimasina helepunane
-      Gruvbox Dark Purple: Gruuvimasina tumepurpur
+      Gruvbox Dark Purple: Gruuvimasina tume purpurpunane
       Gruvbox Dark Orange: Gruuvimasina tumeoranž
       Gruvbox Dark Yellow: Gruuvimasina kollane
-      Gruvbox Dark Aqua: Gruuvimasina tume vesi
-      Gruvbox Light Purple: Gruuvimasina helepurpur
+      Gruvbox Dark Aqua: Gruuvimasina tume veesinine
+      Gruvbox Light Purple: Gruuvimasina hele purpurpunane
       Gruvbox Light Orange: Gruuvimasina heleoranž
       Catppuccin Frappe Red: Catppuccin Frappe punane
       Catppuccin Frappe Maroon: Catppuccin Frappe pruun
@@ -393,6 +399,20 @@ Settings:
       Catppuccin Frappe Rosewater: Catppuccin Frappe roosivesi
       Catppuccin Frappe Yellow: Catppuccin Frappe kollane
       Catppuccin Frappe Mauve: Catppuccin Frappe lillakas
+      Everforest Dark Red: Tumepunane alatine mets (Everforest Dark Red)
+      Everforest Dark Orange: Tumeoranž alatine mets (Everforest Dark Orange)
+      Everforest Dark Yellow: Tumekollane alatine mets (Everforest Dark Yellow)
+      Everforest Dark Green: Tumeroheline alatine mets (Everforest Dark Green)
+      Everforest Dark Blue: Tumesinine alatine mets (Everforest Dark Blue)
+      Everforest Light Red: Helepunane alatine mets (Everforest Light Red)
+      Everforest Light Yellow: Helekollane alatine mets (Everforest Light Yellow)
+      Everforest Light Green: Heleroheline alatine mets (Everforest Light Green)
+      Everforest Light Purple: Hele purpurpunane alatine mets (Everforest Light Purple)
+      Everforest Light Aqua: Hele veesinine alatine mets (Everforest Light Aqua)
+      Everforest Light Orange: Heleoranž alatine mets (Everforest Light Orange)
+      Everforest Light Blue: Helesinine alatine mets (Everforest Light Blue)
+      Everforest Dark Purple: Tume purpurpunane alatine mets (Everforest Dark Purple)
+      Everforest Dark Aqua: Tume veesinine alatine mets (Everforest Dark Aqua)
     Secondary Color Theme: 'Värvide alamteema'
         #* Main Color Theme
     UI Scale: Kasutajaliidese suurus
