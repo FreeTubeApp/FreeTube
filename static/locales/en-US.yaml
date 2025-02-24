@@ -280,6 +280,8 @@ Settings:
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
     Open Deep Links In New Window: Open URLs Passed to FreeTube in a New Window
+    Hide to tray on close: Hide to tray on close
+    Hide to tray on minimize: Hide to tray on minimize
     Auto Load Next Page:
       Label: Auto Load Next Page
       Tooltip: Load additional pages and comments automatically.
@@ -1203,3 +1205,6 @@ KeyboardShortcutPrompt:
   Last Chapter: Last Chapter
   Next Chapter: Next Chapter
   Skip by Tenths: Skip through video by percentage (3 skips to 30% of duration)
+Tray:
+  Show: Show
+  Quit: Quit

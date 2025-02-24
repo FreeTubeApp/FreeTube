@@ -1,7 +1,8 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
   powerSaveBlocker, screen, session, shell,
-  nativeTheme, net, protocol, clipboard
+  nativeTheme, net, protocol, clipboard,
+  Tray
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -16,15 +17,21 @@ import {
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
-import { existsSync } from 'fs'
+import { existsSync, writeFileSync, mkdirSync } from 'fs'
 import asyncFs from 'fs/promises'
 import { promisify } from 'util'
-import { brotliDecompress } from 'zlib'
+import { brotliDecompress, brotliDecompressSync } from 'zlib'
 
 import contextMenu from 'electron-context-menu'
 
 import packageDetails from '../../package.json'
 import { generatePoToken } from './poTokenGenerator'
+
+import os from 'os'
+import asar from '@electron/asar'
+
+import i18next from 'i18next'
+import Backend from 'i18next-fs-backend'
 
 const brotliDecompressAsync = promisify(brotliDecompress)
 
@@ -231,6 +238,9 @@ function runApp() {
 
   let mainWindow
   let startupUrl
+  let tray = null
+  let trayOnClose
+  let trayOnMinimize
 
   const userDataPath = app.getPath('userData')
 
@@ -390,6 +400,12 @@ function runApp() {
             break
           case 'proxyPort':
             proxyPort = doc.value
+            break
+          case 'hideToTrayOnClose':
+            trayOnClose = doc.value
+            break
+          case 'hideToTrayOnMinimize':
+            trayOnMinimize = doc.value
             break
         }
       })
@@ -593,6 +609,53 @@ function runApp() {
     }
   })
 
+  function createTray() {
+    const iconPath = process.env.NODE_ENV === 'development'
+      ? path.join(__dirname, '..', '..', '_icons', 'iconColor.png')
+      : asarToTmp(path.join('_icons', 'iconColor.png'))
+    tray = new Tray(iconPath)
+    tray.setIgnoreDoubleClickEvents(true)
+
+    function click() {
+      mainWindow.show()
+      tray.destroy()
+    }
+
+    const menu = Menu.buildFromTemplate([
+      {
+        label: i18next.t('Tray.Show'),
+        click: () => click()
+      },
+      {
+        label: i18next.t('Tray.Quit'),
+        click: handleQuit
+      }
+    ])
+
+    tray.setContextMenu(menu)
+    tray.setToolTip('FreeTube')
+
+    tray.on('click', (event) => {
+      click()
+    })
+  }
+
+  function asarToTmp(relativePath, brotli = false) {
+    const tmpFile = path.join(os.tmpdir(), 'freetube', relativePath)
+
+    if (existsSync(tmpFile)) {
+      return tmpFile
+    } else if (!existsSync(path.dirname(tmpFile))) {
+      mkdirSync(path.dirname(tmpFile), { recursive: true })
+    }
+
+    const asarFile = asar.extractFile(path.dirname(__dirname), relativePath)
+
+    writeFileSync(tmpFile, !brotli ? asarFile : brotliDecompressSync(asarFile))
+
+    return tmpFile
+  }
+
   /**
    * @param {string} extension
    */
@@ -749,6 +812,26 @@ function runApp() {
 
     // endregion Ensure child windows use same options since electron 14
 
+    newWindow.on('close', (event) => {
+      if (trayOnClose) {
+        event.preventDefault()
+        newWindow.hide()
+        createTray()
+      }
+    })
+
+    newWindow.on('minimize', (event) => {
+      if (trayOnMinimize) {
+        event.preventDefault()
+        newWindow.hide()
+        createTray()
+      }
+    })
+
+    if (tray) {
+      tray.destroy()
+    }
+
     if (replaceMainWindow) {
       mainWindow = newWindow
     }
@@ -850,6 +933,21 @@ function runApp() {
       mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, { isLaunchLink: true })
     }
     startupUrl = null
+  })
+
+  ipcMain.on(IpcChannels.GET_CURRENT_LOCALE, (_, { targetLocale, fallbackLocale }) => {
+    i18next.use(Backend).init({
+      lng: targetLocale,
+      fallbackLng: fallbackLocale,
+      backend: {
+        loadPath: process.env.NODE_ENV === 'development'
+          ? path.join(__dirname, '..', '..', 'static', 'locales', '{{lng}}.yaml')
+          : asarToTmp(path.join('dist', 'static', 'locales', targetLocale + '.json.br'), true)
+      },
+      interpolation: {
+        escapeValue: false
+      }
+    })
   })
 
   function relaunch() {
@@ -1243,6 +1341,13 @@ function runApp() {
             case 'backendPreference':
             case 'hidePlaylists':
               await setMenu()
+              break
+
+            case 'hideToTrayOnClose':
+              trayOnClose = data.value
+              break
+            case 'hideToTrayOnMinimize':
+              trayOnMinimize = data.value
               break
 
             default:
@@ -1643,14 +1748,11 @@ function runApp() {
 
   let resourcesCleanUpDone = false
 
-  app.on('window-all-closed', () => {
+  app.on('window-all-closed', async () => {
+    if (trayOnClose) { return }
+
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
-    cleanUpResources().finally(() => {
-      mainWindow = null
-      if (process.platform !== 'darwin') {
-        app.quit()
-      }
-    })
+    handleQuit()
   })
 
   if (process.platform === 'darwin') {
@@ -1661,7 +1763,7 @@ function runApp() {
     app.on('will-quit', e => {
       // Let app quit when the cleanup is finished
 
-      if (resourcesCleanUpDone) { return }
+      if (resourcesCleanUpDone || trayOnClose) { return }
 
       e.preventDefault()
       cleanUpResources().finally(() => {
@@ -1670,6 +1772,19 @@ function runApp() {
 
         app.quit()
       })
+    })
+  }
+
+  app.on('before-quit', () => {
+    tray.destroy()
+  })
+
+  function handleQuit() {
+    cleanUpResources().finally(() => {
+      mainWindow.destroy()
+      if (process.platform !== 'darwin') {
+        app.quit()
+      }
     })
   }
 

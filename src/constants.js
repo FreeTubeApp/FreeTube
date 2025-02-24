@@ -4,6 +4,7 @@ const IpcChannels = {
   DISABLE_PROXY: 'disable-proxy',
   OPEN_EXTERNAL_LINK: 'open-external-link',
   GET_SYSTEM_LOCALE: 'get-system-locale',
+  GET_CURRENT_LOCALE: 'get-current-locale',
   GET_PICTURES_PATH: 'get-pictures-path',
   GET_NAVIGATION_HISTORY: 'get-navigation-history',
   SHOW_SAVE_DIALOG: 'show-save-dialog',
