@@ -334,6 +334,12 @@ Settings:
       Gruvbox Dark: Gruvbox Iluna
       Gruvbox Light: Gruvbox Argia
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Medium: Everforest Ilun Erdibidekoa
+      Everforest Light Medium: Everforest Argia Erdibidekoa
+      Everforest Light Low: Everforest Argia Arina
+      Everforest Dark Hard: Everforest Ilun Gogorra
+      Everforest Dark Low: Everforest Ilun Arina
+      Everforest Light Hard: Everforest Argia Gogorra
     Main Color Theme:
       Main Color Theme: 'Oinarrizko koloreen gaia'
       Red: 'Gorria'
@@ -405,6 +411,20 @@ Settings:
       Catppuccin Frappe Pink: Catppuccin Frappe Larrosa
       Catppuccin Frappe Maroon: Catppuccin Frappe Marroia
       Catppuccin Frappe Yellow: Catppuccin Frappe Horia
+      Everforest Dark Red: Everforest Iluna Gorria
+      Everforest Dark Orange: Everforest Iluna Laranja
+      Everforest Dark Yellow: Everforest Iluna Horia
+      Everforest Dark Green: Everforest Iluna Berdea
+      Everforest Dark Aqua: Everforest Iluna Aqua
+      Everforest Dark Blue: Everforest Iluna Urdina
+      Everforest Dark Purple: Everforest Iluna Morea
+      Everforest Light Red: Everforest Argia Gorria
+      Everforest Light Orange: Everforest Argia Laranja
+      Everforest Light Green: Everforest Argia Berdea
+      Everforest Light Aqua: Everforest Argia Aqua
+      Everforest Light Blue: Everforest Argia Urdina
+      Everforest Light Purple: Everforest Argia Ubela
+      Everforest Light Yellow: Everforest Argia Horia
     Secondary Color Theme: 'Gaiaren bigarren mailako kolorea'
         #* Main Color Theme
     Hide Side Bar Labels: Ezkutatu alboko barraren etiketak
