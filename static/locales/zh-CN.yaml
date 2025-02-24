@@ -281,6 +281,12 @@ Settings:
       Gruvbox Dark: Gruvbox Dark
       Gruvbox Light: Gruvbox Light
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Hard: Everforest Dark Hard
+      Everforest Dark Medium: Everforest Dark Medium
+      Everforest Dark Low: Everforest Dark Low
+      Everforest Light Medium: Everforest Light Medium
+      Everforest Light Low: Everforest Light Low
+      Everforest Light Hard: Everforest Light Hard
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -352,6 +358,20 @@ Settings:
       Catppuccin Frappe Peach: Catppuccin Frappe Peach
       Catppuccin Frappe Green: Catppuccin Frappe Green
       Catppuccin Frappe Blue: Catppuccin Frappe Blue
+      Everforest Dark Red: Everforest Dark Red
+      Everforest Dark Orange: Everforest Dark Orange
+      Everforest Dark Yellow: Everforest Dark Yellow
+      Everforest Dark Green: Everforest Dark Green
+      Everforest Dark Aqua: Everforest Dark Aqua
+      Everforest Dark Blue: Everforest Dark Blue
+      Everforest Dark Purple: Everforest Dark Purple
+      Everforest Light Red: Everforest Light Red
+      Everforest Light Orange: Everforest Light Orange
+      Everforest Light Yellow: Everforest Light Yellow
+      Everforest Light Green: Everforest Light Green
+      Everforest Light Aqua: Everforest Light Aqua
+      Everforest Light Blue: Everforest Light Blue
+      Everforest Light Purple: Everforest Light Purple
     Secondary Color Theme: '次主题色'
         #* Main Color Theme
     UI Scale: UI缩放
