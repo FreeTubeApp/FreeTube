@@ -925,7 +925,7 @@ export function parseChannelHomeTab(homeTab) {
           title: shelf.title?.text,
           content: shelf.contents.map(e => parseListItem(e.content)),
           subtitle: shelf.subtitle?.text,
-          playlistId: shelf.endpoint?.metadata.url.includes('/playlist') ? shelf.endpoint?.metadata.url.replace('/playlist?list=', '') : null
+          playlistId: shelf.endpoint?.metadata.url?.includes('/playlist') ? shelf.endpoint?.metadata.url.replace('/playlist?list=', '') : null
         })
       }
     }
