@@ -2,7 +2,7 @@ import {
   app, BrowserWindow, dialog, Menu, ipcMain,
   powerSaveBlocker, screen, session, shell,
   nativeTheme, net, protocol, clipboard,
-  Tray
+  Tray, nativeImage
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -17,21 +17,16 @@ import {
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
-import { existsSync, writeFileSync, mkdirSync } from 'fs'
+import { existsSync, readFileSync } from 'fs'
 import asyncFs from 'fs/promises'
 import { promisify } from 'util'
-import { brotliDecompress, brotliDecompressSync } from 'zlib'
+import { brotliDecompress } from 'zlib'
 
 import contextMenu from 'electron-context-menu'
 
 import packageDetails from '../../package.json'
 import { generatePoToken } from './poTokenGenerator'
 
-import os from 'os'
-import asar from '@electron/asar'
-
-import i18next from 'i18next'
-import Backend from 'i18next-fs-backend'
 
 const brotliDecompressAsync = promisify(brotliDecompress)
 
@@ -610,10 +605,11 @@ function runApp() {
   })
 
   function createTray() {
-    const iconPath = process.env.NODE_ENV === 'development'
-      ? path.join(__dirname, '..', '..', '_icons', 'iconColor.png')
-      : asarToTmp(path.join('_icons', 'iconColor.png'))
-    tray = new Tray(iconPath)
+    const icon = process.env.NODE_ENV === 'development'
+      ? readFileSync(path.join(__dirname, '..', '..', '_icons', 'iconColor.png'))
+      : readFileSync(path.join(path.dirname(__dirname), '_icons', 'iconColor.png'))
+
+    tray = new Tray(nativeImage.createFromBuffer(icon))
     tray.setIgnoreDoubleClickEvents(true)
 
     function click() {
@@ -623,11 +619,11 @@ function runApp() {
 
     const menu = Menu.buildFromTemplate([
       {
-        label: i18next.t('Tray.Show'),
+        label: 'Show',
         click: () => click()
       },
       {
-        label: i18next.t('Tray.Quit'),
+        label: 'Quit',
         click: handleQuit
       }
     ])
@@ -638,22 +634,6 @@ function runApp() {
     tray.on('click', (event) => {
       click()
     })
-  }
-
-  function asarToTmp(relativePath, brotli = false) {
-    const tmpFile = path.join(os.tmpdir(), 'freetube', relativePath)
-
-    if (existsSync(tmpFile)) {
-      return tmpFile
-    } else if (!existsSync(path.dirname(tmpFile))) {
-      mkdirSync(path.dirname(tmpFile), { recursive: true })
-    }
-
-    const asarFile = asar.extractFile(path.dirname(__dirname), relativePath)
-
-    writeFileSync(tmpFile, !brotli ? asarFile : brotliDecompressSync(asarFile))
-
-    return tmpFile
   }
 
   /**
@@ -933,21 +913,6 @@ function runApp() {
       mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, { isLaunchLink: true })
     }
     startupUrl = null
-  })
-
-  ipcMain.on(IpcChannels.GET_CURRENT_LOCALE, (_, { targetLocale, fallbackLocale }) => {
-    i18next.use(Backend).init({
-      lng: targetLocale,
-      fallbackLng: fallbackLocale,
-      backend: {
-        loadPath: process.env.NODE_ENV === 'development'
-          ? path.join(__dirname, '..', '..', 'static', 'locales', '{{lng}}.yaml')
-          : asarToTmp(path.join('dist', 'static', 'locales', targetLocale + '.json.br'), true)
-      },
-      interpolation: {
-        escapeValue: false
-      }
-    })
   })
 
   function relaunch() {

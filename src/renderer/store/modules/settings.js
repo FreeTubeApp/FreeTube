@@ -381,9 +381,6 @@ const sideEffectHandlers = {
 
     i18n.locale = targetLocale
     await dispatch('getRegionData', targetLocale)
-
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.send(IpcChannels.GET_CURRENT_LOCALE, { targetLocale, fallbackLocale })
   },
 
   defaultInvidiousInstance: ({ commit, rootState }, value) => {
