@@ -314,19 +314,27 @@ Settings:
       Catppuccin Mocha: ''
       Pastel Pink: ''
       Hot Pink: ''
-      Nordic: ''
-      Solarized Dark: ''
-      Solarized Light: ''
+      Nordic: 'Noors'
+      Solarized Dark: 'Gesolariseerde donker'
+      Solarized Light: 'Gesolariseerde lig'
+      Everforest Dark Hard: Everforest Donker hard
+      Everforest Dark Medium: Everforest Donker medium
+      Everforest Light Low: Everforest Lig laag
+      Everforest Light Hard: Everforest Lig hard
+      Everforest Dark Low: Everforest Donker laag
+      Everforest Light Medium: Everforest Lig medium
+      Gruvbox Dark: Gruvboxx donker
+      Gruvbox Light: Gruvbox lig
     Main Color Theme:
-      Main Color Theme: ''
-      Red: ''
-      Pink: ''
-      Purple: ''
-      Deep Purple: ''
-      Indigo: ''
-      Blue: ''
-      Light Blue: ''
-      Cyan: ''
+      Main Color Theme: 'Primêre kleurtema'
+      Red: 'Rooi'
+      Pink: 'Pienk'
+      Purple: 'Pers'
+      Deep Purple: 'Donkerpers'
+      Indigo: 'Indigo'
+      Blue: 'Blou'
+      Light Blue: 'Ligblou'
+      Cyan: 'Siaan'
       Teal: 'Blougroen'
       Green: 'Groen'
       Light Green: 'Liggroen'
