@@ -54,7 +54,9 @@ class Settings {
         { _id: 'useProxy' },
         { _id: 'proxyProtocol' },
         { _id: 'proxyHostname' },
-        { _id: 'proxyPort' }
+        { _id: 'proxyPort' },
+        { _id: 'hideToTrayOnClose' },
+        { _id: 'hideToTrayOnMinimize' }
       ]
     })
   }
@@ -71,6 +73,14 @@ class Settings {
       backendPreference: db.settings.findOneAsync({ _id: 'backendPreference' }),
       hidePlaylists: db.settings.findOneAsync({ _id: 'hidePlaylists' }),
     }
+  }
+
+  static _findHideToTrayOnClose() {
+    return db.settings.findOneAsync({ _id: 'hideToTrayOnClose' })
+  }
+
+  static _findHideToTrayOnMinimize() {
+    return db.settings.findOneAsync({ _id: 'hideToTrayOnMinimize' })
   }
 
   static _updateBounds(value) {

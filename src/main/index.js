@@ -1,7 +1,8 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
   powerSaveBlocker, screen, session, shell,
-  nativeTheme, net, protocol, clipboard
+  nativeTheme, net, protocol, clipboard,
+  Tray, nativeImage
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -16,7 +17,7 @@ import {
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
-import { existsSync } from 'fs'
+import { existsSync, readFileSync } from 'fs'
 import asyncFs from 'fs/promises'
 import { promisify } from 'util'
 import { brotliDecompress } from 'zlib'
@@ -231,6 +232,9 @@ function runApp() {
 
   let mainWindow
   let startupUrl
+  let tray = null
+  let trayOnClose
+  let trayOnMinimize
 
   const userDataPath = app.getPath('userData')
 
@@ -390,6 +394,12 @@ function runApp() {
             break
           case 'proxyPort':
             proxyPort = doc.value
+            break
+          case 'hideToTrayOnClose':
+            trayOnClose = doc.value
+            break
+          case 'hideToTrayOnMinimize':
+            trayOnMinimize = doc.value
             break
         }
       })
@@ -593,6 +603,38 @@ function runApp() {
     }
   })
 
+  function createTray() {
+    const icon = process.env.NODE_ENV === 'development'
+      ? readFileSync(path.join(__dirname, '..', '..', '_icons', 'iconColor.png'))
+      : readFileSync(path.join(path.dirname(__dirname), '_icons', 'iconColor.png'))
+
+    tray = new Tray(nativeImage.createFromBuffer(icon))
+    tray.setIgnoreDoubleClickEvents(true)
+
+    function click() {
+      mainWindow.show()
+      tray.destroy()
+    }
+
+    const menu = Menu.buildFromTemplate([
+      {
+        label: 'Show',
+        click: () => click()
+      },
+      {
+        label: 'Quit',
+        click: handleQuit
+      }
+    ])
+
+    tray.setContextMenu(menu)
+    tray.setToolTip('FreeTube')
+
+    tray.on('click', (event) => {
+      click()
+    })
+  }
+
   /**
    * @param {string} extension
    */
@@ -748,6 +790,26 @@ function runApp() {
     })
 
     // endregion Ensure child windows use same options since electron 14
+
+    newWindow.on('close', (event) => {
+      if (trayOnClose) {
+        event.preventDefault()
+        newWindow.hide()
+        createTray()
+      }
+    })
+
+    newWindow.on('minimize', (event) => {
+      if (trayOnMinimize) {
+        event.preventDefault()
+        newWindow.hide()
+        createTray()
+      }
+    })
+
+    if (tray) {
+      tray.destroy()
+    }
 
     if (replaceMainWindow) {
       mainWindow = newWindow
@@ -1245,6 +1307,13 @@ function runApp() {
               await setMenu()
               break
 
+            case 'hideToTrayOnClose':
+              trayOnClose = data.value
+              break
+            case 'hideToTrayOnMinimize':
+              trayOnMinimize = data.value
+              break
+
             default:
               // Do nothing for unmatched settings
           }
@@ -1643,14 +1712,11 @@ function runApp() {
 
   let resourcesCleanUpDone = false
 
-  app.on('window-all-closed', () => {
+  app.on('window-all-closed', async () => {
+    if (trayOnClose) { return }
+
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
-    cleanUpResources().finally(() => {
-      mainWindow = null
-      if (process.platform !== 'darwin') {
-        app.quit()
-      }
-    })
+    handleQuit()
   })
 
   if (process.platform === 'darwin') {
@@ -1661,7 +1727,7 @@ function runApp() {
     app.on('will-quit', e => {
       // Let app quit when the cleanup is finished
 
-      if (resourcesCleanUpDone) { return }
+      if (resourcesCleanUpDone || trayOnClose) { return }
 
       e.preventDefault()
       cleanUpResources().finally(() => {
@@ -1670,6 +1736,19 @@ function runApp() {
 
         app.quit()
       })
+    })
+  }
+
+  app.on('before-quit', () => {
+    tray.destroy()
+  })
+
+  function handleQuit() {
+    cleanUpResources().finally(() => {
+      mainWindow.destroy()
+      if (process.platform !== 'darwin') {
+        app.quit()
+      }
     })
   }
 
