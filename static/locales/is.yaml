@@ -332,6 +332,12 @@ Settings:
       Gruvbox Dark: Gruvbox dökkt
       Gruvbox Light: Gruvbox ljóst
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Light Low: Everforest Ljóst-lítið
+      Everforest Dark Hard: Everforest Dökkt-skarpt
+      Everforest Dark Medium: Everforest Dökkt-miðlungs
+      Everforest Dark Low: Everforest Dökkt-lítið
+      Everforest Light Hard: Everforest Ljóst-skarpt
+      Everforest Light Medium: Everforest Ljóst-miðlungs
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -403,6 +409,20 @@ Settings:
       Catppuccin Frappe Sky: Catppuccin Frappe himinblátt
       Catppuccin Frappe Sapphire: Catppuccin Frappe safír
       Catppuccin Frappe Blue: Catppuccin Frappe blátt
+      Everforest Dark Red: Everforest Dökkrautt
+      Everforest Dark Orange: Everforest Dökkappelsínugult
+      Everforest Dark Yellow: Everforest Dökkgult
+      Everforest Dark Green: Everforest Dökkgrænt
+      Everforest Dark Aqua: Everforest Dökksægrænt
+      Everforest Dark Purple: Everforest Dökkpurpuralitað
+      Everforest Dark Blue: Everforest Dökkblátt
+      Everforest Light Red: Everforest Ljósrautt
+      Everforest Light Orange: Everforest Ljósappelsínugult
+      Everforest Light Yellow: Everforest Ljósgult
+      Everforest Light Green: Everforest Ljósgrænt
+      Everforest Light Aqua: Everforest Ljóssægrænt
+      Everforest Light Blue: Everforest Ljósblátt
+      Everforest Light Purple: Everforest Ljóspurpuralitað
     Secondary Color Theme: 'Aukalitur þema'
         #* Main Color Theme
     Hide Side Bar Labels: Fela skýringar á hliðarstiku
