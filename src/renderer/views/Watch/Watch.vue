@@ -17,7 +17,7 @@
     >
       <div class="videoAreaMargin">
         <ft-shaka-video-player
-          v-if="!isLoading && !isUpcoming && !errorMessage"
+          v-if="!isLoading && (!isUpcoming || playabilityStatus === 'OK') && !errorMessage"
           ref="player"
           :manifest-src="manifestSrc"
           :manifest-mime-type="manifestMimeType"
@@ -50,10 +50,12 @@
           @playback-rate-updated="updatePlaybackRate"
         />
         <div
-          v-if="!isLoading && (isUpcoming || errorMessage)"
+          v-else-if="!isLoading && (isUpcoming || errorMessage)"
           class="videoPlayer"
+          :class="{trailer: isUpcoming && playabilityStatus === 'OK'}"
         >
           <img
+            v-if="!isUpcoming || playabilityStatus !== 'OK'"
             :src="thumbnail"
             class="videoThumbnail"
             alt=""
