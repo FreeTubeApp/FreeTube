@@ -1,3 +1,4 @@
+<!-- eslint-disable @intlify/vue-i18n/no-missing-keys -->
 <template>
   <FtPrompt
     theme="slim"
@@ -55,6 +56,12 @@
         background-color="var(--primary-color)"
         text-color="var(--text-with-main-color)"
         @click="hideSearchFilters"
+      />
+      <FtButton
+        :label="$t('Apply')"
+        background-color="var(--primary-color)"
+        text-color="var(--text-with-main-color)"
+        @click="applyFilters"
       />
     </div>
   </FtPrompt>
@@ -172,6 +179,16 @@ const featureLabels = computed(() => [
 ])
 
 const searchSettings = store.getters.getSearchSettings
+
+function applyFilters() {
+  const queryText = store.getters.getTopNavInstance?.$refs.searchInput.inputData || ''
+  const searchSettings = store.getters.getSearchSettings
+  if (!queryText) {
+    console.error('No queryText found during Apply Filters')
+    return
+  }
+  store.dispatch('applyFilters', { queryText, searchSettings })
+}
 
 /** @type {import('vue').Ref<'relevance' | 'rating' | 'upload_date' | 'view_count'>} */
 const sortByValue = ref(searchSettings.sortBy)
