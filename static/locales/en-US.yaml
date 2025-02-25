@@ -567,6 +567,7 @@ Settings:
     Hide Channel Shorts: Hide Channel "Shorts" Tab
     Hide Channel Podcasts: Hide Channel "Podcasts" Tab
     Hide Channel Releases: Hide Channel "Releases" Tab
+    Hide Channel Courses: Hide Channel "Courses" Tab
     Hide Videos and Playlists Containing Text: Hide Videos and Playlists Containing Text
     Hide Videos and Playlists Containing Text Placeholder: Word, Word Fragment, or Phrase
     Hide Subscriptions Videos: Hide Subscriptions Videos
@@ -800,6 +801,9 @@ Channel:
   Releases:
     Releases: Releases
     This channel does not currently have any releases: This channel does not currently have any releases
+  Courses:
+    Courses: Courses
+    This channel does not currently have any courses: This channel does not currently have any courses
   About:
     About: About
     Channel Description: Channel Description
