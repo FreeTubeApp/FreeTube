@@ -207,6 +207,9 @@ export default defineComponent({
     hideVideoDescription: function () {
       return this.$store.getters.getHideVideoDescription
     },
+    hideVideoChannelInfo: function () {
+      return this.$store.getters.getHideVideoChannelInfo
+    },
     showFamilyFriendlyOnly: function () {
       return this.$store.getters.getShowFamilyFriendlyOnly
     },
