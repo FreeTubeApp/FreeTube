@@ -240,7 +240,7 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import FtCard from '../ft-card/ft-card.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtShareButton from '../ft-share-button/ft-share-button.vue'
+import FtShareButton from '../FtShareButton/FtShareButton.vue'
 import FtSubscribeButton from '../FtSubscribeButton/FtSubscribeButton.vue'
 import FtInput from '../ft-input/ft-input.vue'
 

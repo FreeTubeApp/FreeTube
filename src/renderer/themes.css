@@ -92,7 +92,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 /* stylelint-disable no-descending-specificity */
 
-/* Dark theme Youtube and Invidious logo styling (in ft-share-button) */
+/* Dark theme Youtube and Invidious logo styling (in FtShareButton) */
 .system[data-system-theme*='dark'],
 .dark,
 .dracula,
@@ -127,7 +127,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 /*************** LIGHT THEME ADJUSTMENTS ***************/
 
-/* Light theme Youtube and Invidious logo styling (in ft-share-button) */
+/* Light theme Youtube and Invidious logo styling (in FtShareButton) */
 .invidiousLogo {
   background-image: url('./assets/img/invidious-logo-light.svg');
 }
