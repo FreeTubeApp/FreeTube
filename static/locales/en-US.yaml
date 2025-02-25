@@ -49,6 +49,8 @@ Global:
   Live: Live
   Community: Community
   Sort By: Sort By
+  DateWatchedOldest: Earliest Watched First
+  DateWatchedNewest: Latest Watched First
   Counts:
     Video Count: 1 video | {count} videos
     Channel Count: 1 channel | {count} channels
