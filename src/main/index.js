@@ -27,7 +27,6 @@ import contextMenu from 'electron-context-menu'
 import packageDetails from '../../package.json'
 import { generatePoToken } from './poTokenGenerator'
 
-
 const brotliDecompressAsync = promisify(brotliDecompress)
 
 if (process.argv.includes('--version')) {
