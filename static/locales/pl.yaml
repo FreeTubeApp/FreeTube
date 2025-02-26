@@ -318,6 +318,12 @@ Settings:
       Gruvbox Dark: Gruvbox ciemny
       Gruvbox Light: Gruvbox jasny
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Medium: Everforest Ciemny
+      Everforest Light Hard: Everforest Mocno Jasny
+      Everforest Light Low: Everforest Lekko Jasny
+      Everforest Dark Hard: Everforest Mocno Ciemny
+      Everforest Dark Low: Everforest Lekko Ciemny
+      Everforest Light Medium: Everforest Jasny
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -389,6 +395,20 @@ Settings:
       Catppuccin Frappe Yellow: Catppuccin Frappe Żółty
       Catppuccin Frappe Green: Catppuccin Frappe Zielony
       Catppuccin Frappe Lavender: Catppuccin Frappe Lawendowy
+      Everforest Dark Red: Everforest Ciemny Czerwony
+      Everforest Dark Orange: Everforest Ciemny Pomarańczowy
+      Everforest Dark Yellow: Everforest Ciemny Żółty
+      Everforest Dark Green: Everforest Ciemny Zielony
+      Everforest Dark Purple: Everforest Ciemny Fiolet
+      Everforest Light Red: Everforest Jasny Czerwony
+      Everforest Light Orange: Everforest Jasny Pomarańczowy
+      Everforest Light Yellow: Everforest Jasny Żółty
+      Everforest Light Green: Everforest Jasny Zielony
+      Everforest Light Aqua: Everforest Jasny Aqua
+      Everforest Light Blue: Everforest Jasny Niebieski
+      Everforest Dark Aqua: Everforest Ciemny Aqua
+      Everforest Light Purple: Everforest Jasny Fioletowy
+      Everforest Dark Blue: Everforest Ciemny Niebieski
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI
