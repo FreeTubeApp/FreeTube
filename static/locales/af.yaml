@@ -305,15 +305,15 @@ Settings:
     Hide Side Bar Labels: ''
     Hide FreeTube Header Logo: ''
     Base Theme:
-      Base Theme: ''
-      Black: ''
-      Dark: ''
-      System Default: ''
-      Light: ''
-      Dracula: ''
-      Catppuccin Mocha: ''
-      Pastel Pink: ''
-      Hot Pink: ''
+      Base Theme: 'Basistema'
+      Black: 'Swart'
+      Dark: 'Donker'
+      System Default: 'Stelselverstek'
+      Light: 'Lig'
+      Dracula: 'Dracula'
+      Catppuccin Mocha: 'Catppuccin Mocha'
+      Pastel Pink: 'Pastelpienk'
+      Hot Pink: 'Helderpienk'
       Nordic: 'Noors'
       Solarized Dark: 'Gesolariseerde donker'
       Solarized Light: 'Gesolariseerde lig'
@@ -325,6 +325,7 @@ Settings:
       Everforest Light Medium: Everforest Lig medium
       Gruvbox Dark: Gruvboxx donker
       Gruvbox Light: Gruvbox lig
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Primêre kleurtema'
       Red: 'Rooi'
