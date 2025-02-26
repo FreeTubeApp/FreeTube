@@ -1387,11 +1387,6 @@ export default defineComponent({
     },
 
     getPlaylistsInvidiousMore: function () {
-      if (this.playlistContinuationData === null) {
-        console.warn('There are no more playlists available for this channel')
-        return
-      }
-
       getInvidiousChannelPlaylists(this.id, this.playlistSortBy, this.playlistContinuationData).then((response) => {
         this.playlistContinuationData = response.continuation || null
         this.latestPlaylists = this.latestPlaylists.concat(response.playlists)
@@ -1511,11 +1506,6 @@ export default defineComponent({
     },
 
     channelInvidiousReleasesMore: function () {
-      if (this.releaseContinuationData === null) {
-        console.warn('There are no more releases available for this channel')
-        return
-      }
-
       getInvidiousChannelReleases(this.id, this.releaseContinuationData).then((response) => {
         this.releaseContinuationData = response.continuation || null
         this.latestReleases = this.latestReleases.concat(response.playlists)
@@ -1613,11 +1603,6 @@ export default defineComponent({
     },
 
     channelInvidiousPodcastsMore: function () {
-      if (this.podcastContinuationData === null) {
-        console.warn('There are no more podcasts available for this channel')
-        return
-      }
-
       getInvidiousChannelPodcasts(this.id, this.podcastContinuationData).then((response) => {
         this.podcastContinuationData = response.continuation || null
         this.latestPodcasts = this.latestPodcasts.concat(response.playlists)
@@ -1715,11 +1700,6 @@ export default defineComponent({
     },
 
     channelInvidiousCoursesMore: function () {
-      if (this.coursesContinuationData === null) {
-        console.warn('There are no more courses available for this channel')
-        return
-      }
-
       getInvidiousChannelCourses(this.id, this.coursesContinuationData).then((response) => {
         this.coursesContinuationData = response.continuation || null
         this.latestCourses = this.latestCourses.concat(response.playlists)
