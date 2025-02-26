@@ -255,7 +255,7 @@ Settings:
   # On Settings Page
   Settings: 'Instellingen'
   General Settings:
-    General Settings: 'Algemene instellingen'
+    General Settings: 'Algemeen'
     Fallback to Non-Preferred Backend on Failure: 'Terugvallen op alternatieve backend
       bij problemen'
     Enable Search Suggestions: 'Zoeksuggesties inschakelen'
@@ -319,6 +319,12 @@ Settings:
       Gruvbox Light: Gruvbox licht
       Gruvbox Dark: Gruvbox donker
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Medium: Everforest Donker Middel
+      Everforest Dark Hard: Everforest Donker Hoog
+      Everforest Dark Low: Everforest Donker Laag
+      Everforest Light Hard: Everforest Licht Hoog
+      Everforest Light Medium: Everforest Licht Middel
+      Everforest Light Low: Everforest Licht Laag
     Main Color Theme:
       Main Color Theme: 'Primaire themakleur'
       Red: 'Rood'
@@ -390,6 +396,14 @@ Settings:
       Catppuccin Frappe Maroon: Catppuccin Frappe kastanjebruin
       Gruvbox Dark Green: Gruvbox Donkergroen
       Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Everforest Dark Red: Everforest Donker Rood
+      Everforest Dark Orange: Everforest Donker Oranje
+      Everforest Dark Yellow: Everforest Donker Geel
+      Everforest Dark Green: Everforest Donker Groen
+      Everforest Dark Aqua: Everforest Donker Aqua
+      Everforest Dark Blue: Everforest Donker Blauw
+      Everforest Dark Purple: Everforest Donker Paars
+      Everforest Light Red: Everforest Light Rood
     Secondary Color Theme: 'Secundaire themakleur'
         #* Main Color Theme
     UI Scale: Interface schaal
@@ -478,6 +492,11 @@ Settings:
     All playlists have been removed: Alle afspeel­lijsten zijn verwijderd
     Are you sure you want to remove all your playlists?: Weet u zeker dat u al uw
       afspeel­lijsten wilt verwijderen?
+    Remember Search History: Zoekgeschiedenis Bijhouden
+    Search history and cache have been cleared: Cache en zoekgeschiedenis zijn verwijderd
+    Are you sure you want to clear out your search history and cache?: Weet u zeker
+      dat u uw cache en zoekgeschiedenis wilt verwijderen?
+    Clear Search History and Cache: Cache en Zoekgeschiedenis Verwijderen
   Subscription Settings:
     Subscription Settings: 'Abonnement­instellingen'
     Hide Videos on Watch: 'Bekeken video''s verbergen'
@@ -485,6 +504,9 @@ Settings:
     Fetch Automatically: Feed automatisch ophalen
     Confirm Before Unsubscribing: Onbedoeld deabonneren voor­komen
 
+    'Limit the number of videos displayed for each channel': Limiteer de hoeveelheid
+      getoonde videos per kanaal
+    To: Naar
   Data Settings:
     History object has insufficient data, skipping item: Geschiedenis object heeft
       niet genoeg data, item wordt overgeslagen
@@ -585,6 +607,8 @@ Settings:
     Hide Channels Disabled Message: Sommige kanalen zijn geblokkeerd met behulp van
       ID en zijn niet verwerkt. De functie is geblokkeerd terwijl deze ID's worden
       bij­gewerkt
+    Show Added Items: Toegevoegde Items Weergeven
+    Hide Channel Home: Kanaal "Home" Tab Verbergen
   The app needs to restart for changes to take effect. Restart and apply change?: Het
     programma moet opnieuw worden gestart voordat de veranderingen effect hebben.
     Wilt u het programma nu opnieuw starten en de veranderingen toepassen?
@@ -604,6 +628,11 @@ Settings:
     Proxy Protocol: Proxyprotocol
     Enable Tor / Proxy: Tor / proxy inschakelen
     Proxy Settings: Proxy-instellingen
+    Proxy Warning: FreeTube heeft geen ingeboude proxy maar kan verbinden via een
+      externe proxy zoals een proxy op dit apparaat (Bijvoorbeeld Tor) of een externe
+      proxy zoals een SOCKS5 proxy verstrekt door sommige VPNs. Wanneer ingeschakeld,
+      zorg ervoor dat de proxy of Tor correct ingesteld is anders lan FreeTube geen
+      data verkrijgen.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Mij informeren wanneer een gesponsord
       segment wordt overgeslagen
@@ -748,6 +777,7 @@ Channel:
     Viewing Posts Only Supported By Invidious: Posts bekijken wordt alleen ondersteund
       door Invidious. Ga naar het community-tabblad van een kanaal om content te bekijken
       zonder Invidious.
+    View Full Post: Volledige Post Weergeven
   Releases:
     Releases: Uitgaven
     This channel does not currently have any releases: Dit kanaal heeft momenteel
@@ -759,6 +789,8 @@ Channel:
       Shorts
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Dit
     kanaal heeft een leeftijdsbeperking en kan momenteel niet worden bekeken in FreeTube.
+  Home:
+    View Playlist: Afspeellijst Weergeven
 Video:
   Mark As Watched: 'Markeren als bekeken'
   Remove From History: 'Uit geschiedenis verwijderen'
@@ -843,6 +875,52 @@ Video:
   Unhide Channel: Kanaal tonen
   More Options: Meer opties
 #& Playlists
+  Player:
+    Show Stats: Statistieken Weergeven
+    Take Screenshot: Schermopname Maken
+    Stats:
+      Resolution: 'Resolutie: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Speler Groote: {width}x{height}'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
+      Bitrate: 'Bitrate: {bitrate} kbps'
+      Volume: 'Volume: {volumePercentage}%'
+      CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Bandwidth: 'Bandbreedte: {bandwidth} kbps'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      Media Formats: 'Media Formaten: {formats}'
+      Buffered: 'Gebufferd: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Vervallen Aantal Frames: {droppedFrames} / Totaal
+        Aantal Frames: {totalFrames}'
+      Video ID: 'Video ID: {videoId}'
+      Stats: Statistieken
+    Audio Tracks: Audiosporen
+    TranslatedCaptionTemplate: '{language} (vertaald vanuit "{originalLanguage}")'
+    Playback will resume automatically when your connection comes back: Het afspelen
+      hervat automatisch wanneer u weer verbonden bent.
+    Skipped segment: '{segmentCategory} segment overgeslagen'
+    Full Window: Volledig Venster
+    Exit Full Window: Volledig Venster Sluiten
+    You appear to be offline: Het lijkt erop dat u offline bent.
+    Autoplay is off: Automatisch afspelen staat uit
+    Autoplay is on: Automatisch afspelen staat aan
+    Exit Theatre Mode: Theater Modus Verlaten
+    Theatre Mode: Theater modus
+    Hide Stats: Statistieken Verbergen
+  IP block: Youtube heeft uw IP adres geblokkeerd. Hierdoor kan u geen videos meer
+    kijken. Probeer om naar een andere VPN of proxy te wisselen.
+  DRMProtected: Videos die beschermd worden door DRM (Digital Rights Management) kunnen
+    niet worden afgespeeld in FreeTube omdat ze beschermde closed source onderdelen
+    vereisen. Als u deze video wilt bekijken, probeer het dan via de officiële YouTube
+    website met een web browser die DRM ondersteund.
+  Unlisted: Verborgen
+  DeArrow:
+    Show Original Details: Oorspronkelijke Details Weergeven
+    Show Modified Details: Aangepaste Details Weergeven
+  MembersOnly: Members-only videos kunnen niet bekeken worden via FreeTube omdat ze
+    een Google login en betaald abonnement op het kanaal van de uploader vereisen.
+  AgeRestricted: Videos met een leeftijdsbeperking kunnen niet via FreeTube bekeken
+    worden omdat ze een Google login en een YouTube account met bevestigde leeftijd
+    vereisen.
 Playlist:
   #& About
   View Full Playlist: 'Volledige afspeellijst bekijken'
@@ -860,6 +938,10 @@ Playlist:
     VideoTitleDescending: Titel (Z-A)
     DateAddedOldest: Eerst toegevoegd bovenaan
     Custom: Aangepast
+    PublishedOldest: Vroegst gepubliceerde videos eerst
+    PublishedNewest: Recenst gepubliceerde videos eerst
+    VideoDurationDescending: Lengte (Langste eerst)
+    VideoDurationAscending: Lengte (Kortste eerst)
 Change Format:
   Change Media Formats: 'Videoformaten veranderen'
   Use Dash Formats: 'DASH-formaten gebruiken'
@@ -868,6 +950,8 @@ Change Format:
   Audio formats are not available for this video: Audio formaten zijn niet beschikbaar
     voor deze video
   Dash formats are not available for this video: DASH formaten zijn niet beschikbaar
+    voor deze video
+  Legacy formats are not available for this video: Legacy formaten zijn niet beschikbaar
     voor deze video
 Share:
   Share Video: 'Video delen'
@@ -914,6 +998,8 @@ Comments:
   Hearted: Met hartje
   View {replyCount} replies: '{replyCount} reacties bekijken'
   Subscribed: Geabonneerd
+  There are no comments available for this post: Er zijn geen reacties beschikbaar
+    voor deze post
 Up Next: 'Volgende'
 
 # Toast Messages
@@ -1029,6 +1115,9 @@ Tooltips:
     External Link Handling: "Kies het standaard gedrag voor wanneer een link dat niet
       kan worden geopend in FreeTube is aangeklikt.\nStandaard zal FreeTube de aangeklikte
       link openen in je standaardbrowser.\n"
+    Open Deep Links In New Window: URLs die aan FreeTube doorgegeven worden zoals
+      doorverwijzingen van browser extensies of opdrachtenprompt argumenten worden
+      geopend in een nieuw venster.
   External Player Settings:
     Custom External Player Arguments: Aangepaste opdrachtregelargumenten, die je wil
       doorgeven aan de externe videospeler.
@@ -1107,6 +1196,7 @@ Chapters:
     huidig hoofdstuk: {chapterName}'
   'Chapters list visible, current chapter: {chapterName}': 'Hoofdstukkenlijst zichtbaar,
     huidig hoofdstuk: {chapterName}'
+  Key Moments: Belangrijke Momenten
 Clipboard:
   Cannot access clipboard without a secure connection: Geen toegang tot klembord zonder
     een beveiligde verbinding
@@ -1146,3 +1236,74 @@ Search Listing:
   ‘{url}’.'
 Right-click or hold to see history: Rechts klikken of vasthouden om kijkgeschiedenis
   weer te geven
+Description:
+  Collapse Description: Minder Weergeven
+  Expand Description: '...meer'
+KeyboardShortcutPrompt:
+  Play: Afspelen en pauzeren wisselen
+  Volume Up: Volume verhogen
+  Theatre Mode: Theater modus wisselen
+  History Forward: Een pagina vooruit gaan
+  Mute: Dempen wisselen
+  Toggle Developer Tools: Developer Tools wisselen
+  Search in New Window: Zoeken in een nieuw venster
+  Last Frame: Vorige frame (tijdens pauze)
+  Small Fast Forward: X seconden doorspoelen op basis van de Doorspoelinterval en
+    de huidige Afspeelsnelheid
+  Last Chapter: Laatste Hoofdstuk
+  Skip by Tenths: Delen van video overslaan via percentage (3x overslaan voor 30%
+    van de lengte)
+  Large Fast Forward: 10 seconden vooruitspoelen / Vooruitspoelen op basis van de
+    huidige Afspeelsnelheid
+  New Window: Een nieuw venster openen
+  Navigate to History: Naar geschiedenis pagina navigeren
+  Navigate to Settings: Naar instellingen pagina navigeren
+  Focus Secondary Search: Focus naar de secundaire zoekbalk verplaatsen (als deze
+    aanwezig is)
+  Captions: Schakel ondertiteling AAN/UIT
+  Stats: Video statistieken weergeven
+  Minimize Window: Venster minimaliseren
+  Take Screenshot: Schermopname maken
+  Focus Search: Focus naar de zoekbalk verplaatsen
+  Zoom In: Inzoomen
+  Volume Down: Volume verminderen
+  Next Chapter: Volgend Hoofdstuk
+  Sections:
+    App:
+      Situational: 'App: Afhankelijk van de Situatie'
+      General: App: Algemeen
+    Video:
+      General: Video: Algemeen
+      Playback: Video: Afspelen
+  Refresh: Feed vernieuwen met nieuwste inhoud
+  Picture in Picture: Picture-in-Picture modus wisselen
+  Next Frame: Volgende frame (tijdens pauze)
+  Small Rewind: X seconden terugspoelen op basis van de Terugspoelinterval en de huidige
+    Afspeelsnelheid
+  Keyboard Shortcuts: Sneltoetsen
+  Show Keyboard Shortcuts: Sneltoetsen weergeven
+  History Backward: Een pagina terug gaan
+  Fullscreen: Fullscreen wisselen
+  Large Rewind: 10 seconden terugspoelen/ Video terugspoelen op basis van de huidige
+    Afspeelsnelheid
+  Full Window: Volledig venster wisselen
+  Reset Zoom: Reset zoom niveau / UI groote
+  Restart Window: Venster opnieuw opstarten
+  Force Restart Window: Venster geforceerd opnieuw opstarten
+  Close Window: Venster sluiten
+  Zoom Out: Uitzoomen
+shortcutLabelSeparator: ｜
+Keys:
+  alt: Alt
+  arrowleft: Pijltjestoets Naar Links
+  arrowright: Pijltjestoets Naar Rechts
+  arrowup: Pijltjestoets Naar Boven
+  ctrl: Ctrl
+  arrowdown: Pijltjestoets Naar Beneden
+  shift: Shift
+  enter: Enter
+  plus: Plus
+Autoplay Interruption Timer: Automatisch afspelen geannuleerd door {autoplayInterruptionIntervalHours}
+  uur aan inactiviteit
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
