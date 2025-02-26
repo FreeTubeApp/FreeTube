@@ -314,9 +314,12 @@ Settings:
       Gruvbox Light: Gruvbox modo claro
       Gruvbox Dark: Gruvbox modo escuro
       Catppuccin Frappe: Frappe de Catppuccin
-      Everforest Dark Hard: Everforest Dark Hard
-      Everforest Dark Low: Everforest Dark Low
-      Everforest Dark Medium: Everforest Dark Medium
+      Everforest Dark Hard: Everforest Escuro Sólido
+      Everforest Dark Low: Everforest Escuro Suave
+      Everforest Dark Medium: Everforest Escuro Médio
+      Everforest Light Hard: Everforest Claro Sólido
+      Everforest Light Medium: Everforest Claro Médio
+      Everforest Light Low: Everforest Claro Suave
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelha'
