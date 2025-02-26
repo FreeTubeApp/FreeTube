@@ -281,29 +281,30 @@ Settings:
       Middle: ''
       End: ''
       Hidden: ''
-      Blur: ''
-    Current Invidious Instance: ''
-    The currently set default instance is {instance}: ''
-    No default instance has been set: ''
-    Current instance will be randomized on startup: ''
-    Set Current Instance as Default: ''
-    Clear Default Instance: ''
-    View all Invidious instance information: ''
-    Region for Trending: ''
+      Blur: 'Vervaag'
+    Current Invidious Instance: 'Huidige Invidious-instansie'
+    The currently set default instance is {instance}: '{instance} is tans die verstekinstansie'
+    No default instance has been set: 'Geen verstekinstansie is ingestel nie'
+    Current instance will be randomized on startup: 'Huidige instansie sat by begin
+      willekeurig gekies word'
+    Set Current Instance as Default: 'Stel huidige instansie in as verstek'
+    Clear Default Instance: 'Wis verstekinstansie'
+    View all Invidious instance information: 'Bekyk alle Invidious-instansie-inligting'
+    Region for Trending: 'Streek vir stygend'
     #! List countries
     External Link Handling:
-      External Link Handling: ''
-      Open Link: ''
-      Ask Before Opening Link: ''
-      No Action: ''
+      External Link Handling: 'Hantering van eksterne skakel'
+      Open Link: 'Open skakel'
+      Ask Before Opening Link: 'Vra voordat skakel geopen word'
+      No Action: 'Geen aksie'
   Theme Settings:
-    Theme Settings: ''
-    Match Top Bar with Main Color: ''
-    Expand Side Bar by Default: ''
-    Disable Smooth Scrolling: ''
-    UI Scale: ''
-    Hide Side Bar Labels: ''
-    Hide FreeTube Header Logo: ''
+    Theme Settings: 'Tema'
+    Match Top Bar with Main Color: 'Gebruik primêre temakleur vir boonste balk'
+    Expand Side Bar by Default: 'Vou systaaf by verstek uit'
+    Disable Smooth Scrolling: 'Deaktiveer vloeiende rol'
+    UI Scale: 'Koppelvlakskaal'
+    Hide Side Bar Labels: 'Versteek systaafetikette'
+    Hide FreeTube Header Logo: 'Versteek FreeTube-koplogo'
     Base Theme:
       Base Theme: 'Basistema'
       Black: 'Swart'
@@ -1064,7 +1065,7 @@ Tooltips:
       uit die video i.p.v. die verstek duimnael.'
     Invidious Instance: 'Die Invidious-instansie waarmee FreeTube sal verbind om API-oproepe
       te maak.'
-    Region for Trending: 'Met streek van neigings kan u kies welke land se gewilde
+    Region for Trending: 'Met streek van stygend kan u kies welke land se gewilde
       videos aan u vertoon moet word.'
     External Link Handling: |
       Kies die verstek gedrag vir wanneer ’n skakel geklik word wat nie in FreeTube geopen kan word nie.
@@ -1103,7 +1104,7 @@ Tooltips:
     DefaultCustomArgumentsTemplate: "(verstek: ‘{defaultCustomArguments}’)"
   Distraction Free Settings:
     Hide Channels: 'Voer ’n kanaal-ID in om alle video’s, afspeellyste en die kanaal
-      self te versteek sodat dit nie in soek, tendense, gewildste, en aanbeveel weergegee
+      self te versteek sodat dit nie in soek, stygend, gewildste, en aanbeveel weergegee
       word nie. Die ingevoerde kanaal-ID moet volledig ooreenstem en is hooflettergevoelig.'
     Hide Subscriptions Live: 'Hierdie instelling woord oorheers deur die toepwye “{appWideSetting}”-instelling
       in die “{subsection}” gedeelte van “{settingsSection}”'
