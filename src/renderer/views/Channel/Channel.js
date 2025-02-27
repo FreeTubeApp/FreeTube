@@ -1093,15 +1093,8 @@ export default defineComponent({
         // some channels only have a few tabs
         // here are all possible values: home, videos, shorts, streams, playlists, community, channels, about
 
-        const tabs = response.tabs.map(tab => {
-          if (tab === 'streams') {
-            return 'live'
-          }
-          return tab
-        })
-
         this.channelTabs = this.supportedChannelTabs.filter(tab => {
-          return tabs.includes(tab) && tab !== 'home'
+          return response.tabs.includes(tab) && tab !== 'home'
         })
 
         this.currentTab = this.currentOrFirstTab(this.$route.params.currentTab)
@@ -1114,7 +1107,7 @@ export default defineComponent({
           this.channelInvidiousShorts()
         }
 
-        if (!this.hideLiveStreams && response.tabs.includes('streams')) {
+        if (!this.hideLiveStreams && response.tabs.includes('live')) {
           this.channelInvidiousLive()
         }
 

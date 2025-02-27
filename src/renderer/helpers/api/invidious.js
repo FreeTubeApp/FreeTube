@@ -127,16 +127,24 @@ export async function invidiousGetChannelId(url) {
  *  description: string,
  *  descriptionHtml: string,
  *  allowedRegions: string[],
- *  tabs: ('home' | 'videos' | 'shorts' | 'streams' | 'podcasts' | 'releases' | 'playlists' | 'community')[],
+ *  tabs: ('home' | 'videos' | 'shorts' | 'live' | 'podcasts' | 'releases' | 'playlists' | 'community')[],
  *  latestVideos: InvidiousVideoType[],
  *  relatedChannels: InvidiousChannelObject[]
  * }>}
  */
 export async function invidiousGetChannelInfo(channelId) {
-  return await invidiousAPICall({
+  const channelInfo = await invidiousAPICall({
     resource: 'channels',
     id: channelId,
   })
+
+  channelInfo.tabs = channelInfo.tabs.map(tab => {
+    if (tab === 'streams') return 'live'
+    if (tab === 'posts') return 'community'
+    return tab
+  })
+
+  return channelInfo
 }
 
 /**
