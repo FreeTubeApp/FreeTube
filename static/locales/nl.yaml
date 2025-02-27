@@ -403,7 +403,13 @@ Settings:
       Everforest Dark Aqua: Everforest Donker Aqua
       Everforest Dark Blue: Everforest Donker Blauw
       Everforest Dark Purple: Everforest Donker Paars
-      Everforest Light Red: Everforest Light Rood
+      Everforest Light Red: Everforest Licht Rood
+      Everforest Light Aqua: Everforest Licht Aqua
+      Everforest Light Green: Everforest Licht Groen
+      Everforest Light Yellow: Everforest Licht Geel
+      Everforest Light Orange: Everforest Licht Oranje
+      Everforest Light Blue: Everforest Licht Blauw
+      Everforest Light Purple: Everforest Licht Paars
     Secondary Color Theme: 'Secundaire themakleur'
         #* Main Color Theme
     UI Scale: Interface schaal
@@ -414,10 +420,10 @@ Settings:
   Player Settings:
     Player Settings: 'Speler'
     Play Next Video: 'Aanbevolen video''s automatisch afspelen'
-    Turn on Subtitles by Default: 'Ondertiteling standaard inschakelen'
-    Autoplay Videos: 'Video''s automatisch afspelen'
+    Turn on Subtitles by Default: 'Ondertiteling Standaard Inschakelen'
+    Autoplay Videos: 'Video''s Automatisch Afspelen'
     Proxy Videos Through Invidious: 'Video''s via Invidious-proxy afspelen'
-    Autoplay Playlists: 'Afspeellijsten automatisch afspelen'
+    Autoplay Playlists: 'Afspeellijsten Automatisch Afspelen'
     Enable Theatre Mode by Default: 'Theater­modus standaard inschakelen'
     Default Volume: 'Standaardvolume'
     Default Playback Rate: 'Standaard­afspeel­snelheid'
@@ -470,8 +476,9 @@ Settings:
       Full Screen: Volledig scherm
       Picture in Picture: Beeld in beeld
       External Player: Externe speler
+    Autoplay Interruption Timer: Timer voor Automatisch Afspelen Onderbreken
   Privacy Settings:
-    Privacy Settings: 'Privacy-instellingen'
+    Privacy Settings: 'Privacy'
     Remember History: 'Kijkgeschiedenis onthouden'
     Save Watched Progress: 'Videovoortgang bewaren'
     Clear Search Cache: 'Zoek-cache wissen'
@@ -498,7 +505,7 @@ Settings:
       dat u uw cache en zoekgeschiedenis wilt verwijderen?
     Clear Search History and Cache: Cache en Zoekgeschiedenis Verwijderen
   Subscription Settings:
-    Subscription Settings: 'Abonnement­instellingen'
+    Subscription Settings: 'Abonnement­'
     Hide Videos on Watch: 'Bekeken video''s verbergen'
     Fetch Feeds from RSS: Feeds ophalen via RSS
     Fetch Automatically: Feed automatisch ophalen
@@ -528,7 +535,7 @@ Settings:
     Export Subscriptions: Abonnementen exporteren
     Import Subscriptions: Abonnementen importeren
     Select Export Type: Exporteertype selecteren
-    Data Settings: Gegevens­instellingen
+    Data Settings: Gegevens­
     How do I import my subscriptions?: Hoe importeer ik mijn abonnementen?
     Unknown data key: Onbekende datasleutel
     Unable to write file: Bestand kan niet worden geschreven
@@ -566,7 +573,7 @@ Settings:
     Hide Channel Subscribers: Aantal abonnees verbergen
     Hide Video Likes And Dislikes: Likes en dislikes verbergen
     Hide Video Views: Aantal video­weergaven verbergen
-    Distraction Free Settings: Instellingen voor afleidingsvrij kijken
+    Distraction Free Settings: Afleidingsvrij Kijken
     Hide Active Subscriptions: Actieve abonnementen verbergen
     Hide Playlists: Afspeel­lĳsten verbergen
     Hide Sharing Actions: Deel­acties verbergen
@@ -584,15 +591,15 @@ Settings:
     Hide Chapters: Hoofdstukken verbergen
     Hide Upcoming Premieres: Aankomende premières verbergen
     Hide Featured Channels: Uitgelichte kanalen verbergen
-    Hide Channel Playlists: Kanaal­afspeellijsten verbergen
-    Hide Channel Community: Kanaal­gemeenschap verbergen
+    Hide Channel Playlists: '"Kanaal­afspeellijsten" Tabblad Verbergen'
+    Hide Channel Community: '"Kanaal­gemeenschap" Tabblad Verbergen'
     Hide Channels: Video's van kanalen verbergen
     Hide Channels Placeholder: Kanaal-ID
-    Hide Channel Podcasts: Kanaal-podcasts verbergen
-    Hide Channel Releases: Kanaal­uitgaven verbergen
+    Hide Channel Podcasts: Kanaal "Podcasts" Tabblad Verbergen
+    Hide Channel Releases: Kanaal "­Uitgaven" Tabblad Verbergen
     Hide Subscriptions Videos: Abonnement­video's verbergen
     Hide Subscriptions Live: Abonnement-live-videos verbergen
-    Hide Channel Shorts: Kanaal-Shorts verbergen
+    Hide Channel Shorts: Kanaal "Shorts" Tabblad Verbergen
     Hide Subscriptions Shorts: Abonnement-Shorts verbergen
     Hide Profile Pictures in Comments: Profielfoto's in opmerkingen verbergen
     Hide Subscriptions Community: Abonnement­gemeenschappen verbergen
@@ -627,7 +634,7 @@ Settings:
     Proxy Host: Proxyhost
     Proxy Protocol: Proxyprotocol
     Enable Tor / Proxy: Tor / proxy inschakelen
-    Proxy Settings: Proxy-instellingen
+    Proxy Settings: Proxy
     Proxy Warning: FreeTube heeft geen ingeboude proxy maar kan verbinden via een
       externe proxy zoals een proxy op dit apparaat (Bijvoorbeeld Tor) of een externe
       proxy zoals een SOCKS5 proxy verstrekt door sommige VPNs. Wanneer ingeschakeld,
@@ -639,7 +646,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL naar API van
       SponsorBlock (Standaard is https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock inschakelen
-    SponsorBlock Settings: SponsorBlock-instellingen
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Show In Seek Bar: Weergeven in zoekbalk
       Skip Option: Overslaan-optie
@@ -658,32 +665,32 @@ Settings:
     Ignore Unsupported Action Warnings: Waarschuwingen voor niet-ondersteunde acties
       negeren
     External Player: Externe videospeler
-    External Player Settings: Instellingen externe mediaspeler
+    External Player Settings: Externe Mediaspeler
     Players:
       None:
         Name: Geen
     Ignore Default Arguments: Standaard­argumenten negeren
   Download Settings:
     Choose Path: Pad kiezen
-    Download Settings: Downloadinstellingen
+    Download Settings: Download
     Ask Download Path: Om downloadpad vragen
     Download in app: Downloaden in app
     Open in web browser: Openen in web­browser
     Download Behavior: Gedrag downloaden
   Parental Control Settings:
     Hide Unsubscribe Button: Deabonneer­knop verbergen
-    Parental Control Settings: Instellingen voor ouderlijk toezicht
+    Parental Control Settings: Ouderlijk Toezicht
     Show Family Friendly Only: Enkel familievriendelijke inhoud tonen
     Hide Search Bar: Zoek­balk verbergen
   Experimental Settings:
     Warning: Dit zijn experimentele instellingen, die een crash kunnen veroorzaken.
       Het is raadzaam backups te maken. Gebruiken op eigen risico!
-    Experimental Settings: Experimentele instellingen
+    Experimental Settings: Experimentele Instellingen
     Replace HTTP Cache: HTTP-cache vervangen
   Password Settings:
     Set Password: Wachtwoord instellen
     Remove Password: Wachtwoord verwijderen
-    Password Settings: Wachtwoord­instellingen
+    Password Settings: Wachtwoord­en
     Set Password To Prevent Access: Stel een wachtwoord in om toegang tot instellingen
       te beperken
   Password Dialog:
@@ -791,6 +798,7 @@ Channel:
     kanaal heeft een leeftijdsbeperking en kan momenteel niet worden bekeken in FreeTube.
   Home:
     View Playlist: Afspeellijst Weergeven
+    Home: Startpagina
 Video:
   Mark As Watched: 'Markeren als bekeken'
   Remove From History: 'Uit geschiedenis verwijderen'
@@ -1061,7 +1069,7 @@ Profile:
   Other Channels: Andere kanalen
   Subscription List: Abonnementen
   Profile Filter: Profielfilter
-  Profile Settings: Profielinstellingen
+  Profile Settings: Profiel
   Toggle Profile List: Profiellijst omschakelen
   Profile Name: Profiel­naam
   Edit Profile Name: Profiel­naam wijzigen
@@ -1096,7 +1104,7 @@ Tooltips:
     Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken in plaats
       van de standaard­methode om uw abonnementen­feed op te halen. RSS is sneller
       en voorkomt IP-blokkering, maar geeft geen toegang tot sommige informatie zoals
-      de video­duur en live-status
+      de video­duur, live-status en gemeenschaps posts
     Fetch Automatically: Indien ingeschakeld, haalt FreeTube automatisch uw abonnementen­feed
       op wanneer een nieuw venster wordt geopend en wanneer u van profiel verandert.
   General Settings:
@@ -1175,14 +1183,14 @@ Downloading failed: Probleem bij download van "{videoTitle}"
 Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag
   map" modus.
 New Window: Nieuw venster
-Screenshot Success: Schermafbeelding opgeslagen als "{filePath}"
+Screenshot Success: Schermafbeelding opgeslagen
 Channels:
   Title: Kanalen lijst
   Search bar placeholder: Kanalen zoeken
   Count: '{number} kanaal/kanalen gevonden.'
   Channels: Kanalen
   Empty: Op dit moment is je kanalen lijst leeg.
-  Unsubscribe Prompt: weet je zeker dat je je van "{channelName}" wilt uitschrijven?
+  Unsubscribe Prompt: Weet je zeker dat je je van "{channelName}" wilt uitschrijven?
 Screenshot Error: Schermafbeelding kon niet worden opgeslagen. {error}
 Preferences: Voorkeuren
 Hashtag:
@@ -1292,6 +1300,8 @@ KeyboardShortcutPrompt:
   Force Restart Window: Venster geforceerd opnieuw opstarten
   Close Window: Venster sluiten
   Zoom Out: Uitzoomen
+  Decrease Video Speed: Videosnelheid verminderen op basis van Afspeelsnelheid
+  Increase Video Speed: Videosnelheid verhogen op basis van Afspeelsnelheid
 shortcutLabelSeparator: ｜
 Keys:
   alt: Alt
