@@ -279,6 +279,14 @@ function runApp() {
             if (mainWindow.isMinimized()) mainWindow.restore()
             mainWindow.focus()
 
+            // Ensure the window is brought to the foreground (podcast use case)
+            mainWindow.show()
+            mainWindow.focus()
+            // On macOS, bring the application to the foreground (podcast use case)
+            if (process.platform === 'darwin') {
+              app.focus({ steal: true })
+            }
+
             if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
           }
         } else {
