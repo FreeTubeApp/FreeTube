@@ -634,7 +634,7 @@ function runApp() {
     }
   }
 
-  const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
+  const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'file://' + path.resolve(__dirname, '../build/index.html') : 'app://bundle/index.html'
 
   async function createWindow(
     {
@@ -791,7 +791,7 @@ function runApp() {
     }
 
     // load root file/url
-    if (windowStartupUrl != null) {
+    if (windowStartupUrl!= null) {
       newWindow.loadURL(windowStartupUrl)
     } else {
       newWindow.loadURL(ROOT_APP_URL)
