@@ -332,6 +332,12 @@ Settings:
       Gruvbox Dark: Gruvbox тамна
       Gruvbox Light: Gruvbox светла
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Hard: Everforest тврдо-тамна
+      Everforest Light Hard: Everforest тврдо-светла
+      Everforest Light Low: Everforest ниско-светла
+      Everforest Dark Low: Everforest ниско-тамна
+      Everforest Light Medium: Everforest средње-светла
+      Everforest Dark Medium: Everforest средње-тамна
     Main Color Theme:
       Main Color Theme: 'Главна тема боја'
       Red: 'Црвена'
@@ -403,6 +409,20 @@ Settings:
       Catppuccin Frappe Lavender: Catppuccin Frappe лаванда
       Catppuccin Frappe Pink: Catppuccin Frappe розе
       Catppuccin Frappe Teal: Catppuccin Frappe тиркизна
+      Everforest Dark Orange: Everforest тамнонаранџаста
+      Everforest Dark Red: Everforest тамноцрвена
+      Everforest Dark Yellow: Everforest тамножута
+      Everforest Dark Green: Everforest тамнозелена
+      Everforest Dark Blue: Everforest тамноплава
+      Everforest Dark Aqua: Everforest тамноаква
+      Everforest Dark Purple: Everforest тамнољубичаста
+      Everforest Light Orange: Everforest светлонаранџаста
+      Everforest Light Yellow: Everforest светложута
+      Everforest Light Green: Everforest светлозелена
+      Everforest Light Red: Everforest светлоцрвена
+      Everforest Light Aqua: Everforest светлоаква
+      Everforest Light Blue: Everforest светлоплава
+      Everforest Light Purple: Everforest светлољубичаста
     Secondary Color Theme: 'Секундарна тема боје'
         #* Main Color Theme
     Hide FreeTube Header Logo: Сакриј FreeTube логотип у заглављу
