@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'română'
+Locale Name: 'Română'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Această parte a aplicației nu este încă gata. Reveniți mai târziu, când se vor face
@@ -43,6 +43,8 @@ Global:
     View Count: 1 vizionare | {count} vizionări
     Channel Count: 1 canal | {count} canale
     Watching Count: 1 se uită | {count} se uită
+    Comment Count: 1 comentariu | {count} comentarii
+    Like Count: 1 apreciere | {count} aprecieri
 Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber}
   este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
@@ -97,12 +99,15 @@ Search Filters:
     Location: Locație
     HDR: HDR
     VR180: VR180
+    360 Video: Video 360
+    Creative Commons: Creative Commons
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonamente'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Lista
-    dvs. de abonamente este momentan goală. Începeți să adăugați abonamente pentru
-    a le vedea aici.'
+    dvs. de abonamente este momentan goală. Dacă vreți să importați abonamente, vă
+    puteți duce la setări de date și să selectați Importă Anonamente sau puteți căuta
+    un canal și să vă abonați la el.'
   Load More Videos: Încarcă mai mult
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Acest
     profil are un număr mare de abonamente.  Se forțează RSS pentru a evita limitarea
@@ -130,7 +135,7 @@ User Playlists:
   Your Playlists: 'Listele tale de redare'
   Search bar placeholder: Căutați liste de redare
   Empty Search Message: Nu există videoclipuri în această listă de redare care să
-    corespundă căutării dvs.
+    corespundă căutării dvs
   Move Video Down: Mutați videoclipul în jos
   Enable Quick Bookmark With This Playlist: Activați marcajul rapid cu această listă
     de redare
@@ -163,6 +168,9 @@ User Playlists:
         redare.
       "{videoCount} video(s) added to 1 playlist": 1 videoclip adăugat la 1 listă
         de redare| {videoCount} videoclupuri adăugate la 1 listă de redare
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 videoclip adăugat
+        la {playlistCount} liste de redare | {videoCount} videoclipuri adăugate la
+        {playlistCount} liste de redare
     N playlists selected: '{playlistCount} Selectat'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       Videoclipuri deja adăugate'
@@ -221,12 +229,31 @@ User Playlists:
       This playlist does not exist: Această listă de redare nu există
       There was an issue with updating this playlist.: A fost o problemă în actualizarea
         acestei liste de redare.
+      Reverted to use {oldPlaylistName} for quick bookmark: S-a revenit la {oldPlaylistName}
+        pentru folosirea de marcaj rapid
+      Video has been removed. Click here to undo.: Videoclipul a fost scos. Apăsați
+        aici ca să anulați.
+      This playlist has a video with a duration error: Această listă de redare conține
+        cel puțin 1 videoclip care nu are durată, va fi sortat ca și cum durata ar
+        fi fost zero.
+      This playlist is already being used for quick bookmark.: Această listă de redare
+        este deja folosită pentru marcaj rapid.
     Search for Videos: Căutați videoclipuri
   Remove Duplicate Videos: Șterge videoclipurile duplicate
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Sunteți
     sigur(ă) că doriți să ștergeți 1 videoclip vizualizat din această lista de redare?
     Această acțiune este definitivă. | Sunteți sigur(ă) că doriți să ștergeți {playlistItemCount}
     videoclip vizualizat din această lista de redare? Această acțiune este definitivă.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Sunteți
+    sigur că vrei să ștergeți 1 videoclip duplicat din această listă de redare? Această
+    acțiune nu poate fi anulată. | Sunteți sigur că vreți să ștergeți {playlistItemCount}
+    videoclipuri duplicate din această listă? Această acțiune nu poate fi anulată.
+  Export Playlist: Exportă această listă de redare
+  Cannot delete the quick bookmark target playlist.: Nu se poate șterge listă de redare
+    țintă marcajului rapid.
+  The playlist has been successfully exported: Lista de redare a fost exportată cu
+    succes
+  Quick Bookmark Enabled: Marcaj rapid activat
 History:
   # On History Page
   History: 'Istoric'
@@ -234,7 +261,8 @@ History:
   Your history list is currently empty.: 'Lista dvs. de istoric este momentan goală.'
   Search bar placeholder: Căutare în istoric
   Empty Search Message: Nu există videoclipuri în această listă de redare care să
-    corespundă căutării dvs.
+    corespundă căutării dvs
+  Case Sensitive Search: ­Căutare sensibilă la majuscule
 Settings:
   # On Settings Page
   Settings: 'Setări'
@@ -262,6 +290,7 @@ Settings:
       Middle: 'Mijloc'
       End: 'Sfârșit'
       Hidden: Ascuns
+      Blur: Încețoșare
     Region for Trending: 'Regiunea tendințelor'
         #! List countries
     External Link Handling:
@@ -283,8 +312,10 @@ Settings:
     Auto Load Next Page:
       Label: Încarcă următoarea pagină automat
       Tooltip: Încarcă automat pagini și comentarii suplimentare.
+    Open Deep Links In New Window: Deschide URL-urile trecute la FreeTube în fereastră
+      nouă
   Theme Settings:
-    Theme Settings: 'Setări temei'
+    Theme Settings: 'Setări temă'
     Match Top Bar with Main Color: 'Potriviți bara de sus cu culoarea principală'
     Base Theme:
       Base Theme: 'Temă de bază'
@@ -298,6 +329,16 @@ Settings:
       Hot Pink: Hot Roz
       Solarized Light: Lumină solarizată
       Solarized Dark: Întuneric solarizat
+      Gruvbox Dark: Gruvbox Dark
+      Gruvbox Light: Gruvbox Light
+      Nordic: Nordic
+      Everforest Light Hard: Everforest Light Hard
+      Everforest Dark Hard: Everforest Dark Hard
+      Everforest Dark Medium: Everforest Dark Medium
+      Everforest Dark Low: Everforest Dark Low
+      Everforest Light Medium: Everforest Light Medium
+      Everforest Light Low: Everforest Light Low
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Culoarea principală a temei'
       Red: 'Roşu'
@@ -316,13 +357,13 @@ Settings:
       Amber: 'Chihlimbar'
       Orange: 'Portocaliu'
       Deep Orange: 'Portocaliu închis'
-      Dracula Cyan: 'Dracula Cyan'
-      Dracula Green: 'Dracula Verde'
-      Dracula Orange: 'Dracula Portocaliu'
-      Dracula Pink: 'Dracula Roz'
-      Dracula Purple: 'Dracula Violet'
-      Dracula Red: 'Dracula Roşu'
-      Dracula Yellow: 'Dracula Chihlimbar'
+      Dracula Cyan: 'Albastru Dracula'
+      Dracula Green: 'Verde Dracula'
+      Dracula Orange: 'Porticaliu Dracula'
+      Dracula Pink: 'Roz Dracula'
+      Dracula Purple: 'Violet Dracula'
+      Dracula Red: 'Roșu Dracula'
+      Dracula Yellow: 'Galben Dracula'
       Catppuccin Mocha Pink: Catppuccin Mocha Roz
       Catppuccin Mocha Mauve: Catppuccin Mocha Mov
       Catppuccin Mocha Red: Catppuccin Mocha Roșu
@@ -344,6 +385,37 @@ Settings:
       Solarized Yellow: Galben solarizat
       Solarized Blue: Albastru solarizat
       Solarized Orange: Portocaliu solarizat
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Peach: Catppuccin Frappe Piersică
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavandă
+      Gruvbox Dark Yellow: Gruvbox Galben Închis
+      Gruvbox Dark Purple: Gruvbox Violet Închis
+      Gruvbox Dark Aqua: Gruvbox Aqua Închis
+      Gruvbox Dark Blue: Gruvbox Albastru Închis
+      Solarized Magenta: Solarized Magenta
+      Gruvbox Light Red: Gruvbox Roșu Deschis
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Red: Catppuccin Frappe Roșu
+      Catppuccin Frappe Maroon: Catppuccin Frappe Maro
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Safir
+      Catppuccin Frappe Blue: Catppuccin Frappe Albastru
+      Gruvbox Dark Green: Gruvbox Verde Închis
+      Gruvbox Dark Orange: Gruvbox Portocaliu Închis
+      Gruvbox Light Blue: Gruvbox Albastru Deschis
+      Gruvbox Light Purple: Gruvbox Violet Deschis
+      Gruvbox Light Orange: Gruvbox Portocaliu Deschis
+      Everforest Dark Red: Everforest Dark Red
+      Everforest Dark Aqua: Everforest Dark Aqua
+      Everforest Dark Orange: Everforest Dark Orange
+      Everforest Dark Yellow: Everforest Dark Yellow
+      Everforest Dark Green: Everforest Dark Green
+      Everforest Dark Blue: Everforest Dark Blue
+      Catppuccin Frappe Yellow: Catppuccin Frappe Galben
+      Catppuccin Frappe Green: Catppuccin Frappe Verde
+      Catppuccin Frappe Teal: Catppuccin Frappe Teal
+      Catppuccin Frappe Sky: Catppuccin Frappe Sky
     Secondary Color Theme: 'Culoarea secundară a temei'
         #* Main Color Theme
     UI Scale: Scala UI
@@ -403,6 +475,9 @@ Settings:
       de scroll
     Enter Fullscreen on Display Rotate: Intrați pe ecran complet pe afișaj Rotire
     Skip by Scrolling Over Video Player: Omiteți derulând peste player-ul video
+    Default Viewing Mode:
+      External Player: Player extern ({externalPlayerName})
+    Autoplay Interruption Timer: Temporizator Întrerupere Autoplay
   Privacy Settings:
     Privacy Settings: 'Setări de confidențialitate'
     Remember History: 'Reține istoric'
@@ -425,6 +500,12 @@ Settings:
       să ștergeți toate listele dvs. de redare?
     Remove All Playlists: Șterge toate listele de redare
     All playlists have been removed: Toate listele de redare au fost șterse
+    Search history and cache have been cleared: Istoricul căutărilor și cache au fost
+      șterse
+    Are you sure you want to clear out your search history and cache?: Sunteți siguri
+      că vreți să ștergeți istoricul căutărilor și cache?
+    Remember Search History: Amintește istoric căutare
+    Clear Search History and Cache: Șterge istoric căutare și cache
   Subscription Settings:
     Subscription Settings: 'Setări de abonament'
     Hide Videos on Watch: 'Ascunde videoclipurile la vizionare'
@@ -487,6 +568,7 @@ Settings:
     Players:
       None:
         Name: Fără
+    Ignore Default Arguments: Ignoră argumente implicite
   Distraction Free Settings:
     Hide Active Subscriptions: Ascunde abonamentele active
     Hide Live Chat: Ascunde Chat-ul Live
@@ -585,6 +667,7 @@ Settings:
     Replace HTTP Cache: Înlocuiți cache HTTP
     Experimental Settings: Setări experimentale
   Sort Settings Sections (A-Z): Setări Sortare Secțiuni (A-Z)
+  Return to Settings Menu: Întoarcere la Meniul de Setări
 About:
   #On About page
   About: 'Despre'
@@ -897,6 +980,7 @@ No: 'Nu'
 More: Mai multe
 Search Bar:
   Clear Input: Ștergeți intrarea
+  Remove: Șterge
 Are you sure you want to open this link?: Sunteți sigur că doriți să deschideți acest
   link?
 Open New Window: Deschide fereastră nouă
@@ -1020,5 +1104,13 @@ Search Listing:
     4K: 4K
     Subtitles: Subtitrări
     Closed Captions: Subtitrări Complexe
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Noi
+    3D: 3D
 Feed:
   Refresh Feed: Reîmprospătează {subscriptionName}
+  Feed Last Updated: '{feedName} actualizat ultima dată pe {date}'
+Right-click or hold to see history: Clic dreapta sau apasă lung pentru a vedea istoricul
+Search character limit: Căutarea are mai mult de {searchCharacterLimit} caractere
