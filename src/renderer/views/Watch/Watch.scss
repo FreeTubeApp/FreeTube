@@ -137,6 +137,7 @@
   }
 
   .sidebarArea {
+    block-size: 90%;
     grid-area: sidebar;
 
     @media only screen and (width >= 1051px) {
@@ -168,6 +169,10 @@
     @media (width <= 768px) {
       block-size: auto;
     }
+  }
+
+  .watchVideoPlaylistNoCard {
+    block-size: 100%;
   }
 
   .watchVideoRecommendations,
