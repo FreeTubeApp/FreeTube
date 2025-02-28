@@ -115,6 +115,7 @@ Open New Window: নতুন জানালা খুলো
 New Window: নতুন জানালা
 Search Bar:
   Clear Input: ইনপুট পরিষ্কার করো
+  Remove: মুছুন
 Global:
   Videos: ভিডিও
   Shorts: খাটো
@@ -126,6 +127,8 @@ Global:
     View Count: ১ দেখা হয়েছে |{সমষ্টি }দর্শন সংখ্যা
     Watching Count: ১ দেখছি |{গণনা }দেখছেন
     Channel Count: ১ চ্যানেল |{সমষ্টি }চ্যানেল সমূহ
+    Like Count: ১টি পছন্দ | {গণনা} পছন্দ করা হয়েছে
+    Comment Count: ১টি মন্তব্য | {গণনা} মন্তব্য করা হয়েছে
   Community: গোষ্ঠী
 External link opening has been disabled in the general settings: সাধারণ পছন্দসমূহে
   বহিঃসংযোগ খোলা নিষ্ক্রিয় রাখা হয়েছে
@@ -159,3 +162,9 @@ User Playlists:
     তালিকা নেই। নতুন তালিকা তৈরির জন্য নিউ প্লে-লিস্ট বাটন এ চাপ দিয়ে অগ্রসর হতে পারেন।
 More: অতিরিক্ত
 Go to page: পরবর্তী {পেইজ}
+Search character limit: সার্চ কোয়েরি {searchCharacterLimit} অক্ষরের সীমা অতিক্রম
+  করেছে
+Close Banner: ব্যানারটি বন্ধ করুন
+Search Listing:
+  Label:
+    360 Video: ৩৬০°
