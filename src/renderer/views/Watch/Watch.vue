@@ -83,10 +83,18 @@
               </span>
             </p>
             <p
-              v-else
-              class="premiereText"
-            >
-              {{ $t("Video.Starting soon, please refresh the page to check again") }}
+             v-else
+             class="premiereText"
+             @click="refreshPage"
+             style="cursor: pointer;"
+           >
+             {{ $t("Video.Starting soon, please refresh the page to check again") }}
+             <font-awesome-icon
+               :icon="['fas', 'sync']"
+               class="refreshIcon"
+               @click.stop="refreshPage"
+               style="margin-left: 8px; cursor: pointer;"
+             />
             </p>
           </div>
           <div
@@ -223,5 +231,12 @@
   </div>
 </template>
 
-<script src="./Watch.js" />
+<script
+methods: {
+  refreshPage() {
+    window.location.reload();
+  }
+}
+src="./Watch.js"
+/>
 <style scoped src="./Watch.scss" lang="scss" />
