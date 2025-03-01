@@ -50,9 +50,9 @@ function printHelp() {
   console.log(`\
 usage: ${process.argv0} [options...] [url]
 Options:
-  --help, -h           show this message, then exit
-  --version            print the current version, then exit
-  --new-window         reuse an existing instance if possible`)
+  help, -h           show this message, then exit
+  version            print the current version, then exit
+  new-window         reuse an existing instance if possible`)
 }
 
 function runApp() {
@@ -227,7 +227,7 @@ function runApp() {
 
   // disable electron warning
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
-  const isDebug = process.argv.includes('--debug')
+  const isDebug = process.argv.includes('debug')
 
   let mainWindow
   let startupUrl
@@ -278,12 +278,11 @@ function runApp() {
             // Just focus the main window (instead of starting a new instance)
             if (mainWindow.isMinimized()) mainWindow.restore()
             mainWindow.focus()
-
-            // Ensure the window is brought to the foreground (podcast use case)
-            mainWindow.show()
-            mainWindow.focus()
+            
             // On macOS, bring the application to the foreground (podcast use case)
             if (process.platform === 'darwin') {
+              mainWindow.show()
+              mainWindow.focus()
               app.focus({ steal: true })
             }
 
