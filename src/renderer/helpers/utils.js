@@ -581,15 +581,6 @@ export async function getSystemLocale() {
   return locale || 'en-US'
 }
 
-export async function getPicturesPath() {
-  if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    return await ipcRenderer.invoke(IpcChannels.GET_PICTURES_PATH)
-  } else {
-    return null
-  }
-}
-
 export function extractNumberFromString(str) {
   if (typeof str === 'string') {
     return parseInt(str.replaceAll(/\D+/g, ''))
