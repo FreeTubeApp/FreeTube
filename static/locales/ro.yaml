@@ -167,7 +167,7 @@ User Playlists:
       You haven't selected any playlist yet.: Nu ați selectat încă nicio listă de
         redare.
       "{videoCount} video(s) added to 1 playlist": 1 videoclip adăugat la 1 listă
-        de redare| {videoCount} videoclupuri adăugate la 1 listă de redare
+        de redare | {videoCount} videoclipuri adăugate la 1 listă de redare
       "{videoCount} video(s) added to {playlistCount} playlists": 1 videoclip adăugat
         la {playlistCount} liste de redare | {videoCount} videoclipuri adăugate la
         {playlistCount} liste de redare
@@ -220,8 +220,8 @@ User Playlists:
         protejată și nu poate fi ștearsă.
       Playlist {playlistName} has been deleted.: Lista de redare {playlistName} a
         fost ștearsă.
-      "{videoCount} video(s) have been removed": 1 videoclip a fost șters | {videoCount}
-        videoclipuri au fost șterse
+      "{videoCount} video(s) have been removed": 1 videoclip a fost eliminat | {videoCount}
+        videoclipuri au fost eliminate
       There were no videos to remove.: Nu au existat videoclipuri care să fie eliminate.
       Playlist name cannot be empty. Please input a name.: Numele listei de redare
         nu poate fi gol. Vă rugăm să introduceți un nume.
@@ -494,7 +494,7 @@ Settings:
     Are you sure you want to remove your entire watch history?: 'Esti sigur ca doresti
       sa stergi intreg istoricul cautarilor tale ?'
     Watch history has been cleared: 'Istoricul vizionărilor a fost șters'
-    Remove All Subscriptions / Profiles: 'Elimină toate abonamentele / profilurile'
+    Remove All Subscriptions / Profiles: 'Eliminați toate Abonamentele / Profilurile'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Sunteți
       sigur că doriți să eliminați toate abonamentele și profilurile?  Acest lucru
       nu poate fi anulat.'
@@ -502,14 +502,14 @@ Settings:
       cu ultima listă de redare vizualizată
     Are you sure you want to remove all your playlists?: Sunteți sigur(ă) că doriț
       să ștergeți toate listele dvs. de redare?
-    Remove All Playlists: Șterge toate listele de redare
-    All playlists have been removed: Toate listele de redare au fost șterse
-    Search history and cache have been cleared: Istoricul căutărilor și cache au fost
-      șterse
-    Are you sure you want to clear out your search history and cache?: Sunteți siguri
-      că vreți să ștergeți istoricul căutărilor și cache?
-    Remember Search History: Amintește istoric căutare
-    Clear Search History and Cache: Șterge istoric căutare și cache
+    Remove All Playlists: Eliminați toate listele de redare
+    All playlists have been removed: Toate listele de redare au fost eliminate
+    Search history and cache have been cleared: Istoricul căutărilor și memoria cache
+      au fost șterse
+    Are you sure you want to clear out your search history and cache?: Sunteți sigur
+      că doriți să ștergeți istoricul căutărilor și memoria cache?
+    Remember Search History: Reține istoricul căutărilor
+    Clear Search History and Cache: Ștergeți istoricul căutărilor și memoria cache
   Subscription Settings:
     Subscription Settings: 'Setări de abonament'
     Hide Videos on Watch: 'Ascunde videoclipurile la vizionare'
@@ -560,6 +560,15 @@ Settings:
     Playlist File: Fișier listă de redare
     History File: Fișier istoric
     Subscription File: Fișier abonament
+    Export Playlists For Older FreeTube Versions:
+      Label: Exportați liste de redare pentru versiunile FreeTube mai vechi
+      Tooltip: "Această opțiune exportă videoclipurile din toate listele de redare
+        într-o singură listă de redare numită 'Favorite'.\nCum să exportați și să
+        importați videoclipurile în listele de redare pentru o versiune mai veche
+        a FreeTube:\n1. Exportați-vă listele de redare cu această opțiune activată.\n
+        2. Ștergeți toate listele de redare existente utilizând opțiunea Eliminați
+        toate listele de redare din Setări de confidențialitate.\n3. Lansați versiunea
+        mai veche a FreeTube și importați listele de redare exportate.”"
   The app needs to restart for changes to take effect. Restart and apply change?: Aplicația
     trebuie repornită pentru ca modificările să intre în vigoare. Reporniți și aplicați
     modificările?
@@ -572,10 +581,10 @@ Settings:
     Players:
       None:
         Name: Fără
-    Ignore Default Arguments: Ignoră argumente implicite
+    Ignore Default Arguments: Ignoră argumentele implicite
   Distraction Free Settings:
     Hide Active Subscriptions: Ascunde abonamentele active
-    Hide Live Chat: Ascunde Chat-ul Live
+    Hide Live Chat: Ascunde Chatul Live
     Hide Playlists: Ascunde listele de redare
     Hide Popular Videos: Ascunde videoclipurile populare
     Hide Trending Videos: Ascundeți videoclipurile în tendințe
@@ -594,7 +603,7 @@ Settings:
       și semne de punctuație excesive
     Sections:
       Subscriptions Page: Pagina de abonamente
-      Side Bar: Bară laterală
+      Side Bar: Bara laterală
       Channel Page: Pagina canalului
       Watch Page: Pagina de vizionare
       General: General
@@ -605,13 +614,18 @@ Settings:
     Hide Subscriptions Live: Ascundeți Abonamente Live
     Hide Channels: Ascundeți videoclipurile din canale
     Hide Channel Community: Ascunde comunitatea canalului
-    Hide Channel Shorts: Ascundeți canalul Shorts
+    Hide Channel Shorts: Ascundeți fila "Shorts" a canalului
     Hide Featured Channels: Ascundeți canalele recomandate
     Hide Channels Placeholder: ID-ul canalului
     Hide Channel Playlists: Ascunde playlisturile canalului
     Hide Upcoming Premieres: Ascundeți premierele viitoare
     Hide Profile Pictures in Comments: Ascundeți imaginile de profil în comentarii
     Hide Channels Already Exists: ID-ul Canalului există deja
+    Hide Videos and Playlists Containing Text Placeholder: Cuvânt, fragment de cuvânt
+      sau frază
+    Hide Videos and Playlists Containing Text: Ascundeți videoclipurile și listele
+      de redare care conțin text
+    Hide Channel Home: Ascundeți fila "Acasă" a canalului
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificare atunci când segmentul sponsorului
       este sărit
@@ -837,13 +851,13 @@ Video:
   Live: 'În direct'
   Live Now: 'în direct acum'
   Live Chat: 'Chat în direct'
-  Enable Live Chat: 'Activați Chat-ul în direct'
-  Live Chat is currently not supported in this build.: 'Chat-ul în direct nu este
-    în prezent acceptat în această versiune.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Chat-ul în direct
-    este activat.  Mesajele de chat vor apărea aici după ce sunt trimise.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Chat-ul
-    în direct nu este acceptat în prezent cu API-ul Invidious.  Este necesară o conexiune
+  Enable Live Chat: 'Activați Chatul Live'
+  Live Chat is currently not supported in this build.: 'Chatul Live nu este acceptat
+    în această versiune.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Chatul live este
+    activat.  Mesajele de chat vor apărea aici odată ce au fost trimise.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Chatul
+    Live nu este acceptat în prezent cu API-ul Invidious.  Este necesară o conexiune
     directă la YouTube.'
   Published:
     In less than a minute: În mai puțin de un minut
@@ -1025,6 +1039,9 @@ Tooltips:
       videoclipul (playlist, dacă este acceptat) în playerul extern, pe thumbnail.
       Atenție, setările Invidious nu afectează playerele externe.
     DefaultCustomArgumentsTemplate: "(Implicit: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Nu trimiteți niciun argument implicit către playerul
+      extern în afară de URL-ul video (de exemplu, rata de redare, URL-ul listei de
+      redare etc.). Argumentele personalizate vor fi transmise în continuare.
   Player Settings:
     Default Video Format: Setați formatele utilizate la redarea unui videoclip. Formatele
       DASH pot reda calități superioare. Formatele tradiționale sunt limitate la maximum
@@ -1066,6 +1083,11 @@ Tooltips:
       completă și este sensibil la majuscule și minuscule.
     Hide Subscriptions Live: Această setare este înlocuită de setarea "{appWideSetting}”
       la nivel de aplicație, în secțiunea „{subsection}” din „{settingsSection}”
+    Hide Videos and Playlists Containing Text: Introduceți un cuvânt, un fragment
+      de cuvânt sau o frază (fără a ține cont de majuscule) pentru a ascunde toate
+      videoclipurile și listele de redare ale căror titluri originale conțin acest
+      cuvânt în întregul FreeTube, excluzând doar Istoric, Listele dvs. de redare
+      și videoclipurile din listele de redare.
   Experimental Settings:
     Replace HTTP Cache: Dezactivează memoria cache HTTP bazată pe disc Electron și
       activează un cache de imagini personalizat în memorie. Va duce la o utilizare
