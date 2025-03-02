@@ -18,7 +18,7 @@ Delete: 'Ștergți'
 Select all: 'Selectați toate'
 Reload: 'Reîncărcare'
 Force Reload: 'Reîncărcare forțată'
-Toggle Developer Tools: 'Comutați Instrumentele pentru dezvoltatori'
+Toggle Developer Tools: 'Comutați instrumentele pentru dezvoltatori'
 Actual size: 'Mărimea actuală'
 Zoom in: 'Mărire'
 Zoom out: 'Micșorare'
@@ -49,7 +49,7 @@ Version {versionNumber} is now available!  Click for more details: 'Versiunea {v
   este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
 A new blog is now available, {blogTitle}. Click to view more: 'Un nou blog este acum
-  disponibil, {blogTitle}. Click to view more'
+  disponibil, {blogTitle}. Faceți clic pentru a vedea mai multe'
 
 # Search Bar
 Search / Go to URL: 'Căutare / Accesați URL-ul'
@@ -77,7 +77,7 @@ Search Filters:
     #& Playlists
     Movies: Filme
   Duration:
-    Duration: 'Durata'
+    Duration: 'Durată'
     All Durations: 'Toate duratele'
     Short (< 4 minutes): 'Scurt (< 4 minute)'
     Long (> 20 minutes): 'Lung (> 20 minute)'
@@ -214,8 +214,8 @@ User Playlists:
       This video cannot be moved up.: Acest videoclip nu poate fi mutat în sus.
       Video has been removed: Videoclipul a fost eliminat
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Unele
-        videoclipuri din lista de redare nu au fost incă încărcate. Face-ți click
-        aici pentru a le copia oricum.
+        videoclipuri din lista de redare nu sunt încă încărcate. Faceți clic aici
+        pentru a copia oricum.
       This playlist is protected and cannot be removed.: Această listă de redare este
         protejată și nu poate fi ștearsă.
       Playlist {playlistName} has been deleted.: Lista de redare {playlistName} a
@@ -312,16 +312,16 @@ Settings:
     Auto Load Next Page:
       Label: Încarcă următoarea pagină automat
       Tooltip: Încarcă automat pagini și comentarii suplimentare.
-    Open Deep Links In New Window: Deschide URL-urile trecute la FreeTube în fereastră
-      nouă
+    Open Deep Links In New Window: Deschideți URL-urile transmise către FreeTube într-o
+      fereastră nouă
   Theme Settings:
     Theme Settings: 'Setări temă'
     Match Top Bar with Main Color: 'Potriviți bara de sus cu culoarea principală'
     Base Theme:
-      Base Theme: 'Temă de bază'
-      Black: 'Negru'
-      Dark: 'Întunecat'
-      Light: 'Aprinsă'
+      Base Theme: 'Tema de bază'
+      Black: 'Neagră'
+      Dark: 'Întunecată'
+      Light: 'Luminoasă'
       Dracula: 'Dracula'
       System Default: Setări implicite
       Catppuccin Mocha: Catppuccin Mocha
@@ -418,18 +418,18 @@ Settings:
       Catppuccin Frappe Sky: Catppuccin Frappe Sky
     Secondary Color Theme: 'Culoarea secundară a temei'
         #* Main Color Theme
-    UI Scale: Scala UI
+    UI Scale: Scala interfeței utilizatorului (UI)
     Disable Smooth Scrolling: Dezactivați derularea lină
     Expand Side Bar by Default: Extindeți bara laterală în mod implicit
     Hide Side Bar Labels: Ascunde etichetele din bara laterală
-    Hide FreeTube Header Logo: Ascundeți logo-ul FreeTube Header
+    Hide FreeTube Header Logo: Ascundeți logo-ul antetului FreeTube
   Player Settings:
     Player Settings: 'Setări player'
-    Play Next Video: 'Redă următorul video'
+    Play Next Video: 'Redare automată videoclipuri recomandate'
     Turn on Subtitles by Default: 'Activați subtitrările în mod implicit'
-    Autoplay Videos: 'Redare automată de videoclipuri'
+    Autoplay Videos: 'Pornirea automată a videoclipurilor'
     Proxy Videos Through Invidious: 'Videoclipuri prin proxy-ul Invidious'
-    Autoplay Playlists: 'Redați automat listele de redare'
+    Autoplay Playlists: 'Redare automată a videoclipurilor din lista de redare'
     Enable Theatre Mode by Default: 'Activați modul teatru în mod implicit'
     Default Volume: 'Volum implicit'
     Default Playback Rate: 'Viteza de redare implicită'
@@ -451,7 +451,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Fast-Forward / Rewind Interval: Intervalul de derulare înainte / înapoi
-    Next Video Interval: Următorul interval video
+    Next Video Interval: Temporizator de numărătoare inversă pentru redare automată
     Display Play Button In Video Player: Afișați butonul de redare în playerul video
     Scroll Volume Over Video Player: Derulați volumul peste playerul video
     Screenshot:
@@ -474,10 +474,14 @@ Settings:
     Scroll Playback Rate Over Video Player: Schimbă viteza de redare cu ajutorul rotiței
       de scroll
     Enter Fullscreen on Display Rotate: Intrați pe ecran complet pe afișaj Rotire
-    Skip by Scrolling Over Video Player: Omiteți derulând peste player-ul video
+    Skip by Scrolling Over Video Player: Omiteți derulând peste playerul video
     Default Viewing Mode:
       External Player: Player extern ({externalPlayerName})
-    Autoplay Interruption Timer: Temporizator Întrerupere Autoplay
+      Default Viewing Mode: Mod de vizualizare implicit
+      Theater: Teatru
+      Full Screen: Ecran complet
+      Picture in Picture: Imagine în imagine
+    Autoplay Interruption Timer: Temporizator de întrerupere a redării automate
   Privacy Settings:
     Privacy Settings: 'Setări de confidențialitate'
     Remember History: 'Reține istoric'
@@ -696,6 +700,7 @@ About:
   Source code: Codul sursă
   Beta: Beta
   Discussions: Discuții
+  Licensed under the: Licențiat în conformitate cu
 Profile:
   Profile Select: 'Selectare profil'
   All Channels: 'Toate canalele'
@@ -740,7 +745,7 @@ Profile:
 #On Channel Page
   Profile Filter: Filtru profil
   Profile Settings: Setări de profil
-  Toggle Profile List: Lista profilului toggle
+  Toggle Profile List: Comutați lista de profil
   Create Profile Name: Creați numele profilului
   Profile Name: Numele Profilului
   Edit Profile Name: Editează Numele Profilului
@@ -872,7 +877,7 @@ Video:
   Streamed on: Difuzat pe
   audio only: numai audio
   video only: numai video
-  Download Video: Descărcați video
+  Download Video: Descărcare videoclipuri
   Copy Invidious Channel Link: Copiați linkul canalului Invidious
   Open Channel in Invidious: Canal deschis în Invidious
   Copy YouTube Channel Link: Copiați linkul canalului YouTube
@@ -891,6 +896,13 @@ Video:
   Hide Channel: Ascunde canalul
   Unhide Channel: Arată canalul
 #& Playlists
+  Player:
+    Theatre Mode: Modul teatru
+    Audio Tracks: Piese audio
+    Exit Theatre Mode: Ieșire din modul teatru
+    Autoplay is off: Redarea automată este oprită
+    Autoplay is on: Redarea automată este pornită
+    Take Screenshot: Faceți o captură de ecran
 Playlist:
   #& About
   View Full Playlist: 'Vezi lista de redare completă'
@@ -910,7 +922,7 @@ Change Format:
   Audio formats are not available for this video: 'Formatele audio nu sunt disponibile
     pentru acest videoclip'
 Share:
-  Share Video: 'Distribuiți video'
+  Share Video: 'Distribuire videoclipuri'
   Share Playlist: 'Distribuie lista de redare'
   Include Timestamp: 'Includeți timpul de începere'
   Copy Link: 'Copiați linkul'
@@ -995,10 +1007,10 @@ Unknown YouTube url type, cannot be opened in app: Tip url YouTube necunoscut, n
   poate fi deschis în aplicație
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Atunci când este activată, FreeTube va utiliza RSS în locul
-      metodei implicite pentru a prelua feed-ul de abonament. RSS este mai rapid și
-      previne blocarea IP-ului, dar nu oferă anumite informații, cum ar fi durata
-      videoclipului sau starea live
+    Fetch Feeds from RSS: Atunci când este activat, FreeTube va utiliza RSS în locul
+      metodei implicite de preluare a fluxului dvs. de abonament. RSS este mai rapid
+      și previne blocarea IP, dar nu oferă anumite informații, cum ar fi durata videoclipului,
+      starea live sau postările comunității
     Fetch Automatically: Când activat, FreeTube va prelua automat feed-ul de abonament
       când se deschide o fereastră nouă și când schimbați profilul.
   External Player Settings:
@@ -1044,6 +1056,9 @@ Tooltips:
     Preferred API Backend: Alegeți backend-ul pe care FreeTube îl folosește pentru
       a obține date. API-ul local este un extractor incorporat. API-ul Invidious necesită
       un server Invidious la care să vă conectați.
+    Open Deep Links In New Window: URL-urile transmise către FreeTube, cum ar fi prin
+      redirecționarea extensiilor de browser sau a argumentelor din linia de comandă,
+      sunt deschise într-o fereastră nouă.
   Distraction Free Settings:
     Hide Channels: Introduceți un ID de canal pentru a ascunde toate videoclipurile,
       listele de redare și canalul însuși de la apariția în căutare, tendințe, cele
@@ -1111,6 +1126,19 @@ Search Listing:
     3D: 3D
 Feed:
   Refresh Feed: Reîmprospătează {subscriptionName}
-  Feed Last Updated: '{feedName} actualizat ultima dată pe {date}'
+  Feed Last Updated: '{feedName} ultima actualizare a fluxului: {date}'
 Right-click or hold to see history: Clic dreapta sau apasă lung pentru a vedea istoricul
 Search character limit: Căutarea are mai mult de {searchCharacterLimit} caractere
+KeyboardShortcutPrompt:
+  Fullscreen: Comutați ecranul complet
+  Picture in Picture: Comutați modul Imagine în imagine
+  Play: Comutați redare/pauză
+  Full Window: Comutați fereastra completă
+  Theatre Mode: Comutați modul teatru
+  Take Screenshot: Faceți o captură de ecran
+  Mute: Comutați în modul fără sunet
+  Toggle Developer Tools: Comutați instrumentele pentru dezvoltatori
+  Captions: Activarea/Dezactivarea subtitrărilor
+Moments Ago: acum câteva momente
+Autoplay Interruption Timer: Redarea automată anulată din cauza a {autoplayInterruptionIntervalHours}
+  ore de inactivitate
