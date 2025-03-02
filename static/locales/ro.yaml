@@ -641,6 +641,7 @@ Settings:
       Do Nothing: Nu fă nimic
     Category Color: Culoarea categoriilor
     UseDeArrowTitles: Utilizați titlurile video DeArrow
+    UseDeArrowThumbnails: Utilizați DeArrow pentru miniaturi
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Eroare
       la obținerea informațiilor despre rețea. Proxy-ul este configurat corect?
@@ -1058,9 +1059,9 @@ Tooltips:
     Skip by Scrolling Over Video Player: Utilizați rotița de derulare pentru a trece
       prin videoclip, stil MPV.
   General Settings:
-    External Link Handling: "Alegeți comportamentul implicit atunci când se face clic
+    External Link Handling: "Alegeți comportamentul implicit atunci când faceți clic
       pe un link care nu poate fi deschis în FreeTube.\nÎn mod implicit, FreeTube
-      va deschide linkul pe care s-a făcut clic în browserul dvs. implicit.\n"
+      va deschide linkul accesat în browserul dvs. implicit.\n"
     Region for Trending: Regiunea de tendințe vă permite să alegeți ce videoclipuri
       în tendințe din fiecare țară doriți să fie afișate.
     Invidious Instance: Instanța Invidious la care FreeTube se va conecta pentru apelurile
