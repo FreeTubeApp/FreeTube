@@ -10,9 +10,10 @@ import { join } from 'path'
  * as the BotGuard stuff accesses the global `document` and `window` objects and also requires making some requests.
  * So we definitely don't want it running in the same places as the rest of the FreeTube code with the user data.
  * @param {string} visitorData
+ * @param {string|undefined} proxyUrl
  * @returns {Promise<string>}
  */
-export async function generatePoToken(visitorData) {
+export async function generatePoToken(visitorData, proxyUrl) {
   const sessionUuid = crypto.randomUUID()
 
   const theSession = session.fromPartition(`potoken-${sessionUuid}`, { cache: false })
@@ -27,6 +28,12 @@ export async function generatePoToken(visitorData) {
       .filter(part => !part.includes('Electron'))
       .join(' ')
   )
+
+  if (proxyUrl) {
+    await theSession.setProxy({
+      proxyRules: proxyUrl
+    })
+  }
 
   const webContentsView = new WebContentsView({
     webPreferences: {
