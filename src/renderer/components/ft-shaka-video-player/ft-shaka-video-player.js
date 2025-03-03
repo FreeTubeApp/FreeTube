@@ -291,6 +291,11 @@ export default defineComponent({
       })
     })
 
+    /** @type {import('vue').ComputedRef<number>} */
+    const defaultPlaybackRate = computed(() => {
+      return store.getters.getDefaultPlayback
+    })
+
     const maxVideoPlaybackRate = computed(() => {
       return parseInt(store.getters.getMaxVideoPlaybackRate)
     })
@@ -953,8 +958,12 @@ export default defineComponent({
         // stop shaka-player's click handler firing
         event.stopPropagation()
 
-        video.value.playbackRate = props.currentPlaybackRate
-        video.value.defaultPlaybackRate = props.currentPlaybackRate
+        const newPlaybackRate = defaultPlaybackRate.value
+
+        video.value.playbackRate = newPlaybackRate
+        video.value.defaultPlaybackRate = newPlaybackRate
+
+        showValueChange(`${newPlaybackRate}x`)
       }
     }
 
