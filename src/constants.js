@@ -4,7 +4,6 @@ const IpcChannels = {
   DISABLE_PROXY: 'disable-proxy',
   OPEN_EXTERNAL_LINK: 'open-external-link',
   GET_SYSTEM_LOCALE: 'get-system-locale',
-  GET_PICTURES_PATH: 'get-pictures-path',
   GET_NAVIGATION_HISTORY: 'get-navigation-history',
   SHOW_SAVE_DIALOG: 'show-save-dialog',
   STOP_POWER_SAVE_BLOCKER: 'stop-power-save-blocker',
@@ -48,6 +47,7 @@ const IpcChannels = {
 
   GENERATE_PO_TOKENS: 'generate-po-tokens',
 
+  GET_SCREENSHOT_FALLBACK_FOLDER: 'get-screenshot-fallback-folder',
   CHOOSE_DEFAULT_FOLDER: 'choose-default-folder',
   WRITE_SCREENSHOT: 'write-screenshot',
 }
