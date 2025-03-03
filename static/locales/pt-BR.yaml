@@ -314,6 +314,12 @@ Settings:
       Gruvbox Light: Gruvbox modo claro
       Gruvbox Dark: Gruvbox modo escuro
       Catppuccin Frappe: Frappe de Catppuccin
+      Everforest Dark Hard: Everforest Escuro Sólido
+      Everforest Dark Low: Everforest Escuro Suave
+      Everforest Dark Medium: Everforest Escuro Médio
+      Everforest Light Hard: Everforest Claro Sólido
+      Everforest Light Medium: Everforest Claro Médio
+      Everforest Light Low: Everforest Claro Suave
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelha'
@@ -385,6 +391,20 @@ Settings:
       Catppuccin Frappe Lavender: Frappe de Catppuccin Lavanda
       Catppuccin Frappe Teal: Frappe de Catppuccin Teal
       Catppuccin Frappe Pink: Frappe de Catppuccin com rosas
+      Everforest Dark Red: Everforest Vermelho Escuro
+      Everforest Dark Orange: Everforest Laranja Escuro
+      Everforest Dark Yellow: Everforest Amarelo Escuro
+      Everforest Dark Blue: Everforest Azul Escuro
+      Everforest Dark Purple: Everforest Roxo Escuro
+      Everforest Light Red: Everforest Vermelho Claro
+      Everforest Light Orange: Everforest Laranja Claro
+      Everforest Light Yellow: Everforest Amarelo Claro
+      Everforest Light Blue: Everforest Azul Claro
+      Everforest Light Purple: Everforest Roxo Claro
+      Everforest Light Aqua: Everforest Aqua Claro
+      Everforest Dark Green: Everforest Verde Escuro
+      Everforest Dark Aqua: Everforest Aqua Escuro
+      Everforest Light Green: Everforest Verde Claro
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da Interface de Usuário

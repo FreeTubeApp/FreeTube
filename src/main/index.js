@@ -293,6 +293,8 @@ function runApp() {
     })
   }
 
+  let proxyUrl
+
   app.on('ready', async (_, __) => {
     if (process.env.NODE_ENV === 'production') {
       protocol.handle('app', async (request) => {
@@ -412,8 +414,10 @@ function runApp() {
     }
 
     if (useProxy) {
+      proxyUrl = `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+
       session.defaultSession.setProxy({
-        proxyRules: `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+        proxyRules: proxyUrl
       })
     }
 
@@ -960,18 +964,20 @@ function runApp() {
   })
 
   ipcMain.handle(IpcChannels.GENERATE_PO_TOKEN, (_, visitorData) => {
-    return generatePoToken(visitorData)
+    return generatePoToken(visitorData, proxyUrl)
   })
 
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
     session.defaultSession.setProxy({
       proxyRules: url
     })
+    proxyUrl = url
     session.defaultSession.closeAllConnections()
   })
 
   ipcMain.on(IpcChannels.DISABLE_PROXY, () => {
     session.defaultSession.setProxy({})
+    proxyUrl = undefined
     session.defaultSession.closeAllConnections()
   })
 
@@ -1048,10 +1054,6 @@ function runApp() {
     return app.getSystemLocale()
   })
 
-  ipcMain.handle(IpcChannels.GET_PICTURES_PATH, () => {
-    return app.getPath('pictures')
-  })
-
   // Allows programmatic toggling of fullscreen without accompanying user interaction.
   // See: https://developer.mozilla.org/en-US/docs/Web/Security/User_activation#transient_activation
   ipcMain.on(IpcChannels.REQUEST_FULLSCREEN, ({ sender }) => {
@@ -1077,6 +1079,14 @@ function runApp() {
       return window.webContents.id === sender.id
     })
   }
+
+  ipcMain.handle(IpcChannels.GET_SCREENSHOT_FALLBACK_FOLDER, (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
+    return path.join(app.getPath('pictures'), 'Freetube')
+  })
 
   ipcMain.on(IpcChannels.CHOOSE_DEFAULT_FOLDER, async (event, kind) => {
     if (!isFreeTubeUrl(event.senderFrame.url) || (kind !== DefaultFolderKind.DOWNLOADS && kind !== DefaultFolderKind.SCREENSHOTS)) {

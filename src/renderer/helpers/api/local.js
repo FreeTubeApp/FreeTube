@@ -63,13 +63,14 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
   })
 }
 
+/** @type {Innertube | null} */
 let searchSuggestionsSession = null
 
 export async function getLocalSearchSuggestions(query) {
+  // The search suggestions endpoint does not like search queries larger than SEARCH_CHAR_LIMIT
+  // so return an empty array instead
   if (query.length > SEARCH_CHAR_LIMIT) {
-    // There's an event handler on the search input so avoid displaying an exception
-    console.error(`Query is over ${SEARCH_CHAR_LIMIT} characters`)
-    return
+    return []
   }
 
   // reuse innertube instance to keep the search suggestions snappy

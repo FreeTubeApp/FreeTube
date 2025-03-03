@@ -9,8 +9,6 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
 import { DefaultFolderKind, IpcChannels } from '../../../constants'
-import path from 'path'
-import { getPicturesPath } from '../../helpers/utils'
 
 export default defineComponent({
   name: 'PlayerSettings',
@@ -279,7 +277,8 @@ export default defineComponent({
 
     getScreenshotEmptyFolderPlaceholder: async function() {
       if (process.env.IS_ELECTRON) {
-        return path.join(await getPicturesPath(), 'Freetube')
+        const { ipcRenderer } = require('electron')
+        return await ipcRenderer.invoke(IpcChannels.GET_SCREENSHOT_FALLBACK_FOLDER)
       } else {
         return ''
       }

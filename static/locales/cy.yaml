@@ -354,6 +354,12 @@ Settings:
       Gruvbox Dark: Gruvbox Tywyll
       Gruvbox Light: Golau Gruvbox
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Hard: Everforest Tywyll Caled
+      Everforest Dark Medium: Everforest Canolig Tywyll
+      Everforest Dark Low: Everforest Tywyll Isel
+      Everforest Light Hard: Everforest Caled Golau
+      Everforest Light Medium: Everforest Canolig Golau
+      Everforest Light Low: Everforest Isel Golau
     Main Color Theme:
       Main Color Theme: 'Thema Prif Lliw'
       Red: 'Coch'
@@ -425,6 +431,20 @@ Settings:
       Catppuccin Frappe Green: Catppuccin Frappe Gwyrdd
       Catppuccin Frappe Teal: Corhwyaden Frappe Catppuccin
       Catppuccin Frappe Lavender: Catppuccin Frappe Lafant
+      Everforest Dark Red: Everforest Coch Tywyll
+      Everforest Dark Orange: Everforest Oren Tywyll
+      Everforest Dark Yellow: Everforest Melyn Tywyll
+      Everforest Dark Green: Everforest Gwyrdd Tywyll
+      Everforest Dark Aqua: Everforest Aqua Tywyll
+      Everforest Light Red: Everforest Coch Golau
+      Everforest Dark Blue: Everforest Glas Tywyll
+      Everforest Dark Purple: Everforest Porffor Tywyll
+      Everforest Light Orange: Everforest Oren Golau
+      Everforest Light Yellow: Everforest Melyn Golau
+      Everforest Light Green: Everforest Gwyrdd Golau
+      Everforest Light Aqua: Everforest Aqua Golau
+      Everforest Light Blue: Everforest Glas Golau
+      Everforest Light Purple: Everforest Porffor Golau
     Secondary Color Theme: 'Thema Lliw Eilaidd'
         #* Main Color Theme
   Player Settings:
@@ -666,7 +686,7 @@ Settings:
       yn cael ei hepgor'
     UseDeArrowTitles: 'Defnyddio Teitlau Fideo DeArrow'
     Skip Options:
-      Skip Option: 'Opsiwn Hepgor'
+      Skip Option: 'Hepgor y Dewis'
       Auto Skip: 'Awto-Hepgor'
       Show In Seek Bar: 'Dangos yn y Bar Chwilio'
       Prompt To Skip: 'Annog i Hepgor'
@@ -808,7 +828,7 @@ Channel:
       Most Popular: 'Poblogaidd'
   Shorts:
     This channel does not currently have any shorts: 'Nid oes gan y sianel hon unrhyw
-      siorts ar hyn o bryd'
+      rhai byr ar hyn o bryd'
   Live:
     Live: 'Byw'
     This channel does not currently have any live streams: 'Nid oes gan y sianel hon
@@ -828,10 +848,10 @@ Channel:
   Releases:
     Releases: 'Rhyddhadau'
     This channel does not currently have any releases: 'Nid oes gan y sianel hon unrhyw
-      fdeos newydd ar hyn o bryd'
+      fideos newydd ar hyn o bryd'
   About:
     About: 'Ynghylch'
-    Channel Description: 'Disgrifiad y Sianel'
+    Channel Description: 'Disgrifiad o''r Sianel'
     Tags:
       Tags: 'Tagiau'
       Search for: 'Chwilio am "{tag}"'
@@ -932,8 +952,8 @@ Video:
       opening specific video in a playlist (falling back to opening the video): 'agor
         fideo penodol mewn rhestr chwarae (gan ddychwelyd i agor y fideo)'
       reversing playlists: 'gwrthdroi rhestrau chwarae'
-      shuffling playlists: 'cymysgu rhestri chwarae'
-      looping playlists: 'cylchu rhestri chwarae'
+      shuffling playlists: 'cymysgu rhestrau chwarae'
+      looping playlists: 'cylchu rhestrau chwarae'
 #& Videos
   Player:
     Take Screenshot: Tynnu Llun Sgrin
@@ -1038,7 +1058,7 @@ Share:
     clipfwrdd'
 Clipboard:
   Copy failed: 'Methodd copïo i''r clipfwrdd'
-  Cannot access clipboard without a secure connection: 'Methu cyrchu''r clipfwrdd
+  Cannot access clipboard without a secure connection: 'Methu cael mynediad at y clipfwrdd
     heb gysylltiad diogel'
 
 Chapters:
@@ -1061,7 +1081,7 @@ Comments:
   Newest first: 'Diweddaraf yn gyntaf'
   View {replyCount} replies: 'Gweld {replyCount} ateb'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: 'Edrychiad'
+  View: 'Golwg'
   Hide: 'Cuddio'
   Replies: 'Atebion'
   Show More Replies: 'Dangos Rhagor o Atebion'
@@ -1082,9 +1102,9 @@ Up Next: 'Nesaf'
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: 'Dewiswch y cefn y mae FreeTube yn ei ddefnyddio i gael
-      data. Mae''r API lleol yn echdynnwr mewnol. Mae''r API Invidious angen gweinydd
-      Invidious i gysylltu ag ef.'
+    Preferred API Backend: 'Dewiswch y peirianwaith cefn y mae FreeTube yn ei ddefnyddio
+      i gael data. Mae''r API lleol yn echdynnwr mewnol. Mae''r API Invidious angen
+      gweinydd Invidious i gysylltu ag ef.'
     Fallback to Non-Preferred Backend on Failure: 'Pan fydd gan eich API dewisol broblem,
       bydd FreeTube yn ceisio defnyddio''ch API nad yw''n well gennych yn awtomatig
       fel dull wrth gefn pan fydd wedi''i alluogi.'
@@ -1145,7 +1165,7 @@ Tooltips:
       yn lle ei ddull rhagosodedig ar gyfer cydio yn eich llif tanysgrifio. Mae RSS
       yn gyflymach ac yn atal rhwystro IP, ond nid yw''n darparu gwybodaeth benodol
       fel hyd fideo, statws byw neu bostiadau cymunedol'
-    Fetch Automatically: 'Pan fydd wedi''i alluogi, bydd FreeTube yn nôl eich llif
+    Fetch Automatically: 'Pan fydd wedi''i alluogi, bydd FreeTube yn nôl eich ffrwd
       tanysgrifio yn awtomatig pan fydd ffenestr newydd yn cael ei hagor ac wrth newid
       proffil.'
   Experimental Settings:
@@ -1267,7 +1287,7 @@ KeyboardShortcutPrompt:
   History Backward: Nôl un dudalen
   Navigate to Settings: Llywio i'r dudalen Gosodiadau
   Navigate to History: Llywio i'r dudalen Hanes
-  Refresh: Adnewyddu llif gyda'r cynnwys diweddaraf
+  Refresh: Adnewyddu ffrwd gyda'r cynnwys diweddaraf
   Picture in Picture: Toglo modd Llun-mewn-Llun
   Large Fast Forward: Ymlaen 10 eiliad / Ymlaen Cyflym Fideo yn seiliedig ar y Gyfradd
     Chwarae Fideo gyfredol

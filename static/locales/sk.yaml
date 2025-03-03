@@ -170,6 +170,8 @@ User Playlists:
         sa vyskytol problém.
       Video has been removed. Click here to undo.: Video bolo odstránené. Ak chcete
         akciu vrátiť späť, kliknite sem.
+      Playlist name cannot be empty. Please input a name.: Meno zoznamu nemôže byť
+        prázdne. Prosím zadajte názov.
     Search for Videos: Vyhľadať videá
   Sort By:
     NameAscending: A-Z
@@ -178,6 +180,8 @@ User Playlists:
     NameDescending: Z-A
     EarliestCreatedFirst: Najskoršie vytvorené
     LatestPlayedFirst: Nedávno prehrávané
+    EarliestPlayedFirst: Najskôr hrané
+    EarliestUpdatedFirst: Najskôr aktualizované
   Are you sure you want to delete this playlist? This cannot be undone: Naozaj chcete
     odstrániť tento playlist? Toto sa nedá vrátiť späť.
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Naozaj
@@ -191,6 +195,12 @@ User Playlists:
     | Naozaj chcete z tohto playlistu odstrániť sledované videá ({playlistItemCount})?
     Toto sa nedá vrátiť späť.
   Delete Playlist: Vymazať playlist
+  AddVideoPrompt:
+    Allow Adding Duplicate Video(s): Povoliť pridávanie duplikátnych videí
+    N playlists selected: '{playlistCount} vybraných'
+    Search in Playlists: Hľadať v zoznamoch
+  Quick Bookmark Enabled: Rýchle záložky povolené
+  Enable Quick Bookmark With This Playlist: Povoliť rýchle záložky v tomto zozname
 History:
   # On History Page
   History: 'História'
@@ -748,3 +758,5 @@ Feed:
   Feed Last Updated: 'Zdroj {feedName} naposledy aktualizovaný: {date}'
   Refresh Feed: Obnoviť {subscriptionName}
 Go to page: Prejsť na {page}
+Right-click or hold to see history: Kliknite alebo podržte pravé tlačidlo myši aby
+  sa zobrazila história
