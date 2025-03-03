@@ -62,10 +62,6 @@ export default async function (videoId, visitorData, context) {
     globalObj: window
   })
 
-  // DO NOT REMOVE
-  // Without this timeout we get an "Async snapshot function not found" error
-  await new Promise((resolve) => setTimeout(resolve, 1000))
-
   const webPoSignalOutput = []
   const botGuardResponse = await botGuard.snapshot({ webPoSignalOutput })
 
