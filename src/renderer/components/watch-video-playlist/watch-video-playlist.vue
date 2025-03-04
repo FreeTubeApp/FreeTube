@@ -126,9 +126,11 @@
           :playlist-loop="loopEnabled"
           :video-index="index"
           :is-current-video="currentVideoIndexZeroBased === index"
+          :can-remove-from-playlist="isUserPlaylist"
           appearance="watchPlaylistItem"
           :initial-visible-state="index < (currentVideoIndexZeroBased + 4) && index > (currentVideoIndexZeroBased - 4)"
           @pause-player="pausePlayer"
+          @remove-from-playlist="handleRemoveFromPlaylist(item)"
         />
       </div>
     </div>

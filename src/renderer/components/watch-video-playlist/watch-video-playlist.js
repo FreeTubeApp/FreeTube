@@ -1,5 +1,5 @@
 import { defineComponent, nextTick } from 'vue'
-import { mapMutations } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtListVideoNumbered from '../ft-list-video-numbered/ft-list-video-numbered.vue'
@@ -534,8 +534,55 @@ export default defineComponent({
       this.$emit('pause-player')
     },
 
+    handleRemoveFromPlaylist: function (video) {
+      if (!this.isUserPlaylist) {
+        return
+      }
+
+      const playlistItems = [].concat(this.playlistItems)
+      const tempPlaylistItems = [].concat(this.playlistItems)
+      let isUndoClicked = false
+
+      const videoIndex = this.playlistItems.findIndex((item) => {
+        return item.videoId === video.videoId && item.playlistItemId === video.playlistItemId
+      })
+
+      if (videoIndex !== -1) {
+        // Store the video that was playing before deletion
+        if (videoIndex === this.currentVideoIndexZeroBased) {
+          this.prevVideoBeforeDeletion = this.currentVideo
+        }
+
+        playlistItems.splice(videoIndex, 1)
+        this.playlistItems = playlistItems
+
+        showToast(
+          this.$t('User Playlists.SinglePlaylistView.Toast["Video has been removed. Click here to undo."]'),
+          5000,
+          () => {
+            this.playlistItems = tempPlaylistItems
+            isUndoClicked = true
+          }
+        )
+
+        setTimeout(() => {
+          if (!isUndoClicked) {
+            this.removeVideo({
+              _id: this.playlistId,
+              videoId: video.videoId,
+              playlistItemId: video.playlistItemId
+            })
+          }
+        }, 5000)
+      }
+    },
+
     ...mapMutations([
       'setCachedPlaylist'
+    ]),
+    ...mapActions([
+      'removeVideo',
+      'updatePlaylist'
     ])
   }
 })
