@@ -45,7 +45,6 @@
       />
       <font-awesome-icon
         v-if="!hideSearchBar"
-        ref="searchContainer"
         class="navSearchIcon navIcon"
         :icon="['fas', 'search']"
         role="button"
@@ -85,6 +84,7 @@
       <div
         v-if="!hideSearchBar"
         v-show="showSearchContainer"
+        ref="searchContainer"
         class="searchContainer"
       >
         <ft-input
