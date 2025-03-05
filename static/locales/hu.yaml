@@ -617,8 +617,9 @@ Settings:
     Hide Profile Pictures in Comments: Profilképek elrejtése a hozzászólásokban
     Hide Subscriptions Community: Közösségi feliratkozások elrejtése
     Hide Channels Invalid: Érvénytelen a megadott csatornaazonosító
-    Hide Channels Disabled Message: Egyes csatornákat letiltottak az azonosító használatával,
-      és nem dolgozták fel őket. A jellemző le van tiltva az azonosítók frissítésekor
+    Hide Channels Disabled Message: Egyes csatornákat letiltottak az azonosító miatt,
+      és nem dolgozták fel őket. A funkció le van tiltva, amíg ezek az azonosítók
+      nem frissülnek
     Hide Channels Already Exists: Már létezik a csatornaazonosító
     Hide Channels API Error: Hiba történt a megadott azonosítóval rendelkező felhasználó
       lekérésekor. Ellenőrizze még egyszer, hogy helyes-e az azonosító.
@@ -1215,7 +1216,7 @@ Hashtag:
   This hashtag does not currently have any videos: Ez a kettős kereszt jelenleg nem
     rendelkezik videókkal
 Channel Hidden: '{channel} hozzáadva a csatornaszűrőhöz'
-Go to page: Ugrás a(z) {page}. oldalra
+Go to page: Ugrás a(z) {page} oldalra
 Channel Unhidden: 'A(z) {channel} el lett távolítva a csatornaszűrőből'
 Trimmed input must be at least N characters long: A vágott bemenetnek legalább 1 karakter
   hosszúnak kell lennie | A vágott bemenetnek legalább {length} karakter hosszúnak
