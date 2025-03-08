@@ -272,7 +272,12 @@ export async function getLocalVideoInfo(id) {
 
   if (info.streaming_data) {
     decipherFormats(info.streaming_data.formats, webInnertube.session.player)
-    decipherFormats(info.streaming_data.adaptive_formats, webInnertube.session.player)
+
+    const firstFormat = info.streaming_data.adaptive_formats[0]
+
+    if (firstFormat.url || firstFormat.signature_cipher || firstFormat.cipher) {
+      decipherFormats(info.streaming_data.adaptive_formats, webInnertube.session.player)
+    }
 
     if (info.streaming_data.dash_manifest_url) {
       let url = info.streaming_data.dash_manifest_url
