@@ -171,6 +171,21 @@
           </p>
         </ft-flex-box>
         <ft-element-list
+          v-if="!hideChannelCourses && currentTab === 'courses'"
+          id="coursesPanel"
+          :data="latestCourses"
+          :use-channels-hidden-preference="false"
+          role="tabpanel"
+          aria-labelledby="coursesTab"
+        />
+        <ft-flex-box
+          v-if="!hideChannelCourses && currentTab === 'courses' && latestCourses.length === 0"
+        >
+          <p class="message">
+            {{ $t("Channel.Courses.This channel does not currently have any courses") }}
+          </p>
+        </ft-flex-box>
+        <ft-element-list
           v-if="!hideChannelPlaylists && currentTab === 'playlists'"
           id="playlistPanel"
           :data="latestPlaylists"
