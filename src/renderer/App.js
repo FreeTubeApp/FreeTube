@@ -34,7 +34,7 @@ export default defineComponent({
     FtPlaylistAddVideoPrompt,
     FtCreatePlaylistPrompt,
     FtSearchFilters,
-    FtKeyboardShortcutPrompt,
+    FtKeyboardShortcutPrompt
   },
   data: function () {
     return {
@@ -50,10 +50,7 @@ export default defineComponent({
       isPromptOpen: false,
       lastExternalLinkToBeOpened: '',
       showExternalLinkOpeningPrompt: false,
-      externalLinkOpeningPromptValues: [
-        'yes',
-        'no'
-      ]
+      externalLinkOpeningPromptValues: ['yes', 'no']
     }
   },
   computed: {
@@ -64,8 +61,9 @@ export default defineComponent({
       return this.$store.getters.getOutlinesHidden
     },
     isLocaleRightToLeft: function () {
-      return this.locale === 'ar' || this.locale === 'fa' || this.locale === 'he' ||
-        this.locale === 'ur' || this.locale === 'yi' || this.locale === 'ku'
+      return (
+        this.locale === 'ar' || this.locale === 'fa' || this.locale === 'he' || this.locale === 'ur' || this.locale === 'yi' || this.locale === 'ku'
+      )
     },
     checkForUpdates: function () {
       return this.$store.getters.getCheckForUpdates
@@ -75,6 +73,9 @@ export default defineComponent({
     },
     isKeyboardShortcutPromptShown: function () {
       return this.$store.getters.getIsKeyboardShortcutPromptShown
+    },
+    areVimWaypointsShown: function () {
+      return this.$store.getters.getAreVimWaypointsShown
     },
     showAddToPlaylistPrompt: function () {
       return this.$store.getters.getShowAddToPlaylistPrompt
@@ -87,7 +88,13 @@ export default defineComponent({
     },
     windowTitle: function () {
       const routePath = this.$route.path
-      if (!routePath.startsWith('/channel/') && !routePath.startsWith('/watch/') && !routePath.startsWith('/hashtag/') && !routePath.startsWith('/playlist/') && !routePath.startsWith('/search/')) {
+      if (
+        !routePath.startsWith('/channel/') &&
+        !routePath.startsWith('/watch/') &&
+        !routePath.startsWith('/hashtag/') &&
+        !routePath.startsWith('/playlist/') &&
+        !routePath.startsWith('/search/')
+      ) {
         let title = translateWindowTitle(this.$route.meta.title)
         if (!title) {
           title = packageDetails.productName
@@ -127,7 +134,7 @@ export default defineComponent({
       return this.$store.getters.getSecColor
     },
 
-    locale: function() {
+    locale: function () {
       return this.$i18n.locale
     },
 
@@ -135,15 +142,12 @@ export default defineComponent({
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
     },
 
-    landingPage: function() {
+    landingPage: function () {
       return '/' + this.$store.getters.getLandingPage
     },
 
     externalLinkOpeningPromptNames: function () {
-      return [
-        this.$t('Yes, Open Link'),
-        this.$t('No')
-      ]
+      return [this.$t('Yes, Open Link'), this.$t('No')]
     },
 
     externalLinkHandling: function () {
@@ -156,6 +160,10 @@ export default defineComponent({
 
     openDeepLinksInNewWindow: function () {
       return this.$store.getters.getOpenDeepLinksInNewWindow
+    },
+
+    enableVimNavigation: function () {
+      return this.$store.getters.getEnableVimNavigation
     }
   },
   watch: {
@@ -171,7 +179,7 @@ export default defineComponent({
 
     appTitle: 'setDocumentTitle'
   },
-  created () {
+  created() {
     this.checkThemeSettings()
     this.setLocale()
   },
@@ -184,7 +192,7 @@ export default defineComponent({
         await this.setRandomCurrentInvidiousInstance()
       }
 
-      this.fetchInvidiousInstances().then(e => {
+      this.fetchInvidiousInstances().then((e) => {
         if (this.defaultInvidiousInstance === '') {
           this.setRandomCurrentInvidiousInstance()
         }
@@ -225,7 +233,7 @@ export default defineComponent({
     })
   },
   methods: {
-    setDocumentTitle: function(value) {
+    setDocumentTitle: function (value) {
       document.title = value
       this.$nextTick(() => this.$refs.topNav?.setActiveNavigationHistoryEntryTitle(value))
     },
@@ -294,8 +302,8 @@ export default defineComponent({
         }
 
         fetch('https://write.as/freetube/feed/')
-          .then(response => response.text())
-          .then(response => {
+          .then((response) => response.text())
+          .then((response) => {
             const xmlDom = new DOMParser().parseFromString(response, 'application/xml')
 
             const latestBlog = xmlDom.querySelector('item')
@@ -334,7 +342,7 @@ export default defineComponent({
       this.showBlogBanner = false
     },
 
-    handlePromptPortalUpdate: function(newVal) {
+    handlePromptPortalUpdate: function (newVal) {
       this.isPromptOpen = newVal
     },
 
@@ -346,6 +354,31 @@ export default defineComponent({
     },
 
     activateKeyboardShortcuts: function () {
+      if (this.enableVimNavigation) {
+        ['click', 'scroll'].forEach((eventName) =>
+          document.addEventListener(eventName, (e) => {
+            this.$store.commit('setAreVimWaypointsShown', { key: 'Esc' })
+          })
+        )
+        document.addEventListener('keydown', (e) => {
+          // Only handle if not in an input field and not in waypoint mode
+          if (e.target.tagName !== 'INPUT' && !this.areVimWaypointsShown.selector.length) {
+            if (e.key === 'j') {
+              // If the 'J' key is pressed
+              window.scrollBy({
+                top: 30,
+                behavior: 'auto'
+              })
+            } else if (e.key === 'k') {
+              // If the 'K' key is pressed
+              window.scrollBy({
+                top: -30,
+                behavior: 'auto'
+              })
+            }
+          }
+        })
+      }
       document.addEventListener('keydown', this.handleKeyboardShortcuts)
       document.addEventListener('mousedown', () => {
         this.hideOutlines()
@@ -353,6 +386,13 @@ export default defineComponent({
     },
 
     handleKeyboardShortcuts: function (event) {
+      // If this.areVimWaypointsShown.selector starts with an f it means
+      // the user is in nav mode so capture any input and pass it to
+      // setAreVimWaypointsShown
+      if (this.areVimWaypointsShown.selector[0] === 'f' && !event.ctrlKey && this.enableVimNavigation) {
+        this.$store.commit('setAreVimWaypointsShown', { key: event.key })
+        return
+      }
       // ignore user typing in HTML `input` elements
       if (event.shiftKey && event.key === '?' && event.target.tagName !== 'INPUT') {
         this.$store.commit('setIsKeyboardShortcutPromptShown', !this.isKeyboardShortcutPromptShown)
@@ -367,13 +407,17 @@ export default defineComponent({
         }
       }
       switch (event.key) {
+        case 'f':
+          if (event.target.tagName !== 'INPUT' && this.enableVimNavigation && !event.ctrlKey) {
+            this.$store.commit('setAreVimWaypointsShown', { key: event.key })
+          }
+          break
         case 'Tab':
           this.showOutlines()
           break
         case 'L':
         case 'l':
-          if ((process.platform !== 'darwin' && event.ctrlKey) ||
-            (process.platform === 'darwin' && event.metaKey)) {
+          if ((process.platform !== 'darwin' && event.ctrlKey) || (process.platform === 'darwin' && event.metaKey)) {
             this.$refs.topNav.focusSearch()
           }
           break
@@ -427,7 +471,7 @@ export default defineComponent({
       }
     },
 
-    handleYoutubeLink: function (href, { doCreateNewWindow = false } = { }) {
+    handleYoutubeLink: function (href, { doCreateNewWindow = false } = {}) {
       this.getYoutubeUrlInfo(href).then((result) => {
         switch (result.urlType) {
           case 'video': {
@@ -539,9 +583,11 @@ export default defineComponent({
     },
 
     enableOpenUrl: function () {
-      ipcRenderer.on(IpcChannels.OPEN_URL, (event, url, { isLaunchLink = false } = { }) => {
+      ipcRenderer.on(IpcChannels.OPEN_URL, (event, url, { isLaunchLink = false } = {}) => {
         if (url) {
-          this.handleYoutubeLink(url, { doCreateNewWindow: this.openDeepLinksInNewWindow && !isLaunchLink })
+          this.handleYoutubeLink(url, {
+            doCreateNewWindow: this.openDeepLinksInNewWindow && !isLaunchLink
+          })
         }
       })
 
@@ -560,13 +606,13 @@ export default defineComponent({
       }
     },
 
-    setWindowTitle: function() {
+    setWindowTitle: function () {
       if (this.windowTitle !== null) {
         this.setAppTitle(this.windowTitle)
       }
     },
 
-    setLocale: function() {
+    setLocale: function () {
       document.documentElement.setAttribute('lang', this.locale)
       if (this.isLocaleRightToLeft) {
         document.body.dir = 'rtl'
@@ -590,15 +636,15 @@ export default defineComponent({
       'setupListenersToSyncWindows',
       'hideKeyboardShortcutPrompt',
       'showKeyboardShortcutPrompt',
+      'showVimWaypoints',
+      'hideVimWaypoints',
       'updateBaseTheme',
       'updateMainColor',
       'updateSecColor',
       'showOutlines',
-      'hideOutlines',
+      'hideOutlines'
     ]),
 
-    ...mapMutations([
-      'setAppTitle'
-    ])
+    ...mapMutations(['setAppTitle'])
   }
 })
