@@ -37,5 +37,5 @@
   </div>
 </template>
 
-<script src="./Search.js" />
-<style scoped src="./Search.css" />
+<script src="./SearchPage.js" />
+<style scoped src="./SearchPage.css" />
