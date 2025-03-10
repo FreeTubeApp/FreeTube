@@ -9,7 +9,7 @@ import UserPlaylists from '../views/UserPlaylists/UserPlaylists.vue'
 import History from '../views/History/History.vue'
 import Settings from '../views/Settings/Settings.vue'
 import About from '../views/About/About.vue'
-import Search from '../views/Search/Search.vue'
+import SearchPage from '../views/SearchPage/SearchPage.vue'
 import Playlist from '../views/Playlist/Playlist.vue'
 import Channel from '../views/Channel/Channel.vue'
 import Watch from '../views/Watch/Watch.vue'
@@ -105,7 +105,7 @@ const router = new Router({
       meta: {
         title: 'Search Results'
       },
-      component: Search
+      component: SearchPage
     },
     {
       path: '/playlist/:id',

@@ -15,7 +15,7 @@ import packageDetails from '../../../../package.json'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
 export default defineComponent({
-  name: 'Search',
+  name: 'SearchPage',
   components: {
     'ft-loader': FtLoader,
     'ft-card': FtCard,
