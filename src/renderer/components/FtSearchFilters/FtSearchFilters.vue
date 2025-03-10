@@ -56,6 +56,14 @@
         text-color="var(--text-with-main-color)"
         @click="hideSearchFilters"
       />
+      <!-- Added: Search button with same styling as close button -->
+      <FtButton
+        :label="$t('Search')"
+        background-color="var(--primary-color)"
+        text-color="var(--text-with-main-color)"
+        class="searchButton"
+        @click="searchWithFilters"
+      />
     </div>
   </FtPrompt>
 </template>
@@ -63,7 +71,7 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-
+import { openInternalPath } from '../../helpers/utils'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtRadioButton from '../FtRadioButton/FtRadioButton.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
@@ -248,7 +256,28 @@ watch(searchFilterValueChanged, (value) => {
 function hideSearchFilters() {
   store.dispatch('hideSearchFilters')
 }
+function searchWithFilters() {
+  const queryTextElement = document.querySelector('.searchInput input')
+  const queryText = queryTextElement ? queryTextElement.value : ''
+  store.dispatch('hideSearchFilters')
 
+  const query = {
+    sortBy: sortByValue.value,
+    time: timeValue.value,
+    type: typeValue.value,
+    duration: durationValue.value,
+    features: featuresValue.value
+  }
+
+  if (queryText && queryText.trim() !== '') {
+    // Used the same openInternalPath function that the main search uses
+    openInternalPath({
+      path: `/search/${encodeURIComponent(queryText)}`,
+      query: query,
+      searchQueryText: queryText
+    })
+  }
+}
 /**
  * @param {'all' | 'video' | 'channel' | 'playlist' | 'movie'} type
  */
