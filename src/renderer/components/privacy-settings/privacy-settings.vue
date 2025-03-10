@@ -21,15 +21,6 @@
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
-          :label="$t('Settings.Privacy Settings.Save Watched Progress')"
-          :compact="true"
-          :disabled="!rememberHistory"
-          :default-value="saveWatchedProgress"
-          @change="updateSaveWatchedProgress"
-        />
-      </div>
-      <div class="switchColumn">
-        <ft-toggle-switch
           :label="$t('Settings.Privacy Settings.Save Watched Videos With Last Viewed Playlist')"
           :compact="true"
           :disabled="!rememberHistory"
@@ -38,6 +29,19 @@
         />
       </div>
     </div>
+    <br>
+    <ft-flex-box>
+      <ft-select
+        :placeholder="$t('Settings.Privacy Settings.Save Watched Progress')"
+        :value="watchedProgressSavingMode"
+        :select-names="watchedProgressSavingModeNames"
+        :select-values="watchedProgressSavingModeValues"
+        :icon="['fas', 'bars-progress']"
+        :tooltip="$t('Settings.Privacy Settings.Watched Progress Saving Mode.Tooltip')"
+        :disabled="!rememberHistory"
+        @change="updateWatchedProgressSavingMode"
+      />
+    </ft-flex-box>
     <br>
     <ft-flex-box>
       <ft-button
