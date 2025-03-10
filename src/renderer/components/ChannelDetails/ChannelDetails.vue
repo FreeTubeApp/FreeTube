@@ -172,6 +172,22 @@
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
+            v-if="visibleTabs.includes('courses')"
+            id="coursesTab"
+            class="tab"
+            role="tab"
+            :aria-selected="String(currentTab === 'courses')"
+            aria-controls="coursesPanel"
+            :tabindex="currentTab === 'courses' ? 0 : -1"
+            :class="{ selectedTab: currentTab === 'courses' }"
+            @click="changeTab('courses')"
+            @keydown.left.right="focusTab('courses', $event)"
+            @keydown.enter.space.prevent="changeTab('courses')"
+          >
+            {{ $t("Channel.Courses.Courses").toUpperCase() }}
+          </div>
+          <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
+          <div
             v-if="visibleTabs.includes('playlists')"
             id="playlistsTab"
             class="tab"
