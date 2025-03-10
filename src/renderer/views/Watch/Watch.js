@@ -695,25 +695,29 @@ export default defineComponent({
             /** @type {import('../../helpers/api/local').LocalFormat[]} */
             const formats = [...result.streaming_data.formats, ...result.streaming_data.adaptive_formats]
 
-            const downloadLinks = formats.map((format) => {
-              const qualityLabel = format.quality_label ?? format.bitrate
-              const fps = format.fps ? `${format.fps}fps` : 'kbps'
-              const type = format.mime_type.split(';')[0]
-              let label = `${qualityLabel} ${fps} - ${type}`
+            const downloadLinks = []
 
-              if (format.has_audio !== format.has_video) {
-                if (format.has_video) {
-                  label += ` ${this.$t('Video.video only')}`
-                } else {
-                  label += ` ${this.$t('Video.audio only')}`
+            for (const format of formats) {
+              if (format.freeTubeUrl) {
+                const qualityLabel = format.quality_label ?? format.bitrate
+                const fps = format.fps ? `${format.fps}fps` : 'kbps'
+                const type = format.mime_type.split(';')[0]
+                let label = `${qualityLabel} ${fps} - ${type}`
+
+                if (format.has_audio !== format.has_video) {
+                  if (format.has_video) {
+                    label += ` ${this.$t('Video.video only')}`
+                  } else {
+                    label += ` ${this.$t('Video.audio only')}`
+                  }
                 }
-              }
 
-              return {
-                url: format.freeTubeUrl,
-                label: label
+                downloadLinks.push({
+                  url: format.freeTubeUrl,
+                  label: label
+                })
               }
-            })
+            }
 
             if (result.captions) {
               const captionTracks = result.captions?.caption_tracks?.map((caption) => {
@@ -779,7 +783,7 @@ export default defineComponent({
             return
           }
 
-          if (result.streaming_data?.adaptive_formats.length > 0) {
+          if (result.streaming_data?.adaptive_formats.length > 0 && result.streaming_data.adaptive_formats[0].freeTubeUrl) {
             this.vrProjection = result.streaming_data.adaptive_formats
               .find(format => {
                 return format.has_video &&
