@@ -116,7 +116,7 @@
       class="ageRestricted"
     />
     <div
-      v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
+      v-if="(!hideVideoChannelInfo && (isFamilyFriendly || !showFamilyFriendlyOnly))"
       ref="infoArea"
       class="infoArea"
       :class="{ infoAreaSticky }"
