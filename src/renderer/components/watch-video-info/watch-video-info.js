@@ -114,7 +114,11 @@ export default defineComponent({
     isUnlisted: {
       type: Boolean,
       required: false
-    }
+    },
+    canSaveWatchedProgress: {
+      type: Boolean,
+      required: true
+    },
   },
   emits: [
     'change-format',

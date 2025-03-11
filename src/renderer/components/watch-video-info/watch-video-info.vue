@@ -105,7 +105,7 @@
             @click="toggleQuickBookmarked"
           />
           <ft-icon-button
-            v-if="!isUpcoming && !isLive && watchedProgressSavingInSemiAutoMode"
+            v-if="canSaveWatchedProgress && watchedProgressSavingInSemiAutoMode"
             :title="$t('Video.Save Watched Progress')"
             :icon="['fas', 'bars-progress']"
             @click="saveWatchedProgressManually"

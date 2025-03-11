@@ -280,7 +280,14 @@ export default defineComponent({
       }
 
       return null
-    }
+    },
+
+    canSaveWatchProgress() {
+      if (this.isUpcoming || this.isLive) { return false }
+
+      // `this.$refs.player?.hasLoaded` cannot be used in computed property
+      return !this.isLoading
+    },
   },
   watch: {
     async $route() {
@@ -1137,8 +1144,8 @@ export default defineComponent({
       this._saveWatchProgress()
     },
     _saveWatchProgress() {
-      if (this.isUpcoming || this.isLive) { return }
-      if (this.isLoading || !this.$refs.player?.hasLoaded) { return }
+      if (!this.canSaveWatchProgress) { return }
+      if (!this.$refs.player?.hasLoaded) { return }
 
       const currentTime = this.getWatchedProgress()
       const payload = {
