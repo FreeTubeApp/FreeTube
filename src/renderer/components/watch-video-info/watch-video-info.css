@@ -97,19 +97,22 @@
   gap: 4px;
 }
 
-@media screen and (width <= 380px) {
-  .videoOptions {
+@media screen and (width <= 730px) {
+  .videoButtons {
     flex-direction: column;
     align-items: flex-start;
     margin-block-start: 10px;
   }
 }
 
-@media screen and (width <= 460px) {
-  .videoOptionsMobileRow :deep(.iconDropdown) {
-    inset-inline: auto;
+@media screen and (width <= 680px) {
+  .likeSection {
+    margin-inline-start: 0;
+    text-align: start;
   }
+}
 
+@media screen and (width <= 460px) {
   .datePublishedAndViewCount {
     display: flex;
     justify-content: left;
@@ -121,21 +124,14 @@
   }
 }
 
-@media screen and (width <= 680px) {
-  .likeSection {
-    margin-inline-start: 0;
-    text-align: start;
-  }
-}
-
-@media screen and (width <= 730px) {
-  .videoButtons {
+@media screen and (width <= 380px) {
+  .videoOptions {
     flex-direction: column;
     align-items: flex-start;
     margin-block-start: 10px;
   }
 
   .videoOptionsMobileRow :deep(.iconDropdown) {
-    inset-inline: auto calc(50% - 20px);
+    inset-inline: 0 auto;
   }
 }
