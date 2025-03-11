@@ -615,6 +615,7 @@ Settings:
       leidub sellist teksti
     Hide Channel Home: Peida kanalite vahekaart „Avaleht“
     Show Added Items: Näita lisatud kirjeid
+    Hide Channel Courses: Peida kanalite vahekaart „Kursused“
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet
       ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
@@ -840,6 +841,9 @@ Channel:
   Home:
     Home: Avaleht
     View Playlist: Vaata esitusloendit
+  Courses:
+    Courses: Kursused
+    This channel does not currently have any courses: Sellel kanalil pole hetkel kursuseid
 Video:
   Mark As Watched: 'Märgi vaadatuks'
   Remove From History: 'Kustuta ajaloost'

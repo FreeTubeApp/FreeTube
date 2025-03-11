@@ -613,6 +613,7 @@ Settings:
       texto
     Hide Channel Home: Ocultar a guia "Início" do canal
     Show Added Items: Mostrar itens adicionados
+    Hide Channel Courses: Ocultar a guia “Cursos” do canal
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -793,6 +794,10 @@ Channel:
   Home:
     Home: Início
     View Playlist: Ver playlist
+  Courses:
+    This channel does not currently have any courses: Este canal não tem nenhum curso
+      no momento
+    Courses: Cursos
 Video:
   Mark As Watched: 'Marcar como assistido'
   Remove From History: 'Remover do histórico'

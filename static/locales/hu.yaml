@@ -628,6 +628,7 @@ Settings:
       listák elrejtése
     Hide Channel Home: Csatorna „főoldal” lap elrejtése
     Show Added Items: Hozzáadott elemek megjelenítése
+    Hide Channel Courses: „Tanfolyamok” csatornalap elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon
     újra és alkalmazza a módosítást?
@@ -857,6 +858,10 @@ Channel:
   Home:
     View Playlist: Lejátszási listák megtekintése
     Home: Főoldal
+  Courses:
+    This channel does not currently have any courses: Ezen a csatornán jelenleg nincsenek
+      tanfolyamok
+    Courses: Tanfolyamok
 Video:
   Mark As Watched: 'Megjelölés megnézettként'
   Remove From History: 'Eltávolítás az előzményekből'

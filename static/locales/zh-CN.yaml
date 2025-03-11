@@ -548,6 +548,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: 单词、单词片段或词组
     Hide Channel Home: 隐藏频道“主页”标签
     Show Added Items: 显示已添加项目
+    Hide Channel Courses: 隐藏频道“课程”标签
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -708,6 +709,9 @@ Channel:
   Home:
     Home: 主页
     View Playlist: 查看播放列表
+  Courses:
+    Courses: 课程
+    This channel does not currently have any courses: 此频道当前没有任何课程
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'

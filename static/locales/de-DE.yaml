@@ -621,6 +621,7 @@ Settings:
       Phrase
     Hide Channel Home: 'Tab „Startseite“ im Kanal ausblenden'
     Show Added Items: Hinzugefügte Elemente anzeigen
+    Hide Channel Courses: Tab „Kurse“ im Kanal ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
@@ -804,6 +805,10 @@ Channel:
   Home:
     Home: Startseite
     View Playlist: Playlist anzeigen
+  Courses:
+    This channel does not currently have any courses: Dieser Kanal hat momentan keine
+      Kurse
+    Courses: Kurse
 Video:
   Open in YouTube: In YouTube öffnen
   Copy YouTube Link: YouTube-Link kopieren
