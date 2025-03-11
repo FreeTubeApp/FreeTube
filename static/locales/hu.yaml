@@ -16,8 +16,8 @@ Copy: 'Másolás'
 Paste: 'Beillesztés'
 Delete: 'Törlés'
 Select all: 'Összes kiválasztása'
-Reload: 'Újrabetöltés'
-Force Reload: 'Újrabetöltés kényszerítése'
+Reload: 'Újra-betöltés'
+Force Reload: 'Újra-betöltés kényszerítése'
 Toggle Developer Tools: 'Fejlesztői eszközök be-/kikapcsolása'
 Actual size: 'Tényleges méret'
 Zoom in: 'Nagyítás'
@@ -191,7 +191,7 @@ User Playlists:
       This playlist has a video with a duration error: Ez a lejátszási lista legalább
         egy olyan videót tartalmaz, amelynek nincs időtartama, ezért úgy lesz rendezve,
         mintha az időtartamuk nulla lenne.
-      Video has been removed. Click here to undo.: A videó etávolításra került. Kattintson
+      Video has been removed. Click here to undo.: A videó eltávolításra került. Kattintson
         ide a visszavonáshoz.
     Search for Videos: Videók keresése
   Are you sure you want to delete this playlist? This cannot be undone: Biztosan törölni
@@ -327,15 +327,21 @@ Settings:
       Nordic: Skandináv
       Solarized Light: Szolarizált világos
       Solarized Dark: Szolarizált sötét
-      Gruvbox Light: Világos Gruvbox
-      Gruvbox Dark: Sötét Gruvbox
+      Gruvbox Light: Gruvbox világos
+      Gruvbox Dark: Gruvbox sötét
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Medium: Everforest közepes sötét
+      Everforest Light Hard: Everforest erős világos
+      Everforest Light Medium: Everforest közepes világos
+      Everforest Light Low: Everforest gyenge világos
+      Everforest Dark Hard: Everforest erős sötét
+      Everforest Dark Low: Everforest gyenge sötét
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Vörös'
       Pink: 'Rózsaszín'
       Purple: 'Lila'
-      Deep Purple: 'Mélybíbor'
+      Deep Purple: 'Mély-bíbor'
       Indigo: 'Indigókék'
       Blue: 'Kék'
       Light Blue: 'Világoskék'
@@ -343,12 +349,12 @@ Settings:
       Teal: 'Pávakék'
       Green: 'Zöld'
       Light Green: 'Világoszöld'
-      Lime: 'Citromzöld'
+      Lime: 'Citrom-zöld'
       Yellow: 'Sárga'
-      Amber: 'Borostyánsárga'
+      Amber: 'Borostyán-sárga'
       Orange: 'Narancssárga'
       Deep Orange: 'Sötét narancssárga'
-      Dracula Cyan: 'Drakula Ciánkék'
+      Dracula Cyan: 'Drakula ciánkék'
       Dracula Green: 'Drakula Zöld'
       Dracula Orange: 'Drakula Narancssárga'
       Dracula Pink: 'Drakula Rózsaszín'
@@ -359,8 +365,8 @@ Settings:
       Catppuccin Mocha Mauve: Catppuccin Mocha Mályvaszínű
       Catppuccin Mocha Red: Catppuccin Mocha Vörös
       Catppuccin Mocha Green: Catppuccin Mocha Zöld
-      Catppuccin Mocha Teal: Catppuccin Mocha Pávakék
-      Catppuccin Mocha Sky: Catppuccin Mocha Égszínkék
+      Catppuccin Mocha Teal: Catppuccin Mocha pávakék
+      Catppuccin Mocha Sky: Catppuccin Mocha égszínkék
       Catppuccin Mocha Sapphire: Catppuccin Mocha Zafír
       Catppuccin Mocha Pink: Catppuccin Mocha Rózsaszín
       Catppuccin Mocha Blue: Catppuccin Mocha Kék
@@ -377,16 +383,16 @@ Settings:
       Solarized Green: Szolarizált zöld
       Solarized Magenta: Szolarizált magenta
       Solarized Violet: Szolarizált ibolya
-      Gruvbox Dark Yellow: Sötétsárga Gruvbox
-      Gruvbox Dark Blue: Sötétkék Gruvbox
-      Gruvbox Dark Aqua: Sötét-vízkék Gruvbox
-      Gruvbox Dark Orange: Sötétnarancssárga Gruvbox
-      Gruvbox Light Red: Világospiros Gruvbox
-      Gruvbox Light Blue: Világoskék Gruvbox
-      Gruvbox Dark Green: Sötétzöld Gruvbox
-      Gruvbox Dark Purple: Sötétlila Gruvbox
-      Gruvbox Light Orange: Világosnarancssárga Gruvbox
-      Gruvbox Light Purple: Világoslila Gruvbox
+      Gruvbox Dark Yellow: Gruvbox sötét sárga
+      Gruvbox Dark Blue: Gruvbox sötét kék
+      Gruvbox Dark Aqua: Gruvbox sötét vízkék
+      Gruvbox Dark Orange: Gruvbox sötét narancssárga
+      Gruvbox Light Red: Gruvbox világos piros
+      Gruvbox Light Blue: Gruvbox világos kék
+      Gruvbox Dark Green: Gruvbox sötét zöld
+      Gruvbox Dark Purple: Gruvbox sötét lila
+      Gruvbox Light Orange: Gruvbox világos narancssárga
+      Gruvbox Light Purple: Gruvbox világos lila
       Catppuccin Frappe Pink: Catppuccin Frappe Rózsaszín
       Catppuccin Frappe Mauve: Catppuccin Frappe Mályva
       Catppuccin Frappe Rosewater: Catppuccin Frappe Rózsavíz
@@ -396,22 +402,36 @@ Settings:
       Catppuccin Frappe Peach: Catppuccin Frappe Barackvirág
       Catppuccin Frappe Yellow: Catppuccin Frappe Sárga
       Catppuccin Frappe Green: Catppuccin Frappe Zöld
-      Catppuccin Frappe Teal: Catppuccin Frappe Pávakék
-      Catppuccin Frappe Sky: Catppuccin Frappe Égszínkék
+      Catppuccin Frappe Teal: Catppuccin Frappe pávakék
+      Catppuccin Frappe Sky: Catppuccin Frappe égszínkék
       Catppuccin Frappe Blue: Catppuccin Frappe Kék
       Catppuccin Frappe Lavender: Catppuccin Frappe Levendula
-      Catppuccin Frappe Sapphire: Catppuccin Frappe Zafírkék
+      Catppuccin Frappe Sapphire: Catppuccin Frappe zafírkék
+      Everforest Dark Orange: Everforest sötét narancssárga
+      Everforest Dark Green: Everforest sötét zöld
+      Everforest Dark Aqua: Everforest sötét vízkék
+      Everforest Dark Blue: Everforest sötét kék
+      Everforest Light Red: Everforest világos vörös
+      Everforest Light Orange: Everforest világos narancssárga
+      Everforest Light Yellow: Everforest világos sárga
+      Everforest Light Green: Everforest világos zöld
+      Everforest Light Blue: Everforest világos kék
+      Everforest Dark Red: Everforest sötét vörös
+      Everforest Dark Yellow: Everforest sötét sárga
+      Everforest Light Purple: Everforest világos lila
+      Everforest Dark Purple: Everforest sötét lila
+      Everforest Light Aqua: Everforest világos vízkék
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése
     Expand Side Bar by Default: Alapértelmezés szerinti oldalsáv megjelenítés
-    Disable Smooth Scrolling: Finomgörgetés kikapcsolása
+    Disable Smooth Scrolling: Finom-görgetés kikapcsolása
     Hide Side Bar Labels: Gombfeliratok elrejtése az oldalsávról
     Hide FreeTube Header Logo: FreeTube logo elrejtése a fejlécből
   Player Settings:
     Player Settings: 'Lejátszó'
     Play Next Video: 'Ajánlott videók automatikus lejátszása'
-    Turn on Subtitles by Default: 'Feliratok engedélyezése alapértelemezetten'
+    Turn on Subtitles by Default: 'Feliratok engedélyezése alapértelmezetten'
     Autoplay Videos: 'Videók automatikus elindítása'
     Proxy Videos Through Invidious: 'Videók proxyzása az Invidiouson keresztül'
     Autoplay Playlists: 'Lejátszási lista az automatikus videó-lejátszáshoz'
@@ -597,8 +617,9 @@ Settings:
     Hide Profile Pictures in Comments: Profilképek elrejtése a hozzászólásokban
     Hide Subscriptions Community: Közösségi feliratkozások elrejtése
     Hide Channels Invalid: Érvénytelen a megadott csatornaazonosító
-    Hide Channels Disabled Message: Egyes csatornákat letiltottak az azonosító használatával,
-      és nem dolgozták fel őket. A jellemző le van tiltva az azonosítók frissítésekor
+    Hide Channels Disabled Message: Egyes csatornákat letiltottak az azonosító miatt,
+      és nem dolgozták fel őket. A funkció le van tiltva, amíg ezek az azonosítók
+      nem frissülnek
     Hide Channels Already Exists: Már létezik a csatornaazonosító
     Hide Channels API Error: Hiba történt a megadott azonosítóval rendelkező felhasználó
       lekérésekor. Ellenőrizze még egyszer, hogy helyes-e az azonosító.
@@ -607,6 +628,7 @@ Settings:
       listák elrejtése
     Hide Channel Home: Csatorna „főoldal” lap elrejtése
     Show Added Items: Hozzáadott elemek megjelenítése
+    Hide Channel Courses: „Tanfolyamok” csatornalap elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon
     újra és alkalmazza a módosítást?
@@ -695,11 +717,11 @@ About:
   these people and projects: az alábbi emberek és projektek
   FreeTube is made possible by: 'A FreeTube elkészítését lehetővé tették'
   Donate: Adományozás
-  Credits: Közreműködők
+  Credits: Készítők
   Translate: Fordítás
   room rules: szobaszabályok
   Please read the: Olvassa el a(z)
-  Chat on Matrix: Matrix csevegés
+  Chat on Matrix: Csevegés a Matrixon
   Mastodon: Mastodon
   Blog: Blog
   Email: E-mail
@@ -713,10 +735,10 @@ About:
   FreeTube Wiki: FreeTube Wiki
   Source code: Forráskód
   Beta: Béta
-  FAQ: GyIK
+  FAQ: GYIK
   Report a problem: Probléma jelentése
   Discussions: Vitalapok
-  AGPLv3: licenc alapján
+  AGPLv3: AGPLv3
   Licensed under the: Az AGPLv3
 Profile:
   Profile Select: 'Profil kiválasztása'
@@ -836,6 +858,10 @@ Channel:
   Home:
     View Playlist: Lejátszási listák megtekintése
     Home: Főoldal
+  Courses:
+    This channel does not currently have any courses: Ezen a csatornán jelenleg nincsenek
+      tanfolyamok
+    Courses: Tanfolyamok
 Video:
   Mark As Watched: 'Megjelölés megnézettként'
   Remove From History: 'Eltávolítás az előzményekből'
@@ -863,7 +889,7 @@ Video:
   Live Chat: 'Élő csevegés'
   Enable Live Chat: 'Élő csevegés engedélyezése'
   Live Chat is currently not supported in this build.: 'Az élő csevegés jelenleg nem
-    támogatott ebben a build-ban.'
+    támogatott ebben a összeállításban.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Élő csevegés engedélyezve.
     A csevegőüzenetek itt jelennek meg, miután elküldték.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Az
@@ -904,7 +930,7 @@ Video:
         videó megnyitása a lejátszási listában (visszatérve a videó megnyitására)
       opening playlists: lejátszási listák megnyitása
       setting a playback rate: lejátszási sebesség beállítása
-      starting video at offset: Videó kezdés eltolása
+      starting video at offset: videó kezdésének eltolása
     UnsupportedActionTemplate: 'A(z) {externalPlayer} külső lejátszó nem támogatja:
       {action}'
     OpeningTemplate: A(z) {videoOrPlaylist} videó megnyitása a(z) {externalPlayer}
@@ -1191,11 +1217,11 @@ Screenshot Error: Nem sikerült képernyőképet készíteni. {error}
 Preferences: Beállítások
 Ok: OK
 Hashtag:
-  Hashtag: Kettőskereszt
-  This hashtag does not currently have any videos: Ez a kettőskereszt jelenleg nem
+  Hashtag: Kettős kereszt
+  This hashtag does not currently have any videos: Ez a kettős kereszt jelenleg nem
     rendelkezik videókkal
 Channel Hidden: '{channel} hozzáadva a csatornaszűrőhöz'
-Go to page: Ugrás a(z) {page}. oldalra
+Go to page: Ugrás a(z) {page} oldalra
 Channel Unhidden: 'A(z) {channel} el lett távolítva a csatornaszűrőből'
 Trimmed input must be at least N characters long: A vágott bemenetnek legalább 1 karakter
   hosszúnak kell lennie | A vágott bemenetnek legalább {length} karakter hosszúnak

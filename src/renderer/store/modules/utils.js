@@ -475,7 +475,7 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(?<tab>join|featured|videos|shorts|live|streams|podcasts|releases|playlists|about|community|channels))?\/?$/
+      /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(?<tab>join|featured|videos|shorts|live|streams|podcasts|releases|courses|playlists|about|community|channels))?\/?$/
 
     const hashtagPattern = /^\/hashtag\/(?<tag>[^#&/?]+)$/
 
@@ -621,6 +621,9 @@ const actions = {
             break
           case 'podcasts':
             subPath = 'podcasts'
+            break
+          case 'courses':
+            subPath = 'courses'
             break
           case 'releases':
             subPath = 'releases'

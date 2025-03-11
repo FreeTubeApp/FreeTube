@@ -71,6 +71,10 @@ Search Filters:
   Fetch more results: 'আরো ফলাফল আনো'
 # Sidebar
   There are no more results for this search: এই অনুসন্ধানের আর কোনো ফলাফল নেই
+  Features:
+    Live: সরাসরি
+    Location: স্থান
+    360 Video: ৩৬০ ভিডিও
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'সদস্যতা'
@@ -87,7 +91,7 @@ Subscriptions:
   Disabled Automatic Fetching: আপনি সাবস্ক্রিপশন পেচ বন্ধ করে রেখেছেন। সাবস্ক্রিপশন
     রিফ্রেশ করুন দেখার জন্য।
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: এই
-    প্রোফাইলের অনেক সাবস্ক্রাইবার রয়েছে।   জোরপূর্বক লিমিট এড়ানোর চেষ্টা করা হচ্ছে
+    প্রোফাইলের অনেক সাবস্ক্রাইবার রয়েছে। জোরপূর্বক লিমিট এড়ানোর চেষ্টা করা হচ্ছে
 Trending:
   Trending: 'চলছে'
   Gaming: গেমিং
@@ -115,6 +119,7 @@ Open New Window: নতুন জানালা খুলো
 New Window: নতুন জানালা
 Search Bar:
   Clear Input: ইনপুট পরিষ্কার করো
+  Remove: মুছুন
 Global:
   Videos: ভিডিও
   Shorts: খাটো
@@ -126,6 +131,8 @@ Global:
     View Count: ১ দেখা হয়েছে |{সমষ্টি }দর্শন সংখ্যা
     Watching Count: ১ দেখছি |{গণনা }দেখছেন
     Channel Count: ১ চ্যানেল |{সমষ্টি }চ্যানেল সমূহ
+    Like Count: ১টি পছন্দ | {গণনা} পছন্দ করা হয়েছে
+    Comment Count: ১টি মন্তব্য | {গণনা} মন্তব্য করা হয়েছে
   Community: গোষ্ঠী
 External link opening has been disabled in the general settings: সাধারণ পছন্দসমূহে
   বহিঃসংযোগ খোলা নিষ্ক্রিয় রাখা হয়েছে
@@ -154,8 +161,44 @@ User Playlists:
   Save Changes: পরিবর্তন সংরক্ষণ করুন
   Cancel: বাতিল
   Edit Playlist Info: নির্বাচিত তালিকার তথ্য পরিবর্তন
-  Empty Search Message: এই তালিকাতে আপনার কাংখিত ভিডিও নেই যেটি আপনি খুঁজছেন
+  Empty Search Message: এই চালুতালিকাতে আপনার কাংখিত ভিডিও নেই যেটি আপনি অনুসন্ধান
+    করছেন
   You have no playlists. Click on the create new playlist button to create a new one.: নির্বাচিত
     তালিকা নেই। নতুন তালিকা তৈরির জন্য নিউ প্লে-লিস্ট বাটন এ চাপ দিয়ে অগ্রসর হতে পারেন।
+  Delete Playlist: চালুতালিকা মুছুন
+  Sort By:
+    EarliestUpdatedFirst: সবচেয়ে পুরনো হালনাগাদকৃত
+    LatestUpdatedFirst: সম্প্রতি হালনাগদকৃত
+    LatestPlayedFirst: সম্প্রতি চালানো
+    LatestCreatedFirst: সম্প্রতি তৈরি
+    EarliestCreatedFirst: সবচেয়ে পুরনো তৈরি
+  SinglePlaylistView:
+    Toast:
+      This video cannot be moved up.: ভিডিওটি উপরে সরানো যাবে না।
+      This video cannot be moved down.: ভিডিওটি নিচে সরানো যাবেনা।
+      Video has been removed: ভিডিওটি মুছে ফেলা হয়েছে
+    Search for Videos: ভিডিও খুঁজুন
+  Add to Favorites: '{playlistName}তে যুক্ত করুন'
+  Remove Duplicate Videos: অভিন্ন ভিডিওগুলি মুছুন
+  Remove Watched Videos: দেখা ভিডিওগুলি মুছুন
+  Remove from Favorites: '{playlistName} থেকে বাদ দিন'
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: আপনি
+    কি নিশ্চিত যে আপনি ১টি অভিন্ন ভিডিও চালুতালিকা হতে মুছতে চান? এটি পূর্বাবস্থায়
+    ফেরানো সম্ভব নয়। | আপনি কি নিশ্চিত যে আপনি {playlistItemCount}টি অভিন্ন ভিডিও
+    চালুতালিকা হতে মুছতে চান? এটি পূর্বাবস্থায় ফেরানো সম্ভব নয়।
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: আপনি
+    কি নিশ্চিত যে আপনি ১টি দেখা ভিডিও চালুতালিকা হতে মুছতে চান? এটি পূর্বাবস্থায়
+    ফেরানো সম্ভব নয়। | আপনি কি নিশ্চিত যে আপনি {playlistItemCount}টি দেখা ভিডিও চালুতালিকা
+    হতে মুছতে চান? এটি পূর্বাবস্থায় ফেরানো সম্ভব নয়।
+  Are you sure you want to delete this playlist? This cannot be undone: আপনি কি নিশ্চিত
+    যে আপনি চালুতালিকাটি মুছতে চান? এটি পূর্বাবস্থায় ফেরানো সম্ভব নয়।
 More: অতিরিক্ত
 Go to page: পরবর্তী {পেইজ}
+Search character limit: সার্চ কোয়েরি {searchCharacterLimit} অক্ষরের সীমা অতিক্রম
+  করেছে
+Close Banner: ব্যানারটি বন্ধ করুন
+Search Listing:
+  Label:
+    360 Video: ৩৬০°
+    New: নতুন
+Right-click or hold to see history: ইতিহাস দেখতে রাইট-ক্লিক করুন অথবা ধরে রাখুন

@@ -125,6 +125,12 @@
           :default-value="hideChannelReleases"
           @change="updateHideChannelReleases"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Courses')"
+          :compact="true"
+          :default-value="hideChannelCourses"
+          @change="updateHideChannelCourses"
+        />
       </div>
     </div>
     <h4

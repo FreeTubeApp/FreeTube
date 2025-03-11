@@ -172,6 +172,22 @@
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
+            v-if="visibleTabs.includes('courses')"
+            id="coursesTab"
+            class="tab"
+            role="tab"
+            :aria-selected="String(currentTab === 'courses')"
+            aria-controls="coursesPanel"
+            :tabindex="currentTab === 'courses' ? 0 : -1"
+            :class="{ selectedTab: currentTab === 'courses' }"
+            @click="changeTab('courses')"
+            @keydown.left.right="focusTab('courses', $event)"
+            @keydown.enter.space.prevent="changeTab('courses')"
+          >
+            {{ $t("Channel.Courses.Courses").toUpperCase() }}
+          </div>
+          <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
+          <div
             v-if="visibleTabs.includes('playlists')"
             id="playlistsTab"
             class="tab"
@@ -240,7 +256,7 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import FtCard from '../ft-card/ft-card.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtShareButton from '../ft-share-button/ft-share-button.vue'
+import FtShareButton from '../FtShareButton/FtShareButton.vue'
 import FtSubscribeButton from '../FtSubscribeButton/FtSubscribeButton.vue'
 import FtInput from '../ft-input/ft-input.vue'
 

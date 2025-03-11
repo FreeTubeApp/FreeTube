@@ -1,9 +1,14 @@
 <template>
   <div>
     <FtCard class="card">
-      <h1>
+      <h2>
+        <FontAwesomeIcon
+          :icon="['fas', 'info-circle']"
+          class="headingIcon"
+          fixed-width
+        />
         {{ $t("About.About") }}
-      </h1>
+      </h2>
       <section class="brand">
         <FtLogoFull class="logo" />
         <div class="version">
@@ -92,7 +97,7 @@ const chunks = computed(() => [
   {
     icon: ['fas', 'comment-dots'],
     title: t('About.Chat on Matrix'),
-    content: `<a href="https://matrix.to/#/#freetube:matrix.org?via=matrix.org&via=privacytools.io&via=tchncs.de">#freetube:matrix.org</a><br>${t('About.Please read the')} <a href="https://docs.freetubeapp.io/community/matrix/">${t('About.room rules')}</a>`
+    content: `<a href="https://matrix.to/#/#freetube:matrix.org">#freetube:matrix.org</a><br>${t('About.Please read the')} <a href="https://docs.freetubeapp.io/community/matrix/">${t('About.room rules')}</a>`
   },
   {
     icon: ['fas', 'language'],

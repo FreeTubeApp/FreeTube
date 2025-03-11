@@ -10,6 +10,11 @@
     >
       <div class="heading">
         <h2 class="headingText">
+          <FontAwesomeIcon
+            :icon="['fas', 'bookmark']"
+            class="headingIcon"
+            fixed-width
+          />
           {{ $t("User Playlists.Your Playlists") }}
         </h2>
         <ft-icon-button

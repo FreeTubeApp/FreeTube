@@ -1,8 +1,8 @@
 # Put the name of your locale in the same language
-Locale Name: 'ئیگلیزی (وڵاتە یەکگرتووەکانی ئەمریکا)'
+Locale Name: 'ئینگلیزی (وڵاتە یەکگرتووەکانی ئەمریکا)'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  بەشێک لە نەرمەواڵەکە هێشتا ئامادە نییە. کە ڕەوتەکە درووست کرا دووبارە وەرەوە.
+  بەشێک لە کاربەرنامەکە هێشتا ئامادە نییە. کە ڕەوتەکە درووست کرا دووبارە وەرەوە.
 
 # Webkit Menu Bar
 File: 'پەڕگە'
@@ -60,6 +60,7 @@ Search / Go to URL: 'گەڕان/ بڕۆ بۆ ئرڵ'
 Search Bar:
   Clear Input: 'سڕینەوەی نووسراو'
   # In Filter Button
+  Remove: لابردن
 Search Filters:
   Search Filters: 'پاڵفتەکردنی گەڕان'
   Sort By:
@@ -101,6 +102,10 @@ Search Filters:
     Live: ڕاستەوخۆ
     4K: ٤ک
     360 Video: ڤیدیۆی ٣٦٠°
+    VR180: VR١٨٠
+    Features: تایبەتمەندییەکان
+    HD: HD
+    HDR: HDR
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: ''
@@ -112,7 +117,7 @@ Subscriptions:
   Empty Channels: 'کەناڵە بەشداربووەکانت هێشتا هیچ ڤیدیۆیەکیان نییە.'
   Empty Posts: ''
   Load More Videos: 'ڤیدیۆی زۆرتر بار بکە'
-  Load More Posts: ''
+  Load More Posts: 'بڵاوکراوەی زۆرتر بار بکە'
   Subscriptions Tabs: ''
   All Subscription Tabs Hidden: ''
 More: 'زۆرتر'
@@ -134,8 +139,8 @@ Most Popular: 'باوترین'
 Playlists: 'پێڕستی لێدانەکان'
 User Playlists:
   Your Playlists: 'پێڕستی لێدانەکانت'
-  Empty Search Message: ''
-  Search bar placeholder: 'لەناو پێڕستی لێدان بگەڕێ'
+  Empty Search Message: 'لەم پێڕستی لێدانەدا هیچ ڤیدیۆیەک هاوتای گەڕانەکەت نییە'
+  Search bar placeholder: 'بۆ پێڕستی لێدان بگەڕێ'
   Move Video Up: ڤیدیۆکە ببە سەرتر
   Move Video Down: ڤیدیۆکە ببە خوارتر
   Add to Favorites: بۆ {playlistName}، زیاد بکە
@@ -164,6 +169,8 @@ User Playlists:
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: هەندێک
         لە ڤیدیۆکانی ناو پێڕستی لێدانەکە هێشتا بار نەکراون. بۆ لەبەرگرتنەوەی کرتە
         لێرە بکە.
+      Video has been removed. Click here to undo.: ڤیدیۆکە لابرا. کرتە لێرە بکە بۆ
+        گەڕاندنەوەی.
     Search for Videos: لە ڤیدیۆ بگەڕێ
   Sort By:
     NameAscending: ئ-ێ
@@ -196,6 +203,11 @@ User Playlists:
     Search in Playlists: گەڕان لەناو پێڕستی لێدانەکان
     Toast:
       You haven't selected any playlist yet.: هێشتا هیچ پێڕستێکی لێدانت دیاری نەکردووە.
+      "{videoCount} video(s) added to {playlistCount} playlists": ڤیدیۆیەک زیاد کرا
+        بۆ {playlistCount} پێڕستی لێدان | {videoCount} ڤیدیۆ زیاد کرا بۆ {playlistCount}
+        پێڕستی لێدان
+      "{videoCount} video(s) added to 1 playlist": ڤیدیۆیەک زیاد کرا بۆ یەک پێڕستی
+        لێدان | {videoCount} ڤیدیۆ زیاد کرا بۆ یەک پێڕستی لێدان
     Allow Adding Duplicate Video(s): ڕێ بە زیادکردنی ڤیدیۆی دووبارە بدە
     N playlists selected: '{playlistCount} دیاریکراوە'
   CreatePlaylistPrompt:
@@ -210,6 +222,7 @@ User Playlists:
         پێڕستی لێدانەکە.
   Are you sure you want to delete this playlist? This cannot be undone: دڵنیایت لە
     سڕینەوەی ئەم پێڕستی لێدانە؟ چونکە ناگەڕێندرێتەوە.
+  Playlist Description: پێناسەی پێڕستی لێدان
 History:
   # On History Page
   History: 'مێژوو'
@@ -221,10 +234,12 @@ History:
 Settings:
   # On Settings Page
   Settings: 'ڕێکخستنەکان'
-  The app needs to restart for changes to take effect. Restart and apply change?: ''
+  The app needs to restart for changes to take effect. Restart and apply change?: 'دەبێت
+    کاربەرنامەکە دابخرێت و بکرێتەوە بۆ ئەوەی گۆڕانەکان جێی خۆیان بگرن. دەتەوێت دابخەیت
+    و بیکەیتەوە بۆ ئەوەی گۆڕانەکان بکرێن؟'
   General Settings:
-    General Settings: 'ڕێکخستنە گشتییەکان'
-    Check for Updates: ''
+    General Settings: 'گشتیی'
+    Check for Updates: 'بۆ وەشانی نوێ بپشکنە'
     Check for Latest Blog Posts: ''
     Fallback to Non-Preferred Backend on Failure: ''
     Enable Search Suggestions: 'کاراکردنی پێشنیارەکانی گەڕان'
@@ -261,9 +276,12 @@ Settings:
       Open Link: 'کردنەوەی بەستەر'
       Ask Before Opening Link: 'پێش کردنەوەی بەستەر بپرسە'
       No Action: 'هیچ مەکە'
+    Auto Load Next Page:
+      Tooltip: خۆکارانە پەڕە و لێدوانی زۆرتر بار بکە.
+      Label: خۆکارانە پەڕەی دواتر بار بکە
   Theme Settings:
-    Theme Settings: 'ڕێکخستنەکانی ڕووکار'
-    Match Top Bar with Main Color: ''
+    Theme Settings: 'ڕووکار'
+    Match Top Bar with Main Color: 'شریتی سەرەوە هاوتای ڕەنگی سەرەکی بکە'
     Expand Side Bar by Default: ''
     Disable Smooth Scrolling: ''
     UI Scale: ''
@@ -321,17 +339,17 @@ Settings:
     Secondary Color Theme: 'ڕەنگی لاوەکی ڕووکار'
         #* Main Color Theme
   Player Settings:
-    Player Settings: 'ڕێکخستنەکانی لێدەر'
-    Play Next Video: 'لێدانی ڤیدیۆی دواتر'
-    Turn on Subtitles by Default: 'هەڵکردنی بنەڕەتی ژێرنووس'
-    Autoplay Videos: 'خۆلێدانی ڤیدیۆ'
+    Player Settings: 'لێدەر'
+    Play Next Video: 'خۆلێدانی ڤیدیۆی پێشنیارکراو'
+    Turn on Subtitles by Default: 'هەڵکردنی ژێرنووس بە بنەڕەت'
+    Autoplay Videos: 'دەستپێکردنی خۆکارانەی ڤیدیۆ'
     Proxy Videos Through Invidious: ''
     Autoplay Playlists: 'خۆلێدانی پێڕستی لێدان'
     Enable Theatre Mode by Default: 'کاراکردنی بنەڕەتیی شێوازی شانۆیی'
     Scroll Volume Over Video Player: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
-    Display Play Button In Video Player: ''
+    Display Play Button In Video Player: 'پیشاندانی دوگمەی لێدان لەناو لێدەری ڤیدیۆ'
     Enter Fullscreen on Display Rotate: ''
     Next Video Interval: ''
     Fast-Forward / Rewind Interval: ''
@@ -347,13 +365,13 @@ Settings:
     Default Quality:
       Default Quality: 'جۆرایەتی بنەڕەت'
       Auto: 'خۆکار'
-      144p: '١٤٤p'
-      240p: '٢٤٠p'
-      360p: '٣٦٠p'
-      480p: '٤٨٠p'
-      720p: '٧٢٠p'
-      1080p: '١٠٨٠p'
-      1440p: '١٤٤٠p'
+      144p: '١٤٤پ'
+      240p: '٢٤٠پ'
+      360p: '٣٦٠پ'
+      480p: '٤٨٠پ'
+      720p: '٧٢٠پ'
+      1080p: '١٠٨٠پ'
+      1440p: '١٤٤٠پ'
       4k: '٤k'
       8k: '٨k'
     Screenshot:
@@ -367,9 +385,13 @@ Settings:
       File Name Tooltip: ''
       Error:
         Forbidden Characters: ''
-        Empty File Name: ''
+        Empty File Name: 'خانەی ناوی پەڕگە بەتاڵە'
+    Default Viewing Mode:
+      Theater: شانۆ
+      Default Viewing Mode: شێوازی بینینی بنەڕەت
+      External Player: لێدەری دەرەکی ({externalPlayerName})
   External Player Settings:
-    External Player Settings: 'ڕێکخستنەکانی لێدەری دەرەکی'
+    External Player Settings: 'لێدەری دەرەکی'
     External Player: 'لێدەری دەرەکی'
     Ignore Unsupported Action Warnings: ''
     Custom External Player Executable: ''
@@ -378,50 +400,61 @@ Settings:
       None:
         Name: 'هیچیان'
   Privacy Settings:
-    Privacy Settings: 'ڕێکخستنەکانی نهێنێتی'
-    Remember History: ''
-    Save Watched Progress: ''
-    Save Watched Videos With Last Viewed Playlist: ''
+    Privacy Settings: 'تایبەتمەندێتی'
+    Remember History: 'مێژووی تەمەشاکردن هەڵگرە'
+    Save Watched Progress: 'ڕەوتی تەمەشا کراو پاشەکەوت بکە'
+    Save Watched Videos With Last Viewed Playlist: 'ڤیدیۆ تەمەشاکراوەکان لەگەڵ دوایین
+      پێڕستی لێدانی بینراو پاشەکەوت بکە'
     Clear Search Cache: ''
     Are you sure you want to clear out your search cache?: ''
     Search cache has been cleared: ''
     Remove Watch History: 'سڕینەوەی مێژووی تەمەشاکردن'
     Are you sure you want to remove your entire watch history?: 'دڵنیایت دەتەوێت تەواوی
       مێژووی تەمەشاکردنت بسڕیەوە؟'
-    Watch history has been cleared: 'مێژووی تەمەشاکردن لابرا'
+    Watch history has been cleared: 'مێژووی تەمەشاکردن سڕایەوە'
     Remove All Subscriptions / Profiles: ''
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
+    Clear Search History and Cache: حەشارگە و مێژووی گەڕان بسڕەوە
+    Remember Search History: مێژووی گەڕان هەڵگرە
+    Remove All Playlists: سڕینەوەی گشت پێڕستەکانی لێدان
+    All playlists have been removed: هەموو پێڕستەکانی لێدان سڕایەوە
+    Are you sure you want to clear out your search history and cache?: دڵنیایت لە
+      سڕینەوەی حەشارگە و مێژووی گەڕان؟
+    Search history and cache have been cleared: حەشارگە و مێژووی گەڕان سڕایەوە
+    Are you sure you want to remove all your playlists?: دڵنیات لە سڕینەوەی هەموو
+      پێڕستەکانی لێدان؟
   Subscription Settings:
     Subscription Settings: ''
     Hide Videos on Watch: ''
     Fetch Feeds from RSS: ''
     Fetch Automatically: ''
+    To: بۆ
   Distraction Free Settings:
     Distraction Free Settings: ''
     Sections:
-      Side Bar: ''
+      Side Bar: 'لامیل'
       Subscriptions Page: ''
       Channel Page: 'پەڕەی کەناڵ'
       Watch Page: 'پەڕەی تەمەشاکردن'
       General: 'گشتی'
-    Hide Video Views: 'شاردنەوەی ژمارەی بینراوەکانی ڤیدیۆ'
+    Hide Video Views: 'شاردنەوەی ژمارەی بینینەکانی ڤیدیۆ'
     Hide Video Likes And Dislikes: ''
     Hide Channel Subscribers: ''
     Hide Comment Likes: ''
     Hide Recommended Videos: 'شاردنەوەی ڤیدیۆ پێشنیازکراوەکان'
-    Hide Trending Videos: ''
-    Hide Popular Videos: ''
+    Hide Trending Videos: 'شاردنەوەی ڤیدیۆ باوەکان'
+    Hide Popular Videos: 'شاردنەوەی ڤیدیۆ جەماوەرییەکان'
     Hide Playlists: 'شاردنەوەی پێڕستی لێدان'
-    Hide Live Chat: ''
+    Hide Live Chat: 'شاردنەوەی دەمەتەقێی ڕاستەوخۆ'
     Hide Active Subscriptions: ''
-    Hide Video Description: ''
-    Hide Comments: ''
+    Hide Video Description: 'شاردنەوەی پێناسەی ڤیدیۆ'
+    Hide Comments: 'شاردنەوەی لێدوانەکان'
     Hide Profile Pictures in Comments: ''
     Display Titles Without Excessive Capitalisation: ''
-    Hide Live Streams: ''
+    Hide Live Streams: 'شاردنەوەی پەخشە ڕاستەوخۆکان'
     Hide Upcoming Premieres: ''
-    Hide Sharing Actions: ''
-    Hide Chapters: ''
+    Hide Sharing Actions: 'شاردنەوەی کرداری بەشینەوە'
+    Hide Chapters: 'شاردنەوەی بڕگەکان'
     Hide Channels: ''
     Hide Channels Disabled Message: ''
     Hide Channels Placeholder: ''
@@ -439,7 +472,7 @@ Settings:
     Hide Subscriptions Live: ''
     Hide Subscriptions Community: ''
   Data Settings:
-    Data Settings: 'ڕێکخستنەکانی دراوە'
+    Data Settings: 'دراوە'
     Select Export Type: 'دیاریکردنی جۆری هەناردە'
     Import Subscriptions: ''
     Subscription File: ''
@@ -465,15 +498,15 @@ Settings:
     All watched history has been successfully imported: ''
     All watched history has been successfully exported: ''
     Playlist insufficient data: ''
-    All playlists has been successfully imported: ''
-    All playlists has been successfully exported: ''
+    All playlists has been successfully imported: 'گشت پێڕستەکانی لێدان بەڕێکی هاوردران'
+    All playlists has been successfully exported: 'هەموو پێڕستەکانی لێدان بەڕێکی هەناردران'
     Unable to read file: ''
     Unable to write file: ''
     Unknown data key: ''
     How do I import my subscriptions?: ''
     Manage Subscriptions: ''
   Proxy Settings:
-    Proxy Settings: 'ڕێکخستنەکانی پێشکار'
+    Proxy Settings: 'پێشکار'
     Enable Tor / Proxy: 'کاراکردنی تۆر / پێشکار'
     Proxy Protocol: 'پرۆتۆکۆلی پێشکار'
     Proxy Host: 'خانەخوێی پێشکار'
@@ -506,11 +539,11 @@ Settings:
     Show Family Friendly Only: ''
     Hide Search Bar: 'شاردنەوەی میلی گەڕان'
   Download Settings:
-    Download Settings: 'ڕێکخستنەکانی داگرتن'
-    Ask Download Path: ''
+    Download Settings: 'داگرتن'
+    Ask Download Path: 'لە شوێنی دابەزاندن بپرسە'
     Choose Path: ''
     Download Behavior: ''
-    Download in app: ''
+    Download in app: 'لەناو کاربەرنامە دایبەزێنە'
     Open in web browser: ''
   Experimental Settings:
     Experimental Settings: ''
@@ -520,11 +553,12 @@ Settings:
     Password: 'تێپەڕەوشە'
     Enter Password To Unlock: 'تێپەڕەوشە بنووسە بۆ کردنەوەی کڵۆمی ڕێکخستنەکان'
   Password Settings:
-    Password Settings: 'ڕێکخستنەکانی تێپەڕەوشە'
+    Password Settings: 'تێپەڕەوشە'
     Set Password To Prevent Access: ''
     Set Password: 'دانانی تێپەڕەوشە'
     Remove Password: 'لادانی تێپەڕەوشە'
   Sort Settings Sections (A-Z): ڕیزکردنی بەشەکانی ڕێکخستن (ئ-ێ)
+  Return to Settings Menu: بگەڕێوە بۆ پێڕستی ڕێکخستنەکان
 About:
   #On About page
   About: 'دەربارە'
@@ -552,6 +586,7 @@ About:
   these people and projects: ''
   Donate: 'بەخشین'
 
+  AGPLv3: ''
 Profile:
   Profile Settings: ''
   Toggle Profile List: ''
@@ -681,7 +716,8 @@ Video:
   Live Chat: ''
   Enable Live Chat: ''
   Live Chat is currently not supported in this build.: ''
-  Live chat is enabled. Chat messages will appear here once sent.: ''
+  Live chat is enabled. Chat messages will appear here once sent.: 'دەمەتەقێی ڕاستەوخۆ
+    کارایە. کە پەیامەکان نێدران لێرە دەردەکەون.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': ''
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
   Show Super Chat Comment: ''
@@ -721,6 +757,10 @@ Video:
   Unhide Channel: پیشاندانی کەناڵ
   Hide Channel: شاردنەوەی کەناڵ
 #& Playlists
+  Player:
+    You appear to be offline: وا دیارە دەرهێڵیت.
+    Autoplay is off: خۆلێدان خامۆشە
+    Autoplay is on: خۆلێدان هەڵکراوە
 Playlist:
   #& About
   Playlist: 'پێڕستی لێدان'
@@ -730,6 +770,9 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Sort By:
+    AuthorAscending: دانەر (ئ-ی)
+    AuthorDescending: دانەر (ی-ئ)
 Change Format:
   Change Media Formats: ''
   Use Dash Formats: ''
@@ -758,9 +801,11 @@ Clipboard:
   Cannot access clipboard without a secure connection: ''
 
 Chapters:
-  Chapters: ''
-  'Chapters list visible, current chapter: {chapterName}': ''
-  'Chapters list hidden, current chapter: {chapterName}': ''
+  Chapters: 'بڕگەکان'
+  'Chapters list visible, current chapter: {chapterName}': 'پێڕستی بڕگە دیارەکان،
+    بڕگەی ئێستا: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'پێڕستی بڕگە شاراوەکان،
+    بڕگەی ئێستا: {chapterName}'
 
 Mini Player: 'لێدەری گچکە'
 Comments:
@@ -861,4 +906,17 @@ Search Listing:
     360 Video: ٣٦٠°
     New: نوێ
     3D: ٣ ڕەهەندی
+    VR180: VR١٨٠
 Right-click or hold to see history: کرتەی ڕاست بکە یان ڕایگرە بۆ بینینی مێژوو
+Feed:
+  Refresh Feed: تازەکردنەوەی {subscriptionName}
+shortcutLabelSeparator: ｜
+KeyboardShortcutPrompt:
+  Sections:
+    App:
+      General: 'کاربەرنامە: گشتیی'
+      Situational: 'کاربەرنامە: بارودۆخی'
+  Last Chapter: دوا بڕگە
+  Next Chapter: بڕگەی دواتر
+checkmark: ✓
+shortcutJoinOperator: +

@@ -283,6 +283,12 @@ Settings:
       Gruvbox Dark: Gruvbox ダーク
       Gruvbox Light: Gruvbox ライト
       Catppuccin Frappe: キャプチーノ・フラッペ
+      Everforest Dark Low: エバーフォレスト・ダーク・ロー
+      Everforest Light Hard: エバーフォレスト・ライト・ハード
+      Everforest Light Medium: エバーフォレスト・ライト・ミディアム
+      Everforest Light Low: エバーフォレスト・ライト・ロー
+      Everforest Dark Hard: エバーフォレスト・ダーク・ハード
+      Everforest Dark Medium: エバーフォレスト・ダーク・ミディアム
     Main Color Theme:
       Main Color Theme: 'テーマのメイン カラー'
       Red: '赤'
@@ -354,6 +360,20 @@ Settings:
       Catppuccin Frappe Blue: キャプチーノ・フラッペ ブルー
       Catppuccin Frappe Lavender: キャプチーノ・フラッペ ラベンダー
       Catppuccin Frappe Sapphire: キャプチーノ・フラッペ サファイア
+      Everforest Dark Orange: エバーフォレスト・ダークオレンジ
+      Everforest Dark Aqua: エバーフォレスト・ダークアクア
+      Everforest Dark Blue: エバーフォレスト・ダークブルー
+      Everforest Light Red: エバーフォレスト・ライトレッド
+      Everforest Light Green: エバーフォレスト・ライトグリーン
+      Everforest Light Aqua: エバーフォレスト・ライトアクア
+      Everforest Light Yellow: エバーフォレスト・ライトイエロー
+      Everforest Dark Red: エバーフォレスト・ダークレッド
+      Everforest Dark Yellow: エバーフォレスト・ダークイエロー
+      Everforest Dark Green: エバーフォレスト・ダークグリーン
+      Everforest Dark Purple: エバーフォレスト・ダークパープル
+      Everforest Light Orange: エバーフォレスト・ライトオレンジ
+      Everforest Light Blue: エバーフォレスト・ライトブルー
+      Everforest Light Purple: エバーフォレスト・ライトパープル
     Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
     UI Scale: UIの拡大率
@@ -529,6 +549,7 @@ Settings:
     Hide Videos and Playlists Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
     Hide Channel Home: チャンネルの「ホーム」タブを隠す
     Show Added Items: 追加された項目を表示
+    Hide Channel Courses: チャンネルの「コース」タブを隠す
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -691,6 +712,9 @@ Channel:
   Home:
     View Playlist: 再生リストを表示
     Home: ホーム
+  Courses:
+    Courses: コース
+    This channel does not currently have any courses: このチャンネルには現在コースはありません
 Video:
   Open in YouTube: 'YouTube で表示'
   Copy YouTube Link: 'YouTube リンクのコピー'

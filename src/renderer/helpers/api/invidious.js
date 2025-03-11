@@ -127,16 +127,24 @@ export async function invidiousGetChannelId(url) {
  *  description: string,
  *  descriptionHtml: string,
  *  allowedRegions: string[],
- *  tabs: ('home' | 'videos' | 'shorts' | 'streams' | 'podcasts' | 'releases' | 'playlists' | 'community')[],
+ *  tabs: ('home' | 'videos' | 'shorts' | 'live' | 'podcasts' | 'releases' | 'courses' | 'playlists' | 'community')[],
  *  latestVideos: InvidiousVideoType[],
  *  relatedChannels: InvidiousChannelObject[]
  * }>}
  */
 export async function invidiousGetChannelInfo(channelId) {
-  return await invidiousAPICall({
+  const channelInfo = await invidiousAPICall({
     resource: 'channels',
     id: channelId,
   })
+
+  channelInfo.tabs = channelInfo.tabs.map(tab => {
+    if (tab === 'streams') return 'live'
+    if (tab === 'posts') return 'community'
+    return tab
+  })
+
+  return channelInfo
 }
 
 /**
@@ -238,6 +246,15 @@ export async function getInvidiousChannelReleases(channelId, continuation) {
 export async function getInvidiousChannelPodcasts(channelId, continuation) {
   /** @type {{continuation: string?, playlists: InvidiousPlaylistObject[]}} */
   return await getInvidiousChannelTab('podcasts', channelId, continuation)
+}
+
+/**
+ * @param {string} channelId
+ * @param {string | undefined | null} continuation
+ */
+export async function getInvidiousChannelCourses(channelId, continuation) {
+  /** @type {{continuation: string?, playlists: InvidiousPlaylistObject[]}} */
+  return await getInvidiousChannelTab('courses', channelId, continuation)
 }
 
 /**
@@ -859,7 +876,9 @@ export function convertInvidiousToLocalFormat(format) {
   const [initStart, initEnd] = format.init.split('-')
   const [indexStart, indexEnd] = format.index.split('-')
 
-  const duration = parseInt(parseFloat(new URL(format.url).searchParams.get('dur')) * 1000)
+  const url = new URL(format.url)
+
+  const duration = parseInt(parseFloat(url.searchParams.get('dur')) * 1000)
 
   // only converts the properties that are needed to generate a DASH manifest with YouTube.js
   // audioQuality and qualityLabel don't go inside the DASH manifest, but are used by YouTube.js
@@ -895,6 +914,27 @@ export function convertInvidiousToLocalFormat(format) {
           ...(format.colorInfo ? { colorInfo: format.colorInfo } : {})
         })
   })
+
+  if (localFormat.has_audio && url.searchParams.has('xtags')) {
+    const xtags = url.searchParams.get('xtags').split(':')
+
+    localFormat.language = xtags.find((tag) => tag.startsWith('lang='))?.split('=')[1] || null
+    localFormat.is_drc = xtags.includes('drc=1')
+
+    const audioContent = xtags.find((tag) => tag.startsWith('acont='))?.split('=')[1]
+    localFormat.is_dubbed = audioContent === 'dubbed'
+    localFormat.is_descriptive = audioContent === 'descriptive'
+    localFormat.is_secondary = audioContent === 'secondary'
+    localFormat.is_auto_dubbed = audioContent === 'dubbed-auto'
+    localFormat.is_original = audioContent === 'original' ||
+      (
+        !localFormat.is_dubbed &&
+        !localFormat.is_descriptive &&
+        !localFormat.is_secondary &&
+        !localFormat.is_auto_dubbed &&
+        !localFormat.is_drc
+      )
+  }
 
   return localFormat
 }

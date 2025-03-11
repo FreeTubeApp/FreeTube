@@ -258,104 +258,116 @@ Settings:
     General Settings: ''
     Check for Updates: ''
     Check for Latest Blog Posts: ''
-    Fallback to Non-Preferred Backend on Failure: ''
-    Enable Search Suggestions: ''
+    Fallback to Non-Preferred Backend on Failure: 'Val terug op nie-voorkeur agterent
+      by faling'
+    Enable Search Suggestions: 'Aktiveer soekvoorstelle'
     Auto Load Next Page:
-      Label: ''
-      Tooltip: ''
-    Default Landing Page: ''
-    Locale Preference: ''
-    System Default: ''
+      Label: 'Outolaai volgende blad'
+      Tooltip: 'Laai bykomende blaaie en kommentaar outomaties.'
+    Default Landing Page: 'Versteklandingsblad'
+    Locale Preference: 'Lokale voorkeur'
+    System Default: 'Stelselverstek'
     Preferred API Backend:
-      Preferred API Backend: ''
-      Local API: ''
-      Invidious API: ''
+      Preferred API Backend: 'Voorkeur-API-agterent'
+      Local API: 'Lokale API'
+      Invidious API: 'Invidious-API'
     Video View Type:
-      Video View Type: ''
-      Grid: ''
-      List: ''
+      Video View Type: 'Video-aansigtipe'
+      Grid: 'Rooster'
+      List: 'Lys'
     Thumbnail Preference:
-      Thumbnail Preference: ''
-      Default: ''
-      Beginning: ''
-      Middle: ''
-      End: ''
-      Hidden: ''
-      Blur: ''
-    Current Invidious Instance: ''
-    The currently set default instance is {instance}: ''
-    No default instance has been set: ''
-    Current instance will be randomized on startup: ''
-    Set Current Instance as Default: ''
-    Clear Default Instance: ''
-    View all Invidious instance information: ''
-    Region for Trending: ''
+      Thumbnail Preference: 'Duimnaelvoorkeur'
+      Default: 'Verstek'
+      Beginning: 'Begin'
+      Middle: 'Middel'
+      End: 'Einde'
+      Hidden: 'Versteek'
+      Blur: 'Vervaag'
+    Current Invidious Instance: 'Huidige Invidious-instansie'
+    The currently set default instance is {instance}: '{instance} is tans die verstekinstansie'
+    No default instance has been set: 'Geen verstekinstansie is ingestel nie'
+    Current instance will be randomized on startup: 'Huidige instansie sat by begin
+      willekeurig gekies word'
+    Set Current Instance as Default: 'Stel huidige instansie in as verstek'
+    Clear Default Instance: 'Wis verstekinstansie'
+    View all Invidious instance information: 'Bekyk alle Invidious-instansie-inligting'
+    Region for Trending: 'Streek vir stygend'
     #! List countries
     External Link Handling:
-      External Link Handling: ''
-      Open Link: ''
-      Ask Before Opening Link: ''
-      No Action: ''
+      External Link Handling: 'Hantering van eksterne skakel'
+      Open Link: 'Open skakel'
+      Ask Before Opening Link: 'Vra voordat skakel geopen word'
+      No Action: 'Geen aksie'
+    Open Deep Links In New Window: Open URL’s na FreeTube gestuur in ’n nuwe venster
   Theme Settings:
-    Theme Settings: ''
-    Match Top Bar with Main Color: ''
-    Expand Side Bar by Default: ''
-    Disable Smooth Scrolling: ''
-    UI Scale: ''
-    Hide Side Bar Labels: ''
-    Hide FreeTube Header Logo: ''
+    Theme Settings: 'Tema'
+    Match Top Bar with Main Color: 'Gebruik primêre temakleur vir boonste balk'
+    Expand Side Bar by Default: 'Vou systaaf by verstek uit'
+    Disable Smooth Scrolling: 'Deaktiveer vloeiende rol'
+    UI Scale: 'Koppelvlakskaal'
+    Hide Side Bar Labels: 'Versteek systaafetikette'
+    Hide FreeTube Header Logo: 'Versteek FreeTube-koplogo'
     Base Theme:
-      Base Theme: ''
-      Black: ''
-      Dark: ''
-      System Default: ''
-      Light: ''
-      Dracula: ''
-      Catppuccin Mocha: ''
-      Pastel Pink: ''
-      Hot Pink: ''
-      Nordic: ''
-      Solarized Dark: ''
-      Solarized Light: ''
+      Base Theme: 'Basistema'
+      Black: 'Swart'
+      Dark: 'Donker'
+      System Default: 'Stelselverstek'
+      Light: 'Lig'
+      Dracula: 'Dracula'
+      Catppuccin Mocha: 'Catppuccin Mocha'
+      Pastel Pink: 'Pastelpienk'
+      Hot Pink: 'Helderpienk'
+      Nordic: 'Noors'
+      Solarized Dark: 'Gesolariseerde donker'
+      Solarized Light: 'Gesolariseerde lig'
+      Everforest Dark Hard: Everforest Donker hard
+      Everforest Dark Medium: Everforest Donker medium
+      Everforest Light Low: Everforest Lig laag
+      Everforest Light Hard: Everforest Lig hard
+      Everforest Dark Low: Everforest Donker laag
+      Everforest Light Medium: Everforest Lig medium
+      Gruvbox Dark: Gruvboxx donker
+      Gruvbox Light: Gruvbox lig
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
-      Main Color Theme: ''
-      Red: ''
-      Pink: ''
-      Purple: ''
-      Deep Purple: ''
-      Indigo: ''
-      Blue: ''
-      Light Blue: ''
-      Cyan: ''
-      Teal: ''
-      Green: ''
-      Light Green: ''
-      Lime: ''
-      Yellow: ''
-      Amber: ''
-      Orange: ''
-      Deep Orange: ''
-      Dracula Cyan: ''
-      Dracula Green: ''
-      Dracula Orange: ''
-      Dracula Pink: ''
-      Dracula Purple: ''
-      Dracula Red: ''
-      Dracula Yellow: ''
-      Catppuccin Mocha Rosewater: ''
-      Catppuccin Mocha Flamingo: ''
-      Catppuccin Mocha Pink: ''
-      Catppuccin Mocha Mauve: ''
-      Catppuccin Mocha Red: ''
-      Catppuccin Mocha Maroon: ''
-      Catppuccin Mocha Peach: ''
-      Catppuccin Mocha Yellow: ''
-      Catppuccin Mocha Green: ''
-      Catppuccin Mocha Teal: ''
-      Catppuccin Mocha Sky: ''
-      Catppuccin Mocha Sapphire: ''
-      Catppuccin Mocha Blue: ''
-      Catppuccin Mocha Lavender: ''
+      Main Color Theme: 'Primêre kleurtema'
+      Red: 'Rooi'
+      Pink: 'Pienk'
+      Purple: 'Pers'
+      Deep Purple: 'Donkerpers'
+      Indigo: 'Indigo'
+      Blue: 'Blou'
+      Light Blue: 'Ligblou'
+      Cyan: 'Siaan'
+      Teal: 'Blougroen'
+      Green: 'Groen'
+      Light Green: 'Liggroen'
+      Lime: 'Lemmetjie'
+      Yellow: 'Geel'
+      Amber: 'Amber'
+      Orange: 'Oranje'
+      Deep Orange: 'Donkeroranje'
+      Dracula Cyan: 'Dracula-siaan'
+      Dracula Green: 'Dracula-groen'
+      Dracula Orange: 'Dracula-oranje'
+      Dracula Pink: 'Dracula-pienk'
+      Dracula Purple: 'Dracula-pers'
+      Dracula Red: 'Dracula-rooi'
+      Dracula Yellow: 'Dracula-geel'
+      Catppuccin Mocha Rosewater: 'Catppuccin Mokka Rooswater'
+      Catppuccin Mocha Flamingo: 'Catppuccin Mokka Flamingo'
+      Catppuccin Mocha Pink: 'Catppuccin Mocha Pienk'
+      Catppuccin Mocha Mauve: 'Catppuccin Mokka Mauve'
+      Catppuccin Mocha Red: 'Catppuccin Mokka Rooi'
+      Catppuccin Mocha Maroon: 'Catppuccin mokka Kastanjebruin'
+      Catppuccin Mocha Peach: 'Catppuccin Mokka Perske'
+      Catppuccin Mocha Yellow: 'Catppuccin Mokka Geel'
+      Catppuccin Mocha Green: 'Catppuccin Mokka Groen'
+      Catppuccin Mocha Teal: 'Catppuccin Mokka Blougroen'
+      Catppuccin Mocha Sky: 'Catppuccin Mokka Lugblou'
+      Catppuccin Mocha Sapphire: 'Catppuccin Mokka Saffier'
+      Catppuccin Mocha Blue: 'Catppuccin Mocha Blou'
+      Catppuccin Mocha Lavender: 'Catppuccin Mocha Laventel'
       Solarized Yellow: 'Sonbeligte geel'
       Solarized Orange: 'Sonbeligte oranje'
       Solarized Red: 'Sonbeligte rooi'
@@ -371,6 +383,37 @@ Settings:
       Gruvbox Light Red: Gruvbox ligrooi
       Gruvbox Light Blue: Gruvbox ligblou
       Gruvbox Light Purple: Gruvbox ligpers
+      Catppuccin Frappe Blue: Catppuccin Frappe Blou
+      Gruvbox Dark Green: Gruvbox Donkergroen
+      Gruvbox Dark Blue: Gruvbox Donkerblou
+      Catppuccin Frappe Pink: Catppuccin Frappe Pienk
+      Catppuccin Frappe Red: Catppuccin Frappe Rooi
+      Catppuccin Frappe Teal: Catppuccin Frappe Blougroen
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Saffier
+      Everforest Dark Purple: Everforest Donkerpers
+      Everforest Light Red: Everforest Ligrooi
+      Everforest Light Orange: Everforest Ligoranje
+      Everforest Light Yellow: Everforest Liggeel
+      Everforest Light Aqua: Everforest Ligakwa
+      Everforest Light Blue: Everforest Ligblou
+      Everforest Light Purple: Everforest Ligpers
+      Everforest Dark Orange: Everforest Donkeroranje
+      Catppuccin Frappe Sky: Catppuccin Frappe Lugblou
+      Everforest Dark Aqua: Everforest Donkerakwa
+      Catppuccin Frappe Lavender: Catppuccin Frappe Laventel
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rooswater
+      Everforest Dark Red: Everforest Ronkerrooi
+      Everforest Dark Yellow: Everforest Donkergeel
+      Everforest Dark Green: Everforest Donkergroen
+      Everforest Dark Blue: Everforest Donkerblou
+      Everforest Light Green: Everforest Liggroen
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Yellow: Catppuccin Frappe Geel
+      Catppuccin Frappe Peach: Catppuccin Frappe Perske
+      Catppuccin Frappe Maroon: Catppuccin Frappe Kastanjebruin
+      Catppuccin Frappe Green: Catppuccin Frappe Groen
+      Gruvbox Dark Yellow: Gruvbox Donkergeel
     Secondary Color Theme: 'Sekondêre kleurtema'
         #* Main Color Theme
   Player Settings:
@@ -1024,7 +1067,7 @@ Tooltips:
       uit die video i.p.v. die verstek duimnael.'
     Invidious Instance: 'Die Invidious-instansie waarmee FreeTube sal verbind om API-oproepe
       te maak.'
-    Region for Trending: 'Met streek van neigings kan u kies welke land se gewilde
+    Region for Trending: 'Met streek van stygend kan u kies welke land se gewilde
       videos aan u vertoon moet word.'
     External Link Handling: |
       Kies die verstek gedrag vir wanneer ’n skakel geklik word wat nie in FreeTube geopen kan word nie.
@@ -1063,7 +1106,7 @@ Tooltips:
     DefaultCustomArgumentsTemplate: "(verstek: ‘{defaultCustomArguments}’)"
   Distraction Free Settings:
     Hide Channels: 'Voer ’n kanaal-ID in om alle video’s, afspeellyste en die kanaal
-      self te versteek sodat dit nie in soek, tendense, gewildste, en aanbeveel weergegee
+      self te versteek sodat dit nie in soek, stygend, gewildste, en aanbeveel weergegee
       word nie. Die ingevoerde kanaal-ID moet volledig ooreenstem en is hooflettergevoelig.'
     Hide Subscriptions Live: 'Hierdie instelling woord oorheers deur die toepwye “{appWideSetting}”-instelling
       in die “{subsection}” gedeelte van “{settingsSection}”'

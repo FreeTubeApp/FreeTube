@@ -84,7 +84,7 @@ Search Filters:
     Subtitles: 字幕
     Creative Commons: Creative Commons 授权
     360 Video: 全景视频
-    Features: 功能
+    Features: 特性
     HD: 高清
     3D: 三维立体
     Live: 直播
@@ -248,7 +248,7 @@ Settings:
     View all Invidious instance information: 浏览所有Invidious实例
     System Default: 系统默认
     The currently set default instance is {instance}: 当前设置的默认实例是 {instance}
-    No default instance has been set: 没有默认实例
+    No default instance has been set: 还未设置默认实例
     Current instance will be randomized on startup: 当前实例在启动时将会随机化
     Set Current Instance as Default: 将当前实例设为默认
     Clear Default Instance: 清除默认实例
@@ -270,17 +270,23 @@ Settings:
       Black: '黑'
       Dark: '深'
       Light: '浅'
-      Dracula: '德古拉'
+      Dracula: 'Dracula'
       System Default: 系统默认
       Catppuccin Mocha: Catppuccin Mocha
-      Pastel Pink: Pastel Pink
-      Hot Pink: Hot Pink
+      Pastel Pink: 淡粉
+      Hot Pink: 亮粉
       Nordic: Nordic
       Solarized Light: 日照白
       Solarized Dark: 日照黑
       Gruvbox Dark: Gruvbox Dark
       Gruvbox Light: Gruvbox Light
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Hard: Everforest Dark （强）
+      Everforest Dark Medium: Everforest Dark （中度）
+      Everforest Dark Low: Everforest Dark （弱）
+      Everforest Light Medium: Everforest Light （中度）
+      Everforest Light Low: Everforest Light （弱）
+      Everforest Light Hard: Everforest Light （强）
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -299,27 +305,27 @@ Settings:
       Amber: '黄褐'
       Orange: '橙'
       Deep Orange: '深橙'
-      Dracula Cyan: 'Dracula Cyan'
-      Dracula Green: 'Dracula Green'
-      Dracula Orange: 'Dracula Orange'
-      Dracula Pink: 'Dracula Pink'
-      Dracula Purple: 'Dracula Purple'
-      Dracula Red: 'Dracula Red'
-      Dracula Yellow: 'Dracula Yellow'
-      Catppuccin Mocha Pink: Catppuccin Mocha Pink
-      Catppuccin Mocha Peach: Catppuccin Mocha Peach
-      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
-      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
-      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
-      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
-      Catppuccin Mocha Green: Catppuccin Mocha Green
-      Catppuccin Mocha Teal: Catppuccin Mocha Teal
-      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Dracula Cyan: 'Dracula 青'
+      Dracula Green: 'Dracula 绿'
+      Dracula Orange: 'Dracula 橙'
+      Dracula Pink: 'Dracula 粉'
+      Dracula Purple: 'Dracula 紫'
+      Dracula Red: 'Dracula 红'
+      Dracula Yellow: 'Dracula 黄'
+      Catppuccin Mocha Pink: Catppuccin Mocha 粉
+      Catppuccin Mocha Peach: Catppuccin Mocha 桃红
+      Catppuccin Mocha Yellow: Catppuccin Mocha 黄
+      Catppuccin Mocha Sapphire: Catppuccin Mocha 宝石蓝
+      Catppuccin Mocha Rosewater: Catppuccin Mocha 玫瑰水
+      Catppuccin Mocha Maroon: Catppuccin Mocha 褐紫红
+      Catppuccin Mocha Green: Catppuccin Mocha 绿
+      Catppuccin Mocha Teal: Catppuccin Mocha 蓝绿
+      Catppuccin Mocha Sky: Catppuccin Mocha 天蓝
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
-      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
-      Catppuccin Mocha Red: Catppuccin Mocha Red
-      Catppuccin Mocha Blue: Catppuccin Mocha Blue
-      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Catppuccin Mocha Mauve: Catppuccin Mocha 紫
+      Catppuccin Mocha Red: Catppuccin Mocha 红
+      Catppuccin Mocha Blue: Catppuccin Mocha 蓝
+      Catppuccin Mocha Lavender: Catppuccin Mocha 薰衣草
       Solarized Orange: 日照橙
       Solarized Magenta: 日照品红
       Solarized Cyan: 日照青
@@ -328,30 +334,44 @@ Settings:
       Solarized Red: 日照红
       Solarized Blue: 日照蓝
       Solarized Violet: 日照紫
-      Gruvbox Dark Aqua: Gruvbox 深蓝绿
-      Gruvbox Light Red: Gruvbox 浅红
-      Gruvbox Light Blue: Gruvbox 浅蓝
-      Gruvbox Light Purple: Gruvbox 浅紫
-      Gruvbox Dark Yellow: Gruvbox 深黄
-      Gruvbox Dark Blue: Gruvbox 深蓝
-      Gruvbox Dark Purple: Gruvbox 深紫
-      Gruvbox Light Orange: Gruvbox 浅橙
-      Gruvbox Dark Green: Gruvbox 深绿
-      Gruvbox Dark Orange: Gruvbox 深橙
-      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
-      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
+      Gruvbox Dark Aqua: Gruvbox Dark 蓝绿
+      Gruvbox Light Red: Gruvbox Light 红
+      Gruvbox Light Blue: Gruvbox Light 蓝
+      Gruvbox Light Purple: Gruvbox Light 紫
+      Gruvbox Dark Yellow: Gruvbox Dark 黄
+      Gruvbox Dark Blue: Gruvbox Dark 蓝
+      Gruvbox Dark Purple: Gruvbox Dark 紫
+      Gruvbox Light Orange: Gruvbox Light 橙
+      Gruvbox Dark Green: Gruvbox Dark 绿
+      Gruvbox Dark Orange: Gruvbox Dark 橙
+      Catppuccin Frappe Rosewater: Catppuccin Frappe 玫瑰水
+      Catppuccin Frappe Lavender: Catppuccin Frappe 薰衣草
       Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
-      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
-      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
-      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
-      Catppuccin Frappe Teal: Catppuccin Frappe Teal
-      Catppuccin Frappe Pink: Catppuccin Frappe Pink
-      Catppuccin Frappe Sky: Catppuccin Frappe Sky
-      Catppuccin Frappe Red: Catppuccin Frappe Red
-      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
-      Catppuccin Frappe Peach: Catppuccin Frappe Peach
-      Catppuccin Frappe Green: Catppuccin Frappe Green
-      Catppuccin Frappe Blue: Catppuccin Frappe Blue
+      Catppuccin Frappe Mauve: Catppuccin Frappe 紫
+      Catppuccin Frappe Maroon: Catppuccin Frappe 褐紫红
+      Catppuccin Frappe Sapphire: Catppuccin Frappe 宝石蓝
+      Catppuccin Frappe Teal: Catppuccin Frappe 蓝绿
+      Catppuccin Frappe Pink: Catppuccin Frappe 粉
+      Catppuccin Frappe Sky: Catppuccin Frappe 天蓝
+      Catppuccin Frappe Red: Catppuccin Frappe 红
+      Catppuccin Frappe Yellow: Catppuccin Frappe 黄
+      Catppuccin Frappe Peach: Catppuccin Frappe 桃红
+      Catppuccin Frappe Green: Catppuccin Frappe 绿
+      Catppuccin Frappe Blue: Catppuccin Frappe 蓝
+      Everforest Dark Red: Everforest Dark红
+      Everforest Dark Orange: Everforest Dark橙
+      Everforest Dark Yellow: Everforest Dark黄
+      Everforest Dark Green: Everforest Dark绿
+      Everforest Dark Aqua: Everforest Dark Aqua
+      Everforest Dark Blue: Everforest Dark蓝
+      Everforest Dark Purple: Everforest Dark紫
+      Everforest Light Red: Everforest Light 红
+      Everforest Light Orange: Everforest Light 橙
+      Everforest Light Yellow: Everforest Light 黄
+      Everforest Light Green: Everforest Light 绿
+      Everforest Light Aqua: Everforest Light Aqua
+      Everforest Light Blue: Everforest Light 蓝
+      Everforest Light Purple: Everforest 淡紫
     Secondary Color Theme: '次主题色'
         #* Main Color Theme
     UI Scale: UI缩放
@@ -528,6 +548,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: 单词、单词片段或词组
     Hide Channel Home: 隐藏频道“主页”标签
     Show Added Items: 显示已添加项目
+    Hide Channel Courses: 隐藏频道“课程”标签
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -688,6 +709,9 @@ Channel:
   Home:
     Home: 主页
     View Playlist: 查看播放列表
+  Courses:
+    Courses: 课程
+    This channel does not currently have any courses: 此频道当前没有任何课程
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'

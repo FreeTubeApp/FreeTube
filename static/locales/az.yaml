@@ -42,6 +42,7 @@ Search / Go to URL: 'Axtarış / URL-ə Keçin'
 Search Bar:
   Clear Input: 'Girişi Təmizlə'
   # In Filter Button
+  Remove: Sil
 Search Filters:
   Search Filters: 'Axtarış Filtrləri'
   Sort By:
@@ -170,6 +171,8 @@ User Playlists:
         oldu.
       "{videoCount} video(s) have been removed": 1 video silindi | {videoCount} video
         silindi
+      Video has been removed. Click here to undo.: Video silindi. Geri gətirmək üçün
+        klik edin.
     Search for Videos: Videoları Axtar
   Sort By:
     EarliestUpdatedFirst: Ən Tez Yenilənib
@@ -224,6 +227,8 @@ User Playlists:
       There was an issue with creating the playlist.: Pleylist yaradarkən problem
         oldu.
     Create: Yarat
+  The playlist has been successfully exported: Bu pleylist uğurla ixrac edildi
+  Export Playlist: Bu Pleylisti İxrac Et
 History:
   # On History Page
   History: 'Tarixçə'
@@ -238,7 +243,7 @@ Settings:
     qüvvəyə minməsi üçün tətbiq yenidən başladılmalıdır. Yenidən başladılsın və dəyişiklik
     tətbiq edilsin?'
   General Settings:
-    General Settings: 'Ümumi Tənzimləmələr'
+    General Settings: 'Ümumi'
     Check for Updates: 'Yeniləmələri Yoxlayın'
     Check for Latest Blog Posts: 'Ən Son Elanları Yoxlayın'
     Fallback to Non-Preferred Backend on Failure: 'Uğursuzluqda Üstünlük Verilməyən
@@ -300,6 +305,28 @@ Settings:
       Blue: Mavi
       Light Green: Açıq Yaşıl
       Yellow: Sarı
+      Dracula Red: Drakula Qırmızı
+      Dracula Cyan: Dracula Cyan
+      Dracula Green: Drakula Yaşıl
+      Dracula Orange: Drakula Narıncı
+      Dracula Pink: Drakula Çəhrayı
+      Catppuccin Frappe Pink: Catppuccin Frappe Çəhrayı
+      Catppuccin Frappe Red: Catppuccin Frappe Qırmızı
+      Catppuccin Frappe Maroon: Catppuccin Frappe Tünd Qırmızı
+      Catppuccin Frappe Peach: Catppuccin Frappe Şaftalı Rəngi
+      Catppuccin Frappe Blue: Catppuccin Frappe Mavi
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavanda
+      Cyan: Siyanid rəngi
+      Lime: Limon yaşılı
+      Dracula Purple: Drakula Bənövşəyi
+      Dracula Yellow: Drakula Sarı
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flaminqo
+      Catppuccin Frappe Mauve: Catppuccin Frappe Çəhrayı Çalarlı Bənövşəyi
+      Catppuccin Frappe Yellow: Catppuccin Frappe Sarı
+      Catppuccin Frappe Green: Catppuccin Frappe Yaşıl
+      Catppuccin Frappe Teal: Catppuccin Frappe Dəniz rəngi
+      Catppuccin Frappe Sky: Catppuccin Frappe Səma rəngi
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Yaqut
     UI Scale: UI (Ekran) Ölçüsü
     Base Theme:
       Pastel Pink: Pastel Çəhrayı
@@ -314,16 +341,20 @@ Settings:
       Light: İşıqlı
       Dracula: Dracula
       Catppuccin Mocha: Catppuccin Mocha
+      Gruvbox Dark: Gruvbox Dark
+      Gruvbox Light: Gruvbox Light
+      Catppuccin Frappe: Catppuccin Frappe
     Match Top Bar with Main Color: Üst Hissəni Əsas Rənglə Uyğunlaşdır
     Disable Smooth Scrolling: Hamar Sürüşdürməni Bağla
     Hide Side Bar Labels: Kənar Hissə Etiketlərini Gizlət
-    Theme Settings: Tema Tənzimləmələri
+    Theme Settings: Tema
     Expand Side Bar by Default: Kənar Hissəni İlkin Olaraq Genişləndir
     Hide FreeTube Header Logo: FreeTube Başlıq Simvolunu Gizlət
   Player Settings:
     Screenshot: {}
   SponsorBlock Settings: {}
   Sort Settings Sections (A-Z): Tənzimləmələr Bölmələrin Çeşidlə (AZ)
+  Return to Settings Menu: Parametrlər Menyusuna Qayıt
 Channel:
   Videos: {}
   Playlists: {}
@@ -377,3 +408,5 @@ checkmark: ✓
 Yes: Bəli
 Ok: Oldu
 No: Xeyr
+Right-click or hold to see history: Tarixçəni görmək üçün sağ düyməyə klik edin və
+  ya sıxıb saxlayın

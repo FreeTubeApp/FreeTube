@@ -326,6 +326,12 @@ Settings:
       Gruvbox Light: Gruvbox Hell
       Gruvbox Dark: Gruvbox Dunkel
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Hard: Everforest Dunkelhart
+      Everforest Dark Medium: Everforest Dunkelmittel
+      Everforest Dark Low: Everforest Dunkelniedrig
+      Everforest Light Hard: Everforest Hellhart
+      Everforest Light Medium: Everforest Hellmittel
+      Everforest Light Low: Everforest Hellniedrig
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -397,6 +403,20 @@ Settings:
       Catppuccin Frappe Pink: Catppuccin Frappe pink
       Catppuccin Frappe Lavender: Catppuccin Frappe lavendelfarben
       Catppuccin Frappe Maroon: Catppuccin Frappe kastanienbraun
+      Everforest Dark Red: Everforest Dunkelrot
+      Everforest Dark Orange: Everforest Dunkelorange
+      Everforest Dark Yellow: Everforest Dunkelgelb
+      Everforest Dark Green: Everforest Dunkelgrün
+      Everforest Dark Aqua: Everforest Dunkeltürkis
+      Everforest Dark Blue: Everforest Dunkelblau
+      Everforest Dark Purple: Everforest Dunkellila
+      Everforest Light Red: Everforest Hellrot
+      Everforest Light Orange: Everforest Hellorange
+      Everforest Light Yellow: Everforest Hellgelb
+      Everforest Light Green: Everforest Hellgrün
+      Everforest Light Aqua: Everforest Helltürkis
+      Everforest Light Blue: Everforest Hellblau
+      Everforest Light Purple: Everforest Helllilla
     Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
@@ -601,6 +621,7 @@ Settings:
       Phrase
     Hide Channel Home: 'Tab „Startseite“ im Kanal ausblenden'
     Show Added Items: Hinzugefügte Elemente anzeigen
+    Hide Channel Courses: Tab „Kurse“ im Kanal ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
@@ -784,6 +805,10 @@ Channel:
   Home:
     Home: Startseite
     View Playlist: Playlist anzeigen
+  Courses:
+    This channel does not currently have any courses: Dieser Kanal hat momentan keine
+      Kurse
+    Courses: Kurse
 Video:
   Open in YouTube: In YouTube öffnen
   Copy YouTube Link: YouTube-Link kopieren

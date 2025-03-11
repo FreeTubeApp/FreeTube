@@ -8,7 +8,14 @@
       v-else
       class="card"
     >
-      <h2>{{ $t("Search Filters.Search Results") }}</h2>
+      <h2>
+        <font-awesome-icon
+          :icon="['fas', 'search']"
+          class="headingIcon"
+          fixed-width
+        />
+        {{ $t("Search Filters.Search Results") }}
+      </h2>
       <ft-element-list
         :data="shownResults"
       />
@@ -30,5 +37,5 @@
   </div>
 </template>
 
-<script src="./Search.js" />
-<style scoped src="./Search.css" />
+<script src="./SearchPage.js" />
+<style scoped src="./SearchPage.css" />

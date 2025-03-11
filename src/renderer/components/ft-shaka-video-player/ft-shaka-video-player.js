@@ -65,7 +65,7 @@ export default defineComponent({
     },
     manifestSrc: {
       type: String,
-      required: true
+      default: null
     },
     manifestMimeType: {
       type: String,
@@ -289,6 +289,11 @@ export default defineComponent({
       ui.configure({
         enableFullscreenOnRotation: newValue
       })
+    })
+
+    /** @type {import('vue').ComputedRef<number>} */
+    const defaultPlaybackRate = computed(() => {
+      return store.getters.getDefaultPlayback
     })
 
     const maxVideoPlaybackRate = computed(() => {
@@ -953,8 +958,12 @@ export default defineComponent({
         // stop shaka-player's click handler firing
         event.stopPropagation()
 
-        video.value.playbackRate = props.currentPlaybackRate
-        video.value.defaultPlaybackRate = props.currentPlaybackRate
+        const newPlaybackRate = defaultPlaybackRate.value
+
+        video.value.playbackRate = newPlaybackRate
+        video.value.defaultPlaybackRate = newPlaybackRate
+
+        showValueChange(`${newPlaybackRate}x`)
       }
     }
 
