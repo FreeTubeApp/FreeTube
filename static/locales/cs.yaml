@@ -571,6 +571,7 @@ Settings:
       fráze
     Hide Channel Home: Skrýt kartu „Domovská stránka“ u kanálů
     Show Added Items: Zobrazit přidané položky
+    Hide Channel Courses: Skrýt kartu „Kurzy“ u kanálů
   Data Settings:
     Data Settings: 'Data'
     Select Export Type: 'Vybrat typ exportu'
@@ -839,6 +840,10 @@ Channel:
   Home:
     Home: Domovská stránka
     View Playlist: Zobrazit playlist
+  Courses:
+    Courses: Kurzy
+    This channel does not currently have any courses: Tento kanál momentálně nemá
+      žádné kurzy
 Video:
   Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'
