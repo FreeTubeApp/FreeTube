@@ -607,35 +607,79 @@ function runApp() {
     }
   })
 
-  function createTray() {
+  function createTray(window) {
+    function click(window, close = false) {
+      if (!close) {
+        window.show()
+      } else if (tray.windows.length) {
+        window.destroy()
+      }
+
+      if (BrowserWindow.getAllWindows().length === 0) {
+        handleQuit()
+      }
+
+      tray.windows.splice(tray.windows.findIndex(item => item.id === window.id), 1)
+
+      if (tray.windows.length) {
+        createContextMenu()
+      } else {
+        tray.destroy()
+        tray = null
+      }
+    }
+
+    function createContextMenu() {
+      const menuItems = []
+      tray.windows.forEach(window => {
+        menuItems.push({
+          label: window.title,
+          submenu: [
+            {
+              label: 'Show',
+              click: () => click(window)
+            },
+            {
+              label: 'Close',
+              click: () => click(window, true)
+            }
+          ]
+        })
+      })
+
+      menuItems.push(
+        {
+          type: 'separator'
+        },
+        {
+          label: 'Quit',
+          click: handleQuit
+        }
+      )
+
+      const menu = Menu.buildFromTemplate(menuItems)
+      tray.setContextMenu(menu)
+    }
+
+    if (tray) {
+      tray.windows.push(window)
+      createContextMenu()
+      return
+    }
+
     const icon = process.env.NODE_ENV === 'development'
       ? readFileSync(path.join(__dirname, '..', '..', '_icons', 'iconColor.png'))
       : readFileSync(path.join(path.dirname(__dirname), '_icons', 'iconColor.png'))
 
     tray = new Tray(nativeImage.createFromBuffer(icon))
+    tray.windows = [window]
+    createContextMenu()
+
     tray.setIgnoreDoubleClickEvents(true)
-
-    function click() {
-      mainWindow.show()
-      tray.destroy()
-    }
-
-    const menu = Menu.buildFromTemplate([
-      {
-        label: 'Show',
-        click: () => click()
-      },
-      {
-        label: 'Quit',
-        click: handleQuit
-      }
-    ])
-
-    tray.setContextMenu(menu)
     tray.setToolTip('FreeTube')
 
     tray.on('click', (event) => {
-      click()
+      if (tray.windows.length === 1) { click(tray.windows[0]) }
     })
   }
 
@@ -796,10 +840,10 @@ function runApp() {
     // endregion Ensure child windows use same options since electron 14
 
     newWindow.on('close', (event) => {
-      if (trayOnClose) {
+      if (trayOnClose && !resourcesCleanUpDone) {
         event.preventDefault()
         newWindow.hide()
-        createTray()
+        createTray(newWindow)
       }
     })
 
@@ -807,12 +851,13 @@ function runApp() {
       if (trayOnMinimize) {
         event.preventDefault()
         newWindow.hide()
-        createTray()
+        createTray(newWindow)
       }
     })
 
     if (tray) {
       tray.destroy()
+      tray = null
     }
 
     if (replaceMainWindow) {
@@ -1750,7 +1795,7 @@ function runApp() {
   }
 
   app.on('before-quit', () => {
-    tray.destroy()
+    if (tray) { tray.destroy() }
   })
 
   function handleQuit() {
