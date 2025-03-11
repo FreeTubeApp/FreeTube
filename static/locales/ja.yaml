@@ -549,6 +549,7 @@ Settings:
     Hide Videos and Playlists Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
     Hide Channel Home: チャンネルの「ホーム」タブを隠す
     Show Added Items: 追加された項目を表示
+    Hide Channel Courses: チャンネルの「コース」タブを隠す
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -711,6 +712,9 @@ Channel:
   Home:
     View Playlist: 再生リストを表示
     Home: ホーム
+  Courses:
+    Courses: コース
+    This channel does not currently have any courses: このチャンネルには現在コースはありません
 Video:
   Open in YouTube: 'YouTube で表示'
   Copy YouTube Link: 'YouTube リンクのコピー'
