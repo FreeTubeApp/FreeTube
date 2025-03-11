@@ -635,6 +635,7 @@ Settings:
       phrase
     Hide Channel Home: Masquer l'onglet « Accueil » de la chaîne
     Show Added Items: Afficher les éléments ajoutés
+    Hide Channel Courses: Masquer l'onglet de la chaîne "Cours"
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -820,6 +821,10 @@ Channel:
   Home:
     Home: Accueil
     View Playlist: Afficher la liste de lecture
+  Courses:
+    Courses: Cours
+    This channel does not currently have any courses: Cette chaîne n'a actuellement
+      pas de cours
 Video:
   Mark As Watched: 'Marquer comme vu'
   Remove From History: 'Supprimer de l''historique'
