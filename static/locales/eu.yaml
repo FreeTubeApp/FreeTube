@@ -574,6 +574,7 @@ Settings:
       dira prozesatu. Eginbidea blokeatuta dago ID horiek eguneratzen ari diren bitartean
     Hide Channel Home: Ezkutatu kanala "Hasierako" fitxa
     Show Added Items: Erakutsi gehitutako elementuak
+    Hide Channel Courses: Ezkutatu kanala "Ikastaroak" fitxa
   Data Settings:
     Data Settings: 'Datuak'
     Select Export Type: 'Hautatu esportazio mota'
@@ -851,6 +852,10 @@ Channel:
   Home:
     Home: Menu nagusia
     View Playlist: Ikusi Erreprodukzio zerrenda
+  Courses:
+    Courses: Ikastaroak
+    This channel does not currently have any courses: Une honetan kanal honek ez du
+      ikastarorik
 Video:
   Mark As Watched: 'Ikusitako gisa jarri'
   Remove From History: 'Historikotik ezabatu'
