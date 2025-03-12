@@ -574,6 +574,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Реч, део речи или фраза
     Hide Channel Home: Сакриј картицу „Почетна“ канала
     Show Added Items: Прикажи додате предмете
+    Hide Channel Courses: Сакриј картицу „Курсеви“ на каналу
   Data Settings:
     Data Settings: 'Подаци'
     Select Export Type: 'Избор врсте извоза'
@@ -843,6 +844,10 @@ Channel:
   Home:
     Home: Почетна
     View Playlist: Погледај плејлисту
+  Courses:
+    Courses: Курсеви
+    This channel does not currently have any courses: Овај канал тренутно нема ниједан
+      курс
 Video:
   Mark As Watched: 'Означи као одгледано'
   Remove From History: 'Уклони из историје'
