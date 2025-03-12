@@ -171,6 +171,10 @@ export default defineComponent({
       this.$emit('click', this.inputData, { event: e })
     },
 
+    getInputData() {
+      return this.inputData
+    },
+
     handleInput: function (val) {
       this.inputData = val
 

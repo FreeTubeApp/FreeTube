@@ -56,6 +56,7 @@
     />
     <ft-search-filters
       v-if="showSearchFilters"
+      :search-query="currentSearchQuery"
     />
     <ft-keyboard-shortcut-prompt
       v-if="isKeyboardShortcutPromptShown"
@@ -73,6 +74,11 @@
     <top-nav
       ref="topNav"
       :inert="isPromptOpen"
+      @search-query-update="handleSearchQueryUpdate"
+    />
+    <ft-search-filters
+      v-if="isSearchFiltersShown"
+      :search-query="currentSearchQuery"
     />
     <side-nav
       ref="sideNav"

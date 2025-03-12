@@ -56,7 +56,7 @@
         text-color="var(--text-with-main-color)"
         @click="hideSearchFilters"
       />
-      <!-- Added: Search button with same styling as close button -->
+
       <FtButton
         :label="$t('Search')"
         background-color="var(--primary-color)"
@@ -79,8 +79,17 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtCheckboxList from '../FtCheckboxList/FtCheckboxList.vue'
 
 import store from '../../store/index'
+import { useRouter } from 'vue-router'
 
 const { t } = useI18n()
+
+// Accept the searchQuery prop
+const props = defineProps({
+  searchQuery: {
+    type: String,
+    default: ''
+  }
+})
 
 const SORT_BY_VALUES = [
   'relevance',
@@ -256,11 +265,16 @@ watch(searchFilterValueChanged, (value) => {
 function hideSearchFilters() {
   store.dispatch('hideSearchFilters')
 }
-function searchWithFilters() {
-  const queryTextElement = document.querySelector('.searchInput input')
-  const queryText = queryTextElement ? queryTextElement.value : ''
+function searchWithFilters(event) {
+  const doCreateNewWindow = event && event.shiftKey
+
   store.dispatch('hideSearchFilters')
 
+  if (!props.searchQuery || props.searchQuery.trim() === '') {
+    return
+  }
+
+  const searchPath = `/search/${encodeURIComponent(props.searchQuery)}`
   const query = {
     sortBy: sortByValue.value,
     time: timeValue.value,
@@ -269,12 +283,21 @@ function searchWithFilters() {
     features: featuresValue.value
   }
 
-  if (queryText && queryText.trim() !== '') {
-    // Used the same openInternalPath function that the main search uses
+  if (doCreateNewWindow && process.env.IS_ELECTRON) {
+    try {
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.send('createNewWindow', {
+        path: searchPath,
+        query: query
+      })
+    } catch (error) {
+      console.error('Error creating new window:', error)
+    }
+  } else {
     openInternalPath({
-      path: `/search/${encodeURIComponent(queryText)}`,
+      path: searchPath,
       query: query,
-      searchQueryText: queryText
+      searchQueryText: props.searchQuery
     })
   }
 }
