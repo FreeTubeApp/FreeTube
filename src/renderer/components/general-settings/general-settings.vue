@@ -25,10 +25,10 @@
           @change="updateGeneralAutoLoadMorePaginatedItemsEnabled"
         />
         <ft-toggle-switch
-          :label="$t('Settings.General Settings.Hide to tray on close')"
-          :default-value="hideToTrayOnClose"
+          :label="$t('Settings.General Settings.Hide to tray on minimize')"
+          :default-value="hideToTrayOnMinimize"
           :compact="true"
-          @change="updateHideToTrayOnClose"
+          @change="updateHideToTrayOnMinimize"
         />
       </div>
       <div class="switchColumn">
@@ -50,12 +50,6 @@
           :compact="true"
           :tooltip="$t('Tooltips.General Settings.Open Deep Links In New Window')"
           @change="updateOpenDeepLinksInNewWindow"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.General Settings.Hide to tray on minimize')"
-          :default-value="hideToTrayOnMinimize"
-          :compact="true"
-          @change="updateHideToTrayOnMinimize"
         />
       </div>
     </div>

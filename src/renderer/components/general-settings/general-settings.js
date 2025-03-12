@@ -205,10 +205,6 @@ export default defineComponent({
       return this.$store.getters.getOpenDeepLinksInNewWindow
     },
 
-    hideToTrayOnClose: function () {
-      return this.$store.getters.getHideToTrayOnClose
-    },
-
     hideToTrayOnMinimize: function () {
       return this.$store.getters.getHideToTrayOnMinimize
     }
@@ -281,7 +277,6 @@ export default defineComponent({
       'updateExternalLinkHandling',
       'updateGeneralAutoLoadMorePaginatedItemsEnabled',
       'updateOpenDeepLinksInNewWindow',
-      'updateHideToTrayOnClose',
       'updateHideToTrayOnMinimize',
     ])
   }

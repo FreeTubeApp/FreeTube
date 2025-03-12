@@ -2,7 +2,7 @@ import {
   app, BrowserWindow, dialog, Menu, ipcMain,
   powerSaveBlocker, screen, session, shell,
   nativeTheme, net, protocol, clipboard,
-  Tray, nativeImage
+  Tray
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -17,7 +17,7 @@ import {
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
-import { existsSync, readFileSync } from 'fs'
+import { existsSync } from 'fs'
 import asyncFs from 'fs/promises'
 import { promisify } from 'util'
 import { brotliDecompress } from 'zlib'
@@ -233,8 +233,8 @@ function runApp() {
   let mainWindow
   let startupUrl
   let tray = null
-  let trayOnClose
   let trayOnMinimize
+  let trayWindows = []
 
   const userDataPath = app.getPath('userData')
 
@@ -280,6 +280,7 @@ function runApp() {
             })
           } else {
             // Just focus the main window (instead of starting a new instance)
+            manageTray(mainWindow, false)
             if (mainWindow.isMinimized()) mainWindow.restore()
             mainWindow.focus()
 
@@ -396,9 +397,6 @@ function runApp() {
             break
           case 'proxyPort':
             proxyPort = doc.value
-            break
-          case 'hideToTrayOnClose':
-            trayOnClose = doc.value
             break
           case 'hideToTrayOnMinimize':
             trayOnMinimize = doc.value
@@ -607,21 +605,13 @@ function runApp() {
     }
   })
 
-  function createTray(window) {
-    function click(window, close = false) {
-      if (!close) {
-        window.show()
-      } else if (tray.windows.length) {
-        window.destroy()
-      }
+  function manageTray(window, removeWindow = false) {
+    function click(window) {
+      window.show()
 
-      if (BrowserWindow.getAllWindows().length === 0) {
-        handleQuit()
-      }
+      trayWindows.splice(trayWindows.findIndex(item => item.id === window.id), 1)
 
-      tray.windows.splice(tray.windows.findIndex(item => item.id === window.id), 1)
-
-      if (tray.windows.length) {
+      if (trayWindows.length) {
         createContextMenu()
       } else {
         tray.destroy()
@@ -631,7 +621,7 @@ function runApp() {
 
     function createContextMenu() {
       const menuItems = []
-      tray.windows.forEach(window => {
+      trayWindows.forEach(window => {
         menuItems.push({
           label: window.title,
           submenu: [
@@ -641,7 +631,7 @@ function runApp() {
             },
             {
               label: 'Close',
-              click: () => click(window, true)
+              click: () => click(window)
             }
           ]
         })
@@ -662,25 +652,40 @@ function runApp() {
     }
 
     if (tray) {
-      tray.windows.push(window)
-      createContextMenu()
+      if (!removeWindow) {
+        trayWindows.push(window)
+        createContextMenu()
+      } else if (trayWindows.find(item => item.id === window.id)) {
+        click(window)
+      }
+
       return
     }
 
     const icon = process.env.NODE_ENV === 'development'
-      ? readFileSync(path.join(__dirname, '..', '..', '_icons', 'iconColor.png'))
-      : readFileSync(path.join(path.dirname(__dirname), '_icons', 'iconColor.png'))
+      ? path.join(__dirname, '..', '..', '_icons', 'iconColor.png')
+      : path.join(path.dirname(__dirname), '_icons', 'iconColor.png')
 
-    tray = new Tray(nativeImage.createFromBuffer(icon))
-    tray.windows = [window]
+    tray = new Tray(icon)
+    trayWindows = [window]
     createContextMenu()
 
     tray.setIgnoreDoubleClickEvents(true)
     tray.setToolTip('FreeTube')
 
     tray.on('click', (event) => {
-      if (tray.windows.length === 1) { click(tray.windows[0]) }
+      if (trayWindows.length === 1) { click(trayWindows[0]) }
     })
+  }
+
+  function showHiddenWindows() {
+    trayWindows.forEach(window => {
+      window.show()
+    })
+
+    tray.destroy()
+    tray = null
+    trayWindows = []
   }
 
   /**
@@ -839,19 +844,11 @@ function runApp() {
 
     // endregion Ensure child windows use same options since electron 14
 
-    newWindow.on('close', (event) => {
-      if (trayOnClose && !resourcesCleanUpDone) {
-        event.preventDefault()
-        newWindow.hide()
-        createTray(newWindow)
-      }
-    })
-
     newWindow.on('minimize', (event) => {
       if (trayOnMinimize) {
         event.preventDefault()
         newWindow.hide()
-        createTray(newWindow)
+        manageTray(newWindow)
       }
     })
 
@@ -1361,12 +1358,9 @@ function runApp() {
             case 'hidePlaylists':
               await setMenu()
               break
-
-            case 'hideToTrayOnClose':
-              trayOnClose = data.value
-              break
             case 'hideToTrayOnMinimize':
               trayOnMinimize = data.value
+              if (!trayOnMinimize) { showHiddenWindows() }
               break
 
             default:
@@ -1768,8 +1762,6 @@ function runApp() {
   let resourcesCleanUpDone = false
 
   app.on('window-all-closed', async () => {
-    if (trayOnClose) { return }
-
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
     handleQuit()
   })
@@ -1782,7 +1774,7 @@ function runApp() {
     app.on('will-quit', e => {
       // Let app quit when the cleanup is finished
 
-      if (resourcesCleanUpDone || trayOnClose) { return }
+      if (resourcesCleanUpDone) { return }
 
       e.preventDefault()
       cleanUpResources().finally(() => {
@@ -1847,6 +1839,7 @@ function runApp() {
     event.preventDefault()
 
     if (mainWindow && mainWindow.webContents) {
+      manageTray(mainWindow, false)
       mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
     } else {
       startupUrl = baseUrl(url)
