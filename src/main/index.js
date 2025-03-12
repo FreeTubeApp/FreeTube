@@ -280,7 +280,7 @@ function runApp() {
             })
           } else {
             // Just focus the main window (instead of starting a new instance)
-            manageTray(mainWindow, false)
+            manageTray(mainWindow, true)
             if (mainWindow.isMinimized()) mainWindow.restore()
             mainWindow.focus()
 
@@ -1839,7 +1839,7 @@ function runApp() {
     event.preventDefault()
 
     if (mainWindow && mainWindow.webContents) {
-      manageTray(mainWindow, false)
+      manageTray(mainWindow, true)
       mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
     } else {
       startupUrl = baseUrl(url)
