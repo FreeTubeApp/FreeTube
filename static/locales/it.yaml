@@ -621,6 +621,7 @@ Settings:
       o frase
     Hide Channel Home: Nascondi la scheda "Pagina iniziale" del canale
     Show Added Items: Mostra elementi aggiunti
+    Hide Channel Courses: Nascondi la scheda "Corsi" del canale
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -804,6 +805,10 @@ Channel:
   Home:
     Home: Pagina iniziale
     View Playlist: Visualizza la playlist
+  Courses:
+    This channel does not currently have any courses: Questo canale al momento non
+      ha corsi
+    Courses: Corsi
 Video:
   Mark As Watched: 'Contrassegna come guardato'
   Remove From History: 'Rimuovi dalla Cronologia'
