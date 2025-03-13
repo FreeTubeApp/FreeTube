@@ -124,7 +124,6 @@
       <watch-video-info
         v-if="!isLoading"
         :id="videoId"
-        :is-unlisted="isUnlisted"
         :title="videoTitle"
         :channel-id="channelId"
         :channel-name="channelName"
@@ -148,12 +147,15 @@
         :length-seconds="videoLengthSeconds"
         :video-thumbnail="thumbnail"
         :in-user-playlist="!!selectedUserPlaylist"
+        :is-unlisted="isUnlisted"
+        :can-save-watched-progress="canSaveWatchProgress"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @change-format="handleFormatChange"
         @pause-player="pausePlayer"
         @set-info-area-sticky="infoAreaSticky = $event"
         @scroll-to-info-area="$refs.infoArea.scrollIntoView()"
+        @save-watched-progress="handleWatchProgressManualSave"
       />
       <watch-video-chapters
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"
