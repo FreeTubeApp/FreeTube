@@ -1,7 +1,8 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
   powerSaveBlocker, screen, session, shell,
-  nativeTheme, net, protocol, clipboard
+  nativeTheme, net, protocol, clipboard,
+  Tray
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -231,6 +232,9 @@ function runApp() {
 
   let mainWindow
   let startupUrl
+  let tray = null
+  let trayOnMinimize
+  let trayWindows = []
 
   const userDataPath = app.getPath('userData')
 
@@ -276,6 +280,7 @@ function runApp() {
             })
           } else {
             // Just focus the main window (instead of starting a new instance)
+            manageTray(mainWindow, true)
             if (mainWindow.isMinimized()) mainWindow.restore()
             mainWindow.focus()
 
@@ -392,6 +397,10 @@ function runApp() {
             break
           case 'proxyPort':
             proxyPort = doc.value
+            break
+          case 'hideToTrayOnMinimize':
+            trayOnMinimize = doc.value
+            if (process.platform === 'linux' && trayOnMinimize) { createBasicTray() }
             break
         }
       })
@@ -597,6 +606,112 @@ function runApp() {
     }
   })
 
+  function manageTray(window, removeWindow = false) {
+    function click(window, close = false) {
+      if (!close) {
+        window.show()
+      } else if (trayWindows.length) {
+        window.destroy()
+      }
+
+      trayWindows.splice(trayWindows.findIndex(item => item.id === window.id), 1)
+
+      if (trayWindows.length) {
+        createContextMenu()
+      } else {
+        destroyTray()
+      }
+    }
+
+    function createContextMenu() {
+      const menuItems = []
+      trayWindows.forEach(window => {
+        menuItems.push({
+          label: window.title,
+          submenu: [
+            {
+              label: 'Show',
+              click: () => click(window)
+            },
+            {
+              label: 'Close',
+              click: () => click(window, true)
+            }
+          ]
+        })
+      })
+
+      menuItems.push(
+        {
+          type: 'separator'
+        },
+        {
+          label: 'Quit',
+          click: handleQuit
+        }
+      )
+
+      const menu = Menu.buildFromTemplate(menuItems)
+      tray.setContextMenu(menu)
+    }
+
+    if (tray) {
+      if (!removeWindow) {
+        trayWindows.push(window)
+        createContextMenu()
+      } else if (trayWindows.find(item => item.id === window.id)) {
+        click(window)
+      }
+
+      return
+    }
+
+    // We never reach past here if we are on linux
+    createBasicTray()
+
+    trayWindows = [window]
+    createContextMenu()
+    tray.on('click', (event) => {
+      if (trayWindows.length === 1) { click(trayWindows[0]) }
+    })
+  }
+
+  function createBasicTray() {
+    const icon = process.env.NODE_ENV === 'development'
+      ? path.join(__dirname, '..', '..', '_icons', 'iconColor.png')
+      : path.join(path.dirname(__dirname), '_icons', 'iconColor.png')
+
+    tray = new Tray(icon)
+
+    tray.setIgnoreDoubleClickEvents(true)
+    tray.setToolTip('FreeTube')
+  }
+
+  function destroyTray() {
+    if (!tray) return
+
+    if (process.platform !== 'linux') {
+      tray.destroy()
+      tray = null
+    } else {
+      const quitItem = [{
+        label: 'Quit',
+        click: handleQuit
+      }]
+      const menu = Menu.buildFromTemplate(quitItem)
+      tray.setContextMenu(menu)
+    }
+  }
+
+  function showHiddenWindows() {
+    trayWindows.forEach(window => {
+      window.show()
+    })
+
+    destroyTray()
+    trayWindows = []
+  }
+
   /**
    * @param {string} extension
    */
@@ -752,6 +867,18 @@ function runApp() {
     })
 
     // endregion Ensure child windows use same options since electron 14
+
+    newWindow.on('minimize', (event) => {
+      if (trayOnMinimize) {
+        event.preventDefault()
+        newWindow.hide()
+        manageTray(newWindow)
+      }
+    })
+
+    if (tray) {
+      destroyTray()
+    }
 
     if (replaceMainWindow) {
       mainWindow = newWindow
@@ -1254,6 +1381,14 @@ function runApp() {
             case 'hidePlaylists':
               await setMenu()
               break
+            case 'hideToTrayOnMinimize':
+              trayOnMinimize = data.value
+              if (!trayOnMinimize) {
+                showHiddenWindows()
+              } else if (process.platform === 'linux') {
+                createBasicTray()
+              }
+              break
 
             default:
               // Do nothing for unmatched settings
@@ -1653,14 +1788,9 @@ function runApp() {
 
   let resourcesCleanUpDone = false
 
-  app.on('window-all-closed', () => {
+  app.on('window-all-closed', async () => {
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
-    cleanUpResources().finally(() => {
-      mainWindow = null
-      if (process.platform !== 'darwin') {
-        app.quit()
-      }
-    })
+    handleQuit()
   })
 
   if (process.platform === 'darwin') {
@@ -1680,6 +1810,19 @@ function runApp() {
 
         app.quit()
       })
+    })
+  }
+
+  app.on('before-quit', () => {
+    if (tray) { tray.destroy() }
+  })
+
+  function handleQuit() {
+    cleanUpResources().finally(() => {
+      mainWindow.destroy()
+      if (process.platform !== 'darwin') {
+        app.quit()
+      }
     })
   }
 
@@ -1723,6 +1866,7 @@ function runApp() {
     event.preventDefault()
 
     if (mainWindow && mainWindow.webContents) {
+      manageTray(mainWindow, true)
       mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
     } else {
       startupUrl = baseUrl(url)
