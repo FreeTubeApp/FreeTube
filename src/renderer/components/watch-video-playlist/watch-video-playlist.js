@@ -142,6 +142,9 @@ export default defineComponent({
     sortOrder: function () {
       return this.isUserPlaylist ? this.userPlaylistSortOrder : SORT_BY_VALUES.Custom
     },
+    hideRecommendedVideos: function () {
+      return this.$store.getters.getHideRecommendedVideos
+    },
   },
   watch: {
     userPlaylistsReady: function() {

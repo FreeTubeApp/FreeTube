@@ -5,6 +5,7 @@
     />
     <div
       v-else
+      class="playlistArea"
     >
       <h3
         class="playlistTitle"
@@ -110,6 +111,10 @@
         v-if="!isLoading"
         ref="playlistItems"
         class="playlistItems"
+        :class=" {
+          playlistItemsVideos: !hideRecommendedVideos,
+          playlistItemsNoVideos : hideRecommendedVideos
+        } "
       >
         <ft-list-video-numbered
           v-for="(item, index) in playlistItems"

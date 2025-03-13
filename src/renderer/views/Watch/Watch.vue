@@ -206,7 +206,10 @@
         :video-id="videoId"
         :playlist-item-id="playlistItemId"
         class="watchVideoSideBar watchVideoPlaylist"
-        :class="{ theatrePlaylist: useTheatreMode }"
+        :class="{
+          theatrePlaylist: useTheatreMode,
+          watchVideoPlaylistNoCard: hideRecommendedVideos
+        }"
         @pause-player="pausePlayer"
       />
       <watch-video-recommendations
