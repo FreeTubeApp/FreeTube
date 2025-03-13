@@ -16,6 +16,12 @@
           :default-value="showFamilyFriendlyOnly"
           @change="updateShowFamilyFriendlyOnly"
         />
+        <FtToggleSwitch
+          :label="$t('Settings.Parental Control Settings.Hide Video & Channel Info')"
+          compact
+          :default-value="hideVideoChannelInfo"
+          @change="updateHideVideoChannelInfo"
+        />
       </div>
       <div class="switchColumn">
         <FtToggleSwitch
@@ -23,6 +29,12 @@
           compact
           :default-value="hideSearchBar"
           @change="updateHideSearchBar"
+        />
+        <FtToggleSwitch
+          :label="$t('Settings.Parental Control Settings.Hide Create New Profile Button')"
+          compact
+          :default-value="hideCreateNewProfileButton"
+          @change="updateHideCreateNewProfileButton"
         />
       </div>
     </div>
@@ -49,6 +61,14 @@ const showFamilyFriendlyOnly = computed(() => {
   return store.getters.getShowFamilyFriendlyOnly
 })
 
+const hideCreateNewProfileButton = computed(() => {
+  return store.getters.getHideCreateNewProfileButton
+})
+
+const hideVideoChannelInfo = computed(() => {
+  return store.getters.getHideVideoChannelInfo
+})
+
 /**
  * @param {boolean} value
  */
@@ -68,5 +88,19 @@ function updateHideUnsubscribeButton(value) {
  */
 function updateShowFamilyFriendlyOnly(value) {
   store.dispatch('updateShowFamilyFriendlyOnly', value)
+}
+
+/**
+ * @param {boolean} value
+ */
+function updateHideCreateNewProfileButton(value) {
+  store.dispatch('updateHideCreateNewProfileButton', value)
+}
+
+/**
+ * @param {boolean} value
+ */
+function updateHideVideoChannelInfo(value) {
+  store.dispatch('updateHideVideoChannelInfo', value)
 }
 </script>
