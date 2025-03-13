@@ -9,29 +9,6 @@
       :class="applyHiddenLabels"
     >
       <router-link
-        class="navOption topNavOption mobileShow "
-        role="button"
-        to="/subscriptions"
-        :title="$t('Subscriptions.Subscriptions')"
-      >
-        <div
-          class="thumbnailContainer"
-        >
-          <FontAwesomeIcon
-            :icon="['fas', 'rss']"
-            class="navIcon"
-            :class="applyNavIconExpand"
-            fixed-width
-          />
-        </div>
-        <p
-          v-if="!hideText"
-          class="navLabel"
-        >
-          {{ $t("Subscriptions.Subscriptions") }}
-        </p>
-      </router-link>
-      <router-link
         class="navOption mobileHidden"
         role="button"
         to="/subscribedchannels"
@@ -195,6 +172,27 @@
           class="navLabel"
         >
           {{ $t("About.About") }}
+        </p>
+      </router-link>
+      <router-link
+        class="navOption topNavOption mobileShow"
+        role="button"
+        to="/subscriptions"
+        :title="$t('Subscriptions.Subscriptions')"
+      >
+        <div class="thumbnailContainer">
+          <FontAwesomeIcon
+            :icon="['fas', 'rss']"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
+          {{ $t("Subscriptions.Subscriptions") }}
         </p>
       </router-link>
       <hr>
