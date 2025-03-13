@@ -571,17 +571,17 @@ Settings:
     Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf ve
       Noktalama İşaretleri Kullanmadan Görüntüle
     Hide Featured Channels: Öne Çıkan Kanalları Gizle
-    Hide Channel Playlists: Kanal "Oynatma Listelerini" Gizle Sekmesi
-    Hide Channel Community: Kanal "Topluluğunu" Gizle Sekmesi
-    Hide Channel Shorts: Kanal "Kısa Videolarını" Gizle Sekmesi
+    Hide Channel Playlists: Kanal "Oynatma Listelerini" Sekmesini Gizle
+    Hide Channel Community: Kanal "Topluluk" Sekmesini Gizle
+    Hide Channel Shorts: Kanal "Kısa Videolar" Sekmesini Gizle
     Sections:
       Side Bar: Kenar Çubuğu
       Channel Page: Kanal Sayfası
       Watch Page: İzleme Sayfası
       General: Genel
       Subscriptions Page: Abonelikler Sayfası
-    Hide Channel Releases: Kanal "Yayınlarını" Gizle Sekmesi
-    Hide Channel Podcasts: Kanal "Podcast'lerini" Gizle Sekmesi
+    Hide Channel Releases: Kanal "Yayınlar" Sekmesini Gizle
+    Hide Channel Podcasts: Kanal "Podcastler" Sekmesini Gizle
     Hide Subscriptions Videos: Abonelik Videolarını Gizle
     Hide Subscriptions Shorts: Abonelik Kısa Videolarını Gizle
     Hide Subscriptions Live: Abonelik Canlı Yayınlarını Gizle
@@ -597,8 +597,9 @@ Settings:
       Gizle
     Hide Videos and Playlists Containing Text Placeholder: Sözcük, Sözcük Parçası
       veya İfade
-    Hide Channel Home: Kanal "Ana Sayfasını" Gizle Sekmesi
+    Hide Channel Home: Kanal "Ana Sayfa" Sekmesini Gizle
     Show Added Items: Eklenen Öğeleri Göster
+    Hide Channel Courses: Kanal "Kurslar" Sekmesini Gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -826,6 +827,10 @@ Channel:
   Home:
     Home: Ana Sayfa
     View Playlist: Oynatma Listesini Gözat
+  Courses:
+    Courses: Kurslar
+    This channel does not currently have any courses: Bu kanalda şu anda herhangi
+      bir kurs bulunmamaktadır
 Video:
   Mark As Watched: 'İzlendi Olarak İşaretle'
   Remove From History: 'Geçmişten Kaldır'
