@@ -400,6 +400,7 @@ function runApp() {
             break
           case 'hideToTrayOnMinimize':
             trayOnMinimize = doc.value
+            if (process.platform === 'linux' && trayOnMinimize) { createBasicTray() }
             break
         }
       })
@@ -606,16 +607,19 @@ function runApp() {
   })
 
   function manageTray(window, removeWindow = false) {
-    function click(window) {
-      window.show()
+    function click(window, close = false) {
+      if (!close) {
+        window.show()
+      } else if (trayWindows.length) {
+        window.destroy()
+      }
 
       trayWindows.splice(trayWindows.findIndex(item => item.id === window.id), 1)
 
       if (trayWindows.length) {
         createContextMenu()
       } else {
-        tray.destroy()
-        tray = null
+        destroyTray()
       }
     }
 
@@ -631,7 +635,7 @@ function runApp() {
             },
             {
               label: 'Close',
-              click: () => click(window)
+              click: () => click(window, true)
             }
           ]
         })
@@ -662,20 +666,41 @@ function runApp() {
       return
     }
 
+    // We never reach past here if we are on linux
+    createBasicTray()
+
+    trayWindows = [window]
+    createContextMenu()
+    tray.on('click', (event) => {
+      if (trayWindows.length === 1) { click(trayWindows[0]) }
+    })
+  }
+
+  function createBasicTray() {
     const icon = process.env.NODE_ENV === 'development'
       ? path.join(__dirname, '..', '..', '_icons', 'iconColor.png')
       : path.join(path.dirname(__dirname), '_icons', 'iconColor.png')
 
     tray = new Tray(icon)
-    trayWindows = [window]
-    createContextMenu()
 
     tray.setIgnoreDoubleClickEvents(true)
     tray.setToolTip('FreeTube')
+  }
 
-    tray.on('click', (event) => {
-      if (trayWindows.length === 1) { click(trayWindows[0]) }
-    })
+  function destroyTray() {
+    if (!tray) return
+
+    if (process.platform !== 'linux') {
+      tray.destroy()
+      tray = null
+    } else {
+      const quitItem = [{
+        label: 'Quit',
+        click: handleQuit
+      }]
+      const menu = Menu.buildFromTemplate(quitItem)
+      tray.setContextMenu(menu)
+    }
   }
 
   function showHiddenWindows() {
@@ -683,8 +708,7 @@ function runApp() {
       window.show()
     })
 
-    tray.destroy()
-    tray = null
+    destroyTray()
     trayWindows = []
   }
 
@@ -853,8 +877,7 @@ function runApp() {
     })
 
     if (tray) {
-      tray.destroy()
-      tray = null
+      destroyTray()
     }
 
     if (replaceMainWindow) {
@@ -1360,7 +1383,11 @@ function runApp() {
               break
             case 'hideToTrayOnMinimize':
               trayOnMinimize = data.value
-              if (!trayOnMinimize) { showHiddenWindows() }
+              if (!trayOnMinimize) {
+                showHiddenWindows()
+              } else if (process.platform === 'linux') {
+                createBasicTray()
+              }
               break
 
             default:
