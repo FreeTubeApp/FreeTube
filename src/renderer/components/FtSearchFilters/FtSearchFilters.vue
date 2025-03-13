@@ -56,6 +56,14 @@
         text-color="var(--text-with-main-color)"
         @click="hideSearchFilters"
       />
+
+      <FtButton
+        :label="$t('Search')"
+        background-color="var(--primary-color)"
+        text-color="var(--text-with-main-color)"
+        class="searchButton"
+        @click="searchWithFilters"
+      />
     </div>
   </FtPrompt>
 </template>
@@ -63,7 +71,7 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-
+import { openInternalPath } from '../../helpers/utils'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtRadioButton from '../FtRadioButton/FtRadioButton.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
@@ -71,8 +79,17 @@ import FtButton from '../ft-button/ft-button.vue'
 import FtCheckboxList from '../FtCheckboxList/FtCheckboxList.vue'
 
 import store from '../../store/index'
+import { useRouter } from 'vue-router'
 
 const { t } = useI18n()
+
+// Accept the searchQuery prop
+const props = defineProps({
+  searchQuery: {
+    type: String,
+    default: ''
+  }
+})
 
 const SORT_BY_VALUES = [
   'relevance',
@@ -248,7 +265,42 @@ watch(searchFilterValueChanged, (value) => {
 function hideSearchFilters() {
   store.dispatch('hideSearchFilters')
 }
+function searchWithFilters(event) {
+  const doCreateNewWindow = event && event.shiftKey
 
+  store.dispatch('hideSearchFilters')
+
+  if (!props.searchQuery || props.searchQuery.trim() === '') {
+    return
+  }
+
+  const searchPath = `/search/${encodeURIComponent(props.searchQuery)}`
+  const query = {
+    sortBy: sortByValue.value,
+    time: timeValue.value,
+    type: typeValue.value,
+    duration: durationValue.value,
+    features: featuresValue.value
+  }
+
+  if (doCreateNewWindow && process.env.IS_ELECTRON) {
+    try {
+      const { ipcRenderer } = require('electron')
+      ipcRenderer.send('createNewWindow', {
+        path: searchPath,
+        query: query
+      })
+    } catch (error) {
+      console.error('Error creating new window:', error)
+    }
+  } else {
+    openInternalPath({
+      path: searchPath,
+      query: query,
+      searchQueryText: props.searchQuery
+    })
+  }
+}
 /**
  * @param {'all' | 'video' | 'channel' | 'playlist' | 'movie'} type
  */
