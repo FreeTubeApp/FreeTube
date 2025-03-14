@@ -72,6 +72,9 @@
           <span v-if="!hideViews && !isUserPlaylist">
             - {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
           </span>
+          <span v-if="durationFormatted !== ''">
+            - {{ $t('User Playlists.TotalTimePlaylist', { duration: durationFormatted }) }}
+          </span>
           <span>- </span>
           <span v-if="infoSource !== 'local'">
             {{ $t("Playlist.Last Updated On") }}
