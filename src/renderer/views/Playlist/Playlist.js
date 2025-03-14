@@ -243,6 +243,12 @@ export default defineComponent({
     sortBySelectValues() {
       return this.sortByValues
     },
+    totalPlaylistDuration() {
+      const totalSeconds = this.playlistItems.reduce((acc, video) => {
+        return acc + (video.lengthSeconds || 0)
+      }, 0)
+      return totalSeconds
+    },
   },
   watch: {
     $route() {
