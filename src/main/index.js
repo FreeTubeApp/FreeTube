@@ -2044,3 +2044,5 @@ function runApp() {
     Menu.setApplicationMenu(menu)
   }
 }
+
+console.error('hello')

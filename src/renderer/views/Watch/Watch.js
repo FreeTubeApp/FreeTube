@@ -141,6 +141,7 @@ export default defineComponent({
       /** @type {Date|null} */
       streamingDataExpiryDate: null,
       currentPlaybackRate: null,
+      playerFocussed: true
     }
   },
   computed: {
@@ -313,6 +314,17 @@ export default defineComponent({
           this.getVideoInformationInvidious(this.videoId)
           break
       }
+
+      // When the route changes (new video), resetting playerFocussed
+      this.playerFocussed = true
+
+      // Re-initializing event listeners
+      document.removeEventListener('click', this.handleClick)
+      document.removeEventListener('keydown', this.handleKeydown, true)
+
+      // Adding event listeners again
+      document.addEventListener('click', this.handleClick)
+      document.addEventListener('keydown', this.handleKeydown, true)
     },
     userPlaylistsReady() {
       this.onMountedDependOnLocalStateLoading()
@@ -330,6 +342,30 @@ export default defineComponent({
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()
+
+    document.addEventListener('click', (event) => {
+      // Getting the video container
+      const videoContainer = this.$el.querySelector('.shaka-scrim-container')
+
+      // Checking if click is inside the video container element
+      this.playerFocussed = (videoContainer && videoContainer.contains(event.target))
+    })
+
+    document.addEventListener('keydown', (event) => {
+      // Only handling arrow keys when player is not focused
+      if (!this.playerFocussed) {
+        if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+          window.scrollBy(0, event.key === 'ArrowUp' ? -20 : 20)
+          event.preventDefault()
+          event.stopPropagation()
+        }
+      }
+    }, true)
+  },
+
+  beforeDestroy() {
+    document.removeEventListener('click', this.handleClickEvent)
+    document.removeEventListener('keydown', this.handleKeyEvent, true)
   },
   methods: {
     onMountedDependOnLocalStateLoading() {
