@@ -363,10 +363,6 @@ export default defineComponent({
     }, true)
   },
 
-  beforeDestroy() {
-    document.removeEventListener('click', this.handleClickEvent)
-    document.removeEventListener('keydown', this.handleKeyEvent, true)
-  },
   methods: {
     onMountedDependOnLocalStateLoading() {
       // Prevent running twice
