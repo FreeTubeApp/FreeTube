@@ -309,6 +309,12 @@ Settings:
       Gruvbox Light: جعبه تیره روشن
       Nordic: شمال اروپا
       Catppuccin Frappe: تم رنگ کت پوچین فراپه
+      Everforest Light Medium: جنگل ابدی روشن متوسط
+      Everforest Light Hard: جنگل ابدی روشن سخت
+      Everforest Dark Hard: جنگل ابدی تاریک سخت
+      Everforest Dark Medium: جنگل ابدی تاریک متوسط
+      Everforest Dark Low: جنگل ابدی تاریک کم
+      Everforest Light Low: جنگل ابدی روشن کم
     Main Color Theme:
       Main Color Theme: 'رنگ تم اصلی'
       Red: 'قرمز'
@@ -380,6 +386,20 @@ Settings:
       Catppuccin Frappe Sapphire: کتپوچین فراپه یاقوت کبود
       Catppuccin Frappe Blue: کتپوچین فراپه آبی
       Catppuccin Frappe Red: کتپوچین فراپه قرمز
+      Everforest Light Green: جنگل ابدی سبز روشن
+      Everforest Light Aqua: جنگل ابدی آسمانی روشن
+      Everforest Light Blue: جنگل ابدی آبی روشن
+      Everforest Light Purple: جنگل ابدی بنفش روشن
+      Everforest Dark Red: جنگل ابدی قرمز تیره
+      Everforest Dark Orange: جنگل ابدی نارنجی تیره
+      Everforest Dark Yellow: جنگل ابدی زرد تیره
+      Everforest Dark Green: جنگل ابدی سبز تیره
+      Everforest Dark Aqua: جنگل ابدی آسمانی تیره
+      Everforest Dark Blue: جنگل ابدی آبی تیره
+      Everforest Dark Purple: جنگل ابدی ینفش تیره
+      Everforest Light Red: جنگل ابدی قرمز روشن
+      Everforest Light Orange: جنگل ابدی نارنجی روشن
+      Everforest Light Yellow: جنگل ابدی زرد روشن
     Secondary Color Theme: 'رنگ دوم تم'
         #* Main Color Theme
     Hide Side Bar Labels: مخفی کردن عنوان های ستون فرعی
@@ -388,9 +408,9 @@ Settings:
     Player Settings: 'پخش کننده'
     Play Next Video: 'پخش اتوماتیک ویدیو پیشنهادی'
     Turn on Subtitles by Default: 'فعال کردن زیرنویس به عنوان پیشفرض'
-    Autoplay Videos: 'پخش خودکار ویدیو ها'
+    Autoplay Videos: 'شروع خودکار ویدیوها'
     Proxy Videos Through Invidious: 'پروکسی ویدیو ها از طریق Invidious'
-    Autoplay Playlists: 'پخش خودکار فهرست  پخش'
+    Autoplay Playlists: 'پخش خودکار فهرست پخش'
     Enable Theatre Mode by Default: 'فعال کردن حالت تئاتر به عنوان پیشفرض'
     Scroll Volume Over Video Player: 'کنترل صدا با حرکت اسکرول موس روی پخش کننده ویدیو'
     Display Play Button In Video Player: 'نمایش دکمه پخش داخل پخش کننده ویدیو'
@@ -428,9 +448,8 @@ Settings:
       File Name Label: الگوی نام فایل
       Quality Label: کیفیت اسکرین شات
       File Name Tooltip: می توانید از متغیرهای زیر استفاده کنید. %Y سال 4 رقم. رقم
-        %M ماه 2. %D رقم روز دوم. %H ساعت 2 رقمی. %N دقیقه 2 رقم. %S 2 رقم دوم. %T
-        میلی ثانیه 3 رقمی. %s ویدیو دوم. %t ویدیو میلی ثانیه 3 رقمی. %i شناسه ویدیو.
-        همچنین می توانید از '\\' یا '/' برای ایجاد زیرپوشه ها استفاده کنید.
+        %M ماه 2. %D رقم روز 2. %H ساعت 2 رقمی. %N دقیقه 2 رقم. %S 2 رقم دوم. %T میلی
+        ثانیه 3 رقمی. %s ویدیو دوم. %t ویدیو میلی ثانیه 3 رقمی. %i شناسه ویدیو.
       Enable: اسکرین شات فعال باشد
       Ask Path: پرسش برای محل ذخیره
       Folder Label: پوشه اسکرین شات
@@ -455,7 +474,7 @@ Settings:
     Ignore Default Arguments: نادیده گرفتن برهان های پیش فرض
   Privacy Settings:
     Privacy Settings: 'امنیتی'
-    Remember History: 'حفظ تاریخچه'
+    Remember History: 'حفظ تاریخچه تماشا'
     Save Watched Progress: 'ذخیره ویدیو های دیده شده'
     Clear Search Cache: 'پاک کردن کش جستجو'
     Are you sure you want to clear out your search cache?: 'آیا مطمئن هستید که میخواهید
@@ -541,6 +560,7 @@ Settings:
       و پردازش نشدند. در حالی که آن شناسه ها در حال به روز رسانی هستند، ویژگی مسدود
       می شود
     Show Added Items: نمایش موارد اضافه شده
+    Hide Channel Courses: پنهان کردن زبانه "دوره‌ها" کانال
   Data Settings:
     Data Settings: 'داده ها'
     Select Export Type: 'انتخاب روش پشتیبان گیری'
@@ -729,6 +749,10 @@ Channel:
   Home:
     View Playlist: نمایش لیست‌پخش
     Home: خانه
+  Courses:
+    Courses: دوره ها
+    This channel does not currently have any courses: این کانال در حال حاضر هیچ دوره‌ای
+      ندارد
 Video:
   External Player:
     video: ویدیو
@@ -1111,7 +1135,7 @@ Profile:
   Profile Name: نام نمایه
   Open Profile Dropdown: بازکردن نمایه کشویی
   Close Profile Dropdown: بستن نمایه کشویی
-Screenshot Success: اسکرین شات به عنوان «{filePath}» ذخیره شد
+Screenshot Success: عکس‌صفحه ذخیره شد
 Ok: تایید
 Downloading has completed: دانلود '{videoTitle}' به پایان رسید
 Loop is now enabled: حلقه اکنون فعال است
