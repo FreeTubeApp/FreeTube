@@ -573,6 +573,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Orð, orðhluti eða setning
     Hide Channel Home: Fela "Heim"-flipa rása
     Show Added Items: Sýna atriði sem bætt hefur verið við
+    Hide Channel Courses: Fela flipann með rásinni "Kennsluefni"
   Data Settings:
     Data Settings: 'Gögn'
     Select Export Type: 'Veldu tegund útflutnings'
@@ -846,6 +847,10 @@ Channel:
   Home:
     Home: Heim
     View Playlist: Skoða spilunarlista
+  Courses:
+    Courses: Kennsluefni
+    This channel does not currently have any courses: Þessi rás er ekki með neitt
+      kennsluefni
 Video:
   Mark As Watched: 'Merkja sem búið að horfa á'
   Remove From History: 'Fjarlægja úr áhorfsferli'
