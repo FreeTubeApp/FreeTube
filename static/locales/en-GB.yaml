@@ -399,6 +399,19 @@ Settings:
       Catppuccin Frappe Teal: Catppuccin Frappe Teal
       Catppuccin Frappe Green: Catppuccin Frappe Green
       Everforest Dark Red: Everforest Dark Red
+      Everforest Dark Yellow: Everforest Dark Yellow
+      Everforest Light Orange: Everforest Light Orange
+      Everforest Light Blue: Everforest Light Blue
+      Everforest Light Purple: Everforest Light Purple
+      Everforest Light Green: Everforest Light Green
+      Everforest Dark Aqua: Everforest Dark Aqua
+      Everforest Dark Blue: Everforest Dark Blue
+      Everforest Dark Purple: Everforest Dark Purple
+      Everforest Light Yellow: Everforest Light Yellow
+      Everforest Light Aqua: Everforest Light Aqua
+      Everforest Dark Green: Everforest Dark Green
+      Everforest Dark Orange: Everforest Dark Orange
+      Everforest Light Red: Everforest Light Red
     Secondary Color Theme: 'Secondary colour theme'
         #* Main Color Theme
     UI Scale: UI Scale
@@ -614,6 +627,7 @@ Settings:
       text
     Hide Channel Home: Hide Channel "Home" Tab
     Show Added Items: Show Added Items
+    Hide Channel Courses: Hide Channel "Courses" Tab
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -829,6 +843,10 @@ Channel:
   Home:
     Home: Home
     View Playlist: View Playlist
+  Courses:
+    Courses: Courses
+    This channel does not currently have any courses: This channel does not currently
+      have any courses
 Video:
   Mark As Watched: 'Mark As Watched'
   Remove From History: 'Remove From History'
