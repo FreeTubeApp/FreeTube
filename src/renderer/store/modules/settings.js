@@ -234,7 +234,6 @@ const state = {
   region: 'US',
   rememberHistory: true,
   rememberSearchHistory: true,
-  saveWatchedProgress: true,
   // 'auto', 'semi-auto', 'never'
   watchedProgressSavingMode: 'auto',
   saveVideoHistoryWithLastViewedPlaylist: true,
