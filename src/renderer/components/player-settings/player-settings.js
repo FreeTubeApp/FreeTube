@@ -22,8 +22,7 @@ export default defineComponent({
     'ft-input': FtInput,
     'ft-tooltip': FtTooltip
   },
-  data:
-  function () {
+  data: function () {
     return {
       usingElectron: process.env.IS_ELECTRON,
       formatValues: [
@@ -64,9 +63,6 @@ export default defineComponent({
     }
   },
   computed: {
-    playNextVideo: function () {
-      return this.$store.getters.getPlayNextVideo
-    },
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
@@ -81,6 +77,10 @@ export default defineComponent({
 
     autoplayPlaylists: function () {
       return this.$store.getters.getAutoplayPlaylists
+    },
+
+    playNextVideo: function () {
+      return this.$store.getters.getPlayNextVideo
     },
 
     enableSubtitlesByDefault: function () {
@@ -261,8 +261,7 @@ export default defineComponent({
 
     hideComments: function () {
       return this.$store.getters.getHideComments
-    }
-
+    },
   },
   watch: {
     screenshotFolder: function() {
@@ -304,7 +303,7 @@ export default defineComponent({
     },
 
     chooseScreenshotFolder: async function() {
-    // only use with electron
+      // only use with electron
       if (process.env.IS_ELECTRON) {
         const { ipcRenderer } = require('electron')
         ipcRenderer.send(IpcChannels.CHOOSE_DEFAULT_FOLDER, DefaultFolderKind.SCREENSHOTS)

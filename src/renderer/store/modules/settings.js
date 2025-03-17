@@ -405,9 +405,11 @@ const sideEffectHandlers = {
 
 const settingsWithSideEffects = Object.keys(sideEffectHandlers)
 
-const customState = {}
+const customState = {
+}
 
-const customGetters = {}
+const customGetters = {
+}
 
 const customMutations = {}
 
