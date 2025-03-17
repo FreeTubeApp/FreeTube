@@ -40,6 +40,12 @@
           :tooltip="$t('Tooltips.Player Settings.Skip by Scrolling Over Video Player')"
           @change="updateVideoSkipMouseScroll"
         />
+        <ft-toggle-switch
+          :label="$t('Enable Loop by default')"
+          :compact="true"
+          :default-value="loopPlayback"
+          @change="updateLoopPlayback"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch

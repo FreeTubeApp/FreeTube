@@ -1141,6 +1141,7 @@ export default defineComponent({
       if ('mediaSession' in navigator) {
         navigator.mediaSession.playbackState = 'playing'
       }
+      video.value.loop = store.getters.getLoopPlayback
     }
 
     function handlePause() {
@@ -1152,6 +1153,15 @@ export default defineComponent({
     }
 
     function handleEnded() {
+      if (!store.getters.getLoopPlayback) {
+        stopPowerSaveBlocker()
+
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.playbackState = 'none'
+        }
+
+        emit('ended')
+      }
       stopPowerSaveBlocker()
 
       if ('mediaSession' in navigator) {
@@ -1583,6 +1593,11 @@ export default defineComponent({
 
         // for manual changes e.g. in quality selector
         player.removeEventListener('variantchanged', updateQualityStats)
+      }
+    })
+    watch(() => store.getters.getLoopPlayback, (newValue) => {
+      if (video.value) {
+        video.value.loop = newValue
       }
     })
 

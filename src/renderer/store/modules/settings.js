@@ -306,6 +306,7 @@ const state = {
   defaultInvidiousInstance: '',
   defaultVolume: 1,
   uiScale: 100,
+  loopPlayback: false
 }
 
 const sideEffectHandlers = {
@@ -404,11 +405,9 @@ const sideEffectHandlers = {
 
 const settingsWithSideEffects = Object.keys(sideEffectHandlers)
 
-const customState = {
-}
+const customState = {}
 
-const customGetters = {
-}
+const customGetters = {}
 
 const customMutations = {}
 
