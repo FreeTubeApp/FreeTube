@@ -245,7 +245,10 @@ export default defineComponent({
     },
     totalPlaylistDuration() {
       const totalSeconds = this.playlistItems.reduce((acc, video) => {
-        return acc + (video.lengthSeconds || 0)
+        if (typeof video.lengthSeconds !== 'number') {
+          return NaN
+        }
+        return acc + video.lengthSeconds
       }, 0)
       return totalSeconds
     },
