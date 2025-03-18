@@ -40,9 +40,11 @@ Global:
     Video Count: 1 video | {count} videoer
     Channel Count: 1 kanal | {count} kanaler
     Comment Count: 1 kommentar | {count} kommentarer
+    Like Count: 1 like | {count} likes
   Community: Fællesskab
   Live: Live
   Sort By: Sortér efter
+  Shorts: Shorts
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
   er nu tilgængelig!  Klik for flere detaljer'
 Download From Site: 'Hent Fra Netsted'
@@ -95,6 +97,10 @@ Search Filters:
     Live: Live
     HDR: HDR
     Features: Funktioner
+    Location: Placering
+    360 Video: 360 Video
+    VR180: VR180
+    Creative Commons: Creative Commons
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnenter'
@@ -111,6 +117,9 @@ Subscriptions:
     Opdatér abonnenter for at se dem her.
   Empty Posts: Dine abonnerede kanaler har i øjeblikket ingen opslag.
   Load More Posts: Indlæs Flere Opslag
+  Subscriptions Tabs: Abonnement-faner
+  All Subscription Tabs Hidden: Alle abonnement-faner er skjult. Gør nogle faner synlige
+    i "{subsection}" under "{settingsSection}" for at se indhold her.
 Trending:
   Trending: 'Trender'
   Music: Musik
@@ -123,8 +132,7 @@ Playlists: 'Playlister'
 User Playlists:
   Your Playlists: 'Dine Playlister'
   Search bar placeholder: Søg efter Playlister
-  Empty Search Message: Der er ingen videoer i denne playliste, der passer til din
-    søgning
+  Empty Search Message: Ingen videoer i denne playliste matcher din søgning
   This playlist currently has no videos.: Denne playliste har i øjeblikket ingen videoer.
   Create New Playlist: Opret Ny Playliste
   Add to Playlist: Føj til Playliste
@@ -142,6 +150,8 @@ User Playlists:
     LatestCreatedFirst: Oprettet For Nyligt
     LatestUpdatedFirst: Opdateret For Nyligt
     EarliestPlayedFirst: Tidligst Afspillet
+    NameDescending: Å-A
+    NameAscending: A-Å
   Are you sure you want to delete this playlist? This cannot be undone: Er du sikker
     på, at du vil slette denne playliste? Dette kan ikke fortrydes.
   SinglePlaylistView:
@@ -167,6 +177,10 @@ User Playlists:
       There were no videos to remove.: Der var ingen videoer at fjerne.
       Playlist {playlistName} has been deleted.: Playliste {playlistName} er blevet
         slettet.
+      This playlist has a video with a duration error: Denne playliste indeholder
+        mindst én video uden varighed. Den sorteres, som om dens varighed er nul.
+      Video has been removed. Click here to undo.: Videoen blev fjernet. Klik her
+        for at fortryde.
   AddVideoPrompt:
     Select a playlist to add your N videos to: Vælg en playliste, du vil føje din
       video til | Vælg en playliste, du vil føje dine {videoCount} videoer til
@@ -185,6 +199,7 @@ User Playlists:
       Videoer Bliver Tilføjet'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       Videoer Allerede Tilføjet'
+    Allow Adding Duplicate Video(s): Tillad tilføjelse af duplikatvideo(er)
   CreatePlaylistPrompt:
     Toast:
       There was an issue with creating the playlist.: Der opstod et problem med at
@@ -203,6 +218,18 @@ User Playlists:
   Add to Favorites: Føj til {playlistName}
   Remove from Playlist: Fjern fra Playliste
   Playlist Name: Playliste Navn
+  The playlist has been successfully exported: Playlisten blev eksporteret
+  Export Playlist: Eksportér denne playliste
+  Playlists with Matching Videos: Playlister med matchende videoer
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Er
+    du sikker på, at du vil fjerne 1 duplikatvideo fra denne playliste? Det kan ikke
+    fortrydes. | Er du sikker på, at du vil fjerne {playlistItemCount} duplikatvideoer
+    fra denne playliste? Det kan ikke fortrydes.
+  Remove Duplicate Videos: Fjern duplikatvideoer
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Er
+    du sikker på, at du vil fjerne 1 set video fra denne playliste? Det kan ikke fortrydes.
+    | Er du sikker på, at du vil fjerne {playlistItemCount} sete videoer fra denne
+    playliste? Det kan ikke fortrydes.
 History:
   # On History Page
   History: 'Historik'
@@ -214,7 +241,7 @@ Settings:
   # On Settings Page
   Settings: 'Indstillinger'
   General Settings:
-    General Settings: 'Generelle Indstillinger'
+    General Settings: 'Generel'
     Check for Updates: 'Søg efter Opdateringer'
     Check for Latest Blog Posts: 'Søg efter Seneste Blogindlæg'
     Fallback to Non-Preferred Backend on Failure: 'Tilbagefald til Ikke-Foretrukken
@@ -258,8 +285,9 @@ Settings:
     Auto Load Next Page:
       Label: Auto-indlæs Næste Side
       Tooltip: Indlæs flere sider og kommentarer automatisk.
+    Open Deep Links In New Window: Åbn URL'er sendt til FreeTube i et nyt vindue
   Theme Settings:
-    Theme Settings: 'Temaindstillinger'
+    Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Tilpas Topbjælke til Primær Farve'
     Base Theme:
       Base Theme: 'Grundtema'
@@ -271,6 +299,12 @@ Settings:
       Catppuccin Mocha: Catppuccin Mokka
       Pastel Pink: Pastel Lyserød
       Nordic: Nordisk
+      Gruvbox Dark: Gruvbox Mørk
+      Gruvbox Light: Gruvbox Lys
+      Catppuccin Frappe: Catppuccin Frappe
+      Hot Pink: Hot Pink
+      Solarized Dark: Solarized Mørk
+      Solarized Light: Solarized Lys
     Main Color Theme:
       Main Color Theme: 'Primær Farvetema'
       Red: 'Rød'
@@ -310,6 +344,52 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mokka Safir
       Catppuccin Mocha Blue: Catppuccin Mokka Blå
       Catppuccin Mocha Lavender: Catppuccin Mokka Lavendel
+      Catppuccin Frappe Maroon: Catppuccin Frappe Rødbrun
+      Catppuccin Frappe Sky: Catppuccin Frappe Himmel
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Safir
+      Catppuccin Frappe Blue: Catppuccin Frappe Blå
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavendel
+      Gruvbox Dark Green: Gruvbox Mørk Grøn
+      Gruvbox Dark Yellow: Gruvbox Mørk Gul
+      Gruvbox Light Red: Gruvbox Lys Rød
+      Solarized Green: Solarized Grøn
+      Solarized Magenta: Solarized Magenta
+      Catppuccin Frappe Mauve: Catppuccin Frappe Lilla
+      Catppuccin Frappe Red: Catppuccin Frappe Rød
+      Catppuccin Frappe Peach: Catppuccin Frappe Fersken
+      Catppuccin Frappe Yellow: Catppuccin Frappe Gul
+      Catppuccin Frappe Teal: Catppuccin Frappe Blågrøn
+      Gruvbox Dark Blue: Gruvbox Mørk Blå
+      Gruvbox Dark Purple: Gruvbox Mørk Lilla
+      Gruvbox Light Blue: Gruvbox Lys Blå
+      Solarized Red: Solarized Rød
+      Solarized Violet: Solarized Violet
+      Solarized Blue: Solarized Blå
+      Everforest Dark Orange: Everforest Mørk Orange
+      Everforest Dark Aqua: Everforest Mørk Aqua
+      Everforest Dark Blue: Everforest Mørk Blå
+      Everforest Dark Purple: Everforest Mørk Lilla
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Everforest Light Blue: Everforest Lys Blå
+      Gruvbox Dark Orange: Gruvbox Mørk Orange
+      Gruvbox Light Purple: Gruvbox Lys Lilla
+      Everforest Dark Red: Everforest Mørk Rød
+      Everforest Dark Yellow: Everforest Mørk Gul
+      Everforest Dark Green: Everforest Mørk Grøn
+      Everforest Light Orange: Everforest Lys Orange
+      Everforest Light Yellow: Everforest Lys Gul
+      Everforest Light Green: Everforest Lys Grøn
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosenvand
+      Everforest Light Aqua: Everforest Lys Aqua
+      Solarized Cyan: Solarized Cyan
+      Everforest Light Purple: Everforest Lys Lilla
+      Gruvbox Dark Aqua: Gruvbox Mørk Aqua
+      Gruvbox Light Orange: Gruvbox Lys Orange
+      Everforest Light Red: Everforest Lys Rød
+      Solarized Yellow: Solarized Gul
+      Solarized Orange: Solarized Orange
+      Catppuccin Frappe Green: Catppuccin Frappe Grøn
     Secondary Color Theme: 'Sekundær Farvetema'
         #* Main Color Theme
     UI Scale: Skalering af Brugerflade
@@ -318,12 +398,12 @@ Settings:
     Hide Side Bar Labels: Skjul Sidebarens Etiketter
     Hide FreeTube Header Logo: Skjul FreeTube Overskriftslogo
   Player Settings:
-    Player Settings: 'Afspilningsindstillinger'
-    Play Next Video: 'Afspil Næste Video'
-    Turn on Subtitles by Default: 'Slå Undertekster til som Standard'
-    Autoplay Videos: 'Autospil Videoer'
+    Player Settings: 'Afspiller'
+    Play Next Video: 'Auto-afspil anbefalede videoer'
+    Turn on Subtitles by Default: 'Aktivér undertekster som standard'
+    Autoplay Videos: 'Start videoer automatisk'
     Proxy Videos Through Invidious: 'Kør Videoer Gennem Invidious-Proxy'
-    Autoplay Playlists: 'Autospil Playlister'
+    Autoplay Playlists: 'Auto-afspil playlister'
     Enable Theatre Mode by Default: 'Aktivér Biograftilstand som Standard'
     Default Volume: 'Standard Lydstyrke'
     Default Playback Rate: 'Standard Afspilningshastighed'
@@ -358,7 +438,7 @@ Settings:
         3 tal. %s Video-sekund. %t Video-millisekund 3 tal. %i Video-ID.
       Ask Path: Spørg efter Mappe til at Gemme
       Folder Label: Mappe til Skærmbilleder
-    Next Video Interval: Næste Videointerval
+    Next Video Interval: Nedtællingstimer til auto-afspilning
     Max Video Playback Rate: Maks. Videoafspilningshastighed
     Display Play Button In Video Player: Vis Afspilningsknap i Videoafspiller
     Fast-Forward / Rewind Interval: Spol fremad / Spol tilbage Interval
@@ -366,9 +446,16 @@ Settings:
     Scroll Playback Rate Over Video Player: Scroll Afspilningshastighed i Videoafspiller
     Scroll Volume Over Video Player: Scroll Lydstyrke i Videoafspiller
     Skip by Scrolling Over Video Player: Spring Over ved at Scrolle Over Videoafspilleren
+    Default Viewing Mode:
+      Theater: Biograf
+      Default Viewing Mode: Standardvisningstilstand
+      Full Screen: Fuldskærm
+      Picture in Picture: Billede-i-billede
+      External Player: Ekstern afspiller ({externalPlayerName})
+    Enter Fullscreen on Display Rotate: Skift til fuldskærm ved skærmrotation
   Privacy Settings:
-    Privacy Settings: 'Privatlivsindstillinger'
-    Remember History: 'Husk Historik'
+    Privacy Settings: 'Privatliv'
+    Remember History: 'Husk visningshistorik'
     Save Watched Progress: 'Gem Set Fremskridt'
     Clear Search Cache: 'Ryd Søgecache'
     Are you sure you want to clear out your search cache?: 'Er du sikker på, at du
@@ -388,12 +475,19 @@ Settings:
     Save Watched Videos With Last Viewed Playlist: Gem Sete Videoer med Sidst Sete
       Playliste
     Remove All Playlists: Fjern Alle Playlister
+    Remember Search History: Husk søgehistorik
+    Are you sure you want to clear out your search history and cache?: Er du sikker
+      på, at du vil rydde din søgehistorik og cache?
+    Search history and cache have been cleared: Søgehistorik og cache blev ryddet
+    Clear Search History and Cache: Ryd søgehistorik og cache
   Subscription Settings:
-    Subscription Settings: 'Abonnementsindstillinger'
+    Subscription Settings: 'Abonnement'
     Hide Videos on Watch: 'Skjul Videoer på Se'
     Fetch Feeds from RSS: 'Hent Feeds fra RSS'
     Fetch Automatically: Hent Feed Automatisk
     Confirm Before Unsubscribing: Bekræft Før Afmelding
+    'Limit the number of videos displayed for each channel': Begræns antallet af videoer
+      vist for hver kanal
   Data Settings:
     Data Settings: 'Dataindstillinger'
     Select Export Type: 'Vælg Eksporttype'
@@ -462,7 +556,7 @@ Settings:
     Hide Channel Subscribers: Skjul Kanal-Abonnenter
     Hide Video Likes And Dislikes: Skjul Video-Likes og -Dislikes
     Hide Video Views: Skjul Videovisninger
-    Distraction Free Settings: Distraktionsfri Indstillinger
+    Distraction Free Settings: Distraktionsfri
     Hide Live Streams: Skjul Livestreams
     Hide Comments: Skjul Kommentarer
     Hide Sharing Actions: Skjul Delingshandlinger
@@ -480,6 +574,8 @@ Settings:
     Sections:
       General: Generelt
       Side Bar: Sidebjælke
+      Channel Page: Kanalside
+      Subscriptions Page: Abonnementsside
     Hide Channels Placeholder: Kanal-ID
     Hide Channels API Error: Fejl ved hentning af bruger med det angivne ID. Tjek
       venligst igen, om ID'et er korrekt.
@@ -522,10 +618,11 @@ Settings:
     Custom External Player Arguments: Brugerdefineret Ekstern Afspiller Argumenter
     External Player: Ekstern Afspiller
     Ignore Unsupported Action Warnings: Ignorér Advarsler om Ikke-understøttede Handlinger
-    External Player Settings: Indstillinger for Ekstern Afspiller
+    External Player Settings: Ekstern afspiller
     Players:
       None:
         Name: Ingen
+    Ignore Default Arguments: Ignorer standardargumenter
   Password Settings:
     Set Password: Indstil Adgangskode
     Password Settings: Adgangskode-indstillinger
@@ -913,6 +1010,7 @@ Default Invidious instance has been cleared: Standard Invidious-instans er bleve
 Are you sure you want to open this link?: Er du sikker på, at du vil åbne dette link?
 Search Bar:
   Clear Input: Ryd Input
+  Remove: Fjern
 Downloading failed: Der var et problem med at downloade "{videoTitle}"
 Unknown YouTube url type, cannot be opened in app: Ukendt YouTube URL-type, kan ikke
   åbnes i appen
@@ -941,5 +1039,13 @@ Search Listing:
   Label:
     Subtitles: Undertekster
     4K: 4K
+    3D: 3D
+    Closed Captions: Undertekster
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
 Feed:
   Refresh Feed: Opdater {subscriptionName}
+  Feed Last Updated: '{feedName}-feed opdateret sidst: {date}'
+Right-click or hold to see history: Højreklik eller hold nede for at se historik
+Search character limit: Søgningen overskrider tegngrænsen {searchCharacterLimit}
