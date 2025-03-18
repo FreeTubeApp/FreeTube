@@ -617,6 +617,7 @@ Settings:
       lub wyrażenie
     Hide Channel Home: Schowaj kartę kanału „Główna”
     Show Added Items: Pokaż dodane rzeczy
+    Hide Channel Courses: Ukryj kartę „Kursy” kanału
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -796,6 +797,10 @@ Channel:
   Home:
     Home: Główna
     View Playlist: Zobacz playlistę
+  Courses:
+    Courses: Kursy
+    This channel does not currently have any courses: Na tym kanale nie ma obecnie
+      żadnych kursów
 Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
