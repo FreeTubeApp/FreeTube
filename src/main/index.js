@@ -677,6 +677,8 @@ function runApp() {
   }
 
   function createBasicTray() {
+    if (tray) { return }
+
     const icon = process.env.NODE_ENV === 'development'
       ? path.join(__dirname, '..', '..', '_icons', 'iconColor.png')
       : path.join(path.dirname(__dirname), '_icons', 'iconColor.png')
