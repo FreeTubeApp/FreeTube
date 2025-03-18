@@ -41,7 +41,7 @@
           @change="updateVideoSkipMouseScroll"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Player Settings.Enable Loop by default')"
+          :label="$t('Settings.Player Settings.Enable Loop by Default')"
           :compact="true"
           :default-value="loopPlayback"
           @change="updateLoopPlayback"
