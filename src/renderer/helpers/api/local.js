@@ -348,6 +348,12 @@ export async function getLocalChannelId(url) {
         // handle redirects like https://www.youtube.com/@wanderbots, which resolves to https://www.youtube.com/Wanderbots, which we need to resolve again
         url = navigationEndpoint.payload.url
       } else {
+        const channelIdRegex = /\/channel\/(?<channelId>[^/]+)/
+        const channelIdMatch = navigationEndpoint.metadata.url?.match(channelIdRegex)
+        if (channelIdMatch) {
+          return channelIdMatch.groups.channelId
+        }
+
         return null
       }
     }
@@ -1711,8 +1717,7 @@ export async function getHashtagLocal(hashtag) {
 export async function getLocalCommunityPost(postId, channelId) {
   const innertube = await createInnertube()
   if (channelId == null) {
-    const resolved = await innertube.resolveURL('https://www.youtube.com/post/' + postId)
-    channelId = resolved.payload.browseId
+    channelId = await getLocalChannelId('https://www.youtube.com/post/' + postId)
   }
 
   const postPage = await innertube.getPost(postId, channelId)
