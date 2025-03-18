@@ -19,6 +19,12 @@
           @change="updateEnableSubtitlesByDefault"
         />
         <ft-toggle-switch
+          :label="$t('Settings.Player Settings.Enable Loop by default')"
+          :compact="true"
+          :default-value="loopPlayback"
+          @change="updateLoopPlayback"
+        />
+        <ft-toggle-switch
           :label="$t('Settings.Player Settings.Scroll Volume Over Video Player')"
           :compact="true"
           :disabled="videoSkipMouseScroll"
