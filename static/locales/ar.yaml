@@ -311,6 +311,12 @@ Settings:
       Catppuccin Frappe: كاتبوتشين فرابيه
       Gruvbox Light: صندوق مضيء
       Gruvbox Dark: صندوق عاتم
+      Everforest Dark Hard: إيفرفورست الداكن القوي
+      Everforest Dark Medium: إيفرفورست الداكن المتوسط
+      Everforest Dark Low: إيفرفورست الداكن المنخفض
+      Everforest Light Hard: إيفرفورست الفاتح القوي
+      Everforest Light Medium: إيفرفورست الفاتح المتوسط
+      Everforest Light Low: إيفرفورست الفاتح المنخفض
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -382,6 +388,20 @@ Settings:
       Catppuccin Frappe Blue: كاتبوتشينو فرابيه أزرق
       Gruvbox Dark Green: صندوق أخضر غامق
       Gruvbox Light Orange: صندوق برتقالي فاتح
+      Everforest Light Aqua: إيفرفورست المائي الفاتح
+      Everforest Dark Purple: إيفرفورست الأرجواني الداكن
+      Everforest Dark Red: إيفرفورست الأحمر الداكن
+      Everforest Dark Orange: إيفرفورست البرتقالي الداكن
+      Everforest Dark Green: إيفرفورست الأخضر الداكن
+      Everforest Dark Yellow: إيفرفورست الأصفر الداكن
+      Everforest Dark Aqua: إيفرفورست المائي الداكن
+      Everforest Dark Blue: إيفرفورست الأزرق الداكن
+      Everforest Light Red: إيفرفورست الأحمر الفاتح
+      Everforest Light Orange: إيفرفورست البرتقالي الفاتح
+      Everforest Light Yellow: إيفرفورست الأصفر الفاتح
+      Everforest Light Green: إيفرفورست الأخضر الفاتح
+      Everforest Light Blue: إيفرفورست الأزرق الفاتح
+      Everforest Light Purple: إيفرفورست الأرجواني الفاتح
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم
@@ -580,6 +600,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: كلمة أو جزء كلمة أو عبارة
     Hide Channel Home: إخفاء علامة التبويب "الصفحة الرئيسية" للقناة
     Show Added Items: إظهار العناصر المضافة
+    Hide Channel Courses: إخفاء علامة التبويب "دورات" القناة
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -802,6 +823,10 @@ Channel:
   Home:
     Home: الصفحة الرئيسية
     View Playlist: إظهار قائمة التشغيل
+  Courses:
+    Courses: الدورات
+    This channel does not currently have any courses: هذه القناة لا تحتوي حاليًا على
+      أي دورات
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
   Remove From History: 'إزالة من سجلّ المشاهدة'
