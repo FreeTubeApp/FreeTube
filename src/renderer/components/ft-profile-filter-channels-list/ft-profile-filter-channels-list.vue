@@ -18,7 +18,7 @@
         {{ selectedText }}
       </p>
       <ft-flex-box>
-        <ft-channel-bubble
+        <FtChannelBubble
           v-for="(channel, index) in channels"
           :key="index"
           :ref="`all-channels-${index}`"

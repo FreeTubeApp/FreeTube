@@ -73,7 +73,7 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
 import FtAutoLoadNextPageWrapper from '../ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import FtButton from '../ft-button/ft-button.vue'
-import FtChannelBubble from '../ft-channel-bubble/ft-channel-bubble.vue'
+import FtChannelBubble from '../FtChannelBubble/FtChannelBubble.vue'
 import FtElementList from '../FtElementList/FtElementList.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtLoader from '../ft-loader/ft-loader.vue'

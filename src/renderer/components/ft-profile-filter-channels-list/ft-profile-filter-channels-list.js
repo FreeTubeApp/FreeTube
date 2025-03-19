@@ -3,7 +3,7 @@ import { mapActions } from 'vuex'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
+import FtChannelBubble from '../../components/FtChannelBubble/FtChannelBubble.vue'
 import FtButton from '../../components/ft-button/ft-button.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import { deepCopy, showToast } from '../../helpers/utils'
@@ -15,7 +15,7 @@ export default defineComponent({
   components: {
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox,
-    'ft-channel-bubble': FtChannelBubble,
+    FtChannelBubble,
     'ft-button': FtButton,
     'ft-select': FtSelect
   },

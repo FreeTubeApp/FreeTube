@@ -2,7 +2,7 @@
   <router-link
     v-if="!showSelected"
     class="bubblePadding"
-    :aria-labelledby="sanitizedId"
+    :aria-labelledby="id"
     :to="`/channel/${channelId}`"
   >
     <img
@@ -18,7 +18,7 @@
       fixed-width
     />
     <div
-      :id="sanitizedId"
+      :id="id"
       class="channelName"
     >
       {{ channelName }}
@@ -29,7 +29,7 @@
     class="bubblePadding"
     role="button"
     tabindex="0"
-    :aria-labelledby="sanitizedId"
+    :aria-labelledby="id"
     @click="handleClick"
     @keydown.space.enter.prevent="handleClick($event)"
   >
@@ -48,7 +48,7 @@
       />
     </div>
     <div
-      :id="sanitizedId"
+      :id="id"
       class="channelName"
     >
       {{ channelName }}
@@ -56,5 +56,43 @@
   </div>
 </template>
 
-<script src="./ft-channel-bubble.js" />
-<style scoped src="./ft-channel-bubble.css" />
+<script setup>
+import { ref } from 'vue'
+import { useId } from '../../composables/use-id-polyfill'
+
+const id = useId()
+const props = defineProps({
+  channelId: {
+    type: String,
+    required: true
+  },
+  channelName: {
+    type: String,
+    required: true
+  },
+  channelThumbnail: {
+    type: String,
+    default: null
+  },
+  showSelected: {
+    type: Boolean,
+    default: false
+  }
+})
+
+const selected = ref(false)
+
+const emit = defineEmits('click')
+
+function handleClick(event) {
+  if (event instanceof KeyboardEvent) {
+    event.preventDefault()
+  }
+
+  if (props.showSelected) {
+    selected.value = !selected.value
+  }
+  emit('click')
+}
+</script>
+<style scoped src="./FtChannelBubble.css" />
