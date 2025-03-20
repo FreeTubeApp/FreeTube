@@ -78,7 +78,7 @@
           </span>
           {{ lastUpdated }}
           <template v-if="durationFormatted !== ''">
-            <br/>
+            <br>
             {{ $t('User Playlists.TotalTimePlaylist', { duration: durationFormatted }) }}
           </template>
         </p>
