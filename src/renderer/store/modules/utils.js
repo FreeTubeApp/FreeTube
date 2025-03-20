@@ -321,7 +321,7 @@ const actions = {
     if (!Array.isArray(videoObjectArray)) {
       videoDataValid = false
     }
-    let missingKeys = []
+    const missingKeys = []
 
     if (videoDataValid) {
       const requiredVideoKeys = [
@@ -330,7 +330,6 @@ const actions = {
         'author',
         'authorId',
         'lengthSeconds',
-
         // `timeAdded` should be generated when videos are added
         // Not when a prompt is displayed
         // 'timeAdded',
@@ -341,22 +340,51 @@ const actions = {
         // `type` should be added in action anyway
         // 'type',
       ]
-      // Using `every` to loop and `return false` to break
-      videoObjectArray.every((video) => {
+
+      // Fix videos with missing required fields
+      let hasMissingFields = false
+      const fixedVideoArray = videoObjectArray.map((video) => {
         const videoPropertyKeys = Object.keys(video)
         const missingKeysHere = requiredVideoKeys.filter(x => !videoPropertyKeys.includes(x))
+
         if (missingKeysHere.length > 0) {
-          videoDataValid = false
-          missingKeys = missingKeysHere
-          return false
+          hasMissingFields = true
+          const fixedVideo = { ...video }
+
+          // Add default values for missing keys
+          if (!Object.prototype.hasOwnProperty.call(fixedVideo, 'author')) {
+            fixedVideo.author = 'Unknown Author'
+          }
+
+          if (!Object.prototype.hasOwnProperty.call(fixedVideo, 'authorId')) {
+            fixedVideo.authorId = ''
+          }
+
+          if (!Object.prototype.hasOwnProperty.call(fixedVideo, 'title')) {
+            fixedVideo.title = 'Unknown Title'
+          }
+
+          if (!Object.prototype.hasOwnProperty.call(fixedVideo, 'lengthSeconds')) {
+            fixedVideo.lengthSeconds = 0
+          }
+
+          return fixedVideo
         }
-        // Return true to continue loop
-        return true
+
+        return video
       })
+
+      // Log a warning if fields were missing
+      if (hasMissingFields) {
+        console.warn('Some videos had missing fields that were automatically filled with default values')
+      }
+
+      // Continue with fixed video array
+      videoObjectArray = fixedVideoArray
     }
 
     if (!videoDataValid) {
-      // Print error and abort
+      // Only throw error if the input isn't an array
       const errorMsgText = 'Incorrect videos data passed when opening playlist prompt'
       console.error(errorMsgText)
       console.error({
