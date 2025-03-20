@@ -39,6 +39,7 @@
   margin: 0;
   padding: 18px;
   word-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 .icon {
