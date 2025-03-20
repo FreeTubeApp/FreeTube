@@ -150,7 +150,7 @@ User Playlists:
     EarliestPlayedFirst: الاقدم تشغيلا
   SinglePlaylistView:
     Toast:
-      This video cannot be moved up.: ‬لا يمكن نقل هذا الفيديو لأعلى.
+      his video cannot be moved p. لا يمكن نقل هذا الفيديو لأعلى.
       Video has been removed: تمت إزالة الفيديو
       Playlist name cannot be empty. Please input a name.: لا يمكن أن يكون اسم قائمة
         التشغيل فارغًا. الرجاء إدخال اسم.
@@ -180,7 +180,7 @@ User Playlists:
       This playlist has a video with a duration error: تحتوي قائمة التشغيل هذه على
         مقطع فيديو واحد على الأقل ليس له مدة، وسيتم فرزه كما لو كانت مدته صفرًا.
       Video has been removed. Click here to undo.: تمت حذف الفيديو. انقر هنا للتراجع.
-    Search for Videos: ‬البحث عن مقاطع الفيديو
+    Search for Videos: البحث عن مقاطع الفيديو
   AddVideoPrompt:
     Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص
       بك إلى | حدد قائمة تشغيل لإضافة مقاطع الفيديو {videoCount} إليها
@@ -250,7 +250,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: 'الرجوع إلى الواجهة الخلفية الغير
       مفضلة عند الفشل'
     Enable Search Suggestions: 'تفعيل الإقتراحات عند البحث'
-    Default Landing Page: 'الصفحة ‪المقصودة الافتراضية'
+    Default Landing Page: 'الصفحة المقصودة الافتراضية'
     Locale Preference: 'اللغات المفضلة'
     Preferred API Backend:
       Preferred API Backend: 'الواجهة الخلفية المفضلة'
@@ -573,7 +573,7 @@ Settings:
     Hide Channels Disabled Message: تم حظر بعض القنوات باستخدام المعرّف ولم تتم معالجتها.
       يتم حظر الميزة أثناء تحديث هذه المعرفات
     Hide Channels Already Exists: معرف القناة موجود بالفعل
-    Hide Channels API Error: ‬حدث خطأ أثناء استرداد المستخدم بالمعرف المدخل. يرجى
+    Hide Channels API Error: حدث خطأ أثناء استرداد المستخدم بالمعرف المدخل. يرجى
       التحقق مرة أخرى إذا كان المعرف صحيحا.
     Hide Videos and Playlists Containing Text: إخفاء مقاطع الفيديو وقوائم التشغيل
       التي تحتوي على نص
@@ -808,7 +808,7 @@ Video:
   Video has been marked as watched: 'تم تعليم الفيديو كمُشاهد'
   Video has been removed from your history: 'تم إزالة الفيديو من سجّلك'
   Open in YouTube: 'افتح في اليوتيوب'
-  Copy YouTube Link: '‫انسخ رابط اليوتيوب'
+  Copy YouTube Link: 'انسخ رابط اليوتيوب'
   Open YouTube Embedded Player: 'افتح في مشغّل اليوتيوب المُضمّن'
   Copy YouTube Embedded Player Link: 'انسخ رابط مشغل اليوتيوب المُضمّن'
   Open in Invidious: 'إفتح على انفيديوس'
@@ -816,7 +816,7 @@ Video:
   Views: 'مشاهدات'
   Watched: 'مُشاهد'
   # As in a Live Video
-  Live: '‏‏‪مُباشر'
+  Live: 'مُباشر'
   Live Now: 'مُباشر الآن'
   Live Chat: 'محادثة مباشرة'
   Enable Live Chat: 'فعّل المحادثة المباشرة'
@@ -834,7 +834,7 @@ Video:
   Play Previous Video: شغل الفيديو السابق
   Play Next Video: شغل الفيديو التالي
   Reverse Playlist: عكس قائمة التشغيل
-  Shuffle Playlist: ‮خلط قائمة التشغيل
+  Shuffle Playlist: خلط قائمة التشغيل
   Loop Playlist: تكرار قائمة التشغيل
   Starting soon, please refresh the page to check again: سيبدأ قريباً ، يرجى تحديث
     الصفحة للتحقق مرة أخرى
@@ -1230,7 +1230,7 @@ KeyboardShortcutPrompt:
   Large Rewind: الترجيع 10 ثوان / الترجيع الفيديو استنادا إلى معدل تشغيل الفيديو الحالي
   Play: تبديل التشغيل/الإيقاف المؤقت
 Keys:
-  arrowright: ‫ السهم الأيمن
+  arrowright:  السهم الأيمن
   enter: Enter
   plus: Plus
   arrowup: السهم لأعلى
