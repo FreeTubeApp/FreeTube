@@ -225,22 +225,21 @@ function runApp() {
     }
   })
 
-   // If in windows, add Windows Jump List task 'New Window'
-   if (process.platform === 'win32') {
-     const iconPath = path.join(path.dirname(app.getPath('exe')), 'freetube.exe');
- 
-     app.setUserTasks([
-       {
-         program: process.execPath,
-         arguments: '--new-window',
-         iconPath: `${iconPath},0`,
-         iconIndex: 0,
-         title: 'New Window',
-         description: 'Create a new window'
-       },
-     ])
-   }
-
+  // If in windows, add Windows Jump List task 'New Window'
+  if (process.platform === 'win32') {
+    app.setJumpList([{
+      type: 'tasks',
+      items: [{
+        type: 'task',
+        program: process.execPath,
+        args: '--new-window',
+        title: 'New Window',
+        description: 'Create a new window',
+        iconPath: process.execPath,
+        iconIndex: 0
+      }]
+    }])
+  }
   // disable electron warning
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
   const isDebug = process.argv.includes('--debug')
