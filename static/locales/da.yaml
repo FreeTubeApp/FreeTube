@@ -181,6 +181,15 @@ User Playlists:
         mindst én video uden varighed. Den sorteres, som om dens varighed er nul.
       Video has been removed. Click here to undo.: Videoen blev fjernet. Klik her
         for at fortryde.
+      This playlist is now used for quick bookmark: Denne playliste bruges nu til
+        hurtig bogmærke
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Denne
+        playliste bruges nu som hurtigt bogmærke i stedet for {oldPlaylistName}. Klik
+        her for at fortryde
+      Reverted to use {oldPlaylistName} for quick bookmark: Tilbageført til at bruge
+        {oldPlaylistName} til hurtigt bogmærke
+      This playlist is already being used for quick bookmark.: Denne playliste bruges
+        allerede til hurtig bogmærke.
   AddVideoPrompt:
     Select a playlist to add your N videos to: Vælg en playliste, du vil føje din
       video til | Vælg en playliste, du vil føje dine {videoCount} videoer til
@@ -230,6 +239,10 @@ User Playlists:
     du sikker på, at du vil fjerne 1 set video fra denne playliste? Det kan ikke fortrydes.
     | Er du sikker på, at du vil fjerne {playlistItemCount} sete videoer fra denne
     playliste? Det kan ikke fortrydes.
+  Cannot delete the quick bookmark target playlist.: Kan ikke slette den hurtige bogmærke
+    målliste.
+  Quick Bookmark Enabled: Hurtig bogmærke aktiveret
+  Enable Quick Bookmark With This Playlist: Aktivér hurtigt bogmærke med denne playliste
 History:
   # On History Page
   History: 'Historik'
@@ -237,6 +250,7 @@ History:
   Your history list is currently empty.: 'Din historikliste er i øjeblikket tom.'
   Empty Search Message: Der er ingen videoer i din historik, som passer til din søgning
   Search bar placeholder: Søg i Historik
+  Case Sensitive Search: Case Sensitive Søg
 Settings:
   # On Settings Page
   Settings: 'Indstillinger'
@@ -459,6 +473,7 @@ Settings:
       Picture in Picture: Billede-i-billede
       External Player: Ekstern afspiller ({externalPlayerName})
     Enter Fullscreen on Display Rotate: Skift til fuldskærm ved skærmrotation
+    Autoplay Interruption Timer: Timer til afbrydelse af autoplay
   Privacy Settings:
     Privacy Settings: 'Privatliv'
     Remember History: 'Husk visningshistorik'
@@ -537,6 +552,16 @@ Settings:
     History File: Historik-fil
     Playlist File: Playliste-fil
 
+    Subscription File: Abonnementsfil
+    Export Playlists For Older FreeTube Versions:
+      Label: Eksportér afspilningslister til ældre FreeTube-versioner
+      Tooltip: "Denne mulighed eksporterer videoer fra alle afspilningslister til
+        en afspilningsliste med navnet 'Favoritter'.\n\nSådan eksporterer og importerer
+        du videoer i afspilningslister til en ældre version af FreeTube:\n\n1. Eksporter
+        dine afspilningslister med denne mulighed aktiveret.\n\n2. Slet alle dine
+        eksisterende afspilningslister ved at bruge indstillingen Fjern alle afspilningslister
+        under Privatlivsindstillinger.\n\n3. Start den ældre version af FreeTube,
+        og importer de eksporterede afspilningslister.«"
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fejl ved
       anskaffelse af netværksinformation. Er din proxy konfigureret ordentligt?
@@ -583,17 +608,27 @@ Settings:
       Side Bar: Sidebjælke
       Channel Page: Kanalside
       Subscriptions Page: Abonnementsside
+      Watch Page: Se side
     Hide Channels Placeholder: Kanal-ID
     Hide Channels API Error: Fejl ved hentning af bruger med det angivne ID. Tjek
       venligst igen, om ID'et er korrekt.
-    Hide Channel Playlists: Skjul Kanal-playlister
-    Hide Channel Community: Skjul Kanal-fællesskab
-    Hide Channel Podcasts: Skjul Kanal-podcasts
+    Hide Channel Playlists: Skjul kanal "Playlists" Tab
+    Hide Channel Community: Skjul kanal "Kommunity" Tab
+    Hide Channel Podcasts: Skjul fanen »Podcasts« på kanalen
     Hide Channels Invalid: Det angivne kanal-ID var ugyldigt
     Hide Channels Disabled Message: Nogle kanaler blev blokeret med ID og blev ikke
       behandlet. Funktionen er blokeret, mens disse ID'er opdateres
     Hide Videos and Playlists Containing Text Placeholder: Ord, ordfragment eller
       sætning
+    Hide Channel Releases: Skjul kanal "Releases" Tab
+    Show Added Items: Vis tilføjede elementer
+    Hide Channel Shorts: Skjul kanal "Shorts" Tab
+    Hide Channel Home: Skjul kanal "Hjem" Tab
+    Hide Channel Courses: Skjul kanal "Courses" Tab
+    Hide Subscriptions Live: Skjul abonnementer live
+    Hide Subscriptions Shorts: Skjul abonnementer Shorts
+    Hide Subscriptions Community: Skjul abonnementer comminity
+    Hide Subscriptions Videos: Skjul abonnementer Videoer
   The app needs to restart for changes to take effect. Restart and apply change?: App'en
     er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
     ændringer?
@@ -649,6 +684,8 @@ Settings:
       de er aktiveret. Det anbefales stærkt at lave sikkerhedskopier. Brug på eget
       ansvar!
     Replace HTTP Cache: Erstat HTTP-cache
+  Return to Settings Menu: Tilbage til Indstillinger Menu
+  Sort Settings Sections (A-Z): Sortering af indstillinger Sektioner (A-Z)
 About:
   #On About page
   About: 'Om'
