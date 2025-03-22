@@ -511,7 +511,7 @@ Settings:
       vist for hver kanal
     To: Til
   Data Settings:
-    Data Settings: 'Dataindstillinger'
+    Data Settings: 'Data'
     Select Export Type: 'Vælg Eksporttype'
     Import Subscriptions: 'Importér Abonnementer'
     Export Subscriptions: 'Eksportér Abonnementer'
@@ -556,12 +556,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Eksportér afspilningslister til ældre FreeTube-versioner
       Tooltip: "Denne mulighed eksporterer videoer fra alle afspilningslister til
-        en afspilningsliste med navnet 'Favoritter'.\n\nSådan eksporterer og importerer
-        du videoer i afspilningslister til en ældre version af FreeTube:\n\n1. Eksporter
-        dine afspilningslister med denne mulighed aktiveret.\n\n2. Slet alle dine
-        eksisterende afspilningslister ved at bruge indstillingen Fjern alle afspilningslister
-        under Privatlivsindstillinger.\n\n3. Start den ældre version af FreeTube,
-        og importer de eksporterede afspilningslister.«"
+        en afspilningsliste med navnet 'Favoritter'\nSådan eksporterer og importerer
+        du videoer i afspilningslister til en ældre version af FreeTube:porter dine
+        afspilningslister med denne mulighed aktiveret.\n2. Slet alle dine eksisterende
+        afspilningslister ved at bruge indstillingen Fjern alle afspilningslister
+        under Privatlivsindstillinger.\n3. Start den ældre version af FreeTube, og
+        importer de eksporterede afspilningslister.«"
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fejl ved
       anskaffelse af netværksinformation. Er din proxy konfigureret ordentligt?
@@ -577,7 +577,12 @@ Settings:
     Proxy Host: Proxy-Vært
     Proxy Protocol: Proxy-Protokol
     Enable Tor / Proxy: Aktivér Tor / Proxy
-    Proxy Settings: Indstillinger for Proxy
+    Proxy Settings: fuldmægtig
+    Proxy Warning: FreeTube har ikke en indbygget proxy, men kan oprette forbindelse
+      til en ekstern proxy, f.eks. en, der kører på din maskine som Tor, eller en
+      ekstern proxy som en SOCKS5-proxy, der leveres af nogle VPN'er. Hvis det er
+      aktiveret, skal du sørge for, at din proxy/Tor er konfigureret korrekt, ellers
+      kan FreeTube ikke hente nogen data.
   Distraction Free Settings:
     Hide Active Subscriptions: Skjul Aktive Abonnementer
     Hide Live Chat: Skjul Live Chat
@@ -644,11 +649,15 @@ Settings:
     Category Color: Kategorifarve
     Notify when sponsor segment is skipped: Notificér når et sponsorsegment springes
       over
-    SponsorBlock Settings: Indstillinger for SponsorBlock
+    SponsorBlock Settings: Sponsorblokken
     Enable SponsorBlock: Aktivér SponsorBlock
+    UseDeArrowTitles: Brug DeArrow-videotitler
+    UseDeArrowThumbnails: Brug DeArrow til miniaturebilleder
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      Thumbnail Generator API Url (standard er https://dearrow-thumb.ajay.app)
   Download Settings:
     Open in web browser: Åbn i webbrowser
-    Download Settings: Downloadindstillinger
+    Download Settings: Downloade
     Choose Path: Vælg Sti
     Ask Download Path: Spørg efter sti for downloads
     Download Behavior: Download-adfærd
@@ -656,7 +665,7 @@ Settings:
   Parental Control Settings:
     Hide Unsubscribe Button: Skjul Afmeldingsknap
     Show Family Friendly Only: Vis Blot Familievenligt
-    Parental Control Settings: Forældrekontrolsindstillinger
+    Parental Control Settings: Forældrekontrol
     Hide Search Bar: Skjul Søgefeltet
   External Player Settings:
     Custom External Player Executable: Brugerdefineret Ekstern Afspiller Eksekverbar
@@ -671,7 +680,7 @@ Settings:
     Ignore Default Arguments: Ignorer standardargumenter
   Password Settings:
     Set Password: Indstil Adgangskode
-    Password Settings: Adgangskode-indstillinger
+    Password Settings: Adgangskode
     Remove Password: Fjern Adgangskode
     Set Password To Prevent Access: Indstil en adgangskode for at forhindre adgang
       til indstillinger
@@ -679,7 +688,7 @@ Settings:
     Password: Adgangskode
     Enter Password To Unlock: Indtast adgangskode for at låse indstillinger op
   Experimental Settings:
-    Experimental Settings: Eksperimentelle Indstillinger
+    Experimental Settings: Eksperimentel
     Warning: Disse indstillinger er eksperimentelle og kan forårsage nedbrud, mens
       de er aktiveret. Det anbefales stærkt at lave sikkerhedskopier. Brug på eget
       ansvar!
@@ -714,6 +723,8 @@ About:
   Source code: Kildekode
   Beta: Beta
   Discussions: Diskussioner
+  AGPLv3: AGPLv3
+  Licensed under the: Licenseret under
 Profile:
   Profile Select: 'Vælg Profil'
   All Channels: 'Alle Kanaler'
@@ -756,10 +767,13 @@ Profile:
     fra nogen anden profil.'
 #On Channel Page
   Profile Filter: Profilfilter
-  Profile Settings: Profilindstillinger
+  Profile Settings: Profil
   Create Profile Name: Opret Profilnavn
   Profile Name: Profilnavn
   Edit Profile Name: Redigér Profilnavn
+  Toggle Profile List: Liste over Toggle-profiler
+  Close Profile Dropdown: Luk profil-dropdown
+  Open Profile Dropdown: Åbn profil-dropdown
 Channel:
   Subscribe: 'Abonnér'
   Unsubscribe: 'Afmeld'
@@ -793,18 +807,26 @@ Channel:
     Details: Detaljer
     Tags:
       Search for: Søg efter "{tag}"
+      Tags: Etiketter
+    Joined: sluttet sig til
+    Location: placering
   Community:
     Hide Answers: Skjul Svar
     This channel currently does not have any posts: Denne kanal har i øjeblikket ingen
       opslag
     Video hidden by FreeTube: Video skjult af FreeTube
     votes: '{votes} stemmer'
+    Reveal Answers: Afslør svarene
+    View Full Post: Se hele indlægget
+    Viewing Posts Only Supported By Invidious: Visning af indlæg understøttes kun
+      af Invidious. Gå til en kanals fællesskabsfane for at se indhold der uden Invidious.
   This channel does not allow searching: Denne kanal tillader ikke søgninger
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Denne
     kanal er aldersbegrænset og kan i øjeblikket ikke ses på FreeTube.
   Live:
     This channel does not currently have any live streams: Denne kanal har i øjeblikket
       ingen livestreams
+    Live: leve
   Podcasts:
     This channel does not currently have any podcasts: Denne kanal har i øjeblikket
       ingen podcasts
@@ -814,6 +836,17 @@ Channel:
     Releases: Udgivelser
     This channel does not currently have any releases: Denne kanal har i øjeblikket
       ingen udgivelser
+  Home:
+    Home: hjem
+    View Playlist: Se afspilningsliste
+  Courses:
+    Courses: Kurser
+    This channel does not currently have any courses: Denne kanal har i øjeblikket
+      ingen kurser
+  Shorts:
+    This channel does not currently have any shorts: Denne kanal har i øjeblikket
+      ingen shorts
+  Channel Tabs: Kanal-faner
 Video:
   Mark As Watched: 'Markér Som Set'
   Remove From History: 'Fjern Fra Historik'
@@ -908,6 +941,17 @@ Video:
     Playback will resume automatically when your connection comes back: Afspilning
       genoptager automatisk, når din forbindelse vender tilbage.
 #& Playlists
+  Unlisted: Ikke noteret
+  MembersOnly: Videoer, der kun er for medlemmer, kan ikke ses med FreeTube, da de
+    kræver Google-login og betalt medlemskab af uploaderens kanal.
+  IP block: YouTube har blokeret din IP-adresse fra at se videoer. Prøv at skifte
+    til en anden VPN eller proxy.
+  AgeRestricted: Aldersbegrænsede videoer kan ikke ses med FreeTube, da de kræver
+    Google-login og brug af en aldersverificeret YouTube-konto.
+  DRMProtected: DRM-beskyttede videoer kan ikke afspilles i FreeTube, da de kræver
+    proprietære komponenter med lukket kilde. Hvis du vil se denne video, skal du
+    se den på det officielle YouTube-websted i en DRM-aktiveret webbrowser.
+  More Options: Flere muligheder
 Playlist:
   #& About
   View Full Playlist: 'Vis Hele Playliste'
