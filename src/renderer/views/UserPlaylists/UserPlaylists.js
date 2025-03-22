@@ -181,7 +181,7 @@ export default defineComponent({
       this.filterPlaylist()
     },
     sortBy() {
-      sessionStorage.setItem('UserPlaylists/sortBy', this.sortBy)
+      localStorage.setItem('UserPlaylists/sortBy', this.sortBy)
     },
   },
   created: function () {
@@ -191,7 +191,7 @@ export default defineComponent({
       this.dataLimit = limit
     }
 
-    const sortBy = sessionStorage.getItem('UserPlaylists/sortBy')
+    const sortBy = localStorage.getItem('UserPlaylists/sortBy')
     if (sortBy != null) {
       this.sortBy = sortBy
     }
