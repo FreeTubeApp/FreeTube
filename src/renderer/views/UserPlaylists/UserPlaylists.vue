@@ -25,7 +25,7 @@
           @click="createNewPlaylist"
         />
         <div
-          v-if="fullData.length > 1"
+          v-if="fullData.length > 2"
           class="searchInputsRow"
         >
           <ft-input
@@ -40,6 +40,7 @@
           />
         </div>
         <div
+          v-if="fullData.length > 2"
           class="optionsRow"
         >
           <ft-toggle-switch
