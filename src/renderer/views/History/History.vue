@@ -17,7 +17,7 @@
         {{ $t("History.History") }}
       </h2>
       <ft-input
-        v-show="fullData.length > 2"
+        v-show="fullData.length > 0"
         ref="searchBar"
         :placeholder="$t('History.Search bar placeholder')"
         :show-clear-text-button="true"
@@ -30,7 +30,7 @@
         class="optionsRow"
       >
         <ft-toggle-switch
-          v-if="fullData.length > 2"
+          v-if="fullData.length > 1"
           :label="$t('History.Case Sensitive Search')"
           :compact="true"
           :default-value="doCaseSensitiveSearch"

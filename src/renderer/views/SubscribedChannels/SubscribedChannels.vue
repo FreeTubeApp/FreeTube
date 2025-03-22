@@ -10,7 +10,7 @@
         {{ $t('Channels.Title') }}
       </h2>
       <ft-input
-        v-show="subscribedChannels.length > 2"
+        v-show="subscribedChannels.length > 0"
         ref="searchBarChannels"
         :placeholder="$t('Channels.Search bar placeholder')"
         :value="query"
