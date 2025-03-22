@@ -305,6 +305,12 @@ Settings:
       Hot Pink: Hot Pink
       Solarized Dark: Solarized Mørk
       Solarized Light: Solarized Lys
+      Everforest Dark Medium: Everforest Mørk Mellem
+      Everforest Dark Low: Everforest Mørk Lav
+      Everforest Light Hard: Everforest Lys Hård
+      Everforest Light Medium: Everforest Lys Mellem
+      Everforest Light Low: Everforest Lys Lav
+      Everforest Dark Hard: Everforest Mørk Hård
     Main Color Theme:
       Main Color Theme: 'Primær Farvetema'
       Red: 'Rød'
@@ -488,6 +494,7 @@ Settings:
     Confirm Before Unsubscribing: Bekræft Før Afmelding
     'Limit the number of videos displayed for each channel': Begræns antallet af videoer
       vist for hver kanal
+    To: Til
   Data Settings:
     Data Settings: 'Dataindstillinger'
     Select Export Type: 'Vælg Eksporttype'
@@ -583,6 +590,10 @@ Settings:
     Hide Channel Community: Skjul Kanal-fællesskab
     Hide Channel Podcasts: Skjul Kanal-podcasts
     Hide Channels Invalid: Det angivne kanal-ID var ugyldigt
+    Hide Channels Disabled Message: Nogle kanaler blev blokeret med ID og blev ikke
+      behandlet. Funktionen er blokeret, mens disse ID'er opdateres
+    Hide Videos and Playlists Containing Text Placeholder: Ord, ordfragment eller
+      sætning
   The app needs to restart for changes to take effect. Restart and apply change?: App'en
     er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
     ændringer?
@@ -852,6 +863,10 @@ Video:
       Media Formats: 'Medieformater: {formats}'
       Resolution: 'Opløsning: {width}x{height}@{frameRate}'
       Bandwidth: 'Båndbredde: {bandwidth} kbps'
+      Stats: Statistik
+      Bitrate: 'Bitrate: {bitrate} kbps'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      Volume: 'Lydstyrke: {volumePercentage}%'
     Skipped segment: Sprang {segmentCategory} segment over
     Playback will resume automatically when your connection comes back: Afspilning
       genoptager automatisk, når din forbindelse vender tilbage.
@@ -1044,6 +1059,7 @@ Search Listing:
     8K: 8K
     VR180: VR180
     360 Video: 360°
+    New: Nye
 Feed:
   Refresh Feed: Opdater {subscriptionName}
   Feed Last Updated: '{feedName}-feed opdateret sidst: {date}'
