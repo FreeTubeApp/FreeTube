@@ -937,10 +937,28 @@ Video:
       Bitrate: 'Bitrate: {bitrate} kbps'
       CodecAudio: 'Codec: {audioCodec} ({audioItag})'
       Volume: 'Lydstyrke: {volumePercentage}%'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {lydkodec}'
+      Dropped Frames / Total Frames: 'Tabte rammer: {droppedFrames} (tabte billeder)
+        / Samlet antal rammer: {totalFrames}'
+      CodecsVideoAudio: 'Kodeks: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Player Dimensions: 'Spillerens dimensioner: {bredde}x{højde}'
+      Buffered: 'Bufret: {bufferedPercentage}%'
     Skipped segment: Sprang {segmentCategory} segment over
     Playback will resume automatically when your connection comes back: Afspilning
       genoptager automatisk, når din forbindelse vender tilbage.
 #& Playlists
+    Exit Full Window: Afslut fuldt vindue
+    Take Screenshot: Tag et skærmbillede
+    You appear to be offline: Du ser ud til at være offline.
+    TranslatedCaptionTemplate: '{language} (oversat fra »{originalLanguage}«)'
+    Audio Tracks: Lydspor
+    Autoplay is off: Autoplay er slået fra
+    Autoplay is on: Autoplay er slået til
+    Theatre Mode: Teatertilstand
+    Full Window: Fuldt vindue
+    Show Stats: Vis statistik
+    Hide Stats: Skjul statistik
+    Exit Theatre Mode: Afslut teatertilstand
   Unlisted: Ikke noteret
   MembersOnly: Videoer, der kun er for medlemmer, kan ikke ses med FreeTube, da de
     kræver Google-login og betalt medlemskab af uploaderens kanal.
@@ -952,6 +970,12 @@ Video:
     proprietære komponenter med lukket kilde. Hvis du vil se denne video, skal du
     se den på det officielle YouTube-websted i en DRM-aktiveret webbrowser.
   More Options: Flere muligheder
+  Show Super Chat Comment: Vis Super Chat Kommentar
+  DeArrow:
+    Show Modified Details: Vis ændrede detaljer
+    Show Original Details: Vis originale detaljer
+  Published:
+    In less than a minute: På mindre end et minut
 Playlist:
   #& About
   View Full Playlist: 'Vis Hele Playliste'
@@ -965,6 +989,14 @@ Playlist:
     DateAddedNewest: Seneste tilføjet først
     VideoTitleDescending: Titel (Å-A)
     VideoTitleAscending: Titel (A-Å)
+    DateAddedOldest: Tidligst tilføjet først
+    Custom: Brugerdefineret
+    VideoDurationAscending: Varighed (korteste først)
+    AuthorAscending: Forfatter (A-Z)
+    AuthorDescending: Forfatter (Z-A)
+    PublishedNewest: seneste tilføjet først
+    PublishedOldest: Tidligst udgivet først
+    VideoDurationDescending: Varighed (længste først)
 Change Format:
   Change Media Formats: 'Skift Videoformater'
   Use Dash Formats: 'Brug DASH-Formater'
@@ -974,6 +1006,8 @@ Change Format:
     for denne video'
   Audio formats are not available for this video: 'Lydformater er ikke tilgængelige
     for denne video'
+  Legacy formats are not available for this video: Ældre formater er ikke tilgængelige
+    for denne video
 Share:
   Share Video: 'Del Video'
   Share Playlist: 'Del Playliste'
@@ -1016,6 +1050,9 @@ Comments:
   Member: Medlem
   Subscribed: Abonneret
   View {replyCount} replies: Vis {replyCount} svar
+  Hearted: hjertelig
+  There are no comments available for this post: Der er ingen tilgængelige kommentarer
+    til dette indlæg
 Up Next: 'Næste'
 
 # Toast Messages
@@ -1041,10 +1078,11 @@ This video is unavailable because of missing formats. This can happen due to cou
   utilgængelighed.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Når det er aktiveret vil FreeTube bruge RSS, i stedet for
-      dens standardmetoder, for at hente din abonnementsfeed. RSS er hurtigere og
-      forhindrer IP-blokering, men tilbyder ikke visse informationer som videolængde
-      eller direkte-status
+    Fetch Feeds from RSS: Når det er aktiveret, bruger FreeTube RSS i stedet for standardmetoden
+      til at hente dit abonnementsfeed. RSS er hurtigere og forhindrer IP-blokering,
+      men giver ikke visse oplysninger som videoens varighed, live-status eller fællesskabsindlæg.
+    Fetch Automatically: Når det er aktiveret, henter FreeTube automatisk dit abonnementsfeed,
+      når der åbnes et nyt vindue, og når du skifter profil.
   Player Settings:
     Default Video Format: Angiv formaterne der bruges når en video afspilles. DASH-formater
       kan afspille med højere kvalitet. Gamle formater er begrænsede til maks HD,
@@ -1056,6 +1094,8 @@ Tooltips:
       bagud for at kontrollere afspilningshastigheden. Tryk og hold Control-tasten
       (Command-tast på Mac) nede og venstreklik musen for hurtigt at vende tilbage
       til standard-afspilningshastigheden (1x medmindre det er blevet ændret i indstillingerne).
+    Skip by Scrolling Over Video Player: Brug rullehjulet til at springe gennem videoen
+      i bedste MPV-stil.
   General Settings:
     Region for Trending: Området for trend tillader dig at vælge hvilket lands videoer
       på trend du ønsker at få vist.
@@ -1072,6 +1112,8 @@ Tooltips:
     External Link Handling: "Vælg standardopførslen for når du klikker på et link,
       der ikke kan blive åbnet i FreeTube.\nSom standard åbner FreeTube det link,
       du klikker på, i din standardbrowser.\n"
+    Open Deep Links In New Window: URL'er, der sendes til FreeTube, f.eks. ved at
+      omdirigere browserudvidelser eller kommandolinjeargumenter, åbnes i et nyt vindue.
   External Player Settings:
     Custom External Player Executable: Som standard antager FreeTube at den valgte
       eksterne afspiller kan findes via miljøvariablet PATH. En brugerdefineret sti
@@ -1084,11 +1126,27 @@ Tooltips:
       Advarsel: Invidious-indstillinger har ingen effekt på eksterne afspillere.'
     Ignore Warnings: Undertryk advarsler for når den eksterne afspiller ikke understøtter
       den gældende handling (fx vende playlister om, etc.).
+    Ignore Default Arguments: Send ikke nogen standardargumenter til den eksterne
+      afspiller ud over video-URL'en (f.eks. afspilningshastighed, URL til afspilningsliste
+      osv.). Brugerdefinerede argumenter vil stadig blive sendt videre.
   Distraction Free Settings:
     Hide Channels: Indtast et kanal-ID for at skjule alle videoer, playlister og selve
       kanalen fra at blive vist i søgning, trending, mest populære og anbefalet. Det
       indtastede kanal-ID skal være et komplet match, og der skelnes mellem store
       og små bogstaver.
+    Hide Subscriptions Live: Denne indstilling tilsidesættes af den app-dækkende »{appWideSetting}«-indstilling
+      i afsnittet »{subsection}« i »{settingsSection}«
+    Hide Videos and Playlists Containing Text: Indtast et ord, et ordstykke eller
+      en sætning (der skelnes ikke mellem store og små bogstaver) for at skjule alle
+      videoer og afspilningslister, hvis oprindelige titler indeholder det, i hele
+      FreeTube, undtagen Historik, Dine afspilningslister og videoer inde i afspilningslister.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Udskift videotitler med brugerindsendte titler fra DeArrow.
+    UseDeArrowThumbnails: Erstat videominiaturebilleder med miniaturebilleder fra
+      DeArrow.
+  Experimental Settings:
+    Replace HTTP Cache: Deaktiverer Electrons diskbaserede HTTP-cache og aktiverer
+      en brugerdefineret billedcache i hukommelsen. Vil føre til øget brug af RAM.
 New Window: Nyt Vindue
 More: Mere
 Open New Window: Åbn Nyt Vindue
@@ -1115,7 +1173,7 @@ External link opening has been disabled in the general settings: Åbning af ekst
   links er slået fra i generelle indstillinger
 Starting download: Starter download af "{videoTitle}"
 Downloading has completed: '"{videoTitle}" er færdig med at downloade'
-Screenshot Success: Gemte skærmbillede som "{filePath}"
+Screenshot Success: Gemt skærmbillede
 Playing Next Video Interval: Afspiller næste video om lidt. Klik for at afbryde. |
   Afspiller næste video om {nextVideoInterval} sekund. Klik for at afbryde. | Afspiller
   næste video om {nextVideoInterval} sekunder. Klik for at afbryde.
@@ -1128,6 +1186,11 @@ Clipboard:
   Copy failed: Kopiering til udklipsholder mislykkedes
 Chapters:
   Chapters: Kapitler
+  Key Moments: vigtige øjeblikke
+  'Chapters list visible, current chapter: {chapterName}': 'Kapitelliste synlig, aktuelt
+    kapitel: {kapitelnavn}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste skjult, aktuelt
+    kapitel: {kapitelnavn}'
 Age Restricted:
   This video is age restricted: Denne video er aldersbegrænset
   This channel is age restricted: Denne kanal er aldersbegrænset
@@ -1146,3 +1209,68 @@ Feed:
   Feed Last Updated: '{feedName}-feed opdateret sidst: {date}'
 Right-click or hold to see history: Højreklik eller hold nede for at se historik
 Search character limit: Søgningen overskrider tegngrænsen {searchCharacterLimit}
+Keys:
+  shift: Skift
+  arrowdown: Pil ned
+  arrowright: højre pil
+  ctrl: Ctrl
+  alt: Alt
+  arrowleft: Venstre pil
+  arrowup: pil op
+  plus: plus
+  enter: Indtast
+Description:
+  Collapse Description: Vis mindre
+  Expand Description: '...mere'
+Hashtag:
+  This hashtag does not currently have any videos: Dette hashtag har i øjeblikket
+    ingen videoer
+  Hashtag: Emneord
+Channel Unhidden: '{kanal} fjernet fra kanalfilter'
+KeyboardShortcutPrompt:
+  Fullscreen: Skift til fuld skærm
+  Stats: Vis videostatistik
+  Picture in Picture: Skift til billede-i-billede-tilstand
+  Large Fast Forward: Spol 10 sekunder frem / Spol hurtigt frem i video baseret på
+    den aktuelle videoafspilningshastighed
+  Mute: slå lyden fra
+  Keyboard Shortcuts: Tastaturgenveje
+  Sections:
+    Video:
+      Playback: 'Video: Afspilning'
+      General: 'Video: Generelt'
+    App:
+      Situational: 'App: Situationsbestemt'
+      General: 'App: Generelt'
+  Show Keyboard Shortcuts: Vis tastaturgenveje
+  History Backward: Gå en side tilbage
+  History Forward: Gå en side frem
+  New Window: Opret et nyt vindue
+  Navigate to Settings: Naviger til siden Indstillinger
+  Navigate to History: Naviger til siden Historik
+  Refresh: Opdater feed med nyeste indhold
+  Focus Secondary Search: Fokuser på det sekundære søgefelt (hvis der er et)
+  Captions: Slå billedtekster til og fra
+  Large Rewind: Spol 10 sekunder tilbage / Spol videoen tilbage baseret på den aktuelle
+    videoafspilningshastighed
+  Play: Skift mellem afspilning og pause
+  Decrease Video Speed: Sænk videohastigheden baseret på Video Playback Rate Interval
+Channel Hidden: '{kanal} tilføjet til kanalfilter'
+KeyboardShortcutTemplate: '{label} ({genvej})'
+Moments Ago: for et øjeblik siden
+Yes, Delete: Ja, Slet
+Display Label: '{label}: {værdi}'
+Yes, Restart: Ja, genstart
+Ok: ok
+shortcutJoinOperator: +
+Trimmed input must be at least N characters long: Trimmet input skal være mindst 1
+  tegn langt | Trimmet input skal være mindst {længde} tegn langt
+Yes, Open Link: Ja, Åbn link
+Tag already exists: »{tagName}"-tagget findes allerede
+Cancel: annullere
+Autoplay Interruption Timer: Autoplay afbrudt på grund af {autoplayInterruptionIntervalHours}
+  timers inaktivitet
+shortcutLabelSeparator: ｜
+'Blocked opening potentially unsafe URL': 'Blokeret åbning af potentielt usikker URL:
+  »{url}«.'
+checkmark: ✓
