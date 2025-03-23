@@ -623,6 +623,7 @@ Settings:
     Show Added Items: Tampilkan Item yang Ditambahkan
     Hide Channel Home: Sembunyikan Tab "Beranda" Saluran
     Hide Channel Shorts: Sembunyikan Tab "Shorts" Saluran
+    Hide Channel Courses: Sembunyikan Tab "Kursus" Saluran
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikasi
     butuh dimulai ulang agar perbubahan diterapkan. Mulai ulang dan terapkan perubahan?
   Proxy Settings:
@@ -849,6 +850,10 @@ Channel:
   Channel Tabs: Tab Saluran
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Saluran
     ini dibatasi usia dan saat ini tidak dapat ditonton di FreeTube.
+  Courses:
+    This channel does not currently have any courses: Saluran ini saat ini tidak memiliki
+      kursus apa pun
+    Courses: kursus
 Video:
   Mark As Watched: 'Tandai Sudah Ditonton'
   Remove From History: 'Hapus dari Riwayat'
