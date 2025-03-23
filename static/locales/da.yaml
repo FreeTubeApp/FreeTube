@@ -241,8 +241,8 @@ User Playlists:
     playliste? Det kan ikke fortrydes.
   Cannot delete the quick bookmark target playlist.: Kan ikke slette den hurtige bogmærke
     målliste.
-  Quick Bookmark Enabled: Hurtig bogmærke aktiveret
-  Enable Quick Bookmark With This Playlist: Aktivér hurtigt bogmærke med denne playliste
+  Quick Bookmark Enabled: Hurtigt bogmærke aktiveret
+  Enable Quick Bookmark With This Playlist: Aktiver Hurtigt bogmærke med denne afspilningsliste
 History:
   # On History Page
   History: 'Historik'
@@ -632,7 +632,7 @@ Settings:
     Hide Channel Courses: Skjul kanal "Courses" Tab
     Hide Subscriptions Live: Skjul abonnementer live
     Hide Subscriptions Shorts: Skjul abonnementer Shorts
-    Hide Subscriptions Community: Skjul abonnementer comminity
+    Hide Subscriptions Community: Skjul abonnementsfællesskab
     Hide Subscriptions Videos: Skjul abonnementer Videoer
   The app needs to restart for changes to take effect. Restart and apply change?: App'en
     er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
@@ -1255,6 +1255,31 @@ KeyboardShortcutPrompt:
     videoafspilningshastighed
   Play: Skift mellem afspilning og pause
   Decrease Video Speed: Sænk videohastigheden baseret på Video Playback Rate Interval
+  Minimize Window: Minimer vinduet
+  Skip by Tenths: Spring gennem video efter procent (3 spring til 30 % af varigheden)
+  Increase Video Speed: Forøg videohastighed baseret på videoafspilningshastighedsinterval
+  Reset Zoom: Nulstil zoomniveau / UI-skala
+  Zoom In: Zoom ind
+  Next Frame: Næste billede (mens den er sat på pause)
+  Volume Up: Øg volumen
+  Volume Down: Sænk volumen
+  Last Chapter: Sidste kapitel
+  Next Chapter: Næste kapitel
+  Zoom Out: Zoom ud
+  Small Fast Forward: Spol frem X sekunder baseret på spol frem-interval og aktuelle
+    videoafspilningshastighed
+  Small Rewind: Spol X sekunder tilbage baseret på tilbagespolingsintervallet og den
+    aktuelle videoafspilningshastighed
+  Search in New Window: Søg i et nyt vindue
+  Last Frame: Forrige ramme (mens den er sat på pause)
+  Full Window: Skift fuldt vindue
+  Theatre Mode: Skift biograftilstand
+  Take Screenshot: Tag et skærmbillede
+  Close Window: luk vinduet
+  Restart Window: Genstart vindue
+  Force Restart Window: Tving genstartsvinduet
+  Toggle Developer Tools: Skift udviklerværktøjer
+  Focus Search: Fokuser på søgelinjen
 Channel Hidden: '{kanal} tilføjet til kanalfilter'
 KeyboardShortcutTemplate: '{label} ({genvej})'
 Moments Ago: for et øjeblik siden
