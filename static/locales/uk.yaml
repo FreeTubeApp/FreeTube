@@ -331,6 +331,12 @@ Settings:
       Gruvbox Light: Gruvbox Світлий
       Solarized Dark: Solarized Темна
       Catppuccin Frappe: Капучино фрапе
+      Everforest Dark Hard: Everforest Dark Hard (Темний ліс)
+      Everforest Dark Medium: Everforest Dark Medium (Темний середній)
+      Everforest Dark Low: Вічнозелений ліс Темний низький
+      Everforest Light Hard: Everforest Light Твердий
+      Everforest Light Medium: Everforest Light Середній
+      Everforest Light Low: вічнозелене світло низьке
     Main Color Theme:
       Main Color Theme: 'Основна кольорова тема'
       Red: 'Червона'
@@ -402,6 +408,20 @@ Settings:
       Catppuccin Frappe Mauve: Капучино фрапе фіолетовий
       Catppuccin Frappe Maroon: Капучино фрапе бордовий
       Catppuccin Frappe Yellow: Капучино фрапе жовтий
+      Everforest Light Red: Everforest Light Червоний
+      Everforest Dark Yellow: Темно-жовтий вічнозелений ліс
+      Everforest Dark Red: Вічнозелений темно-червоний
+      Everforest Dark Orange: Еверфорест Темно-помаранчевий
+      Everforest Dark Green: Темно-зелений вічнозелений ліс
+      Everforest Dark Aqua: Еверфорест Темна Аква
+      Everforest Dark Blue: Темно-синій Everforest
+      Everforest Dark Purple: Еверфорест Темно-фіолетовий
+      Everforest Light Yellow: Еверфорест світло-жовтий
+      Everforest Light Green: Еверфорест Світло-зелений
+      Everforest Light Orange: Everforest Світло-помаранчевий
+      Everforest Light Aqua: Еверфорест Лайт Аква
+      Everforest Light Blue: Еверфорест Світло-блакитний
+      Everforest Light Purple: Світло-фіолетовий Everforest
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
     Hide Side Bar Labels: Сховати мітки бічної панелі
@@ -552,6 +572,7 @@ Settings:
     Hide Videos and Playlists Containing Text: Сховати відео та добірки, що містять
       текст
     Show Added Items: Показати додані елементи
+    Hide Channel Courses: Приховати вкладку «Курси» каналу
   Data Settings:
     Data Settings: 'Дані'
     Select Export Type: 'Оберіть тип експорту'
@@ -817,6 +838,10 @@ Channel:
   Home:
     Home: Головна
     View Playlist: Переглянути добірку
+  Courses:
+    Courses: курси
+    This channel does not currently have any courses: На цьому каналі наразі немає
+      курсів
 Video:
   Mark As Watched: 'Позначити переглянутим'
   Remove From History: 'Прибрати з історії'
