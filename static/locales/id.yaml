@@ -329,6 +329,12 @@ Settings:
       Catppuccin Frappe: Frappe Kue Kucing
       Hot Pink: Pink Terang
       Solarized Light: Solari Terang
+      Everforest Dark Hard: Everforest Gelap Keras
+      Everforest Dark Medium: Everforest Gelap Sedang
+      Everforest Dark Low: Everforest Gelap rendah
+      Everforest Light Hard: Everforest Ringan Keras
+      Everforest Light Medium: Everforest Ringan Sedang
+      Everforest Light Low: Everforest Cahaya rendah
     Main Color Theme:
       Main Color Theme: 'Tema Warna Utama'
       Red: 'Merah'
@@ -400,6 +406,20 @@ Settings:
       Solarized Violet: Solari violet
       Solarized Blue: Solari Biru
       Catppuccin Mocha Sapphire: Catpucin Mocha Sapphire
+      Everforest Light Green: Everforest Hijau Muda
+      Everforest Dark Red: Everforest Merah Tua
+      Everforest Dark Orange: Everforest Jingga Tua
+      Everforest Dark Yellow: Everforest Kuning Tua
+      Everforest Dark Green: Everforest Hijau Tua
+      Everforest Dark Aqua: Everforest Aqua Gelap
+      Everforest Dark Blue: Everforest Biru tua
+      Everforest Dark Purple: Ungu Tua Everforest
+      Everforest Light Red: Everforest Merah Muda
+      Everforest Light Orange: Everforest Oranye Muda
+      Everforest Light Yellow: Everforest Kuning Muda
+      Everforest Light Aqua: Cahaya Everforest Aqua
+      Everforest Light Blue: Everforest Biru muda
+      Everforest Light Purple: Everforest Ungu Muda
     Secondary Color Theme: 'Warna Tema Sekunder'
         #* Main Color Theme
     Expand Side Bar by Default: Perluas Bilah Samping
