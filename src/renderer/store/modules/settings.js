@@ -399,6 +399,9 @@ const sideEffectHandlers = {
       const { webFrame } = require('electron')
       webFrame.setZoomFactor(value / 100)
     }
+  },
+  userPlaylistSortOrder: ({ commit }, value) => {
+    commit('setUserPlaylistSortOrder', value)
   }
 }
 

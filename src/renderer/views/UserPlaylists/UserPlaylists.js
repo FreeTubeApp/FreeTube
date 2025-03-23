@@ -52,7 +52,7 @@ export default defineComponent({
       query: '',
       doSearchPlaylistsWithMatchingVideos: false,
       activeData: [],
-      sortBy: SORT_BY_VALUES.LatestPlayedFirst,
+      sortBy: this.$store.getters.getUserPlaylistSortOrder,
     }
   },
   computed: {
@@ -181,7 +181,7 @@ export default defineComponent({
       this.filterPlaylist()
     },
     sortBy() {
-      localStorage.setItem('UserPlaylists/sortBy', this.sortBy)
+      this.$store.dispatch('updateUserPlaylistSortOrder', this.sortBy)
     },
   },
   created: function () {
@@ -189,11 +189,6 @@ export default defineComponent({
     const limit = sessionStorage.getItem('UserPlaylists/dataLimit')
     if (limit !== null) {
       this.dataLimit = limit
-    }
-
-    const sortBy = localStorage.getItem('UserPlaylists/sortBy')
-    if (sortBy != null) {
-      this.sortBy = sortBy
     }
 
     this.filterPlaylistDebounce = debounce(this.filterPlaylist, 500)
