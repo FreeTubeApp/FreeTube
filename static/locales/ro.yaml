@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Română'
+Locale Name: 'Engleză (US)'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Această parte a aplicației nu este încă gata. Reveniți mai târziu, când se vor face
@@ -334,10 +334,10 @@ Settings:
       Nordic: Nordic
       Everforest Light Hard: Everforest Light Hard
       Everforest Dark Hard: Everforest Dark Hard
-      Everforest Dark Medium: Everforest Dark Medium
-      Everforest Dark Low: Everforest Dark Low
-      Everforest Light Medium: Everforest Light Medium
-      Everforest Light Low: Everforest Light Low
+      Everforest Dark Medium: Everforest întuneric mediu
+      Everforest Dark Low: Everforest întuneric scăzut
+      Everforest Light Medium: Everforest Lumină Mediu
+      Everforest Light Low: Everforest Lumină scăzută
       Catppuccin Frappe: Catnip Frappe
     Main Color Theme:
       Main Color Theme: 'Culoarea principală a temei'
@@ -395,7 +395,7 @@ Settings:
       Solarized Magenta: Magenta solarizat
       Gruvbox Light Red: Gruvbox Roșu Deschis
       Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
-      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Pink: Catppuccin Frappe roz
       Catppuccin Frappe Mauve: Catppuccin Frappe mov
       Catppuccin Frappe Red: Catppuccin Frappe Roșu
       Catppuccin Frappe Maroon: Catppuccin Frappe Maro
@@ -409,7 +409,7 @@ Settings:
       Everforest Dark Red: Everforest roșu închis
       Everforest Dark Aqua: Everforest Aqua închis
       Everforest Dark Orange: Everforest Portocaliu închis
-      Everforest Dark Yellow: Everforest Dark Yellow
+      Everforest Dark Yellow: Everforest galben închis
       Everforest Dark Green: Everforest Verde închis
       Everforest Dark Blue: Everforest Albastru închis
       Catppuccin Frappe Yellow: Catppuccin Frappe Galben
@@ -1285,6 +1285,30 @@ KeyboardShortcutPrompt:
   Stats: Afișați statisticile video
   Large Fast Forward: Înainte 10 secunde / Derulare rapidă pe baza vitezei actuale
     de redare video
+  Search in New Window: Căutare într-o fereastră nouă
+  Increase Video Speed: Creșteți viteza video în funcție de intervalul ratei de redare
+    video
+  Small Rewind: Derulează înapoi X secunde pe baza intervalului de derulare înapoi
+    și a vitezei actuale de redare video
+  Last Chapter: Ultimul capitol
+  Decrease Video Speed: Reducerea vitezei video în funcție de intervalul ratei de
+    redare video
+  Restart Window: fereastra de repornire
+  Volume Up: Creșterea volumului
+  Skip by Tenths: Salt prin video în funcție de procent (3 salturi la 30% din durată)
+  Focus Search: Concentrați-vă pe bara de căutare
+  Last Frame: Cadrul anterior (în timpul pauzei)
+  Next Frame: Următorul cadru (în timpul pauzei)
+  Small Fast Forward: Derulare rapidă X secunde pe baza intervalului de derulare rapidă
+    și a vitezei actuale de redare video
+  Force Restart Window: fereastră de repornire forțată
+  Next Chapter: Capitolul următor
+  Zoom In: zoom in
+  Zoom Out: micșorați imaginea
+  Minimize Window: Miminizarea ferestrei
+  Close Window: Închideți fereastra
+  Reset Zoom: Resetați nivelul de zoom / scala UI
+  Volume Down: scăderea volumului
 Moments Ago: acum câteva momente
 Autoplay Interruption Timer: Redarea automată anulată din cauza a {autoplayInterruptionIntervalHours}
   ore de inactivitate
