@@ -368,6 +368,8 @@ Settings:
       Everforest Light Red: 常青森林淺紅色
       Everforest Light Green: 常青森林淺綠色
       Everforest Light Aqua: Everest 淺綠色
+      Everforest Light Purple: 永恆森林 淺紫色
+      Everforest Light Blue: Everforest 淡藍色
     Secondary Color Theme: '次要主題色'
         #* Main Color Theme
     UI Scale: UI縮放
@@ -543,6 +545,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: 單字、單字片段或片語
     Hide Channel Home: 隱藏頻道「首頁」分頁
     Show Added Items: 顯示新增的項目
+    Hide Channel Courses: 隱藏頻道“課程”標籤
   The app needs to restart for changes to take effect. Restart and apply change?: 必須重新啟動應用程式以生效。重新啟動並套用變更嗎？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -703,6 +706,9 @@ Channel:
   Home:
     Home: 首頁
     View Playlist: 檢視播放清單
+  Courses:
+    This channel does not currently have any courses: 該頻道目前還沒有任何課程
+    Courses: 課程
 Video:
   Open in YouTube: '在 YouTube 中開啟'
   Copy YouTube Link: '複製 YouTube 連結'
