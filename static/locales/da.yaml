@@ -512,14 +512,14 @@ Settings:
     To: Til
   Data Settings:
     Data Settings: 'Data'
-    Select Export Type: 'Vælg Eksporttype'
-    Import Subscriptions: 'Importér Abonnementer'
-    Export Subscriptions: 'Eksportér Abonnementer'
+    Select Export Type: 'Vælg eksporttype'
+    Import Subscriptions: 'Importér abonnementer'
+    Export Subscriptions: 'Eksportér abonnementer'
     Export FreeTube: 'Eksportér FreeTube'
     Export YouTube: 'Eksportér YouTube'
     Export NewPipe: 'Eksportér NewPipe'
-    Import History: 'Importér Historik'
-    Export History: 'Eksportér Historik'
+    Import History: 'Importér historik'
+    Export History: 'Eksportér historik'
     Profile object has insufficient data, skipping item: 'Profilobjekt har utilstrækkeligt
       data, springer objektet over'
     All subscriptions and profiles have been successfully imported: 'Det lykkedes
@@ -541,10 +541,10 @@ Settings:
     Unknown data key: 'Ukendt datanøgle'
     How do I import my subscriptions?: 'Hvordan importerer jeg mine abonnementer?'
     Manage Subscriptions: Abonnementshåndtering
-    Export Playlists: Eksportér Playlister
+    Export Playlists: Eksportér playlister
     Playlist insufficient data: Utilstrækkelig data for "{playlist}" playliste, springer
       objektet over
-    Import Playlists: Importér Playlister
+    Import Playlists: Importér playlister
     All playlists has been successfully imported: Alle playlister er blevet importeret
       succesfuldt
     All playlists has been successfully exported: Alle playlister er blevet eksporteret
@@ -554,7 +554,7 @@ Settings:
 
     Subscription File: Abonnementsfil
     Export Playlists For Older FreeTube Versions:
-      Label: Eksportér afspilningslister til ældre FreeTube-versioner
+      Label: Eksportér playlister til ældre FreeTube-versioner
       Tooltip: "Denne mulighed eksporterer videoer fra alle afspilningslister til
         en afspilningsliste med navnet 'Favoritter'\nSådan eksporterer og importerer
         du videoer i afspilningslister til en ældre version af FreeTube:porter dine
