@@ -223,7 +223,7 @@ User Playlists:
       vídeos já adicionados'
   Remove Watched Videos: Remove vídeos assistidos
   Playlists with Matching Videos: Playlists com vídeos correspondentes
-  Quick Bookmark Enabled: Quick Bookmark ativado
+  Quick Bookmark Enabled: Quick Bookmark habilitado
   Cannot delete the quick bookmark target playlist.: Não é possível excluir a playlist
     de destino do "Quick Bookmark".
   Remove Duplicate Videos: Remover vídeos duplicados
@@ -277,7 +277,7 @@ Settings:
     Check for Latest Blog Posts: Verificar se há novas postagens no blog
     View all Invidious instance information: Ver todas as informações da instância
       Invidious
-    System Default: Padrão do sistema
+    System Default: Definido pelo Sistema
     No default instance has been set: Nenhuma instância padrão foi definida
     The currently set default instance is {instance}: A instância padrão atualmente
       definida é {instance}
@@ -294,7 +294,8 @@ Settings:
     Auto Load Next Page:
       Label: Carregamento automático da próxima página
       Tooltip: Carregar páginas e comentários adicionais automaticamente.
-    Open Deep Links In New Window: Abrir URLs a partir do FreeTube em uma nova janela
+    Open Deep Links In New Window: Abrir URLs enviados para o FreeTube em uma nova
+      janela
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Usar cor principal na barra superior'
@@ -304,7 +305,7 @@ Settings:
       Dark: 'Escuro'
       Light: 'Claro'
       Dracula: 'Drácula'
-      System Default: Padrão do sistema
+      System Default: Definido pelo Sistema
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Rosa Pastel
       Hot Pink: Rosa Choque
@@ -411,7 +412,7 @@ Settings:
     Disable Smooth Scrolling: Desativar rolagem suave
     Expand Side Bar by Default: Expandir barra lateral por padrão
     Hide Side Bar Labels: Ocultar título na barra lateral
-    Hide FreeTube Header Logo: Ocultar logotipo FreeTube na barra superior
+    Hide FreeTube Header Logo: Ocultar logotipo do FreeTube na barra superior
   Player Settings:
     Player Settings: 'Player'
     Play Next Video: 'Reprodução automática de vídeos recomendados'
@@ -449,7 +450,7 @@ Settings:
     Video Playback Rate Interval: Intervalo da taxa de reprodução de vídeo
     Screenshot:
       File Name Label: Padrão do nome de arquivo
-      Enable: Ativar captura de tela
+      Enable: Habilitar captura de tela
       Ask Path: Perguntar onde salvar os arquivos
       Folder Label: Pasta de capturas de tela
       Folder Button: Selecionar pasta
@@ -508,7 +509,7 @@ Settings:
     Remember Search History: Lembrar histórico de buscas
     Clear Search History and Cache: Limpar histórico de pesquisa e o cache
     Search history and cache have been cleared: O histórico de pesquisa e o cache
-      foram removidos
+      foram apagados
     Are you sure you want to clear out your search history and cache?: Tem certeza
       de que deseja limpar o histórico de pesquisa e o cache?
   Data Settings:
