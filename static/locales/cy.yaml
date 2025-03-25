@@ -605,6 +605,7 @@ Settings:
       Ymadrodd
     Show Added Items: Dangos Eitemau Ychwanegwyd
     Hide Channel Home: Cuddio Tab Sianel "Cartref"
+    Hide Channel Courses: Cuddio Tab "Cyrsiau" Sianel
   Data Settings:
     Data Settings: 'Data'
     Select Export Type: 'Dewis y Math o Allforio'
@@ -872,6 +873,10 @@ Channel:
   Home:
     Home: Cartref
     View Playlist: Gweld Rhestr Chwarae
+  Courses:
+    Courses: Cyrsiau
+    This channel does not currently have any courses: Nid oes gan y sianel hon unrhyw
+      gyrsiau ar hyn o bryd
 Video:
   Mark As Watched: 'Marcio wedi''i Wylio'
   Remove From History: 'Dileu o''r Hanes'
