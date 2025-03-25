@@ -236,7 +236,7 @@ export function openInternalPath({ path, query = undefined, doCreateNewWindow, s
   if (process.env.IS_ELECTRON && doCreateNewWindow) {
     const { ipcRenderer } = require('electron')
 
-    ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, path, query, searchQueryText)
+    ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, path, query, searchQueryText, doCreateNewWindow)
   } else {
     router.push({
       path,

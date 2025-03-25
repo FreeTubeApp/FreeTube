@@ -58,7 +58,7 @@
       />
 
       <FtButton
-        :label="$t('Search')"
+        :label="$t('Search Bar.Search in New Window')"
         background-color="var(--primary-color)"
         text-color="var(--text-with-main-color)"
         class="searchButton"
@@ -71,15 +71,14 @@
 <script setup>
 import { computed, ref, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-import { openInternalPath } from '../../helpers/utils'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtRadioButton from '../FtRadioButton/FtRadioButton.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtButton from '../ft-button/ft-button.vue'
 import FtCheckboxList from '../FtCheckboxList/FtCheckboxList.vue'
+import { openInternalPath } from '../../helpers/utils'
 
 import store from '../../store/index'
-import { useRouter } from 'vue-router'
 
 const { t } = useI18n()
 
@@ -265,15 +264,14 @@ watch(searchFilterValueChanged, (value) => {
 function hideSearchFilters() {
   store.dispatch('hideSearchFilters')
 }
+
 function searchWithFilters(event) {
   const doCreateNewWindow = event && event.shiftKey
-
   store.dispatch('hideSearchFilters')
 
   if (!props.searchQuery || props.searchQuery.trim() === '') {
     return
   }
-
   const searchPath = `/search/${encodeURIComponent(props.searchQuery)}`
   const query = {
     sortBy: sortByValue.value,
@@ -283,24 +281,22 @@ function searchWithFilters(event) {
     features: featuresValue.value
   }
 
-  if (doCreateNewWindow && process.env.IS_ELECTRON) {
+  openInternalPath({
+    path: searchPath,
+    query: query,
+    doCreateNewWindow: doCreateNewWindow,
+    searchQueryText: props.searchQuery
+  })
+
+  if (doCreateNewWindow) { // not clearing search bar
     try {
-      const { ipcRenderer } = require('electron')
-      ipcRenderer.send('createNewWindow', {
-        path: searchPath,
-        query: query
-      })
+      this.$refs?.searchInput?.updateInputData('')
     } catch (error) {
-      console.error('Error creating new window:', error)
+      console.warn('Unable to clear search input:', error)
     }
-  } else {
-    openInternalPath({
-      path: searchPath,
-      query: query,
-      searchQueryText: props.searchQuery
-    })
   }
 }
+
 /**
  * @param {'all' | 'video' | 'channel' | 'playlist' | 'movie'} type
  */
