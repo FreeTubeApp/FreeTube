@@ -1156,7 +1156,7 @@ export function parseLocalListVideo(item) {
       author: video.author.name,
       authorId: video.author.id,
       description: video.description,
-      viewCount: video.view_count?.text == null ? (video.short_view_count.text == null ? null : parseLocalSubscriberCount(video.short_view_count.text)) : extractNumberFromString(video.view_count.text),
+      viewCount: video.view_count?.text == null ? (video.short_view_count?.text == null ? null : parseLocalSubscriberCount(video.short_view_count.text)) : extractNumberFromString(video.view_count.text),
       published,
       lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
       liveNow: video.is_live,
