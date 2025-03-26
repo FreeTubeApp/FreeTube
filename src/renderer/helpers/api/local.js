@@ -153,8 +153,8 @@ export async function getLocalTrending(location, tab, instance) {
     results = []
 
     resultsInstance.videos.forEach(video => {
-      if (video.type === 'Video' && !alreadySeenIds.includes(video.id)) {
-        alreadySeenIds.push(video.id)
+      if (video.type === 'Video' && !alreadySeenIds.includes(video.video_id)) {
+        alreadySeenIds.push(video.video_id)
         results.push(parseLocalListVideo(video))
       }
     })
@@ -1108,7 +1108,7 @@ export function parseLocalListVideo(item) {
 
     return {
       type: 'video',
-      videoId: video.id,
+      videoId: video.video_id,
       title: video.title.text,
       author: video.author?.name,
       authorId: video.author?.id,
@@ -1148,14 +1148,22 @@ export function parseLocalListVideo(item) {
       video.upcoming
     )
 
+    let viewCount = null
+
+    if (video.view_count?.text) {
+      viewCount = video.view_count.text.toLowerCase() === 'no views' ? 0 : extractNumberFromString(video.view_count.text)
+    } else if (video.short_view_count?.text) {
+      viewCount = video.short_view_count.text.toLowerCase() === 'no views' ? 0 : parseLocalSubscriberCount(video.short_view_count.text)
+    }
+
     return {
       type: 'video',
-      videoId: video.id,
+      videoId: video.video_id,
       title: video.title.text,
       author: video.author.name,
       authorId: video.author.id,
       description: video.description,
-      viewCount: video.view_count?.text == null ? (video.short_view_count.text == null ? null : parseLocalSubscriberCount(video.short_view_count.text)) : extractNumberFromString(video.view_count.text),
+      viewCount,
       published,
       lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
       liveNow: video.is_live,
@@ -1342,7 +1350,7 @@ export function parseLocalWatchNextVideo(video) {
 
   return {
     type: 'video',
-    videoId: video.id,
+    videoId: video.video_id,
     title: video.title.text,
     author: video.author.name,
     authorId: video.author.id,

@@ -5949,10 +5949,10 @@ jest-worker@^29.7.0:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jintr@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/jintr/-/jintr-3.2.1.tgz#ea6719485c9ff5f14ca7f9131990040d4fdfe1be"
-  integrity sha512-yjKUBuwTTg4nc4izMysxuIk0BKh45hnbc1KnXE6LxagIGZn5od+I2elpuRY9IIm3EiKiUZxhxV89a0iX+xoEZg==
+jintr@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/jintr/-/jintr-3.3.0.tgz#74271197c260b9b2e435d961339263c515df603d"
+  integrity sha512-ZsaajJ4Hr5XR0tSPhOZOTjFhxA0qscKNSOs41NRjx7ZOGwpfdp8NKIBEUtvUPbA37JXyv1sJlgeOOZHjr3h76Q==
   dependencies:
     acorn "^8.8.0"
 
@@ -9717,17 +9717,12 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-yocto-queue@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.0.0.tgz#7f816433fb2cbc511ec8bf7d263c3b58a1a3c251"
-  integrity sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==
-
-youtubei.js@^13.1.0:
-  version "13.1.0"
-  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-13.1.0.tgz#1e15da01e58c782ab6fb7cc9191a1c99f821c57f"
-  integrity sha512-uL4TyojAYET0c5NGFD7+ScCod/k8Pc/B+D5tLrunFcz1GaBjRMOGRPcNGaRmnhwisegU7ibtw0iUxCN+BZ0ang==
+youtubei.js@^13.3.0:
+  version "13.3.0"
+  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-13.3.0.tgz#31cca5fa295a146409b4858aca3283d8c8926c7a"
+  integrity sha512-tbl7rxltpgKoSsmfGUe9JqWUAzv6HFLqrOn0N85EbTn5DLt24EXrjClnXdxyr3PBARMJ3LC4vbll100a0ABsYw==
   dependencies:
     "@bufbuild/protobuf" "^2.0.0"
-    jintr "^3.2.1"
+    jintr "^3.3.0"
     tslib "^2.5.0"
     undici "^5.19.1"
