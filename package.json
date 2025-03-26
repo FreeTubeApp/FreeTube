@@ -51,7 +51,7 @@
     "postinstall": "run-s --silent rebuild:electron patch-shaka",
     "rebuild:electron": "electron-builder install-app-deps",
     "release": "run-s test build",
-    "ci": "yarn install --silent --frozen-lockfile"
+    "ci": "yarn install --silent --frozen-lockfile --network-concurrency 1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
