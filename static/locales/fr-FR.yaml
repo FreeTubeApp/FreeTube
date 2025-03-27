@@ -272,7 +272,7 @@ Settings:
     Default Landing Page: 'Page de lancement par défaut'
     Locale Preference: 'Préférence locale'
     Preferred API Backend:
-      Preferred API Backend: 'API Backend préférée'
+      Preferred API Backend: 'API interne préférée'
       Local API: 'API locale'
       Invidious API: 'API Invidious'
     Video View Type:
@@ -289,7 +289,7 @@ Settings:
       Blur: Flou
     Region for Trending: 'Pays pour les tendances'
         #! List countries
-    Check for Latest Blog Posts: Consultez les derniers billets du blog
+    Check for Latest Blog Posts: Consulter les derniers billets du blog
     Check for Updates: Vérifier les mises à jour
     View all Invidious instance information: Voir les informations de toutes les instances
       Invidious
@@ -443,9 +443,9 @@ Settings:
     Default Playback Rate: 'Vitesse de lecture par défaut'
     Default Video Format:
       Default Video Format: 'Format de vidéo par défaut'
-      Dash Formats: 'Format DASH'
+      Dash Formats: 'Formats DASH'
       Legacy Formats: 'Format Legacy'
-      Audio Formats: 'Format Audio'
+      Audio Formats: 'Formats audio'
     Default Quality:
       Default Quality: 'Qualité par défaut'
       Auto: 'Auto'
@@ -456,11 +456,11 @@ Settings:
       720p: '720p'
       1080p: '1080p'
       1440p: '1440p'
-      4k: '4k'
-      8k: '8k'
+      4k: '4K'
+      8k: '8K'
     Next Video Interval: Décompte de la lecture automatique
-    Scroll Volume Over Video Player: Contrôler le volume via la molette au dessus
-      du lecteur vidéo
+    Scroll Volume Over Video Player: Contrôler le volume par la molette sur le lecteur
+      vidéo
     Display Play Button In Video Player: Afficher le bouton de lecture dans le lecteur
       vidéo
     Fast-Forward / Rewind Interval: Intervalle d'avance / de recul rapide
@@ -605,18 +605,18 @@ Settings:
     Hide Channels Placeholder: Identifiant de la chaîne
     Display Titles Without Excessive Capitalisation: Afficher les titres sans majuscules
       ni ponctuation excessives
-    Hide Channel Playlists: Masquer l'onglet de la chaîne « Listes de lecture »
+    Hide Channel Playlists: Masquer l’onglet « Listes de lecture » de la chaine
     Hide Featured Channels: Masquer les chaînes en vedette
-    Hide Channel Community: Masquer l'onglet de la chaîne « Communauté »
-    Hide Channel Shorts: Masquer l'onglet « Shorts » de la chaîne
+    Hide Channel Community: Masquer l’onglet « Communauté » de la chaîne
+    Hide Channel Shorts: Masquer l’onglet « Shorts » de la chaine
     Sections:
       Channel Page: Page de la chaîne
       Side Bar: Barre latérale
       Watch Page: Page de lecture
       General: Général
       Subscriptions Page: Page Abonnements
-    Hide Channel Podcasts: Masquer l'onglet de la chaîne « Podcasts »
-    Hide Channel Releases: Masquer l'onglet de la chaîne « Publications »
+    Hide Channel Podcasts: Masquer l’onglet « Podcasts » de la chaine
+    Hide Channel Releases: Masquer l’onglet « Publications » de la chaine
     Hide Subscriptions Videos: Masquer les vidéos des abonnements
     Hide Subscriptions Shorts: Masquer les shorts des abonnements
     Hide Subscriptions Live: Masquer les diffusions en direct des abonnements
@@ -633,9 +633,9 @@ Settings:
       lecture contenant du texte
     Hide Videos and Playlists Containing Text Placeholder: Mot, fragment de mot ou
       phrase
-    Hide Channel Home: Masquer l'onglet « Accueil » de la chaîne
+    Hide Channel Home: Masquer l’onglet « Accueil » de la chaine
     Show Added Items: Afficher les éléments ajoutés
-    Hide Channel Courses: Masquer l'onglet de la chaîne « Cours »
+    Hide Channel Courses: Masquer l’onglet « Cours » de la chaine
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -972,8 +972,8 @@ Playlist:
     AuthorDescending: Auteur (Z-A)
     DateAddedOldest: Le plus ancien ajouté en premier
     AuthorAscending: Auteur (A-Z)
-    VideoTitleAscending: Titre (A-Z)
-    VideoTitleDescending: Titre (Z-A)
+    VideoTitleAscending: Titre (A→Z)
+    VideoTitleDescending: Titre (Z→A)
     Custom: Personnalisé
     VideoDurationDescending: Durée (la plus longue en premier)
     VideoDurationAscending: Durée (la plus courte en premier)
@@ -1010,7 +1010,7 @@ Share:
   Invidious Channel URL copied to clipboard: L'URL Invidious de la chaîne est copiée
     dans le presse-papiers
   Share Channel: Partager la chaîne
-Mini Player: 'Mini Lecteur'
+Mini Player: 'Mini-lecteur'
 Comments:
   Comments: 'Commentaires'
   Click to View Comments: 'Afficher les commentaires'
@@ -1041,7 +1041,7 @@ Comments:
 Up Next: 'À suivre'
 
 # Toast Messages
-Local API Error (Click to copy): 'Erreur d''API locale (Cliquez pour copier)'
+Local API Error (Click to copy): 'Erreur d’API locale (cliquez pour copier)'
 Invidious API Error (Click to copy): 'Erreur d''API Invidious (Cliquez pour copier)'
 Falling back to Invidious API: 'Revenir à l''API Invidious'
 Falling back to Local API: 'Revenir à l''API locale'
@@ -1081,11 +1081,11 @@ Profile:
   Edit Profile: Modifier le profil
   Create New Profile: Créer un nouveau profil
   Profile Manager: Gestionnaire de profil
-  All Channels: Toutes les chaînes
+  All Channels: Toutes les chaines
   Profile Select: Sélection du profil
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Êtes-vous
-    sûr(e) de vouloir supprimer les chaînes sélectionnées ?  Ceci ne supprimera pas
-    la chaîne de tout autre profil.
+    sûr(e) de vouloir supprimer les chaines sélectionnées ?  Ceci ne supprimera pas
+    la chaine de tout autre profil.
   Subscription List: Liste des abonnements
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
@@ -1222,7 +1222,7 @@ Downloading canceled: 'Le téléchargement est annulé par l''utilisateur'
 Download folder does not exist: 'Le répertoire "$" de téléchargement n''existe pas.
   Mode sans répertoire activé.'
 Screenshot Success: Capture d'écran enregistrée
-Screenshot Error: La capture d'écran a échoué. {error}
+Screenshot Error: La capture d’écran a échoué. {error}
 New Window: Nouvelle fenêtre
 Channels:
   Channels: Chaînes
@@ -1262,7 +1262,7 @@ Close Banner: Fermer la bannière
 Display Label: '{label} : {value}'
 checkmark: ✓
 Feed:
-  Feed Last Updated: '{feedName} dernière mise à jour du flux : {date}'
+  Feed Last Updated: 'Dernière mise à jour du flux {feedName} : {date}'
   Refresh Feed: Rafraîchir {subscriptionName}
 Moments Ago: il y a quelques instants
 Yes, Delete: Oui, effacer
@@ -1274,8 +1274,8 @@ Search Listing:
   Label:
     4K: 4K
     Subtitles: Sous-titres
-    Closed Captions: Sous-titrage codé
-    8K: 8k
+    Closed Captions: Sous-titres descriptifs
+    8K: 8K
     VR180: VR180
     360 Video: 360°
     New: Nouveau
@@ -1290,9 +1290,9 @@ Keys:
   arrowright: Flèche droite
   arrowup: Flèche haut
   alt: Alt
-  enter: Entrer
+  enter: Entrée
   plus: Plus
-  shift: Shift
+  shift: Maj
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Right-click or hold to see history: Clic droit ou maintenez pour voir l'historique
 Autoplay Interruption Timer: Lecture automatique annulée après {autoplayInterruptionIntervalHours}
