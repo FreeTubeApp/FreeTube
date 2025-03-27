@@ -327,8 +327,6 @@ const actions = {
       const requiredVideoKeys = [
         'videoId',
         'title',
-        'author',
-        'authorId',
         'lengthSeconds',
 
         // `timeAdded` should be generated when videos are added
