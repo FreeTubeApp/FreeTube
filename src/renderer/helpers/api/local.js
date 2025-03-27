@@ -153,8 +153,8 @@ export async function getLocalTrending(location, tab, instance) {
     results = []
 
     resultsInstance.videos.forEach(video => {
-      if (video.type === 'Video' && !alreadySeenIds.includes(video.id)) {
-        alreadySeenIds.push(video.id)
+      if (video.type === 'Video' && !alreadySeenIds.includes(video.video_id)) {
+        alreadySeenIds.push(video.video_id)
         results.push(parseLocalListVideo(video))
       }
     })
@@ -197,16 +197,24 @@ export async function getLocalSearchContinuation(continuationData) {
 export async function getLocalVideoInfo(id) {
   const webInnertube = await createInnertube({ withPlayer: true, generateSessionLocally: false })
 
-  let poToken
+  // based on the videoId (added to the body of the /player request)
+  let contentPoToken
+  // based on the visitor data (added to the streaming URLs)
+  let sessionPoToken
 
   if (process.env.IS_ELECTRON) {
     const { ipcRenderer } = require('electron')
 
     try {
-      poToken = await ipcRenderer.invoke(IpcChannels.GENERATE_PO_TOKEN, webInnertube.session.context.client.visitorData)
+      ({ contentPoToken, sessionPoToken } = await ipcRenderer.invoke(
+        IpcChannels.GENERATE_PO_TOKENS,
+        id,
+        webInnertube.session.context.client.visitorData,
+        JSON.stringify(webInnertube.session.context)
+      ))
 
-      webInnertube.session.po_token = poToken
-      webInnertube.session.player.po_token = poToken
+      webInnertube.session.po_token = contentPoToken
+      webInnertube.session.player.po_token = sessionPoToken
     } catch (error) {
       console.error('Local API, poToken generation failed', error)
       throw error
@@ -226,8 +234,8 @@ export async function getLocalVideoInfo(id) {
     const webEmbeddedInnertube = await createInnertube({ clientType: ClientType.WEB_EMBEDDED })
     webEmbeddedInnertube.session.context.client.visitorData = webInnertube.session.context.client.visitorData
 
-    if (poToken) {
-      webEmbeddedInnertube.session.po_token = poToken
+    if (contentPoToken) {
+      webEmbeddedInnertube.session.po_token = contentPoToken
     }
 
     const videoId = hasTrailer && trailerIsAgeRestricted ? info.playability_status.error_screen.video_id : id
@@ -271,15 +279,20 @@ export async function getLocalVideoInfo(id) {
 
   if (info.streaming_data) {
     decipherFormats(info.streaming_data.formats, webInnertube.session.player)
-    decipherFormats(info.streaming_data.adaptive_formats, webInnertube.session.player)
+
+    const firstFormat = info.streaming_data.adaptive_formats[0]
+
+    if (firstFormat.url || firstFormat.signature_cipher || firstFormat.cipher) {
+      decipherFormats(info.streaming_data.adaptive_formats, webInnertube.session.player)
+    }
 
     if (info.streaming_data.dash_manifest_url) {
       let url = info.streaming_data.dash_manifest_url
 
       if (url.includes('?')) {
-        url += `&pot=${encodeURIComponent(poToken)}&mpd_version=7`
+        url += `&pot=${encodeURIComponent(sessionPoToken)}&mpd_version=7`
       } else {
-        url += `${url.endsWith('/') ? '' : '/'}pot/${encodeURIComponent(poToken)}/mpd_version/7`
+        url += `${url.endsWith('/') ? '' : '/'}pot/${encodeURIComponent(sessionPoToken)}/mpd_version/7`
       }
 
       info.streaming_data.dash_manifest_url = url
@@ -1095,7 +1108,7 @@ export function parseLocalListVideo(item) {
 
     return {
       type: 'video',
-      videoId: video.id,
+      videoId: video.video_id,
       title: video.title.text,
       author: video.author?.name,
       authorId: video.author?.id,
@@ -1135,14 +1148,22 @@ export function parseLocalListVideo(item) {
       video.upcoming
     )
 
+    let viewCount = null
+
+    if (video.view_count?.text) {
+      viewCount = video.view_count.text.toLowerCase() === 'no views' ? 0 : extractNumberFromString(video.view_count.text)
+    } else if (video.short_view_count?.text) {
+      viewCount = video.short_view_count.text.toLowerCase() === 'no views' ? 0 : parseLocalSubscriberCount(video.short_view_count.text)
+    }
+
     return {
       type: 'video',
-      videoId: video.id,
+      videoId: video.video_id,
       title: video.title.text,
       author: video.author.name,
       authorId: video.author.id,
       description: video.description,
-      viewCount: video.view_count?.text == null ? (video.short_view_count.text == null ? null : parseLocalSubscriberCount(video.short_view_count.text)) : extractNumberFromString(video.view_count.text),
+      viewCount,
       published,
       lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
       liveNow: video.is_live,
@@ -1329,7 +1350,7 @@ export function parseLocalWatchNextVideo(video) {
 
   return {
     type: 'video',
-    videoId: video.id,
+    videoId: video.video_id,
     title: video.title.text,
     author: video.author.name,
     authorId: video.author.id,

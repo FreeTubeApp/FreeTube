@@ -9,10 +9,13 @@ import { join } from 'path'
  * This is intentionally split out into it's own thing, with it's own temporary in-memory session,
  * as the BotGuard stuff accesses the global `document` and `window` objects and also requires making some requests.
  * So we definitely don't want it running in the same places as the rest of the FreeTube code with the user data.
+ * @param {string} videoId
  * @param {string} visitorData
- * @returns {Promise<string>}
+ * @param {string} context
+ * @param {string|undefined} proxyUrl
+ * @returns {Promise<{ contentPoToken: string, sessionPoToken: string }>}
  */
-export async function generatePoToken(visitorData) {
+export async function generatePoToken(videoId, visitorData, context, proxyUrl) {
   const sessionUuid = crypto.randomUUID()
 
   const theSession = session.fromPartition(`potoken-${sessionUuid}`, { cache: false })
@@ -21,12 +24,34 @@ export async function generatePoToken(visitorData) {
   // eslint-disable-next-line n/no-callback-literal
   theSession.setPermissionRequestHandler((webContents, permission, callback) => callback(false))
 
-  theSession.setUserAgent(
-    theSession.getUserAgent()
-      .split(' ')
-      .filter(part => !part.includes('Electron'))
-      .join(' ')
-  )
+  theSession.setUserAgent(session.defaultSession.getUserAgent())
+
+  if (proxyUrl) {
+    await theSession.setProxy({
+      proxyRules: proxyUrl
+    })
+  }
+
+  theSession.webRequest.onBeforeSendHeaders({
+    urls: ['https://www.google.com/js/*', 'https://www.youtube.com/youtubei/*']
+  }, ({ requestHeaders, url }, callback) => {
+    if (url.startsWith('https://www.youtube.com/youtubei/')) {
+      // make InnerTube requests work with the fetch function
+      // InnerTube rejects requests if the referer isn't YouTube or empty
+      requestHeaders.Referer = 'https://www.youtube.com/'
+      requestHeaders.Origin = 'https://www.youtube.com'
+
+      requestHeaders['Sec-Fetch-Site'] = 'same-origin'
+      requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
+      requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
+    } else {
+      requestHeaders['Sec-Fetch-Dest'] = 'script'
+      requestHeaders['Sec-Fetch-Site'] = 'cross-site'
+      requestHeaders['Accept-Language'] = '*'
+    }
+
+    callback({ requestHeaders })
+  })
 
   const webContentsView = new WebContentsView({
     webPreferences: {
@@ -35,7 +60,8 @@ export async function generatePoToken(visitorData) {
       sandbox: true,
       v8CacheOptions: 'none',
       session: theSession,
-      offscreen: true
+      offscreen: true,
+      webSecurity: false
     }
   })
 
@@ -51,43 +77,8 @@ export async function generatePoToken(visitorData) {
 
   webContentsView.webContents.debugger.attach()
 
-  await webContentsView.webContents.loadURL('data:text/html,', {
-    baseURLForDataURL: 'https://www.youtube.com'
-  })
-
-  await webContentsView.webContents.debugger.sendCommand('Emulation.setUserAgentOverride', {
-    userAgent: theSession.getUserAgent(),
-    acceptLanguage: 'en-US',
-    platform: 'Win32',
-    userAgentMetadata: {
-      brands: [
-        {
-          brand: 'Not/A)Brand',
-          version: '99'
-        },
-        {
-          brand: 'Chromium',
-          version: process.versions.chrome.split('.')[0]
-        }
-      ],
-      fullVersionList: [
-        {
-          brand: 'Not/A)Brand',
-          version: '99.0.0.0'
-        },
-        {
-          brand: 'Chromium',
-          version: process.versions.chrome
-        }
-      ],
-      platform: 'Windows',
-      platformVersion: '10.0.0',
-      architecture: 'x86',
-      model: '',
-      mobile: false,
-      bitness: '64',
-      wow64: false
-    }
+  await webContentsView.webContents.loadURL('data:text/html,<!DOCTYPE html><html lang="en"><head><title></title></head><body></body></html>', {
+    baseURLForDataURL: 'https://www.youtube.com/'
   })
 
   await webContentsView.webContents.debugger.sendCommand('Emulation.setDeviceMetricsOverride', {
@@ -105,7 +96,7 @@ export async function generatePoToken(visitorData) {
     }
   })
 
-  const script = await getScript(visitorData)
+  const script = await getScript(videoId, visitorData, context)
 
   const response = await webContentsView.webContents.executeJavaScript(script)
 
@@ -118,9 +109,11 @@ export async function generatePoToken(visitorData) {
 let cachedScript
 
 /**
+ * @param {string} videoId
  * @param {string} visitorData
+ * @param {string} context
  */
-async function getScript(visitorData) {
+async function getScript(videoId, visitorData, context) {
   if (!cachedScript) {
     const pathToScript = process.env.NODE_ENV === 'development'
       ? join(__dirname, '../../dist/botGuardScript.js')
@@ -133,8 +126,8 @@ async function getScript(visitorData) {
 
     const functionName = match[1]
 
-    cachedScript = content.replace(match[0], `;${functionName}("FT_VISITOR_DATA")`)
+    cachedScript = content.replace(match[0], `;${functionName}(FT_PARAMS)`)
   }
 
-  return cachedScript.replace('FT_VISITOR_DATA', visitorData)
+  return cachedScript.replace('FT_PARAMS', `"${videoId}","${visitorData}",${context}`)
 }

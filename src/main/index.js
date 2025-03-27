@@ -287,6 +287,8 @@ function runApp() {
     })
   }
 
+  let proxyUrl
+
   app.on('ready', async (_, __) => {
     if (process.env.NODE_ENV === 'production') {
       protocol.handle('app', async (request) => {
@@ -400,8 +402,10 @@ function runApp() {
     }
 
     if (useProxy) {
+      proxyUrl = `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+
       session.defaultSession.setProxy({
-        proxyRules: `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+        proxyRules: proxyUrl
       })
     }
 
@@ -883,19 +887,21 @@ function runApp() {
     })
   })
 
-  ipcMain.handle(IpcChannels.GENERATE_PO_TOKEN, (_, visitorData) => {
-    return generatePoToken(visitorData)
+  ipcMain.handle(IpcChannels.GENERATE_PO_TOKENS, (_, videoId, visitorData, context) => {
+    return generatePoToken(videoId, visitorData, context, proxyUrl)
   })
 
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
     session.defaultSession.setProxy({
       proxyRules: url
     })
+    proxyUrl = url
     session.defaultSession.closeAllConnections()
   })
 
   ipcMain.on(IpcChannels.DISABLE_PROXY, () => {
     session.defaultSession.setProxy({})
+    proxyUrl = undefined
     session.defaultSession.closeAllConnections()
   })
 
