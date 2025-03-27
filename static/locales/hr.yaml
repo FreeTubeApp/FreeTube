@@ -313,6 +313,12 @@ Settings:
       Gruvbox Dark: Gruvbox tamna
       Gruvbox Light: Gruvbox svijetla
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Hard: Everforest Dark Hard
+      Everforest Dark Medium: Everforest Dark srednji
+      Everforest Dark Low: Everforest Tamno nisko
+      Everforest Light Hard: Everforest svjetlo tvrdo
+      Everforest Light Medium: Everforest svjetlo srednje
+      Everforest Light Low: Everforest svjetlo nisko
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -384,6 +390,20 @@ Settings:
       Gruvbox Light Red: Gruvbox svjetlocrvena
       Gruvbox Light Blue: Gruvbox svjetloplava
       Gruvbox Light Purple: Gruvbox svjetloljubičasta
+      Everforest Dark Green: Everforest tamno zelena
+      Everforest Dark Red: Everforest tamno crvena
+      Everforest Dark Orange: Everforest tamno narančasta
+      Everforest Dark Yellow: Everforest Tamnožuta
+      Everforest Dark Purple: Everforest tamnoljubičasta
+      Everforest Dark Aqua: Everforest Tamna voda
+      Everforest Dark Blue: Everforest Tamnoplava
+      Everforest Light Red: Everforest svijetlo crvena
+      Everforest Light Orange: Everforest svijetlo narančasta
+      Everforest Light Yellow: Everforest Svijetlo žuta
+      Everforest Light Green: Everforest svijetlo zelena
+      Everforest Light Aqua: Everforest svjetlo vodena
+      Everforest Light Blue: Everforest svijetlo plava
+      Everforest Light Purple: Everforest svijetlo ljubičasta
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
     UI Scale: Uvećanje korisničkog sučelja
@@ -583,6 +603,7 @@ Settings:
     Hide Videos and Playlists Containing Text: Sakrij videa i zbirke koji sadrže tekst
     Hide Channel Home: Sakrij karticu „Početna” kanala
     Show Added Items: Prikaži dodane stavke
+    Hide Channel Courses: Sakrij karticu "Tečajevi" kanala
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -803,6 +824,9 @@ Channel:
   Home:
     Home: Početna
     View Playlist: Pogledaj zbirku
+  Courses:
+    Courses: Tečajevi
+    This channel does not currently have any courses: Ovaj kanal trenutno nema tečajeve
 Video:
   Mark As Watched: 'Označi kao pogledano'
   Remove From History: 'Ukloni iz povijesti'

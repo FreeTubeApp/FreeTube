@@ -1,10 +1,10 @@
 Locale Name: Tiếng Việt
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Phần này của app vẫn chưa sẵn sàng. Quay lại sau khi quá trình đã được thực hiện.
+  Phần này của ứng dụng chưa sẵn sàng. Quay lại sau khi đã hoàn thành tiến độ.
 
 # Webkit Menu Bar
-File: 'Tập tin'
+File: 'tài liệu'
 Quit: 'Thoát'
 Edit: 'Chỉnh sửa'
 Undo: 'Hoàn tác'
@@ -244,8 +244,8 @@ History:
   Watch History: 'Lịch sử xem'
   Your history list is currently empty.: Lịch sử của bạn hiện đang trống.
   Search bar placeholder: Tìm trong lịch sử
-  Empty Search Message: Không có video nào trong lịch sử của bạn trùng với những gì
-    bạn đang tìm kiếm
+  Empty Search Message: Không có video nào trong lịch sử của bạn khớp với tìm kiếm
+    của bạn
   Case Sensitive Search: Phân biệt hoa thường
 Settings:
   # On Settings Page
@@ -316,6 +316,12 @@ Settings:
       Gruvbox Dark: Gruvbox Tối
       Gruvbox Light: Gruvbox Sáng
       Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Low: Rừng tối Everforest thấp
+      Everforest Light Low: Ánh sáng Everforest thấp
+      Everforest Dark Hard: Everforest Dark Cứng
+      Everforest Dark Medium: Everforest tối trung bình
+      Everforest Light Hard: Everforest Nhẹ Cứng
+      Everforest Light Medium: Everforest Light trung bình
     Main Color Theme:
       Main Color Theme: 'Màu chủ đề chính'
       Red: 'Đỏ'
@@ -361,6 +367,46 @@ Settings:
       Gruvbox Dark Yellow: Vàng Tối Cổ Điển
       Gruvbox Dark Blue: Xanh Biển Tối
       Gruvbox Dark Green: Xanh Rêu Đậm
+      Catppuccin Frappe Pink: Catppuccin Frappe Hồng
+      Catppuccin Frappe Mauve: Cà phê Frappe Catppuccin màu hoa cà
+      Catppuccin Frappe Teal: Cà phê Frappe Catppuccin màu xanh ngọc
+      Catppuccin Frappe Rosewater: Nước hoa hồng Catppuccin Frappe
+      Catppuccin Frappe Flamingo: Frappe Catppuccin Flamingo
+      Catppuccin Frappe Maroon: Cà phê Frappe Catppuccin màu nâu đỏ
+      Catppuccin Frappe Sky: Bầu trời Frappe Catppuccin
+      Gruvbox Light Red: Gruvbox Đỏ nhạt
+      Gruvbox Dark Orange: Gruvbox màu cam đậm
+      Gruvbox Light Blue: Gruvbox Xanh nhạt
+      Solarized Cyan: Màu lục lam được năng lượng mặt trời
+      Solarized Magenta: Magenta đã được năng lượng mặt trời hóa
+      Solarized Violet: Violet năng lượng mặt trời
+      Catppuccin Frappe Red: Cà phê Frappe Catppuccin Đỏ
+      Everforest Light Green: Everforest Xanh nhạt
+      Everforest Dark Purple: Everforest Tím Đậm
+      Catppuccin Frappe Blue: Cà phê Frappe Catppuccin màu xanh
+      Everforest Dark Yellow: Everforest Vàng Đậm
+      Everforest Dark Green: Rừng xanh đậm Everforest
+      Solarized Blue: Xanh dương năng lượng mặt trời
+      Everforest Dark Red: Everforest Đỏ Đậm
+      Everforest Dark Orange: Everforest Màu cam đậm
+      Everforest Dark Aqua: Rừng xanh thẳm Everforest
+      Everforest Dark Blue: Rừng xanh đậm Everforest
+      Everforest Light Red: Everforest Đỏ nhạt
+      Everforest Light Orange: Everforest cam nhạt
+      Gruvbox Light Purple: Gruvbox màu tím nhạt
+      Solarized Green: Xanh năng lượng mặt trời
+      Everforest Light Yellow: Everforest Vàng nhạt
+      Everforest Light Blue: Rừng xanh nhạt Everforest
+      Everforest Light Aqua: Everforest Ánh sáng Aqua
+      Everforest Light Purple: Everforest Tím nhạt
+      Catppuccin Frappe Yellow: Cà phê Frappe Catppuccin màu vàng
+      Catppuccin Frappe Peach: Cà phê Frappe Catppuccin đào
+      Catppuccin Frappe Green: Cà phê Frappe Catppuccin Xanh
+      Catppuccin Frappe Sapphire: Cà phê đá xay Catppuccin Sapphire
+      Catppuccin Frappe Lavender: Cà phê Frappe Catppuccin Hoa Oải Hương
+      Gruvbox Dark Purple: Gruvbox Tím Đậm
+      Gruvbox Dark Aqua: Gruvbox màu tối Aqua
+      Gruvbox Light Orange: Gruvbox màu cam nhạt
     Secondary Color Theme: 'Màu chủ đề phụ'
         #* Main Color Theme
     UI Scale: Tỉ lệ UI
@@ -370,11 +416,11 @@ Settings:
     Hide FreeTube Header Logo: Ẩn logo FreeTube trên thanh trên
   Player Settings:
     Player Settings: 'Trình phát'
-    Play Next Video: 'Phát video tiếp theo'
+    Play Next Video: 'Tự động phát video được đề xuất'
     Turn on Subtitles by Default: 'Bật phụ đề theo mặc định'
     Autoplay Videos: 'Tự phát video'
     Proxy Videos Through Invidious: 'Proxy video qua Invidious'
-    Autoplay Playlists: 'Tự phát video trong danh sách phát'
+    Autoplay Playlists: 'Tự động phát danh sách phát Video'
     Enable Theatre Mode by Default: 'Bật chế độ rạp hát theo mặc định'
     Default Volume: 'Âm lượng mặc định'
     Default Playback Rate: 'Tốc độ phát mặc định'
@@ -425,6 +471,7 @@ Settings:
       Full Screen: Toàn màn hình
       Picture in Picture: Hình trong hình
       External Player: Trình phát ngoài ({externalPlayerName})
+    Autoplay Interruption Timer: Bộ đếm thời gian ngắt tự động phát
   Subscription Settings:
     Subscription Settings: 'Đăng ký'
     Hide Videos on Watch: 'Ẩn video khi đã xem'
@@ -529,6 +576,11 @@ Settings:
       quá mức
     Show Added Items: Hiện các mục đã thêm
     Hide Channel Home: Ẩn "Trang chủ" của kênh
+    Hide Channels API Error: Có lỗi khi truy xuất người dùng có ID đã cung cấp. Vui
+      lòng kiểm tra lại xem ID có đúng không.
+    Hide Channels Disabled Message: Một số kênh đã bị chặn bằng ID và không được xử
+      lý. Tính năng bị chặn trong khi các ID đó đang cập nhật
+    Hide Channel Courses: Ẩn Tab "Khóa học" của Kênh
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bạn
       có muốn xóa toàn bộ đăng ký và hồ sơ không? Điều này không thể phục hồi.
@@ -736,6 +788,10 @@ Channel:
   Home:
     Home: Trang chủ
     View Playlist: Xem danh sách phát
+  Courses:
+    Courses: Các khóa học
+    This channel does not currently have any courses: Kênh này hiện không có khóa
+      học nào
 Video:
   Open in YouTube: 'Mở trong Youtube'
   Copy YouTube Link: 'Sao chép liên kết Youtube'
@@ -865,6 +921,9 @@ Video:
     Show Original Details: Hiện thông tin gốc
 #& Playlists
   Unlisted: Không liệt kê
+  DRMProtected: Không thể phát video được bảo vệ DRM trong FreeTube vì chúng yêu cầu
+    các thành phần nguồn đóng độc quyền. Nếu bạn muốn xem video này, vui lòng xem
+    trên trang web chính thức của YouTube trong trình duyệt web hỗ trợ DRM.
 Playlist:
   #& About
   View Full Playlist: 'Xem danh sách phát hoàn chỉnh'
@@ -884,6 +943,8 @@ Playlist:
     AuthorAscending: Tác giả (A-Z)
     DateAddedNewest: Thêm vào gần đây nhất
     VideoTitleDescending: Tiêu đề (Z-A)
+    PublishedNewest: Mới nhất được xuất bản đầu tiên
+    PublishedOldest: Xuất bản sớm nhất đầu tiên
 Change Format:
   Change Media Formats: 'Chuyển đổi định dạng video'
   Use Dash Formats: 'Sử dụng định dạng DASH'

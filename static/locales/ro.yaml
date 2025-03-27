@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Română'
+Locale Name: 'Engleză (US)'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
   Această parte a aplicației nu este încă gata. Reveniți mai târziu, când se vor face
@@ -290,7 +290,7 @@ Settings:
       Middle: 'Mijloc'
       End: 'Sfârșit'
       Hidden: Ascuns
-      Blur: Încețoșare
+      Blur: Estompa
     Region for Trending: 'Regiunea tendințelor'
         #! List countries
     External Link Handling:
@@ -329,16 +329,16 @@ Settings:
       Hot Pink: Hot Roz
       Solarized Light: Lumină solarizată
       Solarized Dark: Întuneric solarizat
-      Gruvbox Dark: Gruvbox Dark
-      Gruvbox Light: Gruvbox Light
+      Gruvbox Dark: Cutie de minerit Întunecat
+      Gruvbox Light: Caseta pentru minerit Light
       Nordic: Nordic
       Everforest Light Hard: Everforest Light Hard
       Everforest Dark Hard: Everforest Dark Hard
-      Everforest Dark Medium: Everforest Dark Medium
-      Everforest Dark Low: Everforest Dark Low
-      Everforest Light Medium: Everforest Light Medium
-      Everforest Light Low: Everforest Light Low
-      Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Medium: Everforest întuneric mediu
+      Everforest Dark Low: Everforest întuneric scăzut
+      Everforest Light Medium: Everforest Lumină Mediu
+      Everforest Light Low: Everforest Lumină scăzută
+      Catppuccin Frappe: Catnip Frappe
     Main Color Theme:
       Main Color Theme: 'Culoarea principală a temei'
       Red: 'Roşu'
@@ -385,18 +385,18 @@ Settings:
       Solarized Yellow: Galben solarizat
       Solarized Blue: Albastru solarizat
       Solarized Orange: Portocaliu solarizat
-      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Apa de trandafiri
       Catppuccin Frappe Peach: Catppuccin Frappe Piersică
       Catppuccin Frappe Lavender: Catppuccin Frappe Lavandă
       Gruvbox Dark Yellow: Gruvbox Galben Închis
       Gruvbox Dark Purple: Gruvbox Violet Închis
       Gruvbox Dark Aqua: Gruvbox Aqua Închis
       Gruvbox Dark Blue: Gruvbox Albastru Închis
-      Solarized Magenta: Solarized Magenta
+      Solarized Magenta: Magenta solarizat
       Gruvbox Light Red: Gruvbox Roșu Deschis
       Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
-      Catppuccin Frappe Pink: Catppuccin Frappe Pink
-      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Pink: Catppuccin Frappe roz
+      Catppuccin Frappe Mauve: Catppuccin Frappe mov
       Catppuccin Frappe Red: Catppuccin Frappe Roșu
       Catppuccin Frappe Maroon: Catppuccin Frappe Maro
       Catppuccin Frappe Sapphire: Catppuccin Frappe Safir
@@ -406,16 +406,24 @@ Settings:
       Gruvbox Light Blue: Gruvbox Albastru Deschis
       Gruvbox Light Purple: Gruvbox Violet Deschis
       Gruvbox Light Orange: Gruvbox Portocaliu Deschis
-      Everforest Dark Red: Everforest Dark Red
-      Everforest Dark Aqua: Everforest Dark Aqua
-      Everforest Dark Orange: Everforest Dark Orange
-      Everforest Dark Yellow: Everforest Dark Yellow
-      Everforest Dark Green: Everforest Dark Green
-      Everforest Dark Blue: Everforest Dark Blue
+      Everforest Dark Red: Everforest roșu închis
+      Everforest Dark Aqua: Everforest Aqua închis
+      Everforest Dark Orange: Everforest Portocaliu închis
+      Everforest Dark Yellow: Everforest galben închis
+      Everforest Dark Green: Everforest Verde închis
+      Everforest Dark Blue: Everforest Albastru închis
       Catppuccin Frappe Yellow: Catppuccin Frappe Galben
       Catppuccin Frappe Green: Catppuccin Frappe Verde
       Catppuccin Frappe Teal: Catppuccin Frappe Teal
-      Catppuccin Frappe Sky: Catppuccin Frappe Sky
+      Catppuccin Frappe Sky: Catppuccin Frappe cer
+      Everforest Dark Purple: Everforest Dark Purple
+      Everforest Light Red: Everforest Light Red
+      Everforest Light Orange: Portocaliu deschis Everforest
+      Everforest Light Yellow: Everforest galben deschis
+      Everforest Light Green: Everforest Verde deschis
+      Everforest Light Aqua: Everforest Light Aqua
+      Everforest Light Blue: Everforest Albastru deschis
+      Everforest Light Purple: Everforest violet deschis
     Secondary Color Theme: 'Culoarea secundară a temei'
         #* Main Color Theme
     UI Scale: Scala interfeței utilizatorului (UI)
@@ -424,9 +432,9 @@ Settings:
     Hide Side Bar Labels: Ascunde etichetele din bara laterală
     Hide FreeTube Header Logo: Ascundeți logo-ul antetului FreeTube
   Player Settings:
-    Player Settings: 'Setări player'
+    Player Settings: 'jucător'
     Play Next Video: 'Redare automată videoclipuri recomandate'
-    Turn on Subtitles by Default: 'Activați subtitrările în mod implicit'
+    Turn on Subtitles by Default: 'Activați subtitrări în mod implicit'
     Autoplay Videos: 'Pornirea automată a videoclipurilor'
     Proxy Videos Through Invidious: 'Videoclipuri prin proxy-ul Invidious'
     Autoplay Playlists: 'Redare automată a videoclipurilor din lista de redare'
@@ -483,8 +491,8 @@ Settings:
       Picture in Picture: Imagine în imagine
     Autoplay Interruption Timer: Temporizator de întrerupere a redării automate
   Privacy Settings:
-    Privacy Settings: 'Setări de confidențialitate'
-    Remember History: 'Reține istoric'
+    Privacy Settings: 'Confidențialitate'
+    Remember History: 'Amintiți-vă Istoricul vizionărilor'
     Save Watched Progress: 'Salvați progresul de vizionare'
     Clear Search Cache: 'Sterge Cache-ul Căutărilor'
     Are you sure you want to clear out your search cache?: 'Sunteți sigur că doriți
@@ -511,13 +519,16 @@ Settings:
     Remember Search History: Reține istoricul căutărilor
     Clear Search History and Cache: Ștergeți istoricul căutărilor și memoria cache
   Subscription Settings:
-    Subscription Settings: 'Setări de abonament'
+    Subscription Settings: 'Abonament'
     Hide Videos on Watch: 'Ascunde videoclipurile la vizionare'
     Fetch Feeds from RSS: 'Preluare de fluxuri din RSS'
     Fetch Automatically: Preluați feedul automat
     Confirm Before Unsubscribing: Confirmă înainte de dezabonare
+    'Limit the number of videos displayed for each channel': Limitați numărul de videoclipuri
+      afișate pentru fiecare canal
+    To: la
   Data Settings:
-    Data Settings: 'Setări de date'
+    Data Settings: 'date'
     Select Export Type: 'Selectează tipul de export'
     Import Subscriptions: 'Importă abonamente'
     Export Subscriptions: 'Exportați abonamentele'
@@ -577,7 +588,7 @@ Settings:
     Custom External Player Executable: Executabilul personalizat al playerului extern
     Ignore Unsupported Action Warnings: Ignorați avertismentele de acțiune nesuportată
     External Player: Player extern
-    External Player Settings: Setări pentru playerul extern
+    External Player Settings: Jucător extern
     Players:
       None:
         Name: Fără
@@ -593,7 +604,7 @@ Settings:
     Hide Channel Subscribers: Ascunde abonații canalului
     Hide Video Likes And Dislikes: Ascunde like-urile și dislike-urile din video
     Hide Video Views: Ascunde vizualizările video
-    Distraction Free Settings: Setări împotriva distragerii atenției
+    Distraction Free Settings: Fără distragere
     Hide Video Description: Ascunde descrierea videoclipului
     Hide Comments: Ascunde comentariile
     Hide Live Streams: Ascunde stream-urile live
@@ -607,17 +618,17 @@ Settings:
       Channel Page: Pagina canalului
       Watch Page: Pagina de vizionare
       General: General
-    Hide Channel Podcasts: Ascundeți podcasturile canalului
+    Hide Channel Podcasts: Ascunde fila „Podcasturi” canal
     Hide Subscriptions Shorts: Ascundeți Abonamente Shorts
-    Hide Channel Releases: Ascunde lansările canalului
+    Hide Channel Releases: Ascunde fila „Versiuni” canal
     Hide Subscriptions Videos: Ascundeți Abonamente Videoclipuri
     Hide Subscriptions Live: Ascundeți Abonamente Live
     Hide Channels: Ascundeți videoclipurile din canale
-    Hide Channel Community: Ascunde comunitatea canalului
+    Hide Channel Community: Ascunde fila „Comunitate” canal
     Hide Channel Shorts: Ascundeți fila "Shorts" a canalului
     Hide Featured Channels: Ascundeți canalele recomandate
     Hide Channels Placeholder: ID-ul canalului
-    Hide Channel Playlists: Ascunde playlisturile canalului
+    Hide Channel Playlists: Ascunde fila „Playlisturi” de canal
     Hide Upcoming Premieres: Ascundeți premierele viitoare
     Hide Profile Pictures in Comments: Ascundeți imaginile de profil în comentarii
     Hide Channels Already Exists: ID-ul Canalului există deja
@@ -626,13 +637,21 @@ Settings:
     Hide Videos and Playlists Containing Text: Ascundeți videoclipurile și listele
       de redare care conțin text
     Hide Channel Home: Ascundeți fila "Acasă" a canalului
+    Hide Channels Disabled Message: Unele canale au fost blocate folosind ID și nu
+      au fost procesate. Funcția este blocată în timp ce acele ID-uri se actualizează
+    Hide Channels Invalid: ID-ul canalului furnizat nu este valid
+    Show Added Items: Afișați articolele adăugate
+    Hide Channels API Error: Eroare la preluarea utilizatorului cu ID-ul furnizat.
+      Vă rugăm să verificați din nou dacă ID-ul este corect.
+    Hide Channel Courses: Ascunde fila „Cursuri” a canalului
+    Hide Subscriptions Community: Ascunde comunitatea abonamentelor
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificare atunci când segmentul sponsorului
       este sărit
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL-ul API-ului
       SponsorBlock (Cel implicit este https://sponsor.ajay.app)
     Enable SponsorBlock: Activați SponsorBlock
-    SponsorBlock Settings: Setări SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Auto Skip: Sari automat
       Skip Option: Sari peste această opțiune
@@ -642,6 +661,8 @@ Settings:
     Category Color: Culoarea categoriilor
     UseDeArrowTitles: Utilizați titlurile video DeArrow
     UseDeArrowThumbnails: Utilizați DeArrow pentru miniaturi
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': Url
+      API DeArrow Thumbnail Generator (implicit este https://dearrow-thumb.ajay.app)
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Eroare
       la obținerea informațiilor despre rețea. Proxy-ul este configurat corect?
@@ -657,17 +678,22 @@ Settings:
     Proxy Host: Gazdă Proxy
     Proxy Protocol: Protocol Proxy
     Enable Tor / Proxy: Activați Tor / Proxy
-    Proxy Settings: Setări Proxy
+    Proxy Settings: Proxy
+    Proxy Warning: FreeTube nu are un proxy încorporat, dar se poate conecta la un
+      proxy extern, cum ar fi unul care rulează pe computer, cum ar fi Tor, sau un
+      proxy extern, cum ar fi un proxy SOCKS5 furnizat de unele VPN-uri. Dacă este
+      activat, asigurați-vă că proxy/Tor este configurat corect, altfel FreeTube nu
+      va putea prelua date.
   Download Settings:
     Ask Download Path: Solicită calea de descărcare
     Choose Path: Alege calea
-    Download Settings: Setări de descărcare
+    Download Settings: descărcare
     Download Behavior: Comportamentul descărcărilor
     Download in app: Descarcă în aplicație
     Open in web browser: Deschide în browser-ul web
   Parental Control Settings:
     Hide Unsubscribe Button: Ascunde butonul de dezabonare
-    Parental Control Settings: Setările controlului parental
+    Parental Control Settings: Control parental
     Show Family Friendly Only: Arata numai conținut family friendly
     Hide Search Bar: Ascunde bara de căutare
   Password Dialog:
@@ -675,7 +701,7 @@ Settings:
     Enter Password To Unlock: Introduceți parola pentru a debloca setările
   Password Settings:
     Remove Password: Eliminați parola
-    Password Settings: Setări parolă
+    Password Settings: parolă
     Set Password To Prevent Access: Setați o parolă pentru a împiedica accesul la
       setări
     Set Password: Setați parola
@@ -684,7 +710,7 @@ Settings:
       activate. Este foarte recomandat să faceți copii de rezervă. Folosiți pe propria
       răspundere!
     Replace HTTP Cache: Înlocuiți cache HTTP
-    Experimental Settings: Setări experimentale
+    Experimental Settings: experimental
   Sort Settings Sections (A-Z): Setări Sortare Secțiuni (A-Z)
   Return to Settings Menu: Întoarcere la Meniul de Setări
 About:
@@ -716,6 +742,7 @@ About:
   Beta: Beta
   Discussions: Discuții
   Licensed under the: Licențiat în conformitate cu
+  AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Selectare profil'
   All Channels: 'Toate canalele'
@@ -759,11 +786,13 @@ Profile:
     din niciun alt profil.'
 #On Channel Page
   Profile Filter: Filtru profil
-  Profile Settings: Setări de profil
+  Profile Settings: profil
   Toggle Profile List: Comutați lista de profil
   Create Profile Name: Creați numele profilului
   Profile Name: Numele Profilului
   Edit Profile Name: Editează Numele Profilului
+  Open Profile Dropdown: Deschideți meniul derulant Profil
+  Close Profile Dropdown: Închideți meniul derulant Profil
 Channel:
   Subscribe: 'Abonați-vă'
   Unsubscribe: 'Dezabonați-vă'
@@ -808,6 +837,11 @@ Channel:
     Reveal Answers: Dezvăluie Răspunsuri
     Hide Answers: Ascunde Răspunsurile
     votes: '{votes} voturi'
+    View Full Post: Vezi postarea integrală
+    Video hidden by FreeTube: Videoclip ascuns de FreeTube
+    Viewing Posts Only Supported By Invidious: Vizualizarea postărilor este acceptată
+      numai de Invidious. Mergeți la fila comunității unui canal pentru a vedea conținutul
+      acolo fără Invidious.
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Acest
     canal are restricții de vârstă și momentan nu poate fi vizionat în FreeTube.
   This channel does not exist: Acest canal nu există
@@ -827,6 +861,13 @@ Channel:
     This channel does not currently have any releases: Acest canal nu are momentan
       nicio lansare
   Channel Tabs: Filele canalului
+  Home:
+    Home: acasă
+    View Playlist: Vizualizați lista de redare
+  Courses:
+    Courses: Cursuri
+    This channel does not currently have any courses: Acest canal nu are momentan
+      cursuri
 Video:
   Mark As Watched: 'Marcați ca vizionat'
   Remove From History: 'Eliminați din istoric'
@@ -918,6 +959,48 @@ Video:
     Autoplay is off: Redarea automată este oprită
     Autoplay is on: Redarea automată este pornită
     Take Screenshot: Faceți o captură de ecran
+    Stats:
+      Resolution: 'Rezoluție: {width}x{height}@{frameRate}'
+      Player Dimensions: 'Dimensiuni player: {width}x{height}'
+      Dropped Frames / Total Frames: 'Cadre eliminate: {droppedFrames} / Total cadre:
+        {totalFrames}'
+      CodecsVideoAudio: 'Codecuri: {Codec video} ({etichetă video}) / {Codec audio}
+        ({Itag audio})'
+      CodecAudio: 'Codec: {codec audio} ({etichetă audio})'
+      CodecsVideoAudioNoItags: 'Codecuri: {Codec video} / {Codec audio}'
+      Stats: Statistici
+      Video ID: 'ID videoclip: {videoId}'
+      Media Formats: 'Formate media: {formate}'
+      Bitrate: 'Rată de biți: {bitrate} kbps'
+      Volume: 'Volum: {volum Procentage}%'
+      Bandwidth: 'Lățime de bandă: {bandwidth} kbps'
+      Buffered: 'Buffered: {buffered Procentage}%'
+    Show Stats: Afișează statistici
+    Hide Stats: ascunde statistici
+    You appear to be offline: Pari a fi offline.
+    Playback will resume automatically when your connection comes back: Redarea se
+      va relua automat când se reia conexiunea.
+    Skipped segment: Segment {segment Category} omis
+    TranslatedCaptionTemplate: '{limba} (tradus din „{limba originală}”)'
+    Full Window: Fereastra plină
+    Exit Full Window: Ieșiți din fereastra completă
+  More Options: Mai multe opțiuni
+  AgeRestricted: Videoclipurile cu restricții de vârstă nu pot fi vizionate cu FreeTube,
+    deoarece necesită autentificare la Google și utilizarea unui cont YouTube verificat
+    în funcție de vârstă.
+  Unlisted: nelistate
+  MembersOnly: Videoclipurile destinate exclusiv membrilor nu pot fi vizionate cu
+    FreeTube, deoarece necesită autentificare Google și abonament plătit la canalul
+    persoanei care a încărcat.
+  DRMProtected: Videoclipurile protejate DRM nu pot fi redate în FreeTube, deoarece
+    necesită componente proprietare, cu sursă închisă. Dacă doriți să vizionați acest
+    videoclip, vizionați-l pe site-ul oficial YouTube într-un browser web compatibil
+    DRM.
+  DeArrow:
+    Show Original Details: Afișați detaliile originale
+    Show Modified Details: Afișați detaliile modificate
+  IP block: YouTube a blocat adresa dvs. IP pentru a nu viziona videoclipuri. Vă rugăm
+    să încercați să comutați la un alt VPN sau proxy.
 Playlist:
   #& About
   View Full Playlist: 'Vezi lista de redare completă'
@@ -927,6 +1010,18 @@ Playlist:
 #* Published
 #& Views
   Playlist: Listă de redare
+  Sort By:
+    AuthorAscending: Autor (A-Z)
+    PublishedOldest: Cel mai devreme publicat mai întâi
+    VideoTitleDescending: Titlu (Z-A)
+    DateAddedNewest: Cel mai recent adăugat primul
+    DateAddedOldest: Cel mai devreme adăugat primul
+    Custom: personalizat
+    VideoDurationDescending: Durată (cel mai lung mai întâi)
+    PublishedNewest: Cel mai recent publicat primul
+    VideoDurationAscending: Durată (cel mai scurt mai întâi)
+    VideoTitleAscending: Titlu (A-Z)
+    AuthorDescending: Autor (Z-A)
 Change Format:
   Change Media Formats: 'Schimbați formatele video'
   Use Dash Formats: 'Utilizați formate DASH'
@@ -936,6 +1031,8 @@ Change Format:
     pentru acest videoclip'
   Audio formats are not available for this video: 'Formatele audio nu sunt disponibile
     pentru acest videoclip'
+  Legacy formats are not available for this video: Formatele vechi nu sunt disponibile
+    pentru acest videoclip
 Share:
   Share Video: 'Distribuire videoclipuri'
   Share Playlist: 'Distribuie lista de redare'
@@ -981,6 +1078,8 @@ Comments:
   Hearted: Inima
   View {replyCount} replies: '{replyCount} răspunsuri'
   Subscribed: Abonat
+  There are no comments available for this post: Nu există comentarii disponibile
+    pentru această postare
 Up Next: 'În continuare'
 
 # Toast Messages
@@ -1096,6 +1195,7 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Înlocuiți titlurile video cu titluri trimise de utilizator de
       la DeArrow.
+    UseDeArrowThumbnails: Înlocuiți miniaturile video cu miniaturi de la DeArrow.
 External link opening has been disabled in the general settings: Deschiderea linkurilor
   externe a fost dezactivată în setările generale
 Starting download: Se începe descărcarea a "{videoTitle}"
@@ -1109,7 +1209,7 @@ Channels:
   Count: '{number} canal(e) găsit(e).'
   Empty: Lista ta de canale este goală.
   Unsubscribe Prompt: Ești sigur că dorești să te dezabonezi de la "{channelName}"?
-Screenshot Success: Capturi de ecran salvate ca "{filePath}"
+Screenshot Success: Captură de ecran salvată
 Screenshot Error: Captura de ecran a eșuat {error}
 Preferences: Preferințe
 Chapters:
@@ -1118,6 +1218,7 @@ Chapters:
     capitolul curent: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de capitole ascunsă,
     capitolul curent: {chapterName}'
+  Key Moments: Momente cheie
 Clipboard:
   Cannot access clipboard without a secure connection: Nu se poate accesa clipboard-ul
     fără o conexiune securizată
@@ -1162,6 +1263,76 @@ KeyboardShortcutPrompt:
   Mute: Comutați în modul fără sunet
   Toggle Developer Tools: Comutați instrumentele pentru dezvoltatori
   Captions: Activarea/Dezactivarea subtitrărilor
+  Navigate to History: Navigați la pagina Istoric
+  Large Rewind: Derulați înapoi 10 secunde / Derulați înapoi videoclipul în funcție
+    de rata de redare video curentă
+  Keyboard Shortcuts: Comenzi rapide de la tastatură
+  Sections:
+    Video:
+      Playback: 'Video: Redare'
+      General: 'Video: General'
+    App:
+      General: 'Aplicație: General'
+      Situational: 'Aplicație: Situațional'
+  Show Keyboard Shortcuts: Afișați comenzile rapide de la tastatură
+  History Backward: Mergeți înapoi cu o pagină
+  History Forward: Mergi înainte cu o pagină
+  New Window: Creați o fereastră nouă
+  Navigate to Settings: Navigați la pagina Setări
+  Refresh: Actualizați feed-ul cu cel mai recent conținut
+  Focus Secondary Search: Concentrați-vă pe bara de căutare secundară (dacă există
+    una)
+  Stats: Afișați statisticile video
+  Large Fast Forward: Înainte 10 secunde / Derulare rapidă pe baza vitezei actuale
+    de redare video
+  Search in New Window: Căutare într-o fereastră nouă
+  Increase Video Speed: Creșteți viteza video în funcție de intervalul ratei de redare
+    video
+  Small Rewind: Derulează înapoi X secunde pe baza intervalului de derulare înapoi
+    și a vitezei actuale de redare video
+  Last Chapter: Ultimul capitol
+  Decrease Video Speed: Reducerea vitezei video în funcție de intervalul ratei de
+    redare video
+  Restart Window: fereastra de repornire
+  Volume Up: Creșterea volumului
+  Skip by Tenths: Salt prin video în funcție de procent (3 salturi la 30% din durată)
+  Focus Search: Concentrați-vă pe bara de căutare
+  Last Frame: Cadrul anterior (în timpul pauzei)
+  Next Frame: Următorul cadru (în timpul pauzei)
+  Small Fast Forward: Derulare rapidă X secunde pe baza intervalului de derulare rapidă
+    și a vitezei actuale de redare video
+  Force Restart Window: fereastră de repornire forțată
+  Next Chapter: Capitolul următor
+  Zoom In: zoom in
+  Zoom Out: micșorați imaginea
+  Minimize Window: Miminizarea ferestrei
+  Close Window: Închideți fereastra
+  Reset Zoom: Resetați nivelul de zoom / scala UI
+  Volume Down: scăderea volumului
 Moments Ago: acum câteva momente
 Autoplay Interruption Timer: Redarea automată anulată din cauza a {autoplayInterruptionIntervalHours}
   ore de inactivitate
+shortcutLabelSeparator: ｜
+Cancel: Anulează
+Description:
+  Expand Description: '...Mai mult'
+  Collapse Description: arata mai putin
+Keys:
+  arrowleft: Săgeată stânga
+  arrowup: sus Săgeată
+  enter: Introduceți
+  plus: plus
+  arrowright: dreapta Săgeată
+  shift: schimbare
+  alt: Alte
+  ctrl: ctrl
+  arrowdown: Săgeată în jos
+checkmark: ✓
+'Blocked opening potentially unsafe URL': 'Blocarea deschiderii URL potențial nesigure:
+  „{url}”.'
+Yes, Delete: da, șterge
+Yes, Open Link: Da, Link deschis
+Display Label: '{label}: {valoare}'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Yes, Restart: Da, repornire
+shortcutJoinOperator: +

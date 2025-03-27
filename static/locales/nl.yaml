@@ -2,11 +2,10 @@
 Locale Name: 'Nederlands'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Dit gedeelte van de app is nog niet klaar. Kom later terug als er vooruitgang is
-  gemaakt.
+  Dit deel van de app is nog niet klaar. Kom later terug als er voortgang is geboekt.
 
 # Webkit Menu Bar
-File: 'Bestand'
+File: 'bestand'
 Quit: 'Afsluiten'
 Edit: 'Bewerken'
 Undo: 'Ongedaan maken'
@@ -616,6 +615,7 @@ Settings:
       bij­gewerkt
     Show Added Items: Toegevoegde Items Weergeven
     Hide Channel Home: Kanaal "Home" Tab Verbergen
+    Hide Channel Courses: Verberg het tabblad 'Cursussen' van het kanaal
   The app needs to restart for changes to take effect. Restart and apply change?: Het
     programma moet opnieuw worden gestart voordat de veranderingen effect hebben.
     Wilt u het programma nu opnieuw starten en de veranderingen toepassen?
@@ -799,6 +799,10 @@ Channel:
   Home:
     View Playlist: Afspeellijst Weergeven
     Home: Startpagina
+  Courses:
+    Courses: Cursussen
+    This channel does not currently have any courses: Dit kanaal heeft momenteel geen
+      cursussen
 Video:
   Mark As Watched: 'Markeren als bekeken'
   Remove From History: 'Uit geschiedenis verwijderen'

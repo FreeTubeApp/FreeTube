@@ -181,6 +181,15 @@ User Playlists:
         mindst én video uden varighed. Den sorteres, som om dens varighed er nul.
       Video has been removed. Click here to undo.: Videoen blev fjernet. Klik her
         for at fortryde.
+      This playlist is now used for quick bookmark: Denne playliste bruges nu til
+        hurtig bogmærke
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Denne
+        playliste bruges nu som hurtigt bogmærke i stedet for {oldPlaylistName}. Klik
+        her for at fortryde
+      Reverted to use {oldPlaylistName} for quick bookmark: Tilbageført til at bruge
+        {oldPlaylistName} til hurtigt bogmærke
+      This playlist is already being used for quick bookmark.: Denne playliste bruges
+        allerede til hurtig bogmærke.
   AddVideoPrompt:
     Select a playlist to add your N videos to: Vælg en playliste, du vil føje din
       video til | Vælg en playliste, du vil føje dine {videoCount} videoer til
@@ -230,6 +239,10 @@ User Playlists:
     du sikker på, at du vil fjerne 1 set video fra denne playliste? Det kan ikke fortrydes.
     | Er du sikker på, at du vil fjerne {playlistItemCount} sete videoer fra denne
     playliste? Det kan ikke fortrydes.
+  Cannot delete the quick bookmark target playlist.: Kan ikke slette den hurtige bogmærke
+    målliste.
+  Quick Bookmark Enabled: Hurtigt bogmærke aktiveret
+  Enable Quick Bookmark With This Playlist: Aktiver Hurtigt bogmærke med denne afspilningsliste
 History:
   # On History Page
   History: 'Historik'
@@ -237,6 +250,7 @@ History:
   Your history list is currently empty.: 'Din historikliste er i øjeblikket tom.'
   Empty Search Message: Der er ingen videoer i din historik, som passer til din søgning
   Search bar placeholder: Søg i Historik
+  Case Sensitive Search: Case Sensitive Søg
 Settings:
   # On Settings Page
   Settings: 'Indstillinger'
@@ -305,6 +319,12 @@ Settings:
       Hot Pink: Hot Pink
       Solarized Dark: Solarized Mørk
       Solarized Light: Solarized Lys
+      Everforest Dark Medium: Everforest Mørk Mellem
+      Everforest Dark Low: Everforest Mørk Lav
+      Everforest Light Hard: Everforest Lys Hård
+      Everforest Light Medium: Everforest Lys Mellem
+      Everforest Light Low: Everforest Lys Lav
+      Everforest Dark Hard: Everforest Mørk Hård
     Main Color Theme:
       Main Color Theme: 'Primær Farvetema'
       Red: 'Rød'
@@ -453,6 +473,7 @@ Settings:
       Picture in Picture: Billede-i-billede
       External Player: Ekstern afspiller ({externalPlayerName})
     Enter Fullscreen on Display Rotate: Skift til fuldskærm ved skærmrotation
+    Autoplay Interruption Timer: Timer til afbrydelse af autoplay
   Privacy Settings:
     Privacy Settings: 'Privatliv'
     Remember History: 'Husk visningshistorik'
@@ -488,16 +509,17 @@ Settings:
     Confirm Before Unsubscribing: Bekræft Før Afmelding
     'Limit the number of videos displayed for each channel': Begræns antallet af videoer
       vist for hver kanal
+    To: Til
   Data Settings:
-    Data Settings: 'Dataindstillinger'
-    Select Export Type: 'Vælg Eksporttype'
-    Import Subscriptions: 'Importér Abonnementer'
-    Export Subscriptions: 'Eksportér Abonnementer'
+    Data Settings: 'Data'
+    Select Export Type: 'Vælg eksporttype'
+    Import Subscriptions: 'Importér abonnementer'
+    Export Subscriptions: 'Eksportér abonnementer'
     Export FreeTube: 'Eksportér FreeTube'
     Export YouTube: 'Eksportér YouTube'
     Export NewPipe: 'Eksportér NewPipe'
-    Import History: 'Importér Historik'
-    Export History: 'Eksportér Historik'
+    Import History: 'Importér historik'
+    Export History: 'Eksportér historik'
     Profile object has insufficient data, skipping item: 'Profilobjekt har utilstrækkeligt
       data, springer objektet over'
     All subscriptions and profiles have been successfully imported: 'Det lykkedes
@@ -519,10 +541,10 @@ Settings:
     Unknown data key: 'Ukendt datanøgle'
     How do I import my subscriptions?: 'Hvordan importerer jeg mine abonnementer?'
     Manage Subscriptions: Abonnementshåndtering
-    Export Playlists: Eksportér Playlister
+    Export Playlists: Eksportér playlister
     Playlist insufficient data: Utilstrækkelig data for "{playlist}" playliste, springer
       objektet over
-    Import Playlists: Importér Playlister
+    Import Playlists: Importér playlister
     All playlists has been successfully imported: Alle playlister er blevet importeret
       succesfuldt
     All playlists has been successfully exported: Alle playlister er blevet eksporteret
@@ -530,6 +552,16 @@ Settings:
     History File: Historik-fil
     Playlist File: Playliste-fil
 
+    Subscription File: Abonnementsfil
+    Export Playlists For Older FreeTube Versions:
+      Label: Eksportér playlister til ældre FreeTube-versioner
+      Tooltip: "Denne mulighed eksporterer videoer fra alle afspilningslister til
+        en afspilningsliste med navnet 'Favoritter'\nSådan eksporterer og importerer
+        du videoer i afspilningslister til en ældre version af FreeTube:porter dine
+        afspilningslister med denne mulighed aktiveret.\n2. Slet alle dine eksisterende
+        afspilningslister ved at bruge indstillingen Fjern alle afspilningslister
+        under Privatlivsindstillinger.\n3. Start den ældre version af FreeTube, og
+        importer de eksporterede afspilningslister.«"
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fejl ved
       anskaffelse af netværksinformation. Er din proxy konfigureret ordentligt?
@@ -545,7 +577,12 @@ Settings:
     Proxy Host: Proxy-Vært
     Proxy Protocol: Proxy-Protokol
     Enable Tor / Proxy: Aktivér Tor / Proxy
-    Proxy Settings: Indstillinger for Proxy
+    Proxy Settings: fuldmægtig
+    Proxy Warning: FreeTube har ikke en indbygget proxy, men kan oprette forbindelse
+      til en ekstern proxy, f.eks. en, der kører på din maskine som Tor, eller en
+      ekstern proxy som en SOCKS5-proxy, der leveres af nogle VPN'er. Hvis det er
+      aktiveret, skal du sørge for, at din proxy/Tor er konfigureret korrekt, ellers
+      kan FreeTube ikke hente nogen data.
   Distraction Free Settings:
     Hide Active Subscriptions: Skjul Aktive Abonnementer
     Hide Live Chat: Skjul Live Chat
@@ -576,13 +613,27 @@ Settings:
       Side Bar: Sidebjælke
       Channel Page: Kanalside
       Subscriptions Page: Abonnementsside
+      Watch Page: Se side
     Hide Channels Placeholder: Kanal-ID
     Hide Channels API Error: Fejl ved hentning af bruger med det angivne ID. Tjek
       venligst igen, om ID'et er korrekt.
-    Hide Channel Playlists: Skjul Kanal-playlister
-    Hide Channel Community: Skjul Kanal-fællesskab
-    Hide Channel Podcasts: Skjul Kanal-podcasts
+    Hide Channel Playlists: Skjul kanal "Playlists" Tab
+    Hide Channel Community: Skjul kanal "Kommunity" Tab
+    Hide Channel Podcasts: Skjul fanen »Podcasts« på kanalen
     Hide Channels Invalid: Det angivne kanal-ID var ugyldigt
+    Hide Channels Disabled Message: Nogle kanaler blev blokeret med ID og blev ikke
+      behandlet. Funktionen er blokeret, mens disse ID'er opdateres
+    Hide Videos and Playlists Containing Text Placeholder: Ord, ordfragment eller
+      sætning
+    Hide Channel Releases: Skjul kanal "Releases" Tab
+    Show Added Items: Vis tilføjede elementer
+    Hide Channel Shorts: Skjul kanal "Shorts" Tab
+    Hide Channel Home: Skjul kanal "Hjem" Tab
+    Hide Channel Courses: Skjul kanal "Courses" Tab
+    Hide Subscriptions Live: Skjul abonnementer live
+    Hide Subscriptions Shorts: Skjul abonnementer Shorts
+    Hide Subscriptions Community: Skjul abonnementsfællesskab
+    Hide Subscriptions Videos: Skjul abonnementer Videoer
   The app needs to restart for changes to take effect. Restart and apply change?: App'en
     er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
     ændringer?
@@ -598,11 +649,15 @@ Settings:
     Category Color: Kategorifarve
     Notify when sponsor segment is skipped: Notificér når et sponsorsegment springes
       over
-    SponsorBlock Settings: Indstillinger for SponsorBlock
+    SponsorBlock Settings: Sponsorblokken
     Enable SponsorBlock: Aktivér SponsorBlock
+    UseDeArrowTitles: Brug DeArrow-videotitler
+    UseDeArrowThumbnails: Brug DeArrow til miniaturebilleder
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      Thumbnail Generator API Url (standard er https://dearrow-thumb.ajay.app)
   Download Settings:
     Open in web browser: Åbn i webbrowser
-    Download Settings: Downloadindstillinger
+    Download Settings: Downloade
     Choose Path: Vælg Sti
     Ask Download Path: Spørg efter sti for downloads
     Download Behavior: Download-adfærd
@@ -610,7 +665,7 @@ Settings:
   Parental Control Settings:
     Hide Unsubscribe Button: Skjul Afmeldingsknap
     Show Family Friendly Only: Vis Blot Familievenligt
-    Parental Control Settings: Forældrekontrolsindstillinger
+    Parental Control Settings: Forældrekontrol
     Hide Search Bar: Skjul Søgefeltet
   External Player Settings:
     Custom External Player Executable: Brugerdefineret Ekstern Afspiller Eksekverbar
@@ -625,7 +680,7 @@ Settings:
     Ignore Default Arguments: Ignorer standardargumenter
   Password Settings:
     Set Password: Indstil Adgangskode
-    Password Settings: Adgangskode-indstillinger
+    Password Settings: Adgangskode
     Remove Password: Fjern Adgangskode
     Set Password To Prevent Access: Indstil en adgangskode for at forhindre adgang
       til indstillinger
@@ -633,11 +688,13 @@ Settings:
     Password: Adgangskode
     Enter Password To Unlock: Indtast adgangskode for at låse indstillinger op
   Experimental Settings:
-    Experimental Settings: Eksperimentelle Indstillinger
+    Experimental Settings: Eksperimentel
     Warning: Disse indstillinger er eksperimentelle og kan forårsage nedbrud, mens
       de er aktiveret. Det anbefales stærkt at lave sikkerhedskopier. Brug på eget
       ansvar!
     Replace HTTP Cache: Erstat HTTP-cache
+  Return to Settings Menu: Tilbage til Indstillinger Menu
+  Sort Settings Sections (A-Z): Sortering af indstillinger Sektioner (A-Z)
 About:
   #On About page
   About: 'Om'
@@ -666,6 +723,8 @@ About:
   Source code: Kildekode
   Beta: Beta
   Discussions: Diskussioner
+  AGPLv3: AGPLv3
+  Licensed under the: Licenseret under
 Profile:
   Profile Select: 'Vælg Profil'
   All Channels: 'Alle Kanaler'
@@ -708,10 +767,13 @@ Profile:
     fra nogen anden profil.'
 #On Channel Page
   Profile Filter: Profilfilter
-  Profile Settings: Profilindstillinger
+  Profile Settings: Profil
   Create Profile Name: Opret Profilnavn
   Profile Name: Profilnavn
   Edit Profile Name: Redigér Profilnavn
+  Toggle Profile List: Liste over Toggle-profiler
+  Close Profile Dropdown: Luk profil-dropdown
+  Open Profile Dropdown: Åbn profil-dropdown
 Channel:
   Subscribe: 'Abonnér'
   Unsubscribe: 'Afmeld'
@@ -745,18 +807,26 @@ Channel:
     Details: Detaljer
     Tags:
       Search for: Søg efter "{tag}"
+      Tags: Etiketter
+    Joined: sluttet sig til
+    Location: placering
   Community:
     Hide Answers: Skjul Svar
     This channel currently does not have any posts: Denne kanal har i øjeblikket ingen
       opslag
     Video hidden by FreeTube: Video skjult af FreeTube
     votes: '{votes} stemmer'
+    Reveal Answers: Afslør svarene
+    View Full Post: Se hele indlægget
+    Viewing Posts Only Supported By Invidious: Visning af indlæg understøttes kun
+      af Invidious. Gå til en kanals fællesskabsfane for at se indhold der uden Invidious.
   This channel does not allow searching: Denne kanal tillader ikke søgninger
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Denne
     kanal er aldersbegrænset og kan i øjeblikket ikke ses på FreeTube.
   Live:
     This channel does not currently have any live streams: Denne kanal har i øjeblikket
       ingen livestreams
+    Live: leve
   Podcasts:
     This channel does not currently have any podcasts: Denne kanal har i øjeblikket
       ingen podcasts
@@ -766,6 +836,17 @@ Channel:
     Releases: Udgivelser
     This channel does not currently have any releases: Denne kanal har i øjeblikket
       ingen udgivelser
+  Home:
+    Home: hjem
+    View Playlist: Se afspilningsliste
+  Courses:
+    Courses: Kurser
+    This channel does not currently have any courses: Denne kanal har i øjeblikket
+      ingen kurser
+  Shorts:
+    This channel does not currently have any shorts: Denne kanal har i øjeblikket
+      ingen shorts
+  Channel Tabs: Kanal-faner
 Video:
   Mark As Watched: 'Markér Som Set'
   Remove From History: 'Fjern Fra Historik'
@@ -852,10 +933,49 @@ Video:
       Media Formats: 'Medieformater: {formats}'
       Resolution: 'Opløsning: {width}x{height}@{frameRate}'
       Bandwidth: 'Båndbredde: {bandwidth} kbps'
+      Stats: Statistik
+      Bitrate: 'Bitrate: {bitrate} kbps'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      Volume: 'Lydstyrke: {volumePercentage}%'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {lydkodec}'
+      Dropped Frames / Total Frames: 'Tabte rammer: {droppedFrames} (tabte billeder)
+        / Samlet antal rammer: {totalFrames}'
+      CodecsVideoAudio: 'Kodeks: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Player Dimensions: 'Spillerens dimensioner: {bredde}x{højde}'
+      Buffered: 'Bufret: {bufferedPercentage}%'
     Skipped segment: Sprang {segmentCategory} segment over
     Playback will resume automatically when your connection comes back: Afspilning
       genoptager automatisk, når din forbindelse vender tilbage.
 #& Playlists
+    Exit Full Window: Afslut fuldt vindue
+    Take Screenshot: Tag et skærmbillede
+    You appear to be offline: Du ser ud til at være offline.
+    TranslatedCaptionTemplate: '{language} (oversat fra »{originalLanguage}«)'
+    Audio Tracks: Lydspor
+    Autoplay is off: Autoplay er slået fra
+    Autoplay is on: Autoplay er slået til
+    Theatre Mode: Teatertilstand
+    Full Window: Fuldt vindue
+    Show Stats: Vis statistik
+    Hide Stats: Skjul statistik
+    Exit Theatre Mode: Afslut teatertilstand
+  Unlisted: Ikke noteret
+  MembersOnly: Videoer, der kun er for medlemmer, kan ikke ses med FreeTube, da de
+    kræver Google-login og betalt medlemskab af uploaderens kanal.
+  IP block: YouTube har blokeret din IP-adresse fra at se videoer. Prøv at skifte
+    til en anden VPN eller proxy.
+  AgeRestricted: Aldersbegrænsede videoer kan ikke ses med FreeTube, da de kræver
+    Google-login og brug af en aldersverificeret YouTube-konto.
+  DRMProtected: DRM-beskyttede videoer kan ikke afspilles i FreeTube, da de kræver
+    proprietære komponenter med lukket kilde. Hvis du vil se denne video, skal du
+    se den på det officielle YouTube-websted i en DRM-aktiveret webbrowser.
+  More Options: Flere muligheder
+  Show Super Chat Comment: Vis Super Chat Kommentar
+  DeArrow:
+    Show Modified Details: Vis ændrede detaljer
+    Show Original Details: Vis originale detaljer
+  Published:
+    In less than a minute: På mindre end et minut
 Playlist:
   #& About
   View Full Playlist: 'Vis Hele Playliste'
@@ -869,6 +989,14 @@ Playlist:
     DateAddedNewest: Seneste tilføjet først
     VideoTitleDescending: Titel (Å-A)
     VideoTitleAscending: Titel (A-Å)
+    DateAddedOldest: Tidligst tilføjet først
+    Custom: Brugerdefineret
+    VideoDurationAscending: Varighed (korteste først)
+    AuthorAscending: Forfatter (A-Z)
+    AuthorDescending: Forfatter (Z-A)
+    PublishedNewest: seneste tilføjet først
+    PublishedOldest: Tidligst udgivet først
+    VideoDurationDescending: Varighed (længste først)
 Change Format:
   Change Media Formats: 'Skift Videoformater'
   Use Dash Formats: 'Brug DASH-Formater'
@@ -878,6 +1006,8 @@ Change Format:
     for denne video'
   Audio formats are not available for this video: 'Lydformater er ikke tilgængelige
     for denne video'
+  Legacy formats are not available for this video: Ældre formater er ikke tilgængelige
+    for denne video
 Share:
   Share Video: 'Del Video'
   Share Playlist: 'Del Playliste'
@@ -920,6 +1050,9 @@ Comments:
   Member: Medlem
   Subscribed: Abonneret
   View {replyCount} replies: Vis {replyCount} svar
+  Hearted: hjertelig
+  There are no comments available for this post: Der er ingen tilgængelige kommentarer
+    til dette indlæg
 Up Next: 'Næste'
 
 # Toast Messages
@@ -945,10 +1078,11 @@ This video is unavailable because of missing formats. This can happen due to cou
   utilgængelighed.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Når det er aktiveret vil FreeTube bruge RSS, i stedet for
-      dens standardmetoder, for at hente din abonnementsfeed. RSS er hurtigere og
-      forhindrer IP-blokering, men tilbyder ikke visse informationer som videolængde
-      eller direkte-status
+    Fetch Feeds from RSS: Når det er aktiveret, bruger FreeTube RSS i stedet for standardmetoden
+      til at hente dit abonnementsfeed. RSS er hurtigere og forhindrer IP-blokering,
+      men giver ikke visse oplysninger som videoens varighed, live-status eller fællesskabsindlæg.
+    Fetch Automatically: Når det er aktiveret, henter FreeTube automatisk dit abonnementsfeed,
+      når der åbnes et nyt vindue, og når du skifter profil.
   Player Settings:
     Default Video Format: Angiv formaterne der bruges når en video afspilles. DASH-formater
       kan afspille med højere kvalitet. Gamle formater er begrænsede til maks HD,
@@ -960,6 +1094,8 @@ Tooltips:
       bagud for at kontrollere afspilningshastigheden. Tryk og hold Control-tasten
       (Command-tast på Mac) nede og venstreklik musen for hurtigt at vende tilbage
       til standard-afspilningshastigheden (1x medmindre det er blevet ændret i indstillingerne).
+    Skip by Scrolling Over Video Player: Brug rullehjulet til at springe gennem videoen
+      i bedste MPV-stil.
   General Settings:
     Region for Trending: Området for trend tillader dig at vælge hvilket lands videoer
       på trend du ønsker at få vist.
@@ -976,6 +1112,8 @@ Tooltips:
     External Link Handling: "Vælg standardopførslen for når du klikker på et link,
       der ikke kan blive åbnet i FreeTube.\nSom standard åbner FreeTube det link,
       du klikker på, i din standardbrowser.\n"
+    Open Deep Links In New Window: URL'er, der sendes til FreeTube, f.eks. ved at
+      omdirigere browserudvidelser eller kommandolinjeargumenter, åbnes i et nyt vindue.
   External Player Settings:
     Custom External Player Executable: Som standard antager FreeTube at den valgte
       eksterne afspiller kan findes via miljøvariablet PATH. En brugerdefineret sti
@@ -988,11 +1126,27 @@ Tooltips:
       Advarsel: Invidious-indstillinger har ingen effekt på eksterne afspillere.'
     Ignore Warnings: Undertryk advarsler for når den eksterne afspiller ikke understøtter
       den gældende handling (fx vende playlister om, etc.).
+    Ignore Default Arguments: Send ikke nogen standardargumenter til den eksterne
+      afspiller ud over video-URL'en (f.eks. afspilningshastighed, URL til afspilningsliste
+      osv.). Brugerdefinerede argumenter vil stadig blive sendt videre.
   Distraction Free Settings:
     Hide Channels: Indtast et kanal-ID for at skjule alle videoer, playlister og selve
       kanalen fra at blive vist i søgning, trending, mest populære og anbefalet. Det
       indtastede kanal-ID skal være et komplet match, og der skelnes mellem store
       og små bogstaver.
+    Hide Subscriptions Live: Denne indstilling tilsidesættes af den app-dækkende »{appWideSetting}«-indstilling
+      i afsnittet »{subsection}« i »{settingsSection}«
+    Hide Videos and Playlists Containing Text: Indtast et ord, et ordstykke eller
+      en sætning (der skelnes ikke mellem store og små bogstaver) for at skjule alle
+      videoer og afspilningslister, hvis oprindelige titler indeholder det, i hele
+      FreeTube, undtagen Historik, Dine afspilningslister og videoer inde i afspilningslister.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Udskift videotitler med brugerindsendte titler fra DeArrow.
+    UseDeArrowThumbnails: Erstat videominiaturebilleder med miniaturebilleder fra
+      DeArrow.
+  Experimental Settings:
+    Replace HTTP Cache: Deaktiverer Electrons diskbaserede HTTP-cache og aktiverer
+      en brugerdefineret billedcache i hukommelsen. Vil føre til øget brug af RAM.
 New Window: Nyt Vindue
 More: Mere
 Open New Window: Åbn Nyt Vindue
@@ -1019,7 +1173,7 @@ External link opening has been disabled in the general settings: Åbning af ekst
   links er slået fra i generelle indstillinger
 Starting download: Starter download af "{videoTitle}"
 Downloading has completed: '"{videoTitle}" er færdig med at downloade'
-Screenshot Success: Gemte skærmbillede som "{filePath}"
+Screenshot Success: Gemt skærmbillede
 Playing Next Video Interval: Afspiller næste video om lidt. Klik for at afbryde. |
   Afspiller næste video om {nextVideoInterval} sekund. Klik for at afbryde. | Afspiller
   næste video om {nextVideoInterval} sekunder. Klik for at afbryde.
@@ -1032,6 +1186,11 @@ Clipboard:
   Copy failed: Kopiering til udklipsholder mislykkedes
 Chapters:
   Chapters: Kapitler
+  Key Moments: vigtige øjeblikke
+  'Chapters list visible, current chapter: {chapterName}': 'Kapitelliste synlig, aktuelt
+    kapitel: {kapitelnavn}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste skjult, aktuelt
+    kapitel: {kapitelnavn}'
 Age Restricted:
   This video is age restricted: Denne video er aldersbegrænset
   This channel is age restricted: Denne kanal er aldersbegrænset
@@ -1044,8 +1203,99 @@ Search Listing:
     8K: 8K
     VR180: VR180
     360 Video: 360°
+    New: Nye
 Feed:
   Refresh Feed: Opdater {subscriptionName}
   Feed Last Updated: '{feedName}-feed opdateret sidst: {date}'
 Right-click or hold to see history: Højreklik eller hold nede for at se historik
 Search character limit: Søgningen overskrider tegngrænsen {searchCharacterLimit}
+Keys:
+  shift: Skift
+  arrowdown: Pil ned
+  arrowright: højre pil
+  ctrl: Ctrl
+  alt: Alt
+  arrowleft: Venstre pil
+  arrowup: pil op
+  plus: plus
+  enter: Indtast
+Description:
+  Collapse Description: Vis mindre
+  Expand Description: '...mere'
+Hashtag:
+  This hashtag does not currently have any videos: Dette hashtag har i øjeblikket
+    ingen videoer
+  Hashtag: Emneord
+Channel Unhidden: '{kanal} fjernet fra kanalfilter'
+KeyboardShortcutPrompt:
+  Fullscreen: Skift til fuld skærm
+  Stats: Vis videostatistik
+  Picture in Picture: Skift til billede-i-billede-tilstand
+  Large Fast Forward: Spol 10 sekunder frem / Spol hurtigt frem i video baseret på
+    den aktuelle videoafspilningshastighed
+  Mute: slå lyden fra
+  Keyboard Shortcuts: Tastaturgenveje
+  Sections:
+    Video:
+      Playback: 'Video: Afspilning'
+      General: 'Video: Generelt'
+    App:
+      Situational: 'App: Situationsbestemt'
+      General: 'App: Generelt'
+  Show Keyboard Shortcuts: Vis tastaturgenveje
+  History Backward: Gå en side tilbage
+  History Forward: Gå en side frem
+  New Window: Opret et nyt vindue
+  Navigate to Settings: Naviger til siden Indstillinger
+  Navigate to History: Naviger til siden Historik
+  Refresh: Opdater feed med nyeste indhold
+  Focus Secondary Search: Fokuser på det sekundære søgefelt (hvis der er et)
+  Captions: Slå billedtekster til og fra
+  Large Rewind: Spol 10 sekunder tilbage / Spol videoen tilbage baseret på den aktuelle
+    videoafspilningshastighed
+  Play: Skift mellem afspilning og pause
+  Decrease Video Speed: Sænk videohastigheden baseret på Video Playback Rate Interval
+  Minimize Window: Minimer vinduet
+  Skip by Tenths: Spring gennem video efter procent (3 spring til 30 % af varigheden)
+  Increase Video Speed: Forøg videohastighed baseret på videoafspilningshastighedsinterval
+  Reset Zoom: Nulstil zoomniveau / UI-skala
+  Zoom In: Zoom ind
+  Next Frame: Næste billede (mens den er sat på pause)
+  Volume Up: Øg volumen
+  Volume Down: Sænk volumen
+  Last Chapter: Sidste kapitel
+  Next Chapter: Næste kapitel
+  Zoom Out: Zoom ud
+  Small Fast Forward: Spol frem X sekunder baseret på spol frem-interval og aktuelle
+    videoafspilningshastighed
+  Small Rewind: Spol X sekunder tilbage baseret på tilbagespolingsintervallet og den
+    aktuelle videoafspilningshastighed
+  Search in New Window: Søg i et nyt vindue
+  Last Frame: Forrige ramme (mens den er sat på pause)
+  Full Window: Skift fuldt vindue
+  Theatre Mode: Skift biograftilstand
+  Take Screenshot: Tag et skærmbillede
+  Close Window: luk vinduet
+  Restart Window: Genstart vindue
+  Force Restart Window: Tving genstartsvinduet
+  Toggle Developer Tools: Skift udviklerværktøjer
+  Focus Search: Fokuser på søgelinjen
+Channel Hidden: '{kanal} tilføjet til kanalfilter'
+KeyboardShortcutTemplate: '{label} ({genvej})'
+Moments Ago: for et øjeblik siden
+Yes, Delete: Ja, Slet
+Display Label: '{label}: {værdi}'
+Yes, Restart: Ja, genstart
+Ok: ok
+shortcutJoinOperator: +
+Trimmed input must be at least N characters long: Trimmet input skal være mindst 1
+  tegn langt | Trimmet input skal være mindst {længde} tegn langt
+Yes, Open Link: Ja, Åbn link
+Tag already exists: »{tagName}"-tagget findes allerede
+Cancel: annullere
+Autoplay Interruption Timer: Autoplay afbrudt på grund af {autoplayInterruptionIntervalHours}
+  timers inaktivitet
+shortcutLabelSeparator: ｜
+'Blocked opening potentially unsafe URL': 'Blokeret åbning af potentielt usikker URL:
+  »{url}«.'
+checkmark: ✓
