@@ -237,6 +237,7 @@ User Playlists:
     desta playlist? Isso não pode ser desfeito.
   The playlist has been successfully exported: Playlist exportada com sucesso
   Export Playlist: Exportar esta playlist
+  TotalTimePlaylist: 'Tempo total: {duration}'
 History:
   # On History Page
   History: 'Histórico'
@@ -449,7 +450,7 @@ Settings:
     Max Video Playback Rate: Taxa máxima de reprodução de vídeo
     Video Playback Rate Interval: Intervalo da taxa de reprodução de vídeo
     Screenshot:
-      File Name Label: Padrão do nome de arquivo
+      File Name Label: Padrão para nome de arquivo
       Enable: Habilitar captura de tela
       Ask Path: Perguntar onde salvar os arquivos
       Folder Label: Pasta de capturas de tela
@@ -479,7 +480,7 @@ Settings:
     Hide Videos on Watch: 'Ocultar vídeos após assisti-los'
     Fetch Feeds from RSS: Buscar Informações através de RSS
     Fetch Automatically: Buscar feed automaticamente
-    Confirm Before Unsubscribing: Evitar cancelamento acidental de inscrições
+    Confirm Before Unsubscribing: Pedir para confirmar antes de cancelar a inscrição
 
     'Limit the number of videos displayed for each channel': Limitar o número de vídeos
       exibidos para cada canal
@@ -568,8 +569,8 @@ Settings:
     Hide Popular Videos: Ocultar vídeos populares
     Hide Trending Videos: Ocultar vídeos em alta
     Hide Recommended Videos: Ocultar vídeos recomendados
-    Hide Comment Likes: Ocultar "curtidas" em comentários
-    Distraction Free Settings: Modo Sem Distrações
+    Hide Comment Likes: Ocultar "curtidas" de comentários
+    Distraction Free Settings: Modo sem distração
     Hide Channel Subscribers: Ocultar número de inscritos
     Hide Video Likes And Dislikes: Ocultar "curtidas" em vídeo
     Hide Video Views: Ocultar visualizações do vídeo
@@ -600,7 +601,7 @@ Settings:
     Hide Subscriptions Videos: Ocultar vídeos de suas inscrições
     Hide Subscriptions Shorts: Ocultar "Shorts" de suas inscrições
     Hide Subscriptions Live: Ocultar transmissões ao vivo de suas inscrições
-    Hide Profile Pictures in Comments: Ocultar foto do perfil nos comentários
+    Hide Profile Pictures in Comments: Ocultar foto de perfis nos comentários
     Hide Subscriptions Community: Ocultar comunidade de suas inscrições
     Hide Channels Invalid: ID do canal fornecido é inválido
     Hide Channels Disabled Message: Alguns canais foram bloqueados por ID e não foram
