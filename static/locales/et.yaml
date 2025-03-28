@@ -244,6 +244,7 @@ User Playlists:
     eemaldada {playlistItemCount} vaadatud videot? Seda tegevust ei saa tagasi pöörata.
   Export Playlist: Ekspordi see esitusloend
   The playlist has been successfully exported: Esitusloendi eksportimine õnnestus
+  TotalTimePlaylist: 'Kestus kokku: {duration}'
 History:
   # On History Page
   History: 'Ajalugu'
