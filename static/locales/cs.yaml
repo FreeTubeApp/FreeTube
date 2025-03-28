@@ -246,6 +246,7 @@ User Playlists:
   Remove Duplicate Videos: Odstranit duplicitní videa
   Export Playlist: Exportovat tento playlist
   The playlist has been successfully exported: Playlist byl úspěšně exportován
+  TotalTimePlaylist: 'Celkový čas: {duration}'
 History:
   # On History Page
   History: 'Historie'
