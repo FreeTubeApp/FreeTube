@@ -10,13 +10,13 @@ Quit: 'Avsluta'
 Edit: 'Redigera'
 Undo: 'Ångra'
 Redo: 'Upprepa'
-Cut: 'Klipp ut'
+Cut: 'Klipp Ut'
 Copy: 'Kopiera'
-Paste: 'Klistra in'
-Delete: 'Ta bort'
+Paste: 'Klistra In'
+Delete: 'Radera'
 Select all: 'Markera alla'
 Reload: 'Uppdatera'
-Force Reload: 'Framtvinga uppdatering'
+Force Reload: 'Framtvinga Uppdatering'
 Toggle Developer Tools: 'Utvecklarverktyg av/på'
 Actual size: 'Verklig storlek'
 Zoom in: 'Zooma in'
@@ -45,8 +45,8 @@ Global:
     Channel Count: 1 kanal | {count} kanaler
     Like Count: 1 gillning | {count} gillningar
     Comment Count: 1 kommentar | {count} kommentarer
-Version {versionNumber} is now available!  Click for more details: 'Versionen {versionNumber}
-  är nu tillgänglig! Klicka för mer detaljer'
+Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
+  är nu tillgänglig!  Klicka för mer detaljer'
 Download From Site: 'Ladda ner från sajten'
 A new blog is now available, {blogTitle}. Click to view more: 'En ny bloggpost är
   nu tillgänglig, {blogTitle}. Klicka för att se mer'
@@ -84,7 +84,7 @@ Search Filters:
   # On Search Page
     Medium (4 - 20 minutes): Mellan (4 - 20 minuter)
   Search Results: 'Sökresultat'
-  Fetching results. Please wait: 'Hämtar resultat. Snälla vänta'
+  Fetching results. Please wait: 'Hämtar resultat. Vänligen vänta'
   Fetch more results: 'Hämta fler resultat'
 # Sidebar
   There are no more results for this search: Det finns inga mer resultat för denna
@@ -104,8 +104,10 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Prenumerationer'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Lägg
-    till prenumerationer för att se dem här.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din
+    prenumerationslista är för närvarande tom. Om du vill importera dina prenumerationer
+    kan du gå till Datainställningar och välja Importera prenumerationer eller så
+    kan du söka efter en kanal och prenumerera på dem.'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denna
     profil har ett stort antal prenumerationer. Tvingar RSS för att undvika hastighetsbegränsning
   Load More Videos: Se mer
@@ -161,7 +163,7 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: Är du säker
     på att du vill ta bort den här spellistan? Detta kan inte ångras.
   AddVideoPrompt:
-    Added {count} Times: Tillagd {count} gång | Tillagd {count} gånger
+    Added {count} Times: Redan Tillagd | Lade Till {count} Gånger
     Save: Spara
     Search in Playlists: Sök i spellistor
     Select a playlist to add your N videos to: Välj en spellista att lägga till din
@@ -175,6 +177,10 @@ User Playlists:
         i {playlistCount} spellistor | {videoCount} videor tillagda i {playlistCount}
         spellistor
     Allow Adding Duplicate Video(s): Tillåt tilläggning av dubblettvideo(n)
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Videor Kommer Att Läggas Till'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Videor Redan Tillagda'
   SinglePlaylistView:
     Toast:
       Video has been removed: Videon har tagits bort
@@ -221,13 +227,25 @@ User Playlists:
       There is already a playlist with this name. Please pick a different name.: Det
         finns redan en spellista med detta namn. Vänligen välj ett annat namn.
       There was an issue with creating the playlist.: Det uppstod ett problem med
-        att skapa spellistan.
+        skapandet av spellistan.
+      Playlist {playlistName} has been successfully created.: Spellistan {playlistName}
+        har skapats framgångsrikt.
     New Playlist Name: Nytt Spellistanamn
   The playlist has been successfully exported: Spellistan har exporterats
   Export Playlist: Exportera Denna Spellista
   Quick Bookmark Enabled: Snabbbokmärke Aktiverat
   TotalTimePlaylist: 'Total tid: {duration}'
   Remove Duplicate Videos: Ta Bort Dubbletter Av Videor
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Är
+    du säker på att du vill ta bort 1 dubblett av videoklipp från den här spellistan?
+    Detta kan inte ångras. | Är du säker på att du vill ta bort {playlistItemCount}
+    dubbletter av videoklipp från den här spellistan? Detta kan inte ångras.
+  Cannot delete the quick bookmark target playlist.: Det går inte att ta bort målspellistan
+    för snabbbokmärken.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Är
+    du säker på att du vill ta bort 1 sett video från den här spellistan? Detta kan
+    inte ångras. | Är du säker på att du vill ta bort {playlistItemCount} sedda videor
+    från den här spellistan? Detta kan inte ångras.
 History:
   # On History Page
   History: 'Historik'
@@ -240,7 +258,7 @@ Settings:
   # On Settings Page
   Settings: 'Inställningar'
   General Settings:
-    General Settings: 'Allmänna inställningar'
+    General Settings: 'Allmänt'
     Check for Updates: 'Sök efter uppdateringar'
     Check for Latest Blog Posts: 'Sök efter senaste blogginlägg'
     Fallback to Non-Preferred Backend on Failure: 'Falla tillbaka till icke-föredragen
@@ -284,8 +302,10 @@ Settings:
     Auto Load Next Page:
       Tooltip: Ladda ytterligare sidor och kommentarer automatiskt.
       Label: Ladda Nästa Sida Automatiskt
+    Open Deep Links In New Window: Öppna webbadresser som skickas till FreeTube i
+      ett Nytt Fönster
   Theme Settings:
-    Theme Settings: 'Temainställningar'
+    Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Matcha toppfältet med huvudfärgen'
     Base Theme:
       Base Theme: 'Grundtema'
@@ -308,6 +328,7 @@ Settings:
       Everforest Light Hard: Everforest Light Hard
       Everforest Light Medium: Everforest Light Medium
       Everforest Light Low: Everforest Light Low
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Huvudfärg'
       Red: 'Röd'
@@ -401,12 +422,12 @@ Settings:
     Hide Side Bar Labels: Göm text i sidpanelen
     Hide FreeTube Header Logo: Dölj FreeTubelogga
   Player Settings:
-    Player Settings: 'Spelarinställningar'
-    Play Next Video: 'Spela nästa video'
-    Turn on Subtitles by Default: 'Aktivera undertexter som standard'
-    Autoplay Videos: 'Autospela video'
+    Player Settings: 'Spelare'
+    Play Next Video: 'Autospela Rekommenderade Videor'
+    Turn on Subtitles by Default: 'Aktivera Undertexter som Standard'
+    Autoplay Videos: 'Starta Videor Automatiskt'
     Proxy Videos Through Invidious: 'Proxy Videos Genom Invidious'
-    Autoplay Playlists: 'Autospela spellistor'
+    Autoplay Playlists: 'Autospela Spellista Videor'
     Enable Theatre Mode by Default: 'Aktivera Bioläge som standard'
     Default Volume: 'Standardvolym'
     Default Playback Rate: 'Standard uppspelningshastighet'
@@ -427,7 +448,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Intervall till nästa video
+    Next Video Interval: Autospela Nedräkningstimer
     Display Play Button In Video Player: Visa Spelaknapp i videospelaren
     Scroll Volume Over Video Player: Rullvolym i videospelaren
     Fast-Forward / Rewind Interval: Spola fram / spola bak intervall
@@ -441,10 +462,10 @@ Settings:
       Folder Label: Skärmdumpsmapp
       Quality Label: Skärmdumpskvalité
       Format Label: Skärmdumpsformat
-      File Name Tooltip: Du kan använda variabler nedanför. %Y 4 siffror. %M Månad
-        2 siffror. %D Dag 2 siffror. %H Hour 2 siffror. %N Minut 2 siffror. %S Sekund
-        2 siffror. %T Millisekund 3 siffror. %s Videosekund. %t Videomillisekund 3
-        siffror. %i Video-ID.
+      File Name Tooltip: Du kan använda variablerna nedan. %Y År 4 siffror. %M Månad
+        2 siffror. %D Dag 2 siffror. %H Timme 2 siffror. %N Minut 2 siffror. %S Sekund
+        2 siffror. %T Millisekund 3 siffror. %s Video Sekund. %t Video Millisekund
+        3 siffror. %i Video ID.
       Folder Button: Välj mapp
     Skip by Scrolling Over Video Player: Hoppa över genom att skrolla över videospelaren
     Max Video Playback Rate: Maximal uppspelningshastighet
@@ -459,8 +480,8 @@ Settings:
       External Player: Extern Spelare ({externalPlayerName})
     Autoplay Interruption Timer: Autoplay Avbrottstimer
   Privacy Settings:
-    Privacy Settings: 'Integritetsinställningar'
-    Remember History: 'Aktivera visningshistorik'
+    Privacy Settings: 'Integritet'
+    Remember History: 'Kom Ihåg Visningshistorik'
     Save Watched Progress: 'Lagra tidigare sett'
     Clear Search Cache: 'Rensa sökcache'
     Are you sure you want to clear out your search cache?: 'Vill du verkligen rensa
@@ -485,7 +506,7 @@ Settings:
     Are you sure you want to clear out your search history and cache?: Är du säker
       på att du vill rensa din sökhistorik och cacheminne?
   Subscription Settings:
-    Subscription Settings: 'Prenumerationsinställningar'
+    Subscription Settings: 'Prenumeration'
     Hide Videos on Watch: 'Dölj video under visning'
     Fetch Feeds from RSS: 'Hämta prenumerationer från RSS'
     Fetch Automatically: Hämta flöde automatiskt
@@ -494,7 +515,7 @@ Settings:
     To: Till
     Confirm Before Unsubscribing: Bekräfta Innan Du Avslutar Prenumerationen
   Data Settings:
-    Data Settings: 'Datainställningar'
+    Data Settings: 'Data'
     Select Export Type: 'Välj export-typen'
     Import Subscriptions: 'Importera prenumerationer'
     Export Subscriptions: 'Exportera prenumerationer'
@@ -534,7 +555,13 @@ Settings:
       över objekt
 
     Export Playlists For Older FreeTube Versions:
-      Label: Exportera Spellistor För Äldre FreeTube-versioner
+      Label: Exportera Spellistor För Äldre Versioner Av FreeTube
+      Tooltip: "Det här alternativet exporterar videor från alla spellistor till en
+        spellista med namnet \"Favoriter\".\nSå här exporterar och importerar du videor
+        i spellistor för en äldre version av FreeTube:\n1. Exportera dina spellistor
+        med det här alternativet aktiverat.\n2. Ta bort alla dina befintliga spellistor
+        med alternativet Ta bort alla spellistor under Sekretessinställningar.\n3.
+        Starta den äldre versionen av FreeTube och importera de exporterade spellistorna.\""
   Distraction Free Settings:
     Hide Live Chat: Dölj livechatt
     Hide Popular Videos: Dölj mest populära
@@ -544,7 +571,7 @@ Settings:
     Hide Video Likes And Dislikes: Dölj video gillar/ogillar
     Hide Channel Subscribers: Dölj kanalprenumeranter
     Hide Video Views: Dölj videovisningar
-    Distraction Free Settings: Distraktionsinställningar
+    Distraction Free Settings: Distraktionsfri
     Hide Active Subscriptions: Dölj aktiva prenumerationer
     Hide Playlists: Dölj spellistor
     Hide Comments: Dölj kommentarer
@@ -558,17 +585,17 @@ Settings:
       och skiljetecken
     Hide Channels Placeholder: Kanal ID
     Hide Featured Channels: Dölj Utvalda kanaler
-    Hide Channel Shorts: Dölj Kanal Shorts
+    Hide Channel Shorts: Dölj Kanalfliken "Shorts"
     Sections:
       Side Bar: Sidofält
       General: Allmänt
       Channel Page: Kanal sida
       Watch Page: Titta sida
       Subscriptions Page: Prenumerationssida
-    Hide Channel Community: Dölj Kanal gemenskap
-    Hide Channel Playlists: Dölj Kanal spellistor
-    Hide Channel Podcasts: Dölj kanal podcasts
-    Hide Channel Releases: Dölj kanal släpp
+    Hide Channel Community: Dölj Kanalfliken "Gemenskap"
+    Hide Channel Playlists: Dölj Kanalfliken "Spellistor"
+    Hide Channel Podcasts: Dölj Kanalfliken "Podcasts"
+    Hide Channel Releases: Dölj Kanalfliken "Släpp"
     Hide Subscriptions Videos: Dölj prenumerationsvideor
     Hide Subscriptions Shorts: Dölj prenumerationsshorts
     Hide Subscriptions Live: Dölj prenumerations Live-sändningar
@@ -604,13 +631,18 @@ Settings:
     Proxy Host: Proxy Host
     Proxy Protocol: Proxy-protokoll
     Enable Tor / Proxy: Aktivera Tor / Proxy
-    Proxy Settings: Proxyinställningar
+    Proxy Settings: Proxy
+    Proxy Warning: FreeTube har ingen inbyggd proxy men kan ansluta till en extern
+      proxy, till exempel en som körs på din maskin som Tor eller en extern proxy,
+      såsom en SOCKS5 proxy som tillhandahålls av vissa VPN. Om den är aktiverad,
+      se till att din proxy/Tor är korrekt konfigurerad, annars kommer FreeTube inte
+      att kunna hämta någon data.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifikation när sponsorsegmentet är åsidosatt
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': API Url för Sponsorblockering
       (Standard är https://sponsor.ajay.app)
     Enable SponsorBlock: Använd Sponsorblockering (SponsorBlock)
-    SponsorBlock Settings: Inställningar för Sponsorblockering
+    SponsorBlock Settings: Sponsorblockering
     Skip Options:
       Skip Option: Hoppa över-alternativ
       Show In Seek Bar: Visa i tidslinjen
@@ -621,10 +653,11 @@ Settings:
     UseDeArrowTitles: Använd DeArrow-videotitlar
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL:en
       till DeArrows Miniatyrbildsgenerator-API (Standard är https://dearrow-thumb.ajay.app)
+    UseDeArrowThumbnails: Använd DeArrow för miniatyrer
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorera händelsevarningar som inte stöds
     External Player: Extern spelare
-    External Player Settings: Inställningar för extern spelare
+    External Player Settings: Extern Spelare
     Custom External Player Arguments: Anpassade externa spelargument
     Custom External Player Executable: Anpassad extern spelare körbar
     Players:
@@ -633,7 +666,7 @@ Settings:
     Ignore Default Arguments: Ignorera Standardargument
   Parental Control Settings:
     Hide Unsubscribe Button: Dölj Avprenumereraknappen
-    Parental Control Settings: Föräldrakontrollinställningar
+    Parental Control Settings: Föräldrakontroll
     Show Family Friendly Only: Visa endast barnvänligt innehåll
     Hide Search Bar: Dölj sökfält
   Password Dialog:
@@ -641,19 +674,19 @@ Settings:
     Enter Password To Unlock: Ange lösenord för att låsa upp inställningar
   Download Settings:
     Ask Download Path: Välj nerladdningsmapp varje gång
-    Download Settings: Nerladdningsinställningar
+    Download Settings: Nerladdning
     Choose Path: Välj Sökväg
     Download in app: Ladda ner i appen
     Download Behavior: Nerladdningsalternativ
     Open in web browser: Öppna i webbläsare
   Password Settings:
     Remove Password: Ta bort lösenord
-    Password Settings: Lösenordsinställningar
+    Password Settings: Lösenord
     Set Password: Välj lösenord
     Set Password To Prevent Access: Ange lösenord för att förhindra tillgång till
       inställningar
   Experimental Settings:
-    Experimental Settings: Experimentella inställningar
+    Experimental Settings: Experimentella
     Warning: Dessa inställlningar är experimentella, de kan eventuellt orsakar kracher
       om de är aktiverade. Att göra backupfiler rekomenderas. Används på egen risk!
     Replace HTTP Cache: Ersätt HTTP-cache
@@ -688,6 +721,7 @@ About:
   Beta: Beta
   Discussions: Diskussioner
   AGPLv3: AGPLv3
+  Licensed under the: Licensierad enligt
 Profile:
   Profile Select: 'Välj profil'
   All Channels: 'Alla kanaler'
@@ -729,7 +763,7 @@ Profile:
     kanalen från någon annan profil.'
 #On Channel Page
   Profile Filter: Profilfilter
-  Profile Settings: Profilinställningar
+  Profile Settings: Profil
   Toggle Profile List: Aktivera Profillista
   Open Profile Dropdown: Öppna profilrullgardinsmenyn
   Close Profile Dropdown: Stäng profilrullgardinsmenyn
@@ -907,6 +941,8 @@ Video:
       Bitrate: 'Bithastighet: {bitrate} kbps'
       Volume: 'Volym: {volumePercentage}%'
       CodecsVideoAudio: 'Kodekar: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Bildrutefall: {droppedFrames} / Totalt antal
+        bildrutor: {totalFrames}'
     Hide Stats: Dölj Statistik
     You appear to be offline: Du verkar vara offline.
     Playback will resume automatically when your connection comes back: Uppspelningen
@@ -919,6 +955,7 @@ Video:
     Exit Theatre Mode: Avsluta Teaterläget
     Take Screenshot: Ta Skärmdump
     Show Stats: Visa Statistik
+    TranslatedCaptionTemplate: '{language} (översatt från "{originalLanguage}")'
   More Options: Fler Alternativ
   AgeRestricted: Åldersbegränsade videor kan inte ses med FreeTube eftersom de kräver
     Google-inloggning och användning av ett åldersverifierat YouTube-konto.
@@ -1035,8 +1072,9 @@ No: 'Nej'
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: När det är aktiverat kommer FreeTube att använda RSS istället
-      för standardmetoden för ditt prenumerationsflöde. RSS är snabbare och förhindrar
-      IP-blockering, men saknarviss information som video varaktighet eller live status
+      för standardmetoden för att hämta ditt prenumerationsflöde. RSS är snabbare
+      och förhindrar IP-blockering, men ger inte viss information som videons längd,
+      livestatus eller gemenskap-inlägg
     Fetch Automatically: Om aktiverat så kommer FreeTube automatiskt hämta ditt prenumerationsflöde
       när ett nytt fönster öppnas och när du byter profil.
   Player Settings:
@@ -1046,7 +1084,7 @@ Tooltips:
     Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att hämta
       videor istället för att göra en direkt anslutning till YouTube.
     Skip by Scrolling Over Video Player: Använd scrollhjulet för att snabbspola igenom
-      videon, i MPV-stil.
+      videon, MPV stil.
     Scroll Playback Rate Over Video Player: När muspekaren är över videon, håll nere
       CTRL (Kommandotangenten på Mac) och skrolla upp och ner för att ändra uppspelningshastigheten.
       Håll nere CTRL (Kommandotangenten på Mac) och vänsterklicka för att återställa
@@ -1116,7 +1154,7 @@ External link opening has been disabled in the general settings: Öppning av ext
   länkar har inaktiverats i de allmänna inställningarna
 Search Bar:
   Clear Input: Rensa inmatning
-  Remove: Ta bort
+  Remove: Ta Bort
 Are you sure you want to open this link?: Är du säker på att du vill öppna den här
   länken?
 New Window: Nytt Fönster
@@ -1129,7 +1167,7 @@ Channels:
   Empty: Din kanallista är tom.
 Preferences: Preferenser
 Ok: Okej
-Screenshot Success: Sparade skärmdump som "{filePath}"
+Screenshot Success: Sparad skärmdump
 Screenshot Error: Skärmdump misslyckades {error}
 Clipboard:
   Cannot access clipboard without a secure connection: Har inte tillgång till urklipp
@@ -1167,6 +1205,7 @@ Search Listing:
     New: Ny
     3D: 3D
     8K: 8K
+    Closed Captions: Dold Bildtext
 Yes, Open Link: Ja, Öppna Länken
 Yes, Restart: Ja, Starta Om
 Age Restricted:
@@ -1187,3 +1226,69 @@ Yes, Delete: Ja, Radera
 Autoplay Interruption Timer: Autouppspelningen avbröts på grund av {autoplayInterruptionIntervalHours}
   timmars inaktivitet
 shortcutJoinOperator: +
+shortcutLabelSeparator: ｜
+KeyboardShortcutPrompt:
+  Volume Up: Öka volymen
+  Next Chapter: Nästa Kapitel
+  Small Fast Forward: Snabbspola framåt X antal sekunder baserat på Snabbspolningsintervallet
+    och aktuell Videouppspelningshastighet
+  Play: Växla uppspelning/paus
+  Zoom In: Zooma in
+  Decrease Video Speed: Minska videohastigheten baserat på Videouppspelningshastighetsintervall
+  Take Screenshot: Ta en skärmdump
+  Toggle Developer Tools: Växla utvecklarverktyg
+  History Forward: Gå framåt en sida
+  New Window: Skapa ett nytt fönster
+  History Backward: Gå tillbaka en sida
+  Captions: Växla bildtexter PÅ/AV
+  Stats: Visa videostatistik
+  Fullscreen: Växla helskärm
+  Minimize Window: Minimera fönstret
+  Navigate to Settings: Navigera till sidan Inställningar
+  Focus Secondary Search: Fokusera på det sekundära sökfältet (om ett sådant finns)
+  Zoom Out: Zooma ut
+  Focus Search: Fokusera på sökfältet
+  Search in New Window: Sök i ett nytt fönster
+  Close Window: Stäng fönstret
+  Restart Window: Starta Om fönstret
+  Force Restart Window: Tvinga Starta Om fönstret
+  Next Frame: Nästa bildruta (medan pausad)
+  Skip by Tenths: Hoppa igenom videon efter procentandel (3 hopp till 30 % av varaktigheten)
+  Keyboard Shortcuts: Tangentbordsgenvägar
+  Sections:
+    App:
+      General: 'App: Allmänt'
+      Situational: 'App: Tillfällig'
+    Video:
+      Playback: 'Video: Uppspelning'
+      General: 'Video: Allmänt'
+  Show Keyboard Shortcuts: Visa tangentbordsgenvägar
+  Large Fast Forward: Framåt 10 sekunder / Snabbspolning framåt baserat på aktuell
+    Videouppspelningshastighet
+  Increase Video Speed: Öka videohastigheten baserat på Videouppspelningshastighetsintervall
+  Full Window: Växla helfönster
+  Theatre Mode: Växla Teaterläge
+  Navigate to History: Navigera till sidan Historik
+  Last Frame: Föregående bildruta (medan pausad)
+  Refresh: Uppdatera flödet med det senaste innehållet
+  Mute: Växla av/på ljudet
+  Large Rewind: Spola tillbaka 10 sekunder / Spola tillbaka video baserat på aktuell
+    Videouppspelningshastighet
+  Reset Zoom: Återställ zoomnivå / Användargränssnittsskala
+  Volume Down: Minska volymen
+  Last Chapter: Sista Kapitlet
+  Small Rewind: Spola tillbaka X antal sekunder baserat på Återspolningsintervallet
+    och aktuell Videouppspelningshastighet
+  Picture in Picture: Växla Bild-i-Bild-läge
+Search character limit: Sökfrågan överskrider {searchCharacterLimit} teckengränsen
+Right-click or hold to see history: Högerklicka eller håll ned för att se historik
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  shift: Shift
+  enter: Enter
+  plus: Plus
+  arrowdown: Nedåtpil
+  arrowleft: Vänsterpil
+  arrowright: Högerpil
+  arrowup: Uppåtpil
