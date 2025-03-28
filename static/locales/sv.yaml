@@ -99,6 +99,8 @@ Search Filters:
     3D: 3D
     Live: Live
     4K: 4K
+    VR180: VR180
+    Features: Funktioner
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Prenumerationer'
@@ -172,6 +174,7 @@ User Playlists:
       "{videoCount} video(s) added to {playlistCount} playlists": 1 video tillagd
         i {playlistCount} spellistor | {videoCount} videor tillagda i {playlistCount}
         spellistor
+    Allow Adding Duplicate Video(s): Tillåt tilläggning av dubblettvideo(n)
   SinglePlaylistView:
     Toast:
       Video has been removed: Videon har tagits bort
@@ -201,12 +204,30 @@ User Playlists:
         bort.
       This playlist does not exist: Den här spellistan finns inte
       This video cannot be moved down.: Den här videon kan inte flyttas nedåt.
+      Video has been removed. Click here to undo.: Videon har tagits bort. Klicka
+        här för att ångra.
+      This playlist has a video with a duration error: Den här spellistan innehåller
+        minst en video som inte har någon varaktighet, den sorteras som om deras varaktighet
+        är noll.
+      This playlist is already being used for quick bookmark.: Den här spellistan
+        används redan för snabbbokmärken.
     Search for Videos: Sök efter videor
   Playlists with Matching Videos: Spellistor med passande videor
   Enable Quick Bookmark With This Playlist: Aktivera snabb bokmärke på den här spellistan
   Remove Watched Videos: Ta bort sedda videor
   CreatePlaylistPrompt:
     Create: Skapa
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: Det
+        finns redan en spellista med detta namn. Vänligen välj ett annat namn.
+      There was an issue with creating the playlist.: Det uppstod ett problem med
+        att skapa spellistan.
+    New Playlist Name: Nytt Spellistanamn
+  The playlist has been successfully exported: Spellistan har exporterats
+  Export Playlist: Exportera Denna Spellista
+  Quick Bookmark Enabled: Snabbbokmärke Aktiverat
+  TotalTimePlaylist: 'Total tid: {duration}'
+  Remove Duplicate Videos: Ta Bort Dubbletter Av Videor
 History:
   # On History Page
   History: 'Historik'
@@ -214,6 +235,7 @@ History:
   Your history list is currently empty.: 'Historiken är för närvarande tom.'
   Empty Search Message: Det finns inga videor i din historik som matchar din sökning
   Search bar placeholder: Sök i Historiken
+  Case Sensitive Search: Skiftlägeskänslig Sökning
 Settings:
   # On Settings Page
   Settings: 'Inställningar'
@@ -259,6 +281,9 @@ Settings:
       Ask Before Opening Link: Fråga innan du öppnar länk
       Open Link: Öppna länk
       External Link Handling: Hantering av extern länk
+    Auto Load Next Page:
+      Tooltip: Ladda ytterligare sidor och kommentarer automatiskt.
+      Label: Ladda Nästa Sida Automatiskt
   Theme Settings:
     Theme Settings: 'Temainställningar'
     Match Top Bar with Main Color: 'Matcha toppfältet med huvudfärgen'
@@ -272,6 +297,17 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Hot Pink: Het Rosa
       Pastel Pink: Pastell Rosa
+      Solarized Dark: Solarized Dark
+      Nordic: Nordic
+      Everforest Dark Hard: Everforest Dark Hard
+      Gruvbox Dark: Gruvbox Dark
+      Gruvbox Light: Gruvbox Light
+      Solarized Light: Solarized Light
+      Everforest Dark Medium: Everforest Dark Medium
+      Everforest Dark Low: Everforest Dark Low
+      Everforest Light Hard: Everforest Light Hard
+      Everforest Light Medium: Everforest Light Medium
+      Everforest Light Low: Everforest Light Low
     Main Color Theme:
       Main Color Theme: 'Huvudfärg'
       Red: 'Röd'
@@ -311,6 +347,52 @@ Settings:
       Catppuccin Mocha Blue: Catppuccin Mocha Blå
       Catppuccin Mocha Teal: Catppuccin Mocha Turkos
       Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Red: Catppuccin Frappe Red
+      Catppuccin Frappe Blue: Catppuccin Frappe Blue
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
+      Solarized Cyan: Solarized Cyan
+      Solarized Red: Solarized Red
+      Gruvbox Dark Green: Gruvbox Dark Green
+      Gruvbox Dark Yellow: Gruvbox Dark Yellow
+      Gruvbox Dark Orange: Gruvbox Dark Orange
+      Solarized Blue: Solarized Blue
+      Gruvbox Dark Purple: Gruvbox Dark Purple
+      Gruvbox Light Purple: Gruvbox Light Purple
+      Everforest Light Blue: Everforest Light Blue
+      Everforest Light Purple: Everforest Light Purple
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Sky: Catppuccin Frappe Sky
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
+      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
+      Catppuccin Frappe Green: Catppuccin Frappe Green
+      Catppuccin Frappe Teal: Catppuccin Frappe Teal
+      Gruvbox Dark Blue: Gruvbox Dark Blue
+      Gruvbox Light Red: Gruvbox Light Red
+      Gruvbox Light Blue: Gruvbox Light Blue
+      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
+      Catppuccin Frappe Peach: Catppuccin Frappe Peach
+      Gruvbox Light Orange: Gruvbox Light Orange
+      Solarized Yellow: Solarized Yellow
+      Solarized Magenta: Solarized Magenta
+      Solarized Green: Solarized Green
+      Everforest Dark Red: Everforest Dark Red
+      Everforest Dark Yellow: Everforest Dark Yellow
+      Everforest Dark Green: Everforest Dark Green
+      Everforest Dark Blue: Everforest Dark Blue
+      Everforest Dark Purple: Everforest Dark Purple
+      Everforest Light Red: Everforest Light Red
+      Everforest Light Green: Everforest Light Green
+      Everforest Light Aqua: Everforest Light Aqua
+      Everforest Light Yellow: Everforest Light Yellow
+      Gruvbox Dark Aqua: Gruvbox Dark Aqua
+      Solarized Orange: Solarized Orange
+      Everforest Dark Aqua: Everforest Dark Aqua
+      Solarized Violet: Solarized Violet
+      Everforest Dark Orange: Everforest Dark Orange
+      Everforest Light Orange: Everforest Light Orange
     Secondary Color Theme: 'Sekundärfärg'
         #* Main Color Theme
     UI Scale: Skala för användargränssnitt
@@ -369,6 +451,13 @@ Settings:
     Video Playback Rate Interval: Uppspelningshastighetsintervall
     Scroll Playback Rate Over Video Player: Skrolla uppspelningshastighet över videospelaren
     Enter Fullscreen on Display Rotate: Fullskärm vid skärmrotation
+    Default Viewing Mode:
+      Default Viewing Mode: Standardvisningsläge
+      Theater: Teater
+      Picture in Picture: Bild i Bild
+      Full Screen: Helskärm
+      External Player: Extern Spelare ({externalPlayerName})
+    Autoplay Interruption Timer: Autoplay Avbrottstimer
   Privacy Settings:
     Privacy Settings: 'Integritetsinställningar'
     Remember History: 'Aktivera visningshistorik'
@@ -386,11 +475,24 @@ Settings:
       du verkligen ta bort alla prenumerationer och profiler? Detta kan inte ångras.'
     Save Watched Videos With Last Viewed Playlist: Spara sedda vidoer till Senast
       tittade spellista
+    Remember Search History: Kom Ihåg Sökhistorik
+    Clear Search History and Cache: Rensa Sökhistorik och Cache
+    All playlists have been removed: Alla spellistor har tagits bort
+    Are you sure you want to remove all your playlists?: Är du säker på att du vill
+      ta bort alla dina spellistor?
+    Search history and cache have been cleared: Sökhistorik och cacheminne har rensats
+    Remove All Playlists: Ta Bort Alla Spellistor
+    Are you sure you want to clear out your search history and cache?: Är du säker
+      på att du vill rensa din sökhistorik och cacheminne?
   Subscription Settings:
     Subscription Settings: 'Prenumerationsinställningar'
     Hide Videos on Watch: 'Dölj video under visning'
     Fetch Feeds from RSS: 'Hämta prenumerationer från RSS'
     Fetch Automatically: Hämta flöde automatiskt
+    'Limit the number of videos displayed for each channel': Begränsa antalet videor
+      som visas för varje kanal
+    To: Till
+    Confirm Before Unsubscribing: Bekräfta Innan Du Avslutar Prenumerationen
   Data Settings:
     Data Settings: 'Datainställningar'
     Select Export Type: 'Välj export-typen'
@@ -431,6 +533,8 @@ Settings:
     Playlist insufficient data: Otillräcklig data för "{playlist}" spellista, hoppar
       över objekt
 
+    Export Playlists For Older FreeTube Versions:
+      Label: Exportera Spellistor För Äldre FreeTube-versioner
   Distraction Free Settings:
     Hide Live Chat: Dölj livechatt
     Hide Popular Videos: Dölj mest populära
@@ -476,6 +580,13 @@ Settings:
     Hide Channels Already Exists: Kanal-ID finns redan
     Hide Channels API Error: Det gick inte att hämta användaren med angett ID. Kontrollera
       igen om ID:t är korrekt.
+    Hide Videos and Playlists Containing Text: Dölj Videor och Spellistor Som Innehåller
+      Text
+    Hide Videos and Playlists Containing Text Placeholder: Ord, Ordfragment, eller
+      Fras
+    Hide Channel Courses: Dölj Kanalfliken "Kurser"
+    Hide Channel Home: Dölj Kanalfliken "Hem"
+    Show Added Items: Visa Tillagda Objekt
   The app needs to restart for changes to take effect. Restart and apply change?: Starta
     om FreeTube nu för att tillämpa ändringarna?
   Proxy Settings:
@@ -519,6 +630,7 @@ Settings:
     Players:
       None:
         Name: Inget
+    Ignore Default Arguments: Ignorera Standardargument
   Parental Control Settings:
     Hide Unsubscribe Button: Dölj Avprenumereraknappen
     Parental Control Settings: Föräldrakontrollinställningar
@@ -545,6 +657,8 @@ Settings:
     Warning: Dessa inställlningar är experimentella, de kan eventuellt orsakar kracher
       om de är aktiverade. Att göra backupfiler rekomenderas. Används på egen risk!
     Replace HTTP Cache: Ersätt HTTP-cache
+  Return to Settings Menu: Återgå till Menyn Inställningar
+  Sort Settings Sections (A-Z): Sortera Inställningssektioner (A-Ö)
 About:
   #On About page
   About: 'Om'
@@ -573,6 +687,7 @@ About:
   Source code: Källkod
   Beta: Beta
   Discussions: Diskussioner
+  AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Välj profil'
   All Channels: 'Alla kanaler'
@@ -668,6 +783,10 @@ Channel:
     votes: '{votes} röster'
     Reveal Answers: Avslöja svar
     Hide Answers: Dölj svar
+    View Full Post: Visa Hela Inlägget
+    Video hidden by FreeTube: Video dold av FreeTube
+    Viewing Posts Only Supported By Invidious: Visa Inlägg stöds endast av Invidious.
+      Gå till en kanals community-flik för att se innehåll där utan Invidious.
   Shorts:
     This channel does not currently have any shorts: Den här kanalen har för närvarande
       inga shorts
@@ -682,6 +801,13 @@ Channel:
   Podcasts:
     Podcasts: Podcasts
     This channel does not currently have any podcasts: Den här kanalen har inga podcasts
+  Courses:
+    This channel does not currently have any courses: Den här kanalen har för närvarande
+      inga kurser
+    Courses: Kurser
+  Home:
+    Home: Hem
+    View Playlist: Visa Spellista
 Video:
   Mark As Watched: 'Markera som sedd'
   Remove From History: 'Ta bort från historik'
@@ -765,6 +891,48 @@ Video:
   Unhide Channel: Visa kanal
   Hide Channel: Dölj kanal
 #& Playlists
+  Player:
+    Full Window: Helt Fönster
+    Exit Full Window: Stäng Hela Fönstret
+    Stats:
+      CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
+      Media Formats: 'Mediaformat: {formats}'
+      Video ID: 'Video ID: {videoId}'
+      Player Dimensions: 'Spelarmått: {width}x{height}'
+      Bandwidth: 'Bandbredd: {bandwidth} kbps'
+      Buffered: 'Buffrad: {bufferedPercentage} %'
+      CodecsVideoAudioNoItags: 'Kodekar: {videoCodec} / {audioCodec}'
+      Resolution: 'Upplösning: {width}x{height}@{frameRate}'
+      Stats: Statistik
+      Bitrate: 'Bithastighet: {bitrate} kbps'
+      Volume: 'Volym: {volumePercentage}%'
+      CodecsVideoAudio: 'Kodekar: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+    Hide Stats: Dölj Statistik
+    You appear to be offline: Du verkar vara offline.
+    Playback will resume automatically when your connection comes back: Uppspelningen
+      återupptas automatiskt när din anslutning kommer tillbaka.
+    Skipped segment: Hoppade över {segmentCategory} segmentet
+    Audio Tracks: Ljudspår
+    Autoplay is off: Autouppspelning är avstängd
+    Autoplay is on: Autouppspelning är på
+    Theatre Mode: Teaterläge
+    Exit Theatre Mode: Avsluta Teaterläget
+    Take Screenshot: Ta Skärmdump
+    Show Stats: Visa Statistik
+  More Options: Fler Alternativ
+  AgeRestricted: Åldersbegränsade videor kan inte ses med FreeTube eftersom de kräver
+    Google-inloggning och användning av ett åldersverifierat YouTube-konto.
+  IP block: YouTube har blockerat din IP-adress från att titta på videor. Försök att
+    byta till en annan VPN eller proxy.
+  DRMProtected: DRM-skyddade videor kan inte spelas upp i FreeTube, eftersom de kräver
+    proprietära, slutna källkodskomponenter. Om du vill titta på den här videon, se
+    den på den officiella YouTube-webbplatsen i en DRM-aktiverad webbläsare.
+  DeArrow:
+    Show Original Details: Visa Originaldetaljer
+    Show Modified Details: Visa Ändrade Detaljer
+  Unlisted: Olistade
+  MembersOnly: Videoklipp endast för medlemmar kan inte ses med FreeTube eftersom
+    de kräver Google-inloggning och betalmedlemskap till uppladdarens kanal.
 Playlist:
   #& About
   View Full Playlist: 'Visa hela spellistan'
@@ -774,6 +942,18 @@ Playlist:
 #* Published
 #& Views
   Playlist: Spellista
+  Sort By:
+    AuthorAscending: Upphovsman (A-Ö)
+    VideoDurationDescending: Varaktighet (Längsta först)
+    AuthorDescending: Upphovsman (Ö-A)
+    VideoDurationAscending: Varaktighet (Kortast först)
+    DateAddedOldest: Tidigast tillagd först
+    VideoTitleAscending: Titel (A-Ö)
+    VideoTitleDescending: Titel (Ö-A)
+    DateAddedNewest: Senast tillagd först
+    PublishedNewest: Senast publicerad först
+    PublishedOldest: Tidigast publicerad först
+    Custom: Anpassad
 Change Format:
   Change Media Formats: 'Ändra videoformat'
   Use Dash Formats: 'Använd DASH-format'
@@ -783,6 +963,8 @@ Change Format:
     för den här videon'
   Audio formats are not available for this video: 'Ljudformat är inte tillgängliga
     för den här videon'
+  Legacy formats are not available for this video: Äldre format är inte tillgängliga
+    för den här videon
 Share:
   Share Video: 'Dela video'
   Share Playlist: 'Dela spellista'
@@ -825,6 +1007,8 @@ Comments:
   Pinned by: Nålad av
   Hearted: Hjärtade
   Subscribed: Prenumererar
+  There are no comments available for this post: Det finns inga kommentarer tillgängliga
+    för detta inlägg
 Up Next: 'Kommer härnäst'
 
 # Toast Messages
@@ -861,8 +1045,8 @@ Tooltips:
       720p men använder mindre bandbredd. Ljudformat är ljud bara strömmar.
     Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att hämta
       videor istället för att göra en direkt anslutning till YouTube.
-    Skip by Scrolling Over Video Player: Använd skrollhjulet för att snappspola igenom
-      videon, MPV-stil.
+    Skip by Scrolling Over Video Player: Använd scrollhjulet för att snabbspola igenom
+      videon, i MPV-stil.
     Scroll Playback Rate Over Video Player: När muspekaren är över videon, håll nere
       CTRL (Kommandotangenten på Mac) och skrolla upp och ner för att ändra uppspelningshastigheten.
       Håll nere CTRL (Kommandotangenten på Mac) och vänsterklicka för att återställa
@@ -883,6 +1067,9 @@ Tooltips:
     External Link Handling: "Välj standardförfarande när en länk klickas, som inte
       kan öppnas i FreeTube är. \nStandard är att FreeTube kommer öppna länken i din
       standardwebbläsare.\n"
+    Open Deep Links In New Window: Webbadresser som skickas till FreeTube, till exempel
+      genom omdirigering av webbläsartillägg eller kommandoradsargument, öppnas i
+      ett nytt fönster.
   External Player Settings:
     Custom External Player Arguments: Alla anpassade kommandoradsargument, ska skickas
       till den externa spelaren.
@@ -895,18 +1082,26 @@ Tooltips:
       (spellista om den stöds) i den externa spelaren på miniatyrbilden. Varning,
       Invidiousinställningar påverkar inte externa videospelare.
     DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Skicka inga standardargument till den externa spelaren
+      förutom videons URL (t.ex. uppspelningshastighet, spellista URL, etc.). Anpassade
+      argument kommer fortfarande att föras vidare.
   Distraction Free Settings:
     Hide Channels: Ange ett kanal-ID för att dölja alla videor, spellistor och själva
       kanalen från att visas i sökningar, trender, populäraste och rekommenderade.
       Det angivna kanal-ID:t måste vara en fullständig matchning och är skiftlägeskänsligt.
     Hide Subscriptions Live: Den här inställningen åsidosätts av den program omfattande
       "{appWideSetting}"-inställningen, i avsnittet "{subsection}" i "{settingsSection}"
+    Hide Videos and Playlists Containing Text: Ange ett ord, ordfragment eller en
+      fras (okänsligt för skiftlägen) för att dölja alla videor och spellistor vars
+      originaltitlar innehåller det i hela FreeTube, exklusive endast Historik, Dina
+      spellistor och videor i spellistor.
   Experimental Settings:
     Replace HTTP Cache: Inaktiverar Electrons diskbaserade HTTP-cache och aktiverar
       en anpassad bildcache i minnet. Kommer att leda till ökad RAM-användning.
   SponsorBlock Settings:
     UseDeArrowTitles: Ersätt videotitlar med titlar som användare har skickat in från
       DeArrow.
+    UseDeArrowThumbnails: Ersätt videominiatyrer med miniatyrer från DeArrow.
 More: Mer
 Open New Window: Öppna nytt fönster
 Playing Next Video Interval: Spelar strax nästa video. Klicka för att stoppa. | Spelar
@@ -921,6 +1116,7 @@ External link opening has been disabled in the general settings: Öppning av ext
   länkar har inaktiverats i de allmänna inställningarna
 Search Bar:
   Clear Input: Rensa inmatning
+  Remove: Ta bort
 Are you sure you want to open this link?: Är du säker på att du vill öppna den här
   länken?
 New Window: Nytt Fönster
@@ -945,6 +1141,7 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Kapitellista dold, nuvarande
     kapitel: {chapterName}'
   Chapters: Kapitel
+  Key Moments: Viktiga Ögonblick
 Downloading has completed: '"{videoTitle}" har laddats ner'
 Starting download: Påbörjar nerladdning av "{videoTitle}"
 Downloading failed: Det uppstod ett problem med nerladdning av "{videoTitle}"
@@ -965,3 +1162,28 @@ Search Listing:
   Label:
     4K: 4K
     Subtitles: Undertexter
+    VR180: VR180
+    360 Video: 360°
+    New: Ny
+    3D: 3D
+    8K: 8K
+Yes, Open Link: Ja, Öppna Länken
+Yes, Restart: Ja, Starta Om
+Age Restricted:
+  This video is age restricted: Den här videon är åldersbegränsad
+  This channel is age restricted: Denna kanal är åldersbegränsad
+Moments Ago: ögonblick sedan
+Cancel: Avbryt
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+Tag already exists: Taggen "{tagName}" finns redan
+Trimmed input must be at least N characters long: Trimmad inmatning måste vara minst
+  1 tecken lång | Trimmad inmatning måste vara minst {length} tecken lång
+Description:
+  Expand Description: '...mer'
+  Collapse Description: Visa mindre
+'Blocked opening potentially unsafe URL': 'Blockerad öppning av potentiellt osäker
+  webbadress: "{url}".'
+Yes, Delete: Ja, Radera
+Autoplay Interruption Timer: Autouppspelningen avbröts på grund av {autoplayInterruptionIntervalHours}
+  timmars inaktivitet
+shortcutJoinOperator: +
