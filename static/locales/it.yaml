@@ -243,6 +243,7 @@ User Playlists:
     da questa playlist? Questa operazione non può essere annullata.
   Export Playlist: Esporta questa playlist
   The playlist has been successfully exported: La playlist è stata esportata correttamente
+  TotalTimePlaylist: 'Tempo totale: {durata}'
 History:
   # On History Page
   History: 'Cronologia'
