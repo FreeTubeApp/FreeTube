@@ -45,7 +45,7 @@ Global:
     Watching Count: 1 assistindo | {count} assistindo
     Like Count: 1 curtida | {count} curtidas
     Comment Count: 1 comentário | {count} comentários
-Search / Go to URL: 'Pesquisar ou digitar URL'
+Search / Go to URL: 'Buscar ou digitar URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtros de busca'
@@ -124,8 +124,8 @@ Most Popular: 'Mais populares'
 Playlists: 'Playlists'
 User Playlists:
   Your Playlists: 'Suas playlists'
-  Search bar placeholder: Pesquisar playlists
-  Empty Search Message: Não há vídeos nesta playlist que correspondam à sua pesquisa
+  Search bar placeholder: Buscar playlists
+  Empty Search Message: Não há vídeos nesta playlist que correspondam à sua busca
   You have no playlists. Click on the create new playlist button to create a new one.: Você
     não tem playlists. Clique no botão "Criar nova playlist" para criar uma.
   This playlist currently has no videos.: Esta playlist não tem vídeos atualmente.
@@ -201,7 +201,7 @@ User Playlists:
         zero.
       Video has been removed. Click here to undo.: O vídeo foi removido. Clique aqui
         para desfazer.
-    Search for Videos: Pesquisar vídeos
+    Search for Videos: Buscar vídeos
   AddVideoPrompt:
     Toast:
       "{videoCount} video(s) added to 1 playlist": 1 vídeo adicionado a 1 playlist
@@ -243,17 +243,17 @@ History:
   History: 'Histórico'
   Watch History: 'Histórico de exibição'
   Your history list is currently empty.: 'Seu histórico está vazio no momento.'
-  Search bar placeholder: Pesquisar no histórico
-  Empty Search Message: Não há vídeos em seu histórico que correspondam à sua pesquisa
-  Case Sensitive Search: Pesquisa que diferencia maiúsculas de minúsculas
+  Search bar placeholder: Buscar no histórico
+  Empty Search Message: Não há vídeos em seu histórico que correspondam à sua busca
+  Case Sensitive Search: Busca que diferencia maiúsculas de minúsculas
 Settings:
   # On Settings Page
   Settings: 'Configurações'
   General Settings:
     General Settings: 'Geral'
-    Fallback to Non-Preferred Backend on Failure: 'Usar mecanismo de pesquisa alternativo
+    Fallback to Non-Preferred Backend on Failure: 'Usar mecanismo de busca alternativo
       em caso de falha'
-    Enable Search Suggestions: 'Habilitar sugestões de pesquisa'
+    Enable Search Suggestions: 'Habilitar sugestões de busca'
     Default Landing Page: 'Página inicial preferida'
     Locale Preference: 'Idioma'
     Preferred API Backend:
@@ -508,11 +508,11 @@ Settings:
       remover todas as suas playlists?
     Remove All Playlists: Remover todas as playlists
     Remember Search History: Lembrar histórico de buscas
-    Clear Search History and Cache: Limpar histórico de pesquisa e o cache
-    Search history and cache have been cleared: O histórico de pesquisa e o cache
-      foram apagados
+    Clear Search History and Cache: Limpar histórico de busca e o cache
+    Search history and cache have been cleared: O histórico de busca e o cache foram
+      apagados
     Are you sure you want to clear out your search history and cache?: Tem certeza
-      de que deseja limpar o histórico de pesquisa e o cache?
+      de que deseja limpar o histórico de busca e o cache?
   Data Settings:
     Subscriptions have been successfully exported: Inscrições foram exportadas com
       sucesso
@@ -645,7 +645,7 @@ Settings:
       for ignorado
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock
       (o padrão é https://sponsor.ajay.app)
-    Enable SponsorBlock: Ativar SponsorBlock
+    Enable SponsorBlock: Habilitar SponsorBlock
     SponsorBlock Settings: SponsorBlock
     Skip Options:
       Show In Seek Bar: Mostrar na barra de busca
@@ -654,8 +654,8 @@ Settings:
       Auto Skip: Pular automaticamente
       Skip Option: Opção para pular
     Category Color: Cor da categoria
-    UseDeArrowTitles: Usar títulos de vídeo estilo DeArrow
-    UseDeArrowThumbnails: Usar miniaturas estilo DeArrow
+    UseDeArrowTitles: Usar títulos de vídeo no estilo DeArrow
+    UseDeArrowThumbnails: Usar miniaturas no estilo DeArrow
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
       da API para gerar miniaturas estilo DeArrow (o padrão é https://dearrow-thumb.ajay.app)
   External Player Settings:
@@ -677,7 +677,7 @@ Settings:
     Download Behavior: Comportamento de download
   Parental Control Settings:
     Show Family Friendly Only: Mostrar apenas conteúdo adequado para todos os públicos
-    Hide Search Bar: Ocultar barra de pesquisa
+    Hide Search Bar: Ocultar barra de busca
     Parental Control Settings: Controle dos Pais
     Hide Unsubscribe Button: Ocultar botão "Cancelar inscrição"
   Experimental Settings:
@@ -725,7 +725,7 @@ About:
   Please check for duplicates before posting: Por favor verifique se este problema
     já foi informado
   Discussions: Discussões
-  Licensed under the: Licenciado sob o
+  Licensed under the: Licenciado sob
   AGPLv3: AGPLv3
 Channel:
   Subscribe: 'Inscrever-se'
@@ -821,7 +821,7 @@ Video:
   Live Chat is currently not supported in this build.: 'Chat ao vivo não é suportado
     nessa versão.'
   Live chat is enabled. Chat messages will appear here once sent.: 'O chat ao vivo
-    está ativado. As mensagens aparecerão aqui depois de enviadas.'
+    está habilitado. As mensagens aparecerão aqui depois de enviadas.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'O
     chat ao vivo não é suportado pela API do Invidious. Uma conexão com o YouTube
     é necessária.'
@@ -842,9 +842,9 @@ Video:
   Reverse Playlist: Inverter ordem da playlist
   Shuffle Playlist: Playlist aleatória
   Loop Playlist: Repetir playlist
-  Copy Invidious Channel Link: Copiar link do canal no Invidious
+  Copy Invidious Channel Link: Copiar link deste canal do Invidious
   Open Channel in Invidious: Abrir canal no Invidious
-  Copy YouTube Channel Link: Copiar link do canal do YouTube
+  Copy YouTube Channel Link: Copiar link deste canal do YouTube
   Open Channel in YouTube: Abrir canal no YouTube
   Video has been removed from your saved list: O vídeo foi removido da sua lista de
     vídeos salvos
@@ -1012,14 +1012,14 @@ Comments:
 Up Next: 'Próximo'
 
 # Toast Messages
-Local API Error (Click to copy): 'Erro da API local (clique para copiar)'
-Invidious API Error (Click to copy): 'Erro da API do Invidious (clique para copiar)'
-Falling back to Invidious API: 'Recorrendo à API do Invidious'
-Falling back to Local API: 'Recorrendo à API local'
-Loop is now disabled: 'Modo de repetição desativado'
-Loop is now enabled: 'Modo de repetição ativado'
-Shuffle is now disabled: 'Reprodução aleatória desativada'
-Shuffle is now enabled: 'Reprodução aleatória ativada'
+Local API Error (Click to copy): 'Erro na API local (clique para copiar)'
+Invidious API Error (Click to copy): 'Erro na API Invidious (clique para copiar)'
+Falling back to Invidious API: 'Ocorreu um erro e a API Invidious será utilizada'
+Falling back to Local API: 'Ocorreu um erro e a API local será utilizada'
+Loop is now disabled: 'Modo de repetição desabilitado'
+Loop is now enabled: 'Modo de repetição habilitado'
+Shuffle is now disabled: 'Reprodução aleatória desabilitado'
+Shuffle is now enabled: 'Reprodução aleatória habilitado'
 Playing Next Video: 'A reproduzir o próximo vídeo'
 Playing Previous Video: 'A reproduzir o vídeo anterior'
 Canceled next video autoplay: 'Reprodução automática cancelada'
@@ -1069,7 +1069,7 @@ Profile:
   Profile has been updated: Perfil atualizado
   Profile has been created: Perfil criado
   Your profile name cannot be empty: O nome do seu perfil não pode ficar vazio
-  Profile Filter: Filtrar perfil
+  Profile Filter: Filtrar por perfil
   Profile Settings: Perfil
   Toggle Profile List: Alternar lista de perfis
   Profile Name: Nome do perfil
@@ -1148,7 +1148,7 @@ Tooltips:
       um cache de imagem em memória personalizado. Levará ao aumento do uso de RAM.
   Distraction Free Settings:
     Hide Channels: Insira o ID de um canal para impedir que todos os vídeos, playlists
-      e o próprio canal apareçam nas pesquisas, tendências, mais populares e recomendados.
+      e o próprio canal apareçam nas buscas, tendências, mais populares e recomendados.
       O ID do canal inserido deve ser uma correspondência completa e diferenciar maiúsculas
       de minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição de toda a
@@ -1176,7 +1176,7 @@ Search Bar:
   Clear Input: Limpar entrada
   Remove: Remover
 External link opening has been disabled in the general settings: Abrir links externos
-  foi desativado nas configurações gerais
+  foi desabilitado nas configurações gerais
 Are you sure you want to open this link?: Quer mesmo abrir este link?
 Downloading has completed: '"{videoTitle}" download concluído'
 Starting download: Iniciando download "{videoTitle}"
@@ -1228,8 +1228,7 @@ Yes, Delete: Sim, excluir
 Yes, Restart: Sim, reiniciar
 Yes, Open Link: Sim, abrir link
 Cancel: Cancelar
-Search character limit: Sua pesquisa ultrapassou o limite de {searchCharacterLimit}
-  caracteres
+Search character limit: Sua busca ultrapassou o limite de {searchCharacterLimit} caracteres
 Search Listing:
   Label:
     Subtitles: Legendas
@@ -1259,7 +1258,7 @@ Autoplay Interruption Timer: Reprodução automática cancelada devido a {autopl
   horas de inatividade
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Description:
-  Expand Description: '...mais'
+  Expand Description: '...Ler mais'
   Collapse Description: Mostrar menos
 KeyboardShortcutPrompt:
   Sections:
@@ -1285,20 +1284,20 @@ KeyboardShortcutPrompt:
     de reprodução do vídeo
   Minimize Window: Minimizar janela
   Force Restart Window: Forçar reinicialização da janela
-  Zoom In: Aumentar zoom
+  Zoom In: Ampliar
   Close Window: Fechar janela
   Restart Window: Reiniciar janela
   Focus Search: Foco na barra de busca
-  Search in New Window: Pesquisar em uma nova janela
-  Zoom Out: Diminuir zoom
+  Search in New Window: Buscar em uma nova janela
+  Zoom Out: Diminuir
   Refresh: Atualizar o feed com o conteúdo mais recente
-  Focus Secondary Search: Concentre-se na barra de pesquisa secundária (se houver)
+  Focus Secondary Search: Concentre-se na barra de busca secundária (se houver)
   Play: Alternar reproduzir/pausar
   Large Fast Forward: Avançar 10 segundos / Avanço rápido do vídeo com base na taxa
     de reprodução do vídeo atual
   Mute: Ativar ou desativar som
   Full Window: Alternar modo janela inteira
-  Theatre Mode: Alternar modo teatro
+  Theatre Mode: Alternar modo Teatro
   Take Screenshot: Tirar captura de tela
   Toggle Developer Tools: Alternar modo ferramentas de desenvolvedor
   Last Frame: Quadro anterior (enquanto pausado)
