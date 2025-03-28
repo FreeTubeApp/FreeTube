@@ -98,7 +98,7 @@ Subscriptions:
   Subscriptions: 'Inscrições'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sua
     lista de inscrições está vazia no momento. Se quiser importar suas inscrições,
-    acesse "Configurações de dados" e selecione "Importar inscrições" ou pesquise
+    acesse "Configurações de dados" e selecione "Importar inscrições" ou tente buscar
     um canal para inscrever-se.'
   Load More Videos: Carregar mais vídeos
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
