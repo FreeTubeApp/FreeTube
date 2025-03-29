@@ -16,6 +16,10 @@
   inset-block-end: 15px;
 }
 
+.playlistArea {
+  block-size: inherit;
+}
+
 .playlistIndex {
   position: relative;
   inset-block-end: 15px;
@@ -85,7 +89,16 @@
 
 .playlistItems {
   overflow-y: auto;
-  block-size: 360px;
+}
+
+.playlistItemsNoVideos {
+  block-size: 85%;
+}
+
+@media only screen and (width <= 1350px) {
+  .playlistItemsNoVideos {
+    block-size: 360px;
+  }
 }
 
 .playlistItem {
