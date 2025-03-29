@@ -38,6 +38,16 @@ class Settings {
       await db.settings.removeAsync({ _id: 'defaultTheatreMode' })
     }
 
+    const saveWatchedProgress = await db.settings.findOneAsync({ _id: 'saveWatchedProgress' })
+    const watchedProgressSavingMode = await db.settings.findOneAsync({ _id: 'watchedProgressSavingMode' })
+    if (saveWatchedProgress && !watchedProgressSavingMode) {
+      if (!saveWatchedProgress.value) {
+        await this.upsert('watchedProgressSavingMode', 'never')
+      }
+
+      await db.settings.removeAsync({ _id: 'saveWatchedProgress' })
+    }
+
     return db.settings.findAsync({ _id: { $ne: 'bounds' } })
   }
 

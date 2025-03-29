@@ -506,6 +506,13 @@ Settings:
     Remember History: Remember Watch History
     Remember Search History: Remember Search History
     Save Watched Progress: Save Watched Progress
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Auto
+        Semi-auto: Semi-auto
+        Never: Never
+      Tooltip:
+        Auto = Save on every video page exit, when video ended and error encountered (e.g. ratelimited and watch session expired). Semi-auto = Like Auto except on video page exit and can save progress manually via a button called Save Watched Progress, located beneath the video player.
     Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed Playlist
     Clear Search History and Cache: Clear Search History and Cache
     Are you sure you want to clear out your search history and cache?: Are you sure you want to
@@ -834,6 +841,8 @@ Video:
   Remove From History: Remove From History
   Video has been marked as watched: Video has been marked as watched
   Video has been removed from your history: Video has been removed from your history
+  Save Watched Progress: Save Watched Progress
+  Watched Progress Saved: Watched Progress Saved
   Save Video: Save Video
   Video has been saved: Video has been saved
   Video has been removed from your saved list: Video has been removed from your saved list

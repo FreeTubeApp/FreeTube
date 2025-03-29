@@ -128,7 +128,7 @@ export default defineComponent({
     },
 
     watchProgress: function () {
-      if (!this.historyEntryExists || !this.saveWatchedProgress) {
+      if (!this.historyEntryExists || !this.watchedProgressSavingEnabled) {
         return 0
       }
 
@@ -388,8 +388,11 @@ export default defineComponent({
       return this.$store.getters.getDefaultPlayback
     },
 
-    saveWatchedProgress: function () {
-      return this.$store.getters.getSaveWatchedProgress
+    watchedProgressSavingEnabled: function () {
+      return ['auto', 'semi-auto'].includes(this.$store.getters.getWatchedProgressSavingMode)
+    },
+    autosaveWatchedProgress: function () {
+      return this.$store.getters.getWatchedProgressSavingMode === 'auto'
     },
 
     saveVideoHistoryWithLastViewedPlaylist: function () {
@@ -639,7 +642,7 @@ export default defineComponent({
       }
       this.openInExternalPlayer(payload)
 
-      if (this.saveWatchedProgress && !this.historyEntryExists) {
+      if (this.autosaveWatchedProgress && !this.historyEntryExists) {
         this.markAsWatched()
       }
     },
