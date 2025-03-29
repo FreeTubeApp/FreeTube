@@ -17,6 +17,7 @@ export default defineComponent({
     FtInput,
     FtProfileSelector
   },
+  emits: ['search-query-update'],
   data: () => {
     let isArrowBackwardDisabled = true
     let isArrowForwardDisabled = true
@@ -491,6 +492,16 @@ export default defineComponent({
 
     ...mapMutations([
       'removeFromSessionSearchHistory'
-    ])
+    ]),
+    emitCurrentSearchQuery() {
+      const searchQueryText = this.$refs.searchInput ? this.$refs.searchInput.getInputData() : ''
+      this.$emit('search-query-update', searchQueryText)
+    },
+    showSearchFilters() {
+      // Emit the current search query first
+      this.emitCurrentSearchQuery()
+      this.$store.dispatch('showSearchFilters')
+    }
+
   }
 })

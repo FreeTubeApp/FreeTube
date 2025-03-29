@@ -1118,12 +1118,10 @@ function runApp() {
     if (!isFreeTubeUrl(event.senderFrame.url)) {
       return
     }
-
     if (path == null && query == null && searchQueryText == null) {
       createWindow({ replaceMainWindow: false, showWindowNow: true })
       return
     }
-
     if (
       typeof path !== 'string' ||
       (query != null && typeof query !== 'object') ||
@@ -1131,17 +1129,14 @@ function runApp() {
     ) {
       return
     }
-
     if (path.charAt(0) !== '/') {
+      // eslint-disable-next-line no-const-assign
       path = `/${path}`
     }
-
     let windowStartupUrl = `${ROOT_APP_URL}#${path}`
-
     if (query) {
       windowStartupUrl += '?' + new URLSearchParams(query).toString()
     }
-
     createWindow({
       replaceMainWindow: false,
       showWindowNow: true,

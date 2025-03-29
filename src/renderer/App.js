@@ -53,7 +53,8 @@ export default defineComponent({
       externalLinkOpeningPromptValues: [
         'yes',
         'no'
-      ]
+      ],
+      currentSearchQuery: '',
     }
   },
   computed: {
@@ -81,6 +82,9 @@ export default defineComponent({
     },
     showCreatePlaylistPrompt: function () {
       return this.$store.getters.getShowCreatePlaylistPrompt
+    },
+    isSearchFiltersShown() {
+      return this.$store.getters.getIsSearchFiltersShown
     },
     showSearchFilters: function () {
       return this.$store.getters.getShowSearchFilters
@@ -573,6 +577,10 @@ export default defineComponent({
       } else {
         document.body.dir = 'ltr'
       }
+    },
+
+    handleSearchQueryUpdate(query) {
+      this.currentSearchQuery = query
     },
 
     ...mapActions([
