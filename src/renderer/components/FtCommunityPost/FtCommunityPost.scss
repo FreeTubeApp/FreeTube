@@ -57,6 +57,12 @@
 .postText {
   overflow-wrap: anywhere;
   white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  hyphens: auto;
 }
 
 .commentsLink {
