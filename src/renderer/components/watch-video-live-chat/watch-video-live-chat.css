@@ -187,6 +187,19 @@
   margin-block: 5px 2px;
   font-size: 12px;
   word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  hyphens: auto;
+}
+
+.chatMessage {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  hyphens: auto;
 }
 
 .member {
