@@ -348,6 +348,12 @@ export async function getLocalChannelId(url) {
         // handle redirects like https://www.youtube.com/@wanderbots, which resolves to https://www.youtube.com/Wanderbots, which we need to resolve again
         url = navigationEndpoint.payload.url
       } else {
+        const channelIdRegex = /\/channel\/(?<channelId>[^/]+)/
+        const channelIdMatch = navigationEndpoint.metadata.url?.match(channelIdRegex)
+        if (channelIdMatch) {
+          return channelIdMatch.groups.channelId
+        }
+
         return null
       }
     }
@@ -1714,4 +1720,25 @@ function parseLocalAttachment(attachment) {
 export async function getHashtagLocal(hashtag) {
   const innertube = await createInnertube()
   return await innertube.getHashtag(hashtag)
+}
+
+export async function getLocalCommunityPost(postId, channelId) {
+  const innertube = await createInnertube()
+  if (channelId == null) {
+    channelId = await getLocalChannelId('https://www.youtube.com/post/' + postId)
+  }
+
+  const postPage = await innertube.getPost(postId, channelId)
+  return parseLocalCommunityPost(postPage.posts[0])
+}
+
+/**
+ * @param {string} postId
+ * @param {string} channelId
+ * @param {boolean} sortByNewest
+ */
+export async function getLocalCommunityPostComments(postId, channelId, sortByNewest) {
+  const innertube = await createInnertube()
+
+  return await innertube.getPostComments(postId, channelId, sortByNewest ? 'NEWEST_FIRST' : 'TOP_COMMENTS')
 }
