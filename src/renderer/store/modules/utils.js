@@ -34,6 +34,7 @@ const state = {
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
   isKeyboardShortcutPromptShown: false,
+  areVimWaypointsShown: { selector: [] },
   showSearchFilters: false,
   searchFilterValueChanged: false,
   progressBarPercentage: 0,
@@ -48,7 +49,7 @@ const state = {
     time: '',
     type: 'all',
     duration: '',
-    features: [],
+    features: []
   },
   externalPlayerNames: [],
   externalPlayerValues: [],
@@ -64,7 +65,7 @@ const state = {
     videos: false,
     liveStreams: false,
     shorts: false,
-    communityPosts: false,
+    communityPosts: false
   },
   appTitle: ''
 }
@@ -108,6 +109,10 @@ const getters = {
 
   getIsKeyboardShortcutPromptShown(state) {
     return state.isKeyboardShortcutPromptShown
+  },
+
+  getAreVimWaypointsShown(state) {
+    return state.areVimWaypointsShown
   },
 
   getShowAddToPlaylistPrompt(state) {
@@ -162,7 +167,7 @@ const getters = {
     return state.externalPlayerValues
   },
 
-  getExternalPlayerCmdArguments (state) {
+  getExternalPlayerCmdArguments(state) {
     return state.externalPlayerCmdArguments
   },
 
@@ -177,17 +182,20 @@ const getters = {
   getSubscriptionForVideosFirstAutoFetchRun(state) {
     return state.subscriptionFirstAutoFetchRunData.videos === true
   },
-  getSubscriptionForLiveStreamsFirstAutoFetchRun (state) {
+  getSubscriptionForLiveStreamsFirstAutoFetchRun(state) {
     return state.subscriptionFirstAutoFetchRunData.liveStreams === true
   },
-  getSubscriptionForShortsFirstAutoFetchRun (state) {
+  getSubscriptionForShortsFirstAutoFetchRun(state) {
     return state.subscriptionFirstAutoFetchRunData.shorts === true
   },
-  getSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
+  getSubscriptionForCommunityPostsFirstAutoFetchRun(state) {
     return state.subscriptionFirstAutoFetchRunData.communityPosts === true
   },
-  getAppTitle (state) {
+  getAppTitle(state) {
     return state.appTitle
+  },
+  getEnableVimNavigation(state, _, rootState) {
+    return rootState.settings.enableVimNavigation
   }
 }
 
@@ -285,7 +293,7 @@ const actions = {
     }
   },
 
-  parseScreenshotCustomFileName: function({ rootState }, payload) {
+  parseScreenshotCustomFileName: function ({ rootState }, payload) {
     const { pattern = rootState.settings.screenshotFilenamePattern, date, playerTime, videoId } = payload
     const keywords = [
       ['%Y', date.getFullYear()], // year 4 digits
@@ -316,7 +324,7 @@ const actions = {
     return parsedString
   },
 
-  showAddToPlaylistPromptForManyVideos ({ commit }, { videos: videoObjectArray, newPlaylistDefaultProperties }) {
+  showAddToPlaylistPromptForManyVideos({ commit }, { videos: videoObjectArray, newPlaylistDefaultProperties }) {
     let videoDataValid = true
     if (!Array.isArray(videoObjectArray)) {
       videoDataValid = false
@@ -329,7 +337,7 @@ const actions = {
         'title',
         'author',
         'authorId',
-        'lengthSeconds',
+        'lengthSeconds'
 
         // `timeAdded` should be generated when videos are added
         // Not when a prompt is displayed
@@ -344,7 +352,7 @@ const actions = {
       // Using `every` to loop and `return false` to break
       videoObjectArray.every((video) => {
         const videoPropertyKeys = Object.keys(video)
-        const missingKeysHere = requiredVideoKeys.filter(x => !videoPropertyKeys.includes(x))
+        const missingKeysHere = requiredVideoKeys.filter((x) => !videoPropertyKeys.includes(x))
         if (missingKeysHere.length > 0) {
           videoDataValid = false
           missingKeys = missingKeysHere
@@ -361,7 +369,7 @@ const actions = {
       console.error(errorMsgText)
       console.error({
         videoObjectArray,
-        missingKeys,
+        missingKeys
       })
       throw new Error(errorMsgText)
     }
@@ -373,50 +381,62 @@ const actions = {
     }
   },
 
-  hideAddToPlaylistPrompt ({ commit }) {
+  hideAddToPlaylistPrompt({ commit }) {
     commit('setShowAddToPlaylistPrompt', false)
     // The default value properties are only valid until prompt is closed
     commit('resetNewPlaylistDefaultProperties')
   },
 
-  showCreatePlaylistPrompt ({ commit }, data) {
+  showCreatePlaylistPrompt({ commit }, data) {
     commit('setShowCreatePlaylistPrompt', true)
     commit('setNewPlaylistVideoObject', data)
   },
 
-  hideCreatePlaylistPrompt ({ commit }) {
+  hideCreatePlaylistPrompt({ commit }) {
     commit('setShowCreatePlaylistPrompt', false)
   },
 
-  showKeyboardShortcutPrompt ({ commit }) {
+  showKeyboardShortcutPrompt({ commit }) {
     commit('setIsKeyboardShortcutPromptShown', true)
   },
 
-  hideKeyboardShortcutPrompt ({ commit }) {
+  hideKeyboardShortcutPrompt({ commit }) {
     commit('setIsKeyboardShortcutPromptShown', false)
   },
 
-  showSearchFilters ({ commit }) {
+  showVimWaypoints({ commit }) {
+    commit('setAreVimWaypointsShown', true)
+  },
+
+  hideVimWaypoints({ commit }) {
+    commit('setAreVimWaypointsShown', false)
+  },
+
+  showSearchFilters({ commit }) {
     commit('setShowSearchFilters', true)
   },
 
-  hideSearchFilters ({ commit }) {
+  hideSearchFilters({ commit }) {
     commit('setShowSearchFilters', false)
   },
 
-  updateShowProgressBar ({ commit }, value) {
+  updateShowProgressBar({ commit }, value) {
     commit('setShowProgressBar', value)
   },
 
-  async getRegionData ({ commit }, locale) {
+  async getRegionData({ commit }, locale) {
     const localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
 
     const url = createWebURL(`/static/geolocations/${localePathExists ? locale : 'en-US'}.json`)
 
     const countries = await (await fetch(url)).json()
 
-    const regionNames = countries.map((entry) => { return entry.name })
-    const regionValues = countries.map((entry) => { return entry.code })
+    const regionNames = countries.map((entry) => {
+      return entry.name
+    })
+    const regionValues = countries.map((entry) => {
+      return entry.code
+    })
 
     commit('setRegionNames', regionNames)
     commit('setRegionValues', regionValues)
@@ -671,11 +691,11 @@ const actions = {
     }
   },
 
-  clearSessionSearchHistory ({ commit }) {
+  clearSessionSearchHistory({ commit }) {
     commit('setSessionSearchHistory', [])
   },
 
-  async getExternalPlayerCmdArgumentsData ({ commit }) {
+  async getExternalPlayerCmdArgumentsData({ commit }) {
     const url = createWebURL('/static/external-player-map.json')
     const externalPlayerMap = await (await fetch(url)).json()
     // Sort external players alphabetically & case-insensitive, keep default entry at the top
@@ -683,8 +703,12 @@ const actions = {
     externalPlayerMap.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }))
     externalPlayerMap.unshift(playerNone)
 
-    const externalPlayerNames = externalPlayerMap.map((entry) => { return entry.name })
-    const externalPlayerValues = externalPlayerMap.map((entry) => { return entry.value })
+    const externalPlayerNames = externalPlayerMap.map((entry) => {
+      return entry.name
+    })
+    const externalPlayerValues = externalPlayerMap.map((entry) => {
+      return entry.value
+    })
     const externalPlayerCmdArguments = externalPlayerMap.reduce((result, item) => {
       result[item.value] = item.cmdArguments
       return result
@@ -695,13 +719,11 @@ const actions = {
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
 
-  openInExternalPlayer ({ state, rootState }, payload) {
+  openInExternalPlayer({ state, rootState }, payload) {
     const args = []
     const externalPlayer = rootState.settings.externalPlayer
     const cmdArgs = state.externalPlayerCmdArguments[externalPlayer]
-    const executable = rootState.settings.externalPlayerExecutable !== ''
-      ? rootState.settings.externalPlayerExecutable
-      : cmdArgs.defaultExecutable
+    const executable = rootState.settings.externalPlayerExecutable !== '' ? rootState.settings.externalPlayerExecutable : cmdArgs.defaultExecutable
     const ignoreWarnings = rootState.settings.externalPlayerIgnoreWarnings
     const ignoreDefaultArgs = rootState.settings.externalPlayerIgnoreDefaultArgs
     const customArgs = rootState.settings.externalPlayerCustomArgs
@@ -711,7 +733,9 @@ const actions = {
         const custom = JSON.parse(customArgs)
         args.push(...custom)
       }
-      if (payload.videoId != null) args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+      if (payload.videoId != null) {
+        args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
+      }
     } else {
       // Append custom user-defined arguments,
       // or use the default ones specified for the external player.
@@ -726,7 +750,7 @@ const actions = {
         if (typeof cmdArgs.startOffset === 'string') {
           if (cmdArgs.defaultExecutable.startsWith('mpc')) {
             // For mpc-hc and mpc-be, which require startOffset to be in milliseconds
-            args.push(cmdArgs.startOffset, (Math.trunc(payload.watchProgress) * 1000))
+            args.push(cmdArgs.startOffset, Math.trunc(payload.watchProgress) * 1000)
           } else if (cmdArgs.startOffset.endsWith('=')) {
             // For players using `=` in arguments
             // e.g. vlc --start-time=xxxxx
@@ -755,7 +779,10 @@ const actions = {
           if (typeof cmdArgs.playlistIndex === 'string') {
             args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)'))
+            showExternalPlayerUnsupportedActionToast(
+              externalPlayer,
+              i18n.t('Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)')
+            )
           }
         }
 
@@ -799,21 +826,28 @@ const actions = {
       }
     }
 
-    const videoOrPlaylist = payload.playlistId != null && payload.playlistId !== ''
-      ? i18n.t('Video.External Player.playlist')
-      : i18n.t('Video.External Player.video')
+    const videoOrPlaylist =
+      payload.playlistId != null && payload.playlistId !== '' ? i18n.t('Video.External Player.playlist') : i18n.t('Video.External Player.video')
 
-    showToast(i18n.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
+    showToast(
+      i18n.t('Video.External Player.OpeningTemplate', {
+        videoOrPlaylist,
+        externalPlayer
+      })
+    )
 
     if (process.env.IS_ELECTRON) {
       const { ipcRenderer } = require('electron')
-      ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
+      ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, {
+        executable,
+        args
+      })
     }
-  },
+  }
 }
 
 const mutations = {
-  toggleSideNav (state) {
+  toggleSideNav(state) {
     state.isSideNavOpen = !state.isSideNavOpen
   },
 
@@ -821,23 +855,23 @@ const mutations = {
     state.outlinesHidden = value
   },
 
-  setShowProgressBar (state, value) {
+  setShowProgressBar(state, value) {
     state.showProgressBar = value
   },
 
-  setProgressBarPercentage (state, value) {
+  setProgressBarPercentage(state, value) {
     state.progressBarPercentage = value
   },
 
-  setSessionSearchHistory (state, history) {
+  setSessionSearchHistory(state, history) {
     state.sessionSearchHistory = history
   },
 
-  setDeArrowCache (state, cache) {
+  setDeArrowCache(state, cache) {
     state.deArrowCache = cache
   },
 
-  addVideoToDeArrowCache (state, payload) {
+  addVideoToDeArrowCache(state, payload) {
     const sameVideo = state.deArrowCache[payload.videoId]
 
     if (!sameVideo) {
@@ -847,15 +881,15 @@ const mutations = {
     }
   },
 
-  addThumbnailToDeArrowCache (state, payload) {
+  addThumbnailToDeArrowCache(state, payload) {
     vueSet(state.deArrowCache, payload.videoId, payload)
   },
 
-  removeFromSessionSearchHistory (state, query) {
+  removeFromSessionSearchHistory(state, query) {
     state.sessionSearchHistory = state.sessionSearchHistory.filter((search) => search.query !== query)
   },
 
-  addToSessionSearchHistory (state, payload) {
+  addToSessionSearchHistory(state, payload) {
     const sameSearch = state.sessionSearchHistory.findIndex((search) => {
       return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
     })
@@ -874,42 +908,204 @@ const mutations = {
     }
   },
 
-  setShowAddToPlaylistPrompt (state, payload) {
+  setShowAddToPlaylistPrompt(state, payload) {
     state.showAddToPlaylistPrompt = payload
   },
 
-  setShowCreatePlaylistPrompt (state, payload) {
+  setShowCreatePlaylistPrompt(state, payload) {
     state.showCreatePlaylistPrompt = payload
   },
 
-  setIsKeyboardShortcutPromptShown (state, payload) {
+  setIsKeyboardShortcutPromptShown(state, payload) {
     state.isKeyboardShortcutPromptShown = payload
   },
 
-  setShowSearchFilters (state, payload) {
+  setAreVimWaypointsShown(state, { key }) {
+    const selectedLetterColor = '#D4AC3A'
+    if (key === 'f' && !document.querySelector('.vimHint')) {
+      const elements = getClickableElements()
+      displayHints(elements)
+      state.areVimWaypointsShown.selector.push(key)
+    } else if (['Esc', 'Escape'].includes(key) | (key === 'Backspace' && state.areVimWaypointsShown.selector.length === 1)) {
+      close()
+      return
+    } else if (key === 'Backspace') {
+      state.areVimWaypointsShown.selector.pop()
+    } else {
+      state.areVimWaypointsShown.selector.push(key)
+    }
+    const keys = state.areVimWaypointsShown.selector.slice(1).join('').toUpperCase()
+    const selector = keys.length ? `[data-hint-index^="${keys}"]` : '.vimHint'
+    const selectedHints = document.querySelectorAll(selector)
+    if (selectedHints.length === 1) {
+      selectedHints[0].click()
+      close()
+    }
+
+    selectedHints.forEach((el) => {
+      for (let i = 0; i < el.children.length; i++) {
+        if (i < keys.length) {
+          el.children[i].style.color = selectedLetterColor
+        } else {
+          el.children[i].style = ''
+        }
+      }
+    })
+
+    function close() {
+      document.querySelectorAll('.vimHint').forEach((el) => el.remove())
+      state.areVimWaypointsShown.selector = []
+    }
+    console.warn(selector)
+    function getClickableElements() {
+      return [
+        ...document.querySelectorAll('a, button, [type="button"], [type="submit"], [role="tab"], [role="button"], input[type="text"], [role="link"]')
+      ]
+    }
+
+    function numberToHintStr(number, chars, digits = 0) {
+      const base = chars.length
+      const hintStr = []
+      let remainder = 0
+
+      while (true) {
+        remainder = number % base
+        hintStr.unshift(chars[remainder])
+        number -= remainder
+        number = Math.floor(number / base)
+        if (number <= 0) {
+          break
+        }
+      }
+
+      // Pad the hint string to ensure its length is at least 'digits'.
+      while (hintStr.length < digits) {
+        hintStr.unshift(chars[0])
+      }
+
+      return hintStr.join('')
+    }
+
+    // Example usage: Generate hints for all link elements
+    function generateHints(minChars, chars) {
+      // Get all anchor (A) elements from the document.
+      const elems = document.querySelectorAll(
+        'a, button, [type="button"], [type="submit"], [role="tab"], [role="button"], input[type="text"], [role="link"]'
+      )
+      const numLinks = elems.length
+
+      // Determine the minimum number of digits needed for the hints.
+      const needed = Math.max(minChars, Math.ceil(Math.log(numLinks) / Math.log(chars.length)))
+
+      let shortCount = 0
+      if (needed > minChars && needed > 1) {
+        const totalSpace = Math.pow(chars.length, needed)
+        shortCount = Math.floor((totalSpace - numLinks) / (chars.length - 1))
+      }
+
+      const longCount = numLinks - shortCount
+      const strings = []
+
+      if (needed > 1) {
+        for (let i = 0; i < shortCount; i++) {
+          strings.push(numberToHintStr(i, chars, needed - 1))
+        }
+      }
+
+      const start = shortCount * chars.length
+      for (let i = start; i < start + longCount; i++) {
+        strings.push(numberToHintStr(i, chars, needed))
+      }
+
+      return shuffleHints(strings, chars.length)
+    }
+
+    function shuffleHints(hints, base) {
+      // Implementing a simple shuffle function
+      for (let i = hints.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [hints[i], hints[j]] = [hints[j], hints[i]]
+      }
+      return hints
+    }
+
+    // Function to generate hint labels
+    function displayHints(elements) {
+      if (!elements.length) {
+        state.areVimWaypointsShown.selector = []
+        return
+      }
+      let hintIndex = 0
+
+      const minChars = 2
+      const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      const hints = generateHints(minChars, charset)
+
+      elements.forEach((element) => {
+        const containerSpan = document.createElement('span')
+        const hintStyles = {
+          position: 'absolute',
+          background: 'linear-gradient(to bottom, #fff204 0%, #d8cb03 100%)',
+          fontSize: '13px',
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif',
+          fontWeight: '600',
+          borderRadius: '3px',
+          color: 'black',
+          zIndex: '10000', // Ensure it is above other content
+          padding: '1px 2px',
+          letterSpacing: '0.5px',
+          display: 'flex' // Use flexbox for letter alignment
+        }
+        Object.assign(containerSpan.style, hintStyles)
+        containerSpan.classList.add('vimHint')
+
+        const hint = hints[hintIndex++]
+        containerSpan.dataset.hintIndex = hint
+        // Create individual spans for each letter
+        hint.split('').forEach((letter) => {
+          const letterSpan = document.createElement('span')
+          letterSpan.textContent = letter
+          letterSpan.classList.add('vimHint-letter')
+          containerSpan.appendChild(letterSpan)
+        })
+
+        const rect = element.getBoundingClientRect()
+        containerSpan.addEventListener('click', () => element.dispatchEvent(new Event('click')))
+        containerSpan.style.top = `${window.scrollY + rect.top}px`
+        containerSpan.style.left = `${window.scrollX + rect.left}px`
+
+        document.body.appendChild(containerSpan)
+
+        // Assign a data attribute for easy access
+        element.setAttribute('data-hint', hint)
+      })
+    }
+  },
+
+  setShowSearchFilters(state, payload) {
     state.showSearchFilters = payload
   },
 
-  setToBeAddedToPlaylistVideoList (state, payload) {
+  setToBeAddedToPlaylistVideoList(state, payload) {
     state.toBeAddedToPlaylistVideoList = payload
   },
 
-  setNewPlaylistDefaultProperties (state, payload) {
+  setNewPlaylistDefaultProperties(state, payload) {
     state.newPlaylistDefaultProperties = payload
   },
-  resetNewPlaylistDefaultProperties (state) {
+  resetNewPlaylistDefaultProperties(state) {
     state.newPlaylistDefaultProperties = {}
   },
 
-  setNewPlaylistVideoObject (state, payload) {
+  setNewPlaylistVideoObject(state, payload) {
     state.newPlaylistVideoObject = payload
   },
 
-  setPopularCache (state, value) {
+  setPopularCache(state, value) {
     state.popularCache = value
   },
 
-  setTrendingCache (state, { value, page }) {
+  setTrendingCache(state, { value, page }) {
     state.trendingCache[page] = value
   },
 
@@ -917,11 +1113,11 @@ const mutations = {
    * @param {typeof state} state
    * @param {{page: 'default' | 'music' | 'gaming' | 'movies', timestamp: Date}} param1
    */
-  setLastTrendingRefreshTimestamp (state, { page, timestamp }) {
+  setLastTrendingRefreshTimestamp(state, { page, timestamp }) {
     state.lastTrendingRefreshTimestamp[page] = timestamp
   },
 
-  setLastPopularRefreshTimestamp (state, timestamp) {
+  setLastPopularRefreshTimestamp(state, timestamp) {
     state.lastPopularRefreshTimestamp = timestamp
   },
 
@@ -937,69 +1133,69 @@ const mutations = {
     state.cachedPlaylist = value
   },
 
-  setSearchFilterValueChanged (state, value) {
+  setSearchFilterValueChanged(state, value) {
     state.searchFilterValueChanged = value
   },
 
-  setSearchSortBy (state, value) {
+  setSearchSortBy(state, value) {
     state.searchSettings.sortBy = value
   },
 
-  setSearchTime (state, value) {
+  setSearchTime(state, value) {
     state.searchSettings.time = value
   },
 
-  setSearchType (state, value) {
+  setSearchType(state, value) {
     state.searchSettings.type = value
   },
 
-  setSearchDuration (state, value) {
+  setSearchDuration(state, value) {
     state.searchSettings.duration = value
   },
 
-  setSearchFeatures (state, value) {
+  setSearchFeatures(state, value) {
     state.searchSettings.features = value
   },
 
-  setRegionNames (state, value) {
+  setRegionNames(state, value) {
     state.regionNames = value
   },
 
-  setRegionValues (state, value) {
+  setRegionValues(state, value) {
     state.regionValues = value
   },
 
-  setRecentBlogPosts (state, value) {
+  setRecentBlogPosts(state, value) {
     state.recentBlogPosts = value
   },
 
-  setExternalPlayerNames (state, value) {
+  setExternalPlayerNames(state, value) {
     state.externalPlayerNames = value
   },
 
-  setExternalPlayerValues (state, value) {
+  setExternalPlayerValues(state, value) {
     state.externalPlayerValues = value
   },
 
-  setExternalPlayerCmdArguments (state, value) {
+  setExternalPlayerCmdArguments(state, value) {
     state.externalPlayerCmdArguments = value
   },
 
   // Use this to set the app title / document.title
-  setAppTitle (state, value) {
+  setAppTitle(state, value) {
     state.appTitle = value
   },
 
-  setSubscriptionForVideosFirstAutoFetchRun (state) {
+  setSubscriptionForVideosFirstAutoFetchRun(state) {
     state.subscriptionFirstAutoFetchRunData.videos = true
   },
-  setSubscriptionForLiveStreamsFirstAutoFetchRun (state) {
+  setSubscriptionForLiveStreamsFirstAutoFetchRun(state) {
     state.subscriptionFirstAutoFetchRunData.liveStreams = true
   },
-  setSubscriptionForShortsFirstAutoFetchRun (state) {
+  setSubscriptionForShortsFirstAutoFetchRun(state) {
     state.subscriptionFirstAutoFetchRunData.shorts = true
   },
-  setSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
+  setSubscriptionForCommunityPostsFirstAutoFetchRun(state) {
     state.subscriptionFirstAutoFetchRunData.communityPosts = true
   }
 }
