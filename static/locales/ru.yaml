@@ -234,6 +234,7 @@ User Playlists:
     из этого плейлиста? Это нельзя отменить.
   Export Playlist: Экспортировать этот плейлист
   The playlist has been successfully exported: Плейлист успешно экспортирован
+  TotalTimePlaylist: 'Общее время: {duration}'
 History:
   # On History Page
   History: 'История'
