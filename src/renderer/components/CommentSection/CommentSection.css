@@ -1,6 +1,9 @@
 .card {
   padding-block: 0;
   padding-inline: 16px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .getCommentsTitle,
@@ -40,6 +43,9 @@
 
 .comment {
   padding: 15px;
+  overflow-wrap: break-word;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .hideComments {
@@ -97,6 +103,9 @@
   margin-block-start: -10px;
   margin-inline-start: 70px;
   word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-width: calc(100% - 70px);
 }
 
 .commentPinned {
@@ -193,4 +202,14 @@
   text-decoration: underline;
   cursor: pointer;
   color: var(--title-color);
+}
+
+.commentReplies .commentText {
+  max-width: calc(100% - 70px);
+}
+
+@media only screen and (width <= 500px) {
+  .commentText {
+    max-width: calc(100% - 75px);
+  }
 }
