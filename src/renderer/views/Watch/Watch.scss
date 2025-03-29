@@ -129,6 +129,9 @@
     grid-column: 1;
     margin-block: 0 16px;
     margin-inline: 0;
+    min-width: 0;
+    width: 100%;
+    overflow-wrap: break-word;
   }
 
   .infoArea {
@@ -193,6 +196,12 @@
 
   @media only screen and (width <= 1050px) {
     @include single-column-template;
+
+    .watchVideo {
+      width: 100%;
+      box-sizing: border-box;
+      min-width: 0;
+    }
   }
 
   @media only screen and (width >= 1051px) {
