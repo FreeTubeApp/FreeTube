@@ -4,6 +4,7 @@
   max-width: 100%;
   box-sizing: border-box;
   overflow: hidden;
+  min-width: 0;
 }
 
 .getCommentsTitle,
@@ -46,6 +47,7 @@
   overflow-wrap: break-word;
   width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .hideComments {
@@ -104,8 +106,9 @@
   margin-inline-start: 70px;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  word-break: break-word;
+  word-break: break-all;
   max-width: calc(100% - 70px);
+  hyphens: auto;
 }
 
 .commentPinned {
@@ -211,5 +214,12 @@
 @media only screen and (width <= 500px) {
   .commentText {
     max-width: calc(100% - 75px);
+  }
+}
+
+@media only screen and (width <= 350px) {
+  .commentText {
+    max-width: calc(100% - 80px);
+    margin-inline-start: 65px;
   }
 }
