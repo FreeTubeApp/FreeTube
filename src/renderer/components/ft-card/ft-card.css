@@ -4,4 +4,10 @@
   padding-block: 3px 16px;
   padding-inline: 16px;
   box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  max-inline-size: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  min-inline-size: 0;
 }
