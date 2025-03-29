@@ -57,6 +57,11 @@
 .postText {
   overflow-wrap: anywhere;
   white-space: pre-wrap;
+  word-break: normal;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  box-sizing: border-box;
+  hyphens: auto;
 }
 
 .commentsLink {
@@ -110,7 +115,8 @@
   .playlistText {
     margin-inline-start: 10px;
     inline-size: 50%;
-    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    word-break: normal;
 
     .playlistAuthor {
       font-size: small;
