@@ -600,6 +600,7 @@ export default defineComponent({
       try {
         const playlistItems = [].concat(this.playlistItems)
         const tempPlaylistItems = [].concat(this.playlistItems)
+        const tempPlaylistId = this.playlistId
         let isUndoClicked = false
 
         const videoIndex = this.playlistItems.findIndex((video) => {
@@ -629,7 +630,7 @@ export default defineComponent({
             setTimeout(() => {
               if (!isUndoClicked) {
                 this.removeVideos({
-                  _id: this.playlistId,
+                  _id: tempPlaylistId,
                   videoIds: this.deletedVideoIds,
                   playlistItemIds: this.deletedPlaylistItemIds,
                 })
