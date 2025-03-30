@@ -234,6 +234,7 @@ User Playlists:
     المكررة من قائمة التشغيل هذه؟ هذا لا يمكن التراجع عنها.
   Export Playlist: تصدير قائمة التشغيل هذه
   The playlist has been successfully exported: تم تصدير قائمة التشغيل بنجاح
+  TotalTimePlaylist: 'الوقت الإجمالي: {duration}'
 History:
   # On History Page
   History: 'السجلّ'

@@ -247,6 +247,7 @@ User Playlists:
     gemacht werden.
   Export Playlist: Diese Playlist exportieren
   The playlist has been successfully exported: Die Playlist wurde erfolgreich exportiert
+  TotalTimePlaylist: 'Gesamtzeit: {duration}'
 History:
   # On History Page
   History: Verlauf

@@ -250,6 +250,7 @@ User Playlists:
   Export Playlist: Erreprodukzio-zerrenda hau esportatu
   The playlist has been successfully exported: Erreprodukzio-zerrenda ongi esportatu
     da
+  TotalTimePlaylist: 'Denbora guztira: {duration}'
 History:
   # On History Page
   History: 'Historikoa'

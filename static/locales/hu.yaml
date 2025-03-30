@@ -253,6 +253,7 @@ User Playlists:
   Export Playlist: Ezen lejátszási lista exportálása
   The playlist has been successfully exported: A lejátszási lista sikeresen exportálva
     lett
+  TotalTimePlaylist: 'Teljes időtartam: {duration}'
 History:
   # On History Page
   History: 'Előzmények'

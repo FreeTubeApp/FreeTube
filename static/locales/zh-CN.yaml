@@ -208,6 +208,7 @@ User Playlists:
     1 个重复视频吗？无法撤销删除。| 你确定要从此播放列表中删除 {playlistItemCount} 个重复视频吗？无法撤销删除。
   Export Playlist: 导出播放清单
   The playlist has been successfully exported: 成功导出播放清单
+  TotalTimePlaylist: 总时间：{duration}
 History:
   # On History Page
   History: '历史记录'
