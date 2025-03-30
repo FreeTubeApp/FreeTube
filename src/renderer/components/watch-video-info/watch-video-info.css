@@ -89,9 +89,27 @@
 
 .videoOptions {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
   gap: 4px;
+}
+
+.videoOptionsMobileRow {
+  display: flex;
+  gap: 4px;
+}
+
+@media screen and (width <= 730px) {
+  .videoButtons {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-block-start: 10px;
+  }
+}
+
+@media screen and (width <= 680px) {
+  .likeSection {
+    margin-inline-start: 0;
+    text-align: start;
+  }
 }
 
 @media screen and (width <= 460px) {
@@ -104,29 +122,16 @@
   .seperator {
     display: none;
   }
+}
 
-  .videoButtons {
+@media screen and (width <= 380px) {
+  .videoOptions {
     flex-direction: column;
     align-items: flex-start;
     margin-block-start: 10px;
   }
 
-  .videoOptions {
-    flex-wrap: nowrap;
-  }
-
-  .videoOptions :deep(.iconDropdown) {
-    inset-inline: auto;
-  }
-}
-
-@media screen and (width <= 680px) {
-  .likeSection {
-    margin-inline-start: 0;
-    text-align: start;
-  }
-
-  .videoOptions :deep(.iconDropdown) {
-    inset-inline: auto calc(50% - 20px);
+  .videoOptionsMobileRow :deep(.iconDropdown) {
+    inset-inline: 0 auto;
   }
 }
