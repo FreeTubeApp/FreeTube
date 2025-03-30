@@ -295,8 +295,8 @@ export async function readFileWithPicker(
         .join(',')
 
       const fileInput = document.createElement('input')
-      fileInput.setAttribute('type', 'file')
-      fileInput.setAttribute('accept', joinedExtensions)
+      fileInput.type = 'file'
+      fileInput.accept = joinedExtensions
       fileInput.onchange = () => {
         resolve(fileInput.files[0])
         fileInput.onchange = null
@@ -395,8 +395,8 @@ export async function writeFileWithPicker(
     const url = URL.createObjectURL(content)
 
     const downloadLink = document.createElement('a')
-    downloadLink.setAttribute('download', encodeURIComponent(fileName))
-    downloadLink.setAttribute('href', url)
+    downloadLink.download = encodeURIComponent(fileName)
+    downloadLink.href = url
     downloadLink.click()
 
     // Small timeout to give the browser time to react to the click on the link
