@@ -261,39 +261,39 @@ function runApp() {
 
   // If in Linux, add system tray with menu
   if (process.platform === 'linux') {
-  let tray = null
+    let tray = null
 
-  app.whenReady().then(() => {
+    app.whenReady().then(() => {
     // Use the system icon by name (works with properly installed Linux desktop applications)
     tray = new Tray('freetube')
 
-    // Create context menu
-    const contextMenu = Menu.buildFromTemplate([
-      {
-        label: 'New Window',
-        click: () => {
-          createWindow({
-            replaceMainWindow: false,
-            showWindowNow: true
-          })
+      // Create context menu
+      const contextMenu = Menu.buildFromTemplate([
+        {
+          label: 'New Window',
+          click: () => {
+            createWindow({
+              replaceMainWindow: false,
+              showWindowNow: true
+            })
+          }
+        },
+        { type: 'separator' },
+        {
+          label: 'Quit',
+          click: () => {
+            app.quit()
+          }
         }
-      },
-      { type: 'separator' },
-      {
-        label: 'Quit',
-        click: () => {
-          app.quit()
-        }
-      }
-    ])
+      ])
 
-    // Set the tray context menu
-    tray.setContextMenu(contextMenu)
-    
-    // Set tooltip
-    tray.setToolTip('FreeTube')
-  })
-  }
+      // Set the tray context menu
+      tray.setContextMenu(contextMenu)
+  
+      // Set tooltip
+      tray.setToolTip('FreeTube')
+    })
+    }
 
   // disable electron warning
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
