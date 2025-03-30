@@ -1,7 +1,7 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
   powerSaveBlocker, screen, session, shell,
-  nativeTheme, net, protocol, clipboard, Tray
+  nativeTheme, net, protocol, clipboard
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -256,42 +256,6 @@ function runApp() {
     ])
     app.whenReady().then(() => {
       app.dock.setMenu(dockMenu)
-    })
-  }
-
-  // If in Linux, add system tray with menu
-  if (process.platform === 'linux') {
-    let tray = null
-
-    app.whenReady().then(() => {
-    // Use the system icon by name (works with properly installed Linux desktop applications)
-      tray = new Tray('freetube')
-
-      // Create context menu
-      const contextMenu = Menu.buildFromTemplate([
-        {
-          label: 'New Window',
-          click: () => {
-            createWindow({
-              replaceMainWindow: false,
-              showWindowNow: true
-            })
-          }
-        },
-        { type: 'separator' },
-        {
-          label: 'Quit',
-          click: () => {
-            app.quit()
-          }
-        }
-      ])
-
-      // Set the tray context menu
-      tray.setContextMenu(contextMenu)
-
-      // Set tooltip
-      tray.setToolTip('FreeTube')
     })
   }
 
