@@ -48,7 +48,7 @@ const config = {
     category: 'Network',
     icon: '_icons/icon.svg',
     target: ['deb', 'zip', '7z', 'apk', 'rpm', 'AppImage', 'pacman'],
-    executableArgs: ["--new-window"]
+    executableArgs: ['--new-window']
   },
   // See the following issues for more information
   // https://github.com/jordansissel/fpm/issues/1503
