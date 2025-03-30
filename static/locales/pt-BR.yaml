@@ -513,6 +513,16 @@ Settings:
       apagados
     Are you sure you want to clear out your search history and cache?: Tem certeza
       de que deseja limpar o histórico de busca e o cache?
+    Watched Progress Saving Mode:
+      Modes:
+        Never: Nunca
+        Semi-auto: Semiautomático
+        Auto: Auto
+      Tooltip: Auto = Salvar em cada saída da página de vídeo, quando o vídeo termina
+        e ocorre um erro (por exemplo, taxa limitada e sessão de exibição expirada).
+        Semiautomático = O mesmo que "Auto", exceto na saída da página de vídeo e
+        pode salvar o progresso manualmente por meio de um botão chamado "Salvar progresso
+        de exibição", localizado abaixo do player de vídeo.
   Data Settings:
     Subscriptions have been successfully exported: Inscrições foram exportadas com
       sucesso
@@ -930,6 +940,8 @@ Video:
     a esse vídeo, acesse o site oficial do YouTube em um navegador da Web habilitado
     para DRM.
 #& Playlists
+  Watched Progress Saved: Progresso de exibição salvo
+  Save Watched Progress: Salvar progresso de exibição
 Playlist:
   #& About
   View Full Playlist: 'Visualizar playlist completa'
