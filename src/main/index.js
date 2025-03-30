@@ -265,7 +265,7 @@ function runApp() {
 
     app.whenReady().then(() => {
     // Use the system icon by name (works with properly installed Linux desktop applications)
-    tray = new Tray('freetube')
+      tray = new Tray('freetube')
 
       // Create context menu
       const contextMenu = Menu.buildFromTemplate([
@@ -289,10 +289,10 @@ function runApp() {
 
       // Set the tray context menu
       tray.setContextMenu(contextMenu)
-  
+
       // Set tooltip
       tray.setToolTip('FreeTube')
-    })
+      })
     }
 
   // disable electron warning
