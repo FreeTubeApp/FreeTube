@@ -1,7 +1,7 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
   powerSaveBlocker, screen, session, shell,
-  nativeTheme, net, protocol, clipboard
+  nativeTheme, net, protocol, clipboard, Tray
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -259,41 +259,40 @@ function runApp() {
     })
   }
 
-  // If in Linux, add system tray with 'New Window' option
-  const { app, Menu, Tray } = require('electron')
+  // If in Linux, add system tray with menu
   if (process.platform === 'linux') {
-    let tray = null
+  let tray = null
 
-    app.whenReady().then(() => {
-      // Use the system icon by name (works with properly installed Linux desktop applications)
-      tray = new Tray('freetube')
+  app.whenReady().then(() => {
+    // Use the system icon by name (works with properly installed Linux desktop applications)
+    tray = new Tray('freetube')
 
-      // Create context menu
-      const contextMenu = Menu.buildFromTemplate([
-        {
-          label: 'New Window',
-          click: () => {
-            createWindow({
-              replaceMainWindow: false,
-              showWindowNow: true
-            })
-          }
-        },
-        { type: 'separator' },
-        {
-          label: 'Quit',
-          click: () => {
-            app.quit()
-          }
+    // Create context menu
+    const contextMenu = Menu.buildFromTemplate([
+      {
+        label: 'New Window',
+        click: () => {
+          createWindow({
+            replaceMainWindow: false,
+            showWindowNow: true
+          })
         }
-      ])
+      },
+      { type: 'separator' },
+      {
+        label: 'Quit',
+        click: () => {
+          app.quit()
+        }
+      }
+    ])
 
-      // Set the tray context menu
-      tray.setContextMenu(contextMenu)
-   
-      // Set tooltip
-      tray.setToolTip('FreeTube')
-    })
+    // Set the tray context menu
+    tray.setContextMenu(contextMenu)
+    
+    // Set tooltip
+    tray.setToolTip('FreeTube')
+  })
   }
 
   // disable electron warning
