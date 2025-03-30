@@ -240,6 +240,62 @@ function runApp() {
       }]
     }])
   }
+
+  // If in Mac, add macOS Dock menu with 'New Window' option
+  if (process.platform === 'darwin') {
+    const dockMenu = Menu.buildFromTemplate([
+      {
+        label: 'New Window',
+        click: () => {
+          createWindow({
+            replaceMainWindow: false,
+            showWindowNow: true
+          })
+        }
+      }
+    ])
+    app.whenReady().then(() => {
+      app.dock.setMenu(dockMenu)
+    })
+  }
+
+  // If in Linux, add system tray with 'New Window' option
+  const { app, Menu, Tray } = require('electron')
+  if (process.platform === 'linux') {
+    let tray = null
+
+    app.whenReady().then(() => {
+      // Use the system icon by name (works with properly installed Linux desktop applications)
+      tray = new Tray('freetube')
+
+      // Create context menu
+      const contextMenu = Menu.buildFromTemplate([
+        {
+          label: 'New Window',
+          click: () => {
+            createWindow({
+              replaceMainWindow: false,
+              showWindowNow: true
+            })
+          }
+        },
+        { type: 'separator' },
+        {
+          label: 'Quit',
+          click: () => {
+            app.quit()
+          }
+        }
+      ])
+
+      // Set the tray context menu
+      tray.setContextMenu(contextMenu)
+   
+      // Set tooltip
+      tray.setToolTip('FreeTube')
+    })
+  }
+
   // disable electron warning
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
   const isDebug = process.argv.includes('--debug')
