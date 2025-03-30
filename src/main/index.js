@@ -292,7 +292,7 @@ function runApp() {
 
       // Set tooltip
       tray.setToolTip('FreeTube')
-      })
+   })
   }
 
   // disable electron warning
