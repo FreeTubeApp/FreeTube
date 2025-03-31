@@ -39,7 +39,7 @@ Global:
 # Search Bar
   Counts:
     Video Count: 1 vidéo | {count} vidéos
-    Channel Count: 1 chaîne | {count} chaînes
+    Channel Count: 1 chaine | {count} chaines
     View Count: 1 vue | {count} vues
     Subscriber Count: 1 abonné | {count} abonnés
     Watching Count: 1 spectateur | {count} spectateurs
@@ -50,7 +50,7 @@ Search / Go to URL: 'Rechercher / ouvrir l''URL'
 Search Filters:
   Search Filters: 'Filtres de recherche'
   Sort By:
-    Most Relevant: 'Le plus pertinent'
+    Most Relevant: 'Pertinence'
     Rating: 'Avis'
     Upload Date: 'Date de mise en ligne'
     View Count: 'Nombre de vues'
@@ -58,7 +58,7 @@ Search Filters:
     Time: 'Date'
     Any Time: 'Toutes les dates'
     Last Hour: 'Dernière heure'
-    Today: 'Aujourd''hui'
+    Today: 'Aujourd’hui'
     This Week: 'Cette semaine'
     This Month: 'Ce mois-ci'
     This Year: 'Cette année'
@@ -66,16 +66,16 @@ Search Filters:
     Type: 'Type'
     All Types: 'Tous les types'
     Videos: 'Vidéos'
-    Channels: 'Chaînes'
+    Channels: 'Chaines'
     #& Playlists
     Movies: Films
   Duration:
     Duration: 'Durée'
     All Durations: 'Toutes les durées'
-    Short (< 4 minutes): 'Court (< 4 minutes)'
-    Long (> 20 minutes): 'Longue (> 20 minutes)'
+    Short (< 4 minutes): 'Court (moins de 4 min)'
+    Long (> 20 minutes): 'Longue (plus de 20 min)'
   # On Search Page
-    Medium (4 - 20 minutes): Moyenne (4 - 20 minutes)
+    Medium (4 - 20 minutes): Moyenne (de 4 à 20 min)
   Search Results: 'Résultats de la recherche'
   Fetching results. Please wait: 'Récupération des résultats. Veuillez patienter'
   Fetch more results: 'Afficher plus de résultats'
@@ -100,22 +100,23 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Votre
     liste d’abonnements est actuellement vide. Si vous souhaitez importer vos abonnements,
     vous pouvez aller dans Paramètres des données et sélectionner Importer des abonnements
-    ou vous pouvez rechercher une chaîne et vous y abonner.'
+    ou vous pouvez rechercher une chaine et vous y abonner.'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ce
     profil comporte un grand nombre d'abonnements.  Le flux RSS dépassera la limite
     fixée
   Load More Videos: Charger plus de vidéos
-  Error Channels: Chaînes avec des erreurs
+  Error Channels: Chaines avec des erreurs
   Disabled Automatic Fetching: Vous avez désactivé la récupération automatique des
     abonnements. Actualisez les abonnements pour les voir ici.
-  Empty Channels: Les chaînes auxquelles vous êtes abonné(e) ne contiennent actuellement
+  Empty Channels: Les chaines auxquelles vous êtes abonné(e) ne contiennent actuellement
     aucune vidéo.
   Subscriptions Tabs: Onglets Abonnements
-  All Subscription Tabs Hidden: Tous les onglets d'abonnement sont cachés. Pour voir
-    le contenu ici, veuillez désactiver certains onglets dans la section « {subsection} »
-    dans « {settingsSection} ».
+  All Subscription Tabs Hidden: Tous les onglets d’abonnement sont cachés. Pour voir
+    le contenu ici, veuillez désactiver certains onglets dans la section « {subsection} »
+    dans « {settingsSection} ».
   Load More Posts: Charger plus de billets
-  Empty Posts: Les chaînes abonnées ne contiennent actuellement aucun billet.
+  Empty Posts: Les chaines auxquelles vous êtes abonné(e) ne contiennent actuellement
+    aucun billet.
 Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
@@ -199,14 +200,14 @@ User Playlists:
     EarliestCreatedFirst: Création la plus ancienne
     LatestCreatedFirst: Récemment créé
     EarliestUpdatedFirst: Dernière mise à jour
-    NameDescending: Z-A
+    NameDescending: Z→A
     EarliestPlayedFirst: Joué en premier
     LatestUpdatedFirst: Récemment mis à jour
-    NameAscending: A-Z
+    NameAscending: A→Z
   You have no playlists. Click on the create new playlist button to create a new one.: Vous
     n'avez pas de listes de lecture. Cliquez sur le bouton créer une nouvelle liste
     de lecture pour en créer une nouvelle.
-  Remove from Playlist: Supprimer de la liste de lecture
+  Remove from Playlist: Retirer de la liste de lecture
   Save Changes: Enregistrer les modifications
   CreatePlaylistPrompt:
     Create: Créer
@@ -224,7 +225,7 @@ User Playlists:
   Add to Playlist: Ajouter à la liste de lecture
   Move Video Down: Déplacer la vidéo vers le bas
   Playlist Name: Nom de la liste de lecture
-  Remove Watched Videos: Supprimer les vidéos visionnées
+  Remove Watched Videos: Retirer les vidéos visionnées
   Move Video Up: Déplacer la vidéo vers le haut
   Cancel: Annuler
   Delete Playlist: Supprimer la liste de lecture
@@ -241,14 +242,14 @@ User Playlists:
   Cannot delete the quick bookmark target playlist.: Impossible de supprimer la liste
     de lecture cible des signets rapides.
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Êtes-vous
-    sûr(e) de vouloir supprimer 1 vidéo en double de cette liste de lecture ? Cette
-    opération est irréversible. | Êtes-vous sûr(e) de vouloir supprimer {playlistItemCount}
+    sûr(e) de vouloir retirer 1 vidéo en double de cette liste de lecture ? Cette
+    opération est irréversible. | Êtes-vous sûr(e) de vouloir retirer {playlistItemCount}
     vidéos en double de cette liste de lecture ? Cette opération est irréversible.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Êtes-vous
-    sûr(e) de vouloir supprimer 1 vidéo regardée de cette liste de lecture ? Cette
-    opération est irréversible. | Êtes-vous sûr(e) de vouloir supprimer {playlistItemCount}
-    vidéos regardées de cette liste de lecture ? Cette opération est irréversible.
-  Remove Duplicate Videos: Supprimer les vidéos en double
+    sûr(e) de vouloir retirer 1 vidéo regardée de cette liste de lecture ? Cette opération
+    est irréversible. | Êtes-vous sûr(e) de vouloir retirer {playlistItemCount} vidéos
+    regardées de cette liste de lecture ? Cette opération est irréversible.
+  Remove Duplicate Videos: Retirer les vidéos en double
   The playlist has been successfully exported: La liste de lecture a été exportée
     avec succès
   Export Playlist: Exporter cette liste de lecture
@@ -718,7 +719,7 @@ Settings:
       aux paramètres
     Set Password: Définir un mot de passe
     Password Settings: Mot de passe
-  Sort Settings Sections (A-Z): Trier les rubriques de paramètres (A-Z)
+  Sort Settings Sections (A-Z): Trier de À à Z les rubriques des paramètres
   Return to Settings Menu: Revenir au Menu paramètres
 About:
   #On About page
@@ -1275,7 +1276,7 @@ Search Listing:
   Label:
     4K: 4K
     Subtitles: Sous-titres
-    Closed Captions: Sous-titres descriptifs
+    Closed Captions: ST sourds et malentendants
     8K: 8K
     VR180: VR180
     360 Video: 360°
