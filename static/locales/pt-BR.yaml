@@ -105,8 +105,8 @@ Subscriptions:
     perfil tem um grande número de inscrições. Forçando RSS para evitar limitação
     de rede
   Error Channels: Canais com erros
-  Disabled Automatic Fetching: Você desativou a busca automática de inscrições. Atualize
-    as inscrições para vê-las aqui.
+  Disabled Automatic Fetching: Você desabilitou a busca automática de inscrições.
+    Atualize as inscrições para vê-las aqui.
   Empty Channels: Atualmente, os canais em que você está inscrito não possuem vídeos.
   Subscriptions Tabs: Guias de inscrições
   All Subscription Tabs Hidden: Todas as guias de inscrição estão ocultas. Para ver
@@ -313,8 +313,8 @@ Settings:
       Nordic: Nordico
       Solarized Light: Claro Solarizado
       Solarized Dark: Escuro Solarizado
-      Gruvbox Light: Gruvbox modo claro
-      Gruvbox Dark: Gruvbox modo escuro
+      Gruvbox Light: Gruvbox Claro
+      Gruvbox Dark: Gruvbox Escuro
       Catppuccin Frappe: Frappe de Catppuccin
       Everforest Dark Hard: Everforest Escuro Sólido
       Everforest Dark Low: Everforest Escuro Suave
@@ -369,16 +369,16 @@ Settings:
       Solarized Cyan: Ciano Solarizado
       Solarized Green: Verde Solarizado
       Solarized Orange: Laranja Solarizada
-      Gruvbox Dark Blue: Gruvbox modo azul escuro
-      Gruvbox Dark Purple: Gruvbox modo roxo escuro
-      Gruvbox Dark Aqua: Gruvbox modo água escura
-      Gruvbox Light Red: Gruvbox modo vermelho claro
-      Gruvbox Light Blue: Gruvbox modo azul claro
-      Gruvbox Light Purple: Gruvbox modo roxo claro
-      Gruvbox Light Orange: Gruvbox modo laranja claro
-      Gruvbox Dark Green: Gruvbox modo verde escuro
-      Gruvbox Dark Yellow: Gruvbox modo amarelo escuro
-      Gruvbox Dark Orange: Gruvbox modo laranja escuro
+      Gruvbox Dark Blue: Gruvbox Azul Escuro
+      Gruvbox Dark Purple: Gruvbox Roxo Escuro
+      Gruvbox Dark Aqua: Gruvbox Aqua Escuro
+      Gruvbox Light Red: Gruvbox Vermelho Claro
+      Gruvbox Light Blue: Gruvbox Azul Claro
+      Gruvbox Light Purple: Gruvbox Roxo Claro
+      Gruvbox Light Orange: Gruvbox Laranja Claro
+      Gruvbox Dark Green: Gruvbox Verde Escuro
+      Gruvbox Dark Yellow: Gruvbox Amarelo Escuro
+      Gruvbox Dark Orange: Gruvbox Laranja Escuro
       Catppuccin Frappe Rosewater: Frappe de Catppuccin com água de rosas
       Catppuccin Frappe Flamingo: Frappe de Catppuccin Flamingo
       Catppuccin Frappe Mauve: Frappe de Catppuccin Mauve
@@ -410,14 +410,14 @@ Settings:
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da Interface de Usuário
-    Disable Smooth Scrolling: Desativar rolagem suave
+    Disable Smooth Scrolling: Desabilitar rolagem suave
     Expand Side Bar by Default: Expandir barra lateral por padrão
     Hide Side Bar Labels: Ocultar título na barra lateral
     Hide FreeTube Header Logo: Ocultar logotipo do FreeTube na barra superior
   Player Settings:
     Player Settings: 'Player'
     Play Next Video: 'Reprodução automática de vídeos recomendados'
-    Turn on Subtitles by Default: 'Ativar legendas por padrão'
+    Turn on Subtitles by Default: 'Habilitar legendas por padrão'
     Autoplay Videos: 'Iniciar reprodução dos vídeos automaticamente'
     Proxy Videos Through Invidious: 'Usar o Invidious como proxy'
     Autoplay Playlists: 'Reprodução automática dos vídeos da playlist'
@@ -639,7 +639,7 @@ Settings:
     Proxy Port Number: Porta do Proxy
     Proxy Host: Host do Proxy
     Proxy Protocol: Protocolo do Proxy
-    Enable Tor / Proxy: Ativar Tor/Proxy
+    Enable Tor / Proxy: Habilitar Tor/Proxy
     Proxy Settings: Proxy
     Error getting network information. Is your proxy configured properly?: Erro ao
       obter informações da rede. Seu proxy está configurado corretamente?
@@ -647,7 +647,7 @@ Settings:
     Region: Região
     Proxy Warning: FreeTube não tem um proxy integrado, mas pode se conectar a um
       proxy externo, como um proxy em execução no seu computador, como o Tor, ou um
-      proxy externo, como um proxy SOCKS5 fornecido por algumas VPNs. Se estiver ativado,
+      proxy externo, como um proxy SOCKS5 fornecido por algumas VPNs. Se estiver habilitado,
       certifique-se de que seu proxy/Tor esteja configurado corretamente, ou o FreeTube
       não conseguirá obter nenhum dado.
   SponsorBlock Settings:
@@ -693,7 +693,7 @@ Settings:
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: Essas configurações são experimentais, elas podem causar travamentos
-      enquanto ativadas. Fazer backups é altamente recomendado. Use por sua conta
+      enquanto habilitadas. Fazer backups é altamente recomendado. Use por sua conta
       e risco!
     Replace HTTP Cache: Repor cache HTTP
   Password Settings:
@@ -889,7 +889,7 @@ Video:
   Show Super Chat Comment: Mostrar comentários de Super Chat
   Upcoming: Em breve
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': O
-    chat ao vivo não está disponível para esta transmissão. Pode ter sido desativado
+    chat ao vivo não está disponível para esta transmissão. Pode ter sido desabilitado
     pelo autor.
   Unhide Channel: Mostrar canal
   Hide Channel: Ocultar canal
@@ -1100,7 +1100,7 @@ This video is unavailable because of missing formats. This can happen due to cou
   à indisponibilidade do país.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Quando ativado, o FreeTube usará RSS em vez de seu método
+    Fetch Feeds from RSS: Quando habilitado, o FreeTube usará RSS em vez de seu método
       padrão para obter o feed de sua inscrição. O RSS é mais rápido e evita bloqueio
       de IP, mas não fornece certas informações como duração do vídeo, status ao vivo
       ou publicações da comunidade
