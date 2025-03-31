@@ -16,8 +16,8 @@ Paste: 'Yapıştır'
 Delete: 'Sil'
 Select all: 'Tümünü seç'
 Reload: 'Yeniden yükle'
-Force Reload: 'Zorla yeniden yükle'
-Toggle Developer Tools: 'Geliştirici Seçeneklerini Aç/Kapat'
+Force Reload: 'Yeniden Yüklemeyi Zorla'
+Toggle Developer Tools: 'Geliştirici Araçlarını Aç/Kapat'
 Actual size: 'Gerçek boyut'
 Zoom in: 'Yakınlaştır'
 Zoom out: 'Uzaklaştır'
@@ -84,8 +84,8 @@ Search Filters:
   # On Search Page
     Medium (4 - 20 minutes): Orta (4 - 20 dakika)
   Search Results: 'Arama Sonuçları'
-  Fetching results. Please wait: 'Sonuçlar yükleniyor. Lütfen bekleyin'
-  Fetch more results: 'Daha fazla sonuç yükle'
+  Fetching results. Please wait: 'Sonuçlar getiriliyor. Lütfen bekleyin'
+  Fetch more results: 'Daha fazla sonuç getir'
 # Sidebar
   There are no more results for this search: Bu arama için başka sonuç yok
   Features:
@@ -246,6 +246,7 @@ User Playlists:
   Export Playlist: Bu Oynatma Listesini Dışa Aktar
   The playlist has been successfully exported: Oynatma listesi başarılı bir şekilde
     dışa aktarıldı
+  TotalTimePlaylist: 'Toplam süre: {süre}'
 History:
   # On History Page
   History: 'Geçmiş'
@@ -505,6 +506,11 @@ Settings:
       ve önbelleğinizi temizlemek istediğinizden emin misiniz?
     Search history and cache have been cleared: Arama geçmişi ve önbellek temizlendi
     Clear Search History and Cache: Arama Geçmişini ve Önbelleği Temizle
+    Watched Progress Saving Mode:
+      Modes:
+        Never: Asla
+        Auto: Otomatik
+        Semi-auto: Yarı otomatik
   Subscription Settings:
     Subscription Settings: 'Abonelik'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
