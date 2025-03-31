@@ -37,7 +37,7 @@ if (platform === 'darwin') {
     arch = Arch.armv7l
   }
 
-  targets = Platform.LINUX.createTarget(['deb', 'zip', '7z', 'apk', 'rpm', 'AppImage', 'pacman'], arch)
+  targets = Platform.LINUX.createTarget(['deb', 'zip', '7z', 'rpm', 'AppImage', 'pacman'], arch)
 }
 
 builder
