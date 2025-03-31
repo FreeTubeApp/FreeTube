@@ -249,6 +249,7 @@ User Playlists:
     áhorfð myndskeið af þessum spilunarlista? Þetta er ekki hægt að afturkalla.
   Export Playlist: Flytja út þennan spilunarlista
   The playlist has been successfully exported: Það tókst að flytja út þennan spilunarlista
+  TotalTimePlaylist: 'Heildartími: {duration}'
 History:
   # On History Page
   History: 'Áhorf'
@@ -513,6 +514,16 @@ Settings:
     Search history and cache have been cleared: Leitarferill og biðminni hafa verið
       hreinsuð
     Remember Search History: Muna leitarferil
+    Watched Progress Saving Mode:
+      Tooltip: Sjálfvirkt = Vista alltaf þegar farið er af síðu myndskeiðs, þegar
+        myndskeiði lýkur og rekist er á villu (t.d. magntakmörk og áhorfsseta er útrunnin).
+        Hálfsjálfvirkt = Eins og 'Sjálfvirkt' nema aðeins þegar farið er af síðu myndskeiðs
+        en hægt að vista áhorf handvirkt með hnappi sem kallast 'Vista áhorfsferil',
+        sem staðsettur er neðan við spilarann.
+      Modes:
+        Auto: Sjálfvirkt
+        Semi-auto: Hálfsjálfvirkt
+        Never: Aldrei
   Subscription Settings:
     Subscription Settings: 'Áskrift'
     Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
@@ -983,6 +994,8 @@ Video:
     myndskeið, skaltu gera það á opinbera YouTube-vefsvæðinu í vafra með uppsettum
     DRM-hugbúnaði.
 #& Playlists
+  Save Watched Progress: Vista áhorfsferil
+  Watched Progress Saved: Áhorfsferill vistaður
 Playlist:
   #& About
   View Full Playlist: 'Sjá allan spilunarlistann'
