@@ -548,11 +548,11 @@ Settings:
       importés avec succès
     All subscriptions and profiles have been successfully imported: Tous les abonnements
       et profils ont été importés avec succès
-    Export History: Exporter l'historique
-    Import History: Importer l'historique
-    Export NewPipe: Exporter NewPipe
-    Export YouTube: Exporter YouTube
-    Export FreeTube: Exporter FreeTube
+    Export History: Exporter l’historique
+    Import History: Importer l’historique
+    Export NewPipe: Export NewPipe
+    Export YouTube: Export YouTube
+    Export FreeTube: Export FreeTube
     Export Subscriptions: Exporter vos abonnements
     Import Subscriptions: Importer vos abonnements
     Select Export Type: Sélectionner le type d'exportation
@@ -672,10 +672,10 @@ Settings:
       activée, assurez-vous que votre proxy/Tor est configuré correctement, sinon
       FreeTube ne pourra pas récupérer de données.
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Notification lorsqu'un segment sponsorisé
+    Notify when sponsor segment is skipped: Notification lorsqu’un segment sponsorisé
       est ignoré
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de l'API SponsorBlock
-      (la valeur par défaut est https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'URL de l’API SponsorBlock
+      (par défaut : https://sponsor.ajay.app)'
     Enable SponsorBlock: Activer SponsorBlock
     SponsorBlock Settings: SponsorBlock
     Skip Options:
@@ -685,7 +685,7 @@ Settings:
       Prompt To Skip: Inviter à ignorer
       Do Nothing: Ne rien faire
     Category Color: Couleur de la catégorie
-    UseDeArrowTitles: Utiliser les titres vidéo de DeArrow
+    UseDeArrowTitles: Utiliser DeArrow pour les titres des vidéos
     UseDeArrowThumbnails: Utiliser DeArrow pour les miniatures
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': "URL
       de l'API du générateur de miniatures DeArrow (par défaut : https://dearrow-thumb.ajay.app)"
@@ -702,10 +702,10 @@ Settings:
     Ignore Default Arguments: Ignorer les arguments par défaut
   Download Settings:
     Download Settings: 'Téléchargement'
-    Ask Download Path: 'Demander l''emplacement de téléchargement'
-    Choose Path: 'Choisir l''emplacement'
+    Ask Download Path: 'Demander l’emplacement de téléchargement'
+    Choose Path: 'Choisir l’emplacement'
     Download Behavior: Méthode de téléchargement
-    Download in app: Via l'application
+    Download in app: Via l’application
     Open in web browser: Ouvrir dans le navigateur web
   Parental Control Settings:
     Hide Unsubscribe Button: Masquer le bouton de désabonnement
