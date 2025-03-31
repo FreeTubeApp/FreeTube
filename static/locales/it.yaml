@@ -433,11 +433,11 @@ Settings:
     Default Video Format:
       Default Video Format: 'Formato video predefinito'
       Dash Formats: 'Formati DASH'
-      Legacy Formats: 'Formati obsoleti'
+      Legacy Formats: 'Formati compatibili'
       Audio Formats: 'Formati audio'
     Default Quality:
       Default Quality: 'Qualità predefinita'
-      Auto: 'Auto'
+      Auto: 'Automatica'
       144p: '144p'
       240p: '240p'
       360p: '360p'
@@ -508,6 +508,16 @@ Settings:
       cache sono state cancellate
     Remember Search History: Ricorda la Cronologia delle ricerche
     Clear Search History and Cache: Cancella la Cronologia delle ricerche e la cache
+    Watched Progress Saving Mode:
+      Tooltip: Automaico = Salva a ogni uscita dalla pagina video, quando il video
+        è terminato e si è verificato un errore (ad esempio, ratelimited e sessione
+        di visione scaduta). Semiautomatico = Come Automaico, tranne all'uscita dalla
+        pagina video e può salvare manualmente i progressi tramite un pulsante denominato
+        Salva i progressi guardati, situato sotto il lettore video.
+      Modes:
+        Never: Mai
+        Semi-auto: Semiautomatico
+        Auto: Automatico
   Subscription Settings:
     Subscription Settings: 'Iscrizioni'
     Hide Videos on Watch: 'Nascondi i video visualizzati'
@@ -943,6 +953,8 @@ Video:
     video, guardalo sul sito Web ufficiale di YouTube in un browser Web abilitato
     DRM.
 #& Playlists
+  Watched Progress Saved: Progresso guardato salvato
+  Save Watched Progress: Salva i progressi raggiunti
 Playlist:
   #& About
   View Full Playlist: 'Guarda playlist completa'
@@ -967,14 +979,14 @@ Playlist:
 Change Format:
   Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
-  Use Legacy Formats: 'Usa i formati obsoleti'
+  Use Legacy Formats: 'Usa i formati compatibili'
   Use Audio Formats: 'Usa i formati audio'
   Audio formats are not available for this video: I formati audio non sono disponibili
     per questo video
   Dash formats are not available for this video: I formati DASH non sono disponibili
     per questo video
-  Legacy formats are not available for this video: I formati obsoleti non sono disponibili
-    per questo video
+  Legacy formats are not available for this video: I formati compatibili non sono
+    disponibili per questo video
 Share:
   Share Video: 'Condividi video'
   Share Playlist: 'Condividi la playlist'
@@ -1101,7 +1113,7 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Player Settings:
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
-      I formati DASH possono riprodurre qualità maggiore. I formati obsoleti sono
+      I formati DASH possono riprodurre qualità maggiore. I formati compatibili sono
       limitati ad un massimo di 720p ma usano meno banda. I formati audio riproducono
       solo l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video
