@@ -268,17 +268,17 @@ Settings:
   Settings: 'Paramètres'
   General Settings:
     General Settings: 'Général'
-    Fallback to Non-Preferred Backend on Failure: 'Revenir au Backend non préférentiel
-      en cas d''échec'
+    Fallback to Non-Preferred Backend on Failure: 'Revenir à l’API interne non préférentielle
+      en cas d’échec'
     Enable Search Suggestions: 'Activer les suggestions de recherche'
     Default Landing Page: 'Page de lancement par défaut'
-    Locale Preference: 'Préférence locale'
+    Locale Preference: 'Paramètres régionaux'
     Preferred API Backend:
       Preferred API Backend: 'API interne préférée'
       Local API: 'API locale'
       Invidious API: 'API Invidious'
     Video View Type:
-      Video View Type: 'Type d''affichage des vidéos'
+      Video View Type: 'Type d’affichage des vidéos'
       Grid: 'Grille'
       List: 'Liste'
     Thumbnail Preference:
@@ -296,12 +296,11 @@ Settings:
     View all Invidious instance information: Voir les informations de toutes les instances
       Invidious
     System Default: Système par défaut
-    Clear Default Instance: Effacer l'instance par défaut
-    Set Current Instance as Default: Définir l'instance actuelle comme valeur par
-      défaut
-    Current instance will be randomized on startup: L'instance actuelle sera choisie
-      au hasard au démarrage
-    No default instance has been set: Aucune instance par défaut n'a été définie
+    Clear Default Instance: Effacer l’instance par défaut
+    Set Current Instance as Default: Définir l’instance actuelle par défaut
+    Current instance will be randomized on startup: L’instance actuelle sera choisie
+      au hasard au démarrage.
+    No default instance has been set: Aucune instance n’a été définie par défaut.
     The currently set default instance is {instance}: L'instance par défaut actuellement
       définie est {instance}
     Current Invidious Instance: Instance Invidious actuelle
@@ -342,7 +341,7 @@ Settings:
       Everforest Dark Hard: Jungle Dur Sombre
       Everforest Dark Medium: Jungle Médian Sombre
     Main Color Theme:
-      Main Color Theme: 'Couleur principale du thème'
+      Main Color Theme: 'Couleur principale'
       Red: 'Rouge'
       Pink: 'Rose'
       Purple: 'Violet'
@@ -426,13 +425,13 @@ Settings:
       Everforest Light Purple: Jungle Violet Clair
       Everforest Dark Red: Jungle Rouge Sombre
       Everforest Light Yellow: Jungle Jaune Clair
-    Secondary Color Theme: 'Couleur secondaire du thème'
+    Secondary Color Theme: 'Couleur secondaire'
         #* Main Color Theme
     UI Scale: Échelle de l'interface utilisateur
-    Expand Side Bar by Default: Développer la barre latérale par défaut
+    Expand Side Bar by Default: Étendre la barre latérale par défaut
     Disable Smooth Scrolling: Désactiver le défilement fluide
-    Hide Side Bar Labels: Masquer les étiquettes de la barre latérale
-    Hide FreeTube Header Logo: Masquer le logo d'en-tête de FreeTube
+    Hide Side Bar Labels: Masquer les étiquettes dans la barre latérale
+    Hide FreeTube Header Logo: Masquer le logo FreeTube dans l’en-tête
   Player Settings:
     Player Settings: 'Lecteur'
     Play Next Video: 'Lecture automatique des vidéos recommandées'
@@ -763,9 +762,9 @@ About:
   AGPLv3: AGPLv3
   Licensed under the: Sous licence
 Channel:
-  Subscribe: 'S''abonner'
+  Subscribe: 'S’abonner'
   Unsubscribe: 'Se désabonner'
-  Search Channel: 'Chercher dans la chaîne'
+  Search Channel: 'Chercher dans la chaine'
   Your search results have returned 0 results: 'Les résultats de votre recherche ont
     donné 0 résultat'
   Videos:
@@ -778,8 +777,8 @@ Channel:
       Most Popular: 'Les plus populaires'
   Playlists:
     Playlists: 'Listes de lecture'
-    This channel does not currently have any playlists: 'Cette chaîne n''a actuellement
-      aucune liste de lecture'
+    This channel does not currently have any playlists: 'Cette chaine n’a pas encore
+      de liste de lecture'
     Sort Types:
       Last Video Added: 'Dernière vidéo ajoutée'
       Newest: 'Les plus récentes'
@@ -817,19 +816,19 @@ Channel:
       le contenu sans Indivious.
   Live:
     Live: En direct
-    This channel does not currently have any live streams: Cette chaîne n'a actuellement
-      aucun flux en direct
+    This channel does not currently have any live streams: Cette chaine n’a pas encore
+      de flux en direct
   Shorts:
-    This channel does not currently have any shorts: Cette chaîne n'a actuellement
-      aucun shorts
+    This channel does not currently have any shorts: Cette chaine n’a pas encore de
+      shorts
   Releases:
     Releases: Publications
-    This channel does not currently have any releases: Cette chaîne n'a actuellement
+    This channel does not currently have any releases: Cette chaine n’a actuellement
       aucune publication
   Podcasts:
     Podcasts: Podcasts
-    This channel does not currently have any podcasts: Cette chaîne n'a pas encore
-      de podcasts
+    This channel does not currently have any podcasts: Cette chaine n’a pas encore
+      de podcast
   Home:
     Home: Accueil
     View Playlist: Afficher la liste de lecture
@@ -1162,9 +1161,9 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: Lorsque votre API préférée a un
       problème, FreeTube tentera automatiquement d'utiliser votre API non préférée
       comme méthode de secours lorsqu'elle est activée.
-    Preferred API Backend: Choisissez le backend que FreeTube utilise pour obtenir
-      les données. L'API locale est un extracteur intégré. L'API Invidious nécessite
-      un serveur Invidious pour se connecter.
+    Preferred API Backend: 'Choisissez l’API interne que FreeTube utilise pour obtenir
+      les données : l’API locale est un extracteur intégré, l’API Invidious nécessite
+      un serveur Invidious pour se connecter.'
     Region for Trending: Ceci vous permet de choisir les vidéos tendance du pays que
       vous souhaitez afficher.
     External Link Handling: "Choisissez le comportement par défaut quand on clique
@@ -1240,9 +1239,9 @@ Screenshot Error: La capture d’écran a échoué. {error}
 New Window: Nouvelle fenêtre
 Channels:
   Channels: Chaînes
-  Title: Liste des chaînes
+  Title: Liste des chaines
   Empty: Votre liste de chaînes est actuellement vide.
-  Search bar placeholder: Rechercher des chaînes
+  Search bar placeholder: Rechercher des chaines
   Count: '{number} chaîne(s) trouvée(s).'
   Unsubscribe Prompt: Êtes-vous sûr(e) de vouloir vous désabonner de « {channelName} » ?
 Clipboard:
