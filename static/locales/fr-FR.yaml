@@ -532,6 +532,16 @@ Settings:
     Clear Search History and Cache: Effacer l'historique de recherche et le cache
     Search history and cache have been cleared: L'historique de recherche et le cache
       ont été effacés
+    Watched Progress Saving Mode:
+      Modes:
+        Never: Jamais
+        Auto: Automatique
+        Semi-auto: Semi-automatique
+      Tooltip: Automatique = Enregistre en quittant le page de chaque vidéo, quand
+        la vidéo s'est terminée ou en cas d'erreur (par ex. taux limité ou session
+        de visionnage expirée. Semi-automatique = Comme automatique sauf en quittant
+        la page d'une vidéo et vous pouvez enregistrer manuellement avec le bouton
+        "Enregistrer l'état de visionnage" situé en-dessous du lecteur vidéo.
   Data Settings:
     How do I import my subscriptions?: Comment importer mes abonnements ?
     Subscriptions have been successfully exported: Les abonnements ont été exportés
@@ -960,6 +970,8 @@ Video:
     souhaitez regarder cette vidéo, veuillez la visionner sur le site officiel de
     YouTube dans un navigateur Web prenant en charge le DRM.
 #& Playlists
+  Save Watched Progress: Enregistrer l'état de visionnage
+  Watched Progress Saved: État de visionnage enregistré
 Playlist:
   #& About
   View Full Playlist: 'Afficher la liste de lecture complète'
