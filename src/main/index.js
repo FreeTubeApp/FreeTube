@@ -400,7 +400,6 @@ function runApp() {
             break
           case 'hideToTrayOnMinimize':
             trayOnMinimize = doc.value
-            if (process.platform === 'linux' && trayOnMinimize) { createBasicTray() }
             break
         }
       })
@@ -662,18 +661,25 @@ function runApp() {
       } else if (trayWindows.find(item => item.id === window.id)) {
         click(window)
       }
+    } else {
+      const icon = process.env.NODE_ENV === 'development'
+        ? path.join(__dirname, '..', '..', '_icons', 'iconColor.png')
+        : path.join(path.dirname(__dirname), '_icons', 'iconColor.png')
 
-      return
+      tray = new Tray(icon)
+
+      tray.setIgnoreDoubleClickEvents(true)
+      tray.setToolTip('FreeTube')
+
+      trayWindows = [window]
+      createContextMenu()
+
+      if (process.platform !== 'linux') {
+        tray.on('click', (event) => {
+          if (trayWindows.length === 1) { click(trayWindows[0]) }
+        })
+      }
     }
-
-    // We never reach past here if we are on linux
-    createBasicTray()
-
-    trayWindows = [window]
-    createContextMenu()
-    tray.on('click', (event) => {
-      if (trayWindows.length === 1) { click(trayWindows[0]) }
-    })
   }
 
   function createBasicTray() {
@@ -1385,11 +1391,7 @@ function runApp() {
               break
             case 'hideToTrayOnMinimize':
               trayOnMinimize = data.value
-              if (!trayOnMinimize) {
-                showHiddenWindows()
-              } else if (process.platform === 'linux') {
-                createBasicTray()
-              }
+              if (!trayOnMinimize) { showHiddenWindows() }
               break
 
             default:
