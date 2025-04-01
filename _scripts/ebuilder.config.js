@@ -46,7 +46,7 @@ const config = {
   linux: {
     category: 'Network',
     icon: '_icons/icon.svg',
-    target: ['deb', 'zip', '7z', 'apk', 'rpm', 'AppImage', 'pacman'],
+    target: ['deb', 'zip', '7z', 'rpm', 'AppImage', 'pacman'],
   },
   // See the following issues for more information
   // https://github.com/jordansissel/fpm/issues/1503

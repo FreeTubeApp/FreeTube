@@ -82,7 +82,6 @@ body:
       label: Installation Method
       description: When you select an unofficial installation method, you must have verified that the bug is also present in one of the official installation methods. Please make sure you uninstall the unofficial installation before installing one of the official installations. If you can't reproduce this in one of the official installation methods, you should report the bug to the maintainer of the unofficial installation method you used.
       options:
-        - .apk (Alpine Linux Package)
         - .AppImage
         - .deb
         - .dmg
@@ -93,6 +92,7 @@ body:
         - .rpm
         - .zip / .7z
         - .apk (FreeTubeAndroid Unofficial)
+        - .apk (Alpine Linux Package Unofficial)
         - AUR (Unofficial)
         - Chocolatey (Unofficial)
         - Homebrew (Unofficial)
