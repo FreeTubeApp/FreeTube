@@ -249,39 +249,6 @@ jobs:
         asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}.aarch64.rpm
         asset_content_type: application/x-rpm
 
-    - name: Upload Alpine .apk x64 Release
-      uses: actions/upload-release-asset@v1
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ inputs.releaseId }}/assets{?name,label}
-        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-alpine-amd64.apk
-        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}.apk
-        asset_content_type: application/octet-stream
-
-    - name: Upload Alpine .apk ARMv7l Release
-      uses: actions/upload-release-asset@v1
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ inputs.releaseId }}/assets{?name,label}
-        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-alpine-armv7l.apk
-        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-armv7l.apk
-        asset_content_type: application/octet-stream
-
-    - name: Upload Alpine .apk ARM64 Release
-      uses: actions/upload-release-asset@v1
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ inputs.releaseId }}/assets{?name,label}
-        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-alpine-arm64.apk
-        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-arm64.apk
-        asset_content_type: application/octet-stream
-
     - name: Upload Pacman .pacman x64 Release
       uses: actions/upload-release-asset@v1
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
