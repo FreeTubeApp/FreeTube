@@ -2,8 +2,7 @@
 Locale Name: 'Português'
 # Currently on Subscriptions, Playlists, and History
 'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta parte da aplicação ainda não está pronta. Volte mais tarde quando já houver
-  progresso.
+  Esta parte da aplicação ainda não está pronta. Volte mais tarde para ver se há progresso.
 # Webkit Menu Bar
 File: 'Ficheiro'
 Quit: 'Sair'
@@ -16,7 +15,7 @@ Paste: 'Colar'
 Delete: 'Eliminar'
 Select all: 'Selecionar tudo'
 Reload: 'Recarregar'
-Force Reload: 'Forçar recarregamento'
+Force Reload: 'Impor recarregamento'
 Toggle Developer Tools: 'Comutar ferramentas de desenvolvimento'
 Actual size: 'Tamanho real'
 Zoom in: 'Ampliar'
@@ -42,7 +41,7 @@ Global:
     Video Count: 1 vídeo | {count} vídeos
     Subscriber Count: 1 subscritor | {count} subscritores
     View Count: 1 visualização | {count} visualizações
-    Watching Count: 1 assistindo | {count} assistindo
+    Watching Count: 1 espectadores | {count} espectadores
     Like Count: 1 gosto | {count} gostos
     Comment Count: 1 comentários | {count} comentários
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber}
@@ -79,13 +78,13 @@ Search Filters:
   Duration:
     Duration: 'Duração'
     All Durations: 'Todas as durações'
-    Short (< 4 minutes): 'Curta (< 4 minutos)'
-    Long (> 20 minutes): 'Longa (> 20 minutos)'
+    Short (< 4 minutes): 'Curto (< 4 minutos)'
+    Long (> 20 minutes): 'Longo (> 20 minutos)'
   # On Search Page
-    Medium (4 - 20 minutes): Média (4 - 20 minutos)
+    Medium (4 - 20 minutes): Médio (4 - 20 minutos)
   Search Results: 'Resultados'
   Fetching results. Please wait: 'A procurar. Por favor aguarde.'
-  Fetch more results: 'Obter mais resultados'
+  Fetch more results: 'Mais resultados'
 # Sidebar
   There are no more results for this search: Não existem mais resultados
   Features:
@@ -111,7 +110,7 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil contém um elevado número de subscrições. A forçar utilização de RSS para
     evitar que a sua rede seja bloqueada.
-  Error Channels: Canais com erros
+  Error Channels: Canais com erro
   Empty Channels: Os canais subscritos não têm, atualmente, quaisquer vídeos.
   Disabled Automatic Fetching: Desativou a atualização automática de subscrições.
     Recarregue as subscrições para as ver aqui.
@@ -120,18 +119,18 @@ Subscriptions:
     Para ver o conteúdo aqui, desoculte alguns separadores na secção "{subsection}"
     em "{settingsSection}".
   Load More Posts: Carregar mais publicações
-  Empty Posts: Os canais subscritos não tem quaisquer publicações.
+  Empty Posts: Os canais subscritos não tem, atualmente, quaisquer publicações.
 Trending:
   Trending: 'Tendências'
   Trending Tabs: Separadores de tendências
   Movies: Filmes
   Gaming: Jogos
-  Music: Música
+  Music: Músicas
   Default: Padrão
 Most Popular: 'Mais populares'
 Playlists: 'Listas de reprodução'
 User Playlists:
-  Your Playlists: 'As suas listas de reprodução'
+  Your Playlists: 'As minhas listas de reprodução'
   Search bar placeholder: Procurar listas de reprodução
   Empty Search Message: Não há vídeos nesta lista de reprodução que coincidam com
     a sua pesquisa
@@ -147,7 +146,7 @@ User Playlists:
   Remove Watched Videos: Remover vistos
   Delete Playlist: Eliminar lista de reprodução
   Are you sure you want to delete this playlist? This cannot be undone: Tem certeza
-    de que pretende eliminar esta lista de reprodução? Isto não pode ser revertido.
+    de que pretende eliminar esta lista de reprodução? A remoção não pode ser revertida.
   Sort By:
     LatestCreatedFirst: Criação mais recente
     EarliestCreatedFirst: Criação mais antiga
@@ -164,7 +163,8 @@ User Playlists:
       There was a problem with removing this video: Ocorreu um erro ao remover este
         vídeo
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Alguns
-        vídeos da lista de reprodução ainda não foram carregados. Clique aqui continuar.
+        vídeos da lista de reprodução ainda não foram carregados. Clique aqui para
+        continuar.
       Playlist has been updated.: A lista de reprodução foi atualizada.
       "{videoCount} video(s) have been removed": 1 vídeo foi removido | {videoCount}
         vídeos foram removidos
@@ -180,17 +180,17 @@ User Playlists:
         foi eliminada.
       This playlist does not exist: Esta lista de reprodução não existe
       This playlist is now used for quick bookmark: Esta lista de reprodução é agora
-        utilizada como marcador rápido
+        utilizada como marcador rápido.
       This playlist is already being used for quick bookmark.: Esta lista de reprodução
         já está a ser usada como marcador rápido.
       This playlist has a video with a duration error: Esta lista de reprodução contém,
         pelo menos, um vídeo sem duração. Será ordenada como se a sua duração fosse
         zero.
-      Reverted to use {oldPlaylistName} for quick bookmark: Revertido para utilizar
-        {oldPlaylistName} como marcador rápido
+      Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} é agora
+        utilizada como marcador rápido'
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Esta
         lista de reprodução é agora usada como marcador ao invés de {oldPlaylistName}.
-        Clique aqui para desfazer
+        Clique aqui para desfazer.
       Video has been removed. Click here to undo.: O vídeo foi removido. Clique aqui
         para desfazer.
     Search for Videos: Procurar vídeos
@@ -226,10 +226,10 @@ User Playlists:
         de reprodução.
   Move Video Up: Mover vídeo para cima
   You have no playlists. Click on the create new playlist button to create a new one.: Não
-    tem listas de reprodução. Clique no botão Criar uma nova lista de reprodução para
-    criar uma.
+    tem listas de reprodução. Clique em Criar nova lista de reprodução para criar
+    uma.
   Move Video Down: Mover vídeo para baixo
-  Edit Playlist Info: Editar informação da lista de reprodução
+  Edit Playlist Info: Editar info da lista de reprodução
   Playlist Description: Descrição da lista de reprodução
   Add to Favorites: Adicionar a {playlistName}
   Remove from Favorites: Remover de {playlistName}
@@ -250,6 +250,7 @@ User Playlists:
   The playlist has been successfully exported: Lista de reprodução exportada com sucesso
   Cannot delete the quick bookmark target playlist.: Não é possível eliminar a lista
     de reprodução de destino do marcador rápido.
+  TotalTimePlaylist: 'Duração total: {duration}'
 History:
   # On History Page
   History: 'Histórico'
@@ -665,7 +666,7 @@ Settings:
       este texto
     Show Added Items: Mostrar itens adicionados
     Hide Channel Home: Ocultar o separador “Página inicial” do canal
-    Hide Channel Courses: Ocultar o separador "Cursos" do canal
+    Hide Channel Courses: Ocultar separador "Cursos"
   External Player Settings:
     Custom External Player Arguments: Argumentos do reprodutor externo
     Custom External Player Executable: Executável do reprodutor externo
@@ -860,8 +861,8 @@ Channel:
     Home: Página inicial
   Courses:
     Courses: Cursos
-    This channel does not currently have any courses: Este canal não tem qualquer
-      curso no momento
+    This channel does not currently have any courses: Este canal não tem, atualmente,
+      qualquer curso
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Remover do histórico'
@@ -1205,7 +1206,7 @@ Channels:
   Search bar placeholder: Procurar canais
   Channels: Canais
   Title: Lista de canais
-  Unsubscribe Prompt: Tem a certeza de que pretende cancelar a subscrição em "{channelName}"?
+  Unsubscribe Prompt: Tem a certeza de que pretende cancelar a subscrição de "{channelName}"?
 Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos oculta,
     capítulo atual: {chapterName}'
