@@ -247,6 +247,7 @@ User Playlists:
     gemacht werden.
   Export Playlist: Diese Playlist exportieren
   The playlist has been successfully exported: Die Playlist wurde erfolgreich exportiert
+  TotalTimePlaylist: 'Gesamtzeit: {duration}'
 History:
   # On History Page
   History: Verlauf
@@ -520,6 +521,17 @@ Settings:
       dass du deinen Suchverlauf und Cache löschen möchtest?
     Clear Search History and Cache: Suchverlauf und Cache löschen
     Search history and cache have been cleared: Suchverlauf und Cache wurden gelöscht
+    Watched Progress Saving Mode:
+      Tooltip: Automatisch = Beim Verlassen des Videos, nachdem das Video beendet
+        wurde und wenn ein Fehler auftritt (z. B. bei einer Ratenbegrenzung oder wenn
+        die Sitzung abgelaufen ist) speichern. Semi-automatisch = Wie automatisch,
+        jedoch nur beim Verlassen des Videos, außerdem kann der Fortschritt manuell
+        über einen Button namens „Videofortschritt speichern“, der sich unter dem
+        Videoplayer befindet, gespeichert werden.
+      Modes:
+        Semi-auto: Semi-automatisch
+        Auto: Automatisch
+        Never: Nie
   Data Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abos?
     Unknown data key: Unbekannter Datenschlüssel
@@ -941,6 +953,8 @@ Video:
     möchtest, sieh es dir bitte auf der offiziellen YouTube-Website in einem DRM-fähigen
     Webbrowser an.
 #& Playlists
+  Save Watched Progress: Videofortschritt speichern
+  Watched Progress Saved: Videofortschritt gespeichert
 Playlist:
   #& About
   View Full Playlist: Vollständige Playlist ansehen

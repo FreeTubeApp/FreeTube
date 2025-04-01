@@ -253,6 +253,7 @@ User Playlists:
   Export Playlist: Ezen lejátszási lista exportálása
   The playlist has been successfully exported: A lejátszási lista sikeresen exportálva
     lett
+  TotalTimePlaylist: 'Teljes időtartam: {duration}'
 History:
   # On History Page
   History: 'Előzmények'
@@ -516,6 +517,16 @@ Settings:
       szeretné a keresési előzményeket és a gyorsítótárat?
     Search history and cache have been cleared: A keresési előzmények és a gyorsítótár
       törlésre került
+    Watched Progress Saving Mode:
+      Modes:
+        Semi-auto: Félautomatikus
+        Auto: Automatikus
+        Never: Soha
+      Tooltip: Automatikus = Mentés minden videóoldal elhagyásakor, a videó befejezésekor
+        és hiba esetén (pl. a megtekintési korlátozás és videólejátszási munkamenet
+        lejártakor). Félautomata = Hasonló az automatikushoz, kivéve a videóoldal
+        elhagyásakor, továbbá a videolejátszó alatt található „Megnézett videó folyamatának
+        mentése” nevű gomb segítségével kézileg is menthető.
   Subscription Settings:
     Subscription Settings: 'Feliratkozás'
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
@@ -993,6 +1004,8 @@ Video:
     nézni ezt a videót, akkor tekintse meg a YouTube hivatalos weboldalán egy DRM-képes
     böngészőben.
 #& Playlists
+  Save Watched Progress: Megnézett videó folyamatának mentése
+  Watched Progress Saved: Megnézett videó folyamata elmentve
 Playlist:
   #& About
   View Full Playlist: 'Teljes lejátszási lista megtekintése'

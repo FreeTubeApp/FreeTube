@@ -250,6 +250,7 @@ User Playlists:
   Export Playlist: Erreprodukzio-zerrenda hau esportatu
   The playlist has been successfully exported: Erreprodukzio-zerrenda ongi esportatu
     da
+  TotalTimePlaylist: 'Denbora guztira: {duration}'
 History:
   # On History Page
   History: 'Historikoa'
@@ -515,6 +516,16 @@ Settings:
       bilaketen historikoa eta cache-a garbitu nahi dituzula?
     Search history and cache have been cleared: Bilaketen historikoa eta cache-a garbitu
       berri dira
+    Watched Progress Saving Mode:
+      Modes:
+        Semi-auto: Semi-automatikoa
+        Auto: Automatikoa
+        Never: Inoiz ez
+      Tooltip: Automatikoa = Gorde bideo-orriaren irteera guztietan, bideoa amaitzen
+        denean eta errorea aurkitu denean (adibidez, tasa mugatua eta ikusi-saioa
+        iraungi zenean). Erdi automatikoa = Auto bezala bideo-orriaren irteeran izan
+        ezik, eta aurrerapena eskuz gorde dezakezu Gorde ikusitako aurrerapena izeneko
+        botoi baten bidez, bideo erreproduzitzailearen azpian dagoena.
   Subscription Settings:
     Subscription Settings: 'Harpidetza'
     Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
@@ -987,6 +998,8 @@ Video:
     osagai jabedunak behar baitituzte. Bideo hau ikusi nahi baduzu, ikusi YouTube
     webgune ofizialean DRM gaituta duen web arakatzaile batean.
 #& Playlists
+  Save Watched Progress: Gorde ikusitako aurrerapena
+  Watched Progress Saved: Ikusitako aurrerapena gordeta
 Playlist:
   #& About
   View Full Playlist: 'Ikusi erreprodukzio-zerrenda osoa'

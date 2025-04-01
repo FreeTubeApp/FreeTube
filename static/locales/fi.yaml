@@ -30,7 +30,7 @@ Forward: 'Eteenpäin'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videot'
-  Shorts: Lyhyet
+  Shorts: Shorts
   Live: Livenä
   Community: Yhteisö
   Sort By: Järjestä
@@ -41,6 +41,8 @@ Global:
     Watching Count: 1 katsoja | {count} katsojaa
     Channel Count: 1 kanava | {count} kanavaa
 # Search Bar
+    Like Count: 1 tykkäys | {count} tykkäystä
+    Comment Count: 1 kommentti | {count} kommenttia
 Search / Go to URL: 'Etsi / Mene osoitteeseen'
   # In Filter Button
 Search Filters:
@@ -85,6 +87,10 @@ Search Filters:
     HD: HD
     Location: Sijainti
     HDR: HDR
+    Live: Live
+    Features: Ominaisuudet
+    VR180: VR180
+    360 Video: 360 Video
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Tilaukset'
@@ -178,6 +184,8 @@ User Playlists:
   Add to Favorites: Lisää soittolistaan {playlistName}
   Remove from Favorites: Poista soittolistalta {playlistName}
   Remove Watched Videos: Poista katsotut videot
+  Export Playlist: Vie tämä soittolista
+  The playlist has been successfully exported: Soittolista viety onnistuneesti
 History:
   # On History Page
   History: 'Historia'
@@ -885,8 +893,8 @@ Tooltips:
       soittolistat ja itse kanavan näkymästä haussa, trendaamisessa, suosituimmissa
       ja suositelluissa. Annetun kanavan nimen on oltava täysin oikein ja kirjainkoolla
       on merkitystä.
-    Hide Subscriptions Live: Tämä asetus ohitetaan koko sovelluksen laajuisella ”{appWideSetting}”-asetuksella,
-      joka on ”{settingsSection}”-osion ”{subsection}”-osiossa.
+    Hide Subscriptions Live: Tämä asetus ohitetaan koko sovelluksen laajuisella ”{appWideSetting}”
+      asetuksella, joka on ”{subsection}” osion ”{settingsSection}” osiossa
   SponsorBlock Settings:
     UseDeArrowTitles: Korvaa videon otsikot käyttäjien lähettämillä DeArrow’n otsikoilla.
 More: Lisää
@@ -944,6 +952,11 @@ Search Listing:
   Label:
     4K: 4K
     Subtitles: Teksitykset
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Uusi
+    3D: 3D
 Feed:
   Refresh Feed: Päivitä {subscriptionName}
   Feed Last Updated: 'Syöte {feedName} päivitetty viimeksi: {date}'
@@ -952,3 +965,6 @@ checkmark: ✓
 Cancel: Peruuta
 Yes, Restart: Kyllä, käynnistä uudelleen
 Yes, Open Link: Kyllä, avaa linkki
+Right-click or hold to see history: Näytä historia napsauttamalla hiiren kakkospainiketta
+  tai pitämällä sitä painettuna
+Close Banner: Sulje Banneri
