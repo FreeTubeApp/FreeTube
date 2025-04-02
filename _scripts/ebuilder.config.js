@@ -30,6 +30,9 @@ const config = {
   // electron-builder will however still spend time scanning the `node_modules` folder and building up a list of dependencies,
   // returning `false` from the `beforeBuild` hook skips that.
   beforeBuild: () => Promise.resolve(false),
+  // electron-builder doesn't seem to handle ad-hoc signatures on macOS properly. To work around this, manually call
+  // the `codesign` command after building the app but before packaging it into distributable forms (dmg, etc.).
+  afterPack: './_scripts/signMacBeforePackaging.js',
   dmg: {
     contents: [
       {
