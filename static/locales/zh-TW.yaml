@@ -206,6 +206,7 @@ User Playlists:
     1 個觀看過的影片嗎？這無法還原。 | 您確定要從此播放清單中刪除已觀看的 {playlistItemCount} 個影片嗎？這無法還原。
   Export Playlist: 匯出此播放清單
   The playlist has been successfully exported: 播放清單已成功匯出
+  TotalTimePlaylist: '總時長: {duration}'
 History:
   # On History Page
   History: '觀看紀錄'
@@ -462,6 +463,9 @@ Settings:
     Remember Search History: 儲存搜尋紀錄
     Clear Search History and Cache: 清除搜尋紀錄與快取
     Search history and cache have been cleared: 已清除搜尋紀錄與快取
+    Watched Progress Saving Mode:
+      Modes:
+        Never: 從不
   Data Settings:
     How do I import my subscriptions?: 我要如何匯入我的訂閱？
     Unknown data key: 未知的資料金鑰
@@ -824,6 +828,8 @@ Video:
 #& Playlists
   DRMProtected: 受 DRM 保護的影片無法在 FreeTube 上播放，因為它們需要專屬的封閉原始碼元件。如果您想觀賞此影片，請使用支援 DRM 的網路瀏覽器在
     YouTube 官方網站觀賞。
+  Save Watched Progress: 儲存觀看進度
+  Watched Progress Saved: 觀看進度已儲存
 Playlist:
   #& About
   View Full Playlist: '觀看完整播放清單'
