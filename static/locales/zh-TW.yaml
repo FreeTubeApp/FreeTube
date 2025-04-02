@@ -21,7 +21,7 @@ Zoom in: '放大'
 Zoom out: '縮小'
 Toggle fullscreen: '切換全螢幕'
 Window: '視窗'
-Minimize: '最小化'
+Minimize: '縮至最小'
 Close: '關閉'
 Back: '返回'
 Forward: '前進'
@@ -97,7 +97,7 @@ Subscriptions:
   Subscriptions: '訂閱'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。如果您想要匯入您的訂閱，您可以前往「資料設定」，然後選取「匯入訂閱」，或者您也可以搜尋頻道並訂閱。'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
-    強制使用 RSS 以防止速率限制
+    強制RSS以防止速率限制
   Load More Videos: 載入更多影片
   Error Channels: 有錯誤的頻道
   Disabled Automatic Fetching: 您已停用自動訂閱擷取。重新整理訂閱以在此處檢視。
@@ -280,12 +280,12 @@ Settings:
       Gruvbox Dark: Gruvbox 深色
       Gruvbox Light: Gruvbox 淺色
       Catppuccin Frappe: Catppuccin Frappe
-      Everforest Light Low: Everest 淺色低
-      Everforest Dark Hard: 永恆森林黑暗困難
-      Everforest Dark Medium: Everest 深色 中號
-      Everforest Dark Low: 永恆森林黑暗低
-      Everforest Light Hard: Everest 輕硬
-      Everforest Light Medium: Everest 淺色 中號
+      Everforest Light Low: 永恆森林 輕度 淺色
+      Everforest Dark Hard: 永恆森林 重度 深色
+      Everforest Dark Medium: 永恆森林 中度 深色
+      Everforest Dark Low: 永恆森林 輕度 深色
+      Everforest Light Hard: 永恆森林 重度 淺色
+      Everforest Light Medium: 永恆森林 中度 淺色
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -466,6 +466,9 @@ Settings:
     Watched Progress Saving Mode:
       Modes:
         Never: 從不
+        Auto: 自動
+        Semi-auto: 半自動
+      Tooltip: 「自動」 = 每次退出影片頁面、影片結束以及遇到錯誤（如：速率受限和觀看連線階段已過期）時儲存。「半自動」 = 與自動類似（除了退出影片頁面外），並且可透過影片播放器下方的「儲存觀看進度」按鈕手動儲存進度。
   Data Settings:
     How do I import my subscriptions?: 我要如何匯入我的訂閱？
     Unknown data key: 未知的資料金鑰
