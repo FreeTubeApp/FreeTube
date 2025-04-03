@@ -1,0 +1,499 @@
+import { GoogleVideo, base64ToU8, concatenateChunks, PART, Protos } from 'googlevideo'
+import shaka from 'shaka-player'
+
+import { deepCopy } from '../utils'
+
+const AbortableOperation = shaka.util.AbortableOperation
+const ShakaError = shaka.util.Error
+
+/**
+ * @param {string} str
+ */
+function formatIdFromString(str) {
+  const videoFormatIdParts = str.split('-')
+
+  return {
+    itag: parseInt(videoFormatIdParts[0]),
+    lastModified: parseInt(videoFormatIdParts[1]),
+    xtags: videoFormatIdParts[2]
+  }
+}
+
+/**
+ * @param {Protos.FormatId} formatId
+ * @param {shaka.extern.BufferedRange} buffered
+ * @param {shaka.media.SegmentIndex} segmentIndex
+ */
+function createBufferedRange(formatId, buffered, segmentIndex) {
+  return {
+    formatId,
+    startTimeMs: Math.round(buffered.start * 1000),
+    durationMs: Math.round((buffered.end - buffered.start) * 1000),
+    startSegmentIndex: segmentIndex.find(buffered.start),
+    endSegmentIndex: segmentIndex.find(buffered.end)
+  }
+}
+
+/**
+ * @param {shaka.Player} player
+ * @param {shaka.extern.Manifest} manifest
+ * @param {boolean} audioFormatsActive
+ * @param {Protos.BufferedRange[]} bufferedRanges
+ * @param {shaka.extern.Track} activeVariant
+ */
+function fillBufferedRanges(player, manifest, audioFormatsActive, bufferedRanges, activeVariant) {
+  const bufferedInfo = player.getBufferedInfo()
+
+  if (bufferedInfo.audio.length > 0 || bufferedInfo.video.length > 0) {
+    let activeManifestVariant
+    if (audioFormatsActive) {
+      activeManifestVariant = manifest.variants.find((variant) => {
+        return variant.audio.originalId === activeVariant.originalAudioId
+      })
+    } else {
+      activeManifestVariant = manifest.variants.find((variant) => {
+        return variant.audio.originalId === activeVariant.originalAudioId &&
+          variant.video.originalId === activeVariant.originalVideoId
+      })
+    }
+
+    let audioFormatId
+    let videoFormatId
+    let audioSegmentIndex
+    let videoSegmentIndex
+
+    for (const buffered of bufferedInfo.audio) {
+      if (!audioFormatId) {
+        audioFormatId = formatIdFromString(activeVariant.originalAudioId)
+      }
+
+      if (!audioSegmentIndex) {
+        audioSegmentIndex = activeManifestVariant.audio.segmentIndex
+      }
+
+      bufferedRanges.push(createBufferedRange(audioFormatId, buffered, audioSegmentIndex))
+    }
+
+    for (const buffered of bufferedInfo.video) {
+      if (!videoFormatId) {
+        videoFormatId = formatIdFromString(activeVariant.originalVideoId)
+      }
+
+      if (!videoSegmentIndex) {
+        videoSegmentIndex = activeManifestVariant.video.segmentIndex
+      }
+
+      bufferedRanges.push(createBufferedRange(videoFormatId, buffered, videoSegmentIndex))
+    }
+  }
+}
+
+/**
+ * @param {string} uri
+ * @param {shaka.extern.Request} request
+ * @param {Uint8Array} data
+ * @returns {shaka.util.AbortableOperation<shaka.extern.Response>}
+ */
+function createCacheResponse(uri, request, data) {
+  return AbortableOperation.completed({
+    data,
+    fromCache: true,
+    headers: {},
+    originalRequest: request,
+    originalUri: uri,
+    uri
+  })
+}
+
+/**
+ * @param {shaka.util.Error.Code} code
+ * @param {...any} args
+ */
+function createRecoverableNetworkError(code, ...args) {
+  return new ShakaError(ShakaError.Severity.RECOVERABLE, ShakaError.Category.NETWORK, code, ...args)
+}
+
+/**
+ * @param {string} sabrUrl
+ * @param {(newUrl: string) => void} updateSabrUrl
+ * @param {Map<string, Uint8Array>} initDataCache
+ * @param {string} uri
+ * @param {string} formatIdString
+ * @param {boolean} isInit
+ * @param {number} sequenceNumber
+ * @param {shaka.extern.Request} request
+ * @param {shaka.net.NetworkingEngine.RequestType} requestType
+ * @param {RequestInit} init
+ * @param {{ cancelled: boolean, timedOut: boolean, finished: boolean }} abortStatus
+ * @param {AbortController} abortController
+ * @param {(headers: Record<string, string>) => void} headersReceived
+ */
+async function doRequest(
+  sabrUrl,
+  updateSabrUrl,
+  initDataCache,
+  uri,
+  formatIdString,
+  isInit,
+  sequenceNumber,
+  request,
+  requestType,
+  init,
+  abortStatus,
+  abortController,
+  headersReceived
+) {
+  let response
+  /** @type {GoogleVideo.ChunkedDataBuffer | null} */
+  let chunkedDataBuffer = null
+  /** @type {Uint8Array[]} */
+  const responseDataChunks = []
+  const errors = []
+  /** @type {string | undefined} */
+  let redirectUrl
+
+  try {
+    response = await fetch(sabrUrl, init)
+
+    headersReceived({})
+
+    const { itag, lastModified, xtags } = formatIdFromString(formatIdString)
+    let mediaHeaderId
+
+    const reader = response.body.getReader()
+    let readObj = await reader.read()
+
+    while (!readObj.done && !abortStatus.finished) {
+      if (chunkedDataBuffer) {
+        chunkedDataBuffer.append(readObj.value)
+      } else {
+        chunkedDataBuffer = new GoogleVideo.ChunkedDataBuffer([readObj.value])
+      }
+
+      const remainingData = new GoogleVideo.UMP(chunkedDataBuffer).parse((part) => {
+        switch (part.type) {
+          case PART.STREAM_PROTECTION_STATUS: {
+            const streamProtectionStatus = Protos.StreamProtectionStatus.decode(part.data.chunks[0])
+            if (streamProtectionStatus.status === 3) {
+              errors.push('Invalid PO token')
+            }
+            break
+          }
+          case PART.SABR_ERROR: {
+            const sabrError = Protos.SabrError.decode(part.data.chunks[0])
+            errors.push(`SABR Error: type: ${sabrError.type}, code: ${sabrError.code}`)
+            break
+          }
+          case PART.SABR_REDIRECT: {
+            const sabrRedirect = Protos.SabrRedirect.decode(part.data.chunks[0])
+            redirectUrl = sabrRedirect.url
+            updateSabrUrl(redirectUrl)
+            break
+          }
+          case PART.MEDIA_HEADER: {
+            if (mediaHeaderId === undefined) {
+              const mediaHeader = Protos.MediaHeader.decode(part.data.chunks[0])
+
+              if (
+                mediaHeader.formatId.itag === itag &&
+                mediaHeader.formatId.lastModified === lastModified &&
+                mediaHeader.formatId.xtags === xtags
+              ) {
+                if (isInit && mediaHeader.isInitSeg) {
+                  mediaHeaderId = mediaHeader.headerId
+                } else if (!isInit && mediaHeader.sequenceNumber === sequenceNumber) {
+                  mediaHeaderId = mediaHeader.headerId
+                }
+              }
+            }
+
+            break
+          }
+          case PART.MEDIA: {
+            if (mediaHeaderId === part.data.getUint8(0)) {
+              responseDataChunks.push(...part.data.split(1).remainingBuffer.chunks)
+            }
+            break
+          }
+          case PART.MEDIA_END: {
+            if (mediaHeaderId === part.data.getUint8(0)) {
+              abortStatus.finished = true
+              abortController.abort()
+            }
+            break
+          }
+        }
+      })
+
+      if (remainingData) {
+        chunkedDataBuffer = remainingData.data
+      } else {
+        chunkedDataBuffer = null
+      }
+
+      if (!abortStatus.finished) {
+        readObj = await reader.read()
+      }
+    }
+  } catch (error) {
+    if (abortStatus.cancelled) {
+      throw createRecoverableNetworkError(ShakaError.Code.OPERATION_ABORTED, uri, requestType)
+    } else if (abortStatus.timedOut) {
+      throw createRecoverableNetworkError(ShakaError.Code.TIMEOUT, uri, requestType)
+    } else if (!abortStatus.finished) {
+      throw createRecoverableNetworkError(ShakaError.Code.HTTP_ERROR, uri, error, requestType)
+    }
+  }
+
+  if (abortStatus.cancelled) {
+    throw createRecoverableNetworkError(ShakaError.Code.OPERATION_ABORTED, uri, requestType)
+  } else if (abortStatus.timedOut) {
+    throw createRecoverableNetworkError(ShakaError.Code.TIMEOUT, uri, requestType)
+  }
+
+  if (responseDataChunks.length > 0) {
+    const data = /** @__NOINLINE__ */ concatenateChunks(responseDataChunks)
+
+    if (isInit) {
+      initDataCache.set(formatIdString, data)
+    }
+
+    /** @type {shaka.extern.Response} */
+    return {
+      uri,
+      originalUri: uri,
+      data,
+      status: response.status,
+      headers: {},
+      fromCache: false,
+      originalRequest: request
+    }
+  } else if (redirectUrl) {
+    abortStatus.finished = false
+    return doRequest(
+      redirectUrl,
+      updateSabrUrl,
+      initDataCache,
+      uri,
+      formatIdString,
+      isInit,
+      sequenceNumber,
+      request,
+      requestType,
+      init,
+      abortStatus,
+      abortController,
+      () => { }
+    )
+  } else if (errors.length > 0) {
+    throw new ShakaError(
+      ShakaError.Severity.CRITICAL,
+      ShakaError.Category.NETWORK,
+      ShakaError.Code.HTTP_ERROR,
+      uri,
+      new Error(errors.join(', ')),
+      requestType
+    )
+  } else {
+    const severity = response.status === 401 || response.status === 403
+      ? ShakaError.Severity.CRITICAL
+      : ShakaError.Severity.RECOVERABLE
+
+    throw new ShakaError(
+      severity,
+      ShakaError.Category.NETWORK,
+      ShakaError.Code.BAD_HTTP_STATUS,
+      uri,
+      response.status,
+      '',
+      {},
+      requestType,
+      uri
+    )
+  }
+}
+
+/**
+ * @param {import('../../views/Watch/Watch').SabrData} sabrData
+ * @param {() => shaka.Player} getPlayer
+ * @param {() => shaka.extern.Manifest} getManifest
+ * @param {import('vue').ComputedRef<number>} playerWidth
+ * @param {import('vue').ComputedRef<number>} playerHeight
+ */
+export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, playerHeight) {
+  /**
+   * Caches the init data until the video ends
+   * that way changing qualities and between audio and DASH
+   * doesn't have to fetch the init data and segment index again
+   * @type {Map<string, Uint8Array>}
+   */
+  const initDataCache = new Map()
+
+  const poToken = base64ToU8(sabrData.poToken)
+  const videoPlaybackUstreamerConfig = base64ToU8(sabrData.ustreamerConfig)
+  const clientInfo = deepCopy(sabrData.clientInfo)
+
+  let sabrUrl = sabrData.url
+
+  const updateSabrUrl = (newUrl) => {
+    sabrUrl = newUrl
+  }
+
+  shaka.net.NetworkingEngine.registerScheme('sabr', (uri, request, requestType, progressUpdated, headersReceived, config) => {
+    // lazily fetch it as the variable is only set after setupSabrScheme is called
+    // but it will definitely exist when we receive a request here.
+    const player = getPlayer()
+    const isAudioOnly = player.isAudioOnly()
+
+    const url = new URL(request.uris[0])
+
+    const isInit = url.searchParams.has('init')
+    const formatIdString = url.searchParams.get('formatId')
+
+    if (isInit && initDataCache.has(formatIdString)) {
+      return /** @__NOINLINE__ */ createCacheResponse(uri, request, initDataCache.get(formatIdString))
+    }
+
+    const variantTracks = player.getVariantTracks()
+    const activeVariant = variantTracks.find(track => track.active)
+
+    const streamIsAudio = url.hostname === 'audio'
+    const streamIsVideo = url.hostname === 'video'
+
+    let audioFormatId
+    let videoFormatId
+
+    if (streamIsAudio) {
+      audioFormatId = formatIdFromString(formatIdString)
+
+      if (isAudioOnly) {
+        // We need to specify a video format even for audio only otherwise we get an error response
+        videoFormatId = formatIdFromString(url.searchParams.get('videoFormatId'))
+      } else {
+        videoFormatId = formatIdFromString((activeVariant ?? variantTracks[0]).originalVideoId)
+      }
+    } else if (streamIsVideo) {
+      videoFormatId = formatIdFromString(formatIdString)
+
+      // for the first fetching of the initial data there won't be an active variant
+      // (shaka-player only sets it to active after it has fetched the init/segment data)
+      if (activeVariant) {
+        audioFormatId = formatIdFromString(activeVariant.originalAudioId)
+      } else {
+        const candidates = variantTracks.filter((track) => track.audioRoles.includes('main'))
+
+        const probableAudioFormat = candidates.reduce((previous, current) => {
+          return current.audioBandwidth >= previous.audioBandwidth ? current : previous
+        }, candidates[0])
+
+        audioFormatId = formatIdFromString(probableAudioFormat.originalAudioId)
+      }
+    }
+
+    /** @type {Protos.BufferedRange[]} */
+    const bufferedRanges = []
+
+    if (!isInit && activeVariant) {
+      /** @__NOINLINE__ */ fillBufferedRanges(player, getManifest(), isAudioOnly, bufferedRanges, activeVariant)
+    }
+
+    let playerTimeMs = 0
+
+    if (url.searchParams.has('startTimeMs')) {
+      playerTimeMs = parseInt(url.searchParams.get('startTimeMs'))
+    }
+
+    const drcEnabled = url.searchParams.has('drc') || !!(activeVariant && activeVariant.audioRoles.includes('drc'))
+
+    const resolution = streamIsVideo ? parseInt(url.searchParams.get('resolution')) : undefined
+
+    /** @type {Protos.VideoPlaybackAbrRequest} */
+    const requestData = {
+      clientAbrState: {
+        bandwidthEstimate: Math.round(player.getStats().estimatedBandwidth),
+        timeSinceLastManualFormatSelectionMs: streamIsVideo ? 0 : undefined,
+        stickyResolution: resolution,
+        lastManualSelectedResolution: resolution,
+        playbackRate: player.getPlaybackRate(),
+        enabledTrackTypesBitfield: streamIsAudio ? 1 : 0,
+        drcEnabled,
+        playerTimeMs,
+        clientViewportWidth: playerWidth.value,
+        clientViewportHeight: playerHeight.value,
+        clientViewportIsFlexible: false
+      },
+      selectedAudioFormatIds: [audioFormatId],
+      selectedVideoFormatIds: [videoFormatId],
+      selectedFormatIds: isInit ? [] : [audioFormatId, videoFormatId],
+      bufferedRanges,
+      streamerContext: {
+        poToken: poToken,
+        clientInfo: clientInfo,
+        field5: [],
+        field6: []
+      },
+      field1000: [],
+      videoPlaybackUstreamerConfig,
+    }
+
+    const controller = new AbortController()
+
+    /** @type {RequestInit} */
+    const init = {
+      body: Protos.VideoPlaybackAbrRequest.encode(requestData).finish(),
+      method: 'POST',
+      signal: controller.signal
+    }
+
+    const abortStatus = {
+      cancelled: false,
+      timedOut: false,
+      finished: false
+    }
+
+    const sequenceNumber = parseInt(url.searchParams.get('sq'))
+
+    const pendingRequest = doRequest(
+      sabrUrl,
+      updateSabrUrl,
+      initDataCache,
+      uri,
+      formatIdString,
+      isInit,
+      sequenceNumber,
+      request,
+      requestType,
+      init,
+      abortStatus,
+      controller,
+      headersReceived
+    )
+
+    const op = new AbortableOperation(pendingRequest, () => {
+      abortStatus.cancelled = true
+      controller.abort()
+      return Promise.resolve()
+    })
+
+    const timeoutMs = request.retryParameters.timeout
+    if (timeoutMs) {
+      const timeout = setTimeout(() => {
+        abortStatus.timedOut = true
+        controller.abort()
+      }, timeoutMs)
+
+      op.finally(() => {
+        clearTimeout(timeout)
+      })
+    }
+
+    return op
+  })
+
+  const cleanup = () => {
+    shaka.net.NetworkingEngine.unregisterScheme('sabr')
+    initDataCache.clear()
+  }
+
+  return cleanup
+}

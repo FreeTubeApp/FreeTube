@@ -4978,6 +4978,13 @@ globjoin@^0.1.4:
   resolved "https://registry.yarnpkg.com/globjoin/-/globjoin-0.1.4.tgz#2f4494ac8919e3767c5cbb691e9f463324285d43"
   integrity sha512-xYfnw62CKG8nLkZBfWbhWwDw02CHty86jfPcc2cr3ZfeuK9ysoVPPEUxf21bAD/rWAgk52SuBrLJlefNy8mvFg==
 
+googlevideo@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/googlevideo/-/googlevideo-3.0.0.tgz#383137303553c6625bafae32c1b8a7203be565a8"
+  integrity sha512-8LGFjbZFG4RCsyhMbjX2+IlU5Suj94FeQr1JandPSsKfAMrqL08pOoQsBYl/5P+bqIFm0wQEVpKIhm5wpiekwg==
+  dependencies:
+    "@bufbuild/protobuf" "^2.0.0"
+
 gopd@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/gopd/-/gopd-1.0.1.tgz#29ff76de69dac7489b7c0918a5788e56477c332c"

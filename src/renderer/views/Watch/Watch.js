@@ -36,6 +36,22 @@ import {
   mapInvidiousLegacyFormat,
   youtubeImageUrlToInvidious
 } from '../../helpers/api/invidious'
+import { sortCaptions } from '../../helpers/player/utils'
+import { MANIFEST_TYPE_SABR } from '../../helpers/player/SabrManifestParser'
+
+/**
+ * @typedef {{
+ *   url: string,
+ *   poToken: string,
+ *   ustreamerConfig: string,
+ *   clientInfo: {
+ *     clientName: number,
+ *     clientVersion: string,
+ *     osName: string,
+ *     osVersion: string
+ *   }
+ * }} SabrData
+ */
 
 const MANIFEST_TYPE_DASH = 'application/dash+xml'
 const MANIFEST_TYPE_HLS = 'application/x-mpegurl'
@@ -108,8 +124,10 @@ export default defineComponent({
       videoStoryboardSrc: '',
       /** @type {string|null} */
       manifestSrc: null,
-      /** @type {(MANIFEST_TYPE_DASH|MANIFEST_TYPE_HLS)} */
+      /** @type {(MANIFEST_TYPE_DASH|MANIFEST_TYPE_HLS|MANIFEST_TYPE_SABR)} */
       manifestMimeType: MANIFEST_TYPE_DASH,
+      /** @type {SabrData | null} */
+      sabrData: null,
       legacyFormats: [],
       captions: [],
       /** @type {'EQUIRECTANGULAR' | 'EQUIRECTANGULAR_THREED_TOP_BOTTOM' | 'MESH'| null} */
@@ -305,6 +323,7 @@ export default defineComponent({
       this.errorMessage = null
       this.customErrorIcon = null
       this.activeFormat = this.defaultVideoFormat
+      this.sabrData = null
       this.videoStoryboardSrc = ''
       this.captions = []
       this.vrProjection = null
@@ -400,7 +419,7 @@ export default defineComponent({
       }
 
       try {
-        const result = await getLocalVideoInfo(this.videoId)
+        const { info: result, poToken, clientInfo } = await getLocalVideoInfo(this.videoId)
 
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
@@ -615,12 +634,16 @@ export default defineComponent({
           let useRemoteManifest = true
 
           if (this.isPostLiveDvr) {
-            try {
-              this.manifestSrc = await this.createLocalDashManifest(result, true)
-              this.manifestMimeType = MANIFEST_TYPE_DASH
-              useRemoteManifest = false
-            } catch (error) {
-              console.error(`Failed to generate DASH manifest for this Post Live DVR video ${this.videoId}, falling back to using YouTube's provided one...`, error)
+            // I wasn't able to get SABR working with Post-Live-DVR yet, so for the moment we'll use YouTube's provided DASH manifest instead.
+            // It only contains the last 4 hours of the stream, instead of starting from the beginning but that is better than nothing.
+            if (result.streaming_data.adaptive_formats.some(format => format.freeTubeUrl)) {
+              try {
+                this.manifestSrc = await this.createLocalDashManifest(result, true)
+                this.manifestMimeType = MANIFEST_TYPE_DASH
+                useRemoteManifest = false
+              } catch (error) {
+                console.error(`Failed to generate DASH manifest for this Post Live DVR video ${this.videoId}, falling back to using YouTube's provided one...`, error)
+              }
             }
           }
 
@@ -735,6 +758,7 @@ export default defineComponent({
                 url.searchParams.set('fmt', 'vtt')
 
                 return {
+                  id: caption.vss_id,
                   url: url.toString(),
                   label: caption.name.text,
                   language: caption.language_code,
@@ -769,7 +793,7 @@ export default defineComponent({
                 }
               }
 
-              this.captions = captionTracks
+              this.captions = sortCaptions(captionTracks)
 
               const captionLinks = captionTracks.map((caption) => {
                 const label = `${caption.label} (${caption.language}) - text/vtt`
@@ -793,7 +817,20 @@ export default defineComponent({
             return
           }
 
-          if (result.streaming_data?.adaptive_formats.length > 0 && result.streaming_data.adaptive_formats[0].freeTubeUrl) {
+          let storyboard
+
+          if (result.storyboards?.type === 'PlayerStoryboardSpec') {
+            /** @type {import('youtubei.js/dist/src/parser/classes/PlayerStoryboardSpec').StoryboardData[]} */
+            let source = result.storyboards.boards
+            if (window.innerWidth < 500) {
+              source = source.filter((board) => board.thumbnail_height <= 90)
+            }
+
+            storyboard = source.at(-1)
+            this.videoStoryboardSrc = this.createLocalStoryboardUrls(storyboard)
+          }
+
+          if (result.streaming_data?.adaptive_formats.length > 0) {
             this.vrProjection = result.streaming_data.adaptive_formats
               .find(format => {
                 return format.has_video &&
@@ -802,20 +839,30 @@ export default defineComponent({
               })
               ?.projection_type ?? null
 
-            this.manifestSrc = await this.createLocalDashManifest(result)
-            this.manifestMimeType = MANIFEST_TYPE_DASH
+            if (result.streaming_data.server_abr_streaming_url) {
+              const storyboards = storyboard
+                ? [{
+                    templateUrl: storyboard.template_url,
+                    mimeType: 'image/webp',
+                    columns: storyboard.columns,
+                    rows: storyboard.rows,
+                    thumbnailCount: storyboard.thumbnail_count,
+                    thumbnailWidth: storyboard.thumbnail_width,
+                    thumbnailHeight: storyboard.thumbnail_height,
+                    storyboardCount: storyboard.storyboard_count,
+                    interval: storyboard.interval > 0 ? storyboard.interval / 1000 : 0
+                  }]
+                : []
+
+              this.manifestSrc = this.createLocalSabrManifest(result, poToken, clientInfo, storyboards)
+              this.manifestMimeType = MANIFEST_TYPE_SABR
+            } else {
+              this.manifestSrc = null
+              this.enableLegacyFormat()
+            }
           } else {
             this.manifestSrc = null
             this.enableLegacyFormat()
-          }
-
-          if (result.storyboards?.type === 'PlayerStoryboardSpec') {
-            /** @type {import('youtubei.js/dist/src/parser/classes/PlayerStoryboardSpec').StoryboardData[]} */
-            let source = result.storyboards.boards
-            if (window.innerWidth < 500) {
-              source = source.filter((board) => board.thumbnail_height <= 90)
-            }
-            this.videoStoryboardSrc = this.createLocalStoryboardUrls(source.at(-1))
           }
         }
 
@@ -883,14 +930,14 @@ export default defineComponent({
           this.isPostLiveDvr = !!result.isPostLiveDvr
           this.isUnlisted = !result.isListed
 
-          this.captions = result.captions.map(caption => {
+          this.captions = sortCaptions(result.captions.map(caption => {
             return {
               url: this.currentInvidiousInstanceUrl + caption.url,
               label: caption.label,
               language: caption.language_code,
               mimeType: 'text/vtt'
             }
-          })
+          }))
 
           if (!this.isLive && !this.isPostLiveDvr) {
             this.videoStoryboardSrc = `${this.currentInvidiousInstanceUrl}/api/v1/storyboards/${this.videoId}?height=90`
@@ -1483,6 +1530,60 @@ export default defineComponent({
       return `data:application/dash+xml;charset=UTF-8,${encodeURIComponent(xmlData)}`
     },
 
+    /**
+     * @param {import('youtubei.js').YT.VideoInfo} videoInfo
+     * @param {string} poToken
+     * @param {SabrData['clientInfo']} clientInfo
+     * @param {import('../../helpers/player/SabrManifestParser').SabrManifest['storyboards']} storyboards
+     */
+    createLocalSabrManifest: function (videoInfo, poToken, clientInfo, storyboards) {
+      const url = new URL(videoInfo.streaming_data.server_abr_streaming_url)
+      url.searchParams.set('alr', 'yes')
+      url.searchParams.set('cpn', videoInfo.cpn)
+
+      this.sabrData = {
+        url: url.toString(),
+        poToken,
+        ustreamerConfig: videoInfo.player_config.media_common_config.media_ustreamer_request_config.video_playback_ustreamer_config,
+        clientInfo
+      }
+
+      /** @type {import('../../helpers/player/SabrManifestParser').SabrManifest} */
+      const sabrManifest = {
+        duration: videoInfo.streaming_data.adaptive_formats[0].approx_duration_ms / 1000,
+        formats: videoInfo.streaming_data.adaptive_formats.map((format) => ({
+          itag: format.itag,
+          lastModified: format.last_modified_ms,
+          mimeType: format.mime_type,
+          xtags: format.xtags,
+          bitrate: format.bitrate,
+          initRange: format.init_range,
+          indexRange: format.index_range,
+          width: format.width,
+          height: format.height,
+          frameRate: format.fps,
+          quality: format.quality,
+          language: format.language,
+          audioSampleRate: format.audio_sample_rate,
+          audioChannels: format.audio_channels,
+          isDrc: format.is_drc,
+          isOriginal: format.is_original,
+          isDubbed: format.is_dubbed,
+          isAutoDubbed: format.is_auto_dubbed,
+          isDescriptive: format.is_descriptive,
+          isSecondary: format.is_secondary,
+          spatialAudio: !!format.spatial_audio_type,
+          label: format.audio_track?.display_name,
+          colorTransferCharacteristics: format.color_info?.transfer_characteristics,
+          colorPrimaries: format.color_info?.primaries
+        })),
+        captions: this.captions,
+        storyboards
+      }
+
+      return `data:${MANIFEST_TYPE_SABR},${encodeURIComponent(JSON.stringify(sabrManifest))}`
+    },
+
     createInvidiousDashManifest: async function (result) {
       let url = `${this.currentInvidiousInstanceUrl}/api/manifest/dash/id/${this.videoId}`
 
@@ -1647,6 +1748,7 @@ export default defineComponent({
       })
 
       return {
+        id: `${trackToTranslate.vss_id}.${translationCode}`,
         url: url.toString(),
         label,
         language: translationCode,

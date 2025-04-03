@@ -62,6 +62,7 @@
     "autolinker": "^4.1.0",
     "bgutils-js": "^3.2.0",
     "electron-context-menu": "^4.0.5",
+    "googlevideo": "^3.0.0",
     "marked": "^15.0.7",
     "path-browserify": "^1.0.1",
     "portal-vue": "^2.1.7",
