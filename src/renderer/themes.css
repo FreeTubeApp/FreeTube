@@ -286,7 +286,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-text-color: #cdd6f4;
   --secondary-text-color: #bac2de;
   --tertiary-text-color: #a6adc8;
-  --title-color: var(--accent-color);
+  --title-color: #cdd6f4;
   --bg-color: #1e1e2e;
   --favorite-icon-color: #0f0;
   --card-bg-color: #181825;
@@ -401,7 +401,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-text-color: #c6d0f5;
   --secondary-text-color: #c6d0f5;
   --tertiary-text-color: #a5adce;
-  --title-color: var(--accent-color);
+  --title-color: #c6d0f5;
   --bg-color: #303446;
   --favorite-icon-color: #0f0;
   --card-bg-color: #292c3c;
@@ -420,7 +420,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-text-color: #d3c6aa;
   --secondary-text-color: #d3c6aa;
   --tertiary-text-color: #d3c6aa;
-  --title-color: var(--accent-color);
+  --title-color: #d3c6aa;
   --bg-color: #272e33;
   --favorite-icon-color: #0f0;
   --card-bg-color: #1e2326;
@@ -439,7 +439,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-text-color: #d3c6aa;
   --secondary-text-color: #d3c6aa;
   --tertiary-text-color: #d3c6aa;
-  --title-color: var(--accent-color);
+  --title-color: #d3c6aa;
   --bg-color: #2d353b;
   --favorite-icon-color: #0f0;
   --card-bg-color: #232a2e;
@@ -458,7 +458,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-text-color: #d3c6aa;
   --secondary-text-color: #d3c6aa;
   --tertiary-text-color: #d3c6aa;
-  --title-color: var(--accent-color);
+  --title-color: #d3c6aa;
   --bg-color: #333c43;
   --favorite-icon-color: #0f0;
   --card-bg-color: #293136;
@@ -477,7 +477,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-text-color: #3c4a52;
   --secondary-text-color: #3c4a52;
   --tertiary-text-color: #3c4a52;
-  --title-color: var(--accent-color);
+  --title-color: #3c4a52;
   --bg-color: #fffbef;
   --favorite-icon-color: #0f0;
   --card-bg-color: #f2efdf;
@@ -496,7 +496,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-text-color: #3c4a52;
   --secondary-text-color: #3c4a52;
   --tertiary-text-color: #3c4a52;
-  --title-color: var(--accent-color);
+  --title-color: #3c4a52;
   --bg-color: #fdf6e3;
   --favorite-icon-color: #0f0;
   --card-bg-color: #efe8d4;
@@ -515,7 +515,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-text-color: #3c4a52;
   --secondary-text-color: #3c4a52;
   --tertiary-text-color: #3c4a52;
-  --title-color: var(--accent-color);
+  --title-color: #3c4a52;
   --bg-color: #f3ead3;
   --favorite-icon-color: #0f0;
   --card-bg-color: #eee8ce;
