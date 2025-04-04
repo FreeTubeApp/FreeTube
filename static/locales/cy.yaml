@@ -550,6 +550,10 @@ Settings:
         Auto: Awto
         Semi-auto: Rhannol awto
         Never: Byth
+      Tooltip: Awto = Cadw wrth gau pob tudalen fideo, pan mae fideo wedi gorffen
+        a gwall wedi digwydd (e.e. cyfyngiad graddio a chyfnod gwylio wedi dod i ben).
+        Rhannol awto = Fel Awto heblaw wrth adael tudalen fideo a gall gadw cynnydd
+        gyda llaw drwy fotwm Cadw Cynnydd Gwylio, wedi'i leoli o dan y chwaraewr fideo.
   Subscription Settings:
     Subscription Settings: 'Tanysgrifiad'
     Hide Videos on Watch: 'Cuddio Fideos wrth Wylio'
@@ -1015,6 +1019,8 @@ Video:
     fideo hwn, gwyliwch ef ar wefan swyddogol YouTube mewn porwr gwe sydd wedi'i alluogi
     i chwarae DRM.
 #& Playlists
+  Save Watched Progress: Cadw Cynnydd Gwylio
+  Watched Progress Saved: Cynnydd Gwylio Wedi'i Gadw
 Playlist:
   #& About
   Playlist: 'Rhestr chwarae'
