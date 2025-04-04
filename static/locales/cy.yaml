@@ -270,6 +270,7 @@ User Playlists:
     siŵr eich bod am ddileu'r rhestr chwarae hon? Nid oes modd dadwneud hyn.
   Save Changes: Cadw'r Newidiadau
   Remove Duplicate Videos: Dileu Fideos Dyblyg
+  TotalTimePlaylist: 'Cyfanswm amser: {duration}'
 History:
   # On History Page
   History: 'Hanes'
@@ -544,6 +545,11 @@ Settings:
       siŵr eich bod eisiau clirio'ch hanes chwilio a'r storfa?
     Search history and cache have been cleared: Mae'r hanes chwilio a'r storfa wedi'u
       clirio
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Awto
+        Semi-auto: Rhannol awto
+        Never: Byth
   Subscription Settings:
     Subscription Settings: 'Tanysgrifiad'
     Hide Videos on Watch: 'Cuddio Fideos wrth Wylio'
