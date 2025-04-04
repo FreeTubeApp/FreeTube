@@ -159,7 +159,7 @@ class SabrManifestParser {
       fakeVideoFormatId = buildFormatId(worstVideoFormat)
     }
 
-    manifestData.formats.forEach((format) => {
+    for (const format of manifestData.formats) {
       if (format.mimeType.startsWith('audio/')) {
         audioStreams.push(
           /** @__NOINLINE__ */ createAudioStream(
@@ -176,7 +176,7 @@ class SabrManifestParser {
           /** @__NOINLINE__ */ createVideoStream(format, currentId++, presentationTimeline, networkingEngine)
         )
       }
-    })
+    }
 
     audioStreams.sort((a, b) => b.bandwidth - a.bandwidth)
 
@@ -229,7 +229,6 @@ class SabrManifestParser {
     currentId += textStreams.length
 
     const imageStreams = /** @__NOINLINE__ */ createImageStreams(manifestData.storyboards, presentationTimeline, currentId)
-    currentId += imageStreams.length
 
     const manifest = {
       type: 'SABR',
@@ -315,7 +314,7 @@ function createAudioStream(
     type: 'audio',
     id,
     originalId: buildFormatId(format),
-    mimeType: format.mimeType.split(';')[0],
+    mimeType: format.mimeType.split(';', 1)[0],
     codecs: format.mimeType.match(CODECS_REGEX)[1],
     fullMimeTypes: new Set([format.mimeType]),
     bandwidth: format.bitrate,
@@ -386,7 +385,7 @@ function createVideoStream(format, id, presentationTimeline, networkingEngine) {
     type: 'video',
     id,
     originalId: buildFormatId(format),
-    mimeType: format.mimeType.split(';')[0],
+    mimeType: format.mimeType.split(';', 1)[0],
     codecs: format.mimeType.match(CODECS_REGEX)[1],
     fullMimeTypes: new Set([format.mimeType]),
     bandwidth: format.bitrate,

@@ -243,7 +243,7 @@ function parseCues(
         throw new Error('Assertion failure: last offset cannot be null')
       }
 
-      const uris = [`${uri}&startTimeMs=${Math.round((lastTime + timestampOffset) * 1000)}&sq=${sq++}`]
+      const uris = [`${uri}&startTimeMs=${Math.trunc((lastTime + timestampOffset) * 1000)}&sq=${sq++}`]
 
       references.push(
         new shaka.media.SegmentReference(
@@ -268,7 +268,7 @@ function parseCues(
       throw new Error('Assertion failure: last offset cannot be null')
     }
 
-    const uris = [`${uri}&startTimeMs=${Math.round((lastTime + timestampOffset) * 1000)}&sq=${sq}`]
+    const uris = [`${uri}&startTimeMs=${Math.trunc((lastTime + timestampOffset) * 1000)}&sq=${sq}`]
 
     references.push(
       new shaka.media.SegmentReference(

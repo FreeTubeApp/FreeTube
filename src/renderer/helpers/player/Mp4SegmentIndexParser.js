@@ -153,7 +153,7 @@ function parseSIDX(
     const nativeEndTime =
       (unscaledStartTime + subsegmentDuration) / timescale
 
-    const uris = [`${uri}&startTimeMs=${Math.round((nativeStartTime + timestampOffset) * 1000)}&sq=${i + 1}`]
+    const uris = [`${uri}&startTimeMs=${Math.trunc((nativeStartTime + timestampOffset) * 1000)}&sq=${i + 1}`]
 
     references.push(
       new shaka.media.SegmentReference(

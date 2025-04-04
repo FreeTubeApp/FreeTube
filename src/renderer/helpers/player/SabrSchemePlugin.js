@@ -27,8 +27,8 @@ function formatIdFromString(str) {
 function createBufferedRange(formatId, buffered, segmentIndex) {
   return {
     formatId,
-    startTimeMs: Math.round(buffered.start * 1000),
-    durationMs: Math.round((buffered.end - buffered.start) * 1000),
+    startTimeMs: Math.trunc(buffered.start * 1000),
+    durationMs: Math.trunc((buffered.end - buffered.start) * 1000),
     startSegmentIndex: segmentIndex.find(buffered.start),
     endSegmentIndex: segmentIndex.find(buffered.end)
   }
@@ -57,22 +57,16 @@ function fillBufferedRanges(player, manifest, audioFormatsActive, bufferedRanges
       })
     }
 
-    let audioFormatId
-    let videoFormatId
-    let audioSegmentIndex
-    let videoSegmentIndex
+    const audioFormatId = formatIdFromString(activeVariant.originalAudioId)
+    const audioSegmentIndex = activeManifestVariant.audio.segmentIndex
 
     for (const buffered of bufferedInfo.audio) {
-      if (!audioFormatId) {
-        audioFormatId = formatIdFromString(activeVariant.originalAudioId)
-      }
-
-      if (!audioSegmentIndex) {
-        audioSegmentIndex = activeManifestVariant.audio.segmentIndex
-      }
-
       bufferedRanges.push(createBufferedRange(audioFormatId, buffered, audioSegmentIndex))
     }
+
+    // Lazily initalise these variables as video data won't exist for audio-only playback
+    let videoFormatId
+    let videoSegmentIndex
 
     for (const buffered of bufferedInfo.video) {
       if (!videoFormatId) {
@@ -225,13 +219,13 @@ async function doRequest(
         }
       })
 
-      if (remainingData) {
-        chunkedDataBuffer = remainingData.data
-      } else {
-        chunkedDataBuffer = null
-      }
-
       if (!abortStatus.finished) {
+        if (remainingData) {
+          chunkedDataBuffer = remainingData.data
+        } else {
+          chunkedDataBuffer = null
+        }
+
         readObj = await reader.read()
       }
     }

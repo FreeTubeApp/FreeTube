@@ -1534,13 +1534,13 @@ export default defineComponent({
         stats.resolution.width = newTrack.width
         stats.resolution.height = newTrack.height
       } else {
-        stats.codecs.audioItag = newTrack.originalAudioId.split('-')[0]
+        stats.codecs.audioItag = newTrack.originalAudioId.split('-', 1)[0]
         stats.codecs.audioCodec = newTrack.audioCodec
 
         if (props.format === 'dash') {
           stats.resolution.frameRate = newTrack.frameRate
 
-          stats.codecs.videoItag = newTrack.originalVideoId.split('-')[0]
+          stats.codecs.videoItag = newTrack.originalVideoId.split('-', 1)[0]
           stats.codecs.videoCodec = newTrack.videoCodec
 
           stats.resolution.width = newTrack.width
