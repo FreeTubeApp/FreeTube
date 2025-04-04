@@ -458,6 +458,9 @@ function createTextStreams(captions, presentationTimeline, currentId) {
           presentationTimeline.getDuration(),
           [caption.url]
         )
+
+        stream.segmentIndex.get(0).mimeType = caption.mimeType
+
         return Promise.resolve()
       },
       closeSegmentIndex: () => {
@@ -688,12 +691,18 @@ function createVodMediaSegmentIndex(url, response, format, stream, duration) {
   initSegmentReference.mimeType = stream.mimeType
   initSegmentReference.codecs = stream.codecs
 
+  /** @type {shaka.media.SegmentReference[] | undefined} */
   let references
 
   if (stream.mimeType.endsWith('/webm')) {
     references = /** @__NOINLINE__ */ parseWebmSegmentIndex(indexData, initData, url, initSegmentReference, 0, 0, duration)
   } else {
     references = /** @__NOINLINE__ */ parseMp4SegmentIndex(indexData, format.indexRange.start, url, initSegmentReference, 0, 0, duration)
+  }
+
+  for (const reference of references) {
+    reference.mimeType = stream.mimeType
+    reference.codecs = stream.codecs
   }
 
   return new shaka.media.SegmentIndex(references)
