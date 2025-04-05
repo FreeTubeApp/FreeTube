@@ -708,4 +708,6 @@ function createVodMediaSegmentIndex(url, response, format, stream, duration) {
   return new shaka.media.SegmentIndex(references)
 }
 
-shaka.media.ManifestParser.registerParserByMime(MANIFEST_TYPE_SABR, () => new SabrManifestParser())
+if (process.env.SUPPORTS_LOCAL_API) {
+  shaka.media.ManifestParser.registerParserByMime(MANIFEST_TYPE_SABR, () => new SabrManifestParser())
+}

@@ -1248,7 +1248,7 @@ export default defineComponent({
     /** @type {() => void | undefined} */
     let cleanupSabrScheme
 
-    if (props.sabrData) {
+    if (process.env.SUPPORTS_LOCAL_API && props.sabrData) {
       cleanupSabrScheme = /** @__NOINLINE__ */ setupSabrScheme(props.sabrData, () => player, () => sabrManifest, playerWidth, playerHeight)
     }
 
@@ -2608,12 +2608,12 @@ export default defineComponent({
       // ideally we would set this in the `streaming` event handler, but for HLS this is only set to true after the loaded event fires.
       isLive.value = player.isLive()
 
-      if (props.format !== 'legacy' && props.manifestMimeType === MANIFEST_TYPE_SABR) {
+      if (process.env.SUPPORTS_LOCAL_API && props.format !== 'legacy' && props.manifestMimeType === MANIFEST_TYPE_SABR) {
         sabrManifest = player.getManifest()
       }
 
       // For SABR we include the thumbnails and subtitles in the manifest
-      if (props.format === 'legacy' || props.manifestMimeType !== MANIFEST_TYPE_SABR) {
+      if (!process.env.SUPPORTS_LOCAL_API || props.format === 'legacy' || props.manifestMimeType !== MANIFEST_TYPE_SABR) {
         const promises = []
 
         for (const caption of props.captions) {
@@ -2953,7 +2953,7 @@ export default defineComponent({
         player = null
       }
 
-      if (cleanupSabrScheme) {
+      if (process.env.SUPPORTS_LOCAL_API && cleanupSabrScheme) {
         cleanupSabrScheme()
       }
 
