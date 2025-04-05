@@ -142,7 +142,8 @@ async function doRequest(
   let chunkedDataBuffer = null
   /** @type {Uint8Array[]} */
   const responseDataChunks = []
-  const errors = []
+  let invalidPoToken = false
+  let error
   /** @type {string | undefined} */
   let redirectUrl
 
@@ -169,13 +170,13 @@ async function doRequest(
           case PART.STREAM_PROTECTION_STATUS: {
             const streamProtectionStatus = Protos.StreamProtectionStatus.decode(part.data.chunks[0])
             if (streamProtectionStatus.status === 3) {
-              errors.push('Invalid PO token')
+              invalidPoToken = true
             }
             break
           }
           case PART.SABR_ERROR: {
             const sabrError = Protos.SabrError.decode(part.data.chunks[0])
-            errors.push(`SABR Error: type: ${sabrError.type}, code: ${sabrError.code}`)
+            error = `SABR Error: type: ${sabrError.type}, code: ${sabrError.code}`
             break
           }
           case PART.SABR_REDIRECT: {
@@ -279,13 +280,27 @@ async function doRequest(
       abortController,
       () => { }
     )
-  } else if (errors.length > 0) {
+  } else if (invalidPoToken) {
     throw new ShakaError(
       ShakaError.Severity.CRITICAL,
       ShakaError.Category.NETWORK,
       ShakaError.Code.HTTP_ERROR,
       uri,
-      new Error(errors.join(', ')),
+      new Error('Invalid PO token'),
+      requestType
+    )
+  } else if (error) {
+    throw createRecoverableNetworkError(
+      ShakaError.Code.HTTP_ERROR,
+      uri,
+      new Error(error),
+      requestType
+    )
+  } else if (response.status === 200) {
+    throw createRecoverableNetworkError(
+      ShakaError.Code.HTTP_ERROR,
+      uri,
+      new Error('Empty response, this should not happen'),
       requestType
     )
   } else {

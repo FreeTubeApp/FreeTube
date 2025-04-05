@@ -2323,6 +2323,11 @@ export default defineComponent({
         error = error.data[0]
       }
 
+      // Allow shaka-player to retry on potentially recoverable network errors
+      if (error.severity === shaka.util.Error.Severity.RECOVERABLE && error.category === shaka.util.Error.Category.NETWORK) {
+        return
+      }
+
       logShakaError(error, context, props.videoId, details)
 
       // text related errors aren't serious (captions and seek bar thumbnails), so we should just log them
