@@ -36,6 +36,16 @@
           :default-value="doCaseSensitiveSearch"
           @change="doCaseSensitiveSearch = !doCaseSensitiveSearch"
         />
+        <ft-select
+          v-if="fullData.length > 1"
+          class="sortSelect"
+          :value="sortBy"
+          :select-names="sortBySelectNames"
+          :select-values="sortBySelectValues"
+          :placeholder="$t('Global.Sort By')"
+          :icon="getIconForSortPreference(sortBy)"
+          @change="sortBy = $event"
+        />
       </div>
       <ft-flex-box
         v-show="fullData.length === 0"

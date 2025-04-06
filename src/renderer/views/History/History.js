@@ -8,9 +8,16 @@ import FtButton from '../../components/ft-button/ft-button.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
-import { ctrlFHandler, debounce } from '../../helpers/utils'
+import FtSelect from '../../components/ft-select/ft-select.vue'
+import { ctrlFHandler, debounce, getIconForSortPreference } from '../../helpers/utils'
 
 const identity = (v) => v
+const SORT_BY_VALUES = {
+  ViewedLatestFirst: 'viewed_latest_first',
+  ViewedEarliestFirst: 'viewed_earliest_first',
+  UploadedLatestFirst: 'uploaded_latest_first',
+  UploadedEarliestFirst: 'uploaded_earliest_first',
+}
 
 function filterVideosWithQuery(videos, query, attrProcessor = identity) {
   return videos.filter((video) => {
@@ -34,6 +41,7 @@ export default defineComponent({
     'ft-flex-box': FtFlexBox,
     'ft-element-list': FtElementList,
     'ft-button': FtButton,
+    'ft-select': FtSelect,
     'ft-input': FtInput,
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
     'ft-toggle-switch': FtToggleSwitch,
@@ -47,11 +55,12 @@ export default defineComponent({
       showLoadMoreButton: false,
       query: '',
       activeData: [],
+      sortBy: SORT_BY_VALUES.ViewedLatestFirst,
     }
   },
   computed: {
     historyCacheSorted: function () {
-      return this.$store.getters.getHistoryCacheSorted
+      return this.$store.getters.getHistoryCacheSorted(this.sortBy)
     },
 
     fullData: function () {
@@ -60,6 +69,27 @@ export default defineComponent({
       } else {
         return this.historyCacheSorted.slice(0, this.dataLimit)
       }
+    },
+
+    sortBySelectNames() {
+      return Object.values(SORT_BY_VALUES).map((k) => {
+        switch (k) {
+          case SORT_BY_VALUES.ViewedEarliestFirst:
+            return this.$t('History.Sort By.EarliestPlayedFirst')
+          case SORT_BY_VALUES.ViewedLatestFirst:
+            return this.$t('History.Sort By.LatestPlayedFirst')
+          case SORT_BY_VALUES.UploadedEarliestFirst:
+            return this.$t('History.Sort By.EarliestUploadedFirst')
+          case SORT_BY_VALUES.UploadedLatestFirst:
+            return this.$t('History.Sort By.LatestUploadedFirst')
+          default:
+            console.error(`Unknown sortBy: ${k}`)
+            return k
+        }
+      })
+    },
+    sortBySelectValues() {
+      return Object.values(SORT_BY_VALUES)
     },
   },
   watch: {
@@ -101,6 +131,7 @@ export default defineComponent({
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
     handleQueryChange(query, { limit = null, doCaseSensitiveSearch = null, filterNow = false } = {}) {
       this.query = query
 

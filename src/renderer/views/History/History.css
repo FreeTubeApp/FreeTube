@@ -12,6 +12,18 @@
   color: var(--primary-color);
 }
 
+.optionsRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+.sortSelect {
+  /* Put it on the right */
+  margin-inline-start: auto;
+}
+
 @media only screen and (width <= 680px) {
   .card {
     inline-size: 90%;

@@ -10,8 +10,20 @@ const state = {
 }
 
 const getters = {
-  getHistoryCacheSorted(state) {
-    return state.historyCacheSorted
+  getHistoryCacheSorted: (state) => (sortOrder = 'viewed_latest_first') => {
+    const history = [...state.historyCacheSorted]
+    switch (sortOrder) {
+      case 'viewed_latest_first':
+        return history.sort((a, b) => new Date(b.timeWatched) - new Date(a.timeWatched))
+      case 'viewed_earliest_first':
+        return history.sort((a, b) => new Date(a.timeWatched) - new Date(b.timeWatched))
+      case 'uploaded_latest_first':
+        return history.sort((a, b) => new Date(b.published) - new Date(a.published))
+      case 'uploaded_earliest_first':
+        return history.sort((a, b) => new Date(a.published) - new Date(b.published))
+      default:
+        return history
+    }
   },
 
   getHistoryCacheById(state) {
