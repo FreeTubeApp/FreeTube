@@ -613,65 +613,17 @@ function runApp() {
   })
 
   function manageTray(window, removeWindow = false) {
-    function click(window, close = false) {
-      if (!close) {
-        window.show()
-      } else if (trayWindows.length) {
-        window.destroy()
-      }
-
-      trayWindows.splice(trayWindows.findIndex(item => item.id === window.id), 1)
-
-      if (trayWindows.length) {
-        createContextMenu()
-      } else {
-        destroyTray()
-      }
-    }
-
-    function createContextMenu() {
-      const menuItems = []
-      trayWindows.forEach(window => {
-        menuItems.push({
-          label: window.title,
-          submenu: [
-            {
-              label: 'Show',
-              click: () => click(window)
-            },
-            {
-              label: 'Close',
-              click: () => click(window, true)
-            }
-          ]
-        })
-      })
-
-      menuItems.push(
-        {
-          type: 'separator'
-        },
-        {
-          label: 'Quit',
-          click: handleQuit
-        }
-      )
-
-      const menu = Menu.buildFromTemplate(menuItems)
-      tray.setContextMenu(menu)
-    }
-
     if (tray) {
       if (!removeWindow) {
         trayWindows.push(window)
-        createContextMenu()
+        createTrayContextMenu()
       } else if (trayWindows.find(item => item.id === window.id)) {
-        click(window)
+        trayClick(window)
       }
     } else {
       const icon = process.env.NODE_ENV === 'development'
         ? path.join(__dirname, '..', '..', '_icons', 'iconColor.png')
-        : path.join(path.dirname(__dirname), '_icons', 'iconColor.png')
+        : path.join(__dirname, '..', '_icons', 'iconColor.png')
 
       tray = new Tray(icon)
 
@@ -679,27 +631,62 @@ function runApp() {
       tray.setToolTip('FreeTube')
 
       trayWindows = [window]
-      createContextMenu()
+      createTrayContextMenu()
 
       if (process.platform !== 'linux') {
         tray.on('click', (event) => {
-          if (trayWindows.length === 1) { click(trayWindows[0]) }
+          if (trayWindows.length === 1) { trayClick(trayWindows[0]) }
         })
       }
     }
   }
 
-  function createBasicTray() {
-    if (tray) { return }
+  function trayClick(window, close = false) {
+    if (!close) {
+      window.show()
+    } else if (trayWindows.length) {
+      window.destroy()
+    }
 
-    const icon = process.env.NODE_ENV === 'development'
-      ? path.join(__dirname, '..', '..', '_icons', 'iconColor.png')
-      : path.join(path.dirname(__dirname), '_icons', 'iconColor.png')
+    trayWindows.splice(trayWindows.findIndex(item => item.id === window.id), 1)
 
-    tray = new Tray(icon)
+    if (trayWindows.length) {
+      createTrayContextMenu()
+    } else {
+      destroyTray()
+    }
+  }
 
-    tray.setIgnoreDoubleClickEvents(true)
-    tray.setToolTip('FreeTube')
+  function createTrayContextMenu() {
+    const menuItems = []
+    trayWindows.forEach(window => {
+      menuItems.push({
+        label: window.title,
+        submenu: [
+          {
+            label: 'Show',
+            click: () => trayClick(window)
+          },
+          {
+            label: 'Close',
+            click: () => trayClick(window, true)
+          }
+        ]
+      })
+    })
+
+    menuItems.push(
+      {
+        type: 'separator'
+      },
+      {
+        label: 'Quit',
+        click: handleQuit
+      }
+    )
+
+    const menu = Menu.buildFromTemplate(menuItems)
+    tray.setContextMenu(menu)
   }
 
   function destroyTray() {
@@ -1799,7 +1786,7 @@ function runApp() {
 
   let resourcesCleanUpDone = false
 
-  app.on('window-all-closed', async () => {
+  app.on('window-all-closed', () => {
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
     handleQuit()
   })

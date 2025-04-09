@@ -84,10 +84,6 @@ class Settings {
     }
   }
 
-  static _findHideToTrayOnMinimize() {
-    return db.settings.findOneAsync({ _id: 'hideToTrayOnMinimize' })
-  }
-
   static _updateBounds(value) {
     return db.settings.updateAsync({ _id: 'bounds' }, { _id: 'bounds', value }, { upsert: true })
   }
