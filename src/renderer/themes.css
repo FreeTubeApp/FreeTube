@@ -128,7 +128,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 /*************** LIGHT THEME ADJUSTMENTS ***************/
 
 /* Light shadow color for themes where a dark shadow would not work */
-.system[data-system-theme*='light'],
+.pastelPink,
 .everforestLightHard,
 .everforestLightMedium,
 .everforestLightLow,
