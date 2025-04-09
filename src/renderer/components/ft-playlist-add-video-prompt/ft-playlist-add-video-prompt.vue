@@ -11,6 +11,7 @@
       }) }}
     </p>
     <div
+      v-if="allPlaylists.length > 1"
       class="searchInputsRow"
     >
       <ft-input
@@ -24,6 +25,7 @@
       />
     </div>
     <div
+      v-if="allPlaylists.length > 1"
       class="optionsRow"
     >
       <div
