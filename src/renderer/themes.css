@@ -127,15 +127,19 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 /*************** LIGHT THEME ADJUSTMENTS ***************/
 
+/* Light shadow color for themes where a dark shadow would not work */
 .system[data-system-theme*='light'],
-.light,
-.pastelPink,
 .everforestLightHard,
 .everforestLightMedium,
 .everforestLightLow,
 .gruvboxLight,
 .solarizedLight {
   --primary-shadow-color: rgb(255 255 255 / 75%);
+}
+
+/* Dark shadow color for themes where a light shadow would not work */
+.light {
+  --primary-shadow-color: rgb(0 0 0 / 75%);
 }
 
 /* Light theme Youtube and Invidious logo styling (in FtShareButton) */
