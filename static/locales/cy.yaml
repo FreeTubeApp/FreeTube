@@ -136,7 +136,7 @@ Channels:
   Channels: 'Sianeli'
   Title: 'Rhestr Sianeli'
   Search bar placeholder: 'Chwilio''r Sianeli'
-  Count: 'Canfuwyd {number} sianel.'
+  Count: 'Wedi canfod {number} sianel.'
   Empty: 'Mae eich rhestr sianeli yn wag ar hyn o bryd.'
   Unsubscribe Prompt: 'Ydych chi''n siŵr eich bod am ddad-danysgrifio o "{channelName}"?'
 Trending:
@@ -270,6 +270,7 @@ User Playlists:
     siŵr eich bod am ddileu'r rhestr chwarae hon? Nid oes modd dadwneud hyn.
   Save Changes: Cadw'r Newidiadau
   Remove Duplicate Videos: Dileu Fideos Dyblyg
+  TotalTimePlaylist: 'Cyfanswm amser: {duration}'
 History:
   # On History Page
   History: 'Hanes'
@@ -277,7 +278,7 @@ History:
   Your history list is currently empty.: 'Mae eich rhestr hanes yn wag ar hyn o bryd.'
   Empty Search Message: 'Nid oes unrhyw fideos yn eich hanes sy''n cyfateb i''ch chwilio'
   Search bar placeholder: "Chwilio yn eich Hanes"
-  Case Sensitive Search: Chwiliad Nodau Mawr neu Fach
+  Case Sensitive Search: Chwilio Nodau Mawr neu Fach
 Settings:
   # On Settings Page
   Settings: 'Gosodiadau'
@@ -287,7 +288,7 @@ Settings:
   General Settings:
     General Settings: 'Cyffredinol'
     Check for Updates: 'Chwilio am Ddiweddariadau'
-    Check for Latest Blog Posts: 'Gwiriwch am y Postiadau Blog Diweddaraf'
+    Check for Latest Blog Posts: 'Gwirio am y Postiadau Blog Diweddaraf'
     Fallback to Non-Preferred Backend on Failure: 'Nôl i''r Cefn Diddewis ar Fethiant'
     Enable Search Suggestions: 'Galluogi Awgrymiadau Chwilio'
     Default Landing Page: 'Tudalen Glanio Ragosodedig'
@@ -458,10 +459,10 @@ Settings:
     Scroll Volume Over Video Player: 'Sgrolio Sain Dros Chwaraewr Fideo'
     Scroll Playback Rate Over Video Player: 'Sgrolio Graddfa Chwarae Nôl Dros Chwaraewr
       Fideo'
-    Skip by Scrolling Over Video Player: 'Neidio drwy Sgrolio Dros Chwaraewr Fideo'
+    Skip by Scrolling Over Video Player: 'Symud drwy Sgrolio Dros Chwaraewr Fideo'
     Display Play Button In Video Player: 'Dangos Botwm Chwarae yn y Chwaraewr Fideo'
     Enter Fullscreen on Display Rotate: 'Mynd i''r Sgrin Lawn wrth Cylchdroi Dangosydd'
-    Next Video Interval: 'Amserydd Cyfrif Down Autoplay'
+    Next Video Interval: 'Amserydd Cyfrif Lawr Awtochwarae'
     Fast-Forward / Rewind Interval: 'Ysbaid Ymlaen / Nôl Cyflym'
     Default Volume: 'Sain Rhagosodedig'
     Default Playback Rate: 'Cyfradd Chwarae Rhagosodedig'
@@ -499,7 +500,7 @@ Settings:
       Error:
         Forbidden Characters: 'Nodau Gwaharddedig'
         Empty File Name: 'Enw Ffeil Gwag'
-    Autoplay Interruption Timer: Amserydd Ymyrraeth Awtochwarae
+    Autoplay Interruption Timer: Amserydd Oedi Awtochwarae
     Default Viewing Mode:
       Default Viewing Mode: Y Modd Gwylio Rhagosodedig
       Full Screen: Sgrin Lawn
@@ -544,11 +545,20 @@ Settings:
       siŵr eich bod eisiau clirio'ch hanes chwilio a'r storfa?
     Search history and cache have been cleared: Mae'r hanes chwilio a'r storfa wedi'u
       clirio
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Awto
+        Semi-auto: Rhannol awto
+        Never: Byth
+      Tooltip: Awto = Cadw wrth gau pob tudalen fideo, pan mae fideo wedi gorffen
+        a gwall wedi digwydd (e.e. cyfyngiad graddio a chyfnod gwylio wedi dod i ben).
+        Rhannol awto = Fel Awto heblaw wrth adael tudalen fideo a gall gadw cynnydd
+        gyda llaw drwy fotwm Cadw Cynnydd Gwylio, wedi'i leoli o dan y chwaraewr fideo.
   Subscription Settings:
     Subscription Settings: 'Tanysgrifiad'
     Hide Videos on Watch: 'Cuddio Fideos wrth Wylio'
-    Fetch Feeds from RSS: 'Nôl Llif o''r RSS'
-    Fetch Automatically: 'Nôl Llif yn Awtomatig'
+    Fetch Feeds from RSS: 'Nôl Ffrwd o''r RSS'
+    Fetch Automatically: 'Nôl Ffrwd yn Awtomatig'
     Confirm Before Unsubscribing: Cadarnhau Cyn Dad-danysgrifio
     To: At
     'Limit the number of videos displayed for each channel': Cyfyngu ar nifer y fideos
@@ -737,7 +747,7 @@ About:
   Discussions: 'Sgyrsiau'
   Report a problem: 'Adrodd am broblem'
   GitHub issues: 'Materion GitHub'
-  Please check for duplicates before posting: 'Gwiriwch am ddyblygiadau cyn postio'
+  Please check for duplicates before posting: 'Gwirio am ddyblygiadau cyn postio'
   Website: 'Gwefan'
   Blog: 'Blog'
   Email: 'E-bost'
@@ -1009,6 +1019,8 @@ Video:
     fideo hwn, gwyliwch ef ar wefan swyddogol YouTube mewn porwr gwe sydd wedi'i alluogi
     i chwarae DRM.
 #& Playlists
+  Save Watched Progress: Cadw Cynnydd Gwylio
+  Watched Progress Saved: Cynnydd Gwylio Wedi'i Gadw
 Playlist:
   #& About
   Playlist: 'Rhestr chwarae'
@@ -1167,7 +1179,7 @@ Tooltips:
       Rhestrau Chwarae, a fideos o fewn rhestrau chwarae.
   Subscription Settings:
     Fetch Feeds from RSS: 'Pan fydd wedi''i alluogi, bydd FreeTube yn defnyddio RSS
-      yn lle ei ddull rhagosodedig ar gyfer cydio yn eich llif tanysgrifio. Mae RSS
+      yn lle ei ddull rhagosodedig ar gyfer cydio yn eich ffrwd tanysgrifio. Mae RSS
       yn gyflymach ac yn atal rhwystro IP, ond nid yw''n darparu gwybodaeth benodol
       fel hyd fideo, statws byw neu bostiadau cymunedol'
     Fetch Automatically: 'Pan fydd wedi''i alluogi, bydd FreeTube yn nôl eich ffrwd
@@ -1240,7 +1252,7 @@ Search Listing:
     VR180: VR180
     360 Video: 360°
 Feed:
-  Feed Last Updated: 'Diweddarwyd llif {feedName} ddiwethaf: {date}'
+  Feed Last Updated: 'Diweddarwyd ffrwd {feedName} ddiwethaf: {date}'
   Refresh Feed: Adnewyddu {subscriptionName}
 Close Banner: Cau'r Faner
 Yes, Delete: Iawn, Dileu
@@ -1280,8 +1292,8 @@ KeyboardShortcutPrompt:
       General: Ap: Cyffredinol
   History Forward: Ymlaen un dudalen
   New Window: Creu ffenestr newydd
-  Large Rewind: Nôl 10 eiliad / Nôl fideo yn seiliedig ar y Gyfradd Chwarae Fideo
-    gyfredol
+  Large Rewind: Nôl 10 eiliad / Dychwelyd fideo yn seiliedig ar y Gyfradd Chwarae
+    Fideo gyfredol
   Play: Toglo chwarae / oedi
   Mute: Toglo tewi
   Decrease Video Speed: Lleihau cyflymder fideo yn seiliedig ar Ysbaid Cyfradd Chwarae
@@ -1308,7 +1320,7 @@ KeyboardShortcutPrompt:
   Zoom In: Chwyddo mewn
   Zoom Out: Chwyddo allan
   Focus Search: Canolbwyntio ar y bar chwilio
-  Small Rewind: Mynd nôl X eiliadau yn seiliedig ar yr Ysbaid Ailddirwyn a'r Gyfradd
+  Small Rewind: Dychwelyd X eiliadau yn seiliedig ar yr Ysbaid Dychwelyd a'r Gyfradd
     Chwarae Fideo gyfredol
   Last Chapter: Pennod Olaf
   Next Chapter: Pennod Nesaf

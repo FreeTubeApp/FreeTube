@@ -39,6 +39,12 @@ Global:
   Sort By: 'بگەڕی بە'
 
 # Search Bar
+  Live: ژیاوازی
+  Shorts: شورتەکان
+  Community: کۆمەڵگا
+  Counts:
+    Video Count: 1 ڤیدیۆ | {count} ڤیدیۆکان
+  Videos: ویدیوەکان
 Search / Go to URL: 'گەڕان / بڕۆ بۆ لینک'
   # In Filter Button
 Search Filters:
@@ -62,6 +68,7 @@ Search Filters:
     Videos: 'ڤیدیۆکان'
     Channels: 'کەناڵەکان'
     #& Playlists
+    Movies: فلیمەکان
   Duration:
     Duration: 'ماوە'
     All Durations: 'گشت ماوەکان'
@@ -72,6 +79,10 @@ Search Filters:
   Fetching results. Please wait: 'هێنانی ئەنجامەکان. تکایە چاوەڕێکە'
   Fetch more results: 'ئەنجامی زیاتر بێنە'
 # Sidebar
+  Features:
+    Location: شوێن
+    Features: تەنیاکان
+    Creative Commons: کۆمەڵگەی خەڵکی خلاقی
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'بەشداریکراوەکان'
@@ -81,17 +92,91 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: .ئەم
     پرۆفایلە ژمارەیەکی زۆری هەیە لە سەبسکریپشن. بۆ دورکەوتنەوە لە سنوور دانان (رسس)
     بەکاردەهێندرێت
+  Error Channels: کانالەکان بە هەڵە
+  Load More Posts: بە شێوەیەکی زیاتر پەیامەکان بار بکە
+  Empty Channels: چەنالەکانت کە تۆ بەشداریت کردووە لە ئێستادا هیچ ڤیدیۆیەک نییە.
+  Empty Posts: کانالەکانت کە ئەم ڕووداوەی تۆ ئەم شتانی نییە.
+  Disabled Automatic Fetching: تۆ پەیوەندیدانی خۆکارەکان بەرزکردنەوەی پەیوەندیدانەکان
+    بەرزکردووتەوە. بەرزکردنەوەی پەیوەندیدانەکان بۆ بینینی ئەمانە لێرە.
 Trending:
   Trending: 'زۆر باسکراو'
 Most Popular: 'بەناوبانگترین'
 Playlists: 'پلەیلیست'
 User Playlists:
   Your Playlists: 'پلیەلیستەکانت'
+  AddVideoPrompt:
+    Toast:
+      You haven't selected any playlist yet.: هێشتا هیچ لیستێکی پەخشکردنت دیاری نەکردووە.
+      "{videoCount} video(s) added to 1 playlist": 1 ڤیدیۆ زیادکرا بۆ 1 لیستی پەخشکردن
+        | {videoCount} ڤیدیۆکان زیادکران بۆ 1 لیستی پەخشکردن
+    Select a playlist to add your N videos to: لیستێکی پەخشکردن دەسنیشان بکە بۆ زیادکردنی
+      ڤیدیۆکەت بۆ | لیستێکی پەخشکردن دەسنیشان بکە بۆ زیادکردنی ڤیدیۆکانی {videoCount}
+      بۆی
+  Export Playlist: ئەم پەلیەیە بەرز بکەوە
+  SinglePlaylistView:
+    Toast:
+      This playlist is protected and cannot be removed.: ئەم لیستەی پەخشکردن پارێزراوە
+        و ناتوانرێت لاببرێت.
+      There was a problem with removing this video: کێشەیەک هەبوو لە لابردنی ئەم ڤیدیۆیە
+      This playlist is now used for quick bookmark: ئەم لیستەی پەخشکردن ئێستا بەکاردێت
+        بۆ نیشانەی خێرا
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: ئەم
+        لیستی پەخشکردنە ئێستا بەکاردێت بۆ نیشانەی خێرا لە جیاتی {oldPlaylistName}.
+        کرتە لێرە بکە بۆ پاشگەزبوونەوە
+      There was an issue with updating this playlist.: کێشەیەک هەبوو لە نوێکردنەوەی
+        ئەم لیستەی پەخشکردن.
+      Video has been removed: ڤیدیۆ لێدابەزێت
+      This playlist is already being used for quick bookmark.: ئەم لیستی پەخشکردنە
+        پێشتر بەکاردەهێنرێت بۆ نیشانەی خێرا.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: هەندێک
+        لە ڤیدیۆکان لە لیستی پەخشکردندا هێشتا بارنەکراون. کلیک لێرە بکە بۆ کۆپیکردن
+        بەهەرحاڵ.
+      Playlist name cannot be empty. Please input a name.: نابێت ناوی لیستی پەخشکردن
+        بەتاڵ بێت. تکایە ناوێک تێبنووسە.
+      This playlist has a video with a duration error: ئەم لیستەی پەخشکردنە بەلایەنی
+        کەمەوە یەک ڤیدیۆیی تێدایە کە ماوەکەی نییە، بەشێوەیەک پۆلێن دەکرێت کە ماوەی
+        سفری بێت.
+      Video has been removed. Click here to undo.: ڤیدیۆ لابرا. کرتە لێرە بکە بۆ پاشگەزبوونەوە.
+      This video cannot be moved up.: ئەم ڤیدیۆیە ناتوانرێت بەرز بکرێت.
+      This video cannot be moved down.: ئەم ویدیوە ناتوانرێت بەرەو خوار بەرز بکرێت.
+  CreatePlaylistPrompt:
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: لیستێکی
+        پەخشکردن هەیە بەم ناوە. تکایە ناوێکی تر هەڵبژێرە.
+      Playlist {playlistName} has been successfully created.: لیستی پەخشکردنی {playlistName}
+        بە سەرکەوتوویی دروستکرا.
+      There was an issue with creating the playlist.: کێشەیەک هەبوو لە دروستکردنی
+        لیستی پەخشکردن.
+  Enable Quick Bookmark With This Playlist: بەکار هێنانی بەرگەی خێرا لەگەڵ ئەم پەلییەستەیە
+  Remove Watched Videos: فیدیۆی تماشا کراوەکان لابەرەوە
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: تۆ
+    دڵنیایت کە دەتەوێت 1 ڤیدیۆی پەراویە لە ئەم لیستە پەخشیەوە؟ ئەمە ناتوانرێت بگۆرێت.
+    | تۆ دڵنیایت کە دەتەوێت {playlistItemCount} ڤیدیۆی پەراویە لە ئەم لیستە پەخشیەوە؟
+    ئەمە ناتوانرێت بگۆرێت.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: تۆ
+    دڵنیایت کە دەتەوێت 1 ڤیدیۆی بینراوی لە ئەم لیستە پەخشیەوە؟ ئەمە ناتوانرێت بەرەوپێش
+    بگێڕیت. | تۆ دڵنیایت کە دەتەوێت {playlistItemCount} ڤیدیۆی بینراوی لە ئەم لیستە
+    پەخشیەوە؟ ئەمە ناتوانرێت بەرەوپێش بگێڕیت.
+  Quick Bookmark Enabled: بەکارهێنانی تێبینی تێپەڕەوەی خێرا
+  Cannot delete the quick bookmark target playlist.: ناتوانرێت لیستە پەیوەندیدانی
+    بەرزەکانی خێرایی بێت.
+  Empty Search Message: لەو پەیجەی پلەی لیستەکاندا هیچ ڤیدیۆیەکی پەیوەندیدار بە گەڕانی
+    تۆ نییە
+  You have no playlists. Click on the create new playlist button to create a new one.: تۆ
+    هیچ لیستێکی پلەی نایدە. کرتە لەسەر کلیلەی "لیستی نوێ دروست بکە" بکە بۆ دروست کردنی
+    یەکە نوێ.
+  The playlist has been successfully exported: پەلیستەکە بە سەرکەوتویی بەرزراوە
+  Remove Duplicate Videos: ویدیوە دەرچووانەکان لاببرە
+  This playlist currently has no videos.: ئەم پەیجەی ڤیدیۆیە کە ئیستا هیچ ڤیدیۆیەکی
+    نییە.
+  Are you sure you want to delete this playlist? This cannot be undone: تۆ دڵنیایت
+    ئەو پەلیستە بسڕی؟ ئەمە ناتوانرێت بەرەوپێش بەرگردرێت.
 History:
   # On History Page
   History: 'مێژوو'
   Watch History: 'لیستی سەیرکراو'
   Your history list is currently empty.: 'لیستی سەیرکراوەکانت بەتاڵە.'
+  Empty Search Message: هیچ ڤیدیۆیەک لە مێژووەکەت نییە کە لەگەڵ گەڕانەکەت بگونجێت
 Settings:
   # On Settings Page
   Settings: 'دەستکاریکردن'
@@ -102,7 +187,34 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: 'گەڕانەوە بۆ سیستەمە ناخوازراوەکە
       لەکاتی فەشەلدا'
     Enable Search Suggestions: 'پێشنیارکردن بەکاربخە لەکاتی گەڕاندا'
-  Theme Settings: {}
+    Locale Preference: پەسەندکردنی ناوچەیی
+    Set Current Instance as Default: نمونەی ئێستا وەک گریمانەیی ڕێک بخە
+    Current instance will be randomized on startup: نمونەی ئێستا بە هەڕەمەکی دەکرێت
+      لە دەستپێک
+    Auto Load Next Page:
+      Label: بارکردنی خۆکار پەڕەی داهاتوو
+      Tooltip: بارکردنی لاپەڕە زیادەکان و لێدوانەکان بە شێوەیەکی خۆکار.
+    External Link Handling:
+      External Link Handling: چارەسەرکردنی لینکی دەرەکی
+      Ask Before Opening Link: پرسیار بکە پێش کردنەوەی بەستەر
+    Open Deep Links In New Window: بەستەرە کراوەکان لە پەنجەرەیەکی نوێدا نێردراون
+      بۆ FreeTube
+    No default instance has been set: هیچ حاڵەتێکی بنەڕەت دانەنراوە
+    Preferred API Backend:
+      Preferred API Backend: پشتەوەی پەسەندکراوی API
+    Video View Type:
+      Video View Type: جۆری پیشاندانی ڤیدیۆ
+    The currently set default instance is {instance}: نمونەی بنەڕەتی دانراوی ئێستاکە
+      بریتییە لە {instance}
+    Clear Default Instance: سڕینەوەی نموونەی گریمانەیی
+  Theme Settings:
+    Hide FreeTube Header Logo: شاردنەوەی لۆگۆی سەرپەڕەی FreeTube
+    Hide Side Bar Labels: شاردنەوەی پێناسەکانی شریتی تەنیشت
+    Match Top Bar with Main Color: بەراوردی شریتی لوتکە لەگەڵ ڕەنگی سەرەکی
+    Expand Side Bar by Default: فراوانکردنی شریتی تەنیشت بە گریمانەیی
+    Disable Smooth Scrolling: لەکارخستنی ڕاکێشانی نەرم
+    Base Theme:
+      Solarized Dark: تاریکی وزەی خۆر
   Player Settings: {}
   Data Settings:
     Unable to read file: 'ناتواندرێت فایلەکە بخوێندرێتەوە'
@@ -129,6 +241,7 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: ئەم
     ئەپڵیکەیشنە دەبێت دووبارە بکرێتەوە بۆ ئەوەی گۆڕانکارێکان بگانە ئەنجام. دووبارە
     کردنەوە و چەسپکردنی گۆڕانکارێکان؟
+  Return to Settings Menu: گەڕانەوە بۆ پێرستی ڕێکبەندەکان
 About:
   #On About page
   About: 'دەربارە'
@@ -183,3 +296,16 @@ Go to page: بڕۆ بۆ {page}
 Preferences: هەڵبژاردەکان
 Are you sure you want to open this link?: دڵنیایت دەتەوێت ئەم بەستەرە بکەیتەوە؟
 Open New Window: کردنەوەی پەنجەرەیەکی نوێ
+Channels:
+  Empty: لیست چەنالی تۆ ئێستا خالیە.
+Right-click or hold to see history: کلیک لە ڕاست یان هەڵبژاردن بەدوورەوە بۆ بینینی
+  مێژووی
+Search Listing:
+  Label:
+    New: نوێ
+    Subtitles: زیرنویسەکان
+    Closed Captions: نیشانی پەیوەندیدا بەرزراوەکان
+Close Banner: بەندەرەکە بند بکە
+Search Bar:
+  Clear Input: وەرگێرانی پەیوەندیدار
+  Remove: بەسەرچوون

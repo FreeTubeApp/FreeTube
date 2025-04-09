@@ -567,7 +567,7 @@ export default defineComponent({
     },
 
     setLocale: function() {
-      document.documentElement.setAttribute('lang', this.locale)
+      document.documentElement.lang = this.locale
       if (this.isLocaleRightToLeft) {
         document.body.dir = 'rtl'
       } else {

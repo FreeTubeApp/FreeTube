@@ -495,6 +495,15 @@ Settings:
     Remember Search History: تذكر سجل البحث
     Clear Search History and Cache: مسح سجل البحث وذاكرة التخزين المؤقت
     Search history and cache have been cleared: تم مسح سجل البحث وذاكرة التخزين المؤقت
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: آلي
+        Semi-auto: شبه آلي
+        Never: أبداً
+      Tooltip: 'تلقائي = حفظ عند كل خروج من صفحة الفيديو، عند انتهاء الفيديو وظهور
+        خطأ (مثلاً: معدل محدود أو انتهاء جلسة المشاهدة). شبه تلقائي = يُشبه الوضع
+        التلقائي إلا عند الخروج من صفحة الفيديو، ويمكن حفظ التقدم يدويًا عبر زر "حفظ
+        تقدم المشاهدة" الموجود أسفل مشغل الفيديو.'
   Subscription Settings:
     Subscription Settings: 'الاشتراك'
     Hide Videos on Watch: 'أخفِ الفيديوهات عند مشاهدتها'
@@ -955,6 +964,8 @@ Video:
   DRMProtected: لا يمكن تشغيل مقاطع الفيديو المحمية بنظام إدارة الحقوق الرقمية في
     FreeTube، لأنها تتطلب مكونات خاصة ومغلقة المصدر. إذا كنت ترغب في مشاهدة هذا الفيديو،
     فيرجى مشاهدته على موقع يوتيوب الرسمي في متصفح ويب يدعم إدارة الحقوق الرقمية.
+  Save Watched Progress: حفظ التقدم الذي تمت مشاهدته
+  Watched Progress Saved: تم مشاهدة التقدم المحفوظ
 Playlist:
   #& About
   View Full Playlist: 'عرض قائمة التشغيل بالكامل'
