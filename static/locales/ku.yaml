@@ -215,6 +215,12 @@ Settings:
     Disable Smooth Scrolling: لەکارخستنی ڕاکێشانی نەرم
     Base Theme:
       Solarized Dark: تاریکی وزەی خۆر
+      Everforest Dark Hard: ئێڤەرفۆرێست دارک هارد
+      Everforest Dark Medium: هەمیشە دارستانی تاریکی مامناوەند
+      Everforest Dark Low: ئێڤەرفۆرێست دارک نزم
+      Solarized Light: ڕووناکی وزەی خۆر
+    Main Color Theme:
+      Main Color Theme: تێمی ڕەنگی سەرەکی
   Player Settings: {}
   Data Settings:
     Unable to read file: 'ناتواندرێت فایلەکە بخوێندرێتەوە'
