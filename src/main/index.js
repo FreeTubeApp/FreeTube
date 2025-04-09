@@ -617,7 +617,7 @@ function runApp() {
       if (!removeWindow) {
         trayWindows.push(window)
         createTrayContextMenu()
-      } else if (trayWindows.find(item => item.id === window.id)) {
+      } else if (trayWindows.some(item => item.id === window.id)) {
         trayClick(window)
       }
     } else {
@@ -645,7 +645,7 @@ function runApp() {
     if (!close) {
       window.show()
     } else if (trayWindows.length) {
-      window.destroy()
+      window.close()
     }
 
     trayWindows.splice(trayWindows.findIndex(item => item.id === window.id), 1)
@@ -1817,7 +1817,7 @@ function runApp() {
 
   function handleQuit() {
     cleanUpResources().finally(() => {
-      mainWindow.destroy()
+      mainWindow.close()
       if (process.platform !== 'darwin') {
         app.quit()
       }
