@@ -138,7 +138,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 /* Dark shadow color for themes where a light shadow would not work */
-.system[data-system-theme*='light'],
 .light {
   --primary-shadow-color: rgb(200 200 200 / 75%);
 }
