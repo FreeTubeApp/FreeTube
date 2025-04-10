@@ -20,7 +20,7 @@ Force Reload: 'Tving gjeninnlasting'
 Toggle Developer Tools: 'Utviklerverktøy'
 Actual size: 'Faktisk størrelse'
 Zoom in: 'Zoom inn'
-Zoom out: 'Forminsk'
+Zoom out: 'Zoom ut'
 Toggle fullscreen: 'Fullskjermsvisning'
 Window: 'Vindu'
 Minimize: 'Minimer'
@@ -46,7 +46,7 @@ Global:
     Video Count: 1 video | {count} videoer
     View Count: 1 visning | {count} visninger
     Like Count: 1 liker | {count} liker
-Search / Go to URL: 'Søk/gå til nettadresse'
+Search / Go to URL: 'Søk / gå til nettadresse'
   # In Filter Button
 Search Filters:
   Search Filters: 'Søkefiltre'
@@ -92,38 +92,40 @@ Search Filters:
     4K: 4K
     Location: Sted
     HDR: HDR
-    Features: Egenskaper
+    Features: Funksjoner
     360 Video: 360 Video
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementer'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Du
-    har ikke lagt til noen abonnementer i listen din. Legg til noen for å se dem her.'
+    har ikke lagt til noen abonnementer i listen din. Hvis du vil importere abonnementene
+    dine, kan du gå til «Datainnstillinger» og velge «Importer abonnementer», eller
+    så kan du søke etter en kanal og abonnere på dem.'
   Load More Videos: Last inn flere videoer
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne
-    profilen har mange abonnementer. Påtvinger RSS for å unngå adgangsbegrensning
+    profilen har mange abonnementer. Tvinger bruk av RSS for å unngå adgangsbegrensning
   Error Channels: Kanaler med feil
-  Disabled Automatic Fetching: Automatisk innhenting av abonnementer avskrudd. Gjenoppfrisk
-    abonnementer for å se dem her.
-  Empty Channels: Ingen videoer fra kanaler du abonnerer på enda.
+  Disabled Automatic Fetching: Du har skrudd av automatisk innhenting av abonnementer.
+    Gjenoppfrisk abonnementer for å se dem her.
+  Empty Channels: De kanalene du abonnerer på har for øyeblikket ingen videoer.
   Subscriptions Tabs: Abonnementsfaner
-  All Subscription Tabs Hidden: Alle abonnementsfaner er skjult. Opphev skjuling av
-    noen faner i «{subsection}»-delen av «{settingsSection}» for å vise innhold her.
+  All Subscription Tabs Hidden: Alle abonnementsfaner er skjult. For å vise innhold
+    her, opphev skjuling av noen faner i «{subsection}»-delen av «{settingsSection}».
   Empty Posts: Kanalene du abonnerer på, har ikke noen innlegg for øyeblikket.
   Load More Posts: Last inn flere poster
 Trending:
   Trending: 'På vei opp'
   Trending Tabs: På vei opp-faner
   Movies: Filmer
-  Gaming: Dataspill
+  Gaming: Videospill
   Music: Musikk
-  Default: Forvalg
-Most Popular: 'Mest populært'
+  Default: Standard
+Most Popular: 'Mest populære'
 Playlists: 'Spillelister'
 User Playlists:
   Your Playlists: 'Dine spillelister'
   Empty Search Message: Ingen videoer i denne spillelisten samsvarer med søket ditt
-  Search bar placeholder: Søk i spilleliste
+  Search bar placeholder: Søk etter spillelister
   SinglePlaylistView:
     Toast:
       This playlist does not exist: Denne spillelisten finnes ikke
@@ -183,9 +185,9 @@ User Playlists:
     Select a playlist to add your N videos to: Velg en spilleliste å legge videoen
       til | Velg en spilleliste å legge dine {videoCount} videoer til
   Cancel: Avbryt
-  Add to Playlist: Legg til spilleliste
-  This playlist currently has no videos.: Denne spillelisten har ikke noen videoer
-    for øyeblikket.
+  Add to Playlist: Legg til i spilleliste
+  This playlist currently has no videos.: Denne spillelisten har ingen videoer for
+    øyeblikket.
   Export Playlist: Eksporter denne spillelisten
   Sort By:
     EarliestCreatedFirst: Tidligst opprettet
@@ -202,9 +204,9 @@ User Playlists:
   Playlist Description: Beskrivelse på spilleliste
   Save Changes: Lagre endringer
   Copy Playlist: Kopier spilleliste
-  Playlist Name: Navn på spilleliste
+  Playlist Name: Spillelistenavn
   Remove Watched Videos: Fjern sette videoer
-  Playlists with Matching Videos: Spillelister med like videoer
+  Playlists with Matching Videos: Spillelister med videoer som matcher
   Create New Playlist: Opprett ny spilleliste
   Remove from Favorites: Fjern fra {playlistName}
   The playlist has been successfully exported: Spillelisten ble eksportert
@@ -219,11 +221,11 @@ User Playlists:
         finnes allerede en spilleliste med det navnet. Vennligst velg et annet navn.
       Playlist {playlistName} has been successfully created.: Spillelisten {playlistName}
         har blitt opprettet.
-  Edit Playlist Info: Endre informasjon til spilleliste
+  Edit Playlist Info: Endre spillelisteinfo
   Remove Duplicate Videos: Fjern duplikatvideoer
   Remove from Playlist: Fjern fra spilleliste
   You have no playlists. Click on the create new playlist button to create a new one.: Du
-    har ingen spillelister. Trykk på plusstegnet for å opprette en ny en.
+    har ingen spillelister. Trykk på knappen for å lage en ny.
   Are you sure you want to delete this playlist? This cannot be undone: Er du sikker
     på at du vil fjerne denne spillelisten? Dette kan ikke bli omgjort.
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Er
@@ -1061,7 +1063,7 @@ Channels:
   Search bar placeholder: Søk i kanaler
   Count: Fant {number} kanal(er).
   Empty: Kanallisten din er tom.
-  Unsubscribe Prompt: Opphev abonnement på «{channelName}»?
+  Unsubscribe Prompt: Er du sikker på at du ikke lenger vil abonnere på «{channelName}»?
 Chapters:
   Chapters: Kapitler
   'Chapters list visible, current chapter: {chapterName}': 'Kapittelliste synlig.
@@ -1098,7 +1100,7 @@ Search Listing:
     3D: 3D
 Feed:
   Refresh Feed: Oppdater {subscriptionName}
-  Feed Last Updated: '{feedName} feed sist oppdatert: {date}'
+  Feed Last Updated: '{feedName} sist oppdatert: {date}'
 Yes, Delete: Ja, slett
 Keys:
   alt: Alt
@@ -1118,7 +1120,8 @@ shortcutJoinOperator: +
 Yes, Open Link: Ja, åpne lenke
 Display Label: '{label}: {value}'
 Go to page: Gå til {page}
-Search character limit: Spørringen er over tegngrensen på {searchCharacterLimit}
+Search character limit: Søket ditt har for mange tegn. Grensen er på {searchCharacterLimit}
+  tegn
 KeyboardShortcutPrompt:
   Last Chapter: Forrige kapittel
   Next Chapter: Neste kapittel
