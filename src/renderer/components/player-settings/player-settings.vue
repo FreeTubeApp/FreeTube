@@ -151,7 +151,7 @@
         :label="$t('Settings.Player Settings.Default Playback Rate')"
         :default-value="defaultPlayback"
         :min-value="parseFloat(videoPlaybackRateInterval)"
-        :max-value="8"
+        :max-value="maxVideoPlaybackRate"
         :step="parseFloat(videoPlaybackRateInterval)"
         value-extension="x"
         @change="updateDefaultPlayback"
