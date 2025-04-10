@@ -161,6 +161,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-text-color: #212121;
   --secondary-text-color: #424242;
   --tertiary-text-color: #757575;
+  --primary-shadow-color: rgb(200 200 200 / 75%);
   --title-color: #3f7ac6;
   --bg-color: #f1f1f1;
   --favorite-icon-color: #0c0;
