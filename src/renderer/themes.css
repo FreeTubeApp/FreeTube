@@ -137,11 +137,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-shadow-color: rgb(255 255 255 / 75%);
 }
 
-/* Dark shadow color for themes where a light shadow would not work */
-.light {
-  --primary-shadow-color: rgb(200 200 200 / 75%);
-}
-
 /* Light theme Youtube and Invidious logo styling (in FtShareButton) */
 .invidiousLogo {
   background-image: url('./assets/img/invidious-logo-light.svg');
