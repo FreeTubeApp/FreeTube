@@ -45,6 +45,7 @@ Global:
     Subscriber Count: 1 συνδρομητής | {count} συνδρομητές
     View Count: 1 προβολή | {count} προβολές
     Watching Count: 1 παρακολούθηση | {count} παρακολουθούν
+    Comment Count: 1 σχόλιο | {count} σχόλια
 Search / Go to URL: 'Αναζήτηση/Μετάβαση σε URL'
   # In Filter Button
 Search Filters:
@@ -82,6 +83,17 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Δεν υπάρχουν άλλα αποτελέσματα για αυτήν
     την αναζήτηση
+  Features:
+    Live: Ζωντανά
+    4K: 4K
+    Subtitles: Υπότιτλοι
+    3D: 3D
+    Location: Τοποθεσία
+    360 Video: 360 Βίντεο
+    HDR: ΥΔΕ
+    VR180: VR180
+    Features: Χαρακτηριστικά
+    HD: Y.E.
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Συνδρομές'
@@ -879,6 +891,7 @@ Unknown YouTube url type, cannot be opened in app: Άγνωστος τύπος �
   δεν είναι δυνατό να ανοίξει στην εφαρμογή
 Search Bar:
   Clear Input: Εκκαθάριση εισαγωγής
+  Remove: Αφαίρεση
 Open New Window: Άνοιγμα Νέου παραθύρου
 Default Invidious instance has been set to {instance}: Το προεπιλεγμένο στιγμιότυπο
   Invidious έχει οριστεί σε {instance}
@@ -919,3 +932,16 @@ Hashtag:
 Channel Hidden: Το {channel} προστέθηκε στο φίλτρο καναλιού
 Go to page: Μετάβαση σε {page}
 Channel Unhidden: Το {channel} καταργήθηκε από το φίλτρο καναλιού
+Search Listing:
+  Label:
+    4K: 4K
+    Subtitles: Υπότιτλοι
+    Closed Captions: Κλειστές λεζάντες
+    360 Video: 360°
+    8K: 8Κ
+    VR180: VR180
+    New: Νέα
+    3D: 3D
+Search character limit: Το ερώτημα αναζήτησης είναι πάνω από το αναζητήσημο όριο χαρακτήρα
+Right-click or hold to see history: Δεξί κλικ ή κράτηστε για να δείτε το ιστορικό
+Close Banner: Κλείσιμο Βanner
