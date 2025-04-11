@@ -188,6 +188,9 @@ User Playlists:
         ακόμα.
       "{videoCount} video(s) added to 1 playlist": 1 βίντεο προστέθηκε σε 1 λίστα
         αναπαραγωγής | {videoCount} βίντεο που προστέθηκαν σε 1 λίστα αναπαραγωγής
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 βίντεο προστέθηκε
+        στις λίστες αναπαραγωγής {playlistCount} | {videoCount} βίντεο προστέθηκε
+        στις λίστες αναπαραγωγής {playlistCount}
     Allow Adding Duplicate Video(s): Επίτρεψε την προσθήκη διπλών βίντεο( ών)
     Added {count} Times: Προστέθηκε ήδη | Προστέθηκε {count} Φορές
     Save: Αποθήκευση
@@ -371,6 +374,29 @@ Settings:
       Catppuccin Mocha Maroon: Κατπουτσίν Μόκα Μαρούν
       Catppuccin Mocha Peach: Κατπουτσίν Μόκα Ροδάκινο
       Catppuccin Mocha Yellow: Κατπουτσίν Μόκα Κίτρινο
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Ροδόνερο
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Φλαμίνγκο
+      Catppuccin Frappe Pink: Catppuccin Frappe Ροζ
+      Catppuccin Frappe Lavender: Catppuccin Frappe Λεβάντα
+      Gruvbox Light Purple: Gruvbox Ανοιχτό Μοβ
+      Gruvbox Dark Green: Gruvbox Σκούρο Πράσινο
+      Catppuccin Frappe Peach: Catppuccin Frappe Ροδάκινο
+      Catppuccin Frappe Blue: Catppuccin Frappe Μπλε
+      Catppuccin Frappe Red: Catppuccin Frappe Κόκκινο
+      Catppuccin Frappe Maroon: Catppuccin Frappe καφέ
+      Catppuccin Frappe Yellow: Catppuccin Frappe Κίτρινο
+      Catppuccin Frappe Teal: Catppuccin Frappe Γαλαζοπράσινο
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Ζαφείρι
+      Gruvbox Dark Yellow: Gruvbox Σκούρο Κίτρινο
+      Gruvbox Dark Blue: Gruvbox Σκούρο Μπλε
+      Gruvbox Dark Purple: Gruvbox Σκούρο Μοβ
+      Gruvbox Dark Aqua: Gruvbox Σκούρο Aqua
+      Gruvbox Dark Orange: Gruvbox Σκούρο Πορτοκαλί
+      Gruvbox Light Red: Gruvbox Ανοιχτό Κόκκινο
+      Gruvbox Light Blue: Gruvbox Ανοιχτό Μπλε
+      Gruvbox Light Orange: Gruvbox Ανοιχτό Πορτοκαλί
+      Catppuccin Frappe Green: Catppuccin Frappe Πράσινο
+      Catppuccin Frappe Sky: Catppuccin Frappe Ουρανός
     Secondary Color Theme: 'Δευτερεύων Χρώμα Θέματος'
         #* Main Color Theme
     UI Scale: Μέγεθος κλίμακας διεπαφής χρήστη
