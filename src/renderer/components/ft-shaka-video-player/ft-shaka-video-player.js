@@ -1235,8 +1235,8 @@ export default defineComponent({
       pipWindowHeight.value = pipWindow.height * devicePixelRatio
     }
 
-    const playerWidth = computed(() => pipWindowWidth.value ?? videoElementWidth.value)
-    const playerHeight = computed(() => pipWindowHeight.value ?? videoElementHeight.value)
+    const playerWidth = computed(() => Math.round(pipWindowWidth.value ?? videoElementWidth.value))
+    const playerHeight = computed(() => Math.round(pipWindowHeight.value ?? videoElementHeight.value))
 
     // #endregion video event handlers
 
