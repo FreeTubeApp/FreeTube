@@ -33,7 +33,7 @@ Forward: 'Μετάβαση μπροστά'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Βίντεο'
-  Shorts: Shorts
+  Shorts: Σύντομα Βίντεο
   Live: Ζωντανά
   Community: Κοινότητα
   Sort By: 'Ταξινόμηση κατά'
@@ -46,6 +46,7 @@ Global:
     View Count: 1 προβολή | {count} προβολές
     Watching Count: 1 παρακολούθηση | {count} παρακολουθούν
     Comment Count: 1 σχόλιο | {count} σχόλια
+    Like Count: 1 Μου αρρέσει | {count} Μου αρρέσει
 Search / Go to URL: 'Αναζήτηση/Μετάβαση σε URL'
   # In Filter Button
 Search Filters:
@@ -90,16 +91,18 @@ Search Filters:
     3D: 3D
     Location: Τοποθεσία
     360 Video: 360 Βίντεο
-    HDR: ΥΔΕ
+    HDR: HDR
     VR180: VR180
     Features: Χαρακτηριστικά
-    HD: Y.E.
+    HD: HD
+    Creative Commons: Κοινά Δημιουργήματα
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Συνδρομές'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Η
-    λίστα Συνδρομών σας είναι προς το παρόν κενή. Προσθέστε Συνδρομές για να εμφανιστούν
-    εδώ.'
+    λίστα Συνδρομών σας είναι προς το παρόν κενή. Αν θέλετε να εισάγετε τις συνδρομές
+    σας μπορείτε να μεταβείτε στις Ρυθμίσεις Δεδομένων και να επιλέξετε Εισαγωγή Συνδρομών
+    ή μπορείτε να αναζητήσετε ένα κανάλι και να εγγραφείτε σε αυτό.'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Αυτό
     το προφίλ διαθέτει ήδη ένα μεγάλο αριθμό Συνδρομών. Εξαναγκασμένη εναλλαγή σε
     λειτουργία RSS για αποφυγή περιορισμού των κλήσεων
@@ -125,9 +128,113 @@ Most Popular: 'Δημοφιλέστερα'
 Playlists: 'Λίστες αναπαραγωγής'
 User Playlists:
   Your Playlists: 'Προσωπικές Λίστες αναπαραγωγής'
-  Search bar placeholder: Αναζήτηση στη λίστα αναπαραγωγής
-  Empty Search Message: Δεν υπάρχουν βίντεο σε αυτήν τη λίστα αναπαραγωγής που να
-    ταιριάζουν με την αναζήτησή σας
+  Search bar placeholder: Αναζήτηση λίστες αναπαραγωγής
+  Empty Search Message: Δεν υπάρχουν βίντεο σε αυτή τη λίστα αναπαραγωγής που να ταιριάζουν
+    με την αναζήτησή σας
+  SinglePlaylistView:
+    Toast:
+      There were no videos to remove.: Δεν υπήρχαν βίντεο για αφαίρεση.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Αυτή
+        η λίστα αναπαραγωγής χρησιμοποιεί τώρα γρήγορο σελιδοδείκτη αντί για {oldPlaylistName}.
+        Κάντε κλικ εδώ για αναίρεση
+      This playlist does not exist: Αυτή η λίστα αναπαραγωγής δεν υπάρχει
+      This playlist is already being used for quick bookmark.: Αυτή η λίστα αναπαραγωγής
+        χρησιμοποιεί ήδη για γρήγορο σελιδοδείκτη.
+      This video cannot be moved down.: Αυτό το βίντεο δεν μπορεί να μετακινηθεί κάτω.
+      Playlist {playlistName} has been deleted.: Η λίστα αναπαραγωγής {playlistName}
+        έχει διαγραφεί.
+      There was an issue with updating this playlist.: Υπήρχε ένα θέμα με την ενημέρωση
+        της λίστας αναπαραγωγής.
+      Video has been removed. Click here to undo.: Το βίντεο έχει αφαιρεθεί. Κάντε
+        κλικ εδώ για να αναιρέσετε.
+      This video cannot be moved up.: Αυτό το βίντεο δεν μπορεί να μετακινηθεί πάνω.
+      Video has been removed: Το βίντεο έχει αφαιρεθεί
+      There was a problem with removing this video: Υπήρχε ένα πρόβλημα με την αφαίρεση
+        αυτού του βίντεο
+      This playlist is now used for quick bookmark: Αυτή η λίστα αναπαραγωγής χρησιμοποιείται
+        τώρα με γρήγορο σελιδοδείκτη
+      Reverted to use {oldPlaylistName} for quick bookmark: Επαναφορά χρήσης {oldPlaylistName}
+        για γρήγορο σελιδοδείκτη
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Μερικά
+        βίντεο στη λίστα αναπαραγωγής δεν έχουν φορτωθεί ακόμα. Κάντε κλικ εδώ για
+        να αντιγράψετε ούτως ή άλλως.
+      Playlist name cannot be empty. Please input a name.: Το όνομα λίστας αναπαραγωγής
+        δεν μπορεί να είναι κενό. Παρακαλώ εισάγετε ένα όνομα.
+      Playlist has been updated.: Η λίστα αναπαραγωγής ενημερώθηκε.
+      "{videoCount} video(s) have been removed": 1 βίντεο έχει αφαιρεθεί | {videoCount}
+        Τα βίντεο έχουν αφαιρεθεί
+      This playlist is protected and cannot be removed.: Αυτή η λίστα αναπαραγωγής
+        προστατεύεται και δεν μπορεί να αφαιρεθεί.
+      This playlist has a video with a duration error: Αυτή η λίστα περιέχει τουλάχιστον
+        ένα βίντεο το οποίο δεν έχει διάρκεια, θα ταξινομηθεί σαν η διάρκεια του να
+        είναι μηδενική.
+    Search for Videos: Αναζήτηση για βίντεο
+  Playlists with Matching Videos: Λίστες αναπαραγωγής με βίντεο που ταιριάζουν
+  Sort By:
+    NameAscending: Α-Ζ
+    NameDescending: Ζ-Α
+    EarliestCreatedFirst: Δημιουργήθηκε Νωρίτερα
+    LatestCreatedFirst: Δημιουργήθηκε Πρόσφατα
+    LatestPlayedFirst: Πρόσφατα Παίχτηκε
+    EarliestUpdatedFirst: Ενημερώθηκε Νωρίτερα
+    EarliestPlayedFirst: Νωρίτερα Παίχτηκε
+    LatestUpdatedFirst: Πρόσφατα Ενημερώθηκε
+  Are you sure you want to delete this playlist? This cannot be undone: Σίγουρα θέλετε
+    να διαγράψετε αυτή τη λίστα αναπαραγωγής; Αυτό δεν μπορεί να αναιρεθεί.
+  AddVideoPrompt:
+    Search in Playlists: Αναζήτηση σε λίστες αναπαραγωγής
+    Toast:
+      You haven't selected any playlist yet.: Δεν έχετε επιλέξει καμία λίστα αναπαραγωγής
+        ακόμα.
+      "{videoCount} video(s) added to 1 playlist": 1 βίντεο προστέθηκε σε 1 λίστα
+        αναπαραγωγής | {videoCount} βίντεο που προστέθηκαν σε 1 λίστα αναπαραγωγής
+    Allow Adding Duplicate Video(s): Επίτρεψε την προσθήκη διπλών βίντεο( ών)
+    Added {count} Times: Προστέθηκε ήδη | Προστέθηκε {count} Φορές
+    Save: Αποθήκευση
+    Select a playlist to add your N videos to: Επιλέξτε μια λίστα αναπαραγωγής για
+      να | Επιλέξτε μια λίστα για να προσθέσετε το {videoCount} βίντεο για
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Τα βίντεο έχουν ήδη προστεθεί'
+    N playlists selected: '{playlistCount}Επιλεγμένα'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Θα προστεθούν βίντεο'
+  Export Playlist: Εξαγωγή αυτής της λίστας αναπαραγωγής
+  The playlist has been successfully exported: Η λίστα αναπαραγωγής έχει εξαχθεί επιτυχώς
+  Delete Playlist: Διαγραφή λίστας αναπαραγωγής
+  Playlist Description: Περιγραφή λίστας αναπαραγωγής
+  Cancel: Ακύρωση
+  Move Video Down: Μετακίνηση βίντεο κάτω
+  Remove from Favorites: Αφαίρεση από {playlistName}
+  Add to Playlist: Προσθήκη στη λίστα αναπαραγωγής
+  Add to Favorites: Προσθήκη στην{playlistName}
+  Save Changes: Αποθήκευση αλλαγών
+  Cannot delete the quick bookmark target playlist.: Αδυναμία διαγραφής γρήγορης λίστας
+    αναπαραγωγής σελιδοδεικτών.
+  Quick Bookmark Enabled: Γρηγορός σελιδοδείκτης ενεργός
+  Playlist Name: Όνομα λίστας αναπαραγωγής
+  Remove Watched Videos: Αφαίρεση Παρακολουθημένων Βίντεο
+  Move Video Up: Μετακίνηση βίντεο πάνω
+  Remove Duplicate Videos: Αφαίρεση διπλών βίντεο
+  Edit Playlist Info: Επεξεργασία πληροφοριών λίστας αναπαραγωγής
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Είστε
+    σίγουροι ότι θέλετε να αφαιρέσετε 1 παρακολουθημένο βίντεο από αυτή τη λίστα αναπαραγωγής;
+    Αυτό δεν μπορεί να αναιρεθεί. Είστε σίγουροι ότι θέλετε να αφαιρέσετε τα βίντεο
+    από αυτή τη λίστα; Αυτό δεν μπορεί να αναιρεθεί.
+  Remove from Playlist: Αφαίρεση από τη λίστα αναπαραγωγής
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Είστε
+    σίγουροι ότι θέλετε να αφαιρέσετε 1 διπλό βίντεο από αυτή τη λίστα αναπαραγωγής;
+    Αυτό δεν μπορεί να αναιρεθεί. Είστε σίγουροι ότι θέλετε να αφαιρέσετε {λίστα αναπαραγωγήςItemCount}
+    διπλά βίντεο από αυτή τη λίστα; Αυτό δεν μπορεί να αναιρεθεί.
+  This playlist currently has no videos.: Αυτή η λίστα αναπαραγωγής προς το παρόν
+    δεν έχει βίντεο.
+  Create New Playlist: Δημιουργία νέας λίστας αναπαραγωγής
+  TotalTimePlaylist: 'Συνολικός χρόνος: {διάρκεια}'
+  Enable Quick Bookmark With This Playlist: Ενεργοποίηση γρήγορου σελιδοδείκτη με
+    αυτή τη λίστα αναπαραγωγής
+  You have no playlists. Click on the create new playlist button to create a new one.: Δεν
+    έχεις λίστες αναπαραγωγής. Κάντε κλικ στο κουμπί Δημιουργία νέας λίστας αναπαραγωγής
+    για να δημιουργήσετε μία νέα.
+  Copy Playlist: Αντιγραφή λίστας αναπαραγωγής
 History:
   # On History Page
   History: 'Ιστορικό'
@@ -141,7 +248,7 @@ Settings:
   # On Settings Page
   Settings: 'Ρυθμίσεις'
   General Settings:
-    General Settings: 'Γενικές ρυθμίσεις'
+    General Settings: 'Γενικά'
     Fallback to Non-Preferred Backend on Failure: 'Εναλλαγή σε μη προτιμώμενο σύστημα
       υποστήριξης σε περίπτωση αποτυχίας'
     Enable Search Suggestions: 'Ενεργοποίηση προτάσεων αναζήτησης'
@@ -185,7 +292,7 @@ Settings:
     Set Current Instance as Default: Ορίστε τον τρέχων διακομιστή ως προεπιλεγμένο
     Clear Default Instance: Εκκαθάριση Προεπιλεγμένου διακομιστή
   Theme Settings:
-    Theme Settings: 'Ρυθμίσεις Θεμάτων'
+    Theme Settings: 'Θέματα'
     Match Top Bar with Main Color: 'Αντιστοίχηση Κύριου Χρώματος με την Μπάρα Κορυφής'
     Base Theme:
       Base Theme: 'Βασικό Θέμα'
@@ -194,7 +301,7 @@ Settings:
       Light: 'Φωτεινό'
       Dracula: 'Δράκουλας'
       System Default: Προεπιλογή Συστήματος
-      Catppuccin Mocha: Catppuccin Mocha
+      Catppuccin Mocha: Κατπουτσίνο Μόκα
       Pastel Pink: Παστέλ Ρόζ
       Hot Pink: Ζεστό Ρόζ
     Main Color Theme:
@@ -222,20 +329,20 @@ Settings:
       Dracula Purple: 'Δράκουλας Μωβ'
       Dracula Red: 'Δράκουλας Κόκκινο'
       Dracula Yellow: 'Δράκουλας Κίτρινο'
-      Catppuccin Mocha Teal: Catppuccin Mocha Teal
-      Catppuccin Mocha Green: Catppuccin Mocha Green
-      Catppuccin Mocha Sky: Catppuccin Mocha Sky
-      Catppuccin Mocha Blue: Catppuccin Mocha Blue
-      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
-      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
-      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
-      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
-      Catppuccin Mocha Pink: Catppuccin Mocha Pink
-      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
-      Catppuccin Mocha Red: Catppuccin Mocha Red
-      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
-      Catppuccin Mocha Peach: Catppuccin Mocha Peach
-      Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
+      Catppuccin Mocha Teal: Κατπουτσίν Μόκα Teal
+      Catppuccin Mocha Green: Κατπουτσίν Μόκα Πράσινο
+      Catppuccin Mocha Sky: Κατπουτσίν Μόκα του Ουρανού
+      Catppuccin Mocha Blue: Κατπουτσίν Μόκα μπλε
+      Catppuccin Mocha Sapphire: Κατπουτσίν Μόκα του Ζαφειριού
+      Catppuccin Mocha Lavender: Κατπουτσίν Μόκα Λεβάντα
+      Catppuccin Mocha Rosewater: Κατπουτσίνο Μόκα Ροδόνερο
+      Catppuccin Mocha Flamingo: Κατπουτσίνο Μόκα Φλαμίνγκο
+      Catppuccin Mocha Pink: Κατπουτσίνο Μόκα Ροζ
+      Catppuccin Mocha Mauve: Κατπουτσίν Μόκα Μωβ
+      Catppuccin Mocha Red: Κατπουτσίν Μόκα Κόκκινο
+      Catppuccin Mocha Maroon: Κατπουτσίν Μόκα Μαρούν
+      Catppuccin Mocha Peach: Κατπουτσίν Μόκα Ροδάκινο
+      Catppuccin Mocha Yellow: Κατπουτσίν Μόκα Κίτρινο
     Secondary Color Theme: 'Δευτερεύων Χρώμα Θέματος'
         #* Main Color Theme
     UI Scale: Μέγεθος κλίμακας διεπαφής χρήστη
@@ -244,12 +351,12 @@ Settings:
     Hide Side Bar Labels: Απόκρυψη ετικετών πλευρικής γραμμής
     Hide FreeTube Header Logo: Απόκρυψη Λογότυπου Κεφαλίδας FreeTube
   Player Settings:
-    Player Settings: 'Ρυθμίσεις προγράμματος αναπαραγωγής'
-    Play Next Video: 'Αναπαραγωγή επόμενου Βίντεο'
+    Player Settings: 'Πρόγραμμα αναπαραγωγής'
+    Play Next Video: 'Αναπαραγωγή Προτεινόμενου Βίντεο'
     Turn on Subtitles by Default: 'Ενεργοποίηση υπότιτλων από προεπιλογή'
-    Autoplay Videos: 'Αυτόματη αναπαραγωγή βίντεο'
+    Autoplay Videos: 'Εκκίνηση Αυτόματης αναπαραγωγής βίντεο'
     Proxy Videos Through Invidious: 'Βίντεο μέσω του διακομιστή μεσολάβησης Invidious'
-    Autoplay Playlists: 'Αυτόματη αναπαραγωγή της λίστας αναπαραγωγής'
+    Autoplay Playlists: 'Αυτόματη αναπαραγωγή Βίντεο λίστας αναπαραγωγής'
     Enable Theatre Mode by Default: 'Ενεργοποίηση λειτουργίας κινηματογράφου από προεπιλογή'
     Default Volume: 'Προεπιλεγμένο επίπεδο έντασης'
     Default Playback Rate: 'Προεπιλεγμένη ταχύτητα αναπαραγωγής'
@@ -270,7 +377,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Επόμενο διάστημα του βίντεο
+    Next Video Interval: Αντίστροφη μέτρηση αυτόματης αναπαραγωγής
     Scroll Volume Over Video Player: Αυξομείωση έντασης ήχου με κύλιση πάνω στο πρόγραμμα
       αναπαραγωγής βίντεο
     Display Play Button In Video Player: Εμφάνιση του κουμπιού αναπαραγωγής στο πρόγραμμα
@@ -300,8 +407,8 @@ Settings:
     Enter Fullscreen on Display Rotate: Μετάβαση στην Πλήρη Οθόνη κατά την Περιστροφή
       Οθόνης
   Privacy Settings:
-    Privacy Settings: 'Ρυθμίσεις απορρήτου'
-    Remember History: 'Διατήρηση ιστορικού'
+    Privacy Settings: 'Ιδιωτικότητα'
+    Remember History: 'Διατήρηση Ιστορικού Παρακολούθησης'
     Save Watched Progress: 'Αποθήκευση προόδου βίντεο'
     Clear Search Cache: 'Εκκαθάριση της προσωρινής μνήμης αναζήτησης'
     Are you sure you want to clear out your search cache?: 'Είστε βέβαιοι ότι θέλετε
@@ -318,12 +425,12 @@ Settings:
     Save Watched Videos With Last Viewed Playlist: Αποθήκευση Βίντεο που Παρακολουθήσατε
       Με τη Λίστα Αναπαραγωγής Τελευταίας Προβολής
   Subscription Settings:
-    Subscription Settings: 'Ρυθμίσεις Συνδρομών'
+    Subscription Settings: 'Συνδρομές'
     Hide Videos on Watch: 'Απόκρυψη των βίντεο κατά την αναπαραγωγή'
     Fetch Feeds from RSS: 'Φόρτωση τροφοδοσίας RSS'
     Fetch Automatically: Αυτόματη Λήψη Τροφοδοσίας
   Data Settings:
-    Data Settings: 'Ρυθμίσεις Δεδομένων'
+    Data Settings: 'Δεδομένα'
     Select Export Type: 'Επιλογή Τρόπου Εξαγωγής'
     Import Subscriptions: 'Εισαγωγή Συνδρομών'
     Export Subscriptions: 'Εξαγωγή Συνδρομών'
@@ -368,7 +475,7 @@ Settings:
     Playlist File: Αρχείο Λίστας Αναπαραγωγής
 
   Distraction Free Settings:
-    Distraction Free Settings: Ρυθμίσεις απόσπασης προσοχής
+    Distraction Free Settings: Χωρίς απόσπαση
     Hide Live Chat: Απόκρυψη Ζωντανής συνομιλίας
     Hide Popular Videos: Απόκρυψη δημοφιλών βίντεο
     Hide Trending Videos: Απόκρυψη των βίντεο Τάσεις
@@ -387,8 +494,8 @@ Settings:
     Hide Comments: Απόκρυψη Σχολίων
     Hide Chapters: Απόκρυψη Κεφαλαίων
     Hide Video Description: Απόκρυψη Περιγραφής Βίντεο
-    Display Titles Without Excessive Capitalisation: Εμφάνιση Τίτλων Χωρίς Υπερβολική
-      Χρήση Κεφαλαίων
+    Display Titles Without Excessive Capitalisation: Εμφάνιση τίτλων χωρίς υπερβολική
+      κεφαλαιοποίηση και στίξη
     Sections:
       Side Bar: Πλαϊνή Μπάρα
       Channel Page: Σελίδα Καναλιού
@@ -396,11 +503,11 @@ Settings:
       General: Γενικά
       Subscriptions Page: Σελίδα Συνδρομών
     Hide Featured Channels: Απόκρυψη Προτεινόμενων Καναλιών
-    Hide Channel Playlists: Απόκρυψη Λιστών Αναπαραγωγής Καναλιών
-    Hide Channel Community: Απόκρυψη Κοινότητας Καναλιού
-    Hide Channel Shorts: Απόκρυψη Shorts Καναλιού
-    Hide Channel Releases: Απόκρυψη Kυκλοφοριών Kαναλιού
-    Hide Channel Podcasts: Απόκρυψη Podcasts Καναλιού
+    Hide Channel Playlists: Απόκρυψη καναλιών " λίστες αναπαραγωγής" καρτέλα
+    Hide Channel Community: Απόκρυψη καναλιού " Κοινότητα" καρτέλα
+    Hide Channel Shorts: Απόκρυψη καναλιού " Σύντομες" καρτέλα
+    Hide Channel Releases: Απόκρυψη καναλιού " Kυκλοφοριών" καρτέλα
+    Hide Channel Podcasts: Απόκρυψη καναλιού " Πόντκαστ" καρτέλα
     Hide Subscriptions Videos: Απόκρυψη Βίντεο Συνδρομών
     Hide Subscriptions Shorts: Απόκρυψη Shorts Συνδρομών
     Hide Subscriptions Live: Απόκρυψη Live Συνδρομών
@@ -431,9 +538,9 @@ Settings:
     Proxy Host: Κεντρικός υπολογιστής μεσολάβησης
     Proxy Protocol: Πρωτόκολλο μεσολάβησης
     Enable Tor / Proxy: Ενεργοποίηση Tor / Proxy
-    Proxy Settings: Ρυθμίσεις διακομιστή μεσολάβησης
+    Proxy Settings: Διακομιστής μεσολάβησης
   External Player Settings:
-    External Player Settings: Ρυθμίσεις εξωτερικού προγράμματος αναπαραγωγής
+    External Player Settings: Εξωτερικό πρόγραμμα αναπαραγωγής
     External Player: Εξωτερικό πρόγραμμα αναπαραγωγής
     Ignore Unsupported Action Warnings: Παράβλεψη προειδοποιήσεων μη υποστηριζόμενων
       ενεργειών
@@ -447,7 +554,7 @@ Settings:
     Enable SponsorBlock: Ενεργοποίηση του SponsorBlock
     Notify when sponsor segment is skipped: Ειδοποίηση όταν παραλείπεται το τμήμα
       χορηγού
-    SponsorBlock Settings: Ρυθμίσεις SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Διεύθυνση URL του
       API του SponsorBlock (Η προεπιλογή είναι https://sponsor.ajay.app)
     Skip Options:
@@ -459,7 +566,7 @@ Settings:
     Category Color: Χρώμα Κατηγορίας
     UseDeArrowTitles: Χρήση Τίτλων Βίντεο DeArrow
   Download Settings:
-    Download Settings: Λήψη ρυθμίσεων
+    Download Settings: Λήψη
     Ask Download Path: Ζητήστε τη διαδρομή λήψης
     Choose Path: Επιλέξτε διαδρομή
     Download Behavior: Συμπεριφορά Λήψης
@@ -470,7 +577,7 @@ Settings:
       τις ρυθμίσεις
     Password: Κωδικός πρόσβασης
   Password Settings:
-    Password Settings: Ρυθμίσεις Κωδικού πρόσβασης
+    Password Settings: Κωδικού πρόσβασης
     Set Password: Ορίστε Κωδικό πρόσβασης
     Set Password To Prevent Access: Ορίστε έναν κωδικό πρόσβασης για να αποτρέψετε
       την πρόσβαση στις ρυθμίσεις
@@ -482,7 +589,7 @@ Settings:
       Χρησιμοποιήστε το με δική σας ευθύνη!
     Experimental Settings: Πειραματικές Ρυθμίσεις
   Parental Control Settings:
-    Parental Control Settings: Ρυθμίσεις Γονικού Ελέγχου
+    Parental Control Settings: Γονικός Έλεγχος
     Show Family Friendly Only: Εμφάνιση Μόνο Για Οικογένειες
     Hide Unsubscribe Button: Απόκρυψη Κουμπιού Απεγγραφής
     Hide Search Bar: Απόκρυψη Μπάρας Αναζήτησης
@@ -558,7 +665,7 @@ Profile:
     το κανάλι από οποιοδήποτε άλλο προφίλ.'
 #On Channel Page
   Profile Filter: Φίλτρο προφίλ
-  Profile Settings: Ρυθμίσεις προφίλ
+  Profile Settings: Προφίλ
   Toggle Profile List: Εναλλαγή Λίστας Προφίλ
   Profile Name: Όνομα προφίλ
   Edit Profile Name: Επεξεργασία ονόματος προφίλ
@@ -712,7 +819,7 @@ Video:
   Premieres: Πρεμιέρες
   Upcoming: Επερχόμενο
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': "Η
-    Zωντανή συνομιλία δεν είναι διαθέσιμη για αυτήν τη ροή.\nΜπορεί να έχει απενεργοποιηθεί
+    Zωντανή συνομιλία δεν είναι διαθέσιμη για αυτήν τη ροή. Μπορεί να έχει απενεργοποιηθεί
     από τον χρήστη."
   Unhide Channel: Εμφάνιση καναλιού
   Hide Channel: Απόκρυψη καναλιού
@@ -814,10 +921,10 @@ This video is unavailable because of missing formats. This can happen due to cou
   μη διαθεσιμότητας του βίντεο στη χώρα σας.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Όταν ενεργοποιηθεί, το FreeTube θα χρησιμοποιήσει RSS αντί
-      για την προεπιλεγμένη μέθοδο για την ανανέωση της τροφοδοσίας των συνδρομών
-      σας. Η RSS είναι ταχύτερη και εμποδίζει το κλείδωμα IP, αλλά δεν παρέχει ορισμένες
-      πληροφορίες, όπως η διάρκεια του βίντεο ή την κατάσταση αυτών
+    Fetch Feeds from RSS: Όταν ενεργοποιηθεί, το FreeTube θα χρησιμοποιήσει το RSS
+      αντί της προεπιλεγμένης μεθόδου του για να αρπάξει την τροφοδοσία συνδρομής
+      σας. RSS είναι ταχύτερη και αποτρέπει το μπλοκάρισμα IP, αλλά δεν παρέχει ορισμένες
+      πληροφορίες όπως διάρκεια βίντεο, ζωντανή κατάσταση ή δημοσιεύσεις της κοινότητας
     Fetch Automatically: Όταν είναι ενεργοποιημένο, το FreeTube θα λαμβάνει αυτόματα
       τη ροή της συνδρομής σας όταν ανοίγει ένα νέο παράθυρο και όταν αλλάζει προφίλ.
   Player Settings:
@@ -924,9 +1031,9 @@ Chapters:
     τρέχον κεφάλαιο: {chapterName}'
 Ok: Εντάξει
 Preferences: Προτιμήσεις
-Screenshot Success: Αποθηκευμένο στιγμιότυπο οθόνης ως "{filePath}"
+Screenshot Success: Αποθηκευμένο στιγμιότυπο
 Hashtag:
-  Hashtag: Hashtag
+  Hashtag: Χαστάγκ
   This hashtag does not currently have any videos: Αυτό το hashtag δεν έχει προς το
     παρόν κανένα βίντεο
 Channel Hidden: Το {channel} προστέθηκε στο φίλτρο καναλιού
@@ -945,3 +1052,6 @@ Search Listing:
 Search character limit: Το ερώτημα αναζήτησης είναι πάνω από το αναζητήσημο όριο χαρακτήρα
 Right-click or hold to see history: Δεξί κλικ ή κράτηστε για να δείτε το ιστορικό
 Close Banner: Κλείσιμο Βanner
+Feed:
+  Refresh Feed: Ανανέωση {subscriptionName}
+  Feed Last Updated: '{feedName}Η τροφοδοσίας ενημερώθηκε τελευταία : {date}'
