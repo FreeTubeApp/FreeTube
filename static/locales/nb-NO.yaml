@@ -136,33 +136,33 @@ User Playlists:
         oppdateringen av denne spillelisten.
       "{videoCount} video(s) have been removed": 1 video har blitt fjernet | {videoCount}
         videoer har blitt fjernet
-      Playlist has been updated.: Spilleliste har blitt endret.
+      Playlist has been updated.: Spillelisten har blitt endret.
       There was a problem with removing this video: Det oppstod et problem ved fjerningen
         av denne videoen
       This video cannot be moved up.: Denne videoen kan ikke bli flyttet opp.
       Playlist {playlistName} has been deleted.: Spillelisten {playlistName} har blitt
-        fjernet.
-      This playlist is protected and cannot be removed.: Denne spillelisten er beskyttet,
-        og kan derfor ikke bli fjernet.
+        slettet.
+      This playlist is protected and cannot be removed.: Denne spillelisten er beskyttet
+        og kan derfor ikke fjernes.
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Noen
         av videoene i spillelisten har ikke blitt lastet inn skikkelig, enda. Trykk
-        her for å kopiere, uansett.
+        her for å kopiere alikevel.
       Playlist name cannot be empty. Please input a name.: Spillelisten må ha et navn.
         Vennligst gi den et navn.
       This playlist is now used for quick bookmark: Denne spillelisten blir nå brukt
-        for hurtigbokmerke
+        for hurtigbokmerket
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Denne
-        spillelisten blir nå brukt for hurtigbokmerke istedenfor {oldPlaylistName}.
-        Klikk her for a angre
-      Reverted to use {oldPlaylistName} for quick bookmark: Reverserte til å bruke
-        {oldPlaylistName} for hurtigbokmerke
+        spillelisten blir nå brukt for hurtigbokmerket istedenfor {oldPlaylistName}.
+        Klikk her for å angre
+      Reverted to use {oldPlaylistName} for quick bookmark: Satt tilbake til å bruke
+        {oldPlaylistName} for hurtigbokmerket
       This playlist has a video with a duration error: Denne spillelisten inneholder
-        minst en video som ikke har en avspillingslengde, den blir sortert som om
-        avspillingslengden er null.
+        minst en video som ikke har en lengde. Den blir sortert som om lengden dens
+        er null.
       Video has been removed. Click here to undo.: Videoen har blitt fjernet. Klikk
         her for å angre.
       This playlist is already being used for quick bookmark.: Denne spillelisten
-        er allerede i bruk for hurtigbokmerke.
+        er allerede i bruk for hurtigbokmerket.
     Search for Videos: Søk etter videoer
   AddVideoPrompt:
     Allow Adding Duplicate Video(s): Tillat å legge til dupliserte videoer
@@ -180,7 +180,7 @@ User Playlists:
         {playlistCount} spillelister | {videoCount} videoer lagt til  {playlistCount}
         spillelister
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      Videoer allerede lagt til'
+      videoer allerede lagt til'
     Added {count} Times: Allerede lagt til | Lagt til {count} ganger
     Select a playlist to add your N videos to: Velg en spilleliste å legge videoen
       til | Velg en spilleliste å legge dine {videoCount} videoer til
@@ -210,7 +210,7 @@ User Playlists:
   Create New Playlist: Opprett ny spilleliste
   Remove from Favorites: Fjern fra {playlistName}
   The playlist has been successfully exported: Spillelisten ble eksportert
-  Delete Playlist: Fjern spilleliste
+  Delete Playlist: Slett spilleliste
   CreatePlaylistPrompt:
     Create: Opprett
     New Playlist Name: Nytt navn på spilleliste
@@ -230,7 +230,7 @@ User Playlists:
     på at du vil fjerne denne spillelisten? Dette kan ikke bli omgjort.
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Er
     du sikker på at du vil fjerne en duplikatvideo fra denne spillelisten? Dette kan
-    ikke bli omgjort. Er du sikker på at du vil fjerne {playlistItemCount} duplikate
+    ikke bli omgjort. | Er du sikker på at du vil fjerne {playlistItemCount} duplikate
     videoer fra denne spillelisten? Denne kan ikke bli omgjort.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Er
     du sikker på at du vil fjerne 1 sett video fra denne spillelisten? Dette kan ikke
@@ -238,26 +238,27 @@ User Playlists:
     fra denne spillelisten? Dette kan ikke bli omgjort.
   Cannot delete the quick bookmark target playlist.: Kan ikke slette spillelisten
     til hurtigbokmerket.
-  Enable Quick Bookmark With This Playlist: Slå på hurtigbokmerke med denne spillelisten
-  Quick Bookmark Enabled: Hurtigbokmerke aktivert
+  Enable Quick Bookmark With This Playlist: Slå på hurtigbokmerket med denne spillelisten
+  Quick Bookmark Enabled: Hurtigbokmerket aktivert
+  TotalTimePlaylist: 'Total tid: {duration}'
 History:
   # On History Page
   History: 'Historikk'
   Watch History: 'Visningshistorikk'
-  Your history list is currently empty.: 'Din historikk er for tiden tom.'
+  Your history list is currently empty.: 'Din historikk er for øyeblikket tom.'
   Empty Search Message: Ingen videoer i historikken din samsvarer med søket ditt
-  Search bar placeholder: Søk i historikk
+  Search bar placeholder: Søk i historikken
   Case Sensitive Search: Søket skiller mellom store og små bokstaver
 Settings:
   # On Settings Page
   Settings: 'Innstillinger'
   General Settings:
-    General Settings: 'Generelle innstillinger'
-    Fallback to Non-Preferred Backend on Failure: 'Tilbakefall til ikke-foretrukken
-      bakende ved feil'
+    General Settings: 'Generelle'
+    Fallback to Non-Preferred Backend on Failure: 'Tilbakefall til alternativ bakende
+      ved feil'
     Enable Search Suggestions: 'Slå på søkeforslag'
-    Default Landing Page: 'Forvalgt landingsside'
-    Locale Preference: 'Innstillinger for språk'
+    Default Landing Page: 'Standard landingsside'
+    Locale Preference: 'Språkinnstillinger'
     Preferred API Backend:
       Preferred API Backend: 'Foretrukket API-bakende'
       Local API: 'Lokalt API'
@@ -268,34 +269,34 @@ Settings:
       List: 'Liste'
     Thumbnail Preference:
       Thumbnail Preference: 'Innstillinger for miniatyrbilder'
-      Default: 'Forvalg'
+      Default: 'Standard'
       Beginning: 'Begynnelsen'
       Middle: 'Midten'
       End: 'Slutten'
       Hidden: Skjult
       Blur: Uskarpt
-    Region for Trending: 'Region for "På vei opp"'
+    Region for Trending: 'Region for «På vei opp»'
         #! List countries
     Check for Updates: Se etter oppdateringer
-    View all Invidious instance information: Vis informasjon om alle Invidious-forekomster
+    View all Invidious instance information: Vis informasjon om alle Invidious-instanser
     Check for Latest Blog Posts: Se etter nye blogginnlegg
-    System Default: Systemforvalg
-    Clear Default Instance: Fjern instansforvalg
-    Set Current Instance as Default: Bruk nåværende instans som forvalg
-    Current instance will be randomized on startup: Valgt instans vil bli plukket
+    System Default: Standardinnstillinger
+    Clear Default Instance: Fjern standardinstans
+    Set Current Instance as Default: Bruk den gjeldende instansen som standard
+    Current instance will be randomized on startup: Den valgte instansen vil bli valgt
       tilfeldig ved oppstart
-    No default instance has been set: Ingen forvalgt instans satt
+    No default instance has been set: Ingen standard instans har blitt valgt
     The currently set default instance is {instance}: Valgt instans er {instance}
-    Current Invidious Instance: Nåværende Invidious-instans
+    Current Invidious Instance: Gjeldende Invidious-instans
     External Link Handling:
       No Action: Ingen handling
-      Ask Before Opening Link: Spør før åpning av lenke
+      Ask Before Opening Link: Spør før lenker åpnes
       Open Link: Åpne lenke
       External Link Handling: Håndtering av eksterne lenker
     Auto Load Next Page:
       Label: Last inn den neste siden automatisk
       Tooltip: Last inn flere sider og kommentarer automatisk.
-    Open Deep Links In New Window: Åpne linker gitt til FreeTube i nytt vindu
+    Open Deep Links In New Window: Åpne linker gitt til FreeTube i et nytt vindu
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Tilpass topplinjen slik at den har samme farge
@@ -563,7 +564,7 @@ Settings:
     Hide Channels Disabled Message: Noen kanaler ble blokkert med ID og ble ikke prosessert.
       Funksjonen er blokkert mens disse ID-ene blir oppdatert
   The app needs to restart for changes to take effect. Restart and apply change?: Start
-    programmet på ny for å ta i bruk endringene?
+    programmet på nytt for å ta i bruk endringene?
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Gi beskjed når sponsordelen blir hoppet
       over
@@ -615,8 +616,8 @@ Settings:
   Password Dialog:
     Enter Password To Unlock: Skriv inn passord for å låse opp innstillinger
     Password: Passord
-  Return to Settings Menu: Gå tilbake til menyen for innstillinger
-  Sort Settings Sections (A-Z): Sorter innstillingsseksjonene (A-Z)
+  Return to Settings Menu: Gå tilbake til menyen med innstillinger
+  Sort Settings Sections (A-Z): Sorter innstillingsseksjonene (A-Å)
 About:
   #On About page
   About: 'Om'
