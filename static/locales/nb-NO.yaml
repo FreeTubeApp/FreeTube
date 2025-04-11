@@ -545,13 +545,13 @@ Settings:
     This might take a while, please wait: Dette kan ta litt tid …
     Export History: Eksporter historikk
     Import History: Importer historikk
-    Export NewPipe: NewPipe-eksport
-    Export YouTube: YouTube-eksport
-    Export FreeTube: FreeTube-eksport
+    Export NewPipe: Eksporter NewPipe
+    Export YouTube: Eksporter YouTube
+    Export FreeTube: Eksporter FreeTube
     Export Subscriptions: Eksporter abonnementer
     Import Subscriptions: Importer abonnementer
     Select Export Type: Velg eksporttype
-    Data Settings: Innstillinger for data
+    Data Settings: Data
     All playlists has been successfully imported: Importerte alle spillelister
     Subscription File: Abonnementsfil
     History File: Historikkfil
@@ -561,6 +561,8 @@ Settings:
     All playlists has been successfully exported: Alle spillelister eksportert
     Playlist insufficient data: Utilstrekkelig data for «{playlist}»-spillelisten.
       Hopper over elementet.
+    Export Playlists For Older FreeTube Versions:
+      Label: Eksporter spillelister for eldre FreeTube-versjoner
   Proxy Settings:
     Region: Region
     Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for
@@ -600,22 +602,22 @@ Settings:
     Display Titles Without Excessive Capitalisation: Vis titler uten overdreven bruk
       av store bokstaver
     Hide Featured Channels: Skjul fremhevede kanaler
-    Hide Channel Community: Skjul fane for "fellesskap" i kanaler
-    Hide Channel Shorts: Skjul fane for "Shorts-videoer" i kanaler
+    Hide Channel Community: Skjul fanen «Fellesskap» i kanaler
+    Hide Channel Shorts: Skjul fanen «Shorts» i kanaler
     Sections:
       Side Bar: Sidefelt
       Channel Page: Kanalside
       General: Generelt
       Watch Page: Seerlogg
       Subscriptions Page: Abonnementsside
-    Hide Channel Playlists: Skjul fane for "spillelister" i kanalar
+    Hide Channel Playlists: Skjul fanen «Spillelister» i kanaler
     Hide Channel Releases: Skjul kanalpubliseringer
-    Hide Channel Podcasts: Skjul fane for "podcaster" i kanaler
+    Hide Channel Podcasts: Skjul fanen «Podcaster» i kanaler
     Hide Subscriptions Videos: Skjul abonnementsvideoer
     Hide Subscriptions Shorts: Skjul Shorts
-    Hide Subscriptions Live: Skjul abonnement det sendes direkte fra
+    Hide Subscriptions Live: Skjul abonnements direktesendinger
     Hide Profile Pictures in Comments: Skjul profilbilder i kommentarfeltet
-    Hide Channel Home: Skjule fane for "start" i kanaler
+    Hide Channel Home: Skjule fanen «Start» i kanaler
     Hide Videos and Playlists Containing Text: Skjul videoer og spillelister som inneholder
       tekst
     Hide Channels Already Exists: Kanal-ID-en finnes allerede
@@ -623,6 +625,11 @@ Settings:
     Hide Channels Invalid: Kanal-ID-en var ugyldig
     Hide Channels Disabled Message: Noen kanaler ble blokkert med ID og ble ikke prosessert.
       Funksjonen er blokkert mens disse ID-ene blir oppdatert
+    Show Added Items: Vis videoer lagt til
+    Hide Channels API Error: En feil oppsto ved henting av brukeren med den oppgitte
+      ID-en. Vennligst sjekk om ID-en er riktig.
+    Hide Subscriptions Community: Skjul abonnementsfellesskap
+    Hide Channel Courses: Skjul fanen «Kurs» i kanaler
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på nytt for å ta i bruk endringene?
   SponsorBlock Settings:
