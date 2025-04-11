@@ -970,6 +970,9 @@ Video:
       Volume: 'Ήχος: {volumePercentage}%'
       CodecsVideoAudioNoItags: 'Κωδικοποιητές: {videoCodec} / {audioCodec}'
       CodecAudio: 'Κωδικοποιητής: {audioCodec} ({audioItag})'
+      Bitrate: 'Ρυθμός μετάδοσης δεδομένων: {bitrate} kbps'
+      Resolution: 'Διαστάσεις: {width}x{height}@{frameRate}'
+      Buffered: 'Αποθηκευμένη: {bufferedPercentage}%'
     Theatre Mode: Λειτουργία Θεάτρου
     Full Window: Πλήρες Παράθυρο
     Take Screenshot: Πάρτε στιγμιότυπο οθόνης
@@ -1274,6 +1277,7 @@ KeyboardShortcutPrompt:
       Playback: 'Βίντεο: Αναπαραγωγή'
     App:
       General: 'App: Γενικά'
+      Situational: 'Εφαρμογή: Καταστασιακή'
   History Backward: Πήγαινε μια σελίδα πίσω
   Large Rewind: Επανάληψη 10 δευτερολέπτων / Επανάληψη βίντεο με βάση τον τρέχοντα
     ρυθμό αναπαραγωγής βίντεο
