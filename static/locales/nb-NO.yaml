@@ -526,22 +526,22 @@ Settings:
     Unknown data key: Ukjent datanøkkel
     Unable to write file: Kunne ikke skrive fil
     Invalid history file: Ugyldig historikkfil
-    All watched history has been successfully exported: Visningshistorikken har blitt
-      eksportert
-    All watched history has been successfully imported: Visningshistorikken har blitt
-      importert
+    All watched history has been successfully exported: All visningshistorikk har
+      blitt eksportert
+    All watched history has been successfully imported: All visningshistorikk har
+      blitt importert
     History object has insufficient data, skipping item: Hopper over historikkobjekt
-      med utilstrekkelig data
+      siden det har utilstrekkelig data
     All subscriptions have been successfully imported: Alle abonnementer har blitt
       importert
-    All subscriptions and profiles have been successfully imported: Importerte alle
-      abonnementer og profiler
-    Manage Subscriptions: Håndter abonnementer
+    All subscriptions and profiles have been successfully imported: Alle abonnementer
+      og profiler har blitt importert
+    Manage Subscriptions: Behandle abonnementer
     Unable to read file: Kunne ikke lese fil
     Invalid subscriptions file: Ugyldig abonnementsfil
     Profile object has insufficient data, skipping item: Hopper over profilobjektet
-      siden det har utilstrekkelig data.
-    Subscriptions have been successfully exported: Abonnementer eksportert
+      siden det har utilstrekkelig data
+    Subscriptions have been successfully exported: Alle abonnementer har blitt eksportert
     This might take a while, please wait: Dette kan ta litt tid …
     Export History: Eksporter historikk
     Import History: Importer historikk
@@ -552,33 +552,44 @@ Settings:
     Import Subscriptions: Importer abonnementer
     Select Export Type: Velg eksporttype
     Data Settings: Data
-    All playlists has been successfully imported: Importerte alle spillelister
+    All playlists has been successfully imported: Alle spillelister har blitt importert
     Subscription File: Abonnementsfil
     History File: Historikkfil
     Playlist File: Spillelistefil
     Export Playlists: Eksporter spillelister
     Import Playlists: Importer spillelister
-    All playlists has been successfully exported: Alle spillelister eksportert
-    Playlist insufficient data: Utilstrekkelig data for «{playlist}»-spillelisten.
-      Hopper over elementet.
+    All playlists has been successfully exported: Alle spillelister har blitt eksportert
+    Playlist insufficient data: Utilstrekkelig data i «{playlist}»-spillelisten. Hopper
+      over elementet
     Export Playlists For Older FreeTube Versions:
       Label: Eksporter spillelister for eldre FreeTube-versjoner
+      Tooltip: "Denne funksjonen eksporterer videoer fra alle spillelister inn i en
+        spilleliste med navnet «Favoritter».\nFor å eksportere og importere videoer
+        i spillelister i eldre versjoner av FreeTube:\n1.) Eksporter spillelistene
+        dine med denne funksjonen skrudd på.\n2.) Slett alle spillelistene dine med
+        «Fjern alle spillelister» under «Personvern».\n3.) Start opp den eldre versjonen
+        av FreeTube og importer de eksporterte spillelistene dine."
   Proxy Settings:
     Region: Region
     Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for
       å sende en forespørsel til
-    Error getting network information. Is your proxy configured properly?: Klarte
-      ikke å hente nettverksinformasjon. Er din mellomtjener satt opp riktig?
-    Test Proxy: Test mellomtjener …
+    Error getting network information. Is your proxy configured properly?: Kunne ikke
+      hente nettverksinformasjon. Er mellomtjeneren din satt opp riktig?
+    Test Proxy: Test mellomtjener
     City: By
     Country: Land
-    Ip: IP
+    Ip: IP-adresse
     Your Info: Din informasjon
     Proxy Port Number: Mellomtjener-portnummer
     Proxy Host: Mellomtjenervert
     Proxy Protocol: Mellomtjenerprotokoll
-    Enable Tor / Proxy: Skru på Tor/mellomtjener
-    Proxy Settings: Innstillinger for mellomtjenere
+    Enable Tor / Proxy: Skru på Tor / mellomtjener
+    Proxy Settings: Mellomtjener (proxy)
+    Proxy Warning: FreeTube har ikke en innebygd mellomtjener (proxy), men det kan
+      koble til en ekstern en, for eksempel en som kjører på din egen maskin, som
+      Tor, eller en ekstern mellomtjener som SOCKS5 som tilbys av enkelte VPN-er.
+      Hvis dette skrus på, pass på at mellomtjeneren din er konfigurert riktig; hvis
+      ikke kommer ikke FreeTube til å klare å hente noen data.
   Distraction Free Settings:
     Hide Trending Videos: Skjul «På vei opp»
     Hide Video Likes And Dislikes: Skjul antall liker/ikke liker på videoer
@@ -636,9 +647,9 @@ Settings:
     Notify when sponsor segment is skipped: Gi beskjed når sponsordelen blir hoppet
       over
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-nettadresse
-      (forvalget er https://sponsor.ajay.app)
+      (standard er https://sponsor.ajay.app)
     Enable SponsorBlock: Skru på SponsorBlock
-    SponsorBlock Settings: Innstillinger for SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Do Nothing: Ikke gjør noe
       Prompt To Skip: Spør om å hoppe over
@@ -646,7 +657,7 @@ Settings:
       Auto Skip: Automatisk
       Show In Seek Bar: Vis i blafringsfelt
     Category Color: Kategorifarge
-    UseDeArrowTitles: Bruk DeArrow-videonavn
+    UseDeArrowTitles: Bruk DeArrow-videotitler
     UseDeArrowThumbnails: Bruk DeArrow for miniatyrbilder
   External Player Settings:
     Custom External Player Arguments: Egendefinerte argumenter for ekstern avspiller
