@@ -307,15 +307,22 @@ Settings:
       Dark: 'Mørk'
       Light: 'Lys'
       Dracula: 'Dracula'
-      System Default: Systemforvalg
+      System Default: Systemstandard
       Catppuccin Mocha: Catppuccin-mokka
       Pastel Pink: Pastellrosa
       Nordic: Nordisk
       Gruvbox Light: Gruvbox lys
       Gruvbox Dark: Gruvbox mørk
       Solarized Dark: Solarisert mørk
-      Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Frappe: Catppuccin-frappe
       Solarized Light: Solarisert lys
+      Hot Pink: Hot Pink
+      Everforest Light Hard: Everforest hard og lys
+      Everforest Dark Low: Everforest lav og mørk
+      Everforest Dark Hard: Everforest hard og mørk
+      Everforest Dark Medium: Everforest medium og mørk
+      Everforest Light Medium: Everforest medium og lys
+      Everforest Light Low: Everforest lav og lys
     Main Color Theme:
       Main Color Theme: 'Hovedfarge'
       Red: 'Rød'
@@ -363,30 +370,68 @@ Settings:
       Solarized Blue: Solarisert blå
       Solarized Green: Solarisert grønn
       Solarized Violet: Solarisert fiolett
+      Catppuccin Frappe Red: Catppuccin-frappe-rød
+      Catppuccin Frappe Maroon: Catppuccin-frappe-rødbrun
+      Catppuccin Frappe Teal: Catppuccin-frappe-blågrønn
+      Catppuccin Frappe Sky: Catppuccin-frappe-himmelblå
+      Catppuccin Frappe Sapphire: Catppuccin-frappe-safirblå
+      Gruvbox Dark Yellow: Gruvbox-mørkegul
+      Gruvbox Light Red: Gruvbox-lyserød
+      Gruvbox Light Blue: Gruvbox-lyseblå
+      Gruvbox Light Purple: Gruvbox-lyselilla
+      Catppuccin Frappe Yellow: Catppuccin-frappe-gul
+      Gruvbox Dark Green: Gruvbox-mørkegrønn
+      Gruvbox Light Orange: Gruvbox-lyseoransje
+      Gruvbox Dark Orange: Gruvbox-mørkeoransje
+      Catppuccin Frappe Pink: Catppuccin-frappe-rosa
+      Catppuccin Frappe Flamingo: Catppuccin-frappe Flamingo
+      Catppuccin Frappe Mauve: Catppuccin-frappe-fiolett
+      Catppuccin Frappe Peach: Catppuccin-frappe-fersken
+      Catppuccin Frappe Green: Catppuccin-frappe-grønn
+      Catppuccin Frappe Blue: Catppuccin-frappe-blå
+      Catppuccin Frappe Lavender: Catppuccin-frappe-lavendel
+      Everforest Dark Yellow: Everforest-mørkegul
+      Everforest Dark Green: Everforest-mørkegrønn
+      Everforest Dark Aqua: Everforest-mørkaqua
+      Everforest Dark Blue: Everforest-mørkeblå
+      Everforest Dark Purple: Everforest-mørkelilla
+      Everforest Light Red: Everforest-lyserød
+      Everforest Light Orange: Everforest-lyseoransje
+      Everforest Light Yellow: Everforest-lysegul
+      Everforest Light Green: Everforest-lysegrønn
+      Catppuccin Frappe Rosewater: Catppuccin-frappe-rosevann
+      Gruvbox Dark Blue: Gruvbox-mørkeblå
+      Gruvbox Dark Purple: Gruvbox-mørkelilla
+      Gruvbox Dark Aqua: Gruvbox-mørkaqua
+      Everforest Dark Red: Everforest-mørkerød
+      Everforest Dark Orange: Everforest-mørkeoransje
+      Everforest Light Aqua: Everforest-lysaqua
+      Everforest Light Blue: Everforest-lyseblå
+      Everforest Light Purple: Everforest-lyselilla
     Secondary Color Theme: 'Sekundærfarge'
         #* Main Color Theme
-    UI Scale: Grensesnittskala
-    Disable Smooth Scrolling: Slå av myk rulling
-    Expand Side Bar by Default: Utvidet sidefelt som forvalg
+    UI Scale: Grensesnittskalering
+    Disable Smooth Scrolling: Slå av jevn skrolling
+    Expand Side Bar by Default: Utvidet sidefelt som standard
     Hide Side Bar Labels: Skjul sidefeltsetiketter
     Hide FreeTube Header Logo: Skjul FreeTubes tittel og logo
   Player Settings:
-    Player Settings: 'Innstillinger for avspilling av video'
-    Play Next Video: 'Spill av neste video'
-    Turn on Subtitles by Default: 'Undertekster som forvalg'
-    Autoplay Videos: 'Spill av videoer automatisk'
-    Proxy Videos Through Invidious: 'Mellomtjen videoer gjennom Invidious'
-    Autoplay Playlists: 'Spill av spillelister automatisk'
+    Player Settings: 'Videoavspiller'
+    Play Next Video: 'Spill av neste anbefalte video automatisk'
+    Turn on Subtitles by Default: 'Skru på undertekster som standard'
+    Autoplay Videos: 'Start videoer automatisk'
+    Proxy Videos Through Invidious: 'Hent videoer gjennom Invidious-proxy'
+    Autoplay Playlists: 'Spill av videoer i spillelister automatisk'
     Enable Theatre Mode by Default: 'Kinomodus som forvalg'
     Default Volume: 'Standardvolum'
-    Default Playback Rate: 'Avspillingshastighet'
+    Default Playback Rate: 'Standard avspillingshastighet'
     Default Video Format:
-      Default Video Format: 'Forvalgt videoformat'
+      Default Video Format: 'Standard videoformat'
       Dash Formats: 'DASH-formater'
       Legacy Formats: 'Gamle formater'
       Audio Formats: 'Lydformater'
     Default Quality:
-      Default Quality: 'Forvalt kvalitet'
+      Default Quality: 'Standardkvalitet'
       Auto: 'Automatisk'
       144p: '144p'
       240p: '240p'
@@ -397,7 +442,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Tid mellom videoer
+    Next Video Interval: Nedtelling mellom videoer
     Scroll Volume Over Video Player: Rullelydstyrkejustering i videospilleren
     Display Play Button In Video Player: Vis avspillingsknappen i videoavspilleren
     Fast-Forward / Rewind Interval: Intervall for spoling frem og tilbake
@@ -407,10 +452,10 @@ Settings:
         Forbidden Characters: Forbudte tegn
         Empty File Name: Tomt filnavn
       Enable: Aktiver skjermbilde
-      Folder Label: Skjermavbildningsmappe
+      Folder Label: Skjermbildemappe
       Folder Button: Velg mappe
-      Format Label: Format for skjermbilde
-      Quality Label: Kvalitet for skjermbilde
+      Format Label: Skjermbildeformat
+      Quality Label: Skjermbildekvalitet
       Ask Path: Spør om hvor ting skal lagres
       File Name Tooltip: Du kan bruke variablene nedenfor. %Y år, i 4 siffer. %M måned,
         i 2 siffer. %D dag, i to siffer. %H time, i to siffer. %N minutt, i to siffer.
@@ -430,8 +475,8 @@ Settings:
       External Player: Ekstern avspiller ({externalPlayerName})
     Autoplay Interruption Timer: Automatisk avspilling avbruddstidtaker
   Privacy Settings:
-    Privacy Settings: 'Innstillinger for personvern'
-    Remember History: 'Husk historikk'
+    Privacy Settings: 'Personvern'
+    Remember History: 'Husk visningshistorikk'
     Save Watched Progress: 'Husk avspillingsposisjon'
     Clear Search Cache: 'Tøm hurtiglager for søk'
     Are you sure you want to clear out your search cache?: 'Er du sikker på at du
@@ -439,8 +484,8 @@ Settings:
     Search cache has been cleared: 'Hurtiglageret for søk har blitt tømt'
     Remove Watch History: 'Fjern visningshistorikk'
     Are you sure you want to remove your entire watch history?: 'Er du sikker på at
-      du vil fjerne hele visningshistorikken din?'
-    Watch history has been cleared: 'VIsningshistorikk har blitt fjernet'
+      du vil tømme hele visningshistorikken din?'
+    Watch history has been cleared: 'VIsningshistorikk har blitt tømt'
     Remove All Subscriptions / Profiles: Fjern alle abonnementer/profiler
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Er
       du sikker på at du vil fjerne alle abonnementer og profiler? Dette kan ikke
@@ -451,10 +496,25 @@ Settings:
     Are you sure you want to remove all your playlists?: Er du sikker på at du vil
       fjerne alle spillelistene dine?
     All playlists have been removed: Alle spillelister har blitt fjernet
+    Remember Search History: Husk søkshistorikk
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Automatisk
+        Semi-auto: Halvautomatisk
+        Never: Aldri
+      Tooltip: Automatisk = Lagre for hver enkelt video når den lukkes, avsluttes
+        og når en feil oppstår (f.eks ved tilgangsbegrensning eller sesjonen din utløper).
+        Halvautomatisk = Som automatisk utenom at det ikke skjer når en video lukkes
+        som vanlig, og man kan lagre det manuelt med en egen knapp under videoavspilleren.
+    Clear Search History and Cache: Tøm søkshistorikken og mellomlageret
+    Are you sure you want to clear out your search history and cache?: Er du sikker
+      på at du vil tømme søkshistorikken og mellomlageret?
+    Search history and cache have been cleared: Søkshistorikken og mellomlageret har
+      blitt tømt
   Subscription Settings:
-    Subscription Settings: 'Innstillinger for abonnementer'
+    Subscription Settings: 'Abonnementer'
     Hide Videos on Watch: 'Skjul sette videoer'
-    Fetch Feeds from RSS: Hent informasjonskanaler fra RSS
+    Fetch Feeds from RSS: Hent informasjonskanaler via RSS
     Fetch Automatically: Hent informasjonskanaler automatisk
 
     Confirm Before Unsubscribing: Bekreft avslutning av abonnement
@@ -518,14 +578,14 @@ Settings:
     Enable Tor / Proxy: Skru på Tor/mellomtjener
     Proxy Settings: Innstillinger for mellomtjenere
   Distraction Free Settings:
-    Hide Trending Videos: Skjul "På vei opp"
-    Hide Video Likes And Dislikes: Skjul videogunst
-    Distraction Free Settings: Innstillinger for andre tilpasninger
+    Hide Trending Videos: Skjul «På vei opp»
+    Hide Video Likes And Dislikes: Skjul antall liker/ikke liker på videoer
+    Distraction Free Settings: Distraksjonsfri modus
     Hide Active Subscriptions: Skjul aktive abonnementer
     Hide Recommended Videos: Skjul anbefalte videoer
-    Hide Comment Likes: Skjul kommentargunst
+    Hide Comment Likes: Skjul antall liker på kommentarer
     Hide Channel Subscribers: Skjul kanalabonnementer
-    Hide Popular Videos: Skjul "Mest populært"
+    Hide Popular Videos: Skjul «Mest populære»
     Hide Video Views: Skjul videovisninger
     Hide Live Chat: Skjul direktechat
     Hide Playlists: Skjul spillelister
@@ -537,7 +597,7 @@ Settings:
     Hide Sharing Actions: Skjul delingshandlinger
     Hide Upcoming Premieres: Skjul kommende premièrer
     Hide Video Description: Skjul videobeskrivelse
-    Display Titles Without Excessive Capitalisation: Vis titler uten overdrevet bruk
+    Display Titles Without Excessive Capitalisation: Vis titler uten overdreven bruk
       av store bokstaver
     Hide Featured Channels: Skjul fremhevede kanaler
     Hide Channel Community: Skjul fane for "fellesskap" i kanaler
@@ -586,11 +646,12 @@ Settings:
     Custom External Player Executable: Egendefinert kjørbar fil for ekstern avspiller
     Ignore Unsupported Action Warnings: Ignorer advarsler om handlinger som ikke er
       støttet
-    External Player Settings: Innstillinger for ekstern avspiller
+    External Player Settings: Ekstern avspiller
     External Player: Ekstern avspiller
     Players:
       None:
         Name: Ingen
+    Ignore Default Arguments: Ignorer standardargumenter
   Download Settings:
     Choose Path: Velg sti
     Download Settings: Innstillinger for nedlastninger
