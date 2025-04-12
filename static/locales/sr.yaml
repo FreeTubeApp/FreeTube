@@ -248,6 +248,7 @@ User Playlists:
     плејлисте? Ово не може бити опозвано.
   Export Playlist: Извези ову плејлисту
   The playlist has been successfully exported: Плејлиста је успешно извезена
+  TotalTimePlaylist: 'Укупно време: {duration}'
 History:
   # On History Page
   History: 'Историја'
@@ -515,6 +516,16 @@ Settings:
     Clear Search History and Cache: Очисти историју претраге и кеш меморију
     Are you sure you want to clear out your search history and cache?: Желите ли заиста
       да очистите историју претраге и кеш меморију?
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Аутоматски
+        Semi-auto: Полуаутоматски
+        Never: Никада
+      Tooltip: Аутоматски = Чување при сваком излазу са странице видео снимка, када
+        се видео снимак заврши и дође до грешке (нпр. ограничење брзине и истекла
+        сесија гледања). Полуаутоматски = Попут „Аутоматски“ осим на излазу са странице
+        видео снимка и може ручно сачувати путем дугмета под називом „Сачувај напредак
+        одгледаног“, које се налази испод видео плејера.
   Subscription Settings:
     Subscription Settings: 'Праћење'
     Hide Videos on Watch: 'Сакриј видео снимке на гледању'
@@ -976,6 +987,8 @@ Video:
     јер захтевају власничке компоненте затвореног кода. Ако желите да гледате овај
     видео снимак, погледајте га на званичном сајту YouTube-а у веб-прегледачу с омогућеним
     DRM.
+  Save Watched Progress: Сачувај напредак гледања
+  Watched Progress Saved: Напредак гледања је сачуван
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог
