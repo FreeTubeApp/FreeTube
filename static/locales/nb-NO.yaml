@@ -654,11 +654,13 @@ Settings:
       Do Nothing: Ikke gjør noe
       Prompt To Skip: Spør om å hoppe over
       Skip Option: Alternativ for å hoppe over
-      Auto Skip: Automatisk
-      Show In Seek Bar: Vis i blafringsfelt
+      Auto Skip: Hopp over automatisk
+      Show In Seek Bar: Vis i tidslinjen
     Category Color: Kategorifarge
     UseDeArrowTitles: Bruk DeArrow-videotitler
     UseDeArrowThumbnails: Bruk DeArrow for miniatyrbilder
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
+      miniatyrbildegenerator API-adresse (standard er https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Egendefinerte argumenter for ekstern avspiller
     Custom External Player Executable: Egendefinert kjørbar fil for ekstern avspiller
@@ -671,25 +673,25 @@ Settings:
         Name: Ingen
     Ignore Default Arguments: Ignorer standardargumenter
   Download Settings:
-    Choose Path: Velg sti
-    Download Settings: Innstillinger for nedlastninger
+    Choose Path: Velg mappe
+    Download Settings: Nedlastning
     Download in app: Last ned i programmet
     Open in web browser: Åpne i nettleser
     Download Behavior: Nedlastingsadferd
-    Ask Download Path: Spør om nedlastingssti
+    Ask Download Path: Spør om nedlastingsmappe
   Parental Control Settings:
     Parental Control Settings: Foreldrekontroll
-    Hide Search Bar: Skjul søkefelt
+    Hide Search Bar: Skjul søkefeltet
     Show Family Friendly Only: Vis kun familievennlig innhold
     Hide Unsubscribe Button: Skjul knapp for opphevelse av abonnement
   Experimental Settings:
-    Experimental Settings: Eksperimentelle innstillinger
+    Experimental Settings: Eksperimentelt
     Replace HTTP Cache: Erstatt HTTP-hurtiglager
-    Warning: Disse innstillingene er eksperimentelle, og kan forårsake krasj. Sikkerhetskopi
-      anbefales. Bruk på egen risiko.
+    Warning: Disse innstillingene er eksperimentelle, og kan forårsake krasjer. Det
+      anbefales at du lager kopi av dataene dine. Bruk på egen risiko.
   Password Settings:
     Remove Password: Fjern passord
-    Password Settings: Innstillinger for passord
+    Password Settings: Passord
     Set Password To Prevent Access: Sett et passord for å forhindre tilgang til innstillingene
     Set Password: Sett passord
   Password Dialog:
@@ -702,7 +704,7 @@ About:
   About: 'Om'
   #& About
 
-  FAQ: Ofte stilte spørsmål
+  FAQ: OSS
   Downloads / Changelog: Nedlastninger / Endringslogg
   Help: Hjelp
   Donate: Doner
@@ -714,7 +716,8 @@ About:
   Email: E-post
   Blog: Blogg
   Translate: Oversett
-  Please check for duplicates before posting: Se etter duplikater før innsendelse
+  Please check for duplicates before posting: Vennligst sjekk om problemet ditt allerede
+    har blitt sendt inn før du sender inn en melding
   these people and projects: disse folkene og prosjektene
   FreeTube is made possible by: FreeTube er gjort mulig av
   Credits: Bidragsytere
@@ -1049,7 +1052,7 @@ Profile:
   Profile Preview: Profilforhåndsvisning
   Custom Color: Egendefinert farge
   Profile Filter: Profilfilter
-  Profile Settings: Profilinnstillinger
+  Profile Settings: Profil
   Toggle Profile List: Slå av/på profilliste
   Profile Name: Profilnavn
   Create Profile Name: Lag profilnavn
