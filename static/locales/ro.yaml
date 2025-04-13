@@ -571,15 +571,6 @@ Settings:
     Playlist File: Fișier listă de redare
     History File: Fișier istoric
     Subscription File: Fișier abonament
-    Export Playlists For Older FreeTube Versions:
-      Label: Exportați liste de redare pentru versiunile FreeTube mai vechi
-      Tooltip: "Această opțiune exportă videoclipurile din toate listele de redare
-        într-o singură listă de redare numită 'Favorite'.\nCum să exportați și să
-        importați videoclipurile în listele de redare pentru o versiune mai veche
-        a FreeTube:\n1. Exportați-vă listele de redare cu această opțiune activată.\n
-        2. Ștergeți toate listele de redare existente utilizând opțiunea Eliminați
-        toate listele de redare din Setări de confidențialitate.\n3. Lansați versiunea
-        mai veche a FreeTube și importați listele de redare exportate.”"
   The app needs to restart for changes to take effect. Restart and apply change?: Aplicația
     trebuie repornită pentru ca modificările să intre în vigoare. Reporniți și aplicați
     modificările?

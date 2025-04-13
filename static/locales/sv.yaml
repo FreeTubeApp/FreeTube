@@ -554,14 +554,6 @@ Settings:
     Playlist insufficient data: Otillräcklig data för "{playlist}" spellista, hoppar
       över objekt
 
-    Export Playlists For Older FreeTube Versions:
-      Label: Exportera Spellistor För Äldre Versioner Av FreeTube
-      Tooltip: "Det här alternativet exporterar videor från alla spellistor till en
-        spellista med namnet \"Favoriter\".\nSå här exporterar och importerar du videor
-        i spellistor för en äldre version av FreeTube:\n1. Exportera dina spellistor
-        med det här alternativet aktiverat.\n2. Ta bort alla dina befintliga spellistor
-        med alternativet Ta bort alla spellistor under Sekretessinställningar.\n3.
-        Starta den äldre versionen av FreeTube och importera de exporterade spellistorna.\""
   Distraction Free Settings:
     Hide Live Chat: Dölj livechatt
     Hide Popular Videos: Dölj mest populära

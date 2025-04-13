@@ -628,15 +628,6 @@ Settings:
       elementutik ateratzen
     History File: Historikoaren fitxategia
     Playlist File: Erreprodukzio-zerrendaren fitxategia
-    Export Playlists For Older FreeTube Versions:
-      Label: Esportatu erreprodukzio zerrendak FreeTube bertsio zaharretarako
-      Tooltip: "Aukera honek erreprodukzio-zerrenda guztietako bideoak \"Gogokoak\"\
-        \ izeneko erreprodukzio-zerrenda batera esportatzen ditu.\nNola esportatu
-        eta inportatu bideoak erreprodukzio-zerrendetan FreeTube-ren bertsio zaharrago
-        baterako:\n 1. Esportatu zure erreprodukzio zerrendak aukera hau gaituta.\n
-        2. Ezabatu lehendik dituzun erreprodukzio-zerrenda guztiak Pribatutasun-ezarpenetan
-        dagoen Kendu zerrenda guztiak aukera erabiliz.\n 3. Abiarazi FreeTube-ren
-        bertsio zaharra eta inportatu esportatutako erreprodukzio-zerrendak.\""
     Subscription File: Harpidetza Fitxategia
   Proxy Settings:
     Proxy Settings: 'Proxy-a'

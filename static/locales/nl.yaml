@@ -555,14 +555,6 @@ Settings:
     Subscription File: Abonnementenbestand
     History File: Geschiedenisbestand
     Playlist File: Afspeellijstbestand
-    Export Playlists For Older FreeTube Versions:
-      Label: Afspeel­lijsten exporteren voor oudere FreeTube-versies
-      Tooltip: "Deze optie exporteert video's van alle afspeel­lijsten naar één afspeel­lijst
-        met de naam ‘Favorieten’.\nVideo's exporteren en importeren in afspeel­lijsten
-        voor een oudere versie van FreeTube:\n1. Exporteer uw afspeel­lijsten met
-        deze optie ingeschakeld.\n2. Verwijder al uw bestaande afspeel­lijsten met
-        de optie ‘Alle afspeel­lijsten verwijderen’ onder ‘Privacy­instellingen’.\n
-        3. Start de oudere versie van FreeTube en importeer de geëxporteerde afspeel­lijsten."
   Distraction Free Settings:
     Hide Live Chat: Live­chat verbergen
     Hide Popular Videos: Populaire video's verbergen

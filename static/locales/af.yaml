@@ -588,15 +588,6 @@ Settings:
     Export History: 'Stuur geskiedenis uit'
     Import Playlists: 'Voer afspeellyste in'
     Export Playlists: 'Stuur afspeellyste uit'
-    Export Playlists For Older FreeTube Versions:
-      Label: 'Stuur afspeellyste uit vir ouer FreeTube-weergawes'
-      # |- = Keep newlines, No newline at end
-      Tooltip: |-
-        Hierdie opsie stuur video’s van alle afspeel­lyste uit na een afspeel­lys genaamd ‘Gunstelinge’.
-        Uitstuur en invoer van video’s in afspeel­lyste vir ’n ouer weergawe van FreeTube:
-        1. Stuur u afspeel­lyste uit met hierdie opsie geaktiveer.
-        2. Verwyder al u bestaande afspeel­lyste met die opsie ‘Verwyder alle afspeel­lyste’ onder ‘Privaatheids­instellings’.
-         3. Begin die ouer weergawe van FreeTube en ivoer die uitgestuurde afspeel­lyste in.
     Profile object has insufficient data, skipping item: 'Profielobjek het onvoldoende
       data, item word oorgeslaan'
     All subscriptions and profiles have been successfully imported: 'Alle intekenings

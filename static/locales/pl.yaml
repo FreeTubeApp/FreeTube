@@ -568,14 +568,6 @@ Settings:
     History File: Plik historii
     Playlist File: Plik playlist
     Subscription File: Plik subskrypcji
-    Export Playlists For Older FreeTube Versions:
-      Tooltip: "Opcja ta wyeksportuje filmy ze wszystkich playlist, jako jedną playlistę
-        o nazwie „Ulubione”.\nOto jak wyeksportować i zaimportować filmy z playlist
-        do starszych wersji FreeTube:\n1. Wyeksportuj swoje playlisty z tą opcją włączoną.\n
-        2. Usuń wszystkie swoje istniejące playlisty przy użyciu opcji „Usuń wszystkie
-        playlisty” z ustawień prywatności.\n3. Uruchom starszą wersję FreeTube, następnie
-        zaimportuj wyeksportowane playlisty."
-      Label: Wyeksportuj playlisty dla starszych wersji FreeTube
   Distraction Free Settings:
     Distraction Free Settings: Skupienie uwagi
     Hide Live Chat: Schowaj czat na żywo

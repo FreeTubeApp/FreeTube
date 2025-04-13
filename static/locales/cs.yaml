@@ -622,13 +622,6 @@ Settings:
     History File: Soubor historie
     Subscription File: Soubor odběrů
     Playlist File: Soubor playlistů
-    Export Playlists For Older FreeTube Versions:
-      Tooltip: "Tato možnost exportuje videa ze všech playlistů do jednoho playlistu
-        s názvem „Favorites“.\nJak exportovat a importovat videa z playlistů do starších
-        verzí FreeTube:\n1. Povolte tuto možnost a exportujte své playlisty.\n2. Odstraňte
-        všechny své stávající playlisty možností Odstranit všechny playlisty v nastavení
-        soukromí.\n3. Spusťte starší verzi FreeTube a importujte exportované playlisty."
-      Label: Exportovat playlisty pro starší verze FreeTube
 
   Proxy Settings:
     Proxy Settings: Proxy

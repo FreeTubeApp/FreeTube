@@ -505,11 +505,6 @@ Settings:
     Playlist File: 播放列表文件
     Subscription File: 订阅文件
     History File: 历史文件
-    Export Playlists For Older FreeTube Versions:
-      Tooltip: "此选项将所有播放列表中的视频导出到一个名为'Favorities'的播放列表文件\n如何为老版本的 FreeTube 导出&导入播放列表中的视频：\n
-        1. 启用此选项来导出播放列表\n2. 使用“隐私”设置下的“删除所有播放列表”选项来删除所有现存播放列表\n3. 启动老版本的 FreeTube
-        并导入导出的播放列表。“"
-      Label: 为老版本 FreeTube 导出播放列表
   Distraction Free Settings:
     Hide Popular Videos: 隐藏流行视频
     Hide Trending Videos: 隐藏热门视频

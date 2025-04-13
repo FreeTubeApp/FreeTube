@@ -49,17 +49,7 @@
       />
       <FtButton
         :label="$t('Settings.Data Settings.Export Playlists')"
-        @click="exportPlaylistsForOlderVersionsSometimes"
-      />
-    </FtFlexBox>
-    <FtFlexBox>
-      <FtToggleSwitch
-        :label="$t('Settings.Data Settings.Export Playlists For Older FreeTube Versions.Label')"
-        :compact="true"
-        :default-value="shouldExportPlaylistForOlderVersions"
-        :tooltip="$t('Settings.Data Settings.Export Playlists For Older FreeTube Versions.Tooltip')"
-        :tooltip-allow-newlines="true"
-        @change="shouldExportPlaylistForOlderVersions = !shouldExportPlaylistForOlderVersions"
+        @click="exportPlaylists"
       />
     </FtFlexBox>
     <FtPrompt
@@ -963,8 +953,6 @@ async function exportHistory() {
 
 const allPlaylists = computed(() => store.getters.getAllPlaylists)
 
-const shouldExportPlaylistForOlderVersions = ref(false)
-
 async function importPlaylists() {
   let response
   try {
@@ -1112,7 +1100,6 @@ async function importPlaylists() {
             return x.videoId === video.videoId && x.playlistItemId === video.playlistItemId
           })
         } else {
-          // Older playlist exports have no `playlistItemId` but have `timeAdded`
           // Which might be duplicate for copied playlists with duplicate `videoId`
           videoExists = existingPlaylist.videos.some((x) => {
             // Allow duplicate (by videoId) videos to be added
@@ -1165,42 +1152,6 @@ async function exportPlaylists() {
     t('Settings.Data Settings.All playlists has been successfully exported')
   )
 }
-
-function exportPlaylistsForOlderVersionsSometimes() {
-  if (shouldExportPlaylistForOlderVersions.value) {
-    exportPlaylistsForOlderVersions()
-  } else {
-    exportPlaylists()
-  }
-}
-
-async function exportPlaylistsForOlderVersions() {
-  const dateStr = getTodayDateStrLocalTimezone()
-  const exportFileName = 'freetube-playlists-as-single-favorites-playlist-' + dateStr + '.db'
-
-  const favoritesPlaylistData = {
-    playlistName: 'Favorites',
-    protected: true,
-    videos: [],
-  }
-
-  allPlaylists.value.forEach((playlist) => {
-    playlist.videos.forEach((video) => {
-      const videoAlreadyAdded = favoritesPlaylistData.videos.some((v) => {
-        return v.videoId === video.videoId
-      })
-      if (videoAlreadyAdded) { return }
-
-      favoritesPlaylistData.videos.push(
-        Object.assign({
-          // The "required" keys during import (but actually unused) in older versions
-          isLive: false,
-          paid: false,
-          published: '',
-        }, video)
-      )
-    })
-  })
 
   await promptAndWriteToFile(
     exportFileName,

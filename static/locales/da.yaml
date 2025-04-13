@@ -557,15 +557,6 @@ Settings:
     Playlist File: Playliste-fil
 
     Subscription File: Abonnementsfil
-    Export Playlists For Older FreeTube Versions:
-      Label: Eksportér playlister til ældre FreeTube-versioner
-      Tooltip: "Denne mulighed eksporterer videoer fra alle afspilningslister til
-        en afspilningsliste med navnet 'Favoritter'\nSådan eksporterer og importerer
-        du videoer i afspilningslister til en ældre version af FreeTube:porter dine
-        afspilningslister med denne mulighed aktiveret.\n2. Slet alle dine eksisterende
-        afspilningslister ved at bruge indstillingen Fjern alle afspilningslister
-        under Privatlivsindstillinger.\n3. Start den ældre version af FreeTube, og
-        importer de eksporterede afspilningslister.«"
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fejl ved
       anskaffelse af netværksinformation. Er din proxy konfigureret ordentligt?

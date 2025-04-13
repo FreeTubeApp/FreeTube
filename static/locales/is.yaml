@@ -627,15 +627,6 @@ Settings:
     Subscription File: Skrá með áskriftum
     History File: Skrá með atvikaferli
     Playlist File: Spilunarlistaskrá
-    Export Playlists For Older FreeTube Versions:
-      Label: Flytja út spilunarlista fyrir eldri útgáfur FreeTube
-      Tooltip: "Þessi valkostur flytur út myndskeið úr öllum spilunarlistum inn í
-        einn spilunarlista sem kallast 'Eftirlæti'.\nHér er skýrt hvernig eigi að
-        flytja út eða inn myndskeið í spilunarlistum fyrir eldri útgáfur FreeTube:\n
-        1. Flyttu út spilunarlistana þína með þennan valkost virkann.\n2. Eyddu út
-        öllum fyrirliggjandi spilunarlistum hjá þér með valkostinum 'Fjarlægja alla
-        spilunarlista' í stillingum gagnaleyndar.\n3. Ræstu eldri útgáfu FreeTube
-        og flyttu inn spilunarlistana sem þú fluttir út.\""
   Proxy Settings:
     Proxy Settings: 'Milliþjónn (proxy)'
     Enable Tor / Proxy: 'Virkja Tor / milliþjón'

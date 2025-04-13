@@ -620,15 +620,6 @@ Settings:
     Subscription File: Ficheiro de subscrição
     History File: Ficheiro de histórico
     Playlist File: Ficheiro de lista de reprodução
-    Export Playlists For Older FreeTube Versions:
-      Label: Exportar listas de reprodução para versões mais antigas do FreeTube
-      Tooltip: "Esta opção exporta os vídeos de todas as listas de reprodução para
-        uma lista de reprodução chamada \"Favoritos\".\nComo exportar e importar vídeos
-        em listas de reprodução para uma versão mais antiga do FreeTube:\n1. Exporte
-        as suas listas de reprodução com esta opção ativada.\n2. Elimine todas as
-        listas de reprodução existentes usando a opção \"Remover todas as listas de
-        reprodução\" em \"Definições de privacidade\".\n3. Abra a versão mais antiga
-        do FreeTube e importe as listas de reprodução."
   Proxy Settings:
     Proxy Settings: Proxy
     Enable Tor / Proxy: Ativar Tor / proxy

@@ -523,14 +523,6 @@ Settings:
     History File: Tệp lịch sử
     Playlist File: Tệp danh sách phát
     Subscription File: Tệp đăng ký
-    Export Playlists For Older FreeTube Versions:
-      Label: Xuất danh sách phát cho các phiên bản FreeTube cũ hơn
-      Tooltip: "Tùy chọn này sẽ gộp tất cả các danh sách phát vào một danh sách phát
-        mang tên 'Ưa thích'.\nCách để nhập & xuất video trong danh sách phát cho một
-        phiên bản cũ hơn của FreeTube:\n1. Xuất danh sách phát với tùy chọn này được
-        bật.\n2. Xóa tất cả các danh sách phát qua tùy chọn Xóa tất cả danh sách phát
-        trong mục Cài đặt quyền riêng tư.\n3. Mở phiên bản cũ hơn và nhập danh sách
-        phát đã được xuất ra."
   Distraction Free Settings:
     Hide Live Chat: Ẩn live chat
     Hide Popular Videos: Ẩn video phổ biến
