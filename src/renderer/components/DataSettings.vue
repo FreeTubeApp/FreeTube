@@ -1161,7 +1161,6 @@ async function exportPlaylists() {
     '.db',
     t('Settings.Data Settings.All playlists has been successfully exported')
   )
-}
 
 // #endregion playlists
 </script>
