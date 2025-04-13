@@ -741,11 +741,10 @@ Channel:
     Sort Types:
       Newest: 'Nyeste'
       Oldest: 'Eldste'
-      Most Popular: 'Mest populær'
+      Most Popular: 'Mest populære'
   Playlists:
     Playlists: 'Spillelister'
-    This channel does not currently have any playlists: 'Kanalen har ingen spillelister
-      enda'
+    This channel does not currently have any playlists: 'Kanalen har ingen spillelister'
     Sort Types:
       Last Video Added: 'Siste video lagt til'
       Newest: 'Nyeste'
@@ -760,7 +759,7 @@ Channel:
     Details: Detaljer
     Joined: Registrert
     Location: Posisjon
-  Added channel to your subscriptions: Lagt til kanal til dine abonnenter
+  Added channel to your subscriptions: Lagt kanal til i dine abonnenter
   Removed subscription from {count} other channel(s): Fjernet abonnement fra {count}
     andre kanal(er)
   Channel has been removed from your subscriptions: Kanalen har blitt fjernet fra
@@ -778,19 +777,25 @@ Channel:
     Video hidden by FreeTube: Video skjult av FreeTube
     Viewing Posts Only Supported By Invidious: Vise innlegg er bare stølttet av Invidious.
       Gå til kanalens fellesskapside for å se innholdet der uten Invidious.
-    Reveal Answers: Avslør svar
+    Reveal Answers: Vis svar
   Shorts:
     This channel does not currently have any shorts: Denne kanalen har ingen Shorts-videoer
   Live:
     Live: Direkte
-    This channel does not currently have any live streams: Denne kanalen har ikke
-      noen direktesendinger
+    This channel does not currently have any live streams: Denne kanalen har ingen
+      direktesendinger
   Podcasts:
-    Podcasts: Nettradioopptak
-    This channel does not currently have any podcasts: Denne kanalen har ingen nettradioopptak
+    Podcasts: Podcaster
+    This channel does not currently have any podcasts: Denne kanalen har ingen podcaster
   Releases:
-    Releases: Publiseringer
-    This channel does not currently have any releases: Denne kanalen har ingen publiseringer
+    Releases: Utgivelser
+    This channel does not currently have any releases: Denne kanalen har ingen utgivelser
+  Home:
+    Home: Hjem
+    View Playlist: Vis spilleliste
+  Courses:
+    Courses: Kurs
+    This channel does not currently have any courses: Denne kanalen har ingen kurs
 Video:
   Mark As Watched: 'Marker som sett'
   Remove From History: 'Fjern fra historikk'
@@ -1057,6 +1062,8 @@ Profile:
   Profile Name: Profilnavn
   Create Profile Name: Lag profilnavn
   Edit Profile Name: Endre profilnavn
+  Close Profile Dropdown: Lukk profilrullgardinmenyen
+  Open Profile Dropdown: Åpne profilrullgardinmenyen
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Denne
   videoen er utilgjengelig grunnet manglende formater. Dette kan skyldes tilgangbegrensninger
   i ditt land.
