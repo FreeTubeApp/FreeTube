@@ -1153,14 +1153,5 @@ async function exportPlaylists() {
   )
 }
 
-  await promptAndWriteToFile(
-    exportFileName,
-    JSON.stringify([favoritesPlaylistData]),
-    t('Settings.Data Settings.Playlist File'),
-    'application/x-freetube-db',
-    '.db',
-    t('Settings.Data Settings.All playlists has been successfully exported')
-  )
-
 // #endregion playlists
 </script>
