@@ -761,7 +761,7 @@ async function getChannelLocal() {
     const tabs = ['about']
 
     // we'll count it as home page if it's not video. This will help us support some special channels
-    if ((channelInstance.has_home === 'home' || channelInstance.tabs[0] !== 'Videos')) {
+    if ((channelInstance.has_home || channelInstance.tabs[0] !== 'Videos')) {
       if (!hideChannelHome.value) {
         tabs.push('home')
       }
@@ -1490,7 +1490,7 @@ async function getChannelPlaylistsLocal() {
     showPlaylistSortBy.value = playlistsTab.sort_filters.length > 1 && playlistsTab.playlists.length > 1
 
     if (showPlaylistSortBy.value && playlistSortBy.value !== 'newest') {
-      const index = PLAYLIST_SELECT_VALUES.value.indexOf(playlistSortBy.value)
+      const index = PLAYLIST_SELECT_VALUES.indexOf(playlistSortBy.value)
       playlistsTab = await playlistsTab.applySort(playlistsTab.sort_filters[index])
     }
 
