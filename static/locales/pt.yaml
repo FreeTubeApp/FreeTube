@@ -1,8 +1,6 @@
 # Put the name of your locale in the same language
 Locale Name: 'Português'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta parte da aplicação ainda não está pronta. Volte mais tarde para ver se há progresso.
+
 # Webkit Menu Bar
 File: 'Ficheiro'
 Quit: 'Sair'

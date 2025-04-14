@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Nederlands'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Dit deel van de app is nog niet klaar. Kom later terug als er voortgang is geboekt.
 
 # Webkit Menu Bar
 File: 'bestand'

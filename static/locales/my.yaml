@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'မြန်မာ'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  အက်ပ်၏ဤအစိတ်အပိုင်းသည် အဆင်သင့်မဖြစ်သေးပါ။ ထပ်မံပြင်ဆင် ပြီးမှ သာ ပြန်လာပါ။
 
 # Webkit Menu Bar
 File: 'ဖိုင်'
