@@ -50,7 +50,7 @@ Search / Go to URL: 'Rechercher / ouvrir l''URL'
 Search Filters:
   Search Filters: 'Filtres de recherche'
   Sort By:
-    Most Relevant: 'Pertinence'
+    Most Relevant: 'Plus pertinent'
     Rating: 'Avis'
     Upload Date: 'Date de mise en ligne'
     View Count: 'Nombre de vues'
@@ -328,7 +328,7 @@ Settings:
       Catppuccin Mocha: Catppuccin Moka
       Pastel Pink: Rose pastel
       Hot Pink: Rose vif
-      Nordic: Nordic
+      Nordic: Nordique
       Solarized Light: Clair polarisé
       Solarized Dark: Noir polarisé
       Gruvbox Light: Gruvbox Clair
@@ -349,7 +349,7 @@ Settings:
       Indigo: 'Indigo'
       Blue: 'Bleu'
       Light Blue: 'Bleu clair'
-      Cyan: 'Cyan'
+      Cyan: 'bleu-vert'
       Teal: 'Bleu sarcelle'
       Green: 'Vert'
       Light Green: 'Vert clair'
@@ -358,7 +358,7 @@ Settings:
       Amber: 'Ambre'
       Orange: 'Orange'
       Deep Orange: 'Orange foncé'
-      Dracula Cyan: 'Dracula Cyan'
+      Dracula Cyan: 'bleu-vert Dracula'
       Dracula Green: 'Dracula Vert'
       Dracula Orange: 'Dracula Orange'
       Dracula Pink: 'Dracula Rose'
@@ -505,7 +505,7 @@ Settings:
   Privacy Settings:
     Privacy Settings: Confidentialité
     Remember History: Enregistrer l’historique de lecture
-    Watch history has been cleared: L’historique de lecture a été effacé.
+    Watch history has been cleared: L’historique de lecture a été effacé
     Are you sure you want to remove your entire watch history?: Êtes-vous sûr(e) de
       vouloir supprimer tout votre historique ?
     Search cache has been cleared: L'historique de recherche a été effacé
@@ -635,7 +635,7 @@ Settings:
     Hide Channels Invalid: L’identifiant de chaine fourni n’est pas valide
     Hide Channels Disabled Message: Certaines chaines ont été bloquées à l’aide d’un
       identifiant et n’ont pas été traitées. La fonctionnalité est bloquée le temps
-      que ces identifiants se mettent à jour.
+      que ces identifiants se mettent à jour
     Hide Channels Already Exists: L’identifiant de chaine existe déjà
     Hide Channels API Error: Erreur de récupération de l'utilisateur portant l'identifiant
       fourni. Veuillez vérifier à nouveau si l'ID est correct.
@@ -1120,7 +1120,7 @@ Profile:
   Edit Profile Name: Modifier le nom du profil
   Create Profile Name: Créer un nom de profil
 The playlist has been reversed: La liste de lecture a été inversée
-A new blog is now available, {blogTitle}. Click to view more: Un nouveau billet est
+A new blog is now available, {blogTitle}. Click to view more: Un nouveau blog est
   maintenant disponible, {blogTitle}. Cliquez pour en savoir plus
 Download From Site: Télécharger depuis le site
 Version {versionNumber} is now available!  Click for more details: La version {versionNumber}
@@ -1281,7 +1281,7 @@ Yes, Delete: Oui, effacer
 Yes, Restart: Oui, redémarrer
 Yes, Open Link: Oui, ouvrir le lien
 Cancel: Annuler
-Search character limit: La recherche dépasse le nombre de caractères impartis {searchCharacterLimit}
+Search character limit: La recherche dépasse le nombre maximale de caractères {searchCharacterLimit}
 Search Listing:
   Label:
     4K: 4K
