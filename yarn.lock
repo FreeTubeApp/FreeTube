@@ -5938,10 +5938,10 @@ json-buffer@3.0.1:
   resolved "https://registry.yarnpkg.com/json-buffer/-/json-buffer-3.0.1.tgz#9338802a30d3b6605fbe0613e094008ca8c05a13"
   integrity sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==
 
-json-minimizer-webpack-plugin@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/json-minimizer-webpack-plugin/-/json-minimizer-webpack-plugin-5.0.0.tgz#441f5dad1c766b0baba4eeed69d2f45021f23f40"
-  integrity sha512-GT/SZolN2p405EMGjMTBvAVi2+y035p1tSOuLpWbp5QTMl080OHx4DEGXfUH6vbnGw5Z/QKfBe+KpP9Dj0qLmA==
+json-minimizer-webpack-plugin@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/json-minimizer-webpack-plugin/-/json-minimizer-webpack-plugin-5.0.1.tgz#434d549699a0a617758f30f28f89bbbf8f62b1e7"
+  integrity sha512-j/AAyrj8PLogZo+S3KV1Lw8zPV5SC5QG8Y0rLMkiwXob7YFgM6NAA56P3/vgOWiZIh1hsUenXMLOjkoKkISdIg==
   dependencies:
     schema-utils "^4.2.0"
 
