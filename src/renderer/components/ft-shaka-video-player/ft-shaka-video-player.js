@@ -36,6 +36,7 @@ const USE_OVERFLOW_MENU_WIDTH_THRESHOLD = 634
 const RequestType = shaka.net.NetworkingEngine.RequestType
 const AdvancedRequestType = shaka.net.NetworkingEngine.AdvancedRequestType
 const TrackLabelFormat = shaka.ui.Overlay.TrackLabelFormat
+const { Severity: ErrorSeverity, Category: ErrorCategory, Code: ErrorCode } = shaka.util.Error
 
 /*
   Mapping of Shaka localization keys for control labels to FreeTube shortcuts.
@@ -2324,12 +2325,24 @@ export default defineComponent({
     function handleError(error, context, details) {
       // These two errors are just wrappers around another error, so use the original error instead
       // As they can be nested (e.g. multiple googlevideo redirects because the Invidious server was far away from the user) we should pick the inner most one
-      while (error.code === shaka.util.Error.Code.REQUEST_FILTER_ERROR || error.code === shaka.util.Error.Code.RESPONSE_FILTER_ERROR) {
+      while (error.code === ErrorCode.REQUEST_FILTER_ERROR || error.code === ErrorCode.RESPONSE_FILTER_ERROR) {
         error = error.data[0]
       }
 
       // Allow shaka-player to retry on potentially recoverable network errors
-      if (error.severity === shaka.util.Error.Severity.RECOVERABLE && error.category === shaka.util.Error.Category.NETWORK) {
+      if (error.severity === ErrorSeverity.RECOVERABLE && error.category === ErrorCategory.NETWORK) {
+        /** @type {keyof ErrorCategory} */
+        const categoryText = Object.keys(ErrorCategory).find((/** @type {keyof ErrorCategory} */ key) => ErrorCategory[key] === error.category)
+
+        /** @type {keyof ErrorCode} */
+        const codeText = Object.keys(ErrorCode).find((/** @type {keyof ErrorCode} */ key) => ErrorCode[key] === error.code)
+
+        console.warn(
+          'Recoverable network error retrying...\n' +
+          `Category: ${categoryText} (${error.category})\n` +
+          `Code: ${codeText} (${error.code})\n` +
+          'Data', error.data
+        )
         return
       }
 
@@ -2337,7 +2350,7 @@ export default defineComponent({
 
       // text related errors aren't serious (captions and seek bar thumbnails), so we should just log them
       // TODO: consider only emitting when the severity is crititcal?
-      if (!ignoreErrors && error.category !== shaka.util.Error.Category.TEXT) {
+      if (!ignoreErrors && error.category !== ErrorCategory.TEXT) {
         // don't react to multiple consecutive errors, otherwise we don't give the format fallback from the previous error a chance to work
         ignoreErrors = true
 
