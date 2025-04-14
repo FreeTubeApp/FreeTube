@@ -329,12 +329,13 @@ const route = useRoute()
 const router = useRouter()
 
 let skipRouteChangeWatcherOnce = false
+let autoRefreshOnSortByChangeEnabled = false
 /** @type {import('youtubei.js').YT.Channel|null} */
 let channelInstance = null
 /** @type {'local' | 'invidious' | ''} */
 let apiUsed = ''
 
-const isLoading = ref(false)
+const isLoading = ref(true)
 const isElementListLoading = ref(false)
 const isSearchTabLoading = ref(false)
 const currentTab = ref('videos')
@@ -361,7 +362,6 @@ const isFamilyFriendly = ref(false)
 const errorMessage = ref('')
 const showSearchBar = ref(true)
 const showShareMenu = ref(true)
-const autoRefreshOnSortByChangeEnabled = ref(false)
 
 const PLAYLIST_SELECT_VALUES = ['newest', 'last']
 const playlistSelectNames = computed(() => [
@@ -533,7 +533,7 @@ watch(route, () => {
   }
 
   // Disable auto refresh on sort value change during state reset
-  autoRefreshOnSortByChangeEnabled.value = false
+  autoRefreshOnSortByChangeEnabled = false
 
   id.value = route.params.id
   searchPage = 1
@@ -581,11 +581,11 @@ watch(route, () => {
   // Re-enable auto refresh on sort value change AFTER update done
   if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
     getChannelInfoInvidious().finally(() => {
-      autoRefreshOnSortByChangeEnabled.value = true
+      autoRefreshOnSortByChangeEnabled = true
     })
   } else {
     getChannelLocal().finally(() => {
-      autoRefreshOnSortByChangeEnabled.value = true
+      autoRefreshOnSortByChangeEnabled = true
     })
   }
 }, { deep: true })
@@ -609,11 +609,11 @@ onMounted(async () => {
   // Enable auto refresh on sort value change AFTER initial update done
   if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
     await getChannelInfoInvidious().finally(() => {
-      autoRefreshOnSortByChangeEnabled.value = true
+      autoRefreshOnSortByChangeEnabled = true
     })
   } else {
     await getChannelLocal().finally(() => {
-      autoRefreshOnSortByChangeEnabled.value = true
+      autoRefreshOnSortByChangeEnabled = true
     })
   }
 
@@ -1036,7 +1036,7 @@ const showVideoSortBy = ref(true)
 const videoSortBy = ref('newest')
 
 watch(videoSortBy, () => {
-  if (autoRefreshOnSortByChangeEnabled.value) { return }
+  if (!autoRefreshOnSortByChangeEnabled) { return }
 
   isElementListLoading.value = true
   latestVideos.value = []
@@ -1188,7 +1188,7 @@ const showShortSortBy = ref(true)
 const shortSortBy = ref('newest')
 
 watch(shortSortBy, () => {
-  if (autoRefreshOnSortByChangeEnabled.value) { return }
+  if (!autoRefreshOnSortByChangeEnabled) { return }
 
   isElementListLoading.value = true
   latestShorts.value = []
@@ -1317,7 +1317,7 @@ const showLiveSortBy = ref(true)
 const liveSortBy = ref('newest')
 
 watch(liveSortBy, () => {
-  if (autoRefreshOnSortByChangeEnabled.value) { return }
+  if (!autoRefreshOnSortByChangeEnabled) { return }
 
   isElementListLoading.value = true
   latestLive.value = []
@@ -1448,7 +1448,7 @@ const showPlaylistSortBy = ref(true)
 const playlistSortBy = ref('newest')
 
 watch(playlistSortBy, () => {
-  if (autoRefreshOnSortByChangeEnabled.value) { return }
+  if (!autoRefreshOnSortByChangeEnabled) { return }
 
   isElementListLoading.value = true
   latestPlaylists.value = []
