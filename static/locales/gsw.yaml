@@ -41,10 +41,35 @@ Are you sure you want to open this link?: 'Bisch du sicher, dass du de Link ufma
 
 # Search Bar
 Search / Go to URL: 'Sueche / Gang zu de URL'
-Search Filters: {}
+Search Filters:
+  Time:
+    Last Hour: letzte stunde
+    Time: Zeit
+    Any Time: jederzeit
 Settings:
   # On Settings Page
   Theme Settings: {}
   SponsorBlock Settings: {}
 Channel: {}
 Tooltips: {}
+Search Listing:
+  Label:
+    4K: 4K
+Global:
+  Videos: videos
+  Counts:
+    Video Count: 1 video | {count} videos
+    Channel Count: 1 Kanal| {count} Kanal
+    Subscriber Count: 1 Abonnent| {count} Abonnent
+    View Count: 1 Aufruf |{count} Aufrufe
+    Like Count: 1 like | {count} likes
+    Comment Count: 1 Kommentar| {count} Kommentar
+  Live: live
+  Shorts: shorts
+  Community: Gemeinschaft
+  Sort By: Sortieren nach
+Search character limit: Die Suchanfrage ist länger als das erlaubte Limit von {searchCharacterLimit}
+  Zeichen
+Preferences: Ihstellige
+Go to page: gehe zu
+Close Banner: Banner schließen
