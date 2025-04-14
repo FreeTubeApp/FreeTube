@@ -880,10 +880,10 @@ Video:
   Player:
     Take Screenshot: Ta et skjermbilde
     Stats:
-      Video ID: 'Video ID: {videoId}'
+      Video ID: 'Video-ID: {videoId}'
       Media Formats: 'Medieformater: {formats}'
       Buffered: 'Bufret: {bufferedPercentage}%'
-      Volume: 'Dataområde: {volumePercentage}%'
+      Volume: 'Lydstyrke: {volumePercentage}%'
       Resolution: 'Oppløsning: {width}x{height}@{frameRate}'
       Stats: Statistikk
       CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
@@ -891,8 +891,8 @@ Video:
       Player Dimensions: 'Avspillerdimensjoner: {width}x{height}'
       CodecsVideoAudioNoItags: 'Kodeker: {videoCodec} / {audioCodec}'
       Bandwidth: 'Båndbredde: {bandwidth} kbps'
-      Dropped Frames / Total Frames: 'Tapte rammer: {droppedFrames} / Totale rammer:
-        {totalFrames}'
+      Dropped Frames / Total Frames: 'Tapte bilder: {droppedFrames} / Totale antall
+        bilder: {totalFrames}'
       Bitrate: 'Bitrate: {bitrate} kbps'
     Audio Tracks: Lydspor
     Show Stats: Vis statistikk
@@ -900,11 +900,11 @@ Video:
     Hide Stats: Skjul statistikk
     Full Window: Fullt vindu
     TranslatedCaptionTemplate: '{language} (Oversatt fra "{originalLanguage}")'
-    Skipped segment: Hoppet over {segmentCategory} segment
+    Skipped segment: Hoppet over {segmentCategory}-segment
     Autoplay is on: Automatisk avspilling er slått på
-    Exit Full Window: Forlat fullskjerm
+    Exit Full Window: Avslutt fullskjerm
     Autoplay is off: Automatisk avspilling er slått av
-    Exit Theatre Mode: Forlat teatermodus
+    Exit Theatre Mode: Avslutt teatermodus
     Playback will resume automatically when your connection comes back: Avspilling
       vil fortsette automatisk når din tilkobling kommer tilbake.
     You appear to be offline: Du ser ut til å være frakoblet.
@@ -938,16 +938,16 @@ Playlist:
   Playlist: Spilleliste
   Sort By:
     PublishedNewest: Siste publisert først
-    AuthorAscending: Forfatter (A-Z)
-    VideoDurationDescending: Varighet (Lengst først)
+    AuthorAscending: Forfatter (A-Å)
+    VideoDurationDescending: Varighet (Lengste først)
     PublishedOldest: Tidligste publisert først
     DateAddedNewest: Siste lagt til først
-    VideoTitleAscending: Tittel (A-Z)
+    VideoTitleAscending: Tittel (A-Å)
     DateAddedOldest: Tidligste lagt til først
-    AuthorDescending: Forfatter (Z-A)
-    VideoTitleDescending: Tittel (Z-A)
+    AuthorDescending: Forfatter (Å-A)
+    VideoTitleDescending: Tittel (Å-A)
     Custom: Tilpasset
-    VideoDurationAscending: Varighet (Kortest først)
+    VideoDurationAscending: Varighet (Korteste først)
 Change Format:
   Change Media Formats: 'Endre videoformater'
   Use Dash Formats: 'Bruk DASH-formater'
@@ -968,7 +968,7 @@ Share:
   Open Embed: 'Åpne innebyggingslenke'
   # On Click
   Invidious URL copied to clipboard: 'Invidious-nettadresse kopiert til utklippstavle'
-  Invidious Embed URL copied to clipboard: 'Innebyggingslenke for Invidious kopiert
+  Invidious Embed URL copied to clipboard: 'Innebyggingslenke til Invidious kopiert
     til utklippstavle'
   YouTube URL copied to clipboard: 'YouTube-nettadresse kopiert til utklippstavle'
   YouTube Embed URL copied to clipboard: 'Innebygd YouTube-nettadresse kopiert til
@@ -982,21 +982,21 @@ Mini Player: 'Miniavspiller'
 Comments:
   Comments: 'Kommentarer'
   Click to View Comments: 'Klikk her for å vise kommentarer'
-  Getting comment replies, please wait: 'Henter kommentarsvar …'
+  Getting comment replies, please wait: 'Henter kommentarsvar...'
   Hide Comments: 'Skjul kommentarer'
   # Context: View 10 Replies, View 1 Reply
   View: 'Vis'
   Hide: 'Skjul'
   Replies: 'Svar'
   Reply: 'Svar'
-  There are no comments available for this video: 'Det er ingen kommentarer tilgjengelige
+  There are no comments available for this video: 'Det er ingen kommentarer tilgjengelig
     på denne videoen'
   Load More Comments: 'Last inn flere kommentarer'
   Newest first: Nyeste først
-  There are no more comments for this video: Ingen flere kommentarer for denne videoen
+  There are no more comments for this video: Ingen flere kommentarer på denne videoen
   Top comments: Toppkommentarer
   Show More Replies: Vis flere svar
-  From {channelName}: Fra {channelName}
+  From {channelName}: fra {channelName}
   Pinned by: Festet av
   Member: Medlem
   And others: og andre
@@ -1165,6 +1165,7 @@ Chapters:
     Nåværende kapittel: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Kapittelliste skjult. Nåværende
     kapittel: {chapterName}'
+  Key Moments: Høydepunkter
 Screenshot Success: Lagre skjermavbildning som «{filePath}»
 Screenshot Error: Skjermavbildning mislyktes. {error}
 Ok: OK
