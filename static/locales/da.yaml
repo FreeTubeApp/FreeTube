@@ -243,6 +243,7 @@ User Playlists:
     målliste.
   Quick Bookmark Enabled: Hurtigt bogmærke aktiveret
   Enable Quick Bookmark With This Playlist: Aktiver Hurtigt bogmærke med denne afspilningsliste
+  TotalTimePlaylist: 'Samlet tid: {duration}'
 History:
   # On History Page
   History: 'Historik'
@@ -501,6 +502,9 @@ Settings:
       på, at du vil rydde din søgehistorik og cache?
     Search history and cache have been cleared: Søgehistorik og cache blev ryddet
     Clear Search History and Cache: Ryd søgehistorik og cache
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Auto
   Subscription Settings:
     Subscription Settings: 'Abonnement'
     Hide Videos on Watch: 'Skjul Videoer på Se'

@@ -127,6 +127,16 @@ it can be safely elided. This looks quite pleasant on this theme. */
 
 /*************** LIGHT THEME ADJUSTMENTS ***************/
 
+/* Light shadow color for themes where a dark shadow would not work */
+.pastelPink,
+.everforestLightHard,
+.everforestLightMedium,
+.everforestLightLow,
+.gruvboxLight,
+.solarizedLight {
+  --primary-shadow-color: rgb(255 255 255 / 75%);
+}
+
 /* Light theme Youtube and Invidious logo styling (in FtShareButton) */
 .invidiousLogo {
   background-image: url('./assets/img/invidious-logo-light.svg');
@@ -151,7 +161,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-text-color: #212121;
   --secondary-text-color: #424242;
   --tertiary-text-color: #757575;
-  --primary-shadow-color: rgb(232 232 232 / 100%);
+  --primary-shadow-color: rgb(200 200 200 / 75%);
   --title-color: #3f7ac6;
   --bg-color: #f1f1f1;
   --favorite-icon-color: #0c0;
@@ -264,7 +274,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-text-color: #1f002b;
   --secondary-text-color: #361836;
   --tertiary-text-color: #5a285a;
-  --primary-shadow-color: rgb(255 240 240 / 50%);
   --title-color: #185eb4;
   --bg-color: #ffeadd;
   --favorite-icon-color: #760278;
@@ -378,7 +387,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .gruvboxLight {
-  --primary-shadow-color: rgb(255 241 199 / 100%);
   --primary-text-color: #3c3836;
   --secondary-text-color: #282828;
   --tertiary-text-color: #282828;

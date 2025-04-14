@@ -526,7 +526,7 @@ Settings:
         és hiba esetén (pl. a megtekintési korlátozás és videólejátszási munkamenet
         lejártakor). Félautomata = Hasonló az automatikushoz, kivéve a videóoldal
         elhagyásakor, továbbá a videolejátszó alatt található „Megnézett videó folyamatának
-        mentése” nevű gomb segítségével kézileg is menthető.
+        mentése” nevű gomb segítségével saját kezűleg is menthető.
   Subscription Settings:
     Subscription Settings: 'Feliratkozás'
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'

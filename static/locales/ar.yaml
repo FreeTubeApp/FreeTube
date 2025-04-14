@@ -497,7 +497,7 @@ Settings:
     Search history and cache have been cleared: تم مسح سجل البحث وذاكرة التخزين المؤقت
     Watched Progress Saving Mode:
       Modes:
-        Auto: آلي
+        Auto: تلقائي
         Semi-auto: شبه آلي
         Never: أبداً
       Tooltip: 'تلقائي = حفظ عند كل خروج من صفحة الفيديو، عند انتهاء الفيديو وظهور
