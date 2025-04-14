@@ -775,7 +775,7 @@ Channel:
     votes: '{votes} stemmer'
     View Full Post: Se hele innlegget
     Video hidden by FreeTube: Video skjult av FreeTube
-    Viewing Posts Only Supported By Invidious: Vise innlegg er bare stølttet av Invidious.
+    Viewing Posts Only Supported By Invidious: Innlegg kan bare vises gjennom Invidious.
       Gå til kanalens fellesskapside for å se innholdet der uten Invidious.
     Reveal Answers: Vis svar
   Shorts:
@@ -818,15 +818,15 @@ Video:
   Live Chat is currently not supported in this build.: 'Direktechat støttes ikke i
     denne versjonen.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Direktechat er
-    påslått. Meldinger vil vises her når de er sendt.'
+    påslått.  Meldinger vil vises her når de er sendt.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direktechat
     støttes for tiden ikke med Invidious-API-et. Direkte tilkobling til YouTube kreves.'
   Published:
     In less than a minute: Om mindre enn ett minutt
   Published on: 'Publisert'
 #& Videos
-  audio only: Bare lyd
-  video only: Bare video
+  audio only: bare lyd
+  video only: bare video
   Download Video: Last ned video
   Video has been saved: Videoen har blitt lagret
   Save Video: Lagre video
@@ -837,9 +837,9 @@ Video:
   Starting soon, please refresh the page to check again: Starter snart. Oppdater siden
     for å sjekke igjen
   Autoplay: Automatisk avspilling
-  Shuffle Playlist: Spill av tilfeldig fra spillelisten
+  Shuffle Playlist: Spill av spillelisten i tilfeldig rekkefølge
   Loop Playlist: Gjenta spilleliste
-  Open Channel in Invidious: Opne kanal i Invidious
+  Open Channel in Invidious: Åpne kanal i Invidious
   Copy YouTube Channel Link: Kopier YouTube-kanallenke
   Video has been removed from your saved list: Videoen har blitt fjernet fra din liste
     over lagrede videoer
@@ -847,12 +847,12 @@ Video:
   Play Previous Video: Spill av forrige video
   Play Next Video: Spill av neste video
   Sponsor Block category:
-    interaction: samhandling
-    outro: utgang
+    interaction: Samhandling
+    outro: Outro
     intro: introduksjon
     sponsor: sponsor
-    music offtopic: musikk (utenfor tema)
-    self-promotion: egenpromotering
+    music offtopic: Musikkfritt segment
+    self-promotion: Egenpromotering
     recap: Oppsummering
     filler: Fyllstoff
   External Player:
@@ -861,16 +861,16 @@ Video:
       opening specific video in a playlist (falling back to opening the video): åpning
         av spesifikk video i en spilleliste (faller tilbake til åpning av videoen)
       opening playlists: åpning av spillelister
-      setting a playback rate: setting av avspillingstakt
+      setting a playback rate: setting av avspillingshastighet
       starting video at offset: starting av video med forskyvning
       looping playlists: gjentakelse av spillelister
       reversing playlists: reversering av spillelister
     UnsupportedActionTemplate: '{externalPlayer} støtter ikke: {action}'
-    OpeningTemplate: Åpner {videoOrPlaylist} om {externalPlayer} …
+    OpeningTemplate: Åpner {videoOrPlaylist} i {externalPlayer} …
     playlist: spilleliste
     video: video
     OpenInTemplate: Åpne i {externalPlayer}
-  Show Super Chat Comment: Vis supersludringskommentar
+  Show Super Chat Comment: Vis superchatkommentar
   Scroll to Bottom: Rull til bunnen
   Premieres: Première
   Upcoming: Kommende
@@ -913,15 +913,20 @@ Video:
   More Options: Flere valg
   Hide Channel: Skjul kanal
   AgeRestricted: Videoer med aldersbegrensning kan ikke bli sett med FreeTube ettersom
-    det krever en Google pålogging og at man bruker en YouTube bruker med verifisert
+    det kreves en Google-pålogging og at man bruker en YouTube-bruker med verifisert
     alder.
   MembersOnly: Videoer kun for medlemmer kan ikke bli sett med FreeTube ettersom de
-    krever en Google pålogging og betalt medlemsskap i opplasterens kanal.
+    krever en Google-pålogging og et betalt medlemsskap i opplasterens kanal.
   IP block: YouTube har blokkert din IP adresse fra å se videoer. Prøv å bytte til
-    en annen VPN eller Proxy.
-  DRMProtected: DRM beskyttede videoer kan ikke bli avspilt i FreeTube, ettersom det
-    krever proprietære komponenter med lukket kildekode. Gå til den offisielle YouTube
-    nettsiden i en DRM aktivert nettleser for å spille av denne videoen.
+    en annen VPN eller mellomtjener.
+  DRMProtected: Kopibeskyttede videoer kan ikke bli avspilt i FreeTube, ettersom det
+    krever proprietære komponenter med lukket kildekode. Gå til den offisielle YouTube-nettsiden
+    i en støttet nettleser for å spille av denne videoen.
+  Save Watched Progress: Lagre sted i videoen
+  Watched Progress Saved: Sted i videoen lagret
+  DeArrow:
+    Show Modified Details: Vis endrede detaljer
+    Show Original Details: Vis originaldetaljer
 Playlist:
   #& About
   View Full Playlist: 'Vis full spilleliste'
