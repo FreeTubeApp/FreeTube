@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'West-Vlams'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Et djil van den app woar daj nu zît is nog nie gerjid. Komt were wanjir dan der
-  vorderingn gemakt zîn.
 
 # Webkit Menu Bar
 File: 'Bestand'
