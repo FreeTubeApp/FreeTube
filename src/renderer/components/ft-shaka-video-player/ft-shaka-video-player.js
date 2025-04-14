@@ -296,6 +296,12 @@ export default defineComponent({
       return store.getters.getDefaultPlayback
     })
 
+    watch(defaultPlaybackRate, (newValue) => {
+      if (video.value) {
+        video.value.defaultPlaybackRate = newValue
+      }
+    })
+
     const maxVideoPlaybackRate = computed(() => {
       return parseInt(store.getters.getMaxVideoPlaybackRate)
     })
@@ -958,12 +964,9 @@ export default defineComponent({
         // stop shaka-player's click handler firing
         event.stopPropagation()
 
-        const newPlaybackRate = defaultPlaybackRate.value
+        player.cancelTrickPlay()
 
-        video.value.playbackRate = newPlaybackRate
-        video.value.defaultPlaybackRate = newPlaybackRate
-
-        showValueChange(`${newPlaybackRate}x`)
+        showValueChange(`${defaultPlaybackRate.value}x`)
       }
     }
 
@@ -1901,15 +1904,17 @@ export default defineComponent({
      * @param {number} step
      */
     function changePlayBackRate(step) {
-      const video_ = video.value
-      const newPlaybackRateString = (video_.playbackRate + step).toFixed(2)
+      const newPlaybackRateString = (player.getPlaybackRate() + step).toFixed(2)
       const newPlaybackRate = parseFloat(newPlaybackRateString)
 
       // The following error is thrown if you go below 0.07:
       // The provided playback rate (0.05) is not in the supported playback range.
       if (newPlaybackRate > 0.07 && newPlaybackRate <= maxVideoPlaybackRate.value) {
-        video_.playbackRate = newPlaybackRate
-        video_.defaultPlaybackRate = newPlaybackRate
+        if (newPlaybackRate === defaultPlaybackRate.value) {
+          player.cancelTrickPlay()
+        } else {
+          player.trickPlay(newPlaybackRate, false)
+        }
 
         showValueChange(`${newPlaybackRateString}x`)
       }
@@ -1984,9 +1989,9 @@ export default defineComponent({
         event.preventDefault()
 
         if ((event.deltaY < 0 || event.deltaX > 0)) {
-          seekBySeconds(defaultSkipInterval.value * video.value.playbackRate, true)
+          seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate(), true)
         } else if ((event.deltaY > 0 || event.deltaX < 0)) {
-          seekBySeconds(-defaultSkipInterval.value * video.value.playbackRate, true)
+          seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate(), true)
         }
       }
     }
@@ -2111,12 +2116,12 @@ export default defineComponent({
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_REWIND:
           // Rewind by 2x the time-skip interval (in seconds)
           event.preventDefault()
-          seekBySeconds(-defaultSkipInterval.value * video_.playbackRate * 2)
+          seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate() * 2)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_FAST_FORWARD:
           // Fast-Forward by 2x the time-skip interval (in seconds)
           event.preventDefault()
-          seekBySeconds(defaultSkipInterval.value * video_.playbackRate * 2)
+          seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate() * 2)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED:
           // Decrease playback rate by user configured interval
@@ -2171,7 +2176,7 @@ export default defineComponent({
             video_.currentTime = props.chapters[props.currentChapterIndex - 1].startSeconds
           } else {
             // Rewind by the time-skip interval (in seconds)
-            seekBySeconds(-defaultSkipInterval.value * video_.playbackRate)
+            seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate())
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_FAST_FORWARD:
@@ -2181,7 +2186,7 @@ export default defineComponent({
             video_.currentTime = (props.chapters[props.currentChapterIndex + 1].startSeconds)
           } else {
             // Fast-Forward by the time-skip interval (in seconds)
-            seekBySeconds(defaultSkipInterval.value * video_.playbackRate)
+            seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate())
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE:

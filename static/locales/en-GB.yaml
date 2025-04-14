@@ -245,6 +245,7 @@ User Playlists:
   Export Playlist: Export This Playlist
   The playlist has been successfully exported: The playlist has been successfully
     exported
+  TotalTimePlaylist: 'Total time: {duration}'
 History:
   # On History Page
   History: 'History'
@@ -515,6 +516,13 @@ Settings:
     Clear Search History and Cache: Clear Search History and Cache
     Search history and cache have been cleared: Search history and cache have been
       cleared
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Auto
+      Tooltip: Auto = Save on every video page exit, when video ended and error encountered
+        (e.g. ratelimited and watch session expired). Semi-auto = Like Auto except
+        on video page exit and can save progress manually via a button called Save
+        Watched Progress, located beneath the video player.
   Subscription Settings:
     Subscription Settings: 'Subscription'
     Hide Videos on Watch: 'Hide Videos on Watch'
@@ -975,6 +983,8 @@ Video:
   DRMProtected: DRM protected videos cannot be played in FreeTube, as they require
     proprietary, closed source components. If you want to watch this video please
     watch it on the official YouTube website in a DRM enabled web browser.
+  Save Watched Progress: Save Watched Progress
+  Watched Progress Saved: Watched Progress Saved
 Playlist:
   #& About
   Playlist: Playlist
