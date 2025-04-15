@@ -1,9 +1,6 @@
 # Put the name of your locale in the same language
 Locale Name: 'Azərbaycanca'
 FreeTube: 'FreeTube'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Tətbiqin bu hissəsi hələ hazır deyil. İnkişaf bitdikdən sonra qayıdın.
 
 # Webkit Menu Bar
 File: 'Fayl'

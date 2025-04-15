@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Latviešu'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Šī aplikācijas sadaļa vēl nav gatava. Atnāc vēlāk, kad būs veikti uzlabojumi.
 
 # Webkit Menu Bar
 File: 'Datne'
@@ -61,6 +58,7 @@ Search / Go to URL: 'Meklē / Dodies uz URL'
 Search Bar:
   Clear Input: 'Tīrīt ievadi'
   # In Filter Button
+  Remove: Noņemt
 Search Filters:
   Search Filters: 'Meklēšanas atlase'
   Sort By:
@@ -106,7 +104,7 @@ Search Filters:
     VR180: VR180
     Features: Īpašības
     Subtitles: Paraksti
-    Creative Commons: Creative Commons
+    Creative Commons: "Creative Commons\uFEFF"
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonementi'
@@ -197,6 +195,7 @@ User Playlists:
         tika dzēsts.'
       "{videoCount} video(s) have been removed": 1 video tika noņemts | {videoCount}
         video tika noņemti
+      This playlist does not exist: Šis atskaņošanas saraksts neeksistē
     Search for Videos: Meklē video
   You have no playlists. Click on the create new playlist button to create a new one.: Tev
     nav atskaņošanas sarakstu. Spied uz "Izveido jaunu atskaņošanas sarakstu", lai
@@ -228,6 +227,15 @@ User Playlists:
     Toast:
       There was an issue with creating the playlist.: Izveidojot atskaņošanas sarakstu
         radās kļūda.
+  AddVideoPrompt:
+    Save: Saglabāt
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      video jau pievienoti'
+    N playlists selected: '{playlistCount} atlasīti'
+  Export Playlist: Eksportēt šo atskaņošanas sarakstu
+  The playlist has been successfully exported: Atskaņošanas saraksts ir veiksmīgi
+    eksportēts
+  TotalTimePlaylist: 'Kopējais laiks: {duration}'
 History:
   # On History Page
   History: 'Vēsture'
@@ -252,7 +260,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'Vēlamā API aizmugure'
       Local API: 'Vietējais API'
-      Invidious API: 'Invidious API'
+      Invidious API: "Invidious API\uFEFF"
     Video View Type:
       Video View Type: 'Video skata veids'
       Grid: 'Režģis'
@@ -344,11 +352,11 @@ Settings:
         #* Main Color Theme
   Player Settings:
     Player Settings: 'Atskaņotāja'
-    Play Next Video: 'Atskaņot nākamo video'
+    Play Next Video: 'Automātiski atskaņot ieteicamos video'
     Turn on Subtitles by Default: ''
-    Autoplay Videos: 'Autoatskaņot video'
+    Autoplay Videos: 'Automātiski atskaņot video'
     Proxy Videos Through Invidious: 'Starpniekot video caur Invidious'
-    Autoplay Playlists: 'Autoatskaņot sarakstus'
+    Autoplay Playlists: 'Automātiski atskaņot video no atskaņošanas saraksta'
     Enable Theatre Mode by Default: ''
     Scroll Volume Over Video Player: ''
     Scroll Playback Rate Over Video Player: 'Ritināt atskaņošanas ātrumu pāri video
@@ -356,7 +364,7 @@ Settings:
     Skip by Scrolling Over Video Player: 'Izlaist ritinot pāri video atskaņotājam'
     Display Play Button In Video Player: 'Attēlot Atskaņošanas pogu video atskaņotājā'
     Enter Fullscreen on Display Rotate: 'Pagriežot ekrānu pārslēgt uz pilnekrānu'
-    Next Video Interval: 'Nākošā video intervāls'
+    Next Video Interval: 'Automātiskās atskaņošanas atpakaļskaitīšanas intervāls'
     Fast-Forward / Rewind Interval: ''
     Default Volume: 'Noklusējuma skaļums'
     Default Playback Rate: 'Noklusējuma atskaņošanas ātrums'
@@ -403,7 +411,7 @@ Settings:
     Ignore Default Arguments: Ignorēt noklusējuma argumentus
   Privacy Settings:
     Privacy Settings: 'Privātuma'
-    Remember History: 'Atcerēties vēsturi'
+    Remember History: 'Saglabāt skatīšanās vēsturi'
     Save Watched Progress: 'Saglabāt skatīto attīstību'
     Save Watched Videos With Last Viewed Playlist: ''
     Clear Search Cache: 'Iztīri meklēšanas kešatmiņu'
@@ -452,11 +460,11 @@ Settings:
     Hide Channels: 'Kanālos paslēpt video'
     Hide Channels Placeholder: 'Kanāla ID'
     Hide Featured Channels: 'Paslēpt izceltos kanālus'
-    Hide Channel Playlists: 'Kanālā paslēpt sarakstus'
-    Hide Channel Community: 'Kanālā paslēpt kopienu'
-    Hide Channel Shorts: 'Kanālā paslēpt īsos'
-    Hide Channel Podcasts: 'Kanālā paslēpt podkāstus'
-    Hide Channel Releases: 'Kanālā paslēpt relīzes'
+    Hide Channel Playlists: 'Slēpt kanālā "Atskaņošanas saraksti" cilni'
+    Hide Channel Community: 'Slēpt kanālā "Kopiena" cilni'
+    Hide Channel Shorts: 'Slēpt kanālā "Īsie video" cilni'
+    Hide Channel Podcasts: 'Slēpt kanālā "Podkāsti" cilni'
+    Hide Channel Releases: 'Slēpt kanālā "Relīzes" cilni'
     Hide Subscriptions Videos: 'Paslēp abonementu video'
     Hide Subscriptions Shorts: 'Paslēp abonementu īsos video'
     Hide Subscriptions Live: 'Paslēp abonementu tiešraides'
@@ -464,6 +472,8 @@ Settings:
     Hide Channels Already Exists: Kanāla ID jau eksistē
     Hide Videos and Playlists Containing Text Placeholder: Vārds, vārda daļa, vai
       frāze
+    Hide Channel Home: Slēpt kanālā "Sākums" cilni
+    Hide Channel Courses: Slēpt kanālā "Kursi" cilni
   Data Settings:
     Data Settings: 'Datu'
     Select Export Type: 'Izvēlēties eksporta veidu'
@@ -520,7 +530,7 @@ Settings:
     Error getting network information. Is your proxy configured properly?: 'Kļūda
       saņemot tīkla informāciju. Vai jūsu starpniekserveris ir uzstādīts pareizi?'
   SponsorBlock Settings:
-    SponsorBlock Settings: 'SponsorBlock'
+    SponsorBlock Settings: "SponsorBlock\uFEFF"
     Enable SponsorBlock: 'Iespējot SponsorBlock'
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': ''
     Notify when sponsor segment is skipped: 'Ziņot, kad sponsora gabals tiek izlaists'
@@ -530,7 +540,7 @@ Settings:
       Auto Skip: 'Autoizlaist'
       Show In Seek Bar: 'Rādīt tīšanas joslā'
       Prompt To Skip: 'Jautāt, lai izlaistu'
-      Do Nothing: 'Nedarīt neko'
+      Do Nothing: 'Neko nedarīt'
     Category Color: 'Iedalījuma krāsa'
     UseDeArrowThumbnails: Izmanto DeArrow priekš sīktēliem
   Parental Control Settings:
@@ -576,7 +586,7 @@ About:
   Website: 'Vietne'
   Blog: 'Emuārs'
   Email: 'E-pasts'
-  Mastodon: 'Mastodon'
+  Mastodon: "Mastodon\uFEFF"
   Chat on Matrix: 'Tērzēt Matrixā'
   Please read the: 'Lūdzu izlasi'
   room rules: 'istabas noteikumi'
@@ -587,7 +597,7 @@ About:
   Donate: 'Ziedot'
 
   Licensed under the: Licenzēts ar
-  AGPLv3: AGPLv3
+  AGPLv3: "AGPLv3\uFEFF"
 Profile:
   Profile Settings: 'Profila'
   Toggle Profile List: 'Pārslēgt profilu sarakstu'

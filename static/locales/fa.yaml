@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'فارسی (ایرانی)'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  این بخش از نرم افزار هنوز آماده نیست.زمانی که پیشرفتی صورت گرفت به اینجا باز گردید.
 
 # Webkit Menu Bar
 File: 'فایل'
@@ -225,6 +222,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: فعال کردن نشانک سریع با این لیست پخش
   Quick Bookmark Enabled: نشانک سریع فعال شد
   Delete Playlist: حذف لیست پخش
+  TotalTimePlaylist: 'زمان کل: {duration}'
 History:
   # On History Page
   History: 'تاریخچه'
@@ -500,6 +498,16 @@ Settings:
       که می‌خواهید سابقه جستجو و حافظه پنهان خود را پاک کنید؟
     Search history and cache have been cleared: سابقه جستجو و حافظه پنهان پاک شده
       است
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: خودکار
+        Never: هرگز
+        Semi-auto: نیمه خودکار
+      Tooltip: خودکار = ذخیره در هر خروجی از صفحه ویدئو، زمانی که ویدیو به پایان رسید
+        و با خطا مواجه شد (به عنوان مثال، نرخ محدود و تماشای جلسه منقضی شده). نیمه
+        خودکار = مانند خودکار به جز در خروج از صفحه نمایش ویدئو و می تواند پیشرفت
+        دستی را از طریق یک دکمه به نام ذخیره پیشرفت تماشا شده، واقع در زیر پخش کننده
+        ویدئو ذخیره کند.
   Subscription Settings:
     Subscription Settings: 'دنبال شوندگان'
     Hide Videos on Watch: 'مخفی کردن ویدیو ها هنگام تماشا'
@@ -878,6 +886,8 @@ Video:
   DRMProtected: ویدیوهای محافظت شده DRM را نمی توان در FreeTube پخش کرد، زیرا به اجزای
     اختصاصی و منبع بسته نیاز دارند. اگر می‌خواهید این ویدیو را تماشا کنید، لطفاً آن
     را در وب‌سایت رسمی YouTube در یک مرورگر وب با قابلیت DRM تماشا کنید.
+  Save Watched Progress: ذخیره پیشرفت تماشا شده
+  Watched Progress Saved: پیشرفت های تماشا شده نجات یافته
 Tooltips:
   General Settings:
     External Link Handling: "وقتی روی پیوندی که در FreeTube باز نمی شود، روی آن کلیک

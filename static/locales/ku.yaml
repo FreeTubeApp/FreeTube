@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'کوردی ناوەڕاست'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  ئە بەشە لە ئەپلیکەیشنەکە هێشتا بەردەست نییە. لە کاتێکی دواتردا وەرەوە کە پێشکەوتنێک
-  رویداوە.
 
 # Webkit Menu Bar
 File: 'پەڕگە'
@@ -215,13 +211,51 @@ Settings:
     Disable Smooth Scrolling: لەکارخستنی ڕاکێشانی نەرم
     Base Theme:
       Solarized Dark: تاریکی وزەی خۆر
-  Player Settings: {}
+      Everforest Dark Hard: ئێڤەرفۆرێست دارک هارد
+      Everforest Dark Medium: هەمیشە دارستانی تاریکی مامناوەند
+      Everforest Dark Low: ئێڤەرفۆرێست دارک نزم
+      Solarized Light: ڕووناکی وزەی خۆر
+    Main Color Theme:
+      Main Color Theme: تێمی ڕەنگی سەرەکی
+  Player Settings:
+    Screenshot:
+      Error:
+        Forbidden Characters: کاراکتەرە قەدەغەکراوەکان
+        Empty File Name: ناوی فایل بەتاڵ بکە
+      Ask Path: پرسیار بکە بۆ هەڵگرتنی فۆڵدەر
+      File Name Tooltip: دەتوانیت گۆڕاوەکانی خوارەوە بەکار بهێنیت. ٪Y ساڵ 4 ژمارە.
+        ٪M مانگ 2 ژمارە. ٪D رۆژ 2 ژمارە. ٪H کاتژمێر 2 ژمارە. ٪N خولەک 2 ژمارە. ٪s
+        دووەم 2 ژمارە. ٪T میلیچرکە 3 ژمارە. ٪s ڤیدیۆی دووەم. ٪t ڤیدیۆ میلی چرکە 3
+        ژمارە. ٪i ناسنامەی ڤیدیۆ.
+      Folder Label: فۆڵدەری گرتە-شاشە
+    Autoplay Videos: دەستپێکردنی ڤیدیۆکان بە شێوەیەکی خۆکار
+    Turn on Subtitles by Default: ژێرنووسەکان بەتوانا بکە بە شێوەی گریمانەیی
+    Play Next Video: پەخش کردنی خۆکاری ڤیدیۆ پێشنیارکراوەکان
+    Autoplay Playlists: پەخش کردنی خۆکاری ڤیدیۆکانی لیستی پەخشکردن
+    Max Video Playback Rate: زۆرترین ڕێژەی پەخش کردنەوەی ڤیدیۆ
+    Default Playback Rate: ڕێژەی پێشینەی پەخش کردنەوە
+    Video Playback Rate Interval: ماوەی رێژەی پەخش کردنەوەی ڤیدیۆ
   Data Settings:
     Unable to read file: 'ناتواندرێت فایلەکە بخوێندرێتەوە'
     Unable to write file: 'ناتواندریت فایلەکە بنوسرێت'
     Unknown data key: 'کلیلی داتای نەناسراو'
     How do I import my subscriptions?: 'چۆن بەشدارییەکانم داخڵ بکەم؟'
     Manage Subscriptions: بەشدارییەکانت رێکبخە
+    Playlist insufficient data: داتای تەواو نیە بۆ لیستی پەخشکردنی "{playlist}"، پەڕاندنی
+      ئایتم
+    Subscriptions have been successfully exported: بەشداربووەکان بە سەرکەوتوویی هەناردە
+      کران
+    All playlists has been successfully imported: هەموو لیستەکانی پەخشکردن بە سەرکەوتوویی
+      هاوردە کران
+    Export FreeTube: هەناردەکردنی FreeTube
+    All playlists has been successfully exported: هەموو لیستەکانی پەخشکردن بە سەرکەوتوویی
+      هەناردە کران
+    History object has insufficient data, skipping item: ئۆبجێکتی مێژوو داتای تەواو
+      ناکات، بڕگە دەپەڕێنێت
+    All watched history has been successfully imported: هەموو مێژووی چاودێریکراو بە
+      سەرکەوتوویی هاوردە کرا
+    All watched history has been successfully exported: سەرجەم مێژووی چاودێری کراو
+      بە سەرکەوتوویی هەناردە کرا
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: کێشە لە
       وەرگرتنی زانیاری نێتۆرک. ئایە پرۆکسێکەت بە رێکوپێکی رێکخراوە؟
@@ -238,10 +272,69 @@ Settings:
     Proxy Protocol: پرۆتۆکۆڵی پڕۆکسی
     Enable Tor / Proxy: تۆر/پرۆکسی بەکاربخە
     Proxy Settings: گۆڕانکاری پرۆکسی
+    Proxy Warning: FreeTube پرۆکسی ناوەکی نییە بەڵام دەتوانێت بە بریکارێکی دەرەکی
+      گرێ بدات، وەک ئەوەی لەسەر ئامێرەکەت کار دەکات وەک Tor یان پرۆکسی دەرەکی وەک
+      پرۆکسی SOCKS5 کە لەلایەن هەندێک VPN دابینکراوە. ئەگەر چالاک بوو، دڵنیابە لەوەی
+      کە بریکارەکەت بە دروستی شێوەبەند کراوە، ئەگەرنا FreeTube ناتوانێت هیچ داتایەک
+      بهێنێت.
   The app needs to restart for changes to take effect. Restart and apply change?: ئەم
     ئەپڵیکەیشنە دەبێت دووبارە بکرێتەوە بۆ ئەوەی گۆڕانکارێکان بگانە ئەنجام. دووبارە
     کردنەوە و چەسپکردنی گۆڕانکارێکان؟
   Return to Settings Menu: گەڕانەوە بۆ پێرستی ڕێکبەندەکان
+  Distraction Free Settings:
+    Hide Channels Invalid: ناسنامەی کەناڵ دابینکراو نادروستە
+    Hide Active Subscriptions: شاردنەوەی بەشدارە چالاکەکان
+    Hide Video Description: شاردنەوەی وەسفی ڤیدیۆ
+    Display Titles Without Excessive Capitalisation: ناونیشانەکان پێشانبدە بەبێ پیتی
+      گەورە و خاڵبەندی لە ڕادەبەدەر
+    Hide Sharing Actions: شاردنەوەی چالاکیەکانی هاوبەش کردن
+    Hide Profile Pictures in Comments: شاردنەوەی وێنەی پرۆفایل لە سەرەنجەکان
+    Hide Channels: شاردنەوەی ڤیدیۆکان لە کەناڵەکان
+    Hide Channel Subscribers: شاردنەوەی بەشداربووانی کەناڵ
+    Hide Video Likes And Dislikes: شاردنەوەی حەز و نەخوازراوەکانی ڤیدیۆ
+    Hide Channels Disabled Message: هەندێک لە کەناڵەکان بە بەکارهێنانی ناسنامە بلۆک
+      کراون و چارەسەر نەکراون. تایبەتمەندی بلۆک کراوە لە کاتێکدا ئەو ناسنامانە نوێ
+      دەکرێنەوە
+    Hide Channels API Error: هەڵە لە گەڕاندنەوەی بەکارهێنەر لەگەڵ ناسنامەی دابینکراو.
+      تکایە دووبارە بپشکنە ئەگەر ناسنامەکە دروستە.
+  External Player Settings:
+    Ignore Default Arguments: ئارگیومێنتەکانی گریمانەیی فەرامۆش بکە
+    Ignore Unsupported Action Warnings: ئاگاداریەکانی چالاکی پشتیوانی نەکراو فەرامۆش
+      بکە
+    Custom External Player Executable: جێبەجێکردنی لێدەری دەرەکی ئاسایی
+    Custom External Player Arguments: ئارگیومێنتەکانی لێدەری دەرەکی ئاسایی
+  Privacy Settings:
+    Remember History: مێژووی چاودێریکردن لەبیربێت
+    Are you sure you want to remove all your playlists?: ئایا تۆ پشتڕاستیت کە دەتەوێت
+      هەموو لیستەکانی پەخشکردنت لابدەیت؟
+    Save Watched Progress: پێشکەوتنی چاودێرکراو بپارێزە
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ئایا
+      تۆ پشتڕاستیت کە دەتەوێت هەموو بەشداربوون و پرۆفایلەکان لابدەیت؟ ئەمە ناتوانرێت
+      پاشگەز بکرێتەوە.
+    Are you sure you want to remove your entire watch history?: ئایا تۆ پشتڕاستیت
+      کە دەتەوێت تەواوی مێژووی سەیرکردنت بسڕیتەوە؟
+    Remember Search History: بیرکەوتنەوە مێژووی گەڕان
+    Search history and cache have been cleared: مێژووی گەڕان و حەشارگە خاوێن کراونەتەوە
+    Clear Search History and Cache: خاوێنکردنەوەی مێژووی گەڕان و حەشارگە
+    Save Watched Videos With Last Viewed Playlist: پاشەکەوت کردنی ڤیدیۆکانی سەیرکراو
+      لەگەڵ لیستی پەخشکردنی دوایین بینراو
+    Watched Progress Saving Mode:
+      Tooltip: خودکار = پاشەکەوت کردن لە هەموو دەرچوونێکی لاپەڕەی ڤیدیۆ، کاتێک ڤیدیۆ
+        کۆتایی هات و هەڵە ڕوویدا (بۆ نمونە ratelimited و دانیشتنی سەیرکردن بەسەرچووە).
+        نیمچە خۆکار = وەک خۆکار جگە لە دەرچوون لە پەڕەی ڤیدیۆ و دەتوانێت پێشکەوتن
+        بە دەستی پاشەکەوت بکات لە رێگەی دوگمەیەک پێی دەوترێت پاشەکەوت کردنی پێشکەوتنی
+        سەیرکراو، دەکەوێتە ژێر لێدەری ڤیدیۆ.
+    Are you sure you want to clear out your search history and cache?: ئایا تۆ پشتڕاستیت
+      کە دەتەوێت مێژووی گەڕان و حەشارگە خاوێن بکەیتەوە؟
+  SponsorBlock Settings:
+    Notify when sponsor segment is skipped: ئاگادارکردنەوە کاتێک پارچەی سپۆنسەر فەرامۆش
+      کرا
+  Password Settings:
+    Set Password To Prevent Access: نهێنوشەیەک دابنێ بۆ ڕێگریکردن لە دەستگەیشتن بە
+      ڕێکبەندەکان
+  Subscription Settings:
+    'Limit the number of videos displayed for each channel': سنوردارکردنی ژمارەی ڤیدیۆکان
+      بۆ هەر کەناڵێک
 About:
   #On About page
   About: 'دەربارە'
@@ -289,8 +382,40 @@ Profile:
   Your default profile has been set to {profile}: 'پرۆفایلە ئاساییەکەت دانراوە بۆ
     {profile}'
   Removed {profile} from your profiles: 'سڕاوەتەوە لە پرۆفایلەکانت {profile}'
+  Toggle Profile List: گۆڕینی رەوشی لیستی پرۆفایل
+  Your default profile has been changed to your primary profile: پرۆفایلە گریمانەیەکەت
+    گۆڕدرا بۆ پرۆفایلی سەرەکیت
+  No channel(s) have been selected: هیچ کەناڵێکی دیاری نەکراوە
+  Edit Profile Name: بڵاوکردنەوەی ناوی پرۆفایل
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
+    same channels will be deleted in any profile they are found in.
+  : ئەمە هەژماری سەرەکی تۆیە. ئایا تۆ پشتڕاستیت کە دەتەوێت کەناڵە دەسنیشانکراوەکان
+    بسڕیتەوە؟ هەمان کەناڵەکان لە هەر پرۆفایلێکدا کە تێیدا دەدۆزرێنەوە دەسڕێنەوە.
+  '{profile} is now the active profile': '{profile} ئێستا پرۆفایلی چالاکە'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ئایا
+    تۆ پشتڕاستیت کە دەتەوێت کەناڵە دەسنیشانکراوەکان بسڕیتەوە؟ ئەمە کەناڵەکە لە هیچ
+    پرۆفایلێکی تر ناسڕێتەوە.
 Channel:
-  Playlists: {}
+  Playlists:
+    This channel does not currently have any playlists: ئەم کەناڵە لە ئێستادا هیچ
+      لیستێکی پەخشکردنی نییە
+  Shorts:
+    This channel does not currently have any shorts: ئه م که ناڵه له ئێستادا هیچ کورته
+      فیلمی نییه و
+  This channel does not allow searching: ئەم کەناڵە ڕێگە بە گەڕان نادات
+  Added channel to your subscriptions: کەناڵێکی زیادکراو بۆ بەشداربوونەکانت
+  Removed subscription from {count} other channel(s): ئابوونە لە کەناڵەکانی تر لابرایەوە
+  Your search results have returned 0 results: ئەنجامەکانی بەدواگەڕانەکەت 0 ئەنجامیان
+    گەڕاندەوە
+  Channel has been removed from your subscriptions: کەناڵەکە لە بەشداربوونەکانت لابراوە
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: ئەم
+    کەناڵە تەمەنی سنووردارە و لە ئێستادا ناتوانرێت لە FreeTube ببینرێت.
+  Videos:
+    This channel does not currently have any videos: ئەم کەناڵە لە ئێستادا هیچ ڤیدیۆیەکی
+      نییە
+  Live:
+    This channel does not currently have any live streams: ئەم کەناڵە لە ئێستادا هیچ
+      پەخشێکی ڕاستەوخۆی نییە
 New Window: پەنجەرەی نوێ
 Go to page: بڕۆ بۆ {page}
 Preferences: هەڵبژاردەکان

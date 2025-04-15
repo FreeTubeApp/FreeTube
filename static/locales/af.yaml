@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Afrikaans'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Hierdie gedeelte van die toep is nog nie gereed nie. Kom later terug wanneer vordering
-  gemaak is.
 
 # Webkit Menu Bar
 File: 'Lêer'
@@ -12,80 +8,90 @@ Preferences: 'Voorkeure'
 Quit: 'Sluit'
 Edit: 'Wysig'
 Undo: 'Ontdoen'
-Redo: ''
-Cut: ''
-Copy: ''
-Paste: ''
-Delete: ''
-Select all: ''
-Reload: ''
-Force Reload: ''
-Toggle Developer Tools: ''
-Actual size: ''
-Zoom in: ''
-Zoom out: ''
-Toggle fullscreen: ''
-Window: ''
-Minimize: ''
-Close: ''
-Back: ''
-Forward: ''
-Open New Window: ''
-Go to page: ''
-Close Banner: ''
+Redo: 'doen oor'
+Cut: 'knip'
+Copy: 'Kopieer'
+Paste: 'Plak'
+Delete: 'Verwyder'
+Select all: 'Kies alles'
+Reload: 'Herlaii'
+Force Reload: 'Forseer herlaai'
+Toggle Developer Tools: 'Wissel Ontwikkelaar Gereedskap'
+Actual size: 'Werklike grootte'
+Zoom in: 'Zoom in'
+Zoom out: 'Zoom uit'
+Toggle fullscreen: 'Wissel na volle skerm'
+Window: 'Venster'
+Minimize: 'Minimaliseer'
+Close: 'suilt'
+Back: 'Terug'
+Forward: 'vorentoe'
+Open New Window: 'Maak nuwe venster oop'
+Go to page: 'Gaan na {bladsy}'
+Close Banner: 'Sluit baniere'
 
-Version {versionNumber} is now available!  Click for more details: ''
-Download From Site: ''
-A new blog is now available, {blogTitle}. Click to view more: ''
-Are you sure you want to open this link?: ''
+Version {versionNumber} is now available!  Click for more details: 'Weergawe {versionNumber}
+  is nou beskikbaar! Klik vir meer besonderhede'
+Download From Site: 'Laai af van die webwerf'
+A new blog is now available, {blogTitle}. Click to view more: '''n Nuwe blog is nou
+  beskikbaar, {blogTitle}. Klik om meer te sien'
+Are you sure you want to open this link?: 'Is jy seker jy wil hierdie skakel oopmaak?'
 
 # Global
 # Anything shared among components / views should be put here
 Global:
-  Videos: ''
+  Videos: 'videos'
   Shorts: 'Kortvideo’s'
-  Live: ''
-  Community: ''
+  Live: 'Wêreldwye lewendige'
+  Community: 'Gemeenskap'
   Sort By: 'Sorteer volgens'
   Counts:
-    Video Count: ''
-    Channel Count: ''
-    Subscriber Count: ''
-    View Count: ''
-    Watching Count: ''
+    Video Count: '1 video | {count} videos'
+    Channel Count: '1 kanaal | {count} kanale'
+    Subscriber Count: '1 intekenaar | {count} intekenaars'
+    View Count: '1 kyk | {count} kyke'
+    Watching Count: '1 kyk | {count} kyk'
 
 # Search Bar
-Search / Go to URL: ''
+    Like Count: 1 hou van | {count} hou van'e
+    Comment Count: 1 opmerking | {count} opmerkings
+Search / Go to URL: 'Soek / Gaan na URL'
 Search Bar:
-  Clear Input: ''
-Search character limit: ''
+  Clear Input: 'Maak invoer skoon'
+  Remove: Verwyder
+Search character limit: 'soek'
 Search Listing:
   Label:
-    4K: ''
-    Subtitles: ''
+    4K: '4K'
+    Subtitles: 'Onderskrifte'
     # Aria labels
-    Closed Captions: ''
+    Closed Captions: 'Geslote onderskrifte'
   # In Filter Button
+    VR180: VR180
+    360 Video: 360°
+    New: Nuut
+    3D: 3D
+    8K: 8K
 Search Filters:
-  Search Filters: ''
+  Search Filters: 'Soekfilters'
   Sort By:
-    Most Relevant: ''
-    Rating: ''
-    Upload Date: ''
-    View Count: ''
+    Most Relevant: 'Mees relevant'
+    Rating: 'Gradering'
+    Upload Date: 'Oplaaddatum'
+    View Count: 'Beskouingsaantal'
   Time:
-    Time: ''
-    Any Time: ''
-    Last Hour: ''
-    Today: ''
-    This Week: ''
-    This Month: ''
-    This Year: ''
+    Time: 'Tyd'
+    Any Time: 'Enige tyd'
+    Last Hour: 'Laaste uur'
+    Today: 'Vandag'
+    This Week: 'Hierdie week'
+    This Month: 'Hierdie maand'
+    This Year: 'Hierdie jaar'
   Type:
-    Type: ''
-    All Types: ''
-    Videos: ''
-    Channels: ''
+    Type: 'Tipe'
+    All Types: 'Alle tipes'
+    Videos: 'Video''s'
+    Channels: 'Kanale'
     Movies: ''
     #& Playlists
   Duration:
@@ -1261,3 +1267,4 @@ KeyboardShortcutPrompt:
       General: 'Toep: Algemeen'
   Keyboard Shortcuts: Sneltoetse
 shortcutLabelSeparator: ｜
+Right-click or hold to see history: Regskliek of hou in om die geskiedenis te sien
