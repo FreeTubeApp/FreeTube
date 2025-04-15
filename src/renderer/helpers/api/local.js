@@ -1177,7 +1177,8 @@ export function parseLocalListVideo(item) {
       isVr180: video.badges.some(badge => badge.label === 'VR180'),
       isVr360: video.badges.some(badge => badge.label === '360°'),
       is3d: video.badges.some(badge => badge.label === '3D'),
-      hasCaptions: video.has_captions
+      isMemberOnly: video.badges.some(badge => badge.label === 'Members only'),
+      hasCaptions: video.has_captions,
     }
   }
 }

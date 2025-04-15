@@ -25,14 +25,15 @@
         >
       </router-link>
       <div
-        v-if="isLive || isUpcoming || (displayDuration !== '' && displayDuration !== '0:00')"
+        v-if="isLive || isUpcoming || isMemberOnly || (displayDuration !== '' && displayDuration !== '0:00')"
         class="videoDuration"
         :class="{
           live: isLive,
-          upcoming: isUpcoming
+          upcoming: isUpcoming,
+          memberOnly: isMemberOnly,
         }"
       >
-        {{ isLive ? $t("Video.Live") : (isUpcoming ? $t("Video.Upcoming") : displayDuration) }}
+        {{ isLive ? $t("Video.Live") : (isUpcoming ? $t("Video.Upcoming") : (isMemberOnly ? $t("Video.Member Only") : displayDuration)) }}
       </div>
       <ft-icon-button
         v-if="externalPlayer !== '' && !externalPlayerIsDefaultViewingMode"
