@@ -25,7 +25,7 @@
           @change="updateGeneralAutoLoadMorePaginatedItemsEnabled"
         />
         <ft-toggle-switch
-          :label="$t('Settings.General Settings.Hide to tray on minimize')"
+          :label="traySettingLabel"
           :default-value="hideToTrayOnMinimize"
           :compact="true"
           @change="updateHideToTrayOnMinimize"

@@ -207,7 +207,16 @@ export default defineComponent({
 
     hideToTrayOnMinimize: function () {
       return this.$store.getters.getHideToTrayOnMinimize
-    }
+    },
+
+    traySettingLabel: function () {
+      if (process.platform !== 'darwin') {
+        return this.$t('Settings.General Settings.Hide to tray on minimize')
+      } else {
+        return this.$t('Settings.General Settings.Hide to menu bar on minimize')
+      }
+    },
+
   },
   created: function () {
     this.setCurrentInvidiousInstanceBounce =

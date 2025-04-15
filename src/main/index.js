@@ -235,6 +235,7 @@ function runApp() {
   let tray = null
   let trayOnMinimize
   let trayWindows = []
+  const trayMaximizedWindows = {}
 
   const userDataPath = app.getPath('userData')
 
@@ -643,7 +644,7 @@ function runApp() {
 
   function trayClick(window, close = false) {
     if (!close) {
-      window.show()
+      if (window.id in trayMaximizedWindows) { window.maximize() } else { window.show() }
     } else if (trayWindows.length) {
       window.close()
     }
@@ -707,7 +708,7 @@ function runApp() {
 
   function showHiddenWindows() {
     trayWindows.forEach(window => {
-      window.show()
+      if (window.id in trayMaximizedWindows) { window.maximize() } else { window.show() }
     })
 
     destroyTray()
@@ -872,10 +873,17 @@ function runApp() {
 
     newWindow.on('minimize', (event) => {
       if (trayOnMinimize) {
-        event.preventDefault()
         newWindow.hide()
         manageTray(newWindow)
       }
+    })
+
+    newWindow.on('maximize', (event) => {
+      if (trayOnMinimize) { trayMaximizedWindows[newWindow.id] = true }
+    })
+
+    newWindow.on('unmaximize', (event) => {
+      if (trayOnMinimize) { delete trayMaximizedWindows[newWindow.id] }
     })
 
     if (tray) {
@@ -930,6 +938,10 @@ function runApp() {
       newWindow.loadURL(ROOT_APP_URL)
     }
 
+    // newWindow.webContents.on('did-finish-load', () => {
+    //   dialog.showMessageBoxSync({message: 'x'})
+    // })
+
     if (typeof searchQueryText === 'string' && searchQueryText.length > 0) {
       ipcMain.once(IpcChannels.SEARCH_INPUT_HANDLING_READY, () => {
         newWindow.webContents.send(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, searchQueryText)
@@ -946,8 +958,12 @@ function runApp() {
         return
       }
 
-      newWindow.show()
-      newWindow.focus()
+      if (!trayOnMinimize) {
+        newWindow.show()
+        newWindow.focus()
+      } else {
+        trayClick(newWindow)
+      }
 
       if (process.env.NODE_ENV === 'development') {
         newWindow.webContents.openDevTools({ activate: false })
