@@ -512,6 +512,11 @@ Settings:
       de que pretende limpar o histórico de pesquisa e a cache?
     Remember Search History: Memorizar histórico de pesquisa
     Clear Search History and Cache: Limpar o histórico de pesquisa e a cache
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Automático
+        Semi-auto: Semi-automático
+        Never: Nunca
   Subscription Settings:
     Subscription Settings: 'Subscrição'
     Hide Videos on Watch: 'Ocultar vídeos visualizados'
@@ -998,6 +1003,8 @@ Video:
   DRMProtected: Os vídeos protegidos por DRM não podem ser reproduzidos no FreeTube,
     uma vez que requerem componentes proprietários e de código fechado. Se quiser
     ver este vídeo, veja-o no sítio Web oficial do YouTube num navegador Web com DRM.
+  Save Watched Progress: Guardar progresso de visualização
+  Watched Progress Saved: Progresso guardado
 Playlist:
   #& About
   View Full Playlist: 'Ver lista de reprodução completa'
