@@ -999,6 +999,7 @@ Comments:
   And others: og andre
   View {replyCount} replies: Vis {replyCount} svar
   Hearted: Hjertemerket
+  Subscribed: Abonnert
 Up Next: 'Neste'
 
 # Toast Messages
@@ -1073,12 +1074,12 @@ Tooltips:
   General Settings:
     Invidious Instance: Invidious-forekomsten FreeTube kobler til for API-kall.
     Thumbnail Preference: Alle miniatyrbilder i FreeTube vil bli erstattet av et bilde
-      av videoen i stedet for forvalgt miniatyrbilde.
+      av videoen i stedet for standard miniatyrbildet.
     Fallback to Non-Preferred Backend on Failure: Når ditt foretrukne API har et problem,
-      vil FreeTube automatisk prøve å bruke ditt ikke-foretrukne API som en tilbakefallsmetode
+      vil FreeTube automatisk prøve å bruke ditt ikke-foretrukne API som en reservemetode
       dersom det er aktivert.
-    Region for Trending: Trendregionen lar deg enkelt velge hvilkets lands populære
-      videoer du ønsker å vise.
+    Region for Trending: Trendregionen lar deg enkelt velge hvilket lands populære
+      videoer du ønsker å se.
     Preferred API Backend: Velg metoden FreeTube bruker til å hente data. Det lokale
       API-et er en innebygd utpakker. Invidious-API-et krever en Invidious-tjener
       å koble til.
@@ -1263,3 +1264,6 @@ KeyboardShortcutPrompt:
   History Forward: Gå fremover en side
 Moments Ago: Øyeblikk siden
 shortcutLabelSeparator: ｜
+Description:
+  Expand Description: '...mer'
+  Collapse Description: Vis mindre
