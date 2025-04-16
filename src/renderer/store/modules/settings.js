@@ -307,6 +307,7 @@ const state = {
   defaultInvidiousInstance: '',
   defaultVolume: 1,
   uiScale: 100,
+  userPlaylistsSortBy: 'latest_played_first',
 }
 
 const sideEffectHandlers = {
