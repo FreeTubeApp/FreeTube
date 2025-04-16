@@ -209,12 +209,8 @@ export default defineComponent({
       return this.$store.getters.getHideToTrayOnMinimize
     },
 
-    traySettingLabel: function () {
-      if (process.platform !== 'darwin') {
-        return this.$t('Settings.General Settings.Hide to tray on minimize')
-      } else {
-        return this.$t('Settings.General Settings.Hide to menu bar on minimize')
-      }
+    isMac: function () {
+      return process.platform === 'darwin'
     },
 
   },

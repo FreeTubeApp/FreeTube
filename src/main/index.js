@@ -1833,7 +1833,7 @@ function runApp() {
 
   function handleQuit() {
     cleanUpResources().finally(() => {
-      mainWindow.close()
+      mainWindow = null
       if (process.platform !== 'darwin') {
         app.quit()
       }
