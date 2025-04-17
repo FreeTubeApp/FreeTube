@@ -62,12 +62,22 @@ Search Filters:
   Fetch more results: 'Obtener más resultados'
 # Sidebar
   There are no more results for this search: No hay más resultados para esta búsqueda
+  Features:
+    Subtitles: Subtítulos
+    Features: Características
+    3D: 3D
+    HD: HD
+    Creative Commons: Creative Commons
+    Live: En vivo
+    Location: Ubicación
+    HDR: HDR
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Su
-    lista de suscripción está actualmente vacía. Comience a agregar suscripciones
-    para verlas aquí.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu
+    lista de suscripciones está actualmente vacía. Si deseas importar tus suscripciones,
+    puedes ir a Configuración de datos y seleccionar Importar suscripciones, o puedes
+    buscar un canal y suscribirte a él.'
   Load More Videos: Cargar más videos
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil tiene un gran número de suscriptores. Forzando RSS para evitar límites
@@ -92,14 +102,47 @@ Most Popular: 'Más popular'
 Playlists: 'Listas de reproducción'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
-  Search bar placeholder: Buscar en la Lista de Reproducción
+  Search bar placeholder: Buscar listas de reproducción
   Empty Search Message: No hay videos en esta lista de reproducción que coincidan
-    con tu búsqueda
+    con tu búsqueda.
   This playlist currently has no videos.: Esta lista de reproducción no tiene videos.
   Playlists with Matching Videos: Listas de reproducción con videos repetidos
   Create New Playlist: Crear nueva lista de reproducción
   Add to Favorites: Añadir a {playlistName}
   Add to Playlist: Añadir a la lista de reproducción
+  Remove from Playlist: Eliminar de la lista de reproducción
+  Playlist Description: Descripción de la lista de reproducción
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ¿Estás
+    seguro de que quieres eliminar 1 video duplicado de esta lista de reproducción?
+    Esto no se puede deshacer.
+  You have no playlists. Click on the create new playlist button to create a new one.: No
+    tienes listas de reproducción. Haz clic en el botón de crear nueva lista de reproducción
+    para crear una.
+  Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro
+    de que quieres eliminar esta lista de reproducción? Esto no se puede deshacer.
+  Export Playlist: Exportar esta lista de reproducción
+  Playlist Name: Nombre de la lista de reproducción
+  Quick Bookmark Enabled: Marcador rápido habilitado
+  Cannot delete the quick bookmark target playlist.: No se puede eliminar la lista
+    de reproducción objetivo del marcador rápido.
+  Remove Watched Videos: Eliminar videos vistos
+  Enable Quick Bookmark With This Playlist: Habilitar marcador rápido con esta lista
+    de reproducción
+  Cancel: Cancelar
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: ¿Estás
+    seguro de que quieres eliminar 1 video duplicado de esta lista de reproducción?
+    Esto no se puede deshacer.
+  TotalTimePlaylist: 'Tiempo total: {duration}'
+  Remove from Favorites: Eliminar de {playlistName}
+  Move Video Up: Mover video hacia arriba
+  Move Video Down: Mover video hacia abajo
+  Save Changes: Guardar cambios
+  Edit Playlist Info: Editar información de la lista de reproducción
+  Copy Playlist: Copiar lista de reproducción
+  Remove Duplicate Videos: Eliminar videos duplicados
+  The playlist has been successfully exported: La lista de reproducción ha sido exportada
+    con éxito
+  Delete Playlist: Eliminar lista de reproducción
 History:
   # On History Page
   History: 'Historial'
@@ -430,6 +473,7 @@ Are you sure you want to open this link?: ¿Está seguro que desea abrir este en
 Open New Window: Abrir nueva ventana
 Search Bar:
   Clear Input: Limpiar Entrada
+  Remove: Eliminar
 New Window: Nueva ventana
 Global:
   Counts:
@@ -438,6 +482,8 @@ Global:
     View Count: 1 vista | {count} vistas
     Watching Count: 1 espectador | {count} espectadores
     Channel Count: 1 canal | {count} canales
+    Like Count: 1 me gusta | {count} me gusta
+    Comment Count: 1 comentario | {count} comentarios
   Community: Comunidad
   Videos: Videos
   Shorts: Shorts
@@ -457,3 +503,18 @@ Tooltips:
       «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
 Go to page: Ir a {page}
 Close Banner: Cerrar banner
+Search Listing:
+  Label:
+    3D: 3D
+    Closed Captions: Subtítulos cerrados
+    8K: 8K
+    VR180: VR180 (realidad virtual 180°)
+    4K: Resolución 4K
+    Subtitles: Subtítulos
+    360 Video: 360°
+    New: Nuevo
+Feed:
+  Refresh Feed: Actualizar {subscriptionName}
+  Feed Last Updated: 'Última actualización del feed de {feedName}: {date}'
+Right-click or hold to see history: Haz clic derecho o mantén presionado para ver
+  el historial
