@@ -50,9 +50,8 @@
           @playback-rate-updated="updatePlaybackRate"
         />
         <div
-          v-else-if="!isLoading && (isUpcoming || errorMessage)"
+          v-if="!isLoading && (isUpcoming || errorMessage)"
           class="videoPlayer"
-          :class="{trailer: isUpcoming && playabilityStatus === 'OK'}"
         >
           <img
             v-if="!isUpcoming || playabilityStatus !== 'OK'"
@@ -63,6 +62,7 @@
           <div
             v-if="isUpcoming"
             class="premiereDate"
+            :class="{trailer: isUpcoming && playabilityStatus === 'OK'}"
           >
             <font-awesome-icon
               :icon="['fas', 'satellite-dish']"

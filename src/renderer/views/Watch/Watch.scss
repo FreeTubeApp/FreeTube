@@ -32,6 +32,7 @@
   inset-inline-start: 12px;
   padding-block: 0;
   padding-inline: 12px;
+  position: absolute;
 
   .premiereIcon {
     float: inline-start;
@@ -52,8 +53,9 @@
   }
 }
 
-.trailer .premiereDate {
+.premiereDate.trailer {
   margin-block-start: 8px;
+  position: static;
 }
 
 .videoLayout {
@@ -84,10 +86,6 @@
 
       .videoThumbnail {
         inline-size: 100%;
-      }
-
-      .premiereDate {
-        position: absolute;
       }
 
       .errorContainer {
