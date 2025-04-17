@@ -143,6 +143,43 @@ User Playlists:
   The playlist has been successfully exported: La lista de reproducción ha sido exportada
     con éxito
   Delete Playlist: Eliminar lista de reproducción
+  SinglePlaylistView:
+    Toast:
+      Video has been removed: El video ha sido eliminado
+      This playlist is already being used for quick bookmark.: Esta lista ya se está
+        usando para marcadores rápidos.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Esta
+        lista de reproducción ahora se usa como marcador rápido en lugar de {oldPlaylistName}.
+        Hacé clic acá para deshacer.
+      Playlist name cannot be empty. Please input a name.: El nombre de la lista de
+        reproducción no puede estar vacío. Por favor, ingresá un nombre.
+      There was an issue with updating this playlist.: Hubo un problema al actualizar
+        esta lista de reproducción.
+      This video cannot be moved down.: Este video no se puede mover hacia abajo.
+      This video cannot be moved up.: Este video no se puede mover hacia arriba.
+      This playlist is now used for quick bookmark: Esta lista de reproducción ahora
+        se usa como marcador rápido
+      Reverted to use {oldPlaylistName} for quick bookmark: '"Se volvió a usar {oldPlaylistName}
+        como marcador rápido.'
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Algunos
+        videos de la lista de reproducción todavía no se cargaron. Hacé clic acá para
+        copiar igual.
+      Playlist has been updated.: La lista de reproducción fue actualizada.
+      "{videoCount} video(s) have been removed": Se eliminó 1 video | {videoCount}
+        videos fueron eliminados
+      Video has been removed. Click here to undo.: El video fue eliminado. Hacé clic
+        aquí para deshacer.
+      There was a problem with removing this video: Hubo un problema al eliminar este
+        video.
+    Search for Videos: Buscar videos
+  Sort By:
+    NameAscending: A-Z
+    LatestCreatedFirst: Recientemente creada
+    EarliestCreatedFirst: creada más temprana
+    LatestUpdatedFirst: recientemente actualizada
+    EarliestPlayedFirst: Reproducido más temprano
+    EarliestUpdatedFirst: Actualizado más temprano
+    LatestPlayedFirst: Reproducido recientemente
 History:
   # On History Page
   History: 'Historial'
