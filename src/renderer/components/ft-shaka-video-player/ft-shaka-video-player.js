@@ -477,6 +477,7 @@ export default defineComponent({
      * @type {import('vue').Ref<{uuid: string, translatedCategory: string, timeoutId: number}[]>}
      */
     const skippedSponsorBlockSegments = ref([])
+    const unskippedSponsorBlockSegment = ref(null)
 
     async function setupSponsorBlock() {
       let segments, averageDuration
@@ -518,7 +519,12 @@ export default defineComponent({
       const skippedSegments = []
 
       sponsorBlockSegments.forEach(segment => {
+        if (segment.uuid === unskippedSponsorBlockSegment.value &&
+          (currentTime < segment.startTime || currentTime > segment.endTime)) {
+          unskippedSponsorBlockSegment.value = null
+        }
         if (autoSkip.has(segment.category) && currentTime < segment.endTime &&
+          segment.uuid !== unskippedSponsorBlockSegment.value &&
           (segment.startTime <= currentTime ||
             // if we already have a segment to skip, check if there are any that are less than 150ms later,
             // so that we can skip them all in one go (especially useful on slow connections)
@@ -568,6 +574,28 @@ export default defineComponent({
           }
         })
       }
+    }
+
+    function unOrReSkipSponsorBlockSegment() {
+      if (unskippedSponsorBlockSegment.value !== null) {
+        unskippedSponsorBlockSegment.value = null // reskip happens next skipSponsorBlockSegments call
+        return
+      }
+
+      if (skippedSponsorBlockSegments.value.length === 0) {
+        return // nothing skipped, nothing to unskip
+      }
+
+      sponsorBlockSegments.forEach(segment => {
+        if (segment.uuid === skippedSponsorBlockSegments.value[0].uuid) {
+          unskippedSponsorBlockSegment.value = segment.uuid
+          video.value.currentTime = segment.startTime
+        }
+      })
+      skippedSponsorBlockSegments.value.forEach(({ timeoutId }) => {
+        clearTimeout(timeoutId)
+      })
+      skippedSponsorBlockSegments.value = []
     }
 
     // #endregion SponsorBlock
@@ -2112,6 +2140,10 @@ export default defineComponent({
           // Toggle Play/Pause
           event.preventDefault()
           video_.paused ? video_.play() : video_.pause()
+          break
+        case 'enter':
+          // Unskip skipped SponsorBlock segment, or reskip
+          unOrReSkipSponsorBlockSegment()
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_REWIND:
           // Rewind by 2x the time-skip interval (in seconds)
