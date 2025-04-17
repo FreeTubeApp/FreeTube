@@ -1179,7 +1179,8 @@ export default defineComponent({
 
     handleVideoLoaded: function () {
       // will trigger again if you switch formats or change legacy quality
-      if (!this.videoPlayerLoaded) {
+      // Check isUpcoming to avoid marking upcoming videos as watched if the user has only watched the trailer
+      if (!this.videoPlayerLoaded && !this.isUpcoming) {
         this.videoPlayerLoaded = true
 
         if (this.rememberHistory) {
