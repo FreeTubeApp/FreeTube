@@ -1,7 +1,3 @@
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta parte de la aplicación aún no está lista. Vuelva más tarde cuando se haya avanzado.
-
 # Webkit Menu Bar
 File: 'Archivo'
 Quit: 'Salir'
@@ -35,6 +31,15 @@ Global:
   Community: Comunidad
   Live: En vivo
   Sort By: 'Ordenar por'
+  Counts:
+    View Count: 1 vista | {count} vistas
+    Channel Count: 1 canal | {count} canales
+    Video Count: 1 video | {count} vídeos
+    Subscriber Count: 1 suscriptor | {count} suscriptores
+    Watching Count: 1 viendo | {count} viendo
+    Like Count: 1 me gusta | {count} me gustas
+    Comment Count: 1 comentario | {count} comentarios
+  Shorts: Shorts
 Search / Go to URL: 'Buscar / Ir a la URL'
   # In Filter Button
 Search Filters:
@@ -58,12 +63,14 @@ Search Filters:
     Videos: 'Videos'
     Channels: 'Canales'
     #& Playlists
+    Movies: Películas
   Duration:
     Duration: 'Duración'
     All Durations: 'Todas las duraciones'
     Short (< 4 minutes): 'Corto (< 4 minutos)'
     Long (> 20 minutes): 'Largo (> 20 minutos)'
   # On Search Page
+    Medium (4 - 20 minutes): Medio (4 - 20 minutos)
   Search Results: 'Resultados de búsqueda'
   Fetching results. Please wait: 'Obteniendo más resultados. Por favor espere'
   Fetch more results: 'Obtener más resultados'
@@ -72,17 +79,35 @@ Search Filters:
   Features:
     Features: Características
     Subtitles: Subtitulos
+    HD: HD
+    Live: En vivo
+    4K: 4K
+    360 Video: Video 360
+    Location: Ubicación
+    HDR: HDR
+    VR180: VR180
+    Creative Commons: Comunes Creativos
+    3D: 3D
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu
-    lista de Suscripción está actualmente vacía. Empieza añadiendo suscripciones para
-    verlas ahí.'
+    lista de suscripciones está actualmente vacía. Si deseas importar tus suscripciones,
+    puedes ir a Configuración de datos y seleccionar Importar suscripciones, o puedes
+    buscar un canal y suscribirte a él.'
   Load More Videos: Cargar más videos
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
     perfil tiene un gran número de suscripciones. Forzando RSS para evitar limitaciones
   Error Channels: Canales con errores
   Empty Channels: Sus canales suscritos no tienen ningún video actualmente.
+  Disabled Automatic Fetching: Has deshabilitado la obtención automática de suscripciones.
+    Actualiza las suscripciones para verlas aquí.
+  All Subscription Tabs Hidden: Todas las pestañas de suscripciones están ocultas.
+    Para ver contenido aquí, por favor desoculta algunas pestañas en la sección '{subsection}'
+    en '{settingsSection}'.
+  Subscriptions Tabs: Pestañas de suscripciones
+  Empty Posts: Tus canales suscritos actualmente no tienen publicaciones.
+  Load More Posts: Cargar más publicaciones
 Trending:
   Trending: 'Tendencias'
   Default: Predeterminado
@@ -97,6 +122,31 @@ User Playlists:
   Search bar placeholder: Buscar en la lista de reproducción
   Empty Search Message: No hay videos en esta lista de reproducción que coincidan
     con su búsqueda
+  SinglePlaylistView:
+    Toast:
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Esta
+        lista de reproducción ahora se usa para marcadores rápidos en lugar de {oldPlaylistName}.
+        Haz clic aquí para deshacer.
+      Reverted to use {oldPlaylistName} for quick bookmark: Se revertió para usar
+        {oldPlaylistName} como marcador rápido.
+      This playlist is protected and cannot be removed.: Esta lista de reproducción
+        está protegida y no se puede eliminar.
+      Playlist {playlistName} has been deleted.: La lista de reproducción {playlistName}
+        ha sido eliminada.
+      "{videoCount} video(s) have been removed": 1 video ha sido eliminado | {videoCount}
+        videos han sido eliminados
+      There was an issue with updating this playlist.: Hubo un problema al actualizar
+        esta lista de reproducción.
+      Playlist has been updated.: La lista de reproducción ha sido actualizada.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Algunos
+        videos en la lista de reproducción aún no se han cargado. Haz clic aquí para
+        copiar de todos modos.
+      Playlist name cannot be empty. Please input a name.: El nombre de la lista de
+        reproducción no puede estar vacío. Por favor, ingresa un nombre.
+      There were no videos to remove.: No había videos para eliminar.
+  You have no playlists. Click on the create new playlist button to create a new one.: No
+    tienes listas de reproducción. Haz clic en el botón de crear nueva lista de reproducción
+    para crear una nueva.
 History:
   # On History Page
   History: 'Historial'
@@ -190,12 +240,12 @@ Settings:
     Disable Smooth Scrolling: Desactivar desplazamiento suave
     Hide Side Bar Labels: Ocultar etiquetas de la barra lateral
   Player Settings:
-    Player Settings: 'Ajustes del reproductor'
-    Play Next Video: 'Reproducir el video siguiente'
-    Turn on Subtitles by Default: 'Activar subtitulos por defecto'
-    Autoplay Videos: 'Reproduccion automatica'
+    Player Settings: 'Reproductor'
+    Play Next Video: 'Reproducir automáticamente videos recomendados'
+    Turn on Subtitles by Default: 'Habilitar subtítulos por defecto'
+    Autoplay Videos: 'Iniciar videos automáticamente'
     Proxy Videos Through Invidious: 'Enmascarar videos a través de invidious'
-    Autoplay Playlists: 'Reproducción automática de listas de reproducción'
+    Autoplay Playlists: 'Reproducir automáticamente los videos de la lista de reproducción'
     Enable Theatre Mode by Default: 'Activar modo teatro por defecto'
     Default Volume: 'Volumen predeterminado'
     Default Playback Rate: 'Velocidad de reproducción predeterminada'
@@ -224,6 +274,14 @@ Settings:
     Max Video Playback Rate: Velocidad máxima del video
     Video Playback Rate Interval: Intervalo entre velocidades del video
     Fast-Forward / Rewind Interval: Intervalo para adelantar/retrasar el video
+    Default Viewing Mode:
+      Full Screen: Pantalla completa
+      Picture in Picture: Imagen en imagen
+      Theater: Teatro
+      Default Viewing Mode: Modo de visualización predeterminado
+      External Player: Reproductor externo ({externalPlayerName})
+    Skip by Scrolling Over Video Player: Saltar desplazando sobre el reproductor de
+      video
   Subscription Settings:
     Subscription Settings: 'Ajustes de suscripción'
     Hide Videos on Watch: 'Ocultar videos vistos'
@@ -315,6 +373,15 @@ Settings:
     Hide Trending Videos: Ocultar los videos en tendencia
     Hide Live Chat: Ocultar chat en vivo
     Hide Active Subscriptions: Ocultar suscripciones activas
+    Hide Chapters: Ocultar capítulos
+    Hide Live Streams: Ocultar transmisiones en vivo
+    Hide Channels: Ocultar videos de los canales
+    Hide Channels Disabled Message: Algunos canales fueron bloqueados usando ID y
+      no fueron procesados. La función está bloqueada mientras esos IDs se actualizan.
+    Hide Upcoming Premieres: Ocultar estrenos próximos
+    Hide Channels Placeholder: ID del canal
+    Hide Channels Invalid: El ID del canal proporcionado no es válido.
+    Hide Sharing Actions: Ocultar acciones de compartición
   Download Settings:
     Choose Path: Elegir ubicación
     Ask Download Path: Preguntar dónde se descarga
@@ -598,6 +665,7 @@ More: Más
 Are you sure you want to open this link?: ¿Estás seguro de abrir este link?
 Search Bar:
   Clear Input: Limpiar entrada
+  Remove: Eliminar
 Tooltips:
   General Settings:
     Preferred API Backend: Elija el método que usará FreeTube para obtener datos.
@@ -673,8 +741,25 @@ Channels:
   Channels: Canales
   Title: Lista de Canales
   Search bar placeholder: Buscar Canales
+  Unsubscribe Prompt: ¿Estás seguro de que deseas darte de baja de "{channelName}"?
+  Count: '{number} canal(es) encontrados.'
+  Empty: Tu lista de canales está actualmente vacía.
 Search Listing:
   Label:
     Subtitles: Subtítulos
     New: Nuevo
+    Closed Captions: Subtítulos cerrados
+    4K: 4K
+    360 Video: 360°
+    VR180: VR180
+    3D: 3D
+    8K: 8K
 Go to page: Ir a {page}
+Search character limit: La consulta de búsqueda supera el límite de {searchCharacterLimit}
+  caracteres
+Right-click or hold to see history: Haz clic derecho o mantén presionado para ver
+  el historial
+Feed:
+  Feed Last Updated: 'El feed de {feedName} se actualizó por última vez: {date}'
+  Refresh Feed: Actualizar {subscriptionName}
+Close Banner: Cerrar banner

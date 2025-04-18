@@ -52,10 +52,18 @@ export default defineComponent({
       query: '',
       doSearchPlaylistsWithMatchingVideos: false,
       activeData: [],
-      sortBy: SORT_BY_VALUES.LatestPlayedFirst,
     }
   },
   computed: {
+    sortBy: {
+      get() {
+        return this.$store.getters.getUserPlaylistsSortBy
+      },
+      set(value) {
+        this.$store.dispatch('updateUserPlaylistsSortBy', value)
+      },
+    },
+
     locale: function () {
       return this.$i18n.locale
     },
@@ -180,20 +188,12 @@ export default defineComponent({
       this.activeData = this.fullData
       this.filterPlaylist()
     },
-    sortBy() {
-      sessionStorage.setItem('UserPlaylists/sortBy', this.sortBy)
-    },
   },
   created: function () {
     document.addEventListener('keydown', this.keyboardShortcutHandler)
     const limit = sessionStorage.getItem('UserPlaylists/dataLimit')
     if (limit !== null) {
       this.dataLimit = limit
-    }
-
-    const sortBy = sessionStorage.getItem('UserPlaylists/sortBy')
-    if (sortBy != null) {
-      this.sortBy = sortBy
     }
 
     this.filterPlaylistDebounce = debounce(this.filterPlaylist, 500)

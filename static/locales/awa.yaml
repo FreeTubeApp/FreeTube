@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'अंगरेजी (अमरीका)'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  ऐप कै ई हिस्सा अबहीं तक तैयार नही बाटै। जब तइयार होइ जाय तब बाद मा वापस आवा।
 
 # Webkit Menu Bar
 File: 'फाइल'

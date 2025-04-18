@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Brezhoneg'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  N'eo ket prest lodenn-mañ an arload. Deuit en-dro diwezhatoc'h pa vo aet war-raok
-  an traoù.
 
 # Webkit Menu Bar
 File: 'Restr'
