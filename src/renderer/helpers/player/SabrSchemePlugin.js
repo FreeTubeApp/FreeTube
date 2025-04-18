@@ -445,11 +445,20 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
       videoPlaybackUstreamerConfig,
     }
 
+    let body
+
+    try {
+      body = Protos.VideoPlaybackAbrRequest.encode(requestData).finish()
+    } catch (error) {
+      console.error('Invalid VideoPlaybackAbrRequest data', requestData)
+      throw error
+    }
+
     const controller = new AbortController()
 
     /** @type {RequestInit} */
     const init = {
-      body: Protos.VideoPlaybackAbrRequest.encode(requestData).finish(),
+      body,
       method: 'POST',
       signal: controller.signal
     }
