@@ -1100,13 +1100,13 @@ Tooltips:
       men bruker mindre båndbredde. Lydformater er kun lydstrømmer.
     Proxy Videos Through Invidious: Kobler til Invidious for å servere videoer istedenfor
       å koble direkte til YouTube.
-    Skip by Scrolling Over Video Player: Bruk rullehjulet for å hoppe deg gjennom
+    Skip by Scrolling Over Video Player: Bruk rullehjulet for å hoppe rundt gjennom
       videoen i MPV-stil.
     Scroll Playback Rate Over Video Player: Når pekeren er over videoen kan du trykke
       og holde Ctrl-tasten (⌘ på Mac) og rulle musehjulet forover eller bakover for
       å kontrollere avspillingshastigheten. Trykk og hold Ctrl-tasten (⌘ på Mac) og
-      venstreklikk på musen for å gå tilbake til fovalgt avspillingshastighet (1x
-      med minde det har blitt endret i innstillingene).
+      venstreklikk på musen for å gå tilbake til den vanlige avspillingshastighet
+      (1x med mindre det har blitt endret i innstillingene).
   External Player Settings:
     Custom External Player Arguments: Alle egendefinerte kommandolinjeargumenter,
       semikoloninndelt («;») du ønsker å sende til den eksterne avspilleren.
