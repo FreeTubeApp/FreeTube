@@ -1,73 +1,28 @@
-# Code Contribution Guidelines
-Thank you for your interest in contributing to FreeTube! To ensure a smooth development process and maintain high-quality standards, please follow the guidelines below when contributing features, bug fixes, or documentation updates.
+# Code Contributions
 
-## Before You Start Coding
-To promote collaboration and avoid duplicate efforts, please follow these steps before beginning your work:
+## Before starting to code
+ Please follow these guidelines before starting to code you feature or bugfix.
+ * If you want to implement a bugfix or feature request from an existing issue, please comment on that issue that you will work on it. This helps us to coordinate what needs to be done and what not.
+ * If you want to implement a feature request without an existing issue, please create an issue, so we know what you are working on and discuss the feature.
+ * For major feature implementations make sure you are able to maintain your code in the future in regard to bugs and possible code conflicts in future updates. Optionally you could join the [Matrix](https://matrix.to/#/#freetube:matrix.org) channel, so you will hear instantly if something needs to be worked on.  
 
-Working on an Existing Issue:
-If you're addressing an issue that's already been reported, leave a comment on the issue stating your intention to work on it. This helps us coordinate tasks and avoid duplication.
+## Before your Pull Request
+Please follow these guidelines before sending your pull request and making contributions.
+* When you submit a pull request, you agree that your code is published under the [GNU Affero General Public License](https://www.gnu.org/licenses/agpl-3.0.html)
+* Please link the issue you are referring to.
+* Do not include non-free software or modules with your code.
+* Make sure your pull request is set up to merge your branch to FreeTube's development branch.
+* Make sure your branch is up to date with the development branch before submitting your pull request.
+* Stick to a similar style of code already in the project.  Please look at current code to get an idea on how to do this.
+* Follow [ES6](http://es6-features.org/) standards in your code. Ex: Use `let` and `const` instead of `var`. Do not use `function(response){//code}` for callbacks, use `(response) => {//code}`.
+* Comment your code when necessary.  Follow the [JavaScript Documentation and Comments Standard](https://www.drupal.org/docs/develop/standards/javascript/javascript-api-documentation-and-comment-standards) for functions.
+* Please follow proper Vue structure when creating new code / components.  Use existing code as well as the [Vue.js Guide](https://vuejs.org/v2/guide/) for reference.
+* Please test your code.  Make sure new features work as well as existing core features such as watching videos or loading subscriptions.  New features need to work with both the Local API as well as the Invidious API
+* Please make sure your code does not violate any standards set by our linter.  It's up to you to make fixes whenever necessary.  You can run `npm run lint` to check locally and `npm run lint-fix` to automatically fix smaller issues.
+* Please limit the amount of Node Modules that you introduce into the project.  Only include them when **absolutely necessary** for your code to work (Ex: Using nedb for databases) or if a module provides similar functionality to what you are trying to achieve (Ex: Using autolinker to create links to outside URLs instead of writing the functionality myself).
+* Avoid the use of LLMs and AI tools, especially when making documentation changes.
+* Please try to stay involved with the community and maintain your code.  We are only a handful of developers working on FreeTube in our spare time.  We do not have time to work on everything, and it would be nice if you can maintain your code when necessary.
 
-Working on a New Feature:
-If your contribution is not tied to an existing issue, please create a new issue first. This allows the community to discuss the feature before any code is written.
+# Setting up Your Environment
 
-Major Feature Contributions:
-For large features, be prepared to support and maintain your code in the future (e.g., fixing bugs or resolving merge conflicts).
-Optionally, you can join our Matrix channel for real-time communication and updates about ongoing work.
-
-## Before Submitting a Pull Request
-When your code is ready for review, make sure it meets the following requirements:
-
-## License Agreement:
-By submitting a pull request (PR), you agree that your code will be published under the GNU Affero General Public License.
-
-## Link to Issues:
-Reference any related issue(s) in your pull request to provide context and background.
-
-Open Source Compliance:
-Do not include any non-free software or proprietary modules.
-
-Target the Right Branch:
-Ensure your PR is set to merge into the development branch of FreeTube.
-
-Stay Up-to-Date:
-Sync your feature/bugfix branch with the latest development branch before submitting.
-
-## Code Style & Standards:
-
-Follow the style and structure used throughout the existing codebase.
-
-Write ES6-compliant JavaScript (e.g., use let and const instead of var, use arrow functions like (response) => {} instead of anonymous function expressions).
-
-Add meaningful comments where appropriate. Use the JavaScript Documentation and Comment Standards.
-
-Maintain a clean and modular Vue.js structure. Use the Vue.js Guide as a reference, and follow patterns already used in the project.
-
-## Functionality & Testing:
-
-Test your code thoroughly before submitting.
-
-Ensure your feature works with both the Local API and the Invidious API.
-
-Core functionality (e.g., watching videos, loading subscriptions) should remain stable.
-
-Linting:
-Your code must pass lint checks. Use:
-
-*bash
-*Copy code
-*npm run lint       # Check for issues
-*npm run lint-fix   # Auto-fix where possible
-*Minimize Dependencies:
-*Only add Node modules if absolutely necessary. Use a new module if:
-
-It’s essential for your feature to work (e.g., nedb for databases).
-
-It avoids reinventing the wheel (e.g., autolinker for link parsing).
-
-Stay Involved:
-Please remain engaged with the community and help maintain your contributions over time. FreeTube is developed by a small group of volunteers, and your continued support helps the project grow sustainably.
-
-## Setting Up Your Development Environment
-To get started with your development environment, check out our Getting Started Guide on the wiki.
-
-If you have any questions or want to get more involved, feel free to reach out on our Matrix channel. Thanks again for helping make FreeTube better!
+Check out the [wiki](https://docs.freetubeapp.io/development/getting-started/) page to learn how to set up your environment and get started.
