@@ -246,6 +246,7 @@ User Playlists:
     vídeos duplicados desta lista de reprodução? Esta remoção não pode ser revertida.
   Cannot delete the quick bookmark target playlist.: Não é possível eliminar a lista
     de reprodução de destino do marcador rápido.
+  TotalTimePlaylist: 'Duração total: {duration}'
 History:
   # On History Page
   History: Histórico
@@ -511,6 +512,11 @@ Settings:
     Clear Search History and Cache: Limpar o histórico de pesquisa e a cache
     Are you sure you want to clear out your search history and cache?: Tem a certeza
       de que pretende limpar o histórico de pesquisa e a cache?
+    Watched Progress Saving Mode:
+      Modes:
+        Never: Nunca
+        Auto: Automático
+        Semi-auto: Semiautomático
   Subscription Settings:
     Subscription Settings: Subscrição
     Hide Videos on Watch: Ocultar vídeos visualizados
@@ -987,6 +993,7 @@ Video:
   DRMProtected: Os vídeos protegidos por DRM não podem ser reproduzidos no FreeTube,
     uma vez que requerem componentes proprietários e de código fechado. Se quiser
     ver este vídeo, veja-o no sítio Web oficial do YouTube num navegador Web com DRM.
+  Save Watched Progress: Gravar progresso de visualização
 Playlist:
   #& About
   View Full Playlist: Ver lista de reprodução completa
