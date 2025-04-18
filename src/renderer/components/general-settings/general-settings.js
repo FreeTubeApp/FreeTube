@@ -23,6 +23,7 @@ export default defineComponent({
   },
   data: function () {
     return {
+      usingElectron: process.env.IS_ELECTRON,
       backendValues: process.env.SUPPORTS_LOCAL_API
         ? [
             'invidious',
@@ -56,7 +57,8 @@ export default defineComponent({
         'userPlaylists',
         'history',
         'settings'
-      ]
+      ],
+      isMac: process.platform === 'darwin'
     }
   },
   computed: {
@@ -207,10 +209,6 @@ export default defineComponent({
 
     hideToTrayOnMinimize: function () {
       return this.$store.getters.getHideToTrayOnMinimize
-    },
-
-    isMac: function () {
-      return process.platform === 'darwin'
     },
 
   },

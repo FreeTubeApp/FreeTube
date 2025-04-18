@@ -281,8 +281,13 @@ function runApp() {
             })
           } else {
             // Just focus the main window (instead of starting a new instance)
-            manageTray(mainWindow, true)
-            if (mainWindow.isMinimized()) mainWindow.restore()
+            if (mainWindow.isMinimized()) {
+              if (!trayOnMinimize) {
+                mainWindow.restore()
+              } else {
+                trayClick(mainWindow)
+              }
+            }
             mainWindow.focus()
 
             if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
@@ -400,7 +405,7 @@ function runApp() {
             proxyPort = doc.value
             break
           case 'hideToTrayOnMinimize':
-            trayOnMinimize = doc.value
+            trayOnMinimize = (process.platform !== 'darwin') ? doc.value : false
             break
         }
       })
@@ -1880,7 +1885,7 @@ function runApp() {
     event.preventDefault()
 
     if (mainWindow && mainWindow.webContents) {
-      manageTray(mainWindow, true)
+      if (trayOnMinimize) { manageTray(mainWindow, true) }
       mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
     } else {
       startupUrl = baseUrl(url)
