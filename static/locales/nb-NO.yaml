@@ -1083,8 +1083,8 @@ Tooltips:
     Preferred API Backend: Velg metoden FreeTube bruker til å hente data. Det lokale
       API-et er en innebygd utpakker. Invidious-API-et krever en Invidious-tjener
       å koble til.
-    External Link Handling: "Velg oppførsel når en link som ikke kan åpnes i FreeTube
-      klikkes.\nSom forvalg vil FreeTube åpne lenken i nettleseren din.\n"
+    External Link Handling: "Velg hva som skjer når en link som ikke kan åpnes i FreeTube
+      klikkes.\nSom standard vil FreeTube åpne lenken i nettleseren din.\n"
   Subscription Settings:
     Fetch Feeds from RSS: Bruk RSS istedenfor FreeTube sin forvalgte metode for innhenting
       av din abonnementsstrøm. RSS er raskere og forhindrer IP-blokkering, men mangler

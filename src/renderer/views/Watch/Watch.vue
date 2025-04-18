@@ -17,7 +17,7 @@
     >
       <div class="videoAreaMargin">
         <ft-shaka-video-player
-          v-if="!isLoading && !isUpcoming && !errorMessage"
+          v-if="!isLoading && (!isUpcoming || playabilityStatus === 'OK') && !errorMessage"
           ref="player"
           :manifest-src="manifestSrc"
           :manifest-mime-type="manifestMimeType"
@@ -54,6 +54,7 @@
           class="videoPlayer"
         >
           <img
+            v-if="!isUpcoming || playabilityStatus !== 'OK'"
             :src="thumbnail"
             class="videoThumbnail"
             alt=""
@@ -61,6 +62,7 @@
           <div
             v-if="isUpcoming"
             class="premiereDate"
+            :class="{trailer: isUpcoming && playabilityStatus === 'OK'}"
           >
             <font-awesome-icon
               :icon="['fas', 'satellite-dish']"
