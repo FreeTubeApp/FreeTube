@@ -27,17 +27,17 @@ Available for Windows (10 and later), Mac (macOS 11 and later) & Linux thanks to
 > If you have an idea or if you found a bug, please submit a [GitHub issue](https://github.com/FreeTubeApp/FreeTube/issues/new/choose) so that we can track it.  Please [search the existing issues](https://github.com/FreeTubeApp/FreeTube/issues?q=is%3Aissue+sort%3Arelevance-desc) before submitting to prevent duplicates!
 
 ## Screenshots
-| The main FreeTube window                                                               |
-|----------------------------------------------------------------------------------------|
-| ![](https://github.com/FreeTubeApp/FreeTubeApp.io/blob/master/src/images/FreeTube1.png)|
+| The main FreeTube window                                                                         |
+|--------------------------------------------------------------------------------------------------|
+| ![](https://raw.githubusercontent.com/FreeTubeApp/FreeTubeApp.io/master/src/images/FreeTube1.png)|
 
-| Watching a video                                                                       |
-|----------------------------------------------------------------------------------------|
-| ![](https://github.com/FreeTubeApp/FreeTubeApp.io/blob/master/src/images/FreeTube2.png)|
+| Watching a video                                                                                 |
+|--------------------------------------------------------------------------------------------------|
+| ![](https://raw.githubusercontent.com/FreeTubeApp/FreeTubeApp.io/master/src/images/FreeTube2.png)|
 
-| Settings                                                                               |
-|----------------------------------------------------------------------------------------|
-| ![](https://github.com/FreeTubeApp/FreeTubeApp.io/blob/master/src/images/FreeTube3.png)|
+| Settings                                                                                         |
+|--------------------------------------------------------------------------------------------------|
+| ![](https://raw.githubusercontent.com/FreeTubeApp/FreeTubeApp.io/master/src/images/FreeTube3.png)|
 
 ## How does it work?
 FreeTube uses a built in extractor to grab and serve data / videos. The [Invidious API](https://github.com/iv-org/invidious) can also optionally be used. FreeTube does not use any official APIs to obtain data. While YouTube can still see your video requests, it can no
