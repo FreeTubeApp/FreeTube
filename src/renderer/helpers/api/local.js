@@ -737,17 +737,14 @@ export function parseLocalChannelHeader(channel, onlyIdNameThumbnail = false) {
  * @param {string} channelName
  */
 export function parseLocalChannelVideos(videos, channelId, channelName) {
-  const parsedVideos = videos.map(parseLocalListVideo)
-
-  // fix empty author info
-  parsedVideos.forEach(video => {
-    video.author = channelName
-    video.authorId = channelId
-  })
-
-  return parsedVideos
+  return videos.map((video) => parseLocalListVideo(video, channelId, channelName))
 }
 
+/**
+ * @param {YTNodes.ReelItem | YTNodes.ShortsLockupView} short
+ * @param {string} [channelId]
+ * @param {string} [channelName]
+ */
 export function parseShort(short, channelId, channelName) {
   if (short.type === 'ReelItem') {
     /** @type {import('youtubei.js').YTNodes.ReelItem} */
@@ -780,8 +777,8 @@ export function parseShort(short, channelId, channelName) {
 
 /**
  * @param {(import('youtubei.js').YTNodes.ReelItem | import('youtubei.js').YTNodes.ShortsLockupView)[]} shorts
- * @param {string} channelId
- * @param {string} channelName
+ * @param {string} [channelId]
+ * @param {string} [channelName]
  */
 export function parseLocalChannelShorts(shorts, channelId, channelName) {
   return shorts.map(short => parseShort(short, channelId, channelName))
@@ -888,8 +885,10 @@ function handleSearchResponse(response) {
 
 /**
  * @param {import('youtubei.js').YT.Channel} homeTab
+ * @param {string} [channelId]
+ * @param {string} [channelName]
  */
-export function parseChannelHomeTab(homeTab) {
+export function parseChannelHomeTab(homeTab, channelId, channelName) {
   /**
    * @type {import('youtubei.js').YTNodes.ItemSection | import('youtubei.js').YTNodes.RichSection}
    */
@@ -911,7 +910,7 @@ export function parseChannelHomeTab(homeTab) {
         if (!playlistId || !playlistId.startsWith('UUMO')) {
           shelves.push({
             title: shelf.title.text,
-            content: shelf.content.items.map(parseListItem).filter(_ => _),
+            content: shelf.content.items.map((item) => parseListItem(item, channelId, channelName)).filter(_ => _),
             playlistId,
             subtitle: shelf.subtitle?.text
           })
@@ -921,14 +920,14 @@ export function parseChannelHomeTab(homeTab) {
         const shelf = itemSection.contents.at(0)
         shelves.push({
           title: shelf.title.text,
-          content: shelf.items.map(parseListItem).filter(_ => _)
+          content: shelf.items.map((item) => parseListItem(item, channelId, channelName)).filter(_ => _)
         })
       } else if (itemSection.contents.at(0).type === 'HorizontalCardList') {
         /** @type {import('youtubei.js').YTNodes.HorizontalCardList} */
         const shelf = itemSection.contents.at(0)
         shelves.push({
           title: shelf.header.title.text,
-          content: shelf.cards.map(parseListItem).filter(_ => _),
+          content: shelf.cards.map((item) => parseListItem(item, channelId, channelName)).filter(_ => _),
           subtitle: shelf.header.subtitle.text
         })
       }
@@ -938,7 +937,7 @@ export function parseChannelHomeTab(homeTab) {
         const shelf = section.content
         shelves.push({
           title: shelf.title?.text,
-          content: shelf.contents.map(e => parseListItem(e.content)),
+          content: shelf.contents.map(e => parseListItem(e.content, channelId, channelName)),
           subtitle: shelf.subtitle?.text,
           playlistId: shelf.endpoint?.metadata.url.includes('/playlist') ? shelf.endpoint?.metadata.url.replace('/playlist?list=', '') : null
         })
@@ -1074,8 +1073,10 @@ export function parseLocalPlaylistVideo(video) {
 
 /**
  * @param {import('youtubei.js').YTNodes.Video | import('youtubei.js').YTNodes.Movie} item
+ * @param {string} [channelId]
+ * @param {string} [channelName]
  */
-export function parseLocalListVideo(item) {
+export function parseLocalListVideo(item, channelId, channelName) {
   if (item.type === 'Movie') {
     /** @type {import('youtubei.js').YTNodes.Movie} */
     const movie = item
@@ -1084,8 +1085,8 @@ export function parseLocalListVideo(item) {
       type: 'video',
       videoId: movie.id,
       title: movie.title.text,
-      author: movie.author.name,
-      authorId: movie.author.id !== 'N/A' ? movie.author.id : null,
+      author: movie.author.name !== 'N/A' ? movie.author.name : channelName,
+      authorId: movie.author.id !== 'N/A' ? movie.author.id : channelId,
       description: movie.description_snippet?.text,
       lengthSeconds: isNaN(movie.duration.seconds) ? '' : movie.duration.seconds,
       liveNow: false,
@@ -1112,8 +1113,8 @@ export function parseLocalListVideo(item) {
       type: 'video',
       videoId: video.video_id,
       title: video.title.text,
-      author: video.author?.name,
-      authorId: video.author?.id,
+      author: video.author?.name ?? channelName,
+      authorId: video.author?.id ?? channelId,
       viewCount: video.views.text == null ? null : extractNumberFromString(video.views.text),
       published,
       lengthSeconds: Utils.timeToSeconds(video.duration.text),
@@ -1127,8 +1128,8 @@ export function parseLocalListVideo(item) {
       type: 'video',
       videoId: movie.id,
       title: movie.title.text,
-      author: movie.author.name,
-      authorId: movie.author.id !== 'N/A' ? movie.author.id : null,
+      author: movie.author.name !== 'N/A' ? movie.author.name : channelName,
+      authorId: movie.author.id !== 'N/A' ? movie.author.id : channelId,
       lengthSeconds: isNaN(movie.duration.seconds) ? '' : movie.duration.seconds,
       isUpcoming: movie.is_upcoming,
       premiereDate: movie.upcoming
@@ -1162,8 +1163,8 @@ export function parseLocalListVideo(item) {
       type: 'video',
       videoId: video.video_id,
       title: video.title.text,
-      author: video.author.name,
-      authorId: video.author.id,
+      author: video.author.name !== 'N/A' ? video.author.name : channelName,
+      authorId: video.author.id !== 'N/A' ? video.author.id : channelId,
       description: video.description,
       viewCount,
       published,
@@ -1229,15 +1230,17 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
 
 /**
  * @param {import('youtubei.js').Helpers.YTNode} item
+ * @param {string} [channelId]
+ * @param {string} [channelName]
  */
-function parseListItem(item) {
+function parseListItem(item, channelId, channelName) {
   switch (item.type) {
     case 'Movie':
     case 'Video':
     case 'GridVideo':
     case 'GridMovie':
     case 'VideoCard':
-      return parseLocalListVideo(item)
+      return parseLocalListVideo(item, channelId, channelName)
     case 'GameCard': {
       /** @type {import('youtubei.js').YTNodes.GameCard} */
       const channel = item
@@ -1323,18 +1326,18 @@ function parseListItem(item) {
     }
     case 'ReelItem':
     case 'ShortsLockupView': {
-      return parseShort(item)
+      return parseShort(item, channelId, channelName)
     }
     case 'CompactStation':
     case 'GridPlaylist':
     case 'Playlist': {
-      return parseLocalListPlaylist(item)
+      return parseLocalListPlaylist(item, channelId, channelName)
     }
     case 'Post': {
       return parseLocalCommunityPost(item)
     }
     case 'LockupView':
-      return parseLockupView(item)
+      return parseLockupView(item, channelId, channelName)
   }
 }
 
