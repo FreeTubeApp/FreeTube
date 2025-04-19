@@ -107,7 +107,6 @@ export default defineComponent({
       isVr180: false,
       isVr360: false,
       is3D: false,
-      isMemberOnly: false,
       hasCaptions: false,
       isUpcoming: false,
       isPremium: false,
@@ -721,7 +720,6 @@ export default defineComponent({
       this.isVr180 = this.data.isVr180
       this.isVr360 = this.data.isVr360
       this.is3D = this.data.is3d
-      this.isMemberOnly = this.data.isMemberOnly
       this.hasCaptions = this.data.hasCaptions
       this.isPremium = this.data.premium || false
       this.viewCount = this.data.viewCount

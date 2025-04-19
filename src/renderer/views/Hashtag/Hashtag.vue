@@ -149,6 +149,7 @@ async function getLocalHashtag() {
   try {
     const hashtagData = await getHashtagLocal(hashtag.value)
     videos.value = hashtagData.videos.map(parseLocalListVideo)
+      .filter(v => !v.isMemberOnly)
     apiUsed.value = 'local'
     hashtagContinuationData.value = hashtagData.has_continuation ? hashtagData : null
     isLoading.value = false
@@ -172,6 +173,7 @@ async function getLocalHashtagMore() {
   try {
     const continuation = await hashtagContinuationData.value.getContinuation()
     const newVideos = continuation.videos.map(parseLocalListVideo)
+      .filter(v => !v.isMemberOnly)
     hashtagContinuationData.value = continuation.has_continuation ? continuation : null
     videos.value = videos.value.concat(newVideos)
   } catch (error) {

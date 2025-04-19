@@ -64,6 +64,10 @@ export function updateVideoListAfterProcessing(videos) {
     })
   }
 
+  videoList = videoList.filter(item => {
+    return !item.isMemberOnly
+  })
+
   videoList.sort((a, b) => {
     return b.published - a.published
   })

@@ -390,8 +390,7 @@ $watched-transition-duration: 0.5s;
 
 .videoWatched,
 .live,
-.upcoming,
-.memberOnly {
+.upcoming {
   text-transform: uppercase;
   user-select: none;
 }

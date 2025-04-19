@@ -1086,6 +1086,7 @@ async function getChannelVideosLocal() {
       }
 
       latestVideos.value = parseLocalChannelVideos(videosTab.videos, id.value, channelName.value)
+        .filter(v => !v.isMemberOnly)
       videoContinuationData.value = videosTab.has_continuation ? videosTab : null
       isElementListLoading.value = false
     }
@@ -1130,7 +1131,10 @@ async function getChannelVideosLocalMore() {
        */
       const continuation = await videoContinuationData.value.getContinuation()
 
-      latestVideos.value = latestVideos.value.concat(parseLocalChannelVideos(continuation.videos, id.value, channelName.value))
+      latestVideos.value = latestVideos.value.concat(
+        parseLocalChannelVideos(continuation.videos, id.value, channelName.value)
+          .filter(v => !v.isMemberOnly)
+      )
       videoContinuationData.value = continuation.has_continuation ? continuation : null
     }
   } catch (err) {
@@ -1360,6 +1364,7 @@ async function getChannelLiveLocal() {
     }
 
     latestLive.value = parseLocalChannelVideos(videos, id.value, channelName.value)
+      .filter(v => !v.isMemberOnly)
     liveContinuationData.value = liveTab.has_continuation ? liveTab : null
     isElementListLoading.value = false
 
@@ -1391,7 +1396,10 @@ async function getChannelLiveLocalMore() {
      */
     const continuation = await liveContinuationData.value.getContinuation()
 
-    latestLive.value = latestLive.value.concat(parseLocalChannelVideos(continuation.videos, id.value, channelName.value))
+    latestLive.value = latestLive.value.concat(
+      parseLocalChannelVideos(continuation.videos, id.value, channelName.value)
+        .filter(v => !v.isMemberOnly)
+    )
     liveContinuationData.value = continuation.has_continuation ? continuation : null
   } catch (err) {
     console.error(err)
@@ -2021,11 +2029,15 @@ async function searchChannelLocal() {
       .filter(item => item.type === 'Video' || (!hideChannelPlaylists.value && item.type === 'Playlist'))
       .map(item => {
         if (item.type === 'Video') {
-          return parseLocalListVideo(item)
+          const video = parseLocalListVideo(item)
+          if (video.isMemberOnly) { return null }
+
+          return video
         } else {
           return parseLocalListPlaylist(item, id.value, channelName.value)
         }
       })
+      .filter(item => item != null)
 
     if (isNewSearch) {
       searchResults.value = results
