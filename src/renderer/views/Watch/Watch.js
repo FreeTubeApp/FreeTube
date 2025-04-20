@@ -720,7 +720,7 @@ export default defineComponent({
           }
         }
 
-        if (!this.isUpcoming || (this.isUpcoming && this.playabilityStatus === 'OK')) {
+        if ((!this.isUpcoming && !this.isLive && !this.isPostLiveDvr) || (this.isUpcoming && this.playabilityStatus === 'OK')) {
           this.videoLengthSeconds = result.basic_info.duration
           if (result.streaming_data) {
             this.streamingDataExpiryDate = result.streaming_data.expires
