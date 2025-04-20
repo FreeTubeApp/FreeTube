@@ -66,6 +66,7 @@ Search Listing:
     # Aria labels
     Closed Captions: 'Geslootn ondertitels'
   # In Filter Button
+    8K: 8K
 Search Filters:
   Search Filters: 'Zoekfilters'
   Sort By:
@@ -974,3 +975,5 @@ Cancel: ''
 checkmark: ''
 # French is the only language that should change this (they have a space before the colon)
 Display Label: ''
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Ontwikkeloars gerjidschap anzetn
