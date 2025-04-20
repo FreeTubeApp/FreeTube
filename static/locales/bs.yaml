@@ -130,3 +130,9 @@ Channel:
 Tooltips: {}
 No: 'Ne'
 New Window: Novi Prozor
+Search Listing:
+  Label:
+    4K: 4K
+    8K: 8K
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Uključi alate za programere
