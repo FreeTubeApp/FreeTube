@@ -31,6 +31,8 @@ If you believe someone is violating the code of conduct, we ask that you report 
  - Repeated harassment of others. In general, if someone asks you to stop, then stop.
 - **When we disagree, try to understand why.** Disagreements, both social and technical, happen all the time and FreeTube is no exception. It is important that we resolve disagreements and differing views constructively. Remember that we’re different. The strength of FreeTube comes from its varied community, people from a wide range of backgrounds. Different people have different perspectives on issues. Being unable to understand why someone holds a viewpoint doesn’t mean that they’re wrong. Don’t forget that it is human to err and blaming each other doesn’t get us anywhere. Instead, focus on helping to resolve issues and learning from mistakes.
 
+Original text courtesy of the [Speak Up! project](http://web.archive.org/web/20141109123859/http://speakup.io/coc.html).
+
 ## Questions?
 
 If you have questions, please see [Faq](https://docs.freetubeapp.io/faq/). If that doesn't answer your questions, feel free to [contact us](https://github.com/FreeTubeApp/FreeTube?tab=readme-ov-file#contact).
