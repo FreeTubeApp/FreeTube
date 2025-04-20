@@ -33,6 +33,8 @@ If you believe someone is violating the code of conduct, we ask that you report 
 
 Original text courtesy of the [Speak Up! project](http://web.archive.org/web/20141109123859/http://speakup.io/coc.html).
 
+This Code of Conduct is licensed under the [Creative Commons Attribution License](https://creativecommons.org/licenses/by/3.0/).
+
 ## Questions?
 
 If you have questions, please see [Faq](https://docs.freetubeapp.io/faq/). If that doesn't answer your questions, feel free to [contact us](https://github.com/FreeTubeApp/FreeTube?tab=readme-ov-file#contact).
