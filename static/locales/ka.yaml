@@ -215,3 +215,9 @@ Video:
 Tooltips: {}
 About:
   Email: ელფოსტა
+Search Listing:
+  Label:
+    4K: 4K
+    8K: 8K
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: დამმუშავებლის ინსტრუმენტების გადართვა
