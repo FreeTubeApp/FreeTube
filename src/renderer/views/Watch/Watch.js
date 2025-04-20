@@ -395,7 +395,10 @@ export default defineComponent({
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
         const recommendedVideos = result.watch_next_feed
-          ?.filter((item) => item.type === 'CompactVideo' || item.type === 'CompactMovie')
+          ?.filter((item) => {
+            return item.type === 'CompactVideo' || item.type === 'CompactMovie' ||
+              (item.type === 'LockupView' && item.content_type === 'VIDEO')
+          })
           .map(parseLocalWatchNextVideo) ?? []
 
         // place watched recommended videos last
