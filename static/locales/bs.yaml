@@ -35,6 +35,8 @@ Global:
   Sort By: 'Poredaj po'
 
 # Search Bar
+  Live: Uživo
+  Videos: Videozapisi
 Search / Go to URL: 'Pretražite / idite na URL'
   # In Filter Button
 Search Filters:
@@ -127,3 +129,4 @@ Channel:
   Videos: {}
 Tooltips: {}
 No: 'Ne'
+New Window: Novi Prozor
