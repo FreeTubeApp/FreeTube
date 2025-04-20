@@ -615,3 +615,9 @@ Search Bar:
 Open New Window: Odpri novo okno
 Chapters:
   Chapters: Poglavja
+Search Listing:
+  Label:
+    8K: 8K
+    4K: 4K
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Preklopi razvijalska orodja
