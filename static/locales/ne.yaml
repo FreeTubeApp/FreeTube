@@ -103,3 +103,9 @@ Tooltips: {}
 Close Banner: ब्यानर बन्द गर्नुहोस्
 Preferences: प्राथमिकताहरू
 Are you sure you want to open this link?: के तपाईं यो लिङ्क खोल्न निश्चित हुनुहुन्छ?
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Developer Tools टगल गर्नुहोस्
+Search Listing:
+  Label:
+    8K: 8K
+    4K: 4K
