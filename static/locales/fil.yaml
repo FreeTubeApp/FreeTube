@@ -113,3 +113,9 @@ Version {versionNumber} is now available!  Click for more details: Version {vers
   ay magamit na! . . Pindutin para sa detalye
 A new blog is now available, {blogTitle}. Click to view more: May bagong blog, {blogTitle},
   Pindutin para makita
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: I-toggle ang mga Developer Tools
+Search Listing:
+  Label:
+    8K: 8K
+    4K: 4K
