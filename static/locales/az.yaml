@@ -407,3 +407,5 @@ Ok: Oldu
 No: Xeyr
 Right-click or hold to see history: Tarixçəni görmək üçün sağ düyməyə klik edin və
   ya sıxıb saxlayın
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Tərtibatçı Seçimlərini Aç/Bağla
