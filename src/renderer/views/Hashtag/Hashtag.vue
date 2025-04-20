@@ -148,7 +148,7 @@ async function getInvidiousHashtag(page = 1) {
 async function getLocalHashtag() {
   try {
     const hashtagData = await getHashtagLocal(hashtag.value)
-    videos.value = hashtagData.videos.map(parseLocalListVideo)
+    videos.value = hashtagData.videos.map((video) => parseLocalListVideo(video))
       .filter(v => !v.isMemberOnly && !v.isMemberFirst)
     apiUsed.value = 'local'
     hashtagContinuationData.value = hashtagData.has_continuation ? hashtagData : null
@@ -172,7 +172,7 @@ async function getLocalHashtag() {
 async function getLocalHashtagMore() {
   try {
     const continuation = await hashtagContinuationData.value.getContinuation()
-    const newVideos = continuation.videos.map(parseLocalListVideo)
+    const newVideos = continuation.videos.map((video) => parseLocalListVideo(video))
       .filter(v => !v.isMemberOnly && !v.isMemberFirst)
     hashtagContinuationData.value = continuation.has_continuation ? continuation : null
     videos.value = videos.value.concat(newVideos)

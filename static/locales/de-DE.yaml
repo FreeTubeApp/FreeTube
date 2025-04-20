@@ -1183,8 +1183,8 @@ Tooltips:
     Hide Videos and Playlists Containing Text: Gebe ein Wort, einen Teil eines Wortes
       oder einen Satz ein (Groß-/Kleinschreibung wird ignoriert) um alle Videos und
       Playlists, welche es in ihren Originaltiteln enthalten, auf ganz FreeTube auszublenden.
-      Dein Verlauf, deine eigenen Playlists und Videos innerhalb deiner Playlists
-      sind davon nicht betroffen.
+      Dein Verlauf, deine eigenen Playlists und Videos innerhalb von Playlists sind
+      davon nicht betroffen.
   SponsorBlock Settings:
     UseDeArrowTitles: Videotitel durch von der Community eingereichte Titel von DeArrow
       ersetzen.

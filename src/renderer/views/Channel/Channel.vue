@@ -334,6 +334,7 @@ let autoRefreshOnSortByChangeEnabled = false
 let channelInstance = null
 /** @type {'local' | 'invidious' | ''} */
 let apiUsed = ''
+let mayContainContentFromOtherChannels = false
 
 const isLoading = ref(true)
 const isElementListLoading = ref(false)
@@ -552,6 +553,7 @@ watch(route, () => {
   searchResults.value = []
   apiUsed = ''
   channelInstance = null
+  mayContainContentFromOtherChannels = false
   isArtistTopicChannel.value = false
   videoContinuationData.value = null
   shortContinuationData.value = null
@@ -720,6 +722,10 @@ async function getChannelLocal() {
     bannerUrl.value = parsedHeader.bannerUrl ?? null
     isFamilyFriendly.value = !!channelInstance.metadata.is_family_safe
     isArtistTopicChannel.value = channelName_.endsWith('- Topic') && !!channelInstance.metadata.music_artist_name
+
+    mayContainContentFromOtherChannels = isArtistTopicChannel.value ||
+      !!channelInstance.header?.is(YTNodes.CarouselHeader, YTNodes.InteractiveTabbedHeader) ||
+      !!(channelInstance.header?.is(YTNodes.PageHeader) && channelInstance.header.content?.animated_image)
 
     if (channelInstance.metadata.tags) {
       tags_.push(...channelInstance.metadata.tags)
@@ -891,7 +897,14 @@ function getChannelHomeLocal() {
       return
     }
 
-    const homeData_ = parseChannelHomeTab(homeTab)
+    let homeData_
+
+    if (mayContainContentFromOtherChannels) {
+      homeData_ = parseChannelHomeTab(homeTab)
+    } else {
+      homeData_ = parseChannelHomeTab(homeTab, id.value, channelName.value)
+    }
+
     if (!hideChannelHome.value) {
       homeData.value = homeData_
     }
@@ -1225,7 +1238,15 @@ async function getChannelShortsLocal() {
       return
     }
 
-    latestShorts.value = parseLocalChannelShorts(shortsTab.videos, id.value, channelName.value)
+    let parsedShorts
+
+    if (mayContainContentFromOtherChannels) {
+      parsedShorts = parseLocalChannelShorts(shortsTab.videos)
+    } else {
+      parsedShorts = parseLocalChannelShorts(shortsTab.videos, id.value, channelName.value)
+    }
+
+    latestShorts.value = parsedShorts
     shortContinuationData.value = shortsTab.has_continuation ? shortsTab : null
     isElementListLoading.value = false
 
@@ -1260,7 +1281,15 @@ async function getChannelShortsLocalMore() {
      */
     const continuation = await shortContinuationData.value.getContinuation()
 
-    latestShorts.value = latestShorts.value.concat(parseLocalChannelShorts(continuation.videos, id.value, channelName.value))
+    let parsedShorts
+
+    if (mayContainContentFromOtherChannels) {
+      parsedShorts = parseLocalChannelShorts(continuation.videos)
+    } else {
+      parsedShorts = parseLocalChannelShorts(continuation.videos, id.value, channelName.value)
+    }
+
+    latestShorts.value = latestShorts.value.concat(parsedShorts)
     shortContinuationData.value = continuation.has_continuation ? continuation : null
   } catch (err) {
     console.error(err)
