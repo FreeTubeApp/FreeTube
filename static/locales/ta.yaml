@@ -1257,3 +1257,5 @@ Keys:
 shortcutJoinOperator: +
 Right-click or hold to see history: வரலாற்றைக் காண வலது சொடுக்கு செய்யவும் அல்லது
   வைத்திருங்கள்
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: டெவலப்பர் கருவிகளை நிலைமாற்று
