@@ -783,3 +783,9 @@ Clipboard:
 Preferences: Nuostatos
 Go to page: Eiti į {page}
 Close Banner: Uždaryti baneris
+Search Listing:
+  Label:
+    4K: 4K
+    8K: 8K
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Įjungti kūrėjo įrankius
