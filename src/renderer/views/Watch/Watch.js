@@ -1710,7 +1710,7 @@ export default defineComponent({
       return channelsHidden.some(ch => ch.name === video.authorId) ||
         channelsHidden.some(ch => ch.name === video.author) ||
         forbiddenTitles.some((text) => video.title?.toLowerCase().includes(text.toLowerCase())) ||
-        video.isMemberOnly
+        (video.isMemberOnly || video.isMemberFirst)
     },
 
     toggleAutoplay: function() {

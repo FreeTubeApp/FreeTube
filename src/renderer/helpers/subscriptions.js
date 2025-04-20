@@ -65,7 +65,7 @@ export function updateVideoListAfterProcessing(videos) {
   }
 
   videoList = videoList.filter(item => {
-    return !item.isMemberOnly
+    return !item.isMemberOnly && !item.isMemberFirst
   })
 
   videoList.sort((a, b) => {

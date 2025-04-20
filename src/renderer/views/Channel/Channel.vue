@@ -1086,7 +1086,7 @@ async function getChannelVideosLocal() {
       }
 
       latestVideos.value = parseLocalChannelVideos(videosTab.videos, id.value, channelName.value)
-        .filter(v => !v.isMemberOnly)
+        .filter(v => !v.isMemberOnly && !v.isMemberFirst)
       videoContinuationData.value = videosTab.has_continuation ? videosTab : null
       isElementListLoading.value = false
     }
@@ -1133,7 +1133,7 @@ async function getChannelVideosLocalMore() {
 
       latestVideos.value = latestVideos.value.concat(
         parseLocalChannelVideos(continuation.videos, id.value, channelName.value)
-          .filter(v => !v.isMemberOnly)
+          .filter(v => !v.isMemberOnly && !v.isMemberFirst)
       )
       videoContinuationData.value = continuation.has_continuation ? continuation : null
     }
@@ -1364,7 +1364,7 @@ async function getChannelLiveLocal() {
     }
 
     latestLive.value = parseLocalChannelVideos(videos, id.value, channelName.value)
-      .filter(v => !v.isMemberOnly)
+      .filter(v => !v.isMemberOnly && !v.isMemberFirst)
     liveContinuationData.value = liveTab.has_continuation ? liveTab : null
     isElementListLoading.value = false
 
@@ -1398,7 +1398,7 @@ async function getChannelLiveLocalMore() {
 
     latestLive.value = latestLive.value.concat(
       parseLocalChannelVideos(continuation.videos, id.value, channelName.value)
-        .filter(v => !v.isMemberOnly)
+        .filter(v => !v.isMemberOnly && !v.isMemberFirst)
     )
     liveContinuationData.value = continuation.has_continuation ? continuation : null
   } catch (err) {
@@ -2030,7 +2030,7 @@ async function searchChannelLocal() {
       .map(item => {
         if (item.type === 'Video') {
           const video = parseLocalListVideo(item)
-          if (video.isMemberOnly) { return null }
+          if (video.isMemberOnly || video.isMemberFirst) { return null }
 
           return video
         } else {
