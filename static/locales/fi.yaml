@@ -1025,3 +1025,5 @@ Right-click or hold to see history: Näytä historia napsauttamalla hiiren kakko
   tai pitämällä sitä painettuna
 Close Banner: Sulje Banneri
 Search character limit: Hakukysely ylittää {searchCharacterLimit}-merkkirajan.
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Kehittäjän työkalut päällä/pois
