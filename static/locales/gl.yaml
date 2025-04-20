@@ -804,3 +804,9 @@ Chapters:
 Screenshot Success: Captura da pantalla gardada como "{filePath}"
 Ok: De acordo
 Go to page: Ir a {page}
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Activar Ferramentas de Desenvolvedor
+Search Listing:
+  Label:
+    8K: 8K
+    4K: 4K
