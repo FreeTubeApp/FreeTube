@@ -756,3 +756,5 @@ Feed:
 Go to page: Prejsť na {page}
 Right-click or hold to see history: Kliknite alebo podržte pravé tlačidlo myši aby
   sa zobrazila história
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Prepnúť vývojárske nástroje
