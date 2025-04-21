@@ -13,8 +13,8 @@ Reload: 'Actualiser'
 Force Reload: 'Forcer l''actualisation'
 Toggle Developer Tools: 'Activer les outils de développement'
 Actual size: 'Taille réelle'
-Zoom in: 'Agrandir'
-Zoom out: 'Réduire'
+Zoom in: 'Zoom avant'
+Zoom out: 'Zoom arrière'
 Toggle fullscreen: 'Plein écran'
 Window: 'Fenêtre'
 Minimize: 'Réduire'
@@ -1347,8 +1347,8 @@ KeyboardShortcutPrompt:
   Force Restart Window: Forcer le redémarrage de la fenêtre
   Toggle Developer Tools: Activer/désactiver les outils de développement
   Reset Zoom: Réinitialiser le niveau de zoom / l'échelle de l'interface utilisateur
-  Zoom In: Zoomer
-  Zoom Out: Dézoomer
+  Zoom In: Zoom avant
+  Zoom Out: Zoom arrière
   Focus Search: Mettre le focus sur la barre de recherche
   Search in New Window: Rechercher dans une nouvelle fenêtre
   Last Frame: Image précédente (lorsque la lecture est en pause)
