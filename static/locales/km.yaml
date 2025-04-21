@@ -27,8 +27,12 @@ Preferences: ចំណូលចិត្ត
 KeyboardShortcutPrompt:
   Zoom In: ពង្រីក
   Zoom Out: បង្រួម
+  Fullscreen: បិទបើកការបង្ហាញពេញអេក្រង់
 Profile:
   Select All: រើសទាំងអស់
 Actual size: ទំហំជាក់ស្តែង
 Zoom in: ពង្រីក
 Zoom out: បង្រួម
+Toggle fullscreen: បិទបើកការបង្ហាញពេញអេក្រង់
+Window: ផ្ទាំងបង្អួច
+Minimize: បង្រួមតូច
