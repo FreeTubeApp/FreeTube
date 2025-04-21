@@ -682,3 +682,7 @@ Right-click or hold to see history: Haz clic derecho o mantén presionado para v
   el historial
 KeyboardShortcutPrompt:
   Toggle Developer Tools: Activar/Desactivar Herramientas de Desarrollo
+  Zoom Out: Alejarse
+  Zoom In: Acercarse
+Profile:
+  Select All: Seleccionar todo
