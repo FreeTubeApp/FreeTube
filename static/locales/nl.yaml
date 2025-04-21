@@ -2,7 +2,7 @@
 Locale Name: 'Nederlands'
 
 # Webkit Menu Bar
-File: 'bestand'
+File: 'Bestand'
 Quit: 'Afsluiten'
 Edit: 'Bewerken'
 Undo: 'Ongedaan maken'
@@ -1196,7 +1196,7 @@ Starting download: Begin download van "{videoTitle}"
 Downloading failed: Probleem bij download van "{videoTitle}"
 Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag
   map" modus.
-New Window: Nieuw venster
+New Window: Nieuw Venster
 Screenshot Success: Schermafbeelding opgeslagen
 Channels:
   Title: Kanalen lijst
