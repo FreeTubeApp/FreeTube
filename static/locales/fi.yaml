@@ -1027,3 +1027,5 @@ Close Banner: Sulje Banneri
 Search character limit: Hakukysely ylittää {searchCharacterLimit}-merkkirajan.
 KeyboardShortcutPrompt:
   Toggle Developer Tools: Kehittäjän työkalut päällä/pois
+  Zoom In: Lähennä
+  Zoom Out: Loitonna
