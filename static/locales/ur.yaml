@@ -134,6 +134,7 @@ Profile:
     کیا آپ واقعی منتخب چینلز کو حذف کرنا چاہتے ہیں؟ اس سے چینل حذف نہیں ہوگا۔ کسی
     دوسرے پروفائل سے۔'
 #On Channel Page
+  Select All: تمام منتخب کریں
 Channel: {}
 Video: {}
 Tooltips:
@@ -235,3 +236,5 @@ Search Listing:
     8K: 8K
 KeyboardShortcutPrompt:
   Toggle Developer Tools: ڈویلپر ٹولز کو ٹوگل کریں
+  Zoom Out: زوم آؤٹ
+  Zoom In: زوم ان
