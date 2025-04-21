@@ -7,7 +7,7 @@
   "main": "./dist/main.js",
   "private": true,
   "author": {
-    "name": "Team FreeTube",
+    "name": "FreeTube Team",
     "email": "FreeTubeApp@protonmail.com",
     "url": "https://github.com/FreeTubeApp/FreeTube"
   },
