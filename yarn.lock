@@ -914,9 +914,10 @@
   optionalDependencies:
     global-agent "^3.0.0"
 
-"@electron/node-gyp@git+https://github.com/electron/node-gyp.git#06b29aafb7708acef8b3669835c8a7857ebc92d2":
+"@electron/node-gyp@https://github.com/electron/node-gyp#06b29aafb7708acef8b3669835c8a7857ebc92d2":
   version "10.2.0-electron.1"
-  resolved "git+https://github.com/electron/node-gyp.git#06b29aafb7708acef8b3669835c8a7857ebc92d2"
+  uid "06b29aafb7708acef8b3669835c8a7857ebc92d2"
+  resolved "https://github.com/electron/node-gyp#06b29aafb7708acef8b3669835c8a7857ebc92d2"
   dependencies:
     env-paths "^2.2.0"
     exponential-backoff "^3.1.1"
@@ -8146,10 +8147,10 @@ setprototypeof@1.2.0:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-shaka-player@^4.14.7:
-  version "4.14.7"
-  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.14.7.tgz#7ded49ee72b214af97769c81d5de5bfe4d2b0aea"
-  integrity sha512-wRHI6blBy2jO4DIjHTRNfvtbAaJhLJnLqSczFyYB+FTa4cvDGzQXdBFo8201Yf5hjFPhan6FY+eJJfJZ7pxCRg==
+shaka-player@^4.14.8:
+  version "4.14.8"
+  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.14.8.tgz#2129c9fd01f3a3fb2e133edebbb8035afb76bb4a"
+  integrity sha512-2xi+Q119fFJlfkvQbThSd4JaMWep5fzc0ImDR30RKBecyPOxElIPc6tRxfYwWnhy1mckbmYBFwj4i7X3xXsvSw==
   dependencies:
     eme-encryption-scheme-polyfill "^2.2.1"
 
