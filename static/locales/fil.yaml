@@ -115,7 +115,11 @@ A new blog is now available, {blogTitle}. Click to view more: May bagong blog, {
   Pindutin para makita
 KeyboardShortcutPrompt:
   Toggle Developer Tools: I-toggle ang mga Developer Tools
+  Zoom In: Palakihin
+  Zoom Out: Paliitin
 Search Listing:
   Label:
     8K: 8K
     4K: 4K
+Profile:
+  Select All: Piliin lahat
