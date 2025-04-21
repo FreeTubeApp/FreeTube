@@ -644,7 +644,7 @@ Profile:
   Subscription List: ''
   Other Channels: ''
   '{number} selected': ''
-  Select All: ''
+  Select All: 'Olles selecteern'
   Select None: ''
   Delete Selected: ''
   Add Selected To Profile: ''
@@ -977,3 +977,5 @@ checkmark: ''
 Display Label: ''
 KeyboardShortcutPrompt:
   Toggle Developer Tools: Ontwikkeloars gerjidschap anzetn
+  Zoom Out: Verkljin
+  Zoom In: Vergrôtn
