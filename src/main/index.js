@@ -226,16 +226,35 @@ function runApp() {
   })
 
   if (process.platform === 'win32') {
-    app.setUserTasks([
-      {
+    app.setJumpList([{
+      type: 'tasks',
+      items: [{
+        type: 'task',
         program: process.execPath,
-        arguments: '--new-window',
-        iconPath: process.execPath,
-        iconIndex: 0,
+        args: '--new-window',
         title: 'New Window',
-        description: 'Open New Window'
+        description: 'Open New Window',
+        iconPath: process.execPath,
+        iconIndex: 0
+      }]
+    }])
+  }
+
+  if (process.platform === 'darwin') {
+    const dockMenu = Menu.buildFromTemplate([
+      {
+        label: 'New Window',
+        click: () => {
+          createWindow({
+            replaceMainWindow: false,
+            showWindowNow: true
+          })
+        }
       }
     ])
+    app.whenReady().then(() => {
+      app.dock.setMenu(dockMenu)
+    })
   }
 
   // disable electron warning
@@ -346,21 +365,7 @@ function runApp() {
         }
       })
     }
-    if (process.platform === 'darwin') {
-      const dockMenu = Menu.buildFromTemplate([
-        {
-          label: 'New Window',
-          click: () => {
-            createWindow({
-              replaceMainWindow: false,
-              showWindowNow: true
-            })
-          }
-        }
-      ])
-      app.dock.setMenu(dockMenu)
-    }
-  })
+
     // Electron defaults to approving all permission checks and permission requests.
     // FreeTube only needs a few permissions, so we reject requests for other permissions
     // and reject all requests on non-FreeTube URLs.
