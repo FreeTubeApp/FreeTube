@@ -41,6 +41,8 @@ Search Filters:
   Search Filters: 'فلٹرز تلاش کریں'
   There are no more results for this search: 'اس تلاش کے مزید نتائج نہیں ہیں'
 # Sidebar
+  Type:
+    Videos: ویڈیوز
 Subscriptions:
     # On Subscriptions Page
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'یہ
@@ -135,7 +137,9 @@ Profile:
     دوسرے پروفائل سے۔'
 #On Channel Page
   Select All: تمام منتخب کریں
-Channel: {}
+Channel:
+  Videos:
+    Videos: ویڈیوز
 Video: {}
 Tooltips:
   General Settings:
