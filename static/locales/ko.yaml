@@ -28,7 +28,7 @@ Forward: '앞으로가기'
 # Global
 # Anything shared among components / views should be put here
 Global:
-  Videos: '비디오'
+  Videos: '동영상'
 
   Live: 실시간
   Community: 커뮤니티
@@ -473,7 +473,7 @@ Channel:
   Search Channel: '채널 검색'
   Your search results have returned 0 results: '0 건이 검색되었습니다'
   Videos:
-    Videos: '비디오'
+    Videos: '동영상'
     This channel does not currently have any videos: '이 채널에는 현재 비디오가 없습니다'
     Sort Types:
       Newest: '새로운 영상부터'
