@@ -35,7 +35,7 @@ Search Filters:
   Type:
     Type: 'වර්ගය'
     All Types: 'සියලුම වර්ග'
-    Videos: 'දෘශ්‍යක'
+    Videos: 'වීඩියෝ'
     Channels: 'නාලිකා'
     #& Playlists
   Duration:
@@ -72,6 +72,8 @@ Settings:
   Player Settings: {}
 Channel:
   Playlists: {}
+  Videos:
+    Videos: වීඩියෝ
 More: තව
 Open New Window: නව කවුළුව විවෘත කරන්න
 Global:
