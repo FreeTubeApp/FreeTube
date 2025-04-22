@@ -225,38 +225,17 @@ function runApp() {
     }
   })
 
-  // If in windows, add Windows Jump List task 'New Window'
   if (process.platform === 'win32') {
-    app.setJumpList([{
-      type: 'tasks',
-      items: [{
-        type: 'task',
-        program: process.execPath,
-        args: '--new-window',
-        title: 'New Window',
-        description: 'Open New Window',
-        iconPath: process.execPath,
-        iconIndex: 0
-      }]
-    }])
-  }
-
-  // If in Mac, add macOS Dock menu with 'New Window' option
-  if (process.platform === 'darwin') {
-    const dockMenu = Menu.buildFromTemplate([
+    app.setUserTasks([
       {
-        label: 'New Window',
-        click: () => {
-          createWindow({
-            replaceMainWindow: false,
-            showWindowNow: true
-          })
-        }
+        program: process.execPath,
+        arguments: '--new-window',
+        iconPath: process.execPath,
+        iconIndex: 0,
+        title: 'New Window',
+        description: 'Open New Window'
       }
     ])
-    app.whenReady().then(() => {
-      app.dock.setMenu(dockMenu)
-    })
   }
 
   // disable electron warning
@@ -336,6 +315,22 @@ function runApp() {
             }
           })
         }
+
+  if (process.platform === 'darwin') {
+    const dockMenu = Menu.buildFromTemplate([
+      {
+        label: 'New Window',
+        click: () => {
+          createWindow({
+            replaceMainWindow: false,
+            showWindowNow: true
+          })
+        }
+      }
+    ])
+    app.dock.setMenu(dockMenu)
+  }
+  })
 
         const { host, pathname } = new URL(request.url)
 
