@@ -81,7 +81,8 @@ Settings:
   Theme Settings: {}
   Player Settings: {}
 Channel:
-  Videos: {}
+  Videos:
+    Videos: Mga video
   Playlists: {}
 Download From Site: I-download mula sa website
 Open New Window: buksan ang bagong window
