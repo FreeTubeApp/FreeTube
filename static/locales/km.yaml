@@ -1,21 +1,21 @@
 # Put the name of your locale in the same language
 Locale Name: 'ភាសាខ្មែរ'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  ផ្នែកនេះនៃកម្មវិធីមិនទាន់រួចរាល់នៅឡើយទេ។ ត្រលប់មកវិញនៅពេលក្រោយ ពេលដែលវឌ្ឍនភាពត្រូវបានបង្កើតឡើង។
 
 # Webkit Menu Bar
 File: 'ឯកសារ'
 Quit: 'ចាកចេញ'
 Edit: 'កែ'
 Undo: 'អាន់ឌូ'
-Search Filters: {}
+Search Filters:
+  Type:
+    Videos: វីដេអូ
 Settings:
   # On Settings Page
   General Settings: {}
   Theme Settings: {}
 Channel:
-  Videos: {}
+  Videos:
+    Videos: វីដេអូ
 Tooltips: {}
 New Window: ផ្ទាំងថ្មី
 Copy: ចម្លង
@@ -26,3 +26,18 @@ Paste: បិតភ្ជាប់
 Force Reload: បង្ខំឱ្យផ្ទុកជាថ្មី
 Delete: លុប
 Cut: កាត់
+Preferences: ចំណូលចិត្ត
+KeyboardShortcutPrompt:
+  Zoom In: ពង្រីក
+  Zoom Out: បង្រួម
+  Fullscreen: បិទបើកការបង្ហាញពេញអេក្រង់
+Profile:
+  Select All: រើសទាំងអស់
+Actual size: ទំហំជាក់ស្តែង
+Zoom in: ពង្រីក
+Zoom out: បង្រួម
+Toggle fullscreen: បិទបើកការបង្ហាញពេញអេក្រង់
+Window: ផ្ទាំងបង្អួច
+Minimize: បង្រួមតូច
+Global:
+  Videos: វីដេអូ

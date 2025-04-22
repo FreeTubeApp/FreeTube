@@ -1,8 +1,3 @@
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta parte do aplicativo ainda não está pronta. Volte mais tarde quando o progresso
-  tiver sido feito.
-
 # Webkit Menu Bar
 File: 'Arquivo'
 Quit: 'Sair'
@@ -105,8 +100,8 @@ Subscriptions:
     perfil tem um grande número de inscrições. Forçando RSS para evitar limitação
     de rede
   Error Channels: Canais com erros
-  Disabled Automatic Fetching: Você desativou a busca automática de inscrições. Atualize
-    as inscrições para vê-las aqui.
+  Disabled Automatic Fetching: Você desabilitou a busca automática de inscrições.
+    Atualize as inscrições para vê-las aqui.
   Empty Channels: Atualmente, os canais em que você está inscrito não possuem vídeos.
   Subscriptions Tabs: Guias de inscrições
   All Subscription Tabs Hidden: Todas as guias de inscrição estão ocultas. Para ver
@@ -313,8 +308,8 @@ Settings:
       Nordic: Nordico
       Solarized Light: Claro Solarizado
       Solarized Dark: Escuro Solarizado
-      Gruvbox Light: Gruvbox modo claro
-      Gruvbox Dark: Gruvbox modo escuro
+      Gruvbox Light: Gruvbox Claro
+      Gruvbox Dark: Gruvbox Escuro
       Catppuccin Frappe: Frappe de Catppuccin
       Everforest Dark Hard: Everforest Escuro Sólido
       Everforest Dark Low: Everforest Escuro Suave
@@ -369,16 +364,16 @@ Settings:
       Solarized Cyan: Ciano Solarizado
       Solarized Green: Verde Solarizado
       Solarized Orange: Laranja Solarizada
-      Gruvbox Dark Blue: Gruvbox modo azul escuro
-      Gruvbox Dark Purple: Gruvbox modo roxo escuro
-      Gruvbox Dark Aqua: Gruvbox modo água escura
-      Gruvbox Light Red: Gruvbox modo vermelho claro
-      Gruvbox Light Blue: Gruvbox modo azul claro
-      Gruvbox Light Purple: Gruvbox modo roxo claro
-      Gruvbox Light Orange: Gruvbox modo laranja claro
-      Gruvbox Dark Green: Gruvbox modo verde escuro
-      Gruvbox Dark Yellow: Gruvbox modo amarelo escuro
-      Gruvbox Dark Orange: Gruvbox modo laranja escuro
+      Gruvbox Dark Blue: Gruvbox Azul Escuro
+      Gruvbox Dark Purple: Gruvbox Roxo Escuro
+      Gruvbox Dark Aqua: Gruvbox Aqua Escuro
+      Gruvbox Light Red: Gruvbox Vermelho Claro
+      Gruvbox Light Blue: Gruvbox Azul Claro
+      Gruvbox Light Purple: Gruvbox Roxo Claro
+      Gruvbox Light Orange: Gruvbox Laranja Claro
+      Gruvbox Dark Green: Gruvbox Verde Escuro
+      Gruvbox Dark Yellow: Gruvbox Amarelo Escuro
+      Gruvbox Dark Orange: Gruvbox Laranja Escuro
       Catppuccin Frappe Rosewater: Frappe de Catppuccin com água de rosas
       Catppuccin Frappe Flamingo: Frappe de Catppuccin Flamingo
       Catppuccin Frappe Mauve: Frappe de Catppuccin Mauve
@@ -410,16 +405,16 @@ Settings:
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da Interface de Usuário
-    Disable Smooth Scrolling: Desativar rolagem suave
+    Disable Smooth Scrolling: Desabilitar rolagem suave
     Expand Side Bar by Default: Expandir barra lateral por padrão
     Hide Side Bar Labels: Ocultar título na barra lateral
     Hide FreeTube Header Logo: Ocultar logotipo do FreeTube na barra superior
   Player Settings:
-    Player Settings: 'Player'
+    Player Settings: 'Reprodução'
     Play Next Video: 'Reprodução automática de vídeos recomendados'
-    Turn on Subtitles by Default: 'Ativar legendas por padrão'
+    Turn on Subtitles by Default: 'Habilitar legendas por padrão'
     Autoplay Videos: 'Iniciar reprodução dos vídeos automaticamente'
-    Proxy Videos Through Invidious: 'Usar o Invidious como proxy'
+    Proxy Videos Through Invidious: 'Usar Invidious como proxy'
     Autoplay Playlists: 'Reprodução automática dos vídeos da playlist'
     Enable Theatre Mode by Default: 'Habilitar "Modo Teatro" por padrão'
     Default Volume: 'Volume padrão'
@@ -513,6 +508,16 @@ Settings:
       apagados
     Are you sure you want to clear out your search history and cache?: Tem certeza
       de que deseja limpar o histórico de busca e o cache?
+    Watched Progress Saving Mode:
+      Modes:
+        Never: Nunca
+        Semi-auto: Semiautomático
+        Auto: Auto
+      Tooltip: Auto = Salvar em cada saída da página de vídeo, quando o vídeo termina
+        e ocorre um erro (por exemplo, taxa limitada e sessão de exibição expirada).
+        Semiautomático = O mesmo que "Auto", exceto na saída da página de vídeo e
+        pode salvar o progresso manualmente por meio de um botão chamado "Salvar progresso
+        de exibição", localizado abaixo do player de vídeo.
   Data Settings:
     Subscriptions have been successfully exported: Inscrições foram exportadas com
       sucesso
@@ -629,7 +634,7 @@ Settings:
     Proxy Port Number: Porta do Proxy
     Proxy Host: Host do Proxy
     Proxy Protocol: Protocolo do Proxy
-    Enable Tor / Proxy: Ativar Tor/Proxy
+    Enable Tor / Proxy: Habilitar Tor/Proxy
     Proxy Settings: Proxy
     Error getting network information. Is your proxy configured properly?: Erro ao
       obter informações da rede. Seu proxy está configurado corretamente?
@@ -637,7 +642,7 @@ Settings:
     Region: Região
     Proxy Warning: FreeTube não tem um proxy integrado, mas pode se conectar a um
       proxy externo, como um proxy em execução no seu computador, como o Tor, ou um
-      proxy externo, como um proxy SOCKS5 fornecido por algumas VPNs. Se estiver ativado,
+      proxy externo, como um proxy SOCKS5 fornecido por algumas VPNs. Se estiver habilitado,
       certifique-se de que seu proxy/Tor esteja configurado corretamente, ou o FreeTube
       não conseguirá obter nenhum dado.
   SponsorBlock Settings:
@@ -676,14 +681,14 @@ Settings:
     Download in app: Baixar no aplicativo
     Download Behavior: Comportamento de download
   Parental Control Settings:
-    Show Family Friendly Only: Mostrar apenas conteúdo adequado para todos os públicos
+    Show Family Friendly Only: Ocultar conteúdo inadequado para menores de idade
     Hide Search Bar: Ocultar barra de busca
     Parental Control Settings: Controle dos Pais
     Hide Unsubscribe Button: Ocultar botão "Cancelar inscrição"
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: Essas configurações são experimentais, elas podem causar travamentos
-      enquanto ativadas. Fazer backups é altamente recomendado. Use por sua conta
+      enquanto habilitadas. Fazer backups é altamente recomendado. Use por sua conta
       e risco!
     Replace HTTP Cache: Repor cache HTTP
   Password Settings:
@@ -701,7 +706,7 @@ About:
   About: 'Sobre'
   #& About
 #On Channel Page
-  GitHub issues: Relatórios no GitHub
+  GitHub issues: Publicações de Relatórios (GitHub)
   Report a problem: Informar um problema
   FAQ: Perguntas frequentes
   FreeTube Wiki: Wiki do FreeTube
@@ -725,7 +730,7 @@ About:
   Please check for duplicates before posting: Por favor verifique se este problema
     já foi informado
   Discussions: Discussões
-  Licensed under the: Licenciado sob
+  Licensed under the: Licenciado nos termos da
   AGPLv3: AGPLv3
 Channel:
   Subscribe: 'Inscrever-se'
@@ -879,7 +884,7 @@ Video:
   Show Super Chat Comment: Mostrar comentários de Super Chat
   Upcoming: Em breve
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': O
-    chat ao vivo não está disponível para esta transmissão. Pode ter sido desativado
+    chat ao vivo não está disponível para esta transmissão. Pode ter sido desabilitado
     pelo autor.
   Unhide Channel: Mostrar canal
   Hide Channel: Ocultar canal
@@ -930,9 +935,11 @@ Video:
     a esse vídeo, acesse o site oficial do YouTube em um navegador da Web habilitado
     para DRM.
 #& Playlists
+  Watched Progress Saved: Progresso de exibição salvo
+  Save Watched Progress: Salvar progresso de exibição
 Playlist:
   #& About
-  View Full Playlist: 'Visualizar playlist completa'
+  View Full Playlist: 'Mostrar playlist completa'
   Last Updated On: 'Atualizado em'
 
 # On Video Watch Page
@@ -989,7 +996,7 @@ Comments:
   Getting comment replies, please wait: 'Buscando respostas, por favor, aguarde'
   Hide Comments: 'Ocultar comentários'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Visualizar'
+  View: 'Mostrar'
   Hide: 'Ocultar'
   Replies: 'Respostas'
   Reply: 'Resposta'
@@ -1088,7 +1095,7 @@ This video is unavailable because of missing formats. This can happen due to cou
   à indisponibilidade do país.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Quando ativado, o FreeTube usará RSS em vez de seu método
+    Fetch Feeds from RSS: Quando habilitado, o FreeTube usará RSS em vez de seu método
       padrão para obter o feed de sua inscrição. O RSS é mais rápido e evita bloqueio
       de IP, mas não fornece certas informações como duração do vídeo, status ao vivo
       ou publicações da comunidade

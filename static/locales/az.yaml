@@ -1,9 +1,6 @@
 # Put the name of your locale in the same language
 Locale Name: 'Azərbaycanca'
 FreeTube: 'FreeTube'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Tətbiqin bu hissəsi hələ hazır deyil. İnkişaf bitdikdən sonra qayıdın.
 
 # Webkit Menu Bar
 File: 'Fayl'
@@ -356,7 +353,8 @@ Settings:
   Sort Settings Sections (A-Z): Tənzimləmələr Bölmələrin Çeşidlə (AZ)
   Return to Settings Menu: Parametrlər Menyusuna Qayıt
 Channel:
-  Videos: {}
+  Videos:
+    Videos: Videolar
   Playlists: {}
 Video:
   External Player: {}
@@ -410,3 +408,10 @@ Ok: Oldu
 No: Xeyr
 Right-click or hold to see history: Tarixçəni görmək üçün sağ düyməyə klik edin və
   ya sıxıb saxlayın
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Tərtibatçı Seçimlərini Aç/Bağla
+  Zoom Out: Uzaqlaşdır
+  Zoom In: Yaxınlaşdır
+  Fullscreen: Tam ekran göstər
+Profile:
+  Select All: Hamısını seç

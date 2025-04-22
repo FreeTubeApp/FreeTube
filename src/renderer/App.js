@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
-import TopNav from './components/top-nav/top-nav.vue'
+import TopNav from './components/TopNav/TopNav.vue'
 import SideNav from './components/SideNav/SideNav.vue'
 import FtNotificationBanner from './components/ft-notification-banner/ft-notification-banner.vue'
 import FtPrompt from './components/FtPrompt/FtPrompt.vue'
@@ -201,7 +201,6 @@ export default defineComponent({
           this.setupListenersToSyncWindows()
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
-          this.enableSetSearchQueryText()
           this.enableOpenUrl()
           this.watchSystemTheme()
           await this.checkExternalPlayer()
@@ -227,7 +226,6 @@ export default defineComponent({
   methods: {
     setDocumentTitle: function(value) {
       document.title = value
-      this.$nextTick(() => this.$refs.topNav?.setActiveNavigationHistoryEntryTitle(value))
     },
     checkThemeSettings: function () {
       const theme = {
@@ -358,25 +356,8 @@ export default defineComponent({
         this.$store.commit('setIsKeyboardShortcutPromptShown', !this.isKeyboardShortcutPromptShown)
       }
 
-      if (event.altKey) {
-        switch (event.key) {
-          case 'D':
-          case 'd':
-            this.$refs.topNav.focusSearch()
-            break
-        }
-      }
-      switch (event.key) {
-        case 'Tab':
-          this.showOutlines()
-          break
-        case 'L':
-        case 'l':
-          if ((process.platform !== 'darwin' && event.ctrlKey) ||
-            (process.platform === 'darwin' && event.metaKey)) {
-            this.$refs.topNav.focusSearch()
-          }
-          break
+      if (event.key === 'Tab') {
+        this.showOutlines()
       }
     },
 
@@ -528,16 +509,6 @@ export default defineComponent({
       })
     },
 
-    enableSetSearchQueryText: function () {
-      ipcRenderer.on(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, (event, searchQueryText) => {
-        if (searchQueryText) {
-          this.$refs.topNav.updateSearchInputText(searchQueryText)
-        }
-      })
-
-      ipcRenderer.send(IpcChannels.SEARCH_INPUT_HANDLING_READY)
-    },
-
     enableOpenUrl: function () {
       ipcRenderer.on(IpcChannels.OPEN_URL, (event, url, { isLaunchLink = false } = { }) => {
         if (url) {
@@ -567,7 +538,7 @@ export default defineComponent({
     },
 
     setLocale: function() {
-      document.documentElement.setAttribute('lang', this.locale)
+      document.documentElement.lang = this.locale
       if (this.isLocaleRightToLeft) {
         document.body.dir = 'rtl'
       } else {

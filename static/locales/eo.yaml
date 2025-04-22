@@ -1,6 +1,6 @@
 # Put the name of your locale in the same language
 Locale Name: 'Esperanto'
-# Currently on Subscriptions, Playlists, and History
+
 File: 'Dosiero'
 Quit: 'Eliri'
 Edit: 'Redakti'
@@ -24,6 +24,7 @@ Global:
   Community: Komunumo
   Sort By: 'Ordigi laŭ'
 
+  Videos: Videaĵoj
 Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber}
   disponeblas nun!  Alklaki por pli informoj.'
 Download From Site: 'Elŝuti el retejo'
@@ -105,6 +106,8 @@ About:
 Channel:
   About:
     Details: Detaloj
+  Videos:
+    Videos: Videaĵoj
 Video: {}
 More: Pli
 Search Bar:
@@ -115,3 +118,10 @@ Reload: Reŝarĝi
 Preferences: Agordoj
 New Window: Nova Fenestro
 Go to page: Iri al {page}
+Actual size: Reala grando
+Profile:
+  Select All: Elekti ĉiujn
+KeyboardShortcutPrompt:
+  Zoom In: Zomi
+  Zoom Out: Malzomi
+  Fullscreen: Baskuli tutekranon

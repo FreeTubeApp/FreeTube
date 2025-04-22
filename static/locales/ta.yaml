@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'தமிழ்'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  இந்த பகுதி இன்னும் தயாராக இல்லை. சிறிது நேரம் கழித்து மீண்டும் பார்க்கவும்.
 
 # Webkit Menu Bar
 File: 'கோப்பு'
@@ -1260,3 +1257,8 @@ Keys:
 shortcutJoinOperator: +
 Right-click or hold to see history: வரலாற்றைக் காண வலது சொடுக்கு செய்யவும் அல்லது
   வைத்திருங்கள்
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: டெவலப்பர் கருவிகளை நிலைமாற்று
+  Zoom In: பெரிதாக்கு
+  Zoom Out: சிறிதாக்கு
+  Fullscreen: மாற்று முழுத்திரை

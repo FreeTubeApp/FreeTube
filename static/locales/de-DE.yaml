@@ -1,8 +1,3 @@
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Dieser Teil der App ist noch nicht bereit. Komme später wieder, wenn Fortschritte
-  gemacht wurden.
-
 # Webkit Menu Bar
 File: Datei
 Quit: Beenden
@@ -521,6 +516,17 @@ Settings:
       dass du deinen Suchverlauf und Cache löschen möchtest?
     Clear Search History and Cache: Suchverlauf und Cache löschen
     Search history and cache have been cleared: Suchverlauf und Cache wurden gelöscht
+    Watched Progress Saving Mode:
+      Tooltip: Automatisch = Beim Verlassen des Videos, nachdem das Video beendet
+        wurde und wenn ein Fehler auftritt (z. B. bei einer Ratenbegrenzung oder wenn
+        die Sitzung abgelaufen ist) speichern. Semi-automatisch = Wie automatisch,
+        jedoch nur beim Verlassen des Videos, außerdem kann der Fortschritt manuell
+        über einen Button namens „Videofortschritt speichern“, der sich unter dem
+        Videoplayer befindet, gespeichert werden.
+      Modes:
+        Semi-auto: Semi-automatisch
+        Auto: Automatisch
+        Never: Nie
   Data Settings:
     How do I import my subscriptions?: Wie importiere ich meine Abos?
     Unknown data key: Unbekannter Datenschlüssel
@@ -942,6 +948,8 @@ Video:
     möchtest, sieh es dir bitte auf der offiziellen YouTube-Website in einem DRM-fähigen
     Webbrowser an.
 #& Playlists
+  Save Watched Progress: Videofortschritt speichern
+  Watched Progress Saved: Videofortschritt gespeichert
 Playlist:
   #& About
   View Full Playlist: Vollständige Playlist ansehen
@@ -1175,8 +1183,8 @@ Tooltips:
     Hide Videos and Playlists Containing Text: Gebe ein Wort, einen Teil eines Wortes
       oder einen Satz ein (Groß-/Kleinschreibung wird ignoriert) um alle Videos und
       Playlists, welche es in ihren Originaltiteln enthalten, auf ganz FreeTube auszublenden.
-      Dein Verlauf, deine eigenen Playlists und Videos innerhalb deiner Playlists
-      sind davon nicht betroffen.
+      Dein Verlauf, deine eigenen Playlists und Videos innerhalb von Playlists sind
+      davon nicht betroffen.
   SponsorBlock Settings:
     UseDeArrowTitles: Videotitel durch von der Community eingereichte Titel von DeArrow
       ersetzen.

@@ -1,7 +1,3 @@
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Táto časť aplikácie ešte nie je dokončená. Vráťte sa neskôr.
-
 # Webkit Menu Bar
 File: 'Súbor'
 Quit: 'Ukončiť'
@@ -760,3 +756,8 @@ Feed:
 Go to page: Prejsť na {page}
 Right-click or hold to see history: Kliknite alebo podržte pravé tlačidlo myši aby
   sa zobrazila história
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Prepnúť vývojárske nástroje
+  Zoom In: Priblížiť
+  Zoom Out: Oddialiť
+  Fullscreen: Prepnúť na celú obrazovku

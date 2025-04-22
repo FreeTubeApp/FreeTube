@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Čeština'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Tato část aplikace ještě není hotova. Vraťte se později.
 
 # Webkit Menu Bar
 File: 'Soubor'
@@ -512,6 +509,15 @@ Settings:
     Clear Search History and Cache: Vymazat historii a mezipaměť vyhledávání
     Search history and cache have been cleared: Historie a mezipaměť vyhledávání byly
       vymazány
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Automaticky
+        Semi-auto: Poloautomaticky
+        Never: Nikdy
+      Tooltip: Automaticky = Uložit po každém opuštění stránky s videem, pokud video
+        skončí nebo pokud se vyskytne chyba (např. vypršení relace sledování). Poloautomaticky
+        = Stejné jako Automaticky kromě opuštění stránky videa, průběh lze uložit
+        ručně kliknutím na tlačítko Uložit průběh sledování, nacházejícím se pod přehrávačem.
   Subscription Settings:
     Subscription Settings: 'Odběry'
     Hide Videos on Watch: 'Skrýt přehraná videa'
@@ -974,6 +980,8 @@ Video:
     přehrajte si ho na oficiálních stránkách YouTube ve webovém prohlížeči s podporou
     DRM.
 #& Playlists
+  Save Watched Progress: Uložit průběh sledování
+  Watched Progress Saved: Průběh sledování uložen
 Playlist:
   #& About
   View Full Playlist: 'Zobrazit celý seznam skladeb'

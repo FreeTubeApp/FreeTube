@@ -25,6 +25,11 @@ const config = {
     '!dist/web/*',
     '!node_modules/**/*',
   ],
+
+  // As we bundle all dependecies with webpack, the `node_modules` folder is excluded from packaging in the `files` array.
+  // electron-builder will however still spend time scanning the `node_modules` folder and building up a list of dependencies,
+  // returning `false` from the `beforeBuild` hook skips that.
+  beforeBuild: () => Promise.resolve(false),
   dmg: {
     contents: [
       {
@@ -47,7 +52,7 @@ const config = {
   linux: {
     category: 'Network',
     icon: '_icons/icon.svg',
-    target: ['deb', 'zip', '7z', 'apk', 'rpm', 'AppImage', 'pacman'],
+    target: ['deb', 'zip', '7z', 'rpm', 'AppImage', 'pacman'],
   },
   // See the following issues for more information
   // https://github.com/jordansissel/fpm/issues/1503

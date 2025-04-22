@@ -63,7 +63,7 @@ export default async function (videoId, visitorData, context) {
   })
 
   const webPoSignalOutput = []
-  const botGuardResponse = await botGuard.snapshot({ webPoSignalOutput })
+  const botGuardResponse = await botGuard.snapshot({ webPoSignalOutput }, 10_000)
 
   const integrityTokenResponse = await fetch(buildURL('GenerateIT', true), {
     method: 'POST',

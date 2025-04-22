@@ -234,7 +234,8 @@ const state = {
   region: 'US',
   rememberHistory: true,
   rememberSearchHistory: true,
-  saveWatchedProgress: true,
+  // 'auto', 'semi-auto', 'never'
+  watchedProgressSavingMode: 'auto',
   saveVideoHistoryWithLastViewedPlaylist: true,
   showFamilyFriendlyOnly: false,
   sponsorBlockShowSkippedToast: true,
@@ -306,6 +307,7 @@ const state = {
   defaultInvidiousInstance: '',
   defaultVolume: 1,
   uiScale: 100,
+  userPlaylistsSortBy: 'latest_played_first',
 }
 
 const sideEffectHandlers = {

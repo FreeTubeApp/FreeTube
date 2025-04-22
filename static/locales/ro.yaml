@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Engleză (US)'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Această parte a aplicației nu este încă gata. Reveniți mai târziu, când se vor face
-  progrese.
+Locale Name: 'Română'
 
 # Webkit Menu Bar
 File: 'Filă'

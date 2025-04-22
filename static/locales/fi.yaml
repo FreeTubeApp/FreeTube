@@ -1,7 +1,3 @@
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Tämä sovelluksen osa ei ole vielä valmis. Tule takaisin myöhemmin kun olemme edistyneet.
-
 # Webkit Menu Bar
 File: 'Tiedosto'
 Quit: 'Lopeta'
@@ -148,6 +144,26 @@ User Playlists:
       This playlist does not exist: Soittolistaa ei ole olemassa
       There was an issue with updating this playlist.: Tätä soittolistaa päivittäessä
         ilmeni ongelma.
+      There was a problem with removing this video: Tämän videon poistamisessa oli
+        ongelmia
+      This playlist is now used for quick bookmark: Tätä soittolistaa käytetään nyt
+        nopeaa kirjanmerkkiä varten
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Tätä
+        soittolistaa käytetään nyt pikakirjanmerkkinä {oldPlaylistName}:n sijaan.
+        Klikkaa tästä peruuttaaksesi
+      There were no videos to remove.: Poistettavia videoita ei ollut.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Joitakin
+        soittolistan videoita ei ole vielä ladattu. Klikkaa tästä kopioidaksesi joka
+        tapauksessa.
+      This playlist has a video with a duration error: Tämä soittolista sisältää vähintään
+        yhden videon, jolla ei ole kestoa, se lajitellaan ikään kuin sen kesto olisi
+        nolla.
+      Video has been removed. Click here to undo.: Video on poistettu. Klikkaa tästä
+        peruuttaaksesi.
+      This playlist is already being used for quick bookmark.: Tätä soittolistaa käytetään
+        jo nopeaan kirjanmerkkiin.
+      Reverted to use {oldPlaylistName} for quick bookmark: Palautettu käyttämään
+        {oldPlaylistName} nopeaa kirjanmerkkiä varten
     Search for Videos: Etsi videot
   Move Video Down: Siirrä video alas
   Remove from Playlist: Poista soittolistalta
@@ -170,7 +186,19 @@ User Playlists:
     Save: Tallenna
     Toast:
       You haven't selected any playlist yet.: Et ole valinnut yhtäkään soittolistaa.
-    Added {count} Times: Lisätty {count} kerran | Lisätty {count} kertaa
+      "{videoCount} video(s) added to 1 playlist": 1 video lisätty 1 soittolistaan
+        | {videoCount} videoita lisätty 1 soittolistaan
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video lisätty
+        {playlistCount}-soittolistoihin | {videoCount} videot lisätty {playlistCount}-soittolistoihin
+    Added {count} Times: Jo lisätty | Lisätty {count} kertaa
+    Search in Playlists: Haku soittolistoista
+    Select a playlist to add your N videos to: Valitse soittoluettelo, johon haluat
+      lisätä videosi | Valitse soittoluettelo, johon haluat lisätä {videoCount}-videot
+    Allow Adding Duplicate Video(s): Salli päällekkäisten videoid(en) lisääminen
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
+      Videoita lisätään'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      Jo lisätyt videot'
   CreatePlaylistPrompt:
     New Playlist Name: Uuden soittolistan nimi
     Create: Luo
@@ -186,18 +214,35 @@ User Playlists:
   Remove Watched Videos: Poista katsotut videot
   Export Playlist: Vie tämä soittolista
   The playlist has been successfully exported: Soittolista viety onnistuneesti
+  Quick Bookmark Enabled: Pikakirjanmerkki käytössä
+  Playlists with Matching Videos: Soittolistat, joissa on vastaavia videoita
+  Enable Quick Bookmark With This Playlist: Ota nopea kirjanmerkki käyttöön tällä
+    soittolistalla
+  Remove Duplicate Videos: Poista päällekkäiset videot
+  TotalTimePlaylist: 'Kokonaisaika: {kesto}'
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Haluatko
+    varmasti poistaa 1 päällekkäisen videon tästä soittolistasta? Tätä ei voi peruuttaa.
+    | Haluatko varmasti poistaa {playlistItemCount} päällekkäiset videot tästä soittolistasta?
+    Tätä ei voi peruuttaa.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Haluatko
+    varmasti poistaa 1 katsotun videon tästä soittolistasta? Tätä ei voi peruuttaa.
+    | Haluatko varmasti poistaa {playlistItemCount} katsotut videot tästä soittolistasta?
+    Tätä ei voi peruuttaa.
+  Cannot delete the quick bookmark target playlist.: Pikakirjanmerkin kohdesoittolistaa
+    ei voi poistaa.
 History:
   # On History Page
   History: 'Historia'
   Watch History: 'Katseluhistoria'
   Your history list is currently empty.: Historiasi on tällä hetkellä tyhjä.
   Search bar placeholder: Etsi historiasta
-  Empty Search Message: Historiassasi ei ole videoita, jotka vastaisivat hakuasi
+  Empty Search Message: Historiassasi ei ole videoita, jotka vastaavat hakuasi
+  Case Sensitive Search: kirjainkoolla erotteleva haku
 Settings:
   # On Settings Page
   Settings: 'Asetukset'
   General Settings:
-    General Settings: 'Yleiset asetukset'
+    General Settings: 'Yleistä'
     Fallback to Non-Preferred Backend on Failure: 'Vikatilanteessa palaa toissijaiseen
       taustaohjelmaan'
     Enable Search Suggestions: 'Salli hakuehdotukset'
@@ -241,8 +286,10 @@ Settings:
     Auto Load Next Page:
       Label: Lataa seuraava sivu automaattisesti
       Tooltip: Lataa lisäsivut ja kommentit automaattisesti.
+    Open Deep Links In New Window: Avaa FreeTube uudelleenohjatut URL-osoitteet uudessa
+      ikkunassa
   Theme Settings:
-    Theme Settings: 'Teema-asetukset'
+    Theme Settings: 'Teema'
     Match Top Bar with Main Color: 'Käytä pääväriä yläpalkissa'
     Base Theme:
       Base Theme: 'Perusteema'
@@ -254,6 +301,12 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha -teema
       Hot Pink: Pinkki
       Pastel Pink: Pastellinpinkki
+      Solarized Light: Solarized Valo
+      Solarized Dark: Solarized tumma
+      Nordic: Pohjoismainen
+      Catppuccin Frappe: Catppuccino Frappe
+      Gruvbox Dark: Gruvbox Tumma
+      Gruvbox Light: Gruvbox Valo
     Main Color Theme:
       Main Color Theme: 'Pääväriteema'
       Red: 'Punainen'
@@ -530,6 +583,7 @@ Settings:
     Set Password: Aseta salasana
     Remove Password: Poista salasana
   Sort Settings Sections (A-Z): Järjestä asetusosio (A-Ö)
+  Return to Settings Menu: Palaa asetusvalikkoon
 About:
   #On About page
   About: 'Tietoja'
@@ -910,6 +964,7 @@ Default Invidious instance has been set to {instance}: Oletusarvoinen Invidious-
   on jatkossa {instance}
 Search Bar:
   Clear Input: Tyhjennä syöte
+  Remove: Poista
 External link opening has been disabled in the general settings: Ulkoisen linkin avaaminen
   on poistettu käytöstä yleisissä asetuksissa
 Are you sure you want to open this link?: Haluatko varmasti avata tämän linkin?
@@ -957,6 +1012,7 @@ Search Listing:
     360 Video: 360°
     New: Uusi
     3D: 3D
+    Closed Captions: Suljetut kuvatekstit
 Feed:
   Refresh Feed: Päivitä {subscriptionName}
   Feed Last Updated: 'Syöte {feedName} päivitetty viimeksi: {date}'
@@ -968,3 +1024,9 @@ Yes, Open Link: Kyllä, avaa linkki
 Right-click or hold to see history: Näytä historia napsauttamalla hiiren kakkospainiketta
   tai pitämällä sitä painettuna
 Close Banner: Sulje Banneri
+Search character limit: Hakukysely ylittää {searchCharacterLimit}-merkkirajan.
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Kehittäjän työkalut päällä/pois
+  Zoom In: Lähennä
+  Zoom Out: Loitonna
+  Fullscreen: Vaihda koko näyttöön

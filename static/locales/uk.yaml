@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Українська'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Ця частина застосунка ще не готова. Поверніться пізніше.
 
 # Webkit Menu Bar
 File: 'Файл'
@@ -246,6 +243,7 @@ User Playlists:
       There is already a playlist with this name. Please pick a different name.: Вже
         існує добірка з такою назвою. Будь ласка, виберіть іншу назву.
     New Playlist Name: Нова назва добірки
+  TotalTimePlaylist: 'Загальний час: {duration}'
 History:
   # On History Page
   History: 'Історія'
@@ -512,6 +510,16 @@ Settings:
     Clear Search History and Cache: Очистити історію пошуку та кеш
     Are you sure you want to clear out your search history and cache?: Ви впевнені,
       що хочете очистити історію пошуку та кеш?
+    Watched Progress Saving Mode:
+      Tooltip: Авто = Зберігати при кожному виході зі сторінки відео, коли відео завершене
+        або виникла помилка (наприклад, обмеження швидкості або завершення сеансу
+        перегляду). Напівавтомат = Як і Авто, але без збереження при виході зі сторінки
+        відео; можна зберегти прогрес вручну через кнопку "Зберегти переглянутий прогрес",
+        що розташована під відеоплеєром.
+      Modes:
+        Auto: Авто
+        Semi-auto: Напівавтомат
+        Never: Ніколи
   Subscription Settings:
     Subscription Settings: 'Підписка'
     Hide Videos on Watch: 'Ховати відео при перегляді'
@@ -971,6 +979,8 @@ Video:
     цього потрібні пропрієтарні компоненти з закритим вихідним кодом. Щоб переглянути
     це відео, скористайтеся офіційним сайтом YouTube у веб-браузері з підтримкою DRM.
 #& Playlists
+  Save Watched Progress: Зберегти переглянутий прогрес
+  Watched Progress Saved: Переглянутий прогрес збережено
 Playlist:
   #& About
   View Full Playlist: 'Переглянути весь список відтворення'

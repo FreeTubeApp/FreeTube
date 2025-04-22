@@ -1,7 +1,3 @@
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Эта часть приложения еще не готова. Вернитесь позже, когда прогресс будет достигнут.
-
 # Webkit Menu Bar
 File: 'файл'
 Quit: 'уйти'
@@ -1017,7 +1013,7 @@ Canceled next video autoplay: 'Отменено автовоспроизведе
 
 Yes: 'Да'
 No: 'Нет'
-Locale Name: Английский (США)
+Locale Name: Русский
 Profile:
   '{profile} is now the active profile': Теперь {profile} активный профиль
   Your default profile has been changed to your primary profile: Профиль по умолчанию

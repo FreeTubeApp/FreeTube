@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'West-Vlams'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Et djil van den app woar daj nu zît is nog nie gerjid. Komt were wanjir dan der
-  vorderingn gemakt zîn.
 
 # Webkit Menu Bar
 File: 'Bestand'
@@ -70,6 +66,7 @@ Search Listing:
     # Aria labels
     Closed Captions: 'Geslootn ondertitels'
   # In Filter Button
+    8K: 8K
 Search Filters:
   Search Filters: 'Zoekfilters'
   Sort By:
@@ -647,7 +644,7 @@ Profile:
   Subscription List: ''
   Other Channels: ''
   '{number} selected': ''
-  Select All: ''
+  Select All: 'Olles selecteern'
   Select None: ''
   Delete Selected: ''
   Add Selected To Profile: ''
@@ -672,7 +669,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: ''
   Channel Tabs: ''
   Videos:
-    Videos: ''
+    Videos: 'Videos'
     This channel does not currently have any videos: ''
     Sort Types:
       Newest: ''
@@ -978,3 +975,8 @@ Cancel: ''
 checkmark: ''
 # French is the only language that should change this (they have a space before the colon)
 Display Label: ''
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Ontwikkeloars gerjidschap anzetn
+  Zoom Out: Verkljin
+  Zoom In: Vergrôtn
+  Fullscreen: Vul skerm anzetn

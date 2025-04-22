@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Svenska'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Den här delen av appen är inte klar än. Kom tillbaka senare när framsteg har gjorts.
 
 # Webkit Menu Bar
 File: 'Fil'
@@ -505,6 +502,15 @@ Settings:
     Remove All Playlists: Ta Bort Alla Spellistor
     Are you sure you want to clear out your search history and cache?: Är du säker
       på att du vill rensa din sökhistorik och cacheminne?
+    Watched Progress Saving Mode:
+      Tooltip: Automatiskt = Sparar vid varje avslut av en videosida, när videon avslutas
+        och vid fel (t.ex. hastighetsbegränsning eller utgången tittarsession). Semiautomatiskt
+        = Som Automatiskt, förutom vid avslut av videosida. Framsteg kan sparas manuellt
+        via en knapp som heter Spara tittade framsteg, placerad under videospelaren.
+      Modes:
+        Semi-auto: Semiautomatiskt
+        Auto: Automatiskt
+        Never: Aldrig
   Subscription Settings:
     Subscription Settings: 'Prenumeration'
     Hide Videos on Watch: 'Dölj video under visning'
@@ -970,6 +976,8 @@ Video:
   Unlisted: Olistade
   MembersOnly: Videoklipp endast för medlemmar kan inte ses med FreeTube eftersom
     de kräver Google-inloggning och betalmedlemskap till uppladdarens kanal.
+  Watched Progress Saved: Tittade framsteg sparade
+  Save Watched Progress: Spara tittade framsteg
 Playlist:
   #& About
   View Full Playlist: 'Visa hela spellistan'
