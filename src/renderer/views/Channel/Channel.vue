@@ -1099,7 +1099,6 @@ async function getChannelVideosLocal() {
       }
 
       latestVideos.value = parseLocalChannelVideos(videosTab.videos, id.value, channelName.value)
-        .filter(v => !v.isMemberOnly && !v.isMemberFirst)
       videoContinuationData.value = videosTab.has_continuation ? videosTab : null
       isElementListLoading.value = false
     }
@@ -1146,7 +1145,6 @@ async function getChannelVideosLocalMore() {
 
       latestVideos.value = latestVideos.value.concat(
         parseLocalChannelVideos(continuation.videos, id.value, channelName.value)
-          .filter(v => !v.isMemberOnly && !v.isMemberFirst)
       )
       videoContinuationData.value = continuation.has_continuation ? continuation : null
     }
@@ -1393,7 +1391,6 @@ async function getChannelLiveLocal() {
     }
 
     latestLive.value = parseLocalChannelVideos(videos, id.value, channelName.value)
-      .filter(v => !v.isMemberOnly && !v.isMemberFirst)
     liveContinuationData.value = liveTab.has_continuation ? liveTab : null
     isElementListLoading.value = false
 
@@ -1427,7 +1424,6 @@ async function getChannelLiveLocalMore() {
 
     latestLive.value = latestLive.value.concat(
       parseLocalChannelVideos(continuation.videos, id.value, channelName.value)
-        .filter(v => !v.isMemberOnly && !v.isMemberFirst)
     )
     liveContinuationData.value = continuation.has_continuation ? continuation : null
   } catch (err) {
@@ -2052,18 +2048,18 @@ async function searchChannelLocal() {
       contents = result.contents.contents
     }
 
-    const results = contents
+    const results = []
+    contents
       .filter(node => node.type === 'ItemSection')
       .flatMap(itemSection => itemSection.contents)
-      .filter(item => item.type === 'Video' || (!hideChannelPlaylists.value && item.type === 'Playlist'))
-      .map(item => {
+      .forEach(item => {
         if (item.type === 'Video') {
           const video = parseLocalListVideo(item)
           if (video.isMemberOnly || video.isMemberFirst) { return null }
 
-          return video
-        } else {
-          return parseLocalListPlaylist(item, id.value, channelName.value)
+          results.push(video)
+        } else if (!hideChannelPlaylists.value && item.type === 'Playlist') {
+          results.push(parseLocalListPlaylist(item, id.value, channelName.value))
         }
       })
       .filter(item => item != null)
