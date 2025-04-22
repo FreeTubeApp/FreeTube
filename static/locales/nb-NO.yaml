@@ -1223,7 +1223,7 @@ KeyboardShortcutPrompt:
   Last Chapter: Forrige kapittel
   Next Chapter: Neste kapittel
   Navigate to History: Naviger til historie
-  Fullscreen: Veksle fullskjermsvisning
+  Fullscreen: Fullskjermsvisning
   Sections:
     Video:
       General: Video: Generelt
@@ -1265,6 +1265,7 @@ KeyboardShortcutPrompt:
   Navigate to Settings: Naviger til innstillinger
   Keyboard Shortcuts: Tastatursnarveier
   History Forward: Gå fremover en side
+  Toggle Developer Tools: Utviklerverktøy
 Moments Ago: Øyeblikk siden
 shortcutLabelSeparator: ｜
 Description:

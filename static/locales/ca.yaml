@@ -78,6 +78,8 @@ Search Filters:
 # Sidebar
   There are no more results for this search: No hi ha més resultats per a aquesta
     cerca
+  Features:
+    Subtitles: Subtítols
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscripcions'
@@ -557,3 +559,13 @@ Falling back to Invidious API: Recorrent a l'API d'Invidious
 Invidious API Error (Click to copy): S'ha produït un error en l'API d'Invidious (feu
   clic per copiar-lo)
 Moments Ago: fa un moment
+Search Listing:
+  Label:
+    4K: 4K
+    8K: 8K
+    Subtitles: Subtítols
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Activa les eines per a desenvolupadors
+  Zoom In: Amplia
+  Zoom Out: Allunya
+  Fullscreen: Commuta la pantalla completa

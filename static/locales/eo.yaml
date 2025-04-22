@@ -115,3 +115,10 @@ Reload: Reŝarĝi
 Preferences: Agordoj
 New Window: Nova Fenestro
 Go to page: Iri al {page}
+Actual size: Reala grando
+Profile:
+  Select All: Elekti ĉiujn
+KeyboardShortcutPrompt:
+  Zoom In: Zomi
+  Zoom Out: Malzomi
+  Fullscreen: Baskuli tutekranon
