@@ -269,9 +269,17 @@ export default defineComponent({
     },
 
     /**
-     * @param {KeyboardEvent} event
+     * Handles keyboard events for navigation and selection
+     * @param {KeyboardEvent} event - The keyboard event
      */
     handleKeyDown: function (event) {
+      // IMPORTANT: Don't update inputData directly during arrow key navigation
+      // This prevents the suggestions list from changing while navigating
+      if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+        // updateSelectedOptionIndex will handle visual updates by directly
+        // manipulating the DOM instead of changing inputData
+      }
+
       // Update Input box value if enter key was pressed and option selected
       if (event.key === 'Enter' && !event.isComposing) {
         if (this.removeButtonSelectedIndex !== -1) {
@@ -326,11 +334,43 @@ export default defineComponent({
         this.searchState.selectedOption = -1
       }
 
-      // Update displayed value
+      // Update displayed value - this makes the suggestion visible in the input box
+      // (the input will show the selected suggestion through inputDataDisplayed computed property)
       this.searchState.keyboardSelectedOptionIndex = this.searchState.selectedOption
+
+      // Update the input field visually for immediate feedback while navigating
+      if (this.searchState.keyboardSelectedOptionIndex >= 0 &&
+          this.visibleDataList &&
+          this.searchState.keyboardSelectedOptionIndex < this.visibleDataList.length) {
+        const selectedText = this.visibleDataList[this.searchState.keyboardSelectedOptionIndex]
+
+        // Only update the DOM element directly without changing inputData
+        // This prevents the watcher from triggering and changing the suggestions list
+        if (this.$refs.input && selectedText) {
+          this.$refs.input.value = selectedText
+        }
+      }
     },
 
     handleInputBlur: function () {
+      // Before hiding options, check if there's a keyboard-selected suggestion
+      if (this.searchState.keyboardSelectedOptionIndex >= 0 &&
+          this.visibleDataList &&
+          this.searchState.keyboardSelectedOptionIndex < this.visibleDataList.length) {
+        // Get the selected suggestion text
+        const selectedText = this.visibleDataList[this.searchState.keyboardSelectedOptionIndex]
+        if (selectedText) {
+          // Update inputData so it's used when searching - this happens after list is closed so no list updates
+          this.inputData = selectedText
+
+          // Also update the DOM element to ensure consistency
+          if (this.$refs.input) {
+            this.$refs.input.value = selectedText
+          }
+        }
+      }
+
+      // Hide options if pointer is not in list
       if (!this.searchState.isPointerInList) { this.searchState.showOptions = false }
     },
 
