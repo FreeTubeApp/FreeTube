@@ -353,7 +353,8 @@ Settings:
   Sort Settings Sections (A-Z): Tənzimləmələr Bölmələrin Çeşidlə (AZ)
   Return to Settings Menu: Parametrlər Menyusuna Qayıt
 Channel:
-  Videos: {}
+  Videos:
+    Videos: Videolar
   Playlists: {}
 Video:
   External Player: {}
