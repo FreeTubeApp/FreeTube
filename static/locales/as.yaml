@@ -11,13 +11,17 @@ Delete: 'বিলোপ কৰক'
 Select all: 'সকলোক বাছক'
 Reload: 'সতেজ কৰক'
 Force Reload: 'বলেৰে সতেজ কৰক'
-Search Filters: {}
+Search Filters:
+  Type:
+    Videos: ভিডিঅ
 Settings:
   # On Settings Page
   Theme Settings: {}
   Subscription Settings: {}
 Channel:
   Playlists: {}
+  Videos:
+    Videos: ভিডিঅ
 Video: {}
 Locale Name: অসমীয়া
 Global:
