@@ -98,7 +98,8 @@ Settings:
   # On Settings Page
   Theme Settings: {}
 Channel:
-  Videos: {}
+  Videos:
+    Videos: भिडियोहरू
 Tooltips: {}
 Close Banner: ब्यानर बन्द गर्नुहोस्
 Preferences: प्राथमिकताहरू
