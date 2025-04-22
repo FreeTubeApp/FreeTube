@@ -25,7 +25,7 @@ Search Filters:
   Type:
     Type: 'ପ୍ରକାର'
     All Types: 'ସମସ୍ତ ପ୍ରକାର'
-    Videos: 'ଵିଡ଼ିଓ'
+    Videos: 'ଭିଡିଓ'
     Channels: 'ଚ୍ୟାନେଲ'
     #& Playlists
     Movies: ଚଳଚ୍ଚିତ୍ର
@@ -108,7 +108,8 @@ Settings:
       କରିବା
   SponsorBlock Settings: {}
 Channel:
-  Videos: {}
+  Videos:
+    Videos: ଭିଡିଓ
   Playlists: {}
 Video:
   External Player: {}
