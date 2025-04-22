@@ -226,18 +226,16 @@ function runApp() {
   })
 
   if (process.platform === 'win32') {
-    app.setJumpList([{
-      type: 'tasks',
-      items: [{
-        type: 'task',
+    app.setUserTasks([
+      {
         program: process.execPath,
-        args: '--new-window',
-        title: 'New Window',
-        description: 'Open New Window',
+        arguments: '--new-window',
         iconPath: process.execPath,
-        iconIndex: 0
-      }]
-    }])
+        iconIndex: 0,
+        title: 'New Window',
+        description: 'Open New Window'
+      }
+    ])
   }
 
   if (process.platform === 'darwin') {
