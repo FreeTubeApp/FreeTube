@@ -108,7 +108,8 @@ About:
   #On About page
   Email: 'ই-মেইল'
 Channel:
-  Videos: {}
+  Videos:
+    Videos: ভিডিও
   Playlists: {}
 Video: {}
 Tooltips: {}
