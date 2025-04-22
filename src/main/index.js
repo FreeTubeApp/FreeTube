@@ -316,22 +316,6 @@ function runApp() {
           })
         }
 
-  if (process.platform === 'darwin') {
-    const dockMenu = Menu.buildFromTemplate([
-      {
-        label: 'New Window',
-        click: () => {
-          createWindow({
-            replaceMainWindow: false,
-            showWindowNow: true
-          })
-        }
-      }
-    ])
-    app.dock.setMenu(dockMenu)
-  }
-  })
-
         const { host, pathname } = new URL(request.url)
 
         if (host !== 'bundle' || !ALLOWED_RENDERER_FILES.has(pathname)) {
@@ -362,7 +346,21 @@ function runApp() {
         }
       })
     }
-
+    if (process.platform === 'darwin') {
+      const dockMenu = Menu.buildFromTemplate([
+        {
+          label: 'New Window',
+          click: () => {
+            createWindow({
+              replaceMainWindow: false,
+              showWindowNow: true
+            })
+          }
+        }
+      ])
+      app.dock.setMenu(dockMenu)
+    }
+  })
     // Electron defaults to approving all permission checks and permission requests.
     // FreeTube only needs a few permissions, so we reject requests for other permissions
     // and reject all requests on non-FreeTube URLs.
