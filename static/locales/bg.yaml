@@ -243,6 +243,7 @@ User Playlists:
     гледани видеа от този плейлист? Това не може да бъде отменено.
   Export Playlist: Изнасяне на плейлиста
   The playlist has been successfully exported: Плейлистът е изнесен успешно
+  TotalTimePlaylist: 'Общо време: {duration}'
 History:
   # On History Page
   History: 'История'
@@ -508,6 +509,16 @@ Settings:
       сте, че искате да изчистите историята с търсения и кеша?
     Search history and cache have been cleared: Историята на търсенията и кеша бяха
       изчистени
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Автоматично
+        Semi-auto: Полуавтоматично
+        Never: Никога
+      Tooltip: Автоматично = Записване при всяко излизане от страницата с видеото,
+        при приключването му и възникване на грешка (напр. ограничена скорост и изтичане
+        на сесията за гледане). Полуавтоматично = Като Автоматично, с изключение на
+        това, че при излизане от страницата с видеото може да се запазва напредъка
+        ръчно чрез бутона Запазване на напредъка, разположен под видеоплейъра.
   Subscription Settings:
     Subscription Settings: 'Абонаменти'
     Hide Videos on Watch: 'Скриване на видеата при гледане'
@@ -982,6 +993,8 @@ Video:
     това видео, моля, използвайте официалния уебсайт на YouTube в уеб браузър поддържащ
     DRM.
 #& Playlists
+  Watched Progress Saved: Напредъка на гледането е запазен
+  Save Watched Progress: Запазване на напредъка
 Playlist:
   #& About
   View Full Playlist: 'Преглед на пълен плейлист'
