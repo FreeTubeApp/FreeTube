@@ -1112,11 +1112,12 @@ Tooltips:
       semikoloninndelt («;») du ønsker å sende til den eksterne avspilleren.
     Ignore Warnings: Undertrykker advarsler når nåværende ekstern avspiller ikke støtter
       nåværende handling (f.eks. reversering av spillelister, osv.).
-    Custom External Player Executable: Som forvalg vil FreeTube anta at valgt ekstern
-      spiller er tilgjengelig via PATH-miljøvariabelen. Hvis det trengs kan en egendefinert
-      sti settes her.
-    External Player: Valg av ekstern avspiller viser et ikon for åpning av video (spilleliste
-      hvis det støttes) i den eksterne avspilleren, på miniatyrbildet.
+    Custom External Player Executable: Som standard vil FreeTube anta at den valgte
+      eksterne avspilleren er tilgjengelig via PATH-miljøvariabelen. Hvis det trengs
+      kan en egendefinert sti settes her.
+    External Player: Hvis en velger å bruke ekstern avspiller, vises et ikon for åpning
+      av video (eller spilleliste hvis det støttes) i den eksterne avspilleren, i
+      miniatyrbildet. Invidious-innstillinger gjelder ikke for eksterne avspillere.
     DefaultCustomArgumentsTemplate: "(Forvalg: '{defaultCustomArguments}')"
   Experimental Settings:
     Replace HTTP Cache: Skrur av Electrons diskbaserte HTTP-hurtiglager og skrur på
