@@ -1110,8 +1110,8 @@ Tooltips:
   External Player Settings:
     Custom External Player Arguments: Alle egendefinerte kommandolinjeargumenter,
       semikoloninndelt («;») du ønsker å sende til den eksterne avspilleren.
-    Ignore Warnings: Undertrykker advarsler når nåværende ekstern avspiller ikke støtter
-      nåværende handling (f.eks. reversering av spillelister, osv.).
+    Ignore Warnings: Skjuler advarsler når nåværende eksterne avspiller ikke støtter
+      den gjeldende handlingen (f.eks. reversering av spillelister, osv.).
     Custom External Player Executable: Som standard vil FreeTube anta at den valgte
       eksterne avspilleren er tilgjengelig via PATH-miljøvariabelen. Hvis det trengs
       kan en egendefinert sti settes her.
