@@ -238,23 +238,6 @@ function runApp() {
     ])
   }
 
-  if (process.platform === 'darwin') {
-    const dockMenu = Menu.buildFromTemplate([
-      {
-        label: 'New Window',
-        click: () => {
-          createWindow({
-            replaceMainWindow: false,
-            showWindowNow: true
-          })
-        }
-      }
-    ])
-    app.whenReady().then(() => {
-      app.dock.setMenu(dockMenu)
-    })
-  }
-
   // disable electron warning
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
   const isDebug = process.argv.includes('--debug')
@@ -322,6 +305,21 @@ function runApp() {
   let proxyUrl
 
   app.on('ready', async (_, __) => {
+    if (process.platform === 'darwin') {
+      const dockMenu = Menu.buildFromTemplate([
+        {
+          label: 'New Window',
+          click: () => {
+            createWindow({
+              replaceMainWindow: false,
+              showWindowNow: true
+            })
+          }
+        }
+      ])
+      app.dock.setMenu(dockMenu)
+    }
+
     if (process.env.NODE_ENV === 'production') {
       protocol.handle('app', async (request) => {
         if (request.method !== 'GET') {
