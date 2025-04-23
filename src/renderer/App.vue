@@ -71,7 +71,6 @@
       v-if="showProgressBar"
     />
     <top-nav
-      ref="topNav"
       :inert="isPromptOpen"
     />
     <side-nav

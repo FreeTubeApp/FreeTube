@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Cymraeg'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Nid yw'r rhan hon o'r ap yn barod eto. Dewch nôl pan fydd cynnydd wedi'i wneud.
 
 # Webkit Menu Bar
 File: 'Ffeil'
@@ -11,7 +8,7 @@ Preferences: 'Dewisiadau'
 Quit: 'Gadael'
 Edit: 'Golygu'
 Undo: 'Dadwneud'
-Redo: 'Ailwneud'
+Redo: 'Ail-wneud'
 Cut: 'Torri'
 Copy: 'Copïo'
 Paste: 'Gludo'

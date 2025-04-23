@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'हिन्दी'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  ऐप का यह हिस्सा अभी तैयार नहीं है। बाद में वापस आएँ जब प्रगति हुई हो
 
 # Webkit Menu Bar
 File: 'फ़ाइल'
@@ -40,6 +37,7 @@ Global:
 # Search Bar
   Shorts: शॉर्ट्स
   Videos: वीडियो
+  Live: लाइव
 Search / Go to URL: 'खोज / यूआरएल पर जाएं'
   # In Filter Button
 Search Filters:
@@ -174,7 +172,9 @@ Settings:
 About:
   #On About page
   Email: ईमेल करें
-Channel: {}
+Channel:
+  Videos:
+    Videos: वीडियो
 Video:
   Open in Invidious: 'इनविडियस में खोलें'
   Copy Invidious Link: 'इनविडियस लिंक को कॉपी करें'
@@ -234,3 +234,12 @@ Search Listing:
     Subtitles: उपशीर्षक
     Closed Captions: सीमित अनुशीर्षक
     New: नया
+    4K: 4K
+    8K: 8K
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: डेवलपर टूल टॉगल करें
+  Zoom In: ज़ूम इन
+  Zoom Out: ज़ूम आउट
+  Fullscreen: फ़ुलस्क्रीन टॉगल करें
+Profile:
+  Select All: सबको चुनें

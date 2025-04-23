@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Türkçe'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Uygulamanın bu bölümü henüz hazır değil. Tamamlanınca geri gelin.
 
 # Webkit Menu Bar
 File: 'Dosya'
@@ -511,6 +508,11 @@ Settings:
         Never: Asla
         Auto: Otomatik
         Semi-auto: Yarı otomatik
+      Tooltip: Otomatik = Video sona erdiğinde ve hatayla karşılaşıldığında (ör. hız
+        sınırlı ve izleme oturumu sona erdiğinde) her video sayfası çıkışında kaydet.
+        Yarı otomatik = Video sayfasından çıkış haricinde Otomatik gibi ve video oynatıcının
+        altında bulunan İzlenen İlerlemeyi Kaydet adı verilen bir düğme aracılığıyla
+        ilerlemeyi manuel olarak kaydedebilir.
   Subscription Settings:
     Subscription Settings: 'Abonelik'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
@@ -976,6 +978,8 @@ Video:
   DRMProtected: DRM korumalı videolar, özel kapalı kaynak bileşenleri gerektirdiğinden
     FreeTube ile oynatılamaz. Bu videoyu izlemek istiyorsanız lütfen resmi YouTube
     web sitesinde DRM etkinleştirilmiş bir web tarayıcısında izleyin.
+  Watched Progress Saved: İzlenen İlerleme Kaydedildi
+  Save Watched Progress: İzlenen İlerlemeyi Kaydet
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'

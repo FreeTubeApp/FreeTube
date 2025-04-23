@@ -128,7 +128,7 @@ const props = defineProps({
     default: ''
   },
   joined: {
-    type: [Date, Number],
+    type: Number,
     default: 0
   },
   views: {

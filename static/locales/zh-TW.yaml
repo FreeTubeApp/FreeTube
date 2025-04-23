@@ -1,7 +1,3 @@
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  此功能尚未製作完成。有更新再來喔。
-
 # Webkit Menu Bar
 File: '檔案'
 Quit: '結束'
@@ -275,7 +271,7 @@ Settings:
       Pastel Pink: 淡粉紅色
       Hot Pink: 亮粉紅色
       Nordic: 北歐
-      Solarized Dark: Solarized Dark
+      Solarized Dark: 暖色調 暗色
       Solarized Light: Solarized Light
       Gruvbox Dark: Gruvbox 深色
       Gruvbox Light: Gruvbox 淺色

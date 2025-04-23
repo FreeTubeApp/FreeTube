@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: '한국어'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  아직 구현 되지 않은 기능입니다. 개발이 완료된 후 다시 시도해주세요.
 
 # Webkit Menu Bar
 File: '파일'
@@ -31,12 +28,20 @@ Forward: '앞으로가기'
 # Global
 # Anything shared among components / views should be put here
 Global:
-  Videos: '비디오'
+  Videos: '동영상'
 
   Live: 실시간
   Community: 커뮤니티
   Shorts: 쇼츠
   Sort By: '정렬하기'
+  Counts:
+    Subscriber Count: 1명 구독자 | {count}명 구독
+    View Count: 1회 조회 | {count}회 조회
+    Watching Count: 1명 시청 중 | {count}명 시청 중
+    Video Count: 1개 동영상 | {count} 개 동영상
+    Channel Count: 1개 채널 | {count}개 채널
+    Comment Count: 1개 댓글 | {count}개 댓글
+    Like Count: 1개 좋아요 | {count}개 좋아요
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   버전이 사용가능합니다! 클릭하여 자세한 정보를 확인하세요'
 Download From Site: '사이트로부터 다운로드'
@@ -468,7 +473,7 @@ Channel:
   Search Channel: '채널 검색'
   Your search results have returned 0 results: '0 건이 검색되었습니다'
   Videos:
-    Videos: '비디오'
+    Videos: '동영상'
     This channel does not currently have any videos: '이 채널에는 현재 비디오가 없습니다'
     Sort Types:
       Newest: '새로운 영상부터'
@@ -689,6 +694,7 @@ Default Invidious instance has been cleared: 기본 Invidious 인스턴스가 �
 Are you sure you want to open this link?: 이 링크를 여시겠습니까?
 Search Bar:
   Clear Input: 입력 지우기
+  Remove: 삭제
 New Window: 새 창
 Channels:
   Channels: 채널
@@ -710,3 +716,32 @@ Chapters:
   'Chapters list visible, current chapter: {chapterName}': '챕터 목록 보임, 현재 챕터: {chapterName}'
   Chapters: 챕터
 Preferences: 설정
+Close Banner: 배너 닫기
+Search Listing:
+  Label:
+    4K: 4K
+    New: 새로운
+    Subtitles: 자막
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    3D: 3D
+    Closed Captions: 자막 해설
+Search character limit: 검색 쿼리가 {searchCharacterLimit}자 제한을 초과했습니다
+KeyboardShortcutPrompt:
+  Focus Search: 검색창에 포커스
+  Last Frame: 이전 프레임 (일시정지 중)
+  Small Fast Forward: 현재 비디오 재생 속도와 빨리 감기 간격을 기준으로 X초 빨리 감기
+  Next Frame: 다음 프레임 (일시정지 중)
+  Volume Up: 볼륨 높이기
+  Force Restart Window: 강제 재시작 창
+  Toggle Developer Tools: 개발자 도구 전환
+  Reset Zoom: 확대/축소 수준 / UI 크기 초기화
+  Zoom In: 확대
+  Zoom Out: 축소
+  Volume Down: 볼륨 낮추기
+  Small Rewind: 현재 비디오 재생 속도와 되감기 간격을 기준으로 X초 되감기
+  Search in New Window: 새 창에서 검색
+  Fullscreen: 전체화면
+Right-click or hold to see history: 우클릭하거나 길게 눌러 기록을 확인하세요
+Go to page: '{페이지}로 이동'

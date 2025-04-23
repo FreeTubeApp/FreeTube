@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'dansk'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Denne del af app'en er ikke klar endnu. Kom tilbage senere, når der er gjort fremskridt.
 
 # Webkit Menu Bar
 File: 'Fil'
@@ -40,7 +37,7 @@ Global:
     Video Count: 1 video | {count} videoer
     Channel Count: 1 kanal | {count} kanaler
     Comment Count: 1 kommentar | {count} kommentarer
-    Like Count: 1 like | {count} likes
+    Like Count: 1 kan lide | {count} kan lide
   Community: Fællesskab
   Live: Live
   Sort By: Sortér efter
@@ -505,6 +502,12 @@ Settings:
     Watched Progress Saving Mode:
       Modes:
         Auto: Auto
+        Semi-auto: Semi-auto
+        Never: Aldrig
+      Tooltip: "Auto: Gemmer ved videoens afslutning, fejl (f.eks. hastighedsbegrænsning,
+        udløbet session) og når du forlader siden.\nSemi-auto: Som Auto, men gemmer
+        ikke, når du forlader siden. Du kan gemme manuelt med knappen 'Gem set fremskridt'
+        under videoen."
   Subscription Settings:
     Subscription Settings: 'Abonnement'
     Hide Videos on Watch: 'Skjul Videoer på Se'
@@ -625,7 +628,7 @@ Settings:
     Hide Channel Shorts: Skjul kanal "Shorts" Tab
     Hide Channel Home: Skjul kanal "Hjem" Tab
     Hide Channel Courses: Skjul kanal "Courses" Tab
-    Hide Subscriptions Live: Skjul abonnementer live
+    Hide Subscriptions Live: Skjul liveudsendelser fra abonnementer
     Hide Subscriptions Shorts: Skjul abonnementer Shorts
     Hide Subscriptions Community: Skjul abonnementsfællesskab
     Hide Subscriptions Videos: Skjul abonnementer Videoer
@@ -971,6 +974,8 @@ Video:
     Show Original Details: Vis originale detaljer
   Published:
     In less than a minute: På mindre end et minut
+  Save Watched Progress: Gem set fremskridt
+  Watched Progress Saved: Set fremskridt gemt
 Playlist:
   #& About
   View Full Playlist: 'Vis Hele Playliste'
@@ -1073,9 +1078,10 @@ This video is unavailable because of missing formats. This can happen due to cou
   utilgængelighed.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Når det er aktiveret, bruger FreeTube RSS i stedet for standardmetoden
+    Fetch Feeds from RSS: Når aktiveret, bruger FreeTube RSS i stedet for standardmetoden
       til at hente dit abonnementsfeed. RSS er hurtigere og forhindrer IP-blokering,
-      men giver ikke visse oplysninger som videoens varighed, live-status eller fællesskabsindlæg.
+      men viser ikke visse oplysninger som videoens varighed, live-status eller opslag
+      fra fællesskabet
     Fetch Automatically: Når det er aktiveret, henter FreeTube automatisk dit abonnementsfeed,
       når der åbnes et nyt vindue, og når du skifter profil.
   Player Settings:

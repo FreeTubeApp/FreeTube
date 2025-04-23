@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Български'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Тази част от приложението все още не е готова. Върнете се по-късно, когато може
-  би ще има напредък.
 
 # Webkit Menu Bar
 File: 'Файл'
@@ -786,7 +782,7 @@ Channel:
   Search Channel: 'Търсене в канала'
   Your search results have returned 0 results: 'Търсенето върна 0 резултата'
   Videos:
-    Videos: 'видеа'
+    Videos: 'Видеа'
     This channel does not currently have any videos: 'В този канал по настоящем няма
       видеа'
     Sort Types:

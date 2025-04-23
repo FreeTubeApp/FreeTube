@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'فارسی (ایرانی)'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  این بخش از نرم افزار هنوز آماده نیست.زمانی که پیشرفتی صورت گرفت به اینجا باز گردید.
+Locale Name: 'فارسی'
 
 # Webkit Menu Bar
 File: 'فایل'
@@ -1002,7 +999,7 @@ Channels:
   Count: '{number} تعداد کانال پیدا شد.'
   Empty: لیست کانال شما در حال حاضر خالی است.
 Global:
-  Videos: ویدیو
+  Videos: ویدئوها
   Shorts: کوتاه
   Live: زنده
   Sort By: مرتب‌کردن بر اساس

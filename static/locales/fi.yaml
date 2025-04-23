@@ -1,7 +1,3 @@
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Tämä sovelluksen osa ei ole vielä valmis. Tule takaisin myöhemmin kun olemme edistyneet.
-
 # Webkit Menu Bar
 File: 'Tiedosto'
 Quit: 'Lopeta'
@@ -1027,3 +1023,8 @@ Right-click or hold to see history: Näytä historia napsauttamalla hiiren kakko
   tai pitämällä sitä painettuna
 Close Banner: Sulje Banneri
 Search character limit: Hakukysely ylittää {searchCharacterLimit}-merkkirajan.
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Kehittäjän työkalut päällä/pois
+  Zoom In: Lähennä
+  Zoom Out: Loitonna
+  Fullscreen: Vaihda koko näyttöön

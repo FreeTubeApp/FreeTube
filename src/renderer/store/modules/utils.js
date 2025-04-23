@@ -327,9 +327,11 @@ const actions = {
       const requiredVideoKeys = [
         'videoId',
         'title',
-        'author',
-        'authorId',
         'lengthSeconds',
+
+        // These two properties will be missing for shorts added to a playlist from anywhere but the watch page
+        // 'author',
+        // 'authorId',
 
         // `timeAdded` should be generated when videos are added
         // Not when a prompt is displayed

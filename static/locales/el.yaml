@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Ελληνικά (EL)'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Αυτό το μέρος της εφαρμογής δεν είναι ακόμη έτοιμο. Επιστρέψτε αργότερα όταν έχει
-  σημειωθεί πρόοδος.
+Locale Name: 'Ελληνικά'
 
 # Webkit Menu Bar
 File: 'Αρχείο'
@@ -398,6 +394,28 @@ Settings:
       Catppuccin Frappe Green: Catppuccin Frappe Πράσινο
       Catppuccin Frappe Sky: Catppuccin Frappe Ουρανός
       Catppuccin Frappe Mauve: Catppuccin Frappe Μωβ
+      Solarized Green: Ηλιακό Πράσινο
+      Solarized Yellow: Ηλιακό Κίτρινο
+      Solarized Orange: Ηλιακό Πορτοκαλί
+      Solarized Cyan: Ηλιακό Κυανό
+      Solarized Red: Ηλιακό Κόκκινο
+      Solarized Magenta: Ηλιακό Μωβ
+      Solarized Blue: Ηλιακό Μπλε
+      Everforest Dark Yellow: Everforest Σκούρο Κίτρινο
+      Everforest Dark Green: Everforest Σκούρο Πράσινο
+      Everforest Dark Aqua: Everforest Σκούρο Ακουα
+      Everforest Dark Blue: Everforest Σκούρο Μπλε
+      Solarized Violet: Ηλιακό Βιολετί
+      Everforest Dark Red: Everforest Σκούρο Κόκκινο
+      Everforest Dark Orange: Everforest Σκούρο Πορτοκαλί
+      Everforest Dark Purple: Everforest Σκούρο Μωβ
+      Everforest Light Red: Everforest Ανοιχτό Κόκκινο
+      Everforest Light Orange: Everforest Ανοιχτό Πορτοκαλί
+      Everforest Light Yellow: Everforest Ανοιχτό Κίτρινο
+      Everforest Light Green: Everforest Ανοιχτό Πράσινο
+      Everforest Light Aqua: Everforest Ανοιχτό Γαλαζοπράσινο
+      Everforest Light Blue: Everforest Ανοιχτό Μπλε
+      Everforest Light Purple: Everforest Ανοιχτό Μωβ
     Secondary Color Theme: 'Δευτερεύων Χρώμα Θέματος'
         #* Main Color Theme
     UI Scale: Μέγεθος κλίμακας διεπαφής χρήστη

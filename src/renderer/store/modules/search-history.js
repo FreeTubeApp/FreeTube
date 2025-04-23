@@ -1,4 +1,4 @@
-import { SEARCH_RESULTS_DISPLAY_LIMIT } from '../../../constants'
+import { MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT, SEARCH_RESULTS_DISPLAY_LIMIT } from '../../../constants'
 import { DBSearchHistoryHandlers } from '../../../datastores/handlers/index'
 
 const state = {
@@ -15,11 +15,23 @@ const getters = {
   },
 
   getLatestMatchingSearchHistoryNames: (state) => (id) => {
-    const matches = state.searchHistoryEntries.filter((entry) => entry._id.startsWith(id))
+    const matches = []
+    let counter = 0
+
+    for (const entry of state.searchHistoryEntries) {
+      if (entry._id.startsWith(id)) {
+        matches.push(entry._id)
+
+        counter++
+
+        if (counter === MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT) {
+          break
+        }
+      }
+    }
 
     // prioritize more concise matches
-    return matches.map((entry) => entry._id)
-      .sort((a, b) => a.length - b.length)
+    return matches.sort((a, b) => a.length - b.length)
   },
 
   getSearchHistoryEntryWithId: (state) => (id) => {

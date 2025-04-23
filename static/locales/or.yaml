@@ -8,6 +8,8 @@ Redo: 'ପୁନଃକରଣ'
 Global:
   Sort By: 'ଏହା ଅନୁଯାୟୀ ସଜାଅ'
 
+  Videos: ଭିଡିଓ
+  Live: ଲାଇଭ୍
 Search Filters:
   Sort By:
     Most Relevant: 'ସବୁଠୁ ପ୍ରାସଙ୍ଗିକ'
@@ -23,7 +25,7 @@ Search Filters:
   Type:
     Type: 'ପ୍ରକାର'
     All Types: 'ସମସ୍ତ ପ୍ରକାର'
-    Videos: 'ଵିଡ଼ିଓ'
+    Videos: 'ଭିଡିଓ'
     Channels: 'ଚ୍ୟାନେଲ'
     #& Playlists
     Movies: ଚଳଚ୍ଚିତ୍ର
@@ -106,8 +108,13 @@ Settings:
       କରିବା
   SponsorBlock Settings: {}
 Channel:
-  Videos: {}
+  Videos:
+    Videos: ଭିଡିଓ
   Playlists: {}
 Video:
   External Player: {}
 Tooltips: {}
+Search Listing:
+  Label:
+    4K: 4K
+    8K: 8K

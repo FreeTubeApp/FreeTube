@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Latviešu'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Šī aplikācijas sadaļa vēl nav gatava. Atnāc vēlāk, kad būs veikti uzlabojumi.
 
 # Webkit Menu Bar
 File: 'Datne'
@@ -918,3 +915,8 @@ Search Listing:
     Subtitles: Paraksti
     Closed Captions: Slēgtie paraksti
     4K: 4K
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Ieslēgt izstrādātāja rīkus
+  Zoom In: Tuvināt
+  Zoom Out: Tālināt
+  Fullscreen: Pilnekrāns

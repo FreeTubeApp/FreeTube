@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Bahasa Indonesia'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Bagian dari aplikasi ini belum disiapkan. Kembali lagi nanti saat kemajuan telah
-  dibuat.
 
 # Webkit Menu Bar
 File: 'Berkas'
@@ -514,6 +510,9 @@ Settings:
       yakin ingin menghapus riwayat pencarian dan cache?
     Search history and cache have been cleared: Riwayat pencarian dan cache telah
       dihapus
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Otomatis
   Subscription Settings:
     Subscription Settings: 'Langganan'
     Hide Videos on Watch: 'Sembunyikan Video saat Menonton'
