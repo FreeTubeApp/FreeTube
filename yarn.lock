@@ -916,7 +916,6 @@
 
 "@electron/node-gyp@https://github.com/electron/node-gyp#06b29aafb7708acef8b3669835c8a7857ebc92d2":
   version "10.2.0-electron.1"
-  uid "06b29aafb7708acef8b3669835c8a7857ebc92d2"
   resolved "https://github.com/electron/node-gyp#06b29aafb7708acef8b3669835c8a7857ebc92d2"
   dependencies:
     env-paths "^2.2.0"
@@ -5890,10 +5889,10 @@ jest-worker@^29.7.0:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jintr@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/jintr/-/jintr-3.3.0.tgz#74271197c260b9b2e435d961339263c515df603d"
-  integrity sha512-ZsaajJ4Hr5XR0tSPhOZOTjFhxA0qscKNSOs41NRjx7ZOGwpfdp8NKIBEUtvUPbA37JXyv1sJlgeOOZHjr3h76Q==
+jintr@^3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/jintr/-/jintr-3.3.1.tgz#b88355af0c66603130b12d54721b8ab1d3be0b98"
+  integrity sha512-nnOzyhf0SLpbWuZ270Omwbj5LcXUkTcZkVnK8/veJXtSZOiATM5gMZMdmzN75FmTyj+NVgrGaPdH12zIJ24oIA==
   dependencies:
     acorn "^8.8.0"
 
@@ -9623,12 +9622,12 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-youtubei.js@^13.3.0:
-  version "13.3.0"
-  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-13.3.0.tgz#31cca5fa295a146409b4858aca3283d8c8926c7a"
-  integrity sha512-tbl7rxltpgKoSsmfGUe9JqWUAzv6HFLqrOn0N85EbTn5DLt24EXrjClnXdxyr3PBARMJ3LC4vbll100a0ABsYw==
+youtubei.js@^13.4.0:
+  version "13.4.0"
+  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-13.4.0.tgz#1f52d7ed0ccabd5ba718eede84771aa32683d9e2"
+  integrity sha512-+fmIZU/dWAjsROONrASy1REwVpy6umAPVuoNLr/4iNmZXl84LyBef0n3hrd1Vn9035EuINToGyQcBmifwUEemA==
   dependencies:
     "@bufbuild/protobuf" "^2.0.0"
-    jintr "^3.3.0"
+    jintr "^3.3.1"
     tslib "^2.5.0"
     undici "^5.19.1"

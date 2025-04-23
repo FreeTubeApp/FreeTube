@@ -172,7 +172,9 @@ Settings:
 About:
   #On About page
   Email: ईमेल करें
-Channel: {}
+Channel:
+  Videos:
+    Videos: वीडियो
 Video:
   Open in Invidious: 'इनविडियस में खोलें'
   Copy Invidious Link: 'इनविडियस लिंक को कॉपी करें'

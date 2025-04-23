@@ -210,6 +210,8 @@ Settings:
   Player Settings: {}
 Channel:
   Playlists: {}
+  Videos:
+    Videos: ვიდეოები
 Video:
   External Player: {}
 Tooltips: {}

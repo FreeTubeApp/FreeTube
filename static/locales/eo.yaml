@@ -24,6 +24,7 @@ Global:
   Community: Komunumo
   Sort By: 'Ordigi laŭ'
 
+  Videos: Videaĵoj
 Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber}
   disponeblas nun!  Alklaki por pli informoj.'
 Download From Site: 'Elŝuti el retejo'
@@ -105,6 +106,8 @@ About:
 Channel:
   About:
     Details: Detaloj
+  Videos:
+    Videos: Videaĵoj
 Video: {}
 More: Pli
 Search Bar:

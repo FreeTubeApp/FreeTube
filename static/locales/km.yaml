@@ -6,13 +6,16 @@ File: 'ឯកសារ'
 Quit: 'ចាកចេញ'
 Edit: 'កែ'
 Undo: 'អាន់ឌូ'
-Search Filters: {}
+Search Filters:
+  Type:
+    Videos: វីដេអូ
 Settings:
   # On Settings Page
   General Settings: {}
   Theme Settings: {}
 Channel:
-  Videos: {}
+  Videos:
+    Videos: វីដេអូ
 Tooltips: {}
 New Window: ផ្ទាំងថ្មី
 Copy: ចម្លង
@@ -36,3 +39,5 @@ Zoom out: បង្រួម
 Toggle fullscreen: បិទបើកការបង្ហាញពេញអេក្រង់
 Window: ផ្ទាំងបង្អួច
 Minimize: បង្រួមតូច
+Global:
+  Videos: វីដេអូ
