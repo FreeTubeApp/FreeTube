@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Bahasa Indonesia'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Bagian dari aplikasi ini belum disiapkan. Kembali lagi nanti saat kemajuan telah
-  dibuat.
 
 # Webkit Menu Bar
 File: 'Berkas'
@@ -329,6 +325,12 @@ Settings:
       Catppuccin Frappe: Frappe Kue Kucing
       Hot Pink: Pink Terang
       Solarized Light: Solari Terang
+      Everforest Dark Hard: Everforest Gelap Keras
+      Everforest Dark Medium: Everforest Gelap Sedang
+      Everforest Dark Low: Everforest Gelap rendah
+      Everforest Light Hard: Everforest Ringan Keras
+      Everforest Light Medium: Everforest Ringan Sedang
+      Everforest Light Low: Everforest Cahaya rendah
     Main Color Theme:
       Main Color Theme: 'Tema Warna Utama'
       Red: 'Merah'
@@ -400,6 +402,20 @@ Settings:
       Solarized Violet: Solari violet
       Solarized Blue: Solari Biru
       Catppuccin Mocha Sapphire: Catpucin Mocha Sapphire
+      Everforest Light Green: Everforest Hijau Muda
+      Everforest Dark Red: Everforest Merah Tua
+      Everforest Dark Orange: Everforest Jingga Tua
+      Everforest Dark Yellow: Everforest Kuning Tua
+      Everforest Dark Green: Everforest Hijau Tua
+      Everforest Dark Aqua: Everforest Aqua Gelap
+      Everforest Dark Blue: Everforest Biru tua
+      Everforest Dark Purple: Ungu Tua Everforest
+      Everforest Light Red: Everforest Merah Muda
+      Everforest Light Orange: Everforest Oranye Muda
+      Everforest Light Yellow: Everforest Kuning Muda
+      Everforest Light Aqua: Cahaya Everforest Aqua
+      Everforest Light Blue: Everforest Biru muda
+      Everforest Light Purple: Everforest Ungu Muda
     Secondary Color Theme: 'Warna Tema Sekunder'
         #* Main Color Theme
     Expand Side Bar by Default: Perluas Bilah Samping
@@ -494,6 +510,9 @@ Settings:
       yakin ingin menghapus riwayat pencarian dan cache?
     Search history and cache have been cleared: Riwayat pencarian dan cache telah
       dihapus
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Otomatis
   Subscription Settings:
     Subscription Settings: 'Langganan'
     Hide Videos on Watch: 'Sembunyikan Video saat Menonton'
@@ -603,6 +622,7 @@ Settings:
     Show Added Items: Tampilkan Item yang Ditambahkan
     Hide Channel Home: Sembunyikan Tab "Beranda" Saluran
     Hide Channel Shorts: Sembunyikan Tab "Shorts" Saluran
+    Hide Channel Courses: Sembunyikan Tab "Kursus" Saluran
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikasi
     butuh dimulai ulang agar perbubahan diterapkan. Mulai ulang dan terapkan perubahan?
   Proxy Settings:
@@ -827,6 +847,10 @@ Channel:
   Channel Tabs: Tab Saluran
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Saluran
     ini dibatasi usia dan saat ini tidak dapat ditonton di FreeTube.
+  Courses:
+    This channel does not currently have any courses: Saluran ini saat ini tidak memiliki
+      kursus apa pun
+    Courses: kursus
 Video:
   Mark As Watched: 'Tandai Sudah Ditonton'
   Remove From History: 'Hapus dari Riwayat'

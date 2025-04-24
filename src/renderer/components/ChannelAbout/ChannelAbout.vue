@@ -113,7 +113,7 @@
 import { computed } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
-import FtChannelBubble from '../../components/ft-channel-bubble/ft-channel-bubble.vue'
+import FtChannelBubble from '../../components/FtChannelBubble/FtChannelBubble.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
 import store from '../../store/index'
@@ -128,7 +128,7 @@ const props = defineProps({
     default: ''
   },
   joined: {
-    type: [Date, Number],
+    type: Number,
     default: 0
   },
   views: {

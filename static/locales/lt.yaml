@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'lietuvių'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Ši programėlės dalis dar neparengta. Grįžkite vėliau, kai bus padaryta pažanga.
 
 # Webkit Menu Bar
 File: 'Failas'
@@ -786,3 +783,12 @@ Clipboard:
 Preferences: Nuostatos
 Go to page: Eiti į {page}
 Close Banner: Uždaryti baneris
+Search Listing:
+  Label:
+    4K: 4K
+    8K: 8K
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Įjungti kūrėjo įrankius
+  Zoom In: Pritraukti
+  Zoom Out: Atitolinti
+  Fullscreen: Viso ekrano rėžimas

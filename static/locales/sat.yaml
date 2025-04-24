@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'ᱥᱟᱱᱛᱟᱲᱤ'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  ᱮᱯᱯ ᱨᱮᱭᱟᱜ ᱱᱚᱶᱟ ᱡᱟᱭᱜᱟ ᱵᱟᱝ ᱛᱮᱭᱟᱨ ᱡᱩᱛ ᱠᱟᱱᱟ ᱾ ᱠᱟᱹᱢᱤ ᱪᱟᱵᱟ ᱠᱟᱛᱮ ᱦᱟᱹᱡᱩᱜᱽ ᱢᱮᱸ ᱾
 
 # Webkit Menu Bar
 File: 'ᱨᱮᱫᱽ'
@@ -26,3 +23,12 @@ Settings:
 Channel:
   Videos: {}
 Tooltips: {}
+New Window: ᱱᱟᱶᱟ ᱣᱤᱱᱰᱚ
+KeyboardShortcutPrompt:
+  Zoom Out: ᱢᱟᱨᱟᱝ ᱠᱷᱚᱱ ᱦᱤᱲᱤᱧ ᱛᱮᱭᱟᱨ
+  Zoom In: ᱢᱟᱨᱟᱝ ᱛᱮᱭᱟᱨ
+Actual size: ᱴᱷᱤᱠ ᱢᱟᱨᱟᱝ ᱛᱮᱫ
+Profile:
+  Select All: ᱡᱷᱚᱛᱚ ᱪᱚᱭᱚᱱ ᱢᱮᱸ
+Zoom in: ᱢᱟᱨᱟᱝ ᱛᱮᱭᱟᱨ
+Zoom out: ᱢᱟᱨᱟᱝ ᱠᱷᱚᱱ ᱦᱤᱲᱤᱧ ᱛᱮᱭᱟᱨ

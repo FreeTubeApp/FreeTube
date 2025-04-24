@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Türkçe'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Uygulamanın bu bölümü henüz hazır değil. Tamamlanınca geri gelin.
 
 # Webkit Menu Bar
 File: 'Dosya'
@@ -16,12 +13,12 @@ Paste: 'Yapıştır'
 Delete: 'Sil'
 Select all: 'Tümünü seç'
 Reload: 'Yeniden yükle'
-Force Reload: 'Zorla yeniden yükle'
-Toggle Developer Tools: 'Geliştirici Seçeneklerini Aç/Kapat'
+Force Reload: 'Yeniden Yüklemeyi Zorla'
+Toggle Developer Tools: 'Geliştirici Araçlarını Aç/Kapat'
 Actual size: 'Gerçek boyut'
 Zoom in: 'Yakınlaştır'
 Zoom out: 'Uzaklaştır'
-Toggle fullscreen: 'Tam ekran'
+Toggle fullscreen: 'Tam Ekran'
 Window: 'Pencere'
 Minimize: 'Küçült'
 Close: 'Kapat'
@@ -84,8 +81,8 @@ Search Filters:
   # On Search Page
     Medium (4 - 20 minutes): Orta (4 - 20 dakika)
   Search Results: 'Arama Sonuçları'
-  Fetching results. Please wait: 'Sonuçlar yükleniyor. Lütfen bekleyin'
-  Fetch more results: 'Daha fazla sonuç yükle'
+  Fetching results. Please wait: 'Sonuçlar getiriliyor. Lütfen bekleyin'
+  Fetch more results: 'Daha fazla sonuç getir'
 # Sidebar
   There are no more results for this search: Bu arama için başka sonuç yok
   Features:
@@ -226,8 +223,8 @@ User Playlists:
   Edit Playlist Info: Oynatma Listesi Bilgilerini Düzenle
   Copy Playlist: Oynatma Listesini Kopyala
   Remove Watched Videos: İzlenen Videoları Kaldır
-  Add to Favorites: '{playlistName} oynatma listesine ekle'
-  Remove from Favorites: '{playlistName} oynatma listesinden kaldır'
+  Add to Favorites: '{playlistName} listesine ekle'
+  Remove from Favorites: '{playlistName} listesinden kaldır'
   Enable Quick Bookmark With This Playlist: Bu Oynatma Listesiyle Hızlı Yer İmini
     Etkinleştir
   Playlists with Matching Videos: Eşleşen Videoları İçeren Oynatma Listeleri
@@ -246,6 +243,7 @@ User Playlists:
   Export Playlist: Bu Oynatma Listesini Dışa Aktar
   The playlist has been successfully exported: Oynatma listesi başarılı bir şekilde
     dışa aktarıldı
+  TotalTimePlaylist: 'Toplam süre: {süre}'
 History:
   # On History Page
   History: 'Geçmiş'
@@ -316,13 +314,18 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Pembe
       Hot Pink: Sıcak Pembe
-      Nordic: Nord
+      Nordic: Kuzey
       Solarized Light: Solarized Açık
       Solarized Dark: Solarized Koyu
       Gruvbox Dark: Gruvbox Dark
       Gruvbox Light: Gruvbox Aydınlık
       Catppuccin Frappe: Catppuccin Frappe
       Everforest Dark Medium: Everforest Koyu Orta
+      Everforest Dark Hard: Everforest Koyu Sert
+      Everforest Dark Low: Everforest Koyu Düşük
+      Everforest Light Hard: Everforest Açık Sert
+      Everforest Light Medium: Everforest Açık Orta
+      Everforest Light Low: Everforest Açık Düşük
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -394,6 +397,20 @@ Settings:
       Catppuccin Frappe Green: Catppuccin Frappe Yeşil
       Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
       Catppuccin Frappe Blue: Catppuccin Frappe Mavi
+      Everforest Dark Red: Everforest Koyu Kırmızı
+      Everforest Dark Orange: Everforest Koyu Portakal
+      Everforest Dark Yellow: Everforest Koyu Sarı
+      Everforest Dark Green: Everforest Koyu Yeşil
+      Everforest Dark Aqua: Everforest Koyu Deniz
+      Everforest Dark Blue: Everforest Koyu Mavi
+      Everforest Dark Purple: Everforest Koyu Mor
+      Everforest Light Red: Everforest Açık Kırmızı
+      Everforest Light Orange: Everforest Açık Portakal
+      Everforest Light Yellow: Everforest Açık Sarı
+      Everforest Light Green: Everforest Açık Yeşil
+      Everforest Light Aqua: Everforest Açık Deniz
+      Everforest Light Blue: Everforest Açık Mavi
+      Everforest Light Purple: Everforest Açık Mor
     Secondary Color Theme: 'İkincil Renk Teması'
         #* Main Color Theme
     UI Scale: Kullanıcı Arayüzü Ölçeği
@@ -432,8 +449,8 @@ Settings:
     Scroll Volume Over Video Player: Ses Düzeyini Video Oynatıcı Üzerinden Kaydır
     Display Play Button In Video Player: Video Oynatıcıda Oynatma Düğmesini Göster
     Fast-Forward / Rewind Interval: Hızlı İleri / Geri Sarma Aralığı
-    Scroll Playback Rate Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Oynatma
-      Hızını Denetle
+    Scroll Playback Rate Over Video Player: Video Oynatıcı Üzerinde Kaydırma Oynatma
+      Oranı
     Video Playback Rate Interval: Video Oynatma Hızı Aralığı
     Max Video Playback Rate: En Yüksek Video Oynatma Hızı
     Screenshot:
@@ -486,6 +503,16 @@ Settings:
       ve önbelleğinizi temizlemek istediğinizden emin misiniz?
     Search history and cache have been cleared: Arama geçmişi ve önbellek temizlendi
     Clear Search History and Cache: Arama Geçmişini ve Önbelleği Temizle
+    Watched Progress Saving Mode:
+      Modes:
+        Never: Asla
+        Auto: Otomatik
+        Semi-auto: Yarı otomatik
+      Tooltip: Otomatik = Video sona erdiğinde ve hatayla karşılaşıldığında (ör. hız
+        sınırlı ve izleme oturumu sona erdiğinde) her video sayfası çıkışında kaydet.
+        Yarı otomatik = Video sayfasından çıkış haricinde Otomatik gibi ve video oynatıcının
+        altında bulunan İzlenen İlerlemeyi Kaydet adı verilen bir düğme aracılığıyla
+        ilerlemeyi manuel olarak kaydedebilir.
   Subscription Settings:
     Subscription Settings: 'Abonelik'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
@@ -840,13 +867,13 @@ Video:
   Open in Invidious: 'Invidious''da aç'
   Copy Invidious Link: 'Invidious Bağlantısını Kopyala'
   Views: 'İzlenme'
-  Loop Playlist: 'Oynatma Listesini Döngüye Al'
+  Loop Playlist: 'Listeyi Döngüye Al'
   Shuffle Playlist: 'Oynatma Listesini Karıştır'
   Reverse Playlist: 'Oynatma Listesini Geriden Oynat'
   Play Next Video: 'Sonraki Videoyu Oynat'
   Play Previous Video: 'Önceki Videoyu Oynat'
   Watched: 'İzlendi'
-  Autoplay: 'Otomatik oynatma'
+  Autoplay: 'Otomatik Oynat'
   Starting soon, please refresh the page to check again: 'Yakında başlayacak, lütfen
     tekrar denetlemek için sayfayı yenileyin'
   # As in a Live Video
@@ -887,13 +914,13 @@ Video:
     filler: Dolgu
   External Player:
     Unsupported Actions:
-      looping playlists: oynatma listelerini döngüye alma
+      looping playlists: döngüsel oynatma listeleri
       shuffling playlists: oynatma listelerini karıştırma
-      reversing playlists: çalma listelerini ters çevirme
+      reversing playlists: oynatma listelerini ters çevir
       opening specific video in a playlist (falling back to opening the video): oynatma
         listesinde belirli bir videoyu açma (yedek olarak videoyu açma)
-      opening playlists: çalma listelerini açma
-      setting a playback rate: oynatma hızı ayarlama
+      opening playlists: oynatma listelerini aç
+      setting a playback rate: oynatma hızını ayarla
       starting video at offset: belirli bir konumda video başlatma
     UnsupportedActionTemplate: '{externalPlayer} desteklemiyor: {action}'
     OpeningTemplate: '{videoOrPlaylist}, {externalPlayer} içinde açılıyor...'
@@ -940,8 +967,8 @@ Video:
     Playback will resume automatically when your connection comes back: Bağlantınız
       geri geldiğinde oynatma otomatik olarak devam edecektir.
     Skipped segment: '{segmentCategory} bölümü atlandı'
-    Autoplay is off: Otomatik oynat kapalı
-    Autoplay is on: Otomatik oynat açık
+    Autoplay is off: Otomatik Oynat Kapalı
+    Autoplay is on: Otomatik Oynat Açık
   IP block: YouTube, IP adresinizin video izlemesini engelledi. Lütfen farklı bir
     VPN veya vekil sunucuya geçmeyi deneyin.
   Unlisted: Listelenmemiş
@@ -957,6 +984,8 @@ Video:
   DRMProtected: DRM korumalı videolar, özel kapalı kaynak bileşenleri gerektirdiğinden
     FreeTube ile oynatılamaz. Bu videoyu izlemek istiyorsanız lütfen resmi YouTube
     web sitesinde DRM etkinleştirilmiş bir web tarayıcısında izleyin.
+  Watched Progress Saved: İzlenen İlerleme Kaydedildi
+  Save Watched Progress: İzlenen İlerlemeyi Kaydet
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'
@@ -1043,12 +1072,12 @@ Loop is now disabled: 'Döngü artık devre dışı'
 Loop is now enabled: 'Döngü artık etkin'
 Shuffle is now disabled: 'Karıştır artık devre dışı'
 Shuffle is now enabled: 'Karıştır artık etkin'
-The playlist has been reversed: 'Çalma listesi tersine çevrildi'
+The playlist has been reversed: 'Oynatma listesi tersine çevrildi'
 Playing Next Video: 'Sonraki Video Oynatılıyor'
 Playing Previous Video: 'Önceki Video Oynatılıyor'
-Canceled next video autoplay: 'Sonraki videoyu otomatik oynatma iptal edildi'
-'The playlist has ended. Enable loop to continue playing': 'Çalma listesi sona erdi.  Çalmaya
-  devam etmek için döngüyü etkinleştir'
+Canceled next video autoplay: 'Sonraki video otomatik oynatımı iptal edildi'
+'The playlist has ended. Enable loop to continue playing': 'Oynatma listesi sona erdi.  Devam
+  etmek için döngüyü etkinleştir'
 
 Yes: 'Evet'
 No: 'Hayır'
@@ -1098,8 +1127,8 @@ Tooltips:
   External Player Settings:
     Custom External Player Arguments: Harici oynatıcıya iletmek isteyeceğiniz, herhangi
       özel komut satırı argümanları.
-    Ignore Warnings: Geçerli harici oynatıcının geçerli eylemi desteklemediği durumlar
-      için uyarıları bastır (örn. çalma listelerini ters çevirme vb.).
+    Ignore Warnings: Mevcut harici oynatıcının geçerli eylemi desteklemediği durumlar
+      için uyarıları bastır (örn. oynatma listelerini ters çevirme vb.).
     Custom External Player Executable: Öntanımlı olarak FreeTube, seçilen harici oynatıcının
       PATH ortam değişkeni aracılığıyla bulunabileceğini varsayacaktır. Gerekirse,
       burada özel bir yol ayarlanabilir.
@@ -1241,7 +1270,7 @@ KeyboardShortcutPrompt:
   Full Window: Tam pencereyi değiştir
   Theatre Mode: Sinema modunu değiştir
   Close Window: Pencereyi kapat
-  Fullscreen: Tam ekranı değiştir
+  Fullscreen: Tam Ekran
   Increase Video Speed: Video Oynatma Hızı Aralığına göre video hızını artır
   Large Rewind: 10 saniye geri sar / Mevcut Video Oynatma Hızına göre videoyu geri
     sar

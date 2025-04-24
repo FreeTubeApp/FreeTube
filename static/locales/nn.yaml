@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Norsk nynorsk'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Denne delen av programmet er ikkje klar enda. Ver venleg og kom tilbake på eit seinare
-  tidspunkt.
 
 # Webkit Menu Bar
 File: 'Fil'
@@ -798,3 +794,8 @@ Search Listing:
     4K: 4K
     Subtitles: Undertekstar
     Closed Captions: Undertekstar
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Veksle utviklarverktøy
+  Zoom Out: Forminsk
+  Zoom In: Forstørr
+  Fullscreen: Veksle fullskjerm

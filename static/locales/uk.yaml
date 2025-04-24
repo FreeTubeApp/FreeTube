@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Українська'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Ця частина застосунка ще не готова. Поверніться пізніше.
 
 # Webkit Menu Bar
 File: 'Файл'
@@ -246,6 +243,7 @@ User Playlists:
       There is already a playlist with this name. Please pick a different name.: Вже
         існує добірка з такою назвою. Будь ласка, виберіть іншу назву.
     New Playlist Name: Нова назва добірки
+  TotalTimePlaylist: 'Загальний час: {duration}'
 History:
   # On History Page
   History: 'Історія'
@@ -331,6 +329,12 @@ Settings:
       Gruvbox Light: Gruvbox Світлий
       Solarized Dark: Solarized Темна
       Catppuccin Frappe: Капучино фрапе
+      Everforest Dark Hard: Everforest Dark Hard (Темний ліс)
+      Everforest Dark Medium: Everforest Dark Medium (Темний середній)
+      Everforest Dark Low: Вічнозелений ліс Темний низький
+      Everforest Light Hard: Everforest Light Твердий
+      Everforest Light Medium: Everforest Light Середній
+      Everforest Light Low: вічнозелене світло низьке
     Main Color Theme:
       Main Color Theme: 'Основна кольорова тема'
       Red: 'Червона'
@@ -402,6 +406,20 @@ Settings:
       Catppuccin Frappe Mauve: Капучино фрапе фіолетовий
       Catppuccin Frappe Maroon: Капучино фрапе бордовий
       Catppuccin Frappe Yellow: Капучино фрапе жовтий
+      Everforest Light Red: Everforest Light Червоний
+      Everforest Dark Yellow: Темно-жовтий вічнозелений ліс
+      Everforest Dark Red: Вічнозелений темно-червоний
+      Everforest Dark Orange: Еверфорест Темно-помаранчевий
+      Everforest Dark Green: Темно-зелений вічнозелений ліс
+      Everforest Dark Aqua: Еверфорест Темна Аква
+      Everforest Dark Blue: Темно-синій Everforest
+      Everforest Dark Purple: Еверфорест Темно-фіолетовий
+      Everforest Light Yellow: Еверфорест світло-жовтий
+      Everforest Light Green: Еверфорест Світло-зелений
+      Everforest Light Orange: Everforest Світло-помаранчевий
+      Everforest Light Aqua: Еверфорест Лайт Аква
+      Everforest Light Blue: Еверфорест Світло-блакитний
+      Everforest Light Purple: Світло-фіолетовий Everforest
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
     Hide Side Bar Labels: Сховати мітки бічної панелі
@@ -492,6 +510,16 @@ Settings:
     Clear Search History and Cache: Очистити історію пошуку та кеш
     Are you sure you want to clear out your search history and cache?: Ви впевнені,
       що хочете очистити історію пошуку та кеш?
+    Watched Progress Saving Mode:
+      Tooltip: Авто = Зберігати при кожному виході зі сторінки відео, коли відео завершене
+        або виникла помилка (наприклад, обмеження швидкості або завершення сеансу
+        перегляду). Напівавтомат = Як і Авто, але без збереження при виході зі сторінки
+        відео; можна зберегти прогрес вручну через кнопку "Зберегти переглянутий прогрес",
+        що розташована під відеоплеєром.
+      Modes:
+        Auto: Авто
+        Semi-auto: Напівавтомат
+        Never: Ніколи
   Subscription Settings:
     Subscription Settings: 'Підписка'
     Hide Videos on Watch: 'Ховати відео при перегляді'
@@ -552,6 +580,7 @@ Settings:
     Hide Videos and Playlists Containing Text: Сховати відео та добірки, що містять
       текст
     Show Added Items: Показати додані елементи
+    Hide Channel Courses: Приховати вкладку «Курси» каналу
   Data Settings:
     Data Settings: 'Дані'
     Select Export Type: 'Оберіть тип експорту'
@@ -814,6 +843,10 @@ Channel:
   Home:
     Home: Головна
     View Playlist: Переглянути добірку
+  Courses:
+    Courses: курси
+    This channel does not currently have any courses: На цьому каналі наразі немає
+      курсів
 Video:
   Mark As Watched: 'Позначити переглянутим'
   Remove From History: 'Прибрати з історії'
@@ -943,6 +976,8 @@ Video:
     цього потрібні пропрієтарні компоненти з закритим вихідним кодом. Щоб переглянути
     це відео, скористайтеся офіційним сайтом YouTube у веб-браузері з підтримкою DRM.
 #& Playlists
+  Save Watched Progress: Зберегти переглянутий прогрес
+  Watched Progress Saved: Переглянутий прогрес збережено
 Playlist:
   #& About
   View Full Playlist: 'Переглянути весь список відтворення'

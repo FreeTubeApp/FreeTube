@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'English (UK)'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  This part of the app is not ready yet. Come back later when progress has been made.
 
 # Webkit Menu Bar
 File: 'File'
@@ -245,6 +242,7 @@ User Playlists:
   Export Playlist: Export This Playlist
   The playlist has been successfully exported: The playlist has been successfully
     exported
+  TotalTimePlaylist: 'Total time: {duration}'
 History:
   # On History Page
   History: 'History'
@@ -399,6 +397,19 @@ Settings:
       Catppuccin Frappe Teal: Catppuccin Frappe Teal
       Catppuccin Frappe Green: Catppuccin Frappe Green
       Everforest Dark Red: Everforest Dark Red
+      Everforest Dark Yellow: Everforest Dark Yellow
+      Everforest Light Orange: Everforest Light Orange
+      Everforest Light Blue: Everforest Light Blue
+      Everforest Light Purple: Everforest Light Purple
+      Everforest Light Green: Everforest Light Green
+      Everforest Dark Aqua: Everforest Dark Aqua
+      Everforest Dark Blue: Everforest Dark Blue
+      Everforest Dark Purple: Everforest Dark Purple
+      Everforest Light Yellow: Everforest Light Yellow
+      Everforest Light Aqua: Everforest Light Aqua
+      Everforest Dark Green: Everforest Dark Green
+      Everforest Dark Orange: Everforest Dark Orange
+      Everforest Light Red: Everforest Light Red
     Secondary Color Theme: 'Secondary colour theme'
         #* Main Color Theme
     UI Scale: UI Scale
@@ -502,6 +513,15 @@ Settings:
     Clear Search History and Cache: Clear Search History and Cache
     Search history and cache have been cleared: Search history and cache have been
       cleared
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Auto
+        Never: Never
+        Semi-auto: Semi-auto
+      Tooltip: Auto = Save on every video page exit, when video ended and error encountered
+        (e.g. ratelimited and watch session expired). Semi-auto = Like Auto except
+        on video page exit and can save progress manually via a button called Save
+        Watched Progress, located beneath the video player.
   Subscription Settings:
     Subscription Settings: 'Subscription'
     Hide Videos on Watch: 'Hide Videos on Watch'
@@ -614,6 +634,7 @@ Settings:
       text
     Hide Channel Home: Hide Channel "Home" Tab
     Show Added Items: Show Added Items
+    Hide Channel Courses: Hide Channel "Courses" Tab
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Do you want to restart and apply
     the changes?
@@ -827,6 +848,10 @@ Channel:
   Home:
     Home: Home
     View Playlist: View Playlist
+  Courses:
+    Courses: Courses
+    This channel does not currently have any courses: This channel does not currently
+      have any courses
 Video:
   Mark As Watched: 'Mark As Watched'
   Remove From History: 'Remove From History'
@@ -955,6 +980,8 @@ Video:
   DRMProtected: DRM protected videos cannot be played in FreeTube, as they require
     proprietary, closed source components. If you want to watch this video please
     watch it on the official YouTube website in a DRM enabled web browser.
+  Save Watched Progress: Save Watched Progress
+  Watched Progress Saved: Watched Progress Saved
 Playlist:
   #& About
   Playlist: Playlist

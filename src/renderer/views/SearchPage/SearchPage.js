@@ -54,10 +54,14 @@ export default defineComponent({
     rememberSearchHistory: function () {
       return this.$store.getters.getRememberSearchHistory
     },
+
+    processedQuery: function () {
+      return this.query.trim()
+    },
   },
   watch: {
     $route () {
-      const query = this.$route.params.query
+      const query = this.$route.params.query.trim()
       let features = this.$route.query.features
       // if page gets refreshed and there's only one feature then it will be a string
       if (typeof features === 'string') {
@@ -79,13 +83,13 @@ export default defineComponent({
 
       this.query = query
 
-      this.setAppTitle(`${this.query} - ${packageDetails.productName}`)
+      this.setAppTitle(`${this.processedQuery} - ${packageDetails.productName}`)
       this.checkSearchCache(payload)
     }
   },
   mounted: function () {
     this.query = this.$route.params.query
-    this.setAppTitle(`${this.query} - ${packageDetails.productName}`)
+    this.setAppTitle(`${this.processedQuery} - ${packageDetails.productName}`)
 
     let features = this.$route.query.features
     // if page gets refreshed and there's only one feature then it will be a string
@@ -102,7 +106,7 @@ export default defineComponent({
     }
 
     const payload = {
-      query: this.query,
+      query: this.processedQuery,
       options: {},
       searchSettings: this.searchSettings
     }
@@ -112,7 +116,7 @@ export default defineComponent({
   methods: {
     updateSearchHistoryEntry: function () {
       const persistentSearchHistoryPayload = {
-        _id: this.query,
+        _id: this.processedQuery,
         lastUpdatedAt: Date.now()
       }
 
@@ -285,7 +289,7 @@ export default defineComponent({
 
     nextPage: function () {
       const payload = {
-        query: this.query,
+        query: this.processedQuery,
         searchSettings: this.searchSettings,
         options: {
           nextPageRef: this.nextPageRef

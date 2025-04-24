@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'العربية'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  هذا الجزء من التطبيق ليس جاهزاً بعد. عُد لاحقاً عندما يتم إحراز تقدم.
 
 # Webkit Menu Bar
 File: 'ملف'
@@ -66,7 +63,7 @@ Search Filters:
   Type:
     Type: 'النوع'
     All Types: 'كل الأنواع'
-    Videos: 'فيديوهات'
+    Videos: 'الفيديوهات'
     Channels: 'قنوات'
     #& Playlists
     Movies: الأفلام
@@ -234,6 +231,7 @@ User Playlists:
     المكررة من قائمة التشغيل هذه؟ هذا لا يمكن التراجع عنها.
   Export Playlist: تصدير قائمة التشغيل هذه
   The playlist has been successfully exported: تم تصدير قائمة التشغيل بنجاح
+  TotalTimePlaylist: 'الوقت الإجمالي: {duration}'
 History:
   # On History Page
   History: 'السجلّ'
@@ -311,6 +309,12 @@ Settings:
       Catppuccin Frappe: كاتبوتشين فرابيه
       Gruvbox Light: صندوق مضيء
       Gruvbox Dark: صندوق عاتم
+      Everforest Dark Hard: إيفرفورست الداكن القوي
+      Everforest Dark Medium: إيفرفورست الداكن المتوسط
+      Everforest Dark Low: إيفرفورست الداكن المنخفض
+      Everforest Light Hard: إيفرفورست الفاتح القوي
+      Everforest Light Medium: إيفرفورست الفاتح المتوسط
+      Everforest Light Low: إيفرفورست الفاتح المنخفض
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -382,6 +386,20 @@ Settings:
       Catppuccin Frappe Blue: كاتبوتشينو فرابيه أزرق
       Gruvbox Dark Green: صندوق أخضر غامق
       Gruvbox Light Orange: صندوق برتقالي فاتح
+      Everforest Light Aqua: إيفرفورست المائي الفاتح
+      Everforest Dark Purple: إيفرفورست الأرجواني الداكن
+      Everforest Dark Red: إيفرفورست الأحمر الداكن
+      Everforest Dark Orange: إيفرفورست البرتقالي الداكن
+      Everforest Dark Green: إيفرفورست الأخضر الداكن
+      Everforest Dark Yellow: إيفرفورست الأصفر الداكن
+      Everforest Dark Aqua: إيفرفورست المائي الداكن
+      Everforest Dark Blue: إيفرفورست الأزرق الداكن
+      Everforest Light Red: إيفرفورست الأحمر الفاتح
+      Everforest Light Orange: إيفرفورست البرتقالي الفاتح
+      Everforest Light Yellow: إيفرفورست الأصفر الفاتح
+      Everforest Light Green: إيفرفورست الأخضر الفاتح
+      Everforest Light Blue: إيفرفورست الأزرق الفاتح
+      Everforest Light Purple: إيفرفورست الأرجواني الفاتح
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم
@@ -474,6 +492,15 @@ Settings:
     Remember Search History: تذكر سجل البحث
     Clear Search History and Cache: مسح سجل البحث وذاكرة التخزين المؤقت
     Search history and cache have been cleared: تم مسح سجل البحث وذاكرة التخزين المؤقت
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: تلقائي
+        Semi-auto: شبه آلي
+        Never: أبداً
+      Tooltip: 'تلقائي = حفظ عند كل خروج من صفحة الفيديو، عند انتهاء الفيديو وظهور
+        خطأ (مثلاً: معدل محدود أو انتهاء جلسة المشاهدة). شبه تلقائي = يُشبه الوضع
+        التلقائي إلا عند الخروج من صفحة الفيديو، ويمكن حفظ التقدم يدويًا عبر زر "حفظ
+        تقدم المشاهدة" الموجود أسفل مشغل الفيديو.'
   Subscription Settings:
     Subscription Settings: 'الاشتراك'
     Hide Videos on Watch: 'أخفِ الفيديوهات عند مشاهدتها'
@@ -580,6 +607,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: كلمة أو جزء كلمة أو عبارة
     Hide Channel Home: إخفاء علامة التبويب "الصفحة الرئيسية" للقناة
     Show Added Items: إظهار العناصر المضافة
+    Hide Channel Courses: إخفاء علامة التبويب "دورات" القناة
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -800,6 +828,10 @@ Channel:
   Home:
     Home: الصفحة الرئيسية
     View Playlist: إظهار قائمة التشغيل
+  Courses:
+    Courses: الدورات
+    This channel does not currently have any courses: هذه القناة لا تحتوي حاليًا على
+      أي دورات
 Video:
   Mark As Watched: 'علّمه كفيديو تمت مشاهدته'
   Remove From History: 'إزالة من سجلّ المشاهدة'
@@ -927,6 +959,8 @@ Video:
   DRMProtected: لا يمكن تشغيل مقاطع الفيديو المحمية بنظام إدارة الحقوق الرقمية في
     FreeTube، لأنها تتطلب مكونات خاصة ومغلقة المصدر. إذا كنت ترغب في مشاهدة هذا الفيديو،
     فيرجى مشاهدته على موقع يوتيوب الرسمي في متصفح ويب يدعم إدارة الحقوق الرقمية.
+  Save Watched Progress: حفظ التقدم الذي تمت مشاهدته
+  Watched Progress Saved: تم مشاهدة التقدم المحفوظ
 Playlist:
   #& About
   View Full Playlist: 'عرض قائمة التشغيل بالكامل'

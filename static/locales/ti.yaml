@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'ትግርኛ'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  እዚ ኽፋል .app ምሉእ ኣይኰነን ።
 
 # Webkit Menu Bar
 File: 'ፋይል'
@@ -34,3 +31,8 @@ Video:
 Tooltips: {}
 About:
   Email: ኢመይል
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: መሳርሒታት
+  Fullscreen: ምሉእ ኤለክትሮኒካዊ መሳርሒ
+Profile:
+  Select All: ንዅሉ ምረጽ

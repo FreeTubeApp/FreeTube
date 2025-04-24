@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'eesti keel'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Rakenduse see osa pole veel valmis. Tule hiljem tagasi, kui arendustööd on valmis.
 
 # Webkit Menu Bar
 File: 'Fail'
@@ -244,6 +241,7 @@ User Playlists:
     eemaldada {playlistItemCount} vaadatud videot? Seda tegevust ei saa tagasi pöörata.
   Export Playlist: Ekspordi see esitusloend
   The playlist has been successfully exported: Esitusloendi eksportimine õnnestus
+  TotalTimePlaylist: 'Kestus kokku: {duration}'
 History:
   # On History Page
   History: 'Ajalugu'
@@ -481,7 +479,7 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Privaatsus'
     Remember History: 'Jäta vaatamiste ajalugu meelde'
-    Save Watched Progress: 'Salvesta vaatamise olek'
+    Save Watched Progress: 'Salvesta vaatamise järg'
     Clear Search Cache: 'Kustuta otsingute ajalugu'
     Are you sure you want to clear out your search cache?: 'Kas sa oled kindel, et
       soovid kustutada sinu otsingute ajaloo?'
@@ -507,6 +505,16 @@ Settings:
       kindel, et soovid kustutada otsinguajaloo ja sellega seotud puhverdatud andmed?
     Search history and cache have been cleared: Otsinguajalugu ja sellega seotud puhverdatud
       andmed on kustutatud
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Automaatne
+        Semi-auto: Poolautomaatne
+        Never: Mitte kunagi
+      Tooltip: Automaatne = Kui video lõppes või tekkis viga (nt tehnilise piirangu
+        või vaatamissessiooni aegumisel), siis salvesta. Poolautomaatne = Sama, nagu
+        automaatne, välja arvatud videovaatest väljumisel ning lisaks saad käsitsi
+        salvestamiseks kasutada videoesitaja all asuvat nuppu „Salvesta vaatamise
+        järg“.
   Subscription Settings:
     Subscription Settings: 'Tellimused'
     Hide Videos on Watch: 'Vaatamisel peida videod'
@@ -971,6 +979,8 @@ Video:
     DRMiga kaitstud videoid FreeTube esitada ei saa. Kui soovid seda videot vaadata,
     siis tee seda otse YouTube'i saidis kasutades DRMi-suutlikku brauserit.
 #& Playlists
+  Save Watched Progress: Salvesta vaatamise järg
+  Watched Progress Saved: Vaatamise järg on salvestatud
 Playlist:
   #& About
   View Full Playlist: 'Näita kogu esitusloendit'

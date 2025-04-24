@@ -17,7 +17,7 @@
         {{ $t("History.History") }}
       </h2>
       <ft-input
-        v-show="fullData.length > 0"
+        v-show="fullData.length > 1"
         ref="searchBar"
         :placeholder="$t('History.Search bar placeholder')"
         :show-clear-text-button="true"

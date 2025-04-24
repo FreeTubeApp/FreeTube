@@ -1,19 +1,15 @@
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Эта часть приложения ещё не готова. Вернитесь позже, когда появится новая версия.
-
 # Webkit Menu Bar
-File: 'Файл'
-Quit: 'Выйти'
-Edit: 'Изменить'
+File: 'файл'
+Quit: 'уйти'
+Edit: 'Редактировать'
 Undo: 'Отменить'
-Redo: 'Повторить'
-Cut: 'Вырезать'
-Copy: 'Скопировать'
-Paste: 'Вставить'
+Redo: 'Переделать'
+Cut: 'разрезать'
+Copy: 'копия'
+Paste: 'паста'
 Delete: 'Удалить'
 Select all: 'Выбрать все'
-Reload: 'Перезагрузить'
+Reload: 'Перезагрузка'
 Force Reload: 'Принудительно обновить'
 Toggle Developer Tools: 'Отобразить инструменты для разработчиков'
 Actual size: 'Настоящий размер'
@@ -81,7 +77,7 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Больше выдачи по этому запросу нет
   Features:
-    Features: Опции
+    Features: Особенности
     HD: HD
     Subtitles: Субтитры
     Creative Commons: Creative Commons
@@ -176,7 +172,7 @@ User Playlists:
       This playlist has a video with a duration error: Этот плейлист содержит хотя-бы
         одно видео без продолжтельности, оно будет отсротрированно как с нулевой продолжительностью.
       Video has been removed. Click here to undo.: Видео было удалено. Нажмите здесь,
-        чтобы Нажмите здесь, чтобы отменить прсмотр
+        чтобы отменить просмотр.
     Search for Videos: Поиск видео
   AddVideoPrompt:
     N playlists selected: '{playlistCount} выбрано'
@@ -234,6 +230,7 @@ User Playlists:
     из этого плейлиста? Это нельзя отменить.
   Export Playlist: Экспортировать этот плейлист
   The playlist has been successfully exported: Плейлист успешно экспортирован
+  TotalTimePlaylist: 'Общее время: {duration}'
 History:
   # On History Page
   History: 'История'
@@ -311,6 +308,12 @@ Settings:
       Gruvbox Dark: Gruvbox Темный
       Gruvbox Light: Gruvbox Светлый
       Catppuccin Frappe: Фраппе с капучином
+      Everforest Dark Hard: Эверфорест Дарк Хард
+      Everforest Dark Medium: Эверфорест темный средний
+      Everforest Dark Low: Эверфорест Темный низкий
+      Everforest Light Hard: Эверфорест Лайт Хард
+      Everforest Light Medium: Эверфорест Лайт Медиум
+      Everforest Light Low: Everforest Light низкий
     Main Color Theme:
       Main Color Theme: 'Основной цвет темы'
       Red: 'Красный'
@@ -382,6 +385,20 @@ Settings:
       Catppuccin Frappe Sapphire: Кэтпуччин Фраппе Сапфир
       Catppuccin Frappe Blue: Кэтпуччин Фраппе Синий
       Catppuccin Frappe Lavender: Кэтпуччи Фраппе Лаванда
+      Everforest Dark Aqua: Эверфорест Темная Аква
+      Everforest Dark Green: Everforest Темно-зеленый
+      Everforest Dark Red: Everforest Темно-красный
+      Everforest Dark Orange: Everforest Темно-оранжевый
+      Everforest Dark Yellow: Everforest Темно-желтый
+      Everforest Dark Blue: Everforest Темно-синий
+      Everforest Dark Purple: Everforest Темно-фиолетовый
+      Everforest Light Red: Everforest светло-красный
+      Everforest Light Orange: Everforest Светло-оранжевый
+      Everforest Light Yellow: Everforest Светло-желтый
+      Everforest Light Green: Everforest Светло-зеленый
+      Everforest Light Aqua: Эверфорест Лайт Аква
+      Everforest Light Blue: Эверфорест светло-голубой
+      Everforest Light Purple: Everforest Светло-фиолетовый
     Secondary Color Theme: 'Вторичный цвет темы'
         #* Main Color Theme
     UI Scale: Масштаб интерфейса
@@ -444,11 +461,11 @@ Settings:
     Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
     Autoplay Interruption Timer: Таймер прерывания автоигры
     Default Viewing Mode:
-      Theater: Режим широко экрана
+      Theater: Театр
       Default Viewing Mode: Режим просмотра по умолчанию
       Full Screen: На весь экран
-      Picture in Picture: Режим "Картинка в картинке"
-      External Player: Внешний проигрыватель
+      Picture in Picture: Картинка в картинке
+      External Player: Внешний проигрыватель ({externalPlayerName})
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Hide Videos on Watch: 'Скрывать видео после просмотра'
@@ -583,6 +600,7 @@ Settings:
       выражение
     Hide Channel Home: Скрыть вкладку "Главная" канала
     Show Added Items: Показать добавленные элементы
+    Hide Channel Courses: Скрыть вкладку «Курсы» канала
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы
     изменения вступили в силу, необходимо перезапустить приложение. Перезапустить
     и применить изменения?
@@ -759,6 +777,10 @@ Channel:
   Home:
     Home: Дом
     View Playlist: Просмотреть плейлист
+  Courses:
+    Courses: курсы
+    This channel does not currently have any courses: На этом канале в настоящее время
+      нет курсов
 Video:
   Mark As Watched: 'Отметить как просмотренное'
   Remove From History: 'Удалить из истории'
@@ -871,13 +893,12 @@ Video:
     Take Screenshot: Сделать Снимок Экрана
     Show Stats: Показать Статистику
     Hide Stats: Скрыть Статистику
-    Autoplay is on: Включить авто воспроизведение
-    Autoplay is off: Отключить авто воспроизведение
+    Autoplay is on: Автоигра включена
+    Autoplay is off: Автоигра выключена
   IP block: YouTube заблокировал ваш IP-адрес для просмотра видео. Пожалуйста, попробуйте
     переключиться на другой VPN или прокси.
   MembersOnly: Видео только для подписчиков нельзя смотреть на FreeTube, так как для
-    них требуется вход в Google и платное членство на канале пользователя, загрузившего
-    подписку.
+    них требуется вход в Google и платная подписка на автора канала.
   Unlisted: Отсутствует в списках
   AgeRestricted: Видео с возрастными ограничениями нельзя смотреть через FreeTube,
     так как для этого требуется вход в Google и использование подтвержденной учетной
@@ -950,7 +971,7 @@ Comments:
     подождите'
   Hide Comments: 'Скрыть комментарии'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Вид'
+  View: 'Смотреть'
   Hide: 'Скрыть'
   Replies: 'Ответы'
   Reply: 'Ответ'
@@ -964,7 +985,7 @@ Comments:
   And others: и других
   Pinned by: Закреплено
   Member: Участник
-  View {replyCount} replies: Просмотреть {replyCount} ответа(ов)
+  View {replyCount} replies: Смотреть {replyCount} ответа(ов)
   Hearted: С сердечком
   Subscribed: Подписан(а)
   There are no comments available for this post: Для этого поста нет доступных комментариев
@@ -1038,11 +1059,11 @@ Profile:
   Close Profile Dropdown: Закрыть выпадающий список профиля
   Open Profile Dropdown: Открыть выпадающий профиль
 The playlist has been reversed: Подборка была перевёрнута
-A new blog is now available, {blogTitle}. Click to view more: Доступен новый блог
-  {blogTitle}. Нажмите здесь, чтобы посмотреть подробности
+A new blog is now available, {blogTitle}. Click to view more: Теперь доступен новый
+  блог, {blogTitle}. Нажмите, чтобы посмотреть больше
 Download From Site: Скачать с сайта
-Version {versionNumber} is now available!  Click for more details: Доступна версия
-  {versionNumber}! Чтобы узнать подробности, нажмите здесь
+Version {versionNumber} is now available!  Click for more details: Версия {versionNumber}
+  теперь доступна!  Нажмите для получения более подробной информации
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Это
   видео недоступно из-за отсутствия форматов. Это может произойти из-за региональных
   ограничений.
@@ -1161,8 +1182,8 @@ Chapters:
     текущий раздел: {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Список разделов скрыт,
     текущий раздел: {chapterName}'
-  Key Moments: Основные моменты
-Preferences: Настройки
+  Key Moments: Ключевые моменты
+Preferences: Предпочтения
 Ok: Хорошо
 Hashtag:
   Hashtag: Распределительная метка
@@ -1178,7 +1199,7 @@ Search character limit: Поисковый запрос превышает ли�
 Moments Ago: несколько минут назад
 Yes, Delete: Да, удалить
 Yes, Restart: Да, перезагрузка
-Yes, Open Link: Да, открытая ссылка
+Yes, Open Link: Да, открыть ссылку
 Cancel: Отмена
 checkmark: ✓
 Display Label: '{label}: {value}'
@@ -1213,7 +1234,8 @@ Keys:
   shift: Shift
   enter: Enter
   plus: Плюс
-Right-click or hold to see history: ПКМ или зажми для просмотра истории
+Right-click or hold to see history: Щелкните правой кнопкой мыши или удерживайте ее,
+  чтобы просмотреть историю
 KeyboardShortcutPrompt:
   Captions: Включение/выключение титров
   Focus Secondary Search: Сосредоточьтесь на вторичной строке поиска (если она есть)
@@ -1274,3 +1296,4 @@ Description:
   Collapse Description: Показать меньше
 Autoplay Interruption Timer: Автоигра отменена из-за {autoplayInterruptionIntervalHours}
   часов бездействия
+shortcutLabelSeparator: ｜

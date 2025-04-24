@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'English (US)'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  ऐप का यह हिस्सा अभी तैयार नहीं है। बाद में वापस आएँ जब प्रगति हुई हो
+Locale Name: 'हिन्दी'
 
 # Webkit Menu Bar
 File: 'फ़ाइल'
@@ -38,13 +35,16 @@ Global:
   Sort By: 'इसके अनुसार क्रमबद्ध करें'
 
 # Search Bar
+  Shorts: शॉर्ट्स
+  Videos: वीडियो
+  Live: लाइव
 Search / Go to URL: 'खोज / यूआरएल पर जाएं'
   # In Filter Button
 Search Filters:
   Search Filters: 'खोज फ़िल्टर'
   Sort By:
     Most Relevant: 'सबसे प्रासंगिक'
-    Rating: 'रेटिंग'
+    Rating: 'मूल्यांकन'
     Upload Date: 'अपलोड की तारीख़'
     View Count: 'दृश्य गणना'
   Time:
@@ -61,17 +61,27 @@ Search Filters:
     Videos: 'वीडियो'
     Channels: 'चैनल'
     #& Playlists
+    Movies: चलचित्र
   Duration:
     Duration: 'अवधि'
     All Durations: 'सभी अवधियाँ'
     Short (< 4 minutes): 'छोटे (<4 मिनट)'
     Long (> 20 minutes): 'बड़े (>20 मिनट)'
   # On Search Page
+    Medium (4 - 20 minutes): माध्यम (4 - 20 minutes)
   Search Results: 'खोज के परिणाम'
   Fetching results. Please wait: 'परिणाम ला रहे है। कृपया प्रतीक्षा करे'
   Fetch more results: 'ज़्यादा परिणाम लाए'
 # Sidebar
   There are no more results for this search: इस खोज के लिए और कोई परिणाम नहीं है
+  Features:
+    Location: जगह
+    Features: विशेषताएँ
+    HD: HD
+    3D: 3D
+    Live: सीधा प्रसारण
+    4K: 4K
+    Subtitles: उपशीर्षक
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'सब्सक्रिप्शन'
@@ -162,7 +172,9 @@ Settings:
 About:
   #On About page
   Email: ईमेल करें
-Channel: {}
+Channel:
+  Videos:
+    Videos: वीडियो
 Video:
   Open in Invidious: 'इनविडियस में खोलें'
   Copy Invidious Link: 'इनविडियस लिंक को कॉपी करें'
@@ -207,8 +219,27 @@ Channels:
 Are you sure you want to open this link?: क्या आप वाकई इस लिंक को खोलना चाहते हैं?
 Search Bar:
   Clear Input: इनपुट खाली करें
+  Remove: हटाए
 Default Invidious instance has been set to {instance}: डिफ़ॉल्ट इनविडियस इंस्टेंस
   को {instance} पर सेट कर दिया गया है
 Default Invidious instance has been cleared: डिफ़ॉल्ट इनविडियस इंस्टेंस साफ़ कर दिया
   गया है
 Preferences: प्रेफरन्स
+Search character limit: खोज क्वेरी {searchCharacterLimit} वर्ण सीमा से अधिक है
+Right-click or hold to see history: इतिहास देखने के लिए दायाँ क्लिक करें या दबाए रखें
+Go to page: जाओ
+Close Banner: बैनर बंद करें
+Search Listing:
+  Label:
+    Subtitles: उपशीर्षक
+    Closed Captions: सीमित अनुशीर्षक
+    New: नया
+    4K: 4K
+    8K: 8K
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: डेवलपर टूल टॉगल करें
+  Zoom In: ज़ूम इन
+  Zoom Out: ज़ूम आउट
+  Fullscreen: फ़ुलस्क्रीन टॉगल करें
+Profile:
+  Select All: सबको चुनें

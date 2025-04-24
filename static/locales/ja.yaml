@@ -1,7 +1,3 @@
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  アプリのこの部分はまだ準備ができていません。進捗があったらまたお越しください。
-
 # Webkit Menu Bar
 File: 'ファイル'
 Quit: '終了'
@@ -209,6 +205,7 @@ User Playlists:
     | この再生リストから視聴済みの {playlistItemCount} 本の動画を削除してもよろしいですか？この操作は元に戻せません。
   The playlist has been successfully exported: 再生リストのエクスポートに成功しました
   Export Playlist: この再生リストをエクスポート
+  TotalTimePlaylist: '合計時間: {duration}'
 History:
   # On History Page
   History: '履歴'
@@ -465,6 +462,13 @@ Settings:
     Are you sure you want to clear out your search history and cache?: 本当に検索履歴とキャッシュを削除しますか？
     Clear Search History and Cache: 検索履歴とキャッシュを削除する
     Search history and cache have been cleared: 検索履歴とキャッシュが削除されました
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: 自動
+        Semi-auto: 半自動
+        Never: 保存しない
+      Tooltip: '自動 = 動画ページを退出する際、動画が終了した際、またはエラーが発生した際（例: レート制限や視聴セッションの期限切れ）に進捗を保存します。半自動
+        = 自動と似ていますが、動画ページを退出する際には保存されません。代わりに、動画プレーヤーの下にある「視聴進捗を保存」というボタンを使って手動で進捗を保存できます。'
   Data Settings:
     How do I import my subscriptions?: 登録チャンネルをインポートするには？
     Unknown data key: 不明なデータキー
@@ -830,6 +834,8 @@ Video:
   DRMProtected:
     DRM保護された動画はFreeTubeでは再生できません。これらの動画には、独自の非オープンソースのコンポーネントが必要です。この動画を視聴したい場合は、DRM対応のウェブブラウザで公式のYouTubeウェブサイトでご覧ください。
 #& Playlists
+  Save Watched Progress: 視聴進捗を保存
+  Watched Progress Saved: 視聴進捗を保存しました
 Playlist:
   #& About
   View Full Playlist: '完全な再生リストの表示'

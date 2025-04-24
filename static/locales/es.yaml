@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'español (España)'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta parte de la aplicación aún no está lista. Vuelve más tarde cuando haya logrado
-  avances.
+Locale Name: 'Español (España)'
 
 # Webkit Menu Bar
 File: 'Archivo'
@@ -324,6 +320,12 @@ Settings:
       Gruvbox Dark: Gruvbox oscuro
       Gruvbox Light: Gruvbox claro
       Catppuccin Frappe: Frappe Capuchino
+      Everforest Dark Hard: Everforest Oscuro Intenso
+      Everforest Dark Medium: Everforest Oscuro Medio
+      Everforest Dark Low: Everforest Oscuro Suave
+      Everforest Light Hard: Everforest Claro Intenso
+      Everforest Light Medium: Everforest Claro Medio
+      Everforest Light Low: Everforest Claro Suave
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -381,6 +383,34 @@ Settings:
       Gruvbox Light Red: Gruvbox rojo claro
       Gruvbox Light Blue: Gruvbox azul claro
       Gruvbox Light Orange: Gruvbox naranja claro
+      Catppuccin Frappe Green: Catppuccin Frappe Verde
+      Catppuccin Frappe Teal: Catppuccin Frappe Turquesa
+      Catppuccin Frappe Sky: Catppuccin Frappe Cielo
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Zafiro
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavanda
+      Everforest Dark Orange: Everforest Oscuro Naranja
+      Everforest Dark Yellow: Everforest Oscuro Amarillo
+      Everforest Dark Green: Everforest Oscuro Verde
+      Everforest Dark Red: Everforest Oscuro Rojo
+      Everforest Dark Blue: Everforest Oscuro Azul
+      Everforest Dark Aqua: Everforest Oscuro Aguamarina
+      Everforest Dark Purple: Everforest Oscuro Morado
+      Everforest Light Red: Everforest Claro Rojo
+      Everforest Light Orange: Everforest Claro Naranja
+      Everforest Light Yellow: Everforest Claro Amarillo
+      Everforest Light Green: Everforest Claro Verde
+      Everforest Light Aqua: Everforest Claro Aguamarina
+      Everforest Light Blue: Everforest Claro Azul
+      Everforest Light Purple: Everforest Claro Morado
+      Catppuccin Frappe Blue: Catppuccin Frappe Azul
+      Catppuccin Frappe Red: Catppuccin Frappe Rojo
+      Catppuccin Frappe Maroon: Catppuccin Frappe Granate
+      Catppuccin Frappe Peach: Catppuccin Frappe Durazno
+      Catppuccin Frappe Yellow: Catppuccin Frappe Amarillo
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe Rosa
+      Catppuccin Frappe Mauve: Catppuccin Frappe Malva
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de IU
@@ -390,11 +420,11 @@ Settings:
     Hide FreeTube Header Logo: Ocultar el logotipo de Freetube de la parte superior
   Player Settings:
     Player Settings: 'Reproductor'
-    Play Next Video: 'Reproducción continua'
-    Turn on Subtitles by Default: 'Activar subtítulos por defecto'
-    Autoplay Videos: 'Reproducción automática de vídeos'
+    Play Next Video: 'Reproducción automática de videos recomendados'
+    Turn on Subtitles by Default: 'Habilitar subtítulos por defecto'
+    Autoplay Videos: 'Iniciar videos automáticamente'
     Proxy Videos Through Invidious: 'Enmascarar vídeos a través de Invidious'
-    Autoplay Playlists: 'Listas de reproducción automática'
+    Autoplay Playlists: 'Reproducción automática de videos en la lista de reproducción'
     Enable Theatre Mode by Default: 'Activar el modo cine por defecto'
     Default Volume: 'Volumen predeterminado'
     Default Playback Rate: 'Velocidad de reproducción predeterminada'
@@ -449,6 +479,7 @@ Settings:
       Default Viewing Mode: Vista predeterminada
       External Player: Reproductor externo ({nombreReproductorExterno})
       Full Screen: Pantalla Completa
+      Picture in Picture: Imagen en imagen
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Guardar Historial'
@@ -588,6 +619,7 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Palabra, fragmento o frase
     Hide Channel Home: Ocultar la pestaña "Inicio" del canal
     Show Added Items: Mostrar elementos añadidos
+    Hide Channel Courses: Ocultar la pestaña "Cursos" del canal
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -815,6 +847,10 @@ Channel:
   Home:
     Home: Inicio
     View Playlist: Ver lista de reproducción
+  Courses:
+    Courses: Cursos
+    This channel does not currently have any courses: Este canal no tiene cursos en
+      este momento
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Borrar del historial'
@@ -1226,6 +1262,9 @@ Keys:
   arrowleft: Flecha hacia la izquierda
   arrowright: Flecha hacía la derecha
   arrowup: Flecha hacia arriba
+  plus: Suma
+  enter: Intro
+  shift: Mayús
 Autoplay Interruption Timer: Reproducción automática cancelada debido a {autoplayInterruptionIntervalHours}
   horas de inactividad
 Description:
@@ -1233,3 +1272,57 @@ Description:
   Collapse Description: Mostrar menos
 KeyboardShortcutPrompt:
   New Window: Crear una nueva ventana
+  Captions: Activar/desactivar subtítulos
+  History Forward: Avanzar una página
+  Large Fast Forward: Avanzar 10 segundos / Avanzar video según la tasa de reproducción
+    actual
+  Take Screenshot: Tomar captura de pantalla
+  Next Frame: Frame siguiente (mientras está pausado)
+  Sections:
+    App:
+      Situational: 'Aplicación: Situacional'
+      General: 'Aplicación: General'
+    Video:
+      General: 'Video: General'
+      Playback: 'Video: Reproducción'
+  Large Rewind: Rebobinar 10 segundos / Rebobinar video según la tasa de reproducción
+    actual
+  Toggle Developer Tools: Activar/desactivar herramientas de desarrollador
+  Volume Up: Aumentar volumen
+  Small Fast Forward: Avanzar X segundos según el intervalo de avance rápido y la
+    tasa de reproducción actual
+  Reset Zoom: Restablecer nivel de zoom / Escala de interfaz de usuario
+  Volume Down: Disminuir volumen
+  Keyboard Shortcuts: Atajos de teclado
+  History Backward: Retroceder una página
+  Stats: Mostrar estadísticas del video
+  Minimize Window: Minimizar ventana
+  Force Restart Window: Forzar reinicio de ventana
+  Small Rewind: Rebobinar X segundos según el intervalo de rebobinado y la tasa de
+    reproducción actual
+  Next Chapter: Próximo capítulo
+  Fullscreen: Activar/desactivar pantalla completa
+  Picture in Picture: Activar/desactivar modo Imagen en Imagen
+  Zoom In: Acercar
+  Zoom Out: Alejar
+  Focus Search: Centrarse en la barra de búsqueda
+  Search in New Window: Buscar en una nueva ventana
+  Last Frame: Frame anterior (mientras está pausado)
+  Last Chapter: Último capítulo
+  Focus Secondary Search: Centrarse en la barra de búsqueda secundaria (si está presente)
+  Play: Activar/desactivar reproducción/pausa
+  Theatre Mode: Activar/desactivar modo de cine
+  Mute: Activar/desactivar silencio
+  Decrease Video Speed: Disminuir velocidad de video según el intervalo de tasa de
+    reproducción
+  Increase Video Speed: Aumentar velocidad de video según el intervalo de tasa de
+    reproducción
+  Full Window: Activar/desactivar ventana completa
+  Show Keyboard Shortcuts: Mostrar atajos de teclado
+  Navigate to Settings: Ir a la página de configuración
+  Navigate to History: Ir a la página de historial
+  Skip by Tenths: Saltar en el video por porcentaje (3 saltos a 30% de la duración)
+  Refresh: Actualizar el feed con el contenido más reciente
+  Close Window: Cerrar ventana
+  Restart Window: Reiniciar ventana
+shortcutLabelSeparator: ｜

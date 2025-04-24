@@ -1,7 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'toki pona'
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  ilo ni li pona ala. tenpo kama la, o kama.
 
 # Webkit Menu Bar
 File: 'ijo'
@@ -99,3 +97,5 @@ Channel:
   Live:
     Live: tenpo ni
 More: mute
+Profile:
+  Select All: kama jo e sitelin ale

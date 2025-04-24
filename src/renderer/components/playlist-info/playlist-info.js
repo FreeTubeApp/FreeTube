@@ -75,6 +75,10 @@ export default defineComponent({
       type: Number,
       required: true,
     },
+    totalPlaylistDuration: {
+      type: Number,
+      required: true
+    },
     lastUpdated: {
       type: String,
       default: undefined,
@@ -123,6 +127,18 @@ export default defineComponent({
     }
   },
   computed: {
+    currentLocale: function () {
+      return this.$i18n.locale
+    },
+    durationFormatted: function () {
+      const duration = {
+        hours: Math.floor(this.totalPlaylistDuration / 3600),
+        minutes: Math.floor((this.totalPlaylistDuration % 3600) / 60),
+        seconds: this.totalPlaylistDuration % 60,
+      }
+
+      return new Intl.DurationFormat([this.currentLocale, 'en'], { style: 'short' }).format(duration)
+    },
     hideSharingActions: function () {
       return this.$store.getters.getHideSharingActions
     },

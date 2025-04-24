@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Latina'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Haec programmatis pars perfecta non est. Remea cum in hac profectum sit.
 
 # Webkit Menu Bar
 File: 'tabula'
@@ -156,3 +153,10 @@ Video: {}
 No: 'nullum'
 More: plus
 Open New Window: aperiere fenestram novum
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Mutatio Constitutor Instrumenta
+  Zoom Out: Visi repostus
+  Zoom In: Visum propius
+  Fullscreen: Totus mutatur ostentationem
+Profile:
+  Select All: Omnia selige

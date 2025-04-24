@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Nederlands'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Dit gedeelte van de app is nog niet klaar. Kom later terug als er vooruitgang is
-  gemaakt.
 
 # Webkit Menu Bar
 File: 'Bestand'
@@ -243,6 +239,7 @@ User Playlists:
     video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan worden gemaakt.
   Export Playlist: Deze afspeellijst exporteren
   The playlist has been successfully exported: De afspeellijst is succesvol geëxporteerd
+  TotalTimePlaylist: 'Totale tĳd: {duration}'
 History:
   # On History Page
   History: 'Geschiedenis'
@@ -504,6 +501,16 @@ Settings:
     Are you sure you want to clear out your search history and cache?: Weet u zeker
       dat u uw cache en zoekgeschiedenis wilt verwijderen?
     Clear Search History and Cache: Cache en Zoekgeschiedenis Verwijderen
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Automatisch
+        Semi-auto: Semi­automatisch
+        Never: Nooit
+      Tooltip: Auto = Opslaan bij het verlaten van elke videopagina, wanneer de video
+        is afgelopen of wanneer er een fout optreedt (bijv. rate-limiet bereikt of
+        kijkersessie verlopen).Semi-auto = Net als Auto, behalve bij het verlaten
+        van de videopagina. Voortgang kan handmatig worden opgeslagen via een knop
+        genaamd 'Voortgang Opslaan', die zich onder de videospeler bevindt.
   Subscription Settings:
     Subscription Settings: 'Abonnement­'
     Hide Videos on Watch: 'Bekeken video''s verbergen'
@@ -616,6 +623,7 @@ Settings:
       bij­gewerkt
     Show Added Items: Toegevoegde Items Weergeven
     Hide Channel Home: Kanaal "Home" Tab Verbergen
+    Hide Channel Courses: Verberg het tabblad 'Cursussen' van het kanaal
   The app needs to restart for changes to take effect. Restart and apply change?: Het
     programma moet opnieuw worden gestart voordat de veranderingen effect hebben.
     Wilt u het programma nu opnieuw starten en de veranderingen toepassen?
@@ -796,6 +804,10 @@ Channel:
   Home:
     View Playlist: Afspeellijst Weergeven
     Home: Startpagina
+  Courses:
+    Courses: Cursussen
+    This channel does not currently have any courses: Dit kanaal heeft momenteel geen
+      cursussen
 Video:
   Mark As Watched: 'Markeren als bekeken'
   Remove From History: 'Uit geschiedenis verwijderen'
@@ -926,6 +938,8 @@ Video:
   AgeRestricted: Videos met een leeftijdsbeperking kunnen niet via FreeTube bekeken
     worden omdat ze een Google login en een YouTube account met bevestigde leeftijd
     vereisen.
+  Save Watched Progress: Kĳk­voortgang opslaan
+  Watched Progress Saved: Kĳk­voortgang opgeslagen
 Playlist:
   #& About
   View Full Playlist: 'Volledige afspeellijst bekijken'
@@ -1179,7 +1193,7 @@ Starting download: Begin download van "{videoTitle}"
 Downloading failed: Probleem bij download van "{videoTitle}"
 Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag
   map" modus.
-New Window: Nieuw venster
+New Window: Nieuw Venster
 Screenshot Success: Schermafbeelding opgeslagen
 Channels:
   Title: Kanalen lijst

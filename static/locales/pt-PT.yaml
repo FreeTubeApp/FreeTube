@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: Português
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Esta parte da aplicação ainda não está pronta. Volte mais tarde quando já houver
-  progresso.
 
 # Webkit Menu Bar
 File: Ficheiro
@@ -250,6 +246,7 @@ User Playlists:
     vídeos duplicados desta lista de reprodução? Esta remoção não pode ser revertida.
   Cannot delete the quick bookmark target playlist.: Não é possível eliminar a lista
     de reprodução de destino do marcador rápido.
+  TotalTimePlaylist: 'Duração total: {duration}'
 History:
   # On History Page
   History: Histórico
@@ -331,6 +328,12 @@ Settings:
       Catppuccin Frappe: Frapé de catppuccin
       Gruvbox Dark: Gruvbox Escuro
       Gruvbox Light: Luz Gruvbox
+      Everforest Dark Low: Everforest Dark baixo
+      Everforest Light Hard: Floresta perene Luz dura
+      Everforest Light Medium: Everforest Ligeiro Médio
+      Everforest Dark Hard: Floresta escura dura
+      Everforest Dark Medium: Everforest Dark médio
+      Everforest Light Low: Everforest Light baixo
     Main Color Theme:
       Main Color Theme: Cor principal
       Red: Vermelho
@@ -402,6 +405,20 @@ Settings:
       Gruvbox Dark Aqua: Gruvbox água escura
       Gruvbox Light Blue: Gruvbox azul claro
       Gruvbox Dark Yellow: Gruvbox amarelo escuro
+      Everforest Dark Green: Everforest Verde escuro
+      Everforest Light Blue: Everforest azul claro
+      Everforest Dark Aqua: Everestforest Dark Aqua
+      Everforest Dark Red: Everforest Vermelho escuro
+      Everforest Dark Orange: Everforest Laranja escuro
+      Everforest Dark Yellow: Everforest Amarelo escuro
+      Everforest Dark Blue: Azul escuro Everforest
+      Everforest Dark Purple: Everforest Dark Purple (púrpura escuro)
+      Everforest Light Red: Vermelho claro Everforest
+      Everforest Light Orange: Everforest Laranja claro
+      Everforest Light Yellow: Everforest Amarelo claro
+      Everforest Light Green: Verde claro Everforest
+      Everforest Light Aqua: Everforest Light Aquático
+      Everforest Light Purple: Everforest Púrpura claro
     Secondary Color Theme: Cor secundária
         #* Main Color Theme
     Hide Side Bar Labels: Ocultar texto na barra lateral
@@ -495,6 +512,11 @@ Settings:
     Clear Search History and Cache: Limpar o histórico de pesquisa e a cache
     Are you sure you want to clear out your search history and cache?: Tem a certeza
       de que pretende limpar o histórico de pesquisa e a cache?
+    Watched Progress Saving Mode:
+      Modes:
+        Never: Nunca
+        Auto: Automático
+        Semi-auto: Semiautomático
   Subscription Settings:
     Subscription Settings: Subscrição
     Hide Videos on Watch: Ocultar vídeos visualizados
@@ -556,6 +578,7 @@ Settings:
       texto
     Hide Channel Home: Ocultar o separador “Página inicial” do canal
     Show Added Items: Mostrar itens adicionados
+    Hide Channel Courses: Ocultar o separador “Cursos” do canal
   Data Settings:
     Data Settings: Dados
     Select Export Type: Selecione o tipo de exportação
@@ -831,6 +854,10 @@ Channel:
   Home:
     Home: Página inicial
     View Playlist: Ver lista de reprodução
+  Courses:
+    This channel does not currently have any courses: Este canal não tem atualmente
+      nenhum curso
+    Courses: cursos
 Video:
   Mark As Watched: Marcar como visto
   Remove From History: Remover do histórico
@@ -963,6 +990,7 @@ Video:
   DRMProtected: Os vídeos protegidos por DRM não podem ser reproduzidos no FreeTube,
     uma vez que requerem componentes proprietários e de código fechado. Se quiser
     ver este vídeo, veja-o no sítio Web oficial do YouTube num navegador Web com DRM.
+  Save Watched Progress: Gravar progresso de visualização
 Playlist:
   #& About
   View Full Playlist: Ver lista de reprodução completa

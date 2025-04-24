@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Беларуская'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Гэтая частка праграмы яшчэ не гатова. Прыходзьце пазней.
 
 # Webkit Menu Bar
 File: 'Файл'
@@ -260,6 +257,7 @@ User Playlists:
     адмяніць.
   Export Playlist: Экспартаваць плэй-ліст
   The playlist has been successfully exported: Плэй-ліст паспяхова экспартаваны
+  TotalTimePlaylist: 'Агульны час: {duration}'
 History:
   # On History Page
   History: 'Гісторыя'
@@ -319,6 +317,8 @@ Settings:
     Auto Load Next Page:
       Label: Аўтаматычная загрузка наступнай старонкі
       Tooltip: Аўтаматычна загружаць дадатковыя старонкі і каментарыі.
+    Open Deep Links In New Window: Адкрываць URL-адрасы, перададзеныя FreeTube, у
+      новым акне
   Theme Settings:
     Theme Settings: 'Тэма'
     Match Top Bar with Main Color: 'Выкарыстоўваць асноўны колер да верхняй панэлі'
@@ -343,6 +343,12 @@ Settings:
       Gruvbox Dark: Gruvbox цёмная
       Catppuccin Frappe: Catppuccin Frappe
       Gruvbox Light: Gruvbox светлая
+      Everforest Dark Hard: Эверфорэст Дарк Хард
+      Everforest Dark Medium: Эверфорэст Дарк Хард
+      Everforest Dark Low: Эверфорэст Дарк Хард
+      Everforest Light Hard: Эверфорэст Лігхт Хард
+      Everforest Light Medium: Эверфорэст Лігхт Медыум
+      Everforest Light Low: Эверфорэст Лігхт Лоў
     Main Color Theme:
       Main Color Theme: 'Асноўны колер тэмы'
       Red: 'Чырвоны'
@@ -414,6 +420,20 @@ Settings:
       Gruvbox Dark Blue: Gruvbox Цёмна-сіні
       Gruvbox Dark Orange: Gruvbox Цёмна-аранжавы
       Gruvbox Light Red: Gruvbox Светла-чырвоны
+      Everforest Dark Red: Цёмна-чырвоны Everforest
+      Everforest Dark Orange: Everforest Цёмна-аранжавы
+      Everforest Dark Yellow: Эверфорэст Дарк Елоў
+      Everforest Dark Green: Цёмна-зялёны Everforest
+      Everforest Dark Aqua: Эверфорэст Дарк Акуа
+      Everforest Dark Blue: Цёмна-сіні Everforest
+      Everforest Dark Purple: Цёмна-фіялетавы Everforest
+      Everforest Light Red: Светла-чырвоны Everforest
+      Everforest Light Orange: Светла-аранжавы Everforest
+      Everforest Light Yellow: Светла-жоўты Everforest
+      Everforest Light Green: Светла-зялёны Everforest
+      Everforest Light Aqua: Эверфорэст Лігхт Акуа
+      Everforest Light Blue: Эверфорэст Лігхт Блуэ
+      Everforest Light Purple: Светла-фіялетавы Everforest
     Secondary Color Theme: 'Другасны колер тэмы'
         #* Main Color Theme
   Player Settings:
@@ -433,7 +453,7 @@ Settings:
     Display Play Button In Video Player: 'Паказваць кнопку прайгравання ў відэапрайгравальніку'
     Enter Fullscreen on Display Rotate: 'Пераходзіць у поўнаэкранны рэжым пры павароце
       дысплэя'
-    Next Video Interval: 'Інтэрвал да наступнага відэа'
+    Next Video Interval: 'Таймер зваротнага адліку аўтаматычнага прайгравання'
     Fast-Forward / Rewind Interval: 'Інтэрвал перамоткі наперад / назад'
     Default Volume: 'Гучнасць па змаўчанні'
     Default Playback Rate: 'Хуткасць прайгравання па змаўчанні'
@@ -477,6 +497,7 @@ Settings:
       Full Screen: Поўны экран
       External Player: Вонкавы прайгравальнік ({externalPlayerName})
       Picture in Picture: Выява ў Выяве
+    Autoplay Interruption Timer: Таймер перапынення аўтаматычнага прайгравання
   External Player Settings:
     External Player Settings: 'Вонкавы прайгравальнік'
     External Player: 'Вонкавы прайгравальнік'
@@ -514,6 +535,16 @@ Settings:
       гісторыю пошуку і кэш?
     Search history and cache have been cleared: Гісторыя пошуку і кэш ачышчаны
     Remember Search History: Памятаць гісторыю пошуку
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Аўто
+        Semi-auto: Паўаўтаматычны
+        Never: ніколі
+      Tooltip: Аўта = Захоўваць пры кожным выхадзе са старонкі відэа, калі відэа скончылася
+        і ўзнікла памылка (напрыклад, хуткасць абмежавана і сеанс прагляду скончыўся).
+        Паўаўтаматычны = як і аўтаматычны, за выключэннем выхаду з відэастаронкі і
+        захавання прагрэсу ўручную з дапамогай кнопкі пад назвай "Захаваць прагледжаны
+        прагрэс", размешчанай пад відэаплэерам.
   Subscription Settings:
     Subscription Settings: 'Падпіскі'
     Hide Videos on Watch: 'Хаваць відэа пасля прагляду'
@@ -575,6 +606,7 @@ Settings:
       Праверце яшчэ раз, ці правільны ідэнтыфікатар.
     Hide Channel Home: Хаваць укладку «Галоўная старонка»
     Show Added Items: Паказаць дададзеныя элементы
+    Hide Channel Courses: Схаваць укладку «Курсы» канала
   Data Settings:
     Data Settings: 'Даныя'
     Select Export Type: 'Выбраць тып экспарту'
@@ -639,6 +671,12 @@ Settings:
     City: 'Горад'
     Error getting network information. Is your proxy configured properly?: 'Памылка
       атрымання інфармацыі аб сетцы. Ці правільна наладжаны ваш проксі?'
+    Proxy Warning: FreeTube не мае ўбудаванага проксі-сервера, але можа падключацца
+      да знешняга проксі-сервера, напрыклад, да таго, які працуе на вашым кампутары,
+      як Tor, або да знешняга проксі-сервера, напрыклад, да проксі-сервера SOCKS5,
+      які прадастаўляецца некаторымі VPN. Калі гэта ўключана, пераканайцеся, што ваш
+      проксі/Tor наладжаны належным чынам, інакш FreeTube не зможа атрымаць якія-небудзь
+      дадзеныя.
   SponsorBlock Settings:
     SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Уключыць SponsorBlock'
@@ -825,6 +863,9 @@ Channel:
   Home:
     Home: Галоўная старонка
     View Playlist: Праглядзець плэй-ліст
+  Courses:
+    This channel does not currently have any courses: Зараз на гэтым канале няма курсаў
+    Courses: Курсы
 Video:
   Mark As Watched: 'Пазначыць як прагледжанае'
   Remove From History: 'Выдаліць з гісторыі'
@@ -947,6 +988,17 @@ Video:
   DeArrow:
     Show Original Details: Паказаць арыгінальныя дэталі
     Show Modified Details: Паказаць змененыя дэталі
+  MembersOnly: Відэа толькі для спонсараў нельга глядзець з дапамогай FreeTube, бо
+    яны патрабуюць уваходу ў Google і платнага членства на канале загрузчыка.
+  AgeRestricted: Відэа з абмежаваннем па ўзросце нельга глядзець з дапамогай FreeTube,
+    бо яны патрабуюць уваходу ў Google і выкарыстання ўліковага запісу YouTube, праверанага
+    па ўзросце.
+  DRMProtected: Відэа, абароненыя DRM, нельга прайграваць у FreeTube, бо для іх патрэбны
+    прапрыетарныя кампаненты з закрытым зыходным кодам. Калі вы хочаце паглядзець
+    гэтае відэа, праглядзіце яго на афіцыйным сайце YouTube у вэб-браўзеры з падтрымкай
+    DRM.
+  Save Watched Progress: Захаваць назіраны прагрэс
+  Watched Progress Saved: Працэс захаваны
 Playlist:
   #& About
   Playlist: 'Плэй-ліст'
@@ -1057,6 +1109,9 @@ Tooltips:
     External Link Handling: |
       Выберыце паводзіны па змаўчанні, калі націскаецца спасылка, якую нельга адкрыць у FreeTube..
       Па змаўчанні FreeTube адкрые націснутую спасылку ў браўзеры па змаўчанні.
+    Open Deep Links In New Window: URL-адрасы, якія перадаюцца FreeTube, напрыклад,
+      шляхам перанакіравання пашырэнняў браўзера або аргументаў каманднага радка,
+      адкрываюцца ў новым акне.
   Player Settings:
     Proxy Videos Through Invidious: 'Будзе падключацца да Invidious для прагляду відэа
       замест прамога падключэння да YouTube.'
@@ -1234,6 +1289,15 @@ KeyboardShortcutPrompt:
   Full Window: Пераключыць поўнае акно
   Last Chapter: Апошні раздзел
   Focus Secondary Search: Перанесці фокус на другасную панэль пошуку (калі яна ёсць)
+  Skip by Tenths: Прапускаць відэа ў працэнтах (3 пераходу да 30% працягласці)
+  Increase Video Speed: Павялічыць хуткасць відэа на аснове інтэрвалу хуткасці прайгравання
+    відэа
+  Decrease Video Speed: Паменшыць хуткасць відэа на аснове інтэрвалу хуткасці прайгравання
+    відэа
+  Small Fast Forward: Перамотка наперад X секунд на аснове інтэрвалу перамоткі наперад
+    і бягучай хуткасці прайгравання відэа
+  Small Rewind: Перамотка на X секунд на аснове інтэрвалу перамоткі і бягучай хуткасці
+    прайгравання відэа
 Keys:
   arrowup: Стрэлка ўверх
   arrowright: Стрэлка ўправа
