@@ -16,7 +16,7 @@ import ExperimentalSettings from '../../components/ExperimentalSettings/Experime
 import PasswordSettings from '../../components/PasswordSettings/PasswordSettings.vue'
 import PasswordDialog from '../../components/PasswordDialog/PasswordDialog.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
-import FtButton from '../../components/ft-button/ft-button.vue'
+import FtButton from '../../components/FtButton/FtButton.vue'
 import FtSettingsMenu from '../../components/FtSettingsMenu/FtSettingsMenu.vue'
 
 const ACTIVE_CLASS_NAME = 'active'
