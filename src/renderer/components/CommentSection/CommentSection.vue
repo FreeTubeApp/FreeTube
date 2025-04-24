@@ -546,7 +546,9 @@ async function getCommentDataLocal(more = false) {
       localCommentsInstance = comments
     } else {
       if (props.isPostComments) {
-        comments = await getLocalCommunityPostComments(props.id, props.postAuthorId, sortNewest.value)
+        comments = await getLocalCommunityPostComments(props.id, props.postAuthorId)
+        sortNewest.value = comments.header?.sort_menu?.sub_menu_items?.[1].selected ?? false
+        localCommentsInstance = comments
       } else {
         comments = await getLocalComments(props.id)
         sortNewest.value = comments.header?.sort_menu?.sub_menu_items?.[1].selected ?? false

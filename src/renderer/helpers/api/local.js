@@ -1800,10 +1800,9 @@ export async function getLocalCommunityPost(postId, channelId) {
 /**
  * @param {string} postId
  * @param {string} channelId
- * @param {boolean} sortByNewest
  */
-export async function getLocalCommunityPostComments(postId, channelId, sortByNewest) {
+export async function getLocalCommunityPostComments(postId, channelId) {
   const innertube = await createInnertube()
 
-  return await innertube.getPostComments(postId, channelId, sortByNewest ? 'NEWEST_FIRST' : 'TOP_COMMENTS')
+  return await innertube.getPostComments(postId, channelId)
 }
