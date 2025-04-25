@@ -1101,6 +1101,7 @@ async function importPlaylists() {
             return x.videoId === video.videoId && x.playlistItemId === video.playlistItemId
           })
         } else {
+          // Older playlist exports have no `playlistItemId` but have `timeAdded`
           // Which might be duplicate for copied playlists with duplicate `videoId`
           videoExists = existingPlaylist.videos.some((x) => {
             // Allow duplicate (by videoId) videos to be added
