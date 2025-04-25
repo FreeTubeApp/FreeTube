@@ -1200,3 +1200,8 @@ Cancel: 'Nullañ'
 checkmark: '✓'
 # French is the only language that should change this (they have a space before the colon)
 Display Label: '{label} : {value}'
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Enaouiñ/Lazhañ Ostilhoù diorren
+  Zoom Out: Zoum bihanaat
+  Zoom In: Zoum brassat
+  Fullscreen: Tremen e skramm leun

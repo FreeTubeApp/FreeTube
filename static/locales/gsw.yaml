@@ -42,6 +42,44 @@ Search Filters:
     Last Hour: letzte stunde
     Time: Zeit
     Any Time: jederzeit
+    Today: Hüt
+    This Week: Die Wuche
+    This Year: Die Jahr
+    This Month: Diesen Monet
+  Duration:
+    Duration: Dauer
+    Long (> 20 minutes): Lang (> 20 Minute)
+    All Durations: Alli Dauere
+    Short (< 4 minutes): Churz (< 4 Minute)
+    Medium (4 - 20 minutes): Mittel (< 4 - 20 Minute)
+  Features:
+    HD: HD
+    Location: Ort
+    HDR: HDR
+    VR180: VR180
+    Features: Funktionen
+    4K: 4K
+    Subtitles: Undertitel
+    Creative Commons: Kreativ Commons
+    3D: 3D
+    Live: Live
+    360 Video: 360-Grad Video
+  Search Results: Suechresultat
+  Sort By:
+    Most Relevant: Am Beschte Passend
+    Upload Date: Uflad-Datum
+    Rating: Bewärtig
+    View Count: Ansichtszahl
+  Type:
+    All Types: Alli Typa
+    Videos: Vidéos
+    Movies: Filme
+    Channels: Kanäle
+    Type: Typ
+  Fetching results. Please wait: Suech Resultat. Bitte warte
+  Search Filters: Suechfilter
+  There are no more results for this search: Es git kei meh Resultat für die Suech.
+  Fetch more results: Mehr Resultat sueche
 Settings:
   # On Settings Page
   Theme Settings: {}
@@ -51,6 +89,13 @@ Tooltips: {}
 Search Listing:
   Label:
     4K: 4K
+    VR180: VR180
+    Subtitles: Undertitel
+    360 Video: 360°
+    New: Neu
+    3D: 3D
+    8K: 8K
+    Closed Captions: Gschlosseni Undertitel
 Global:
   Videos: videos
   Counts:
@@ -60,6 +105,7 @@ Global:
     View Count: 1 Aufruf |{count} Aufrufe
     Like Count: 1 like | {count} likes
     Comment Count: 1 Kommentar| {count} Kommentar
+    Watching Count: 1 lueget zue {count} luege zue
   Live: live
   Shorts: shorts
   Community: Gemeinschaft
@@ -69,3 +115,16 @@ Search character limit: Die Suchanfrage ist länger als das erlaubte Limit von {
 Preferences: Ihstellige
 Go to page: gehe zu
 Close Banner: Banner schließen
+Search Bar:
+  Remove: Entferne
+  Clear Input: Eingab lösche
+Right-click or hold to see history: Rechtsklick oder drucke, um d'Geschicht z'gseh
+Subscriptions:
+  Subscriptions: Abonnemente
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Entwicklerwerchzüüg aktivierä/deaktivierä
+  Zoom In: Vergrösserä
+  Zoom Out: Verchlinerä
+  Fullscreen: Vollbild aktivierä
+Profile:
+  Select All: Alles uswähle

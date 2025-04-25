@@ -1035,10 +1035,12 @@ async function importPlaylists() {
   const requiredVideoKeys = [
     'videoId',
     'title',
-    'author',
-    'authorId',
     'lengthSeconds',
     'timeAdded',
+
+    // These two properties will be missing for shorts added to a playlist from anywhere but the watch page
+    // 'author',
+    // 'authorId',
 
     // `playlistItemId` should be optional for backward compatibility
     // 'playlistItemId',

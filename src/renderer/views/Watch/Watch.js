@@ -406,7 +406,10 @@ export default defineComponent({
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
         const recommendedVideos = result.watch_next_feed
-          ?.filter((item) => item.type === 'CompactVideo' || item.type === 'CompactMovie')
+          ?.filter((item) => {
+            return item.type === 'CompactVideo' || item.type === 'CompactMovie' ||
+              (item.type === 'LockupView' && item.content_type === 'VIDEO')
+          })
           .map(parseLocalWatchNextVideo) ?? []
 
         // place watched recommended videos last
@@ -697,7 +700,7 @@ export default defineComponent({
           }
         }
 
-        if (!this.isUpcoming || (this.isUpcoming && this.playabilityStatus === 'OK')) {
+        if ((!this.isUpcoming && !this.isLive && !this.isPostLiveDvr) || (this.isUpcoming && this.playabilityStatus === 'OK')) {
           this.videoLengthSeconds = result.basic_info.duration
           if (result.streaming_data) {
             this.streamingDataExpiryDate = result.streaming_data.expires

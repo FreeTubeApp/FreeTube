@@ -11,12 +11,26 @@ Delete: 'বিলোপ কৰক'
 Select all: 'সকলোক বাছক'
 Reload: 'সতেজ কৰক'
 Force Reload: 'বলেৰে সতেজ কৰক'
-Search Filters: {}
+Search Filters:
+  Type:
+    Videos: ভিডিঅ
 Settings:
   # On Settings Page
   Theme Settings: {}
   Subscription Settings: {}
 Channel:
   Playlists: {}
+  Videos:
+    Videos: ভিডিঅ
 Video: {}
 Locale Name: অসমীয়া
+Global:
+  Videos: ভিডিঅ
+  Live: লাইভ
+  Sort By: বস্তু অনুযায়ী সজাওক
+Search Listing:
+  Label:
+    8K: 8K
+    4K: 4K
+Profile:
+  Select All: সকলোক বাছক

@@ -2,6 +2,7 @@
 
 <!-- Thanks for sending a pull request! Make sure to follow the contributing guidelines. -->
 <!-- Important note, we may remove your pull request if you do not use this provided PR template correctly. -->
+<!-- Do not create PR's with AI! (PRs created mainly with AI will be closed. They waste our team's time. We ban repeat offenders.) -->
 
 ## Pull Request Type
 <!-- Please select what type of pull request this is: [x] -->

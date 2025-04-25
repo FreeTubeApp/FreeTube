@@ -763,3 +763,8 @@ Feed:
   Feed Last Updated: 'El feed de {feedName} se actualizó por última vez: {date}'
   Refresh Feed: Actualizar {subscriptionName}
 Close Banner: Cerrar banner
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Herramientas para desarrolladores
+  Zoom Out: Reducir
+  Zoom In: Ampliar
+  Fullscreen: Pantalla completa

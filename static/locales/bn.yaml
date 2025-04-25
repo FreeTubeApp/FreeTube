@@ -108,7 +108,8 @@ About:
   #On About page
   Email: 'ই-মেইল'
 Channel:
-  Videos: {}
+  Videos:
+    Videos: ভিডিও
   Playlists: {}
 Video: {}
 Tooltips: {}
@@ -198,4 +199,13 @@ Search Listing:
   Label:
     360 Video: ৩৬০°
     New: নতুন
+    8K: 8K
+    4K: 4K
 Right-click or hold to see history: ইতিহাস দেখতে রাইট-ক্লিক করুন অথবা ধরে রাখুন
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: ডেভেলপার যন্ত্র টগল করো
+  Zoom In: সম্প্রসারিত করো (জুম)
+  Zoom Out: সংকুচিত করো(জুম)
+  Fullscreen: পূর্ণ-স্ক্রিন
+Profile:
+  Select All: সব নির্বাচন করো

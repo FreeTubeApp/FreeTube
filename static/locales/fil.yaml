@@ -81,7 +81,8 @@ Settings:
   Theme Settings: {}
   Player Settings: {}
 Channel:
-  Videos: {}
+  Videos:
+    Videos: Mga video
   Playlists: {}
 Download From Site: I-download mula sa website
 Open New Window: buksan ang bagong window
@@ -113,3 +114,14 @@ Version {versionNumber} is now available!  Click for more details: Version {vers
   ay magamit na! . . Pindutin para sa detalye
 A new blog is now available, {blogTitle}. Click to view more: May bagong blog, {blogTitle},
   Pindutin para makita
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: I-toggle ang mga Developer Tools
+  Zoom In: Palakihin
+  Zoom Out: Paliitin
+  Fullscreen: I-fullscreen
+Search Listing:
+  Label:
+    8K: 8K
+    4K: 4K
+Profile:
+  Select All: Piliin lahat
