@@ -77,7 +77,7 @@ import { computed, ref } from 'vue'
 import { useI18n } from '../composables/use-i18n-polyfill'
 import { useRouter } from 'vue-router/composables'
 
-import FtButton from './ft-button/ft-button.vue'
+import FtButton from './FtButton/FtButton.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
 import FtPrompt from './FtPrompt/FtPrompt.vue'
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'

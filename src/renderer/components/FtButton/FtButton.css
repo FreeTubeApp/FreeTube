@@ -20,6 +20,7 @@
   gap: 10px;
   margin: 5px;
   box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
+  border: 2px solid;
 }
 
 .btn:disabled {
