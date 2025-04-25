@@ -3,7 +3,7 @@ Locale Name: 'Afrikaans'
 
 # Webkit Menu Bar
 File: 'Lêer'
-New Window: 'Nuwe venster'
+New Window: 'Nuwe Venster'
 Preferences: 'Voorkeure'
 Quit: 'Sluit'
 Edit: 'Wysig'
@@ -40,7 +40,7 @@ Are you sure you want to open this link?: 'Is jy seker jy wil hierdie skakel oop
 # Global
 # Anything shared among components / views should be put here
 Global:
-  Videos: 'videos'
+  Videos: 'Video''s'
   Shorts: 'Kortvideo’s'
   Live: 'Wêreldwye lewendige'
   Community: 'Gemeenskap'

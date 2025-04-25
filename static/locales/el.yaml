@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Ελληνικά (EL)'
+Locale Name: 'Ελληνικά'
 
 # Webkit Menu Bar
 File: 'Αρχείο'
@@ -408,6 +408,14 @@ Settings:
       Solarized Violet: Ηλιακό Βιολετί
       Everforest Dark Red: Everforest Σκούρο Κόκκινο
       Everforest Dark Orange: Everforest Σκούρο Πορτοκαλί
+      Everforest Dark Purple: Everforest Σκούρο Μωβ
+      Everforest Light Red: Everforest Ανοιχτό Κόκκινο
+      Everforest Light Orange: Everforest Ανοιχτό Πορτοκαλί
+      Everforest Light Yellow: Everforest Ανοιχτό Κίτρινο
+      Everforest Light Green: Everforest Ανοιχτό Πράσινο
+      Everforest Light Aqua: Everforest Ανοιχτό Γαλαζοπράσινο
+      Everforest Light Blue: Everforest Ανοιχτό Μπλε
+      Everforest Light Purple: Everforest Ανοιχτό Μωβ
     Secondary Color Theme: 'Δευτερεύων Χρώμα Θέματος'
         #* Main Color Theme
     UI Scale: Μέγεθος κλίμακας διεπαφής χρήστη
@@ -674,7 +682,7 @@ Settings:
     Enable SponsorBlock: Ενεργοποίηση του SponsorBlock
     Notify when sponsor segment is skipped: Ειδοποίηση όταν παραλείπεται το τμήμα
       χορηγού
-    SponsorBlock Settings: ''
+    SponsorBlock Settings: 'SponsorBlock'
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Διεύθυνση URL του
       API του SponsorBlock (Η προεπιλογή είναι https://sponsor.ajay.app)
     Skip Options:
@@ -747,7 +755,7 @@ About:
   Beta: Βήτα
   Discussions: Συζητήσεις
   Licensed under the: Άδεια χρήσης σύμφωνα με το
-  AGPLv3: ''
+  AGPLv3: 'AGPLv3'
 Profile:
   Profile Select: 'Επιλογή Προφίλ'
   All Channels: 'Όλα τα κανάλια'

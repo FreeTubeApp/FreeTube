@@ -210,8 +210,22 @@ Settings:
   Player Settings: {}
 Channel:
   Playlists: {}
+  Videos:
+    Videos: ვიდეოები
 Video:
   External Player: {}
 Tooltips: {}
 About:
   Email: ელფოსტა
+Search Listing:
+  Label:
+    4K: 4K
+    8K: 8K
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: დამმუშავებლის ინსტრუმენტების გადართვა
+  Zoom In: მასშტაბის გაზრდა
+  Zoom Out: მასშტაბის შემცირება
+  Fullscreen: სრულ ეკრანზე გადართვა
+Preferences: პრეფერენციები
+Profile:
+  Select All: ყველას მონიშვნა

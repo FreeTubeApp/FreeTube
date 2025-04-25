@@ -1108,24 +1108,27 @@ Tooltips:
       venstreklikk på musen for å gå tilbake til den vanlige avspillingshastighet
       (1x med mindre det har blitt endret i innstillingene).
   External Player Settings:
-    Custom External Player Arguments: Alle egendefinerte kommandolinjeargumenter,
-      semikoloninndelt («;») du ønsker å sende til den eksterne avspilleren.
-    Ignore Warnings: Undertrykker advarsler når nåværende ekstern avspiller ikke støtter
-      nåværende handling (f.eks. reversering av spillelister, osv.).
-    Custom External Player Executable: Som forvalg vil FreeTube anta at valgt ekstern
-      spiller er tilgjengelig via PATH-miljøvariabelen. Hvis det trengs kan en egendefinert
-      sti settes her.
-    External Player: Valg av ekstern avspiller viser et ikon for åpning av video (spilleliste
-      hvis det støttes) i den eksterne avspilleren, på miniatyrbildet.
-    DefaultCustomArgumentsTemplate: "(Forvalg: '{defaultCustomArguments}')"
+    Custom External Player Arguments: Alle egendefinerte kommandolinjeargumenter du
+      ønsker å sende til den eksterne avspilleren.
+    Ignore Warnings: Skjuler advarsler når nåværende eksterne avspiller ikke støtter
+      den gjeldende handlingen (f.eks. reversering av spillelister, osv.).
+    Custom External Player Executable: Som standard vil FreeTube anta at den valgte
+      eksterne avspilleren er tilgjengelig via PATH-miljøvariabelen. Hvis det trengs
+      kan en egendefinert sti settes her.
+    External Player: Hvis en velger å bruke ekstern avspiller, vises et ikon for åpning
+      av video (eller spilleliste hvis det støttes) i den eksterne avspilleren, i
+      miniatyrbildet. Invidious-innstillinger gjelder ikke for eksterne avspillere.
+    DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Ikke send noen standardargumenter til den eksterne spilleren
+      utenom videolenken (f.eks avspillingshastighet, spillelistelenke, osv.). Egenvalgte
+      argumenter vil fortsatt bli videresendt.
   Experimental Settings:
     Replace HTTP Cache: Skrur av Electrons diskbaserte HTTP-hurtiglager og skrur på
       bildehurtiglager i minne. Medfører økt minnebruk.
   Distraction Free Settings:
-    Hide Channels: Skiv inn et kanalnavn eller kanal-ID for å skjule alle videoer,
-      spillelister og selve kanalen fra å vises i søk eller på vei opp. Kanalnavnet
-      som skrives inn må være et nøyaktig treff, og gjør forskjell på små og store
-      bokstaver.
+    Hide Channels: Skiv inn en kanal-ID for å skjule alle videoer, spillelister og
+      selve kanalen fra å vises i søk eller andre steder. Kanal-ID-en må være et nøyaktig
+      treff, og skiller mellom små og store bokstaver.
     Hide Subscriptions Live: Innstillingen overstyres av «{appWideSetting}» for hele
       programmet, i «{subsection}»-delen av «{settingsSection}»
   SponsorBlock Settings:
@@ -1223,7 +1226,7 @@ KeyboardShortcutPrompt:
   Last Chapter: Forrige kapittel
   Next Chapter: Neste kapittel
   Navigate to History: Naviger til historie
-  Fullscreen: Veksle fullskjermsvisning
+  Fullscreen: Fullskjermsvisning
   Sections:
     Video:
       General: Video: Generelt
@@ -1265,6 +1268,7 @@ KeyboardShortcutPrompt:
   Navigate to Settings: Naviger til innstillinger
   Keyboard Shortcuts: Tastatursnarveier
   History Forward: Gå fremover en side
+  Toggle Developer Tools: Utviklerverktøy
 Moments Ago: Øyeblikk siden
 shortcutLabelSeparator: ｜
 Description:
