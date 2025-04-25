@@ -34,7 +34,7 @@
         <FtButton
           class="action"
           aria-describedby="youtubeShareImage"
-          @click="copyYoutube()"
+          @click="copyYoutube"
         >
           <FontAwesomeIcon :icon="['fas', 'copy']" />
           {{ $t("Share.Copy Link") }}
@@ -42,7 +42,7 @@
         <FtButton
           class="action"
           aria-describedby="youtubeShareImage"
-          @click="openYoutube()"
+          @click="openYoutube"
         >
           <FontAwesomeIcon :icon="['fas', 'globe']" />
           {{ $t("Share.Open Link") }}
@@ -52,7 +52,7 @@
           class="action"
           aria-describedby="youtubeShareImage"
           background-color="var(--accent-color-active)"
-          @click="copyYoutubeEmbed()"
+          @click="copyYoutubeEmbed"
         >
           <FontAwesomeIcon :icon="['fas', 'copy']" />
           {{ $t("Share.Copy Embed") }}
@@ -62,7 +62,7 @@
           class="action"
           aria-describedby="youtubeShareImage"
           background-color="var(--accent-color-active)"
-          @click="openYoutubeEmbed()"
+          @click="openYoutubeEmbed"
         >
           <FontAwesomeIcon :icon="['fas', 'globe']" />
           {{ $t("Share.Open Embed") }}
@@ -82,7 +82,7 @@
         <FtButton
           aria-describedby="invidiousShare"
           class="action"
-          @click="copyInvidious()"
+          @click="copyInvidious"
         >
           <FontAwesomeIcon :icon="['fas', 'copy']" />
           {{ $t("Share.Copy Link") }}
@@ -90,7 +90,7 @@
         <FtButton
           aria-describedby="invidiousShare"
           class="action"
-          @click="openInvidious()"
+          @click="openInvidious"
         >
           <FontAwesomeIcon :icon="['fas', 'globe']" />
           {{ $t("Share.Open Link") }}
@@ -100,7 +100,7 @@
           aria-describedby="invidiousShare"
           class="action"
           background-color="var(--accent-color-active)"
-          @click="copyInvidiousEmbed()"
+          @click="copyInvidiousEmbed"
         >
           <FontAwesomeIcon :icon="['fas', 'copy']" />
           {{ $t("Share.Copy Embed") }}
@@ -110,7 +110,7 @@
           aria-describedby="invidiousShare"
           class="action"
           background-color="var(--accent-color-active)"
-          @click="openInvidiousEmbed()"
+          @click="openInvidiousEmbed"
         >
           <FontAwesomeIcon :icon="['fas', 'globe']" />
           {{ $t("Share.Open Embed") }}
