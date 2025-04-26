@@ -42,4 +42,4 @@ This Code of Conduct is licensed under the [Creative Commons Attribution License
 
 ## Questions?
 
-If you have questions, please see [Faq](https://docs.freetubeapp.io/faq/). If that doesn't answer your questions, feel free to [contact us](https://github.com/FreeTubeApp/FreeTube?tab=readme-ov-file#contact).
+If you have any questions, please [refer to our FAQ](https://docs.freetubeapp.io/faq/). If that doesn't answer your questions, feel free to [contact us](https://github.com/FreeTubeApp/FreeTube?tab=readme-ov-file#contact).
