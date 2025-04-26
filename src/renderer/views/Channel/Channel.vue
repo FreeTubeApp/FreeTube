@@ -2048,21 +2048,20 @@ async function searchChannelLocal() {
       contents = result.contents.contents
     }
 
-    const results = []
-    contents
+    const results = contents
       .filter(node => node.type === 'ItemSection')
       .flatMap(itemSection => itemSection.contents)
-      .forEach(item => {
+      .reduce((items, item) => {
         if (item.type === 'Video') {
           const video = parseLocalListVideo(item)
           if (video.isMemberOnly || video.isMemberFirst) { return null }
 
-          results.push(video)
+          items.push(video)
         } else if (!hideChannelPlaylists.value && item.type === 'Playlist') {
-          results.push(parseLocalListPlaylist(item, id.value, channelName.value))
+          items.push(parseLocalListPlaylist(item, id.value, channelName.value))
         }
-      })
-      .filter(item => item != null)
+        return items
+      }, [])
 
     if (isNewSearch) {
       searchResults.value = results
