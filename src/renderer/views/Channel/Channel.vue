@@ -1143,9 +1143,7 @@ async function getChannelVideosLocalMore() {
        */
       const continuation = await videoContinuationData.value.getContinuation()
 
-      latestVideos.value = latestVideos.value.concat(
-        parseLocalChannelVideos(continuation.videos, id.value, channelName.value)
-      )
+      latestVideos.value = latestVideos.value.concat(parseLocalChannelVideos(continuation.videos, id.value, channelName.value))
       videoContinuationData.value = continuation.has_continuation ? continuation : null
     }
   } catch (err) {
@@ -1422,9 +1420,7 @@ async function getChannelLiveLocalMore() {
      */
     const continuation = await liveContinuationData.value.getContinuation()
 
-    latestLive.value = latestLive.value.concat(
-      parseLocalChannelVideos(continuation.videos, id.value, channelName.value)
-    )
+    latestLive.value = latestLive.value.concat(parseLocalChannelVideos(continuation.videos, id.value, channelName.value))
     liveContinuationData.value = continuation.has_continuation ? continuation : null
   } catch (err) {
     console.error(err)
@@ -2051,17 +2047,14 @@ async function searchChannelLocal() {
     const results = contents
       .filter(node => node.type === 'ItemSection')
       .flatMap(itemSection => itemSection.contents)
-      .reduce((items, item) => {
+      .filter(item => item.type === 'Video' || (!hideChannelPlaylists.value && item.type === 'Playlist'))
+      .map(item => {
         if (item.type === 'Video') {
-          const video = parseLocalListVideo(item)
-          if (video.isMemberOnly || video.isMemberFirst) { return null }
-
-          items.push(video)
-        } else if (!hideChannelPlaylists.value && item.type === 'Playlist') {
-          items.push(parseLocalListPlaylist(item, id.value, channelName.value))
+          return parseLocalListVideo(item)
+        } else {
+          return parseLocalListPlaylist(item, id.value, channelName.value)
         }
-        return items
-      }, [])
+      })
 
     if (isNewSearch) {
       searchResults.value = results

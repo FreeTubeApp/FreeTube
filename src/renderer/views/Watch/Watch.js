@@ -1712,8 +1712,7 @@ export default defineComponent({
     isHiddenVideo: function (forbiddenTitles, channelsHidden, video) {
       return channelsHidden.some(ch => ch.name === video.authorId) ||
         channelsHidden.some(ch => ch.name === video.author) ||
-        forbiddenTitles.some((text) => video.title?.toLowerCase().includes(text.toLowerCase())) ||
-        (video.isMemberOnly || video.isMemberFirst)
+        forbiddenTitles.some((text) => video.title?.toLowerCase().includes(text.toLowerCase()))
     },
 
     toggleAutoplay: function() {
