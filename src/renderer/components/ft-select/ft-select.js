@@ -1,5 +1,5 @@
 import { defineComponent, nextTick } from 'vue'
-import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
+import FtTooltip from '../FtTooltip/FtTooltip.vue'
 import { sanitizeForHtmlId } from '../../helpers/accessibility'
 
 export default defineComponent({

@@ -7,7 +7,7 @@ import FtSlider from '../FtSlider/FtSlider.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../FtButton/FtButton.vue'
 import FtInput from '../ft-input/ft-input.vue'
-import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
+import FtTooltip from '../FtTooltip/FtTooltip.vue'
 import { DefaultFolderKind, IpcChannels } from '../../../constants'
 
 export default defineComponent({
