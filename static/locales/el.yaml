@@ -682,7 +682,7 @@ Settings:
     Enable SponsorBlock: Ενεργοποίηση του SponsorBlock
     Notify when sponsor segment is skipped: Ειδοποίηση όταν παραλείπεται το τμήμα
       χορηγού
-    SponsorBlock Settings: ''
+    SponsorBlock Settings: 'SponsorBlock'
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Διεύθυνση URL του
       API του SponsorBlock (Η προεπιλογή είναι https://sponsor.ajay.app)
     Skip Options:
@@ -755,7 +755,7 @@ About:
   Beta: Βήτα
   Discussions: Συζητήσεις
   Licensed under the: Άδεια χρήσης σύμφωνα με το
-  AGPLv3: ''
+  AGPLv3: 'AGPLv3'
 Profile:
   Profile Select: 'Επιλογή Προφίλ'
   All Channels: 'Όλα τα κανάλια'

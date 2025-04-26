@@ -225,6 +225,19 @@ function runApp() {
     }
   })
 
+  if (process.platform === 'win32') {
+    app.setUserTasks([
+      {
+        program: process.execPath,
+        arguments: '--new-window',
+        iconPath: process.execPath,
+        iconIndex: 0,
+        title: 'New Window',
+        description: 'Open New Window'
+      }
+    ])
+  }
+
   // disable electron warning
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
   const isDebug = process.argv.includes('--debug')
@@ -292,6 +305,21 @@ function runApp() {
   let proxyUrl
 
   app.on('ready', async (_, __) => {
+    if (process.platform === 'darwin') {
+      const dockMenu = Menu.buildFromTemplate([
+        {
+          label: 'New Window',
+          click: () => {
+            createWindow({
+              replaceMainWindow: false,
+              showWindowNow: true
+            })
+          }
+        }
+      ])
+      app.dock.setMenu(dockMenu)
+    }
+
     if (process.env.NODE_ENV === 'production') {
       protocol.handle('app', async (request) => {
         if (request.method !== 'GET') {
@@ -857,6 +885,8 @@ function runApp() {
         // Which raises "Object has been destroyed" error
         mainWindow = allWindows[0]
       }
+
+      stopPowerSaveBlockerForWindow(newWindow)
     })
   }
 
@@ -1117,12 +1147,46 @@ function runApp() {
     }
   })
 
-  ipcMain.on(IpcChannels.STOP_POWER_SAVE_BLOCKER, (_, id) => {
-    powerSaveBlocker.stop(id)
+  /** @type {Map<number, number>} */
+  const activePowerSaveBlockers = new Map()
+
+  /**
+   * @param {BrowserWindow} window
+   */
+  function stopPowerSaveBlockerForWindow(window) {
+    const powerSaveBlockerId = activePowerSaveBlockers.get(window.id)
+
+    if (typeof powerSaveBlockerId === 'number') {
+      powerSaveBlocker.stop(powerSaveBlockerId)
+
+      activePowerSaveBlockers.delete(window.id)
+    }
+  }
+
+  ipcMain.on(IpcChannels.STOP_POWER_SAVE_BLOCKER, (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
+    const browserWindow = BrowserWindow.fromWebContents(event.sender)
+
+    if (browserWindow) {
+      stopPowerSaveBlockerForWindow(browserWindow)
+    }
   })
 
-  ipcMain.handle(IpcChannels.START_POWER_SAVE_BLOCKER, (_) => {
-    return powerSaveBlocker.start('prevent-display-sleep')
+  ipcMain.on(IpcChannels.START_POWER_SAVE_BLOCKER, (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
+    const browserWindow = BrowserWindow.fromWebContents(event.sender)
+
+    if (browserWindow && !activePowerSaveBlockers.has(browserWindow.id)) {
+      const powerSaveBlockerId = powerSaveBlocker.start('prevent-display-sleep')
+
+      activePowerSaveBlockers.set(browserWindow.id, powerSaveBlockerId)
+    }
   })
 
   ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (event, path, query, searchQueryText) => {

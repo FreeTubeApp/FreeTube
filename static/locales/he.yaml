@@ -232,6 +232,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: אפשר סימנייה מהירה עם רשימת השידורים הזו
   Export Playlist: ייצוא רשימת הנגינה הזאת
   The playlist has been successfully exported: רשימת הנגינה יוצאה בהצלחה
+  TotalTimePlaylist: 'זמן כולל: {duration}'
 History:
   # On History Page
   History: 'היסטוריה'
@@ -306,6 +307,8 @@ Settings:
       Solarized Light: בהיר זוהר
       Gruvbox Dark: תיבת גרוב כהה
       Gruvbox Light: תיבת גרוב בהירה
+      Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Hard: אוורפורסט כהה מאוד
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
@@ -372,11 +375,11 @@ Settings:
     Hide FreeTube Header Logo: הסתרת הלוגו התחתון של FreeTube
   Player Settings:
     Player Settings: 'נגן'
-    Play Next Video: 'ניגון הסרטון הבא'
+    Play Next Video: 'הפעלה אוטומטית של סרטונים מומלצים'
     Turn on Subtitles by Default: 'הפעלת כתוביות כברירת מחדל'
-    Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
+    Autoplay Videos: 'הפעל סרטונים באופן אוטומטי'
     Proxy Videos Through Invidious: 'שימוש במתווך (פרוקסי) לניגון סרטונים דרך Invidious'
-    Autoplay Playlists: 'הפעלה אוטומטית לרשימות נגינה'
+    Autoplay Playlists: 'הפעלה אוטומטית של סרטוני פלייליסט'
     Enable Theatre Mode by Default: 'הפעלת מצב קולנוע כברירת מחדל'
     Default Volume: 'ברירת המחדל לעוצמת השמע'
     Default Playback Rate: 'ברירת המחדל למהירות הצפייה'
@@ -453,6 +456,10 @@ Settings:
       החיפוש ואת המטמון שלך?
     Search history and cache have been cleared: היסטוריית החיפוש והמטמון נמחקו
     Remember Search History: לזכור את היסטוריית החיפוש
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: אוטומטי
+        Never: לעולם לא
   Subscription Settings:
     Subscription Settings: 'מינוי'
     Hide Videos on Watch: 'הסתרת סרטונים לאחר הצפייה'
