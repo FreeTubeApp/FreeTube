@@ -53,7 +53,9 @@ export default defineComponent({
       usingElectron: process.env.IS_ELECTRON,
       isInDesktopView: true,
       settingsSectionTypeOpenInMobile: null,
-      unlocked: false
+      unlocked: false,
+      currentPage: 1,
+      itemsPerPage: 4 // Move by 4 features per page
     }
   },
   computed: {
@@ -166,6 +168,16 @@ export default defineComponent({
 
       return [generalSettingsEntry, ...settingsSections]
     },
+
+    paginatedSettingsSections: function() {
+      const start = (this.currentPage - 1) * this.itemsPerPage
+      const end = start + this.itemsPerPage
+      return this.settingsSectionComponents.slice(start, end)
+    },
+
+    totalPages: function() {
+      return Math.ceil(this.settingsSectionComponents.length / this.itemsPerPage)
+    }
   },
   created: function () {
     if (this.settingsPassword === '') {
@@ -206,7 +218,7 @@ export default defineComponent({
       if (this.isInDesktopView) {
         nextTick(() => {
           const sectionElement = this.$refs[sectionType][0].$el
-          sectionElement.scrollIntoView()
+          sectionElement.scrollIntoView({ behavior: 'smooth' })
 
           const sectionHeading = sectionElement.firstChild.firstChild
           sectionHeading.tabIndex = 0
@@ -231,17 +243,20 @@ export default defineComponent({
     markScrolledToSectionAsActive: function() {
       const scrollY = window.scrollY + innerHeight / 4
       this.settingsSectionComponents.forEach((section) => {
-        const sectionElement = this.$refs[section.type][0].$el
-        const sectionHeight = sectionElement.offsetHeight
-        const sectionTop = sectionElement.offsetTop
-        const correspondingMenuLink = document.getElementById(section.type)
+        const sectionElement = this.$refs[section.type] && this.$refs[section.type][0] && this.$refs[section.type][0].$el;
+        if (!sectionElement) {
+          return;
+        }
+        const sectionHeight = sectionElement.offsetHeight;
+        const sectionTop = sectionElement.offsetTop;
+        const correspondingMenuLink = document.getElementById(section.type);
 
         if (this.isInDesktopView && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          correspondingMenuLink.classList.add(ACTIVE_CLASS_NAME)
+          correspondingMenuLink && correspondingMenuLink.classList.add(ACTIVE_CLASS_NAME);
         } else {
-          correspondingMenuLink.classList.remove(ACTIVE_CLASS_NAME)
+          correspondingMenuLink && correspondingMenuLink.classList.remove(ACTIVE_CLASS_NAME);
         }
-      })
+      });
     },
 
     handleResize: function () {
@@ -260,6 +275,18 @@ export default defineComponent({
 
         const sectionType = activeMenuLink.id
         this.navigateToSection(sectionType)
+      }
+    },
+
+    prevPage: function() {
+      if (this.currentPage > 1) {
+        this.currentPage--
+      }
+    },
+
+    nextPage: function() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++
       }
     },
 

@@ -14,7 +14,7 @@
       </div>
       <ft-settings-menu
         v-show="isInDesktopView || settingsSectionTypeOpenInMobile == null"
-        :settings-sections="settingsSectionComponents"
+        :settings-sections="paginatedSettingsSections"
         @navigate-to-section="navigateToSection"
       />
       <div
@@ -38,7 +38,7 @@
         </div>
         <div class="settingsSections">
           <template
-            v-for="(settingsComponent) in settingsSectionComponents"
+            v-for="(settingsComponent, index) in paginatedSettingsSections"
           >
             <component
               :is="settingsComponent.type"
@@ -48,6 +48,11 @@
               class="section"
             />
           </template>
+        </div>
+        <div class="pagination">
+          <button class="pagination-button" @click="prevPage" :disabled="currentPage === 1">Previous</button>
+          <span>Page {{ currentPage }} of {{ totalPages }}</span>
+          <button class="pagination-button" @click="nextPage" :disabled="currentPage === totalPages">Next</button>
         </div>
       </div>
     </template>
