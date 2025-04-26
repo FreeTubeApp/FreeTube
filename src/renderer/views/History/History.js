@@ -47,13 +47,18 @@ export default defineComponent({
       showLoadMoreButton: false,
       query: '',
       activeData: [],
+      sortDirection: 'desc', // Default is descending (newest first)
     }
   },
   computed: {
     historyCacheSorted: function () {
-      return this.$store.getters.getHistoryCacheSorted
+      // Sort the history based on sortDirection
+      return this.$store.getters.getHistoryCacheSorted.sort((a, b) => {
+        return this.sortDirection === 'desc' 
+          ? b.timeWatched - a.timeWatched // Newest first
+          : a.timeWatched - b.timeWatched; // Oldest first
+      });
     },
-
     fullData: function () {
       if (this.historyCacheSorted.length < this.dataLimit) {
         return this.historyCacheSorted
@@ -83,7 +88,6 @@ export default defineComponent({
 
     const oldQuery = this.$route.query.searchQueryText ?? ''
     if (oldQuery !== null && oldQuery !== '') {
-      // `handleQueryChange` must be called after `filterHistoryDebounce` assigned
       this.handleQueryChange(
         oldQuery,
         {
@@ -93,14 +97,18 @@ export default defineComponent({
         },
       )
     } else {
-      // Only display unfiltered data when no query used last time
-      this.filterHistory()
+      this.filterHistory() // Make sure this is called right away to filter history
     }
   },
   beforeDestroy: function () {
     document.removeEventListener('keydown', this.keyboardShortcutHandler)
   },
   methods: {
+    toggleSort: function () {
+      // Toggle between 'desc' and 'asc'
+      this.sortDirection = this.sortDirection === 'desc' ? 'asc' : 'desc';
+      this.filterHistory();  // Reapply the filter with the new sort order
+    },
     handleQueryChange(query, { limit = null, doCaseSensitiveSearch = null, filterNow = false } = {}) {
       this.query = query
 
@@ -127,12 +135,15 @@ export default defineComponent({
         sessionStorage.setItem('History/dataLimit', this.dataLimit)
       }
     },
+
     filterHistoryAsync: function() {
       // Updating list on every char input could be wasting resources on rendering
       // So run it with delay (to be cancelled when more input received within time)
       this.filterHistoryDebounce()
     },
+
     filterHistory: function() {
+      // If query is empty, show the most recent videos (already sorted by time)
       if (this.query === '') {
         this.activeData = this.fullData
         this.showLoadMoreButton = this.activeData.length < this.historyCacheSorted.length
@@ -187,3 +198,5 @@ export default defineComponent({
     },
   }
 })
+
+

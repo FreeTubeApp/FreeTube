@@ -17,13 +17,13 @@
         {{ $t("History.History") }}
       </h2>
       <ft-input
-        v-show="fullData.length > 1"
+        v-show="fullData.length > 0"
         ref="searchBar"
         :placeholder="$t('History.Search bar placeholder')"
         :show-clear-text-button="true"
         :show-action-button="false"
         :value="query"
-        @input="handleQueryChange"
+        @input="(input) => handleQueryChange(input)"
         @clear="() => handleQueryChange('')"
       />
       <div
@@ -36,6 +36,16 @@
           :default-value="doCaseSensitiveSearch"
           @change="doCaseSensitiveSearch = !doCaseSensitiveSearch"
         />
+
+<ft-button
+  v-if="fullData.length > 0"
+  :label="'Sort by ' + (sortDirection === 'desc' ? 'Oldest' : 'Newest')"
+  background-color="var(--primary-color)"
+  text-color="var(--text-with-main-color)"
+  @click="toggleSort"
+/>
+
+
       </div>
       <ft-flex-box
         v-show="fullData.length === 0"
