@@ -40,6 +40,7 @@
       />
       <div class="select-container">
         <FtToggleSwitch
+          v-if="currentTab=== 'videos'"
           :label="$t('Hide Watched')"
           compact
           :default-value="toggleSwitchValue"
