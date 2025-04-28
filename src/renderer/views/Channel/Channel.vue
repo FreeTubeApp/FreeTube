@@ -39,6 +39,12 @@
         :related-channels="relatedChannels"
       />
       <div class="select-container">
+        <FtToggleSwitch
+          :label="$t('Hide Watched')"
+          compact
+          :default-value="toggleSwitchValue"
+          @change="updateToggleSwitchValue"
+        />
         <FtSelect
           v-if="showVideoSortBy"
           v-show="currentTab === 'videos' && latestVideos.length > 0"
@@ -281,6 +287,7 @@ import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
+import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 
 import store from '../../store/index'
 
@@ -340,6 +347,11 @@ const isLoading = ref(true)
 const isElementListLoading = ref(false)
 const isSearchTabLoading = ref(false)
 const currentTab = ref('videos')
+const toggleSwitchValue = ref(false)
+
+const updateToggleSwitchValue = (newValue) => {
+  toggleSwitchValue.value = newValue
+}
 
 const isCurrentTabLoading = computed(() => {
   return currentTab.value === 'search' ? isSearchTabLoading.value : isElementListLoading.value
