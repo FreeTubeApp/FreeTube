@@ -43,8 +43,8 @@
           v-if="currentTab=== 'videos'"
           :label="$t('Hide Watched')"
           compact
-          :default-value="toggleSwitchValue"
-          @change="updateToggleSwitchValue"
+          :default-value="hideWatchedToggle"
+          @change="updateHideWatchedToggle"
         />
         <FtSelect
           v-if="showVideoSortBy"
@@ -348,10 +348,11 @@ const isLoading = ref(true)
 const isElementListLoading = ref(false)
 const isSearchTabLoading = ref(false)
 const currentTab = ref('videos')
-const toggleSwitchValue = ref(false)
 
-const updateToggleSwitchValue = (newValue) => {
-  toggleSwitchValue.value = newValue
+const hideWatchedToggle = ref(false)
+
+const updateHideWatchedToggle = (hideWatchedToggle) => {
+  hideWatchedToggle.value = !hideWatchedToggle.value
 }
 
 const isCurrentTabLoading = computed(() => {
