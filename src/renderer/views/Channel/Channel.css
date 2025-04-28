@@ -19,6 +19,10 @@
   margin-block-end: 10px;
 }
 
+.select-container > :first-child {
+  margin-inline-end: auto;
+}
+
 .elementListLoading {
   margin-block-start: 200px;
 }
