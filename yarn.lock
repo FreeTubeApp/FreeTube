@@ -2429,10 +2429,10 @@ at-least-node@^1.0.0:
   resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
   integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
-autolinker@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/autolinker/-/autolinker-4.1.0.tgz#b39896506bb476b3b0eb6d0840149cb2bddb0bef"
-  integrity sha512-mYzdZMei1zIXcHVS/LjnuCJG+C/hNi8O+5m0R8YWtrIBWGrjL8CVzEZXxOfH0l1kioEXHNpUJRkgZdyL4GgIHQ==
+autolinker@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/autolinker/-/autolinker-4.1.1.tgz#ddeae6a2a9c89d3423dbeef6b0d507464be97ea0"
+  integrity sha512-yjILLi+M+Ue69J8iUaBQKjVfSujUPkWVy/1tbt97kI25aD7FZ23m6JL9QellmvaVZQ8Pr/4rXm19RZ4ns31TPQ==
   dependencies:
     tslib "^2.8.1"
 
