@@ -1068,8 +1068,8 @@ Profile:
   Close Profile Dropdown: Lukk profilrullgardinmenyen
   Open Profile Dropdown: Åpne profilrullgardinmenyen
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Denne
-  videoen er utilgjengelig grunnet manglende formater. Dette kan skyldes tilgangbegrensninger
-  i ditt land.
+  videoen er utilgjengelig på grunn av manglende formater. Dette kan skyldes tilgangbegrensninger
+  i landet ditt.
 Tooltips:
   General Settings:
     Invidious Instance: Invidious-forekomsten FreeTube kobler til for API-kall.
@@ -1089,10 +1089,10 @@ Tooltips:
       omdirigeringer fra nettleseren eller via terminalprosesser, åpnes i et nytt
       vindu.
   Subscription Settings:
-    Fetch Feeds from RSS: Bruk RSS istedenfor FreeTube sin forvalgte metode for innhenting
-      av din abonnementsstrøm. RSS er raskere og forhindrer IP-blokkering, men mangler
-      noe informasjon som videovarighet og sanntidsstatus.
-    Fetch Automatically: Henter abonnementer når en ny video åpnes og ved bytting
+    Fetch Feeds from RSS: Bruk RSS istedenfor FreeTube sin standardmetode for innhenting
+      av abonnementsstrømmen din. RSS er raskere og forhindrer IP-blokkering, men
+      mangler noe informasjon som videovarighet, sanntidsstatus og samfunnsposter
+    Fetch Automatically: Hent abonnementer når et nytt vindu åpnes og ved bytting
       av profil.
   Player Settings:
     Default Video Format: Velg formater som blir brukt når en video spilles. DASH-formater
@@ -1131,8 +1131,13 @@ Tooltips:
       treff, og skiller mellom små og store bokstaver.
     Hide Subscriptions Live: Innstillingen overstyres av «{appWideSetting}» for hele
       programmet, i «{subsection}»-delen av «{settingsSection}»
+    Hide Videos and Playlists Containing Text: Tast inn et ord, en del av et ord eller
+      en frase (det skilles ikke mellom store og små bokstaver) for å gjemme alle
+      videoer og spillelister med det i seg, med unntak av i historikken din, og videoer
+      inne i spillelister.
   SponsorBlock Settings:
     UseDeArrowTitles: Erstatt videonavn med brukerinnsendte navn fra DeArrow.
+    UseDeArrowThumbnails: Erstatt miniatyrbilder på videoer med bilder fra DeArrow.
 A new blog is now available, {blogTitle}. Click to view more: Et nytt blogginnlegg
   er tilgjengelig, {blogTitle}. Klikk her for å se mer
 The playlist has been reversed: Spillelisten har blitt snudd
