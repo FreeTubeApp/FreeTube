@@ -26,6 +26,11 @@ import contextMenu from 'electron-context-menu'
 
 import packageDetails from '../../package.json'
 import { generatePoToken } from './poTokenGenerator'
+import {
+  getStoreUserDataInAppFolderEnabled,
+  getUserDataPath,
+  toggleStoreUserDataInAppFolderEnabledAndMigrateFiles,
+} from './userDataFolder'
 
 const brotliDecompressAsync = promisify(brotliDecompress)
 
@@ -75,6 +80,7 @@ function runApp() {
   }
 
   const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
+  const APP_FOLDER_PATH = path.dirname(process.execPath)
 
   contextMenu({
     showSearchWithGoogle: false,
@@ -273,7 +279,8 @@ function runApp() {
   let mainWindow
   let startupUrl
 
-  const userDataPath = app.getPath('userData')
+  const userDataPath = getUserDataPath()
+  const storeUserDataInAppFolderEnabled = getStoreUserDataInAppFolderEnabled()
 
   // command line switches need to be added before the app ready event first
   // that means we can't use the normal settings system as that is asynchronous,
@@ -287,7 +294,7 @@ function runApp() {
     app.commandLine.appendSwitch('disable-http-cache')
   }
 
-  const PLAYER_CACHE_PATH = `${userDataPath}/player_cache`
+  const PLAYER_CACHE_PATH = `${APP_FOLDER_PATH}/player_cache`
 
   // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
   // remove so we can register each time as we run the app.
@@ -1252,6 +1259,16 @@ function runApp() {
       const handle = await asyncFs.open(REPLACE_HTTP_CACHE_PATH, 'w')
       await handle.close()
     }
+
+    relaunch()
+  })
+
+  ipcMain.handle(IpcChannels.GET_STORE_USER_DATA_IN_APP_FOLDER, () => {
+    return storeUserDataInAppFolderEnabled
+  })
+
+  ipcMain.once(IpcChannels.TOGGLE_STORE_USER_DATA_IN_APP_FOLDER, async () => {
+    await toggleStoreUserDataInAppFolderEnabledAndMigrateFiles()
 
     relaunch()
   })

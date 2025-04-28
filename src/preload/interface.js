@@ -70,6 +70,17 @@ export default {
     ipcRenderer.send(IpcChannels.TOGGLE_REPLACE_HTTP_CACHE)
   },
 
+  /**
+   * @returns {Promise<boolean>}
+   */
+  getStoreUserDataInAppFolder: () => {
+    return ipcRenderer.invoke(IpcChannels.GET_STORE_USER_DATA_IN_APP_FOLDER)
+  },
+
+  toggleStoreUserDataInAppFolder: () => {
+    ipcRenderer.send(IpcChannels.TOGGLE_STORE_USER_DATA_IN_APP_FOLDER)
+  },
+
   // Allows programmatic toggling of picture-in-picture mode without accompanying user interaction.
   // See: https://developer.mozilla.org/en-US/docs/Web/Security/User_activation#transient_activation
   requestPiP: () => {

@@ -681,6 +681,9 @@ Settings:
     Experimental Settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
     Replace HTTP Cache: Replace HTTP Cache
+    Store User Data In App Folder:
+      Label: Store User Data In App Folder
+      Tooltip: User data files will be stored inside the folder where the executable resides. Making backups before enabling is highly recommended. Use at your own risk!
   Password Dialog:
     Password: Password
     Enter Password To Unlock: Enter password to unlock settings
