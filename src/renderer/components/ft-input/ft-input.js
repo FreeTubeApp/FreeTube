@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 
-import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
+import FtTooltip from '../FtTooltip/FtTooltip.vue'
 import { isKeyboardEventKeyPrintableChar, isNullOrEmpty } from '../../helpers/strings'
 
 export default defineComponent({

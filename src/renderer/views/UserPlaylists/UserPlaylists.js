@@ -2,9 +2,8 @@ import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import FtTooltip from '../../components/ft-tooltip/ft-tooltip.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
-import FtButton from '../../components/ft-button/ft-button.vue'
+import FtButton from '../../components/FtButton/FtButton.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
@@ -33,7 +32,6 @@ export default defineComponent({
   components: {
     'ft-card': FtCard,
     'ft-flex-box': FtFlexBox,
-    'ft-tooltip': FtTooltip,
     'ft-loader': FtLoader,
     'ft-button': FtButton,
     'ft-select': FtSelect,

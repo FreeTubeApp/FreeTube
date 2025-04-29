@@ -1103,20 +1103,17 @@ export default defineComponent({
 
     // #region power save blocker
 
-    let powerSaveBlocker = null
-
-    async function startPowerSaveBlocker() {
-      if (process.env.IS_ELECTRON && powerSaveBlocker === null) {
+    function startPowerSaveBlocker() {
+      if (process.env.IS_ELECTRON) {
         const { ipcRenderer } = require('electron')
-        powerSaveBlocker = await ipcRenderer.invoke(IpcChannels.START_POWER_SAVE_BLOCKER)
+        ipcRenderer.send(IpcChannels.START_POWER_SAVE_BLOCKER)
       }
     }
 
     function stopPowerSaveBlocker() {
-      if (process.env.IS_ELECTRON && powerSaveBlocker !== null) {
+      if (process.env.IS_ELECTRON) {
         const { ipcRenderer } = require('electron')
-        ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, powerSaveBlocker)
-        powerSaveBlocker = null
+        ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER)
       }
     }
 

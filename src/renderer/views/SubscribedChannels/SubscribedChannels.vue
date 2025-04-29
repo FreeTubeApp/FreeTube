@@ -17,7 +17,7 @@
         :show-clear-text-button="true"
         :show-action-button="false"
         :maxlength="255"
-        @input="(input) => handleQueryChange(input)"
+        @input="handleQueryChange"
         @clear="() => handleQueryChange('')"
       />
       <ft-flex-box

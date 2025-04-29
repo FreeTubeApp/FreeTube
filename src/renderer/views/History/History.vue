@@ -23,7 +23,7 @@
         :show-clear-text-button="true"
         :show-action-button="false"
         :value="query"
-        @input="(input) => handleQueryChange(input)"
+        @input="handleQueryChange"
         @clear="() => handleQueryChange('')"
       />
       <div

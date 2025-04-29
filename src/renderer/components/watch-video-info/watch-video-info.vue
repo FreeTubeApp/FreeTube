@@ -135,7 +135,7 @@
             theme="secondary"
             :icon="['fas', 'file-video']"
             :dropdown-options="formatTypeOptions"
-            @click="changeFormat($event)"
+            @click="changeFormat"
           />
           <ft-share-button
             v-if="!hideSharingActions"

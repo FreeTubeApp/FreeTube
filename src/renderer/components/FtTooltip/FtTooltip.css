@@ -90,10 +90,6 @@
   inline-size: 55vw;
 }
 
-@media only screen and (width <= 1100px) {
-  inline-size: 40vw;
-}
-
 .tooltip {
   display: inline-block;
   position: relative;
