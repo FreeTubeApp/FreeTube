@@ -226,6 +226,14 @@ export async function getLocalVideoInfo(id) {
 
   const info = await webInnertube.getInfo(id)
 
+  // temporary workaround for SABR-only responses
+  const mwebInfo = await webInnertube.getBasicInfo(id, 'MWEB')
+
+  if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data) {
+    info.playability_status = mwebInfo.playability_status
+    info.streaming_data = mwebInfo.streaming_data
+  }
+
   let hasTrailer = info.has_trailer
   let trailerIsAgeRestricted = info.getTrailerInfo() === null
 
