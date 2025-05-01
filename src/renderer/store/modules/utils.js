@@ -907,7 +907,7 @@ const mutations = {
       const elements = getClickableElements()
       displayHints(elements)
       state.areVimWaypointsShown.selector.push(key)
-    } else if (['Esc', 'Escape'].includes(key) | (key === 'Backspace' && state.areVimWaypointsShown.selector.length === 1)) {
+    } else if (['Esc', 'Escape'].includes(key) || (key === 'Backspace' && state.areVimWaypointsShown.selector.length === 1)) {
       close()
       return
     } else if (key === 'Backspace') {
