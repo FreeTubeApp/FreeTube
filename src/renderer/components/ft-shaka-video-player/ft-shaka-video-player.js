@@ -2063,16 +2063,23 @@ export default defineComponent({
       seekBySeconds(dist, true)
     }
 
+    const areVimWaypointsShown = computed(() => {
+      return store.getters.getAreVimWaypointsShown
+    })
+
+    const vimEnabled = computed(() => {
+      return store.getters.getEnableVimNavigation
+    })
+
     /**
      * @param {KeyboardEvent} event
      */
     function keyboardShortcutHandler(event) {
-      const vimEnabled = store.getters.getEnableVimNavigation
       const passToVim =
         // If vim keys are enabled, ctrl is not held down, and the key is not f, j, or k.
-        (vimEnabled && !event.ctrlKey && ['f', 'j', 'k'].includes(event.key)) || // OR
+        (vimEnabled.value && !event.ctrlKey && ['f', 'j', 'k'].includes(event.key)) || // OR
         // The waypoints are already on the screen
-        (store.getters.getAreVimWaypointsShown.length && store.getters.getAreVimWaypointsShown.selector[0] === 'f')
+        (areVimWaypointsShown.value.length && areVimWaypointsShown.value.selector[0] === 'f')
       if (passToVim) {
         return
       }
@@ -2116,12 +2123,12 @@ export default defineComponent({
       switch (event.key.toLowerCase()) {
         case ' ':
         case 'spacebar': // older browsers might return spacebar instead of a space character
-        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK[vimEnabled ? 'VIM_ENABLED_PLAY' : 'PLAY']:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK[vimEnabled.value ? 'VIM_ENABLED_PLAY' : 'PLAY']:
           // Toggle Play/Pause
           event.preventDefault()
           video_.paused ? video_.play() : video_.pause()
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK[vimEnabled ? 'VIM_ENABLED_LARGE_REWIND' : 'LARGE_REWIND']:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK[vimEnabled.value ? 'VIM_ENABLED_LARGE_REWIND' : 'LARGE_REWIND']:
           // Rewind by 2x the time-skip interval (in seconds)
           event.preventDefault()
           seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate() * 2)
@@ -2141,7 +2148,7 @@ export default defineComponent({
           event.preventDefault()
           changePlayBackRate(videoPlaybackRateInterval.value)
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL[vimEnabled ? 'VIM_ENABLED_FULLSCREEN' : 'FULLSCREEN']:
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL[vimEnabled.value ? 'VIM_ENABLED_FULLSCREEN' : 'FULLSCREEN']:
           // Toggle full screen
           event.preventDefault()
           ui.getControls().toggleFullScreen()
