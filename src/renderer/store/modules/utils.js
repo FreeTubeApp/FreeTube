@@ -404,11 +404,11 @@ const actions = {
   },
 
   showVimWaypoints({ commit }) {
-    commit('setAreVimWaypointsShown', true)
+    commit('setAreVimWaypointsShown', ['f'])
   },
 
   hideVimWaypoints({ commit }) {
-    commit('setAreVimWaypointsShown', false)
+    commit('setAreVimWaypointsShown', [])
   },
 
   showSearchFilters ({ commit }) {
