@@ -502,6 +502,9 @@ Settings:
       что хотите очистить историю поиска и кэш?
     Search history and cache have been cleared: История поиска и кэш были очищены
     Remember Search History: Сохранять Историю Поисков
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Авто
   Data Settings:
     How do I import my subscriptions?: Как импортировать подписки?
     Unknown data key: Неизвестный ключ данных
