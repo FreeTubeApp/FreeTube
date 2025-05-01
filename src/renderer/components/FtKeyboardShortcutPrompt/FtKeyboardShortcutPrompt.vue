@@ -139,8 +139,7 @@ const localizedShortcutNameToShortcutsMappings = computed(() => {
     [t('KeyboardShortcutPrompt.Focus Secondary Search'), ['FOCUS_SECONDARY_SEARCH']],
 
     [t('KeyboardShortcutPrompt.Captions'), ['CAPTIONS']],
-    [t('KeyboardShortcutPrompt.Theatre Mode'), ['THEATRE_MODE']],
-    [t('KeyboardShortcutPrompt.Fullscreen'), [enableVimNavigation.value ? 'VIM_ENABLED_FULLSCREEN' : 'FULLSCREEN']],
+    [t('KeyboardShortcutPrompt.Fullscreen'), ['FULLSCREEN']],
     [t('KeyboardShortcutPrompt.Full Window'), ['FULLWINDOW']],
     [t('KeyboardShortcutPrompt.Picture in Picture'), ['PICTURE_IN_PICTURE']],
     [t('KeyboardShortcutPrompt.Mute'), ['MUTE']],
@@ -149,7 +148,6 @@ const localizedShortcutNameToShortcutsMappings = computed(() => {
     [t('KeyboardShortcutPrompt.Take Screenshot'), ['TAKE_SCREENSHOT']],
     [t('KeyboardShortcutPrompt.Stats'), ['STATS']],
 
-    [t('KeyboardShortcutPrompt.Play'), [enableVimNavigation.value ? 'VIM_ENABLED_PLAY' : 'PLAY"']],
     [t('KeyboardShortcutPrompt.Large Rewind'), [enableVimNavigation.value ? 'VIM_ENABLED_LARGE_REWIND' : 'LARGE_REWIND']],
     [t('KeyboardShortcutPrompt.Large Fast Forward'), ['LARGE_FAST_FORWARD']],
     [t('KeyboardShortcutPrompt.Small Rewind'), ['SMALL_REWIND']],

@@ -49,9 +49,7 @@ const shakaControlKeysToShortcuts = {
   ENTER_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
   EXIT_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
   CAPTIONS: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS,
-  FULL_SCREEN: store.getters.getEnableVimNavigation
-    ? KeyboardShortcuts.VIDEO_PLAYER.VIM_ENABLED_FULLSCREEN
-    : KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN,
+  FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN,
   EXIT_FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN
 }
 
@@ -2077,9 +2075,10 @@ export default defineComponent({
     function keyboardShortcutHandler(event) {
       const passToVim =
         // If vim keys are enabled, ctrl is not held down, and the key is not f, j, or k.
-        (vimEnabled.value && !event.ctrlKey && ['f', 'j', 'k'].includes(event.key)) || // OR
+        (vimEnabled.value && !event.ctrlKey && ['t', 'j', 'k'].includes(event.key)) || // OR
         // The waypoints are already on the screen
-        (areVimWaypointsShown.value.length && areVimWaypointsShown.value.selector[0] === 'f')
+        ((areVimWaypointsShown.value.selector || []).length && areVimWaypointsShown.value.selector[0] === 't')
+
       if (passToVim) {
         return
       }
@@ -2148,7 +2147,7 @@ export default defineComponent({
           event.preventDefault()
           changePlayBackRate(videoPlaybackRateInterval.value)
           break
-        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL[vimEnabled.value ? 'VIM_ENABLED_FULLSCREEN' : 'FULLSCREEN']:
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL['FULLSCREEN']:
           // Toggle full screen
           event.preventDefault()
           ui.getControls().toggleFullScreen()
