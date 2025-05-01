@@ -142,6 +142,8 @@ async function doRequest(
   let chunkedDataBuffer = null
   /** @type {Uint8Array[]} */
   const responseDataChunks = []
+  let segmentComplete = false
+
   let invalidPoToken = false
   let error
   /** @type {string | undefined} */
@@ -212,6 +214,7 @@ async function doRequest(
           }
           case PART.MEDIA_END: {
             if (mediaHeaderId === part.data.getUint8(0)) {
+              segmentComplete = true
               abortStatus.finished = true
               abortController.abort()
             }
@@ -246,7 +249,7 @@ async function doRequest(
     throw createRecoverableNetworkError(ShakaError.Code.TIMEOUT, uri, requestType)
   }
 
-  if (responseDataChunks.length > 0) {
+  if (responseDataChunks.length > 0 && segmentComplete) {
     const data = /** @__NOINLINE__ */ concatenateChunks(responseDataChunks)
 
     if (isInit) {
@@ -294,6 +297,13 @@ async function doRequest(
       ShakaError.Code.HTTP_ERROR,
       uri,
       new Error(error),
+      requestType
+    )
+  } else if (responseDataChunks.length > 0 && !segmentComplete) {
+    throw createRecoverableNetworkError(
+      ShakaError.Code.HTTP_ERROR,
+      uri,
+      new Error('Incomplete segment, missing MEDIA_END part'),
       requestType
     )
   } else if (response.status === 200) {
