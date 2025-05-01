@@ -937,7 +937,6 @@ const mutations = {
       document.querySelectorAll('.vimHint').forEach((el) => el.remove())
       state.areVimWaypointsShown.selector = []
     }
-    console.warn(selector)
     function getClickableElements() {
       return [
         ...document.querySelectorAll('a, button, [type="button"], [type="submit"], [role="tab"], [role="button"], input[type="text"], [role="link"]')
