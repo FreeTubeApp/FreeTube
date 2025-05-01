@@ -1,7 +1,7 @@
 <template>
   <div
     class="container"
-    :class="{ fullscreen: fullscreen }"
+    :class="{ fullscreen }"
   >
     <div class="spinner">
       <div class="double-bounce1" />
@@ -10,5 +10,13 @@
   </div>
 </template>
 
-<script src="./ft-loader.js" />
-<style scoped src="./ft-loader.css" />
+<script setup>
+defineProps({
+  fullscreen: {
+    type: Boolean,
+    default: false
+  }
+})
+</script>
+
+<style scoped src="./FtLoader.css" />
