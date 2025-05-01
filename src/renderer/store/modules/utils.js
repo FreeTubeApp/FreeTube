@@ -937,6 +937,7 @@ const mutations = {
       document.querySelectorAll('.vimHint').forEach((el) => el.remove())
       state.areVimWaypointsShown.selector = []
     }
+
     function getClickableElements() {
       return [
         ...document.querySelectorAll('a, button, [type="button"], [type="submit"], [role="tab"], [role="button"], input[type="text"], [role="link"]')
@@ -945,25 +946,19 @@ const mutations = {
 
     function numberToHintStr(number, chars, digits = 0) {
       const base = chars.length
-      const hintStr = []
+      let hintStr = ''
       let remainder = 0
 
-      while (true) {
+      do {
         remainder = number % base
-        hintStr.unshift(chars[remainder])
-        number -= remainder
+        hintStr = chars[remainder] + hintStr // Unshift using string operations
         number = Math.floor(number / base)
-        if (number <= 0) {
-          break
-        }
-      }
+      } while (number > 0)
 
-      // Pad the hint string to ensure its length is at least 'digits'.
-      while (hintStr.length < digits) {
-        hintStr.unshift(chars[0])
-      }
+      // Use padStart to ensure the string is at least 'digits' in length.
+      hintStr = hintStr.padStart(digits, chars[0])
 
-      return hintStr.join('')
+      return hintStr
     }
 
     // Example usage: Generate hints for all link elements
