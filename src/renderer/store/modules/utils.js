@@ -34,6 +34,7 @@ const state = {
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
   isKeyboardShortcutPromptShown: false,
+  areVimWaypointsShown: false,
   showSearchFilters: false,
   searchFilterValueChanged: false,
   progressBarPercentage: 0,
@@ -108,6 +109,10 @@ const getters = {
 
   getIsKeyboardShortcutPromptShown(state) {
     return state.isKeyboardShortcutPromptShown
+  },
+
+  getAreVimWaypointsShown(state) {
+    return state.areVimWaypointsShown
   },
 
   getShowAddToPlaylistPrompt(state) {
@@ -396,6 +401,14 @@ const actions = {
 
   hideKeyboardShortcutPrompt ({ commit }) {
     commit('setIsKeyboardShortcutPromptShown', false)
+  },
+
+  showVimWaypoints({ commit }) {
+    commit('setAreVimWaypointsShown', true)
+  },
+
+  hideVimWaypoints({ commit }) {
+    commit('setAreVimWaypointsShown', false)
   },
 
   showSearchFilters ({ commit }) {
@@ -886,6 +899,168 @@ const mutations = {
 
   setIsKeyboardShortcutPromptShown (state, payload) {
     state.isKeyboardShortcutPromptShown = payload
+  },
+
+  setAreVimWaypointsShown(state, { key }) {
+    const selectedLetterColor = '#D4AC3A'
+    if (key === 'f' && !document.querySelector('.vimHint')) {
+      const elements = getClickableElements()
+      displayHints(elements)
+      state.areVimWaypointsShown.selector.push(key)
+    } else if (['Esc', 'Escape'].includes(key) | (key === 'Backspace' && state.areVimWaypointsShown.selector.length === 1)) {
+      close()
+      return
+    } else if (key === 'Backspace') {
+      state.areVimWaypointsShown.selector.pop()
+    } else {
+      state.areVimWaypointsShown.selector.push(key)
+    }
+    const keys = state.areVimWaypointsShown.selector.slice(1).join('').toUpperCase()
+    const selector = keys.length ? `[data-hint-index^="${keys}"]` : '.vimHint'
+    const selectedHints = document.querySelectorAll(selector)
+    if (selectedHints.length === 1) {
+      selectedHints[0].click()
+      close()
+    }
+
+    selectedHints.forEach((el) => {
+      for (let i = 0; i < el.children.length; i++) {
+        if (i < keys.length) {
+          el.children[i].style.color = selectedLetterColor
+        } else {
+          el.children[i].style = ''
+        }
+      }
+    })
+
+    function close() {
+      document.querySelectorAll('.vimHint').forEach((el) => el.remove())
+      state.areVimWaypointsShown.selector = []
+    }
+    console.warn(selector)
+    function getClickableElements() {
+      return [
+        ...document.querySelectorAll('a, button, [type="button"], [type="submit"], [role="tab"], [role="button"], input[type="text"], [role="link"]')
+      ]
+    }
+
+    function numberToHintStr(number, chars, digits = 0) {
+      const base = chars.length
+      const hintStr = []
+      let remainder = 0
+
+      while (true) {
+        remainder = number % base
+        hintStr.unshift(chars[remainder])
+        number -= remainder
+        number = Math.floor(number / base)
+        if (number <= 0) {
+          break
+        }
+      }
+
+      // Pad the hint string to ensure its length is at least 'digits'.
+      while (hintStr.length < digits) {
+        hintStr.unshift(chars[0])
+      }
+
+      return hintStr.join('')
+    }
+
+    // Example usage: Generate hints for all link elements
+    function generateHints(minChars, chars) {
+      // Get all anchor (A) elements from the document.
+      const elems = document.querySelectorAll(
+        'a, button, [type="button"], [type="submit"], [role="tab"], [role="button"], input[type="text"], [role="link"]'
+      )
+      const numLinks = elems.length
+
+      // Determine the minimum number of digits needed for the hints.
+      const needed = Math.max(minChars, Math.ceil(Math.log(numLinks) / Math.log(chars.length)))
+
+      let shortCount = 0
+      if (needed > minChars && needed > 1) {
+        const totalSpace = Math.pow(chars.length, needed)
+        shortCount = Math.floor((totalSpace - numLinks) / (chars.length - 1))
+      }
+
+      const longCount = numLinks - shortCount
+      const strings = []
+
+      if (needed > 1) {
+        for (let i = 0; i < shortCount; i++) {
+          strings.push(numberToHintStr(i, chars, needed - 1))
+        }
+      }
+
+      const start = shortCount * chars.length
+      for (let i = start; i < start + longCount; i++) {
+        strings.push(numberToHintStr(i, chars, needed))
+      }
+
+      return shuffleHints(strings, chars.length)
+    }
+
+    function shuffleHints(hints, base) {
+      // Implementing a simple shuffle function
+      for (let i = hints.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [hints[i], hints[j]] = [hints[j], hints[i]]
+      }
+      return hints
+    }
+
+    // Function to generate hint labels
+    function displayHints(elements) {
+      if (!elements.length) {
+        state.areVimWaypointsShown.selector = []
+        return
+      }
+      let hintIndex = 0
+
+      const minChars = 2
+      const charset = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+      const hints = generateHints(minChars, charset)
+
+      elements.forEach((element) => {
+        const containerSpan = document.createElement('span')
+        const hintStyles = {
+          position: 'absolute',
+          background: 'linear-gradient(to bottom, #fff204 0%, #d8cb03 100%)',
+          fontSize: '13px',
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif',
+          fontWeight: '600',
+          borderRadius: '3px',
+          color: 'black',
+          zIndex: '10000', // Ensure it is above other content
+          padding: '1px 2px',
+          letterSpacing: '0.5px',
+          display: 'flex' // Use flexbox for letter alignment
+        }
+        Object.assign(containerSpan.style, hintStyles)
+        containerSpan.classList.add('vimHint')
+
+        const hint = hints[hintIndex++]
+        containerSpan.dataset.hintIndex = hint
+        // Create individual spans for each letter
+        hint.split('').forEach((letter) => {
+          const letterSpan = document.createElement('span')
+          letterSpan.textContent = letter
+          letterSpan.classList.add('vimHint-letter')
+          containerSpan.appendChild(letterSpan)
+        })
+
+        const rect = element.getBoundingClientRect()
+        containerSpan.addEventListener('click', () => element.dispatchEvent(new Event('click')))
+        containerSpan.style.top = `${window.scrollY + rect.top}px`
+        containerSpan.style.left = `${window.scrollX + rect.left}px`
+
+        document.body.appendChild(containerSpan)
+
+        // Assign a data attribute for easy access
+        element.setAttribute('data-hint', hint)
+      })
+    }
   },
 
   setShowSearchFilters (state, payload) {

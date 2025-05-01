@@ -76,6 +76,9 @@ export default defineComponent({
     isKeyboardShortcutPromptShown: function () {
       return this.$store.getters.getIsKeyboardShortcutPromptShown
     },
+    areVimWaypointsShown: function () {
+      return this.$store.getters.getAreVimWaypointsShown
+    },
     showAddToPlaylistPrompt: function () {
       return this.$store.getters.getShowAddToPlaylistPrompt
     },
@@ -344,6 +347,31 @@ export default defineComponent({
     },
 
     activateKeyboardShortcuts: function () {
+      if (this.enableVimNavigation) {
+        ['click', 'scroll'].forEach((eventName) =>
+          document.addEventListener(eventName, (e) => {
+            this.$store.commit('setAreVimWaypointsShown', { key: 'Esc' })
+          })
+        )
+        document.addEventListener('keydown', (e) => {
+          // Only handle if not in an input field and not in waypoint mode
+          if (e.target.tagName !== 'INPUT' && !this.areVimWaypointsShown.selector.length) {
+            if (e.key === 'j') {
+              // If the 'J' key is pressed
+              window.scrollBy({
+                top: 30,
+                behavior: 'auto'
+              })
+            } else if (e.key === 'k') {
+              // If the 'K' key is pressed
+              window.scrollBy({
+                top: -30,
+                behavior: 'auto'
+              })
+            }
+          }
+        })
+      }
       document.addEventListener('keydown', this.handleKeyboardShortcuts)
       document.addEventListener('mousedown', () => {
         this.hideOutlines()
@@ -351,13 +379,41 @@ export default defineComponent({
     },
 
     handleKeyboardShortcuts: function (event) {
+      // If this.areVimWaypointsShown.selector starts with an f it means
+      // the user is in nav mode so capture any input and pass it to
+      // setAreVimWaypointsShown
+      if (this.areVimWaypointsShown.selector[0] === 'f' && !event.ctrlKey && this.enableVimNavigation) {
+        this.$store.commit('setAreVimWaypointsShown', { key: event.key })
+        return
+      }
       // ignore user typing in HTML `input` elements
       if (event.shiftKey && event.key === '?' && event.target.tagName !== 'INPUT') {
         this.$store.commit('setIsKeyboardShortcutPromptShown', !this.isKeyboardShortcutPromptShown)
       }
 
-      if (event.key === 'Tab') {
-        this.showOutlines()
+      if (event.altKey) {
+        switch (event.key) {
+          case 'D':
+          case 'd':
+            this.$refs.topNav.focusSearch()
+            break
+        }
+      }
+      switch (event.key) {
+        case 'f':
+          if (event.target.tagName !== 'INPUT' && this.enableVimNavigation && !event.ctrlKey) {
+            this.$store.commit('setAreVimWaypointsShown', { key: event.key })
+          }
+          break
+        case 'Tab':
+          this.showOutlines()
+          break
+        case 'L':
+        case 'l':
+          if ((process.platform !== 'darwin' && event.ctrlKey) || (process.platform === 'darwin' && event.metaKey)) {
+            this.$refs.topNav.focusSearch()
+          }
+          break
       }
     },
 
