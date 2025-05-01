@@ -985,28 +985,19 @@ const mutations = {
       }
 
       const longCount = numLinks - shortCount
-      const strings = []
+      const hints = []
 
       if (needed > 1) {
         for (let i = 0; i < shortCount; i++) {
-          strings.push(numberToHintStr(i, chars, needed - 1))
+          hints.push(numberToHintStr(i, chars, needed - 1))
         }
       }
 
       const start = shortCount * chars.length
       for (let i = start; i < start + longCount; i++) {
-        strings.push(numberToHintStr(i, chars, needed))
+        hints.push(numberToHintStr(i, chars, needed))
       }
 
-      return shuffleHints(strings, chars.length)
-    }
-
-    function shuffleHints(hints, base) {
-      // Implementing a simple shuffle function
-      for (let i = hints.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [hints[i], hints[j]] = [hints[j], hints[i]]
-      }
       return hints
     }
 
