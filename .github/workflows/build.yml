@@ -213,27 +213,6 @@ jobs:
         name: freetube-${{ steps.versionNumber.outputs.result }}.arm64.rpm
         path: build/freetube-${{ steps.versionNumber.outputs.result }}.aarch64.rpm
 
-    - name: Upload Alpine .apk x64 Artifact
-      uses: actions/upload-artifact@v4
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
-      with:
-        name: freetube-${{ steps.versionNumber.outputs.result }}-alpine-amd64.apk
-        path: build/freetube-${{ steps.versionNumber.outputs.result }}.apk
-
-    - name: Upload Alpine .apk ARMv7l Artifact
-      uses: actions/upload-artifact@v4
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      with:
-        name: freetube-${{ steps.versionNumber.outputs.result }}-alpine-armv7l.apk
-        path: build/freetube-${{ steps.versionNumber.outputs.result }}-armv7l.apk
-
-    - name: Upload Alpine .apk ARM64 Artifact
-      uses: actions/upload-artifact@v4
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
-      with:
-        name: freetube-${{ steps.versionNumber.outputs.result }}-alpine-arm64.apk
-        path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64.apk
-
     - name: Upload Pacman .pacman x64 Artifact
       uses: actions/upload-artifact@v4
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
