@@ -275,6 +275,7 @@ Settings:
     General Settings: General
     Check for Updates: Check for Updates
     Enable VIM key-bindings: Enable navigation using VIM key-bindings
+    Show Vim Waypoints: Enable VIM-like navigation
     Check for Latest Blog Posts: Check for Latest Blog Posts
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
@@ -1178,6 +1179,7 @@ KeyboardShortcutPrompt:
       Situational: 'App: Situational'
       General: App: General
   Show Keyboard Shortcuts: Show keyboard shortcuts
+  Show Vim Waypoints: Display VIM waypoints if enabled
   History Backward: Go back one page
   History Forward: Go forward one page
   New Window: Create a new window
@@ -1189,7 +1191,7 @@ KeyboardShortcutPrompt:
   Stats: Show video statistics
   Fullscreen: Toggle fullscreen
   Picture in Picture: Toggle Picture-in-Picture mode
-  Large Rewind: 'Rewind 10 seconds / Rewind video based on current Video Playback Rate'
+  Large Rewind: 'Rewind 10 seconds / Rewind video based on current Video Playback Rate. Note that this will be different if you have VIM-navigation enabled.'
   Play: Toggle play/pause
   Large Fast Forward: 'Forward 10 seconds / Fast-Forward video based on current Video Playback Rate'
   Mute: Toggle mute

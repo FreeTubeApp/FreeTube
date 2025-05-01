@@ -49,7 +49,6 @@
             :label="$t('Settings.General Settings.Enable VIM key-bindings')"
             :default-value="enableVimNavigation"
             :compact="true"
-            :tooltip="$t('Tooltips.General Settings.Enable VIM key-bindings')"
             @change="updateEnableVimNavigation"
         />
       </div>
