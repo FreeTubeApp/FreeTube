@@ -105,6 +105,7 @@ const primarySections = computed(() => [
 ])
 
 const isMac = process.platform === 'darwin'
+const enableVimNavigation = computed(() => store.getters.getEnableVimNavigation)
 
 const localizedShortcutNameToShortcutsMappings = computed(() => {
   return [
