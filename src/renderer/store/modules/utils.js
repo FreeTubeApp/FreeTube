@@ -34,7 +34,7 @@ const state = {
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
   isKeyboardShortcutPromptShown: false,
-  areVimWaypointsShown: false,
+  areVimWaypointsShown: { selector: [] },
   showSearchFilters: false,
   searchFilterValueChanged: false,
   progressBarPercentage: 0,
@@ -193,7 +193,7 @@ const getters = {
   },
   getAppTitle (state) {
     return state.appTitle
-  }
+  },
 }
 
 const actions = {
