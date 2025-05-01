@@ -905,7 +905,7 @@ const mutations = {
     const selectedLetterColor = '#D4AC3A'
     if (key === 'f' && !document.querySelector('.vimHint')) {
       const elements = [
-        ...document.querySelectorAll('a, button, [type="button"], [type="submit"], [role="tab"], [role="button"], input[type="text"], [role="link"]')
+        ...(document.querySelector('.prompt') || document).querySelectorAll('a, button, [type="button"], [type="submit"], [role="tab"], [role="button"], input[type="text"], [role="link"]')
       ]
 
       if (!elements.length) {
@@ -1009,7 +1009,7 @@ const mutations = {
     // Example usage: Generate hints for all link elements
     function generateHints(minChars, chars) {
       // Get all anchor (A) elements from the document.
-      const elems = document.querySelectorAll(
+      const elems = (document.querySelector('.prompt') || document).querySelectorAll(
         'a, button, [type="button"], [type="submit"], [role="tab"], [role="button"], input[type="text"], [role="link"]'
       )
       const numLinks = elems.length
