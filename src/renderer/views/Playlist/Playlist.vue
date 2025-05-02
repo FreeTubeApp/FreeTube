@@ -106,9 +106,9 @@
               :can-remove-from-playlist="true"
               :video-index="playlistInVideoSearchMode ? playlistItems.findIndex(i => i === item) : index"
               :initial-visible-state="index < 10"
-              @move-video-up="moveVideoUp(item.videoId, item.playlistItemId)"
-              @move-video-down="moveVideoDown(item.videoId, item.playlistItemId)"
-              @remove-from-playlist="removeVideoFromPlaylist(item.videoId, item.playlistItemId)"
+              @move-video-up="moveVideoUp"
+              @move-video-down="moveVideoDown"
+              @remove-from-playlist="removeVideoFromPlaylist"
             />
           </transition-group>
           <ft-auto-load-next-page-wrapper

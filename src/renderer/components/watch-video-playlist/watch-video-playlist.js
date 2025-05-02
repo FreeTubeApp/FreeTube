@@ -2,7 +2,7 @@ import { defineComponent, nextTick } from 'vue'
 import { mapMutations } from 'vuex'
 import FtLoader from '../ft-loader/ft-loader.vue'
 import FtCard from '../ft-card/ft-card.vue'
-import FtListVideoNumbered from '../ft-list-video-numbered/ft-list-video-numbered.vue'
+import FtListVideoNumbered from '../FtListVideoNumbered/FtListVideoNumbered.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import {
   getLocalPlaylist,
