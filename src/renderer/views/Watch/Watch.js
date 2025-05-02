@@ -730,7 +730,7 @@ export default defineComponent({
                 }
 
                 downloadLinks.push({
-                  url: format.freeTubeUrl,
+                  value: `${type}||${format.freeTubeUrl}`,
                   label: label
                 })
               }
@@ -782,7 +782,7 @@ export default defineComponent({
                 const label = `${caption.label} (${caption.language}) - text/vtt`
 
                 return {
-                  url: caption.url,
+                  value: `${caption.mimeType}||${caption.url}`,
                   label: label
                 }
               })
@@ -1006,7 +1006,7 @@ export default defineComponent({
                 }
               }
               const object = {
-                url: format.url,
+                value: `${type}||${format.url}`,
                 label: label
               }
 
@@ -1014,7 +1014,7 @@ export default defineComponent({
             }).reverse().concat(result.captions.map((caption) => {
               const label = `${caption.label} (${caption.languageCode}) - text/vtt`
               const object = {
-                url: caption.url,
+                value: `text/vtt||${caption.url}`,
                 label: label
               }
 
