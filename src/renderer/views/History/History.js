@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import { isNavigationFailure, NavigationFailureType } from 'vue-router'
-import FtLoader from '../../components/ft-loader/ft-loader.vue'
+import FtLoader from '../../components/FtLoader/FtLoader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'

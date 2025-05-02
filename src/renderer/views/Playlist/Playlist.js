@@ -1,6 +1,6 @@
 import { defineComponent, nextTick } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
-import FtLoader from '../../components/ft-loader/ft-loader.vue'
+import FtLoader from '../../components/FtLoader/FtLoader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import PlaylistInfo from '../../components/playlist-info/playlist-info.vue'
 import FtListVideoNumbered from '../../components/FtListVideoNumbered/FtListVideoNumbered.vue'
