@@ -69,7 +69,7 @@ longer track you using cookies or JavaScript. Your subscriptions, playlists and 
 * Keyboard shortcuts
 * Option to show only family friendly content
 * Show/hide functionality or elements within the app using the distraction free settings
-* View channel community posts
+* View channel posts
 
 ### Browser Extensions
 The following extensions open YouTube links directly in FreeTube:
