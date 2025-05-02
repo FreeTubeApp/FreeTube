@@ -1000,6 +1000,8 @@ Comments:
   View {replyCount} replies: Vis {replyCount} svar
   Hearted: Hjertemerket
   Subscribed: Abonnert
+  There are no comments available for this post: Det er ingen kommentarer tilgjengelig
+    på denne posten
 Up Next: 'Neste'
 
 # Toast Messages
@@ -1230,7 +1232,7 @@ Search character limit: Søket ditt har for mange tegn. Grensen er på {searchCh
 KeyboardShortcutPrompt:
   Last Chapter: Forrige kapittel
   Next Chapter: Neste kapittel
-  Navigate to History: Naviger til historie
+  Navigate to History: Naviger til historikk
   Fullscreen: Fullskjermsvisning
   Sections:
     Video:
@@ -1240,41 +1242,45 @@ KeyboardShortcutPrompt:
       Situational: 'App: Situasjonsmessig'
       General: App: Generelt
   Show Keyboard Shortcuts: Vis tastatursnarveier
-  Large Rewind: Spol tilbake 10 sekunder/ spol tilbake video basert på gjeldende videoavspillingshastighet
+  Large Rewind: Spol tilbake 10 sekunder / Spol tilbake video basert på gjeldende
+    videoavspillingshastighet
   Play: Spill av/pause
   Refresh: Oppdater feed med siste innhold
-  Focus Secondary Search: Fokuser på sekundært søkefelt (om synlig)
+  Focus Secondary Search: Fokuser på det sekundære søkefeltet (hvis synlig)
   Captions: Slå bildetekst PÅ/AV
   Stats: Vis videostatistikk
-  Picture in Picture: veksle Bilde-i-bilde modus
-  Large Fast Forward: Spol fremover 10 sekunder/ spol video basert på gjeldende videoavspillingshastighet
-  Increase Video Speed: Øk video hastighet basert på gjeldende avspillingshastighetsintervallet
-  Full Window: Fullt vindu
-  Close Window: Lukk vindu
-  Restart Window: Start vindu på nytt
-  Volume Down: Senk volum
+  Picture in Picture: Veksle Bilde-i-bilde modus
+  Large Fast Forward: Spol fremover 10 sekunder / spol video basert på gjeldende videoavspillingshastighet
+  Increase Video Speed: Øk videohastighet basert på gjeldende avspillingshastighetsintervallet
+  Full Window: Fullt vindu av/på
+  Close Window: Lukk vinduet
+  Restart Window: Start vinduet på nytt
+  Volume Down: Senk volumet
   Zoom In: Zoom inn
   Zoom Out: Zoom ut
-  Next Frame: Neste ramme (pauset)
-  Volume Up: Øk volum
+  Next Frame: Neste bilde (pauset)
+  Volume Up: Øk volumet
   Focus Search: Fokuser på søkefeltet
   Search in New Window: Søk i et nytt vindu
-  Last Frame: Forrige ramme (pauset)
+  Last Frame: Forrige bilde (pauset)
   Reset Zoom: Tilbakestill zoom nivå / UI-skala
   Skip by Tenths: Hopp gjennom videoen basert på prosent (3 hopp for 30% av varigheten)
   Small Rewind: Spol tilbake X sekunder basert på spoleintervallet og gjeldende avspillingshastighet
   Small Fast Forward: Spol fremover X sekunder basert på spoleintervallet og gjeldende
     avspillingshastighet
-  Decrease Video Speed: Senk video hastighet basert på gjeldende avspillingshastighetsintervallet
+  Decrease Video Speed: Senk videohastighet basert på gjeldende avspillingshastighetsintervallet
   Take Screenshot: Ta et skjermbilde
-  Mute: Slå av lyd
+  Mute: Slå lyd av/på
   History Backward: Gå tilbake en side
   New Window: Opprett nytt vindu
   Navigate to Settings: Naviger til innstillinger
   Keyboard Shortcuts: Tastatursnarveier
   History Forward: Gå fremover en side
   Toggle Developer Tools: Utviklerverktøy
-Moments Ago: Øyeblikk siden
+  Minimize Window: Minimer vinduet
+  Force Restart Window: Tving vinduet til å starte på nytt
+  Theatre Mode: Skru teatermodus av/på
+Moments Ago: for et øyeblikk siden
 shortcutLabelSeparator: ｜
 Description:
   Expand Description: '...mer'
@@ -1288,3 +1294,6 @@ Age Restricted:
   URL: «{url}».'
 Channel Hidden: '{channel} lagt til i kanalfilteret'
 Channel Unhidden: '{channel} fjernet fra kanalfilteret'
+Tag already exists: «{tagName}»-taggen eksisterer allerede
+Trimmed input must be at least N characters long: Trimmet input må være minst ett
+  tegn langt | Trimmet input må være minst {length} tegn langt
