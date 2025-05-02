@@ -59,7 +59,7 @@ longer track you using cookies or JavaScript. Your subscriptions, playlists and 
 * Youtube Chapters
 * Most popular videos page based on the set Invidious instance
 * SponsorBlock
-* DeArrow 
+* DeArrow
 * Open videos from your browser directly into FreeTube (with extension)
 * Watch videos using an external player
 * Full Theme support
