@@ -156,15 +156,6 @@ export default defineComponent({
       return this.$store.getters.getWatchedProgressSavingMode === 'semi-auto'
     },
 
-    downloadLinkOptions: function () {
-      return this.downloadLinks.map((download) => {
-        return {
-          label: download.label,
-          value: download.url
-        }
-      })
-    },
-
     downloadBehavior: function () {
       return this.$store.getters.getDownloadBehavior
     },
@@ -332,18 +323,16 @@ export default defineComponent({
     },
 
     handleDownload: function (index) {
-      const selectedDownloadLinkOption = this.downloadLinkOptions[index]
-      const url = selectedDownloadLinkOption.value
-      const linkName = selectedDownloadLinkOption.label
-      const extension = this.grabExtensionFromUrl(linkName)
+      const selectedDownloadLinkOption = this.downloadLinks[index]
+      const mimeTypeUrl = selectedDownloadLinkOption.value.split('||')
 
-      if (this.downloadBehavior === 'open') {
-        openExternalLink(url)
+      if (!process.env.IS_ELECTRON || this.downloadBehavior === 'open') {
+        openExternalLink(mimeTypeUrl[1])
       } else {
         this.downloadMedia({
-          url: url,
+          url: mimeTypeUrl[1],
           title: this.title,
-          extension: extension
+          mimeType: mimeTypeUrl[0]
         })
       }
     },

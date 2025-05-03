@@ -5,7 +5,6 @@ const IpcChannels = {
   OPEN_EXTERNAL_LINK: 'open-external-link',
   GET_SYSTEM_LOCALE: 'get-system-locale',
   GET_NAVIGATION_HISTORY: 'get-navigation-history',
-  SHOW_SAVE_DIALOG: 'show-save-dialog',
   STOP_POWER_SAVE_BLOCKER: 'stop-power-save-blocker',
   START_POWER_SAVE_BLOCKER: 'start-power-save-blocker',
   CREATE_NEW_WINDOW: 'create-new-window',
@@ -49,7 +48,7 @@ const IpcChannels = {
 
   GET_SCREENSHOT_FALLBACK_FOLDER: 'get-screenshot-fallback-folder',
   CHOOSE_DEFAULT_FOLDER: 'choose-default-folder',
-  WRITE_SCREENSHOT: 'write-screenshot',
+  WRITE_TO_DEFAULT_FOLDER: 'write-to-default-folder',
 }
 
 const DBActions = {

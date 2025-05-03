@@ -409,36 +409,6 @@ export async function writeFileWithPicker(
 }
 
 /**
- * @param {{defaultPath: string, filters: {name: string, extensions: string[]}[]}} options
- * @returns { Promise<import('electron').SaveDialogReturnValue> | {canceled: boolean?, filePath: string } | { canceled: boolean?, handle?: Promise<FileSystemFileHandle> }}
- */
-export async function showSaveDialog (options) {
-  if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    return await ipcRenderer.invoke(IpcChannels.SHOW_SAVE_DIALOG, options)
-  } else {
-    // If the native filesystem api is available
-    if ('showSaveFilePicker' in window) {
-      return {
-        canceled: false,
-        handle: await window.showSaveFilePicker({
-          suggestedName: options.defaultPath.split('/').at(-1),
-          types: options.filters[0]?.extensions?.map((extension) => {
-            return {
-              accept: {
-                'application/octet-stream': '.' + extension
-              }
-            }
-          })
-        })
-      }
-    } else {
-      return { canceled: false, filePath: options.defaultPath }
-    }
-  }
-}
-
-/**
  * This creates an absolute web url from a given path.
  * It will assume all given paths are relative to the current window location.
  * @param {string} path relative path to resource
