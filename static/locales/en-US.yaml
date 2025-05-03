@@ -1042,7 +1042,6 @@ Description:
 #Tooltips
 Tooltips:
   General Settings:
-    Enable VIM key-bindings: Allow navigation using VIM hotkeys.
     Preferred API Backend: Choose the backend that FreeTube uses to obtain data. The
       local API is a built-in extractor. The Invidious API requires an Invidious server
       to connect to.
