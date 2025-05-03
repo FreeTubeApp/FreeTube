@@ -45,11 +45,19 @@
           :tooltip="$t('Tooltips.General Settings.Open Deep Links In New Window')"
           @change="updateOpenDeepLinksInNewWindow"
         />
+        <p class="vim-warning">
+          <FontAwesomeIcon
+            :icon="['fas', 'circle-exclamation']"
+            class="warning-icon"
+            fixed-width
+          />
+          {{ $t('Settings.General Settings.VIM Warning') }}
+        </p>
         <ft-toggle-switch
-            :label="$t('Settings.General Settings.Enable VIM key-bindings')"
-            :default-value="enableVimNavigation"
-            :compact="true"
-            @change="updateEnableVimNavigation"
+          :label="$t('Settings.General Settings.Enable VIM key-bindings')"
+          :default-value="enableVimNavigation"
+          :compact="true"
+          @change="updateEnableVimNavigation"
         />
       </div>
     </div>

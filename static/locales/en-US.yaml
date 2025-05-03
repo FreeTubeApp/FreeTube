@@ -274,8 +274,8 @@ Settings:
   General Settings:
     General Settings: General
     Check for Updates: Check for Updates
-    Enable VIM key-bindings: Enable navigation using VIM key-bindings
-    Show Vim Waypoints: Enable VIM-like navigation
+    Enable VIM key-bindings: Enable navigation using VIM key-bindings.
+    VIM Warning: This will reassign any functionality previously assigned to j, to h.
     Check for Latest Blog Posts: Check for Latest Blog Posts
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
