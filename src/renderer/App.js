@@ -395,14 +395,6 @@ export default defineComponent({
         this.$store.commit('setIsKeyboardShortcutPromptShown', !this.isKeyboardShortcutPromptShown)
       }
 
-      if (event.altKey) {
-        switch (event.key) {
-          case 'D':
-          case 'd':
-            this.$refs.topNav.focusSearch()
-            break
-        }
-      }
       switch (event.key) {
         case 'w':
           if (event.target.tagName !== 'INPUT' && this.enableVimNavigation && !event.ctrlKey) {
@@ -411,12 +403,6 @@ export default defineComponent({
           break
         case 'Tab':
           this.showOutlines()
-          break
-        case 'L':
-        case 'l':
-          if ((process.platform !== 'darwin' && event.ctrlKey) || (process.platform === 'darwin' && event.metaKey)) {
-            this.$refs.topNav.focusSearch()
-          }
           break
       }
     },
