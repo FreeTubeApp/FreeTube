@@ -41,7 +41,7 @@ Global:
   Videos: 'Відэа'
   Shorts: 'Кароткія відэа'
   Live: 'Ужывую'
-  Community: 'Супольнасць'
+  Posts: 'Публікацыі'
   Sort By: Сартаванне
   Counts:
     Video Count: '1 відэа | {count} відэа'
@@ -585,14 +585,12 @@ Settings:
     Hide Channels Placeholder: 'Ідэнтыфікатар канала'
     Hide Featured Channels: 'Хаваць прапанаваныя каналы'
     Hide Channel Playlists: 'Хаваць укладку «Плэй-лісты»'
-    Hide Channel Community: 'Хаваць укладку «Супольнасць»'
     Hide Channel Shorts: 'Хаваць укладку «Кароткія відэа»'
     Hide Channel Podcasts: 'Хаваць укладку «Падкасты»'
     Hide Channel Releases: 'Хаваць укладку «Выпускі»'
     Hide Subscriptions Videos: 'Хаваць відэа з падпісак'
     Hide Subscriptions Shorts: 'Хаваць кароткія відэа з падпісак'
     Hide Subscriptions Live: 'Хаваць трансляцыі з падпісак'
-    Hide Subscriptions Community: 'Хаваць супольнасць падпісак'
     Hide Channels Already Exists: Ідэнтыфікатар канала ўжо існуе
     Hide Videos and Playlists Containing Text: Хаваць відэа і плэй-лісты, якія змяшчаюць
       тэкст
@@ -853,7 +851,7 @@ Channel:
     Joined: 'Далучыўся'
     Location: 'Месцазнаходжанне'
     Featured Channels: 'Рэкамендаваныя каналы'
-  Community:
+  Posts:
     This channel currently does not have any posts: 'Зараз на гэтым канале няма паведамленняў'
     votes: '{votes} галасоў'
     Reveal Answers: 'Адкрыць адказы'

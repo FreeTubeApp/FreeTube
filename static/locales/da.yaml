@@ -38,7 +38,7 @@ Global:
     Channel Count: 1 kanal | {count} kanaler
     Comment Count: 1 kommentar | {count} kommentarer
     Like Count: 1 kan lide | {count} kan lide
-  Community: Fællesskab
+  Posts: Opslag
   Live: Live
   Sort By: Sortér efter
   Shorts: Shorts
@@ -624,7 +624,6 @@ Settings:
     Hide Channels API Error: Fejl ved hentning af bruger med det angivne ID. Tjek
       venligst igen, om ID'et er korrekt.
     Hide Channel Playlists: Skjul kanal "Playlists" Tab
-    Hide Channel Community: Skjul kanal "Kommunity" Tab
     Hide Channel Podcasts: Skjul fanen »Podcasts« på kanalen
     Hide Channels Invalid: Det angivne kanal-ID var ugyldigt
     Hide Channels Disabled Message: Nogle kanaler blev blokeret med ID og blev ikke
@@ -638,7 +637,6 @@ Settings:
     Hide Channel Courses: Skjul kanal "Courses" Tab
     Hide Subscriptions Live: Skjul liveudsendelser fra abonnementer
     Hide Subscriptions Shorts: Skjul abonnementer Shorts
-    Hide Subscriptions Community: Skjul abonnementsfællesskab
     Hide Subscriptions Videos: Skjul abonnementer Videoer
   The app needs to restart for changes to take effect. Restart and apply change?: App'en
     er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
@@ -816,7 +814,7 @@ Channel:
       Tags: Etiketter
     Joined: sluttet sig til
     Location: placering
-  Community:
+  Posts:
     Hide Answers: Skjul Svar
     This channel currently does not have any posts: Denne kanal har i øjeblikket ingen
       opslag

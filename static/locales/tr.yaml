@@ -31,7 +31,7 @@ Global:
   Videos: 'Videolar'
   Shorts: Kısa Videolar
   Live: Canlı
-  Community: Topluluk
+  Posts: Gönderiler
   Sort By: Sıralama ölçütü
 
   Counts:
@@ -599,7 +599,6 @@ Settings:
       Noktalama İşaretleri Kullanmadan Görüntüle
     Hide Featured Channels: Öne Çıkan Kanalları Gizle
     Hide Channel Playlists: Kanal "Oynatma Listelerini" Sekmesini Gizle
-    Hide Channel Community: Kanal "Topluluk" Sekmesini Gizle
     Hide Channel Shorts: Kanal "Kısa Videolar" Sekmesini Gizle
     Sections:
       Side Bar: Kenar Çubuğu
@@ -613,7 +612,6 @@ Settings:
     Hide Subscriptions Shorts: Abonelik Kısa Videolarını Gizle
     Hide Subscriptions Live: Abonelik Canlı Yayınlarını Gizle
     Hide Profile Pictures in Comments: Yorumlardaki Profil Resimlerini Gizle
-    Hide Subscriptions Community: Abonelik Topluluğunu Gizle
     Hide Channels Invalid: Belirtilen kanal kimliği geçersiz
     Hide Channels Disabled Message: Bazı kanallar kimliği kullanılarak engellendi
       ve işlenmedi. Bu kimlikler güncellenirken özellik engellenir
@@ -825,7 +823,7 @@ Channel:
   Channel Tabs: Kanal Sekmeleri
   This channel does not allow searching: Bu kanal aramaya izin vermiyor
   This channel does not exist: Bu kanal mevcut değil
-  Community:
+  Posts:
     This channel currently does not have any posts: Bu kanalda şu anda herhangi bir
       gönderi yok
     votes: '{votes} oy'

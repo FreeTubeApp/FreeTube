@@ -31,7 +31,7 @@ Global:
   Videos: 'Myndskeið'
   Shorts: Símamyndir
   Live: Í beinni
-  Community: Samfélag
+  Posts: Færslur
   Sort By: Raða eftir
 
   Counts:
@@ -559,7 +559,6 @@ Settings:
       Subscriptions Page: Áskriftasíða
     Hide Channel Shorts: Fela símamyndaflipa rása
     Hide Channel Playlists: Fela spilunarlistaflipa rása
-    Hide Channel Community: Fela samfélagsflipa rása
     Hide Featured Channels: Fela rásir í deiglunni
     Hide Channel Podcasts: Fela hlaðvarpsflipa rása
     Hide Channel Releases: Fela útgáfuflipa rása
@@ -567,7 +566,6 @@ Settings:
     Hide Subscriptions Live: Fela bein streymi áskrifta
     Hide Subscriptions Videos: Fela myndskeið áskrifta
     Hide Profile Pictures in Comments: Fela auðkennismyndir í athugasemdum
-    Hide Subscriptions Community: Fela samfélag áskrifenda
     Hide Channels Invalid: Uppgefið auðkenni rásar er ógilt
     Hide Channels Disabled Message: Sumar rásir voru útilokaðar út frá auðkenni og
       voru ekki meðhöndlaðar. Lokað er á eiginleikann á meðan verið er að uppfæra
@@ -831,7 +829,7 @@ Channel:
     Live: Í beinni
     This channel does not currently have any live streams: Þessi rás er í augnablikinu
       ekki með nein bein streymi
-  Community:
+  Posts:
     This channel currently does not have any posts: Þessi rás er ekki með neinar færslur
     Reveal Answers: Birta svör
     Hide Answers: Fela svör

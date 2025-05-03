@@ -43,7 +43,7 @@ Global:
   Videos: 'Video''s'
   Shorts: 'Kortvideo’s'
   Live: 'Wêreldwye lewendige'
-  Community: 'Gemeenskap'
+  Posts: 'Plasings'
   Sort By: 'Sorteer volgens'
   Counts:
     Video Count: '1 video | {count} videos'
@@ -565,7 +565,6 @@ Settings:
     Hide Channels Already Exists: 'Kanaal-ID bestaan reeds'
     Hide Featured Channels: 'Versteek uitgeligte kanale'
     Hide Channel Playlists: 'Versteek kanaal-“afspeellys”-oortjie'
-    Hide Channel Community: 'Versteek kanaal-“gemeenskap”-oortjie'
     Hide Channel Shorts: 'Versteek kanaal-“kortvideo’s”-oortjie'
     Hide Channel Podcasts: 'Versteek kanaal-“podsendings”-oortjie'
     Hide Channel Releases: 'Versteek kanaal-“vrystellings”-oortjie'
@@ -576,7 +575,6 @@ Settings:
     Hide Subscriptions Videos: 'Versteek intekenings video’s'
     Hide Subscriptions Shorts: 'Versteek intekenings kortvideo’s'
     Hide Subscriptions Live: 'Versteek intekenings regstreeks'
-    Hide Subscriptions Community: 'Versteek intekenings gemeenskap'
     Show Added Items: Toon toegevoegde items
     Hide Channel Home: Versteek kanaal-“tuis”-oortjie
   Data Settings:
@@ -827,7 +825,7 @@ Channel:
     Joined: 'Lid sedert'
     Location: 'Ligging'
     Featured Channels: 'Uitgeligte kanale'
-  Community:
+  Posts:
     This channel currently does not have any posts: 'Hierdie kanaal het nie tans enige
       plasings nie'
     votes: '{votes} stemme'

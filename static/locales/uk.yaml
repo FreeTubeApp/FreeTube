@@ -31,7 +31,7 @@ Global:
   Videos: 'Відео'
   Shorts: Shorts
   Live: Наживо
-  Community: Спільнота
+  Posts: Дописи
   Sort By: Сортувати за
 
   Counts:
@@ -553,7 +553,6 @@ Settings:
       капіталізації та пунктуації
     Hide Featured Channels: Сховати пропоновані канали
     Hide Channel Playlists: Сховати добірки каналу
-    Hide Channel Community: Сховати вкладку "Спільнота" каналу
     Hide Channel Shorts: Сховати вкладку "Shorts" каналу
     Sections:
       Side Bar: Бічна панель
@@ -567,7 +566,6 @@ Settings:
     Hide Subscriptions Shorts: Сховати Shorts із підписок
     Hide Subscriptions Live: Сховати трансляції з підписок
     Hide Profile Pictures in Comments: Сховати зображення профілю в коментарях
-    Hide Subscriptions Community: Сховати спільноту підписників
     Hide Channels Invalid: Вказаний ID каналу недійсний
     Hide Channels Disabled Message: Деякі канали були заблоковані за допомогою ID
       і не були оброблені. Функція заблокована в той час, як ці ID оновлювалися
@@ -819,7 +817,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Цей
     канал має вікові обмеження і наразі не може бути переглянутий на FreeTube.
   Channel Tabs: Вкладки каналів
-  Community:
+  Posts:
     This channel currently does not have any posts: Зараз на цьому каналі немає публікацій
     votes: 'Голосів: {votes}'
     Reveal Answers: Розгорнути відповіді

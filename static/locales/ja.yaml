@@ -28,7 +28,7 @@ Global:
   Videos: '動画'
   Shorts: ショート動画
   Live: ライブ配信
-  Community: コミュニティ
+  Posts: 投稿
   Sort By: 並び替え
 
 # Search Bar
@@ -529,7 +529,6 @@ Settings:
     Hide Channels Placeholder: チャンネル ID
     Display Titles Without Excessive Capitalisation: 過剰な大文字や句読点のないタイトルの表示
     Hide Channel Playlists: チャンネルの「再生リスト」タブを隠す
-    Hide Channel Community: チャンネルの「コミュニティ」タブを隠す
     Sections:
       Side Bar: サイドバー
       Channel Page: チャンネル ページ
@@ -544,7 +543,6 @@ Settings:
     Hide Subscriptions Videos: 登録チャンネルの動画の非表示
     Hide Channel Releases: チャンネルの「新着情報」タブを隠す
     Hide Profile Pictures in Comments: コメント欄のプロフィール写真を隠す
-    Hide Subscriptions Community: 登録チャンネルのコミュニティの非表示
     Hide Channels Invalid: 提供されたチャンネル ID が無効です
     Hide Channels Disabled Message: 一部のチャンネルが ID を使用してブロックされ、処理されませんでした。これらの ID が更新されている間、機能はブロックされます
     Hide Channels Already Exists: チャンネル ID は既に存在します
@@ -688,7 +686,7 @@ Channel:
   Added channel to your subscriptions: チャンネルを登録しました
   Channel has been removed from your subscriptions: チャンネルがあなたの登録チャンネルから削除されました
   Removed subscription from {count} other channel(s): ほかの {count} チャンネルから登録を削除しました
-  Community:
+  Posts:
     This channel currently does not have any posts: このチャンネルには現在投稿がありません
     votes: '{votes} 投票'
     Reveal Answers: 回答を表示

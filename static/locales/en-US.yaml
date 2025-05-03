@@ -44,7 +44,7 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: Live
-  Community: Community
+  Posts: Posts
   Sort By: Sort By
   Counts:
     Video Count: 1 video | {count} videos
@@ -568,7 +568,7 @@ Settings:
     Hide Channels Already Exists: Channel ID already exists
     Hide Featured Channels: Hide Featured Channels
     Hide Channel Playlists: Hide Channel "Playlists" Tab
-    Hide Channel Community: Hide Channel "Community" Tab
+    Hide Channel Posts: Hide Channel "Posts" Tab
     Hide Channel Home: Hide Channel "Home" Tab
     Hide Channel Shorts: Hide Channel "Shorts" Tab
     Hide Channel Podcasts: Hide Channel "Podcasts" Tab
@@ -579,7 +579,7 @@ Settings:
     Hide Subscriptions Videos: Hide Subscriptions Videos
     Hide Subscriptions Shorts: Hide Subscriptions Shorts
     Hide Subscriptions Live: Hide Subscriptions Live
-    Hide Subscriptions Community: Hide Subscriptions Community
+    Hide Subscriptions Posts: Hide Subscriptions Posts
     Show Added Items: Show Added Items
   Data Settings:
     Data Settings: Data
@@ -820,7 +820,7 @@ Channel:
     Joined: Joined
     Location: Location
     Featured Channels: Featured Channels
-  Community:
+  Posts:
     This channel currently does not have any posts: This channel currently does not have any posts
     votes: '{votes} votes'
     View Full Post: View Full Post
@@ -1089,7 +1089,7 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
-      but doesn't provide certain information like video duration, live status or community posts
+      but doesn't provide certain information like video duration, live status or posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch
       your subscription feed when a new window is opened and when switching profile.
   Experimental Settings:

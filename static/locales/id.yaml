@@ -38,7 +38,7 @@ Global:
     Watching Count: 1 sedang menonton | {count} sedang menonton
     Comment Count: 1 komentar | {count} komentar
     Like Count: 1 suka | {count} suka
-  Community: Komunitas
+  Posts: Postingan
   Live: Siaran Langsung
   Shorts: Video Singkat
   Sort By: Urut Menurut
@@ -597,10 +597,8 @@ Settings:
     Hide Upcoming Premieres: Sembunyikan Siaran Langsung yang Akan Datang
     Hide Live Streams: Sembunyikan Siaran Langsung
     Hide Channel Playlists: Sembunyikan Tab "Daftar Putar" Saluran
-    Hide Channel Community: Sembunyikan Tab "Komunitas" Saluran
     Hide Sharing Actions: Sembunyikan Tindakan Bagikan Video
     Hide Featured Channels: Sembunyikan Kanal Unggulan
-    Hide Subscriptions Community: Sembunyikan Komunitas dalam Langganan
     Hide Channels: Sembunyikan Video dari Kanal
     Hide Channels Placeholder: ID Kanal
     Hide Channels API Error: Galat menemukan pengguna dengan ID yang diberikan. Mohon
@@ -820,7 +818,7 @@ Channel:
     Live: Siaran Langsung
     This channel does not currently have any live streams: Kanal ini belum memiliki
       siaran langsung apa pun
-  Community:
+  Posts:
     Hide Answers: Sembunyikan jawaban
     Reveal Answers: Tampilkan jawaban
     Video hidden by FreeTube: Video disembunyikan oleh FreeTube

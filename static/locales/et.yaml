@@ -31,7 +31,7 @@ Global:
   Videos: 'Videod'
   Shorts: Lühivideod
   Live: Otseeeter
-  Community: Kogukond
+  Posts: Postitused
   Sort By: 'Järjestus'
 
   Counts:
@@ -603,14 +603,12 @@ Settings:
     Hide Featured Channels: Peaida soovitatud kanalid
     Hide Channel Playlists: Peida kanalite vahekaart „Esitusloendid“
     Hide Channel Shorts: Peida kanalite vahekaart „Lühivideod“
-    Hide Channel Community: Peida kanalite vahekaart „Kogukond“
     Hide Channel Podcasts: Peida kanalite vahekaart „Taskuhäälingud“
     Hide Channel Releases: Peida kanalite vahekaart „Väljalasked“
     Hide Subscriptions Videos: Peida tellimuste videod
     Hide Subscriptions Shorts: Peida tellimuste lühivideod
     Hide Subscriptions Live: Peida tellimuste otse-eetrid
     Hide Profile Pictures in Comments: Peida kommentaaride profiilipildid
-    Hide Subscriptions Community: Peida tellijate loend
     Hide Channels Invalid: Sisestatud kanali tunnus on vigane
     Hide Channels Disabled Message: Mõned kanalid on blokeeritud nende tunnuste alusel
       ja nende andmeid ei töödelda. See funktsionaalsus pole kasutusel, kui nendes
@@ -825,7 +823,7 @@ Channel:
     Live: Otseeeter
     This channel does not currently have any live streams: Sellel kanalil pole hetkel
       ühtegi otseeetrit
-  Community:
+  Posts:
     This channel currently does not have any posts: Sellel kanalil pole hetkel postitusi
     Reveal Answers: Näita vastuseid
     Hide Answers: Peida vastused

@@ -28,7 +28,7 @@ Global:
   Videos: '视频'
   Shorts: 短视频
   Live: 直播
-  Community: 社区
+  Posts: 帖子
   Sort By: 排序依据
 
 # Search Bar
@@ -529,7 +529,6 @@ Settings:
     Display Titles Without Excessive Capitalisation: 去除标题中对字母大写和标点符号的过度使用
     Hide Featured Channels: 隐藏精选频道
     Hide Channel Playlists: 隐藏频道“播放列表”标签
-    Hide Channel Community: 隐藏频道“社区”标签
     Hide Channel Shorts: 隐藏频道“短视频”标签
     Sections:
       Side Bar: 侧边栏
@@ -543,7 +542,6 @@ Settings:
     Hide Subscriptions Videos: 隐藏订阅视频
     Hide Subscriptions Live: 隐藏订阅直播
     Hide Profile Pictures in Comments: 在评论中隐藏个人资料图片
-    Hide Subscriptions Community: 隐藏订阅社区
     Hide Channels Invalid: 提供的频道 ID 无效
     Hide Channels Disabled Message: 使用 ID 屏蔽了某些频道，这些频道未被处理。当这些 ID 在升级时，功能被停用
     Hide Channels Already Exists: 频道 ID 已存在
@@ -690,7 +688,7 @@ Channel:
   Channel Tabs: 频道标签页
   This channel does not exist: 此频道不存在
   This channel does not allow searching: 此频道不允许搜索
-  Community:
+  Posts:
     This channel currently does not have any posts: 此频道当前没有任何帖子
     votes: '{votes} 票'
     Reveal Answers: 揭晓答案

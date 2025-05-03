@@ -42,7 +42,6 @@ Global:
   Videos: 'Fideos'
   Shorts: 'Byrion'
   Live: 'Byw'
-  Community: 'Cymuned'
   Sort By: Trefnu yn Ôl
   Counts:
     Video Count: '1 fideo| {count} fideo'
@@ -598,14 +597,12 @@ Settings:
     Hide Channels Already Exists: 'Mae ID y sianel eisoes yn bodoli'
     Hide Featured Channels: 'Cuddio Sianeli Nodwedd'
     Hide Channel Playlists: 'Cuddio Tab "Rhestrau Chwarae" Sianel'
-    Hide Channel Community: 'Cuddio Tab Sianel "Cymuned"'
     Hide Channel Shorts: 'Cuddio Tab Sianel "Byrion"'
     Hide Channel Podcasts: 'Cuddio Tab Sianel "Podlediadau"'
     Hide Channel Releases: 'Cuddio Tab Sianel "Rhyddhau"'
     Hide Subscriptions Videos: 'Cuddio Fideos Tanysgrifiadau'
     Hide Subscriptions Shorts: 'Cuddio Tanysgrifiadau Byrion'
     Hide Subscriptions Live: 'Cuddio Tanysgrifiadau Byw'
-    Hide Subscriptions Community: 'Cuddio Cymuned Tanysgrifiadau'
     Hide Videos and Playlists Containing Text: Cuddio Fideos a Rhestrau Chwarae sy'n
       Cynnwys Testun
     Hide Videos and Playlists Containing Text Placeholder: Gair, Darn o Arian, neu
@@ -867,7 +864,7 @@ Channel:
     Joined: 'Dyddiad ymuno'
     Location: 'Lleoliad'
     Featured Channels: 'Sianeli Enghreifftiol'
-  Community:
+  Posts:
     This channel currently does not have any posts: 'Nid oes gan y sianel hon unrhyw
       bostiadau ar hyn o bryd'
     votes: '{votes} pleidlais'
