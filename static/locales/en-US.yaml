@@ -275,7 +275,7 @@ Settings:
     General Settings: General
     Check for Updates: Check for Updates
     Enable VIM key-bindings: Enable navigation using VIM key-bindings.
-    VIM Warning: This will reassign any functionality previously assigned to j, to h.
+    VIM Warning: This will reassign the rewind functionality from j to h.
     Check for Latest Blog Posts: Check for Latest Blog Posts
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
@@ -1178,8 +1178,11 @@ KeyboardShortcutPrompt:
     App:
       Situational: 'App: Situational'
       General: App: General
+      VIM: App: VIM Navigation (if enabled)
   Show Keyboard Shortcuts: Show keyboard shortcuts
-  Show Vim Waypoints: Display VIM waypoints if enabled
+  Show Vim Waypoints: Display VIM waypoints
+  Scroll Down: Scroll down
+  Scroll Up: Scroll up
   History Backward: Go back one page
   History Forward: Go forward one page
   New Window: Create a new window

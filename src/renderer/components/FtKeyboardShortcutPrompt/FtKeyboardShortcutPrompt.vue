@@ -81,6 +81,10 @@ const situationalAppShortcuts = computed(() =>
   getLocalizedShortcutNamesAndValues(KeyboardShortcuts.APP.SITUATIONAL)
 )
 
+const VimAppShortcuts = computed(() =>
+  getLocalizedShortcutNamesAndValues(KeyboardShortcuts.APP.VIM)
+)
+
 const primarySections = computed(() => [
   [
     {
@@ -101,6 +105,12 @@ const primarySections = computed(() => [
       title: t('KeyboardShortcutPrompt.Sections.App.Situational'),
       shortcutDictionary: situationalAppShortcuts.value
     }
+  ],
+  [
+    {
+      title: t('KeyboardShortcutPrompt.Sections.App.VIM'),
+      shortcutDictionary: VimAppShortcuts.value
+    }
   ]
 ])
 
@@ -111,6 +121,8 @@ const localizedShortcutNameToShortcutsMappings = computed(() => {
   return [
     [t('KeyboardShortcutPrompt.Show Keyboard Shortcuts'), ['SHOW_SHORTCUTS']],
     [t('KeyboardShortcutPrompt.Show Vim Waypoints'), ['SHOW_VIM_WAYPOINTS']],
+    [t('KeyboardShortcutPrompt.Scroll Down'), ['SCROLL_DOWN']],
+    [t('KeyboardShortcutPrompt.Scroll Up'), ['SCROLL_UP']],
     [t('KeyboardShortcutPrompt.History Backward'), [
       'HISTORY_BACKWARD',
       ...isMac ? ['HISTORY_BACKWARD_ALT_MAC'] : [],
@@ -139,6 +151,7 @@ const localizedShortcutNameToShortcutsMappings = computed(() => {
     [t('KeyboardShortcutPrompt.Focus Secondary Search'), ['FOCUS_SECONDARY_SEARCH']],
 
     [t('KeyboardShortcutPrompt.Captions'), ['CAPTIONS']],
+    [t('KeyboardShortcutPrompt.Theatre Mode'), ['THEATRE_MODE']],
     [t('KeyboardShortcutPrompt.Fullscreen'), ['FULLSCREEN']],
     [t('KeyboardShortcutPrompt.Full Window'), ['FULLWINDOW']],
     [t('KeyboardShortcutPrompt.Picture in Picture'), ['PICTURE_IN_PICTURE']],

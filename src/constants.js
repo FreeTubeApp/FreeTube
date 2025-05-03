@@ -146,7 +146,6 @@ const KeyboardShortcuts = {
   APP: {
     GENERAL: {
       SHOW_SHORTCUTS: 'shift+?',
-      SHOW_VIM_WAYPOINTS: 'w',
       HISTORY_BACKWARD: 'alt+arrowleft',
       HISTORY_FORWARD: 'alt+arrowright',
       HISTORY_BACKWARD_ALT_MAC: 'cmd+[',
@@ -167,7 +166,11 @@ const KeyboardShortcuts = {
       RESET_ZOOM: 'ctrl+0',
       ZOOM_IN: 'ctrl+plus',
       ZOOM_OUT: 'ctrl+-'
-
+    },
+    VIM: {
+      SHOW_VIM_WAYPOINTS: 'w',
+      SCROLL_DOWN: 'j',
+      SCROLL_UP: 'k',
     },
     SITUATIONAL: {
       REFRESH: 'r',
@@ -177,6 +180,7 @@ const KeyboardShortcuts = {
   VIDEO_PLAYER: {
     GENERAL: {
       CAPTIONS: 'c',
+      THEATRE_MODE: 't',
       FULLSCREEN: 'f',
       FULLWINDOW: 's',
       PICTURE_IN_PICTURE: 'i',
