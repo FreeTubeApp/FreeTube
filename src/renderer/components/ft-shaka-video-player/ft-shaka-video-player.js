@@ -2075,9 +2075,9 @@ export default defineComponent({
     function keyboardShortcutHandler(event) {
       const passToVim =
         // If vim keys are enabled, ctrl is not held down, and the key is not f, j, or k.
-        (vimEnabled.value && !event.ctrlKey && ['t', 'j', 'k'].includes(event.key)) || // OR
+        (vimEnabled.value && !event.ctrlKey && ['w', 'j', 'k'].includes(event.key)) || // OR
         // The waypoints are already on the screen
-        ((areVimWaypointsShown.value.selector || []).length && areVimWaypointsShown.value.selector[0] === 't')
+        ((areVimWaypointsShown.value.selector || []).length && areVimWaypointsShown.value.selector[0] === 'w')
 
       if (passToVim) {
         return

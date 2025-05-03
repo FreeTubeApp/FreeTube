@@ -404,7 +404,7 @@ const actions = {
   },
 
   showVimWaypoints({ commit }) {
-    commit('setAreVimWaypointsShown', ['t'])
+    commit('setAreVimWaypointsShown', ['w'])
   },
 
   hideVimWaypoints({ commit }) {
@@ -903,7 +903,7 @@ const mutations = {
 
   setAreVimWaypointsShown(state, { key }) {
     const selectedLetterColor = '#D4AC3A'
-    if (key === 't' && !document.querySelector('.vimHint')) {
+    if (key === 'w' && !document.querySelector('.vimHint')) {
       const elements = [
         ...(document.querySelector('.prompt') || document).querySelectorAll('a, button, [type="button"], [type="submit"], [role="tab"], [role="button"], input[type="text"], [role="link"]')
       ]
