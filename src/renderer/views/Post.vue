@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="!isInvidiousAllowed">
-      {{ $t('Channel.Community.Viewing Posts Only Supported By Invidious') }}
+      {{ $t('Channel.Posts.Viewing Posts Only Supported By Invidious') }}
     </div>
     <FtLoader v-else-if="isLoading" />
     <template
