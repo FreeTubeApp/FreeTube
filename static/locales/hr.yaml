@@ -29,7 +29,7 @@ Forward: 'Naprijed'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videa'
-  Shorts: Kratka videa
+  Shorts: Shorts videozapisi
   Live: Uživo
   Community: Zajednica
   Sort By: Redoslijed
