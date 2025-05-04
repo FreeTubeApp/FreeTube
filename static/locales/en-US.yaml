@@ -1047,7 +1047,7 @@ Tooltips:
       FreeTube will automatically attempt to use your non-preferred API as a fallback
       method when enabled.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
-      a frame of the video instead of the default thumbnail.
+      a frame of the video, blurred or hidden instead of the default thumbnail.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
       calls.
     Region for Trending: The region of trends allows you to pick which country's trending
@@ -1061,7 +1061,7 @@ Tooltips:
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
       of making a direct connection to YouTube.
     Default Video Format: Set the formats used when a video plays. DASH formats can
-      play higher qualities. Legacy formats are limited to a max of 720p but use less
+      play higher qualities. Legacy formats are limited to a max of 360p but use less
       bandwidth. Audio formats are audio only streams.
     Scroll Playback Rate Over Video Player: While the cursor is over the video, press and
       hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards or backwards to control
@@ -1091,7 +1091,7 @@ Tooltips:
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
       but doesn't provide certain information like video duration, live status or posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch
-      your subscription feed when a new window is opened and when switching profile.
+      your subscription feed on startup and when a new window is opened.
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
   SponsorBlock Settings:
