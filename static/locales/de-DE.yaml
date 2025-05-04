@@ -627,6 +627,8 @@ Settings:
     Hide Channel Home: 'Tab „Startseite“ im Kanal ausblenden'
     Show Added Items: Hinzugefügte Elemente anzeigen
     Hide Channel Courses: Tab „Kurse“ im Kanal ausblenden
+    Hide Channel Posts: Tab „Beiträge“ im Kanal ausblenden
+    Hide Subscriptions Posts: Abonnierte Beiträge ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
@@ -1132,12 +1134,12 @@ Tooltips:
       um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Blockierung,
       liefert aber bestimmte Informationen wie Videodauer, den Live-Status oder Beiträge
       nicht
-    Fetch Automatically: Wenn aktiviert, ruft FreeTube automatisch deinen Abo-Feed
-      ab, wenn ein neues Fenster geöffnet wird und wenn du das Profil wechselst.
+    Fetch Automatically: Wenn aktiviert, ruft FreeTube automatisch deinen Abonnement-Feed
+      beim Start und beim Öffnen eines neuen Fensters ab.
   Player Settings:
     Default Video Format: Lege die Formate fest, die bei der Wiedergabe eines Videos
       verwendet werden. DASH-Formate können höhere Qualitäten wiedergeben. Altformate
-      sind auf maximal 720p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate
+      sind auf maximal 360p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate
       sind reine Audiostreams.
     Proxy Videos Through Invidious: Stellt eine Verbindung zu Invidious her, um Videos
       bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen.
