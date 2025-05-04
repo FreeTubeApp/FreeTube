@@ -619,6 +619,8 @@ Settings:
     Hide Channel Home: Ocultar a guia "Início" do canal
     Show Added Items: Mostrar itens adicionados
     Hide Channel Courses: Ocultar a guia “Cursos” do canal
+    Hide Subscriptions Posts: Ocultar inscrições na guia de postagens
+    Hide Channel Posts: Ocultar a guia "Posts" do canal
   The app needs to restart for changes to take effect. Restart and apply change?: O
     aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar
     mudança?
@@ -780,7 +782,7 @@ Channel:
     Viewing Posts Only Supported By Invidious: A visualização de postagens só é compatível
       com o Invidious. Acesse a guia da comunidade de um canal para visualizar o conteúdo
       sem o Invidious.
-  Channel Tabs: Guias de canais
+  Channel Tabs: Guias do canal
   Live:
     Live: Ao vivo
     This channel does not currently have any live streams: Este canal não tem nenhuma
@@ -1096,13 +1098,13 @@ Tooltips:
     Fetch Feeds from RSS: Quando habilitado, o FreeTube usará RSS em vez de seu método
       padrão para obter o feed de sua inscrição. O RSS é mais rápido e evita bloqueio
       de IP, mas não fornece certas informações como duração do vídeo, status ao vivo
-      ou publicações da comunidade
+      ou postagens
     Fetch Automatically: Quando habilitado, o FreeTube buscará automaticamente seu
-      feed de inscrições ao abrir uma nova janela e ao trocar o perfil.
+      feed de inscrições na inicialização e quando uma nova janela for aberta.
   Player Settings:
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido.
       Formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos são
-      limitados a um máximo de 720p, mas usam menos largura de banda. Formatos de
+      limitados a um máximo de 360p, mas usam menos largura de banda. Formatos de
       áudio são para transmissões sem vídeo.
     Proxy Videos Through Invidious: Estabelece uma conexão ao Invidious para obter
       vídeos em vez de fazer uma conexão direta com o YouTube.
@@ -1119,8 +1121,8 @@ Tooltips:
       em alta do país que deseja exibir.
     Invidious Instance: A instância Invidious à qual o FreeTube se conectará para
       chamadas de API.
-    Thumbnail Preference: Todas as miniaturas do FreeTube serão substituídas por um
-      quadro do vídeo em vez da miniatura padrão.
+    Thumbnail Preference: Todas as miniaturas no FreeTube serão substituídas por um
+      quadro do vídeo, desfocado ou oculto, em vez da miniatura padrão.
     Fallback to Non-Preferred Backend on Failure: Quando sua API preferida tiver um
       problema, o FreeTube tentará automaticamente usar sua API não preferencial como
       método alternativo quando habilitada.
@@ -1297,7 +1299,7 @@ KeyboardShortcutPrompt:
   Zoom Out: Diminuir
   Refresh: Atualizar o feed com o conteúdo mais recente
   Focus Secondary Search: Concentre-se na barra de busca secundária (se houver)
-  Play: Alternar reproduzir/pausar
+  Play: Reproduzir ou pausar
   Large Fast Forward: Avançar 10 segundos / Avanço rápido do vídeo com base na taxa
     de reprodução do vídeo atual
   Mute: Ativar ou desativar som
