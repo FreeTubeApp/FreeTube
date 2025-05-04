@@ -31,7 +31,7 @@ Global:
   Videos: 'Видеа'
   Shorts: Кратки видеа
   Live: На живо
-  Community: Общност
+  Posts: Публикации
   Sort By: Подреждане по
 
   Counts:
@@ -602,7 +602,6 @@ Settings:
       главни букви и препинателни знаци
     Hide Featured Channels: Скриване на препоръчаните канали
     Hide Channel Playlists: Скриване на раздел "Плейлисти"
-    Hide Channel Community: Скриване на раздел "Общност"
     Hide Channel Shorts: Скриване на раздел "Кратки видеа"
     Sections:
       Channel Page: Страница на канала
@@ -616,7 +615,6 @@ Settings:
     Hide Subscriptions Live: Скриване на абонаментите на живо
     Hide Channel Podcasts: Скриване на раздел "Подкасти"
     Hide Profile Pictures in Comments: Скриване на профилните снимки в коментарите
-    Hide Subscriptions Community: Скриване на абонаментите Общност
     Hide Channels Disabled Message: Някои канали бяха блокирани с чрез идентификатор
       и не бяха обработени. Функцията е блокирана, докато тези идентификатори се актуализират
     Hide Channels API Error: Грешка при извличането на потребител с предоставения
@@ -826,7 +824,7 @@ Channel:
     Details: Детайли
     Joined: Присъединен на
     Location: Местоположение
-  Community:
+  Posts:
     This channel currently does not have any posts: В момента този канал няма никакви
       публикации
     votes: '{votes} гласа'

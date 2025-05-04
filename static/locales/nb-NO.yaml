@@ -31,7 +31,7 @@ Global:
   Videos: 'Videoer'
   Shorts: Shorts-videoer
   Live: Direktesendinger
-  Community: Fellesskap
+  Posts: Innlegg
   Sort By: Sorter etter
 
 # Search Bar
@@ -610,7 +610,6 @@ Settings:
     Display Titles Without Excessive Capitalisation: Vis titler uten overdreven bruk
       av store bokstaver
     Hide Featured Channels: Skjul fremhevede kanaler
-    Hide Channel Community: Skjul «Fellesskap»-fanen i kanaler
     Hide Channel Shorts: Skjul «Shorts»-fanen i kanaler
     Sections:
       Side Bar: Sidefelt
@@ -636,7 +635,6 @@ Settings:
     Show Added Items: Vis videoer lagt til
     Hide Channels API Error: En feil oppsto ved henting av brukeren med den oppgitte
       ID-en. Vennligst sjekk om ID-en er riktig.
-    Hide Subscriptions Community: Skjul abonnementsfellesskap
     Hide Channel Courses: Skjul «Kurs»-fanen i kanaler
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på nytt for å ta i bruk endringene?
@@ -766,7 +764,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Denne
     kanalen er aldersbegrenset og kan derfor ikke vises i FreeTube.
   Channel Tabs: Kanalfaner
-  Community:
+  Posts:
     This channel currently does not have any posts: Denne kanalen har ingen oppføringer
     Hide Answers: Skjul svar
     votes: '{votes} stemmer'

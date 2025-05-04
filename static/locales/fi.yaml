@@ -28,7 +28,7 @@ Global:
   Videos: 'Videot'
   Shorts: Shorts
   Live: Livenä
-  Community: Yhteisö
+  Posts: Postaukset
   Sort By: Järjestä
   Counts:
     Video Count: 1 video | {count} videota
@@ -497,7 +497,6 @@ Settings:
       isoja kirjaimia
     Hide Featured Channels: Piilota esillä olevat kanavat
     Hide Channel Playlists: Piilota kanavan soittolistat
-    Hide Channel Community: Piilota kanava yhteisö
     Hide Channel Shorts: Piilota kanavan lyhytelokuvat
     Sections:
       Side Bar: Sivupalkki
@@ -512,7 +511,6 @@ Settings:
     Hide Profile Pictures in Comments: Piilota profiilikuvat kommenteissa
     Hide Channels Invalid: Annettu kanavatunnus oli virheellinen
     Hide Subscriptions Shorts: Piilota tilattujen kanavien Shorts-videot
-    Hide Subscriptions Community: Piilota tilattujen kanavien yhteisö
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
     on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
     uudelleen?
@@ -654,7 +652,7 @@ Channel:
     kanava on ikärajoitettu, eikä sitä voi tällä hetkellä katsoa FreeTubessa.
   This channel does not exist: Tätä kanavaa ei ole olemassa
   This channel does not allow searching: Tämä kanava ei salli etsintää
-  Community:
+  Posts:
     This channel currently does not have any posts: Tällä kanavalla ei ole tällä hetkellä
       mitään
     Reveal Answers: Näytä vastaukset

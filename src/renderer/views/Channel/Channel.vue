@@ -214,7 +214,7 @@
           v-if="!hideChannelCommunity && currentTab === 'community' && latestCommunityPosts.length === 0"
         >
           <p class="message">
-            {{ $t("Channel.Community.This channel currently does not have any posts") }}
+            {{ $t("Channel.Posts.This channel currently does not have any posts") }}
           </p>
         </FtFlexBox>
         <FtElementList

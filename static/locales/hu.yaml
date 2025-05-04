@@ -31,7 +31,7 @@ Global:
   Videos: 'Videók'
   Shorts: Rövid videók
   Live: Élő
-  Community: Közösség
+  Posts: Bejegyzések
   Sort By: Rendezési szempont
 
   Counts:
@@ -608,7 +608,6 @@ Settings:
       és írásjelek nélkül való megjelenítése
     Hide Featured Channels: Kiemelt csatornák elrejtése
     Hide Channel Playlists: Csatorna „lejátszási listák” lap elrejtése
-    Hide Channel Community: Csatorna „közösség” lap elrejtése
     Hide Channel Shorts: Csatorna „rövid videók” lap elrejtése
     Sections:
       Side Bar: Oldalsáv
@@ -622,7 +621,6 @@ Settings:
     Hide Subscriptions Videos: Feliratkozási videók elrejtése
     Hide Subscriptions Live: Élő feliratkozások elrejtése
     Hide Profile Pictures in Comments: Profilképek elrejtése a hozzászólásokban
-    Hide Subscriptions Community: Közösségi feliratkozások elrejtése
     Hide Channels Invalid: Érvénytelen a megadott csatornaazonosító
     Hide Channels Disabled Message: Egyes csatornákat letiltottak az azonosító miatt,
       és nem dolgozták fel őket. A funkció le van tiltva, amíg ezek az azonosítók
@@ -838,7 +836,7 @@ Channel:
     This channel does not currently have any live streams: Jelenleg nincs élő közvetítés
       ezen a csatornán
     Live: Élő
-  Community:
+  Posts:
     This channel currently does not have any posts: Ezen a csatornán jelenleg nincsenek
       bejegyzések
     Reveal Answers: Válaszok felfedése

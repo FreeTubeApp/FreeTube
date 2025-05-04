@@ -4,7 +4,7 @@
       class="vote-count"
     >
       <!-- Format the votes to be split by commas ie. 1000 -> 1,000 -->
-      {{ $t('Channel.Community.votes', {votes: formattedVotes}) }}
+      {{ $t('Channel.Posts.votes', {votes: formattedVotes}) }}
     </div>
     <div
       v-for="(choice, index) in data.content"
@@ -52,13 +52,13 @@
         v-if="!revealAnswer"
         class="option-text"
       >
-        <FontAwesomeIcon :icon="['fas', 'eye']" /> {{ $t('Channel.Community.Reveal Answers') }}
+        <FontAwesomeIcon :icon="['fas', 'eye']" /> {{ $t('Channel.Posts.Reveal Answers') }}
       </div>
       <div
         v-else
         class="option-text"
       >
-        <FontAwesomeIcon :icon="['fas', 'eye-slash']" /> {{ $t('Channel.Community.Hide Answers') }}
+        <FontAwesomeIcon :icon="['fas', 'eye-slash']" /> {{ $t('Channel.Posts.Hide Answers') }}
       </div>
     </div>
   </div>

@@ -31,7 +31,7 @@ Global:
   Videos: 'סרטונים'
   Shorts: Shorts
   Live: חי
-  Community: קהילה
+  Posts: פוסטים
   Sort By: מיון לפי
 
   Counts:
@@ -541,7 +541,6 @@ Settings:
       וסימני פיסוק מיותרים
     Hide Featured Channels: הסתרת ערוצים מומלצים
     Hide Channel Playlists: הסתרת לשונית „רשימות נגינה” של ערוץ
-    Hide Channel Community: הסתרת לשונית ה„קהילת” הערוץ
     Hide Channel Shorts: הסתרת לשונית ה־„Shorts” של הערוץ
     Sections:
       Watch Page: עמוד הצפייה
@@ -555,7 +554,6 @@ Settings:
     Hide Subscriptions Shorts: הסתרת Shorts של המינויים
     Hide Subscriptions Videos: הסתרת סרטוני מינוי
     Hide Profile Pictures in Comments: הסתרת תמונות הפרופיל בהערות
-    Hide Subscriptions Community: הסתרת קהילת המינויים
     Hide Videos and Playlists Containing Text Placeholder: מילה, חלק מילה או ביטוי
     Hide Channels Invalid: ID הערוץ שסופק לא תקין
     Hide Channels Disabled Message: חלק מהערוצים נחסמו באמצעות ID ולא טופלו. התכונה
@@ -758,7 +756,7 @@ Channel:
   This channel does not exist: הערוץ הזה לא קיים
   This channel is age-restricted and currently cannot be viewed in FreeTube.: הערוץ
     מוגבל לפי גיל וכרגע אי אפשר לצפות בו ב־FreeTube.
-  Community:
+  Posts:
     This channel currently does not have any posts: אין רשומות בערוץ הזה כרגע
     votes: '{votes} הצבעות'
     Reveal Answers: חשיפת התשובות

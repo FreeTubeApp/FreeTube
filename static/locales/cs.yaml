@@ -31,7 +31,7 @@ Global:
   Videos: 'Videa'
   Shorts: Shorts
   Live: Živě
-  Community: Komunita
+  Posts: Příspěvky
   Sort By: Seřadit podle
 
   Counts:
@@ -551,7 +551,6 @@ Settings:
       použití velkých písmen a interpunkce
     Hide Featured Channels: Skrýt doporučené kanály
     Hide Channel Playlists: Skrýt kartu „Playlisty“ u kanálů
-    Hide Channel Community: Skrýt kartu „Komunita“ u kanálů
     Hide Channel Shorts: Skrýt kartu „Shorts“ u kanálů
     Sections:
       Side Bar: Postranní lišta
@@ -565,7 +564,6 @@ Settings:
     Hide Subscriptions Videos: Skrýt videa odběrů
     Hide Subscriptions Live: Skrýt živá vysílání odběrů
     Hide Profile Pictures in Comments: Skrýt profilové obrázky v komentářích
-    Hide Subscriptions Community: Skrýt komunitu odběratelů
     Hide Channels Invalid: Zadané ID kanálu je neplatné
     Hide Channels Disabled Message: Některé kanály byly zablokovány pomocí ID a nebyly
       zpracovány. Při aktualizaci těchto ID je funkce zablokována
@@ -819,7 +817,7 @@ Channel:
   This channel does not exist: Tento kanál neexistuje
   This channel does not allow searching: Tento kanál neumožňuje vyhledávání
   Channel Tabs: Karty kanálů
-  Community:
+  Posts:
     This channel currently does not have any posts: Tento kanál v současné době nemá
       žádné příspěvky
     Hide Answers: Skrýt odpovědi
