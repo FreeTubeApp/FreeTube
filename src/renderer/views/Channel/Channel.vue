@@ -351,8 +351,8 @@ const currentTab = ref('videos')
 
 const hideWatchedToggle = ref(false)
 
-const updateHideWatchedToggle = (hideWatchedToggle) => {
-  hideWatchedToggle = !hideWatchedToggle
+const updateHideWatchedToggle = () => {
+  hideWatchedToggle.value = !hideWatchedToggle.value
 }
 
 const isCurrentTabLoading = computed(() => {
@@ -1076,6 +1076,20 @@ watch(videoSortBy, () => {
   }
 })
 
+watch(() => hideWatchedToggle.value, () => {
+  // if (!autoRefreshOnHideWatchedByChangeEnabled) { return }
+
+  isElementListLoading.value = true
+  latestVideos.value = []
+  videoContinuationData.value = null
+
+  if (process.env.SUPPORTS_LOCAL_API && apiUsed === 'local') {
+    getChannelVideosLocal()
+  } else {
+    channelInvidiousVideos(true)
+  }
+})
+
 async function getChannelVideosLocal() {
   isElementListLoading.value = true
   const expectedId = id.value
@@ -1094,7 +1108,9 @@ async function getChannelVideosLocal() {
       }
 
       latestVideos.value = playlist.items.map(parseLocalPlaylistVideo)
-      // latestVideos.value = filterWatchedVideos(latestVideos.value)
+      if (hideWatchedToggle.value) {
+        latestVideos.value = filterWatchedVideos(latestVideos.value)
+      }
       videoContinuationData.value = playlist.has_continuation ? playlist : null
       isElementListLoading.value = false
     } else {
@@ -1114,7 +1130,9 @@ async function getChannelVideosLocal() {
       }
 
       latestVideos.value = parseLocalChannelVideos(videosTab.videos, id.value, channelName.value)
-      // latestVideos.value = filterWatchedVideos(latestVideos.value)
+      if (hideWatchedToggle.value) {
+        latestVideos.value = filterWatchedVideos(latestVideos.value)
+      }
       videoContinuationData.value = videosTab.has_continuation ? videosTab : null
       isElementListLoading.value = false
     }
@@ -1152,7 +1170,9 @@ async function getChannelVideosLocalMore() {
       const continuation = await videoContinuationData.value.getContinuation()
 
       latestVideos.value = latestVideos.value.concat(continuation.items.map(parseLocalPlaylistVideo))
-      // latestVideos.value = filterWatchedVideos(latestVideos.value)
+      if (hideWatchedToggle.value) {
+        latestVideos.value = filterWatchedVideos(latestVideos.value)
+      }
       videoContinuationData.value = continuation.has_continuation ? continuation : null
     } else {
       /**
@@ -1161,7 +1181,9 @@ async function getChannelVideosLocalMore() {
       const continuation = await videoContinuationData.value.getContinuation()
 
       latestVideos.value = latestVideos.value.concat(parseLocalChannelVideos(continuation.videos, id.value, channelName.value))
-      // latestVideos.value = filterWatchedVideos(latestVideos.value)
+      if (hideWatchedToggle.value) {
+        latestVideos.value = filterWatchedVideos(latestVideos.value)
+      }
       videoContinuationData.value = continuation.has_continuation ? continuation : null
     }
   } catch (err) {
@@ -2335,12 +2357,7 @@ function handleSubscription() {
 }
 
 function filterWatchedVideos(videos) {
-  console.warn(hideWatchedToggle)
-  if (hideWatchedToggle.value) {
-    return videos.filter(video => !video.watched)
-  } else {
-    return videos
-  }
+  return videos.filter(video => !video.watched)
 }
 </script>
 
