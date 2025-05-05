@@ -2357,6 +2357,10 @@ function handleSubscription() {
 function filterWatchedVideos(videos) {
   return videos.filter(video => !video.watched)
 }
+
+function historyEntryExists(videoId, historyCache) {
+  return typeof historyCache[videoId] !== 'undefined'
+}
 </script>
 
 <style scoped src="./Channel.css" />
