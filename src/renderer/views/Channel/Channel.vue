@@ -1077,8 +1077,6 @@ watch(videoSortBy, () => {
 })
 
 watch(() => hideWatchedToggle.value, () => {
-  // if (!autoRefreshOnHideWatchedByChangeEnabled) { return }
-
   isElementListLoading.value = true
   latestVideos.value = []
   videoContinuationData.value = null
