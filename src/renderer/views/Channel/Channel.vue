@@ -2355,7 +2355,8 @@ function handleSubscription() {
 }
 
 function filterWatchedVideos(videos) {
-  return videos.filter(video => !video.watched)
+  const historyCache = store.getters.getHistoryCacheById
+  return videos.filter(video => !historyEntryExists(video.videoId, historyCache))
 }
 
 function historyEntryExists(videoId, historyCache) {
