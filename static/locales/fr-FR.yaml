@@ -639,6 +639,8 @@ Settings:
     Hide Channel Home: Masquer l’onglet « Accueil » de la chaine
     Show Added Items: Afficher les éléments ajoutés
     Hide Channel Courses: Masquer l’onglet « Cours » de la chaine
+    Hide Channel Posts: Masquer l’onglet « Posts » de la chaine
+    Hide Subscriptions Posts: Masquer les posts des abonnements
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
