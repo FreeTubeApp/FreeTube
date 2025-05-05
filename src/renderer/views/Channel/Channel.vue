@@ -2329,6 +2329,14 @@ function handleSubscription() {
     posts: latestCommunityPosts.value
   })
 }
+
+function filterWatchedVideos(videos) {
+  if (hideWatchedToggle.value) {
+    return videos.filter(video => !video.watched)
+  } else {
+    return videos
+  }
+}
 </script>
 
 <style scoped src="./Channel.css" />
