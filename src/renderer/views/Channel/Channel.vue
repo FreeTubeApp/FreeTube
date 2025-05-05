@@ -1077,6 +1077,9 @@ watch(videoSortBy, () => {
 })
 
 watch(() => hideWatchedToggle.value, () => {
+  // Known limitation - it auto-refreshes the video list only when the toggle changes.
+  // So if an user manually marks a video as Watched, it won't be automatically hidden.
+  // Feels like a good compromise to me at this moment, but can be worked on later
   isElementListLoading.value = true
   latestVideos.value = []
   videoContinuationData.value = null
