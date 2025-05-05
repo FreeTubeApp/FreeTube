@@ -579,6 +579,8 @@ Settings:
     Hide Channel Home: Fela "Heim"-flipa rása
     Show Added Items: Sýna atriði sem bætt hefur verið við
     Hide Channel Courses: Fela flipann með rásinni "Kennsluefni"
+    Hide Channel Posts: Fela "Færslur"-flipa rása
+    Hide Subscriptions Posts: Fela áskriftarfærslur
   Data Settings:
     Data Settings: 'Gögn'
     Select Export Type: 'Veldu tegund útflutnings'
@@ -1079,7 +1081,7 @@ Tooltips:
       á í vandræðum, mun FreeTube reyna sjálfkrafa að nota ekki-forgangsbakenda API-kerfisviðmóts
       sem varaleið, þegar þetta er virkjað.'
     Thumbnail Preference: 'Öllum smámyndum í FreeTube verður skipt út fyrir ramma
-      með myndskeiðinu í stað sjálfgefinnar smámyndar.'
+      með myndskeiðinu, móskaðan eða falinn, í stað sjálfgefinnar smámyndar.'
     Invidious Instance: 'Tilvik Invidious-netþjóns sem FreeTube mun tengjast fyrir
       beiðnir í API-kerfisviðmót.'
     Region for Trending: 'Landssvæði sem skal miða vinsældir við gerir þér kleift
@@ -1095,7 +1097,7 @@ Tooltips:
       í stað þess að tengjast beint við YouTube.'
     Default Video Format: 'Stillu skráasniðin sem notuð eru við afspilun myndskeiða.
       DASH-snið (Dynamic Adaptive Streaming over HTTP) er hægt að spila í meiri gæðum.
-      Eldri snið takmarkast við 720p en nota minni bandbreidd. Hljóðsnið eru streymi
+      Eldri snið takmarkast við 360p en nota minni bandbreidd. Hljóðsnið eru streymi
       einungis með hljóði.'
     Scroll Playback Rate Over Video Player: Á meðan bendillinn er yfir myndspilaranum,
       ýttu og haltu niðri Ctrl-lyklinum ('Command' slaufulykill á Mac) og skrunaðu
@@ -1109,11 +1111,11 @@ Tooltips:
     Fetch Feeds from RSS: 'Þegar þetta er virkt, mun FreeTube nota RSS í stað sjálfgefinnar
       aðferðar við að safna streymi áskriftarinnar þinnar. RSS er hraðvirkara og kemur
       í veg fyrir útilokun IP-vistfanga, en nær ekki að birta ákveðnar upplýsingar
-      á borð við tímalengd myndskeiða, stöðu í beinni útsendingu eða færslur á samfélagsgáttum'
+      á borð við tímalengd myndskeiða, stöðu í beinni útsendingu eða færslur'
 
 # Toast Messages
     Fetch Automatically: Þegar þetta er virkt, mun FreeTube sækja sjálfkrafa áskriftarstreymin
-      þín þegar nýr gluggi er opnaður og þegar skipt er um notkunarsnið.
+      þín í ræsingu og þegar nýr gluggi er opnaður.
   External Player Settings:
     Custom External Player Arguments: Öll sérsniðin skipanaviðföng og rofar, sem beina
       á til utanaðkomandi spilarans.
