@@ -259,6 +259,13 @@ function runApp() {
     app.commandLine.appendSwitch('disable-http-cache')
   }
 
+  const DISABLE_HARDWARE_MEDIA_KEYS_PATH = `${userDataPath}/experiment-disable-hardware-media-keys`
+  const disableHardwareMediaKeys = existsSync(DISABLE_HARDWARE_MEDIA_KEYS_PATH)
+
+  if (disableHardwareMediaKeys) {
+    app.commandLine.appendSwitch('disable-features', 'HardwareMediaKeyHandling')
+  }
+
   const PLAYER_CACHE_PATH = `${userDataPath}/player_cache`
 
   // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
@@ -1232,6 +1239,22 @@ function runApp() {
     } else {
       // create an empty file
       const handle = await asyncFs.open(REPLACE_HTTP_CACHE_PATH, 'w')
+      await handle.close()
+    }
+
+    relaunch()
+  })
+
+  ipcMain.handle(IpcChannels.GET_DISABLE_HARDWARE_MEDIA_KEYS, () => {
+    return disableHardwareMediaKeys
+  })
+
+  ipcMain.once(IpcChannels.TOGGLE_DISABLE_HARDWARE_MEDIA_KEYS, async () => {
+    if (disableHardwareMediaKeys) {
+      await asyncFs.rm(DISABLE_HARDWARE_MEDIA_KEYS_PATH)
+    } else {
+      // create an empty file
+      const handle = await asyncFs.open(DISABLE_HARDWARE_MEDIA_KEYS_PATH, 'w')
       await handle.close()
     }
 

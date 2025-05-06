@@ -39,6 +39,9 @@ const IpcChannels = {
   GET_REPLACE_HTTP_CACHE: 'get-replace-http-cache',
   TOGGLE_REPLACE_HTTP_CACHE: 'toggle-replace-http-cache',
 
+  GET_DISABLE_HARDWARE_MEDIA_KEYS: 'get-disable-hardware-media-keys',
+  TOGGLE_DISABLE_HARDWARE_MEDIA_KEYS: 'toggle-disable-hardware-media-keys',
+
   PLAYER_CACHE_GET: 'player-cache-get',
   PLAYER_CACHE_SET: 'player-cache-set',
 
