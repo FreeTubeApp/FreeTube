@@ -22,10 +22,8 @@
 ## Screenshots <!-- If appropriate -->
 <!-- Please add before and after screenshots if there is a visible change. -->
 
-## Testing <!-- for code that is not small enough to be easily understandable -->
-<!-- Has this pull request been tested? -->
-<!-- Please describe shortly how you tested it. -->
-<!-- Are there any ramifications remaining? -->
+## Testing
+<!-- How can reviewers verify that the PR produces correct results? -->
 <!-- Please provide test cases that others can use to validate your pull request! For examples see, https://github.com/FreeTubeApp/FreeTube/pull/5743, https://github.com/FreeTubeApp/FreeTube/pull/7349, https://github.com/FreeTubeApp/FreeTube/pull/5125, https://github.com/FreeTubeApp/FreeTube/pull/7338 -->
 
 ## Desktop
