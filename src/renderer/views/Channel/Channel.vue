@@ -1199,9 +1199,6 @@ async function channelInvidiousVideos(sortByChanged = false) {
     } else {
       latestVideos.value = response.videos
     }
-    if (hideWatchedToggle.value) {
-      latestVideos.value = filterWatchedVideos(latestVideos.value)
-    }
     videoContinuationData.value = response.continuation || null
     isElementListLoading.value = false
 
