@@ -1151,7 +1151,7 @@ Tooltips:
     Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour
       les appels API.
     Thumbnail Preference: Toutes les miniatures de FreeTube seront remplacées par
-      une image de la vidéo au lieu de la vignette par défaut.
+      une image de la vidéo, floutée ou masquée, au lieu de la vignette par défaut.
     Fallback to Non-Preferred Backend on Failure: Lorsque votre API préférée a un
       problème, FreeTube tentera automatiquement d'utiliser votre API non préférée
       comme méthode de secours lorsqu'elle est activée.
