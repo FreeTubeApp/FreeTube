@@ -119,7 +119,7 @@
         <FtElementList
           v-if="!hideChannelShorts && currentTab === 'shorts'"
           id="shortPanel"
-          :data="latestShorts"
+          :data="filteredShorts"
           :use-channels-hidden-preference="false"
           role="tabpanel"
           aria-labelledby="shortsTab"
@@ -1067,6 +1067,14 @@ const filteredVideos = computed(() => {
     return filterWatchedVideos(latestVideos.value)
   } else {
     return latestVideos.value
+  }
+})
+
+const filteredShorts = computed(() => {
+  if (hideWatchedToggle.value) {
+    return filterWatchedVideos(latestShorts.value)
+  } else {
+    return latestShorts.value
   }
 })
 
