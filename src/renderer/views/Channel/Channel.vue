@@ -135,7 +135,7 @@
           v-if="!hideLiveStreams"
           v-show="currentTab === 'live'"
           id="livePanel"
-          :data="latestLive"
+          :data="filteredLive"
           :use-channels-hidden-preference="false"
           role="tabpanel"
           aria-labelledby="liveTab"
@@ -1075,6 +1075,14 @@ const filteredShorts = computed(() => {
     return filterWatchedVideos(latestShorts.value)
   } else {
     return latestShorts.value
+  }
+})
+
+const filteredLive = computed(() => {
+  if (hideWatchedToggle.value) {
+    return filterWatchedVideos(latestLive.value)
+  } else {
+    return latestLive.value
   }
 })
 
