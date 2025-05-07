@@ -1064,11 +1064,15 @@ const showVideoSortBy = ref(true)
 const videoSortBy = ref('newest')
 
 const filteredVideos = computed(() => {
-  if (hideWatchedToggle.value) {
-    return filterWatchedArray(latestVideos.value)
-  } else {
-    return latestVideos.value
+  const filteredArray = hideWatchedToggle.value ? filterWatchedArray(latestVideos.value) : latestVideos.value
+  if (hideWatchedToggle.value && filteredArray.length === 0) {
+    if (process.env.SUPPORTS_LOCAL_API && apiUsed === 'local') {
+      getChannelVideosLocalMore()
+    } else {
+      channelInvidiousVideos()
+    }
   }
+  return filteredArray
 })
 
 const filteredShorts = computed(() => {
