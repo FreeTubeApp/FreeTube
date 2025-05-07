@@ -1064,7 +1064,7 @@ const videoSortBy = ref('newest')
 
 const filteredVideos = computed(() => {
   if (hideWatchedToggle.value) {
-    return filterWatchedVideos(latestVideos.value)
+    return filterWatchedArray(latestVideos.value)
   } else {
     return latestVideos.value
   }
@@ -1072,7 +1072,7 @@ const filteredVideos = computed(() => {
 
 const filteredShorts = computed(() => {
   if (hideWatchedToggle.value) {
-    return filterWatchedVideos(latestShorts.value)
+    return filterWatchedArray(latestShorts.value)
   } else {
     return latestShorts.value
   }
@@ -1080,7 +1080,7 @@ const filteredShorts = computed(() => {
 
 const filteredLive = computed(() => {
   if (hideWatchedToggle.value) {
-    return filterWatchedVideos(latestLive.value)
+    return filterWatchedArray(latestLive.value)
   } else {
     return latestLive.value
   }
@@ -2354,7 +2354,7 @@ function handleSubscription() {
   })
 }
 
-function filterWatchedVideos(videos) {
+function filterWatchedArray(videos) {
   const historyCache = store.getters.getHistoryCacheById
   return videos.filter(video => !historyEntryExists(video.videoId, historyCache))
 }
