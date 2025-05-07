@@ -10,7 +10,10 @@
         :select-values="externalPlayerValues"
         :tooltip="$t('Tooltips.External Player Settings.External Player')"
         :icon="['fas', 'external-link-alt']"
-        @change="updateExternalPlayer"
+        @change="val => {
+          updateExternalPlayer(val);
+          updateExternalPlayerExecutable('');
+        }"
       />
     </FtFlexBox>
     <FtFlexBox>
@@ -70,6 +73,8 @@ import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
 import FtInputTags from './ft-input-tags/ft-input-tags.vue'
 
 import store from '../store/index'
+
+import jsonData from '../../../static/external-player-map.json'
 
 const { t } = useI18n()
 
@@ -138,12 +143,66 @@ function updateExternalPlayerIgnoreDefaultArgs(value) {
 }
 
 /**
- * @param {string} value
+ * Replace any %VAR% tokens (like %Program Files%) in a path string with the corresponding process.env.VAR value.
+ * @param {string} str
+ * @returns {string}
  */
-function updateExternalPlayerExecutable(value) {
-  store.dispatch('updateExternalPlayerExecutable', value)
+function expandEnvVars(str) {
+  return str.replaceAll(/%([^%]+)%/g, (_, name) => process.env[name] || '')
 }
 
+/**
+ * Detect os
+ * @returns {'Windows'|'macOS'|'Linux'|'Unknown'}
+ */
+function detectOS() {
+  // first try client hints
+  const uaData = navigator.userAgentData
+  if (uaData?.platform) {
+    const plat = uaData.platform.toLowerCase()
+    if (plat.includes('win')) return 'Windows'
+    if (plat.includes('mac')) return 'macOS'
+    if (plat.includes('linux')) return 'Linux'
+  }
+  // then fallback to ua
+  const ua = navigator.userAgent.toLowerCase()
+  if (ua.includes('windows nt')) return 'Windows'
+  if (ua.includes('mac os x')) return 'macOS'
+  if (ua.includes('linux')) return 'Linux'
+
+  return 'Unknown'
+}
+/**
+ * @param {string} value
+ */
+// gets default path for the external player, sets it as default for the executable
+// first checks if the user has set a custom path, if not, gets the default path
+function updateExternalPlayerExecutable(value) {
+  if (value && value.trim() !== '') {
+    store.dispatch('updateExternalPlayerExecutable', value)
+  } else {
+    const playerData = jsonData.find(p => p.value === externalPlayer.value)
+    if (playerData && playerData.cmdArguments) {
+      const os = detectOS()
+      let defaultPath = ''
+      if (os === 'Windows') {
+        defaultPath = expandEnvVars(playerData.cmdArguments.windowsPath)
+      } else if (os === 'macOS') {
+        defaultPath = playerData.cmdArguments.macPath
+      } else if (os === 'Linux') {
+        defaultPath = playerData.cmdArguments.linuxPath
+      }
+
+      console.warn('[updateExternalPlayerExecutable] playerData=', playerData)
+      console.warn('[updateExternalPlayerExecutable] detected OS=', os)
+
+      store.dispatch(
+        'updateExternalPlayerExecutable',
+        defaultPath || ''
+      )
+    }
+  }
+}
 /**
  * @param {string[]} args
  */
