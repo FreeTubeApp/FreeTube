@@ -40,7 +40,7 @@
       />
       <div class="select-container">
         <FtToggleSwitch
-          v-if="currentTab === 'videos'"
+          v-if="(currentTab === 'videos') || (currentTab === 'shorts') || (currentTab === 'live')"
           v-model="hideWatchedToggle"
           :label="$t('Channel.Videos.Hide Watched')"
           compact
