@@ -606,6 +606,8 @@ Settings:
     Hide Channel Home: إخفاء علامة التبويب "الصفحة الرئيسية" للقناة
     Show Added Items: إظهار العناصر المضافة
     Hide Channel Courses: إخفاء علامة التبويب "دورات" القناة
+    Hide Channel Posts: إخفاء علامة تبويب "المنشورات" للقناة
+    Hide Subscriptions Posts: إخفاء منشورات الاشتراكات
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
