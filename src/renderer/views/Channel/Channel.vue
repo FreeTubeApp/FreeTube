@@ -104,7 +104,7 @@
         <FtElementList
           v-show="currentTab === 'videos'"
           id="videoPanel"
-          :data="latestVideos"
+          :data="filteredVideos"
           :use-channels-hidden-preference="false"
           role="tabpanel"
           aria-labelledby="videosTab"
@@ -1062,24 +1062,17 @@ const videoContinuationData = shallowRef(null)
 const showVideoSortBy = ref(true)
 const videoSortBy = ref('newest')
 
-watch(videoSortBy, () => {
-  if (!autoRefreshOnSortByChangeEnabled) { return }
-
-  isElementListLoading.value = true
-  latestVideos.value = []
-  videoContinuationData.value = null
-
-  if (process.env.SUPPORTS_LOCAL_API && apiUsed === 'local') {
-    getChannelVideosLocal()
+const filteredVideos = computed(() => {
+  if (hideWatchedToggle.value) {
+    return filterWatchedVideos(latestVideos.value)
   } else {
-    channelInvidiousVideos(true)
+    return latestVideos.value
   }
 })
 
-watch(() => hideWatchedToggle.value, () => {
-  // Known limitation - it auto-refreshes the video list only when the toggle changes.
-  // So if an user manually marks a video as Watched, it won't be automatically hidden.
-  // Feels like a good compromise to me at this moment, but can be worked on later
+watch(videoSortBy, () => {
+  if (!autoRefreshOnSortByChangeEnabled) { return }
+
   isElementListLoading.value = true
   latestVideos.value = []
   videoContinuationData.value = null
