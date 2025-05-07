@@ -2360,11 +2360,7 @@ function handleSubscription() {
 
 function filterWatchedArray(videos) {
   const historyCache = store.getters.getHistoryCacheById
-  return videos.filter(video => !historyEntryExists(video.videoId, historyCache))
-}
-
-function historyEntryExists(videoId, historyCache) {
-  return typeof historyCache[videoId] !== 'undefined'
+  return videos.filter(video => !Object.hasOwn(historyCache, video.videoId))
 }
 </script>
 
