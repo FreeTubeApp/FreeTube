@@ -1102,9 +1102,6 @@ async function getChannelVideosLocal() {
       }
 
       latestVideos.value = playlist.items.map(parseLocalPlaylistVideo)
-      if (hideWatchedToggle.value) {
-        latestVideos.value = filterWatchedVideos(latestVideos.value)
-      }
       videoContinuationData.value = playlist.has_continuation ? playlist : null
       isElementListLoading.value = false
     } else {
@@ -1124,9 +1121,6 @@ async function getChannelVideosLocal() {
       }
 
       latestVideos.value = parseLocalChannelVideos(videosTab.videos, id.value, channelName.value)
-      if (hideWatchedToggle.value) {
-        latestVideos.value = filterWatchedVideos(latestVideos.value)
-      }
       videoContinuationData.value = videosTab.has_continuation ? videosTab : null
       isElementListLoading.value = false
     }
@@ -1164,9 +1158,6 @@ async function getChannelVideosLocalMore() {
       const continuation = await videoContinuationData.value.getContinuation()
 
       latestVideos.value = latestVideos.value.concat(continuation.items.map(parseLocalPlaylistVideo))
-      if (hideWatchedToggle.value) {
-        latestVideos.value = filterWatchedVideos(latestVideos.value)
-      }
       videoContinuationData.value = continuation.has_continuation ? continuation : null
     } else {
       /**
@@ -1175,9 +1166,6 @@ async function getChannelVideosLocalMore() {
       const continuation = await videoContinuationData.value.getContinuation()
 
       latestVideos.value = latestVideos.value.concat(parseLocalChannelVideos(continuation.videos, id.value, channelName.value))
-      if (hideWatchedToggle.value) {
-        latestVideos.value = filterWatchedVideos(latestVideos.value)
-      }
       videoContinuationData.value = continuation.has_continuation ? continuation : null
     }
   } catch (err) {
