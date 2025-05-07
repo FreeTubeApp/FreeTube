@@ -42,7 +42,7 @@
         <FtToggleSwitch
           v-if="(currentTab === 'videos') || (currentTab === 'shorts') || (currentTab === 'live')"
           v-model="hideWatchedToggle"
-          :label="$t('Channel.Videos.Hide Watched')"
+          :label="$t('Channel.Hide Watched')"
           compact
           @change="updateHideWatchedToggle"
         />
