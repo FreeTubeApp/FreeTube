@@ -352,8 +352,11 @@ const currentTab = ref('videos')
 
 const hideWatchedToggle = ref(false)
 
-const updateHideWatchedToggle = () => {
-  hideWatchedToggle.value = !hideWatchedToggle.value
+/**
+ * @param {boolean} value
+ */
+function updateHideWatchedToggle(value) {
+  hideWatchedToggle.value = value
 }
 
 const isCurrentTabLoading = computed(() => {
