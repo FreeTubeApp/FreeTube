@@ -636,6 +636,8 @@ Settings:
     Hide Channels API Error: En feil oppsto ved henting av brukeren med den oppgitte
       ID-en. Vennligst sjekk om ID-en er riktig.
     Hide Channel Courses: Skjul «Kurs»-fanen i kanaler
+    Hide Subscriptions Posts: Skjul innlegg fra abonnementer
+    Hide Channel Posts: Skjul «Innlegg»-fanen i kanaler
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på nytt for å ta i bruk endringene?
   SponsorBlock Settings:
@@ -1073,8 +1075,8 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   General Settings:
     Invidious Instance: Invidious-forekomsten FreeTube kobler til for API-kall.
-    Thumbnail Preference: Alle miniatyrbilder i FreeTube vil bli erstattet av et bilde
-      av videoen i stedet for standard miniatyrbildet.
+    Thumbnail Preference: Alle miniatyrbilder i FreeTube vil bli erstattet av et enkeltbilde
+      fra videoen som har blitt skjult eller blurret, i stedet for standard miniatyrbildet.
     Fallback to Non-Preferred Backend on Failure: Når ditt foretrukne API har et problem,
       vil FreeTube automatisk prøve å bruke ditt ikke-foretrukne API som en reservemetode
       dersom det er aktivert.
@@ -1091,12 +1093,12 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Bruk RSS istedenfor FreeTube sin standardmetode for innhenting
       av abonnementsstrømmen din. RSS er raskere og forhindrer IP-blokkering, men
-      mangler noe informasjon som videovarighet, sanntidsstatus og samfunnsposter
-    Fetch Automatically: Hent abonnementer når et nytt vindu åpnes og ved bytting
-      av profil.
+      mangler noe informasjon som videovarighet, sanntidsstatus og innlegg
+    Fetch Automatically: Hent abonnementer når programmet starter og når et nytt vindu
+      åpnes.
   Player Settings:
     Default Video Format: Velg formater som blir brukt når en video spilles. DASH-formater
-      kan spilles i høyere kvalitet. Foreldede formater er begrenset opptil 720p,
+      kan spilles i høyere kvalitet. Foreldede formater er begrenset opptil 360p,
       men bruker mindre båndbredde. Lydformater er kun lydstrømmer.
     Proxy Videos Through Invidious: Kobler til Invidious for å servere videoer istedenfor
       å koble direkte til YouTube.
