@@ -147,7 +147,7 @@ function expandEnvVars(str) {
   return str.replaceAll(/%([^%]+)%/g, (_, name) => process.env[name] || '')
 }
 
-/** @param {string} str */
+/** @param {string} value */
 function updateExternalPlayerExecutable(value) {
   if (value?.trim()) {
     store.dispatch('updateExternalPlayerExecutable', value)
