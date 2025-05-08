@@ -1110,11 +1110,11 @@ function runApp() {
 
     const settingId = kind === DefaultFolderKind.DOWNLOADS ? 'downloadFolderPath' : 'screenshotFolderPath'
 
-    const folderPath = await baseHandlers.settings._findOne(settingId)
+    const folderPath = (await baseHandlers.settings._findOne(settingId))?.value
 
     let directory
-    if (typeof currentPath === 'string' && folderPath.value.length > 0) {
-      directory = folderPath.value
+    if (typeof folderPath === 'string' && folderPath.length > 0) {
+      directory = folderPath
     } else {
       directory = path.join(app.getPath(kind === DefaultFolderKind.DOWNLOADS ? 'downloads' : 'pictures'), 'FreeTube')
     }
