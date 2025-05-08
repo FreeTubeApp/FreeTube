@@ -142,13 +142,12 @@ function updateExternalPlayerIgnoreDefaultArgs(value) {
   store.dispatch('updateExternalPlayerIgnoreDefaultArgs', value)
 }
 
-
-/** @param {string} value */
+/** @param {string} str */
 function expandEnvVars(str) {
   return str.replaceAll(/%([^%]+)%/g, (_, name) => process.env[name] || '')
 }
 
-/** @param {string} value */
+/** @param {string} str */
 function updateExternalPlayerExecutable(value) {
   if (value?.trim()) {
     store.dispatch('updateExternalPlayerExecutable', value)
