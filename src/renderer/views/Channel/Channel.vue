@@ -49,7 +49,7 @@
         />
         <FtSelect
           v-if="showVideoSortBy"
-          v-show="currentTab === 'videos' && latestVideos.length > 0"
+          v-show="(currentTab === 'videos' && filteredVideos.length > 0 && !hideWatchedToggle) || (currentTab === 'videos' && filteredVideos.length > 1 && hideWatchedToggle)"
           :value="videoSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
@@ -59,7 +59,7 @@
         />
         <FtSelect
           v-if="!hideChannelShorts && showShortSortBy"
-          v-show="currentTab === 'shorts' && latestShorts.length > 0"
+          v-show="(currentTab === 'shorts' && filteredShorts.length > 0 && !hideWatchedToggle) || (currentTab === 'shorts' && filteredShorts.length > 1 && hideWatchedToggle)"
           :value="shortSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
@@ -69,7 +69,7 @@
         />
         <FtSelect
           v-if="!hideLiveStreams && showLiveSortBy"
-          v-show="currentTab === 'live' && latestLive.length > 0"
+          v-show="(currentTab === 'live' && filteredLive.length > 0 && !hideWatchedToggle) || (currentTab === 'live' && filteredLive.length > 1 && hideWatchedToggle)"
           :value="liveSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
