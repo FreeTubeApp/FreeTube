@@ -177,7 +177,7 @@
       "value": "haruna",
       "cmdArguments": {
           "defaultExecutable": "haruna",
-          "linuxPath":"/var/lib/flatpak/app/org.kde.haruna/current/active/files/bin/haruna",
+          "linuxPath":"/usr/local/bin/haruna",
           "defaultCustomArguments": null,
           "supportsYtdlProtocol": false,
           "videoUrl": "",
