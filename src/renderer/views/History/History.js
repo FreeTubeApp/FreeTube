@@ -8,7 +8,14 @@ import FtButton from '../../components/FtButton/FtButton.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
-import { ctrlFHandler, debounce } from '../../helpers/utils'
+import { ctrlFHandler, debounce, getIconForSortPreference } from '../../helpers/utils'
+import FtSelect from '../../components/ft-select/ft-select.vue'
+import { mapMutations } from 'vuex'
+
+const HISTORY_SORT_BY_VALUES = {
+  DateAddedNewest: 'latest_played_first',
+  DateAddedOldest: 'earliest_played_first',
+}
 
 const identity = (v) => v
 
@@ -37,6 +44,7 @@ export default defineComponent({
     'ft-input': FtInput,
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
     'ft-toggle-switch': FtToggleSwitch,
+    'ft-select': FtSelect,
   },
   data: function () {
     return {
@@ -47,11 +55,29 @@ export default defineComponent({
       showLoadMoreButton: false,
       query: '',
       activeData: [],
+      sortOrder: HISTORY_SORT_BY_VALUES.DateAddedNewest,
     }
   },
   computed: {
+    sortByNames: function () {
+      return [
+        this.$t('History.DateNewestHistory'),
+        this.$t('History.DateOldestHistory'),
+      ]
+    },
+
+    sortByValues() {
+      return Object.values(HISTORY_SORT_BY_VALUES)
+    },
+
     historyCacheSorted: function () {
-      return this.$store.getters.getHistoryCacheSorted
+      const historySorted = this.$store.getters.getHistoryCacheSorted
+
+      if (this.sortOrder === HISTORY_SORT_BY_VALUES.DateAddedOldest) {
+        return historySorted.toReversed()
+      } else {
+        return historySorted
+      }
     },
 
     fullData: function () {
@@ -72,6 +98,8 @@ export default defineComponent({
     },
   },
   created: function () {
+    this.sortOrder = this.$store.getters.getUserHistorySortBy
+
     document.addEventListener('keydown', this.keyboardShortcutHandler)
 
     const oldDataLimit = sessionStorage.getItem('History/dataLimit')
@@ -184,6 +212,17 @@ export default defineComponent({
 
     keyboardShortcutHandler: function (event) {
       ctrlFHandler(event, this.$refs.searchBar)
+    },
+
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
+    ...mapMutations([
+      'setsortOrder'
+    ]),
+
+    handleSortOrderChange(newSortOrder) {
+      this.$store.dispatch('updateUserHistorySortBy', newSortOrder)
+      this.sortOrder = newSortOrder
+      this.filterHistory()
     },
   }
 })
