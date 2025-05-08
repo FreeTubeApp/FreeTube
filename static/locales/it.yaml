@@ -1260,8 +1260,6 @@ Search Listing:
     360 Video: 360°
     New: Nuovo
     3D: 3D
-'Blocked opening potentially unsafe URL': 'Apertura di URL potenzialmente non sicura
-  bloccata: "{url}".'
 shortcutJoinOperator: +
 Keys:
   ctrl: Ctrl

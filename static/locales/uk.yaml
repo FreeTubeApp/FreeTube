@@ -1226,8 +1226,6 @@ Search Listing:
 Right-click or hold to see history: ПКМ або утримуйте для перегляду історії
 Display Label: '{label}: {value}'
 Tag already exists: Тег "{tagName}" вже існує
-'Blocked opening potentially unsafe URL': 'Блоковано відкриття потенційно небезпечної
-  URL-адреси: "{url}".'
 shortcutJoinOperator: +
 Keys:
   arrowright: Стрілка вправо

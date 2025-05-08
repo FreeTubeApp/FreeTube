@@ -1303,6 +1303,4 @@ Cancel: annullere
 Autoplay Interruption Timer: Autoplay afbrudt på grund af {autoplayInterruptionIntervalHours}
   timers inaktivitet
 shortcutLabelSeparator: ｜
-'Blocked opening potentially unsafe URL': 'Blokeret åbning af potentielt usikker URL:
-  »{url}«.'
 checkmark: ✓

@@ -1258,8 +1258,6 @@ Age Restricted:
 Moments Ago: eiliad yn ôl
 checkmark: ✓
 Display Label: '{label}: {value}'
-'Blocked opening potentially unsafe URL': 'Wedi rhwystro URL a allai fod yn anniogel
-  wrth agor : "{url}".'
 Trimmed input must be at least N characters long: Rhaid i fewnbwn wedi'i docio fod
   o leiaf 1 nod o hyd | Rhaid i fewnbwn wedi'i docio fod o leiaf {length} nod
 Tag already exists: Mae'r tag "{tagName}" eisoes yn bodoli

@@ -1287,8 +1287,6 @@ Search Listing:
     360 Video: 360°
     New: Nouveau
     3D: 3D
-'Blocked opening potentially unsafe URL': "Blocage de l'ouverture d'une URL potentiellement
-  dangereuse : « {url} »."
 shortcutJoinOperator: +
 Keys:
   ctrl: Ctrl

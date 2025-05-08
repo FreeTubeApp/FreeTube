@@ -1296,8 +1296,6 @@ Age Restricted:
 Trimmed input must be at least N characters long: Input yang dipangkas harus memiliki
   panjang minimal 1 karakter | Input yang dipangkas harus memiliki panjang minimal
   {length} karakter
-'Blocked opening potentially unsafe URL': 'Pembukaan URL yang berpotensi tidak aman
-  diblokir: "{url}".'
 KeyboardShortcutTemplate: '{label} ({pintasan})'
 shortcutJoinOperator: +
 Chapters:

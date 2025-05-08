@@ -1236,8 +1236,6 @@ Search character limit: Leitarstrengurinn er kominn yfir hámarksfjöldann {sear
 Yes, Restart: Já, endurræsa
 Yes, Open Link: Já, opna tengil
 Cancel: Hætta við
-'Blocked opening potentially unsafe URL': 'Lokaði á opnun mögulega óöruggrar slóðar:
-  "{url}".'
 Yes, Delete: Já, eyða
 checkmark: ✓
 Trimmed input must be at least N characters long: Stytt úttak verður að minnsta kosti

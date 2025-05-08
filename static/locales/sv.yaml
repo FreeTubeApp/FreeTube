@@ -1226,8 +1226,6 @@ Trimmed input must be at least N characters long: Trimmad inmatning måste vara 
 Description:
   Expand Description: '...mer'
   Collapse Description: Visa mindre
-'Blocked opening potentially unsafe URL': 'Blockerad öppning av potentiellt osäker
-  webbadress: "{url}".'
 Yes, Delete: Ja, Radera
 Autoplay Interruption Timer: Autouppspelningen avbröts på grund av {autoplayInterruptionIntervalHours}
   timmars inaktivitet

@@ -1125,7 +1125,6 @@ Yes, Restart: כן, להפעיל מחדש
 Yes, Delete: כן, למחוק
 Yes, Open Link: כן, לפתוח את הקישור
 Cancel: ביטול
-'Blocked opening potentially unsafe URL': 'נחסמה פתיחת כתובת שחשודה כמפוקפקת: „{url}”.'
 checkmark: ✓
 Tag already exists: התגית „{tagName}” כבר קיימת
 Moments Ago: לפני מס׳ רגעים

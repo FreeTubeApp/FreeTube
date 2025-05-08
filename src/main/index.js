@@ -665,15 +665,21 @@ function runApp() {
   }
 
   /**
-   * @param {string} urlString
+   * @param {string | URL} url
    */
-  function isFreeTubeUrl(urlString) {
-    const { protocol, host, pathname } = new URL(urlString)
+  function isFreeTubeUrl(url) {
+    let url_
+
+    if (url instanceof URL) {
+      url_ = url
+    } else {
+      url_ = URL.parse(url)
+    }
 
     if (process.env.NODE_ENV === 'development') {
-      return protocol === 'http:' && host === 'localhost:9080' && (pathname === '/' || pathname === '/index.html')
+      return url_ !== null && url_.protocol === 'http:' && url_.host === 'localhost:9080' && (url_.pathname === '/' || url_.pathname === '/index.html')
     } else {
-      return protocol === 'app:' && host === 'bundle' && pathname === '/index.html'
+      return url_ !== null && url_.protocol === 'app:' && url_.host === 'bundle' && url_.pathname === '/index.html'
     }
   }
 
@@ -780,14 +786,33 @@ function runApp() {
 
     // https://github.com/electron/electron/blob/14-x-y/docs/api/window-open.md#native-window-example
     newWindow.webContents.setWindowOpenHandler((details) => {
-      createWindow({
-        replaceMainWindow: false,
-        showWindowNow: true,
-        windowStartupUrl: details.url
-      })
-      return {
-        action: 'deny'
+      const url = URL.parse(details.url)
+
+      // Only handle valid URLs that came from a FreeTube page
+      if (url !== null && isFreeTubeUrl(details.referrer.url)) {
+        if (isFreeTubeUrl(url)) {
+          createWindow({
+            replaceMainWindow: false,
+            showWindowNow: true,
+            windowStartupUrl: details.url
+          })
+        } else if (
+          url.protocol === 'http:' || url.protocol === 'https:' ||
+
+          // Email address on the about page and Autolinker detects and links email addresses
+          url.protocol === 'mailto:' ||
+
+          // Autolinker detects and links phone numbers
+          url.protocol === 'tel:' ||
+
+          // Donation links on the about page
+          (url.protocol === 'bitcoin:' && url.pathname === ABOUT_BITCOIN_ADDRESS)
+        ) {
+          shell.openExternal(details.url)
+        }
       }
+
+      return { action: 'deny' }
     })
 
     // endregion Ensure child windows use same options since electron 14
@@ -997,37 +1022,6 @@ function runApp() {
 
   // #endregion navigation history
 
-  ipcMain.handle(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
-    if (typeof url === 'string') {
-      let parsedURL
-
-      try {
-        parsedURL = new URL(url)
-      } catch {
-        // If it's not a valid URL don't open it
-        return false
-      }
-
-      if (
-        parsedURL.protocol === 'http:' || parsedURL.protocol === 'https:' ||
-
-        // Email address on the about page and Autolinker detects and links email addresses
-        parsedURL.protocol === 'mailto:' ||
-
-        // Autolinker detects and links phone numbers
-        parsedURL.protocol === 'tel:' ||
-
-        // Donation links on the about page
-        (parsedURL.protocol === 'bitcoin:' && parsedURL.pathname === ABOUT_BITCOIN_ADDRESS)
-      ) {
-        shell.openExternal(url)
-        return true
-      }
-    }
-
-    return false
-  })
-
   ipcMain.handle(IpcChannels.GET_SYSTEM_LOCALE, () => {
     // we should switch to getPreferredSystemLanguages at some point and iterate through until we find a supported locale
     return app.getSystemLocale()
@@ -1183,11 +1177,6 @@ function runApp() {
 
   ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (event, path, query, searchQueryText) => {
     if (!isFreeTubeUrl(event.senderFrame.url)) {
-      return
-    }
-
-    if (path == null && query == null && searchQueryText == null) {
-      createWindow({ replaceMainWindow: false, showWindowNow: true })
       return
     }
 

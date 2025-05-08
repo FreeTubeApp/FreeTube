@@ -1211,7 +1211,6 @@ Search Listing:
     New: Mới
     3D: 3D
     Closed Captions: Có phụ đề
-'Blocked opening potentially unsafe URL': 'Đã chặn mở URL tiềm ẩn không an toàn: "{url}".'
 Search character limit: Chuỗi tìm kiếm vượt quá độ dài {searchCharacterLimit} ký tự
   cho phép
 Yes, Open Link: Có, mở liên kết

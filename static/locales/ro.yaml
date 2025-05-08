@@ -1322,8 +1322,6 @@ Keys:
   ctrl: ctrl
   arrowdown: Săgeată în jos
 checkmark: ✓
-'Blocked opening potentially unsafe URL': 'Blocarea deschiderii URL potențial nesigure:
-  „{url}”.'
 Yes, Delete: da, șterge
 Yes, Open Link: Da, Link deschis
 Display Label: '{label}: {valoare}'
