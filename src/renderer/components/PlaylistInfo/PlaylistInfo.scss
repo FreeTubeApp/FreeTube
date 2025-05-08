@@ -2,11 +2,6 @@
   inline-size: 100%;
 }
 
-.playlistThumbnail .firstVideoLink {
-  cursor: pointer;
-}
-
-
 .playlistThumbnail img {
   inline-size: 100%;
   // Ensure placeholder image displayed at same aspect ratio as most other images
@@ -15,6 +10,10 @@
   @media only screen and (width <= 800px) {
     display: none;
   }
+}
+
+.blur {
+  filter: blur(20px);
 }
 
 .playlistStats {
