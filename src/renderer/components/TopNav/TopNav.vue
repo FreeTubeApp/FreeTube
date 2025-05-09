@@ -124,7 +124,7 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRoute, useRouter } from 'vue-router/composables'
 
 import FtInput from '../ft-input/ft-input.vue'
-import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
+import FtProfileSelector from '../FtProfileSelector/FtProfileSelector.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 
 import store from '../../store/index'
