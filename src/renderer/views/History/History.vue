@@ -40,11 +40,11 @@
           v-if="fullData.length > 1"
           class="sortSelect"
           :placeholder="$t('Global.Sort By')"
-          :value="sortOrder"
+          :value="sortBy"
           :select-names="sortByNames"
           :select-values="sortByValues"
-          :icon="getIconForSortPreference(sortOrder)"
-          @change="handleSortOrderChange"
+          :icon="getIconForSortPreference(sortBy)"
+          @change="sortBy = $event"
         />
       </div>
       <ft-flex-box

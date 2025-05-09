@@ -53,10 +53,18 @@ export default defineComponent({
       showLoadMoreButton: false,
       query: '',
       activeData: [],
-      sortOrder: HISTORY_SORT_BY_VALUES.DateAddedNewest,
     }
   },
   computed: {
+    sortBy: {
+      get() {
+        return this.$store.getters.getUserHistorySortBy
+      },
+      set(value) {
+        this.$store.dispatch('updateUserHistorySortBy', value)
+      },
+    },
+
     sortByNames: function () {
       return [
         this.$t('History.DateNewestHistory'),
@@ -71,7 +79,7 @@ export default defineComponent({
     historyCacheSorted: function () {
       const historySorted = this.$store.getters.getHistoryCacheSorted
 
-      if (this.sortOrder === HISTORY_SORT_BY_VALUES.DateAddedOldest) {
+      if (this.sortBy === HISTORY_SORT_BY_VALUES.DateAddedOldest) {
         return historySorted.toReversed()
       } else {
         return historySorted
@@ -96,8 +104,6 @@ export default defineComponent({
     },
   },
   created: function () {
-    this.sortOrder = this.$store.getters.getUserHistorySortBy
-
     document.addEventListener('keydown', this.keyboardShortcutHandler)
 
     const oldDataLimit = sessionStorage.getItem('History/dataLimit')
@@ -214,13 +220,7 @@ export default defineComponent({
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),
     ...mapMutations([
-      'setsortOrder'
+      'setsortBy'
     ]),
-
-    handleSortOrderChange(newSortOrder) {
-      this.$store.dispatch('updateUserHistorySortBy', newSortOrder)
-      this.sortOrder = newSortOrder
-      this.filterHistory()
-    },
   }
 })
