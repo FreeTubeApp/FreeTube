@@ -138,6 +138,15 @@ export default [
     },
   },
 
+  {
+    files: ['src/main/index.js'],
+    languageOptions: {
+      globals: {
+        __FREETUBE_ALLOWED_PATHS__: 'readable'
+      }
+    }
+  },
+
   ...eslintPluginJsonc.configs['flat/base'],
   {
     files: ['**/*.json'],

@@ -57,13 +57,12 @@ Options:
 
 function runApp() {
   /** @type {Set<string>} */
-  let ALLOWED_RENDERER_FILES
+  const ALLOWED_RENDERER_FILES = process.env.NODE_ENV === 'production'
+    // __FREETUBE_ALLOWED_PATHS__ is replaced by the injectAllowedPaths.mjs script
+    ? new Set(__FREETUBE_ALLOWED_PATHS__)
+    : new Set()
 
   if (process.env.NODE_ENV === 'production') {
-    // __FREETUBE_ALLOWED_PATHS__ is replaced by the injectAllowedPaths.mjs script
-    // eslint-disable-next-line no-undef
-    ALLOWED_RENDERER_FILES = new Set(__FREETUBE_ALLOWED_PATHS__)
-
     protocol.registerSchemesAsPrivileged([{
       scheme: 'app',
       privileges: {
