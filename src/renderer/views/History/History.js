@@ -28,8 +28,6 @@ function filterVideosWithQuery(videos, query, attrProcessor = identity) {
     }
 
     return false
-  }).sort((a, b) => {
-    return b.timeWatched - a.timeWatched
   })
 }
 
