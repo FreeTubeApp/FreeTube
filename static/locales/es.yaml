@@ -109,8 +109,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Todas las pestañas de las suscripciones están ocultas.
     Para ver el contenido, por favor, desoculta algunas pestañas en la sección «{subsection}»
     en «{settingsSection}».
-  Load More Posts: Cargar más mensajes
-  Empty Posts: Tus canales suscritos no tienen actualmente ninguna entrada.
+  Load More Posts: Cargar más publicaciones
+  Empty Posts: Tus canales suscritos no tienen actualmente ninguna publicación.
 Trending:
   Trending: 'Tendencias'
   Default: Predeterminado
@@ -242,6 +242,7 @@ User Playlists:
     videos duplicados de esta lista de reproducción? Esto no se puede deshacer.
   Export Playlist: Exportar esta Playlist
   The playlist has been successfully exported: La playlist se ha exportado correctamente
+  TotalTimePlaylist: 'Duración total: {duration}'
 History:
   # On History Page
   History: 'Historial'
@@ -508,6 +509,11 @@ Settings:
     Search history and cache have been cleared: El historial de búsquedas y el cache
       han sido borrados
     Clear Search History and Cache: Borrar Historial de Búsquedas y Cache
+    Watched Progress Saving Mode:
+      Modes:
+        Never: Nunca
+        Auto: Automático
+        Semi-auto: Semi-automático
   Subscription Settings:
     Subscription Settings: 'Suscripción'
     Hide Videos on Watch: 'Ocultar vídeos vistos'
@@ -619,6 +625,8 @@ Settings:
     Hide Channel Home: Ocultar la pestaña "Inicio" del canal
     Show Added Items: Mostrar elementos añadidos
     Hide Channel Courses: Ocultar la pestaña "Cursos" del canal
+    Hide Channel Posts: Ocultar pestaña "Publicaciones" del canal
+    Hide Subscriptions Posts: Ocultar publicaciones de las suscripciones
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres
     reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
@@ -985,6 +993,8 @@ Video:
     dado que requieren componentes propietarias de fuente cerrada. Si desea ver este
     video, por favor véalo en la página oficial de YouTube con un buscador que tenga
     DRM habilitado.
+  Watched Progress Saved: Progreso de visualización guardado
+  Save Watched Progress: Guardar progreso de visualización
 Playlist:
   #& About
   View Full Playlist: 'Ver la lista de reproducción completa'
@@ -1097,13 +1107,13 @@ Tooltips:
     Fetch Feeds from RSS: Cuando se activa, FreeTube utilizará RSS en lugar de su
       método por defecto para obtener su feed de suscripción. RSS es más rápido y
       evita el bloqueo de IP, pero no proporciona cierta información como la duración
-      del vídeo, el estado en directo o los mensajes de la comunidad
+      del vídeo, el estado en directo o los mensajes
     Fetch Automatically: Cuando esté habilitado, FreeTube obtendrá automáticamente
-      su feed de suscripción cuando se abra una nueva ventana y al cambiar de perfil.
+      su feed de suscripción al iniciar y cuando se abra una nueva ventana.
   Player Settings:
     Default Video Format: Selecciona el formato usado para reproducir vídeos. El formato
-      Dash puede reproducir resoluciones más altas. El formato Legacy está limitado
-      a 720p, pero requiere menos ancho de banda. El formato del audio se limita al
+      DASH puede reproducir resoluciones más altas. El formato Legacy está limitado
+      a 360p, pero requiere menos ancho de banda. El formato del audio se limita al
       reproducir solo audio.
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en
       lugar de conectar directamente con YouTube.
@@ -1121,7 +1131,7 @@ Tooltips:
     Invidious Instance: La instancia de Invidious por defecto a la que FreeTube se
       conectará para las llamadas a la API.
     Thumbnail Preference: Todas las miniaturas en FreeTube se reemplazarán con un
-      fotograma del vídeo en lugar de la miniatura predeterminada.
+      fotograma del vídeo, borroso o oculto, en lugar de la miniatura predeterminada.
     Fallback to Non-Preferred Backend on Failure: Si la API primaria falla, FreeTube
       utilizará automáticamente la API secundaria cuando esté activada.
     Preferred API Backend: Elija el motor que debe utilizar FreeTube para obtener
