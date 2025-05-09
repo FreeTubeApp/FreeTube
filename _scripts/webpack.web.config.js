@@ -161,10 +161,6 @@ const config = {
       // change to "shaka-player.ui.debug.js" to get debug logs (update jsconfig to get updated types)
       'shaka-player$': 'shaka-player/dist/shaka-player.ui.js',
     },
-    fallback: {
-      'fs/promises': path.resolve(__dirname, '_empty.js'),
-      path: require.resolve('path-browserify'),
-    },
     extensions: ['.js', '.vue']
   },
   target: 'web',

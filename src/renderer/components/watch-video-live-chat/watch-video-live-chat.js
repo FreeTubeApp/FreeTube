@@ -1,7 +1,7 @@
 import { defineComponent, nextTick } from 'vue'
-import FtLoader from '../ft-loader/ft-loader.vue'
+import FtLoader from '../FtLoader/FtLoader.vue'
 import FtCard from '../ft-card/ft-card.vue'
-import FtButton from '../ft-button/ft-button.vue'
+import FtButton from '../FtButton/FtButton.vue'
 
 import autolinker from 'autolinker'
 import { getRandomColorClass } from '../../helpers/colors'

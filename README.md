@@ -27,11 +27,21 @@ Available for Windows (10 and later), Mac (macOS 11 and later) & Linux thanks to
 > If you have an idea or if you found a bug, please submit a [GitHub issue](https://github.com/FreeTubeApp/FreeTube/issues/new/choose) so that we can track it.  Please [search the existing issues](https://github.com/FreeTubeApp/FreeTube/issues?q=is%3Aissue+sort%3Arelevance-desc) before submitting to prevent duplicates!
 
 ## Screenshots
-<img src="https://i.imgur.com/zFgZUUV.png" width=300> <img src="https://i.imgur.com/9evYHgN.png" width=300> <img src="https://i.imgur.com/yT2UzPa.png" width=300> <img src="https://i.imgur.com/47zIEt4.png" width=300> <img src="https://i.imgur.com/hFB2fKC.png" width=300>
+| The main FreeTube window                                                                         |
+|--------------------------------------------------------------------------------------------------|
+| ![](https://raw.githubusercontent.com/FreeTubeApp/FreeTubeApp.io/master/src/images/FreeTube1.png)|
+
+| Watching a video                                                                                 |
+|--------------------------------------------------------------------------------------------------|
+| ![](https://raw.githubusercontent.com/FreeTubeApp/FreeTubeApp.io/master/src/images/FreeTube2.png)|
+
+| Settings                                                                                         |
+|--------------------------------------------------------------------------------------------------|
+| ![](https://raw.githubusercontent.com/FreeTubeApp/FreeTubeApp.io/master/src/images/FreeTube3.png)|
 
 ## How does it work?
 FreeTube uses a built in extractor to grab and serve data / videos. The [Invidious API](https://github.com/iv-org/invidious) can also optionally be used. FreeTube does not use any official APIs to obtain data. While YouTube can still see your video requests, it can no
-longer track you using cookies or JavaScript. Your subscriptions and history are stored locally on your computer and never sent out.
+longer track you using cookies or JavaScript. Your subscriptions, playlists and history are stored locally on your computer and never sent out.
 
 > [!IMPORTANT]  
 > Using a VPN or Tor is highly recommended to hide your IP while using FreeTube.
@@ -42,13 +52,14 @@ longer track you using cookies or JavaScript. Your subscriptions and history are
 * Two extractor APIs to choose from (Built in or Invidious)
 * Subscribe to channels without an account
 * Connect to an externally setup proxy such as Tor
-* View and search your local subscriptions, history, and saved videos
+* View and search your local subscriptions, playlists and history
 * Organize your subscriptions into "Profiles" to create a more focused feed
 * Export & import subscriptions
 * Youtube Trending
 * Youtube Chapters
 * Most popular videos page based on the set Invidious instance
-* SponsorBlock 
+* SponsorBlock
+* DeArrow
 * Open videos from your browser directly into FreeTube (with extension)
 * Watch videos using an external player
 * Full Theme support
@@ -58,7 +69,7 @@ longer track you using cookies or JavaScript. Your subscriptions and history are
 * Keyboard shortcuts
 * Option to show only family friendly content
 * Show/hide functionality or elements within the app using the distraction free settings
-* View channel community posts
+* View channel posts
 
 ### Browser Extensions
 The following extensions open YouTube links directly in FreeTube:
@@ -149,7 +160,7 @@ We are actively looking for translations!  We use [Weblate](https://hosted.webla
 For the Linux Flatpak, the desktop entry comment string can be translated at our [Flatpak repository](https://github.com/flathub/io.freetubeapp.FreeTube/blob/master/io.freetubeapp.FreeTube.desktop).
 
 ## Contact
-If you ever have any questions, feel free to ask it on our [Discussions](https://github.com/FreeTubeApp/FreeTube/discussions) page.  Alternatively, you can email us at FreeTubeApp@protonmail.com or you can join our [Matrix Community](https://matrix.to/#/#freetube:matrix.org).  
+If you ever have any questions, feel free to ask it on our [Discussions](https://github.com/FreeTubeApp/FreeTube/discussions) page.  Alternatively, you can email us at FreeTubeApp@protonmail.com or you can join our [Matrix Room](https://matrix.to/#/#freetube:matrix.org).  
 
 > [!IMPORTANT]
 > Don't forget to check out the [rules](https://docs.freetubeapp.io/community/matrix/) before joining.

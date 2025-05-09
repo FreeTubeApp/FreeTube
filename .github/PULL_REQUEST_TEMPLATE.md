@@ -1,7 +1,6 @@
-# Title
-
 <!-- Thanks for sending a pull request! Make sure to follow the contributing guidelines. -->
 <!-- Important note, we may remove your pull request if you do not use this provided PR template correctly. -->
+<!-- Do not create PR's with AI! (PRs created mainly with AI will be closed. They waste our team's time. We ban repeat offenders.) -->
 
 ## Pull Request Type
 <!-- Please select what type of pull request this is: [x] -->
@@ -21,10 +20,9 @@
 ## Screenshots <!-- If appropriate -->
 <!-- Please add before and after screenshots if there is a visible change. -->
 
-## Testing <!-- for code that is not small enough to be easily understandable -->
-<!-- Has this pull request been tested? -->
-<!-- Please describe shortly how you tested it. -->
-<!-- Are there any ramifications remaining? -->
+## Testing
+<!-- How can reviewers verify that the PR produces correct results? -->
+<!-- Please provide instructions so that others can ensure that your pull request would produce correct results. For examples see, https://github.com/FreeTubeApp/FreeTube/pull/5743, https://github.com/FreeTubeApp/FreeTube/pull/7349, https://github.com/FreeTubeApp/FreeTube/pull/5125, https://github.com/FreeTubeApp/FreeTube/pull/7338 -->
 
 ## Desktop
 <!-- Please complete the following information-->

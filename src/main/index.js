@@ -226,6 +226,19 @@ function runApp() {
     }
   })
 
+  if (process.platform === 'win32') {
+    app.setUserTasks([
+      {
+        program: process.execPath,
+        arguments: '--new-window',
+        iconPath: process.execPath,
+        iconIndex: 0,
+        title: 'New Window',
+        description: 'Open New Window'
+      }
+    ])
+  }
+
   // disable electron warning
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
   const isDebug = process.argv.includes('--debug')
@@ -303,6 +316,21 @@ function runApp() {
   let proxyUrl
 
   app.on('ready', async (_, __) => {
+    if (process.platform === 'darwin') {
+      const dockMenu = Menu.buildFromTemplate([
+        {
+          label: 'New Window',
+          click: () => {
+            createWindow({
+              replaceMainWindow: false,
+              showWindowNow: true
+            })
+          }
+        }
+      ])
+      app.dock.setMenu(dockMenu)
+    }
+
     if (process.env.NODE_ENV === 'production') {
       protocol.handle('app', async (request) => {
         if (request.method !== 'GET') {
@@ -468,6 +496,10 @@ function runApp() {
         requestHeaders['Sec-Fetch-Site'] = 'same-origin'
         requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
         requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
+      } else if (url === 'https://www.youtube.com/sw.js_data') {
+        requestHeaders.Referer = 'https://www.youtube.com/sw.js'
+        requestHeaders['Sec-Fetch-Site'] = 'same-origin'
+        requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
       } else if (
         urlObj.origin.endsWith('.googleusercontent.com') ||
         urlObj.origin.endsWith('.ggpht.com') ||
@@ -996,6 +1028,8 @@ function runApp() {
         // Which raises "Object has been destroyed" error
         mainWindow = allWindows[0]
       }
+
+      stopPowerSaveBlockerForWindow(newWindow)
     })
   }
 
@@ -1154,20 +1188,6 @@ function runApp() {
     sender.executeJavaScript('document.querySelector("video.player").ui.getControls().togglePiP()', true)
   })
 
-  ipcMain.handle(IpcChannels.SHOW_SAVE_DIALOG, async ({ sender }, options) => {
-    const senderWindow = findSenderWindow(sender)
-    if (senderWindow) {
-      return await dialog.showSaveDialog(senderWindow, options)
-    }
-    return await dialog.showSaveDialog(options)
-  })
-
-  function findSenderWindow(sender) {
-    return BrowserWindow.getAllWindows().find((window) => {
-      return window.webContents.id === sender.id
-    })
-  }
-
   ipcMain.handle(IpcChannels.GET_SCREENSHOT_FALLBACK_FOLDER, (event) => {
     if (!isFreeTubeUrl(event.senderFrame.url)) {
       return
@@ -1222,18 +1242,24 @@ function runApp() {
     })
   })
 
-  ipcMain.handle(IpcChannels.WRITE_SCREENSHOT, async (event, filename, arrayBuffer) => {
-    if (!isFreeTubeUrl(event.senderFrame.url) || typeof filename !== 'string' || !(arrayBuffer instanceof ArrayBuffer)) {
+  ipcMain.handle(IpcChannels.WRITE_TO_DEFAULT_FOLDER, async (event, kind, filename, arrayBuffer) => {
+    if (
+      !isFreeTubeUrl(event.senderFrame.url) ||
+      (kind !== DefaultFolderKind.DOWNLOADS && kind !== DefaultFolderKind.SCREENSHOTS) ||
+      typeof filename !== 'string' ||
+      !(arrayBuffer instanceof ArrayBuffer)) {
       return
     }
 
-    const screenshotFolderPath = await baseHandlers.settings._findOne('screenshotFolderPath')
+    const settingId = kind === DefaultFolderKind.DOWNLOADS ? 'downloadFolderPath' : 'screenshotFolderPath'
+
+    const folderPath = await baseHandlers.settings._findOne(settingId)
 
     let directory
-    if (screenshotFolderPath && screenshotFolderPath.value.length > 0) {
-      directory = screenshotFolderPath.value
+    if (typeof currentPath === 'string' && folderPath.value.length > 0) {
+      directory = folderPath.value
     } else {
-      directory = path.join(app.getPath('pictures'), 'FreeTube')
+      directory = path.join(app.getPath(kind === DefaultFolderKind.DOWNLOADS ? 'downloads' : 'pictures'), 'FreeTube')
     }
 
     directory = path.normalize(directory)
@@ -1250,18 +1276,52 @@ function runApp() {
 
       await asyncFs.writeFile(filePath, new DataView(arrayBuffer))
     } catch (error) {
-      console.error('WRITE_SCREENSHOT failed', error)
+      console.error('WRITE_TO_DEFAULT_FOLDER failed', error)
       // throw a new error so that we don't expose the real error to the renderer
       throw new Error('Failed to save')
     }
   })
 
-  ipcMain.on(IpcChannels.STOP_POWER_SAVE_BLOCKER, (_, id) => {
-    powerSaveBlocker.stop(id)
+  /** @type {Map<number, number>} */
+  const activePowerSaveBlockers = new Map()
+
+  /**
+   * @param {BrowserWindow} window
+   */
+  function stopPowerSaveBlockerForWindow(window) {
+    const powerSaveBlockerId = activePowerSaveBlockers.get(window.id)
+
+    if (typeof powerSaveBlockerId === 'number') {
+      powerSaveBlocker.stop(powerSaveBlockerId)
+
+      activePowerSaveBlockers.delete(window.id)
+    }
+  }
+
+  ipcMain.on(IpcChannels.STOP_POWER_SAVE_BLOCKER, (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
+    const browserWindow = BrowserWindow.fromWebContents(event.sender)
+
+    if (browserWindow) {
+      stopPowerSaveBlockerForWindow(browserWindow)
+    }
   })
 
-  ipcMain.handle(IpcChannels.START_POWER_SAVE_BLOCKER, (_) => {
-    return powerSaveBlocker.start('prevent-display-sleep')
+  ipcMain.on(IpcChannels.START_POWER_SAVE_BLOCKER, (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
+    const browserWindow = BrowserWindow.fromWebContents(event.sender)
+
+    if (browserWindow && !activePowerSaveBlockers.has(browserWindow.id)) {
+      const powerSaveBlockerId = powerSaveBlocker.start('prevent-display-sleep')
+
+      activePowerSaveBlockers.set(browserWindow.id, powerSaveBlockerId)
+    }
   })
 
   ipcMain.on(IpcChannels.CREATE_NEW_WINDOW, (event, path, query, searchQueryText) => {

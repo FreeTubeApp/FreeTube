@@ -13,8 +13,8 @@ Reload: 'Actualiser'
 Force Reload: 'Forcer l''actualisation'
 Toggle Developer Tools: 'Activer les outils de développement'
 Actual size: 'Taille réelle'
-Zoom in: 'Agrandir'
-Zoom out: 'Réduire'
+Zoom in: 'Zoom avant'
+Zoom out: 'Zoom arrière'
 Toggle fullscreen: 'Plein écran'
 Window: 'Fenêtre'
 Minimize: 'Réduire'
@@ -28,7 +28,7 @@ Global:
   Videos: 'Vidéos'
   Shorts: Shorts
   Live: En direct
-  Community: Communauté
+  Posts: Posts
   Sort By: Trier par
 
 # Search Bar
@@ -612,7 +612,6 @@ Settings:
       ni ponctuation excessives
     Hide Channel Playlists: Masquer l’onglet « Listes de lecture » de la chaine
     Hide Featured Channels: Masquer les chaines en vedette
-    Hide Channel Community: Masquer l’onglet « Communauté » de la chaine
     Hide Channel Shorts: Masquer l’onglet « Shorts » de la chaine
     Sections:
       Channel Page: Page de la chaine
@@ -626,7 +625,6 @@ Settings:
     Hide Subscriptions Shorts: Masquer les shorts des abonnements
     Hide Subscriptions Live: Masquer les diffusions en direct des abonnements
     Hide Profile Pictures in Comments: Masquer les photos de profil dans les commentaires
-    Hide Subscriptions Community: Masquer les communautés abonnées
     Hide Channels Invalid: L’identifiant de chaine fourni n’est pas valide
     Hide Channels Disabled Message: Certaines chaines ont été bloquées à l’aide d’un
       identifiant et n’ont pas été traitées. La fonctionnalité est bloquée le temps
@@ -641,6 +639,8 @@ Settings:
     Hide Channel Home: Masquer l’onglet « Accueil » de la chaine
     Show Added Items: Afficher les éléments ajoutés
     Hide Channel Courses: Masquer l’onglet « Cours » de la chaine
+    Hide Channel Posts: Masquer l’onglet « Posts » de la chaine
+    Hide Subscriptions Posts: Masquer les posts des abonnements
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -797,7 +797,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Cette
     chaîne est limitée par l'âge et ne peut actuellement pas être visionnée dans FreeTube.
   Channel Tabs: Onglets des chaînes
-  Community:
+  Posts:
     This channel currently does not have any posts: Cette chaîne n'a actuellement
       aucune publication
     votes: '{votes} votes'
@@ -1064,7 +1064,7 @@ Canceled next video autoplay: 'Annuler la lecture automatique'
 
 Yes: 'Oui'
 No: 'Non'
-Locale Name: Français (France)
+Locale Name: Français
 Profile:
   '{profile} is now the active profile': '{profile} est maintenant le profil actif'
   Your default profile has been changed to your primary profile: Votre profil par
@@ -1151,7 +1151,7 @@ Tooltips:
     Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour
       les appels API.
     Thumbnail Preference: Toutes les miniatures de FreeTube seront remplacées par
-      une image de la vidéo au lieu de la vignette par défaut.
+      une image de la vidéo, floutée ou masquée, au lieu de la vignette par défaut.
     Fallback to Non-Preferred Backend on Failure: Lorsque votre API préférée a un
       problème, FreeTube tentera automatiquement d'utiliser votre API non préférée
       comme méthode de secours lorsqu'elle est activée.
@@ -1347,8 +1347,8 @@ KeyboardShortcutPrompt:
   Force Restart Window: Forcer le redémarrage de la fenêtre
   Toggle Developer Tools: Activer/désactiver les outils de développement
   Reset Zoom: Réinitialiser le niveau de zoom / l'échelle de l'interface utilisateur
-  Zoom In: Zoomer
-  Zoom Out: Dézoomer
+  Zoom In: Zoom avant
+  Zoom Out: Zoom arrière
   Focus Search: Mettre le focus sur la barre de recherche
   Search in New Window: Rechercher dans une nouvelle fenêtre
   Last Frame: Image précédente (lorsque la lecture est en pause)

@@ -31,7 +31,7 @@ Global:
   Videos: Vídeos
   Shorts: Curtos
   Live: Em direto
-  Community: Comunidade
+  Posts: Publicações
   Sort By: Ordenar por
 
   Counts:
@@ -246,6 +246,7 @@ User Playlists:
     vídeos duplicados desta lista de reprodução? Esta remoção não pode ser revertida.
   Cannot delete the quick bookmark target playlist.: Não é possível eliminar a lista
     de reprodução de destino do marcador rápido.
+  TotalTimePlaylist: 'Duração total: {duration}'
 History:
   # On History Page
   History: Histórico
@@ -511,6 +512,11 @@ Settings:
     Clear Search History and Cache: Limpar o histórico de pesquisa e a cache
     Are you sure you want to clear out your search history and cache?: Tem a certeza
       de que pretende limpar o histórico de pesquisa e a cache?
+    Watched Progress Saving Mode:
+      Modes:
+        Never: Nunca
+        Auto: Automático
+        Semi-auto: Semiautomático
   Subscription Settings:
     Subscription Settings: Subscrição
     Hide Videos on Watch: Ocultar vídeos visualizados
@@ -544,7 +550,6 @@ Settings:
       ou pontuação em excesso
     Hide Featured Channels: Ocultar canais em destaque
     Hide Channel Playlists: Ocultar separador "Listas de reprodução" nos canais
-    Hide Channel Community: Ocultar separador "Comunidade" nos canais
     Hide Channel Shorts: Ocultar separador "Curtos" nos canais
     Sections:
       Side Bar: Barra lateral
@@ -559,7 +564,6 @@ Settings:
     Hide Subscriptions Live: Ocultar subscrições de emissões em direto
     Hide Profile Pictures in Comments: Ocultar imagens de perfil nos comentários
     Hide Channels Already Exists: Este ID já existe
-    Hide Subscriptions Community: Ocultar subscrições de comunidades
     Hide Channels Disabled Message: Alguns canais foram bloqueados e não foram processados.
       A funcionalidade está bloqueada enquanto estiver a ocorrer a atualização dos
       ID.
@@ -822,7 +826,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Este
     canal tem restrição de idade e, atualmente, não pode ser visto no Free Tube.
   Channel Tabs: Separadores de canais
-  Community:
+  Posts:
     This channel currently does not have any posts: Este canal não tem, atualmente,
       quaisquer publicações
     Reveal Answers: Mostrar respostas
@@ -987,6 +991,7 @@ Video:
   DRMProtected: Os vídeos protegidos por DRM não podem ser reproduzidos no FreeTube,
     uma vez que requerem componentes proprietários e de código fechado. Se quiser
     ver este vídeo, veja-o no sítio Web oficial do YouTube num navegador Web com DRM.
+  Save Watched Progress: Gravar progresso de visualização
 Playlist:
   #& About
   View Full Playlist: Ver lista de reprodução completa

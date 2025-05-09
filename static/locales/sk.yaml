@@ -37,7 +37,7 @@ Global:
     Like Count: 1 like | {count} likes
     Comment Count: 1 komentár | {count} komentárov
   Live: Naživo
-  Community: Komunita
+  Posts: Príspevky
   Shorts: Shorts
   Sort By: 'Triediť podľa'
 Search / Go to URL: 'Hľadať / Ísť na URL adresu'
@@ -756,3 +756,8 @@ Feed:
 Go to page: Prejsť na {page}
 Right-click or hold to see history: Kliknite alebo podržte pravé tlačidlo myši aby
   sa zobrazila história
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Prepnúť vývojárske nástroje
+  Zoom In: Priblížiť
+  Zoom Out: Oddialiť
+  Fullscreen: Prepnúť na celú obrazovku

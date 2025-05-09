@@ -31,7 +31,7 @@ Global:
   Videos: 'Videolar'
   Shorts: Kısa Videolar
   Live: Canlı
-  Community: Topluluk
+  Posts: Gönderiler
   Sort By: Sıralama ölçütü
 
   Counts:
@@ -508,6 +508,11 @@ Settings:
         Never: Asla
         Auto: Otomatik
         Semi-auto: Yarı otomatik
+      Tooltip: Otomatik = Video sona erdiğinde ve hatayla karşılaşıldığında (ör. hız
+        sınırlı ve izleme oturumu sona erdiğinde) her video sayfası çıkışında kaydet.
+        Yarı otomatik = Video sayfasından çıkış haricinde Otomatik gibi ve video oynatıcının
+        altında bulunan İzlenen İlerlemeyi Kaydet adı verilen bir düğme aracılığıyla
+        ilerlemeyi manuel olarak kaydedebilir.
   Subscription Settings:
     Subscription Settings: 'Abonelik'
     Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
@@ -594,7 +599,6 @@ Settings:
       Noktalama İşaretleri Kullanmadan Görüntüle
     Hide Featured Channels: Öne Çıkan Kanalları Gizle
     Hide Channel Playlists: Kanal "Oynatma Listelerini" Sekmesini Gizle
-    Hide Channel Community: Kanal "Topluluk" Sekmesini Gizle
     Hide Channel Shorts: Kanal "Kısa Videolar" Sekmesini Gizle
     Sections:
       Side Bar: Kenar Çubuğu
@@ -608,7 +612,6 @@ Settings:
     Hide Subscriptions Shorts: Abonelik Kısa Videolarını Gizle
     Hide Subscriptions Live: Abonelik Canlı Yayınlarını Gizle
     Hide Profile Pictures in Comments: Yorumlardaki Profil Resimlerini Gizle
-    Hide Subscriptions Community: Abonelik Topluluğunu Gizle
     Hide Channels Invalid: Belirtilen kanal kimliği geçersiz
     Hide Channels Disabled Message: Bazı kanallar kimliği kullanılarak engellendi
       ve işlenmedi. Bu kimlikler güncellenirken özellik engellenir
@@ -820,7 +823,7 @@ Channel:
   Channel Tabs: Kanal Sekmeleri
   This channel does not allow searching: Bu kanal aramaya izin vermiyor
   This channel does not exist: Bu kanal mevcut değil
-  Community:
+  Posts:
     This channel currently does not have any posts: Bu kanalda şu anda herhangi bir
       gönderi yok
     votes: '{votes} oy'
@@ -982,6 +985,8 @@ Video:
   DRMProtected: DRM korumalı videolar, özel kapalı kaynak bileşenleri gerektirdiğinden
     FreeTube ile oynatılamaz. Bu videoyu izlemek istiyorsanız lütfen resmi YouTube
     web sitesinde DRM etkinleştirilmiş bir web tarayıcısında izleyin.
+  Watched Progress Saved: İzlenen İlerleme Kaydedildi
+  Save Watched Progress: İzlenen İlerlemeyi Kaydet
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'

@@ -41,7 +41,6 @@ Global:
   Videos: 'ڤیدیۆکان'
   Shorts: 'کورتەڤیدیۆکان'
   Live: 'ڕاستەوخۆ'
-  Community: 'کۆمەڵگە'
   Sort By: 'ڕیزکردن بە'
   Counts:
     Video Count: '١ ڤیدیۆ | {count} ڤیدیۆ'
@@ -460,14 +459,12 @@ Settings:
     Hide Channels Already Exists: ''
     Hide Featured Channels: ''
     Hide Channel Playlists: ''
-    Hide Channel Community: ''
     Hide Channel Shorts: ''
     Hide Channel Podcasts: ''
     Hide Channel Releases: ''
     Hide Subscriptions Videos: ''
     Hide Subscriptions Shorts: ''
     Hide Subscriptions Live: ''
-    Hide Subscriptions Community: ''
   Data Settings:
     Data Settings: 'دراوە'
     Select Export Type: 'دیاریکردنی جۆری هەناردە'
@@ -672,7 +669,7 @@ Channel:
     Joined: ''
     Location: ''
     Featured Channels: ''
-  Community:
+  Posts:
     This channel currently does not have any posts: ''
     votes: '{votes} دەنگ'
     Reveal Answers: ''
@@ -915,5 +912,6 @@ KeyboardShortcutPrompt:
       Situational: 'کاربەرنامە: بارودۆخی'
   Last Chapter: دوا بڕگە
   Next Chapter: بڕگەی دواتر
+  Toggle Developer Tools: زامنی ئامرازەکانی گەشەپێدەر
 checkmark: ✓
 shortcutJoinOperator: +

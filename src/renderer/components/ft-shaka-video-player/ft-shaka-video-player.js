@@ -3,7 +3,7 @@ import shaka from 'shaka-player'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import store from '../../store/index'
-import { IpcChannels, KeyboardShortcuts } from '../../../constants'
+import { DefaultFolderKind, IpcChannels, KeyboardShortcuts } from '../../../constants'
 import { AudioTrackSelection } from './player-components/AudioTrackSelection'
 import { FullWindowButton } from './player-components/FullWindowButton'
 import { LegacyQualitySelection } from './player-components/LegacyQualitySelection'
@@ -1117,20 +1117,17 @@ export default defineComponent({
 
     // #region power save blocker
 
-    let powerSaveBlocker = null
-
-    async function startPowerSaveBlocker() {
-      if (process.env.IS_ELECTRON && powerSaveBlocker === null) {
+    function startPowerSaveBlocker() {
+      if (process.env.IS_ELECTRON) {
         const { ipcRenderer } = require('electron')
-        powerSaveBlocker = await ipcRenderer.invoke(IpcChannels.START_POWER_SAVE_BLOCKER)
+        ipcRenderer.send(IpcChannels.START_POWER_SAVE_BLOCKER)
       }
     }
 
     function stopPowerSaveBlocker() {
-      if (process.env.IS_ELECTRON && powerSaveBlocker !== null) {
+      if (process.env.IS_ELECTRON) {
         const { ipcRenderer } = require('electron')
-        ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, powerSaveBlocker)
-        powerSaveBlocker = null
+        ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER)
       }
     }
 
@@ -1661,7 +1658,12 @@ export default defineComponent({
 
           const { ipcRenderer } = require('electron')
 
-          await ipcRenderer.invoke(IpcChannels.WRITE_SCREENSHOT, filenameWithExtension, arrayBuffer)
+          await ipcRenderer.invoke(
+            IpcChannels.WRITE_TO_DEFAULT_FOLDER,
+            DefaultFolderKind.SCREENSHOTS,
+            filenameWithExtension,
+            arrayBuffer
+          )
 
           showToast(t('Screenshot Success'))
         }

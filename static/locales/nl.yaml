@@ -2,7 +2,7 @@
 Locale Name: 'Nederlands'
 
 # Webkit Menu Bar
-File: 'bestand'
+File: 'Bestand'
 Quit: 'Afsluiten'
 Edit: 'Bewerken'
 Undo: 'Ongedaan maken'
@@ -42,7 +42,7 @@ Global:
     Channel Count: 1 kanaal | {count} kanalen
     Like Count: 1 vind ik leuk | {count} vind ik leuks
     Comment Count: 1 commentaar | {count} commentaren
-  Community: Gemeenschap
+  Posts: Posts
 Search / Go to URL: 'Zoeken / Ga naar URL'
   # In Filter Button
 Search Filters:
@@ -599,7 +599,6 @@ Settings:
     Hide Upcoming Premieres: Aankomende premières verbergen
     Hide Featured Channels: Uitgelichte kanalen verbergen
     Hide Channel Playlists: '"Kanaal­afspeellijsten" Tabblad Verbergen'
-    Hide Channel Community: '"Kanaal­gemeenschap" Tabblad Verbergen'
     Hide Channels: Video's van kanalen verbergen
     Hide Channels Placeholder: Kanaal-ID
     Hide Channel Podcasts: Kanaal "Podcasts" Tabblad Verbergen
@@ -609,7 +608,6 @@ Settings:
     Hide Channel Shorts: Kanaal "Shorts" Tabblad Verbergen
     Hide Subscriptions Shorts: Abonnement-Shorts verbergen
     Hide Profile Pictures in Comments: Profielfoto's in opmerkingen verbergen
-    Hide Subscriptions Community: Abonnement­gemeenschappen verbergen
     Hide Channels Already Exists: Kanaal ID bestaat reeds
     Hide Channels Invalid: Opgegeven kanaal-id is ongeldig
     Hide Videos and Playlists Containing Text Placeholder: Woord, woord­fragment of
@@ -781,8 +779,8 @@ Channel:
     Podcasts: Podcasts
     This channel does not currently have any podcasts: Dit kanaal heeft momenteel
       geen podcasts
-  Community:
-    Community: Gemeenschap
+  Posts:
+    Posts: Posts
     Reveal Answers: Antwoorden onthullen
     Hide Answers: Antwoorden verbergen
     votes: '{votes} stemmen'
@@ -1196,7 +1194,7 @@ Starting download: Begin download van "{videoTitle}"
 Downloading failed: Probleem bij download van "{videoTitle}"
 Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag
   map" modus.
-New Window: Nieuw venster
+New Window: Nieuw Venster
 Screenshot Success: Schermafbeelding opgeslagen
 Channels:
   Title: Kanalen lijst

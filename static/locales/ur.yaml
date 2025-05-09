@@ -41,6 +41,8 @@ Search Filters:
   Search Filters: 'فلٹرز تلاش کریں'
   There are no more results for this search: 'اس تلاش کے مزید نتائج نہیں ہیں'
 # Sidebar
+  Type:
+    Videos: ویڈیوز
 Subscriptions:
     # On Subscriptions Page
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'یہ
@@ -134,7 +136,10 @@ Profile:
     کیا آپ واقعی منتخب چینلز کو حذف کرنا چاہتے ہیں؟ اس سے چینل حذف نہیں ہوگا۔ کسی
     دوسرے پروفائل سے۔'
 #On Channel Page
-Channel: {}
+  Select All: تمام منتخب کریں
+Channel:
+  Videos:
+    Videos: ویڈیوز
 Video: {}
 Tooltips:
   General Settings:
@@ -223,7 +228,18 @@ Global:
   Videos: ویڈیوز
   Shorts: شورٹس
   Live: لاؤو
-  Community: کمیونٹی
+  Posts: پوسٹس
+  Sort By: ترتیب بہ لحاظ
 Close Banner: بینر بندکریں
 Preferences: ترجیحات
 Go to page: '{page} میں جائیں'
+Search Listing:
+  Label:
+    4K: 4K
+    VR180: VR180
+    8K: 8K
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: ڈویلپر ٹولز کو ٹوگل کریں
+  Zoom Out: زوم آؤٹ
+  Zoom In: زوم ان
+  Fullscreen: پوری اسکرین کو ٹوگل کریں

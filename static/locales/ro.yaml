@@ -31,7 +31,7 @@ Global:
   Videos: 'Videoclipuri'
   Shorts: Shorts
   Live: Live
-  Community: Comunitate
+  Posts: Postări
   Sort By: Sortează după
   Counts:
     Video Count: 1 videoclip | {count} videoclipuri
@@ -620,7 +620,6 @@ Settings:
     Hide Subscriptions Videos: Ascundeți Abonamente Videoclipuri
     Hide Subscriptions Live: Ascundeți Abonamente Live
     Hide Channels: Ascundeți videoclipurile din canale
-    Hide Channel Community: Ascunde fila „Comunitate” canal
     Hide Channel Shorts: Ascundeți fila "Shorts" a canalului
     Hide Featured Channels: Ascundeți canalele recomandate
     Hide Channels Placeholder: ID-ul canalului
@@ -640,7 +639,6 @@ Settings:
     Hide Channels API Error: Eroare la preluarea utilizatorului cu ID-ul furnizat.
       Vă rugăm să verificați din nou dacă ID-ul este corect.
     Hide Channel Courses: Ascunde fila „Cursuri” a canalului
-    Hide Subscriptions Community: Ascunde comunitatea abonamentelor
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificare atunci când segmentul sponsorului
       este sărit
@@ -826,8 +824,8 @@ Channel:
     Tags:
       Search for: Căutați "{tag}"
       Tags: Tags
-  Community:
-    Community: Comunitate
+  Posts:
+    Posts: Postări
     This channel currently does not have any posts: Acest canal nu are momentan nicio
       postare
     Reveal Answers: Dezvăluie Răspunsuri

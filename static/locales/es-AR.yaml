@@ -523,7 +523,6 @@ Settings:
       Channel Page: Página del canal
       Subscriptions Page: Página de suscripciones
       General: General
-    Hide Channel Community: Ocultar la pestaña de 'Comunidad' del canal
     Hide Subscriptions Videos: Ocultar las suscripciones de los videos
     Hide Comments: Ocultar comentarios
     Hide Channel Shorts: Ocultar la pestaña de 'Shorts' del canal
@@ -531,7 +530,6 @@ Settings:
     Hide Channel Podcasts: Ocultar la pestaña de 'Podcasts' del canal
     Hide Live Streams: Ocultar transmisiones en vivo
     Hide Channel Playlists: Ocultar la pestaña de 'Listas de reproducción' del canal
-    Hide Subscriptions Community: Ocultar las suscripciones a la comunidad
     Hide Channels: Ocultar los vídeos de los canales
     Hide Subscriptions Live: Ocultar Suscripciones en Vivo
     Hide Subscriptions Shorts: Ocultar las suscripciones para los Shorts
@@ -646,7 +644,7 @@ Global:
     Channel Count: 1 canal | {count} canales
     Like Count: 1 me gusta | {count} me gusta
     Comment Count: 1 comentario | {count} comentarios
-  Community: Comunidad
+  Posts: Publicaciones
   Videos: Videos
   Shorts: Shorts
   Live: En vivo
@@ -680,3 +678,10 @@ Feed:
   Feed Last Updated: 'Última actualización del feed de {feedName}: {date}'
 Right-click or hold to see history: Haz clic derecho o mantén presionado para ver
   el historial
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Activar/Desactivar Herramientas de Desarrollo
+  Zoom Out: Alejarse
+  Zoom In: Acercarse
+  Fullscreen: Alternar pantalla completa
+Profile:
+  Select All: Seleccionar todo

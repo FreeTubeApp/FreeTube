@@ -43,7 +43,6 @@ Global:
   Videos: 'Videos'
   Shorts: 'Korte videos'
   Live: 'Rechtstreeks'
-  Community: 'Gemjinschap'
   Sort By: 'Azwu sorteern'
   Counts:
     Video Count: '1 video | {count} videos'
@@ -66,6 +65,7 @@ Search Listing:
     # Aria labels
     Closed Captions: 'Geslootn ondertitels'
   # In Filter Button
+    8K: 8K
 Search Filters:
   Search Filters: 'Zoekfilters'
   Sort By:
@@ -484,7 +484,6 @@ Settings:
     Hide Channels Already Exists: ''
     Hide Featured Channels: ''
     Hide Channel Playlists: ''
-    Hide Channel Community: ''
     Hide Channel Shorts: ''
     Hide Channel Podcasts: ''
     Hide Channel Releases: ''
@@ -493,7 +492,6 @@ Settings:
     Hide Subscriptions Videos: ''
     Hide Subscriptions Shorts: ''
     Hide Subscriptions Live: ''
-    Hide Subscriptions Community: ''
   Data Settings:
     Data Settings: ''
     Select Export Type: ''
@@ -643,7 +641,7 @@ Profile:
   Subscription List: ''
   Other Channels: ''
   '{number} selected': ''
-  Select All: ''
+  Select All: 'Olles selecteern'
   Select None: ''
   Delete Selected: ''
   Add Selected To Profile: ''
@@ -668,7 +666,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: ''
   Channel Tabs: ''
   Videos:
-    Videos: ''
+    Videos: 'Videos'
     This channel does not currently have any videos: ''
     Sort Types:
       Newest: ''
@@ -702,7 +700,7 @@ Channel:
     Joined: ''
     Location: ''
     Featured Channels: ''
-  Community:
+  Posts:
     This channel currently does not have any posts: ''
     votes: ''
     View Full Post: ''
@@ -974,3 +972,8 @@ Cancel: ''
 checkmark: ''
 # French is the only language that should change this (they have a space before the colon)
 Display Label: ''
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Ontwikkeloars gerjidschap anzetn
+  Zoom Out: Verkljin
+  Zoom In: Vergrôtn
+  Fullscreen: Vul skerm anzetn

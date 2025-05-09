@@ -31,7 +31,7 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: Live
-  Community: Community
+  Posts: Posts
   Sort By: Sort by
 
   Counts:
@@ -516,6 +516,8 @@ Settings:
     Watched Progress Saving Mode:
       Modes:
         Auto: Auto
+        Never: Never
+        Semi-auto: Semi-auto
       Tooltip: Auto = Save on every video page exit, when video ended and error encountered
         (e.g. ratelimited and watch session expired). Semi-auto = Like Auto except
         on video page exit and can save progress manually via a button called Save
@@ -605,7 +607,7 @@ Settings:
       capitalisation and punctuation
     Hide Featured Channels: Hide featured channels
     Hide Channel Playlists: Hide channel "playlists" tab
-    Hide Channel Community: Hide channel "community" tab
+    Hide Channel Posts: Hide channel "Posts" tab
     Hide Channel Shorts: Hide channel "shorts" tab
     Sections:
       Side Bar: Side bar
@@ -618,7 +620,7 @@ Settings:
     Hide Subscriptions Shorts: Hide subscriptions shorts
     Hide Subscriptions Live: Hide subscriptions live
     Hide Subscriptions Videos: Hide subscriptions videos
-    Hide Subscriptions Community: Hide subscriptions community
+    Hide Subscriptions Posts: Hide subscriptions Posts
     Hide Profile Pictures in Comments: Hide profile pictures in comments
     Hide Channels Invalid: Channel ID provided was invalid
     Hide Channels Disabled Message: Some channels were blocked using ID and weren't
@@ -820,7 +822,7 @@ Channel:
   This channel does not allow searching: This channel does not allow searching
   This channel is age-restricted and currently cannot be viewed in FreeTube.: This
     channel is age resticted and currently cannot be viewed in FreeTube.
-  Community:
+  Posts:
     This channel currently does not have any posts: This channel currently does not
       have any posts
     Reveal Answers: Reveal answers
@@ -1089,7 +1091,7 @@ Tooltips:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method to grab your subscription feed. RSS is faster and prevents IP blocking,
       but it doesn’t provide certain information like video duration, live status
-      or community posts
+      or posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch your subscription
       feed when a new window is opened and when switching profile.
   Player Settings:

@@ -29,9 +29,9 @@ Forward: 'Naprijed'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videa'
-  Shorts: Kratka videa
+  Shorts: Shorts videozapisi
   Live: Uživo
-  Community: Zajednica
+  Posts: Postovi
   Sort By: Redoslijed
 
 # Search Bar
@@ -574,7 +574,6 @@ Settings:
       korištenja velikih slova i interpunkcije
     Hide Featured Channels: Sakrij istaknute kanale
     Hide Channel Playlists: Sakrij karticu „Zbirke” kanala
-    Hide Channel Community: Sakrij karticu „Zajednica” kanala
     Hide Channel Shorts: Sakrij karticu „Kratka videa” kanala
     Sections:
       Watch Page: Stranica gledanja
@@ -588,7 +587,6 @@ Settings:
     Hide Subscriptions Live: Sakrij pretplate videa uživo
     Hide Subscriptions Videos: Sakrij pretplate videa
     Hide Profile Pictures in Comments: Sakrij slike profila u komentarima
-    Hide Subscriptions Community: Sakrij pretplate zajednice
     Hide Channels Invalid: Navedeni ID kanala nije bio ispravan
     Hide Channels Disabled Message: Neki su kanali blokirani upotrebom ID-a i nisu
       obrađeni. Funkcija je blokirana tijekom aktualiziranje tih ID-ova
@@ -798,7 +796,7 @@ Channel:
     Live: Uživo
     This channel does not currently have any live streams: Ovaj kanal trenutačno nema
       prijenosa uživo
-  Community:
+  Posts:
     This channel currently does not have any posts: Ovaj kanal trenutačno nema objava
     Reveal Answers: Prikaži odgovore
     Hide Answers: Sakrij odgovore

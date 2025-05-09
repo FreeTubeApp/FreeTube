@@ -35,6 +35,8 @@ Global:
   Sort By: 'Poredaj po'
 
 # Search Bar
+  Live: Uživo
+  Videos: Videozapisi
 Search / Go to URL: 'Pretražite / idite na URL'
   # In Filter Button
 Search Filters:
@@ -55,7 +57,7 @@ Search Filters:
   Type:
     Type: 'Vrsta'
     All Types: 'Sve vrste'
-    Videos: 'Video'
+    Videos: 'Videozapisi'
     Channels: 'Kanali'
     #& Playlists
   Duration:
@@ -124,6 +126,20 @@ Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
 Channel:
-  Videos: {}
+  Videos:
+    Videos: Videozapisi
 Tooltips: {}
 No: 'Ne'
+New Window: Novi Prozor
+Search Listing:
+  Label:
+    4K: 4K
+    8K: 8K
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Uključi alate za programere
+  Zoom In: Približi
+  Zoom Out: Umanji
+  Fullscreen: Prebaci preko cijelog ekrana
+Preferences: Postavke
+Profile:
+  Select All: Odabri sve

@@ -32,7 +32,7 @@ Global:
 # Search Bar
   Live: Trực tiếp
   Shorts: Shorts
-  Community: Cộng đồng
+  Posts: Bài đăng
   Sort By: 'Sắp xếp theo'
   Counts:
     Subscriber Count: 1 người đăng ký | {count} người đăng ký
@@ -559,13 +559,11 @@ Settings:
     Hide Channel Releases: Ẩn trang "Xuất bản" của kênh
     Hide Videos and Playlists Containing Text: Ẩn các video và danh sách phát có chứa
     Hide Channels Invalid: ID kênh không hợp lệ
-    Hide Channel Community: Ẩn trang "Cộng đồng" của kênh
     Hide Channel Shorts: Ẩn trang "Shorts" của kênh
     Hide Subscriptions Shorts: Ẩn short từ các đăng ký
     Hide Subscriptions Live: Ẩn video phát trực tiếp từ các đăng ký
     Hide Upcoming Premieres: Ẩn video sắp ra mắt
     Hide Channel Podcasts: Ẩn trang "Podcast" của kênh
-    Hide Subscriptions Community: Ẩn bài đăng cộng đồng từ các đăng ký
     Hide Channels Already Exists: ID kênh đã tồn tại
     Hide Videos and Playlists Containing Text Placeholder: Từ, tiếng, hoặc cụm từ
     Hide Subscriptions Videos: Ẩn video từ các đăng ký
@@ -756,8 +754,8 @@ Channel:
       bất kì luồng phát trực tiếp nào
   This channel does not allow searching: Kênh này không cho phép tìm kiếm
   This channel does not exist: Kênh không tồn tại
-  Community:
-    Community: Cộng đồng
+  Posts:
+    Posts: Bài đăng
     This channel currently does not have any posts: Kênh này hiện không có bất kì
       bài đăng nào
     votes: '{votes} bình chọn'

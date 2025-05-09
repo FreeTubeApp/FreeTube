@@ -31,7 +31,7 @@ Global:
   Videos: 'Vídeos'
   Shorts: Vídeos cortos
   Live: En directo
-  Community: Comunidad
+  Posts: Publicaciones
   Sort By: Ordenar por
 
 # Search Bar
@@ -594,7 +594,6 @@ Settings:
       ni signos de puntuación excesivos
     Hide Featured Channels: Ocultar canales recomendados
     Hide Channel Playlists: Ocultar la pestaña "Listas de reproducción" del canal
-    Hide Channel Community: Ocultar la pestaña "Comunidad" del canal
     Hide Channel Shorts: Ocultar la pestaña "Vídeos cortos" del canal
     Sections:
       Side Bar: Barra lateral
@@ -608,7 +607,6 @@ Settings:
     Hide Subscriptions Videos: Ocultar las suscripciones de los Vídeos
     Hide Subscriptions Live: Ocultar las suscripciones de los directos
     Hide Profile Pictures in Comments: Ocultar fotos de perfil en comentarios
-    Hide Subscriptions Community: Ocultar las suscripciones de la comunidad
     Hide Channels Invalid: El ID del canal proporcionado no es válido
     Hide Channels Disabled Message: Algunos canales se bloquearon por ID y no se procesaron.
       La función está bloqueada mientras se actualizan esos ID
@@ -822,7 +820,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Este
     canal tiene restricciones de edad y actualmente no puede verse en FreeTube.
   Channel Tabs: Ficha del Canal
-  Community:
+  Posts:
     This channel currently does not have any posts: Este canal no tiene actualmente
       ningún mensaje
     Reveal Answers: Revelar las respuestas

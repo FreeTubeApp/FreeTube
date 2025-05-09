@@ -31,7 +31,7 @@ Global:
   Videos: 'Videók'
   Shorts: Rövid videók
   Live: Élő
-  Community: Közösség
+  Posts: Bejegyzések
   Sort By: Rendezési szempont
 
   Counts:
@@ -608,7 +608,6 @@ Settings:
       és írásjelek nélkül való megjelenítése
     Hide Featured Channels: Kiemelt csatornák elrejtése
     Hide Channel Playlists: Csatorna „lejátszási listák” lap elrejtése
-    Hide Channel Community: Csatorna „közösség” lap elrejtése
     Hide Channel Shorts: Csatorna „rövid videók” lap elrejtése
     Sections:
       Side Bar: Oldalsáv
@@ -622,7 +621,6 @@ Settings:
     Hide Subscriptions Videos: Feliratkozási videók elrejtése
     Hide Subscriptions Live: Élő feliratkozások elrejtése
     Hide Profile Pictures in Comments: Profilképek elrejtése a hozzászólásokban
-    Hide Subscriptions Community: Közösségi feliratkozások elrejtése
     Hide Channels Invalid: Érvénytelen a megadott csatornaazonosító
     Hide Channels Disabled Message: Egyes csatornákat letiltottak az azonosító miatt,
       és nem dolgozták fel őket. A funkció le van tiltva, amíg ezek az azonosítók
@@ -636,6 +634,8 @@ Settings:
     Hide Channel Home: Csatorna „főoldal” lap elrejtése
     Show Added Items: Hozzáadott elemek megjelenítése
     Hide Channel Courses: „Tanfolyamok” csatornalap elrejtése
+    Hide Channel Posts: Csatorna „Bejegyzések” lap elrejtése
+    Hide Subscriptions Posts: Feliratkozási bejegyzések elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az
     alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon
     újra és alkalmazza a módosítást?
@@ -838,7 +838,7 @@ Channel:
     This channel does not currently have any live streams: Jelenleg nincs élő közvetítés
       ezen a csatornán
     Live: Élő
-  Community:
+  Posts:
     This channel currently does not have any posts: Ezen a csatornán jelenleg nincsenek
       bejegyzések
     Reveal Answers: Válaszok felfedése
@@ -1113,8 +1113,9 @@ Tooltips:
       ország felkapott videóit szeretné megtekinteni.
     Invidious Instance: Invidious-példány, amelyhez a FreeTube csatlakozni fog az
       API-hívásokhoz.
-    Thumbnail Preference: A FreeTube összes miniatűrjét a videó egy képkockája váltja
-      fel az alapértelmezett miniatűr helyett.
+    Thumbnail Preference: A FreeTube-on minden bélyegkép le lesz cserélve a videó
+      egy képkockájára, amely elmosódott vagy elrejtett lesz az alapértelmezett bélyegkép
+      helyett.
     Fallback to Non-Preferred Backend on Failure: Amikor az előnyben részesített API-jával
       hiba merül fel, a FreeTube automatikusan megpróbálja a nem előnyben részesített
       API-t tartalékként használni, amikor engedélyezve van.
@@ -1127,15 +1128,14 @@ Tooltips:
     Fetch Feeds from RSS: Amikor engedélyezve van, a FreeTube az RSS-t fogja használni
       az alapértelmezett módszer helyett a feliratkozási hírfolyam lekérdezéséhez.
       Az RSS gyorsabb és megakadályozza az IP-tiltást, de nem tartalmaz bizonyos információkat,
-      például a videó időtartamát, az élő állapotot vagy a közösségi hozzászólásokat
+      például a videó időtartamát, az élő állapotot vagy a bejegyzéseket
     Fetch Automatically: Amikor engedélyezve van, a FreeTube új ablak megnyitásakor
-      és profilváltáskor automatikusan lekéri az feliratkozási hírfolyamot.
+      és az alkalmazás elindításakor automatikusan lekérdezi az feliratkozási hírfolyamot.
   Player Settings:
-    Default Video Format: Állítsa be a videó lejátszásakor használt formátumokat.
-      A DASH (dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n keresztül)
-      formátumok magasabb minőséget játszhatnak le. Az örökölt formátumok legfeljebb
-      720 képpontra korlátozódnak, de kevesebb sávszélességet használnak. A hangformátumok
-      csak hang-adatfolyamok.
+    Default Video Format: Állítsa be a videólejátszáshoz használt formátumokat. A
+      DASH-formátumok magasabb minőségű lejátszást tesznek lehetővé. A régebbi formátumok
+      legfeljebb 360p felbontásúak, de kevesebb sávszélességet igényelnek. A hangformátumok
+      kizárólag hangadatfolyamokat tartalmaznak.
     Proxy Videos Through Invidious: Csatlakozik az Invidious szolgáltatáshoz, hogy
       videókat szolgáltasson, ahelyett, hogy közvetlen kapcsolatot létesítene a YouTube
       szolgáltatással.

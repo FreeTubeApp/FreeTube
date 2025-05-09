@@ -5,9 +5,9 @@ import FtSelect from '../ft-select/ft-select.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtSlider from '../FtSlider/FtSlider.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtButton from '../ft-button/ft-button.vue'
+import FtButton from '../FtButton/FtButton.vue'
 import FtInput from '../ft-input/ft-input.vue'
-import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
+import FtTooltip from '../FtTooltip/FtTooltip.vue'
 import { DefaultFolderKind, IpcChannels } from '../../../constants'
 
 export default defineComponent({

@@ -31,7 +31,7 @@ Global:
   Videos: 'الفيديوهات'
   Shorts: القصيرة
   Live: بث مباشر
-  Community: المجتمع
+  Posts: المنشورات
   Sort By: ترتيب حسب
 
 # Search Bar
@@ -63,7 +63,7 @@ Search Filters:
   Type:
     Type: 'النوع'
     All Types: 'كل الأنواع'
-    Videos: 'فيديوهات'
+    Videos: 'الفيديوهات'
     Channels: 'قنوات'
     #& Playlists
     Movies: الأفلام
@@ -581,7 +581,6 @@ Settings:
       الكبيرة وعلامات الترقيم بشكل مفرط
     Hide Featured Channels: إخفاء القنوات المميزة
     Hide Channel Playlists: إخفاء علامة التبويب "قوائم التشغيل" للقناة
-    Hide Channel Community: إخفاء علامة التبويب "المجتمع" للقناة
     Hide Channel Shorts: إخفاء علامة التبويب "المقاطع القصيرة" للقناة
     Sections:
       Side Bar: الشريط الجانبي
@@ -595,7 +594,6 @@ Settings:
     Hide Subscriptions Shorts: إخفاء الاشتراكات الفيدوهات القصيرة
     Hide Subscriptions Videos: إخفاء مقاطع فيديو الاشتراكات
     Hide Profile Pictures in Comments: إخفاء صور الملف الشخصي في التعليقات
-    Hide Subscriptions Community: إخفاء مجتمع الاشتراكات
     Hide Channels Invalid: معرف القناة المقدم غير صالح
     Hide Channels Disabled Message: تم حظر بعض القنوات باستخدام المعرّف ولم تتم معالجتها.
       يتم حظر الميزة أثناء تحديث هذه المعرفات
@@ -608,6 +606,8 @@ Settings:
     Hide Channel Home: إخفاء علامة التبويب "الصفحة الرئيسية" للقناة
     Show Added Items: إظهار العناصر المضافة
     Hide Channel Courses: إخفاء علامة التبويب "دورات" القناة
+    Hide Channel Posts: إخفاء علامة تبويب "المنشورات" للقناة
+    Hide Subscriptions Posts: إخفاء منشورات الاشتراكات
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -802,7 +802,7 @@ Channel:
   This channel does not allow searching: هذه القناة لا تسمح بالبحث
   This channel is age-restricted and currently cannot be viewed in FreeTube.: هذه
     القناة مصنفة حسب العمر ولا يمكن عرضها حاليا في FreeTube.
-  Community:
+  Posts:
     This channel currently does not have any posts: لا تحتوي هذه القناة حاليا على
       أي مشاركات
     Hide Answers: إخفاء الأجوبة

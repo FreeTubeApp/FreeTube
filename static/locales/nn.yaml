@@ -36,9 +36,9 @@ Global:
     Channel Count: 1 kanal | {count} kanalar
     Subscriber Count: 1 abonnent | {count} abonnentar
     View Count: 1 visning | {count} visningar
-  Shorts: Shorts
+  Shorts: Shorts-videoer
   Live: Direkte
-  Community: Fellesskap
+  Posts: Innlegg
   Sort By: 'Sorter etter'
 Version {versionNumber} is now available!  Click for more details: 'Versjon {versionNumber}
   er no tilgjengeleg! Klikk for meir informasjon'
@@ -794,3 +794,8 @@ Search Listing:
     4K: 4K
     Subtitles: Undertekstar
     Closed Captions: Undertekstar
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Veksle utviklarverktøy
+  Zoom Out: Forminsk
+  Zoom In: Forstørr
+  Fullscreen: Veksle fullskjerm

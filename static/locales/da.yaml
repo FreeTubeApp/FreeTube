@@ -37,8 +37,8 @@ Global:
     Video Count: 1 video | {count} videoer
     Channel Count: 1 kanal | {count} kanaler
     Comment Count: 1 kommentar | {count} kommentarer
-    Like Count: 1 like | {count} likes
-  Community: Fællesskab
+    Like Count: 1 kan lide | {count} kan lide
+  Posts: Opslag
   Live: Live
   Sort By: Sortér efter
   Shorts: Shorts
@@ -502,6 +502,12 @@ Settings:
     Watched Progress Saving Mode:
       Modes:
         Auto: Auto
+        Semi-auto: Semi-auto
+        Never: Aldrig
+      Tooltip: "Auto: Gemmer ved videoens afslutning, fejl (f.eks. hastighedsbegrænsning,
+        udløbet session) og når du forlader siden.\nSemi-auto: Som Auto, men gemmer
+        ikke, når du forlader siden. Du kan gemme manuelt med knappen 'Gem set fremskridt'
+        under videoen."
   Subscription Settings:
     Subscription Settings: 'Abonnement'
     Hide Videos on Watch: 'Skjul Videoer på Se'
@@ -556,13 +562,12 @@ Settings:
     Subscription File: Abonnementsfil
     Export Playlists For Older FreeTube Versions:
       Label: Eksportér playlister til ældre FreeTube-versioner
-      Tooltip: "Denne mulighed eksporterer videoer fra alle afspilningslister til
-        en afspilningsliste med navnet 'Favoritter'\nSådan eksporterer og importerer
-        du videoer i afspilningslister til en ældre version af FreeTube:porter dine
-        afspilningslister med denne mulighed aktiveret.\n2. Slet alle dine eksisterende
-        afspilningslister ved at bruge indstillingen Fjern alle afspilningslister
-        under Privatlivsindstillinger.\n3. Start den ældre version af FreeTube, og
-        importer de eksporterede afspilningslister.«"
+      Tooltip: "Denne indstilling eksporterer videoer fra alle playlister til én playliste
+        kaldet \"Favoritter\".\nSådan eksporterer og importerer du playlister i en
+        ældre version af FreeTube:\n1. Eksportér dine playlister med denne indstilling
+        aktiveret.\n2. Slet alle eksisterende playlister via \"Fjern alle playlister\"\
+        \ under Privatlivsindstillinger.\n3. Start den ældre version af FreeTube og
+        importér de eksporterede playlister."
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fejl ved
       anskaffelse af netværksinformation. Er din proxy konfigureret ordentligt?
@@ -619,7 +624,6 @@ Settings:
     Hide Channels API Error: Fejl ved hentning af bruger med det angivne ID. Tjek
       venligst igen, om ID'et er korrekt.
     Hide Channel Playlists: Skjul kanal "Playlists" Tab
-    Hide Channel Community: Skjul kanal "Kommunity" Tab
     Hide Channel Podcasts: Skjul fanen »Podcasts« på kanalen
     Hide Channels Invalid: Det angivne kanal-ID var ugyldigt
     Hide Channels Disabled Message: Nogle kanaler blev blokeret med ID og blev ikke
@@ -631,9 +635,8 @@ Settings:
     Hide Channel Shorts: Skjul kanal "Shorts" Tab
     Hide Channel Home: Skjul kanal "Hjem" Tab
     Hide Channel Courses: Skjul kanal "Courses" Tab
-    Hide Subscriptions Live: Skjul abonnementer live
+    Hide Subscriptions Live: Skjul liveudsendelser fra abonnementer
     Hide Subscriptions Shorts: Skjul abonnementer Shorts
-    Hide Subscriptions Community: Skjul abonnementsfællesskab
     Hide Subscriptions Videos: Skjul abonnementer Videoer
   The app needs to restart for changes to take effect. Restart and apply change?: App'en
     er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
@@ -811,7 +814,7 @@ Channel:
       Tags: Etiketter
     Joined: sluttet sig til
     Location: placering
-  Community:
+  Posts:
     Hide Answers: Skjul Svar
     This channel currently does not have any posts: Denne kanal har i øjeblikket ingen
       opslag
@@ -977,6 +980,8 @@ Video:
     Show Original Details: Vis originale detaljer
   Published:
     In less than a minute: På mindre end et minut
+  Save Watched Progress: Gem set fremskridt
+  Watched Progress Saved: Set fremskridt gemt
 Playlist:
   #& About
   View Full Playlist: 'Vis Hele Playliste'
@@ -1079,9 +1084,10 @@ This video is unavailable because of missing formats. This can happen due to cou
   utilgængelighed.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Når det er aktiveret, bruger FreeTube RSS i stedet for standardmetoden
+    Fetch Feeds from RSS: Når aktiveret, bruger FreeTube RSS i stedet for standardmetoden
       til at hente dit abonnementsfeed. RSS er hurtigere og forhindrer IP-blokering,
-      men giver ikke visse oplysninger som videoens varighed, live-status eller fællesskabsindlæg.
+      men viser ikke visse oplysninger som videoens varighed, live-status eller opslag
+      fra fællesskabet
     Fetch Automatically: Når det er aktiveret, henter FreeTube automatisk dit abonnementsfeed,
       når der åbnes et nyt vindue, og når du skifter profil.
   Player Settings:

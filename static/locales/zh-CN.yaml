@@ -28,7 +28,7 @@ Global:
   Videos: '视频'
   Shorts: 短视频
   Live: 直播
-  Community: 社区
+  Posts: 帖子
   Sort By: 排序依据
 
 # Search Bar
@@ -529,7 +529,6 @@ Settings:
     Display Titles Without Excessive Capitalisation: 去除标题中对字母大写和标点符号的过度使用
     Hide Featured Channels: 隐藏精选频道
     Hide Channel Playlists: 隐藏频道“播放列表”标签
-    Hide Channel Community: 隐藏频道“社区”标签
     Hide Channel Shorts: 隐藏频道“短视频”标签
     Sections:
       Side Bar: 侧边栏
@@ -543,7 +542,6 @@ Settings:
     Hide Subscriptions Videos: 隐藏订阅视频
     Hide Subscriptions Live: 隐藏订阅直播
     Hide Profile Pictures in Comments: 在评论中隐藏个人资料图片
-    Hide Subscriptions Community: 隐藏订阅社区
     Hide Channels Invalid: 提供的频道 ID 无效
     Hide Channels Disabled Message: 使用 ID 屏蔽了某些频道，这些频道未被处理。当这些 ID 在升级时，功能被停用
     Hide Channels Already Exists: 频道 ID 已存在
@@ -553,6 +551,8 @@ Settings:
     Hide Channel Home: 隐藏频道“主页”标签
     Show Added Items: 显示已添加项目
     Hide Channel Courses: 隐藏频道“课程”标签
+    Hide Channel Posts: 隐藏频道“帖子”标签
+    Hide Subscriptions Posts: 隐藏订阅者帖子
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -690,7 +690,7 @@ Channel:
   Channel Tabs: 频道标签页
   This channel does not exist: 此频道不存在
   This channel does not allow searching: 此频道不允许搜索
-  Community:
+  Posts:
     This channel currently does not have any posts: 此频道当前没有任何帖子
     votes: '{votes} 票'
     Reveal Answers: 揭晓答案
@@ -973,10 +973,10 @@ Version {versionNumber} is now available!  Click for more details: 版本{versio
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 没有这个视频因为缺少格式。这个可能发生由于国家不可用。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 启用后，FreeTube 将使用 RSS 而非默认方式来取得您的订阅推送。RSS 更快而且可避免 IP 封锁，但不提供某些信息，如视频长度，直播状态或社区帖子
-    Fetch Automatically: 开启后，打开新窗口和切换配置文件时，FreeTube 会自动抓取你的订阅源。
+    Fetch Feeds from RSS: 启用后，FreeTube 将使用 RSS 而非默认方式来取得您的订阅推送。RSS 更快而且可避免 IP 封锁，但不提供某些信息，如视频长度，直播状态或帖子
+    Fetch Automatically: 启用后，打开新窗口和开启 FreeTube 时，FreeTube 会自动抓取你的订阅源。
   Player Settings:
-    Default Video Format: 设置播放视频时使用的格式。DASH 格式可以播放更高质量的视频。 传统格式限制为最大 720p，但使用较少的带宽。
+    Default Video Format: 设置播放视频时使用的格式。DASH 格式可以播放更高质量的视频。 传统格式限制为最大 360p，但使用较少的带宽。
       音频格式是纯音频流。
     Proxy Videos Through Invidious: 将连接到 Invidious而非直接连接到 YouTube 来提供影片。
     Scroll Playback Rate Over Video Player: 当光标位于视频上方时，按住 Control 键(Mac 上的 Command
@@ -984,7 +984,7 @@ Tooltips:
     Skip by Scrolling Over Video Player: 使用滚轮跳过视频，MPV 风格。
   General Settings:
     Invidious Instance: FreeTube 要连接到哪个 Invidious 实例进行 API 调用。
-    Thumbnail Preference: FreeTube中所有缩略图都会被替换为影片画面而非默认缩略图。
+    Thumbnail Preference: FreeTube 中所有缩略图会被替换为模糊不清或隐藏的视频帧而非默认缩略图。
     Fallback to Non-Preferred Backend on Failure: 当您的首选API有问题时，FreeTube将自动尝试使用您的非首选API
       作为后备方案。
     Preferred API Backend: 选择FreeTube 要用于取得数据的后端。本地API 是内置提取器。Invidious API需要Invidious服务器才能连接。

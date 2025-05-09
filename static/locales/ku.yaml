@@ -37,7 +37,6 @@ Global:
 # Search Bar
   Live: ژیاوازی
   Shorts: شورتەکان
-  Community: کۆمەڵگا
   Counts:
     Video Count: 1 ڤیدیۆ | {count} ڤیدیۆکان
   Videos: ویدیوەکان
@@ -395,6 +394,7 @@ Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ئایا
     تۆ پشتڕاستیت کە دەتەوێت کەناڵە دەسنیشانکراوەکان بسڕیتەوە؟ ئەمە کەناڵەکە لە هیچ
     پرۆفایلێکی تر ناسڕێتەوە.
+  Select All: دیاریکردنی هەمووی
 Channel:
   Playlists:
     This channel does not currently have any playlists: ئەم کەناڵە لە ئێستادا هیچ
@@ -434,3 +434,8 @@ Close Banner: بەندەرەکە بند بکە
 Search Bar:
   Clear Input: وەرگێرانی پەیوەندیدار
   Remove: بەسەرچوون
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: زامنی ئامرازەکانی گەشەپێدەر
+  Zoom In: زووم کردنە ناوەوە
+  Zoom Out: زووم کردنە دەرەوە
+  Fullscreen: شاشەکەت پرکەرەوە

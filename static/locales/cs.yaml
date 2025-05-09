@@ -31,7 +31,7 @@ Global:
   Videos: 'Videa'
   Shorts: Shorts
   Live: Živě
-  Community: Komunita
+  Posts: Příspěvky
   Sort By: Seřadit podle
 
   Counts:
@@ -551,7 +551,6 @@ Settings:
       použití velkých písmen a interpunkce
     Hide Featured Channels: Skrýt doporučené kanály
     Hide Channel Playlists: Skrýt kartu „Playlisty“ u kanálů
-    Hide Channel Community: Skrýt kartu „Komunita“ u kanálů
     Hide Channel Shorts: Skrýt kartu „Shorts“ u kanálů
     Sections:
       Side Bar: Postranní lišta
@@ -565,7 +564,6 @@ Settings:
     Hide Subscriptions Videos: Skrýt videa odběrů
     Hide Subscriptions Live: Skrýt živá vysílání odběrů
     Hide Profile Pictures in Comments: Skrýt profilové obrázky v komentářích
-    Hide Subscriptions Community: Skrýt komunitu odběratelů
     Hide Channels Invalid: Zadané ID kanálu je neplatné
     Hide Channels Disabled Message: Některé kanály byly zablokovány pomocí ID a nebyly
       zpracovány. Při aktualizaci těchto ID je funkce zablokována
@@ -579,6 +577,8 @@ Settings:
     Hide Channel Home: Skrýt kartu „Domovská stránka“ u kanálů
     Show Added Items: Zobrazit přidané položky
     Hide Channel Courses: Skrýt kartu „Kurzy“ u kanálů
+    Hide Subscriptions Posts: Skrýt příspěvky odběrů
+    Hide Channel Posts: Skrýt kartu „Příspěvky“ u kanálů
   Data Settings:
     Data Settings: 'Data'
     Select Export Type: 'Vybrat typ exportu'
@@ -819,7 +819,7 @@ Channel:
   This channel does not exist: Tento kanál neexistuje
   This channel does not allow searching: Tento kanál neumožňuje vyhledávání
   Channel Tabs: Karty kanálů
-  Community:
+  Posts:
     This channel currently does not have any posts: Tento kanál v současné době nemá
       žádné příspěvky
     Hide Answers: Skrýt odpovědi
@@ -1074,7 +1074,7 @@ Tooltips:
       FreeTube se automaticky pokusí použít vaše nepreferované API jako záložní metodu,
       pokud je povoleno.'
     Thumbnail Preference: 'Všechny miniatury v celém FreeTube budou nahrazeny snímkem
-      z videa namísto výchozí miniatury.'
+      z videa, rozmazány nebo skryty namísto výchozí miniatury.'
     Invidious Instance: 'Instance Invidious, ke které se FreeTube připojí za účelem
       volání API.'
     Region for Trending: 'Oblast pro trendy vám umožní vybrat si zemi, ze které si
@@ -1089,7 +1089,7 @@ Tooltips:
       namísto přímého připojení k YouTube.'
     Default Video Format: 'Nastavte formáty použité při přehrávání videa. Formáty
       DASH umožní přehrávat vyšší kvality. Starší formáty jsou omezeny na maximálně
-      720p, ale používají menší šířku pásma. Zvukové formáty jsou streamy obsahující
+      360p, ale používají menší šířku pásma. Zvukové formáty jsou streamy obsahující
       pouze audio.'
     Scroll Playback Rate Over Video Player: Když je kurzor na videu, stisknutím a
       podržením Ctrl (Command na Mac) a posouváním kolečka myši nahoru a dolu ovládejte
@@ -1100,13 +1100,12 @@ Tooltips:
       ve stylu MPV.
   Subscription Settings:
     Fetch Feeds from RSS: 'Je-li povoleno, FreeTube použije RSS místo své výchozí
-      metody pro získání vašich odběrů. RSS je rychlejší a brání blokování IP, ale
-      neposkytuje určité informace, jako je délka videa, stav vysílání nebo komunitní
-      příspěvky'
+      metody pro získání vašich odběrů. RSS je rychlejší a brání blokování IP, neposkytuje
+      ale určité informace, jako je délka videa, stav vysílání nebo příspěvky'
 
 # Toast Messages
-    Fetch Automatically: Při povolení tohoto nastavení bude FreeTube automaticky načítat
-      vaše odběry při otevření nového okna a při přepínání profilů.
+    Fetch Automatically: Při povolení tohoto nastavení FreeTube po spuštění a při
+      přepnutí profilu automaticky načte vaše nová videa od vašich odběrů.
   External Player Settings:
     Ignore Warnings: Potlačuje varování, kdy současný externí přehrávač nepodporuje
       aktuální akci (např. obrácení seznamů skladeb apod.).

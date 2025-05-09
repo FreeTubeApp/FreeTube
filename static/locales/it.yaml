@@ -31,7 +31,7 @@ Global:
   Videos: 'Video'
   Shorts: Video brevi
   Live: Dal vivo
-  Community: Comunità
+  Posts: Post
   Sort By: Ordina per
 
 # Search Bar
@@ -103,8 +103,8 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Questo
     profilo ha un grande numero di iscrizioni. Userò RSS per evitare limitazioni
   Error Channels: Canali con errori
-  Disabled Automatic Fetching: Hai disabilitato il recupero automatico dell'abbonamento.
-    Aggiorna gli abbonamenti per vederli qui.
+  Disabled Automatic Fetching: Hai disabilitato il recupero automatico dell'iscrizione.
+    Aggiorna le iscrizioni per vederle qui.
   Empty Channels: I canali a cui sei iscritto attualmente non hanno alcun video.
   Subscriptions Tabs: Schede iscrizioni
   All Subscription Tabs Hidden: Tutte le schede di iscrizione sono nascoste. Per vedere
@@ -600,7 +600,6 @@ Settings:
       e punteggiatura eccessive
     Hide Featured Channels: Nascondi i canali in evidenza
     Hide Channel Playlists: Nascondi la scheda "Playlist" del canale
-    Hide Channel Community: Nascondi la scheda "Comunità" del canale
     Hide Channel Shorts: Nascondi i "Video brevi" del canale
     Sections:
       General: Generale
@@ -614,7 +613,6 @@ Settings:
     Hide Subscriptions Videos: Nascondi i video delle iscrizioni
     Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
     Hide Profile Pictures in Comments: Nascondi le immagini del profilo nei commenti
-    Hide Subscriptions Community: Nascondi la comunità di iscritti
     Hide Channels Invalid: L'ID canale fornito non è valido
     Hide Channels Disabled Message: Alcuni canali sono stati bloccati usando l'ID
       e non sono stati elaborati. La funzionalità è bloccata durante l'aggiornamento
@@ -629,6 +627,8 @@ Settings:
     Hide Channel Home: Nascondi la scheda "Pagina iniziale" del canale
     Show Added Items: Mostra elementi aggiunti
     Hide Channel Courses: Nascondi la scheda "Corsi" del canale
+    Hide Channel Posts: Nascondi la scheda "Post" del canale
+    Hide Subscriptions Posts: Nascondi i post delle iscrizioni
   The app needs to restart for changes to take effect. Restart and apply change?: L'app
     deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare
     la modifica?
@@ -783,7 +783,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Questo
     canale è soggetto a limiti di età e al momento non può essere visualizzato su
     FreeTube.
-  Community:
+  Posts:
     This channel currently does not have any posts: Questo canale attualmente non
       ha alcun post
     votes: '{votes} voti'
@@ -823,7 +823,7 @@ Video:
   Video has been removed from your history: 'Il video è stato rimosso dalla Cronologia'
   Open in YouTube: 'Apri con YouTube'
   Copy YouTube Link: 'Copia link YouTube'
-  Open YouTube Embedded Player: 'Apri il player incorporato di YouTube'
+  Open YouTube Embedded Player: 'Apri il lettore incorporato di YouTube'
   Copy YouTube Embedded Player Link: 'Copia collegamento del lettore incorporato di
     YouTube'
   Open in Invidious: 'Apri con Invidious'
@@ -1110,7 +1110,7 @@ Tooltips:
   Player Settings:
     Default Video Format: Imposta i formati usati quando un video viene riprodotto.
       I formati DASH possono riprodurre qualità maggiore. I formati compatibili sono
-      limitati ad un massimo di 720p ma usano meno banda. I formati audio riproducono
+      limitati ad un massimo di 360p ma usano meno banda. I formati audio riproducono
       solo l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video
       invece di una connessione diretta a YouTube.
@@ -1126,13 +1126,13 @@ Tooltips:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard
       per leggere le iscrizioni. Gli RSS sono più veloci e impediscono il blocco dell'IP,
       ma non forniscono determinate informazioni come la durata del video, lo stato
-      dal vivo o I post della comunità
+      dal vivo o i post
     Fetch Automatically: Se abilitato, FreeTube recupererà automaticamente il feed
-      dell'abbonamento quando viene aperta una nuova finestra e quando si cambia profilo.
+      delle tue iscrizioni all'avvio e quando viene aperta una nuova finestra.
   General Settings:
     Invidious Instance: Istanza Invidious che FreeTube usa per le chiamate API.
-    Thumbnail Preference: Tutte le copertine attraverso FreeTube verranno sostituite
-      da un frame del video al posto della copertina originale.
+    Thumbnail Preference: Tutte le miniature su FreeTube verranno sostituite con un
+      fotogramma del video, sfocato o nascosto al posto della miniatura predefinita.
     Fallback to Non-Preferred Backend on Failure: Quando le API preferite hanno un
       problema, FreeTube userà automaticamente le API secondarie come riserva (se
       abilitate).

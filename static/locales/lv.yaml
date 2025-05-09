@@ -42,7 +42,7 @@ Global:
   Videos: 'Video'
   Shorts: 'Īsie'
   Live: 'Tiešraides'
-  Community: 'Kopiena'
+  Posts: 'Ziņas'
   Sort By: Kārto pēc
   Counts:
     Video Count: '1 video | {count} video'
@@ -461,14 +461,12 @@ Settings:
     Hide Channels Placeholder: 'Kanāla ID'
     Hide Featured Channels: 'Paslēpt izceltos kanālus'
     Hide Channel Playlists: 'Slēpt kanālā "Atskaņošanas saraksti" cilni'
-    Hide Channel Community: 'Slēpt kanālā "Kopiena" cilni'
     Hide Channel Shorts: 'Slēpt kanālā "Īsie video" cilni'
     Hide Channel Podcasts: 'Slēpt kanālā "Podkāsti" cilni'
     Hide Channel Releases: 'Slēpt kanālā "Relīzes" cilni'
     Hide Subscriptions Videos: 'Paslēp abonementu video'
     Hide Subscriptions Shorts: 'Paslēp abonementu īsos video'
     Hide Subscriptions Live: 'Paslēp abonementu tiešraides'
-    Hide Subscriptions Community: 'Paslēp abonementu komūnu'
     Hide Channels Already Exists: Kanāla ID jau eksistē
     Hide Videos and Playlists Containing Text Placeholder: Vārds, vārda daļa, vai
       frāze
@@ -689,7 +687,7 @@ Channel:
     Joined: 'Pievienojās'
     Location: 'Vieta'
     Featured Channels: 'Izceltie kanāli'
-  Community:
+  Posts:
     This channel currently does not have any posts: 'Šajā kanālā pašlaik nav ierakstu'
     votes: ''
     Reveal Answers: 'Atklāj atbildes'
@@ -915,3 +913,8 @@ Search Listing:
     Subtitles: Paraksti
     Closed Captions: Slēgtie paraksti
     4K: 4K
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Ieslēgt izstrādātāja rīkus
+  Zoom In: Tuvināt
+  Zoom Out: Tālināt
+  Fullscreen: Pilnekrāns

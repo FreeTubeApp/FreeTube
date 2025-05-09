@@ -126,7 +126,7 @@
             theme="secondary"
             :icon="['fas', 'download']"
             :return-index="true"
-            :dropdown-options="downloadLinkOptions"
+            :dropdown-options="downloadLinks"
             @click="handleDownload"
           />
           <ft-icon-button
@@ -135,7 +135,7 @@
             theme="secondary"
             :icon="['fas', 'file-video']"
             :dropdown-options="formatTypeOptions"
-            @click="changeFormat($event)"
+            @click="changeFormat"
           />
           <ft-share-button
             v-if="!hideSharingActions"

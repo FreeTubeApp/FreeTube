@@ -1,0 +1,58 @@
+.btn {
+  font-family: Roboto, sans-serif;
+  min-inline-size: 100px;
+  font-size: 0.9rem;
+  padding-block: 10px;
+  padding-inline: 20px;
+  block-size: fit-content;
+  box-sizing: border-box;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-weight: 500;
+  vertical-align: middle;
+  display: flex;
+  gap: 10px;
+  margin: 5px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
+  border: 2px solid;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ripple {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.ripple::after {
+  content: '';
+  display: block;
+  position: absolute;
+  inline-size: 100%;
+  block-size: 100%;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #fff 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 1s;
+}
+
+.ripple:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}

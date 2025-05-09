@@ -70,7 +70,6 @@ Video:
   Live: tenpo ni
 Tooltips: {}
 Global:
-  Community: kulupu
   Videos: sitelen tawa
   Shorts: lili
   Live: tenpo ni
@@ -97,3 +96,5 @@ Channel:
   Live:
     Live: tenpo ni
 More: mute
+Profile:
+  Select All: kama jo e sitelin ale

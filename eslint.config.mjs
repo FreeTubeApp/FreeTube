@@ -92,7 +92,7 @@ export default [
       'n/no-callback-literal': 'warn',
       'n/no-path-concat': 'warn',
       'unicorn/better-regex': 'error',
-      'unicorn/no-array-push-push': 'error',
+      'unicorn/prefer-single-call': 'error',
       'unicorn/prefer-keyboard-event-key': 'error',
       'unicorn/prefer-regexp-test': 'error',
       'unicorn/prefer-string-replace-all': 'error',

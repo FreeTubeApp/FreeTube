@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Euskera'
+Locale Name: 'Euskara'
 
 # Webkit Menu Bar
 File: 'Fitxategia'
@@ -40,7 +40,7 @@ Global:
     Comment Count: Iruzkin 1 | {count} iruzkin
   Live: Zuzenekoa
   Shorts: Laburrak
-  Community: Komunitatea
+  Posts: Argitalpenak
   Sort By: Honen arabera ordenatu
 Version {versionNumber} is now available!  Click for more details: '{versionNumber}
   bertsioa erabilgarri! Klikatu azalpen gehiagorako'
@@ -559,7 +559,6 @@ Settings:
       letra larriz eta puntuaziorik gabe
     Hide Channels Placeholder: Kanalaren IDa
     Hide Channel Playlists: Ezkutatu kanaleko "erreprodukzio-zerrendak" fitxa
-    Hide Channel Community: Ezkutatu kanalaren "komunitatea" fitxa
     Hide Channel Podcasts: Ezkutatu kanaleko "podcastak" fitxa
     Hide Videos and Playlists Containing Text: Ezkutatu testua duten bideoak eta erreprodukzio-zerrendak
     Hide Channels: Ezkutatu bideoak kanaletatik
@@ -576,13 +575,14 @@ Settings:
     Hide Videos and Playlists Containing Text Placeholder: Hitza, Hitzaren zatia edo
       esaldia
     Hide Subscriptions Live: Ezkutatu zuzenekoen harpidetzak
-    Hide Subscriptions Community: Ezkutatu harpidetzen komunitateak
     Hide Featured Channels: Ezkutatu nabarmendutako kanalak
     Hide Channels Disabled Message: Kanal batzuk IDa erabiliz blokeatu dira eta ez
       dira prozesatu. Eginbidea blokeatuta dago ID horiek eguneratzen ari diren bitartean
     Hide Channel Home: Ezkutatu kanala "Hasierako" fitxa
     Show Added Items: Erakutsi gehitutako elementuak
     Hide Channel Courses: Ezkutatu kanala "Ikastaroak" fitxa
+    Hide Channel Posts: Ezkutatu kanalaren "Argitalpenak" fitxa
+    Hide Subscriptions Posts: Ezkutatu harpidetza-argitalpenak
   Data Settings:
     Data Settings: 'Datuak'
     Select Export Type: 'Hautatu esportazio mota'
@@ -836,7 +836,7 @@ Channel:
     This channel does not currently have any releases: Une honetan kanal honek ez
       du argitalpenik
     Releases: Argitalpenak
-  Community:
+  Posts:
     Hide Answers: Erantzunak ezkutatu
     votes: '{votes} bozka'
     This channel currently does not have any posts: Une honetan kanal honek ez du
@@ -1089,8 +1089,8 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: 'Zure hobetsitako APIak arazoren
       bat duenean, FreeTube automatikoki saiatuko da hobetsi ez den APIa erabiltzen
       ordezko metodo gisa, posible denean.'
-    Thumbnail Preference: 'FreeTube-ko miniatura guztiak bideoaren fotograma batengatik
-      ordezkatuko dira lehenetsitako irudi txikiarekin ordez.'
+    Thumbnail Preference: 'FreeTube-ko miniatura guztiak bideoaren fotograma batekin
+      ordezkatuko dira, lausotuta edo ezkutatuta, lehenetsitako miniaturaren ordez.'
     Invidious Instance: 'API deientzat Individious-eko instantzia, zeinetara Freetube
       konektatuko den.'
     Region for Trending: 'Joeren eskualdeak aukera ematen dizu bistaratu nahi dituzun
@@ -1104,10 +1104,10 @@ Tooltips:
   Player Settings:
     Proxy Videos Through Invidious: 'Bideoak hornitzeko Invidious-era konektatuko
       da, YouTube-ra zuzeneko konexioa egin beharrean.'
-    Default Video Format: 'Erabiliko diren formatuak ezarri bideo bat erreproduzitzerakoan.
-      DASH formatuek kalitate handiagoak onartzen dituzte. Bestalde, Legacy formatuak
-      720 puntutara mugatuta badaude ere banda zabalera gutxiago kontsumitzen dute.
-      Audio formatuak audio fluxuak baino ez dira.'
+    Default Video Format: 'Ezarri bideo bat erreproduzitzean erabiliko diren formatuak.
+      DASH formatuek kalitate handiagoak erreproduzi ditzakete. Legatu diren formatuek
+      gehienez 360p-ra mugatuta daude, baina banda-zabalera gutxiago erabiltzen dute.
+      Audio formatuak audio-jarioak soilik dira.'
     Scroll Playback Rate Over Video Player: Kursorea bideoaren gainean denean, kontrol
       tekla sakatu eta mantendu (Komando tekla MAC-etan) eta saguaren gurpila aurrera
       eta atzera mugiarazi erreprodukzio tasa kontrolatzeko. Kontrol tekla sakatu
@@ -1117,11 +1117,12 @@ Tooltips:
     Skip by Scrolling Over Video Player: Erabili korritze-gurpila bideoa saltatzeko,
       MPV estiloa.
   Subscription Settings:
-    Fetch Feeds from RSS: 'Gaituta dagoenean, FreeTube-k RSS erabiliko du zure harpidetza-elikadurari
-      eusteko. RSSa azkarragoa da eta IP blokeoa saihesten du, baina ez du informaziorik
-      ematen, hala nola bideoaren iraupena, zuzeneko egoera edo komunitateko mezuak'
-    Fetch Automatically: Gaituta dagoenean, FreeTubek automatikoki eskuratuko du zure
-      harpidetza-jarioa leiho berri bat irekitzen denean eta profila aldatzean.
+    Fetch Feeds from RSS: 'Gaituta dagoenean, FreeTube-k RSS erabiliko du bere metodo
+      lehenetsiaren ordez zure harpidetza-jarioa lortzeko. RSS azkarragoa da eta IP
+      blokeatzea eragozten du, baina ez du informazio jakin bat ematen, hala nola
+      bideoaren iraupena, zuzeneko egoera edo argitalpenak'
+    Fetch Automatically: Gaituta dagoenean, FreeTube-k automatikoki eskuratuko du
+      zure harpidetza-jarioa abiaraztean eta leiho berri bat irekitzen denean.
 
 # Toast Messages
   External Player Settings:

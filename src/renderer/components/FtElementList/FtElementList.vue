@@ -22,9 +22,9 @@
       :playlist-id="playlistId"
       :playlist-type="playlistType"
       :playlist-item-id="result.playlistItemId"
-      @move-video-up="moveVideoUp(result.videoId, result.playlistItemId)"
-      @move-video-down="moveVideoDown(result.videoId, result.playlistItemId)"
-      @remove-from-playlist="removeFromPlaylist(result.videoId, result.playlistItemId)"
+      @move-video-up="moveVideoUp"
+      @move-video-down="moveVideoDown"
+      @remove-from-playlist="removeFromPlaylist"
     />
   </FtAutoGrid>
 </template>

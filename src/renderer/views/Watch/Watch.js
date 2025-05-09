@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import shaka from 'shaka-player'
 import { Utils, YTNodes } from 'youtubei.js'
-import FtLoader from '../../components/ft-loader/ft-loader.vue'
+import FtLoader from '../../components/FtLoader/FtLoader.vue'
 import FtShakaVideoPlayer from '../../components/ft-shaka-video-player/ft-shaka-video-player.vue'
 import WatchVideoInfo from '../../components/watch-video-info/watch-video-info.vue'
 import WatchVideoChapters from '../../components/WatchVideoChapters/WatchVideoChapters.vue'
@@ -406,7 +406,10 @@ export default defineComponent({
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
         const recommendedVideos = result.watch_next_feed
-          ?.filter((item) => item.type === 'CompactVideo' || item.type === 'CompactMovie')
+          ?.filter((item) => {
+            return item.type === 'CompactVideo' || item.type === 'CompactMovie' ||
+              (item.type === 'LockupView' && item.content_type === 'VIDEO')
+          })
           .map(parseLocalWatchNextVideo) ?? []
 
         // place watched recommended videos last
@@ -697,7 +700,7 @@ export default defineComponent({
           }
         }
 
-        if (!this.isUpcoming || (this.isUpcoming && this.playabilityStatus === 'OK')) {
+        if ((!this.isUpcoming && !this.isLive && !this.isPostLiveDvr) || (this.isUpcoming && this.playabilityStatus === 'OK')) {
           this.videoLengthSeconds = result.basic_info.duration
           if (result.streaming_data) {
             this.streamingDataExpiryDate = result.streaming_data.expires
@@ -727,7 +730,7 @@ export default defineComponent({
                 }
 
                 downloadLinks.push({
-                  url: format.freeTubeUrl,
+                  value: `${type}||${format.freeTubeUrl}`,
                   label: label
                 })
               }
@@ -779,7 +782,7 @@ export default defineComponent({
                 const label = `${caption.label} (${caption.language}) - text/vtt`
 
                 return {
-                  url: caption.url,
+                  value: `${caption.mimeType}||${caption.url}`,
                   label: label
                 }
               })
@@ -1003,7 +1006,7 @@ export default defineComponent({
                 }
               }
               const object = {
-                url: format.url,
+                value: `${type}||${format.url}`,
                 label: label
               }
 
@@ -1011,7 +1014,7 @@ export default defineComponent({
             }).reverse().concat(result.captions.map((caption) => {
               const label = `${caption.label} (${caption.languageCode}) - text/vtt`
               const object = {
-                url: caption.url,
+                value: `text/vtt||${caption.url}`,
                 label: label
               }
 

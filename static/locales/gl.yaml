@@ -29,7 +29,7 @@ Forward: 'Adiante'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Vídeos'
-  Community: Comunidade
+  Posts: Publicacións
 
   Shorts: Cortos
   Live: En vivo
@@ -532,7 +532,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Esta
     canle ten unha limitación de idade e actualmente non se pode ver en FreeTube.
   Channel Tabs: Pestanas das canles
-  Community:
+  Posts:
     This channel currently does not have any posts: Esta canle actualmente non ten
       publicacións
 Video:
@@ -804,3 +804,12 @@ Chapters:
 Screenshot Success: Captura da pantalla gardada como "{filePath}"
 Ok: De acordo
 Go to page: Ir a {page}
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Activar Ferramentas de Desenvolvedor
+  Zoom Out: Reducir
+  Zoom In: Agrandar
+  Fullscreen: Activar pantalla completa
+Search Listing:
+  Label:
+    8K: 8K
+    4K: 4K

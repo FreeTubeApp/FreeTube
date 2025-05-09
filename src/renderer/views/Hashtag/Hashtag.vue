@@ -55,7 +55,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import FtLoader from '../../components/ft-loader/ft-loader.vue'
+import FtLoader from '../../components/FtLoader/FtLoader.vue'
 import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
 import store from '../../store/index'
 import { useRoute } from 'vue-router/composables'
@@ -148,7 +148,7 @@ async function getInvidiousHashtag(page = 1) {
 async function getLocalHashtag() {
   try {
     const hashtagData = await getHashtagLocal(hashtag.value)
-    videos.value = hashtagData.videos.map(parseLocalListVideo)
+    videos.value = hashtagData.videos.map((video) => parseLocalListVideo(video))
     apiUsed.value = 'local'
     hashtagContinuationData.value = hashtagData.has_continuation ? hashtagData : null
     isLoading.value = false
@@ -171,7 +171,7 @@ async function getLocalHashtag() {
 async function getLocalHashtagMore() {
   try {
     const continuation = await hashtagContinuationData.value.getContinuation()
-    const newVideos = continuation.videos.map(parseLocalListVideo)
+    const newVideos = continuation.videos.map((video) => parseLocalListVideo(video))
     hashtagContinuationData.value = continuation.has_continuation ? continuation : null
     videos.value = videos.value.concat(newVideos)
   } catch (error) {
