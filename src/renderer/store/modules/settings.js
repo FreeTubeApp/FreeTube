@@ -401,7 +401,21 @@ const sideEffectHandlers = {
       const { webFrame } = require('electron')
       webFrame.setZoomFactor(value / 100)
     }
-  }
+  },
+
+  maxVideoPlaybackRate: ({ dispatch, state }, value) => {
+    if (state.defaultPlayback > value) {
+      dispatch('updateDefaultPlayback', value)
+    }
+  },
+
+  videoPlaybackRateInterval: ({ dispatch, state }, value) => {
+    const correctedDefaultPlaybackRate = value * Math.round(state.defaultPlayback / value)
+
+    if (state.defaultPlayback !== correctedDefaultPlaybackRate) {
+      dispatch('updateDefaultPlayback', correctedDefaultPlaybackRate)
+    }
+  },
 }
 
 const settingsWithSideEffects = Object.keys(sideEffectHandlers)
