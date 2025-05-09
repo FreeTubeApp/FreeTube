@@ -745,7 +745,7 @@ function runApp() {
 
   function showHiddenWindows() {
     trayWindows.forEach(window => {
-      if (window.id in trayMaximizedWindows) { window.maximize() } else { window.show() }
+      window.minimize()
     })
 
     destroyTray()
