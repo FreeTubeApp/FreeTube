@@ -42,14 +42,14 @@
         <FtToggleSwitch
           v-if="(currentTab === 'videos') || (currentTab === 'shorts') || (currentTab === 'live')"
           v-show="!isElementListLoading"
-          :default-value="hideWatchedToggle"
+          :default-value="hideWatchedEntries"
           :label="$t('Channel.Hide Watched')"
           compact
-          @change="updateHideWatchedToggle"
+          @change="updatehideWatchedEntries"
         />
         <FtSelect
           v-if="showVideoSortBy"
-          v-show="currentTab === 'videos' && (hideWatchedToggle ? filteredVideos.length > 1 : filteredVideos.length > 0)"
+          v-show="currentTab === 'videos' && (hideWatchedEntries ? filteredVideos.length > 1 : filteredVideos.length > 0)"
           :value="videoSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
@@ -59,7 +59,7 @@
         />
         <FtSelect
           v-if="!hideChannelShorts && showShortSortBy"
-          v-show="currentTab === 'shorts' && (hideWatchedToggle ? filteredShorts.length > 1 : filteredShorts.length > 0)"
+          v-show="currentTab === 'shorts' && (hideWatchedEntries ? filteredShorts.length > 1 : filteredShorts.length > 0)"
           :value="shortSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
@@ -69,7 +69,7 @@
         />
         <FtSelect
           v-if="!hideLiveStreams && showLiveSortBy"
-          v-show="currentTab === 'live' && (hideWatchedToggle ? filteredShorts.length > 1 : filteredShorts.length > 0)"
+          v-show="currentTab === 'live' && (hideWatchedEntries ? filteredShorts.length > 1 : filteredShorts.length > 0)"
           :value="liveSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
@@ -350,13 +350,13 @@ const isElementListLoading = ref(false)
 const isSearchTabLoading = ref(false)
 const currentTab = ref('videos')
 
-const hideWatchedToggle = ref(false)
+const hideWatchedEntries = ref(false)
 
 /**
  * @param {boolean} value
  */
-function updateHideWatchedToggle(value) {
-  hideWatchedToggle.value = value
+function updatehideWatchedEntries(value) {
+  hideWatchedEntries.value = value
 }
 
 const isCurrentTabLoading = computed(() => {
@@ -1067,7 +1067,7 @@ const showVideoSortBy = ref(true)
 const videoSortBy = ref('newest')
 
 const filteredVideos = computed(() => {
-  if (hideWatchedToggle.value) {
+  if (hideWatchedEntries.value) {
     return filterWatchedArray(latestVideos.value)
   } else {
     return latestVideos.value
@@ -1075,7 +1075,7 @@ const filteredVideos = computed(() => {
 })
 
 const filteredShorts = computed(() => {
-  if (hideWatchedToggle.value) {
+  if (hideWatchedEntries.value) {
     return filterWatchedArray(latestShorts.value)
   } else {
     return latestShorts.value
@@ -1083,7 +1083,7 @@ const filteredShorts = computed(() => {
 })
 
 const filteredLive = computed(() => {
-  if (hideWatchedToggle.value) {
+  if (hideWatchedEntries.value) {
     return filterWatchedArray(latestLive.value)
   } else {
     return latestLive.value
