@@ -25,6 +25,11 @@ const config = {
         use: path.join(__dirname, 'mime-db-shrinking-loader.js')
       }
     ],
+    generator: {
+      json: {
+        JSONParse: false
+      }
+    }
   },
   // webpack defaults to only optimising the production builds, so having this here is fine
   optimization: {
