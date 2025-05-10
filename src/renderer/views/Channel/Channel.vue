@@ -49,7 +49,7 @@
         />
         <FtSelect
           v-if="showVideoSortBy"
-          v-show="(currentTab === 'videos' && filteredVideos.length > 0 && !hideWatchedToggle) || (currentTab === 'videos' && filteredVideos.length > 1 && hideWatchedToggle)"
+          v-show="currentTab === 'videos' && (hideWatchedToggle ? filteredVideos.length > 1 : filteredVideos.length > 0)"
           :value="videoSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
