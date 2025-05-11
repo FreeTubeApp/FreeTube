@@ -45,7 +45,7 @@
           :default-value="hideWatchedEntries"
           :label="$t('Channel.Hide Watched')"
           compact
-          @change="updatehideWatchedEntries"
+          @change="updateHideWatchedEntries"
         />
         <FtSelect
           v-if="showVideoSortBy"
