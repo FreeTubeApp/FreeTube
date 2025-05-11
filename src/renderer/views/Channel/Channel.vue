@@ -355,7 +355,7 @@ const hideWatchedEntries = ref(false)
 /**
  * @param {boolean} value
  */
-function updatehideWatchedEntries(value) {
+function updateHideWatchedEntries(value) {
   hideWatchedEntries.value = value
 }
 
