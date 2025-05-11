@@ -63,10 +63,10 @@ Search Filters:
   Sort By:
     Most Relevant: 'Найбольш рэлевантныя'
     Rating: 'Рэйтынг'
-    Upload Date: 'Дата запампоўкі'
+    Upload Date: 'Дата запампоўвання'
     View Count: 'Колькасць праглядаў'
   Time:
-    Time: 'Дата запампоўкі'
+    Time: 'Час'
     Any Time: 'У любы час'
     Last Hour: 'Апошняя гадзіна'
     Today: 'Сёння'
@@ -310,7 +310,7 @@ Settings:
     Region for Trending: 'Рэгіён для Трэндаў'
     #! List countries
     External Link Handling:
-      External Link Handling: 'Апрацоўка вонкавых спасылак'
+      External Link Handling: 'Апрацоўка знешніх спасылак'
       Open Link: 'Адкрыць спасылку'
       Ask Before Opening Link: 'Спытаць, перш чым адкрываць спасылку'
       No Action: 'Без дзеянняў'
@@ -322,7 +322,7 @@ Settings:
   Theme Settings:
     Theme Settings: 'Тэма'
     Match Top Bar with Main Color: 'Выкарыстоўваць асноўны колер да верхняй панэлі'
-    Expand Side Bar by Default: 'Разгарнуць бакавую панэль па змаўчанні'
+    Expand Side Bar by Default: 'Разгортваць бакавую панэль па змаўчанні'
     Disable Smooth Scrolling: 'Адключыць плаўную прагортку'
     UI Scale: 'Маштаб інтэрфейсу'
     Hide Side Bar Labels: 'Схаваць надпісы на бакавой панэлі'
@@ -495,16 +495,16 @@ Settings:
       Theater: Тэатр
       Default Viewing Mode: Рэжым прагляду па змаўчанні
       Full Screen: Поўны экран
-      External Player: Вонкавы прайгравальнік ({externalPlayerName})
+      External Player: Знешні прайгравальнік ({externalPlayerName})
       Picture in Picture: Выява ў Выяве
     Autoplay Interruption Timer: Таймер перапынення аўтаматычнага прайгравання
   External Player Settings:
-    External Player Settings: 'Вонкавы прайгравальнік'
-    External Player: 'Вонкавы прайгравальнік'
+    External Player Settings: 'Знешні прайгравальнік'
+    External Player: 'Знешні прайгравальнік'
     Ignore Unsupported Action Warnings: 'Ігнараваць папярэджанні аб дзеяннях, якія
       не падтрымліваюцца'
-    Custom External Player Executable: 'Шлях да ўласнага вонкавага прайгравальніка'
-    Custom External Player Arguments: 'Аргументы вонкавага прайгравальніка'
+    Custom External Player Executable: 'Шлях да ўласнага знешняга прайгравальніка'
+    Custom External Player Arguments: 'Аргументы знешняга прайгравальніка'
     Players:
       None:
         Name: 'Ніякі'
@@ -1129,18 +1129,18 @@ Tooltips:
     Skip by Scrolling Over Video Player: 'Выкарыстоўваць кола мышы, каб прапускаць
       відэа як у MPV.'
   External Player Settings:
-    External Player: 'Пры выбары вонкавага прайгравальніка на мініяцюры будзе адлюстроўвацца
-      значок для адкрыцця відэа (плэй-ліста, калі падтрымліваецца) у вонкавым прайгравальніку.
-      Увага, налады Invidious не ўплываюць на вонкавыя прайгравальнікі.'
-    Custom External Player Executable: 'Па змаўчанні FreeTube мяркуе, што абраны вонкавы
+    External Player: 'Пры выбары знешняга прайгравальніка на мініяцюры будзе адлюстроўвацца
+      значок для адкрыцця відэа (плэй-ліста, калі падтрымліваецца) у знешнім прайгравальніку.
+      Увага, налады Invidious не ўплываюць на знешнія прайгравальнікі.'
+    Custom External Player Executable: 'Па змаўчанні FreeTube мяркуе, што абраны знешні
       прайгравальнік можна знайсці праз пераменную асяроддзя PATH. Пры неабходнасці
       тут можна задаць уласны шлях.'
-    Ignore Warnings: 'Адключыць папярэджанні, калі бягучы вонкавы прайгравальнік не
+    Ignore Warnings: 'Адключыць папярэджанні, калі бягучы знешні прайгравальнік не
       падтрымлівае бягучае дзеянне (напрыклад, пераварочванне плэй-ліста і г.д.).'
     Custom External Player Arguments: 'Любыя карыстальніцкія аргументы каманднага
-      радка, якія вы хочаце перадаць вонкаваму прайгравальніку.'
+      радка, якія вы хочаце перадаць знешняму прайгравальніку.'
     DefaultCustomArgumentsTemplate: "(Па змаўчанні: '{defaultCustomArguments}')"
-    Ignore Default Arguments: Не адпраўляйце ніякіх аргументаў па змаўчанні на вонкавы
+    Ignore Default Arguments: Не адпраўляйце ніякіх аргументаў па змаўчанні на знешні
       прайгравальнік, акрамя URL-адраса відэа (напрыклад, частата прайгравання, URL-адрас
       плэй-ліста і г.д.). Карыстальніцкія аргументы ўсё роўна будуць перадавацца.
   Distraction Free Settings:
@@ -1197,7 +1197,7 @@ Default Invidious instance has been cleared: 'Экзэмпляр Invidious па 
   выдалены'
 'The playlist has ended. Enable loop to continue playing': 'Плэй-ліст скончыўся.  Каб
   працягнуць прайграванне, уключыце цыкл'
-External link opening has been disabled in the general settings: 'Адкрыццё вонкавых
+External link opening has been disabled in the general settings: 'Адкрыццё знешніх
   спасылак было адключана ў агульных наладах'
 Downloading has completed: 'Спампоўванне «{videoTitle}» завершана'
 Starting download: 'Пачалося спампоўванне «{videoTitle}»'
