@@ -420,20 +420,20 @@ Settings:
       Gruvbox Dark Blue: Gruvbox Цёмна-сіні
       Gruvbox Dark Orange: Gruvbox Цёмна-аранжавы
       Gruvbox Light Red: Gruvbox Светла-чырвоны
-      Everforest Dark Red: Цёмна-чырвоны Everforest
+      Everforest Dark Red: Everforest Цёмна-чырвоны
       Everforest Dark Orange: Everforest Цёмна-аранжавы
-      Everforest Dark Yellow: Эверфорэст Дарк Елоў
-      Everforest Dark Green: Цёмна-зялёны Everforest
-      Everforest Dark Aqua: Эверфорэст Дарк Акуа
-      Everforest Dark Blue: Цёмна-сіні Everforest
-      Everforest Dark Purple: Цёмна-фіялетавы Everforest
-      Everforest Light Red: Светла-чырвоны Everforest
-      Everforest Light Orange: Светла-аранжавы Everforest
-      Everforest Light Yellow: Светла-жоўты Everforest
-      Everforest Light Green: Светла-зялёны Everforest
-      Everforest Light Aqua: Эверфорэст Лігхт Акуа
-      Everforest Light Blue: Эверфорэст Лігхт Блуэ
-      Everforest Light Purple: Светла-фіялетавы Everforest
+      Everforest Dark Yellow: Everforest Цёмна-жоўты
+      Everforest Dark Green: Everforest Цёмна-зялёны
+      Everforest Dark Aqua: Everforest Цёмная Аква
+      Everforest Dark Blue: Everforest Цёмна-сіні
+      Everforest Dark Purple: Everforest Цёмна-фіялетавы
+      Everforest Light Red: Everforest Светла-чырвоны
+      Everforest Light Orange: Everforest Светла-аранжавы
+      Everforest Light Yellow: Everforest Светла-жоўты
+      Everforest Light Green: Everforest Светла-зялёны
+      Everforest Light Aqua: Everforest Светлая Аква
+      Everforest Light Blue: Everforest Светла-сіні
+      Everforest Light Purple: Everforest Светла-фіялетавы
     Secondary Color Theme: 'Другасны колер тэмы'
         #* Main Color Theme
   Player Settings:
@@ -453,7 +453,7 @@ Settings:
     Display Play Button In Video Player: 'Паказваць кнопку прайгравання ў відэапрайгравальніку'
     Enter Fullscreen on Display Rotate: 'Пераходзіць у поўнаэкранны рэжым пры павароце
       дысплэя'
-    Next Video Interval: 'Таймер зваротнага адліку аўтаматычнага прайгравання'
+    Next Video Interval: 'Час зваротнага адліку для аўтапрайгравання'
     Fast-Forward / Rewind Interval: 'Інтэрвал перамоткі наперад / назад'
     Default Volume: 'Гучнасць па змаўчанні'
     Default Playback Rate: 'Хуткасць прайгравання па змаўчанні'
@@ -497,7 +497,7 @@ Settings:
       Full Screen: Поўны экран
       External Player: Знешні прайгравальнік ({externalPlayerName})
       Picture in Picture: Выява ў Выяве
-    Autoplay Interruption Timer: Таймер перапынення аўтаматычнага прайгравання
+    Autoplay Interruption Timer: Час перапынення аўтапрайгравання
   External Player Settings:
     External Player Settings: 'Знешні прайгравальнік'
     External Player: 'Знешні прайгравальнік'
@@ -537,9 +537,9 @@ Settings:
     Remember Search History: Памятаць гісторыю пошуку
     Watched Progress Saving Mode:
       Modes:
-        Auto: Аўто
-        Semi-auto: Паўаўтаматычны
-        Never: ніколі
+        Auto: Аўтаматычна
+        Semi-auto: Паўаўтаматычна
+        Never: Ніколі
       Tooltip: Аўта = Захоўваць пры кожным выхадзе са старонкі відэа, калі відэа скончылася
         і ўзнікла памылка (напрыклад, хуткасць абмежавана і сеанс прагляду скончыўся).
         Паўаўтаматычны = як і аўтаматычны, за выключэннем выхаду з відэастаронкі і
@@ -1101,8 +1101,8 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: 'Калі ў вашым абраным API ўзнікае
       праблема, FreeTube аўтаматычна паспрабуе выкарыстаць непрыярытэтны API у якасці
       рэзервовага метаду, калі ён уключаны.'
-    Thumbnail Preference: 'Усе мініяцюры FreeTube будуць заменены кадрам відэа замест
-      мініяцюры па змаўчанні.'
+    Thumbnail Preference: 'Усе мініяцюры FreeTube будуць заменены кадрам відэа, размыты
+      або схаваны замест мініяцюр па змаўчанні.'
     Invidious Instance: 'Экзэмпляр Invidious, да якога FreeTube будзе падключацца
       для выклікаў API.'
     Region for Trending: 'Рэгіён трэндаў дазваляе вам выбраць папулярныя відэа краіны,
@@ -1118,7 +1118,7 @@ Tooltips:
       замест прамога падключэння да YouTube.'
     Default Video Format: 'Задайце фарматы, якія выкарыстоўваюцца пры прайграванні
       відэа. Фарматы DASH могуць прайграваць больш высокія якасці. Састарэлыя фарматы
-      абмежаваныя максімумам 720p, але выкарыстоўваюць меншую паласу прапускання.
+      абмежаваныя максімумам 360p, але выкарыстоўваюць меншую паласу прапускання.
       Аўдыяфарматы - гэта толькі аўдыяпатокі.'
     Scroll Playback Rate Over Video Player: 'Калі курсор знаходзіцца над відэа, націсніце
       і ўтрымлівайце клавішу Control (клавіша Command на Mac) і круціце кола мышы
