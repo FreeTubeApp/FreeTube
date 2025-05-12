@@ -104,7 +104,7 @@
     "npm-run-all2": "^8.0.1",
     "postcss": "^8.5.3",
     "postcss-scss": "^4.0.9",
-    "sass": "^1.87.0",
+    "sass": "^1.88.0",
     "sass-loader": "^16.0.5",
     "stylelint": "^16.19.1",
     "stylelint-config-sass-guidelines": "^12.1.0",
