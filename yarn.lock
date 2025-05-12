@@ -211,12 +211,7 @@
   resolved "https://registry.yarnpkg.com/@babel/helper-string-parser/-/helper-string-parser-7.27.1.tgz#54da796097ab19ce67ed9f88b47bb2ec49367687"
   integrity sha512-qMlSxKbpRlAridDExk92nSobyDdpPijUq2DW6oDnUqd0iOGxmQjyqhMIihI9+zv4LPyZdRje2cavWPbCbWm3eA==
 
-"@babel/helper-validator-identifier@^7.25.9":
-  version "7.25.9"
-  resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.25.9.tgz#24b64e2c3ec7cd3b3c547729b8d16871f22cbdc7"
-  integrity sha512-Ed61U6XJc3CVRfkERJWDz4dJwKe7iLmmJsbOGu9wSloNSFttHV0I8g6UAgb7qnK5ly5bGLPd4oXZlxCdANBOWQ==
-
-"@babel/helper-validator-identifier@^7.27.1":
+"@babel/helper-validator-identifier@^7.25.9", "@babel/helper-validator-identifier@^7.27.1":
   version "7.27.1"
   resolved "https://registry.yarnpkg.com/@babel/helper-validator-identifier/-/helper-validator-identifier-7.27.1.tgz#a7054dcc145a967dd4dc8fee845a57c1316c9df8"
   integrity sha512-D2hP9eA+Sqx1kBZgzxZh0y1trbuU+JoDkiEwqhQ36nodYqJwyEIhPSdMNd7lOm/4io72luTPWH20Yda0xOuUow==
@@ -4213,10 +4208,10 @@ eslint-plugin-import-x@^4.5.0:
     stable-hash "^0.0.4"
     tslib "^2.6.3"
 
-eslint-plugin-jsdoc@^50.6.11:
-  version "50.6.11"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-50.6.11.tgz#36733620dafe03e8666df4cff449c7e9a8e1b1da"
-  integrity sha512-k4+MnBCGR8cuIB5MZ++FGd4gbXxjob2rX1Nq0q3nWFF4xSGZENTgTLZSjb+u9B8SAnP6lpGV2FJrBjllV3pVSg==
+eslint-plugin-jsdoc@^50.6.14:
+  version "50.6.14"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-50.6.14.tgz#43e33c8d4134b599954132821a0706ed97252614"
+  integrity sha512-JUudvooQbUx3iB8n/MzXMOV/VtaXq7xL4CeXhYryinr8osck7nV6fE2/xUXTiH3epPXcvq6TE3HQfGQuRHErTQ==
   dependencies:
     "@es-joy/jsdoccomment" "~0.49.0"
     are-docs-informative "^0.0.2"
@@ -4288,10 +4283,10 @@ eslint-plugin-react@^7.37.2:
     string.prototype.matchall "^4.0.11"
     string.prototype.repeat "^1.0.0"
 
-eslint-plugin-unicorn@^59.0.0:
-  version "59.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-unicorn/-/eslint-plugin-unicorn-59.0.0.tgz#11783a80ce81ab397cccbb1ce046a30eda9bb4b9"
-  integrity sha512-7IEeqkymGa7tr6wTWS4DolfXnfcE3QjcD0g7I+qCfV5GPMvVsFsLT7zTIYvnudqwAm5nWekdGIOTTXA93Sz9Ow==
+eslint-plugin-unicorn@^59.0.1:
+  version "59.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-unicorn/-/eslint-plugin-unicorn-59.0.1.tgz#e76ca18f6b92633440973e5442923a36544a1422"
+  integrity sha512-EtNXYuWPUmkgSU2E7Ttn57LbRREQesIP1BiLn7OZLKodopKfDXfBUkC/0j6mpw2JExwf43Uf3qLSvrSvppgy8Q==
   dependencies:
     "@babel/helper-validator-identifier" "^7.25.9"
     "@eslint-community/eslint-utils" "^4.5.1"
