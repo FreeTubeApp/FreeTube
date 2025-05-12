@@ -3755,10 +3755,10 @@ electron@^35.2.1:
     "@types/node" "^22.7.7"
     extract-zip "^2.0.1"
 
-eme-encryption-scheme-polyfill@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/eme-encryption-scheme-polyfill/-/eme-encryption-scheme-polyfill-2.2.1.tgz#1f9db4ce8690a7150bc1ba80bd1519b8486e3443"
-  integrity sha512-GzgrLuZPYGijd8oaKuBqYv3Tc2oruDZM3V2982KOuy/PA1N3zwMe+/oIXJYfZ3BH3PwW5nONdBBE+VY6jlwbrw==
+eme-encryption-scheme-polyfill@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/eme-encryption-scheme-polyfill/-/eme-encryption-scheme-polyfill-2.2.2.tgz#fcdb9b8c4586a5197aa7ad1aa342db58b976af42"
+  integrity sha512-cdICZakbHXBSejfhiLdKWWIkKIeYhT79/yubb3HRczflltzwwCZxOMvVQR80m8c9hrcRPwJ9ou0jzQP31wVQEQ==
 
 emoji-regex@^10.0.0, emoji-regex@^10.3.0:
   version "10.3.0"
@@ -8378,12 +8378,12 @@ setprototypeof@1.2.0:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-shaka-player@^4.14.10:
-  version "4.14.10"
-  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.14.10.tgz#c898442fb8292df19d308be22c27d3958a6d2d09"
-  integrity sha512-IwUaYjCI92JLD9qj1vs/2AD6syb0dWkh6p8tD/nQj1+yir94sPKFUqvQSG3bmvWk6A4y35GAhX1fJ59rjD8SyA==
+shaka-player@^4.14.11:
+  version "4.14.11"
+  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.14.11.tgz#abf68d0a76d84913b2c2873026f846641c52b125"
+  integrity sha512-KiLE/jGx0dF7vkXRoK0gG5G3Do4oA21buyCnrJz0CADUAsSkgIaT7T7TQYfk/Cv92J1m97pLFbf1QsHht5/C3g==
   dependencies:
-    eme-encryption-scheme-polyfill "^2.2.1"
+    eme-encryption-scheme-polyfill "^2.2.2"
 
 shallow-clone@^3.0.0:
   version "3.0.1"
