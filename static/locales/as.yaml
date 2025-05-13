@@ -28,10 +28,21 @@ Global:
   Videos: ভিডিঅ
   Live: লাইভ
   Sort By: বস্তু অনুযায়ী সজাওক
+  Counts:
+    Comment Count: ১ টা মন্তব্য | {গণনা} মন্তব্য
+    Like Count: ১ ৰ দৰে | {গণনা} লাইক
+    Subscriber Count: ১ জন গ্ৰাহক | {গণনা} গ্ৰাহক
+    Watching Count: ১ চাই থকা | {গণনা} চাই আছে
+    View Count: ১ দৰ্শন | {গণনা} দৰ্শন
+    Video Count: ১ ভিডিঅ' | {গণনা} ভিডিঅ'
+    Channel Count: ১ চেনেল | {গণনা} চেনেল
+  Shorts: শ্বৰ্ট
+  Posts: পোষ্ট
 Search Listing:
   Label:
     8K: 8K
     4K: 4K
+    VR180: ভিআৰ১৮০
 Profile:
   Select All: সকলোক বাছক
 Preferences: পছন্দসমূহ
@@ -44,3 +55,12 @@ Toggle fullscreen: সম্পূৰ্ণ পৰ্দা টগল কৰক
 Window: খিৰিকী
 Minimize: নূন্যতম কৰক
 Close: বন্ধ
+Search Bar:
+  Clear Input: ইনপুট পৰিষ্কাৰ কৰক
+  Remove: আঁতৰোৱা
+Search character limit: সন্ধান প্ৰশ্ন {searchCharacterLimit} আখৰৰ সীমাৰ ওপৰত
+Search / Go to URL: সন্ধান / URL লৈ যাওক
+Are you sure you want to open this link?: আপুনি নিশ্চিতভাৱে এই লিংকটো খুলিব বিচাৰেনে?
+A new blog is now available, {blogTitle}. Click to view more: এতিয়া এটা নতুন ব্লগ
+  উপলব্ধ, {blogTitle}। অধিক চাবলৈ ক্লিক কৰক
+Download From Site: চাইটৰ পৰা ডাউনলোড কৰক
