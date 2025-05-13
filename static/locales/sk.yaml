@@ -175,6 +175,8 @@ User Playlists:
         Kliknite sem pre vrátenie späť.
       This playlist is now used for quick bookmark: Tento playlist sa teraz používa
         na rýchle uloženie záložiek
+      Reverted to use {oldPlaylistName} for quick bookmark: Vrátené na použitie {oldPlaylistName}
+        pre rýchle záložky
     Search for Videos: Vyhľadať videá
   Sort By:
     NameAscending: A-Z
@@ -202,16 +204,45 @@ User Playlists:
     Allow Adding Duplicate Video(s): Povoliť pridávanie duplikátnych videí
     N playlists selected: '{playlistCount} vybraných'
     Search in Playlists: Hľadať v zoznamoch
+    Added {count} Times: Už pridané | Pridané {count} krát
+    Select a playlist to add your N videos to: Vyberte zoznam videí, do ktorého chcete
+      pridať svoje video | Vyberte zoznam videí, do ktorého chcete pridať svoje {videoCount}
+      videá
+    "{videoCount}/{totalVideoCount} Videos Already Added": 'Počet už pridaných videí:
+      {videoCount}/{totalVideoCount}'
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video pridané
+        do {playlistCount} zoznamov skladieb | {videoCount} videí pridaných do {playlistCount}
+        zoznamov skladieb
+      You haven't selected any playlist yet.: Zatiaľ ste nevybrali žiadny zoznam skladieb.
+      "{videoCount} video(s) added to 1 playlist": 1 video pridané do 1 zoznamu videí
+        | {videoCount} videí pridaných do 1 zoznamu videí
+    Save: uložiť
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": Budú pridané videá ({videoCount}/{totalVideoCount})
   Quick Bookmark Enabled: Rýchle záložky povolené
   Enable Quick Bookmark With This Playlist: Povoliť rýchle záložky v tomto zozname
   TotalTimePlaylist: 'Celkový čas: {duration}'
   Cannot delete the quick bookmark target playlist.: Zoznam cieľov rýchleho ukladania
     záložiek nie je možné odstrániť.
+  CreatePlaylistPrompt:
+    Create: Vytvoriť
+    Toast:
+      There was an issue with creating the playlist.: Pri vytváraní zoznamu skladieb
+        sa vyskytol problém.
+      There is already a playlist with this name. Please pick a different name.: Zoznam
+        skladieb s týmto názvom už existuje. Vyberte iný názov.
+      Playlist {playlistName} has been successfully created.: Zoznam skladieb {playlistName}
+        bol úspešne vytvorený.
+    New Playlist Name: Názov nového zoznamu skladieb
 History:
   # On History Page
   History: 'História'
   Watch History: 'Pozreté videá'
   Your history list is currently empty.: 'Váša história je momentálne prázdna.'
+  Search bar placeholder: Hľadať v histórii
+  Case Sensitive Search: Vyhľadávanie s rozlišovaním veľkých a malých písmen
+  Empty Search Message: Vo vašej histórii nie sú žiadne videá, ktoré by zodpovedali
+    vášmu vyhľadávaniu
 Settings:
   # On Settings Page
   Settings: 'Nastavenia'
@@ -422,6 +453,8 @@ Settings:
     External Player Settings: Externý prehrávač
     Ignore Unsupported Action Warnings: Ignorovať upozornenia na nepodporované akcie
     Custom External Player Executable: Vlastný spustiteľný externý prehrávač
+  Sort Settings Sections (A-Z): Sekcie nastavení zoradenia (A-Z)
+  Return to Settings Menu: Späť do ponuky nastavení
 About:
   #On About page
   About: 'O FreeTube'
