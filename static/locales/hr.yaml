@@ -233,6 +233,7 @@ User Playlists:
     poništiti.
   Export Playlist: Izvezi ovu zbirku
   The playlist has been successfully exported: Zbirka je uspješno izvezena
+  TotalTimePlaylist: 'Ukupno vrijeme: {duration}'
 History:
   # On History Page
   History: 'Povijest'
@@ -494,6 +495,16 @@ Settings:
       su izbrisani
     Are you sure you want to clear out your search history and cache?: Stvarno želiš
       izbrisati povijest pretraživanja i predmemoriju?
+    Watched Progress Saving Mode:
+      Modes:
+        Semi-auto: Poluautomatski
+        Never: Nikada
+        Auto: Automatski
+      Tooltip: Automatski = Sprema se prilikom svakog izlaska s video stranice, kada
+        video završi i kada dođe do greške (npr. ograničenje brzine ili istekla sesija
+        gledanja). Poluautomatski = Kao automatski, osim prilikom izlaska s video
+        stranice. Napredak gledanja može se ručno spremiti pomoću gumba "Spremi napredak
+        gledanja", koji se nalazi ispod video playera.
   Subscription Settings:
     Subscription Settings: 'Pretplata'
     Hide Videos on Watch: 'Sakrij video nakon gledanja'
@@ -599,6 +610,8 @@ Settings:
     Hide Channel Home: Sakrij karticu „Početna” kanala
     Show Added Items: Prikaži dodane stavke
     Hide Channel Courses: Sakrij karticu "Tečajevi" kanala
+    Hide Channel Posts: Sakrij karticu "Objave" kanala
+    Hide Subscriptions Posts: Sakrij pretplata objave
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -950,6 +963,8 @@ Video:
     vlasničke komponente zatvorenog koda. Ako želiš gledati ovaj video, gledaj ga
     na službenoj YouTube web stranici u web pregledniku s aktiviranim DRM-om.
 #& Playlists
+  Watched Progress Saved: Napredak gledanja spremljen
+  Save Watched Progress: Spremi napredak gledanja
 Playlist:
   #& About
   View Full Playlist: 'Pogledaj cijelu zbirku'
