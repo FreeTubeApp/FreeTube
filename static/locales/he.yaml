@@ -310,6 +310,10 @@ Settings:
       Catppuccin Frappe: Catppuccin Frappe
       Everforest Dark Hard: אוורפורסט כהה מאוד
       Everforest Dark Medium: אוורפורסט כהה בינוני
+      Everforest Light Hard: אברפורסט לייט הארד
+      Everforest Light Medium: אברפורסט לייט מידיום
+      Everforest Dark Low: אברפורסט דארק לואו
+      Everforest Light Low: אברפורסט לייט לואו
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
@@ -367,6 +371,28 @@ Settings:
       Gruvbox Dark Orange: תיבת גרוב כתומה כהה
       Gruvbox Dark Aqua: תיבת גרוב מים כהים
       Gruvbox Light Blue: תיבת גרוב כחולה בהירה
+      Catppuccin Frappe Green: קטפוצ'ינו פרפה ירוק
+      Catppuccin Frappe Teal: קטפוצ'ינו פרפה טיל
+      Catppuccin Frappe Lavender: קטפוצ'ינו פרפה לבנדר
+      Catppuccin Frappe Yellow: קטפוצ'ינו פרפה צהוב
+      Everforest Dark Red: אברפסט אדום כהה
+      Everforest Dark Yellow: אברפורסט צהוב כהה
+      Everforest Dark Green: אברפסט ירוק כהה
+      Everforest Dark Aqua: אברפורסט דארק אקווה
+      Everforest Dark Blue: אברפסט כחול כהה
+      Catppuccin Frappe Rosewater: קטפוצ'ין פרפה מי ורדים
+      Catppuccin Frappe Flamingo: קטפוצ'ין פרפה פלמינגו
+      Catppuccin Frappe Pink: קטפוצ'ין פרפה פלמינגו
+      Catppuccin Frappe Mauve: קטפוצ'ין פרפה פלמינגו
+      Catppuccin Frappe Red: קטפוצ'ין פרפה פלמינגו
+      Catppuccin Frappe Maroon: קטפוצ'ינו פרפה חום אדום
+      Catppuccin Frappe Peach: קטפוצ'ין פרפה אפרסק
+      Catppuccin Frappe Sky: קטפוצ'ינו פרפה סקיי
+      Catppuccin Frappe Sapphire: קטפוצ'ינו פרפה ספיר
+      Catppuccin Frappe Blue: קטפוצ'ינו פרפה כחול
+      Everforest Dark Orange: אברפורסט כתום כהה
+      Everforest Dark Purple: אברפורסט סגול כהה
+      Everforest Light Red: אברפורסט אדום בהיר
     Secondary Color Theme: 'ערכת צבע משנית'
         #* Main Color Theme
     UI Scale: יחס גודל הממשק
