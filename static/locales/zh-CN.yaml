@@ -462,7 +462,7 @@ Settings:
     Are you sure you want to clear out your search history and cache?: 你确定要清除搜索历史和缓存吗？
     Search history and cache have been cleared: 已清除搜索历史和缓存
     Watched Progress Saving Mode:
-      Tooltip: 
+      Tooltip:
         “自动”=每次视频结束以及发生错误（如速率受限和观看会话过期）退出视频页面时进行保存。“半自动”=除视频页面退出外和“自动”类似，可通过位于视频播放器下方的“保存已观看进度”按钮手动保存进度。
       Modes:
         Auto: 自动
@@ -1079,7 +1079,6 @@ Search Listing:
     8K: 8K
     VR180: VR180
     360 Video: 360°
-'Blocked opening potentially unsafe URL': 阻止了打开潜在不安全的 URL： "{url}".
 Keys:
   alt: Alt
   ctrl: Ctrl

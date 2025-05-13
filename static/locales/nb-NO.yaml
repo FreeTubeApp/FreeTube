@@ -1290,8 +1290,6 @@ Autoplay Interruption Timer: Automatisk avspilling stoppet på grunn av {autopla
 Age Restricted:
   This video is age restricted: Denne videoen er aldersbegrenset
   This channel is age restricted: Denne kanalen er aldersbegrenset
-'Blocked opening potentially unsafe URL': 'Forhindret åpning av potensielt usikker
-  URL: «{url}».'
 Channel Hidden: '{channel} lagt til i kanalfilteret'
 Channel Unhidden: '{channel} fjernet fra kanalfilteret'
 Tag already exists: «{tagName}»-taggen eksisterer allerede

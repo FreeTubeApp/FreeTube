@@ -1234,8 +1234,6 @@ Search Listing:
     8K: 8K
     VR180: VR180
     3D: 3D
-'Blocked opening potentially unsafe URL': 'Zablokováno otevření potenciálně nebezpečné
-  adresy URL: „{url}“.'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Keys:

@@ -213,14 +213,10 @@ export async function copyToClipboard(content, { messageOnSuccess = null, messag
  */
 export async function openExternalLink(url) {
   if (process.env.IS_ELECTRON) {
-    const ipcRenderer = require('electron').ipcRenderer
-    const success = await ipcRenderer.invoke(IpcChannels.OPEN_EXTERNAL_LINK, url)
-
-    if (!success) {
-      showToast(i18n.t('Blocked opening potentially unsafe URL', { url }))
-    }
-  } else {
+    // Don't pass noreferrer in Electron as we use the referrer to check if the call came from a FreeTube app URL.
     window.open(url, '_blank')
+  } else {
+    window.open(url, '_blank', 'noreferrer')
   }
 }
 

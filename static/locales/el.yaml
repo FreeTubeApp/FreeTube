@@ -1342,8 +1342,6 @@ Yes, Open Link: Ναι, Άνοιγμα συνδέσμου
 Description:
   Expand Description: '...περισσότερα'
   Collapse Description: Εμφάνιση λιγότερων
-'Blocked opening potentially unsafe URL': 'Αποκλεισμός ανοίγματος δυνητικά μη ασφαλούς
-  URL: «{url}».'
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Age Restricted:

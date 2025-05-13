@@ -1241,8 +1241,6 @@ Channel Hidden: '{channel} дададзены ў фільтр каналаў'
 Age Restricted:
   This channel is age restricted: Гэты канал мае ўзроставыя абмежаванні
   This video is age restricted: Гэты відэа мае ўзроставыя абмежаванні
-'Blocked opening potentially unsafe URL': 'Заблакіравана адкрыццё патэнцыйна небяспечнага
-  URL: "{url}".'
 Channel Unhidden: '{channel} выдалены з фільтра каналаў'
 KeyboardShortcutPrompt:
   Show Keyboard Shortcuts: Паказаць спалучэнні клавіш

@@ -1215,8 +1215,6 @@ Trimmed input must be at least N characters long: Trimmed input must be at least
 Yes, Delete: Yes, delete
 Yes, Restart: Yes, restart
 Yes, Open Link: Yes, open link
-'Blocked opening potentially unsafe URL': 'Blocked opening potentially unsafe URL:
-  ‘{url}’.'
 Search Listing:
   Label:
     4K: 4K

@@ -1209,8 +1209,6 @@ Age Restricted:
   This video is age restricted: 'இந்த வீடியோ அகவை தடைசெய்யப்பட்டுள்ளது'
 External link opening has been disabled in the general settings: 'பொது அமைப்புகளில்
   வெளிப்புற இணைப்பு திறப்பு முடக்கப்பட்டுள்ளது'
-'Blocked opening potentially unsafe URL': 'தடுக்கப்பட்ட திறப்பு பாதுகாப்பற்ற URL:
-  "{url}".'
 Downloading has completed: '"{videoTitle}" பதிவிறக்கம் முடித்துவிட்டது'
 Starting download: '"{videoTitle}" இன் பதிவிறக்கத்தைத் தொடங்குகிறது'
 Downloading failed: '"{videoTitle}" ஐ பதிவிறக்குவதில் சிக்கல் இருந்தது'

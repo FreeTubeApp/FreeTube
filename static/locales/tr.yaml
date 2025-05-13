@@ -1246,8 +1246,6 @@ Search Listing:
     New: Yeni
     3D: 3B
     8K: 8K
-'Blocked opening potentially unsafe URL': "Güvenli olmayabilir URL'nin açılması engellendi:
-  \"{url}\"."
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Keys:
   arrowdown: Aşağı Ok
