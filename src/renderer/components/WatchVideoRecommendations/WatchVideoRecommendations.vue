@@ -14,6 +14,7 @@
       appearance="recommendation"
       force-list-type="list"
       :use-channels-hidden-preference="true"
+      @pause-player="pausePlayer"
     />
   </FtCard>
 </template>
@@ -29,6 +30,12 @@ defineProps({
     required: true
   }
 })
+
+const emit = defineEmits(['pause-player'])
+
+function pausePlayer() {
+  emit('pause-player')
+}
 </script>
 
 <style scoped src="./WatchVideoRecommendations.css" />
