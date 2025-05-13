@@ -267,6 +267,8 @@ Settings:
       Beginning: 'Začiatok'
       Middle: 'Stred'
       End: 'Koniec'
+      Hidden: Skryté
+      Blur: Rozmazanie
     Region for Trending: 'Región pre trendy'
         #! List countries
     Check for Latest Blog Posts: Kontrolovať najnovšie príspevky na blogu
@@ -286,6 +288,11 @@ Settings:
       vybraná náhodne pri spustení
     Clear Default Instance: Zmazať predvolenú inštanciu
     Current Invidious Instance: Aktuálna inštancia Invidious
+    Auto Load Next Page:
+      Tooltip: Automaticky načítať ďalšie stránky a komentáre.
+      Label: Automatické načítanie ďalšej strany
+    Open Deep Links In New Window: Otvoriť adresy URL odoslané do FreeTube v novom
+      okne
   Theme Settings:
     Theme Settings: 'Téma'
     Match Top Bar with Main Color: 'Prispôsobiť hornú lištu s hlavnou farbou'
@@ -295,6 +302,22 @@ Settings:
       Dark: 'Tmavý'
       Light: 'Svetlý'
       Dracula: 'Tmavá téma'
+      Nordic: Severské
+      Gruvbox Dark: Ťažobný box Dark
+      Gruvbox Light: Svetlo ťažobnej skrinky
+      System Default: Predvolené nastavenie systému
+      Everforest Light Hard: Everforest Ľahký Tvrdý
+      Solarized Light: Solárne svetlo
+      Catppuccin Mocha: Catpuccino Mocha
+      Everforest Dark Low: Everforest Dark Low
+      Everforest Light Medium: Everforest Svetlý Stredný
+      Everforest Light Low: Everforest Light Low
+      Pastel Pink: Pastelovo ružová
+      Everforest Dark Hard: Everforest Dark Hard
+      Catppuccin Frappe: Frappé z mačacej mäty
+      Hot Pink: Horúca ružová
+      Solarized Dark: Solarizovaná tma
+      Everforest Dark Medium: Everforest tmavý stredný
     Main Color Theme:
       Main Color Theme: 'Predvolená farebná téma'
       Red: 'Červená'
@@ -326,6 +349,7 @@ Settings:
     Disable Smooth Scrolling: Vypnúť plynulé scrollovanie
     Expand Side Bar by Default: Roztvárať bočný panel ako východzie nastavenie
     Hide Side Bar Labels: Skryť označenia v bočnom paneli
+    Hide FreeTube Header Logo: Skryť logo hlavičky FreeTube
   Player Settings:
     Player Settings: 'Prehrávač'
     Play Next Video: 'Automatické prehrávanie odporúčaných videí'
