@@ -393,6 +393,12 @@ Settings:
       Everforest Dark Orange: אברפורסט כתום כהה
       Everforest Dark Purple: אברפורסט סגול כהה
       Everforest Light Red: אברפורסט אדום בהיר
+      Everforest Light Orange: אברפורסט כתום בהיר
+      Everforest Light Yellow: אברפול לייט ילו
+      Everforest Light Green: אברפורסט ירוק בהיר
+      Everforest Light Aqua: אברפול לייט אקווה
+      Everforest Light Blue: אברפורסט כחול בהיר
+      Everforest Light Purple: אברפורסט סגול בהיר
     Secondary Color Theme: 'ערכת צבע משנית'
         #* Main Color Theme
     UI Scale: יחס גודל הממשק
@@ -487,6 +493,11 @@ Settings:
       Modes:
         Auto: אוטומטי
         Never: לעולם לא
+        Semi-auto: חצי אוטומטי
+      Tooltip: אוטומטי = שמירה בכל יציאה מעמוד הווידאו, כאשר הווידאו מסתיים ונמצאת
+        שגיאה (למשל, הגבלת קצב והפסקת מושב הצפייה). חצי-אוטומטי = כמו אוטומטי, למעט
+        יציאה מעמוד הווידאו וניתן לשמור את ההתקדמות ידנית באמצעות כפתור שנקרא שמור
+        התקדמות נצפתה, הממוקם מתחת לנגן הווידאו.
   Subscription Settings:
     Subscription Settings: 'מינוי'
     Hide Videos on Watch: 'הסתרת סרטונים לאחר הצפייה'
@@ -591,6 +602,9 @@ Settings:
       טקסט
     Hide Channel Home: הסתרת לשונית ה„בית” של הערוץ
     Show Added Items: הצגת פריטים שנוספו
+    Hide Channel Posts: הסתר את לשונית "פוסטים" של הערוץ
+    Hide Subscriptions Posts: הסתר פוסטים של מנויים
+    Hide Channel Courses: הסתר את לשונית "קורסים" של הערוץ
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -806,6 +820,9 @@ Channel:
   Home:
     Home: בית
     View Playlist: הצגת רשימת נגינה
+  Courses:
+    Courses: קורסים
+    This channel does not currently have any courses: ערוץ זה אינו כולל כרגע קורסים.
 Video:
   Mark As Watched: 'סימון כנצפה'
   Remove From History: 'הסרה מהיסטוריית הצפייה'
@@ -913,6 +930,8 @@ Video:
     Playback will resume automatically when your connection comes back: הפלייבק יחודש
       אוטומטית כאשר החיבור שלך יחזור.
     Skipped segment: דילגתי על {segmentCategory}
+    Autoplay is off: הפעלה אוטומטית כבויה
+    Autoplay is on: הניגון האוטומטי פעיל
   Hide Channel: הסתר ערוץ
   Unhide Channel: הצג ערוץ
   More Options: אפשרויות נוספות
@@ -927,6 +946,11 @@ Video:
     Show Modified Details: הצגת פרטים לאחר שינוי
     Show Original Details: הצגת פרטים מקוריים
 #& Playlists
+  Save Watched Progress: שמור התקדמות נצפית
+  DRMProtected: סרטונים המוגנים ב-DRM אינם יכולים להתנגן ב-FreeTube, מכיוון שהם דורשים
+    רכיבים סגורים ובעלים. אם אתה רוצה לצפות בסרטון הזה, אנא צפה בו באתר הרשמי של YouTube
+    בדפדפן אינטרנט עם תמיכה ב-DRM.
+  Watched Progress Saved: התקדמות שנשמרה נצפתה
 Playlist:
   #& About
   View Full Playlist: 'צפייה ברשימת הנגינה המלאה'
@@ -946,6 +970,8 @@ Playlist:
     DateAddedNewest: האחרונים שנוספו ראשונים
     VideoDurationAscending: משך (קצרים בהתחלה)
     VideoDurationDescending: משך (ארוכים בהתחלה)
+    PublishedNewest: המאמרים החדשים ביותר קודם
+    PublishedOldest: הראשון שפורסם ראשון
 Change Format:
   Change Media Formats: 'שינוי תסדירי המדיה'
   Use Dash Formats: 'שימוש בתסדירי DASH'
@@ -1049,11 +1075,11 @@ Tooltips:
     Skip by Scrolling Over Video Player: ניתן להשתמש בגלגלת כדי לדלג בתוך הסרטון,
       כמו ב־MPV.
   Subscription Settings:
-    Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת ברירת
-      המחדל לאיסוף הזנת המינויים שלך. RSS היא שיטה מהירה יותר ומונעת חסימת IP אבל
-      לא מספקת חלק מהמידע כמו אורך הסרטון, מצב שידור חי או פרסומי הקהילה
-    Fetch Automatically: כאשר האפשרות פעילה, FreeTube ימשוך את הזנת המינויים שלך אוטומטית
-      עם פתיחת חלון חדש ובעת החלפת פרופיל.
+    Fetch Feeds from RSS: כאשר זה מופעל, FreeTube ישתמש ב-RSS במקום בשיטה המוגדרת
+      כברירת מחדל כדי לתפוס את זרם המנויים שלך. RSS מהיר יותר ומונע חסימת IP, אך אינו
+      מספק מידע מסוים כמו משך הווידאו, מצב חי או פוסטים.
+    Fetch Automatically: כאשר האפשרות מופעלת, FreeTube ימשוך אוטומטית את רשימת המנויים
+      שלך בעת הפעלת התוכנה ובפתיחת חלון חדש.
   External Player Settings:
     DefaultCustomArgumentsTemplate: '(ברירת מחדל: ‚{defaultCustomArguments}’)'
     Ignore Warnings: 'להשבית אזהרות כאשר הנגן החיצוני הנוכחי לא תומך בפעולה הנוכחית
@@ -1166,6 +1192,9 @@ Keys:
   arrowleft: חץ שמאלה
   ctrl: Ctrl
   alt: Alt
+  enter: הכנס
+  plus: פלוס
+  shift: משמרת
 Right-click or hold to see history: לחיצה ימנית או החזקה כדי לראות היסטוריה
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
@@ -1196,3 +1225,30 @@ KeyboardShortcutPrompt:
   Take Screenshot: צילום המסך
   Theatre Mode: מעבר/חזרה ממצב תיאטרון
   Fullscreen: כניסה / יציאה ממסך מלא
+  History Backward: חזור אחורה בעמוד אחד
+  Small Fast Forward: קדימה X שניות בהתבסס על מרווח ההקדמה וקצב ההפעלה הנוכחי של הווידאו
+  Sections:
+    Video:
+      Playback: 'וידאו: השמעה'
+      General: 'וידאו: כללי'
+    App:
+      General: 'אפליקציה: כללי'
+      Situational: 'אפליקציה: מצבית'
+  Navigate to Settings: נווטו לדף ההגדרות
+  Small Rewind: חזור אחורה X שניות בהתבסס על מרווח החזרה ואחוז ההפעלה הנוכחי של הסרטון
+  Play: הפעל/השהה
+  Decrease Video Speed: הפחת מהירות הווידאו בהתאם לטווח קצב ההפעלה של הווידאו
+  Navigate to History: נווטו לדף ההיסטוריה
+  Refresh: רענן את הפיד עם התוכן העדכני ביותר
+  Focus Secondary Search: מקד את תשומת הלב על שורת החיפוש המשנית (אם יש אחת כזו)
+  Show Keyboard Shortcuts: הצג קיצורי מקלדת
+  Captions: הפעל/כבה כתוביות
+  Keyboard Shortcuts: קיצורי מקשים
+  Large Fast Forward: קדימה 10 שניות / הקפצת וידאו בהתאם לקצב ההפעלה הנוכחי
+  Mute: כבה/הפעל שקט
+  Increase Video Speed: הגדל את מהירות הווידאו בהתבסס על טווח קצב ההפעלה של הווידאו
+  Stats: הצג סטטיסטיקות וידאו
+  Picture in Picture: הפעל/י את מצב Picture-in-Picture
+  History Forward: לך קדימה עמוד אחד
+  New Window: צור חלון חדש
+  Large Rewind: חזור אחורה ב-10 שניות / חזור אחורה בסרטון בהתאם לקצב ההפעלה הנוכחי
