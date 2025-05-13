@@ -250,6 +250,7 @@ User Playlists:
   The playlist has been successfully exported: Lista de redare a fost exportată cu
     succes
   Quick Bookmark Enabled: Marcaj rapid activat
+  TotalTimePlaylist: 'Timp total: {duration}'
 History:
   # On History Page
   History: 'Istoric'
@@ -514,6 +515,16 @@ Settings:
       că doriți să ștergeți istoricul căutărilor și memoria cache?
     Remember Search History: Reține istoricul căutărilor
     Clear Search History and Cache: Ștergeți istoricul căutărilor și memoria cache
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Automat
+        Never: Niciodată
+        Semi-auto: Semi-automat
+      Tooltip: Automat = Salvează la fiecare ieșire de pe pagina video, când video-ul
+        se termină și când apare o eroare (de exemplu, limitare de viteză sau sesiune
+        de vizionare expirată). Semi-automat = Ca și Automat, cu excepția ieșirii
+        de pe pagina video și permite salvarea progresului manual printr-un buton
+        numit "Salvează progresul vizionat", aflat sub player-ul video.
   Subscription Settings:
     Subscription Settings: 'Abonament'
     Hide Videos on Watch: 'Ascunde videoclipurile la vizionare'
@@ -639,6 +650,8 @@ Settings:
     Hide Channels API Error: Eroare la preluarea utilizatorului cu ID-ul furnizat.
       Vă rugăm să verificați din nou dacă ID-ul este corect.
     Hide Channel Courses: Ascunde fila „Cursuri” a canalului
+    Hide Channel Posts: Ascunde tab-ul "Postări" al canalului
+    Hide Subscriptions Posts: Ascunde postările din abonații
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificare atunci când segmentul sponsorului
       este sărit
@@ -995,6 +1008,8 @@ Video:
     Show Modified Details: Afișați detaliile modificate
   IP block: YouTube a blocat adresa dvs. IP pentru a nu viziona videoclipuri. Vă rugăm
     să încercați să comutați la un alt VPN sau proxy.
+  Save Watched Progress: Salvează progresul vizionat
+  Watched Progress Saved: Progresul vizionat a fost salvat
 Playlist:
   #& About
   View Full Playlist: 'Vezi lista de redare completă'
