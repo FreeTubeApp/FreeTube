@@ -168,6 +168,13 @@ User Playlists:
         akciu vrátiť späť, kliknite sem.
       Playlist name cannot be empty. Please input a name.: Meno zoznamu nemôže byť
         prázdne. Prosím zadajte názov.
+      This playlist is already being used for quick bookmark.: Tento zoznam skladieb
+        sa už používa na rýchle uloženie do záložiek.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Tento
+        zoznam skladieb sa teraz používa na rýchle uloženie záložiek namiesto {oldPlaylistName}.
+        Kliknite sem pre vrátenie späť.
+      This playlist is now used for quick bookmark: Tento playlist sa teraz používa
+        na rýchle uloženie záložiek
     Search for Videos: Vyhľadať videá
   Sort By:
     NameAscending: A-Z
@@ -197,6 +204,9 @@ User Playlists:
     Search in Playlists: Hľadať v zoznamoch
   Quick Bookmark Enabled: Rýchle záložky povolené
   Enable Quick Bookmark With This Playlist: Povoliť rýchle záložky v tomto zozname
+  TotalTimePlaylist: 'Celkový čas: {duration}'
+  Cannot delete the quick bookmark target playlist.: Zoznam cieľov rýchleho ukladania
+    záložiek nie je možné odstrániť.
 History:
   # On History Page
   History: 'História'
