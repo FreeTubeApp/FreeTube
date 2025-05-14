@@ -377,7 +377,7 @@ Settings:
       Catppuccin Frappe Yellow: קטפוצ'ינו פרפה צהוב
       Everforest Dark Red: אברפסט אדום כהה
       Everforest Dark Yellow: אברפורסט צהוב כהה
-      Everforest Dark Green: אברפסט ירוק כהה
+      Everforest Dark Green: אברפורסט ירוק כהה
       Everforest Dark Aqua: אברפורסט כחול מים כהה
       Everforest Dark Blue: אברפורסט כחול כהה
       Catppuccin Frappe Rosewater: קטפוצ'ין פרפה מי ורדים
@@ -1053,7 +1053,7 @@ Tooltips:
       המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
     Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לקבלת פניות API.
     Thumbnail Preference: כל התמונות הממוזערות ברחבי FreeTube יוחלפו בתמונית מתוך
-      הסרטון במקום התמונה הממוזערת כברירת המחדל.
+      הסרטון, בצורה מטושטשת או מוסתרת במקום התמונה הממוזערת כברירת המחדל.
     External Link Handling: "נא לבחור את התנהגות ברירת המחדל כשנלחץ קישור שלא ניתן
       לפתוח ב־FreeTube.\nכברירת מחדל FreeTube יפתח את הקישור שנלחץ בדפדפן ברירת המחדל
       שלך.\n"
@@ -1077,7 +1077,7 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: כאשר זה מופעל, FreeTube ישתמש ב-RSS במקום בשיטה המוגדרת
       כברירת מחדל כדי לתפוס את זרם המנויים שלך. RSS מהיר יותר ומונע חסימת IP, אך אינו
-      מספק מידע מסוים כמו משך הווידאו, מצב חי או פוסטים.
+      מספק מידע מסוים כמו משך הווידאו, מצב חי או פוסטים
     Fetch Automatically: כאשר האפשרות מופעלת, FreeTube ימשוך אוטומטית את רשימת המנויים
       שלך בעת הפעלת התוכנה ובפתיחת חלון חדש.
   External Player Settings:
@@ -1238,7 +1238,7 @@ KeyboardShortcutPrompt:
   Small Rewind: חזרה אחורה ב־X שניות בהתבסס על מרווח החזרה ואחוז הנגינה הנוכחי של
     הסרטון
   Play: הפעל/השהה
-  Decrease Video Speed: הפחת מהירות הווידאו בהתאם לטווח קצב ההפעלה של הווידאו
+  Decrease Video Speed: הפחתת מהירות הווידאו בהתאם לטווח קצב ההפעלה של הווידאו
   Navigate to History: נווטו לדף ההיסטוריה
   Refresh: רענן את הפיד עם התוכן העדכני ביותר
   Focus Secondary Search: מקד את תשומת הלב על שורת החיפוש המשנית (אם יש אחת כזו)
@@ -1253,3 +1253,4 @@ KeyboardShortcutPrompt:
   History Forward: לך קדימה עמוד אחד
   New Window: צור חלון חדש
   Large Rewind: חזור אחורה ב-10 שניות / חזור אחורה בסרטון בהתאם לקצב ההפעלה הנוכחי
+shortcutLabelSeparator: ｜
