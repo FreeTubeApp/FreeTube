@@ -1235,7 +1235,8 @@ KeyboardShortcutPrompt:
       General: 'אפליקציה: כללי'
       Situational: 'אפליקציה: מצבית'
   Navigate to Settings: נווטו לדף ההגדרות
-  Small Rewind: חזור אחורה X שניות בהתבסס על מרווח החזרה ואחוז ההפעלה הנוכחי של הסרטון
+  Small Rewind: חזרה אחורה ב־X שניות בהתבסס על מרווח החזרה ואחוז הנגינה הנוכחי של
+    הסרטון
   Play: הפעל/השהה
   Decrease Video Speed: הפחת מהירות הווידאו בהתאם לטווח קצב ההפעלה של הווידאו
   Navigate to History: נווטו לדף ההיסטוריה
