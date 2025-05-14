@@ -212,12 +212,7 @@ export async function copyToClipboard(content, { messageOnSuccess = null, messag
  * @param {string} url the URL to open
  */
 export async function openExternalLink(url) {
-  if (process.env.IS_ELECTRON) {
-    // Don't pass noreferrer in Electron as we use the referrer to check if the call came from a FreeTube app URL.
-    window.open(url, '_blank')
-  } else {
-    window.open(url, '_blank', 'noreferrer')
-  }
+  window.open(url, '_blank', 'noreferrer')
 }
 
 /**

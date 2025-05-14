@@ -787,7 +787,7 @@ function runApp() {
       const url = URL.parse(details.url)
 
       // Only handle valid URLs that came from a FreeTube page
-      if (url !== null && isFreeTubeUrl(details.referrer.url)) {
+      if (url !== null && isFreeTubeUrl(newWindow.webContents.getURL())) {
         if (isFreeTubeUrl(url)) {
           createWindow({
             replaceMainWindow: false,

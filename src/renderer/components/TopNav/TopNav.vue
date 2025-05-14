@@ -247,12 +247,7 @@ function createNewWindow() {
   const url = new URL(window.location.href)
   url.hash = landingPage.value
 
-  if (process.env.IS_ELECTRON) {
-    // Don't pass noreferrer in Electron as we use the referrer to check if the call came from a FreeTube app URL.
-    window.open(url.toString(), '_blank')
-  } else {
-    window.open(url.toString(), '_blank', 'noreferrer')
-  }
+  window.open(url.toString(), '_blank', 'noreferrer')
 }
 
 const usingOnlySearchHistoryResults = computed(() => lastSuggestionQuery.value.length === 0)
