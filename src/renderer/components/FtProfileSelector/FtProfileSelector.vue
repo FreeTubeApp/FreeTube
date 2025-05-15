@@ -205,6 +205,8 @@ function setActiveProfile(event) {
       showToast(t('Profile.{profile} is now the active profile', { profile: translateProfileName(targetProfile) }))
     }
   }
+
+  profileListShown.value = false
 }
 
 /**
