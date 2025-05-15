@@ -1093,10 +1093,10 @@ Tooltips:
       but it doesn’t provide certain information like video duration, live status
       or posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch your subscription
-      feed when a new window is opened and when switching profile.
+      feed on startup and when a new window is opened.
   Player Settings:
     Default Video Format: Set the formats used when a video plays. DASH formats can
-      play higher qualities. Legacy formats are limited to a max of 720p but use less
+      play higher qualities. Legacy formats are limited to a max of 360p but use less
       bandwidth. Audio formats are audio only streams.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
       of making a direct connection to YouTube.
@@ -1113,7 +1113,7 @@ Tooltips:
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
       calls.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
-      a frame of the video instead of the default thumbnail.
+      a frame of the video, blurred or hidden instead of the default thumbnail.
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
       FreeTube will automatically attempt to use your non-preferred API as a fallback
       method when enabled.
