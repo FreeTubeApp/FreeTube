@@ -824,8 +824,7 @@ Video:
   Open in YouTube: 'Apri con YouTube'
   Copy YouTube Link: 'Copia link YouTube'
   Open YouTube Embedded Player: 'Apri il lettore incorporato di YouTube'
-  Copy YouTube Embedded Player Link: 'Copia collegamento del lettore incorporato di
-    YouTube'
+  Copy YouTube Embedded Player Link: 'Copia link del lettore incorporato di YouTube'
   Open in Invidious: 'Apri con Invidious'
   Copy Invidious Link: 'Copia link Invidious'
   Views: 'Visualizzazioni'
@@ -1198,7 +1197,7 @@ Search Bar:
   Remove: Rimuovi
 External link opening has been disabled in the general settings: L'apertura dei link
   esterni è stata disabilitata nelle Impostazioni generali
-Are you sure you want to open this link?: Vuoi davvero aprire questo collegamento?
+Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
 Downloading has completed: 'Il download di {videoTitle} è terminato'
 Starting download: Avvio del download di "{videoTitle}"
 Downloading failed: Si è verificato un problema durante il download di "{videoTitle}"
