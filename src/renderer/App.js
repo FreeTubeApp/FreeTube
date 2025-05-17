@@ -13,12 +13,9 @@ import FtCreatePlaylistPrompt from './components/ft-create-playlist-prompt/ft-cr
 import FtKeyboardShortcutPrompt from './components/FtKeyboardShortcutPrompt/FtKeyboardShortcutPrompt.vue'
 import FtSearchFilters from './components/FtSearchFilters/FtSearchFilters.vue'
 import { marked } from 'marked'
-import { IpcChannels } from '../constants'
 import packageDetails from '../../package.json'
 import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 import { translateWindowTitle } from './helpers/strings'
-
-let ipcRenderer = null
 
 export default defineComponent({
   name: 'App',
@@ -197,12 +194,10 @@ export default defineComponent({
         this.grabSearchHistoryEntries()
 
         if (process.env.IS_ELECTRON) {
-          ipcRenderer = require('electron').ipcRenderer
           this.setupListenersToSyncWindows()
           this.activateKeyboardShortcuts()
           this.openAllLinksExternally()
           this.enableOpenUrl()
-          this.watchSystemTheme()
           await this.checkExternalPlayer()
         }
 
@@ -499,24 +494,12 @@ export default defineComponent({
       })
     },
 
-    /**
-     * Linux fix for dynamically updating theme preference, this works on
-     * all systems running the electron app.
-     */
-    watchSystemTheme: function () {
-      ipcRenderer.on(IpcChannels.NATIVE_THEME_UPDATE, (event, shouldUseDarkColors) => {
-        document.body.dataset.systemTheme = shouldUseDarkColors ? 'dark' : 'light'
-      })
-    },
-
     enableOpenUrl: function () {
-      ipcRenderer.on(IpcChannels.OPEN_URL, (event, url, { isLaunchLink = false } = { }) => {
+      window.ftElectron.handleOpenUrl((url, isLaunchLink) => {
         if (url) {
           this.handleYoutubeLink(url, { doCreateNewWindow: this.openDeepLinksInNewWindow && !isLaunchLink })
         }
       })
-
-      ipcRenderer.send(IpcChannels.APP_READY)
     },
 
     handleExternalLinkOpeningPromptAnswer: function (option) {

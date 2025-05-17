@@ -1,6 +1,6 @@
 import { ClientType, Innertube, Misc, Parser, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
-import { IpcChannels, SEARCH_CHAR_LIMIT } from '../../../constants'
+import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
 import { PlayerCache } from './PlayerCache'
 import {
@@ -206,11 +206,8 @@ export async function getLocalVideoInfo(id) {
   let sessionPoToken
 
   if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-
     try {
-      ({ contentPoToken, sessionPoToken } = await ipcRenderer.invoke(
-        IpcChannels.GENERATE_PO_TOKENS,
+      ({ contentPoToken, sessionPoToken } = await window.ftElectron.generatePoTokens(
         id,
         webInnertube.session.context.client.visitorData,
         JSON.stringify(webInnertube.session.context)

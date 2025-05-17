@@ -1,4 +1,3 @@
-import { IpcChannels } from '../../constants'
 import i18n from '../i18n/index'
 import router from '../router/index'
 import { nextTick } from 'vue'
@@ -226,9 +225,7 @@ export async function openExternalLink(url) {
  */
 export function openInternalPath({ path, query = undefined, doCreateNewWindow, searchQueryText = null }) {
   if (process.env.IS_ELECTRON && doCreateNewWindow) {
-    const { ipcRenderer } = require('electron')
-
-    ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, path, query, searchQueryText)
+    window.ftElectron.openInNewWindow(path, query, searchQueryText)
   } else {
     router.push({
       path,
@@ -532,8 +529,7 @@ export function replaceFilenameForbiddenChars(filenameOriginal) {
 export async function getSystemLocale() {
   let locale
   if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    locale = await ipcRenderer.invoke(IpcChannels.GET_SYSTEM_LOCALE)
+    locale = await window.ftElectron.getSystemLocale()
   } else {
     if (navigator && navigator.language) {
       locale = navigator.language

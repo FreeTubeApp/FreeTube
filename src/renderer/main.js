@@ -4,7 +4,6 @@ import i18n from './i18n/index'
 import router from './router/index'
 import store from './store/index'
 import App from './App.vue'
-import { IpcChannels } from '../constants'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 import { register as registerSwiper } from 'swiper/element'
@@ -278,12 +277,7 @@ Vue.use(PortalVue)
 
 // to avoid accessing electron api from web app build
 if (process.env.IS_ELECTRON) {
-  const { ipcRenderer } = require('electron')
-
-  // handle menu event updates from main script
-  ipcRenderer.on(IpcChannels.CHANGE_VIEW, (event, data) => {
-    if (data.route) {
-      router.push(data.route)
-    }
+  window.ftElectron.handleChangeView((route) => {
+    router.push(route)
   })
 }
