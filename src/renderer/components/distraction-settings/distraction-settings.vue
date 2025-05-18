@@ -1,6 +1,87 @@
 <template>
   <ft-settings-section
     :title="$t('Settings.Distraction Free Settings.Distraction Free Settings')"
+    <h4
+      class="groupTitle"
+    >
+      {{ $t('Settings.Distraction Free Settings.Sections.General') }}
+    </h4>
+    <div class="switchColumnGrid">
+      <div class="switchColumn">
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Video Views')"
+          :compact="true"
+          :default-value="hideVideoViews"
+          @change="updateHideVideoViews"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Subscribers')"
+          :compact="true"
+          :default-value="hideChannelSubscriptions"
+          @change="updateHideChannelSubscriptions"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Sharing Actions')"
+          :compact="true"
+          :default-value="hideSharingActions"
+          @change="updateHideSharingActions"
+        />
+      </div>
+      <div class="switchColumn">
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Live Streams')"
+          :compact="true"
+          :default-value="hideLiveStreams"
+          @change="updateHideLiveStreams"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Upcoming Premieres')"
+          :compact="true"
+          :default-value="hideUpcomingPremieres"
+          @change="updateHideUpcomingPremieres"
+        />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Display Titles Without Excessive Capitalisation')"
+          :compact="true"
+          :default-value="showDistractionFreeTitles"
+          @change="updateShowDistractionFreeTitles"
+        />
+      </div>
+    </div>
+    <br class="hide-on-mobile">
+    <ft-flex-box>
+      <ft-input-tags
+        :disabled="channelHiderDisabled"
+        :disabled-msg="$t('Settings.Distraction Free Settings.Hide Channels Disabled Message')"
+        :label="$t('Settings.Distraction Free Settings.Hide Channels')"
+        :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
+        :show-action-button="true"
+        :tag-list="channelsHidden"
+        :tooltip="$t('Tooltips.Distraction Free Settings.Hide Channels')"
+        :validate-tag-name="validateChannelId"
+        :find-tag-info="findChannelTagInfo"
+        :are-channel-tags="true"
+        :show-tags="showAddedChannelsHidden"
+        @invalid-name="handleInvalidChannel"
+        @error-find-tag-info="handleChannelAPIError"
+        @change="handleChannelsHidden"
+        @already-exists="handleChannelsExists"
+        @toggle-show-tags="handleAddedChannelsHidden"
+      />
+    </ft-flex-box>
+    <ft-flex-box>
+      <ft-input-tags
+        :label="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
+        :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text Placeholder')"
+        :show-action-button="true"
+        :show-tags="showAddedForbiddenTitles"
+        :tag-list="forbiddenTitles"
+        :min-input-length="3"
+        :tooltip="$t('Tooltips.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
+        @change="handleForbiddenTitles"
+        @toggle-show-tags="handleAddedForbiddenTitles"
+      />
+    </ft-flex-box>
   >
     <h4
       class="groupTitle"
@@ -192,87 +273,6 @@
         />
       </div>
     </div>
-    <h4
-      class="groupTitle"
-    >
-      {{ $t('Settings.Distraction Free Settings.Sections.General') }}
-    </h4>
-    <div class="switchColumnGrid">
-      <div class="switchColumn">
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Video Views')"
-          :compact="true"
-          :default-value="hideVideoViews"
-          @change="updateHideVideoViews"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Channel Subscribers')"
-          :compact="true"
-          :default-value="hideChannelSubscriptions"
-          @change="updateHideChannelSubscriptions"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Sharing Actions')"
-          :compact="true"
-          :default-value="hideSharingActions"
-          @change="updateHideSharingActions"
-        />
-      </div>
-      <div class="switchColumn">
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Live Streams')"
-          :compact="true"
-          :default-value="hideLiveStreams"
-          @change="updateHideLiveStreams"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Upcoming Premieres')"
-          :compact="true"
-          :default-value="hideUpcomingPremieres"
-          @change="updateHideUpcomingPremieres"
-        />
-        <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Display Titles Without Excessive Capitalisation')"
-          :compact="true"
-          :default-value="showDistractionFreeTitles"
-          @change="updateShowDistractionFreeTitles"
-        />
-      </div>
-    </div>
-    <br class="hide-on-mobile">
-    <ft-flex-box>
-      <ft-input-tags
-        :disabled="channelHiderDisabled"
-        :disabled-msg="$t('Settings.Distraction Free Settings.Hide Channels Disabled Message')"
-        :label="$t('Settings.Distraction Free Settings.Hide Channels')"
-        :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
-        :show-action-button="true"
-        :tag-list="channelsHidden"
-        :tooltip="$t('Tooltips.Distraction Free Settings.Hide Channels')"
-        :validate-tag-name="validateChannelId"
-        :find-tag-info="findChannelTagInfo"
-        :are-channel-tags="true"
-        :show-tags="showAddedChannelsHidden"
-        @invalid-name="handleInvalidChannel"
-        @error-find-tag-info="handleChannelAPIError"
-        @change="handleChannelsHidden"
-        @already-exists="handleChannelsExists"
-        @toggle-show-tags="handleAddedChannelsHidden"
-      />
-    </ft-flex-box>
-    <ft-flex-box>
-      <ft-input-tags
-        :label="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
-        :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text Placeholder')"
-        :show-action-button="true"
-        :show-tags="showAddedForbiddenTitles"
-        :tag-list="forbiddenTitles"
-        :min-input-length="3"
-        :tooltip="$t('Tooltips.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
-        @change="handleForbiddenTitles"
-        @toggle-show-tags="handleAddedForbiddenTitles"
-      />
-    </ft-flex-box>
   </ft-settings-section>
 </template>
 
