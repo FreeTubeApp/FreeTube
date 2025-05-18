@@ -1,6 +1,7 @@
 <template>
   <ft-settings-section
     :title="$t('Settings.Distraction Free Settings.Distraction Free Settings')"
+  >
     <h4
       class="groupTitle"
     >
