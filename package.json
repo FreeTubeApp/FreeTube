@@ -101,7 +101,7 @@
     "lefthook": "^1.11.13",
     "mini-css-extract-plugin": "^2.9.2",
     "neostandard": "^0.12.1",
-    "npm-run-all2": "^8.0.1",
+    "npm-run-all2": "^8.0.2",
     "postcss": "^8.5.3",
     "postcss-scss": "^4.0.9",
     "sass": "^1.88.0",
