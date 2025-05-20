@@ -1,7 +1,7 @@
 Locale Name: Tiếng Việt
 
 # Webkit Menu Bar
-File: 'tài liệu'
+File: 'Tệp'
 Quit: 'Thoát'
 Edit: 'Chỉnh sửa'
 Undo: 'Hoàn tác'
@@ -13,7 +13,7 @@ Delete: 'Xóa'
 Select all: 'Chọn tất cả'
 Reload: 'Tải lại'
 Force Reload: 'Buộc tải lại'
-Toggle Developer Tools: 'Chuyển đổi công cụ phát triển'
+Toggle Developer Tools: 'Bật/Tắt Công cụ dành cho nhà phát triển'
 Actual size: 'Kích thước thực'
 Zoom in: 'Phóng to'
 Zoom out: 'Thu nhỏ'
@@ -235,6 +235,7 @@ User Playlists:
   Playlists with Matching Videos: Bao gồm video trong danh sách phát
   Export Playlist: Xuất danh sách phát này
   The playlist has been successfully exported: Đã xuất thành công danh sách phát này
+  TotalTimePlaylist: 'Tổng thời lượng: {duration}'
 History:
   # On History Page
   History: 'Lịch sử'
@@ -602,6 +603,15 @@ Settings:
     Are you sure you want to clear out your search history and cache?: Bạn có chắc
       muốn xóa lịch sử tìm kiếm và bộ đệm của bạn?
     Search history and cache have been cleared: Đã xóa lịch sử tìm kiếm và bộ đệm
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Tự động
+        Semi-auto: Bán-tự động
+        Never: Không
+      Tooltip: 'Tự động = Lưu mỗi khi thoát khỏi trang video, khi video kết thúc và
+        gặp lỗi (ví dụ: giới hạn tốc độ và phiên xem đã hết hạn). Bán tự động = Như
+        tự động, trừ lúc thoát khỏi trang video và có thể lưu tiến trình theo cách
+        thủ công thông qua nút Lưu tiến trình đã xem, nằm bên dưới trình phát video.'
   The app needs to restart for changes to take effect. Restart and apply change?: Ứng
     dụng cần được khởi động lại để chỉnh sửa có hiệu nghiệm. Khởi động lại và áp dụng
     cài đặt?
@@ -644,7 +654,7 @@ Settings:
     UseDeArrowTitles: Dùng tiêu đề video từ DeArrow
     UseDeArrowThumbnails: Dùng ảnh xem trước từ DeArrow
   External Player Settings:
-    External Player Settings: Trình phát ngoại
+    External Player Settings: Trình phát video bên ngoài
     External Player: Trình phát video bên ngoài
     Custom External Player Arguments: Tham số trình phát bên ngoài tùy chỉnh
     Ignore Unsupported Action Warnings: Bỏ qua các cảnh bảo tác vụ không được hổ trợ
