@@ -281,7 +281,6 @@ import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtLoader from '../../components/ft-loader/ft-loader.vue'
 import FtSelect from '../../components/ft-select/ft-select.vue'
-import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 
 import store from '../../store/index'
 
