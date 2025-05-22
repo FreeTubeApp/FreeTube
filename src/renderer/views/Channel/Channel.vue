@@ -41,7 +41,7 @@
       <div class="select-container">
         <FtSelect
           v-if="showVideoSortBy"
-          v-show="currentTab === 'videos' && (hideWatchedEntries ? filteredVideos.length > 1 : filteredVideos.length > 0)"
+          v-show="currentTab === 'videos' && (hideWatchedSubs ? filteredVideos.length > 1 : filteredVideos.length > 0)"
           :value="videoSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
@@ -51,7 +51,7 @@
         />
         <FtSelect
           v-if="!hideChannelShorts && showShortSortBy"
-          v-show="currentTab === 'shorts' && (hideWatchedEntries ? filteredShorts.length > 1 : filteredShorts.length > 0)"
+          v-show="currentTab === 'shorts' && (hideWatchedSubs ? filteredShorts.length > 1 : filteredShorts.length > 0)"
           :value="shortSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
@@ -61,7 +61,7 @@
         />
         <FtSelect
           v-if="!hideLiveStreams && showLiveSortBy"
-          v-show="currentTab === 'live' && (hideWatchedEntries ? filteredShorts.length > 1 : filteredShorts.length > 0)"
+          v-show="currentTab === 'live' && (hideWatchedSubs ? filteredShorts.length > 1 : filteredShorts.length > 0)"
           :value="liveSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
@@ -340,15 +340,6 @@ const isLoading = ref(true)
 const isElementListLoading = ref(false)
 const isSearchTabLoading = ref(false)
 const currentTab = ref('videos')
-
-const hideWatchedEntries = ref(false)
-
-/**
- * @param {boolean} value
- */
-function updateHideWatchedEntries(value) {
-  hideWatchedEntries.value = value
-}
 
 const isCurrentTabLoading = computed(() => {
   return currentTab.value === 'search' ? isSearchTabLoading.value : isElementListLoading.value
@@ -1061,7 +1052,7 @@ const showVideoSortBy = ref(true)
 const videoSortBy = ref('newest')
 
 const filteredVideos = computed(() => {
-  if (hideWatchedEntries.value) {
+  if (hideWatchedSubs.value) {
     return filterWatchedArray(latestVideos.value)
   } else {
     return latestVideos.value
@@ -1069,7 +1060,7 @@ const filteredVideos = computed(() => {
 })
 
 const filteredShorts = computed(() => {
-  if (hideWatchedEntries.value) {
+  if (hideWatchedSubs.value) {
     return filterWatchedArray(latestShorts.value)
   } else {
     return latestShorts.value
@@ -1077,7 +1068,7 @@ const filteredShorts = computed(() => {
 })
 
 const filteredLive = computed(() => {
-  if (hideWatchedEntries.value) {
+  if (hideWatchedSubs.value) {
     return filterWatchedArray(latestLive.value)
   } else {
     return latestLive.value
