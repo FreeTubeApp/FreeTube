@@ -27,12 +27,6 @@
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
-          :label="$t('Settings.Subscription Settings.Hide Videos on Watch')"
-          :default-value="hideWatchedSubs"
-          :compact="true"
-          @change="updateHideWatchedSubs"
-        />
-        <ft-toggle-switch
           :label="$t('Settings.Subscription Settings.Limit the number of videos displayed for each channel')"
           :default-value="onlyShowLatestFromChannel"
           :compact="true"
