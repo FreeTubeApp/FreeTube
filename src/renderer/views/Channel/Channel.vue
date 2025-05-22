@@ -39,14 +39,6 @@
         :related-channels="relatedChannels"
       />
       <div class="select-container">
-        <FtToggleSwitch
-          v-if="(currentTab === 'videos') || (currentTab === 'shorts') || (currentTab === 'live')"
-          v-show="!isElementListLoading"
-          :default-value="hideWatchedEntries"
-          :label="$t('Channel.Hide Watched')"
-          compact
-          @change="updateHideWatchedEntries"
-        />
         <FtSelect
           v-if="showVideoSortBy"
           v-show="currentTab === 'videos' && (hideWatchedEntries ? filteredVideos.length > 1 : filteredVideos.length > 0)"
