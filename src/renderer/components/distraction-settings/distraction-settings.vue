@@ -218,7 +218,7 @@
           @change="updateHideSharingActions"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Subscription Settings.Hide Videos on Watch')"
+          :label="$t('Settings.Distraction Free Settings.Hide Videos on Watch')"
           :default-value="hideWatchedSubs"
           :compact="true"
           @change="updateHideWatchedSubs"
