@@ -12,9 +12,6 @@ export default defineComponent({
     'ft-slider': FtSlider,
   },
   computed: {
-    hideWatchedSubs: function () {
-      return this.$store.getters.getHideWatchedSubs
-    },
     onlyShowLatestFromChannel: function () {
       return this.$store.getters.getOnlyShowLatestFromChannel
     },
@@ -33,7 +30,6 @@ export default defineComponent({
   },
   methods: {
     ...mapActions([
-      'updateHideWatchedSubs',
       'updateUseRssFeeds',
       'updateFetchSubscriptionsAutomatically',
       'updateOnlyShowLatestFromChannel',
