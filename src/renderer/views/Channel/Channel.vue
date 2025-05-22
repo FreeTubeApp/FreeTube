@@ -478,6 +478,9 @@ const hideChannelPlaylists = computed(() => store.getters.getHideChannelPlaylist
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideChannelCommunity = computed(() => store.getters.getHideChannelCommunity)
 
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideWatchedSubs = computed(() => store.getters.getHideWatchedSubs)
+
 /**
  * @template T
  * @param {T[]} array
