@@ -102,7 +102,7 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 import { useRoute, useRouter } from 'vue-router/composables'
 
-import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
+import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrapper.vue'
 import FtButton from '../../components/FtButton/FtButton.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
