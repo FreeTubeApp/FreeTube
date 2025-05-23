@@ -9,6 +9,9 @@
         "value": "mpv",
         "cmdArguments": {
             "defaultExecutable": "mpv",
+            "windowsPath":"C:/mpv/mpv.exe",
+            "linuxPath": "/usr/bin/mpv",
+            "macPath": "/Applications/mpv.app/Contents/MacOS/mpv",
             "defaultCustomArguments": null,
             "supportsYtdlProtocol": true,
             "videoUrl": "",
@@ -26,6 +29,9 @@
         "value": "vlc",
         "cmdArguments": {
             "defaultExecutable": "vlc",
+            "windowsPath":"%ProgramFiles%/VideoLAN/VLC/vlc.exe",
+            "macPath": "/Applications/VLC.app/Contents/MacOS/VLC",
+            "linuxPath": "/usr/bin/vlc",
             "defaultCustomArguments": null,
             "supportsYtdlProtocol": false,
             "videoUrl": "",
@@ -43,6 +49,7 @@
         "value": "iina",
         "cmdArguments": {
             "defaultExecutable": "iina",
+            "macPath": "/Applications/IINA.app/Contents/MacOS/IINA",
             "defaultCustomArguments": ["--no-stdin"],
             "supportsYtdlProtocol": true,
             "videoUrl": "",
@@ -60,6 +67,9 @@
         "value": "smplayer",
         "cmdArguments": {
             "defaultExecutable": "smplayer",
+            "windowsPath":"%ProgramFiles(x86)%/SMPlayer/smplayer.exe",
+            "macPath": "/Applications/SMPlayer.app/Contents/MacOS/SMPlayer",
+            "linuxPath": "/usr/bin/smplayer",
             "defaultCustomArguments": null,
             "supportsYtdlProtocol": true,
             "videoUrl": "",
@@ -77,6 +87,7 @@
         "value": "mpc-be",
         "cmdArguments": {
             "defaultExecutable": "mpc-be64",
+            "windowsPath":"%ProgramFiles%/MPC-BE/mpc-be64.exe",
             "defaultCustomArguments": null,
             "supportsYtdlProtocol": true,
             "videoUrl": "",
@@ -94,6 +105,7 @@
         "value": "mpc-hc",
         "cmdArguments": {
             "defaultExecutable": "mpc-hc64",
+            "windowsPath":"%ProgramFiles%/MPC-HC/mpc-hc64.exe",
             "defaultCustomArguments": null,
             "supportsYtdlProtocol": true,
             "videoUrl": "",
@@ -111,6 +123,7 @@
         "value": "potplayer",
         "cmdArguments": {
             "defaultExecutable": "potplayermini64",
+            "windowsPath":"%ProgramFiles(x86)%/DAUM/PotPlayer/PotPlayerMini64.exe",
             "defaultCustomArguments": null,
             "supportsYtdlProtocol": false,
             "videoUrl": "",
@@ -128,6 +141,7 @@
       "value": "clapper",
       "cmdArguments": {
           "defaultExecutable": "clapper",
+          "linuxPath":"/usr/local/bin/clapper",
           "defaultCustomArguments": null,
           "supportsYtdlProtocol": false,
           "videoUrl": "",
@@ -145,6 +159,7 @@
       "value": "celluloid",
       "cmdArguments": {
           "defaultExecutable": "celluloid",
+          "linuxPath":"/usr/bin/celluloid",
           "defaultCustomArguments": null,
           "supportsYtdlProtocol": false,
           "videoUrl": "",
@@ -162,6 +177,7 @@
       "value": "haruna",
       "cmdArguments": {
           "defaultExecutable": "haruna",
+          "linuxPath":"/usr/local/bin/haruna",
           "defaultCustomArguments": null,
           "supportsYtdlProtocol": false,
           "videoUrl": "",

@@ -10,7 +10,10 @@
         :select-values="externalPlayerValues"
         :tooltip="$t('Tooltips.External Player Settings.External Player')"
         :icon="['fas', 'external-link-alt']"
-        @change="updateExternalPlayer"
+        @change="val => {
+          updateExternalPlayer(val);
+          updateExternalPlayerExecutable('');
+        }"
       />
     </FtFlexBox>
     <FtFlexBox>
@@ -70,6 +73,8 @@ import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
 import FtInputTags from './ft-input-tags/ft-input-tags.vue'
 
 import store from '../store/index'
+
+import jsonData from '../../../static/external-player-map.json'
 
 const { t } = useI18n()
 
@@ -137,13 +142,38 @@ function updateExternalPlayerIgnoreDefaultArgs(value) {
   store.dispatch('updateExternalPlayerIgnoreDefaultArgs', value)
 }
 
-/**
- * @param {string} value
- */
-function updateExternalPlayerExecutable(value) {
-  store.dispatch('updateExternalPlayerExecutable', value)
+/** @param {string} str */
+function expandEnvVars(str) {
+  return str.replaceAll(/%([^%]+)%/g, (_, name) => process.env[name] || '')
 }
 
+/** @param {string} value */
+function updateExternalPlayerExecutable(value) {
+  if (value?.trim()) {
+    store.dispatch('updateExternalPlayerExecutable', value)
+    return
+  }
+
+  const playerData = jsonData.find(p => p.value === store.getters.getExternalPlayer)
+  console.warn('[updateExternalPlayerExecutable] playerData=', playerData)
+  if (!playerData?.cmdArguments) return
+
+  // Pick the correct path based on process.platform
+  let rawPath
+  if (process.platform === 'win32') rawPath = playerData.cmdArguments.windowsPath
+  else if (process.platform === 'darwin') rawPath = playerData.cmdArguments.macPath
+  else if (process.platform === 'linux') rawPath = playerData.cmdArguments.linuxPath
+
+  console.warn(
+    '[updateExternalPlayerExecutable] platform=',
+    process.platform,
+    'rawPath=',
+    rawPath
+  )
+
+  const defaultPath = rawPath ? expandEnvVars(rawPath) : ''
+  store.dispatch('updateExternalPlayerExecutable', defaultPath)
+}
 /**
  * @param {string[]} args
  */
