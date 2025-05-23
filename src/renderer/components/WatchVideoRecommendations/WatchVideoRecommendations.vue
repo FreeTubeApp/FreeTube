@@ -8,8 +8,8 @@
       </h3>
     </div>
     <FtListVideoLazy
-      v-for="(video, index) in data"
-      :key="index"
+      v-for="video in data"
+      :key="video.videoId"
       :data="video"
       appearance="recommendation"
       force-list-type="list"

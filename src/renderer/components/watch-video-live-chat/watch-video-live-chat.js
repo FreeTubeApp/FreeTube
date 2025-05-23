@@ -228,6 +228,7 @@ export default defineComponent({
       const badge = comment.author.badges.find(badge => badge.type === 'LiveChatAuthorBadge' && badge.custom_thumbnail)
 
       const parsedComment = {
+        id: comment.id,
         message: autolinker.link(parseLocalTextRuns(comment.message.runs, 20)),
         author: {
           name: comment.author.name,
