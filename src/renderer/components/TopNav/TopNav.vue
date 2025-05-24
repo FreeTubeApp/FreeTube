@@ -591,7 +591,7 @@ function handleKeyboardShortcuts(event) {
     !hideSearchBar.value &&
     (
       (ctrlOrCommandPressed && (event.key === 'L' || event.key === 'l')) ||
-      (event.altKey && (event.key === 'D' || event.key === 'd'))
+      (event.altKey && (event.key === 'D' || event.key === 'd' || (process.platform === 'darwin' && event.key === '∂')))
     )
   ) {
     event.preventDefault()
