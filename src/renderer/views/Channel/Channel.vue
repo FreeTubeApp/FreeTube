@@ -857,17 +857,17 @@ async function getChannelAboutLocal() {
 
       location.value = about.country.isEmpty() ? null : about.country.text
     } else {
-      description.value = about.description ? autolinker.link(about.description) : ''
+      description.value = about.metadata.description ? autolinker.link(about.metadata.description) : ''
 
-      const viewCount_ = extractNumberFromString(about.view_count)
+      const viewCount_ = extractNumberFromString(about.metadata.view_count)
       viewCount.value = isNaN(viewCount_) ? null : viewCount_
 
-      const videoCount_ = extractNumberFromString(about.video_count)
+      const videoCount_ = extractNumberFromString(about.metadata.video_count)
       videoCount.value = isNaN(videoCount_) ? null : videoCount_
 
-      joined.value = about.joined_date && !about.joined_date.isEmpty() ? Date.parse(about.joined_date.text.replace('Joined').trim()) : 0
+      joined.value = about.metadata.joined_date && !about.metadata.joined_date.isEmpty() ? Date.parse(about.metadata.joined_date.text.replace('Joined').trim()) : 0
 
-      location.value = about.country ?? null
+      location.value = about.metadata.country ?? null
     }
   } catch (err) {
     console.error(err)
