@@ -382,10 +382,6 @@ const actions = {
     commit('setNewPlaylistVideoObject', data)
   },
 
-  hideCreatePlaylistPrompt ({ commit }) {
-    commit('setShowCreatePlaylistPrompt', false)
-  },
-
   showKeyboardShortcutPrompt ({ commit }) {
     commit('setIsKeyboardShortcutPromptShown', true)
   },
