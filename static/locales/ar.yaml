@@ -30,8 +30,8 @@ Forward: 'إلى الأمام'
 Global:
   Videos: 'الفيديوهات'
   Shorts: القصيرة
-  Live: بث مباشر
-  Community: المجتمع
+  Live: البث المباشر
+  Posts: المنشورات
   Sort By: ترتيب حسب
 
 # Search Bar
@@ -581,7 +581,6 @@ Settings:
       الكبيرة وعلامات الترقيم بشكل مفرط
     Hide Featured Channels: إخفاء القنوات المميزة
     Hide Channel Playlists: إخفاء علامة التبويب "قوائم التشغيل" للقناة
-    Hide Channel Community: إخفاء علامة التبويب "المجتمع" للقناة
     Hide Channel Shorts: إخفاء علامة التبويب "المقاطع القصيرة" للقناة
     Sections:
       Side Bar: الشريط الجانبي
@@ -595,7 +594,6 @@ Settings:
     Hide Subscriptions Shorts: إخفاء الاشتراكات الفيدوهات القصيرة
     Hide Subscriptions Videos: إخفاء مقاطع فيديو الاشتراكات
     Hide Profile Pictures in Comments: إخفاء صور الملف الشخصي في التعليقات
-    Hide Subscriptions Community: إخفاء مجتمع الاشتراكات
     Hide Channels Invalid: معرف القناة المقدم غير صالح
     Hide Channels Disabled Message: تم حظر بعض القنوات باستخدام المعرّف ولم تتم معالجتها.
       يتم حظر الميزة أثناء تحديث هذه المعرفات
@@ -608,6 +606,8 @@ Settings:
     Hide Channel Home: إخفاء علامة التبويب "الصفحة الرئيسية" للقناة
     Show Added Items: إظهار العناصر المضافة
     Hide Channel Courses: إخفاء علامة التبويب "دورات" القناة
+    Hide Channel Posts: إخفاء علامة تبويب "المنشورات" للقناة
+    Hide Subscriptions Posts: إخفاء منشورات الاشتراكات
   The app needs to restart for changes to take effect. Restart and apply change?: البرنامج
     يحتاج لإعادة التشغيل كي يسري مفعول التغييرات. هل تريد إعادة التشغيل و تطبيق التغييرات؟
   Proxy Settings:
@@ -802,7 +802,7 @@ Channel:
   This channel does not allow searching: هذه القناة لا تسمح بالبحث
   This channel is age-restricted and currently cannot be viewed in FreeTube.: هذه
     القناة مصنفة حسب العمر ولا يمكن عرضها حاليا في FreeTube.
-  Community:
+  Posts:
     This channel currently does not have any posts: لا تحتوي هذه القناة حاليا على
       أي مشاركات
     Hide Answers: إخفاء الأجوبة
@@ -1062,7 +1062,7 @@ Version {versionNumber} is now available!  Click for more details: 'الإصدا
 Tooltips:
   General Settings:
     Thumbnail Preference: كلّ الصّور المصغّرة في FreeTube سيتمّ استبدالها بإطار من
-      الفيديو بدل من الصّورة المصغّرة الافتراضيّة.
+      الفيديو، يكون ضبابيًا أو مخفيًا، بدل من الصّورة المصغّرة الافتراضيّة.
     Preferred API Backend: اختر الواجهة الخلفية التي يستخدمها FreeTube لجلب البيانات.
       الواجهة البرمجية المحلية للتطبيق هي مستخرج محلي. الواجهة البرمجية للتطبيق التابعة
       لInvidious (بديل لموقع يوتيوب) يتطلب التواصل مع خادم شبكة Invidious.
@@ -1082,7 +1082,7 @@ Tooltips:
       من إجراء اتصال مباشر بـ YouTube.
     Default Video Format: حدّد التنسيقات المستخدمة عند تشغيل الفيديو. تنسيق داش (التدفق
       الميكانيكي المتكيّف عبر بروتوكول نقل النص التشعبي) يمكنها أن تُشغِّل جودات أعلى.
-      التنسيقات القديمة محدودة بجودة 720p كحدّ أقصى لكنها تستخدم عرضًا أقل للنطاق.
+      التنسيقات القديمة محدودة بجودة 360p كحدّ أقصى لكنها تستخدم عرضًا أقل للنطاق.
       التنسيقات الصوتية هي للتدفق الصوتي فقط.
     Scroll Playback Rate Over Video Player: أثناء وجود المؤشر فوق الفيديو، اضغط مع
       الاستمرار على مفتاح التحكم (مفتاح القيادة على Mac) ومرر عجلة الماوس للأمام أو
@@ -1091,11 +1091,11 @@ Tooltips:
       يتم تغييره في الإعدادات).
     Skip by Scrolling Over Video Player: استخدم عجلة التمرير لتخطي الفيديو بنمط MPV.
   Subscription Settings:
-    Fetch Feeds from RSS: عند تمكينه، سيستخدم FreeTube RSS بدلاً من طريقته الافتراضية
-      للحصول على خلاصة اشتراكك. RSS أسرع ويمنع حظر IP، لكنه لا يوفر معلومات معينة
-      مثل مدة الفيديو أو الحالة المباشرة أو مشاركات المجتمع
-    Fetch Automatically: عند التمكين ، سيقوم FreeTube تلقائيا بجلب خلاصة الاشتراك
-      الخاصة بك عند فتح نافذة جديدة وعند تبديل ملف التعريف.
+    Fetch Feeds from RSS: عند التفعيل، سيستخدم FreeTube بروتوكول RSS بدلاً من طريقته
+      الافتراضية لجلب خلاصة الاشتراكات. يعتبر RSS أسرع ويساعد على منع حظر عنوان الـIP،
+      لكنه لا يوفر بعض المعلومات مثل مدة الفيديو، حالة البث المباشر أو المنشورات
+    Fetch Automatically: عند التفعيل، سيقوم FreeTube تلقائيًا بجلب خلاصة الاشتراكات
+      عند بدء التشغيل وعند فتح نافذة جديدة.
   External Player Settings:
     Custom External Player Arguments: أي وسيطات سطر أوامر مخصصة تريد تمريرها إلى المشغل
       الخارجي.
@@ -1209,8 +1209,6 @@ Search Listing:
     360 Video: 360°
     New: جديد
     3D: ثلاثي الابعاد
-'Blocked opening potentially unsafe URL': 'تم حظر فتح الرابط الذي يحتمل أن يكون غير
-  آمن: "{url}".'
 Right-click or hold to see history: انقر زر الفارة الأيمن أو اضغط مطولا لعرض السجل
 KeyboardShortcutPrompt:
   Force Restart Window: إجبار إعادة تشغيل النافذة

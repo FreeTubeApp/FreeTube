@@ -44,7 +44,6 @@ Global:
   Videos: 'Videoioù'
   Shorts: 'Videoioù berr (Shorts)'
   Live: 'War-eeun'
-  Community: 'Kumuniezh'
   Sort By: 'Rummañ dre'
   Counts:
     Video Count: '1 video | {count} video'
@@ -573,7 +572,6 @@ Settings:
     Hide Channels Already Exists: 'ID ar chadenn a zo anezhañ dija'
     Hide Featured Channels: 'Kuzhat ar chadennoù lakaet war-wel'
     Hide Channel Playlists: 'Kuzhat rolloù-videoioù ar chadennoù'
-    Hide Channel Community: 'Kuzhat ivinell kumuniezh ar chadenn'
     Hide Channel Shorts: 'Kuzhat Shortoù ar chadenn'
     Hide Channel Podcasts: 'Kuzhat Podskignañ at chadenn'
     Hide Channel Releases: 'Kuzhat ermaeziadennoù ar chadenn'
@@ -584,7 +582,6 @@ Settings:
     Hide Subscriptions Videos: 'Kuzhat videoioù ar c''houmanantoù'
     Hide Subscriptions Shorts: 'Kuzhat Shortoù ar c''houmanantoù'
     Hide Subscriptions Live: 'Kuzhat ar skignañ war-eeun deus ar c''houmanantoù'
-    Hide Subscriptions Community: 'Kuzhat Kumuniezh ar c''houmanantoù'
   Data Settings:
     Data Settings: 'Roadennoù'
     Select Export Type: 'Choaz doare ezporzhiañ'
@@ -832,7 +829,7 @@ Channel:
     Joined: 'Enskrivet'
     Location: 'Lec''hiadur'
     Featured Channels: 'Chadennoù lakaet war-wel'
-  Community:
+  Posts:
     This channel currently does not have any posts: 'N''eus ket a gaozeadenn evit
       poent gant ar chadenn-mañ'
     votes: '{votes} a vouezhioù'
@@ -1170,8 +1167,6 @@ Age Restricted:
   This video is age restricted: 'Ur vevenn oad a zo d''ar video-mañ'
 External link opening has been disabled in the general settings: 'Diweredekaet eo
   al liammoù diavaez en arventennoù hollek'
-'Blocked opening potentially unsafe URL': 'Stanket eo an URL a c''hell bezañ arvarus :
-  "{url}".'
 Downloading has completed: '"{videoTitle}" a zo bet pellgarget'
 Starting download: 'Kregiñ da bellgargañ "{videoTitle}"'
 Downloading failed: 'C''hoarvezet ez eus ur gudenn en ur bellgargañ "{videoTitle}"'

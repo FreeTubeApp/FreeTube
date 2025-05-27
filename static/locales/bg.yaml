@@ -31,7 +31,7 @@ Global:
   Videos: 'Видеа'
   Shorts: Кратки видеа
   Live: На живо
-  Community: Общност
+  Posts: Публикации
   Sort By: Подреждане по
 
   Counts:
@@ -602,7 +602,6 @@ Settings:
       главни букви и препинателни знаци
     Hide Featured Channels: Скриване на препоръчаните канали
     Hide Channel Playlists: Скриване на раздел "Плейлисти"
-    Hide Channel Community: Скриване на раздел "Общност"
     Hide Channel Shorts: Скриване на раздел "Кратки видеа"
     Sections:
       Channel Page: Страница на канала
@@ -616,7 +615,6 @@ Settings:
     Hide Subscriptions Live: Скриване на абонаментите на живо
     Hide Channel Podcasts: Скриване на раздел "Подкасти"
     Hide Profile Pictures in Comments: Скриване на профилните снимки в коментарите
-    Hide Subscriptions Community: Скриване на абонаментите Общност
     Hide Channels Disabled Message: Някои канали бяха блокирани с чрез идентификатор
       и не бяха обработени. Функцията е блокирана, докато тези идентификатори се актуализират
     Hide Channels API Error: Грешка при извличането на потребител с предоставения
@@ -630,6 +628,8 @@ Settings:
     Hide Channel Home: Скриване на раздел "Начало"
     Show Added Items: Показване на добавените елементи
     Hide Channel Courses: Скриване на раздел "Курсове"
+    Hide Channel Posts: Скриване на раздел "Публикации"
+    Hide Subscriptions Posts: Скриване на публикациите в абонаментите
   The app needs to restart for changes to take effect. Restart and apply change?: Приложението
     трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
@@ -826,7 +826,7 @@ Channel:
     Details: Детайли
     Joined: Присъединен на
     Location: Местоположение
-  Community:
+  Posts:
     This channel currently does not have any posts: В момента този канал няма никакви
       публикации
     votes: '{votes} гласа'
@@ -1097,13 +1097,13 @@ Tooltips:
     Fetch Feeds from RSS: FreeTube ще използва RSS вместо метода по подразбиране за
       получаване на абонаментите. RSS е по-бърз метод и преодолява блокиранията на
       IP адреса, но не получава някои съпътстващи данни, като продължителност на видеото,
-      дали е на живо или публикации в общността
-    Fetch Automatically: FreeTube автоматично ще извлича абонаментите при отваряне
-      на нов прозорец и при смяна на профила.
+      дали е на живо или публикации
+    Fetch Automatically: FreeTube автоматично ще извлича абонаментите при стартиране
+      и при отваряне на нов прозорец.
   Player Settings:
     Default Video Format: Настройка на използваните формати. DASH форматите могат
       да показват видеа с по-високо качество. Старите формати са ограничени до макс.
-      720р, но пък генерират по-малък трафик. Аудио форматите предават само звук.
+      360р, но пък генерират по-малък трафик. Аудио форматите предават само звук.
     Proxy Videos Through Invidious: Ще се свърже с Invidious, за да изтегли видеото,
       вместо да прави дирекна връзка с YouTube.
     Scroll Playback Rate Over Video Player: Докато курсорът е върху видеото, натиснете
@@ -1119,7 +1119,7 @@ Tooltips:
       избере страната, за която това се отнася.
     Invidious Instance: Сървър на Invidious, към който FreeTube ще се свързва.
     Thumbnail Preference: Всички миниатюри във FreeTube ще бъдат подменени с кадър
-      от клипа вместо тези по подразбиране.
+      от видеото, замъглени или скрити, вместо тези по подразбиране.
     Fallback to Non-Preferred Backend on Failure: Когато избраният интерфейс срещне
       проблем, FreeTube ще опита да премине автоматично към друг метод, ако има избран
       такъв.
@@ -1246,8 +1246,6 @@ Search Listing:
     8K: 8K
     360 Video: 360°
     New: Нов
-'Blocked opening potentially unsafe URL': 'Блокирано отваряне на потенциално опасен
-  URL адрес: "{url}".'
 Description:
   Collapse Description: По-малко
   Expand Description: '...още'

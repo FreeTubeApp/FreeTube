@@ -27,8 +27,8 @@ Forward: 'Naprzód'
 Global:
   Videos: 'Filmy'
   Shorts: Filmy Short
-  Live: Transmisje
-  Community: Społeczność
+  Live: Na żywo
+  Posts: Posty
   Sort By: Sortuj według
 
 # Search Bar
@@ -593,7 +593,6 @@ Settings:
     Hide Channels Placeholder: ID kanału
     Display Titles Without Excessive Capitalisation: Wyświetlaj tytuły nie nadużywając
       wielkich liter i interpunkcji
-    Hide Channel Community: Schowaj kartę kanału „Społeczność”
     Hide Channel Shorts: Schowaj kartę kanału „Filmy Short”
     Hide Featured Channels: Schowaj polecane kanały
     Hide Channel Playlists: Schowaj kartę kanału „Playlisty”
@@ -609,7 +608,6 @@ Settings:
     Hide Subscriptions Shorts: Schowaj filmy Short z subskrypcji
     Hide Subscriptions Live: Schowaj transmisje live z subskrypcji
     Hide Profile Pictures in Comments: Nie pokazuj zdjęć profilowych w komentarzach
-    Hide Subscriptions Community: Schowaj „Społeczność” kanałów
     Hide Channels Invalid: Podane ID kanału jest niepoprawne
     Hide Channels Disabled Message: Niektóre z kanałów nie zostały przetworzone, ponieważ
       zostały zablokowane po swoim ID. Funkcja jest zablokowana, aż do momentu, w
@@ -775,7 +773,7 @@ Channel:
   Channel Tabs: Karty kanału
   This channel does not exist: Nie ma takiego kanału
   This channel does not allow searching: Ten kanał nie zezwala na przeszukiwanie
-  Community:
+  Posts:
     This channel currently does not have any posts: Ten kanał nie ma obecnie żadnych
       wpisów
     votes: '{votes} głosów'
@@ -1250,8 +1248,6 @@ Search Listing:
     VR180: VR180
     8K: 8K
     360 Video: 360°
-'Blocked opening potentially unsafe URL': 'Zablokowano otwarcie potencjalnie niebezpiecznego
-  URL: "{url}".'
 Keys:
   arrowup: Strzałka do góry
   arrowright: Strzałka w prawo

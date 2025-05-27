@@ -8,7 +8,7 @@
     >
       <input
         :id="id + values[index]"
-        :key="index"
+        :key="'value' + values[index]"
         :name="id"
         :value="values[index]"
         :checked="value === values[index]"
@@ -18,7 +18,7 @@
         @change="handleChange(values[index])"
       >
       <label
-        :key="label"
+        :key="'label' + values[index]"
         :for="id + values[index]"
       >
         {{ label }}

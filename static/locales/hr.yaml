@@ -29,9 +29,9 @@ Forward: 'Naprijed'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videa'
-  Shorts: Kratka videa
+  Shorts: Shorts videozapisi
   Live: Uživo
-  Community: Zajednica
+  Posts: Postovi
   Sort By: Redoslijed
 
 # Search Bar
@@ -233,6 +233,7 @@ User Playlists:
     poništiti.
   Export Playlist: Izvezi ovu zbirku
   The playlist has been successfully exported: Zbirka je uspješno izvezena
+  TotalTimePlaylist: 'Ukupno vrijeme: {duration}'
 History:
   # On History Page
   History: 'Povijest'
@@ -494,6 +495,16 @@ Settings:
       su izbrisani
     Are you sure you want to clear out your search history and cache?: Stvarno želiš
       izbrisati povijest pretraživanja i predmemoriju?
+    Watched Progress Saving Mode:
+      Modes:
+        Semi-auto: Poluautomatski
+        Never: Nikada
+        Auto: Automatski
+      Tooltip: Automatski = Sprema se prilikom svakog izlaska s video stranice, kada
+        video završi i kada dođe do greške (npr. ograničenje brzine ili istekla sesija
+        gledanja). Poluautomatski = Kao automatski, osim prilikom izlaska s video
+        stranice. Napredak gledanja može se ručno spremiti pomoću gumba "Spremi napredak
+        gledanja", koji se nalazi ispod video playera.
   Subscription Settings:
     Subscription Settings: 'Pretplata'
     Hide Videos on Watch: 'Sakrij video nakon gledanja'
@@ -574,7 +585,6 @@ Settings:
       korištenja velikih slova i interpunkcije
     Hide Featured Channels: Sakrij istaknute kanale
     Hide Channel Playlists: Sakrij karticu „Zbirke” kanala
-    Hide Channel Community: Sakrij karticu „Zajednica” kanala
     Hide Channel Shorts: Sakrij karticu „Kratka videa” kanala
     Sections:
       Watch Page: Stranica gledanja
@@ -588,7 +598,6 @@ Settings:
     Hide Subscriptions Live: Sakrij pretplate videa uživo
     Hide Subscriptions Videos: Sakrij pretplate videa
     Hide Profile Pictures in Comments: Sakrij slike profila u komentarima
-    Hide Subscriptions Community: Sakrij pretplate zajednice
     Hide Channels Invalid: Navedeni ID kanala nije bio ispravan
     Hide Channels Disabled Message: Neki su kanali blokirani upotrebom ID-a i nisu
       obrađeni. Funkcija je blokirana tijekom aktualiziranje tih ID-ova
@@ -601,6 +610,8 @@ Settings:
     Hide Channel Home: Sakrij karticu „Početna” kanala
     Show Added Items: Prikaži dodane stavke
     Hide Channel Courses: Sakrij karticu "Tečajevi" kanala
+    Hide Channel Posts: Sakrij karticu "Objave" kanala
+    Hide Subscriptions Posts: Sakrij pretplata objave
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene
     će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
@@ -798,7 +809,7 @@ Channel:
     Live: Uživo
     This channel does not currently have any live streams: Ovaj kanal trenutačno nema
       prijenosa uživo
-  Community:
+  Posts:
     This channel currently does not have any posts: Ovaj kanal trenutačno nema objava
     Reveal Answers: Prikaži odgovore
     Hide Answers: Sakrij odgovore
@@ -952,6 +963,8 @@ Video:
     vlasničke komponente zatvorenog koda. Ako želiš gledati ovaj video, gledaj ga
     na službenoj YouTube web stranici u web pregledniku s aktiviranim DRM-om.
 #& Playlists
+  Watched Progress Saved: Napredak gledanja spremljen
+  Save Watched Progress: Spremi napredak gledanja
 Playlist:
   #& About
   View Full Playlist: 'Pogledaj cijelu zbirku'
@@ -1203,8 +1216,6 @@ Search Listing:
     360 Video: 360°
     New: Novi
     3D: 3D
-'Blocked opening potentially unsafe URL': 'Blokirano je otvaranje potencijalno nesigurnog
-  URL-a: „{url}”.'
 Right-click or hold to see history: Pritisni desnu tipku miša ili zadrži za prikaz
   povijest
 Description:

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="!isInvidiousAllowed">
-      {{ $t('Channel.Community.Viewing Posts Only Supported By Invidious') }}
+      {{ $t('Channel.Posts.Viewing Posts Only Supported By Invidious') }}
     </div>
     <FtLoader v-else-if="isLoading" />
     <template
@@ -35,7 +35,7 @@ import packageDetails from '../../../package.json'
 
 import FtCard from '../components/ft-card/ft-card.vue'
 import FtCommunityPost from '../components/FtCommunityPost/FtCommunityPost.vue'
-import FtLoader from '../components/ft-loader/ft-loader.vue'
+import FtLoader from '../components/FtLoader/FtLoader.vue'
 import CommentSection from '../components/CommentSection/CommentSection.vue'
 
 import store from '../store/index'

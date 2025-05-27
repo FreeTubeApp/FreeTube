@@ -89,10 +89,8 @@ export default [
       }],
 
       'vuejs-accessibility/no-static-element-interactions': 'off',
-      'n/no-callback-literal': 'warn',
-      'n/no-path-concat': 'warn',
       'unicorn/better-regex': 'error',
-      'unicorn/no-array-push-push': 'error',
+      'unicorn/prefer-single-call': 'error',
       'unicorn/prefer-keyboard-event-key': 'error',
       'unicorn/prefer-regexp-test': 'error',
       'unicorn/prefer-string-replace-all': 'error',
@@ -136,6 +134,15 @@ export default [
 
       'freetube/prefer-use-i18n-polyfill': 'error',
     },
+  },
+
+  {
+    files: ['src/main/index.js'],
+    languageOptions: {
+      globals: {
+        __FREETUBE_ALLOWED_PATHS__: 'readable'
+      }
+    }
   },
 
   ...eslintPluginJsonc.configs['flat/base'],
@@ -223,7 +230,6 @@ export default [
       '@stylistic/space-before-function-paren': 'off',
       '@stylistic/comma-dangle': ['error', 'only-multiline'],
       'no-console': 'off',
-      'n/no-path-concat': 'off',
       'unicorn/better-regex': 'error',
       'unicorn/prefer-optional-catch-binding': 'error',
       'unicorn/prefer-date-now': 'error',
@@ -246,7 +252,6 @@ export default [
       'no-console': 'off',
       '@stylistic/space-before-function-paren': 'off',
       '@stylistic/comma-dangle': ['error', 'only-multiline'],
-      'n/no-path-concat': 'off',
       'unicorn/better-regex': 'error',
       'unicorn/prefer-optional-catch-binding': 'error',
       'unicorn/prefer-date-now': 'error',

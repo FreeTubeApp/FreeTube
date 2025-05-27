@@ -28,7 +28,7 @@ Global:
   Videos: 'Видео'
   Shorts: Короткие видео
   Live: Трансляции
-  Community: Сообщество
+  Posts: Записи
   Sort By: Сортировать по
 
 # Search Bar
@@ -502,6 +502,9 @@ Settings:
       что хотите очистить историю поиска и кэш?
     Search history and cache have been cleared: История поиска и кэш были очищены
     Remember Search History: Сохранять Историю Поисков
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Авто
   Data Settings:
     How do I import my subscriptions?: Как импортировать подписки?
     Unknown data key: Неизвестный ключ данных
@@ -573,7 +576,6 @@ Settings:
       заглавных букв и знаков препинания
     Hide Featured Channels: Скрыть избранные каналы
     Hide Channel Playlists: Скрыть вкладку "Списки воспроизведения" канала
-    Hide Channel Community: Скрыть вкладку "Сообщество" канала
     Hide Channel Shorts: Скрыть вкладку "Шорты" канала
     Sections:
       Side Bar: Боковая Панель
@@ -588,7 +590,6 @@ Settings:
     Hide Subscriptions Shorts: Скрыть короткие видео из подписок
     Hide Profile Pictures in Comments: Скрыть изображения профилей в комментариях
     Hide Channels Invalid: Указанный идентификатор канала недействителен
-    Hide Subscriptions Community: Скрыть сообщество подписок
     Hide Channels Disabled Message: Некоторые каналы были заблокированы по идентификатору
       и не были обработаны. Функция заблокирована, пока эти идентификаторы обновляются
     Hide Channels Already Exists: Идентификатор канала уже существует
@@ -751,7 +752,7 @@ Channel:
   Channel Tabs: Вкладки каналов
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Этот
     канал ограничен по возрасту и в настоящее время не может быть просмотрен во FreeTube.
-  Community:
+  Posts:
     This channel currently does not have any posts: На этом канале в настоящее время
       нет никаких записей
     votes: 'Голосов: {votes}'
@@ -1223,8 +1224,6 @@ Search Listing:
     360 Video: 360°
     New: Новинка
     3D: 3D
-'Blocked opening potentially unsafe URL': 'Заблокировано открытие потенциально небезопасного
-  URL: "{url}".'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Keys:

@@ -1,7 +1,7 @@
 Locale Name: Tiếng Việt
 
 # Webkit Menu Bar
-File: 'tài liệu'
+File: 'Tệp'
 Quit: 'Thoát'
 Edit: 'Chỉnh sửa'
 Undo: 'Hoàn tác'
@@ -13,7 +13,7 @@ Delete: 'Xóa'
 Select all: 'Chọn tất cả'
 Reload: 'Tải lại'
 Force Reload: 'Buộc tải lại'
-Toggle Developer Tools: 'Chuyển đổi công cụ phát triển'
+Toggle Developer Tools: 'Bật/Tắt Công cụ dành cho nhà phát triển'
 Actual size: 'Kích thước thực'
 Zoom in: 'Phóng to'
 Zoom out: 'Thu nhỏ'
@@ -32,7 +32,7 @@ Global:
 # Search Bar
   Live: Trực tiếp
   Shorts: Shorts
-  Community: Cộng đồng
+  Posts: Bài đăng
   Sort By: 'Sắp xếp theo'
   Counts:
     Subscriber Count: 1 người đăng ký | {count} người đăng ký
@@ -235,6 +235,7 @@ User Playlists:
   Playlists with Matching Videos: Bao gồm video trong danh sách phát
   Export Playlist: Xuất danh sách phát này
   The playlist has been successfully exported: Đã xuất thành công danh sách phát này
+  TotalTimePlaylist: 'Tổng thời lượng: {duration}'
 History:
   # On History Page
   History: 'Lịch sử'
@@ -559,13 +560,11 @@ Settings:
     Hide Channel Releases: Ẩn trang "Xuất bản" của kênh
     Hide Videos and Playlists Containing Text: Ẩn các video và danh sách phát có chứa
     Hide Channels Invalid: ID kênh không hợp lệ
-    Hide Channel Community: Ẩn trang "Cộng đồng" của kênh
     Hide Channel Shorts: Ẩn trang "Shorts" của kênh
     Hide Subscriptions Shorts: Ẩn short từ các đăng ký
     Hide Subscriptions Live: Ẩn video phát trực tiếp từ các đăng ký
     Hide Upcoming Premieres: Ẩn video sắp ra mắt
     Hide Channel Podcasts: Ẩn trang "Podcast" của kênh
-    Hide Subscriptions Community: Ẩn bài đăng cộng đồng từ các đăng ký
     Hide Channels Already Exists: ID kênh đã tồn tại
     Hide Videos and Playlists Containing Text Placeholder: Từ, tiếng, hoặc cụm từ
     Hide Subscriptions Videos: Ẩn video từ các đăng ký
@@ -604,6 +603,15 @@ Settings:
     Are you sure you want to clear out your search history and cache?: Bạn có chắc
       muốn xóa lịch sử tìm kiếm và bộ đệm của bạn?
     Search history and cache have been cleared: Đã xóa lịch sử tìm kiếm và bộ đệm
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Tự động
+        Semi-auto: Bán-tự động
+        Never: Không
+      Tooltip: 'Tự động = Lưu mỗi khi thoát khỏi trang video, khi video kết thúc và
+        gặp lỗi (ví dụ: giới hạn tốc độ và phiên xem đã hết hạn). Bán tự động = Như
+        tự động, trừ lúc thoát khỏi trang video và có thể lưu tiến trình theo cách
+        thủ công thông qua nút Lưu tiến trình đã xem, nằm bên dưới trình phát video.'
   The app needs to restart for changes to take effect. Restart and apply change?: Ứng
     dụng cần được khởi động lại để chỉnh sửa có hiệu nghiệm. Khởi động lại và áp dụng
     cài đặt?
@@ -646,7 +654,7 @@ Settings:
     UseDeArrowTitles: Dùng tiêu đề video từ DeArrow
     UseDeArrowThumbnails: Dùng ảnh xem trước từ DeArrow
   External Player Settings:
-    External Player Settings: Trình phát ngoại
+    External Player Settings: Trình phát video bên ngoài
     External Player: Trình phát video bên ngoài
     Custom External Player Arguments: Tham số trình phát bên ngoài tùy chỉnh
     Ignore Unsupported Action Warnings: Bỏ qua các cảnh bảo tác vụ không được hổ trợ
@@ -756,8 +764,8 @@ Channel:
       bất kì luồng phát trực tiếp nào
   This channel does not allow searching: Kênh này không cho phép tìm kiếm
   This channel does not exist: Kênh không tồn tại
-  Community:
-    Community: Cộng đồng
+  Posts:
+    Posts: Bài đăng
     This channel currently does not have any posts: Kênh này hiện không có bất kì
       bài đăng nào
     votes: '{votes} bình chọn'
@@ -1213,7 +1221,6 @@ Search Listing:
     New: Mới
     3D: 3D
     Closed Captions: Có phụ đề
-'Blocked opening potentially unsafe URL': 'Đã chặn mở URL tiềm ẩn không an toàn: "{url}".'
 Search character limit: Chuỗi tìm kiếm vượt quá độ dài {searchCharacterLimit} ký tự
   cho phép
 Yes, Open Link: Có, mở liên kết

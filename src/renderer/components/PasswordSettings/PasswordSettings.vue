@@ -39,7 +39,7 @@ import { computed, ref } from 'vue'
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtButton from '../ft-button/ft-button.vue'
+import FtButton from '../FtButton/FtButton.vue'
 
 import store from '../../store/index'
 

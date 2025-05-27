@@ -30,8 +30,8 @@ Forward: '앞으로가기'
 Global:
   Videos: '동영상'
 
-  Live: 실시간
-  Community: 커뮤니티
+  Live: 라이브
+  Posts: 게시물
   Shorts: 쇼츠
   Sort By: '정렬하기'
   Counts:
@@ -85,17 +85,34 @@ Search Filters:
   Fetch more results: '검색 결과 더 보기'
 # Sidebar
   There are no more results for this search: 이 검색 결과에 대한 항목이 더 없습니다
+  Features:
+    Creative Commons: 크리에이티브 커먼즈
+    Location: 위치
+    Features: 기능
+    3D: 3D
+    Live: 라이브
+    4K: 4K
+    360 Video: 360도 영상
+    HDR: HDR
+    VR180: VR180
+    HD: HD
+    Subtitles: 자막
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '구독'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: '이
     프로필에는 많은 구독이 있습니다. RSS가 속도 제한을 피하도록 강요합니다'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '구독한
-    채널이 없습니다. 구독 피드를 보려면 원하시는 채널을 구독하세요'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '구독
+    목록이 현재 비어 있습니다. 구독을 가져오려면 데이터 설정으로 이동하여 구독 가져오기를 선택하거나, 채널을 검색하여 구독할 수 있습니다'
   Load More Videos: '더 많은 동영상 불러오기'
   Error Channels: 오류가 있는 채널
   Disabled Automatic Fetching: 자동 구독 정보 수집이 비활성화 되어 있습니다. 구독을 새로고침해주세요.
   Empty Channels: 구독한 채널들에 업로드 된 영상이 없습니다.
+  Empty Posts: 구독한 채널에 현재 게시물이 없습니다.
+  Subscriptions Tabs: 구독 탭
+  Load More Posts: 더 많은 게시물 불러오기
+  All Subscription Tabs Hidden: 모든 구독 탭이 숨겨져 있습니다. 여기에 콘텐츠를 보려면 "{settingsSection}"의
+    "{subsection}" 섹션에서 일부 탭을 표시해 주세요.
 Trending:
   Trending: '트렌딩'
   Trending Tabs: 트렌딩 탭
@@ -107,8 +124,14 @@ Most Popular: '인기 동영상'
 Playlists: '재생 목록'
 User Playlists:
   Your Playlists: '나의 재생 목록'
-  Search bar placeholder: 재생 목록에서 검색
-  Empty Search Message: 이 재생 목록에 검색과 일치하는 동영상이 없습니다
+  Search bar placeholder: 재생목록 검색
+  Empty Search Message: 이 재생목록에는 검색어와 일치하는 동영상이 없습니다
+  This playlist currently has no videos.: 이 재생목록에는 현재 동영상이 없습니다.
+  Playlists with Matching Videos: 일치하는 동영상이 포함된 재생목록
+  You have no playlists. Click on the create new playlist button to create a new one.: 재생목록이
+    없습니다. 새 재생목록을 만들려면 새 재생목록 만들기 버튼을 클릭하세요.
+  Add to Playlist: 재생목록에 추가
+  Create New Playlist: 새 재생목록 만들기
 History:
   # On History Page
   History: '재생 기록'
@@ -745,3 +768,6 @@ KeyboardShortcutPrompt:
   Fullscreen: 전체화면
 Right-click or hold to see history: 우클릭하거나 길게 눌러 기록을 확인하세요
 Go to page: '{페이지}로 이동'
+Feed:
+  Feed Last Updated: '{feedName} 피드 마지막 업데이트: {date}'
+  Refresh Feed: '{subscriptionName} 새로 고침'

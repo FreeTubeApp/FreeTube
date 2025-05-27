@@ -8,7 +8,7 @@
     >
       <input
         :id="id + values[index]"
-        :key="index"
+        :key="'value' + values[index]"
         v-model="modelValue"
         :name="id"
         :value="values[index]"
@@ -17,7 +17,7 @@
         type="checkbox"
       >
       <label
-        :key="label"
+        :key="'label' + values[index]"
         :for="id + values[index]"
       >
         {{ label }}

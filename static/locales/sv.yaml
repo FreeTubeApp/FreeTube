@@ -31,7 +31,7 @@ Global:
   Videos: 'Videor'
   Shorts: Shorts
   Live: Live
-  Community: Gemenskap
+  Posts: Inlägg
   Sort By: Sortera efter
 
   Counts:
@@ -598,7 +598,6 @@ Settings:
       Channel Page: Kanal sida
       Watch Page: Titta sida
       Subscriptions Page: Prenumerationssida
-    Hide Channel Community: Dölj Kanalfliken "Gemenskap"
     Hide Channel Playlists: Dölj Kanalfliken "Spellistor"
     Hide Channel Podcasts: Dölj Kanalfliken "Podcasts"
     Hide Channel Releases: Dölj Kanalfliken "Släpp"
@@ -606,7 +605,6 @@ Settings:
     Hide Subscriptions Shorts: Dölj prenumerationsshorts
     Hide Subscriptions Live: Dölj prenumerations Live-sändningar
     Hide Profile Pictures in Comments: Dölj profilbilder i kommentarer
-    Hide Subscriptions Community: Dölj prenumerationsgemenskap
     Hide Channels Invalid: Det angivna kanal-ID var ogiltigt
     Hide Channels Disabled Message: Vissa kanaler blockerades med ID och bearbetades
       inte. Funktionen är blockerad medan dessa ID:n uppdateras
@@ -817,7 +815,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Denna
     kanalen är ålderbegränsad och kan inte ses i FreeTube.
   Channel Tabs: Kanalflikar
-  Community:
+  Posts:
     This channel currently does not have any posts: Denna kanal har för närvarande
       inga inlägg
     votes: '{votes} röster'
@@ -1082,13 +1080,13 @@ Tooltips:
     Fetch Feeds from RSS: När det är aktiverat kommer FreeTube att använda RSS istället
       för standardmetoden för att hämta ditt prenumerationsflöde. RSS är snabbare
       och förhindrar IP-blockering, men ger inte viss information som videons längd,
-      livestatus eller gemenskap-inlägg
+      livestatus eller kommentarer
     Fetch Automatically: Om aktiverat så kommer FreeTube automatiskt hämta ditt prenumerationsflöde
-      när ett nytt fönster öppnas och när du byter profil.
+      när du startar FreeTube och när ett nytt fönster öppnas.
   Player Settings:
     Default Video Format: Ställ in de format som används när en video spelas upp.
       DASH-format kan spela högre kvaliteter. Äldre format är begränsade till max
-      720p men använder mindre bandbredd. Ljudformat är ljud bara strömmar.
+      360p men använder mindre bandbredd. Ljudformat är endast ljudströmmningar.
     Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att hämta
       videor istället för att göra en direkt anslutning till YouTube.
     Skip by Scrolling Over Video Player: Använd scrollhjulet för att snabbspola igenom
@@ -1228,8 +1226,6 @@ Trimmed input must be at least N characters long: Trimmad inmatning måste vara 
 Description:
   Expand Description: '...mer'
   Collapse Description: Visa mindre
-'Blocked opening potentially unsafe URL': 'Blockerad öppning av potentiellt osäker
-  webbadress: "{url}".'
 Yes, Delete: Ja, Radera
 Autoplay Interruption Timer: Autouppspelningen avbröts på grund av {autoplayInterruptionIntervalHours}
   timmars inaktivitet

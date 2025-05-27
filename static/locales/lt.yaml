@@ -33,7 +33,7 @@ Global:
 
   Live: Tiesiogiai
   Shorts: Šortai
-  Community: Bendruomenė
+  Posts: Įrašai
   Sort By: 'Rūšiuoti pagal'
   Counts:
     Subscriber Count: 1 prenumeruoti | {count} prenumeratorių
@@ -336,7 +336,6 @@ Settings:
     Hide Channels Placeholder: Kanalo pavadinimas arba ID
     Hide Featured Channels: Slėpti Teminiai kanalai
     Hide Channel Playlists: Slėpti Kanalo Grojaraščiai
-    Hide Channel Community: Slėpti Kanalo Bendruomenę
     Hide Channel Shorts: Slėpti Kanalo Šortus
   Data Settings:
     Data Settings: 'Duomenų nustatymai'

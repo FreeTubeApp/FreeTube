@@ -63,7 +63,7 @@ import store from '../../store/index'
 
 import FtCard from '../ft-card/ft-card.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtButton from '../ft-button/ft-button.vue'
+import FtButton from '../FtButton/FtButton.vue'
 
 const props = defineProps({
   label: {

@@ -262,16 +262,28 @@ function onVisibilityChanged(isVisible) {
   visible.value = isVisible
 }
 
-function moveVideoUp() {
-  emit('move-video-up')
+/**
+ * @param {string} videoId
+ * @param {string} playlistItemId
+ */
+function moveVideoUp(videoId, playlistItemId) {
+  emit('move-video-up', videoId, playlistItemId)
 }
 
-function moveVideoDown() {
-  emit('move-video-down')
+/**
+ * @param {string} videoId
+ * @param {string} playlistItemId
+ */
+function moveVideoDown(videoId, playlistItemId) {
+  emit('move-video-down', videoId, playlistItemId)
 }
 
-function removeFromPlaylist() {
-  emit('remove-from-playlist')
+/**
+ * @param {string} videoId
+ * @param {string} playlistItemId
+ */
+function removeFromPlaylist(videoId, playlistItemId) {
+  emit('remove-from-playlist', videoId, playlistItemId)
 }
 </script>
 

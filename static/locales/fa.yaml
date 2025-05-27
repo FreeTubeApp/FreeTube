@@ -549,7 +549,6 @@ Settings:
     Hide Chapters: پنهان کردن فصل ها
     Hide Channels Placeholder: شناسه کانال
     Hide Subscriptions Live: مخفی کردن اشتراک های زنده
-    Hide Channel Community: مخفی کردن "انجمن" کانال
     Hide Channel Shorts: مخفی کردن "ویدئو های کوتاه" کانال
     Hide Subscriptions Shorts: مخفی کردن شورت اشتراک ها
     Hide Channel Podcasts: پنهان کردن "پادکست‌های" کانال
@@ -560,7 +559,6 @@ Settings:
     Hide Channels Already Exists: شناسه کانال از قبل وجود دارد
     Hide Videos and Playlists Containing Text: ویدیوها و لیست های پخش حاوی متن را
       مخفی کنید
-    Hide Subscriptions Community: مخفی کردن انجمن دنبال‌شده ها
     Hide Channel Home: مخفی کردن "صفحه اصلی" کانال
     Hide Channels API Error: خطای بازیابی کاربر با شناسه ارائه شده. لطفا دوباره بررسی
       کنید که شناسه درست باشد.
@@ -714,8 +712,8 @@ Channel:
     Releases: منتشر شده
     This channel does not currently have any releases: این کانال در حال حاضر هیچ نسخه
       ای ندارد
-  Community:
-    Community: انجمن
+  Posts:
+    Posts: پست‌ها
     votes: '{votes} رأی'
     Reveal Answers: پاسخ ها را فاش کن
     This channel currently does not have any posts: این کانال در حال حاضر هیچ پستی
@@ -1019,7 +1017,7 @@ Global:
     Video Count: ۱ ویدیو | {count} ویدیو
     Like Count: 1 پسند | {count} پسند
     Comment Count: 1 نظر | {count} نظر
-  Community: جامعه
+  Posts: پست‌ها
 Share:
   Share Playlist: لیست پخش را به اشتراک بگذارید
   Share Channel: اشتراک گذاری کانال
@@ -1214,7 +1212,6 @@ Trimmed input must be at least N characters long: ورودی بریده شده �
 Tag already exists: برچسب "{tagName}" از قبل وجود دارد
 checkmark: ✓
 Channel Unhidden: '{channel} از فیلتر کانال حذف شد'
-'Blocked opening potentially unsafe URL': 'باز کردن آدرس بالقوه ناامن مسدود شد: "{url}".'
 Channel Hidden: '{channel} به فیلتر کانال اضافه شد'
 Yes, Open Link: بله بازکردن پیوند
 KeyboardShortcutTemplate: '{label} ({shortcut})'

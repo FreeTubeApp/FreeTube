@@ -38,7 +38,7 @@ Global:
     Channel Count: 1 kanal | {count} kanaler
     Comment Count: 1 kommentar | {count} kommentarer
     Like Count: 1 kan lide | {count} kan lide
-  Community: Fællesskab
+  Posts: Opslag
   Live: Live
   Sort By: Sortér efter
   Shorts: Shorts
@@ -624,7 +624,6 @@ Settings:
     Hide Channels API Error: Fejl ved hentning af bruger med det angivne ID. Tjek
       venligst igen, om ID'et er korrekt.
     Hide Channel Playlists: Skjul kanal "Playlists" Tab
-    Hide Channel Community: Skjul kanal "Kommunity" Tab
     Hide Channel Podcasts: Skjul fanen »Podcasts« på kanalen
     Hide Channels Invalid: Det angivne kanal-ID var ugyldigt
     Hide Channels Disabled Message: Nogle kanaler blev blokeret med ID og blev ikke
@@ -638,8 +637,8 @@ Settings:
     Hide Channel Courses: Skjul kanal "Courses" Tab
     Hide Subscriptions Live: Skjul liveudsendelser fra abonnementer
     Hide Subscriptions Shorts: Skjul abonnementer Shorts
-    Hide Subscriptions Community: Skjul abonnementsfællesskab
     Hide Subscriptions Videos: Skjul abonnementer Videoer
+    Hide Channel Posts: Skjul "Opslag"-fanen på kanaler
   The app needs to restart for changes to take effect. Restart and apply change?: App'en
     er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
     ændringer?
@@ -816,7 +815,7 @@ Channel:
       Tags: Etiketter
     Joined: sluttet sig til
     Location: placering
-  Community:
+  Posts:
     Hide Answers: Skjul Svar
     This channel currently does not have any posts: Denne kanal har i øjeblikket ingen
       opslag
@@ -1088,14 +1087,13 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Når aktiveret, bruger FreeTube RSS i stedet for standardmetoden
       til at hente dit abonnementsfeed. RSS er hurtigere og forhindrer IP-blokering,
-      men viser ikke visse oplysninger som videoens varighed, live-status eller opslag
-      fra fællesskabet
+      men giver ikke visse oplysninger som videovarighed, live-status eller opslag
     Fetch Automatically: Når det er aktiveret, henter FreeTube automatisk dit abonnementsfeed,
       når der åbnes et nyt vindue, og når du skifter profil.
   Player Settings:
-    Default Video Format: Angiv formaterne der bruges når en video afspilles. DASH-formater
-      kan afspille med højere kvalitet. Gamle formater er begrænsede til maks HD,
-      men bruger mindre båndbredde. Lydformater er lydstrømme kun med lyd.
+    Default Video Format: Vælg de formater, der skal bruges, når en video afspilles.
+      DASH-formater kan afspille højere kvaliteter. Legacy-formater er begrænset til
+      maks. 360p, men bruger mindre båndbredde. Lydformater er kun lydstrømme.
     Proxy Videos Through Invidious: Vil forbinde til Invidious for at vise videoer
       i stedet for at oprette en direkte forbindelse til YouTube.
     Scroll Playback Rate Over Video Player: Mens markøren er over videoen, tryk og
@@ -1113,8 +1111,8 @@ Tooltips:
       en Invidious-server at forbinde til.
     Invidious Instance: Den Invidious-instans, som FreeTube skal forbinde til for
       API-opkald.
-    Thumbnail Preference: Alle miniaturebilleder i FreeTube vil blive erstattet med
-      et billede af videoen, i stedet for standard-miniaturebilledet.
+    Thumbnail Preference: Alle miniaturebilleder på FreeTube erstattes med et billede
+      af videoen, sløret eller skjult, i stedet for standardminiaturebilledet.
     Fallback to Non-Preferred Backend on Failure: Når din foretrukne API oplever et
       problem, vil FreeTube automatisk forsøge at bruge din ikke-foretrukne API som
       reservemetode, når det er aktiveret.
@@ -1305,6 +1303,4 @@ Cancel: annullere
 Autoplay Interruption Timer: Autoplay afbrudt på grund af {autoplayInterruptionIntervalHours}
   timers inaktivitet
 shortcutLabelSeparator: ｜
-'Blocked opening potentially unsafe URL': 'Blokeret åbning af potentielt usikker URL:
-  »{url}«.'
 checkmark: ✓

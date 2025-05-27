@@ -226,6 +226,14 @@ export async function getLocalVideoInfo(id) {
 
   const info = await webInnertube.getInfo(id)
 
+  // temporary workaround for SABR-only responses
+  const mwebInfo = await webInnertube.getBasicInfo(id, 'MWEB')
+
+  if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data) {
+    info.playability_status = mwebInfo.playability_status
+    info.streaming_data = mwebInfo.streaming_data
+  }
+
   let hasTrailer = info.has_trailer
   let trailerIsAgeRestricted = info.getTrailerInfo() === null
 
@@ -739,7 +747,17 @@ export function parseLocalChannelHeader(channel, onlyIdNameThumbnail = false) {
  * @param {string} channelName
  */
 export function parseLocalChannelVideos(videos, channelId, channelName) {
-  return videos.map((video) => parseLocalListVideo(video, channelId, channelName))
+  const parsedVideos = []
+
+  for (const video of videos) {
+    // `BADGE_STYLE_TYPE_MEMBERS_ONLY` used for both `members only` and `members first` videos
+    if (video.is(YTNodes.Video) && video.badges.some(badge => badge.style === 'BADGE_STYLE_TYPE_MEMBERS_ONLY')) {
+      continue
+    }
+    parsedVideos.push(parseLocalListVideo(video, channelId, channelName))
+  }
+
+  return parsedVideos
 }
 
 /**

@@ -124,7 +124,7 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRoute, useRouter } from 'vue-router/composables'
 
 import FtInput from '../ft-input/ft-input.vue'
-import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
+import FtProfileSelector from '../FtProfileSelector/FtProfileSelector.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 
 import store from '../../store/index'
@@ -244,15 +244,10 @@ const newWindowText = computed(() => {
 })
 
 function createNewWindow() {
-  if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW)
-  } else {
-    const url = new URL(window.location.href)
-    url.hash = landingPage.value
+  const url = new URL(window.location.href)
+  url.hash = landingPage.value
 
-    window.open(url.toString(), '_blank')
-  }
+  window.open(url.toString(), '_blank', 'noreferrer')
 }
 
 const usingOnlySearchHistoryResults = computed(() => lastSuggestionQuery.value.length === 0)
@@ -596,7 +591,7 @@ function handleKeyboardShortcuts(event) {
     !hideSearchBar.value &&
     (
       (ctrlOrCommandPressed && (event.key === 'L' || event.key === 'l')) ||
-      (event.altKey && (event.key === 'D' || event.key === 'd'))
+      (event.altKey && (event.key === 'D' || event.key === 'd' || (process.platform === 'darwin' && event.key === '∂')))
     )
   ) {
     event.preventDefault()
