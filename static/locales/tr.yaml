@@ -243,7 +243,7 @@ User Playlists:
   Export Playlist: Bu Oynatma Listesini Dışa Aktar
   The playlist has been successfully exported: Oynatma listesi başarılı bir şekilde
     dışa aktarıldı
-  TotalTimePlaylist: 'Toplam süre: {süre}'
+  TotalTimePlaylist: 'Toplam süre: {duration}'
 History:
   # On History Page
   History: 'Geçmiş'
