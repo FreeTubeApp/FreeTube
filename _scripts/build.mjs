@@ -1,14 +1,11 @@
-const os = require('os')
-const builder = require('electron-builder')
-const config = require('./ebuilder.config.js')
+import { Arch, build, Platform } from 'electron-builder'
+import config from './ebuilder.config.mjs'
 
-const Platform = builder.Platform
-const Arch = builder.Arch
 const args = process.argv
 
 /** @type {Map<import('electron-builder').Platform, Map<import('electron-builder').Arch, Array<string>>>} */
 let targets
-const platform = os.platform()
+const platform = process.platform
 
 if (platform === 'darwin') {
   let arch = Arch.x64
@@ -40,15 +37,9 @@ if (platform === 'darwin') {
   targets = Platform.LINUX.createTarget(['deb', 'zip', '7z', 'rpm', 'AppImage', 'pacman'], arch)
 }
 
-builder
-  .build({
-    targets,
-    config,
-    publish: 'never'
-  })
-  .then(m => {
-    console.log(m)
-  })
-  .catch(e => {
-    console.error(e)
-  })
+try {
+  const output = await build({ targets, config, publish: 'never' })
+  console.log(output)
+} catch (error) {
+  console.error(error)
+}
