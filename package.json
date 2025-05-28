@@ -48,8 +48,7 @@
     "pack:renderer": "webpack --mode=production --node-env=production --config _scripts/webpack.renderer.config.js",
     "pack:web": "webpack --mode=production --node-env=production --config _scripts/webpack.web.config.js",
     "pack:botGuardScript": "webpack --config _scripts/webpack.botGuardScript.config.js",
-    "postinstall": "run-s --silent patch-shaka",
-    "release": "run-s test build",
+    "postinstall": "yarn run --silent patch-shaka",
     "ci": "yarn install --silent --frozen-lockfile --network-concurrency 1"
   },
   "dependencies": {
