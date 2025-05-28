@@ -513,7 +513,6 @@ Settings:
         Never: Aldrig
   Subscription Settings:
     Subscription Settings: 'Prenumeration'
-    Hide Videos on Watch: 'Dölj video under visning'
     Fetch Feeds from RSS: 'Hämta prenumerationer från RSS'
     Fetch Automatically: Hämta flöde automatiskt
     'Limit the number of videos displayed for each channel': Begränsa antalet videor
@@ -585,6 +584,7 @@ Settings:
     Hide Channels: Dölj videor från kanaler
     Hide Video Description: Dölj videobeskrivning
     Hide Sharing Actions: Dölj delningsalternativ
+    Hide Videos on Watch: 'Dölj video under visning'
     Hide Live Streams: Dölj liveströmningar
     Hide Upcoming Premieres: Dölj permiärer
     Display Titles Without Excessive Capitalisation: Visa titlar utan överdriven versalisering

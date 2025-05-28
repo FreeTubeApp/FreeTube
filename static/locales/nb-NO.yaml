@@ -510,7 +510,6 @@ Settings:
       blitt tømt
   Subscription Settings:
     Subscription Settings: 'Abonnementer'
-    Hide Videos on Watch: 'Skjul sette videoer'
     Fetch Feeds from RSS: Hent informasjonskanaler via RSS
     Fetch Automatically: Hent informasjonskanaler automatisk
 
@@ -605,6 +604,7 @@ Settings:
     Hide Channels Placeholder: Kanal-ID
     Hide Channels: Skjul videoer fra kanaler
     Hide Sharing Actions: Skjul delingshandlinger
+    Hide Videos on Watch: 'Skjul sette videoer'
     Hide Upcoming Premieres: Skjul kommende premièrer
     Hide Video Description: Skjul videobeskrivelse
     Display Titles Without Excessive Capitalisation: Vis titler uten overdreven bruk

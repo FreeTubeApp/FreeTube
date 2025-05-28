@@ -531,7 +531,6 @@ Settings:
       அகற்ற விரும்புகிறீர்களா?'
   Subscription Settings:
     Subscription Settings: 'சந்தா'
-    Hide Videos on Watch: 'கடிகாரத்தில் வீடியோக்களை மறைக்கவும்'
     Fetch Feeds from RSS: 'RSS இலிருந்து ஊட்டங்களைப் பெறுங்கள்'
     Fetch Automatically: 'தானாகவே ஊட்டத்தைப் பெறுங்கள்'
     Only Show Latest Video for Each Channel: ''
@@ -566,6 +565,7 @@ Settings:
     Hide Live Streams: 'நேரடி நீரோடைகளை மறைக்கவும்'
     Hide Upcoming Premieres: 'வரவிருக்கும் பிரீமியர்சை மறைக்கவும்'
     Hide Sharing Actions: 'பகிர்வு செயல்களை மறைக்கவும்'
+    Hide Videos on Watch: 'கடிகாரத்தில் வீடியோக்களை மறைக்கவும்'
     Hide Chapters: 'அத்தியாயங்களை மறைக்கவும்'
     Hide Channels: 'சேனல்களிலிருந்து வீடியோக்களை மறைக்கவும்'
     Hide Channels Disabled Message: 'சில சேனல்கள் ஐடியைப் பயன்படுத்தி தடுக்கப்பட்டு

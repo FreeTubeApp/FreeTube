@@ -510,7 +510,6 @@ Settings:
         under videoen."
   Subscription Settings:
     Subscription Settings: 'Abonnement'
-    Hide Videos on Watch: 'Skjul Videoer på Se'
     Fetch Feeds from RSS: 'Hent Feeds fra RSS'
     Fetch Automatically: Hent Feed Automatisk
     Confirm Before Unsubscribing: Bekræft Før Afmelding
@@ -603,6 +602,7 @@ Settings:
     Hide Live Streams: Skjul Livestreams
     Hide Comments: Skjul Kommentarer
     Hide Sharing Actions: Skjul Delingshandlinger
+    Hide Videos on Watch: 'Skjul Videoer på Se'
     Hide Video Description: Skjul Videobeskrivelse
     Hide Playlists: Skjul Playlister
     Hide Upcoming Premieres: Skjul Kommende Premierer

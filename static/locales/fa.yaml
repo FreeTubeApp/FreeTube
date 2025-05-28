@@ -510,7 +510,6 @@ Settings:
         ویدئو ذخیره کند.
   Subscription Settings:
     Subscription Settings: 'دنبال شوندگان'
-    Hide Videos on Watch: 'مخفی کردن ویدیو ها هنگام تماشا'
     Fetch Feeds from RSS: 'دریافت feed ها از RSS'
     Fetch Automatically: آوردن خودکار فید
     Confirm Before Unsubscribing: تایید لغو اشتراک
@@ -554,6 +553,7 @@ Settings:
     Hide Channel Podcasts: پنهان کردن "پادکست‌های" کانال
     Hide Channel Releases: مخفی کردن "انتشارات" کانال
     Hide Sharing Actions: مخفی کردن فعالیت های مشترک
+    Hide Videos on Watch: 'مخفی کردن ویدیو ها هنگام تماشا'
     Hide Videos and Playlists Containing Text Placeholder: کلمه، بخش کلمه یا عبارت
     Hide Channels Invalid: شناسه کانال ارائه شده نامعتبر بود
     Hide Channels Already Exists: شناسه کانال از قبل وجود دارد

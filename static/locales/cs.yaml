@@ -520,7 +520,6 @@ Settings:
         ručně kliknutím na tlačítko Uložit průběh sledování, nacházejícím se pod přehrávačem.
   Subscription Settings:
     Subscription Settings: 'Odběry'
-    Hide Videos on Watch: 'Skrýt přehraná videa'
     Fetch Feeds from RSS: 'Získávat odběry z RSS'
     Fetch Automatically: Automaticky načítat odběry
     Confirm Before Unsubscribing: Zamezit nechtěným odběrům
@@ -543,6 +542,7 @@ Settings:
     Hide Comments: Skrýt komentáře
     Hide Live Streams: Skrýt živé přenosy
     Hide Sharing Actions: Skrýt akce sdílení
+    Hide Videos on Watch: 'Skrýt přehraná videa'
     Hide Chapters: Skrýt kapitoly
     Hide Upcoming Premieres: Skrýt nadcházející premiéry
     Hide Channels: Skrýt videa z kanálů

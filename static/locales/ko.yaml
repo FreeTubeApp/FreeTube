@@ -302,7 +302,6 @@ Settings:
       모든 구독채널과 프로필을 삭제하시겠습니까? 삭제하면 복구가되지않습니다.'
   Subscription Settings:
     Subscription Settings: '구독 설정'
-    Hide Videos on Watch: '시청한 동영상 숨기기'
     Fetch Feeds from RSS: 'RSS에서 피드 가져오기'
     Fetch Automatically: 자동으로 피드 수집하기
   Distraction Free Settings:
@@ -318,6 +317,7 @@ Settings:
     Hide Playlists: 재생 목록 숨기기
     Hide Active Subscriptions: 활성 구독 숨기기
     Hide Sharing Actions: 공유 작업 숨기기
+    Hide Videos on Watch: '시청한 동영상 숨기기'
     Hide Live Streams: 라이브 스트림 숨기기
     Hide Video Description: 비디오 설명 숨기기
     Hide Comments: 주석 숨기기

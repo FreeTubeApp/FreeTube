@@ -515,7 +515,6 @@ Settings:
         Semi-auto: Semi-automático
   Subscription Settings:
     Subscription Settings: 'Suscripción'
-    Hide Videos on Watch: 'Ocultar vídeos vistos'
     Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
     Fetch Automatically: Obtener los feed automáticamente
     Confirm Before Unsubscribing: Evitar bajas accidentales
@@ -591,6 +590,7 @@ Settings:
     Hide Comments: Ocultar comentarios
     Hide Live Streams: Ocultar transmisiones en directo
     Hide Sharing Actions: Ocultar acciones de uso compartido
+    Hide Videos on Watch: 'Ocultar vídeos vistos'
     Hide Chapters: Ocultar capítulos
     Hide Upcoming Premieres: Ocultar los próximos estrenos
     Hide Channels: Ocultar vídeos de los canales

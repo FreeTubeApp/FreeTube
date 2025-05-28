@@ -278,7 +278,6 @@ Settings:
       nazadnje ogledanim seznamom predvajanja
   Subscription Settings:
     Subscription Settings: 'Nastavitve naročnin'
-    Hide Videos on Watch: 'Skrij gledane videoposnetke'
     Fetch Feeds from RSS: 'Pridobi vire iz RSS'
   Data Settings:
     Data Settings: 'Podatkovne nastavitve'
@@ -332,6 +331,7 @@ Settings:
     Hide Channels: Skrij videoposnetke iz kanalov
     Hide Video Description: Skrij opis videoposnetka
     Hide Upcoming Premieres: Skrij prihajajoče premiere
+    Hide Videos on Watch: 'Skrij gledane videoposnetke'
   The app needs to restart for changes to take effect. Restart and apply change?: Program
     se mora ponovno zagnati, preden bodo spremembe uveljavljene. Ga želite ponovno
     zagnati zdaj?

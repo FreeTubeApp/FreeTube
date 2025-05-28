@@ -527,7 +527,6 @@ Settings:
       dilemel hoc''h holl rolloù-videoioù ?'
   Subscription Settings:
     Subscription Settings: 'Koumanant'
-    Hide Videos on Watch: 'Kuzhat ar videoioù lennet'
     Fetch Feeds from RSS: 'Adtapout ar gwazhioù RSS'
     Manage Subscriptions: ''
     Fetch Automatically: 'Adtapout ar wazh ent emgefreek'
@@ -560,6 +559,7 @@ Settings:
     Hide Live Streams: 'Kuzhat ar skignañ war-eeun'
     Hide Upcoming Premieres: 'Kuzhat rakskignañ da zont'
     Hide Sharing Actions: 'Kuzhat an doareoù da rannañ'
+    Hide Videos on Watch: 'Kuzhat ar videoioù lennet'
     Hide Chapters: 'Kuzhat ar chabistroù'
     Hide Channels: 'Kuzhat videoioù ar chadennoù'
     Hide Channels Disabled Message: 'Stanket eo bet chadennadoù zo gant an ID ha n''int

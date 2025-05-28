@@ -377,7 +377,6 @@ Settings:
         del video 3 dígitos. %i ID del video.
   Subscription Settings:
     Subscription Settings: 'Ajustes de suscripción'
-    Hide Videos on Watch: 'Ocultar videos vistos'
     Fetch Feeds from RSS: Buscar Información desde RSS
 
   Privacy Settings:
@@ -487,6 +486,7 @@ Settings:
     Hide Channels Placeholder: ID del canal
     Hide Channels Invalid: El ID del canal proporcionado no es válido.
     Hide Sharing Actions: Ocultar acciones de compartición
+    Hide Videos on Watch: 'Ocultar videos vistos'
   Download Settings:
     Choose Path: Elegir ubicación
     Ask Download Path: Preguntar dónde se descarga

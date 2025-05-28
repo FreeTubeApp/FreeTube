@@ -481,7 +481,6 @@ Settings:
       Default Viewing Mode: Standard-Ansichtsmodus
   Subscription Settings:
     Subscription Settings: Abo
-    Hide Videos on Watch: Bereits angesehene Videos ausblenden
     Fetch Feeds from RSS: Abos via RSS abrufen
     Fetch Automatically: Abos automatisch abrufen
     Confirm Before Unsubscribing: Unbeabsichtigtes Deabonnieren verhindern
@@ -593,6 +592,7 @@ Settings:
     Hide Video Description: Videobeschreibung ausblenden
     Hide Live Streams: Livestreams ausblenden
     Hide Sharing Actions: Aktionen zum Teilen ausblenden
+    Hide Videos on Watch: Bereits angesehene Videos ausblenden
     Hide Chapters: Kapitel ausblenden
     Hide Upcoming Premieres: Anstehende Premieren ausblenden
     Hide Channels: Videos aus Kanälen ausblenden

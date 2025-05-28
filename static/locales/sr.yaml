@@ -525,7 +525,6 @@ Settings:
         одгледаног“, које се налази испод видео плејера.
   Subscription Settings:
     Subscription Settings: 'Праћење'
-    Hide Videos on Watch: 'Сакриј видео снимке на гледању'
     Fetch Feeds from RSS: 'Прикупи фидове из RSS-а'
     Fetch Automatically: Аутоматски прикупи фид
     Confirm Before Unsubscribing: Избегни случајно отпраћивање
@@ -557,6 +556,7 @@ Settings:
     Hide Comments: Сакриј коментаре
     Hide Channel Shorts: Сакриј картицу „Shorts“ канала
     Hide Sharing Actions: Сакриј радње дељења
+    Hide Videos on Watch: 'Сакриј видео снимке на гледању'
     Hide Channel Podcasts: Сакриј картицу „Подкасти“ канала
     Hide Live Streams: Сакриј стримове уживо
     Hide Channel Playlists: Сакриј картицу „Плејлисте“ канала

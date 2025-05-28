@@ -407,7 +407,6 @@ Settings:
     Skip by Scrolling Over Video Player: Ohita vierittämällä videosoittimen yli
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
-    Hide Videos on Watch: 'Piilota katsotut videot'
     Fetch Feeds from RSS: Nouda RSS-syöte
     Fetch Automatically: Nouda syöte automaattisesti
   Privacy Settings:
@@ -489,6 +488,7 @@ Settings:
     Hide Video Description: Piilota videon kuvaus
     Hide Live Streams: Piilota suorat lähetykset
     Hide Sharing Actions: Piilota jakamistoiminnot
+    Hide Videos on Watch: 'Piilota katsotut videot'
     Hide Chapters: Piilota kappaleet
     Hide Channels: Piilota videot kanavilta
     Hide Upcoming Premieres: Piilota tulevat ensiesitykset

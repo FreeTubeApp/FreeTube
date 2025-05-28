@@ -434,7 +434,6 @@ Settings:
       Full Screen: 全屏
   Subscription Settings:
     Subscription Settings: '订阅'
-    Hide Videos on Watch: '观看时隐藏视频'
     Fetch Feeds from RSS: 从RSS摘取推送
     Fetch Automatically: 自动抓取订阅源
     Confirm Before Unsubscribing: 避免意外取消订阅
@@ -520,6 +519,7 @@ Settings:
     Hide Playlists: 隐藏播放列表
     Hide Live Streams: 隐藏直播
     Hide Sharing Actions: 隐藏分享操作
+    Hide Videos on Watch: '观看时隐藏视频'
     Hide Comments: 隐藏评论
     Hide Video Description: 隐藏视频描述
     Hide Chapters: 隐藏章节

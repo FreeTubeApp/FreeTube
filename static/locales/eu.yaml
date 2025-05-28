@@ -525,7 +525,6 @@ Settings:
         botoi baten bidez, bideo erreproduzitzailearen azpian dagoena.
   Subscription Settings:
     Subscription Settings: 'Harpidetza'
-    Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
     Fetch Feeds from RSS: 'RSS jarioak eskuratu'
     Fetch Automatically: Eskuratu jarioa automatikoki
     Confirm Before Unsubscribing: Saihestu ustekabeko harpidetza kentzea
@@ -545,6 +544,7 @@ Settings:
     Hide Live Chat: 'Zuzeneko txata ezkutatu'
     Hide Active Subscriptions: 'Harpidetza aktiboak ezkutatu'
     Hide Sharing Actions: Partekatze ekintzak ezkutatu
+    Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
     Hide Video Description: Bideoaren deskribapena ezkutatu
     Hide Comments: Iruzkinak ezkutatu
     Hide Live Streams: Zuzeneko emanaldiak ezkutatu

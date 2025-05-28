@@ -553,7 +553,6 @@ Settings:
         gyda llaw drwy fotwm Cadw Cynnydd Gwylio, wedi'i leoli o dan y chwaraewr fideo.
   Subscription Settings:
     Subscription Settings: 'Tanysgrifiad'
-    Hide Videos on Watch: 'Cuddio Fideos wrth Wylio'
     Fetch Feeds from RSS: 'Nôl Ffrwd o''r RSS'
     Fetch Automatically: 'Nôl Ffrwd yn Awtomatig'
     Confirm Before Unsubscribing: Cadarnhau Cyn Dad-danysgrifio
@@ -586,6 +585,7 @@ Settings:
     Hide Live Streams: 'Cuddio Ffrydiau Byw'
     Hide Upcoming Premieres: 'Cuddio Cyflwyniadau i''r Dyfodol'
     Hide Sharing Actions: 'Cuddio Gweithredoedd Rhannu'
+    Hide Videos on Watch: 'Cuddio Fideos wrth Wylio'
     Hide Chapters: 'Cuddio Penodau'
     Hide Channels: 'Cuddio Fideos o Sianeli'
     Hide Channels Disabled Message: 'Cafodd rhai sianeli eu rhwystro gan ddefnyddio

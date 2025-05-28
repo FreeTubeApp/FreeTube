@@ -527,7 +527,6 @@ Settings:
     Remember Search History: Διατήρηση Ιστορικού Αναζήτησης
   Subscription Settings:
     Subscription Settings: 'Συνδρομές'
-    Hide Videos on Watch: 'Απόκρυψη των βίντεο κατά την αναπαραγωγή'
     Fetch Feeds from RSS: 'Φόρτωση τροφοδοσίας RSS'
     Fetch Automatically: Αυτόματη Λήψη Τροφοδοσίας
     'Limit the number of videos displayed for each channel': Περιορίστε τον αριθμό
@@ -603,6 +602,7 @@ Settings:
     Hide Playlists: Απόκρυψη λιστών αναπαραγωγής
     Hide Live Streams: Απόκρυψη Ζωντανών Ροών
     Hide Sharing Actions: Απόκρυψη Ενεργειών Κοινής Χρήσης
+    Hide Videos on Watch: 'Απόκρυψη των βίντεο κατά την αναπαραγωγή'
     Hide Channels: Απόκρυψη Βίντεο Από Κανάλια
     Hide Upcoming Premieres: Απόκρυψη Επερχόμενων Πρεμιέρων
     Hide Channels Placeholder: Αναγνωριστικό καναλιού

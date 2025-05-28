@@ -515,7 +515,6 @@ Settings:
         Auto: Otomatis
   Subscription Settings:
     Subscription Settings: 'Langganan'
-    Hide Videos on Watch: 'Sembunyikan Video saat Menonton'
     Fetch Feeds from RSS: 'Ambil Umpan dari RSS'
     Fetch Automatically: Ambil Umpan Secara Otomatis
     'Limit the number of videos displayed for each channel': Batasi jumlah video yang
@@ -598,6 +597,7 @@ Settings:
     Hide Live Streams: Sembunyikan Siaran Langsung
     Hide Channel Playlists: Sembunyikan Tab "Daftar Putar" Saluran
     Hide Sharing Actions: Sembunyikan Tindakan Bagikan Video
+    Hide Videos on Watch: 'Sembunyikan Video saat Menonton'
     Hide Featured Channels: Sembunyikan Kanal Unggulan
     Hide Channels: Sembunyikan Video dari Kanal
     Hide Channels Placeholder: ID Kanal

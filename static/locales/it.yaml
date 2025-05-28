@@ -516,7 +516,6 @@ Settings:
         Auto: Automatico
   Subscription Settings:
     Subscription Settings: 'Iscrizioni'
-    Hide Videos on Watch: 'Nascondi i video visualizzati'
     Fetch Feeds from RSS: Scarica gli aggiornamenti dai flussi RSS
     Fetch Automatically: Recupera i feed automaticamente
     Confirm Before Unsubscribing: Evita la cancellazione accidentale dell'iscrizione
@@ -591,6 +590,7 @@ Settings:
     Hide Comments: Nascondi i commenti
     Hide Live Streams: Nascondi i video dal vivo
     Hide Sharing Actions: Nascondi le azioni di condivisione
+    Hide Videos on Watch: 'Nascondi i video visualizzati'
     Hide Video Description: Nascondi la descrizione del video
     Hide Chapters: Nascondi i capitoli
     Hide Upcoming Premieres: Nascondi le prossime Première
