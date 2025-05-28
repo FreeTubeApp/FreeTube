@@ -61,7 +61,7 @@
         />
         <FtSelect
           v-if="!hideLiveStreams && showLiveSortBy"
-          v-show="currentTab === 'live' && (hideWatchedSubs ? filteredShorts.length > 1 : filteredShorts.length > 0)"
+          v-show="currentTab === 'live' && (hideWatchedSubs ? filteredLive.length > 1 : filteredLive.length > 0)"
           :value="liveSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
