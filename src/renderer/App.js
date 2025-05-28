@@ -150,10 +150,6 @@ export default defineComponent({
     appTitle: function () {
       return this.$store.getters.getAppTitle
     },
-
-    openDeepLinksInNewWindow: function () {
-      return this.$store.getters.getOpenDeepLinksInNewWindow
-    }
   },
   watch: {
     windowTitle: 'setWindowTitle',
@@ -495,9 +491,9 @@ export default defineComponent({
     },
 
     enableOpenUrl: function () {
-      window.ftElectron.handleOpenUrl((url, isLaunchLink) => {
+      window.ftElectron.handleOpenUrl((url) => {
         if (url) {
-          this.handleYoutubeLink(url, { doCreateNewWindow: this.openDeepLinksInNewWindow && !isLaunchLink })
+          this.handleYoutubeLink(url)
         }
       })
     },
