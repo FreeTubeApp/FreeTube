@@ -39,12 +39,12 @@ Global:
   Shorts: شورتەکان
   Counts:
     Video Count: 1 ڤیدیۆ | {count} ڤیدیۆکان
-    Subscriber Count: 1 بەشداربوو | {ژماردن} بەشداربووان
-    Channel Count: 1 کەناڵ | {ژماردن} کەناڵەکان
-    View Count: 1 بینین | {ژماردن} بینینەکان
-    Like Count: 1 لایک | {ژماردن} لایک
-    Comment Count: 1 کۆمێنت | {ژماردن} کۆمێنتەکان
-    Watching Count: 1 سەیرکردنی | {ژماردن} سەیرکردن
+    Subscriber Count: 1 بەشداربوو | {count} بەشداربووان
+    Channel Count: 1 کەناڵ | {count} کەناڵەکان
+    View Count: 1 بینین | {count} بینینەکان
+    Like Count: 1 لایک | {count} لایک
+    Comment Count: 1 کۆمێنت | {count} کۆمێنتەکان
+    Watching Count: 1 سەیرکردنی | {count} سەیرکردن
   Videos: ویدیوەکان
   Posts: پۆستەکان
 Search / Go to URL: 'گەڕان / بڕۆ بۆ لینک'

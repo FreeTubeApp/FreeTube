@@ -942,11 +942,11 @@ Video:
       Bitrate: 'Bitrate: {bitrate} kbps'
       CodecAudio: 'Codec: {audioCodec} ({audioItag})'
       Volume: 'Lydstyrke: {volumePercentage}%'
-      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {lydkodec}'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
       Dropped Frames / Total Frames: 'Tabte rammer: {droppedFrames} (tabte billeder)
         / Samlet antal rammer: {totalFrames}'
       CodecsVideoAudio: 'Kodeks: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
-      Player Dimensions: 'Spillerens dimensioner: {bredde}x{højde}'
+      Player Dimensions: 'Spillerens dimensioner: {width}x{height}'
       Buffered: 'Bufret: {bufferedPercentage}%'
     Skipped segment: Sprang {segmentCategory} segment over
     Playback will resume automatically when your connection comes back: Afspilning
@@ -1288,15 +1288,15 @@ KeyboardShortcutPrompt:
   Toggle Developer Tools: Skift udviklerværktøjer
   Focus Search: Fokuser på søgelinjen
 Channel Hidden: '{kanal} tilføjet til kanalfilter'
-KeyboardShortcutTemplate: '{label} ({genvej})'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
 Moments Ago: for et øjeblik siden
 Yes, Delete: Ja, Slet
-Display Label: '{label}: {værdi}'
+Display Label: '{label}: {value}'
 Yes, Restart: Ja, genstart
 Ok: ok
 shortcutJoinOperator: +
 Trimmed input must be at least N characters long: Trimmet input skal være mindst 1
-  tegn langt | Trimmet input skal være mindst {længde} tegn langt
+  tegn langt | Trimmet input skal være mindst {length} tegn langt
 Yes, Open Link: Ja, Åbn link
 Tag already exists: »{tagName}"-tagget findes allerede
 Cancel: annullere
