@@ -1211,7 +1211,6 @@ Search Listing:
     3D: ثلاثي الابعاد
 Right-click or hold to see history: انقر زر الفارة الأيمن أو اضغط مطولا لعرض السجل
 KeyboardShortcutPrompt:
-  Force Restart Window: إجبار إعادة تشغيل النافذة
   Toggle Developer Tools: تبديل أدوات المطور
   Zoom In: تقريب
   Zoom Out: تبعيد
@@ -1245,7 +1244,6 @@ KeyboardShortcutPrompt:
   Last Chapter: الفصل الأخير
   Next Chapter: الفصل التالي
   Decrease Video Speed: تقليل سرعة الفيديو بناء على الفاصل الزمني لمعدل تشغيل الفيديو
-  Restart Window: إعادة تشغيل النافذة
   Increase Video Speed: زيادة سرعة الفيديو استنادا إلى الفاصل الزمني لمعدل تشغيل الفيديو
   Full Window: تبديل النافذة الكاملة
   Theatre Mode: تبديل وضع المسرح

@@ -1312,13 +1312,11 @@ KeyboardShortcutPrompt:
     prędkości odtwarzania filmu
   Theatre Mode: Przełącz na tryb kina
   Close Window: Zamknij okno
-  Force Restart Window: Wymuś zrestartowanie okna
   Toggle Developer Tools: Przełącz narzędzia deweloperskie
   Zoom In: Powiększ
   Focus Search: Przełącz na pasek wyszukiwania
   Last Frame: Poprzednia klatka (podczas wstrzymania)
   Next Frame: Następna klatka (podczas wstrzymania)
-  Restart Window: Zrestartuj okno
   Large Rewind: Przewiń o 10 sekund wstecz / Przewiń film wstecz, bazując na obecnej
     prędkości odtwarzania
   Large Fast Forward: Przewiń o 10 sekund do przodu / Przewiń film do przodu, bazując

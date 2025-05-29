@@ -1286,7 +1286,6 @@ KeyboardShortcutPrompt:
     duração)
   Keyboard Shortcuts: Atalhos de teclado
   Zoom Out: Diminuir
-  Force Restart Window: Forçar reinicialização da janela
   Toggle Developer Tools: Alternar ferramentas de programador
   Full Window: Alternar modo janela inteira
   Next Frame: Fotograma seguinte (durante a pausa)
@@ -1306,7 +1305,6 @@ KeyboardShortcutPrompt:
   Mute: Ativar ou desativar som
   Theatre Mode: Alternar modo teatro
   Take Screenshot: Tirar uma captura de ecrã
-  Restart Window: Reiniciar janela
   Last Frame: Fotograma anterior (durante a pausa)
   Focus Secondary Search: Concentrar na barra de pesquisa secundária (se existir)
   History Forward: Avançar uma página

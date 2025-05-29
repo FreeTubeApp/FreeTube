@@ -977,7 +977,7 @@ Video:
       CodecsVideoAudioNoItags: 'Codecuri: {videoCodec} / {audioCodec}'
       Stats: Statistici
       Video ID: 'ID videoclip: {videoId}'
-      Media Formats: 'Formate media: {formate}'
+      Media Formats: 'Formate media: {formats}'
       Bitrate: 'Rată de biți: {bitrate} kbps'
       Volume: 'Volum: {volumePercentage}%'
       Bandwidth: 'Lățime de bandă: {bandwidth} kbps'
@@ -1302,7 +1302,6 @@ KeyboardShortcutPrompt:
   Last Chapter: Ultimul capitol
   Decrease Video Speed: Reducerea vitezei video în funcție de intervalul ratei de
     redare video
-  Restart Window: fereastra de repornire
   Volume Up: Creșterea volumului
   Skip by Tenths: Salt prin video în funcție de procent (3 salturi la 30% din durată)
   Focus Search: Concentrați-vă pe bara de căutare
@@ -1310,7 +1309,6 @@ KeyboardShortcutPrompt:
   Next Frame: Următorul cadru (în timpul pauzei)
   Small Fast Forward: Derulare rapidă X secunde pe baza intervalului de derulare rapidă
     și a vitezei actuale de redare video
-  Force Restart Window: fereastră de repornire forțată
   Next Chapter: Capitolul următor
   Zoom In: zoom in
   Zoom Out: micșorați imaginea

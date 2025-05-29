@@ -1271,7 +1271,6 @@ KeyboardShortcutPrompt:
     de reprodução do vídeo atual
   Minimize Window: Minimizar janela
   Close Window: Fechar janela
-  Force Restart Window: Forçar reinicialização da janela
   Toggle Developer Tools: Alternar ferramentas de programador
   Reset Zoom: Repor o nível de ampliação / escala da interface
   Zoom In: Ampliar
@@ -1300,7 +1299,6 @@ KeyboardShortcutPrompt:
   Captions: Ativar ou desativar legendas
   Theatre Mode: Alternar modo teatro
   Take Screenshot: Tirar uma captura de ecrã
-  Restart Window: Reiniciar janela
   Focus Search: Concentrar na barra de pesquisa
   Search in New Window: Pesquisar numa nova janela
   Last Frame: Fotograma anterior (durante a pausa)
