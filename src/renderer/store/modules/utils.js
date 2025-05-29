@@ -1,7 +1,7 @@
 import i18n from '../../i18n/index'
 import { set as vueSet } from 'vue'
 
-import { DefaultFolderKind, IpcChannels } from '../../../constants'
+import { DefaultFolderKind } from '../../../constants'
 import {
   CHANNEL_HANDLE_REGEX,
   createWebURL,
@@ -260,14 +260,7 @@ const actions = {
           const arrayBuffer = await response.arrayBuffer()
 
           if (process.env.IS_ELECTRON) {
-            const { ipcRenderer } = require('electron')
-
-            await ipcRenderer.invoke(
-              IpcChannels.WRITE_TO_DEFAULT_FOLDER,
-              DefaultFolderKind.DOWNLOADS,
-              fileName,
-              arrayBuffer
-            )
+            await window.ftElectron.writeToDefaultFolder(DefaultFolderKind.DOWNLOADS, fileName, arrayBuffer)
           }
 
           showToast(i18n.t('Downloading has completed', { videoTitle: title }))
@@ -800,8 +793,7 @@ const actions = {
     showToast(i18n.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
 
     if (process.env.IS_ELECTRON) {
-      const { ipcRenderer } = require('electron')
-      ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
+      window.ftElectron.openInExternalPlayer(executable, args)
     }
   },
 }

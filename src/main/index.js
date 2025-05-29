@@ -291,7 +291,7 @@ function runApp() {
             if (mainWindow.isMinimized()) mainWindow.restore()
             mainWindow.focus()
 
-            if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
+            if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url, false)
           }
         } else {
           if (url) startupUrl = url
@@ -760,11 +760,11 @@ function runApp() {
       autoHideMenuBar: true,
       // useContentSize: true,
       webPreferences: {
-        nodeIntegration: true,
-        nodeIntegrationInWorker: false,
         webSecurity: false,
         backgroundThrottling: false,
-        contextIsolation: false
+        preload: process.env.NODE_ENV === 'development'
+          ? path.resolve(__dirname, '../../dist/preload.js')
+          : path.resolve(__dirname, 'preload.js')
       },
       minWidth: 340,
       minHeight: 380
@@ -915,7 +915,7 @@ function runApp() {
 
   ipcMain.on(IpcChannels.APP_READY, () => {
     if (startupUrl) {
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, { isLaunchLink: true })
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, true)
     }
     startupUrl = null
   })
@@ -1023,18 +1023,6 @@ function runApp() {
   ipcMain.handle(IpcChannels.GET_SYSTEM_LOCALE, () => {
     // we should switch to getPreferredSystemLanguages at some point and iterate through until we find a supported locale
     return app.getSystemLocale()
-  })
-
-  // Allows programmatic toggling of fullscreen without accompanying user interaction.
-  // See: https://developer.mozilla.org/en-US/docs/Web/Security/User_activation#transient_activation
-  ipcMain.on(IpcChannels.REQUEST_FULLSCREEN, ({ sender }) => {
-    sender.executeJavaScript('document.querySelector("video.player").ui.getControls().toggleFullScreen()', true)
-  })
-
-  // Allows programmatic toggling of picture-in-picture mode without accompanying user interaction.
-  // See: https://developer.mozilla.org/en-US/docs/Web/Security/User_activation#transient_activation
-  ipcMain.on(IpcChannels.REQUEST_PIP, ({ sender }) => {
-    sender.executeJavaScript('document.querySelector("video.player").ui.getControls().togglePiP()', true)
   })
 
   ipcMain.handle(IpcChannels.GET_SCREENSHOT_FALLBACK_FOLDER, (event) => {
@@ -1204,8 +1192,8 @@ function runApp() {
     })
   })
 
-  ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, payload) => {
-    const child = cp.spawn(payload.executable, payload.args, { detached: true, stdio: 'ignore' })
+  ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, executable, args) => {
+    const child = cp.spawn(executable, args, { detached: true, stdio: 'ignore' })
     child.unref()
   })
 
@@ -1777,7 +1765,7 @@ function runApp() {
     event.preventDefault()
 
     if (mainWindow && mainWindow.webContents) {
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url), false)
     } else {
       startupUrl = baseUrl(url)
       if (app.isReady()) createWindow()
@@ -1844,10 +1832,7 @@ function runApp() {
       return
     }
 
-    browserWindow.webContents.send(
-      IpcChannels.CHANGE_VIEW,
-      { route: path }
-    )
+    browserWindow.webContents.send(IpcChannels.CHANGE_VIEW, path)
   }
 
   async function setMenu() {
