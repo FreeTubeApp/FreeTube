@@ -13,6 +13,7 @@ import {
   ABOUT_BITCOIN_ADDRESS,
   KeyboardShortcuts,
   DefaultFolderKind,
+  SEARCH_CHAR_LIMIT,
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
@@ -200,6 +201,8 @@ function runApp() {
         }
       }
 
+      const textShortEnoughForSearch = parameters.selectionText.trim().length <= SEARCH_CHAR_LIMIT
+
       return [
         {
           label: 'Copy Lin&k',
@@ -228,8 +231,14 @@ function runApp() {
         // NOT link with no customized link text
         // NOT link for timestamp
         {
-          label: 'Search “{selection}” in a New Window',
-          visible: !isInAppUrl && !parameters.isEditable && (parameters.linkURL != null && !parameters.linkURL.includes(parameters.selectionText) && !(/(\d{1,2}:)*\d{1,2}:\d{2}/.test(parameters.linkText))) && parameters.selectionText.trim().length > 0,
+          label: textShortEnoughForSearch ? 'Search “{selection}” in a New Window' : `“{selection}” is too long for search (> ${SEARCH_CHAR_LIMIT} chars)`,
+          enabled: textShortEnoughForSearch,
+          visible: (
+            !isInAppUrl &&
+            !parameters.isEditable &&
+            (parameters.linkURL != null && !parameters.linkURL.includes(parameters.selectionText) && !(/(\d{1,2}:)*\d{1,2}:\d{2}/.test(parameters.linkText))) &&
+            parameters.selectionText.trim().length > 0
+          ),
           click: () => {
             const queryText = parameters.selectionText.trim()
             createWindow({
@@ -241,7 +250,7 @@ function runApp() {
           }
         },
       ]
-    }
+    },
   })
 
   if (process.platform === 'win32') {
