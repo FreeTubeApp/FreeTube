@@ -1080,13 +1080,13 @@ Tooltips:
     Fetch Feeds from RSS: När det är aktiverat kommer FreeTube att använda RSS istället
       för standardmetoden för att hämta ditt prenumerationsflöde. RSS är snabbare
       och förhindrar IP-blockering, men ger inte viss information som videons längd,
-      livestatus eller gemenskap-inlägg
+      livestatus eller kommentarer
     Fetch Automatically: Om aktiverat så kommer FreeTube automatiskt hämta ditt prenumerationsflöde
-      när ett nytt fönster öppnas och när du byter profil.
+      när du startar FreeTube och när ett nytt fönster öppnas.
   Player Settings:
     Default Video Format: Ställ in de format som används när en video spelas upp.
       DASH-format kan spela högre kvaliteter. Äldre format är begränsade till max
-      720p men använder mindre bandbredd. Ljudformat är ljud bara strömmar.
+      360p men använder mindre bandbredd. Ljudformat är endast ljudströmmningar.
     Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att hämta
       videor istället för att göra en direkt anslutning till YouTube.
     Skip by Scrolling Over Video Player: Använd scrollhjulet för att snabbspola igenom
@@ -1226,8 +1226,6 @@ Trimmed input must be at least N characters long: Trimmad inmatning måste vara 
 Description:
   Expand Description: '...mer'
   Collapse Description: Visa mindre
-'Blocked opening potentially unsafe URL': 'Blockerad öppning av potentiellt osäker
-  webbadress: "{url}".'
 Yes, Delete: Ja, Radera
 Autoplay Interruption Timer: Autouppspelningen avbröts på grund av {autoplayInterruptionIntervalHours}
   timmars inaktivitet

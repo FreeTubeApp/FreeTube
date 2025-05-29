@@ -6,7 +6,7 @@ import PlayerSettings from '../../components/player-settings/player-settings.vue
 import ExternalPlayerSettings from '../../components/ExternalPlayerSettings.vue'
 import SubscriptionSettings from '../../components/SubscriptionSettings/SubscriptionSettings.vue'
 import DownloadSettings from '../../components/DownloadSettings/DownloadSettings.vue'
-import PrivacySettings from '../../components/privacy-settings/privacy-settings.vue'
+import PrivacySettings from '../../components/PrivacySettings.vue'
 import DataSettings from '../../components/DataSettings.vue'
 import DistractionSettings from '../../components/distraction-settings/distraction-settings.vue'
 import ProxySettings from '../../components/ProxySettings/ProxySettings.vue'

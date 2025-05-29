@@ -1,4 +1,3 @@
-import { IpcChannels } from '../../../constants'
 import { base64EncodeUtf8, createWebURL, fetchWithTimeout, randomArrayItem } from '../../helpers/utils'
 
 const state = {
@@ -106,12 +105,10 @@ const mutations = {
     state.currentInvidiousInstanceUrl = instanceUrl
 
     if (process.env.IS_ELECTRON) {
-      const { ipcRenderer } = require('electron')
-
       if (authorization) {
-        ipcRenderer.send(IpcChannels.SET_INVIDIOUS_AUTHORIZATION, authorization, instanceUrl)
+        window.ftElectron.setInvidiousAuthorization(authorization, instanceUrl)
       } else {
-        ipcRenderer.send(IpcChannels.SET_INVIDIOUS_AUTHORIZATION, null)
+        window.ftElectron.clearInvidiousAuthorization()
       }
     }
   },

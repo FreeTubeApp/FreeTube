@@ -1115,8 +1115,8 @@ Profile:
   Edit Profile Name: Modifier le nom du profil
   Create Profile Name: Créer un nom de profil
 The playlist has been reversed: La liste de lecture a été inversée
-A new blog is now available, {blogTitle}. Click to view more: Un nouveau blog est
-  maintenant disponible, {blogTitle}. Cliquez pour en savoir plus
+A new blog is now available, {blogTitle}. Click to view more: Un nouveau billet de
+  blog est maintenant disponible, {blogTitle}. Cliquez pour en savoir plus
 Download From Site: Télécharger depuis le site
 Version {versionNumber} is now available!  Click for more details: La version {versionNumber}
   est maintenant disponible !  Cliquez pour plus de détails
@@ -1286,8 +1286,6 @@ Search Listing:
     360 Video: 360°
     New: Nouveau
     3D: 3D
-'Blocked opening potentially unsafe URL': "Blocage de l'ouverture d'une URL potentiellement
-  dangereuse : « {url} »."
 shortcutJoinOperator: +
 Keys:
   ctrl: Ctrl

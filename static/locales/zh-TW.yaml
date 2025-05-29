@@ -1073,7 +1073,6 @@ Search Listing:
     360 Video: 360°
     New: 新
     3D: 3D
-'Blocked opening potentially unsafe URL': 已阻止開啟可能不安全的 URL：「{url}」。
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Keys:

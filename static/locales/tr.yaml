@@ -243,7 +243,7 @@ User Playlists:
   Export Playlist: Bu Oynatma Listesini Dışa Aktar
   The playlist has been successfully exported: Oynatma listesi başarılı bir şekilde
     dışa aktarıldı
-  TotalTimePlaylist: 'Toplam süre: {süre}'
+  TotalTimePlaylist: 'Toplam süre: {duration}'
 History:
   # On History Page
   History: 'Geçmiş'
@@ -625,6 +625,8 @@ Settings:
     Hide Channel Home: Kanal "Ana Sayfa" Sekmesini Gizle
     Show Added Items: Eklenen Öğeleri Göster
     Hide Channel Courses: Kanal "Kurslar" Sekmesini Gizle
+    Hide Channel Posts: Kanalın "Gönderiler" sekmesini gizle
+    Hide Subscriptions Posts: Abonelik gönderilerini gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
     etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
     ve değişiklikler uygulansın mı?
@@ -708,7 +710,7 @@ About:
   #On About page
   About: 'Hakkında'
   #& About
-  Website: İnternet Sitesi
+  Website: Web sitesi
   Blog: Blog
   Credits: Katkıda Bulunanlar
   FAQ: SSS
@@ -1087,15 +1089,14 @@ This video is unavailable because of missing formats. This can happen due to cou
   gerçekleşebilir.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Etkinleştirildiğinde, FreeTube abonelik akışınızı almak
-      için öntanımlı yönteminin yerine RSS'yi kullanır. RSS daha hızlıdır ve IP engellemesinin
-      önüne geçer, ancak video süresi, canlı yayın durumu veya topluluk gönderileri
-      gibi belirli bilgileri sağlamaz
-    Fetch Automatically: Etkinleştirildiğinde, FreeTube yeni bir pencere açıldığında
-      ve profil değiştirirken abonelik akışınızı otomatik olarak getirecektir.
+    Fetch Feeds from RSS: Etkinleştirildiğinde, FreeTube abonelik beslemenizi almak
+      için varsayılan yöntem yerine RSS kullanacaktır. RSS daha hızlıdır ve IP engellemeyi
+      önler, ancak video süresi, canlı durum veya gönderiler gibi bazı bilgileri sağlamaz.
+    Fetch Automatically: Etkinleştirildiğinde, FreeTube başlangıçta ve yeni bir pencere
+      açıldığında abonelik beslemenizi otomatik olarak getirecektir.
   Player Settings:
     Default Video Format: Bir video oynatılırken kullanılan biçimleri ayarlayın. DASH
-      biçimleri daha yüksek kalitelerde oynatabilir. Eski biçimler en fazla 720p ile
+      biçimleri daha yüksek kalitelerde oynatabilir. Eski biçimler en fazla 360p ile
       sınırlıdır ancak daha az bant genişliği kullanır. Ses biçimleri yalnızca ses
       akışlarıdır.
     Proxy Videos Through Invidious: Videoları sunmak için YouTube ile doğrudan bağlantı
@@ -1109,8 +1110,8 @@ Tooltips:
       tekerleğini kullanın.
   General Settings:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
-    Thumbnail Preference: FreeTube'daki tüm önizleme görselleri, öntanımlı önizleme
-      görseli yerine videonun bir karesiyle değiştirilecektir.
+    Thumbnail Preference: FreeTube'daki tüm küçük resimler, varsayılan küçük resim
+      yerine videonun bir karesiyle, bulanık veya gizli şekilde değiştirilecektir.
     Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz
       API'de bir sorun olduğunda FreeTube otomatik olarak tercih edilmeyen API'nizi
       yedek yöntem olarak kullanmaya çalışır.
@@ -1245,8 +1246,6 @@ Search Listing:
     New: Yeni
     3D: 3B
     8K: 8K
-'Blocked opening potentially unsafe URL': "Güvenli olmayabilir URL'nin açılması engellendi:
-  \"{url}\"."
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Keys:
   arrowdown: Aşağı Ok

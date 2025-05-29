@@ -4,15 +4,15 @@ Quit: 'Sair'
 Edit: 'Editar'
 Undo: 'Desfazer'
 Redo: 'Refazer'
-Cut: 'Cortar'
+Cut: 'Recortar'
 Copy: 'Copiar'
 Paste: 'Colar'
 Delete: 'Excluir'
-Select all: 'Selecionar todos'
+Select all: 'Selecionar tudo'
 Reload: 'Recarregar'
-Force Reload: 'Forçar recarregamento'
+Force Reload: 'Recarregar forçadamente'
 Toggle Developer Tools: 'Alternar ferramentas de desenvolvedor'
-Actual size: 'Tamanho atual'
+Actual size: 'Tamanho real'
 Zoom in: 'Ampliar'
 Zoom out: 'Reduzir'
 Toggle fullscreen: 'Alternar tela cheia'
@@ -1035,7 +1035,7 @@ Canceled next video autoplay: 'Reprodução automática cancelada'
 
 Yes: 'Sim'
 No: 'Não'
-Locale Name: Português (BR)
+Locale Name: Português (Brasil)
 Profile:
   Delete Profile: Excluir perfil
   Update Profile: Atualizar perfil
@@ -1086,8 +1086,8 @@ Profile:
   Close Profile Dropdown: Fechar menu de perfis
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber}
   já está disponível! Clique para mais detalhes
-A new blog is now available, {blogTitle}. Click to view more: 'Um novo blog está disponível,
-  {blogTitle}. Clique aqui para saber mais'
+A new blog is now available, {blogTitle}. Click to view more: 'Um novo post do blog
+  está disponível: {blogTitle}. Clique para ver mais'
 Download From Site: Baixar do site
 The playlist has been reversed: A playlist foi invertida
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este
@@ -1175,7 +1175,7 @@ Playing Next Video Interval: A reproduzir o próximo vídeo imediatamente. Cliqu
   para cancelar.
 Unknown YouTube url type, cannot be opened in app: Tipo de URL do YouTube desconhecida,
   não pode ser aberta no aplicativo
-Open New Window: Abrir uma nova janela
+Open New Window: Abrir nova janela
 Default Invidious instance has been cleared: A instância padrão Invidious foi apagada
 Default Invidious instance has been set to {instance}: A instância padrão Invidious
   foi definida para {instance}
@@ -1184,7 +1184,7 @@ Search Bar:
   Remove: Remover
 External link opening has been disabled in the general settings: Abrir links externos
   foi desabilitado nas configurações gerais
-Are you sure you want to open this link?: Quer mesmo abrir este link?
+Are you sure you want to open this link?: Tem certeza de que deseja abrir este link?
 Downloading has completed: '"{videoTitle}" download concluído'
 Starting download: Iniciando download "{videoTitle}"
 Downloading failed: Falha no download "{videoTitle}"
@@ -1221,7 +1221,7 @@ Channel Unhidden: '{channel} removido do filtro de canais'
 Trimmed input must be at least N characters long: A entrada cortada deve ter pelo
   menos 1 caractere | A entrada cortada precisa ter pelo menos {length} caracteres
 Tag already exists: A tag "{tagName}" já existe
-Close Banner: Fechar Banner
+Close Banner: Fechar banner
 Age Restricted:
   This channel is age restricted: Este canal tem restrição de idade
   This video is age restricted: Este vídeo tem restrição de idade
@@ -1246,8 +1246,6 @@ Search Listing:
     360 Video: 360°
     3D: 3D
     New: Novo
-'Blocked opening potentially unsafe URL': 'Impedido de abrir URL potencialmente inseguro:
-  "{url}".'
 Keys:
   alt: Alt
   arrowup: Seta para cima
@@ -1259,8 +1257,8 @@ Keys:
   enter: Enter
   plus: Plus
 shortcutJoinOperator: +
-Right-click or hold to see history: Clique com o botão direito do mouse ou mantenha-o
-  pressionado para ver o histórico
+Right-click or hold to see history: Clique com o botão direito ou mantenha pressionado
+  para ver o histórico
 Autoplay Interruption Timer: Reprodução automática cancelada devido a {autoplayInterruptionIntervalHours}
   horas de inatividade
 KeyboardShortcutTemplate: '{label} ({shortcut})'

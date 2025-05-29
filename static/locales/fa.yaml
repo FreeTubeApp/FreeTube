@@ -1212,7 +1212,6 @@ Trimmed input must be at least N characters long: ورودی بریده شده �
 Tag already exists: برچسب "{tagName}" از قبل وجود دارد
 checkmark: ✓
 Channel Unhidden: '{channel} از فیلتر کانال حذف شد'
-'Blocked opening potentially unsafe URL': 'باز کردن آدرس بالقوه ناامن مسدود شد: "{url}".'
 Channel Hidden: '{channel} به فیلتر کانال اضافه شد'
 Yes, Open Link: بله بازکردن پیوند
 KeyboardShortcutTemplate: '{label} ({shortcut})'

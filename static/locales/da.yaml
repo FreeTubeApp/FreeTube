@@ -638,6 +638,7 @@ Settings:
     Hide Subscriptions Live: Skjul liveudsendelser fra abonnementer
     Hide Subscriptions Shorts: Skjul abonnementer Shorts
     Hide Subscriptions Videos: Skjul abonnementer Videoer
+    Hide Channel Posts: Skjul "Opslag"-fanen på kanaler
   The app needs to restart for changes to take effect. Restart and apply change?: App'en
     er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
     ændringer?
@@ -941,11 +942,11 @@ Video:
       Bitrate: 'Bitrate: {bitrate} kbps'
       CodecAudio: 'Codec: {audioCodec} ({audioItag})'
       Volume: 'Lydstyrke: {volumePercentage}%'
-      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {lydkodec}'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
       Dropped Frames / Total Frames: 'Tabte rammer: {droppedFrames} (tabte billeder)
         / Samlet antal rammer: {totalFrames}'
       CodecsVideoAudio: 'Kodeks: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
-      Player Dimensions: 'Spillerens dimensioner: {bredde}x{højde}'
+      Player Dimensions: 'Spillerens dimensioner: {width}x{height}'
       Buffered: 'Bufret: {bufferedPercentage}%'
     Skipped segment: Sprang {segmentCategory} segment over
     Playback will resume automatically when your connection comes back: Afspilning
@@ -1086,14 +1087,13 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Når aktiveret, bruger FreeTube RSS i stedet for standardmetoden
       til at hente dit abonnementsfeed. RSS er hurtigere og forhindrer IP-blokering,
-      men viser ikke visse oplysninger som videoens varighed, live-status eller opslag
-      fra fællesskabet
+      men giver ikke visse oplysninger som videovarighed, live-status eller opslag
     Fetch Automatically: Når det er aktiveret, henter FreeTube automatisk dit abonnementsfeed,
       når der åbnes et nyt vindue, og når du skifter profil.
   Player Settings:
-    Default Video Format: Angiv formaterne der bruges når en video afspilles. DASH-formater
-      kan afspille med højere kvalitet. Gamle formater er begrænsede til maks HD,
-      men bruger mindre båndbredde. Lydformater er lydstrømme kun med lyd.
+    Default Video Format: Vælg de formater, der skal bruges, når en video afspilles.
+      DASH-formater kan afspille højere kvaliteter. Legacy-formater er begrænset til
+      maks. 360p, men bruger mindre båndbredde. Lydformater er kun lydstrømme.
     Proxy Videos Through Invidious: Vil forbinde til Invidious for at vise videoer
       i stedet for at oprette en direkte forbindelse til YouTube.
     Scroll Playback Rate Over Video Player: Mens markøren er over videoen, tryk og
@@ -1111,8 +1111,8 @@ Tooltips:
       en Invidious-server at forbinde til.
     Invidious Instance: Den Invidious-instans, som FreeTube skal forbinde til for
       API-opkald.
-    Thumbnail Preference: Alle miniaturebilleder i FreeTube vil blive erstattet med
-      et billede af videoen, i stedet for standard-miniaturebilledet.
+    Thumbnail Preference: Alle miniaturebilleder på FreeTube erstattes med et billede
+      af videoen, sløret eller skjult, i stedet for standardminiaturebilledet.
     Fallback to Non-Preferred Backend on Failure: Når din foretrukne API oplever et
       problem, vil FreeTube automatisk forsøge at bruge din ikke-foretrukne API som
       reservemetode, når det er aktiveret.
@@ -1288,21 +1288,19 @@ KeyboardShortcutPrompt:
   Toggle Developer Tools: Skift udviklerværktøjer
   Focus Search: Fokuser på søgelinjen
 Channel Hidden: '{kanal} tilføjet til kanalfilter'
-KeyboardShortcutTemplate: '{label} ({genvej})'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
 Moments Ago: for et øjeblik siden
 Yes, Delete: Ja, Slet
-Display Label: '{label}: {værdi}'
+Display Label: '{label}: {value}'
 Yes, Restart: Ja, genstart
 Ok: ok
 shortcutJoinOperator: +
 Trimmed input must be at least N characters long: Trimmet input skal være mindst 1
-  tegn langt | Trimmet input skal være mindst {længde} tegn langt
+  tegn langt | Trimmet input skal være mindst {length} tegn langt
 Yes, Open Link: Ja, Åbn link
 Tag already exists: »{tagName}"-tagget findes allerede
 Cancel: annullere
 Autoplay Interruption Timer: Autoplay afbrudt på grund af {autoplayInterruptionIntervalHours}
   timers inaktivitet
 shortcutLabelSeparator: ｜
-'Blocked opening potentially unsafe URL': 'Blokeret åbning af potentielt usikker URL:
-  »{url}«.'
 checkmark: ✓

@@ -58,13 +58,12 @@ Options:
 
 function runApp() {
   /** @type {Set<string>} */
-  let ALLOWED_RENDERER_FILES
+  const ALLOWED_RENDERER_FILES = process.env.NODE_ENV === 'production'
+    // __FREETUBE_ALLOWED_PATHS__ is replaced by the injectAllowedPaths.mjs script
+    ? new Set(__FREETUBE_ALLOWED_PATHS__)
+    : new Set()
 
   if (process.env.NODE_ENV === 'production') {
-    // __FREETUBE_ALLOWED_PATHS__ is replaced by the injectAllowedPaths.mjs script
-    // eslint-disable-next-line no-undef
-    ALLOWED_RENDERER_FILES = new Set(__FREETUBE_ALLOWED_PATHS__)
-
     protocol.registerSchemesAsPrivileged([{
       scheme: 'app',
       privileges: {
@@ -303,7 +302,7 @@ function runApp() {
             }
             mainWindow.focus()
 
-            if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url)
+            if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url, false)
           }
         } else {
           if (url) startupUrl = url
@@ -781,15 +780,21 @@ function runApp() {
   }
 
   /**
-   * @param {string} urlString
+   * @param {string | URL} url
    */
-  function isFreeTubeUrl(urlString) {
-    const { protocol, host, pathname } = new URL(urlString)
+  function isFreeTubeUrl(url) {
+    let url_
+
+    if (url instanceof URL) {
+      url_ = url
+    } else {
+      url_ = URL.parse(url)
+    }
 
     if (process.env.NODE_ENV === 'development') {
-      return protocol === 'http:' && host === 'localhost:9080' && (pathname === '/' || pathname === '/index.html')
+      return url_ !== null && url_.protocol === 'http:' && url_.host === 'localhost:9080' && (url_.pathname === '/' || url_.pathname === '/index.html')
     } else {
-      return protocol === 'app:' && host === 'bundle' && pathname === '/index.html'
+      return url_ !== null && url_.protocol === 'app:' && url_.host === 'bundle' && url_.pathname === '/index.html'
     }
   }
 
@@ -867,16 +872,15 @@ function runApp() {
       darkTheme: nativeTheme.shouldUseDarkColors,
       icon: process.env.NODE_ENV === 'development'
         ? path.join(__dirname, '../../_icons/iconColor.png')
-        /* eslint-disable-next-line n/no-path-concat */
-        : `${__dirname}/_icons/iconColor.png`,
+        : path.join(__dirname, '../_icons/iconColor.png'),
       autoHideMenuBar: true,
       // useContentSize: true,
       webPreferences: {
-        nodeIntegration: true,
-        nodeIntegrationInWorker: false,
         webSecurity: false,
         backgroundThrottling: false,
-        contextIsolation: false
+        preload: process.env.NODE_ENV === 'development'
+          ? path.resolve(__dirname, '../../dist/preload.js')
+          : path.resolve(__dirname, 'preload.js')
       },
       minWidth: 340,
       minHeight: 380
@@ -896,14 +900,33 @@ function runApp() {
 
     // https://github.com/electron/electron/blob/14-x-y/docs/api/window-open.md#native-window-example
     newWindow.webContents.setWindowOpenHandler((details) => {
-      createWindow({
-        replaceMainWindow: false,
-        showWindowNow: true,
-        windowStartupUrl: details.url
-      })
-      return {
-        action: 'deny'
+      const url = URL.parse(details.url)
+
+      // Only handle valid URLs that came from a FreeTube page
+      if (url !== null && isFreeTubeUrl(newWindow.webContents.getURL())) {
+        if (isFreeTubeUrl(url)) {
+          createWindow({
+            replaceMainWindow: false,
+            showWindowNow: true,
+            windowStartupUrl: details.url
+          })
+        } else if (
+          url.protocol === 'http:' || url.protocol === 'https:' ||
+
+          // Email address on the about page and Autolinker detects and links email addresses
+          url.protocol === 'mailto:' ||
+
+          // Autolinker detects and links phone numbers
+          url.protocol === 'tel:' ||
+
+          // Donation links on the about page
+          (url.protocol === 'bitcoin:' && url.pathname === ABOUT_BITCOIN_ADDRESS)
+        ) {
+          shell.openExternal(details.url)
+        }
       }
+
+      return { action: 'deny' }
     })
 
     // endregion Ensure child windows use same options since electron 14
@@ -1035,7 +1058,7 @@ function runApp() {
 
   ipcMain.on(IpcChannels.APP_READY, () => {
     if (startupUrl) {
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, { isLaunchLink: true })
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, true)
     }
     startupUrl = null
   })
@@ -1140,52 +1163,9 @@ function runApp() {
 
   // #endregion navigation history
 
-  ipcMain.handle(IpcChannels.OPEN_EXTERNAL_LINK, (_, url) => {
-    if (typeof url === 'string') {
-      let parsedURL
-
-      try {
-        parsedURL = new URL(url)
-      } catch {
-        // If it's not a valid URL don't open it
-        return false
-      }
-
-      if (
-        parsedURL.protocol === 'http:' || parsedURL.protocol === 'https:' ||
-
-        // Email address on the about page and Autolinker detects and links email addresses
-        parsedURL.protocol === 'mailto:' ||
-
-        // Autolinker detects and links phone numbers
-        parsedURL.protocol === 'tel:' ||
-
-        // Donation links on the about page
-        (parsedURL.protocol === 'bitcoin:' && parsedURL.pathname === ABOUT_BITCOIN_ADDRESS)
-      ) {
-        shell.openExternal(url)
-        return true
-      }
-    }
-
-    return false
-  })
-
   ipcMain.handle(IpcChannels.GET_SYSTEM_LOCALE, () => {
     // we should switch to getPreferredSystemLanguages at some point and iterate through until we find a supported locale
     return app.getSystemLocale()
-  })
-
-  // Allows programmatic toggling of fullscreen without accompanying user interaction.
-  // See: https://developer.mozilla.org/en-US/docs/Web/Security/User_activation#transient_activation
-  ipcMain.on(IpcChannels.REQUEST_FULLSCREEN, ({ sender }) => {
-    sender.executeJavaScript('document.querySelector("video.player").ui.getControls().toggleFullScreen()', true)
-  })
-
-  // Allows programmatic toggling of picture-in-picture mode without accompanying user interaction.
-  // See: https://developer.mozilla.org/en-US/docs/Web/Security/User_activation#transient_activation
-  ipcMain.on(IpcChannels.REQUEST_PIP, ({ sender }) => {
-    sender.executeJavaScript('document.querySelector("video.player").ui.getControls().togglePiP()', true)
   })
 
   ipcMain.handle(IpcChannels.GET_SCREENSHOT_FALLBACK_FOLDER, (event) => {
@@ -1253,11 +1233,11 @@ function runApp() {
 
     const settingId = kind === DefaultFolderKind.DOWNLOADS ? 'downloadFolderPath' : 'screenshotFolderPath'
 
-    const folderPath = await baseHandlers.settings._findOne(settingId)
+    const folderPath = (await baseHandlers.settings._findOne(settingId))?.value
 
     let directory
-    if (typeof currentPath === 'string' && folderPath.value.length > 0) {
-      directory = folderPath.value
+    if (typeof folderPath === 'string' && folderPath.length > 0) {
+      directory = folderPath
     } else {
       directory = path.join(app.getPath(kind === DefaultFolderKind.DOWNLOADS ? 'downloads' : 'pictures'), 'FreeTube')
     }
@@ -1329,11 +1309,6 @@ function runApp() {
       return
     }
 
-    if (path == null && query == null && searchQueryText == null) {
-      createWindow({ replaceMainWindow: false, showWindowNow: true })
-      return
-    }
-
     if (
       typeof path !== 'string' ||
       (query != null && typeof query !== 'object') ||
@@ -1360,8 +1335,8 @@ function runApp() {
     })
   })
 
-  ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, payload) => {
-    const child = cp.spawn(payload.executable, payload.args, { detached: true, stdio: 'ignore' })
+  ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, executable, args) => {
+    const child = cp.spawn(executable, args, { detached: true, stdio: 'ignore' })
     child.unref()
   })
 
@@ -1945,8 +1920,12 @@ function runApp() {
     event.preventDefault()
 
     if (mainWindow && mainWindow.webContents) {
+<<<<<<< HEAD
       if (trayOnMinimize) { manageTray(mainWindow, true) }
       mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
+=======
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url), false)
+>>>>>>> development
     } else {
       startupUrl = baseUrl(url)
       if (app.isReady()) createWindow()
@@ -2013,10 +1992,7 @@ function runApp() {
       return
     }
 
-    browserWindow.webContents.send(
-      IpcChannels.CHANGE_VIEW,
-      { route: path }
-    )
+    browserWindow.webContents.send(IpcChannels.CHANGE_VIEW, path)
   }
 
   async function setMenu() {

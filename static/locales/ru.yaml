@@ -1224,8 +1224,6 @@ Search Listing:
     360 Video: 360°
     New: Новинка
     3D: 3D
-'Blocked opening potentially unsafe URL': 'Заблокировано открытие потенциально небезопасного
-  URL: "{url}".'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Keys:

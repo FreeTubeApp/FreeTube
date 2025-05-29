@@ -222,6 +222,7 @@
           watchVideoRecommendationsLowerCard: watchingPlaylist || isLive,
           watchVideoRecommendationsNoCard: !watchingPlaylist || !isLive
         }"
+        @pause-player="pausePlayer"
       />
     </div>
   </div>

@@ -53,6 +53,7 @@ Global:
 # Search Bar
     Like Count: 1 hoffi | {count} hoffi
     Comment Count: 1 sylw | {count} sylw
+  Posts: Postiadau
 Search / Go to URL: 'Chwilio / Mynd i URL'
 Search Bar:
   Clear Input: 'Clirio Mewnbwn'
@@ -610,6 +611,8 @@ Settings:
     Show Added Items: Dangos Eitemau Ychwanegwyd
     Hide Channel Home: Cuddio Tab Sianel "Cartref"
     Hide Channel Courses: Cuddio Tab "Cyrsiau" Sianel
+    Hide Channel Posts: Cuddio Tab Sianel "Postiadau"
+    Hide Subscriptions Posts: Cuddio Tabiau Tanysgrifiadau
   Data Settings:
     Data Settings: 'Data'
     Select Export Type: 'Dewis y Math o Allforio'
@@ -1120,7 +1123,7 @@ Tooltips:
       bydd FreeTube yn ceisio defnyddio''ch API nad yw''n well gennych yn awtomatig
       fel dull wrth gefn pan fydd wedi''i alluogi.'
     Thumbnail Preference: 'Bydd holl luniau bach FreeTube yn cael eu newid i ffrâm
-      o''r fideo yn lle''r llun bach rhagosodedig.'
+      o''r fideo, pŵl neu gudd yn lle''r llun bach rhagosodedig.'
     Invidious Instance: 'Yr enghraifft Invidious y bydd FreeTube yn cysylltu ag ef
       ar gyfer galwadau API.'
     Region for Trending: 'Mae''r rhanbarth o dueddiadau yn caniatáu ichi ddewis fideos
@@ -1136,7 +1139,7 @@ Tooltips:
       yn lle gwneud cysylltiad uniongyrchol â YouTube.'
     Default Video Format: 'Gosodwch y fformatau i''w defnyddio pan fydd fideo yn chwarae.
       Gall fformatau DASH chwarae ansoddau uwch. Mae hen fformatau wedi''u cyfyngu
-      i uchafswm o 720c ond yn defnyddio llai o led band. Mae fformatau sain yn ffrydiau
+      i uchafswm o 360p ond yn defnyddio llai o led band. Mae fformatau sain yn ffrydiau
       sain yn unig.'
     Scroll Playback Rate Over Video Player: 'Tra bod y cyrchwr dros y fideo, pwyswch
       a daliwch y fysell Control (Command Key ar Mac) a sgroliwch olwyn y llygoden
@@ -1175,10 +1178,10 @@ Tooltips:
     Fetch Feeds from RSS: 'Pan fydd wedi''i alluogi, bydd FreeTube yn defnyddio RSS
       yn lle ei ddull rhagosodedig ar gyfer cydio yn eich ffrwd tanysgrifio. Mae RSS
       yn gyflymach ac yn atal rhwystro IP, ond nid yw''n darparu gwybodaeth benodol
-      fel hyd fideo, statws byw neu bostiadau cymunedol'
+      fel hyd fideo, statws byw neu bostiadau'
     Fetch Automatically: 'Pan fydd wedi''i alluogi, bydd FreeTube yn nôl eich ffrwd
-      tanysgrifio yn awtomatig pan fydd ffenestr newydd yn cael ei hagor ac wrth newid
-      proffil.'
+      tanysgrifio yn awtomatig wrth gychwyn a phan fydd ffenestr newydd yn cael ei
+      hagor.'
   Experimental Settings:
     Replace HTTP Cache: 'Yn analluogi storfa HTTP ar ddisg Electron ac yn galluogi
       storfa delwedd mewn cof cyfaddas. Bydd yn arwain at fwy o ddefnydd o RAM.'
@@ -1258,8 +1261,6 @@ Age Restricted:
 Moments Ago: eiliad yn ôl
 checkmark: ✓
 Display Label: '{label}: {value}'
-'Blocked opening potentially unsafe URL': 'Wedi rhwystro URL a allai fod yn anniogel
-  wrth agor : "{url}".'
 Trimmed input must be at least N characters long: Rhaid i fewnbwn wedi'i docio fod
   o leiaf 1 nod o hyd | Rhaid i fewnbwn wedi'i docio fod o leiaf {length} nod
 Tag already exists: Mae'r tag "{tagName}" eisoes yn bodoli

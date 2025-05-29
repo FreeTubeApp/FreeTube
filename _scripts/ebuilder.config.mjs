@@ -1,12 +1,12 @@
-const { name, productName } = require('../package.json')
+import packageDetails from '../package.json' with { type: 'json' }
 
 /** @type {import('electron-builder').Configuration} */
-const config = {
-  appId: `io.freetubeapp.${name}`,
+export default {
+  appId: `io.freetubeapp.${packageDetails.name}`,
   copyright: 'Copyleft © 2020-2025 freetubeapp@protonmail.com',
   // asar: false,
   // compression: 'store',
-  productName,
+  productName: packageDetails.productName,
   directories: {
     output: './build/',
   },
@@ -96,5 +96,3 @@ const config = {
     oneClick: false,
   },
 }
-
-module.exports = config

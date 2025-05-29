@@ -27,7 +27,7 @@ Forward: 'Naprzód'
 Global:
   Videos: 'Filmy'
   Shorts: Filmy Short
-  Live: Transmisje
+  Live: Na żywo
   Posts: Posty
   Sort By: Sortuj według
 
@@ -1248,8 +1248,6 @@ Search Listing:
     VR180: VR180
     8K: 8K
     360 Video: 360°
-'Blocked opening potentially unsafe URL': 'Zablokowano otwarcie potencjalnie niebezpiecznego
-  URL: "{url}".'
 Keys:
   arrowup: Strzałka do góry
   arrowright: Strzałka w prawo
