@@ -1920,12 +1920,8 @@ function runApp() {
     event.preventDefault()
 
     if (mainWindow && mainWindow.webContents) {
-<<<<<<< HEAD
       if (trayOnMinimize) { manageTray(mainWindow, true) }
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url))
-=======
       mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url), false)
->>>>>>> development
     } else {
       startupUrl = baseUrl(url)
       if (app.isReady()) createWindow()
