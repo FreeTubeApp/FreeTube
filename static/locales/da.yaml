@@ -639,6 +639,7 @@ Settings:
     Hide Subscriptions Shorts: Skjul abonnementer Shorts
     Hide Subscriptions Videos: Skjul abonnementer Videoer
     Hide Channel Posts: Skjul "Opslag"-fanen på kanaler
+    Hide Subscriptions Posts: Skjul Abonnement Opslag
   The app needs to restart for changes to take effect. Restart and apply change?: App'en
     er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
     ændringer?
@@ -1088,8 +1089,8 @@ Tooltips:
     Fetch Feeds from RSS: Når aktiveret, bruger FreeTube RSS i stedet for standardmetoden
       til at hente dit abonnementsfeed. RSS er hurtigere og forhindrer IP-blokering,
       men giver ikke visse oplysninger som videovarighed, live-status eller opslag
-    Fetch Automatically: Når det er aktiveret, henter FreeTube automatisk dit abonnementsfeed,
-      når der åbnes et nyt vindue, og når du skifter profil.
+    Fetch Automatically: Når aktiveret, henter FreeTube automatisk dit abonnementsfeed,
+      både når du starter FreeTube og når der åbnes et nyt vindue.
   Player Settings:
     Default Video Format: Vælg de formater, der skal bruges, når en video afspilles.
       DASH-formater kan afspille højere kvaliteter. Legacy-formater er begrænset til
