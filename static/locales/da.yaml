@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'dansk'
+Locale Name: 'Dansk'
 
 # Webkit Menu Bar
 File: 'Fil'
@@ -13,8 +13,8 @@ Paste: 'Indsæt'
 Delete: 'Slet'
 Select all: 'Vælg alt'
 Reload: 'Genindlæs'
-Force Reload: 'Tving Genindlæsning'
-Toggle Developer Tools: 'Slå Udviklerværktøjer til/fra'
+Force Reload: 'Tving genindlæsning'
+Toggle Developer Tools: 'Slå udviklerværktøjer til/fra'
 Actual size: 'Faktisk størrelse'
 Zoom in: 'Zoom ind'
 Zoom out: 'Zoom ud'
@@ -44,7 +44,7 @@ Global:
   Shorts: Shorts
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
   er nu tilgængelig!  Klik for flere detaljer'
-Download From Site: 'Hent Fra Netsted'
+Download From Site: 'Hent fra websted'
 A new blog is now available, {blogTitle}. Click to view more: 'En ny blog er nu tilgængelig,
   {blogTitle}. Klik for at se mere'
 
@@ -54,28 +54,28 @@ Search / Go to URL: 'Søg/gå til URL'
 Search Filters:
   Search Filters: 'Søgefiltre'
   Sort By:
-    Most Relevant: 'Mest Relevante'
+    Most Relevant: 'Mest relevante'
     Rating: 'Bedømmelse'
-    Upload Date: 'Dato for Upload'
+    Upload Date: 'Dato for upload'
     View Count: 'Visningstal'
   Time:
     Time: 'Tid'
-    Any Time: 'Enhver Tid'
-    Last Hour: 'Sidste Time'
-    Today: 'I Dag'
-    This Week: 'Denne Uge'
-    This Month: 'Denne Måned'
-    This Year: 'I År'
+    Any Time: 'Altid'
+    Last Hour: 'Sidste time'
+    Today: 'I dag'
+    This Week: 'Denne uge'
+    This Month: 'Denne måned'
+    This Year: 'I år'
   Type:
     Type: 'Type'
-    All Types: 'Alle Typer'
+    All Types: 'Alle typer'
     Videos: 'Videoer'
     Channels: 'Kanaler'
     #& Playlists
     Movies: Film
   Duration:
     Duration: 'Varighed'
-    All Durations: 'Alle Varigheder'
+    All Durations: 'Alle varigheder'
     Short (< 4 minutes): 'Kort (< 4 minutter)'
     Long (> 20 minutes): 'Lang (> 20 minutter)'
   # On Search Page
@@ -95,64 +95,63 @@ Search Filters:
     HDR: HDR
     Features: Funktioner
     Location: Placering
-    360 Video: 360 Video
+    360 Video: 360° video
     VR180: VR180
     Creative Commons: Creative Commons
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnenter'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din
-    Abonnementsliste er i øjeblikket tom. Hvis du vil importere dine abonnementer,
-    kan du gå til Dataindstillinger og vælge Importér Abonnementer, eller du kan søge
-    efter en kanal og abonnere på den.'
-  Load More Videos: Indlæs Flere Videoer
+    abonnementsliste er tom. Hvis du vil importere dine abonnementer, gå til "Dataindstillinger"
+    og vælg "Importér Abonnementer" – eller søg efter en kanal og abonner på den.'
+  Load More Videos: Indlæs flere videoer
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne
     profil har et stort antal abonnenter. Gennemtvinger RSS for at undgå adgangsbegrænsning
-  Error Channels: Kanaler med Fejl
+  Error Channels: Kanaler med fejl
   Empty Channels: De kanaler, du abonnerer på, har i øjeblikket ingen videoer.
   Disabled Automatic Fetching: Du har deaktiveret automatisk hentning af abonnenter.
     Opdatér abonnenter for at se dem her.
-  Empty Posts: Dine abonnerede kanaler har i øjeblikket ingen opslag.
-  Load More Posts: Indlæs Flere Opslag
+  Empty Posts: De kanaler, du abonnerer på, har i øjeblikket ingen opslag.
+  Load More Posts: Indlæs flere opslag
   Subscriptions Tabs: Abonnement-faner
   All Subscription Tabs Hidden: Alle abonnement-faner er skjult. Gør nogle faner synlige
     i "{subsection}" under "{settingsSection}" for at se indhold her.
 Trending:
-  Trending: 'Trender'
+  Trending: 'Hot lige nu'
   Music: Musik
-  Trending Tabs: Trend Faner
+  Trending Tabs: Hot lige nu-faner
   Gaming: Gaming
   Default: Standard
   Movies: Film
-Most Popular: 'Mest Populære'
+Most Popular: 'Mest populære'
 Playlists: 'Playlister'
 User Playlists:
-  Your Playlists: 'Dine Playlister'
-  Search bar placeholder: Søg efter Playlister
+  Your Playlists: 'Dine playlister'
+  Search bar placeholder: Søg efter playlister
   Empty Search Message: Ingen videoer i denne playliste matcher din søgning
-  This playlist currently has no videos.: Denne playliste har i øjeblikket ingen videoer.
-  Create New Playlist: Opret Ny Playliste
-  Add to Playlist: Føj til Playliste
+  This playlist currently has no videos.: Denne playliste har ingen videoer.
+  Create New Playlist: Opret ny playliste
+  Add to Playlist: Føj til playliste
   You have no playlists. Click on the create new playlist button to create a new one.: Du
-    har ingen playlister. Klik på 'Opret Ny Playliste'-knappen for at oprette en ny.
+    har ingen playlister. Klik på "Opret Ny Playliste"-knappen for at oprette en.
   Remove from Favorites: Fjern fra {playlistName}
-  Move Video Up: Flyt Video Op
-  Copy Playlist: Kopiér Playliste
-  Remove Watched Videos: Fjern Sete Videoer
-  Delete Playlist: Slet Playliste
+  Move Video Up: Flyt video op
+  Copy Playlist: Kopiér playliste
+  Remove Watched Videos: Fjern sete videoer
+  Delete Playlist: Slet playliste
   Sort By:
-    EarliestCreatedFirst: Tidligst Oprettet
-    EarliestUpdatedFirst: Tidligst Opdateret
-    LatestPlayedFirst: Afspillet For Nyligt
-    LatestCreatedFirst: Oprettet For Nyligt
-    LatestUpdatedFirst: Opdateret For Nyligt
-    EarliestPlayedFirst: Tidligst Afspillet
+    EarliestCreatedFirst: Tidligst oprettet
+    EarliestUpdatedFirst: Tidligst opdateret
+    LatestPlayedFirst: Afspillet for nyligt
+    LatestCreatedFirst: Nyligt oprettet
+    LatestUpdatedFirst: Nyligt opdateret
+    EarliestPlayedFirst: Tidligst afspillet
     NameDescending: Å-A
     NameAscending: A-Å
   Are you sure you want to delete this playlist? This cannot be undone: Er du sikker
-    på, at du vil slette denne playliste? Dette kan ikke fortrydes.
+    på, at du vil slette denne playliste? Det kan ikke fortrydes.
   SinglePlaylistView:
-    Search for Videos: Søg efter Videoer
+    Search for Videos: Søg efter videoer
     Toast:
       This video cannot be moved up.: Denne video kan ikke flyttes op.
       This video cannot be moved down.: Denne video kan ikke flyttes ned.
@@ -161,18 +160,18 @@ User Playlists:
         denne video
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Nogle
         videoer i denne playliste er ikke indlæst endnu. Klik her for at kopiere alligevel.
-      Playlist name cannot be empty. Please input a name.: Playliste navn kan ikke
+      Playlist name cannot be empty. Please input a name.: Playlistenavn kan ikke
         være tomt. Indtast venligst et navn.
       This playlist is protected and cannot be removed.: Denne playliste er beskyttet
         og kan ikke fjernes.
       There was an issue with updating this playlist.: Der opstod et problem med at
         opdatere denne playliste.
-      This playlist does not exist: Denne playliste eksisterer ikke
+      This playlist does not exist: Denne playliste findes ikke
       Playlist has been updated.: Playliste er blevet opdateret.
       "{videoCount} video(s) have been removed": 1 video er blevet fjernet | {videoCount}
         videoer er blevet fjernet
       There were no videos to remove.: Der var ingen videoer at fjerne.
-      Playlist {playlistName} has been deleted.: Playliste {playlistName} er blevet
+      Playlist {playlistName} has been deleted.: Playlisten "{playlistName}" er blevet
         slettet.
       This playlist has a video with a duration error: Denne playliste indeholder
         mindst én video uden varighed. Den sorteres, som om dens varighed er nul.
@@ -188,42 +187,42 @@ User Playlists:
       This playlist is already being used for quick bookmark.: Denne playliste bruges
         allerede til hurtig bogmærke.
   AddVideoPrompt:
-    Select a playlist to add your N videos to: Vælg en playliste, du vil føje din
-      video til | Vælg en playliste, du vil føje dine {videoCount} videoer til
-    N playlists selected: '{playlistCount} Valgt'
-    Search in Playlists: Søg i Playlister
+    Select a playlist to add your N videos to: Vælg en playliste, du vil føje videoen
+      til | Vælg en playliste, du vil føje de {videoCount} videoer til
+    N playlists selected: '{playlistCount} valgt'
+    Search in Playlists: Søg i playlister
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video tilføjet
-        til {playlistCount} playlister | {videoCount} videoer tilføjet til {playlistCount}
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video føjet til
+        {playlistCount} playlister | {videoCount} videoer føjet til {playlistCount}
         playlister
       You haven't selected any playlist yet.: Du har ikke valgt nogen playliste endnu.
-      "{videoCount} video(s) added to 1 playlist": 1 video tilføjet til 1 playliste
-        | {videoCount} videoer tilføjet til 1 playliste
-    Added {count} Times: Allerede Tilføjet | Tilføjet {count} Gange
+      "{videoCount} video(s) added to 1 playlist": 1 video føjet til 1 playliste |
+        {videoCount} videoer føjet til 1 playliste
+    Added {count} Times: Allerede tilføjet | Tilføjet {count} gange
     Save: Gem
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      Videoer Bliver Tilføjet'
+      videoer tilføjes'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      Videoer Allerede Tilføjet'
+      videoer allerede tilføjet'
     Allow Adding Duplicate Video(s): Tillad tilføjelse af duplikatvideo(er)
   CreatePlaylistPrompt:
     Toast:
       There was an issue with creating the playlist.: Der opstod et problem med at
         oprette denne playliste.
       There is already a playlist with this name. Please pick a different name.: En
-        playliste med dette navn eksisterer allerede. Vælg venligst et andet navn.
-      Playlist {playlistName} has been successfully created.: Playlisten {playlistName}
+        playliste med dette navn findes allerede. Vælg venligst et andet navn.
+      Playlist {playlistName} has been successfully created.: Playlisten "{playlistName}"
         blev oprettet.
-    New Playlist Name: Ny Playliste Navn
+    New Playlist Name: Nyt playlistenavn
     Create: Opret
-  Move Video Down: Flyt Video Ned
-  Playlist Description: Playliste Beskrivelse
-  Save Changes: Gem Ændringer
+  Move Video Down: Flyt video ned
+  Playlist Description: Playlistebeskrivelse
+  Save Changes: Gem ændringer
   Cancel: Annullér
-  Edit Playlist Info: Redigér Playliste Info
+  Edit Playlist Info: Redigér playlisteinfo
   Add to Favorites: Føj til {playlistName}
-  Remove from Playlist: Fjern fra Playliste
-  Playlist Name: Playliste Navn
+  Remove from Playlist: Fjern fra playliste
+  Playlist Name: Playlistenavn
   The playlist has been successfully exported: Playlisten blev eksporteret
   Export Playlist: Eksportér denne playliste
   Playlists with Matching Videos: Playlister med matchende videoer
@@ -244,33 +243,33 @@ User Playlists:
 History:
   # On History Page
   History: 'Historik'
-  Watch History: 'Set Historik'
-  Your history list is currently empty.: 'Din historikliste er i øjeblikket tom.'
-  Empty Search Message: Der er ingen videoer i din historik, som passer til din søgning
-  Search bar placeholder: Søg i Historik
-  Case Sensitive Search: Case Sensitive Søg
+  Watch History: 'Visningshistorik'
+  Your history list is currently empty.: 'Din historikliste er tom.'
+  Empty Search Message: Der er ingen videoer i din historik, som matcher din søgning
+  Search bar placeholder: Søg i historik
+  Case Sensitive Search: Versalfølsom søgning
 Settings:
   # On Settings Page
   Settings: 'Indstillinger'
   General Settings:
     General Settings: 'Generel'
-    Check for Updates: 'Søg efter Opdateringer'
-    Check for Latest Blog Posts: 'Søg efter Seneste Blogindlæg'
-    Fallback to Non-Preferred Backend on Failure: 'Tilbagefald til Ikke-Foretrukken
-      Server ved Fejl'
-    Enable Search Suggestions: 'Aktivér Søgeforslag'
-    Default Landing Page: 'Standard Landingsside'
+    Check for Updates: 'Søg efter opdateringer'
+    Check for Latest Blog Posts: 'Søg efter seneste blogindlæg'
+    Fallback to Non-Preferred Backend on Failure: 'Fallback til ikke-foretrukken backend
+      ved fejl'
+    Enable Search Suggestions: 'Aktivér søgeforslag'
+    Default Landing Page: 'Standard landingsside'
     Locale Preference: 'Sprogindstilling'
     Preferred API Backend:
-      Preferred API Backend: 'Foretrukket API-Server'
+      Preferred API Backend: 'Foretrukken API-backend'
       Local API: 'Lokal API'
       Invidious API: 'Invidious-API'
     Video View Type:
-      Video View Type: 'Video Visningstype'
+      Video View Type: 'Type af videovisning'
       Grid: 'Gitter'
       List: 'Liste'
     Thumbnail Preference:
-      Thumbnail Preference: 'Præference for Miniaturebillede'
+      Thumbnail Preference: 'Præference for miniaturebilleder'
       Default: 'Standard'
       Beginning: 'Begyndelse'
       Middle: 'Midten'
@@ -295,7 +294,7 @@ Settings:
     No default instance has been set: Ingen standardinstans er angivet
     Set Current Instance as Default: Angiv Nuværende Instans som Standard
     Auto Load Next Page:
-      Label: Auto-indlæs Næste Side
+      Label: Auto-indlæs næste side
       Tooltip: Indlæs flere sider og kommentarer automatisk.
     Open Deep Links In New Window: Åbn URL'er sendt til FreeTube i et nyt vindue
   Theme Settings:
@@ -640,9 +639,8 @@ Settings:
     Hide Subscriptions Videos: Skjul abonnementer Videoer
     Hide Channel Posts: Skjul "Opslag"-fanen på kanaler
     Hide Subscriptions Posts: Skjul Abonnement Opslag
-  The app needs to restart for changes to take effect. Restart and apply change?: App'en
-    er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
-    ændringer?
+  The app needs to restart for changes to take effect. Restart and apply change?: Appen
+    skal genstartes for at ændringerne kan træde i kraft. Genstart og anvend ændringer?
   SponsorBlock Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
       Url (Standard er https://sponsor.ajay.app)
@@ -1155,23 +1153,23 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Deaktiverer Electrons diskbaserede HTTP-cache og aktiverer
       en brugerdefineret billedcache i hukommelsen. Vil føre til øget brug af RAM.
-New Window: Nyt Vindue
+New Window: Nyt vindue
 More: Mere
-Open New Window: Åbn Nyt Vindue
+Open New Window: Åbn nyt vindue
 Channels:
   Channels: Kanaler
   Title: Kanalliste
   Count: '{number} kanal(er) fundet.'
-  Unsubscribe Prompt: Er du sikker på at du vil afmelde dit abonnement på "{channelName}"?
-  Search bar placeholder: Søg Kanaler
-  Empty: Din kanalliste er i øjeblikket tom.
+  Unsubscribe Prompt: Er du sikker på, at du vil afmelde "{channelName}"?
+  Search bar placeholder: Søg efter kanaler
+  Empty: Din kanalliste er tom.
 Default Invidious instance has been set to {instance}: Standard Invidious-instans
   er blevet sat til {instance}
 Default Invidious instance has been cleared: Standard Invidious-instans er blevet
   ryddet
 Are you sure you want to open this link?: Er du sikker på, at du vil åbne dette link?
 Search Bar:
-  Clear Input: Ryd Input
+  Clear Input: Ryd input
   Remove: Fjern
 Downloading failed: Der var et problem med at downloade "{videoTitle}"
 Unknown YouTube url type, cannot be opened in app: Ukendt YouTube URL-type, kan ikke
@@ -1187,7 +1185,7 @@ Playing Next Video Interval: Afspiller næste video om lidt. Klik for at afbryde
   næste video om {nextVideoInterval} sekunder. Klik for at afbryde.
 Preferences: Præferencer
 Go to page: Gå til {page}
-Close Banner: Luk Banner
+Close Banner: Luk banner
 Clipboard:
   Cannot access clipboard without a secure connection: Kan ikke tilgå udklipsholder
     uden en sikker forbindelse
