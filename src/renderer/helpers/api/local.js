@@ -1342,7 +1342,10 @@ function parseListItem(item, channelId, channelName) {
       let subscribers = null
       let videos = null
 
-      subscribers = parseLocalSubscriberCount(channel.subscribers.text)
+      if (channel.subscribers?.text) {
+        subscribers = parseLocalSubscriberCount(channel.subscribers.text)
+      }
+
       videos = extractNumberFromString(channel.video_count.text)
 
       return {
