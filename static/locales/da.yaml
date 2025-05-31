@@ -276,39 +276,39 @@ Settings:
       End: 'Slutning'
       Blur: Slør
       Hidden: Skjult
-    Region for Trending: 'Område for Trending'
+    Region for Trending: 'Region for "Hot lige nu"'
         #! List countries
-    View all Invidious instance information: Vis al Invidious-instans-information
-    Clear Default Instance: Ryd Standard Instans
+    View all Invidious instance information: Se al information om Invidious-instanser
+    Clear Default Instance: Ryd standardinstans
     External Link Handling:
-      External Link Handling: Ekstern Link Håndtering
-      Open Link: Åbn Link
-      No Action: Ingen Handling
-      Ask Before Opening Link: Spørg Før Link Åbnes
-    Current instance will be randomized on startup: Nuværende instans vil blive randomiseret
+      External Link Handling: Håndtering af eksterne links
+      Open Link: Åbn link
+      No Action: Ingen handling
+      Ask Before Opening Link: Spørg før link åbnes
+    Current instance will be randomized on startup: Den aktuelle instans vælges tilfældigt
       ved opstart
     System Default: Systemstandard
     The currently set default instance is {instance}: Den nuværende standardinstans
       er {instance}
     Current Invidious Instance: Nuværende Invidious-instans
     No default instance has been set: Ingen standardinstans er angivet
-    Set Current Instance as Default: Angiv Nuværende Instans som Standard
+    Set Current Instance as Default: Angiv nuværende instans som standard
     Auto Load Next Page:
       Label: Auto-indlæs næste side
       Tooltip: Indlæs flere sider og kommentarer automatisk.
     Open Deep Links In New Window: Åbn URL'er sendt til FreeTube i et nyt vindue
   Theme Settings:
     Theme Settings: 'Tema'
-    Match Top Bar with Main Color: 'Tilpas Topbjælke til Primær Farve'
+    Match Top Bar with Main Color: 'Match topbjælken med hovedfarven'
     Base Theme:
-      Base Theme: 'Grundtema'
+      Base Theme: 'Basistema'
       Black: 'Sort'
       Dark: 'Mørk'
       Light: 'Lys'
       Dracula: 'Dracula'
       System Default: Systemstandard
-      Catppuccin Mocha: Catppuccin Mokka
-      Pastel Pink: Pastel Lyserød
+      Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastelpink
       Nordic: Nordisk
       Gruvbox Dark: Gruvbox Mørk
       Gruvbox Light: Gruvbox Lys
@@ -323,7 +323,7 @@ Settings:
       Everforest Light Low: Everforest Lys Lav
       Everforest Dark Hard: Everforest Mørk Hård
     Main Color Theme:
-      Main Color Theme: 'Primær Farvetema'
+      Main Color Theme: 'Hovedfarvetema'
       Red: 'Rød'
       Pink: 'Lyserød'
       Purple: 'Lilla'
@@ -347,20 +347,20 @@ Settings:
       Dracula Purple: 'Dracula Lilla'
       Dracula Red: 'Dracula Rød'
       Dracula Yellow: 'Dracula Gul'
-      Catppuccin Mocha Green: Catppuccin Mokka Grøn
-      Catppuccin Mocha Rosewater: Catppuccin Mokka Rosenvand
-      Catppuccin Mocha Flamingo: Catppuccin Mokka Flamingo
-      Catppuccin Mocha Mauve: Capttuccin Mokka Lysviolet
-      Catppuccin Mocha Peach: Catppuccin Mokka Fersken
-      Catppuccin Mocha Yellow: Catppuccin Mokka Gul
-      Catppuccin Mocha Pink: Catppuccin Mokka Lyserød
-      Catppuccin Mocha Red: Catppuccin Mokka Rød
-      Catppuccin Mocha Maroon: Catppuccin Mokka Rødbrun
-      Catppuccin Mocha Teal: Catppuccin Mokka Turkis
-      Catppuccin Mocha Sky: Catppuccin Mokka Himmel
-      Catppuccin Mocha Sapphire: Catppuccin Mokka Safir
-      Catppuccin Mocha Blue: Catppuccin Mokka Blå
-      Catppuccin Mocha Lavender: Catppuccin Mokka Lavendel
+      Catppuccin Mocha Green: Catppuccin Mocha Grøn
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosenvand
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Mauve: Capttuccin Mocha Lysviolet
+      Catppuccin Mocha Peach: Catppuccin Mocha Fersken
+      Catppuccin Mocha Yellow: Catppuccin Mocha Gul
+      Catppuccin Mocha Pink: Catppuccin Mocha Lyserød
+      Catppuccin Mocha Red: Catppuccin Mocha Rød
+      Catppuccin Mocha Maroon: Catppuccin Mocha Rødbrun
+      Catppuccin Mocha Teal: Catppuccin Mocha Turkis
+      Catppuccin Mocha Sky: Catppuccin Mocha Himmel
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Safir
+      Catppuccin Mocha Blue: Catppuccin Mocha Blå
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavendel
       Catppuccin Frappe Maroon: Catppuccin Frappe Rødbrun
       Catppuccin Frappe Sky: Catppuccin Frappe Himmel
       Catppuccin Frappe Sapphire: Catppuccin Frappe Safir
@@ -407,31 +407,31 @@ Settings:
       Solarized Yellow: Solarized Gul
       Solarized Orange: Solarized Orange
       Catppuccin Frappe Green: Catppuccin Frappe Grøn
-    Secondary Color Theme: 'Sekundær Farvetema'
+    Secondary Color Theme: 'Sekundær farvetema'
         #* Main Color Theme
-    UI Scale: Skalering af Brugerflade
-    Disable Smooth Scrolling: Deaktivér Jævn Rulning
-    Expand Side Bar by Default: Udvid Sidebar som Standard
-    Hide Side Bar Labels: Skjul Sidebarens Etiketter
-    Hide FreeTube Header Logo: Skjul FreeTube Overskriftslogo
+    UI Scale: UI-skala
+    Disable Smooth Scrolling: Deaktivér jævn rulning
+    Expand Side Bar by Default: Udvid sidebjælken som standard
+    Hide Side Bar Labels: Skjul sidebjælkens etiketter
+    Hide FreeTube Header Logo: Skjul FreeTube's header-logo
   Player Settings:
     Player Settings: 'Afspiller'
     Play Next Video: 'Auto-afspil anbefalede videoer'
     Turn on Subtitles by Default: 'Aktivér undertekster som standard'
     Autoplay Videos: 'Start videoer automatisk'
-    Proxy Videos Through Invidious: 'Kør Videoer Gennem Invidious-Proxy'
+    Proxy Videos Through Invidious: 'Kør videoer gennem Invidious-proxy'
     Autoplay Playlists: 'Auto-afspil playlister'
     Enable Theatre Mode by Default: 'Aktivér Biograftilstand som Standard'
-    Default Volume: 'Standard Lydstyrke'
-    Default Playback Rate: 'Standard Afspilningshastighed'
+    Default Volume: 'Standardlydstyrke'
+    Default Playback Rate: 'Standardafspilningshastighed'
     Default Video Format:
-      Default Video Format: 'Standard Videoformat'
-      Dash Formats: 'DASH-Formater'
-      Legacy Formats: 'Ældre Formater'
+      Default Video Format: 'Standardvideoformat'
+      Dash Formats: 'DASH-formater'
+      Legacy Formats: 'Ældre formater'
       Audio Formats: 'Lydformater'
     Default Quality:
       Default Quality: 'Standardkvalitet'
-      Auto: 'Automatisk'
+      Auto: 'Auto'
       144p: '144p'
       240p: '240p'
       360p: '360p'
@@ -442,27 +442,28 @@ Settings:
       4k: '4k'
       8k: '8k'
     Screenshot:
-      Enable: Aktivér Skærmbillede
-      Format Label: Skærmbillede Format
-      Quality Label: Skærmbillede Kvalitet
-      Folder Button: Vælg Mappe
-      File Name Label: Filnavn Mønster
+      Enable: Aktivér skærmbillede
+      Format Label: Skærmbilledformat
+      Quality Label: Skærmbilledkvalitet
+      Folder Button: Vælg mappe
+      File Name Label: Filnavnsmønster
       Error:
-        Forbidden Characters: Forbudte Karakterer
-        Empty File Name: Tomt Filnavn
-      File Name Tooltip: Du kan bruge variabler nedenfor. %Y År 4 tal. %M Måned 2
-        tal. %D Dag 2 tal. %H Time 2 tal. %N Minut 2 tal. %S Sekund 2 tal. %T Millisekund
-        3 tal. %s Video-sekund. %t Video-millisekund 3 tal. %i Video-ID.
-      Ask Path: Spørg efter Mappe til at Gemme
-      Folder Label: Mappe til Skærmbilleder
+        Forbidden Characters: Forbudte tegn
+        Empty File Name: Tomt filnavn
+      File Name Tooltip: Du kan bruge variablerne nedenfor. %Y – år (4 cifre). %M
+        – måned (2 cifre). %D – dag (2 cifre). %H – time (2 cifre). %N – minut (2
+        cifre). %S – sekund (2 cifre). %T – millisekund (3 cifre). %s – video-sekund.
+        %t – video-millisekund (3 cifre). %i – video-ID.
+      Ask Path: Bed om lagringsmappe
+      Folder Label: Skærmbilledmappe
     Next Video Interval: Nedtællingstimer til auto-afspilning
-    Max Video Playback Rate: Maks. Videoafspilningshastighed
-    Display Play Button In Video Player: Vis Afspilningsknap i Videoafspiller
-    Fast-Forward / Rewind Interval: Spol fremad / Spol tilbage Interval
-    Video Playback Rate Interval: Videoafspilningshastighed Interval
-    Scroll Playback Rate Over Video Player: Scroll Afspilningshastighed i Videoafspiller
-    Scroll Volume Over Video Player: Scroll Lydstyrke i Videoafspiller
-    Skip by Scrolling Over Video Player: Spring Over ved at Scrolle Over Videoafspilleren
+    Max Video Playback Rate: Maks. videoafspilningshastighed
+    Display Play Button In Video Player: Vis afspilningsknap i videoafspiller
+    Fast-Forward / Rewind Interval: Interval for spol frem/tilbage
+    Video Playback Rate Interval: Interval for videoafspilningshastighed
+    Scroll Playback Rate Over Video Player: Rul afspilningshastighed over videoafspiller
+    Scroll Volume Over Video Player: Rul lydstyrke over videoafspiller
+    Skip by Scrolling Over Video Player: Spring over ved at rulle over videoafspiller
     Default Viewing Mode:
       Theater: Biograf
       Default Viewing Mode: Standardvisningstilstand
@@ -474,7 +475,7 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Privatliv'
     Remember History: 'Husk visningshistorik'
-    Save Watched Progress: 'Gem Set Fremskridt'
+    Save Watched Progress: 'Gem set fremskridt'
     Clear Search Cache: 'Ryd Søgecache'
     Are you sure you want to clear out your search cache?: 'Er du sikker på, at du
       vil rydde din søgecache?'
@@ -672,11 +673,10 @@ Settings:
     Parental Control Settings: Forældrekontrol
     Hide Search Bar: Skjul Søgefeltet
   External Player Settings:
-    Custom External Player Executable: Brugerdefineret Ekstern Afspiller Eksekverbar
-      Fil
-    Custom External Player Arguments: Brugerdefineret Ekstern Afspiller Argumenter
-    External Player: Ekstern Afspiller
-    Ignore Unsupported Action Warnings: Ignorér Advarsler om Ikke-understøttede Handlinger
+    Custom External Player Executable: Brugerdefineret ekstern afspiller
+    Custom External Player Arguments: Brugerdefinerede argumenter for ekstern afspiller
+    External Player: Ekstern afspiller
+    Ignore Unsupported Action Warnings: Ignorer advarsler om ikke-understøttede handlinger
     External Player Settings: Ekstern afspiller
     Players:
       None:
