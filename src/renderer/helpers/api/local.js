@@ -200,7 +200,7 @@ export async function getLocalSearchContinuation(continuationData) {
 export async function getLocalVideoInfo(id) {
   const webInnertube = await createInnertube({ withPlayer: true, generateSessionLocally: false })
 
-  // based on the videoId (added to the body of the /player request)
+  // based on the videoId (added to the body of the /player request and to caption URLs)
   let contentPoToken
   // based on the visitor data (added to the streaming URLs)
   let sessionPoToken
@@ -221,6 +221,8 @@ export async function getLocalVideoInfo(id) {
     }
   }
 
+  let clientName = webInnertube.session.context.client.clientName
+
   const info = await webInnertube.getInfo(id)
 
   // temporary workaround for SABR-only responses
@@ -229,6 +231,8 @@ export async function getLocalVideoInfo(id) {
   if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data) {
     info.playability_status = mwebInfo.playability_status
     info.streaming_data = mwebInfo.streaming_data
+
+    clientName = 'MWEB'
   }
 
   let hasTrailer = info.has_trailer
@@ -263,6 +267,8 @@ export async function getLocalVideoInfo(id) {
 
       hasTrailer = false
       trailerIsAgeRestricted = false
+
+      clientName = webEmbeddedInnertube.session.context.client.clientName
     }
   }
 
@@ -305,6 +311,18 @@ export async function getLocalVideoInfo(id) {
       }
 
       info.streaming_data.dash_manifest_url = url
+    }
+  }
+
+  if (info.captions?.caption_tracks) {
+    for (const captionTrack of info.captions.caption_tracks) {
+      const url = new URL(captionTrack.base_url)
+
+      url.searchParams.set('potc', '1')
+      url.searchParams.set('pot', contentPoToken)
+      url.searchParams.set('c', clientName)
+
+      captionTrack.base_url = url.toString()
     }
   }
 
@@ -1324,7 +1342,10 @@ function parseListItem(item, channelId, channelName) {
       let subscribers = null
       let videos = null
 
-      subscribers = parseLocalSubscriberCount(channel.subscribers.text)
+      if (channel.subscribers?.text) {
+        subscribers = parseLocalSubscriberCount(channel.subscribers.text)
+      }
+
       videos = extractNumberFromString(channel.video_count.text)
 
       return {

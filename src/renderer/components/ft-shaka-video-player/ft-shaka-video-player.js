@@ -2116,11 +2116,13 @@ export default defineComponent({
           seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate() * 2)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED_ALT:
           // Decrease playback rate by user configured interval
           event.preventDefault()
           changePlayBackRate(-videoPlaybackRateInterval.value)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.INCREASE_VIDEO_SPEED:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.INCREASE_VIDEO_SPEED_ALT:
           // Increase playback rate by user configured interval
           event.preventDefault()
           changePlayBackRate(videoPlaybackRateInterval.value)
@@ -2234,6 +2236,24 @@ export default defineComponent({
           events.dispatchEvent(new CustomEvent('setStatsVisibility', {
             detail: !showStats.value
           }))
+          break
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.HOME:
+          // Jump to beginning of video
+          if (canSeek()) {
+            event.preventDefault()
+            // use seek range instead of duration so that it works for live streams too
+            const seekRange = player.seekRange()
+            video_.currentTime = seekRange.start
+          }
+          break
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.END:
+          // Jump to end of video
+          if (canSeek()) {
+            event.preventDefault()
+            // use seek range instead of duration so that it works for live streams too
+            const seekRange = player.seekRange()
+            video_.currentTime = seekRange.end
+          }
           break
         case 'escape':
           // Exit full window

@@ -1215,3 +1215,5 @@ KeyboardShortcutPrompt:
   Last Chapter: Last Chapter
   Next Chapter: Next Chapter
   Skip by Tenths: Skip through video by percentage (3 skips to 30% of duration)
+  Home: Seek to the beginning of the video
+  End: Seek to the end of the video
