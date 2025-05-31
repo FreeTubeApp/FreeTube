@@ -254,6 +254,26 @@
   height: 100%;
 }
 
+:deep(.sponsorblock-toggle-button) {
+  background: none;
+  border-width: 0;
+  color: var(--primary-color, #fff);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+:deep(.sponsorblock-toggle-button:hover),
+:deep(.sponsorblock-toggle-button:focus) {
+  background: none !important;
+}
+
+:deep(.sponsorblock-toggle-button),
+:deep(.sponsorblock-svg-icon svg) {
+  color: #fff;
+}
+
 /* added to the body element */
 :global(.playerFullWindow) {
   overflow: hidden;

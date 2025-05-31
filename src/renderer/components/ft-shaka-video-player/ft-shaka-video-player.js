@@ -25,6 +25,8 @@ import {
   writeFileWithPicker
 } from '../../helpers/utils'
 
+import { SponsorBlockToggleButton } from './player-components/SponsorBlockToggle'
+
 /** @typedef {import('../../helpers/sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
 
 // The UTF-8 characters "h", "t", "t", and "p".
@@ -788,7 +790,8 @@ export default defineComponent({
           'mute',
           'volume',
           'time_and_duration',
-          'spacer'
+          'spacer',
+          'ft_sponsorblock_toggle'
         ],
         overflowMenuButtons: [],
 
@@ -1831,6 +1834,16 @@ export default defineComponent({
       shakaOverflowMenu.registerElement('ft_screenshot', new ScreenshotButtonFactory())
     }
 
+    function registerSponsorBlockToggleButton() {
+      class SponsorBlockToggleButtonFactory {
+        create(rootElement, controls) {
+          return new SponsorBlockToggleButton(events, rootElement, controls)
+        }
+      }
+      shakaControls.registerElement('ft_sponsorblock_toggle', new SponsorBlockToggleButtonFactory())
+      shakaOverflowMenu.registerElement('ft_sponsorblock_toggle', new SponsorBlockToggleButtonFactory())
+    }
+
     /**
      * As shaka-player doesn't let you unregister custom control factories,
      * overwrite them with `null` instead so the referenced objects
@@ -2395,6 +2408,15 @@ export default defineComponent({
       }
     }
 
+    function removeSponsorBlockMarkers() {
+      const seekBarContainer = container.value.querySelector('.shaka-seek-bar-container')
+      if (!seekBarContainer) return
+      const markerBar = seekBarContainer.querySelector('.markerContainer')
+      if (markerBar) {
+        markerBar.querySelectorAll('.sponsorBlockMarker').forEach(el => el.remove())
+      }
+    }
+
     // #endregion seek bar markers
 
     // #region offline message
@@ -2493,6 +2515,7 @@ export default defineComponent({
       registerFullWindowButton()
       registerLegacyQualitySelection()
       registerStatsButton()
+      registerSponsorBlockToggleButton()
 
       if (ui.isMobile()) {
         useOverFlowMenu.value = true
@@ -2967,6 +2990,14 @@ export default defineComponent({
         showValueChangePopup.value = false
       }, 2000)
     }
+
+    watch([() => props.videoId, useSponsorBlock], ([newVideoId, sbEnabled]) => {
+      if (sbEnabled) {
+        setupSponsorBlock()
+      } else {
+        removeSponsorBlockMarkers()
+      }
+    })
 
     return {
       container,
