@@ -132,7 +132,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/FtLoader/FtLoader.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import FtRefreshWidget from '../../components/ft-refresh-widget/ft-refresh-widget.vue'
+import FtRefreshWidget from '../../components/FtRefreshWidget/FtRefreshWidget.vue'
 
 import store from '../../store/index'
 
