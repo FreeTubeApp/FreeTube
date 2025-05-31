@@ -187,12 +187,16 @@ const KeyboardShortcuts = {
       SMALL_REWIND: 'arrowleft',
       SMALL_FAST_FORWARD: 'arrowright',
       DECREASE_VIDEO_SPEED: 'o',
+      DECREASE_VIDEO_SPEED_ALT: '<',
       INCREASE_VIDEO_SPEED: 'p',
+      INCREASE_VIDEO_SPEED_ALT: '>',
       SKIP_N_TENTHS: '0..9',
       LAST_CHAPTER: 'ctrl+arrowleft',
       NEXT_CHAPTER: 'ctrl+arrowright',
       LAST_FRAME: ',',
       NEXT_FRAME: '.',
+      HOME: 'home',
+      END: 'end',
     }
   },
 }
