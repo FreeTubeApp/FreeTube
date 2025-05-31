@@ -47,7 +47,13 @@ export class SponsorBlockToggleButton extends shaka.ui.Element {
       }
     )
 
-    this.eventManager.listen(this.button_, 'click', async () => {
+    events.addEventListener('toggleSponsorBlock', async () => {
+      await toggleSponsorBlock()
+    })
+
+    // Add this for click support:
+    this.button_.addEventListener('click', async (e) => {
+      e.preventDefault()
       await toggleSponsorBlock()
     })
   }

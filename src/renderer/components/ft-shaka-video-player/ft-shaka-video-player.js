@@ -2302,6 +2302,10 @@ export default defineComponent({
             takeScreenshot()
           }
           break
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.TOGGLE_SPONSORBLOCK:
+          event.preventDefault()
+          events.dispatchEvent(new CustomEvent('toggleSponsorBlock'))
+          break
       }
     }
 
@@ -2991,9 +2995,21 @@ export default defineComponent({
       }, 2000)
     }
 
-    watch([() => props.videoId, useSponsorBlock], ([newVideoId, sbEnabled]) => {
+    // if SB already fetched, we use those again, if not we fetch them
+    watch([() => props.videoId, useSponsorBlock], async ([newVideoId, sbEnabled]) => {
       if (sbEnabled) {
-        setupSponsorBlock()
+        if (sponsorBlockSegments.length > 0) {
+          let duration
+          if (hasLoaded.value) {
+            const seekRange = player.seekRange()
+            duration = seekRange.end - seekRange.start
+          } else {
+            duration = sponsorBlockAverageVideoDuration
+          }
+          createSponsorBlockMarkers(duration)
+        } else {
+          await setupSponsorBlock()
+        }
       } else {
         removeSponsorBlockMarkers()
       }

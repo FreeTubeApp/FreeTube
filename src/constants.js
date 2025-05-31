@@ -179,6 +179,7 @@ const KeyboardShortcuts = {
       VOLUME_DOWN: 'arrowdown',
       STATS: 'd',
       TAKE_SCREENSHOT: 'u',
+      TOGGLE_SPONSORBLOCK: 'enter'
     },
     PLAYBACK: {
       PLAY: 'k',

@@ -1184,6 +1184,7 @@ KeyboardShortcutPrompt:
   Focus Secondary Search: Focus on the secondary search bar (if one is present)
   Captions: Toggle captions ON/OFF
   Stats: Show video statistics
+  Toggle SponsorBlock: Toggle SponsorBlock
   Fullscreen: Toggle fullscreen
   Picture in Picture: Toggle Picture-in-Picture mode
   Large Rewind: 'Rewind 10 seconds / Rewind video based on current Video Playback Rate'
