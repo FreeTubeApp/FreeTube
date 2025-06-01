@@ -1348,6 +1348,6 @@ KeyboardShortcutPrompt:
   Next Frame: Nächstes Bild (bei pausierter Wiedergabe)
   Small Rewind: X Sekunden zurückspulen, basierend auf dem Rückspulintervall und der
     aktuellen Wiedergabegeschwindigkeit
-  End: Zum Ende des Videos vorspulen
-  Home: Das Video zum Anfang zurückspulen
+  End: Zum Ende des Videos springen
+  Home: Zum Anfang des Videos springen
 shortcutLabelSeparator: ｜
