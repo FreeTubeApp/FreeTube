@@ -95,6 +95,7 @@ import {
   showToast,
   writeFileWithPicker,
 } from '../helpers/utils'
+import { fetchVideoInfo } from '../helpers/fetchVideoInfo'
 
 const IMPORT_DIRECTORY_ID = 'data-settings-import'
 const START_IN_DIRECTORY = 'downloads'
@@ -971,7 +972,8 @@ async function importPlaylists() {
     response = await readFileWithPicker(
       t('Settings.Data Settings.Playlist File'),
       {
-        'application/x-freetube-db': '.db'
+        'application/x-freetube-db': '.db',
+        'text/csv': '.csv'
       },
       IMPORT_DIRECTORY_ID,
       START_IN_DIRECTORY
@@ -990,20 +992,25 @@ async function importPlaylists() {
 
   let playlists = null
 
-  // for the sake of backwards compatibility,
-  // check if this is the old JSON array export (used until version 0.19.1),
-  // that didn't match the actual database format
-  const trimmedData = data.trim()
-
-  if (trimmedData[0] === '[' && trimmedData[trimmedData.length - 1] === ']') {
-    playlists = JSON.parse(trimmedData)
+  if (response.filename.endsWith('.csv')) {
+    // parse the csv data
+    playlists = [await parseCsvPlaylist(data, response.filename)]
   } else {
-    // otherwise assume this is the correct database format,
-    // which is also what we export now (used in 0.20.0 and later versions)
-    data = data.split('\n')
-    data.pop()
+    // for the sake of backwards compatibility,
+    // check if this is the old JSON array export (used until version 0.19.1),
+    // that didn't match the actual database format
+    const trimmedData = data.trim()
 
-    playlists = data.map(playlistJson => JSON.parse(playlistJson))
+    if (trimmedData[0] === '[' && trimmedData[trimmedData.length - 1] === ']') {
+      playlists = JSON.parse(trimmedData)
+    } else {
+      // otherwise assume this is the correct database format,
+      // which is also what we export now (used in 0.20.0 and later versions)
+      data = data.split('\n')
+      data.pop()
+
+      playlists = data.map(playlistJson => JSON.parse(playlistJson))
+    }
   }
 
   const requiredKeys = [
@@ -1214,5 +1221,54 @@ async function exportPlaylistsForOlderVersions() {
   )
 }
 
+// helper for yt csv playlist
+async function parseCsvPlaylist(csvText, filename = '') {
+  showToast('Fetching video info...')
+  const lines = csvText.trim().split('\n')
+  lines.shift() // remove header line
+  // takeout sets the filename of the exported csv file to be the name of the playlist.csv
+  // so we take the filename from the response and set it as the playlist name
+  // the name for playlists is "playlist name-videos.csv"
+  // so this takes the filename, removes the -videos.csv part and sets it as the name of the list
+  let playlistName = 'Imported CSV Playlist'
+  if (filename) {
+    playlistName = filename.replace(/-videos\.csv$/i, '').replace(/\.csv$/i, '')
+  }
+  // fetches missing video info from prefered backend as csv only gives videoId
+  const videos = await Promise.all(lines.map(async line => {
+    const [videoId, timeAddedStr] = line.split(',')
+    let info = {}
+    try {
+      info = await fetchVideoInfo(videoId.trim())
+    } catch {
+      info = { title: '(Unavailable)', lengthSeconds: null }
+    }
+    // parse timeAdded from csv or fallback to date.now()
+    let timeAdded = Date.now()
+    if (timeAddedStr && !isNaN(Date.parse(timeAddedStr.trim()))) {
+      timeAdded = new Date(timeAddedStr.trim()).getTime()
+    }
+    return {
+      videoId: videoId.trim(),
+      title: info.title || '(Unavailable)',
+      lengthSeconds: info.lengthSeconds || null,
+      author: info.author || '',
+      authorId: info.authorId || '',
+      published: info.published
+        ? (info.published > 1e12 ? info.published : info.published * 1000)
+        : null,
+      // published is in seconds, convert to milliseconds to match regular db import
+      timeAdded,
+      type: 'video',
+      // author, authorId, type, published, and playlistItemId are optional for imports
+      // but we have them here because they are in playlists.db
+    }
+  }))
+
+  return {
+    playlistName,
+    videos
+  }
+}
 // #endregion playlists
 </script>
