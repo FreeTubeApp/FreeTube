@@ -1029,31 +1029,31 @@ Share:
 Mini Player: 'Miniafspiller'
 Comments:
   Comments: 'Kommentarer'
-  Click to View Comments: 'Klik for at Vise Kommentarer'
-  Getting comment replies, please wait: 'Får kommentarsvar, vent venligst'
+  Click to View Comments: 'Klik for at vise kommentarer'
+  Getting comment replies, please wait: 'Henter kommentarsvar; vent venligst'
   There are no more comments for this video: 'Der er ikke flere kommentarer til denne
     video'
-  Hide Comments: 'Skjul Kommentarer'
+  Hide Comments: 'Skjul kommentarer'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Vis'
+  View: 'Se'
   Hide: 'Skjul'
   Replies: 'Svar'
   Reply: 'Besvar'
   There are no comments available for this video: 'Der er ingen kommentarer tilgængelige
     til denne video'
-  Load More Comments: 'Indlæs Flere Kommentarer'
-  Newest first: Nyeste Først
+  Load More Comments: 'Indlæs flere kommentarer'
+  Newest first: Nyeste først
   Top comments: Topkommentarer
   From {channelName}: fra {channelName}
   Pinned by: Fastgjort af
   And others: og andre
-  Show More Replies: Vis Flere Svar
+  Show More Replies: Vis flere svar
   Member: Medlem
   Subscribed: Abonneret
-  View {replyCount} replies: Vis {replyCount} svar
-  Hearted: hjertelig
+  View {replyCount} replies: Se {replyCount} svar
+  Hearted: Hjerte
   There are no comments available for this post: Der er ingen tilgængelige kommentarer
-    til dette indlæg
+    til dette opslag
 Up Next: 'Næste'
 
 # Toast Messages
@@ -1085,34 +1085,33 @@ Tooltips:
     Fetch Automatically: Når aktiveret, henter FreeTube automatisk dit abonnementsfeed,
       både når du starter FreeTube og når der åbnes et nyt vindue.
   Player Settings:
-    Default Video Format: Vælg de formater, der skal bruges, når en video afspilles.
-      DASH-formater kan afspille højere kvaliteter. Legacy-formater er begrænset til
-      maks. 360p, men bruger mindre båndbredde. Lydformater er kun lydstrømme.
-    Proxy Videos Through Invidious: Vil forbinde til Invidious for at vise videoer
-      i stedet for at oprette en direkte forbindelse til YouTube.
-    Scroll Playback Rate Over Video Player: Mens markøren er over videoen, tryk og
-      hold Control-tasten (Command-tast på Mac) nede og scroll musehjulet fremad og
-      bagud for at kontrollere afspilningshastigheden. Tryk og hold Control-tasten
-      (Command-tast på Mac) nede og venstreklik musen for hurtigt at vende tilbage
-      til standard-afspilningshastigheden (1x medmindre det er blevet ændret i indstillingerne).
+    Default Video Format: Vælg de formater, der bruges, når en video afspilles. DASH-formater
+      kan afspille højere kvaliteter. Ældre formater er begrænset til maks. 360p,
+      men bruger mindre båndbredde. Lydformater er kun lydstrømme.
+    Proxy Videos Through Invidious: Forbinder til Invidious for at vise videoer i
+      stedet for at oprette en direkte forbindelse til YouTube.
+    Scroll Playback Rate Over Video Player: Mens markøren er over videoen, hold Ctrl-tasten
+      (Command-tasten på Mac) nede, og rul musehjulet frem eller tilbage for at styre
+      afspilningshastigheden. Hold Ctrl-tasten (Command-tasten på Mac) nede, og venstreklik
+      for hurtigt at vende tilbage til standardafspilningshastigheden (1x, medmindre
+      den er blevet ændret i indstillingerne).
     Skip by Scrolling Over Video Player: Brug rullehjulet til at springe gennem videoen
       i bedste MPV-stil.
   General Settings:
-    Region for Trending: Området for trend tillader dig at vælge hvilket lands videoer
-      på trend du ønsker at få vist.
-    Preferred API Backend: Vælg den server som FreeTube bruger til at anskaffe data.
-      Den lokale API er et indbygget dekomprimeringsværktøj. Invidious-API'en kræver
-      en Invidious-server at forbinde til.
-    Invidious Instance: Den Invidious-instans, som FreeTube skal forbinde til for
-      API-opkald.
+    Region for Trending: Trendregionen lader dig vælge, hvilket lands trending videoer
+      du vil have vist.
+    Preferred API Backend: Vælg den backend, FreeTube skal bruge til at hente data.
+      Den lokale API er en indbygget udtrækker. Invidious-API'en kræver forbindelse
+      til en Invidious-server.
+    Invidious Instance: Den Invidious-instans, som FreeTube forbinder til for API-opkald.
     Thumbnail Preference: Alle miniaturebilleder på FreeTube erstattes med et billede
       af videoen, sløret eller skjult, i stedet for standardminiaturebilledet.
-    Fallback to Non-Preferred Backend on Failure: Når din foretrukne API oplever et
-      problem, vil FreeTube automatisk forsøge at bruge din ikke-foretrukne API som
-      reservemetode, når det er aktiveret.
-    External Link Handling: "Vælg standardopførslen for når du klikker på et link,
-      der ikke kan blive åbnet i FreeTube.\nSom standard åbner FreeTube det link,
-      du klikker på, i din standardbrowser.\n"
+    Fallback to Non-Preferred Backend on Failure: Når din foretrukne API har et problem,
+      vil FreeTube automatisk forsøge at bruge din ikke-foretrukne API som en fallback-metode,
+      hvis den er aktiveret.
+    External Link Handling: "Vælg standardadfærd, når du klikker på et link, som ikke
+      kan åbnes i FreeTube.\nSom standard vil FreeTube åbne det klikkede link i din
+      standardbrowser.\n"
     Open Deep Links In New Window: URL'er, der sendes til FreeTube, f.eks. ved at
       omdirigere browserudvidelser eller kommandolinjeargumenter, åbnes i et nyt vindue.
   External Player Settings:
@@ -1122,9 +1121,9 @@ Tooltips:
     DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
     Custom External Player Arguments: Alle brugerdefinerede kommandolinjeargumenter,
       du ønsker viderebragt til den eksterne afspiller.
-    External Player: 'Valg af ekstern afspiller vil fremvise et ikon, for åbning af
-      videoen (playliste hvis understøttet) i den eksterne afspiller, på miniaturebilledet.
-      Advarsel: Invidious-indstillinger har ingen effekt på eksterne afspillere.'
+    External Player: 'Vælger du en ekstern afspiller, vises et ikon på miniaturebilledet
+      for åbning af videoen (playlisten, hvis understøttet). Advarsel, Invidious-indstillinger
+      påvirker ikke eksterne afspillere.'
     Ignore Warnings: Undertryk advarsler for når den eksterne afspiller ikke understøtter
       den gældende handling (fx vende playlister om, etc.).
     Ignore Default Arguments: Send ikke nogen standardargumenter til den eksterne
@@ -1187,10 +1186,10 @@ Clipboard:
 Chapters:
   Chapters: Kapitler
   Key Moments: Højdepunkter
-  'Chapters list visible, current chapter: {chapterName}': 'Kapitelliste synlig, aktuelt
-    kapitel: {kapitelnavn}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste skjult, aktuelt
-    kapitel: {kapitelnavn}'
+  'Chapters list visible, current chapter: {chapterName}': 'Kapitelliste synlig. Nuværende
+    kapitel: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste skjult. Nuværende
+    kapitel: {chapterName}'
 Age Restricted:
   This video is age restricted: Denne video er aldersbegrænset
   This channel is age restricted: Denne kanal er aldersbegrænset
