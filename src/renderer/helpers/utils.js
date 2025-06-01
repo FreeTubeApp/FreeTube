@@ -1,5 +1,3 @@
-import { IpcChannels } from '../../constants'
-import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
 import router from '../router/index'
 import { nextTick } from 'vue'
@@ -162,13 +160,15 @@ export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
   return vttString
 }
 
+export const ToastEventBus = new EventTarget()
+
 /**
  * @param {string} message
  * @param {number} time
  * @param {Function} action
  */
 export function showToast(message, time = null, action = null) {
-  FtToastEvents.dispatchEvent(new CustomEvent('toast-open', {
+  ToastEventBus.dispatchEvent(new CustomEvent('toast-open', {
     detail: {
       message,
       time,
@@ -211,16 +211,7 @@ export async function copyToClipboard(content, { messageOnSuccess = null, messag
  * @param {string} url the URL to open
  */
 export async function openExternalLink(url) {
-  if (process.env.IS_ELECTRON) {
-    const ipcRenderer = require('electron').ipcRenderer
-    const success = await ipcRenderer.invoke(IpcChannels.OPEN_EXTERNAL_LINK, url)
-
-    if (!success) {
-      showToast(i18n.t('Blocked opening potentially unsafe URL', { url }))
-    }
-  } else {
-    window.open(url, '_blank')
-  }
+  window.open(url, '_blank', 'noreferrer')
 }
 
 /**
@@ -234,9 +225,7 @@ export async function openExternalLink(url) {
  */
 export function openInternalPath({ path, query = undefined, doCreateNewWindow, searchQueryText = null }) {
   if (process.env.IS_ELECTRON && doCreateNewWindow) {
-    const { ipcRenderer } = require('electron')
-
-    ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW, path, query, searchQueryText)
+    window.ftElectron.openInNewWindow(path, query, searchQueryText)
   } else {
     router.push({
       path,
@@ -409,36 +398,6 @@ export async function writeFileWithPicker(
 }
 
 /**
- * @param {{defaultPath: string, filters: {name: string, extensions: string[]}[]}} options
- * @returns { Promise<import('electron').SaveDialogReturnValue> | {canceled: boolean?, filePath: string } | { canceled: boolean?, handle?: Promise<FileSystemFileHandle> }}
- */
-export async function showSaveDialog (options) {
-  if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    return await ipcRenderer.invoke(IpcChannels.SHOW_SAVE_DIALOG, options)
-  } else {
-    // If the native filesystem api is available
-    if ('showSaveFilePicker' in window) {
-      return {
-        canceled: false,
-        handle: await window.showSaveFilePicker({
-          suggestedName: options.defaultPath.split('/').at(-1),
-          types: options.filters[0]?.extensions?.map((extension) => {
-            return {
-              accept: {
-                'application/octet-stream': '.' + extension
-              }
-            }
-          })
-        })
-      }
-    } else {
-      return { canceled: false, filePath: options.defaultPath }
-    }
-  }
-}
-
-/**
  * This creates an absolute web url from a given path.
  * It will assume all given paths are relative to the current window location.
  * @param {string} path relative path to resource
@@ -570,8 +529,7 @@ export function replaceFilenameForbiddenChars(filenameOriginal) {
 export async function getSystemLocale() {
   let locale
   if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    locale = await ipcRenderer.invoke(IpcChannels.GET_SYSTEM_LOCALE)
+    locale = await window.ftElectron.getSystemLocale()
   } else {
     if (navigator && navigator.language) {
       locale = navigator.language

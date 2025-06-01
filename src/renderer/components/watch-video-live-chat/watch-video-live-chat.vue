@@ -56,8 +56,8 @@
         class="superChatComments"
       >
         <div
-          v-for="(comment, index) in superChatComments"
-          :key="index"
+          v-for="comment in superChatComments"
+          :key="comment.id"
           :aria-label="$t('Video.Show Super Chat Comment')"
           :style="{ backgroundColor: 'var(--primary-color)' }"
           class="superChat"
@@ -131,8 +131,8 @@
         @scrollend="e => onScroll(e, true)"
       >
         <div
-          v-for="(comment, index) in comments"
-          :key="index"
+          v-for="comment in comments"
+          :key="comment.id"
           class="comment"
           :class="comment.superChat ? `superChatMessage ${comment.superChat.colorClass}` : ''"
         >

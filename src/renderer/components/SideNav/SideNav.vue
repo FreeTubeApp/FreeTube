@@ -202,8 +202,8 @@
         v-if="!hideActiveSubscriptions"
       >
         <router-link
-          v-for="(channel, index) in activeSubscriptions"
-          :key="index"
+          v-for="channel in activeSubscriptions"
+          :key="channel.id"
           :to="`/channel/${channel.id}`"
           class="navChannel channelLink mobileHidden"
           :title="channel.name"

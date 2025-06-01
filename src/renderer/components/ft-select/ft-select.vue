@@ -13,7 +13,7 @@
     >
       <option
         v-for="(name, index) in selectNames"
-        :key="index"
+        :key="selectValues[index]"
         :value="selectValues[index]"
         :lang="isLocaleSelector && selectValues[index] !== 'system' ? selectValues[index] : null"
       >

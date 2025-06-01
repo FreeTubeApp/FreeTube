@@ -31,7 +31,7 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: Live
-  Community: Community
+  Posts: Posts
   Sort By: Sort by
 
   Counts:
@@ -607,7 +607,7 @@ Settings:
       capitalisation and punctuation
     Hide Featured Channels: Hide featured channels
     Hide Channel Playlists: Hide channel "playlists" tab
-    Hide Channel Community: Hide channel "community" tab
+    Hide Channel Posts: Hide channel "Posts" tab
     Hide Channel Shorts: Hide channel "shorts" tab
     Sections:
       Side Bar: Side bar
@@ -620,7 +620,7 @@ Settings:
     Hide Subscriptions Shorts: Hide subscriptions shorts
     Hide Subscriptions Live: Hide subscriptions live
     Hide Subscriptions Videos: Hide subscriptions videos
-    Hide Subscriptions Community: Hide subscriptions community
+    Hide Subscriptions Posts: Hide subscriptions Posts
     Hide Profile Pictures in Comments: Hide profile pictures in comments
     Hide Channels Invalid: Channel ID provided was invalid
     Hide Channels Disabled Message: Some channels were blocked using ID and weren't
@@ -822,7 +822,7 @@ Channel:
   This channel does not allow searching: This channel does not allow searching
   This channel is age-restricted and currently cannot be viewed in FreeTube.: This
     channel is age resticted and currently cannot be viewed in FreeTube.
-  Community:
+  Posts:
     This channel currently does not have any posts: This channel currently does not
       have any posts
     Reveal Answers: Reveal answers
@@ -1091,12 +1091,12 @@ Tooltips:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method to grab your subscription feed. RSS is faster and prevents IP blocking,
       but it doesn’t provide certain information like video duration, live status
-      or community posts
+      or posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch your subscription
-      feed when a new window is opened and when switching profile.
+      feed on startup and when a new window is opened.
   Player Settings:
     Default Video Format: Set the formats used when a video plays. DASH formats can
-      play higher qualities. Legacy formats are limited to a max of 720p but use less
+      play higher qualities. Legacy formats are limited to a max of 360p but use less
       bandwidth. Audio formats are audio only streams.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
       of making a direct connection to YouTube.
@@ -1113,7 +1113,7 @@ Tooltips:
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
       calls.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
-      a frame of the video instead of the default thumbnail.
+      a frame of the video, blurred or hidden instead of the default thumbnail.
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
       FreeTube will automatically attempt to use your non-preferred API as a fallback
       method when enabled.
@@ -1215,8 +1215,6 @@ Trimmed input must be at least N characters long: Trimmed input must be at least
 Yes, Delete: Yes, delete
 Yes, Restart: Yes, restart
 Yes, Open Link: Yes, open link
-'Blocked opening potentially unsafe URL': 'Blocked opening potentially unsafe URL:
-  ‘{url}’.'
 Search Listing:
   Label:
     4K: 4K

@@ -7,7 +7,7 @@
     :is-community="true"
     :initial-data-limit="20"
     :last-refresh-timestamp="lastCommunityRefreshTimestamp"
-    :title="$t('Global.Community')"
+    :title="$t('Global.Posts')"
     @refresh="loadPostsForSubscriptionsFromRemote"
   />
 </template>

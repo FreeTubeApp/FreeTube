@@ -67,7 +67,7 @@
           v-on="!hideLiveStreams ? { change: updateHideSubscriptionsLive } : {}"
         />
         <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Subscriptions Community')"
+          :label="$t('Settings.Distraction Free Settings.Hide Subscriptions Posts')"
           :compact="true"
           :default-value="hideSubscriptionsCommunity"
           @change="updateHideSubscriptionsCommunity"
@@ -108,7 +108,7 @@
       </div>
       <div class="switchColumn">
         <ft-toggle-switch
-          :label="$t('Settings.Distraction Free Settings.Hide Channel Community')"
+          :label="$t('Settings.Distraction Free Settings.Hide Channel Posts')"
           :compact="true"
           :default-value="hideChannelCommunity"
           @change="updateHideChannelCommunity"

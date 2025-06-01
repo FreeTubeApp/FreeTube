@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'dansk'
+Locale Name: 'Dansk'
 
 # Webkit Menu Bar
 File: 'Fil'
@@ -13,8 +13,8 @@ Paste: 'Indsæt'
 Delete: 'Slet'
 Select all: 'Vælg alt'
 Reload: 'Genindlæs'
-Force Reload: 'Tving Genindlæsning'
-Toggle Developer Tools: 'Slå Udviklerværktøjer til/fra'
+Force Reload: 'Tving genindlæsning'
+Toggle Developer Tools: 'Slå udviklerværktøjer til/fra'
 Actual size: 'Faktisk størrelse'
 Zoom in: 'Zoom ind'
 Zoom out: 'Zoom ud'
@@ -38,13 +38,13 @@ Global:
     Channel Count: 1 kanal | {count} kanaler
     Comment Count: 1 kommentar | {count} kommentarer
     Like Count: 1 kan lide | {count} kan lide
-  Community: Fællesskab
+  Posts: Opslag
   Live: Live
   Sort By: Sortér efter
   Shorts: Shorts
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
   er nu tilgængelig!  Klik for flere detaljer'
-Download From Site: 'Hent Fra Netsted'
+Download From Site: 'Hent fra websted'
 A new blog is now available, {blogTitle}. Click to view more: 'En ny blog er nu tilgængelig,
   {blogTitle}. Klik for at se mere'
 
@@ -54,28 +54,28 @@ Search / Go to URL: 'Søg/gå til URL'
 Search Filters:
   Search Filters: 'Søgefiltre'
   Sort By:
-    Most Relevant: 'Mest Relevante'
+    Most Relevant: 'Mest relevante'
     Rating: 'Bedømmelse'
-    Upload Date: 'Dato for Upload'
+    Upload Date: 'Dato for upload'
     View Count: 'Visningstal'
   Time:
     Time: 'Tid'
-    Any Time: 'Enhver Tid'
-    Last Hour: 'Sidste Time'
-    Today: 'I Dag'
-    This Week: 'Denne Uge'
-    This Month: 'Denne Måned'
-    This Year: 'I År'
+    Any Time: 'Altid'
+    Last Hour: 'Sidste time'
+    Today: 'I dag'
+    This Week: 'Denne uge'
+    This Month: 'Denne måned'
+    This Year: 'I år'
   Type:
     Type: 'Type'
-    All Types: 'Alle Typer'
+    All Types: 'Alle typer'
     Videos: 'Videoer'
     Channels: 'Kanaler'
     #& Playlists
     Movies: Film
   Duration:
     Duration: 'Varighed'
-    All Durations: 'Alle Varigheder'
+    All Durations: 'Alle varigheder'
     Short (< 4 minutes): 'Kort (< 4 minutter)'
     Long (> 20 minutes): 'Lang (> 20 minutter)'
   # On Search Page
@@ -95,84 +95,83 @@ Search Filters:
     HDR: HDR
     Features: Funktioner
     Location: Placering
-    360 Video: 360 Video
+    360 Video: 360° video
     VR180: VR180
     Creative Commons: Creative Commons
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnenter'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din
-    Abonnementsliste er i øjeblikket tom. Hvis du vil importere dine abonnementer,
-    kan du gå til Dataindstillinger og vælge Importér Abonnementer, eller du kan søge
-    efter en kanal og abonnere på den.'
-  Load More Videos: Indlæs Flere Videoer
+    abonnementsliste er tom. Hvis du vil importere dine abonnementer, gå til "Dataindstillinger"
+    og vælg "Importér Abonnementer" – eller søg efter en kanal og abonner på den.'
+  Load More Videos: Indlæs flere videoer
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne
     profil har et stort antal abonnenter. Gennemtvinger RSS for at undgå adgangsbegrænsning
-  Error Channels: Kanaler med Fejl
+  Error Channels: Kanaler med fejl
   Empty Channels: De kanaler, du abonnerer på, har i øjeblikket ingen videoer.
   Disabled Automatic Fetching: Du har deaktiveret automatisk hentning af abonnenter.
     Opdatér abonnenter for at se dem her.
-  Empty Posts: Dine abonnerede kanaler har i øjeblikket ingen opslag.
-  Load More Posts: Indlæs Flere Opslag
+  Empty Posts: De kanaler, du abonnerer på, har i øjeblikket ingen opslag.
+  Load More Posts: Indlæs flere opslag
   Subscriptions Tabs: Abonnement-faner
   All Subscription Tabs Hidden: Alle abonnement-faner er skjult. Gør nogle faner synlige
     i "{subsection}" under "{settingsSection}" for at se indhold her.
 Trending:
-  Trending: 'Trender'
+  Trending: 'Hot lige nu'
   Music: Musik
-  Trending Tabs: Trend Faner
+  Trending Tabs: Hot lige nu-faner
   Gaming: Gaming
   Default: Standard
   Movies: Film
-Most Popular: 'Mest Populære'
+Most Popular: 'Mest populære'
 Playlists: 'Playlister'
 User Playlists:
-  Your Playlists: 'Dine Playlister'
-  Search bar placeholder: Søg efter Playlister
+  Your Playlists: 'Dine playlister'
+  Search bar placeholder: Søg efter playlister
   Empty Search Message: Ingen videoer i denne playliste matcher din søgning
-  This playlist currently has no videos.: Denne playliste har i øjeblikket ingen videoer.
-  Create New Playlist: Opret Ny Playliste
-  Add to Playlist: Føj til Playliste
+  This playlist currently has no videos.: Denne playliste har ingen videoer.
+  Create New Playlist: Opret ny playliste
+  Add to Playlist: Føj til playliste
   You have no playlists. Click on the create new playlist button to create a new one.: Du
-    har ingen playlister. Klik på 'Opret Ny Playliste'-knappen for at oprette en ny.
+    har ingen playlister. Klik på "Opret Ny Playliste"-knappen for at oprette en.
   Remove from Favorites: Fjern fra {playlistName}
-  Move Video Up: Flyt Video Op
-  Copy Playlist: Kopiér Playliste
-  Remove Watched Videos: Fjern Sete Videoer
-  Delete Playlist: Slet Playliste
+  Move Video Up: Flyt video op
+  Copy Playlist: Kopiér playliste
+  Remove Watched Videos: Fjern sete videoer
+  Delete Playlist: Slet playliste
   Sort By:
-    EarliestCreatedFirst: Tidligst Oprettet
-    EarliestUpdatedFirst: Tidligst Opdateret
-    LatestPlayedFirst: Afspillet For Nyligt
-    LatestCreatedFirst: Oprettet For Nyligt
-    LatestUpdatedFirst: Opdateret For Nyligt
-    EarliestPlayedFirst: Tidligst Afspillet
+    EarliestCreatedFirst: Tidligst oprettet
+    EarliestUpdatedFirst: Tidligst opdateret
+    LatestPlayedFirst: Afspillet for nyligt
+    LatestCreatedFirst: Nyligt oprettet
+    LatestUpdatedFirst: Nyligt opdateret
+    EarliestPlayedFirst: Tidligst afspillet
     NameDescending: Å-A
     NameAscending: A-Å
   Are you sure you want to delete this playlist? This cannot be undone: Er du sikker
-    på, at du vil slette denne playliste? Dette kan ikke fortrydes.
+    på, at du vil slette denne playliste? Det kan ikke fortrydes.
   SinglePlaylistView:
-    Search for Videos: Søg efter Videoer
+    Search for Videos: Søg efter videoer
     Toast:
       This video cannot be moved up.: Denne video kan ikke flyttes op.
       This video cannot be moved down.: Denne video kan ikke flyttes ned.
-      Video has been removed: Video er blevet fjernet
+      Video has been removed: Videoen blev fjernet
       There was a problem with removing this video: Der opstod et problem med at fjerne
         denne video
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Nogle
         videoer i denne playliste er ikke indlæst endnu. Klik her for at kopiere alligevel.
-      Playlist name cannot be empty. Please input a name.: Playliste navn kan ikke
+      Playlist name cannot be empty. Please input a name.: Playlistenavn kan ikke
         være tomt. Indtast venligst et navn.
       This playlist is protected and cannot be removed.: Denne playliste er beskyttet
         og kan ikke fjernes.
       There was an issue with updating this playlist.: Der opstod et problem med at
         opdatere denne playliste.
-      This playlist does not exist: Denne playliste eksisterer ikke
-      Playlist has been updated.: Playliste er blevet opdateret.
-      "{videoCount} video(s) have been removed": 1 video er blevet fjernet | {videoCount}
-        videoer er blevet fjernet
+      This playlist does not exist: Denne playliste findes ikke
+      Playlist has been updated.: Playlisten blev opdateret.
+      "{videoCount} video(s) have been removed": 1 video blev fjernet | {videoCount}
+        videoer blev fjernet
       There were no videos to remove.: Der var ingen videoer at fjerne.
-      Playlist {playlistName} has been deleted.: Playliste {playlistName} er blevet
+      Playlist {playlistName} has been deleted.: Playlisten "{playlistName}" blev
         slettet.
       This playlist has a video with a duration error: Denne playliste indeholder
         mindst én video uden varighed. Den sorteres, som om dens varighed er nul.
@@ -188,42 +187,42 @@ User Playlists:
       This playlist is already being used for quick bookmark.: Denne playliste bruges
         allerede til hurtig bogmærke.
   AddVideoPrompt:
-    Select a playlist to add your N videos to: Vælg en playliste, du vil føje din
-      video til | Vælg en playliste, du vil føje dine {videoCount} videoer til
-    N playlists selected: '{playlistCount} Valgt'
-    Search in Playlists: Søg i Playlister
+    Select a playlist to add your N videos to: Vælg en playliste, du vil føje videoen
+      til | Vælg en playliste, du vil føje de {videoCount} videoer til
+    N playlists selected: '{playlistCount} valgt'
+    Search in Playlists: Søg i playlister
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video tilføjet
-        til {playlistCount} playlister | {videoCount} videoer tilføjet til {playlistCount}
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video føjet til
+        {playlistCount} playlister | {videoCount} videoer føjet til {playlistCount}
         playlister
       You haven't selected any playlist yet.: Du har ikke valgt nogen playliste endnu.
-      "{videoCount} video(s) added to 1 playlist": 1 video tilføjet til 1 playliste
-        | {videoCount} videoer tilføjet til 1 playliste
-    Added {count} Times: Allerede Tilføjet | Tilføjet {count} Gange
+      "{videoCount} video(s) added to 1 playlist": 1 video føjet til 1 playliste |
+        {videoCount} videoer føjet til 1 playliste
+    Added {count} Times: Allerede tilføjet | Tilføjet {count} gange
     Save: Gem
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      Videoer Bliver Tilføjet'
+      videoer tilføjes'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      Videoer Allerede Tilføjet'
+      videoer allerede tilføjet'
     Allow Adding Duplicate Video(s): Tillad tilføjelse af duplikatvideo(er)
   CreatePlaylistPrompt:
     Toast:
       There was an issue with creating the playlist.: Der opstod et problem med at
         oprette denne playliste.
       There is already a playlist with this name. Please pick a different name.: En
-        playliste med dette navn eksisterer allerede. Vælg venligst et andet navn.
-      Playlist {playlistName} has been successfully created.: Playlisten {playlistName}
+        playliste med dette navn findes allerede. Vælg venligst et andet navn.
+      Playlist {playlistName} has been successfully created.: Playlisten "{playlistName}"
         blev oprettet.
-    New Playlist Name: Ny Playliste Navn
+    New Playlist Name: Nyt playlistenavn
     Create: Opret
-  Move Video Down: Flyt Video Ned
-  Playlist Description: Playliste Beskrivelse
-  Save Changes: Gem Ændringer
+  Move Video Down: Flyt video ned
+  Playlist Description: Playlistebeskrivelse
+  Save Changes: Gem ændringer
   Cancel: Annullér
-  Edit Playlist Info: Redigér Playliste Info
+  Edit Playlist Info: Redigér playlisteinfo
   Add to Favorites: Føj til {playlistName}
-  Remove from Playlist: Fjern fra Playliste
-  Playlist Name: Playliste Navn
+  Remove from Playlist: Fjern fra playliste
+  Playlist Name: Playlistenavn
   The playlist has been successfully exported: Playlisten blev eksporteret
   Export Playlist: Eksportér denne playliste
   Playlists with Matching Videos: Playlister med matchende videoer
@@ -244,72 +243,72 @@ User Playlists:
 History:
   # On History Page
   History: 'Historik'
-  Watch History: 'Set Historik'
-  Your history list is currently empty.: 'Din historikliste er i øjeblikket tom.'
-  Empty Search Message: Der er ingen videoer i din historik, som passer til din søgning
-  Search bar placeholder: Søg i Historik
-  Case Sensitive Search: Case Sensitive Søg
+  Watch History: 'Visningshistorik'
+  Your history list is currently empty.: 'Din historikliste er tom.'
+  Empty Search Message: Der er ingen videoer i din historik, som matcher din søgning
+  Search bar placeholder: Søg i historik
+  Case Sensitive Search: Versalfølsom søgning
 Settings:
   # On Settings Page
   Settings: 'Indstillinger'
   General Settings:
     General Settings: 'Generel'
-    Check for Updates: 'Søg efter Opdateringer'
-    Check for Latest Blog Posts: 'Søg efter Seneste Blogindlæg'
-    Fallback to Non-Preferred Backend on Failure: 'Tilbagefald til Ikke-Foretrukken
-      Server ved Fejl'
-    Enable Search Suggestions: 'Aktivér Søgeforslag'
-    Default Landing Page: 'Standard Landingsside'
+    Check for Updates: 'Søg efter opdateringer'
+    Check for Latest Blog Posts: 'Søg efter seneste blogindlæg'
+    Fallback to Non-Preferred Backend on Failure: 'Fallback til ikke-foretrukken backend
+      ved fejl'
+    Enable Search Suggestions: 'Aktivér søgeforslag'
+    Default Landing Page: 'Standard landingsside'
     Locale Preference: 'Sprogindstilling'
     Preferred API Backend:
-      Preferred API Backend: 'Foretrukket API-Server'
+      Preferred API Backend: 'Foretrukken API-backend'
       Local API: 'Lokal API'
       Invidious API: 'Invidious-API'
     Video View Type:
-      Video View Type: 'Video Visningstype'
+      Video View Type: 'Type af videovisning'
       Grid: 'Gitter'
       List: 'Liste'
     Thumbnail Preference:
-      Thumbnail Preference: 'Præference for Miniaturebillede'
+      Thumbnail Preference: 'Præference for miniaturebilleder'
       Default: 'Standard'
       Beginning: 'Begyndelse'
       Middle: 'Midten'
       End: 'Slutning'
       Blur: Slør
       Hidden: Skjult
-    Region for Trending: 'Område for Trending'
+    Region for Trending: 'Region for "Hot lige nu"'
         #! List countries
-    View all Invidious instance information: Vis al Invidious-instans-information
-    Clear Default Instance: Ryd Standard Instans
+    View all Invidious instance information: Se al information om Invidious-instanser
+    Clear Default Instance: Ryd standardinstans
     External Link Handling:
-      External Link Handling: Ekstern Link Håndtering
-      Open Link: Åbn Link
-      No Action: Ingen Handling
-      Ask Before Opening Link: Spørg Før Link Åbnes
-    Current instance will be randomized on startup: Nuværende instans vil blive randomiseret
+      External Link Handling: Håndtering af eksterne links
+      Open Link: Åbn link
+      No Action: Ingen handling
+      Ask Before Opening Link: Spørg før link åbnes
+    Current instance will be randomized on startup: Den aktuelle instans vælges tilfældigt
       ved opstart
     System Default: Systemstandard
     The currently set default instance is {instance}: Den nuværende standardinstans
       er {instance}
     Current Invidious Instance: Nuværende Invidious-instans
     No default instance has been set: Ingen standardinstans er angivet
-    Set Current Instance as Default: Angiv Nuværende Instans som Standard
+    Set Current Instance as Default: Angiv nuværende instans som standard
     Auto Load Next Page:
-      Label: Auto-indlæs Næste Side
+      Label: Auto-indlæs næste side
       Tooltip: Indlæs flere sider og kommentarer automatisk.
     Open Deep Links In New Window: Åbn URL'er sendt til FreeTube i et nyt vindue
   Theme Settings:
     Theme Settings: 'Tema'
-    Match Top Bar with Main Color: 'Tilpas Topbjælke til Primær Farve'
+    Match Top Bar with Main Color: 'Match topbjælken med hovedfarven'
     Base Theme:
-      Base Theme: 'Grundtema'
+      Base Theme: 'Basistema'
       Black: 'Sort'
       Dark: 'Mørk'
       Light: 'Lys'
       Dracula: 'Dracula'
       System Default: Systemstandard
-      Catppuccin Mocha: Catppuccin Mokka
-      Pastel Pink: Pastel Lyserød
+      Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastelpink
       Nordic: Nordisk
       Gruvbox Dark: Gruvbox Mørk
       Gruvbox Light: Gruvbox Lys
@@ -324,7 +323,7 @@ Settings:
       Everforest Light Low: Everforest Lys Lav
       Everforest Dark Hard: Everforest Mørk Hård
     Main Color Theme:
-      Main Color Theme: 'Primær Farvetema'
+      Main Color Theme: 'Hovedfarvetema'
       Red: 'Rød'
       Pink: 'Lyserød'
       Purple: 'Lilla'
@@ -348,20 +347,20 @@ Settings:
       Dracula Purple: 'Dracula Lilla'
       Dracula Red: 'Dracula Rød'
       Dracula Yellow: 'Dracula Gul'
-      Catppuccin Mocha Green: Catppuccin Mokka Grøn
-      Catppuccin Mocha Rosewater: Catppuccin Mokka Rosenvand
-      Catppuccin Mocha Flamingo: Catppuccin Mokka Flamingo
-      Catppuccin Mocha Mauve: Capttuccin Mokka Lysviolet
-      Catppuccin Mocha Peach: Catppuccin Mokka Fersken
-      Catppuccin Mocha Yellow: Catppuccin Mokka Gul
-      Catppuccin Mocha Pink: Catppuccin Mokka Lyserød
-      Catppuccin Mocha Red: Catppuccin Mokka Rød
-      Catppuccin Mocha Maroon: Catppuccin Mokka Rødbrun
-      Catppuccin Mocha Teal: Catppuccin Mokka Turkis
-      Catppuccin Mocha Sky: Catppuccin Mokka Himmel
-      Catppuccin Mocha Sapphire: Catppuccin Mokka Safir
-      Catppuccin Mocha Blue: Catppuccin Mokka Blå
-      Catppuccin Mocha Lavender: Catppuccin Mokka Lavendel
+      Catppuccin Mocha Green: Catppuccin Mocha Grøn
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosenvand
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Mauve: Capttuccin Mocha Lysviolet
+      Catppuccin Mocha Peach: Catppuccin Mocha Fersken
+      Catppuccin Mocha Yellow: Catppuccin Mocha Gul
+      Catppuccin Mocha Pink: Catppuccin Mocha Lyserød
+      Catppuccin Mocha Red: Catppuccin Mocha Rød
+      Catppuccin Mocha Maroon: Catppuccin Mocha Rødbrun
+      Catppuccin Mocha Teal: Catppuccin Mocha Turkis
+      Catppuccin Mocha Sky: Catppuccin Mocha Himmel
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Safir
+      Catppuccin Mocha Blue: Catppuccin Mocha Blå
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavendel
       Catppuccin Frappe Maroon: Catppuccin Frappe Rødbrun
       Catppuccin Frappe Sky: Catppuccin Frappe Himmel
       Catppuccin Frappe Sapphire: Catppuccin Frappe Safir
@@ -408,31 +407,31 @@ Settings:
       Solarized Yellow: Solarized Gul
       Solarized Orange: Solarized Orange
       Catppuccin Frappe Green: Catppuccin Frappe Grøn
-    Secondary Color Theme: 'Sekundær Farvetema'
+    Secondary Color Theme: 'Sekundær farvetema'
         #* Main Color Theme
-    UI Scale: Skalering af Brugerflade
-    Disable Smooth Scrolling: Deaktivér Jævn Rulning
-    Expand Side Bar by Default: Udvid Sidebar som Standard
-    Hide Side Bar Labels: Skjul Sidebarens Etiketter
-    Hide FreeTube Header Logo: Skjul FreeTube Overskriftslogo
+    UI Scale: UI-skala
+    Disable Smooth Scrolling: Deaktivér jævn rulning
+    Expand Side Bar by Default: Udvid sidebjælken som standard
+    Hide Side Bar Labels: Skjul sidebjælkens etiketter
+    Hide FreeTube Header Logo: Skjul FreeTube's header-logo
   Player Settings:
     Player Settings: 'Afspiller'
     Play Next Video: 'Auto-afspil anbefalede videoer'
     Turn on Subtitles by Default: 'Aktivér undertekster som standard'
     Autoplay Videos: 'Start videoer automatisk'
-    Proxy Videos Through Invidious: 'Kør Videoer Gennem Invidious-Proxy'
+    Proxy Videos Through Invidious: 'Kør videoer gennem Invidious-proxy'
     Autoplay Playlists: 'Auto-afspil playlister'
     Enable Theatre Mode by Default: 'Aktivér Biograftilstand som Standard'
-    Default Volume: 'Standard Lydstyrke'
-    Default Playback Rate: 'Standard Afspilningshastighed'
+    Default Volume: 'Standardlydstyrke'
+    Default Playback Rate: 'Standardafspilningshastighed'
     Default Video Format:
-      Default Video Format: 'Standard Videoformat'
-      Dash Formats: 'DASH-Formater'
-      Legacy Formats: 'Ældre Formater'
+      Default Video Format: 'Standardvideoformat'
+      Dash Formats: 'DASH-formater'
+      Legacy Formats: 'Ældre formater'
       Audio Formats: 'Lydformater'
     Default Quality:
       Default Quality: 'Standardkvalitet'
-      Auto: 'Automatisk'
+      Auto: 'Auto'
       144p: '144p'
       240p: '240p'
       360p: '360p'
@@ -443,27 +442,28 @@ Settings:
       4k: '4k'
       8k: '8k'
     Screenshot:
-      Enable: Aktivér Skærmbillede
-      Format Label: Skærmbillede Format
-      Quality Label: Skærmbillede Kvalitet
-      Folder Button: Vælg Mappe
-      File Name Label: Filnavn Mønster
+      Enable: Aktivér skærmbillede
+      Format Label: Skærmbilledformat
+      Quality Label: Skærmbilledkvalitet
+      Folder Button: Vælg mappe
+      File Name Label: Filnavnsmønster
       Error:
-        Forbidden Characters: Forbudte Karakterer
-        Empty File Name: Tomt Filnavn
-      File Name Tooltip: Du kan bruge variabler nedenfor. %Y År 4 tal. %M Måned 2
-        tal. %D Dag 2 tal. %H Time 2 tal. %N Minut 2 tal. %S Sekund 2 tal. %T Millisekund
-        3 tal. %s Video-sekund. %t Video-millisekund 3 tal. %i Video-ID.
-      Ask Path: Spørg efter Mappe til at Gemme
-      Folder Label: Mappe til Skærmbilleder
+        Forbidden Characters: Forbudte tegn
+        Empty File Name: Tomt filnavn
+      File Name Tooltip: Du kan bruge variablerne nedenfor. %Y – år (4 cifre). %M
+        – måned (2 cifre). %D – dag (2 cifre). %H – time (2 cifre). %N – minut (2
+        cifre). %S – sekund (2 cifre). %T – millisekund (3 cifre). %s – video-sekund.
+        %t – video-millisekund (3 cifre). %i – video-ID.
+      Ask Path: Bed om lagringsmappe
+      Folder Label: Skærmbilledmappe
     Next Video Interval: Nedtællingstimer til auto-afspilning
-    Max Video Playback Rate: Maks. Videoafspilningshastighed
-    Display Play Button In Video Player: Vis Afspilningsknap i Videoafspiller
-    Fast-Forward / Rewind Interval: Spol fremad / Spol tilbage Interval
-    Video Playback Rate Interval: Videoafspilningshastighed Interval
-    Scroll Playback Rate Over Video Player: Scroll Afspilningshastighed i Videoafspiller
-    Scroll Volume Over Video Player: Scroll Lydstyrke i Videoafspiller
-    Skip by Scrolling Over Video Player: Spring Over ved at Scrolle Over Videoafspilleren
+    Max Video Playback Rate: Maks. videoafspilningshastighed
+    Display Play Button In Video Player: Vis afspilningsknap i videoafspiller
+    Fast-Forward / Rewind Interval: Interval for spol frem/tilbage
+    Video Playback Rate Interval: Interval for videoafspilningshastighed
+    Scroll Playback Rate Over Video Player: Rul afspilningshastighed over videoafspiller
+    Scroll Volume Over Video Player: Rul lydstyrke over videoafspiller
+    Skip by Scrolling Over Video Player: Spring over ved at rulle over videoafspiller
     Default Viewing Mode:
       Theater: Biograf
       Default Viewing Mode: Standardvisningstilstand
@@ -475,25 +475,24 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Privatliv'
     Remember History: 'Husk visningshistorik'
-    Save Watched Progress: 'Gem Set Fremskridt'
+    Save Watched Progress: 'Gem set fremskridt'
     Clear Search Cache: 'Ryd Søgecache'
     Are you sure you want to clear out your search cache?: 'Er du sikker på, at du
       vil rydde din søgecache?'
     Search cache has been cleared: 'Søgecache blev ryddet'
-    Remove Watch History: 'Fjern Set Historik'
+    Remove Watch History: 'Fjern visningshistorik'
     Are you sure you want to remove your entire watch history?: 'Er du sikker på,
-      at du vil fjerne hele din sete historik?'
-    Watch history has been cleared: 'Set historik blev ryddet'
-    Remove All Subscriptions / Profiles: 'Fjern Alle Abonnementer / Profiler'
+      at du vil fjerne hele din visningshistorik?'
+    Watch history has been cleared: 'Visningshistorik blev ryddet'
+    Remove All Subscriptions / Profiles: 'Fjern alle abonnementer/profiler'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Er
-      du sikker på, at du vil fjerne alle abonnementer og profiler? Dette kan ikke
-      fortrydes.'
+      du sikker på, at du vil fjerne alle abonnementer og profiler? Det kan ikke fortrydes.'
     All playlists have been removed: Alle playlister blev fjernet
     Are you sure you want to remove all your playlists?: Er du sikker på, at du vil
       fjerne alle dine playlister?
-    Save Watched Videos With Last Viewed Playlist: Gem Sete Videoer med Sidst Sete
-      Playliste
-    Remove All Playlists: Fjern Alle Playlister
+    Save Watched Videos With Last Viewed Playlist: Gem sete videoer med sidst sete
+      playliste
+    Remove All Playlists: Fjern alle playlister
     Remember Search History: Husk søgehistorik
     Are you sure you want to clear out your search history and cache?: Er du sikker
       på, at du vil rydde din søgehistorik og cache?
@@ -510,10 +509,10 @@ Settings:
         under videoen."
   Subscription Settings:
     Subscription Settings: 'Abonnement'
-    Hide Videos on Watch: 'Skjul Videoer på Se'
-    Fetch Feeds from RSS: 'Hent Feeds fra RSS'
-    Fetch Automatically: Hent Feed Automatisk
-    Confirm Before Unsubscribing: Bekræft Før Afmelding
+    Hide Videos on Watch: 'Skjul videoer, når set'
+    Fetch Feeds from RSS: 'Hent feeds fra RSS'
+    Fetch Automatically: Hent feed automatisk
+    Confirm Before Unsubscribing: Bekræft før afmelding
     'Limit the number of videos displayed for each channel': Begræns antallet af videoer
       vist for hver kanal
     To: Til
@@ -527,167 +526,161 @@ Settings:
     Export NewPipe: 'Eksportér NewPipe'
     Import History: 'Importér historik'
     Export History: 'Eksportér historik'
-    Profile object has insufficient data, skipping item: 'Profilobjekt har utilstrækkeligt
-      data, springer objektet over'
+    Profile object has insufficient data, skipping item: 'Profilobjekt har utilstrækkelige
+      data; springer element over'
     All subscriptions and profiles have been successfully imported: 'Det lykkedes
       at importere alle abonnementer og profiler'
     All subscriptions have been successfully imported: 'Det lykkedes at importere
       alle abonnementer'
-    Invalid subscriptions file: 'Ugyldig abonnementer-fil'
+    Invalid subscriptions file: 'Ugyldig abonnementsfil'
     This might take a while, please wait: 'Dette kan tage et stykke tid. Vent venligst'
-    Invalid history file: 'Ugyldig historik-fil'
+    Invalid history file: 'Ugyldig historikfil'
     Subscriptions have been successfully exported: 'Det lykkedes at eksportere abonnementer'
-    History object has insufficient data, skipping item: 'Historik-objekt har utilstrækkelig
-      data, springer objektet over'
-    All watched history has been successfully imported: 'Det lykkedes at importere
-      hele set-historikken'
-    All watched history has been successfully exported: 'Det lykkedes at eksportere
-      hele set-historikken'
+    History object has insufficient data, skipping item: 'Historikobjekt har utilstrækkelige
+      data; springer element over'
+    All watched history has been successfully imported: 'Visningshistorik blev importeret'
+    All watched history has been successfully exported: 'Visningshistorik blev eksporteret'
     Unable to read file: 'Kan ikke læse fil'
     Unable to write file: 'Kan ikke skrive fil'
     Unknown data key: 'Ukendt datanøgle'
     How do I import my subscriptions?: 'Hvordan importerer jeg mine abonnementer?'
-    Manage Subscriptions: Abonnementshåndtering
+    Manage Subscriptions: Administrer abonnementer
     Export Playlists: Eksportér playlister
-    Playlist insufficient data: Utilstrækkelig data for "{playlist}" playliste, springer
-      objektet over
+    Playlist insufficient data: Utilstrækkelige data for playlisten "{playlist}";
+      springer element over
     Import Playlists: Importér playlister
-    All playlists has been successfully imported: Alle playlister er blevet importeret
-      succesfuldt
-    All playlists has been successfully exported: Alle playlister er blevet eksporteret
-      succesfuldt
-    History File: Historik-fil
-    Playlist File: Playliste-fil
+    All playlists has been successfully imported: Playlister blev importeret
+    All playlists has been successfully exported: Playlister blev eksporteret
+    History File: Historikfil
+    Playlist File: Playlistefil
 
     Subscription File: Abonnementsfil
     Export Playlists For Older FreeTube Versions:
       Label: Eksportér playlister til ældre FreeTube-versioner
       Tooltip: "Denne indstilling eksporterer videoer fra alle playlister til én playliste
-        kaldet \"Favoritter\".\nSådan eksporterer og importerer du playlister i en
-        ældre version af FreeTube:\n1. Eksportér dine playlister med denne indstilling
+        kaldet \"Favoritter\".\nSådan eksporterer og importerer du playlister til
+        en ældre version af FreeTube:\n1. Eksportér dine playlister med denne indstilling
         aktiveret.\n2. Slet alle eksisterende playlister via \"Fjern alle playlister\"\
         \ under Privatlivsindstillinger.\n3. Start den ældre version af FreeTube og
         importér de eksporterede playlister."
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fejl ved
-      anskaffelse af netværksinformation. Er din proxy konfigureret ordentligt?
+      hentning af netværksoplysninger. Er din proxy korrekt konfigureret?
     City: By
-    Region: Område
+    Region: Region
     Country: Land
     Ip: IP
-    Your Info: Din Info
-    Test Proxy: Afprøv Proxy
-    Clicking on Test Proxy will send a request to: Klik på Afprøv Proxy vil sende
-      en anmodning til
-    Proxy Port Number: Proxy-Portnummer
-    Proxy Host: Proxy-Vært
-    Proxy Protocol: Proxy-Protokol
-    Enable Tor / Proxy: Aktivér Tor / Proxy
-    Proxy Settings: fuldmægtig
+    Your Info: Din info
+    Test Proxy: Test proxy
+    Clicking on Test Proxy will send a request to: '"Test proxy" sender en anmodning
+      til'
+    Proxy Port Number: Proxy-portnummer
+    Proxy Host: Proxy-vært
+    Proxy Protocol: Proxy-protokol
+    Enable Tor / Proxy: Aktivér Tor/proxy
+    Proxy Settings: Proxy
     Proxy Warning: FreeTube har ikke en indbygget proxy, men kan oprette forbindelse
       til en ekstern proxy, f.eks. en, der kører på din maskine som Tor, eller en
-      ekstern proxy som en SOCKS5-proxy, der leveres af nogle VPN'er. Hvis det er
-      aktiveret, skal du sørge for, at din proxy/Tor er konfigureret korrekt, ellers
-      kan FreeTube ikke hente nogen data.
+      ekstern proxy som SOCKS5, der tilbydes af nogle VPN'er. Hvis aktiveret, så sørg
+      for, at din proxy/Tor er konfigureret korrekt, ellers vil FreeTube ikke kunne
+      hente nogen data.
   Distraction Free Settings:
-    Hide Active Subscriptions: Skjul Aktive Abonnementer
-    Hide Live Chat: Skjul Live Chat
-    Hide Popular Videos: Skjul Populære Videoer
-    Hide Trending Videos: Skjul Trending Videoer
-    Hide Recommended Videos: Skjul Anbefalede Videoer
-    Hide Comment Likes: Skjul Kommentar-Likes
-    Hide Channel Subscribers: Skjul Kanal-Abonnenter
-    Hide Video Likes And Dislikes: Skjul Video-Likes og -Dislikes
-    Hide Video Views: Skjul Videovisninger
+    Hide Active Subscriptions: Skjul aktive abonnementer
+    Hide Live Chat: Skjul live chat
+    Hide Popular Videos: Skjul populære videoer
+    Hide Trending Videos: Skjul "Hot lige nu"-videoer
+    Hide Recommended Videos: Skjul anbefalede videoer
+    Hide Comment Likes: Skjul likes på kommentarer
+    Hide Channel Subscribers: Skjul kanalabonnenter
+    Hide Video Likes And Dislikes: Skjul video-likes og -dislikes
+    Hide Video Views: Skjul videovisninger
     Distraction Free Settings: Distraktionsfri
-    Hide Live Streams: Skjul Livestreams
-    Hide Comments: Skjul Kommentarer
-    Hide Sharing Actions: Skjul Delingshandlinger
-    Hide Video Description: Skjul Videobeskrivelse
-    Hide Playlists: Skjul Playlister
-    Hide Upcoming Premieres: Skjul Kommende Premierer
-    Hide Channels: Skjul Videoer Fra Kanaler
-    Hide Chapters: Skjul Kapitler
-    Hide Channels Already Exists: Kanal-ID eksisterer allerede
-    Hide Featured Channels: Skjul Fremhævede Kanaler
-    Hide Videos and Playlists Containing Text: Skjul Videoer og Playlister med Tekst
-    Hide Profile Pictures in Comments: Skjul Profilbilleder i Kommentarer
-    Display Titles Without Excessive Capitalisation: Vis Titler Uden Overdrevne Store
-      Bogstaver og Tegnsætning
+    Hide Live Streams: Skjul livestreams
+    Hide Comments: Skjul kommentarer
+    Hide Sharing Actions: Skjul delingshandlinger
+    Hide Video Description: Skjul videobeskrivelse
+    Hide Playlists: Skjul playlister
+    Hide Upcoming Premieres: Skjul kommende premierer
+    Hide Channels: Skjul videoer fra kanaler
+    Hide Chapters: Skjul kapitler
+    Hide Channels Already Exists: Kanal-ID findes allerede
+    Hide Featured Channels: Skjul fremhævede kanaler
+    Hide Videos and Playlists Containing Text: Skjul videoer og playlister med tekst
+    Hide Profile Pictures in Comments: Skjul profilbilleder i kommentarer
+    Display Titles Without Excessive Capitalisation: Vis titler uden overdreven brug
+      af store bogstaver og tegnsætning
     Sections:
       General: Generelt
       Side Bar: Sidebjælke
       Channel Page: Kanalside
       Subscriptions Page: Abonnementsside
-      Watch Page: Se side
+      Watch Page: Visningsside
     Hide Channels Placeholder: Kanal-ID
     Hide Channels API Error: Fejl ved hentning af bruger med det angivne ID. Tjek
-      venligst igen, om ID'et er korrekt.
-    Hide Channel Playlists: Skjul kanal "Playlists" Tab
-    Hide Channel Community: Skjul kanal "Kommunity" Tab
-    Hide Channel Podcasts: Skjul fanen »Podcasts« på kanalen
+      venligst, om ID'et er korrekt.
+    Hide Channel Playlists: Skjul "Playlister"-fanen på kanaler
+    Hide Channel Podcasts: Skjul "Podcasts"-fanen på kanaler
     Hide Channels Invalid: Det angivne kanal-ID var ugyldigt
-    Hide Channels Disabled Message: Nogle kanaler blev blokeret med ID og blev ikke
+    Hide Channels Disabled Message: Nogle kanaler blev blokeret via ID og blev ikke
       behandlet. Funktionen er blokeret, mens disse ID'er opdateres
     Hide Videos and Playlists Containing Text Placeholder: Ord, ordfragment eller
       sætning
-    Hide Channel Releases: Skjul kanal "Releases" Tab
+    Hide Channel Releases: Skjul "Udgivelser"-fanen på kanaler
     Show Added Items: Vis tilføjede elementer
-    Hide Channel Shorts: Skjul kanal "Shorts" Tab
-    Hide Channel Home: Skjul kanal "Hjem" Tab
-    Hide Channel Courses: Skjul kanal "Courses" Tab
-    Hide Subscriptions Live: Skjul liveudsendelser fra abonnementer
-    Hide Subscriptions Shorts: Skjul abonnementer Shorts
-    Hide Subscriptions Community: Skjul abonnementsfællesskab
-    Hide Subscriptions Videos: Skjul abonnementer Videoer
-  The app needs to restart for changes to take effect. Restart and apply change?: App'en
-    er nødt til at genstarte, for at ændringer kan træde i kraft. Genstart og anvend
-    ændringer?
+    Hide Channel Shorts: Skjul "Shorts"-fanen på kanaler
+    Hide Channel Home: Skjul "Hjem"-fanen på kanaler
+    Hide Channel Courses: Skjul "Kurser"-fanen på kanaler
+    Hide Subscriptions Live: Skjul livestreams fra abonnementer
+    Hide Subscriptions Shorts: Skjul shorts fra abonnementer
+    Hide Subscriptions Videos: Skjul videoer fra abonnementer
+    Hide Channel Posts: Skjul "Opslag"-fanen på kanaler
+    Hide Subscriptions Posts: Skjul opslag fra abonnementer
+  The app needs to restart for changes to take effect. Restart and apply change?: Appen
+    skal genstartes for at ændringerne kan træde i kraft. Genstart og anvend ændringer?
   SponsorBlock Settings:
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
-      Url (Standard er https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-URL
+      (standard er https://sponsor.ajay.app)
     Skip Options:
-      Auto Skip: Auto Spring Over
-      Skip Option: Spring Over Indstilling
-      Prompt To Skip: Prompt til at Springe Over
-      Show In Seek Bar: Vis på Tidslinjen
-      Do Nothing: Gør Intet
+      Auto Skip: Spring over automatisk
+      Skip Option: "'Spring over'-indstilling"
+      Prompt To Skip: Spørg om at springe over
+      Show In Seek Bar: Vis i statuslinje
+      Do Nothing: Gør intet
     Category Color: Kategorifarve
-    Notify when sponsor segment is skipped: Notificér når et sponsorsegment springes
+    Notify when sponsor segment is skipped: Underret, når et sponsorsegment springes
       over
-    SponsorBlock Settings: Sponsorblokken
+    SponsorBlock Settings: SponsorBlock
     Enable SponsorBlock: Aktivér SponsorBlock
     UseDeArrowTitles: Brug DeArrow-videotitler
     UseDeArrowThumbnails: Brug DeArrow til miniaturebilleder
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
-      Thumbnail Generator API Url (standard er https://dearrow-thumb.ajay.app)
+      Thumbnail Generator API-URL (standard er https://dearrow-thumb.ajay.app)
   Download Settings:
     Open in web browser: Åbn i webbrowser
-    Download Settings: Downloade
-    Choose Path: Vælg Sti
-    Ask Download Path: Spørg efter sti for downloads
-    Download Behavior: Download-adfærd
+    Download Settings: Download
+    Choose Path: Vælg sti
+    Ask Download Path: Bed om download-sti
+    Download Behavior: Downloadadfærd
     Download in app: Download i appen
   Parental Control Settings:
-    Hide Unsubscribe Button: Skjul Afmeldingsknap
-    Show Family Friendly Only: Vis Blot Familievenligt
+    Hide Unsubscribe Button: Skjul afmeldingsknap
+    Show Family Friendly Only: Vis kun familievenligt
     Parental Control Settings: Forældrekontrol
-    Hide Search Bar: Skjul Søgefeltet
+    Hide Search Bar: Skjul søgefelt
   External Player Settings:
-    Custom External Player Executable: Brugerdefineret Ekstern Afspiller Eksekverbar
-      Fil
-    Custom External Player Arguments: Brugerdefineret Ekstern Afspiller Argumenter
-    External Player: Ekstern Afspiller
-    Ignore Unsupported Action Warnings: Ignorér Advarsler om Ikke-understøttede Handlinger
+    Custom External Player Executable: Brugerdefineret ekstern afspiller
+    Custom External Player Arguments: Brugerdefinerede argumenter for ekstern afspiller
+    External Player: Ekstern afspiller
+    Ignore Unsupported Action Warnings: Ignorer advarsler om ikke-understøttede handlinger
     External Player Settings: Ekstern afspiller
     Players:
       None:
         Name: Ingen
     Ignore Default Arguments: Ignorer standardargumenter
   Password Settings:
-    Set Password: Indstil Adgangskode
+    Set Password: Indstil adgangskode
     Password Settings: Adgangskode
-    Remove Password: Fjern Adgangskode
+    Remove Password: Fjern adgangskode
     Set Password To Prevent Access: Indstil en adgangskode for at forhindre adgang
       til indstillinger
   Password Dialog:
@@ -714,9 +707,9 @@ About:
   Please read the: Læs venligst
   Chat on Matrix: Chat på Matrix
   Mastodon: Mastodon
-  Email: E-post
+  Email: E-mail
   Blog: Blog
-  Website: Netsted
+  Website: Websted
   Please check for duplicates before posting: Kontrollér venligst for duplikater før
     opslag
   GitHub issues: GitHub-problemer
@@ -725,31 +718,31 @@ About:
   FreeTube Wiki: FreeTube Wiki
   Help: Hjælp
   GitHub releases: GitHub-udgivelser
-  Downloads / Changelog: Overførsler / Ændringslog
+  Downloads / Changelog: Downloads / Ændringslog
   Source code: Kildekode
   Beta: Beta
   Discussions: Diskussioner
   AGPLv3: AGPLv3
   Licensed under the: Licenseret under
 Profile:
-  Profile Select: 'Vælg Profil'
-  All Channels: 'Alle Kanaler'
+  Profile Select: 'Vælg profil'
+  All Channels: 'Alle kanaler'
   Profile Manager: 'Profilhåndtering'
-  Create New Profile: 'Opret Ny Profil'
-  Edit Profile: 'Redigér Profil'
+  Create New Profile: 'Opret ny profil'
+  Edit Profile: 'Rediger profil'
   Color Picker: 'Farvevælger'
-  Custom Color: 'Tilpasset Farve'
-  Profile Preview: 'Forhåndsvisning af Profil'
-  Create Profile: 'Opret Profil'
-  Update Profile: 'Opdatér Profil'
-  Make Default Profile: 'Gør til Standardprofil'
-  Delete Profile: 'Slet Profil'
+  Custom Color: 'Brugerdefineret farve'
+  Profile Preview: 'Forhåndsvisning af profil'
+  Create Profile: 'Opret profil'
+  Update Profile: 'Opdater profil'
+  Make Default Profile: 'Gør til standardprofil'
+  Delete Profile: 'Slet profil'
   Are you sure you want to delete this profile?: 'Er du sikker på, at du vil slette
     denne profil?'
-  All subscriptions will also be deleted.: 'Alle abonnementer vil også blive slettede.'
+  All subscriptions will also be deleted.: 'Alle abonnementer slettes også.'
   Your profile name cannot be empty: 'Dit profilnavn må ikke være tomt'
-  Profile has been created: 'Profil er blevet oprettet'
-  Profile has been updated: 'Profil er blevet opdateret'
+  Profile has been created: 'Profilen blev oprettet'
+  Profile has been updated: 'Profilen blev opdateret'
   Your default profile has been set to {profile}: 'Din standardprofil er blevet indstillet
     til {profile}'
   Removed {profile} from your profiles: 'Fjernede {profile} fra dine profiler'
@@ -757,39 +750,39 @@ Profile:
     er blevet ændret til din primære profil'
   '{profile} is now the active profile': '{profile} er nu den aktive profil'
   Subscription List: 'Abonnementsliste'
-  Other Channels: 'Andre Kanaler'
+  Other Channels: 'Andre kanaler'
   '{number} selected': '{number} valgt'
-  Select All: 'Vælg Alt'
-  Select None: 'Vælg Intet'
-  Delete Selected: 'Slet Valgte'
-  Add Selected To Profile: 'Føj Valgte Til Profil'
+  Select All: 'Vælg alle'
+  Select None: 'Vælg ingen'
+  Delete Selected: 'Slet valgte'
+  Add Selected To Profile: 'Føj valgte til profil'
   No channel(s) have been selected: 'Der er ikke valgt nogen kanal(er)'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
-  : 'Dette er din primære profil.  Er du sikker på, at du vil slette de valgte kanaler?  De
-    samme kanaler vil slettes i enhver profil, de findes i.'
+  : 'Dette er din primære profil. Er du sikker på, at du vil slette de valgte kanaler?
+    De samme kanaler slettes i alle profiler, hvor de findes.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Er
-    du sikker på, at du vil slette de valgte kanaler?  Dette vil ikke slette kanalen
-    fra nogen anden profil.'
+    du sikker på, at du vil slette de valgte kanaler? Dette sletter ikke kanalen fra
+    andre profiler.'
 #On Channel Page
   Profile Filter: Profilfilter
   Profile Settings: Profil
-  Create Profile Name: Opret Profilnavn
+  Create Profile Name: Opret profilnavn
   Profile Name: Profilnavn
-  Edit Profile Name: Redigér Profilnavn
-  Toggle Profile List: Liste over Toggle-profiler
-  Close Profile Dropdown: Luk profil-dropdown
-  Open Profile Dropdown: Åbn profil-dropdown
+  Edit Profile Name: Rediger profilnavn
+  Toggle Profile List: Vis/skjul profil-liste
+  Close Profile Dropdown: Luk profil-rullemenu
+  Open Profile Dropdown: Åbn profil-rullemenu
 Channel:
   Subscribe: 'Abonnér'
   Unsubscribe: 'Afmeld'
-  Channel has been removed from your subscriptions: 'Kanal er blevet fjernet fra dine
+  Channel has been removed from your subscriptions: 'Kanalen blev fjernet fra dine
     abonnementer'
   Removed subscription from {count} other channel(s): 'Fjernede abonnement fra {count}
     andre kanaler'
   Added channel to your subscriptions: 'Føjede kanal til dine abonnementer'
   Search Channel: 'Kanalsøgning'
-  Your search results have returned 0 results: 'Dine søgeresultater har givet 0 resultater'
+  Your search results have returned 0 results: 'Dine søgeresultater gav 0 resultater'
   Videos:
     Videos: 'Videoer'
     This channel does not currently have any videos: 'Denne kanal har i øjeblikket
@@ -797,54 +790,54 @@ Channel:
     Sort Types:
       Newest: 'Nyeste'
       Oldest: 'Ældste'
-      Most Popular: 'Mest Populære'
+      Most Popular: 'Mest populære'
   Playlists:
     Playlists: 'Playlister'
     This channel does not currently have any playlists: 'Denne kanal har i øjeblikket
       ingen playlister'
     Sort Types:
-      Last Video Added: 'Sidste Tilføjede Video'
+      Last Video Added: 'Sidste tilføjede video'
       Newest: 'Nyeste'
       Oldest: 'Ældste'
   About:
     About: 'Om'
     Channel Description: 'Kanalbeskrivelse'
-    Featured Channels: 'Fremhævede Kanaler'
+    Featured Channels: 'Fremhævede kanaler'
     Details: Detaljer
     Tags:
       Search for: Søg efter "{tag}"
-      Tags: Etiketter
-    Joined: sluttet sig til
-    Location: placering
-  Community:
-    Hide Answers: Skjul Svar
+      Tags: Tags
+    Joined: Tilmeldt
+    Location: Placering
+  Posts:
+    Hide Answers: Skjul svar
     This channel currently does not have any posts: Denne kanal har i øjeblikket ingen
       opslag
     Video hidden by FreeTube: Video skjult af FreeTube
     votes: '{votes} stemmer'
-    Reveal Answers: Afslør svarene
-    View Full Post: Se hele indlægget
-    Viewing Posts Only Supported By Invidious: Visning af indlæg understøttes kun
-      af Invidious. Gå til en kanals fællesskabsfane for at se indhold der uden Invidious.
-  This channel does not allow searching: Denne kanal tillader ikke søgninger
+    Reveal Answers: Vis svar
+    View Full Post: Se hele opslaget
+    Viewing Posts Only Supported By Invidious: Visning af opslag understøttes kun
+      af Invidious. Gå til en kanals fællesskabsfane for at se indholdet uden Invidious.
+  This channel does not allow searching: Denne kanal tillader ikke søgning
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Denne
     kanal er aldersbegrænset og kan i øjeblikket ikke ses på FreeTube.
   Live:
     This channel does not currently have any live streams: Denne kanal har i øjeblikket
       ingen livestreams
-    Live: leve
+    Live: Live
   Podcasts:
     This channel does not currently have any podcasts: Denne kanal har i øjeblikket
       ingen podcasts
     Podcasts: Podcasts
-  This channel does not exist: Denne kanal eksisterer ikke
+  This channel does not exist: Denne kanal findes ikke
   Releases:
     Releases: Udgivelser
     This channel does not currently have any releases: Denne kanal har i øjeblikket
       ingen udgivelser
   Home:
-    Home: hjem
-    View Playlist: Se afspilningsliste
+    Home: Hjem
+    View Playlist: Se playliste
   Courses:
     Courses: Kurser
     This channel does not currently have any courses: Denne kanal har i øjeblikket
@@ -854,59 +847,59 @@ Channel:
       ingen shorts
   Channel Tabs: Kanal-faner
 Video:
-  Mark As Watched: 'Markér Som Set'
-  Remove From History: 'Fjern Fra Historik'
-  Video has been marked as watched: 'Videoen er blevet markeret som set'
-  Video has been removed from your history: 'Videoen er blevet fjernet fra din historik'
+  Mark As Watched: 'Markér som set'
+  Remove From History: 'Fjern fra historik'
+  Video has been marked as watched: 'Videoen blev markeret som set'
+  Video has been removed from your history: 'Videoen blev fjernet fra din historik'
   Open in YouTube: 'Åbn i YouTube'
-  Copy YouTube Link: 'Kopiér YouTube-Link'
-  Open YouTube Embedded Player: 'Åbn YouTube i Indbygget Afspiller'
-  Copy YouTube Embedded Player Link: 'Kopiér YouTube Indbygget Afspiller-Link'
+  Copy YouTube Link: 'Kopiér YouTube-link'
+  Open YouTube Embedded Player: 'Åbn indlejret YouTube-afspiller'
+  Copy YouTube Embedded Player Link: 'Kopiér link til indlejret YouTube-afspiller'
   Open in Invidious: 'Åbn i Invidious'
-  Copy Invidious Link: 'Kopiér Indvidious-Link'
+  Copy Invidious Link: 'Kopiér Indvidious-link'
   Views: 'Visninger'
-  Loop Playlist: 'Gentag Playliste'
-  Shuffle Playlist: 'Bland Playliste'
-  Reverse Playlist: 'Vend Playliste Om'
-  Play Next Video: 'Afspil Næste Video'
-  Play Previous Video: 'Afspil Forrige Video'
+  Loop Playlist: 'Gentag playliste'
+  Shuffle Playlist: 'Bland playliste'
+  Reverse Playlist: 'Omvendt playliste'
+  Play Next Video: 'Afspil næste video'
+  Play Previous Video: 'Afspil forrige video'
   Watched: 'Set'
-  Autoplay: 'Autospil'
-  Starting soon, please refresh the page to check again: 'Begynder snart, genopfrisk
-    venligst siden for at kontrollere igen'
+  Autoplay: 'Auto-afspil'
+  Starting soon, please refresh the page to check again: 'Begynder snart; opdater
+    venligst siden for at tjekke igen'
   # As in a Live Video
-  Live: 'Direkte'
-  Live Now: 'Direkte Nu'
-  Live Chat: 'Direkte Chat'
-  Enable Live Chat: 'Aktivér Direkte Chat'
-  Live Chat is currently not supported in this build.: 'Direkte Chat understøttes
-    i øjeblikket ikke i dette build.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Direkte chat er
-    aktiveret.  Chatbeskeder vil fremgå her, når de er sendt.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direkte
-    Chat understøttes i øjeblikket ikke med Invidious-APIen.  Direkte forbindelse
+  Live: 'Live'
+  Live Now: 'Live nu'
+  Live Chat: 'Live chat'
+  Enable Live Chat: 'Aktivér live chat'
+  Live Chat is currently not supported in this build.: 'Live chat understøttes i øjeblikket
+    ikke i dette build.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Live chat er aktiveret.
+    Chatbeskeder vises her, når de er sendt.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Live
+    chat understøttes i øjeblikket ikke med Invidious-API''en. Direkte forbindelse
     til YouTube kræves.'
   Published on: 'Udgivet'
 #& Videos
-  Copy Invidious Channel Link: Kopiér Invidious Kanal-Link
-  Open Channel in Invidious: Åbn Kanal i Invidious
-  Copy YouTube Channel Link: Kopiér YouTube Kanal-Link
-  Open Channel in YouTube: Åbn Kanal i YouTube
-  Video has been removed from your saved list: Video er blevet fjernet fra din gemte
+  Copy Invidious Channel Link: Kopiér link til Invidious-kanal
+  Open Channel in Invidious: Åbn kanal i Invidious
+  Copy YouTube Channel Link: Kopiér link til YouTube-kanal
+  Open Channel in YouTube: Åbn kanal i YouTube
+  Video has been removed from your saved list: Videoen blev fjernet fra din gemte
     liste
-  Video has been saved: Video er blevet gemt
-  Save Video: Gem Video
+  Video has been saved: Videoen blev gemt
+  Save Video: Gem video
   Started streaming on: Begyndte at sende
   Streamed on: Sendt
   audio only: kun lyd
   video only: kun video
-  Download Video: Hent Video
+  Download Video: Hent video
   Sponsor Block category:
     intro: Intro
     sponsor: Sponsor
     recap: Opsummering
     music offtopic: Musik Off-topic
-    outro: Outtro
+    outro: Outro
     self-promotion: Selvpromovering
     interaction: Interaktion
     filler: Fyldstof
@@ -925,14 +918,14 @@ Video:
     video: video
     playlist: playliste
     UnsupportedActionTemplate: '{externalPlayer} understøtter ikke: {action}'
-  Hide Channel: Skjul Kanal
-  Unhide Channel: Vis Kanal
+  Hide Channel: Skjul kanal
+  Unhide Channel: Vis kanal
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live
-    Chat er ikke tilgængelig for denne stream. Den er muligvis blevet deaktiveret
+    chat er ikke tilgængelig for denne stream. Den er muligvis blevet deaktiveret
     af uploaderen.
   Premieres: Premierer
   Upcoming: Kommende
-  Scroll to Bottom: Rul til Bunden
+  Scroll to Bottom: Rul til bunden
   Player:
     Stats:
       Video ID: 'Video-ID: {videoId}'
@@ -943,11 +936,11 @@ Video:
       Bitrate: 'Bitrate: {bitrate} kbps'
       CodecAudio: 'Codec: {audioCodec} ({audioItag})'
       Volume: 'Lydstyrke: {volumePercentage}%'
-      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {lydkodec}'
-      Dropped Frames / Total Frames: 'Tabte rammer: {droppedFrames} (tabte billeder)
-        / Samlet antal rammer: {totalFrames}'
-      CodecsVideoAudio: 'Kodeks: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
-      Player Dimensions: 'Spillerens dimensioner: {bredde}x{højde}'
+      CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
+      Dropped Frames / Total Frames: 'Tabte billeder: {droppedFrames} / Samlede billeder:
+        {totalFrames}'
+      CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      Player Dimensions: 'Afspillerens dimensioner: {width}x{height}'
       Buffered: 'Bufret: {bufferedPercentage}%'
     Skipped segment: Sprang {segmentCategory} segment over
     Playback will resume automatically when your connection comes back: Afspilning
@@ -956,7 +949,7 @@ Video:
     Exit Full Window: Afslut fuldt vindue
     Take Screenshot: Tag et skærmbillede
     You appear to be offline: Du ser ud til at være offline.
-    TranslatedCaptionTemplate: '{language} (oversat fra »{originalLanguage}«)'
+    TranslatedCaptionTemplate: '{language} (oversat fra "{originalLanguage}")'
     Audio Tracks: Lydspor
     Autoplay is off: Autoplay er slået fra
     Autoplay is on: Autoplay er slået til
@@ -966,8 +959,8 @@ Video:
     Hide Stats: Skjul statistik
     Exit Theatre Mode: Afslut teatertilstand
   Unlisted: Ikke noteret
-  MembersOnly: Videoer, der kun er for medlemmer, kan ikke ses med FreeTube, da de
-    kræver Google-login og betalt medlemskab af uploaderens kanal.
+  MembersOnly: Videoer kun for medlemmer kan ikke ses med FreeTube, da de kræver Google-login
+    og betalt medlemskab af uploaderens kanal.
   IP block: YouTube har blokeret din IP-adresse fra at se videoer. Prøv at skifte
     til en anden VPN eller proxy.
   AgeRestricted: Aldersbegrænsede videoer kan ikke ses med FreeTube, da de kræver
@@ -976,18 +969,18 @@ Video:
     proprietære komponenter med lukket kilde. Hvis du vil se denne video, skal du
     se den på det officielle YouTube-websted i en DRM-aktiveret webbrowser.
   More Options: Flere muligheder
-  Show Super Chat Comment: Vis Super Chat Kommentar
+  Show Super Chat Comment: Vis Super Chat-kommentar
   DeArrow:
     Show Modified Details: Vis ændrede detaljer
     Show Original Details: Vis originale detaljer
   Published:
-    In less than a minute: På mindre end et minut
+    In less than a minute: Mindre end et minut siden
   Save Watched Progress: Gem set fremskridt
   Watched Progress Saved: Set fremskridt gemt
 Playlist:
   #& About
-  View Full Playlist: 'Vis Hele Playliste'
-  Last Updated On: 'Sidst Opdateret'
+  View Full Playlist: 'Vis hele playliste'
+  Last Updated On: 'Sidst opdateret'
 
 # On Video Watch Page
 #* Published
@@ -1000,16 +993,16 @@ Playlist:
     DateAddedOldest: Tidligst tilføjet først
     Custom: Brugerdefineret
     VideoDurationAscending: Varighed (korteste først)
-    AuthorAscending: Forfatter (A-Z)
-    AuthorDescending: Forfatter (Z-A)
-    PublishedNewest: seneste tilføjet først
+    AuthorAscending: Forfatter (A-Å)
+    AuthorDescending: Forfatter (Å-A)
+    PublishedNewest: Seneste udgivet først
     PublishedOldest: Tidligst udgivet først
     VideoDurationDescending: Varighed (længste først)
 Change Format:
-  Change Media Formats: 'Skift Videoformater'
-  Use Dash Formats: 'Brug DASH-Formater'
-  Use Legacy Formats: 'Brug Gamle Formater'
-  Use Audio Formats: 'Brug Lydformater'
+  Change Media Formats: 'Skift medieformater'
+  Use Dash Formats: 'Brug DASH-formater'
+  Use Legacy Formats: 'Brug ældre formater'
+  Use Audio Formats: 'Brug lydformater'
   Dash formats are not available for this video: 'DASH-formater er ikke tilgængelige
     for denne video'
   Audio formats are not available for this video: 'Lydformater er ikke tilgængelige
@@ -1017,50 +1010,50 @@ Change Format:
   Legacy formats are not available for this video: Ældre formater er ikke tilgængelige
     for denne video
 Share:
-  Share Video: 'Del Video'
-  Share Playlist: 'Del Playliste'
-  Include Timestamp: 'Inkludér Tidsstempel'
-  Copy Link: 'Kopiér Link'
-  Open Link: 'Åbn Link'
-  Copy Embed: 'Kopiér Indlejring'
-  Open Embed: 'Åbn Indlejring'
+  Share Video: 'Del video'
+  Share Playlist: 'Del playliste'
+  Include Timestamp: 'Inkluder tidsstempel'
+  Copy Link: 'Kopiér link'
+  Open Link: 'Åbn link'
+  Copy Embed: 'Kopiér indlejring'
+  Open Embed: 'Åbn indlejring'
   # On Click
-  Invidious URL copied to clipboard: 'Indvidious URL kopieret til udklipsholder'
-  Invidious Embed URL copied to clipboard: 'Invidious Indlejrings-URL kopieret til
+  Invidious URL copied to clipboard: 'Indvidious-URL kopieret til udklipsholder'
+  Invidious Embed URL copied to clipboard: 'Invidious indlejrings-URL kopieret til
     udklipsholder'
   YouTube URL copied to clipboard: 'YouTube-URL kopieret til udklipsholder'
-  YouTube Embed URL copied to clipboard: 'YouTube Indlejrings-URL kopieret til udklipsholder'
-  YouTube Channel URL copied to clipboard: YouTube Kanal-URL kopieret til udklipsholder
-  Invidious Channel URL copied to clipboard: Invidious Kanal-URL kopieret til udklipsholder
-  Share Channel: Del Kanal
+  YouTube Embed URL copied to clipboard: 'YouTube indlejrings-URL kopieret til udklipsholder'
+  YouTube Channel URL copied to clipboard: YouTube kanal-URL kopieret til udklipsholder
+  Invidious Channel URL copied to clipboard: Invidious kanal-URL kopieret til udklipsholder
+  Share Channel: Del kanal
 Mini Player: 'Miniafspiller'
 Comments:
   Comments: 'Kommentarer'
-  Click to View Comments: 'Klik for at Vise Kommentarer'
-  Getting comment replies, please wait: 'Får kommentarsvar, vent venligst'
+  Click to View Comments: 'Klik for at vise kommentarer'
+  Getting comment replies, please wait: 'Henter kommentarsvar; vent venligst'
   There are no more comments for this video: 'Der er ikke flere kommentarer til denne
     video'
-  Hide Comments: 'Skjul Kommentarer'
+  Hide Comments: 'Skjul kommentarer'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Vis'
+  View: 'Se'
   Hide: 'Skjul'
   Replies: 'Svar'
   Reply: 'Besvar'
   There are no comments available for this video: 'Der er ingen kommentarer tilgængelige
     til denne video'
-  Load More Comments: 'Indlæs Flere Kommentarer'
-  Newest first: Nyeste Først
+  Load More Comments: 'Indlæs flere kommentarer'
+  Newest first: Nyeste først
   Top comments: Topkommentarer
   From {channelName}: fra {channelName}
   Pinned by: Fastgjort af
   And others: og andre
-  Show More Replies: Vis Flere Svar
+  Show More Replies: Vis flere svar
   Member: Medlem
   Subscribed: Abonneret
-  View {replyCount} replies: Vis {replyCount} svar
-  Hearted: hjertelig
+  View {replyCount} replies: Se {replyCount} svar
+  Hearted: Hjerte
   There are no comments available for this post: Der er ingen tilgængelige kommentarer
-    til dette indlæg
+    til dette opslag
 Up Next: 'Næste'
 
 # Toast Messages
@@ -1072,7 +1065,7 @@ Loop is now disabled: 'Gentagelse er nu deaktiveret'
 Loop is now enabled: 'Gentagelse er nu aktiveret'
 Shuffle is now disabled: 'Bland er nu deaktiveret'
 Shuffle is now enabled: 'Bland er nu aktiveret'
-The playlist has been reversed: 'Playlisten er blevet vendt om'
+The playlist has been reversed: 'Playlisten blev vendt om'
 Playing Next Video: 'Afspiller Næste Video'
 Playing Previous Video: 'Afspiller Forrige Video'
 Canceled next video autoplay: 'Afbrød næste videos autospilning'
@@ -1088,39 +1081,37 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Når aktiveret, bruger FreeTube RSS i stedet for standardmetoden
       til at hente dit abonnementsfeed. RSS er hurtigere og forhindrer IP-blokering,
-      men viser ikke visse oplysninger som videoens varighed, live-status eller opslag
-      fra fællesskabet
-    Fetch Automatically: Når det er aktiveret, henter FreeTube automatisk dit abonnementsfeed,
-      når der åbnes et nyt vindue, og når du skifter profil.
+      men giver ikke visse oplysninger som videovarighed, live-status eller opslag
+    Fetch Automatically: Når aktiveret, henter FreeTube automatisk dit abonnementsfeed,
+      både når du starter FreeTube og når der åbnes et nyt vindue.
   Player Settings:
-    Default Video Format: Angiv formaterne der bruges når en video afspilles. DASH-formater
-      kan afspille med højere kvalitet. Gamle formater er begrænsede til maks HD,
-      men bruger mindre båndbredde. Lydformater er lydstrømme kun med lyd.
-    Proxy Videos Through Invidious: Vil forbinde til Invidious for at vise videoer
-      i stedet for at oprette en direkte forbindelse til YouTube.
-    Scroll Playback Rate Over Video Player: Mens markøren er over videoen, tryk og
-      hold Control-tasten (Command-tast på Mac) nede og scroll musehjulet fremad og
-      bagud for at kontrollere afspilningshastigheden. Tryk og hold Control-tasten
-      (Command-tast på Mac) nede og venstreklik musen for hurtigt at vende tilbage
-      til standard-afspilningshastigheden (1x medmindre det er blevet ændret i indstillingerne).
+    Default Video Format: Vælg de formater, der bruges, når en video afspilles. DASH-formater
+      kan afspille højere kvaliteter. Ældre formater er begrænset til maks. 360p,
+      men bruger mindre båndbredde. Lydformater er kun lydstrømme.
+    Proxy Videos Through Invidious: Forbinder til Invidious for at vise videoer i
+      stedet for at oprette en direkte forbindelse til YouTube.
+    Scroll Playback Rate Over Video Player: Mens markøren er over videoen, hold Ctrl-tasten
+      (Command-tasten på Mac) nede, og rul musehjulet frem eller tilbage for at styre
+      afspilningshastigheden. Hold Ctrl-tasten (Command-tasten på Mac) nede, og venstreklik
+      for hurtigt at vende tilbage til standardafspilningshastigheden (1x, medmindre
+      den er blevet ændret i indstillingerne).
     Skip by Scrolling Over Video Player: Brug rullehjulet til at springe gennem videoen
       i bedste MPV-stil.
   General Settings:
-    Region for Trending: Området for trend tillader dig at vælge hvilket lands videoer
-      på trend du ønsker at få vist.
-    Preferred API Backend: Vælg den server som FreeTube bruger til at anskaffe data.
-      Den lokale API er et indbygget dekomprimeringsværktøj. Invidious-API'en kræver
-      en Invidious-server at forbinde til.
-    Invidious Instance: Den Invidious-instans, som FreeTube skal forbinde til for
-      API-opkald.
-    Thumbnail Preference: Alle miniaturebilleder i FreeTube vil blive erstattet med
-      et billede af videoen, i stedet for standard-miniaturebilledet.
-    Fallback to Non-Preferred Backend on Failure: Når din foretrukne API oplever et
-      problem, vil FreeTube automatisk forsøge at bruge din ikke-foretrukne API som
-      reservemetode, når det er aktiveret.
-    External Link Handling: "Vælg standardopførslen for når du klikker på et link,
-      der ikke kan blive åbnet i FreeTube.\nSom standard åbner FreeTube det link,
-      du klikker på, i din standardbrowser.\n"
+    Region for Trending: Trendregionen lader dig vælge, hvilket lands trending videoer
+      du vil have vist.
+    Preferred API Backend: Vælg den backend, FreeTube skal bruge til at hente data.
+      Den lokale API er en indbygget udtrækker. Invidious-API'en kræver forbindelse
+      til en Invidious-server.
+    Invidious Instance: Den Invidious-instans, som FreeTube forbinder til for API-opkald.
+    Thumbnail Preference: Alle miniaturebilleder på FreeTube erstattes med et billede
+      af videoen, sløret eller skjult, i stedet for standardminiaturebilledet.
+    Fallback to Non-Preferred Backend on Failure: Når din foretrukne API har et problem,
+      vil FreeTube automatisk forsøge at bruge din ikke-foretrukne API som en fallback-metode,
+      hvis den er aktiveret.
+    External Link Handling: "Vælg standardadfærd, når du klikker på et link, som ikke
+      kan åbnes i FreeTube.\nSom standard vil FreeTube åbne det klikkede link i din
+      standardbrowser.\n"
     Open Deep Links In New Window: URL'er, der sendes til FreeTube, f.eks. ved at
       omdirigere browserudvidelser eller kommandolinjeargumenter, åbnes i et nyt vindue.
   External Player Settings:
@@ -1130,9 +1121,9 @@ Tooltips:
     DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
     Custom External Player Arguments: Alle brugerdefinerede kommandolinjeargumenter,
       du ønsker viderebragt til den eksterne afspiller.
-    External Player: 'Valg af ekstern afspiller vil fremvise et ikon, for åbning af
-      videoen (playliste hvis understøttet) i den eksterne afspiller, på miniaturebilledet.
-      Advarsel: Invidious-indstillinger har ingen effekt på eksterne afspillere.'
+    External Player: 'Vælger du en ekstern afspiller, vises et ikon på miniaturebilledet
+      for åbning af videoen (playlisten, hvis understøttet). Advarsel, Invidious-indstillinger
+      påvirker ikke eksterne afspillere.'
     Ignore Warnings: Undertryk advarsler for når den eksterne afspiller ikke understøtter
       den gældende handling (fx vende playlister om, etc.).
     Ignore Default Arguments: Send ikke nogen standardargumenter til den eksterne
@@ -1156,23 +1147,22 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Deaktiverer Electrons diskbaserede HTTP-cache og aktiverer
       en brugerdefineret billedcache i hukommelsen. Vil føre til øget brug af RAM.
-New Window: Nyt Vindue
+New Window: Nyt vindue
 More: Mere
-Open New Window: Åbn Nyt Vindue
+Open New Window: Åbn nyt vindue
 Channels:
   Channels: Kanaler
   Title: Kanalliste
   Count: '{number} kanal(er) fundet.'
-  Unsubscribe Prompt: Er du sikker på at du vil afmelde dit abonnement på "{channelName}"?
-  Search bar placeholder: Søg Kanaler
-  Empty: Din kanalliste er i øjeblikket tom.
+  Unsubscribe Prompt: Er du sikker på, at du vil afmelde "{channelName}"?
+  Search bar placeholder: Søg efter kanaler
+  Empty: Din kanalliste er tom.
 Default Invidious instance has been set to {instance}: Standard Invidious-instans
-  er blevet sat til {instance}
-Default Invidious instance has been cleared: Standard Invidious-instans er blevet
-  ryddet
+  blev indstillet til {instance}
+Default Invidious instance has been cleared: Standard Invidious-instans blev ryddet
 Are you sure you want to open this link?: Er du sikker på, at du vil åbne dette link?
 Search Bar:
-  Clear Input: Ryd Input
+  Clear Input: Ryd input
   Remove: Fjern
 Downloading failed: Der var et problem med at downloade "{videoTitle}"
 Unknown YouTube url type, cannot be opened in app: Ukendt YouTube URL-type, kan ikke
@@ -1188,18 +1178,18 @@ Playing Next Video Interval: Afspiller næste video om lidt. Klik for at afbryde
   næste video om {nextVideoInterval} sekunder. Klik for at afbryde.
 Preferences: Præferencer
 Go to page: Gå til {page}
-Close Banner: Luk Banner
+Close Banner: Luk banner
 Clipboard:
   Cannot access clipboard without a secure connection: Kan ikke tilgå udklipsholder
     uden en sikker forbindelse
   Copy failed: Kopiering til udklipsholder mislykkedes
 Chapters:
   Chapters: Kapitler
-  Key Moments: vigtige øjeblikke
-  'Chapters list visible, current chapter: {chapterName}': 'Kapitelliste synlig, aktuelt
-    kapitel: {kapitelnavn}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste skjult, aktuelt
-    kapitel: {kapitelnavn}'
+  Key Moments: Højdepunkter
+  'Chapters list visible, current chapter: {chapterName}': 'Kapitelliste synlig. Nuværende
+    kapitel: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste skjult. Nuværende
+    kapitel: {chapterName}'
 Age Restricted:
   This video is age restricted: Denne video er aldersbegrænset
   This channel is age restricted: Denne kanal er aldersbegrænset
@@ -1290,21 +1280,19 @@ KeyboardShortcutPrompt:
   Toggle Developer Tools: Skift udviklerværktøjer
   Focus Search: Fokuser på søgelinjen
 Channel Hidden: '{kanal} tilføjet til kanalfilter'
-KeyboardShortcutTemplate: '{label} ({genvej})'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
 Moments Ago: for et øjeblik siden
 Yes, Delete: Ja, Slet
-Display Label: '{label}: {værdi}'
+Display Label: '{label}: {value}'
 Yes, Restart: Ja, genstart
 Ok: ok
 shortcutJoinOperator: +
 Trimmed input must be at least N characters long: Trimmet input skal være mindst 1
-  tegn langt | Trimmet input skal være mindst {længde} tegn langt
+  tegn langt | Trimmet input skal være mindst {length} tegn langt
 Yes, Open Link: Ja, Åbn link
 Tag already exists: »{tagName}"-tagget findes allerede
 Cancel: annullere
 Autoplay Interruption Timer: Autoplay afbrudt på grund af {autoplayInterruptionIntervalHours}
   timers inaktivitet
 shortcutLabelSeparator: ｜
-'Blocked opening potentially unsafe URL': 'Blokeret åbning af potentielt usikker URL:
-  »{url}«.'
 checkmark: ✓

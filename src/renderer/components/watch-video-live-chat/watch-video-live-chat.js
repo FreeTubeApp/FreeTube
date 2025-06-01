@@ -1,5 +1,5 @@
 import { defineComponent, nextTick } from 'vue'
-import FtLoader from '../ft-loader/ft-loader.vue'
+import FtLoader from '../FtLoader/FtLoader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../FtButton/FtButton.vue'
 
@@ -228,6 +228,7 @@ export default defineComponent({
       const badge = comment.author.badges.find(badge => badge.type === 'LiveChatAuthorBadge' && badge.custom_thumbnail)
 
       const parsedComment = {
+        id: comment.id,
         message: autolinker.link(parseLocalTextRuns(comment.message.runs, 20)),
         author: {
           name: comment.author.name,

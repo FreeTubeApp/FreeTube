@@ -126,7 +126,7 @@
             theme="secondary"
             :icon="['fas', 'download']"
             :return-index="true"
-            :dropdown-options="downloadLinkOptions"
+            :dropdown-options="downloadLinks"
             @click="handleDownload"
           />
           <ft-icon-button

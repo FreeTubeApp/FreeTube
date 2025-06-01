@@ -31,7 +31,7 @@ Global:
   Videos: 'Videoer'
   Shorts: Shorts-videoer
   Live: Direktesendinger
-  Community: Fellesskap
+  Posts: Innlegg
   Sort By: Sorter etter
 
 # Search Bar
@@ -610,7 +610,6 @@ Settings:
     Display Titles Without Excessive Capitalisation: Vis titler uten overdreven bruk
       av store bokstaver
     Hide Featured Channels: Skjul fremhevede kanaler
-    Hide Channel Community: Skjul «Fellesskap»-fanen i kanaler
     Hide Channel Shorts: Skjul «Shorts»-fanen i kanaler
     Sections:
       Side Bar: Sidefelt
@@ -636,8 +635,9 @@ Settings:
     Show Added Items: Vis videoer lagt til
     Hide Channels API Error: En feil oppsto ved henting av brukeren med den oppgitte
       ID-en. Vennligst sjekk om ID-en er riktig.
-    Hide Subscriptions Community: Skjul abonnementsfellesskap
     Hide Channel Courses: Skjul «Kurs»-fanen i kanaler
+    Hide Subscriptions Posts: Skjul innlegg fra abonnementer
+    Hide Channel Posts: Skjul «Innlegg»-fanen i kanaler
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på nytt for å ta i bruk endringene?
   SponsorBlock Settings:
@@ -766,7 +766,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Denne
     kanalen er aldersbegrenset og kan derfor ikke vises i FreeTube.
   Channel Tabs: Kanalfaner
-  Community:
+  Posts:
     This channel currently does not have any posts: Denne kanalen har ingen oppføringer
     Hide Answers: Skjul svar
     votes: '{votes} stemmer'
@@ -1000,6 +1000,8 @@ Comments:
   View {replyCount} replies: Vis {replyCount} svar
   Hearted: Hjertemerket
   Subscribed: Abonnert
+  There are no comments available for this post: Det er ingen kommentarer tilgjengelig
+    på denne posten
 Up Next: 'Neste'
 
 # Toast Messages
@@ -1073,8 +1075,8 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   General Settings:
     Invidious Instance: Invidious-forekomsten FreeTube kobler til for API-kall.
-    Thumbnail Preference: Alle miniatyrbilder i FreeTube vil bli erstattet av et bilde
-      av videoen i stedet for standard miniatyrbildet.
+    Thumbnail Preference: Alle miniatyrbilder i FreeTube vil bli erstattet av et enkeltbilde
+      fra videoen som har blitt skjult eller blurret, i stedet for standard miniatyrbildet.
     Fallback to Non-Preferred Backend on Failure: Når ditt foretrukne API har et problem,
       vil FreeTube automatisk prøve å bruke ditt ikke-foretrukne API som en reservemetode
       dersom det er aktivert.
@@ -1091,12 +1093,12 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Bruk RSS istedenfor FreeTube sin standardmetode for innhenting
       av abonnementsstrømmen din. RSS er raskere og forhindrer IP-blokkering, men
-      mangler noe informasjon som videovarighet, sanntidsstatus og samfunnsposter
-    Fetch Automatically: Hent abonnementer når et nytt vindu åpnes og ved bytting
-      av profil.
+      mangler noe informasjon som videovarighet, sanntidsstatus og innlegg
+    Fetch Automatically: Hent abonnementer når programmet starter og når et nytt vindu
+      åpnes.
   Player Settings:
     Default Video Format: Velg formater som blir brukt når en video spilles. DASH-formater
-      kan spilles i høyere kvalitet. Foreldede formater er begrenset opptil 720p,
+      kan spilles i høyere kvalitet. Foreldede formater er begrenset opptil 360p,
       men bruker mindre båndbredde. Lydformater er kun lydstrømmer.
     Proxy Videos Through Invidious: Kobler til Invidious for å servere videoer istedenfor
       å koble direkte til YouTube.
@@ -1230,7 +1232,7 @@ Search character limit: Søket ditt har for mange tegn. Grensen er på {searchCh
 KeyboardShortcutPrompt:
   Last Chapter: Forrige kapittel
   Next Chapter: Neste kapittel
-  Navigate to History: Naviger til historie
+  Navigate to History: Naviger til historikk
   Fullscreen: Fullskjermsvisning
   Sections:
     Video:
@@ -1240,41 +1242,47 @@ KeyboardShortcutPrompt:
       Situational: 'App: Situasjonsmessig'
       General: App: Generelt
   Show Keyboard Shortcuts: Vis tastatursnarveier
-  Large Rewind: Spol tilbake 10 sekunder/ spol tilbake video basert på gjeldende videoavspillingshastighet
+  Large Rewind: Spol tilbake 10 sekunder / Spol tilbake video basert på gjeldende
+    videoavspillingshastighet
   Play: Spill av/pause
   Refresh: Oppdater feed med siste innhold
-  Focus Secondary Search: Fokuser på sekundært søkefelt (om synlig)
+  Focus Secondary Search: Fokuser på det sekundære søkefeltet (hvis synlig)
   Captions: Slå bildetekst PÅ/AV
   Stats: Vis videostatistikk
-  Picture in Picture: veksle Bilde-i-bilde modus
-  Large Fast Forward: Spol fremover 10 sekunder/ spol video basert på gjeldende videoavspillingshastighet
-  Increase Video Speed: Øk video hastighet basert på gjeldende avspillingshastighetsintervallet
-  Full Window: Fullt vindu
-  Close Window: Lukk vindu
-  Restart Window: Start vindu på nytt
-  Volume Down: Senk volum
+  Picture in Picture: Veksle Bilde-i-bilde modus
+  Large Fast Forward: Spol fremover 10 sekunder / spol video basert på gjeldende videoavspillingshastighet
+  Increase Video Speed: Øk videohastighet basert på gjeldende avspillingshastighetsintervallet
+  Full Window: Fullt vindu av/på
+  Close Window: Lukk vinduet
+  Restart Window: Start vinduet på nytt
+  Volume Down: Senk volumet
   Zoom In: Zoom inn
   Zoom Out: Zoom ut
-  Next Frame: Neste ramme (pauset)
-  Volume Up: Øk volum
+  Next Frame: Neste bilde (pauset)
+  Volume Up: Øk volumet
   Focus Search: Fokuser på søkefeltet
   Search in New Window: Søk i et nytt vindu
-  Last Frame: Forrige ramme (pauset)
+  Last Frame: Forrige bilde (pauset)
   Reset Zoom: Tilbakestill zoom nivå / UI-skala
   Skip by Tenths: Hopp gjennom videoen basert på prosent (3 hopp for 30% av varigheten)
   Small Rewind: Spol tilbake X sekunder basert på spoleintervallet og gjeldende avspillingshastighet
   Small Fast Forward: Spol fremover X sekunder basert på spoleintervallet og gjeldende
     avspillingshastighet
-  Decrease Video Speed: Senk video hastighet basert på gjeldende avspillingshastighetsintervallet
+  Decrease Video Speed: Senk videohastighet basert på gjeldende avspillingshastighetsintervallet
   Take Screenshot: Ta et skjermbilde
-  Mute: Slå av lyd
+  Mute: Slå lyd av/på
   History Backward: Gå tilbake en side
   New Window: Opprett nytt vindu
   Navigate to Settings: Naviger til innstillinger
   Keyboard Shortcuts: Tastatursnarveier
   History Forward: Gå fremover en side
   Toggle Developer Tools: Utviklerverktøy
-Moments Ago: Øyeblikk siden
+  Minimize Window: Minimer vinduet
+  Force Restart Window: Tving vinduet til å starte på nytt
+  Theatre Mode: Skru teatermodus av/på
+  End: Gå til slutten av videoen
+  Home: Gå til starten av videoen
+Moments Ago: for et øyeblikk siden
 shortcutLabelSeparator: ｜
 Description:
   Expand Description: '...mer'
@@ -1284,7 +1292,8 @@ Autoplay Interruption Timer: Automatisk avspilling stoppet på grunn av {autopla
 Age Restricted:
   This video is age restricted: Denne videoen er aldersbegrenset
   This channel is age restricted: Denne kanalen er aldersbegrenset
-'Blocked opening potentially unsafe URL': 'Forhindret åpning av potensielt usikker
-  URL: «{url}».'
 Channel Hidden: '{channel} lagt til i kanalfilteret'
 Channel Unhidden: '{channel} fjernet fra kanalfilteret'
+Tag already exists: «{tagName}»-taggen eksisterer allerede
+Trimmed input must be at least N characters long: Trimmet input må være minst ett
+  tegn langt | Trimmet input må være minst {length} tegn langt

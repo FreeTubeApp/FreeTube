@@ -28,7 +28,7 @@ Global:
   Videos: 'Videos'
 
 # Search Bar
-  Community: Comunidad
+  Posts: Publicaciones
   Live: En vivo
   Sort By: 'Ordenar por'
   Counts:
@@ -192,6 +192,29 @@ User Playlists:
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ¿Estás
     seguro de que deseas eliminar 1 video visto de esta lista de reproducción? Esto
     no se puede deshacer.
+  AddVideoPrompt:
+    Toast:
+      "{videoCount} video(s) added to {playlistCount} playlists": '{videoCount} videos
+        agregados a {playlistCount} playlists'
+      You haven't selected any playlist yet.: Aún no has seleccionado ninguna playlist.
+      "{videoCount} video(s) added to 1 playlist": 1 video agregado a 1 playlist
+    Save: Guardar
+    Allow Adding Duplicate Video(s): Permitir agregar videos duplicados
+    Added {count} Times: Ya agregado | Agregado {count} veces
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
+      videos ya agregados'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": Se agregarán {videoCount}/{totalVideoCount}
+      videos
+  CreatePlaylistPrompt:
+    Toast:
+      Playlist {playlistName} has been successfully created.: La playlist {playlistName}
+        ha sido creada exitosamente.
+      There is already a playlist with this name. Please pick a different name.: Ya
+        existe una playlist con este nombre. Por favor, elige otro nombre.
+      There was an issue with creating the playlist.: Hubo un problema al crear la
+        playlist.
+    New Playlist Name: Nombre de la nueva playlist
+    Create: Crear
 History:
   # On History Page
   History: 'Historial'
@@ -199,6 +222,7 @@ History:
   Your history list is currently empty.: 'Tu lista de historial está actualmente vacía.'
   Empty Search Message: No hay videos en su historial que coincidan con su búsqueda
   Search bar placeholder: Buscar en el Historial
+  Case Sensitive Search: Búsqueda sensible a mayúsculas/minúsculas
 Settings:
   # On Settings Page
   Settings: 'Ajustes'
@@ -223,6 +247,8 @@ Settings:
       Beginning: 'Comienzo'
       Middle: 'Medio'
       End: 'Fin'
+      Hidden: Oculto
+      Blur: Desenfoque
     Region for Trending: 'Tendencia por región'
         #! List countries
     Check for Updates: Buscar actualizaciones
@@ -243,6 +269,11 @@ Settings:
       Ask Before Opening Link: Preguntar antes de abrir
       External Link Handling: 'Al abrir un link externo:'
       Open Link: Abrir enlace
+    Auto Load Next Page:
+      Label: Cargar automáticamente la siguiente página
+      Tooltip: Cargar automáticamente páginas y comentarios adicionales.
+    Open Deep Links In New Window: Abrir las URL enviadas a FreeTube en una nueva
+      ventana
   Theme Settings:
     Theme Settings: 'Ajustes de apariencia'
     Match Top Bar with Main Color: 'Igualar la barra superior con el color principal'
@@ -253,6 +284,14 @@ Settings:
       Light: 'Claro'
       Dracula: 'Drácula'
       System Default: Por defecto
+      Nordic: Nórdico
+      Pastel Pink: Rosa Pastel
+      Hot Pink: Rosa Fucsia
+      Solarized Dark: Solarized Dark
+      Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Mocha: Catppuccin Mocha
+      Gruvbox Light: Gruvbox Light
+      Gruvbox Dark: Gruvbox Dark
     Main Color Theme:
       Main Color Theme: 'Color principal de la apariencia'
       Red: 'Rojo'
@@ -284,6 +323,7 @@ Settings:
     UI Scale: Escala de la interfaz
     Disable Smooth Scrolling: Desactivar desplazamiento suave
     Hide Side Bar Labels: Ocultar etiquetas de la barra lateral
+    Hide FreeTube Header Logo: Ocultar el logo del encabezado de FreeTube
   Player Settings:
     Player Settings: 'Reproductor'
     Play Next Video: 'Reproducir automáticamente videos recomendados'
@@ -327,6 +367,14 @@ Settings:
       External Player: Reproductor externo ({externalPlayerName})
     Skip by Scrolling Over Video Player: Saltar desplazando sobre el reproductor de
       video
+    Screenshot:
+      Error:
+        Empty File Name: Nombre de archivo vacío
+        Forbidden Characters: Caracteres Prohibidos
+      File Name Tooltip: Puedes usar las siguientes variables. %Y Año 4 dígitos. %M
+        Mes 2 dígitos. %D Día 2 dígitos. %H Hora 2 dígitos. %N Minuto 2 dígitos. %S
+        Segundo 2 dígitos. %T Milisegundo 3 dígitos. %s Segundo del video. %t Milisegundo
+        del video 3 dígitos. %i ID del video.
   Subscription Settings:
     Subscription Settings: 'Ajustes de suscripción'
     Hide Videos on Watch: 'Ocultar videos vistos'
@@ -348,6 +396,18 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ¿Estás
       seguro de que deseas eliminar todos los suscripciones y perfiles? Esto no puede
       ser deshecho.
+    Watched Progress Saving Mode:
+      Modes:
+        Semi-auto: Semi-automático
+        Auto: Automático
+        Never: Nunca
+      Tooltip: Automático = Guardar en cada salida de página de video, cuando el video
+        termine y se encuentre un error (por ejemplo, cuando se limite la tasa o la
+        sesión de visualización haya expirado). Semi-automático = Igual que Automático,
+        excepto al salir de la página del video y se puede guardar el progreso manualmente
+        mediante un botón llamado 'Guardar progreso visto', ubicado debajo del reproductor
+        de video.
+    Remember Search History: Recordar el historial de búsquedas
   Data Settings:
     How do I import my subscriptions?: ¿Cómo puedo importar mis suscripciones?
     Export History: Exportar Historia
@@ -437,6 +497,10 @@ Settings:
     Custom External Player Executable: Ejecutable del reproductor externo
     Custom External Player Arguments: Argumentos para el reproductor externo
     External Player Settings: Opciones de reproductor externo
+    Ignore Default Arguments: Ignorar los argumentos predeterminados
+    Players:
+      None:
+        Name: Ninguno
   SponsorBlock Settings:
     SponsorBlock Settings: Configuración de SponsorBlock
     Enable SponsorBlock: Habilitar SponsorBlock
@@ -444,6 +508,8 @@ Settings:
       SponsorBlock (https://sponsor.ajay.app por defecto)
     Notify when sponsor segment is skipped: Notificar cuando el tramo publicitario
       es omitido
+  Sort Settings Sections (A-Z): Ordenar secciones de configuración (A-Z)
+  Return to Settings Menu: Volver al menú de configuración
 About:
   #On About page
   About: 'Acerca de'

@@ -39,8 +39,8 @@ Global:
     Comment Count: 1 коментар | {count} коментара
     Like Count: 1 свиђање | {count} свиђања
   Live: Уживо
-  Community: Заједница
-  Shorts: Shorts
+  Posts: Постови
+  Shorts: Кратки
   Sort By: Сортирање по
 Version {versionNumber} is now available!  Click for more details: 'Верзија {versionNumber}
   је сада достуна!  Кликните за више детаља'
@@ -553,7 +553,6 @@ Settings:
       Channel Page: Страница канала
       Subscriptions Page: Страница праћења
       General: Опште
-    Hide Channel Community: Сакриј картицу „Заједница“ канала
     Hide Subscriptions Videos: Сакриј видео снимке канала које пратите
     Hide Comments: Сакриј коментаре
     Hide Channel Shorts: Сакриј картицу „Shorts“ канала
@@ -561,7 +560,6 @@ Settings:
     Hide Channel Podcasts: Сакриј картицу „Подкасти“ канала
     Hide Live Streams: Сакриј стримове уживо
     Hide Channel Playlists: Сакриј картицу „Плејлисте“ канала
-    Hide Subscriptions Community: Сакриј заједницу канала које пратите
     Hide Channels: Сакриј видео снимке са канала
     Hide Subscriptions Live: Сакриј стримове уживо канала које пратите
     Hide Subscriptions Shorts: Сакриј Shorts снимке канала које пратите
@@ -583,6 +581,8 @@ Settings:
     Hide Channel Home: Сакриј картицу „Почетна“ канала
     Show Added Items: Прикажи додате предмете
     Hide Channel Courses: Сакриј картицу „Курсеви“ на каналу
+    Hide Channel Posts: Сакриј картицу „Објаве“ канала
+    Hide Subscriptions Posts: Сакриј објаве о претплатама
   Data Settings:
     Data Settings: 'Подаци'
     Select Export Type: 'Избор врсте извоза'
@@ -791,7 +791,7 @@ Channel:
   Removed subscription from {count} other channel(s): 'Уклоњено праћење са {count}
     других канала'
   Added channel to your subscriptions: 'Канал је додат у ваша праћења'
-  Search Channel: 'Претрага канала'
+  Search Channel: 'Претражи канал'
   Your search results have returned 0 results: 'Резултати претраге су дали 0 резултата'
   Videos:
     Videos: 'Видео снимци'
@@ -819,7 +819,7 @@ Channel:
       Tags: Ознаке
     Details: Детаљи
     Location: Локација
-  Community:
+  Posts:
     This channel currently does not have any posts: Овај канал тренутно нема ниједну
       објаву
     Reveal Answers: Откриј одговоре
@@ -991,11 +991,11 @@ Tooltips:
     Fetch Feeds from RSS: 'Када је омогућено, FreeTube ће користити RSS уместо свог
       подразумеваног метода за прикупљање вашег фида праћења. RSS је бржи и спречава
       блокирање IP адресе, али не пружа одређене информације као што су трајање видео
-      снимка, статус уживо или објаве заједнице'
+      снимка, статус уживо или објаве'
 
 # Toast Messages
-    Fetch Automatically: Када је омогућено, FreeTube ће аутоматски прикупити ваш фид
-      праћења када се отвори нови прозор и када промените профил.
+    Fetch Automatically: Када је омогућено, FreeTube ће аутоматски преузети ваш фид
+      претплата при покретању и када се отвори нови прозор.
   General Settings:
     External Link Handling: "Изаберите подразумевано понашање када се кликне на линк
       који се не може отворити у FreeTube-у.\nПодразумевано, FreeTube ће отворити
@@ -1006,8 +1006,8 @@ Tooltips:
     Preferred API Backend: Изаберите бек-енд коју FreeTube користи за добијање података.
       Локални API је уграђени екстрактор. Invidious API захтева Invidious сервер за
       повезивање.
-    Thumbnail Preference: Све сличице широм FreeTube-а ће бити замењене кадром видео
-      снимка уместо подразумеване сличице.
+    Thumbnail Preference: Све сличице на FreeTube-у биће замењене оквиром видеа, замућеним
+      или скривеним уместо подразумеване сличице.
     Region for Trending: Регион трендова вам омогућава да изаберете државу за видео
       снимке у тренду коју желите да се приказује.
     Invidious Instance: Invidious инстанца на коју ће се FreeTube повезати за API
@@ -1042,9 +1042,10 @@ Tooltips:
       чији их оригинални наслови садрже у целом FreeTube-у, искључујући само историју,
       ваше плејлисте и видео снимке унутар плејлиста.
   Player Settings:
-    Default Video Format: Подесите формате који се користе када се видео снимак пушта.
-      DASH формати могу да пуштају виши квалитет. Застарели формати су ограничени
-      на максимално 720p, али користе мање протока. Аудио формати су само звучни снимци.
+    Default Video Format: Подесите формате који се користе приликом репродукције видеа.
+      DASH формати могу да репродукују бољи квалитет. Застарели формати су ограничени
+      на највише 360p, али користе мањи пропусни опсег. Звучни формати су само звучни
+      стримови.
     Proxy Videos Through Invidious: Повезаће се сa Invidious-ом ради приказивања видео
       снимака уместо директног повезивања са YouTube-ом.
     Scroll Playback Rate Over Video Player: Док је курсор изнад видео снимка, притисните
@@ -1152,7 +1153,7 @@ Playing Next Video: Пуштање следећег видео снимка
 The playlist has been reversed: Плејлиста је обрнута
 Local API Error (Click to copy): Грешка локалног API-ја (Кликнути за копирање)
 Channels:
-  Search bar placeholder: Претрага канала
+  Search bar placeholder: Претражи канале
   Unsubscribe Prompt: Желите ли заиста да прекинете праћење „{channelName}“?
   Channels: Канали
   Title: Листа канала
@@ -1231,8 +1232,6 @@ Search Listing:
     360 Video: 360°
     New: Ново
     3D: 3D
-'Blocked opening potentially unsafe URL': 'Блокирано отварање потенцијално небезбедне
-  URL адресе: „{url}“.'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Keys:
   alt: Alt

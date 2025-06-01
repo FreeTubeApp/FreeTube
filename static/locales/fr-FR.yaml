@@ -28,7 +28,7 @@ Global:
   Videos: 'Vidéos'
   Shorts: Shorts
   Live: En direct
-  Community: Communauté
+  Posts: Posts
   Sort By: Trier par
 
 # Search Bar
@@ -612,7 +612,6 @@ Settings:
       ni ponctuation excessives
     Hide Channel Playlists: Masquer l’onglet « Listes de lecture » de la chaine
     Hide Featured Channels: Masquer les chaines en vedette
-    Hide Channel Community: Masquer l’onglet « Communauté » de la chaine
     Hide Channel Shorts: Masquer l’onglet « Shorts » de la chaine
     Sections:
       Channel Page: Page de la chaine
@@ -626,7 +625,6 @@ Settings:
     Hide Subscriptions Shorts: Masquer les shorts des abonnements
     Hide Subscriptions Live: Masquer les diffusions en direct des abonnements
     Hide Profile Pictures in Comments: Masquer les photos de profil dans les commentaires
-    Hide Subscriptions Community: Masquer les communautés abonnées
     Hide Channels Invalid: L’identifiant de chaine fourni n’est pas valide
     Hide Channels Disabled Message: Certaines chaines ont été bloquées à l’aide d’un
       identifiant et n’ont pas été traitées. La fonctionnalité est bloquée le temps
@@ -641,6 +639,8 @@ Settings:
     Hide Channel Home: Masquer l’onglet « Accueil » de la chaine
     Show Added Items: Afficher les éléments ajoutés
     Hide Channel Courses: Masquer l’onglet « Cours » de la chaine
+    Hide Channel Posts: Masquer l’onglet « Posts » de la chaîne
+    Hide Subscriptions Posts: Masquer les posts des abonnements
   The app needs to restart for changes to take effect. Restart and apply change?: L'application
     doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer
     les changements ?
@@ -797,7 +797,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Cette
     chaîne est limitée par l'âge et ne peut actuellement pas être visionnée dans FreeTube.
   Channel Tabs: Onglets des chaînes
-  Community:
+  Posts:
     This channel currently does not have any posts: Cette chaîne n'a actuellement
       aucune publication
     votes: '{votes} votes'
@@ -1115,8 +1115,8 @@ Profile:
   Edit Profile Name: Modifier le nom du profil
   Create Profile Name: Créer un nom de profil
 The playlist has been reversed: La liste de lecture a été inversée
-A new blog is now available, {blogTitle}. Click to view more: Un nouveau blog est
-  maintenant disponible, {blogTitle}. Cliquez pour en savoir plus
+A new blog is now available, {blogTitle}. Click to view more: Un nouveau billet de
+  blog est maintenant disponible, {blogTitle}. Cliquez pour en savoir plus
 Download From Site: Télécharger depuis le site
 Version {versionNumber} is now available!  Click for more details: La version {versionNumber}
   est maintenant disponible !  Cliquez pour plus de détails
@@ -1130,12 +1130,11 @@ Tooltips:
       et empêche le blocage d'IP, mais ne fournit pas certaines informations comme
       la durée de la vidéo, le statut en direct ou les commentaires
     Fetch Automatically: Lorsque cette option est activée, FreeTube récupère automatiquement
-      le flux de votre abonnement à l'ouverture d'une nouvelle fenêtre et lors du
-      changement de profil.
+      le flux de votre abonnement au démarrage et à l'ouverture d'une nouvelle fenêtre.
   Player Settings:
     Default Video Format: Définir les formats utilisés lors de la lecture d'une vidéo.
       Les formats DASH peuvent être lus en qualité supérieure. Les formats Legacy
-      sont limités à un maximum de 720p mais utilisent moins de bande passante. Les
+      sont limités à un maximum de 360p mais utilisent moins de bande passante. Les
       formats audio sont des flux audio uniquement.
     Proxy Videos Through Invidious: Se connectera à Invidious pour lire des vidéos
       au lieu d'établir une connexion directe avec YouTube.
@@ -1151,7 +1150,7 @@ Tooltips:
     Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour
       les appels API.
     Thumbnail Preference: Toutes les miniatures de FreeTube seront remplacées par
-      une image de la vidéo au lieu de la vignette par défaut.
+      un photogramme de la vidéo, flouté ou masqué, au lieu de la miniature par défaut.
     Fallback to Non-Preferred Backend on Failure: Lorsque votre API préférée a un
       problème, FreeTube tentera automatiquement d'utiliser votre API non préférée
       comme méthode de secours lorsqu'elle est activée.
@@ -1287,8 +1286,6 @@ Search Listing:
     360 Video: 360°
     New: Nouveau
     3D: 3D
-'Blocked opening potentially unsafe URL': "Blocage de l'ouverture d'une URL potentiellement
-  dangereuse : « {url} »."
 shortcutJoinOperator: +
 Keys:
   ctrl: Ctrl
