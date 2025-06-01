@@ -1234,20 +1234,44 @@ async function parseCsvPlaylist(csvText, filename = '') {
   if (filename) {
     playlistName = filename.replace(/-videos\.csv$/i, '').replace(/\.csv$/i, '')
   }
-  // fetches missing video info from prefered backend as csv only gives videoId
+
+  // get all caches
+  const videoCacheById = store.getters.getVideoCacheById || {}
+  const historyCacheById = store.getters.getHistoryCacheById || {}
+  const subscriptionCacheById = store.getters.getSubscriptionCacheById || {}
+  const shortsCacheById = store.getters.getShortsCacheById || {}
+  const popularCacheById = store.getters.getPopularCacheById || {}
+  const trendingCacheById = store.getters.getTrendingCacheById || {}
+
+  // combine caches (priority: subs > history > popular > trending > video > shorts)
+  const combinedCache = {
+    ...subscriptionCacheById,
+    ...historyCacheById,
+    ...popularCacheById,
+    ...trendingCacheById,
+    ...videoCacheById,
+    ...shortsCacheById
+  }
+
   const videos = await Promise.all(lines.map(async line => {
     const [videoId, timeAddedStr] = line.split(',')
     let info = {}
-    try {
-      info = await fetchVideoInfo(videoId.trim())
-    } catch {
-      info = { title: '(Unavailable)', lengthSeconds: null }
+
+    if (combinedCache[videoId.trim()]) {
+      info = combinedCache[videoId.trim()]
+    } else {
+      try {
+        info = await fetchVideoInfo(videoId.trim())
+      } catch {
+        info = { title: '(Unavailable)', lengthSeconds: null }
+      }
     }
-    // parse timeAdded from csv or fallback to date.now()
+
     let timeAdded = Date.now()
     if (timeAddedStr && !isNaN(Date.parse(timeAddedStr.trim()))) {
       timeAdded = new Date(timeAddedStr.trim()).getTime()
     }
+
     return {
       videoId: videoId.trim(),
       title: info.title || '(Unavailable)',

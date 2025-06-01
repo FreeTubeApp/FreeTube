@@ -17,7 +17,7 @@ export async function fetchVideoInfo(videoId) {
       return await invidiousGetVideoInformation(videoId)
     }
   } catch (err) {
-    console.warn(`fetchVideoInfo: Error fetching info for ${videoId}: ${err.message}`)
+    console.error(`fetchVideoInfo: Error fetching info for ${videoId}: ${err.message}`)
     throw err
   }
 }
