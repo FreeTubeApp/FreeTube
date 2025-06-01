@@ -627,10 +627,10 @@ Settings:
       Label: Flytja út spilunarlista fyrir eldri útgáfur FreeTube
       Tooltip: "Þessi valkostur flytur út myndskeið úr öllum spilunarlistum inn í
         einn spilunarlista sem kallast 'Eftirlæti'.\nHér er skýrt hvernig eigi að
-        flytja út eða inn myndskeið í spilunarlistum fyrir eldri útgáfur FreeTube:\n
-        1. Flyttu út spilunarlistana þína með þennan valkost virkann.\n2. Eyddu út
-        öllum fyrirliggjandi spilunarlistum hjá þér með valkostinum 'Fjarlægja alla
-        spilunarlista' í stillingum gagnaleyndar.\n3. Ræstu eldri útgáfu FreeTube
+        flytja út eða inn myndskeið í spilunarlistum fyrir eldri útgáfur FreeTube:\n\
+        \ 1. Flyttu út spilunarlistana þína með þennan valkost virkann.\n2. Eyddu
+        út öllum fyrirliggjandi spilunarlistum hjá þér með valkostinum 'Fjarlægja
+        alla spilunarlista' í stillingum gagnaleyndar.\n3. Ræstu eldri útgáfu FreeTube
         og flyttu inn spilunarlistana sem þú fluttir út.\""
   Proxy Settings:
     Proxy Settings: 'Milliþjónn (proxy)'
@@ -1324,4 +1324,6 @@ KeyboardShortcutPrompt:
   Skip by Tenths: Hoppa í prósentum í gegnum myndskeið (3 sleppir yfir á 30% tímalengdar)
   Keyboard Shortcuts: Flýtivísanir á lyklaborði
   Focus Secondary Search: Færa virkni í hinn leitarreitinn (ef annar er til staðar)
+  Home: Hoppa í upphaf myndskeiðsins
+  End: Hoppa í enda myndskeiðsins
 shortcutLabelSeparator: ｜

@@ -1336,4 +1336,6 @@ KeyboardShortcutPrompt:
   Close Window: Ablak bezárása
   Restart Window: Ablak újraindítása
   Force Restart Window: Ablak kényszerített újraindítása
+  Home: Keressen a videó elejére
+  End: Keressen a videó végére
 shortcutLabelSeparator: ｜

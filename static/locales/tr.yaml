@@ -1089,9 +1089,10 @@ This video is unavailable because of missing formats. This can happen due to cou
   gerçekleşebilir.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Etkinleştirildiğinde, FreeTube abonelik beslemenizi almak
-      için varsayılan yöntem yerine RSS kullanacaktır. RSS daha hızlıdır ve IP engellemeyi
-      önler, ancak video süresi, canlı durum veya gönderiler gibi bazı bilgileri sağlamaz.
+    Fetch Feeds from RSS: Etkinleştirildiğinde, FreeTube abonelik akışınızı almak
+      için varsayılan yöntemi yerine RSS kullanacaktır. RSS daha hızlıdır ve IP engellemesini
+      önler, ancak video süresi, canlı durum veya gönderiler gibi belirli bilgileri
+      sağlamaz
     Fetch Automatically: Etkinleştirildiğinde, FreeTube başlangıçta ve yeni bir pencere
       açıldığında abonelik beslemenizi otomatik olarak getirecektir.
   Player Settings:
@@ -1319,3 +1320,5 @@ KeyboardShortcutPrompt:
       Playback: Video: Oynatım
   Last Chapter: Son Bölüm
   Show Keyboard Shortcuts: Klavye kısayollarını göster
+  End: Videonun sonuna git
+  Home: Videonun başına git

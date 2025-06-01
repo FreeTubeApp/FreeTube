@@ -1280,6 +1280,8 @@ KeyboardShortcutPrompt:
   Minimize Window: Minimer vinduet
   Force Restart Window: Tving vinduet til å starte på nytt
   Theatre Mode: Skru teatermodus av/på
+  End: Gå til slutten av videoen
+  Home: Gå til starten av videoen
 Moments Ago: for et øyeblikk siden
 shortcutLabelSeparator: ｜
 Description:
