@@ -287,7 +287,7 @@ const backendPreference = computed(() => store.getters.getBackendPreference)
 /** @type {import('vue').ComputedRef<boolean>} */
 const backendFallback = computed(() => store.getters.getBackendFallback)
 
-const chatHeight = computed(() => superChatComments.value.length > 0 ? '390px' : '445px')
+const chatHeight = computed(() => superChatComments.length > 0 ? '390px' : '445px')
 
 const scrollingBehaviour = computed(() => {
   return store.getters.getDisableSmoothScrolling ? 'auto' : 'smooth'
@@ -491,7 +491,7 @@ function parseLiveChatSuperChat(superChat) {
     }
   }
 
-  superChatComments.value.unshift(parsedComment)
+  superChatComments.unshift(parsedComment)
 
   setTimeout(() => {
     removeFromSuperChat(parsedComment)
@@ -524,9 +524,9 @@ function pushComment(comment) {
  * @param {any} comment
  */
 function removeFromSuperChat(comment) {
-  const index = superChatComments.value.indexOf(comment)
+  const index = superChatComments.indexOf(comment)
 
-  superChatComments.value.splice(index, 1)
+  superChatComments.splice(index, 1)
 }
 
 /**
