@@ -663,7 +663,7 @@ Settings:
     SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Salta l'opzione
-      Show In Seek Bar: Mostra nella barra di ricerca
+      Show In Seek Bar: Mostra nella barra di scorrimento
       Auto Skip: Salto automatico
       Prompt To Skip: Chiedi di saltare
       Do Nothing: Non fare nulla
@@ -1333,4 +1333,6 @@ KeyboardShortcutPrompt:
   Next Frame: Fotogramma successivo (mentre è in pausa)
   Volume Up: Aumenta il volume
   Volume Down: Diminuisci il volume
+  End: Vai alla fine del video
+  Home: Vai all'inizio del video
 shortcutLabelSeparator: ｜
