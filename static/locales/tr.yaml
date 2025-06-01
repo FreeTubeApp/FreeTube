@@ -1277,7 +1277,6 @@ KeyboardShortcutPrompt:
     sar
   Minimize Window: Pencereyi küçült
   Take Screenshot: Ekran görüntüsü al
-  Restart Window: Pencereyi yeniden başlat
   History Backward: Bir sayfa geriye git
   Skip by Tenths: Videoyu yüzdeye göre atla (3 atlayışla sürenin %30'una ulaş)
   Refresh: Beslemeyi en son içerikle yenileyin
@@ -1290,7 +1289,6 @@ KeyboardShortcutPrompt:
   Play: Oynat/duraklat değiştir
   Mute: Sesi kapat
   Decrease Video Speed: Video Oynatma Hızı Aralığına göre video hızını azalt
-  Force Restart Window: Pencereyi zorla yeniden başlat
   Large Fast Forward: 10 saniye ileri / Mevcut Video Oynatma Hızına göre videoyu ileri
     sar
   Keyboard Shortcuts: Klavye Kısayolları

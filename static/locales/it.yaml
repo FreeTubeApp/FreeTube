@@ -1306,8 +1306,6 @@ KeyboardShortcutPrompt:
   Increase Video Speed: Aumenta la velocità del video in base all'intervallo di velocità
     di riproduzione video
   Full Window: Attiva/disattiva finestra intera
-  Restart Window: Riavvia la finestra
-  Force Restart Window: Forza il riavvio della finestra
   Toggle Developer Tools: Attiva/disattiva gli strumenti per sviluppatori
   Reset Zoom: Ripristina livello zoom / scala interfaccia utente
   Theatre Mode: Attiva/disattiva la modalità teatro

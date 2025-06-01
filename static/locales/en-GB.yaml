@@ -1264,8 +1264,6 @@ KeyboardShortcutPrompt:
     Playback Rate
   Mute: Toggle mute
   Next Frame: Next frame (while paused)
-  Restart Window: Restart window
-  Force Restart Window: Force restart window
   Toggle Developer Tools: Toggle developer tools
   Reset Zoom: Reset zoom level / UI scale
   Zoom In: Zoom in

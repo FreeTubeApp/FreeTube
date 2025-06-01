@@ -1293,8 +1293,6 @@ KeyboardShortcutPrompt:
   Minimize Window: Thu nhỏ cửa sổ
   Theatre Mode: Bật/tắt chế độ rạp hát
   Close Window: Đóng cửa sổ
-  Restart Window: Tải lại cửa sổ
-  Force Restart Window: Buộc tải lại cửa sổ
   Search in New Window: Tìm kiếm trong cửa sổ mới
   Last Frame: Khung ảnh trước (khi tạm dừng)
 shortcutLabelSeparator: ｜

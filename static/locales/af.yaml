@@ -1210,7 +1210,6 @@ Autoplay Interruption Timer: Outo-afspeel is gekanselleer weens {autoplayInterru
   uur van onaktiwiteit
 KeyboardShortcutPrompt:
   Navigate to Settings: Navigeer na die instellingsblad
-  Force Restart Window: Dwing herbegin van venster
   Play: Tokkel afspeel/wag
   Navigate to History: Navigeer na die geskiedenisblad
   Refresh: Verfris voer met nuutste inhoud
@@ -1252,7 +1251,6 @@ KeyboardShortcutPrompt:
     is)
   Large Fast Forward: Spoel 10 sekondes vorentoe / Spoel video vorentoe gebaseer op
     huidige video-afspeeltempo
-  Restart Window: Herbegin venster
   Sections:
     Video:
       General: 'Video: Algemeen'

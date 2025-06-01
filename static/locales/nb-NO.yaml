@@ -1254,7 +1254,6 @@ KeyboardShortcutPrompt:
   Increase Video Speed: Øk videohastighet basert på gjeldende avspillingshastighetsintervallet
   Full Window: Fullt vindu av/på
   Close Window: Lukk vinduet
-  Restart Window: Start vinduet på nytt
   Volume Down: Senk volumet
   Zoom In: Zoom inn
   Zoom Out: Zoom ut
@@ -1278,7 +1277,6 @@ KeyboardShortcutPrompt:
   History Forward: Gå fremover en side
   Toggle Developer Tools: Utviklerverktøy
   Minimize Window: Minimer vinduet
-  Force Restart Window: Tving vinduet til å starte på nytt
   Theatre Mode: Skru teatermodus av/på
   End: Gå til slutten av videoen
   Home: Gå til starten av videoen

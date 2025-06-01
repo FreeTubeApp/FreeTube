@@ -1280,7 +1280,6 @@ KeyboardShortcutPrompt:
     скорости воспроизведения
   Full Window: Переключить на полноэкранный режим
   Theatre Mode: Переключить на театральный режим
-  Force Restart Window: Принудительно перезапустить окно
   Toggle Developer Tools: Включить/выключить инструменты разработчика
   Reset Zoom: Сбросить уровень масштабирования
   Zoom In: Увеличить масштаб
@@ -1290,7 +1289,6 @@ KeyboardShortcutPrompt:
   Volume Up: Увеличить громкость
   Take Screenshot: Сделать Снимок Экрана
   Minimize Window: Свернуть окно
-  Restart Window: Перезапустить окно
   Search in New Window: Выполнить поиск в отдельном окне
   Skip by Tenths: Пропустить видео на определённый процент (3 пропуска для 30%)
 Description:
