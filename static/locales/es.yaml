@@ -302,7 +302,7 @@ Settings:
       Label: Carga automática de la página siguiente
       Tooltip: Cargar automáticamente páginas adicionales y comentarios.
     Open Deep Links In New Window: Abrir URL pasadas a FreeTube en una nueva ventana
-    Hide to tray on minimize: Ocultar a la bandeja del sistema al minimizar
+    Minimize to system tray: Minimizar a la bandeja del sistema
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
