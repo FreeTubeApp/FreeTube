@@ -1057,8 +1057,8 @@ Comments:
 Up Next: 'Næste'
 
 # Toast Messages
-Local API Error (Click to copy): 'Lokal API-Fejl (Klik for at kopiere)'
-Invidious API Error (Click to copy): 'Invidious-API-Fejl (Klik for at kopiere)'
+Local API Error (Click to copy): 'Lokal API-fejl (Klik for at kopiere)'
+Invidious API Error (Click to copy): 'Invidious-API-fejl (Klik for at kopiere)'
 Falling back to Invidious API: 'Falder tilbage til Invidious-API'
 Falling back to Local API: 'Falder tilbage til den lokale API'
 Loop is now disabled: 'Gentagelse er nu deaktiveret'
@@ -1066,9 +1066,9 @@ Loop is now enabled: 'Gentagelse er nu aktiveret'
 Shuffle is now disabled: 'Bland er nu deaktiveret'
 Shuffle is now enabled: 'Bland er nu aktiveret'
 The playlist has been reversed: 'Playlisten blev vendt om'
-Playing Next Video: 'Afspiller Næste Video'
-Playing Previous Video: 'Afspiller Forrige Video'
-Canceled next video autoplay: 'Afbrød næste videos autospilning'
+Playing Next Video: 'Afspiller næste video'
+Playing Previous Video: 'Afspiller forrige video'
+Canceled next video autoplay: 'Autoplay af næste video afbrudt'
 'The playlist has ended. Enable loop to continue playing': 'Playlisten er slut.  Aktivér
   gentagelse for at fortsætte afspilning'
 
@@ -1082,8 +1082,8 @@ Tooltips:
     Fetch Feeds from RSS: Når aktiveret, bruger FreeTube RSS i stedet for standardmetoden
       til at hente dit abonnementsfeed. RSS er hurtigere og forhindrer IP-blokering,
       men giver ikke visse oplysninger som videovarighed, live-status eller opslag
-    Fetch Automatically: Når aktiveret, henter FreeTube automatisk dit abonnementsfeed,
-      både når du starter FreeTube og når der åbnes et nyt vindue.
+    Fetch Automatically: Når aktiveret, henter FreeTube automatisk dit abonnementsfeed
+      ved opstart og hver gang et nyt vindue åbnes.
   Player Settings:
     Default Video Format: Vælg de formater, der bruges, når en video afspilles. DASH-formater
       kan afspille højere kvaliteter. Ældre formater er begrænset til maks. 360p,
@@ -1115,31 +1115,30 @@ Tooltips:
     Open Deep Links In New Window: URL'er, der sendes til FreeTube, f.eks. ved at
       omdirigere browserudvidelser eller kommandolinjeargumenter, åbnes i et nyt vindue.
   External Player Settings:
-    Custom External Player Executable: Som standard antager FreeTube at den valgte
-      eksterne afspiller kan findes via miljøvariablet PATH. En brugerdefineret sti
-      kan blive angivet her hvis det er nødvendigt.
+    Custom External Player Executable: Som standard antager FreeTube, at den valgte
+      eksterne afspiller kan findes via PATH-miljøvariablen. Om nødvendigt kan en
+      brugerdefineret sti angives her.
     DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
-    Custom External Player Arguments: Alle brugerdefinerede kommandolinjeargumenter,
-      du ønsker viderebragt til den eksterne afspiller.
-    External Player: 'Vælger du en ekstern afspiller, vises et ikon på miniaturebilledet
-      for åbning af videoen (playlisten, hvis understøttet). Advarsel, Invidious-indstillinger
+    Custom External Player Arguments: Eventuelle brugerdefinerede kommandolinjeargumenter,
+      du vil sende videre til den eksterne afspiller.
+    External Player: 'Vælger du en ekstern afspiller, vises et ikon for at åbne videoen
+      (playlisten, hvis understøttet) på miniaturebilledet. Advarsel: Invidious-indstillinger
       påvirker ikke eksterne afspillere.'
-    Ignore Warnings: Undertryk advarsler for når den eksterne afspiller ikke understøtter
-      den gældende handling (fx vende playlister om, etc.).
+    Ignore Warnings: Undertryk advarsler, når den aktuelle eksterne afspiller ikke
+      understøtter handlingen (f.eks. omvendt playliste osv.).
     Ignore Default Arguments: Send ikke nogen standardargumenter til den eksterne
-      afspiller ud over video-URL'en (f.eks. afspilningshastighed, URL til afspilningsliste
-      osv.). Brugerdefinerede argumenter vil stadig blive sendt videre.
+      afspiller ud over video-URL'en (f.eks. afspilningshastighed, playliste-URL osv.).
+      Brugerdefinerede argumenter sendes stadig videre.
   Distraction Free Settings:
-    Hide Channels: Indtast et kanal-ID for at skjule alle videoer, playlister og selve
-      kanalen fra at blive vist i søgning, trending, mest populære og anbefalet. Det
-      indtastede kanal-ID skal være et komplet match, og der skelnes mellem store
-      og små bogstaver.
-    Hide Subscriptions Live: Denne indstilling tilsidesættes af den app-dækkende »{appWideSetting}«-indstilling
-      i afsnittet »{subsection}« i »{settingsSection}«
-    Hide Videos and Playlists Containing Text: Indtast et ord, et ordstykke eller
-      en sætning (der skelnes ikke mellem store og små bogstaver) for at skjule alle
-      videoer og afspilningslister, hvis oprindelige titler indeholder det, i hele
-      FreeTube, undtagen Historik, Dine afspilningslister og videoer inde i afspilningslister.
+    Hide Channels: Indtast en kanal-ID for at skjule alle videoer, playlister og selve
+      kanalen fra søgeresultater, trending, mest populære og anbefalinger. Den indtastede
+      kanal-ID skal matche fuldstændigt og er versalfølsom.
+    Hide Subscriptions Live: Denne indstilling tilsidesættes af den app-dækkende "{appWideSetting}"-indstilling
+      i sektionen "{subsection}" i "{settingsSection}"
+    Hide Videos and Playlists Containing Text: Indtast et ord, ordfragment eller en
+      sætning (ikke versalfølsom) for at skjule alle videoer og playlister, hvis originale
+      titler indeholder det, overalt i FreeTube – undtagen historik, dine playlister
+      og videoer inde i playlister.
   SponsorBlock Settings:
     UseDeArrowTitles: Udskift videotitler med brugerindsendte titler fra DeArrow.
     UseDeArrowThumbnails: Erstat videominiaturebilleder med miniaturebilleder fra
@@ -1165,7 +1164,7 @@ Search Bar:
   Clear Input: Ryd input
   Remove: Fjern
 Downloading failed: Der var et problem med at downloade "{videoTitle}"
-Unknown YouTube url type, cannot be opened in app: Ukendt YouTube URL-type, kan ikke
+Unknown YouTube url type, cannot be opened in app: Ukendt YouTube-URL-type; kan ikke
   åbnes i appen
 Screenshot Error: Skærmbillede mislykkedes. {error}
 External link opening has been disabled in the general settings: Åbning af eksterne
@@ -1209,30 +1208,30 @@ Feed:
 Right-click or hold to see history: Højreklik eller hold nede for at se historik
 Search character limit: Søgningen overskrider tegngrænsen {searchCharacterLimit}
 Keys:
-  shift: Skift
+  shift: Shift
   arrowdown: Pil ned
-  arrowright: højre pil
+  arrowright: Højre pil
   ctrl: Ctrl
   alt: Alt
   arrowleft: Venstre pil
-  arrowup: pil op
-  plus: plus
-  enter: Indtast
+  arrowup: Pil op
+  plus: Plus
+  enter: Enter
 Description:
   Collapse Description: Vis mindre
   Expand Description: '...mere'
 Hashtag:
   This hashtag does not currently have any videos: Dette hashtag har i øjeblikket
     ingen videoer
-  Hashtag: Emneord
-Channel Unhidden: '{kanal} fjernet fra kanalfilter'
+  Hashtag: Hashtag
+Channel Unhidden: '{channel} fjernet fra kanalfilter'
 KeyboardShortcutPrompt:
   Fullscreen: Skift til fuld skærm
   Stats: Vis videostatistik
   Picture in Picture: Skift til billede-i-billede-tilstand
   Large Fast Forward: Spol 10 sekunder frem / Spol hurtigt frem i video baseret på
     den aktuelle videoafspilningshastighed
-  Mute: slå lyden fra
+  Mute: Slå lyden til/fra
   Keyboard Shortcuts: Tastaturgenveje
   Sections:
     Video:
@@ -1245,23 +1244,23 @@ KeyboardShortcutPrompt:
   History Backward: Gå en side tilbage
   History Forward: Gå en side frem
   New Window: Opret et nyt vindue
-  Navigate to Settings: Naviger til siden Indstillinger
-  Navigate to History: Naviger til siden Historik
-  Refresh: Opdater feed med nyeste indhold
+  Navigate to Settings: Gå til siden Indstillinger
+  Navigate to History: Gå til siden Historik
+  Refresh: Opdater feed med seneste indhold
   Focus Secondary Search: Fokuser på det sekundære søgefelt (hvis der er et)
-  Captions: Slå billedtekster til og fra
+  Captions: Slå undertekster til/fra
   Large Rewind: Spol 10 sekunder tilbage / Spol videoen tilbage baseret på den aktuelle
     videoafspilningshastighed
   Play: Skift mellem afspilning og pause
-  Decrease Video Speed: Sænk videohastigheden baseret på Video Playback Rate Interval
-  Minimize Window: Minimer vinduet
+  Decrease Video Speed: Sænk videohastigheden baseret på interval for videoafspilningshastighed
+  Minimize Window: Minimer vindue
   Skip by Tenths: Spring gennem video efter procent (3 spring til 30 % af varigheden)
-  Increase Video Speed: Forøg videohastighed baseret på videoafspilningshastighedsinterval
+  Increase Video Speed: Forøg videohastigheden baseret på interval for videoafspilningshastighed
   Reset Zoom: Nulstil zoomniveau / UI-skala
   Zoom In: Zoom ind
-  Next Frame: Næste billede (mens den er sat på pause)
-  Volume Up: Øg volumen
-  Volume Down: Sænk volumen
+  Next Frame: Næste billede (mens på pause)
+  Volume Up: Forøg lydstyrke
+  Volume Down: Sænk lydstyrke
   Last Chapter: Sidste kapitel
   Next Chapter: Næste kapitel
   Zoom Out: Zoom ud
@@ -1270,28 +1269,30 @@ KeyboardShortcutPrompt:
   Small Rewind: Spol X sekunder tilbage baseret på tilbagespolingsintervallet og den
     aktuelle videoafspilningshastighed
   Search in New Window: Søg i et nyt vindue
-  Last Frame: Forrige ramme (mens den er sat på pause)
+  Last Frame: Forrige billede (mens på pause)
   Full Window: Skift fuldt vindue
   Theatre Mode: Skift biograftilstand
   Take Screenshot: Tag et skærmbillede
-  Close Window: luk vinduet
+  Close Window: Luk vindue
   Restart Window: Genstart vindue
-  Force Restart Window: Tving genstartsvinduet
-  Toggle Developer Tools: Skift udviklerværktøjer
+  Force Restart Window: Tving genstart af vindue
+  Toggle Developer Tools: Vis/skjul udviklerværktøjer
   Focus Search: Fokuser på søgelinjen
-Channel Hidden: '{kanal} tilføjet til kanalfilter'
+  Home: Spring til starten af videoen
+  End: Spring til slutningen af videoen
+Channel Hidden: '{channel} føjet til kanalfilter'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Moments Ago: for et øjeblik siden
-Yes, Delete: Ja, Slet
+Yes, Delete: Ja, slet
 Display Label: '{label}: {value}'
 Yes, Restart: Ja, genstart
-Ok: ok
+Ok: OK
 shortcutJoinOperator: +
 Trimmed input must be at least N characters long: Trimmet input skal være mindst 1
   tegn langt | Trimmet input skal være mindst {length} tegn langt
-Yes, Open Link: Ja, Åbn link
-Tag already exists: »{tagName}"-tagget findes allerede
-Cancel: annullere
+Yes, Open Link: Ja, åbn link
+Tag already exists: '"{tagName}"-tagget findes allerede'
+Cancel: Annuller
 Autoplay Interruption Timer: Autoplay afbrudt på grund af {autoplayInterruptionIntervalHours}
   timers inaktivitet
 shortcutLabelSeparator: ｜

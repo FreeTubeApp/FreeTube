@@ -14,6 +14,7 @@ import {
   ABOUT_BITCOIN_ADDRESS,
   KeyboardShortcuts,
   DefaultFolderKind,
+  SEARCH_CHAR_LIMIT,
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
@@ -73,6 +74,8 @@ function runApp() {
       }
     }])
   }
+
+  const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
 
   contextMenu({
     showSearchWithGoogle: false,
@@ -199,6 +202,8 @@ function runApp() {
         }
       }
 
+      const textShortEnoughForSearch = parameters.selectionText.trim().length <= SEARCH_CHAR_LIMIT
+
       return [
         {
           label: 'Copy Lin&k',
@@ -220,9 +225,33 @@ function runApp() {
           click: () => {
             copy(transformURL(false))
           }
-        }
+        },
+        // Only show search in new window for
+        // Static text or link
+        // NOT internal link
+        // NOT link with no customized link text
+        // NOT link for timestamp
+        {
+          label: textShortEnoughForSearch ? 'Search “{selection}” in a New Window' : `“{selection}” is too long for search (> ${SEARCH_CHAR_LIMIT} chars)`,
+          enabled: textShortEnoughForSearch,
+          visible: (
+            !isInAppUrl &&
+            !parameters.isEditable &&
+            (parameters.linkURL != null && !parameters.linkURL.includes(parameters.selectionText) && !(/(\d{1,2}:)*\d{1,2}:\d{2}/.test(parameters.linkText))) &&
+            parameters.selectionText.trim().length > 0
+          ),
+          click: () => {
+            const queryText = parameters.selectionText.trim()
+            createWindow({
+              replaceMainWindow: false,
+              windowStartupUrl: `${ROOT_APP_URL}#/search/${encodeURIComponent(queryText)}`,
+              searchQueryText: queryText,
+              showWindowNow: true,
+            })
+          }
+        },
       ]
-    }
+    },
   })
 
   if (process.platform === 'win32') {
@@ -811,8 +840,6 @@ function runApp() {
       return url_ !== null && url_.protocol === 'app:' && url_.host === 'bundle' && url_.pathname === '/index.html'
     }
   }
-
-  const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
 
   async function createWindow(
     {

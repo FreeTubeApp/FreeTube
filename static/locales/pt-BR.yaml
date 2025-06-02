@@ -1320,4 +1320,6 @@ KeyboardShortcutPrompt:
   Reset Zoom: Redefinir o nível de zoom / Escala da Interface do Usuário
   Next Chapter: Próximo capítulo
   Skip by Tenths: Pular vídeo por porcentagem (3 pulos até 30% da duração)
+  Home: Ir para o início do vídeo
+  End: Ir para o final do vídeo
 shortcutLabelSeparator: ｜
