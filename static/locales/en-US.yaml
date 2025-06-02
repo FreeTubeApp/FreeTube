@@ -279,7 +279,7 @@ Settings:
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
     Open Deep Links In New Window: Open URLs Passed to FreeTube in a New Window
-    Hide to tray on minimize: Hide to tray on minimize
+    Minimize to system tray: Minimize to system tray
     Auto Load Next Page:
       Label: Auto Load Next Page
       Tooltip: Load additional pages and comments automatically.
