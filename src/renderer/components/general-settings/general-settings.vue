@@ -26,7 +26,7 @@
         />
         <ft-toggle-switch
           v-if="!isMac && usingElectron"
-          :label="$t('Settings.General Settings.Hide to tray on minimize')"
+          :label="$t('Settings.General Settings.Minimize to system tray')"
           :default-value="hideToTrayOnMinimize"
           :compact="true"
           @change="updateHideToTrayOnMinimize"
