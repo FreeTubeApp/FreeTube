@@ -252,7 +252,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'Предпочитаемый движок API'
       Local API: 'Локальный API'
-      Invidious API: 'Invidious API'
+      Invidious API: 'Клиент Invidious API'
     Video View Type:
       Video View Type: 'Способ отображения видео'
       Grid: 'Сеткой'
@@ -264,7 +264,7 @@ Settings:
       Middle: 'По середине'
       End: 'В конце'
       Blur: Размытие
-      Hidden: Скрыто
+      Hidden: Скрытый
     Region for Trending: 'Регион подбора трендов'
         #! List countries
     Check for Latest Blog Posts: Проверять последние записи в блоге
@@ -461,7 +461,7 @@ Settings:
     Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
     Autoplay Interruption Timer: Таймер прерывания автоигры
     Default Viewing Mode:
-      Theater: Театр
+      Theater: Режим Театр
       Default Viewing Mode: Режим просмотра по умолчанию
       Full Screen: На весь экран
       Picture in Picture: Картинка в картинке
@@ -553,12 +553,12 @@ Settings:
     History File: Файл истории
     Export Playlists For Older FreeTube Versions:
       Label: Экспортировать подборки для старых выпусков FreeTube
-      Tooltip: "Эта настройка экспортирует видео из всех подборок в одну с названием
-        «Избранное».\nКак экспортировать и импортировать видео в подборках для старых
-        версий FreeTube:\n1. Экспортируй свои подборки с этой включённой настройкой.\n\
-        \ 2. Удали все свои существующие подборки, используя настройку удаления всех
-        подборок под разделом Конфиденциальность.\n3. Запусти старый выпуск Freetube
-        и импортируй экспортированные подборки."
+      Tooltip: "Эта настройка экспортирует видео из всех плейлистов в один с названием
+        «Избранное».\nКак экспортировать и импортировать видео в плейлистах для старых
+        версий FreeTube:\n1. Экспортируй свои плейлисты с этой включённой настройкой.\n\
+        \ 2. Удали все свои существующие плейлисты, используя настройку удаления всех
+        плейлистов под разделом Настройки Конфиденциальности.\n3. Запусти старую версию
+        Freetube и импортируй экспортированные ранее плейлисты."
   Distraction Free Settings:
     Hide Live Chat: Скрыть чат прямой трансляции
     Hide Popular Videos: Скрыть популярные видео
@@ -639,7 +639,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Сетевой адрес SponsorBlock
       API (По умолчанию https://sponsor.ajay.app)
     Enable SponsorBlock: Включить
-    SponsorBlock Settings: SponsorBlock
+    SponsorBlock Settings: СпонсорБлок
     Skip Options:
       Skip Option: Опция пропуска
       Prompt To Skip: Предлагать пропустить
@@ -720,7 +720,7 @@ About:
   GitHub issues: Проблемы на GitHub
   Discussions: Обсуждения
   Licensed under the: Лицензия выдана под
-  AGPLv3: AGPLv3
+  AGPLv3: Лицензия AGPLv3
 Channel:
   Subscribe: 'Подписаться'
   Unsubscribe: 'Отписаться'
