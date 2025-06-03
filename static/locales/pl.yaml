@@ -27,8 +27,8 @@ Forward: 'Naprzód'
 Global:
   Videos: 'Filmy'
   Shorts: Filmy Short
-  Live: Transmisje
-  Community: Społeczność
+  Live: Na żywo
+  Posts: Posty
   Sort By: Sortuj według
 
 # Search Bar
@@ -566,8 +566,8 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Opcja ta wyeksportuje filmy ze wszystkich playlist, jako jedną playlistę
         o nazwie „Ulubione”.\nOto jak wyeksportować i zaimportować filmy z playlist
-        do starszych wersji FreeTube:\n1. Wyeksportuj swoje playlisty z tą opcją włączoną.\n
-        2. Usuń wszystkie swoje istniejące playlisty przy użyciu opcji „Usuń wszystkie
+        do starszych wersji FreeTube:\n1. Wyeksportuj swoje playlisty z tą opcją włączoną.\n\
+        \ 2. Usuń wszystkie swoje istniejące playlisty przy użyciu opcji „Usuń wszystkie
         playlisty” z ustawień prywatności.\n3. Uruchom starszą wersję FreeTube, następnie
         zaimportuj wyeksportowane playlisty."
       Label: Wyeksportuj playlisty dla starszych wersji FreeTube
@@ -593,7 +593,6 @@ Settings:
     Hide Channels Placeholder: ID kanału
     Display Titles Without Excessive Capitalisation: Wyświetlaj tytuły nie nadużywając
       wielkich liter i interpunkcji
-    Hide Channel Community: Schowaj kartę kanału „Społeczność”
     Hide Channel Shorts: Schowaj kartę kanału „Filmy Short”
     Hide Featured Channels: Schowaj polecane kanały
     Hide Channel Playlists: Schowaj kartę kanału „Playlisty”
@@ -609,7 +608,6 @@ Settings:
     Hide Subscriptions Shorts: Schowaj filmy Short z subskrypcji
     Hide Subscriptions Live: Schowaj transmisje live z subskrypcji
     Hide Profile Pictures in Comments: Nie pokazuj zdjęć profilowych w komentarzach
-    Hide Subscriptions Community: Schowaj „Społeczność” kanałów
     Hide Channels Invalid: Podane ID kanału jest niepoprawne
     Hide Channels Disabled Message: Niektóre z kanałów nie zostały przetworzone, ponieważ
       zostały zablokowane po swoim ID. Funkcja jest zablokowana, aż do momentu, w
@@ -624,6 +622,8 @@ Settings:
     Hide Channel Home: Schowaj kartę kanału „Główna”
     Show Added Items: Pokaż dodane rzeczy
     Hide Channel Courses: Ukryj kartę „Kursy” kanału
+    Hide Channel Posts: Schowaj kartę kanału „Posty”
+    Hide Subscriptions Posts: Schowaj posty z subskrypcji
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja
     musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie
     i zastosować zmiany?
@@ -775,7 +775,7 @@ Channel:
   Channel Tabs: Karty kanału
   This channel does not exist: Nie ma takiego kanału
   This channel does not allow searching: Ten kanał nie zezwala na przeszukiwanie
-  Community:
+  Posts:
     This channel currently does not have any posts: Ten kanał nie ma obecnie żadnych
       wpisów
     votes: '{votes} głosów'
@@ -1096,9 +1096,9 @@ Tooltips:
     Fetch Feeds from RSS: Po włączeniu FreeTube będzie używać RSS zamiast domyślnej
       metody pobierania subskrypcji. RSS jest szybszy i zapobiega blokadzie IP, ale
       nie dostarcza informacji, takich jak czas trwania filmu,status transmisji na
-      żywo, czy posty społeczności
-    Fetch Automatically: Po włączeniu FreeTube będzie automatycznie pobierał Twoje
-      subskrypcje po otwarciu nowego okna lub po zmianie profilu.
+      żywo, czy posty
+    Fetch Automatically: Po włączeniu lub przy otwarciu nowego okna FreeTube będzie
+      automatycznie odświeżał Twoje subskrypcje.
   General Settings:
     Fallback to Non-Preferred Backend on Failure: Po włączeniu, kiedy Twój preferowany
       API napotka problem, FreeTube automatycznie spróbuje użyć niepreferowanego API
@@ -1110,8 +1110,8 @@ Tooltips:
       chciałbyś zobaczyć filmy zdobywające popularność.
     Invidious Instance: Serwer Invidious, którym FreeTube będzie się łączył do wywołań
       API.
-    Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną zastąpione klatką
-      z filmu zamiast miniaturki domyślnej.
+    Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną ukryte, rozmazane
+      albo zastąpione klatką z filmu zamiast miniaturki domyślnej.
     External Link Handling: "Wybierz domyślne zachowanie kiedy odnośnik, który nie
       może zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy
       kliknięty odnośnik w domyślnej przeglądarce.\n"
@@ -1121,7 +1121,7 @@ Tooltips:
   Player Settings:
     Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów.
       Formaty DASH obsługują wyższe rozdzielczości. Stare formaty są ograniczone do
-      720p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.
+      360p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.
     Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious,
       a nie bezpośrednio z YouTube.
     Scroll Playback Rate Over Video Player: Umieść kursor nad odtwarzaczem, przytrzymaj
@@ -1247,8 +1247,6 @@ Search Listing:
     VR180: VR180
     8K: 8K
     360 Video: 360°
-'Blocked opening potentially unsafe URL': 'Zablokowano otwarcie potencjalnie niebezpiecznego
-  URL: "{url}".'
 Keys:
   arrowup: Strzałka do góry
   arrowright: Strzałka w prawo
@@ -1323,4 +1321,6 @@ KeyboardShortcutPrompt:
   Large Fast Forward: Przewiń o 10 sekund do przodu / Przewiń film do przodu, bazując
     na obecnej prędkości odtwarzania
   Stats: Pokaż statystyki filmu
+  End: Przeskocz na koniec filmu
+  Home: Przeskocz na początek filmu
 shortcutLabelSeparator: ｜

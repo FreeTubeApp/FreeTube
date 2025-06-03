@@ -3,7 +3,7 @@ import shaka from 'shaka-player'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import store from '../../store/index'
-import { IpcChannels, KeyboardShortcuts } from '../../../constants'
+import { DefaultFolderKind, KeyboardShortcuts } from '../../../constants'
 import { AudioTrackSelection } from './player-components/AudioTrackSelection'
 import { FullWindowButton } from './player-components/FullWindowButton'
 import { LegacyQualitySelection } from './player-components/LegacyQualitySelection'
@@ -1117,20 +1117,15 @@ export default defineComponent({
 
     // #region power save blocker
 
-    let powerSaveBlocker = null
-
-    async function startPowerSaveBlocker() {
-      if (process.env.IS_ELECTRON && powerSaveBlocker === null) {
-        const { ipcRenderer } = require('electron')
-        powerSaveBlocker = await ipcRenderer.invoke(IpcChannels.START_POWER_SAVE_BLOCKER)
+    function startPowerSaveBlocker() {
+      if (process.env.IS_ELECTRON) {
+        window.ftElectron.startPowerSaveBlocker()
       }
     }
 
     function stopPowerSaveBlocker() {
-      if (process.env.IS_ELECTRON && powerSaveBlocker !== null) {
-        const { ipcRenderer } = require('electron')
-        ipcRenderer.send(IpcChannels.STOP_POWER_SAVE_BLOCKER, powerSaveBlocker)
-        powerSaveBlocker = null
+      if (process.env.IS_ELECTRON) {
+        window.ftElectron.stopPowerSaveBlocker()
       }
     }
 
@@ -1168,8 +1163,7 @@ export default defineComponent({
       // PiP can only be activated once the video's readState and video track are populated
       if (startInPip && props.format !== 'audio' && ui.getControls().isPiPAllowed() && process.env.IS_ELECTRON) {
         startInPip = false
-        const { ipcRenderer } = require('electron')
-        ipcRenderer.send(IpcChannels.REQUEST_PIP)
+        window.ftElectron.requestPiP()
       }
     }
 
@@ -1659,9 +1653,7 @@ export default defineComponent({
         } else {
           const arrayBuffer = await blob.arrayBuffer()
 
-          const { ipcRenderer } = require('electron')
-
-          await ipcRenderer.invoke(IpcChannels.WRITE_SCREENSHOT, filenameWithExtension, arrayBuffer)
+          await window.ftElectron.writeToDefaultFolder(DefaultFolderKind.SCREENSHOTS, filenameWithExtension, arrayBuffer)
 
           showToast(t('Screenshot Success'))
         }
@@ -2124,11 +2116,13 @@ export default defineComponent({
           seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate() * 2)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED_ALT:
           // Decrease playback rate by user configured interval
           event.preventDefault()
           changePlayBackRate(-videoPlaybackRateInterval.value)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.INCREASE_VIDEO_SPEED:
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.INCREASE_VIDEO_SPEED_ALT:
           // Increase playback rate by user configured interval
           event.preventDefault()
           changePlayBackRate(videoPlaybackRateInterval.value)
@@ -2242,6 +2236,24 @@ export default defineComponent({
           events.dispatchEvent(new CustomEvent('setStatsVisibility', {
             detail: !showStats.value
           }))
+          break
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.HOME:
+          // Jump to beginning of video
+          if (canSeek()) {
+            event.preventDefault()
+            // use seek range instead of duration so that it works for live streams too
+            const seekRange = player.seekRange()
+            video_.currentTime = seekRange.start
+          }
+          break
+        case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.END:
+          // Jump to end of video
+          if (canSeek()) {
+            event.preventDefault()
+            // use seek range instead of duration so that it works for live streams too
+            const seekRange = player.seekRange()
+            video_.currentTime = seekRange.end
+          }
           break
         case 'escape':
           // Exit full window
@@ -2671,8 +2683,7 @@ export default defineComponent({
 
       if (startInFullscreen && process.env.IS_ELECTRON) {
         startInFullscreen = false
-        const { ipcRenderer } = require('electron')
-        ipcRenderer.send(IpcChannels.REQUEST_FULLSCREEN)
+        window.ftElectron.requestFullscreen()
       }
     }
 

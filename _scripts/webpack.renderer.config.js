@@ -39,7 +39,7 @@ const config = {
     level: isDevMode ? 'info' : 'none'
   },
   output: {
-    libraryTarget: 'commonjs2',
+    scriptType: 'text/javascript',
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
   },
@@ -108,6 +108,11 @@ const config = {
         }
       },
     ],
+    generator: {
+      json: {
+        JSONParse: false
+      }
+    }
   },
   // webpack defaults to only optimising the production builds, so having this here is fine
   optimization: {
@@ -186,7 +191,7 @@ const config = {
     },
     extensions: ['.js', '.vue']
   },
-  target: 'electron-renderer',
+  target: 'web',
 }
 
 if (isDevMode) {

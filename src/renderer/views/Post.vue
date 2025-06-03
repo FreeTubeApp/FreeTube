@@ -33,7 +33,7 @@ import { useI18n } from '../composables/use-i18n-polyfill'
 
 import FtCard from '../components/ft-card/ft-card.vue'
 import FtCommunityPost from '../components/FtCommunityPost/FtCommunityPost.vue'
-import FtLoader from '../components/ft-loader/ft-loader.vue'
+import FtLoader from '../components/FtLoader/FtLoader.vue'
 import CommentSection from '../components/CommentSection/CommentSection.vue'
 
 import store from '../store/index'

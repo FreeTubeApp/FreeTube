@@ -44,7 +44,6 @@ Global:
   Videos: 'वीडियोज'
   Shorts: 'सार्ट्स'
   Live: 'लाइव'
-  Community: 'समाज (कम्युनिटी)'
   Sort By: 'लाइन से लगावा'
   Counts:
     Video Count: '1 वीडियो | {count} वीडियोज'
@@ -538,7 +537,6 @@ Settings:
     Hide Channels Already Exists: ''
     Hide Featured Channels: ''
     Hide Channel Playlists: ''
-    Hide Channel Community: ''
     Hide Channel Home: ''
     Hide Channel Shorts: ''
     Hide Channel Podcasts: ''
@@ -548,7 +546,6 @@ Settings:
     Hide Subscriptions Videos: ''
     Hide Subscriptions Shorts: ''
     Hide Subscriptions Live: ''
-    Hide Subscriptions Community: ''
     Show Added Items: ''
   Data Settings:
     Data Settings: ''
@@ -762,7 +759,7 @@ Channel:
     Joined: ''
     Location: ''
     Featured Channels: ''
-  Community:
+  Posts:
     This channel currently does not have any posts: ''
     votes: ''
     View Full Post: ''
@@ -1027,7 +1024,6 @@ Age Restricted:
   This channel is age restricted: ''
   This video is age restricted: ''
 External link opening has been disabled in the general settings: ''
-'Blocked opening potentially unsafe URL': ''
 Downloading has completed: ''
 Starting download: ''
 Downloading failed: ''

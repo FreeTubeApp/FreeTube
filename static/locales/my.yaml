@@ -39,10 +39,10 @@ Are you sure you want to open this link?: ''
 # Global
 # Anything shared among components / views should be put here
 Global:
-  Videos: ''
+  Videos: 'ဗီဒီယိုများ'
   Shorts: ''
-  Live: ''
-  Community: ''
+  Live: 'တိုက်ရိုက်လွှင့်နေသော'
+  Posts: 'ို့စ်'
   Counts:
     Video Count: ''
     Channel Count: ''
@@ -519,7 +519,6 @@ Settings:
     Hide Channels Already Exists: ''
     Hide Featured Channels: ''
     Hide Channel Playlists: ''
-    Hide Channel Community: ''
     Hide Channel Home: ''
     Hide Channel Shorts: ''
     Hide Channel Podcasts: ''
@@ -529,7 +528,6 @@ Settings:
     Hide Subscriptions Videos: ''
     Hide Subscriptions Shorts: ''
     Hide Subscriptions Live: ''
-    Hide Subscriptions Community: ''
     Show Added Items: ''
   Data Settings:
     Data Settings: ''
@@ -743,7 +741,7 @@ Channel:
     Joined: ''
     Location: ''
     Featured Channels: ''
-  Community:
+  Posts:
     This channel currently does not have any posts: ''
     votes: ''
     View Full Post: ''
@@ -1006,7 +1004,6 @@ Age Restricted:
   This channel is age restricted: ''
   This video is age restricted: ''
 External link opening has been disabled in the general settings: ''
-'Blocked opening potentially unsafe URL': ''
 Downloading has completed: ''
 Starting download: ''
 Downloading failed: ''

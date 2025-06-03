@@ -28,7 +28,7 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: Live
-  Community: Beiträge
+  Posts: Beiträge
   Sort By: Sortieren nach
 
 # Search Bar
@@ -200,8 +200,8 @@ User Playlists:
       "{videoCount} video(s) added to {playlistCount} playlists": 1 Video zu {playlistCount}
         Playlists hinzugefügt | {videoCount} Videos zu {playlistCount} Playlists hinzugefügt
     Select a playlist to add your N videos to: Wähle eine Playlist, der du dein Video
-      hinzufügen möchtest | Wähle eine Wiedergabeliste, der du deine {videoCount}
-      Videos hinzufügen möchtest
+      hinzufügen möchtest | Wähle eine Playlist, der du deine {videoCount} Videos
+      hinzufügen möchtest
     Added {count} Times: 'Bereits hinzugefügt | {count} Mal hinzugefügt'
     Allow Adding Duplicate Video(s): Hinzufügen doppelter Videos zulassen
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
@@ -600,7 +600,6 @@ Settings:
     Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
       und Zeichensetzung anzeigen
     Hide Channel Playlists: 'Tab „Playlists“ im Kanal ausblenden'
-    Hide Channel Community: 'Tab „Beiträge“ im Kanal ausblenden'
     Hide Channel Shorts: 'Tab „Shorts“ im Kanal ausblenden'
     Hide Featured Channels: Hervorgehobene Kanäle ausblenden
     Sections:
@@ -615,7 +614,6 @@ Settings:
     Hide Channel Releases: 'Tab „Veröffentlichungen“ im Kanal ausblenden'
     Hide Subscriptions Live: Livestreams aus Abos ausblenden
     Hide Profile Pictures in Comments: Profilbilder in den Kommentaren ausblenden
-    Hide Subscriptions Community: Beiträge aus Abos ausblenden
     Hide Channels Invalid: Kanal-ID war ungültig
     Hide Channels Disabled Message: Einige Kanäle wurden mit ID gesperrt und nicht
       verarbeitet. Die Funktion wird blockiert, während diese IDs aktualisieren
@@ -629,6 +627,8 @@ Settings:
     Hide Channel Home: 'Tab „Startseite“ im Kanal ausblenden'
     Show Added Items: Hinzugefügte Elemente anzeigen
     Hide Channel Courses: Tab „Kurse“ im Kanal ausblenden
+    Hide Channel Posts: Tab „Beiträge“ im Kanal ausblenden
+    Hide Subscriptions Posts: Beiträge aus Abos ausblenden
   The app needs to restart for changes to take effect. Restart and apply change?: Die
     App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
     und Änderung übernehmen?
@@ -783,11 +783,11 @@ Channel:
     Kanal ist altersbeschränkt und kann derzeit nicht in FreeTube angesehen werden.
   This channel does not allow searching: Dieser Kanal erlaubt keine Suche
   This channel does not exist: Dieser Kanal existiert nicht
-  Community:
-    This channel currently does not have any posts: Dieser Kanal enthält derzeit keine
+  Posts:
+    This channel currently does not have any posts: Dieser Kanal hat derzeit keine
       Beiträge
     votes: '{votes} Stimmen'
-    Reveal Answers: Antworten aufzeigen
+    Reveal Answers: Antworten anzeigen
     Hide Answers: Antworten verbergen
     Video hidden by FreeTube: Video versteckt von FreeTube
     View Full Post: Vollständigen Beitrag anzeigen
@@ -810,7 +810,7 @@ Channel:
     Home: Startseite
     View Playlist: Playlist anzeigen
   Courses:
-    This channel does not currently have any courses: Dieser Kanal hat momentan keine
+    This channel does not currently have any courses: Dieser Kanal hat derzeit keine
       Kurse
     Courses: Kurse
 Video:
@@ -1107,8 +1107,9 @@ Version {versionNumber} is now available!  Click for more details: Version {vers
   ist jetzt verfügbar!  Für mehr Details klicken
 Tooltips:
   General Settings:
-    Thumbnail Preference: Alle Vorschaubilder in FreeTube werden durch ein Standbild
-      aus dem Video ersetzt und entsprechen somit nicht mehr dem Standard-Vorschaubild.
+    Thumbnail Preference: Alle Vorschaubilder in FreeTube werden verpixelt, versteckt
+      oder durch ein Einzelbild aus dem Video ersetzt, anstatt das Standard-Vorschaubild
+      anzuzeigen.
     Invidious Instance: Die Invidious-Instanz, mit der sich FreeTube für API-Aufrufe
       verbinden wird.
     Fallback to Non-Preferred Backend on Failure: Wenn deine bevorzugte API ein Problem
@@ -1129,14 +1130,14 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Wenn aktiviert, verwendet FreeTube RSS anstelle der Standardmethode,
       um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Blockierung,
-      liefert aber bestimmte Informationen wie Videodauer, den Live-Status oder Community-Beiträge
+      liefert aber bestimmte Informationen wie Videodauer, den Live-Status oder Beiträge
       nicht
-    Fetch Automatically: Wenn aktiviert, ruft FreeTube automatisch deinen Abo-Feed
-      ab, wenn ein neues Fenster geöffnet wird und wenn du das Profil wechselst.
+    Fetch Automatically: Wenn aktiviert, ruft FreeTube deine Abos automatisch beim
+      Start und beim Öffnen eines neuen Fensters ab.
   Player Settings:
     Default Video Format: Lege die Formate fest, die bei der Wiedergabe eines Videos
       verwendet werden. DASH-Formate können höhere Qualitäten wiedergeben. Altformate
-      sind auf maximal 720p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate
+      sind auf maximal 360p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate
       sind reine Audiostreams.
     Proxy Videos Through Invidious: Stellt eine Verbindung zu Invidious her, um Videos
       bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen.
@@ -1177,11 +1178,11 @@ Tooltips:
     Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung
       „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer
       Kraft gesetzt
-    Hide Videos and Playlists Containing Text: Gebe ein Wort, einen Teil eines Wortes
+    Hide Videos and Playlists Containing Text: Gib ein Wort, einen Teil eines Wortes
       oder einen Satz ein (Groß-/Kleinschreibung wird ignoriert) um alle Videos und
       Playlists, welche es in ihren Originaltiteln enthalten, auf ganz FreeTube auszublenden.
-      Dein Verlauf, deine eigenen Playlists und Videos innerhalb von Playlists sind
-      davon nicht betroffen.
+      Dein Verlauf, deine eigenen Playlists und Videos innerhalb Playlists sind davon
+      nicht betroffen.
   SponsorBlock Settings:
     UseDeArrowTitles: Videotitel durch von der Community eingereichte Titel von DeArrow
       ersetzen.
@@ -1269,8 +1270,6 @@ Search Listing:
     360 Video: 360°
     New: Neu
     3D: 3D
-'Blocked opening potentially unsafe URL': 'Das Öffnen einer potenziell unsicheren
-  URL wurde blockiert: „{url}“.'
 Keys:
   arrowdown: Pfeil nach unten
   arrowleft: Pfeil nach links
@@ -1346,4 +1345,6 @@ KeyboardShortcutPrompt:
   Next Frame: Nächstes Bild (bei pausierter Wiedergabe)
   Small Rewind: X Sekunden zurückspulen, basierend auf dem Rückspulintervall und der
     aktuellen Wiedergabegeschwindigkeit
+  End: Zum Ende des Videos springen
+  Home: Zum Anfang des Videos springen
 shortcutLabelSeparator: ｜

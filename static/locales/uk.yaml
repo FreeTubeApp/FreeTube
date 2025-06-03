@@ -31,7 +31,7 @@ Global:
   Videos: 'Відео'
   Shorts: Shorts
   Live: Наживо
-  Community: Спільнота
+  Posts: Дописи
   Sort By: Сортувати за
 
   Counts:
@@ -553,7 +553,6 @@ Settings:
       капіталізації та пунктуації
     Hide Featured Channels: Сховати пропоновані канали
     Hide Channel Playlists: Сховати добірки каналу
-    Hide Channel Community: Сховати вкладку "Спільнота" каналу
     Hide Channel Shorts: Сховати вкладку "Shorts" каналу
     Sections:
       Side Bar: Бічна панель
@@ -567,7 +566,6 @@ Settings:
     Hide Subscriptions Shorts: Сховати Shorts із підписок
     Hide Subscriptions Live: Сховати трансляції з підписок
     Hide Profile Pictures in Comments: Сховати зображення профілю в коментарях
-    Hide Subscriptions Community: Сховати спільноту підписників
     Hide Channels Invalid: Вказаний ID каналу недійсний
     Hide Channels Disabled Message: Деякі канали були заблоковані за допомогою ID
       і не були оброблені. Функція заблокована в той час, як ці ID оновлювалися
@@ -581,6 +579,8 @@ Settings:
       текст
     Show Added Items: Показати додані елементи
     Hide Channel Courses: Приховати вкладку «Курси» каналу
+    Hide Channel Posts: Сховати вкладку "Пости" каналу
+    Hide Subscriptions Posts: Сховати пости підписок
   Data Settings:
     Data Settings: 'Дані'
     Select Export Type: 'Оберіть тип експорту'
@@ -819,7 +819,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Цей
     канал має вікові обмеження і наразі не може бути переглянутий на FreeTube.
   Channel Tabs: Вкладки каналів
-  Community:
+  Posts:
     This channel currently does not have any posts: Зараз на цьому каналі немає публікацій
     votes: 'Голосів: {votes}'
     Reveal Answers: Розгорнути відповіді
@@ -1067,8 +1067,8 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: 'Коли бажаний API має проблеми,
       FreeTube автоматично спробує використовувати ваш не вибраний API як запасний
       метод, коли його увімкнено.'
-    Thumbnail Preference: 'Усі ескізи у FreeTube заміняться на кадр відео, а не на
-      типову мініатюру.'
+    Thumbnail Preference: 'Усі ескізи у FreeTube будуть замінені на кадр з відео,
+      розмитий або схований замість стандартного ескізу.'
     Invidious Instance: 'Сервер Invidious, до якого FreeTube під''єднуватиметься для
       викликів API.'
     Region for Trending: 'Регіон популярного дозволяє вам вибрати популярні відео
@@ -1082,10 +1082,10 @@ Tooltips:
   Player Settings:
     Proxy Videos Through Invidious: 'Під’єднається до Invidious, щоб дивитися відео,
       а не встановлювати пряме з’єднання з YouTube.'
-    Default Video Format: 'Встановіть формати, що використовуються під час відтворення
-      відео. Формати DASH можуть відтворюватися в кращій якості. Старі формати мають
-      обмеження у 720p, але використовують меншу пропускну здатність. Формати аудіо
-      — це лише аудіопотоки.'
+    Default Video Format: 'Встановіть формати, що використовуються при відтворенні
+      відео. Формати DASH підтримують вищі якості. Старі формати обмежені максимальним
+      роздільною здатністю 360p, але використовують менше пропускної здатності. Аудіоформати
+      — це потоки тільки з аудіо.'
     Scroll Playback Rate Over Video Player: Поки курсор знаходиться над відео, натисніть
       і утримуйте клавішу Control (клавіша Command на Mac) і прокрутіть коліщатко
       миші вперед або назад, щоб контролювати швидкість відтворення. Натисніть і утримуйте
@@ -1095,14 +1095,14 @@ Tooltips:
     Skip by Scrolling Over Video Player: Використовувати колесо прокрутки для прокручування
       відео в стилі MPV.
   Subscription Settings:
-    Fetch Feeds from RSS: 'При увімкненні FreeTube буде використовувати RSS замість
-      стандартного методу для отримання підписок. RSS є швидшим і запобігає блокуванню
-      IP-адрес, але не надає певної інформації, такої як тривалість відео, статус
-      в прямому ефірі або пости в спільноті'
+    Fetch Feeds from RSS: 'При увімкненні, FreeTube використовуватиме RSS замість
+      стандартного методу для отримання вашого фіду підписок. RSS є швидшим і запобігає
+      блокуванню IP-адрес, але не надає певну інформацію, таку як тривалість відео,
+      статус в прямому ефірі або пости'
 
 # Toast Messages
-    Fetch Automatically: Якщо увімкнено, FreeTube автоматично отримуватиме вашу стрічку
-      підписок під час відкриття нового вікна та за перемикання профілю.
+    Fetch Automatically: При увімкненні, FreeTube автоматично завантажуватиме фід
+      ваших підписок під час запуску та коли відкривається нове вікно.
   External Player Settings:
     Custom External Player Arguments: Будь-які користувацькі аргументи командного
       рядка, які ви хочете передати зовнішньому плеєру.
@@ -1225,8 +1225,6 @@ Search Listing:
 Right-click or hold to see history: ПКМ або утримуйте для перегляду історії
 Display Label: '{label}: {value}'
 Tag already exists: Тег "{tagName}" вже існує
-'Blocked opening potentially unsafe URL': 'Блоковано відкриття потенційно небезпечної
-  URL-адреси: "{url}".'
 shortcutJoinOperator: +
 Keys:
   arrowright: Стрілка вправо

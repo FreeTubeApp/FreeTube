@@ -28,7 +28,7 @@ Global:
   Videos: '影片'
   Shorts: 短片
   Live: 直播
-  Community: 社群
+  Posts: 貼文
   Sort By: '排序方式'
 
 # Search Bar
@@ -525,7 +525,6 @@ Settings:
     Display Titles Without Excessive Capitalisation: 顯示沒有過多大寫與標點符號的標題
     Hide Featured Channels: 隱藏精選頻道
     Hide Channel Playlists: 隱藏頻道「播放清單」分頁
-    Hide Channel Community: 隱藏頻道「社群」分頁
     Hide Channel Shorts: 隱藏頻道「短片」分頁
     Sections:
       Side Bar: 側邊欄
@@ -539,7 +538,6 @@ Settings:
     Hide Subscriptions Videos: 隱藏訂閱影片
     Hide Subscriptions Live: 隱藏訂閱直播
     Hide Profile Pictures in Comments: 在留言中隱藏個人檔案圖片
-    Hide Subscriptions Community: 隱藏訂閱社群
     Hide Channels Invalid: 提供的頻道 ID 無效
     Hide Channels Disabled Message: 某些頻道被使用 ID 封鎖且無法處理。當這些 ID 更新時，功能將會被封鎖
     Hide Channels Already Exists: 頻道 ID 已存在
@@ -686,7 +684,7 @@ Channel:
   Channel Tabs: 頻道分頁
   This channel does not exist: 此頻道不存在
   This channel does not allow searching: 此頻道不允許搜尋
-  Community:
+  Posts:
     This channel currently does not have any posts: 此頻道目前沒有任何貼文
     votes: '{votes} 票'
     Reveal Answers: 揭露答案
@@ -1073,7 +1071,6 @@ Search Listing:
     360 Video: 360°
     New: 新
     3D: 3D
-'Blocked opening potentially unsafe URL': 已阻止開啟可能不安全的 URL：「{url}」。
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Keys:

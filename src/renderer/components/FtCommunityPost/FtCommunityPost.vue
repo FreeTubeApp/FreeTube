@@ -95,7 +95,7 @@
         v-else
         class="hiddenVideo"
       >
-        {{ '[' + $t('Channel.Community.Video hidden by FreeTube') + ']' }}
+        {{ '[' + $t('Channel.Posts.Video hidden by FreeTube') + ']' }}
       </p>
     </div>
     <div
@@ -132,7 +132,7 @@
           query: authorId ? { authorId } : undefined
         }"
         class="commentsLink"
-        :aria-label="$t('Channel.Community.View Full Post')"
+        :aria-label="$t('Channel.Posts.View Full Post')"
       >
         <span
           class="commentCount"

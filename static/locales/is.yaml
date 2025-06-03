@@ -31,7 +31,7 @@ Global:
   Videos: 'Myndskeið'
   Shorts: Símamyndir
   Live: Í beinni
-  Community: Samfélag
+  Posts: Færslur
   Sort By: Raða eftir
 
   Counts:
@@ -559,7 +559,6 @@ Settings:
       Subscriptions Page: Áskriftasíða
     Hide Channel Shorts: Fela símamyndaflipa rása
     Hide Channel Playlists: Fela spilunarlistaflipa rása
-    Hide Channel Community: Fela samfélagsflipa rása
     Hide Featured Channels: Fela rásir í deiglunni
     Hide Channel Podcasts: Fela hlaðvarpsflipa rása
     Hide Channel Releases: Fela útgáfuflipa rása
@@ -567,7 +566,6 @@ Settings:
     Hide Subscriptions Live: Fela bein streymi áskrifta
     Hide Subscriptions Videos: Fela myndskeið áskrifta
     Hide Profile Pictures in Comments: Fela auðkennismyndir í athugasemdum
-    Hide Subscriptions Community: Fela samfélag áskrifenda
     Hide Channels Invalid: Uppgefið auðkenni rásar er ógilt
     Hide Channels Disabled Message: Sumar rásir voru útilokaðar út frá auðkenni og
       voru ekki meðhöndlaðar. Lokað er á eiginleikann á meðan verið er að uppfæra
@@ -581,6 +579,8 @@ Settings:
     Hide Channel Home: Fela "Heim"-flipa rása
     Show Added Items: Sýna atriði sem bætt hefur verið við
     Hide Channel Courses: Fela flipann með rásinni "Kennsluefni"
+    Hide Channel Posts: Fela "Færslur"-flipa rása
+    Hide Subscriptions Posts: Fela áskriftarfærslur
   Data Settings:
     Data Settings: 'Gögn'
     Select Export Type: 'Veldu tegund útflutnings'
@@ -627,10 +627,10 @@ Settings:
       Label: Flytja út spilunarlista fyrir eldri útgáfur FreeTube
       Tooltip: "Þessi valkostur flytur út myndskeið úr öllum spilunarlistum inn í
         einn spilunarlista sem kallast 'Eftirlæti'.\nHér er skýrt hvernig eigi að
-        flytja út eða inn myndskeið í spilunarlistum fyrir eldri útgáfur FreeTube:\n
-        1. Flyttu út spilunarlistana þína með þennan valkost virkann.\n2. Eyddu út
-        öllum fyrirliggjandi spilunarlistum hjá þér með valkostinum 'Fjarlægja alla
-        spilunarlista' í stillingum gagnaleyndar.\n3. Ræstu eldri útgáfu FreeTube
+        flytja út eða inn myndskeið í spilunarlistum fyrir eldri útgáfur FreeTube:\n\
+        \ 1. Flyttu út spilunarlistana þína með þennan valkost virkann.\n2. Eyddu
+        út öllum fyrirliggjandi spilunarlistum hjá þér með valkostinum 'Fjarlægja
+        alla spilunarlista' í stillingum gagnaleyndar.\n3. Ræstu eldri útgáfu FreeTube
         og flyttu inn spilunarlistana sem þú fluttir út.\""
   Proxy Settings:
     Proxy Settings: 'Milliþjónn (proxy)'
@@ -831,7 +831,7 @@ Channel:
     Live: Í beinni
     This channel does not currently have any live streams: Þessi rás er í augnablikinu
       ekki með nein bein streymi
-  Community:
+  Posts:
     This channel currently does not have any posts: Þessi rás er ekki með neinar færslur
     Reveal Answers: Birta svör
     Hide Answers: Fela svör
@@ -1079,7 +1079,7 @@ Tooltips:
       á í vandræðum, mun FreeTube reyna sjálfkrafa að nota ekki-forgangsbakenda API-kerfisviðmóts
       sem varaleið, þegar þetta er virkjað.'
     Thumbnail Preference: 'Öllum smámyndum í FreeTube verður skipt út fyrir ramma
-      með myndskeiðinu í stað sjálfgefinnar smámyndar.'
+      með myndskeiðinu, móskaðan eða falinn, í stað sjálfgefinnar smámyndar.'
     Invidious Instance: 'Tilvik Invidious-netþjóns sem FreeTube mun tengjast fyrir
       beiðnir í API-kerfisviðmót.'
     Region for Trending: 'Landssvæði sem skal miða vinsældir við gerir þér kleift
@@ -1095,7 +1095,7 @@ Tooltips:
       í stað þess að tengjast beint við YouTube.'
     Default Video Format: 'Stillu skráasniðin sem notuð eru við afspilun myndskeiða.
       DASH-snið (Dynamic Adaptive Streaming over HTTP) er hægt að spila í meiri gæðum.
-      Eldri snið takmarkast við 720p en nota minni bandbreidd. Hljóðsnið eru streymi
+      Eldri snið takmarkast við 360p en nota minni bandbreidd. Hljóðsnið eru streymi
       einungis með hljóði.'
     Scroll Playback Rate Over Video Player: Á meðan bendillinn er yfir myndspilaranum,
       ýttu og haltu niðri Ctrl-lyklinum ('Command' slaufulykill á Mac) og skrunaðu
@@ -1109,11 +1109,11 @@ Tooltips:
     Fetch Feeds from RSS: 'Þegar þetta er virkt, mun FreeTube nota RSS í stað sjálfgefinnar
       aðferðar við að safna streymi áskriftarinnar þinnar. RSS er hraðvirkara og kemur
       í veg fyrir útilokun IP-vistfanga, en nær ekki að birta ákveðnar upplýsingar
-      á borð við tímalengd myndskeiða, stöðu í beinni útsendingu eða færslur á samfélagsgáttum'
+      á borð við tímalengd myndskeiða, stöðu í beinni útsendingu eða færslur'
 
 # Toast Messages
     Fetch Automatically: Þegar þetta er virkt, mun FreeTube sækja sjálfkrafa áskriftarstreymin
-      þín þegar nýr gluggi er opnaður og þegar skipt er um notkunarsnið.
+      þín í ræsingu og þegar nýr gluggi er opnaður.
   External Player Settings:
     Custom External Player Arguments: Öll sérsniðin skipanaviðföng og rofar, sem beina
       á til utanaðkomandi spilarans.
@@ -1234,8 +1234,6 @@ Search character limit: Leitarstrengurinn er kominn yfir hámarksfjöldann {sear
 Yes, Restart: Já, endurræsa
 Yes, Open Link: Já, opna tengil
 Cancel: Hætta við
-'Blocked opening potentially unsafe URL': 'Lokaði á opnun mögulega óöruggrar slóðar:
-  "{url}".'
 Yes, Delete: Já, eyða
 checkmark: ✓
 Trimmed input must be at least N characters long: Stytt úttak verður að minnsta kosti
@@ -1324,4 +1322,6 @@ KeyboardShortcutPrompt:
   Skip by Tenths: Hoppa í prósentum í gegnum myndskeið (3 sleppir yfir á 30% tímalengdar)
   Keyboard Shortcuts: Flýtivísanir á lyklaborði
   Focus Secondary Search: Færa virkni í hinn leitarreitinn (ef annar er til staðar)
+  Home: Hoppa í upphaf myndskeiðsins
+  End: Hoppa í enda myndskeiðsins
 shortcutLabelSeparator: ｜

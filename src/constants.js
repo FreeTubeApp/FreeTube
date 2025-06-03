@@ -2,10 +2,8 @@
 const IpcChannels = {
   ENABLE_PROXY: 'enable-proxy',
   DISABLE_PROXY: 'disable-proxy',
-  OPEN_EXTERNAL_LINK: 'open-external-link',
   GET_SYSTEM_LOCALE: 'get-system-locale',
   GET_NAVIGATION_HISTORY: 'get-navigation-history',
-  SHOW_SAVE_DIALOG: 'show-save-dialog',
   STOP_POWER_SAVE_BLOCKER: 'stop-power-save-blocker',
   START_POWER_SAVE_BLOCKER: 'start-power-save-blocker',
   CREATE_NEW_WINDOW: 'create-new-window',
@@ -13,9 +11,6 @@ const IpcChannels = {
   NATIVE_THEME_UPDATE: 'native-theme-update',
   APP_READY: 'app-ready',
   RELAUNCH_REQUEST: 'relaunch-request',
-
-  REQUEST_FULLSCREEN: 'request-fullscreen',
-  REQUEST_PIP: 'request-pip',
 
   SEARCH_INPUT_HANDLING_READY: 'search-input-handling-ready',
   UPDATE_SEARCH_INPUT_TEXT: 'update-search-input-text',
@@ -49,7 +44,7 @@ const IpcChannels = {
 
   GET_SCREENSHOT_FALLBACK_FOLDER: 'get-screenshot-fallback-folder',
   CHOOSE_DEFAULT_FOLDER: 'choose-default-folder',
-  WRITE_SCREENSHOT: 'write-screenshot',
+  WRITE_TO_DEFAULT_FOLDER: 'write-to-default-folder',
 }
 
 const DBActions = {
@@ -192,12 +187,16 @@ const KeyboardShortcuts = {
       SMALL_REWIND: 'arrowleft',
       SMALL_FAST_FORWARD: 'arrowright',
       DECREASE_VIDEO_SPEED: 'o',
+      DECREASE_VIDEO_SPEED_ALT: '<',
       INCREASE_VIDEO_SPEED: 'p',
+      INCREASE_VIDEO_SPEED_ALT: '>',
       SKIP_N_TENTHS: '0..9',
       LAST_CHAPTER: 'ctrl+arrowleft',
       NEXT_CHAPTER: 'ctrl+arrowright',
       LAST_FRAME: ',',
       NEXT_FRAME: '.',
+      HOME: 'home',
+      END: 'end',
     }
   },
 }

@@ -43,7 +43,6 @@ Global:
   Videos: 'Videos'
   Shorts: 'Korte videos'
   Live: 'Rechtstreeks'
-  Community: 'Gemjinschap'
   Sort By: 'Azwu sorteern'
   Counts:
     Video Count: '1 video | {count} videos'
@@ -485,7 +484,6 @@ Settings:
     Hide Channels Already Exists: ''
     Hide Featured Channels: ''
     Hide Channel Playlists: ''
-    Hide Channel Community: ''
     Hide Channel Shorts: ''
     Hide Channel Podcasts: ''
     Hide Channel Releases: ''
@@ -494,7 +492,6 @@ Settings:
     Hide Subscriptions Videos: ''
     Hide Subscriptions Shorts: ''
     Hide Subscriptions Live: ''
-    Hide Subscriptions Community: ''
   Data Settings:
     Data Settings: ''
     Select Export Type: ''
@@ -703,7 +700,7 @@ Channel:
     Joined: ''
     Location: ''
     Featured Channels: ''
-  Community:
+  Posts:
     This channel currently does not have any posts: ''
     votes: ''
     View Full Post: ''
@@ -948,7 +945,6 @@ Age Restricted:
   This channel is age restricted: ''
   This video is age restricted: ''
 External link opening has been disabled in the general settings: ''
-'Blocked opening potentially unsafe URL': ''
 Downloading has completed: ''
 Starting download: ''
 Downloading failed: ''

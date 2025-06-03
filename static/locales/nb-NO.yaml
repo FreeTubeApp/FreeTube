@@ -31,7 +31,7 @@ Global:
   Videos: 'Videoer'
   Shorts: Shorts-videoer
   Live: Direktesendinger
-  Community: Fellesskap
+  Posts: Innlegg
   Sort By: Sorter etter
 
 # Search Bar
@@ -75,7 +75,7 @@ Search Filters:
   # On Search Page
     Medium (4 - 20 minutes): Middels (4–20 minutter)
   Search Results: 'Søkeresultater'
-  Fetching results. Please wait: 'Henter resultater. Vennligst vent.'
+  Fetching results. Please wait: 'Henter resultater. Vennligst vent'
   Fetch more results: 'Hent flere resultater'
 # Sidebar
   There are no more results for this search: Søket ga ingen flere resultater
@@ -410,7 +410,7 @@ Settings:
     UI Scale: Grensesnittskalering
     Disable Smooth Scrolling: Slå av jevn skrolling
     Expand Side Bar by Default: Utvidet sidefelt som standard
-    Hide Side Bar Labels: Skjul sidefeltsetiketter
+    Hide Side Bar Labels: Skjul etiketter i sidefeiltet
     Hide FreeTube Header Logo: Skjul FreeTubes tittel og logo
   Player Settings:
     Player Settings: 'Videoavspiller'
@@ -462,7 +462,7 @@ Settings:
     Scroll Playback Rate Over Video Player: Avspillingshastighet ved rulling over
       videoavspiller
     Video Playback Rate Interval: Intervall for videoavspillingshastighet
-    Enter Fullscreen on Display Rotate: Fullskjermsvisning når skjermen roteres
+    Enter Fullscreen on Display Rotate: Bytt til fullskjermsvisning når skjermen roteres
     Skip by Scrolling Over Video Player: Hopp over ved å rulle over videoavspiller
     Default Viewing Mode:
       Default Viewing Mode: Standard visningsmodus
@@ -610,22 +610,21 @@ Settings:
     Display Titles Without Excessive Capitalisation: Vis titler uten overdreven bruk
       av store bokstaver
     Hide Featured Channels: Skjul fremhevede kanaler
-    Hide Channel Community: Skjul fanen «Fellesskap» i kanaler
-    Hide Channel Shorts: Skjul fanen «Shorts» i kanaler
+    Hide Channel Shorts: Skjul «Shorts»-fanen i kanaler
     Sections:
       Side Bar: Sidefelt
       Channel Page: Kanalside
       General: Generelt
       Watch Page: Seerlogg
       Subscriptions Page: Abonnementsside
-    Hide Channel Playlists: Skjul fanen «Spillelister» i kanaler
-    Hide Channel Releases: Skjul kanalpubliseringer
-    Hide Channel Podcasts: Skjul fanen «Podcaster» i kanaler
+    Hide Channel Playlists: Skjul «Spillelister»-fanen i kanaler
+    Hide Channel Releases: Skjul «Utgivelser»-fanen i kanaler
+    Hide Channel Podcasts: Skjul «Podcaster»-fanen i kanaler
     Hide Subscriptions Videos: Skjul abonnementsvideoer
     Hide Subscriptions Shorts: Skjul Shorts
     Hide Subscriptions Live: Skjul abonnements direktesendinger
     Hide Profile Pictures in Comments: Skjul profilbilder i kommentarfeltet
-    Hide Channel Home: Skjule fanen «Start» i kanaler
+    Hide Channel Home: Skjule «Start»-fanen i kanaler
     Hide Videos and Playlists Containing Text: Skjul videoer og spillelister som inneholder
       tekst
     Hide Channels Already Exists: Kanal-ID-en finnes allerede
@@ -636,8 +635,9 @@ Settings:
     Show Added Items: Vis videoer lagt til
     Hide Channels API Error: En feil oppsto ved henting av brukeren med den oppgitte
       ID-en. Vennligst sjekk om ID-en er riktig.
-    Hide Subscriptions Community: Skjul abonnementsfellesskap
-    Hide Channel Courses: Skjul fanen «Kurs» i kanaler
+    Hide Channel Courses: Skjul «Kurs»-fanen i kanaler
+    Hide Subscriptions Posts: Skjul innlegg fra abonnementer
+    Hide Channel Posts: Skjul «Innlegg»-fanen i kanaler
   The app needs to restart for changes to take effect. Restart and apply change?: Start
     programmet på nytt for å ta i bruk endringene?
   SponsorBlock Settings:
@@ -685,7 +685,7 @@ Settings:
     Experimental Settings: Eksperimentelt
     Replace HTTP Cache: Erstatt HTTP-hurtiglager
     Warning: Disse innstillingene er eksperimentelle, og kan forårsake krasjer. Det
-      anbefales at du lager kopi av dataene dine. Bruk på egen risiko.
+      anbefales at du lager kopi av dataene dine. Bruk på egen risiko!
   Password Settings:
     Remove Password: Fjern passord
     Password Settings: Passord
@@ -766,7 +766,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Denne
     kanalen er aldersbegrenset og kan derfor ikke vises i FreeTube.
   Channel Tabs: Kanalfaner
-  Community:
+  Posts:
     This channel currently does not have any posts: Denne kanalen har ingen oppføringer
     Hide Answers: Skjul svar
     votes: '{votes} stemmer'
@@ -844,22 +844,22 @@ Video:
   Sponsor Block category:
     interaction: Samhandling
     outro: Outro
-    intro: introduksjon
-    sponsor: sponsor
+    intro: Intro
+    sponsor: Sponsor
     music offtopic: Musikkfritt segment
     self-promotion: Egenpromotering
     recap: Oppsummering
     filler: Fyllstoff
   External Player:
     Unsupported Actions:
-      shuffling playlists: omstokking av spillelister
-      opening specific video in a playlist (falling back to opening the video): åpning
-        av spesifikk video i en spilleliste (faller tilbake til åpning av videoen)
-      opening playlists: åpning av spillelister
+      shuffling playlists: spiller av spillelister i tilfeldig rekkefølge
+      opening specific video in a playlist (falling back to opening the video): åpner
+        spesifikk video i en spilleliste (faller tilbake til å åpne videoen)
+      opening playlists: åpner spillelister
       setting a playback rate: setting av avspillingshastighet
-      starting video at offset: starting av video med forskyvning
+      starting video at offset: starter video ved forskyvning
       looping playlists: gjentakelse av spillelister
-      reversing playlists: reversering av spillelister
+      reversing playlists: spiller av spilleliste baklengs
     UnsupportedActionTemplate: '{externalPlayer} støtter ikke: {action}'
     OpeningTemplate: Åpner {videoOrPlaylist} i {externalPlayer} …
     playlist: spilleliste
@@ -998,6 +998,8 @@ Comments:
   View {replyCount} replies: Vis {replyCount} svar
   Hearted: Hjertemerket
   Subscribed: Abonnert
+  There are no comments available for this post: Det er ingen kommentarer tilgjengelig
+    på denne posten
 Up Next: 'Neste'
 
 # Toast Messages
@@ -1013,7 +1015,7 @@ Playing Next Video: 'Spiller av neste video'
 Playing Previous Video: 'Spiller av forrige video'
 Canceled next video autoplay: 'Avbryter automatisk avspilling av neste video'
 'The playlist has ended. Enable loop to continue playing': 'Spillelisten har nådd
-  sin ende. Klikk på "Gjenta" for å fortsette avspillingen'
+  slutten. Klikk på «Gjenta» for å fortsette avspillingen'
 
 Yes: 'Ja'
 No: 'Nei'
@@ -1066,13 +1068,13 @@ Profile:
   Close Profile Dropdown: Lukk profilrullgardinmenyen
   Open Profile Dropdown: Åpne profilrullgardinmenyen
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Denne
-  videoen er utilgjengelig grunnet manglende formater. Dette kan skyldes tilgangbegrensninger
-  i ditt land.
+  videoen er utilgjengelig på grunn av manglende formater. Dette kan skyldes tilgangbegrensninger
+  i landet ditt.
 Tooltips:
   General Settings:
     Invidious Instance: Invidious-forekomsten FreeTube kobler til for API-kall.
-    Thumbnail Preference: Alle miniatyrbilder i FreeTube vil bli erstattet av et bilde
-      av videoen i stedet for standard miniatyrbildet.
+    Thumbnail Preference: Alle miniatyrbilder i FreeTube vil bli erstattet av et enkeltbilde
+      fra videoen som har blitt skjult eller blurret, i stedet for standard miniatyrbildet.
     Fallback to Non-Preferred Backend on Failure: Når ditt foretrukne API har et problem,
       vil FreeTube automatisk prøve å bruke ditt ikke-foretrukne API som en reservemetode
       dersom det er aktivert.
@@ -1087,14 +1089,14 @@ Tooltips:
       omdirigeringer fra nettleseren eller via terminalprosesser, åpnes i et nytt
       vindu.
   Subscription Settings:
-    Fetch Feeds from RSS: Bruk RSS istedenfor FreeTube sin forvalgte metode for innhenting
-      av din abonnementsstrøm. RSS er raskere og forhindrer IP-blokkering, men mangler
-      noe informasjon som videovarighet og sanntidsstatus.
-    Fetch Automatically: Henter abonnementer når en ny video åpnes og ved bytting
-      av profil.
+    Fetch Feeds from RSS: Bruk RSS istedenfor FreeTube sin standardmetode for innhenting
+      av abonnementsstrømmen din. RSS er raskere og forhindrer IP-blokkering, men
+      mangler noe informasjon som videovarighet, sanntidsstatus og innlegg
+    Fetch Automatically: Hent abonnementer når programmet starter og når et nytt vindu
+      åpnes.
   Player Settings:
     Default Video Format: Velg formater som blir brukt når en video spilles. DASH-formater
-      kan spilles i høyere kvalitet. Foreldede formater er begrenset opptil 720p,
+      kan spilles i høyere kvalitet. Foreldede formater er begrenset opptil 360p,
       men bruker mindre båndbredde. Lydformater er kun lydstrømmer.
     Proxy Videos Through Invidious: Kobler til Invidious for å servere videoer istedenfor
       å koble direkte til YouTube.
@@ -1106,8 +1108,8 @@ Tooltips:
       venstreklikk på musen for å gå tilbake til den vanlige avspillingshastighet
       (1x med mindre det har blitt endret i innstillingene).
   External Player Settings:
-    Custom External Player Arguments: Alle egendefinerte kommandolinjeargumenter,
-      semikoloninndelt («;») du ønsker å sende til den eksterne avspilleren.
+    Custom External Player Arguments: Alle egendefinerte kommandolinjeargumenter du
+      ønsker å sende til den eksterne avspilleren.
     Ignore Warnings: Skjuler advarsler når nåværende eksterne avspiller ikke støtter
       den gjeldende handlingen (f.eks. reversering av spillelister, osv.).
     Custom External Player Executable: Som standard vil FreeTube anta at den valgte
@@ -1116,19 +1118,26 @@ Tooltips:
     External Player: Hvis en velger å bruke ekstern avspiller, vises et ikon for åpning
       av video (eller spilleliste hvis det støttes) i den eksterne avspilleren, i
       miniatyrbildet. Invidious-innstillinger gjelder ikke for eksterne avspillere.
-    DefaultCustomArgumentsTemplate: "(Forvalg: '{defaultCustomArguments}')"
+    DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Ikke send noen standardargumenter til den eksterne spilleren
+      utenom videolenken (f.eks avspillingshastighet, spillelistelenke, osv.). Egenvalgte
+      argumenter vil fortsatt bli videresendt.
   Experimental Settings:
     Replace HTTP Cache: Skrur av Electrons diskbaserte HTTP-hurtiglager og skrur på
       bildehurtiglager i minne. Medfører økt minnebruk.
   Distraction Free Settings:
-    Hide Channels: Skiv inn et kanalnavn eller kanal-ID for å skjule alle videoer,
-      spillelister og selve kanalen fra å vises i søk eller på vei opp. Kanalnavnet
-      som skrives inn må være et nøyaktig treff, og gjør forskjell på små og store
-      bokstaver.
+    Hide Channels: Skiv inn en kanal-ID for å skjule alle videoer, spillelister og
+      selve kanalen fra å vises i søk eller andre steder. Kanal-ID-en må være et nøyaktig
+      treff, og skiller mellom små og store bokstaver.
     Hide Subscriptions Live: Innstillingen overstyres av «{appWideSetting}» for hele
       programmet, i «{subsection}»-delen av «{settingsSection}»
+    Hide Videos and Playlists Containing Text: Tast inn et ord, en del av et ord eller
+      en frase (det skilles ikke mellom store og små bokstaver) for å gjemme alle
+      videoer og spillelister med det i seg, med unntak av i historikken din, og videoer
+      inne i spillelister.
   SponsorBlock Settings:
     UseDeArrowTitles: Erstatt videonavn med brukerinnsendte navn fra DeArrow.
+    UseDeArrowThumbnails: Erstatt miniatyrbilder på videoer med bilder fra DeArrow.
 A new blog is now available, {blogTitle}. Click to view more: Et nytt blogginnlegg
   er tilgjengelig, {blogTitle}. Klikk her for å se mer
 The playlist has been reversed: Spillelisten har blitt snudd
@@ -1142,11 +1151,11 @@ More: Mer
 Unknown YouTube url type, cannot be opened in app: Ukjent YouTube-nettadressetype,
   kan ikke åpnes i programmet
 Open New Window: Åpne et nytt vindu
-Default Invidious instance has been cleared: Fjernet forvalgt Invidious-instans
-Default Invidious instance has been set to {instance}: Forvalgt Invidious-instans
+Default Invidious instance has been cleared: Fjernet standard Invidious-instans
+Default Invidious instance has been set to {instance}: Standard Invidious-instans
   satt til {instance}
 External link opening has been disabled in the general settings: Åpning av eksterne
-  lenker er avskrudd i de generelle innstillingene
+  lenker er skrudd av i de generelle innstillingene
 Search Bar:
   Clear Input: Tøm inndata
   Remove: Fjern
@@ -1166,17 +1175,17 @@ Chapters:
   'Chapters list hidden, current chapter: {chapterName}': 'Kapittelliste skjult. Nåværende
     kapittel: {chapterName}'
   Key Moments: Høydepunkter
-Screenshot Success: Lagre skjermavbildning som «{filePath}»
+Screenshot Success: Lagret skjermbilde
 Screenshot Error: Skjermavbildning mislyktes. {error}
 Ok: OK
 Preferences: Innstillinger
 Downloading failed: Kunne ikke laste ned «{videoTitle}»
-Starting download: Starter nedlasting av «{videoTitle}» …
+Starting download: Starter nedlasting av «{videoTitle}»
 Clipboard:
   Cannot access clipboard without a secure connection: Får ikke tilgang til utklippstavlen
     uten sikker forbindelse
   Copy failed: Kunne ikke kopiere til utklippstavlen
-Downloading has completed: «{videoTitle}» er nedlastet
+Downloading has completed: «{videoTitle}» har blitt lastet ned
 Hashtag:
   Hashtag: Emneknagg
   This hashtag does not currently have any videos: Denne emneknaggen har ingen videoer
@@ -1221,7 +1230,7 @@ Search character limit: Søket ditt har for mange tegn. Grensen er på {searchCh
 KeyboardShortcutPrompt:
   Last Chapter: Forrige kapittel
   Next Chapter: Neste kapittel
-  Navigate to History: Naviger til historie
+  Navigate to History: Naviger til historikk
   Fullscreen: Fullskjermsvisning
   Sections:
     Video:
@@ -1231,42 +1240,58 @@ KeyboardShortcutPrompt:
       Situational: 'App: Situasjonsmessig'
       General: App: Generelt
   Show Keyboard Shortcuts: Vis tastatursnarveier
-  Large Rewind: Spol tilbake 10 sekunder/ spol tilbake video basert på gjeldende videoavspillingshastighet
+  Large Rewind: Spol tilbake 10 sekunder / Spol tilbake video basert på gjeldende
+    videoavspillingshastighet
   Play: Spill av/pause
   Refresh: Oppdater feed med siste innhold
-  Focus Secondary Search: Fokuser på sekundært søkefelt (om synlig)
+  Focus Secondary Search: Fokuser på det sekundære søkefeltet (hvis synlig)
   Captions: Slå bildetekst PÅ/AV
   Stats: Vis videostatistikk
-  Picture in Picture: veksle Bilde-i-bilde modus
-  Large Fast Forward: Spol fremover 10 sekunder/ spol video basert på gjeldende videoavspillingshastighet
-  Increase Video Speed: Øk video hastighet basert på gjeldende avspillingshastighetsintervallet
-  Full Window: Fullt vindu
-  Close Window: Lukk vindu
-  Restart Window: Start vindu på nytt
-  Volume Down: Senk volum
+  Picture in Picture: Veksle Bilde-i-bilde modus
+  Large Fast Forward: Spol fremover 10 sekunder / spol video basert på gjeldende videoavspillingshastighet
+  Increase Video Speed: Øk videohastighet basert på gjeldende avspillingshastighetsintervallet
+  Full Window: Fullt vindu av/på
+  Close Window: Lukk vinduet
+  Restart Window: Start vinduet på nytt
+  Volume Down: Senk volumet
   Zoom In: Zoom inn
   Zoom Out: Zoom ut
-  Next Frame: Neste ramme (pauset)
-  Volume Up: Øk volum
+  Next Frame: Neste bilde (pauset)
+  Volume Up: Øk volumet
   Focus Search: Fokuser på søkefeltet
   Search in New Window: Søk i et nytt vindu
-  Last Frame: Forrige ramme (pauset)
+  Last Frame: Forrige bilde (pauset)
   Reset Zoom: Tilbakestill zoom nivå / UI-skala
   Skip by Tenths: Hopp gjennom videoen basert på prosent (3 hopp for 30% av varigheten)
-  Small Rewind: Spol tilbake X sekunder basert på spoleintervallet og satt avspillingshastighet
-  Small Fast Forward: Spol fremover X sekunder basert på spole fremover intervallet
-    og satt avspillingshastighet
-  Decrease Video Speed: Senk video hastighet basert på gjeldende avspillingshastighetsintervallet
+  Small Rewind: Spol tilbake X sekunder basert på spoleintervallet og gjeldende avspillingshastighet
+  Small Fast Forward: Spol fremover X sekunder basert på spoleintervallet og gjeldende
+    avspillingshastighet
+  Decrease Video Speed: Senk videohastighet basert på gjeldende avspillingshastighetsintervallet
   Take Screenshot: Ta et skjermbilde
-  Mute: Slå av lyd
+  Mute: Slå lyd av/på
   History Backward: Gå tilbake en side
   New Window: Opprett nytt vindu
   Navigate to Settings: Naviger til innstillinger
   Keyboard Shortcuts: Tastatursnarveier
   History Forward: Gå fremover en side
   Toggle Developer Tools: Utviklerverktøy
-Moments Ago: Øyeblikk siden
+  Minimize Window: Minimer vinduet
+  Force Restart Window: Tving vinduet til å starte på nytt
+  Theatre Mode: Skru teatermodus av/på
+  End: Gå til slutten av videoen
+  Home: Gå til starten av videoen
+Moments Ago: for et øyeblikk siden
 shortcutLabelSeparator: ｜
 Description:
   Expand Description: '...mer'
   Collapse Description: Vis mindre
+Autoplay Interruption Timer: Automatisk avspilling stoppet på grunn av {autoplayInterruptionIntervalHours}
+  timer med inaktivitet
+Age Restricted:
+  This video is age restricted: Denne videoen er aldersbegrenset
+  This channel is age restricted: Denne kanalen er aldersbegrenset
+Channel Hidden: '{channel} lagt til i kanalfilteret'
+Channel Unhidden: '{channel} fjernet fra kanalfilteret'
+Tag already exists: «{tagName}»-taggen eksisterer allerede
+Trimmed input must be at least N characters long: Trimmet input må være minst ett
+  tegn langt | Trimmet input må være minst {length} tegn langt

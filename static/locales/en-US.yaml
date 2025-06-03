@@ -44,7 +44,7 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: Live
-  Community: Community
+  Posts: Posts
   Sort By: Sort By
   Counts:
     Video Count: 1 video | {count} videos
@@ -568,7 +568,7 @@ Settings:
     Hide Channels Already Exists: Channel ID already exists
     Hide Featured Channels: Hide Featured Channels
     Hide Channel Playlists: Hide Channel "Playlists" Tab
-    Hide Channel Community: Hide Channel "Community" Tab
+    Hide Channel Posts: Hide Channel "Posts" Tab
     Hide Channel Home: Hide Channel "Home" Tab
     Hide Channel Shorts: Hide Channel "Shorts" Tab
     Hide Channel Podcasts: Hide Channel "Podcasts" Tab
@@ -579,7 +579,7 @@ Settings:
     Hide Subscriptions Videos: Hide Subscriptions Videos
     Hide Subscriptions Shorts: Hide Subscriptions Shorts
     Hide Subscriptions Live: Hide Subscriptions Live
-    Hide Subscriptions Community: Hide Subscriptions Community
+    Hide Subscriptions Posts: Hide Subscriptions Posts
     Show Added Items: Show Added Items
   Data Settings:
     Data Settings: Data
@@ -820,7 +820,7 @@ Channel:
     Joined: Joined
     Location: Location
     Featured Channels: Featured Channels
-  Community:
+  Posts:
     This channel currently does not have any posts: This channel currently does not have any posts
     votes: '{votes} votes'
     View Full Post: View Full Post
@@ -1046,7 +1046,7 @@ Tooltips:
       FreeTube will automatically attempt to use your non-preferred API as a fallback
       method when enabled.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
-      a frame of the video instead of the default thumbnail.
+      a frame of the video, blurred or hidden instead of the default thumbnail.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
       calls.
     Region for Trending: The region of trends allows you to pick which country's trending
@@ -1060,7 +1060,7 @@ Tooltips:
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
       of making a direct connection to YouTube.
     Default Video Format: Set the formats used when a video plays. DASH formats can
-      play higher qualities. Legacy formats are limited to a max of 720p but use less
+      play higher qualities. Legacy formats are limited to a max of 360p but use less
       bandwidth. Audio formats are audio only streams.
     Scroll Playback Rate Over Video Player: While the cursor is over the video, press and
       hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards or backwards to control
@@ -1088,9 +1088,9 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
-      but doesn't provide certain information like video duration, live status or community posts
+      but doesn't provide certain information like video duration, live status or posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch
-      your subscription feed when a new window is opened and when switching profile.
+      your subscription feed on startup and when a new window is opened.
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
   SponsorBlock Settings:
@@ -1125,7 +1125,6 @@ Age Restricted:
   This channel is age restricted: This channel is age restricted
   This video is age restricted: This video is age restricted
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
-'Blocked opening potentially unsafe URL': 'Blocked opening potentially unsafe URL: "{url}".'
 Downloading has completed: '"{videoTitle}" has finished downloading'
 Starting download: 'Starting download of "{videoTitle}"'
 Downloading failed: 'There was an issue downloading "{videoTitle}"'
@@ -1214,3 +1213,5 @@ KeyboardShortcutPrompt:
   Last Chapter: Last Chapter
   Next Chapter: Next Chapter
   Skip by Tenths: Skip through video by percentage (3 skips to 30% of duration)
+  Home: Seek to the beginning of the video
+  End: Seek to the end of the video

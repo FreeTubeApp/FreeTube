@@ -31,7 +31,7 @@ Global:
   Videos: 'Videoclipuri'
   Shorts: Shorts
   Live: Live
-  Community: Comunitate
+  Posts: Postări
   Sort By: Sortează după
   Counts:
     Video Count: 1 videoclip | {count} videoclipuri
@@ -250,6 +250,7 @@ User Playlists:
   The playlist has been successfully exported: Lista de redare a fost exportată cu
     succes
   Quick Bookmark Enabled: Marcaj rapid activat
+  TotalTimePlaylist: 'Timp total: {duration}'
 History:
   # On History Page
   History: 'Istoric'
@@ -514,6 +515,16 @@ Settings:
       că doriți să ștergeți istoricul căutărilor și memoria cache?
     Remember Search History: Reține istoricul căutărilor
     Clear Search History and Cache: Ștergeți istoricul căutărilor și memoria cache
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Automat
+        Never: Niciodată
+        Semi-auto: Semi-automat
+      Tooltip: Automat = Salvează la fiecare ieșire de pe pagina video, când video-ul
+        se termină și când apare o eroare (de exemplu, limitare de viteză sau sesiune
+        de vizionare expirată). Semi-automat = Ca și Automat, cu excepția ieșirii
+        de pe pagina video și permite salvarea progresului manual printr-un buton
+        numit "Salvează progresul vizionat", aflat sub player-ul video.
   Subscription Settings:
     Subscription Settings: 'Abonament'
     Hide Videos on Watch: 'Ascunde videoclipurile la vizionare'
@@ -620,7 +631,6 @@ Settings:
     Hide Subscriptions Videos: Ascundeți Abonamente Videoclipuri
     Hide Subscriptions Live: Ascundeți Abonamente Live
     Hide Channels: Ascundeți videoclipurile din canale
-    Hide Channel Community: Ascunde fila „Comunitate” canal
     Hide Channel Shorts: Ascundeți fila "Shorts" a canalului
     Hide Featured Channels: Ascundeți canalele recomandate
     Hide Channels Placeholder: ID-ul canalului
@@ -640,7 +650,8 @@ Settings:
     Hide Channels API Error: Eroare la preluarea utilizatorului cu ID-ul furnizat.
       Vă rugăm să verificați din nou dacă ID-ul este corect.
     Hide Channel Courses: Ascunde fila „Cursuri” a canalului
-    Hide Subscriptions Community: Ascunde comunitatea abonamentelor
+    Hide Channel Posts: Ascunde tab-ul "Postări" al canalului
+    Hide Subscriptions Posts: Ascunde postările din abonații
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificare atunci când segmentul sponsorului
       este sărit
@@ -826,8 +837,8 @@ Channel:
     Tags:
       Search for: Căutați "{tag}"
       Tags: Tags
-  Community:
-    Community: Comunitate
+  Posts:
+    Posts: Postări
     This channel currently does not have any posts: Acest canal nu are momentan nicio
       postare
     Reveal Answers: Dezvăluie Răspunsuri
@@ -960,24 +971,24 @@ Video:
       Player Dimensions: 'Dimensiuni player: {width}x{height}'
       Dropped Frames / Total Frames: 'Cadre eliminate: {droppedFrames} / Total cadre:
         {totalFrames}'
-      CodecsVideoAudio: 'Codecuri: {Codec video} ({etichetă video}) / {Codec audio}
-        ({Itag audio})'
-      CodecAudio: 'Codec: {codec audio} ({etichetă audio})'
-      CodecsVideoAudioNoItags: 'Codecuri: {Codec video} / {Codec audio}'
+      CodecsVideoAudio: 'Codecuri: {videoCodec} ({videoItag}) / {audioCodec}
+        ({audioItag})'
+      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Codecuri: {videoCodec} / {audioCodec}'
       Stats: Statistici
       Video ID: 'ID videoclip: {videoId}'
       Media Formats: 'Formate media: {formate}'
       Bitrate: 'Rată de biți: {bitrate} kbps'
-      Volume: 'Volum: {volum Procentage}%'
+      Volume: 'Volum: {volumePercentage}%'
       Bandwidth: 'Lățime de bandă: {bandwidth} kbps'
-      Buffered: 'Buffered: {buffered Procentage}%'
+      Buffered: 'Buffered: {bufferedPercentage}%'
     Show Stats: Afișează statistici
     Hide Stats: ascunde statistici
     You appear to be offline: Pari a fi offline.
     Playback will resume automatically when your connection comes back: Redarea se
       va relua automat când se reia conexiunea.
-    Skipped segment: Segment {segment Category} omis
-    TranslatedCaptionTemplate: '{limba} (tradus din „{limba originală}”)'
+    Skipped segment: Segment {segmentCategory} omis
+    TranslatedCaptionTemplate: '{language} (tradus din „{originalLanguage}”)'
     Full Window: Fereastra plină
     Exit Full Window: Ieșiți din fereastra completă
   More Options: Mai multe opțiuni
@@ -997,6 +1008,8 @@ Video:
     Show Modified Details: Afișați detaliile modificate
   IP block: YouTube a blocat adresa dvs. IP pentru a nu viziona videoclipuri. Vă rugăm
     să încercați să comutați la un alt VPN sau proxy.
+  Save Watched Progress: Salvează progresul vizionat
+  Watched Progress Saved: Progresul vizionat a fost salvat
 Playlist:
   #& About
   View Full Playlist: 'Vezi lista de redare completă'
@@ -1324,8 +1337,6 @@ Keys:
   ctrl: ctrl
   arrowdown: Săgeată în jos
 checkmark: ✓
-'Blocked opening potentially unsafe URL': 'Blocarea deschiderii URL potențial nesigure:
-  „{url}”.'
 Yes, Delete: da, șterge
 Yes, Open Link: Da, Link deschis
 Display Label: '{label}: {valoare}'

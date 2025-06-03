@@ -28,7 +28,7 @@ Global:
   Videos: '動画'
   Shorts: ショート動画
   Live: ライブ配信
-  Community: コミュニティ
+  Posts: 投稿
   Sort By: 並び替え
 
 # Search Bar
@@ -504,9 +504,9 @@ Settings:
     Playlist File: 再生リスト
     Export Playlists For Older FreeTube Versions:
       Label: 古いバージョンの FreeTube 用に再生リストをエクスポートする
-      Tooltip: "このオプションは、すべての再生リストから動画をエクスポートし、1つの再生リスト「Favorites」にまとめます。\n古いバージョンのFreeTube用に再生リストの動画をエクスポートおよびインポートする方法は以下の通りです：\n
-        1. このオプションを有効にして再生リストをエクスポートします。\n2. プライバシー設定の「再生リストをすべて削除」オプションを使用して、既存のすべての再生リストを削除します。\n
-        3. 古いバージョンのFreeTubeを起動し、エクスポートした再生リストをインポートします。"
+      Tooltip: "このオプションは、すべての再生リストから動画をエクスポートし、1つの再生リスト「Favorites」にまとめます。\n古いバージョンのFreeTube用に再生リストの動画をエクスポートおよびインポートする方法は以下の通りです：\n\
+        \ 1. このオプションを有効にして再生リストをエクスポートします。\n2. プライバシー設定の「再生リストをすべて削除」オプションを使用して、既存のすべての再生リストを削除します。\n\
+        \ 3. 古いバージョンのFreeTubeを起動し、エクスポートした再生リストをインポートします。"
   Distraction Free Settings:
     Hide Live Chat: ライブチャットの非表示
     Hide Popular Videos: 人気動画の非表示
@@ -529,7 +529,6 @@ Settings:
     Hide Channels Placeholder: チャンネル ID
     Display Titles Without Excessive Capitalisation: 過剰な大文字や句読点のないタイトルの表示
     Hide Channel Playlists: チャンネルの「再生リスト」タブを隠す
-    Hide Channel Community: チャンネルの「コミュニティ」タブを隠す
     Sections:
       Side Bar: サイドバー
       Channel Page: チャンネル ページ
@@ -544,7 +543,6 @@ Settings:
     Hide Subscriptions Videos: 登録チャンネルの動画の非表示
     Hide Channel Releases: チャンネルの「新着情報」タブを隠す
     Hide Profile Pictures in Comments: コメント欄のプロフィール写真を隠す
-    Hide Subscriptions Community: 登録チャンネルのコミュニティの非表示
     Hide Channels Invalid: 提供されたチャンネル ID が無効です
     Hide Channels Disabled Message: 一部のチャンネルが ID を使用してブロックされ、処理されませんでした。これらの ID が更新されている間、機能はブロックされます
     Hide Channels Already Exists: チャンネル ID は既に存在します
@@ -554,6 +552,8 @@ Settings:
     Hide Channel Home: チャンネルの「ホーム」タブを隠す
     Show Added Items: 追加された項目を表示
     Hide Channel Courses: チャンネルの「コース」タブを隠す
+    Hide Channel Posts: チャンネルの「投稿」タブを隠す
+    Hide Subscriptions Posts: 登録チャンネルの投稿を隠す
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -688,7 +688,7 @@ Channel:
   Added channel to your subscriptions: チャンネルを登録しました
   Channel has been removed from your subscriptions: チャンネルがあなたの登録チャンネルから削除されました
   Removed subscription from {count} other channel(s): ほかの {count} チャンネルから登録を削除しました
-  Community:
+  Posts:
     This channel currently does not have any posts: このチャンネルには現在投稿がありません
     votes: '{votes} 投票'
     Reveal Answers: 回答を表示
@@ -976,11 +976,11 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 有効にすると、FreeTube は通常の方法の代わりに RSS を使用して購読フィードを取得します。RSS は高速で
-      IP ブロックを防ぎますが、動画の長さやライブ配信の情報、コミュニティ投稿などの情報は提供されません
-    Fetch Automatically: 有効にすると、FreeTube は新しいウィンドウを開くとき、およびプロファイルを切り替えるときに、登録チャンネル
-      フィードを自動的に取得します。
+      IP ブロックを防ぎますが、動画の長さやライブ配信などの情報は提供されません
+    Fetch Automatically: 有効にすると、FreeTube は起動時や新しいウィンドウを開いたときに自動的に登録チャンネルフィードを取得します。
   Player Settings:
-    Default Video Format: 動画再生で使用する形式の設定です。DASH 形式であれば高品質で再生できます。旧形式だと、最大 720p に制限されますが、使用する帯域幅を減らせます。音声形式は音声のみです。
+    Default Video Format: 
+      動画を再生する際に使用する形式を設定します。DASH形式はより高い画質で再生できます。旧形式は最大360pに制限されますが、帯域幅の使用量が少なくなります。音声形式は音声のみです。
     Proxy Videos Through Invidious: YouTube に直接接続するのではなく、Invidious を通じて動画を提供します。
     Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control
       キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
@@ -989,7 +989,7 @@ Tooltips:
     Invidious Instance: FreeTube が API 呼び出しのために接続する Invidious のインスタンスです。
     Preferred API Backend: FreeTube がデータを取得するために使用する方法を選択してください。内部 API はアプリ内蔵の取得機能です。
       Invidious API は、 Invidious サーバーへの接続が必要です。
-    Thumbnail Preference: FreeTube のすべてのサムネイルを、元のサムネイルの代わりに動画の 1 コマに置き換えます。
+    Thumbnail Preference: FreeTube 全体のすべてのサムネイルが、デフォルトのサムネイルの代わりに動画のフレームに置き換えられ、ぼかされるか非表示になります。
     Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube
       は自動的に他の API での取得を試みます。
     Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。
@@ -1088,7 +1088,6 @@ Age Restricted:
   This channel is age restricted: このチャンネルには年齢制限があります
 Trimmed input must be at least N characters long: トリミングされた入力は少なくとも1文字以上でなければなりません
   | トリミングされた入力は少なくとも {length} 文字以上でなければなりません
-'Blocked opening potentially unsafe URL': '安全でない可能性のあるURLをブロックしました： "{url}"。'
 Display Label: '{label}：{value}'
 KeyboardShortcutTemplate: '{label} （{shortcut}）'
 shortcutJoinOperator: +
@@ -1156,4 +1155,6 @@ KeyboardShortcutPrompt:
   Last Chapter: 前のチャプター
   Next Chapter: 次のチャプター
   Skip by Tenths: 動画をパーセンテージでスキップ (3回スキップで全体の30%に移動)
+  Home: 動画の冒頭を見る
+  End: 動画の最後を見る
 shortcutLabelSeparator: ｜

@@ -96,7 +96,7 @@
             class="subscriptionIcon"
             fixed-width
           />
-          {{ $t("Global.Community") }}
+          {{ $t("Global.Posts") }}
         </div>
       </FtFlexBox>
       <SubscriptionsVideos

@@ -54,7 +54,7 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 import FtCard from '../ft-card/ft-card.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../FtChannelBubble/FtChannelBubble.vue'
-import FtButton from '../ft-button/ft-button.vue'
+import FtButton from '../FtButton/FtButton.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 
 import store from '../../store/index'

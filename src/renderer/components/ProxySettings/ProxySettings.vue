@@ -98,15 +98,14 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
-import FtButton from '../ft-button/ft-button.vue'
+import FtButton from '../FtButton/FtButton.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
-import FtLoader from '../ft-loader/ft-loader.vue'
+import FtLoader from '../FtLoader/FtLoader.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 
 import store from '../../store/index'
 
-import { IpcChannels } from '../../../constants'
 import { debounce, showToast } from '../../helpers/utils'
 
 const { locale, t } = useI18n()
@@ -233,8 +232,7 @@ function handleUpdateProxyPort(value) {
 
 function enableProxy() {
   if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.send(IpcChannels.ENABLE_PROXY, proxyUrl.value)
+    window.ftElectron.enableProxy(proxyUrl.value)
   }
 }
 
@@ -242,8 +240,7 @@ const debouncedEnableProxy = debounce(enableProxy, 200)
 
 function disableProxy() {
   if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.send(IpcChannels.DISABLE_PROXY)
+    window.ftElectron.disableProxy()
   }
 
   dataAvailable.value = false

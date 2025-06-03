@@ -216,7 +216,7 @@
             @keydown.left.right="focusTab('community', $event)"
             @keydown.enter.space.prevent="changeTab('community')"
           >
-            {{ $t("Global.Community").toUpperCase() }}
+            {{ $t("Global.Posts").toUpperCase() }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
