@@ -54,34 +54,36 @@
       -->
     </div>
     <div class="videoButtons">
-      <div
-        class="profileRow"
-      >
-        <div>
-          <router-link
-            :to="`/channel/${channelId}`"
-          >
-            <img
-              :src="channelThumbnail"
-              class="channelThumbnail"
-              alt=""
+      <div v-if="!hideChannelLink">
+        <div
+          class="profileRow"
+        >
+          <div>
+            <router-link
+              :to="`/channel/${channelId}`"
             >
-          </router-link>
-        </div>
-        <div>
-          <router-link
-            :to="`/channel/${channelId}`"
-            class="channelName"
-          >
-            {{ channelName }}
-          </router-link>
-          <ft-subscribe-button
-            v-if="!hideUnsubscribeButton"
-            :channel-id="channelId"
-            :channel-name="channelName"
-            :channel-thumbnail="channelThumbnail"
-            :subscription-count-text="subscriptionCountText"
-          />
+              <img
+                :src="channelThumbnail"
+                class="channelThumbnail"
+                alt=""
+              >
+            </router-link>
+          </div>
+          <div>
+            <router-link
+              :to="`/channel/${channelId}`"
+              class="channelName"
+            >
+              {{ channelName }}
+            </router-link>
+            <ft-subscribe-button
+              v-if="!hideUnsubscribeButton"
+              :channel-id="channelId"
+              :channel-name="channelName"
+              :channel-thumbnail="channelThumbnail"
+              :subscription-count-text="subscriptionCountText"
+            />
+          </div>
         </div>
       </div>
       <div class="videoOptions">
