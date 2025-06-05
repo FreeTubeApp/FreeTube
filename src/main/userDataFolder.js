@@ -7,7 +7,9 @@ import {
 } from '../constants'
 
 const DEFAULT_USER_DATA_PATH = app.getPath('userData')
-const APP_FOLDER_PATH = path.dirname(process.execPath)
+// For portable version (single executable) the config should be stored next to that executable file
+// Otherwise use the folder of many files (with `FreeTube.exe` in it)
+const APP_FOLDER_PATH = process.env.PORTABLE_EXECUTABLE_DIR ?? path.dirname(process.execPath)
 const APP_FOLDER_USER_DATA_PATH = path.join(APP_FOLDER_PATH, 'userData')
 const USER_DATA_IN_APP_FOLDER_SWITCH_FILE_PATH = path.join(APP_FOLDER_PATH, STORE_USER_DATA_IN_APP_FOLDER_SWITCH_FILENAME)
 const TO_BE_MIGRATED_FILES = [
