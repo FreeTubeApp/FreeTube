@@ -27,7 +27,7 @@ Close: 'suilt'
 Back: 'Terug'
 Forward: 'vorentoe'
 Open New Window: 'Maak nuwe venster oop'
-Go to page: 'Gaan na {bladsy}'
+Go to page: 'Gaan na {page}'
 Close Banner: 'Sluit baniere'
 
 Version {versionNumber} is now available!  Click for more details: 'Weergawe {versionNumber}
@@ -1171,7 +1171,7 @@ Screenshot Error: 'Skermkiekie het misluk. {error}'
 Channel Hidden: '{channel} tot kanaalfilter toegevoeg'
 Channel Unhidden: '{channel} verwyder uit kanaalfilter'
 Trimmed input must be at least N characters long: 'Bygesnyde invoer moet ten minste
-  1 karakter lank wees | Bygesnyde invoer moet ten minste {lentgh} karakters lank
+  1 karakter lank wees | Bygesnyde invoer moet ten minste {length} karakters lank
   wees'
 Tag already exists: 'Etiket “{tagName}” bestaan reeds'
 

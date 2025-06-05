@@ -1175,7 +1175,7 @@ Screenshot Error: 'Tapadenn skramm c''hwitet. {error}'
 Channel Hidden: '{channel} ouzhpennet da sil ar chadennoù'
 Channel Unhidden: '{channel} dilamet deus sil ar chadennoù'
 Trimmed input must be at least N characters long: 'An destenn bevennet a rank bezañ
-  1 arouezenn enni da nebeutañ | An destenn bevennet a rank bezañ {number} arouezenn
+  1 arouezenn enni da nebeutañ | An destenn bevennet a rank bezañ {length} arouezenn
   enni da nebeutañ'
 Tag already exists: 'Bez ez eus dija deus an dikedenn "{tagName}"'
 

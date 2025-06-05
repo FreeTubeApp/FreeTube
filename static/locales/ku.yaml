@@ -138,7 +138,7 @@ User Playlists:
     Allow Adding Duplicate Video(s): ڕێگە بدە بە زیادکردنی ڤیدیۆ(ەکان)ی دووبارە
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
       ڤیدیۆکان پێشتر زیادکراون'
-    Added {count} Times: “پێشتر زیاد کراوە | زیادکرا {ژمارە} کاتەکان
+    Added {count} Times: “پێشتر زیاد کراوە | زیادکرا {count} کاتەکان
     Save: هەڵگرتن
     N playlists selected: '{playlistCount} هەڵبژێردراوە'
     Search in Playlists: لە پلەی لیستەکاندا بگەڕێ
@@ -225,7 +225,7 @@ User Playlists:
     EarliestCreatedFirst: سەرەتاییترین دروستکراوە
     EarliestUpdatedFirst: زووترین نوێکراوەتەوە
     EarliestPlayedFirst: زووترین یاری
-  TotalTimePlaylist: 'کۆی گشتی کات: {ماوە}'
+  TotalTimePlaylist: 'کۆی گشتی کات: {duration}'
   Playlists with Matching Videos: پلەی لیستەکان لەگەڵ ڤیدیۆی هاوتا
   Edit Playlist Info: دەستکاریکردنی زانیاری پلەی لیست
   Delete Playlist: سڕینەوەی پلەی لیست
@@ -512,7 +512,7 @@ Channels:
   Unsubscribe Prompt: ئایا دڵنیای کە دەتەوێت بەشداریکردن لە "{channelName}" هەڵبوەشێنیتەوە؟
   Channels: کەناڵەکان
   Title: لیستی کەناڵەکان
-  Count: '{ژمارە} کەناڵ(ەکان) دۆزرایەوە.'
+  Count: '{number} کەناڵ(ەکان) دۆزرایەوە.'
 Right-click or hold to see history: کلیک لە ڕاست یان هەڵبژاردن بەدوورەوە بۆ بینینی
   مێژووی
 Search Listing:
@@ -535,8 +535,8 @@ KeyboardShortcutPrompt:
   Zoom Out: زووم کردنە دەرەوە
   Fullscreen: شاشەکەت پرکەرەوە
 Feed:
-  Feed Last Updated: '{feedName} فید دوایین نوێکردنەوە: {بەروار}'
-  Refresh Feed: نوێکردنەوە {ناوی بەشداریکردن}
+  Feed Last Updated: '{feedName} فید دوایین نوێکردنەوە: {date}'
+  Refresh Feed: نوێکردنەوە {subscriptionName}
 More: زیاتر
 Search character limit: پرسیاری گەڕان لە سەرووی سنووری کاراکتەری {searchCharacterLimit}
   دایە

@@ -368,8 +368,8 @@ Global:
     Video Count: 1 video | {count} video
     Watching Count: 1 baxır | {count} baxır
     Channel Count: 1 kanal | {count} kanal
-    Like Count: 1 bəyəni | {sayı} bəyənmələr
-    Comment Count: 1 şərh | {sayı} şərhlər
+    Like Count: 1 bəyəni | {count} bəyənmələr
+    Comment Count: 1 şərh | {count} şərhlər
   Videos: Videolar
   Live: Canlı
   Posts: Postlar
@@ -396,7 +396,7 @@ Feed:
   Feed Last Updated: '{feedName} axının son yeniləmə: {date}'
   Refresh Feed: '{subscriptionName} / yenilə'
 Search character limit: Axtarış sorğusu {searchCharacterLimit} simvol həddindən çoxdur
-Go to page: '{Page} səhifəyə keç'
+Go to page: '{page} səhifəyə keç'
 Close Banner: Banneri Bağla
 Display Label: '{label}: {value}'
 Yes, Delete: Bəli, Sil
