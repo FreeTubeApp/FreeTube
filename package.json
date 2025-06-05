@@ -50,6 +50,7 @@
     "pack:web": "webpack --mode=production --node-env=production --config _scripts/webpack.web.config.js",
     "pack:botGuardScript": "webpack --config _scripts/webpack.botGuardScript.config.js",
     "postinstall": "yarn run --silent patch-shaka",
+    "checkforbadtemplates": "node _scripts/findMissingTemplates.mjs",
     "ci": "yarn install --silent --frozen-lockfile --network-concurrency 1"
   },
   "dependencies": {
