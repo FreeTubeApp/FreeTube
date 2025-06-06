@@ -39,7 +39,7 @@ const config = {
     level: isDevMode ? 'info' : 'none'
   },
   output: {
-    libraryTarget: 'commonjs2',
+    scriptType: 'text/javascript',
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
   },
@@ -191,7 +191,7 @@ const config = {
     },
     extensions: ['.js', '.vue']
   },
-  target: 'electron-renderer',
+  target: 'web',
 }
 
 if (isDevMode) {

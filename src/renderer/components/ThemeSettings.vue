@@ -107,7 +107,6 @@ import FtPrompt from './FtPrompt/FtPrompt.vue'
 import store from '../store/index'
 
 import { colors } from '../helpers/colors'
-import { IpcChannels } from '../../constants'
 import { useColorTranslations } from '../composables/colors'
 
 const { t } = useI18n()
@@ -317,8 +316,7 @@ function handleSmoothScrolling(value) {
     store.dispatch('updateDisableSmoothScrolling',
       disableSmoothScrollingToggleValue.value
     ).then(() => {
-      const { ipcRenderer } = require('electron')
-      ipcRenderer.send(IpcChannels.RELAUNCH_REQUEST)
+      window.ftElectron.relaunch()
     })
   }
 }

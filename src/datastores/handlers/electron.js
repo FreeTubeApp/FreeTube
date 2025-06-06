@@ -1,323 +1,193 @@
-import { ipcRenderer } from 'electron'
-import { IpcChannels, DBActions } from '../../constants'
+import { DBActions } from '../../constants'
 
 class Settings {
   static find() {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SETTINGS,
-      { action: DBActions.GENERAL.FIND }
-    )
+    return window.ftElectron.dbSettings(DBActions.GENERAL.FIND)
   }
 
   static upsert(_id, value) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SETTINGS,
-      { action: DBActions.GENERAL.UPSERT, data: { _id, value } }
-    )
+    return window.ftElectron.dbSettings(DBActions.GENERAL.UPSERT, { _id, value })
   }
 }
 
 class History {
   static find() {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_HISTORY,
-      { action: DBActions.GENERAL.FIND }
-    )
+    return window.ftElectron.dbHistory(DBActions.GENERAL.FIND)
   }
 
   static upsert(record) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_HISTORY,
-      { action: DBActions.GENERAL.UPSERT, data: record }
-    )
+    return window.ftElectron.dbHistory(DBActions.GENERAL.UPSERT, record)
   }
 
   static overwrite(records) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_HISTORY,
-      { action: DBActions.HISTORY.OVERWRITE, data: records }
-    )
+    return window.ftElectron.dbHistory(DBActions.HISTORY.OVERWRITE, records)
   }
 
   static updateWatchProgress(videoId, watchProgress) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_HISTORY,
-      {
-        action: DBActions.HISTORY.UPDATE_WATCH_PROGRESS,
-        data: { videoId, watchProgress }
-      }
+    return window.ftElectron.dbHistory(
+      DBActions.HISTORY.UPDATE_WATCH_PROGRESS,
+      { videoId, watchProgress }
     )
   }
 
   static updateLastViewedPlaylist(videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_HISTORY,
-      {
-        action: DBActions.HISTORY.UPDATE_PLAYLIST,
-        data: { videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId }
-      }
+    return window.ftElectron.dbHistory(
+      DBActions.HISTORY.UPDATE_PLAYLIST,
+      { videoId, lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId }
     )
   }
 
   static delete(videoId) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_HISTORY,
-      { action: DBActions.GENERAL.DELETE, data: videoId }
-    )
+    return window.ftElectron.dbHistory(DBActions.GENERAL.DELETE, videoId)
   }
 
   static deleteAll() {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_HISTORY,
-      { action: DBActions.GENERAL.DELETE_ALL }
-    )
+    return window.ftElectron.dbHistory(DBActions.GENERAL.DELETE_ALL)
   }
 }
 
 class Profiles {
   static create(profile) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PROFILES,
-      { action: DBActions.GENERAL.CREATE, data: profile }
-    )
+    return window.ftElectron.dbProfiles(DBActions.GENERAL.CREATE, profile)
   }
 
   static find() {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PROFILES,
-      { action: DBActions.GENERAL.FIND }
-    )
+    return window.ftElectron.dbProfiles(DBActions.GENERAL.FIND)
   }
 
   static upsert(profile) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PROFILES,
-      { action: DBActions.GENERAL.UPSERT, data: profile }
-    )
+    return window.ftElectron.dbProfiles(DBActions.GENERAL.UPSERT, profile)
   }
 
   static addChannelToProfiles(channel, profileIds) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PROFILES,
-      {
-        action: DBActions.PROFILES.ADD_CHANNEL,
-        data: { channel, profileIds }
-      }
-    )
+    return window.ftElectron.dbProfiles(DBActions.PROFILES.ADD_CHANNEL, { channel, profileIds })
   }
 
   static removeChannelFromProfiles(channelId, profileIds) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PROFILES,
-      {
-        action: DBActions.PROFILES.REMOVE_CHANNEL,
-        data: { channelId, profileIds }
-      }
-    )
+    return window.ftElectron.dbProfiles(DBActions.PROFILES.REMOVE_CHANNEL, { channelId, profileIds })
   }
 
   static delete(id) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PROFILES,
-      { action: DBActions.GENERAL.DELETE, data: id }
-    )
+    return window.ftElectron.dbProfiles(DBActions.GENERAL.DELETE, id)
   }
 }
 
 class Playlists {
   static create(playlists) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PLAYLISTS,
-      { action: DBActions.GENERAL.CREATE, data: playlists }
-    )
+    return window.ftElectron.dbPlaylists(DBActions.GENERAL.CREATE, playlists)
   }
 
   static find() {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PLAYLISTS,
-      { action: DBActions.GENERAL.FIND }
-    )
+    return window.ftElectron.dbPlaylists(DBActions.GENERAL.FIND)
   }
 
   static upsert(playlist) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PLAYLISTS,
-      { action: DBActions.GENERAL.UPSERT, data: playlist }
-    )
+    return window.ftElectron.dbPlaylists(DBActions.GENERAL.UPSERT, playlist)
   }
 
   static upsertVideoByPlaylistId(_id, videoData) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PLAYLISTS,
-      {
-        action: DBActions.PLAYLISTS.UPSERT_VIDEO,
-        data: { _id, videoData }
-      }
-    )
+    return window.ftElectron.dbPlaylists(DBActions.PLAYLISTS.UPSERT_VIDEO, { _id, videoData })
   }
 
   static upsertVideosByPlaylistId(_id, videos) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PLAYLISTS,
-      {
-        action: DBActions.PLAYLISTS.UPSERT_VIDEOS,
-        data: { _id, videos }
-      }
-    )
+    return window.ftElectron.dbPlaylists(DBActions.PLAYLISTS.UPSERT_VIDEOS, { _id, videos })
   }
 
   static delete(_id) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PLAYLISTS,
-      { action: DBActions.GENERAL.DELETE, data: _id }
-    )
+    return window.ftElectron.dbPlaylists(DBActions.GENERAL.DELETE, _id)
   }
 
   static deleteVideoIdByPlaylistId(_id, videoId, playlistItemId) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PLAYLISTS,
-      {
-        action: DBActions.PLAYLISTS.DELETE_VIDEO_ID,
-        data: { _id, videoId, playlistItemId }
-      }
+    return window.ftElectron.dbPlaylists(
+      DBActions.PLAYLISTS.DELETE_VIDEO_ID,
+      { _id, videoId, playlistItemId }
     )
   }
 
   static deleteVideoIdsByPlaylistId(_id, playlistItemIds) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PLAYLISTS,
-      {
-        action: DBActions.PLAYLISTS.DELETE_VIDEO_IDS,
-        data: { _id, playlistItemIds }
-      }
+    return window.ftElectron.dbPlaylists(
+      DBActions.PLAYLISTS.DELETE_VIDEO_IDS,
+      { _id, playlistItemIds }
     )
   }
 
   static deleteAllVideosByPlaylistId(_id) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PLAYLISTS,
-      {
-        action: DBActions.PLAYLISTS.DELETE_ALL_VIDEOS,
-        data: _id
-      }
-    )
+    return window.ftElectron.dbPlaylists(DBActions.PLAYLISTS.DELETE_ALL_VIDEOS, _id)
   }
 
   static deleteMultiple(ids) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PLAYLISTS,
-      { action: DBActions.GENERAL.DELETE_MULTIPLE, data: ids }
-    )
+    return window.ftElectron.dbPlaylists(DBActions.GENERAL.DELETE_MULTIPLE, ids)
   }
 
   static deleteAll() {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_PLAYLISTS,
-      { action: DBActions.GENERAL.DELETE_ALL }
-    )
+    return window.ftElectron.dbPlaylists(DBActions.GENERAL.DELETE_ALL)
   }
 }
 
 class SearchHistory {
   static find() {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SEARCH_HISTORY,
-      { action: DBActions.GENERAL.FIND }
-    )
+    return window.ftElectron.dbSearchHistory(DBActions.GENERAL.FIND)
   }
 
   static upsert(searchHistoryEntry) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SEARCH_HISTORY,
-      { action: DBActions.GENERAL.UPSERT, data: searchHistoryEntry }
-    )
+    return window.ftElectron.dbSearchHistory(DBActions.GENERAL.UPSERT, searchHistoryEntry)
   }
 
   static delete(_id) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SEARCH_HISTORY,
-      { action: DBActions.GENERAL.DELETE, data: _id }
-    )
+    return window.ftElectron.dbSearchHistory(DBActions.GENERAL.DELETE, _id)
   }
 
   static deleteAll() {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SEARCH_HISTORY,
-      { action: DBActions.GENERAL.DELETE_ALL }
-    )
+    return window.ftElectron.dbSearchHistory(DBActions.GENERAL.DELETE_ALL)
   }
 }
 
 class SubscriptionCache {
   static find() {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTION_CACHE,
-      { action: DBActions.GENERAL.FIND }
-    )
+    return window.ftElectron.dbSubscriptionCache(DBActions.GENERAL.FIND)
   }
 
   static updateVideosByChannelId(channelId, entries, timestamp) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTION_CACHE,
-      {
-        action: DBActions.SUBSCRIPTION_CACHE.UPDATE_VIDEOS_BY_CHANNEL,
-        data: { channelId, entries, timestamp },
-      }
+    return window.ftElectron.dbSubscriptionCache(
+      DBActions.SUBSCRIPTION_CACHE.UPDATE_VIDEOS_BY_CHANNEL,
+      { channelId, entries, timestamp }
     )
   }
 
   static updateLiveStreamsByChannelId(channelId, entries, timestamp) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTION_CACHE,
-      {
-        action: DBActions.SUBSCRIPTION_CACHE.UPDATE_LIVE_STREAMS_BY_CHANNEL,
-        data: { channelId, entries, timestamp },
-      }
+    return window.ftElectron.dbSubscriptionCache(
+      DBActions.SUBSCRIPTION_CACHE.UPDATE_LIVE_STREAMS_BY_CHANNEL,
+      { channelId, entries, timestamp }
     )
   }
 
   static updateShortsByChannelId(channelId, entries, timestamp) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTION_CACHE,
-      {
-        action: DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_BY_CHANNEL,
-        data: { channelId, entries, timestamp },
-      }
+    return window.ftElectron.dbSubscriptionCache(
+      DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_BY_CHANNEL,
+      { channelId, entries, timestamp }
     )
   }
 
   static updateShortsWithChannelPageShortsByChannelId(channelId, entries) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTION_CACHE,
-      {
-        action: DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL,
-        data: { channelId, entries },
-      }
+    return window.ftElectron.dbSubscriptionCache(
+      DBActions.SUBSCRIPTION_CACHE.UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL,
+      { channelId, entries }
     )
   }
 
   static updateCommunityPostsByChannelId(channelId, entries, timestamp) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTION_CACHE,
-      {
-        action: DBActions.SUBSCRIPTION_CACHE.UPDATE_COMMUNITY_POSTS_BY_CHANNEL,
-        data: { channelId, entries, timestamp },
-      }
+    return window.ftElectron.dbSubscriptionCache(
+      DBActions.SUBSCRIPTION_CACHE.UPDATE_COMMUNITY_POSTS_BY_CHANNEL,
+      { channelId, entries, timestamp }
     )
   }
 
   static deleteMultipleChannels(channelIds) {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTION_CACHE,
-      { action: DBActions.GENERAL.DELETE_MULTIPLE, data: channelIds }
-    )
+    return window.ftElectron.dbSubscriptionCache(DBActions.GENERAL.DELETE_MULTIPLE, channelIds)
   }
 
   static deleteAll() {
-    return ipcRenderer.invoke(
-      IpcChannels.DB_SUBSCRIPTION_CACHE,
-      { action: DBActions.GENERAL.DELETE_ALL }
-    )
+    return window.ftElectron.dbSubscriptionCache(DBActions.GENERAL.DELETE_ALL)
   }
 }
 

@@ -106,7 +106,6 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 
 import store from '../../store/index'
 
-import { IpcChannels } from '../../../constants'
 import { debounce, showToast } from '../../helpers/utils'
 
 const { locale, t } = useI18n()
@@ -233,8 +232,7 @@ function handleUpdateProxyPort(value) {
 
 function enableProxy() {
   if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.send(IpcChannels.ENABLE_PROXY, proxyUrl.value)
+    window.ftElectron.enableProxy(proxyUrl.value)
   }
 }
 
@@ -242,8 +240,7 @@ const debouncedEnableProxy = debounce(enableProxy, 200)
 
 function disableProxy() {
   if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.send(IpcChannels.DISABLE_PROXY)
+    window.ftElectron.disableProxy()
   }
 
   dataAvailable.value = false

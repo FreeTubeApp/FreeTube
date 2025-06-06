@@ -1,9 +1,8 @@
 <template>
   <div
     v-if="showResult"
-    v-observe-visibility="firstScreen ? false : {
-      callback: onVisibilityChanged,
-      once: true,
+    v-observe-visibility="visible ? false : {
+      callback: onVisibilityChanged
     }"
     :class="{
       grid: layout === 'grid',
@@ -259,7 +258,9 @@ const visible = ref(props.firstScreen)
  * @param {boolean} isVisible
  */
 function onVisibilityChanged(isVisible) {
-  visible.value = isVisible
+  if (isVisible) {
+    visible.value = isVisible
+  }
 }
 
 /**

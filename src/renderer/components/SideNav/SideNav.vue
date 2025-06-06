@@ -152,7 +152,7 @@
       </router-link>
       <hr>
       <router-link
-        class="navOption mobileShow"
+        class="navOption mobileShow smallMobileOnlyHidden"
         role="button"
         to="/settings"
         :title="settingsTitle"
