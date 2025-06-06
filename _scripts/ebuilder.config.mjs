@@ -94,6 +94,5 @@ export default {
   nsis: {
     allowToChangeInstallationDirectory: true,
     oneClick: false,
-    include: '_scripts/ebuilder.nsis.installer.nsh',
   },
 }

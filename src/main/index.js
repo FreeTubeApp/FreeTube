@@ -27,8 +27,9 @@ import contextMenu from 'electron-context-menu'
 import packageDetails from '../../package.json'
 import { generatePoToken } from './poTokenGenerator'
 import {
-  getStoreUserDataInAppFolderEnabled,
-  getUserDataPath,
+  STORE_USER_DATA_IN_APP_FOLDER_ALLOWED,
+  STORE_USER_DATA_IN_APP_FOLDER_ENABLED,
+  USER_DATA_PATH,
   toggleStoreUserDataInAppFolderEnabledAndMigrateFiles,
 } from './userDataFolder'
 
@@ -279,13 +280,10 @@ function runApp() {
   let mainWindow
   let startupUrl
 
-  const userDataPath = getUserDataPath()
-  const storeUserDataInAppFolderEnabled = getStoreUserDataInAppFolderEnabled()
-
   // command line switches need to be added before the app ready event first
   // that means we can't use the normal settings system as that is asynchronous,
   // doing it synchronously ensures that we add it before the event fires
-  const REPLACE_HTTP_CACHE_PATH = `${userDataPath}/experiment-replace-http-cache`
+  const REPLACE_HTTP_CACHE_PATH = `${USER_DATA_PATH}/experiment-replace-http-cache`
   const replaceHttpCache = existsSync(REPLACE_HTTP_CACHE_PATH)
   if (replaceHttpCache) {
     // the http cache causes excessive disk usage during video playback
@@ -1263,8 +1261,12 @@ function runApp() {
     relaunch()
   })
 
-  ipcMain.handle(IpcChannels.GET_STORE_USER_DATA_IN_APP_FOLDER, () => {
-    return storeUserDataInAppFolderEnabled
+  ipcMain.handle(IpcChannels.GET_STORE_USER_DATA_IN_APP_FOLDER_ALLOWED, () => {
+    return STORE_USER_DATA_IN_APP_FOLDER_ALLOWED
+  })
+
+  ipcMain.handle(IpcChannels.GET_STORE_USER_DATA_IN_APP_FOLDER_ENABLED, () => {
+    return STORE_USER_DATA_IN_APP_FOLDER_ENABLED
   })
 
   ipcMain.once(IpcChannels.TOGGLE_STORE_USER_DATA_IN_APP_FOLDER, async () => {

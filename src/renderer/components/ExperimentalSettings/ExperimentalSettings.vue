@@ -16,12 +16,12 @@
         @change="handleReplaceHttpCacheChange"
       />
     </FtFlexBox>
-    <FtFlexBox v-if="storeUserDataInAppFolderAllowedOnPlatform">
+    <FtFlexBox v-if="storeUserDataInAppFolderAllowed">
       <FtToggleSwitch
         tooltip-position="top"
         :label="$t('Settings.Experimental Settings.Store User Data In App Folder.Label')"
         compact
-        :default-value="storeUserDataInAppFolder"
+        :default-value="storeUserDataInAppFolderEnabled"
         :disabled="settingValuesLoading"
         :tooltip="$t('Settings.Experimental Settings.Store User Data In App Folder.Tooltip')"
         @change="handleStoreUserDataInAppFolderChange"
@@ -47,10 +47,10 @@ import FtPrompt from '../FtPrompt/FtPrompt.vue'
 
 const settingValuesLoading = ref(true)
 const replaceHttpCache = ref(false)
-const storeUserDataInAppFolder = ref(false)
+const storeUserDataInAppFolderEnabled = ref(false)
 const showRestartPrompt = ref(false)
 
-const storeUserDataInAppFolderAllowedOnPlatform = process.platform === 'win32'
+const storeUserDataInAppFolderAllowed = ref(false)
 
 const NextActions = {
   // Simply use 1-N unique values
@@ -64,8 +64,9 @@ let nextAction = NextActions.NOTHING
 onMounted(async () => {
   if (process.env.IS_ELECTRON) {
     replaceHttpCache.value = await window.ftElectron.getReplaceHttpCache()
-    if (storeUserDataInAppFolderAllowedOnPlatform) {
-      storeUserDataInAppFolder.value = await window.ftElectron.getStoreUserDataInAppFolder()
+    storeUserDataInAppFolderAllowed.value = await window.ftElectron.getStoreUserDataInAppFolderAllowed()
+    if (storeUserDataInAppFolderAllowed.value) {
+      storeUserDataInAppFolderEnabled.value = await window.ftElectron.getStoreUserDataInAppFolderEnabled()
     }
   }
 
@@ -85,7 +86,7 @@ function handleReplaceHttpCacheChange(value) {
  * @param {boolean} value
  */
 function handleStoreUserDataInAppFolderChange(value) {
-  storeUserDataInAppFolder.value = value
+  storeUserDataInAppFolderEnabled.value = value
   nextAction = NextActions.TOGGLE_STORE_USER_DATA_IN_APP_FOLDER
   showRestartPrompt.value = true
 }
@@ -110,7 +111,7 @@ function handleRestartPromptClick(value) {
     }
     case NextActions.TOGGLE_STORE_USER_DATA_IN_APP_FOLDER: {
       if (value === null || value === 'cancel') {
-        storeUserDataInAppFolder.value = !storeUserDataInAppFolder.value
+        storeUserDataInAppFolderEnabled.value = !storeUserDataInAppFolderEnabled.value
         return
       }
 

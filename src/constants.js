@@ -1,4 +1,5 @@
 // IPC Channels
+
 const IpcChannels = {
   ENABLE_PROXY: 'enable-proxy',
   DISABLE_PROXY: 'disable-proxy',
@@ -46,7 +47,8 @@ const IpcChannels = {
   CHOOSE_DEFAULT_FOLDER: 'choose-default-folder',
   WRITE_TO_DEFAULT_FOLDER: 'write-to-default-folder',
 
-  GET_STORE_USER_DATA_IN_APP_FOLDER: 'get-store-user-data-in-app-folder',
+  GET_STORE_USER_DATA_IN_APP_FOLDER_ALLOWED: 'get-store-user-data-in-app-folder-allowed',
+  GET_STORE_USER_DATA_IN_APP_FOLDER_ENABLED: 'get-store-user-data-in-app-folder-enabled',
   TOGGLE_STORE_USER_DATA_IN_APP_FOLDER: 'toggle-store-user-data-in-app-folder',
 }
 

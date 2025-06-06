@@ -22,18 +22,18 @@ const TO_BE_MIGRATED_FILES = [
   'subscription-cache.db',
   'experiment-replace-http-cache',
 ]
-
-export function getUserDataPath() {
-  return getStoreUserDataInAppFolderEnabled() ? APP_FOLDER_USER_DATA_PATH : DEFAULT_USER_DATA_PATH
-}
-
-export function getStoreUserDataInAppFolderEnabled() {
-  return process.platform === 'win32' && existsSync(USER_DATA_IN_APP_FOLDER_SWITCH_FILE_PATH)
-}
+// Windows & NOT installer version & flag file exists
+export const STORE_USER_DATA_IN_APP_FOLDER_ALLOWED =
+  process.platform === 'win32' &&
+  !existsSync(path.join(path.dirname(process.execPath), 'Uninstall FreeTube.exe'))
+export const STORE_USER_DATA_IN_APP_FOLDER_ENABLED =
+  STORE_USER_DATA_IN_APP_FOLDER_ALLOWED &&
+  existsSync(USER_DATA_IN_APP_FOLDER_SWITCH_FILE_PATH)
+export const USER_DATA_PATH = STORE_USER_DATA_IN_APP_FOLDER_ENABLED ? APP_FOLDER_USER_DATA_PATH : DEFAULT_USER_DATA_PATH
 
 export async function toggleStoreUserDataInAppFolderEnabledAndMigrateFiles() {
   // Migrate files first, only toggle setting when migration successful
-  if (getStoreUserDataInAppFolderEnabled()) {
+  if (STORE_USER_DATA_IN_APP_FOLDER_ENABLED) {
     await migrateFilesFromHereToThere(APP_FOLDER_USER_DATA_PATH, DEFAULT_USER_DATA_PATH)
     await asyncFs.rm(USER_DATA_IN_APP_FOLDER_SWITCH_FILE_PATH)
   } else {

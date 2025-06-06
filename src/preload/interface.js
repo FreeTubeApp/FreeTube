@@ -73,8 +73,15 @@ export default {
   /**
    * @returns {Promise<boolean>}
    */
-  getStoreUserDataInAppFolder: () => {
-    return ipcRenderer.invoke(IpcChannels.GET_STORE_USER_DATA_IN_APP_FOLDER)
+  getStoreUserDataInAppFolderAllowed: () => {
+    return ipcRenderer.invoke(IpcChannels.GET_STORE_USER_DATA_IN_APP_FOLDER_ALLOWED)
+  },
+
+  /**
+   * @returns {Promise<boolean>}
+   */
+  getStoreUserDataInAppFolderEnabled: () => {
+    return ipcRenderer.invoke(IpcChannels.GET_STORE_USER_DATA_IN_APP_FOLDER_ENABLED)
   },
 
   toggleStoreUserDataInAppFolder: () => {

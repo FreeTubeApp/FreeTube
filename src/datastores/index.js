@@ -7,10 +7,9 @@ if (process.env.IS_ELECTRON_MAIN) {
   // this code only runs in the electron main process, so hopefully using sync fs code here should be fine 😬
   const { statSync, realpathSync } = require('fs')
 
-  const { getUserDataPath } = require('../main/userDataFolder')
-  const userDataPath = getUserDataPath()
+  const { USER_DATA_PATH } = require('../main/userDataFolder')
   dbPath = (dbName) => {
-    let path = join(userDataPath, `${dbName}.db`)
+    let path = join(USER_DATA_PATH, `${dbName}.db`)
 
     // returns undefined if the path doesn't exist
     if (statSync(path, { throwIfNoEntry: false })?.isSymbolicLink) {
