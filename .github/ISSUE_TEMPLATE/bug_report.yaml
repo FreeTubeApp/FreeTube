@@ -23,6 +23,8 @@ body:
           required: true
         - label: This issue contains only one bug.
           required: true
+        - label: I have read and agree to follow the [rules](https://docs.freetubeapp.io/community/rules/).
+          required: true
   - type: textarea
     attributes:
       label: Describe the bug
