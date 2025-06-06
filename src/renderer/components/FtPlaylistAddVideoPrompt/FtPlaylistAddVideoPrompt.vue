@@ -251,7 +251,7 @@ const activePlaylists = computed(() => {
     if (
       doSearchPlaylistsWithMatchingVideos.value &&
       playlist.videos.some((v) => {
-        return v.author.toLowerCase().includes(processedQuery_) || v.title.toLowerCase().includes(processedQuery_)
+        return v.author?.toLowerCase().includes(processedQuery_) || v.title.toLowerCase().includes(processedQuery_)
       })
     ) {
       return true
