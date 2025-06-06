@@ -972,10 +972,20 @@ function runApp() {
 
     // endregion Ensure child windows use same options since electron 14
 
-    newWindow.on('minimize', (event) => {
+    newWindow.on('minimize', async (event) => {
       if (trayOnMinimize) {
-        newWindow.hide()
-        manageTray(newWindow)
+        // Calling hide() inside minimize is broken for some Linux distros (window minimizes again when trying to drag,
+        // resize or maximize it, among other shenanigans). It seems to work as intended with this workaround.
+        if (process.platform === 'linux') {
+          newWindow.restore()
+          setTimeout(() => {
+            newWindow.hide()
+            manageTray(newWindow)
+          }, 100)
+        } else {
+          newWindow.hide()
+          manageTray(newWindow)
+        }
       }
     })
 
