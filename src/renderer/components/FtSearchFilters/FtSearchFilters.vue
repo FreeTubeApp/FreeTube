@@ -51,7 +51,7 @@
     </FtFlexBox>
     <div class="searchFilterCloseButtonContainer">
       <FtButton
-        :label="$t('Clear filters')"
+        :label="$t('Search Filters.Clear Filters')"
         background-color="var(--accent-color)"
         text-color="var(--text-with-main-color)"
         @click="clearFilters"
