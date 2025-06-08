@@ -53,13 +53,13 @@
       <FtButton
         :label="$t('Search Filters.Clear Filters')"
         background-color="var(--accent-color)"
-        text-color="var(--text-with-main-color)"
+        text-color="var(--primary-text-color)"
         @click="clearFilters"
       />
       <FtButton
         :label="$t('Close')"
         background-color="var(--primary-color)"
-        text-color="var(--text-with-main-color)"
+        text-color="var(--primary-text-color)"
         @click="hideSearchFilters"
       />
     </div>
