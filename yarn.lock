@@ -2250,10 +2250,10 @@ app-builder-bin@5.0.0-alpha.12:
   resolved "https://registry.yarnpkg.com/app-builder-bin/-/app-builder-bin-5.0.0-alpha.12.tgz#2daf82f8badc698e0adcc95ba36af4ff0650dc80"
   integrity sha512-j87o0j6LqPL3QRr8yid6c+Tt5gC7xNfYo6uQIQkorAC6MpeayVMZrEDzKmJJ/Hlv7EnOQpaRm53k6ktDYZyB6w==
 
-app-builder-lib@26.0.15:
-  version "26.0.15"
-  resolved "https://registry.yarnpkg.com/app-builder-lib/-/app-builder-lib-26.0.15.tgz#3b68b71d6d9d75eb6b318bcf0c830fd3fc1147d3"
-  integrity sha512-KVIsAHkBLaO2fvYVAccGbQPlbGFeGkx7IJXi/nDSBDXaMwHxauIXpAtf/NpopgudG6Ovyixl4QIWeHMPIvx0kg==
+app-builder-lib@26.0.16:
+  version "26.0.16"
+  resolved "https://registry.yarnpkg.com/app-builder-lib/-/app-builder-lib-26.0.16.tgz#110fc48d520a40fff46b5e0065c26564a63fc8ef"
+  integrity sha512-IEsVD9SWt7YbjJEdYNuhwkdzhNCRZr5YPu1cQUP12kVT/k3EbvSg6QVpBBsd9agVqUaEflvGfl9svTo+Yt7lFQ==
   dependencies:
     "@develar/schema-utils" "~2.6.5"
     "@electron/asar" "3.4.1"
@@ -2265,18 +2265,18 @@ app-builder-lib@26.0.15:
     "@malept/flatpak-bundler" "^0.4.0"
     "@types/fs-extra" "9.0.13"
     async-exit-hook "^2.0.1"
-    builder-util "26.0.13"
+    builder-util "26.0.16"
     builder-util-runtime "9.3.2"
     chromium-pickle-js "^0.2.0"
+    ci-info "^4.2.0"
     config-file-ts "0.2.8-rc1"
     debug "^4.3.4"
     dotenv "^16.4.5"
     dotenv-expand "^11.0.6"
     ejs "^3.1.8"
-    electron-publish "26.0.13"
+    electron-publish "26.0.16"
     fs-extra "^10.1.0"
     hosted-git-info "^4.1.0"
-    is-ci "^3.0.0"
     isbinaryfile "^5.0.0"
     js-yaml "^4.1.0"
     json5 "^2.2.3"
@@ -2645,22 +2645,22 @@ builder-util-runtime@9.3.2:
     debug "^4.3.4"
     sax "^1.2.4"
 
-builder-util@26.0.13:
-  version "26.0.13"
-  resolved "https://registry.yarnpkg.com/builder-util/-/builder-util-26.0.13.tgz#a2c11f8e89e5392719e540d610d70d8413943d74"
-  integrity sha512-6b64uHzywaL2KAG+rVcqk/Prta1m3I2Jo1d4d2CrApb6EeSk2V384tmSL0EniH+P8jaNbMp6qhg7cIALw32zRA==
+builder-util@26.0.16:
+  version "26.0.16"
+  resolved "https://registry.yarnpkg.com/builder-util/-/builder-util-26.0.16.tgz#43b52b643e2b70254a2cc5640d623d5e93461b15"
+  integrity sha512-VmhoCiQumRiuWPqng6a1p3LphHzYYLhI8UbjvLxb6f9IunF9YABv9yDZKu6jMpg1s6J0wka5NH0hH1PDrZ3fIw==
   dependencies:
     "7zip-bin" "~5.2.0"
     "@types/debug" "^4.1.6"
     app-builder-bin "5.0.0-alpha.12"
     builder-util-runtime "9.3.2"
     chalk "^4.1.2"
+    ci-info "^4.2.0"
     cross-spawn "^7.0.6"
     debug "^4.3.4"
     fs-extra "^10.1.0"
     http-proxy-agent "^7.0.0"
     https-proxy-agent "^7.0.0"
-    is-ci "^3.0.0"
     js-yaml "^4.1.0"
     sanitize-filename "^1.6.3"
     source-map-support "^0.5.19"
@@ -3469,13 +3469,13 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
-dmg-builder@26.0.15:
-  version "26.0.15"
-  resolved "https://registry.yarnpkg.com/dmg-builder/-/dmg-builder-26.0.15.tgz#0cc63db379f9713e8726d5f4ac30709b86720506"
-  integrity sha512-RXbDCcrPw2B0q2HIcPI2H7pIFeQiDsLW+ykRVKkW2ke2H3pTgI36r86xLmQZ6397uFCNUjpegRFv6bB+BCWJIA==
+dmg-builder@26.0.16:
+  version "26.0.16"
+  resolved "https://registry.yarnpkg.com/dmg-builder/-/dmg-builder-26.0.16.tgz#7cef5d51391ccdf22a226503fa089caf40d162bf"
+  integrity sha512-xRBGHKPHNgFdqHuo584RkIDDvMwl1gEPcXvZ4FSKHjE6Zb5+8gXG+Vak7E7VF5FUI/O9JoRQA2rG4mOJFoMocQ==
   dependencies:
-    app-builder-lib "26.0.15"
-    builder-util "26.0.13"
+    app-builder-lib "26.0.16"
+    builder-util "26.0.16"
     builder-util-runtime "9.3.2"
     fs-extra "^10.1.0"
     iconv-lite "^0.6.2"
@@ -3617,18 +3617,18 @@ ejs@^3.1.8:
   dependencies:
     jake "^10.8.5"
 
-electron-builder@^26.0.15:
-  version "26.0.15"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-26.0.15.tgz#db1cd0569e079686107c0c6315435b57fbcb7bb0"
-  integrity sha512-1nDY/7bbbORdWPQkIyFPfLfEHR4d22QfI5yec+etFL0y/PdmVz/wcxXc2KRpTQeIt75njm2/ocrtgp7LJvZC3Q==
+electron-builder@^26.0.16:
+  version "26.0.16"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-26.0.16.tgz#d5d4860a0f22b99e950c0f8675d8ea7db86390e2"
+  integrity sha512-nGL/mfmTr+LdZ/jZA3/JzeGgi64jtwGNfwmJUVec//PLvqhFBhpnxbdMkwZAN9msOsZ8qqHbN9X/uy4gpBqZVA==
   dependencies:
-    app-builder-lib "26.0.15"
-    builder-util "26.0.13"
+    app-builder-lib "26.0.16"
+    builder-util "26.0.16"
     builder-util-runtime "9.3.2"
     chalk "^4.1.2"
-    dmg-builder "26.0.15"
+    ci-info "^4.2.0"
+    dmg-builder "26.0.16"
     fs-extra "^10.1.0"
-    is-ci "^3.0.0"
     lazy-val "^1.0.5"
     simple-update-notifier "2.0.0"
     yargs "^17.6.2"
@@ -3656,13 +3656,13 @@ electron-is-dev@^3.0.1:
   resolved "https://registry.yarnpkg.com/electron-is-dev/-/electron-is-dev-3.0.1.tgz#1cbc79b1dd046787903acd357efdfab6549dc17a"
   integrity sha512-8TjjAh8Ec51hUi3o4TaU0mD3GMTOESi866oRNavj9A3IQJ7pmv+MJVmdZBFGw4GFT36X7bkqnuDNYvkQgvyI8Q==
 
-electron-publish@26.0.13:
-  version "26.0.13"
-  resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-26.0.13.tgz#04340520e6e9de5262fecfa011658cfcc3fc8917"
-  integrity sha512-O5hfHSwli5cegQ4JS3Dp0dZcheex6UCRE/qYyRQvhB6DhSwojiwTnAGEuQCJXc8K8Zxz2lku5Du3VwYHf8d5Lw==
+electron-publish@26.0.16:
+  version "26.0.16"
+  resolved "https://registry.yarnpkg.com/electron-publish/-/electron-publish-26.0.16.tgz#6fe1a24517d69f8888637e44017af6ea21ecdf22"
+  integrity sha512-NaibIXacWUCexnXw7ar3ZB/+ok+2WWHmH9WX6k2m7ax1o224+qpfO7mc+LbWbwNi+sMbwuyrHzY01fcg8Wv/pA==
   dependencies:
     "@types/fs-extra" "^9.0.11"
-    builder-util "26.0.13"
+    builder-util "26.0.16"
     builder-util-runtime "9.3.2"
     chalk "^4.1.2"
     form-data "^4.0.0"
@@ -5533,13 +5533,6 @@ is-callable@^1.1.4, is-callable@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/is-callable/-/is-callable-1.2.4.tgz#47301d58dd0259407865547853df6d61fe471945"
   integrity sha512-nsuwtxZfMX67Oryl9LCQ+upnC0Z0BgpwntpS89m1H/TLF0zNfzfLMV/9Wa/6MZsj0acpEjAO0KF1xT6ZdLl95w==
-
-is-ci@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/is-ci/-/is-ci-3.0.1.tgz#db6ecbed1bd659c43dac0f45661e7674103d1867"
-  integrity sha512-ZYvCgrefwqoQ6yTyYUbQu64HsITZ3NfKX1lzaEYdkTDcfKzzCI/wthRRYKkdjHKFVgNiXKAKm65Zo1pk2as/QQ==
-  dependencies:
-    ci-info "^3.2.0"
 
 is-core-module@^2.13.0:
   version "2.15.1"
