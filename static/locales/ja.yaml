@@ -1157,4 +1157,6 @@ KeyboardShortcutPrompt:
   Last Chapter: 前のチャプター
   Next Chapter: 次のチャプター
   Skip by Tenths: 動画をパーセンテージでスキップ (3回スキップで全体の30%に移動)
+  Home: 動画の冒頭を見る
+  End: 動画の最後を見る
 shortcutLabelSeparator: ｜
