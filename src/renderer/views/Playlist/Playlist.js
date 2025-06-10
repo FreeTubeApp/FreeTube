@@ -81,7 +81,6 @@ export default defineComponent({
       videoSearchQuery: '',
 
       promptOpen: false,
-      deletedVideoIds: [],
       deletedPlaylistItemIds: [],
       isUndoToast: false,
       isUndoClicked: false,
@@ -608,7 +607,6 @@ export default defineComponent({
         })
 
         if (videoIndex !== -1) {
-          this.deletedVideoIds.push(this.playlistItems[videoIndex].videoId)
           this.deletedPlaylistItemIds.push(this.playlistItems[videoIndex].playlistItemId)
           playlistItems.splice(videoIndex, 1)
           this.playlistItems = playlistItems
@@ -623,7 +621,6 @@ export default defineComponent({
                 this.playlistItems = tempPlaylistItems
                 this.isUndoClicked = true
                 this.isUndoToast = false
-                this.deletedVideoIds = []
                 this.deletedPlaylistItemIds = []
               }
             )
@@ -644,10 +641,8 @@ export default defineComponent({
       if (this.deletedPlaylistItemIds.length > 0 && !this.isUndoClicked) {
         this.removeVideos({
           _id: this.playlistId,
-          videoIds: this.deletedVideoIds,
           playlistItemIds: this.deletedPlaylistItemIds,
         })
-        this.deletedVideoIds = []
         this.deletedPlaylistItemIds = []
         this.isUndoToast = false
       }
