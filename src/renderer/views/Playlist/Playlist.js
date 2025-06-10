@@ -51,6 +51,7 @@ export default defineComponent({
         continuationData: this.continuationData,
       })
     }
+    this.removeToBeDeletedVideosSometimes()
     next()
   },
   data: function () {
@@ -82,7 +83,8 @@ export default defineComponent({
       promptOpen: false,
       deletedVideoIds: [],
       deletedPlaylistItemIds: [],
-      isUndoToast: false
+      isUndoToast: false,
+      isUndoClicked: false,
     }
   },
   computed: {
@@ -600,7 +602,6 @@ export default defineComponent({
       try {
         const playlistItems = [].concat(this.playlistItems)
         const tempPlaylistItems = [].concat(this.playlistItems)
-        let isUndoClicked = false
 
         const videoIndex = this.playlistItems.findIndex((video) => {
           return video.videoId === videoId && video.playlistItemId === playlistItemId
@@ -620,29 +621,35 @@ export default defineComponent({
               5000,
               () => {
                 this.playlistItems = tempPlaylistItems
-                isUndoClicked = true
+                this.isUndoClicked = true
                 this.isUndoToast = false
                 this.deletedVideoIds = []
                 this.deletedPlaylistItemIds = []
               }
             )
             setTimeout(() => {
-              if (!isUndoClicked) {
-                this.removeVideos({
-                  _id: this.playlistId,
-                  videoIds: this.deletedVideoIds,
-                  playlistItemIds: this.deletedPlaylistItemIds,
-                })
-                this.deletedVideoIds = []
-                this.deletedPlaylistItemIds = []
-                this.isUndoToast = false
-              }
+              this.removeToBeDeletedVideosSometimes()
             }, 5000)
           }
         }
       } catch (e) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with removing this video'))
         console.error(e)
+      }
+    },
+
+    removeToBeDeletedVideosSometimes() {
+      if (this.isLoading) { return }
+
+      if (this.deletedPlaylistItemIds.length > 0 && !this.isUndoClicked) {
+        this.removeVideos({
+          _id: this.playlistId,
+          videoIds: this.deletedVideoIds,
+          playlistItemIds: this.deletedPlaylistItemIds,
+        })
+        this.deletedVideoIds = []
+        this.deletedPlaylistItemIds = []
+        this.isUndoToast = false
       }
     },
 
