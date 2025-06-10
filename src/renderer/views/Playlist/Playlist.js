@@ -84,7 +84,6 @@ export default defineComponent({
       deletedPlaylistItemIds: [],
       // Present = shown
       undoToastAbortController: null,
-      isUndoClicked: false,
     }
   },
   computed: {
@@ -615,20 +614,20 @@ export default defineComponent({
           // Only show toast when no existing toast shown
           if (this.undoToastAbortController == null) {
             this.undoToastAbortController = new AbortController()
+            const actualRemoveVideosTimeout = setTimeout(() => {
+              this.removeToBeDeletedVideosSometimes()
+            }, 5000)
             showToast(
               this.$t('User Playlists.SinglePlaylistView.Toast["Video has been removed. Click here to undo."]'),
               5000,
               () => {
                 this.playlistItems = tempPlaylistItems
-                this.isUndoClicked = true
+                clearTimeout(actualRemoveVideosTimeout)
                 this.deletedPlaylistItemIds = []
                 this.undoToastAbortController = null
               },
               this.undoToastAbortController.signal,
             )
-            setTimeout(() => {
-              this.removeToBeDeletedVideosSometimes()
-            }, 5000)
           }
         }
       } catch (e) {
@@ -640,7 +639,7 @@ export default defineComponent({
     removeToBeDeletedVideosSometimes() {
       if (this.isLoading) { return }
 
-      if (this.deletedPlaylistItemIds.length > 0 && !this.isUndoClicked) {
+      if (this.deletedPlaylistItemIds.length > 0) {
         this.removeVideos({
           _id: this.playlistId,
           playlistItemIds: this.deletedPlaylistItemIds,
