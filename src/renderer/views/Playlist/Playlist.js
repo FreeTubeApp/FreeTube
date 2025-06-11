@@ -610,6 +610,7 @@ export default defineComponent({
           this.deletedPlaylistItemIds.push(this.playlistItems[videoIndex].playlistItemId)
           playlistItems.splice(videoIndex, 1)
           this.playlistItems = playlistItems
+          this.videoCount = playlistItems.length
 
           // Only show toast when no existing toast shown
           if (this.undoToastAbortController == null) {
@@ -622,6 +623,7 @@ export default defineComponent({
               5000,
               () => {
                 this.playlistItems = tempPlaylistItems
+                this.videoCount = tempPlaylistItems.length
                 clearTimeout(actualRemoveVideosTimeout)
                 this.deletedPlaylistItemIds = []
                 this.undoToastAbortController = null
