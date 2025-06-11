@@ -22,7 +22,7 @@
 <script setup>
 
 import FtCard from '../ft-card/ft-card.vue'
-import FtListVideoLazy from '../ft-list-video-lazy/ft-list-video-lazy.vue'
+import FtListVideoLazy from '../FtListVideoLazy.vue'
 
 defineProps({
   data: {
