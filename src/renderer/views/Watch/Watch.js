@@ -91,6 +91,7 @@ export default defineComponent({
       videoTitle: '',
       videoDescription: '',
       videoDescriptionHtml: '',
+      license: '',
       videoViewCount: 0,
       videoLikeCount: 0,
       videoDislikeCount: 0,
