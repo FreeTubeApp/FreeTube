@@ -112,8 +112,7 @@ Subscriptions:
   Subscriptions: 'Tanysgrifiadau'
   # channels that were likely deleted
   Error Channels: 'Sianeli gyda Gwallau'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate 
-    limiting: 'Mae gan y proffil hwn nifer fawr o danysgrifiadau.  Yn gorfodi RSS
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Mae gan y proffil hwn nifer fawr o danysgrifiadau.  Yn gorfodi RSS
     i osgoi cyfyngu ar gyfraddau'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Mae
     eich rhestr Tanysgrifio yn wag ar hyn o bryd. Os ydych chi am fewnforio''ch tanysgrifiadau
@@ -180,8 +179,7 @@ User Playlists:
   Add to Playlist: Ychwanegu at y Rhestr Chwarae
   Remove from Favorites: Tynnu o {playlistName}
   Quick Bookmark Enabled: Nod Tudalen Cyflym wedi'i Galluogi
-  Are you sure you want to remove {playlistItemCount} watched videos from this 
-    playlist? This cannot be undone: Ydych chi'n siŵr eich bod am dynnu 1 fideo 
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ydych chi'n siŵr eich bod am dynnu 1 fideo 
     a wyliwyd o'r rhestr chwarae hon? Nid oes modd dadwneud hyn. | A ydych yn 
     siŵr eich bod am ddileu {playlistItemCount} fideo a wyliwyd o'r rhestr 
     chwarae hon? Nid oes modd dadwneud hyn.
@@ -210,8 +208,7 @@ User Playlists:
         fideo hwn
       This playlist is already being used for quick bookmark.: Mae'r rhestr 
         chwarae hon eisoes yn cael ei defnyddio ar gyfer nod tudalen cyflym.
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. 
-        Click here to undo: Mae'r rhestr chwarae hon bellach yn cael ei 
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Mae'r rhestr chwarae hon bellach yn cael ei 
         defnyddio ar gyfer nodau tudalen cyflym yn lle {oldPlaylistName}. 
         Cliciwch yma i ddadwneud
       Reverted to use {oldPlaylistName} for quick bookmark: Wedi dychwelyd i 
@@ -250,8 +247,7 @@ User Playlists:
   Remove from Playlist: Dileu o'r Rhestr Chwarae
   Playlist Name: Enw Rhestr Chwarae
   Playlist Description: Disgrifiad o'r Rhestr Chwarae
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this 
-    playlist? This cannot be undone: Ydych chi'n siŵr eich bod am dynnu 1 fideo 
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ydych chi'n siŵr eich bod am dynnu 1 fideo 
     dyblyg o'r rhestr chwarae hon? Nid oes modd dadwneud hyn. | Ydych chi'n siŵr
     eich bod am ddileu {playlistItemCount} fideo dyblyg o'r rhestr chwarae hon? 
     Nid oes modd dadwneud hyn.
@@ -260,8 +256,7 @@ User Playlists:
   Copy Playlist: Copïo Rhestr Chwarae
   Cannot delete the quick bookmark target playlist.: Methu dileu'r rhestr 
     chwarae targed nod tudalen cyflym.
-  You have no playlists. Click on the create new playlist button to create a new 
-    one.: Nid oes gennych unrhyw restrau chwarae. Cliciwch ar y botwm creu 
+  You have no playlists. Click on the create new playlist button to create a new one.: Nid oes gennych unrhyw restrau chwarae. Cliciwch ar y botwm creu 
     rhestr chwarae newydd i greu un newydd.
   Playlists with Matching Videos: Rhestrau chwarae gyda Fideos Cyfatebol
   Create New Playlist: Creu Rhestr Chwarae Newydd
@@ -535,8 +530,7 @@ Settings:
       eich bod am ddileu eich hanes gwylio i gyd?'
     Watch history has been cleared: 'Mae hanes gwylio wedi''i glirio'
     Remove All Subscriptions / Profiles: 'Dileu Pob Tanysgrifiad / Proffil'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot 
-      be undone.: 'A ydych yn siŵr eich bod am ddileu pob tanysgrifiad a phroffil?  Nid
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'A ydych yn siŵr eich bod am ddileu pob tanysgrifiad a phroffil?  Nid
       oes modd dadwneud hyn.'
     All playlists have been removed: Mae'r holl restrau chwarae wedi'u dileu
     Remove All Playlists: Dileu Pob Rhestr Chwarae
@@ -813,8 +807,7 @@ Profile:
     in.
   : 'Dyma''ch prif broffil.  Ydych chi''n siŵr eich bod am ddileu''r sianeli a ddewiswyd?  Bydd
     yr un sianeli yn cael eu dileu mewn unrhyw broffil sydd ynddo.'
-  Are you sure you want to delete the selected channels?  This will not delete 
-    the channel from any other profile.: 'Ydych chi''n siŵr eich bod am ddileu''r
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Ydych chi''n siŵr eich bod am ddileu''r
     sianeli a ddewiswyd?  Ni fydd hyn yn dileu''r sianel o unrhyw broffil arall.'
   Close Profile Dropdown: 'Cau''r Cwymplen Proffil'
   Open Profile Dropdown: 'Agor Cwymplen Proffil'
@@ -1207,8 +1200,7 @@ Local API Error (Click to copy): 'Gwall API Lleol (Cliciwch i''w gopïo)'
 Invidious API Error (Click to copy): 'Gwall API Invidious (Cliciwch i''w gopïo)'
 Falling back to Invidious API: 'Dychwelyd i Invidious API'
 Falling back to Local API: 'Dychwelyd i Local API'
-This video is unavailable because of missing formats. This can happen due to 
-  country unavailability.: 'Nid yw''r fideo hwn ar gael oherwydd fformatau coll. Gall
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Nid yw''r fideo hwn ar gael oherwydd fformatau coll. Gall
   hyn ddigwydd oherwydd nad yw gwlad ar gael.'
 Unknown YouTube url type, cannot be opened in app: 'Math url YouTube anhysbys, nid
   oes modd ei agor yn ap'
