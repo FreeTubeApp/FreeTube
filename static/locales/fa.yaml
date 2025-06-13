@@ -78,8 +78,7 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'دنبال کرده ها'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate 
-    limiting: 'این پروفایل تعداد زیادی اشتراک دارد. اجبار RSS برای جلوگیری از محدودیت
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'این پروفایل تعداد زیادی اشتراک دارد. اجبار RSS برای جلوگیری از محدودیت
     نرخ'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'لیست
     اشتراک شما در حال حاضر خالی است. اضافه کردن اشتراک‌ها را برای مشاهده آنها در اینجا
@@ -165,8 +164,7 @@ User Playlists:
       Playlist {playlistName} has been deleted.: فهرست پخش {playlistName} حذف 
         شد.
       This video cannot be moved up.: این ویدئو را نمی‌توان به بالا منتقل کرد.
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. 
-        Click here to undo: این لیست پخش اکنون برای نشانک سریع به جای 
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: این لیست پخش اکنون برای نشانک سریع به جای 
         {oldPlaylistName} استفاده می شود. برای لغو اینجا را کلیک کنید
       This playlist is already being used for quick bookmark.: این لیست پخش در 
         حال حاضر برای نشانک سریع استفاده می شود.
@@ -208,13 +206,11 @@ User Playlists:
         وجود داشت.
     New Playlist Name: نام لیست پخش جدید
     Create: ایجاد
-  You have no playlists. Click on the create new playlist button to create a new 
-    one.: شما هیچ لیست پخشی ندارید. بر روی دکمه ایجاد لیست پخش جدید کلیک کنید تا
+  You have no playlists. Click on the create new playlist button to create a new one.: شما هیچ لیست پخشی ندارید. بر روی دکمه ایجاد لیست پخش جدید کلیک کنید تا
     لیست پخش جدیدی ایجاد شود.
   Export Playlist: صادر کردن این لیست پخش
   The playlist has been successfully exported: لیست پخش با موفقیت صادر شد
-  Are you sure you want to remove {playlistItemCount} watched videos from this 
-    playlist? This cannot be undone: آیا مطمئنید که می خواهید 1 ویدیوی تماشا شده
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: آیا مطمئنید که می خواهید 1 ویدیوی تماشا شده
     را از این لیست پخش حذف کنید؟ این قابل واگرد نیست. | آیا مطمئن هستید که می 
     خواهید {playlistItemCount} ویدیو تماشا شده را از این لیست پخش حذف کنید؟ این 
     قابل واگرد نیست.
@@ -222,8 +218,7 @@ User Playlists:
     نشانک سریع را حذف کرد.
   Are you sure you want to delete this playlist? This cannot be undone: آیا 
     مطمئن هستید که می خواهید این لیست پخش را حذف کنید؟ این قابل واگرد نیست.
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this 
-    playlist? This cannot be undone: آیا مطمئنید که می‌خواهید 1 ویدیوی تکراری را
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: آیا مطمئنید که می‌خواهید 1 ویدیوی تکراری را
     از این فهرست پخش حذف کنید؟ این قابل واگرد نیست. | آیا مطمئنید که می خواهید 
     {playlistItemCount} ویدیو تکراری را از این لیست پخش حذف کنید؟ این قابل واگرد
     نیست.
