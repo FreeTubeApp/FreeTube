@@ -1139,8 +1139,7 @@ Profile:
   Profile has been created: پروفایل ایجاد شده است
   Add Selected To Profile: انتخاب شده را به پروفایل اضافه کنید
   Profile has been updated: پروفایل به روز شد
-  Are you sure you want to delete the selected channels?  This will not delete 
-    the channel from any other profile.: آیا مطمئن هستید که می خواهید کانال های 
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: آیا مطمئن هستید که می خواهید کانال های 
     انتخاب شده را حذف کنید؟ با این کار کانال از هیچ نمایه دیگری حذف نمی شود.
   Are you sure you want to delete this profile?: آیا مطمئن هستید که می خواهید 
     این پروفایل را حذف کنید؟
@@ -1178,8 +1177,7 @@ Canceled next video autoplay: پخش خودکار ویدیوی بعدی لغو �
 Unknown YouTube url type, cannot be opened in app: نوع URL ناشناخته YouTube، در 
   برنامه باز نمی شود
 Falling back to Local API: بازگشت به API محلی
-This video is unavailable because of missing formats. This can happen due to 
-  country unavailability.: این ویدیو به دلیل عدم وجود قالب در دسترس نیست. این 
+This video is unavailable because of missing formats. This can happen due to country unavailability.: این ویدیو به دلیل عدم وجود قالب در دسترس نیست. این 
   ممکن است به دلیل در دسترس نبودن کشور اتفاق بیفتد.
 Playing Previous Video: پخش ویدیوی قبلی
 Default Invidious instance has been set to {instance}: نمونه پیش‌فرض Invidious 
