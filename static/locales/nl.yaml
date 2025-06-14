@@ -183,7 +183,7 @@ User Playlists:
       Video has been removed. Click here to undo.: De video is verwijderd. Klik hier om ongedaan te maken.
       This playlist has a video with a duration error: Deze afspeellijst heeft minimaal 1 video zonder tijdsduur en zal worden gesorteerd alsof de tijdsduur nul is.
     Search for Videos: Zoeken naar video's
-  You have no playlists. Click on the create new playlist button to create a new one.: Je hebt geen afspeellijsten. Klik op "maak nieuwe playlist" om er één te maken.
+  You have no playlists. Click on the create new playlist button to create a new one.: U heeft geen afspeel­lĳsten. Druk op ‘Nieuwe afspeel­lĳst maken’ om er een te maken.
   This playlist currently has no videos.: Deze afspeellijst bevat momenteel geen video's.
   Enable Quick Bookmark With This Playlist: Snelle Bladwijzers inschakelen voor deze afspeellijst
   Are you sure you want to delete this playlist? This cannot be undone: Weet u zeker dat u deze afspeellijst wilt verwijderen? Dit kan niet ongedaan worden gemaakt.
@@ -193,8 +193,8 @@ User Playlists:
   Remove Duplicate Videos: Dubbele video's verwĳderen
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Weet je zeker dat je 1 dubbele video uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan worden gemaakt. | Weet je zeker dat je {playlistItemCount} dubbele video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan worden gemaakt.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Weet je zeker dat je 1 bekeken video uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan worden gemaakt. | Weet je zeker dat je {playlistItemCount} bekeken video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan worden gemaakt.
-  Export Playlist: Deze afspeellijst exporteren
-  The playlist has been successfully exported: De afspeellijst is succesvol geëxporteerd
+  Export Playlist: Deze afspeel­lĳst exporteren
+  The playlist has been successfully exported: De afspeel­lĳst is succesvol geëxporteerd
   TotalTimePlaylist: 'Totale tĳd: {duration}'
 History:
   # On History Page
