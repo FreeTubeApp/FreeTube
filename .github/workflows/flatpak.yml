@@ -102,7 +102,7 @@ jobs:
         rm freetube-${{ steps.sub.outputs.result }}-beta-linux-x64-portable.zip
         rm freetube-${{ steps.sub.outputs.result }}-beta-linux-arm64-portable.zip
     - name: Commit Files
-      uses: stefanzweifel/git-auto-commit-action@v5
+      uses: stefanzweifel/git-auto-commit-action@v6
       with:
         # Optional but recommended
         # Defaults to "Apply automatic changes"
