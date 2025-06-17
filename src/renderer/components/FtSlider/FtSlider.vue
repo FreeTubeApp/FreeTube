@@ -20,7 +20,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useId } from '../../composables/use-id-polyfill.js'
 
 const props = defineProps({
@@ -58,6 +58,12 @@ const emit = defineEmits(['change'])
 
 const id = useId()
 const currentValue = ref(props.defaultValue)
+
+watch(() => props.defaultValue, (value) => {
+  if (currentValue.value !== value) {
+    currentValue.value = value
+  }
+})
 
 const displayLabel = computed(() => {
   if (props.valueExtension === null) {

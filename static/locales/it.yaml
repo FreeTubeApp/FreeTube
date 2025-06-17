@@ -663,7 +663,7 @@ Settings:
     SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Salta l'opzione
-      Show In Seek Bar: Mostra nella barra di ricerca
+      Show In Seek Bar: Mostra nella barra di scorrimento
       Auto Skip: Salto automatico
       Prompt To Skip: Chiedi di saltare
       Do Nothing: Non fare nulla
@@ -824,8 +824,7 @@ Video:
   Open in YouTube: 'Apri con YouTube'
   Copy YouTube Link: 'Copia link YouTube'
   Open YouTube Embedded Player: 'Apri il lettore incorporato di YouTube'
-  Copy YouTube Embedded Player Link: 'Copia collegamento del lettore incorporato di
-    YouTube'
+  Copy YouTube Embedded Player Link: 'Copia link del lettore incorporato di YouTube'
   Open in Invidious: 'Apri con Invidious'
   Copy Invidious Link: 'Copia link Invidious'
   Views: 'Visualizzazioni'
@@ -1260,8 +1259,6 @@ Search Listing:
     360 Video: 360°
     New: Nuovo
     3D: 3D
-'Blocked opening potentially unsafe URL': 'Apertura di URL potenzialmente non sicura
-  bloccata: "{url}".'
 shortcutJoinOperator: +
 Keys:
   ctrl: Ctrl
@@ -1336,4 +1333,6 @@ KeyboardShortcutPrompt:
   Next Frame: Fotogramma successivo (mentre è in pausa)
   Volume Up: Aumenta il volume
   Volume Down: Diminuisci il volume
+  End: Vai alla fine del video
+  Home: Vai all'inizio del video
 shortcutLabelSeparator: ｜

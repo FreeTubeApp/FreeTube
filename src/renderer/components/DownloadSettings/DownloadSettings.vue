@@ -60,7 +60,7 @@ import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 
 import store from '../../store/index'
 
-import { DefaultFolderKind, IpcChannels } from '../../../constants'
+import { DefaultFolderKind } from '../../../constants'
 
 const DOWNLOAD_BEHAVIOR_VALUES = [
   'download',
@@ -99,8 +99,7 @@ const downloadFolderPath = computed(() => store.getters.getDownloadFolderPath)
 
 function chooseDownloadFolder() {
   if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.send(IpcChannels.CHOOSE_DEFAULT_FOLDER, DefaultFolderKind.DOWNLOADS)
+    window.ftElectron.chooseDefaultFolder(DefaultFolderKind.DOWNLOADS)
   }
 }
 </script>

@@ -30,7 +30,7 @@ Forward: 'Edasi'
 Global:
   Videos: 'Videod'
   Shorts: Lühivideod
-  Live: Otseeeter
+  Live: Otse
   Posts: Postitused
   Sort By: 'Järjestus'
 
@@ -565,10 +565,10 @@ Settings:
     History File: Ajaloo fail
     Playlist File: Esitusloendi fail
     Export Playlists For Older FreeTube Versions:
-      Tooltip: "Selle valikuga ekspordid kõik esitusloendid ühte esitusloendisse „Lemmikud“.\n
-        Kuidas saad seda eksportimise ja importimise valikut kasutada vanemate FreeTube'i
-        versioonidega:\n1. Ekspordi kõik oma esitusloendid kasutades seda valikut.\n
-        2. Kustuta kõik oma esitusloendid Privaatsusseadistustest kasutades valikut
+      Tooltip: "Selle valikuga ekspordid kõik esitusloendid ühte esitusloendisse „Lemmikud“.\n\
+        \ Kuidas saad seda eksportimise ja importimise valikut kasutada vanemate FreeTube'i
+        versioonidega:\n1. Ekspordi kõik oma esitusloendid kasutades seda valikut.\n\
+        \ 2. Kustuta kõik oma esitusloendid Privaatsusseadistustest kasutades valikut
         „Kustuta kõik esitusloendid“.\n3. Käivita vanem FreeTube'i versioon ja impordi
         esimeses sammus eksporditud esitusloendid."
       Label: Ekspordi esitusloendid vanemate FreeTube'i versioonide jaoks
@@ -1231,8 +1231,6 @@ Search Listing:
     8K: 8K
     VR180: VR180
     360 Video: 360°
-'Blocked opening potentially unsafe URL': 'Blokeerisime võimaliku ohtliku aadressi
-  avamise: „{url}“.'
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Keys:
@@ -1307,4 +1305,6 @@ KeyboardShortcutPrompt:
   Volume Down: Keera heli vaiksemaks
   Small Fast Forward: Keri edasi X sekundit hetkel kasutatava kerimiskiiruse ja taasesituskiiruse
     alusel
+  End: Keri video lõppu
+  Home: Keri video algusesse
 shortcutLabelSeparator: ｜

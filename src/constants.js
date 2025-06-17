@@ -2,7 +2,6 @@
 const IpcChannels = {
   ENABLE_PROXY: 'enable-proxy',
   DISABLE_PROXY: 'disable-proxy',
-  OPEN_EXTERNAL_LINK: 'open-external-link',
   GET_SYSTEM_LOCALE: 'get-system-locale',
   GET_NAVIGATION_HISTORY: 'get-navigation-history',
   STOP_POWER_SAVE_BLOCKER: 'stop-power-save-blocker',
@@ -12,9 +11,6 @@ const IpcChannels = {
   NATIVE_THEME_UPDATE: 'native-theme-update',
   APP_READY: 'app-ready',
   RELAUNCH_REQUEST: 'relaunch-request',
-
-  REQUEST_FULLSCREEN: 'request-fullscreen',
-  REQUEST_PIP: 'request-pip',
 
   SEARCH_INPUT_HANDLING_READY: 'search-input-handling-ready',
   UPDATE_SEARCH_INPUT_TEXT: 'update-search-input-text',
@@ -191,12 +187,16 @@ const KeyboardShortcuts = {
       SMALL_REWIND: 'arrowleft',
       SMALL_FAST_FORWARD: 'arrowright',
       DECREASE_VIDEO_SPEED: 'o',
+      DECREASE_VIDEO_SPEED_ALT: '<',
       INCREASE_VIDEO_SPEED: 'p',
+      INCREASE_VIDEO_SPEED_ALT: '>',
       SKIP_N_TENTHS: '0..9',
       LAST_CHAPTER: 'ctrl+arrowleft',
       NEXT_CHAPTER: 'ctrl+arrowright',
       LAST_FRAME: ',',
       NEXT_FRAME: '.',
+      HOME: 'home',
+      END: 'end',
     }
   },
 }

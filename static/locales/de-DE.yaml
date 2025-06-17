@@ -1273,8 +1273,6 @@ Search Listing:
     360 Video: 360°
     New: Neu
     3D: 3D
-'Blocked opening potentially unsafe URL': 'Das Öffnen einer potenziell unsicheren
-  URL wurde blockiert: „{url}“.'
 Keys:
   arrowdown: Pfeil nach unten
   arrowleft: Pfeil nach links
@@ -1350,4 +1348,6 @@ KeyboardShortcutPrompt:
   Next Frame: Nächstes Bild (bei pausierter Wiedergabe)
   Small Rewind: X Sekunden zurückspulen, basierend auf dem Rückspulintervall und der
     aktuellen Wiedergabegeschwindigkeit
+  End: Zum Ende des Videos springen
+  Home: Zum Anfang des Videos springen
 shortcutLabelSeparator: ｜

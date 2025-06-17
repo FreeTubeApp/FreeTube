@@ -10,12 +10,12 @@ Redo: 'Opnieuw'
 Cut: 'Knippen'
 Copy: 'Kopiëren'
 Paste: 'Plakken'
-Delete: 'Verwijderen'
+Delete: 'Verwĳderen'
 Select all: 'Alles selecteren'
 Reload: 'Herladen'
 Force Reload: 'Geforceerd herladen'
 Toggle Developer Tools: 'Ontwikkelgereedschap aan/uit'
-Actual size: 'Werkelijke grootte'
+Actual size: 'Werkelĳke grootte'
 Zoom in: 'Inzoomen'
 Zoom out: 'Uitzoomen'
 Toggle fullscreen: 'Volledig scherm aan/uit'
@@ -38,7 +38,7 @@ Global:
     Video Count: 1 video | {count} video's
     Subscriber Count: 1 abonnee | {count} abonnees
     View Count: 1 weergave | {count} weergaven
-    Watching Count: 1 aan het kijken | {count} aan het kijken
+    Watching Count: 1 aan het kĳken | {count} aan het kĳken
     Channel Count: 1 kanaal | {count} kanalen
     Like Count: 1 vind ik leuk | {count} vind ik leuks
     Comment Count: 1 commentaar | {count} commentaren
@@ -54,7 +54,7 @@ Search Filters:
     View Count: 'Aantal weergaven'
   Time:
     Time: 'Lengte'
-    Any Time: 'Altijd'
+    Any Time: 'Altĳd'
     Last Hour: 'Afgelopen uur'
     Today: 'Vandaag'
     This Week: 'Deze week'
@@ -78,8 +78,7 @@ Search Filters:
   Fetching results. Please wait: 'Resultaten ophalen, even geduld...'
   Fetch more results: 'Meer resultaten ophalen'
 # Sidebar
-  There are no more results for this search: Er zijn geen resultaten meer voor deze
-    zoekopdracht
+  There are no more results for this search: Er zĳn geen resultaten meer voor deze zoek­opdracht
   Features:
     Features: Functies
     4K: 4K
@@ -95,22 +94,14 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementen'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Je
-    abonnementenlĳst is momenteel leeg. Ga naar instellingen en selecteer "importeer
-    abonnementen" als je jouw abonnementen wilt importeren. Je kunt ook zoeken naar
-    een kanaal en hierop abonneren.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dit
-    profiel heeft een groot aantal abonnees. RSS wordt geforceerd om rate-limiting
-    te vermijden
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Je abonnementenlĳst is momenteel leeg. Ga naar instellingen en selecteer "importeer abonnementen" als je jouw abonnementen wilt importeren. Je kunt ook zoeken naar een kanaal en hierop abonneren.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dit profiel heeft een groot aantal abonnees. RSS wordt geforceerd om rate-limiting te vermĳden
   Load More Videos: Meer video's laden
   Error Channels: Kanalen met fouten
-  Disabled Automatic Fetching: U heeft het automatisch ophalen van abonnementen uitgeschakeld.
-    Ververs abonnementen om ze hier te zien.
-  Empty Channels: Er zijn geen videoś beschikbaar in de kanalen waarop je bent geabonneerd.
+  Disabled Automatic Fetching: U heeft het automatisch ophalen van abonnementen uitgeschakeld. Ververs abonnementen om ze hier te zien.
+  Empty Channels: Er zĳn geen video's beschikbaar in de kanalen waarop je bent geabonneerd.
   Subscriptions Tabs: Abonnement tabbladen
-  All Subscription Tabs Hidden: Alle abonnement tabbladen zijn verborgen. Om de inhoud
-    hier te kunnen zien moet je de tabbladen zichtbaar maken in de sectie "{subsection}"
-    onder "{settingsSection}".
+  All Subscription Tabs Hidden: Alle abonnement­tabbladen zĳn verborgen. Om de inhoud hier te kunnen zien moet u de tabbladen zichtbaar maken in de sectie ‘{subsection}’ onder ‘{settingsSection}’.
   Load More Posts: Meer berichten laden
   Empty Posts: De kanalen waarop u geabonneerd bent hebben momenteel geen berichten.
 Trending:
@@ -125,8 +116,7 @@ Playlists: 'Afspeellĳsten'
 User Playlists:
   Your Playlists: 'Jouw afspeellĳsten'
   Search bar placeholder: Zoeken naar afspeellĳsten
-  Empty Search Message: Deze afspeellĳst bevat geen video's die overeenkomen met je
-    zoekopdracht
+  Empty Search Message: Deze afspeellĳst bevat geen video's die overeenkomen met je zoekopdracht
   Cancel: Annuleren
   Playlist Name: Afspeellijst naam
   Playlist Description: Afspeellijst omschrijving
@@ -144,32 +134,22 @@ User Playlists:
     Create: Aanmaken
     New Playlist Name: Naam voor nieuwe afspeellijst
     Toast:
-      Playlist {playlistName} has been successfully created.: Afspeellijst ‘{playlistName}’
-        is succesvol aangemaakt.
-      There was an issue with creating the playlist.: Er is een probleem opgetreden
-        bij het maken van de afspeellijst.
-      There is already a playlist with this name. Please pick a different name.: Er
-        is al een afspeellijst met deze naam. Kies een andere naam.
+      Playlist {playlistName} has been successfully created.: Afspeellijst ‘{playlistName}’ is succesvol aangemaakt.
+      There was an issue with creating the playlist.: Er is een probleem opgetreden bij het maken van de afspeellijst.
+      There is already a playlist with this name. Please pick a different name.: Er is al een afspeellijst met deze naam. Kies een andere naam.
   AddVideoPrompt:
     Save: Opslaan
     N playlists selected: '{playlistCount} geselecteerd'
     Search in Playlists: Zoeken in afspeellijsten
     Toast:
       You haven't selected any playlist yet.: U heeft nog geen afspeellijst geselecteerd.
-      "{videoCount} video(s) added to 1 playlist": 1 video toegevoegd aan 1 afspeellijst
-        | {videoCount} video's toegevoegd aan 1 afspeellijst
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video toegevoegd
-        aan {playlistCount} afspeellijsten | {videoCount} video's toegevoegd aan {playlistCount}
-        afspeellijsten
-    Select a playlist to add your N videos to: Selecteer een afspeellijst om je video
-      aan toe te voegen | Selecteer een afspeellijst om je {videoCount} video's aan
-      toe te voegen
+      "{videoCount} video(s) added to 1 playlist": 1 video toegevoegd aan 1 afspeellijst | {videoCount} video's toegevoegd aan 1 afspeellijst
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video toegevoegd aan {playlistCount} afspeellijsten | {videoCount} video's toegevoegd aan {playlistCount} afspeellijsten
+    Select a playlist to add your N videos to: Selecteer een afspeellijst om je video aan toe te voegen | Selecteer een afspeellijst om je {videoCount} video's aan toe te voegen
     Added {count} Times: 'Video is al toegevoegd | {count} keer toegevoegd'
     Allow Adding Duplicate Video(s): Toevoegen van dubbele video's toestaan
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": "{videoCount}/{totalVideoCount}
-      video's zullen worden toegevoegd"
-    "{videoCount}/{totalVideoCount} Videos Already Added": "{videoCount}/{totalVideoCount}
-      video's zijn al toegevoegd"
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": "{videoCount}/{totalVideoCount} video's zullen worden toegevoegd"
+    "{videoCount}/{totalVideoCount} Videos Already Added": "{videoCount}/{totalVideoCount} video's zijn al toegevoegd"
   Save Changes: Wijzigingen opslaan
   Copy Playlist: Afspeellijst kopiëren
   Create New Playlist: Maak nieuwe afspeellijst
@@ -187,58 +167,34 @@ User Playlists:
       Playlist has been updated.: De afspeellijst is bijgewerkt.
       This video cannot be moved up.: Deze video kan niet omhoog verplaatst worden.
       This video cannot be moved down.: Deze video kan niet omlaag verplaatst worden.
-      Playlist {playlistName} has been deleted.: Afspeellijst ‘{playlistName}’ is
-        verwijderd.
+      Playlist {playlistName} has been deleted.: Afspeellijst ‘{playlistName}’ is verwijderd.
       This playlist does not exist: Deze afspeellijst bestaat niet
       There were no videos to remove.: Er zijn geen video's om te verwijderen.
-      There was a problem with removing this video: Er is een probleem met het verwijderen
-        van deze video
-      This playlist is now used for quick bookmark: Deze afspeellijst wordt nu gebruikt
-        met snelle bladwijzers
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Deze
-        afspeellijst wordt nu gebruikt voor snelle bladwijzers in plaats van {oldPlaylistName}.
-        Klik hier om ongedaan te maken
-      Reverted to use {oldPlaylistName} for quick bookmark: Teruggekeerd naar het
-        gebruik van {oldPlaylistName} voor snelle bladwijzers
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Sommige
-        video's in de afspeellijst zijn nog niet geladen. Klik hier om toch te kopiëren.
-      "{videoCount} video(s) have been removed": 1 video verwijderd | {videoCount}
-        video's verwijderd
-      This playlist is protected and cannot be removed.: Deze afspeellijst is beveiligd
-        en kan niet worden verwijderd.
-      Playlist name cannot be empty. Please input a name.: De naam van de afspeellijst
-        mag niet leeg zijn. Voer een naam in alstjeblieft.
-      There was an issue with updating this playlist.: Er is een probleem opgetreden
-        bij het bijwerken van deze afspeellijst.
-      This playlist is already being used for quick bookmark.: Deze afspeellĳst wordt
-        al gebruikt met snelle bladwijzer.
-      Video has been removed. Click here to undo.: De video is verwijderd. Klik hier
-        om ongedaan te maken.
-      This playlist has a video with a duration error: Deze afspeellijst heeft minimaal
-        1 video zonder tijdsduur en zal worden gesorteerd alsof de tijdsduur nul is.
+      There was a problem with removing this video: Er is een probleem met het verwijderen van deze video
+      This playlist is now used for quick bookmark: Deze afspeellijst wordt nu gebruikt met snelle bladwijzers
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Deze afspeellijst wordt nu gebruikt voor snelle bladwijzers in plaats van {oldPlaylistName}. Klik hier om ongedaan te maken
+      Reverted to use {oldPlaylistName} for quick bookmark: Teruggekeerd naar het gebruik van {oldPlaylistName} voor snelle bladwijzers
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Sommige video's in de afspeellijst zijn nog niet geladen. Klik hier om toch te kopiëren.
+      "{videoCount} video(s) have been removed": 1 video verwijderd | {videoCount} video's verwijderd
+      This playlist is protected and cannot be removed.: Deze afspeellijst is beveiligd en kan niet worden verwijderd.
+      Playlist name cannot be empty. Please input a name.: De naam van de afspeellijst mag niet leeg zijn. Voer een naam in alstjeblieft.
+      There was an issue with updating this playlist.: Er is een probleem opgetreden bij het bijwerken van deze afspeellijst.
+      This playlist is already being used for quick bookmark.: Deze afspeellĳst wordt al gebruikt met snelle bladwijzer.
+      Video has been removed. Click here to undo.: De video is verwijderd. Klik hier om ongedaan te maken.
+      This playlist has a video with a duration error: Deze afspeellijst heeft minimaal 1 video zonder tijdsduur en zal worden gesorteerd alsof de tijdsduur nul is.
     Search for Videos: Zoeken naar video's
-  You have no playlists. Click on the create new playlist button to create a new one.: Je
-    hebt geen afspeellijsten. Klik op "maak nieuwe playlist" om er één te maken.
+  You have no playlists. Click on the create new playlist button to create a new one.: U heeft geen afspeel­lĳsten. Druk op ‘Nieuwe afspeel­lĳst maken’ om er een te maken.
   This playlist currently has no videos.: Deze afspeellijst bevat momenteel geen video's.
-  Enable Quick Bookmark With This Playlist: Snelle Bladwijzers inschakelen voor deze
-    afspeellijst
-  Are you sure you want to delete this playlist? This cannot be undone: Weet u zeker
-    dat u deze afspeellijst wilt verwijderen? Dit kan niet ongedaan worden gemaakt.
+  Enable Quick Bookmark With This Playlist: Snelle Bladwijzers inschakelen voor deze afspeellijst
+  Are you sure you want to delete this playlist? This cannot be undone: Weet u zeker dat u deze afspeellijst wilt verwijderen? Dit kan niet ongedaan worden gemaakt.
   Playlists with Matching Videos: Afspeellĳsten met overeenkomende video's
   Quick Bookmark Enabled: Snel opslaan ingeschakeld
-  Cannot delete the quick bookmark target playlist.: Kan afspeellĳst voor snel opslaan
-    niet verwĳderen.
+  Cannot delete the quick bookmark target playlist.: Kan afspeellĳst voor snel opslaan niet verwĳderen.
   Remove Duplicate Videos: Dubbele video's verwĳderen
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Weet
-    je zeker dat je 1 dubbele video uit deze afspeellĳst wilt verwijderen? Dit kan
-    niet ongedaan worden gemaakt. | Weet je zeker dat je {playlistItemCount} dubbele
-    video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan worden gemaakt.
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Weet
-    je zeker dat je 1 bekeken video uit deze afspeellĳst wilt verwijderen? Dit kan
-    niet ongedaan worden gemaakt. | Weet je zeker dat je {playlistItemCount} bekeken
-    video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan worden gemaakt.
-  Export Playlist: Deze afspeellijst exporteren
-  The playlist has been successfully exported: De afspeellijst is succesvol geëxporteerd
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Weet je zeker dat je 1 dubbele video uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan worden gemaakt. | Weet je zeker dat je {playlistItemCount} dubbele video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan worden gemaakt.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Weet je zeker dat je 1 bekeken video uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan worden gemaakt. | Weet je zeker dat je {playlistItemCount} bekeken video's uit deze afspeellĳst wilt verwijderen? Dit kan niet ongedaan worden gemaakt.
+  Export Playlist: Deze afspeel­lĳst exporteren
+  The playlist has been successfully exported: De afspeel­lĳst is succesvol geëxporteerd
   TotalTimePlaylist: 'Totale tĳd: {duration}'
 History:
   # On History Page
@@ -253,8 +209,7 @@ Settings:
   Settings: 'Instellingen'
   General Settings:
     General Settings: 'Algemeen'
-    Fallback to Non-Preferred Backend on Failure: 'Terugvallen op alternatieve backend
-      bij problemen'
+    Fallback to Non-Preferred Backend on Failure: 'Terugvallen op alternatieve backend bij problemen'
     Enable Search Suggestions: 'Zoeksuggesties inschakelen'
     Default Landing Page: 'Standaard startscherm'
     Locale Preference: 'Regiovoorkeur'
@@ -283,11 +238,9 @@ Settings:
     Current Invidious Instance: Huidige Invidious-instantie
     Clear Default Instance: Standaardinstantie wissen
     Set Current Instance as Default: Huidige instantie instellen als standaard
-    Current instance will be randomized on startup: Instantie zal willekeurig worden
-      gekozen bij het starten
+    Current instance will be randomized on startup: Instantie zal willekeurig worden gekozen bij het starten
     No default instance has been set: Er is geen standaardinstantie ingesteld
-    The currently set default instance is {instance}: '{instance} is momenteel de
-      standaard instantie'
+    The currently set default instance is {instance}: '{instance} is momenteel de standaard instantie'
     External Link Handling:
       Ask Before Opening Link: Vragen bij het openen van koppelingen
       No Action: Geen actie
@@ -445,8 +398,7 @@ Settings:
     Display Play Button In Video Player: Afspeelknop in videospeler weergeven
     Scroll Volume Over Video Player: Volume aanpassen door op de video te scrollen
     Fast-Forward / Rewind Interval: Snelheid van doorspoelen/terugspoelen
-    Scroll Playback Rate Over Video Player: Afspeelsnelheid aanpassen door op de video
-      te scrollen
+    Scroll Playback Rate Over Video Player: Afspeelsnelheid aanpassen door op de video te scrollen
     Max Video Playback Rate: Maximale afspeelsnelheid
     Video Playback Rate Interval: Interval video-afspeelsnelheid
     Screenshot:
@@ -460,11 +412,7 @@ Settings:
         Forbidden Characters: Niet-toegestane tekens
         Empty File Name: Lege bestandsnaam
       File Name Label: Bestandsnaam­patroon
-      File Name Tooltip: 'U kunt de volgende variabelen gebruiken: %Y viercijferig
-        jaartal; %M tweecijferige maand; %D tweecijferige dagstelling; %H tweecijferig
-        uur; %N tweecijferige minuut; %S tweecijferige seconde; %T driecijferige milliseconde;
-        %s tweecijferige seconde in de video; %t driecijferige milliseconde in de
-        video; %i ID van de video.'
+      File Name Tooltip: 'U kunt de volgende variabelen gebruiken: %Y viercijferig jaartal; %M tweecijferige maand; %D tweecijferige dagstelling; %H tweecijferig uur; %N tweecijferige minuut; %S tweecijferige seconde; %T driecijferige milliseconde; %s tweecijferige seconde in de video; %t driecijferige milliseconde in de video; %i ID van de video.'
     Skip by Scrolling Over Video Player: Overslaan door op de video te scrollen
     Enter Fullscreen on Display Rotate: Volledig scherm bij draaien van scherm
     Default Viewing Mode:
@@ -479,38 +427,27 @@ Settings:
     Remember History: 'Kijkgeschiedenis onthouden'
     Save Watched Progress: 'Videovoortgang bewaren'
     Clear Search Cache: 'Zoek-cache wissen'
-    Are you sure you want to clear out your search cache?: 'Weet u zeker dat u de
-      zoekbuffer wil verwijderen?'
+    Are you sure you want to clear out your search cache?: 'Weet u zeker dat u de zoekbuffer wil verwijderen?'
     Search cache has been cleared: 'De zoekbuffer is verwijderd'
     Remove Watch History: 'Kijkgeschiedenis verwijderen'
-    Are you sure you want to remove your entire watch history?: 'Weet u zeker dat
-      u uw volledige kijkgeschiedenis wil verwijderen?'
+    Are you sure you want to remove your entire watch history?: 'Weet u zeker dat u uw volledige kijkgeschiedenis wil verwijderen?'
     Watch history has been cleared: 'Kijkgeschiedenis is verwijderd'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Weet
-      u zeker dat u alle abonnementen en profielen wil verwijderen? Dit kan niet ongedaan
-      worden gemaakt.
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Weet u zeker dat u alle abonnementen en profielen wil verwijderen? Dit kan niet ongedaan worden gemaakt.
     Remove All Subscriptions / Profiles: Verwijder alle abonnementen / profielen
-    Save Watched Videos With Last Viewed Playlist: Houd bekeken video's bij met de
-      afspeellijst ‘Laatst bekeken’
+    Save Watched Videos With Last Viewed Playlist: Houd bekeken video's bij met de afspeellijst ‘Laatst bekeken’
     Remove All Playlists: Alle afspeel­lijsten verwijderen
     All playlists have been removed: Alle afspeel­lijsten zijn verwijderd
-    Are you sure you want to remove all your playlists?: Weet u zeker dat u al uw
-      afspeel­lijsten wilt verwijderen?
+    Are you sure you want to remove all your playlists?: Weet u zeker dat u al uw afspeel­lijsten wilt verwijderen?
     Remember Search History: Zoekgeschiedenis Bijhouden
     Search history and cache have been cleared: Cache en zoekgeschiedenis zijn verwijderd
-    Are you sure you want to clear out your search history and cache?: Weet u zeker
-      dat u uw cache en zoekgeschiedenis wilt verwijderen?
+    Are you sure you want to clear out your search history and cache?: Weet u zeker dat u uw cache en zoekgeschiedenis wilt verwijderen?
     Clear Search History and Cache: Cache en Zoekgeschiedenis Verwijderen
     Watched Progress Saving Mode:
       Modes:
         Auto: Automatisch
         Semi-auto: Semi­automatisch
         Never: Nooit
-      Tooltip: Auto = Opslaan bij het verlaten van elke videopagina, wanneer de video
-        is afgelopen of wanneer er een fout optreedt (bijv. rate-limiet bereikt of
-        kijkersessie verlopen).Semi-auto = Net als Auto, behalve bij het verlaten
-        van de videopagina. Voortgang kan handmatig worden opgeslagen via een knop
-        genaamd 'Voortgang Opslaan', die zich onder de videospeler bevindt.
+      Tooltip: Auto = Opslaan bij het verlaten van elke videopagina, wanneer de video is afgelopen of wanneer er een fout optreedt (bijv. rate-limiet bereikt of kijkersessie verlopen).Semi-auto = Net als Auto, behalve bij het verlaten van de videopagina. Voortgang kan handmatig worden opgeslagen via een knop genaamd 'Voortgang Opslaan', die zich onder de videospeler bevindt.
   Subscription Settings:
     Subscription Settings: 'Abonnement­'
     Hide Videos on Watch: 'Bekeken video''s verbergen'
@@ -518,22 +455,17 @@ Settings:
     Fetch Automatically: Feed automatisch ophalen
     Confirm Before Unsubscribing: Onbedoeld deabonneren voor­komen
 
-    'Limit the number of videos displayed for each channel': Limiteer de hoeveelheid
-      getoonde videos per kanaal
+    'Limit the number of videos displayed for each channel': Limiteer de hoeveelheid getoonde videos per kanaal
     To: Naar
   Data Settings:
-    History object has insufficient data, skipping item: Geschiedenis object heeft
-      niet genoeg data, item wordt overgeslagen
+    History object has insufficient data, skipping item: Geschiedenis object heeft niet genoeg data, item wordt overgeslagen
     Subscriptions have been successfully exported: Abonnementen zijn met succes geïmporteerd
     Invalid history file: Ongeldig geschiedenisbestand
     This might take a while, please wait: Dit kan eventjes duren, even geduld aub
     Invalid subscriptions file: Ongeldig abonnementenbestand
-    All subscriptions have been successfully imported: Alle abonnementen zijn met
-      succes geïmporteerd
-    All subscriptions and profiles have been successfully imported: Alle abonnementen
-      en profielen zijn succesvol geïmporteerd
-    Profile object has insufficient data, skipping item: Profiel heeft niet genoeg
-      data, item wordt overgeslagen
+    All subscriptions have been successfully imported: Alle abonnementen zijn met succes geïmporteerd
+    All subscriptions and profiles have been successfully imported: Alle abonnementen en profielen zijn succesvol geïmporteerd
+    Profile object has insufficient data, skipping item: Profiel heeft niet genoeg data, item wordt overgeslagen
     Export History: Geschiedenis exporteren
     Import History: Geschiedenis importeren
     Export NewPipe: NewPipe exporteren
@@ -547,30 +479,20 @@ Settings:
     Unknown data key: Onbekende datasleutel
     Unable to write file: Bestand kan niet worden geschreven
     Unable to read file: Bestand kan niet worden gelezen
-    All watched history has been successfully exported: De bekeken geschiedenis is
-      met succes geëxporteerd
-    All watched history has been successfully imported: De bekeken geschiedenis is
-      met succes geïmporteerd
+    All watched history has been successfully exported: De bekeken geschiedenis is met succes geëxporteerd
+    All watched history has been successfully imported: De bekeken geschiedenis is met succes geïmporteerd
     Manage Subscriptions: Abonnementen beheren
     Export Playlists: Afspeellijsten exporteren
-    All playlists has been successfully imported: Alle speellijsten zijn met succes
-      geïmporteerd
+    All playlists has been successfully imported: Alle speellijsten zijn met succes geïmporteerd
     Import Playlists: Afspeellijsten importeren
-    Playlist insufficient data: Onvoldoende gegevens voor speellijst "{playlist}",
-      item word overgeslagen
-    All playlists has been successfully exported: Alle speellijsten zijn met succes
-      geëxporteerd
+    Playlist insufficient data: Onvoldoende gegevens voor speellijst "{playlist}", item word overgeslagen
+    All playlists has been successfully exported: Alle speellijsten zijn met succes geëxporteerd
     Subscription File: Abonnementenbestand
     History File: Geschiedenisbestand
     Playlist File: Afspeellijstbestand
     Export Playlists For Older FreeTube Versions:
       Label: Afspeel­lijsten exporteren voor oudere FreeTube-versies
-      Tooltip: "Deze optie exporteert video's van alle afspeel­lijsten naar één afspeel­lijst
-        met de naam ‘Favorieten’.\nVideo's exporteren en importeren in afspeel­lijsten
-        voor een oudere versie van FreeTube:\n1. Exporteer uw afspeel­lijsten met
-        deze optie ingeschakeld.\n2. Verwijder al uw bestaande afspeel­lijsten met
-        de optie ‘Alle afspeel­lijsten verwijderen’ onder ‘Privacy­instellingen’.\n
-        3. Start de oudere versie van FreeTube en importeer de geëxporteerde afspeel­lijsten."
+      Tooltip: "Deze optie exporteert video's van alle afspeel­lijsten naar één afspeel­lijst met de naam ‘Favorieten’.\nVideo's exporteren en importeren in afspeel­lijsten voor een oudere versie van FreeTube:\n1. Exporteer uw afspeel­lijsten met deze optie ingeschakeld.\n2. Verwijder al uw bestaande afspeel­lijsten met de optie ‘Alle afspeel­lijsten verwijderen’ onder ‘Privacy­instellingen’.\n 3. Start de oudere versie van FreeTube en importeer de geëxporteerde afspeel­lijsten."
   Distraction Free Settings:
     Hide Live Chat: Live­chat verbergen
     Hide Popular Videos: Populaire video's verbergen
@@ -587,8 +509,7 @@ Settings:
     Hide Video Description: Video-omschrijving verbergen
     Hide Comments: Opmerkingen verbergen
     Hide Live Streams: Live­streams verbergen
-    Display Titles Without Excessive Capitalisation: Titels tonen zonder overmatig
-      hoofdletter­gebruik en inter­punctie
+    Display Titles Without Excessive Capitalisation: Titels tonen zonder overmatig hoofdletter­gebruik en inter­punctie
     Sections:
       Side Bar: Zijbalk
       General: Algemeen
@@ -610,47 +531,34 @@ Settings:
     Hide Profile Pictures in Comments: Profielfoto's in opmerkingen verbergen
     Hide Channels Already Exists: Kanaal ID bestaat reeds
     Hide Channels Invalid: Opgegeven kanaal-id is ongeldig
-    Hide Videos and Playlists Containing Text Placeholder: Woord, woord­fragment of
-      zin
-    Hide Videos and Playlists Containing Text: Video's en afspeel­lijsten die tekst
-      bevatten verbergen
-    Hide Channels API Error: Fout bij het ophalen van de gebruiker met de opgegeven
-      ID. Controleer nog­maals of de ID correct is.
-    Hide Channels Disabled Message: Sommige kanalen zijn geblokkeerd met behulp van
-      ID en zijn niet verwerkt. De functie is geblokkeerd terwijl deze ID's worden
-      bij­gewerkt
+    Hide Videos and Playlists Containing Text Placeholder: Woord, woord­fragment of zin
+    Hide Videos and Playlists Containing Text: Video's en afspeel­lijsten die tekst bevatten verbergen
+    Hide Channels API Error: Fout bij het ophalen van de gebruiker met de opgegeven ID. Controleer nog­maals of de ID correct is.
+    Hide Channels Disabled Message: Sommige kanalen zijn geblokkeerd met behulp van ID en zijn niet verwerkt. De functie is geblokkeerd terwijl deze ID's worden bij­gewerkt
     Show Added Items: Toegevoegde Items Weergeven
     Hide Channel Home: Kanaal "Home" Tab Verbergen
     Hide Channel Courses: Verberg het tabblad 'Cursussen' van het kanaal
-  The app needs to restart for changes to take effect. Restart and apply change?: Het
-    programma moet opnieuw worden gestart voordat de veranderingen effect hebben.
-    Wilt u het programma nu opnieuw starten en de veranderingen toepassen?
+    Hide Channel Posts: Verberg tabblad ‘Berichten’ van kanalen
+    Hide Subscriptions Posts: Verberg berichten van abonnementen
+  The app needs to restart for changes to take effect. Restart and apply change?: Het programma moet opnieuw worden gestart voordat de veranderingen effect hebben. Wilt u het programma nu opnieuw starten en de veranderingen toepassen?
   Proxy Settings:
-    Error getting network information. Is your proxy configured properly?: Fout bij
-      het opvragen van netwerkinformatie. Is uw proxy correct geconfigureerd?
+    Error getting network information. Is your proxy configured properly?: Fout bij het opvragen van netwerkinformatie. Is uw proxy correct geconfigureerd?
     City: Stad
     Region: Regio
     Country: Land
     Ip: IP
     Your Info: Uw informatie
     Test Proxy: Proxy testen
-    Clicking on Test Proxy will send a request to: Door op Test Proxy te klikken zal
-      er een verzoek worden verstuurd naar
+    Clicking on Test Proxy will send a request to: Door op Test Proxy te klikken zal er een verzoek worden verstuurd naar
     Proxy Port Number: Poortnummer proxy
     Proxy Host: Proxyhost
     Proxy Protocol: Proxyprotocol
     Enable Tor / Proxy: Tor / proxy inschakelen
     Proxy Settings: Proxy
-    Proxy Warning: FreeTube heeft geen ingeboude proxy maar kan verbinden via een
-      externe proxy zoals een proxy op dit apparaat (Bijvoorbeeld Tor) of een externe
-      proxy zoals een SOCKS5 proxy verstrekt door sommige VPNs. Wanneer ingeschakeld,
-      zorg ervoor dat de proxy of Tor correct ingesteld is anders lan FreeTube geen
-      data verkrijgen.
+    Proxy Warning: FreeTube heeft geen ingeboude proxy maar kan verbinden via een externe proxy zoals een proxy op dit apparaat (Bijvoorbeeld Tor) of een externe proxy zoals een SOCKS5 proxy verstrekt door sommige VPNs. Wanneer ingeschakeld, zorg ervoor dat de proxy of Tor correct ingesteld is anders lan FreeTube geen data verkrijgen.
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Mij informeren wanneer een gesponsord
-      segment wordt overgeslagen
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL naar API van
-      SponsorBlock (Standaard is https://sponsor.ajay.app)
+    Notify when sponsor segment is skipped: Mij informeren wanneer een gesponsord segment wordt overgeslagen
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL naar API van SponsorBlock (Standaard is https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock inschakelen
     SponsorBlock Settings: SponsorBlock
     Skip Options:
@@ -662,14 +570,11 @@ Settings:
     Category Color: Categorie­kleur
     UseDeArrowTitles: DeArrow-videotitels gebruiken
     UseDeArrowThumbnails: DeArrow gebruiken voor miniaturen
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': API-URL
-      van DeArrow-miniatuur­generator (standaard is https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': API-URL van DeArrow-miniatuur­generator (standaard is https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Aangepaste argumenten voor externe videospeler
-    Custom External Player Executable: Uitvoerbaar bestand van externe videospeler
-      instellen
-    Ignore Unsupported Action Warnings: Waarschuwingen voor niet-ondersteunde acties
-      negeren
+    Custom External Player Executable: Uitvoerbaar bestand van externe videospeler instellen
+    Ignore Unsupported Action Warnings: Waarschuwingen voor niet-ondersteunde acties negeren
     External Player: Externe videospeler
     External Player Settings: Externe Mediaspeler
     Players:
@@ -689,16 +594,14 @@ Settings:
     Show Family Friendly Only: Enkel familievriendelijke inhoud tonen
     Hide Search Bar: Zoek­balk verbergen
   Experimental Settings:
-    Warning: Dit zijn experimentele instellingen, die een crash kunnen veroorzaken.
-      Het is raadzaam backups te maken. Gebruiken op eigen risico!
+    Warning: Dit zijn experimentele instellingen, die een crash kunnen veroorzaken. Het is raadzaam backups te maken. Gebruiken op eigen risico!
     Experimental Settings: Experimentele Instellingen
     Replace HTTP Cache: HTTP-cache vervangen
   Password Settings:
     Set Password: Wachtwoord instellen
     Remove Password: Wachtwoord verwijderen
     Password Settings: Wachtwoord­en
-    Set Password To Prevent Access: Stel een wachtwoord in om toegang tot instellingen
-      te beperken
+    Set Password To Prevent Access: Stel een wachtwoord in om toegang tot instellingen te beperken
   Password Dialog:
     Password: Wachtwoord
     Enter Password To Unlock: Voer wachtwoord in om instellingen te ontgrendelen
@@ -721,8 +624,7 @@ About:
   Email: E-mail
   Blog: Blog
   Website: Website
-  Please check for duplicates before posting: Controleer eerst of een probleem al
-    gerapporteerd is
+  Please check for duplicates before posting: Controleer eerst of een probleem al gerapporteerd is
   GitHub issues: GitHub-issues
   Report a problem: Probleem melden
   FAQ: Veelgestelde vragen
@@ -742,16 +644,14 @@ Channel:
   Your search results have returned 0 results: 'Uw zoekactie heeft 0 resultaten opgeleverd'
   Videos:
     Videos: 'Video''s'
-    This channel does not currently have any videos: 'Dit kanaal heeft op dit moment
-      nog geen video''s'
+    This channel does not currently have any videos: 'Dit kanaal heeft op dit moment nog geen video''s'
     Sort Types:
       Newest: 'Nieuwste'
       Oldest: 'Oudste'
       Most Popular: 'Populairst'
   Playlists:
     Playlists: 'Afspeellijsten'
-    This channel does not currently have any playlists: 'Dit kanaal heeft momenteel
-      nog geen afspeellijsten'
+    This channel does not currently have any playlists: 'Dit kanaal heeft momenteel nog geen afspeellijsten'
     Sort Types:
       Last Video Added: 'Laatst toegevoegde video'
       Newest: 'Nieuwste'
@@ -767,48 +667,38 @@ Channel:
     Details: Details
     Joined: Lid sinds
   Added channel to your subscriptions: Kanaal is toegevoegd aan uw abonnementen
-  Removed subscription from {count} other channel(s): Abonnementen van {count} andere
-    kanalen zijn verwijderd
+  Removed subscription from {count} other channel(s): Abonnementen van {count} andere kanalen zijn verwijderd
   Channel has been removed from your subscriptions: Kanaal is verwijderd uit uw abonnementen
   Channel Tabs: Kanaal­tabbladen
   Live:
     Live: Live
-    This channel does not currently have any live streams: Dit kanaal heeft momenteel
-      geen livestreams
+    This channel does not currently have any live streams: Dit kanaal heeft momenteel geen livestreams
   Podcasts:
     Podcasts: Podcasts
-    This channel does not currently have any podcasts: Dit kanaal heeft momenteel
-      geen podcasts
+    This channel does not currently have any podcasts: Dit kanaal heeft momenteel geen podcasts
   Posts:
     Posts: Posts
     Reveal Answers: Antwoorden onthullen
     Hide Answers: Antwoorden verbergen
     votes: '{votes} stemmen'
-    This channel currently does not have any posts: Dit kanaal heeft momenteel geen
-      posts
+    This channel currently does not have any posts: Dit kanaal heeft momenteel geen posts
     Video hidden by FreeTube: Video verborgen door FreeTube
-    Viewing Posts Only Supported By Invidious: Posts bekijken wordt alleen ondersteund
-      door Invidious. Ga naar het community-tabblad van een kanaal om content te bekijken
-      zonder Invidious.
+    Viewing Posts Only Supported By Invidious: Posts bekijken wordt alleen ondersteund door Invidious. Ga naar het community-tabblad van een kanaal om content te bekijken zonder Invidious.
     View Full Post: Volledige Post Weergeven
   Releases:
     Releases: Uitgaven
-    This channel does not currently have any releases: Dit kanaal heeft momenteel
-      geen uitgaven
+    This channel does not currently have any releases: Dit kanaal heeft momenteel geen uitgaven
   This channel does not exist: Dit kanaal bestaat niet
   This channel does not allow searching: Dit kanaal staat zoeken niet toe
   Shorts:
-    This channel does not currently have any shorts: Dit kanaal heeft momenteel geen
-      Shorts
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: Dit
-    kanaal heeft een leeftijdsbeperking en kan momenteel niet worden bekeken in FreeTube.
+    This channel does not currently have any shorts: Dit kanaal heeft momenteel geen Shorts
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Dit kanaal heeft een leeftijdsbeperking en kan momenteel niet worden bekeken in FreeTube.
   Home:
     View Playlist: Afspeellijst Weergeven
     Home: Startpagina
   Courses:
     Courses: Cursussen
-    This channel does not currently have any courses: Dit kanaal heeft momenteel geen
-      cursussen
+    This channel does not currently have any courses: Dit kanaal heeft momenteel geen cursussen
 Video:
   Mark As Watched: 'Markeren als bekeken'
   Remove From History: 'Uit geschiedenis verwijderen'
@@ -827,13 +717,9 @@ Video:
   Live Now: 'Nu live'
   Live Chat: 'Livechat'
   Enable Live Chat: 'Livechat inschakelen'
-  Live Chat is currently not supported in this build.: 'Livechat wordt in deze versie
-    nog niet ondersteund.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Livechat is ingeschakeld.
-    Chats zullen hier verschijnen.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Livechat
-    wordt momenteel niet ondersteund door de Invidious API. Een directe verbinding
-    met YouTube is nodig.'
+  Live Chat is currently not supported in this build.: 'Livechat wordt in deze versie nog niet ondersteund.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Livechat is ingeschakeld. Chats zullen hier verschijnen.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Livechat wordt momenteel niet ondersteund door de Invidious API. Een directe verbinding met YouTube is nodig.'
   Published:
     In less than a minute: In minder dan één minuut
   Published on: 'Gepubliceerd op'
@@ -844,8 +730,7 @@ Video:
   Reverse Playlist: Afspeellijst omkeren
   Shuffle Playlist: Afspeellijst in willekeurige volgorde afspelen
   Loop Playlist: Playlist herhalen
-  Starting soon, please refresh the page to check again: Start binnenkort, vernieuw
-    de pagina om opnieuw te controleren
+  Starting soon, please refresh the page to check again: Start binnenkort, vernieuw de pagina om opnieuw te controleren
   audio only: alleen audio
   video only: alleen video
   Download Video: Video downloaden
@@ -855,8 +740,7 @@ Video:
   Open Channel in YouTube: YouTube-kanaal openen
   Started streaming on: Gestart met streamen op
   Streamed on: Gestreamd op
-  Video has been removed from your saved list: Video is verwijderd uit uw lijst van
-    opgeslagen video's
+  Video has been removed from your saved list: Video is verwijderd uit uw lijst van opgeslagen video's
   Video has been saved: Video is opgeslagen
   Save Video: Video opslaan
   Sponsor Block category:
@@ -872,8 +756,7 @@ Video:
     Unsupported Actions:
       shuffling playlists: afspeellijsten shufflen
       reversing playlists: afspeellijsten omkeren
-      opening specific video in a playlist (falling back to opening the video): specifieke
-        video in een afspeellijst openen (terugvallen tot het openen van de video)
+      opening specific video in a playlist (falling back to opening the video): specifieke video in een afspeellijst openen (terugvallen tot het openen van de video)
       opening playlists: afspeellijsten openen
       setting a playback rate: afspeelsnelheid instellen
       looping playlists: afspeellijsten herhalen
@@ -887,8 +770,7 @@ Video:
   Scroll to Bottom: Helemaal naar onderen scrollen
   Upcoming: Aankomend
   Show Super Chat Comment: Superchat-opmerking tonen
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-chat
-    is niet beschikbaar voor deze stream. Mogelijk is deze uitgeschakeld door de uploader.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-chat is niet beschikbaar voor deze stream. Mogelijk is deze uitgeschakeld door de uploader.
   Hide Channel: Kanaal verbergen
   Unhide Channel: Kanaal tonen
   More Options: Meer opties
@@ -907,14 +789,12 @@ Video:
       CodecAudio: 'Codec: {audioCodec} ({audioItag})'
       Media Formats: 'Media Formaten: {formats}'
       Buffered: 'Gebufferd: {bufferedPercentage}%'
-      Dropped Frames / Total Frames: 'Vervallen Aantal Frames: {droppedFrames} / Totaal
-        Aantal Frames: {totalFrames}'
+      Dropped Frames / Total Frames: 'Vervallen Aantal Frames: {droppedFrames} / Totaal Aantal Frames: {totalFrames}'
       Video ID: 'Video ID: {videoId}'
       Stats: Statistieken
     Audio Tracks: Audiosporen
     TranslatedCaptionTemplate: '{language} (vertaald vanuit "{originalLanguage}")'
-    Playback will resume automatically when your connection comes back: Het afspelen
-      hervat automatisch wanneer u weer verbonden bent.
+    Playback will resume automatically when your connection comes back: Het afspelen hervat automatisch wanneer u weer verbonden bent.
     Skipped segment: '{segmentCategory} segment overgeslagen'
     Full Window: Volledig Venster
     Exit Full Window: Volledig Venster Sluiten
@@ -924,21 +804,14 @@ Video:
     Exit Theatre Mode: Theater Modus Verlaten
     Theatre Mode: Theater modus
     Hide Stats: Statistieken Verbergen
-  IP block: Youtube heeft uw IP adres geblokkeerd. Hierdoor kan u geen videos meer
-    kijken. Probeer om naar een andere VPN of proxy te wisselen.
-  DRMProtected: Videos die beschermd worden door DRM (Digital Rights Management) kunnen
-    niet worden afgespeeld in FreeTube omdat ze beschermde closed source onderdelen
-    vereisen. Als u deze video wilt bekijken, probeer het dan via de officiële YouTube
-    website met een web browser die DRM ondersteund.
+  IP block: Youtube heeft uw IP adres geblokkeerd. Hierdoor kan u geen videos meer kijken. Probeer om naar een andere VPN of proxy te wisselen.
+  DRMProtected: Videos die beschermd worden door DRM (Digital Rights Management) kunnen niet worden afgespeeld in FreeTube omdat ze beschermde closed source onderdelen vereisen. Als u deze video wilt bekijken, probeer het dan via de officiële YouTube website met een web browser die DRM ondersteund.
   Unlisted: Verborgen
   DeArrow:
     Show Original Details: Oorspronkelijke Details Weergeven
     Show Modified Details: Aangepaste Details Weergeven
-  MembersOnly: Members-only videos kunnen niet bekeken worden via FreeTube omdat ze
-    een Google login en betaald abonnement op het kanaal van de uploader vereisen.
-  AgeRestricted: Videos met een leeftijdsbeperking kunnen niet via FreeTube bekeken
-    worden omdat ze een Google login en een YouTube account met bevestigde leeftijd
-    vereisen.
+  MembersOnly: Members-only videos kunnen niet bekeken worden via FreeTube omdat ze een Google login en betaald abonnement op het kanaal van de uploader vereisen.
+  AgeRestricted: Videos met een leeftijdsbeperking kunnen niet via FreeTube bekeken worden omdat ze een Google login en een YouTube account met bevestigde leeftijd vereisen.
   Save Watched Progress: Kĳk­voortgang opslaan
   Watched Progress Saved: Kĳk­voortgang opgeslagen
 Playlist:
@@ -967,12 +840,9 @@ Change Format:
   Use Dash Formats: 'DASH-formaten gebruiken'
   Use Legacy Formats: 'Verouderde formaten gebruiken'
   Use Audio Formats: 'Audioformaten gebruiken'
-  Audio formats are not available for this video: Audio formaten zijn niet beschikbaar
-    voor deze video
-  Dash formats are not available for this video: DASH formaten zijn niet beschikbaar
-    voor deze video
-  Legacy formats are not available for this video: Legacy formaten zijn niet beschikbaar
-    voor deze video
+  Audio formats are not available for this video: Audio formaten zijn niet beschikbaar voor deze video
+  Dash formats are not available for this video: DASH formaten zijn niet beschikbaar voor deze video
+  Legacy formats are not available for this video: Legacy formaten zijn niet beschikbaar voor deze video
 Share:
   Share Video: 'Video delen'
   Share Playlist: 'Afspeellijst delen'
@@ -982,15 +852,12 @@ Share:
   Open Embed: 'Insluitlink openen'
   # On Click
   Invidious URL copied to clipboard: 'Invidious-URL is naar het klembord gekopieerd'
-  Invidious Embed URL copied to clipboard: 'Invidious Insluitlink is naar het klembord
-    gekopieerd'
+  Invidious Embed URL copied to clipboard: 'Invidious Insluitlink is naar het klembord gekopieerd'
   YouTube URL copied to clipboard: 'YouTube-URL is naar het klembord gekopieerd'
-  YouTube Embed URL copied to clipboard: 'YouTube Insluitlink is gekopieerd naar het
-    klemboard'
+  YouTube Embed URL copied to clipboard: 'YouTube Insluitlink is gekopieerd naar het klemboard'
   Include Timestamp: Inclusief tijdstempel
   YouTube Channel URL copied to clipboard: YouTube URL is gekopieerd naar het klembord
-  Invidious Channel URL copied to clipboard: Invidiouskanaal-URL is naar het klembord
-    gekopieerd
+  Invidious Channel URL copied to clipboard: Invidiouskanaal-URL is naar het klembord gekopieerd
   Share Channel: Kanaal delen
 Mini Player: 'Mini­speler'
 Comments:
@@ -1003,11 +870,9 @@ Comments:
   Hide: 'Verbergen'
   Replies: 'Reacties'
   Reply: 'Reactie'
-  There are no comments available for this video: 'Er zijn geen reacties beschikbaar
-    voor deze video'
+  There are no comments available for this video: 'Er zijn geen reacties beschikbaar voor deze video'
   Load More Comments: 'Meer opmerkingen laden'
-  There are no more comments for this video: Er zijn geen verdere reacties op deze
-    video
+  There are no more comments for this video: Er zijn geen verdere reacties op deze video
   Newest first: Nieuwste eerst
   Top comments: Beste opmerkingen
   Show More Replies: Meer reacties tonen
@@ -1018,8 +883,7 @@ Comments:
   Hearted: Met hartje
   View {replyCount} replies: '{replyCount} reacties bekijken'
   Subscribed: Geabonneerd
-  There are no comments available for this post: Er zijn geen reacties beschikbaar
-    voor deze post
+  There are no comments available for this post: Er zijn geen reacties beschikbaar voor deze post
 Up Next: 'Volgende'
 
 # Toast Messages
@@ -1034,25 +898,21 @@ Shuffle is now enabled: 'Willekeurig afspelen is nu ingeschakeld'
 Playing Next Video: 'Volgende video afspelen'
 Playing Previous Video: 'Vorige video afspelen'
 Canceled next video autoplay: 'Automatisch afspelen is geannuleerd'
-'The playlist has ended. Enable loop to continue playing': 'Het einde van de afspeellijst
-  is bereikt.  Schakel herhalen in om de afspeellijst te blijven afspelen'
+'The playlist has ended. Enable loop to continue playing': 'Het einde van de afspeellijst is bereikt.  Schakel herhalen in om de afspeellijst te blijven afspelen'
 
 Yes: 'Ja'
 No: 'Nee'
 The playlist has been reversed: De afspeellijst is omgedraaid
 Profile:
   '{profile} is now the active profile': '{profile} is nu het actieve profiel'
-  Your default profile has been changed to your primary profile: Uw standaardprofiel
-    is veranderd naar uw hoofdprofiel
+  Your default profile has been changed to your primary profile: Uw standaardprofiel is veranderd naar uw hoofdprofiel
   Removed {profile} from your profiles: '{profile} is verwijderd uit uw profielen'
-  Your default profile has been set to {profile}: Uw standaard profiel is ingesteld
-    op {profile}
+  Your default profile has been set to {profile}: Uw standaard profiel is ingesteld op {profile}
   Profile has been updated: Profiel is bijgewerkt
   Profile has been created: Profiel is aangemaakt
   Your profile name cannot be empty: Uw profielnaam mag niet leeg zijn
   All subscriptions will also be deleted.: Alle abonnementen zullen ook worden verwijderd.
-  Are you sure you want to delete this profile?: Weet u zeker dat u dit profiel wilt
-    verwijderen?
+  Are you sure you want to delete this profile?: Weet u zeker dat u dit profiel wilt verwijderen?
   Delete Profile: Profiel verwijderen
   Make Default Profile: Als standaard­profiel instellen
   Update Profile: Profiel bijwerken
@@ -1065,13 +925,9 @@ Profile:
   Profile Manager: Profiel­beheer
   All Channels: Alle kanalen
   Profile Select: Profiel­selectie
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Weet
-    u zeker dat u de geselecteerde kanalen wil verwijderen? Deze actie zal de geselecteerde
-    kanalen niet uit andere profielen verwijderen.
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : Dit is u primaire profiel. Weet u zeker dat u de geselecteerde kanalen wil verwijderen?
-    Dezelfde kanalen zullen worden verwijderd uit andere profielen.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Weet u zeker dat u de geselecteerde kanalen wil verwijderen? Deze actie zal de geselecteerde kanalen niet uit andere profielen verwijderen.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : Dit is u primaire profiel. Weet u zeker dat u de geselecteerde kanalen wil verwijderen? Dezelfde kanalen zullen worden verwijderd uit andere profielen.
   No channel(s) have been selected: Er zijn geen kanalen geselecteerd
   Add Selected To Profile: Selectie aan profiel toevoegen
   Delete Selected: Selectie verwijderen
@@ -1088,138 +944,81 @@ Profile:
   Create Profile Name: Profiel­naam aanmaken
   Close Profile Dropdown: Profiel­menu sluiten
   Open Profile Dropdown: Profiel­menu openen
-A new blog is now available, {blogTitle}. Click to view more: 'Een nieuwe blogpost
-  is beschikbaar: {blogTitle}. Klik voor meer informatie'
+A new blog is now available, {blogTitle}. Click to view more: 'Een nieuwe blogpost is beschikbaar: {blogTitle}. Klik voor meer informatie'
 Download From Site: Van website downloaden
-Version {versionNumber} is now available!  Click for more details: Versie {versionNumber}
-  is nu beschikbaar! Klik voor meer informatie
-This video is unavailable because of missing formats. This can happen due to country unavailability.: Deze
-  video is niet beschikbaar vanwege ontbrekende videoformaten. Dit kan gebeuren als
-  de video niet in uw land beschikbaar is.
+Version {versionNumber} is now available!  Click for more details: Versie {versionNumber} is nu beschikbaar! Klik voor meer informatie
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Deze video is niet beschikbaar vanwege ontbrekende videoformaten. Dit kan gebeuren als de video niet in uw land beschikbaar is.
 Tooltips:
   Player Settings:
-    Default Video Format: Selecteer de video indeling die wordt gebruikt wanneer u
-      een video afspeelt. DASH kan video's afspelen met hogere kwaliteitsinstellingen.
-      Legacy gaat niet hoger dan 720p maar gebruikt minder bandbreedte. Audio zal
-      alleen het geluid streamen.
-    Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en daar de
-      video's downloaden in de plaats van de video's rechtstreeks bij YouTube vandaan
-      te halen.
-    Scroll Playback Rate Over Video Player: Terwijl de muis zich over de video bevindt,
-      houd de Control-toets (Command-toets op Mac) ingedrukt en scroll met de muis
-      om de afspeelsnelheid te besturen. Houd de Control-toets (Command-toets op Mac)
-      ingedrukt en klik met de linker muisknop om snel terug te schakelen naar de
-      standaard afspeelsnelheid (1x tenzij aangepast in de instellingen).
-    Skip by Scrolling Over Video Player: Gebruik het scroll-wieltje om door de video
-      te spoelen, zoals bij MPV.
+    Default Video Format: Selecteer de video indeling die wordt gebruikt wanneer u een video afspeelt. DASH kan video's afspelen met hogere kwaliteitsinstellingen. Legacy gaat niet hoger dan 360p maar gebruikt minder bandbreedte. Audio zal alleen het geluid streamen.
+    Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en daar de video's downloaden in de plaats van de video's rechtstreeks bij YouTube vandaan te halen.
+    Scroll Playback Rate Over Video Player: Terwijl de muis zich over de video bevindt, houd de Control-toets (Command-toets op Mac) ingedrukt en scroll met de muis om de afspeelsnelheid te besturen. Houd de Control-toets (Command-toets op Mac) ingedrukt en klik met de linker muisknop om snel terug te schakelen naar de standaard afspeelsnelheid (1x tenzij aangepast in de instellingen).
+    Skip by Scrolling Over Video Player: Gebruik het scroll-wieltje om door de video te spoelen, zoals bij MPV.
   Subscription Settings:
-    Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken in plaats
-      van de standaard­methode om uw abonnementen­feed op te halen. RSS is sneller
-      en voorkomt IP-blokkering, maar geeft geen toegang tot sommige informatie zoals
-      de video­duur, live-status en gemeenschaps posts
-    Fetch Automatically: Indien ingeschakeld, haalt FreeTube automatisch uw abonnementen­feed
-      op wanneer een nieuw venster wordt geopend en wanneer u van profiel verandert.
+    Fetch Feeds from RSS: Wanneer ingeschakeld zal FreeTube RSS gebruiken in plaats van de standaard­methode om uw abonnementen­feed op te halen. RSS is sneller en voorkomt IP-blokkering, maar geeft geen toegang tot sommige informatie zoals de video­duur, live-status en berichten
+    Fetch Automatically: Indien ingeschakeld, haalt FreeTube automatisch uw abonnementen­feed op bĳ het opstarten en wanneer een nieuw venster wordt geopend.
   General Settings:
-    Invidious Instance: Dit is de Invidious-instantie waar FreeTube mee zal verbinden
-      om API calls te maken.
-    Thumbnail Preference: Alle miniaturen in FreeTube zullen worden vervangen met
-      een moment­opname uit de video in plaats van de standaard­miniatuur.
-    Fallback to Non-Preferred Backend on Failure: Wanneer het API met voorkeur problemen
-      geeft dan zal FreeTube automatisch terugvallen op het alternatieve niet-voorkeur
-      API wanneer deze instelling is ingeschakeld.
-    Preferred API Backend: Kies de backend die FreeTube gebruikt om data te verzamelen.
-      De lokale API is een ingebouwde inhoudsverzamelaar. De Invidious API moet worden
-      verbonden met een Invidious server.
-    Region for Trending: Met trend regio kan je instellen uit welk land je trending
-      video's je wil zien.
-    External Link Handling: "Kies het standaard gedrag voor wanneer een link dat niet
-      kan worden geopend in FreeTube is aangeklikt.\nStandaard zal FreeTube de aangeklikte
-      link openen in je standaardbrowser.\n"
-    Open Deep Links In New Window: URLs die aan FreeTube doorgegeven worden zoals
-      doorverwijzingen van browser extensies of opdrachtenprompt argumenten worden
-      geopend in een nieuw venster.
+    Invidious Instance: Dit is de Invidious-instantie waar FreeTube mee zal verbinden om API calls te maken.
+    Thumbnail Preference: Alle miniaturen in FreeTube zullen worden vervangen met een moment­opname uit de video, worden vervaagd, of worden verborgen, in plaats van de standaard­miniatuur.
+    Fallback to Non-Preferred Backend on Failure: Wanneer het API met voorkeur problemen geeft dan zal FreeTube automatisch terugvallen op het alternatieve niet-voorkeur API wanneer deze instelling is ingeschakeld.
+    Preferred API Backend: Kies de backend die FreeTube gebruikt om data te verzamelen. De lokale API is een ingebouwde inhoudsverzamelaar. De Invidious API moet worden verbonden met een Invidious server.
+    Region for Trending: Met trend regio kan je instellen uit welk land je trending video's je wil zien.
+    External Link Handling: "Kies het standaard gedrag voor wanneer een link dat niet kan worden geopend in FreeTube is aangeklikt.\nStandaard zal FreeTube de aangeklikte link openen in je standaardbrowser.\n"
+    Open Deep Links In New Window: URLs die aan FreeTube doorgegeven worden zoals doorverwijzingen van browser extensies of opdrachtenprompt argumenten worden geopend in een nieuw venster.
   External Player Settings:
-    Custom External Player Arguments: Aangepaste opdrachtregelargumenten, die je wil
-      doorgeven aan de externe videospeler.
-    Ignore Warnings: Onderdruk waarschuwingen wanneer de geselecteerde videospeler
-      een opgegeven actie niet ondersteund (bijv. afspeellijsten omkeren, etc.).
-    Custom External Player Executable: Standaard gaat FreeTube er vanuit dat de gekozen
-      videospeler kan worden benaderd via het PATH omgevingsvariabele. Wanneer nodig
-      kan er hier een aangepast pad worden ingevoerd.
-    External Player: 'Door het kiezen van een externe videospeler zal er een icoontje
-      verschijnen op de miniatuur waarmee de video (of afspeellijst indien ondersteund)
-      in de gekozen externe videospeler kan worden geopend. Let op: Invidious-instellingen
-      beïnvloeden externe videospelers niet.'
+    Custom External Player Arguments: Aangepaste opdrachtregelargumenten, die je wil doorgeven aan de externe videospeler.
+    Ignore Warnings: Onderdruk waarschuwingen wanneer de geselecteerde videospeler een opgegeven actie niet ondersteund (bijv. afspeellijsten omkeren, etc.).
+    Custom External Player Executable: Standaard gaat FreeTube er vanuit dat de gekozen videospeler kan worden benaderd via het PATH omgevingsvariabele. Wanneer nodig kan er hier een aangepast pad worden ingevoerd.
+    External Player: 'Door het kiezen van een externe videospeler zal er een icoontje verschijnen op de miniatuur waarmee de video (of afspeellijst indien ondersteund) in de gekozen externe videospeler kan worden geopend. Let op: Invidious-instellingen beïnvloeden externe videospelers niet.'
     DefaultCustomArgumentsTemplate: "(standaard: ‘{defaultCustomArguments}’)"
-    Ignore Default Arguments: Stuurt geen standaard­argumenten naar de externe speler,
-      afgezien van de video-URL (bij­voorbeeld afspeel­snelheid, afspeellijst-URL,
-      enz.). Aan­gepaste argumenten worden nog steeds door­gegeven.
+    Ignore Default Arguments: Stuurt geen standaard­argumenten naar de externe speler, afgezien van de video-URL (bij­voorbeeld afspeel­snelheid, afspeellijst-URL, enz.). Aan­gepaste argumenten worden nog steeds door­gegeven.
   Distraction Free Settings:
-    Hide Channels: Voer een kanaal-ID in om alle video's, afspeel­lijsten en het kanaal
-      zelf te verbergen zodat ze niet worden weer­gegeven in zoeken, trending, populairst
-      en aan­bevolen. De ingevoerde kanaal-ID moet volledig overeen­komen en is hoofdletter­gevoelig.
-    Hide Subscriptions Live: Deze instelling wordt overschreven door de app-brede
-      instelling ‘{appWideSetting}’, in het gedeelte ‘{subsection}’ van ‘{settingsSection}’
-    Hide Videos and Playlists Containing Text: Voer een woord, woord­fragment of woord­groep
-      in (niet hoofdletter­gevoelig) om alle video's en afspeel­lijsten waarvan de
-      oorspronkelijke titel dit bevat, in heel FreeTube te verbergen, met uit­zondering
-      van alleen geschiedenis, uw afspeel­lijsten en video's in afspeel­lijsten.
+    Hide Channels: Voer een kanaal-ID in om alle video's, afspeel­lijsten en het kanaal zelf te verbergen zodat ze niet worden weer­gegeven in zoeken, trending, populairst en aan­bevolen. De ingevoerde kanaal-ID moet volledig overeen­komen en is hoofdletter­gevoelig.
+    Hide Subscriptions Live: Deze instelling wordt overschreven door de app-brede instelling ‘{appWideSetting}’, in het gedeelte ‘{subsection}’ van ‘{settingsSection}’
+    Hide Videos and Playlists Containing Text: Voer een woord, woord­fragment of woord­groep in (niet hoofdletter­gevoelig) om alle video's en afspeel­lijsten waarvan de oorspronkelijke titel dit bevat, in heel FreeTube te verbergen, met uit­zondering van alleen geschiedenis, uw afspeel­lijsten en video's in afspeel­lijsten.
   SponsorBlock Settings:
-    UseDeArrowTitles: Vervangt videotitels met door gebruikers ingediende titels van
-      DeArrow.
+    UseDeArrowTitles: Vervangt videotitels met door gebruikers ingediende titels van DeArrow.
     UseDeArrowThumbnails: Video­miniaturen vervangen met miniaturen van DeArrow.
   Experimental Settings:
-    Replace HTTP Cache: Schakelt de schijfgebaseerde HTTP-cache van Electron uit en
-      schakelt een aangepaste afbeeldings­cache in het geheugen in. Zal leiden tot
-      een verhoogd RAM-gebruik.
-Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbreken.
-  | Volgende video wordt afgespeeld in {nextVideoInterval} seconde. Klik om te onderbreken.
-  | Volgende video wordt afgespeeld in {nextVideoInterval} seconden. Klik om te onderbreken.
+    Replace HTTP Cache: Schakelt de schijfgebaseerde HTTP-cache van Electron uit en schakelt een aangepaste afbeeldings­cache in het geheugen in. Zal leiden tot een verhoogd RAM-gebruik.
+Playing Next Video Interval: Volgende video wordt afgespeeld. Klik om te onderbreken. | Volgende video wordt afgespeeld in {nextVideoInterval} seconde. Klik om te onderbreken. | Volgende video wordt afgespeeld in {nextVideoInterval} seconden. Klik om te onderbreken.
 More: Meer
-Unknown YouTube url type, cannot be opened in app: Onbekende YouTube-URL; de URL kan
-  niet worden geopend in de app
+Unknown YouTube url type, cannot be opened in app: Onbekende YouTube-URL; de URL kan niet worden geopend in de app
 Open New Window: Nieuw venster openen
 Default Invidious instance has been cleared: Standaard Invidious-instantie is verwijderd
-Default Invidious instance has been set to {instance}: Standaard Invidious-instantie
-  is ingesteld op {instance}
+Default Invidious instance has been set to {instance}: Standaard Invidious-instantie is ingesteld op {instance}
 Are you sure you want to open this link?: Weet u zeker dat u deze link wilt openen?
 Search Bar:
   Clear Input: Invoer wissen
-  Remove: Verwijderen
-External link opening has been disabled in the general settings: Het openen van externe
-  links is uitgeschakeld in de algemene instellingen
+  Remove: Verwĳderen
+External link opening has been disabled in the general settings: Het openen van externe links is uitgeschakeld in de algemene instellingen
 Downloading canceled: De gebruiker heeft de download geannuleerd
 Downloading has completed: '"{videoTitle}" is gedownload'
 Starting download: Begin download van "{videoTitle}"
 Downloading failed: Probleem bij download van "{videoTitle}"
-Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag
-  map" modus.
+Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag map" modus.
 New Window: Nieuw Venster
 Screenshot Success: Schermafbeelding opgeslagen
 Channels:
-  Title: Kanalen lijst
+  Title: Kanaal­lĳst
   Search bar placeholder: Kanalen zoeken
   Count: '{number} kanaal/kanalen gevonden.'
   Channels: Kanalen
-  Empty: Op dit moment is je kanalen lijst leeg.
-  Unsubscribe Prompt: Weet je zeker dat je je van "{channelName}" wilt uitschrijven?
+  Empty: Uw kanaal­lĳst is momenteel leeg.
+  Unsubscribe Prompt: Weet u zeker dat u zich van ‘{channelName}’ wilt deabonneren?
 Screenshot Error: Schermafbeelding kon niet worden opgeslagen. {error}
 Preferences: Voorkeuren
 Hashtag:
   Hashtag: Hashtag
-  This hashtag does not currently have any videos: Deze hashtag heeft momenteel geen
-    video's
+  This hashtag does not currently have any videos: Deze hashtag heeft momenteel geen video's
 Ok: Oké
 Chapters:
   Chapters: Hoofdstukken
-  'Chapters list hidden, current chapter: {chapterName}': 'Hoofdstukkenlijst verborgen,
-    huidig hoofdstuk: {chapterName}'
-  'Chapters list visible, current chapter: {chapterName}': 'Hoofdstukkenlijst zichtbaar,
-    huidig hoofdstuk: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Hoofdstukkenlijst verborgen, huidig hoofdstuk: {chapterName}'
+  'Chapters list visible, current chapter: {chapterName}': 'Hoofdstukkenlijst zichtbaar, huidig hoofdstuk: {chapterName}'
   Key Moments: Belangrijke Momenten
 Clipboard:
-  Cannot access clipboard without a secure connection: Geen toegang tot klembord zonder
-    een beveiligde verbinding
+  Cannot access clipboard without a secure connection: Geen toegang tot klembord zonder een beveiligde verbinding
   Copy failed: Kopiëren naar klembord mislukt
 Go to page: Pagina {page}
 Tag already exists: Tag ‘{tagName}’ bestaat al
@@ -1229,8 +1028,7 @@ Close Banner: Banner sluiten
 Age Restricted:
   This channel is age restricted: Dit kanaal heeft een leeftijds­beperking
   This video is age restricted: Deze video heeft een leeftijds­beperking
-Trimmed input must be at least N characters long: Bij­gesneden invoer moet minimaal
-  1 teken lang zijn | Bij­gesneden invoer moet minimaal {length} tekens lang zijn
+Trimmed input must be at least N characters long: Bij­gesneden invoer moet minimaal 1 teken lang zijn | Bij­gesneden invoer moet minimaal {length} tekens lang zijn
 checkmark: ✓
 Display Label: '{label}: {value}'
 Yes, Delete: Ja, verwĳderen
@@ -1252,10 +1050,7 @@ Search Listing:
     VR180: VR180
     360 Video: 360°
     New: Nieuw
-'Blocked opening potentially unsafe URL': 'Openen van mogelijk onveilige URL geblokkeerd:
-  ‘{url}’.'
-Right-click or hold to see history: Rechts klikken of vasthouden om kijkgeschiedenis
-  weer te geven
+Right-click or hold to see history: Rechtsklik of houd vast om kĳk­geschiedenis weer te geven
 Description:
   Collapse Description: Minder Weergeven
   Expand Description: '...meer'
@@ -1268,18 +1063,14 @@ KeyboardShortcutPrompt:
   Toggle Developer Tools: Developer Tools wisselen
   Search in New Window: Zoeken in een nieuw venster
   Last Frame: Vorige frame (tijdens pauze)
-  Small Fast Forward: X seconden doorspoelen op basis van de Doorspoelinterval en
-    de huidige Afspeelsnelheid
+  Small Fast Forward: X seconden doorspoelen op basis van de Doorspoelinterval en de huidige Afspeelsnelheid
   Last Chapter: Laatste Hoofdstuk
-  Skip by Tenths: Delen van video overslaan via percentage (3x overslaan voor 30%
-    van de lengte)
-  Large Fast Forward: 10 seconden vooruitspoelen / Vooruitspoelen op basis van de
-    huidige Afspeelsnelheid
+  Skip by Tenths: Delen van video overslaan via percentage (3x overslaan voor 30% van de lengte)
+  Large Fast Forward: 10 seconden vooruitspoelen / Vooruitspoelen op basis van de huidige Afspeelsnelheid
   New Window: Een nieuw venster openen
   Navigate to History: Naar geschiedenis pagina navigeren
   Navigate to Settings: Naar instellingen pagina navigeren
-  Focus Secondary Search: Focus naar de secundaire zoekbalk verplaatsen (als deze
-    aanwezig is)
+  Focus Secondary Search: Focus naar de secundaire zoekbalk verplaatsen (als deze aanwezig is)
   Captions: Schakel ondertiteling AAN/UIT
   Stats: Video statistieken weergeven
   Minimize Window: Venster minimaliseren
@@ -1298,14 +1089,12 @@ KeyboardShortcutPrompt:
   Refresh: Feed vernieuwen met nieuwste inhoud
   Picture in Picture: Picture-in-Picture modus wisselen
   Next Frame: Volgende frame (tijdens pauze)
-  Small Rewind: X seconden terugspoelen op basis van de Terugspoelinterval en de huidige
-    Afspeelsnelheid
+  Small Rewind: X seconden terugspoelen op basis van de Terugspoelinterval en de huidige Afspeelsnelheid
   Keyboard Shortcuts: Sneltoetsen
   Show Keyboard Shortcuts: Sneltoetsen weergeven
   History Backward: Een pagina terug gaan
   Fullscreen: Fullscreen wisselen
-  Large Rewind: 10 seconden terugspoelen/ Video terugspoelen op basis van de huidige
-    Afspeelsnelheid
+  Large Rewind: 10 seconden terugspoelen/ Video terugspoelen op basis van de huidige Afspeelsnelheid
   Full Window: Volledig venster wisselen
   Reset Zoom: Reset zoom niveau / UI groote
   Restart Window: Venster opnieuw opstarten
@@ -1314,6 +1103,8 @@ KeyboardShortcutPrompt:
   Zoom Out: Uitzoomen
   Decrease Video Speed: Videosnelheid verminderen op basis van Afspeelsnelheid
   Increase Video Speed: Videosnelheid verhogen op basis van Afspeelsnelheid
+  Home: Terug­spoelen naar het begin van de video
+  End: Verder­spoelen naar het eind van de video
 shortcutLabelSeparator: ｜
 Keys:
   alt: Alt
@@ -1325,7 +1116,6 @@ Keys:
   shift: Shift
   enter: Enter
   plus: Plus
-Autoplay Interruption Timer: Automatisch afspelen geannuleerd door {autoplayInterruptionIntervalHours}
-  uur aan inactiviteit
+Autoplay Interruption Timer: Automatisch afspelen geannuleerd door {autoplayInterruptionIntervalHours} uur aan inactiviteit
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +

@@ -1234,8 +1234,6 @@ Search Listing:
     8K: 8K
     VR180: VR180
     3D: 3D
-'Blocked opening potentially unsafe URL': 'Zablokováno otevření potenciálně nebezpečné
-  adresy URL: „{url}“.'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Keys:
@@ -1309,4 +1307,6 @@ KeyboardShortcutPrompt:
   Small Rewind: Přeskočit zpět o X sekund v závislosti na intervalu přetáčení zpět
     a aktuální rychlosti přehrávání videa
   Skip by Tenths: Přeskočit skrz video podle procenta (3 přeskočí na 30 % doby trvání)
+  End: Posunout na konec videa
+  Home: Posunout na začátek videa
 shortcutLabelSeparator: ｜

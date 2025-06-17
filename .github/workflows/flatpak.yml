@@ -50,24 +50,24 @@ jobs:
       with:
         version: v${{ steps.sub.outputs.result }}-beta
         repository: FreeTubeApp/FreeTube
-        file: freetube-${{ steps.sub.outputs.result }}-linux-x64-portable.zip
+        file: freetube-${{ steps.sub.outputs.result }}-beta-linux-x64-portable.zip
     - name: Download ARM Release
       uses: fabriciobastian/download-release-asset-action@v1.0.6
       with:
         version: v${{ steps.sub.outputs.result }}-beta
         repository: FreeTubeApp/FreeTube
-        file: freetube-${{ steps.sub.outputs.result }}-linux-arm64-portable.zip
+        file: freetube-${{ steps.sub.outputs.result }}-beta-linux-arm64-portable.zip
     - name: Set x64 Hash Variable
       id: hash-x64
       run: |
         echo 'HASH_X64<<EOF' >> $GITHUB_ENV
-        sha256sum freetube-${{ steps.sub.outputs.result }}-linux-x64-portable.zip | awk '{print $1}' >> $GITHUB_ENV
+        sha256sum freetube-${{ steps.sub.outputs.result }}-beta-linux-x64-portable.zip | awk '{print $1}' >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
     - name: Set ARM Hash Variable
       id: hash-arm64
       run: |
         echo 'HASH_ARM64<<EOF' >> $GITHUB_ENV
-        sha256sum freetube-${{ steps.sub.outputs.result }}-linux-arm64-portable.zip | awk '{print $1}' >> $GITHUB_ENV
+        sha256sum freetube-${{ steps.sub.outputs.result }}-beta-linux-arm64-portable.zip | awk '{print $1}' >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
     - name: Set Date Variable
       id: current-date
@@ -76,22 +76,22 @@ jobs:
         date +"%Y-%m-%d" >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
     - name: Update x64 File Location in yml File
-      uses: mikefarah/yq@v4.45.2
+      uses: mikefarah/yq@v4.45.4
       with:
         # The Command which should be run
-        cmd: yq -i '.modules[0].sources[0].url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-linux-x64-portable.zip"' io.freetubeapp.FreeTube.yml
+        cmd: yq -i '.modules[0].sources[0].url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-beta-linux-x64-portable.zip"' io.freetubeapp.FreeTube.yml
     - name: Update x64 Hash in yml File
-      uses: mikefarah/yq@v4.45.2
+      uses: mikefarah/yq@v4.45.4
       with:
         # The Command which should be run
         cmd: yq -i '.modules[0].sources[0].sha256 = "${{ env.HASH_X64 }}"' io.freetubeapp.FreeTube.yml
     - name: Update ARM File Location in yml File
-      uses: mikefarah/yq@v4.45.2
+      uses: mikefarah/yq@v4.45.4
       with:
         # The Command which should be run
-        cmd: yq -i '.modules[0].sources[1].url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-linux-arm64-portable.zip"' io.freetubeapp.FreeTube.yml
+        cmd: yq -i '.modules[0].sources[1].url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-beta-linux-arm64-portable.zip"' io.freetubeapp.FreeTube.yml
     - name: Update ARM Hash in yml File
-      uses: mikefarah/yq@v4.45.2
+      uses: mikefarah/yq@v4.45.4
       with:
         # The Command which should be run
         cmd: yq -i '.modules[0].sources[1].sha256 = "${{ env.HASH_ARM64 }}"' io.freetubeapp.FreeTube.yml
@@ -99,10 +99,10 @@ jobs:
       run: xmlstarlet ed -L -i /component/releases/release[1] -t elem -n releaseTMP -v "" -i //releaseTMP -t attr -n version -v "${{ steps.sub.outputs.result }} Beta" -i //releaseTMP -t attr -n date -v "${{ env.CURRENT_DATE }}" -s //releaseTMP -t elem -n url -v "" -s //releaseTMP/url -t text -n "" -v "https://github.com/FreeTubeApp/FreeTube/releases/tag/v${{ steps.sub.outputs.result }}-beta" -r //releaseTMP -v "release" io.freetubeapp.FreeTube.metainfo.xml
     - name: Remove Release Files
       run: |
-        rm freetube-${{ steps.sub.outputs.result }}-linux-x64-portable.zip
-        rm freetube-${{ steps.sub.outputs.result }}-linux-arm64-portable.zip
+        rm freetube-${{ steps.sub.outputs.result }}-beta-linux-x64-portable.zip
+        rm freetube-${{ steps.sub.outputs.result }}-beta-linux-arm64-portable.zip
     - name: Commit Files
-      uses: stefanzweifel/git-auto-commit-action@v5
+      uses: stefanzweifel/git-auto-commit-action@v6
       with:
         # Optional but recommended
         # Defaults to "Apply automatic changes"

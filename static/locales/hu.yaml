@@ -293,7 +293,7 @@ Settings:
     System Default: Rendszer alapértelmezett
     Current Invidious Instance: Jelenlegi Invidious-példány
     Clear Default Instance: Alapértelmezett példány eltávolítása
-    Set Current Instance as Default: Állítsa be a jelenlegi példányt alapértelmezettként
+    Set Current Instance as Default: A jelenlegi példány beállítása alapértelmezettként
     Current instance will be randomized on startup: Véletlenszerű jelenlegi példány
       használata indításkor
     No default instance has been set: Az alapértelmezett példány nincs beállítva
@@ -310,7 +310,7 @@ Settings:
     Open Deep Links In New Window: A FreeTube-nak átadott webcímek megnyitása új ablakban
   Theme Settings:
     Theme Settings: 'Téma'
-    Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
+    Match Top Bar with Main Color: 'A felső sáv színe egyezzen meg a fő színnel'
     Base Theme:
       Base Theme: 'Alap téma'
       Black: 'Fekete'
@@ -454,8 +454,8 @@ Settings:
       4k: '4K'
       8k: '8K'
     Next Video Interval: Automatikus lejátszás időköze
-    Scroll Volume Over Video Player: A hangerő szintjét a videolejátszó feletti kerékkel
-      szabályozhatja
+    Scroll Volume Over Video Player: A hangerő szintjének szabályozása a videolejátszó
+      feletti görgetéssel
     Display Play Button In Video Player: Lejátszás gomb megjelenítése a videolejátszóban
     Fast-Forward / Rewind Interval: Gyors előre- és visszatekerési időköz
     Screenshot:
@@ -477,7 +477,8 @@ Settings:
       feletti kerékkel szabályozhatja
     Max Video Playback Rate: Legnagyobb videólejátszási sebesség
     Video Playback Rate Interval: Videó lejátszási sebesség léptetési köze
-    Enter Fullscreen on Display Rotate: Teljes képernyős mód a kijelzőn forgatáshoz
+    Enter Fullscreen on Display Rotate: Belépés a teljes képernyős módba a kijelző
+      elforgatásakor
     Skip by Scrolling Over Video Player: Kihagyás a Videolejátszó felett görgetve
     Autoplay Interruption Timer: Automatikus lejátszás megszakításának időköze
     Default Viewing Mode:
@@ -528,7 +529,7 @@ Settings:
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
-    Confirm Before Unsubscribing: Kerülje el a véletlen leiratkozást
+    Confirm Before Unsubscribing: Megerősítés kérése leíratkozáskor
     'Limit the number of videos displayed for each channel': Az egyes csatornákon
       megjelenített videók számának korlátozása
     To: 'Ennyire'
@@ -1057,7 +1058,7 @@ Share:
 Mini Player: 'Minilejátszó'
 Comments:
   Comments: 'Hozzászólások'
-  Click to View Comments: 'Kattintson a hozzászólások megtekintéséhez'
+  Click to View Comments: 'Hozzászólások megtekintése'
   Getting comment replies, please wait: 'Hozzászólásra adott válaszok beolvasása.
     Kis türelmet kérünk'
   There are no more comments for this video: 'Ehhez a videóhoz nincsenek további hozzászólások'
@@ -1132,10 +1133,10 @@ Tooltips:
     Fetch Automatically: Amikor engedélyezve van, a FreeTube új ablak megnyitásakor
       és az alkalmazás elindításakor automatikusan lekérdezi az feliratkozási hírfolyamot.
   Player Settings:
-    Default Video Format: Állítsa be a videólejátszáshoz használt formátumokat. A
-      DASH-formátumok magasabb minőségű lejátszást tesznek lehetővé. A régebbi formátumok
-      legfeljebb 360p felbontásúak, de kevesebb sávszélességet igényelnek. A hangformátumok
-      kizárólag hangadatfolyamokat tartalmaznak.
+    Default Video Format: A videólejátszáshoz használt formátumok beállítása. A DASH-formátumok
+      magasabb minőségű lejátszást tesznek lehetővé. A régebbi formátumok legfeljebb
+      360p felbontásúak, de kevesebb sávszélességet igényelnek. A hangformátumok kizárólag
+      hangadatfolyamokat tartalmaznak.
     Proxy Videos Through Invidious: Csatlakozik az Invidious szolgáltatáshoz, hogy
       videókat szolgáltasson, ahelyett, hogy közvetlen kapcsolatot létesítene a YouTube
       szolgáltatással.
@@ -1261,8 +1262,6 @@ Search Listing:
     360 Video: 360°
     New: Új
     3D: 3D
-'Blocked opening potentially unsafe URL': 'Potenciálisan nem biztonságos webcím megnyitása
-  letiltva: „{url}”.'
 Keys:
   arrowup: Felfele nyíl
   alt: Alt
@@ -1338,4 +1337,6 @@ KeyboardShortcutPrompt:
   Close Window: Ablak bezárása
   Restart Window: Ablak újraindítása
   Force Restart Window: Ablak kényszerített újraindítása
+  Home: Keressen a videó elejére
+  End: Keressen a videó végére
 shortcutLabelSeparator: ｜

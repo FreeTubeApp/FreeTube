@@ -18,6 +18,7 @@ const web = process.argv.indexOf('--web') !== -1
 
 let mainConfig
 let rendererConfig
+let preloadConfig
 let botGuardScriptConfig
 let webConfig
 let SHAKA_LOCALES_TO_BE_BUNDLED
@@ -25,6 +26,7 @@ let SHAKA_LOCALES_TO_BE_BUNDLED
 if (!web) {
   mainConfig = require('./webpack.main.config')
   rendererConfig = require('./webpack.renderer.config')
+  preloadConfig = require('./webpack.preload.config.js')
   botGuardScriptConfig = require('./webpack.botGuardScript.config')
 
   SHAKA_LOCALES_TO_BE_BUNDLED = rendererConfig.SHAKA_LOCALES_TO_BE_BUNDLED
@@ -132,6 +134,36 @@ function startMain() {
   })
 }
 
+function startPreload() {
+  const compiler = webpack(preloadConfig)
+  const { name } = compiler
+
+  let firstTime = true
+
+  compiler.hooks.afterEmit.tap('afterEmit', async () => {
+    console.log(`\nCompiled ${name} script!`)
+
+    if (firstTime) {
+      firstTime = false
+    } else {
+      manualRestart = true
+      await restartElectron()
+      setTimeout(() => {
+        manualRestart = false
+      }, 2500)
+    }
+
+    console.log(`\nWatching file changes for ${name} script...`)
+  })
+
+  compiler.watch({
+    aggregateTimeout: 500,
+  },
+  err => {
+    if (err) console.error(err)
+  })
+}
+
 function startRenderer(callback) {
   const compiler = webpack(rendererConfig)
   const { name } = compiler
@@ -208,6 +240,7 @@ function startWeb () {
 if (!web) {
   startRenderer(() => {
     startBotGuardScript()
+    startPreload()
     startMain()
   })
 } else {

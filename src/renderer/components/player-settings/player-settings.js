@@ -8,7 +8,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../FtButton/FtButton.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtTooltip from '../FtTooltip/FtTooltip.vue'
-import { DefaultFolderKind, IpcChannels } from '../../../constants'
+import { DefaultFolderKind } from '../../../constants'
 
 export default defineComponent({
   name: 'PlayerSettings',
@@ -277,8 +277,7 @@ export default defineComponent({
 
     getScreenshotEmptyFolderPlaceholder: async function() {
       if (process.env.IS_ELECTRON) {
-        const { ipcRenderer } = require('electron')
-        return await ipcRenderer.invoke(IpcChannels.GET_SCREENSHOT_FALLBACK_FOLDER)
+        return await window.ftElectron.getScreenshotFallbackFolder()
       } else {
         return ''
       }
@@ -296,11 +295,10 @@ export default defineComponent({
       }
     },
 
-    chooseScreenshotFolder: async function() {
+    chooseScreenshotFolder: function() {
       // only use with electron
       if (process.env.IS_ELECTRON) {
-        const { ipcRenderer } = require('electron')
-        ipcRenderer.send(IpcChannels.CHOOSE_DEFAULT_FOLDER, DefaultFolderKind.SCREENSHOTS)
+        window.ftElectron.chooseDefaultFolder(DefaultFolderKind.SCREENSHOTS)
       }
     },
 
