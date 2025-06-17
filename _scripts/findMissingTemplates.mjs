@@ -1,4 +1,4 @@
-import { readdir, readFile, writeFile } from 'node:fs/promises'
+import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { load as loadYaml } from 'js-yaml'
 
@@ -9,31 +9,47 @@ const errors = [
 
 ]
 
-const defaultData = loadYaml(await readFile(`${localesPath}/${defaultLocale}`, { encoding: 'utf-8' }))
+const defaultData = loadYaml(readFileSync(`${localesPath}/${defaultLocale}`, { encoding: 'utf-8' }))
 const defaultKeys = Object.keys(defaultData)
 
-const filesInLocaleDir = await readdir(localesPath)
+const filesInLocaleDir = readdirSync(localesPath)
 
 for (const file of filesInLocaleDir) {
-  if (file !== defaultLocale) {
-    const fileData = loadYaml(await readFile(`${localesPath}/${file}`, { encoding: 'utf-8' }))
+  if (file !== defaultLocale && file.endsWith('.yaml')) {
+    const fileData = loadYaml(readFileSync(`${localesPath}/${file}`, { encoding: 'utf-8' }))
     const fileDataKeys = Object.keys(fileData)
     addErrors(defaultData, fileData, defaultKeys, fileDataKeys, file)
   }
 }
 
-writeFile('locale-errors.json', JSON.stringify(errors, null, 2))
+writeFileSync('locale-errors.json', JSON.stringify(errors, null, 2))
 
+if (errors.length > 0) {
+  console.error(errors)
+} else {
+  console.log('no issues found')
+}
+
+/**
+ * @param {unknown} originalData - data from en-US converted to a JavaScript object
+ * @param {unknown} newData - data from the file we are analyzing converted to a JavaScript object
+ * @param {string[]} originalKeys - keys from en-US file
+ * @param {string[]} newKeys - keys from the file we are currently analyzing
+ * @param {string} file - the file we are currently analyzing
+ */
 function addErrors(originalData, newData, originalKeys, newKeys, file) {
-  newKeys.forEach(fdk => {
-    if (!originalKeys.includes(fdk)) {
-      // errors.push({ fileName: file, error: 'extra key found', key: fdk })
-    } else {
-      if (typeof originalData[fdk] === 'object') {
-        addErrors(originalData[fdk], newData[fdk], Object.keys(originalData[fdk]), Object.keys(newData[fdk]), file)
-      } else if (isMissingInterpolation(originalData[fdk], newData[fdk], file)) {
-        errors.push({ fileName: file, error: 'value is missing a template or has an extra template', key: fdk, defaultValue: originalData[fdk], value: newData[fdk] })
+  newKeys.forEach(newKey => {
+    if (originalKeys.includes(newKey)) {
+      if (typeof originalData[newKey] === 'object') {
+        addErrors(originalData[newKey], newData[newKey], Object.keys(originalData[newKey]), Object.keys(newData[newKey]), file)
+      } else if (isMissingInterpolation(originalData[newKey], newData[newKey], file)) {
+        errors.push({ fileName: file, error: 'value is missing a template or has an extra template', key: newKey, defaultValue: originalData[newKey], value: newData[newKey] })
       }
+    } else {
+      // The key doesn't exist in the en-US file but exists in current yaml file.
+      // We should go through this eventually but it's not as important as invalid templates
+
+      // errors.push({ fileName: file, error: 'extra key found', key: fdk })
     }
   })
 }
@@ -61,12 +77,6 @@ function isMissingInterpolation(defaultValue, otherValue, filename) {
 
     const defaultMatchesStringified = JSON.stringify(defaultMatches)
     const otherMatchesStringified = JSON.stringify(otherMatches)
-    if (defaultMatchesStringified !== otherMatchesStringified) {
-      console.log({
-        file1: { content: defaultMatchesStringified, file: 'en-US.yaml' },
-        file2: { content: otherMatchesStringified, file: filename }
-      })
-    }
     // check if templates match.
     return defaultMatchesStringified !== otherMatchesStringified
   } else if (otherMatches) {
