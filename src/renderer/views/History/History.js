@@ -219,8 +219,5 @@ export default defineComponent({
     },
 
     getIconForSortPreference: (s) => getIconForSortPreference(s),
-    ...mapMutations([
-      'setsortBy'
-    ]),
   }
 })
