@@ -74,6 +74,12 @@ function runApp() {
     }])
   }
 
+  let isInvidiousInstance
+
+  (async() => {
+    isInvidiousInstance = await hasInvidiousFallback()
+  })()
+
   const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
 
   contextMenu({
@@ -220,7 +226,7 @@ function runApp() {
         },
         {
           label: 'Copy Invidious Link',
-          visible: visible && isInAppUrl,
+          visible: visible && isInAppUrl && isInvidiousInstance,
           click: () => {
             copy(transformURL(false))
           }
@@ -1330,6 +1336,7 @@ function runApp() {
             event,
             { event: SyncEvents.GENERAL.UPSERT, data }
           )
+
           switch (data._id) {
             // Update app menu on related setting update
             case 'hideTrendingVideos':
@@ -2140,5 +2147,19 @@ function runApp() {
 
     const menu = Menu.buildFromTemplate(template)
     Menu.setApplicationMenu(menu)
+
+    isInvidiousInstance = await hasInvidiousFallback()
+  }
+
+  async function hasInvidiousFallback() {
+    const sidenavSettings = baseHandlers.settings._findSidenavSettings()
+    const backendFallback = (await sidenavSettings.backendFallback)?.value
+    const backendPreference = (await sidenavSettings.backendPreference)?.value
+
+    if (backendFallback === false && backendPreference === 'local') {
+      return false
+    } else {
+      return true
+    }
   }
 }
