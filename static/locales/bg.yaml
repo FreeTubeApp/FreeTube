@@ -1318,4 +1318,6 @@ KeyboardShortcutPrompt:
   Search in New Window: Търсене в нов прозорец
   Small Fast Forward: Превъртане напред с X секунди въз основа на интервала и текущата
     скорост на възпроизвеждане на видео
+  Home: Преминаване към началото на видеото
+  End: Преминаване към края на видеото
 shortcutLabelSeparator: '|'

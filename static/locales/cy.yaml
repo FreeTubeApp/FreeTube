@@ -112,9 +112,8 @@ Subscriptions:
   Subscriptions: 'Tanysgrifiadau'
   # channels that were likely deleted
   Error Channels: 'Sianeli gyda Gwallau'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Mae
-    gan y proffil hwn nifer fawr o danysgrifiadau.  Yn gorfodi RSS i osgoi cyfyngu
-    ar gyfraddau'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Mae gan y proffil hwn nifer fawr o danysgrifiadau.  Yn gorfodi RSS
+    i osgoi cyfyngu ar gyfraddau'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Mae
     eich rhestr Tanysgrifio yn wag ar hyn o bryd. Os ydych chi am fewnforio''ch tanysgrifiadau
     gallwch fynd i Gosodiadau Data a dewis Mewnforio Tanysgrifiadau neu gallwch chwilio
@@ -150,24 +149,26 @@ User Playlists:
   Empty Search Message: 'Nid oes unrhyw fideos yn y rhestr chwarae hon sy''n cyfateb
     i''ch chwilio'
   Search bar placeholder: 'Chwilio am Restrau Chwarae'
-  This playlist currently has no videos.: Nid oes gan y rhestr chwarae hon unrhyw
-    fideos ar hyn o bryd.
+  This playlist currently has no videos.: Nid oes gan y rhestr chwarae hon
+    unrhyw fideos ar hyn o bryd.
   Add to Favorites: Ychwanegu at {playlistName}
   Move Video Up: Symud Fideo i Fyny
   Move Video Down: Symud Fideo i Lawr
   AddVideoPrompt:
     Save: Cadw
-    Select a playlist to add your N videos to: Dewiswch restr chwarae i ychwanegu
-      eich fideo i | Dewiswch restr chwarae i ychwanegu eich {videoCount} fideos ati
+    Select a playlist to add your N videos to: Dewiswch restr chwarae i
+      ychwanegu eich fideo i | Dewiswch restr chwarae i ychwanegu eich
+      {videoCount} fideos ati
     Added {count} Times: Wedi'u Hychwanegu Eisoes | Ychwanegwyd {count} Gwaith
     Toast:
-      You haven't selected any playlist yet.: Nid ydych wedi dewis unrhyw restr chwarae
-        eto.
-      "{videoCount} video(s) added to 1 playlist": 1 fideo wedi'i ychwanegu at 1 rhestr
-        chwarae | {videoCount} fideo wedi'u hychwanegu at 1 rhestr chwarae
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 fideo wedi'i ychwanegu
-        at {playlistCount} rhestr chwarae | {videoCount} fideo wedi'u hychwanegu at
-        {playlistCount} rhestr chwarae
+      You haven't selected any playlist yet.: Nid ydych wedi dewis unrhyw restr
+        chwarae eto.
+      "{videoCount} video(s) added to 1 playlist": 1 fideo wedi'i ychwanegu at 1
+        rhestr chwarae | {videoCount} fideo wedi'u hychwanegu at 1 rhestr
+        chwarae
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 fideo wedi'i
+        ychwanegu at {playlistCount} rhestr chwarae | {videoCount} fideo wedi'u
+        hychwanegu at {playlistCount} rhestr chwarae
     Allow Adding Duplicate Video(s): Caniatáu Ychwanegu Fideo(s) Dyblyg
     "{videoCount}/{totalVideoCount} Videos Will Be Added": "{videoCount}/{totalVideoCount}
       Fideo i'w Hychwanegu"
@@ -178,10 +179,10 @@ User Playlists:
   Add to Playlist: Ychwanegu at y Rhestr Chwarae
   Remove from Favorites: Tynnu o {playlistName}
   Quick Bookmark Enabled: Nod Tudalen Cyflym wedi'i Galluogi
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ydych
-    chi'n siŵr eich bod am dynnu 1 fideo a wyliwyd o'r rhestr chwarae hon? Nid oes
-    modd dadwneud hyn. | A ydych yn siŵr eich bod am ddileu {playlistItemCount} fideo
-    a wyliwyd o'r rhestr chwarae hon? Nid oes modd dadwneud hyn.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ydych chi'n siŵr eich bod am dynnu 1 fideo
+    a wyliwyd o'r rhestr chwarae hon? Nid oes modd dadwneud hyn. | A ydych yn
+    siŵr eich bod am ddileu {playlistItemCount} fideo a wyliwyd o'r rhestr
+    chwarae hon? Nid oes modd dadwneud hyn.
   Sort By:
     LatestCreatedFirst: Crëwyd yn Ddiweddar
     NameAscending: A-Z
@@ -193,78 +194,78 @@ User Playlists:
     EarliestUpdatedFirst: Diweddarwyd Cynharaf
   SinglePlaylistView:
     Toast:
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Nid
-        yw rhai fideos yn y rhestr chwarae wedi'u llwytho eto. Cliciwch yma i gopïo
-        beth bynnag.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.:
+        Nid yw rhai fideos yn y rhestr chwarae wedi'u llwytho eto. Cliciwch yma
+        i gopïo beth bynnag.
       There were no videos to remove.: Nid oedd yna unrhyw fideos i'w tynnu.
-      This playlist has a video with a duration error: Mae'r rhestr chwarae hon yn
-        cynnwys o leiaf un fideo nad oes ganddo hyd, bydd yn cael ei drefnu fel pe
-        bai eu hyd yn sero.
+      This playlist has a video with a duration error: Mae'r rhestr chwarae hon
+        yn cynnwys o leiaf un fideo nad oes ganddo hyd, bydd yn cael ei drefnu
+        fel pe bai eu hyd yn sero.
       This video cannot be moved up.: Nid oes modd symud y fideo hwn i fyny.
       This video cannot be moved down.: Nid oes modd symud y fideo hwn i lawr.
       Video has been removed: Mae'r fideo wedi'i dynnu
-      There was a problem with removing this video: Bu anhawster wrth dynnu'r fideo
-        hwn
-      This playlist is already being used for quick bookmark.: Mae'r rhestr chwarae
-        hon eisoes yn cael ei defnyddio ar gyfer nod tudalen cyflym.
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Mae'r
-        rhestr chwarae hon bellach yn cael ei defnyddio ar gyfer nodau tudalen cyflym
-        yn lle {oldPlaylistName}. Cliciwch yma i ddadwneud
-      Reverted to use {oldPlaylistName} for quick bookmark: Wedi dychwelyd i ddefnyddio
-        {oldPlaylistName} ar gyfer nod tudalen cyflym
+      There was a problem with removing this video: Bu anhawster wrth dynnu'r
+        fideo hwn
+      This playlist is already being used for quick bookmark.: Mae'r rhestr
+        chwarae hon eisoes yn cael ei defnyddio ar gyfer nod tudalen cyflym.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Mae'r rhestr chwarae hon bellach yn cael ei
+        defnyddio ar gyfer nodau tudalen cyflym yn lle {oldPlaylistName}.
+        Cliciwch yma i ddadwneud
+      Reverted to use {oldPlaylistName} for quick bookmark: Wedi dychwelyd i
+        ddefnyddio {oldPlaylistName} ar gyfer nod tudalen cyflym
       Playlist has been updated.: Mae'r rhestr chwarae wedi'i diweddaru.
-      "{videoCount} video(s) have been removed": 1 fideo wedi'i dynnu | Mae {videoCount}
-        fideo wedi'u dileu
-      This playlist is now used for quick bookmark: Mae'r rhestr chwarae hon bellach
-        yn cael ei defnyddio ar gyfer nodau tudalen cyflym
-      This playlist is protected and cannot be removed.: Mae'r rhestr chwarae hon
-        wedi'i diogelu ac nid oes modd ei dileu.
-      Playlist {playlistName} has been deleted.: Mae rhestr chwarae {playlistName}
-        wedi'i dileu.
-      Playlist name cannot be empty. Please input a name.: Nid oes moddi'r rhestr
-        chwarae fod yn wag. Rhowch enw.
-      There was an issue with updating this playlist.: Bu anhawster gyda diweddaru'r
-        rhestr chwarae hon.
+      "{videoCount} video(s) have been removed": 1 fideo wedi'i dynnu | Mae
+        {videoCount} fideo wedi'u dileu
+      This playlist is now used for quick bookmark: Mae'r rhestr chwarae hon
+        bellach yn cael ei defnyddio ar gyfer nodau tudalen cyflym
+      This playlist is protected and cannot be removed.: Mae'r rhestr chwarae
+        hon wedi'i diogelu ac nid oes modd ei dileu.
+      Playlist {playlistName} has been deleted.: Mae rhestr chwarae
+        {playlistName} wedi'i dileu.
+      Playlist name cannot be empty. Please input a name.: Nid oes moddi'r
+        rhestr chwarae fod yn wag. Rhowch enw.
+      There was an issue with updating this playlist.: Bu anhawster gyda
+        diweddaru'r rhestr chwarae hon.
       This playlist does not exist: Nid yw'r rhestr chwarae hon yn bodoli
-      Video has been removed. Click here to undo.: Mae'r fideo wedi'i dynnu. Cliciwch
-        i ddadwneud.
+      Video has been removed. Click here to undo.: Mae'r fideo wedi'i dynnu.
+        Cliciwch i ddadwneud.
     Search for Videos: Chwilio am Fideos
   CreatePlaylistPrompt:
     Toast:
-      There is already a playlist with this name. Please pick a different name.: Mae
-        yna restr chwarae gyda'r enw hwn yn barod. Dewiswch enw gwahanol.
-      Playlist {playlistName} has been successfully created.: Mae rhestr chwarae {playlistName}
-        wedi'i chreu'n llwyddiannus.
-      There was an issue with creating the playlist.: Roedd problem gyda chreu'r rhestr
-        chwarae.
+      There is already a playlist with this name. Please pick a different name.:
+        Mae yna restr chwarae gyda'r enw hwn yn barod. Dewiswch enw gwahanol.
+      Playlist {playlistName} has been successfully created.: Mae rhestr chwarae
+        {playlistName} wedi'i chreu'n llwyddiannus.
+      There was an issue with creating the playlist.: Roedd problem gyda chreu'r
+        rhestr chwarae.
     New Playlist Name: Enw Rhestr Chwarae Newydd
     Create: Creu
   Export Playlist: Allforio'r Rhestr Chwarae Hon
-  The playlist has been successfully exported: Mae'r rhestr chwarae wedi'i allforio'n
-    llwyddiannus
+  The playlist has been successfully exported: Mae'r rhestr chwarae wedi'i
+    allforio'n llwyddiannus
   Delete Playlist: Dileu Rhestr Chwarae
   Remove from Playlist: Dileu o'r Rhestr Chwarae
   Playlist Name: Enw Rhestr Chwarae
   Playlist Description: Disgrifiad o'r Rhestr Chwarae
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ydych
-    chi'n siŵr eich bod am dynnu 1 fideo dyblyg o'r rhestr chwarae hon? Nid oes modd
-    dadwneud hyn. | Ydych chi'n siŵr eich bod am ddileu {playlistItemCount} fideo
-    dyblyg o'r rhestr chwarae hon? Nid oes modd dadwneud hyn.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ydych chi'n siŵr eich bod am dynnu 1 fideo
+    dyblyg o'r rhestr chwarae hon? Nid oes modd dadwneud hyn. | Ydych chi'n siŵr
+    eich bod am ddileu {playlistItemCount} fideo dyblyg o'r rhestr chwarae hon?
+    Nid oes modd dadwneud hyn.
   Cancel: Diddymu
   Edit Playlist Info: Golygu Manylion Rhestr Chwarae
   Copy Playlist: Copïo Rhestr Chwarae
-  Cannot delete the quick bookmark target playlist.: Methu dileu'r rhestr chwarae
-    targed nod tudalen cyflym.
-  You have no playlists. Click on the create new playlist button to create a new one.: Nid
-    oes gennych unrhyw restrau chwarae. Cliciwch ar y botwm creu rhestr chwarae newydd
-    i greu un newydd.
+  Cannot delete the quick bookmark target playlist.: Methu dileu'r rhestr
+    chwarae targed nod tudalen cyflym.
+  You have no playlists. Click on the create new playlist button to create a new one.: Nid oes gennych unrhyw restrau chwarae. Cliciwch ar y botwm creu
+    rhestr chwarae newydd i greu un newydd.
   Playlists with Matching Videos: Rhestrau chwarae gyda Fideos Cyfatebol
   Create New Playlist: Creu Rhestr Chwarae Newydd
-  Enable Quick Bookmark With This Playlist: Galluogi Nod Tudalen Cyflym Gyda'r Rhestr
-    Chwarae Hon
+  Enable Quick Bookmark With This Playlist: Galluogi Nod Tudalen Cyflym Gyda'r
+    Rhestr Chwarae Hon
   Remove Watched Videos: Dileu Fideos Wedi'u Gwylio
-  Are you sure you want to delete this playlist? This cannot be undone: Ydych chi'n
-    siŵr eich bod am ddileu'r rhestr chwarae hon? Nid oes modd dadwneud hyn.
+  Are you sure you want to delete this playlist? This cannot be undone: Ydych
+    chi'n siŵr eich bod am ddileu'r rhestr chwarae hon? Nid oes modd dadwneud
+    hyn.
   Save Changes: Cadw'r Newidiadau
   Remove Duplicate Videos: Dileu Fideos Dyblyg
   TotalTimePlaylist: 'Cyfanswm amser: {duration}'
@@ -326,8 +327,8 @@ Settings:
     Auto Load Next Page:
       Label: Llwytho'r Dudalen Nesaf yn Awtomatig
       Tooltip: Llwytho tudalennau a sylwadau ychwanegol yn awtomatig.
-    Open Deep Links In New Window: Agor URLs Wedi'u Pasio i FreeTube mewn Ffenest
-      Newydd
+    Open Deep Links In New Window: Agor URLs Wedi'u Pasio i FreeTube mewn
+      Ffenest Newydd
   Theme Settings:
     Theme Settings: 'Thema'
     Match Top Bar with Main Color: 'Cydweddu Bar Uchaf gyda Phrif Lliw'
@@ -529,28 +530,28 @@ Settings:
       eich bod am ddileu eich hanes gwylio i gyd?'
     Watch history has been cleared: 'Mae hanes gwylio wedi''i glirio'
     Remove All Subscriptions / Profiles: 'Dileu Pob Tanysgrifiad / Proffil'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'A
-      ydych yn siŵr eich bod am ddileu pob tanysgrifiad a phroffil?  Nid oes modd
-      dadwneud hyn.'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'A ydych yn siŵr eich bod am ddileu pob tanysgrifiad a phroffil?  Nid
+      oes modd dadwneud hyn.'
     All playlists have been removed: Mae'r holl restrau chwarae wedi'u dileu
     Remove All Playlists: Dileu Pob Rhestr Chwarae
-    Are you sure you want to remove all your playlists?: Ydych chi'n siŵr eich bod
-      am ddileu eich holl restrau chwarae?
+    Are you sure you want to remove all your playlists?: Ydych chi'n siŵr eich
+      bod am ddileu eich holl restrau chwarae?
     Remember Search History: Cofio Hanes Chwilio
     Clear Search History and Cache: Clirio Hanes Chwilio a'r Storfa
-    Are you sure you want to clear out your search history and cache?: Ydych chi'n
-      siŵr eich bod eisiau clirio'ch hanes chwilio a'r storfa?
-    Search history and cache have been cleared: Mae'r hanes chwilio a'r storfa wedi'u
-      clirio
+    Are you sure you want to clear out your search history and cache?: Ydych
+      chi'n siŵr eich bod eisiau clirio'ch hanes chwilio a'r storfa?
+    Search history and cache have been cleared: Mae'r hanes chwilio a'r storfa
+      wedi'u clirio
     Watched Progress Saving Mode:
       Modes:
         Auto: Awto
         Semi-auto: Rhannol awto
         Never: Byth
-      Tooltip: Awto = Cadw wrth gau pob tudalen fideo, pan mae fideo wedi gorffen
-        a gwall wedi digwydd (e.e. cyfyngiad graddio a chyfnod gwylio wedi dod i ben).
-        Rhannol awto = Fel Awto heblaw wrth adael tudalen fideo a gall gadw cynnydd
-        gyda llaw drwy fotwm Cadw Cynnydd Gwylio, wedi'i leoli o dan y chwaraewr fideo.
+      Tooltip: Awto = Cadw wrth gau pob tudalen fideo, pan mae fideo wedi
+        gorffen a gwall wedi digwydd (e.e. cyfyngiad graddio a chyfnod gwylio
+        wedi dod i ben). Rhannol awto = Fel Awto heblaw wrth adael tudalen fideo
+        a gall gadw cynnydd gyda llaw drwy fotwm Cadw Cynnydd Gwylio, wedi'i
+        leoli o dan y chwaraewr fideo.
   Subscription Settings:
     Subscription Settings: 'Tanysgrifiad'
     Hide Videos on Watch: 'Cuddio Fideos wrth Wylio'
@@ -558,8 +559,8 @@ Settings:
     Fetch Automatically: 'Nôl Ffrwd yn Awtomatig'
     Confirm Before Unsubscribing: Cadarnhau Cyn Dad-danysgrifio
     To: At
-    'Limit the number of videos displayed for each channel': Cyfyngu ar nifer y fideos
-      sy'n cael eu dangos ar gyfer pob sianel
+    'Limit the number of videos displayed for each channel': Cyfyngu ar nifer y
+      fideos sy'n cael eu dangos ar gyfer pob sianel
   Distraction Free Settings:
     Distraction Free Settings: 'Dim Tarfu'
     Sections:
@@ -604,10 +605,10 @@ Settings:
     Hide Subscriptions Videos: 'Cuddio Fideos Tanysgrifiadau'
     Hide Subscriptions Shorts: 'Cuddio Tanysgrifiadau Byrion'
     Hide Subscriptions Live: 'Cuddio Tanysgrifiadau Byw'
-    Hide Videos and Playlists Containing Text: Cuddio Fideos a Rhestrau Chwarae sy'n
-      Cynnwys Testun
-    Hide Videos and Playlists Containing Text Placeholder: Gair, Darn o Arian, neu
-      Ymadrodd
+    Hide Videos and Playlists Containing Text: Cuddio Fideos a Rhestrau Chwarae
+      sy'n Cynnwys Testun
+    Hide Videos and Playlists Containing Text Placeholder: Gair, Darn o Arian,
+      neu Ymadrodd
     Show Added Items: Dangos Eitemau Ychwanegwyd
     Hide Channel Home: Cuddio Tab Sianel "Cartref"
     Hide Channel Courses: Cuddio Tab "Cyrsiau" Sianel
@@ -661,8 +662,8 @@ Settings:
         chwarae o'r enw 'Ffefrynnau'.\nSut i allforio a mewnforio fideos mewn rhestrau
         chwarae ar gyfer fersiwn hŷn o FreeTube:\n1. Allforio eich rhestri chwarae
         gyda'r opsiwn hwn wedi'i alluogi.\n2. Dileu eich holl restrau chwarae presennol
-        gan ddefnyddio'r opsiwn Dileu Pob Rhestr Chwarae o dan Gosodiadau Preifatrwydd.\n
-        3. Lansio'r fersiwn hŷn o FreeTube a mewngludo'r rhestri chwarae allforio.\""
+        gan ddefnyddio'r opsiwn Dileu Pob Rhestr Chwarae o dan Gosodiadau Preifatrwydd.\n\
+        \ 3. Lansio'r fersiwn hŷn o FreeTube a mewngludo'r rhestri chwarae allforio.\""
       Label: Allforio Rhestrau Chwarae Fersiynau FreeTube Hŷn
   Proxy Settings:
     Proxy Settings: 'Dirprwy'
@@ -680,11 +681,11 @@ Settings:
     City: 'Dinas'
     Error getting network information. Is your proxy configured properly?: 'Gwall
       wrth gael manylion rhwydwaith. A yw eich dirprwy wedi''i ffurfweddu''n gywir?'
-    Proxy Warning: Nid oes gan FreeTube ddirprwy mewnol ond gall gysylltu â dirprwy
-      allanol, fel un sy'n rhedeg ar eich peiriant fel Tor neu ddirprwy allanol fel
-      dirprwy SOCKS5 a ddarperir gan rai VPNs. Os yw wedi'i alluogi, gwnewch yn siŵr
-      bod eich dirprwy/Tor wedi'i ffurfweddu'n gywir, neu ni fydd FreeTube yn gallu
-      nôl unrhyw ddata.
+    Proxy Warning: Nid oes gan FreeTube ddirprwy mewnol ond gall gysylltu â
+      dirprwy allanol, fel un sy'n rhedeg ar eich peiriant fel Tor neu ddirprwy
+      allanol fel dirprwy SOCKS5 a ddarperir gan rai VPNs. Os yw wedi'i alluogi,
+      gwnewch yn siŵr bod eich dirprwy/Tor wedi'i ffurfweddu'n gywir, neu ni
+      fydd FreeTube yn gallu nôl unrhyw ddata.
   SponsorBlock Settings:
     SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Galluogi SponsorBlock'
@@ -701,8 +702,9 @@ Settings:
       Do Nothing: 'Gwneud Dim'
     Category Color: 'Lliw Categori'
     UseDeArrowThumbnails: Defnyddio DeArrow ar gyfer lluniau bach
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
-      Thumbnail Generator API (Y rhagosodiad yw https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)':
+      DeArrow Thumbnail Generator API (Y rhagosodiad yw
+      https://dearrow-thumb.ajay.app)
   Parental Control Settings:
     Parental Control Settings: 'Rheolaeth Rhieni'
     Hide Unsubscribe Button: 'Cuddio Botwm Dad-danysgrifio'
@@ -800,13 +802,13 @@ Profile:
   Delete Selected: 'Dileu''r Dewis'
   Add Selected To Profile: 'Ychwanegu''r Dewis i Broffil'
   No channel(s) have been selected: 'Dim sianel(i) wedi''u dewis'
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
+  ? This is your primary profile.  Are you sure you want to delete the selected
+    channels?  The same channels will be deleted in any profile they are found
+    in.
   : 'Dyma''ch prif broffil.  Ydych chi''n siŵr eich bod am ddileu''r sianeli a ddewiswyd?  Bydd
     yr un sianeli yn cael eu dileu mewn unrhyw broffil sydd ynddo.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Ydych
-    chi''n siŵr eich bod am ddileu''r sianeli a ddewiswyd?  Ni fydd hyn yn dileu''r
-    sianel o unrhyw broffil arall.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Ydych chi''n siŵr eich bod am ddileu''r
+    sianeli a ddewiswyd?  Ni fydd hyn yn dileu''r sianel o unrhyw broffil arall.'
   Close Profile Dropdown: 'Cau''r Cwymplen Proffil'
   Open Profile Dropdown: 'Agor Cwymplen Proffil'
 #On Channel Page
@@ -880,8 +882,8 @@ Channel:
     View Playlist: Gweld Rhestr Chwarae
   Courses:
     Courses: Cyrsiau
-    This channel does not currently have any courses: Nid oes gan y sianel hon unrhyw
-      gyrsiau ar hyn o bryd
+    This channel does not currently have any courses: Nid oes gan y sianel hon
+      unrhyw gyrsiau ar hyn o bryd
 Video:
   Mark As Watched: 'Marcio wedi''i Wylio'
   Remove From History: 'Dileu o''r Hanes'
@@ -983,8 +985,8 @@ Video:
       CodecsVideoAudio: 'Codecau: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       Player Dimensions: 'Dimensiynau Chwaraewr: {width}x{height}'
     You appear to be offline: Mae'n ymddangos eich bod all-lein.
-    Playback will resume automatically when your connection comes back: Bydd chwarae'n
-      ailddechrau'n awtomatig pan ddaw'ch cysylltiad yn ôl.
+    Playback will resume automatically when your connection comes back: Bydd
+      chwarae'n ailddechrau'n awtomatig pan ddaw'ch cysylltiad yn ôl.
     Skipped segment: Hepgorwyd {segmentCategory} segment
     Full Window: Ffenestr Lawn
     Show Stats: Dangos Ystadegau
@@ -998,21 +1000,21 @@ Video:
     Autoplay is on: Awtochwarae ymlaen
     Autoplay is off: Awtochwarae i ffwrdd
   More Options: Rhagor o Ddewisiadau
-  AgeRestricted: Nid oes modd gwylio fideos â chyfyngiad oedran gyda FreeTube gan
-    fod angen mewngofnodi Google a defnyddio cyfrif YouTube a ddilysir yn ôl oedran
-    arnynt.
-  MembersOnly: Nid oes modd gwylio fideos aelodau-yn-unig gyda FreeTube gan fod angen
-    mewngofnodi Google ac aelodaeth â thâl i sianel yr llwythwr.
+  AgeRestricted: Nid oes modd gwylio fideos â chyfyngiad oedran gyda FreeTube
+    gan fod angen mewngofnodi Google a defnyddio cyfrif YouTube a ddilysir yn ôl
+    oedran arnynt.
+  MembersOnly: Nid oes modd gwylio fideos aelodau-yn-unig gyda FreeTube gan fod
+    angen mewngofnodi Google ac aelodaeth â thâl i sianel yr llwythwr.
   Unlisted: Heb ei restru
-  IP block: Mae YouTube wedi rhwystro'ch cyfeiriad IP rhag gwylio fideos. Ceisiwch
-    newid i VPN neu ddirprwy arall.
+  IP block: Mae YouTube wedi rhwystro'ch cyfeiriad IP rhag gwylio fideos.
+    Ceisiwch newid i VPN neu ddirprwy arall.
   DeArrow:
     Show Modified Details: Dangos Manylion Addasedig
     Show Original Details: Dangos Manylion Gwreiddiol
-  DRMProtected: Nid oes modd chwarae fideos gwarchodedig DRM yn FreeTube, gan fod
-    angen cydrannau ffynhonnell caeedig perchnogol arnynt. Os ydych chi am wylio'r
-    fideo hwn, gwyliwch ef ar wefan swyddogol YouTube mewn porwr gwe sydd wedi'i alluogi
-    i chwarae DRM.
+  DRMProtected: Nid oes modd chwarae fideos gwarchodedig DRM yn FreeTube, gan
+    fod angen cydrannau ffynhonnell caeedig perchnogol arnynt. Os ydych chi am
+    wylio'r fideo hwn, gwyliwch ef ar wefan swyddogol YouTube mewn porwr gwe
+    sydd wedi'i alluogi i chwarae DRM.
 #& Playlists
   Save Watched Progress: Cadw Cynnydd Gwylio
   Watched Progress Saved: Cynnydd Gwylio Wedi'i Gadw
@@ -1046,8 +1048,8 @@ Change Format:
     gyfer y fideo hwn'
   Audio formats are not available for this video: 'Nid oes fformatau sain ar gael
     ar gyfer y fideo hwn'
-  Legacy formats are not available for this video: Nid oes hen fformatau ar gael ar
-    gyfer y fideo hwn
+  Legacy formats are not available for this video: Nid oes hen fformatau ar gael
+    ar gyfer y fideo hwn
 Share:
   Share Video: 'Rhannu Fideo'
   Share Channel: 'Rhannu Sianel'
@@ -1107,8 +1109,8 @@ Comments:
   Member: 'Aelod'
   Subscribed: 'Tanysgrifiwyd'
   Hearted: 'Hoffwyd'
-  There are no comments available for this post: Nid oes unrhyw sylwadau ar gael ar
-    gyfer y cofnod hon
+  There are no comments available for this post: Nid oes unrhyw sylwadau ar gael
+    ar gyfer y cofnod hon
 Up Next: 'Nesaf'
 
 #Tooltips
@@ -1129,9 +1131,9 @@ Tooltips:
     External Link Handling: |
       Dewiswch yr ymddygiad rhagosodedig pan fydd dolen, nad oes modd ei hagor yn FreeTube, yn cael ei chlicio.
       Fel rhagosodiad bydd FreeTube yn agor y ddolen a gliciwyd yn eich porwr rhagosodedig.
-    Open Deep Links In New Window: Mae URLau wedi'u trosglwyddo i FreeTube, megis
-      trwy ailgyfeirio estyniadau porwr neu ymresymiadau llinell orchymyn, yn cael
-      eu hagor mewn ffenestr newydd.
+    Open Deep Links In New Window: Mae URLau wedi'u trosglwyddo i FreeTube,
+      megis trwy ailgyfeirio estyniadau porwr neu ymresymiadau llinell orchymyn,
+      yn cael eu hagor mewn ffenestr newydd.
   Player Settings:
     Proxy Videos Through Invidious: 'Bydd yn cysylltu ag Invidious i weini fideos
       yn lle gwneud cysylltiad uniongyrchol â YouTube.'
@@ -1159,19 +1161,20 @@ Tooltips:
     Custom External Player Arguments: 'Unrhyw ymresymiadau llinell orchymyn cyfaddas
       rydych am eu trosglwyddo i''r chwaraewr allanol.'
     DefaultCustomArgumentsTemplate: "(Rhagosodiad: '{defaultCustomArguments}')"
-    Ignore Default Arguments: Peidiwch ag anfon unrhyw ymresymiadau rhagosodedig at
-      y chwaraewr allanol ar wahân i'r URL fideo (e.e. cyfradd chwarae, URL rhestr
-      chwarae, ac ati). Bydd ymresymiadau cyfaddas yn dal i gael eu trosglwyddo.
+    Ignore Default Arguments: Peidiwch ag anfon unrhyw ymresymiadau rhagosodedig
+      at y chwaraewr allanol ar wahân i'r URL fideo (e.e. cyfradd chwarae, URL
+      rhestr chwarae, ac ati). Bydd ymresymiadau cyfaddas yn dal i gael eu
+      trosglwyddo.
   Distraction Free Settings:
     Hide Channels: 'Rhowch ID sianel i guddio''r holl fideos, rhestri chwarae a''r
       sianel ei hun rhag ymddangos wrth chwilio, tueddu, mwyaf poblogaidd ac argymell.
       Rhaid i ID y sianel fod yn cyfateb yn llwyr ac mae''n sensitif i faint nodau.'
     Hide Subscriptions Live: 'Mae''r gosodiad hwn wedi''i ddiystyru gan y gosodiad
       "{appWideSetting}" ar draws yr ap, yn adran "{subsection}" y "{settingsSection}"'
-    Hide Videos and Playlists Containing Text: Rhowch air, darn gair, neu ymadrodd
-      (anwybyddu maint nodau) i guddio'r holl fideos a rhestri chwarae y mae eu teitlau
-      gwreiddiol yn ei gynnwys trwy FreeTube gyfan, ac eithrio dim ond Hanes, Eich
-      Rhestrau Chwarae, a fideos o fewn rhestrau chwarae.
+    Hide Videos and Playlists Containing Text: Rhowch air, darn gair, neu
+      ymadrodd (anwybyddu maint nodau) i guddio'r holl fideos a rhestri chwarae
+      y mae eu teitlau gwreiddiol yn ei gynnwys trwy FreeTube gyfan, ac eithrio
+      dim ond Hanes, Eich Rhestrau Chwarae, a fideos o fewn rhestrau chwarae.
   Subscription Settings:
     Fetch Feeds from RSS: 'Pan fydd wedi''i alluogi, bydd FreeTube yn defnyddio RSS
       yn lle ei ddull rhagosodedig ar gyfer cydio yn eich ffrwd tanysgrifio. Mae RSS
@@ -1188,14 +1191,14 @@ Tooltips:
       o DeArrow.'
 
 # Toast Messages
-    UseDeArrowThumbnails: Amnewid lluniau bach fideo gyda lluniau bach o DeArrow.
+    UseDeArrowThumbnails: Amnewid lluniau bach fideo gyda lluniau bach o
+      DeArrow.
 Local API Error (Click to copy): 'Gwall API Lleol (Cliciwch i''w gopïo)'
 Invidious API Error (Click to copy): 'Gwall API Invidious (Cliciwch i''w gopïo)'
 Falling back to Invidious API: 'Dychwelyd i Invidious API'
 Falling back to Local API: 'Dychwelyd i Local API'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Nid
-  yw''r fideo hwn ar gael oherwydd fformatau coll. Gall hyn ddigwydd oherwydd nad
-  yw gwlad ar gael.'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Nid yw''r fideo hwn ar gael oherwydd fformatau coll. Gall
+  hyn ddigwydd oherwydd nad yw gwlad ar gael.'
 Unknown YouTube url type, cannot be opened in app: 'Math url YouTube anhysbys, nid
   oes modd ei agor yn ap'
 Loop is now disabled: 'Cylchu nawr wedi''i hanalluogi'
@@ -1233,8 +1236,8 @@ Hashtag:
 Yes: 'Iawn'
 No: 'Na'
 Ok: 'Iawn'
-Search character limit: Mae'r ymholiad chwilio hwn yn fwy na {searchCharacterLimit}
-  nod
+Search character limit: Mae'r ymholiad chwilio hwn yn fwy na
+  {searchCharacterLimit} nod
 Cancel: Diddymu
 Search Listing:
   Label:
@@ -1259,8 +1262,9 @@ Age Restricted:
 Moments Ago: eiliad yn ôl
 checkmark: ✓
 Display Label: '{label}: {value}'
-Trimmed input must be at least N characters long: Rhaid i fewnbwn wedi'i docio fod
-  o leiaf 1 nod o hyd | Rhaid i fewnbwn wedi'i docio fod o leiaf {length} nod
+Trimmed input must be at least N characters long: Rhaid i fewnbwn wedi'i docio
+  fod o leiaf 1 nod o hyd | Rhaid i fewnbwn wedi'i docio fod o leiaf {length}
+  nod
 Tag already exists: Mae'r tag "{tagName}" eisoes yn bodoli
 KeyboardShortcutPrompt:
   Search in New Window: Chwilio mewn ffenestr newydd
@@ -1269,12 +1273,13 @@ KeyboardShortcutPrompt:
   Volume Up: Cynyddu lefel y sain
   Volume Down: Gostwng lefel y sain
   Show Keyboard Shortcuts: Dangos llwybrau byr bysellfwrdd
-  Focus Secondary Search: Canolbwyntiwch ar yr ail far chwilio (os oes un yn bresennol)
+  Focus Secondary Search: Canolbwyntiwch ar yr ail far chwilio (os oes un yn
+    bresennol)
   Captions: Toglo capsiynau YMLAEN/DIFFODD
   Stats: Dangos ystadegau fideo
   Fullscreen: Toglo sgrin lawn
-  Small Fast Forward: Eiliadau Ymlaen Cyflym X yn seiliedig ar yr Ysbaid Cyflym Ymlaen
-    a'r Gyfradd Chwarae Fideo gyfredol
+  Small Fast Forward: Eiliadau Ymlaen Cyflym X yn seiliedig ar yr Ysbaid Cyflym
+    Ymlaen a'r Gyfradd Chwarae Fideo gyfredol
   Keyboard Shortcuts: Llwybrau Byr Bysellfwrdd
   Sections:
     Video:
@@ -1285,12 +1290,12 @@ KeyboardShortcutPrompt:
       General: Ap: Cyffredinol
   History Forward: Ymlaen un dudalen
   New Window: Creu ffenestr newydd
-  Large Rewind: Nôl 10 eiliad / Dychwelyd fideo yn seiliedig ar y Gyfradd Chwarae
-    Fideo gyfredol
+  Large Rewind: Nôl 10 eiliad / Dychwelyd fideo yn seiliedig ar y Gyfradd
+    Chwarae Fideo gyfredol
   Play: Toglo chwarae / oedi
   Mute: Toglo tewi
-  Decrease Video Speed: Lleihau cyflymder fideo yn seiliedig ar Ysbaid Cyfradd Chwarae
-    Fideo
+  Decrease Video Speed: Lleihau cyflymder fideo yn seiliedig ar Ysbaid Cyfradd
+    Chwarae Fideo
   Full Window: Toglo ffenestr lawn
   Skip by Tenths: Symud trwy fideo yn ôl canran (3 symudiad i 30% o'i hyd )
   Take Screenshot: Tynnu llun sgrin
@@ -1299,10 +1304,10 @@ KeyboardShortcutPrompt:
   Navigate to History: Llywio i'r dudalen Hanes
   Refresh: Adnewyddu ffrwd gyda'r cynnwys diweddaraf
   Picture in Picture: Toglo modd Llun-mewn-Llun
-  Large Fast Forward: Ymlaen 10 eiliad / Ymlaen Cyflym Fideo yn seiliedig ar y Gyfradd
-    Chwarae Fideo gyfredol
-  Increase Video Speed: Cynyddu cyflymder fideo yn seiliedig ar Ysbaid Cyfradd Chwarae
-    Fideo
+  Large Fast Forward: Ymlaen 10 eiliad / Ymlaen Cyflym Fideo yn seiliedig ar y
+    Gyfradd Chwarae Fideo gyfredol
+  Increase Video Speed: Cynyddu cyflymder fideo yn seiliedig ar Ysbaid Cyfradd
+    Chwarae Fideo
   Theatre Mode: Toglo modd theatr
   Minimize Window: Lleihau ffenestr
   Close Window: Cau ffenestr
@@ -1313,10 +1318,12 @@ KeyboardShortcutPrompt:
   Zoom In: Chwyddo mewn
   Zoom Out: Chwyddo allan
   Focus Search: Canolbwyntio ar y bar chwilio
-  Small Rewind: Dychwelyd X eiliadau yn seiliedig ar yr Ysbaid Dychwelyd a'r Gyfradd
-    Chwarae Fideo gyfredol
+  Small Rewind: Dychwelyd X eiliadau yn seiliedig ar yr Ysbaid Dychwelyd a'r
+    Gyfradd Chwarae Fideo gyfredol
   Last Chapter: Pennod Olaf
   Next Chapter: Pennod Nesaf
+  Home: Chwilio i ddechrau'r fideo
+  End: Chwilio i ddiwedd y fideo
 Description:
   Expand Description: '...rhagor'
   Collapse Description: Dangos llai
@@ -1333,6 +1340,6 @@ Keys:
   alt: Alt
   enter: Enter
 Right-click or hold to see history: De-gliciwch neu ddal i weld yr hanes
-Autoplay Interruption Timer: Diddymwyd awtochwarae oherwydd {autoplayInterruptionIntervalHours}
-  awr o heb ei ddefnyddio
+Autoplay Interruption Timer: Diddymwyd awtochwarae oherwydd
+  {autoplayInterruptionIntervalHours} awr o heb ei ddefnyddio
 shortcutLabelSeparator: ｜
