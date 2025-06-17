@@ -1961,7 +1961,7 @@ export default defineComponent({
 
     // #region mouse scroll handlers
 
-    const mouseScrollThrottleWaitMs = 100
+    const mouseScrollThrottleWaitMs = 200
 
     /**
      * @param {WheelEvent} event
@@ -1980,7 +1980,12 @@ export default defineComponent({
     function mouseScrollPlaybackRateHandler(event) {
       event.preventDefault()
 
-      mouseScrollPlaybackRateThrottle(event)
+      // Touchpad scroll = small deltaX/deltaY
+      if (Math.abs(event.deltaX) <= 5 && Math.abs(event.deltaY) <= 5) {
+        mouseScrollPlaybackRateThrottle(event)
+      } else {
+        mouseScrollPlaybackRate(event)
+      }
     }
 
     /**
@@ -2001,7 +2006,12 @@ export default defineComponent({
       if (canSeek()) {
         event.preventDefault()
 
-        mouseScrollSkipThrottle(event)
+        // Touchpad scroll = small deltaX/deltaY
+        if (Math.abs(event.deltaX) <= 5 && Math.abs(event.deltaY) <= 5) {
+          mouseScrollSkipThrottle(event)
+        } else {
+          mouseScrollSkip(event)
+        }
       }
     }
 
@@ -2033,7 +2043,12 @@ export default defineComponent({
         event.preventDefault()
         event.stopPropagation()
 
-        mouseScrollVolumeThrottle(event)
+        // Touchpad scroll = small deltaX/deltaY
+        if (Math.abs(event.deltaX) <= 5 && Math.abs(event.deltaY) <= 5) {
+          mouseScrollVolumeThrottle(event)
+        } else {
+          mouseScrollVolume(event)
+        }
       }
     }
 
