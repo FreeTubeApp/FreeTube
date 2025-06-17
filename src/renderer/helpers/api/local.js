@@ -1649,6 +1649,8 @@ export function parseLocalComment(comment, commentThread = undefined) {
     hasReplyToken = true
   }
 
+  const commentTextRuns = comment.voice_reply_container?.transcript_text ? comment.voice_reply_container.transcript_text.runs : comment.content.runs
+
   return {
     id: comment.comment_id,
     dataType: 'local',
@@ -1659,9 +1661,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     isPinned: comment.is_pinned,
     isOwner: !!comment.author_is_channel_owner,
     isMember: !!comment.is_member,
-    text: comment.content.text.length !== 0 || comment.voice_reply_transcript == null
-      ? Autolinker.link(parseLocalTextRuns(comment.content.runs, 16, { looseChannelNameDetection: true }))
-      : Autolinker.link(parseLocalTextRuns(comment.voice_reply_transcript.runs, 16), { looseChannelNameDetection: true }),
+    text: Autolinker.link(parseLocalTextRuns(commentTextRuns, 16, { looseChannelNameDetection: true })),
     isHearted: !!comment.is_hearted,
     hasOwnerReplied,
     hasReplyToken,
