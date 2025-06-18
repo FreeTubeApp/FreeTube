@@ -251,7 +251,6 @@ export default defineComponent({
           value: 'history'
         }
       ]
-
       if (!this.hideSharingActions) {
         options.push(
           {
