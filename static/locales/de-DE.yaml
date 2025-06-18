@@ -75,8 +75,7 @@ Search Filters:
   Fetching results. Please wait: Ergebnisse werden abgerufen. Bitte warten
   Fetch more results: Weitere Ergebnisse abrufen
 # Sidebar
-  There are no more results for this search: Für diese Suche gibt es keine weiteren
-    Ergebnisse
+  There are no more results for this search: Für diese Suche gibt es keine weiteren Ergebnisse
   Features:
     3D: 3D
     Live: Live
@@ -89,25 +88,18 @@ Search Filters:
     Subtitles: Untertitel
     Creative Commons: Creative-Commons
     Location: Region
+  Clear Filters: Suchfilter zurücksetzen
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Abos
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Deine
-    Aboliste ist derzeit leer. Wenn du deine Abos importieren möchtest, wähle in den
-    Einstellungen unter dem Bereich „Daten“ „Abos importieren“. Alternativ kannst
-    du nach einem Kanal suchen und diesen abonnieren.
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dieses
-    Profil hat eine große Anzahl von Abos.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen
-    erzwingen
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Deine Aboliste ist derzeit leer. Wenn du deine Abos importieren möchtest, wähle in den Einstellungen unter dem Bereich „Daten“ „Abos importieren“. Alternativ kannst du nach einem Kanal suchen und diesen abonnieren.
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dieses Profil hat eine große Anzahl von Abos.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen erzwingen
   Load More Videos: Weitere Videos laden
   Error Channels: Kanäle mit Fehlern
-  Disabled Automatic Fetching: Du hast den automatischen Abruf von Abos deaktiviert.
-    Aktualisiere die Abos, um sie hier zu sehen.
+  Disabled Automatic Fetching: Du hast den automatischen Abruf von Abos deaktiviert. Aktualisiere die Abos, um sie hier zu sehen.
   Empty Channels: Deine abonnierten Kanäle haben derzeit keine Videos.
   Subscriptions Tabs: Registerkarten für Abos
-  All Subscription Tabs Hidden: Alle Registerkarten für Abos sind ausgeblendet. Um
-    den Inhalt hier zu sehen, blende bitte einige Registerkarten im Abschnitt „{subsection}“
-    in „{settingsSection}“ ein.
+  All Subscription Tabs Hidden: Alle Registerkarten für Abos sind ausgeblendet. Um den Inhalt hier zu sehen, blende bitte einige Registerkarten im Abschnitt „{subsection}“ in „{settingsSection}“ ein.
   Load More Posts: Weitere Beiträge laden
   Empty Posts: Deine abonnierten Kanäle haben derzeit keine Beiträge.
 Trending:
@@ -122,16 +114,13 @@ Playlists: Playlists
 User Playlists:
   Your Playlists: Deine Playlists
   Search bar placeholder: Nach Playlists suchen
-  Empty Search Message: Es gibt keine Videos in dieser Playlist, die deiner Suche
-    entsprechen
+  Empty Search Message: Es gibt keine Videos in dieser Playlist, die deiner Suche entsprechen
   This playlist currently has no videos.: Diese Playlist enthält derzeit keine Videos.
   Add to Playlist: Zur Playlist hinzufügen
   Move Video Up: Video nach oben verschieben
   Move Video Down: Video nach unten verschieben
   Playlist Name: Name der Playlist
-  You have no playlists. Click on the create new playlist button to create a new one.: Du
-    hast keine Playlists. Klicke auf die Schaltfläche „Neue Playlist erstellen“, um
-    eine neue zu erstellen.
+  You have no playlists. Click on the create new playlist button to create a new one.: Du hast keine Playlists. Klicke auf die Schaltfläche „Neue Playlist erstellen“, um eine neue zu erstellen.
   Playlist Description: Beschreibung der Playlist
   Save Changes: Änderungen speichern
   Cancel: Abbrechen
@@ -139,8 +128,7 @@ User Playlists:
   Copy Playlist: Playlist kopieren
   Remove Watched Videos: Angesehene Videos entfernen
   Delete Playlist: Playlist löschen
-  Are you sure you want to delete this playlist? This cannot be undone: Bist du sicher,
-    dass du diese Playlist löschen möchtest? Dies kann nicht rückgängig gemacht werden.
+  Are you sure you want to delete this playlist? This cannot be undone: Bist du sicher, dass du diese Playlist löschen möchtest? Dies kann nicht rückgängig gemacht werden.
   Sort By:
     NameAscending: A-Z
     NameDescending: Z-A
@@ -152,42 +140,25 @@ User Playlists:
     EarliestPlayedFirst: Am frühesten abgespielt
   SinglePlaylistView:
     Toast:
-      This video cannot be moved up.: Dieses Video kann nicht nach oben verschoben
-        werden.
-      This video cannot be moved down.: Dieses Video kann nicht nach unten verschoben
-        werden.
+      This video cannot be moved up.: Dieses Video kann nicht nach oben verschoben werden.
+      This video cannot be moved down.: Dieses Video kann nicht nach unten verschoben werden.
       Video has been removed: Video wurde entfernt
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Einige
-        Videos in der Playlist sind noch nicht geladen. Klicke hier, um sie trotzdem
-        zu kopieren.
-      Playlist name cannot be empty. Please input a name.: Der Name der Playlist darf
-        nicht leer sein. Bitte gib einen Namen ein.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Einige Videos in der Playlist sind noch nicht geladen. Klicke hier, um sie trotzdem zu kopieren.
+      Playlist name cannot be empty. Please input a name.: Der Name der Playlist darf nicht leer sein. Bitte gib einen Namen ein.
       Playlist has been updated.: Playlist wurde aktualisiert.
-      There was an issue with updating this playlist.: Es gab ein Problem beim Aktualisieren
-        dieser Playlist.
-      "{videoCount} video(s) have been removed": 1 Video wurde entfernt | {videoCount}
-        Videos wurden entfernt
+      There was an issue with updating this playlist.: Es gab ein Problem beim Aktualisieren dieser Playlist.
+      "{videoCount} video(s) have been removed": 1 Video wurde entfernt | {videoCount} Videos wurden entfernt
       There were no videos to remove.: Es gab keine Videos zum Entfernen.
-      This playlist is protected and cannot be removed.: Diese Playlist ist geschützt
-        und kann nicht entfernt werden.
-      There was a problem with removing this video: Es gab ein Problem beim Entfernen
-        dieses Videos
+      This playlist is protected and cannot be removed.: Diese Playlist ist geschützt und kann nicht entfernt werden.
+      There was a problem with removing this video: Es gab ein Problem beim Entfernen dieses Videos
       Playlist {playlistName} has been deleted.: Playlist {playlistName} wurde gelöscht.
       This playlist does not exist: Diese Playlist existiert nicht
-      This playlist is now used for quick bookmark: Diese Playlist wird jetzt für
-        „Schnelle Lesezeichen“ genutzt
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Diese
-        Playlist wird jetzt anstatt {oldPlaylistName} für „Schnelle Lesezeichen“ genutzt.
-        Hier klicken, um dies rückgängig zu machen
-      Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} wird
-        wieder für „Schnelle Lesezeichen“ genutzt'
-      This playlist is already being used for quick bookmark.: Diese Playlist wird
-        bereits für „Schnelle Lesezeichen“ verwendet.
-      This playlist has a video with a duration error: Diese Playlist enthält mindestens
-        ein Video ohne Dauer. Daher wird die Playlist so sortiert, als ob die Dauer
-        null wäre.
-      Video has been removed. Click here to undo.: Video wurde entfernt. Klicke hier,
-        um das Entfernen rückgängig zu machen.
+      This playlist is now used for quick bookmark: Diese Playlist wird jetzt für „Schnelle Lesezeichen“ genutzt
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Diese Playlist wird jetzt anstatt {oldPlaylistName} für „Schnelle Lesezeichen“ genutzt. Hier klicken, um dies rückgängig zu machen
+      Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} wird wieder für „Schnelle Lesezeichen“ genutzt'
+      This playlist is already being used for quick bookmark.: Diese Playlist wird bereits für „Schnelle Lesezeichen“ verwendet.
+      This playlist has a video with a duration error: Diese Playlist enthält mindestens ein Video ohne Dauer. Daher wird die Playlist so sortiert, als ob die Dauer null wäre.
+      Video has been removed. Click here to undo.: Video wurde entfernt. Klicke hier, um das Entfernen rückgängig zu machen.
     Search for Videos: Nach Videos suchen
   AddVideoPrompt:
     N playlists selected: '{playlistCount} ausgewählt'
@@ -195,51 +166,31 @@ User Playlists:
     Save: Speichern
     Toast:
       You haven't selected any playlist yet.: Du hast noch keine Playlist ausgewählt.
-      "{videoCount} video(s) added to 1 playlist": 1 Video zu 1 Playlist hinzugefügt
-        | {videoCount} Videos zu 1 Playlist hinzugefügt
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 Video zu {playlistCount}
-        Playlists hinzugefügt | {videoCount} Videos zu {playlistCount} Playlists hinzugefügt
-    Select a playlist to add your N videos to: Wähle eine Playlist, der du dein Video
-      hinzufügen möchtest | Wähle eine Playlist, der du deine {videoCount} Videos
-      hinzufügen möchtest
+      "{videoCount} video(s) added to 1 playlist": 1 Video zu 1 Playlist hinzugefügt | {videoCount} Videos zu 1 Playlist hinzugefügt
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 Video zu {playlistCount} Playlists hinzugefügt | {videoCount} Videos zu {playlistCount} Playlists hinzugefügt
+    Select a playlist to add your N videos to: Wähle eine Playlist, der du dein Video hinzufügen möchtest | Wähle eine Playlist, der du deine {videoCount} Videos hinzufügen möchtest
     Added {count} Times: 'Bereits hinzugefügt | {count} Mal hinzugefügt'
     Allow Adding Duplicate Video(s): Hinzufügen doppelter Videos zulassen
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      Videos werden hinzugefügt'
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      bereits hinzugefügte Videos'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videos werden hinzugefügt'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} bereits hinzugefügte Videos'
   CreatePlaylistPrompt:
     New Playlist Name: Neuer Name der Playlist
     Create: Erstellen
     Toast:
-      There is already a playlist with this name. Please pick a different name.: Es
-        existiert bereits eine Playlist mit diesem Namen. Bitte wähle einen anderen
-        Namen.
-      There was an issue with creating the playlist.: Es gab ein Problem beim Erstellen
-        der Playlist.
-      Playlist {playlistName} has been successfully created.: Playlist {playlistName}
-        wurde erfolgreich erstellt.
+      There is already a playlist with this name. Please pick a different name.: Es existiert bereits eine Playlist mit diesem Namen. Bitte wähle einen anderen Namen.
+      There was an issue with creating the playlist.: Es gab ein Problem beim Erstellen der Playlist.
+      Playlist {playlistName} has been successfully created.: Playlist {playlistName} wurde erfolgreich erstellt.
   Create New Playlist: Neue Playlist erstellen
   Remove from Playlist: Aus der Playlist entfernen
   Add to Favorites: Hinzufügen zu {playlistName}
   Remove from Favorites: Löschen aus {playlistName}
-  Enable Quick Bookmark With This Playlist: Schnelle Lesezeichen für diese Playlist
-    aktivieren
+  Enable Quick Bookmark With This Playlist: Schnelle Lesezeichen für diese Playlist aktivieren
   Playlists with Matching Videos: Playlists mit passenden Videos
   Quick Bookmark Enabled: Schnelle Lesezeichen aktiviert
-  Cannot delete the quick bookmark target playlist.: Die Playlist, die für die Funktion
-    „Schnelle Lesezeichen“ genutzt wird, kann nicht gelöscht werden.
+  Cannot delete the quick bookmark target playlist.: Die Playlist, die für die Funktion „Schnelle Lesezeichen“ genutzt wird, kann nicht gelöscht werden.
   Remove Duplicate Videos: Doppelte Videos entfernen
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Bist
-    du sicher, dass du ein doppeltes Video aus dieser Playlist entfernen möchtest?
-    Dies kann nicht rückgängig gemacht werden. | Bist du sicher, dass du {playlistItemCount}
-    doppelte Videos aus dieser Playlist entfernen möchtest? Dies kann nicht rückgängig
-    gemacht werden.
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Bist
-    du sicher, dass du ein angesehenes Video aus dieser Playlist entfernen möchtest?
-    Dies kann nicht rückgängig gemacht werden. | Bist du sicher, dass du {playlistItemCount}
-    angesehene Videos aus dieser Playlist entfernen möchtest? Dies kann nicht rückgängig
-    gemacht werden.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Bist du sicher, dass du ein doppeltes Video aus dieser Playlist entfernen möchtest? Dies kann nicht rückgängig gemacht werden. | Bist du sicher, dass du {playlistItemCount} doppelte Videos aus dieser Playlist entfernen möchtest? Dies kann nicht rückgängig gemacht werden.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Bist du sicher, dass du ein angesehenes Video aus dieser Playlist entfernen möchtest? Dies kann nicht rückgängig gemacht werden. | Bist du sicher, dass du {playlistItemCount} angesehene Videos aus dieser Playlist entfernen möchtest? Dies kann nicht rückgängig gemacht werden.
   Export Playlist: Diese Playlist exportieren
   The playlist has been successfully exported: Die Playlist wurde erfolgreich exportiert
   TotalTimePlaylist: 'Gesamtzeit: {duration}'
@@ -256,8 +207,7 @@ Settings:
   Settings: Einstellungen
   General Settings:
     General Settings: Allgemein
-    Fallback to Non-Preferred Backend on Failure: Bei Ausfall auf nicht bevorzugtes
-      Backend zurückgreifen
+    Fallback to Non-Preferred Backend on Failure: Bei Ausfall auf nicht bevorzugtes Backend zurückgreifen
     Enable Search Suggestions: Suchvorschläge aktivieren
     Default Landing Page: Standard Startseite
 
@@ -282,14 +232,11 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Nach neuen Blogeinträgen suchen
     Check for Updates: Auf Updates prüfen
-    View all Invidious instance information: Alle Informationen zur Invidious-Instanz
-      anzeigen
+    View all Invidious instance information: Alle Informationen zur Invidious-Instanz anzeigen
     System Default: Systemvorgabe
-    Current instance will be randomized on startup: Beim Start wird eine zufällige
-      Instanz festgelegt
+    Current instance will be randomized on startup: Beim Start wird eine zufällige Instanz festgelegt
     No default instance has been set: Es wurde keine Standardinstanz festgelegt
-    The currently set default instance is {instance}: Die aktuelle Standardinstanz
-      ist {instance}
+    The currently set default instance is {instance}: Die aktuelle Standardinstanz ist {instance}
     Current Invidious Instance: Aktuelle Invidious-Instanz
     Clear Default Instance: Standardinstanz zurücksetzen
     Set Current Instance as Default: Derzeitige Instanz als Standard festlegen
@@ -301,8 +248,7 @@ Settings:
     Auto Load Next Page:
       Label: Nächste Seite automatisch laden
       Tooltip: Zusätzliche Seiten und Kommentare automatisch laden.
-    Open Deep Links In New Window: An FreeTube übergebene URLs in einem neuen Fenster
-      öffnen
+    Open Deep Links In New Window: An FreeTube übergebene URLs in einem neuen Fenster öffnen
   Theme Settings:
     Theme Settings: Farbschema
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen
@@ -451,8 +397,7 @@ Settings:
     Display Play Button In Video Player: Wiedergabetaste im Video-Player anzeigen
     Scroll Volume Over Video Player: Lautstärke durch Scrollen ändern
     Fast-Forward / Rewind Interval: Intervall für Vor-/Zurückspulen
-    Scroll Playback Rate Over Video Player: Abspielgeschwindigkeit durch Scrollen
-      ändern
+    Scroll Playback Rate Over Video Player: Abspielgeschwindigkeit durch Scrollen ändern
     Video Playback Rate Interval: Intervall für Geschwindigkeitseinstellung
     Max Video Playback Rate: Maximale Wiedergabegeschwindigkeit
     Screenshot:
@@ -466,10 +411,7 @@ Settings:
       Error:
         Forbidden Characters: Unerlaubte Zeichen
         Empty File Name: Leerer Dateiname
-      File Name Tooltip: Du kannst die folgenden Variablen verwenden. %Y Jahr 4-stellig.
-        %M Monat 2 Ziffern. %D Tag 2 Ziffern. %H Stunde 2 Ziffern. %N Minute 2 Ziffern.
-        %S Sekunde 2 Ziffern. %T Millisekunde 3 Ziffern. %s Video-Sekunde. %t Video
-        Millisekunde 3 Ziffern. %i Video-ID.
+      File Name Tooltip: Du kannst die folgenden Variablen verwenden. %Y Jahr 4-stellig. %M Monat 2 Ziffern. %D Tag 2 Ziffern. %H Stunde 2 Ziffern. %N Minute 2 Ziffern. %S Sekunde 2 Ziffern. %T Millisekunde 3 Ziffern. %s Video-Sekunde. %t Video Millisekunde 3 Ziffern. %i Video-ID.
     Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen
     Autoplay Interruption Timer: Abbruch-Timer für Automatische Wiedergabe
@@ -486,43 +428,30 @@ Settings:
     Fetch Automatically: Abos automatisch abrufen
     Confirm Before Unsubscribing: Unbeabsichtigtes Deabonnieren verhindern
 
-    'Limit the number of videos displayed for each channel': Anzahl der für jeden
-      Kanal angezeigten Videos begrenzen
+    'Limit the number of videos displayed for each channel': Anzahl der für jeden Kanal angezeigten Videos begrenzen
     To: Limitieren auf
   Privacy Settings:
     Watch history has been cleared: Wiedergabeverlauf wurde gelöscht
-    Are you sure you want to remove your entire watch history?: Bist du sicher, dass
-      du deinen gesamten Wiedergabeverlauf löschen willst?
+    Are you sure you want to remove your entire watch history?: Bist du sicher, dass du deinen gesamten Wiedergabeverlauf löschen willst?
     Remove Watch History: Wiedergabeverlauf löschen
     Search cache has been cleared: Suchcache wurde gelöscht
-    Are you sure you want to clear out your search cache?: Bist du sicher, dass du
-      deinen Suchcache löschen möchtest?
+    Are you sure you want to clear out your search cache?: Bist du sicher, dass du deinen Suchcache löschen möchtest?
     Clear Search Cache: Suchcache löschen
     Save Watched Progress: Videofortschritt merken
     Remember History: Wiedergabeverlauf merken
     Privacy Settings: Datenschutz
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bist
-      du sicher, dass du alle Abos und Profile löschen möchtest?  Diese Aktion kann
-      nicht rückgängig gemacht werden.
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bist du sicher, dass du alle Abos und Profile löschen möchtest?  Diese Aktion kann nicht rückgängig gemacht werden.
     Remove All Subscriptions / Profiles: Alle Abos / Profile löschen
-    Save Watched Videos With Last Viewed Playlist: Angesehene Videos in der Playlist
-      „Zuletzt angesehen“ speichern
+    Save Watched Videos With Last Viewed Playlist: Angesehene Videos in der Playlist „Zuletzt angesehen“ speichern
     Remove All Playlists: Alle Playlists entfernen
     All playlists have been removed: Alle Playlists wurden entfernt
-    Are you sure you want to remove all your playlists?: Bist du sicher, dass du alle
-      deine Playlists entfernen möchtest?
+    Are you sure you want to remove all your playlists?: Bist du sicher, dass du alle deine Playlists entfernen möchtest?
     Remember Search History: Suchverlauf merken
-    Are you sure you want to clear out your search history and cache?: Bist du sicher,
-      dass du deinen Suchverlauf und Cache löschen möchtest?
+    Are you sure you want to clear out your search history and cache?: Bist du sicher, dass du deinen Suchverlauf und Cache löschen möchtest?
     Clear Search History and Cache: Suchverlauf und Cache löschen
     Search history and cache have been cleared: Suchverlauf und Cache wurden gelöscht
     Watched Progress Saving Mode:
-      Tooltip: Automatisch = Beim Verlassen des Videos, nachdem das Video beendet
-        wurde und wenn ein Fehler auftritt (z. B. bei einer Ratenbegrenzung oder wenn
-        die Sitzung abgelaufen ist) speichern. Semi-automatisch = Wie automatisch,
-        jedoch nur beim Verlassen des Videos, außerdem kann der Fortschritt manuell
-        über einen Button namens „Videofortschritt speichern“, der sich unter dem
-        Videoplayer befindet, gespeichert werden.
+      Tooltip: Automatisch = Beim Verlassen des Videos, nachdem das Video beendet wurde und wenn ein Fehler auftritt (z. B. bei einer Ratenbegrenzung oder wenn die Sitzung abgelaufen ist) speichern. Semi-automatisch = Wie automatisch, jedoch nur beim Verlassen des Videos, außerdem kann der Fortschritt manuell über einen Button namens „Videofortschritt speichern“, der sich unter dem Videoplayer befindet, gespeichert werden.
       Modes:
         Semi-auto: Semi-automatisch
         Auto: Automatisch
@@ -532,22 +461,16 @@ Settings:
     Unknown data key: Unbekannter Datenschlüssel
     Unable to write file: Datei kann nicht geschrieben werden
     Unable to read file: Datei kann nicht gelesen werden
-    All watched history has been successfully exported: Der gesamte Wiedergabeverlauf
-      wurde erfolgreich exportiert
-    All watched history has been successfully imported: Der gesamte Wiedergabeverlauf
-      wurde erfolgreich importiert
-    History object has insufficient data, skipping item: Verlaufsobjekt hat unzureichende
-      Daten, Element wird übersprungen
+    All watched history has been successfully exported: Der gesamte Wiedergabeverlauf wurde erfolgreich exportiert
+    All watched history has been successfully imported: Der gesamte Wiedergabeverlauf wurde erfolgreich importiert
+    History object has insufficient data, skipping item: Verlaufsobjekt hat unzureichende Daten, Element wird übersprungen
     Subscriptions have been successfully exported: Abos wurden erfolgreich exportiert
     Invalid history file: Ungültige Verlaufsdatei
     This might take a while, please wait: Dies dauert einen Moment, bitte warten
     Invalid subscriptions file: Ungültige Abo-Datei
-    All subscriptions and profiles have been successfully imported: Alle Abos und
-      Profile wurden erfolgreich importiert
-    All subscriptions have been successfully imported: Alle Abos wurden erfolgreich
-      importiert
-    Profile object has insufficient data, skipping item: Profilobjekt hat unzureichende
-      Daten, Element wird übersprungen
+    All subscriptions and profiles have been successfully imported: Alle Abos und Profile wurden erfolgreich importiert
+    All subscriptions have been successfully imported: Alle Abos wurden erfolgreich importiert
+    Profile object has insufficient data, skipping item: Profilobjekt hat unzureichende Daten, Element wird übersprungen
     Export History: Verlauf exportieren
     Import History: Verlauf importieren
     Export NewPipe: NewPipe exportieren
@@ -560,23 +483,15 @@ Settings:
     Manage Subscriptions: Abos verwalten
     Export Playlists: Playlists exportieren
     Import Playlists: Playlists importieren
-    Playlist insufficient data: Unzureichende Daten für die Playlist „{playlist}“,
-      Element wird übersprungen
-    All playlists has been successfully imported: Alle Playlists wurden erfolgreich
-      importiert
-    All playlists has been successfully exported: Alle Playlists wurden erfolgreich
-      exportiert
+    Playlist insufficient data: Unzureichende Daten für die Playlist „{playlist}“, Element wird übersprungen
+    All playlists has been successfully imported: Alle Playlists wurden erfolgreich importiert
+    All playlists has been successfully exported: Alle Playlists wurden erfolgreich exportiert
     Playlist File: Playlist-Datei
     Subscription File: Abo-Datei
     History File: Verlaufsdatei
     Export Playlists For Older FreeTube Versions:
       Label: Playlists für ältere FreeTube-Versionen exportieren
-      Tooltip: "Diese Option exportiert Videos aus allen Playlists in eine Playlist
-        namens „Favoriten“.\nSo kannst du Playlists für eine ältere Version von FreeTube
-        exportieren und importieren:\n1. Exportiere deine Playlists, wenn diese Option
-        aktiviert ist.\n2. Lösche alle deine bestehenden Playlists mit der Option
-        „Alle Playlists entfernen“ unter den Datenschutzeinstellungen.\n3. Starte
-        die ältere Version von FreeTube und importiere die exportierten Playlists.\""
+      Tooltip: "Diese Option exportiert Videos aus allen Playlists in eine Playlist namens „Favoriten“.\nSo kannst du Playlists für eine ältere Version von FreeTube exportieren und importieren:\n1. Exportiere deine Playlists, wenn diese Option aktiviert ist.\n2. Lösche alle deine bestehenden Playlists mit der Option „Alle Playlists entfernen“ unter den Datenschutzeinstellungen.\n3. Starte die ältere Version von FreeTube und importiere die exportierten Playlists.\""
   Distraction Free Settings:
     Hide Live Chat: Live-Chat ausblenden
     Hide Popular Videos: Beliebte Videos ausblenden
@@ -597,8 +512,7 @@ Settings:
     Hide Upcoming Premieres: Anstehende Premieren ausblenden
     Hide Channels: Videos aus Kanälen ausblenden
     Hide Channels Placeholder: Kanal-ID
-    Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung
-      und Zeichensetzung anzeigen
+    Display Titles Without Excessive Capitalisation: Titel ohne übermäßige Großschreibung und Zeichensetzung anzeigen
     Hide Channel Playlists: 'Tab „Playlists“ im Kanal ausblenden'
     Hide Channel Shorts: 'Tab „Shorts“ im Kanal ausblenden'
     Hide Featured Channels: Hervorgehobene Kanäle ausblenden
@@ -615,49 +529,35 @@ Settings:
     Hide Subscriptions Live: Livestreams aus Abos ausblenden
     Hide Profile Pictures in Comments: Profilbilder in den Kommentaren ausblenden
     Hide Channels Invalid: Kanal-ID war ungültig
-    Hide Channels Disabled Message: Einige Kanäle wurden mit ID gesperrt und nicht
-      verarbeitet. Die Funktion wird blockiert, während diese IDs aktualisieren
+    Hide Channels Disabled Message: Einige Kanäle wurden mit ID gesperrt und nicht verarbeitet. Die Funktion wird blockiert, während diese IDs aktualisieren
     Hide Channels Already Exists: Kanal-ID bereits vorhanden
-    Hide Channels API Error: Fehler beim Abrufen des Kontos mit der bereitgestellten
-      ID. Bitte überprüfe erneut, ob die ID korrekt ist.
-    Hide Videos and Playlists Containing Text: Videos und Playlists, die Text enthalten,
-      ausblenden
-    Hide Videos and Playlists Containing Text Placeholder: Wort, Wortfragment oder
-      Phrase
+    Hide Channels API Error: Fehler beim Abrufen des Kontos mit der bereitgestellten ID. Bitte überprüfe erneut, ob die ID korrekt ist.
+    Hide Videos and Playlists Containing Text: Videos und Playlists, die Text enthalten, ausblenden
+    Hide Videos and Playlists Containing Text Placeholder: Wort, Wortfragment oder Phrase
     Hide Channel Home: 'Tab „Startseite“ im Kanal ausblenden'
     Show Added Items: Hinzugefügte Elemente anzeigen
     Hide Channel Courses: Tab „Kurse“ im Kanal ausblenden
     Hide Channel Posts: Tab „Beiträge“ im Kanal ausblenden
     Hide Subscriptions Posts: Beiträge aus Abos ausblenden
-  The app needs to restart for changes to take effect. Restart and apply change?: Die
-    App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten
-    und Änderung übernehmen?
+  The app needs to restart for changes to take effect. Restart and apply change?: Die App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten und Änderung übernehmen?
   Proxy Settings:
     Ip: IP-Adresse
-    Error getting network information. Is your proxy configured properly?: Fehler
-      beim Abrufen von Netzwerkinformationen. Ist dein Proxy richtig konfiguriert?
+    Error getting network information. Is your proxy configured properly?: Fehler beim Abrufen von Netzwerkinformationen. Ist dein Proxy richtig konfiguriert?
     City: Stadt
     Region: Region
     Country: Land
     Your Info: Deine Info
     Test Proxy: Proxy testen
-    Clicking on Test Proxy will send a request to: Indem du auf Proxy testen klickst,
-      schickst du eine Anfrage an
+    Clicking on Test Proxy will send a request to: Indem du auf Proxy testen klickst, schickst du eine Anfrage an
     Proxy Port Number: Proxy-Portnummer
     Proxy Host: Proxy-Host
     Proxy Protocol: Proxy-Protokoll
     Enable Tor / Proxy: Tor / Proxy aktivieren
     Proxy Settings: Proxy
-    Proxy Warning: FreeTube hat keinen eingebauten Proxy, kann aber mit einem externen
-      Proxy verbunden werden, wie z. B. einem, der auf deinem Gerät läuft wie Tor,
-      oder einem externen Proxy wie einem SOCKS5-Proxy, der von einigen VPNs bereitgestellt
-      wird. Falls aktiviert, stelle sicher, dass dein Proxy/Tor richtig konfiguriert
-      ist, da FreeTube ansonsten keine Daten abrufen kann.
+    Proxy Warning: FreeTube hat keinen eingebauten Proxy, kann aber mit einem externen Proxy verbunden werden, wie z. B. einem, der auf deinem Gerät läuft wie Tor, oder einem externen Proxy wie einem SOCKS5-Proxy, der von einigen VPNs bereitgestellt wird. Falls aktiviert, stelle sicher, dass dein Proxy/Tor richtig konfiguriert ist, da FreeTube ansonsten keine Daten abrufen kann.
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Benachrichtigen, wenn ein Abschnitt übersprungen
-      wird
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-URL
-      (Standard ist https://sponsor.ajay.app)
+    Notify when sponsor segment is skipped: Benachrichtigen, wenn ein Abschnitt übersprungen wird
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-URL (Standard ist https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock aktivieren
     SponsorBlock Settings: SponsorBlock
     Skip Options:
@@ -669,11 +569,9 @@ Settings:
     Category Color: Kategoriefarbe
     UseDeArrowTitles: DeArrow-Videotitel verwenden
     UseDeArrowThumbnails: DeArrow für Miniaturansichten verwenden
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
-      Thumbnail Generator API URL (Standard ist https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Thumbnail Generator API URL (Standard ist https://dearrow-thumb.ajay.app)
   External Player Settings:
-    Ignore Unsupported Action Warnings: Warnungen vor nicht unterstützten Aktionen
-      ignorieren
+    Ignore Unsupported Action Warnings: Warnungen vor nicht unterstützten Aktionen ignorieren
     External Player: Externer Video-Player
     External Player Settings: Externe Video-Player
     Custom External Player Executable: Benutzerdefinierte ausführbare Datei des Video-Players
@@ -696,9 +594,7 @@ Settings:
     Hide Search Bar: Suchleiste ausblenden
   Experimental Settings:
     Experimental Settings: Experimentell
-    Warning: Diese Einstellungen sind experimentell und können zu Abstürzen führen,
-      wenn sie aktiviert sind. Es wird dringend empfohlen, Backups zu erstellen. Verwendung
-      auf eigene Gefahr!
+    Warning: Diese Einstellungen sind experimentell und können zu Abstürzen führen, wenn sie aktiviert sind. Es wird dringend empfohlen, Backups zu erstellen. Verwendung auf eigene Gefahr!
     Replace HTTP Cache: HTTP-Cache ersetzen
   Password Dialog:
     Password: Passwort
@@ -706,8 +602,7 @@ Settings:
   Password Settings:
     Remove Password: Passwort entfernen
     Password Settings: Passwort
-    Set Password To Prevent Access: Passwort festlegen, um den Zugriff auf die Einstellungen
-      zu verhindern
+    Set Password To Prevent Access: Passwort festlegen, um den Zugriff auf die Einstellungen zu verhindern
     Set Password: Passwort festlegen
   Sort Settings Sections (A-Z): Einstellungsabschnitte sortieren (A-Z)
   Return to Settings Menu: Zurück zum Einstellungsmenü
@@ -731,8 +626,7 @@ About:
   Please read the: Bitte lese die
   Chat on Matrix: Auf Matrix chatten
   Mastodon: Mastodon
-  Please check for duplicates before posting: Bitte überprüfe vor dem Erstellen, ob
-    eine ähnliche Issue bereits existiert
+  Please check for duplicates before posting: Bitte überprüfe vor dem Erstellen, ob eine ähnliche Issue bereits existiert
   GitHub issues: GitHub Issue-Tracker
   Report a problem: Problem melden
   FreeTube Wiki: FreeTube-Wiki
@@ -749,16 +643,14 @@ Channel:
   Your search results have returned 0 results: Deine Suche hat 0 Ergebnisse geliefert
   Videos:
     Videos: Videos
-    This channel does not currently have any videos: Dieser Kanal hat aktuell keine
-      Videos
+    This channel does not currently have any videos: Dieser Kanal hat aktuell keine Videos
     Sort Types:
       Newest: Neueste
       Oldest: Älteste
       Most Popular: Beliebteste
   Playlists:
     Playlists: Playlists
-    This channel does not currently have any playlists: Dieser Kanal hat derzeit keine
-      Playlists
+    This channel does not currently have any playlists: Dieser Kanal hat derzeit keine Playlists
     Sort Types:
       Last Video Added: Zuletzt hinzugefügtes Video
       Newest: Neuestes
@@ -774,47 +666,36 @@ Channel:
     Location: Standort
     Joined: Beigetreten
   Added channel to your subscriptions: Der Kanal wurde deinen Abos hinzugefügt
-  Removed subscription from {count} other channel(s): Abo von {count} anderen Kanal/
-    Kanälen entfernt
-  Channel has been removed from your subscriptions: Der Kanal wurde von deinen Abos
-    entfernt
+  Removed subscription from {count} other channel(s): Abo von {count} anderen Kanal/ Kanälen entfernt
+  Channel has been removed from your subscriptions: Der Kanal wurde von deinen Abos entfernt
   Channel Tabs: Kanal-Registerkarten
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: Dieser
-    Kanal ist altersbeschränkt und kann derzeit nicht in FreeTube angesehen werden.
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Dieser Kanal ist altersbeschränkt und kann derzeit nicht in FreeTube angesehen werden.
   This channel does not allow searching: Dieser Kanal erlaubt keine Suche
   This channel does not exist: Dieser Kanal existiert nicht
   Posts:
-    This channel currently does not have any posts: Dieser Kanal hat derzeit keine
-      Beiträge
+    This channel currently does not have any posts: Dieser Kanal hat derzeit keine Beiträge
     votes: '{votes} Stimmen'
     Reveal Answers: Antworten anzeigen
     Hide Answers: Antworten verbergen
     Video hidden by FreeTube: Video versteckt von FreeTube
     View Full Post: Vollständigen Beitrag anzeigen
-    Viewing Posts Only Supported By Invidious: Das Anzeigen von Beiträgen wird nur
-      von Invidious unterstützt. Gehe zum Tab „Beiträge“ eines Kanals, um dort Inhalte
-      ohne Invidious anzuzeigen.
+    Viewing Posts Only Supported By Invidious: Das Anzeigen von Beiträgen wird nur von Invidious unterstützt. Gehe zum Tab „Beiträge“ eines Kanals, um dort Inhalte ohne Invidious anzuzeigen.
   Live:
     Live: Live
-    This channel does not currently have any live streams: Dieser Kanal hat derzeit
-      keine Livestreams
+    This channel does not currently have any live streams: Dieser Kanal hat derzeit keine Livestreams
   Shorts:
-    This channel does not currently have any shorts: Dieser Kanal hat derzeit keine
-      Shorts
+    This channel does not currently have any shorts: Dieser Kanal hat derzeit keine Shorts
   Podcasts:
     Podcasts: Podcasts
-    This channel does not currently have any podcasts: Dieser Kanal hat derzeit keine
-      Podcasts
+    This channel does not currently have any podcasts: Dieser Kanal hat derzeit keine Podcasts
   Releases:
     Releases: Veröffentlichungen
-    This channel does not currently have any releases: Dieser Kanal hat derzeit keine
-      Veröffentlichungen
+    This channel does not currently have any releases: Dieser Kanal hat derzeit keine Veröffentlichungen
   Home:
     Home: Startseite
     View Playlist: Playlist anzeigen
   Courses:
-    This channel does not currently have any courses: Dieser Kanal hat derzeit keine
-      Kurse
+    This channel does not currently have any courses: Dieser Kanal hat derzeit keine Kurse
     Courses: Kurse
 Video:
   Open in YouTube: In YouTube öffnen
@@ -830,13 +711,9 @@ Video:
   Live Now: Jetzt live
   Live Chat: Live-Chat
   Enable Live Chat: Live-Chat aktivieren
-  Live Chat is currently not supported in this build.: Live-Chat wird in diesem Build
-    derzeit nicht unterstützt.
-  Live chat is enabled. Chat messages will appear here once sent.: Live-Chat ist aktiviert.
-    Chat-Nachrichten werden hier angezeigt, sobald sie gesendet wurden.
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Live-Chat
-    wird von der Invidious-API derzeit nicht unterstützt. Eine direkte Verbindung
-    zu YouTube ist erforderlich.
+  Live Chat is currently not supported in this build.: Live-Chat wird in diesem Build derzeit nicht unterstützt.
+  Live chat is enabled. Chat messages will appear here once sent.: Live-Chat ist aktiviert. Chat-Nachrichten werden hier angezeigt, sobald sie gesendet wurden.
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Live-Chat wird von der Invidious-API derzeit nicht unterstützt. Eine direkte Verbindung zu YouTube ist erforderlich.
   Published:
     In less than a minute: In weniger als einer Minute
   Published on: Veröffentlicht am
@@ -852,8 +729,7 @@ Video:
   Reverse Playlist: Umgekehrte Reihenfolge
   Shuffle Playlist: Zufällige Reihenfolge
   Loop Playlist: Playlist wiederholen
-  Starting soon, please refresh the page to check again: Stream startet bald. Bitte
-    aktualisiere die Seite, um erneut nachzusehen
+  Starting soon, please refresh the page to check again: Stream startet bald. Bitte aktualisiere die Seite, um erneut nachzusehen
   audio only: nur Audio
   video only: nur Video
   Download Video: Video herunterladen
@@ -863,8 +739,7 @@ Video:
   Open Channel in YouTube: Kanal auf YouTube öffnen
   Started streaming on: Streaming angefangen am
   Streamed on: Gestreamt am
-  Video has been removed from your saved list: Video wurde aus deiner Liste der gespeicherten
-    Videos entfernt
+  Video has been removed from your saved list: Video wurde aus deiner Liste der gespeicherten Videos entfernt
   Video has been saved: Video wurde gespeichert
   Save Video: Video speichern
   Sponsor Block category:
@@ -884,8 +759,7 @@ Video:
       looping playlists: Playlists wiederholen
       shuffling playlists: Playlists durcheinander mischen
       reversing playlists: Playlists umkehren
-      opening specific video in a playlist (falling back to opening the video): Bestimmtes
-        Video aus einer Playlist öffnen (Rückgriff auf Öffnen des Videos)
+      opening specific video in a playlist (falling back to opening the video): Bestimmtes Video aus einer Playlist öffnen (Rückgriff auf Öffnen des Videos)
       opening playlists: Playlists öffnen
     UnsupportedActionTemplate: '{externalPlayer} unterstützt nicht: {action}'
     OpeningTemplate: '{videoOrPlaylist} wird in {externalPlayer} geöffnet ...'
@@ -895,8 +769,7 @@ Video:
   Show Super Chat Comment: Super-Chat-Kommentar anzeigen
   Scroll to Bottom: Nach unten scrollen
   Upcoming: Demnächst
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-Chat
-    ist für diesen Stream nicht verfügbar. Möglicherweise wurde er vom Uploader deaktiviert.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-Chat ist für diesen Stream nicht verfügbar. Möglicherweise wurde er vom Uploader deaktiviert.
   Unhide Channel: Kanal anzeigen
   Hide Channel: Kanal ausblenden
   More Options: Weitere Optionen
@@ -919,34 +792,24 @@ Video:
       Buffered: 'Gepuffert: {bufferedPercentage} %'
       CodecAudio: 'Codec: {audioCodec} ({audioItag})'
       CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
-      Dropped Frames / Total Frames: 'Ausgelassene Einzelbilder: {droppedFrames} /
-        Einzelbilder insgesamt: {totalFrames}'
+      Dropped Frames / Total Frames: 'Ausgelassene Einzelbilder: {droppedFrames} / Einzelbilder insgesamt: {totalFrames}'
       CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
     You appear to be offline: Du scheinst offline zu sein.
-    Playback will resume automatically when your connection comes back: Die Wiedergabe
-      wird automatisch fortgesetzt, wenn deine Verbindung wiederhergestellt ist.
+    Playback will resume automatically when your connection comes back: Die Wiedergabe wird automatisch fortgesetzt, wenn deine Verbindung wiederhergestellt ist.
     Skipped segment: 'Segment {segmentCategory} übersprungen'
     TranslatedCaptionTemplate: '{language} (übersetzt von {originalLanguage})'
     Exit Full Window: Vollständiges Fenster beenden
     Hide Stats: Statistiken ausblenden
     Autoplay is off: Automatische Wiedergabe ist ausgeschaltet
     Autoplay is on: Automatische Wiedergabe ist eingeschaltet
-  IP block: YouTube hat deine IP-Adresse für die Videowiedergabe gesperrt. Bitte versuche,
-    einen anderen VPN oder Proxy zu nutzen.
+  IP block: YouTube hat deine IP-Adresse für die Videowiedergabe gesperrt. Bitte versuche, einen anderen VPN oder Proxy zu nutzen.
   Unlisted: Nicht gelistet
-  MembersOnly: Videos, die nur für Mitglieder bestimmt sind, können mit FreeTube nicht
-    angesehen werden, da sie einen Google-Login und eine kostenpflichtige Kanalmitgliedschaft
-    erfordern.
-  AgeRestricted: Videos mit Altersbeschränkung können mit FreeTube nicht angesehen
-    werden, da sie eine Google-Anmeldung und die Verwendung eines altersgeprüften
-    YouTube-Kontos erfordern.
+  MembersOnly: Videos, die nur für Mitglieder bestimmt sind, können mit FreeTube nicht angesehen werden, da sie einen Google-Login und eine kostenpflichtige Kanalmitgliedschaft erfordern.
+  AgeRestricted: Videos mit Altersbeschränkung können mit FreeTube nicht angesehen werden, da sie eine Google-Anmeldung und die Verwendung eines altersgeprüften YouTube-Kontos erfordern.
   DeArrow:
     Show Modified Details: Geänderte Details anzeigen
     Show Original Details: Originaldetails anzeigen
-  DRMProtected: DRM-geschützte Videos können in FreeTube nicht abgespielt werden,
-    da sie proprietäre Closed-Source-Komponenten benötigen. Wenn du dieses Video ansehen
-    möchtest, sieh es dir bitte auf der offiziellen YouTube-Website in einem DRM-fähigen
-    Webbrowser an.
+  DRMProtected: DRM-geschützte Videos können in FreeTube nicht abgespielt werden, da sie proprietäre Closed-Source-Komponenten benötigen. Wenn du dieses Video ansehen möchtest, sieh es dir bitte auf der offiziellen YouTube-Website in einem DRM-fähigen Webbrowser an.
 #& Playlists
   Save Watched Progress: Videofortschritt speichern
   Watched Progress Saved: Videofortschritt gespeichert
@@ -976,12 +839,9 @@ Change Format:
   Use Dash Formats: DASH-Formate verwenden
   Use Legacy Formats: Veraltete Formate verwenden
   Use Audio Formats: Audioformate verwenden
-  Audio formats are not available for this video: Audioformate sind für dieses Video
-    nicht verfügbar
-  Dash formats are not available for this video: DASH-Formate sind für dieses Video
-    nicht verfügbar
-  Legacy formats are not available for this video: Veraltete Formate sind für dieses
-    Video nicht verfügbar
+  Audio formats are not available for this video: Audioformate sind für dieses Video nicht verfügbar
+  Dash formats are not available for this video: DASH-Formate sind für dieses Video nicht verfügbar
+  Legacy formats are not available for this video: Veraltete Formate sind für dieses Video nicht verfügbar
 Share:
   Share Video: Video teilen
   Share Playlist: Playlist teilen
@@ -991,34 +851,27 @@ Share:
   Open Embed: Eingebettete Version öffnen
   # On Click
   Invidious URL copied to clipboard: Invidious-URL in die Zwischenablage kopiert
-  Invidious Embed URL copied to clipboard: Invidious' eingebettete URL in die Zwischenablage
-    kopiert
+  Invidious Embed URL copied to clipboard: Invidious' eingebettete URL in die Zwischenablage kopiert
   YouTube URL copied to clipboard: YouTube-URL in die Zwischenablage kopiert
-  YouTube Embed URL copied to clipboard: YouTubes eingebettete URL in die Zwischenablage
-    kopiert
+  YouTube Embed URL copied to clipboard: YouTubes eingebettete URL in die Zwischenablage kopiert
   Include Timestamp: Zeitstempel miteinbeziehen
-  YouTube Channel URL copied to clipboard: YouTube-Kanal-URL in die Zwischenablage
-    kopiert
-  Invidious Channel URL copied to clipboard: Invidious-Kanal-URL in die Zwischenablage
-    kopiert
+  YouTube Channel URL copied to clipboard: YouTube-Kanal-URL in die Zwischenablage kopiert
+  Invidious Channel URL copied to clipboard: Invidious-Kanal-URL in die Zwischenablage kopiert
   Share Channel: Kanal teilen
 Mini Player: Mini-Video-Player
 Comments:
   Comments: Kommentare
   Click to View Comments: Kommentare anzeigen
-  Getting comment replies, please wait: Antworten auf Kommentare werden geladen, bitte
-    warten
+  Getting comment replies, please wait: Antworten auf Kommentare werden geladen, bitte warten
   Hide Comments: Kommentare ausblenden
   # Context: View 10 Replies, View 1 Reply
   View: Anzeigen
   Hide: Ausblenden
   Replies: Antworten
   Reply: Antworten
-  There are no comments available for this video: Keine Kommentare zu diesem Video
-    vorhanden
+  There are no comments available for this video: Keine Kommentare zu diesem Video vorhanden
   Load More Comments: Weitere Kommentare laden
-  There are no more comments for this video: Es gibt keine weiteren Kommentare zu
-    diesem Video
+  There are no more comments for this video: Es gibt keine weiteren Kommentare zu diesem Video
   Newest first: Neueste zuerst
   Top comments: Top-Kommentare
   Show More Replies: Weitere Antworten anzeigen
@@ -1029,8 +882,7 @@ Comments:
   View {replyCount} replies: '{replyCount} Antworten ansehen'
   Hearted: Gefällt mir
   Subscribed: Abonniert
-  There are no comments available for this post: Keine Kommentare für diesen Beitrag
-    vorhanden
+  There are no comments available for this post: Keine Kommentare für diesen Beitrag vorhanden
 Up Next: Nächster Titel
 
 # Toast Messages
@@ -1038,9 +890,7 @@ Local API Error (Click to copy): Lokaler API-Fehler (Zum Kopieren anklicken)
 Invidious API Error (Click to copy): Invidious-API-Fehler (Zum Kopieren anklicken)
 Falling back to Invidious API: Es wird auf die Invidious-API zurückgegriffen
 Falling back to Local API: Es wird auf die lokale API zurückgegriffen
-This video is unavailable because of missing formats. This can happen due to country unavailability.: Dieses
-  Video ist aufgrund fehlender Formate nicht verfügbar. Zugriffsbeschränkungen im
-  Land kann dafür der Grund sein.
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Dieses Video ist aufgrund fehlender Formate nicht verfügbar. Zugriffsbeschränkungen im Land kann dafür der Grund sein.
 Loop is now disabled: Wiederholung ist jetzt deaktiviert
 Loop is now enabled: Wiederholung ist jetzt aktiviert
 Shuffle is now disabled: Zufallswiedergabe ist jetzt deaktiviert
@@ -1048,25 +898,21 @@ Shuffle is now enabled: Zufallswiedergabe ist jetzt aktiviert
 Playing Next Video: Nächstes Video wird abgespielt
 Playing Previous Video: Vorheriges Video wird abgespielt
 Canceled next video autoplay: Automatische Wiedergabe des nächsten Videos abgebrochen
-'The playlist has ended. Enable loop to continue playing': 'Ende der Playlist erreicht.
-  Aktiviere die Wiederholung, um die Wiedergabe fortzusetzen'
+'The playlist has ended. Enable loop to continue playing': 'Ende der Playlist erreicht. Aktiviere die Wiederholung, um die Wiedergabe fortzusetzen'
 
 Yes: Ja
 No: Nein
 Locale Name: Deutsch
 Profile:
   '{profile} is now the active profile': '{profile} ist jetzt dein aktives Profil'
-  Your default profile has been changed to your primary profile: Dein Standardprofil
-    wurde in dein Hauptprofil geändert
+  Your default profile has been changed to your primary profile: Dein Standardprofil wurde in dein Hauptprofil geändert
   Removed {profile} from your profiles: '{profile} wurde aus deinen Profilen entfernt'
-  Your default profile has been set to {profile}: 'Dein Standardprofil wurde auf {profile}
-    eingestellt'
+  Your default profile has been set to {profile}: 'Dein Standardprofil wurde auf {profile} eingestellt'
   Profile has been created: Profil wurde erstellt
   Profile has been updated: Profil wurde aktualisiert
   Your profile name cannot be empty: Dein Profilname darf nicht leer sein
   All subscriptions will also be deleted.: Alle Abos werden ebenfalls gelöscht.
-  Are you sure you want to delete this profile?: Bist du sicher, dass du dieses Profil
-    löschen willst?
+  Are you sure you want to delete this profile?: Bist du sicher, dass du dieses Profil löschen willst?
   Delete Profile: Profil löschen
   Make Default Profile: Als Standardprofil festlegen
   Update Profile: Profil aktualisieren
@@ -1078,13 +924,9 @@ Profile:
   Create New Profile: Neues Profil erstellen
   Profile Manager: Profilverwaltung
   All Channels: Alle Kanäle
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Bist
-    du sicher, dass du die ausgewählten Kanäle löschen möchtest? Dadurch wird der
-    Kanal nicht aus einem anderen Profil gelöscht.
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : Dies ist dein Hauptprofil. Bist du sicher, dass du die ausgewählten Kanäle löschen
-    möchtest? Die gleichen Kanäle werden auch in allen anderen Profilen gelöscht.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Bist du sicher, dass du die ausgewählten Kanäle löschen möchtest? Dadurch wird der Kanal nicht aus einem anderen Profil gelöscht.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : Dies ist dein Hauptprofil. Bist du sicher, dass du die ausgewählten Kanäle löschen möchtest? Die gleichen Kanäle werden auch in allen anderen Profilen gelöscht.
   No channel(s) have been selected: Es wurde kein Kanal/keine Kanäle ausgewählt
   Add Selected To Profile: Ausgewählte zum Profil hinzufügen
   Delete Selected: Ausgewählte löschen
@@ -1103,113 +945,53 @@ Profile:
   Open Profile Dropdown: Profil-Klappliste öffnen
   Close Profile Dropdown: Profil-Klappliste schließen
 The playlist has been reversed: Die Playlist wurde umgedreht
-A new blog is now available, {blogTitle}. Click to view more: Ein neuer Blogeintrag
-  ist verfügbar, {blogTitle}. Klicke, um mehr zu sehen
+A new blog is now available, {blogTitle}. Click to view more: Ein neuer Blogeintrag ist verfügbar, {blogTitle}. Klicke, um mehr zu sehen
 Download From Site: Von der Website herunterladen
-Version {versionNumber} is now available!  Click for more details: Version {versionNumber}
-  ist jetzt verfügbar!  Für mehr Details klicken
+Version {versionNumber} is now available!  Click for more details: Version {versionNumber} ist jetzt verfügbar!  Für mehr Details klicken
 Tooltips:
   General Settings:
-    Thumbnail Preference: Alle Vorschaubilder in FreeTube werden verpixelt, versteckt
-      oder durch ein Einzelbild aus dem Video ersetzt, anstatt das Standard-Vorschaubild
-      anzuzeigen.
-    Invidious Instance: Die Invidious-Instanz, mit der sich FreeTube für API-Aufrufe
-      verbinden wird.
-    Fallback to Non-Preferred Backend on Failure: Wenn deine bevorzugte API ein Problem
-      hat, wird FreeTube automatisch versuchen, deine nicht-bevorzugte API als Ausweichmethode
-      zu verwenden, wenn sie aktiviert ist.
-    Preferred API Backend: Wähle das Backend aus, welches FreeTube zum Laden der Daten
-      nutzen soll. Die lokale API ist ein eingebauter Extrahierer. Die Invidious-API
-      erfordert einen Invidious-Server, zu dem eine Verbindung hergestellt werden
-      muss.
-    Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land
-      die Trends angezeigt werden sollen.
-    External Link Handling: "Wähle das Standardverhalten, wenn ein Link angeklickt
-      wird, der nicht in FreeTube geöffnet werden kann.\nStandardmäßig wird FreeTube
-      den angeklickten Link in deinem Standardbrowser öffnen.\n"
-    Open Deep Links In New Window: URLs die an FreeTube übergeben werden, z. B. durch
-      Redirect-Browser-Erweiterungen oder Befehlszeilenargumente, werden in einem
-      neuen Fenster geöffnet.
+    Thumbnail Preference: Alle Vorschaubilder in FreeTube werden verpixelt, versteckt oder durch ein Einzelbild aus dem Video ersetzt, anstatt das Standard-Vorschaubild anzuzeigen.
+    Invidious Instance: Die Invidious-Instanz, mit der sich FreeTube für API-Aufrufe verbinden wird.
+    Fallback to Non-Preferred Backend on Failure: Wenn deine bevorzugte API ein Problem hat, wird FreeTube automatisch versuchen, deine nicht-bevorzugte API als Ausweichmethode zu verwenden, wenn sie aktiviert ist.
+    Preferred API Backend: Wähle das Backend aus, welches FreeTube zum Laden der Daten nutzen soll. Die lokale API ist ein eingebauter Extrahierer. Die Invidious-API erfordert einen Invidious-Server, zu dem eine Verbindung hergestellt werden muss.
+    Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land die Trends angezeigt werden sollen.
+    External Link Handling: "Wähle das Standardverhalten, wenn ein Link angeklickt wird, der nicht in FreeTube geöffnet werden kann.\nStandardmäßig wird FreeTube den angeklickten Link in deinem Standardbrowser öffnen.\n"
+    Open Deep Links In New Window: URLs die an FreeTube übergeben werden, z. B. durch Redirect-Browser-Erweiterungen oder Befehlszeilenargumente, werden in einem neuen Fenster geöffnet.
   Subscription Settings:
-    Fetch Feeds from RSS: Wenn aktiviert, verwendet FreeTube RSS anstelle der Standardmethode,
-      um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Blockierung,
-      liefert aber bestimmte Informationen wie Videodauer, den Live-Status oder Beiträge
-      nicht
-    Fetch Automatically: Wenn aktiviert, ruft FreeTube deine Abos automatisch beim
-      Start und beim Öffnen eines neuen Fensters ab.
+    Fetch Feeds from RSS: Wenn aktiviert, verwendet FreeTube RSS anstelle der Standardmethode, um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Blockierung, liefert aber bestimmte Informationen wie Videodauer, den Live-Status oder Beiträge nicht
+    Fetch Automatically: Wenn aktiviert, ruft FreeTube deine Abos automatisch beim Start und beim Öffnen eines neuen Fensters ab.
   Player Settings:
-    Default Video Format: Lege die Formate fest, die bei der Wiedergabe eines Videos
-      verwendet werden. DASH-Formate können höhere Qualitäten wiedergeben. Altformate
-      sind auf maximal 360p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate
-      sind reine Audiostreams.
-    Proxy Videos Through Invidious: Stellt eine Verbindung zu Invidious her, um Videos
-      bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen.
-    Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video
-      befindet, halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und bewege
-      das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit zu steuern.
-      Halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und klicke mit der
-      linken Maustaste, um schnell zur Standard-Wiedergabegeschwindigkeit zurückzukehren
-      (1x, sofern sie nicht in den Einstellungen geändert wurde).
-    Skip by Scrolling Over Video Player: Verwende das Scrollrad, um durch das Video
-      zu springen, MPV-Stil.
+    Default Video Format: Lege die Formate fest, die bei der Wiedergabe eines Videos verwendet werden. DASH-Formate können höhere Qualitäten wiedergeben. Altformate sind auf maximal 360p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate sind reine Audiostreams.
+    Proxy Videos Through Invidious: Stellt eine Verbindung zu Invidious her, um Videos bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen.
+    Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video befindet, halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und bewege das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit zu steuern. Halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und klicke mit der linken Maustaste, um schnell zur Standard-Wiedergabegeschwindigkeit zurückzukehren (1x, sofern sie nicht in den Einstellungen geändert wurde).
+    Skip by Scrolling Over Video Player: Verwende das Scrollrad, um durch das Video zu springen, MPV-Stil.
   External Player Settings:
-    Custom External Player Arguments: Alle benutzerdefinierten Befehlszeilenargumente,
-      die an den externen Video-Player übergeben werden sollen.
-    Ignore Warnings: Warnungen unterdrücken, wenn der aktuelle externe Video-Player
-      die aktuelle Aktion nicht unterstützt (z. B. das Umkehren von Playlists usw.).
-    Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass
-      der gewählte externe Video-Player unter der PATH-Umgebungsvariable gefunden
-      werden kann. Falls nötig, kann hier ein benutzerdefinierter Pfad festgelegt
-      werden.
-    External Player: Wenn du einen externen Video-Player auswählst, wird auf dem Vorschaubild
-      ein Symbol angezeigt, mit dem du das Video (die Playlist, falls unterstützt)
-      im externen Video-Player öffnen kannst. Achtung, die Einstellungen von Invidious
-      wirken sich nicht auf externe Video-Player aus.
+    Custom External Player Arguments: Alle benutzerdefinierten Befehlszeilenargumente, die an den externen Video-Player übergeben werden sollen.
+    Ignore Warnings: Warnungen unterdrücken, wenn der aktuelle externe Video-Player die aktuelle Aktion nicht unterstützt (z. B. das Umkehren von Playlists usw.).
+    Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass der gewählte externe Video-Player unter der PATH-Umgebungsvariable gefunden werden kann. Falls nötig, kann hier ein benutzerdefinierter Pfad festgelegt werden.
+    External Player: Wenn du einen externen Video-Player auswählst, wird auf dem Vorschaubild ein Symbol angezeigt, mit dem du das Video (die Playlist, falls unterstützt) im externen Video-Player öffnen kannst. Achtung, die Einstellungen von Invidious wirken sich nicht auf externe Video-Player aus.
     DefaultCustomArgumentsTemplate: '(Standardwert: „{defaultCustomArguments}“)'
-    Ignore Default Arguments: Schicke keine Standardargumente an den externen Video-Player
-      außer der Video URL (z.B. Abspiel-Geschwindigkeit, Playlist-URL etc.). Besondere
-      Argumente werden weiterhin weitergeleitet.
+    Ignore Default Arguments: Schicke keine Standardargumente an den externen Video-Player außer der Video URL (z.B. Abspiel-Geschwindigkeit, Playlist-URL etc.). Besondere Argumente werden weiterhin weitergeleitet.
   Experimental Settings:
-    Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron
-      und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu
-      einer erhöhten RAM-Auslastung.
+    Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu einer erhöhten RAM-Auslastung.
   Distraction Free Settings:
-    Hide Channels: Gebe eine Kanal-ID ein, um zu verhindern, dass alle Videos, Playlists
-      und der Kanal selbst in der Suche, den Trends, den beliebtesten und den empfohlenen
-      Videos angezeigt werden. Die eingegebene Kanal-ID muss vollständig übereinstimmen
-      und es wird zwischen Groß- und Kleinschreibung unterschieden.
-    Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung
-      „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer
-      Kraft gesetzt
-    Hide Videos and Playlists Containing Text: Gib ein Wort, einen Teil eines Wortes
-      oder einen Satz ein (Groß-/Kleinschreibung wird ignoriert) um alle Videos und
-      Playlists, welche es in ihren Originaltiteln enthalten, auf ganz FreeTube auszublenden.
-      Dein Verlauf, deine eigenen Playlists und Videos innerhalb Playlists sind davon
-      nicht betroffen.
+    Hide Channels: Gebe eine Kanal-ID ein, um zu verhindern, dass alle Videos, Playlists und der Kanal selbst in der Suche, den Trends, den beliebtesten und den empfohlenen Videos angezeigt werden. Die eingegebene Kanal-ID muss vollständig übereinstimmen und es wird zwischen Groß- und Kleinschreibung unterschieden.
+    Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer Kraft gesetzt
+    Hide Videos and Playlists Containing Text: Gib ein Wort, einen Teil eines Wortes oder einen Satz ein (Groß-/Kleinschreibung wird ignoriert) um alle Videos und Playlists, welche es in ihren Originaltiteln enthalten, auf ganz FreeTube auszublenden. Dein Verlauf, deine eigenen Playlists und Videos innerhalb Playlists sind davon nicht betroffen.
   SponsorBlock Settings:
-    UseDeArrowTitles: Videotitel durch von der Community eingereichte Titel von DeArrow
-      ersetzen.
-    UseDeArrowThumbnails: Video-Miniaturansichten durch Miniaturansichten von DeArrow
-      ersetzen.
-Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen
-  klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
-  klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen
-  klicken.
+    UseDeArrowTitles: Videotitel durch von der Community eingereichte Titel von DeArrow ersetzen.
+    UseDeArrowThumbnails: Video-Miniaturansichten durch Miniaturansichten von DeArrow ersetzen.
+Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen klicken.
 More: Mehr
-Unknown YouTube url type, cannot be opened in app: Unbekannter YouTube-URL-Typ. Kann
-  in der App nicht geöffnet werden
+Unknown YouTube url type, cannot be opened in app: Unbekannter YouTube-URL-Typ. Kann in der App nicht geöffnet werden
 Open New Window: Neues Fenster öffnen
-Default Invidious instance has been cleared: Standardmäßige Invidious-Instanz wurde
-  gelöscht
-Default Invidious instance has been set to {instance}: Standardmäßige Invidious-Instanz
-  wurde auf {instance} festgelegt
+Default Invidious instance has been cleared: Standardmäßige Invidious-Instanz wurde gelöscht
+Default Invidious instance has been set to {instance}: Standardmäßige Invidious-Instanz wurde auf {instance} festgelegt
 Search Bar:
   Clear Input: Eingabe löschen
   Remove: Entfernen
-Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen
-  willst?
-External link opening has been disabled in the general settings: Das Öffnen externer
-  Links wurde in den allgemeinen Einstellungen deaktiviert
+Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen willst?
+External link opening has been disabled in the general settings: Das Öffnen externer Links wurde in den allgemeinen Einstellungen deaktiviert
 Downloading has completed: „{videoTitle}“ wurde vollständig heruntergeladen
 Starting download: Herunterladen von „{videoTitle}“ wird gestartet
 Downloading failed: Beim Herunterladen von „{videoTitle}“ gab es ein Problem
@@ -1222,31 +1004,24 @@ Channels:
   Search bar placeholder: Kanäle durchsuchen
   Count: '{number} Kanal/Kanäle gefunden.'
   Empty: Deine Kanalliste ist derzeit leer.
-  Unsubscribe Prompt: Bist du sicher, dass du dein Abo für „{channelName}“ entfernen
-    willst?
+  Unsubscribe Prompt: Bist du sicher, dass du dein Abo für „{channelName}“ entfernen willst?
 Clipboard:
   Copy failed: Kopieren in die Zwischenablage fehlgeschlagen
-  Cannot access clipboard without a secure connection: Zugriff auf die Zwischenablage
-    ist ohne sichere Verbindung nicht möglich
+  Cannot access clipboard without a secure connection: Zugriff auf die Zwischenablage ist ohne sichere Verbindung nicht möglich
 Chapters:
   Chapters: Kapitel
-  'Chapters list visible, current chapter: {chapterName}': 'Kapitelliste sichtbar,
-    aktuelles Kapitel: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste ausgeblendet,
-    aktuelles Kapitel: {chapterName}'
+  'Chapters list visible, current chapter: {chapterName}': 'Kapitelliste sichtbar, aktuelles Kapitel: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste ausgeblendet, aktuelles Kapitel: {chapterName}'
   Key Moments: Highlights
 Preferences: Einstellungen
 Ok: OK
 Hashtag:
   Hashtag: Hashtag
-  This hashtag does not currently have any videos: Dieser Hashtag enthält derzeit
-    keine Videos
+  This hashtag does not currently have any videos: Dieser Hashtag enthält derzeit keine Videos
 Channel Hidden: '{channel} wurde zum Kanalfilter hinzugefügt'
 Go to page: Zu {page} gehen
 Channel Unhidden: '{channel} wurde aus dem Kanalfilter entfernt'
-Trimmed input must be at least N characters long: Gekürzte Eingaben müssen mindestens
-  1 Zeichen lang sein | Gekürzte Eingaben müssen mindestens {length} Zeichen lang
-  sein
+Trimmed input must be at least N characters long: Gekürzte Eingaben müssen mindestens 1 Zeichen lang sein | Gekürzte Eingaben müssen mindestens {length} Zeichen lang sein
 Tag already exists: Das Schlagwort „{tagName}“ existiert bereits
 Close Banner: Banner schließen
 Age Restricted:
@@ -1285,10 +1060,8 @@ Keys:
   shift: Shift
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
-Right-click or hold to see history: Mit der rechten Maustaste klicken oder halten,
-  um den Verlauf zu sehen
-Autoplay Interruption Timer: Automatische Wiedergabe wurde aufgrund von {autoplayInterruptionIntervalHours}
-  Stunden Inaktivität abgebrochen
+Right-click or hold to see history: Mit der rechten Maustaste klicken oder halten, um den Verlauf zu sehen
+Autoplay Interruption Timer: Automatische Wiedergabe wurde aufgrund von {autoplayInterruptionIntervalHours} Stunden Inaktivität abgebrochen
 Description:
   Collapse Description: Weniger anzeigen
   Expand Description: '...mehr'
@@ -1307,8 +1080,7 @@ KeyboardShortcutPrompt:
   Navigate to History: Zur Verlaufsseite navigieren
   Stats: Video-Statistiken anzeigen
   Fullscreen: Vollbildmodus umschalten
-  Decrease Video Speed: Verringern der Videogeschwindigkeit basierend auf dem Intervall
-    der Videowiedergaberate
+  Decrease Video Speed: Verringern der Videogeschwindigkeit basierend auf dem Intervall der Videowiedergaberate
   Take Screenshot: Screenshot erstellen
   Minimize Window: Fenster minimieren
   Close Window: Fenster schließen
@@ -1319,8 +1091,7 @@ KeyboardShortcutPrompt:
   Focus Search: Suchleiste fokussieren
   Search in New Window: In einem neuen Fenster suchen
   Refresh: Feed mit aktuellen Inhalten aktualisieren
-  Large Fast Forward: 10 Sekunden vorspulen / Vorspulen basierend auf der aktuellen
-    Wiedergabegeschwindigkeit
+  Large Fast Forward: 10 Sekunden vorspulen / Vorspulen basierend auf der aktuellen Wiedergabegeschwindigkeit
   Mute: Stummschaltung
   Force Restart Window: Neustart des Fensters erzwingen
   Volume Up: Lautstärke erhöhen
@@ -1329,25 +1100,20 @@ KeyboardShortcutPrompt:
   Last Chapter: Letztes Kapitel
   Show Keyboard Shortcuts: Tastaturkürzel anzeigen
   History Forward: Eine Seite nach vorne gehen
-  Increase Video Speed: Erhöhen der Videogeschwindigkeit basierend auf dem Intervall
-    der Videowiedergaberate
-  Large Rewind: 10 Sekunden zurückspulen / Zurückspulen basierend auf der aktuellen
-    Wiedergabegeschwindigkeit
+  Increase Video Speed: Erhöhen der Videogeschwindigkeit basierend auf dem Intervall der Videowiedergaberate
+  Large Rewind: 10 Sekunden zurückspulen / Zurückspulen basierend auf der aktuellen Wiedergabegeschwindigkeit
   Full Window: Ganzes Fenster umschalten
   Theatre Mode: Theatermodus umschalten
   Toggle Developer Tools: Entwicklungswerkzeuge umschalten
   Play: Wiedergabe/Pause umschalten
-  Focus Secondary Search: Fokus auf die sekundäre Suchleiste (falls eine vorhanden
-    ist)
+  Focus Secondary Search: Fokus auf die sekundäre Suchleiste (falls eine vorhanden ist)
   Captions: Untertitel EIN/AUS umschalten
   Picture in Picture: Bild-in-Bild-Modus umschalten
   Last Frame: Vorheriges Bild (bei pausierter Wiedergabe)
-  Small Fast Forward: X Sekunden vorspulen, basierend auf dem Vorspulintervall und
-    der aktuellen Wiedergabegeschwindigkeit
+  Small Fast Forward: X Sekunden vorspulen, basierend auf dem Vorspulintervall und der aktuellen Wiedergabegeschwindigkeit
   Skip by Tenths: Prozentuales Überspringen des Videos (3 Sprünge bis 30% der Dauer)
   Next Frame: Nächstes Bild (bei pausierter Wiedergabe)
-  Small Rewind: X Sekunden zurückspulen, basierend auf dem Rückspulintervall und der
-    aktuellen Wiedergabegeschwindigkeit
+  Small Rewind: X Sekunden zurückspulen, basierend auf dem Rückspulintervall und der aktuellen Wiedergabegeschwindigkeit
   End: Zum Ende des Videos springen
   Home: Zum Anfang des Videos springen
 shortcutLabelSeparator: ｜
