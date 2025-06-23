@@ -10,7 +10,6 @@ import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-w
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
 import { ctrlFHandler, debounce, getIconForSortPreference } from '../../helpers/utils'
 import FtSelect from '../../components/ft-select/ft-select.vue'
-import { mapMutations } from 'vuex'
 
 const HISTORY_SORT_BY_VALUES = {
   DateAddedNewest: 'latest_played_first',
