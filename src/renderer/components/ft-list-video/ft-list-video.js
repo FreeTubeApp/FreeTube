@@ -10,7 +10,8 @@ import {
   showToast,
   toDistractionFreeTitle,
   deepCopy,
-  debounce
+  debounce,
+  hasInvidiousFallback
 } from '../../helpers/utils'
 import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock'
 import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
@@ -251,6 +252,9 @@ export default defineComponent({
           value: 'history'
         }
       ]
+
+      const isInvidiousInstance = hasInvidiousFallback()
+
       if (!this.hideSharingActions) {
         options.push(
           {
@@ -265,10 +269,6 @@ export default defineComponent({
             value: 'copyYoutubeEmbed'
           },
           {
-            label: this.$t('Video.Copy Invidious Link'),
-            value: 'copyInvidious'
-          },
-          {
             type: 'divider'
           },
           {
@@ -278,12 +278,18 @@ export default defineComponent({
           {
             label: this.$t('Video.Open YouTube Embedded Player'),
             value: 'openYoutubeEmbed'
-          },
-          {
-            label: this.$t('Video.Open in Invidious'),
-            value: 'openInvidious'
           }
         )
+        if (isInvidiousInstance) {
+          options.splice(4, 0, {
+            label: this.$t('Video.Copy Invidious Link'),
+            value: 'copyInvidious'
+          })
+          options.splice(8, 0, {
+            label: this.$t('Video.Open in Invidious'),
+            value: 'openInvidious'
+          })
+        }
         if (this.channelId !== null) {
           options.push(
             {
@@ -294,21 +300,23 @@ export default defineComponent({
               value: 'copyYoutubeChannel'
             },
             {
-              label: this.$t('Video.Copy Invidious Channel Link'),
-              value: 'copyInvidiousChannel'
-            },
-            {
               type: 'divider'
             },
             {
               label: this.$t('Video.Open Channel in YouTube'),
               value: 'openYoutubeChannel'
-            },
-            {
-              label: this.$t('Video.Open Channel in Invidious'),
-              value: 'openInvidiousChannel'
             }
           )
+          if (isInvidiousInstance) {
+            options.splice(11, 0, {
+              label: this.$t('Video.Copy Invidious Channel Link'),
+              value: 'copyInvidiousChannel'
+            })
+            options.splice(14, 0, {
+              label: this.$t('Video.Open Channel in Invidious'),
+              value: 'openInvidiousChannel'
+            })
+          }
         }
       }
 
@@ -490,7 +498,7 @@ export default defineComponent({
     },
 
     watchVideoRouterLink() {
-    // For `router-link` attribute `to`
+      // For `router-link` attribute `to`
       if (!this.externalPlayerIsDefaultViewingMode) {
         return {
           path: `/watch/${this.id}`,

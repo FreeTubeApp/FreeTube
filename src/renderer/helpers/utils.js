@@ -1,6 +1,7 @@
 import i18n from '../i18n/index'
 import router from '../router/index'
 import { nextTick } from 'vue'
+import store from '../store/index'
 
 // allowed characters in channel handle: A-Z, a-z, 0-9, -, _, .
 // https://support.google.com/youtube/answer/11585688#change_handle
@@ -999,5 +1000,16 @@ export function debounce(func, wait) {
       timeout = null
       func.apply(context, args)
     }, wait)
+  }
+}
+
+export function hasInvidiousFallback() {
+  const backendFallback = store.getters.getBackendFallback
+  const backendPreference = store.getters.getBackendPreference
+
+  if (backendFallback === false && backendPreference === 'local') {
+    return false
+  } else {
+    return true
   }
 }
