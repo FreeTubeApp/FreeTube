@@ -1139,7 +1139,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
 
     const published = calculatePublishedDate(
       publishedText,
-      video.is_live,
+      video.duration.text === 'LIVE',
       video.is_upcoming || video.is_premiere,
       video.upcoming
     )
