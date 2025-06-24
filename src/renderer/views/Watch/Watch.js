@@ -1386,6 +1386,16 @@ export default defineComponent({
       this.playNextCountDownIntervalId = setInterval(showCountDownMessage, 1000)
     },
 
+    // Skip to the next video in the playlist
+    handleNextInPlaylist: function () {
+      this.$refs.watchVideoPlaylist?.playNextVideo()
+    },
+
+    // Skip to the previous video in the playlist
+    handlePrevInPlaylist: function () {
+      this.$refs.watchVideoPlaylist?.playPreviousVideo()
+    },
+
     abortAutoplayCountdown: function (hideToast = false) {
       clearTimeout(this.playNextTimeout)
       clearInterval(this.playNextCountDownIntervalId)

@@ -48,6 +48,8 @@
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
           @toggle-autoplay="toggleAutoplay"
           @playback-rate-updated="updatePlaybackRate"
+          @next-in-playlist="handleNextInPlaylist"
+          @prev-in-playlist="handlePrevInPlaylist"
         />
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"

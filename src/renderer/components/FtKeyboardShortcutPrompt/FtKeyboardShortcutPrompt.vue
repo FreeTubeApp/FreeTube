@@ -161,6 +161,8 @@ const localizedShortcutNameToShortcutsMappings = computed(() => {
     [t('KeyboardShortcutPrompt.Next Chapter'), ['NEXT_CHAPTER']],
     [t('KeyboardShortcutPrompt.Last Frame'), ['LAST_FRAME']],
     [t('KeyboardShortcutPrompt.Next Frame'), ['NEXT_FRAME']],
+    [t('KeyboardShortcutPrompt.Next in Playlist'), ['NEXT_IN_PLAYLIST']],
+    [t('KeyboardShortcutPrompt.Previous in Playlist'), ['PREV_IN_PLAYLIST']],
   ]
 })
 

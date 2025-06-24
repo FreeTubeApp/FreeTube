@@ -151,7 +151,9 @@ export default defineComponent({
     'timeupdate',
     'toggle-autoplay',
     'toggle-theatre-mode',
-    'playback-rate-updated'
+    'playback-rate-updated',
+    'next-in-playlist',
+    'prev-in-playlist'
   ],
   setup: function (props, { emit, expose }) {
     const { locale, t } = useI18n()
@@ -2099,7 +2101,17 @@ export default defineComponent({
         return
       }
 
-      const video_ = video.value
+      // Skip to next video in playlist; has to handle Shift correctly
+      if (event.shiftKey && event.key.toLowerCase() === 'n') {
+        emit('next-in-playlist')
+        return
+      }
+
+      // Skip to next video in playlist; has to handle Shift correctly
+      if (event.shiftKey && event.key.toLowerCase() === 'p') {
+        emit('prev-in-playlist')
+        return
+      }
 
       switch (event.key.toLowerCase()) {
         case ' ':
