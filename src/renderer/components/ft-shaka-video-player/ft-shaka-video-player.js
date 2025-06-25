@@ -153,7 +153,7 @@ export default defineComponent({
     'toggle-theatre-mode',
     'playback-rate-updated',
     'next-in-playlist',
-    'prev-in-playlist'
+    'prev-in-playlist',
   ],
   setup: function (props, { emit, expose }) {
     const { locale, t } = useI18n()

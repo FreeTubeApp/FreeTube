@@ -1387,8 +1387,16 @@ export default defineComponent({
     },
 
     // Skip to the next video in the playlist
+    // or to next video if not in playlist and autoplay enabled
     handleNextInPlaylist: function () {
-      this.$refs.watchVideoPlaylist?.playNextVideo()
+      if (this.watchingPlaylist) {
+        this.$refs.watchVideoPlaylist?.playNextVideo()
+      } else if (this.autoplayEnabled) {
+        this.$router.push({
+          path: `/watch/${this.nextRecommendedVideo.videoId}`
+        })
+        showToast(this.$t('Playing Next Video'))
+      }
     },
 
     // Skip to the previous video in the playlist
