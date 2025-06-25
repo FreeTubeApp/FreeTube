@@ -712,7 +712,7 @@ export default defineComponent({
       }
 
       this.description = this.data.description
-      this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined' || Number.isNaN(this.data.lengthSeconds)
+      this.isLive = this.data.liveNow || this.data.lengthSeconds === 'undefined'
       this.isUpcoming = this.data.isUpcoming || this.data.premiere
       this.is4k = this.data.is4k
       this.is8k = this.data.is8k

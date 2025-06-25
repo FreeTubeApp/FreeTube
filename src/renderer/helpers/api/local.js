@@ -1137,9 +1137,11 @@ export function parseLocalListVideo(item, channelId, channelName) {
       publishedText = video.published.text
     }
 
+    video.is_live = video.duration.text === 'LIVE' || video.is_live
+
     const published = calculatePublishedDate(
       publishedText,
-      video.duration.text === 'LIVE',
+      video.is_live,
       video.is_upcoming || video.is_premiere,
       video.upcoming
     )
@@ -1152,9 +1154,10 @@ export function parseLocalListVideo(item, channelId, channelName) {
       authorId: video.author?.id ?? channelId,
       viewCount: video.views.text == null ? null : extractNumberFromString(video.views.text),
       published,
-      lengthSeconds: Utils.timeToSeconds(video.duration.text),
+      lengthSeconds: video.is_live ? '' : Utils.timeToSeconds(video.duration.text),
       isUpcoming: video.is_upcoming,
-      premiereDate: video.upcoming
+      premiereDate: video.upcoming,
+      liveNow: video.is_live ? video.is_live : false
     }
   } else if (item.type === 'GridMovie') {
     /** @type {import('youtubei.js').YTNodes.GridMovie} */
@@ -1167,7 +1170,8 @@ export function parseLocalListVideo(item, channelId, channelName) {
       authorId: movie.author.id !== 'N/A' ? movie.author.id : channelId,
       lengthSeconds: isNaN(movie.duration.seconds) ? '' : movie.duration.seconds,
       isUpcoming: movie.is_upcoming,
-      premiereDate: movie.upcoming
+      premiereDate: movie.upcoming,
+      liveNow: video.is_live
     }
   } else {
     /** @type {import('youtubei.js').YTNodes.Video} */
