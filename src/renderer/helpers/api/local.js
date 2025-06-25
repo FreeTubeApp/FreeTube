@@ -1170,8 +1170,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
       authorId: movie.author.id !== 'N/A' ? movie.author.id : channelId,
       lengthSeconds: isNaN(movie.duration.seconds) ? '' : movie.duration.seconds,
       isUpcoming: movie.is_upcoming,
-      premiereDate: movie.upcoming,
-      liveNow: video.is_live
+      premiereDate: movie.upcoming
     }
   } else {
     /** @type {import('youtubei.js').YTNodes.Video} */
