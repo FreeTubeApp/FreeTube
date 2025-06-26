@@ -88,19 +88,18 @@ Search Filters:
     Creative Commons: クリエイティブ・コモンズ
     Location: 場所
     360 Video: 360° 動画
+  Clear Filters: フィルターをクリア
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '登録チャンネル'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録チャンネルリストは現在空です。登録チャンネルをインポートするには、設定からデータの設定に移動して登録チャンネルをインポートするか、チャンネルを検索して登録することができます。'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: このプロファイルの登録チャンネル数が多いようです。接続制限を回避するため
-    RSS を使用します
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: このプロファイルの登録チャンネル数が多いようです。接続制限を回避するため RSS を使用します
   Load More Videos: もっと見る
   Error Channels: エラーが発生したチャンネル
   Disabled Automatic Fetching: 登録チャンネルの自動取得が無効になっています。動画を表示するには更新をしてください。
   Empty Channels: 現在、チャンネル登録しているチャンネルには動画がありません。
   Subscriptions Tabs: 登録チャンネル タブ
-  All Subscription Tabs Hidden: 全ての登録チャンネル タブが非表示になっています。こちらのコンテンツをご覧いただくには、"{settingsSection}"
-    内の "{subsection}" 項目でいくつかのタブの非表示を解除してください。
+  All Subscription Tabs Hidden: 全ての登録チャンネル タブが非表示になっています。こちらのコンテンツをご覧いただくには、"{settingsSection}" 内の "{subsection}" 項目でいくつかのタブの非表示を解除してください。
   Load More Posts: もっと見る
   Empty Posts: 現在、登録しているチャンネルには動画はありません。
 Trending:
@@ -143,22 +142,19 @@ User Playlists:
       This video cannot be moved up.: この動画は上に移動できません.
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: 再生リスト内のすべての動画が読み込まれていません。とにかくコピーするにはここをクリック。
       There was an issue with updating this playlist.: この再生リストの更新に問題が発生しました。
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: この再生リストは、{oldPlaylistName}
-        の代わりにクイックブックマークとして使用されるようになりました。元に戻すにはここをクリック
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: この再生リストは、{oldPlaylistName} の代わりにクイックブックマークとして使用されるようになりました。元に戻すにはここをクリック
       Video has been removed: 動画は削除されました
       There was a problem with removing this video: この動画の削除に問題が発生しました
       This playlist is now used for quick bookmark: このプレイリストは現在、クイックブックマークとして使用されています
       Playlist has been updated.: 再生リストを更新しました。
       Playlist name cannot be empty. Please input a name.: 再生リストの名前は空白にできません。名前を入力してください.
-      Reverted to use {oldPlaylistName} for quick bookmark: クイックブックマークを {oldPlaylistName}
-        に戻しました
+      Reverted to use {oldPlaylistName} for quick bookmark: クイックブックマークを {oldPlaylistName} に戻しました
       "{videoCount} video(s) have been removed": 1 本の動画を削除しました | {videoCount} 本の動画を削除しました
       Playlist {playlistName} has been deleted.: 再生リスト {playlistName} が削除されました。
       There were no videos to remove.: 削除する動画はありません。
       This playlist does not exist: この再生リストは存在しません
       This playlist is already being used for quick bookmark.: この再生リストはすでにクイックブックマークとして使用されています。
-      This playlist has a video with a duration error: このプレイリストには、再生時間のない動画が少なくとも
-        1 つ含まれています。これらの動画は、再生時間が 0 であるかのように並べられます。
+      This playlist has a video with a duration error: このプレイリストには、再生時間のない動画が少なくとも 1 つ含まれています。これらの動画は、再生時間が 0 であるかのように並べられます。
       Video has been removed. Click here to undo.: 動画が削除されました。元に戻すにはここをクリック。
     Search for Videos: 動画検索
   Save Changes: 変更の保存
@@ -171,38 +167,30 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: この再生リストを削除してもいいですか？復元は不可能です。
   You have no playlists. Click on the create new playlist button to create a new one.: 再生リストがありません。新しい再生リストを作成するには、「新しい再生リストの作成」ボタンをクリックしてください。
   AddVideoPrompt:
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      本の動画が追加されます'
-    Select a playlist to add your N videos to: 動画を追加する再生リストを選択してください | {videoCount}
-      本の動画を追加する再生リストを選択してください
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} 本の動画が追加されます'
+    Select a playlist to add your N videos to: 動画を追加する再生リストを選択してください | {videoCount} 本の動画を追加する再生リストを選択してください
     Allow Adding Duplicate Video(s): 重複した動画の追加を許可する
     Toast:
       You haven't selected any playlist yet.: まだ再生リストを選択していません。
-      "{videoCount} video(s) added to 1 playlist": 1本の動画が1個の再生リストに追加されました | {videoCount}
-        本の動画が1個の再生リストに追加されました
-      "{videoCount} video(s) added to {playlistCount} playlists": 1本の動画が {playlistCount}
-        個の再生リストに追加されました | {videoCount} 本の動画が {playlistCount} 個の再生リストに追加されました
+      "{videoCount} video(s) added to 1 playlist": 1本の動画が1個の再生リストに追加されました | {videoCount} 本の動画が1個の再生リストに追加されました
+      "{videoCount} video(s) added to {playlistCount} playlists": 1本の動画が {playlistCount} 個の再生リストに追加されました | {videoCount} 本の動画が {playlistCount} 個の再生リストに追加されました
     Search in Playlists: 再生リストで検索
     N playlists selected: '{playlistCount} 選択中'
     Save: 保存
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      本の動画はすでに追加されています'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} 本の動画はすでに追加されています'
     Added {count} Times: すでに追加済み | {count} 回追加済み
   CreatePlaylistPrompt:
     Toast:
       There was an issue with creating the playlist.: 再生リストの作成中に問題が発生しました。
       There is already a playlist with this name. Please pick a different name.: この名前の再生リストはすでに存在します。別の名前を選んでください。
-      Playlist {playlistName} has been successfully created.: 再生リスト {playlistName}
-        が正常に作成されました。
+      Playlist {playlistName} has been successfully created.: 再生リスト {playlistName} が正常に作成されました。
     New Playlist Name: 新しい再生リスト名
     Create: 作成
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: この再生リストから重複する1本の動画を削除してもよろしいですか？この操作は元に戻せません。
-    | この再生リストから重複する {playlistItemCount} 本の動画を削除してもよろしいですか？この操作は元に戻せません。
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: この再生リストから重複する1本の動画を削除してもよろしいですか？この操作は元に戻せません。 | この再生リストから重複する {playlistItemCount} 本の動画を削除してもよろしいですか？この操作は元に戻せません。
   Cannot delete the quick bookmark target playlist.: クイックブックマーク対象の再生リストは削除できません。
   Quick Bookmark Enabled: クイックブックマーク有効
   Remove Duplicate Videos: 重複した動画を削除
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: この再生リストから視聴済みの動画を1本削除してもよろしいですか？この操作は元に戻せません。
-    | この再生リストから視聴済みの {playlistItemCount} 本の動画を削除してもよろしいですか？この操作は元に戻せません。
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: この再生リストから視聴済みの動画を1本削除してもよろしいですか？この操作は元に戻せません。 | この再生リストから視聴済みの {playlistItemCount} 本の動画を削除してもよろしいですか？この操作は元に戻せません。
   The playlist has been successfully exported: 再生リストのエクスポートに成功しました
   Export Playlist: この再生リストをエクスポート
   TotalTimePlaylist: '合計時間: {duration}'
@@ -249,8 +237,7 @@ Settings:
     Set Current Instance as Default: 現在のインスタンスを既定として設定する
     Current instance will be randomized on startup: 現在のインスタンスは起動時にランダム化されます
     No default instance has been set: 既定のインスタンスが設定されていません
-    The currently set default instance is {instance}: 現在設定されているインスタンスは {instance}
-      です
+    The currently set default instance is {instance}: 現在設定されているインスタンスは {instance} です
     Current Invidious Instance: 現在の invidious インスタンス
     External Link Handling:
       No Action: 何もしない
@@ -414,8 +401,7 @@ Settings:
     Video Playback Rate Interval: 動画再生速度間隔
     Screenshot:
       File Name Label: ファイル名のパターン
-      File Name Tooltip: 以下の変数が使用可能です。%Y 年（4桁）%M 月（2桁）%D 日（2桁）%H 時間（2桁）%N 分（2桁）%S
-        秒（2桁）%T ミリ秒（3桁）%s 動画の秒数 %t 動画のミリ秒（3桁）%i 動画ID が使用できます。
+      File Name Tooltip: 以下の変数が使用可能です。%Y 年（4桁）%M 月（2桁）%D 日（2桁）%H 時間（2桁）%N 分（2桁）%S 秒（2桁）%T ミリ秒（3桁）%s 動画の秒数 %t 動画のミリ秒（3桁）%i 動画ID が使用できます。
       Error:
         Forbidden Characters: 使用禁止文字
         Empty File Name: 空のファイル名
@@ -467,8 +453,7 @@ Settings:
         Auto: 自動
         Semi-auto: 半自動
         Never: 保存しない
-      Tooltip: '自動 = 動画ページを退出する際、動画が終了した際、またはエラーが発生した際（例: レート制限や視聴セッションの期限切れ）に進捗を保存します。半自動
-        = 自動と似ていますが、動画ページを退出する際には保存されません。代わりに、動画プレーヤーの下にある「視聴進捗を保存」というボタンを使って手動で進捗を保存できます。'
+      Tooltip: '自動 = 動画ページを退出する際、動画が終了した際、またはエラーが発生した際（例: レート制限や視聴セッションの期限切れ）に進捗を保存します。半自動 = 自動と似ていますが、動画ページを退出する際には保存されません。代わりに、動画プレーヤーの下にある「視聴進捗を保存」というボタンを使って手動で進捗を保存できます。'
   Data Settings:
     How do I import my subscriptions?: 登録チャンネルをインポートするには？
     Unknown data key: 不明なデータキー
@@ -504,9 +489,7 @@ Settings:
     Playlist File: 再生リスト
     Export Playlists For Older FreeTube Versions:
       Label: 古いバージョンの FreeTube 用に再生リストをエクスポートする
-      Tooltip: "このオプションは、すべての再生リストから動画をエクスポートし、1つの再生リスト「Favorites」にまとめます。\n古いバージョンのFreeTube用に再生リストの動画をエクスポートおよびインポートする方法は以下の通りです：\n\
-        \ 1. このオプションを有効にして再生リストをエクスポートします。\n2. プライバシー設定の「再生リストをすべて削除」オプションを使用して、既存のすべての再生リストを削除します。\n\
-        \ 3. 古いバージョンのFreeTubeを起動し、エクスポートした再生リストをインポートします。"
+      Tooltip: "このオプションは、すべての再生リストから動画をエクスポートし、1つの再生リスト「Favorites」にまとめます。\n古いバージョンのFreeTube用に再生リストの動画をエクスポートおよびインポートする方法は以下の通りです：\n 1. このオプションを有効にして再生リストをエクスポートします。\n2. プライバシー設定の「再生リストをすべて削除」オプションを使用して、既存のすべての再生リストを削除します。\n 3. 古いバージョンのFreeTubeを起動し、エクスポートした再生リストをインポートします。"
   Distraction Free Settings:
     Hide Live Chat: ライブチャットの非表示
     Hide Popular Videos: 人気動画の非表示
@@ -569,13 +552,10 @@ Settings:
     Proxy Protocol: プロキシのプロトコル
     Enable Tor / Proxy: Tor / プロキシの有効化
     Proxy Settings: プロキシ
-    Proxy Warning: FreeTube にはプロキシは内蔵されていませんが、Tor のようなご使用のマシン上で動作するものや、一部の VPN が提供する
-      SOCKS5 プロキシのような外部プロキシに接続することができます。有効にした場合は、プロキシ/Tor が適切に設定されていることを確認してください。そうでないと、FreeTube
-      はデータを取得できなくなります。
+    Proxy Warning: FreeTube にはプロキシは内蔵されていませんが、Tor のようなご使用のマシン上で動作するものや、一部の VPN が提供する SOCKS5 プロキシのような外部プロキシに接続することができます。有効にした場合は、プロキシ/Tor が適切に設定されていることを確認してください。そうでないと、FreeTube はデータを取得できなくなります。
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: スポンサーセグメントがスキップされたときに通知する
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': スポンサーブロック APIのURL（デフォルト
-      https://sponsor.ajay.app）
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': スポンサーブロック APIのURL（デフォルト https://sponsor.ajay.app）
     Enable SponsorBlock: スポンサーブロックの有効化
     SponsorBlock Settings: スポンサーブロック
     Skip Options:
@@ -587,8 +567,7 @@ Settings:
     Category Color: カテゴリの色
     UseDeArrowTitles: DeArrow の動画タイトルを使用する
     UseDeArrowThumbnails: DeArrow のサムネイルを使用する
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
-      Thumbnail Generator API Url (デフォルト https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Thumbnail Generator API Url (デフォルト https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: カスタム外部プレーヤー引数
     Custom External Player Executable: カスタム外部プレーヤーの実行可能ファイル
@@ -614,8 +593,7 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 試験的
-    Warning:
-      これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
+    Warning: これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
   Password Settings:
     Password Settings: パスワード
     Set Password To Prevent Access: 設定にアクセスするためのパスワードの設定
@@ -697,8 +675,7 @@ Channel:
     View Full Post: 全文表示
   This channel does not exist: このチャンネルは存在しません
   This channel does not allow searching: このチャンネルでは検索できません
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: このチャンネルは年齢制限があり、現在
-    FreeTube では視聴できません。
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: このチャンネルは年齢制限があり、現在 FreeTube では視聴できません。
   Channel Tabs: チャンネル タブ
   Live:
     This channel does not currently have any live streams: このチャンネルは現在、ライブ配信を行っていません
@@ -733,8 +710,7 @@ Video:
   Enable Live Chat: 'ライブチャットの有効化'
   Live Chat is currently not supported in this build.: '現在、このビルドはライブチャットに未対応です。'
   Live chat is enabled. Chat messages will appear here once sent.: 'ライブチャットは有効です。チャットが送信されるとここに表示されます。'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '現在、ライブチャットは
-    Invidious API では未対応です。直接 YouTube への接続が必要です。'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '現在、ライブチャットは Invidious API では未対応です。直接 YouTube への接続が必要です。'
   Published:
     In less than a minute: 1 分以内
   Published on: '公開日'
@@ -777,8 +753,7 @@ Video:
       looping playlists: 再生リストのループ
       shuffling playlists: シャッフル再生リスト
       reversing playlists: 再生リストを反転させる
-      opening specific video in a playlist (falling back to opening the video): 再生リストで特定の動画を開く
-        (動画を開く前にフォールバック)
+      opening specific video in a playlist (falling back to opening the video): 再生リストで特定の動画を開く (動画を開く前にフォールバック)
       opening playlists: 再生リストを開く
       setting a playback rate: 再生レートの設定
       starting video at offset: オフセットで動画の再生
@@ -826,13 +801,11 @@ Video:
   IP block: YouTube はあなたのIPアドレスからの動画視聴をブロックしました。別の VPN またはプロキシに切り替えてみてください。
   Unlisted: 限定公開
   MembersOnly: メンバー限定動画は Google にログインし、投稿チャンネルに課金する必要があるので FreeTube から直接見ることはできません。
-  AgeRestricted: 年齢制限がかかっている 動画 は Google にログインしておりかつ年齢確認を済ましている YouTube アカウントが必要なため、FreeTube
-    から直接見ることはできません。
+  AgeRestricted: 年齢制限がかかっている 動画 は Google にログインしておりかつ年齢確認を済ましている YouTube アカウントが必要なため、FreeTube から直接見ることはできません。
   DeArrow:
     Show Original Details: 元の情報を表示
     Show Modified Details: 変更された詳細を表示
-  DRMProtected:
-    DRM保護された動画はFreeTubeでは再生できません。これらの動画には、独自の非オープンソースのコンポーネントが必要です。この動画を視聴したい場合は、DRM対応のウェブブラウザで公式のYouTubeウェブサイトでご覧ください。
+  DRMProtected: DRM保護された動画はFreeTubeでは再生できません。これらの動画には、独自の非オープンソースのコンポーネントが必要です。この動画を視聴したい場合は、DRM対応のウェブブラウザで公式のYouTubeウェブサイトでご覧ください。
 #& Playlists
   Save Watched Progress: 視聴進捗を保存
   Watched Progress Saved: 視聴進捗を保存しました
@@ -956,8 +929,7 @@ Profile:
   Subscription List: 登録チャンネル一覧
   '{number} selected': '{number} 件選択済み'
   Add Selected To Profile: 選択項目をプロファイルに追加
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
   : これはあなたのメインのプロファイルです。選択したチャンネルを本当に削除しますか？同じチャンネルがほかのプロファイルにも登録されていれば削除されます。
   Profile Filter: プロファイルのフィルター
   Profile Settings: プロファイル
@@ -970,56 +942,42 @@ Profile:
 The playlist has been reversed: 再生リストを逆順にしました
 A new blog is now available, {blogTitle}. Click to view more: '新着ブログ公開、{blogTitle}。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
-Version {versionNumber} is now available!  Click for more details: 最新バージョン {versionNumber}
-  が利用可能！　詳細はこちらをクリック
+Version {versionNumber} is now available!  Click for more details: 最新バージョン {versionNumber} が利用可能！　詳細はこちらをクリック
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 有効にすると、FreeTube は通常の方法の代わりに RSS を使用して購読フィードを取得します。RSS は高速で
-      IP ブロックを防ぎますが、動画の長さやライブ配信などの情報は提供されません
+    Fetch Feeds from RSS: 有効にすると、FreeTube は通常の方法の代わりに RSS を使用して購読フィードを取得します。RSS は高速で IP ブロックを防ぎますが、動画の長さやライブ配信などの情報は提供されません
     Fetch Automatically: 有効にすると、FreeTube は起動時や新しいウィンドウを開いたときに自動的に登録チャンネルフィードを取得します。
   Player Settings:
-    Default Video Format: 
-      動画を再生する際に使用する形式を設定します。DASH形式はより高い画質で再生できます。旧形式は最大360pに制限されますが、帯域幅の使用量が少なくなります。音声形式は音声のみです。
+    Default Video Format: 動画を再生する際に使用する形式を設定します。DASH形式はより高い画質で再生できます。旧形式は最大360pに制限されますが、帯域幅の使用量が少なくなります。音声形式は音声のみです。
     Proxy Videos Through Invidious: YouTube に直接接続するのではなく、Invidious を通じて動画を提供します。
-    Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control
-      キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
+    Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
     Skip by Scrolling Over Video Player: MPVスタイルでスクロールホイールを使って動画をスキップします。
   General Settings:
     Invidious Instance: FreeTube が API 呼び出しのために接続する Invidious のインスタンスです。
-    Preferred API Backend: FreeTube がデータを取得するために使用する方法を選択してください。内部 API はアプリ内蔵の取得機能です。
-      Invidious API は、 Invidious サーバーへの接続が必要です。
+    Preferred API Backend: FreeTube がデータを取得するために使用する方法を選択してください。内部 API はアプリ内蔵の取得機能です。 Invidious API は、 Invidious サーバーへの接続が必要です。
     Thumbnail Preference: FreeTube 全体のすべてのサムネイルが、デフォルトのサムネイルの代わりに動画のフレームに置き換えられ、ぼかされるか非表示になります。
-    Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube
-      は自動的に他の API での取得を試みます。
+    Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube は自動的に他の API での取得を試みます。
     Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。
-    External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube
-      はクリックしたリンクをデフォルトのブラウザで開きます。\n"
+    External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube はクリックしたリンクをデフォルトのブラウザで開きます。\n"
     Open Deep Links In New Window: FreeTube に渡された URL は、ブラウザの拡張機能やコマンドライン引数などによって、新しいウィンドウで開かれます。
   External Player Settings:
     Custom External Player Arguments: '外部プレーヤーに渡したいカスタムコマンドライン引数。'
     Ignore Warnings: 現在の外部プレーヤーが、現在のアクションに未対応の場合（再生リストを逆順にするなど）に警告を抑制します。
-    Custom External Player Executable: デフォルトでは、FreeTube は選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム
-      パスをここで設定できます。
-    External Player: 外部プレーヤーを選択すると、動画（対応している場合は再生リスト）を開くためのアイコンがサムネイルに表示されます。警告：Invidious
-      の設定は、外部プレーヤーには影響しません。
+    Custom External Player Executable: デフォルトでは、FreeTube は選択した外部プレーヤーが PATH 環境変数を介して見つかると想定します。必要に応じて、カスタム パスをここで設定できます。
+    External Player: 外部プレーヤーを選択すると、動画（対応している場合は再生リスト）を開くためのアイコンがサムネイルに表示されます。警告：Invidious の設定は、外部プレーヤーには影響しません。
     DefaultCustomArgumentsTemplate: "（デフォルト： '{defaultCustomArguments}'）"
     Ignore Default Arguments: 動画の URL 以外のデフォルトの引数（再生速度、再生リストの URL など）を外部プレーヤーに送信しないでください。カスタム引数はそのまま引き継がれます。
   Experimental Settings:
-    Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより
-      RAM の使用率は増加します。
+    Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより RAM の使用率は増加します。
   Distraction Free Settings:
-    Hide Channels: チャンネル ID を入力すると、すべての動画、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル
-      ID は、大文字と小文字を区別するので完全に一致させてください。
-    Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}"
-      項目の "{subsection}" にあります
-    Hide Videos and Playlists Containing Text: FreeTube
-      全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
+    Hide Channels: チャンネル ID を入力すると、すべての動画、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル ID は、大文字と小文字を区別するので完全に一致させてください。
+    Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}" 項目の "{subsection}" にあります
+    Hide Videos and Playlists Containing Text: FreeTube 全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
   SponsorBlock Settings:
     UseDeArrowTitles: 動画のタイトルを DeArrow からユーザーが投稿したタイトルに置き換えます。
     UseDeArrowThumbnails: 動画のサムネイルを DeArrow からのサムネイルに置き換えます。
-Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval}
-  秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
+Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
 Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL タイプのため、アプリで開くことができません
 Open New Window: 新しいウィンドウを開く
@@ -1048,10 +1006,8 @@ Clipboard:
   Cannot access clipboard without a secure connection: 安全な接続でなければクリップボードにはアクセスできません
 Chapters:
   Chapters: チャプター
-  'Chapters list visible, current chapter: {chapterName}': 'チャプター リストを表示、現在のチャプター：
-    {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'チャプター リストを非表示、現在のチャプター：
-    {chapterName}'
+  'Chapters list visible, current chapter: {chapterName}': 'チャプター リストを表示、現在のチャプター： {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'チャプター リストを非表示、現在のチャプター： {chapterName}'
   Key Moments: ハイライト
 Preferences: 環境設定
 Ok: オーケー
@@ -1086,8 +1042,7 @@ Moments Ago: たった今
 Age Restricted:
   This video is age restricted: この動画には年齢制限があります
   This channel is age restricted: このチャンネルには年齢制限があります
-Trimmed input must be at least N characters long: トリミングされた入力は少なくとも1文字以上でなければなりません
-  | トリミングされた入力は少なくとも {length} 文字以上でなければなりません
+Trimmed input must be at least N characters long: トリミングされた入力は少なくとも1文字以上でなければなりません | トリミングされた入力は少なくとも {length} 文字以上でなければなりません
 Display Label: '{label}：{value}'
 KeyboardShortcutTemplate: '{label} （{shortcut}）'
 shortcutJoinOperator: +

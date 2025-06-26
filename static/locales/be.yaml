@@ -28,11 +28,9 @@ Back: 'Назад'
 Forward: 'Наперад'
 Open New Window: 'Адкрыць новае акно'
 
-Version {versionNumber} is now available!  Click for more details: 'Даступна версія
-  {versionNumber}!  Націсніце, каб даведацца больш'
+Version {versionNumber} is now available!  Click for more details: 'Даступна версія {versionNumber}!  Націсніце, каб даведацца больш'
 Download From Site: 'Спампаваць з сайта'
-A new blog is now available, {blogTitle}. Click to view more: 'Даступны новы блог,
-  {blogTitle}. Націсніце, каб паглядзець больш'
+A new blog is now available, {blogTitle}. Click to view more: 'Даступны новы блог, {blogTitle}. Націсніце, каб паглядзець больш'
 Are you sure you want to open this link?: 'Сапраўды хочаце адкрыць гэтую спасылку?'
 
 # Global
@@ -104,27 +102,21 @@ Search Filters:
     360 Video: 360°
     Location: Месцазнаходжанне
     Creative Commons: Creative Commons
+  Clear Filters: Ачысціць фільтры
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Падпіскі'
   # channels that were likely deleted
   Error Channels: 'Каналы з памылкамі'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'У
-    гэтага профілю вялікая колькасць падпісак.  Прымусовае выкарыстанне RSS, каб пазбегнуць
-    абмежавання хуткасці'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваш
-    спіс падпісак зараз пусты. Калі вы хочаце імпартаваць свае падпіскі, вы можаце
-    перайсці ў Налады даных і выбраць Імпартаваць падпіскі або вы можаце знайсці каналы
-    і падпісацца на іх.'
-  Disabled Automatic Fetching: 'Вы адключылі аўтаматычнае загрузку падпісак. Каб убачыць
-    іх тут, абнавіце падпіскі.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'У гэтага профілю вялікая колькасць падпісак.  Прымусовае выкарыстанне RSS, каб пазбегнуць абмежавання хуткасці'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваш спіс падпісак зараз пусты. Калі вы хочаце імпартаваць свае падпіскі, вы можаце перайсці ў Налады даных і выбраць Імпартаваць падпіскі або вы можаце знайсці каналы і падпісацца на іх.'
+  Disabled Automatic Fetching: 'Вы адключылі аўтаматычнае загрузку падпісак. Каб убачыць іх тут, абнавіце падпіскі.'
   Empty Channels: 'На каналах, на якія вы падпісаны, зараз няма відэа.'
   Empty Posts: 'На каналах, на якія вы падпісаны, зараз няма паведамленняў.'
   Load More Videos: 'Загрузіць больш відэа'
   Load More Posts: 'Загрузіць больш паведамленняў'
   Subscriptions Tabs: 'Укладкі падпісак'
-  All Subscription Tabs Hidden: 'Усе ўкладкі падпісак схаваныя. Каб убачыць змесціва,
-    уключыце некаторыя ўкладкі ў раздзеле "{subsection}" у "{settingsSection}".'
+  All Subscription Tabs Hidden: 'Усе ўкладкі падпісак схаваныя. Каб убачыць змесціва, уключыце некаторыя ўкладкі ў раздзеле "{subsection}" у "{settingsSection}".'
 More: 'Больш'
 Channels:
   Channels: 'Каналы'
@@ -154,71 +146,46 @@ User Playlists:
   AddVideoPrompt:
     Save: Захаваць
     N playlists selected: '{playlistCount} выбрана'
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      відэа ўжо дададзена'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} відэа ўжо дададзена'
     Toast:
       You haven't selected any playlist yet.: Вы яшчэ не выбралі плэй-ліст.
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 відэа дададзена
-        ў {playlistCount} плэй-лістоў | {videoCount} відэа дададзены ў {playlistCount}
-        плэй-лістоў
-      "{videoCount} video(s) added to 1 playlist": 1 відэа дададзена ў 1 плэй-ліст
-        | {videoCount} відэа дададзены ў 1 плэй-ліст
-    Select a playlist to add your N videos to: Выберыце плэй-ліст, каб дадаць сваё
-      відэа | Выберыце плэй-ліст, каб дадаць у яго {videoCount} відэа
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 відэа дададзена ў {playlistCount} плэй-лістоў | {videoCount} відэа дададзены ў {playlistCount} плэй-лістоў
+      "{videoCount} video(s) added to 1 playlist": 1 відэа дададзена ў 1 плэй-ліст | {videoCount} відэа дададзены ў 1 плэй-ліст
+    Select a playlist to add your N videos to: Выберыце плэй-ліст, каб дадаць сваё відэа | Выберыце плэй-ліст, каб дадаць у яго {videoCount} відэа
     Search in Playlists: Пошук у плэй-лістах
     Added {count} Times: Ужо дададзена | Дададзена {count} разоў
     Allow Adding Duplicate Video(s): Дазволіць дадаваць дублікаты відэа
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      відэа будзе дададзена'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} відэа будзе дададзена'
   CreatePlaylistPrompt:
     Create: Стварыць
     New Playlist Name: Назва новага плэй-ліста
     Toast:
-      There was an issue with creating the playlist.: Узнікла праблема пры стварэнні
-        плэй-ліста.
-      There is already a playlist with this name. Please pick a different name.: Плэй-ліст
-        з такой назвай ужо існуе. Выберыце іншую назву.
-      Playlist {playlistName} has been successfully created.: Плэй-ліст {playlistName}
-        быў паспяхова створаны.
+      There was an issue with creating the playlist.: Узнікла праблема пры стварэнні плэй-ліста.
+      There is already a playlist with this name. Please pick a different name.: Плэй-ліст з такой назвай ужо існуе. Выберыце іншую назву.
+      Playlist {playlistName} has been successfully created.: Плэй-ліст {playlistName} быў паспяхова створаны.
   SinglePlaylistView:
     Toast:
-      This playlist is protected and cannot be removed.: Гэты плэй-ліст абаронены
-        і не можа быць выдалены.
+      This playlist is protected and cannot be removed.: Гэты плэй-ліст абаронены і не можа быць выдалены.
       This video cannot be moved up.: Гэта відэа нельга перамясціць уверх.
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Некаторыя
-        відэа ў плэй-лісце яшчэ не загружаныя. Націсніце тут, каб усё роўна скапіяваць.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Некаторыя відэа ў плэй-лісце яшчэ не загружаныя. Націсніце тут, каб усё роўна скапіяваць.
       Playlist {playlistName} has been deleted.: Плэй-ліст {playlistName} быў выдалены.
       This playlist does not exist: Гэты плэй-ліст не існуе
-      This playlist is now used for quick bookmark: Цяпер гэты плэй-ліст выкарыстоўваецца
-        для хуткай закладкі
-      Playlist name cannot be empty. Please input a name.: Назва плэй-ліста не можа
-        быць пустой. Калі ласка, увядзіце назву.
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Гэты
-        плэй-ліст цяпер выкарыстоўваецца для хуткай закладкі замест {oldPlaylistName}.
-        Націсніце тут, каб адмяніць
-      Reverted to use {oldPlaylistName} for quick bookmark: Вернута да выкарыстання
-        {oldPlaylistName} для хуткай закладкі
+      This playlist is now used for quick bookmark: Цяпер гэты плэй-ліст выкарыстоўваецца для хуткай закладкі
+      Playlist name cannot be empty. Please input a name.: Назва плэй-ліста не можа быць пустой. Калі ласка, увядзіце назву.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Гэты плэй-ліст цяпер выкарыстоўваецца для хуткай закладкі замест {oldPlaylistName}. Націсніце тут, каб адмяніць
+      Reverted to use {oldPlaylistName} for quick bookmark: Вернута да выкарыстання {oldPlaylistName} для хуткай закладкі
       Playlist has been updated.: Плэй-ліст абноўлены.
-      "{videoCount} video(s) have been removed": 1 відэа было выдалена | {videoCount}
-        відэа былі выдалены
+      "{videoCount} video(s) have been removed": 1 відэа было выдалена | {videoCount} відэа былі выдалены
       There were no videos to remove.: Не было відэа для выдалення.
-      There was an issue with updating this playlist.: Узнікла праблема з абнаўленнем
-        гэтага плэй-ліста.
+      There was an issue with updating this playlist.: Узнікла праблема з абнаўленнем гэтага плэй-ліста.
       This video cannot be moved down.: Гэта відэа нельга перамясціць уніз.
       Video has been removed: Відэа было выдалена
-      There was a problem with removing this video: Узнікла праблема з выдаленнем
-        гэтага відэа
-      This playlist is already being used for quick bookmark.: Гэты плэй-ліст ужо
-        выкарыстоўваецца для хуткай закладкі.
-      This playlist has a video with a duration error: Гэты плэй-ліст змяшчае прынамсі
-        адно відэа без працягласці. Яно будзе адсартаваны так, як быццам іх працягласць
-        роўная нулю.
-      Video has been removed. Click here to undo.: Відэа было выдалена. Націсніце
-        сюды, каб адрабіць.
+      There was a problem with removing this video: Узнікла праблема з выдаленнем гэтага відэа
+      This playlist is already being used for quick bookmark.: Гэты плэй-ліст ужо выкарыстоўваецца для хуткай закладкі.
+      This playlist has a video with a duration error: Гэты плэй-ліст змяшчае прынамсі адно відэа без працягласці. Яно будзе адсартаваны так, як быццам іх працягласць роўная нулю.
+      Video has been removed. Click here to undo.: Відэа было выдалена. Націсніце сюды, каб адрабіць.
     Search for Videos: Пошук відэа
-  You have no playlists. Click on the create new playlist button to create a new one.: У
-    вас няма плэй-лістоў. Націсніце на кнопку стварыць новы плэй-ліст, каб стварыць
-    новы.
+  You have no playlists. Click on the create new playlist button to create a new one.: У вас няма плэй-лістоў. Націсніце на кнопку стварыць новы плэй-ліст, каб стварыць новы.
   Playlists with Matching Videos: Плэй-лісты з адпаведнымі відэа
   Move Video Up: Перамясціць відэа ўверх
   Move Video Down: Перамясціць відэа ўніз
@@ -229,8 +196,7 @@ User Playlists:
   Copy Playlist: Скапіяваць плэй-ліст
   Remove Watched Videos: Выдаліць прагледжаныя відэа
   Delete Playlist: Выдаліць плэй-ліст
-  Are you sure you want to delete this playlist? This cannot be undone: Сапраўды выдаліць
-    плэй-ліст? Гэта дзеянне нельга адмяніць.
+  Are you sure you want to delete this playlist? This cannot be undone: Сапраўды выдаліць плэй-ліст? Гэта дзеянне нельга адмяніць.
   Sort By:
     EarliestPlayedFirst: Раней прайгравалі
     NameDescending: Я-А
@@ -241,20 +207,13 @@ User Playlists:
     EarliestUpdatedFirst: Раней абноўленыя
     LatestPlayedFirst: Нядаўна прайгравалі
   Quick Bookmark Enabled: Хуткая закладка ўключана
-  Cannot delete the quick bookmark target playlist.: Немагчыма выдаліць мэтавы плэй-ліст
-    хуткай закладкі.
+  Cannot delete the quick bookmark target playlist.: Немагчыма выдаліць мэтавы плэй-ліст хуткай закладкі.
   This playlist currently has no videos.: Зараз у гэтым плэй-лісце няма відэа.
   Save Changes: Захаваць змены
   Enable Quick Bookmark With This Playlist: Уключыць хуткую закладку для гэтага плэй-ліста
   Remove Duplicate Videos: Выдаліць дублікаты відэа
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Сапраўды
-    выдаліць 1 прагледжанае відэа з плэй-ліста? Гэта дзеянне нельга адмяніць. | Сапраўды
-    выдаліць {playlistItemCount} прагледжаных відэа з плэй-ліста? Гэта дзеянне нельга
-    адмяніць.
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Сапраўды
-    выдаліць 1 дублікат відэа з плэй-ліста? Гэта дзеянне нельга адмяніць. | Сапраўды
-    выдаліць {playlistItemCount} дублікатаў відэа з плэй-ліста? Гэта дзеянне нельга
-    адмяніць.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Сапраўды выдаліць 1 прагледжанае відэа з плэй-ліста? Гэта дзеянне нельга адмяніць. | Сапраўды выдаліць {playlistItemCount} прагледжаных відэа з плэй-ліста? Гэта дзеянне нельга адмяніць.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Сапраўды выдаліць 1 дублікат відэа з плэй-ліста? Гэта дзеянне нельга адмяніць. | Сапраўды выдаліць {playlistItemCount} дублікатаў відэа з плэй-ліста? Гэта дзеянне нельга адмяніць.
   Export Playlist: Экспартаваць плэй-ліст
   The playlist has been successfully exported: Плэй-ліст паспяхова экспартаваны
   TotalTimePlaylist: 'Агульны час: {duration}'
@@ -269,14 +228,12 @@ History:
 Settings:
   # On Settings Page
   Settings: 'Налады'
-  The app needs to restart for changes to take effect. Restart and apply change?: 'Праграму
-    трэба перазапусціць, каб змены ўступілі ў сілу. Перазапусціць і прымяніць змены?'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Праграму трэба перазапусціць, каб змены ўступілі ў сілу. Перазапусціць і прымяніць змены?'
   General Settings:
     General Settings: 'Агульныя'
     Check for Updates: 'Правяраць наяўнасць абнаўленняў'
     Check for Latest Blog Posts: 'Правяраць апошнія паведамленні ў блогу'
-    Fallback to Non-Preferred Backend on Failure: 'Вяртанне да непераважнага бэкэнда
-      ў выпадку няўдачы'
+    Fallback to Non-Preferred Backend on Failure: 'Вяртанне да непераважнага бэкэнда ў выпадку няўдачы'
     Enable Search Suggestions: 'Уключыць прапановы пошуку'
     Default Landing Page: 'Хатняя старонка'
     Locale Preference: 'Рэгіянальныя налады'
@@ -298,15 +255,12 @@ Settings:
       Hidden: 'Схавана'
       Blur: Размыты
     Current Invidious Instance: 'Бягучы экзэмпляр Invidious'
-    The currently set default instance is {instance}: 'Бягучы экзэмпляр па змаўчанні:
-      {instance}'
+    The currently set default instance is {instance}: 'Бягучы экзэмпляр па змаўчанні: {instance}'
     No default instance has been set: 'Экзэмпляр па змаўчанні не зададзены'
-    Current instance will be randomized on startup: 'Бягучы экзэмпляр будзе рандомізаваны
-      пры запуску'
+    Current instance will be randomized on startup: 'Бягучы экзэмпляр будзе рандомізаваны пры запуску'
     Set Current Instance as Default: 'Усталяваць бягучы экзэмпляр па змаўчанні'
     Clear Default Instance: 'Ачысціць экзэмпляр па змаўчанні'
-    View all Invidious instance information: 'Праглядзіце ўсю інфармацыю пра экзэмпляр
-      Invidious'
+    View all Invidious instance information: 'Праглядзіце ўсю інфармацыю пра экзэмпляр Invidious'
     Region for Trending: 'Рэгіён для Трэндаў'
     #! List countries
     External Link Handling:
@@ -317,8 +271,7 @@ Settings:
     Auto Load Next Page:
       Label: Аўтаматычная загрузка наступнай старонкі
       Tooltip: Аўтаматычна загружаць дадатковыя старонкі і каментарыі.
-    Open Deep Links In New Window: Адкрываць URL-адрасы, перададзеныя FreeTube, у
-      новым акне
+    Open Deep Links In New Window: Адкрываць URL-адрасы, перададзеныя FreeTube, у новым акне
   Theme Settings:
     Theme Settings: 'Тэма'
     Match Top Bar with Main Color: 'Выкарыстоўваць асноўны колер да верхняй панэлі'
@@ -444,15 +397,11 @@ Settings:
     Proxy Videos Through Invidious: 'Прагляд відэа праз проксі Invidious'
     Autoplay Playlists: 'Аўтапрайграванне відэа з плэй-лістоў'
     Enable Theatre Mode by Default: 'Уключыць рэжым тэатра па змаўчанні'
-    Scroll Volume Over Video Player: 'Над відэапрайгравальнікам змяняць гучнасць колам
-      мышы'
-    Scroll Playback Rate Over Video Player: 'Над відэапрайгравальнікам змяняць хуткасць
-      прайгравання колам мышы'
-    Skip by Scrolling Over Video Player: 'Над відэапрайгравальнікам прапускаць відэа
-      колам мышы'
+    Scroll Volume Over Video Player: 'Над відэапрайгравальнікам змяняць гучнасць колам мышы'
+    Scroll Playback Rate Over Video Player: 'Над відэапрайгравальнікам змяняць хуткасць прайгравання колам мышы'
+    Skip by Scrolling Over Video Player: 'Над відэапрайгравальнікам прапускаць відэа колам мышы'
     Display Play Button In Video Player: 'Паказваць кнопку прайгравання ў відэапрайгравальніку'
-    Enter Fullscreen on Display Rotate: 'Пераходзіць у поўнаэкранны рэжым пры павароце
-      дысплэя'
+    Enter Fullscreen on Display Rotate: 'Пераходзіць у поўнаэкранны рэжым пры павароце дысплэя'
     Next Video Interval: 'Час зваротнага адліку для аўтапрайгравання'
     Fast-Forward / Rewind Interval: 'Інтэрвал перамоткі наперад / назад'
     Default Volume: 'Гучнасць па змаўчанні'
@@ -484,10 +433,7 @@ Settings:
       Folder Label: 'Папка для здымкаў'
       Folder Button: 'Выбраць папку'
       File Name Label: 'Шаблон назвы файла'
-      File Name Tooltip: 'Вы можаце выкарыстоўваць пераменныя ніжэй. %Y Год 4 лічбы.
-        %M Месяц 2 лічбы. %D Дні 2 лічбы. %H Гадзіны 2 лічбы. %N Хвіліны 2 лічбы.
-        %S Секунды 2 лічбы. %T Мілісекунды 3 лічбы. %s Секунды відэа. %t Мілісекунды
-        відэа 3 лічбы. %i Ідэнтыфікатар відэа.'
+      File Name Tooltip: 'Вы можаце выкарыстоўваць пераменныя ніжэй. %Y Год 4 лічбы. %M Месяц 2 лічбы. %D Дні 2 лічбы. %H Гадзіны 2 лічбы. %N Хвіліны 2 лічбы. %S Секунды 2 лічбы. %T Мілісекунды 3 лічбы. %s Секунды відэа. %t Мілісекунды відэа 3 лічбы. %i Ідэнтыфікатар відэа.'
       Error:
         Forbidden Characters: 'Забароненыя сімвалы'
         Empty File Name: 'Пустая назва файла'
@@ -501,8 +447,7 @@ Settings:
   External Player Settings:
     External Player Settings: 'Знешні прайгравальнік'
     External Player: 'Знешні прайгравальнік'
-    Ignore Unsupported Action Warnings: 'Ігнараваць папярэджанні аб дзеяннях, якія
-      не падтрымліваюцца'
+    Ignore Unsupported Action Warnings: 'Ігнараваць папярэджанні аб дзеяннях, якія не падтрымліваюцца'
     Custom External Player Executable: 'Шлях да ўласнага знешняга прайгравальніка'
     Custom External Player Arguments: 'Аргументы знешняга прайгравальніка'
     Players:
@@ -513,26 +458,20 @@ Settings:
     Privacy Settings: 'Прыватнасць'
     Remember History: 'Памятаць гісторыю прагляду'
     Save Watched Progress: 'Захоўваць прагрэс прагляду'
-    Save Watched Videos With Last Viewed Playlist: 'Захоўваць прагледжаныя відэа з
-      апошнім прагледжаным плэй-лістам'
+    Save Watched Videos With Last Viewed Playlist: 'Захоўваць прагледжаныя відэа з апошнім прагледжаным плэй-лістам'
     Clear Search Cache: 'Ачысціць кэш пошуку'
-    Are you sure you want to clear out your search cache?: 'Вы ўпэўнены, што хочаце
-      ачысціць кэш пошуку?'
+    Are you sure you want to clear out your search cache?: 'Вы ўпэўнены, што хочаце ачысціць кэш пошуку?'
     Search cache has been cleared: 'Кэш пошуку ачышчаны'
     Remove Watch History: 'Выдаліць гісторыю праглядаў'
-    Are you sure you want to remove your entire watch history?: 'Сапраўды выдаліць
-      усю гісторыю праглядаў?'
+    Are you sure you want to remove your entire watch history?: 'Сапраўды выдаліць усю гісторыю праглядаў?'
     Watch history has been cleared: 'Гісторыя праглядаў ачышчана'
     Remove All Subscriptions / Profiles: 'Выдаліць усе падпіскі / профілі'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Сапраўды
-      выдаліць усе падпіскі і профілі?  Гэта дзеянне нельга адмяніць.'
-    Are you sure you want to remove all your playlists?: Сапраўды хочаце выдаліць
-      усе свае плэй-лісты?
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Сапраўды выдаліць усе падпіскі і профілі?  Гэта дзеянне нельга адмяніць.'
+    Are you sure you want to remove all your playlists?: Сапраўды хочаце выдаліць усе свае плэй-лісты?
     Remove All Playlists: Выдаліць усе плэй-лісты
     All playlists have been removed: Усе плэй-лісты былі выдалены
     Clear Search History and Cache: Ачысціць гісторыю пошуку і кэш
-    Are you sure you want to clear out your search history and cache?: Сапраўды ачысціць
-      гісторыю пошуку і кэш?
+    Are you sure you want to clear out your search history and cache?: Сапраўды ачысціць гісторыю пошуку і кэш?
     Search history and cache have been cleared: Гісторыя пошуку і кэш ачышчаны
     Remember Search History: Памятаць гісторыю пошуку
     Watched Progress Saving Mode:
@@ -540,11 +479,7 @@ Settings:
         Auto: Аўтаматычна
         Semi-auto: Паўаўтаматычна
         Never: Ніколі
-      Tooltip: Аўта = Захоўваць пры кожным выхадзе са старонкі відэа, калі відэа скончылася
-        і ўзнікла памылка (напрыклад, хуткасць абмежавана і сеанс прагляду скончыўся).
-        Паўаўтаматычны = як і аўтаматычны, за выключэннем выхаду з відэастаронкі і
-        захавання прагрэсу ўручную з дапамогай кнопкі пад назвай "Захаваць прагледжаны
-        прагрэс", размешчанай пад відэаплэерам.
+      Tooltip: Аўта = Захоўваць пры кожным выхадзе са старонкі відэа, калі відэа скончылася і ўзнікла памылка (напрыклад, хуткасць абмежавана і сеанс прагляду скончыўся). Паўаўтаматычны = як і аўтаматычны, за выключэннем выхаду з відэастаронкі і захавання прагрэсу ўручную з дапамогай кнопкі пад назвай "Захаваць прагледжаны прагрэс", размешчанай пад відэаплэерам.
   Subscription Settings:
     Subscription Settings: 'Падпіскі'
     Hide Videos on Watch: 'Хаваць відэа пасля прагляду'
@@ -552,8 +487,7 @@ Settings:
     Fetch Automatically: 'Атрымліваць стужку аўтаматычна'
     Confirm Before Unsubscribing: Пацвярджаць адпісванне
     To: Да
-    'Limit the number of videos displayed for each channel': Абмежаваць колькасць
-      відэа, якія паказваюцца на кожным канале
+    'Limit the number of videos displayed for each channel': Абмежаваць колькасць відэа, якія паказваюцца на кожным канале
   Distraction Free Settings:
     Distraction Free Settings: 'Адцягненне ўвагі'
     Sections:
@@ -575,8 +509,7 @@ Settings:
     Hide Video Description: 'Хаваць апісанне відэа'
     Hide Comments: 'Хаваць каментарыі'
     Hide Profile Pictures in Comments: 'Хаваць фатаграфіі профіляў у каментарыях'
-    Display Titles Without Excessive Capitalisation: 'Паказваць загалоўкі без празмерных
-      вялікіх літар і знакаў прыпынку'
+    Display Titles Without Excessive Capitalisation: 'Паказваць загалоўкі без празмерных вялікіх літар і знакаў прыпынку'
     Hide Live Streams: 'Хаваць жывыя эфіры'
     Hide Upcoming Premieres: 'Хаваць будучыя прэм''еры'
     Hide Sharing Actions: 'Хаваць дзеянні абагульвання'
@@ -592,19 +525,16 @@ Settings:
     Hide Subscriptions Shorts: 'Хаваць кароткія відэа з падпісак'
     Hide Subscriptions Live: 'Хаваць трансляцыі з падпісак'
     Hide Channels Already Exists: Ідэнтыфікатар канала ўжо існуе
-    Hide Videos and Playlists Containing Text: Хаваць відэа і плэй-лісты, якія змяшчаюць
-      тэкст
-    Hide Videos and Playlists Containing Text Placeholder: Слова, фрагмент слова або
-      фраза
-    Hide Channels Disabled Message: Некаторыя каналы былі заблакіраваны з дапамогай
-      ідэнтыфікатара і не былі апрацаваны. Функцыя заблакіравана, пакуль гэтыя ідэнтыфікатары
-      абнаўляюцца
+    Hide Videos and Playlists Containing Text: Хаваць відэа і плэй-лісты, якія змяшчаюць тэкст
+    Hide Videos and Playlists Containing Text Placeholder: Слова, фрагмент слова або фраза
+    Hide Channels Disabled Message: Некаторыя каналы былі заблакіраваны з дапамогай ідэнтыфікатара і не былі апрацаваны. Функцыя заблакіравана, пакуль гэтыя ідэнтыфікатары абнаўляюцца
     Hide Channels Invalid: Памылковы ідэнтыфікатар канала
-    Hide Channels API Error: Памылка атрымання карыстальніка з указаным ідэнтыфікатарам.
-      Праверце яшчэ раз, ці правільны ідэнтыфікатар.
+    Hide Channels API Error: Памылка атрымання карыстальніка з указаным ідэнтыфікатарам. Праверце яшчэ раз, ці правільны ідэнтыфікатар.
     Hide Channel Home: Хаваць укладку «Галоўная старонка»
     Show Added Items: Паказаць дададзеныя элементы
     Hide Channel Courses: Схаваць укладку «Курсы» канала
+    Hide Channel Posts: Хаваць укладку «Публікацыі»
+    Hide Subscriptions Posts: Хаваць публікацыі з падпісак
   Data Settings:
     Data Settings: 'Даныя'
     Select Export Type: 'Выбраць тып экспарту'
@@ -620,24 +550,17 @@ Settings:
     Export History: 'Экспарт гісторыі'
     Import Playlists: 'Імпарт плэй-лістоў'
     Export Playlists: 'Экспарт плэй-лістоў'
-    Profile object has insufficient data, skipping item: 'Аб''ект профілю мае недастаткова
-      даных, пропуск элемента'
-    All subscriptions and profiles have been successfully imported: 'Усе падпіскі
-      і профілі былі паспяхова імпартаваны'
-    All subscriptions have been successfully imported: 'Усе падпіскі былі паспяхова
-      імпартаваны'
+    Profile object has insufficient data, skipping item: 'Аб''ект профілю мае недастаткова даных, пропуск элемента'
+    All subscriptions and profiles have been successfully imported: 'Усе падпіскі і профілі былі паспяхова імпартаваны'
+    All subscriptions have been successfully imported: 'Усе падпіскі былі паспяхова імпартаваны'
     Invalid subscriptions file: 'Няправільны файл падпісак'
     This might take a while, please wait: ''
     Invalid history file: 'Няправільны файл гісторыі'
     Subscriptions have been successfully exported: 'Падпіскі былі паспяхова экспартаваныя'
-    History object has insufficient data, skipping item: 'Аб''ект гісторыі мае недастаткова
-      даных, пропуск элемента'
-    All watched history has been successfully imported: 'Уся гісторыя праглядаў была
-      паспяхова імпартавана'
-    All watched history has been successfully exported: 'Уся гісторыя праглядаў была
-      паспяхова экспартавана'
-    Playlist insufficient data: 'Недастаткова даных для плэй-ліста "{playlist}", пропуск
-      элемента'
+    History object has insufficient data, skipping item: 'Аб''ект гісторыі мае недастаткова даных, пропуск элемента'
+    All watched history has been successfully imported: 'Уся гісторыя праглядаў была паспяхова імпартавана'
+    All watched history has been successfully exported: 'Уся гісторыя праглядаў была паспяхова экспартавана'
+    Playlist insufficient data: 'Недастаткова даных для плэй-ліста "{playlist}", пропуск элемента'
     All playlists has been successfully imported: 'Усе плэй-лісты былі паспяхова імпартаваны'
     All playlists has been successfully exported: 'Усе плэй-лісты былі паспяхова экспартаваны'
     Unable to read file: 'Немагчыма прачытаць файл'
@@ -647,39 +570,26 @@ Settings:
     Manage Subscriptions: 'Кіраванне падпіскамі'
     Export Playlists For Older FreeTube Versions:
       Label: Экспарт плэй-лістоў для старых версій FreeTube
-      Tooltip: "Гэты параметр экспартуе відэа з усіх плэй-лістоў у адзін плэй-ліст
-        пад назвай «Выбранае».\nЯк экспартаваць і імпартаваць відэа ў плэй-лісты для
-        старой версіі FreeTube:\n1. Экспартуйце свае плэй-лісты з уключанай опцыяй.\n
-        2. Выдаліце ўсе існуючыя плэй-лісты, выкарыстоўваючы опцыю «Выдаліць усе плэй-лісты»
-        ў раздзеле «Налады прыватнасці».\n3. Запусціце старую версію FreeTube і імпартуйце
-        экспартаваныя плэй-лісты.\""
+      Tooltip: "Гэты параметр экспартуе відэа з усіх плэй-лістоў у адзін плэй-ліст пад назвай «Выбранае».\nЯк экспартаваць і імпартаваць відэа ў плэй-лісты для старой версіі FreeTube:\n1. Экспартуйце свае плэй-лісты з уключанай опцыяй.\n 2. Выдаліце ўсе існуючыя плэй-лісты, выкарыстоўваючы опцыю «Выдаліць усе плэй-лісты» ў раздзеле «Налады прыватнасці».\n3. Запусціце старую версію FreeTube і імпартуйце экспартаваныя плэй-лісты.\""
   Proxy Settings:
     Proxy Settings: 'Проксі'
     Enable Tor / Proxy: 'Уключыць Tor / Проксі'
     Proxy Protocol: 'Пратакол проксі'
     Proxy Host: 'Адрас проксі'
     Proxy Port Number: 'Нумар порта проксі'
-    Clicking on Test Proxy will send a request to: 'Пры націску на "Тэст проксі" будзе
-      адпраўлены запыт на'
+    Clicking on Test Proxy will send a request to: 'Пры націску на "Тэст проксі" будзе адпраўлены запыт на'
     Test Proxy: 'Тэст проксі'
     Your Info: 'Ваша інфармацыя'
     Ip: 'IP'
     Country: 'Краіна'
     Region: 'Рэгіён'
     City: 'Горад'
-    Error getting network information. Is your proxy configured properly?: 'Памылка
-      атрымання інфармацыі аб сетцы. Ці правільна наладжаны ваш проксі?'
-    Proxy Warning: FreeTube не мае ўбудаванага проксі-сервера, але можа падключацца
-      да знешняга проксі-сервера, напрыклад, да таго, які працуе на вашым кампутары,
-      як Tor, або да знешняга проксі-сервера, напрыклад, да проксі-сервера SOCKS5,
-      які прадастаўляецца некаторымі VPN. Калі гэта ўключана, пераканайцеся, што ваш
-      проксі/Tor наладжаны належным чынам, інакш FreeTube не зможа атрымаць якія-небудзь
-      дадзеныя.
+    Error getting network information. Is your proxy configured properly?: 'Памылка атрымання інфармацыі аб сетцы. Ці правільна наладжаны ваш проксі?'
+    Proxy Warning: FreeTube не мае ўбудаванага проксі-сервера, але можа падключацца да знешняга проксі-сервера, напрыклад, да таго, які працуе на вашым кампутары, як Tor, або да знешняга проксі-сервера, напрыклад, да проксі-сервера SOCKS5, які прадастаўляецца некаторымі VPN. Калі гэта ўключана, пераканайцеся, што ваш проксі/Tor наладжаны належным чынам, інакш FreeTube не зможа атрымаць якія-небудзь дадзеныя.
   SponsorBlock Settings:
     SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Уключыць SponsorBlock'
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'URL-адрас SponsorBlock
-      API (па змаўчанні https://sponsor.ajay.app)'
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'URL-адрас SponsorBlock API (па змаўчанні https://sponsor.ajay.app)'
     Notify when sponsor segment is skipped: 'Апавяшчаць, калі сегмент спонсара прапушчаны'
     UseDeArrowTitles: 'Выкарыстоўваць загалоўкі відэа DeArrow'
     Skip Options:
@@ -689,8 +599,7 @@ Settings:
       Prompt To Skip: 'Прапаноўваць прапусціць'
       Do Nothing: 'Нічога не рабіць'
     Category Color: 'Колер катэгорыі'
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL-адрас
-      API генератара мініяцюр DeArrow (па змаўчанні https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL-адрас API генератара мініяцюр DeArrow (па змаўчанні https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Выкарыстоўваць DeArrow для мініяцюр
   Parental Control Settings:
     Parental Control Settings: 'Бацькоўскі кантроль'
@@ -706,9 +615,7 @@ Settings:
     Open in web browser: 'Адкрываць у вэб-браўзеры'
   Experimental Settings:
     Experimental Settings: 'Эксперыменты'
-    Warning: 'Гэтыя налады эксперыментальныя і могуць выклікаць збоі праграмы. Вы
-      выкарыстоўвайце іх на свой страх і рызыку. Настойліва рэкамендуем рабіць рэзервовыя
-      копіі!'
+    Warning: 'Гэтыя налады эксперыментальныя і могуць выклікаць збоі праграмы. Вы выкарыстоўвайце іх на свой страх і рызыку. Настойліва рэкамендуем рабіць рэзервовыя копіі!'
     Replace HTTP Cache: 'Замяніць кэш HTTP'
   Password Dialog:
     Password: 'Пароль'
@@ -733,8 +640,7 @@ About:
   Discussions: 'Абмеркаванні'
   Report a problem: 'Паведаміць пра праблему'
   GitHub issues: 'Праблемы на GitHub'
-  Please check for duplicates before posting: 'Перад публікацыяй праверце наяўнасць
-    дублікатаў'
+  Please check for duplicates before posting: 'Перад публікацыяй праверце наяўнасць дублікатаў'
   Website: 'Вэб-сайт'
   Blog: 'Блог'
   Email: 'Электронная пошта'
@@ -771,11 +677,9 @@ Profile:
   Your profile name cannot be empty: 'Назва вашага профілю не можа быць пустой'
   Profile has been created: 'Профіль створаны'
   Profile has been updated: 'Профіль абноўлены'
-  Your default profile has been set to {profile}: 'Профілем па змаўчанні зададзены
-    {profile}'
+  Your default profile has been set to {profile}: 'Профілем па змаўчанні зададзены {profile}'
   Removed {profile} from your profiles: '{profile} выдалены з вашых профіляў'
-  Your default profile has been changed to your primary profile: 'Ваш профіль па змаўчанні
-    быў зменены на асноўны'
+  Your default profile has been changed to your primary profile: 'Ваш профіль па змаўчанні быў зменены на асноўны'
   '{profile} is now the active profile': '{profile} цяпер актыўны профіль'
   Subscription List: 'Спіс падпісак'
   Other Channels: 'Іншыя каналы'
@@ -785,12 +689,9 @@ Profile:
   Delete Selected: 'Выдаліць выбранае'
   Add Selected To Profile: 'Дадаць выбранае ў профіль'
   No channel(s) have been selected: 'Канал(-ы) не выбраны'
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : 'Гэта ваш асноўны профіль.  Сапраўды выдаліць выбраныя каналы?  Яны будуць выдалены
-    з кожнага профілю, у якім знаходзяцца.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Сапраўды
-    выдаліць выбраныя каналы?  Канал не будзе выдалены з іншых профіляў.'
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : 'Гэта ваш асноўны профіль.  Сапраўды выдаліць выбраныя каналы?  Яны будуць выдалены з кожнага профілю, у якім знаходзяцца.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Сапраўды выдаліць выбраныя каналы?  Канал не будзе выдалены з іншых профіляў.'
 #On Channel Page
   Edit Profile Name: Рэдагаваць назву профілю
   Create Profile Name: Стварыце назву профілю
@@ -801,15 +702,13 @@ Channel:
   Subscribe: 'Падпісацца'
   Unsubscribe: 'Адпісацца'
   Channel has been removed from your subscriptions: 'Канал быў выдалены з вашых падпісак'
-  Removed subscription from {count} other channel(s): 'Падпіска выдалена з {count}
-    іншага канала(ў)'
+  Removed subscription from {count} other channel(s): 'Падпіска выдалена з {count} іншага канала(ў)'
   Added channel to your subscriptions: 'Канал дададзены да вашых падпісак'
   Search Channel: 'Пошук на канале'
   Your search results have returned 0 results: 'Пошук даў 0 вынікаў'
   This channel does not exist: 'Гэты канал не існуе'
   This channel does not allow searching: 'Гэты канал не дазваляе шукаць'
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Гэты
-    канал абмежаваны па ўзросце, і зараз яго нельга праглядаць у FreeTube.'
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: 'Гэты канал абмежаваны па ўзросце, і зараз яго нельга праглядаць у FreeTube.'
   Channel Tabs: 'Укладкі канала'
   Videos:
     Videos: 'Відэа'
@@ -819,28 +718,23 @@ Channel:
       Oldest: 'Самае старое'
       Most Popular: 'Самае папулярнае'
   Shorts:
-    This channel does not currently have any shorts: 'Зараз на гэтым канале няма кароткіх
-      відэа'
+    This channel does not currently have any shorts: 'Зараз на гэтым канале няма кароткіх відэа'
   Live:
     Live: 'Ужывую'
-    This channel does not currently have any live streams: 'Зараз на гэтым канале
-      няма жывых трансляцый'
+    This channel does not currently have any live streams: 'Зараз на гэтым канале няма жывых трансляцый'
   Playlists:
     Playlists: 'Плэй-лісты'
-    This channel does not currently have any playlists: 'Зараз на гэтым канале няма
-      плэй-лістоў'
+    This channel does not currently have any playlists: 'Зараз на гэтым канале няма плэй-лістоў'
     Sort Types:
       Last Video Added: 'Апошняе дададзенае відэа'
       Newest: 'Самае новае'
       Oldest: 'Самае старое'
   Podcasts:
     Podcasts: 'Падкасты'
-    This channel does not currently have any podcasts: 'Зараз на гэтым канале няма
-      падкастаў'
+    This channel does not currently have any podcasts: 'Зараз на гэтым канале няма падкастаў'
   Releases:
     Releases: 'Выпускі'
-    This channel does not currently have any releases: 'Зараз на гэтым канале няма
-      выпускаў'
+    This channel does not currently have any releases: 'Зараз на гэтым канале няма выпускаў'
   About:
     About: 'Пра канал'
     Channel Description: 'Апісанне канала'
@@ -871,13 +765,11 @@ Video:
   Video has been removed from your history: 'Відэа было выдалена з вашай гісторыі'
   Save Video: 'Захаваць відэа'
   Video has been saved: 'Відэа захавана'
-  Video has been removed from your saved list: 'Відэа было выдалена з вашага спісу
-    захаваных'
+  Video has been removed from your saved list: 'Відэа было выдалена з вашага спісу захаваных'
   Open in YouTube: 'Адкрыць у YouTube'
   Copy YouTube Link: 'Скапіяваць спасылку YouTube'
   Open YouTube Embedded Player: 'Адкрыць убудаваны прайгравальнік YouTube'
-  Copy YouTube Embedded Player Link: 'Скапіяваць спасылку на ўбудаваны прайгравальнік
-    YouTube'
+  Copy YouTube Embedded Player Link: 'Скапіяваць спасылку на ўбудаваны прайгравальнік YouTube'
   Open in Invidious: 'Адкрыць у Invidious'
   Copy Invidious Link: 'Скапіяваць спасылку Invidious'
   Open Channel in YouTube: 'Адкрыць канал у YouTube'
@@ -892,8 +784,7 @@ Video:
   Play Previous Video: 'Прайграць папярэдняе відэа'
   Watched: 'Прагледжанае'
   Autoplay: 'Аўтапрайграванне'
-  Starting soon, please refresh the page to check again: 'Хутка пачнецца, абнавіце
-    старонку, каб праверыць яшчэ раз'
+  Starting soon, please refresh the page to check again: 'Хутка пачнецца, абнавіце старонку, каб праверыць яшчэ раз'
   # As in a Live Video
   Premieres: 'Прэм''еры'
   Upcoming: 'Хутка'
@@ -901,15 +792,10 @@ Video:
   Live Now: 'Зараз у эфіры'
   Live Chat: 'Жывы чат'
   Enable Live Chat: 'Уключыць жывы чат'
-  Live Chat is currently not supported in this build.: 'Жывы чат зараз не падтрымліваецца
-    ў гэтай зборцы.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Жывы чат уключаны.  Паведамленні
-    чата з''явяцца тут пасля адпраўкі.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Жывы
-    чат зараз не падтрымліваецца Invidious API.  Патрабуецца прамое падключэнне да
-    YouTube.'
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'Жывы
-    чат недаступны для гэтай трансляцыі. Магчыма, ён быў адключаны запампавальнікам.'
+  Live Chat is currently not supported in this build.: 'Жывы чат зараз не падтрымліваецца ў гэтай зборцы.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Жывы чат уключаны.  Паведамленні чата з''явяцца тут пасля адпраўкі.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Жывы чат зараз не падтрымліваецца Invidious API.  Патрабуецца прамое падключэнне да YouTube.'
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'Жывы чат недаступны для гэтай трансляцыі. Магчыма, ён быў адключаны запампавальнікам.'
   Show Super Chat Comment: 'Паказаць каментарый Суперчата'
   Scroll to Bottom: 'Пракруціць уніз'
   Download Video: 'Спампаваць відэа'
@@ -939,8 +825,7 @@ Video:
       starting video at offset: 'пачатак відэа са зрушэннем'
       setting a playback rate: 'налада хуткасці прайгравання'
       opening playlists: 'адкрыццё плэй-лістоў'
-      opening specific video in a playlist (falling back to opening the video): 'адкрыццё
-        пэўнага відэа ў плэй-лісце (вяртанне да адкрыцця відэа)'
+      opening specific video in a playlist (falling back to opening the video): 'адкрыццё пэўнага відэа ў плэй-лісце (вяртанне да адкрыцця відэа)'
       reversing playlists: 'пераварочванне плэй-ліста'
       shuffling playlists: 'перамешванне плэй-лістоў'
       looping playlists: 'зацыкліванне плэй-лістоў'
@@ -948,8 +833,7 @@ Video:
   Hide Channel: Схаваць канал
   Unhide Channel: Паказаць канал
   More Options: Іншыя параметры
-  IP block: YouTube заблакіраваў ваш IP-адрас для прагляду відэа. Паспрабуйце пераключыцца
-    на іншы VPN або проксі.
+  IP block: YouTube заблакіраваў ваш IP-адрас для прагляду відэа. Паспрабуйце пераключыцца на іншы VPN або проксі.
   Player:
     Audio Tracks: Гукавыя дарожкі
     Full Window: Поўнаэкранны рэжым
@@ -961,8 +845,7 @@ Video:
       Bitrate: 'Бітрэйт: {bitrate} кбіт/с'
       Buffered: 'Буферызавана: {bufferedPercentage}%'
       Resolution: 'Раздзяляльнасць: {width}x{height}@{frameRate}'
-      Dropped Frames / Total Frames: 'Прапушчаныя кадры: {droppedFrames} / Усяго кадраў:
-        {totalFrames}'
+      Dropped Frames / Total Frames: 'Прапушчаныя кадры: {droppedFrames} / Усяго кадраў: {totalFrames}'
       CodecsVideoAudio: 'Кодэкі: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Кодэкі: {videoCodec} / {audioCodec}'
       Volume: 'Гучнасць: {volumePercentage}%'
@@ -977,8 +860,7 @@ Video:
     Show Stats: Паказаць статыстыку
     Exit Theatre Mode: Выйдзіце з рэжыму тэатра
     You appear to be offline: Здаецца, вы па-за сеткай.
-    Playback will resume automatically when your connection comes back: Прайграванне
-      ўзновіцца аўтаматычна, калі падключэнне адновіцца.
+    Playback will resume automatically when your connection comes back: Прайграванне ўзновіцца аўтаматычна, калі падключэнне адновіцца.
 #& Playlists
     Autoplay is off: Аўтапрайграванне выключана
     Autoplay is on: Аўтапрайграванне ўключана
@@ -986,15 +868,9 @@ Video:
   DeArrow:
     Show Original Details: Паказаць арыгінальныя дэталі
     Show Modified Details: Паказаць змененыя дэталі
-  MembersOnly: Відэа толькі для спонсараў нельга глядзець з дапамогай FreeTube, бо
-    яны патрабуюць уваходу ў Google і платнага членства на канале загрузчыка.
-  AgeRestricted: Відэа з абмежаваннем па ўзросце нельга глядзець з дапамогай FreeTube,
-    бо яны патрабуюць уваходу ў Google і выкарыстання ўліковага запісу YouTube, праверанага
-    па ўзросце.
-  DRMProtected: Відэа, абароненыя DRM, нельга прайграваць у FreeTube, бо для іх патрэбны
-    прапрыетарныя кампаненты з закрытым зыходным кодам. Калі вы хочаце паглядзець
-    гэтае відэа, праглядзіце яго на афіцыйным сайце YouTube у вэб-браўзеры з падтрымкай
-    DRM.
+  MembersOnly: Відэа толькі для спонсараў нельга глядзець з дапамогай FreeTube, бо яны патрабуюць уваходу ў Google і платнага членства на канале загрузчыка.
+  AgeRestricted: Відэа з абмежаваннем па ўзросце нельга глядзець з дапамогай FreeTube, бо яны патрабуюць уваходу ў Google і выкарыстання ўліковага запісу YouTube, праверанага па ўзросце.
+  DRMProtected: Відэа, абароненыя DRM, нельга прайграваць у FreeTube, бо для іх патрэбны прапрыетарныя кампаненты з закрытым зыходным кодам. Калі вы хочаце паглядзець гэтае відэа, праглядзіце яго на афіцыйным сайце YouTube у вэб-браўзеры з падтрымкай DRM.
   Save Watched Progress: Захаваць назіраны прагрэс
   Watched Progress Saved: Працэс захаваны
 Playlist:
@@ -1023,12 +899,9 @@ Change Format:
   Use Dash Formats: 'Выкарыстоўваць фарматы DASH'
   Use Legacy Formats: 'Выкарыстоўваць старыя фарматы'
   Use Audio Formats: 'Выкарыстоўваць аўдыяфарматы'
-  Dash formats are not available for this video: 'Фарматы DASH недаступныя для гэтага
-    відэа'
-  Audio formats are not available for this video: 'Аўдыяфарматы недаступныя для гэтага
-    відэа'
-  Legacy formats are not available for this video: Састарэлыя фарматы недаступныя
-    для гэтага відэа
+  Dash formats are not available for this video: 'Фарматы DASH недаступныя для гэтага відэа'
+  Audio formats are not available for this video: 'Аўдыяфарматы недаступныя для гэтага відэа'
+  Legacy formats are not available for this video: Састарэлыя фарматы недаступныя для гэтага відэа
 Share:
   Share Video: 'Падзяліцца відэа'
   Share Channel: 'Падзяліцца каналам'
@@ -1040,26 +913,19 @@ Share:
   Open Embed: 'Адкрыць убудаванае'
   # On Click
   Invidious URL copied to clipboard: 'URL-адрас Invidious скапіяваны ў буфер абмену'
-  Invidious Embed URL copied to clipboard: 'Invidious URL-адрас для ўбудавання скапіяваны
-    ў буфер абмену'
-  Invidious Channel URL copied to clipboard: 'URL-адрас канала Invidious скапіяваны
-    ў буфер абмену'
+  Invidious Embed URL copied to clipboard: 'Invidious URL-адрас для ўбудавання скапіяваны ў буфер абмену'
+  Invidious Channel URL copied to clipboard: 'URL-адрас канала Invidious скапіяваны ў буфер абмену'
   YouTube URL copied to clipboard: 'URL-адрас YouTube скапіяваны ў буфер абмену'
-  YouTube Embed URL copied to clipboard: 'URL-адрас YouTube для ўбудавання скапіяваны
-    ў буфер абмену'
-  YouTube Channel URL copied to clipboard: 'URL-адрас канала YouTube скапіяваны ў
-    буфер абмену'
+  YouTube Embed URL copied to clipboard: 'URL-адрас YouTube для ўбудавання скапіяваны ў буфер абмену'
+  YouTube Channel URL copied to clipboard: 'URL-адрас канала YouTube скапіяваны ў буфер абмену'
 Clipboard:
   Copy failed: 'Не атрымалася скапіяваць у буфер абмену'
-  Cannot access clipboard without a secure connection: 'Немагчыма атрымаць доступ
-    да буфера абмену без бяспечнага злучэння'
+  Cannot access clipboard without a secure connection: 'Немагчыма атрымаць доступ да буфера абмену без бяспечнага злучэння'
 
 Chapters:
   Chapters: 'Раздзелы'
-  'Chapters list visible, current chapter: {chapterName}': 'Бачны спіс раздзелаў,
-    бягучы раздзел: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Спіс раздзелаў схаваны,
-    бягучы раздзел: {chapterName}'
+  'Chapters list visible, current chapter: {chapterName}': 'Бачны спіс раздзелаў, бягучы раздзел: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Спіс раздзелаў схаваны, бягучы раздзел: {chapterName}'
 
   Key Moments: Ключавыя моманты
 Mini Player: 'Міні плэер'
@@ -1092,77 +958,38 @@ Up Next: 'Далей'
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: 'Выберыце бэкэнд, які FreeTube выкарыстоўвае для атрымання
-      даных. Лакальны API - гэта ўбудаваны экстрактар. Для падключэння Invidious API
-      патрабуецца сервер Invidious.'
-    Fallback to Non-Preferred Backend on Failure: 'Калі ў вашым абраным API ўзнікае
-      праблема, FreeTube аўтаматычна паспрабуе выкарыстаць непрыярытэтны API у якасці
-      рэзервовага метаду, калі ён уключаны.'
-    Thumbnail Preference: 'Усе мініяцюры FreeTube будуць заменены кадрам відэа, размыты
-      або схаваны замест мініяцюр па змаўчанні.'
-    Invidious Instance: 'Экзэмпляр Invidious, да якога FreeTube будзе падключацца
-      для выклікаў API.'
-    Region for Trending: 'Рэгіён трэндаў дазваляе вам выбраць папулярныя відэа краіны,
-      якія вы жадаеце паказваць.'
+    Preferred API Backend: 'Выберыце бэкэнд, які FreeTube выкарыстоўвае для атрымання даных. Лакальны API - гэта ўбудаваны экстрактар. Для падключэння Invidious API патрабуецца сервер Invidious.'
+    Fallback to Non-Preferred Backend on Failure: 'Калі ў вашым абраным API ўзнікае праблема, FreeTube аўтаматычна паспрабуе выкарыстаць непрыярытэтны API у якасці рэзервовага метаду, калі ён уключаны.'
+    Thumbnail Preference: 'Усе мініяцюры FreeTube будуць заменены кадрам відэа, размыты або схаваны замест мініяцюр па змаўчанні.'
+    Invidious Instance: 'Экзэмпляр Invidious, да якога FreeTube будзе падключацца для выклікаў API.'
+    Region for Trending: 'Рэгіён трэндаў дазваляе вам выбраць папулярныя відэа краіны, якія вы жадаеце паказваць.'
     External Link Handling: |
       Выберыце паводзіны па змаўчанні, калі націскаецца спасылка, якую нельга адкрыць у FreeTube..
       Па змаўчанні FreeTube адкрые націснутую спасылку ў браўзеры па змаўчанні.
-    Open Deep Links In New Window: URL-адрасы, якія перадаюцца FreeTube, напрыклад,
-      шляхам перанакіравання пашырэнняў браўзера або аргументаў каманднага радка,
-      адкрываюцца ў новым акне.
+    Open Deep Links In New Window: URL-адрасы, якія перадаюцца FreeTube, напрыклад, шляхам перанакіравання пашырэнняў браўзера або аргументаў каманднага радка, адкрываюцца ў новым акне.
   Player Settings:
-    Proxy Videos Through Invidious: 'Будзе падключацца да Invidious для прагляду відэа
-      замест прамога падключэння да YouTube.'
-    Default Video Format: 'Задайце фарматы, якія выкарыстоўваюцца пры прайграванні
-      відэа. Фарматы DASH могуць прайграваць больш высокія якасці. Састарэлыя фарматы
-      абмежаваныя максімумам 360p, але выкарыстоўваюць меншую паласу прапускання.
-      Аўдыяфарматы - гэта толькі аўдыяпатокі.'
-    Scroll Playback Rate Over Video Player: 'Калі курсор знаходзіцца над відэа, націсніце
-      і ўтрымлівайце клавішу Control (клавіша Command на Mac) і круціце кола мышы
-      ўверх або ўніз, каб кіраваць хуткасцю прайгравання. Націсніце і ўтрымлівайце
-      клавішу Control (клавіша Command на Mac) і націсніце левай кнопкай мышы, каб
-      хутка вярнуцца да хуткасці прайгравання па змаўчанні (1x, калі яна не была зменена
-      ў наладах).'
-    Skip by Scrolling Over Video Player: 'Выкарыстоўваць кола мышы, каб прапускаць
-      відэа як у MPV.'
+    Proxy Videos Through Invidious: 'Будзе падключацца да Invidious для прагляду відэа замест прамога падключэння да YouTube.'
+    Default Video Format: 'Задайце фарматы, якія выкарыстоўваюцца пры прайграванні відэа. Фарматы DASH могуць прайграваць больш высокія якасці. Састарэлыя фарматы абмежаваныя максімумам 360p, але выкарыстоўваюць меншую паласу прапускання. Аўдыяфарматы - гэта толькі аўдыяпатокі.'
+    Scroll Playback Rate Over Video Player: 'Калі курсор знаходзіцца над відэа, націсніце і ўтрымлівайце клавішу Control (клавіша Command на Mac) і круціце кола мышы ўверх або ўніз, каб кіраваць хуткасцю прайгравання. Націсніце і ўтрымлівайце клавішу Control (клавіша Command на Mac) і націсніце левай кнопкай мышы, каб хутка вярнуцца да хуткасці прайгравання па змаўчанні (1x, калі яна не была зменена ў наладах).'
+    Skip by Scrolling Over Video Player: 'Выкарыстоўваць кола мышы, каб прапускаць відэа як у MPV.'
   External Player Settings:
-    External Player: 'Пры выбары знешняга прайгравальніка на мініяцюры будзе адлюстроўвацца
-      значок для адкрыцця відэа (плэй-ліста, калі падтрымліваецца) у знешнім прайгравальніку.
-      Увага, налады Invidious не ўплываюць на знешнія прайгравальнікі.'
-    Custom External Player Executable: 'Па змаўчанні FreeTube мяркуе, што абраны знешні
-      прайгравальнік можна знайсці праз пераменную асяроддзя PATH. Пры неабходнасці
-      тут можна задаць уласны шлях.'
-    Ignore Warnings: 'Адключыць папярэджанні, калі бягучы знешні прайгравальнік не
-      падтрымлівае бягучае дзеянне (напрыклад, пераварочванне плэй-ліста і г.д.).'
-    Custom External Player Arguments: 'Любыя карыстальніцкія аргументы каманднага
-      радка, якія вы хочаце перадаць знешняму прайгравальніку.'
+    External Player: 'Пры выбары знешняга прайгравальніка на мініяцюры будзе адлюстроўвацца значок для адкрыцця відэа (плэй-ліста, калі падтрымліваецца) у знешнім прайгравальніку. Увага, налады Invidious не ўплываюць на знешнія прайгравальнікі.'
+    Custom External Player Executable: 'Па змаўчанні FreeTube мяркуе, што абраны знешні прайгравальнік можна знайсці праз пераменную асяроддзя PATH. Пры неабходнасці тут можна задаць уласны шлях.'
+    Ignore Warnings: 'Адключыць папярэджанні, калі бягучы знешні прайгравальнік не падтрымлівае бягучае дзеянне (напрыклад, пераварочванне плэй-ліста і г.д.).'
+    Custom External Player Arguments: 'Любыя карыстальніцкія аргументы каманднага радка, якія вы хочаце перадаць знешняму прайгравальніку.'
     DefaultCustomArgumentsTemplate: "(Па змаўчанні: '{defaultCustomArguments}')"
-    Ignore Default Arguments: Не адпраўляйце ніякіх аргументаў па змаўчанні на знешні
-      прайгравальнік, акрамя URL-адраса відэа (напрыклад, частата прайгравання, URL-адрас
-      плэй-ліста і г.д.). Карыстальніцкія аргументы ўсё роўна будуць перадавацца.
+    Ignore Default Arguments: Не адпраўляйце ніякіх аргументаў па змаўчанні на знешні прайгравальнік, акрамя URL-адраса відэа (напрыклад, частата прайгравання, URL-адрас плэй-ліста і г.д.). Карыстальніцкія аргументы ўсё роўна будуць перадавацца.
   Distraction Free Settings:
-    Hide Channels: 'Увядзіце ідэнтыфікатар канала, каб схаваць усе відэа, плэй-лісты
-      і сам канал ад з''яўлення ў пошукавых, трэндавых, самых папулярных і рэкамендаваных.
-      Уведзены ідэнтыфікатар канала павінен цалкам супадаць і ўлічваць рэгістр.'
-    Hide Subscriptions Live: 'Гэта налада перавызначаецца наладай "{appWideSetting}"
-      для ўсёй праграмы ў раздзеле "{subsection}" у "{settingsSection}"'
-    Hide Videos and Playlists Containing Text: Увядзіце слова, фрагмент слова або
-      фразу (без уліку рэгістра), каб схаваць усе відэа і плэй-лісты, арыгінальныя
-      назвы якіх утрымліваюць гэта, ва ўсім FreeTube, за выключэннем толькі Гісторыі,
-      Вашых плэй-лістоў і відэа ў плэй-лістах.
+    Hide Channels: 'Увядзіце ідэнтыфікатар канала, каб схаваць усе відэа, плэй-лісты і сам канал ад з''яўлення ў пошукавых, трэндавых, самых папулярных і рэкамендаваных. Уведзены ідэнтыфікатар канала павінен цалкам супадаць і ўлічваць рэгістр.'
+    Hide Subscriptions Live: 'Гэта налада перавызначаецца наладай "{appWideSetting}" для ўсёй праграмы ў раздзеле "{subsection}" у "{settingsSection}"'
+    Hide Videos and Playlists Containing Text: Увядзіце слова, фрагмент слова або фразу (без уліку рэгістра), каб схаваць усе відэа і плэй-лісты, арыгінальныя назвы якіх утрымліваюць гэта, ва ўсім FreeTube, за выключэннем толькі Гісторыі, Вашых плэй-лістоў і відэа ў плэй-лістах.
   Subscription Settings:
-    Fetch Feeds from RSS: 'Пры ўключэнні FreeTube будзе выкарыстоўваць RSS замест
-      метаду па змаўчанні для атрымання вашай стужкі падпіскі. RSS працуе хутчэй і
-      прадухіляе блакіроўку IP-адрасоў, але не дае пэўнай інфармацыі, такой як працягласць
-      відэа, стан у прамым эфіры або паведамленняў у супольнасці'
-    Fetch Automatically: 'Калі ўключана, FreeTube будзе аўтаматычна атрымліваць стужку
-      вашай падпіскі пры адкрыцці новага акна і пры пераключэнні профілю.'
+    Fetch Feeds from RSS: 'Пры ўключэнні FreeTube будзе выкарыстоўваць RSS замест метаду па змаўчанні для атрымання вашай стужкі падпіскі. RSS працуе хутчэй і прадухіляе блакіроўку IP-адрасоў, але не дае пэўнай інфармацыі, такой як працягласць відэа, стан у прамым эфіры або паведамленняў у супольнасці'
+    Fetch Automatically: 'Калі ўключана, FreeTube будзе аўтаматычна атрымліваць стужку з вашых падпісак падчас запуску і пры адкрыцці новага акна.'
   Experimental Settings:
-    Replace HTTP Cache: 'Адключае HTTP кэш Electron''у на дыску і ўключае карыстальніцкі
-      кэш малюнкаў у памяці. Прывядзе да павелічэння выкарыстання аператыўнай памяці.'
+    Replace HTTP Cache: 'Адключае HTTP кэш Electron''у на дыску і ўключае карыстальніцкі кэш малюнкаў у памяці. Прывядзе да павелічэння выкарыстання аператыўнай памяці.'
   SponsorBlock Settings:
-    UseDeArrowTitles: 'Заменіце загалоўкі відэа на загалоўкі, прадстаўленыя карыстальнікамі
-      з DeArrow.'
+    UseDeArrowTitles: 'Заменіце загалоўкі відэа на загалоўкі, прадстаўленыя карыстальнікамі з DeArrow.'
 
 # Toast Messages
     UseDeArrowThumbnails: Заменіце мініяцюры відэа на мініяцюры ад DeArrow.
@@ -1170,11 +997,8 @@ Local API Error (Click to copy): 'Памылка лакальнага API (на�
 Invidious API Error (Click to copy): 'Памылка API Invidious (Націсніце, каб скапіяваць)'
 Falling back to Invidious API: 'Вяртанне да Invidious API'
 Falling back to Local API: 'Вяртанне да лакальнага API'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Гэта
-  відэа недаступнае з-за адсутнасці фарматаў. Гэта можа адбыцца з-за недаступнасці
-  краіны.'
-Unknown YouTube url type, cannot be opened in app: 'Невядомы тып URL-адраса YouTube,
-  немагчыма адкрыць у праграме'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Гэта відэа недаступнае з-за адсутнасці фарматаў. Гэта можа адбыцца з-за недаступнасці краіны.'
+Unknown YouTube url type, cannot be opened in app: 'Невядомы тып URL-адраса YouTube, немагчыма адкрыць у праграме'
 Loop is now disabled: 'Цыкл адключаны'
 Loop is now enabled: 'Цыкл уключаны'
 Shuffle is now disabled: 'Перамешванне выключана'
@@ -1182,20 +1006,13 @@ Shuffle is now enabled: 'Перамешванне ўключана'
 The playlist has been reversed: 'Плэй-ліст перавернуты'
 Playing Next Video: 'Прайграванне наступнага відэа'
 Playing Previous Video: 'Прайграванне папярэдняга відэа'
-Playing Next Video Interval: 'Прайграванне наступнага відэа ў самыя кароткія тэрміны.
-  Націсніце, каб адмяніць. | Прайграванне наступнага відэа праз {nextVideoInterval}
-  секунды. Націсніце, каб адмяніць. | Прайграванне наступнага відэа праз {nextVideoInterval}
-  секунд. Націсніце, каб адмяніць.'
+Playing Next Video Interval: 'Прайграванне наступнага відэа ў самыя кароткія тэрміны. Націсніце, каб адмяніць. | Прайграванне наступнага відэа праз {nextVideoInterval} секунды. Націсніце, каб адмяніць. | Прайграванне наступнага відэа праз {nextVideoInterval} секунд. Націсніце, каб адмяніць.'
 Canceled next video autoplay: 'Аўтапрайграванне наступнага відэа адменена'
 
-Default Invidious instance has been set to {instance}: 'Экзэмпляр Invidious па змаўчанні
-  быў усталяваны ў {instance}'
-Default Invidious instance has been cleared: 'Экзэмпляр Invidious па змаўчанні быў
-  выдалены'
-'The playlist has ended. Enable loop to continue playing': 'Плэй-ліст скончыўся.  Каб
-  працягнуць прайграванне, уключыце цыкл'
-External link opening has been disabled in the general settings: 'Адкрыццё знешніх
-  спасылак было адключана ў агульных наладах'
+Default Invidious instance has been set to {instance}: 'Экзэмпляр Invidious па змаўчанні быў усталяваны ў {instance}'
+Default Invidious instance has been cleared: 'Экзэмпляр Invidious па змаўчанні быў выдалены'
+'The playlist has ended. Enable loop to continue playing': 'Плэй-ліст скончыўся.  Каб працягнуць прайграванне, уключыце цыкл'
+External link opening has been disabled in the general settings: 'Адкрыццё знешніх спасылак было адключана ў агульных наладах'
 Downloading has completed: 'Спампоўванне «{videoTitle}» завершана'
 Starting download: 'Пачалося спампоўванне «{videoTitle}»'
 Downloading failed: 'Узнікла праблема са спампоўваннем «{videoTitle}»'
@@ -1232,8 +1049,7 @@ Yes, Restart: Так, перазапусціць
 Yes, Open Link: Так, адкрыць спасылку
 Tag already exists: Цэтлік "{tagName}" ужо існуе
 Search character limit: Пошукавы запыт перавышае ліміт сімвалаў у {searchCharacterLimit}
-Trimmed input must be at least N characters long: Скарочаны ўвод павінен змяшчаць
-  не менш за 1 сімвал | Скарочаны ўвод павінен змяшчаць не менш за {length} сімвалаў
+Trimmed input must be at least N characters long: Скарочаны ўвод павінен змяшчаць не менш за 1 сімвал | Скарочаны ўвод павінен змяшчаць не менш за {length} сімвалаў
 Channel Hidden: '{channel} дададзены ў фільтр каналаў'
 Age Restricted:
   This channel is age restricted: Гэты канал мае ўзроставыя абмежаванні
@@ -1276,24 +1092,20 @@ KeyboardShortcutPrompt:
   Zoom Out: Паменшыць
   Search in New Window: Пошук у новым акне
   Picture in Picture: Уключыць/выключыць міні-прайгравальнік
-  Large Rewind: Пераматаць назад на 10 секунд / Пераматаць назад згодна з бягучай
-    хуткасцю прайгравання
-  Large Fast Forward: Пераматаць уперад на 10 секунд / Пераматаць уперад згодна з
-    бягучай хуткасцю прайгравання
+  Large Rewind: Пераматаць назад на 10 секунд / Пераматаць назад згодна з бягучай хуткасцю прайгравання
+  Large Fast Forward: Пераматаць уперад на 10 секунд / Пераматаць уперад згодна з бягучай хуткасцю прайгравання
   Reset Zoom: Скінуць узровень павелічэння / UI шкалу
   Focus Search: Перанесці фокус на панэль пошуку
   Full Window: Пераключыць поўнае акно
   Last Chapter: Апошні раздзел
   Focus Secondary Search: Перанесці фокус на другасную панэль пошуку (калі яна ёсць)
   Skip by Tenths: Прапускаць відэа ў працэнтах (3 пераходу да 30% працягласці)
-  Increase Video Speed: Павялічыць хуткасць відэа на аснове інтэрвалу хуткасці прайгравання
-    відэа
-  Decrease Video Speed: Паменшыць хуткасць відэа на аснове інтэрвалу хуткасці прайгравання
-    відэа
-  Small Fast Forward: Перамотка наперад X секунд на аснове інтэрвалу перамоткі наперад
-    і бягучай хуткасці прайгравання відэа
-  Small Rewind: Перамотка на X секунд на аснове інтэрвалу перамоткі і бягучай хуткасці
-    прайгравання відэа
+  Increase Video Speed: Павялічыць хуткасць відэа на аснове інтэрвалу хуткасці прайгравання відэа
+  Decrease Video Speed: Паменшыць хуткасць відэа на аснове інтэрвалу хуткасці прайгравання відэа
+  Small Fast Forward: Перамотка наперад X секунд на аснове інтэрвалу перамоткі наперад і бягучай хуткасці прайгравання відэа
+  Small Rewind: Перамотка на X секунд на аснове інтэрвалу перамоткі і бягучай хуткасці прайгравання відэа
+  Home: Пераматаць на пачатак відэа
+  End: Пераматаць на канец відэа
 Keys:
   arrowup: Стрэлка ўверх
   arrowright: Стрэлка ўправа
@@ -1310,7 +1122,5 @@ shortcutJoinOperator: +
 Description:
   Expand Description: '...больш'
   Collapse Description: Паказаць менш
-Right-click or hold to see history: ПКМ або працяглае націсканне, каб праглядзець
-  гісторыю
-Autoplay Interruption Timer: Аўтапрайграванне адменена з-за {autoplayInterruptionIntervalHours}
-  гадзін бяздзейнасці
+Right-click or hold to see history: ПКМ або працяглае націсканне, каб праглядзець гісторыю
+Autoplay Interruption Timer: Аўтапрайграванне адменена з-за {autoplayInterruptionIntervalHours} гадзін бяздзейнасці

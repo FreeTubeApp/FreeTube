@@ -91,23 +91,18 @@ Search Filters:
     HDR: HDR
     Features: Funksjoner
     360 Video: 360 Video
+  Clear Filters: Tilbakestill filtere
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementer'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Du
-    har ikke lagt til noen abonnementer i listen din. Hvis du vil importere abonnementene
-    dine, kan du gå til «Datainnstillinger» og velge «Importer abonnementer», eller
-    så kan du søke etter en kanal og abonnere på dem.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Du har ikke lagt til noen abonnementer i listen din. Hvis du vil importere abonnementene dine, kan du gå til «Datainnstillinger» og velge «Importer abonnementer», eller så kan du søke etter en kanal og abonnere på dem.'
   Load More Videos: Last inn flere videoer
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne
-    profilen har mange abonnementer. Tvinger bruk av RSS for å unngå adgangsbegrensning
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne profilen har mange abonnementer. Tvinger bruk av RSS for å unngå adgangsbegrensning
   Error Channels: Kanaler med feil
-  Disabled Automatic Fetching: Du har skrudd av automatisk innhenting av abonnementer.
-    Gjenoppfrisk abonnementer for å se dem her.
+  Disabled Automatic Fetching: Du har skrudd av automatisk innhenting av abonnementer. Gjenoppfrisk abonnementer for å se dem her.
   Empty Channels: De kanalene du abonnerer på har for øyeblikket ingen videoer.
   Subscriptions Tabs: Abonnementsfaner
-  All Subscription Tabs Hidden: Alle abonnementsfaner er skjult. For å vise innhold
-    her, opphev skjuling av noen faner i «{subsection}»-delen av «{settingsSection}».
+  All Subscription Tabs Hidden: Alle abonnementsfaner er skjult. For å vise innhold her, opphev skjuling av noen faner i «{subsection}»-delen av «{settingsSection}».
   Empty Posts: Kanalene du abonnerer på, har ikke noen innlegg for øyeblikket.
   Load More Posts: Last inn flere poster
 Trending:
@@ -129,62 +124,38 @@ User Playlists:
       This video cannot be moved down.: Denne videoen kan ikke bli flyttet ned.
       Video has been removed: Videoen har blitt fjernet
       There were no videos to remove.: Det var ingen videoer å fjerne.
-      There was an issue with updating this playlist.: Det oppstod et problem ved
-        oppdateringen av denne spillelisten.
-      "{videoCount} video(s) have been removed": 1 video har blitt fjernet | {videoCount}
-        videoer har blitt fjernet
+      There was an issue with updating this playlist.: Det oppstod et problem ved oppdateringen av denne spillelisten.
+      "{videoCount} video(s) have been removed": 1 video har blitt fjernet | {videoCount} videoer har blitt fjernet
       Playlist has been updated.: Spillelisten har blitt endret.
-      There was a problem with removing this video: Det oppstod et problem ved fjerningen
-        av denne videoen
+      There was a problem with removing this video: Det oppstod et problem ved fjerningen av denne videoen
       This video cannot be moved up.: Denne videoen kan ikke bli flyttet opp.
-      Playlist {playlistName} has been deleted.: Spillelisten {playlistName} har blitt
-        slettet.
-      This playlist is protected and cannot be removed.: Denne spillelisten er beskyttet
-        og kan derfor ikke fjernes.
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Noen
-        av videoene i spillelisten har ikke blitt lastet inn skikkelig, enda. Trykk
-        her for å kopiere alikevel.
-      Playlist name cannot be empty. Please input a name.: Spillelisten må ha et navn.
-        Vennligst gi den et navn.
-      This playlist is now used for quick bookmark: Denne spillelisten blir nå brukt
-        for hurtigbokmerket
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Denne
-        spillelisten blir nå brukt for hurtigbokmerket istedenfor {oldPlaylistName}.
-        Klikk her for å angre
-      Reverted to use {oldPlaylistName} for quick bookmark: Satt tilbake til å bruke
-        {oldPlaylistName} for hurtigbokmerket
-      This playlist has a video with a duration error: Denne spillelisten inneholder
-        minst en video som ikke har en lengde. Den blir sortert som om lengden dens
-        er null.
-      Video has been removed. Click here to undo.: Videoen har blitt fjernet. Klikk
-        her for å angre.
-      This playlist is already being used for quick bookmark.: Denne spillelisten
-        er allerede i bruk for hurtigbokmerket.
+      Playlist {playlistName} has been deleted.: Spillelisten {playlistName} har blitt slettet.
+      This playlist is protected and cannot be removed.: Denne spillelisten er beskyttet og kan derfor ikke fjernes.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Noen av videoene i spillelisten har ikke blitt lastet inn skikkelig, enda. Trykk her for å kopiere alikevel.
+      Playlist name cannot be empty. Please input a name.: Spillelisten må ha et navn. Vennligst gi den et navn.
+      This playlist is now used for quick bookmark: Denne spillelisten blir nå brukt for hurtigbokmerket
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Denne spillelisten blir nå brukt for hurtigbokmerket istedenfor {oldPlaylistName}. Klikk her for å angre
+      Reverted to use {oldPlaylistName} for quick bookmark: Satt tilbake til å bruke {oldPlaylistName} for hurtigbokmerket
+      This playlist has a video with a duration error: Denne spillelisten inneholder minst en video som ikke har en lengde. Den blir sortert som om lengden dens er null.
+      Video has been removed. Click here to undo.: Videoen har blitt fjernet. Klikk her for å angre.
+      This playlist is already being used for quick bookmark.: Denne spillelisten er allerede i bruk for hurtigbokmerket.
     Search for Videos: Søk etter videoer
   AddVideoPrompt:
     Allow Adding Duplicate Video(s): Tillat å legge til dupliserte videoer
     Search in Playlists: Søk i spillelister
     Save: Lagre
     N playlists selected: '{playlistCount} valgt'
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      videoer vil bli lagt til'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videoer vil bli lagt til'
     Toast:
-      You haven't selected any playlist yet.: Du har ikke valgt noen spillelister
-        enda.
-      "{videoCount} video(s) added to 1 playlist": 1 video lagt til 1 spilleliste
-        | {videoCount} videoer lagt til 1 spilleliste
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video lagt til
-        {playlistCount} spillelister | {videoCount} videoer lagt til  {playlistCount}
-        spillelister
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      videoer allerede lagt til'
+      You haven't selected any playlist yet.: Du har ikke valgt noen spillelister enda.
+      "{videoCount} video(s) added to 1 playlist": 1 video lagt til 1 spilleliste | {videoCount} videoer lagt til 1 spilleliste
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video lagt til {playlistCount} spillelister | {videoCount} videoer lagt til  {playlistCount} spillelister
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videoer allerede lagt til'
     Added {count} Times: Allerede lagt til | Lagt til {count} ganger
-    Select a playlist to add your N videos to: Velg en spilleliste å legge videoen
-      til | Velg en spilleliste å legge dine {videoCount} videoer til
+    Select a playlist to add your N videos to: Velg en spilleliste å legge videoen til | Velg en spilleliste å legge dine {videoCount} videoer til
   Cancel: Avbryt
   Add to Playlist: Legg til i spilleliste
-  This playlist currently has no videos.: Denne spillelisten har ingen videoer for
-    øyeblikket.
+  This playlist currently has no videos.: Denne spillelisten har ingen videoer for øyeblikket.
   Export Playlist: Eksporter denne spillelisten
   Sort By:
     EarliestCreatedFirst: Tidligst opprettet
@@ -212,29 +183,17 @@ User Playlists:
     Create: Opprett
     New Playlist Name: Nytt navn på spilleliste
     Toast:
-      There was an issue with creating the playlist.: Det oppstod et problem ved opprettelsen
-        av spillelisten.
-      There is already a playlist with this name. Please pick a different name.: Det
-        finnes allerede en spilleliste med det navnet. Vennligst velg et annet navn.
-      Playlist {playlistName} has been successfully created.: Spillelisten {playlistName}
-        har blitt opprettet.
+      There was an issue with creating the playlist.: Det oppstod et problem ved opprettelsen av spillelisten.
+      There is already a playlist with this name. Please pick a different name.: Det finnes allerede en spilleliste med det navnet. Vennligst velg et annet navn.
+      Playlist {playlistName} has been successfully created.: Spillelisten {playlistName} har blitt opprettet.
   Edit Playlist Info: Endre spillelisteinfo
   Remove Duplicate Videos: Fjern duplikatvideoer
   Remove from Playlist: Fjern fra spilleliste
-  You have no playlists. Click on the create new playlist button to create a new one.: Du
-    har ingen spillelister. Trykk på knappen for å lage en ny.
-  Are you sure you want to delete this playlist? This cannot be undone: Er du sikker
-    på at du vil fjerne denne spillelisten? Dette kan ikke bli omgjort.
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Er
-    du sikker på at du vil fjerne en duplikatvideo fra denne spillelisten? Dette kan
-    ikke bli omgjort. | Er du sikker på at du vil fjerne {playlistItemCount} duplikate
-    videoer fra denne spillelisten? Denne kan ikke bli omgjort.
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Er
-    du sikker på at du vil fjerne 1 sett video fra denne spillelisten? Dette kan ikke
-    bli omgjort. | Er du sikker på at du vil fjerne {playlistItemCount} sette videoer
-    fra denne spillelisten? Dette kan ikke bli omgjort.
-  Cannot delete the quick bookmark target playlist.: Kan ikke slette spillelisten
-    til hurtigbokmerket.
+  You have no playlists. Click on the create new playlist button to create a new one.: Du har ingen spillelister. Trykk på knappen for å lage en ny.
+  Are you sure you want to delete this playlist? This cannot be undone: Er du sikker på at du vil fjerne denne spillelisten? Dette kan ikke bli omgjort.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Er du sikker på at du vil fjerne en duplikatvideo fra denne spillelisten? Dette kan ikke bli omgjort. | Er du sikker på at du vil fjerne {playlistItemCount} duplikate videoer fra denne spillelisten? Denne kan ikke bli omgjort.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Er du sikker på at du vil fjerne 1 sett video fra denne spillelisten? Dette kan ikke bli omgjort. | Er du sikker på at du vil fjerne {playlistItemCount} sette videoer fra denne spillelisten? Dette kan ikke bli omgjort.
+  Cannot delete the quick bookmark target playlist.: Kan ikke slette spillelisten til hurtigbokmerket.
   Enable Quick Bookmark With This Playlist: Slå på hurtigbokmerket med denne spillelisten
   Quick Bookmark Enabled: Hurtigbokmerket aktivert
   TotalTimePlaylist: 'Total tid: {duration}'
@@ -251,8 +210,7 @@ Settings:
   Settings: 'Innstillinger'
   General Settings:
     General Settings: 'Generelle'
-    Fallback to Non-Preferred Backend on Failure: 'Tilbakefall til alternativ bakende
-      ved feil'
+    Fallback to Non-Preferred Backend on Failure: 'Tilbakefall til alternativ bakende ved feil'
     Enable Search Suggestions: 'Slå på søkeforslag'
     Default Landing Page: 'Standard landingsside'
     Locale Preference: 'Språkinnstillinger'
@@ -280,8 +238,7 @@ Settings:
     System Default: Standardinnstillinger
     Clear Default Instance: Fjern standardinstans
     Set Current Instance as Default: Bruk den gjeldende instansen som standard
-    Current instance will be randomized on startup: Den valgte instansen vil bli valgt
-      tilfeldig ved oppstart
+    Current instance will be randomized on startup: Den valgte instansen vil bli valgt tilfeldig ved oppstart
     No default instance has been set: Ingen standard instans har blitt valgt
     The currently set default instance is {instance}: Valgt instans er {instance}
     Current Invidious Instance: Gjeldende Invidious-instans
@@ -296,8 +253,7 @@ Settings:
     Open Deep Links In New Window: Åpne linker gitt til FreeTube i et nytt vindu
   Theme Settings:
     Theme Settings: 'Tema'
-    Match Top Bar with Main Color: 'Tilpass topplinjen slik at den har samme farge
-      som hovedfargen'
+    Match Top Bar with Main Color: 'Tilpass topplinjen slik at den har samme farge som hovedfargen'
     Base Theme:
       Base Theme: 'Hovedtema'
       Black: 'Svart'
@@ -454,13 +410,9 @@ Settings:
       Format Label: Skjermbildeformat
       Quality Label: Skjermbildekvalitet
       Ask Path: Spør om hvor ting skal lagres
-      File Name Tooltip: Du kan bruke variablene nedenfor. %Y år, i 4 siffer. %M måned,
-        i 2 siffer. %D dag, i to siffer. %H time, i to siffer. %N minutt, i to siffer.
-        %s sekund, i to siffer. %T millisekunder, i tre siffer. %s videosekund. %t
-        videomillisekunder, i tre siffer. %i video-ID.
+      File Name Tooltip: Du kan bruke variablene nedenfor. %Y år, i 4 siffer. %M måned, i 2 siffer. %D dag, i to siffer. %H time, i to siffer. %N minutt, i to siffer. %s sekund, i to siffer. %T millisekunder, i tre siffer. %s videosekund. %t videomillisekunder, i tre siffer. %i video-ID.
     Max Video Playback Rate: Maksimal hastighet for videoavspilling
-    Scroll Playback Rate Over Video Player: Avspillingshastighet ved rulling over
-      videoavspiller
+    Scroll Playback Rate Over Video Player: Avspillingshastighet ved rulling over videoavspiller
     Video Playback Rate Interval: Intervall for videoavspillingshastighet
     Enter Fullscreen on Display Rotate: Bytt til fullskjermsvisning når skjermen roteres
     Skip by Scrolling Over Video Player: Hopp over ved å rulle over videoavspiller
@@ -476,22 +428,16 @@ Settings:
     Remember History: 'Husk visningshistorikk'
     Save Watched Progress: 'Husk avspillingsposisjon'
     Clear Search Cache: 'Tøm hurtiglager for søk'
-    Are you sure you want to clear out your search cache?: 'Er du sikker på at du
-      vil tømme hurtiglageret for søk?'
+    Are you sure you want to clear out your search cache?: 'Er du sikker på at du vil tømme hurtiglageret for søk?'
     Search cache has been cleared: 'Hurtiglageret for søk har blitt tømt'
     Remove Watch History: 'Fjern visningshistorikk'
-    Are you sure you want to remove your entire watch history?: 'Er du sikker på at
-      du vil tømme hele visningshistorikken din?'
+    Are you sure you want to remove your entire watch history?: 'Er du sikker på at du vil tømme hele visningshistorikken din?'
     Watch history has been cleared: 'VIsningshistorikk har blitt tømt'
     Remove All Subscriptions / Profiles: Fjern alle abonnementer/profiler
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Er
-      du sikker på at du vil fjerne alle abonnementer og profiler? Dette kan ikke
-      bli omgjort.
-    Save Watched Videos With Last Viewed Playlist: Lagre sette videoer med sist sette
-      spilleliste
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Er du sikker på at du vil fjerne alle abonnementer og profiler? Dette kan ikke bli omgjort.
+    Save Watched Videos With Last Viewed Playlist: Lagre sette videoer med sist sette spilleliste
     Remove All Playlists: Fjern alle spillelister
-    Are you sure you want to remove all your playlists?: Er du sikker på at du vil
-      fjerne alle spillelistene dine?
+    Are you sure you want to remove all your playlists?: Er du sikker på at du vil fjerne alle spillelistene dine?
     All playlists have been removed: Alle spillelister har blitt fjernet
     Remember Search History: Husk søkshistorikk
     Watched Progress Saving Mode:
@@ -499,15 +445,10 @@ Settings:
         Auto: Automatisk
         Semi-auto: Halvautomatisk
         Never: Aldri
-      Tooltip: Automatisk = Lagre for hver enkelt video når den lukkes, avsluttes
-        og når en feil oppstår (f.eks ved tilgangsbegrensning eller sesjonen din utløper).
-        Halvautomatisk = Som automatisk utenom at det ikke skjer når en video lukkes
-        som vanlig, og man kan lagre det manuelt med en egen knapp under videoavspilleren.
+      Tooltip: Automatisk = Lagre for hver enkelt video når den lukkes, avsluttes og når en feil oppstår (f.eks ved tilgangsbegrensning eller sesjonen din utløper). Halvautomatisk = Som automatisk utenom at det ikke skjer når en video lukkes som vanlig, og man kan lagre det manuelt med en egen knapp under videoavspilleren.
     Clear Search History and Cache: Tøm søkshistorikken og mellomlageret
-    Are you sure you want to clear out your search history and cache?: Er du sikker
-      på at du vil tømme søkshistorikken og mellomlageret?
-    Search history and cache have been cleared: Søkshistorikken og mellomlageret har
-      blitt tømt
+    Are you sure you want to clear out your search history and cache?: Er du sikker på at du vil tømme søkshistorikken og mellomlageret?
+    Search history and cache have been cleared: Søkshistorikken og mellomlageret har blitt tømt
   Subscription Settings:
     Subscription Settings: 'Abonnementer'
     Hide Videos on Watch: 'Skjul sette videoer'
@@ -515,29 +456,22 @@ Settings:
     Fetch Automatically: Hent informasjonskanaler automatisk
 
     Confirm Before Unsubscribing: Bekreft avslutning av abonnement
-    'Limit the number of videos displayed for each channel': Begrens antallet videoer
-      vist for hver kanal
+    'Limit the number of videos displayed for each channel': Begrens antallet videoer vist for hver kanal
     To: Til
   Data Settings:
     How do I import my subscriptions?: Hvordan importerer jeg abonnementene mine?
     Unknown data key: Ukjent datanøkkel
     Unable to write file: Kunne ikke skrive fil
     Invalid history file: Ugyldig historikkfil
-    All watched history has been successfully exported: All visningshistorikk har
-      blitt eksportert
-    All watched history has been successfully imported: All visningshistorikk har
-      blitt importert
-    History object has insufficient data, skipping item: Hopper over historikkobjekt
-      siden det har utilstrekkelig data
-    All subscriptions have been successfully imported: Alle abonnementer har blitt
-      importert
-    All subscriptions and profiles have been successfully imported: Alle abonnementer
-      og profiler har blitt importert
+    All watched history has been successfully exported: All visningshistorikk har blitt eksportert
+    All watched history has been successfully imported: All visningshistorikk har blitt importert
+    History object has insufficient data, skipping item: Hopper over historikkobjekt siden det har utilstrekkelig data
+    All subscriptions have been successfully imported: Alle abonnementer har blitt importert
+    All subscriptions and profiles have been successfully imported: Alle abonnementer og profiler har blitt importert
     Manage Subscriptions: Behandle abonnementer
     Unable to read file: Kunne ikke lese fil
     Invalid subscriptions file: Ugyldig abonnementsfil
-    Profile object has insufficient data, skipping item: Hopper over profilobjektet
-      siden det har utilstrekkelig data
+    Profile object has insufficient data, skipping item: Hopper over profilobjektet siden det har utilstrekkelig data
     Subscriptions have been successfully exported: Alle abonnementer har blitt eksportert
     This might take a while, please wait: Dette kan ta litt tid …
     Export History: Eksporter historikk
@@ -556,22 +490,14 @@ Settings:
     Export Playlists: Eksporter spillelister
     Import Playlists: Importer spillelister
     All playlists has been successfully exported: Alle spillelister har blitt eksportert
-    Playlist insufficient data: Utilstrekkelig data i «{playlist}»-spillelisten. Hopper
-      over elementet
+    Playlist insufficient data: Utilstrekkelig data i «{playlist}»-spillelisten. Hopper over elementet
     Export Playlists For Older FreeTube Versions:
       Label: Eksporter spillelister for eldre FreeTube-versjoner
-      Tooltip: "Denne funksjonen eksporterer videoer fra alle spillelister inn i en
-        spilleliste med navnet «Favoritter».\nFor å eksportere og importere videoer
-        i spillelister i eldre versjoner av FreeTube:\n1.) Eksporter spillelistene
-        dine med denne funksjonen skrudd på.\n2.) Slett alle spillelistene dine med
-        «Fjern alle spillelister» under «Personvern».\n3.) Start opp den eldre versjonen
-        av FreeTube og importer de eksporterte spillelistene dine."
+      Tooltip: "Denne funksjonen eksporterer videoer fra alle spillelister inn i en spilleliste med navnet «Favoritter».\nFor å eksportere og importere videoer i spillelister i eldre versjoner av FreeTube:\n1.) Eksporter spillelistene dine med denne funksjonen skrudd på.\n2.) Slett alle spillelistene dine med «Fjern alle spillelister» under «Personvern».\n3.) Start opp den eldre versjonen av FreeTube og importer de eksporterte spillelistene dine."
   Proxy Settings:
     Region: Region
-    Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for
-      å sende en forespørsel til
-    Error getting network information. Is your proxy configured properly?: Kunne ikke
-      hente nettverksinformasjon. Er mellomtjeneren din satt opp riktig?
+    Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for å sende en forespørsel til
+    Error getting network information. Is your proxy configured properly?: Kunne ikke hente nettverksinformasjon. Er mellomtjeneren din satt opp riktig?
     Test Proxy: Test mellomtjener
     City: By
     Country: Land
@@ -582,11 +508,7 @@ Settings:
     Proxy Protocol: Mellomtjenerprotokoll
     Enable Tor / Proxy: Skru på Tor / mellomtjener
     Proxy Settings: Mellomtjener (proxy)
-    Proxy Warning: FreeTube har ikke en innebygd mellomtjener (proxy), men det kan
-      koble til en ekstern en, for eksempel en som kjører på din egen maskin, som
-      Tor, eller en ekstern mellomtjener som SOCKS5 som tilbys av enkelte VPN-er.
-      Hvis dette skrus på, pass på at mellomtjeneren din er konfigurert riktig; hvis
-      ikke kommer ikke FreeTube til å klare å hente noen data.
+    Proxy Warning: FreeTube har ikke en innebygd mellomtjener (proxy), men det kan koble til en ekstern en, for eksempel en som kjører på din egen maskin, som Tor, eller en ekstern mellomtjener som SOCKS5 som tilbys av enkelte VPN-er. Hvis dette skrus på, pass på at mellomtjeneren din er konfigurert riktig; hvis ikke kommer ikke FreeTube til å klare å hente noen data.
   Distraction Free Settings:
     Hide Trending Videos: Skjul «På vei opp»
     Hide Video Likes And Dislikes: Skjul antall liker/ikke liker på videoer
@@ -607,8 +529,7 @@ Settings:
     Hide Sharing Actions: Skjul delingshandlinger
     Hide Upcoming Premieres: Skjul kommende premièrer
     Hide Video Description: Skjul videobeskrivelse
-    Display Titles Without Excessive Capitalisation: Vis titler uten overdreven bruk
-      av store bokstaver
+    Display Titles Without Excessive Capitalisation: Vis titler uten overdreven bruk av store bokstaver
     Hide Featured Channels: Skjul fremhevede kanaler
     Hide Channel Shorts: Skjul «Shorts»-fanen i kanaler
     Sections:
@@ -625,26 +546,20 @@ Settings:
     Hide Subscriptions Live: Skjul abonnements direktesendinger
     Hide Profile Pictures in Comments: Skjul profilbilder i kommentarfeltet
     Hide Channel Home: Skjule «Start»-fanen i kanaler
-    Hide Videos and Playlists Containing Text: Skjul videoer og spillelister som inneholder
-      tekst
+    Hide Videos and Playlists Containing Text: Skjul videoer og spillelister som inneholder tekst
     Hide Channels Already Exists: Kanal-ID-en finnes allerede
     Hide Videos and Playlists Containing Text Placeholder: Ord, del av ord eller setning
     Hide Channels Invalid: Kanal-ID-en var ugyldig
-    Hide Channels Disabled Message: Noen kanaler ble blokkert med ID og ble ikke prosessert.
-      Funksjonen er blokkert mens disse ID-ene blir oppdatert
+    Hide Channels Disabled Message: Noen kanaler ble blokkert med ID og ble ikke prosessert. Funksjonen er blokkert mens disse ID-ene blir oppdatert
     Show Added Items: Vis videoer lagt til
-    Hide Channels API Error: En feil oppsto ved henting av brukeren med den oppgitte
-      ID-en. Vennligst sjekk om ID-en er riktig.
+    Hide Channels API Error: En feil oppsto ved henting av brukeren med den oppgitte ID-en. Vennligst sjekk om ID-en er riktig.
     Hide Channel Courses: Skjul «Kurs»-fanen i kanaler
     Hide Subscriptions Posts: Skjul innlegg fra abonnementer
     Hide Channel Posts: Skjul «Innlegg»-fanen i kanaler
-  The app needs to restart for changes to take effect. Restart and apply change?: Start
-    programmet på nytt for å ta i bruk endringene?
+  The app needs to restart for changes to take effect. Restart and apply change?: Start programmet på nytt for å ta i bruk endringene?
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Gi beskjed når sponsordelen blir hoppet
-      over
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-nettadresse
-      (standard er https://sponsor.ajay.app)
+    Notify when sponsor segment is skipped: Gi beskjed når sponsordelen blir hoppet over
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-nettadresse (standard er https://sponsor.ajay.app)
     Enable SponsorBlock: Skru på SponsorBlock
     SponsorBlock Settings: SponsorBlock
     Skip Options:
@@ -656,13 +571,11 @@ Settings:
     Category Color: Kategorifarge
     UseDeArrowTitles: Bruk DeArrow-videotitler
     UseDeArrowThumbnails: Bruk DeArrow for miniatyrbilder
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
-      miniatyrbildegenerator API-adresse (standard er https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow miniatyrbildegenerator API-adresse (standard er https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Egendefinerte argumenter for ekstern avspiller
     Custom External Player Executable: Egendefinert kjørbar fil for ekstern avspiller
-    Ignore Unsupported Action Warnings: Ignorer advarsler om handlinger som ikke er
-      støttet
+    Ignore Unsupported Action Warnings: Ignorer advarsler om handlinger som ikke er støttet
     External Player Settings: Ekstern avspiller
     External Player: Ekstern avspiller
     Players:
@@ -684,8 +597,7 @@ Settings:
   Experimental Settings:
     Experimental Settings: Eksperimentelt
     Replace HTTP Cache: Erstatt HTTP-hurtiglager
-    Warning: Disse innstillingene er eksperimentelle, og kan forårsake krasjer. Det
-      anbefales at du lager kopi av dataene dine. Bruk på egen risiko!
+    Warning: Disse innstillingene er eksperimentelle, og kan forårsake krasjer. Det anbefales at du lager kopi av dataene dine. Bruk på egen risiko!
   Password Settings:
     Remove Password: Fjern passord
     Password Settings: Passord
@@ -713,8 +625,7 @@ About:
   Email: E-post
   Blog: Blogg
   Translate: Oversett
-  Please check for duplicates before posting: Vennligst sjekk om problemet ditt allerede
-    har blitt sendt inn før du sender inn en melding
+  Please check for duplicates before posting: Vennligst sjekk om problemet ditt allerede har blitt sendt inn før du sender inn en melding
   these people and projects: disse folkene og prosjektene
   FreeTube is made possible by: FreeTube er gjort mulig av
   Credits: Bidragsytere
@@ -757,14 +668,11 @@ Channel:
     Joined: Registrert
     Location: Posisjon
   Added channel to your subscriptions: Lagt kanal til i dine abonnenter
-  Removed subscription from {count} other channel(s): Fjernet abonnement fra {count}
-    andre kanal(er)
-  Channel has been removed from your subscriptions: Kanalen har blitt fjernet fra
-    dine abonnement
+  Removed subscription from {count} other channel(s): Fjernet abonnement fra {count} andre kanal(er)
+  Channel has been removed from your subscriptions: Kanalen har blitt fjernet fra dine abonnement
   This channel does not exist: Denne kanalen finnes ikke
   This channel does not allow searching: Denne kanalen tillater ikke søk
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: Denne
-    kanalen er aldersbegrenset og kan derfor ikke vises i FreeTube.
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Denne kanalen er aldersbegrenset og kan derfor ikke vises i FreeTube.
   Channel Tabs: Kanalfaner
   Posts:
     This channel currently does not have any posts: Denne kanalen har ingen oppføringer
@@ -777,8 +685,7 @@ Channel:
     This channel does not currently have any shorts: Denne kanalen har ingen Shorts-videoer
   Live:
     Live: Direkte
-    This channel does not currently have any live streams: Denne kanalen har ingen
-      direktesendinger
+    This channel does not currently have any live streams: Denne kanalen har ingen direktesendinger
   Podcasts:
     Podcasts: Podcaster
     This channel does not currently have any podcasts: Denne kanalen har ingen podcaster
@@ -795,8 +702,7 @@ Video:
   Mark As Watched: 'Marker som sett'
   Remove From History: 'Fjern fra historikk'
   Video has been marked as watched: 'Videoen har blitt markert som sett'
-  Video has been removed from your history: 'Videoen har blitt fjernet fra historikken
-    din'
+  Video has been removed from your history: 'Videoen har blitt fjernet fra historikken din'
   Open in YouTube: 'Åpne i YouTube'
   Copy YouTube Link: 'Kopier YouTube-lenke'
   Open YouTube Embedded Player: 'Åpne innebygd YouTube-avspiller'
@@ -810,12 +716,9 @@ Video:
   Live Now: 'Direkte'
   Live Chat: 'Direktechat'
   Enable Live Chat: 'Slå på direktechat'
-  Live Chat is currently not supported in this build.: 'Direktechat støttes ikke i
-    denne versjonen.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Direktechat er
-    påslått.  Meldinger vil vises her når de er sendt.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direktechat
-    støttes for tiden ikke med Invidious-API-et. Direkte tilkobling til YouTube kreves.'
+  Live Chat is currently not supported in this build.: 'Direktechat støttes ikke i denne versjonen.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Direktechat er påslått.  Meldinger vil vises her når de er sendt.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direktechat støttes for tiden ikke med Invidious-API-et. Direkte tilkobling til YouTube kreves.'
   Published:
     In less than a minute: Om mindre enn ett minutt
   Published on: 'Publisert'
@@ -829,15 +732,13 @@ Video:
   Reverse Playlist: Snu spillelisten
   Started streaming on: Startet strømming
   Streamed on: Strømmet
-  Starting soon, please refresh the page to check again: Starter snart. Oppdater siden
-    for å sjekke igjen
+  Starting soon, please refresh the page to check again: Starter snart. Oppdater siden for å sjekke igjen
   Autoplay: Automatisk avspilling
   Shuffle Playlist: Spill av spillelisten i tilfeldig rekkefølge
   Loop Playlist: Gjenta spilleliste
   Open Channel in Invidious: Åpne kanal i Invidious
   Copy YouTube Channel Link: Kopier YouTube-kanallenke
-  Video has been removed from your saved list: Videoen har blitt fjernet fra din liste
-    over lagrede videoer
+  Video has been removed from your saved list: Videoen har blitt fjernet fra din liste over lagrede videoer
   Open Channel in YouTube: Åpne kanal i YouTube
   Play Previous Video: Spill av forrige video
   Play Next Video: Spill av neste video
@@ -853,8 +754,7 @@ Video:
   External Player:
     Unsupported Actions:
       shuffling playlists: spiller av spillelister i tilfeldig rekkefølge
-      opening specific video in a playlist (falling back to opening the video): åpner
-        spesifikk video i en spilleliste (faller tilbake til å åpne videoen)
+      opening specific video in a playlist (falling back to opening the video): åpner spesifikk video i en spilleliste (faller tilbake til å åpne videoen)
       opening playlists: åpner spillelister
       setting a playback rate: setting av avspillingshastighet
       starting video at offset: starter video ved forskyvning
@@ -869,8 +769,7 @@ Video:
   Scroll to Bottom: Rull til bunnen
   Premieres: Première
   Upcoming: Kommende
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Direktechat
-    er ikke tilgjengelig for denne strømmen. Opplasteren kan ha skrudd det av.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Direktechat er ikke tilgjengelig for denne strømmen. Opplasteren kan ha skrudd det av.
 #& Playlists
   Player:
     Take Screenshot: Ta et skjermbilde
@@ -886,8 +785,7 @@ Video:
       Player Dimensions: 'Avspillerdimensjoner: {width}x{height}'
       CodecsVideoAudioNoItags: 'Kodeker: {videoCodec} / {audioCodec}'
       Bandwidth: 'Båndbredde: {bandwidth} kbps'
-      Dropped Frames / Total Frames: 'Tapte bilder: {droppedFrames} / Totale antall
-        bilder: {totalFrames}'
+      Dropped Frames / Total Frames: 'Tapte bilder: {droppedFrames} / Totale antall bilder: {totalFrames}'
       Bitrate: 'Bitrate: {bitrate} kbps'
     Audio Tracks: Lydspor
     Show Stats: Vis statistikk
@@ -900,23 +798,16 @@ Video:
     Exit Full Window: Avslutt fullskjerm
     Autoplay is off: Automatisk avspilling er slått av
     Exit Theatre Mode: Avslutt teatermodus
-    Playback will resume automatically when your connection comes back: Avspilling
-      vil fortsette automatisk når din tilkobling kommer tilbake.
+    Playback will resume automatically when your connection comes back: Avspilling vil fortsette automatisk når din tilkobling kommer tilbake.
     You appear to be offline: Du ser ut til å være frakoblet.
   Unlisted: Ikke oppført
   Unhide Channel: Vis kanal
   More Options: Flere valg
   Hide Channel: Skjul kanal
-  AgeRestricted: Videoer med aldersbegrensning kan ikke bli sett med FreeTube ettersom
-    det kreves en Google-pålogging og at man bruker en YouTube-bruker med verifisert
-    alder.
-  MembersOnly: Videoer kun for medlemmer kan ikke bli sett med FreeTube ettersom de
-    krever en Google-pålogging og et betalt medlemsskap i opplasterens kanal.
-  IP block: YouTube har blokkert din IP adresse fra å se videoer. Prøv å bytte til
-    en annen VPN eller mellomtjener.
-  DRMProtected: Kopibeskyttede videoer kan ikke bli avspilt i FreeTube, ettersom det
-    krever proprietære komponenter med lukket kildekode. Gå til den offisielle YouTube-nettsiden
-    i en støttet nettleser for å spille av denne videoen.
+  AgeRestricted: Videoer med aldersbegrensning kan ikke bli sett med FreeTube ettersom det kreves en Google-pålogging og at man bruker en YouTube-bruker med verifisert alder.
+  MembersOnly: Videoer kun for medlemmer kan ikke bli sett med FreeTube ettersom de krever en Google-pålogging og et betalt medlemsskap i opplasterens kanal.
+  IP block: YouTube har blokkert din IP adresse fra å se videoer. Prøv å bytte til en annen VPN eller mellomtjener.
+  DRMProtected: Kopibeskyttede videoer kan ikke bli avspilt i FreeTube, ettersom det krever proprietære komponenter med lukket kildekode. Gå til den offisielle YouTube-nettsiden i en støttet nettleser for å spille av denne videoen.
   Save Watched Progress: Lagre sted i videoen
   Watched Progress Saved: Sted i videoen lagret
   DeArrow:
@@ -948,12 +839,9 @@ Change Format:
   Use Dash Formats: 'Bruk DASH-formater'
   Use Legacy Formats: 'Bruk foreldede formater'
   Use Audio Formats: 'Bruk lydformater'
-  Audio formats are not available for this video: Lydformater er ikke tilgjengelig
-    for denne videoen
-  Dash formats are not available for this video: DASH-formater er ikke tilgjengelig
-    for denne videoen
-  Legacy formats are not available for this video: Eldre formater er ikke tilgjengelig
-    for denne videoen
+  Audio formats are not available for this video: Lydformater er ikke tilgjengelig for denne videoen
+  Dash formats are not available for this video: DASH-formater er ikke tilgjengelig for denne videoen
+  Legacy formats are not available for this video: Eldre formater er ikke tilgjengelig for denne videoen
 Share:
   Share Video: 'Del video'
   Share Playlist: 'Del spilleliste'
@@ -963,15 +851,12 @@ Share:
   Open Embed: 'Åpne innebyggingslenke'
   # On Click
   Invidious URL copied to clipboard: 'Invidious-nettadresse kopiert til utklippstavle'
-  Invidious Embed URL copied to clipboard: 'Innebyggingslenke til Invidious kopiert
-    til utklippstavle'
+  Invidious Embed URL copied to clipboard: 'Innebyggingslenke til Invidious kopiert til utklippstavle'
   YouTube URL copied to clipboard: 'YouTube-nettadresse kopiert til utklippstavle'
-  YouTube Embed URL copied to clipboard: 'Innebygd YouTube-nettadresse kopiert til
-    utklippstavle'
+  YouTube Embed URL copied to clipboard: 'Innebygd YouTube-nettadresse kopiert til utklippstavle'
   YouTube Channel URL copied to clipboard: YouTube-kanalnettadresse kopiert til utklippstavle
   Include Timestamp: Inkluder tidsstempel
-  Invidious Channel URL copied to clipboard: Invidious-kanalnettadresse kopiert til
-    utklippstavle
+  Invidious Channel URL copied to clipboard: Invidious-kanalnettadresse kopiert til utklippstavle
   Share Channel: Del kanal
 Mini Player: 'Miniavspiller'
 Comments:
@@ -984,8 +869,7 @@ Comments:
   Hide: 'Skjul'
   Replies: 'Svar'
   Reply: 'Svar'
-  There are no comments available for this video: 'Det er ingen kommentarer tilgjengelig
-    på denne videoen'
+  There are no comments available for this video: 'Det er ingen kommentarer tilgjengelig på denne videoen'
   Load More Comments: 'Last inn flere kommentarer'
   Newest first: Nyeste først
   There are no more comments for this video: Ingen flere kommentarer på denne videoen
@@ -998,8 +882,7 @@ Comments:
   View {replyCount} replies: Vis {replyCount} svar
   Hearted: Hjertemerket
   Subscribed: Abonnert
-  There are no comments available for this post: Det er ingen kommentarer tilgjengelig
-    på denne posten
+  There are no comments available for this post: Det er ingen kommentarer tilgjengelig på denne posten
 Up Next: 'Neste'
 
 # Toast Messages
@@ -1014,30 +897,24 @@ Shuffle is now enabled: 'Tilfeldig avspilling er nå aktivert'
 Playing Next Video: 'Spiller av neste video'
 Playing Previous Video: 'Spiller av forrige video'
 Canceled next video autoplay: 'Avbryter automatisk avspilling av neste video'
-'The playlist has ended. Enable loop to continue playing': 'Spillelisten har nådd
-  slutten. Klikk på «Gjenta» for å fortsette avspillingen'
+'The playlist has ended. Enable loop to continue playing': 'Spillelisten har nådd slutten. Klikk på «Gjenta» for å fortsette avspillingen'
 
 Yes: 'Ja'
 No: 'Nei'
 Profile:
   '{profile} is now the active profile': '{profile} er nå den aktive profilen'
-  Your default profile has been changed to your primary profile: Standardprofilen
-    din har blitt endret til din hovedprofil
+  Your default profile has been changed to your primary profile: Standardprofilen din har blitt endret til din hovedprofil
   Removed {profile} from your profiles: Fjernet {profile} fra dine profiler
-  Your default profile has been set to {profile}: 'Standardprofilen din har blitt
-    satt som {profile}'
+  Your default profile has been set to {profile}: 'Standardprofilen din har blitt satt som {profile}'
   Profile has been updated: Profilen har blitt oppdatert
   Profile has been created: Profilen har blitt opprettet
   Your profile name cannot be empty: Profilnavnet ditt kan ikke være tomt
   All subscriptions will also be deleted.: Alle abonnementer vil også bli slettet.
-  Are you sure you want to delete this profile?: Er du sikker på at du vil slette
-    denne profilen?
+  Are you sure you want to delete this profile?: Er du sikker på at du vil slette denne profilen?
   Delete Profile: Slett profil
   Make Default Profile: Angi som standardprofil
   Update Profile: Oppdater profil
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Er
-    du sikker på at du vil fjerne de valgte kanalene?  Disse vil ikke bli slettet
-    fra noen andre profiler.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Er du sikker på at du vil fjerne de valgte kanalene?  Disse vil ikke bli slettet fra noen andre profiler.
   No channel(s) have been selected: Ingen kanal(er) har blitt valgt
   Select All: Velg alle
   '{number} selected': '{number} valgt'
@@ -1049,10 +926,8 @@ Profile:
   Create New Profile: Lag ny profil
   Profile Manager: Profilbehandler
   All Channels: Alle kanaler
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : Dette er din hovedprofil.  Er du sikker på at du vil slette de valgte kanalene?  De
-    samme kanalene vil bli slettet i enhver profil de finnes i.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : Dette er din hovedprofil.  Er du sikker på at du vil slette de valgte kanalene?  De samme kanalene vil bli slettet i enhver profil de finnes i.
   Select None: Velg ingen
   Delete Selected: Slett valgte
   Add Selected To Profile: Legg de valgte kanalene til profilen
@@ -1067,95 +942,51 @@ Profile:
   Edit Profile Name: Endre profilnavn
   Close Profile Dropdown: Lukk profilrullgardinmenyen
   Open Profile Dropdown: Åpne profilrullgardinmenyen
-This video is unavailable because of missing formats. This can happen due to country unavailability.: Denne
-  videoen er utilgjengelig på grunn av manglende formater. Dette kan skyldes tilgangbegrensninger
-  i landet ditt.
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Denne videoen er utilgjengelig på grunn av manglende formater. Dette kan skyldes tilgangbegrensninger i landet ditt.
 Tooltips:
   General Settings:
     Invidious Instance: Invidious-forekomsten FreeTube kobler til for API-kall.
-    Thumbnail Preference: Alle miniatyrbilder i FreeTube vil bli erstattet av et enkeltbilde
-      fra videoen som har blitt skjult eller blurret, i stedet for standard miniatyrbildet.
-    Fallback to Non-Preferred Backend on Failure: Når ditt foretrukne API har et problem,
-      vil FreeTube automatisk prøve å bruke ditt ikke-foretrukne API som en reservemetode
-      dersom det er aktivert.
-    Region for Trending: Trendregionen lar deg enkelt velge hvilket lands populære
-      videoer du ønsker å se.
-    Preferred API Backend: Velg metoden FreeTube bruker til å hente data. Det lokale
-      API-et er en innebygd utpakker. Invidious-API-et krever en Invidious-tjener
-      å koble til.
-    External Link Handling: "Velg hva som skjer når en link som ikke kan åpnes i FreeTube
-      klikkes.\nSom standard vil FreeTube åpne lenken i nettleseren din.\n"
-    Open Deep Links In New Window: Lenker sent til FreeTube, som for eksempel via
-      omdirigeringer fra nettleseren eller via terminalprosesser, åpnes i et nytt
-      vindu.
+    Thumbnail Preference: Alle miniatyrbilder i FreeTube vil bli erstattet av et enkeltbilde fra videoen som har blitt skjult eller blurret, i stedet for standard miniatyrbildet.
+    Fallback to Non-Preferred Backend on Failure: Når ditt foretrukne API har et problem, vil FreeTube automatisk prøve å bruke ditt ikke-foretrukne API som en reservemetode dersom det er aktivert.
+    Region for Trending: Trendregionen lar deg enkelt velge hvilket lands populære videoer du ønsker å se.
+    Preferred API Backend: Velg metoden FreeTube bruker til å hente data. Det lokale API-et er en innebygd utpakker. Invidious-API-et krever en Invidious-tjener å koble til.
+    External Link Handling: "Velg hva som skjer når en link som ikke kan åpnes i FreeTube klikkes.\nSom standard vil FreeTube åpne lenken i nettleseren din.\n"
+    Open Deep Links In New Window: Lenker sent til FreeTube, som for eksempel via omdirigeringer fra nettleseren eller via terminalprosesser, åpnes i et nytt vindu.
   Subscription Settings:
-    Fetch Feeds from RSS: Bruk RSS istedenfor FreeTube sin standardmetode for innhenting
-      av abonnementsstrømmen din. RSS er raskere og forhindrer IP-blokkering, men
-      mangler noe informasjon som videovarighet, sanntidsstatus og innlegg
-    Fetch Automatically: Hent abonnementer når programmet starter og når et nytt vindu
-      åpnes.
+    Fetch Feeds from RSS: Bruk RSS istedenfor FreeTube sin standardmetode for innhenting av abonnementsstrømmen din. RSS er raskere og forhindrer IP-blokkering, men mangler noe informasjon som videovarighet, sanntidsstatus og innlegg
+    Fetch Automatically: Hent abonnementer når programmet starter og når et nytt vindu åpnes.
   Player Settings:
-    Default Video Format: Velg formater som blir brukt når en video spilles. DASH-formater
-      kan spilles i høyere kvalitet. Foreldede formater er begrenset opptil 360p,
-      men bruker mindre båndbredde. Lydformater er kun lydstrømmer.
-    Proxy Videos Through Invidious: Kobler til Invidious for å servere videoer istedenfor
-      å koble direkte til YouTube.
-    Skip by Scrolling Over Video Player: Bruk rullehjulet for å hoppe rundt gjennom
-      videoen i MPV-stil.
-    Scroll Playback Rate Over Video Player: Når pekeren er over videoen kan du trykke
-      og holde Ctrl-tasten (⌘ på Mac) og rulle musehjulet forover eller bakover for
-      å kontrollere avspillingshastigheten. Trykk og hold Ctrl-tasten (⌘ på Mac) og
-      venstreklikk på musen for å gå tilbake til den vanlige avspillingshastighet
-      (1x med mindre det har blitt endret i innstillingene).
+    Default Video Format: Velg formater som blir brukt når en video spilles. DASH-formater kan spilles i høyere kvalitet. Foreldede formater er begrenset opptil 360p, men bruker mindre båndbredde. Lydformater er kun lydstrømmer.
+    Proxy Videos Through Invidious: Kobler til Invidious for å servere videoer istedenfor å koble direkte til YouTube.
+    Skip by Scrolling Over Video Player: Bruk rullehjulet for å hoppe rundt gjennom videoen i MPV-stil.
+    Scroll Playback Rate Over Video Player: Når pekeren er over videoen kan du trykke og holde Ctrl-tasten (⌘ på Mac) og rulle musehjulet forover eller bakover for å kontrollere avspillingshastigheten. Trykk og hold Ctrl-tasten (⌘ på Mac) og venstreklikk på musen for å gå tilbake til den vanlige avspillingshastighet (1x med mindre det har blitt endret i innstillingene).
   External Player Settings:
-    Custom External Player Arguments: Alle egendefinerte kommandolinjeargumenter du
-      ønsker å sende til den eksterne avspilleren.
-    Ignore Warnings: Skjuler advarsler når nåværende eksterne avspiller ikke støtter
-      den gjeldende handlingen (f.eks. reversering av spillelister, osv.).
-    Custom External Player Executable: Som standard vil FreeTube anta at den valgte
-      eksterne avspilleren er tilgjengelig via PATH-miljøvariabelen. Hvis det trengs
-      kan en egendefinert sti settes her.
-    External Player: Hvis en velger å bruke ekstern avspiller, vises et ikon for åpning
-      av video (eller spilleliste hvis det støttes) i den eksterne avspilleren, i
-      miniatyrbildet. Invidious-innstillinger gjelder ikke for eksterne avspillere.
+    Custom External Player Arguments: Alle egendefinerte kommandolinjeargumenter du ønsker å sende til den eksterne avspilleren.
+    Ignore Warnings: Skjuler advarsler når nåværende eksterne avspiller ikke støtter den gjeldende handlingen (f.eks. reversering av spillelister, osv.).
+    Custom External Player Executable: Som standard vil FreeTube anta at den valgte eksterne avspilleren er tilgjengelig via PATH-miljøvariabelen. Hvis det trengs kan en egendefinert sti settes her.
+    External Player: Hvis en velger å bruke ekstern avspiller, vises et ikon for åpning av video (eller spilleliste hvis det støttes) i den eksterne avspilleren, i miniatyrbildet. Invidious-innstillinger gjelder ikke for eksterne avspillere.
     DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
-    Ignore Default Arguments: Ikke send noen standardargumenter til den eksterne spilleren
-      utenom videolenken (f.eks avspillingshastighet, spillelistelenke, osv.). Egenvalgte
-      argumenter vil fortsatt bli videresendt.
+    Ignore Default Arguments: Ikke send noen standardargumenter til den eksterne spilleren utenom videolenken (f.eks avspillingshastighet, spillelistelenke, osv.). Egenvalgte argumenter vil fortsatt bli videresendt.
   Experimental Settings:
-    Replace HTTP Cache: Skrur av Electrons diskbaserte HTTP-hurtiglager og skrur på
-      bildehurtiglager i minne. Medfører økt minnebruk.
+    Replace HTTP Cache: Skrur av Electrons diskbaserte HTTP-hurtiglager og skrur på bildehurtiglager i minne. Medfører økt minnebruk.
   Distraction Free Settings:
-    Hide Channels: Skiv inn en kanal-ID for å skjule alle videoer, spillelister og
-      selve kanalen fra å vises i søk eller andre steder. Kanal-ID-en må være et nøyaktig
-      treff, og skiller mellom små og store bokstaver.
-    Hide Subscriptions Live: Innstillingen overstyres av «{appWideSetting}» for hele
-      programmet, i «{subsection}»-delen av «{settingsSection}»
-    Hide Videos and Playlists Containing Text: Tast inn et ord, en del av et ord eller
-      en frase (det skilles ikke mellom store og små bokstaver) for å gjemme alle
-      videoer og spillelister med det i seg, med unntak av i historikken din, og videoer
-      inne i spillelister.
+    Hide Channels: Skiv inn en kanal-ID for å skjule alle videoer, spillelister og selve kanalen fra å vises i søk eller andre steder. Kanal-ID-en må være et nøyaktig treff, og skiller mellom små og store bokstaver.
+    Hide Subscriptions Live: Innstillingen overstyres av «{appWideSetting}» for hele programmet, i «{subsection}»-delen av «{settingsSection}»
+    Hide Videos and Playlists Containing Text: Tast inn et ord, en del av et ord eller en frase (det skilles ikke mellom store og små bokstaver) for å gjemme alle videoer og spillelister med det i seg, med unntak av i historikken din, og videoer inne i spillelister.
   SponsorBlock Settings:
     UseDeArrowTitles: Erstatt videonavn med brukerinnsendte navn fra DeArrow.
     UseDeArrowThumbnails: Erstatt miniatyrbilder på videoer med bilder fra DeArrow.
-A new blog is now available, {blogTitle}. Click to view more: Et nytt blogginnlegg
-  er tilgjengelig, {blogTitle}. Klikk her for å se mer
+A new blog is now available, {blogTitle}. Click to view more: Et nytt blogginnlegg er tilgjengelig, {blogTitle}. Klikk her for å se mer
 The playlist has been reversed: Spillelisten har blitt snudd
 Download From Site: Last ned fra nettside
-Version {versionNumber} is now available!  Click for more details: Versjon {versionNumber}
-  er nå tilgjengelig! Klikk her for detaljer
-Playing Next Video Interval: Spiller av neste video nå. Klikk her for å avbryte. |
-  Spiller av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte. |
-  Spiller av neste video om {nextVideoInterval} sekunder. Klikk her for å avbryte.
+Version {versionNumber} is now available!  Click for more details: Versjon {versionNumber} er nå tilgjengelig! Klikk her for detaljer
+Playing Next Video Interval: Spiller av neste video nå. Klikk her for å avbryte. | Spiller av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte. | Spiller av neste video om {nextVideoInterval} sekunder. Klikk her for å avbryte.
 More: Mer
-Unknown YouTube url type, cannot be opened in app: Ukjent YouTube-nettadressetype,
-  kan ikke åpnes i programmet
+Unknown YouTube url type, cannot be opened in app: Ukjent YouTube-nettadressetype, kan ikke åpnes i programmet
 Open New Window: Åpne et nytt vindu
 Default Invidious instance has been cleared: Fjernet standard Invidious-instans
-Default Invidious instance has been set to {instance}: Standard Invidious-instans
-  satt til {instance}
-External link opening has been disabled in the general settings: Åpning av eksterne
-  lenker er skrudd av i de generelle innstillingene
+Default Invidious instance has been set to {instance}: Standard Invidious-instans satt til {instance}
+External link opening has been disabled in the general settings: Åpning av eksterne lenker er skrudd av i de generelle innstillingene
 Search Bar:
   Clear Input: Tøm inndata
   Remove: Fjern
@@ -1170,10 +1001,8 @@ Channels:
   Unsubscribe Prompt: Er du sikker på at du ikke lenger vil abonnere på «{channelName}»?
 Chapters:
   Chapters: Kapitler
-  'Chapters list visible, current chapter: {chapterName}': 'Kapittelliste synlig.
-    Nåværende kapittel: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Kapittelliste skjult. Nåværende
-    kapittel: {chapterName}'
+  'Chapters list visible, current chapter: {chapterName}': 'Kapittelliste synlig. Nåværende kapittel: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Kapittelliste skjult. Nåværende kapittel: {chapterName}'
   Key Moments: Høydepunkter
 Screenshot Success: Lagret skjermbilde
 Screenshot Error: Skjermavbildning mislyktes. {error}
@@ -1182,14 +1011,12 @@ Preferences: Innstillinger
 Downloading failed: Kunne ikke laste ned «{videoTitle}»
 Starting download: Starter nedlasting av «{videoTitle}»
 Clipboard:
-  Cannot access clipboard without a secure connection: Får ikke tilgang til utklippstavlen
-    uten sikker forbindelse
+  Cannot access clipboard without a secure connection: Får ikke tilgang til utklippstavlen uten sikker forbindelse
   Copy failed: Kunne ikke kopiere til utklippstavlen
 Downloading has completed: «{videoTitle}» har blitt lastet ned
 Hashtag:
   Hashtag: Emneknagg
-  This hashtag does not currently have any videos: Denne emneknaggen har ingen videoer
-    enda
+  This hashtag does not currently have any videos: Denne emneknaggen har ingen videoer enda
 checkmark: ✓
 Cancel: Avbryt
 Yes, Restart: Ja, start på nytt
@@ -1217,16 +1044,14 @@ Keys:
   enter: Enter
   plus: Pluss
   shift: Skift
-Right-click or hold to see history: Høyreklikk eller hold musepekeren over for å se
-  historikk
+Right-click or hold to see history: Høyreklikk eller hold musepekeren over for å se historikk
 Close Banner: Lukk banner
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Yes, Open Link: Ja, åpne lenke
 Display Label: '{label}: {value}'
 Go to page: Gå til {page}
-Search character limit: Søket ditt har for mange tegn. Grensen er på {searchCharacterLimit}
-  tegn
+Search character limit: Søket ditt har for mange tegn. Grensen er på {searchCharacterLimit} tegn
 KeyboardShortcutPrompt:
   Last Chapter: Forrige kapittel
   Next Chapter: Neste kapittel
@@ -1240,8 +1065,7 @@ KeyboardShortcutPrompt:
       Situational: 'App: Situasjonsmessig'
       General: App: Generelt
   Show Keyboard Shortcuts: Vis tastatursnarveier
-  Large Rewind: Spol tilbake 10 sekunder / Spol tilbake video basert på gjeldende
-    videoavspillingshastighet
+  Large Rewind: Spol tilbake 10 sekunder / Spol tilbake video basert på gjeldende videoavspillingshastighet
   Play: Spill av/pause
   Refresh: Oppdater feed med siste innhold
   Focus Secondary Search: Fokuser på det sekundære søkefeltet (hvis synlig)
@@ -1264,8 +1088,7 @@ KeyboardShortcutPrompt:
   Reset Zoom: Tilbakestill zoom nivå / UI-skala
   Skip by Tenths: Hopp gjennom videoen basert på prosent (3 hopp for 30% av varigheten)
   Small Rewind: Spol tilbake X sekunder basert på spoleintervallet og gjeldende avspillingshastighet
-  Small Fast Forward: Spol fremover X sekunder basert på spoleintervallet og gjeldende
-    avspillingshastighet
+  Small Fast Forward: Spol fremover X sekunder basert på spoleintervallet og gjeldende avspillingshastighet
   Decrease Video Speed: Senk videohastighet basert på gjeldende avspillingshastighetsintervallet
   Take Screenshot: Ta et skjermbilde
   Mute: Slå lyd av/på
@@ -1285,13 +1108,11 @@ shortcutLabelSeparator: ｜
 Description:
   Expand Description: '...mer'
   Collapse Description: Vis mindre
-Autoplay Interruption Timer: Automatisk avspilling stoppet på grunn av {autoplayInterruptionIntervalHours}
-  timer med inaktivitet
+Autoplay Interruption Timer: Automatisk avspilling stoppet på grunn av {autoplayInterruptionIntervalHours} timer med inaktivitet
 Age Restricted:
   This video is age restricted: Denne videoen er aldersbegrenset
   This channel is age restricted: Denne kanalen er aldersbegrenset
 Channel Hidden: '{channel} lagt til i kanalfilteret'
 Channel Unhidden: '{channel} fjernet fra kanalfilteret'
 Tag already exists: «{tagName}»-taggen eksisterer allerede
-Trimmed input must be at least N characters long: Trimmet input må være minst ett
-  tegn langt | Trimmet input må være minst {length} tegn langt
+Trimmed input must be at least N characters long: Trimmet input må være minst ett tegn langt | Trimmet input må være minst {length} tegn langt

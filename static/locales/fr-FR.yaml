@@ -88,6 +88,7 @@ Search Filters:
     Location: Emplacement
     HDR: HDR
     VR180: VR180
+  Clear Filters: Effacer les filtres
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnements'
@@ -844,7 +845,7 @@ Share:
   Copy Link: 'Copier le lien'
   Open Link: 'Ouvrir le lien'
   Copy Embed: 'Copier le code d''intégration'
-  Open Embed: 'Copier le code d''intégration'
+  Open Embed: 'Ouvrir le code d''intégration'
   # On Click
   Invidious URL copied to clipboard: 'URL Individious copié dans le presse-papier'
   Invidious Embed URL copied to clipboard: 'URL d''intégration Individious copié dans le presse-papier'
@@ -864,7 +865,7 @@ Comments:
   View: 'Voir'
   Hide: 'Masquer'
   Replies: 'Réponses'
-  Reply: 'Répondre'
+  Reply: 'Réponse'
   There are no comments available for this video: 'Il n''y a aucun commentaire pour cette vidéo'
   Load More Comments: 'Charger plus de commentaires'
   There are no more comments for this video: Il n'y a plus de commentaires pour cette vidéo
