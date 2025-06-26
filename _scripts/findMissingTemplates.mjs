@@ -64,8 +64,8 @@ function isMissingInterpolation(defaultValue, otherValue, filename) {
     // not translated yet, we don't care
     return false
   }
-  const defaultMatches = defaultValue.match(/{[^}]*}/g)
-  const otherMatches = otherValue.match(/{[^}]*}/g)
+  const defaultMatches = Array.from(new Set(defaultValue.match(/{[^}]*}/g)))
+  const otherMatches = Array.from(new Set(otherValue.match(/{[^}]*}/g)))
 
   if (defaultMatches) {
     if (!otherMatches) {
