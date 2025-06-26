@@ -526,7 +526,7 @@ export async function getLocalChannelCommunity(id) {
 
     // if the channel doesn't have a community tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
-    if (communityTab.current_tab?.endpoint.metadata.url?.endsWith('/community')) {
+    if (communityTab.current_tab?.endpoint.metadata.url?.endsWith('/posts')) {
       return parseLocalCommunityPosts(communityTab.posts)
     } else {
       return []
