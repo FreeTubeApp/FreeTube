@@ -1137,6 +1137,8 @@ export function parseLocalListVideo(item, channelId, channelName) {
       publishedText = video.published.text
     }
 
+    const isLive = video.duration.text === 'LIVE'
+
     const published = calculatePublishedDate(
       publishedText,
       video.is_live,
@@ -1152,9 +1154,10 @@ export function parseLocalListVideo(item, channelId, channelName) {
       authorId: video.author?.id ?? channelId,
       viewCount: video.views.text == null ? null : extractNumberFromString(video.views.text),
       published,
-      lengthSeconds: Utils.timeToSeconds(video.duration.text),
+      lengthSeconds: isLive ? '' : Utils.timeToSeconds(video.duration.text),
       isUpcoming: video.is_upcoming,
-      premiereDate: video.upcoming
+      premiereDate: video.upcoming,
+      liveNow: isLive
     }
   } else if (item.type === 'GridMovie') {
     /** @type {import('youtubei.js').YTNodes.GridMovie} */
