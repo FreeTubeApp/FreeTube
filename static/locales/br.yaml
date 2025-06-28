@@ -1028,7 +1028,7 @@ Tooltips:
     Hide Videos and Playlists Containing Text: 'Ebarzhit ur ger, lodenn ur ger pe ur frazenn (o toujañ d''ar pennlizherennoù) evit kuzhat an holl videoioù & rolloù-videoioù gant ar ger pe ar frazenn-mañ en titl orin war FreeTube, nemet er roll-istor, e-barzh ho rolloù-videoioù hag ar videoioù e-barzh ar rolloù-videoioù.'
   Subscription Settings:
     Fetch Feeds from RSS: 'Pa vez gweredekaet e vez implijet RSS gant FreeTube e-lec''h e zoare dre ziouer evit adtapout ho kwazh koumanantiñ. Buanoc''h ez an traoù gant an RSS ha ne vo ket stanket ar chomlec''h IP, met ne ginnig ket titouroù ''zo evel padelezh ar video, statud ar video war-eeun, pe c''hoazh an evezhiadennoù'
-    Fetch Automatically: 'Pa vo gweredekaet e vo adtapet ho kwazh koumanantiñ gant FreeTube ent emgefre pa vo lañset pe pas vo digoret ur prenestr nevez.'
+    Fetch Automatically: 'Pa vo gweredekaet e vo adtapet ho kwazh koumanantiñ gant FreeTube ent emgefre pa vo lañset pe pa vo digoret ur prenestr nevez.'
   Experimental Settings:
     Replace HTTP Cache: 'Diweredekaat ar grubuilh HTTP diazezet war ar bladenn Electron ha gweredekaat krubuilh personelaet ar skeudennoù e-barzh ar memor. Implijet e vo muioc''h a vemor RAM.'
   SponsorBlock Settings:
@@ -1064,7 +1064,7 @@ External link opening has been disabled in the general settings: 'Diweredekaet e
 Downloading has completed: '"{videoTitle}" a zo bet pellgarget'
 Starting download: 'Kregiñ da bellgargañ "{videoTitle}"'
 Downloading failed: 'C''hoarvezet ez eus ur gudenn en ur bellgargañ "{videoTitle}"'
-Screenshot Success: 'Enrollet eo bet an dapadenn-skramm evel "{filePath}"'
+Screenshot Success: 'Enrollet eo bet an dapadenn-skramm'
 Screenshot Error: 'Tapadenn skramm c''hwitet. {error}'
 Channel Hidden: '{channel} ouzhpennet da sil ar chadennoù'
 Channel Unhidden: '{channel} dilamet deus sil ar chadennoù'
@@ -1092,8 +1092,26 @@ KeyboardShortcutPrompt:
   Zoom In: Zoum brassat
   Fullscreen: Tremen e skramm leun
   Theatre Mode: Enaouiñ/Lazhañ ar mod c'hoariva
+  Keyboard Shortcuts: Berradennoù an douchennaoueg
+  Sections:
+    Video:
+      Playback: 'Video : Lenn'
+      General: 'Video : Hollek'
 Autoplay Interruption Timer: Nullet al lenn emgefreek goude {autoplayInterruptionIntervalHours} eurvezh dioberiant
 Right-click or hold to see history: Klik dehou pe dalc'hit pouezet evit gwelet ar roll istor
 Description:
   Expand Description: "...muioc'h"
   Collapse Description: Diskouez nebeutoc'h
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+shortcutLabelSeparator: ｜
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  shift: Shift
+  enter: Enankañ
+  plus: Mui
+  arrowdown: Bir diskenn
+  arrowleft: Bir kleiz
+  arrowright: Bir dehou
+  arrowup: Bir sevel
