@@ -1018,6 +1018,7 @@ Tooltips:
     External Link Handling: |
       Choazit an emzalc'h dre ziouer pa vo kliket war ul liamm ha n'hall ket bezañ digoret gant FreeTube.
       Dre ziouer, e vo digoret al liamm e-barzh ho merdeer web.
+    Open Deep Links In New Window: An URLoù kaset da FreeTube gant askouezhioù ur merdeer web pe roet war arroudenn an arc'had, a vo digoret e-barzh ur prenestr nevez.
   Player Settings:
     Proxy Videos Through Invidious: 'Kevreañ a raio ouzh Invidious evit mont da gerc''hat ar videoioù e-lec''h kevreañ war-eeun ouzh YouTube.'
     Default Video Format: 'Arventennañ ar furmadoù implijet pa vez lennet ur video. Ar furmadoù DASH a c''hell bezañ lennet gant ur c''halite uheloc''h. Bevennet eo ar furmadoù Legacy da 360p d''ar muiañ met nebeutoc''h a vann- drafet a vez implijet. Ar furmadoù aodio zo lanvioù aodio hepken.'
@@ -1131,6 +1132,16 @@ KeyboardShortcutPrompt:
   Volume Down: Izelaat al live-son
   Last Chapter: Chabistr diwezhañ
   Next Chapter: Chabistr da heul
+  Focus Secondary Search: Lakaat war-wel an eil varenn glask (ma ve deus outi)
+  Large Rewind: Lamm war-gil 10 eilenn / Lamm war-gil hervez feur lenn ar video
+  Large Fast Forward: Lamm war-raok 10 eilenn / Lamm war-raok hervez feur lenn ar video
+  Decrease Video Speed: Gorrekaat ar video hervez esaouenn feur lenn ar video
+  Increase Video Speed: Kreskiñ tizh ar video hervez esaouenn feur lenn ar video
+  Reset Zoom: Adderaouekaat live ar zoum / Skeul an UI
+  Focus Search: Lakaat war-wel ar varenn glask
+  Last Frame: Skeudenn gent (pa vez ehanet ar video)
+  Next Frame: Skeudenn da-heul (pa vez ehanet ar video)
+  Small Rewind: Lamm war-gil K eilenn hervez esaouenn feur lenn ar video
 Autoplay Interruption Timer: Nullet al lenn emgefreek goude {autoplayInterruptionIntervalHours} eurvezh dioberiant
 Right-click or hold to see history: Klik dehou pe dalc'hit pouezet evit gwelet ar roll istor
 Description:
