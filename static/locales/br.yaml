@@ -530,6 +530,7 @@ Settings:
     Only Show Latest Video for Each Channel: 'Diskouez ar video-diwezhañ hepken evit pep chadenn'
     Confirm Before Unsubscribing: 'Kadarnaat a-raok Digoumanantiñ'
     To: Evit
+    'Limit the number of videos displayed for each channel': Termeniñ an niver a videoioù da ziskouez evit pep chadenn
   Distraction Free Settings:
     Distraction Free Settings: 'Disoursi'
     Sections:
@@ -913,6 +914,12 @@ Video:
   MembersOnly: N'haller ket sellet ouzh ar videoioù miret d'an izili hepken gant FreeTube, peogwir eo ret bezañ luget gant ur gont Google ha paeañ ur c'houmanant d'ar chadenn.
   AgeRestricted: N'haller ket sellet ouzh ar videoioù gant ur vevenn oad war FreeTube, peogwir eo ret bezañ luget gant ur gont Google kadarnaet gant hoc'h oad.
 #& Playlists
+  DRMProtected: Ne c'heller ket lenn ar videoioù gwarezet gant DRM war FreeTube, peogwir e vije ezhomm implijout elfennoù perc'hennet gant gwirioù ha n'int ket digor. Ma faot deoc'h sellet ouzh ar video-mañ e rankit mont war lec'hienn ofisiel YouTube gant ur merdeer web gouest da lenn an DRM.
+  Save Watched Progress: Mirout araokadur al lenn
+  Watched Progress Saved: Enrollet eo bet araokadur al lenn
+  DeArrow:
+    Show Original Details: Diskouez ar munudoù orin
+    Show Modified Details: Diskouez ar munudoù kemmet
 Playlist:
   #& About
   Playlist: 'Roll-videoioù'
@@ -971,6 +978,7 @@ Chapters:
   'Chapters list visible, current chapter: {chapterName}': 'Roll ar chabistroù diskouezet, chabistr bremanel : {chapterName}'
   'Chapters list hidden, current chapter: {chapterName}': 'Roll ar chabistroù kuzhet, chabistr bremanel : {chapterName}'
 
+  Key Moments: Mareoù a-bouez
 Mini Player: 'Lenner bihan'
 Comments:
   Comments: 'Evezhiadennoù'
@@ -1097,6 +1105,12 @@ KeyboardShortcutPrompt:
     Video:
       Playback: 'Video : Lenn'
       General: 'Video : Hollek'
+    App:
+      Situational: 'Arload : Situational'
+      General: 'App : Hollek'
+  Show Keyboard Shortcuts: Diskouez Berradennoù an douchennaoueg
+  History Backward: Mont d’ar bajennad kent
+  History Forward: Mont d’ar bajenn war-lerc’h
 Autoplay Interruption Timer: Nullet al lenn emgefreek goude {autoplayInterruptionIntervalHours} eurvezh dioberiant
 Right-click or hold to see history: Klik dehou pe dalc'hit pouezet evit gwelet ar roll istor
 Description:
