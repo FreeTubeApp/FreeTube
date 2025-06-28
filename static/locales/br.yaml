@@ -52,9 +52,11 @@ Global:
     Watching Count: '1 den o sellet | {count} den o sellet'
 
 # Search Bar
+  Posts: Pennadoù
 Search / Go to URL: 'Klask / Mont betek un URL'
 Search Bar:
   Clear Input: 'Skarzhañ an enankad'
+  Remove: Dilemel
 Search character limit: 'Ar c''hlask a ya dreist an hirder brasañ aotreet : {searchCharacterLimit} arouezenn'
 Search Listing:
   Label:
@@ -114,6 +116,7 @@ Search Filters:
   Fetch more results: 'Diskouez muioc''h a zisoc''hoù'
   There are no more results for this search: 'N''eus ket mui netra da ziskouez evit ar c''hlask-mañ'
 # Sidebar
+  Clear Filters: Skarzhañ ar siloù
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Koumanantoù'
@@ -226,6 +229,7 @@ User Playlists:
       This playlist does not exist: 'N''eus ket eus ar roll-videoioù-mañ'
 
       This playlist has a video with a duration error: 'Bez ez eus ur video d''an nebeutañ hep padelezh e-barzh ar roll-videoioù, rummet e vo evel ma vije goullo ar padelezh.'
+      Video has been removed. Click here to undo.: Lamet eo bet ar video. Klikit amañ evit nullañ.
   AddVideoPrompt:
     Select a playlist to add your N videos to: 'Choazit ur roll-videoioù evit ouzhpennañ ho video e-barzh | Choazit ur roll-videoioù evit ouzhpennañ ho {videoCount} video e-barzh'
     N playlists selected: '{playlistCount} Diuzet'
@@ -251,6 +255,7 @@ User Playlists:
       There was an issue with creating the playlist.: 'C''hoarvezet ez eus ur gudenn en ur grouiñ ar roll-videoioù.'
   Export Playlist: Ezporzhiañ ar Roll-videoioù
   The playlist has been successfully exported: Ezporzhiet eo bet ar roll-videoioù gant berzh
+  TotalTimePlaylist: 'Amzer hollek : {duration}'
 History:
   # On History Page
   History: 'Roll istor'
@@ -308,6 +313,7 @@ Settings:
       Open Link: 'Digeriñ an ere'
       Ask Before Opening Link: 'Goulenn a-raok digeriñ ul liamm'
       No Action: 'Netra'
+    Open Deep Links In New Window: Digeriñ an URLoù kaset da FreeTube e-barzh ur prenestr nevez
   Theme Settings:
     Theme Settings: 'Tem'
     Match Top Bar with Main Color: 'Lakaat da glotañ liv ar varenn e-krec''h gant al liv pennañ'
@@ -329,6 +335,13 @@ Settings:
       Nordic: 'Nordik'
       Solarized Dark: 'Du luc''hahelet'
       Solarized Light: 'Sklaer luc''hahelet'
+      Catppuccin Frappe: Catppuccin Frappe
+      Gruvbox Dark: Gruvboks Teñval
+      Gruvbox Light: Gruvboks Sklaer
+      Everforest Dark Hard: Everforest Du Teñval
+      Everforest Dark Medium: Everforest Du Krenn
+      Everforest Dark Low: Everforest Du Sklaer
+      Everforest Light Hard: Everforest Du Sklaer
     Main Color Theme:
       Main Color Theme: 'Liv pennañ an tem'
       Red: 'Ruz'
@@ -376,6 +389,43 @@ Settings:
       Solarized Blue: 'Glas luc''hahelet'
       Solarized Cyan: 'Siañ luc''hahelet'
       Solarized Green: 'Gwer luc''hahelet'
+      Gruvbox Dark Green: Gruvboks Gwer Teñval
+      Gruvbox Dark Yellow: Gruvboks Melen Teñval
+      Gruvbox Dark Blue: Gruvboks Glas Teñval
+      Gruvbox Dark Purple: Gruvboks Mouk Teñval
+      Gruvbox Dark Aqua: Gruvboks Dour Teñval
+      Gruvbox Dark Orange: Gruvboks Orañjez Teñval
+      Gruvbox Light Red: Gruvboks Ruz Sklaer
+      Gruvbox Light Blue: Gruvboks Glas Sklaer
+      Gruvbox Light Purple: Gruvboks Mouk Sklaer
+      Gruvbox Light Orange: Gruvboks Orañjez Sklaer
+      Everforest Dark Red: Everforest Ruz Teñval
+      Everforest Dark Orange: Everforest Orañjez Teñval
+      Everforest Dark Yellow: Everforest Melen Teñval
+      Everforest Dark Green: Everforest Gwer Teñval
+      Everforest Dark Aqua: Everforest Dour Teñval
+      Everforest Dark Blue: Everforest Glas Teñval
+      Everforest Dark Purple: Everforest Mouk Teñval
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe Roz
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mouk
+      Catppuccin Frappe Red: Catppuccin Frappe Ruz
+      Catppuccin Frappe Maroon: Catppuccin Frappe Gell
+      Catppuccin Frappe Peach: Catppuccin Frappe Pechez
+      Catppuccin Frappe Yellow: Catppuccin Frappe Melen
+      Catppuccin Frappe Green: Catppuccin Frappe Gwer
+      Catppuccin Frappe Teal: Catppuccin Frappe Teal
+      Catppuccin Frappe Sky: Catppuccin Frappe Oabl
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Safir
+      Catppuccin Frappe Blue: Catppuccin Frappe Glas
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavand
+      Everforest Light Red: Everforest Ruz Sklaer
+      Everforest Light Orange: Everforest Orañjez Sklaer
+      Everforest Light Yellow: Everforest Melen Sklaer
+      Everforest Light Green: Everforest Gwer Sklaer
+      Everforest Light Aqua: Everforest Dour Sklaer
+      Everforest Light Blue: Everforest Glas Sklaer
+      Everforest Light Purple: Everforest Mouk Sklaer
     Secondary Color Theme: 'Liv eilvedel an tem'
         #* Main Color Theme
   Player Settings:
@@ -427,6 +477,8 @@ Settings:
         Forbidden Characters: 'Arouezennoù difennet'
         Empty File Name: 'Goullo eo anv ar restr'
     Autoplay Interruption Timer: Munuter evit paouez al lenn emgefreek
+    Default Viewing Mode:
+      Theater: C'hoariva
   External Player Settings:
     External Player Settings: 'Lenner diavaez'
     External Player: 'Lenner diavaez'
@@ -503,6 +555,8 @@ Settings:
     Hide Subscriptions Videos: 'Kuzhat videoioù ar c''houmanantoù'
     Hide Subscriptions Shorts: 'Kuzhat Shortoù ar c''houmanantoù'
     Hide Subscriptions Live: 'Kuzhat ar skignañ war-eeun deus ar c''houmanantoù'
+    Hide Subscriptions Posts: Kuzhat ar pennadoù deus ar c'houmanantoù
+    Hide Channel Posts: Kuzhat ivinell "Pennadoù" ar chadenn
   Data Settings:
     Data Settings: 'Roadennoù'
     Select Export Type: 'Choaz doare ezporzhiañ'
@@ -1007,4 +1061,6 @@ KeyboardShortcutPrompt:
   Zoom Out: Zoum bihanaat
   Zoom In: Zoum brassat
   Fullscreen: Tremen e skramm leun
+  Theatre Mode: Enaouiñ/Lazhañ ar mod c'hoariva
 Autoplay Interruption Timer: Nullet al lenn emgefreek goude {autoplayInterruptionIntervalHours} eurvezh dioberiant
+Right-click or hold to see history: Klik dehou pe dalc'hit pouezet evit gwelet ar roll istor
