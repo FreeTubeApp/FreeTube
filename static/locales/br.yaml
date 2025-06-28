@@ -499,7 +499,7 @@ Settings:
   Privacy Settings:
     Privacy Settings: 'Prevezded'
     Remember History: 'Derc''hel soñj ar roll istor'
-    Save Watched Progress: 'Mirout araokadur al lenn'
+    Save Watched Progress: 'Enrollañ araokadur al lenn'
     Save Watched Videos With Last Viewed Playlist: 'Enrollañ ar videoioù lennet e-barzh roll-videoioù diwezhañ sellet'
     Clear Search Cache: 'Skarzhañ roll-istor an enklaskoù'
     Are you sure you want to clear out your search cache?: 'Ha sur oc''h e faot deoc''h skarzhañ roll-istor an enklaskoù ?'
@@ -518,6 +518,7 @@ Settings:
         Auto: Emgefreek
         Semi-auto: Hanter-emgefreek
         Never: Biskoazh
+      Tooltip: Emgefreek = Enrollañ a ra pa vez kuitaet pep pajenn video, pa vez achu ar video, pe pa c'hoarvez ur fazi (da sk., feur bevennet pe ho talc'h zo aet da dermen). Hanter emgefreek = Heñvel ouzh emgefreek nemet pa vez kuitaet ur bajenn video, ha gallout a rit enrollañ pa faot deoc'h gant ar bouton "Enrollañ araokadur al lenn" dindan al lenner video.
     Clear Search History and Cache: Skarzhañ ar roll istor hag ar grubuilh
     Are you sure you want to clear out your search history and cache?: Ha sur oc'h e faot deoc'h skarzhañ ar roll istor hag ar grubuilh ?
     Search history and cache have been cleared: Diverket eo bet ar roll istor hag ar grubuilh
@@ -634,6 +635,7 @@ Settings:
     Region: 'Rannvro'
     City: 'Kêr'
     Error getting network information. Is your proxy configured properly?: 'C''hoarvezet ez eus bet ur gudenn en ur glask war-lerc''h titouroù ar rouedad. Ha kefluniet mat eo ho proksi ?'
+    Proxy Warning: N'eus ket ur proksi enframmet gant FreeTube met gallout a ra kennaskañ gant ur proksi diavaez, evel unan o vont en-dro war hoc'h urzhiataer evel Tor pe ur proksi diavaez SOCKS5 pourvezet gant VPNoù zo. Ma vez enaouet, deoc'h da wiriekaat e vez kefluniet mat ho proksi/Tor, mod-all ne vo ket FreeTube evit mont da gerc'hat an traoù.
   SponsorBlock Settings:
     SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Gweredekaat SponsorBlock'
@@ -915,7 +917,7 @@ Video:
   AgeRestricted: N'haller ket sellet ouzh ar videoioù gant ur vevenn oad war FreeTube, peogwir eo ret bezañ luget gant ur gont Google kadarnaet gant hoc'h oad.
 #& Playlists
   DRMProtected: Ne c'heller ket lenn ar videoioù gwarezet gant DRM war FreeTube, peogwir e vije ezhomm implijout elfennoù perc'hennet gant gwirioù ha n'int ket digor. Ma faot deoc'h sellet ouzh ar video-mañ e rankit mont war lec'hienn ofisiel YouTube gant ur merdeer web gouest da lenn an DRM.
-  Save Watched Progress: Mirout araokadur al lenn
+  Save Watched Progress: Enrollañ araokadur al lenn
   Watched Progress Saved: Enrollet eo bet araokadur al lenn
   DeArrow:
     Show Original Details: Diskouez ar munudoù orin
@@ -1141,7 +1143,11 @@ KeyboardShortcutPrompt:
   Focus Search: Lakaat war-wel ar varenn glask
   Last Frame: Skeudenn gent (pa vez ehanet ar video)
   Next Frame: Skeudenn da-heul (pa vez ehanet ar video)
-  Small Rewind: Lamm war-gil K eilenn hervez esaouenn feur lenn ar video
+  Small Rewind: Lamm war-gil K eilenn hervez esaouenn war-gil feur lenn ar video
+  Small Fast Forward: Lamm war-raok K eilenn hervez esaouenn war-raok feur lenn ar video
+  Skip by Tenths: Lammat e-barzh ar video dre zregantad (3 lamm evit tizhout 30% ar badelezh)
+  Home: Mont e penn-kentañ ar video
+  End: Mont e fin ar video
 Autoplay Interruption Timer: Nullet al lenn emgefreek goude {autoplayInterruptionIntervalHours} eurvezh dioberiant
 Right-click or hold to see history: Klik dehou pe dalc'hit pouezet evit gwelet ar roll istor
 Description:
