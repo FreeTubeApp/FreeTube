@@ -341,7 +341,9 @@ Settings:
       Everforest Dark Hard: Everforest Du Teñval
       Everforest Dark Medium: Everforest Du Krenn
       Everforest Dark Low: Everforest Du Sklaer
-      Everforest Light Hard: Everforest Du Sklaer
+      Everforest Light Hard: Everforest Kalet Sklaer
+      Everforest Light Medium: Everforest Sklaer Krenn
+      Everforest Light Low: Everforest Sklaer Bihan
     Main Color Theme:
       Main Color Theme: 'Liv pennañ an tem'
       Red: 'Ruz'
@@ -426,6 +428,7 @@ Settings:
       Everforest Light Aqua: Everforest Dour Sklaer
       Everforest Light Blue: Everforest Glas Sklaer
       Everforest Light Purple: Everforest Mouk Sklaer
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Dour Rozenn
     Secondary Color Theme: 'Liv eilvedel an tem'
         #* Main Color Theme
   Player Settings:
@@ -479,6 +482,10 @@ Settings:
     Autoplay Interruption Timer: Munuter evit paouez al lenn emgefreek
     Default Viewing Mode:
       Theater: C'hoariva
+      Default Viewing Mode: Mod da welet dre ziouer
+      Full Screen: Skramm Leun
+      Picture in Picture: Mod skeudenn-ouzh-skeudenn
+      External Player: Lenner Diavaez ({externalPlayerName})
   External Player Settings:
     External Player Settings: 'Lenner diavaez'
     External Player: 'Lenner diavaez'
@@ -505,6 +512,10 @@ Settings:
     Remove All Playlists: 'Dilemel an holl rolloù-videoioù'
     All playlists have been removed: 'Lamet eo bet an holl rolloù-videoioù'
     Are you sure you want to remove all your playlists?: 'Ha sur oc''h e faot deoc''h dilemel hoc''h holl rolloù-videoioù ?'
+    Remember Search History: Derc'hel soñj roll istor ar c'hlask
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Emgafreek
   Subscription Settings:
     Subscription Settings: 'Koumanant'
     Hide Videos on Watch: 'Kuzhat ar videoioù lennet'
