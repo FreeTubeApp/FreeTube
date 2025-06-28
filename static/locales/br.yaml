@@ -515,7 +515,12 @@ Settings:
     Remember Search History: Derc'hel soñj roll istor ar c'hlask
     Watched Progress Saving Mode:
       Modes:
-        Auto: Emgafreek
+        Auto: Emgefreek
+        Semi-auto: Hanter-emgefreek
+        Never: Biskoazh
+    Clear Search History and Cache: Skarzhañ ar roll istor hag ar grubuilh
+    Are you sure you want to clear out your search history and cache?: Ha sur oc'h e faot deoc'h skarzhañ ar roll istor hag ar grubuilh ?
+    Search history and cache have been cleared: Diverket eo bet ar roll istor hag ar grubuilh
   Subscription Settings:
     Subscription Settings: 'Koumanant'
     Hide Videos on Watch: 'Kuzhat ar videoioù lennet'
@@ -524,6 +529,7 @@ Settings:
     Fetch Automatically: 'Adtapout ar wazh ent emgefreek'
     Only Show Latest Video for Each Channel: 'Diskouez ar video-diwezhañ hepken evit pep chadenn'
     Confirm Before Unsubscribing: 'Kadarnaat a-raok Digoumanantiñ'
+    To: Evit
   Distraction Free Settings:
     Distraction Free Settings: 'Disoursi'
     Sections:
@@ -557,10 +563,10 @@ Settings:
     Hide Channels API Error: 'Fazi en ur adtapout an implijer gant an ID bet roet. Gwiriit en-dro hag-eñ eo reizh an ID mar plij.'
     Hide Channels Already Exists: 'ID ar chadenn a zo anezhañ dija'
     Hide Featured Channels: 'Kuzhat ar chadennoù lakaet war-wel'
-    Hide Channel Playlists: 'Kuzhat rolloù-videoioù ar chadennoù'
-    Hide Channel Shorts: 'Kuzhat Shortoù ar chadenn'
-    Hide Channel Podcasts: 'Kuzhat Podskignañ at chadenn'
-    Hide Channel Releases: 'Kuzhat ermaeziadennoù ar chadenn'
+    Hide Channel Playlists: 'Kuzhat ivinell "rolloù-videoioù" ar chadenn'
+    Hide Channel Shorts: 'Kuzhat ivinell "Shortoù" ar chadenn'
+    Hide Channel Podcasts: 'Kuzhat ivinell "Podskignañ" ar chadenn'
+    Hide Channel Releases: 'Kuzhat ivinell "ermaeziadennoù" ar chadenn'
     Hide Videos and Playlists Containing Text: 'Kuzhat ar videoioù hag ar rolloù-videoioù gant testennoù'
     Hide Videos and Playlists Containing Text Placeholder: 'Ger, lodenn deus ur ger, pe frazenn'
     Hide Subscriptions Videos: 'Kuzhat videoioù ar c''houmanantoù'
@@ -568,6 +574,9 @@ Settings:
     Hide Subscriptions Live: 'Kuzhat ar skignañ war-eeun deus ar c''houmanantoù'
     Hide Subscriptions Posts: Kuzhat ar pennadoù deus ar c'houmanantoù
     Hide Channel Posts: Kuzhat ivinell "Pennadoù" ar chadenn
+    Hide Channel Home: Kuzhat ivinell "Degemer" ar chadenn
+    Hide Channel Courses: Kuzhat ivinell "Kentelioù" ar chadenn
+    Show Added Items: Diskouez an elfennoù ouzhpennet
   Data Settings:
     Data Settings: 'Roadennoù'
     Select Export Type: 'Choaz doare ezporzhiañ'
@@ -789,6 +798,12 @@ Channel:
     Hide Answers: 'Kuzhat ar respontoù'
     Video hidden by FreeTube: 'Video kuzhet gant FreeTube'
     Viewing Posts Only Supported By Invidious: 'Posupl eo gwelet ar pennadoù gant Invidious hepken. Kit war ivinell kumuniezh ur chadenn evit gwelet he fennadoù hep Invidious.'
+  Home:
+    Home: Degemer
+    View Playlist: Diskouez ar roll-videoioù
+  Courses:
+    Courses: Kentelioù
+    This channel does not currently have any courses: Ar chadenn-mañ n'eus kentel ebet evit poent
 Video:
   IP block: 'Stanket eo bet ho chomlec''h IP gant YouTube. Klaskit cheñch VPN pe proksi evit lenn ar videoioù.'
   More Options: 'Muioc''h a zibarzhioù'
@@ -892,6 +907,8 @@ Video:
     Playback will resume automatically when your connection comes back: 'Kendalc''het e vo da lenn ent emgefreek pa viot kennasket endro.'
     Skipped segment: 'Lodenn {segmentCategory} tremenet'
 #& Videos
+    Autoplay is off: Lazhet eo al lenn emgefreek
+    Autoplay is on: Enaouet eo al lenn emgefreek
   Unlisted: Anlistennet
   MembersOnly: N'haller ket sellet ouzh ar videoioù miret d'an izili hepken gant FreeTube, peogwir eo ret bezañ luget gant ur gont Google ha paeañ ur c'houmanant d'ar chadenn.
   AgeRestricted: N'haller ket sellet ouzh ar videoioù gant ur vevenn oad war FreeTube, peogwir eo ret bezañ luget gant ur gont Google kadarnaet gant hoc'h oad.
@@ -918,6 +935,8 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+    PublishedNewest: Embannet diwezhañ da gentañ
+    PublishedOldest: Embannet abretañ da gentañ
 Toggle Theatre Mode: ''
 Change Format:
   Change Media Formats: 'Cheñch furmad ar video'
@@ -985,7 +1004,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: 'Choazit ar backend implijet gant FreeTube evit tapout ar roadennoù. Un eztenner enkorfet eo an API lec''hel. Ezhomm en deus an API Invidious da gaout ur servijer Invidious evit kevreañ outañ.'
     Fallback to Non-Preferred Backend on Failure: 'Pa c''hoarvezo ur gudenn gant hoc''h API karetañ, e klasko FreeTube implijout an API ha n''eo ket hoc''h hini karetañ evel doare sikour ma vez gweredekaet.'
-    Thumbnail Preference: 'Erlec''hiet e vo an holl skeudennoùigoù war FreeTube gant ur skeudenn tennet eus ar video e-lec''h ar skeudennig dre ziouer.'
+    Thumbnail Preference: 'Erlec''hiet e vo an holl skeudennoùigoù war FreeTube gant ur skeudenn tennet eus ar video, kuzhet pe displannet, e-lec''h ar skeudennig dre ziouer.'
     Invidious Instance: 'Istañs Invidious implijet gant FreeTube evit galvoù API.'
     Region for Trending: 'Gant an dra-se e c''hallit dibab ar vro evit ar videoioù diouzh ar c''hiz a faot deoc''h gwelet.'
     External Link Handling: |
@@ -993,7 +1012,7 @@ Tooltips:
       Dre ziouer, e vo digoret al liamm e-barzh ho merdeer web.
   Player Settings:
     Proxy Videos Through Invidious: 'Kevreañ a raio ouzh Invidious evit mont da gerc''hat ar videoioù e-lec''h kevreañ war-eeun ouzh YouTube.'
-    Default Video Format: 'Arventennañ ar furmadoù implijet pa vez lennet ur video. Ar furmadoù DASH a c''hell bezañ lennet gant ur c''halite uheloc''h. Bevennet eo ar furmadoù Legacy da 720p d''ar muiañ met nebeutoc''h a vann- drafet a vez implijet. Ar furmadoù aodio zo lanvioù aodio hepken.'
+    Default Video Format: 'Arventennañ ar furmadoù implijet pa vez lennet ur video. Ar furmadoù DASH a c''hell bezañ lennet gant ur c''halite uheloc''h. Bevennet eo ar furmadoù Legacy da 360p d''ar muiañ met nebeutoc''h a vann- drafet a vez implijet. Ar furmadoù aodio zo lanvioù aodio hepken.'
     Scroll Playback Rate Over Video Player: 'Pa vez ar biz-red war ar video, dalc''hit pouezet war an douchenn Ctrl (Command war Mac) ha dibunit rodellig al logodenn war-raok pe war-gil evit cheñch ar feur lenn. Dalc''hit pouezet war an douchenn Ctrl (Command war Mac) ha klikit war bouton kleiz al logodenn a-benn distreiñ buan d''ar feur lenn dre ziouer (1x, nemet ma ''z eo bet kemmet en arventennoù).'
     Skip by Scrolling Over Video Player: 'Tremen d''ur video d''egile en ur zibunañ rodellig al logodenn war al lenner video, doare MPV.'
   External Player Settings:
@@ -1009,7 +1028,7 @@ Tooltips:
     Hide Videos and Playlists Containing Text: 'Ebarzhit ur ger, lodenn ur ger pe ur frazenn (o toujañ d''ar pennlizherennoù) evit kuzhat an holl videoioù & rolloù-videoioù gant ar ger pe ar frazenn-mañ en titl orin war FreeTube, nemet er roll-istor, e-barzh ho rolloù-videoioù hag ar videoioù e-barzh ar rolloù-videoioù.'
   Subscription Settings:
     Fetch Feeds from RSS: 'Pa vez gweredekaet e vez implijet RSS gant FreeTube e-lec''h e zoare dre ziouer evit adtapout ho kwazh koumanantiñ. Buanoc''h ez an traoù gant an RSS ha ne vo ket stanket ar chomlec''h IP, met ne ginnig ket titouroù ''zo evel padelezh ar video, statud ar video war-eeun, pe c''hoazh an evezhiadennoù'
-    Fetch Automatically: 'Pa vo gweredekaet e vo adtapet ho kwazh koumanantiñ gant FreeTube ent emgefre pa vo digoret ur prenestr nevez ha pa vo cheñchet profil.'
+    Fetch Automatically: 'Pa vo gweredekaet e vo adtapet ho kwazh koumanantiñ gant FreeTube ent emgefre pa vo lañset pe pas vo digoret ur prenestr nevez.'
   Experimental Settings:
     Replace HTTP Cache: 'Diweredekaat ar grubuilh HTTP diazezet war ar bladenn Electron ha gweredekaat krubuilh personelaet ar skeudennoù e-barzh ar memor. Implijet e vo muioc''h a vemor RAM.'
   SponsorBlock Settings:
@@ -1075,3 +1094,6 @@ KeyboardShortcutPrompt:
   Theatre Mode: Enaouiñ/Lazhañ ar mod c'hoariva
 Autoplay Interruption Timer: Nullet al lenn emgefreek goude {autoplayInterruptionIntervalHours} eurvezh dioberiant
 Right-click or hold to see history: Klik dehou pe dalc'hit pouezet evit gwelet ar roll istor
+Description:
+  Expand Description: "...muioc'h"
+  Collapse Description: Diskouez nebeutoc'h
