@@ -1109,8 +1109,28 @@ KeyboardShortcutPrompt:
       Situational: 'Arload : Situational'
       General: 'App : Hollek'
   Show Keyboard Shortcuts: Diskouez Berradennoù an douchennaoueg
-  History Backward: Mont d’ar bajennad kent
+  History Backward: Mont d’ar bajenn kent
   History Forward: Mont d’ar bajenn war-lerc’h
+  New Window: Krouiñ ur prenestr nevez
+  Navigate to Settings: Mont da bajenn an arventennoù
+  Navigate to History: Mont da bajenn ar roll istor
+  Refresh: Freskaat ar wazh gant traoù embannet nevez 'zo
+  Captions: Enaouiñ/lazhañ an istitloù
+  Stats: Diskouez stadegoù ar video
+  Picture in Picture: Enaouiñ/lazhañ ar mod skeudenn-ouzh-skeudenn
+  Play: Enaouiñ/lazhañ lenn/ehan
+  Mute: Enaouiñ/lazhañ tennañ ar son
+  Full Window: Enaouiñ/lazhañ skramm a-bezh
+  Take Screenshot: Kemer un dapadenn skramm
+  Minimize Window: Bihanaat ar prenestr
+  Close Window: Serriñ ar prenestr
+  Restart Window: Adlañsal ar prenestr
+  Force Restart Window: Rediañ da adlañsal ar prenestr
+  Search in New Window: Klask e-barzh ur prenestr nevez
+  Volume Up: Uhelaat al live-son
+  Volume Down: Izelaat al live-son
+  Last Chapter: Chabistr diwezhañ
+  Next Chapter: Chabistr da heul
 Autoplay Interruption Timer: Nullet al lenn emgefreek goude {autoplayInterruptionIntervalHours} eurvezh dioberiant
 Right-click or hold to see history: Klik dehou pe dalc'hit pouezet evit gwelet ar roll istor
 Description:
