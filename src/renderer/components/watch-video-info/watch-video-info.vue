@@ -79,6 +79,7 @@
           >
             {{ channelName }}
           </router-link>
+        </div>
           <ft-subscribe-button
             v-if="!hideUnsubscribeButton"
             :channel-id="channelId"
@@ -86,7 +87,6 @@
             :channel-thumbnail="channelThumbnail"
             :subscription-count-text="subscriptionCountText"
           />
-        </div>
       </div>
       <div class="videoOptions">
         <span class="videoOptionsMobileRow">
