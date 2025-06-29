@@ -479,7 +479,7 @@ Settings:
     Default Viewing Mode:
       Theater: Teatro
       Default Viewing Mode: Vista predeterminada
-      External Player: Reproductor externo ({nombreReproductorExterno})
+      External Player: Reproductor externo ({externalPlayerName})
       Full Screen: Pantalla Completa
       Picture in Picture: Imagen en imagen
   Privacy Settings:

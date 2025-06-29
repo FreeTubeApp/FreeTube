@@ -1340,7 +1340,11 @@ export default defineComponent({
         variants = variants.filter(variant => variant.label === label)
       } else if (hasMultipleAudioTracks.value) {
         // default audio track
-        variants = variants.filter(variant => variant.audioRoles.includes('main'))
+        const filteredVariants = variants.filter(variant => variant.audioRoles.includes('main'))
+        // Sometimes there is nothing marked as main, don't filter in this case
+        if (filteredVariants.length > 0) {
+          variants = filteredVariants
+        }
       }
 
       const isPortrait = variants[0].height > variants[0].width

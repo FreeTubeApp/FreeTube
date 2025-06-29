@@ -517,7 +517,7 @@ export async function getLocalChannelCommunity(id) {
   try {
     const response = await innertube.actions.execute('/browse', {
       browseId: id,
-      params: 'Egljb21tdW5pdHnyBgQKAkoA'
+      params: 'EgVwb3N0c_IGBAoCSgA%3D'
       // protobuf for the community tab (this is the one that YouTube uses,
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
     })
@@ -526,7 +526,7 @@ export async function getLocalChannelCommunity(id) {
 
     // if the channel doesn't have a community tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
-    if (communityTab.current_tab?.endpoint.metadata.url?.endsWith('/community')) {
+    if (communityTab.current_tab?.endpoint.metadata.url?.endsWith('/posts')) {
       return parseLocalCommunityPosts(communityTab.posts)
     } else {
       return []
@@ -1137,6 +1137,8 @@ export function parseLocalListVideo(item, channelId, channelName) {
       publishedText = video.published.text
     }
 
+    const isLive = video.duration.text === 'LIVE'
+
     const published = calculatePublishedDate(
       publishedText,
       video.is_live,
@@ -1152,9 +1154,10 @@ export function parseLocalListVideo(item, channelId, channelName) {
       authorId: video.author?.id ?? channelId,
       viewCount: video.views.text == null ? null : extractNumberFromString(video.views.text),
       published,
-      lengthSeconds: Utils.timeToSeconds(video.duration.text),
+      lengthSeconds: isLive ? '' : Utils.timeToSeconds(video.duration.text),
       isUpcoming: video.is_upcoming,
-      premiereDate: video.upcoming
+      premiereDate: video.upcoming,
+      liveNow: isLive
     }
   } else if (item.type === 'GridMovie') {
     /** @type {import('youtubei.js').YTNodes.GridMovie} */

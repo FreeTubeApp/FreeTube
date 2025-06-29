@@ -1052,10 +1052,14 @@ export default defineComponent({
     },
 
     /**
-     * @param {string} description
+     * @param {string?} description
      */
     extractChaptersFromDescription: function (description) {
+      if (description == null) { return [] }
+
+      /** @type {{title: string, timestamp: string, startSeconds: number, endSeconds: number}[]} */
       const chapters = []
+
       // HH:MM:SS Text
       // MM:SS Text
       // HH:MM:SS - Text // separator is one of '-', '–', '•', '—'

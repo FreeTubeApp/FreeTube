@@ -219,7 +219,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Ota nopea kirjanmerkki käyttöön tällä
     soittolistalla
   Remove Duplicate Videos: Poista päällekkäiset videot
-  TotalTimePlaylist: 'Kokonaisaika: {kesto}'
+  TotalTimePlaylist: 'Kokonaisaika: {duration}'
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Haluatko
     varmasti poistaa 1 päällekkäisen videon tästä soittolistasta? Tätä ei voi peruuttaa.
     | Haluatko varmasti poistaa {playlistItemCount} päällekkäiset videot tästä soittolistasta?

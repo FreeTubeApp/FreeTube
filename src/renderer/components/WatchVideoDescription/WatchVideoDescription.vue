@@ -52,7 +52,7 @@ import FtTimestampCatcher from '../FtTimestampCatcher.vue'
 const props = defineProps({
   description: {
     type: String,
-    required: true
+    default: ''
   },
   descriptionHtml: {
     type: String,
