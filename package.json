@@ -63,7 +63,7 @@
     "autolinker": "^4.1.5",
     "bgutils-js": "^3.2.0",
     "electron-context-menu": "^4.1.0",
-    "marked": "^15.0.12",
+    "marked": "^16.0.0",
     "portal-vue": "^2.1.7",
     "process": "^0.11.10",
     "shaka-player": "^4.14.21",
