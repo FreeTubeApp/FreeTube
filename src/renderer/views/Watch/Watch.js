@@ -1386,9 +1386,9 @@ export default defineComponent({
       this.playNextCountDownIntervalId = setInterval(showCountDownMessage, 1000)
     },
 
-    // Skip to the next video in the playlist
-    // or to next video if not in playlist and autoplay enabled
-    handleNextInPlaylist: function () {
+    // Skip to the next video if in a playlist
+    // else next recommended video if autoplay enabled
+    handleSkipToNext: function () {
       if (this.watchingPlaylist) {
         this.$refs.watchVideoPlaylist?.playNextVideo()
       } else if (this.autoplayEnabled) {
@@ -1399,8 +1399,8 @@ export default defineComponent({
       }
     },
 
-    // Skip to the previous video in the playlist
-    handlePrevInPlaylist: function () {
+    // Skip to the previous video in a playlist
+    handleSkipToPrev: function () {
       this.$refs.watchVideoPlaylist?.playPreviousVideo()
     },
 

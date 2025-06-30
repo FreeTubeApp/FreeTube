@@ -1217,5 +1217,5 @@ KeyboardShortcutPrompt:
   Skip by Tenths: Skip through video by percentage (3 skips to 30% of duration)
   Home: Seek to the beginning of the video
   End: Seek to the end of the video
-  Next in Playlist: Skip to the next video in the current playlist
-  Previous in Playlist: Skip to the previous video in the current playlist
+  Skip to Next Video: Skip to the next video (when using a playlist OR when autoplay is enabled)
+  Skip to Previous Video: Skip to the previous video (when using a playlist)
