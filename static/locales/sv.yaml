@@ -236,7 +236,7 @@ Settings:
       End: 'Slutet'
       Hidden: Dold
       Blur: Oskärpa
-    Region for Trending: 'Region för Trender'
+    Region for Trending: 'Region för trender'
         #! List countries
     View all Invidious instance information: Visa all Invidious instansinformation
     System Default: Standardinställningar
@@ -245,7 +245,7 @@ Settings:
     Current instance will be randomized on startup: Instansen kommer att väljas slumpmässigt vid start
     No default instance has been set: Ingen standardinstans är vald
     The currently set default instance is {instance}: Den nuvarande aktiva instansen är {instance}
-    Current Invidious Instance: Aktiva Invidious Instansen
+    Current Invidious Instance: Aktiva Invidious-instansen
     External Link Handling:
       No Action: Ingen åtgärd
       Ask Before Opening Link: Fråga innan du öppnar länk
@@ -289,8 +289,8 @@ Settings:
       Indigo: 'Indigo'
       Blue: 'Blå'
       Light Blue: 'Ljusblå'
-      Cyan: 'Cyangrön (mintgrön)'
-      Teal: 'Turkos (cyangrön)'
+      Cyan: 'Cyangrön'
+      Teal: 'Turkos'
       Green: 'Grön'
       Light Green: 'Ljusgrön'
       Lime: 'Limegrön'
@@ -298,7 +298,7 @@ Settings:
       Amber: 'Bärnsten'
       Orange: 'Brandgul'
       Deep Orange: 'Djup Orange'
-      Dracula Cyan: 'Dracula cyangrön (mintgrön)'
+      Dracula Cyan: 'Dracula cyangrön'
       Dracula Green: 'Dracula grön'
       Dracula Orange: 'Dracula orange'
       Dracula Pink: 'Dracula rosa'
@@ -323,7 +323,7 @@ Settings:
       Catppuccin Frappe Red: Catppuccin Frappe röd
       Catppuccin Frappe Blue: Catppuccin Frappe blå
       Catppuccin Frappe Lavender: Catppuccin Frappe lavendel
-      Solarized Cyan: Solariserad cyan
+      Solarized Cyan: Solariserad cyangrön
       Solarized Red: Solariserad röd
       Gruvbox Dark Green: Gruvbox mörkgrön
       Gruvbox Dark Yellow: Gruvbox mörkgul
@@ -501,7 +501,7 @@ Settings:
   Distraction Free Settings:
     Hide Live Chat: Dölj livechatt
     Hide Popular Videos: Dölj mest populära
-    Hide Trending Videos: Dölj trender
+    Hide Trending Videos: Dölj trendiga videor
     Hide Recommended Videos: Dölj rekommenderade videor
     Hide Comment Likes: Dölj kommentarer gillar
     Hide Video Likes And Dislikes: Dölj video gillar/ogillar
