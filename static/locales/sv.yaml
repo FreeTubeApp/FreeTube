@@ -270,15 +270,15 @@ Settings:
       Pastel Pink: Pastell Rosa
       Solarized Dark: Solarized mörk
       Nordic: Nordisk
-      Everforest Dark Hard: Everforest mörk hård
+      Everforest Dark Hard: Everforest mörk stark
       Gruvbox Dark: Gruvbox mörk
       Gruvbox Light: Gruvbox ljus
       Solarized Light: Solarized ljus
       Everforest Dark Medium: Everforest mörk medium
       Everforest Dark Low: Everforest mörk låg
-      Everforest Light Hard: Everforest Light Hard
-      Everforest Light Medium: Everforest Light Medium
-      Everforest Light Low: Everforest Light Low
+      Everforest Light Hard: Everforest ljus svår
+      Everforest Light Medium: Everforest ljus medium
+      Everforest Light Low: Everforest ljus låg
       Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Huvudfärg'
@@ -319,33 +319,33 @@ Settings:
       Catppuccin Mocha Blue: Catppuccin Mocha Blå
       Catppuccin Mocha Teal: Catppuccin Mocha Turkos
       Catppuccin Mocha Sky: Catppuccin Mocha Sky
-      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
-      Catppuccin Frappe Red: Catppuccin Frappe Red
-      Catppuccin Frappe Blue: Catppuccin Frappe Blue
-      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
+      Catppuccin Frappe Mauve: Catppuccin Frappe Malva
+      Catppuccin Frappe Red: Catppuccin Frappe Röd
+      Catppuccin Frappe Blue: Catppuccin Frappe Blå
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavendel
       Solarized Cyan: Solarized Cyan
       Solarized Red: Solarized Red
-      Gruvbox Dark Green: Gruvbox Dark Green
-      Gruvbox Dark Yellow: Gruvbox Dark Yellow
-      Gruvbox Dark Orange: Gruvbox Dark Orange
+      Gruvbox Dark Green: Gruvbox mörkgrön
+      Gruvbox Dark Yellow: Gruvbox mörkgul
+      Gruvbox Dark Orange: Gruvbox mörkorange
       Solarized Blue: Solarized Blue
-      Gruvbox Dark Purple: Gruvbox Dark Purple
+      Gruvbox Dark Purple: Gruvbox mörklila
       Gruvbox Light Purple: Gruvbox Light Purple
       Everforest Light Blue: Everforest Light Blue
       Everforest Light Purple: Everforest Light Purple
-      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosenvatten
       Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
-      Catppuccin Frappe Pink: Catppuccin Frappe Pink
-      Catppuccin Frappe Sky: Catppuccin Frappe Sky
-      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
-      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
-      Catppuccin Frappe Green: Catppuccin Frappe Green
-      Catppuccin Frappe Teal: Catppuccin Frappe Teal
-      Gruvbox Dark Blue: Gruvbox Dark Blue
+      Catppuccin Frappe Pink: Catppuccin Frappe Rosa
+      Catppuccin Frappe Sky: Catppuccin Frappe Himmel
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Safir
+      Catppuccin Frappe Yellow: Catppuccin Frappe Gul
+      Catppuccin Frappe Green: Catppuccin Frappe Grön
+      Catppuccin Frappe Teal: Catppuccin Frappe Blågrön
+      Gruvbox Dark Blue: Gruvbox mörkblå
       Gruvbox Light Red: Gruvbox Light Red
       Gruvbox Light Blue: Gruvbox Light Blue
-      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
-      Catppuccin Frappe Peach: Catppuccin Frappe Peach
+      Catppuccin Frappe Maroon: Catppuccin Frappe Rödbrun
+      Catppuccin Frappe Peach: Catppuccin Frappe Persika
       Gruvbox Light Orange: Gruvbox Light Orange
       Solarized Yellow: Solarized Yellow
       Solarized Magenta: Solarized Magenta
@@ -359,7 +359,7 @@ Settings:
       Everforest Light Green: Everforest Light Green
       Everforest Light Aqua: Everforest Light Aqua
       Everforest Light Yellow: Everforest Light Yellow
-      Gruvbox Dark Aqua: Gruvbox Dark Aqua
+      Gruvbox Dark Aqua: Gruvbox mörk aqua
       Solarized Orange: Solarized Orange
       Everforest Dark Aqua: Everforest Dark Aqua
       Solarized Violet: Solarized Violet
