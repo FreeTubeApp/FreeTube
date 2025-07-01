@@ -207,7 +207,7 @@ History:
   Watch History: 'Visningshistorik'
   Your history list is currently empty.: 'Historiken är för närvarande tom.'
   Empty Search Message: Det finns inga videor i din historik som matchar din sökning
-  Search bar placeholder: Sök i Historiken
+  Search bar placeholder: Sök i historiken
   Case Sensitive Search: Skiftlägeskänslig Sökning
 Settings:
   # On Settings Page
@@ -265,7 +265,7 @@ Settings:
       Light: 'Ljust'
       Dracula: 'Dracula'
       System Default: Systemstandard
-      Catppuccin Mocha: Catppuccin Mocha
+      Catppuccin Mocha: Catppuccin mocha
       Hot Pink: Het Rosa
       Pastel Pink: Pastell Rosa
       Solarized Dark: Solarized mörk
@@ -279,7 +279,7 @@ Settings:
       Everforest Light Hard: Everforest ljus svår
       Everforest Light Medium: Everforest ljus medium
       Everforest Light Low: Everforest ljus låg
-      Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Frappe: Catppuccin frappe
     Main Color Theme:
       Main Color Theme: 'Huvudfärg'
       Red: 'Röd'
@@ -299,7 +299,7 @@ Settings:
       Orange: 'Brandgul'
       Deep Orange: 'Djup Orange'
       Dracula Cyan: 'Dracula Cyan (Mintgrön)'
-      Dracula Green: 'Dracula Ljusgrön'
+      Dracula Green: 'Dracula ljusgrön'
       Dracula Orange: 'Dracula Brandgul'
       Dracula Pink: 'Dracula Rosa'
       Dracula Purple: 'Dracula Lila'
@@ -323,16 +323,16 @@ Settings:
       Catppuccin Frappe Red: Catppuccin Frappe Röd
       Catppuccin Frappe Blue: Catppuccin Frappe Blå
       Catppuccin Frappe Lavender: Catppuccin Frappe Lavendel
-      Solarized Cyan: Solarized Cyan
-      Solarized Red: Solarized Red
+      Solarized Cyan: Solariserad cyan
+      Solarized Red: Solariserad röd
       Gruvbox Dark Green: Gruvbox mörkgrön
       Gruvbox Dark Yellow: Gruvbox mörkgul
       Gruvbox Dark Orange: Gruvbox mörkorange
-      Solarized Blue: Solarized Blue
+      Solarized Blue: Solariserad blå
       Gruvbox Dark Purple: Gruvbox mörklila
-      Gruvbox Light Purple: Gruvbox Light Purple
-      Everforest Light Blue: Everforest Light Blue
-      Everforest Light Purple: Everforest Light Purple
+      Gruvbox Light Purple: Gruvbox ljuslila
+      Everforest Light Blue: Everforest ljusblå
+      Everforest Light Purple: Everforest ljuslila
       Catppuccin Frappe Rosewater: Catppuccin Frappe Rosenvatten
       Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
       Catppuccin Frappe Pink: Catppuccin Frappe Rosa
@@ -342,29 +342,29 @@ Settings:
       Catppuccin Frappe Green: Catppuccin Frappe Grön
       Catppuccin Frappe Teal: Catppuccin Frappe Blågrön
       Gruvbox Dark Blue: Gruvbox mörkblå
-      Gruvbox Light Red: Gruvbox Light Red
-      Gruvbox Light Blue: Gruvbox Light Blue
+      Gruvbox Light Red: Gruvbox ljusröd
+      Gruvbox Light Blue: Gruvbox ljusblå
       Catppuccin Frappe Maroon: Catppuccin Frappe Rödbrun
       Catppuccin Frappe Peach: Catppuccin Frappe Persika
-      Gruvbox Light Orange: Gruvbox Light Orange
-      Solarized Yellow: Solarized Yellow
-      Solarized Magenta: Solarized Magenta
-      Solarized Green: Solarized Green
-      Everforest Dark Red: Everforest Dark Red
-      Everforest Dark Yellow: Everforest Dark Yellow
-      Everforest Dark Green: Everforest Dark Green
-      Everforest Dark Blue: Everforest Dark Blue
-      Everforest Dark Purple: Everforest Dark Purple
-      Everforest Light Red: Everforest Light Red
-      Everforest Light Green: Everforest Light Green
-      Everforest Light Aqua: Everforest Light Aqua
-      Everforest Light Yellow: Everforest Light Yellow
-      Gruvbox Dark Aqua: Gruvbox mörk aqua
-      Solarized Orange: Solarized Orange
-      Everforest Dark Aqua: Everforest Dark Aqua
-      Solarized Violet: Solarized Violet
-      Everforest Dark Orange: Everforest Dark Orange
-      Everforest Light Orange: Everforest Light Orange
+      Gruvbox Light Orange: Gruvbox ljusorange
+      Solarized Yellow: Solariserad gul
+      Solarized Magenta: Solariserad magenta
+      Solarized Green: Solariserad grön
+      Everforest Dark Red: Everforest mörkröd
+      Everforest Dark Yellow: Everforest mörkgul
+      Everforest Dark Green: Everforest mörkgrön
+      Everforest Dark Blue: Everforest mörkblå
+      Everforest Dark Purple: Everforest mörklila
+      Everforest Light Red: Everforest ljusröd
+      Everforest Light Green: Everforest ljusgrön
+      Everforest Light Aqua: Everforest ljusakva
+      Everforest Light Yellow: Everforest ljusgul
+      Gruvbox Dark Aqua: Gruvbox mörkakva
+      Solarized Orange: Solariserad orange
+      Everforest Dark Aqua: Everforest mörkakva
+      Solarized Violet: Solariserad violett
+      Everforest Dark Orange: Everforest mörkorange
+      Everforest Light Orange: Everforest ljusorange
     Secondary Color Theme: 'Sekundärfärg'
         #* Main Color Theme
     UI Scale: Skala för användargränssnitt
@@ -429,7 +429,7 @@ Settings:
     Autoplay Interruption Timer: Autoplay Avbrottstimer
   Privacy Settings:
     Privacy Settings: 'Integritet'
-    Remember History: 'Kom Ihåg Visningshistorik'
+    Remember History: 'Kom Ihåg visningshistorik'
     Save Watched Progress: 'Lagra tidigare sett'
     Clear Search Cache: 'Rensa sökcache'
     Are you sure you want to clear out your search cache?: 'Vill du verkligen rensa din sökcache?'
@@ -440,15 +440,15 @@ Settings:
     Remove All Subscriptions / Profiles: 'Ta bort alla prenumerationer och profiler'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Vill du verkligen ta bort alla prenumerationer och profiler? Detta kan inte ångras.'
     Save Watched Videos With Last Viewed Playlist: Spara sedda vidoer till Senast tittade spellista
-    Remember Search History: Kom Ihåg Sökhistorik
-    Clear Search History and Cache: Rensa Sökhistorik och Cache
+    Remember Search History: Kom Ihåg sökhistorik
+    Clear Search History and Cache: Rensa sökhistorik och cache
     All playlists have been removed: Alla spellistor har tagits bort
     Are you sure you want to remove all your playlists?: Är du säker på att du vill ta bort alla dina spellistor?
     Search history and cache have been cleared: Sökhistorik och cacheminne har rensats
     Remove All Playlists: Ta Bort Alla Spellistor
     Are you sure you want to clear out your search history and cache?: Är du säker på att du vill rensa din sökhistorik och cacheminne?
     Watched Progress Saving Mode:
-      Tooltip: Automatiskt = Sparar vid varje avslut av en videosida, när videon avslutas och vid fel (t.ex. hastighetsbegränsning eller utgången tittarsession). Semiautomatiskt = Som Automatiskt, förutom vid avslut av videosida. Framsteg kan sparas manuellt via en knapp som heter Spara tittade framsteg, placerad under videospelaren.
+      Tooltip: Automatiskt = Sparar vid varje avslut av en videosida, när videon avslutas och vid fel (t.ex. hastighetsbegränsning eller utgången tittarsession). Semiautomatiskt = Som automatiskt, förutom vid avslut av videosida. Framsteg kan sparas manuellt via en knapp som heter Spara tittade framsteg, placerad under videospelaren.
       Modes:
         Semi-auto: Semiautomatiskt
         Auto: Automatiskt
@@ -730,7 +730,7 @@ Channel:
   Shorts:
     This channel does not currently have any shorts: Den här kanalen har för närvarande inga shorts
   Live:
-    Live: Live
+    Live: Realtid
     This channel does not currently have any live streams: Den här kanalen har för närvarande inga liveströmmar
   Releases:
     Releases: Släpp
@@ -771,7 +771,7 @@ Video:
   Enable Live Chat: 'Aktivera livechatt'
   Live Chat is currently not supported in this build.: 'Livechatt stöds för närvarande inte i denna version.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Livechatt är aktiverat. Meddelanden visas här när de har skickats.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Livechatt stöds för närvarande inte med Invidious API. En direktanslutning till YouTube krävs.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Realtidschatt stöds för närvarande inte med Invidious API. En direktanslutning till YouTube krävs.'
   Published:
     In less than a minute: Mindre än en minut
   Published on: 'Publicerad den'
