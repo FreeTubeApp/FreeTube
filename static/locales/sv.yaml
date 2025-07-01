@@ -265,7 +265,7 @@ Settings:
       Light: 'Ljust'
       Dracula: 'Dracula'
       System Default: Systemstandard
-      Catppuccin Mocha: Catppuccin mocha
+      Catppuccin Mocha: Catppuccin Mocha
       Hot Pink: Het Rosa
       Pastel Pink: Pastell Rosa
       Solarized Dark: Solarized mörk
@@ -279,7 +279,7 @@ Settings:
       Everforest Light Hard: Everforest ljus svår
       Everforest Light Medium: Everforest ljus medium
       Everforest Light Low: Everforest ljus låg
-      Catppuccin Frappe: Catppuccin frappe
+      Catppuccin Frappe: Catppuccin Frappe
     Main Color Theme:
       Main Color Theme: 'Huvudfärg'
       Red: 'Röd'
@@ -305,11 +305,11 @@ Settings:
       Dracula Purple: 'Dracula Lila'
       Dracula Red: 'Dracula Röd'
       Dracula Yellow: 'Dracula Gul'
-      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
-      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
-      Catppuccin Mocha Pink: Catppuccin Mocha Rosa
-      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
-      Catppuccin Mocha Red: Catppuccin Mocha Röd
+      Catppuccin Mocha Rosewater: Catppuccin Mocha rosenvatten
+      Catppuccin Mocha Flamingo: Catppuccin Mocha flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha rosa
+      Catppuccin Mocha Mauve: Catppuccin Mocha malva
+      Catppuccin Mocha Red: Catppuccin Mocha töd
       Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
       Catppuccin Mocha Peach: Catppuccin Mocha Peach
       Catppuccin Mocha Yellow: Catppuccin Mocha Gul
@@ -319,10 +319,10 @@ Settings:
       Catppuccin Mocha Blue: Catppuccin Mocha Blå
       Catppuccin Mocha Teal: Catppuccin Mocha Turkos
       Catppuccin Mocha Sky: Catppuccin Mocha Sky
-      Catppuccin Frappe Mauve: Catppuccin Frappe Malva
-      Catppuccin Frappe Red: Catppuccin Frappe Röd
-      Catppuccin Frappe Blue: Catppuccin Frappe Blå
-      Catppuccin Frappe Lavender: Catppuccin Frappe Lavendel
+      Catppuccin Frappe Mauve: Catppuccin Frappe malva
+      Catppuccin Frappe Red: Catppuccin Frappe röd
+      Catppuccin Frappe Blue: Catppuccin Frappe blå
+      Catppuccin Frappe Lavender: Catppuccin Frappe lavendel
       Solarized Cyan: Solariserad cyan
       Solarized Red: Solariserad röd
       Gruvbox Dark Green: Gruvbox mörkgrön
@@ -333,19 +333,19 @@ Settings:
       Gruvbox Light Purple: Gruvbox ljuslila
       Everforest Light Blue: Everforest ljusblå
       Everforest Light Purple: Everforest ljuslila
-      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosenvatten
-      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
-      Catppuccin Frappe Pink: Catppuccin Frappe Rosa
-      Catppuccin Frappe Sky: Catppuccin Frappe Himmel
-      Catppuccin Frappe Sapphire: Catppuccin Frappe Safir
-      Catppuccin Frappe Yellow: Catppuccin Frappe Gul
-      Catppuccin Frappe Green: Catppuccin Frappe Grön
-      Catppuccin Frappe Teal: Catppuccin Frappe Blågrön
+      Catppuccin Frappe Rosewater: Catppuccin Frappe rosenvatten
+      Catppuccin Frappe Flamingo: Catppuccin Frappe flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe rosa
+      Catppuccin Frappe Sky: Catppuccin Frappe himmel
+      Catppuccin Frappe Sapphire: Catppuccin Frappe safir
+      Catppuccin Frappe Yellow: Catppuccin Frappe gul
+      Catppuccin Frappe Green: Catppuccin Frappe grön
+      Catppuccin Frappe Teal: Catppuccin Frappe blågrön
       Gruvbox Dark Blue: Gruvbox mörkblå
       Gruvbox Light Red: Gruvbox ljusröd
       Gruvbox Light Blue: Gruvbox ljusblå
-      Catppuccin Frappe Maroon: Catppuccin Frappe Rödbrun
-      Catppuccin Frappe Peach: Catppuccin Frappe Persika
+      Catppuccin Frappe Maroon: Catppuccin Frappe rödbrun
+      Catppuccin Frappe Peach: Catppuccin Frappe persika
       Gruvbox Light Orange: Gruvbox ljusorange
       Solarized Yellow: Solariserad gul
       Solarized Magenta: Solariserad magenta
