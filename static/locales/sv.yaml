@@ -29,8 +29,8 @@ Forward: 'Framåt'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videor'
-  Shorts: Shorts
-  Live: Live
+  Shorts: Korta videor
+  Live: Realtid
   Posts: Inlägg
   Sort By: Sortera efter
 
@@ -91,7 +91,7 @@ Search Filters:
     Subtitles: Undertexter
     Creative Commons: Creative Commons
     3D: 3D
-    Live: Live
+    Live: Realtid
     4K: 4K
     VR180: VR180
     Features: Funktioner
@@ -268,14 +268,14 @@ Settings:
       Catppuccin Mocha: Catppuccin Mocha
       Hot Pink: Het Rosa
       Pastel Pink: Pastell Rosa
-      Solarized Dark: Solarized Dark
-      Nordic: Nordic
-      Everforest Dark Hard: Everforest Dark Hard
-      Gruvbox Dark: Gruvbox Dark
-      Gruvbox Light: Gruvbox Light
-      Solarized Light: Solarized Light
-      Everforest Dark Medium: Everforest Dark Medium
-      Everforest Dark Low: Everforest Dark Low
+      Solarized Dark: Solarized mörk
+      Nordic: Nordisk
+      Everforest Dark Hard: Everforest mörk hård
+      Gruvbox Dark: Gruvbox mörk
+      Gruvbox Light: Gruvbox ljus
+      Solarized Light: Solarized ljus
+      Everforest Dark Medium: Everforest mörk medium
+      Everforest Dark Low: Everforest mörk låg
       Everforest Light Hard: Everforest Light Hard
       Everforest Light Medium: Everforest Light Medium
       Everforest Light Low: Everforest Light Low
@@ -1058,10 +1058,10 @@ shortcutLabelSeparator: ｜
 KeyboardShortcutPrompt:
   Volume Up: Öka volymen
   Next Chapter: Nästa Kapitel
-  Small Fast Forward: Snabbspola framåt X antal sekunder baserat på Snabbspolningsintervallet och aktuell Videouppspelningshastighet
+  Small Fast Forward: Snabbspola framåt X antal sekunder baserat på snabbspolningsintervallet och aktuell videouppspelningshastighet
   Play: Växla uppspelning/paus
   Zoom In: Zooma in
-  Decrease Video Speed: Minska videohastigheten baserat på Videouppspelningshastighetsintervall
+  Decrease Video Speed: Minska videohastigheten baserat på videouppspelningshastighetsintervall
   Take Screenshot: Ta en skärmdump
   Toggle Developer Tools: Växla utvecklarverktyg
   History Forward: Gå framåt en sida
@@ -1090,19 +1090,19 @@ KeyboardShortcutPrompt:
       Playback: 'Video: Uppspelning'
       General: 'Video: Allmänt'
   Show Keyboard Shortcuts: Visa tangentbordsgenvägar
-  Large Fast Forward: Framåt 10 sekunder / Snabbspolning framåt baserat på aktuell Videouppspelningshastighet
-  Increase Video Speed: Öka videohastigheten baserat på Videouppspelningshastighetsintervall
+  Large Fast Forward: Framåt 10 sekunder / Snabbspolning framåt baserat på aktuell videouppspelningshastighet
+  Increase Video Speed: Öka videohastigheten baserat på videouppspelningshastighetsintervall
   Full Window: Växla helfönster
   Theatre Mode: Växla Teaterläge
   Navigate to History: Navigera till sidan Historik
   Last Frame: Föregående bildruta (medan pausad)
   Refresh: Uppdatera flödet med det senaste innehållet
   Mute: Växla av/på ljudet
-  Large Rewind: Spola tillbaka 10 sekunder / Spola tillbaka video baserat på aktuell Videouppspelningshastighet
+  Large Rewind: Spola tillbaka 10 sekunder / Spola tillbaka video baserat på aktuell videouppspelningshastighet
   Reset Zoom: Återställ zoomnivå / Användargränssnittsskala
   Volume Down: Minska volymen
   Last Chapter: Sista Kapitlet
-  Small Rewind: Spola tillbaka X antal sekunder baserat på Återspolningsintervallet och aktuell Videouppspelningshastighet
+  Small Rewind: Spola tillbaka X antal sekunder baserat på återspolningsintervallet och aktuell videouppspelningshastighet
   Picture in Picture: Växla Bild-i-Bild-läge
   Home: Sök till början av videon
   End: Sök till slutet av videon
