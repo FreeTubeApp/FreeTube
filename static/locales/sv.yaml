@@ -289,8 +289,8 @@ Settings:
       Indigo: 'Indigo'
       Blue: 'Blå'
       Light Blue: 'Ljusblå'
-      Cyan: 'Cyan (Mintgrön)'
-      Teal: 'Turkos (Cyangrön)'
+      Cyan: 'Cyangrön (mintgrön)'
+      Teal: 'Turkos (cyangrön)'
       Green: 'Grön'
       Light Green: 'Ljusgrön'
       Lime: 'Limegrön'
@@ -298,27 +298,27 @@ Settings:
       Amber: 'Bärnsten'
       Orange: 'Brandgul'
       Deep Orange: 'Djup Orange'
-      Dracula Cyan: 'Dracula Cyan (Mintgrön)'
-      Dracula Green: 'Dracula ljusgrön'
-      Dracula Orange: 'Dracula Brandgul'
-      Dracula Pink: 'Dracula Rosa'
-      Dracula Purple: 'Dracula Lila'
-      Dracula Red: 'Dracula Röd'
-      Dracula Yellow: 'Dracula Gul'
+      Dracula Cyan: 'Dracula cyangrön (mintgrön)'
+      Dracula Green: 'Dracula grön'
+      Dracula Orange: 'Dracula orange'
+      Dracula Pink: 'Dracula rosa'
+      Dracula Purple: 'Dracula lila'
+      Dracula Red: 'Dracula röd'
+      Dracula Yellow: 'Dracula gul'
       Catppuccin Mocha Rosewater: Catppuccin Mocha rosenvatten
       Catppuccin Mocha Flamingo: Catppuccin Mocha flamingo
       Catppuccin Mocha Pink: Catppuccin Mocha rosa
       Catppuccin Mocha Mauve: Catppuccin Mocha malva
-      Catppuccin Mocha Red: Catppuccin Mocha töd
-      Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
-      Catppuccin Mocha Peach: Catppuccin Mocha Peach
-      Catppuccin Mocha Yellow: Catppuccin Mocha Gul
-      Catppuccin Mocha Green: Catppuccin Mocha Grönt
-      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
-      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
-      Catppuccin Mocha Blue: Catppuccin Mocha Blå
-      Catppuccin Mocha Teal: Catppuccin Mocha Turkos
-      Catppuccin Mocha Sky: Catppuccin Mocha Sky
+      Catppuccin Mocha Red: Catppuccin Mocha röd
+      Catppuccin Mocha Maroon: Catppuccin Mocha rödbrun
+      Catppuccin Mocha Peach: Catppuccin Mocha persika
+      Catppuccin Mocha Yellow: Catppuccin Mocha gul
+      Catppuccin Mocha Green: Catppuccin Mocha grön
+      Catppuccin Mocha Sapphire: Catppuccin Mocha safir
+      Catppuccin Mocha Lavender: Catppuccin Mocha lavender
+      Catppuccin Mocha Blue: Catppuccin Mocha blå
+      Catppuccin Mocha Teal: Catppuccin Mocha turkos
+      Catppuccin Mocha Sky: Catppuccin Mocha himmel
       Catppuccin Frappe Mauve: Catppuccin Frappe malva
       Catppuccin Frappe Red: Catppuccin Frappe röd
       Catppuccin Frappe Blue: Catppuccin Frappe blå
@@ -340,7 +340,7 @@ Settings:
       Catppuccin Frappe Sapphire: Catppuccin Frappe safir
       Catppuccin Frappe Yellow: Catppuccin Frappe gul
       Catppuccin Frappe Green: Catppuccin Frappe grön
-      Catppuccin Frappe Teal: Catppuccin Frappe blågrön
+      Catppuccin Frappe Teal: Catppuccin Frappe turkos
       Gruvbox Dark Blue: Gruvbox mörkblå
       Gruvbox Light Red: Gruvbox ljusröd
       Gruvbox Light Blue: Gruvbox ljusblå
