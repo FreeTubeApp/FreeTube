@@ -429,7 +429,7 @@ Settings:
     Autoplay Interruption Timer: Autoplay Avbrottstimer
   Privacy Settings:
     Privacy Settings: 'Integritet'
-    Remember History: 'Kom Ihåg visningshistorik'
+    Remember History: 'Kom ihåg visningshistorik'
     Save Watched Progress: 'Lagra tidigare sett'
     Clear Search Cache: 'Rensa sökcache'
     Are you sure you want to clear out your search cache?: 'Vill du verkligen rensa din sökcache?'
@@ -440,7 +440,7 @@ Settings:
     Remove All Subscriptions / Profiles: 'Ta bort alla prenumerationer och profiler'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Vill du verkligen ta bort alla prenumerationer och profiler? Detta kan inte ångras.'
     Save Watched Videos With Last Viewed Playlist: Spara sedda vidoer till Senast tittade spellista
-    Remember Search History: Kom Ihåg sökhistorik
+    Remember Search History: Kom ihåg sökhistorik
     Clear Search History and Cache: Rensa sökhistorik och cache
     All playlists have been removed: Alla spellistor har tagits bort
     Are you sure you want to remove all your playlists?: Är du säker på att du vill ta bort alla dina spellistor?
@@ -1057,7 +1057,7 @@ shortcutJoinOperator: +
 shortcutLabelSeparator: ｜
 KeyboardShortcutPrompt:
   Volume Up: Öka volymen
-  Next Chapter: Nästa Kapitel
+  Next Chapter: Nästa kapitel
   Small Fast Forward: Snabbspola framåt X antal sekunder baserat på snabbspolningsintervallet och aktuell videouppspelningshastighet
   Play: Växla uppspelning/paus
   Zoom In: Zooma in
