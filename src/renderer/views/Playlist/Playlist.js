@@ -51,6 +51,7 @@ export default defineComponent({
         continuationData: this.continuationData,
       })
     }
+    this.removeToBeDeletedVideosSometimes()
     next()
   },
   data: function () {
@@ -80,9 +81,9 @@ export default defineComponent({
       videoSearchQuery: '',
 
       promptOpen: false,
-      deletedVideoIds: [],
       deletedPlaylistItemIds: [],
-      isUndoToast: false
+      // Present = shown
+      undoToastAbortController: null,
     }
   },
   computed: {
@@ -591,49 +592,54 @@ export default defineComponent({
       try {
         const playlistItems = [].concat(this.playlistItems)
         const tempPlaylistItems = [].concat(this.playlistItems)
-        let isUndoClicked = false
 
         const videoIndex = this.playlistItems.findIndex((video) => {
           return video.videoId === videoId && video.playlistItemId === playlistItemId
         })
 
         if (videoIndex !== -1) {
-          this.deletedVideoIds.push(this.playlistItems[videoIndex].videoId)
           this.deletedPlaylistItemIds.push(this.playlistItems[videoIndex].playlistItemId)
           playlistItems.splice(videoIndex, 1)
           this.playlistItems = playlistItems
+          this.videoCount = playlistItems.length
 
           // Only show toast when no existing toast shown
-          if (!this.isUndoToast) {
-            this.isUndoToast = true
+          if (this.undoToastAbortController == null) {
+            this.undoToastAbortController = new AbortController()
+            const actualRemoveVideosTimeout = setTimeout(() => {
+              this.removeToBeDeletedVideosSometimes()
+            }, 5000)
             showToast(
               this.$t('User Playlists.SinglePlaylistView.Toast["Video has been removed. Click here to undo."]'),
               5000,
               () => {
                 this.playlistItems = tempPlaylistItems
-                isUndoClicked = true
-                this.isUndoToast = false
-                this.deletedVideoIds = []
+                this.videoCount = tempPlaylistItems.length
+                clearTimeout(actualRemoveVideosTimeout)
                 this.deletedPlaylistItemIds = []
-              }
+                this.undoToastAbortController = null
+              },
+              this.undoToastAbortController.signal,
             )
-            setTimeout(() => {
-              if (!isUndoClicked) {
-                this.removeVideos({
-                  _id: this.playlistId,
-                  videoIds: this.deletedVideoIds,
-                  playlistItemIds: this.deletedPlaylistItemIds,
-                })
-                this.deletedVideoIds = []
-                this.deletedPlaylistItemIds = []
-                this.isUndoToast = false
-              }
-            }, 5000)
           }
         }
       } catch (e) {
         showToast(this.$t('User Playlists.SinglePlaylistView.Toast.There was a problem with removing this video'))
         console.error(e)
+      }
+    },
+
+    removeToBeDeletedVideosSometimes() {
+      if (this.isLoading) { return }
+
+      if (this.deletedPlaylistItemIds.length > 0) {
+        this.removeVideos({
+          _id: this.playlistId,
+          playlistItemIds: this.deletedPlaylistItemIds,
+        })
+        this.deletedPlaylistItemIds = []
+        this.undoToastAbortController?.abort()
+        this.undoToastAbortController = null
       }
     },
 
