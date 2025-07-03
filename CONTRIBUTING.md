@@ -14,7 +14,7 @@ Please follow these guidelines before sending your pull request and making contr
 * Make sure your pull request is set up to merge your branch to FreeTube's development branch.
 * Make sure your branch is up to date with the development branch before submitting your pull request.
 * Stick to a similar style of code already in the project.  Please look at current code to get an idea on how to do this.
-* Follow [ES6](http://es6-features.org/) standards in your code. Ex: Use `let` and `const` instead of `var`. Do not use `function(response){//code}` for callbacks, use `(response) => {//code}`.
+* Follow [ES6](https://rse.github.io/es6-features/) standards in your code. Ex: Use `let` and `const` instead of `var`. Do not use `function(response){//code}` for callbacks, use `(response) => {//code}`.
 * Comment your code when necessary.  Follow the [JavaScript Documentation and Comments Standard](https://www.drupal.org/docs/develop/standards/javascript/javascript-api-documentation-and-comment-standards) for functions.
 * Please follow proper Vue structure when creating new code / components.  Use existing code as well as the [Vue.js Guide](https://vuejs.org/v2/guide/) for reference.
 * Please test your code.  Make sure new features work as well as existing core features such as watching videos or loading subscriptions.  New features need to work with both the Local API as well as the Invidious API
