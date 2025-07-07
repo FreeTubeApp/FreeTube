@@ -18,7 +18,7 @@ Toggle Developer Tools: 'Garatzaile erremintak erakutsi'
 Actual size: 'Uneko tamaina'
 Zoom in: 'Handiagotu'
 Zoom out: 'Txikiagotu'
-Toggle fullscreen: 'Pantaila osoa'
+Toggle fullscreen: 'Aldatu pantaila osora'
 Window: 'Leihoa'
 Minimize: 'Minimizatu'
 Close: 'Itxi'
@@ -52,14 +52,14 @@ Search / Go to URL: 'Bilatu / Helbidera joan'
 Search Filters:
   Search Filters: 'Bilaketa iragazkiak'
   Sort By:
-    Most Relevant: 'Egokitasuna'
+    Most Relevant: 'Garrantzitsuenak'
     Rating: 'Balorazioa'
     Upload Date: 'Igoera data'
     View Count: 'Kontua ikusi'
   Time:
     Time: 'Denbora'
-    Any Time: 'Edozein unetan'
-    Last Hour: 'Azken ordua'
+    Any Time: 'Edozein unekoa'
+    Last Hour: 'Azken ordukoa'
     Today: 'Gaur'
     This Week: 'Aste honetan'
     This Month: 'Hilabete honetan'
@@ -70,7 +70,7 @@ Search Filters:
     Videos: 'Bideoak'
     Channels: 'Kanalak'
     #& Playlists
-    Movies: Filmeak
+    Movies: Filmak
   Duration:
     Duration: 'Iraupena'
     All Durations: 'Edozein iraupen'
@@ -102,7 +102,7 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Honako profilak harpidetza anitz ditu. RSS behartu abiadura muga saihesteko'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Zure harpidetza-zerrenda hutsik dago. Zure harpidetzak inportatu nahi badituzu, Datuen konfigurazioa atalera joan eta Inportaziorako harpidetzak aukera ditzakezu, edo kanal bat bilatu eta harpidetza egin dezakezu.'
   Load More Videos: 'Bideo gehiago kargatu'
-  Error Channels: Akatsak dituzten kateak
+  Error Channels: Akatsak dituzten kanalak
   Disabled Automatic Fetching: Harpidetza-bilaketa automatikoa desgaitu duzu. Freskatu harpidetzak hemen ikusteko.
   Empty Channels: Harpidetutako kanalek ez dute bideorik.
   Empty Posts: Harpidetutako kanalek ez dute argitalpenik.
@@ -116,16 +116,16 @@ Trending:
   Music: Musika
   Gaming: Bideo jokoak
   Movies: Filmak
-  Trending Tabs: Lehenetsitako erlaitzak
+  Trending Tabs: Joeren fitxak
 Most Popular: 'Ikusienak'
 Playlists: 'Erreprodukzio zerrendak'
 User Playlists:
   Your Playlists: 'Zure erreprodukzio zerrendak'
-  Search bar placeholder: Bilatu erreprodukzio-zerrendak
+  Search bar placeholder: Bilatu erreprodukzio zerrendak
   Empty Search Message: Erreprodukzio-zerrenda honetan ez dago zure bilaketarekin bat datorren bideorik
   Remove Watched Videos: Kendu ikusitako bideoak
   You have no playlists. Click on the create new playlist button to create a new one.: Ez duzu erreprodukzio-zerrendarik. Egin klik sortu erreprodukzio-zerrenda berria botoian berri bat sortzeko.
-  This playlist currently has no videos.: Erreprodukzio-zerrenda honek ez du bideorik.
+  This playlist currently has no videos.: Erreprodukzio zerrenda honek ez du bideorik.
   Create New Playlist: Sortu erreprodukzio zerrenda berria
   Add to Playlist: Gehitu erreprodukzio zerrendara
   Add to Favorites: Gehitu {playlistName}-ra
@@ -134,11 +134,11 @@ User Playlists:
   Move Video Down: Mugitu bideoa behera
   Remove from Playlist: Kendu erreprodukzio zerrendatik
   Playlist Name: Erreprodukzio zerrendaren izena
-  Playlist Description: Erreprodukzio-zerrendaren deskribapena
+  Playlist Description: Erreprodukzio zerrendaren deskribapena
   Save Changes: Gorde aldaketak
   Cancel: Utzi
   Edit Playlist Info: Editatu erreprodukzio zerrendaren informazioa
-  Copy Playlist: Kopiatu Erreprodukzio zerrenda
+  Copy Playlist: Kopiatu erreprodukzio zerrenda
   CreatePlaylistPrompt:
     New Playlist Name: Erreprodukzio-zerrendaren izen berria
     Toast:
@@ -146,7 +146,7 @@ User Playlists:
       There was an issue with creating the playlist.: Arazo bat izan da erreprodukzio-zerrenda sortzearekin.
       There is already a playlist with this name. Please pick a different name.: Badago dagoeneko izen honekin erreprodukzio-zerrenda bat. Mesedez, aukeratu beste izen bat.
     Create: Sortu
-  Enable Quick Bookmark With This Playlist: Gaitu laster-marka azkarra erreprodukzio-zerrenda honekin
+  Enable Quick Bookmark With This Playlist: Gaitu laster-marka azkarra erreprodukzio zerrenda honekin
   Sort By:
     NameDescending: Z-A
     LatestCreatedFirst: Sortu berria
@@ -193,13 +193,13 @@ User Playlists:
     Allow Adding Duplicate Video(s): Baimendu bideo bikoiztuak gehitzea
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} bideo gehituko dira'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} gehitu dira'
-  Playlists with Matching Videos: Bat datozen bideoak dituzten erreprodukzio-zerrendak
+  Playlists with Matching Videos: Bat datozen bideoak dituzten erreprodukzio zerrendak
   Remove Duplicate Videos: Kendu bideo bikoiztuak
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ziur bikoiztutako bideo bat erreprodukzio-zerrenda honetatik kendu nahi duzula? Hau ezin da desegin. | Ziur {playlistItemCount} bideo bikoiztu erreprodukzio-zerrenda honetatik kendu nahi dituzula? Hau ezin da desegin.
   Quick Bookmark Enabled: Laster-marka azkarra gaituta
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ziur ikusitako bideo bat erreprodukzio-zerrenda honetatik kendu nahi duzula? Hau ezin da desegin. | Ziur ikusitako {playlistItemCount} bideo erreprodukzio-zerrenda honetatik kendu nahi dituzula? Hau ezin da desegin.
   Cannot delete the quick bookmark target playlist.: Ezin da laster-marken helburuko erreprodukzio zerrenda azkarra ezabatu.
-  Export Playlist: Erreprodukzio-zerrenda hau esportatu
+  Export Playlist: Erreprodukzio zerrenda hau esportatu
   The playlist has been successfully exported: Erreprodukzio-zerrenda ongi esportatu da
   TotalTimePlaylist: 'Denbora guztira: {duration}'
 History:
@@ -989,7 +989,7 @@ No: 'Ez'
 Search Bar:
   Clear Input: Sarrera garbitu
   Remove: Kendu
-Are you sure you want to open this link?: Ziur al zaude ataka hau ireki nahi duzula?
+Are you sure you want to open this link?: Ziur al zaude esteka hau ireki nahi duzula?
 Open New Window: Leiho berria ireki
 Default Invidious instance has been set to {instance}: 'Lehenetsitako Individious-eko instantzia {instance} gisa ezarri da'
 Default Invidious instance has been cleared: Lehenetsitako Individious-eko instantzia ezabatu egin da
