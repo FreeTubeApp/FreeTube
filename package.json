@@ -59,7 +59,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/vue-fontawesome": "^2.0.10",
-    "@seald-io/nedb": "^4.1.1",
+    "@seald-io/nedb": "^4.1.2",
     "autolinker": "^4.1.5",
     "bgutils-js": "^3.2.0",
     "electron-context-menu": "^4.1.0",
