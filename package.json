@@ -76,9 +76,9 @@
     "youtubei.js": "^13.4.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.27.7",
+    "@babel/core": "^7.28.0",
     "@babel/plugin-transform-class-properties": "^7.27.1",
-    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-env": "^7.28.0",
     "@double-great/stylelint-a11y": "^3.0.4",
     "@eslint/js": "^9.30.0",
     "@intlify/eslint-plugin-vue-i18n": "^3.2.0",
