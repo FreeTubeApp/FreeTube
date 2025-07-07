@@ -149,34 +149,34 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Gaitu laster-marka azkarra erreprodukzio zerrenda honekin
   Sort By:
     NameDescending: Z-A
-    LatestCreatedFirst: Sortu berria
-    EarliestCreatedFirst: Lehenen sortuak
+    LatestCreatedFirst: Berriki sortu da
+    EarliestCreatedFirst: Goiztiarren sortuak
     LatestPlayedFirst: Duela gutxi erreproduzitua
-    EarliestPlayedFirst: Lehenen erreproduzitua
+    EarliestPlayedFirst: Goiztiarren erreproduzitua
     NameAscending: A-Z
-    EarliestUpdatedFirst: Lehenen eguneratuak
-    LatestUpdatedFirst: Eguneratu berriak
+    EarliestUpdatedFirst: Goiztiarren eguneratuak
+    LatestUpdatedFirst: Berriki eguneratuak
   Delete Playlist: Ezabatu erreprodukzio zerrenda
-  Are you sure you want to delete this playlist? This cannot be undone: Ziur erreprodukzio-zerrenda ezabatu nahi duzula? Hau ezin da desegin.
+  Are you sure you want to delete this playlist? This cannot be undone: Ziur erreprodukzio zerrenda ezabatu nahi duzula? Hau ezin da desegin.
   SinglePlaylistView:
     Toast:
-      Playlist has been updated.: Erreprodukzio-zerrenda eguneratu da.
+      Playlist has been updated.: Erreprodukzio zerrenda eguneratu da.
       "{videoCount} video(s) have been removed": bideo 1 kendu da | {videoCount} bideo kendu dira
       This video cannot be moved up.: Bideo hau ezin da gora eraman.
       This video cannot be moved down.: Bideoa ezin da behera eraman.
       Video has been removed: Bideoa kendu da
       There was a problem with removing this video: Arazo bat izan da bideoa kentzean
-      This playlist is now used for quick bookmark: Erreprodukzio-zerrenda hau laster-markak egiteko erabiltzen da orain
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Erreprodukzio-zerrenda hau laster-marketarako erabiltzen da orain {oldPlaylistName}-ren ordez. Egin klik hemen desegiteko
+      This playlist is now used for quick bookmark: Erreprodukzio zerrenda hau laster-markak egiteko erabiltzen da orain
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Erreprodukzio zerrenda hau laster-marketarako erabiltzen da orain {oldPlaylistName}-ren ordez. Egin klik hemen desegiteko
       Reverted to use {oldPlaylistName} for quick bookmark: '{oldPlaylistName} erabili da berriro azkar markatzeko'
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Erreprodukzio-zerrendako bideo batzuk oraindik ez dira kargatu. Egin klik hemen kopiatzeko hala ere.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Erreprodukzio zerrendako bideo batzuk oraindik ez dira kargatu. Egin klik hemen kopiatzeko hala ere.
       Playlist name cannot be empty. Please input a name.: Erreprodukzio zerrendaren izena ezin da hutsik egon. Mesedez, idatzi izena.
-      There was an issue with updating this playlist.: Arazo bat izan da erreprodukzio-zerrenda eguneratzean.
+      There was an issue with updating this playlist.: Arazo bat izan da erreprodukzio zerrenda eguneratzean.
       There were no videos to remove.: Ez zegoen kentzeko bideorik.
       This playlist is protected and cannot be removed.: Erreprodukzio-zerrenda hau babestuta dago eta ezin da kendu.
       Playlist {playlistName} has been deleted.: '{playlistName} erreprodukzio-zerrenda ezabatu da.'
       This playlist does not exist: Erreprodukzio-zerrenda hau ez da existitzen
-      This playlist is already being used for quick bookmark.: Erreprodukzio-zerrenda hau laster-markak egiteko erabiltzen ari da dagoeneko.
+      This playlist is already being used for quick bookmark.: Erreprodukzio zerrenda hau laster-markak egiteko erabiltzen ari da dagoeneko.
       This playlist has a video with a duration error: Erreprodukzio-zerrenda honek iraupenik ez duen bideo bat du gutxienez. Hortaz, zero balitz bezala sailkatuko da.
       Video has been removed. Click here to undo.: Bideoa kendu da. Egin klik hemen desegiteko.
     Search for Videos: Bilatu bideoak
@@ -195,12 +195,12 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} gehitu dira'
   Playlists with Matching Videos: Bat datozen bideoak dituzten erreprodukzio zerrendak
   Remove Duplicate Videos: Kendu bideo bikoiztuak
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ziur bikoiztutako bideo bat erreprodukzio-zerrenda honetatik kendu nahi duzula? Hau ezin da desegin. | Ziur {playlistItemCount} bideo bikoiztu erreprodukzio-zerrenda honetatik kendu nahi dituzula? Hau ezin da desegin.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ziur bikoiztutako bideo bat erreprodukzio zerrenda honetatik kendu nahi duzula? Hau ezin da desegin. | Ziur {playlistItemCount} bideo bikoiztu erreprodukzio zerrenda honetatik kendu nahi dituzula? Hau ezin da desegin.
   Quick Bookmark Enabled: Laster-marka azkarra gaituta
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ziur ikusitako bideo bat erreprodukzio-zerrenda honetatik kendu nahi duzula? Hau ezin da desegin. | Ziur ikusitako {playlistItemCount} bideo erreprodukzio-zerrenda honetatik kendu nahi dituzula? Hau ezin da desegin.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ziur ikusitako bideo bat erreprodukzio zerrenda honetatik kendu nahi duzula? Hau ezin da desegin. | Ziur ikusitako {playlistItemCount} bideo erreprodukzio zerrenda honetatik kendu nahi dituzula? Hau ezin da desegin.
   Cannot delete the quick bookmark target playlist.: Ezin da laster-marken helburuko erreprodukzio zerrenda azkarra ezabatu.
-  Export Playlist: Erreprodukzio zerrenda hau esportatu
-  The playlist has been successfully exported: Erreprodukzio-zerrenda ongi esportatu da
+  Export Playlist: Esportatu erreprodukzio zerrenda hau
+  The playlist has been successfully exported: Erreprodukzio zerrenda ongi esportatu da
   TotalTimePlaylist: 'Denbora guztira: {duration}'
 History:
   # On History Page
