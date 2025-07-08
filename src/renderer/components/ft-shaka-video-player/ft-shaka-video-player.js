@@ -2101,6 +2101,8 @@ export default defineComponent({
         return
       }
 
+      const video_ = video.value
+
       // Skip to next video in playlist or recommended
       if (event.shiftKey && event.key.toLowerCase() === 'n') {
         emit('skip-to-next')
