@@ -228,17 +228,17 @@ User Playlists:
       This playlist is protected and cannot be removed.: 'Ky playlist është i ruajtur dhe nuk mund të hiqet.'
       Playlist {playlistName} has been deleted.: 'Playlisti {playlistName} u hoq.'
 
-      This playlist does not exist: 'Ky playlist nuk ekziston.'
+      This playlist does not exist: 'Ky playlist nuk ekziston'
 
-      This playlist has a video with a duration error: ''
+      This playlist has a video with a duration error: 'Ky playlist përmban të paktën një video që nuk ka një kohëzgjatje, do të renditet sikur kohëzgjatja ështe zero.'
   AddVideoPrompt:
-    Select a playlist to add your N videos to: ''
-    N playlists selected: ''
-    Search in Playlists: ''
-    Allow Adding Duplicate Video(s): ''
-    Save: ''
+    Select a playlist to add your N videos to: 'Zgjidh një playlist ku të shtosh videon tënde | Zgjidh një playlist ku të shtosh {videoCount} videot e tua'
+    N playlists selected: '{playlistCount} zgjedhur'
+    Search in Playlists: 'Kërko në playlist'
+    Allow Adding Duplicate Video(s): 'Lejo shtimin e videove të dyfishta'
+    Save: 'Ruaj'
 
-    Added {count} Times: ''
+    Added {count} Times: 'Tashmë shtuar | Shtuar {count} here'
     "{videoCount}/{totalVideoCount} Videos Will Be Added": ''
     "{videoCount}/{totalVideoCount} Videos Already Added": ''
 
