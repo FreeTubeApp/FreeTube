@@ -138,8 +138,8 @@ Channels:
   Title: 'Lista e kanaleve'
   Search bar placeholder: 'Kërko kanale'
   Count: '{number} kanal(e) u gjet(ën).'
-  Empty: 'Lista e kanaleve ë tua është boshe.'
-  Unsubscribe Prompt: ''
+  Empty: 'Lista e kanaleve të tua është boshe.'
+  Unsubscribe Prompt: 'A je i sigurt se do të heqësh abonimin nga "{channelName}"'
 Trending:
   Trending: ''
   Default: ''
