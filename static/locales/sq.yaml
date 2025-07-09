@@ -239,25 +239,25 @@ User Playlists:
     Save: 'Ruaj'
 
     Added {count} Times: 'Tashmë shtuar | Shtuar {count} here'
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": ''
-    "{videoCount}/{totalVideoCount} Videos Already Added": ''
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} video do të shtohen'
+    "{videoCount}/{totalVideoCount} Videos Already Added": 'Tashmë janë shtuar {videoCount}/{totalVideoCount} video'
 
     Toast:
-      You haven't selected any playlist yet.: ''
-      "{videoCount} video(s) added to 1 playlist": ""
-      "{videoCount} video(s) added to {playlistCount} playlists": ""
+      You haven't selected any playlist yet.: 'Nuk ke zgjedhur akoma asnjë playlist.'
+      "{videoCount} video(s) added to 1 playlist": "1 video shtuar në 1 playlist | {videoCount} video shtuar në 1 playlist"
+      "{videoCount} video(s) added to {playlistCount} playlists": "1 video shtuar në {playlistCount} playlist | {videoCount} video shtuar në {playlistCount} playlist"
   CreatePlaylistPrompt:
-    New Playlist Name: ''
-    Create: ''
+    New Playlist Name: 'Emri i playlist'
+    Create: 'Krijo'
 
     Toast:
-      There is already a playlist with this name. Please pick a different name.: ''
-      Playlist {playlistName} has been successfully created.: ''
-      There was an issue with creating the playlist.: ''
+      There is already a playlist with this name. Please pick a different name.: 'Tashmë ekziston një playlist me atë emer. Zgjidh një emër tjeter.'
+      Playlist {playlistName} has been successfully created.: 'Playlisti {playlistName} u krijua me sukses.'
+      There was an issue with creating the playlist.: 'Kishte një problem me krijimin e playlistit.'
 History:
   # On History Page
-  History: ''
-  Watch History: ''
+  History: 'Historia'
+  Watch History: 'Historia e shikimit'
   Your history list is currently empty.: ''
   Empty Search Message: ''
   Search bar placeholder: ""
