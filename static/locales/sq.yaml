@@ -208,13 +208,13 @@ User Playlists:
     Search for Videos: 'Kërko për video'
 
     Toast:
-      This video cannot be moved up.: 'Kjo video nuk mund te lëvizet më lart'
-      This video cannot be moved down.: ''
-      Video has been removed: ''
-      Video has been removed. Click here to undo.: ''
-      There was a problem with removing this video: ''
+      This video cannot be moved up.: 'Kjo video nuk mund te lëvizet më lart.'
+      This video cannot be moved down.: 'Kjo video nuk mund të lëvizet më poshtë.'
+      Video has been removed: 'Video është hequr'
+      Video has been removed. Click here to undo.: 'Video është hequr. Kliko këtu për ta rikthyer.'
+      There was a problem with removing this video: 'Kishte një problem me heqjen e kësaj video'
 
-      This playlist is already being used for quick bookmark.: ''
+      This playlist is already being used for quick bookmark.: 'Ky playlist është duke u perdorur tashmë si një'
       This playlist is now used for quick bookmark: ''
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: ''
       Reverted to use {oldPlaylistName} for quick bookmark: ''
