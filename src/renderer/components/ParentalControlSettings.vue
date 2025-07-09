@@ -11,12 +11,6 @@
           @change="updateHideUnsubscribeButton"
         />
         <FtToggleSwitch
-          :label="$t('Settings.Parental Control Settings.Hide Channel Link')"
-          compact
-          :default-value="hideChannelLink"
-          @change="updateHideChannelLink"
-        />
-        <FtToggleSwitch
           :label="$t('Settings.Parental Control Settings.Show Family Friendly Only')"
           compact
           :default-value="showFamilyFriendlyOnly"
@@ -29,6 +23,12 @@
           compact
           :default-value="hideSearchBar"
           @change="updateHideSearchBar"
+        />
+        <FtToggleSwitch
+          :label="$t('Settings.Parental Control Settings.Hide Channel Link')"
+          compact
+          :default-value="hideChannelLink"
+          @change="updateHideChannelLink"
         />
       </div>
     </div>
