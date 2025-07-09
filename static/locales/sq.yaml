@@ -214,8 +214,8 @@ User Playlists:
       Video has been removed. Click here to undo.: 'Video është hequr. Kliko këtu për ta rikthyer.'
       There was a problem with removing this video: 'Kishte një problem me heqjen e kësaj video'
 
-      This playlist is already being used for quick bookmark.: 'Ky playlist është duke u perdorur tashmë si një'
-      This playlist is now used for quick bookmark: ''
+      This playlist is already being used for quick bookmark.: 'Ky playlist është duke u perdorur tashmë si një shenjë e shpejtë.'
+      This playlist is now used for quick bookmark: 'Ky playlist po përdoret tani si shenjë e shpejtë.'
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: ''
       Reverted to use {oldPlaylistName} for quick bookmark: ''
 
