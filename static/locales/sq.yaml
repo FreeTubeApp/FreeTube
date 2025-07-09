@@ -215,8 +215,8 @@ User Playlists:
       There was a problem with removing this video: 'Kishte një problem me heqjen e kësaj video'
 
       This playlist is already being used for quick bookmark.: 'Ky playlist është duke u perdorur tashmë si një shenjë e shpejtë.'
-      This playlist is now used for quick bookmark: 'Ky playlist po përdoret tani si shenjë e shpejtë.'
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: ''
+      This playlist is now used for quick bookmark: 'Ky playlist po përdoret tani si shenjë e shpejtë'
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 'Ky playlist po përdoret tani si shenjë e shpejte në vend të {oldPlaylistName}. Kliko këtu për të anulluar këtë keprim.'
       Reverted to use {oldPlaylistName} for quick bookmark: ''
 
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: ''
