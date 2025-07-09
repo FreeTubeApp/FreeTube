@@ -216,19 +216,19 @@ User Playlists:
 
       This playlist is already being used for quick bookmark.: 'Ky playlist është duke u perdorur tashmë si një shenjë e shpejtë.'
       This playlist is now used for quick bookmark: 'Ky playlist po përdoret tani si shenjë e shpejtë'
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 'Ky playlist po përdoret tani si shenjë e shpejte në vend të {oldPlaylistName}. Kliko këtu për të anulluar këtë keprim.'
-      Reverted to use {oldPlaylistName} for quick bookmark: ''
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 'Ky playlist po përdoret tani si shenjë e shpejte në vend të {oldPlaylistName}. Kliko këtu për të anulluar këtë veprim'
+      Reverted to use {oldPlaylistName} for quick bookmark: 'Shenja e shpejtë u rikthye tek {oldPlaylistName}'
 
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: ''
-      Playlist name cannot be empty. Please input a name.: ''
-      Playlist has been updated.: ''
-      There was an issue with updating this playlist.: ''
-      "{videoCount} video(s) have been removed": ""
-      There were no videos to remove.: ''
-      This playlist is protected and cannot be removed.: ''
-      Playlist {playlistName} has been deleted.: ''
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: 'Disa video në playlist nuk janë karikuar akoma. Kliko këtu për të kopjuar gjithsesi.'
+      Playlist name cannot be empty. Please input a name.: 'Emri i playlistit nuk mund të jetë bosh. Të lutem shto një emër.'
+      Playlist has been updated.: 'Playlisti u ndryshua.'
+      There was an issue with updating this playlist.: 'Kishte probleme me ndryshimin e këtij playlisti.'
+      "{videoCount} video(s) have been removed": "1 video u hoq | {videoCount} video u hoqën"
+      There were no videos to remove.: 'Nuk ka video për të hequr.'
+      This playlist is protected and cannot be removed.: 'Ky playlist është i ruajtur dhe nuk mund të hiqet.'
+      Playlist {playlistName} has been deleted.: 'Playlisti {playlistName} u hoq.'
 
-      This playlist does not exist: ''
+      This playlist does not exist: 'Ky playlist nuk ekziston.'
 
       This playlist has a video with a duration error: ''
   AddVideoPrompt:
