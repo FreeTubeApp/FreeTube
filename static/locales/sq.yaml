@@ -171,44 +171,44 @@ User Playlists:
   Move Video Down: 'Lëviz videon më poshtë'
   Remove from Playlist: 'Hiq nga playlist'
 
-  Playlist Name: 'Emri i playlist'
-  Playlist Description: 'Përshkrimi i playlist'
+  Playlist Name: 'Emri i playlistit'
+  Playlist Description: 'Përshkrimi i playlistit'
 
-  Save Changes: ''
-  Cancel: ''
-  Edit Playlist Info: ''
-  Copy Playlist: ''
-  Remove Duplicate Videos: ''
-  Remove Watched Videos: ''
-  Enable Quick Bookmark With This Playlist: ''
-  Quick Bookmark Enabled: ''
-  Export Playlist: ''
-  The playlist has been successfully exported: ''
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: ''
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ''
-  Delete Playlist: ''
-  Cannot delete the quick bookmark target playlist.: ''
-  Are you sure you want to delete this playlist? This cannot be undone: ''
+  Save Changes: 'Ruaj ndryshimet'
+  Cancel: 'Anullo'
+  Edit Playlist Info: 'Ndrysho të dhënat e playlistit'
+  Copy Playlist: 'Kopjo playlistin'
+  Remove Duplicate Videos: 'Hiq videot e dyfishta'
+  Remove Watched Videos: 'Hiq videot e shikuara'
+  Enable Quick Bookmark With This Playlist: 'Aktivizo shënimin e shpejtë me këtë playlist'
+  Quick Bookmark Enabled: 'Shënimi i shpejtë u aktivizua'
+  Export Playlist: 'Eksporto këtë playlist'
+  The playlist has been successfully exported: 'Playlisti u eksportua me sukses'
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: 'A je i sigurtë që do të heqësh 1 video të dyfishtë nga ky playlist? Ky veprim nuk mund të kthehet pas. | A je i sigurtë që do të heqësh {playlistItemCount} video të dyfishta nga ky playlist? Ky veprim nuk mund të kthehet pas.'
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 'A je i sigurtë që do të heqësh 1 video të shikuar nga ky playlist? Ky veprim nuk mund të kthehet pas. | A je i sigurtë që do të heqësh {playlistItemCount} video të shikuara nga ky playlist? Ky veprim nuk mund të kthehet pas.'
+  Delete Playlist: 'Fshi playlistin'
+  Cannot delete the quick bookmark target playlist.: 'Nuk mund të fshihet playlisti me destinacion tek shënimet e shpejta.'
+  Are you sure you want to delete this playlist? This cannot be undone: 'A je i sigurtë se do të fshish këtë playlist? Ky veprim nuk mund të kthehet pas.'
 
-  TotalTimePlaylist: ""
+  TotalTimePlaylist: "Koha totale: {duration}"
 
   Sort By:
-    NameAscending: ''
-    NameDescending: ''
+    NameAscending: 'A-Z'
+    NameDescending: 'Z-A'
 
-    LatestCreatedFirst: ''
-    EarliestCreatedFirst: ''
+    LatestCreatedFirst: 'Krijuar më së shpejti'
+    EarliestCreatedFirst: 'Krijuar më vonë'
 
-    LatestUpdatedFirst: ''
-    EarliestUpdatedFirst: ''
+    LatestUpdatedFirst: 'Ndryshuar më së shpejti'
+    EarliestUpdatedFirst: 'Ndryshuar më vonë'
 
-    LatestPlayedFirst: ''
-    EarliestPlayedFirst: ''
+    LatestPlayedFirst: 'Luajtur më së shpejti'
+    EarliestPlayedFirst: 'Luajtur më vonë'
   SinglePlaylistView:
-    Search for Videos: ''
+    Search for Videos: 'Kërko për video'
 
     Toast:
-      This video cannot be moved up.: ''
+      This video cannot be moved up.: 'Kjo video nuk mund te lëvizet më lart'
       This video cannot be moved down.: ''
       Video has been removed: ''
       Video has been removed. Click here to undo.: ''
