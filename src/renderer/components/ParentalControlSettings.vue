@@ -25,7 +25,7 @@
           @change="updateHideSearchBar"
         />
         <FtToggleSwitch
-          :label="$t('Settings.Parental Control Settings.Hide Uploader')"
+          :label="$t('Settings.Parental Control Settings.Hide Uploader on Watch page')"
           compact
           :default-value="hideUploader"
           @change="updateHideUploader"
