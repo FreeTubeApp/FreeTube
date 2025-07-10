@@ -210,6 +210,8 @@ History:
   Empty Search Message: Ez dago historikoan zure bilaketarekin bat datorren bideorik
   Search bar placeholder: Bilatu historikoan
   Case Sensitive Search: Maiuskulak eta minuskulak bereizten ditu
+  DateOldestHistory: Lehenengo ikusitakoak aurretik
+  DateNewestHistory: Ikusitako azkenak lehenik
 Settings:
   # On Settings Page
   Settings: 'Ezarpenak'
