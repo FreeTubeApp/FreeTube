@@ -209,6 +209,8 @@ History:
   Search bar placeholder: Keresés az előzmények között
   Empty Search Message: Nincsenek olyan videók az előzmények között, amelyek megfelelnek a keresésnek
   Case Sensitive Search: Kis- nagybetű érzéken keresés
+  DateNewestHistory: Legutóbb megtekintett elől
+  DateOldestHistory: Legrégebben megtekintett elől
 Settings:
   # On Settings Page
   Settings: 'Beállítások'
@@ -1082,16 +1084,16 @@ KeyboardShortcutPrompt:
   Navigate to Settings: Ugrás a „Beállítások” oldalra
   Navigate to History: Ugrás az „Előzmények” oldalra
   Focus Secondary Search: A másodlagos keresősávra fókuszálás (ha van ilyen)
-  Fullscreen: Teljes képernyő be/kikapcsolása
-  Picture in Picture: Kép a képben mód be/kikapcsolása
-  Play: Lejátszás / Szüneteltetés be/kikapcsolása
-  Mute: Némítás be/kikapcsolása
+  Fullscreen: Teljes képernyő be/ki
+  Picture in Picture: Kép a képben mód be/ki
+  Play: Lejátszás / Szüneteltetés be/ki
+  Mute: Némítás be/ki
   Decrease Video Speed: A videó lejátszási sebességének csökkentése a lejátszási sebesség időköze alapján
   Increase Video Speed: A videó lejátszási sebességének növelése a lejátszási sebesség időköze alapján
-  Toggle Developer Tools: Fejlesztői eszközök be/kikapcsolása
+  Toggle Developer Tools: Fejlesztői eszközök be/ki
   Zoom In: Nagyítás
-  Full Window: Teljes ablak mód be/kikapcsolása
-  Theatre Mode: Mozimód be/kikapcsolása
+  Full Window: Teljes ablakmód be/ki
+  Theatre Mode: Mozimód be/ki
   Minimize Window: Ablak minimalizálása
   Last Frame: Előző képkocka megjelenítése (szüneteltetés alatt)
   Next Frame: Következő képkocka megjelenítése (szüneteltetés alatt)
@@ -1110,7 +1112,7 @@ KeyboardShortcutPrompt:
   Small Fast Forward: X másodperc előretekerés az előretekerési időköz és a jelenlegi videólejátszási sebesség alapján
   Large Fast Forward: Előretekerés 10 másodperccel / Gyors előretekerés a jelenlegi videólejátszási sebesség alapján
   Refresh: A hírcsatorna frissítése a legújabb tartalommal
-  Captions: Feliratok be/kikapcsolása
+  Captions: Feliratok be/ki
   Large Rewind: Visszatekerés 10 másodperccel / Visszatekerés a jelenlegi videólejátszási sebesség alapján
   Close Window: Ablak bezárása
   Restart Window: Ablak újraindítása

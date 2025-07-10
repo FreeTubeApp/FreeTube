@@ -723,7 +723,18 @@ function runApp() {
 
   function trayClick(window, close = false) {
     if (!close) {
-      if (window.id in trayMaximizedWindows) { window.maximize() } else { window.show() }
+      if (window.id in trayMaximizedWindows) {
+        window.maximize()
+      } else {
+        window.show()
+
+        // Calling hide() inside minimize is broken for some Linux distros (window minimizes again when trying to drag,
+        // resize or maximize it, among other shenanigans). It seems to work as intended with this workaround.
+        if (process.platform === 'linux') {
+          window.hide()
+          window.show()
+        }
+      }
     } else if (trayWindows.length) {
       window.close()
     }
@@ -974,14 +985,8 @@ function runApp() {
 
     newWindow.on('minimize', () => {
       if (trayOnMinimize) {
-        // Calling hide() inside minimize is broken for some Linux distros (window minimizes again when trying to drag,
-        // resize or maximize it, among other shenanigans). It seems to work as intended with this workaround.
-        if (process.platform === 'linux') {
-          mainWindow.restore()
-        } else {
-          newWindow.hide()
-          manageTray(newWindow)
-        }
+        newWindow.hide()
+        manageTray(newWindow)
       }
     })
 
@@ -991,15 +996,6 @@ function runApp() {
 
     newWindow.on('unmaximize', () => {
       if (trayOnMinimize) { delete trayMaximizedWindows[newWindow.id] }
-    })
-
-    newWindow.on('restore', () => {
-      // Calling hide() inside minimize is broken for some Linux distros (window minimizes again when trying to drag,
-      // resize or maximize it, among other shenanigans). It seems to work as intended with this workaround.
-      if (trayOnMinimize & process.platform === 'linux') {
-        newWindow.hide()
-        manageTray(newWindow)
-      }
     })
 
     if (replaceMainWindow) {
@@ -1070,7 +1066,7 @@ function runApp() {
         return
       }
 
-      if (!trayOnMinimize) {
+      if (!trayOnMinimize || !trayWindows.length) {
         newWindow.show()
         newWindow.focus()
       } else {

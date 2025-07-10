@@ -205,6 +205,8 @@ History:
   Search bar placeholder: Ricerca nella Cronologia
   Empty Search Message: Non ci sono video nella tua Cronologia che corrispondono alla tua ricerca
   Case Sensitive Search: Ricerca con distinzione tra maiuscole e minuscole
+  DateOldestHistory: Prima i guardati più vecchi
+  DateNewestHistory: Prima i guardati più nuovi
 Settings:
   # On Settings Page
   Settings: 'Impostazioni'
