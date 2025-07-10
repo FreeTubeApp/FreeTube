@@ -3,6 +3,8 @@ on:
   pull_request_target:
     types: [opened, synchronize, reopened, auto_merge_disabled, ready_for_review]
 
+permissions: {}
+
 jobs:
   build:
     if: ${{ !github.event.pull_request.draft && (contains(github.event.pull_request.base.ref, 'development') || contains(github.event.pull_request.base.ref, 'RC')) }}
@@ -10,8 +12,6 @@ jobs:
 
     steps:
     - name: Auto Merge PR
-      run: |
-        echo ${{ secrets.PUSH_TOKEN }} >> auth.txt
-        gh auth login --with-token < auth.txt
-        rm auth.txt
-        gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto --squash
+      env:
+        GH_TOKEN: ${{ secrets.PUSH_TOKEN }}
+      run: gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto --squash
