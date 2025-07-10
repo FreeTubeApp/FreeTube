@@ -77,7 +77,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.28.0",
-    "@babel/plugin-transform-class-properties": "^7.27.1",
     "@babel/preset-env": "^7.28.0",
     "@double-great/stylelint-a11y": "^3.0.4",
     "@eslint/js": "^9.30.1",
