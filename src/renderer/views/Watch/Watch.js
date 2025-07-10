@@ -1391,7 +1391,7 @@ export default defineComponent({
     handleSkipToNext: function () {
       if (this.watchingPlaylist) {
         this.$refs.watchVideoPlaylist?.playNextVideo()
-      } else if (this.autoplayEnabled) {
+      } else if (this.autoplayEnabled && this.nextRecommendedVideo) {
         this.$router.push({
           path: `/watch/${this.nextRecommendedVideo.videoId}`
         })
