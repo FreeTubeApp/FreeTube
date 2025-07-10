@@ -58,7 +58,7 @@
         class="profileRow"
       >
         <div
-          v-if="!hideChannelLink"
+          v-if="!hideUploader"
         >
           <router-link
             :to="`/channel/${channelId}`"
@@ -71,7 +71,7 @@
           </router-link>
         </div>
         <div
-          v-if="!hideChannelLink"
+          v-if="!hideUploader"
         >
           <router-link
             :to="`/channel/${channelId}`"

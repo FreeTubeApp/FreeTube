@@ -216,7 +216,7 @@ const state = {
   hideVideoLikesAndDislikes: false,
   hideVideoViews: false,
   hideWatchedSubs: false,
-  hideChannelLink: false,
+  hideUploader: false,
   unsubscriptionPopupStatus: false,
   hideLabelsSideBar: false,
   hideChapters: false,

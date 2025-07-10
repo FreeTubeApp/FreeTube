@@ -25,10 +25,10 @@
           @change="updateHideSearchBar"
         />
         <FtToggleSwitch
-          :label="$t('Settings.Parental Control Settings.Hide Channel Link')"
+          :label="$t('Settings.Parental Control Settings.Hide Uploader')"
           compact
-          :default-value="hideChannelLink"
-          @change="updateHideChannelLink"
+          :default-value="hideUploader"
+          @change="updateHideUploader"
         />
       </div>
     </div>
@@ -51,8 +51,8 @@ const hideUnsubscribeButton = computed(() => {
   return store.getters.getHideUnsubscribeButton
 })
 
-const hideChannelLink = computed(() => {
-  return store.getters.getHideChannelLink
+const hideUploader = computed(() => {
+  return store.getters.getHideUploader
 })
 
 const showFamilyFriendlyOnly = computed(() => {
@@ -76,8 +76,8 @@ function updateHideUnsubscribeButton(value) {
 /**
  * @param {boolean} value
  */
-function updateHideChannelLink(value) {
-  store.dispatch('updateHideChannelLink', value)
+function updateHideUploader(value) {
+  store.dispatch('updateHideUploader', value)
 }
 
 /**

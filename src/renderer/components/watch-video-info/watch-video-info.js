@@ -148,8 +148,8 @@ export default defineComponent({
       return this.$store.getters.getHideVideoViews
     },
 
-    hideChannelLink: function () {
-      return this.$store.getters.getHideChannelLink
+    hideUploader: function () {
+      return this.$store.getters.getHideUploader
     },
 
     showPlaylists: function () {
