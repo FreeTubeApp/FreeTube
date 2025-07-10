@@ -8,7 +8,7 @@ import FtPrompt from './components/FtPrompt/FtPrompt.vue'
 import FtButton from './components/FtButton/FtButton.vue'
 import FtToast from './components/FtToast/FtToast.vue'
 import FtProgressBar from './components/FtProgressBar/FtProgressBar.vue'
-import FtPlaylistAddVideoPrompt from './components/ft-playlist-add-video-prompt/ft-playlist-add-video-prompt.vue'
+import FtPlaylistAddVideoPrompt from './components/FtPlaylistAddVideoPrompt/FtPlaylistAddVideoPrompt.vue'
 import FtCreatePlaylistPrompt from './components/FtCreatePlaylistPrompt/FtCreatePlaylistPrompt.vue'
 import FtKeyboardShortcutPrompt from './components/FtKeyboardShortcutPrompt/FtKeyboardShortcutPrompt.vue'
 import FtSearchFilters from './components/FtSearchFilters/FtSearchFilters.vue'
@@ -150,10 +150,6 @@ export default defineComponent({
     appTitle: function () {
       return this.$store.getters.getAppTitle
     },
-
-    openDeepLinksInNewWindow: function () {
-      return this.$store.getters.getOpenDeepLinksInNewWindow
-    }
   },
   watch: {
     windowTitle: 'setWindowTitle',
@@ -495,9 +491,9 @@ export default defineComponent({
     },
 
     enableOpenUrl: function () {
-      window.ftElectron.handleOpenUrl((url, isLaunchLink) => {
+      window.ftElectron.handleOpenUrl((url) => {
         if (url) {
-          this.handleYoutubeLink(url, { doCreateNewWindow: this.openDeepLinksInNewWindow && !isLaunchLink })
+          this.handleYoutubeLink(url)
         }
       })
     },

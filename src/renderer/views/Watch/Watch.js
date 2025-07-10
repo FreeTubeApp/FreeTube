@@ -8,7 +8,7 @@ import WatchVideoInfo from '../../components/watch-video-info/watch-video-info.v
 import WatchVideoChapters from '../../components/WatchVideoChapters/WatchVideoChapters.vue'
 import WatchVideoDescription from '../../components/WatchVideoDescription/WatchVideoDescription.vue'
 import CommentSection from '../../components/CommentSection/CommentSection.vue'
-import WatchVideoLiveChat from '../../components/watch-video-live-chat/watch-video-live-chat.vue'
+import WatchVideoLiveChat from '../../components/WatchVideoLiveChat/WatchVideoLiveChat.vue'
 import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/WatchVideoRecommendations/WatchVideoRecommendations.vue'
 import FtAgeRestricted from '../../components/FtAgeRestricted/FtAgeRestricted.vue'
@@ -1099,10 +1099,14 @@ export default defineComponent({
     },
 
     /**
-     * @param {string} description
+     * @param {string?} description
      */
     extractChaptersFromDescription: function (description) {
+      if (description == null) { return [] }
+
+      /** @type {{title: string, timestamp: string, startSeconds: number, endSeconds: number}[]} */
       const chapters = []
+
       // HH:MM:SS Text
       // MM:SS Text
       // HH:MM:SS - Text // separator is one of '-', '–', '•', '—'

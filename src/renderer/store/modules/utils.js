@@ -402,11 +402,8 @@ const actions = {
 
     const countries = await (await fetch(url)).json()
 
-    const regionNames = countries.map((entry) => { return entry.name })
-    const regionValues = countries.map((entry) => { return entry.code })
-
-    commit('setRegionNames', regionNames)
-    commit('setRegionValues', regionValues)
+    commit('setRegionNames', countries.names)
+    commit('setRegionValues', countries.codes)
   },
 
   async getYoutubeUrlInfo({ rootState, state }, urlStr) {

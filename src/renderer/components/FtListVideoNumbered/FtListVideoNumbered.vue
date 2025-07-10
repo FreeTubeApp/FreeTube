@@ -1,8 +1,7 @@
 <template>
   <div
-    v-observe-visibility="initialVisibleState || visible ? false : {
-      callback: onVisibilityChanged,
-      once: true,
+    v-observe-visibility="visible ? false : {
+      callback: onVisibilityChanged
     }"
     :class="{ placeholder: !visible }"
   >

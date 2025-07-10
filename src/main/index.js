@@ -13,6 +13,7 @@ import {
   ABOUT_BITCOIN_ADDRESS,
   KeyboardShortcuts,
   DefaultFolderKind,
+  SEARCH_CHAR_LIMIT,
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
@@ -72,6 +73,8 @@ function runApp() {
       }
     }])
   }
+
+  const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
 
   contextMenu({
     showSearchWithGoogle: false,
@@ -198,6 +201,8 @@ function runApp() {
         }
       }
 
+      const textShortEnoughForSearch = parameters.selectionText.trim().length <= SEARCH_CHAR_LIMIT
+
       return [
         {
           label: 'Copy Lin&k',
@@ -219,9 +224,33 @@ function runApp() {
           click: () => {
             copy(transformURL(false))
           }
-        }
+        },
+        // Only show search in new window for
+        // Static text or link
+        // NOT internal link
+        // NOT link with no customized link text
+        // NOT link for timestamp
+        {
+          label: textShortEnoughForSearch ? 'Search “{selection}” in a New Window' : `“{selection}” is too long for search (> ${SEARCH_CHAR_LIMIT} chars)`,
+          enabled: textShortEnoughForSearch,
+          visible: (
+            !isInAppUrl &&
+            !parameters.isEditable &&
+            (parameters.linkURL != null && !parameters.linkURL.includes(parameters.selectionText) && !(/(\d{1,2}:)*\d{1,2}:\d{2}/.test(parameters.linkText))) &&
+            parameters.selectionText.trim().length > 0
+          ),
+          click: () => {
+            const queryText = parameters.selectionText.trim()
+            createWindow({
+              replaceMainWindow: false,
+              windowStartupUrl: `${ROOT_APP_URL}#/search/${encodeURIComponent(queryText)}`,
+              searchQueryText: queryText,
+              showWindowNow: true,
+            })
+          }
+        },
       ]
-    }
+    },
   })
 
   if (process.platform === 'win32') {
@@ -274,29 +303,43 @@ function runApp() {
   }
 
   if (process.env.NODE_ENV !== 'development') {
-    app.on('second-instance', (_, commandLine, __) => {
+    app.on('second-instance', async (_, commandLine, __) => {
       // Someone tried to run a second instance
       if (typeof commandLine !== 'undefined') {
-        const url = getLinkUrl(commandLine)
-        if (mainWindow && mainWindow.webContents) {
-          if (commandLine.includes('--new-window')) {
-            // The user wants to create a new window in the existing instance
-            if (url) startupUrl = url
-            createWindow({
-              showWindowNow: true,
-              replaceMainWindow: true,
-            })
-          } else {
-            // Just focus the main window (instead of starting a new instance)
-            if (mainWindow.isMinimized()) mainWindow.restore()
-            mainWindow.focus()
+        const newStartupUrl = getLinkUrl(commandLine)
 
-            if (url) mainWindow.webContents.send(IpcChannels.OPEN_URL, url, false)
-          }
-        } else {
-          if (url) startupUrl = url
-          createWindow()
+        if (!(mainWindow && mainWindow.webContents)) {
+          startupUrl = newStartupUrl
+          if (app.isReady()) await createWindow()
+          return
         }
+
+        if (commandLine.includes('--new-window')) {
+          // The user wants to create a new window in the existing instance
+          if (newStartupUrl) startupUrl = newStartupUrl
+          await createWindow({
+            showWindowNow: true,
+            replaceMainWindow: true,
+          })
+          return
+        }
+
+        const openDeepLinksInNewWindow = (await baseHandlers.settings._findOne('openDeepLinksInNewWindow'))?.value
+        if (!openDeepLinksInNewWindow) {
+          // Just focus the main window (instead of starting a new instance)
+          if (mainWindow.isMinimized()) mainWindow.restore()
+          mainWindow.focus()
+          if (newStartupUrl) mainWindow.webContents.send(IpcChannels.OPEN_URL, newStartupUrl)
+          return
+        }
+
+        const newWindow = await createWindow({
+          replaceMainWindow: false,
+          showWindowNow: true,
+        })
+        ipcMain.once(IpcChannels.APP_READY, () => {
+          newWindow.webContents.send(IpcChannels.OPEN_URL, newStartupUrl)
+        })
       }
     })
   }
@@ -682,8 +725,6 @@ function runApp() {
     }
   }
 
-  const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
-
   async function createWindow(
     {
       replaceMainWindow = true,
@@ -911,11 +952,13 @@ function runApp() {
 
       stopPowerSaveBlockerForWindow(newWindow)
     })
+
+    return newWindow
   }
 
   ipcMain.on(IpcChannels.APP_READY, () => {
     if (startupUrl) {
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl, true)
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
     }
     startupUrl = null
   })
@@ -1761,15 +1804,31 @@ function runApp() {
   /*
    * Callback when processing a freetube:// link (macOS)
    */
-  app.on('open-url', (event, url) => {
+  app.on('open-url', async (event, url) => {
     event.preventDefault()
 
-    if (mainWindow && mainWindow.webContents) {
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, baseUrl(url), false)
-    } else {
-      startupUrl = baseUrl(url)
-      if (app.isReady()) createWindow()
+    const newStartupUrl = baseUrl(url)
+    if (!(mainWindow && mainWindow.webContents)) {
+      startupUrl = newStartupUrl
+      if (app.isReady()) await createWindow()
+      return
     }
+
+    const openDeepLinksInNewWindow = (await baseHandlers.settings._findOne('openDeepLinksInNewWindow'))?.value
+    if (!openDeepLinksInNewWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore()
+      mainWindow.focus()
+      mainWindow.webContents.send(IpcChannels.OPEN_URL, newStartupUrl)
+      return
+    }
+
+    const newWindow = await createWindow({
+      replaceMainWindow: false,
+      showWindowNow: true,
+    })
+    ipcMain.once(IpcChannels.APP_READY, () => {
+      newWindow.webContents.send(IpcChannels.OPEN_URL, newStartupUrl)
+    })
   })
 
   app.on('web-contents-created', (_, webContents) => {

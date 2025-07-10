@@ -42,11 +42,9 @@ Global:
     Watching Count: 1 néző | {count} néző
     Like Count: 1 embernek tetszik | {count} embernek tetszik
     Comment Count: 1 hozzászólás | {count} hozzászólás
-Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber}
-  verzió már elérhető! Kattintson a további részletekért'
+Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber} verzió már elérhető! Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
-A new blog is now available, {blogTitle}. Click to view more: 'Egy új blog érhető
-  el: {blogTitle}. Kattintson további információk megtekintéséhez'
+A new blog is now available, {blogTitle}. Click to view more: 'Egy új blog érhető el: {blogTitle}. Kattintson további információk megtekintéséhez'
 
 # Search Bar
 Search / Go to URL: 'Keresés / Ugrás webcímre'
@@ -97,24 +95,17 @@ Search Filters:
     Features: Szolgáltatások
     Live: Élő
     360 Video: 360 videó
+  Clear Filters: Szűrők törlése
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Feliratkozások'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A
-    feliratkozások listája jelenleg üres. Ha importálni szeretné feliratkozásait,
-    akkor lépjen az Adatok beállításaiba és válassza a feliratkozások importálása
-    lehetőséget, vagy kereshet csatornákat és feliratkozhat rájuk.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ez
-    a profil nagyszámú feliratkozást tartalmaz. RSS kényszerítése a sebességkorlátozás
-    elkerülésére
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A feliratkozások listája jelenleg üres. Ha importálni szeretné feliratkozásait, akkor lépjen az Adatok beállításaiba és válassza a feliratkozások importálása lehetőséget, vagy kereshet csatornákat és feliratkozhat rájuk.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ez a profil nagyszámú feliratkozást tartalmaz. RSS kényszerítése a sebességkorlátozás elkerülésére
   Load More Videos: További videók betöltése
   Error Channels: Hibás csatornák
-  Disabled Automatic Fetching: Ön kikapcsolta a feliratkozások automatikus lekérdezését.
-    Frissítse a feliratkozásokat, hogy itt láthassa őket.
+  Disabled Automatic Fetching: Ön kikapcsolta a feliratkozások automatikus lekérdezését. Frissítse a feliratkozásokat, hogy itt láthassa őket.
   Empty Channels: A feliratkozott csatornák jelenleg nem tartalmaznak videókat.
-  All Subscription Tabs Hidden: Az összes feliratkozási lap el van rejtve. Az itteni
-    tartalom megtekintéséhez törölje néhány lap rejtését a(z) „{settingsSection}”
-    „{subsection}” szakaszában.
+  All Subscription Tabs Hidden: Az összes feliratkozási lap el van rejtve. Az itteni tartalom megtekintéséhez törölje néhány lap rejtését a(z) „{settingsSection}” „{subsection}” szakaszában.
   Subscriptions Tabs: Feliratkozások lapok
   Load More Posts: További bejegyzések betöltése
   Empty Posts: A feliratkozott csatornáinak jelenleg nincsenek bejegyzései.
@@ -130,68 +121,43 @@ Playlists: 'Lejátszási listák'
 User Playlists:
   Your Playlists: 'Az Ön lejátszási listái'
   Search bar placeholder: Lejátszási listák keresése
-  Empty Search Message: Ebben a lejátszási listában nincsenek olyan videók, amelyek
-    megfelelnek a keresésnek
+  Empty Search Message: Ebben a lejátszási listában nincsenek olyan videók, amelyek megfelelnek a keresésnek
   AddVideoPrompt:
     Search in Playlists: Keresés a lejátszási listában
     Save: Mentés
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 videó hozzáadva
-        a {playlistCount} lejátszási listákhoz | {videoCount} videó hozzáadása a {playlistCount}
-        lejátszási listákhoz
-      "{videoCount} video(s) added to 1 playlist": 1 videó hozzáadva 1 lejátszási
-        listához | {videoCount} videó hozzáadása 1 lejátszási listához
-      You haven't selected any playlist yet.: Még nem választott ki egyetlen lejátszási
-        listát sem.
-    Select a playlist to add your N videos to: Válasszon ki egy lejátszási listát
-      a videó hozzáadásához | Válasszon ki egy lejátszási listát a {videoCount} videó
-      hozzáadásához
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 videó hozzáadva a {playlistCount} lejátszási listákhoz | {videoCount} videó hozzáadása a {playlistCount} lejátszási listákhoz
+      "{videoCount} video(s) added to 1 playlist": 1 videó hozzáadva 1 lejátszási listához | {videoCount} videó hozzáadása 1 lejátszási listához
+      You haven't selected any playlist yet.: Még nem választott ki egyetlen lejátszási listát sem.
+    Select a playlist to add your N videos to: Válasszon ki egy lejátszási listát a videó hozzáadásához | Válasszon ki egy lejátszási listát a {videoCount} videó hozzáadásához
     N playlists selected: '{playlistCount} kiválasztva'
     Added {count} Times: Hozzáadva {count} Alkalommal
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      A videók hozzáadásra fognak kerülni'
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      Videó már hozzá lett adva'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} A videók hozzáadásra fognak kerülni'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videó már hozzá lett adva'
     Allow Adding Duplicate Video(s): Duplikált videó(k) hozzáadásának engedélyezése
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Nem voltak eltávolítható videók.
       Video has been removed: A videó el lett távolítva
       Playlist has been updated.: A lejátszási lista frissítésre került.
-      There was an issue with updating this playlist.: Volt egy probléma a lejátszási
-        lista frissítésével.
+      There was an issue with updating this playlist.: Volt egy probléma a lejátszási lista frissítésével.
       This video cannot be moved up.: Ez a videó nem mozgatható feljebb.
-      This playlist is protected and cannot be removed.: Ez a lejátszási lista védett,
-        és nem távolítható el.
-      Playlist {playlistName} has been deleted.: A {playlistName} lejátszási lista
-        törlésre került.
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Néhány
-        videó a lejátszási listában még nem töltődött be. Kattintson ide a másoláshoz
-        ennek ellenére.
+      This playlist is protected and cannot be removed.: Ez a lejátszási lista védett, és nem távolítható el.
+      Playlist {playlistName} has been deleted.: A {playlistName} lejátszási lista törlésre került.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Néhány videó a lejátszási listában még nem töltődött be. Kattintson ide a másoláshoz ennek ellenére.
       This playlist does not exist: Ez a lejátszási lista nem létezik
-      Playlist name cannot be empty. Please input a name.: A lejátszási lista neve
-        nem lehet üres. Adjon meg egy nevet.
+      Playlist name cannot be empty. Please input a name.: A lejátszási lista neve nem lehet üres. Adjon meg egy nevet.
       There was a problem with removing this video: Probléma adódott a videó eltávolításával
-      "{videoCount} video(s) have been removed": 1 videó el lett távolítva | {videoCount}
-        videó el lett távolítva
+      "{videoCount} video(s) have been removed": 1 videó el lett távolítva | {videoCount} videó el lett távolítva
       This video cannot be moved down.: Ez a videó nem mozgatható lejjebb.
-      This playlist is now used for quick bookmark: Ez a lejátszási lista most gyors
-        könyvjelzőként van használva
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: A(z)
-        {oldPlaylistName} helyett mostantól ez a lejátszási lista szolgál gyors könyvjelzőként.
-        Kattintson ide a visszavonáshoz
-      Reverted to use {oldPlaylistName} for quick bookmark: Visszaállítva a(z) {oldPlaylistName}
-        használatára a gyors könyvjelzőhöz
-      This playlist is already being used for quick bookmark.: Ez a lejátszási lista
-        már használatban van mint gyors könyvjelző.
-      This playlist has a video with a duration error: Ez a lejátszási lista legalább
-        egy olyan videót tartalmaz, amelynek nincs időtartama, ezért úgy lesz rendezve,
-        mintha az időtartamuk nulla lenne.
-      Video has been removed. Click here to undo.: A videó eltávolításra került. Kattintson
-        ide a visszavonáshoz.
+      This playlist is now used for quick bookmark: Ez a lejátszási lista most gyors könyvjelzőként van használva
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: A(z) {oldPlaylistName} helyett mostantól ez a lejátszási lista szolgál gyors könyvjelzőként. Kattintson ide a visszavonáshoz
+      Reverted to use {oldPlaylistName} for quick bookmark: Visszaállítva a(z) {oldPlaylistName} használatára a gyors könyvjelzőhöz
+      This playlist is already being used for quick bookmark.: Ez a lejátszási lista már használatban van mint gyors könyvjelző.
+      This playlist has a video with a duration error: Ez a lejátszási lista legalább egy olyan videót tartalmaz, amelynek nincs időtartama, ezért úgy lesz rendezve, mintha az időtartamuk nulla lenne.
+      Video has been removed. Click here to undo.: A videó eltávolításra került. Kattintson ide a visszavonáshoz.
     Search for Videos: Videók keresése
-  Are you sure you want to delete this playlist? This cannot be undone: Biztosan törölni
-    szeretné ezt a lejátszási listát? Ezt nem lehet visszacsinálni.
+  Are you sure you want to delete this playlist? This cannot be undone: Biztosan törölni szeretné ezt a lejátszási listát? Ezt nem lehet visszacsinálni.
   Sort By:
     LatestPlayedFirst: Nemrég játszott
     EarliestCreatedFirst: Legkorábban létrehozott
@@ -201,23 +167,17 @@ User Playlists:
     EarliestPlayedFirst: Legkorábban játszott
     LatestUpdatedFirst: Nemrég frissítve
     NameAscending: A-Z
-  You have no playlists. Click on the create new playlist button to create a new one.: Nincsenek
-    lejátszási listái. Kattintson az új lejátszási lista létrehozása gombra egy új
-    lejátszási lista létrehozásához.
+  You have no playlists. Click on the create new playlist button to create a new one.: Nincsenek lejátszási listái. Kattintson az új lejátszási lista létrehozása gombra egy új lejátszási lista létrehozásához.
   Remove from Playlist: Eltávolítás a lejátszási listáról
   Save Changes: Változtatások mentése
   CreatePlaylistPrompt:
     Create: Létrehozás
     Toast:
-      There was an issue with creating the playlist.: Volt egy probléma a lejátszási
-        lista létrehozásával.
-      Playlist {playlistName} has been successfully created.: A lejátszási lista {playlistName}
-        sikeresen létrehozva.
-      There is already a playlist with this name. Please pick a different name.: Már
-        van egy lejátszási lista ezzel a névvel. Válasszon egy másik nevet.
+      There was an issue with creating the playlist.: Volt egy probléma a lejátszási lista létrehozásával.
+      Playlist {playlistName} has been successfully created.: A lejátszási lista {playlistName} sikeresen létrehozva.
+      There is already a playlist with this name. Please pick a different name.: Már van egy lejátszási lista ezzel a névvel. Válasszon egy másik nevet.
     New Playlist Name: Új lejátszási lista neve
-  This playlist currently has no videos.: Ez a lejátszási lista jelenleg nem tartalmaz
-    videókat.
+  This playlist currently has no videos.: Ez a lejátszási lista jelenleg nem tartalmaz videókat.
   Add to Playlist: Hozzáadás a lejátszási listához
   Move Video Down: Videó lefelé mozgatása
   Playlist Name: Lejátszási lista neve
@@ -231,24 +191,15 @@ User Playlists:
   Playlist Description: Lejátszási lista leírása
   Add to Favorites: Hozzáadás a(z) {playlistName} lejátszási listához
   Remove from Favorites: Eltávolítás a(z) {playlistName} lejátszási listából
-  Enable Quick Bookmark With This Playlist: Gyors könyvjelző engedélyezése ezzel a
-    lejátszási listával
+  Enable Quick Bookmark With This Playlist: Gyors könyvjelző engedélyezése ezzel a lejátszási listával
   Playlists with Matching Videos: Lejátszási listák a kapcsolódó videókkal
-  Cannot delete the quick bookmark target playlist.: Nem lehet törölni a gyors könyvjelző
-    cél lejátszási listát.
+  Cannot delete the quick bookmark target playlist.: Nem lehet törölni a gyors könyvjelző cél lejátszási listát.
   Quick Bookmark Enabled: Gyors könyvjelző engedélyezve
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Biztosan
-    eltávolít 1 duplikált videót ebből a lejátszási listából? Ez a művelet nem vonható
-    vissza. | Biztosan eltávolít {playlistItemCount} duplikált videót ebből a lejátszási
-    listából? Ez a művelet nem vonható vissza.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Biztosan eltávolít 1 duplikált videót ebből a lejátszási listából? Ez a művelet nem vonható vissza. | Biztosan eltávolít {playlistItemCount} duplikált videót ebből a lejátszási listából? Ez a művelet nem vonható vissza.
   Remove Duplicate Videos: Duplikált videók eltávolítása
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Biztosan
-    eltávolít 1 megtekintett videót ebből a lejátszási listából? Ez a művelet nem
-    vonható vissza. | Biztosan eltávolít {playlistItemCount} megtekintett videót ebből
-    a lejátszási listából? Ez a művelet nem vonható vissza.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Biztosan eltávolít 1 megtekintett videót ebből a lejátszási listából? Ez a művelet nem vonható vissza. | Biztosan eltávolít {playlistItemCount} megtekintett videót ebből a lejátszási listából? Ez a művelet nem vonható vissza.
   Export Playlist: Ezen lejátszási lista exportálása
-  The playlist has been successfully exported: A lejátszási lista sikeresen exportálva
-    lett
+  The playlist has been successfully exported: A lejátszási lista sikeresen exportálva lett
   TotalTimePlaylist: 'Teljes időtartam: {duration}'
 History:
   # On History Page
@@ -256,9 +207,10 @@ History:
   Watch History: 'Korábbi megtekintések'
   Your history list is currently empty.: 'Az előzmények listája jelenleg üres.'
   Search bar placeholder: Keresés az előzmények között
-  Empty Search Message: Nincsenek olyan videók az előzmények között, amelyek megfelelnek
-    a keresésnek
+  Empty Search Message: Nincsenek olyan videók az előzmények között, amelyek megfelelnek a keresésnek
   Case Sensitive Search: Kis- nagybetű érzéken keresés
+  DateNewestHistory: Legutóbb megtekintett elől
+  DateOldestHistory: Legrégebben megtekintett elől
 Settings:
   # On Settings Page
   Settings: 'Beállítások'
@@ -266,8 +218,7 @@ Settings:
     General Settings: 'Általános'
     Check for Updates: 'Frissítések keresése'
     Check for Latest Blog Posts: 'Legújabb blogbejegyzések keresése'
-    Fallback to Non-Preferred Backend on Failure: 'A nem előnyben részesített háttéralkalmazás
-      visszatérése meghibásodás esetén'
+    Fallback to Non-Preferred Backend on Failure: 'A nem előnyben részesített háttéralkalmazás visszatérése meghibásodás esetén'
     Enable Search Suggestions: 'Keresési javaslatok engedélyezése'
     Default Landing Page: 'Alapértelmezett kezdőlap'
     Locale Preference: 'Területi beállítás'
@@ -293,12 +244,10 @@ Settings:
     System Default: Rendszer alapértelmezett
     Current Invidious Instance: Jelenlegi Invidious-példány
     Clear Default Instance: Alapértelmezett példány eltávolítása
-    Set Current Instance as Default: Állítsa be a jelenlegi példányt alapértelmezettként
-    Current instance will be randomized on startup: Véletlenszerű jelenlegi példány
-      használata indításkor
+    Set Current Instance as Default: A jelenlegi példány beállítása alapértelmezettként
+    Current instance will be randomized on startup: Véletlenszerű jelenlegi példány használata indításkor
     No default instance has been set: Az alapértelmezett példány nincs beállítva
-    The currently set default instance is {instance}: A jelenleg beállított alapértelmezett
-      példány {instance}
+    The currently set default instance is {instance}: A jelenleg beállított alapértelmezett példány {instance}
     External Link Handling:
       No Action: Nincs művelet
       Ask Before Opening Link: Kérdés hivatkozás megnyitása előtt
@@ -310,7 +259,7 @@ Settings:
     Open Deep Links In New Window: A FreeTube-nak átadott webcímek megnyitása új ablakban
   Theme Settings:
     Theme Settings: 'Téma'
-    Match Top Bar with Main Color: 'Illessze a felső sávot a fő színnel'
+    Match Top Bar with Main Color: 'A felső sáv színe egyezzen meg a fő színnel'
     Base Theme:
       Base Theme: 'Alap téma'
       Black: 'Fekete'
@@ -437,8 +386,7 @@ Settings:
     Default Playback Rate: 'Alapértelmezett lejátszási sebesség'
     Default Video Format:
       Default Video Format: 'Alapértelmezett videóformátum'
-      Dash Formats: 'DASH (Dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n
-        keresztül) formátumok'
+      Dash Formats: 'DASH (Dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n keresztül) formátumok'
       Legacy Formats: 'Örökölt formátumok'
       Audio Formats: 'Hangformátumok'
     Default Quality:
@@ -454,8 +402,7 @@ Settings:
       4k: '4K'
       8k: '8K'
     Next Video Interval: Automatikus lejátszás időköze
-    Scroll Volume Over Video Player: A hangerő szintjét a videolejátszó feletti kerékkel
-      szabályozhatja
+    Scroll Volume Over Video Player: A hangerő szintjének szabályozása a videolejátszó feletti görgetéssel
     Display Play Button In Video Player: Lejátszás gomb megjelenítése a videolejátszóban
     Fast-Forward / Rewind Interval: Gyors előre- és visszatekerési időköz
     Screenshot:
@@ -468,16 +415,12 @@ Settings:
       Error:
         Forbidden Characters: Tiltott karakterek
         Empty File Name: Üres fájlnév
-      File Name Tooltip: Az alábbi változókat használhatja. %Y 4-számjegyű év. %M
-        2-számjegyű hónap. %D 2-számjegyű nap. %H 2-számjegyű óra. %N 2-számjegyű
-        perc. %S 2-számjegyű másodperc. %T 3-számjegyű ezredmásodperc. %s Videó másodperc.
-        %t Videó 3-számjegyű ezredmásodperc. %i videóazonosító.
+      File Name Tooltip: Az alábbi változókat használhatja. %Y 4-számjegyű év. %M 2-számjegyű hónap. %D 2-számjegyű nap. %H 2-számjegyű óra. %N 2-számjegyű perc. %S 2-számjegyű másodperc. %T 3-számjegyű ezredmásodperc. %s Videó másodperc. %t Videó 3-számjegyű ezredmásodperc. %i videóazonosító.
       Quality Label: Képernyőkép minősége
-    Scroll Playback Rate Over Video Player: A lejátszás sebességét a videolejátszó
-      feletti kerékkel szabályozhatja
+    Scroll Playback Rate Over Video Player: A lejátszás sebességét a videolejátszó feletti kerékkel szabályozhatja
     Max Video Playback Rate: Legnagyobb videólejátszási sebesség
     Video Playback Rate Interval: Videó lejátszási sebesség léptetési köze
-    Enter Fullscreen on Display Rotate: Teljes képernyős mód a kijelzőn forgatáshoz
+    Enter Fullscreen on Display Rotate: Belépés a teljes képernyős módba a kijelző elforgatásakor
     Skip by Scrolling Over Video Player: Kihagyás a Videolejátszó felett görgetve
     Autoplay Interruption Timer: Automatikus lejátszás megszakításának időköze
     Default Viewing Mode:
@@ -491,46 +434,34 @@ Settings:
     Remember History: 'Megtekintési előzmények megjegyzése'
     Save Watched Progress: 'Megtekintési előrehaladás mentése'
     Clear Search Cache: 'Keresési gyorsítótár törlése'
-    Are you sure you want to clear out your search cache?: 'Biztosan törli a keresési
-      gyorsítótárat?'
+    Are you sure you want to clear out your search cache?: 'Biztosan törli a keresési gyorsítótárat?'
     Search cache has been cleared: 'A keresési gyorsítótár törölve lett'
     Remove Watch History: 'Megtekintési előzmények eltávolítása'
-    Are you sure you want to remove your entire watch history?: 'Biztosan eltávolítja
-      az összes megtekintési előzményt?'
+    Are you sure you want to remove your entire watch history?: 'Biztosan eltávolítja az összes megtekintési előzményt?'
     Watch history has been cleared: 'A megtekintési előzmények törölve lettek'
     Remove All Subscriptions / Profiles: 'Összes feliratkozás és profil eltávolítása'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Biztosan
-      eltávolítja az összes feliratkozást és profilt? Ez a művelet nem vonható vissza.'
-    Save Watched Videos With Last Viewed Playlist: Megtekintett videók mentése az
-      utoljára megtekintett lejátszási listával
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Biztosan eltávolítja az összes feliratkozást és profilt? Ez a művelet nem vonható vissza.'
+    Save Watched Videos With Last Viewed Playlist: Megtekintett videók mentése az utoljára megtekintett lejátszási listával
     All playlists have been removed: Minden lejátszási lista eltávolításra került
     Remove All Playlists: Minden lejátszási lista eltávolítása
-    Are you sure you want to remove all your playlists?: Biztosan el akarja távolítani
-      az összes lejátszási listáját?
+    Are you sure you want to remove all your playlists?: Biztosan el akarja távolítani az összes lejátszási listáját?
     Remember Search History: Keresési előzmények megjegyzése
     Clear Search History and Cache: A keresési előzmények és a gyorsítótár törlése
-    Are you sure you want to clear out your search history and cache?: Biztosan törölni
-      szeretné a keresési előzményeket és a gyorsítótárat?
-    Search history and cache have been cleared: A keresési előzmények és a gyorsítótár
-      törlésre került
+    Are you sure you want to clear out your search history and cache?: Biztosan törölni szeretné a keresési előzményeket és a gyorsítótárat?
+    Search history and cache have been cleared: A keresési előzmények és a gyorsítótár törlésre került
     Watched Progress Saving Mode:
       Modes:
         Semi-auto: Félautomatikus
         Auto: Automatikus
         Never: Soha
-      Tooltip: Automatikus = Mentés minden videóoldal elhagyásakor, a videó befejezésekor
-        és hiba esetén (pl. a megtekintési korlátozás és videólejátszási munkamenet
-        lejártakor). Félautomata = Hasonló az automatikushoz, kivéve a videóoldal
-        elhagyásakor, továbbá a videolejátszó alatt található „Megnézett videó folyamatának
-        mentése” nevű gomb segítségével saját kezűleg is menthető.
+      Tooltip: Automatikus = Mentés minden videóoldal elhagyásakor, a videó befejezésekor és hiba esetén (pl. a megtekintési korlátozás és videólejátszási munkamenet lejártakor). Félautomata = Hasonló az automatikushoz, kivéve a videóoldal elhagyásakor, továbbá a videolejátszó alatt található „Megnézett videó folyamatának mentése” nevű gomb segítségével saját kezűleg is menthető.
   Subscription Settings:
     Subscription Settings: 'Feliratkozás'
     Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
-    Confirm Before Unsubscribing: Kerülje el a véletlen leiratkozást
-    'Limit the number of videos displayed for each channel': Az egyes csatornákon
-      megjelenített videók számának korlátozása
+    Confirm Before Unsubscribing: Megerősítés kérése leíratkozáskor
+    'Limit the number of videos displayed for each channel': Az egyes csatornákon megjelenített videók számának korlátozása
     To: 'Ennyire'
   Data Settings:
     Data Settings: 'Adat'
@@ -542,46 +473,31 @@ Settings:
     Export NewPipe: 'NewPipe exportálása'
     Import History: 'Előzmények importálása'
     Export History: 'Előzmények exportálása'
-    Profile object has insufficient data, skipping item: 'A profilobjektum nem rendelkezik
-      elegendő adattal, az elem kihagyása'
-    All subscriptions and profiles have been successfully imported: 'Az összes feliratkozás
-      és a profil sikeresen importálva'
-    All subscriptions have been successfully imported: 'Az összes feliratkozás sikeresen
-      importálva'
+    Profile object has insufficient data, skipping item: 'A profilobjektum nem rendelkezik elegendő adattal, az elem kihagyása'
+    All subscriptions and profiles have been successfully imported: 'Az összes feliratkozás és a profil sikeresen importálva'
+    All subscriptions have been successfully imported: 'Az összes feliratkozás sikeresen importálva'
     Invalid subscriptions file: 'Érvénytelen feliratkozási fájl'
     This might take a while, please wait: 'Ez eltarthat egy ideig. Kis türelmet kérünk'
     Invalid history file: 'Érvénytelen előzményfájl'
     Subscriptions have been successfully exported: 'Feliratkozások sikeresen exportálva'
-    History object has insufficient data, skipping item: 'Az előzményobjektum nem
-      rendelkezik elegendő adattal, az elem kihagyása'
-    All watched history has been successfully imported: 'Az összes megtekintett előzmény
-      sikeresen importálva'
-    All watched history has been successfully exported: 'Az összes megtekintett előzmény
-      sikeresen exportálva'
+    History object has insufficient data, skipping item: 'Az előzményobjektum nem rendelkezik elegendő adattal, az elem kihagyása'
+    All watched history has been successfully imported: 'Az összes megtekintett előzmény sikeresen importálva'
+    All watched history has been successfully exported: 'Az összes megtekintett előzmény sikeresen exportálva'
     Unable to read file: 'Nem lehet olvasni a fájlt'
     Unable to write file: 'Nem lehet írni a fájlt'
     Unknown data key: 'Ismeretlen adatkulcs'
     How do I import my subscriptions?: 'Hogyan importálhatja a feliratkozásait?'
     Manage Subscriptions: Feliratkozások kezelése
-    Playlist insufficient data: Nincs elegendő adat a(z) „{playlist}” lejátszási listához,
-      elem kihagyása
+    Playlist insufficient data: Nincs elegendő adat a(z) „{playlist}” lejátszási listához, elem kihagyása
     Export Playlists: Lejátszási listák exportálása
     Import Playlists: Lejátszási listák importálása
-    All playlists has been successfully exported: Az összes lejátszási lista exportálása
-      sikeresen megtörtént
-    All playlists has been successfully imported: Az összes lejátszási lista importálása
-      sikeresen megtörtént
+    All playlists has been successfully exported: Az összes lejátszási lista exportálása sikeresen megtörtént
+    All playlists has been successfully imported: Az összes lejátszási lista importálása sikeresen megtörtént
     Subscription File: Feliratkozás-fájl
     History File: Előzmények-fájl
     Playlist File: Lejátszási lista fájl
     Export Playlists For Older FreeTube Versions:
-      Tooltip: "Ez az opció az összes lejátszási lista videóit egyetlen, „Kedvencek”
-        nevű lejátszási listába exportálja.\nHogyan exportálhat és importálhat videókat
-        lejátszási listákba a FreeTube régebbi verziója esetében:\n1. Exportálja a
-        lejátszási listáit, ezzel az opcióval bekacsolva.\n2. Törölje az összes meglévő
-        lejátszási listáját az Adatvédelmi beállítások alatt található Összes lejátszási
-        lista eltávolítása opcióval.\n3. Indítsa el a FreeTube régebbi verzióját,
-        és importálja az exportált lejátszási listákat."
+      Tooltip: "Ez az opció az összes lejátszási lista videóit egyetlen, „Kedvencek” nevű lejátszási listába exportálja.\nHogyan exportálhat és importálhat videókat lejátszási listákba a FreeTube régebbi verziója esetében:\n1. Exportálja a lejátszási listáit, ezzel az opcióval bekacsolva.\n2. Törölje az összes meglévő lejátszási listáját az Adatvédelmi beállítások alatt található Összes lejátszási lista eltávolítása opcióval.\n3. Indítsa el a FreeTube régebbi verzióját, és importálja az exportált lejátszási listákat."
       Label: Lejátszási listák exportálása régebbi FreeTube verziókhoz
 
   Distraction Free Settings:
@@ -604,8 +520,7 @@ Settings:
     Hide Upcoming Premieres: Közelgő bemutatók elrejtése
     Hide Channels: Videók elrejtése a csatornákból
     Hide Channels Placeholder: Csatornaazonosító
-    Display Titles Without Excessive Capitalisation: Címek túlzott nagybetűs írás
-      és írásjelek nélkül való megjelenítése
+    Display Titles Without Excessive Capitalisation: Címek túlzott nagybetűs írás és írásjelek nélkül való megjelenítése
     Hide Featured Channels: Kiemelt csatornák elrejtése
     Hide Channel Playlists: Csatorna „lejátszási listák” lap elrejtése
     Hide Channel Shorts: Csatorna „rövid videók” lap elrejtése
@@ -622,48 +537,35 @@ Settings:
     Hide Subscriptions Live: Élő feliratkozások elrejtése
     Hide Profile Pictures in Comments: Profilképek elrejtése a hozzászólásokban
     Hide Channels Invalid: Érvénytelen a megadott csatornaazonosító
-    Hide Channels Disabled Message: Egyes csatornákat letiltottak az azonosító miatt,
-      és nem dolgozták fel őket. A funkció le van tiltva, amíg ezek az azonosítók
-      nem frissülnek
+    Hide Channels Disabled Message: Egyes csatornákat letiltottak az azonosító miatt, és nem dolgozták fel őket. A funkció le van tiltva, amíg ezek az azonosítók nem frissülnek
     Hide Channels Already Exists: Már létezik a csatornaazonosító
-    Hide Channels API Error: Hiba történt a megadott azonosítóval rendelkező felhasználó
-      lekérésekor. Ellenőrizze még egyszer, hogy helyes-e az azonosító.
+    Hide Channels API Error: Hiba történt a megadott azonosítóval rendelkező felhasználó lekérésekor. Ellenőrizze még egyszer, hogy helyes-e az azonosító.
     Hide Videos and Playlists Containing Text Placeholder: Szó, szótöredék, vagy kifejezés
-    Hide Videos and Playlists Containing Text: Szöveget tartalmazó videók és lejátszási
-      listák elrejtése
+    Hide Videos and Playlists Containing Text: Szöveget tartalmazó videók és lejátszási listák elrejtése
     Hide Channel Home: Csatorna „főoldal” lap elrejtése
     Show Added Items: Hozzáadott elemek megjelenítése
     Hide Channel Courses: „Tanfolyamok” csatornalap elrejtése
     Hide Channel Posts: Csatorna „Bejegyzések” lap elrejtése
     Hide Subscriptions Posts: Feliratkozási bejegyzések elrejtése
-  The app needs to restart for changes to take effect. Restart and apply change?: Az
-    alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon
-    újra és alkalmazza a módosítást?
+  The app needs to restart for changes to take effect. Restart and apply change?: Az alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon újra és alkalmazza a módosítást?
   Proxy Settings:
     City: Helység
     Region: Körzet
     Country: Ország
     Ip: IP-cím
     Your Info: Az Ön adatai
-    Clicking on Test Proxy will send a request to: 'A Proxy tesztelés gombra kattintva
-      kérést küld a következő címre'
+    Clicking on Test Proxy will send a request to: 'A Proxy tesztelés gombra kattintva kérést küld a következő címre'
     Test Proxy: Proxy tesztelés
     Proxy Port Number: Proxy port száma
     Proxy Host: Proxy-kiszolgáló
     Proxy Protocol: Proxy protokoll
     Enable Tor / Proxy: Tor/Proxy engedélyezése
     Proxy Settings: Proxy
-    Error getting network information. Is your proxy configured properly?: Hiba a
-      hálózati adatok lekérésekor. Megfelelő a proxy beállítása?
-    Proxy Warning: A FreeTube nem rendelkezik beépített proxyval, de képes csatlakozni
-      egy külső proxyhoz, például egy olyanhoz, amely az Ön gépén fut, mint a Tor,
-      vagy egy külső proxyhoz, például egy SOCKS5 proxyhoz, amelyet egyes VPN-ek biztosítanak.
-      Ha engedélyezve van, győződjön meg róla, hogy a proxy/Tor megfelelően van beállítva,
-      különben a FreeTube nem fog tudni adatokat lekérni.
+    Error getting network information. Is your proxy configured properly?: Hiba a hálózati adatok lekérésekor. Megfelelő a proxy beállítása?
+    Proxy Warning: A FreeTube nem rendelkezik beépített proxyval, de képes csatlakozni egy külső proxyhoz, például egy olyanhoz, amely az Ön gépén fut, mint a Tor, vagy egy külső proxyhoz, például egy SOCKS5 proxyhoz, amelyet egyes VPN-ek biztosítanak. Ha engedélyezve van, győződjön meg róla, hogy a proxy/Tor megfelelően van beállítva, különben a FreeTube nem fog tudni adatokat lekérni.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Értesítés a szponzorált szakasz kihagyásáról
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'SponsorBlock API
-      webcíme (Alapértelmezett: https://sponsor.ajay.app)'
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'SponsorBlock API webcíme (Alapértelmezett: https://sponsor.ajay.app)'
     Enable SponsorBlock: SponsorBlock engedélyezése
     SponsorBlock Settings: SponsorBlock
     Skip Options:
@@ -674,12 +576,10 @@ Settings:
       Prompt To Skip: Kérdés kihagyáskor
     Category Color: Kategória színe
     UseDeArrowTitles: DeArrow-videocímek használata
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow
-      előnézet-előállító API webcíme (alapértelmezett: https://dearrow-thumb.ajay.app)'
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow előnézet-előállító API webcíme (alapértelmezett: https://dearrow-thumb.ajay.app)'
     UseDeArrowThumbnails: DeArrow használata miniatűrökhöz
   External Player Settings:
-    Ignore Unsupported Action Warnings: Nem támogatott műveletek figyelmeztetéseinek
-      mellőzése
+    Ignore Unsupported Action Warnings: Nem támogatott műveletek figyelmeztetéseinek mellőzése
     Custom External Player Arguments: Egyéni külső lejátszó argumentumok
     Custom External Player Executable: Egyéni külső lejátszó végrehajthatója
     External Player: Külső lejátszó
@@ -703,16 +603,13 @@ Settings:
   Experimental Settings:
     Replace HTTP Cache: HTTP-gyorsítótár cseréje
     Experimental Settings: Kísérleti
-    Warning: Ezek a beállítások kísérleti jellegűek, összeomlást okozhatnak, ha engedélyezve
-      vannak. Erősen ajánlott biztonsági mentéseket készíteni. Csak saját felelősségre
-      használja!
+    Warning: Ezek a beállítások kísérleti jellegűek, összeomlást okozhatnak, ha engedélyezve vannak. Erősen ajánlott biztonsági mentéseket készíteni. Csak saját felelősségre használja!
   Password Dialog:
     Enter Password To Unlock: Jelszó megadása a beállítások feloldásához
     Password: Jelszó
   Password Settings:
     Password Settings: Jelszó
-    Set Password To Prevent Access: Jelszó megadása a beállításokhoz való hozzáférés
-      megakadályozásához
+    Set Password To Prevent Access: Jelszó megadása a beállításokhoz való hozzáférés megakadályozásához
     Set Password: Jelszó megadása
     Remove Password: Jelszó eltávolítása
   Sort Settings Sections (A-Z): Beállítások rendezése (A-Z)
@@ -733,8 +630,7 @@ About:
   Blog: Blog
   Email: E-mail
   Website: Honlap
-  Please check for duplicates before posting: Beküldés előtt ellenőrizze, nincs-e
-    már azonos
+  Please check for duplicates before posting: Beküldés előtt ellenőrizze, nincs-e már azonos
   GitHub issues: GitHub hibajegyek
   Help: Súgó
   GitHub releases: GitHub kiadások
@@ -765,12 +661,9 @@ Profile:
   Your profile name cannot be empty: 'A profil neve nem lehet üres'
   Profile has been created: 'Profil létrehozva'
   Profile has been updated: 'A profil frissült'
-  Your default profile has been set to {profile}: 'Alapértelmezett profilja a következőre
-    lett beállítva: {profile}'
-  Removed {profile} from your profiles: 'A(z) {profile} nevű profilja el lett távolítva
-    a profiljaiból'
-  Your default profile has been changed to your primary profile: 'Az alapértelmezett
-    profil az elsődleges profilra változott'
+  Your default profile has been set to {profile}: 'Alapértelmezett profilja a következőre lett beállítva: {profile}'
+  Removed {profile} from your profiles: 'A(z) {profile} nevű profilja el lett távolítva a profiljaiból'
+  Your default profile has been changed to your primary profile: 'Az alapértelmezett profil az elsődleges profilra változott'
   '{profile} is now the active profile': 'A(z) {profile} most az aktív profil'
   Subscription List: 'Feliratkozási lista'
   Other Channels: 'Egyéb csatornák'
@@ -780,12 +673,9 @@ Profile:
   Delete Selected: 'Kiválasztottak törlése'
   Add Selected To Profile: 'Kiválasztottak hozzáadása a profilhoz'
   No channel(s) have been selected: 'Nincs kiválasztva csatorna'
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : 'Ez az elsődleges profilja.    Biztosan törli a kiválasztott csatornákat?   Ugyanezek
-    a csatornák törlődnek minden olyan profilból, amelyben megtalálhatók.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Biztosan
-    törli a kiválasztott csatornákat? Ez nem törli a csatornát más profilokból.'
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : 'Ez az elsődleges profilja.    Biztosan törli a kiválasztott csatornákat?   Ugyanezek a csatornák törlődnek minden olyan profilból, amelyben megtalálhatók.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Biztosan törli a kiválasztott csatornákat? Ez nem törli a csatornát más profilokból.'
 #On Channel Page
   Profile Filter: Profilszűrő
   Profile Settings: Profil
@@ -798,25 +688,21 @@ Profile:
 Channel:
   Subscribe: 'Feliratkozás'
   Unsubscribe: 'Leiratkozás'
-  Channel has been removed from your subscriptions: 'A csatorna el lett távolítva
-    a feliratkozásokból'
-  Removed subscription from {count} other channel(s): 'A feliratkozás el lett távolítva
-    {count} másik csatornából'
+  Channel has been removed from your subscriptions: 'A csatorna el lett távolítva a feliratkozásokból'
+  Removed subscription from {count} other channel(s): 'A feliratkozás el lett távolítva {count} másik csatornából'
   Added channel to your subscriptions: 'Csatorna hozzáadva a feliratkozásaihoz'
   Search Channel: 'Csatorna keresése'
   Your search results have returned 0 results: 'Keresési eredmény: 0 találat'
   Videos:
     Videos: 'Videók'
-    This channel does not currently have any videos: 'Ebben a csatornában jelenleg
-      nincsenek videók'
+    This channel does not currently have any videos: 'Ebben a csatornában jelenleg nincsenek videók'
     Sort Types:
       Newest: 'Legújabb'
       Oldest: 'Legrégebbi'
       Most Popular: 'Legnépszerűbb'
   Playlists:
     Playlists: 'Lejátszási listák'
-    This channel does not currently have any playlists: 'Ennek a csatornának jelenleg
-      nincsenek lejátszási listái'
+    This channel does not currently have any playlists: 'Ennek a csatornának jelenleg nincsenek lejátszási listái'
     Sort Types:
       Last Video Added: 'Utolsó videó hozzáadva'
       Newest: 'Legújabb'
@@ -831,43 +717,34 @@ Channel:
     Tags:
       Tags: Címkék
       Search for: „{tag}” címke keresése
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: Ez a
-    csatorna korhatáros, és jelenleg nem tekinthető meg a FreeTube alkalmazásban.
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Ez a csatorna korhatáros, és jelenleg nem tekinthető meg a FreeTube alkalmazásban.
   Channel Tabs: Csatornalapok
   Live:
-    This channel does not currently have any live streams: Jelenleg nincs élő közvetítés
-      ezen a csatornán
+    This channel does not currently have any live streams: Jelenleg nincs élő közvetítés ezen a csatornán
     Live: Élő
   Posts:
-    This channel currently does not have any posts: Ezen a csatornán jelenleg nincsenek
-      bejegyzések
+    This channel currently does not have any posts: Ezen a csatornán jelenleg nincsenek bejegyzések
     Reveal Answers: Válaszok felfedése
     Hide Answers: Válaszok elrejtése
     votes: '{votes} szavazat'
     Video hidden by FreeTube: FreeTube által rejtett videó
     View Full Post: Teljes bejegyzés megtekintése
-    Viewing Posts Only Supported By Invidious: A hozzászólások megtekintését csak
-      az Invidious támogatja. Az Invidious nélkül is megtekintheti a csatornák közösségi
-      fülét.
+    Viewing Posts Only Supported By Invidious: A hozzászólások megtekintését csak az Invidious támogatja. Az Invidious nélkül is megtekintheti a csatornák közösségi fülét.
   Shorts:
-    This channel does not currently have any shorts: Ezen a csatornán jelenleg nincsenek
-      rövid videók
+    This channel does not currently have any shorts: Ezen a csatornán jelenleg nincsenek rövid videók
   This channel does not exist: Nem létezik ez a csatorna
   This channel does not allow searching: Keresés nem engedélyezett ezen a csatornán
   Releases:
     Releases: Kiadások
-    This channel does not currently have any releases: Ennek a csatornának jelenleg
-      nincsenek kiadásai
+    This channel does not currently have any releases: Ennek a csatornának jelenleg nincsenek kiadásai
   Podcasts:
     Podcasts: Podcastok
-    This channel does not currently have any podcasts: Ez a csatorna jelenleg nem
-      rendelkezik podcastokkal
+    This channel does not currently have any podcasts: Ez a csatorna jelenleg nem rendelkezik podcastokkal
   Home:
     View Playlist: Lejátszási listák megtekintése
     Home: Főoldal
   Courses:
-    This channel does not currently have any courses: Ezen a csatornán jelenleg nincsenek
-      tanfolyamok
+    This channel does not currently have any courses: Ezen a csatornán jelenleg nincsenek tanfolyamok
     Courses: Tanfolyamok
 Video:
   Mark As Watched: 'Megjelölés megnézettként'
@@ -888,20 +765,15 @@ Video:
   Play Previous Video: 'Előző videó lejátszása'
   Watched: 'Megtekintett'
   Autoplay: 'Automatikus lejátszás'
-  Starting soon, please refresh the page to check again: 'Hamarosan kezdődik, frissítse
-    a lapot az ellenőrzéshez'
+  Starting soon, please refresh the page to check again: 'Hamarosan kezdődik, frissítse a lapot az ellenőrzéshez'
   # As in a Live Video
   Live: 'Élő'
   Live Now: 'Élő most'
   Live Chat: 'Élő csevegés'
   Enable Live Chat: 'Élő csevegés engedélyezése'
-  Live Chat is currently not supported in this build.: 'Az élő csevegés jelenleg nem
-    támogatott ebben a összeállításban.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Élő csevegés engedélyezve.
-    A csevegőüzenetek itt jelennek meg, miután elküldték.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Az
-    élő csevegést jelenleg nem támogatja az Invidious API. Közvetlen kapcsolat szükséges
-    a YouTube-hoz.'
+  Live Chat is currently not supported in this build.: 'Az élő csevegés jelenleg nem támogatott ebben a összeállításban.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Élő csevegés engedélyezve. A csevegőüzenetek itt jelennek meg, miután elküldték.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Az élő csevegést jelenleg nem támogatja az Invidious API. Közvetlen kapcsolat szükséges a YouTube-hoz.'
   Published:
     In less than a minute: Kevesebb, mint egy perce
   Published on: 'Megjelent'
@@ -915,8 +787,7 @@ Video:
   Open Channel in Invidious: Csatorna megnyitása az Invidious oldalán
   Started streaming on: Folyamatos átvitel indult
   Streamed on: 'Közvetítve'
-  Video has been removed from your saved list: A videó el lett távolíva a mentett
-    listáról
+  Video has been removed from your saved list: A videó el lett távolíva a mentett listáról
   Video has been saved: A videó mentve
   Save Video: Videó mentése
   Sponsor Block category:
@@ -933,15 +804,12 @@ Video:
       looping playlists: lejátszási lista folyamatos lejátszása
       shuffling playlists: véletlen sorrendű lejátszási listák
       reversing playlists: lejátszási listák visszafelé
-      opening specific video in a playlist (falling back to opening the video): adott
-        videó megnyitása a lejátszási listában (visszatérve a videó megnyitására)
+      opening specific video in a playlist (falling back to opening the video): adott videó megnyitása a lejátszási listában (visszatérve a videó megnyitására)
       opening playlists: lejátszási listák megnyitása
       setting a playback rate: lejátszási sebesség beállítása
       starting video at offset: videó kezdésének eltolása
-    UnsupportedActionTemplate: 'A(z) {externalPlayer} külső lejátszó nem támogatja:
-      {action}'
-    OpeningTemplate: A(z) {videoOrPlaylist} videó megnyitása a(z) {externalPlayer}
-      külső lejátszóban…
+    UnsupportedActionTemplate: 'A(z) {externalPlayer} külső lejátszó nem támogatja: {action}'
+    OpeningTemplate: A(z) {videoOrPlaylist} videó megnyitása a(z) {externalPlayer} külső lejátszóban…
     playlist: lejátszási lista
     video: videó
     OpenInTemplate: 'Megnyitás itt: {externalPlayer}'
@@ -949,8 +817,7 @@ Video:
   Show Super Chat Comment: Super Chat hozzászólás megjelenítése
   Scroll to Bottom: Görgetés legalulra
   Upcoming: Közelgő
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Az
-    élő csevegés nem érhető el ehhez az adatfolyamhoz. Lehet, hogy a feltöltő letiltotta.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Az élő csevegés nem érhető el ehhez az adatfolyamhoz. Lehet, hogy a feltöltő letiltotta.
   Unhide Channel: Csatorna megjelenítése
   Hide Channel: Csatorna elrejtése
   More Options: További beállítások
@@ -973,32 +840,24 @@ Video:
       Buffered: 'Pufferolt: {bufferedPercentage}%'
       CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Kodekek: {videoCodec} / {audioCodec}'
-      Dropped Frames / Total Frames: 'Kihagyott képkockák: {droppedFrames} / Összes
-        képkocka: {totalFrames}'
+      Dropped Frames / Total Frames: 'Kihagyott képkockák: {droppedFrames} / Összes képkocka: {totalFrames}'
       Resolution: 'Felbontás: {width}x{height}@{frameRate}'
       CodecsVideoAudio: 'Kodekek: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
     You appear to be offline: Úgy tűnik, hogy jelenleg nem kapcsolódsz a hálózathoz.
     Skipped segment: Kihagyott {segmentCategory} szakasz
     TranslatedCaptionTemplate: '{language} (fordítva erről: „{originalLanguage}”)'
     Show Stats: Statisztika megjelenítése
-    Playback will resume automatically when your connection comes back: A lejátszás
-      automatikusan folytatódik, amikor a kapcsolat helyreáll.
+    Playback will resume automatically when your connection comes back: A lejátszás automatikusan folytatódik, amikor a kapcsolat helyreáll.
     Autoplay is off: Az automatikus lejátszás ki van kapcsolva
     Autoplay is on: Az automatikus lejátszás be van kapcsolva
-  IP block: A YouTube letiltotta az IP-címét a videók megtekintéséhez. Próbáljon meg
-    másik VPN-re vagy proxyra váltani.
+  IP block: A YouTube letiltotta az IP-címét a videók megtekintéséhez. Próbáljon meg másik VPN-re vagy proxyra váltani.
   Unlisted: Listázatlan
-  AgeRestricted: A FreeTube-on nem lehet korhatáros videókat megtekinteni, mivel ezekhez
-    Google bejelentkezés és korhatár-ellenőrzött YouTube-fiók használata szükséges.
-  MembersOnly: A csak tagoknak szóló videók nem tekinthetők meg a FreeTube-on, mivel
-    ezekhez Google bejelentkezés és fizetett tagság szükséges a feltöltő csatornájához.
+  AgeRestricted: A FreeTube-on nem lehet korhatáros videókat megtekinteni, mivel ezekhez Google bejelentkezés és korhatár-ellenőrzött YouTube-fiók használata szükséges.
+  MembersOnly: A csak tagoknak szóló videók nem tekinthetők meg a FreeTube-on, mivel ezekhez Google bejelentkezés és fizetett tagság szükséges a feltöltő csatornájához.
   DeArrow:
     Show Modified Details: Módosított részletek megjelenítése
     Show Original Details: Eredeti részletek megjelenítése
-  DRMProtected: A DRM-védelemmel ellátott videók nem játszhatók le a FreeTube-ban,
-    mivel ezekhez zárt forráskódú, tulajdonosi komponensekre van szükség. Ha meg szeretné
-    nézni ezt a videót, akkor tekintse meg a YouTube hivatalos weboldalán egy DRM-képes
-    böngészőben.
+  DRMProtected: A DRM-védelemmel ellátott videók nem játszhatók le a FreeTube-ban, mivel ezekhez zárt forráskódú, tulajdonosi komponensekre van szükség. Ha meg szeretné nézni ezt a videót, akkor tekintse meg a YouTube hivatalos weboldalán egy DRM-képes böngészőben.
 #& Playlists
   Save Watched Progress: Megnézett videó folyamatának mentése
   Watched Progress Saved: Megnézett videó folyamata elmentve
@@ -1025,17 +884,12 @@ Playlist:
     PublishedOldest: Legelőször közzétett elől
 Change Format:
   Change Media Formats: 'Videoformátumok módosítása'
-  Use Dash Formats: 'DASH (Dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n
-    keresztül) formátumok használata'
+  Use Dash Formats: 'DASH (Dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n keresztül) formátumok használata'
   Use Legacy Formats: 'Örökölt formátumok használata'
   Use Audio Formats: 'Hangformátumok használata'
-  Dash formats are not available for this video: 'DASH (Dinamikus adaptív sávszélességű
-    folyamatos átvitel HTTP-n keresztül) formátumok nem állnak rendelkezésre ehhez
-    a videóhoz'
-  Audio formats are not available for this video: 'Hangformátumok nem érhetők el ehhez
-    a videóhoz'
-  Legacy formats are not available for this video: A régebbi formátumok nem állnak
-    rendelkezésre ehhez a videóhoz
+  Dash formats are not available for this video: 'DASH (Dinamikus adaptív sávszélességű folyamatos átvitel HTTP-n keresztül) formátumok nem állnak rendelkezésre ehhez a videóhoz'
+  Audio formats are not available for this video: 'Hangformátumok nem érhetők el ehhez a videóhoz'
+  Legacy formats are not available for this video: A régebbi formátumok nem állnak rendelkezésre ehhez a videóhoz
 Share:
   Share Video: 'Videó megosztása'
   Share Playlist: 'Lejátszási lista megosztása'
@@ -1046,20 +900,17 @@ Share:
   Open Embed: 'Beágyazás megnyitása'
   # On Click
   Invidious URL copied to clipboard: 'Invidious webcím a vágólapra másolva'
-  Invidious Embed URL copied to clipboard: 'Invidious beágyazott webcím a vágólapra
-    másolva'
+  Invidious Embed URL copied to clipboard: 'Invidious beágyazott webcím a vágólapra másolva'
   YouTube URL copied to clipboard: 'YouTube webcím a vágólapra másolva'
   YouTube Embed URL copied to clipboard: 'YouTube beágyazott webcím a vágólapra másolva'
   YouTube Channel URL copied to clipboard: YouTube csatornawebcím a vágólapra másolva
-  Invidious Channel URL copied to clipboard: Invidious csatornawebcím a vágólapra
-    másolva
+  Invidious Channel URL copied to clipboard: Invidious csatornawebcím a vágólapra másolva
   Share Channel: Csatorna megosztása
 Mini Player: 'Minilejátszó'
 Comments:
   Comments: 'Hozzászólások'
-  Click to View Comments: 'Kattintson a hozzászólások megtekintéséhez'
-  Getting comment replies, please wait: 'Hozzászólásra adott válaszok beolvasása.
-    Kis türelmet kérünk'
+  Click to View Comments: 'Hozzászólások megtekintése'
+  Getting comment replies, please wait: 'Hozzászólásra adott válaszok beolvasása. Kis türelmet kérünk'
   There are no more comments for this video: 'Ehhez a videóhoz nincsenek további hozzászólások'
   Hide Comments: 'Hozzászólások elrejtése'
   # Context: View 10 Replies, View 1 Reply
@@ -1067,8 +918,7 @@ Comments:
   Hide: 'Elrejtés'
   Replies: 'Válasz'
   Reply: 'Válasz'
-  There are no comments available for this video: 'Ehhez a videóhoz még nincsenek
-    hozzászólások'
+  There are no comments available for this video: 'Ehhez a videóhoz még nincsenek hozzászólások'
   Load More Comments: 'További hozzászólások betöltése'
   Newest first: Legújabb elöl
   Top comments: Legnépszerűbb hozzászólások
@@ -1088,9 +938,7 @@ Local API Error (Click to copy): 'Helyi-API hiba (kattintson a másoláshoz)'
 Invidious API Error (Click to copy): 'Invidious-API hiba (Kattintson a másoláshoz)'
 Falling back to Invidious API: 'Invidious-API-ra visszatérve'
 Falling back to Local API: 'Helyi-API-ra visszatérve'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Ez
-  a videó hiányzó formátumok miatt nem érhető el. Ez az ország nem elérhetősége miatt
-  következhet be.'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Ez a videó hiányzó formátumok miatt nem érhető el. Ez az ország nem elérhetősége miatt következhet be.'
 Loop is now disabled: 'Folyamatos lejátszás kikapcsolva'
 Loop is now enabled: 'Folyamatos lejátszás bekapcsolva'
 Shuffle is now disabled: 'Véletlen sorrendű lejátszás kikapcsolva'
@@ -1099,105 +947,53 @@ The playlist has been reversed: 'Lejátszási lista megfordítva'
 Playing Next Video: 'Következő videó lejátszása'
 Playing Previous Video: 'Előző videó lejátszása'
 Canceled next video autoplay: 'A következő videó automatikus lejátszásának megszakítása'
-'The playlist has ended. Enable loop to continue playing': 'A lejátszási lista véget
-  ért. Engedélyezze a folyamatos lejátszást a lejátszás folytatásához'
+'The playlist has ended. Enable loop to continue playing': 'A lejátszási lista véget ért. Engedélyezze a folyamatos lejátszást a lejátszás folytatásához'
 
 Yes: 'Igen'
 No: 'Nem'
 Tooltips:
   General Settings:
-    Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a FreeTube használ
-      az adatok megszerzéséhez. A helyi-API egy beépített kinyerő. Az Invidious-API
-      használatához Invidious-kiszolgáló szükséges.
-    Region for Trending: A felkapottak régiója lehetővé teszi a választást, hogy melyik
-      ország felkapott videóit szeretné megtekinteni.
-    Invidious Instance: Invidious-példány, amelyhez a FreeTube csatlakozni fog az
-      API-hívásokhoz.
-    Thumbnail Preference: A FreeTube-on minden bélyegkép le lesz cserélve a videó
-      egy képkockájára, amely elmosódott vagy elrejtett lesz az alapértelmezett bélyegkép
-      helyett.
-    Fallback to Non-Preferred Backend on Failure: Amikor az előnyben részesített API-jával
-      hiba merül fel, a FreeTube automatikusan megpróbálja a nem előnyben részesített
-      API-t tartalékként használni, amikor engedélyezve van.
-    External Link Handling: "Válassza ki az alapértelmezett viselkedést, amikor egy
-      hivatkozásra kattint, amely nem nyitható meg FreeTube-ban.\nA FreeTube alapértelmezés
-      szerint megnyitja a kattintott hivatkozást az alapértelmezett böngészőben.\n"
-    Open Deep Links In New Window: A FreeTube-nak átadott webcímek, például a böngészőbővítmények
-      vagy parancssori argumentumok átirányításával, új ablakban nyílnak meg.
+    Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a FreeTube használ az adatok megszerzéséhez. A helyi-API egy beépített kinyerő. Az Invidious-API használatához Invidious-kiszolgáló szükséges.
+    Region for Trending: A felkapottak régiója lehetővé teszi a választást, hogy melyik ország felkapott videóit szeretné megtekinteni.
+    Invidious Instance: Invidious-példány, amelyhez a FreeTube csatlakozni fog az API-hívásokhoz.
+    Thumbnail Preference: A FreeTube-on minden bélyegkép le lesz cserélve a videó egy képkockájára, amely elmosódott vagy elrejtett lesz az alapértelmezett bélyegkép helyett.
+    Fallback to Non-Preferred Backend on Failure: Amikor az előnyben részesített API-jával hiba merül fel, a FreeTube automatikusan megpróbálja a nem előnyben részesített API-t tartalékként használni, amikor engedélyezve van.
+    External Link Handling: "Válassza ki az alapértelmezett viselkedést, amikor egy hivatkozásra kattint, amely nem nyitható meg FreeTube-ban.\nA FreeTube alapértelmezés szerint megnyitja a kattintott hivatkozást az alapértelmezett böngészőben.\n"
+    Open Deep Links In New Window: A FreeTube-nak átadott webcímek, például a böngészőbővítmények vagy parancssori argumentumok átirányításával, új ablakban nyílnak meg.
   Subscription Settings:
-    Fetch Feeds from RSS: Amikor engedélyezve van, a FreeTube az RSS-t fogja használni
-      az alapértelmezett módszer helyett a feliratkozási hírfolyam lekérdezéséhez.
-      Az RSS gyorsabb és megakadályozza az IP-tiltást, de nem tartalmaz bizonyos információkat,
-      például a videó időtartamát, az élő állapotot vagy a bejegyzéseket
-    Fetch Automatically: Amikor engedélyezve van, a FreeTube új ablak megnyitásakor
-      és az alkalmazás elindításakor automatikusan lekérdezi az feliratkozási hírfolyamot.
+    Fetch Feeds from RSS: Amikor engedélyezve van, a FreeTube az RSS-t fogja használni az alapértelmezett módszer helyett a feliratkozási hírfolyam lekérdezéséhez. Az RSS gyorsabb és megakadályozza az IP-tiltást, de nem tartalmaz bizonyos információkat, például a videó időtartamát, az élő állapotot vagy a bejegyzéseket
+    Fetch Automatically: Amikor engedélyezve van, a FreeTube új ablak megnyitásakor és az alkalmazás elindításakor automatikusan lekérdezi az feliratkozási hírfolyamot.
   Player Settings:
-    Default Video Format: Állítsa be a videólejátszáshoz használt formátumokat. A
-      DASH-formátumok magasabb minőségű lejátszást tesznek lehetővé. A régebbi formátumok
-      legfeljebb 360p felbontásúak, de kevesebb sávszélességet igényelnek. A hangformátumok
-      kizárólag hangadatfolyamokat tartalmaznak.
-    Proxy Videos Through Invidious: Csatlakozik az Invidious szolgáltatáshoz, hogy
-      videókat szolgáltasson, ahelyett, hogy közvetlen kapcsolatot létesítene a YouTube
-      szolgáltatással.
-    Scroll Playback Rate Over Video Player: Amíg a kurzor a videó felett van, nyomja
-      meg és tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű),
-      és görgesse az egér görgőjét előre vagy hátra a lejátszási sebesség szabályozásához.
-      Tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű), majd kattintson
-      az egér bal gombjával az alapértelmezett lejátszási sebesség gyors visszatéréséhez
-      (1x, hacsak nem módosították a beállításokban).
-    Skip by Scrolling Over Video Player: MPV módban a görgetőkerék használatával kihagyhatja
-      a videót.
+    Default Video Format: A videólejátszáshoz használt formátumok beállítása. A DASH-formátumok magasabb minőségű lejátszást tesznek lehetővé. A régebbi formátumok legfeljebb 360p felbontásúak, de kevesebb sávszélességet igényelnek. A hangformátumok kizárólag hangadatfolyamokat tartalmaznak.
+    Proxy Videos Through Invidious: Csatlakozik az Invidious szolgáltatáshoz, hogy videókat szolgáltasson, ahelyett, hogy közvetlen kapcsolatot létesítene a YouTube szolgáltatással.
+    Scroll Playback Rate Over Video Player: Amíg a kurzor a videó felett van, nyomja meg és tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű), és görgesse az egér görgőjét előre vagy hátra a lejátszási sebesség szabályozásához. Tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű), majd kattintson az egér bal gombjával az alapértelmezett lejátszási sebesség gyors visszatéréséhez (1x, hacsak nem módosították a beállításokban).
+    Skip by Scrolling Over Video Player: MPV módban a görgetőkerék használatával kihagyhatja a videót.
   External Player Settings:
-    Custom External Player Executable: Alapértelmezés szerint a FreeTube feltételezi,
-      hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti
-      változón keresztül. Szükség esetén itt egyéni útvonal állítható be.
-    Ignore Warnings: A figyelmeztetések mellőzése, amikor a jelenlegi külső lejátszó
-      nem támogatja a jelenlegi műveletet (pl. lejátszási listák megfordítása stb.).
-    Custom External Player Arguments: A külső lejátszónak átadni kívánt egyéni parancssori
-      argumentumok.
-    External Player: Külső lejátszó kiválasztása esetén megjelenik egy ikon a videó
-      (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen.
-      Figyelem! Az Invidious beállításai nincsenek hatással a külső lejátszókra.
+    Custom External Player Executable: Alapértelmezés szerint a FreeTube feltételezi, hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti változón keresztül. Szükség esetén itt egyéni útvonal állítható be.
+    Ignore Warnings: A figyelmeztetések mellőzése, amikor a jelenlegi külső lejátszó nem támogatja a jelenlegi műveletet (pl. lejátszási listák megfordítása stb.).
+    Custom External Player Arguments: A külső lejátszónak átadni kívánt egyéni parancssori argumentumok.
+    External Player: Külső lejátszó kiválasztása esetén megjelenik egy ikon a videó (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen. Figyelem! Az Invidious beállításai nincsenek hatással a külső lejátszókra.
     DefaultCustomArgumentsTemplate: '(Alapértelmezett: „{defaultCustomArguments}”)'
-    Ignore Default Arguments: Ne küldjön semmilyen alapértelmezett argumentumot a
-      külső lejátszónak a videó webcímén kívül (pl. lejátszási sebesség, lejátszási
-      lista webcíme stb.). Az egyéni argumentumok továbbra is átadásra kerülnek.
+    Ignore Default Arguments: Ne küldjön semmilyen alapértelmezett argumentumot a külső lejátszónak a videó webcímén kívül (pl. lejátszási sebesség, lejátszási lista webcíme stb.). Az egyéni argumentumok továbbra is átadásra kerülnek.
   Experimental Settings:
-    Replace HTTP Cache: Letiltja az Electron lemez alapú HTTP-gyorsítótárát, és engedélyezi
-      az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
+    Replace HTTP Cache: Letiltja az Electron lemez alapú HTTP-gyorsítótárát, és engedélyezi az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
   Distraction Free Settings:
-    Hide Channels: Adjon meg egy csatornaazonosítót, hogy elrejtse az összes videót,
-      lejátszási listát és magát a csatornát a keresési eredményekből, a felkapottak
-      közül, a legnépszerűbbekből és az ajánlottak közül. A megadott csatornaazonosítónak
-      pontosan egyeznie kell, valamint kis- és nagybetűérzékeny.
-    Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}”
-      beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
-    Hide Videos and Playlists Containing Text: Adjon meg egy szót, szótöredéket vagy
-      kifejezést (nem érzékeny a nagy- és kisbetűkre), hogy elrejtse az összes olyan
-      videót és lejátszási listát, amelynek eredeti címe tartalmazza ezt a szót vagy
-      kifejezést a FreeTube egész területén, kivéve az előzményeket, a lejátszási
-      listákat és a lejátszási listákon belüli videókat.
+    Hide Channels: Adjon meg egy csatornaazonosítót, hogy elrejtse az összes videót, lejátszási listát és magát a csatornát a keresési eredményekből, a felkapottak közül, a legnépszerűbbekből és az ajánlottak közül. A megadott csatornaazonosítónak pontosan egyeznie kell, valamint kis- és nagybetűérzékeny.
+    Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}” beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
+    Hide Videos and Playlists Containing Text: Adjon meg egy szót, szótöredéket vagy kifejezést (nem érzékeny a nagy- és kisbetűkre), hogy elrejtse az összes olyan videót és lejátszási listát, amelynek eredeti címe tartalmazza ezt a szót vagy kifejezést a FreeTube egész területén, kivéve az előzményeket, a lejátszási listákat és a lejátszási listákon belüli videókat.
   SponsorBlock Settings:
-    UseDeArrowTitles: Cserélje le a videocímeket a DeArrow-ból, felhasználó által
-      beküldött címekre.
+    UseDeArrowTitles: Cserélje le a videocímeket a DeArrow-ból, felhasználó által beküldött címekre.
     UseDeArrowThumbnails: Videó miniatűr cseréje DeArrow miniatűrrel.
-Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson
-  a megszakításhoz. | A következő videó lejátszása {nextVideoInterval} másodperc múlva.
-  Kattintson a megszakításhoz. | A következő videó lejátszása {nextVideoInterval}
-  másodperc múlva. Kattintson a megszakításhoz.
+Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson a megszakításhoz. | A következő videó lejátszása {nextVideoInterval} másodperc múlva. Kattintson a megszakításhoz. | A következő videó lejátszása {nextVideoInterval} másodperc múlva. Kattintson a megszakításhoz.
 More: Több
-Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube webcímtípus,
-  nem nyitható meg az alkalmazásban
+Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube webcímtípus, nem nyitható meg az alkalmazásban
 Open New Window: Új ablak megnyitása
-Default Invidious instance has been cleared: Az alapértelmezett Invidious-példányt
-  eltávolítva
-Default Invidious instance has been set to {instance}: 'Az alapértelmezett Invidious-példány
-  {instance} beállítva'
+Default Invidious instance has been cleared: Az alapértelmezett Invidious-példányt eltávolítva
+Default Invidious instance has been set to {instance}: 'Az alapértelmezett Invidious-példány {instance} beállítva'
 Search Bar:
   Clear Input: Bemenet törlése
   Remove: Eltávolítás
-External link opening has been disabled in the general settings: A külső hivatkozás
-  megnyitása le van tiltva az általános beállításokban
+External link opening has been disabled in the general settings: A külső hivatkozás megnyitása le van tiltva az általános beállításokban
 Are you sure you want to open this link?: Biztosan megnyitja ezt a hivatkozást?
 New Window: Új ablak
 Channels:
@@ -1213,28 +1009,22 @@ Downloading has completed: A(z) „{videoTitle}” letöltése befejeződött
 Screenshot Success: Képernyőkép elmentve
 Chapters:
   Chapters: Fejezetek
-  'Chapters list visible, current chapter: {chapterName}': 'Fejezetlista látható,
-    jelenlegi fejezet: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Fejezetlista elrejtve,
-    jelenlegi fejezet: {chapterName}'
+  'Chapters list visible, current chapter: {chapterName}': 'Fejezetlista látható, jelenlegi fejezet: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Fejezetlista elrejtve, jelenlegi fejezet: {chapterName}'
   Key Moments: Fontos pillanatok
 Clipboard:
-  Cannot access clipboard without a secure connection: Biztonságos kapcsolat nélkül
-    nem lehet hozzáférni a vágólaphoz
+  Cannot access clipboard without a secure connection: Biztonságos kapcsolat nélkül nem lehet hozzáférni a vágólaphoz
   Copy failed: A vágólapra másolás nem sikerült
 Screenshot Error: Nem sikerült képernyőképet készíteni. {error}
 Preferences: Beállítások
 Ok: OK
 Hashtag:
   Hashtag: Kettős kereszt
-  This hashtag does not currently have any videos: Ez a kettős kereszt jelenleg nem
-    rendelkezik videókkal
+  This hashtag does not currently have any videos: Ez a kettős kereszt jelenleg nem rendelkezik videókkal
 Channel Hidden: '{channel} hozzáadva a csatornaszűrőhöz'
 Go to page: Ugrás a(z) {page} oldalra
 Channel Unhidden: 'A(z) {channel} el lett távolítva a csatornaszűrőből'
-Trimmed input must be at least N characters long: A vágott bemenetnek legalább 1 karakter
-  hosszúnak kell lennie | A vágott bemenetnek legalább {length} karakter hosszúnak
-  kell lennie
+Trimmed input must be at least N characters long: A vágott bemenetnek legalább 1 karakter hosszúnak kell lennie | A vágott bemenetnek legalább {length} karakter hosszúnak kell lennie
 Tag already exists: '„{tagName}” címke már létezik'
 Close Banner: Banner bezárása
 Age Restricted:
@@ -1273,10 +1063,8 @@ Keys:
   shift: Shift
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
-Right-click or hold to see history: Kattintson a jobb gombbal vagy tartsa lenyomva
-  az előzmények megtekintéséhez
-Autoplay Interruption Timer: Az automatikus lejátszás {autoplayInterruptionIntervalHours}
-  óra inaktivitás miatt visszavonásra került
+Right-click or hold to see history: Kattintson a jobb gombbal vagy tartsa lenyomva az előzmények megtekintéséhez
+Autoplay Interruption Timer: Az automatikus lejátszás {autoplayInterruptionIntervalHours} óra inaktivitás miatt visszavonásra került
 Description:
   Collapse Description: Kevesebb megjelenítése
   Expand Description: …továbbiak
@@ -1296,43 +1084,36 @@ KeyboardShortcutPrompt:
   Navigate to Settings: Ugrás a „Beállítások” oldalra
   Navigate to History: Ugrás az „Előzmények” oldalra
   Focus Secondary Search: A másodlagos keresősávra fókuszálás (ha van ilyen)
-  Fullscreen: Teljes képernyő be- és kikapcsolása
-  Picture in Picture: Kép a képben mód be- és kikapcsolása
-  Play: Lejátszás / Szüneteltetés be- és kikapcsolása
-  Mute: Némítás be- és kikapcsolása
-  Decrease Video Speed: A videó lejátszási sebességének csökkentése a lejátszási sebesség
-    időköze alapján
-  Increase Video Speed: A videó lejátszási sebességének növelése a lejátszási sebesség
-    időköze alapján
-  Toggle Developer Tools: Fejlesztői eszközök bekapcsolása
+  Fullscreen: Teljes képernyő be/ki
+  Picture in Picture: Kép a képben mód be/ki
+  Play: Lejátszás / Szüneteltetés be/ki
+  Mute: Némítás be/ki
+  Decrease Video Speed: A videó lejátszási sebességének csökkentése a lejátszási sebesség időköze alapján
+  Increase Video Speed: A videó lejátszási sebességének növelése a lejátszási sebesség időköze alapján
+  Toggle Developer Tools: Fejlesztői eszközök be/ki
   Zoom In: Nagyítás
-  Full Window: Teljes ablak mód be- és kikapcsolása
-  Theatre Mode: Mozimód be- és kikapcsolása
+  Full Window: Teljes ablakmód be/ki
+  Theatre Mode: Mozimód be/ki
   Minimize Window: Ablak minimalizálása
   Last Frame: Előző képkocka megjelenítése (szüneteltetés alatt)
   Next Frame: Következő képkocka megjelenítése (szüneteltetés alatt)
   Volume Up: Hangerő növelése
   Volume Down: Hangerő csökkentése
-  Small Rewind: X másodperc visszatekerés a visszatekerési időköz és a jelenlegi videólejátszási
-    sebesség alapján
+  Small Rewind: X másodperc visszatekerés a visszatekerési időköz és a jelenlegi videólejátszási sebesség alapján
   Last Chapter: Utolsó fejezet
   Next Chapter: Következő fejezet
-  Skip by Tenths: A videó pörgetése százalékosan (3 pörgetés = a videó teljes időtartamának
-    30%-a)
+  Skip by Tenths: A videó pörgetése százalékosan (3 pörgetés = a videó teljes időtartamának 30%-a)
   Focus Search: Fókuszálás a keresési sávra
   History Backward: Visszalépés az előző oldalra
   Reset Zoom: Nagyítási szint / UI-skála visszaállítása
   Zoom Out: Kicsinyítés
   Search in New Window: Keresés új ablakban
   Stats: Videóstatisztikák megjelenítése
-  Small Fast Forward: X másodperc előretekerés az előretekerési időköz és a jelenlegi
-    videólejátszási sebesség alapján
-  Large Fast Forward: Előretekerés 10 másodperccel / Gyors előretekerés a jelenlegi
-    videólejátszási sebesség alapján
+  Small Fast Forward: X másodperc előretekerés az előretekerési időköz és a jelenlegi videólejátszási sebesség alapján
+  Large Fast Forward: Előretekerés 10 másodperccel / Gyors előretekerés a jelenlegi videólejátszási sebesség alapján
   Refresh: A hírcsatorna frissítése a legújabb tartalommal
-  Captions: Feliratok be- és kikapcsolása
-  Large Rewind: Visszatekerés 10 másodperccel / Visszatekerés a jelenlegi videólejátszási
-    sebesség alapján
+  Captions: Feliratok be/ki
+  Large Rewind: Visszatekerés 10 másodperccel / Visszatekerés a jelenlegi videólejátszási sebesség alapján
   Close Window: Ablak bezárása
   Restart Window: Ablak újraindítása
   Force Restart Window: Ablak kényszerített újraindítása

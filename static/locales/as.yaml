@@ -29,13 +29,13 @@ Global:
   Live: লাইভ
   Sort By: বস্তু অনুযায়ী সজাওক
   Counts:
-    Comment Count: ১ টা মন্তব্য | {গণনা} মন্তব্য
-    Like Count: ১ ৰ দৰে | {গণনা} লাইক
-    Subscriber Count: ১ জন গ্ৰাহক | {গণনা} গ্ৰাহক
-    Watching Count: ১ চাই থকা | {গণনা} চাই আছে
-    View Count: ১ দৰ্শন | {গণনা} দৰ্শন
-    Video Count: ১ ভিডিঅ' | {গণনা} ভিডিঅ'
-    Channel Count: ১ চেনেল | {গণনা} চেনেল
+    Comment Count: ১ টা মন্তব্য | {count} মন্তব্য
+    Like Count: ১ ৰ দৰে | {count} লাইক
+    Subscriber Count: ১ জন গ্ৰাহক | {count} গ্ৰাহক
+    Watching Count: ১ চাই থকা | {count} চাই আছে
+    View Count: ১ দৰ্শন | {count} দৰ্শন
+    Video Count: ১ ভিডিঅ' | {count} ভিডিঅ'
+    Channel Count: ১ চেনেল | {count} চেনেল
   Shorts: শ্বৰ্ট
   Posts: পোষ্ট
 Search Listing:

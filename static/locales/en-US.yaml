@@ -118,6 +118,7 @@ Search Filters:
   Fetching results. Please wait: Fetching results. Please wait
   Fetch more results: Fetch more results
   There are no more results for this search: There are no more results for this search
+  Clear Filters: Clear Filters
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
@@ -264,6 +265,8 @@ History:
   Empty Search Message: There are no videos in your history that match your search
   Search bar placeholder: "Search in History"
   Case Sensitive Search: Case Sensitive Search
+  DateOldestHistory: Earliest Watched First
+  DateNewestHistory: Latest Watched First
 Settings:
   # On Settings Page
   Settings: Settings

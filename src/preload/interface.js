@@ -217,11 +217,11 @@ export default {
   },
 
   /**
-   * @param {(url: string, isLaunchLink: boolean) => void} handler
+   * @param {(url: string) => void} handler
    */
   handleOpenUrl: (handler) => {
-    ipcRenderer.on(IpcChannels.OPEN_URL, (_, url, isLaunchLink) => {
-      handler(url, isLaunchLink)
+    ipcRenderer.on(IpcChannels.OPEN_URL, (_, url) => {
+      handler(url)
     })
     ipcRenderer.send(IpcChannels.APP_READY)
   },
