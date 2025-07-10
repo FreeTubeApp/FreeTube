@@ -166,13 +166,15 @@ export const ToastEventBus = new EventTarget()
  * @param {string} message
  * @param {number} time
  * @param {Function} action
+ * @param {AbortSignal} abortSignal
  */
-export function showToast(message, time = null, action = null) {
+export function showToast(message, time = null, action = null, abortSignal = null) {
   ToastEventBus.dispatchEvent(new CustomEvent('toast-open', {
     detail: {
       message,
       time,
-      action
+      action,
+      abortSignal,
     }
   }))
 }

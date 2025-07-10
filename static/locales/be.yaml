@@ -65,11 +65,11 @@ Search Filters:
     View Count: 'Колькасць праглядаў'
   Time:
     Time: 'Час'
-    Any Time: 'У любы час'
-    Last Hour: 'Апошняя гадзіна'
+    Any Time: 'За ўвесь час'
+    Last Hour: 'За апошнюю гадзіну'
     Today: 'Сёння'
-    This Week: 'На гэтым тыдні'
-    This Month: 'У гэтым месяцы'
+    This Week: 'За гэты тыдзень'
+    This Month: 'За гэты месяц'
     This Year: 'За гэты год'
   Type:
     Type: 'Тып'
@@ -237,7 +237,7 @@ Settings:
     Enable Search Suggestions: 'Уключыць прапановы пошуку'
     Default Landing Page: 'Хатняя старонка'
     Locale Preference: 'Рэгіянальныя налады'
-    System Default: 'Налада сістэмы'
+    System Default: 'З налад сістэмы'
     Preferred API Backend:
       Preferred API Backend: 'Пераважны бэкэнд API'
       Local API: 'Лакальны API'

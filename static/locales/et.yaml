@@ -209,6 +209,8 @@ History:
   Search bar placeholder: Otsi ajaloost
   Empty Search Message: Sinu ajaloos pole sinu otsingule vastavaid videosid
   Case Sensitive Search: Tõstutundlik otsing
+  DateOldestHistory: Esmalt varemvaadatu
+  DateNewestHistory: Esmalt hiljemvaadatu
 Settings:
   # On Settings Page
   Settings: 'Seadistused'

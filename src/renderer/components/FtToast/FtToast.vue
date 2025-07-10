@@ -37,9 +37,9 @@ let idCounter = 0
 const toasts = shallowReactive([])
 
 /**
- * @param {CustomEvent<{ message: string, time: number | null, action: Function | null }>} event
+ * @param {CustomEvent<{ message: string, time: number | null, action: Function | null, abortSignal: AbortSignal | null }>} event
  */
-function open({ detail: { message, time, action } }) {
+function open({ detail: { message, time, action, abortSignal } }) {
   /** @type {Toast} */
   const toast = {
     message,
@@ -50,6 +50,11 @@ function open({ detail: { message, time, action } }) {
   }
 
   toast.timeout = setTimeout(close, time || 3000, toast)
+  if (abortSignal != null) {
+    abortSignal.addEventListener('abort', () => {
+      close(toast)
+    })
+  }
 
   nextTick(() => {
     toast.isOpen = true

@@ -265,6 +265,8 @@ History:
   Empty Search Message: There are no videos in your history that match your search
   Search bar placeholder: "Search in History"
   Case Sensitive Search: Case Sensitive Search
+  DateOldestHistory: Earliest Watched First
+  DateNewestHistory: Latest Watched First
 Settings:
   # On Settings Page
   Settings: Settings
