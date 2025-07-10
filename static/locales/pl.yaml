@@ -202,6 +202,8 @@ History:
   Search bar placeholder: Przeszukaj historię
   Empty Search Message: W historii nie ma filmów, które pasowałyby do Twojego zapytania
   Case Sensitive Search: Rozróżniaj wielkość liter
+  DateOldestHistory: Od obejrzanych najdawniej
+  DateNewestHistory: Od obejrzanych ostatnio
 Settings:
   # On Settings Page
   Settings: 'Ustawienia'
@@ -824,14 +826,14 @@ Playlist:
     VideoTitleDescending: Po tytule (Z-A)
     VideoTitleAscending: Po tytule (A-Z)
     Custom: Własny porządek
-    DateAddedOldest: Od najstarszych
-    DateAddedNewest: Od najnowszych
+    DateAddedOldest: Od dodanych najdawniej
+    DateAddedNewest: Od dodanych ostatnio
     AuthorAscending: Po autorze (A-Z)
     AuthorDescending: Po autorze (Z-A)
     VideoDurationDescending: Czas trwania (od najdłuższych)
     VideoDurationAscending: Czas trwania (od najkrótszych)
-    PublishedNewest: Od ostatnio opublikowanych
-    PublishedOldest: Od najwcześniej opublikowanych
+    PublishedNewest: Od opublikowanych ostatnio
+    PublishedOldest: Od opublikowanych najdawniej
 Change Format:
   Change Media Formats: 'Zmień formaty wideo'
   Use Dash Formats: 'Użyj formatów DASH'
