@@ -70,6 +70,7 @@
             >
           </router-link>
         </div>
+        <div>
         <div
           v-if="!hideUploader"
         >
@@ -87,6 +88,7 @@
             :channel-thumbnail="channelThumbnail"
             :subscription-count-text="subscriptionCountText"
           />
+      </div>
       </div>
       <div class="videoOptions">
         <span class="videoOptionsMobileRow">
