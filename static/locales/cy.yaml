@@ -226,6 +226,8 @@ History:
   Empty Search Message: 'Nid oes unrhyw fideos yn eich hanes sy''n cyfateb i''ch chwilio'
   Search bar placeholder: "Chwilio yn eich Hanes"
   Case Sensitive Search: Chwilio Nodau Mawr neu Fach
+  DateOldestHistory: Cynharaf ei Wylio'n Gyntaf
+  DateNewestHistory: Diweddaraf ei Wylio'n Gyntaf
 Settings:
   # On Settings Page
   Settings: 'Gosodiadau'
