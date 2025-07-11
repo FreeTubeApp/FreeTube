@@ -31,7 +31,7 @@ Global:
   Videos: 'Βίντεο'
   Shorts: Σύντομα Βίντεο
   Live: Ζωντανά
-  Community: Κοινότητα
+  Posts: Αναρτήσεις
   Sort By: 'Ταξινόμηση κατά'
 
 # Search Bar
@@ -222,12 +222,12 @@ User Playlists:
   Remove from Playlist: Αφαίρεση από τη λίστα αναπαραγωγής
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Είστε
     σίγουροι ότι θέλετε να αφαιρέσετε 1 διπλό βίντεο από αυτή τη λίστα αναπαραγωγής;
-    Αυτό δεν μπορεί να αναιρεθεί. Είστε σίγουροι ότι θέλετε να αφαιρέσετε {λίστα αναπαραγωγήςItemCount}
+    Αυτό δεν μπορεί να αναιρεθεί. Είστε σίγουροι ότι θέλετε να αφαιρέσετε {playlistItemCount}
     διπλά βίντεο από αυτή τη λίστα; Αυτό δεν μπορεί να αναιρεθεί.
   This playlist currently has no videos.: Αυτή η λίστα αναπαραγωγής προς το παρόν
     δεν έχει βίντεο.
   Create New Playlist: Δημιουργία νέας λίστας αναπαραγωγής
-  TotalTimePlaylist: 'Συνολικός χρόνος: {διάρκεια}'
+  TotalTimePlaylist: 'Συνολικός χρόνος: {duration}'
   Enable Quick Bookmark With This Playlist: Ενεργοποίηση γρήγορου σελιδοδείκτη με
     αυτή τη λίστα αναπαραγωγής
   You have no playlists. Click on the create new playlist button to create a new one.: Δεν
@@ -619,7 +619,6 @@ Settings:
       Subscriptions Page: Σελίδα Συνδρομών
     Hide Featured Channels: Απόκρυψη Προτεινόμενων Καναλιών
     Hide Channel Playlists: Απόκρυψη καναλιών " λίστες αναπαραγωγής" καρτέλα
-    Hide Channel Community: Απόκρυψη καναλιού " Κοινότητα" καρτέλα
     Hide Channel Shorts: Απόκρυψη καναλιού " Σύντομες" καρτέλα
     Hide Channel Releases: Απόκρυψη καναλιού " Kυκλοφοριών" καρτέλα
     Hide Channel Podcasts: Απόκρυψη καναλιού " Πόντκαστ" καρτέλα
@@ -627,7 +626,6 @@ Settings:
     Hide Subscriptions Shorts: Απόκρυψη Shorts Συνδρομών
     Hide Subscriptions Live: Απόκρυψη Live Συνδρομών
     Hide Profile Pictures in Comments: Απόκρυψη Εικόνων Προφίλ στα Σχόλια
-    Hide Subscriptions Community: Απόκρυψη Συνδρομών Κοινότητας
     Hide Channels Invalid: Το αναγνωριστικό καναλιού που δόθηκε δεν ήταν έγκυρο
     Hide Channels Disabled Message: Ορισμένα κανάλια αποκλείστηκαν με χρήση αναγνωριστικού
       και δεν υποβλήθηκαν σε επεξεργασία. Η λειτουργία μπλοκάρεται κατά την ενημέρωση
@@ -641,6 +639,8 @@ Settings:
     Hide Channel Courses: Απόκρυψη της καρτέλας «Μαθήματα» του καναλιού
     Hide Channel Home: Απόκρυψη της καρτέλας «Αρχική σελίδα» του καναλιού
     Show Added Items: Εμφάνιση προστιθέμενων στοιχείων
+    Hide Subscriptions Posts: Απόκρυψη αναρτήσεων συνδρομών
+    Hide Channel Posts: Απόκρυψη καρτέλας "Αναρτήσεις" καναλιού
   The app needs to restart for changes to take effect. Restart and apply change?: Η
     εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
     και εφαρμογή αλλαγών;
@@ -682,7 +682,7 @@ Settings:
     Enable SponsorBlock: Ενεργοποίηση του SponsorBlock
     Notify when sponsor segment is skipped: Ειδοποίηση όταν παραλείπεται το τμήμα
       χορηγού
-    SponsorBlock Settings: ''
+    SponsorBlock Settings: 'SponsorBlock'
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Διεύθυνση URL του
       API του SponsorBlock (Η προεπιλογή είναι https://sponsor.ajay.app)
     Skip Options:
@@ -755,7 +755,7 @@ About:
   Beta: Βήτα
   Discussions: Συζητήσεις
   Licensed under the: Άδεια χρήσης σύμφωνα με το
-  AGPLv3: ''
+  AGPLv3: 'AGPLv3'
 Profile:
   Profile Select: 'Επιλογή Προφίλ'
   All Channels: 'Όλα τα κανάλια'
@@ -851,7 +851,7 @@ Channel:
     FreeTube.
   Channel Tabs: Καρτέλες Καναλιών
   This channel does not exist: Αυτό το κανάλι δεν υπάρχει
-  Community:
+  Posts:
     This channel currently does not have any posts: Αυτό το κανάλι προς το παρόν δεν
       έχει αναρτήσεις
     Reveal Answers: Εμφάνιση Απαντήσεων
@@ -978,7 +978,7 @@ Video:
     Exit Full Window: Έξοδος πλήρους παραθύρου
     Stats:
       Video ID: 'Αναγνωριστικό βίντεο: {videoId}'
-      Player Dimensions: 'Διαστάσεις Αναπαραγωγέα: {πλάτος}x{ύψος}'
+      Player Dimensions: 'Διαστάσεις Αναπαραγωγέα: {width}x{height}'
       CodecsVideoAudio: 'Κωδικοποιητές: {videoCodec} ({videoItag}) / {audioCodec}
         ({audioItag})'
       Bandwidth: 'Εύρος ζώνης: {bandwidth} kbps'
@@ -1134,17 +1134,17 @@ This video is unavailable because of missing formats. This can happen due to cou
   μη διαθεσιμότητας του βίντεο στη χώρα σας.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Όταν ενεργοποιηθεί, το FreeTube θα χρησιμοποιήσει το RSS
-      αντί της προεπιλεγμένης μεθόδου του για να αρπάξει την τροφοδοσία συνδρομής
-      σας. RSS είναι ταχύτερη και αποτρέπει το μπλοκάρισμα IP, αλλά δεν παρέχει ορισμένες
-      πληροφορίες όπως διάρκεια βίντεο, ζωντανή κατάσταση ή δημοσιεύσεις της κοινότητας
-    Fetch Automatically: Όταν είναι ενεργοποιημένο, το FreeTube θα λαμβάνει αυτόματα
-      τη ροή της συνδρομής σας όταν ανοίγει ένα νέο παράθυρο και όταν αλλάζει προφίλ.
+    Fetch Feeds from RSS: Όταν ενεργοποιηθεί, το FreeTube θα χρησιμοποιήσει RSS αντί
+      για την προεπιλεγμένη μέθοδο για να αρπάξει τη ροή συνδρομής σας. Το RSS είναι
+      ταχύτερο και αποτρέπει τον αποκλεισμό IP, αλλά δεν παρέχει ορισμένες πληροφορίες,
+      όπως διάρκεια βίντεο, ζωντανή κατάσταση ή αναρτήσεις
+    Fetch Automatically: Όταν ενεργοποιηθεί, το FreeTube θα ανακτήσει αυτόματα τη
+      ροή συνδρομής σας κατά την εκκίνηση και όταν ανοίξει ένα νέο παράθυρο.
   Player Settings:
     Default Video Format: Ορίστε τις μορφές που χρησιμοποιούνται κατά την αναπαραγωγή
-      ενός βίντεο. Οι μορφές DASH μπορούν να παίξουν υψηλότερη ποιότητα. Οι παλαιότερες
-      μορφές περιορίζονται σε μέγιστο ανάλυσης 720p αλλά χρησιμοποιούν λιγότερους
-      πόρους. Οι μορφές ήχου περιλαμβάνουν ροές μόνο ήχου.
+      ενός βίντεο. Οι μορφές DASH μπορούν να αναπαράγουν υψηλότερες ποιότητες. Οι
+      μορφές παλαιού τύπου περιορίζονται σε μέγιστο 360p, αλλά χρησιμοποιούν μικρότερο
+      εύρος ζώνης. Οι μορφές ήχου είναι ροές μόνο ήχου.
     Proxy Videos Through Invidious: Θα συνδεθεί με το Invidious για να εξυπηρετήσει
       τα βίντεο αντί να κάνει μια άμεση σύνδεση με το YouTube.
     Scroll Playback Rate Over Video Player: Ενώ ο δρομέας βρίσκεται πάνω από το βίντεο,
@@ -1158,8 +1158,8 @@ Tooltips:
   General Settings:
     Region for Trending: Η περιοχή των τάσεων σας επιτρέπει να επιλέξετε τα δημοφιλή
       βίντεο της χώρας που θέλετε να εμφανίζονται.
-    Thumbnail Preference: Όλες οι μικρογραφίες του FreeTube θα αντικατασταθούν με
-      ένα πλαίσιο του βίντεο αντί για την προεπιλεγμένη μικρογραφία.
+    Thumbnail Preference: Όλες οι μικρογραφίες σε όλο το FreeTube θα αντικατασταθούν
+      με ένα πλαίσιο του βίντεο, θολό ή κρυφό αντί για την προεπιλεγμένη μικρογραφία.
     Fallback to Non-Preferred Backend on Failure: Όταν το προτιμώμενο API αντιμετωπίζει
       πρόβλημα, το FreeTube θα προσπαθήσει να χρησιμοποιήσει το μη προτιμώμενο API
       ως εναλλακτική μέθοδο όταν ενεργοποιηθεί.
@@ -1342,8 +1342,6 @@ Yes, Open Link: Ναι, Άνοιγμα συνδέσμου
 Description:
   Expand Description: '...περισσότερα'
   Collapse Description: Εμφάνιση λιγότερων
-'Blocked opening potentially unsafe URL': 'Αποκλεισμός ανοίγματος δυνητικά μη ασφαλούς
-  URL: «{url}».'
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Age Restricted:

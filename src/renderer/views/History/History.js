@@ -1,14 +1,20 @@
 import { defineComponent } from 'vue'
 import { isNavigationFailure, NavigationFailureType } from 'vue-router'
-import FtLoader from '../../components/ft-loader/ft-loader.vue'
+import FtLoader from '../../components/FtLoader/FtLoader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
-import FtButton from '../../components/ft-button/ft-button.vue'
+import FtButton from '../../components/FtButton/FtButton.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
-import FtAutoLoadNextPageWrapper from '../../components/ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
+import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrapper.vue'
 import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
-import { ctrlFHandler, debounce } from '../../helpers/utils'
+import { ctrlFHandler, debounce, getIconForSortPreference } from '../../helpers/utils'
+import FtSelect from '../../components/ft-select/ft-select.vue'
+
+const HISTORY_SORT_BY_VALUES = {
+  DateAddedNewest: 'latest_played_first',
+  DateAddedOldest: 'earliest_played_first',
+}
 
 const identity = (v) => v
 
@@ -21,8 +27,6 @@ function filterVideosWithQuery(videos, query, attrProcessor = identity) {
     }
 
     return false
-  }).sort((a, b) => {
-    return b.timeWatched - a.timeWatched
   })
 }
 
@@ -37,6 +41,7 @@ export default defineComponent({
     'ft-input': FtInput,
     'ft-auto-load-next-page-wrapper': FtAutoLoadNextPageWrapper,
     'ft-toggle-switch': FtToggleSwitch,
+    'ft-select': FtSelect,
   },
   data: function () {
     return {
@@ -50,8 +55,34 @@ export default defineComponent({
     }
   },
   computed: {
+    sortBy: {
+      get() {
+        return this.$store.getters.getUserHistorySortBy
+      },
+      set(value) {
+        this.$store.dispatch('updateUserHistorySortBy', value)
+      },
+    },
+
+    sortByNames: function () {
+      return [
+        this.$t('History.DateNewestHistory'),
+        this.$t('History.DateOldestHistory'),
+      ]
+    },
+
+    sortByValues() {
+      return Object.values(HISTORY_SORT_BY_VALUES)
+    },
+
     historyCacheSorted: function () {
-      return this.$store.getters.getHistoryCacheSorted
+      const historySorted = this.$store.getters.getHistoryCacheSorted
+
+      if (this.sortBy === HISTORY_SORT_BY_VALUES.DateAddedOldest) {
+        return historySorted.toReversed()
+      } else {
+        return historySorted
+      }
     },
 
     fullData: function () {
@@ -185,5 +216,7 @@ export default defineComponent({
     keyboardShortcutHandler: function (event) {
       ctrlFHandler(event, this.$refs.searchBar)
     },
+
+    getIconForSortPreference: (s) => getIconForSortPreference(s),
   }
 })

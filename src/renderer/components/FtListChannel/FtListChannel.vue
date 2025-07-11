@@ -155,7 +155,7 @@ function parseLocalData() {
     subscriberCount = props.data.subscribers
   }
 
-  if (props.data.videoCount != null) {
+  if (props.data.videos != null) {
     videoCount = props.data.videos
   }
 

@@ -121,17 +121,17 @@ Search Bar:
 Global:
   Videos: ভিডিও
   Shorts: খাটো
-  Live: সরাসরি
+  Live: লাইভ
   Sort By: 'সাজানোর পদ্ধতি'
   Counts:
-    Video Count: ১ ভিডিও |{সমষ্টি }ভিডিও
-    Subscriber Count: ১ সাবস্ক্রাইবার |{সমষ্টি }সাবস্ক্রাইবার
-    View Count: ১ দেখা হয়েছে |{সমষ্টি }দর্শন সংখ্যা
-    Watching Count: ১ দেখছি |{গণনা }দেখছেন
-    Channel Count: ১ চ্যানেল |{সমষ্টি }চ্যানেল সমূহ
-    Like Count: ১টি পছন্দ | {গণনা} পছন্দ করা হয়েছে
-    Comment Count: ১টি মন্তব্য | {গণনা} মন্তব্য করা হয়েছে
-  Community: গোষ্ঠী
+    Video Count: ১ ভিডিও |{count}ভিডিও
+    Subscriber Count: ১ সাবস্ক্রাইবার |{count}সাবস্ক্রাইবার
+    View Count: ১ দেখা হয়েছে |{count}দর্শন সংখ্যা
+    Watching Count: ১ দেখছি |{count}দেখছেন
+    Channel Count: ১ চ্যানেল |{count}চ্যানেল সমূহ
+    Like Count: ১টি পছন্দ | {count} পছন্দ করা হয়েছে
+    Comment Count: ১টি মন্তব্য | {count} মন্তব্য করা হয়েছে
+  Posts: পোস্ট
 External link opening has been disabled in the general settings: সাধারণ পছন্দসমূহে
   বহিঃসংযোগ খোলা নিষ্ক্রিয় রাখা হয়েছে
 Are you sure you want to open this link?: তুমি কি এই সংযোগটি খোলার ব্যাপারে নিশ্চিত?
@@ -191,7 +191,7 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: আপনি কি নিশ্চিত
     যে আপনি চালুতালিকাটি মুছতে চান? এটি পূর্বাবস্থায় ফেরানো সম্ভব নয়।
 More: অতিরিক্ত
-Go to page: পরবর্তী {পেইজ}
+Go to page: পরবর্তী {page}
 Search character limit: সার্চ কোয়েরি {searchCharacterLimit} অক্ষরের সীমা অতিক্রম
   করেছে
 Close Banner: ব্যানারটি বন্ধ করুন

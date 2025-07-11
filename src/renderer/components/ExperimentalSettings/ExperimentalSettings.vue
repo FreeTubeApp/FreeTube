@@ -34,16 +34,13 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 
-import { IpcChannels } from '../../../constants'
-
 const replaceHttpCacheLoading = ref(true)
 const replaceHttpCache = ref(false)
 const showRestartPrompt = ref(false)
 
 onMounted(async () => {
   if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    replaceHttpCache.value = await ipcRenderer.invoke(IpcChannels.GET_REPLACE_HTTP_CACHE)
+    replaceHttpCache.value = await window.ftElectron.getReplaceHttpCache()
   }
 
   replaceHttpCacheLoading.value = false
@@ -69,8 +66,7 @@ function handleReplaceHttpCache(value) {
   }
 
   if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.send(IpcChannels.TOGGLE_REPLACE_HTTP_CACHE)
+    window.ftElectron.toggleReplaceHttpCache()
   }
 }
 </script>

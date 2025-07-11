@@ -94,7 +94,7 @@ import { computed, ref, shallowRef } from 'vue'
 import { useId } from '../../composables/use-id-polyfill'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
-import FtButton from '../../components/ft-button/ft-button.vue'
+import FtButton from '../FtButton/FtButton.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 
 import store from '../../store/index'

@@ -868,15 +868,15 @@ export default defineComponent({
       showToast(this.$t('Video.Video has been removed from your saved list'))
     },
     moveVideoUp: function() {
-      this.$emit('move-video-up')
+      this.$emit('move-video-up', this.id, this.playlistItemId)
     },
 
     moveVideoDown: function() {
-      this.$emit('move-video-down')
+      this.$emit('move-video-down', this.id, this.playlistItemId)
     },
 
     removeFromPlaylist: function() {
-      this.$emit('remove-from-playlist')
+      this.$emit('remove-from-playlist', this.id, this.playlistItemId)
     },
 
     ...mapActions([

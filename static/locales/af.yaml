@@ -27,7 +27,7 @@ Close: 'suilt'
 Back: 'Terug'
 Forward: 'vorentoe'
 Open New Window: 'Maak nuwe venster oop'
-Go to page: 'Gaan na {bladsy}'
+Go to page: 'Gaan na {page}'
 Close Banner: 'Sluit baniere'
 
 Version {versionNumber} is now available!  Click for more details: 'Weergawe {versionNumber}
@@ -42,8 +42,8 @@ Are you sure you want to open this link?: 'Is jy seker jy wil hierdie skakel oop
 Global:
   Videos: 'Video''s'
   Shorts: 'Kortvideo’s'
-  Live: 'Wêreldwye lewendige'
-  Community: 'Gemeenskap'
+  Live: 'Regstreeks'
+  Posts: 'Plasings'
   Sort By: 'Sorteer volgens'
   Counts:
     Video Count: '1 video | {count} videos'
@@ -565,7 +565,6 @@ Settings:
     Hide Channels Already Exists: 'Kanaal-ID bestaan reeds'
     Hide Featured Channels: 'Versteek uitgeligte kanale'
     Hide Channel Playlists: 'Versteek kanaal-“afspeellys”-oortjie'
-    Hide Channel Community: 'Versteek kanaal-“gemeenskap”-oortjie'
     Hide Channel Shorts: 'Versteek kanaal-“kortvideo’s”-oortjie'
     Hide Channel Podcasts: 'Versteek kanaal-“podsendings”-oortjie'
     Hide Channel Releases: 'Versteek kanaal-“vrystellings”-oortjie'
@@ -576,7 +575,6 @@ Settings:
     Hide Subscriptions Videos: 'Versteek intekenings video’s'
     Hide Subscriptions Shorts: 'Versteek intekenings kortvideo’s'
     Hide Subscriptions Live: 'Versteek intekenings regstreeks'
-    Hide Subscriptions Community: 'Versteek intekenings gemeenskap'
     Show Added Items: Toon toegevoegde items
     Hide Channel Home: Versteek kanaal-“tuis”-oortjie
   Data Settings:
@@ -827,7 +825,7 @@ Channel:
     Joined: 'Lid sedert'
     Location: 'Ligging'
     Featured Channels: 'Uitgeligte kanale'
-  Community:
+  Posts:
     This channel currently does not have any posts: 'Hierdie kanaal het nie tans enige
       plasings nie'
     votes: '{votes} stemme'
@@ -1070,7 +1068,7 @@ Tooltips:
       gee sal FreeTube outomaties terugval op die alternatiewe nie-voorkeur-API wanneer
       hierdie instelling geaktiveer is.'
     Thumbnail Preference: 'Alle duimnaels in FreeTube sal vervang word met ’n beeld
-      uit die video i.p.v. die verstek duimnael.'
+      uit die video, vervaag of versteek i.p.v. die verstek duimnael.'
     Invidious Instance: 'Die Invidious-instansie waarmee FreeTube sal verbind om API-oproepe
       te maak.'
     Region for Trending: 'Met streek van stygend kan u kies welke land se gewilde
@@ -1086,7 +1084,7 @@ Tooltips:
       van daar aflaai eerder as om ’n direkte verbinding met YouTube te maak.'
     Default Video Format: 'Kies die formate wat gebruik word wanneer ’n video afspeel.
       DASH-formate kan hoër kwaliteit afspeel. Legaat formate word beperk tot ’n maks
-      van 720p maar gebruik minder bandwydte. Oudio formate is slegs oudio strome.'
+      van 360p maar gebruik minder bandwydte. Oudio formate is slegs oudio strome.'
     Scroll Playback Rate Over Video Player: 'Terwyl die muis oor die video is, druk
       en hou die Control-toets (Command-toets op Mac) en rol met die muis om die afspeelsnelheid
       te beheer. Druk en hou die Control-toets (Command-toets op Mac) en klik met
@@ -1123,10 +1121,9 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: 'Wanneer geaktiveer, sal FreeTube RSS i.p.v. sy verstek
       metode gebruik om u intekenvoer op te haal. RSS is vinniger en voorkom IP-versperring,
-      maar bied nie sekere inligting soos videoduud, status of gemeenskapsplasings
-      nie'
+      maar bied nie sekere inligting soos videoduur, status of plasings nie'
     Fetch Automatically: 'Wanneer geaktiveer, sal FreeTube u intekenvoer outomaties
-      ophaal wanneer ’n nuwe venster geopen word en u van profiel wissel.'
+      ophaal wanneer ’n nuwe venster geopen word.'
   Experimental Settings:
     Replace HTTP Cache: 'Deaktiveer die skyfgebaseerde HTTP-kas van Electron en aktiveer
       ’n aangepaste afbeeldingskas in die geheue in. Sal lei tot ’n verhoogde RAM-gebruik.'
@@ -1166,8 +1163,6 @@ Age Restricted:
   This video is age restricted: 'Hierdie video het ’n ouderdomsperk'
 External link opening has been disabled in the general settings: 'Die open van eksterne
   skakels is gedeaktiveer in die algemene instellings'
-'Blocked opening potentially unsafe URL': 'Open van potensiële onveilige URL is versper:
-  “{url}”.'
 Downloading has completed: '“{videoTitle}” is afgelaai'
 Starting download: 'Begin aflaai van “{videoTitle}”'
 Downloading failed: 'Daar was ’n probleem by die aflaai van “{videoTitle}”'
@@ -1176,7 +1171,7 @@ Screenshot Error: 'Skermkiekie het misluk. {error}'
 Channel Hidden: '{channel} tot kanaalfilter toegevoeg'
 Channel Unhidden: '{channel} verwyder uit kanaalfilter'
 Trimmed input must be at least N characters long: 'Bygesnyde invoer moet ten minste
-  1 karakter lank wees | Bygesnyde invoer moet ten minste {lentgh} karakters lank
+  1 karakter lank wees | Bygesnyde invoer moet ten minste {length} karakters lank
   wees'
 Tag already exists: 'Etiket “{tagName}” bestaan reeds'
 

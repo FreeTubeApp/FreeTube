@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
+import FtTooltip from '../FtTooltip/FtTooltip.vue'
 
 export default defineComponent({
   name: 'FtToggleSwitch',

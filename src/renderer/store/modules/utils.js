@@ -1,19 +1,14 @@
-import fs from 'fs/promises'
-import path from 'path'
 import i18n from '../../i18n/index'
 import { set as vueSet } from 'vue'
 
-import { IpcChannels } from '../../../constants'
-import { pathExists } from '../../helpers/filesystem'
+import { DefaultFolderKind } from '../../../constants'
 import {
   CHANNEL_HANDLE_REGEX,
   createWebURL,
   getVideoParamsFromUrl,
-  openExternalLink,
   replaceFilenameForbiddenChars,
   searchFiltersMatch,
   showExternalPlayerUnsupportedActionToast,
-  showSaveDialog,
   showToast
 } from '../../helpers/utils'
 
@@ -200,88 +195,82 @@ const actions = {
     commit('setOutlinesHidden', true)
   },
 
-  async downloadMedia({ rootState }, { url, title, extension }) {
-    if (!process.env.IS_ELECTRON) {
-      openExternalLink(url)
-      return
-    }
+  async downloadMedia({ rootState }, { url, title, mimeType }) {
+    const extension = mimeType === 'audio/mp4' ? 'm4a' : mimeType.split('/')[1]
 
     const fileName = `${replaceFilenameForbiddenChars(title)}.${extension}`
-    const errorMessage = i18n.t('Downloading failed', { videoTitle: title })
-    const askFolderPath = rootState.settings.downloadAskPath
-    let folderPath = rootState.settings.downloadFolderPath
 
-    if (askFolderPath) {
-      const options = {
-        defaultPath: fileName,
-        filters: [
-          {
-            name: extension.toUpperCase(),
-            extensions: [extension]
-          }
-        ]
-      }
-      const response = await showSaveDialog(options)
+    if (rootState.settings.downloadAskPath) {
+      /** @type {FileSystemFileHandle} */
+      let handle
 
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
-
-      folderPath = response.filePath
-    } else {
-      if (!(await pathExists(folderPath))) {
-        try {
-          await fs.mkdir(folderPath, { recursive: true })
-        } catch (err) {
-          console.error(err)
-          showToast(err)
+      try {
+        handle = await window.showSaveFilePicker({
+          excludeAcceptAllOption: true,
+          id: 'downloads',
+          startIn: 'downloads',
+          suggestedName: fileName,
+          types: [{
+            accept: {
+              [mimeType]: [`.${extension}`]
+            }
+          }]
+        })
+      } catch (error) {
+        // user pressed cancel in the file picker
+        if (error.name === 'AbortError') {
           return
         }
-      }
-      folderPath = path.join(folderPath, fileName)
-    }
 
-    showToast(i18n.t('Starting download', { videoTitle: title }))
-
-    const response = await fetch(url).catch((error) => {
-      console.error(error)
-      showToast(errorMessage)
-    })
-
-    const reader = response.body.getReader()
-    const chunks = []
-
-    const handleError = (err) => {
-      console.error(err)
-      showToast(errorMessage)
-    }
-
-    const processText = async ({ done, value }) => {
-      if (done) {
+        console.error(error)
+        showToast(i18n.t('Downloading failed', { videoTitle: title }))
         return
       }
 
-      chunks.push(value)
-      // Can be used in the future to determine download percentage
-      // const contentLength = response.headers.get('Content-Length')
-      // const receivedLength = value.length
-      // const percentage = receivedLength / contentLength
-      await reader.read().then(processText).catch(handleError)
-    }
+      showToast(i18n.t('Starting download', { videoTitle: title }))
 
-    await reader.read().then(processText).catch(handleError)
+      let writeableFileStream
 
-    const blobFile = new Blob(chunks)
-    const buffer = await blobFile.arrayBuffer()
+      try {
+        const response = await fetch(url)
 
-    try {
-      await fs.writeFile(folderPath, new DataView(buffer))
+        if (response.ok) {
+          writeableFileStream = await handle.createWritable()
 
-      showToast(i18n.t('Downloading has completed', { videoTitle: title }))
-    } catch (err) {
-      console.error(err)
-      showToast(errorMessage)
+          await response.body.pipeTo(writeableFileStream, { preventClose: true })
+          showToast(i18n.t('Downloading has completed', { videoTitle: title }))
+        } else {
+          throw new Error(`Bad status code: ${response.status}`)
+        }
+      } catch (error) {
+        console.error(error)
+        showToast(i18n.t('Downloading failed', { videoTitle: title }))
+      } finally {
+        if (writeableFileStream) {
+          await writeableFileStream.close()
+        }
+      }
+    } else {
+      showToast(i18n.t('Starting download', { videoTitle: title }))
+
+      try {
+        const response = await fetch(url)
+
+        if (response.ok) {
+          const arrayBuffer = await response.arrayBuffer()
+
+          if (process.env.IS_ELECTRON) {
+            await window.ftElectron.writeToDefaultFolder(DefaultFolderKind.DOWNLOADS, fileName, arrayBuffer)
+          }
+
+          showToast(i18n.t('Downloading has completed', { videoTitle: title }))
+        } else {
+          throw new Error(`Bad status code: ${response.status}`)
+        }
+      } catch (error) {
+        console.error(error)
+        showToast(i18n.t('Downloading failed', { videoTitle: title }))
+      }
     }
   },
 
@@ -386,10 +375,6 @@ const actions = {
     commit('setNewPlaylistVideoObject', data)
   },
 
-  hideCreatePlaylistPrompt ({ commit }) {
-    commit('setShowCreatePlaylistPrompt', false)
-  },
-
   showKeyboardShortcutPrompt ({ commit }) {
     commit('setIsKeyboardShortcutPromptShown', true)
   },
@@ -417,11 +402,8 @@ const actions = {
 
     const countries = await (await fetch(url)).json()
 
-    const regionNames = countries.map((entry) => { return entry.name })
-    const regionValues = countries.map((entry) => { return entry.code })
-
-    commit('setRegionNames', regionNames)
-    commit('setRegionValues', regionValues)
+    commit('setRegionNames', countries.names)
+    commit('setRegionValues', countries.codes)
   },
 
   async getYoutubeUrlInfo({ rootState, state }, urlStr) {
@@ -482,12 +464,14 @@ const actions = {
     const hashtagPattern = /^\/hashtag\/(?<tag>[^#&/?]+)$/
 
     const postPattern = /^\/post\/(?<postId>.+)/
+    const feedPattern = /^\/feed\/(?<type>trending|subscriptions|history|playlists|you|library)/
     const typePatterns = new Map([
       ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/],
       ['search', /^\/results|search\/?$/],
       ['hashtag', hashtagPattern],
+      ['post', postPattern],
+      ['feed', feedPattern],
       ['channel', channelPattern],
-      ['post', postPattern]
     ])
 
     for (const [type, pattern] of typePatterns) {
@@ -663,6 +647,16 @@ const actions = {
           url: `https://www.youtube.com${url.pathname}`
         }
       }
+      case 'feed': {
+        /** @type {'trending' | 'subscriptions' | 'history' | 'playlists' | 'you' | 'library'} */
+        const feedType = url.pathname.match(feedPattern).groups.type
+
+        if (feedType === 'playlists' || feedType === 'you' || feedType === 'library') {
+          return { urlType: 'userplaylists' }
+        } else {
+          return { urlType: feedType }
+        }
+      }
 
       default: {
         // Unknown URL type
@@ -808,8 +802,7 @@ const actions = {
     showToast(i18n.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
 
     if (process.env.IS_ELECTRON) {
-      const { ipcRenderer } = require('electron')
-      ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
+      window.ftElectron.openInExternalPlayer(executable, args)
     }
   },
 }

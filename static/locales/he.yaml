@@ -30,8 +30,8 @@ Forward: 'קדימה'
 Global:
   Videos: 'סרטונים'
   Shorts: Shorts
-  Live: חי
-  Community: קהילה
+  Live: בשידור חי
+  Posts: פוסטים
   Sort By: מיון לפי
 
   Counts:
@@ -232,6 +232,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: אפשר סימנייה מהירה עם רשימת השידורים הזו
   Export Playlist: ייצוא רשימת הנגינה הזאת
   The playlist has been successfully exported: רשימת הנגינה יוצאה בהצלחה
+  TotalTimePlaylist: 'זמן כולל: {duration}'
 History:
   # On History Page
   History: 'היסטוריה'
@@ -306,6 +307,13 @@ Settings:
       Solarized Light: בהיר זוהר
       Gruvbox Dark: תיבת גרוב כהה
       Gruvbox Light: תיבת גרוב בהירה
+      Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Hard: אוורפורסט כהה מאוד
+      Everforest Dark Medium: אוורפורסט כהה בינוני
+      Everforest Light Hard: אברפורסט לייט הארד
+      Everforest Light Medium: אברפורסט לייט מידיום
+      Everforest Dark Low: אברפורסט דארק לואו
+      Everforest Light Low: אברפורסט לייט לואו
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
@@ -363,6 +371,34 @@ Settings:
       Gruvbox Dark Orange: תיבת גרוב כתומה כהה
       Gruvbox Dark Aqua: תיבת גרוב מים כהים
       Gruvbox Light Blue: תיבת גרוב כחולה בהירה
+      Catppuccin Frappe Green: קטפוצ'ינו פרפה ירוק
+      Catppuccin Frappe Teal: קטפוצ'ינו פרפה טיל
+      Catppuccin Frappe Lavender: קטפוצ'ינו פרפה לבנדר
+      Catppuccin Frappe Yellow: קטפוצ'ינו פרפה צהוב
+      Everforest Dark Red: אברפסט אדום כהה
+      Everforest Dark Yellow: אברפורסט צהוב כהה
+      Everforest Dark Green: אברפורסט ירוק כהה
+      Everforest Dark Aqua: אברפורסט כחול מים כהה
+      Everforest Dark Blue: אברפורסט כחול כהה
+      Catppuccin Frappe Rosewater: קטפוצ'ין פרפה מי ורדים
+      Catppuccin Frappe Flamingo: קטפוצ'ין פרפה פלמינגו
+      Catppuccin Frappe Pink: קטפוצ'ין פרפה פלמינגו
+      Catppuccin Frappe Mauve: קטפוצ'ין פרפה פלמינגו
+      Catppuccin Frappe Red: קטפוצ'ין פרפה פלמינגו
+      Catppuccin Frappe Maroon: קטפוצ'ינו פרפה חום אדום
+      Catppuccin Frappe Peach: קטפוצ'ין פרפה אפרסק
+      Catppuccin Frappe Sky: קטפוצ'ינו פרפה סקיי
+      Catppuccin Frappe Sapphire: קטפוצ'ינו פרפה ספיר
+      Catppuccin Frappe Blue: קטפוצ'ינו פרפה כחול
+      Everforest Dark Orange: אברפורסט כתום כהה
+      Everforest Dark Purple: אברפורסט סגול כהה
+      Everforest Light Red: אברפורסט אדום בהיר
+      Everforest Light Orange: אברפורסט כתום בהיר
+      Everforest Light Yellow: אברפורסט צהוב בהיר
+      Everforest Light Green: אברפורסט ירוק בהיר
+      Everforest Light Aqua: אברפול לייט אקווה
+      Everforest Light Blue: אברפורסט כחול בהיר
+      Everforest Light Purple: אברפורסט סגול בהיר
     Secondary Color Theme: 'ערכת צבע משנית'
         #* Main Color Theme
     UI Scale: יחס גודל הממשק
@@ -372,11 +408,11 @@ Settings:
     Hide FreeTube Header Logo: הסתרת הלוגו התחתון של FreeTube
   Player Settings:
     Player Settings: 'נגן'
-    Play Next Video: 'ניגון הסרטון הבא'
+    Play Next Video: 'הפעלה אוטומטית של סרטונים מומלצים'
     Turn on Subtitles by Default: 'הפעלת כתוביות כברירת מחדל'
-    Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
+    Autoplay Videos: 'הפעלת סרטונים אוטומטית'
     Proxy Videos Through Invidious: 'שימוש במתווך (פרוקסי) לניגון סרטונים דרך Invidious'
-    Autoplay Playlists: 'הפעלה אוטומטית לרשימות נגינה'
+    Autoplay Playlists: 'הפעלה אוטומטית של סרטוני פלייליסט'
     Enable Theatre Mode by Default: 'הפעלת מצב קולנוע כברירת מחדל'
     Default Volume: 'ברירת המחדל לעוצמת השמע'
     Default Playback Rate: 'ברירת המחדל למהירות הצפייה'
@@ -453,6 +489,15 @@ Settings:
       החיפוש ואת המטמון שלך?
     Search history and cache have been cleared: היסטוריית החיפוש והמטמון נמחקו
     Remember Search History: לזכור את היסטוריית החיפוש
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: אוטומטי
+        Never: לעולם לא
+        Semi-auto: חצי אוטומטי
+      Tooltip: אוטומטי = שמירה בכל יציאה מעמוד הווידאו, כאשר הווידאו מסתיים ונמצאת
+        שגיאה (למשל, הגבלת קצב והפסקת מושב הצפייה). חצי-אוטומטי = כמו אוטומטי, למעט
+        יציאה מעמוד הווידאו וניתן לשמור את ההתקדמות ידנית באמצעות כפתור שנקרא שמור
+        התקדמות נצפתה, הממוקם מתחת לנגן הווידאו.
   Subscription Settings:
     Subscription Settings: 'מינוי'
     Hide Videos on Watch: 'הסתרת סרטונים לאחר הצפייה'
@@ -533,7 +578,6 @@ Settings:
       וסימני פיסוק מיותרים
     Hide Featured Channels: הסתרת ערוצים מומלצים
     Hide Channel Playlists: הסתרת לשונית „רשימות נגינה” של ערוץ
-    Hide Channel Community: הסתרת לשונית ה„קהילת” הערוץ
     Hide Channel Shorts: הסתרת לשונית ה־„Shorts” של הערוץ
     Sections:
       Watch Page: עמוד הצפייה
@@ -547,7 +591,6 @@ Settings:
     Hide Subscriptions Shorts: הסתרת Shorts של המינויים
     Hide Subscriptions Videos: הסתרת סרטוני מינוי
     Hide Profile Pictures in Comments: הסתרת תמונות הפרופיל בהערות
-    Hide Subscriptions Community: הסתרת קהילת המינויים
     Hide Videos and Playlists Containing Text Placeholder: מילה, חלק מילה או ביטוי
     Hide Channels Invalid: ID הערוץ שסופק לא תקין
     Hide Channels Disabled Message: חלק מהערוצים נחסמו באמצעות ID ולא טופלו. התכונה
@@ -559,6 +602,9 @@ Settings:
       טקסט
     Hide Channel Home: הסתרת לשונית ה„בית” של הערוץ
     Show Added Items: הצגת פריטים שנוספו
+    Hide Channel Posts: הסתר את לשונית "פוסטים" של הערוץ
+    Hide Subscriptions Posts: הסתר פוסטים של מנויים
+    Hide Channel Courses: הסתר את לשונית "קורסים" של הערוץ
   The app needs to restart for changes to take effect. Restart and apply change?: צריך
     להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
@@ -750,7 +796,7 @@ Channel:
   This channel does not exist: הערוץ הזה לא קיים
   This channel is age-restricted and currently cannot be viewed in FreeTube.: הערוץ
     מוגבל לפי גיל וכרגע אי אפשר לצפות בו ב־FreeTube.
-  Community:
+  Posts:
     This channel currently does not have any posts: אין רשומות בערוץ הזה כרגע
     votes: '{votes} הצבעות'
     Reveal Answers: חשיפת התשובות
@@ -774,6 +820,9 @@ Channel:
   Home:
     Home: בית
     View Playlist: הצגת רשימת נגינה
+  Courses:
+    Courses: קורסים
+    This channel does not currently have any courses: ערוץ זה אינו כולל כרגע קורסים.
 Video:
   Mark As Watched: 'סימון כנצפה'
   Remove From History: 'הסרה מהיסטוריית הצפייה'
@@ -881,6 +930,8 @@ Video:
     Playback will resume automatically when your connection comes back: הפלייבק יחודש
       אוטומטית כאשר החיבור שלך יחזור.
     Skipped segment: דילגתי על {segmentCategory}
+    Autoplay is off: הפעלה אוטומטית כבויה
+    Autoplay is on: הניגון האוטומטי פעיל
   Hide Channel: הסתר ערוץ
   Unhide Channel: הצג ערוץ
   More Options: אפשרויות נוספות
@@ -895,6 +946,11 @@ Video:
     Show Modified Details: הצגת פרטים לאחר שינוי
     Show Original Details: הצגת פרטים מקוריים
 #& Playlists
+  Save Watched Progress: שמור התקדמות נצפית
+  DRMProtected: סרטונים המוגנים ב-DRM אינם יכולים להתנגן ב-FreeTube, מכיוון שהם דורשים
+    רכיבים סגורים ובעלים. אם אתה רוצה לצפות בסרטון הזה, אנא צפה בו באתר הרשמי של YouTube
+    בדפדפן אינטרנט עם תמיכה ב-DRM.
+  Watched Progress Saved: התקדמות שנשמרה נצפתה
 Playlist:
   #& About
   View Full Playlist: 'צפייה ברשימת הנגינה המלאה'
@@ -914,6 +970,8 @@ Playlist:
     DateAddedNewest: האחרונים שנוספו ראשונים
     VideoDurationAscending: משך (קצרים בהתחלה)
     VideoDurationDescending: משך (ארוכים בהתחלה)
+    PublishedNewest: המאמרים החדשים ביותר קודם
+    PublishedOldest: הראשון שפורסם ראשון
 Change Format:
   Change Media Formats: 'שינוי תסדירי המדיה'
   Use Dash Formats: 'שימוש בתסדירי DASH'
@@ -995,7 +1053,7 @@ Tooltips:
       המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
     Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לקבלת פניות API.
     Thumbnail Preference: כל התמונות הממוזערות ברחבי FreeTube יוחלפו בתמונית מתוך
-      הסרטון במקום התמונה הממוזערת כברירת המחדל.
+      הסרטון, בצורה מטושטשת או מוסתרת במקום התמונה הממוזערת כברירת המחדל.
     External Link Handling: "נא לבחור את התנהגות ברירת המחדל כשנלחץ קישור שלא ניתן
       לפתוח ב־FreeTube.\nכברירת מחדל FreeTube יפתח את הקישור שנלחץ בדפדפן ברירת המחדל
       שלך.\n"
@@ -1007,8 +1065,8 @@ Tooltips:
     Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום
       להתחבר ישירות ל־YouTube.
     Default Video Format: קביעת התסדירים בעת ניגון סרטונים. תסדירי DASH יכולים להתנגן
-      באיכויות גבוהות יותר. התסדירים המיושנים מוגבלים ל־720 פיקסלים לכל היותר אך משתמשויםבפחות
-      רוחב פס. תסדירי שמע הם הזרמות של שמע בלבד.
+      באיכויות גבוהות יותר. התסדירים המיושנים מוגבלים ל־360 פיקסלים לכל היותר אך משתמשים
+      בפחות רוחב פס. תסדירי שמע הם הזרמות של שמע בלבד.
     Scroll Playback Rate Over Video Player: כאשר הסמן מעל הסרטון, יש ללחוץ ולהחזיק
       את מקש ה־Control (או Command ב־Mac) ולגלול עם גלגלת העכבר קדימה או אחורה כדי
       לשלוט בקצב הנגינה. לחיצה והחזקה של מקש Control (או Command ב־Mac) ולחיצה על
@@ -1017,11 +1075,11 @@ Tooltips:
     Skip by Scrolling Over Video Player: ניתן להשתמש בגלגלת כדי לדלג בתוך הסרטון,
       כמו ב־MPV.
   Subscription Settings:
-    Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת ברירת
-      המחדל לאיסוף הזנת המינויים שלך. RSS היא שיטה מהירה יותר ומונעת חסימת IP אבל
-      לא מספקת חלק מהמידע כמו אורך הסרטון, מצב שידור חי או פרסומי הקהילה
-    Fetch Automatically: כאשר האפשרות פעילה, FreeTube ימשוך את הזנת המינויים שלך אוטומטית
-      עם פתיחת חלון חדש ובעת החלפת פרופיל.
+    Fetch Feeds from RSS: כאשר זה מופעל, FreeTube ישתמש ב-RSS במקום בשיטה המוגדרת
+      כברירת מחדל כדי לתפוס את זרם המנויים שלך. RSS מהיר יותר ומונע חסימת IP, אך אינו
+      מספק מידע מסוים כמו משך הווידאו, מצב חי או פוסטים
+    Fetch Automatically: כאשר האפשרות מופעלת, FreeTube ימשוך אוטומטית את רשימת המנויים
+      שלך בעת הפעלת התוכנה ובפתיחת חלון חדש.
   External Player Settings:
     DefaultCustomArgumentsTemplate: '(ברירת מחדל: ‚{defaultCustomArguments}’)'
     Ignore Warnings: 'להשבית אזהרות כאשר הנגן החיצוני הנוכחי לא תומך בפעולה הנוכחית
@@ -1119,7 +1177,6 @@ Yes, Restart: כן, להפעיל מחדש
 Yes, Delete: כן, למחוק
 Yes, Open Link: כן, לפתוח את הקישור
 Cancel: ביטול
-'Blocked opening potentially unsafe URL': 'נחסמה פתיחת כתובת שחשודה כמפוקפקת: „{url}”.'
 checkmark: ✓
 Tag already exists: התגית „{tagName}” כבר קיימת
 Moments Ago: לפני מס׳ רגעים
@@ -1135,6 +1192,9 @@ Keys:
   arrowleft: חץ שמאלה
   ctrl: Ctrl
   alt: Alt
+  enter: הכנס
+  plus: פלוס
+  shift: משמרת
 Right-click or hold to see history: לחיצה ימנית או החזקה כדי לראות היסטוריה
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
@@ -1165,3 +1225,32 @@ KeyboardShortcutPrompt:
   Take Screenshot: צילום המסך
   Theatre Mode: מעבר/חזרה ממצב תיאטרון
   Fullscreen: כניסה / יציאה ממסך מלא
+  History Backward: חזור אחורה בעמוד אחד
+  Small Fast Forward: קדימה X שניות בהתבסס על מרווח ההקדמה וקצב ההפעלה הנוכחי של הווידאו
+  Sections:
+    Video:
+      Playback: 'וידאו: השמעה'
+      General: 'וידאו: כללי'
+    App:
+      General: 'אפליקציה: כללי'
+      Situational: 'אפליקציה: מצבית'
+  Navigate to Settings: נווטו לדף ההגדרות
+  Small Rewind: חזרה אחורה ב־X שניות בהתבסס על מרווח החזרה ואחוז הנגינה הנוכחי של
+    הסרטון
+  Play: הפעל/השהה
+  Decrease Video Speed: הפחתת מהירות הווידאו בהתאם לטווח קצב ההפעלה של הווידאו
+  Navigate to History: נווטו לדף ההיסטוריה
+  Refresh: רענן את הפיד עם התוכן העדכני ביותר
+  Focus Secondary Search: מקד את תשומת הלב על שורת החיפוש המשנית (אם יש אחת כזו)
+  Show Keyboard Shortcuts: הצג קיצורי מקלדת
+  Captions: הפעל/כבה כתוביות
+  Keyboard Shortcuts: קיצורי מקשים
+  Large Fast Forward: קדימה 10 שניות / הקפצת וידאו בהתאם לקצב ההפעלה הנוכחי
+  Mute: כבה/הפעל שקט
+  Increase Video Speed: הגדל את מהירות הווידאו בהתבסס על טווח קצב ההפעלה של הווידאו
+  Stats: הצג סטטיסטיקות וידאו
+  Picture in Picture: הפעל/י את מצב Picture-in-Picture
+  History Forward: לך קדימה עמוד אחד
+  New Window: צור חלון חדש
+  Large Rewind: חזור אחורה ב-10 שניות / חזור אחורה בסרטון בהתאם לקצב ההפעלה הנוכחי
+shortcutLabelSeparator: ｜

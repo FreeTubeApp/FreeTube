@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 
-import FtTooltip from '../ft-tooltip/ft-tooltip.vue'
+import FtTooltip from '../FtTooltip/FtTooltip.vue'
 import { isKeyboardEventKeyPrintableChar, isNullOrEmpty } from '../../helpers/strings'
 
 export default defineComponent({
@@ -220,6 +220,10 @@ export default defineComponent({
             case 'channel':
             case 'hashtag':
             case 'post':
+            case 'trending':
+            case 'subscriptions':
+            case 'history':
+            case 'userplaylists':
               isYoutubeLink = true
               break
 

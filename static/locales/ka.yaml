@@ -40,10 +40,22 @@ Global:
 
 # Search Bar
   Videos: ვიდეოები
+  Counts:
+    Subscriber Count: 1 გამომწერი | {count} გამომწერი
+    Like Count: 1 მოწონება | {count} მოწონება
+    View Count: 1 ნახვა | {count} ნახვა
+    Watching Count: 1 მაყურებელი | {count} მაყურებელი
+    Video Count: 1 ვიდეო | {count} ვიდეო
+    Channel Count: 1 არხი | {count} არხი
+    Comment Count: 1 კომენტარი | {count} კომენტარი
+  Shorts: შორტები
+  Live: პირდაპირი
+  Posts: პოსტები
 Search / Go to URL: 'ძიება / URL მისამართზე გადასვლა'
 Search Bar:
   Clear Input: 'შეყვანის გასუფთავება'
   # In Filter Button
+  Remove: წაშლა
 Search Filters:
   Search Filters: 'ძიების ფილტრები'
   Sort By:
@@ -146,7 +158,7 @@ Settings:
       Middle: 'შუაში'
       End: 'ბოლოში'
     Current Invidious Instance: 'Invidious-ის მიმდინარე ასლი'
-    The currently set default instance is {instance}: 'ამჟამად დაყენებული ასლია {number}'
+    The currently set default instance is {instance}: 'ამჟამად დაყენებული ასლია {instance}'
     No default instance has been set: 'სტანდარტული ასლი არ არის დაყენებული'
     Current instance will be randomized on startup: 'ჩართვისას მიმდინარე ასლი იქნება
       შემთხვევით არჩეული'
@@ -229,3 +241,9 @@ KeyboardShortcutPrompt:
 Preferences: პრეფერენციები
 Profile:
   Select All: ყველას მონიშვნა
+Search character limit: ძებნის შეკითხვა აღემატება {searchCharacterLimit}-ის სიმბოლოს
+  ლიმიტს.
+Go to page: გადადით გვერდზე
+Right-click or hold to see history: მარჯვენა ღილაკით დააწკაპუნეთ ან დააჭირეთ და გააჩერეთ
+  ისტორიის სანახავად
+Close Banner: დახურვა ბანერის

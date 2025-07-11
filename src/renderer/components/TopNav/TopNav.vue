@@ -124,12 +124,12 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRoute, useRouter } from 'vue-router/composables'
 
 import FtInput from '../ft-input/ft-input.vue'
-import FtProfileSelector from '../ft-profile-selector/ft-profile-selector.vue'
+import FtProfileSelector from '../FtProfileSelector/FtProfileSelector.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 
 import store from '../../store/index'
 
-import { IpcChannels, KeyboardShortcuts, MOBILE_WIDTH_THRESHOLD, SEARCH_RESULTS_DISPLAY_LIMIT } from '../../../constants'
+import { KeyboardShortcuts, MOBILE_WIDTH_THRESHOLD, SEARCH_RESULTS_DISPLAY_LIMIT } from '../../../constants'
 import { debounce, localizeAndAddKeyboardShortcutToActionTitle, openInternalPath } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
 import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
@@ -244,15 +244,10 @@ const newWindowText = computed(() => {
 })
 
 function createNewWindow() {
-  if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.send(IpcChannels.CREATE_NEW_WINDOW)
-  } else {
-    const url = new URL(window.location.href)
-    url.hash = landingPage.value
+  const url = new URL(window.location.href)
+  url.hash = landingPage.value
 
-    window.open(url.toString(), '_blank')
-  }
+  window.open(url.toString(), '_blank', 'noreferrer')
 }
 
 const usingOnlySearchHistoryResults = computed(() => lastSuggestionQuery.value.length === 0)
@@ -332,9 +327,7 @@ let pendingNavigationHistoryLabel = null
 async function setNavigationHistoryDropdownOptions() {
   if (process.env.IS_ELECTRON) {
     isLoadingNavigationHistory = true
-    const { ipcRenderer } = require('electron')
-
-    const dropdownOptions = await ipcRenderer.invoke(IpcChannels.GET_NAVIGATION_HISTORY)
+    const dropdownOptions = await window.ftElectron.getNavigationHistory()
 
     const activeEntry = dropdownOptions.find(option => option.active)
 
@@ -480,6 +473,17 @@ function goToSearch(queryText, { event }) {
         break
       }
 
+      case 'trending':
+      case 'subscriptions':
+      case 'history':
+      case 'userplaylists':
+        openInternalPath({
+          path: `/${result.urlType}`,
+          doCreateNewWindow,
+          searchQueryText: queryText
+        })
+        break
+
       case 'invalid_url':
       default: {
         openInternalPath({
@@ -596,7 +600,7 @@ function handleKeyboardShortcuts(event) {
     !hideSearchBar.value &&
     (
       (ctrlOrCommandPressed && (event.key === 'L' || event.key === 'l')) ||
-      (event.altKey && (event.key === 'D' || event.key === 'd'))
+      (event.altKey && (event.key === 'D' || event.key === 'd' || (process.platform === 'darwin' && event.key === '∂')))
     )
   ) {
     event.preventDefault()
@@ -623,16 +627,6 @@ function handleWindowResize() {
   }
 }
 
-/**
- * @param {import('electron').IpcRendererEvent} event
- * @param {string} searchQueryText
- */
-function handleUpdateSearchInputText(event, searchQueryText) {
-  if (searchQueryText) {
-    updateSearchInputText(searchQueryText)
-  }
-}
-
 onMounted(() => {
   previousWindowWidth = window.innerWidth
   if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
@@ -651,9 +645,11 @@ onMounted(() => {
   if (process.env.IS_ELECTRON) {
     window.addEventListener('keydown', handleKeyboardShortcuts)
 
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.on(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, handleUpdateSearchInputText)
-    ipcRenderer.send(IpcChannels.SEARCH_INPUT_HANDLING_READY)
+    window.ftElectron.handleUpdateSearchInputText((searchQueryText) => {
+      if (searchQueryText) {
+        updateSearchInputText(searchQueryText)
+      }
+    })
   }
 })
 
@@ -663,8 +659,7 @@ onBeforeUnmount(() => {
   if (process.env.IS_ELECTRON) {
     window.removeEventListener('keydown', handleKeyboardShortcuts)
 
-    const { ipcRenderer } = require('electron')
-    ipcRenderer.off(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, handleUpdateSearchInputText)
+    window.ftElectron.handleUpdateSearchInputText(null)
   }
 })
 </script>

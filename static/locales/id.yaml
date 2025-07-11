@@ -38,7 +38,7 @@ Global:
     Watching Count: 1 sedang menonton | {count} sedang menonton
     Comment Count: 1 komentar | {count} komentar
     Like Count: 1 suka | {count} suka
-  Community: Komunitas
+  Posts: Postingan
   Live: Siaran Langsung
   Shorts: Video Singkat
   Sort By: Urut Menurut
@@ -597,10 +597,8 @@ Settings:
     Hide Upcoming Premieres: Sembunyikan Siaran Langsung yang Akan Datang
     Hide Live Streams: Sembunyikan Siaran Langsung
     Hide Channel Playlists: Sembunyikan Tab "Daftar Putar" Saluran
-    Hide Channel Community: Sembunyikan Tab "Komunitas" Saluran
     Hide Sharing Actions: Sembunyikan Tindakan Bagikan Video
     Hide Featured Channels: Sembunyikan Kanal Unggulan
-    Hide Subscriptions Community: Sembunyikan Komunitas dalam Langganan
     Hide Channels: Sembunyikan Video dari Kanal
     Hide Channels Placeholder: ID Kanal
     Hide Channels API Error: Galat menemukan pengguna dengan ID yang diberikan. Mohon
@@ -820,13 +818,13 @@ Channel:
     Live: Siaran Langsung
     This channel does not currently have any live streams: Kanal ini belum memiliki
       siaran langsung apa pun
-  Community:
+  Posts:
     Hide Answers: Sembunyikan jawaban
     Reveal Answers: Tampilkan jawaban
     Video hidden by FreeTube: Video disembunyikan oleh FreeTube
     This channel currently does not have any posts: Kanal ini belum memiliki pos apa
       pun
-    votes: '{Votes} memilih'
+    votes: '{votes} memilih'
     View Full Post: Lihat Postingan Lengkap
     Viewing Posts Only Supported By Invidious: Melihat Postingan hanya didukung oleh
       Invidious. Buka tab komunitas saluran untuk melihat konten di sana tanpa Invidious.
@@ -941,7 +939,7 @@ Video:
     Show Original Details: Tampilkan Detail Asli
     Show Modified Details: Tampilkan Detail yang Dimodifikasi
   Player:
-    TranslatedCaptionTemplate: '{bahasa} (diterjemahkan dari "{bahasaasli}")'
+    TranslatedCaptionTemplate: '{language} (diterjemahkan dari "{originalLanguage}")'
     Audio Tracks: Trek Audio
     Autoplay is off: Putar otomatis mati
     Autoplay is on: Putar otomatis hidup
@@ -949,12 +947,12 @@ Video:
     Stats:
       Video ID: 'ID Video: {videoId}'
       Bitrate: 'Kecepatan bit: {bitrate} kbps'
-      Volume: 'Volume: {volumePersentase}%'
+      Volume: 'Volume: {volumePercentage}%'
       Buffered: 'Di-buffer: {bufferedPercentage}%'
       CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
       Dropped Frames / Total Frames: 'Frame yang Dihilangkan: {droppedFrames} / Jumlah
         Frame: {totalFrames}'
-      Media Formats: 'Format Media: {format}'
+      Media Formats: 'Format Media: {formats}'
       CodecsVideoAudio: 'Kodek: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       Resolution: 'Resolusi: {width}x{height}@{frameRate}'
       Player Dimensions: 'Dimensi Pemain: {width}x{height}'
@@ -1290,7 +1288,7 @@ Hashtag:
   This hashtag does not currently have any videos: Tagar ini saat ini tidak memiliki
     video apa pun
   Hashtag: Hastage
-Display Label: '{label}: {nilai}'
+Display Label: '{label}: {value}'
 Channel Hidden: '{channel} ditambahkan ke filter saluran'
 Age Restricted:
   This video is age restricted: Video ini dibatasi usia
@@ -1298,9 +1296,7 @@ Age Restricted:
 Trimmed input must be at least N characters long: Input yang dipangkas harus memiliki
   panjang minimal 1 karakter | Input yang dipangkas harus memiliki panjang minimal
   {length} karakter
-'Blocked opening potentially unsafe URL': 'Pembukaan URL yang berpotensi tidak aman
-  diblokir: "{url}".'
-KeyboardShortcutTemplate: '{label} ({pintasan})'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Chapters:
   Key Moments: Momen-momen penting

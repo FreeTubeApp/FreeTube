@@ -1,6 +1,6 @@
 import { ClientType, Innertube, Misc, Parser, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
-import { IpcChannels, SEARCH_CHAR_LIMIT } from '../../../constants'
+import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
 import { PlayerCache } from './PlayerCache'
 import {
@@ -50,6 +50,7 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     // This setting is enabled by default and results in YouTube.js reusing the same session across different Innertube instances.
     // That behavior is highly undesirable for FreeTube, as we want to create a new session every time to limit tracking.
     enable_session_cache: false,
+    retrieve_innertube_config: false,
     user_agent: navigator.userAgent,
 
     retrieve_player: !!withPlayer,
@@ -199,17 +200,14 @@ export async function getLocalSearchContinuation(continuationData) {
 export async function getLocalVideoInfo(id) {
   const webInnertube = await createInnertube({ withPlayer: true, generateSessionLocally: false })
 
-  // based on the videoId (added to the body of the /player request)
+  // based on the videoId (added to the body of the /player request and to caption URLs)
   let contentPoToken
   // based on the visitor data (added to the streaming URLs)
   let sessionPoToken
 
   if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-
     try {
-      ({ contentPoToken, sessionPoToken } = await ipcRenderer.invoke(
-        IpcChannels.GENERATE_PO_TOKENS,
+      ({ contentPoToken, sessionPoToken } = await window.ftElectron.generatePoTokens(
         id,
         webInnertube.session.context.client.visitorData,
         JSON.stringify(webInnertube.session.context)
@@ -223,7 +221,19 @@ export async function getLocalVideoInfo(id) {
     }
   }
 
+  let clientName = webInnertube.session.context.client.clientName
+
   const info = await webInnertube.getInfo(id)
+
+  // temporary workaround for SABR-only responses
+  const mwebInfo = await webInnertube.getBasicInfo(id, 'MWEB')
+
+  if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data) {
+    info.playability_status = mwebInfo.playability_status
+    info.streaming_data = mwebInfo.streaming_data
+
+    clientName = 'MWEB'
+  }
 
   let hasTrailer = info.has_trailer
   let trailerIsAgeRestricted = info.getTrailerInfo() === null
@@ -257,6 +267,8 @@ export async function getLocalVideoInfo(id) {
 
       hasTrailer = false
       trailerIsAgeRestricted = false
+
+      clientName = webEmbeddedInnertube.session.context.client.clientName
     }
   }
 
@@ -299,6 +311,18 @@ export async function getLocalVideoInfo(id) {
       }
 
       info.streaming_data.dash_manifest_url = url
+    }
+  }
+
+  if (info.captions?.caption_tracks) {
+    for (const captionTrack of info.captions.caption_tracks) {
+      const url = new URL(captionTrack.base_url)
+
+      url.searchParams.set('potc', '1')
+      url.searchParams.set('pot', contentPoToken)
+      url.searchParams.set('c', clientName)
+
+      captionTrack.base_url = url.toString()
     }
   }
 
@@ -493,7 +517,7 @@ export async function getLocalChannelCommunity(id) {
   try {
     const response = await innertube.actions.execute('/browse', {
       browseId: id,
-      params: 'Egljb21tdW5pdHnyBgQKAkoA'
+      params: 'EgVwb3N0c_IGBAoCSgA%3D'
       // protobuf for the community tab (this is the one that YouTube uses,
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
     })
@@ -502,7 +526,7 @@ export async function getLocalChannelCommunity(id) {
 
     // if the channel doesn't have a community tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
-    if (communityTab.current_tab?.endpoint.metadata.url?.endsWith('/community')) {
+    if (communityTab.current_tab?.endpoint.metadata.url?.endsWith('/posts')) {
       return parseLocalCommunityPosts(communityTab.posts)
     } else {
       return []
@@ -738,7 +762,17 @@ export function parseLocalChannelHeader(channel, onlyIdNameThumbnail = false) {
  * @param {string} channelName
  */
 export function parseLocalChannelVideos(videos, channelId, channelName) {
-  return videos.map((video) => parseLocalListVideo(video, channelId, channelName))
+  const parsedVideos = []
+
+  for (const video of videos) {
+    // `BADGE_STYLE_TYPE_MEMBERS_ONLY` used for both `members only` and `members first` videos
+    if (video.is(YTNodes.Video) && video.badges.some(badge => badge.style === 'BADGE_STYLE_TYPE_MEMBERS_ONLY')) {
+      continue
+    }
+    parsedVideos.push(parseLocalListVideo(video, channelId, channelName))
+  }
+
+  return parsedVideos
 }
 
 /**
@@ -1103,6 +1137,8 @@ export function parseLocalListVideo(item, channelId, channelName) {
       publishedText = video.published.text
     }
 
+    const isLive = video.duration.text === 'LIVE'
+
     const published = calculatePublishedDate(
       publishedText,
       video.is_live,
@@ -1118,9 +1154,10 @@ export function parseLocalListVideo(item, channelId, channelName) {
       authorId: video.author?.id ?? channelId,
       viewCount: video.views.text == null ? null : extractNumberFromString(video.views.text),
       published,
-      lengthSeconds: Utils.timeToSeconds(video.duration.text),
+      lengthSeconds: isLive ? '' : Utils.timeToSeconds(video.duration.text),
       isUpcoming: video.is_upcoming,
-      premiereDate: video.upcoming
+      premiereDate: video.upcoming,
+      liveNow: isLive
     }
   } else if (item.type === 'GridMovie') {
     /** @type {import('youtubei.js').YTNodes.GridMovie} */
@@ -1308,7 +1345,10 @@ function parseListItem(item, channelId, channelName) {
       let subscribers = null
       let videos = null
 
-      subscribers = parseLocalSubscriberCount(channel.subscribers.text)
+      if (channel.subscribers?.text) {
+        subscribers = parseLocalSubscriberCount(channel.subscribers.text)
+      }
+
       videos = extractNumberFromString(channel.video_count.text)
 
       return {

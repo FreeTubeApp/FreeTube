@@ -39,7 +39,7 @@ Global:
   Videos: ''
   Shorts: ''
   Live: ''
-  Community: ''
+  Posts: ''
   Counts:
     Video Count: ''
     Channel Count: ''
@@ -338,14 +338,12 @@ Settings:
     Hide Channels Placeholder: ''
     Hide Featured Channels: ''
     Hide Channel Playlists: ''
-    Hide Channel Community: ''
     Hide Channel Shorts: ''
     Hide Channel Podcasts: ''
     Hide Channel Releases: ''
     Hide Subscriptions Videos: ''
     Hide Subscriptions Shorts: ''
     Hide Subscriptions Live: ''
-    Hide Subscriptions Community: ''
   Data Settings:
     Data Settings: ''
     Select Export Type: ''
@@ -542,7 +540,7 @@ Channel:
     Joined: ''
     Location: ''
     Featured Channels: ''
-  Community:
+  Posts:
     This channel currently does not have any posts: ''
     votes: ''
     Reveal Answers: ''

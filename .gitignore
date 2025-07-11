@@ -28,3 +28,5 @@ debug/
 
 # Lefthook
 lefthook-local.yml
+
+locale-errors.json

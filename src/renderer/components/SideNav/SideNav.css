@@ -249,3 +249,17 @@
     inline-size: 100%;
   }
 }
+
+@media only screen and (width <= 400px) {
+  /* Hide settings so that they appear in the more dropdown on smaller screens */
+  .smallMobileOnlyHidden {
+    display: none;
+  }
+}
+
+@media only screen and (width > 400px) {
+  .smallMobileOnlyHidden {
+    display: block;
+  }
+}
+
