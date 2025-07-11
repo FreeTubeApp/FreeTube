@@ -473,6 +473,17 @@ function goToSearch(queryText, { event }) {
         break
       }
 
+      case 'trending':
+      case 'subscriptions':
+      case 'history':
+      case 'userplaylists':
+        openInternalPath({
+          path: `/${result.urlType}`,
+          doCreateNewWindow,
+          searchQueryText: queryText
+        })
+        break
+
       case 'invalid_url':
       default: {
         openInternalPath({

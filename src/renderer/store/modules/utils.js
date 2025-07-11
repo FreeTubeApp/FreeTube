@@ -464,12 +464,14 @@ const actions = {
     const hashtagPattern = /^\/hashtag\/(?<tag>[^#&/?]+)$/
 
     const postPattern = /^\/post\/(?<postId>.+)/
+    const feedPattern = /^\/feed\/(?<type>trending|subscriptions|history|playlists|you|library)/
     const typePatterns = new Map([
       ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/],
       ['search', /^\/results|search\/?$/],
       ['hashtag', hashtagPattern],
+      ['post', postPattern],
+      ['feed', feedPattern],
       ['channel', channelPattern],
-      ['post', postPattern]
     ])
 
     for (const [type, pattern] of typePatterns) {
@@ -643,6 +645,16 @@ const actions = {
           // The original URL could be from Invidious.
           // We need to make sure it starts with youtube.com, so that YouTube's resolve endpoint can recognise it
           url: `https://www.youtube.com${url.pathname}`
+        }
+      }
+      case 'feed': {
+        /** @type {'trending' | 'subscriptions' | 'history' | 'playlists' | 'you' | 'library'} */
+        const feedType = url.pathname.match(feedPattern).groups.type
+
+        if (feedType === 'playlists' || feedType === 'you' || feedType === 'library') {
+          return { urlType: 'userplaylists' }
+        } else {
+          return { urlType: feedType }
         }
       }
 
