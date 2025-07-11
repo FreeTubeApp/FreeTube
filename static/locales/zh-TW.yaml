@@ -498,6 +498,10 @@ Settings:
     Subscription File: 訂閱檔案
     History File: 歷史紀錄檔案
     Playlist File: 播放清單檔案
+    Export Playlists For Older FreeTube Versions:
+      Label: 匯出較舊 FreeTube 版本的播放清單
+      Tooltip: "此選項將所有播放清單中的影片匯出到名為「我的最愛」的播放清單中。\n如何匯出和匯入舊版 FreeTube 播放清單中的影片：\n1.
+        啟用此選項後匯出播放清單。\n2. 使用「隱私設定」下的「刪除所有播放清單」選項刪除所有現有播放清單。\n3. 啟動舊版的 FreeTube 並導入匯出的播放清單。”"
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 勿擾

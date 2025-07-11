@@ -565,6 +565,15 @@ Settings:
     Playlist File: Oynatma Listesi Dosyası
     Subscription File: Abonelik Dosyası
     History File: Geçmiş Dosyası
+    Export Playlists For Older FreeTube Versions:
+      Label: Eski FreeTube Sürümleri İçin Oynatma Listelerini Dışa Aktar
+      Tooltip: "Bu seçenek, tüm oynatma listelerindeki videoları 'Favoriler' adlı
+        tek bir oynatma listesine aktarır.\nFreeTube'un eski bir sürümü için oynatma
+        listelerindeki videolar nasıl dışa ve içe aktarılır:\n1. Oynatma listelerinizi
+        bu seçenek etkinken dışa aktarın.\n2. Gizlilik Ayarları altındaki Tüm Oynatma
+        Listelerini Kaldır seçeneğini kullanarak var olan tüm oynatma listelerinizi
+        silin.\n3. FreeTube'un eski sürümünü başlatın ve dışa aktarılan oynatma listelerini
+        içe aktarın.\""
 
   Distraction Free Settings:
     Hide Live Chat: Canlı Sohbeti Gizle

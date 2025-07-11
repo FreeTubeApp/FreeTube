@@ -601,6 +601,15 @@ Settings:
     Export History: 'Ezporzhiañ ar roll istor'
     Import Playlists: 'Enporzhiañ rolloù-videoioù'
     Export Playlists: 'Ezporzhiañ rolloù-videoioù'
+    Export Playlists For Older FreeTube Versions:
+      Label: 'Ezporzhiañ rolloù-videoioù evit stummoù kozh FreeTube'
+      # |- = Keep newlines, No newline at end
+      Tooltip: |-
+        An dibarzh-mañ a ezporzh videoioù an holl rolloù-videoioù e-barzh ur roll-videoioù anvet « Favorites ».
+        Penaos ezporzhiañ & enporzhiañ videoioù e-barzh rolloù-videoioù gant stummoù kozh FreeTube :
+        1. Ezporzhiañ ho rolloù-videoioù gant an dibarzh-mañ gweredekaet.
+        2. Dilemel an holl rolloù-videoioù en ur implijout an dibarzh Dilemel an holl rolloù-videoioù dindan Prevezded.
+        3. Loc'hañ stumm kozh FreeTube hag enporzhiañ ar rolloù-videoioù ezporzhiet."
     Profile object has insufficient data, skipping item: 'Diouer a roadennoù evit
       profil an elfenn-mañ, o leuskel an elfenn a-gostez'
     All subscriptions and profiles have been successfully imported: 'Enporzhiet eo

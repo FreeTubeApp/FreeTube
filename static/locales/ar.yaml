@@ -549,6 +549,14 @@ Settings:
     Subscription File: Subscription ملف
     History File: ملف التاريخ
     Playlist File: Playlist ملف
+    Export Playlists For Older FreeTube Versions:
+      Label: تصدير قوائم التشغيل لإصدارات FreeTube الأقدم
+      Tooltip: "يقوم هذا الخيار بتصدير مقاطع الفيديو من جميع قوائم التشغيل إلى قائمة
+        تشغيل واحدة تسمى \"المفضلة\".\nكيفية تصدير واستيراد مقاطع الفيديو في قوائم
+        التشغيل لإصدار أقدم من FreeTube:\n1. قم بتصدير قوائم التشغيل الخاصة بك مع
+        تمكين هذا الخيار.\n2. احذف جميع قوائم التشغيل الموجودة لديك باستخدام خيار
+        إزالة جميع قوائم التشغيل ضمن إعدادات الخصوصية.\n3. قم بتشغيل الإصدار الأقدم
+        من FreeTube واستورد قوائم التشغيل المصدرة.\""
   Distraction Free Settings:
     Hide Live Chat: اخفي الدردشة المباشرة
     Hide Popular Videos: اخفي الفيديوهات الأكثر شعبية

@@ -559,6 +559,15 @@ Settings:
     Subscription File: Archivo de suscripción
     Playlist File: Archivo de la lista de reproducción
     History File: Archivo del historial
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Esta opción exporta vídeos de todas las listas de reproducción a una
+        lista de reproducción llamada \"Favoritos\".\nCómo exportar e importar vídeos
+        en las listas de reproducción para una versión antigua de FreeTube:\n1. Exporta
+        tus listas de reproducción con esta opción activada.\n2. Elimine todas sus
+        listas de reproducción existentes utilizando la opción Eliminar todas las
+        listas de reproducción en Configuración de privacidad.\n3. Inicia la versión
+        anterior de FreeTube e importa las listas de reproducción exportadas.\""
+      Label: Exportar listas de reproducción de versiones anteriores de FreeTube
 
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Ocultar «likes» y «dislikes» de vídeos

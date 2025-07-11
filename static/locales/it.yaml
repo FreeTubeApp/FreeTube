@@ -568,6 +568,14 @@ Settings:
     History File: File della Cronologia
     Subscription File: File delle iscrizioni
     Playlist File: File delle playlist
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Questa opzione esporta i video da tutte le playlist in una playlist
+        denominata \"Preferiti\".\nCome esportare e importare video nelle playlist
+        per una versione precedente di FreeTube:\n1. Esporta le tue playlist con questa
+        opzione abilitata.\n2. Elimina tutte le playlist esistenti usando l'opzione
+        Rimuovi tutte le playlist in Impostazioni della privacy.\n3. Avvia la versione
+        precedente di FreeTube e importa le playlist esportate."
+      Label: Esporta playlist per versioni precedenti di FreeTube
   Distraction Free Settings:
     Hide Popular Videos: Nascondi i video più popolari
     Hide Trending Videos: Nascondi le tendenze

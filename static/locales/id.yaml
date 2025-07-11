@@ -563,6 +563,15 @@ Settings:
     Subscription File: Berkas Langganan
     History File: Berkas Riwayat
     Playlist File: Berkas Daftar Putar
+    Export Playlists For Older FreeTube Versions:
+      Label: Ekspor Daftar Putar untuk Versi FreeTube yang Lebih Tua
+
+      Tooltip: "Opsi ini mengekspor video dari semua daftar putar ke dalam satu daftar
+        putar bernama 'Favorit'.\nCara mengekspor & mengimpor video dalam daftar putar
+        untuk FreeTube versi lama:\n1. Ekspor daftar putar Anda dengan mengaktifkan
+        opsi ini.\n2. Hapus semua daftar putar Anda yang ada menggunakan opsi Hapus
+        Semua Daftar Putar di bawah Pengaturan Privasi.\n3. Luncurkan FreeTube versi
+        lama dan impor daftar putar yang diekspor.\""
   Distraction Free Settings:
     Hide Comment Likes: Sembunyikan Jumlah Suka pada Komentar
     Hide Channel Subscribers: Sembunyikan Jumlah Pelanggan Kanal

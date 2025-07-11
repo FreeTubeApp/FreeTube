@@ -656,6 +656,14 @@ Settings:
     Unknown data key: 'Allwedd ddata anhysbys'
     How do I import my subscriptions?: 'Sut ydw i''n mewnforio fy nhanysgrifiadau?'
     Manage Subscriptions: 'Rheoli Tanysgrifiadau'
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Mae'r opsiwn hwn yn allforio fideos o bob rhestr chwarae i un rhestr
+        chwarae o'r enw 'Ffefrynnau'.\nSut i allforio a mewnforio fideos mewn rhestrau
+        chwarae ar gyfer fersiwn hŷn o FreeTube:\n1. Allforio eich rhestri chwarae
+        gyda'r opsiwn hwn wedi'i alluogi.\n2. Dileu eich holl restrau chwarae presennol
+        gan ddefnyddio'r opsiwn Dileu Pob Rhestr Chwarae o dan Gosodiadau Preifatrwydd.\n
+        3. Lansio'r fersiwn hŷn o FreeTube a mewngludo'r rhestri chwarae allforio.\""
+      Label: Allforio Rhestrau Chwarae Fersiynau FreeTube Hŷn
   Proxy Settings:
     Proxy Settings: 'Dirprwy'
     Enable Tor / Proxy: 'Galluogi Tor/Dirprwy'

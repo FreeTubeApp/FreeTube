@@ -574,6 +574,15 @@ Settings:
     Subscription File: Feliratkozás-fájl
     History File: Előzmények-fájl
     Playlist File: Lejátszási lista fájl
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Ez az opció az összes lejátszási lista videóit egyetlen, „Kedvencek”
+        nevű lejátszási listába exportálja.\nHogyan exportálhat és importálhat videókat
+        lejátszási listákba a FreeTube régebbi verziója esetében:\n1. Exportálja a
+        lejátszási listáit, ezzel az opcióval bekacsolva.\n2. Törölje az összes meglévő
+        lejátszási listáját az Adatvédelmi beállítások alatt található Összes lejátszási
+        lista eltávolítása opcióval.\n3. Indítsa el a FreeTube régebbi verzióját,
+        és importálja az exportált lejátszási listákat."
+      Label: Lejátszási listák exportálása régebbi FreeTube verziókhoz
 
   Distraction Free Settings:
     Hide Live Chat: Élő csevegés elrejtése

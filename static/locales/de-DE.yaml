@@ -569,6 +569,14 @@ Settings:
     Playlist File: Playlist-Datei
     Subscription File: Abo-Datei
     History File: Verlaufsdatei
+    Export Playlists For Older FreeTube Versions:
+      Label: Playlists für ältere FreeTube-Versionen exportieren
+      Tooltip: "Diese Option exportiert Videos aus allen Playlists in eine Playlist
+        namens „Favoriten“.\nSo kannst du Playlists für eine ältere Version von FreeTube
+        exportieren und importieren:\n1. Exportiere deine Playlists, wenn diese Option
+        aktiviert ist.\n2. Lösche alle deine bestehenden Playlists mit der Option
+        „Alle Playlists entfernen“ unter den Datenschutzeinstellungen.\n3. Starte
+        die ältere Version von FreeTube und importiere die exportierten Playlists.\""
   Distraction Free Settings:
     Hide Live Chat: Live-Chat ausblenden
     Hide Popular Videos: Beliebte Videos ausblenden

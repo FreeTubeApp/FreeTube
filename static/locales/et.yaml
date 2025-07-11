@@ -564,6 +564,14 @@ Settings:
     Subscription File: Tellimuse fail
     History File: Ajaloo fail
     Playlist File: Esitusloendi fail
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "Selle valikuga ekspordid kõik esitusloendid ühte esitusloendisse „Lemmikud“.\n
+        Kuidas saad seda eksportimise ja importimise valikut kasutada vanemate FreeTube'i
+        versioonidega:\n1. Ekspordi kõik oma esitusloendid kasutades seda valikut.\n
+        2. Kustuta kõik oma esitusloendid Privaatsusseadistustest kasutades valikut
+        „Kustuta kõik esitusloendid“.\n3. Käivita vanem FreeTube'i versioon ja impordi
+        esimeses sammus eksporditud esitusloendid."
+      Label: Ekspordi esitusloendid vanemate FreeTube'i versioonide jaoks
   Distraction Free Settings:
     Hide Active Subscriptions: Peida aktiivsed tellimused
     Hide Live Chat: Peida veebivestlused

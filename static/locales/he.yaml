@@ -501,6 +501,13 @@ Settings:
     Playlist File: קובץ רשימות נגינה
     Subscription File: קובץ מינויים
     History File: קובץ היסטוריה
+    Export Playlists For Older FreeTube Versions:
+      Tooltip: "אפשרות זו מייצאת סרטונים מכל הרשימות לרשימת שידורים אחת בשם 'מועדפים'.\n
+        איך לייצא ולייבא סרטונים ברשימות לגרסה ישנה של FreeTube:\n1. יצא את הרשימות
+        שלך עם אפשרות זו מופעלת.\n2. מחק את כל הרשימות הקיימות שלך באמצעות אפשרות
+        הסרת כל הרשימות בהגדרות הפרטיות.\n3. הפעל את הגרסה הישנה של FreeTube וייבא
+        את הרשימות שיוצאו."
+      Label: ייצוא רשימות לגרסאות ישנות של FreeTube
 
   Distraction Free Settings:
     Hide Live Chat: הסתרת צ׳אט חי

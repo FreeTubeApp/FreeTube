@@ -546,6 +546,10 @@ Settings:
     Export History: ''
     Import Playlists: ''
     Export Playlists: ''
+    Export Playlists For Older FreeTube Versions:
+      Label: ''
+      # |- = Keep newlines, No newline at end
+      Tooltip: |
     Profile object has insufficient data, skipping item: ''
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''

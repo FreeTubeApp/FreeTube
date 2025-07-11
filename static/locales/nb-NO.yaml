@@ -558,6 +558,14 @@ Settings:
     All playlists has been successfully exported: Alle spillelister har blitt eksportert
     Playlist insufficient data: Utilstrekkelig data i «{playlist}»-spillelisten. Hopper
       over elementet
+    Export Playlists For Older FreeTube Versions:
+      Label: Eksporter spillelister for eldre FreeTube-versjoner
+      Tooltip: "Denne funksjonen eksporterer videoer fra alle spillelister inn i en
+        spilleliste med navnet «Favoritter».\nFor å eksportere og importere videoer
+        i spillelister i eldre versjoner av FreeTube:\n1.) Eksporter spillelistene
+        dine med denne funksjonen skrudd på.\n2.) Slett alle spillelistene dine med
+        «Fjern alle spillelister» under «Personvern».\n3.) Start opp den eldre versjonen
+        av FreeTube og importer de eksporterte spillelistene dine."
   Proxy Settings:
     Region: Region
     Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for
