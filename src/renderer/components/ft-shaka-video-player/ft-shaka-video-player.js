@@ -2136,6 +2136,13 @@ export default defineComponent({
           event.preventDefault()
           ui.getControls().toggleFullScreen()
           break
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.ULTRAWIDE_MODE:
+          // zoom 16:9 content with black bars on ultrawide monitors
+          if (ui.getControls().isFullScreenEnabled() && !forceAspectRatio.value) {
+            event.preventDefault()
+            video.value.classList.toggle('ultraWideMode')
+          }
+          break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE:
           // Toggle mute only if metakey is not pressed
           if (!event.metaKey) {

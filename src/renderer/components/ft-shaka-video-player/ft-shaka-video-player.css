@@ -261,6 +261,13 @@
   padding: 0;
 }
 
+@media only screen and (aspect-ratio >= 21/9) {
+  /* zoom 16:9 content with black bars on ultrawide monitors */
+  .ftVideoPlayer:fullscreen .ultraWideMode {
+    transform: scale(1.3125); /* calc(21/16) */
+  }
+}
+
 @media only screen and (width <=400px) {
   :deep(.shaka-text-container) {
     /* make subtitles take up slightly less space when a mobile phone is in portrait orientation */
