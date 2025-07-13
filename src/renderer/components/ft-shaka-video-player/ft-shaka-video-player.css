@@ -264,7 +264,7 @@
 @media only screen and (aspect-ratio >= 21/9) {
   /* zoom 16:9 content with black bars on ultrawide monitors */
   .ftVideoPlayer:fullscreen .ultraWideMode {
-    transform: scale(1.3125); /* calc(21/16) */
+    transform: scale(1.3333); /* calc(21.33/16) */
   }
 }
 
