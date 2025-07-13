@@ -1188,6 +1188,7 @@ KeyboardShortcutPrompt:
   Captions: Toggle captions ON/OFF
   Stats: Show video statistics
   Fullscreen: Toggle fullscreen
+  Ultrawide: Zoom fullscreen (ultrawide monitors)
   Picture in Picture: Toggle Picture-in-Picture mode
   Large Rewind: 'Rewind 10 seconds / Rewind video based on current Video Playback Rate'
   Play: Toggle play/pause
