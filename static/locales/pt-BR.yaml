@@ -202,6 +202,8 @@ History:
   Search bar placeholder: Buscar no histórico
   Empty Search Message: Não há vídeos em seu histórico que correspondam à sua busca
   Case Sensitive Search: Busca que diferencia maiúsculas de minúsculas
+  DateOldestHistory: Mais antigo assistido primeiro
+  DateNewestHistory: Últimos assistidos primeiro
 Settings:
   # On Settings Page
   Settings: 'Configurações'

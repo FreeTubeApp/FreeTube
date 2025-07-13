@@ -202,6 +202,8 @@ History:
   Search bar placeholder: "Recherche dans l'historique"
   Empty Search Message: Il n'y a pas de vidéos dans votre historique qui correspondent à votre recherche
   Case Sensitive Search: Recherche sensible à la casse
+  DateOldestHistory: Premiers visionnés en premier
+  DateNewestHistory: Derniers visionnés en premier
 Settings:
   # On Settings Page
   Settings: 'Paramètres'
@@ -508,7 +510,7 @@ Settings:
     Hide Live Streams: Masquer les flux en direct
     Hide Sharing Actions: Masquer les actions de partage
     Hide Chapters: Masquer les chapitres
-    Hide Upcoming Premieres: Cacher les avant-premières à venir
+    Hide Upcoming Premieres: Masquer les avant-premières à venir
     Hide Channels: Masquer les vidéos des chaînes
     Hide Channels Placeholder: Identifiant de la chaîne
     Display Titles Without Excessive Capitalisation: Afficher les titres sans majuscules ni ponctuation excessives

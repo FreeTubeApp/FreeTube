@@ -202,6 +202,8 @@ History:
   Search bar placeholder: 在播放历史中搜索
   Empty Search Message: 历史记录中没有匹配你搜索的视频
   Case Sensitive Search: 区分大小写的搜索
+  DateOldestHistory: 最早观看的优先
+  DateNewestHistory: 最近观看的优先
 Settings:
   # On Settings Page
   Settings: '设置'

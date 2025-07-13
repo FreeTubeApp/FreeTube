@@ -246,7 +246,6 @@
         :disabled-msg="$t('Settings.Distraction Free Settings.Hide Channels Disabled Message')"
         :label="$t('Settings.Distraction Free Settings.Hide Channels')"
         :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
-        :show-action-button="true"
         :tag-list="channelsHidden"
         :tooltip="$t('Tooltips.Distraction Free Settings.Hide Channels')"
         :validate-tag-name="validateChannelId"
@@ -264,7 +263,6 @@
       <ft-input-tags
         :label="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
         :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text Placeholder')"
-        :show-action-button="true"
         :show-tags="showAddedForbiddenTitles"
         :tag-list="forbiddenTitles"
         :min-input-length="3"

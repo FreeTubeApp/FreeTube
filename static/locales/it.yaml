@@ -196,7 +196,7 @@ User Playlists:
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Sei sicuro di voler rimuovere 1 video guardato da questa playlist? Questa operazione non può essere annullata. | Vuoi rimuovere {playlistItemCount} video guardati da questa playlist? Questa operazione non può essere annullata.
   Export Playlist: Esporta questa playlist
   The playlist has been successfully exported: La playlist è stata esportata correttamente
-  TotalTimePlaylist: 'Tempo totale: {durata}'
+  TotalTimePlaylist: 'Tempo totale: {duration}'
 History:
   # On History Page
   History: 'Cronologia'
@@ -205,6 +205,8 @@ History:
   Search bar placeholder: Ricerca nella Cronologia
   Empty Search Message: Non ci sono video nella tua Cronologia che corrispondono alla tua ricerca
   Case Sensitive Search: Ricerca con distinzione tra maiuscole e minuscole
+  DateOldestHistory: Prima i guardati più vecchi
+  DateNewestHistory: Prima i guardati più nuovi
 Settings:
   # On Settings Page
   Settings: 'Impostazioni'

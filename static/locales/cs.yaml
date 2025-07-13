@@ -209,6 +209,8 @@ History:
   Empty Search Message: Ve vaší historii nejsou žádná videa, která by odpovídala vašemu vyhledávání
   Search bar placeholder: Hledat v historii
   Case Sensitive Search: Vyhledávání citlivé na velikost písmen
+  DateOldestHistory: Nejprve nejdříve zhlédnuté
+  DateNewestHistory: Nejprve naposledy zhlédnuté
 Settings:
   # On Settings Page
   Settings: 'Nastavení'

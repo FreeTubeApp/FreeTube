@@ -220,6 +220,10 @@ export default defineComponent({
             case 'channel':
             case 'hashtag':
             case 'post':
+            case 'trending':
+            case 'subscriptions':
+            case 'history':
+            case 'userplaylists':
               isYoutubeLink = true
               break
 

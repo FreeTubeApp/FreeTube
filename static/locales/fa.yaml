@@ -862,7 +862,7 @@ Video:
       CodecAudio: 'کدک: {audioCodec} ({audioItag})'
       Dropped Frames / Total Frames: 'فریم‌های رد شده: {droppedFrames} / مجموع فریم‌ها:
         {totalFrames}'
-      CodecsVideoAudio: 'کدک‌ها: {videoCodec} ({videotag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'کدک‌ها: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'کدک‌ها: {videoCodec} / {audioCodec}'
     Take Screenshot: گرفتن عکس صفحه
     Show Stats: نمایش اطلاعات

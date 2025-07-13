@@ -824,7 +824,7 @@ Channel:
     Video hidden by FreeTube: Video disembunyikan oleh FreeTube
     This channel currently does not have any posts: Kanal ini belum memiliki pos apa
       pun
-    votes: '{Votes} memilih'
+    votes: '{votes} memilih'
     View Full Post: Lihat Postingan Lengkap
   Releases:
     Releases: Rilis
@@ -937,7 +937,7 @@ Video:
     Show Original Details: Tampilkan Detail Asli
     Show Modified Details: Tampilkan Detail yang Dimodifikasi
   Player:
-    TranslatedCaptionTemplate: '{bahasa} (diterjemahkan dari "{bahasaasli}")'
+    TranslatedCaptionTemplate: '{language} (diterjemahkan dari "{originalLanguage}")'
     Audio Tracks: Trek Audio
     Autoplay is off: Putar otomatis mati
     Autoplay is on: Putar otomatis hidup
@@ -945,12 +945,12 @@ Video:
     Stats:
       Video ID: 'ID Video: {videoId}'
       Bitrate: 'Kecepatan bit: {bitrate} kbps'
-      Volume: 'Volume: {volumePersentase}%'
+      Volume: 'Volume: {volumePercentage}%'
       Buffered: 'Di-buffer: {bufferedPercentage}%'
       CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
       Dropped Frames / Total Frames: 'Frame yang Dihilangkan: {droppedFrames} / Jumlah
         Frame: {totalFrames}'
-      Media Formats: 'Format Media: {format}'
+      Media Formats: 'Format Media: {formats}'
       CodecsVideoAudio: 'Kodek: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       Resolution: 'Resolusi: {width}x{height}@{frameRate}'
       Player Dimensions: 'Dimensi Pemain: {width}x{height}'
@@ -1286,7 +1286,7 @@ Hashtag:
   This hashtag does not currently have any videos: Tagar ini saat ini tidak memiliki
     video apa pun
   Hashtag: Hastage
-Display Label: '{label}: {nilai}'
+Display Label: '{label}: {value}'
 Channel Hidden: '{channel} ditambahkan ke filter saluran'
 Age Restricted:
   This video is age restricted: Video ini dibatasi usia
@@ -1294,7 +1294,7 @@ Age Restricted:
 Trimmed input must be at least N characters long: Input yang dipangkas harus memiliki
   panjang minimal 1 karakter | Input yang dipangkas harus memiliki panjang minimal
   {length} karakter
-KeyboardShortcutTemplate: '{label} ({pintasan})'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Chapters:
   Key Moments: Momen-momen penting

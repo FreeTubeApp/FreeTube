@@ -833,7 +833,7 @@ Video:
       CodecsVideoAudioNoItags: 'Codecuri: {videoCodec} / {audioCodec}'
       Stats: Statistici
       Video ID: 'ID videoclip: {videoId}'
-      Media Formats: 'Formate media: {formate}'
+      Media Formats: 'Formate media: {formats}'
       Bitrate: 'Rată de biți: {bitrate} kbps'
       Volume: 'Volum: {volumePercentage}%'
       Bandwidth: 'Lățime de bandă: {bandwidth} kbps'
@@ -1112,7 +1112,7 @@ Keys:
 checkmark: ✓
 Yes, Delete: da, șterge
 Yes, Open Link: Da, Link deschis
-Display Label: '{label}: {valoare}'
+Display Label: '{label}: {value}'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Yes, Restart: Da, repornire
 shortcutJoinOperator: +
