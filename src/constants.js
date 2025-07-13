@@ -178,6 +178,7 @@ const KeyboardShortcuts = {
       VOLUME_UP: 'arrowup',
       VOLUME_DOWN: 'arrowdown',
       STATS: 'd',
+      ULTRAWIDE_MODE: 'w',
       TAKE_SCREENSHOT: 'u',
     },
     PLAYBACK: {
