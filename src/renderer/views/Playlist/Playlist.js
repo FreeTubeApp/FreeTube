@@ -81,7 +81,7 @@ export default defineComponent({
       videoSearchQuery: '',
 
       promptOpen: false,
-      deletedPlaylistItemIds: [],
+      toBeDeletedPlaylistItemIds: [],
       // Present = shown
       undoToastAbortController: null,
     }
@@ -607,7 +607,7 @@ export default defineComponent({
         })
 
         if (videoIndex !== -1) {
-          this.deletedPlaylistItemIds.push(this.playlistItems[videoIndex].playlistItemId)
+          this.toBeDeletedPlaylistItemIds.push(this.playlistItems[videoIndex].playlistItemId)
           playlistItems.splice(videoIndex, 1)
           this.playlistItems = playlistItems
           this.videoCount = playlistItems.length
@@ -615,17 +615,18 @@ export default defineComponent({
           // Only show toast when no existing toast shown
           if (this.undoToastAbortController == null) {
             this.undoToastAbortController = new AbortController()
+            const timeoutMs = 5 * 1000
             const actualRemoveVideosTimeout = setTimeout(() => {
               this.removeToBeDeletedVideosSometimes()
-            }, 5000)
+            }, timeoutMs)
             showToast(
               this.$t('User Playlists.SinglePlaylistView.Toast["Video has been removed. Click here to undo."]'),
-              5000,
+              timeoutMs,
               () => {
                 this.playlistItems = tempPlaylistItems
                 this.videoCount = tempPlaylistItems.length
                 clearTimeout(actualRemoveVideosTimeout)
-                this.deletedPlaylistItemIds = []
+                this.toBeDeletedPlaylistItemIds = []
                 this.undoToastAbortController = null
               },
               this.undoToastAbortController.signal,
@@ -641,12 +642,12 @@ export default defineComponent({
     removeToBeDeletedVideosSometimes() {
       if (this.isLoading) { return }
 
-      if (this.deletedPlaylistItemIds.length > 0) {
+      if (this.toBeDeletedPlaylistItemIds.length > 0) {
         this.removeVideos({
           _id: this.playlistId,
-          playlistItemIds: this.deletedPlaylistItemIds,
+          playlistItemIds: this.toBeDeletedPlaylistItemIds,
         })
-        this.deletedPlaylistItemIds = []
+        this.toBeDeletedPlaylistItemIds = []
         this.undoToastAbortController?.abort()
         this.undoToastAbortController = null
       }
