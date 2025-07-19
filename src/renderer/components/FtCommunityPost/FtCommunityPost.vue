@@ -166,7 +166,7 @@ import { A11y, Navigation, Pagination } from 'swiper/modules'
 import { computed, onMounted, ref } from 'vue'
 
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
-import FtListPlaylist from '../ft-list-playlist/ft-list-playlist.vue'
+import FtListPlaylist from '../FtListPlaylist/FtListPlaylist.vue'
 import FtCommunityPoll from '../FtCommunityPoll/FtCommunityPoll.vue'
 
 import store from '../../store/index'

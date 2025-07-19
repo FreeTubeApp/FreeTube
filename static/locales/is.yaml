@@ -210,6 +210,8 @@ History:
   Search bar placeholder: Leita í áhorfsferli
   Empty Search Message: Það eru engin myndskeið í ferlinum þínum sem samsvara leitinni þinni
   Case Sensitive Search: Leit háð há-/lágstöfum
+  DateOldestHistory: Fyrst horft á fremst
+  DateNewestHistory: Síðast horft á fremst
 Settings:
   # On Settings Page
   Settings: 'Stillingar'
