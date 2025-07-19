@@ -50,7 +50,7 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     // This setting is enabled by default and results in YouTube.js reusing the same session across different Innertube instances.
     // That behavior is highly undesirable for FreeTube, as we want to create a new session every time to limit tracking.
     enable_session_cache: false,
-    retrieve_innertube_config: false,
+    retrieve_innertube_config: !generateSessionLocally,
     user_agent: navigator.userAgent,
 
     retrieve_player: !!withPlayer,
@@ -215,7 +215,6 @@ export async function getLocalVideoInfo(id) {
         JSON.stringify(webInnertube.session.context)
       ))
 
-      webInnertube.session.po_token = contentPoToken
       webInnertube.session.player.po_token = sessionPoToken
     } catch (error) {
       console.error('Local API, poToken generation failed', error)
@@ -225,10 +224,10 @@ export async function getLocalVideoInfo(id) {
 
   let clientName = webInnertube.session.context.client.clientName
 
-  const info = await webInnertube.getInfo(id)
+  const info = await webInnertube.getInfo(id, { po_token: contentPoToken })
 
   // temporary workaround for SABR-only responses
-  const mwebInfo = await webInnertube.getBasicInfo(id, 'MWEB')
+  const mwebInfo = await webInnertube.getBasicInfo(id, { client: 'MWEB', po_token: contentPoToken })
 
   if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data) {
     info.playability_status = mwebInfo.playability_status
@@ -248,16 +247,12 @@ export async function getLocalVideoInfo(id) {
     const webEmbeddedInnertube = await createInnertube({ clientType: ClientType.WEB_EMBEDDED })
     webEmbeddedInnertube.session.context.client.visitorData = webInnertube.session.context.client.visitorData
 
-    if (contentPoToken) {
-      webEmbeddedInnertube.session.po_token = contentPoToken
-    }
-
     const videoId = hasTrailer && trailerIsAgeRestricted ? info.playability_status.error_screen.video_id : id
 
     // getBasicInfo needs the signature timestamp (sts) from inside the player
     webEmbeddedInnertube.session.player = webInnertube.session.player
 
-    const bypassedInfo = await webEmbeddedInnertube.getBasicInfo(videoId, 'WEB_EMBEDDED')
+    const bypassedInfo = await webEmbeddedInnertube.getBasicInfo(videoId, { client: 'WEB_EMBEDDED', po_token: contentPoToken })
 
     if (bypassedInfo.playability_status.status === 'OK' && bypassedInfo.streaming_data) {
       info.playability_status = bypassedInfo.playability_status
@@ -1271,7 +1266,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
 
       let viewCount = null
 
-      const viewsText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.[0].text?.text
+      const viewsText = lockupView.metadata.metadata?.metadata_rows[1]?.metadata_parts?.[0].text?.text
 
       if (viewsText) {
         const views = parseLocalSubscriberCount(viewsText)

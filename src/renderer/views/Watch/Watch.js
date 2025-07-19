@@ -91,6 +91,7 @@ export default defineComponent({
       videoTitle: '',
       videoDescription: '',
       videoDescriptionHtml: '',
+      license: '',
       videoViewCount: 0,
       videoLikeCount: 0,
       videoDislikeCount: 0,
@@ -1455,8 +1456,10 @@ export default defineComponent({
      * @param {boolean} includeThumbnails
      */
     createLocalDashManifest: async function (videoInfo, includeThumbnails = false) {
-      const xmlData = await videoInfo.toDash(undefined, undefined, {
-        include_thumbnails: includeThumbnails
+      const xmlData = await videoInfo.toDash({
+        manifest_options: {
+          include_thumbnails: includeThumbnails,
+        },
       })
 
       return `data:application/dash+xml;charset=UTF-8,${encodeURIComponent(xmlData)}`
