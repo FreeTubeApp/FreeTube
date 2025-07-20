@@ -205,6 +205,8 @@ History:
   Empty Search Message: Ingen videoer i historikken din samsvarer med søket ditt
   Search bar placeholder: Søk i historikken
   Case Sensitive Search: Søket skiller mellom store og små bokstaver
+  DateOldestHistory: Tidligste sett først
+  DateNewestHistory: Seneste sett først
 Settings:
   # On Settings Page
   Settings: 'Innstillinger'
