@@ -79,7 +79,7 @@ Search Filters:
   # On Search Page
     Medium (4 - 20 minutes): Mellan (4 - 20 minuter)
   Search Results: 'Sökresultat'
-  Fetching results. Please wait: 'Hämtar resultat. Vänligen vänta'
+  Fetching results. Please wait: 'Hämtar resultat. Vänta'
   Fetch more results: 'Hämta fler resultat'
 # Sidebar
   There are no more results for this search: Det finns inga mer resultat för denna sökning
@@ -189,10 +189,10 @@ User Playlists:
   CreatePlaylistPrompt:
     Create: Skapa
     Toast:
-      There is already a playlist with this name. Please pick a different name.: Det finns redan en spellista med detta namn. Vänligen välj ett annat namn.
+      There is already a playlist with this name. Please pick a different name.: Det finns redan en spellista med detta namn. Välj ett annat namn.
       There was an issue with creating the playlist.: Det uppstod ett problem med skapandet av spellistan.
-      Playlist {playlistName} has been successfully created.: Spellistan {playlistName} har skapats framgångsrikt.
-    New Playlist Name: Nytt Spellistanamn
+      Playlist {playlistName} has been successfully created.: Spellistan {playlistName} har skapats med framgång.
+    New Playlist Name: Nytt spellistanamn
   The playlist has been successfully exported: Spellistan har exporterats
   Export Playlist: Exportera Denna Spellista
   Quick Bookmark Enabled: Snabbbokmärke Aktiverat
@@ -209,6 +209,8 @@ History:
   Empty Search Message: Det finns inga videor i din historik som matchar din sökning
   Search bar placeholder: Sök i historiken
   Case Sensitive Search: Skiftlägeskänslig Sökning
+  DateOldestHistory: Tidigast sedda först
+  DateNewestHistory: Senast sedda först
 Settings:
   # On Settings Page
   Settings: 'Inställningar'
@@ -496,7 +498,7 @@ Settings:
     Playlist insufficient data: Otillräcklig data för "{playlist}" spellista, hoppar över objekt
 
     Export Playlists For Older FreeTube Versions:
-      Label: Exportera Spellistor För Äldre Versioner Av FreeTube
+      Label: Exportera spellistor för äldre versioner av FreeTube
       Tooltip: "Det här alternativet exporterar videor från alla spellistor till en spellista med namnet \"Favoriter\".\nSå här exporterar och importerar du videor i spellistor för en äldre version av FreeTube:\n1. Exportera dina spellistor med det här alternativet aktiverat.\n2. Ta bort alla dina befintliga spellistor med alternativet Ta bort alla spellistor under Sekretessinställningar.\n3. Starta den äldre versionen av FreeTube och importera de exporterade spellistorna.\""
   Distraction Free Settings:
     Hide Live Chat: Dölj livechatt

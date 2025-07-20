@@ -9,8 +9,5 @@
         }
       }
     ]
-  ],
-  "plugins": [
-    "@babel/plugin-transform-class-properties"
   ]
 }

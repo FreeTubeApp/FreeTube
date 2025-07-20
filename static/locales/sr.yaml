@@ -210,6 +210,8 @@ History:
   Search bar placeholder: Претрага у историји
   Empty Search Message: У вашој историји нема видео снимака који одговарају вашој претрази
   Case Sensitive Search: Претрага осетљива на велика и мала слова
+  DateOldestHistory: Најраније гледано прво
+  DateNewestHistory: Најкасније гледано прво
 Settings:
   # On Settings Page
   Settings: 'Подешавања'
@@ -909,10 +911,10 @@ Playlist:
     VideoTitleDescending: Наслов (Z-A)
     Custom: Прилагођено
     AuthorDescending: Аутор (Z-A)
-    DateAddedNewest: Најновије додато прво
+    DateAddedNewest: Најкасније додато прво
     VideoDurationDescending: Трајање (прво најдуже)
     VideoDurationAscending: Трајање (прво најкраће)
-    PublishedNewest: Прво најновије објављено
+    PublishedNewest: Најкасније објављено прво
     PublishedOldest: Прво најраније објављено
 Falling back to Invidious API: Повратак на Invidious API
 Change Format:
