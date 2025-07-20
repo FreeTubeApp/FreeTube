@@ -3680,10 +3680,10 @@ electron@^34.0.1:
     "@types/node" "^20.9.0"
     extract-zip "^2.0.1"
 
-eme-encryption-scheme-polyfill@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/eme-encryption-scheme-polyfill/-/eme-encryption-scheme-polyfill-2.2.0.tgz#b642e460b0cb46a9a51a1069fde3ba2c01565af9"
-  integrity sha512-wfgRcR2cGAX0WKbPahhI13dr2mzFQ/rMnoDibRIdScQlv9S0rtnXd25XF17IUdNJw/voJoFpYQp33C3xkFnyEw==
+eme-encryption-scheme-polyfill@^2.2.1:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/eme-encryption-scheme-polyfill/-/eme-encryption-scheme-polyfill-2.2.3.tgz#420608d56b995dfc440cfefba3cc06faaf02a95d"
+  integrity sha512-N0nlJZVaBqGWzvvFb6ZAxvTVeZ4v9cXCzrSFE0zCbNbviiygWI0gDJiRc4o5SqFrPVYBSQr5z5SzKjIvvxL+Vw==
 
 emoji-regex@^10.0.0, emoji-regex@^10.3.0:
   version "10.3.0"
@@ -9646,6 +9646,11 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+yocto-queue@^1.0.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-1.2.1.tgz#36d7c4739f775b3cbc28e6136e21aa057adec418"
+  integrity sha512-AyeEbWOu/TAXdxlV9wmGcR0+yh2j3vYPGOECcIj2S7MkrLyC7ne+oye2BKTItt0ii2PHk4cDy+95+LshzbXnGg==
 
 youtubei.js@^15.0.0:
   version "15.0.0"
