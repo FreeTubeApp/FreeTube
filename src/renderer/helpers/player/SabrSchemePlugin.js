@@ -30,7 +30,7 @@ function createBufferedRange(formatId, buffered, segmentIndex) {
     startTimeMs: Math.trunc(buffered.start * 1000),
     durationMs: Math.trunc((buffered.end - buffered.start) * 1000),
     startSegmentIndex: segmentIndex.find(buffered.start),
-    endSegmentIndex: segmentIndex.find(buffered.end)
+    endSegmentIndex: segmentIndex.find(buffered.end) ?? segmentIndex.find(buffered.end - 0.001)
   }
 }
 
