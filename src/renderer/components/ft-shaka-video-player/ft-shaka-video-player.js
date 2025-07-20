@@ -2502,6 +2502,14 @@ export default defineComponent({
     // #region setup
 
     onMounted(async () => {
+      watch(() => props.currentPlaybackRate,
+        (newRate) => {
+          if (video.value) {
+            video.value.playbackRate = newRate
+            video.value.defaultPlaybackRate = newRate
+          }
+        }
+      )
       const videoElement = video.value
 
       const volume = sessionStorage.getItem('volume')
@@ -2619,6 +2627,14 @@ export default defineComponent({
       container.value.classList.add('no-cursor')
 
       await performFirstLoad()
+      const userRate = props.currentPlaybackRate
+      if (video.value) {
+        video.value.playbackRate = userRate
+        video.value.defaultPlaybackRate = userRate
+      }
+      if (video.value) {
+        video.value.playbackRate = props.currentPlaybackRate
+      }
 
       player.addEventListener('ratechange', () => {
         emit('playback-rate-updated', player.getPlaybackRate())
@@ -2660,6 +2676,10 @@ export default defineComponent({
      * if this was triggered by a format change and the user had the captions enabled.
      */
     async function handleLoaded() {
+      const storedRate = sessionStorage.getItem('playbackRate')
+      const rate = storedRate !== null ? parseFloat(storedRate) : props.currentPlaybackRate
+      video.value.playbackRate = rate
+      video.value.defaultPlaybackRate = rate
       hasLoaded.value = true
       emit('loaded')
 
