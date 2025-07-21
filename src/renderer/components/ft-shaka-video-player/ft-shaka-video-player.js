@@ -2627,11 +2627,6 @@ export default defineComponent({
       container.value.classList.add('no-cursor')
 
       await performFirstLoad()
-      const userRate = props.currentPlaybackRate
-      if (video.value) {
-        video.value.playbackRate = userRate
-        video.value.defaultPlaybackRate = userRate
-      }
 
       player.addEventListener('ratechange', () => {
         emit('playback-rate-updated', player.getPlaybackRate())
@@ -2673,10 +2668,6 @@ export default defineComponent({
      * if this was triggered by a format change and the user had the captions enabled.
      */
     async function handleLoaded() {
-      const storedRate = sessionStorage.getItem('playbackRate')
-      const rate = storedRate !== null ? parseFloat(storedRate) : props.currentPlaybackRate
-      video.value.playbackRate = rate
-      video.value.defaultPlaybackRate = rate
       hasLoaded.value = true
       emit('loaded')
 
