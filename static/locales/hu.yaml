@@ -457,7 +457,6 @@ Settings:
       Tooltip: Automatikus = Mentés minden videóoldal elhagyásakor, a videó befejezésekor és hiba esetén (pl. a megtekintési korlátozás és videólejátszási munkamenet lejártakor). Félautomata = Hasonló az automatikushoz, kivéve a videóoldal elhagyásakor, továbbá a videolejátszó alatt található „Megnézett videó folyamatának mentése” nevű gomb segítségével saját kezűleg is menthető.
   Subscription Settings:
     Subscription Settings: 'Feliratkozás'
-    Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
     Confirm Before Unsubscribing: Megerősítés kérése leíratkozáskor
@@ -516,6 +515,7 @@ Settings:
     Hide Comments: Hozzászólások elrejtése
     Hide Live Streams: Élő közvetítések elrejtése
     Hide Sharing Actions: Megosztási műveletek elrejtése
+    Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Hide Chapters: Fejezetek elrejtése
     Hide Upcoming Premieres: Közelgő bemutatók elrejtése
     Hide Channels: Videók elrejtése a csatornákból

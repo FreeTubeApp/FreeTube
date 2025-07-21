@@ -445,7 +445,6 @@ Settings:
       eliminar todas tus listas de reproducción?
   Subscription Settings:
     Subscription Settings: 'Suscripción'
-    Hide Videos on Watch: 'Ocultar videos vistos'
     Fetch Automatically: Obtener feed automáticamente
     Fetch Feeds from RSS: Obtener feeds desde RSS
     To: A
@@ -527,6 +526,7 @@ Settings:
     Hide Comments: Ocultar comentarios
     Hide Channel Shorts: Ocultar la pestaña de 'Shorts' del canal
     Hide Sharing Actions: Ocultar acciones de uso compartido
+    Hide Videos on Watch: 'Ocultar videos vistos'
     Hide Channel Podcasts: Ocultar la pestaña de 'Podcasts' del canal
     Hide Live Streams: Ocultar transmisiones en vivo
     Hide Channel Playlists: Ocultar la pestaña de 'Listas de reproducción' del canal

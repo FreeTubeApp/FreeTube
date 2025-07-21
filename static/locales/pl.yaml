@@ -424,7 +424,6 @@ Settings:
       Full Screen: Pełny ekran
   Subscription Settings:
     Subscription Settings: 'Subskrypcje'
-    Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
     Fetch Feeds from RSS: Pobierz subskrypcje z RSS
     Fetch Automatically: Automatycznie odświeżaj subskrypcje
     Confirm Before Unsubscribing: Uniknij przypadkowego usunięcia subskrypcji
@@ -508,6 +507,7 @@ Settings:
     Hide Video Description: Schowaj opis filmu
     Hide Comments: Schowaj komentarze
     Hide Sharing Actions: Schowaj opcje udostępniania
+    Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
     Hide Live Streams: Schowaj transmisje na żywo
     Hide Chapters: Schowaj rozdziały
     Hide Upcoming Premieres: Schowaj nadchodzące premiery

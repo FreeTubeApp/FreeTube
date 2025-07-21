@@ -457,7 +457,6 @@ Settings:
       Tooltip: "Automático = Salva sempre ao sair da página do vídeo, quando o vídeo termina ou ocorre um erro (por exemplo: limite de taxa atingido ou sessão expirada).\nSemiautomático = Igual ao modo Automático, exceto ao sair da página do vídeo, e permite salvar o progresso manualmente através do botão \"Guardar progresso de reprodução\", localizado abaixo do player."
   Subscription Settings:
     Subscription Settings: 'Subscrição'
-    Hide Videos on Watch: 'Ocultar vídeos visualizados'
     Fetch Feeds from RSS: 'Obter subscrições através de RSS'
     Fetch Automatically: Obter fontes automaticamente
     Confirm Before Unsubscribing: Impedir cancelamento acidental de subscrições
@@ -544,6 +543,7 @@ Settings:
     Distraction Free Settings: Distrações
     Hide Video Description: Ocultar descrição dos vídeos
     Hide Sharing Actions: Ocultar ações de partilha
+    Hide Videos on Watch: 'Ocultar vídeos visualizados'
     Hide Live Streams: Ocultar transmissões em direto
     Hide Comments: Ocultar comentários
     Hide Chapters: Ocultar capítulos

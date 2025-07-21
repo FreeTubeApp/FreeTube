@@ -455,7 +455,6 @@ Settings:
       Tooltip: Otomatik = Video sona erdiğinde ve hatayla karşılaşıldığında (ör. hız sınırlı ve izleme oturumu sona erdiğinde) her video sayfası çıkışında kaydet. Yarı otomatik = Video sayfasından çıkış haricinde Otomatik gibi ve video oynatıcının altında bulunan İzlenen İlerlemeyi Kaydet adı verilen bir düğme aracılığıyla ilerlemeyi manuel olarak kaydedebilir.
   Subscription Settings:
     Subscription Settings: 'Abonelik'
-    Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
     Fetch Feeds from RSS: 'Akışları RSS''den Getir'
     Fetch Automatically: Akışı Otomatik Olarak Getir
     Confirm Before Unsubscribing: Abonelikten Çıkmadan Önce Onayla
@@ -512,6 +511,7 @@ Settings:
     Hide Playlists: Oynatma Listelerini Gizle
     Hide Live Streams: Canlı Yayınları Gizle
     Hide Sharing Actions: Paylaşım Eylemlerini Gizle
+    Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
     Hide Video Description: Video Açıklamasını Gizle
     Hide Comments: Yorumları Gizle
     Hide Chapters: Bölümleri Gizle

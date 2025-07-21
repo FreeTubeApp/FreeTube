@@ -387,7 +387,6 @@ Settings:
       videa
   Subscription Settings:
     Subscription Settings: 'Odber'
-    Hide Videos on Watch: 'Skryť videá po zhliadnutí'
     Fetch Feeds from RSS: Natiahnuť kanály z RSS
 
   Data Settings:
@@ -432,6 +431,7 @@ Settings:
     Distraction Free Settings: Bez rušenia
     Hide Active Subscriptions: Skryť aktívne odbery
     Hide Playlists: Skryť zoznamy videí
+    Hide Videos on Watch: 'Skryť videá po zhliadnutí'
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Naozaj
       chcete odstrániť všetky odbery a profily? Toto je nenávratná akcia.

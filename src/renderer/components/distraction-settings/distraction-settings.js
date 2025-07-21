@@ -142,6 +142,9 @@ export default defineComponent({
         settingsSection: this.$t('Settings.Distraction Free Settings.Distraction Free Settings')
       })
     },
+    hideWatchedSubs: function () {
+      return this.$store.getters.getHideWatchedSubs
+    },
   },
   mounted: function () {
     this.verifyChannelsHidden()
@@ -245,6 +248,7 @@ export default defineComponent({
       'updateHideSubscriptionsCommunity',
       'updateShowAddedChannelsHidden',
       'updateShowAddedForbiddenTitles',
-    ])
-  }
+      'updateHideWatchedSubs',
+    ]),
+  },
 })

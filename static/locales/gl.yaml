@@ -286,7 +286,6 @@ Settings:
       lista de reprodución vista
   Subscription Settings:
     Subscription Settings: 'Axustes de subscricións'
-    Hide Videos on Watch: 'Agochar vídeos visualizados'
     Fetch Feeds from RSS: 'Obter subscricións a través de RSS'
     Fetch Automatically: Obter feed automaticamente
   Distraction Free Settings:
@@ -303,6 +302,7 @@ Settings:
     Hide Playlists: Agochar listas de reprodución
     Hide Live Streams: Ocultalas emisións en directo
     Hide Sharing Actions: Ocultalas accións do uso compartido
+    Hide Videos on Watch: 'Agochar vídeos visualizados'
     Hide Video Description: Ocultala descrición do vídeo
     Hide Comments: Ocultar comentarios
     Hide Chapters: Agochalos capítulos

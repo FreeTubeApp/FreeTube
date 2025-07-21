@@ -424,7 +424,6 @@ Settings:
     Autoplay Interruption Timer: Bộ đếm thời gian ngắt tự động phát
   Subscription Settings:
     Subscription Settings: 'Đăng ký'
-    Hide Videos on Watch: 'Ẩn video khi đã xem'
     Fetch Feeds from RSS: Cập nhật bảng tin qua RSS
     Fetch Automatically: Tự động làm mới bảng tin
     Confirm Before Unsubscribing: Nhắc xác nhận trước khi hủy đăng ký
@@ -482,6 +481,7 @@ Settings:
     Hide Live Streams: Ẩn phát trực tiếp
     Hide Video Description: Ẩn mổ tả video
     Hide Sharing Actions: Ẩn nút chia sẻ
+    Hide Videos on Watch: 'Ẩn video khi đã xem'
     Sections:
       General: Chung
       Side Bar: Thanh bên
