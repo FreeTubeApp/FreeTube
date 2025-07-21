@@ -2632,9 +2632,6 @@ export default defineComponent({
         video.value.playbackRate = userRate
         video.value.defaultPlaybackRate = userRate
       }
-      if (video.value) {
-        video.value.playbackRate = props.currentPlaybackRate
-      }
 
       player.addEventListener('ratechange', () => {
         emit('playback-rate-updated', player.getPlaybackRate())
