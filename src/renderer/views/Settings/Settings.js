@@ -99,6 +99,11 @@ export default defineComponent({
           icon: 'eye-slash'
         },
         {
+          type: 'parental-control-settings',
+          title: this.$t('Settings.Parental Control Settings.Parental Control Settings'),
+          icon: 'user-lock'
+        },
+        {
           type: 'privacy-settings',
           title: this.$t('Settings.Privacy Settings.Privacy Settings'),
           icon: 'lock'
@@ -123,9 +128,9 @@ export default defineComponent({
             ]
           : []),
         {
-          type: 'parental-control-settings',
-          title: this.$t('Settings.Parental Control Settings.Parental Control Settings'),
-          icon: 'user-lock'
+          type: 'password-settings',
+          title: this.$t('Settings.Password Settings.Password Settings'),
+          icon: 'key'
         },
         {
           type: 'sponsor-block-settings',
@@ -140,11 +145,6 @@ export default defineComponent({
               icon: 'flask'
             }]
           : []),
-        {
-          type: 'password-settings',
-          title: this.$t('Settings.Password Settings.Password Settings'),
-          icon: 'key'
-        },
       ]
       return settingsComponentsData
     },
