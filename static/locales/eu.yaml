@@ -965,6 +965,7 @@ Tooltips:
     Hide Channels: Sartu kanalaren ID bat bideo, erreprodukzio-zerrenda eta kanala bera bilaketetan, joeran, ezagunenetan eta gomendagarrienetan ager ez dadin ezkutatzeko. Sartutako kanalaren IDak guztiz bat etorri behar du eta maiuskulak eta minuskulak bereizten ditu.
     Hide Videos and Playlists Containing Text: Idatzi hitz bat, hitz-zati bat edo esaldi bat (maiuskulak eta minuskulak bereizten ez diren) jatorrizko izenburuak FreeTube osoan duten bideo eta erreprodukzio-zerrenda guztiak ezkutatzeko, historia, zure erreprodukzio-zerrendak eta erreprodukzio-zerrenden barneko bideoak soilik kenduta.
     Hide Subscriptions Live: Ezarpen hau aplikazio osorako "{appWideSetting}" ezarpenak ordezkatzen du, "{settingsSection}" ataleko "{subsection}" atalean
+    Hide Videos on Watch: Ikusitako bideoak ezkutatzen ditu Harpidetza eta Kanalen orrialdeetako Bideoak, Laburpenak eta Zuzeneko fitxetatik. Honek ez dio eragiten Kanalen orrialdeetako Hasiera fitxari
   Experimental Settings:
     Replace HTTP Cache: Electron-en diskoan oinarritutako HTTP cachea desgaitzen du eta memoriako irudien cache pertsonalizatua gaitu. RAM erabilera handitzea ekarriko du.
   SponsorBlock Settings:
