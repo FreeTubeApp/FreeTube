@@ -981,7 +981,7 @@ Tooltips:
     Hide Channels: Adjon meg egy csatornaazonosítót, hogy elrejtse az összes videót, lejátszási listát és magát a csatornát a keresési eredményekből, a felkapottak közül, a legnépszerűbbekből és az ajánlottak közül. A megadott csatornaazonosítónak pontosan egyeznie kell, valamint kis- és nagybetűérzékeny.
     Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}” beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
     Hide Videos and Playlists Containing Text: Adjon meg egy szót, szótöredéket vagy kifejezést (nem érzékeny a nagy- és kisbetűkre), hogy elrejtse az összes olyan videót és lejátszási listát, amelynek eredeti címe tartalmazza ezt a szót vagy kifejezést a FreeTube egész területén, kivéve az előzményeket, a lejátszási listákat és a lejátszási listákon belüli videókat.
-    Hide Videos on Watch: Elrejti a megtekintett videókat a „Videók”, „Rövid videók” és „Élő”lapok közül a „Feliratkozás” és a „Csatorna oldalakon. Ez nem érinti a kezdőoldalon található „Csatornák” fület
+    Hide Videos on Watch: Elrejti a megtekintett videókat a videók-, rövid videók- és élő lapokról a feliratkozás- és a csatornaoldalon. Ez nem érinti a kezdőoldalon található csatornalapokat
   SponsorBlock Settings:
     UseDeArrowTitles: Cserélje le a videocímeket a DeArrow-ból, felhasználó által beküldött címekre.
     UseDeArrowThumbnails: Videó miniatűr cseréje DeArrow miniatűrrel.
