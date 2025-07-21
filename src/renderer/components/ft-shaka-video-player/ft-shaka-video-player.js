@@ -2061,6 +2061,41 @@ export default defineComponent({
     }
 
     /**
+     * is RGBA pixel at data[offset] black (or close enough) ?
+     * @param {Uint8ClampedArray} data
+     * @param {number} offset
+     * @returns {boolean}
+     */
+    function isBlackPx(data, offset) {
+      return (data[offset] < 8 && data[offset + 1] < 8 && data[offset + 2] < 8)
+    }
+
+    /**
+     * detects horizontal black bars (if any) top+bottom of current video frame
+     * typical for 21:9 video encoded as 16:9 with black bars
+     * @returns {string} scale that hides black bars off screen, or '1.000' for no scale
+     */
+    function detectBlackBars() {
+      const video_ = video.value
+      const canvas = document.createElement('canvas')
+      canvas.width = 1
+      canvas.height = video_.videoHeight
+      const context = canvas.getContext('2d')
+      context.drawImage(video_, video_.videoWidth / 2, 0, 1, video_.videoHeight, 0, 0, 1, canvas.height)
+      const imageData = context.getImageData(0, 0, 1, video_.videoHeight)
+      let j = imageData.height - 1
+      for (let i = 0; i < imageData.height / 2; i++) {
+        if (isBlackPx(imageData.data, i * 4) && isBlackPx(imageData.data, j * 4)) {
+          j--
+        } else {
+          const trueHeight = (j + 1) - i
+          return (imageData.height / trueHeight).toFixed(3)
+        }
+      }
+      return '1.000' // entirely black frame
+    }
+
+    /**
      * @param {KeyboardEvent} event
      */
     function keyboardShortcutHandler(event) {
@@ -2137,10 +2172,22 @@ export default defineComponent({
           ui.getControls().toggleFullScreen()
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.ULTRAWIDE_MODE:
-          // zoom 16:9 content with black bars on ultrawide monitors
-          if (ui.getControls().isFullScreenEnabled() && !forceAspectRatio.value) {
+          // Zoom content with black bars, primarily for ultrawide monitors
+          if (ui.getControls().isFullScreenEnabled() && document.fullscreenElement !== null) {
             event.preventDefault()
-            video.value.classList.toggle('ultraWideMode')
+            const root = document.documentElement.style
+            const transform = root.getPropertyValue('--ultra-wide-mode')
+            let scale = '1' // zoom OFF
+            if (!transform || !transform.includes(',')) {
+              // zoom ON, scale video 1:1 to remove black bars (if any)
+              scale = detectBlackBars()
+              if (transform && transform !== 'scale(1)') {
+                // scale width to fill monitor
+                const oldWidth = video_.videoWidth * (window.screen.height / video_.videoHeight)
+                scale = (window.screen.width / oldWidth).toFixed(3) + ',' + scale
+              }
+            }
+            root.setProperty('--ultra-wide-mode', 'scale(' + scale + ')')
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE:
