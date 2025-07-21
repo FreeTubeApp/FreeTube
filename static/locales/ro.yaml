@@ -454,7 +454,6 @@ Settings:
       Tooltip: Automat = Salvează la fiecare ieșire de pe pagina video, când video-ul se termină și când apare o eroare (de exemplu, limitare de viteză sau sesiune de vizionare expirată). Semi-automat = Ca și Automat, cu excepția ieșirii de pe pagina video și permite salvarea progresului manual printr-un buton numit "Salvează progresul vizionat", aflat sub player-ul video.
   Subscription Settings:
     Subscription Settings: 'Abonament'
-    Hide Videos on Watch: 'Ascunde videoclipurile la vizionare'
     Fetch Feeds from RSS: 'Preluare de fluxuri din RSS'
     Fetch Automatically: Preluați feedul automat
     Confirm Before Unsubscribing: Confirmă înainte de dezabonare
@@ -523,6 +522,7 @@ Settings:
     Hide Comments: Ascunde comentariile
     Hide Live Streams: Ascunde stream-urile live
     Hide Sharing Actions: Ascunde butoanele de sharing
+    Hide Videos on Watch: 'Ascunde videoclipurile la vizionare'
     Hide Chapters: Ascundeți capitolele
     Display Titles Without Excessive Capitalisation: Afișați titlurile fără majuscule și semne de punctuație excesive
     Sections:

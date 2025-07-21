@@ -422,7 +422,6 @@ Settings:
       External Player: Внешний проигрыватель ({externalPlayerName})
   Subscription Settings:
     Subscription Settings: 'Подписки'
-    Hide Videos on Watch: 'Скрывать видео после просмотра'
     Fetch Feeds from RSS: Загружать Ленты из RSS
     Fetch Automatically: Автоматически загружать ленту
     Confirm Before Unsubscribing: Запрашивать Подтверждение Перед Отпиской
@@ -505,6 +504,7 @@ Settings:
     Hide Playlists: Скрыть подборки
     Hide Live Streams: Скрыть прямые трансляции
     Hide Sharing Actions: Скрыть действия общего доступа
+    Hide Videos on Watch: 'Скрывать видео после просмотра'
     Hide Comments: Скрыть комментарии
     Hide Video Description: Скрыть описание видео
     Hide Chapters: Скрыть разделы

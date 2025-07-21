@@ -424,7 +424,6 @@ Settings:
       Theater: Mode cinéma
   Subscription Settings:
     Subscription Settings: 'Abonnements'
-    Hide Videos on Watch: 'Masquer les vidéos visionnées'
     Fetch Feeds from RSS: Récupération de flux RSS
     Fetch Automatically: Récupération automatique des flux
     Confirm Before Unsubscribing: Confirmer avant de se désabonner
@@ -509,6 +508,7 @@ Settings:
     Hide Comments: Masquer les commentaires
     Hide Live Streams: Masquer les flux en direct
     Hide Sharing Actions: Masquer les actions de partage
+    Hide Videos on Watch: 'Masquer les vidéos visionnées'
     Hide Chapters: Masquer les chapitres
     Hide Upcoming Premieres: Masquer les avant-premières à venir
     Hide Channels: Masquer les vidéos des chaînes
@@ -978,6 +978,7 @@ Tooltips:
     Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les listes de lecture et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} » applicable à l'ensemble de l'application, dans la section « {subsection} » de la section « {settingsSection} »
     Hide Videos and Playlists Containing Text: Saisissez un mot, un fragment de mot ou une phrase (insensible à la casse) pour masquer toutes les vidéos et sélections dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube, à l'exception de l'historique, de vos listes de lecture et des vidéos contenues dans les listes de lecture.
+    Hide Videos on Watch: Masque les vidéos visionnées des onglets Vidéos, Shorts, En direct des pages Abonnements et Chaines. Cela n'a pas d'effet sur l'onglet Accueil des pages Chaines
   SponsorBlock Settings:
     UseDeArrowTitles: Remplacer les titres des vidéos par des titres proposés par les utilisateurs de DeArrow.
     UseDeArrowThumbnails: Remplacer les miniatures des vidéos par les miniatures de DeArrow.

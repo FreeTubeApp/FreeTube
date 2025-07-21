@@ -458,7 +458,6 @@ Settings:
       Tooltip: Automaticky = Uložit po každém opuštění stránky s videem, pokud video skončí nebo pokud se vyskytne chyba (např. vypršení relace sledování). Poloautomaticky = Stejné jako Automaticky kromě opuštění stránky videa, průběh lze uložit ručně kliknutím na tlačítko Uložit průběh sledování, nacházejícím se pod přehrávačem.
   Subscription Settings:
     Subscription Settings: 'Odběry'
-    Hide Videos on Watch: 'Skrýt přehraná videa'
     Fetch Feeds from RSS: 'Získávat odběry z RSS'
     Fetch Automatically: Automaticky načítat odběry
     Confirm Before Unsubscribing: Zamezit nechtěným odběrům
@@ -480,6 +479,7 @@ Settings:
     Hide Comments: Skrýt komentáře
     Hide Live Streams: Skrýt živé přenosy
     Hide Sharing Actions: Skrýt akce sdílení
+    Hide Videos on Watch: 'Skrýt přehraná videa'
     Hide Chapters: Skrýt kapitoly
     Hide Upcoming Premieres: Skrýt nadcházející premiéry
     Hide Channels: Skrýt videa z kanálů
@@ -967,6 +967,7 @@ Tooltips:
     Hide Channels: Zadejte ID kanálu pro skrytí všech videí, playlistů a samotného kanálu před zobrazením ve vyhledávání, trendech, nejpopulárnějších a doporučených. Zadané ID kanálu se musí zcela shodovat a rozlišují se v něm velká a malá písmena.
     Hide Subscriptions Live: Toto nastavení je nadřazeno nastavením celé aplikace „{appWideSetting}“ v části „{subsection}“ v části „{settingsSection}“
     Hide Videos and Playlists Containing Text: Zadejte slovo, část slova nebo frázi (velká a malá písmena nejsou rozlišovány) pro skrytí všech videí a playlistů, jejichž původní názvy obsahují zadání, napříč celým FreeTube, vyjma historie, vašich playlistů a videí uvnitř playlistů.
+    Hide Videos on Watch: Skrýt zhlédnutá videa z karet Videa, Shorts a Živě na stránkách odběrů a kanálů. Toto neovlivňuje domovskou kartu na stránkách kanálů
   SponsorBlock Settings:
     UseDeArrowTitles: Nahradit názvy videí vlastními názvy od uživatelů DeArrow.
     UseDeArrowThumbnails: Nahradit náhledy videa těmi ze služby DeArrow.

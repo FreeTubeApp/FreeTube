@@ -41,7 +41,7 @@
       <div class="select-container">
         <FtSelect
           v-if="showVideoSortBy"
-          v-show="currentTab === 'videos' && latestVideos.length > 0"
+          v-show="currentTab === 'videos' && (showFetchMoreButton || filteredVideos.length > 1)"
           :value="videoSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
@@ -51,7 +51,7 @@
         />
         <FtSelect
           v-if="!hideChannelShorts && showShortSortBy"
-          v-show="currentTab === 'shorts' && latestShorts.length > 0"
+          v-show="currentTab === 'shorts' && (showFetchMoreButton || filteredShorts.length > 1)"
           :value="shortSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
@@ -61,7 +61,7 @@
         />
         <FtSelect
           v-if="!hideLiveStreams && showLiveSortBy"
-          v-show="currentTab === 'live' && latestLive.length > 0"
+          v-show="currentTab === 'live' && (showFetchMoreButton || filteredLive.length > 1)"
           :value="liveSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
@@ -97,7 +97,7 @@
         <FtElementList
           v-show="currentTab === 'videos'"
           id="videoPanel"
-          :data="latestVideos"
+          :data="filteredVideos"
           :use-channels-hidden-preference="false"
           role="tabpanel"
           aria-labelledby="videosTab"
@@ -112,7 +112,7 @@
         <FtElementList
           v-if="!hideChannelShorts && currentTab === 'shorts'"
           id="shortPanel"
-          :data="latestShorts"
+          :data="filteredShorts"
           :use-channels-hidden-preference="false"
           role="tabpanel"
           aria-labelledby="shortsTab"
@@ -128,7 +128,7 @@
           v-if="!hideLiveStreams"
           v-show="currentTab === 'live'"
           id="livePanel"
-          :data="latestLive"
+          :data="filteredLive"
           :use-channels-hidden-preference="false"
           role="tabpanel"
           aria-labelledby="liveTab"
@@ -468,6 +468,9 @@ const hideChannelPlaylists = computed(() => store.getters.getHideChannelPlaylist
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideChannelCommunity = computed(() => store.getters.getHideChannelCommunity)
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideWatchedSubs = computed(() => store.getters.getHideWatchedSubs)
 
 /**
  * @template T
@@ -1047,6 +1050,30 @@ const latestVideos = shallowRef([])
 const videoContinuationData = shallowRef(null)
 const showVideoSortBy = ref(true)
 const videoSortBy = ref('newest')
+
+const filteredVideos = computed(() => {
+  if (hideWatchedSubs.value) {
+    return filterWatchedArray(latestVideos.value)
+  } else {
+    return latestVideos.value
+  }
+})
+
+const filteredShorts = computed(() => {
+  if (hideWatchedSubs.value) {
+    return filterWatchedArray(latestShorts.value)
+  } else {
+    return latestShorts.value
+  }
+})
+
+const filteredLive = computed(() => {
+  if (hideWatchedSubs.value) {
+    return filterWatchedArray(latestLive.value)
+  } else {
+    return latestLive.value
+  }
+})
 
 watch(videoSortBy, () => {
   if (!autoRefreshOnSortByChangeEnabled) { return }
@@ -2314,6 +2341,11 @@ function handleSubscription() {
     channelId: id.value,
     posts: latestCommunityPosts.value
   })
+}
+
+function filterWatchedArray(videos) {
+  const historyCache = store.getters.getHistoryCacheById
+  return videos.filter(video => !Object.hasOwn(historyCache, video.videoId))
 }
 </script>
 

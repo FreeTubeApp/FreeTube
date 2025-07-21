@@ -451,7 +451,6 @@ Settings:
       Tooltip: Automatski = Sprema se prilikom svakog izlaska s video stranice, kada video završi i kada dođe do greške (npr. ograničenje brzine ili istekla sesija gledanja). Poluautomatski = Kao automatski, osim prilikom izlaska s video stranice. Napredak gledanja može se ručno spremiti pomoću gumba "Spremi napredak gledanja", koji se nalazi ispod video playera.
   Subscription Settings:
     Subscription Settings: 'Pretplata'
-    Hide Videos on Watch: 'Sakrij video nakon gledanja'
     Fetch Feeds from RSS: 'Dohvati feedove s RSS-a'
     Fetch Automatically: Automatski dohvati feed
     Confirm Before Unsubscribing: Izbjegni slučajno otkazivanje pretplate
@@ -508,6 +507,7 @@ Settings:
     Hide Playlists: Sakrij zbirke
     Hide Comments: Sakrij komentare
     Hide Sharing Actions: Sakrij radnje dijeljenja
+    Hide Videos on Watch: 'Sakrij video nakon gledanja'
     Hide Video Description: Sakrij opis videa
     Hide Live Streams: Sakrij prijenose uživo
     Hide Chapters: Sakrij poglavlja

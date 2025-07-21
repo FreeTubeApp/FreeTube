@@ -521,7 +521,6 @@ Settings:
         ръчно чрез бутона Запазване на напредъка, разположен под видеоплейъра.
   Subscription Settings:
     Subscription Settings: 'Абонаменти'
-    Hide Videos on Watch: 'Скриване на видеата при гледане'
     Fetch Feeds from RSS: 'Извличане на съдържания през RSS'
     Fetch Automatically: Автоматично извличане на съдържание
     Confirm Before Unsubscribing: Избягване на случайно отписване
@@ -593,6 +592,7 @@ Settings:
     Hide Video Description: Скриване описанието на видеото
     Hide Comments: Скриване на коментари
     Hide Sharing Actions: Скриване на действията за споделяне
+    Hide Videos on Watch: 'Скриване на видеата при гледане'
     Hide Live Streams: Скриване на предавания на живо
     Hide Chapters: Скриване на главите
     Hide Upcoming Premieres: Скриване на предстоящите премиери

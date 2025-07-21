@@ -457,7 +457,6 @@ Settings:
       Tooltip: Automaatne = Kui video lõppes või tekkis viga (nt tehnilise piirangu või vaatamissessiooni aegumisel), siis salvesta. Poolautomaatne = Sama, nagu automaatne, välja arvatud videovaatest väljumisel ning lisaks saad käsitsi salvestamiseks kasutada videoesitaja all asuvat nuppu „Salvesta vaatamise järg“.
   Subscription Settings:
     Subscription Settings: 'Tellimused'
-    Hide Videos on Watch: 'Vaatamisel peida videod'
     Fetch Feeds from RSS: 'Laadi RSS-uudisvood'
     Fetch Automatically: Laadi tellimuste voog automaatselt
     Confirm Before Unsubscribing: Väldi ekslikku ja juhuslikku tellimusest loobumist
@@ -515,6 +514,7 @@ Settings:
     Hide Comments: Peida kommentaarid
     Hide Live Streams: Peida otseülekanded
     Hide Sharing Actions: Peida jagamisega seotud toimingud
+    Hide Videos on Watch: 'Vaatamisel peida videod'
     Hide Upcoming Premieres: Peida tulevased esilinastused
     Hide Chapters: Peida peatükid
     Hide Channels: Peida kanalites leiduvad videod

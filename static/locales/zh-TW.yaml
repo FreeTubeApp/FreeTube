@@ -424,7 +424,6 @@ Settings:
       External Player: 外部播放器（{externalPlayerName}）
   Subscription Settings:
     Subscription Settings: '訂閱'
-    Hide Videos on Watch: '觀看時隱藏影片'
     Fetch Feeds from RSS: 從RSS擷取推送
     Fetch Automatically: 自動擷取 Feed
     Confirm Before Unsubscribing: 避免意外取消訂閱
@@ -509,6 +508,7 @@ Settings:
     Hide Comments: 隱藏留言
     Hide Live Streams: 隱藏直播串流
     Hide Sharing Actions: 隱藏分享動作
+    Hide Videos on Watch: '觀看時隱藏影片'
     Hide Chapters: 隱藏章節
     Hide Upcoming Premieres: 隱藏即將到來的首映
     Hide Channels Placeholder: 頻道 ID

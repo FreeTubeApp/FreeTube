@@ -422,7 +422,6 @@ Settings:
       External Player: 外部プレーヤー ({externalPlayerName})
   Subscription Settings:
     Subscription Settings: '登録チャンネル'
-    Hide Videos on Watch: '視聴済みの動画を非表示にする'
     Fetch Feeds from RSS: RSS から情報取得
     Fetch Automatically: フィードの自動取得
     Confirm Before Unsubscribing: 登録解除する前に確認画面を表示する
@@ -506,6 +505,7 @@ Settings:
     Hide Comments: コメントの非表示
     Hide Live Streams: ライブ配信の非表示
     Hide Sharing Actions: 共有ボタンの非表示
+    Hide Videos on Watch: '視聴済みの動画を非表示にする'
     Hide Chapters: チャプターの非表示
     Hide Upcoming Premieres: 今後のプレミア公開を非表示
     Hide Channels: チャンネルから動画を非表示にする
