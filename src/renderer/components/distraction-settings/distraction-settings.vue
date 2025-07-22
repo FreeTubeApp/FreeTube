@@ -2,7 +2,7 @@
   <ft-settings-section
     :title="$t('Settings.Distraction Free Settings.Distraction Free Settings')"
   >
-      <h4
+    <h4
       class="groupTitle"
     >
       {{ $t('Settings.Distraction Free Settings.Sections.General') }}
