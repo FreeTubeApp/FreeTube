@@ -774,7 +774,10 @@ export default defineComponent({
         type: 'video'
       }
       this.updateHistory(videoData)
-      showToast(this.$t('Video.Video has been marked as watched'))
+
+      if (!this.historyEntryExists) {
+        showToast(this.$t('Video.Video has been marked as watched'))
+      }
     },
 
     removeFromWatched: function () {
