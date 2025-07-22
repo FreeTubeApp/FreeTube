@@ -980,7 +980,7 @@ Tooltips:
     Hide Channels: Gebe eine Kanal-ID ein, um zu verhindern, dass alle Videos, Playlists und der Kanal selbst in der Suche, den Trends, den beliebtesten und den empfohlenen Videos angezeigt werden. Die eingegebene Kanal-ID muss vollständig übereinstimmen und es wird zwischen Groß- und Kleinschreibung unterschieden.
     Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer Kraft gesetzt
     Hide Videos and Playlists Containing Text: Gib ein Wort, einen Teil eines Wortes oder einen Satz ein (Groß-/Kleinschreibung wird ignoriert) um alle Videos und Playlists, welche es in ihren Originaltiteln enthalten, auf ganz FreeTube auszublenden. Dein Verlauf, deine eigenen Playlists und Videos innerhalb Playlists sind davon nicht betroffen.
-    Hide Videos on Watch: Versteckt angesehene Videos von den Tabs Videos, Shorts und Live auf den Abonnement- und Kanalseiten. Dies beeinflusst nicht den Home-Tab auf den Kanalseiten
+    Hide Videos on Watch: Blendet bereits angesehene Videos aus den Tabs „Videos“, „Shorts“ und „Live“ der Abo- und Kanalseiten aus. Beeinflusst nicht den „Home“-Tab der Kanalseiten
   SponsorBlock Settings:
     UseDeArrowTitles: Videotitel durch von der Community eingereichte Titel von DeArrow ersetzen.
     UseDeArrowThumbnails: Video-Miniaturansichten durch Miniaturansichten von DeArrow ersetzen.
