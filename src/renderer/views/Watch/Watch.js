@@ -1620,7 +1620,8 @@ export default defineComponent({
       }
 
       const url = new URL(trackToTranslate.base_url)
-      url.searchParams.set('fmt', 'vtt')
+      // Requesting fmt=vtt with the tlang parameter set returns HTTP 429 errors, but requesting srt instead seems to work
+      url.searchParams.set('fmt', 'srt')
       url.searchParams.set('tlang', translationCode)
 
       const label = this.$t('Video.Player.TranslatedCaptionTemplate', {
@@ -1632,7 +1633,7 @@ export default defineComponent({
         url: url.toString(),
         label,
         language: translationCode,
-        mimeType: 'text/vtt',
+        mimeType: 'text/srt',
         isAutotranslated: true
       }
     },
