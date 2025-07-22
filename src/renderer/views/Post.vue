@@ -134,6 +134,8 @@ async function loadDataInvidiousAsync() {
 watch(() => route.params.id, async () => {
   // react to route changes...
   isLoading.value = true
+  id.value = route.params.id
+  authorId.value = route.query.authorId
   if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
     await loadDataInvidiousAsync()
   } else {
