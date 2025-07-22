@@ -373,7 +373,7 @@ export async function getLocalChannelId(url, doLogError = false) {
         // handle redirects like https://www.youtube.com/@wanderbots, which resolves to https://www.youtube.com/Wanderbots, which we need to resolve again
         url = navigationEndpoint.payload.url
       } else if (navigationEndpoint.payload.browseId === 'FEpost_detail') {
-        // convert base64 params to string and get the channelid (if this gets updated, we should look into using a protobuf library instead)
+        // convert base64 params to string and get the channelid
         return atob(navigationEndpoint.payload.params).replaceAll(/[^\d\sA-Za-z-]/g, ' ').trim().split(' ').at(-1)
       }
     }
