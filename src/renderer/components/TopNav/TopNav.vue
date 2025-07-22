@@ -531,7 +531,7 @@ function getSearchSuggestionsDebounce(query) {
   lastSuggestionQuery.value = query
 
   if (enableSearchSuggestions.value) {
-    debounceSearchResults(trimmedQuery)
+    debounceSearchResults(query.trim())
   }
 }
 
