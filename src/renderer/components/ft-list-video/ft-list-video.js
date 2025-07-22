@@ -642,7 +642,7 @@ export default defineComponent({
       }
       this.openInExternalPlayer(payload)
 
-      if (this.autosaveWatchedProgress && !this.historyEntryExists) {
+      if (this.autosaveWatchedProgress) {
         this.markAsWatched()
       }
     },
