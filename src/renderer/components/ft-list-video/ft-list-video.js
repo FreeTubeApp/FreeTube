@@ -231,11 +231,11 @@ export default defineComponent({
     },
 
     progressPercentage: function () {
-      if (typeof this.lengthSeconds !== 'number') {
+      if (typeof this.lengthSeconds !== 'number' || this.lengthSeconds === 0) {
         return 0
       }
-
-      return (this.watchProgress / this.lengthSeconds) * 100
+      const percentage = (this.watchProgress / this.lengthSeconds) * 100
+      return Math.min(percentage, 100)
     },
 
     hideSharingActions: function() {
