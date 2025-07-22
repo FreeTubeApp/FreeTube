@@ -126,7 +126,7 @@
           aria-hidden="true"
         /> {{ formattedVoteCount }}</span>
       <router-link
-        v-if="isInvidiousAllowed && !singlePost"
+        v-if="!singlePost"
         :to="{
           path: `/post/${postId}`,
           query: authorId ? { authorId } : undefined
@@ -216,15 +216,6 @@ const hideVideo = computed(() => {
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
 const backendPreference = computed(() => {
   return store.getters.getBackendPreference
-})
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const backendFallback = computed(() => {
-  return store.getters.getBackendFallback
-})
-
-const isInvidiousAllowed = computed(() => {
-  return backendPreference.value === 'invidious' || backendFallback.value
 })
 
 let postType = ''
