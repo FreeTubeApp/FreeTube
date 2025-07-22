@@ -233,11 +233,7 @@ function closeMenu() {
 }
 
 function handleClickOutside(event) {
-  if (
-    openMoreOptions.value &&
-    menuRef.value &&
-    !menuRef.value.contains(event.target)
-  ) {
+  if (openMoreOptions.value && menuRef.value && !menuRef.value.contains(event.target)) {
     closeMenu()
   }
 }
