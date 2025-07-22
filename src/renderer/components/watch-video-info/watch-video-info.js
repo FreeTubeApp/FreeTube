@@ -330,26 +330,24 @@ export default defineComponent({
 
       this.openInExternalPlayer(payload)
 
-      if (!this.historyEntryExists) {
-        // Marking as watched
-        const videoData = {
-          videoId: this.id,
-          title: this.title,
-          author: this.channelName,
-          authorId: this.channelId,
-          published: this.published,
-          description: this.description,
-          viewCount: this.viewCount,
-          lengthSeconds: this.lengthSeconds,
-          watchProgress: 0,
-          timeWatched: Date.now(),
-          isLive: false,
-          type: 'video'
-        }
-
-        this.updateHistory(videoData)
-        showToast(this.$t('Video.Video has been marked as watched'))
+      // Marking as watched
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        published: this.published,
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.lengthSeconds,
+        watchProgress: 0,
+        timeWatched: Date.now(),
+        isLive: false,
+        type: 'video'
       }
+
+      this.updateHistory(videoData)
+      showToast(this.$t('Video.Video has been marked as watched'))
     },
 
     handleDownload: function (index) {
