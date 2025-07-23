@@ -486,7 +486,7 @@ const tabInfoValues = computed(() => {
   const values = [...channelTabs.value]
 
   // remove tabs from the array based on user settings
-  if (hideChannelHome.value) {
+  if (hideChannelHome.value || !homeData.value || homeData.value.length === 0) {
     removeFromArrayIfExists(values, 'home')
   }
 
