@@ -89,7 +89,7 @@
       />
     </ft-flex-box>
     <h4
-      class="groupTitle"
+      class="sideBarTitle"
     >
       {{ $t('Settings.Distraction Free Settings.Sections.Side Bar') }}
     </h4>
