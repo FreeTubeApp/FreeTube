@@ -1958,9 +1958,11 @@ export default defineComponent({
       } else {
         video_.currentTime = newTime
       }
-      const icon = seconds > 0 ? 'arrow-right' : 'arrow-left'
+      const popUpLayout = seconds > 0
+        ? { icon: 'arrow-right', invertIconOrder: true }
+        : { icon: 'arrow-left', invertIconOrder: false }
       const formattedSeconds = Math.abs(seconds)
-      showValueChange(`${formattedSeconds}s`, icon)
+      showValueChange(`${formattedSeconds}s`, popUpLayout.icon, popUpLayout.invertIconOrder)
     }
 
     // #endregion mouse and keyboard helpers
@@ -2959,12 +2961,14 @@ export default defineComponent({
     const showValueChangePopup = ref(false)
     const valueChangeMessage = ref('')
     const valueChangeIcon = ref(null)
+    const invertValueChangeIconOrder = ref(false)
     let valueChangeTimeout = null
 
-    function showValueChange(message, icon = null) {
+    function showValueChange(message, icon = null, invertIconOrder = false) {
       valueChangeMessage.value = message
       valueChangeIcon.value = icon
       showValueChangePopup.value = true
+      invertValueChangeIconOrder.value = invertIconOrder
 
       if (valueChangeTimeout) {
         clearTimeout(valueChangeTimeout)
@@ -3002,7 +3006,8 @@ export default defineComponent({
 
       valueChangeMessage,
       valueChangeIcon,
-      showValueChangePopup
+      showValueChangePopup,
+      invertValueChangeIconOrder,
     }
   }
 })
