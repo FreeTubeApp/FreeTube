@@ -642,9 +642,7 @@ export default defineComponent({
       }
       this.openInExternalPlayer(payload)
 
-      if (this.autosaveWatchedProgress) {
-        this.markAsWatched()
-      }
+      this.markAsWatched()
     },
 
     handleOptionsClick: function (option) {
