@@ -1958,6 +1958,9 @@ export default defineComponent({
       } else {
         video_.currentTime = newTime
       }
+      const icon = seconds > 0 ? 'arrow-right' : 'arrow-left'
+      const formattedSeconds = Math.abs(seconds)
+      showValueChange(`${formattedSeconds}s`, icon)
     }
 
     // #endregion mouse and keyboard helpers
