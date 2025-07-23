@@ -128,15 +128,15 @@ export default defineComponent({
             ]
           : []),
         {
-          type: 'password-settings',
-          title: this.$t('Settings.Password Settings.Password Settings'),
-          icon: 'key'
-        },
-        {
           type: 'sponsor-block-settings',
           title: this.$t('Settings.SponsorBlock Settings.SponsorBlock Settings'),
           // TODO: replace with SponsorBlock icon
           icon: 'shield'
+        },
+        {
+          type: 'password-settings',
+          title: this.$t('Settings.Password Settings.Password Settings'),
+          icon: 'key'
         },
         ...(process.env.IS_ELECTRON
           ? [{
