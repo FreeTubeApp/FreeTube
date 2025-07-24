@@ -76,7 +76,7 @@
         @toggle-show-tags="handleAddedChannelsHidden"
       />
     </ft-flex-box>
-    <ft-flex-box>
+    <ft-flex-box class="containingTextFlexBox">
       <ft-input-tags
         :label="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
         :tag-name-placeholder="$t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text Placeholder')"
