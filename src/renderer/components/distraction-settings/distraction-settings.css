@@ -3,8 +3,3 @@
     display: none;
   }
 }
-
-:deep(.sideBarTitle) {
-  text-align: center;
-  margin-block: 2.0em;
-}
