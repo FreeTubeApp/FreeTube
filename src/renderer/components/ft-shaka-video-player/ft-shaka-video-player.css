@@ -112,7 +112,7 @@
   pointer-events: none;
 }
 
-.valueChangePopup.invert-icon-order {
+.valueChangePopup.invert-content-order {
   flex-direction: row-reverse;
 }
 
