@@ -523,15 +523,14 @@ function updateSearchInputText(text) {
  * @param {string} query
  */
 function getSearchSuggestionsDebounce(query) {
-  const trimmedQuery = query.trim()
-  if (trimmedQuery === lastSuggestionQuery.value) {
+  if (query === lastSuggestionQuery.value) {
     return
   }
 
-  lastSuggestionQuery.value = trimmedQuery
+  lastSuggestionQuery.value = query
 
   if (enableSearchSuggestions.value) {
-    debounceSearchResults(trimmedQuery)
+    debounceSearchResults(query.trim())
   }
 }
 
