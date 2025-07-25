@@ -1119,4 +1119,6 @@ KeyboardShortcutPrompt:
   Volume Down: Diminuisci il volume
   End: Vai alla fine del video
   Home: Vai all'inizio del video
+  Skip to Next Video: Salta al video successivo in una playlist o al video consigliato successivo
+  Skip to Previous Video: Salta al video precedente in una playlist
 shortcutLabelSeparator: ｜
