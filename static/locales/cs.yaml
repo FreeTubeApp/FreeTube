@@ -1123,4 +1123,6 @@ KeyboardShortcutPrompt:
   Skip by Tenths: Přeskočit skrz video podle procenta (3 přeskočí na 30 % doby trvání)
   End: Posunout na konec videa
   Home: Posunout na začátek videa
+  Skip to Next Video: Přeskočit na další video v playlistu nebo další doporučené video
+  Skip to Previous Video: Přeskočit na předchozí video v playlistu
 shortcutLabelSeparator: ｜
