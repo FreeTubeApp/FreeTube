@@ -1151,6 +1151,8 @@ KeyboardShortcutPrompt:
   Skip by Tenths: Lammat e-barzh ar video dre zregantad (3 lamm evit tizhout 30% ar badelezh)
   Home: Mont e penn-kentañ ar video
   End: Mont e fin ar video
+  Skip to Next Video: Mont d'ar video da heul e-barzh ur roll-videoioù pe d'ar video aliet da heul
+  Skip to Previous Video: Mont d'ar video a-raok e-barzh ur roll-videoioù
 Autoplay Interruption Timer: Nullet al lenn emgefreek goude {autoplayInterruptionIntervalHours} eurvezh dioberiant
 Right-click or hold to see history: Klik dehou pe dalc'hit pouezet evit gwelet ar roll istor
 Description:
