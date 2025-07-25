@@ -202,6 +202,8 @@ History:
   Search bar placeholder: 履歴の検索
   Empty Search Message: 検索条件に一致する動画は履歴にありません
   Case Sensitive Search: 大文字小文字を区別した検索
+  DateOldestHistory: 最初に視聴した順
+  DateNewestHistory: 最後に視聴した順
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -975,6 +977,7 @@ Tooltips:
     Hide Channels: チャンネル ID を入力すると、すべての動画、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル ID は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}" 項目の "{subsection}" にあります
     Hide Videos and Playlists Containing Text: FreeTube 全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
+    Hide Videos on Watch: 視聴済みの動画を、購読ページやチャンネルページの 動画、ショート、ライブ タブから非表示にします。ただし、チャンネルページの ホーム タブには影響しません
   SponsorBlock Settings:
     UseDeArrowTitles: 動画のタイトルを DeArrow からユーザーが投稿したタイトルに置き換えます。
     UseDeArrowThumbnails: 動画のサムネイルを DeArrow からのサムネイルに置き換えます。
