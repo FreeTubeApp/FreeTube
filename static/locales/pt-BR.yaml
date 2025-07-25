@@ -1117,4 +1117,6 @@ KeyboardShortcutPrompt:
   Skip by Tenths: Pular vídeo por porcentagem (3 pulos até 30% da duração)
   Home: Ir para o início do vídeo
   End: Ir para o final do vídeo
+  Skip to Next Video: Pular para o próximo vídeo em uma playlist ou para o próximo vídeo recomendado
+  Skip to Previous Video: Pular para o vídeo anterior em uma playlist
 shortcutLabelSeparator: ｜
