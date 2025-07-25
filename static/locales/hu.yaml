@@ -1120,4 +1120,6 @@ KeyboardShortcutPrompt:
   Force Restart Window: Ablak kényszerített újraindítása
   Home: Keressen a videó elejére
   End: Keressen a videó végére
+  Skip to Next Video: Ugrás a lejátszási lista következő videójára vagy a következő ajánlott videóra
+  Skip to Previous Video: Ugrás a lejátszási lista előző videójára
 shortcutLabelSeparator: ｜
