@@ -1,4 +1,13 @@
-import { GoogleVideo, base64ToU8, concatenateChunks, PART, Protos } from 'googlevideo'
+import {
+  MediaHeader,
+  SabrError,
+  SabrRedirect,
+  StreamProtectionStatus,
+  UMPPartId,
+  VideoPlaybackAbrRequest
+} from 'googlevideo/protos'
+import { CompositeBuffer, UmpReader } from 'googlevideo/ump'
+import { base64ToU8, concatenateChunks, EnabledTrackTypes } from 'googlevideo/utils'
 import shaka from 'shaka-player'
 
 import { deepCopy } from '../utils'
@@ -20,7 +29,7 @@ function formatIdFromString(str) {
 }
 
 /**
- * @param {Protos.FormatId} formatId
+ * @param {import('googlevideo/protos').FormatId} formatId
  * @param {shaka.extern.BufferedRange} buffered
  * @param {shaka.media.SegmentIndex} segmentIndex
  */
@@ -38,7 +47,7 @@ function createBufferedRange(formatId, buffered, segmentIndex) {
  * @param {shaka.Player} player
  * @param {shaka.extern.Manifest} manifest
  * @param {boolean} audioFormatsActive
- * @param {Protos.BufferedRange[]} bufferedRanges
+ * @param {import('googlevideo/protos').BufferedRange[]} bufferedRanges
  * @param {shaka.extern.Track} activeVariant
  */
 function fillBufferedRanges(player, manifest, audioFormatsActive, bufferedRanges, activeVariant) {
@@ -138,8 +147,8 @@ async function doRequest(
   headersReceived
 ) {
   let response
-  /** @type {GoogleVideo.ChunkedDataBuffer | null} */
-  let chunkedDataBuffer = null
+  /** @type {CompositeBuffer | null} */
+  let compositeBuffer = null
   /** @type {Uint8Array[]} */
   const responseDataChunks = []
   let segmentComplete = false
@@ -161,35 +170,35 @@ async function doRequest(
     let readObj = await reader.read()
 
     while (!readObj.done && !abortStatus.finished) {
-      if (chunkedDataBuffer) {
-        chunkedDataBuffer.append(readObj.value)
+      if (compositeBuffer) {
+        compositeBuffer.append(readObj.value)
       } else {
-        chunkedDataBuffer = new GoogleVideo.ChunkedDataBuffer([readObj.value])
+        compositeBuffer = new CompositeBuffer([readObj.value])
       }
 
-      const remainingData = new GoogleVideo.UMP(chunkedDataBuffer).parse((part) => {
+      const remainingData = new UmpReader(compositeBuffer).read((part) => {
         switch (part.type) {
-          case PART.STREAM_PROTECTION_STATUS: {
-            const streamProtectionStatus = Protos.StreamProtectionStatus.decode(part.data.chunks[0])
+          case UMPPartId.STREAM_PROTECTION_STATUS: {
+            const streamProtectionStatus = StreamProtectionStatus.decode(part.data.chunks[0])
             if (streamProtectionStatus.status === 3) {
               invalidPoToken = true
             }
             break
           }
-          case PART.SABR_ERROR: {
-            const sabrError = Protos.SabrError.decode(part.data.chunks[0])
+          case UMPPartId.SABR_ERROR: {
+            const sabrError = SabrError.decode(part.data.chunks[0])
             error = `SABR Error: type: ${sabrError.type}, code: ${sabrError.code}`
             break
           }
-          case PART.SABR_REDIRECT: {
-            const sabrRedirect = Protos.SabrRedirect.decode(part.data.chunks[0])
+          case UMPPartId.SABR_REDIRECT: {
+            const sabrRedirect = SabrRedirect.decode(part.data.chunks[0])
             redirectUrl = sabrRedirect.url
             updateSabrUrl(redirectUrl)
             break
           }
-          case PART.MEDIA_HEADER: {
+          case UMPPartId.MEDIA_HEADER: {
             if (mediaHeaderId === undefined) {
-              const mediaHeader = Protos.MediaHeader.decode(part.data.chunks[0])
+              const mediaHeader = MediaHeader.decode(part.data.chunks[0])
 
               if (
                 mediaHeader.formatId.itag === itag &&
@@ -206,13 +215,13 @@ async function doRequest(
 
             break
           }
-          case PART.MEDIA: {
+          case UMPPartId.MEDIA: {
             if (mediaHeaderId === part.data.getUint8(0)) {
               responseDataChunks.push(...part.data.split(1).remainingBuffer.chunks)
             }
             break
           }
-          case PART.MEDIA_END: {
+          case UMPPartId.MEDIA_END: {
             if (mediaHeaderId === part.data.getUint8(0)) {
               segmentComplete = true
               abortStatus.finished = true
@@ -225,9 +234,9 @@ async function doRequest(
 
       if (!abortStatus.finished) {
         if (remainingData) {
-          chunkedDataBuffer = remainingData.data
+          compositeBuffer = remainingData.data
         } else {
-          chunkedDataBuffer = null
+          compositeBuffer = null
         }
 
         readObj = await reader.read()
@@ -409,7 +418,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
       }
     }
 
-    /** @type {Protos.BufferedRange[]} */
+    /** @type {import('googlevideo/protos').BufferedRange[]} */
     const bufferedRanges = []
 
     if (!isInit && activeVariant) {
@@ -426,7 +435,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
 
     const resolution = streamIsVideo ? parseInt(url.searchParams.get('resolution')) : undefined
 
-    /** @type {Protos.VideoPlaybackAbrRequest} */
+    /** @type {import('googlevideo/protos').VideoPlaybackAbrRequest} */
     const requestData = {
       clientAbrState: {
         bandwidthEstimate: Math.round(player.getStats().estimatedBandwidth),
@@ -434,22 +443,23 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
         stickyResolution: resolution,
         lastManualSelectedResolution: resolution,
         playbackRate: player.getPlaybackRate(),
-        enabledTrackTypesBitfield: streamIsAudio ? 1 : 0,
+        enabledTrackTypesBitfield: streamIsAudio ? EnabledTrackTypes.AUDIO_ONLY : EnabledTrackTypes.VIDEO_AND_AUDIO,
         drcEnabled,
         playerTimeMs,
         clientViewportWidth: playerWidth.value,
         clientViewportHeight: playerHeight.value,
         clientViewportIsFlexible: false
       },
-      selectedAudioFormatIds: [audioFormatId],
-      selectedVideoFormatIds: [videoFormatId],
+      preferredAudioFormatIds: [audioFormatId],
+      preferredVideoFormatIds: [videoFormatId],
+      preferredSubtitleFormatIds: [],
       selectedFormatIds: isInit ? [] : [audioFormatId, videoFormatId],
       bufferedRanges,
       streamerContext: {
         poToken: poToken,
         clientInfo: clientInfo,
-        field5: [],
-        field6: []
+        sabrContexts: [],
+        unsentSabrContexts: []
       },
       field1000: [],
       videoPlaybackUstreamerConfig,
@@ -458,7 +468,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
     let body
 
     try {
-      body = Protos.VideoPlaybackAbrRequest.encode(requestData).finish()
+      body = VideoPlaybackAbrRequest.encode(requestData).finish()
     } catch (error) {
       console.error('Invalid VideoPlaybackAbrRequest data', requestData)
       throw error

@@ -63,7 +63,7 @@
     "autolinker": "^4.1.5",
     "bgutils-js": "^3.2.0",
     "electron-context-menu": "^4.1.0",
-    "googlevideo": "^3.0.0",
+    "googlevideo": "^4.0.2",
     "marked": "^16.1.1",
     "portal-vue": "^2.1.7",
     "process": "^0.11.10",

@@ -5,6 +5,8 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "baseUrl": "./",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "paths": {
       "DB_HANDLERS_ELECTRON_RENDERER_OR_WEB": [
         "src/datastores/handlers/electron",
