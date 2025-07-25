@@ -1387,6 +1387,24 @@ export default defineComponent({
       this.playNextCountDownIntervalId = setInterval(showCountDownMessage, 1000)
     },
 
+    // Skip to the next video if in a playlist
+    // else next recommended video if autoplay enabled
+    handleSkipToNext: function () {
+      if (this.watchingPlaylist) {
+        this.$refs.watchVideoPlaylist?.playNextVideo()
+      } else if (!this.hideRecommendedVideos && this.nextRecommendedVideo) {
+        this.$router.push({
+          path: `/watch/${this.nextRecommendedVideo.videoId}`
+        })
+        showToast(this.$t('Playing Next Video'))
+      }
+    },
+
+    // Skip to the previous video in a playlist
+    handleSkipToPrev: function () {
+      this.$refs.watchVideoPlaylist?.playPreviousVideo()
+    },
+
     abortAutoplayCountdown: function (hideToast = false) {
       clearTimeout(this.playNextTimeout)
       clearInterval(this.playNextCountDownIntervalId)
