@@ -252,7 +252,6 @@ Settings:
       es pot desfer.'
   Subscription Settings:
     Subscription Settings: 'Configuració de les subscripcions'
-    Hide Videos on Watch: 'Oculta els vídeos visualitzats'
     Fetch Feeds from RSS: 'Recupera els canals de continguts des de l''RSS'
   Data Settings:
     Data Settings: 'Configuració de les dades'
@@ -338,6 +337,7 @@ Settings:
     Hide Comment Likes: Amaga els "M'agrada" dels comentaris
     Distraction Free Settings: Configuració del mode sense distraccions
     Hide Popular Videos: Amaga els vídeos populars
+    Hide Videos on Watch: 'Oculta els vídeos visualitzats'
   Download Settings:
     Choose Path: Escull el camí
     Download Settings: Configuració de les descàrregues

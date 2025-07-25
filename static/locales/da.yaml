@@ -509,11 +509,9 @@ Settings:
         under videoen."
   Subscription Settings:
     Subscription Settings: 'Abonnement'
-    Hide Videos on Watch: 'Skjul videoer, når set'
     Fetch Feeds from RSS: 'Hent feeds fra RSS'
     Fetch Automatically: Hent feed automatisk
     Confirm Before Unsubscribing: Bekræft før afmelding
-    'Limit the number of videos displayed for each channel': Begræns antallet af videoer
       vist for hver kanal
     To: Til
   Data Settings:
@@ -598,6 +596,7 @@ Settings:
     Hide Live Streams: Skjul livestreams
     Hide Comments: Skjul kommentarer
     Hide Sharing Actions: Skjul delingshandlinger
+    Hide Videos on Watch: 'Skjul videoer, når set'
     Hide Video Description: Skjul videobeskrivelse
     Hide Playlists: Skjul playlister
     Hide Upcoming Premieres: Skjul kommende premierer

@@ -217,6 +217,13 @@
           :default-value="hideSharingActions"
           @change="updateHideSharingActions"
         />
+        <ft-toggle-switch
+          :label="$t('Settings.Distraction Free Settings.Hide Videos on Watch')"
+          :default-value="hideWatchedSubs"
+          :compact="true"
+          :tooltip="$t('Tooltips.Distraction Free Settings.Hide Videos on Watch')"
+          @change="updateHideWatchedSubs"
+        />
       </div>
       <div class="switchColumn">
         <ft-toggle-switch

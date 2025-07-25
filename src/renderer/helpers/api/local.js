@@ -366,7 +366,11 @@ function decipherFormats(formats, player) {
   }
 }
 
-export async function getLocalChannelId(url) {
+/**
+ * @param {string} url
+ * @param {boolean} doLogError
+ */
+export async function getLocalChannelId(url, doLogError = false) {
   try {
     const innertube = await createInnertube()
 
@@ -381,11 +385,16 @@ export async function getLocalChannelId(url) {
       } else if (navigationEndpoint.metadata.page_type === 'WEB_PAGE_TYPE_UNKNOWN' && navigationEndpoint.payload.url?.startsWith('https://www.youtube.com/')) {
         // handle redirects like https://www.youtube.com/@wanderbots, which resolves to https://www.youtube.com/Wanderbots, which we need to resolve again
         url = navigationEndpoint.payload.url
-      } else {
-        return null
+      } else if (navigationEndpoint.payload.browseId === 'FEpost_detail') {
+        // convert base64 params to string and get the channelid
+        return atob(navigationEndpoint.payload.params).replaceAll(/[^\d\sA-Za-z-]/g, ' ').trim().split(' ').at(-1)
       }
     }
-  } catch { }
+  } catch (e) {
+    if (doLogError) {
+      console.error(e)
+    }
+  }
 
   return null
 }
@@ -1662,6 +1671,8 @@ export function parseLocalComment(comment, commentThread = undefined) {
     hasReplyToken = true
   }
 
+  const commentTextRuns = comment.voice_reply_container?.transcript_text ? comment.voice_reply_container.transcript_text.runs : comment.content.runs
+
   return {
     id: comment.comment_id,
     dataType: 'local',
@@ -1672,7 +1683,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     isPinned: comment.is_pinned,
     isOwner: !!comment.author_is_channel_owner,
     isMember: !!comment.is_member,
-    text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 16, { looseChannelNameDetection: true })),
+    text: Autolinker.link(parseLocalTextRuns(commentTextRuns, 16, { looseChannelNameDetection: true })),
     isHearted: !!comment.is_hearted,
     hasOwnerReplied,
     hasReplyToken,
@@ -1826,4 +1837,24 @@ function parseLocalAttachment(attachment) {
 export async function getHashtagLocal(hashtag) {
   const innertube = await createInnertube()
   return await innertube.getHashtag(hashtag)
+}
+
+export async function getLocalCommunityPost(postId, channelId) {
+  const innertube = await createInnertube()
+  if (channelId == null) {
+    channelId = await getLocalChannelId('https://www.youtube.com/post/' + postId, true)
+  }
+
+  const postPage = await innertube.getPost(postId, channelId)
+  return parseLocalCommunityPost(postPage.posts[0])
+}
+
+/**
+ * @param {string} postId
+ * @param {string} channelId
+ */
+export async function getLocalCommunityPostComments(postId, channelId) {
+  const innertube = await createInnertube()
+
+  return await innertube.getPostComments(postId, channelId)
 }

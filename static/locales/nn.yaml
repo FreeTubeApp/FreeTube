@@ -291,7 +291,6 @@ Settings:
       ugjort.'
   Subscription Settings:
     Subscription Settings: 'Abonnementinnstillingar'
-    Hide Videos on Watch: 'Skjul sette videoar'
     Fetch Feeds from RSS: 'Hent informasjonkanalar frå RSS'
     Fetch Automatically: Hent informasjonkanalar automatisk
   Distraction Free Settings:
@@ -308,6 +307,7 @@ Settings:
     Hide Playlists: Skjul spelelister
     Hide Upcoming Premieres: Skjul komande premierar
     Hide Sharing Actions: Skjul delehandlingar
+    Hide Videos on Watch: 'Skjul sette videoar'
     Hide Comments: Skjul kommentarar
     Hide Live Streams: Skjul direktesendingar
     Hide Video Description: Skjul videobeskriving

@@ -457,7 +457,6 @@ Settings:
       Tooltip: "Automático = Salva sempre ao sair da página do vídeo, quando o vídeo termina ou ocorre um erro (por exemplo: limite de taxa atingido ou sessão expirada).\nSemiautomático = Igual ao modo Automático, exceto ao sair da página do vídeo, e permite salvar o progresso manualmente através do botão \"Guardar progresso de reprodução\", localizado abaixo do player."
   Subscription Settings:
     Subscription Settings: 'Subscrição'
-    Hide Videos on Watch: 'Ocultar vídeos visualizados'
     Fetch Feeds from RSS: 'Obter subscrições através de RSS'
     Fetch Automatically: Obter fontes automaticamente
     Confirm Before Unsubscribing: Impedir cancelamento acidental de subscrições
@@ -544,6 +543,7 @@ Settings:
     Distraction Free Settings: Distrações
     Hide Video Description: Ocultar descrição dos vídeos
     Hide Sharing Actions: Ocultar ações de partilha
+    Hide Videos on Watch: 'Ocultar vídeos visualizados'
     Hide Live Streams: Ocultar transmissões em direto
     Hide Comments: Ocultar comentários
     Hide Chapters: Ocultar capítulos
@@ -975,14 +975,14 @@ Tooltips:
     DefaultCustomArgumentsTemplate: "(Padrão: '{defaultCustomArguments}')"
     Ignore Default Arguments: 'Não enviar quaisquer argumentos padrão ao reprodutor externo a não ser o URL (ex: velocidade de reprodução, URL da lista de reprodução...). Os argumentos personalizados serão enviados.'
   Player Settings:
-    Default Video Format: Define os formatos usados quando um vídeo é reproduzido. Os formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos estão limitados a um máximo de 720p, mas usam menos largura de banda. Os formatos de áudio são apenas para emissões sem vídeo.
+    Default Video Format: Define os formatos usados quando um vídeo é reproduzido. Os formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos estão limitados a um máximo de 360p, mas usam menos largura de banda. Os formatos de áudio são apenas para emissões sem vídeo.
     Proxy Videos Through Invidious: Estabelece uma conexão ao Invidious para obter vídeos em vez de fazer uma conexão direta ao YouTube.
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, prima e mantenha premida a tecla Ctrl (tecla Comando em Mac) e desloque a roda do rato para controlar a velocidade de reprodução. Prima e mantenha premida a tecla Ctrl (tecla Comando em Mac) e clique com o botão esquerdo do rato para voltar rapidamente à velocidade de reprodução padrão (1 a não ser que tenha sido alterada nas definições).
     Skip by Scrolling Over Video Player: Utilizar roda do rato para avançar ou recuar o vídeo, estilo MPV.
   General Settings:
     Region for Trending: A região permite-lhe escolher de que país virão os vídeos na secção de tendências.
     Invidious Instance: A instância Invidious à qual o FreeTube se irá ligar para invocar a API.
-    Thumbnail Preference: Todas as miniaturas dos vídeos no FreeTube serão substituídas por um fotograma do vídeo em vez da miniatura original.
+    Thumbnail Preference: Todas as miniaturas dos vídeos no FreeTube serão substituídas por um fotograma do vídeo, borrado ou oculto em vez da miniatura original.
     Fallback to Non-Preferred Backend on Failure: Se a sua API preferida tiver um problema, FreeTube tentará usar automaticamente a API secundária, caso esta opção esteja ativada.
     Preferred API Backend: Escolha o sistema que o FreeTube usa para se ligar ao YouTube. A API local é um extrator incorporado. A API Invidious requer um servidor Invidious para fazer a ligação.
     External Link Handling: "Escolha o comportamento padrão quando uma hiperligação, que não pode ser aberta no FreeTube, é clicada.\nPor definição, o FreeTube abrirá a hiperligação no seu navegador de Internet.\n"

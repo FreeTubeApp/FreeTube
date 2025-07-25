@@ -468,7 +468,6 @@ Settings:
       Tooltip: Auto = Save on every video page exit, when video ended and error encountered (e.g. ratelimited and watch session expired). Semi-auto = Like Auto except on video page exit and can save progress manually via a button called Save Watched Progress, located beneath the video player.
   Subscription Settings:
     Subscription Settings: 'Subscription'
-    Hide Videos on Watch: 'Hide Videos on Watch'
     Fetch Feeds from RSS: 'Fetch feeds from RSS'
     Fetch Automatically: Fetch feed automatically
     Confirm Before Unsubscribing: Confirm before unsubscribing
@@ -528,6 +527,7 @@ Settings:
     Hide Live Streams: Hide live streams
     Hide Upcoming Premieres: Hide Upcoming Premieres
     Hide Sharing Actions: Hide sharing actions
+    Hide Videos on Watch: 'Hide Videos on Watch'
     Hide Chapters: Hide chapters
     Hide Channels: Hide videos from channels
     Hide Channels Placeholder: Channel ID
