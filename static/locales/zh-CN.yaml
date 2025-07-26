@@ -1119,4 +1119,6 @@ KeyboardShortcutPrompt:
   Next Chapter: 下一章节
   End: 跳转到视频结尾
   Home: 跳转到视频开头
+  Skip to Next Video: 跳到播放列表中下一个视频或下一个推荐的视频
+  Skip to Previous Video: 跳到播放列表中前一个视频
 shortcutLabelSeparator: ｜
