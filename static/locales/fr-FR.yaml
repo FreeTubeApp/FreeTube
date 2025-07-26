@@ -1120,4 +1120,6 @@ KeyboardShortcutPrompt:
   Skip by Tenths: Sauter dans la vidéo par pourcentage (3 sauts pour atteindre 30 % de la durée)
   Home: Aller au début de la vidéo
   End: Aller à la fin de la vidéo
+  Skip to Next Video: Passer à la vidéo suivante dans la liste de lecture ou à la vidéo recommandée suivante
+  Skip to Previous Video: Revenir à la vidéo précédente dans la liste de lecture
 shortcutLabelSeparator: ｜
