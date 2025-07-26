@@ -33,7 +33,7 @@
 import { computed } from 'vue'
 
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
-import FtToggleSwitch from './ft-toggle-switch/ft-toggle-switch.vue'
+import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
 
 import store from '../store/index'
 

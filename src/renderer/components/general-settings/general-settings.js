@@ -3,7 +3,7 @@ import { mapActions, mapMutations } from 'vuex'
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
-import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
+import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../FtButton/FtButton.vue'
 
