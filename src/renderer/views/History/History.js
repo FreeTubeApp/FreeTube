@@ -7,7 +7,7 @@ import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtButton from '../../components/FtButton/FtButton.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
 import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrapper.vue'
-import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
+import FtToggleSwitch from '../../components/FtToggleSwitch/FtToggleSwitch.vue'
 import { ctrlFHandler, debounce, getIconForSortPreference } from '../../helpers/utils'
 import FtSelect from '../../components/ft-select/ft-select.vue'
 

@@ -97,7 +97,7 @@ import { computed, onBeforeUnmount, ref } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
-import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
+import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtButton from '../FtButton/FtButton.vue'
 import FtSelect from '../ft-select/ft-select.vue'
 import FtInput from '../ft-input/ft-input.vue'
