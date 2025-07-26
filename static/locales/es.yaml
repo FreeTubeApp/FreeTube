@@ -450,6 +450,7 @@ Settings:
         Never: Nunca
         Auto: Automático
         Semi-auto: Semi-automático
+      Tooltip: Automático = Guarda al salir de cada página de video, cuando el video termina y cuando ocurre un error (por ejemplo, límite de velocidad o sesión de reproducción expirada). Semiautomático = Igual que Automático, excepto que no guarda al salir de la página de video. Se puede guardar el progreso manualmente usando el botón "Guardar progreso de visualización", ubicado debajo del reproductor de video.
   Subscription Settings:
     Subscription Settings: 'Suscripción'
     Fetch Feeds from RSS: 'Recuperar suministros desde RSS'
