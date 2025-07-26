@@ -130,6 +130,7 @@
 </template>
 
 <script setup>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, ref, watch } from 'vue'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
