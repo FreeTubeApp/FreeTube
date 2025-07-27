@@ -1119,4 +1119,6 @@ KeyboardShortcutPrompt:
   Small Rewind: X Sekunden zurückspulen, basierend auf dem Rückspulintervall und der aktuellen Wiedergabegeschwindigkeit
   End: Zum Ende des Videos springen
   Home: Zum Anfang des Videos springen
+  Skip to Next Video: Zum nächsten Video in der Playlist bzw. nächsten empfohlenen Video springen
+  Skip to Previous Video: Zum vorherigen Video in der Playlist springen
 shortcutLabelSeparator: ｜
