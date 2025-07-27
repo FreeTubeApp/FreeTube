@@ -114,7 +114,7 @@
         id="subscriptionsPanel"
         role="tabpanel"
       />
-      <SubscriptionsCommunity
+      <SubscriptionsPosts
         v-else-if="currentTab === 'community'"
         id="subscriptionsPanel"
         role="tabpanel"
@@ -135,10 +135,10 @@ import { computed, ref, watch } from 'vue'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import SubscriptionsVideos from '../../components/subscriptions-videos/subscriptions-videos.vue'
-import SubscriptionsLive from '../../components/subscriptions-live/subscriptions-live.vue'
-import SubscriptionsShorts from '../../components/subscriptions-shorts/subscriptions-shorts.vue'
-import SubscriptionsCommunity from '../../components/subscriptions-community/subscriptions-community.vue'
+import SubscriptionsVideos from '../../components/SubscriptionsVideos.vue'
+import SubscriptionsLive from '../../components/SubscriptionsLive.vue'
+import SubscriptionsShorts from '../../components/SubscriptionsShorts.vue'
+import SubscriptionsPosts from '../../components/SubscriptionsPosts.vue'
 
 import store from '../../store/index'
 
