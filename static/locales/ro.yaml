@@ -693,7 +693,7 @@ Channel:
     Videos: 'Videoclipuri'
     This channel does not currently have any videos: 'Acest canal nu are în prezent niciun videoclip'
     Sort Types:
-      Newest: 'Cele mai nou'
+      Newest: 'Cele mai noi'
       Oldest: 'Cele mai vechi'
       Most Popular: 'Cele mai populare'
   Playlists:
@@ -918,8 +918,8 @@ Comments:
   There are no comments available for this video: 'Nu există comentarii disponibile pentru acest videoclip'
   Load More Comments: 'Încărcați mai multe comentarii'
   Show More Replies: Afișați mai multe răspunsuri
-  Newest first: Începând cu cele mai noi
-  Top comments: Cele mai bune comentarii
+  Newest first: Cele mai noi primele
+  Top comments: Cele mai bune
   And others: și altele
   From {channelName}: de la {channelName}
   Pinned by: Lipit de
