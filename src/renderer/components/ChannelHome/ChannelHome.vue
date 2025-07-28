@@ -47,7 +47,7 @@
 </template>
 
 <script setup>
-
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed } from 'vue'
 import FtElementList from '../FtElementList/FtElementList.vue'
 import store from '../../store/index'

@@ -59,7 +59,7 @@ const state = {
     videos: false,
     liveStreams: false,
     shorts: false,
-    communityPosts: false,
+    posts: false,
   },
   appTitle: ''
 }
@@ -178,8 +178,8 @@ const getters = {
   getSubscriptionForShortsFirstAutoFetchRun (state) {
     return state.subscriptionFirstAutoFetchRunData.shorts === true
   },
-  getSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
-    return state.subscriptionFirstAutoFetchRunData.communityPosts === true
+  getSubscriptionForPostsFirstAutoFetchRun (state) {
+    return state.subscriptionFirstAutoFetchRunData.posts === true
   },
   getAppTitle (state) {
     return state.appTitle
@@ -994,8 +994,8 @@ const mutations = {
   setSubscriptionForShortsFirstAutoFetchRun (state) {
     state.subscriptionFirstAutoFetchRunData.shorts = true
   },
-  setSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
-    state.subscriptionFirstAutoFetchRunData.communityPosts = true
+  setSubscriptionForPostsFirstAutoFetchRun (state) {
+    state.subscriptionFirstAutoFetchRunData.posts = true
   }
 }
 

@@ -156,7 +156,7 @@ User Playlists:
         داشت
       This playlist is now used for quick bookmark: این لیست پخش اکنون برای 
         نشانک سریع استفاده می‌شود
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: 
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.:
         برخی از ویدیوها در لیست پخش هنوز بارگیری نشده اند. به هر حال برای کپی 
         اینجا کلیک کنید.
       "{videoCount} video(s) have been removed": 1 ویدئو حذف شد | {videoCount} 
@@ -200,7 +200,7 @@ User Playlists:
     Toast:
       Playlist {playlistName} has been successfully created.: لیست پخش 
         {playlistName} با موفقیت ایجاد شد.
-      There is already a playlist with this name. Please pick a different name.: 
+      There is already a playlist with this name. Please pick a different name.:
         از قبل یک فهرست پخش با این نام وجود دارد. لطفا نام دیگری انتخاب کنید.
       There was an issue with creating the playlist.: مشکلی در ایجاد لیست پخش 
         وجود داشت.
@@ -515,7 +515,6 @@ Settings:
         در زیر پخش کننده ویدئو ذخیره کند.
   Subscription Settings:
     Subscription Settings: 'دنبال شوندگان'
-    Hide Videos on Watch: 'مخفی کردن ویدیو ها هنگام تماشا'
     Fetch Feeds from RSS: 'دریافت feed ها از RSS'
     Fetch Automatically: آوردن خودکار فید
     Confirm Before Unsubscribing: تایید لغو اشتراک
@@ -559,6 +558,7 @@ Settings:
     Hide Channel Podcasts: پنهان کردن "پادکست‌های" کانال
     Hide Channel Releases: مخفی کردن "انتشارات" کانال
     Hide Sharing Actions: مخفی کردن فعالیت های مشترک
+    Hide Videos on Watch: 'مخفی کردن ویدیو ها هنگام تماشا'
     Hide Videos and Playlists Containing Text Placeholder: کلمه، بخش کلمه یا 
       عبارت
     Hide Channels Invalid: شناسه کانال ارائه شده نامعتبر بود
@@ -662,7 +662,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock 
       API URL (پیش‌فرض https://sponsor.ajay.app است)
     UseDeArrowThumbnails: استفاده از افزونه DeArrow برای ریز‌عکسها
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)':
       رابط آدرس سازنده ریز‌عکس DeArrow (پیش‌فرض https://dearrow-thumb.ajay.app 
       است)
   Download Settings:
@@ -702,7 +702,7 @@ Channel:
     Playlists: فهرست های پخش
     This channel does not currently have any playlists: این کانال در حال حاضر 
       هیچ لیست پخشی ندارد
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: 
+  This channel is age-restricted and currently cannot be viewed in FreeTube.:
     این کانال دارای محدودیت سنی است و در حال حاضر نمی توان آن را در FreeTube 
     مشاهده کرد.
   Live:
@@ -774,7 +774,7 @@ Video:
   External Player:
     video: ویدیو
     Unsupported Actions:
-      opening specific video in a playlist (falling back to opening the video): 
+      opening specific video in a playlist (falling back to opening the video):
         باز کردن یک ویدیوی خاص در یک لیست پخش (بازگشت به باز کردن ویدیو)
       setting a playback rate: تنظیم نرخ پخش
       opening playlists: باز کردن لیست های پخش
@@ -832,7 +832,7 @@ Video:
   Published on: منتشر شده در
   audio only: فقط صدا
   Video has been saved: ویدیو ذخیره شده است
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.':
     گفتگوی زنده در حال حاضر با Invidious API پشتیبانی نمی شود. اتصال مستقیم به 
     YouTube مورد نیاز است.
   Premieres: نخستین نمایش
@@ -840,7 +840,7 @@ Video:
   Live chat is enabled. Chat messages will appear here once sent.: چت زنده فعال 
     است. پیام‌های گپ پس از ارسال در اینجا ظاهر می‌شوند.
   Scroll to Bottom: به پایین بروید
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.':
     چت زنده برای این جریان در دسترس نیست. ممکن است توسط آپلود کننده غیرفعال شده 
     باشد.
   Show Super Chat Comment: نمایش نظر سوپر چت

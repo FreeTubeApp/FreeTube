@@ -202,6 +202,8 @@ History:
   Search bar placeholder: Buscar no histórico
   Empty Search Message: Não há vídeos em seu histórico que correspondam à sua busca
   Case Sensitive Search: Busca que diferencia maiúsculas de minúsculas
+  DateOldestHistory: Mais antigo assistido primeiro
+  DateNewestHistory: Últimos assistidos primeiro
 Settings:
   # On Settings Page
   Settings: 'Configurações'
@@ -422,7 +424,6 @@ Settings:
       External Player: Player externo ({externalPlayerName})
   Subscription Settings:
     Subscription Settings: 'Inscrições'
-    Hide Videos on Watch: 'Ocultar vídeos após assisti-los'
     Fetch Feeds from RSS: Buscar Informações através de RSS
     Fetch Automatically: Buscar feed automaticamente
     Confirm Before Unsubscribing: Pedir para confirmar antes de cancelar a inscrição
@@ -505,6 +506,7 @@ Settings:
     Hide Playlists: Ocultar playlist
     Hide Video Description: Ocultar descrição do vídeo
     Hide Sharing Actions: Ocultar ações de compartilhamento
+    Hide Videos on Watch: 'Ocultar vídeos após assisti-los'
     Hide Comments: Ocultar comentários
     Hide Live Streams: Ocultar transmissões ao vivo
     Hide Chapters: Ocultar capítulos
@@ -976,6 +978,7 @@ Tooltips:
     Hide Channels: Insira o ID de um canal para impedir que todos os vídeos, playlists e o próprio canal apareçam nas buscas, tendências, mais populares e recomendados. O ID do canal inserido deve ser uma correspondência completa e diferenciar maiúsculas de minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição de toda a aplicação "{appWideSetting}", na seção "{subsection}" da "{settingsSection}"
     Hide Videos and Playlists Containing Text: Insira uma palavra, trecho de uma palavra ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar todos os vídeos e playlists cujos títulos originais a contenham em todo o FreeTube, excluindo apenas histórico, suas playlists e vídeos dentro das playlists.
+    Hide Videos on Watch: Oculta vídeos já assistidos a partir das guias "Vídeos", "Shorts" e "Ao Vivo" nas páginas de "Assinatura" e "Canal". Isso não afeta a guia "Início" nas páginas de "Canal"
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo usuário a partir do DeArrow.
     UseDeArrowThumbnails: Substitua as miniaturas de vídeo pelas miniaturas do DeArrow.
@@ -1114,4 +1117,6 @@ KeyboardShortcutPrompt:
   Skip by Tenths: Pular vídeo por porcentagem (3 pulos até 30% da duração)
   Home: Ir para o início do vídeo
   End: Ir para o final do vídeo
+  Skip to Next Video: Pular para o próximo vídeo em uma playlist ou para o próximo vídeo recomendado
+  Skip to Previous Video: Pular para o vídeo anterior em uma playlist
 shortcutLabelSeparator: ｜

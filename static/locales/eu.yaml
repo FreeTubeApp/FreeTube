@@ -459,7 +459,6 @@ Settings:
       Tooltip: Automatikoa = Gorde bideo-orriaren irteera guztietan, bideoa amaitzen denean eta errorea aurkitu denean (adibidez, tasa mugatua eta ikusi-saioa iraungi zenean). Erdi automatikoa = Auto bezala bideo-orriaren irteeran izan ezik, eta aurrerapena eskuz gorde dezakezu Gorde ikusitako aurrerapena izeneko botoi baten bidez, bideo erreproduzitzailearen azpian dagoena.
   Subscription Settings:
     Subscription Settings: 'Harpidetza'
-    Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
     Fetch Feeds from RSS: 'RSS jarioak eskuratu'
     Fetch Automatically: Eskuratu jarioa automatikoki
     Confirm Before Unsubscribing: Saihestu ustekabeko harpidetza kentzea
@@ -478,6 +477,7 @@ Settings:
     Hide Live Chat: 'Zuzeneko txata ezkutatu'
     Hide Active Subscriptions: 'Harpidetza aktiboak ezkutatu'
     Hide Sharing Actions: Partekatze ekintzak ezkutatu
+    Hide Videos on Watch: 'Ikusten ari zaren bideoa ezkutatu'
     Hide Video Description: Bideoaren deskribapena ezkutatu
     Hide Comments: Iruzkinak ezkutatu
     Hide Live Streams: Zuzeneko emanaldiak ezkutatu
@@ -965,6 +965,7 @@ Tooltips:
     Hide Channels: Sartu kanalaren ID bat bideo, erreprodukzio-zerrenda eta kanala bera bilaketetan, joeran, ezagunenetan eta gomendagarrienetan ager ez dadin ezkutatzeko. Sartutako kanalaren IDak guztiz bat etorri behar du eta maiuskulak eta minuskulak bereizten ditu.
     Hide Videos and Playlists Containing Text: Idatzi hitz bat, hitz-zati bat edo esaldi bat (maiuskulak eta minuskulak bereizten ez diren) jatorrizko izenburuak FreeTube osoan duten bideo eta erreprodukzio-zerrenda guztiak ezkutatzeko, historia, zure erreprodukzio-zerrendak eta erreprodukzio-zerrenden barneko bideoak soilik kenduta.
     Hide Subscriptions Live: Ezarpen hau aplikazio osorako "{appWideSetting}" ezarpenak ordezkatzen du, "{settingsSection}" ataleko "{subsection}" atalean
+    Hide Videos on Watch: Ikusitako bideoak ezkutatzen ditu Harpidetza eta Kanalen orrialdeetako Bideoak, Laburpenak eta Zuzeneko fitxetatik. Honek ez dio eragiten Kanalen orrialdeetako Hasiera fitxari
   Experimental Settings:
     Replace HTTP Cache: Electron-en diskoan oinarritutako HTTP cachea desgaitzen du eta memoriako irudien cache pertsonalizatua gaitu. RAM erabilera handitzea ekarriko du.
   SponsorBlock Settings:
@@ -1121,4 +1122,6 @@ KeyboardShortcutPrompt:
   History Backward: Egin orrialde bat atzera
   Home: Bideoaren hasierara joan
   End: Bilatu bideoaren amaierara
+  Skip to Next Video: Joan erreprodukzio-zerrendaren hurrengo bideora edo hurrengo gomendatutako bideora
+  Skip to Previous Video: Joan erreprodukzio-zerrendaren aurreko bideora
 shortcutLabelSeparator: ｜

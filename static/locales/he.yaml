@@ -500,7 +500,6 @@ Settings:
         התקדמות נצפתה, הממוקם מתחת לנגן הווידאו.
   Subscription Settings:
     Subscription Settings: 'מינוי'
-    Hide Videos on Watch: 'הסתרת סרטונים לאחר הצפייה'
     Fetch Feeds from RSS: 'ייבוא עדכונים בעזרת RSS'
     Fetch Automatically: משיכת ערוץ העדכונים אוטומטית
     Confirm Before Unsubscribing: אישור לפני ביטול מינוי
@@ -568,6 +567,7 @@ Settings:
     Hide Playlists: הסתרת רשימות נגינה
     Hide Live Streams: הסתרת תזרימים חיים
     Hide Sharing Actions: הסתרת פעולות שיתוף
+    Hide Videos on Watch: 'הסתרת סרטונים לאחר הצפייה'
     Hide Comments: הסתרת הערות
     Hide Video Description: הסתרת תיאור וידאו
     Hide Chapters: הסתרת פרקים

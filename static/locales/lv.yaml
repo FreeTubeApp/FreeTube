@@ -427,7 +427,6 @@ Settings:
     Remove All Playlists: Noņemt visus atskaņošanas sarakstus
   Subscription Settings:
     Subscription Settings: 'Abonementu'
-    Hide Videos on Watch: 'Paslēpt video pēc skatīšanas'
     Fetch Feeds from RSS: 'Iegūt plūsmu no RSS'
     Fetch Automatically: 'Iegūt plūsmu automātiski'
   Distraction Free Settings:
@@ -456,6 +455,7 @@ Settings:
     Hide Live Streams: 'Paslēpt dzīvās straumes'
     Hide Upcoming Premieres: 'Paslēpt tuvojošās pirmizrādes'
     Hide Sharing Actions: 'Paslēpt dalīšanās darbības'
+    Hide Videos on Watch: 'Paslēpt video pēc skatīšanas'
     Hide Chapters: 'Paslēpt nodaļas'
     Hide Channels: 'Kanālos paslēpt video'
     Hide Channels Placeholder: 'Kanāla ID'

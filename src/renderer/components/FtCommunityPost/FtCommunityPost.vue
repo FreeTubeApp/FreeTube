@@ -126,7 +126,7 @@
           aria-hidden="true"
         /> {{ formattedVoteCount }}</span>
       <router-link
-        v-if="isInvidiousAllowed && !singlePost"
+        v-if="!singlePost"
         :to="{
           path: `/post/${postId}`,
           query: authorId ? { authorId } : undefined
@@ -166,7 +166,7 @@ import { A11y, Navigation, Pagination } from 'swiper/modules'
 import { computed, onMounted, ref } from 'vue'
 
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
-import FtListPlaylist from '../ft-list-playlist/ft-list-playlist.vue'
+import FtListPlaylist from '../FtListPlaylist/FtListPlaylist.vue'
 import FtCommunityPoll from '../FtCommunityPoll/FtCommunityPoll.vue'
 
 import store from '../../store/index'
@@ -216,15 +216,6 @@ const hideVideo = computed(() => {
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
 const backendPreference = computed(() => {
   return store.getters.getBackendPreference
-})
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const backendFallback = computed(() => {
-  return store.getters.getBackendFallback
-})
-
-const isInvidiousAllowed = computed(() => {
-  return backendPreference.value === 'invidious' || backendFallback.value
 })
 
 let postType = ''

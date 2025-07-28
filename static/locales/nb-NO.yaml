@@ -205,6 +205,8 @@ History:
   Empty Search Message: Ingen videoer i historikken din samsvarer med søket ditt
   Search bar placeholder: Søk i historikken
   Case Sensitive Search: Søket skiller mellom store og små bokstaver
+  DateOldestHistory: Tidligste sett først
+  DateNewestHistory: Seneste sett først
 Settings:
   # On Settings Page
   Settings: 'Innstillinger'
@@ -451,7 +453,6 @@ Settings:
     Search history and cache have been cleared: Søkshistorikken og mellomlageret har blitt tømt
   Subscription Settings:
     Subscription Settings: 'Abonnementer'
-    Hide Videos on Watch: 'Skjul sette videoer'
     Fetch Feeds from RSS: Hent informasjonskanaler via RSS
     Fetch Automatically: Hent informasjonskanaler automatisk
 
@@ -527,6 +528,7 @@ Settings:
     Hide Channels Placeholder: Kanal-ID
     Hide Channels: Skjul videoer fra kanaler
     Hide Sharing Actions: Skjul delingshandlinger
+    Hide Videos on Watch: 'Skjul sette videoer'
     Hide Upcoming Premieres: Skjul kommende premièrer
     Hide Video Description: Skjul videobeskrivelse
     Display Titles Without Excessive Capitalisation: Vis titler uten overdreven bruk av store bokstaver

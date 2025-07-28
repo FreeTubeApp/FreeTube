@@ -424,7 +424,6 @@ Settings:
       External Player: 外部播放器（{externalPlayerName}）
   Subscription Settings:
     Subscription Settings: '訂閱'
-    Hide Videos on Watch: '觀看時隱藏影片'
     Fetch Feeds from RSS: 從RSS擷取推送
     Fetch Automatically: 自動擷取 Feed
     Confirm Before Unsubscribing: 避免意外取消訂閱
@@ -509,6 +508,7 @@ Settings:
     Hide Comments: 隱藏留言
     Hide Live Streams: 隱藏直播串流
     Hide Sharing Actions: 隱藏分享動作
+    Hide Videos on Watch: '觀看時隱藏影片'
     Hide Chapters: 隱藏章節
     Hide Upcoming Premieres: 隱藏即將到來的首映
     Hide Channels Placeholder: 頻道 ID
@@ -978,6 +978,7 @@ Tooltips:
     Hide Channels: 輸入頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋、趨勢、熱門與建議中。輸入的頻道 ID 必須完全符合，且區分大小寫。
     Hide Subscriptions Live: 此設定會被「{settingsSection}」的「{subsection}」部分中應用程式範圍的「{appWideSetting}」設定覆寫
     Hide Videos and Playlists Containing Text: 輸入單字、單字片段或片語（不分大小寫），以隱藏整個 FreeTube 中原始標題包含該單字、單字片段或片語的所有影片與播放清單，僅不包括歷史紀錄、您的播放清單與播放清單內的影片。
+    Hide Videos on Watch: 在訂閱和頻道頁面上的影片、短片和直播頁面中隱藏已觀看的影片。這不會影響頻道頁面上的主頁
   SponsorBlock Settings:
     UseDeArrowTitles: 將影片標題取代為 DeArrow 使用者遞交的標題。
     UseDeArrowThumbnails: 將影片縮圖替換為來自 DeArrow 的縮圖。

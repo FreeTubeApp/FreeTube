@@ -457,7 +457,6 @@ Settings:
       Tooltip: Automatikus = Mentés minden videóoldal elhagyásakor, a videó befejezésekor és hiba esetén (pl. a megtekintési korlátozás és videólejátszási munkamenet lejártakor). Félautomata = Hasonló az automatikushoz, kivéve a videóoldal elhagyásakor, továbbá a videolejátszó alatt található „Megnézett videó folyamatának mentése” nevű gomb segítségével saját kezűleg is menthető.
   Subscription Settings:
     Subscription Settings: 'Feliratkozás'
-    Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
     Confirm Before Unsubscribing: Megerősítés kérése leíratkozáskor
@@ -516,6 +515,7 @@ Settings:
     Hide Comments: Hozzászólások elrejtése
     Hide Live Streams: Élő közvetítések elrejtése
     Hide Sharing Actions: Megosztási műveletek elrejtése
+    Hide Videos on Watch: 'Videók elrejtése megtekintés után'
     Hide Chapters: Fejezetek elrejtése
     Hide Upcoming Premieres: Közelgő bemutatók elrejtése
     Hide Channels: Videók elrejtése a csatornákból
@@ -981,6 +981,7 @@ Tooltips:
     Hide Channels: Adjon meg egy csatornaazonosítót, hogy elrejtse az összes videót, lejátszási listát és magát a csatornát a keresési eredményekből, a felkapottak közül, a legnépszerűbbekből és az ajánlottak közül. A megadott csatornaazonosítónak pontosan egyeznie kell, valamint kis- és nagybetűérzékeny.
     Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}” beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
     Hide Videos and Playlists Containing Text: Adjon meg egy szót, szótöredéket vagy kifejezést (nem érzékeny a nagy- és kisbetűkre), hogy elrejtse az összes olyan videót és lejátszási listát, amelynek eredeti címe tartalmazza ezt a szót vagy kifejezést a FreeTube egész területén, kivéve az előzményeket, a lejátszási listákat és a lejátszási listákon belüli videókat.
+    Hide Videos on Watch: Elrejti a megtekintett videókat a videók-, rövid videók- és élő lapokról a feliratkozás- és a csatornaoldalon. Ez nem érinti a kezdőoldalon található csatornalapokat
   SponsorBlock Settings:
     UseDeArrowTitles: Cserélje le a videocímeket a DeArrow-ból, felhasználó által beküldött címekre.
     UseDeArrowThumbnails: Videó miniatűr cseréje DeArrow miniatűrrel.
@@ -1119,4 +1120,6 @@ KeyboardShortcutPrompt:
   Force Restart Window: Ablak kényszerített újraindítása
   Home: Keressen a videó elejére
   End: Keressen a videó végére
+  Skip to Next Video: Ugrás a lejátszási lista következő videójára vagy a következő ajánlott videóra
+  Skip to Previous Video: Ugrás a lejátszási lista előző videójára
 shortcutLabelSeparator: ｜

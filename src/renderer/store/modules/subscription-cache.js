@@ -14,21 +14,13 @@ const state = {
 const getters = {
   getSubscriptionCacheReady: (state) => state.subscriptionCacheReady,
 
-  getVideoCacheByChannel: (state) => (channelId) => {
-    return state.videoCache[channelId]
-  },
+  getVideoCache: (state) => state.videoCache,
 
-  getShortsCacheByChannel: (state) => (channelId) => {
-    return state.shortsCache[channelId]
-  },
+  getShortsCache: (state) => state.shortsCache,
 
-  getLiveCacheByChannel: (state) => (channelId) => {
-    return state.liveCache[channelId]
-  },
+  getLiveCache: (state) => state.liveCache,
 
-  getPostsCacheByChannel: (state) => (channelId) => {
-    return state.postsCache[channelId]
-  },
+  getPostsCache: (state) => state.postsCache,
 }
 
 const actions = {

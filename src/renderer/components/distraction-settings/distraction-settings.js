@@ -1,8 +1,8 @@
 import { defineComponent } from 'vue'
 import { mapActions } from 'vuex'
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
-import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
-import FtInputTags from '../../components/ft-input-tags/ft-input-tags.vue'
+import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
+import FtInputTags from '../FtInputTags/FtInputTags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import { showToast } from '../../helpers/utils'
 import { checkYoutubeChannelId, findChannelTagInfo } from '../../helpers/channels'
@@ -142,6 +142,9 @@ export default defineComponent({
         settingsSection: this.$t('Settings.Distraction Free Settings.Distraction Free Settings')
       })
     },
+    hideWatchedSubs: function () {
+      return this.$store.getters.getHideWatchedSubs
+    },
   },
   mounted: function () {
     this.verifyChannelsHidden()
@@ -245,6 +248,7 @@ export default defineComponent({
       'updateHideSubscriptionsCommunity',
       'updateShowAddedChannelsHidden',
       'updateShowAddedForbiddenTitles',
-    ])
-  }
+      'updateHideWatchedSubs',
+    ]),
+  },
 })

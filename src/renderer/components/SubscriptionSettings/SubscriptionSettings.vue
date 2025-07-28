@@ -27,12 +27,6 @@
       </div>
       <div class="switchColumn">
         <FtToggleSwitch
-          :label="$t('Settings.Subscription Settings.Hide Videos on Watch')"
-          :default-value="hideWatchedSubs"
-          compact
-          @change="updateHideWatchedSubs"
-        />
-        <FtToggleSwitch
           :label="$t('Settings.Subscription Settings.Limit the number of videos displayed for each channel')"
           :default-value="onlyShowLatestFromChannel"
           compact
@@ -59,7 +53,7 @@ import { computed } from 'vue'
 
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtSlider from '../FtSlider/FtSlider.vue'
-import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
+import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 
 import store from '../../store/index'
 
@@ -91,16 +85,6 @@ const unsubscriptionPopupStatus = computed(() => store.getters.getUnsubscription
  */
 function updateUnsubscriptionPopupStatus(value) {
   store.dispatch('updateUnsubscriptionPopupStatus', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideWatchedSubs = computed(() => store.getters.getHideWatchedSubs)
-
-/**
- * @param {boolean} value
- */
-function updateHideWatchedSubs(value) {
-  store.dispatch('updateHideWatchedSubs', value)
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */

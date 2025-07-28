@@ -522,7 +522,6 @@ Settings:
         Never: Ніколи
   Subscription Settings:
     Subscription Settings: 'Підписка'
-    Hide Videos on Watch: 'Ховати відео при перегляді'
     Fetch Feeds from RSS: 'Отримати канали з RSS'
     Fetch Automatically: Автоматично отримувати стрічку
     Confirm Before Unsubscribing: Підтвердити перед скасуванням підписки
@@ -544,6 +543,7 @@ Settings:
     Hide Video Description: Сховати опис відео
     Hide Comments: Сховати коментарі
     Hide Sharing Actions: Сховати дії поширення
+    Hide Videos on Watch: 'Ховати відео при перегляді'
     Hide Live Streams: Сховати прямі трансляції
     Hide Chapters: Сховати розділи
     Hide Upcoming Premieres: Сховати майбутні прем'єри

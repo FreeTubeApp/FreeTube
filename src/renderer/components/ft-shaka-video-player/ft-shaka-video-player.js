@@ -22,7 +22,8 @@ import {
 import {
   addKeyboardShortcutToActionTitle,
   showToast,
-  writeFileWithPicker
+  writeFileWithPicker,
+  throttle,
 } from '../../helpers/utils'
 
 /** @typedef {import('../../helpers/sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
@@ -151,7 +152,9 @@ export default defineComponent({
     'timeupdate',
     'toggle-autoplay',
     'toggle-theatre-mode',
-    'playback-rate-updated'
+    'playback-rate-updated',
+    'skip-to-next',
+    'skip-to-prev',
   ],
   setup: function (props, { emit, expose }) {
     const { locale, t } = useI18n()
@@ -944,13 +947,13 @@ export default defineComponent({
 
         if (event.ctrlKey || event.metaKey) {
           if (videoPlaybackRateMouseScroll.value) {
-            mouseScrollPlaybackRate(event)
+            mouseScrollPlaybackRateHandler(event)
           }
         } else {
           if (videoVolumeMouseScroll.value) {
-            mouseScrollVolume(event)
+            mouseScrollVolumeHandler(event)
           } else if (videoSkipMouseScroll.value) {
-            mouseScrollSkip(event)
+            mouseScrollSkipHandler(event)
           }
         }
       }
@@ -988,7 +991,7 @@ export default defineComponent({
       }
 
       // make scrolling over volume slider change the volume
-      container.value.querySelector('.shaka-volume-bar').addEventListener('wheel', mouseScrollVolume)
+      container.value.querySelector('.shaka-volume-bar').addEventListener('wheel', mouseScrollVolumeHandler)
 
       // title overlay when the video is fullscreened
       // placing this inside the controls container so that we can fade it in and out at the same time as the controls
@@ -1964,16 +1967,30 @@ export default defineComponent({
 
     // #region mouse scroll handlers
 
+    const mouseScrollThrottleWaitMs = 200
+
     /**
      * @param {WheelEvent} event
      */
     function mouseScrollPlaybackRate(event) {
-      event.preventDefault()
-
       if ((event.deltaY < 0 || event.deltaX > 0)) {
         changePlayBackRate(0.05)
       } else if ((event.deltaY > 0 || event.deltaX < 0)) {
         changePlayBackRate(-0.05)
+      }
+    }
+    const mouseScrollPlaybackRateThrottle = throttle(mouseScrollPlaybackRate, mouseScrollThrottleWaitMs)
+    /**
+     * @param {WheelEvent} event
+     */
+    function mouseScrollPlaybackRateHandler(event) {
+      event.preventDefault()
+
+      // Touchpad scroll = small deltaX/deltaY
+      if (Math.abs(event.deltaX) <= 5 && Math.abs(event.deltaY) <= 5) {
+        mouseScrollPlaybackRateThrottle(event)
+      } else {
+        mouseScrollPlaybackRate(event)
       }
     }
 
@@ -1981,13 +1998,25 @@ export default defineComponent({
      * @param {WheelEvent} event
      */
     function mouseScrollSkip(event) {
+      if ((event.deltaY < 0 || event.deltaX > 0)) {
+        seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate(), true)
+      } else if ((event.deltaY > 0 || event.deltaX < 0)) {
+        seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate(), true)
+      }
+    }
+    const mouseScrollSkipThrottle = throttle(mouseScrollSkip, mouseScrollThrottleWaitMs)
+    /**
+     * @param {WheelEvent} event
+     */
+    function mouseScrollSkipHandler(event) {
       if (canSeek()) {
         event.preventDefault()
 
-        if ((event.deltaY < 0 || event.deltaX > 0)) {
-          seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate(), true)
-        } else if ((event.deltaY > 0 || event.deltaX < 0)) {
-          seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate(), true)
+        // Touchpad scroll = small deltaX/deltaY
+        if (Math.abs(event.deltaX) <= 5 && Math.abs(event.deltaY) <= 5) {
+          mouseScrollSkipThrottle(event)
+        } else {
+          mouseScrollSkip(event)
         }
       }
     }
@@ -1996,23 +2025,35 @@ export default defineComponent({
      * @param {WheelEvent} event
      */
     function mouseScrollVolume(event) {
+      const video_ = video.value
+
+      if (video_.muted && (event.deltaY < 0 || event.deltaX > 0)) {
+        video_.muted = false
+        video_.volume = 0
+      }
+
+      if (!video_.muted) {
+        if ((event.deltaY < 0 || event.deltaX > 0)) {
+          changeVolume(0.05)
+        } else if ((event.deltaY > 0 || event.deltaX < 0)) {
+          changeVolume(-0.05)
+        }
+      }
+    }
+    const mouseScrollVolumeThrottle = throttle(mouseScrollVolume, mouseScrollThrottleWaitMs)
+    /**
+     * @param {WheelEvent} event
+     */
+    function mouseScrollVolumeHandler(event) {
       if (!event.ctrlKey && !event.metaKey) {
         event.preventDefault()
         event.stopPropagation()
 
-        const video_ = video.value
-
-        if (video_.muted && (event.deltaY < 0 || event.deltaX > 0)) {
-          video_.muted = false
-          video_.volume = 0
-        }
-
-        if (!video_.muted) {
-          if ((event.deltaY < 0 || event.deltaX > 0)) {
-            changeVolume(0.05)
-          } else if ((event.deltaY > 0 || event.deltaX < 0)) {
-            changeVolume(-0.05)
-          }
+        // Touchpad scroll = small deltaX/deltaY
+        if (Math.abs(event.deltaX) <= 5 && Math.abs(event.deltaY) <= 5) {
+          mouseScrollVolumeThrottle(event)
+        } else {
+          mouseScrollVolume(event)
         }
       }
     }
@@ -2100,6 +2141,18 @@ export default defineComponent({
       }
 
       const video_ = video.value
+
+      // Skip to next video in playlist or recommended
+      if (event.shiftKey && event.key.toLowerCase() === 'n') {
+        emit('skip-to-next')
+        return
+      }
+
+      // Skip to previous video in playlist
+      if (event.shiftKey && event.key.toLowerCase() === 'p') {
+        emit('skip-to-prev')
+        return
+      }
 
       switch (event.key.toLowerCase()) {
         case ' ':
@@ -2316,7 +2369,11 @@ export default defineComponent({
 
       // text related errors aren't serious (captions and seek bar thumbnails), so we should just log them
       // TODO: consider only emitting when the severity is crititcal?
-      if (!ignoreErrors && error.category !== shaka.util.Error.Category.TEXT) {
+      if (
+        !ignoreErrors &&
+        error.category !== shaka.util.Error.Category.TEXT &&
+        !(error.code === shaka.util.Error.Code.BAD_HTTP_STATUS && error.data[0].startsWith('https://www.youtube.com/api/timedtext'))
+      ) {
         // don't react to multiple consecutive errors, otherwise we don't give the format fallback from the previous error a chance to work
         ignoreErrors = true
 

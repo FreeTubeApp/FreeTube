@@ -91,6 +91,7 @@ export default defineComponent({
       videoTitle: '',
       videoDescription: '',
       videoDescriptionHtml: '',
+      license: '',
       videoViewCount: 0,
       videoLikeCount: 0,
       videoDislikeCount: 0,
@@ -1386,6 +1387,24 @@ export default defineComponent({
       this.playNextCountDownIntervalId = setInterval(showCountDownMessage, 1000)
     },
 
+    // Skip to the next video if in a playlist
+    // else next recommended video if autoplay enabled
+    handleSkipToNext: function () {
+      if (this.watchingPlaylist) {
+        this.$refs.watchVideoPlaylist?.playNextVideo()
+      } else if (!this.hideRecommendedVideos && this.nextRecommendedVideo) {
+        this.$router.push({
+          path: `/watch/${this.nextRecommendedVideo.videoId}`
+        })
+        showToast(this.$t('Playing Next Video'))
+      }
+    },
+
+    // Skip to the previous video in a playlist
+    handleSkipToPrev: function () {
+      this.$refs.watchVideoPlaylist?.playPreviousVideo()
+    },
+
     abortAutoplayCountdown: function (hideToast = false) {
       clearTimeout(this.playNextTimeout)
       clearInterval(this.playNextCountDownIntervalId)
@@ -1488,8 +1507,10 @@ export default defineComponent({
      * @param {boolean} includeThumbnails
      */
     createLocalDashManifest: async function (videoInfo, includeThumbnails = false) {
-      const xmlData = await videoInfo.toDash(undefined, undefined, {
-        include_thumbnails: includeThumbnails
+      const xmlData = await videoInfo.toDash({
+        manifest_options: {
+          include_thumbnails: includeThumbnails,
+        },
       })
 
       return `data:application/dash+xml;charset=UTF-8,${encodeURIComponent(xmlData)}`
@@ -1650,7 +1671,8 @@ export default defineComponent({
       }
 
       const url = new URL(trackToTranslate.base_url)
-      url.searchParams.set('fmt', 'vtt')
+      // Requesting fmt=vtt with the tlang parameter set returns HTTP 429 errors, but requesting srt instead seems to work
+      url.searchParams.set('fmt', 'srt')
       url.searchParams.set('tlang', translationCode)
 
       const label = this.$t('Video.Player.TranslatedCaptionTemplate', {
@@ -1662,7 +1684,7 @@ export default defineComponent({
         url: url.toString(),
         label,
         language: translationCode,
-        mimeType: 'text/vtt',
+        mimeType: 'text/srt',
         isAutotranslated: true
       }
     },

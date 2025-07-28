@@ -424,7 +424,6 @@ Settings:
       Full Screen: Pełny ekran
   Subscription Settings:
     Subscription Settings: 'Subskrypcje'
-    Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
     Fetch Feeds from RSS: Pobierz subskrypcje z RSS
     Fetch Automatically: Automatycznie odświeżaj subskrypcje
     Confirm Before Unsubscribing: Uniknij przypadkowego usunięcia subskrypcji
@@ -508,6 +507,7 @@ Settings:
     Hide Video Description: Schowaj opis filmu
     Hide Comments: Schowaj komentarze
     Hide Sharing Actions: Schowaj opcje udostępniania
+    Hide Videos on Watch: 'Ukrywaj filmy po obejrzeniu'
     Hide Live Streams: Schowaj transmisje na żywo
     Hide Chapters: Schowaj rozdziały
     Hide Upcoming Premieres: Schowaj nadchodzące premiery
@@ -555,7 +555,7 @@ Settings:
     Proxy Protocol: Protokół proxy
     Enable Tor / Proxy: Włącz Tor / Proxy
     Proxy Settings: Proxy
-    Proxy Warning: FreeTube nie ma wbudowanego proxy, ale może połączyć z zewnętrznym proxy. Na przykład z uruchomionym na Twoim komputerze, jak Tor, albo z uruchomionym na zewnętrznym serwerze, takim jak SOCKS5 proxy, oferowanym przez niektórych dostawców VPN. Po włączeniu upewnij się, że twoje proxy lub Tor są skonfigurowane poprawnie, by FreeTube był w stanie wymieniać jakiekolwiek dane.
+    Proxy Warning: FreeTube nie ma wbudowanego proxy, ale może połączyć z zewnętrznym proxy. Na przykład z uruchomionym na Twoim komputerze, jak Tor, albo z uruchomionym na zewnętrznym serwerze, takim jak SOCKS5 proxy, oferowanym przez niektórych dostawców VPN. Po włączeniu upewnij się, że Twoje proxy lub Tor są skonfigurowane poprawnie, by FreeTube był w stanie wymieniać jakiekolwiek dane.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Powiadamiaj, kiedy segment sponsorowany zostanie pominięty
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Adres URL interfejsu API SponsorBlock (Domyślnie jest https://sponsor.ajay.app)
@@ -962,7 +962,7 @@ Tooltips:
     Open Deep Links In New Window: Odnośniki URL przekazane do FreeTube (np. przez rozszerzenie przeglądarki, albo argumenty linii komend) są otwierane w nowym oknie.
   Player Settings:
     Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów. Formaty DASH obsługują wyższe rozdzielczości. Stare formaty są ograniczone do 360p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.
-    Proxy Videos Through Invidious: Będzie dostarczał filmy, łącząc się z Invidious, a nie bezpośrednio z YouTube.
+    Proxy Videos Through Invidious: Filmy dostarczane będą poprzez Invidious, a nie przez bezpośrednie połączenie z YouTube.
     Scroll Playback Rate Over Video Player: Umieść kursor nad odtwarzaczem, przytrzymaj klawisz „Ctrl” („Command” na Mac-u) i przewijaj kółkiem myszy w górę i w dół, aby kontrolować szybkość odtwarzania. Przytrzymaj klawisz „Ctrl” („Command” na Mac-u) i kliknij lewym przyciskiem myszy, by szybko powrócić do domyślnej wartości (1x, chyba że została zmieniona w ustawieniach).
     Skip by Scrolling Over Video Player: Użyj kółka myszy, by przewijać film tak jak w MPV.
   External Player Settings:
@@ -978,6 +978,7 @@ Tooltips:
     Hide Channels: Wprowadź ID kanału, aby schować wszystkie filmy i playlisty tego kanału, oraz sam kanał z wyszukiwań, z zakładek „Na czasie” i „Popularne” oraz z polecanych. ID kanału musi być dokładnym dopasowaniem, z uwzględnieniem wielkości liter.
     Hide Subscriptions Live: Ta opcja została nadpisana opcją ogólną „{appWideSetting}” z podgrupy „{subsection}” grupy „{settingsSection}”
     Hide Videos and Playlists Containing Text: Wprowadź słowo, fragment słowa, lub wyrażenie (bez znaczenia jest wielkość liter), by schować wszystkie filmy i playlisty zawierające w tytule podane sformułowanie w całym programie FreeTube, poza Historią, Twoimi playlistami i filmami w tych playlistach.
+    Hide Videos on Watch: Ukryj obejrzane filmy z kart „Filmy”, „Filmy Short” oraz z „Na żywo” na stronie subskrypcji oraz na stronie kanału. Opcja ta nie wpływa na kartę „Główna” ze strony kanału
   SponsorBlock Settings:
     UseDeArrowTitles: Zastąp tytuły filmów tytułami zasugerowanymi przez użytkowników DeArrow.
     UseDeArrowThumbnails: Zastąp miniaturki filmów miniaturkami z DeArrow.
@@ -1082,7 +1083,7 @@ KeyboardShortcutPrompt:
   Focus Secondary Search: Przełącz na drugi pasek wyszukiwania (jeżeli dostępny)
   Captions: Przełącz napisy WŁĄCZ/WYŁĄCZ
   Show Keyboard Shortcuts: Pokaż skróty
-  History Forward: Dalej jedną stronę
+  History Forward: Dalej o jedną stronę
   Refresh: Wczytaj ponownie subskrypcje z nową zawartością
   History Backward: Wróć o jedną stronę
   Fullscreen: Przełącz na pełny ekran

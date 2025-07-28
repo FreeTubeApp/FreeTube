@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div v-if="!isInvidiousAllowed">
-      {{ $t('Channel.Posts.Viewing Posts Only Supported By Invidious') }}
-    </div>
-    <FtLoader v-else-if="isLoading" />
+    <FtLoader v-if="isLoading" />
     <template
       v-else
     >
@@ -22,7 +19,7 @@
         :force-state="null"
         :is-post-comments="true"
         :channel-thumbnail="post.authorThumbnails[0].url"
-        :show-sort-by="false"
+        :show-sort-by="backendPreference == 'local'"
       />
     </template>
   </div>
@@ -32,6 +29,7 @@
 import { computed, onMounted, ref, shallowRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router/composables'
 import packageDetails from '../../../package.json'
+import { useI18n } from '../composables/use-i18n-polyfill'
 
 import FtCard from '../components/ft-card/ft-card.vue'
 import FtCommunityPost from '../components/FtCommunityPost/FtCommunityPost.vue'
@@ -41,6 +39,10 @@ import CommentSection from '../components/CommentSection/CommentSection.vue'
 import store from '../store/index'
 
 import { getInvidiousCommunityPost } from '../helpers/api/invidious'
+import { getLocalCommunityPost } from '../helpers/api/local'
+import { copyToClipboard, showToast } from '../helpers/utils'
+
+const { t } = useI18n()
 
 const router = useRouter()
 const route = useRoute()
@@ -60,22 +62,18 @@ const backendFallback = computed(() => {
   return store.getters.getBackendFallback
 })
 
-const isInvidiousAllowed = computed(() => {
-  return backendPreference.value === 'invidious' || backendFallback.value
-})
-
 onMounted(async () => {
-  if (isInvidiousAllowed.value) {
-    id.value = route.params.id
-    authorId.value = route.query.authorId
+  id.value = route.params.id
+  authorId.value = route.query.authorId
+
+  if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
     await loadDataInvidiousAsync()
+  } else {
+    await loadDataLocalAsync()
   }
 })
 
-async function loadDataInvidiousAsync() {
-  post.value = await getInvidiousCommunityPost(id.value, authorId.value)
-  authorId.value = post.value.authorId
-
+function updateTitleAndRoute() {
   store.commit('setAppTitle', `${post.value.author} - ${packageDetails.productName}`)
   isLoading.value = false
 
@@ -92,13 +90,56 @@ async function loadDataInvidiousAsync() {
   }
 }
 
+async function loadDataLocalAsync() {
+  try {
+    post.value = await getLocalCommunityPost(id.value, authorId.value)
+    authorId.value = post.value.authorId
+    updateTitleAndRoute()
+  } catch (error) {
+    console.error(error)
+    const errorMessage = t('Local API Error (Click to copy)')
+    showToast(`${errorMessage}: ${error}`, 10000, () => {
+      copyToClipboard(error)
+    })
+    if (backendPreference.value === 'local' && backendFallback.value) {
+      showToast(t('Falling back to Invidious API'))
+      await loadDataInvidiousAsync()
+    } else {
+      isLoading.value = false
+    }
+  }
+}
+
+async function loadDataInvidiousAsync() {
+  try {
+    post.value = await getInvidiousCommunityPost(id.value, authorId.value)
+    authorId.value = post.value.authorId
+    updateTitleAndRoute()
+  } catch (error) {
+    console.error(error)
+    const errorMessage = t('Invidious API Error (Click to copy)')
+    showToast(`${errorMessage}: ${error}`, 10000, () => {
+      copyToClipboard(error)
+    })
+
+    if (process.env.SUPPORTS_LOCAL_API && backendPreference.value === 'invidious' && backendFallback.value) {
+      showToast(t('Falling back to Local API'))
+      await loadDataLocalAsync()
+    } else {
+      isLoading.value = false
+    }
+  }
+}
+
 watch(() => route.params.id, async () => {
   // react to route changes...
   isLoading.value = true
-  if (isInvidiousAllowed.value) {
-    id.value = route.params.id
-    authorId.value = route.query.authorId
+  id.value = route.params.id
+  authorId.value = route.query.authorId
+  if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
     await loadDataInvidiousAsync()
+  } else {
+    await loadDataLocalAsync()
   }
 })
 </script>

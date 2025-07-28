@@ -424,7 +424,6 @@ Settings:
       Full Screen: 全屏
   Subscription Settings:
     Subscription Settings: '订阅'
-    Hide Videos on Watch: '观看时隐藏视频'
     Fetch Feeds from RSS: 从RSS摘取推送
     Fetch Automatically: 自动抓取订阅源
     Confirm Before Unsubscribing: 避免意外取消订阅
@@ -507,6 +506,7 @@ Settings:
     Hide Playlists: 隐藏播放列表
     Hide Live Streams: 隐藏直播
     Hide Sharing Actions: 隐藏分享操作
+    Hide Videos on Watch: '观看时隐藏视频'
     Hide Comments: 隐藏评论
     Hide Video Description: 隐藏视频描述
     Hide Chapters: 隐藏章节
@@ -978,6 +978,7 @@ Tooltips:
     Hide Channels: 输入频道 ID 使其中的所有视频、播放列表和频道本身不出现在搜索结果、时下流行、最受欢迎和推荐中。 输入的频道 ID 必须完全匹配，并且区分大小写。
     Hide Subscriptions Live: 此设置被应用级的 "{appWideSetting}" 设置所覆盖，"{appWideSetting}" 位于 "{subsection}" 部分，该部分在 "{settingsSection}" 中
     Hide Videos and Playlists Containing Text: 输入单词、单词片段或词组（区分大小写）在整个 FreeTube 软件中隐藏所有原始标题包含这些内容的视频和播放列表。注意：历史记录、你的播放列表和播放列表内的视频不受限制约束。
+    Hide Videos on Watch: 在订阅和频道页上的视频、短视频和直播标签页中隐藏已观看的视频。这不影响频道页上的主页
   SponsorBlock Settings:
     UseDeArrowTitles: 使用来自 DeArrow 的用户提交的标题替换原始视频标题。
     UseDeArrowThumbnails: 用来自 DeArrow 的缩略图替换原本的视频缩略图。
@@ -1118,4 +1119,6 @@ KeyboardShortcutPrompt:
   Next Chapter: 下一章节
   End: 跳转到视频结尾
   Home: 跳转到视频开头
+  Skip to Next Video: 跳到播放列表中下一个视频或下一个推荐的视频
+  Skip to Previous Video: 跳到播放列表中前一个视频
 shortcutLabelSeparator: ｜

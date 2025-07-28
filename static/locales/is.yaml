@@ -210,6 +210,8 @@ History:
   Search bar placeholder: Leita í áhorfsferli
   Empty Search Message: Það eru engin myndskeið í ferlinum þínum sem samsvara leitinni þinni
   Case Sensitive Search: Leit háð há-/lágstöfum
+  DateOldestHistory: Fyrst horft á fremst
+  DateNewestHistory: Síðast horft á fremst
 Settings:
   # On Settings Page
   Settings: 'Stillingar'
@@ -457,7 +459,6 @@ Settings:
         Never: Aldrei
   Subscription Settings:
     Subscription Settings: 'Áskrift'
-    Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
     Fetch Feeds from RSS: 'Ná í streymi úr RSS'
     Fetch Automatically: Sækja streymi sjálfvirkt
     Confirm Before Unsubscribing: Staðfesta uppsögn áskriftar
@@ -477,6 +478,7 @@ Settings:
     Hide Active Subscriptions: 'Fela virkar áskriftir'
     Hide Live Streams: Fela streymi í beinni
     Hide Sharing Actions: Fela deiliaðgerðir
+    Hide Videos on Watch: 'Fela myndskeið eftir áhorf'
     Hide Video Description: Fela lýsingu á myndskeiði
     Hide Comments: Fela athugasemdir
     Hide Chapters: Fela kafla

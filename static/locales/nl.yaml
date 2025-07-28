@@ -451,7 +451,6 @@ Settings:
       Tooltip: Auto = Opslaan bij het verlaten van elke videopagina, wanneer de video is afgelopen of wanneer er een fout optreedt (bijv. rate-limiet bereikt of kijkersessie verlopen).Semi-auto = Net als Auto, behalve bij het verlaten van de videopagina. Voortgang kan handmatig worden opgeslagen via een knop genaamd 'Voortgang Opslaan', die zich onder de videospeler bevindt.
   Subscription Settings:
     Subscription Settings: 'Abonnement­'
-    Hide Videos on Watch: 'Bekeken video''s verbergen'
     Fetch Feeds from RSS: Feeds ophalen via RSS
     Fetch Automatically: Feed automatisch ophalen
     Confirm Before Unsubscribing: Onbedoeld deabonneren voor­komen
@@ -507,6 +506,7 @@ Settings:
     Hide Active Subscriptions: Actieve abonnementen verbergen
     Hide Playlists: Afspeel­lĳsten verbergen
     Hide Sharing Actions: Deel­acties verbergen
+    Hide Videos on Watch: 'Bekeken video''s verbergen'
     Hide Video Description: Video-omschrijving verbergen
     Hide Comments: Opmerkingen verbergen
     Hide Live Streams: Live­streams verbergen
