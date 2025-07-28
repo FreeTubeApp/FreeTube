@@ -81,7 +81,7 @@ export default defineComponent({
       videoSearchQuery: '',
 
       promptOpen: false,
-      deletedPlaylistItemIds: [],
+      toBeDeletedPlaylistItemIds: [],
       // Present = shown
       undoToastAbortController: null,
     }
@@ -193,7 +193,7 @@ export default defineComponent({
         const playlistItems = this.getPlaylistItemsWithDuration()
         return getSortedPlaylistItems(playlistItems, this.sortOrder, this.currentLocale)
       }
-      return getSortedPlaylistItems(this.playlistItems, this.sortOrder, this.currentLocale)
+      return getSortedPlaylistItems(this.shownPlaylistItems, this.sortOrder, this.currentLocale)
     },
     visiblePlaylistItems: function () {
       if (!this.isUserPlaylistRequested) {
@@ -244,6 +244,35 @@ export default defineComponent({
     sortBySelectValues() {
       return this.sortByValues
     },
+    totalPlaylistDuration() {
+      const totalSeconds = this.shownPlaylistItems.reduce((acc, video) => {
+        if (typeof video.lengthSeconds !== 'number') {
+          return NaN
+        }
+        return acc + video.lengthSeconds
+      }, 0)
+      return totalSeconds
+    },
+    noPlaylistItemsPendingDeletion() {
+      return this.toBeDeletedPlaylistItemIds.length === 0
+    },
+    shownPlaylistItems() {
+      if (this.noPlaylistItemsPendingDeletion) {
+        return this.playlistItems
+      }
+
+      return this.playlistItems.filter((v) => !this.toBeDeletedPlaylistItemIds.includes(v.playlistItemId))
+    },
+    shownPlaylistItemCount() {
+      return this.shownPlaylistItems.length
+    },
+    shownVideoCount() {
+      if (this.isUserPlaylistRequested) {
+        return this.shownPlaylistItemCount
+      }
+
+      return this.videoCount
+    },
   },
   watch: {
     $route() {
@@ -264,14 +293,16 @@ export default defineComponent({
       // Re-fetch from local store when current user playlist updated
       this.getPlaylistInfoDebounce()
     },
-    selectedUserPlaylistVideoCount() {
+    async selectedUserPlaylistVideoCount() {
       // Monitoring `selectedUserPlaylistVideos` makes this function called
       // Even when the same array object is returned
       // So length is monitored instead
       // Assuming in user playlist video cannot be swapped without length change
 
       // Re-fetch from local store when current user playlist videos updated
-      this.getPlaylistInfoDebounce()
+      // MUST NOT use `getPlaylistInfoDebounce` as it will cause delay in data update
+      // Causing deleted videos to reappear for one frame
+      this.getPlaylistInfo()
     },
   },
   created: function () {
@@ -424,7 +455,6 @@ export default defineComponent({
         this.firstVideoPlaylistItemId = ''
       }
       this.viewCount = 0
-      this.videoCount = playlist.videos.length
       const dateString = new Date(playlist.lastUpdatedAt)
       this.lastUpdated = dateString.toLocaleDateString(this.currentLocale, { year: 'numeric', month: 'short', day: 'numeric' })
       this.channelName = ''
@@ -444,7 +474,7 @@ export default defineComponent({
     },
 
     getPlaylistItemsWithDuration() {
-      const modifiedPlaylistItems = deepCopy(this.playlistItems)
+      const modifiedPlaylistItems = deepCopy(this.shownPlaylistItems)
       let anyVideoMissingDuration = false
       modifiedPlaylistItems.forEach(video => {
         if (videoDurationPresent(video)) { return }
@@ -482,10 +512,10 @@ export default defineComponent({
           this.isLoadingMore = true
 
           nextTick(() => {
-            if (this.userPlaylistVisibleLimit + 100 < this.videoCount) {
+            if (this.userPlaylistVisibleLimit + 100 < this.shownVideoCount) {
               this.userPlaylistVisibleLimit += 100
             } else {
-              this.userPlaylistVisibleLimit = this.videoCount
+              this.userPlaylistVisibleLimit = this.shownVideoCount
             }
 
             this.isLoadingMore = false
@@ -590,33 +620,26 @@ export default defineComponent({
 
     removeVideoFromPlaylist: function (videoId, playlistItemId) {
       try {
-        const playlistItems = [].concat(this.playlistItems)
-        const tempPlaylistItems = [].concat(this.playlistItems)
-
         const videoIndex = this.playlistItems.findIndex((video) => {
           return video.videoId === videoId && video.playlistItemId === playlistItemId
         })
 
         if (videoIndex !== -1) {
-          this.deletedPlaylistItemIds.push(this.playlistItems[videoIndex].playlistItemId)
-          playlistItems.splice(videoIndex, 1)
-          this.playlistItems = playlistItems
-          this.videoCount = playlistItems.length
+          this.toBeDeletedPlaylistItemIds.push(this.playlistItems[videoIndex].playlistItemId)
 
           // Only show toast when no existing toast shown
           if (this.undoToastAbortController == null) {
             this.undoToastAbortController = new AbortController()
+            const timeoutMs = 5 * 1000
             const actualRemoveVideosTimeout = setTimeout(() => {
               this.removeToBeDeletedVideosSometimes()
-            }, 5000)
+            }, timeoutMs)
             showToast(
               this.$t('User Playlists.SinglePlaylistView.Toast["Video has been removed. Click here to undo."]'),
-              5000,
+              timeoutMs,
               () => {
-                this.playlistItems = tempPlaylistItems
-                this.videoCount = tempPlaylistItems.length
                 clearTimeout(actualRemoveVideosTimeout)
-                this.deletedPlaylistItemIds = []
+                this.toBeDeletedPlaylistItemIds = []
                 this.undoToastAbortController = null
               },
               this.undoToastAbortController.signal,
@@ -629,15 +652,15 @@ export default defineComponent({
       }
     },
 
-    removeToBeDeletedVideosSometimes() {
+    async removeToBeDeletedVideosSometimes() {
       if (this.isLoading) { return }
 
-      if (this.deletedPlaylistItemIds.length > 0) {
-        this.removeVideos({
+      if (this.toBeDeletedPlaylistItemIds.length > 0) {
+        await this.removeVideos({
           _id: this.playlistId,
-          playlistItemIds: this.deletedPlaylistItemIds,
+          playlistItemIds: this.toBeDeletedPlaylistItemIds,
         })
-        this.deletedPlaylistItemIds = []
+        this.toBeDeletedPlaylistItemIds = []
         this.undoToastAbortController?.abort()
         this.undoToastAbortController = null
       }
