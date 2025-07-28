@@ -8413,7 +8413,7 @@ ts-declaration-location@^1.0.6:
   dependencies:
     picomatch "^4.0.2"
 
-tslib@^2.0.0, tslib@^2.0.3, tslib@^2.4.0, tslib@^2.5.0, tslib@^2.6.2, tslib@^2.8.1:
+tslib@^2.0.0, tslib@^2.0.3, tslib@^2.4.0, tslib@^2.6.2, tslib@^2.8.1:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.8.1.tgz#612efe4ed235d567e8aba5f2a5fab70280ade83f"
   integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
@@ -9095,12 +9095,11 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-youtubei.js@^15.0.0:
-  version "15.0.0"
-  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-15.0.0.tgz#c5ca88c6a1a289846aca2f7ce7147fce1316b40b"
-  integrity sha512-giPZREn+q0z8Jr45NUcJUXE7QA2+UD2jx5FR+ULdnexvtHg5uQZr9Am8aYcECPKzbBNe6ksBD1yT4SKNbhpRqA==
+youtubei.js@^15.0.1:
+  version "15.0.1"
+  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-15.0.1.tgz#d5535cb03cffa5127a01ab98d96fead432e45592"
+  integrity sha512-2slapqJS5NuXKHvcACEknyVz0AjH/TrXaOhDM0q2twQKa54kCmfj+7B/2nGfd20uzAe29zW1ejk2qOc4ABuGkg==
   dependencies:
     "@bufbuild/protobuf" "^2.0.0"
     jintr "^3.3.1"
-    tslib "^2.5.0"
     undici "^6.21.3"
