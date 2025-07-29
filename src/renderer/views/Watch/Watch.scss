@@ -199,6 +199,14 @@
 
   @media only screen and (width <= 1050px) {
     @include single-column-template;
+
+    .videoArea,
+    .infoArea,
+    .sidebarArea {
+      max-inline-size: 100%;
+      overflow-x: auto;
+      overflow-wrap: anywhere;
+    }
   }
 
   @media only screen and (width >= 1051px) {
