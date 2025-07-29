@@ -1117,4 +1117,6 @@ KeyboardShortcutPrompt:
   Restart Window: 重新啟動視窗
   Home: 跳至影片開頭
   End: 跳至影片結尾
+  Skip to Next Video: 跳到播放清單中的下一部影片或下一部推薦影片
+  Skip to Previous Video: 跳到播放清單中的上一部影片
 shortcutLabelSeparator: ｜
