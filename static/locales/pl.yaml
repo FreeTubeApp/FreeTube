@@ -527,7 +527,7 @@ Settings:
     Hide Channel Podcasts: Schowaj kartę kanału „Podkasty”
     Hide Subscriptions Videos: Schowaj filmy z subskrypcji
     Hide Subscriptions Shorts: Schowaj filmy Short z subskrypcji
-    Hide Subscriptions Live: Schowaj transmisje live z subskrypcji
+    Hide Subscriptions Live: Schowaj transmisje na żywo z subskrypcji
     Hide Profile Pictures in Comments: Nie pokazuj zdjęć profilowych w komentarzach
     Hide Channels Invalid: Podane ID kanału jest niepoprawne
     Hide Channels Disabled Message: Niektóre z kanałów nie zostały przetworzone, ponieważ zostały zablokowane po swoim ID. Funkcja jest zablokowana, aż do momentu, w którym zostaną one zaktualizowane
@@ -1119,4 +1119,6 @@ KeyboardShortcutPrompt:
   Stats: Pokaż statystyki filmu
   End: Przeskocz na koniec filmu
   Home: Przeskocz na początek filmu
+  Skip to Next Video: Odtwórz następny film z playlisty lub z rekomendowanych filmów
+  Skip to Previous Video: Odtwórz poprzedni film z playlisty lub z rekomendowanych filmów
 shortcutLabelSeparator: ｜
