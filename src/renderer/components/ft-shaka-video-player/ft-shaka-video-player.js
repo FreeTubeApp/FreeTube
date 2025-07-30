@@ -1977,6 +1977,8 @@ export default defineComponent({
         const formattedSeconds = Math.abs(seconds)
         showValueChange(`${formattedSeconds}s`, popUpLayout.icon, popUpLayout.invertContentOrder)
       }
+
+      showOverlayControls()
     }
 
     // #endregion mouse and keyboard helpers
@@ -3032,6 +3034,10 @@ export default defineComponent({
     const invertValueChangeContentOrder = ref(false)
     let valueChangeTimeout = null
 
+    function showOverlayControls() {
+      ui.getControls().showUI()
+    }
+
     /**
      * Shows a popup with a message and an icon on top of the video player.
      * @param {string} message - The message to display.
@@ -3051,6 +3057,8 @@ export default defineComponent({
       valueChangeTimeout = setTimeout(() => {
         showValueChangePopup.value = false
       }, 2000)
+
+      showOverlayControls()
     }
 
     return {
