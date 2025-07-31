@@ -237,8 +237,8 @@ Settings:
     System Default: Système par défaut
     Clear Default Instance: Effacer l’instance par défaut
     Set Current Instance as Default: Définir l’instance actuelle par défaut
-    Current instance will be randomized on startup: L’instance actuelle sera choisie au hasard au démarrage.
-    No default instance has been set: Aucune instance n’a été définie par défaut.
+    Current instance will be randomized on startup: L’instance actuelle sera choisie au hasard au démarrage
+    No default instance has been set: Aucune instance n’a été définie par défaut
     The currently set default instance is {instance}: L'instance par défaut actuellement définie est {instance}
     Current Invidious Instance: Instance Invidious actuelle
     External Link Handling:
@@ -449,7 +449,7 @@ Settings:
     Remember Search History: Conserver l'historique de recherche
     Are you sure you want to clear out your search history and cache?: Êtes-vous sûr(e) de vouloir effacer votre historique de recherche et votre cache ?
     Clear Search History and Cache: Effacer l’historique de recherche et le cache
-    Search history and cache have been cleared: L’historique de recherche et le cache ont été effacés.
+    Search history and cache have been cleared: L’historique de recherche et le cache ont été effacés
     Watched Progress Saving Mode:
       Modes:
         Never: Jamais
@@ -763,7 +763,7 @@ Video:
       setting a playback rate: régler la vitesse de lecture
       starting video at offset: démarrer la vidéo avec un décalage
     UnsupportedActionTemplate: '{externalPlayer} non pris en charge : {action}'
-    OpeningTemplate: Ouverture de {videoOrPlaylist} en {externalPlayer}…
+    OpeningTemplate: Ouverture de {videoOrPlaylist} avec {externalPlayer}…
     OpenInTemplate: Ouvrir avec {externalPlayer}
   Premieres: Avant-première
   Show Super Chat Comment: Afficher le commentaire Super Chat
