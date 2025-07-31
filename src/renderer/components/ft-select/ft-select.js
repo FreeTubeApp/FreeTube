@@ -59,6 +59,20 @@ export default defineComponent({
       return sanitizeForHtmlId(this.placeholder)
     }
   },
+  watch: {
+    value(newVal) {
+      if (this.$refs.select) {
+        this.$refs.select.value = newVal
+      }
+    },
+    selectValues() {
+      this.$nextTick(() => {
+        if (this.$refs.select) {
+          this.$refs.select.value = this.value
+        }
+      })
+    }
+  },
   methods: {
     change: function(value) {
       this.$emit('change', value)
