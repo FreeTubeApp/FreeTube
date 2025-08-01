@@ -58,7 +58,23 @@ function invidiousAPICall({ resource, id = '', params = {}, doLogError = true, s
   return new Promise((resolve, reject) => {
     const requestUrl = getCurrentInstanceUrl() + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
     invidiousFetch(requestUrl)
-      .then((response) => response.json())
+      .then((response) => {
+        // Check HTTP status first, regardless of content-type
+        if (response.status === 403) {
+          throw new Error('This video is private or unavailable')
+        } else if (response.status === 404) {
+          throw new Error('Video not found')
+        } else if (response.status >= 500) {
+          throw new Error('Invidious server error')
+        }
+        const contentType = response.headers.get('content-type')
+        if (contentType && contentType.includes('application/json')) {
+          return response.json()
+        } else {
+          // Even with 200 status, if it's not JSON, it's likely an error page
+          throw new Error('This video is private or unavailable')
+        }
+      })
       .then((json) => {
         if (json.error !== undefined) {
           // community is empty, no need to display error.

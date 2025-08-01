@@ -851,7 +851,7 @@ async function getChannelAboutLocal() {
     if (about.is(YTNodes.ChannelAboutFullMetadata)) {
       description.value = about.description.isEmpty() ? '' : autolinker.link(about.description.text)
 
-      const viewCount_ = extractNumberFromString(about.view_count.text)
+      const viewCount_ = extractNumberFromString(about.view_count?.text || '0')
       viewCount.value = isNaN(viewCount_) ? null : viewCount_
 
       videoCount.value = null
@@ -862,7 +862,7 @@ async function getChannelAboutLocal() {
     } else {
       description.value = about.metadata.description ? autolinker.link(about.metadata.description) : ''
 
-      const viewCount_ = extractNumberFromString(about.metadata.view_count)
+      const viewCount_ = extractNumberFromString(about.metadata?.view_count || '0')
       viewCount.value = isNaN(viewCount_) ? null : viewCount_
 
       const videoCount_ = extractNumberFromString(about.metadata.video_count)

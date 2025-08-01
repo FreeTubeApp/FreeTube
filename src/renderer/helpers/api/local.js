@@ -1462,7 +1462,7 @@ export function parseLocalWatchNextVideo(video) {
       title: video.title.text,
       author: video.author.name,
       authorId: video.author.id,
-      viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
+      viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count?.text),
       published,
       lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
       liveNow: video.is_live,
