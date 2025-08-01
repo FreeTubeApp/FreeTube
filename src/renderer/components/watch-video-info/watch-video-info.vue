@@ -71,16 +71,16 @@
           </router-link>
         </div>
         <div>
-        <div
+          <div
           v-if="!hideUploader"
-        >
-          <router-link
-            :to="`/channel/${channelId}`"
-            class="channelName"
           >
-            {{ channelName }}
-          </router-link>
-        </div>
+            <router-link
+              :to="`/channel/${channelId}`"
+              class="channelName"
+            >
+              {{ channelName }}
+            </router-link>
+          </div>
           <ft-subscribe-button
             v-if="!hideUnsubscribeButton"
             :channel-id="channelId"
