@@ -71,7 +71,6 @@ import FtButton from './FtButton/FtButton.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
 import FtPrompt from './FtPrompt/FtPrompt.vue'
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
-import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
 
 import store from '../store/index'
 
