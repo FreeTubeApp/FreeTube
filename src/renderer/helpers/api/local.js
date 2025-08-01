@@ -59,7 +59,13 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     client_type: clientType,
 
     // use browser fetch
-    fetch: (input, init) => fetch(input, init),
+    fetch: (input, init) => {
+      if (input.url?.startsWith('https://www.youtube.com/youtubei/v1/player')) {
+        init.body = init.body.replace('"videoId":', '"params":"8AEB","videoId":')
+      }
+
+      return fetch(input, init)
+    },
     cache,
     generate_session_locally: !!generateSessionLocally
   })
