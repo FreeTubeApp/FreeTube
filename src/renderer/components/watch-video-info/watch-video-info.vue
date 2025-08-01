@@ -72,7 +72,7 @@
         </div>
         <div>
           <div
-          v-if="!hideUploader"
+            v-if="!hideUploader"
           >
             <router-link
               :to="`/channel/${channelId}`"
@@ -88,7 +88,7 @@
             :channel-thumbnail="channelThumbnail"
             :subscription-count-text="subscriptionCountText"
           />
-      </div>
+        </div>
       </div>
       <div class="videoOptions">
         <span class="videoOptionsMobileRow">
