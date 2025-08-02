@@ -42,11 +42,9 @@ Global:
     Watching Count: 1 гледане | {count} гледания
     Like Count: 1 харесване | {count} харесвания
     Comment Count: 1 коментар | {count} коментара
-Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber}
-  е вече налична! Щракнете за повече детайли'
+Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber} е вече налична! Щракнете за повече детайли'
 Download From Site: 'Сваляне от сайта'
-A new blog is now available, {blogTitle}. Click to view more: 'Нова публикация в блога,
-  {blogTitle}. Щракнете за преглед'
+A new blog is now available, {blogTitle}. Click to view more: 'Нова публикация в блога, {blogTitle}. Щракнете за преглед'
 
 # Search Bar
 Search / Go to URL: 'Търсене / Отиване на адрес'
@@ -97,25 +95,18 @@ Search Filters:
     HD: HD
     3D: 3D
     4K: 4K
+  Clear Filters: Изчистване на филтрите
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Абонаменти'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Списъкът
-    с абонаменти е празен. Ако искате да внесете абонаментите си, отидете в "Настройки
-    на данни" и изберете "Внасяне на абонаменти" или можете да потърсите канал и да
-    се абонирате за него.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Този
-    профил има голям брой абонаменти. Принудително използване на RSS за заобикаляне
-    на ограниченията
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Списъкът с абонаменти е празен. Ако искате да внесете абонаментите си, отидете в "Настройки на данни" и изберете "Внасяне на абонаменти" или можете да потърсите канал и да се абонирате за него.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Този профил има голям брой абонаменти. Принудително използване на RSS за заобикаляне на ограниченията
   Load More Videos: Зареждане на още видеа
   Error Channels: Канали с грешки
-  Disabled Automatic Fetching: Автоматичното извличане на абонаменти е деактивирано.
-    Обновете абонаментите, за да ги видите тук.
+  Disabled Automatic Fetching: Автоматичното извличане на абонаменти е деактивирано. Обновете абонаментите, за да ги видите тук.
   Empty Channels: Каналите, за които сте абонирани, в момента нямат никакви видеа.
   Subscriptions Tabs: Раздели с абонаменти
-  All Subscription Tabs Hidden: Всички раздели на абонамента са скрити. За да виждате
-    съдържанието тук, моля, премахнете скриването на някои раздели в секция "{subsection}"
-    на "{settingsSection}".
+  All Subscription Tabs Hidden: Всички раздели на абонамента са скрити. За да виждате съдържанието тук, моля, премахнете скриването на някои раздели в секция "{subsection}" на "{settingsSection}".
   Load More Posts: Зареждане на още публикации
   Empty Posts: В момента в абонираните от вас канали няма публикации.
 Trending:
@@ -130,61 +121,40 @@ Playlists: 'Плейлисти'
 User Playlists:
   Your Playlists: 'Вашите плейлисти'
   Search bar placeholder: Търсене за плейлисти
-  Empty Search Message: В този плейлист няма видеа, които да отговарят на търсенето
-    ви
+  Empty Search Message: В този плейлист няма видеа, които да отговарят на търсенето ви
   This playlist currently has no videos.: В този плейлист в момента няма видеа.
   Add to Favorites: Добавяне към {playlistName}
-  Are you sure you want to delete this playlist? This cannot be undone: Сигурни ли
-    сте, че искате да изтриете този плейлист? Това не може да бъде отменено.
+  Are you sure you want to delete this playlist? This cannot be undone: Сигурни ли сте, че искате да изтриете този плейлист? Това не може да бъде отменено.
   SinglePlaylistView:
     Toast:
-      Reverted to use {oldPlaylistName} for quick bookmark: Възстановено е използването
-        на {oldPlaylistName} за бързи отметки
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Някои
-        видеа в плейлиста все още не са заредени. Щракнете тук, за да копирате.
+      Reverted to use {oldPlaylistName} for quick bookmark: Възстановено е използването на {oldPlaylistName} за бързи отметки
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Някои видеа в плейлиста все още не са заредени. Щракнете тук, за да копирате.
       Playlist {playlistName} has been deleted.: Плейлиста {playlistName} е изтрит.
       There were no videos to remove.: Няма видеа за премахване.
       This video cannot be moved up.: Това видео не може да бъде преместено нагоре.
       This video cannot be moved down.: Това видео не може да бъде преместено надолу.
       Video has been removed: Видеото е премахнато
-      There was a problem with removing this video: Имаше проблем с премахването на
-        това видео
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Този
-        плейлист вече се използва за бързи отметки вместо {oldPlaylistName}. Щракнете
-        тук, за отмяна
-      This playlist is now used for quick bookmark: Този плейлист вече се използва
-        за бързи отметки
-      Playlist name cannot be empty. Please input a name.: Името на плейлиста не може
-        да бъде празно. Моля, въведете име.
+      There was a problem with removing this video: Имаше проблем с премахването на това видео
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Този плейлист вече се използва за бързи отметки вместо {oldPlaylistName}. Щракнете тук, за отмяна
+      This playlist is now used for quick bookmark: Този плейлист вече се използва за бързи отметки
+      Playlist name cannot be empty. Please input a name.: Името на плейлиста не може да бъде празно. Моля, въведете име.
       Playlist has been updated.: Плейлиста е актуализиран.
-      There was an issue with updating this playlist.: Имаше проблем с актуализирането
-        на този плейлист.
-      "{videoCount} video(s) have been removed": 1 видео е премахнато | {videoCount}
-        видеа са премахнати
-      This playlist is protected and cannot be removed.: Този плейлист е защитен и
-        не може да бъде премахнат.
+      There was an issue with updating this playlist.: Имаше проблем с актуализирането на този плейлист.
+      "{videoCount} video(s) have been removed": 1 видео е премахнато | {videoCount} видеа са премахнати
+      This playlist is protected and cannot be removed.: Този плейлист е защитен и не може да бъде премахнат.
       This playlist does not exist: Този плейлист не съществува
-      This playlist is already being used for quick bookmark.: Този плейлист вече
-        се използва за бързи отметки.
-      This playlist has a video with a duration error: Този плейлист съдържа поне
-        едно видео, което няма продължителност, той ще бъде подреден така, сякаш продължителността
-        му е нула.
-      Video has been removed. Click here to undo.: Видеото е премахнато. Щракнете
-        тук, за отмяна.
+      This playlist is already being used for quick bookmark.: Този плейлист вече се използва за бързи отметки.
+      This playlist has a video with a duration error: Този плейлист съдържа поне едно видео, което няма продължителност, той ще бъде подреден така, сякаш продължителността му е нула.
+      Video has been removed. Click here to undo.: Видеото е премахнато. Щракнете тук, за отмяна.
     Search for Videos: Търсене за видеа
   CreatePlaylistPrompt:
     Toast:
-      Playlist {playlistName} has been successfully created.: Плейлиста {playlistName}
-        е създаден успешно.
-      There is already a playlist with this name. Please pick a different name.: Вече
-        има плейлист с това име. Моля, изберете друго.
-      There was an issue with creating the playlist.: Имаше проблем при създаването
-        на плейлиста.
+      Playlist {playlistName} has been successfully created.: Плейлиста {playlistName} е създаден успешно.
+      There is already a playlist with this name. Please pick a different name.: Вече има плейлист с това име. Моля, изберете друго.
+      There was an issue with creating the playlist.: Имаше проблем при създаването на плейлиста.
     New Playlist Name: Име на нов плейлист
     Create: Създаване
-  You have no playlists. Click on the create new playlist button to create a new one.: Нямате
-    плейлисти. Щракнете върху бутона за създаване на нов плейлист, за да създадете
-    нов.
+  You have no playlists. Click on the create new playlist button to create a new one.: Нямате плейлисти. Щракнете върху бутона за създаване на нов плейлист, за да създадете нов.
   Create New Playlist: Създаване на нов
   Add to Playlist: Добавяне към плейлист за изпълнение
   Move Video Up: Преместване нагоре
@@ -201,22 +171,16 @@ User Playlists:
     LatestPlayedFirst: Наскоро възпроизведени
   AddVideoPrompt:
     Search in Playlists: Търсене в плейлисти
-    Select a playlist to add your N videos to: Изберете плейлист, в който да добавите
-      своето видео | Изберете плейлист, в който да добавите своите {videoCount} видеа
+    Select a playlist to add your N videos to: Изберете плейлист, в който да добавите своето видео | Изберете плейлист, в който да добавите своите {videoCount} видеа
     N playlists selected: '{playlistCount} избрани'
     Toast:
       You haven't selected any playlist yet.: Все още не сте избрали плейлист.
-      "{videoCount} video(s) added to 1 playlist": Добавено 1 видео в 1 плейлист |
-        Добавени {videoCount} видеа в 1 плейлист
-      "{videoCount} video(s) added to {playlistCount} playlists": Добавено 1 видео
-        към {playlistCount} плейлиста | Добавени {videoCount} видеа към {playlistCount}
-        плейлиста
+      "{videoCount} video(s) added to 1 playlist": Добавено 1 видео в 1 плейлист | Добавени {videoCount} видеа в 1 плейлист
+      "{videoCount} video(s) added to {playlistCount} playlists": Добавено 1 видео към {playlistCount} плейлиста | Добавени {videoCount} видеа към {playlistCount} плейлиста
     Save: Запазване
     Added {count} Times: Вече е добавено | Добавено {count} пъти
-    "{videoCount}/{totalVideoCount} Videos Already Added": Вече са добавени {videoCount}/{totalVideoCount}
-      видеа
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": Ще бъдат добавени {videoCount}/{totalVideoCount}
-      видеа
+    "{videoCount}/{totalVideoCount} Videos Already Added": Вече са добавени {videoCount}/{totalVideoCount} видеа
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": Ще бъдат добавени {videoCount}/{totalVideoCount} видеа
     Allow Adding Duplicate Video(s): Разрешаване на добавянето на дублиращи се видеа
   Remove from Playlist: Премахване от плейлиста за изпълнение
   Playlist Name: Име на плейлиста
@@ -230,17 +194,10 @@ User Playlists:
   Move Video Down: Преместване надолу
   Playlists with Matching Videos: Плейлисти със съвпадащи видеа
   Quick Bookmark Enabled: Бързите отметки са активирани
-  Cannot delete the quick bookmark target playlist.: Не може да се изтрие целевия
-    списък за плейлисти с бързи отметки.
+  Cannot delete the quick bookmark target playlist.: Не може да се изтрие целевия списък за плейлисти с бързи отметки.
   Remove Duplicate Videos: Премахване на дублирани видеа
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Сигурни
-    ли сте, че искате да премахнете 1 дублиращо се видео от този плейлист? Това не
-    може да бъде отменено. | Сигурни ли сте, че искате да премахнете {playlistItemCount}
-    дублиращи се видеа от този плейлист? Това не може да бъде отменено.
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Сигурни
-    ли сте, че искате да премахнете 1 гледано видео от този плейлист? Това не може
-    да бъде отменено. | Сигурни ли сте, че искате да премахнете {playlistItemCount}
-    гледани видеа от този плейлист? Това не може да бъде отменено.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Сигурни ли сте, че искате да премахнете 1 дублиращо се видео от този плейлист? Това не може да бъде отменено. | Сигурни ли сте, че искате да премахнете {playlistItemCount} дублиращи се видеа от този плейлист? Това не може да бъде отменено.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Сигурни ли сте, че искате да премахнете 1 гледано видео от този плейлист? Това не може да бъде отменено. | Сигурни ли сте, че искате да премахнете {playlistItemCount} гледани видеа от този плейлист? Това не може да бъде отменено.
   Export Playlist: Изнасяне на плейлиста
   The playlist has been successfully exported: Плейлистът е изнесен успешно
   TotalTimePlaylist: 'Общо време: {duration}'
@@ -252,6 +209,8 @@ History:
   Search bar placeholder: Търсене в историята
   Empty Search Message: В историята няма видеа, които да отговарят на търсенето ви
   Case Sensitive Search: Главни / малки букви
+  DateOldestHistory: Първо най-новите
+  DateNewestHistory: Първо най-старите
 Settings:
   # On Settings Page
   Settings: 'Настройки'
@@ -259,8 +218,7 @@ Settings:
     General Settings: 'Общи'
     Check for Updates: 'Проверка за актуализации'
     Check for Latest Blog Posts: 'Проверка за нови публикации в блога'
-    Fallback to Non-Preferred Backend on Failure: 'При грешка, връщане към непредпочитан
-      интерфейс'
+    Fallback to Non-Preferred Backend on Failure: 'При грешка, връщане към непредпочитан интерфейс'
     Enable Search Suggestions: 'Активиране на препоръките при търсене'
     Default Landing Page: 'Страница по подразбиране'
     Locale Preference: 'Език'
@@ -282,16 +240,13 @@ Settings:
       Blur: Размазано
     Region for Trending: 'Регион за набиращи популярност'
         #! List countries
-    View all Invidious instance information: Преглед на пълна информация за Invidious
-      обекта
+    View all Invidious instance information: Преглед на пълна информация за Invidious обекта
     System Default: Стандартен за системата
     Clear Default Instance: Изчистване на сървъра по подразбиране
     Set Current Instance as Default: Задаване на текущият сървър като по подразбиране
-    Current instance will be randomized on startup: Текущият сървър при стартиране
-      ще бъде случаен
+    Current instance will be randomized on startup: Текущият сървър при стартиране ще бъде случаен
     No default instance has been set: Няма зададен сървър по подразбиране
-    The currently set default instance is {instance}: Текущо зададеният сървър по
-      подразбиране е {instance}
+    The currently set default instance is {instance}: Текущо зададеният сървър по подразбиране е {instance}
     Current Invidious Instance: Текущ Invidious сървър
     External Link Handling:
       No Action: Без действие
@@ -301,12 +256,10 @@ Settings:
     Auto Load Next Page:
       Label: Автоматично зареждане на следващата страница
       Tooltip: Автоматично зареждане на допълнителни страници и коментари.
-    Open Deep Links In New Window: Отваряне в нов прозорец на URL адреси, преминаващи
-      през FreeTube
+    Open Deep Links In New Window: Отваряне в нов прозорец на URL адреси, преминаващи през FreeTube
   Theme Settings:
     Theme Settings: 'Тема'
-    Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова
-      тема'
+    Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова тема'
     Base Theme:
       Base Theme: 'Основна тема'
       Black: 'Черна'
@@ -449,12 +402,10 @@ Settings:
       4k: '4k'
       8k: '8k'
     Next Video Interval: Таймер за обратно броене при автоматично възпроизвеждане
-    Display Play Button In Video Player: Показване на бутона за възпроизвеждане във
-      видео плейъра
+    Display Play Button In Video Player: Показване на бутона за възпроизвеждане във видео плейъра
     Scroll Volume Over Video Player: Промяна на звука при превъртане над видео плейъра
     Fast-Forward / Rewind Interval: Интервал за бързо превъртане напред / назад
-    Scroll Playback Rate Over Video Player: Промяна на скоростта на възпроизвеждане
-      над видео плейъра
+    Scroll Playback Rate Over Video Player: Промяна на скоростта на възпроизвеждане над видео плейъра
     Max Video Playback Rate: Максимална скорост на възпроизвеждане
     Video Playback Rate Interval: Интервал на скоростта на възпроизвеждане
     Screenshot:
@@ -466,10 +417,7 @@ Settings:
       Error:
         Forbidden Characters: Забранени символи
         Empty File Name: Празно име на файл
-      File Name Tooltip: Можете да използвате променливите по-долу. %Y - година -
-        4 цифри. %M - месец - 2 цифри. %D - ден - 2 цифри. %H - час - 2 цифри. %N
-        - минути - 2 цифри. %S - секунди - 2 цифри. %T - милисекунди - 3 цифри. %s
-        - видеосекунди. %t - видео милисекунди - 3 цифри. %i ID на видеото.
+      File Name Tooltip: Можете да използвате променливите по-долу. %Y - година - 4 цифри. %M - месец - 2 цифри. %D - ден - 2 цифри. %H - час - 2 цифри. %N - минути - 2 цифри. %S - секунди - 2 цифри. %T - милисекунди - 3 цифри. %s - видеосекунди. %t - видео милисекунди - 3 цифри. %i ID на видеото.
       Format Label: Формат
       Folder Button: Избор на папка
     Enter Fullscreen on Display Rotate: Режим на цял екран при завъртане на дисплея
@@ -486,46 +434,33 @@ Settings:
     Remember History: 'Запазване на историята с гледания'
     Save Watched Progress: 'Запазване напредъка на гледането'
     Clear Search Cache: 'Изчистване кеша на търсенията'
-    Are you sure you want to clear out your search cache?: 'Сигурни ли сте, че искате
-      да изчистите кеша на търсенията си?'
+    Are you sure you want to clear out your search cache?: 'Сигурни ли сте, че искате да изчистите кеша на търсенията си?'
     Search cache has been cleared: 'Кешът на търсенията беше изчистен'
     Remove Watch History: 'Премахване на историята на гледанията'
-    Are you sure you want to remove your entire watch history?: 'Сигурни ли сте, че
-      искате да премахнете цялата история на гледанията?'
+    Are you sure you want to remove your entire watch history?: 'Сигурни ли сте, че искате да премахнете цялата история на гледанията?'
     Watch history has been cleared: 'Историята на гледанията беше изчистена'
     Remove All Subscriptions / Profiles: 'Премахване на всички абонаменти / профили'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Сигурни
-      ли сте, че искате да премахнете всички абонаменти и профили? Това не може да
-      бъде възстановено.'
-    Save Watched Videos With Last Viewed Playlist: Запазване на гледани видеа с последно
-      гледан плейлист
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Сигурни ли сте, че искате да премахнете всички абонаменти и профили? Това не може да бъде възстановено.'
+    Save Watched Videos With Last Viewed Playlist: Запазване на гледани видеа с последно гледан плейлист
     Remove All Playlists: Премахване на всички плейлисти
     All playlists have been removed: Всички плейлисти са премахнати
-    Are you sure you want to remove all your playlists?: Сигурни ли сте, че искате
-      да премахнете всичките си плейлисти?
+    Are you sure you want to remove all your playlists?: Сигурни ли сте, че искате да премахнете всичките си плейлисти?
     Remember Search History: Запазване на историята с търсения
     Clear Search History and Cache: Изчистване на историята с търсения и кеша
-    Are you sure you want to clear out your search history and cache?: Сигурни ли
-      сте, че искате да изчистите историята с търсения и кеша?
-    Search history and cache have been cleared: Историята на търсенията и кеша бяха
-      изчистени
+    Are you sure you want to clear out your search history and cache?: Сигурни ли сте, че искате да изчистите историята с търсения и кеша?
+    Search history and cache have been cleared: Историята на търсенията и кеша бяха изчистени
     Watched Progress Saving Mode:
       Modes:
         Auto: Автоматично
         Semi-auto: Полуавтоматично
         Never: Никога
-      Tooltip: Автоматично = Записване при всяко излизане от страницата с видеото,
-        при приключването му и възникване на грешка (напр. ограничена скорост и изтичане
-        на сесията за гледане). Полуавтоматично = Като Автоматично, с изключение на
-        това, че при излизане от страницата с видеото може да се запазва напредъка
-        ръчно чрез бутона Запазване на напредъка, разположен под видеоплейъра.
+      Tooltip: Автоматично = Записване при всяко излизане от страницата с видеото, при приключването му и възникване на грешка (напр. ограничена скорост и изтичане на сесията за гледане). Полуавтоматично = Като Автоматично, с изключение на това, че при излизане от страницата с видеото може да се запазва напредъка ръчно чрез бутона Запазване на напредъка, разположен под видеоплейъра.
   Subscription Settings:
     Subscription Settings: 'Абонаменти'
     Fetch Feeds from RSS: 'Извличане на съдържания през RSS'
     Fetch Automatically: Автоматично извличане на съдържание
     Confirm Before Unsubscribing: Избягване на случайно отписване
-    'Limit the number of videos displayed for each channel': Ограничаване на броя
-      на показваните видеа за всеки канал
+    'Limit the number of videos displayed for each channel': Ограничаване на броя на показваните видеа за всеки канал
     To: на
   Data Settings:
     Data Settings: 'Данни'
@@ -537,23 +472,16 @@ Settings:
     Export NewPipe: 'Изнасяне в NewPipe формат'
     Import History: 'Внасяне на история'
     Export History: 'Изнасяне на история'
-    Profile object has insufficient data, skipping item: 'В профила няма достатъчно
-      данни, прескачане на обекта'
-    All subscriptions and profiles have been successfully imported: 'Всички абонаменти
-      и профили бяха внесени успешно'
-    All subscriptions have been successfully imported: 'Всички абонаменти бяха внесени
-      успешно'
+    Profile object has insufficient data, skipping item: 'В профила няма достатъчно данни, прескачане на обекта'
+    All subscriptions and profiles have been successfully imported: 'Всички абонаменти и профили бяха внесени успешно'
+    All subscriptions have been successfully imported: 'Всички абонаменти бяха внесени успешно'
     Invalid subscriptions file: 'Невалиден файл с абонаменти'
-    This might take a while, please wait: 'Това може да отнеме повече време, моля
-      изчакайте'
+    This might take a while, please wait: 'Това може да отнеме повече време, моля изчакайте'
     Invalid history file: 'Невалиден файл с история'
     Subscriptions have been successfully exported: 'Абонаментите бяха изнесени успешно'
-    History object has insufficient data, skipping item: 'Историята няма достатъчно
-      данни, прескачане на обекта'
-    All watched history has been successfully imported: 'Цялата история на гледанията
-      беше внесена успешно'
-    All watched history has been successfully exported: 'Цялата история на гледанията
-      беше изнесена успешно'
+    History object has insufficient data, skipping item: 'Историята няма достатъчно данни, прескачане на обекта'
+    All watched history has been successfully imported: 'Цялата история на гледанията беше внесена успешно'
+    All watched history has been successfully exported: 'Цялата история на гледанията беше изнесена успешно'
     Unable to read file: 'Файлът не се прочете'
     Unable to write file: 'Файлът не се записа'
     Unknown data key: 'Непознат ключ данни'
@@ -562,19 +490,13 @@ Settings:
     Export Playlists: Изнасяне на плейлисти
     All playlists has been successfully imported: Всички плейлисти са внесени успешно
     Import Playlists: Внасяне на плейлисти
-    Playlist insufficient data: Недостатъчно данни за плейлист "{playlist}", прескачане
-      на елемент
+    Playlist insufficient data: Недостатъчно данни за плейлист "{playlist}", прескачане на елемент
     All playlists has been successfully exported: Всички плейлисти са изнесени успешно
     History File: Файл с история
     Playlist File: Файл с плейлисти
     Subscription File: Файл с абонаменти
     Export Playlists For Older FreeTube Versions:
-      Tooltip: "Тази опция изнася видеа от всички плейлисти в един плейлист с име
-        \"Предпочитани\".\nКак да изнесете и внесете видеа в плейлисти за по-стара
-        версия на FreeTube:\n1. Изнесете плейлистите си с включена тази опция.\n2.
-        Изтрийте всичките си съществуващи плейлисти, като използвате опцията \"Премахване
-        на всички плейлисти\" в Настройки за поверителност.\n3. Стартирайте по-старата
-        версия на FreeTube и внесете изнесените плейлисти.\""
+      Tooltip: "Тази опция изнася видеа от всички плейлисти в един плейлист с име \"Предпочитани\".\nКак да изнесете и внесете видеа в плейлисти за по-стара версия на FreeTube:\n1. Изнесете плейлистите си с включена тази опция.\n2. Изтрийте всичките си съществуващи плейлисти, като използвате опцията \"Премахване на всички плейлисти\" в Настройки за поверителност.\n3. Стартирайте по-старата версия на FreeTube и внесете изнесените плейлисти.\""
       Label: Изнасяне на плейлисти за по-стари версии на FreeTube
 
   Distraction Free Settings:
@@ -598,8 +520,7 @@ Settings:
     Hide Upcoming Premieres: Скриване на предстоящите премиери
     Hide Channels: Скриване видеата от каналите
     Hide Channels Placeholder: Идентификатор на канала
-    Display Titles Without Excessive Capitalisation: Показване на заглавията без излишни
-      главни букви и препинателни знаци
+    Display Titles Without Excessive Capitalisation: Показване на заглавията без излишни главни букви и препинателни знаци
     Hide Featured Channels: Скриване на препоръчаните канали
     Hide Channel Playlists: Скриване на раздел "Плейлисти"
     Hide Channel Shorts: Скриване на раздел "Кратки видеа"
@@ -615,52 +536,38 @@ Settings:
     Hide Subscriptions Live: Скриване на абонаментите на живо
     Hide Channel Podcasts: Скриване на раздел "Подкасти"
     Hide Profile Pictures in Comments: Скриване на профилните снимки в коментарите
-    Hide Channels Disabled Message: Някои канали бяха блокирани с чрез идентификатор
-      и не бяха обработени. Функцията е блокирана, докато тези идентификатори се актуализират
-    Hide Channels API Error: Грешка при извличането на потребител с предоставения
-      идентификатор. Моля, проверете отново дали идентификаторът е правилен.
+    Hide Channels Disabled Message: Някои канали бяха блокирани с чрез идентификатор и не бяха обработени. Функцията е блокирана, докато тези идентификатори се актуализират
+    Hide Channels API Error: Грешка при извличането на потребител с предоставения идентификатор. Моля, проверете отново дали идентификаторът е правилен.
     Hide Channels Invalid: Предоставеният идентификатор на канала е невалиден
     Hide Channels Already Exists: Идентификаторът на канала вече съществува
-    Hide Videos and Playlists Containing Text: Скриване на видеа и плейлисти, съдържащи
-      текст
-    Hide Videos and Playlists Containing Text Placeholder: Дума, част от дума или
-      фраза
+    Hide Videos and Playlists Containing Text: Скриване на видеа и плейлисти, съдържащи текст
+    Hide Videos and Playlists Containing Text Placeholder: Дума, част от дума или фраза
     Hide Channel Home: Скриване на раздел "Начало"
     Show Added Items: Показване на добавените елементи
     Hide Channel Courses: Скриване на раздел "Курсове"
     Hide Channel Posts: Скриване на раздел "Публикации"
     Hide Subscriptions Posts: Скриване на публикациите в абонаментите
-  The app needs to restart for changes to take effect. Restart and apply change?: Приложението
-    трябва да се рестартира за да се приложат промените. Рестартиране?
+  The app needs to restart for changes to take effect. Restart and apply change?: Приложението трябва да се рестартира за да се приложат промените. Рестартиране?
   Proxy Settings:
-    Error getting network information. Is your proxy configured properly?: Грешка
-      при получаване на информация за мрежата. Правилно ли е конфигуриран вашият прокси
-      сървър?
+    Error getting network information. Is your proxy configured properly?: Грешка при получаване на информация за мрежата. Правилно ли е конфигуриран вашият прокси сървър?
     City: Град
     Region: Регион
     Country: Държава
     Ip: Ip
     Your Info: Вашата информация
     Test Proxy: Тестване на прокси
-    Clicking on Test Proxy will send a request to: Щракването върху "Тестване на прокси"
-      ще изпрати заявка до
+    Clicking on Test Proxy will send a request to: Щракването върху "Тестване на прокси" ще изпрати заявка до
     Proxy Port Number: Номер на прокси порта
     Proxy Host: Прокси хост
     Proxy Protocol: Прокси протокол
     Enable Tor / Proxy: Активиране на Tor / Proxy
     Proxy Settings: Прокси
-    Proxy Warning: FreeTube не разполага с вграден прокси сървър, но може да се свърже
-      с външен, например такъв, който работи на вашата машина, като Tor или SOCKS5
-      прокси сървър, предоставян от някои VPN услуги. Ако е активирано, уверете се,
-      че прокси сървърът/Tor е конфигуриран правилно, тъй като FreeTube няма да може
-      да извлича данни.
+    Proxy Warning: FreeTube не разполага с вграден прокси сървър, но може да се свърже с външен, например такъв, който работи на вашата машина, като Tor или SOCKS5 прокси сървър, предоставян от някои VPN услуги. Ако е активирано, уверете се, че прокси сървърът/Tor е конфигуриран правилно, тъй като FreeTube няма да може да извлича данни.
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Известие при пропускане на спонсориран
-      сегмент
+    Notify when sponsor segment is skipped: Известие при пропускане на спонсориран сегмент
     Enable SponsorBlock: Активиране на SponsorBlock
     SponsorBlock Settings: SponsorBlock
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
-      адрес (по подразбиране е https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API адрес (по подразбиране е https://sponsor.ajay.app)
     Skip Options:
       Skip Option: Опция за пропускане
       Auto Skip: Автоматично пропускане
@@ -669,14 +576,12 @@ Settings:
       Do Nothing: Не правете нищо
     Category Color: Категория Цвят
     UseDeArrowTitles: Използване на DeArrow за заглавия на видео
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
-      API адрес за генератор на миниатюри (по подразбиране е https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow API адрес за генератор на миниатюри (по подразбиране е https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Използване на DeArrow за миниатюри
   External Player Settings:
     Custom External Player Arguments: Персонализирани аргументи за външен плейър
     Custom External Player Executable: Персонализирано изпълнение на външен плейър
-    Ignore Unsupported Action Warnings: Игнориране на предупрежденията за неподдържани
-      действия
+    Ignore Unsupported Action Warnings: Игнориране на предупрежденията за неподдържани действия
     External Player: Външен плейър
     External Player Settings: Външен плейър
     Players:
@@ -695,16 +600,14 @@ Settings:
     Hide Unsubscribe Button: Скриване на бутона за отписване
     Show Family Friendly Only: Показване само за семейства
     Hide Search Bar: Скриване на лентата за търсене
+    Hide Uploader on Watch page: Скриване името на канала от страницата за гледане
   Experimental Settings:
     Experimental Settings: Експериментални
     Replace HTTP Cache: Замяна на HTTP кеша
-    Warning: Тези настройки са експериментални и може да причинят сривове, докато
-      са разрешени. Силно се препоръчва създаването на резервни копия. Използвайте
-      на свой риск!
+    Warning: Тези настройки са експериментални и може да причинят сривове, докато са разрешени. Силно се препоръчва създаването на резервни копия. Използвайте на свой риск!
   Password Settings:
     Password Settings: Парола
-    Set Password To Prevent Access: Задаване на парола, за ограничаване на достъпа
-      до настройките
+    Set Password To Prevent Access: Задаване на парола, за ограничаване на достъпа до настройките
     Set Password: Задаване на парола
     Remove Password: Премахване на паролата
   Password Dialog:
@@ -754,17 +657,14 @@ Profile:
   Update Profile: 'Актуализиране на профила'
   Make Default Profile: 'Задаване профил по подразбиране'
   Delete Profile: 'Изтриване на профила'
-  Are you sure you want to delete this profile?: 'Сигурни ли сте, че искате да изтриете
-    профила?'
+  Are you sure you want to delete this profile?: 'Сигурни ли сте, че искате да изтриете профила?'
   All subscriptions will also be deleted.: 'Всички абонаменти също ще бъдат изтрити.'
   Your profile name cannot be empty: 'Името на профила не може да е празно'
   Profile has been created: 'Профилът беше създаден'
   Profile has been updated: 'Профилът беше актуализиран'
-  Your default profile has been set to {profile}: 'Вашият профил по подразбиране беше
-    указан да е {profile}'
+  Your default profile has been set to {profile}: 'Вашият профил по подразбиране беше указан да е {profile}'
   Removed {profile} from your profiles: '{profile} е премахнат от вашите профили'
-  Your default profile has been changed to your primary profile: 'Профилът по подразбиране
-    е променен на вашия първоначален профил'
+  Your default profile has been changed to your primary profile: 'Профилът по подразбиране е променен на вашия първоначален профил'
   '{profile} is now the active profile': 'Активният профил сега е {profile}'
   Subscription List: 'Списък с абонаменти'
   Other Channels: 'Други канали'
@@ -774,13 +674,9 @@ Profile:
   Delete Selected: 'Изтриване на избраните'
   Add Selected To Profile: 'Добавяне на избраното към профила'
   No channel(s) have been selected: 'Няма избрани канали'
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : 'Това е основният ви профил. Сигурни ли сте, че искате да изтриете избраните канали?
-    Същите канали ще бъдат изтрити във всички профили, в които бъдат намерени.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Сигурни
-    ли сте, че искате да изтриете избраните канали? Така каналът няма да бъде изтрит
-    от другите профили.'
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : 'Това е основният ви профил. Сигурни ли сте, че искате да изтриете избраните канали? Същите канали ще бъдат изтрити във всички профили, в които бъдат намерени.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Сигурни ли сте, че искате да изтриете избраните канали? Така каналът няма да бъде изтрит от другите профили.'
 #On Channel Page
   Profile Filter: Профилен филтър
   Profile Settings: Профил
@@ -793,25 +689,21 @@ Profile:
 Channel:
   Subscribe: 'Абониране'
   Unsubscribe: 'Отписване'
-  Channel has been removed from your subscriptions: 'Каналът беше премахнат от вашите
-    абонаменти'
-  Removed subscription from {count} other channel(s): 'Премахнат абонамент от {count}
-    друг(и) канал(и)'
+  Channel has been removed from your subscriptions: 'Каналът беше премахнат от вашите абонаменти'
+  Removed subscription from {count} other channel(s): 'Премахнат абонамент от {count} друг(и) канал(и)'
   Added channel to your subscriptions: 'Каналът е добавен към вашите абонаменти'
   Search Channel: 'Търсене в канала'
   Your search results have returned 0 results: 'Търсенето върна 0 резултата'
   Videos:
     Videos: 'Видеа'
-    This channel does not currently have any videos: 'В този канал по настоящем няма
-      видеа'
+    This channel does not currently have any videos: 'В този канал по настоящем няма видеа'
     Sort Types:
       Newest: 'Най-нови'
       Oldest: 'Най-стари'
       Most Popular: 'Най-популярни'
   Playlists:
     Playlists: 'Плейлисти'
-    This channel does not currently have any playlists: 'В този канал по настоящем
-      няма плейлисти'
+    This channel does not currently have any playlists: 'В този канал по настоящем няма плейлисти'
     Sort Types:
       Last Video Added: 'Последно добавени'
       Newest: 'Най-нови'
@@ -827,43 +719,34 @@ Channel:
     Joined: Присъединен на
     Location: Местоположение
   Posts:
-    This channel currently does not have any posts: В момента този канал няма никакви
-      публикации
+    This channel currently does not have any posts: В момента този канал няма никакви публикации
     votes: '{votes} гласа'
     Reveal Answers: Разкриване на отговорите
     Hide Answers: Скриване на отговорите
     Video hidden by FreeTube: Видео, скрито от FreeTube
-    Viewing Posts Only Supported By Invidious: Преглеждането на публикации се поддържа
-      само от Invidious. Отидете в раздела на общността на канала, за да видите съдържанието
-      там без Invidious.
+    Viewing Posts Only Supported By Invidious: Преглеждането на публикации се поддържа само от Invidious. Отидете в раздела на общността на канала, за да видите съдържанието там без Invidious.
     View Full Post: Преглед на цялата публикация
   This channel does not exist: Каналът не съществува
   This channel does not allow searching: Каналът не позволява търсене
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: Каналът
-    е възрастово ограничен и в момента не може да бъде гледан във FreeTube.
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Каналът е възрастово ограничен и в момента не може да бъде гледан във FreeTube.
   Channel Tabs: Раздели на каналите
   Live:
     Live: На живо
-    This channel does not currently have any live streams: В момента този канал няма
-      никакви потоци на живо
+    This channel does not currently have any live streams: В момента този канал няма никакви потоци на живо
   Shorts:
-    This channel does not currently have any shorts: В момента този канал няма никакви
-      кратки видеа
+    This channel does not currently have any shorts: В момента този канал няма никакви кратки видеа
   Podcasts:
     Podcasts: Подкасти
-    This channel does not currently have any podcasts: В момента този канал няма никакви
-      подкасти
+    This channel does not currently have any podcasts: В момента този канал няма никакви подкасти
   Releases:
     Releases: Издания
-    This channel does not currently have any releases: В момента този канал няма никакви
-      издания
+    This channel does not currently have any releases: В момента този канал няма никакви издания
   Home:
     Home: Начало
     View Playlist: Преглед на плейлиста
   Courses:
     Courses: Курсове
-    This channel does not currently have any courses: В момента този канал няма никакви
-      курсове
+    This channel does not currently have any courses: В момента този канал няма никакви курсове
 Video:
   Mark As Watched: 'Отбелязване като гледано'
   Remove From History: 'Премахване от историята'
@@ -883,20 +766,15 @@ Video:
   Play Previous Video: 'Предишно видео'
   Watched: 'Гледано'
   Autoplay: 'Автоматично пускане'
-  Starting soon, please refresh the page to check again: 'Започва скоро, моля опреснете
-    страницата за актуализация'
+  Starting soon, please refresh the page to check again: 'Започва скоро, моля опреснете страницата за актуализация'
   # As in a Live Video
   Live: 'На живо'
   Live Now: 'На живо сега'
   Live Chat: 'Чат на живо'
   Enable Live Chat: 'Активиране чата на живо'
-  Live Chat is currently not supported in this build.: 'Чатът на живо не се поддръжа
-    в тази версия.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Чатът на живо
-    е активиран. Съобщенията ще се появят тук когато бъдат изпратени.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Чатът
-    на живо не се поддържа от интерфейса на Invidious. Изисква се директна връзка
-    с YouTube.'
+  Live Chat is currently not supported in this build.: 'Чатът на живо не се поддръжа в тази версия.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Чатът на живо е активиран. Съобщенията ще се появят тук когато бъдат изпратени.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Чатът на живо не се поддържа от интерфейса на Invidious. Изисква се директна връзка с YouTube.'
   Published:
     In less than a minute: След по-малко от минута
   Published on: 'Публикувано на'
@@ -910,8 +788,7 @@ Video:
   Open Channel in YouTube: Отваряне на канала в YouTube
   Started streaming on: Начало на предаването
   Streamed on: На живо на
-  Video has been removed from your saved list: Видеото е премахнато от вашия списък
-    със запазени
+  Video has been removed from your saved list: Видеото е премахнато от вашия списък със запазени
   Video has been saved: Видеото е запазено
   Save Video: Запазване на видео
   Sponsor Block category:
@@ -928,8 +805,7 @@ Video:
       looping playlists: повтаряне на плейлисти
       shuffling playlists: разбъркване на плейлисти
       reversing playlists: обръщане на плейлист
-      opening specific video in a playlist (falling back to opening the video): отваряне
-        на определено видео в плейлист (връщане към отваряне на видеото)
+      opening specific video in a playlist (falling back to opening the video): отваряне на определено видео в плейлист (връщане към отваряне на видеото)
       opening playlists: отваряне на плейлист
       setting a playback rate: задаване на скорост за възпроизвеждане
       starting video at offset: стартиране на видео при отместване
@@ -942,8 +818,7 @@ Video:
   Show Super Chat Comment: Показване на Super Chat коментар
   Scroll to Bottom: Превъртане в долната част
   Upcoming: Предстои
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Чатът
-    на живо не е наличен за този поток. Възможно е да е бил деактивиран от качващия.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Чатът на живо не е наличен за този поток. Възможно е да е бил деактивиран от качващия.
   Unhide Channel: Показване на канала
   Hide Channel: Скриване на канала
   More Options: Още опции
@@ -966,11 +841,9 @@ Video:
       Resolution: 'Разделителна способност: {width}x{height}@{frameRate}'
       Player Dimensions: 'Размери на плейъра: {width}x{height}'
       Bitrate: 'Скорост на предаване: {bitrate} kbps'
-      Dropped Frames / Total Frames: 'Изпуснати кадри: {droppedFrames} / Общо кадри:
-        {totalFrames}'
+      Dropped Frames / Total Frames: 'Изпуснати кадри: {droppedFrames} / Общо кадри: {totalFrames}'
     You appear to be offline: Изглежда, че сте офлайн.
-    Playback will resume automatically when your connection comes back: Възпроизвеждането
-      ще се възобнови автоматично, когато връзката ви се възстанови.
+    Playback will resume automatically when your connection comes back: Възпроизвеждането ще се възобнови автоматично, когато връзката ви се възстанови.
     Skipped segment: Пропуснат сегмент {segmentCategory}
     TranslatedCaptionTemplate: '{language} (преведено от "{originalLanguage}")'
     Theatre Mode: Широкоекранен режим
@@ -978,20 +851,14 @@ Video:
     Hide Stats: Скриване на статистиката
     Autoplay is off: Автоматичното пускане е спряно
     Autoplay is on: Автоматичното пускане е включено
-  IP block: YouTube е блокирал вашия IP адрес за гледане на видеа. Опитайте да преминете
-    към друга VPN услуга или прокси сървър.
-  AgeRestricted: Видеата с възрастови ограничения не могат да се гледат с FreeTube,
-    тъй като изискват вход в Google и използване на проверен по възраст акаунт в YouTube.
+  IP block: YouTube е блокирал вашия IP адрес за гледане на видеа. Опитайте да преминете към друга VPN услуга или прокси сървър.
+  AgeRestricted: Видеата с възрастови ограничения не могат да се гледат с FreeTube, тъй като изискват вход в Google и използване на проверен по възраст акаунт в YouTube.
   Unlisted: Непосочен в списъка
-  MembersOnly: Видеата, предназначени само за членове, не могат да се гледат с FreeTube,
-    тъй като изискват вход в Google и платено членство в канала на качващия.
+  MembersOnly: Видеата, предназначени само за членове, не могат да се гледат с FreeTube, тъй като изискват вход в Google и платено членство в канала на качващия.
   DeArrow:
     Show Original Details: Показване на оригинални данни
     Show Modified Details: Показване на променени данни
-  DRMProtected: Видеата, защитени с DRM не могат да се възпроизвеждат във FreeTube,
-    тъй като изискват собствени компоненти със затворен код. Ако искате да гледате
-    това видео, моля, използвайте официалния уебсайт на YouTube в уеб браузър поддържащ
-    DRM.
+  DRMProtected: Видеата, защитени с DRM не могат да се възпроизвеждат във FreeTube, тъй като изискват собствени компоненти със затворен код. Ако искате да гледате това видео, моля, използвайте официалния уебсайт на YouTube в уеб браузър поддържащ DRM.
 #& Playlists
   Watched Progress Saved: Напредъка на гледането е запазен
   Save Watched Progress: Запазване на напредъка
@@ -1021,12 +888,9 @@ Change Format:
   Use Dash Formats: 'Използване на DASH формати'
   Use Legacy Formats: 'Използване на стари формати'
   Use Audio Formats: 'Използване на аудио формати'
-  Dash formats are not available for this video: 'DASH форматите не са достъпни за
-    това видео'
-  Audio formats are not available for this video: 'Аудио форматите не са достъпни
-    за това видео'
-  Legacy formats are not available for this video: За това видео не са налични наследени
-    формати
+  Dash formats are not available for this video: 'DASH форматите не са достъпни за това видео'
+  Audio formats are not available for this video: 'Аудио форматите не са достъпни за това видео'
+  Legacy formats are not available for this video: За това видео не са налични наследени формати
 Share:
   Share Video: 'Споделяне на видео'
   Share Playlist: 'Споделяне на плейлиста'
@@ -1047,8 +911,7 @@ Mini Player: 'Мини плейър'
 Comments:
   Comments: 'Коментари'
   Click to View Comments: 'Щракнете, за да видите коментарите'
-  Getting comment replies, please wait: 'Получаване на отговори на коментара, моля
-    изчакайте'
+  Getting comment replies, please wait: 'Получаване на отговори на коментара, моля изчакайте'
   There are no more comments for this video: 'Към това видео няма повече коментари'
   Hide Comments: 'Скриване на коментарите'
   # Context: View 10 Replies, View 1 Reply
@@ -1076,9 +939,7 @@ Local API Error (Click to copy): 'Грешка в локалния интерф�
 Invidious API Error (Click to copy): 'Грешка в Invidious интерфейса (щракнете за копиране)'
 Falling back to Invidious API: 'Връщане към Invidious интерфейса'
 Falling back to Local API: 'Връщане към локалния интерфейс'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Видеото
-  не е достъпно поради липсващи формати. Това може да се дължи на ограничен достъп
-  за страната.'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Видеото не е достъпно поради липсващи формати. Това може да се дължи на ограничен достъп за страната.'
 Loop is now disabled: 'Повтарянето е изключено'
 Loop is now enabled: 'Повтарянето е включено'
 Shuffle is now disabled: 'Разбъркването е изключено'
@@ -1087,104 +948,55 @@ The playlist has been reversed: 'Плейлистата е в обърнат р�
 Playing Next Video: 'Пускане на следващото видео'
 Playing Previous Video: 'Пускане на предишното видео'
 Canceled next video autoplay: 'Следващото видео е отказано'
-'The playlist has ended. Enable loop to continue playing': 'Плейлиста приключи. Включете
-  повторението за да продължи'
+'The playlist has ended. Enable loop to continue playing': 'Плейлиста приключи. Включете повторението за да продължи'
 
 Yes: 'Да'
 No: 'Не'
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: FreeTube ще използва RSS вместо метода по подразбиране за
-      получаване на абонаментите. RSS е по-бърз метод и преодолява блокиранията на
-      IP адреса, но не получава някои съпътстващи данни, като продължителност на видеото,
-      дали е на живо или публикации
-    Fetch Automatically: FreeTube автоматично ще извлича абонаментите при стартиране
-      и при отваряне на нов прозорец.
+    Fetch Feeds from RSS: FreeTube ще използва RSS вместо метода по подразбиране за получаване на абонаментите. RSS е по-бърз метод и преодолява блокиранията на IP адреса, но не получава някои съпътстващи данни, като продължителност на видеото, дали е на живо или публикации
+    Fetch Automatically: FreeTube автоматично ще извлича абонаментите при стартиране и при отваряне на нов прозорец.
   Player Settings:
-    Default Video Format: Настройка на използваните формати. DASH форматите могат
-      да показват видеа с по-високо качество. Старите формати са ограничени до макс.
-      360р, но пък генерират по-малък трафик. Аудио форматите предават само звук.
-    Proxy Videos Through Invidious: Ще се свърже с Invidious, за да изтегли видеото,
-      вместо да прави дирекна връзка с YouTube.
-    Scroll Playback Rate Over Video Player: Докато курсорът е върху видеото, натиснете
-      и задръжте клавиша Control (Command Key за Mac) и превъртете колелцето на мишката
-      напред или назад, за да контролирате скоростта на възпроизвеждане. Натиснете
-      и задръжте клавиша Control (Command Key за Mac) и щракнете с левия бутон на
-      мишката, за да се върнете бързо към стандартната скорост на възпроизвеждане
-      (1x, освен ако не е променена в настройките).
-    Skip by Scrolling Over Video Player: Използване колелцето на мишката за превъртане
-      на видео в стил MPV.
+    Default Video Format: Настройка на използваните формати. DASH форматите могат да показват видеа с по-високо качество. Старите формати са ограничени до макс. 360р, но пък генерират по-малък трафик. Аудио форматите предават само звук.
+    Proxy Videos Through Invidious: Ще се свърже с Invidious, за да изтегли видеото, вместо да прави дирекна връзка с YouTube.
+    Scroll Playback Rate Over Video Player: Докато курсорът е върху видеото, натиснете и задръжте клавиша Control (Command Key за Mac) и превъртете колелцето на мишката напред или назад, за да контролирате скоростта на възпроизвеждане. Натиснете и задръжте клавиша Control (Command Key за Mac) и щракнете с левия бутон на мишката, за да се върнете бързо към стандартната скорост на възпроизвеждане (1x, освен ако не е променена в настройките).
+    Skip by Scrolling Over Video Player: Използване колелцето на мишката за превъртане на видео в стил MPV.
   General Settings:
-    Region for Trending: Регионът на набиращите популярност дава възможност да се
-      избере страната, за която това се отнася.
+    Region for Trending: Регионът на набиращите популярност дава възможност да се избере страната, за която това се отнася.
     Invidious Instance: Сървър на Invidious, към който FreeTube ще се свързва.
-    Thumbnail Preference: Всички миниатюри във FreeTube ще бъдат подменени с кадър
-      от видеото, замъглени или скрити, вместо тези по подразбиране.
-    Fallback to Non-Preferred Backend on Failure: Когато избраният интерфейс срещне
-      проблем, FreeTube ще опита да премине автоматично към друг метод, ако има избран
-      такъв.
-    Preferred API Backend: Избиране на начина, по който FreeTube получава данните.
-      Локалният интерфейс има вградено извличане. Invidious интерфейсът изисква Invidious
-      сървър, към който да се свърже.
-    External Link Handling: "Избор на поведението по подразбиране, когато щракнете
-      върху връзка, която не може да бъде отворена във FreeTube.\nПо подразбиране
-      FreeTube ще отвори връзката в браузъра по подразбиране.\n"
-    Open Deep Links In New Window: URL адресите, преминаващи през FreeTube, например
-      чрез разширения на браузъра или аргументи от командния ред, се отварят в нов
-      прозорец.
+    Thumbnail Preference: Всички миниатюри във FreeTube ще бъдат подменени с кадър от видеото, замъглени или скрити, вместо тези по подразбиране.
+    Fallback to Non-Preferred Backend on Failure: Когато избраният интерфейс срещне проблем, FreeTube ще опита да премине автоматично към друг метод, ако има избран такъв.
+    Preferred API Backend: Избиране на начина, по който FreeTube получава данните. Локалният интерфейс има вградено извличане. Invidious интерфейсът изисква Invidious сървър, към който да се свърже.
+    External Link Handling: "Избор на поведението по подразбиране, когато щракнете върху връзка, която не може да бъде отворена във FreeTube.\nПо подразбиране FreeTube ще отвори връзката в браузъра по подразбиране.\n"
+    Open Deep Links In New Window: URL адресите, преминаващи през FreeTube, например чрез разширения на браузъра или аргументи от командния ред, се отварят в нов прозорец.
   External Player Settings:
-    Custom External Player Arguments: Всички персонализирани аргументи от командния
-      ред, които искате да бъдат предадени на външния плейър.
-    Ignore Warnings: Премахване на предупрежденията, когато текущият външен плейър
-      не поддържа текущото действие (напр. обръщане на плейлисти и др.).
-    Custom External Player Executable: По подразбиране FreeTube предполага, че избраният
-      външен плейър може да бъде намерен чрез променливата на средата 'PATH'. Ако
-      е необходимо, тук може да се зададе потребителски път.
-    External Player: При избора на външен плейър, върху миниатюрата ще се покаже икона
-      за отваряне на видеото (плейлиста, ако се поддържа) във външния плейър. Внимание,
-      настройките на Invidious не влияят на външните плейъри.
+    Custom External Player Arguments: Всички персонализирани аргументи от командния ред, които искате да бъдат предадени на външния плейър.
+    Ignore Warnings: Премахване на предупрежденията, когато текущият външен плейър не поддържа текущото действие (напр. обръщане на плейлисти и др.).
+    Custom External Player Executable: По подразбиране FreeTube предполага, че избраният външен плейър може да бъде намерен чрез променливата на средата 'PATH'. Ако е необходимо, тук може да се зададе потребителски път.
+    External Player: При избора на външен плейър, върху миниатюрата ще се покаже икона за отваряне на видеото (плейлиста, ако се поддържа) във външния плейър. Внимание, настройките на Invidious не влияят на външните плейъри.
     DefaultCustomArgumentsTemplate: "(По подразбиране: '{defaultCustomArguments}')"
-    Ignore Default Arguments: Без изпращане на аргументи по подразбиране към външния
-      плейър, освен URL адреса на видеото (напр. скорост на възпроизвеждане, URL адрес
-      на плейлиста за възпроизвеждане и т.н.). Потребителските аргументи все пак ще
-      бъдат изпратени.
+    Ignore Default Arguments: Без изпращане на аргументи по подразбиране към външния плейър, освен URL адреса на видеото (напр. скорост на възпроизвеждане, URL адрес на плейлиста за възпроизвеждане и т.н.). Потребителските аргументи все пак ще бъдат изпратени.
   Experimental Settings:
-    Replace HTTP Cache: Деактивира HTTP кеша на Electron върху носителя и активира
-      персонализиран кеш за изображения в паметта. Ще доведе до увеличаване на използването
-      на RAM паметта.
+    Replace HTTP Cache: Деактивира HTTP кеша на Electron върху носителя и активира персонализиран кеш за изображения в паметта. Ще доведе до увеличаване на използването на RAM паметта.
   Distraction Free Settings:
-    Hide Channels: Въведете идентификатор на канал, за да скриете всички видеа, плейлисти
-      и самия канал от показване в търсенето, тенденциите, най-популярните и препоръчаните.
-      Въведеният идентификатор трябва да съвпада напълно и е чувствителен към главни
-      и малки букви.
-    Hide Subscriptions Live: Тази настройка се отменя от настройката за цялото приложение
-      "{appWideSetting}" в секция "{subsection}" на "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Въведете дума, част от дума или фраза
-      (без значение от главни и малки букви), за да скриете всички видеа и плейлисти,
-      чиито оригинални заглавия ги съдържат в целия FreeTube, с изключение само на
-      Историята, Вашите плейлисти и видеата в плейлистите.
+    Hide Channels: Въведете идентификатор на канал, за да скриете всички видеа, плейлисти и самия канал от показване в търсенето, тенденциите, най-популярните и препоръчаните. Въведеният идентификатор трябва да съвпада напълно и е чувствителен към главни и малки букви.
+    Hide Subscriptions Live: Тази настройка се отменя от настройката за цялото приложение "{appWideSetting}" в секция "{subsection}" на "{settingsSection}"
+    Hide Videos and Playlists Containing Text: Въведете дума, част от дума или фраза (без значение от главни и малки букви), за да скриете всички видеа и плейлисти, чиито оригинални заглавия ги съдържат в целия FreeTube, с изключение само на Историята, Вашите плейлисти и видеата в плейлистите.
+    Hide Videos on Watch: Скрива гледаните видеа от разделите "Видеа", "Кратки видеа" и "На живо" на страниците "Абонамент" и "Канал". Това не засяга раздел "Начало" на страниците на канала
   SponsorBlock Settings:
-    UseDeArrowTitles: Заменя заглавията на видеата с подадени от потребителите заглавия
-      от DeArrow.
+    UseDeArrowTitles: Заменя заглавията на видеата с подадени от потребителите заглавия от DeArrow.
     UseDeArrowThumbnails: Заменя миниатюрите на видеата с миниатюри от DeArrow.
 More: Още
-Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ.
-  | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ.
-  | Пускане на следващото видео след {nextVideoInterval} секунди. Щракнете за отказ.
-Unknown YouTube url type, cannot be opened in app: Неизвестен тип URL адрес за YouTube,
-  не може да се отвори в приложението
+Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ. | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ. | Пускане на следващото видео след {nextVideoInterval} секунди. Щракнете за отказ.
+Unknown YouTube url type, cannot be opened in app: Неизвестен тип URL адрес за YouTube, не може да се отвори в приложението
 Open New Window: Отваряне на нов прозорец
-Default Invidious instance has been cleared: Сървъра по подразбиране за Invidious
-  е изчистен
-Default Invidious instance has been set to {instance}: Сървъра по подразбиране за
-  Invidious е зададен на {instance}
-External link opening has been disabled in the general settings: Отварянето на външни
-  връзки е изключено в общите настройки
+Default Invidious instance has been cleared: Сървъра по подразбиране за Invidious е изчистен
+Default Invidious instance has been set to {instance}: Сървъра по подразбиране за Invidious е зададен на {instance}
+External link opening has been disabled in the general settings: Отварянето на външни връзки е изключено в общите настройки
 Search Bar:
   Clear Input: Изчистване на въведеното
   Remove: Премахване
-Are you sure you want to open this link?: Сигурни ли сте, че искате да отворите тази
-  връзка?
+Are you sure you want to open this link?: Сигурни ли сте, че искате да отворите тази връзка?
 Downloading has completed: '"{videoTitle}" приключи изтеглянето'
 Starting download: Започва изтегляне на "{videoTitle}"
 Downloading failed: Имаше проблем при изтеглянето на "{videoTitle}"
@@ -1199,15 +1011,12 @@ Channels:
   Title: Списък с канали
   Empty: Списъкът с канали в момента е празен.
 Clipboard:
-  Cannot access clipboard without a secure connection: Не може да се получи достъп
-    до клипборда без защитена връзка
+  Cannot access clipboard without a secure connection: Не може да се получи достъп до клипборда без защитена връзка
   Copy failed: Неуспешно копиране в клипборда
 Chapters:
   Chapters: Глави
-  'Chapters list visible, current chapter: {chapterName}': 'Списъкът с глави се вижда,
-    текуща глава: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Списъкът с глави е скрит,
-    текуща глава: {chapterName}'
+  'Chapters list visible, current chapter: {chapterName}': 'Списъкът с глави се вижда, текуща глава: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Списъкът с глави е скрит, текуща глава: {chapterName}'
   Key Moments: Основни моменти
 Preferences: Предпочитания
 Ok: Добре
@@ -1218,14 +1027,12 @@ Channel Hidden: '{channel} е добавен към филтъра за кана
 Channel Unhidden: '{channel} е премахнат от филтъра за канали'
 Go to page: Отиване на {page}
 Tag already exists: Етикетът "{tagName}" вече съществува
-Trimmed input must be at least N characters long: Орязаният вход трябва да бъде дълъг
-  поне 1 символ | Орязаният вход трябва да бъде дълъг поне {length} символа
+Trimmed input must be at least N characters long: Орязаният вход трябва да бъде дълъг поне 1 символ | Орязаният вход трябва да бъде дълъг поне {length} символа
 Age Restricted:
   This channel is age restricted: Този канал е с възрастово ограничение
   This video is age restricted: Това видео е с възрастово ограничение
 Close Banner: Затваряне на банер
-Search character limit: Заявката за търсене е над лимита от {searchCharacterLimit}
-  символа
+Search character limit: Заявката за търсене е над лимита от {searchCharacterLimit} символа
 Feed:
   Feed Last Updated: 'Последна актуализация на емисията {feedName}: {date}'
   Refresh Feed: Обновяване на {subscriptionName}
@@ -1261,10 +1068,8 @@ Keys:
   plus: Плюс
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
-Right-click or hold to see history: Щракнете с десния бутон на мишката или задръжте,
-  за да видите историята
-Autoplay Interruption Timer: Автоматичното възпроизвеждане е отменено поради {autoplayInterruptionIntervalHours}
-  час(а) неактивност
+Right-click or hold to see history: Щракнете с десния бутон на мишката или задръжте, за да видите историята
+Autoplay Interruption Timer: Автоматичното възпроизвеждане е отменено поради {autoplayInterruptionIntervalHours} час(а) неактивност
 KeyboardShortcutPrompt:
   Keyboard Shortcuts: Бързи клавиши
   Sections:
@@ -1280,20 +1085,16 @@ KeyboardShortcutPrompt:
   Navigate to Settings: Отиване на страницата с настройки
   Navigate to History: Отиване на страницата с история
   Refresh: Обновяване на емисията с най-новото съдържание
-  Focus Secondary Search: Фокусиране върху допълнителната лента за търсене (ако има
-    такава)
+  Focus Secondary Search: Фокусиране върху допълнителната лента за търсене (ако има такава)
   Captions: Вкл/Изкл на надписите
   Stats: Показване на статистика за видеото
   Fullscreen: Превключване на цял екран
   Picture in Picture: Превключване на режим "Картина в картината"
-  Large Rewind: Превъртане с 10 секунди назад / Превъртане на видеото въз основа на
-    текущата скорост на възпроизвеждане
+  Large Rewind: Превъртане с 10 секунди назад / Превъртане на видеото въз основа на текущата скорост на възпроизвеждане
   Play: Възпроизвеждане/Пауза
-  Decrease Video Speed: Намаляване скоростта на видеото въз основа на интервала за
-    скорост на възпроизвеждане
+  Decrease Video Speed: Намаляване скоростта на видеото въз основа на интервала за скорост на възпроизвеждане
   Mute: Вкл/Изкл на звука
-  Increase Video Speed: Увеличаване скоростта на видеото въз основа на интервала за
-    скорост на възпроизвеждане
+  Increase Video Speed: Увеличаване скоростта на видеото въз основа на интервала за скорост на възпроизвеждане
   Full Window: Превключване на цял прозорец
   Theatre Mode: Превключване на широкоекранен режим
   Take Screenshot: Снимка на екрана
@@ -1310,17 +1111,16 @@ KeyboardShortcutPrompt:
   Next Frame: Следващ кадър (докато е на пауза)
   Volume Up: Увеличаване на звука
   Volume Down: Намаляване на звука
-  Small Rewind: Превъртане назад с X секунди въз основа на интервала и текущата скорост
-    на възпроизвеждане на видео
+  Small Rewind: Превъртане назад с X секунди въз основа на интервала и текущата скорост на възпроизвеждане на видео
   Last Chapter: Последна глава
   Next Chapter: Следваща глава
   Skip by Tenths: Прескачане на видео по проценти (3 прескачания до 30% от продължителността)
   History Backward: Връщане с една страница назад
-  Large Fast Forward: Превъртане с 10 секунди напред / Бързо превъртане на видеото
-    въз основа на текущата скорост на възпроизвеждане
+  Large Fast Forward: Превъртане с 10 секунди напред / Бързо превъртане на видеото въз основа на текущата скорост на възпроизвеждане
   Search in New Window: Търсене в нов прозорец
-  Small Fast Forward: Превъртане напред с X секунди въз основа на интервала и текущата
-    скорост на възпроизвеждане на видео
+  Small Fast Forward: Превъртане напред с X секунди въз основа на интервала и текущата скорост на възпроизвеждане на видео
   Home: Преминаване към началото на видеото
   End: Преминаване към края на видеото
+  Skip to Next Video: Преминаване към следващото видео в плейлиста или към следващото препоръчано
+  Skip to Previous Video: Преминаване към предходното видео в плейлиста
 shortcutLabelSeparator: '|'
