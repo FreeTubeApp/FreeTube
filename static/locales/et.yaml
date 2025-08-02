@@ -599,6 +599,7 @@ Settings:
     Hide Unsubscribe Button: Peida tellimuse tühistamise nupp
     Show Family Friendly Only: Näita ainult peresõbralikku sisu
     Hide Search Bar: Peida otsinguriba
+    Hide Uploader on Watch page: Peida üleslaadija videovaate lehelt
   Experimental Settings:
     Experimental Settings: Katsed
     Warning: Tegemist on katseliste seadistustega ja sisselülitamisel võivad põhjustada rakenduse kokkujooksmist. Kindlasti ära unusta oma andmete varundamist. Jätka omal vastutusel!
@@ -849,7 +850,7 @@ Video:
     You appear to be offline: Sa ei tundu olema võrgus.
     Autoplay is off: Automaatne esitamine on kasutusel
     Autoplay is on: Automaatne esitamine pole kasutusel
-  IP block: YouTube on blokeerinud sinu nutiseadme IP-aadressilt videote vaatamise. Palun kasuta mõnda muud VPN-teenust või puhverserverit.
+  IP block: YouTube on blokeerinud sinu nutiseadme IP-aadressilt videote vaatamise. Palun kasuta mõnda muud lahendust, nagu VPN-teenust või puhverserverit.
   MembersOnly: Kuna vajalik on sisselogimine Google'i kontoga ja tasuline liikmelisus üleslaadija kanalis, siis ainult liikmetele mõeldud videoid ei saa FreeTube'is vaadata.
   AgeRestricted: Kuna vajalik on sisselogimine Google'i kontoga, kus vanus on kontrollitud, siis vanusepiiranguga videoid ei saa FreeTube'is vaadata.
   Unlisted: Registriväline
