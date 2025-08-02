@@ -181,7 +181,7 @@ User Playlists:
   Add to Playlist: Hozzáadás a lejátszási listához
   Move Video Down: Videó lefelé mozgatása
   Playlist Name: Lejátszási lista neve
-  Remove Watched Videos: Megnézett videók eltávolítása
+  Remove Watched Videos: Megtekintett videók eltávolítása
   Move Video Up: Videó felfelé mozgatása
   Cancel: Mégse
   Delete Playlist: Lejátszási lista törlése
@@ -454,7 +454,7 @@ Settings:
         Semi-auto: Félautomatikus
         Auto: Automatikus
         Never: Soha
-      Tooltip: Automatikus = Mentés minden videóoldal elhagyásakor, a videó befejezésekor és hiba esetén (pl. a megtekintési korlátozás és videólejátszási munkamenet lejártakor). Félautomata = Hasonló az automatikushoz, kivéve a videóoldal elhagyásakor, továbbá a videolejátszó alatt található „Megnézett videó folyamatának mentése” nevű gomb segítségével saját kezűleg is menthető.
+      Tooltip: Automatikus = Mentés minden videóoldal elhagyásakor, a videó befejezésekor és hiba esetén (pl. a megtekintési korlátozás és videólejátszási munkamenet lejártakor). Félautomata = Hasonló az automatikushoz, kivéve a videóoldal elhagyásakor, továbbá a videolejátszó alatt található „Megtekintett videó folyamatának mentése” nevű gomb segítségével saját kezűleg is menthető.
   Subscription Settings:
     Subscription Settings: 'Feliratkozás'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
@@ -527,7 +527,7 @@ Settings:
     Sections:
       Side Bar: Oldalsáv
       Channel Page: Csatornalap
-      Watch Page: Nézőlap
+      Watch Page: Megtekintési lap
       General: Általános
       Subscriptions Page: Feliratkozások oldal
     Hide Channel Podcasts: Csatorna „podcastok” lap elrejtése
@@ -600,6 +600,7 @@ Settings:
     Show Family Friendly Only: Csak a családbarát videók megjelenítése
     Hide Search Bar: Keresősáv elrejtése
     Hide Unsubscribe Button: Leiratkozás gomb elrejtése
+    Hide Uploader on Watch page: Feltöltő nevének elrejtése a megtekintési lapról
   Experimental Settings:
     Replace HTTP Cache: HTTP-gyorsítótár cseréje
     Experimental Settings: Kísérleti
@@ -747,7 +748,7 @@ Channel:
     This channel does not currently have any courses: Ezen a csatornán jelenleg nincsenek tanfolyamok
     Courses: Tanfolyamok
 Video:
-  Mark As Watched: 'Megjelölés megnézettként'
+  Mark As Watched: 'Megjelölés megtekintettként'
   Remove From History: 'Eltávolítás az előzményekből'
   Video has been marked as watched: 'A videó megtekintettnek lett jelölve'
   Video has been removed from your history: 'A videó el lett távolítva az előzményekből'
@@ -859,8 +860,8 @@ Video:
     Show Original Details: Eredeti részletek megjelenítése
   DRMProtected: A DRM-védelemmel ellátott videók nem játszhatók le a FreeTube-ban, mivel ezekhez zárt forráskódú, tulajdonosi komponensekre van szükség. Ha meg szeretné nézni ezt a videót, akkor tekintse meg a YouTube hivatalos weboldalán egy DRM-képes böngészőben.
 #& Playlists
-  Save Watched Progress: Megnézett videó folyamatának mentése
-  Watched Progress Saved: Megnézett videó folyamata elmentve
+  Save Watched Progress: Megtekintett videó folyamatának mentése
+  Watched Progress Saved: Megtekintett videó folyamata elmentve
 Playlist:
   #& About
   View Full Playlist: 'Teljes lejátszási lista megtekintése'
