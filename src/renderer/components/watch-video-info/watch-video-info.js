@@ -148,6 +148,10 @@ export default defineComponent({
       return this.$store.getters.getHideVideoViews
     },
 
+    hideUploader: function () {
+      return this.$store.getters.getHideUploader
+    },
+
     showPlaylists: function () {
       return !this.$store.getters.getHidePlaylists
     },
