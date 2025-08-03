@@ -593,6 +593,7 @@ Settings:
     Show Family Friendly Only: 僅顯示適合家庭觀看
     Hide Search Bar: 隱藏搜尋列
     Parental Control Settings: 家長控制
+    Hide Uploader on Watch page: 在觀看頁面隱藏上傳者
   Experimental Settings:
     Replace HTTP Cache: 取代 HTTP 快取
     Warning: 這些設定是實驗性的，它們啟用時可能會導致當機。強烈建議做好備份。使用時風險自負！
