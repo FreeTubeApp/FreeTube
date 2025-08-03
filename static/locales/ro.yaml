@@ -208,6 +208,7 @@ History:
   Search bar placeholder: Căutare în istoric
   Empty Search Message: Nu există videoclipuri în această listă de redare care să corespundă căutării dvs
   Case Sensitive Search: ­Căutare sensibilă la majuscule
+  DateOldestHistory: Incepand cu primul vizionat
 Settings:
   # On Settings Page
   Settings: 'Setări'
