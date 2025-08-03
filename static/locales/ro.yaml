@@ -208,7 +208,8 @@ History:
   Search bar placeholder: Căutare în istoric
   Empty Search Message: Nu există videoclipuri în această listă de redare care să corespundă căutării dvs
   Case Sensitive Search: ­Căutare sensibilă la majuscule
-  DateOldestHistory: Incepand cu primul vizionat
+  DateOldestHistory: Începând cu primul vizionat
+  DateNewestHistory: Începând cu ultimul vizionat
 Settings:
   # On Settings Page
   Settings: 'Setări'
@@ -597,6 +598,7 @@ Settings:
     Parental Control Settings: Control parental
     Show Family Friendly Only: Arata numai conținut family friendly
     Hide Search Bar: Ascunde bara de căutare
+    Hide Uploader on Watch page: Ascunde autorul pe pagina de vizionare
   Password Dialog:
     Password: Parolă
     Enter Password To Unlock: Introduceți parola pentru a debloca setările
@@ -987,6 +989,7 @@ Tooltips:
     Hide Channels: Introduceți un ID de canal pentru a ascunde toate videoclipurile, listele de redare și canalul însuși de la apariția în căutare, tendințe, cele mai populare și recomandate. ID-ul canalului introdus trebuie să fie o potrivire completă și este sensibil la majuscule și minuscule.
     Hide Subscriptions Live: Această setare este înlocuită de setarea "{appWideSetting}” la nivel de aplicație, în secțiunea „{subsection}” din „{settingsSection}”
     Hide Videos and Playlists Containing Text: Introduceți un cuvânt, un fragment de cuvânt sau o frază (fără a ține cont de majuscule) pentru a ascunde toate videoclipurile și listele de redare ale căror titluri originale conțin acest cuvânt în întregul FreeTube, excluzând doar Istoric, Listele dvs. de redare și videoclipurile din listele de redare.
+    Hide Videos on Watch: Ascunde videoclipurile vizionate din secțiunile Videoclipuri, Shorts și Live de pe paginile Abonamente și Canal. Aceasta nu afectează fila Acasă de pe paginile de canal.
   Experimental Settings:
     Replace HTTP Cache: Dezactivează memoria cache HTTP bazată pe disc Electron și activează un cache de imagini personalizat în memorie. Va duce la o utilizare crescută a memoriei RAM.
   SponsorBlock Settings:
@@ -1094,6 +1097,8 @@ KeyboardShortcutPrompt:
   Volume Down: scăderea volumului
   Home: Treci la începutul videoclipului
   End: Treci la finalul videoclipului
+  Skip to Next Video: Treci la următorul videoclip din playlist sau la următorul videoclip recomandat
+  Skip to Previous Video: Treci la videoclipul anterior din playlist
 Moments Ago: acum câteva momente
 Autoplay Interruption Timer: Redarea automată anulată din cauza a {autoplayInterruptionIntervalHours} ore de inactivitate
 shortcutLabelSeparator: ｜
