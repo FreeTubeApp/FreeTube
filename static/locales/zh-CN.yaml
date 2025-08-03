@@ -593,6 +593,7 @@ Settings:
     Show Family Friendly Only: 仅显示“家庭友好”视频
     Hide Search Bar: 隐藏搜索栏
     Hide Unsubscribe Button: 隐藏“取消订阅”按钮
+    Hide Uploader on Watch page: 在观看页面隐藏上传者
   Experimental Settings:
     Experimental Settings: 实验性
     Warning: 这些设置是实验性的，启用可能导致崩溃。强烈建议进行备份。使用风险自负！
