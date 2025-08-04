@@ -593,6 +593,7 @@ Settings:
     Parental Control Settings: Föräldrakontroll
     Show Family Friendly Only: Visa endast barnvänligt innehåll
     Hide Search Bar: Dölj sökfält
+    Hide Uploader on Watch page: Dölj uppladdaren på visningssidan
   Password Dialog:
     Password: Lösenord
     Enter Password To Unlock: Ange lösenord för att låsa upp inställningar
@@ -979,6 +980,7 @@ Tooltips:
     Hide Channels: Ange ett kanal-ID för att dölja alla videor, spellistor och själva kanalen från att visas i sökningar, trender, populäraste och rekommenderade. Det angivna kanal-ID:t måste vara en fullständig matchning och är skiftlägeskänsligt.
     Hide Subscriptions Live: Den här inställningen åsidosätts av den program omfattande "{appWideSetting}"-inställningen, i avsnittet "{subsection}" i "{settingsSection}"
     Hide Videos and Playlists Containing Text: Ange ett ord, ordfragment eller en fras (okänsligt för skiftlägen) för att dölja alla videor och spellistor vars originaltitlar innehåller det i hela FreeTube, exklusive endast Historik, Dina spellistor och videor i spellistor.
+    Hide Videos on Watch: Döljer visade videor från flikarna Videor, Shorts och Realtid på sidorna Prenumeration och Kanal. Detta påverkar inte fliken Hem på Kanalsidorna
   Experimental Settings:
     Replace HTTP Cache: Inaktiverar Electrons diskbaserade HTTP-cache och aktiverar en anpassad bildcache i minnet. Kommer att leda till ökad RAM-användning.
   SponsorBlock Settings:
@@ -1108,6 +1110,8 @@ KeyboardShortcutPrompt:
   Picture in Picture: Växla Bild-i-Bild-läge
   Home: Sök till början av videon
   End: Sök till slutet av videon
+  Skip to Next Video: Hoppa till nästa video i en spellista eller nästa rekommenderade video
+  Skip to Previous Video: Hoppa till föregående video i en spellista
 Search character limit: Sökfrågan överskrider {searchCharacterLimit} teckengränsen
 Right-click or hold to see history: Högerklicka eller håll ned för att se historik
 Keys:
