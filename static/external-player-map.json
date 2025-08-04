@@ -39,7 +39,7 @@
         }
     },
     {
-        "name": "iina",
+        "name": "IINA",
         "value": "iina",
         "cmdArguments": {
             "defaultExecutable": "iina",
