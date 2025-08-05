@@ -110,7 +110,7 @@
   .playlistText {
     margin-inline-start: 10px;
     inline-size: 50%;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
 
     .playlistAuthor {
       font-size: small;
