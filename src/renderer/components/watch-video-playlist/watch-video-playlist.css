@@ -22,29 +22,128 @@
   color: var(--tertiary-text-color);
 }
 
-.playlistProgressBar {
+.playlistProgressBarContainer {
   margin-inline-start: 10px;
-
-  /* > In order to let ::-webkit-progress-value take effect, appearance needs to be set to none on the <progress> element. */
-
-  /* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-progress-value */
-  appearance: none;
+  position: relative;
+  padding-block: 8px;
 }
 
-.playlistProgressBar::-webkit-progress-value {
-  /* Color for filled part */
-
-  /* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-progress-value */
-
-  /* background-color is required to be declared here to prevent color being green */
-  background-color: var(--accent-color);
+.playlistProgressBarContainer:hover {
+  opacity: 0.9;
 }
 
-.playlistProgressBar::-webkit-progress-bar {
-  /* Color for unfilled part */
-
-  /* https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-progress-bar */
+.playlistProgressBar {
+  cursor: pointer;
   background-color: var(--secondary-text-color);
+  block-size: 6px;
+  border-radius: 3px;
+  overflow: visible;
+  position: relative;
+  transition: block-size 0.2s ease, margin-block 0.2s ease;
+}
+
+.playlistProgressBar.expanded {
+  block-size: 12px;
+  margin-block: -3px;
+}
+
+.playlistProgressBarFill {
+  block-size: 100%;
+  background-color: var(--accent-color);
+  border-radius: inherit;
+  transition: inline-size 0.2s ease;
+}
+
+.progressBarPreview {
+  position: absolute;
+  inset-block-start: -65px;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.previewTooltip {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--primary-border-color);
+  border-radius: 8px;
+  padding-block: 8px;
+  padding-inline: 12px; /* remove? */
+  font-size: 12px;
+  color: var(--primary-text-color);
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+  margin-block-end: 4px;
+  min-inline-size: 120px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.previewThumbnail {
+  block-size: 40px;
+  inline-size: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.previewVideoTitle {
+  font-weight: 400;
+  color: var(--secondary-text-color);
+  max-inline-size: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.previewText {
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 0;
+}
+
+.previewIndicator {
+  inline-size: 0;
+  block-size: 0;
+  border-inline-start: 6px solid transparent;
+  border-inline-end: 6px solid transparent;
+  border-block-start: 6px solid var(--card-bg-color);
+  margin-block: 0;
+  margin-inline: auto;
+}
+
+.progressBarTicks {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  block-size: 100%;
+  pointer-events: none;
+}
+
+.progressBarTick {
+  position: absolute;
+  inline-size: 2px;
+  min-inline-size: 1px;
+  block-size: 100%;
+  background-color: var(--primary-text-color);
+  opacity: 0.3;
+  transform: translateX(-50%);
+  transition: opacity 0.2s ease;
+}
+
+.progressBarTick.current {
+  background-color: var(--accent-color);
+  opacity: 0.8;
+  inline-size: 3px;
+}
+
+.playlistProgressBar.expanded .progressBarTick {
+  opacity: 0.5;
+}
+
+.playlistProgressBar.expanded .progressBarTick.current {
+  opacity: 1;
 }
 
 .playlistIcon {
@@ -109,4 +208,21 @@
   margin-inline-start: 30px;
   position: relative;
   inset-block-end: 7px;
+}
+
+/* Adding space between playlist progress bar ticks */
+@media (width <= 768px) {
+  .previewTooltip {
+    min-inline-size: 100px;
+    padding: 6px;
+  }
+
+  .previewThumbnail {
+    inline-size: 32px;
+    block-size: 24px;
+  }
+
+  .previewVideoTitle {
+    max-inline-size: 120px;
+  }
 }

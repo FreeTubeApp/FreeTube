@@ -56,6 +56,9 @@ export default defineComponent({
       randomizedPlaylistItems: [],
 
       getPlaylistInfoRun: false,
+      showProgressBarPreview: false,
+      previewPosition: 0,
+      previewVideoIndex: 1,
     }
   },
   computed: {
@@ -142,6 +145,32 @@ export default defineComponent({
     sortOrder: function () {
       return this.isUserPlaylist ? this.userPlaylistSortOrder : SORT_BY_VALUES.Custom
     },
+
+    previewVideoTitle: function () {
+      const index = this.previewVideoIndex - 1
+      if (index >= 0 && index < this.playlistItems.length) {
+        return this.playlistItems[index].title || 'Unknown Title'
+      }
+      return ''
+    },
+    previewVideoThumbnail: function () {
+      const index = this.previewVideoIndex - 1
+      if (index >= 0 && index < this.playlistItems.length) {
+        const videoId = this.playlistItems[index].videoId
+        if (videoId) {
+          let baseUrl = 'https://i.ytimg.com'
+          if (this.backendPreference === 'invidious') {
+            baseUrl = this.currentInvidiousInstanceUrl
+          }
+          return `${baseUrl}/vi/${videoId}/mqdefault.jpg`
+        }
+      }
+      return null
+    },
+    shouldShowTicks: function () {
+      // Only show ticks if <= 50 videos in playlist to avoid clutter
+      return this.playlistVideoCount <= 50
+    }
   },
   watch: {
     userPlaylistsReady: function() {
@@ -532,6 +561,42 @@ export default defineComponent({
 
     pausePlayer: function () {
       this.$emit('pause-player')
+    },
+
+    updateProgressBarPreview: function (event) {
+      if (!this.showProgressBarPreview) return
+
+      const rect = event.currentTarget.querySelector('.playlistProgressBar').getBoundingClientRect()
+      const mouseX = event.clientX - rect.left
+      const progressBarWidth = rect.width
+      const percentage = Math.max(0, Math.min(100, (mouseX / progressBarWidth) * 100))
+
+      this.previewPosition = percentage
+      this.previewVideoIndex = Math.max(1, Math.min(this.playlistVideoCount, Math.ceil((percentage / 100) * this.playlistVideoCount)))
+    },
+
+    handleProgressBarClick: function (event) {
+      const rect = event.currentTarget.getBoundingClientRect()
+      const clickX = event.clientX - rect.left
+      const progressBarWidth = rect.width
+      const clickPercentage = clickX / progressBarWidth
+
+      const targetVideoIndex = Math.max(1, Math.min(this.playlistVideoCount, Math.ceil(clickPercentage * this.playlistVideoCount)))
+      const targetArrayIndex = targetVideoIndex - 1
+
+      if (targetArrayIndex >= 0 && targetArrayIndex < this.playlistItems.length) {
+        const targetPlaylistItem = this.playlistItems[targetArrayIndex]
+
+        const playlistInfo = {
+          playlistId: this.playlistId,
+          playlistType: this.playlistType,
+        }
+
+        this.$router.push({
+          path: `/watch/${targetPlaylistItem.videoId}`,
+          query: Object.assign(playlistInfo, { playlistItemId: targetPlaylistItem.playlistItemId }),
+        })
+      }
     },
 
     ...mapMutations([
