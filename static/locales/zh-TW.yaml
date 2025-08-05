@@ -88,12 +88,12 @@ Search Filters:
     Subtitles: 字幕
     Creative Commons: 創用CC
     3D: 3D
+  Clear Filters: 清除篩選
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '訂閱'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。如果您想要匯入您的訂閱，您可以前往「資料設定」，然後選取「匯入訂閱」，或者您也可以搜尋頻道並訂閱。'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。
-    強制RSS以防止速率限制
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。 強制RSS以防止速率限制
   Load More Videos: 載入更多影片
   Error Channels: 有錯誤的頻道
   Disabled Automatic Fetching: 您已停用自動訂閱擷取。重新整理訂閱以在此處檢視。
@@ -153,32 +153,25 @@ User Playlists:
       Playlist {playlistName} has been deleted.: 播放清單 {playlistName} 已刪除。
       This playlist does not exist: 此播放清單不存在
       This playlist is now used for quick bookmark: 此播放清單現在用於快速書籤
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 此播放清單現在用於快速書籤，而非
-        {oldPlaylistName}。點擊此處撤銷
-      Reverted to use {oldPlaylistName} for quick bookmark: 恢復為使用 {oldPlaylistName}
-        進行快速書籤
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 此播放清單現在用於快速書籤，而非 {oldPlaylistName}。點擊此處撤銷
+      Reverted to use {oldPlaylistName} for quick bookmark: 恢復為使用 {oldPlaylistName} 進行快速書籤
       This playlist is already being used for quick bookmark.: 此播放清單已用於快速書籤。
       This playlist has a video with a duration error: 此播放清單至少包含一個沒有時間長度的影片，則會以時間長度為零的方式排序。
       Video has been removed. Click here to undo.: 已移除影片。點選此處以還原。
     Search for Videos: 搜尋影片
   AddVideoPrompt:
-    Select a playlist to add your N videos to: 選擇要新增影片的播放清單 | 選擇播放清單以將您的 {videoCount}
-      部影片新增至其中
+    Select a playlist to add your N videos to: 選擇要新增影片的播放清單 | 選擇播放清單以將您的 {videoCount} 部影片新增至其中
     N playlists selected: 已選取 {playlistCount}
     Search in Playlists: 在播放清單中搜尋
     Save: 儲存
     Toast:
       You haven't selected any playlist yet.: 您尚未選取任何播放清單。
-      "{videoCount} video(s) added to 1 playlist": 1 部影片新增至 1 個播放清單 | {videoCount}
-        部影片新增至 1 個播放清單
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 部影片新增至 {playlistCount}
-        個播放清單 | {videoCount} 部影片新增至 {playlistCount} 個播放清單
+      "{videoCount} video(s) added to 1 playlist": 1 部影片新增至 1 個播放清單 | {videoCount} 部影片新增至 1 個播放清單
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 部影片新增至 {playlistCount} 個播放清單 | {videoCount} 部影片新增至 {playlistCount} 個播放清單
     Added {count} Times: 已新增 | 新增了 {count} 次
     Allow Adding Duplicate Video(s): 允許新增重複影片
-    "{videoCount}/{totalVideoCount} Videos Already Added": 已新增 {videoCount}/{totalVideoCount}
-      部影片
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": 將會新增 {videoCount}/{totalVideoCount}
-      部影片
+    "{videoCount}/{totalVideoCount} Videos Already Added": 已新增 {videoCount}/{totalVideoCount} 部影片
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": 將會新增 {videoCount}/{totalVideoCount} 部影片
   CreatePlaylistPrompt:
     New Playlist Name: 新播放清單名稱
     Toast:
@@ -196,10 +189,8 @@ User Playlists:
   Quick Bookmark Enabled: 已啟用快速書籤
   Cannot delete the quick bookmark target playlist.: 無法刪除快速書籤目標播放清單。
   Remove Duplicate Videos: 移除重複的影片
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: 您確定要從此播放清單中刪除
-    1 個重複的影片嗎？這無法還原。 | 您確定要從此播放清單中刪除 {playlistItemCount} 個重複影片嗎？這無法還原。
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 您確定要從此播放清單中刪除
-    1 個觀看過的影片嗎？這無法還原。 | 您確定要從此播放清單中刪除已觀看的 {playlistItemCount} 個影片嗎？這無法還原。
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: 您確定要從此播放清單中刪除 1 個重複的影片嗎？這無法還原。 | 您確定要從此播放清單中刪除 {playlistItemCount} 個重複影片嗎？這無法還原。
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 您確定要從此播放清單中刪除 1 個觀看過的影片嗎？這無法還原。 | 您確定要從此播放清單中刪除已觀看的 {playlistItemCount} 個影片嗎？這無法還原。
   Export Playlist: 匯出此播放清單
   The playlist has been successfully exported: 播放清單已成功匯出
   TotalTimePlaylist: '總時長: {duration}'
@@ -211,6 +202,8 @@ History:
   Search bar placeholder: 在觀看紀錄中搜尋
   Empty Search Message: 您的歷史紀錄中沒有與您的搜尋相符的影片
   Case Sensitive Search: 區分大小寫的搜尋
+  DateOldestHistory: 最早觀看優先
+  DateNewestHistory: 最晚觀看優先
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -419,8 +412,7 @@ Settings:
         Empty File Name: 空的檔案名稱
       Ask Path: 詢問儲存的資料夾
       Folder Label: 螢幕截圖資料夾
-      File Name Tooltip: 您可以使用下方的變數。%Y 為四位數的年份。%M 為兩位數的月份。%D 為兩位數的日。%H 為兩位數的小時。%N
-        為兩位數的分鐘。%S 為兩位數的秒數。%T 為三位數的毫秒。%s 為影片的秒數。%t 為三位數的影片毫秒數。%i 為影片 ID。
+      File Name Tooltip: 您可以使用下方的變數。%Y 為四位數的年份。%M 為兩位數的月份。%D 為兩位數的日。%H 為兩位數的小時。%N 為兩位數的分鐘。%S 為兩位數的秒數。%T 為三位數的毫秒。%s 為影片的秒數。%t 為三位數的影片毫秒數。%i 為影片 ID。
     Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
     Skip by Scrolling Over Video Player: 捲動影片播放器跳過
     Autoplay Interruption Timer: 自動播放中斷計時器
@@ -432,7 +424,6 @@ Settings:
       External Player: 外部播放器（{externalPlayerName}）
   Subscription Settings:
     Subscription Settings: '訂閱'
-    Hide Videos on Watch: '觀看時隱藏影片'
     Fetch Feeds from RSS: 從RSS擷取推送
     Fetch Automatically: 自動擷取 Feed
     Confirm Before Unsubscribing: 避免意外取消訂閱
@@ -500,8 +491,7 @@ Settings:
     Playlist File: 播放清單檔案
     Export Playlists For Older FreeTube Versions:
       Label: 匯出較舊 FreeTube 版本的播放清單
-      Tooltip: "此選項將所有播放清單中的影片匯出到名為「我的最愛」的播放清單中。\n如何匯出和匯入舊版 FreeTube 播放清單中的影片：\n1.
-        啟用此選項後匯出播放清單。\n2. 使用「隱私設定」下的「刪除所有播放清單」選項刪除所有現有播放清單。\n3. 啟動舊版的 FreeTube 並導入匯出的播放清單。”"
+      Tooltip: "此選項將所有播放清單中的影片匯出到名為「我的最愛」的播放清單中。\n如何匯出和匯入舊版 FreeTube 播放清單中的影片：\n1. 啟用此選項後匯出播放清單。\n2. 使用「隱私設定」下的「刪除所有播放清單」選項刪除所有現有播放清單。\n3. 啟動舊版的 FreeTube 並導入匯出的播放清單。”"
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 勿擾
@@ -518,6 +508,7 @@ Settings:
     Hide Comments: 隱藏留言
     Hide Live Streams: 隱藏直播串流
     Hide Sharing Actions: 隱藏分享動作
+    Hide Videos on Watch: '觀看時隱藏影片'
     Hide Chapters: 隱藏章節
     Hide Upcoming Premieres: 隱藏即將到來的首映
     Hide Channels Placeholder: 頻道 ID
@@ -547,6 +538,8 @@ Settings:
     Hide Channel Home: 隱藏頻道「首頁」分頁
     Show Added Items: 顯示新增的項目
     Hide Channel Courses: 隱藏頻道“課程”標籤
+    Hide Channel Posts: 隱藏頻道「貼文」分頁
+    Hide Subscriptions Posts: 隱藏訂閱貼文
   The app needs to restart for changes to take effect. Restart and apply change?: 必須重新啟動應用程式以生效。重新啟動並套用變更嗎？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -562,12 +555,10 @@ Settings:
     Proxy Protocol: 代理伺服器協定
     Enable Tor / Proxy: 啟用 Tor 或代理伺服器
     Proxy Settings: 代理伺服器
-    Proxy Warning: FreeTube 沒有內建代理伺服器，但可以連線至外部代理伺服器，例如在您的機器上執行的代理伺服器，如 Tor 或外部代理伺服器，如某些
-      VPN 提供的 SOCKS5 代理伺服器。如果啟用，請確定您的代理伺服器/Tor 已經正確設定，否則 FreeTube 將無法取得任何資料。
+    Proxy Warning: FreeTube 沒有內建代理伺服器，但可以連線至外部代理伺服器，例如在您的機器上執行的代理伺服器，如 Tor 或外部代理伺服器，如某些 VPN 提供的 SOCKS5 代理伺服器。如果啟用，請確定您的代理伺服器/Tor 已經正確設定，否則 FreeTube 將無法取得任何資料。
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: 當贊助商片段被跳過時通知
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
-      網址（預設為 https://sponsor.ajay.app）
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API 網址（預設為 https://sponsor.ajay.app）
     Enable SponsorBlock: 啟用 SponsorBlock
     SponsorBlock Settings: SponsorBlock
     Skip Options:
@@ -579,8 +570,7 @@ Settings:
     Category Color: 分類色彩
     UseDeArrowTitles: 使用 DeArrow 影片標題
     UseDeArrowThumbnails: 使用 DeArrow 製作縮圖
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
-      縮圖產生器 API（預設值為 https://dearrow-thumb.ajay.app）
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow 縮圖產生器 API（預設值為 https://dearrow-thumb.ajay.app）
   External Player Settings:
     Custom External Player Arguments: 自訂外部播放程式參數
     Custom External Player Executable: 自訂外部播放程式可執行檔
@@ -603,6 +593,7 @@ Settings:
     Show Family Friendly Only: 僅顯示適合家庭觀看
     Hide Search Bar: 隱藏搜尋列
     Parental Control Settings: 家長控制
+    Hide Uploader on Watch page: 在觀看頁面隱藏上傳者
   Experimental Settings:
     Replace HTTP Cache: 取代 HTTP 快取
     Warning: 這些設定是實驗性的，它們啟用時可能會導致當機。強烈建議做好備份。使用時風險自負！
@@ -679,8 +670,7 @@ Channel:
   Added channel to your subscriptions: 已新增頻道至您的訂閱
   Removed subscription from {count} other channel(s): 從{count}個其他頻道移除訂閱
   Channel has been removed from your subscriptions: 頻道已從您的訂閱中移除
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: 此頻道有年齡限制，目前無法在
-    FreeTube 中檢視。
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: 此頻道有年齡限制，目前無法在 FreeTube 中檢視。
   Channel Tabs: 頻道分頁
   This channel does not exist: 此頻道不存在
   This channel does not allow searching: 此頻道不允許搜尋
@@ -690,8 +680,7 @@ Channel:
     Reveal Answers: 揭露答案
     Hide Answers: 隱藏答案
     Video hidden by FreeTube: 由 FreeTube 隱藏的影片
-    Viewing Posts Only Supported By Invidious: 僅 Invidious 支援檢視貼文。前往頻道的社群分頁即可檢視其中的內容而不需使用
-      Invidious。
+    Viewing Posts Only Supported By Invidious: 僅 Invidious 支援檢視貼文。前往頻道的社群分頁即可檢視其中的內容而不需使用 Invidious。
     View Full Post: 檢視完整貼文
   Live:
     Live: 直播
@@ -726,8 +715,7 @@ Video:
   Enable Live Chat: '啟用直播聊天室'
   Live Chat is currently not supported in this build.: '直播聊天室在此版本中目前不被支援。'
   Live chat is enabled. Chat messages will appear here once sent.: '直播聊天結束。 聊天訊息一旦傳送將出現在這裡。'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '直播聊天室目前不被Invidious
-    API支援。 需要直接連線YouTube。'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '直播聊天室目前不被Invidious API支援。 需要直接連線YouTube。'
   Published:
     In less than a minute: 不到一分鐘內
   Published on: '發布於'
@@ -823,8 +811,7 @@ Video:
     Show Original Details: 顯示原始詳細資訊
     Show Modified Details: 顯示修改後的詳細資訊
 #& Playlists
-  DRMProtected: 受 DRM 保護的影片無法在 FreeTube 上播放，因為它們需要專屬的封閉原始碼元件。如果您想觀賞此影片，請使用支援 DRM 的網路瀏覽器在
-    YouTube 官方網站觀賞。
+  DRMProtected: 受 DRM 保護的影片無法在 FreeTube 上播放，因為它們需要專屬的封閉原始碼元件。如果您想觀賞此影片，請使用支援 DRM 的網路瀏覽器在 YouTube 官方網站觀賞。
   Save Watched Progress: 儲存觀看進度
   Watched Progress Saved: 觀看進度已儲存
 Playlist:
@@ -938,10 +925,8 @@ Profile:
   Profile Manager: 設定檔管理器
   All Channels: 所有頻道
   Profile Select: 選取設定檔
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 您確定您想移除選取的頻道？
-    這不會從其他設定檔中移除頻道。
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 您確定您想移除選取的頻道？ 這不會從其他設定檔中移除頻道。
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
   : 這是您的主要設定檔。 您確定要移除選取的頻道？ 相同的頻道中任何找到的設定檔會被移除。
   No channel(s) have been selected: 無頻道已選取
   Add Selected To Profile: 添加選取的到設定檔
@@ -962,27 +947,22 @@ Profile:
 The playlist has been reversed: 播放清單已反轉
 A new blog is now available, {blogTitle}. Click to view more: 已有新的部落格文章，{blogTitle}。點擊以檢視更多
 Download From Site: 從網站下載
-Version {versionNumber} is now available!  Click for more details: 有新版本！最新版本是 {versionNumber}
-  ！按此取得更多資訊
+Version {versionNumber} is now available!  Click for more details: 有新版本！最新版本是 {versionNumber} ！按此取得更多資訊
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: 啟用後，FreeTube 將使用 RSS 替代其預設方法來擷取您的訂閱 feed。RSS 的速度較快，而且可以防止
-      IP 封鎖，但它可能不會提供某些資訊，例如影片長度、直播狀態或社群貼文
-    Fetch Automatically: 啟用後，FreeTube 在開啟新視窗與切換設定檔時，將會自動擷取您的訂閱 feed。
+    Fetch Feeds from RSS: 啟用後，FreeTube 將使用 RSS 替代其預設方法來擷取您的訂閱 feed。RSS 的速度較快，而且可以防止 IP 封鎖，但它可能不會提供某些資訊，例如影片長度、直播狀態或貼文
+    Fetch Automatically: 啟用後，FreeTube 將會在啟動時和開啟新視窗時自動擷取您的訂閱 feed。
   Player Settings:
-    Default Video Format: 設定要用於影片播放的格式。DASH 格式有更高的畫質。傳統格式會限制在 720p 但頻寬需求更低。音訊格式為僅有音訊的串流。
+    Default Video Format: 設定要用於影片播放的格式。DASH 格式有更高的畫質。傳統格式會限制在 360p 但頻寬需求更低。音訊格式為僅有音訊的串流。
     Proxy Videos Through Invidious: 將連線到 Invidious 而非直接連線到 YouTube 來提供影片。
-    Scroll Playback Rate Over Video Player: 當游標停在影片上時，按住 Ctrl 鍵（Mac 的話則是 Command 鍵），然後向前或向後滾動滑鼠滾輪來控制播放速度。按住
-      Ctrl 鍵（Mac 的話則是 Command 鍵）並點擊滑鼠左鍵以快速回到預設的播放速度（1x，除非在設定中更改）。
+    Scroll Playback Rate Over Video Player: 當游標停在影片上時，按住 Ctrl 鍵（Mac 的話則是 Command 鍵），然後向前或向後滾動滑鼠滾輪來控制播放速度。按住 Ctrl 鍵（Mac 的話則是 Command 鍵）並點擊滑鼠左鍵以快速回到預設的播放速度（1x，除非在設定中更改）。
     Skip by Scrolling Over Video Player: 使用滾輪跳過影片，MPV 風格。
   General Settings:
     Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。
-    Thumbnail Preference: FreeTube 中所有縮圖都會被替換為影片畫面而非預設縮圖。
-    Fallback to Non-Preferred Backend on Failure: 當您的偏好 API 有問題時，FreeTube 將自動嘗試使用您的非偏好
-      API 作為汰退方案。
-    Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious
-      API 需要 Invidious 伺服器才能連線。
+    Thumbnail Preference: FreeTube 中所有縮圖都會被替換為經過模糊處理或隱藏的影片畫面而非預設縮圖。
+    Fallback to Non-Preferred Backend on Failure: 當您的偏好 API 有問題時，FreeTube 將自動嘗試使用您的非偏好 API 作為汰退方案。
+    Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious API 需要 Invidious 伺服器才能連線。
     Region for Trending: 熱門影片區域可以讓您選擇想要顯示哪個國家的熱門影片。
     External Link Handling: "選擇點擊後無法在 FreeTube 中開啟連結時的預設行為。\n預設情況下 FreeTube 將會在您的預設瀏覽器中開啟點擊的連結。\n"
     Open Deep Links In New Window: 傳遞給 FreeTube 的 URL，例如透過重定向瀏覽器擴充套件或命令列引數，會在新視窗中開啟。
@@ -990,8 +970,7 @@ Tooltips:
     Custom External Player Arguments: 要傳給外部播放器的任何自訂命令列引數。
     Ignore Warnings: 當目前的外部播放程式不支援目前動作時（例如反向播放清單等等），消除警告。
     Custom External Player Executable: 預設情況下，FreeTube 會假設選定的外部播放程式可以透過 PATH 環境變數找到。如果需要的話，請在此設定自訂路徑。
-    External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。警告：Invidious
-      設定不會影響外部播放程式。
+    External Player: 選擇外部播放程式將會在縮圖上顯示圖示，用來在外部播放程式中開啟影片（若支援的話，播放清單也可以）。警告：Invidious 設定不會影響外部播放程式。
     DefaultCustomArgumentsTemplate: （預設：'{defaultCustomArguments}'）
     Ignore Default Arguments: 除了影片 URL 之外，不要向外部播放器傳送任何預設引數（例如播放速率、播放清單 URL 等）。 自訂引數仍會被傳遞。
   Experimental Settings:
@@ -999,13 +978,12 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: 輸入頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋、趨勢、熱門與建議中。輸入的頻道 ID 必須完全符合，且區分大小寫。
     Hide Subscriptions Live: 此設定會被「{settingsSection}」的「{subsection}」部分中應用程式範圍的「{appWideSetting}」設定覆寫
-    Hide Videos and Playlists Containing Text: 輸入單字、單字片段或片語（不分大小寫），以隱藏整個 FreeTube
-      中原始標題包含該單字、單字片段或片語的所有影片與播放清單，僅不包括歷史紀錄、您的播放清單與播放清單內的影片。
+    Hide Videos and Playlists Containing Text: 輸入單字、單字片段或片語（不分大小寫），以隱藏整個 FreeTube 中原始標題包含該單字、單字片段或片語的所有影片與播放清單，僅不包括歷史紀錄、您的播放清單與播放清單內的影片。
+    Hide Videos on Watch: 在訂閱和頻道頁面上的影片、短片和直播頁面中隱藏已觀看的影片。這不會影響頻道頁面上的主頁
   SponsorBlock Settings:
     UseDeArrowTitles: 將影片標題取代為 DeArrow 使用者遞交的標題。
     UseDeArrowThumbnails: 將影片縮圖替換為來自 DeArrow 的縮圖。
-Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。|
-  播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
+Playing Next Video Interval: 馬上播放下一個影片。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。| 播放下一個影片的時間為{nextVideoInterval}秒。點擊取消。
 More: 更多
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 類型，無法在應用程式開啟
 Open New Window: 開新視窗
@@ -1045,8 +1023,7 @@ Hashtag:
 Channel Hidden: '{channel} 已新增至頻道過濾條件'
 Go to page: 到 {page}
 Channel Unhidden: '{channel} 已從頻道過濾條件移除'
-Trimmed input must be at least N characters long: 修剪後的輸入必須至少有 1 個字元長 | 修剪後的輸入必須至少有
-  {length} 個字元長
+Trimmed input must be at least N characters long: 修剪後的輸入必須至少有 1 個字元長 | 修剪後的輸入必須至少有 {length} 個字元長
 Tag already exists: 「{tagName}」標籤已存在
 Close Banner: 關閉橫幅
 Age Restricted:
@@ -1139,4 +1116,8 @@ KeyboardShortcutPrompt:
   Minimize Window: 最小化視窗
   Close Window: 關閉視窗
   Restart Window: 重新啟動視窗
+  Home: 跳至影片開頭
+  End: 跳至影片結尾
+  Skip to Next Video: 跳到播放清單中的下一部影片或下一部推薦影片
+  Skip to Previous Video: 跳到播放清單中的上一部影片
 shortcutLabelSeparator: ｜

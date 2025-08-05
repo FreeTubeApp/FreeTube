@@ -167,13 +167,15 @@ export const ToastEventBus = new EventTarget()
  * @param {string} message
  * @param {number} time
  * @param {Function} action
+ * @param {AbortSignal} abortSignal
  */
-export function showToast(message, time = null, action = null) {
+export function showToast(message, time = null, action = null, abortSignal = null) {
   ToastEventBus.dispatchEvent(new CustomEvent('toast-open', {
     detail: {
       message,
       time,
-      action
+      action,
+      abortSignal,
     }
   }))
 }
@@ -1011,5 +1013,30 @@ export function hasInvidiousFallback() {
     return false
   } else {
     return true
+  }
+}
+
+/**
+ * @template {Function} T
+ * @param {T} func
+ * @param {number} wait
+ * @returns {T}
+ */
+export function throttle(func, wait) {
+  let isWaiting
+
+  // Using a fully fledged function here instead of an arrow function
+  // so that we can get `this` and pass it onto the original function.
+  // Vue components using the options API use `this` alot.
+  return function (...args) {
+    const context = this
+    if (!isWaiting) {
+      func.apply(context, args)
+
+      isWaiting = true
+      setTimeout(() => {
+        isWaiting = false
+      }, wait)
+    }
   }
 }

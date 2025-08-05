@@ -197,6 +197,8 @@ const KeyboardShortcuts = {
       NEXT_FRAME: '.',
       HOME: 'home',
       END: 'end',
+      SKIP_TO_NEXT: 'shift+n',
+      SKIP_TO_PREV: 'shift+p'
     }
   },
 }

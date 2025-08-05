@@ -3,3 +3,7 @@
     display: none;
   }
 }
+
+.containingTextFlexBox {
+  margin-block-end: 2em;
+}

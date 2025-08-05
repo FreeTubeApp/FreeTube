@@ -139,6 +139,7 @@
   .infoArea {
     grid-area: info;
     position: relative;
+    z-index: 2;
   }
 
   .sidebarArea {

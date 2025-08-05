@@ -50,7 +50,7 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     // This setting is enabled by default and results in YouTube.js reusing the same session across different Innertube instances.
     // That behavior is highly undesirable for FreeTube, as we want to create a new session every time to limit tracking.
     enable_session_cache: false,
-    retrieve_innertube_config: false,
+    retrieve_innertube_config: !generateSessionLocally,
     user_agent: navigator.userAgent,
 
     retrieve_player: !!withPlayer,
@@ -213,7 +213,6 @@ export async function getLocalVideoInfo(id) {
         JSON.stringify(webInnertube.session.context)
       ))
 
-      webInnertube.session.po_token = contentPoToken
       webInnertube.session.player.po_token = sessionPoToken
     } catch (error) {
       console.error('Local API, poToken generation failed', error)
@@ -223,10 +222,10 @@ export async function getLocalVideoInfo(id) {
 
   let clientName = webInnertube.session.context.client.clientName
 
-  const info = await webInnertube.getInfo(id)
+  const info = await webInnertube.getInfo(id, { po_token: contentPoToken })
 
   // temporary workaround for SABR-only responses
-  const mwebInfo = await webInnertube.getBasicInfo(id, 'MWEB')
+  const mwebInfo = await webInnertube.getBasicInfo(id, { client: 'MWEB', po_token: contentPoToken })
 
   if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data) {
     info.playability_status = mwebInfo.playability_status
@@ -246,16 +245,12 @@ export async function getLocalVideoInfo(id) {
     const webEmbeddedInnertube = await createInnertube({ clientType: ClientType.WEB_EMBEDDED })
     webEmbeddedInnertube.session.context.client.visitorData = webInnertube.session.context.client.visitorData
 
-    if (contentPoToken) {
-      webEmbeddedInnertube.session.po_token = contentPoToken
-    }
-
     const videoId = hasTrailer && trailerIsAgeRestricted ? info.playability_status.error_screen.video_id : id
 
     // getBasicInfo needs the signature timestamp (sts) from inside the player
     webEmbeddedInnertube.session.player = webInnertube.session.player
 
-    const bypassedInfo = await webEmbeddedInnertube.getBasicInfo(videoId, 'WEB_EMBEDDED')
+    const bypassedInfo = await webEmbeddedInnertube.getBasicInfo(videoId, { client: 'WEB_EMBEDDED', po_token: contentPoToken })
 
     if (bypassedInfo.playability_status.status === 'OK' && bypassedInfo.streaming_data) {
       info.playability_status = bypassedInfo.playability_status
@@ -358,7 +353,11 @@ function decipherFormats(formats, player) {
   }
 }
 
-export async function getLocalChannelId(url) {
+/**
+ * @param {string} url
+ * @param {boolean} doLogError
+ */
+export async function getLocalChannelId(url, doLogError = false) {
   try {
     const innertube = await createInnertube()
 
@@ -373,11 +372,16 @@ export async function getLocalChannelId(url) {
       } else if (navigationEndpoint.metadata.page_type === 'WEB_PAGE_TYPE_UNKNOWN' && navigationEndpoint.payload.url?.startsWith('https://www.youtube.com/')) {
         // handle redirects like https://www.youtube.com/@wanderbots, which resolves to https://www.youtube.com/Wanderbots, which we need to resolve again
         url = navigationEndpoint.payload.url
-      } else {
-        return null
+      } else if (navigationEndpoint.payload.browseId === 'FEpost_detail') {
+        // convert base64 params to string and get the channelid
+        return atob(navigationEndpoint.payload.params).replaceAll(/[^\d\sA-Za-z-]/g, ' ').trim().split(' ').at(-1)
       }
     }
-  } catch { }
+  } catch (e) {
+    if (doLogError) {
+      console.error(e)
+    }
+  }
 
   return null
 }
@@ -517,7 +521,7 @@ export async function getLocalChannelCommunity(id) {
   try {
     const response = await innertube.actions.execute('/browse', {
       browseId: id,
-      params: 'Egljb21tdW5pdHnyBgQKAkoA'
+      params: 'EgVwb3N0c_IGBAoCSgA%3D'
       // protobuf for the community tab (this is the one that YouTube uses,
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
     })
@@ -526,7 +530,7 @@ export async function getLocalChannelCommunity(id) {
 
     // if the channel doesn't have a community tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
-    if (communityTab.current_tab?.endpoint.metadata.url?.endsWith('/community')) {
+    if (communityTab.current_tab?.endpoint.metadata.url?.endsWith('/posts')) {
       return parseLocalCommunityPosts(communityTab.posts)
     } else {
       return []
@@ -1137,6 +1141,8 @@ export function parseLocalListVideo(item, channelId, channelName) {
       publishedText = video.published.text
     }
 
+    const isLive = video.duration.text === 'LIVE'
+
     const published = calculatePublishedDate(
       publishedText,
       video.is_live,
@@ -1152,9 +1158,10 @@ export function parseLocalListVideo(item, channelId, channelName) {
       authorId: video.author?.id ?? channelId,
       viewCount: video.views.text == null ? null : extractNumberFromString(video.views.text),
       published,
-      lengthSeconds: Utils.timeToSeconds(video.duration.text),
+      lengthSeconds: isLive ? '' : Utils.timeToSeconds(video.duration.text),
       isUpcoming: video.is_upcoming,
-      premiereDate: video.upcoming
+      premiereDate: video.upcoming,
+      liveNow: isLive
     }
   } else if (item.type === 'GridMovie') {
     /** @type {import('youtubei.js').YTNodes.GridMovie} */
@@ -1281,7 +1288,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
 
       let viewCount = null
 
-      const viewsText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.[0].text?.text
+      const viewsText = lockupView.metadata.metadata?.metadata_rows[1]?.metadata_parts?.[0].text?.text
 
       if (viewsText) {
         const views = parseLocalSubscriberCount(viewsText)
@@ -1651,6 +1658,8 @@ export function parseLocalComment(comment, commentThread = undefined) {
     hasReplyToken = true
   }
 
+  const commentTextRuns = comment.voice_reply_container?.transcript_text ? comment.voice_reply_container.transcript_text.runs : comment.content.runs
+
   return {
     id: comment.comment_id,
     dataType: 'local',
@@ -1661,7 +1670,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     isPinned: comment.is_pinned,
     isOwner: !!comment.author_is_channel_owner,
     isMember: !!comment.is_member,
-    text: Autolinker.link(parseLocalTextRuns(comment.content.runs, 16, { looseChannelNameDetection: true })),
+    text: Autolinker.link(parseLocalTextRuns(commentTextRuns, 16, { looseChannelNameDetection: true })),
     isHearted: !!comment.is_hearted,
     hasOwnerReplied,
     hasReplyToken,
@@ -1815,4 +1824,24 @@ function parseLocalAttachment(attachment) {
 export async function getHashtagLocal(hashtag) {
   const innertube = await createInnertube()
   return await innertube.getHashtag(hashtag)
+}
+
+export async function getLocalCommunityPost(postId, channelId) {
+  const innertube = await createInnertube()
+  if (channelId == null) {
+    channelId = await getLocalChannelId('https://www.youtube.com/post/' + postId, true)
+  }
+
+  const postPage = await innertube.getPost(postId, channelId)
+  return parseLocalCommunityPost(postPage.posts[0])
+}
+
+/**
+ * @param {string} postId
+ * @param {string} channelId
+ */
+export async function getLocalCommunityPostComments(postId, channelId) {
+  const innertube = await createInnertube()
+
+  return await innertube.getPostComments(postId, channelId)
 }

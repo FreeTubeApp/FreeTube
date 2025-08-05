@@ -3,7 +3,7 @@ Locale Name: 'தமிழ்'
 
 # Webkit Menu Bar
 File: 'கோப்பு'
-New Window: 'புதிய விண்டோ'
+New Window: 'புதிய திரை'
 Preferences: 'விருப்பத்தேர்வுகள்'
 Quit: 'வெளியேறு'
 Edit: 'திருத்து'
@@ -30,11 +30,9 @@ Open New Window: 'புதிய சாளரத்தைத் திறக்
 Go to page: '{page} செல்லவும்'
 Close Banner: 'மூடு பேனர்'
 
-Version {versionNumber} is now available!  Click for more details: 'பதிப்பு {versionNumber}
-  இப்போது கிடைக்கிறது! மேலும் விவரங்களுக்கு சொடுக்கு செய்க'
+Version {versionNumber} is now available!  Click for more details: 'பதிப்பு {versionNumber} இப்போது கிடைக்கிறது! மேலும் விவரங்களுக்கு சொடுக்கு செய்க'
 Download From Site: 'தளத்திலிருந்து பதிவிறக்கவும்'
-A new blog is now available, {blogTitle}. Click to view more: 'ஒரு புதிய வலைப்பதிவு
-  இப்போது கிடைக்கிறது, {blogTitle}. மேலும் காண சொடுக்கு செய்க'
+A new blog is now available, {blogTitle}. Click to view more: 'ஒரு புதிய வலைப்பதிவு இப்போது கிடைக்கிறது, {blogTitle}. மேலும் காண சொடுக்கு செய்க'
 Are you sure you want to open this link?: 'இந்த இணைப்பை நீங்கள் திறக்க விரும்புகிறீர்களா?'
 
 # Global
@@ -58,8 +56,8 @@ Global:
 Search / Go to URL: 'தேடு / முகவரி க்குச் செல்லவும்'
 Search Bar:
   Clear Input: 'உள்ளீட்டை அழிக்கவும்'
-Search character limit: 'தேடல் வினவல் {searchCharacterLimit} எழுத்து வரம்புக்கு மேல்
-  உள்ளது'
+  Remove: அகற்று
+Search character limit: 'தேடல் வினவல் {searchCharacterLimit} எழுத்து வரம்புக்கு மேல் உள்ளது'
 Search Listing:
   Label:
     4K: 'எச்.சி.'
@@ -118,28 +116,21 @@ Search Filters:
   Fetch more results: 'மேலும் முடிவுகளைப் பெறுங்கள்'
   There are no more results for this search: 'இந்த தேடலுக்கு இனி முடிவுகள் இல்லை'
 # Sidebar
+  Clear Filters: தெளிவான வடிப்பான்கள்
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'சந்தாக்கள்'
   # channels that were likely deleted
   Error Channels: 'பிழைகள் கொண்ட சேனல்கள்'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'இந்த
-    சுயவிவரத்தில் அதிக எண்ணிக்கையிலான சந்தாக்கள் உள்ளன. விகிதத்தைக் கட்டுப்படுத்துவதைத்
-    தவிர்க்க ஆர்.எச்.எச்'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'உங்கள்
-    சந்தா பட்டியல் தற்போது காலியாக உள்ளது. உங்கள் சந்தாக்களை இறக்குமதி செய்ய விரும்பினால்,
-    நீங்கள் தரவு அமைப்புகளுக்குச் சென்று இறக்குமதி சந்தாக்களைத் தேர்ந்தெடுக்கலாம்
-    அல்லது நீங்கள் ஒரு சேனலைத் தேடி அவற்றில் குழுசேரலாம்.'
-  Disabled Automatic Fetching: 'தானியங்கி சந்தா பெறுவதை நீங்கள் முடக்கியுள்ளீர்கள்.
-    சந்தாக்களை இங்கே காண புதுப்பிக்கவும்.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'இந்த சுயவிவரத்தில் அதிக எண்ணிக்கையிலான சந்தாக்கள் உள்ளன. விகிதத்தைக் கட்டுப்படுத்துவதைத் தவிர்க்க ஆர்.எச்.எச்'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'உங்கள் சந்தா பட்டியல் தற்போது காலியாக உள்ளது. உங்கள் சந்தாக்களை இறக்குமதி செய்ய விரும்பினால், நீங்கள் தரவு அமைப்புகளுக்குச் சென்று இறக்குமதி சந்தாக்களைத் தேர்ந்தெடுக்கலாம் அல்லது நீங்கள் ஒரு சேனலைத் தேடி அவற்றில் குழுசேரலாம்.'
+  Disabled Automatic Fetching: 'தானியங்கி சந்தா பெறுவதை நீங்கள் முடக்கியுள்ளீர்கள். சந்தாக்களை இங்கே காண புதுப்பிக்கவும்.'
   Empty Channels: 'உங்கள் சந்தா சேனல்களில் தற்போது எந்த வீடியோக்களும் இல்லை.'
   Empty Posts: 'உங்கள் சந்தா சேனல்களில் தற்போது எந்த இடுகைகளும் இல்லை.'
   Load More Videos: 'மேலும் வீடியோக்களை ஏற்றவும்'
   Load More Posts: 'மேலும் இடுகைகளை ஏற்றவும்'
   Subscriptions Tabs: 'சந்தா தாவல்கள்'
-  All Subscription Tabs Hidden: 'அனைத்து சந்தா தாவல்களும் மறைக்கப்பட்டுள்ளன. இங்கே
-    உள்ளடக்கத்தைக் காண, "{subsection}" இல் உள்ள "{settingsSection}" பிரிவில் சில தாவல்களை
-    மறைக்கவும்.'
+  All Subscription Tabs Hidden: 'அனைத்து சந்தா தாவல்களும் மறைக்கப்பட்டுள்ளன. இங்கே உள்ளடக்கத்தைக் காண, "{subsection}" இல் உள்ள "{settingsSection}" பிரிவில் சில தாவல்களை மறைக்கவும்.'
 More: 'மேலும்'
 Channels:
   Channels: 'சேனல்கள்'
@@ -162,16 +153,12 @@ Feed:
 Playlists: 'பிளேலிச்ட்கள்'
 User Playlists:
   Your Playlists: 'உங்கள் பிளேலிச்ட்கள்'
-  You have no playlists. Click on the create new playlist button to create a new one.: 'உங்களிடம்
-    பிளேலிச்ட்கள் இல்லை. புதிய ஒன்றை உருவாக்க புதிய பிளேலிச்ட் பொத்தானைக் சொடுக்கு
-    செய்க.'
-  Empty Search Message: 'உங்கள் தேடலுடன் பொருந்தக்கூடிய இந்த பிளேலிச்ட்டில் வீடியோக்கள்
-    எதுவும் இல்லை'
+  You have no playlists. Click on the create new playlist button to create a new one.: 'உங்களிடம் பிளேலிச்ட்கள் இல்லை. புதிய ஒன்றை உருவாக்க புதிய பிளேலிச்ட் பொத்தானைக் சொடுக்கு செய்க.'
+  Empty Search Message: 'உங்கள் தேடலுடன் பொருந்தக்கூடிய இந்த பிளேலிச்ட்டில் வீடியோக்கள் எதுவும் இல்லை'
   Search bar placeholder: 'பிளேலிச்ட்களைத் தேடுங்கள்'
   Playlists with Matching Videos: 'பொருந்தக்கூடிய வீடியோக்களுடன் பிளேலிச்ட்கள்'
 
-  This playlist currently has no videos.: 'இந்த பிளேலிச்ட்டில் தற்போது வீடியோக்கள்
-    இல்லை.'
+  This playlist currently has no videos.: 'இந்த பிளேலிச்ட்டில் தற்போது வீடியோக்கள் இல்லை.'
 
   Create New Playlist: 'புதிய பிளேலிச்ட்டை உருவாக்கவும்'
 
@@ -192,24 +179,15 @@ User Playlists:
   Copy Playlist: 'பிளேலிச்ட்டை நகலெடுக்கவும்'
   Remove Duplicate Videos: 'நகல் வீடியோக்களை அகற்றவும்'
   Remove Watched Videos: 'பார்த்த வீடியோக்களை அகற்று'
-  Enable Quick Bookmark With This Playlist: 'இந்த பிளேலிச்ட்டுடன் விரைவான புத்தகக்குறியை
-    இயக்கவும்'
+  Enable Quick Bookmark With This Playlist: 'இந்த பிளேலிச்ட்டுடன் விரைவான புத்தகக்குறியை இயக்கவும்'
   Quick Bookmark Enabled: 'விரைவான புத்தகக்குறி இயக்கப்பட்டது'
   Export Playlist: 'இந்த பிளேலிச்ட்டை ஏற்றுமதி செய்யுங்கள்'
   The playlist has been successfully exported: 'பிளேலிச்ட் வெற்றிகரமாக ஏற்றுமதி செய்யப்பட்டுள்ளது'
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: 'இந்த
-    பிளேலிச்ட்டிலிருந்து 1 நகல் வீடியோவை அகற்ற விரும்புகிறீர்களா? இதை செயல்தவிர்க்க
-    முடியாது. | இந்த பிளேலிச்ட்டிலிருந்து {playlistItemCount} நகல் வீடியோக்களை அகற்ற
-    விரும்புகிறீர்களா? இதை செயல்தவிர்க்க முடியாது.'
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 'இந்த
-    பிளேலிச்ட்டிலிருந்து பார்த்த 1 வீடியோவை அகற்ற விரும்புகிறீர்களா? இதை செயல்தவிர்க்க
-    முடியாது. | இந்த பிளேலிச்ட்டிலிருந்து {playlistItemCount} பார்த்த வீடியோக்களை
-    அகற்ற விரும்புகிறீர்களா? இதை செயல்தவிர்க்க முடியாது.'
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: 'இந்த பிளேலிச்ட்டிலிருந்து 1 நகல் வீடியோவை அகற்ற விரும்புகிறீர்களா? இதை செயல்தவிர்க்க முடியாது. | இந்த பிளேலிச்ட்டிலிருந்து {playlistItemCount} நகல் வீடியோக்களை அகற்ற விரும்புகிறீர்களா? இதை செயல்தவிர்க்க முடியாது.'
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 'இந்த பிளேலிச்ட்டிலிருந்து பார்த்த 1 வீடியோவை அகற்ற விரும்புகிறீர்களா? இதை செயல்தவிர்க்க முடியாது. | இந்த பிளேலிச்ட்டிலிருந்து {playlistItemCount} பார்த்த வீடியோக்களை அகற்ற விரும்புகிறீர்களா? இதை செயல்தவிர்க்க முடியாது.'
   Delete Playlist: 'பிளேலிச்ட்டை நீக்கு'
-  Cannot delete the quick bookmark target playlist.: 'விரைவான புத்தகக்குறி இலக்கு
-    பிளேலிச்ட்டை நீக்க முடியாது.'
-  Are you sure you want to delete this playlist? This cannot be undone: 'இந்த பிளேலிச்ட்டை
-    நீக்க விரும்புகிறீர்களா? இதை செயல்தவிர்க்க முடியாது.'
+  Cannot delete the quick bookmark target playlist.: 'விரைவான புத்தகக்குறி இலக்கு பிளேலிச்ட்டை நீக்க முடியாது.'
+  Are you sure you want to delete this playlist? This cannot be undone: 'இந்த பிளேலிச்ட்டை நீக்க விரும்புகிறீர்களா? இதை செயல்தவிர்க்க முடியாது.'
 
   Sort By:
     NameAscending: 'A-z'
@@ -230,80 +208,56 @@ User Playlists:
       This video cannot be moved up.: 'இந்த வீடியோவை நகர்த்த முடியாது.'
       This video cannot be moved down.: 'இந்த வீடியோவை கீழே நகர்த்த முடியாது.'
       Video has been removed: 'வீடியோ அகற்றப்பட்டது'
-      There was a problem with removing this video: 'இந்த வீடியோவை அகற்றுவதில் சிக்கல்
-        இருந்தது'
+      There was a problem with removing this video: 'இந்த வீடியோவை அகற்றுவதில் சிக்கல் இருந்தது'
 
-      This playlist is already being used for quick bookmark.: 'இந்த பிளேலிச்ட் ஏற்கனவே
-        விரைவான புக்மார்க்குக்கு பயன்படுத்தப்படுகிறது.'
-      This playlist is now used for quick bookmark: 'இந்த பிளேலிச்ட் இப்போது விரைவான
-        புக்மார்க்குக்கு பயன்படுத்தப்படுகிறது'
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 'இந்த
-        பிளேலிச்ட் இப்போது {oldPlaylistName} க்கு க்கு பதிலாக விரைவான புக்மார்க்குக்கு
-        பயன்படுத்தப்படுகிறது. செயல்தவிர்க்க இங்கே சொடுக்கு செய்க'
-      Reverted to use {oldPlaylistName} for quick bookmark: 'விரைவான புக்மார்க்குக்கு
-        {oldPlayListName} bea ஐப் பயன்படுத்த மாற்றப்பட்டது'
+      This playlist is already being used for quick bookmark.: 'இந்த பிளேலிச்ட் ஏற்கனவே விரைவான புக்மார்க்குக்கு பயன்படுத்தப்படுகிறது.'
+      This playlist is now used for quick bookmark: 'இந்த பிளேலிச்ட் இப்போது விரைவான புக்மார்க்குக்கு பயன்படுத்தப்படுகிறது'
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: 'இந்தப் பிளேலிச்ட் இப்போது {oldPlaylistName} க்கு பதிலாக விரைவான புக்மார்க்குக்கு பயன்படுத்தப்படுகிறது. செயல்தவிர்க்க இங்கே சொடுக்கு செய்க'
+      Reverted to use {oldPlaylistName} for quick bookmark: 'விரைவான புக்மார்க்குக்கு {oldPlaylistName} bea ஐப் பயன்படுத்த மாற்றப்பட்டது'
 
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: 'பிளேலிச்ட்டில்
-        உள்ள சில வீடியோக்கள் இன்னும் ஏற்றப்படவில்லை. எப்படியும் நகலெடுக்க இங்கே சொடுக்கு
-        செய்க.'
-      Playlist name cannot be empty. Please input a name.: 'பிளேலிச்ட் பெயர் காலியாக
-        இருக்க முடியாது. தயவுசெய்து ஒரு பெயரை உள்ளிடவும்.'
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: 'பிளேலிச்ட்டில் உள்ள சில வீடியோக்கள் இன்னும் ஏற்றப்படவில்லை. எப்படியும் நகலெடுக்க இங்கே சொடுக்கு செய்க.'
+      Playlist name cannot be empty. Please input a name.: 'பிளேலிச்ட் பெயர் காலியாக இருக்க முடியாது. தயவுசெய்து ஒரு பெயரை உள்ளிடவும்.'
       Playlist has been updated.: 'பிளேலிச்ட் புதுப்பிக்கப்பட்டுள்ளது.'
-      There was an issue with updating this playlist.: 'இந்த பிளேலிச்ட்டைப் புதுப்பிப்பதில்
-        சிக்கல் இருந்தது.'
-      "{videoCount} video(s) have been removed": "1 வீடியோ அகற்றப்பட்டது | {videoCount}
-        வீடியோக்கள் அகற்றப்பட்டுள்ளன"
+      There was an issue with updating this playlist.: 'இந்த பிளேலிச்ட்டைப் புதுப்பிப்பதில் சிக்கல் இருந்தது.'
+      "{videoCount} video(s) have been removed": "1 வீடியோ அகற்றப்பட்டது | {videoCount} வீடியோக்கள் அகற்றப்பட்டுள்ளன"
       There were no videos to remove.: 'அகற்ற வீடியோக்கள் எதுவும் இல்லை.'
-      This playlist is protected and cannot be removed.: 'இந்த பிளேலிச்ட் பாதுகாக்கப்படுகிறது
-        மற்றும் அகற்ற முடியாது.'
+      This playlist is protected and cannot be removed.: 'இந்த பிளேலிச்ட் பாதுகாக்கப்படுகிறது மற்றும் அகற்ற முடியாது.'
       Playlist {playlistName} has been deleted.: 'பிளேலிச்ட் {playlistName} நீக்கப்பட்டது.'
 
       This playlist does not exist: 'இந்த பிளேலிச்ட் இல்லை'
 
-      This playlist has a video with a duration error: 'இந்த பிளேலிச்ட்டில் குறைந்தது
-        ஒரு வீடியோவைக் கொண்டுள்ளது, அது காலம் இல்லை, அவற்றின் காலம் பூச்சியமாக இருப்பதைப்
-        போல வரிசைப்படுத்தப்படும்.'
+      This playlist has a video with a duration error: 'இந்த பிளேலிச்ட்டில் குறைந்தது ஒரு வீடியோவைக் கொண்டுள்ளது, அது காலம் இல்லை, அவற்றின் காலம் பூச்சியமாக இருப்பதைப் போல வரிசைப்படுத்தப்படும்.'
+      Video has been removed. Click here to undo.: வீடியோ அகற்றப்பட்டது. செயல்தவிர்க்க இங்கே சொடுக்கு செய்க.
   AddVideoPrompt:
-    Select a playlist to add your N videos to: 'உங்கள் வீடியோவை | இல் சேர்க்க பிளேலிச்ட்டைத்
-      தேர்ந்தெடுக்கவும் உங்கள் {videoCount} வீடியோக்களைச் சேர்க்க பிளேலிச்ட்டைத் தேர்ந்தெடுக்கவும்'
+    Select a playlist to add your N videos to: 'உங்கள் வீடியோவை | இல் சேர்க்க பிளேலிச்ட்டைத் தேர்ந்தெடுக்கவும் உங்கள் {videoCount} வீடியோக்களைச் சேர்க்க பிளேலிச்ட்டைத் தேர்ந்தெடுக்கவும்'
     N playlists selected: '{playlistCount} தேர்ந்தெடுக்கப்பட்டது'
     Search in Playlists: 'பிளேலிச்ட்களில் தேடுங்கள்'
     Allow Adding Duplicate Video(s): 'நகல் வீடியோக்களைச் சேர்க்க அனுமதிக்கவும்)'
     Save: 'சேமி'
 
     Added {count} Times: 'ஏற்கனவே சேர்க்கப்பட்டது | சேர்க்கப்பட்டது {count} முறை'
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      வீடியோக்கள் சேர்க்கப்படும்'
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      வீடியோக்கள் ஏற்கனவே சேர்க்கப்பட்டுள்ளன'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} வீடியோக்கள் சேர்க்கப்படும்'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} வீடியோக்கள் ஏற்கனவே சேர்க்கப்பட்டுள்ளன'
 
     Toast:
-      You haven't selected any playlist yet.: 'நீங்கள் இதுவரை எந்த பிளேலிச்ட்டையும்
-        தேர்வு செய்யவில்லை.'
-      "{videoCount} video(s) added to 1 playlist": "1 பிளேலிச்ட்டில் 1 வீடியோ சேர்க்கப்பட்டது
-        | {videoCount} வீடியோக்கள் 1 பிளேலிச்ட்டில் சேர்க்கப்பட்டன"
-      "{videoCount} video(s) added to {playlistCount} playlists": "1 பிளேலிச்ட்கவுண்ட்}
-        பிளேலிச்ட்களில் 1 வீடியோ சேர்க்கப்பட்டது {playlistCount} வீடியோக்கள் {videoCount}
-        பிளேலிச்ட்களில் சேர்க்கப்பட்டன"
+      You haven't selected any playlist yet.: 'நீங்கள் இதுவரை எந்த பிளேலிச்ட்டையும் தேர்வு செய்யவில்லை.'
+      "{videoCount} video(s) added to 1 playlist": "1 பிளேலிச்ட்டில் 1 வீடியோ சேர்க்கப்பட்டது | {videoCount} வீடியோக்கள் 1 பிளேலிச்ட்டில் சேர்க்கப்பட்டன"
+      "{videoCount} video(s) added to {playlistCount} playlists": "1 பிளேலிச்ட்கவுண்ட்} பிளேலிச்ட்களில் 1 வீடியோ சேர்க்கப்பட்டது {playlistCount} வீடியோக்கள் {videoCount} பிளேலிச்ட்களில் சேர்க்கப்பட்டன"
   CreatePlaylistPrompt:
     New Playlist Name: 'புதிய பிளேலிச்ட் பெயர்'
     Create: 'உருவாக்கு'
 
     Toast:
-      There is already a playlist with this name. Please pick a different name.: 'இந்த
-        பெயருடன் ஏற்கனவே ஒரு பிளேலிச்ட் உள்ளது. தயவுசெய்து வேறு பெயரைத் தேர்ந்தெடுங்கள்.'
-      Playlist {playlistName} has been successfully created.: 'பிளேலிச்ட் {playlistName}
-        வெற்றிகரமாக உருவாக்கப்பட்டுள்ளது.'
-      There was an issue with creating the playlist.: 'பிளேலிச்ட்டை உருவாக்குவதில்
-        சிக்கல் இருந்தது.'
+      There is already a playlist with this name. Please pick a different name.: 'இந்த பெயருடன் ஏற்கனவே ஒரு பிளேலிச்ட் உள்ளது. தயவுசெய்து வேறு பெயரைத் தேர்ந்தெடுங்கள்.'
+      Playlist {playlistName} has been successfully created.: 'பிளேலிச்ட் {playlistName} வெற்றிகரமாக உருவாக்கப்பட்டுள்ளது.'
+      There was an issue with creating the playlist.: 'பிளேலிச்ட்டை உருவாக்குவதில் சிக்கல் இருந்தது.'
+  TotalTimePlaylist: 'மொத்த நேரம்: {duration}'
 History:
   # On History Page
   History: 'வரலாறு'
   Watch History: 'வரலாற்றைப் பாருங்கள்'
-  Your history list is currently empty.: 'உங்கள் வரலாற்று பட்டியல் தற்போது காலியாக
-    உள்ளது.'
-  Empty Search Message: 'உங்கள் வரலாற்றில் உங்கள் தேடலுடன் பொருந்தக்கூடிய வீடியோக்கள்
-    எதுவும் இல்லை'
+  Your history list is currently empty.: 'உங்கள் வரலாற்று பட்டியல் தற்போது காலியாக உள்ளது.'
+  Empty Search Message: 'உங்கள் வரலாற்றில் உங்கள் தேடலுடன் பொருந்தக்கூடிய வீடியோக்கள் எதுவும் இல்லை'
   Search bar placeholder: "வரலாற்றில் தேடுங்கள்"
   Case Sensitive Search: 'வழக்கு உணர்திறன் தேடல்'
 Settings:
@@ -311,15 +265,12 @@ Settings:
   Settings: 'அமைப்புகள்'
   Sort Settings Sections (A-Z): 'அமைப்புகள் பிரிவுகளை வரிசைப்படுத்துங்கள் (A-Z)'
   Return to Settings Menu: 'அமைப்புகள் மெனுவுக்குத் திரும்பு'
-  The app needs to restart for changes to take effect. Restart and apply change?: 'மாற்றங்கள்
-    நடைமுறைக்கு வருவதற்கு பயன்பாடு மறுதொடக்கம் செய்ய வேண்டும். மறுதொடக்கம் செய்து
-    மாற்றத்தை பயன்படுத்தவா?'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'மாற்றங்கள் நடைமுறைக்கு வருவதற்கு பயன்பாடு மறுதொடக்கம் செய்ய வேண்டும். மறுதொடக்கம் செய்து மாற்றத்தை பயன்படுத்தவா?'
   General Settings:
     General Settings: 'பொது'
     Check for Updates: 'புதுப்பிப்புகளை சரிபார்க்கவும்'
     Check for Latest Blog Posts: 'அண்மைக் கால வலைப்பதிவு இடுகைகளை சரிபார்க்கவும்'
-    Fallback to Non-Preferred Backend on Failure: 'தோல்வியில் முதலீடு செய்யப்படாத
-      பின்தளத்தில் குறைவடையும்'
+    Fallback to Non-Preferred Backend on Failure: 'தோல்வியில் முதலீடு செய்யப்படாத பின்தளத்தில் குறைவடையும்'
     Enable Search Suggestions: 'தேடல் பரிந்துரைகளை இயக்கவும்'
     Auto Load Next Page:
       Label: 'ஆட்டோ சுமை அடுத்த பக்கம்'
@@ -344,15 +295,12 @@ Settings:
       Hidden: 'மறைக்கப்பட்ட'
       Blur: 'மங்கலானது'
     Current Invidious Instance: 'தற்போதைய ஆவேசமான நிகழ்வு'
-    The currently set default instance is {instance}: 'தற்போது அமைக்கப்பட்ட இயல்புநிலை
-      நிகழ்வு {instance}'
+    The currently set default instance is {instance}: 'தற்போது அமைக்கப்பட்ட இயல்புநிலை நிகழ்வு {instance}'
     No default instance has been set: 'இயல்புநிலை நிகழ்வு எதுவும் அமைக்கப்படவில்லை'
-    Current instance will be randomized on startup: 'தற்போதைய நிகழ்வு தொடக்கத்தில்
-      சீரற்றதாக இருக்கும்'
+    Current instance will be randomized on startup: 'தற்போதைய நிகழ்வு தொடக்கத்தில் சீரற்றதாக இருக்கும்'
     Set Current Instance as Default: 'தற்போதைய நிகழ்வை இயல்புநிலையாக அமைக்கவும்'
     Clear Default Instance: 'இயல்புநிலை நிகழ்வை அழிக்கவும்'
-    View all Invidious instance information: 'அனைத்து விலக்கப்பட்ட நிகழ்வு தகவல்களையும்
-      காண்க'
+    View all Invidious instance information: 'அனைத்து விலக்கப்பட்ட நிகழ்வு தகவல்களையும் காண்க'
     Region for Trending: 'பிரபலமான பகுதி'
     #! List countries
     External Link Handling:
@@ -360,8 +308,7 @@ Settings:
       Open Link: 'இணைப்பை திற'
       Ask Before Opening Link: 'இணைப்பைத் திறப்பதற்கு முன் கேளுங்கள்'
       No Action: 'நடவடிக்கை இல்லை'
-    Open Deep Links In New Window: திறந்த முகவரி கள் புதிய சாளரத்தில் ஃப்ரீட்யூப்பிற்கு
-      அனுப்பப்பட்டன
+    Open Deep Links In New Window: திறந்த முகவரி கள் புதிய சாளரத்தில் ஃப்ரீட்யூப்பிற்கு அனுப்பப்பட்டன
   Theme Settings:
     Theme Settings: 'கருப்பொருள்'
     Match Top Bar with Main Color: 'முதன்மையான வண்ணத்துடன் மேல் பட்டியை பொருத்துங்கள்'
@@ -385,6 +332,13 @@ Settings:
       Solarized Light: 'சோலரிச் லைட்'
       Gruvbox Dark: கிரைண்ட்பாக்ச் இருண்ட
       Gruvbox Light: GRUVBOX LIGHT
+      Catppuccin Frappe: Catppuccin வேலைநிறுத்தங்கள்
+      Everforest Dark Hard: எவர் ஃபாரச்ட் டார்க் ஆர்ட்
+      Everforest Dark Medium: எப்போதும் இருண்ட நடுத்தர
+      Everforest Dark Low: எப்போதும் இருண்ட குறைந்த
+      Everforest Light Hard: எப்போதும் ஒளி கடினமானது
+      Everforest Light Medium: எப்போதும் ஒளி நடுத்தர
+      Everforest Light Low: எப்போதும் ஒளி குறைந்த
     Main Color Theme:
       Main Color Theme: 'முதன்மையான வண்ண கருப்பொருள்'
       Red: 'சிவப்பு'
@@ -411,7 +365,7 @@ Settings:
       Dracula Red: 'டிராகுலா சிவப்பு'
       Dracula Yellow: 'டிராகுலா மஞ்சள்'
       Catppuccin Mocha Rosewater: 'Catppuccin Mocha Roswater'
-      Catppuccin Mocha Flamingo: 'Catppuccin Mocha Flamingo'
+      Catppuccin Mocha Flamingo: 'கட்டாபுசின் மொகா ஃபிளமிங்கோ'
       Catppuccin Mocha Pink: 'Catppuccin mocha இளஞ்சிவப்பு'
       Catppuccin Mocha Mauve: 'Catppuccin mocha mauve'
       Catppuccin Mocha Red: 'Catppuccin Mocha சிவப்பு'
@@ -442,21 +396,47 @@ Settings:
       Gruvbox Light Red: க்ரூவ்பாக்ச் ஒளி சிவப்பு
       Gruvbox Light Purple: GRUVBOX LIGHT ஊதா
       Gruvbox Light Orange: கிரைண்ட்பாக்ச் லைட் ஆரஞ்சு
+      Catppuccin Frappe Rosewater: கேட் பியூசின் ரோச்வாட்டரைத் தாக்கியது
+      Catppuccin Frappe Flamingo: Catppuccin ஃபிளமிங்கோவைத் தாக்கியது
+      Catppuccin Frappe Pink: Catppuccin இளஞ்சிவப்பு நிறத்தில் அடிக்கிறது
+      Catppuccin Frappe Mauve: Catppuccin mavev ஐத் தாக்கியது
+      Catppuccin Frappe Red: CatPPUCCIN சிவப்பு ஐ தாக்குகிறது
+      Catppuccin Frappe Maroon: Catppuccin மெரூனைத் தாக்கியது
+      Catppuccin Frappe Peach: Catppuccin frappe பீச்
+      Catppuccin Frappe Yellow: Catppuccin frappe மஞ்சள்
+      Catppuccin Frappe Green: Catppuccin பச்சை நிறத்தில் உள்ளது
+      Catppuccin Frappe Teal: Catppuccin டீலைத் தாக்கியது
+      Catppuccin Frappe Sky: Catppuccin வானத்தைத் தாக்கும்
+      Catppuccin Frappe Sapphire: Catppuccin சபையரைத் தாக்கும்
+      Catppuccin Frappe Blue: Catppuccin நீல நிறத்தில் உள்ளது
+      Catppuccin Frappe Lavender: Catppuccin லாவ்டரைத் தாக்கியது
+      Everforest Dark Red: எப்போதும் இருண்ட சிவப்பு
+      Everforest Dark Orange: எப்போதும் இருண்ட ஆரஞ்சு
+      Everforest Dark Yellow: எவர் ஃபாரெச்ட் அடர் மஞ்சள்
+      Everforest Dark Green: எப்போதும் இருண்ட பச்சை
+      Everforest Dark Aqua: எப்போதும் டார்க் அக்வா
+      Everforest Dark Blue: எவர் ஃபாரெச்ட் அடர் நீலம்
+      Everforest Dark Purple: எப்போதும் இருண்ட ஊதா
+      Everforest Light Red: எப்போதும் ஒளி சிவப்பு
+      Everforest Light Orange: எப்போதும் ஒளி ஆரஞ்சு
+      Everforest Light Yellow: எப்போதும் வெளிச்சம் மஞ்சள்
+      Everforest Light Green: எப்போதும் வெளிச்சம் பச்சை
+      Everforest Light Aqua: எவர் ஃபாரெச்ட் லைட் அக்வா
+      Everforest Light Blue: எவர் ஃபாரெச்ட் லைட் நீலம்
+      Everforest Light Purple: எப்போதும் ஒளி ஊதா
     Secondary Color Theme: 'இரண்டாம் நிலை வண்ண கருப்பொருள்'
         #* Main Color Theme
   Player Settings:
     Player Settings: 'வீரர்'
-    Play Next Video: 'அடுத்த வீடியோவை இயக்கவும்'
+    Play Next Video: 'ஆட்டோபிளே பரிந்துரைக்கப்பட்ட வீடியோக்கள்'
     Turn on Subtitles by Default: 'முன்னிருப்பாக வசன வரிகள் இயக்கவும்'
-    Autoplay Videos: 'ஆட்டோபிளே வீடியோக்கள்'
+    Autoplay Videos: 'வீடியோக்களை தானாகத் தொடங்கவும்'
     Proxy Videos Through Invidious: 'ஆவேசத்தின் மூலம் பதிலாள் வீடியோக்கள்'
-    Autoplay Playlists: 'ஆட்டோபிளே பிளேலிச்ட்கள்'
+    Autoplay Playlists: 'ஆட்டோபிளே பிளேலிச்ட் வீடியோக்கள்'
     Enable Theatre Mode by Default: 'இயல்பாக தியேட்டர் பயன்முறையை இயக்கவும்'
     Scroll Volume Over Video Player: 'வீடியோ பிளேயர் மீது அளவை உருட்டவும்'
-    Scroll Playback Rate Over Video Player: 'வீடியோ பிளேயரில் உருட்டல் பிளேபேக் வீதத்தை
-      உருட்டவும்'
-    Skip by Scrolling Over Video Player: 'வீடியோ பிளேயரை ச்க்ரோலிங் செய்வதன் மூலம்
-      தவிர்க்கவும்'
+    Scroll Playback Rate Over Video Player: 'வீடியோ பிளேயரில் உருட்டல் பிளேபேக் வீதத்தை உருட்டவும்'
+    Skip by Scrolling Over Video Player: 'வீடியோ பிளேயரை ச்க்ரோலிங் செய்வதன் மூலம் தவிர்க்கவும்'
     Display Play Button In Video Player: 'வீடியோ பிளேயரில் ப்ளே பொத்தானைக் காண்பி'
     Enter Fullscreen on Display Rotate: 'காட்சி சுழற்சியில் முழுத்திரை உள்ளிடவும்'
     Next Video Interval: 'ஆட்டோபிளே கவுண்டவுன் நேரங்குறிகருவி'
@@ -490,14 +470,17 @@ Settings:
       Folder Label: 'திரைக்காட்சி கோப்புறை'
       Folder Button: 'கோப்புறையைத் தேர்ந்தெடு'
       File Name Label: 'கோப்பு பெயர் முறை'
-      File Name Tooltip: 'நீங்கள் கீழே மாறிகளைப் பயன்படுத்தலாம். %Y ஆண்டு 4 இலக்கங்கள்.
-        %மீ மாதம் 2 இலக்கங்கள். %D நாள் 2 இலக்கங்கள். %H மணி 2 இலக்கங்கள். %N மணித்துளி
-        2 இலக்கங்கள். %s இரண்டாவது 2 இலக்கங்கள். %டி மில்லி நொடி 3 இலக்கங்கள். %s
-        வீடியோ இரண்டாவது. %டி வீடியோ மில்லி நொடி 3 இலக்கங்கள். %நான் வீடியோ ஐடி.'
+      File Name Tooltip: 'நீங்கள் கீழே மாறிகளைப் பயன்படுத்தலாம். %Y ஆண்டு 4 இலக்கங்கள். %மீ மாதம் 2 இலக்கங்கள். %D நாள் 2 இலக்கங்கள். %H மணி 2 இலக்கங்கள். %N மணித்துளி 2 இலக்கங்கள். %s இரண்டாவது 2 இலக்கங்கள். %டி மில்லி நொடி 3 இலக்கங்கள். %s வீடியோ இரண்டாவது. %டி வீடியோ மில்லி நொடி 3 இலக்கங்கள். %நான் வீடியோ ஐடி.'
       Error:
         Forbidden Characters: 'தடைசெய்யப்பட்ட எழுத்துக்கள்'
         Empty File Name: 'வெற்று கோப்பு பெயர்'
     Autoplay Interruption Timer: ஆட்டோபிளே குறுக்கீடு நேரங்குறிகருவி
+    Default Viewing Mode:
+      Theater: தியேட்டர்
+      Default Viewing Mode: இயல்புநிலை பார்க்கும் முறை
+      Full Screen: முழுத் திரை
+      Picture in Picture: படத்தில் படம்
+      External Player: வெளிப்புற பிளேயர் ({externalPlayerName})
   External Player Settings:
     External Player Settings: 'வெளிப்புற பிளேயர்'
     External Player: 'வெளிப்புற பிளேயர்'
@@ -510,34 +493,37 @@ Settings:
         Name: 'எதுவுமில்லை'
   Privacy Settings:
     Privacy Settings: 'தனியுரிமை'
-    Remember History: 'வரலாற்றை நினைவில் கொள்ளுங்கள்'
+    Remember History: 'வாட்ச் இச்டரி நினைவில் கொள்ளுங்கள்'
     Save Watched Progress: 'பார்த்த முன்னேற்றத்தை சேமிக்கவும்'
-    Save Watched Videos With Last Viewed Playlist: 'கடைசியாக பார்க்கப்பட்ட பிளேலிச்ட்டுடன்
-      பார்த்த வீடியோக்களைச் சேமிக்கவும்'
+    Save Watched Videos With Last Viewed Playlist: 'கடைசியாக பார்க்கப்பட்ட பிளேலிச்ட்டுடன் பார்த்த வீடியோக்களைச் சேமிக்கவும்'
     Clear Search Cache: 'தேடல் தற்காலிக சேமிப்பை அழிக்கவும்'
-    Are you sure you want to clear out your search cache?: 'உங்கள் தேடல் தற்காலிக
-      சேமிப்பை அழிக்க விரும்புகிறீர்களா?'
+    Are you sure you want to clear out your search cache?: 'உங்கள் தேடல் தற்காலிக சேமிப்பை அழிக்க விரும்புகிறீர்களா?'
     Search cache has been cleared: 'தேடல் தற்காலிக சேமிப்பு அழிக்கப்பட்டது'
     Remove Watch History: 'வாட்ச் வரலாற்றை அகற்று'
-    Are you sure you want to remove your entire watch history?: 'உங்கள் முழு கடிகார
-      வரலாற்றையும் அகற்ற விரும்புகிறீர்களா?'
+    Are you sure you want to remove your entire watch history?: 'உங்கள் முழு கடிகார வரலாற்றையும் அகற்ற விரும்புகிறீர்களா?'
     Watch history has been cleared: 'வாட்ச் வரலாறு அழிக்கப்பட்டுவிட்டது'
     Remove All Subscriptions / Profiles: 'அனைத்து சந்தாக்கள் / சுயவிவரங்களையும் அகற்று'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'அனைத்து
-      சந்தாக்கள் மற்றும் சுயவிவரங்களை அகற்ற விரும்புகிறீர்களா? இதை செயல்தவிர்க்க முடியாது.'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'அனைத்து சந்தாக்கள் மற்றும் சுயவிவரங்களை அகற்ற விரும்புகிறீர்களா? இதை செயல்தவிர்க்க முடியாது.'
     Remove All Playlists: 'அனைத்து பிளேலிச்ட்களையும் அகற்றவும்'
     All playlists have been removed: 'அனைத்து பிளேலிச்ட்களும் அகற்றப்பட்டுள்ளன'
-    Are you sure you want to remove all your playlists?: 'உங்கள் பிளேலிச்ட்கள் அனைத்தையும்
-      அகற்ற விரும்புகிறீர்களா?'
+    Are you sure you want to remove all your playlists?: 'உங்கள் பிளேலிச்ட்கள் அனைத்தையும் அகற்ற விரும்புகிறீர்களா?'
+    Remember Search History: தேடல் வரலாற்றை நினைவில் கொள்க
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: தானி
+        Semi-auto: அரை கார்
+        Never: ஒருபோதும்
+      Tooltip: ஆட்டோ = ஒவ்வொரு வீடியோ பக்கத்திலும் வெளியேறும் போது, வீடியோ முடிந்ததும், பிழை ஏற்பட்டதும் (எ.கா. ரேடலிமிட்டட் மற்றும் வாட்ச் அமர்வு காலாவதியானது). வீடியோ பக்கத்திலிருந்து வெளியேறுவதைத் தவிர்த்து அரை ஆட்டோ = ஆட்டோ போன்றது மற்றும் வீடியோ பிளேயருக்கு அடியில் அமைந்துள்ள சேமி பார்த்த முன்னேற்றம் என்ற பொத்தானை வழியாக முன்னேற்றத்தை கைமுறையாக சேமிக்க முடியும்.
+    Clear Search History and Cache: தேடல் வரலாறு மற்றும் தற்காலிக சேமிப்பை அழிக்கவும்
+    Are you sure you want to clear out your search history and cache?: உங்கள் தேடல் வரலாறு மற்றும் தற்காலிக சேமிப்பை அழிக்க விரும்புகிறீர்களா?
+    Search history and cache have been cleared: தேடல் வரலாறு மற்றும் தற்காலிக சேமிப்பு ஆகியவை அழிக்கப்பட்டுள்ளன
   Subscription Settings:
     Subscription Settings: 'சந்தா'
-    Hide Videos on Watch: 'கடிகாரத்தில் வீடியோக்களை மறைக்கவும்'
     Fetch Feeds from RSS: 'RSS இலிருந்து ஊட்டங்களைப் பெறுங்கள்'
     Fetch Automatically: 'தானாகவே ஊட்டத்தைப் பெறுங்கள்'
     Only Show Latest Video for Each Channel: ''
     Confirm Before Unsubscribing: 'குழுவிலகும் முன் உறுதிப்படுத்தவும்'
-    'Limit the number of videos displayed for each channel': ஒவ்வொரு சேனலுக்கும் காட்டப்படும்
-      வீடியோக்களின் எண்ணிக்கையை கட்டுப்படுத்துங்கள்
+    'Limit the number of videos displayed for each channel': ஒவ்வொரு சேனலுக்கும் காட்டப்படும் வீடியோக்களின் எண்ணிக்கையை கட்டுப்படுத்துங்கள்
     To: பெறுநர்
   Distraction Free Settings:
     Distraction Free Settings: 'கவனச்சிதறல் இல்லாதது'
@@ -548,8 +534,7 @@ Settings:
       Watch Page: 'பார்க்கும் பக்கம்'
       General: 'பொது'
     Hide Video Views: 'வீடியோ காட்சிகளை மறைக்கவும்'
-    Hide Video Likes And Dislikes: 'வீடியோ விருப்பங்களையும் விருப்பு வெறுப்புகளையும்
-      மறைக்கவும்'
+    Hide Video Likes And Dislikes: 'வீடியோ விருப்பங்களையும் விருப்பு வெறுப்புகளையும் மறைக்கவும்'
     Hide Channel Subscribers: 'சேனல் சந்தாதாரர்களை மறைக்கவும்'
     Hide Comment Likes: 'கருத்து விருப்பங்களை மறைக்கவும்'
     Hide Recommended Videos: 'பரிந்துரைக்கப்பட்ட வீடியோக்களை மறைக்கவும்'
@@ -561,34 +546,33 @@ Settings:
     Hide Video Description: 'வீடியோ விளக்கத்தை மறைக்கவும்'
     Hide Comments: 'கருத்துகளை மறைக்கவும்'
     Hide Profile Pictures in Comments: 'கருத்துகளில் சுயவிவர படங்களை மறைக்கவும்'
-    Display Titles Without Excessive Capitalisation: 'அதிக மூலதனமயமாக்கல் மற்றும்
-      நிறுத்தற்குறி இல்லாமல் தலைப்புகளைக் காண்பி'
+    Display Titles Without Excessive Capitalisation: 'அதிக மூலதனமயமாக்கல் மற்றும் நிறுத்தற்குறி இல்லாமல் தலைப்புகளைக் காண்பி'
     Hide Live Streams: 'நேரடி நீரோடைகளை மறைக்கவும்'
     Hide Upcoming Premieres: 'வரவிருக்கும் பிரீமியர்சை மறைக்கவும்'
     Hide Sharing Actions: 'பகிர்வு செயல்களை மறைக்கவும்'
+    Hide Videos on Watch: 'கடிகாரத்தில் வீடியோக்களை மறைக்கவும்'
     Hide Chapters: 'அத்தியாயங்களை மறைக்கவும்'
     Hide Channels: 'சேனல்களிலிருந்து வீடியோக்களை மறைக்கவும்'
-    Hide Channels Disabled Message: 'சில சேனல்கள் ஐடியைப் பயன்படுத்தி தடுக்கப்பட்டு
-      செயலாக்கப்படவில்லை. அந்த ஐடிகள் புதுப்பிக்கும்போது நற்பொருத்தம் தடுக்கப்படுகிறது'
+    Hide Channels Disabled Message: 'சில சேனல்கள் ஐடியைப் பயன்படுத்தி தடுக்கப்பட்டு செயலாக்கப்படவில்லை. அந்த ஐடிகள் புதுப்பிக்கும்போது நற்பொருத்தம் தடுக்கப்படுகிறது'
     Hide Channels Placeholder: 'சேனல் ஐடி'
     Hide Channels Invalid: 'வழங்கப்பட்ட சேனல் ஐடி தவறானது'
-    Hide Channels API Error: 'வழங்கப்பட்ட ஐடியுடன் பயனரை மீட்டெடுப்பதில் பிழை. ஐடி
-      சரியாக இருந்தால் மீண்டும் சரிபார்க்கவும்.'
+    Hide Channels API Error: 'வழங்கப்பட்ட ஐடியுடன் பயனரை மீட்டெடுப்பதில் பிழை. ஐடி சரியாக இருந்தால் மீண்டும் சரிபார்க்கவும்.'
     Hide Channels Already Exists: 'சேனல் ஐடி ஏற்கனவே உள்ளது'
     Hide Featured Channels: 'பிரத்யேக சேனல்களை மறைக்கவும்'
     Hide Channel Playlists: 'சேனல் "பிளேலிச்ட்கள்" தாவலை மறைக்கவும்'
     Hide Channel Shorts: 'சேனல் "சார்ட்ச்" தாவலை மறைக்கவும்'
     Hide Channel Podcasts: 'சேனல் "பாட்காச்ட்கள்" தாவலை மறைக்கவும்'
     Hide Channel Releases: 'சேனல் "வெளியீடுகள்" தாவலை மறைக்கவும்'
-    Hide Videos and Playlists Containing Text: 'உரையைக் கொண்ட வீடியோக்கள் மற்றும்
-      பிளேலிச்ட்களை மறைக்கவும்'
-    Hide Videos and Playlists Containing Text Placeholder: 'சொல், சொல் துண்டு அல்லது
-      சொற்றொடர்'
+    Hide Videos and Playlists Containing Text: 'உரையைக் கொண்ட வீடியோக்கள் மற்றும் பிளேலிச்ட்களை மறைக்கவும்'
+    Hide Videos and Playlists Containing Text Placeholder: 'சொல், சொல் துண்டு அல்லது சொற்றொடர்'
     Hide Subscriptions Videos: 'சந்தா வீடியோக்களை மறைக்கவும்'
     Hide Subscriptions Shorts: 'சந்தாக்கள் குறும்படங்களை மறைக்கவும்'
     Hide Subscriptions Live: 'சந்தாக்களை நேரடியாக மறைக்கவும்'
     Show Added Items: சேர்க்கப்பட்ட உருப்படிகளைக் காட்டு
     Hide Channel Home: சேனல் "முகப்பு" தாவலை மறைக்கவும்
+    Hide Channel Posts: சேனல் "இடுகைகள்" தாவலை மறைக்கவும்
+    Hide Channel Courses: சேனல் "படிப்புகள்" தாவலை மறைக்கவும்
+    Hide Subscriptions Posts: சந்தாக்கள் இடுகைகளை மறைக்கவும்
   Data Settings:
     Data Settings: 'தகவல்கள்'
     Select Export Type: 'ஏற்றுமதி வகையைத் தேர்ந்தெடுக்கவும்'
@@ -613,28 +597,18 @@ Settings:
          1. இந்த விருப்பத்துடன் உங்கள் பிளேலிச்ட்களை ஏற்றுமதி செய்யுங்கள்.
          2. தனியுரிமை அமைப்புகளின் கீழ் அனைத்து பிளேலிச்ட்கள் விருப்பத்தையும் அகற்று பயன்படுத்தி உங்கள் இருக்கும் பிளேலிச்ட்கள் அனைத்தையும் நீக்கு.
          3. ஃப்ரீட்யூப்பின் பழைய பதிப்பைத் தொடங்கி ஏற்றுமதி செய்யப்பட்ட பிளேலிச்ட்களை இறக்குமதி செய்யுங்கள். "
-    Profile object has insufficient data, skipping item: 'சுயவிவரப் பொருளில் போதுமான
-      தரவு இல்லை, உருப்படியைத் தவிர்க்கிறது'
-    All subscriptions and profiles have been successfully imported: 'அனைத்து சந்தாக்கள்
-      மற்றும் சுயவிவரங்கள் வெற்றிகரமாக இறக்குமதி செய்யப்பட்டுள்ளன'
-    All subscriptions have been successfully imported: 'அனைத்து சந்தாக்களும் வெற்றிகரமாக
-      இறக்குமதி செய்யப்பட்டுள்ளன'
+    Profile object has insufficient data, skipping item: 'சுயவிவரப் பொருளில் போதுமான தரவு இல்லை, உருப்படியைத் தவிர்க்கிறது'
+    All subscriptions and profiles have been successfully imported: 'அனைத்து சந்தாக்கள் மற்றும் சுயவிவரங்கள் வெற்றிகரமாக இறக்குமதி செய்யப்பட்டுள்ளன'
+    All subscriptions have been successfully imported: 'அனைத்து சந்தாக்களும் வெற்றிகரமாக இறக்குமதி செய்யப்பட்டுள்ளன'
     Invalid subscriptions file: 'தவறான சந்தா கோப்பு'
     Invalid history file: 'தவறான வரலாறு கோப்பு'
-    Subscriptions have been successfully exported: 'சந்தாக்கள் வெற்றிகரமாக ஏற்றுமதி
-      செய்யப்பட்டுள்ளன'
-    History object has insufficient data, skipping item: 'வரலாற்று பொருள் போதுமான
-      தரவு, உருப்படியைத் தவிர்ப்பது'
-    All watched history has been successfully imported: 'பார்த்த அனைத்து வரலாறும்
-      வெற்றிகரமாக இறக்குமதி செய்யப்பட்டுள்ளன'
-    All watched history has been successfully exported: 'பார்த்த அனைத்து வரலாறும்
-      வெற்றிகரமாக ஏற்றுமதி செய்யப்பட்டுள்ளன'
-    Playlist insufficient data: '"{playlist}" பிளேலிச்ட்டுக்கான போதிய தரவு, உருப்படியைத்
-      தவிர்க்கிறது'
-    All playlists has been successfully imported: 'அனைத்து பிளேலிச்ட்களும் வெற்றிகரமாக
-      இறக்குமதி செய்யப்பட்டுள்ளன'
-    All playlists has been successfully exported: 'அனைத்து பிளேலிச்ட்களும் வெற்றிகரமாக
-      ஏற்றுமதி செய்யப்பட்டுள்ளன'
+    Subscriptions have been successfully exported: 'சந்தாக்கள் வெற்றிகரமாக ஏற்றுமதி செய்யப்பட்டுள்ளன'
+    History object has insufficient data, skipping item: 'வரலாற்று பொருள் போதுமான தரவு, உருப்படியைத் தவிர்ப்பது'
+    All watched history has been successfully imported: 'பார்த்த அனைத்து வரலாறும் வெற்றிகரமாக இறக்குமதி செய்யப்பட்டுள்ளன'
+    All watched history has been successfully exported: 'பார்த்த அனைத்து வரலாறும் வெற்றிகரமாக ஏற்றுமதி செய்யப்பட்டுள்ளன'
+    Playlist insufficient data: '"{playlist}" பிளேலிச்ட்டுக்கான போதிய தரவு, உருப்படியைத் தவிர்க்கிறது'
+    All playlists has been successfully imported: 'அனைத்து பிளேலிச்ட்களும் வெற்றிகரமாக இறக்குமதி செய்யப்பட்டுள்ளன'
+    All playlists has been successfully exported: 'அனைத்து பிளேலிச்ட்களும் வெற்றிகரமாக ஏற்றுமதி செய்யப்பட்டுள்ளன'
     Unable to read file: 'கோப்பைப் படிக்க முடியவில்லை'
     Unable to write file: 'கோப்பு எழுத முடியவில்லை'
     Unknown data key: 'அறியப்படாத தரவு விசை'
@@ -646,32 +620,23 @@ Settings:
     Proxy Protocol: 'பதிலாள் நெறிமுறை'
     Proxy Host: 'பதிலாள் புரவலன்'
     Proxy Port Number: 'பதிலாள் துறைமுகம் எண்'
-    Clicking on Test Proxy will send a request to: 'டெச்ட் ப்ராக்சியைக் சொடுக்கு செய்தால்
-      ஒரு கோரிக்கையை அனுப்பும்'
+    Clicking on Test Proxy will send a request to: 'டெச்ட் ப்ராக்சியைக் சொடுக்கு செய்தால் ஒரு கோரிக்கையை அனுப்பும்'
     Test Proxy: 'சோதனை பதிலாள்'
     Your Info: 'உங்கள் செய்தி'
     Ip: 'ஐபி'
     Country: 'நாடு'
     Region: 'பகுதி'
     City: 'நகரம்'
-    Error getting network information. Is your proxy configured properly?: 'பிணைய
-      தகவல்களைப் பெறுவதில் பிழை. உங்கள் பதிலாள் சரியாக கட்டமைக்கப்பட்டுள்ளதா?'
-    Proxy Warning: ஃப்ரீட்யூப்பில் ஒரு உள்ளமைக்கப்பட்ட பதிலாள் இல்லை, ஆனால் வெளிப்புற
-      ப்ராக்சியுடன் இணைக்க முடியும், அதாவது உங்கள் கணினியில் டோர் போன்றவை அல்லது வெளிப்புற
-      பதிலாள் போன்றவை-சில விபிஎன்களால் வழங்கப்பட்ட சாக்ச் 5 பதிலாள் போன்றவை. இயக்கப்பட்டிருந்தால்,
-      உங்கள் ப்ராக்சி/டோர் சரியாக கட்டமைக்கப்பட்டுள்ளதா என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள்,
-      அல்லது ஃப்ரீட்யூப் எந்த தரவையும் பெற முடியாது.
+    Error getting network information. Is your proxy configured properly?: 'பிணைய தகவல்களைப் பெறுவதில் பிழை. உங்கள் பதிலாள் சரியாக கட்டமைக்கப்பட்டுள்ளதா?'
+    Proxy Warning: ஃப்ரீட்யூப்பில் ஒரு உள்ளமைக்கப்பட்ட பதிலாள் இல்லை, ஆனால் வெளிப்புற ப்ராக்சியுடன் இணைக்க முடியும், அதாவது உங்கள் கணினியில் டோர் போன்றவை அல்லது வெளிப்புற பதிலாள் போன்றவை-சில விபிஎன்களால் வழங்கப்பட்ட சாக்ச் 5 பதிலாள் போன்றவை. இயக்கப்பட்டிருந்தால், உங்கள் ப்ராக்சி/டோர் சரியாக கட்டமைக்கப்பட்டுள்ளதா என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள், அல்லது ஃப்ரீட்யூப் எந்த தரவையும் பெற முடியாது.
   SponsorBlock Settings:
     SponsorBlock Settings: 'ஒப்புரவாளர் தொகுதி'
     Enable SponsorBlock: 'ஒப்புரவாளர் பிளாக் இயக்கவும்'
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'ஒப்புரவாளர் பிளாக்
-      பநிஇ முகவரி (இயல்புநிலை https://sponsor.ajay.app)'
-    Notify when sponsor segment is skipped: 'ஒப்புரவாளர் பிரிவு தவிர்க்கப்படும்போது
-      அறிவிக்கவும்'
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'ஒப்புரவாளர் பிளாக் பநிஇ முகவரி (இயல்புநிலை https://sponsor.ajay.app)'
+    Notify when sponsor segment is skipped: 'ஒப்புரவாளர் பிரிவு தவிர்க்கப்படும்போது அறிவிக்கவும்'
     UseDeArrowTitles: 'அன்புள்ள வீடியோ தலைப்புகளைப் பயன்படுத்தவும்'
     UseDeArrowThumbnails: 'சிறுபடங்களுக்கு டியர்ரோவைப் பயன்படுத்தவும்'
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'அன்புள்ள
-      சிறு செனரேட்டர் பநிஇ முகவரி (இயல்புநிலை https://dearrow-thumb.ajay.app)'
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'அன்புள்ள சிறு செனரேட்டர் பநிஇ முகவரி (இயல்புநிலை https://dearrow-thumb.ajay.app)'
     Skip Options:
       Skip Option: 'விருப்பத்தைத் தவிர்க்கவும்'
       Auto Skip: 'கார் ச்கிப்'
@@ -693,17 +658,14 @@ Settings:
     Open in web browser: 'வலை உலாவியில் திறக்கவும்'
   Experimental Settings:
     Experimental Settings: 'சோதனை'
-    Warning: 'இந்த அமைப்புகள் சோதனைக்குரியவை, அவை இயக்கப்பட்டிருக்கும் போது செயலிழப்பை
-      ஏற்படுத்தக்கூடும். காப்புப்பிரதிகளை உருவாக்குவது மிகவும் பரிந்துரைக்கப்படுகிறது.
-      உங்கள் சொந்த ஆபத்தில் பயன்படுத்தவும்!'
+    Warning: 'இந்த அமைப்புகள் சோதனைக்குரியவை, அவை இயக்கப்பட்டிருக்கும் போது செயலிழப்பை ஏற்படுத்தக்கூடும். காப்புப்பிரதிகளை உருவாக்குவது மிகவும் பரிந்துரைக்கப்படுகிறது. உங்கள் சொந்த ஆபத்தில் பயன்படுத்தவும்!'
     Replace HTTP Cache: 'HTTP தற்காலிக சேமிப்பை மாற்றவும்'
   Password Dialog:
     Password: 'கடவுச்சொல்'
     Enter Password To Unlock: 'அமைப்புகளைத் திறக்க கடவுச்சொல்லை உள்ளிடவும்'
   Password Settings:
     Password Settings: 'கடவுச்சொல்'
-    Set Password To Prevent Access: 'அமைப்புகளுக்கான அணுகலைத் தடுக்க கடவுச்சொல்லை
-      அமைக்கவும்'
+    Set Password To Prevent Access: 'அமைப்புகளுக்கான அணுகலைத் தடுக்க கடவுச்சொல்லை அமைக்கவும்'
     Set Password: 'கடவுச்சொல்லை அமைக்கவும்'
     Remove Password: 'கடவுச்சொல்லை அகற்று'
 About:
@@ -759,11 +721,9 @@ Profile:
   Your profile name cannot be empty: 'உங்கள் சுயவிவர பெயர் காலியாக இருக்க முடியாது'
   Profile has been created: 'சுயவிவரம் உருவாக்கப்பட்டுள்ளது'
   Profile has been updated: 'சுயவிவரம் புதுப்பிக்கப்பட்டுள்ளது'
-  Your default profile has been set to {profile}: 'உங்கள் இயல்புநிலை சுயவிவரம் {profile}
-    என அமைக்கப்பட்டுள்ளது'
+  Your default profile has been set to {profile}: 'உங்கள் இயல்புநிலை சுயவிவரம் {profile} என அமைக்கப்பட்டுள்ளது'
   Removed {profile} from your profiles: 'உங்கள் சுயவிவரங்களிலிருந்து {profile} அகற்றப்பட்டது'
-  Your default profile has been changed to your primary profile: 'உங்கள் இயல்புநிலை
-    சுயவிவரம் உங்கள் முதன்மை சுயவிவரத்திற்கு மாற்றப்பட்டுள்ளது'
+  Your default profile has been changed to your primary profile: 'உங்கள் இயல்புநிலை சுயவிவரம் உங்கள் முதன்மை சுயவிவரத்திற்கு மாற்றப்பட்டுள்ளது'
   '{profile} is now the active profile': '{profile} இப்போது செயலில் உள்ள சுயவிவரம்'
   Subscription List: 'சந்தா பட்டியல்'
   Other Channels: 'பிற சேனல்கள்'
@@ -773,62 +733,49 @@ Profile:
   Delete Selected: 'தேர்ந்தெடுக்கப்பட்டதை நீக்கு'
   Add Selected To Profile: 'சுயவிவரத்தில் தேர்ந்தெடுக்கப்பட்டதைச் சேர்க்கவும்'
   No channel(s) have been selected: 'சேனல் (கள்) எதுவும் தேர்ந்தெடுக்கப்படவில்லை'
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : 'இது உங்கள் முதன்மை சுயவிவரம். தேர்ந்தெடுக்கப்பட்ட சேனல்களை நீக்க விரும்புகிறீர்களா?
-    அதே சேனல்கள் அவை காணப்படும் எந்த சுயவிவரத்திலும் நீக்கப்படும்.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'தேர்ந்தெடுக்கப்பட்ட
-    சேனல்களை நீக்க விரும்புகிறீர்களா? இது வேறு எந்த சுயவிவரத்திலிருந்தும் சேனலை நீக்காது.'
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : 'இது உங்கள் முதன்மை சுயவிவரம். தேர்ந்தெடுக்கப்பட்ட சேனல்களை நீக்க விரும்புகிறீர்களா? அதே சேனல்கள் அவை காணப்படும் எந்த சுயவிவரத்திலும் நீக்கப்படும்.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'தேர்ந்தெடுக்கப்பட்ட சேனல்களை நீக்க விரும்புகிறீர்களா? இது வேறு எந்த சுயவிவரத்திலிருந்தும் சேனலை நீக்காது.'
   Close Profile Dropdown: 'சுயவிவர வீழ்ச்சியை மூடு'
   Open Profile Dropdown: 'திறந்த சுயவிவர வீழ்ச்சி'
 #On Channel Page
 Channel:
   Subscribe: 'குழுசேர்'
   Unsubscribe: 'குழுவிலகவும்'
-  Channel has been removed from your subscriptions: 'உங்கள் சந்தாக்களிலிருந்து சேனல்
-    அகற்றப்பட்டுள்ளது'
-  Removed subscription from {count} other channel(s): '{count} பிற சேனல்களிலிருந்து
-    சந்தாவை அகற்று)'
+  Channel has been removed from your subscriptions: 'உங்கள் சந்தாக்களிலிருந்து சேனல் அகற்றப்பட்டுள்ளது'
+  Removed subscription from {count} other channel(s): '{count} பிற சேனல்களிலிருந்து சந்தாவை அகற்று)'
   Added channel to your subscriptions: 'உங்கள் சந்தாக்களில் சேனல் சேர்க்கப்பட்டது'
   Search Channel: 'சேனல் தேடல்'
-  Your search results have returned 0 results: 'உங்கள் தேடல் முடிவுகள் 0 முடிவுகளைத்
-    தருகின்றன'
+  Your search results have returned 0 results: 'உங்கள் தேடல் முடிவுகள் 0 முடிவுகளைத் தருகின்றன'
   This channel does not exist: 'இந்த சேனல் இல்லை'
   This channel does not allow searching: 'இந்த சேனல் தேடலை அனுமதிக்காது'
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: 'இந்த
-    சேனல் வயதுக்கு தடை விதிக்கப்பட்டுள்ளது, தற்போது ஃப்ரீட்யூப்பில் பார்க்க முடியாது.'
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: 'இந்த சேனல் வயதுக்கு தடை விதிக்கப்பட்டுள்ளது, தற்போது ஃப்ரீட்யூப்பில் பார்க்க முடியாது.'
   Channel Tabs: 'சேனல் தாவல்கள்'
   Videos:
     Videos: 'வீடியோக்கள்'
-    This channel does not currently have any videos: 'இந்த சேனலில் தற்போது எந்த வீடியோக்களும்
-      இல்லை'
+    This channel does not currently have any videos: 'இந்த சேனலில் தற்போது எந்த வீடியோக்களும் இல்லை'
     Sort Types:
       Newest: 'புதியது'
       Oldest: 'பழமையானது'
       Most Popular: 'மிகவும் பிரபலமானது'
   Shorts:
-    This channel does not currently have any shorts: 'இந்த சேனலில் தற்போது குறும்படங்கள்
-      இல்லை'
+    This channel does not currently have any shorts: 'இந்த சேனலில் தற்போது குறும்படங்கள் இல்லை'
   Live:
     Live: 'வாழ'
-    This channel does not currently have any live streams: 'இந்த சேனலில் தற்போது நேரடி
-      நீரோடைகள் இல்லை'
+    This channel does not currently have any live streams: 'இந்த சேனலில் தற்போது நேரடி நீரோடைகள் இல்லை'
   Playlists:
     Playlists: 'பிளேலிச்ட்கள்'
-    This channel does not currently have any playlists: 'இந்த சேனலில் தற்போது எந்த
-      பிளேலிச்ட்களும் இல்லை'
+    This channel does not currently have any playlists: 'இந்த சேனலில் தற்போது எந்த பிளேலிச்ட்களும் இல்லை'
     Sort Types:
       Last Video Added: 'கடைசி வீடியோ சேர்க்கப்பட்டது'
       Newest: 'புதியது'
       Oldest: 'பழமையானது'
   Podcasts:
     Podcasts: 'பாட்காச்ட்கள்'
-    This channel does not currently have any podcasts: 'இந்த சேனலில் தற்போது எந்த
-      பாட்காச்ட்களும் இல்லை'
+    This channel does not currently have any podcasts: 'இந்த சேனலில் தற்போது எந்த பாட்காச்ட்களும் இல்லை'
   Releases:
     Releases: 'வெளியீடுகள்'
-    This channel does not currently have any releases: 'இந்த சேனலில் தற்போது எந்த
-      வெளியீடுகளும் இல்லை'
+    This channel does not currently have any releases: 'இந்த சேனலில் தற்போது எந்த வெளியீடுகளும் இல்லை'
   About:
     About: 'பற்றி'
     Channel Description: 'சேனல் விளக்கம்'
@@ -840,27 +787,23 @@ Channel:
     Location: 'இடம்'
     Featured Channels: 'பிரத்யேக சேனல்கள்'
   Posts:
-    This channel currently does not have any posts: 'இந்த சேனலில் தற்போது எந்த இடுகைகளும்
-      இல்லை'
+    This channel currently does not have any posts: 'இந்த சேனலில் தற்போது எந்த இடுகைகளும் இல்லை'
     votes: '{votes} வாக்குகள்'
     View Full Post: 'முழு இடுகையைக் காண்க'
     Reveal Answers: 'பதில்களை வெளிப்படுத்துங்கள்'
     Hide Answers: 'பதில்களை மறைக்கவும்'
     Video hidden by FreeTube: 'ஃப்ரீட்யூப் மறைத்த வீடியோ'
-    Viewing Posts Only Supported By Invidious: 'இடுகைகளைப் பார்ப்பது வெறுப்புடன் மட்டுமே
-      ஆதரிக்கப்படுகிறது. வன்கவர்வு இல்லாமல் உள்ளடக்கத்தைக் காண சேனலின் சமூக தாவலுக்குச்
-      செல்லுங்கள்.'
+    Viewing Posts Only Supported By Invidious: 'இடுகைகளைப் பார்ப்பது வெறுப்புடன் மட்டுமே ஆதரிக்கப்படுகிறது. வன்கவர்வு இல்லாமல் உள்ளடக்கத்தைக் காண சேனலின் சமூக தாவலுக்குச் செல்லுங்கள்.'
   Home:
     Home: வீடு
     View Playlist: பிளேலிச்ட்டைக் காண்க
+  Courses:
+    Courses: படிப்புகள்
+    This channel does not currently have any courses: இந்த சேனலில் தற்போது எந்த படிப்புகளும் இல்லை
 Video:
-  IP block: 'உங்கள் ஐபி முகவரியை வீடியோக்களைப் பார்ப்பதிலிருந்து YouTube தடுத்துள்ளது.
-    தயவுசெய்து வேறு VPN அல்லது ப்ராக்சிக்கு மாற முயற்சிக்கவும்.'
-  MembersOnly: 'கூகிள் உள்நுழைவு மற்றும் பதிவேற்றியவரின் சேனலுக்கு பணம் செலுத்தும்
-    உறுப்பினர் தேவைப்படுவதால் உறுப்பினர்கள் மட்டும் வீடியோக்களைப் பார்க்க முடியாது.'
-  AgeRestricted: 'கூகிள் உள்நுழைவு தேவைப்படுவதால், வயதுக்குட்பட்ட வீடியோக்களைப் பார்க்க
-    முடியாது, ஏனெனில் அவை கூகிள் உள்நுழைவு மற்றும் அகவை சரிபார்க்கப்பட்ட யூடியூப்
-    கணக்கைப் பயன்படுத்துகின்றன.'
+  IP block: 'உங்கள் ஐபி முகவரியை வீடியோக்களைப் பார்ப்பதிலிருந்து YouTube தடுத்துள்ளது. தயவுசெய்து வேறு VPN அல்லது ப்ராக்சிக்கு மாற முயற்சிக்கவும்.'
+  MembersOnly: 'கூகிள் உள்நுழைவு மற்றும் பதிவேற்றியவரின் சேனலுக்கு பணம் செலுத்தும் உறுப்பினர் தேவைப்படுவதால் உறுப்பினர்கள் மட்டும் வீடியோக்களைப் பார்க்க முடியாது.'
+  AgeRestricted: 'கூகிள் உள்நுழைவு தேவைப்படுவதால், வயதுக்குட்பட்ட வீடியோக்களைப் பார்க்க முடியாது, ஏனெனில் அவை கூகிள் உள்நுழைவு மற்றும் அகவை சரிபார்க்கப்பட்ட யூடியூப் கணக்கைப் பயன்படுத்துகின்றன.'
   More Options: 'மேலும் விருப்பங்கள்'
   Mark As Watched: 'பார்த்தபடி குறி'
   Remove From History: 'வரலாற்றிலிருந்து அகற்று'
@@ -868,8 +811,7 @@ Video:
   Video has been removed from your history: 'உங்கள் வரலாற்றிலிருந்து வீடியோ அகற்றப்பட்டுள்ளது'
   Save Video: 'வீடியோவை சேமிக்கவும்'
   Video has been saved: 'வீடியோ சேமிக்கப்பட்டுள்ளது'
-  Video has been removed from your saved list: 'உங்கள் சேமித்த பட்டியலிலிருந்து வீடியோ
-    அகற்றப்பட்டுள்ளது'
+  Video has been removed from your saved list: 'உங்கள் சேமித்த பட்டியலிலிருந்து வீடியோ அகற்றப்பட்டுள்ளது'
   Open in YouTube: 'YouTube இல் திறக்கவும்'
   Copy YouTube Link: 'YouTube இணைப்பை நகலெடுக்கவும்'
   Open YouTube Embedded Player: 'YouTube உட்பொதிக்கப்பட்ட பிளேயரைத் திறக்கவும்'
@@ -890,8 +832,7 @@ Video:
   Play Previous Video: 'முந்தைய வீடியோவை இயக்கவும்'
   Watched: 'பார்த்தேன்'
   Autoplay: 'ஆட்டோபிளே'
-  Starting soon, please refresh the page to check again: 'விரைவில் தொடங்கி, மீண்டும்
-    சரிபார்க்க பக்கத்தைப் புதுப்பிக்கவும்'
+  Starting soon, please refresh the page to check again: 'விரைவில் தொடங்கி, மீண்டும் சரிபார்க்க பக்கத்தைப் புதுப்பிக்கவும்'
   # As in a Live Video
   Premieres: 'பிரீமியர்ச்'
   Upcoming: 'வரவிருக்கும்'
@@ -900,14 +841,10 @@ Video:
   Live Now: 'இப்போது வாழ்க'
   Live Chat: 'நேரடி அரட்டை'
   Enable Live Chat: 'நேரடி அரட்டையை இயக்கவும்'
-  Live Chat is currently not supported in this build.: 'இந்த கட்டமைப்பில் நேரடி அரட்டை
-    தற்போது ஆதரிக்கப்படவில்லை.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'நேரடி அரட்டை இயக்கப்பட்டது.
-    அரட்டை செய்திகள் அனுப்பப்பட்டவுடன் இங்கே தோன்றும்.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'லைவ்
-    அரட்டை தற்போது ஆக்ச் பநிஇ உடன் ஆதரிக்கப்படவில்லை. YouTube க்கு நேரடி இணைப்பு தேவை.'
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'இந்த
-    ச்ட்ரீமுக்கு நேரடி அரட்டை கிடைக்கவில்லை. இது பதிவேற்றியவரால் முடக்கப்பட்டிருக்கலாம்.'
+  Live Chat is currently not supported in this build.: 'இந்த கட்டமைப்பில் நேரடி அரட்டை தற்போது ஆதரிக்கப்படவில்லை.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'நேரடி அரட்டை இயக்கப்பட்டது. அரட்டை செய்திகள் அனுப்பப்பட்டவுடன் இங்கே தோன்றும்.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'லைவ் அரட்டை தற்போது ஆக்ச் பநிஇ உடன் ஆதரிக்கப்படவில்லை. YouTube க்கு நேரடி இணைப்பு தேவை.'
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'இந்த ச்ட்ரீமுக்கு நேரடி அரட்டை கிடைக்கவில்லை. இது பதிவேற்றியவரால் முடக்கப்பட்டிருக்கலாம்.'
   Show Super Chat Comment: 'சூப்பர் அரட்டை கருத்தைக் காட்டு'
   Scroll to Bottom: 'கீழே உருட்டவும்'
   Download Video: 'வீடியோவைப் பதிவிறக்கவும்'
@@ -966,9 +903,7 @@ Video:
       starting video at offset: 'ஆஃப்செட்டில் வீடியோவைத் தொடங்குகிறது'
       setting a playback rate: 'பிளேபேக் வீதத்தை அமைத்தல்'
       opening playlists: 'பிளேலிச்ட்களைத் திறக்கிறது'
-      opening specific video in a playlist (falling back to opening the video): 'ஒரு
-        பிளேலிச்ட்டில் குறிப்பிட்ட வீடியோவைத் திறக்கிறது (வீடியோவைத் திறக்க மீண்டும்
-        விழுகிறது)'
+      opening specific video in a playlist (falling back to opening the video): 'ஒரு பிளேலிச்ட்டில் குறிப்பிட்ட வீடியோவைத் திறக்கிறது (வீடியோவைத் திறக்க மீண்டும் விழுகிறது)'
       reversing playlists: 'பிளேலிச்ட்களை மாற்றியமைத்தல்'
       shuffling playlists: 'பிளேலிச்ட்களை மாற்றவும்'
       looping playlists: 'பிளேலிச்ட்கள் வளையங்கள்'
@@ -992,20 +927,23 @@ Video:
       Volume: 'தொகுதி: {volumePercentage}%'
       Bandwidth: 'அலைவரிசை: {bandwidth} kbps'
       Buffered: 'இடையக: {bufferedPercentage}%'
-      Dropped Frames / Total Frames: 'கைவிடப்பட்ட பிரேம்கள்: {droppedFrames} / மொத்த
-        பிரேம்கள்: {totalFrames}'
+      Dropped Frames / Total Frames: 'கைவிடப்பட்ட பிரேம்கள்: {droppedFrames} / மொத்த பிரேம்கள்: {totalFrames}'
       CodecAudio: 'கோடெக்: {audioCodec} ({audioItag})'
       CodecsVideoAudio: 'கோடெக்குகள்: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'கோடெக்குகள்: {videoCodec} / {audioCodec}'
     You appear to be offline: 'நீங்கள் ஆஃப்லைனில் இருப்பதாகத் தெரிகிறது.'
-    Playback will resume automatically when your connection comes back: 'உங்கள் இணைப்பு
-      மீண்டும் வரும்போது பிளேபேக் தானாகவே மீண்டும் தொடங்கும்.'
+    Playback will resume automatically when your connection comes back: 'உங்கள் இணைப்பு மீண்டும் வரும்போது பிளேபேக் தானாகவே மீண்டும் தொடங்கும்.'
     Skipped segment: '{segmentCategory} பிரிவு தவிர்க்கப்பட்டது'
 #& Videos
+    Autoplay is off: ஆட்டோபிளே முடக்கப்பட்டுள்ளது
+    Autoplay is on: ஆட்டோபிளே இயக்கத்தில் உள்ளது
   DeArrow:
     Show Original Details: அசல் விவரங்களைக் காட்டு
     Show Modified Details: மாற்றியமைக்கப்பட்ட விவரங்களைக் காட்டு
 #& Playlists
+  DRMProtected: டி.ஆர்.எம் பாதுகாக்கப்பட்ட வீடியோக்களை ஃப்ரீட்யூப்பில் இயக்க முடியாது, ஏனெனில் அவற்றுக்கு தனியுரிம, மூடிய மூல கூறுகள் தேவைப்படுகின்றன. இந்த வீடியோவைப் பார்க்க விரும்பினால், அதை அதிகாரப்பூர்வ YouTube இணையதளத்தில் DRM இயக்கப்பட்ட வலை உலாவியில் பார்க்கவும்.
+  Save Watched Progress: பார்த்த முன்னேற்றத்தை சேமிக்கவும்
+  Watched Progress Saved: முன்னேற்றம் காப்பாற்றப்பட்டது
 Playlist:
   #& About
   Playlist: 'பிளேலிச்ட்'
@@ -1025,17 +963,16 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+    PublishedNewest: அண்மைக் கால முதலில் வெளியிடப்பட்டது
+    PublishedOldest: ஆரம்பத்தில் முதலில் வெளியிடப்பட்டது
 Change Format:
   Change Media Formats: 'ஊடக வடிவங்களை மாற்றவும்'
   Use Dash Formats: 'கோடு வடிவங்களைப் பயன்படுத்துங்கள்'
   Use Legacy Formats: 'மரபு வடிவங்களைப் பயன்படுத்துங்கள்'
   Use Audio Formats: 'ஆடியோ வடிவங்களைப் பயன்படுத்துங்கள்'
-  Dash formats are not available for this video: 'இந்த வீடியோவுக்கு கோடு வடிவங்கள்
-    கிடைக்கவில்லை'
-  Audio formats are not available for this video: 'இந்த வீடியோவுக்கு ஆடியோ வடிவங்கள்
-    கிடைக்கவில்லை'
-  Legacy formats are not available for this video: 'இந்த வீடியோவுக்கு மரபு வடிவங்கள்
-    கிடைக்கவில்லை'
+  Dash formats are not available for this video: 'இந்த வீடியோவுக்கு கோடு வடிவங்கள் கிடைக்கவில்லை'
+  Audio formats are not available for this video: 'இந்த வீடியோவுக்கு ஆடியோ வடிவங்கள் கிடைக்கவில்லை'
+  Legacy formats are not available for this video: 'இந்த வீடியோவுக்கு மரபு வடிவங்கள் கிடைக்கவில்லை'
 Share:
   Share Video: 'வீடியோவைப் பகிரவும்'
   Share Channel: 'சேனலைப் பகிரவும்'
@@ -1047,26 +984,19 @@ Share:
   Open Embed: 'திறந்த உட்பொதி'
   # On Click
   Invidious URL copied to clipboard: 'இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்ட ஆவேசம் முகவரி'
-  Invidious Embed URL copied to clipboard: 'இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்ட ஆக்ச்டிடச்
-    உட்பொதிக்கப்பட்ட முகவரி'
-  Invidious Channel URL copied to clipboard: 'இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்ட ஆப்ச்டிடச்
-    சேனல் முகவரி'
+  Invidious Embed URL copied to clipboard: 'இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்ட ஆக்ச்டிடச் உட்பொதிக்கப்பட்ட முகவரி'
+  Invidious Channel URL copied to clipboard: 'இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்ட ஆப்ச்டிடச் சேனல் முகவரி'
   YouTube URL copied to clipboard: 'YouTube முகவரி இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்டது'
-  YouTube Embed URL copied to clipboard: 'YouTube உட்பொதிக்கப்பட்ட முகவரி இடைநிலைப்பலகைக்கு
-    நகலெடுக்கப்பட்டது'
-  YouTube Channel URL copied to clipboard: 'YouTube சேனல் முகவரி இடைநிலைப்பலகைக்கு
-    நகலெடுக்கப்பட்டது'
+  YouTube Embed URL copied to clipboard: 'YouTube உட்பொதிக்கப்பட்ட முகவரி இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்டது'
+  YouTube Channel URL copied to clipboard: 'YouTube சேனல் முகவரி இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்டது'
 Clipboard:
   Copy failed: 'இடைநிலைப்பலகைக்கு நகல் தோல்வியடைந்தது'
-  Cannot access clipboard without a secure connection: 'பாதுகாப்பான இணைப்பு இல்லாமல்
-    கிளிப்போர்டை அணுக முடியாது'
+  Cannot access clipboard without a secure connection: 'பாதுகாப்பான இணைப்பு இல்லாமல் கிளிப்போர்டை அணுக முடியாது'
 
 Chapters:
   Chapters: 'பாடங்கள்'
-  'Chapters list visible, current chapter: {chapterName}': 'அத்தியாயங்கள் பட்டியல்
-    தெரியும், தற்போதைய அத்தியாயம்: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'அத்தியாயங்கள் பட்டியல்
-    மறைக்கப்பட்டுள்ளது, தற்போதைய அத்தியாயம்: {chapterName}'
+  'Chapters list visible, current chapter: {chapterName}': 'அத்தியாயங்கள் பட்டியல் தெரியும், தற்போதைய அத்தியாயம்: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'அத்தியாயங்கள் பட்டியல் மறைக்கப்பட்டுள்ளது, தற்போதைய அத்தியாயம்: {chapterName}'
 
   Key Moments: முக்கிய தருணங்கள்
 Mini Player: 'மினி பிளேயர்'
@@ -1087,14 +1017,12 @@ Comments:
   Reply: 'பதில்'
   From {channelName}: '{channelName} இருந்து இலிருந்து'
   And others: 'மற்றும் மற்றவர்கள்'
-  There are no comments available for this video: 'இந்த வீடியோவுக்கு எந்தக் கருத்தும்
-    கிடைக்கவில்லை'
-  There are no comments available for this post: 'இந்த இடுகைக்கு எந்தக் கருத்தும்
-    கிடைக்கவில்லை'
+  There are no comments available for this video: 'இந்த வீடியோவுக்கு எந்தக் கருத்தும் கிடைக்கவில்லை'
+  There are no comments available for this post: 'இந்த இடுகைக்கு எந்தக் கருத்தும் கிடைக்கவில்லை'
   Load More Comments: 'மேலும் கருத்துகளை ஏற்றவும்'
   Pinned by: 'பின்'
   Member: 'உறுப்பினர்'
-  Subscribed: 'சந்தா'
+  Subscribed: 'சந்தா கட்டப்பட்டது'
   Hearted: 'இதயமுள்ள'
 
 Up Next: 'அடுத்து'
@@ -1102,90 +1030,47 @@ Up Next: 'அடுத்து'
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: 'தரவைப் பெற ஃப்ரீட்யூப் பயன்படுத்தும் பின்தளத்தில் தேர்வு
-      செய்யவும். உள்ளக பநிஇ ஒரு உள்ளமைக்கப்பட்ட பிரித்தெடுத்தல். வன்கவர்வு பநிஇ உடன்
-      இணைக்க ஒரு விலக்கப்பட்ட சேவையகம் தேவைப்படுகிறது.'
-    Fallback to Non-Preferred Backend on Failure: 'உங்களுக்கு விருப்பமான பநிஇ க்கு
-      சிக்கல் இருக்கும்போது, உங்கள் விருப்பமில்லாத பநிஇ ஐ இயக்கும்போது குறைவடையும்
-      முறையாக FREETube தானாகவே பயன்படுத்த முயற்சிக்கும்.'
-    Thumbnail Preference: 'ஃப்ரீட்யூப் முழுவதும் உள்ள அனைத்து சிறு உருவங்களும் இயல்புநிலை
-      சிறுபடத்திற்கு பதிலாக வீடியோவின் சட்டத்துடன் மாற்றப்படும்.'
+    Preferred API Backend: 'தரவைப் பெற ஃப்ரீட்யூப் பயன்படுத்தும் பின்தளத்தில் தேர்வு செய்யவும். உள்ளக பநிஇ ஒரு உள்ளமைக்கப்பட்ட பிரித்தெடுத்தல். வன்கவர்வு பநிஇ உடன் இணைக்க ஒரு விலக்கப்பட்ட சேவையகம் தேவைப்படுகிறது.'
+    Fallback to Non-Preferred Backend on Failure: 'உங்களுக்கு விருப்பமான பநிஇ க்கு சிக்கல் இருக்கும்போது, உங்கள் விருப்பமில்லாத பநிஇ ஐ இயக்கும்போது குறைவடையும் முறையாக FREETube தானாகவே பயன்படுத்த முயற்சிக்கும்.'
+    Thumbnail Preference: 'ஃப்ரீட்யூப் முழுவதும் உள்ள அனைத்து சிறு உருவங்களும் வீடியோவின் சட்டத்துடன் மாற்றப்படும், இயல்புநிலை சிறுபடத்திற்கு பதிலாக மங்கலாக அல்லது மறைக்கப்படும்.'
     Invidious Instance: 'பநிஇ அழைப்புகளுக்காக ஃப்ரீட்யூப் இணைக்கும் மோசமான நிகழ்வு.'
-    Region for Trending: 'நீங்கள் காண்பிக்க விரும்பும் நாட்டின் பிரபலமான வீடியோக்களைத்
-      தேர்வுசெய்ய போக்குகளின் பகுதி உங்களை அனுமதிக்கிறது.'
+    Region for Trending: 'நீங்கள் காண்பிக்க விரும்பும் நாட்டின் பிரபலமான வீடியோக்களைத் தேர்வுசெய்ய போக்குகளின் பகுதி உங்களை அனுமதிக்கிறது.'
     External Link Handling: |
       ஃப்ரீட்யூப்பில் திறக்க முடியாத ஒரு இணைப்பு சொடுக்கு செய்யப்படும்போது இயல்புநிலை நடத்தையைத் தேர்வுசெய்க.
        இயல்பாக ஃப்ரீட்யூப் உங்கள் இயல்புநிலை உலாவியில் சொடுக்கு செய்யப்பட்ட இணைப்பைத் திறக்கும்.
-    Open Deep Links In New Window: முகவரி கள் ஃப்ரீட்யூப்பிற்கு அனுப்பப்பட்டன, அதாவது
-      திருப்பி உலாவி நீட்டிப்புகள் அல்லது கட்டளை வரி வாதங்கள் போன்றவை புதிய சாளரத்தில்
-      திறக்கப்படுகின்றன.
+    Open Deep Links In New Window: முகவரி கள் ஃப்ரீட்யூப்பிற்கு அனுப்பப்பட்டன, அதாவது திருப்பி உலாவி நீட்டிப்புகள் அல்லது கட்டளை வரி வாதங்கள் போன்றவை புதிய சாளரத்தில் திறக்கப்படுகின்றன.
   Player Settings:
-    Proxy Videos Through Invidious: 'YouTube உடன் நேரடி இணைப்பை உருவாக்குவதற்கு பதிலாக
-      வீடியோக்களை வழங்குவதற்கு ஆக்கிரமிப்புடன் இணைக்கும்.'
-    Default Video Format: 'வீடியோ விளையாடும்போது பயன்படுத்தப்படும் வடிவங்களை அமைக்கவும்.
-      கோடு வடிவங்கள் அதிக குணங்களை விளையாடலாம். மரபு வடிவங்கள் அதிகபட்சம் 720p க்கு
-      மட்டுப்படுத்தப்பட்டுள்ளன, ஆனால் குறைந்த அலைவரிசையைப் பயன்படுத்துகின்றன. ஆடியோ
-      வடிவங்கள் ஆடியோ மட்டுமே ச்ட்ரீம்கள்.'
-    Scroll Playback Rate Over Video Player: 'கர்சர் வீடியோவின் மேல் இருக்கும்போது,
-      கட்டுப்பாட்டு விசையை (மேக்கில் கட்டளை விசை) அழுத்திப் பிடித்து, பின்னணி விகிதத்தைக்
-      கட்டுப்படுத்த சுட்டி சக்கரத்தை முன்னோக்கி அல்லது பின்னோக்கி உருட்டவும். கட்டுப்பாட்டு
-      விசையை (மேக்கில் கட்டளை விசை) அழுத்திப் பிடித்துக் கொள்ளுங்கள் மற்றும் இயல்புநிலை
-      பின்னணி விகிதத்திற்கு விரைவாக திரும்புவதற்கு சுட்டியைக் சொடுக்கு செய்க (அமைப்புகளில்
-      மாற்றப்படாவிட்டால் 1x).'
-    Skip by Scrolling Over Video Player: 'வீடியோ, எம்.பி.வி பாணி மூலம் தவிர்க்க உருள்
-      சக்கரத்தைப் பயன்படுத்தவும்.'
+    Proxy Videos Through Invidious: 'YouTube உடன் நேரடி இணைப்பை உருவாக்குவதற்கு பதிலாக வீடியோக்களை வழங்குவதற்கு ஆக்கிரமிப்புடன் இணைக்கும்.'
+    Default Video Format: 'வீடியோ விளையாடும்போது பயன்படுத்தப்படும் வடிவங்களை அமைக்கவும். கோடு வடிவங்கள் அதிக குணங்களை விளையாடலாம். மரபு வடிவங்கள் அதிகபட்சம் 360p க்கு மட்டுப்படுத்தப்பட்டுள்ளன, ஆனால் குறைந்த அலைவரிசையைப் பயன்படுத்துகின்றன. ஆடியோ வடிவங்கள் ஆடியோ மட்டுமே ச்ட்ரீம்கள்.'
+    Scroll Playback Rate Over Video Player: 'கர்சர் வீடியோவின் மேல் இருக்கும்போது, கட்டுப்பாட்டு விசையை (மேக்கில் கட்டளை விசை) அழுத்திப் பிடித்து, பின்னணி விகிதத்தைக் கட்டுப்படுத்த சுட்டி சக்கரத்தை முன்னோக்கி அல்லது பின்னோக்கி உருட்டவும். கட்டுப்பாட்டு விசையை (மேக்கில் கட்டளை விசை) அழுத்திப் பிடித்துக் கொள்ளுங்கள் மற்றும் இயல்புநிலை பின்னணி விகிதத்திற்கு விரைவாக திரும்புவதற்கு சுட்டியைக் சொடுக்கு செய்க (அமைப்புகளில் மாற்றப்படாவிட்டால் 1x).'
+    Skip by Scrolling Over Video Player: 'வீடியோ, எம்.பி.வி பாணி மூலம் தவிர்க்க உருள் சக்கரத்தைப் பயன்படுத்தவும்.'
   External Player Settings:
-    External Player: 'வெளிப்புற பிளேயரைத் தேர்ந்தெடுப்பது ஒரு ஐகானைக் காண்பிக்கும்,
-      சிறுபடத்தில் வெளிப்புற பிளேயரில் வீடியோவை (பிளேலிச்ட் என்றால்) திறக்க வேண்டும்.
-      எச்சரிக்கை, அடக்கமற்ற அமைப்புகள் வெளிப்புற வீரர்களை பாதிக்காது.'
-    Custom External Player Executable: 'இயல்பாக, தேர்ந்தெடுக்கப்பட்ட வெளிப்புற பிளேயரை
-      பாதை சூழல் மாறி வழியாகக் காணலாம் என்று ஃப்ரீட்யூப் கருதுகிறது. தேவைப்பட்டால்,
-      தனிப்பயன் பாதையை இங்கே அமைக்கலாம்.'
-    Ignore Warnings: 'தற்போதைய வெளிப்புற பிளேயர் தற்போதைய செயலை ஆதரிக்காதபோது எச்சரிக்கைகளை
-      அடக்கவும் (எ.கா. பிளேலிச்ட்களை மாற்றியமைத்தல் போன்றவை).'
-    Ignore Default Arguments: 'வீடியோ முகவரி (எ.கா. பிளேபேக் வீதம், பிளேலிச்ட் முகவரி,
-      முதலியன) தவிர்த்து வெளிப்புற பிளேயருக்கு எந்த இயல்புநிலை வாதங்களையும் அனுப்ப
-      வேண்டாம். தனிப்பயன் வாதங்கள் இன்னும் அனுப்பப்படும்.'
-    Custom External Player Arguments: 'எந்தவொரு தனிப்பயன் கட்டளை வரி வாதங்களும் நீங்கள்
-      வெளிப்புற பிளேயருக்கு அனுப்பப்பட வேண்டும்.'
+    External Player: 'வெளிப்புற பிளேயரைத் தேர்ந்தெடுப்பது ஒரு ஐகானைக் காண்பிக்கும், சிறுபடத்தில் வெளிப்புற பிளேயரில் வீடியோவை (பிளேலிச்ட் என்றால்) திறக்க வேண்டும். எச்சரிக்கை, அடக்கமற்ற அமைப்புகள் வெளிப்புற வீரர்களை பாதிக்காது.'
+    Custom External Player Executable: 'இயல்பாக, தேர்ந்தெடுக்கப்பட்ட வெளிப்புற பிளேயரை பாதை சூழல் மாறி வழியாகக் காணலாம் என்று ஃப்ரீட்யூப் கருதுகிறது. தேவைப்பட்டால், தனிப்பயன் பாதையை இங்கே அமைக்கலாம்.'
+    Ignore Warnings: 'தற்போதைய வெளிப்புற பிளேயர் தற்போதைய செயலை ஆதரிக்காதபோது எச்சரிக்கைகளை அடக்கவும் (எ.கா. பிளேலிச்ட்களை மாற்றியமைத்தல் போன்றவை).'
+    Ignore Default Arguments: 'வீடியோ முகவரி (எ.கா. பிளேபேக் வீதம், பிளேலிச்ட் முகவரி, முதலியன) தவிர்த்து வெளிப்புற பிளேயருக்கு எந்த இயல்புநிலை வாதங்களையும் அனுப்ப வேண்டாம். தனிப்பயன் வாதங்கள் இன்னும் அனுப்பப்படும்.'
+    Custom External Player Arguments: 'எந்தவொரு தனிப்பயன் கட்டளை வரி வாதங்களும் நீங்கள் வெளிப்புற பிளேயருக்கு அனுப்பப்பட வேண்டும்.'
     DefaultCustomArgumentsTemplate: "(இயல்புநிலை: '{defaultCustomArguments}')"
   Distraction Free Settings:
-    Hide Channels: 'அனைத்து வீடியோக்கள், பிளேலிச்ட்கள் மற்றும் சேனலை தேட, பிரபலமான,
-      மிகவும் பிரபலமான மற்றும் பரிந்துரைக்கப்படுவதிலிருந்து மறைக்க ஒரு சேனல் ஐடியை
-      உள்ளிடவும். உள்ளிடப்பட்ட சேனல் ஐடி ஒரு முழுமையான பொருத்தமாக இருக்க வேண்டும்
-      மற்றும் வழக்கு உணர்திறன் கொண்டது.'
-    Hide Subscriptions Live: 'இந்த அமைப்பு "{appWideSetting}" இன் "{subsection}" பிரிவில்,
-      பயன்பாட்டு அளவிலான "{settingsSection}" அமைப்பால் மீறப்பட்டுள்ளது'
-    Hide Videos and Playlists Containing Text: 'அனைத்து வீடியோக்களையும் பிளேலிச்ட்களையும்
-      மறைக்க ஒரு சொல், சொல் துண்டு அல்லது சொற்றொடர் (வழக்கு உணர்வற்றது) உள்ளிடவும்,
-      அதன் அசல் தலைப்புகள் அனைத்து ஃப்ரீட்யூப் முழுவதும் உள்ளன, வரலாறு, உங்கள் பிளேலிச்ட்கள்
-      மற்றும் வீடியோக்களை பிளேலிச்ட்களுக்குள் தவிர்த்து.'
+    Hide Channels: 'அனைத்து வீடியோக்கள், பிளேலிச்ட்கள் மற்றும் சேனலை தேட, பிரபலமான, மிகவும் பிரபலமான மற்றும் பரிந்துரைக்கப்படுவதிலிருந்து மறைக்க ஒரு சேனல் ஐடியை உள்ளிடவும். உள்ளிடப்பட்ட சேனல் ஐடி ஒரு முழுமையான பொருத்தமாக இருக்க வேண்டும் மற்றும் வழக்கு உணர்திறன் கொண்டது.'
+    Hide Subscriptions Live: 'இந்த அமைப்பு "{appWideSetting}" இன் "{subsection}" பிரிவில், பயன்பாட்டு அளவிலான "{settingsSection}" அமைப்பால் மீறப்பட்டுள்ளது'
+    Hide Videos and Playlists Containing Text: 'அனைத்து வீடியோக்களையும் பிளேலிச்ட்களையும் மறைக்க ஒரு சொல், சொல் துண்டு அல்லது சொற்றொடர் (வழக்கு உணர்வற்றது) உள்ளிடவும், அதன் அசல் தலைப்புகள் அனைத்து ஃப்ரீட்யூப் முழுவதும் உள்ளன, வரலாறு, உங்கள் பிளேலிச்ட்கள் மற்றும் வீடியோக்களை பிளேலிச்ட்களுக்குள் தவிர்த்து.'
   Subscription Settings:
-    Fetch Feeds from RSS: 'இயக்கப்பட்டால், உங்கள் சந்தா ஊட்டத்தைப் பிடிக்க அதன் இயல்புநிலை
-      முறைக்கு பதிலாக RSS ஐப் பயன்படுத்தும். ஆர்எச்எச் வேகமானது மற்றும் ஐபி தடுப்பதைத்
-      தடுக்கிறது, ஆனால் வீடியோ காலம், நேரடி நிலை அல்லது சமூக இடுகைகள் போன்ற சில தகவல்களை
-      வழங்காது'
-    Fetch Automatically: 'இயக்கப்பட்டால், புதிய சாளரம் திறக்கப்படும்போது மற்றும் சுயவிவரத்தை
-      மாற்றும்போது ஃப்ரீட்யூப் தானாகவே உங்கள் சந்தா ஊட்டத்தைப் பெறும்.'
+    Fetch Feeds from RSS: 'இயக்கப்பட்டால், உங்கள் சந்தா ஊட்டத்தைப் பிடிக்க அதன் இயல்புநிலை முறைக்கு பதிலாக RSS ஐப் பயன்படுத்தும். ஆர்எச்எச் வேகமானது மற்றும் ஐபி தடுப்பதைத் தடுக்கிறது, ஆனால் வீடியோ காலம், நேரடி நிலை அல்லது இடுகைகள் போன்ற சில தகவல்களை வழங்காது'
+    Fetch Automatically: 'இயக்கப்பட்டால், தொடக்கத்தில் உங்கள் சந்தா ஊட்டத்தையும் புதிய சாளரம் திறக்கப்படும் போது ஃப்ரீட்யூப் தானாகவே பெறும்.'
   Experimental Settings:
-    Replace HTTP Cache: 'எலக்ட்ரானின் வட்டு அடிப்படையிலான HTTP தற்காலிக சேமிப்பை முடக்குகிறது
-      மற்றும் தனிப்பயன் இன்-மெமரி பட தற்காலிக சேமிப்பை செயல்படுத்துகிறது. ரேம் பயன்பாடு
-      அதிகரிக்க வழிவகுக்கும்.'
+    Replace HTTP Cache: 'எலக்ட்ரானின் வட்டு அடிப்படையிலான HTTP தற்காலிக சேமிப்பை முடக்குகிறது மற்றும் தனிப்பயன் இன்-மெமரி பட தற்காலிக சேமிப்பை செயல்படுத்துகிறது. ரேம் பயன்பாடு அதிகரிக்க வழிவகுக்கும்.'
   SponsorBlock Settings:
-    UseDeArrowTitles: 'டியரோவிலிருந்து பயனர் சமர்ப்பித்த தலைப்புகளுடன் வீடியோ தலைப்புகளை
-      மாற்றவும்.'
-    UseDeArrowThumbnails: 'டியர்ரோவிலிருந்து சிறுபடங்களுடன் வீடியோ சிறு உருவங்களை
-      மாற்றவும்.'
+    UseDeArrowTitles: 'டியரோவிலிருந்து பயனர் சமர்ப்பித்த தலைப்புகளுடன் வீடியோ தலைப்புகளை மாற்றவும்.'
+    UseDeArrowThumbnails: 'டியர்ரோவிலிருந்து சிறுபடங்களுடன் வீடியோ சிறு உருவங்களை மாற்றவும்.'
 
 # Toast Messages
 Local API Error (Click to copy): 'உள்ளக பநிஇ பிழை (நகலெடுக்க சொடுக்கு செய்க)'
 Invidious API Error (Click to copy): 'ஆவேசம் பநிஇ பிழை (நகலெடுக்க சொடுக்கு செய்க)'
 Falling back to Invidious API: 'அகங்காத ஏபிஐக்கு மீண்டும் விழுகிறது'
 Falling back to Local API: 'உள்ளக ஏபிஐக்கு மீண்டும் விழுகிறது'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: 'வடிவங்கள்
-  காணாமல் போனதால் இந்த வீடியோ கிடைக்கவில்லை. நாடு கிடைக்காததால் இது நிகழலாம்.'
-Unknown YouTube url type, cannot be opened in app: 'அறியப்படாத YouTube முகவரி வகை,
-  பயன்பாட்டில் திறக்க முடியாது'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'வடிவங்கள் காணாமல் போனதால் இந்த வீடியோ கிடைக்கவில்லை. நாடு கிடைக்காததால் இது நிகழலாம்.'
+Unknown YouTube url type, cannot be opened in app: 'அறியப்படாத YouTube முகவரி வகை, பயன்பாட்டில் திறக்க முடியாது'
 Loop is now disabled: 'லூப் இப்போது முடக்கப்பட்டுள்ளது'
 Loop is now enabled: 'லூப் இப்போது இயக்கப்பட்டது'
 Shuffle is now disabled: 'கலக்கு இப்போது முடக்கப்பட்டுள்ளது'
@@ -1193,22 +1078,16 @@ Shuffle is now enabled: 'கலக்கு இப்போது இயக்�
 The playlist has been reversed: 'பிளேலிச்ட் தலைகீழாக மாற்றப்பட்டுள்ளது'
 Playing Next Video: 'அடுத்த வீடியோவை வாசித்தல்'
 Playing Previous Video: 'முந்தைய வீடியோவை வாசித்தல்'
-Playing Next Video Interval: 'எந்த நேரத்திலும் அடுத்த வீடியோவை இயக்குகிறது. ரத்து
-  செய்ய சொடுக்கு செய்க. | அடுத்த வீடியோவை {nextVideoInterval} இரண்டாவதாக இயக்குகிறது.
-  ரத்து செய்ய சொடுக்கு செய்க. | அடுத்த வீடியோவை {nextVideoInterval} வினாடிகளில் வாசித்தல்.
-  ரத்து செய்ய சொடுக்கு செய்க.'
+Playing Next Video Interval: 'எந்த நேரத்திலும் அடுத்த வீடியோவை இயக்குகிறது. ரத்து செய்ய சொடுக்கு செய்க. | அடுத்த வீடியோவை {nextVideoInterval} இரண்டாவதாக இயக்குகிறது. ரத்து செய்ய சொடுக்கு செய்க. | அடுத்த வீடியோவை {nextVideoInterval} வினாடிகளில் வாசித்தல். ரத்து செய்ய சொடுக்கு செய்க.'
 Canceled next video autoplay: 'அடுத்த வீடியோ ஆட்டோபிளே ரத்து செய்யப்பட்டது'
 
-Default Invidious instance has been set to {instance}: 'இயல்புநிலை விலக்கு நிகழ்வு
-  {instance} என அமைக்கப்பட்டுள்ளது'
+Default Invidious instance has been set to {instance}: 'இயல்புநிலை விலக்கு நிகழ்வு {instance} என அமைக்கப்பட்டுள்ளது'
 Default Invidious instance has been cleared: 'இயல்புநிலை வன்கவர்வு நிகழ்வு அழிக்கப்பட்டது'
-'The playlist has ended. Enable loop to continue playing': 'பிளேலிச்ட் முடிந்தது.
-  தொடர்ந்து விளையாடுவதற்கு லூப் இயக்கவும்'
+'The playlist has ended. Enable loop to continue playing': 'பிளேலிச்ட் முடிந்தது. தொடர்ந்து விளையாடுவதற்கு லூப் இயக்கவும்'
 Age Restricted:
   This channel is age restricted: 'இந்த சேனல் அகவை தடைசெய்யப்பட்டுள்ளது'
   This video is age restricted: 'இந்த வீடியோ அகவை தடைசெய்யப்பட்டுள்ளது'
-External link opening has been disabled in the general settings: 'பொது அமைப்புகளில்
-  வெளிப்புற இணைப்பு திறப்பு முடக்கப்பட்டுள்ளது'
+External link opening has been disabled in the general settings: 'பொது அமைப்புகளில் வெளிப்புற இணைப்பு திறப்பு முடக்கப்பட்டுள்ளது'
 Downloading has completed: '"{videoTitle}" பதிவிறக்கம் முடித்துவிட்டது'
 Starting download: '"{videoTitle}" இன் பதிவிறக்கத்தைத் தொடங்குகிறது'
 Downloading failed: '"{videoTitle}" ஐ பதிவிறக்குவதில் சிக்கல் இருந்தது'
@@ -1216,15 +1095,12 @@ Screenshot Success: 'சேமித்த திரை காட்சி'
 Screenshot Error: 'திரைக்காட்சி தோல்வியடைந்தது. {error}'
 Channel Hidden: '{channel} the சேனல் வடிகட்டியில் சேர்க்கப்பட்டுள்ளது'
 Channel Unhidden: '{channel} the சேனல் வடிகட்டியிலிருந்து அகற்றப்பட்டது'
-Trimmed input must be at least N characters long: 'ஒழுங்கமைக்கப்பட்ட உள்ளீடு குறைந்தது
-  1 எழுத்து நீளமாக இருக்க வேண்டும் | ஒழுங்கமைக்கப்பட்ட உள்ளீடு குறைந்தது {length}
-  எழுத்துக்கள் நீளமாக இருக்க வேண்டும்'
+Trimmed input must be at least N characters long: 'ஒழுங்கமைக்கப்பட்ட உள்ளீடு குறைந்தது 1 எழுத்து நீளமாக இருக்க வேண்டும் | ஒழுங்கமைக்கப்பட்ட உள்ளீடு குறைந்தது {length} எழுத்துக்கள் நீளமாக இருக்க வேண்டும்'
 Tag already exists: '"{tagName}" குறிச்சொல் ஏற்கனவே உள்ளது'
 
 Hashtag:
   Hashtag: 'ஏச்டேக்'
-  This hashtag does not currently have any videos: 'இந்த ஏச்டேக்கில் தற்போது எந்த
-    வீடியோக்களும் இல்லை'
+  This hashtag does not currently have any videos: 'இந்த ஏச்டேக்கில் தற்போது எந்த வீடியோக்களும் இல்லை'
 Moments Ago: 'தருணங்களுக்கு முன்பு'
 Yes: 'ஆம்'
 No: 'இல்லை'
@@ -1240,8 +1116,7 @@ Display Label: '{label}: {value}'
 Description:
   Expand Description: '... மேலும்'
   Collapse Description: குறைவாகக் காட்டு
-Autoplay Interruption Timer: '{autoplayInterruptionIntervalHours} மணிநேர செயலற்ற தன்மை
-  காரணமாக ஆட்டோபிளே ரத்து செய்யப்பட்டது'
+Autoplay Interruption Timer: '{autoplayInterruptionIntervalHours} மணிநேர செயலற்ற தன்மை காரணமாக ஆட்டோபிளே ரத்து செய்யப்பட்டது'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Keys:
   arrowup: அம்பு
@@ -1250,11 +1125,60 @@ Keys:
   arrowleft: இடது அம்பு
   ctrl: கட்டுப்பாடு
   arrowright: வலது அம்பு
+  shift: உயர்த்து
+  enter: உள்ளிடவும்
+  plus: பிளச்
 shortcutJoinOperator: +
-Right-click or hold to see history: வரலாற்றைக் காண வலது சொடுக்கு செய்யவும் அல்லது
-  வைத்திருங்கள்
+Right-click or hold to see history: வரலாற்றைக் காண வலது சொடுக்கு செய்யவும் அல்லது வைத்திருங்கள்
 KeyboardShortcutPrompt:
   Toggle Developer Tools: டெவலப்பர் கருவிகளை நிலைமாற்று
   Zoom In: பெரிதாக்கு
   Zoom Out: சிறிதாக்கு
   Fullscreen: மாற்று முழுத்திரை
+  Keyboard Shortcuts: விசைப்பலகை குறுக்குவழிகள்
+  Sections:
+    Video:
+      Playback: 'வீடியோ: பின்னணி'
+      General: 'வீடியோ: பொது'
+    App:
+      Situational: 'பயன்பாடு: சூழ்நிலை'
+      General: 'பயன்பாடு: பொது'
+  Show Keyboard Shortcuts: விசைப்பலகை குறுக்குவழிகளைக் காட்டு
+  History Backward: ஒரு பக்கத்திற்கு திரும்பிச் செல்லுங்கள்
+  History Forward: ஒரு பக்கத்தை முன்னோக்கி செல்லுங்கள்
+  New Window: புதிய சாளரத்தை உருவாக்கவும்
+  Navigate to Settings: அமைப்புகள் பக்கத்திற்கு செல்லவும்
+  Navigate to History: வரலாற்று பக்கத்திற்கு செல்லவும்
+  Refresh: அண்மைக் கால உள்ளடக்கத்துடன் ஊட்டத்தைப் புதுப்பிக்கவும்
+  Focus Secondary Search: இரண்டாம் நிலை தேடல் பட்டியில் கவனம் செலுத்துங்கள் (ஒன்று இருந்தால்)
+  Captions: தலைப்புகளை/முடக்கவும்
+  Stats: வீடியோ புள்ளிவிவரங்களைக் காட்டு
+  Picture in Picture: படம்-இன்-பட பயன்முறையை மாற்றவும்
+  Large Rewind: தற்போதைய வீடியோ பிளேபேக் வீதத்தின் அடிப்படையில் 10 வினாடிகள் / ரிவைண்ட் வீடியோ
+  Play: விளையாட்டு/இடைநிறுத்தத்தை மாற்றவும்
+  Large Fast Forward: தற்போதைய வீடியோ பிளேபேக் வீதத்தின் அடிப்படையில் 10 வினாடிகள் / வேகமாக முன்னோக்கி வீடியோ
+  Mute: ஊமியை மாற்றவும்
+  Decrease Video Speed: வீடியோ பிளேபேக் வீத இடைவெளியின் அடிப்படையில் வீடியோ வேகத்தைக் குறைக்கவும்
+  Increase Video Speed: வீடியோ பிளேபேக் வீத இடைவெளியின் அடிப்படையில் வீடியோ வேகத்தை அதிகரிக்கவும்
+  Full Window: முழு சாளரத்தையும் மாற்றவும்
+  Theatre Mode: தியேட்டர் பயன்முறையை மாற்றவும்
+  Take Screenshot: திரைக்காட்சி எடுத்துக் கொள்ளுங்கள்
+  Minimize Window: சாளரத்தைக் குறைக்கவும்
+  Close Window: சாளரத்தை மூடு
+  Restart Window: சாளரத்தை மறுதொடக்கம் செய்யுங்கள்
+  Force Restart Window: மறுதொடக்கம் சாளரத்தை கட்டாயப்படுத்துங்கள்
+  Reset Zoom: சூம் நிலை / இடைமுகம் அளவை மீட்டமைக்கவும்
+  Focus Search: தேடல் பட்டியில் கவனம் செலுத்துங்கள்
+  Search in New Window: புதிய சாளரத்தில் தேடுங்கள்
+  Last Frame: முந்தைய சட்டகம் (இடைநிறுத்தப்படும்போது)
+  Next Frame: அடுத்த சட்டகம் (இடைநிறுத்தப்படும்போது)
+  Volume Up: அளவை அதிகரிக்கவும்
+  Volume Down: அளவைக் குறைக்கவும்
+  Small Rewind: ரிவைண்ட் இடைவெளி மற்றும் தற்போதைய வீடியோ பிளேபேக் வீதத்தின் அடிப்படையில் ஃச் விநாடிகளை முன்னெடு
+  Small Fast Forward: வேகமான முன்னோக்கி ஃச் வினாடிகள் வேகமான முன்னோக்கி இடைவெளி மற்றும் தற்போதைய வீடியோ பிளேபேக் வீதத்தின் அடிப்படையில்
+  Last Chapter: கடைசி அத்தியாயம்
+  Next Chapter: அடுத்த அத்தியாயம்
+  Skip by Tenths: விழுக்காடு மூலம் வீடியோ மூலம் தவிர்க்கவும் (3 காலத்தின் 30% வரை)
+  Home: வீடியோவின் தொடக்கத்தைத் தேடுங்கள்
+  End: வீடியோவின் முடிவைத் தேடுங்கள்
+shortcutLabelSeparator: ｜

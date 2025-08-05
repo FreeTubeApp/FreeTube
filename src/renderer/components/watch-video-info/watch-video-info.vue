@@ -57,7 +57,9 @@
       <div
         class="profileRow"
       >
-        <div>
+        <div
+          v-if="!hideUploader"
+        >
           <router-link
             :to="`/channel/${channelId}`"
           >
@@ -69,12 +71,16 @@
           </router-link>
         </div>
         <div>
-          <router-link
-            :to="`/channel/${channelId}`"
-            class="channelName"
+          <div
+            v-if="!hideUploader"
           >
-            {{ channelName }}
-          </router-link>
+            <router-link
+              :to="`/channel/${channelId}`"
+              class="channelName"
+            >
+              {{ channelName }}
+            </router-link>
+          </div>
           <ft-subscribe-button
             v-if="!hideUnsubscribeButton"
             :channel-id="channelId"

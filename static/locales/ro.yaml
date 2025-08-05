@@ -41,11 +41,9 @@ Global:
     Watching Count: 1 se uită | {count} se uită
     Comment Count: 1 comentariu | {count} comentarii
     Like Count: 1 apreciere | {count} aprecieri
-Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber}
-  este acum disponibilă!  Click pentru mai multe detalii'
+Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber} este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
-A new blog is now available, {blogTitle}. Click to view more: 'Un nou blog este acum
-  disponibil, {blogTitle}. Faceți clic pentru a vedea mai multe'
+A new blog is now available, {blogTitle}. Click to view more: 'Un nou blog este acum disponibil, {blogTitle}. Faceți clic pentru a vedea mai multe'
 
 # Search Bar
 Search / Go to URL: 'Căutare / Accesați URL-ul'
@@ -83,8 +81,7 @@ Search Filters:
   Fetching results. Please wait: 'Se obțin rezultatele. Vă rugăm să așteptați'
   Fetch more results: 'Obțineți mai multe rezultate'
 # Sidebar
-  There are no more results for this search: Nu mai există rezultate pentru această
-    căutare
+  There are no more results for this search: Nu mai există rezultate pentru această căutare
   Features:
     Features: Caracteristici
     HD: HD
@@ -97,25 +94,18 @@ Search Filters:
     VR180: VR180
     360 Video: Video 360
     Creative Commons: Creative Commons
+  Clear Filters: Șterge filtrele
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonamente'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Lista
-    dvs. de abonamente este momentan goală. Dacă vreți să importați abonamente, vă
-    puteți duce la setări de date și să selectați Importă Anonamente sau puteți căuta
-    un canal și să vă abonați la el.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Lista dvs. de abonamente este momentan goală. Dacă vreți să importați abonamente, vă puteți duce la setări de date și să selectați Importă Anonamente sau puteți căuta un canal și să vă abonați la el.'
   Load More Videos: Încarcă mai mult
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Acest
-    profil are un număr mare de abonamente.  Se forțează RSS pentru a evita limitarea
-    vitezei
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Acest profil are un număr mare de abonamente.  Se forțează RSS pentru a evita limitarea vitezei
   Error Channels: Canale cu erori
   Empty Channels: Canalele la care sunteți abonat(ă) nu au în prezent clipuri video.
-  Disabled Automatic Fetching: Ați dezactivat preluarea automată a abonamentelor.
-    Reîmprospătați abonamentele pentru a le vedea aici.
+  Disabled Automatic Fetching: Ați dezactivat preluarea automată a abonamentelor. Reîmprospătați abonamentele pentru a le vedea aici.
   Subscriptions Tabs: Filele Abonamente
-  All Subscription Tabs Hidden: Toate filele de abonament sunt ascunse. Pentru a vedea
-    conținutul aici, vă rugăm să afișați unele file din secțiunea "{subsection}” din
-    "{settingsSection}”.
+  All Subscription Tabs Hidden: Toate filele de abonament sunt ascunse. Pentru a vedea conținutul aici, vă rugăm să afișați unele file din secțiunea "{subsection}” din "{settingsSection}”.
   Empty Posts: Canalele tale abonate nu au momentan nicio postare.
   Load More Posts: Încarcă mai multe postări
 Trending:
@@ -130,11 +120,9 @@ Playlists: 'Liste de redare'
 User Playlists:
   Your Playlists: 'Listele tale de redare'
   Search bar placeholder: Căutați liste de redare
-  Empty Search Message: Nu există videoclipuri în această listă de redare care să
-    corespundă căutării dvs
+  Empty Search Message: Nu există videoclipuri în această listă de redare care să corespundă căutării dvs
   Move Video Down: Mutați videoclipul în jos
-  Enable Quick Bookmark With This Playlist: Activați marcajul rapid cu această listă
-    de redare
+  Enable Quick Bookmark With This Playlist: Activați marcajul rapid cu această listă de redare
   Sort By:
     NameDescending: Z-A
     LatestCreatedFirst: Creat recent
@@ -144,32 +132,21 @@ User Playlists:
     LatestPlayedFirst: Redate recent
     EarliestUpdatedFirst: Cea mai recentă actualizare
     EarliestPlayedFirst: Cele mai recent redate
-  This playlist currently has no videos.: Această listă de redare nu are în prezent
-    niciun videoclip.
-  You have no playlists. Click on the create new playlist button to create a new one.: Nu
-    aveți liste de redare. Faceți clic pe butonul de creare a unei noi liste de redare
-    pentru a crea una nouă.
+  This playlist currently has no videos.: Această listă de redare nu are în prezent niciun videoclip.
+  You have no playlists. Click on the create new playlist button to create a new one.: Nu aveți liste de redare. Faceți clic pe butonul de creare a unei noi liste de redare pentru a crea una nouă.
   Playlists with Matching Videos: Liste de redare cu videoclipuri corespunzătoare
   AddVideoPrompt:
-    Select a playlist to add your N videos to: Selectați o listă de redare la care
-      să adăugați videoclipul dvs. | Selectați o listă de redare la care să adăugați
-      videoclipurile {videoCount}
+    Select a playlist to add your N videos to: Selectați o listă de redare la care să adăugați videoclipul dvs. | Selectați o listă de redare la care să adăugați videoclipurile {videoCount}
     Added {count} Times: Deja adăugat | Adăugat {count} ori
     Allow Adding Duplicate Video(s): Permiteți adăugarea de videoclipuri duplicat(e)
     Save: Salvează
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      Videoclipuri vor fi adăugate'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videoclipuri vor fi adăugate'
     Toast:
-      You haven't selected any playlist yet.: Nu ați selectat încă nicio listă de
-        redare.
-      "{videoCount} video(s) added to 1 playlist": 1 videoclip adăugat la 1 listă
-        de redare | {videoCount} videoclipuri adăugate la 1 listă de redare
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 videoclip adăugat
-        la {playlistCount} liste de redare | {videoCount} videoclipuri adăugate la
-        {playlistCount} liste de redare
+      You haven't selected any playlist yet.: Nu ați selectat încă nicio listă de redare.
+      "{videoCount} video(s) added to 1 playlist": 1 videoclip adăugat la 1 listă de redare | {videoCount} videoclipuri adăugate la 1 listă de redare
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 videoclip adăugat la {playlistCount} liste de redare | {videoCount} videoclipuri adăugate la {playlistCount} liste de redare
     N playlists selected: '{playlistCount} Selectat'
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      Videoclipuri deja adăugate'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videoclipuri deja adăugate'
     Search in Playlists: Caută in listele de redare
   Cancel: Anulare
   Edit Playlist Info: Editați informațiile despre lista de redare
@@ -185,70 +162,42 @@ User Playlists:
   Playlist Description: Descrierea listei de redare
   Save Changes: Salvați modificările
   Delete Playlist: Ștergeți lista de redare
-  Are you sure you want to delete this playlist? This cannot be undone: Sunteți sigur
-    că doriți să ștergeți această listă de redare? Acest lucru nu poate fi anulat.
+  Are you sure you want to delete this playlist? This cannot be undone: Sunteți sigur că doriți să ștergeți această listă de redare? Acest lucru nu poate fi anulat.
   CreatePlaylistPrompt:
     Toast:
-      Playlist {playlistName} has been successfully created.: Lista de redare {playlistName}
-        a fost creată cu succes.
-      There was an issue with creating the playlist.: A existat o problemă la crearea
-        listei de redare.
-      There is already a playlist with this name. Please pick a different name.: Există
-        deja o listă de redare cu acest nume. Vă rugăm să alegeți un alt nume.
+      Playlist {playlistName} has been successfully created.: Lista de redare {playlistName} a fost creată cu succes.
+      There was an issue with creating the playlist.: A existat o problemă la crearea listei de redare.
+      There is already a playlist with this name. Please pick a different name.: Există deja o listă de redare cu acest nume. Vă rugăm să alegeți un alt nume.
     New Playlist Name: Numele noii liste de redare
     Create: Creați
   SinglePlaylistView:
     Toast:
-      There was a problem with removing this video: A existat o problemă cu eliminarea
-        acestui videoclip
-      This playlist is now used for quick bookmark: Această listă de redare este acum
-        utilizată pentru marcaje rapide
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Această
-        listă de redare este acum utilizată pentru marcajul rapid în loc de {oldPlaylistName}.
-        Faceți clic aici pentru a anula
+      There was a problem with removing this video: A existat o problemă cu eliminarea acestui videoclip
+      This playlist is now used for quick bookmark: Această listă de redare este acum utilizată pentru marcaje rapide
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Această listă de redare este acum utilizată pentru marcajul rapid în loc de {oldPlaylistName}. Faceți clic aici pentru a anula
       This video cannot be moved down.: Acest videoclip nu poate fi mutat în jos.
       This video cannot be moved up.: Acest videoclip nu poate fi mutat în sus.
       Video has been removed: Videoclipul a fost eliminat
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Unele
-        videoclipuri din lista de redare nu sunt încă încărcate. Faceți clic aici
-        pentru a copia oricum.
-      This playlist is protected and cannot be removed.: Această listă de redare este
-        protejată și nu poate fi ștearsă.
-      Playlist {playlistName} has been deleted.: Lista de redare {playlistName} a
-        fost ștearsă.
-      "{videoCount} video(s) have been removed": 1 videoclip a fost eliminat | {videoCount}
-        videoclipuri au fost eliminate
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Unele videoclipuri din lista de redare nu sunt încă încărcate. Faceți clic aici pentru a copia oricum.
+      This playlist is protected and cannot be removed.: Această listă de redare este protejată și nu poate fi ștearsă.
+      Playlist {playlistName} has been deleted.: Lista de redare {playlistName} a fost ștearsă.
+      "{videoCount} video(s) have been removed": 1 videoclip a fost eliminat | {videoCount} videoclipuri au fost eliminate
       There were no videos to remove.: Nu au existat videoclipuri care să fie eliminate.
-      Playlist name cannot be empty. Please input a name.: Numele listei de redare
-        nu poate fi gol. Vă rugăm să introduceți un nume.
+      Playlist name cannot be empty. Please input a name.: Numele listei de redare nu poate fi gol. Vă rugăm să introduceți un nume.
       Playlist has been updated.: Lista de redare a fost actualizată.
       This playlist does not exist: Această listă de redare nu există
-      There was an issue with updating this playlist.: A fost o problemă în actualizarea
-        acestei liste de redare.
-      Reverted to use {oldPlaylistName} for quick bookmark: S-a revenit la {oldPlaylistName}
-        pentru folosirea de marcaj rapid
-      Video has been removed. Click here to undo.: Videoclipul a fost scos. Apăsați
-        aici ca să anulați.
-      This playlist has a video with a duration error: Această listă de redare conține
-        cel puțin 1 videoclip care nu are durată, va fi sortat ca și cum durata ar
-        fi fost zero.
-      This playlist is already being used for quick bookmark.: Această listă de redare
-        este deja folosită pentru marcaj rapid.
+      There was an issue with updating this playlist.: A fost o problemă în actualizarea acestei liste de redare.
+      Reverted to use {oldPlaylistName} for quick bookmark: S-a revenit la {oldPlaylistName} pentru folosirea de marcaj rapid
+      Video has been removed. Click here to undo.: Videoclipul a fost scos. Apăsați aici ca să anulați.
+      This playlist has a video with a duration error: Această listă de redare conține cel puțin 1 videoclip care nu are durată, va fi sortat ca și cum durata ar fi fost zero.
+      This playlist is already being used for quick bookmark.: Această listă de redare este deja folosită pentru marcaj rapid.
     Search for Videos: Căutați videoclipuri
   Remove Duplicate Videos: Șterge videoclipurile duplicate
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Sunteți
-    sigur(ă) că doriți să ștergeți 1 videoclip vizualizat din această lista de redare?
-    Această acțiune este definitivă. | Sunteți sigur(ă) că doriți să ștergeți {playlistItemCount}
-    videoclip vizualizat din această lista de redare? Această acțiune este definitivă.
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Sunteți
-    sigur că vrei să ștergeți 1 videoclip duplicat din această listă de redare? Această
-    acțiune nu poate fi anulată. | Sunteți sigur că vreți să ștergeți {playlistItemCount}
-    videoclipuri duplicate din această listă? Această acțiune nu poate fi anulată.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Sunteți sigur(ă) că doriți să ștergeți 1 videoclip vizualizat din această lista de redare? Această acțiune este definitivă. | Sunteți sigur(ă) că doriți să ștergeți {playlistItemCount} videoclip vizualizat din această lista de redare? Această acțiune este definitivă.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Sunteți sigur că vrei să ștergeți 1 videoclip duplicat din această listă de redare? Această acțiune nu poate fi anulată. | Sunteți sigur că vreți să ștergeți {playlistItemCount} videoclipuri duplicate din această listă? Această acțiune nu poate fi anulată.
   Export Playlist: Exportă această listă de redare
-  Cannot delete the quick bookmark target playlist.: Nu se poate șterge listă de redare
-    țintă marcajului rapid.
-  The playlist has been successfully exported: Lista de redare a fost exportată cu
-    succes
+  Cannot delete the quick bookmark target playlist.: Nu se poate șterge listă de redare țintă marcajului rapid.
+  The playlist has been successfully exported: Lista de redare a fost exportată cu succes
   Quick Bookmark Enabled: Marcaj rapid activat
   TotalTimePlaylist: 'Timp total: {duration}'
 History:
@@ -257,9 +206,10 @@ History:
   Watch History: 'Istoricul vizionărilor'
   Your history list is currently empty.: 'Lista dvs. de istoric este momentan goală.'
   Search bar placeholder: Căutare în istoric
-  Empty Search Message: Nu există videoclipuri în această listă de redare care să
-    corespundă căutării dvs
+  Empty Search Message: Nu există videoclipuri în această listă de redare care să corespundă căutării dvs
   Case Sensitive Search: ­Căutare sensibilă la majuscule
+  DateOldestHistory: Începând cu primul vizionat
+  DateNewestHistory: Începând cu ultimul vizionat
 Settings:
   # On Settings Page
   Settings: 'Setări'
@@ -267,8 +217,7 @@ Settings:
     General Settings: 'Setări generale'
     Check for Updates: 'Căutați actualizări'
     Check for Latest Blog Posts: 'Verificați pentru cele mai recente postări pe blog'
-    Fallback to Non-Preferred Backend on Failure: 'Revenire la backend-ul nepreferat
-      în caz de eroare'
+    Fallback to Non-Preferred Backend on Failure: 'Revenire la backend-ul nepreferat în caz de eroare'
     Enable Search Suggestions: 'Activați sugestiile de căutare'
     Default Landing Page: 'Pagina de pornire implicită'
     Locale Preference: 'Preferința de localizare'
@@ -295,22 +244,18 @@ Settings:
       Ask Before Opening Link: Întrebați înainte de a deschide linkul
       Open Link: Deschideți linkul
       External Link Handling: Gestionarea legăturilor externe
-    View all Invidious instance information: Vizualizați toate informațiile despre
-      instanța Invidious
+    View all Invidious instance information: Vizualizați toate informațiile despre instanța Invidious
     Clear Default Instance: Ștergeți instanța implicită
     Set Current Instance as Default: Setați instanța curentă ca implicită
-    Current instance will be randomized on startup: Instanța curentă va fi aleatorie
-      la pornire
+    Current instance will be randomized on startup: Instanța curentă va fi aleatorie la pornire
     No default instance has been set: Nu a fost setată nicio instanță implicită
-    The currently set default instance is {instance}: Instanța implicită setată în
-      prezent este {instance}
+    The currently set default instance is {instance}: Instanța implicită setată în prezent este {instance}
     Current Invidious Instance: Instanța actuală Invidious
     System Default: Prestabilită de sistem
     Auto Load Next Page:
       Label: Încarcă următoarea pagină automat
       Tooltip: Încarcă automat pagini și comentarii suplimentare.
-    Open Deep Links In New Window: Deschideți URL-urile transmise către FreeTube într-o
-      fereastră nouă
+    Open Deep Links In New Window: Deschideți URL-urile transmise către FreeTube într-o fereastră nouă
   Theme Settings:
     Theme Settings: 'Setări temă'
     Match Top Bar with Main Color: 'Potriviți bara de sus cu culoarea principală'
@@ -468,16 +413,12 @@ Settings:
       Error:
         Forbidden Characters: Caractere interzise
         Empty File Name: Denumiri de fișiere goale
-      File Name Tooltip: Puteți utiliza variabilele de mai jos. %Y Anul 4 cifre. %M
-        Luna 2 cifre. %D Ziua 2 cifre. %H Ora 2 cifre. %N Minute 2 cifre. %S Secunda
-        2 cifre. %T Milisecundă 3 cifre. %s Secunda video. %t Milisecundă video 3
-        cifre. %i Video ID.
+      File Name Tooltip: Puteți utiliza variabilele de mai jos. %Y Anul 4 cifre. %M Luna 2 cifre. %D Ziua 2 cifre. %H Ora 2 cifre. %N Minute 2 cifre. %S Secunda 2 cifre. %T Milisecundă 3 cifre. %s Secunda video. %t Milisecundă video 3 cifre. %i Video ID.
       Enable: Activează captura de ecran
       Format Label: Formatul capturii de ecran
     Video Playback Rate Interval: Intervalul de redare video
     Max Video Playback Rate: Viteza maximă de redare
-    Scroll Playback Rate Over Video Player: Schimbă viteza de redare cu ajutorul rotiței
-      de scroll
+    Scroll Playback Rate Over Video Player: Schimbă viteza de redare cu ajutorul rotiței de scroll
     Enter Fullscreen on Display Rotate: Intrați pe ecran complet pe afișaj Rotire
     Skip by Scrolling Over Video Player: Omiteți derulând peste playerul video
     Default Viewing Mode:
@@ -492,27 +433,19 @@ Settings:
     Remember History: 'Amintiți-vă Istoricul vizionărilor'
     Save Watched Progress: 'Salvați progresul de vizionare'
     Clear Search Cache: 'Sterge Cache-ul Căutărilor'
-    Are you sure you want to clear out your search cache?: 'Sunteți sigur că doriți
-      să ștergeți memoria cache de căutare?'
+    Are you sure you want to clear out your search cache?: 'Sunteți sigur că doriți să ștergeți memoria cache de căutare?'
     Search cache has been cleared: 'Memoria cache de căutare a fost ștearsă'
     Remove Watch History: 'Eliminați istoricul vizionărilor'
-    Are you sure you want to remove your entire watch history?: 'Esti sigur ca doresti
-      sa stergi intreg istoricul cautarilor tale ?'
+    Are you sure you want to remove your entire watch history?: 'Esti sigur ca doresti sa stergi intreg istoricul cautarilor tale ?'
     Watch history has been cleared: 'Istoricul vizionărilor a fost șters'
     Remove All Subscriptions / Profiles: 'Eliminați toate Abonamentele / Profilurile'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Sunteți
-      sigur că doriți să eliminați toate abonamentele și profilurile?  Acest lucru
-      nu poate fi anulat.'
-    Save Watched Videos With Last Viewed Playlist: Salvați videoclipurile vizionate
-      cu ultima listă de redare vizualizată
-    Are you sure you want to remove all your playlists?: Sunteți sigur(ă) că doriț
-      să ștergeți toate listele dvs. de redare?
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Sunteți sigur că doriți să eliminați toate abonamentele și profilurile?  Acest lucru nu poate fi anulat.'
+    Save Watched Videos With Last Viewed Playlist: Salvați videoclipurile vizionate cu ultima listă de redare vizualizată
+    Are you sure you want to remove all your playlists?: Sunteți sigur(ă) că doriț să ștergeți toate listele dvs. de redare?
     Remove All Playlists: Eliminați toate listele de redare
     All playlists have been removed: Toate listele de redare au fost eliminate
-    Search history and cache have been cleared: Istoricul căutărilor și memoria cache
-      au fost șterse
-    Are you sure you want to clear out your search history and cache?: Sunteți sigur
-      că doriți să ștergeți istoricul căutărilor și memoria cache?
+    Search history and cache have been cleared: Istoricul căutărilor și memoria cache au fost șterse
+    Are you sure you want to clear out your search history and cache?: Sunteți sigur că doriți să ștergeți istoricul căutărilor și memoria cache?
     Remember Search History: Reține istoricul căutărilor
     Clear Search History and Cache: Ștergeți istoricul căutărilor și memoria cache
     Watched Progress Saving Mode:
@@ -520,19 +453,13 @@ Settings:
         Auto: Automat
         Never: Niciodată
         Semi-auto: Semi-automat
-      Tooltip: Automat = Salvează la fiecare ieșire de pe pagina video, când video-ul
-        se termină și când apare o eroare (de exemplu, limitare de viteză sau sesiune
-        de vizionare expirată). Semi-automat = Ca și Automat, cu excepția ieșirii
-        de pe pagina video și permite salvarea progresului manual printr-un buton
-        numit "Salvează progresul vizionat", aflat sub player-ul video.
+      Tooltip: Automat = Salvează la fiecare ieșire de pe pagina video, când video-ul se termină și când apare o eroare (de exemplu, limitare de viteză sau sesiune de vizionare expirată). Semi-automat = Ca și Automat, cu excepția ieșirii de pe pagina video și permite salvarea progresului manual printr-un buton numit "Salvează progresul vizionat", aflat sub player-ul video.
   Subscription Settings:
     Subscription Settings: 'Abonament'
-    Hide Videos on Watch: 'Ascunde videoclipurile la vizionare'
     Fetch Feeds from RSS: 'Preluare de fluxuri din RSS'
     Fetch Automatically: Preluați feedul automat
     Confirm Before Unsubscribing: Confirmă înainte de dezabonare
-    'Limit the number of videos displayed for each channel': Limitați numărul de videoclipuri
-      afișate pentru fiecare canal
+    'Limit the number of videos displayed for each channel': Limitați numărul de videoclipuri afișate pentru fiecare canal
     To: la
   Data Settings:
     Data Settings: 'Date'
@@ -544,52 +471,33 @@ Settings:
     Export NewPipe: 'Exportați NewPipe'
     Import History: 'Importați istoricul'
     Export History: 'Exportați istoricul'
-    Profile object has insufficient data, skipping item: 'Obiectul de profil are date
-      insuficiente, se omite elementul'
-    All subscriptions and profiles have been successfully imported: 'Toate abonamentele
-      și profilurile au fost importate cu succes'
-    All subscriptions have been successfully imported: 'Toate abonamentele au fost
-      importate cu succes'
+    Profile object has insufficient data, skipping item: 'Obiectul de profil are date insuficiente, se omite elementul'
+    All subscriptions and profiles have been successfully imported: 'Toate abonamentele și profilurile au fost importate cu succes'
+    All subscriptions have been successfully imported: 'Toate abonamentele au fost importate cu succes'
     Invalid subscriptions file: 'Fișier de abonamente invalid'
-    This might take a while, please wait: 'Acest lucru ar putea dura ceva timp, vă
-      rugăm să așteptați'
+    This might take a while, please wait: 'Acest lucru ar putea dura ceva timp, vă rugăm să așteptați'
     Invalid history file: 'Fișier istoric invalid'
-    Subscriptions have been successfully exported: 'Abonamentele au fost exportate
-      cu succes'
-    History object has insufficient data, skipping item: 'Obiectul de istoric are
-      date insuficiente, se omite elementul'
-    All watched history has been successfully imported: 'Tot istoricul de vizionări
-      a fost importat cu succes'
-    All watched history has been successfully exported: 'Tot istoricul de vizionări
-      a fost exportat cu succes'
+    Subscriptions have been successfully exported: 'Abonamentele au fost exportate cu succes'
+    History object has insufficient data, skipping item: 'Obiectul de istoric are date insuficiente, se omite elementul'
+    All watched history has been successfully imported: 'Tot istoricul de vizionări a fost importat cu succes'
+    All watched history has been successfully exported: 'Tot istoricul de vizionări a fost exportat cu succes'
     Unable to read file: 'Nu se poate citi fișierul'
     Unable to write file: 'Nu se poate scrie fișierul'
     Unknown data key: 'Cheie de date necunoscută'
     How do I import my subscriptions?: 'Cum îmi pot importa abonamentele?'
     Manage Subscriptions: Gestionare abonamente
-    All playlists has been successfully imported: Toate listele de redare au fost
-      importate cu succes
+    All playlists has been successfully imported: Toate listele de redare au fost importate cu succes
     Import Playlists: Importați liste de redare
     Export Playlists: Exportați liste de redare
-    Playlist insufficient data: Date insuficiente pentru lista de redare "{playlist}",
-      se omite
-    All playlists has been successfully exported: Toate listele de redare au fost
-      exportate cu succes
+    Playlist insufficient data: Date insuficiente pentru lista de redare "{playlist}", se omite
+    All playlists has been successfully exported: Toate listele de redare au fost exportate cu succes
     Playlist File: Fișier listă de redare
     History File: Fișier istoric
     Subscription File: Fișier abonament
     Export Playlists For Older FreeTube Versions:
       Label: Exportați liste de redare pentru versiunile FreeTube mai vechi
-      Tooltip: "Această opțiune exportă videoclipurile din toate listele de redare
-        într-o singură listă de redare numită 'Favorite'.\nCum să exportați și să
-        importați videoclipurile în listele de redare pentru o versiune mai veche
-        a FreeTube:\n1. Exportați-vă listele de redare cu această opțiune activată.\n\
-        \ 2. Ștergeți toate listele de redare existente utilizând opțiunea Eliminați
-        toate listele de redare din Setări de confidențialitate.\n3. Lansați versiunea
-        mai veche a FreeTube și importați listele de redare exportate.”"
-  The app needs to restart for changes to take effect. Restart and apply change?: Aplicația
-    trebuie repornită pentru ca modificările să intre în vigoare. Reporniți și aplicați
-    modificările?
+      Tooltip: "Această opțiune exportă videoclipurile din toate listele de redare într-o singură listă de redare numită 'Favorite'.\nCum să exportați și să importați videoclipurile în listele de redare pentru o versiune mai veche a FreeTube:\n1. Exportați-vă listele de redare cu această opțiune activată.\n 2. Ștergeți toate listele de redare existente utilizând opțiunea Eliminați toate listele de redare din Setări de confidențialitate.\n3. Lansați versiunea mai veche a FreeTube și importați listele de redare exportate.”"
+  The app needs to restart for changes to take effect. Restart and apply change?: Aplicația trebuie repornită pentru ca modificările să intre în vigoare. Reporniți și aplicați modificările?
   External Player Settings:
     Custom External Player Arguments: Argumente personalizate pentru playerul extern
     Custom External Player Executable: Executabilul personalizat al playerului extern
@@ -616,9 +524,9 @@ Settings:
     Hide Comments: Ascunde comentariile
     Hide Live Streams: Ascunde stream-urile live
     Hide Sharing Actions: Ascunde butoanele de sharing
+    Hide Videos on Watch: 'Ascunde videoclipurile la vizionare'
     Hide Chapters: Ascundeți capitolele
-    Display Titles Without Excessive Capitalisation: Afișați titlurile fără majuscule
-      și semne de punctuație excesive
+    Display Titles Without Excessive Capitalisation: Afișați titlurile fără majuscule și semne de punctuație excesive
     Sections:
       Subscriptions Page: Pagina de abonamente
       Side Bar: Bara laterală
@@ -638,25 +546,19 @@ Settings:
     Hide Upcoming Premieres: Ascundeți premierele viitoare
     Hide Profile Pictures in Comments: Ascundeți imaginile de profil în comentarii
     Hide Channels Already Exists: ID-ul Canalului există deja
-    Hide Videos and Playlists Containing Text Placeholder: Cuvânt, fragment de cuvânt
-      sau frază
-    Hide Videos and Playlists Containing Text: Ascundeți videoclipurile și listele
-      de redare care conțin text
+    Hide Videos and Playlists Containing Text Placeholder: Cuvânt, fragment de cuvânt sau frază
+    Hide Videos and Playlists Containing Text: Ascundeți videoclipurile și listele de redare care conțin text
     Hide Channel Home: Ascundeți fila "Acasă" a canalului
-    Hide Channels Disabled Message: Unele canale au fost blocate folosind ID și nu
-      au fost procesate. Funcția este blocată în timp ce acele ID-uri se actualizează
+    Hide Channels Disabled Message: Unele canale au fost blocate folosind ID și nu au fost procesate. Funcția este blocată în timp ce acele ID-uri se actualizează
     Hide Channels Invalid: ID-ul canalului furnizat nu este valid
     Show Added Items: Afișați articolele adăugate
-    Hide Channels API Error: Eroare la preluarea utilizatorului cu ID-ul furnizat.
-      Vă rugăm să verificați din nou dacă ID-ul este corect.
+    Hide Channels API Error: Eroare la preluarea utilizatorului cu ID-ul furnizat. Vă rugăm să verificați din nou dacă ID-ul este corect.
     Hide Channel Courses: Ascunde fila „Cursuri” a canalului
     Hide Channel Posts: Ascunde tab-ul "Postări" al canalului
     Hide Subscriptions Posts: Ascunde postările din abonații
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Notificare atunci când segmentul sponsorului
-      este sărit
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL-ul API-ului
-      SponsorBlock (Cel implicit este https://sponsor.ajay.app)
+    Notify when sponsor segment is skipped: Notificare atunci când segmentul sponsorului este sărit
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL-ul API-ului SponsorBlock (Cel implicit este https://sponsor.ajay.app)
     Enable SponsorBlock: Activați SponsorBlock
     SponsorBlock Settings: SponsorBlock
     Skip Options:
@@ -668,29 +570,22 @@ Settings:
     Category Color: Culoarea categoriilor
     UseDeArrowTitles: Utilizați titlurile video DeArrow
     UseDeArrowThumbnails: Utilizați DeArrow pentru miniaturi
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': Url
-      API DeArrow Thumbnail Generator (implicit este https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': Url API DeArrow Thumbnail Generator (implicit este https://dearrow-thumb.ajay.app)
   Proxy Settings:
-    Error getting network information. Is your proxy configured properly?: Eroare
-      la obținerea informațiilor despre rețea. Proxy-ul este configurat corect?
+    Error getting network information. Is your proxy configured properly?: Eroare la obținerea informațiilor despre rețea. Proxy-ul este configurat corect?
     City: Oraș
     Region: Regiune
     Country: Țară
     Ip: IP
     Your Info: Informațiile tale
-    Clicking on Test Proxy will send a request to: Făcând clic pe Testați Proxy se
-      va trimite o cerere către
+    Clicking on Test Proxy will send a request to: Făcând clic pe Testați Proxy se va trimite o cerere către
     Test Proxy: Testați Proxy
     Proxy Port Number: Numărul portului Proxy
     Proxy Host: Gazdă Proxy
     Proxy Protocol: Protocol Proxy
     Enable Tor / Proxy: Activați Tor / Proxy
     Proxy Settings: Proxy
-    Proxy Warning: FreeTube nu are un proxy încorporat, dar se poate conecta la un
-      proxy extern, cum ar fi unul care rulează pe computer, cum ar fi Tor, sau un
-      proxy extern, cum ar fi un proxy SOCKS5 furnizat de unele VPN-uri. Dacă este
-      activat, asigurați-vă că proxy/Tor este configurat corect, altfel FreeTube nu
-      va putea prelua date.
+    Proxy Warning: FreeTube nu are un proxy încorporat, dar se poate conecta la un proxy extern, cum ar fi unul care rulează pe computer, cum ar fi Tor, sau un proxy extern, cum ar fi un proxy SOCKS5 furnizat de unele VPN-uri. Dacă este activat, asigurați-vă că proxy/Tor este configurat corect, altfel FreeTube nu va putea prelua date.
   Download Settings:
     Ask Download Path: Solicită calea de descărcare
     Choose Path: Alege calea
@@ -703,19 +598,17 @@ Settings:
     Parental Control Settings: Control parental
     Show Family Friendly Only: Arata numai conținut family friendly
     Hide Search Bar: Ascunde bara de căutare
+    Hide Uploader on Watch page: Ascunde autorul pe pagina de vizionare
   Password Dialog:
     Password: Parolă
     Enter Password To Unlock: Introduceți parola pentru a debloca setările
   Password Settings:
     Remove Password: Eliminați parola
     Password Settings: parolă
-    Set Password To Prevent Access: Setați o parolă pentru a împiedica accesul la
-      setări
+    Set Password To Prevent Access: Setați o parolă pentru a împiedica accesul la setări
     Set Password: Setați parola
   Experimental Settings:
-    Warning: Aceste setări sunt experimentale, ele pot cauza blocări atunci când sunt
-      activate. Este foarte recomandat să faceți copii de rezervă. Folosiți pe propria
-      răspundere!
+    Warning: Aceste setări sunt experimentale, ele pot cauza blocări atunci când sunt activate. Este foarte recomandat să faceți copii de rezervă. Folosiți pe propria răspundere!
     Replace HTTP Cache: Înlocuiți cache HTTP
     Experimental Settings: experimental
   Sort Settings Sections (A-Z): Setări Sortare Secțiuni (A-Z)
@@ -736,8 +629,7 @@ About:
   Chat on Matrix: Chat pe Matrix
   Blog: Blog
   Website: Site web
-  Please check for duplicates before posting: Vă rugăm să verificați dacă există dubluri
-    înainte de a posta
+  Please check for duplicates before posting: Vă rugăm să verificați dacă există dubluri înainte de a posta
   GitHub issues: Issues pe GitHub
   Report a problem: Raportați o problemă
   FAQ: Întrebări frecvente
@@ -763,18 +655,14 @@ Profile:
   Update Profile: 'Actualizați profilul'
   Make Default Profile: 'Faceți profilul implicit'
   Delete Profile: 'Ștergeți profilul'
-  Are you sure you want to delete this profile?: 'Sunteți sigur că doriți să ștergeți
-    acest profil?'
-  All subscriptions will also be deleted.: 'De asemenea, toate abonamentele vor fi
-    șterse.'
+  Are you sure you want to delete this profile?: 'Sunteți sigur că doriți să ștergeți acest profil?'
+  All subscriptions will also be deleted.: 'De asemenea, toate abonamentele vor fi șterse.'
   Your profile name cannot be empty: 'Numele profilului nu poate fi gol'
   Profile has been created: 'Profilul a fost creat'
   Profile has been updated: 'Profilul a fost actualizat'
-  Your default profile has been set to {profile}: 'Profilul dvs. implicit a fost setat
-    la {profile}'
+  Your default profile has been set to {profile}: 'Profilul dvs. implicit a fost setat la {profile}'
   Removed {profile} from your profiles: 'Ai eliminat {profile} din profilurile tale'
-  Your default profile has been changed to your primary profile: 'Profilul dvs. implicit
-    a fost schimbat în profilul dvs. principal'
+  Your default profile has been changed to your primary profile: 'Profilul dvs. implicit a fost schimbat în profilul dvs. principal'
   '{profile} is now the active profile': '{profile} este acum profilul activ'
   Subscription List: 'Lista de abonamente'
   Other Channels: 'Alte canale'
@@ -784,13 +672,9 @@ Profile:
   Delete Selected: 'Ștergeți selectat'
   Add Selected To Profile: 'Adaugă selectate la profil'
   No channel(s) have been selected: 'Nu a fost selectat niciun canal(e)'
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : 'Acesta este profilul dvs. principal.  Sunteți sigur că doriți să ștergeți canalele
-    selectate?  Aceleași canale vor fi șterse în orice profil în care se regăsesc.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Sunteți
-    sigur că doriți să ștergeți canalele selectate?  Acest lucru nu va șterge canalul
-    din niciun alt profil.'
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : 'Acesta este profilul dvs. principal.  Sunteți sigur că doriți să ștergeți canalele selectate?  Aceleași canale vor fi șterse în orice profil în care se regăsesc.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Sunteți sigur că doriți să ștergeți canalele selectate?  Acest lucru nu va șterge canalul din niciun alt profil.'
 #On Channel Page
   Profile Filter: Filtru profil
   Profile Settings: profil
@@ -803,26 +687,21 @@ Profile:
 Channel:
   Subscribe: 'Abonați-vă'
   Unsubscribe: 'Dezabonați-vă'
-  Channel has been removed from your subscriptions: 'Canalul a fost eliminat din abonamentele
-    tale'
-  Removed subscription from {count} other channel(s): 'Abonament eliminat de pe {count}
-    alt(e) canal(e)'
+  Channel has been removed from your subscriptions: 'Canalul a fost eliminat din abonamentele tale'
+  Removed subscription from {count} other channel(s): 'Abonament eliminat de pe {count} alt(e) canal(e)'
   Added channel to your subscriptions: 'Adăugat canal la abonamentele tale'
   Search Channel: 'Căutare canal'
-  Your search results have returned 0 results: 'Rezultatele căutării tale au returnat
-    0 rezultate'
+  Your search results have returned 0 results: 'Rezultatele căutării tale au returnat 0 rezultate'
   Videos:
     Videos: 'Videoclipuri'
-    This channel does not currently have any videos: 'Acest canal nu are în prezent
-      niciun videoclip'
+    This channel does not currently have any videos: 'Acest canal nu are în prezent niciun videoclip'
     Sort Types:
-      Newest: 'Cele mai nou'
+      Newest: 'Cele mai noi'
       Oldest: 'Cele mai vechi'
       Most Popular: 'Cele mai populare'
   Playlists:
     Playlists: 'Liste de redare'
-    This channel does not currently have any playlists: 'Acest canal nu are în prezent
-      nici o listă de redare'
+    This channel does not currently have any playlists: 'Acest canal nu are în prezent nici o listă de redare'
     Sort Types:
       Last Video Added: 'Ultimul video adăugat'
       Newest: 'Cele mai noi'
@@ -839,42 +718,34 @@ Channel:
       Tags: Tags
   Posts:
     Posts: Postări
-    This channel currently does not have any posts: Acest canal nu are momentan nicio
-      postare
+    This channel currently does not have any posts: Acest canal nu are momentan nicio postare
     Reveal Answers: Dezvăluie Răspunsuri
     Hide Answers: Ascunde Răspunsurile
     votes: '{votes} voturi'
     View Full Post: Vezi postarea integrală
     Video hidden by FreeTube: Videoclip ascuns de FreeTube
-    Viewing Posts Only Supported By Invidious: Vizualizarea postărilor este acceptată
-      numai de Invidious. Mergeți la fila comunității unui canal pentru a vedea conținutul
-      acolo fără Invidious.
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: Acest
-    canal are restricții de vârstă și momentan nu poate fi vizionat în FreeTube.
+    Viewing Posts Only Supported By Invidious: Vizualizarea postărilor este acceptată numai de Invidious. Mergeți la fila comunității unui canal pentru a vedea conținutul acolo fără Invidious.
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Acest canal are restricții de vârstă și momentan nu poate fi vizionat în FreeTube.
   This channel does not exist: Acest canal nu există
   This channel does not allow searching: Acest canal nu permite căutarea
   Live:
     Live: Live
-    This channel does not currently have any live streams: Acest canal nu are momentan
-      niciun live stream
+    This channel does not currently have any live streams: Acest canal nu are momentan niciun live stream
   Shorts:
     This channel does not currently have any shorts: Acest canal nu are momentan shorts
   Podcasts:
     Podcasts: Podcasturi
-    This channel does not currently have any podcasts: Acest canal nu are momentan
-      nici un podcast
+    This channel does not currently have any podcasts: Acest canal nu are momentan nici un podcast
   Releases:
     Releases: Lansări
-    This channel does not currently have any releases: Acest canal nu are momentan
-      nicio lansare
+    This channel does not currently have any releases: Acest canal nu are momentan nicio lansare
   Channel Tabs: Filele canalului
   Home:
     Home: acasă
     View Playlist: Vizualizați lista de redare
   Courses:
     Courses: Cursuri
-    This channel does not currently have any courses: Acest canal nu are momentan
-      cursuri
+    This channel does not currently have any courses: Acest canal nu are momentan cursuri
 Video:
   Mark As Watched: 'Marcați ca vizionat'
   Remove From History: 'Eliminați din istoric'
@@ -894,20 +765,15 @@ Video:
   Play Previous Video: 'Redă videoclipul anterior'
   Watched: 'Vizionat'
   Autoplay: 'Redare automată'
-  Starting soon, please refresh the page to check again: 'Începe în curând, vă rugăm
-    să reîmprospătați pagina pentru a verifica din nou'
+  Starting soon, please refresh the page to check again: 'Începe în curând, vă rugăm să reîmprospătați pagina pentru a verifica din nou'
   # As in a Live Video
   Live: 'În direct'
   Live Now: 'în direct acum'
   Live Chat: 'Chat în direct'
   Enable Live Chat: 'Activați Chatul Live'
-  Live Chat is currently not supported in this build.: 'Chatul Live nu este acceptat
-    în această versiune.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Chatul live este
-    activat.  Mesajele de chat vor apărea aici odată ce au fost trimise.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Chatul
-    Live nu este acceptat în prezent cu API-ul Invidious.  Este necesară o conexiune
-    directă la YouTube.'
+  Live Chat is currently not supported in this build.: 'Chatul Live nu este acceptat în această versiune.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Chatul live este activat.  Mesajele de chat vor apărea aici odată ce au fost trimise.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Chatul Live nu este acceptat în prezent cu API-ul Invidious.  Este necesară o conexiune directă la YouTube.'
   Published:
     In less than a minute: În mai puțin de un minut
   Published on: 'Publicat pe'
@@ -920,8 +786,7 @@ Video:
       looping playlists: liste de redare în buclă
       shuffling playlists: amestecarea listelor de redare
       reversing playlists: inversarea listelor de redare
-      opening specific video in a playlist (falling back to opening the video): deschiderea
-        unui anumit videoclip dintr-o listă de redare (revenirea la deschiderea videoclipului)
+      opening specific video in a playlist (falling back to opening the video): deschiderea unui anumit videoclip dintr-o listă de redare (revenirea la deschiderea videoclipului)
     UnsupportedActionTemplate: '{externalPlayer} nu acceptă: {action}'
     OpeningTemplate: Se deschide {videoOrPlaylist} în {externalPlayer}...
     playlist: listă de redare
@@ -945,15 +810,12 @@ Video:
   Open Channel in Invidious: Canal deschis în Invidious
   Copy YouTube Channel Link: Copiați linkul canalului YouTube
   Open Channel in YouTube: Deschideți canalul în YouTube
-  Video has been removed from your saved list: Videoclipul a fost eliminat din lista
-    ta de salvări
+  Video has been removed from your saved list: Videoclipul a fost eliminat din lista ta de salvări
   Video has been saved: Videoclipul a fost salvat
   Save Video: Salvați video
   Scroll to Bottom: Derulați până jos
   Upcoming: Urmează
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Chatul
-    live nu este disponibil pentru acest flux. Este posibil să fi fost dezactivat
-    de persoana care a încărcat.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Chatul live nu este disponibil pentru acest flux. Este posibil să fi fost dezactivat de persoana care a încărcat.
   Premieres: Premiere
   Show Super Chat Comment: Afișați comentariul Super Chat
   Hide Channel: Ascunde canalul
@@ -969,14 +831,13 @@ Video:
     Stats:
       Resolution: 'Rezoluție: {width}x{height}@{frameRate}'
       Player Dimensions: 'Dimensiuni player: {width}x{height}'
-      Dropped Frames / Total Frames: 'Cadre eliminate: {droppedFrames} / Total cadre:
-        {totalFrames}'
+      Dropped Frames / Total Frames: 'Cadre eliminate: {droppedFrames} / Total cadre: {totalFrames}'
       CodecsVideoAudio: 'Codecuri: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecAudio: 'Codec: {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Codecuri: {videoCodec} / {audioCodec}'
       Stats: Statistici
       Video ID: 'ID videoclip: {videoId}'
-      Media Formats: 'Formate media: {formate}'
+      Media Formats: 'Formate media: {formats}'
       Bitrate: 'Rată de biți: {bitrate} kbps'
       Volume: 'Volum: {volumePercentage}%'
       Bandwidth: 'Lățime de bandă: {bandwidth} kbps'
@@ -984,29 +845,20 @@ Video:
     Show Stats: Afișează statistici
     Hide Stats: ascunde statistici
     You appear to be offline: Pari a fi offline.
-    Playback will resume automatically when your connection comes back: Redarea se
-      va relua automat când se reia conexiunea.
+    Playback will resume automatically when your connection comes back: Redarea se va relua automat când se reia conexiunea.
     Skipped segment: Segment {segmentCategory} omis
     TranslatedCaptionTemplate: '{language} (tradus din „{originalLanguage}”)'
     Full Window: Fereastra plină
     Exit Full Window: Ieșiți din fereastra completă
   More Options: Mai multe opțiuni
-  AgeRestricted: Videoclipurile cu restricții de vârstă nu pot fi vizionate cu FreeTube,
-    deoarece necesită autentificare la Google și utilizarea unui cont YouTube verificat
-    în funcție de vârstă.
+  AgeRestricted: Videoclipurile cu restricții de vârstă nu pot fi vizionate cu FreeTube, deoarece necesită autentificare la Google și utilizarea unui cont YouTube verificat în funcție de vârstă.
   Unlisted: nelistate
-  MembersOnly: Videoclipurile destinate exclusiv membrilor nu pot fi vizionate cu
-    FreeTube, deoarece necesită autentificare Google și abonament plătit la canalul
-    persoanei care a încărcat.
-  DRMProtected: Videoclipurile protejate DRM nu pot fi redate în FreeTube, deoarece
-    necesită componente proprietare, cu sursă închisă. Dacă doriți să vizionați acest
-    videoclip, vizionați-l pe site-ul oficial YouTube într-un browser web compatibil
-    DRM.
+  MembersOnly: Videoclipurile destinate exclusiv membrilor nu pot fi vizionate cu FreeTube, deoarece necesită autentificare Google și abonament plătit la canalul persoanei care a încărcat.
+  DRMProtected: Videoclipurile protejate DRM nu pot fi redate în FreeTube, deoarece necesită componente proprietare, cu sursă închisă. Dacă doriți să vizionați acest videoclip, vizionați-l pe site-ul oficial YouTube într-un browser web compatibil DRM.
   DeArrow:
     Show Original Details: Afișați detaliile originale
     Show Modified Details: Afișați detaliile modificate
-  IP block: YouTube a blocat adresa dvs. IP pentru a nu viziona videoclipuri. Vă rugăm
-    să încercați să comutați la un alt VPN sau proxy.
+  IP block: YouTube a blocat adresa dvs. IP pentru a nu viziona videoclipuri. Vă rugăm să încercați să comutați la un alt VPN sau proxy.
   Save Watched Progress: Salvează progresul vizionat
   Watched Progress Saved: Progresul vizionat a fost salvat
 Playlist:
@@ -1035,12 +887,9 @@ Change Format:
   Use Dash Formats: 'Utilizați formate DASH'
   Use Legacy Formats: 'Utilizați formate vechi'
   Use Audio Formats: 'Utilizați formate audio'
-  Dash formats are not available for this video: 'Formatele DASH nu sunt disponibile
-    pentru acest videoclip'
-  Audio formats are not available for this video: 'Formatele audio nu sunt disponibile
-    pentru acest videoclip'
-  Legacy formats are not available for this video: Formatele vechi nu sunt disponibile
-    pentru acest videoclip
+  Dash formats are not available for this video: 'Formatele DASH nu sunt disponibile pentru acest videoclip'
+  Audio formats are not available for this video: 'Formatele audio nu sunt disponibile pentru acest videoclip'
+  Legacy formats are not available for this video: Formatele vechi nu sunt disponibile pentru acest videoclip
 Share:
   Share Video: 'Distribuire videoclipuri'
   Share Playlist: 'Distribuie lista de redare'
@@ -1051,34 +900,29 @@ Share:
   Open Embed: 'Deschideți încorporarea'
   # On Click
   Invidious URL copied to clipboard: 'URL Invidious copiat în clipboard'
-  Invidious Embed URL copied to clipboard: 'URL de încorporare Invidious copiat în
-    clipboard'
+  Invidious Embed URL copied to clipboard: 'URL de încorporare Invidious copiat în clipboard'
   YouTube URL copied to clipboard: 'URL-ul YouTube copiat în clipboard'
   YouTube Embed URL copied to clipboard: 'URL de încorporare YouTube copiat în clipboard'
   YouTube Channel URL copied to clipboard: URL-ul canalului YouTube copiat în clipboard
-  Invidious Channel URL copied to clipboard: URL-ul Invidious al canalului a fost
-    copiat în clipboard
+  Invidious Channel URL copied to clipboard: URL-ul Invidious al canalului a fost copiat în clipboard
   Share Channel: Distribuie canalul
 Mini Player: 'Mini Player'
 Comments:
   Comments: 'Comentarii'
   Click to View Comments: 'Faceți clic pentru a vedea comentariile'
-  Getting comment replies, please wait: 'Se obțin răspunsurile comentariului, vă rugăm
-    să așteptați'
-  There are no more comments for this video: 'Nu mai există niciun comentariu pentru
-    acest videoclip'
+  Getting comment replies, please wait: 'Se obțin răspunsurile comentariului, vă rugăm să așteptați'
+  There are no more comments for this video: 'Nu mai există niciun comentariu pentru acest videoclip'
   Hide Comments: 'Ascundeți comentariile'
   # Context: View 10 Replies, View 1 Reply
   View: 'Vizualizați'
   Hide: 'Ascundeți'
   Replies: 'Răspunsuri'
   Reply: 'Răspuns'
-  There are no comments available for this video: 'Nu există comentarii disponibile
-    pentru acest videoclip'
+  There are no comments available for this video: 'Nu există comentarii disponibile pentru acest videoclip'
   Load More Comments: 'Încărcați mai multe comentarii'
   Show More Replies: Afișați mai multe răspunsuri
-  Newest first: Începând cu cele mai noi
-  Top comments: Cele mai bune comentarii
+  Newest first: Cele mai noi primele
+  Top comments: Cele mai bune
   And others: și altele
   From {channelName}: de la {channelName}
   Pinned by: Lipit de
@@ -1086,8 +930,7 @@ Comments:
   Hearted: Inima
   View {replyCount} replies: '{replyCount} răspunsuri'
   Subscribed: Abonat
-  There are no comments available for this post: Nu există comentarii disponibile
-    pentru această postare
+  There are no comments available for this post: Nu există comentarii disponibile pentru această postare
 Up Next: 'În continuare'
 
 # Toast Messages
@@ -1095,9 +938,7 @@ Local API Error (Click to copy): 'Eroare API locală (Faceți clic pentru a copi
 Invidious API Error (Click to copy): 'Eroare API Invidious (Faceți clic pentru a copia)'
 Falling back to Invidious API: 'Revenine la Invidious API'
 Falling back to Local API: 'Revenire la API-ul local'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Acest
-  videoclip nu este disponibil din cauza lipsei de formate. Acest lucru se poate întâmpla
-  din cauza indisponibilității țării.'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Acest videoclip nu este disponibil din cauza lipsei de formate. Acest lucru se poate întâmpla din cauza indisponibilității țării.'
 Loop is now disabled: 'Bucla este acum dezactivată'
 Loop is now enabled: 'Bucla este acum activată'
 Shuffle is now disabled: 'Amestecarea este acum dezactivată'
@@ -1106,8 +947,7 @@ The playlist has been reversed: 'Lista de redare a fost inversată'
 Playing Next Video: 'Se redă următorul videoclip'
 Playing Previous Video: 'Se redă videoclipul anterior'
 Canceled next video autoplay: 'S-a anulat redarea automată a următorului videoclip'
-'The playlist has ended. Enable loop to continue playing': 'Lista de redare s-a încheiat.  Activați
-  bucla pentru a continua redarea'
+'The playlist has ended. Enable loop to continue playing': 'Lista de redare s-a încheiat.  Activați bucla pentru a continua redarea'
 
 Yes: 'Da'
 No: 'Nu'
@@ -1115,97 +955,47 @@ More: Mai multe
 Search Bar:
   Clear Input: Ștergeți intrarea
   Remove: Șterge
-Are you sure you want to open this link?: Sunteți sigur că doriți să deschideți acest
-  link?
+Are you sure you want to open this link?: Sunteți sigur că doriți să deschideți acest link?
 Open New Window: Deschide fereastră nouă
 Default Invidious instance has been cleared: Instanța implicită Invidious a fost eliminată
-Default Invidious instance has been set to {instance}: Instanța implicită Invidious
-  a fost setată la {instance}
-Playing Next Video Interval: Se redară următorul videoclip în cel mai scurt timp.
-  Faceți clic pentru a anula. | Se redă următorul videoclip în {nextVideoInterval}
-  secundă. Faceți clic pentru a anula. | Se redă următorul videoclip în {nextVideoInterval}
-  secunde. Faceți clic pentru a anula.
-Unknown YouTube url type, cannot be opened in app: Tip url YouTube necunoscut, nu
-  poate fi deschis în aplicație
+Default Invidious instance has been set to {instance}: Instanța implicită Invidious a fost setată la {instance}
+Playing Next Video Interval: Se redară următorul videoclip în cel mai scurt timp. Faceți clic pentru a anula. | Se redă următorul videoclip în {nextVideoInterval} secundă. Faceți clic pentru a anula. | Se redă următorul videoclip în {nextVideoInterval} secunde. Faceți clic pentru a anula.
+Unknown YouTube url type, cannot be opened in app: Tip url YouTube necunoscut, nu poate fi deschis în aplicație
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Atunci când este activat, FreeTube va utiliza RSS în locul
-      metodei implicite de preluare a fluxului dvs. de abonament. RSS este mai rapid
-      și previne blocarea IP, dar nu oferă anumite informații, cum ar fi durata videoclipului,
-      starea live sau postările
-    Fetch Automatically: Când activat, FreeTube va prelua automat feed-ul de abonament
-      la pornire și când se deschide o fereastră nouă.
+    Fetch Feeds from RSS: Atunci când este activat, FreeTube va utiliza RSS în locul metodei implicite de preluare a fluxului dvs. de abonament. RSS este mai rapid și previne blocarea IP, dar nu oferă anumite informații, cum ar fi durata videoclipului, starea live sau postările
+    Fetch Automatically: Când activat, FreeTube va prelua automat feed-ul de abonament la pornire și când se deschide o fereastră nouă.
   External Player Settings:
-    Custom External Player Arguments: Orice argumente personalizate din linia de comandă,
-      pe care doriți să le transmiteți playerului extern.
-    Ignore Warnings: Suprimarea avertismentelor în cazul în care playerul extern curent
-      nu acceptă acțiunea curentă (de exemplu, inversarea listelor de redare etc.).
-    Custom External Player Executable: În mod implicit, FreeTube va presupune că playerul
-      extern ales poate fi găsit prin intermediul variabilei de mediu PATH. Dacă este
-      necesar, aici poate fi setată o cale personalizată.
-    External Player: Alegerea unui player extern va afișa o pictogramă, pentru a deschide
-      videoclipul (playlist, dacă este acceptat) în playerul extern, pe thumbnail.
-      Atenție, setările Invidious nu afectează playerele externe.
+    Custom External Player Arguments: Orice argumente personalizate din linia de comandă, pe care doriți să le transmiteți playerului extern.
+    Ignore Warnings: Suprimarea avertismentelor în cazul în care playerul extern curent nu acceptă acțiunea curentă (de exemplu, inversarea listelor de redare etc.).
+    Custom External Player Executable: În mod implicit, FreeTube va presupune că playerul extern ales poate fi găsit prin intermediul variabilei de mediu PATH. Dacă este necesar, aici poate fi setată o cale personalizată.
+    External Player: Alegerea unui player extern va afișa o pictogramă, pentru a deschide videoclipul (playlist, dacă este acceptat) în playerul extern, pe thumbnail. Atenție, setările Invidious nu afectează playerele externe.
     DefaultCustomArgumentsTemplate: "(Implicit: '{defaultCustomArguments}')"
-    Ignore Default Arguments: Nu trimiteți niciun argument implicit către playerul
-      extern în afară de URL-ul video (de exemplu, rata de redare, URL-ul listei de
-      redare etc.). Argumentele personalizate vor fi transmise în continuare.
+    Ignore Default Arguments: Nu trimiteți niciun argument implicit către playerul extern în afară de URL-ul video (de exemplu, rata de redare, URL-ul listei de redare etc.). Argumentele personalizate vor fi transmise în continuare.
   Player Settings:
-    Default Video Format: Setați formatele utilizate la redarea unui videoclip. Formatele
-      DASH pot reda calități superioare. Formatele tradiționale sunt limitate la maximum
-      360p, dar utilizează mai puțină lățime de bandă. Formatele audio sunt doar fluxuri
-      audio.
-    Proxy Videos Through Invidious: Se va conecta la Invidious pentru a servi videoclipuri
-      în loc să facă o conexiune directă la YouTube.
-    Scroll Playback Rate Over Video Player: În timp ce cursorul se află deasupra videoclipului,
-      țineți apăsată tasta Control (tasta Command pe Mac) și derulați rotița mouse-ului
-      înainte sau înapoi pentru a controla rata de redare. Țineți apăsată tasta Control
-      (tasta Command pe Mac) și faceți clic cu butonul stâng al mouse-ului pentru
-      a reveni rapid la rata de redare implicită (1x, cu excepția cazului în care
-      aceasta a fost modificată în setări).
-    Skip by Scrolling Over Video Player: Utilizați rotița de derulare pentru a trece
-      prin videoclip, stil MPV.
+    Default Video Format: Setați formatele utilizate la redarea unui videoclip. Formatele DASH pot reda calități superioare. Formatele tradiționale sunt limitate la maximum 360p, dar utilizează mai puțină lățime de bandă. Formatele audio sunt doar fluxuri audio.
+    Proxy Videos Through Invidious: Se va conecta la Invidious pentru a servi videoclipuri în loc să facă o conexiune directă la YouTube.
+    Scroll Playback Rate Over Video Player: În timp ce cursorul se află deasupra videoclipului, țineți apăsată tasta Control (tasta Command pe Mac) și derulați rotița mouse-ului înainte sau înapoi pentru a controla rata de redare. Țineți apăsată tasta Control (tasta Command pe Mac) și faceți clic cu butonul stâng al mouse-ului pentru a reveni rapid la rata de redare implicită (1x, cu excepția cazului în care aceasta a fost modificată în setări).
+    Skip by Scrolling Over Video Player: Utilizați rotița de derulare pentru a trece prin videoclip, stil MPV.
   General Settings:
-    External Link Handling: "Alegeți comportamentul implicit atunci când faceți clic
-      pe un link care nu poate fi deschis în FreeTube.\nÎn mod implicit, FreeTube
-      va deschide linkul accesat în browserul dvs. implicit.\n"
-    Region for Trending: Regiunea de tendințe vă permite să alegeți ce videoclipuri
-      în tendințe din fiecare țară doriți să fie afișate.
-    Invidious Instance: Instanța Invidious la care FreeTube se va conecta pentru apelurile
-      API.
-    Thumbnail Preference: Toate miniaturile din FreeTube vor fi înlocuite cu un cadru
-      al videoclipului, încețoșat sau ascuns în loc de miniatura implicită.
-    Fallback to Non-Preferred Backend on Failure: Atunci când API-ul preferat are
-      o problemă, FreeTube va încerca automat să utilizeze API-ul nepreferat ca metodă
-      de rezervă, atunci când este activat.
-    Preferred API Backend: Alegeți backend-ul pe care FreeTube îl folosește pentru
-      a obține date. API-ul local este un extractor incorporat. API-ul Invidious necesită
-      un server Invidious la care să vă conectați.
-    Open Deep Links In New Window: URL-urile transmise către FreeTube, cum ar fi prin
-      redirecționarea extensiilor de browser sau a argumentelor din linia de comandă,
-      sunt deschise într-o fereastră nouă.
+    External Link Handling: "Alegeți comportamentul implicit atunci când faceți clic pe un link care nu poate fi deschis în FreeTube.\nÎn mod implicit, FreeTube va deschide linkul accesat în browserul dvs. implicit.\n"
+    Region for Trending: Regiunea de tendințe vă permite să alegeți ce videoclipuri în tendințe din fiecare țară doriți să fie afișate.
+    Invidious Instance: Instanța Invidious la care FreeTube se va conecta pentru apelurile API.
+    Thumbnail Preference: Toate miniaturile din FreeTube vor fi înlocuite cu un cadru al videoclipului, încețoșat sau ascuns în loc de miniatura implicită.
+    Fallback to Non-Preferred Backend on Failure: Atunci când API-ul preferat are o problemă, FreeTube va încerca automat să utilizeze API-ul nepreferat ca metodă de rezervă, atunci când este activat.
+    Preferred API Backend: Alegeți backend-ul pe care FreeTube îl folosește pentru a obține date. API-ul local este un extractor incorporat. API-ul Invidious necesită un server Invidious la care să vă conectați.
+    Open Deep Links In New Window: URL-urile transmise către FreeTube, cum ar fi prin redirecționarea extensiilor de browser sau a argumentelor din linia de comandă, sunt deschise într-o fereastră nouă.
   Distraction Free Settings:
-    Hide Channels: Introduceți un ID de canal pentru a ascunde toate videoclipurile,
-      listele de redare și canalul însuși de la apariția în căutare, tendințe, cele
-      mai populare și recomandate. ID-ul canalului introdus trebuie să fie o potrivire
-      completă și este sensibil la majuscule și minuscule.
-    Hide Subscriptions Live: Această setare este înlocuită de setarea "{appWideSetting}”
-      la nivel de aplicație, în secțiunea „{subsection}” din „{settingsSection}”
-    Hide Videos and Playlists Containing Text: Introduceți un cuvânt, un fragment
-      de cuvânt sau o frază (fără a ține cont de majuscule) pentru a ascunde toate
-      videoclipurile și listele de redare ale căror titluri originale conțin acest
-      cuvânt în întregul FreeTube, excluzând doar Istoric, Listele dvs. de redare
-      și videoclipurile din listele de redare.
+    Hide Channels: Introduceți un ID de canal pentru a ascunde toate videoclipurile, listele de redare și canalul însuși de la apariția în căutare, tendințe, cele mai populare și recomandate. ID-ul canalului introdus trebuie să fie o potrivire completă și este sensibil la majuscule și minuscule.
+    Hide Subscriptions Live: Această setare este înlocuită de setarea "{appWideSetting}” la nivel de aplicație, în secțiunea „{subsection}” din „{settingsSection}”
+    Hide Videos and Playlists Containing Text: Introduceți un cuvânt, un fragment de cuvânt sau o frază (fără a ține cont de majuscule) pentru a ascunde toate videoclipurile și listele de redare ale căror titluri originale conțin acest cuvânt în întregul FreeTube, excluzând doar Istoric, Listele dvs. de redare și videoclipurile din listele de redare.
+    Hide Videos on Watch: Ascunde videoclipurile vizionate din secțiunile Videoclipuri, Shorts și Live de pe paginile Abonamente și Canal. Aceasta nu afectează fila Acasă de pe paginile de canal.
   Experimental Settings:
-    Replace HTTP Cache: Dezactivează memoria cache HTTP bazată pe disc Electron și
-      activează un cache de imagini personalizat în memorie. Va duce la o utilizare
-      crescută a memoriei RAM.
+    Replace HTTP Cache: Dezactivează memoria cache HTTP bazată pe disc Electron și activează un cache de imagini personalizat în memorie. Va duce la o utilizare crescută a memoriei RAM.
   SponsorBlock Settings:
-    UseDeArrowTitles: Înlocuiți titlurile video cu titluri trimise de utilizator de
-      la DeArrow.
+    UseDeArrowTitles: Înlocuiți titlurile video cu titluri trimise de utilizator de la DeArrow.
     UseDeArrowThumbnails: Înlocuiți miniaturile video cu miniaturi de la DeArrow.
-External link opening has been disabled in the general settings: Deschiderea linkurilor
-  externe a fost dezactivată în setările generale
+External link opening has been disabled in the general settings: Deschiderea linkurilor externe a fost dezactivată în setările generale
 Starting download: Se începe descărcarea a "{videoTitle}"
 Downloading failed: A existat o problemă la descărcarea "{videoTitle}"
 Downloading has completed: '"{videoTitle}" s-a terminat de descărcat'
@@ -1222,19 +1012,15 @@ Screenshot Error: Captura de ecran a eșuat {error}
 Preferences: Preferințe
 Chapters:
   Chapters: Capitole
-  'Chapters list visible, current chapter: {chapterName}': 'Lista de capitole vizibilă,
-    capitolul curent: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Lista de capitole ascunsă,
-    capitolul curent: {chapterName}'
+  'Chapters list visible, current chapter: {chapterName}': 'Lista de capitole vizibilă, capitolul curent: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Lista de capitole ascunsă, capitolul curent: {chapterName}'
   Key Moments: Momente cheie
 Clipboard:
-  Cannot access clipboard without a secure connection: Nu se poate accesa clipboard-ul
-    fără o conexiune securizată
+  Cannot access clipboard without a secure connection: Nu se poate accesa clipboard-ul fără o conexiune securizată
   Copy failed: Copierea în clipboard a eșuat
 Hashtag:
   Hashtag: Hashtag
-  This hashtag does not currently have any videos: Acest hashtag nu are momentan niciun
-    videoclip
+  This hashtag does not currently have any videos: Acest hashtag nu are momentan niciun videoclip
 Ok: OK
 Go to page: Mergeți la {page}
 Close Banner: Închideți bannerul
@@ -1242,8 +1028,7 @@ Age Restricted:
   This video is age restricted: Acest videoclip este restricționat în funcție de vârstă
   This channel is age restricted: Acest canal este restricționat de vârstă
 Channel Hidden: '{channel} adăugat la filtrul de canal'
-Trimmed input must be at least N characters long: Intrarea tăiată trebuie să aibă
-  cel puțin 1 caracter | Intrarea tăiată trebuie să aibă cel puțin {length} caractere
+Trimmed input must be at least N characters long: Intrarea tăiată trebuie să aibă cel puțin 1 caracter | Intrarea tăiată trebuie să aibă cel puțin {length} caractere
 Tag already exists: Eticheta "{tagName}" există deja
 Channel Unhidden: '{channel} eliminat din filtrul de canale'
 Search Listing:
@@ -1272,8 +1057,7 @@ KeyboardShortcutPrompt:
   Toggle Developer Tools: Comutați instrumentele pentru dezvoltatori
   Captions: Activarea/Dezactivarea subtitrărilor
   Navigate to History: Navigați la pagina Istoric
-  Large Rewind: Derulați înapoi 10 secunde / Derulați înapoi videoclipul în funcție
-    de rata de redare video curentă
+  Large Rewind: Derulați înapoi 10 secunde / Derulați înapoi videoclipul în funcție de rata de redare video curentă
   Keyboard Shortcuts: Comenzi rapide de la tastatură
   Sections:
     Video:
@@ -1288,27 +1072,21 @@ KeyboardShortcutPrompt:
   New Window: Creați o fereastră nouă
   Navigate to Settings: Navigați la pagina Setări
   Refresh: Actualizați feed-ul cu cel mai recent conținut
-  Focus Secondary Search: Concentrați-vă pe bara de căutare secundară (dacă există
-    una)
+  Focus Secondary Search: Concentrați-vă pe bara de căutare secundară (dacă există una)
   Stats: Afișați statisticile video
-  Large Fast Forward: Înainte 10 secunde / Derulare rapidă pe baza vitezei actuale
-    de redare video
+  Large Fast Forward: Înainte 10 secunde / Derulare rapidă pe baza vitezei actuale de redare video
   Search in New Window: Căutare într-o fereastră nouă
-  Increase Video Speed: Creșteți viteza video în funcție de intervalul ratei de redare
-    video
-  Small Rewind: Derulează înapoi X secunde pe baza intervalului de derulare înapoi
-    și a vitezei actuale de redare video
+  Increase Video Speed: Creșteți viteza video în funcție de intervalul ratei de redare video
+  Small Rewind: Derulează înapoi X secunde pe baza intervalului de derulare înapoi și a vitezei actuale de redare video
   Last Chapter: Ultimul capitol
-  Decrease Video Speed: Reducerea vitezei video în funcție de intervalul ratei de
-    redare video
+  Decrease Video Speed: Reducerea vitezei video în funcție de intervalul ratei de redare video
   Restart Window: fereastra de repornire
   Volume Up: Creșterea volumului
   Skip by Tenths: Salt prin video în funcție de procent (3 salturi la 30% din durată)
   Focus Search: Concentrați-vă pe bara de căutare
   Last Frame: Cadrul anterior (în timpul pauzei)
   Next Frame: Următorul cadru (în timpul pauzei)
-  Small Fast Forward: Derulare rapidă X secunde pe baza intervalului de derulare rapidă
-    și a vitezei actuale de redare video
+  Small Fast Forward: Derulare rapidă X secunde pe baza intervalului de derulare rapidă și a vitezei actuale de redare video
   Force Restart Window: fereastră de repornire forțată
   Next Chapter: Capitolul următor
   Zoom In: zoom in
@@ -1319,9 +1097,10 @@ KeyboardShortcutPrompt:
   Volume Down: scăderea volumului
   Home: Treci la începutul videoclipului
   End: Treci la finalul videoclipului
+  Skip to Next Video: Treci la următorul videoclip din playlist sau la următorul videoclip recomandat
+  Skip to Previous Video: Treci la videoclipul anterior din playlist
 Moments Ago: acum câteva momente
-Autoplay Interruption Timer: Redarea automată anulată din cauza a {autoplayInterruptionIntervalHours}
-  ore de inactivitate
+Autoplay Interruption Timer: Redarea automată anulată din cauza a {autoplayInterruptionIntervalHours} ore de inactivitate
 shortcutLabelSeparator: ｜
 Cancel: Anulează
 Description:
@@ -1340,7 +1119,7 @@ Keys:
 checkmark: ✓
 Yes, Delete: da, șterge
 Yes, Open Link: Da, Link deschis
-Display Label: '{label}: {valoare}'
+Display Label: '{label}: {value}'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Yes, Restart: Da, repornire
 shortcutJoinOperator: +

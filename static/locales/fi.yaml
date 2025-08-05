@@ -15,7 +15,7 @@ Toggle Developer Tools: 'Kehittäjän työkalut päällä/pois'
 Actual size: 'Todellinen koko'
 Zoom in: 'Lähennä'
 Zoom out: 'Loitonna'
-Toggle fullscreen: 'Vaihda koko näyttöön'
+Toggle fullscreen: 'Vaihda koko näyttön tilaan'
 Window: 'Ikkuna'
 Minimize: 'Pienennä'
 Close: 'Sulje'
@@ -26,7 +26,7 @@ Forward: 'Eteenpäin'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videot'
-  Shorts: Shorts
+  Shorts: Shortit
   Live: Livenä
   Posts: Postaukset
   Sort By: Järjestä
@@ -87,22 +87,18 @@ Search Filters:
     Features: Ominaisuudet
     VR180: VR180
     360 Video: 360 Video
+  Clear Filters: Tyhjennä suodattimet
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Tilaukset'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sinulla
-    ei juuri nyt ole tilauksia. Tilaa kanavia nähdäksesi ne täällä.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Tällä
-    profiililla on paljon tilauksia.  Pakotetaan RSS nopeuden rajoittamisen välttämiseksi
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sinulla ei juuri nyt ole tilauksia. Tilaa kanavia nähdäksesi ne täällä.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Tällä profiililla on paljon tilauksia.  Pakotetaan RSS nopeuden rajoittamisen välttämiseksi
   Load More Videos: Lataa lisää videoita
   Error Channels: Kanavat, joissa on virheitä
   Empty Channels: Tilaamillasi kanavilla ei ole videoita tällä hetkellä.
-  Disabled Automatic Fetching: Olet poistanut käytöstä automaattisen tilaustennoutamisen.
-    Virkistä tilaukset nähdäksesi ne täällä.
+  Disabled Automatic Fetching: Olet poistanut käytöstä tilausten automaattisen noutamisen. Virkistä tilaukset nähdäksesi ne täällä.
   Subscriptions Tabs: Tilaukset-välilehdet
-  All Subscription Tabs Hidden: Kaikki tilausvälilehdet on piilotettu. Jos haluat
-    nähdä sisällön täällä, poista joitakin välilehtiä ”{settingsSection}”-osion ”{settingsSection}”-osion
-    ”{subsection}”-välilehdistä.
+  All Subscription Tabs Hidden: Kaikki tilausvälilehdet on piilotettu. Jos haluat nähdä sisällön täällä, poista joitakin välilehtiä ”{settingsSection}”-osion ”{settingsSection}”-osion ”{subsection}”-välilehdistä.
   Load More Posts: Lataa lisää julkaisuja
   Empty Posts: Tilaamillasi kanavilla ei tällä hetkellä ole julkaisuja.
 Trending:
@@ -131,39 +127,24 @@ User Playlists:
   SinglePlaylistView:
     Toast:
       Video has been removed: Video on poistettu
-      Playlist name cannot be empty. Please input a name.: Soittolistan nimi ei voi
-        olla tyhjä. Anna soittolistalle nimi.
+      Playlist name cannot be empty. Please input a name.: Soittolistan nimi ei voi olla tyhjä. Anna soittolistalle nimi.
       Playlist has been updated.: Soittolista on päivitetty.
-      "{videoCount} video(s) have been removed": 1 video on poistettu | {videoCount}
-        videota on poistettu
+      "{videoCount} video(s) have been removed": 1 video on poistettu | {videoCount} videota on poistettu
       This video cannot be moved up.: Tätä videota ei voi siirtää ylös.
       This video cannot be moved down.: Tätä videota ei voi siirtää alas.
-      This playlist is protected and cannot be removed.: Tämä soittolista on suojattu
-        ja sitä ei voi poistaa.
+      This playlist is protected and cannot be removed.: Tämä soittolista on suojattu ja sitä ei voi poistaa.
       Playlist {playlistName} has been deleted.: Soittolista {playlistName} on poistettu.
       This playlist does not exist: Soittolistaa ei ole olemassa
-      There was an issue with updating this playlist.: Tätä soittolistaa päivittäessä
-        ilmeni ongelma.
-      There was a problem with removing this video: Tämän videon poistamisessa oli
-        ongelmia
-      This playlist is now used for quick bookmark: Tätä soittolistaa käytetään nyt
-        nopeaa kirjanmerkkiä varten
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Tätä
-        soittolistaa käytetään nyt pikakirjanmerkkinä {oldPlaylistName}:n sijaan.
-        Klikkaa tästä peruuttaaksesi
+      There was an issue with updating this playlist.: Tätä soittolistaa päivittäessä ilmeni ongelma.
+      There was a problem with removing this video: Tämän videon poistamisessa oli ongelmia
+      This playlist is now used for quick bookmark: Tätä soittolistaa käytetään nyt nopeaa kirjanmerkkiä varten
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Tätä soittolistaa käytetään nyt pikakirjanmerkkinä {oldPlaylistName}:n sijaan. Klikkaa tästä peruuttaaksesi
       There were no videos to remove.: Poistettavia videoita ei ollut.
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Joitakin
-        soittolistan videoita ei ole vielä ladattu. Klikkaa tästä kopioidaksesi joka
-        tapauksessa.
-      This playlist has a video with a duration error: Tämä soittolista sisältää vähintään
-        yhden videon, jolla ei ole kestoa, se lajitellaan ikään kuin sen kesto olisi
-        nolla.
-      Video has been removed. Click here to undo.: Video on poistettu. Klikkaa tästä
-        peruuttaaksesi.
-      This playlist is already being used for quick bookmark.: Tätä soittolistaa käytetään
-        jo nopeaan kirjanmerkkiin.
-      Reverted to use {oldPlaylistName} for quick bookmark: Palautettu käyttämään
-        {oldPlaylistName} nopeaa kirjanmerkkiä varten
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Joitakin soittolistan videoita ei ole vielä ladattu. Klikkaa tästä kopioidaksesi joka tapauksessa.
+      This playlist has a video with a duration error: Tämä soittolista sisältää vähintään yhden videon, jolla ei ole kestoa, se lajitellaan ikään kuin sen kesto olisi nolla.
+      Video has been removed. Click here to undo.: Video on poistettu. Klikkaa tästä peruuttaaksesi.
+      This playlist is already being used for quick bookmark.: Tätä soittolistaa käytetään jo nopeaan kirjanmerkkiin.
+      Reverted to use {oldPlaylistName} for quick bookmark: Palautettu käyttämään {oldPlaylistName} nopeaa kirjanmerkkiä varten
     Search for Videos: Etsi videot
   Move Video Down: Siirrä video alas
   Remove from Playlist: Poista soittolistalta
@@ -173,10 +154,8 @@ User Playlists:
   Copy Playlist: Kopioi soittolista
   This playlist currently has no videos.: Tällä soittolistalla ei ole videoita.
   Delete Playlist: Poista soittolista
-  Are you sure you want to delete this playlist? This cannot be undone: Haluatko varmasti
-    poistaa tämän soittolistan? Toimintoa ei voi perua.
-  You have no playlists. Click on the create new playlist button to create a new one.: Sinulla
-    ei ole soittolistoja. Luo uusi soittolista napsauttamalla "Luo uusi soittolista".
+  Are you sure you want to delete this playlist? This cannot be undone: Haluatko varmasti poistaa tämän soittolistan? Toimintoa ei voi perua.
+  You have no playlists. Click on the create new playlist button to create a new one.: Sinulla ei ole soittolistoja. Luo uusi soittolista napsauttamalla "Luo uusi soittolista".
   Create New Playlist: Luo uusi soittolista
   Add to Playlist: Lisää soittolistalle
   Save Changes: Tallenna muutokset
@@ -186,29 +165,21 @@ User Playlists:
     Save: Tallenna
     Toast:
       You haven't selected any playlist yet.: Et ole valinnut yhtäkään soittolistaa.
-      "{videoCount} video(s) added to 1 playlist": 1 video lisätty 1 soittolistaan
-        | {videoCount} videoita lisätty 1 soittolistaan
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video lisätty
-        {playlistCount}-soittolistoihin | {videoCount} videot lisätty {playlistCount}-soittolistoihin
+      "{videoCount} video(s) added to 1 playlist": 1 video lisätty 1 soittolistaan | {videoCount} videoita lisätty 1 soittolistaan
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video lisätty {playlistCount}-soittolistoihin | {videoCount} videot lisätty {playlistCount}-soittolistoihin
     Added {count} Times: Jo lisätty | Lisätty {count} kertaa
     Search in Playlists: Haku soittolistoista
-    Select a playlist to add your N videos to: Valitse soittoluettelo, johon haluat
-      lisätä videosi | Valitse soittoluettelo, johon haluat lisätä {videoCount}-videot
+    Select a playlist to add your N videos to: Valitse soittoluettelo, johon haluat lisätä videosi | Valitse soittoluettelo, johon haluat lisätä {videoCount}-videot
     Allow Adding Duplicate Video(s): Salli päällekkäisten videoid(en) lisääminen
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      Videoita lisätään'
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      Jo lisätyt videot'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videoita lisätään'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Jo lisätyt videot'
   CreatePlaylistPrompt:
     New Playlist Name: Uuden soittolistan nimi
     Create: Luo
     Toast:
-      There is already a playlist with this name. Please pick a different name.: Samalla
-        nimellä on jo olemassa soittolista. Valitse eri nimi.
-      Playlist {playlistName} has been successfully created.: Soittolista {playlistName}
-        on luotu.
-      There was an issue with creating the playlist.: Soittolistaa luotaessa ilmeni
-        ongelma.
+      There is already a playlist with this name. Please pick a different name.: Samalla nimellä on jo olemassa soittolista. Valitse eri nimi.
+      Playlist {playlistName} has been successfully created.: Soittolista {playlistName} on luotu.
+      There was an issue with creating the playlist.: Soittolistaa luotaessa ilmeni ongelma.
   Add to Favorites: Lisää soittolistaan {playlistName}
   Remove from Favorites: Poista soittolistalta {playlistName}
   Remove Watched Videos: Poista katsotut videot
@@ -216,20 +187,12 @@ User Playlists:
   The playlist has been successfully exported: Soittolista viety onnistuneesti
   Quick Bookmark Enabled: Pikakirjanmerkki käytössä
   Playlists with Matching Videos: Soittolistat, joissa on vastaavia videoita
-  Enable Quick Bookmark With This Playlist: Ota nopea kirjanmerkki käyttöön tällä
-    soittolistalla
+  Enable Quick Bookmark With This Playlist: Ota nopea kirjanmerkki käyttöön tällä soittolistalla
   Remove Duplicate Videos: Poista päällekkäiset videot
-  TotalTimePlaylist: 'Kokonaisaika: {kesto}'
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Haluatko
-    varmasti poistaa 1 päällekkäisen videon tästä soittolistasta? Tätä ei voi peruuttaa.
-    | Haluatko varmasti poistaa {playlistItemCount} päällekkäiset videot tästä soittolistasta?
-    Tätä ei voi peruuttaa.
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Haluatko
-    varmasti poistaa 1 katsotun videon tästä soittolistasta? Tätä ei voi peruuttaa.
-    | Haluatko varmasti poistaa {playlistItemCount} katsotut videot tästä soittolistasta?
-    Tätä ei voi peruuttaa.
-  Cannot delete the quick bookmark target playlist.: Pikakirjanmerkin kohdesoittolistaa
-    ei voi poistaa.
+  TotalTimePlaylist: 'Kokonaisaika: {duration}'
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Haluatko varmasti poistaa 1 päällekkäisen videon tästä soittolistasta? Tätä ei voi peruuttaa. | Haluatko varmasti poistaa {playlistItemCount} päällekkäiset videot tästä soittolistasta? Tätä ei voi peruuttaa.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Haluatko varmasti poistaa 1 katsotun videon tästä soittolistasta? Tätä ei voi peruuttaa. | Haluatko varmasti poistaa {playlistItemCount} katsotut videot tästä soittolistasta? Tätä ei voi peruuttaa.
+  Cannot delete the quick bookmark target playlist.: Pikakirjanmerkin kohdesoittolistaa ei voi poistaa.
 History:
   # On History Page
   History: 'Historia'
@@ -238,13 +201,14 @@ History:
   Search bar placeholder: Etsi historiasta
   Empty Search Message: Historiassasi ei ole videoita, jotka vastaavat hakuasi
   Case Sensitive Search: kirjainkoolla erotteleva haku
+  DateOldestHistory: Varhaisin katsottu ensin
+  DateNewestHistory: Viimeisimpänä katsottu ensin
 Settings:
   # On Settings Page
   Settings: 'Asetukset'
   General Settings:
     General Settings: 'Yleistä'
-    Fallback to Non-Preferred Backend on Failure: 'Vikatilanteessa palaa toissijaiseen
-      taustaohjelmaan'
+    Fallback to Non-Preferred Backend on Failure: 'Vikatilanteessa palaa toissijaiseen taustaohjelmaan'
     Enable Search Suggestions: 'Salli hakuehdotukset'
     Default Landing Page: 'Oletusaloitussivu'
     Locale Preference: 'Maa-asetus'
@@ -272,11 +236,9 @@ Settings:
     System Default: Järjestelmän oletus
     Clear Default Instance: Tyhjennä oletuspalveluntarjoaja
     Set Current Instance as Default: Aseta nykyinen palveluntarjoaja oletukseksi
-    Current instance will be randomized on startup: Nykyinen palveluntarjoaja valitaan
-      satunnaisesti käynnistyksen yhteydessä
+    Current instance will be randomized on startup: Nykyinen palveluntarjoaja valitaan satunnaisesti käynnistyksen yhteydessä
     No default instance has been set: Oletuspalveluntarjoajaa ei ole määritelty
-    The currently set default instance is {instance}: Nykyinen oletuspalveluntarjoaja
-      on {instance}
+    The currently set default instance is {instance}: Nykyinen oletuspalveluntarjoaja on {instance}
     Current Invidious Instance: Nykyinen Invidious-palveluntarjoaja
     External Link Handling:
       No Action: Ei toimintoa
@@ -286,8 +248,7 @@ Settings:
     Auto Load Next Page:
       Label: Lataa seuraava sivu automaattisesti
       Tooltip: Lataa lisäsivut ja kommentit automaattisesti.
-    Open Deep Links In New Window: Avaa FreeTube uudelleenohjatut URL-osoitteet uudessa
-      ikkunassa
+    Open Deep Links In New Window: Avaa FreeTube uudelleenohjatut URL-osoitteet uudessa ikkunassa
   Theme Settings:
     Theme Settings: 'Teema'
     Match Top Bar with Main Color: 'Käytä pääväriä yläpalkissa'
@@ -382,8 +343,7 @@ Settings:
       8k: '8K'
     Next Video Interval: Seuraavan videon väli
     Display Play Button In Video Player: Näytä toista-nappula videotoistimessa
-    Scroll Volume Over Video Player: Säädä äänenvoimakkuutta vierittämällä videon
-      päällä
+    Scroll Volume Over Video Player: Säädä äänenvoimakkuutta vierittämällä videon päällä
     Fast-Forward / Rewind Interval: Pikakelauksen intervalli
     Scroll Playback Rate Over Video Player: Toistonopeuden selaaminen videosoittimessa
     Max Video Playback Rate: Videon maksimitoistonopeus
@@ -399,58 +359,55 @@ Settings:
       Quality Label: Kuvakaappauksen laatu
       File Name Label: Tiedostonimimalli
       Ask Path: Kysy tallennuskansiota
-      File Name Tooltip: Voit käyttää allanäkyviä muuttujia. %Y Vuosi 4 numeroa. %M
-        Kuukausi 2 numeroa. %D Päivä 2 numeroa. %H Tunnit 2 numeroa. %N Minuutit 2
-        numeroa. %S Sekunnit 2 numeroa. %T Millisekunnit 3 numeroa. %s Videosekunnit.
-        %t Videon Millisekunnit 3 numeroa. %i Videotunniste eli ID.
+      File Name Tooltip: Voit käyttää allanäkyviä muuttujia. %Y Vuosi 4 numeroa. %M Kuukausi 2 numeroa. %D Päivä 2 numeroa. %H Tunnit 2 numeroa. %N Minuutit 2 numeroa. %S Sekunnit 2 numeroa. %T Millisekunnit 3 numeroa. %s Videosekunnit. %t Videon Millisekunnit 3 numeroa. %i Videotunniste eli ID.
     Enter Fullscreen on Display Rotate: Siirry koko näytön tilaan näyttöä kiertäessä
     Skip by Scrolling Over Video Player: Ohita vierittämällä videosoittimen yli
   Subscription Settings:
     Subscription Settings: 'Tilausasetukset'
-    Hide Videos on Watch: 'Piilota katsotut videot'
     Fetch Feeds from RSS: Nouda RSS-syöte
     Fetch Automatically: Nouda syöte automaattisesti
+    'Limit the number of videos displayed for each channel': Rajoita kanavilta näytettyjen videoiden määrää
+    Confirm Before Unsubscribing: Vahvista ennen tilauksen peruuttamista
   Privacy Settings:
     Watch history has been cleared: Katseluhistoria poistettiin
-    Are you sure you want to remove your entire watch history?: Haluatko varmasti
-      poistaa katseluhistorian?
+    Are you sure you want to remove your entire watch history?: Haluatko varmasti poistaa katseluhistorian?
     Remove Watch History: Poista katseluhistoria
     Search cache has been cleared: Hakuvälimuisti tyhjennettiin
-    Are you sure you want to clear out your search cache?: Haluatko varmasti tyhjentää
-      hakuvälimuistin?
+    Are you sure you want to clear out your search cache?: Haluatko varmasti tyhjentää hakuvälimuistin?
     Clear Search Cache: Tyhjennä hakuvälimuisti
     Save Watched Progress: Tallenna tilanne katsotuissa
     Remember History: Muista historia
     Privacy Settings: Yksityisyysasetukset
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Haluatko
-      varmasti poistaa kaikki tilaukset ja profiilit?  Tätä toimintoa ei voi perua.
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Haluatko varmasti poistaa kaikki tilaukset ja profiilit?  Tätä toimintoa ei voi perua.
     Remove All Subscriptions / Profiles: Poista kaikki tilaukset / profiilit
-    Save Watched Videos With Last Viewed Playlist: Tallenna katsotut videot viimeksi
-      katsotulla soittolistalla
+    Save Watched Videos With Last Viewed Playlist: Tallenna katsotut videot Viimeksi katsottujen soittolistalle
     Remove All Playlists: Poista kaikki soittolistat
     All playlists have been removed: Kaikki soittolistat on poistettu
-    Are you sure you want to remove all your playlists?: Haluatko varmasti poistaa
-      kaikki soittolistat?
+    Are you sure you want to remove all your playlists?: Haluatko varmasti poistaa kaikki soittolistat?
+    Search history and cache have been cleared: Hakuhistoria ja välimuisti on tyhjennetty
+    Are you sure you want to clear out your search history and cache?: Haluatko varmasti poistaa hakuhistoriasi ja välimuistin tiedot?
+    Clear Search History and Cache: Tyhjennä hakuhistoria ja välimuisti
+    Remember Search History: Muista hakuhistoria
+    Watched Progress Saving Mode:
+      Modes:
+        Never: Älä koskaan
+        Auto: Automaattisesti
+        Semi-auto: Puoliautomaattisesti
   Data Settings:
     How do I import my subscriptions?: Kuinka voin tuoda tilaukseni?
     Unknown data key: Tuntematon data-avain
     Unable to write file: Tiedostoa ei voida kirjoittaa
     Unable to read file: Tiedostoa ei voida lukea
-    All watched history has been successfully exported: Kaikki katsottujen historia
-      on viety onnistuneesti
-    All watched history has been successfully imported: Kaikki katsottujen historia
-      on tuotu onnistuneesti
-    History object has insufficient data, skipping item: Historiakohteen tiedot ovat
-      puuttelliset, ohitetaan kohde
+    All watched history has been successfully exported: Kaikki katsottujen historia on viety onnistuneesti
+    All watched history has been successfully imported: Kaikki katsottujen historia on tuotu onnistuneesti
+    History object has insufficient data, skipping item: Historiakohteen tiedot ovat puuttelliset, ohitetaan kohde
     Subscriptions have been successfully exported: Tilaukset on viety onnistuneesti
     Invalid history file: Puutteellinen historiatiedosto
     This might take a while, please wait: Tämä saattaa viedä tovin, odota hetki
     Invalid subscriptions file: Puutteellinen tilaustiedosto
     All subscriptions have been successfully imported: Kaikki tilaukset on tuotu onnistuneesti
-    All subscriptions and profiles have been successfully imported: Kaikki tilaukset
-      ja profiilit on tuotu onnistuneesti
-    Profile object has insufficient data, skipping item: Profiilikohteen tiedot ovat
-      puutteelliset, ohitetaan kohde
+    All subscriptions and profiles have been successfully imported: Kaikki tilaukset ja profiilit on tuotu onnistuneesti
+    Profile object has insufficient data, skipping item: Profiilikohteen tiedot ovat puutteelliset, ohitetaan kohde
     Export History: Vie historia
     Import History: Tuo historia
     Export NewPipe: Vie NewPipe-tilaukset
@@ -461,13 +418,11 @@ Settings:
     Select Export Type: Valitse Viennin tyyppi
     Data Settings: Data-asetukset
     Manage Subscriptions: Hallitse tilauksia
-    All playlists has been successfully imported: Kaikki soittolistat on onnistuneesti
-      tuotu
+    All playlists has been successfully imported: Kaikki soittolistat on onnistuneesti tuotu
     All playlists has been successfully exported: Kaikki soittolistat on viety onnistuneesti
     Import Playlists: Tuo soittolistoja
     Export Playlists: Vie soittolistoja
-    Playlist insufficient data: Riittämätön määrä tietoja ”{playlist}” -soittolistalle,
-      ohitetaan kohde
+    Playlist insufficient data: Riittämätön määrä tietoja ”{playlist}” -soittolistalle, ohitetaan kohde
     Playlist File: Soittolistatiedosto
     History File: Historia-tiedosto
     Subscription File: Tilaustiedosto
@@ -481,7 +436,7 @@ Settings:
     Hide Comment Likes: Piilota kommenttien tykkäykset
     Hide Channel Subscribers: Piilota kanavan tilaajat
     Hide Video Likes And Dislikes: Piilota videon tykkäykset
-    Distraction Free Settings: Häiriöttömän tilan asetukset
+    Distraction Free Settings: Häiriötön
     Hide Video Views: Piilota videon katselukerrat
     Hide Active Subscriptions: Piilota aktiiviset tilaukset
     Hide Playlists: Piilota soittolistat
@@ -489,19 +444,19 @@ Settings:
     Hide Video Description: Piilota videon kuvaus
     Hide Live Streams: Piilota suorat lähetykset
     Hide Sharing Actions: Piilota jakamistoiminnot
+    Hide Videos on Watch: 'Piilota katsotut videot'
     Hide Chapters: Piilota kappaleet
     Hide Channels: Piilota videot kanavilta
     Hide Upcoming Premieres: Piilota tulevat ensiesitykset
     Hide Channels Placeholder: Kanavan tunnus
-    Display Titles Without Excessive Capitalisation: Näytä otsikot ilman liiallista
-      isoja kirjaimia
+    Display Titles Without Excessive Capitalisation: Näytä otsikot ilman liiallista isoja kirjaimia
     Hide Featured Channels: Piilota esillä olevat kanavat
     Hide Channel Playlists: Piilota kanavan soittolistat
     Hide Channel Shorts: Piilota kanavan lyhytelokuvat
     Sections:
       Side Bar: Sivupalkki
       Channel Page: Kanavan sivu
-      Watch Page: Katso sivu
+      Watch Page: Katso -sivu
       General: Yleiset
       Subscriptions Page: Tilaukset-sivu
     Hide Channel Releases: Piilota kanavajulkaisut
@@ -511,12 +466,9 @@ Settings:
     Hide Profile Pictures in Comments: Piilota profiilikuvat kommenteissa
     Hide Channels Invalid: Annettu kanavatunnus oli virheellinen
     Hide Subscriptions Shorts: Piilota tilattujen kanavien Shorts-videot
-  The app needs to restart for changes to take effect. Restart and apply change?: Sovellus
-    on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö
-    uudelleen?
+  The app needs to restart for changes to take effect. Restart and apply change?: Sovellus on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö uudelleen?
   Proxy Settings:
-    Error getting network information. Is your proxy configured properly?: Virhe verkkoyhteyden
-      tietojen saamisessa. Onko välityspalvelin määritetty oikein?
+    Error getting network information. Is your proxy configured properly?: Virhe verkkoyhteyden tietojen saamisessa. Onko välityspalvelin määritetty oikein?
     Ip: Ip-osoite
     Your Info: Tietosi
     Country: Valtio
@@ -526,14 +478,13 @@ Settings:
     Proxy Port Number: Välityspalvelimen portin numero
     Proxy Host: Välityspalvelin
     Proxy Settings: Välityspalvelimen asetukset
-    Enable Tor / Proxy: Ota käyttöön Tor/välityspalvelin
+    Enable Tor / Proxy: Ota käyttöön Tor / välityspalvelin
     Proxy Protocol: Välityspalvelimen protokolla
-    Clicking on Test Proxy will send a request to: Napsauttamalla testaa välityspalvelinta
-      lähettää pyynnön kohteeseen
+    Clicking on Test Proxy will send a request to: Napsauttamalla testaa välityspalvelinta lähettää pyynnön kohteeseen
+    Proxy Warning: FreeTubella ei ole sisäänrakennettua välityspalvelinta, mutta voit yhdistää ulkoisella välityspalvelimella, kuten Tor:lla tai jonkin VPN-tarjoajan Socks5:llä.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Ilmoita sponsoriosuuden yli hypättäessä
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-sponsorieston
-      API-ohjelmointirajapinnan Url-osoite (vakio-osoite on https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-sponsorieston API-ohjelmointirajapinnan Url-osoite (vakio-osoite on https://sponsor.ajay.app)
     Enable SponsorBlock: Kytke SponsorBlock-sponsoriesto päälle
     SponsorBlock Settings: SponsorBlock-sponsorieston asetukset
     Skip Options:
@@ -543,11 +494,11 @@ Settings:
       Do Nothing: Älä tee mitään
       Prompt To Skip: Ehdota ohittamista
     Category Color: Luokan väri
-    UseDeArrowTitles: Käytä DeArrow Video Otsikoita
+    UseDeArrowTitles: Käytä DeArrow video-otsikoita
+    UseDeArrowThumbnails: Käytä DeArrow pikkukuvia
   External Player Settings:
     Custom External Player Arguments: Omavalintaisen ulkoisen toisto-ohjelman määritykset
-    Custom External Player Executable: Omavalintaisen ulkoisen toisto-ohjelman ajettava
-      tiedosto
+    Custom External Player Executable: Omavalintaisen ulkoisen toisto-ohjelman ajettava tiedosto
     Ignore Unsupported Action Warnings: Sivuuta ei-tuettujen toimintojen varoitukset
     External Player: Ulkoinen toisto-ohjelma
     External Player Settings: Ulkoisen videontoisto-ohjelman asetukset
@@ -568,9 +519,7 @@ Settings:
     Hide Search Bar: Piilota hakupalkki
   Experimental Settings:
     Experimental Settings: Kokeelliset asetukset
-    Warning: Nämä asetukset ovat kokeellisia ja ne voivat aiheuttavat kaatumisia,
-      kun ne ovat käytössä. Varmuuskopioiden tekeminen on erittäin suositeltavaa.
-      Käytä omalla vastuullasi!
+    Warning: Nämä asetukset ovat kokeellisia ja ne voivat aiheuttavat kaatumisia, kun ne ovat käytössä. Varmuuskopioiden tekeminen on erittäin suositeltavaa. Käytä omalla vastuullasi!
     Replace HTTP Cache: Korvaa HTTP-välimuisti
   Password Dialog:
     Password: Salasana
@@ -619,16 +568,14 @@ Channel:
   Your search results have returned 0 results: 'Hakusi on tuottanut 0 tulosta'
   Videos:
     Videos: 'Videot'
-    This channel does not currently have any videos: 'Tällä kanavalla ei juuri nyt
-      ole yhtään videota'
+    This channel does not currently have any videos: 'Tällä kanavalla ei juuri nyt ole yhtään videota'
     Sort Types:
       Newest: 'Uusimmat'
       Oldest: 'Vanhimmat'
       Most Popular: 'Suosituimmat'
   Playlists:
     Playlists: 'Soittolistat'
-    This channel does not currently have any playlists: 'Tällä kanavalla ei juuri
-      nyt ole yhtään soittolistaa'
+    This channel does not currently have any playlists: 'Tällä kanavalla ei juuri nyt ole yhtään soittolistaa'
     Sort Types:
       Last Video Added: 'Viimeksi lisätty video'
       Newest: 'Uusin'
@@ -644,36 +591,29 @@ Channel:
     Joined: Liittynyt
     Details: Yksityiskohdat
   Added channel to your subscriptions: Kanava on lisätty tilauksiisi
-  Removed subscription from {count} other channel(s): Poistettu tilaus {count} muulta
-    kanavalta
+  Removed subscription from {count} other channel(s): Poistettu tilaus {count} muulta kanavalta
   Channel has been removed from your subscriptions: Kanava on poistettu tilauksistasi
   Channel Tabs: Kanavavälilehdet
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: Tämä
-    kanava on ikärajoitettu, eikä sitä voi tällä hetkellä katsoa FreeTubessa.
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Tämä kanava on ikärajoitettu, eikä sitä voi tällä hetkellä katsoa FreeTubessa.
   This channel does not exist: Tätä kanavaa ei ole olemassa
   This channel does not allow searching: Tämä kanava ei salli etsintää
   Posts:
-    This channel currently does not have any posts: Tällä kanavalla ei ole tällä hetkellä
-      mitään
+    This channel currently does not have any posts: Tällä kanavalla ei ole tällä hetkellä mitään
     Reveal Answers: Näytä vastaukset
     Hide Answers: Piilota vastaukset
     votes: '{votes} ääntä'
     Video hidden by FreeTube: Video on piilotettu FreeTuben toimesta
   Live:
     Live: Livenä
-    This channel does not currently have any live streams: Tällä kanavalla ei ole
-      tällä hetkellä yhtään suoraa lähetystä
+    This channel does not currently have any live streams: Tällä kanavalla ei ole tällä hetkellä yhtään suoraa lähetystä
   Shorts:
-    This channel does not currently have any shorts: Tällä kanavalla ei juuri nyt
-      ole lyhyitä
+    This channel does not currently have any shorts: Tällä kanavalla ei juuri nyt ole lyhyitä
   Podcasts:
     Podcasts: Podcastit
-    This channel does not currently have any podcasts: Tällä kanavalla ei ole yhtäkään
-      podcastia
+    This channel does not currently have any podcasts: Tällä kanavalla ei ole yhtäkään podcastia
   Releases:
     Releases: Julkaisut
-    This channel does not currently have any releases: Tällä kanavalla ei ole yhtäkään
-      julkaisua
+    This channel does not currently have any releases: Tällä kanavalla ei ole yhtäkään julkaisua
 Video:
   Open in YouTube: 'Avaa YouTubessa'
   Copy YouTube Link: 'Kopioi YouTube-linkki'
@@ -688,12 +628,9 @@ Video:
   Live Now: 'Suorana nyt'
   Live Chat: 'Live-keskustelu'
   Enable Live Chat: 'Ota live-keskustelu käyttöön'
-  Live Chat is currently not supported in this build.: 'Live-keskustelua ei tueta
-    tässä versiossa.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Live-keskustelu
-    on käytössä. Lähetetyt viestit näkyvät tässä.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Live-keskustelua
-    ei tueta nykyisessä Invidious API:ssa. Suora yhteys Youtubeen vaaditaan.'
+  Live Chat is currently not supported in this build.: 'Live-keskustelua ei tueta tässä versiossa.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Live-keskustelu on käytössä. Lähetetyt viestit näkyvät tässä.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Live-keskustelua ei tueta nykyisessä Invidious API:ssa. Suora yhteys Youtubeen vaaditaan.'
   Published:
     In less than a minute: Alle minuutin kuluessa
   Published on: 'Julkaistu'
@@ -708,8 +645,7 @@ Video:
   Reverse Playlist: Käänteinen soittolista
   Shuffle Playlist: Sekoita soittolistaa
   Loop Playlist: Kierrätä soittolistaa
-  Starting soon, please refresh the page to check again: Hetki pieni, päivitä sivu
-    uudelleen
+  Starting soon, please refresh the page to check again: Hetki pieni, päivitä sivu uudelleen
   audio only: vain ääni
   video only: vain video
   Download Video: Lataa video
@@ -724,8 +660,7 @@ Video:
       looping playlists: toistetaan soittoluettelot uudelleen jatkuvasti
       shuffling playlists: sekoitetaan soittoluettelot
       reversing playlists: käänteistetään soittoluettelot
-      opening specific video in a playlist (falling back to opening the video): avataan
-        tietty video soittoluettelossa (avataan video taaksepäin mallintaen)
+      opening specific video in a playlist (falling back to opening the video): avataan tietty video soittoluettelossa (avataan video taaksepäin mallintaen)
       opening playlists: avataan soittoluettelot
       setting a playback rate: asetetaan toiston suhde
       starting video at offset: aloitetaan video poikkeamassa
@@ -743,16 +678,14 @@ Video:
     sponsor: Sponsori
     recap: Kertaus
     filler: Täyte
-  Video has been removed from your saved list: Video poistettiin tallennettujen videoiden
-    luettelostasi
+  Video has been removed from your saved list: Video poistettiin tallennettujen videoiden luettelostasi
   Video has been saved: Video on tallennettu
   Save Video: Tallenna video
   Premieres: Ensilähetykset
   Show Super Chat Comment: Näytä Super Chat -kommentti
   Scroll to Bottom: Vieritä Alaspäin
   Upcoming: Tuleva
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-chat
-    ei ole käytettävissä tässä suoratoistossa. Lataaja on saattanut poistaa sen käytöstä.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Live-chat ei ole käytettävissä tässä suoratoistossa. Lataaja on saattanut poistaa sen käytöstä.
   Unhide Channel: Näytä kanava
   Hide Channel: Piilota kanava
 #& Playlists
@@ -775,10 +708,8 @@ Change Format:
   Use Dash Formats: 'Käytä DASH-formaatteja'
   Use Legacy Formats: 'Käytä Legacy-formaatteja'
   Use Audio Formats: 'Käytä ääniformaatteja'
-  Audio formats are not available for this video: Audioformaatit eivät ole saatavilla
-    tähän videoon
-  Dash formats are not available for this video: DASH-formaatit eivät ole saatavilla
-    tähän videoon
+  Audio formats are not available for this video: Audioformaatit eivät ole saatavilla tähän videoon
+  Dash formats are not available for this video: DASH-formaatit eivät ole saatavilla tähän videoon
 Share:
   Share Video: 'Jaa video'
   Share Playlist: 'Jaa soittolista'
@@ -833,8 +764,7 @@ Shuffle is now enabled: 'Satunnaistoisto on nyt käytössä'
 Playing Next Video: 'Seuraavan videon toistaminen'
 Playing Previous Video: 'Edellisen videon toistaminen'
 Canceled next video autoplay: 'Peruttiin seuraavan videon toistaminen'
-'The playlist has ended. Enable loop to continue playing': 'Soittolista on pääättynyt.
-  Ota silmukka käyttöön jatkaaksesi toistoa'
+'The playlist has ended. Enable loop to continue playing': 'Soittolista on pääättynyt. Ota silmukka käyttöön jatkaaksesi toistoa'
 
 Yes: 'Kyllä'
 No: 'Ei'
@@ -842,11 +772,9 @@ Locale Name: suomi
 The playlist has been reversed: Soittolista on muutettu käänteiseksi
 Profile:
   '{profile} is now the active profile': '{profile} on nyt aktiivinen profiili'
-  Your default profile has been changed to your primary profile: Oletusprofiilisi
-    on vaihdettu ensisijaiseksi profiiliksesi
+  Your default profile has been changed to your primary profile: Oletusprofiilisi on vaihdettu ensisijaiseksi profiiliksesi
   Removed {profile} from your profiles: '{profile} on poistettu profiileistasi'
-  Your default profile has been set to {profile}: Oletusprofiiliksesi on määritetty
-    {profile}
+  Your default profile has been set to {profile}: Oletusprofiiliksesi on määritetty {profile}
   Profile has been updated: Profiili on päivitetty
   Profile has been created: Profiili on luotu
   Your profile name cannot be empty: Profiililla täytyy olla nimi
@@ -864,12 +792,9 @@ Profile:
   Profile Manager: Profiilin hallinta
   All Channels: Kaikki kanavat
   Profile Select: Profiilin valinta
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Haluatko
-    varmasti poistaa valitut kanavat? Kanavia ei poisteta muista profiileista.
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : Tämä on ensisijainen profiilisi. Haluatko poistaa valitut kanavat? Kanavat poistetaan
-    myös muista profiileista.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Haluatko varmasti poistaa valitut kanavat? Kanavia ei poisteta muista profiileista.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : Tämä on ensisijainen profiilisi. Haluatko poistaa valitut kanavat? Kanavat poistetaan myös muista profiileista.
   No channel(s) have been selected: Kanavia ei ole valittu
   Add Selected To Profile: Lisää valitut profiiliin
   Delete Selected: Poista valitut
@@ -884,87 +809,49 @@ Profile:
   Edit Profile Name: Muokkaa profiilin nimeä
   Create Profile Name: Luo profiilin nimi
   Toggle Profile List: Profiililista päällä/pois
-Version {versionNumber} is now available!  Click for more details: Versio {versionNumber}
-  on nyt saatavilla! Napsauta saadaksesi lisätietoja
-This video is unavailable because of missing formats. This can happen due to country unavailability.: Tämä
-  video ei ole saatavilla puuttuvien formaattien takia. Tämä voi tapahtua koska video
-  ei ole saatavilla maassasi.
-A new blog is now available, {blogTitle}. Click to view more: Uusi blogi on saatavilla,
-  {blogTitle}. Klikkaa nähdäksesi lisää
+Version {versionNumber} is now available!  Click for more details: Versio {versionNumber} on nyt saatavilla! Napsauta saadaksesi lisätietoja
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Tämä video ei ole saatavilla puuttuvien formaattien takia. Tämä voi tapahtua koska video ei ole saatavilla maassasi.
+A new blog is now available, {blogTitle}. Click to view more: Uusi blogi on saatavilla, {blogTitle}. Klikkaa nähdäksesi lisää
 Download From Site: Lataa sivustolta
 Tooltips:
   General Settings:
-    Preferred API Backend: Valitse taustaohjelma, jota Freetube käyttää datan noutamiseen.
-      Paikallinen API on ohjelmiston sisäinen. Invidious API vaatii yhteyden Invidious-palvelimeen.
+    Preferred API Backend: Valitse taustaohjelma, jota Freetube käyttää datan noutamiseen. Paikallinen API on ohjelmiston sisäinen. Invidious API vaatii yhteyden Invidious-palvelimeen.
     Region for Trending: Valitsee minkä maan Nousevat videot sinulle näytetään.
     Invidious Instance: Invidious instanssi, jota Freetube käyttää.
-    Thumbnail Preference: Kaikki pikkukuvat Freetubessa korvataan ruudulla videosta
-      alkuperäisen pikkukuvan sijaan.
-    Fallback to Non-Preferred Backend on Failure: Kun valitsemasi API kohtaa ongelman,
-      Freetube yrittää automaattisestia käyttää toissijaista vaihtoehtoa.
-    External Link Handling: "Valitse oletuskäyttäytyminen, kun linkkiä, jota ei voi
-      avata FreeTubessa, napsautetaan.\nOletusarvoisesti FreeTube avaa napsautetun
-      linkin oletusselaimessasi.\n"
+    Thumbnail Preference: Kaikki pikkukuvat Freetubessa korvataan ruudulla videosta alkuperäisen pikkukuvan sijaan.
+    Fallback to Non-Preferred Backend on Failure: Kun valitsemasi API kohtaa ongelman, Freetube yrittää automaattisestia käyttää toissijaista vaihtoehtoa.
+    External Link Handling: "Valitse oletuskäyttäytyminen, kun linkkiä, jota ei voi avata FreeTubessa, napsautetaan.\nOletusarvoisesti FreeTube avaa napsautetun linkin oletusselaimessasi.\n"
   Subscription Settings:
-    Fetch Feeds from RSS: Kun valittuna, FreeTube käyttää RSS-syötettä oletusmetodin
-      sijaan tilauslistasi hakemisessa. RSS on nopeampi ja ehkäisee IP-estoa, mutta
-      ei anna tietoja, kuten videon kesto tai livetila
-    Fetch Automatically: Kun tämä on käytössä, FreeTube hakee automaattisesti tilauksesi
-      syötteen, kun uusi ikkuna avataan ja kun vaihdat profiilia.
+    Fetch Feeds from RSS: Kun valittuna, FreeTube käyttää RSS-syötettä oletusmetodin sijaan tilauslistasi hakemisessa. RSS on nopeampi ja ehkäisee IP-estoa, mutta ei anna tietoja, kuten videon kesto tai livetila
+    Fetch Automatically: Kun tämä on käytössä, FreeTube hakee automaattisesti tilauksesi syötteen, kun uusi ikkuna avataan ja kun vaihdat profiilia.
   Player Settings:
-    Default Video Format: Aseta videon toistamisessa käytätettävä formaatti. DASH-formaatit
-      toistavat korkealaatuisempia videoita. Legacy-formaatit ovat rajoitettu 720p-resoluutioon,
-      mutta käyttävät vähemmän dataa. Audioformaatit ovat vain äänistriimeihin.
-    Proxy Videos Through Invidious: Yhdistää Invidious-palvelimeen suoran YouTuben-yhteyden
-      sijaan.
-    Scroll Playback Rate Over Video Player: Kursorin ollessa videon päällä, paina
-      CTRL (Komentopainike MAC-tietokoneessa) pohjaan ja käytä hiiren rullaa muuttaaksesi
-      toiston nopeutta. Palataksesi alkuperäiseen toistonopeuteen (1x ellei toisin
-      määritelty asetuksissa), pidä CTRL-painike (Komentopainike MAC-tietokoneessa)
-      painettuna ja paina hiiren vasenta näppäintä.
-    Skip by Scrolling Over Video Player: Käytä vieritysrullaa videon selaamiseen,
-      MPV-tyyliin.
+    Default Video Format: Aseta videon toistamisessa käytätettävä formaatti. DASH-formaatit toistavat korkealaatuisempia videoita. Legacy-formaatit ovat rajoitettu 720p-resoluutioon, mutta käyttävät vähemmän dataa. Audioformaatit ovat vain äänistriimeihin.
+    Proxy Videos Through Invidious: Yhdistää Invidious-palvelimeen suoran YouTuben-yhteyden sijaan.
+    Scroll Playback Rate Over Video Player: Kursorin ollessa videon päällä, paina CTRL (Komentopainike MAC-tietokoneessa) pohjaan ja käytä hiiren rullaa muuttaaksesi toiston nopeutta. Palataksesi alkuperäiseen toistonopeuteen (1x ellei toisin määritelty asetuksissa), pidä CTRL-painike (Komentopainike MAC-tietokoneessa) painettuna ja paina hiiren vasenta näppäintä.
+    Skip by Scrolling Over Video Player: Käytä vieritysrullaa videon selaamiseen, MPV-tyyliin.
   External Player Settings:
-    Custom External Player Arguments: Kaikki ne omavalintaiset komentorivin määreet,
-      jotka haluat siirtää eteenpäin ulkoiselle toisto-ohjelmalle.
-    Ignore Warnings: Estä varoitukset, kun käytetty ulkoinen toisto-ohjelma ei tue
-      määrättyä toimintamallia (kuten käänteiset soittoluettelot, jne.).
-    Custom External Player Executable: Vakiollisesti FreeTube olettaa, että valittu
-      ulkoinen toisto-ohjelma voidaan löytää PATH-polkuympäristömuuttujan kautta.
-      Mikäli tarvetta ilmenee, voidaan asettaa omavalintainen polku tähän.
-    External Player: Ulkoisen soittimen valitsemisen johdosta näkyy kuvake videon
-      avaamiseen (soittoluettelonkin avaamiseen jos tuettu) ulkoisessa toistimessa.
-      Varoitus, Invidious-asetukset eivät vaikuta ulkoisiin toistimiin.
+    Custom External Player Arguments: Kaikki ne omavalintaiset komentorivin määreet, jotka haluat siirtää eteenpäin ulkoiselle toisto-ohjelmalle.
+    Ignore Warnings: Estä varoitukset, kun käytetty ulkoinen toisto-ohjelma ei tue määrättyä toimintamallia (kuten käänteiset soittoluettelot, jne.).
+    Custom External Player Executable: Vakiollisesti FreeTube olettaa, että valittu ulkoinen toisto-ohjelma voidaan löytää PATH-polkuympäristömuuttujan kautta. Mikäli tarvetta ilmenee, voidaan asettaa omavalintainen polku tähän.
+    External Player: Ulkoisen soittimen valitsemisen johdosta näkyy kuvake videon avaamiseen (soittoluettelonkin avaamiseen jos tuettu) ulkoisessa toistimessa. Varoitus, Invidious-asetukset eivät vaikuta ulkoisiin toistimiin.
     DefaultCustomArgumentsTemplate: "(Oletus: '{defaultCustomArguments}')"
   Experimental Settings:
-    Replace HTTP Cache: Poistaa Electronin levypohjaisen HTTP-välimuistin käytöstä
-      ja ottaa käyttöön mukautetun muistissa olevan kuvavälimuistin. Lisää välimuistin
-      käyttöä.
+    Replace HTTP Cache: Poistaa Electronin levypohjaisen HTTP-välimuistin käytöstä ja ottaa käyttöön mukautetun muistissa olevan kuvavälimuistin. Lisää välimuistin käyttöä.
   Distraction Free Settings:
-    Hide Channels: Anna kanavan nimi tai kanavatunnus piilottaaksesi kaikki videot,
-      soittolistat ja itse kanavan näkymästä haussa, trendaamisessa, suosituimmissa
-      ja suositelluissa. Annetun kanavan nimen on oltava täysin oikein ja kirjainkoolla
-      on merkitystä.
-    Hide Subscriptions Live: Tämä asetus ohitetaan koko sovelluksen laajuisella ”{appWideSetting}”
-      asetuksella, joka on ”{subsection}” osion ”{settingsSection}” osiossa
+    Hide Channels: Anna kanavan nimi tai kanavatunnus piilottaaksesi kaikki videot, soittolistat ja itse kanavan näkymästä haussa, trendaamisessa, suosituimmissa ja suositelluissa. Annetun kanavan nimen on oltava täysin oikein ja kirjainkoolla on merkitystä.
+    Hide Subscriptions Live: Tämä asetus ohitetaan koko sovelluksen laajuisella ”{appWideSetting}” asetuksella, joka on ”{subsection}” osion ”{settingsSection}” osiossa
   SponsorBlock Settings:
     UseDeArrowTitles: Korvaa videon otsikot käyttäjien lähettämillä DeArrow’n otsikoilla.
 More: Lisää
-Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava
-  video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava
-  video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi.
+Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi.
 Open New Window: Avaa uusi ikkuna
-Unknown YouTube url type, cannot be opened in app: Tuntematon YouTube-videon osoitemuoto,
-  ei voida avata sovelluksessa
-Default Invidious instance has been cleared: Oletusarvoinen Invidious-palveluntarjoaja
-  on tyhjennetty
-Default Invidious instance has been set to {instance}: Oletusarvoinen Invidious-palveluntarjoaja
-  on jatkossa {instance}
+Unknown YouTube url type, cannot be opened in app: Tuntematon YouTube-videon osoitemuoto, ei voida avata sovelluksessa
+Default Invidious instance has been cleared: Oletusarvoinen Invidious-palveluntarjoaja on tyhjennetty
+Default Invidious instance has been set to {instance}: Oletusarvoinen Invidious-palveluntarjoaja on jatkossa {instance}
 Search Bar:
   Clear Input: Tyhjennä syöte
   Remove: Poista
-External link opening has been disabled in the general settings: Ulkoisen linkin avaaminen
-  on poistettu käytöstä yleisissä asetuksissa
+External link opening has been disabled in the general settings: Ulkoisen linkin avaaminen on poistettu käytöstä yleisissä asetuksissa
 Are you sure you want to open this link?: Haluatko varmasti avata tämän linkin?
 Downloading failed: Videon "{videoTitle}" lataamisessa havaittiin ongelma
 Downloading has completed: Videon "{videoTitle}" lataus on valmis
@@ -981,20 +868,16 @@ Channels:
   Unsubscribe Prompt: Haluatko varmasti perua kanavan ”{channelName}” tilauksen?
 Clipboard:
   Copy failed: Kopiointi leikepöydälle epäonnistui
-  Cannot access clipboard without a secure connection: Leikepöytää ei voi käyttää
-    ilman suojattua yhteyttä
+  Cannot access clipboard without a secure connection: Leikepöytää ei voi käyttää ilman suojattua yhteyttä
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 'Lukujen luettelo piilotettu,
-    nykyinen luku: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Lukujen luettelo piilotettu, nykyinen luku: {chapterName}'
   Chapters: Luvut
-  'Chapters list visible, current chapter: {chapterName}': 'Lukujen luettelo näkyvissä,
-    nykyinen luku: {chapterName}'
+  'Chapters list visible, current chapter: {chapterName}': 'Lukujen luettelo näkyvissä, nykyinen luku: {chapterName}'
 Preferences: Asetukset
 Ok: OK
 Hashtag:
   Hashtag: Avainsana
-  This hashtag does not currently have any videos: Tällä avainsanalla ei ole tällä
-    hetkellä yhtään videota
+  This hashtag does not currently have any videos: Tällä avainsanalla ei ole tällä hetkellä yhtään videota
 Channel Hidden: '{channel} lisätty kanavasuodattimeen'
 Go to page: Siirry sivulle {page}
 Channel Unhidden: '{channel} poistettu kanavasuodattimesta'
@@ -1019,8 +902,7 @@ checkmark: ✓
 Cancel: Peruuta
 Yes, Restart: Kyllä, käynnistä uudelleen
 Yes, Open Link: Kyllä, avaa linkki
-Right-click or hold to see history: Näytä historia napsauttamalla hiiren kakkospainiketta
-  tai pitämällä sitä painettuna
+Right-click or hold to see history: Näytä historia napsauttamalla hiiren kakkospainiketta tai pitämällä painettuna
 Close Banner: Sulje Banneri
 Search character limit: Hakukysely ylittää {searchCharacterLimit}-merkkirajan.
 KeyboardShortcutPrompt:
@@ -1028,3 +910,36 @@ KeyboardShortcutPrompt:
   Zoom In: Lähennä
   Zoom Out: Loitonna
   Fullscreen: Vaihda koko näyttöön
+  Reset Zoom: Palauta skaalaus
+  Take Screenshot: Ota kuvakaappaus
+  Show Keyboard Shortcuts: Näytä pikanäppäimet
+  Keyboard Shortcuts: Pikanäppäimet
+  History Backward: Siirry taaksepäin
+  History Forward: Siirry eteenpäin
+  New Window: Luo uusi ikkuna
+  Navigate to Settings: Siirry Asetukset-sivulle
+  Navigate to History: Siirry Historia-sivulle
+  Refresh: Virkistä syöte viimeisimmällä sisällöllä
+  Captions: Tekstitykset päälle/pois
+  Stats: Näytä videon tilastot
+  Picture in Picture: Vaihda Kuva kuvassa -tilaan
+  Play: Toista/pysäytä
+  Large Fast Forward: Siirry 10 sekuntia eteenpäin / Kelaa videota eteenpäin
+  Large Rewind: Siirry 10 sekuntia taaksepäin / Kelaa videota taaksepäin
+  Mute: Vaimenna
+  Increase Video Speed: Lisää videon toistonopeutta
+  Decrease Video Speed: Vähennä videon toistonopeutta
+  Full Window: Koko näytön tila päälle/pois
+  Theatre Mode: Teatteritila päälle/pois
+  Minimize Window: Pienennä ikkuna
+  Close Window: Sulje ikkuna
+  Restart Window: Avaa ikkuna uudelleen
+  Force Restart Window: Pakota ikkunan uudelleenavaus
+  Search in New Window: Hae uudessa ikkunassa
+  Last Frame: Aiempi kuvaruutu (kun pysäytetty)
+  Next Frame: Seuraava kuvaruutu (kun pysäytetty)
+  Volume Up: Lisää äänenvoimakkuutta
+  Volume Down: Pienennä äänenvoimakkuutta
+  Last Chapter: Edellinen osio
+  Next Chapter: Seuraava osio
+  Skip by Tenths: Siirry videon läpi prosentteina

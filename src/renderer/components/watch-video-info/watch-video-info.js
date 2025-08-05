@@ -148,6 +148,10 @@ export default defineComponent({
       return this.$store.getters.getHideVideoViews
     },
 
+    hideUploader: function () {
+      return this.$store.getters.getHideUploader
+    },
+
     showPlaylists: function () {
       return !this.$store.getters.getHidePlaylists
     },
@@ -228,6 +232,14 @@ export default defineComponent({
 
     externalPlayer: function () {
       return this.$store.getters.getExternalPlayer
+    },
+
+    historyEntry: function () {
+      return this.$store.getters.getHistoryCacheById[this.id]
+    },
+
+    historyEntryExists: function () {
+      return typeof this.historyEntry !== 'undefined'
     },
 
     defaultPlayback: function () {
@@ -319,7 +331,30 @@ export default defineComponent({
           playlistLoop: null,
         })
       }
+
       this.openInExternalPlayer(payload)
+
+      // Marking as watched
+      const videoData = {
+        videoId: this.id,
+        title: this.title,
+        author: this.channelName,
+        authorId: this.channelId,
+        published: this.published,
+        description: this.description,
+        viewCount: this.viewCount,
+        lengthSeconds: this.lengthSeconds,
+        watchProgress: 0,
+        timeWatched: Date.now(),
+        isLive: false,
+        type: 'video'
+      }
+
+      this.updateHistory(videoData)
+
+      if (!this.historyEntryExists) {
+        showToast(this.$t('Video.Video has been marked as watched'))
+      }
     },
 
     handleDownload: function (index) {
@@ -422,6 +457,7 @@ export default defineComponent({
       'showAddToPlaylistPromptForManyVideos',
       'addVideo',
       'updatePlaylist',
+      'updateHistory',
       'removeVideo',
     ])
   }

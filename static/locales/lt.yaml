@@ -304,7 +304,6 @@ Settings:
       Naudodami Paskutinį Žiūrėtą Grojaraštį
   Subscription Settings:
     Subscription Settings: 'Prenumeratų nustatymai'
-    Hide Videos on Watch: 'Slėpti vaizdo įrašus po peržiūros'
     Fetch Feeds from RSS: 'Gauti kanalus iš RSS'
     Fetch Automatically: Gauti sklaidos kanalą automatiškai
   Distraction Free Settings:
@@ -323,6 +322,7 @@ Settings:
     Hide Comments: Slėpti komentarus
     Hide Live Streams: Slėpti tiesiogines transliacijas
     Hide Sharing Actions: Slėpti bendrinimo veiksmus
+    Hide Videos on Watch: 'Slėpti vaizdo įrašus po peržiūros'
     Hide Chapters: Slėpti skirsnius
     Hide Upcoming Premieres: Slėpti būsimas premjeras
     Sections:

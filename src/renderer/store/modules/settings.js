@@ -216,6 +216,7 @@ const state = {
   hideVideoLikesAndDislikes: false,
   hideVideoViews: false,
   hideWatchedSubs: false,
+  hideUploader: false,
   unsubscriptionPopupStatus: false,
   hideLabelsSideBar: false,
   hideChapters: false,
@@ -308,6 +309,7 @@ const state = {
   defaultVolume: 1,
   uiScale: 100,
   userPlaylistsSortBy: 'latest_played_first',
+  userHistorySortBy: 'latest_played_first',
 }
 
 const sideEffectHandlers = {

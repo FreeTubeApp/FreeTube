@@ -27,7 +27,7 @@ Close: 'suilt'
 Back: 'Terug'
 Forward: 'vorentoe'
 Open New Window: 'Maak nuwe venster oop'
-Go to page: 'Gaan na {bladsy}'
+Go to page: 'Gaan na {page}'
 Close Banner: 'Sluit baniere'
 
 Version {versionNumber} is now available!  Click for more details: 'Weergawe {versionNumber}
@@ -521,7 +521,6 @@ Settings:
     Clear Search History and Cache: Wis soekgeskiedenis en kasgeheue
   Subscription Settings:
     Subscription Settings: 'Intekening'
-    Hide Videos on Watch: 'Versteek alle gekykte video’s'
     Fetch Feeds from RSS: 'Haal voer vanaf RSS op'
     Fetch Automatically: 'Haal voer outomaties op'
     Confirm Before Unsubscribing: 'Bevestig voor uittekening'
@@ -554,6 +553,7 @@ Settings:
     Hide Live Streams: 'Versteek direkte strome'
     Hide Upcoming Premieres: 'Versteek komende premières'
     Hide Sharing Actions: 'Versteek deel-aksies'
+    Hide Videos on Watch: 'Versteek alle gekykte video’s'
     Hide Chapters: 'Versteek hoofstukke'
     Hide Channels: 'Versteek video’s van kanale'
     Hide Channels Disabled Message: 'Sommige kanale is met ID versper en is nie verwerk
@@ -1171,7 +1171,7 @@ Screenshot Error: 'Skermkiekie het misluk. {error}'
 Channel Hidden: '{channel} tot kanaalfilter toegevoeg'
 Channel Unhidden: '{channel} verwyder uit kanaalfilter'
 Trimmed input must be at least N characters long: 'Bygesnyde invoer moet ten minste
-  1 karakter lank wees | Bygesnyde invoer moet ten minste {lentgh} karakters lank
+  1 karakter lank wees | Bygesnyde invoer moet ten minste {length} karakters lank
   wees'
 Tag already exists: 'Etiket “{tagName}” bestaan reeds'
 

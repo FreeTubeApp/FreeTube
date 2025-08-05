@@ -15,7 +15,7 @@ import ParentalControlSettings from '../../components/ParentalControlSettings.vu
 import ExperimentalSettings from '../../components/ExperimentalSettings/ExperimentalSettings.vue'
 import PasswordSettings from '../../components/PasswordSettings/PasswordSettings.vue'
 import PasswordDialog from '../../components/PasswordDialog/PasswordDialog.vue'
-import FtToggleSwitch from '../../components/ft-toggle-switch/ft-toggle-switch.vue'
+import FtToggleSwitch from '../../components/FtToggleSwitch/FtToggleSwitch.vue'
 import FtButton from '../../components/FtButton/FtButton.vue'
 import FtSettingsMenu from '../../components/FtSettingsMenu/FtSettingsMenu.vue'
 
@@ -99,6 +99,11 @@ export default defineComponent({
           icon: 'eye-slash'
         },
         {
+          type: 'parental-control-settings',
+          title: this.$t('Settings.Parental Control Settings.Parental Control Settings'),
+          icon: 'user-lock'
+        },
+        {
           type: 'privacy-settings',
           title: this.$t('Settings.Privacy Settings.Privacy Settings'),
           icon: 'lock'
@@ -123,15 +128,15 @@ export default defineComponent({
             ]
           : []),
         {
-          type: 'parental-control-settings',
-          title: this.$t('Settings.Parental Control Settings.Parental Control Settings'),
-          icon: 'user-lock'
-        },
-        {
           type: 'sponsor-block-settings',
           title: this.$t('Settings.SponsorBlock Settings.SponsorBlock Settings'),
           // TODO: replace with SponsorBlock icon
           icon: 'shield'
+        },
+        {
+          type: 'password-settings',
+          title: this.$t('Settings.Password Settings.Password Settings'),
+          icon: 'key'
         },
         ...(process.env.IS_ELECTRON
           ? [{
@@ -140,11 +145,6 @@ export default defineComponent({
               icon: 'flask'
             }]
           : []),
-        {
-          type: 'password-settings',
-          title: this.$t('Settings.Password Settings.Password Settings'),
-          icon: 'key'
-        },
       ]
       return settingsComponentsData
     },

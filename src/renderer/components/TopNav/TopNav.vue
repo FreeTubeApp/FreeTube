@@ -473,6 +473,17 @@ function goToSearch(queryText, { event }) {
         break
       }
 
+      case 'trending':
+      case 'subscriptions':
+      case 'history':
+      case 'userplaylists':
+        openInternalPath({
+          path: `/${result.urlType}`,
+          doCreateNewWindow,
+          searchQueryText: queryText
+        })
+        break
+
       case 'invalid_url':
       default: {
         openInternalPath({
@@ -512,15 +523,14 @@ function updateSearchInputText(text) {
  * @param {string} query
  */
 function getSearchSuggestionsDebounce(query) {
-  const trimmedQuery = query.trim()
-  if (trimmedQuery === lastSuggestionQuery.value) {
+  if (query === lastSuggestionQuery.value) {
     return
   }
 
-  lastSuggestionQuery.value = trimmedQuery
+  lastSuggestionQuery.value = query
 
   if (enableSearchSuggestions.value) {
-    debounceSearchResults(trimmedQuery)
+    debounceSearchResults(query.trim())
   }
 }
 

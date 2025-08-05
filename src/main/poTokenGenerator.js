@@ -61,7 +61,8 @@ export async function generatePoToken(videoId, visitorData, context, proxyUrl) {
       v8CacheOptions: 'none',
       session: theSession,
       offscreen: true,
-      webSecurity: false
+      webSecurity: false,
+      disableBlinkFeatures: 'ElectronCSSCornerSmoothing'
     }
   })
 

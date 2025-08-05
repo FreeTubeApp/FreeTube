@@ -232,11 +232,11 @@ export default defineComponent({
     },
 
     progressPercentage: function () {
-      if (typeof this.lengthSeconds !== 'number') {
+      if (typeof this.lengthSeconds !== 'number' || this.lengthSeconds === 0) {
         return 0
       }
-
-      return (this.watchProgress / this.lengthSeconds) * 100
+      const percentage = (this.watchProgress / this.lengthSeconds) * 100
+      return Math.min(percentage, 100)
     },
 
     hideSharingActions: function() {
@@ -650,9 +650,7 @@ export default defineComponent({
       }
       this.openInExternalPlayer(payload)
 
-      if (this.autosaveWatchedProgress && !this.historyEntryExists) {
-        this.markAsWatched()
-      }
+      this.markAsWatched()
     },
 
     handleOptionsClick: function (option) {
@@ -782,7 +780,10 @@ export default defineComponent({
         type: 'video'
       }
       this.updateHistory(videoData)
-      showToast(this.$t('Video.Video has been marked as watched'))
+
+      if (!this.historyEntryExists) {
+        showToast(this.$t('Video.Video has been marked as watched'))
+      }
     },
 
     removeFromWatched: function () {

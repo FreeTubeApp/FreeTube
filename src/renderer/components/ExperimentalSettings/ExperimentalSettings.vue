@@ -31,7 +31,7 @@ import { onMounted, ref } from 'vue'
 
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtToggleSwitch from '../ft-toggle-switch/ft-toggle-switch.vue'
+import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 
 const replaceHttpCacheLoading = ref(true)
