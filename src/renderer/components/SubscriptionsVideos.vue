@@ -86,9 +86,10 @@ const videoCacheForAllActiveProfileChannelsPresent = computed(() => {
     return cacheEntry.videos != null
   })
 })
-
+const timerTick = ref(0)
 const lastVideoRefreshTimestamp = computed(() => {
   // Cache is not ready when data is just loaded from remote
+  const _timerTick = timerTick.value
   if (lastRemoteRefreshSuccessTimestamp.value) {
     return getRelativeTimeFromDate(lastRemoteRefreshSuccessTimestamp.value, true)
   }
@@ -125,6 +126,9 @@ if (!subscriptionCacheReady.value) {
 
 onMounted(() => {
   loadVideosFromRemoteFirstPerWindowSometimes()
+  setInterval(() => {
+    timerTick.value++
+  }, 60 * 1000) // update every minute
 })
 
 function loadVideosFromRemoteFirstPerWindowSometimes() {
