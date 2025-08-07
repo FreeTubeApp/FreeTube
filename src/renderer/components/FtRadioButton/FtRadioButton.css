@@ -1,7 +1,7 @@
 /* stylelint-disable no-descending-specificity */
 .pure-radiobutton input[type='radio'] {
   border: 0;
-  clip: rect(0 0 0 0);
+  clip-path: circle(0);
   block-size: 1px;
   margin: -1px;
   overflow: hidden;

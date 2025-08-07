@@ -239,7 +239,7 @@ $watched-transition-duration: 0.5s;
       font-size: 20px;
       grid-area: title;
       text-decoration: none;
-      word-wrap: break-word;
+      overflow-wrap: break-word;
       overflow-wrap: anywhere;
 
       @include low-contrast-when-watched(var(--primary-text-color));
