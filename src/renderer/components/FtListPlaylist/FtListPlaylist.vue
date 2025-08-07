@@ -114,7 +114,7 @@ const props = defineProps({
 
 const { t } = useI18n()
 
-let playlistId = ''
+const playlistId = computed(() => isUserPlaylist.value ? props.data._id : props.data.playlistId)
 let title = ''
 /** @type {string} */
 let thumbnail = thumbnailPlaceholder
@@ -152,7 +152,7 @@ const isUserPlaylist = computed(() => props.data._id != null)
 
 // For `router-link` attribute `to`
 const playlistPageLinkTo = computed(() => ({
-  path: `/playlist/${playlistId}`,
+  path: `/playlist/${playlistId.value}`,
   query: {
     playlistType: isUserPlaylist.value ? 'user' : '',
     searchQueryText: props.searchQueryText,
@@ -182,7 +182,7 @@ function parseInvidiousData() {
 
   channelName = props.data.author
   channelId = props.data.authorId
-  playlistId = props.data.playlistId
+  // playlistId is now computed, do not assign
   videoCount = props.data.videoCount
 
   if (props.data.proxyThumbnail === false) {
@@ -197,7 +197,7 @@ function parseLocalData() {
 
   channelName = props.data.channelName
   channelId = props.data.channelId
-  playlistId = props.data.playlistId
+  // playlistId is now computed, do not assign
   videoCount = props.data.videoCount
 }
 
@@ -214,7 +214,7 @@ function parseUserData() {
 
   channelName = ''
   channelId = ''
-  playlistId = props.data._id
+  // playlistId is now computed, do not assign
   videoCount = props.data.videos.length
 }
 
@@ -223,9 +223,9 @@ const quickBookmarkPlaylistId = computed(() => store.getters.getQuickBookmarkTar
 
 const markedAsQuickBookmarkTarget = computed(() => {
   // Only user playlists can be target
-  return playlistId != null &&
+  return playlistId.value != null &&
     quickBookmarkPlaylistId.value != null &&
-    quickBookmarkPlaylistId.value === playlistId
+    quickBookmarkPlaylistId.value === playlistId.value
 })
 
 function handleQuickBookmarkEnabledDisabledClick() {
@@ -235,7 +235,7 @@ function handleQuickBookmarkEnabledDisabledClick() {
 async function enableQuickBookmarkForThisPlaylist() {
   const currentQuickBookmarkTargetPlaylist = store.getters.getQuickBookmarkPlaylist
 
-  store.dispatch('updateQuickBookmarkTargetPlaylistId', playlistId.value)
+  await store.dispatch('updateQuickBookmarkTargetPlaylistId', playlistId.value)
 
   if (currentQuickBookmarkTargetPlaylist != null) {
     showToast(
@@ -243,8 +243,8 @@ async function enableQuickBookmarkForThisPlaylist() {
         oldPlaylistName: currentQuickBookmarkTargetPlaylist.playlistName,
       }),
       5000,
-      () => {
-        store.dispatch('updateQuickBookmarkTargetPlaylistId', currentQuickBookmarkTargetPlaylist._id)
+      async () => {
+        await store.dispatch('updateQuickBookmarkTargetPlaylistId', currentQuickBookmarkTargetPlaylist._id)
         showToast(
           t('User Playlists.SinglePlaylistView.Toast["Reverted to use {oldPlaylistName} for quick bookmark"]', {
             oldPlaylistName: currentQuickBookmarkTargetPlaylist.playlistName,
