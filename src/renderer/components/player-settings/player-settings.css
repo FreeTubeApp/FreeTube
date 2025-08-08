@@ -18,3 +18,12 @@
   flex-grow: 1;
   margin-block-start: 10px;
 }
+
+.screenshotFilenamePatternTitle {
+  position: relative;
+  margin-inline-end: 20px;
+}
+
+.tooltip {
+  margin-block-start: -12px;
+}
