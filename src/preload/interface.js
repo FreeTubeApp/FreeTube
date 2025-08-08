@@ -295,7 +295,7 @@ export default {
    * @param {(event: number, data: any) => void} handler
    */
   handleSyncSubscriptionCache: (handler) => {
-    ipcRenderer.on(IpcChannels.SYNC_PLAYLISTS, (_, { event, data }) => {
+    ipcRenderer.on(IpcChannels.SYNC_SUBSCRIPTION_CACHE, (_, { event, data }) => {
       handler(event, data)
     })
   }
