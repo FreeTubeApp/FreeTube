@@ -1123,3 +1123,8 @@ KeyboardShortcutPrompt:
   Skip to Next Video: 跳到播放列表中下一个视频或下一个推荐的视频
   Skip to Previous Video: 跳到播放列表中前一个视频
 shortcutLabelSeparator: ｜
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

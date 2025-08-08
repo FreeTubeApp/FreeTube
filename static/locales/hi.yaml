@@ -243,3 +243,8 @@ KeyboardShortcutPrompt:
   Fullscreen: फ़ुलस्क्रीन टॉगल करें
 Profile:
   Select All: सबको चुनें
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

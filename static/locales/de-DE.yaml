@@ -1123,3 +1123,8 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Zum nächsten Video in der Playlist bzw. nächsten empfohlenen Video springen
   Skip to Previous Video: Zum vorherigen Video in der Playlist springen
 shortcutLabelSeparator: ｜
+
+SilenceSkip:
+  Skip Silence: Stille überspringen
+  Enable Silence Skip: Stille überspringen aktivieren
+  Disable Silence Skip: Stille überspringen deaktivieren

@@ -118,3 +118,8 @@ Search Listing:
   Label:
     4K: 4K
     8K: 8K
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

@@ -1121,3 +1121,8 @@ KeyboardShortcutPrompt:
   Home: Seek to the beginning of the video
   End: Seek to the end of the video
 shortcutLabelSeparator: ｜
+
+SilenceSkip:
+  Skip Silence: Skip Silence
+  Enable Silence Skip: Silence Skip enabled
+  Disable Silence Skip: Silence Skip disabled

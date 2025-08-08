@@ -1090,3 +1090,8 @@ KeyboardShortcutPrompt:
   Last Chapter: ''
   Next Chapter: ''
   Skip by Tenths: ''
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

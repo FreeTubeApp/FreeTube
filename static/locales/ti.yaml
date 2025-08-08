@@ -36,3 +36,8 @@ KeyboardShortcutPrompt:
   Fullscreen: ምሉእ ኤለክትሮኒካዊ መሳርሒ
 Profile:
   Select All: ንዅሉ ምረጽ
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

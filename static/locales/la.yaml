@@ -160,3 +160,8 @@ KeyboardShortcutPrompt:
   Fullscreen: Totus mutatur ostentationem
 Profile:
   Select All: Omnia selige
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

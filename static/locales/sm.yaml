@@ -747,3 +747,8 @@ Hashtag:
 Yes: ''
 No: ''
 Ok: ''
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

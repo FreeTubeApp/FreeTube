@@ -415,3 +415,8 @@ KeyboardShortcutPrompt:
   Fullscreen: Tam ekran göstər
 Profile:
   Select All: Hamısını seç
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

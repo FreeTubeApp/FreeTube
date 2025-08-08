@@ -1119,3 +1119,8 @@ KeyboardShortcutPrompt:
   Home: Ir al principio del vídeo
   End: Ir al final del vídeo
 shortcutLabelSeparator: ｜
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

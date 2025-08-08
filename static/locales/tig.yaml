@@ -12,3 +12,8 @@ Channel:
 Video: {}
 Tooltips: {}
 Locale Name: ትግሬ
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

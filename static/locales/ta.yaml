@@ -1182,3 +1182,8 @@ KeyboardShortcutPrompt:
   Home: வீடியோவின் தொடக்கத்தைத் தேடுங்கள்
   End: வீடியோவின் முடிவைத் தேடுங்கள்
 shortcutLabelSeparator: ｜
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

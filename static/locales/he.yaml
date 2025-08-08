@@ -1254,3 +1254,8 @@ KeyboardShortcutPrompt:
   New Window: צור חלון חדש
   Large Rewind: חזור אחורה ב-10 שניות / חזור אחורה בסרטון בהתאם לקצב ההפעלה הנוכחי
 shortcutLabelSeparator: ｜
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

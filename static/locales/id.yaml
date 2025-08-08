@@ -1309,3 +1309,8 @@ shortcutLabelSeparator: ' '
 Description:
   Collapse Description: Tampilkan lebih sedikit
   Expand Description: '...lanjutan'
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

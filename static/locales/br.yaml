@@ -1171,3 +1171,8 @@ Keys:
   arrowleft: Bir kleiz
   arrowright: Bir dehou
   arrowup: Bir sevel
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

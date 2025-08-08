@@ -1127,3 +1127,8 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Přeskočit na další video v playlistu nebo další doporučené video
   Skip to Previous Video: Přeskočit na předchozí video v playlistu
 shortcutLabelSeparator: ｜
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

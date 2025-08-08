@@ -1222,3 +1222,8 @@ KeyboardShortcutPrompt:
   End: Seek to the end of the video
   Skip to Next Video: Skip to the next video in a playlist or next recommended video
   Skip to Previous Video: Skip to the previous video in a playlist
+
+SilenceSkip:
+  Skip Silence: Skip Silence
+  Enable Silence Skip: Silence Skip enabled
+  Disable Silence Skip: Silence Skip disabled

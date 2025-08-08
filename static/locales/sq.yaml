@@ -1141,3 +1141,8 @@ KeyboardShortcutPrompt:
   Skip by Tenths: ''
   Home: ''
   End: ''
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

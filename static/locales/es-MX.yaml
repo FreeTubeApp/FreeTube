@@ -879,3 +879,8 @@ KeyboardShortcutPrompt:
   Zoom Out: Reducir
   Zoom In: Ampliar
   Fullscreen: Pantalla completa
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

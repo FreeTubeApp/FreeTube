@@ -1370,3 +1370,8 @@ checkmark: ✓
 Display Label: '{label}: {value}'
 Yes, Restart: Ναι, Επανεκκίνηση
 shortcutLabelSeparator: ｜
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

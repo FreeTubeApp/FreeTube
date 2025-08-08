@@ -149,6 +149,12 @@
             :get-timestamp="getTimestamp"
             :playlist-id="playlistId"
           />
+          <ft-icon-button
+            :title="$t('SilenceSkip.Skip Silence')"
+            theme="primary"
+            :icon="['fas', 'gauge']"
+            @click="handleSkipSilence"
+          />
         </span>
       </div>
     </div>

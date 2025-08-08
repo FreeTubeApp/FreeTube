@@ -124,3 +124,8 @@ KeyboardShortcutPrompt:
   Zoom In: Zomi
   Zoom Out: Malzomi
   Fullscreen: Baskuli tutekranon
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

@@ -1122,3 +1122,8 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Odtwórz następny film z playlisty lub z rekomendowanych filmów
   Skip to Previous Video: Odtwórz poprzedni film z playlisty lub z rekomendowanych filmów
 shortcutLabelSeparator: ｜
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

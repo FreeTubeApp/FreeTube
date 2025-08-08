@@ -126,6 +126,7 @@ export default defineComponent({
     'set-info-area-sticky',
     'scroll-to-info-area',
     'save-watched-progress',
+    'skip-silence',
   ],
   computed: {
     hideSharingActions: function() {
@@ -370,6 +371,10 @@ export default defineComponent({
           mimeType: mimeTypeUrl[0]
         })
       }
+    },
+
+    handleSkipSilence: function () {
+      this.$emit('skip-silence')
     },
 
     grabExtensionFromUrl: function (url) {

@@ -685,3 +685,8 @@ KeyboardShortcutPrompt:
   Fullscreen: Alternar pantalla completa
 Profile:
   Select All: Seleccionar todo
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

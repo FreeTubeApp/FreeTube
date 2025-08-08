@@ -1115,3 +1115,8 @@ Description:
   Collapse Description: Показать меньше
 Autoplay Interruption Timer: Автоигра отменена из-за {autoplayInterruptionIntervalHours} часов бездействия
 shortcutLabelSeparator: ｜
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

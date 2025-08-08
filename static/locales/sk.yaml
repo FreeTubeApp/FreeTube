@@ -828,3 +828,8 @@ KeyboardShortcutPrompt:
   Zoom In: Priblížiť
   Zoom Out: Oddialiť
   Fullscreen: Prepnúť na celú obrazovku
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

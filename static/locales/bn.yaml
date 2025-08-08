@@ -209,3 +209,8 @@ KeyboardShortcutPrompt:
   Fullscreen: পূর্ণ-স্ক্রিন
 Profile:
   Select All: সব নির্বাচন করো
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

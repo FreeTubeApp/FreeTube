@@ -1126,3 +1126,8 @@ Right-click or hold to see history: Clique com o botão direito do rato ou mante
 Trimmed input must be at least N characters long: A entrada cortada deve ter pelo menos 1 carácter | A entrada cortada deve ter pelo menos {length} caracteres
 Autoplay Interruption Timer: Reprodução automática cancelada devido a {autoplayInterruptionIntervalHours} horas de inatividade
 shortcutJoinOperator: +
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

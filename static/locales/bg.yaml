@@ -1124,3 +1124,8 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Преминаване към следващото видео в плейлиста или към следващото препоръчано
   Skip to Previous Video: Преминаване към предходното видео в плейлиста
 shortcutLabelSeparator: '|'
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

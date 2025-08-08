@@ -771,3 +771,8 @@ Go to page: '{page}로 이동'
 Feed:
   Feed Last Updated: '{feedName} 피드 마지막 업데이트: {date}'
   Refresh Feed: '{subscriptionName} 새로 고침'
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''

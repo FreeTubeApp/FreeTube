@@ -1122,3 +1122,8 @@ KeyboardShortcutPrompt:
   Home: Videonun başına git
   Skip to Next Video: Oynatma listesindeki sonraki videoya veya sonraki önerilen videoya atla
   Skip to Previous Video: Oynatma listesindeki bir önceki videoya atla
+
+SilenceSkip:
+  Skip Silence: ''
+  Enable Silence Skip: ''
+  Disable Silence Skip: ''
