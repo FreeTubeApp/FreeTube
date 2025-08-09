@@ -1305,7 +1305,11 @@ export default defineComponent({
         variants = variants.filter(variant => variant.label === label)
       } else if (hasMultipleAudioTracks.value) {
         // default audio track
-        variants = variants.filter(variant => variant.audioRoles.includes('main'))
+        const filteredVariants = variants.filter(variant => variant.audioRoles.includes('main'))
+        // Sometimes there is nothing marked as main, don't filter in this case
+        if (filteredVariants.length > 0) {
+          variants = filteredVariants
+        }
       }
 
       const isPortrait = variants[0].height > variants[0].width
@@ -2257,7 +2261,11 @@ export default defineComponent({
 
       // text related errors aren't serious (captions and seek bar thumbnails), so we should just log them
       // TODO: consider only emitting when the severity is crititcal?
-      if (!ignoreErrors && error.category !== shaka.util.Error.Category.TEXT) {
+      if (
+        !ignoreErrors &&
+        error.category !== shaka.util.Error.Category.TEXT &&
+        !(error.code === shaka.util.Error.Code.BAD_HTTP_STATUS && error.data[0].startsWith('https://www.youtube.com/api/timedtext'))
+      ) {
         // don't react to multiple consecutive errors, otherwise we don't give the format fallback from the previous error a chance to work
         ignoreErrors = true
 

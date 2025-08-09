@@ -2,12 +2,12 @@
   "name": "freetube",
   "productName": "FreeTube",
   "description": "A private YouTube client",
-  "version": "0.23.5",
+  "version": "0.23.6",
   "license": "AGPL-3.0-or-later",
   "main": "./dist/main.js",
   "private": true,
   "author": {
-    "name": "PrestonN",
+    "name": "FreeTube Team",
     "email": "FreeTubeApp@protonmail.com",
     "url": "https://github.com/FreeTubeApp/FreeTube"
   },
@@ -67,14 +67,14 @@
     "path-browserify": "^1.0.1",
     "portal-vue": "^2.1.7",
     "process": "^0.11.10",
-    "shaka-player": "^4.13.0",
+    "shaka-player": "^4.13.4",
     "swiper": "^11.2.1",
     "vue": "^2.7.16",
     "vue-i18n": "^8.28.2",
     "vue-observe-visibility": "^1.0.0",
     "vue-router": "^3.6.5",
     "vuex": "^3.6.2",
-    "youtubei.js": "^13.4.0"
+    "youtubei.js": "^15.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.7",
@@ -88,7 +88,7 @@
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.0",
     "electron": "^34.0.1",
-    "electron-builder": "^25.1.8",
+    "electron-builder": "^26.0.13",
     "eslint": "^9.19.0",
     "eslint-plugin-jsdoc": "^50.6.3",
     "eslint-plugin-jsonc": "^2.19.1",

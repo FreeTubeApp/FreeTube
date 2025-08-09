@@ -1,5 +1,4 @@
 import { IpcChannels } from '../../constants'
-import FtToastEvents from '../components/ft-toast/ft-toast-events'
 import i18n from '../i18n/index'
 import router from '../router/index'
 import { nextTick } from 'vue'
@@ -162,17 +161,21 @@ export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
   return vttString
 }
 
+export const ToastEventBus = new EventTarget()
+
 /**
  * @param {string} message
  * @param {number} time
  * @param {Function} action
+ * @param {AbortSignal} abortSignal
  */
-export function showToast(message, time = null, action = null) {
-  FtToastEvents.dispatchEvent(new CustomEvent('toast-open', {
+export function showToast(message, time = null, action = null, abortSignal = null) {
+  ToastEventBus.dispatchEvent(new CustomEvent('toast-open', {
     detail: {
       message,
       time,
-      action
+      action,
+      abortSignal,
     }
   }))
 }
