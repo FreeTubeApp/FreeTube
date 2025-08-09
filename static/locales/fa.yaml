@@ -1314,7 +1314,3 @@ KeyboardShortcutPrompt:
   End: رفتن به انتهای ویدیو
 shortcutLabelSeparator: ｜
 
-SilenceSkip:
-  Skip Silence: ''
-  Enable Silence Skip: ''
-  Disable Silence Skip: ''

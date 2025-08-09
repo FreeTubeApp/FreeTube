@@ -1122,7 +1122,3 @@ KeyboardShortcutPrompt:
   Skip to Previous Video: Pular para o vídeo anterior em uma playlist
 shortcutLabelSeparator: ｜
 
-SilenceSkip:
-  Skip Silence: ''
-  Enable Silence Skip: ''
-  Disable Silence Skip: ''

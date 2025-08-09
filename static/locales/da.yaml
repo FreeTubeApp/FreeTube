@@ -1297,7 +1297,3 @@ Autoplay Interruption Timer: Autoplay afbrudt på grund af {autoplayInterruption
 shortcutLabelSeparator: ｜
 checkmark: ✓
 
-SilenceSkip:
-  Skip Silence: ''
-  Enable Silence Skip: ''
-  Disable Silence Skip: ''

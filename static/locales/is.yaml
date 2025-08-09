@@ -1123,7 +1123,3 @@ KeyboardShortcutPrompt:
   End: Hoppa í enda myndskeiðsins
 shortcutLabelSeparator: ｜
 
-SilenceSkip:
-  Skip Silence: ''
-  Enable Silence Skip: ''
-  Disable Silence Skip: ''

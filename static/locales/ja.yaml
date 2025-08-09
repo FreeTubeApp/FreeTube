@@ -1120,7 +1120,3 @@ KeyboardShortcutPrompt:
   Skip to Next Video: 再生リスト内の次の動画または次のおすすめ動画にスキップする
 shortcutLabelSeparator: ｜
 
-SilenceSkip:
-  Skip Silence: ''
-  Enable Silence Skip: ''
-  Disable Silence Skip: ''

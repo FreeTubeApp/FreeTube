@@ -1117,7 +1117,3 @@ KeyboardShortcutPrompt:
   Home: Di chuyển đến đầu video
 shortcutLabelSeparator: ｜
 
-SilenceSkip:
-  Skip Silence: ''
-  Enable Silence Skip: ''
-  Disable Silence Skip: ''

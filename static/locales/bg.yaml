@@ -1125,7 +1125,3 @@ KeyboardShortcutPrompt:
   Skip to Previous Video: Преминаване към предходното видео в плейлиста
 shortcutLabelSeparator: '|'
 
-SilenceSkip:
-  Skip Silence: ''
-  Enable Silence Skip: ''
-  Disable Silence Skip: ''

@@ -1127,7 +1127,3 @@ Trimmed input must be at least N characters long: A entrada cortada deve ter pel
 Autoplay Interruption Timer: Reprodução automática cancelada devido a {autoplayInterruptionIntervalHours} horas de inatividade
 shortcutJoinOperator: +
 
-SilenceSkip:
-  Skip Silence: ''
-  Enable Silence Skip: ''
-  Disable Silence Skip: ''

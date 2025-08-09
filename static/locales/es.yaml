@@ -1120,7 +1120,3 @@ KeyboardShortcutPrompt:
   End: Ir al final del vídeo
 shortcutLabelSeparator: ｜
 
-SilenceSkip:
-  Skip Silence: ''
-  Enable Silence Skip: ''
-  Disable Silence Skip: ''

@@ -1118,7 +1118,3 @@ Keys:
 Autoplay Interruption Timer: Automatska reprodukcija je prekinuta zbog {autoplayInterruptionIntervalHours} sata neaktivnosti
 shortcutLabelSeparator: ｜
 
-SilenceSkip:
-  Skip Silence: ''
-  Enable Silence Skip: ''
-  Disable Silence Skip: ''

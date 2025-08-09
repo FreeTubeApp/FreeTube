@@ -1121,7 +1121,3 @@ Autoplay Interruption Timer: Automatisch afspelen geannuleerd door {autoplayInte
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 
-SilenceSkip:
-  Skip Silence: ''
-  Enable Silence Skip: ''
-  Disable Silence Skip: ''

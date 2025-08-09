@@ -1125,7 +1125,3 @@ KeyboardShortcutPrompt:
   Skip to Previous Video: Revenir à la vidéo précédente dans la liste de lecture
 shortcutLabelSeparator: ｜
 
-SilenceSkip:
-  Skip Silence: ''
-  Enable Silence Skip: ''
-  Disable Silence Skip: ''

@@ -1122,7 +1122,3 @@ shortcutJoinOperator: +
 shortcutLabelSeparator: '|'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 
-SilenceSkip:
-  Skip Silence: ''
-  Enable Silence Skip: ''
-  Disable Silence Skip: ''

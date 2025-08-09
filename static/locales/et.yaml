@@ -1124,7 +1124,3 @@ KeyboardShortcutPrompt:
   Skip to Previous Video: Hüppa esitusloendi eelmise video juurde
 shortcutLabelSeparator: ｜
 
-SilenceSkip:
-  Skip Silence: ''
-  Enable Silence Skip: ''
-  Disable Silence Skip: ''
