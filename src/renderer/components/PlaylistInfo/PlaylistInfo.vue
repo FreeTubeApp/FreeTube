@@ -382,7 +382,11 @@ const durationFormatted = computed(() => {
     seconds: total % 60,
   }
 
-  return new Intl.DurationFormat([locale.value, 'en'], { style: 'short' }).format(duration)
+  let formatted = new Intl.DurationFormat([locale.value, 'en'], { style: 'short' }).format(duration)
+  if (props.moreVideoDataAvailable) {
+    formatted += '+'
+  }
+  return formatted
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */
