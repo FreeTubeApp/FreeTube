@@ -1123,4 +1123,3 @@ Display Label: '{label}: {value}'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Yes, Restart: Da, repornire
 shortcutJoinOperator: +
-

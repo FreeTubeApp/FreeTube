@@ -1121,4 +1121,3 @@ Autoplay Interruption Timer: تم إلغاء التشغيل التلقائي ب�
 shortcutJoinOperator: +
 shortcutLabelSeparator: '|'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
-
