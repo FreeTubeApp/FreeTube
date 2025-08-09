@@ -112,6 +112,10 @@
   pointer-events: none;
 }
 
+.valueChangePopup.invert-content-order {
+  flex-direction: row-reverse;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s ease;

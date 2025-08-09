@@ -1939,8 +1939,9 @@ export default defineComponent({
     /**
      * @param {number} seconds The number of seconds to seek by, positive values seek forwards, negative ones seek backwards
      * @param {boolean} canSeekResult Allow functions that have already checked whether seeking is possible, to skip the extra check (e.g. frameByFrame)
+     * @param {boolean} showPopUp Whether to show a pop-up with the seconds seeked
      */
-    function seekBySeconds(seconds, canSeekResult = false) {
+    function seekBySeconds(seconds, canSeekResult = false, showPopUp = false) {
       if (!(canSeekResult || canSeek())) {
         return
       }
@@ -1962,6 +1963,13 @@ export default defineComponent({
         }
       } else {
         video_.currentTime = newTime
+      }
+      if (showPopUp) {
+        const popUpLayout = seconds > 0
+          ? { icon: 'arrow-right', invertContentOrder: true }
+          : { icon: 'arrow-left', invertContentOrder: false }
+        const formattedSeconds = Math.abs(seconds)
+        showValueChange(`${formattedSeconds}s`, popUpLayout.icon, popUpLayout.invertContentOrder)
       }
     }
 
@@ -2167,12 +2175,12 @@ export default defineComponent({
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_REWIND:
           // Rewind by 2x the time-skip interval (in seconds)
           event.preventDefault()
-          seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate() * 2)
+          seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate() * 2, false, true)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_FAST_FORWARD:
           // Fast-Forward by 2x the time-skip interval (in seconds)
           event.preventDefault()
-          seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate() * 2)
+          seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate() * 2, false, true)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED:
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED_ALT:
@@ -2229,7 +2237,7 @@ export default defineComponent({
             video_.currentTime = props.chapters[props.currentChapterIndex - 1].startSeconds
           } else {
             // Rewind by the time-skip interval (in seconds)
-            seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate())
+            seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate(), false, true)
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_FAST_FORWARD:
@@ -2239,7 +2247,7 @@ export default defineComponent({
             video_.currentTime = (props.chapters[props.currentChapterIndex + 1].startSeconds)
           } else {
             // Fast-Forward by the time-skip interval (in seconds)
-            seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate())
+            seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate(), false, true)
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE:
@@ -3098,12 +3106,20 @@ export default defineComponent({
     const showValueChangePopup = ref(false)
     const valueChangeMessage = ref('')
     const valueChangeIcon = ref(null)
+    const invertValueChangeContentOrder = ref(false)
     let valueChangeTimeout = null
 
-    function showValueChange(message, icon = null) {
+    /**
+     * Shows a popup with a message and an icon on top of the video player.
+     * @param {string} message - The message to display.
+     * @param {string} icon - The icon to display.
+     * @param {boolean} invertContentOrder - Whether to invert the order of the icon and message.
+     */
+    function showValueChange(message, icon = null, invertContentOrder = false) {
       valueChangeMessage.value = message
       valueChangeIcon.value = icon
       showValueChangePopup.value = true
+      invertValueChangeContentOrder.value = invertContentOrder
 
       if (valueChangeTimeout) {
         clearTimeout(valueChangeTimeout)
@@ -3141,7 +3157,8 @@ export default defineComponent({
 
       valueChangeMessage,
       valueChangeIcon,
-      showValueChangePopup
+      showValueChangePopup,
+      invertValueChangeContentOrder,
     }
   }
 })

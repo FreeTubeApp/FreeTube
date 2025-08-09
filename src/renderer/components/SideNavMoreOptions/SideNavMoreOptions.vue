@@ -1,5 +1,8 @@
 <template>
-  <div class="sideNavMoreOptions">
+  <div
+    ref="menuRef"
+    class="sideNavMoreOptions"
+  >
     <div
       class="navOption moreOptionNav"
       tabindex="0"
@@ -32,6 +35,7 @@
         :title="$t('Channels.Channels')"
         :aria-label="hideLabelsSideBar ? $t('Channels.Channels') : null"
         to="/subscribedchannels"
+        @click="closeMenu"
       >
         <div
           class="thumbnailContainer"
@@ -57,6 +61,7 @@
         :title="$t('Trending.Trending')"
         :aria-label="hideLabelsSideBar ? $t('Trending.Trending') : null"
         to="/trending"
+        @click="closeMenu"
       >
         <FontAwesomeIcon
           :icon="['fas', 'fire']"
@@ -77,6 +82,7 @@
         :title="$t('Most Popular')"
         :aria-label="hideLabelsSideBar ? $t('Most Popular') : null"
         to="/popular"
+        @click="closeMenu"
       >
         <FontAwesomeIcon
           :icon="['fas', 'users']"
@@ -96,6 +102,7 @@
         :title="$t('About.About')"
         :aria-label="hideLabelsSideBar ? $t('About.About') : null"
         to="/about"
+        @click="closeMenu"
       >
         <FontAwesomeIcon
           :icon="['fas', 'info-circle']"
@@ -115,6 +122,7 @@
         :title="$t('Settings.Settings')"
         :aria-label="hideLabelsSideBar ? $t('Settings.Settings') : null"
         to="/settings"
+        @click="closeMenu"
       >
         <FontAwesomeIcon
           :icon="['fas', 'sliders-h']"
@@ -189,11 +197,14 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
+import router from '../../router/index.js'
 
 import store from '../../store/index'
 
 const openMoreOptions = ref(false)
+
+const menuRef = ref(null)
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideTrendingVideos = computed(() => {
@@ -215,6 +226,26 @@ const applyNavIconExpand = computed(() => {
   return {
     navIconExpand: hideLabelsSideBar.value
   }
+})
+
+function closeMenu() {
+  openMoreOptions.value = false
+}
+
+function handleClickOutside(event) {
+  if (openMoreOptions.value && menuRef.value && !menuRef.value.contains(event.target)) {
+    closeMenu()
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+  router.afterEach(() => {
+    closeMenu()
+  })
+})
+onBeforeUnmount(() => {
+  document.removeEventListener('click', handleClickOutside)
 })
 </script>
 
