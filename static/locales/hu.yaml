@@ -809,7 +809,7 @@ Video:
       opening playlists: lejátszási listák megnyitása
       setting a playback rate: lejátszási sebesség beállítása
       starting video at offset: videó kezdésének eltolása
-    UnsupportedActionTemplate: 'A(z) {externalPlayer} külső lejátszó nem támogatja: {action}'
+    UnsupportedActionTemplate: 'A(z) {externalPlayer} külső lejátszó nem támogatja a következőt: {action}'
     OpeningTemplate: A(z) {videoOrPlaylist} videó megnyitása a(z) {externalPlayer} külső lejátszóban…
     playlist: lejátszási lista
     video: videó
