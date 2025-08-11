@@ -29,7 +29,7 @@
         <ft-toggle-switch
           :label="$t('Settings.General Settings.Check for Latest Blog Posts')"
           :default-value="checkForBlogPosts"
-          :compact="true"
+          :compact="false"
           @change="updateCheckForBlogPosts"
         />
         <ft-toggle-switch
