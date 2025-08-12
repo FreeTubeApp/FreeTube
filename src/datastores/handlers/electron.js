@@ -85,29 +85,35 @@ class Playlists {
     return window.ftElectron.dbPlaylists(DBActions.GENERAL.UPSERT, playlist)
   }
 
-  static upsertVideoByPlaylistId(_id, videoData) {
-    return window.ftElectron.dbPlaylists(DBActions.PLAYLISTS.UPSERT_VIDEO, { _id, videoData })
+  static upsertVideoByPlaylistId(_id, lastUpdatedAt, videoData) {
+    return window.ftElectron.dbPlaylists(
+      DBActions.PLAYLISTS.UPSERT_VIDEO,
+      { _id, lastUpdatedAt, videoData }
+    )
   }
 
-  static upsertVideosByPlaylistId(_id, videos) {
-    return window.ftElectron.dbPlaylists(DBActions.PLAYLISTS.UPSERT_VIDEOS, { _id, videos })
+  static upsertVideosByPlaylistId(_id, lastUpdatedAt, videos) {
+    return window.ftElectron.dbPlaylists(
+      DBActions.PLAYLISTS.UPSERT_VIDEOS,
+      { _id, lastUpdatedAt, videos }
+    )
   }
 
   static delete(_id) {
     return window.ftElectron.dbPlaylists(DBActions.GENERAL.DELETE, _id)
   }
 
-  static deleteVideoIdByPlaylistId(_id, videoId, playlistItemId) {
+  static deleteVideoIdByPlaylistId(_id, lastUpdatedAt, videoId, playlistItemId) {
     return window.ftElectron.dbPlaylists(
       DBActions.PLAYLISTS.DELETE_VIDEO_ID,
-      { _id, videoId, playlistItemId }
+      { _id, lastUpdatedAt, videoId, playlistItemId }
     )
   }
 
-  static deleteVideoIdsByPlaylistId(_id, playlistItemIds) {
+  static deleteVideoIdsByPlaylistId(_id, lastUpdatedAt, playlistItemIds) {
     return window.ftElectron.dbPlaylists(
       DBActions.PLAYLISTS.DELETE_VIDEO_IDS,
-      { _id, playlistItemIds }
+      { _id, lastUpdatedAt, playlistItemIds }
     )
   }
 

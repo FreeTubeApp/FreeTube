@@ -182,7 +182,12 @@ const actions = {
       if (videoData.type == null) {
         videoData.type = 'video'
       }
-      await DBPlaylistHandlers.upsertVideoByPlaylistId(_id, videoData)
+
+      const lastUpdatedAt = Date.now()
+
+      await DBPlaylistHandlers.upsertVideoByPlaylistId(_id, lastUpdatedAt, videoData)
+
+      payload.lastUpdatedAt = lastUpdatedAt
       commit('addVideo', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -224,8 +229,11 @@ const actions = {
 
         return videoData
       })
-      await DBPlaylistHandlers.upsertVideosByPlaylistId(_id, newVideoObjects)
-      commit('addVideos', { _id, videos: newVideoObjects })
+
+      const lastUpdatedAt = Date.now()
+
+      await DBPlaylistHandlers.upsertVideosByPlaylistId(_id, lastUpdatedAt, newVideoObjects)
+      commit('addVideos', { _id, lastUpdatedAt, videos: newVideoObjects })
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -408,7 +416,13 @@ const actions = {
   async removeVideo({ commit }, payload) {
     try {
       const { _id, videoId, playlistItemId } = payload
-      await DBPlaylistHandlers.deleteVideoIdByPlaylistId(_id, videoId, playlistItemId)
+
+      const lastUpdatedAt = Date.now()
+
+      await DBPlaylistHandlers.deleteVideoIdByPlaylistId(_id, lastUpdatedAt, videoId, playlistItemId)
+
+      payload.lastUpdatedAt = lastUpdatedAt
+
       commit('removeVideo', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -418,7 +432,13 @@ const actions = {
   async removeVideos({ commit }, payload) {
     try {
       const { _id, playlistItemIds } = payload
-      await DBPlaylistHandlers.deleteVideoIdsByPlaylistId(_id, playlistItemIds)
+
+      const lastUpdatedAt = Date.now()
+
+      await DBPlaylistHandlers.deleteVideoIdsByPlaylistId(_id, lastUpdatedAt, playlistItemIds)
+
+      payload.lastUpdatedAt = lastUpdatedAt
+
       commit('removeVideos', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -452,6 +472,7 @@ const mutations = {
     const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
       playlist.videos.push(payload.videoData)
+      playlist.lastUpdatedAt = payload.lastUpdatedAt
     }
   },
 
@@ -459,6 +480,7 @@ const mutations = {
     const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
       playlist.videos = [].concat(playlist.videos, payload.videos)
+      playlist.lastUpdatedAt = payload.lastUpdatedAt
     }
   },
 
@@ -473,24 +495,27 @@ const mutations = {
     }
   },
 
-  removeVideo(state, { _id, videoId, playlistItemId }) {
+  removeVideo(state, { _id, lastUpdatedAt, videoId, playlistItemId }) {
     const playlist = state.playlists.find(playlist => playlist._id === _id)
     if (playlist) {
       if (playlistItemId != null) {
         playlist.videos = playlist.videos.filter(video => video.playlistItemId !== playlistItemId)
+        playlist.lastUpdatedAt = lastUpdatedAt
       } else if (videoId != null) {
         playlist.videos = playlist.videos.filter(video => video.videoId !== videoId)
+        playlist.lastUpdatedAt = lastUpdatedAt
       }
     }
   },
 
-  removeVideos(state, { _id, playlistItemIds }) {
+  removeVideos(state, { _id, lastUpdatedAt, playlistItemIds }) {
     const playlist = state.playlists.find(playlist => playlist._id === _id)
     if (playlist) {
       playlist.videos = playlist.videos.filter(video => {
         const playlistItemIdMatches = playlistItemIds.includes(video.playlistItemId)
         return !playlistItemIdMatches
       })
+      playlist.lastUpdatedAt = lastUpdatedAt
     }
   },
 
