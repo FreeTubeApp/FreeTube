@@ -978,7 +978,6 @@ export default defineComponent({
         player.cancelTrickPlay()
 
         showValueChange(`${defaultPlaybackRate.value}x`)
-        showOverlayControls()
       }
     }
 
@@ -1906,7 +1905,6 @@ export default defineComponent({
         messageIcon = 'volume-high'
       }
       showValueChange(`${Math.round(video.value.volume * 100)}%`, messageIcon)
-      showOverlayControls()
     }
 
     /**
@@ -1926,7 +1924,6 @@ export default defineComponent({
         }
 
         showValueChange(`${newPlaybackRateString}x`)
-        showOverlayControls()
       }
     }
 
@@ -1979,7 +1976,6 @@ export default defineComponent({
           : { icon: 'arrow-left', invertContentOrder: false }
         const formattedSeconds = Math.abs(seconds)
         showValueChange(`${formattedSeconds}s`, popUpLayout.icon, popUpLayout.invertContentOrder)
-        showOverlayControls()
       }
 
       showOverlayControls()
@@ -2221,7 +2217,6 @@ export default defineComponent({
             const messageIcon = isMuted ? 'volume-mute' : 'volume-high'
             const message = isMuted ? '0%' : `${Math.round(video_.volume * 100)}%`
             showValueChange(message, messageIcon)
-            showOverlayControls()
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS:
