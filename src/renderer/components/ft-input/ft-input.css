@@ -197,7 +197,7 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
   padding-inline: 0;
   z-index: 10;
   border-radius: 0 0 5px 5px;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
   box-shadow: 0 0 10px var(--scrollbar-color-hover);
   background-color: var(--search-bar-color);
 }

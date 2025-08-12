@@ -34,7 +34,7 @@
   color: var(--tertiary-text-color);
   padding: 0;
   margin: 0;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 :deep(.liveChatEmoji) {
@@ -186,7 +186,7 @@
 .chatContent {
   margin-block: 5px 2px;
   font-size: 12px;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .member {

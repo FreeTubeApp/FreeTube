@@ -58,8 +58,8 @@
       />
       <FtButton
         :label="$t('Close')"
-        background-color="var(--primary-color)"
-        text-color="var(--text-with-main-color)"
+        background-color="null"
+        text-color="null"
         @click="hideSearchFilters"
       />
     </div>

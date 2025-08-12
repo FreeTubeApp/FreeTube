@@ -563,7 +563,7 @@ Settings:
     Proxy Warning: FreeTube yerleşik bir vekil sunucusu sağlamaz fakat cihazınızda çalışan Tor veya bazı VPN'ler tarafından sağlanan harici vekil sunucu SOCKS5 gibi harici bir vekil sunucuya bağlanabilir. İzin verildiği takdirde, vekil sunucu/Tor ağının düzgün ayarlandığından emin olun, aksi takdirde FreeTube herhangi bir veri sağlayamayacaktır.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Sponsor bölümü atlandığında bildir
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API URL'si (Öntanımlı olarak https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API bağlantısı (Varsayılan https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock'u Etkinleştir
     SponsorBlock Settings: SponsorBlock
     Skip Options:
@@ -1120,3 +1120,5 @@ KeyboardShortcutPrompt:
   Show Keyboard Shortcuts: Klavye kısayollarını göster
   End: Videonun sonuna git
   Home: Videonun başına git
+  Skip to Next Video: Oynatma listesindeki sonraki videoya veya sonraki önerilen videoya atla
+  Skip to Previous Video: Oynatma listesindeki bir önceki videoya atla

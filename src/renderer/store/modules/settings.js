@@ -154,7 +154,7 @@ const state = {
   backendFallback: process.env.SUPPORTS_LOCAL_API,
   backendPreference: !process.env.SUPPORTS_LOCAL_API ? 'invidious' : 'local',
   barColor: false,
-  checkForBlogPosts: true,
+  checkForBlogPosts: false,
   checkForUpdates: true,
   baseTheme: 'system',
   mainColor: 'Red',

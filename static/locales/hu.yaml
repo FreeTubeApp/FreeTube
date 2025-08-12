@@ -425,7 +425,7 @@ Settings:
     Autoplay Interruption Timer: Automatikus lejátszás megszakításának időköze
     Default Viewing Mode:
       Full Screen: Teljes képernyő
-      Theater: Színház
+      Theater: Szélesvásznú
       Picture in Picture: Kép a képben
       External Player: Külső lejátszó ({externalPlayerName})
       Default Viewing Mode: Alapértelmezett nézetmód
@@ -809,7 +809,7 @@ Video:
       opening playlists: lejátszási listák megnyitása
       setting a playback rate: lejátszási sebesség beállítása
       starting video at offset: videó kezdésének eltolása
-    UnsupportedActionTemplate: 'A(z) {externalPlayer} külső lejátszó nem támogatja: {action}'
+    UnsupportedActionTemplate: 'A(z) {externalPlayer} külső lejátszó nem támogatja a következőt: {action}'
     OpeningTemplate: A(z) {videoOrPlaylist} videó megnyitása a(z) {externalPlayer} külső lejátszóban…
     playlist: lejátszási lista
     video: videó
@@ -824,8 +824,8 @@ Video:
   More Options: További beállítások
   Player:
     Audio Tracks: Hangsávok
-    Exit Theatre Mode: Kilépés a színházmódból
-    Theatre Mode: Színházmód
+    Exit Theatre Mode: Kilépés a szélesvásznú módból
+    Theatre Mode: Szélesvásznú mód
     Full Window: Teljes ablak
     Exit Full Window: Kilépés a teljes ablakból
     Take Screenshot: Képernyőkép készítése
@@ -1095,7 +1095,7 @@ KeyboardShortcutPrompt:
   Toggle Developer Tools: Fejlesztői eszközök be/ki
   Zoom In: Nagyítás
   Full Window: Teljes ablakmód be/ki
-  Theatre Mode: Mozimód be/ki
+  Theatre Mode: Szélesvásznú mód be/ki
   Minimize Window: Ablak minimalizálása
   Last Frame: Előző képkocka megjelenítése (szüneteltetés alatt)
   Next Frame: Következő képkocka megjelenítése (szüneteltetés alatt)

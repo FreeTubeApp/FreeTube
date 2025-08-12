@@ -59,7 +59,13 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     client_type: clientType,
 
     // use browser fetch
-    fetch: (input, init) => fetch(input, init),
+    fetch: (input, init) => {
+      if (input.url?.startsWith('https://www.youtube.com/youtubei/v1/player')) {
+        init.body = init.body.replace('"videoId":', '"params":"8AEB","videoId":')
+      }
+
+      return fetch(input, init)
+    },
     cache,
     generate_session_locally: !!generateSessionLocally
   })
@@ -316,6 +322,10 @@ export async function getLocalVideoInfo(id) {
       url.searchParams.set('potc', '1')
       url.searchParams.set('pot', contentPoToken)
       url.searchParams.set('c', clientName)
+
+      // Remove &xosf=1 as it adds `position:63% line:0%` to the subtitle lines
+      // placing them in the top right corner
+      url.searchParams.delete('xosf')
 
       captionTrack.base_url = url.toString()
     }
