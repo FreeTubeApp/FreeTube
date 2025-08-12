@@ -324,6 +324,10 @@ export async function getLocalVideoInfo(id) {
       url.searchParams.set('pot', contentPoToken)
       url.searchParams.set('c', clientName)
 
+      // Remove &xosf=1 as it adds `position:63% line:0%` to the subtitle lines
+      // placing them in the top right corner
+      url.searchParams.delete('xosf')
+
       captionTrack.base_url = url.toString()
     }
   }
