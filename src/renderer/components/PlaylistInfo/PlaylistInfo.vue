@@ -331,6 +331,10 @@ const props = defineProps({
     type: Number,
     required: true
   },
+  isDurationApproximate: {
+    type: Boolean,
+    required: true
+  },
   lastUpdated: {
     type: String,
     default: undefined,
@@ -375,29 +379,17 @@ if (props.videoCount > 0) {
 
 const durationFormatted = computed(() => {
   const total = props.totalPlaylistDuration
-  let seconds
-  let isApproximation = false
-
-  if (Number.isNaN(total)) {
-    seconds = props.videos.reduce((acc, video) => {
-      return typeof video.lengthSeconds === 'number' ? acc + video.lengthSeconds : acc
-    }, 0)
-    isApproximation = true
-  } else {
-    seconds = total
-  }
-
   const duration = {
-    hours: Math.floor(seconds / 3600),
-    minutes: Math.floor((seconds % 3600) / 60),
-    seconds: seconds % 60,
+    hours: Math.floor(total / 3600),
+    minutes: Math.floor((total % 3600) / 60),
+    seconds: total % 60,
   }
 
   let formatted = new Intl.DurationFormat([locale.value, 'en'], { style: 'short' }).format(duration)
   if (props.moreVideoDataAvailable) {
     formatted += '+'
   }
-  if (isApproximation && formatted) {
+  if (props.isDurationApproximate && formatted) {
     formatted = `~${formatted}`
   }
   return formatted
