@@ -160,7 +160,6 @@
         @set-info-area-sticky="infoAreaSticky = $event"
         @scroll-to-info-area="$refs.infoArea.scrollIntoView()"
         @save-watched-progress="handleWatchProgressManualSave"
-        @skip-silence="handleSkipSilence"
       />
       <watch-video-chapters
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"

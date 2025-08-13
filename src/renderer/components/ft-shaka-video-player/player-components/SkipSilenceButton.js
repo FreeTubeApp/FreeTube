@@ -1,0 +1,66 @@
+import shaka from 'shaka-player'
+
+import i18n from '../../../i18n/index'
+
+export class SkipSilenceButton extends shaka.ui.Element {
+  /**
+   * @param {boolean} skipSilenceEnabled
+   * @param {EventTarget} events
+   * @param {HTMLElement} parent
+   * @param {shaka.ui.Controls} controls
+   */
+  constructor(skipSilenceEnabled, events, parent, controls) {
+    super(parent, controls)
+
+    /** @private */
+    this.button_ = document.createElement('button')
+    this.button_.classList.add('skip-silence-button', 'shaka-tooltip')
+
+    /** @private */
+    this.icon_ = document.createElement('i')
+    this.icon_.classList.add('material-icons-round')
+    this.icon_.textContent = 'timer'
+
+    this.button_.appendChild(this.icon_)
+
+    const label = document.createElement('label')
+    label.classList.add('shaka-overflow-button-label', 'shaka-overflow-menu-only')
+
+    /** @private */
+    this.nameSpan_ = document.createElement('span')
+    label.appendChild(this.nameSpan_)
+
+    /** @private */
+    this.currentState_ = document.createElement('span')
+    this.currentState_.classList.add('shaka-current-selection-span')
+    label.appendChild(this.currentState_)
+
+    this.button_.appendChild(label)
+
+    this.parent.appendChild(this.button_)
+
+    /** @private */
+    this.skipSilenceEnabled_ = skipSilenceEnabled
+
+    // listeners
+
+    this.eventManager.listen(this.button_, 'click', () => {
+      events.dispatchEvent(new CustomEvent('toggleSkipSilence'))
+      this.skipSilenceEnabled_ = !this.skipSilenceEnabled_
+      this.updateLocalisedStrings_()
+    })
+
+    this.eventManager.listen(events, 'localeChanged', () => {
+      this.updateLocalisedStrings_()
+    })
+
+    this.updateLocalisedStrings_()
+  }
+
+  /** @private */
+  updateLocalisedStrings_() {
+    this.nameSpan_.textContent = this.button_.ariaLabel = this.skipSilenceEnabled_ ? i18n.t('SilenceSkip.Enable Silence Skip') : i18n.t('SilenceSkip.Disable Silence Skip')
+    this.icon_.textContent = this.skipSilenceEnabled_ ? 'shutter_speed' : 'timer'
+    this.currentState_.textContent = this.localization.resolve(this.skipSilenceEnabled_ ? 'ON' : 'OFF')
+  }
+}

@@ -1407,14 +1407,6 @@ export default defineComponent({
       this.$refs.watchVideoPlaylist?.playPreviousVideo()
     },
 
-    handleSkipSilence: function () {
-      const player = this.$refs.player
-      if (!player) {
-        return
-      }
-      player?.skipSilence()
-    },
-
     abortAutoplayCountdown: function (hideToast = false) {
       clearTimeout(this.playNextTimeout)
       clearInterval(this.playNextCountDownIntervalId)

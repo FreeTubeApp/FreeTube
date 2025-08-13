@@ -11,6 +11,7 @@ import { ScreenshotButton } from './player-components/ScreenshotButton'
 import { StatsButton } from './player-components/StatsButton'
 import { TheatreModeButton } from './player-components/TheatreModeButton'
 import { AutoplayToggle } from './player-components/AutoplayToggle'
+import { SkipSilenceButton } from './player-components/SkipSilenceButton'
 import {
   findMostSimilarAudioBandwidth,
   getSponsorBlockSegments,
@@ -822,6 +823,7 @@ export default defineComponent({
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'recenter_vr',
           'toggle_stereoscopic',
+          'ft_skip_silence_toggle',
         ]
 
         elementList = uiConfig.overflowMenuButtons
@@ -840,7 +842,8 @@ export default defineComponent({
           'picture_in_picture',
           'ft_theatre_mode',
           'ft_full_window',
-          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality'
+          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
+          'ft_skip_silence_toggle',
         )
 
         elementList = uiConfig.controlPanelElements
@@ -1714,6 +1717,24 @@ export default defineComponent({
       shakaOverflowMenu.registerElement('ft_autoplay_toggle', new AutoplayToggleFactory())
     }
 
+    function registerSkipSilenceToggle() {
+      events.addEventListener('toggleSkipSilence', () => {
+        skipSilence()
+      })
+
+      /**
+       * @implements {shaka.extern.IUIElement.Factory}
+       */
+      class SkipSilenceToggleFactory {
+        create(rootElement, controls) {
+          return new SkipSilenceButton(isSilenceSkipEnabled.value, events, rootElement, controls)
+        }
+      }
+
+      shakaControls.registerElement('ft_skip_silence_toggle', new SkipSilenceToggleFactory())
+      shakaOverflowMenu.registerElement('ft_skip_silence_toggle', new SkipSilenceToggleFactory())
+    }
+
     function registerTheatreModeButton() {
       events.addEventListener('toggleTheatreMode', () => {
         emit('toggle-theatre-mode')
@@ -1865,6 +1886,9 @@ export default defineComponent({
 
       shakaControls.registerElement('ft_screenshot', null)
       shakaOverflowMenu.registerElement('ft_screenshot', null)
+
+      shakaControls.registerElement('ft_skip_silence_toggle', null)
+      shakaOverflowMenu.registerElement('ft_skip_silence_toggle', null)
     }
 
     // #endregion custom player controls
@@ -2564,6 +2588,7 @@ export default defineComponent({
       registerFullWindowButton()
       registerLegacyQualitySelection()
       registerStatsButton()
+      registerSkipSilenceToggle()
 
       if (ui.isMobile()) {
         useOverFlowMenu.value = true
@@ -3098,7 +3123,6 @@ export default defineComponent({
       getCurrentTime,
       setCurrentTime,
       destroyPlayer,
-      skipSilence
     })
 
     // #endregion functions used by the watch page
