@@ -429,8 +429,6 @@ export default defineComponent({
         _id: this.quickBookmarkPlaylist._id,
         videoData,
       })
-      // Update playlist's `lastUpdatedAt`
-      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
 
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been saved'))
@@ -441,8 +439,6 @@ export default defineComponent({
         // Remove all playlist items with same videoId
         videoId: this.id,
       })
-      // Update playlist's `lastUpdatedAt`
-      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
 
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been removed from your saved list'))
@@ -461,7 +457,6 @@ export default defineComponent({
       'downloadMedia',
       'showAddToPlaylistPromptForManyVideos',
       'addVideo',
-      'updatePlaylist',
       'updateHistory',
       'removeVideo',
     ])

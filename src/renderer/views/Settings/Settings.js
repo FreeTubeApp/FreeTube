@@ -8,7 +8,7 @@ import SubscriptionSettings from '../../components/SubscriptionSettings/Subscrip
 import DownloadSettings from '../../components/DownloadSettings/DownloadSettings.vue'
 import PrivacySettings from '../../components/PrivacySettings.vue'
 import DataSettings from '../../components/DataSettings.vue'
-import DistractionSettings from '../../components/distraction-settings/distraction-settings.vue'
+import DistractionSettings from '../../components/DistractionSettings/DistractionSettings.vue'
 import ProxySettings from '../../components/ProxySettings/ProxySettings.vue'
 import SponsorBlockSettings from '../../components/SponsorBlockSettings.vue'
 import ParentalControlSettings from '../../components/ParentalControlSettings.vue'

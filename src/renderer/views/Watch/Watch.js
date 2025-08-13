@@ -507,7 +507,9 @@ export default defineComponent({
 
         let chapters = []
         if (!this.hideChapters) {
-          const rawChapters = result.player_overlays?.decorated_player_bar?.player_bar?.markers_map?.get({ marker_key: 'DESCRIPTION_CHAPTERS' })?.value.chapters
+          const rawChapters = result.player_overlays?.decorated_player_bar?.player_bar?.markers_map
+            ?.find(marker => marker.marker_key === 'DESCRIPTION_CHAPTERS')?.value.chapters
+
           if (rawChapters) {
             for (const chapter of rawChapters) {
               const start = chapter.time_range_start_millis / 1000
