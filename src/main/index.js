@@ -1522,7 +1522,7 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.UPSERT_VIDEO:
-          await baseHandlers.playlists.upsertVideoByPlaylistId(data._id, data.videoData)
+          await baseHandlers.playlists.upsertVideoByPlaylistId(data._id, data.lastUpdatedAt, data.videoData)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -1531,7 +1531,7 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.UPSERT_VIDEOS:
-          await baseHandlers.playlists.upsertVideosByPlaylistId(data._id, data.videos)
+          await baseHandlers.playlists.upsertVideosByPlaylistId(data._id, data.lastUpdatedAt, data.videos)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -1549,7 +1549,7 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_ID:
-          await baseHandlers.playlists.deleteVideoIdByPlaylistId(data._id, data.videoId, data.playlistItemId)
+          await baseHandlers.playlists.deleteVideoIdByPlaylistId(data._id, data.lastUpdatedAt, data.videoId, data.playlistItemId)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -1558,7 +1558,7 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_IDS:
-          await baseHandlers.playlists.deleteVideoIdsByPlaylistId(data._id, data.playlistItemIds)
+          await baseHandlers.playlists.deleteVideoIdsByPlaylistId(data._id, data.lastUpdatedAt, data.playlistItemIds)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,

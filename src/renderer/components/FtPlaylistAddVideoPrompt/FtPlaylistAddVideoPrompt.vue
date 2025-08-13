@@ -393,9 +393,6 @@ function addSelectedToPlaylists() {
     })
 
     addedPlaylistIds.add(playlist._id)
-
-    // Update playlist's `lastUpdatedAt`
-    store.dispatch('updatePlaylist', { _id: playlist._id })
   })
 
   let message
