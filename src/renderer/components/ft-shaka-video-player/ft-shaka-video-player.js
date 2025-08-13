@@ -2206,6 +2206,7 @@ export default defineComponent({
           // Toggle full screen
           event.preventDefault()
           ui.getControls().toggleFullScreen()
+          showOverlayControls()
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE:
           // Toggle mute only if metakey is not pressed
@@ -2226,6 +2227,7 @@ export default defineComponent({
 
             const currentlyVisible = player.isTextTrackVisible()
             player.setTextTrackVisibility(!currentlyVisible)
+            showOverlayControls()
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.VOLUME_UP:
@@ -2247,6 +2249,7 @@ export default defineComponent({
             // Rewind by the time-skip interval (in seconds)
             seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate(), false, true)
           }
+          if (canChapterJump(event, 'previous')) showOverlayControls()
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_FAST_FORWARD:
           event.preventDefault()
@@ -2257,6 +2260,7 @@ export default defineComponent({
             // Fast-Forward by the time-skip interval (in seconds)
             seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate(), false, true)
           }
+          if (canChapterJump(event, 'next')) showOverlayControls()
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE:
           // Toggle picture in picture
@@ -2288,6 +2292,7 @@ export default defineComponent({
             const percentage = parseInt(event.key) / 10
 
             video_.currentTime = seekRange.start + (length * percentage)
+            showOverlayControls()
           }
           break
         }
@@ -2319,6 +2324,7 @@ export default defineComponent({
             // use seek range instead of duration so that it works for live streams too
             const seekRange = player.seekRange()
             video_.currentTime = seekRange.start
+            showOverlayControls()
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.END:
@@ -2328,6 +2334,7 @@ export default defineComponent({
             // use seek range instead of duration so that it works for live streams too
             const seekRange = player.seekRange()
             video_.currentTime = seekRange.end
+            showOverlayControls()
           }
           break
         case 'escape':
