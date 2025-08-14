@@ -92,6 +92,7 @@
         @change="updateCurrentLocale"
       />
       <ft-select
+        v-if="regionDataLoaded"
         :placeholder="$t('Settings.General Settings.Region for Trending')"
         :value="region"
         :select-names="regionNames"
