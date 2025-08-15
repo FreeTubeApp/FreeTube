@@ -232,7 +232,18 @@ export async function getLocalVideoInfo(id) {
 
   const info = await webInnertube.getInfo(id, { po_token: contentPoToken })
 
-  // temporary workaround for SABR-only responses
+  // #region temporary workaround for SABR-only responses
+
+  // MWEB doesn't have an audio track selector so it picks the audio track on the server based on the request language.
+
+  const originalAudioTrackFormat = info.streaming_data?.adaptive_formats.find(format => {
+    return format.has_audio && format.is_original && format.language
+  })
+
+  if (originalAudioTrackFormat) {
+    webInnertube.session.context.client.hl = originalAudioTrackFormat.language
+  }
+
   const mwebInfo = await webInnertube.getBasicInfo(id, { client: 'MWEB', po_token: contentPoToken })
 
   if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data) {
@@ -241,6 +252,8 @@ export async function getLocalVideoInfo(id) {
 
     clientName = 'MWEB'
   }
+
+  // #endregion temporary workaround for SABR-only responses
 
   let hasTrailer = info.has_trailer
   let trailerIsAgeRestricted = info.getTrailerInfo() === null
@@ -323,6 +336,10 @@ export async function getLocalVideoInfo(id) {
       url.searchParams.set('potc', '1')
       url.searchParams.set('pot', contentPoToken)
       url.searchParams.set('c', clientName)
+
+      // Remove &xosf=1 as it adds `position:63% line:0%` to the subtitle lines
+      // placing them in the top right corner
+      url.searchParams.delete('xosf')
 
       captionTrack.base_url = url.toString()
     }
