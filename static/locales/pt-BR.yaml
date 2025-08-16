@@ -250,6 +250,7 @@ Settings:
       Label: Carregamento automático da próxima página
       Tooltip: Carregar páginas e comentários adicionais automaticamente.
     Open Deep Links In New Window: Abrir URLs enviados para o FreeTube em uma nova janela
+    Minimize to system tray: Minimizar para a bandeja do sistema
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Usar cor principal na barra superior'
