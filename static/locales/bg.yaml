@@ -257,6 +257,7 @@ Settings:
       Label: Автоматично зареждане на следващата страница
       Tooltip: Автоматично зареждане на допълнителни страници и коментари.
     Open Deep Links In New Window: Отваряне в нов прозорец на URL адреси, преминаващи през FreeTube
+    Minimize to system tray: Намаляване в системната лента
   Theme Settings:
     Theme Settings: 'Тема'
     Match Top Bar with Main Color: 'Съвпадане на горната лента с основната цветова тема'
