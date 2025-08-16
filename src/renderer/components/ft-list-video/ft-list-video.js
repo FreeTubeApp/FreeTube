@@ -391,8 +391,8 @@ export default defineComponent({
     watchedProgressSavingEnabled: function () {
       return ['auto', 'semi-auto'].includes(this.$store.getters.getWatchedProgressSavingMode)
     },
-    autosaveWatchedProgress: function () {
-      return this.$store.getters.getWatchedProgressSavingMode === 'auto'
+    rememberHistory: function () {
+      return this.$store.getters.getRememberHistory
     },
 
     saveVideoHistoryWithLastViewedPlaylist: function () {
@@ -642,7 +642,9 @@ export default defineComponent({
       }
       this.openInExternalPlayer(payload)
 
-      this.markAsWatched()
+      if (this.rememberHistory) {
+        this.markAsWatched()
+      }
     },
 
     handleOptionsClick: function (option) {
