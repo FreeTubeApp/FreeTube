@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
-import FtSelect from '../ft-select/ft-select.vue'
+import FtSelect from '../FtSelect/FtSelect.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -135,6 +135,9 @@ export default defineComponent({
     },
     regionValues: function () {
       return this.$store.getters.getRegionValues
+    },
+    regionDataLoaded: function () {
+      return this.regionValues.length > 0
     },
     invidiousInstancesList: function () {
       return this.$store.getters.getInvidiousInstancesList
