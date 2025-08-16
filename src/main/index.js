@@ -333,10 +333,10 @@ function runApp() {
         if (!openDeepLinksInNewWindow) {
           // Just focus the main window (instead of starting a new instance)
           if (mainWindow.isMinimized()) {
-            if (!trayOnMinimize) {
-              mainWindow.restore()
-            } else {
+            if (trayOnMinimize) {
               trayClick(mainWindow)
+            } else {
+              mainWindow.restore()
             }
           }
           mainWindow.focus()
@@ -735,13 +735,13 @@ function runApp() {
           window.show()
         }
       }
-    } else if (trayWindows.length) {
+    } else if (trayWindows.length > 0) {
       window.close()
     }
 
     trayWindows.splice(trayWindows.findIndex(item => item.id === window.id), 1)
 
-    if (trayWindows.length) {
+    if (trayWindows.length > 0) {
       createTrayContextMenu()
     } else {
       destroyTray()
@@ -1046,10 +1046,6 @@ function runApp() {
       newWindow.loadURL(ROOT_APP_URL)
     }
 
-    // newWindow.webContents.on('did-finish-load', () => {
-    //   dialog.showMessageBoxSync({message: 'x'})
-    // })
-
     if (typeof searchQueryText === 'string' && searchQueryText.length > 0) {
       ipcMain.once(IpcChannels.SEARCH_INPUT_HANDLING_READY, () => {
         newWindow.webContents.send(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, searchQueryText)
@@ -1066,11 +1062,11 @@ function runApp() {
         return
       }
 
-      if (!trayOnMinimize || !trayWindows.length) {
+      if (trayOnMinimize && trayWindows.length > 0) {
+        trayClick(newWindow)
+      } else {
         newWindow.show()
         newWindow.focus()
-      } else {
-        trayClick(newWindow)
       }
 
       if (process.env.NODE_ENV === 'development') {
