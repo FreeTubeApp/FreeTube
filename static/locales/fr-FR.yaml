@@ -250,6 +250,7 @@ Settings:
       Label: Chargement automatique de la page suivante
       Tooltip: Chargement automatique des pages supplémentaires et des commentaires.
     Open Deep Links In New Window: Ouvrir les URL transmises à FreeTube dans une nouvelle fenêtre
+    Minimize to system tray: Réduire dans la barre d'état système
   Theme Settings:
     Theme Settings: 'Thème'
     Match Top Bar with Main Color: 'Faire correspondre la barre supérieure à la couleur principale'
