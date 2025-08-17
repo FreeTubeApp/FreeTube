@@ -379,6 +379,7 @@ if (props.videoCount > 0) {
 
 const durationFormatted = computed(() => {
   const total = props.totalPlaylistDuration
+
   const duration = {
     hours: Math.floor(total / 3600),
     minutes: Math.floor((total % 3600) / 60),
