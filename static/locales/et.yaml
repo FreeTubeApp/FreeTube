@@ -257,6 +257,7 @@ Settings:
       Label: Laadi järgmine leht automaatselt
       Tooltip: Laadi järgmised lehed ja kommentaarid automaatselt.
     Open Deep Links In New Window: Ava FreeTube'ile antud võrguaadressid uues aknas
+    Minimize to system tray: Minimeeri süsteemisalve
   Theme Settings:
     Theme Settings: 'Kujundus'
     Match Top Bar with Main Color: 'Kasuta ülaribal põhivärvi'
