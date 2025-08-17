@@ -250,6 +250,7 @@ Settings:
       Label: 自动加载下一页
       Tooltip: 自动加载额外页面和评论。
     Open Deep Links In New Window: 在新窗口打开传递到 FreeTube 的 URL
+    Minimize to system tray: 最小化到系统托盘
   Theme Settings:
     Theme Settings: '主题'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'
