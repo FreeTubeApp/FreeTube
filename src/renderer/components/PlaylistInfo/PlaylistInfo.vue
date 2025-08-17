@@ -386,7 +386,7 @@ const durationFormatted = computed(() => {
   }
 
   let formatted = new Intl.DurationFormat([locale.value, 'en'], { style: 'short' }).format(duration)
-  if (props.moreVideoDataAvailable) {
+  if (props.moreVideoDataAvailable && !isUserPlaylist.value) {
     formatted += '+'
   }
   if (props.isDurationApproximate && formatted) {
