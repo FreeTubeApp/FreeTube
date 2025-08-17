@@ -2245,22 +2245,22 @@ export default defineComponent({
           if (canChapterJump(event, 'previous')) {
             // Jump to the previous chapter
             video_.currentTime = props.chapters[props.currentChapterIndex - 1].startSeconds
+            showOverlayControls()
           } else {
             // Rewind by the time-skip interval (in seconds)
             seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate(), false, true)
           }
-          if (canChapterJump(event, 'previous')) showOverlayControls()
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_FAST_FORWARD:
           event.preventDefault()
           if (canChapterJump(event, 'next')) {
             // Jump to the next chapter
             video_.currentTime = (props.chapters[props.currentChapterIndex + 1].startSeconds)
+            showOverlayControls()
           } else {
             // Fast-Forward by the time-skip interval (in seconds)
             seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate(), false, true)
           }
-          if (canChapterJump(event, 'next')) showOverlayControls()
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE:
           // Toggle picture in picture
@@ -2595,7 +2595,9 @@ export default defineComponent({
       document.removeEventListener('keydown', keyboardShortcutHandler)
       document.addEventListener('keydown', keyboardShortcutHandler)
       document.addEventListener('fullscreenchange', showOverlayControls)
-      document.addEventListener('webkitfullscreenchange', showOverlayControls)
+      if (process.platform === 'darwin') {
+        document.addEventListener('webkitfullscreenchange', showOverlayControls)
+      }
 
       player.addEventListener('loading', () => {
         hasLoaded.value = false
@@ -2937,7 +2939,9 @@ export default defineComponent({
 
       document.removeEventListener('keydown', keyboardShortcutHandler)
       document.removeEventListener('fullscreenchange', showOverlayControls)
-      document.removeEventListener('webkitfullscreenchange', showOverlayControls)
+      if (process.platform === 'darwin') {
+        document.removeEventListener('webkitfullscreenchange', showOverlayControls)
+      }
 
       if (resizeObserver) {
         resizeObserver.disconnect()
