@@ -338,8 +338,7 @@ export default defineComponent({
     this.autoplayNextPlaylistVideo = this.autoplayNextPlaylistVideoByDefault
 
     this.checkIfTimestamp()
-    const stored = sessionStorage.getItem('playbackRate')
-    this.currentPlaybackRate = stored !== null ? parseFloat(stored) : this.$store.getters.getDefaultPlayback
+    this.currentPlaybackRate = this.$store.getters.getDefaultPlayback
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()
@@ -1771,7 +1770,6 @@ export default defineComponent({
 
     updatePlaybackRate(newRate) {
       this.currentPlaybackRate = newRate
-      sessionStorage.setItem('playbackRate', newRate.toString())
     },
 
     destroyPlayer: async function() {
