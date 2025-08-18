@@ -125,10 +125,10 @@ const subscriptionLimit = sessionStorage.getItem('subscriptionLimit')
 const dataLimit = ref(subscriptionLimit !== null ? parseInt(subscriptionLimit) : props.initialDataLimit)
 
 const activeVideoList = computed(() => {
-  if (props.videoList.length < dataLimit.value) {
-    return props.videoList
+  if (filteredVideoList.value.length < dataLimit.value) {
+    return filteredVideoList.value
   } else {
-    return props.videoList.slice(0, dataLimit.value)
+    return filteredVideoList.value.slice(0, dataLimit.value)
   }
 })
 
