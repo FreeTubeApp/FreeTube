@@ -1,7 +1,8 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
   powerSaveBlocker, screen, session, shell,
-  nativeTheme, net, protocol, clipboard
+  nativeTheme, net, protocol, clipboard,
+  Tray
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -272,6 +273,10 @@ function runApp() {
 
   let mainWindow
   let startupUrl
+  let tray = null
+  let trayOnMinimize
+  let trayWindows = []
+  const trayMaximizedWindows = {}
 
   const userDataPath = app.getPath('userData')
 
@@ -327,7 +332,13 @@ function runApp() {
         const openDeepLinksInNewWindow = (await baseHandlers.settings._findOne('openDeepLinksInNewWindow'))?.value
         if (!openDeepLinksInNewWindow) {
           // Just focus the main window (instead of starting a new instance)
-          if (mainWindow.isMinimized()) mainWindow.restore()
+          if (mainWindow.isMinimized()) {
+            if (!trayOnMinimize) {
+              mainWindow.restore()
+            } else {
+              trayClick(mainWindow)
+            }
+          }
           mainWindow.focus()
           if (newStartupUrl) mainWindow.webContents.send(IpcChannels.OPEN_URL, newStartupUrl)
           return
@@ -462,6 +473,9 @@ function runApp() {
             break
           case 'proxyPort':
             proxyPort = doc.value
+            break
+          case 'hideToTrayOnMinimize':
+            trayOnMinimize = (process.platform !== 'darwin') ? doc.value : false
             break
         }
       })
@@ -678,6 +692,119 @@ function runApp() {
     }
   })
 
+  function manageTray(window, removeWindow = false) {
+    if (tray) {
+      if (!removeWindow) {
+        trayWindows.push(window)
+        createTrayContextMenu()
+      } else if (trayWindows.some(item => item.id === window.id)) {
+        trayClick(window)
+      }
+    } else {
+      const icon = process.env.NODE_ENV === 'development'
+        ? path.join(__dirname, '..', '..', '_icons', 'iconColor.png')
+        : path.join(__dirname, '..', '_icons', 'iconColor.png')
+
+      tray = new Tray(icon)
+
+      tray.setIgnoreDoubleClickEvents(true)
+      tray.setToolTip('FreeTube')
+
+      trayWindows = [window]
+      createTrayContextMenu()
+
+      if (process.platform !== 'linux') {
+        tray.on('click', (event) => {
+          if (trayWindows.length === 1) { trayClick(trayWindows[0]) }
+        })
+      }
+    }
+  }
+
+  function trayClick(window, close = false) {
+    if (!close) {
+      if (window.id in trayMaximizedWindows) {
+        window.maximize()
+      } else {
+        window.show()
+
+        // Calling hide() inside minimize is broken for some Linux distros (window minimizes again when trying to drag,
+        // resize or maximize it, among other shenanigans). It seems to work as intended with this workaround.
+        if (process.platform === 'linux') {
+          window.hide()
+          window.show()
+        }
+      }
+    } else if (trayWindows.length) {
+      window.close()
+    }
+
+    trayWindows.splice(trayWindows.findIndex(item => item.id === window.id), 1)
+
+    if (trayWindows.length) {
+      createTrayContextMenu()
+    } else {
+      destroyTray()
+    }
+  }
+
+  function createTrayContextMenu() {
+    const menuItems = []
+    trayWindows.forEach(window => {
+      menuItems.push({
+        label: window.title,
+        submenu: [
+          {
+            label: 'Show',
+            click: () => trayClick(window)
+          },
+          {
+            label: 'Close',
+            click: () => trayClick(window, true)
+          }
+        ]
+      })
+    })
+
+    menuItems.push(
+      {
+        type: 'separator'
+      },
+      {
+        label: 'Quit',
+        click: handleQuit
+      }
+    )
+
+    const menu = Menu.buildFromTemplate(menuItems)
+    tray.setContextMenu(menu)
+  }
+
+  function destroyTray() {
+    if (!tray) return
+
+    if (process.platform !== 'linux') {
+      tray.destroy()
+      tray = null
+    } else {
+      const quitItem = [{
+        label: 'Quit',
+        click: handleQuit
+      }]
+      const menu = Menu.buildFromTemplate(quitItem)
+      tray.setContextMenu(menu)
+    }
+  }
+
+  function showHiddenWindows() {
+    trayWindows.forEach(window => {
+      window.minimize()
+    })
+
+    destroyTray()
+    trayWindows = []
+  }
+
   /**
    * @param {string} extension
    */
@@ -856,6 +983,21 @@ function runApp() {
 
     // endregion Ensure child windows use same options since electron 14
 
+    newWindow.on('minimize', () => {
+      if (trayOnMinimize) {
+        newWindow.hide()
+        manageTray(newWindow)
+      }
+    })
+
+    newWindow.on('maximize', () => {
+      if (trayOnMinimize) { trayMaximizedWindows[newWindow.id] = true }
+    })
+
+    newWindow.on('unmaximize', () => {
+      if (trayOnMinimize) { delete trayMaximizedWindows[newWindow.id] }
+    })
+
     if (replaceMainWindow) {
       mainWindow = newWindow
     }
@@ -904,6 +1046,10 @@ function runApp() {
       newWindow.loadURL(ROOT_APP_URL)
     }
 
+    // newWindow.webContents.on('did-finish-load', () => {
+    //   dialog.showMessageBoxSync({message: 'x'})
+    // })
+
     if (typeof searchQueryText === 'string' && searchQueryText.length > 0) {
       ipcMain.once(IpcChannels.SEARCH_INPUT_HANDLING_READY, () => {
         newWindow.webContents.send(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, searchQueryText)
@@ -920,8 +1066,12 @@ function runApp() {
         return
       }
 
-      newWindow.show()
-      newWindow.focus()
+      if (!trayOnMinimize || !trayWindows.length) {
+        newWindow.show()
+        newWindow.focus()
+      } else {
+        trayClick(newWindow)
+      }
 
       if (process.env.NODE_ENV === 'development') {
         newWindow.webContents.openDevTools({ activate: false })
@@ -1339,6 +1489,10 @@ function runApp() {
             case 'hidePlaylists':
               await setMenu()
               break
+            case 'hideToTrayOnMinimize':
+              trayOnMinimize = data.value
+              if (!trayOnMinimize) { showHiddenWindows() }
+              break
 
             default:
               // Do nothing for unmatched settings
@@ -1740,12 +1894,7 @@ function runApp() {
 
   app.on('window-all-closed', () => {
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
-    cleanUpResources().finally(() => {
-      mainWindow = null
-      if (process.platform !== 'darwin') {
-        app.quit()
-      }
-    })
+    handleQuit()
   })
 
   if (process.platform === 'darwin') {
@@ -1765,6 +1914,19 @@ function runApp() {
 
         app.quit()
       })
+    })
+  }
+
+  app.on('before-quit', () => {
+    if (tray) { tray.destroy() }
+  })
+
+  function handleQuit() {
+    cleanUpResources().finally(() => {
+      mainWindow = null
+      if (process.platform !== 'darwin') {
+        app.quit()
+      }
     })
   }
 

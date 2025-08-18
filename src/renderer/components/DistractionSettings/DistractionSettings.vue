@@ -621,7 +621,7 @@ function updateShowDistractionFreeTitles(value) {
 const showAddedChannelsHidden = computed(() => store.getters.getShowAddedChannelsHidden)
 
 function handleAddedChannelsHidden() {
-  store.dispatch('updateShowAddedChannelsHidden', showAddedChannelsHidden.value)
+  store.dispatch('updateShowAddedChannelsHidden', !showAddedChannelsHidden.value)
 }
 
 /** @type {import('vue').ComputedRef<any[]>} */

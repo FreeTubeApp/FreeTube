@@ -160,6 +160,10 @@ export default defineComponent({
       return this.$store.getters.getWatchedProgressSavingMode === 'semi-auto'
     },
 
+    rememberHistory() {
+      return this.$store.getters.getRememberHistory
+    },
+
     downloadBehavior: function () {
       return this.$store.getters.getDownloadBehavior
     },
@@ -334,26 +338,28 @@ export default defineComponent({
 
       this.openInExternalPlayer(payload)
 
-      // Marking as watched
-      const videoData = {
-        videoId: this.id,
-        title: this.title,
-        author: this.channelName,
-        authorId: this.channelId,
-        published: this.published,
-        description: this.description,
-        viewCount: this.viewCount,
-        lengthSeconds: this.lengthSeconds,
-        watchProgress: 0,
-        timeWatched: Date.now(),
-        isLive: false,
-        type: 'video'
-      }
+      if (this.rememberHistory) {
+        // Marking as watched
+        const videoData = {
+          videoId: this.id,
+          title: this.title,
+          author: this.channelName,
+          authorId: this.channelId,
+          published: this.published,
+          description: this.description,
+          viewCount: this.viewCount,
+          lengthSeconds: this.lengthSeconds,
+          watchProgress: 0,
+          timeWatched: Date.now(),
+          isLive: false,
+          type: 'video'
+        }
 
-      this.updateHistory(videoData)
+        this.updateHistory(videoData)
 
-      if (!this.historyEntryExists) {
-        showToast(this.$t('Video.Video has been marked as watched'))
+        if (!this.historyEntryExists) {
+          showToast(this.$t('Video.Video has been marked as watched'))
+        }
       }
     },
 

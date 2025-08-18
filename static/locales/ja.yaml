@@ -250,6 +250,7 @@ Settings:
       Label: 次のページを自動で読み込む
       Tooltip: 追加のページやコメント欄の続きを自動的に読み込みます。
     Open Deep Links In New Window: FreeTube に渡された URL を新しいウィンドウで開く
+    Minimize to system tray: システムトレイに最小化
   Theme Settings:
     Theme Settings: 'テーマ'
     Match Top Bar with Main Color: '上部のバーをメインカラーに合わせる'
@@ -592,6 +593,7 @@ Settings:
     Parental Control Settings: 制限付きモード
     Show Family Friendly Only: ファミリー向けのみ表示
     Hide Unsubscribe Button: 登録解除ボタンの非表示
+    Hide Uploader on Watch page: 視聴ページでアップローダーを非表示
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 試験的

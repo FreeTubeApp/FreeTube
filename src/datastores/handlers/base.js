@@ -64,7 +64,8 @@ class Settings {
         { _id: 'useProxy' },
         { _id: 'proxyProtocol' },
         { _id: 'proxyHostname' },
-        { _id: 'proxyPort' }
+        { _id: 'proxyPort' },
+        { _id: 'hideToTrayOnMinimize' }
       ]
     })
   }

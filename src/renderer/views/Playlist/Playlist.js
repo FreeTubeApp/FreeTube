@@ -7,7 +7,7 @@ import FtListVideoNumbered from '../../components/FtListVideoNumbered/FtListVide
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/FtButton/FtButton.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
-import FtSelect from '../../components/ft-select/ft-select.vue'
+import FtSelect from '../../components/FtSelect/FtSelect.vue'
 import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrapper.vue'
 import {
   getLocalPlaylist,

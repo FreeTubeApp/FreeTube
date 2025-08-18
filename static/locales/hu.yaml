@@ -257,6 +257,7 @@ Settings:
       Label: Következő oldal automatikus betöltése
       Tooltip: További oldalak és a hozzászólások automatikus betöltése.
     Open Deep Links In New Window: A FreeTube-nak átadott webcímek megnyitása új ablakban
+    Minimize to system tray: Kicsinyítés a tálcára
   Theme Settings:
     Theme Settings: 'Téma'
     Match Top Bar with Main Color: 'A felső sáv színe egyezzen meg a fő színnel'
