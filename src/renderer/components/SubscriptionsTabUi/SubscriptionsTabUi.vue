@@ -141,6 +141,20 @@ const fetchSubscriptionsAutomatically = computed(() => {
   return store.getters.getFetchSubscriptionsAutomatically
 })
 
+const historyCacheById = computed(() => {
+  return store.getters.getHistoryCacheById
+})
+
+const filteredVideoList = computed(() => {
+  if (store.getters.getHideWatchedSubs) {
+    return props.videoList.filter((video) => {
+      return !Object.hasOwn(historyCacheById.value, video.videoId)
+    })
+  } else {
+    return props.videoList
+  }
+})
+
 function increaseLimit() {
   dataLimit.value += props.initialDataLimit
   sessionStorage.setItem('subscriptionLimit', dataLimit.value.toFixed(0))
