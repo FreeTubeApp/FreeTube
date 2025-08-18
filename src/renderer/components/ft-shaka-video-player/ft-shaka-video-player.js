@@ -2206,7 +2206,6 @@ export default defineComponent({
           // Toggle full screen
           event.preventDefault()
           ui.getControls().toggleFullScreen()
-          showOverlayControls()
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE:
           // Toggle mute only if metakey is not pressed
@@ -2594,10 +2593,6 @@ export default defineComponent({
 
       document.removeEventListener('keydown', keyboardShortcutHandler)
       document.addEventListener('keydown', keyboardShortcutHandler)
-      document.addEventListener('fullscreenchange', showOverlayControls)
-      if (process.platform === 'darwin') {
-        document.addEventListener('webkitfullscreenchange', showOverlayControls)
-      }
 
       player.addEventListener('loading', () => {
         hasLoaded.value = false
@@ -2938,10 +2933,6 @@ export default defineComponent({
       document.body.classList.remove('playerFullWindow')
 
       document.removeEventListener('keydown', keyboardShortcutHandler)
-      document.removeEventListener('fullscreenchange', showOverlayControls)
-      if (process.platform === 'darwin') {
-        document.removeEventListener('webkitfullscreenchange', showOverlayControls)
-      }
 
       if (resizeObserver) {
         resizeObserver.disconnect()
