@@ -813,6 +813,7 @@ export default defineComponent({
       if (useOverFlowMenu.value) {
         uiConfig.overflowMenuButtons = [
           'ft_screenshot',
+          'ft_skip_silence_toggle',
           'ft_autoplay_toggle',
           'playback_rate',
           'loop',
@@ -823,7 +824,6 @@ export default defineComponent({
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'recenter_vr',
           'toggle_stereoscopic',
-          'ft_skip_silence_toggle',
         ]
 
         elementList = uiConfig.overflowMenuButtons
@@ -834,6 +834,7 @@ export default defineComponent({
           'recenter_vr',
           'toggle_stereoscopic',
           'ft_screenshot',
+          'ft_skip_silence_toggle',
           'ft_autoplay_toggle',
           'playback_rate',
           'loop',
@@ -843,7 +844,6 @@ export default defineComponent({
           'ft_theatre_mode',
           'ft_full_window',
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
-          'ft_skip_silence_toggle',
         )
 
         elementList = uiConfig.controlPanelElements
