@@ -1,4 +1,4 @@
-import { computed, defineComponent, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
+import { computed, defineComponent, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch, nextTick } from 'vue'
 import shaka from 'shaka-player'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
@@ -2593,6 +2593,9 @@ export default defineComponent({
 
       document.removeEventListener('keydown', keyboardShortcutHandler)
       document.addEventListener('keydown', keyboardShortcutHandler)
+      document.addEventListener('fullscreenchange', () => {
+        nextTick(showOverlayControls)
+      })
 
       player.addEventListener('loading', () => {
         hasLoaded.value = false
@@ -2933,6 +2936,9 @@ export default defineComponent({
       document.body.classList.remove('playerFullWindow')
 
       document.removeEventListener('keydown', keyboardShortcutHandler)
+      document.removeEventListener('fullscreenchange', () => {
+        nextTick(showOverlayControls)
+      })
 
       if (resizeObserver) {
         resizeObserver.disconnect()
