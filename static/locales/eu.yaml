@@ -259,6 +259,7 @@ Settings:
       Tooltip: Kargatu orrialde eta iruzkin gehigarriak automatikoki.
       Label: Kargatu automatikoki hurrengo orria
     Open Deep Links In New Window: Ireki FreeTube-ra pasatu diren URLak leiho berri batean
+    Minimize to system tray: Minimizatu sistemaren erretiluan
   Theme Settings:
     Theme Settings: 'Gaia'
     Match Top Bar with Main Color: 'Lotu goiko barra kolore nagusiarekin'
