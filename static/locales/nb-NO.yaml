@@ -253,6 +253,7 @@ Settings:
       Label: Last inn den neste siden automatisk
       Tooltip: Last inn flere sider og kommentarer automatisk.
     Open Deep Links In New Window: Åpne linker gitt til FreeTube i et nytt vindu
+    Minimize to system tray: Minimer til systemkurven
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Tilpass topplinjen slik at den har samme farge som hovedfargen'
