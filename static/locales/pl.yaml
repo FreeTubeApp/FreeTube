@@ -250,6 +250,7 @@ Settings:
       Tooltip: Wczytuj kolejne strony oraz komentarze automatycznie.
       Label: Automatycznie wczytaj kolejną stronę
     Open Deep Links In New Window: Odnośniki URL przekazane do FreeTube otwieraj w nowym oknie
+    Minimize to system tray: Minimalizuj do zasobnika systemowego
   Theme Settings:
     Theme Settings: 'Wygląd'
     Match Top Bar with Main Color: 'Dopasuj górną belkę do głównego koloru'
@@ -593,6 +594,7 @@ Settings:
     Hide Unsubscribe Button: Schowaj przycisk „Odsubskrybuj”
     Show Family Friendly Only: Pokazuj tylko filmy przyjazne rodzinie
     Hide Search Bar: Schowaj pole wyszukiwania
+    Hide Uploader on Watch page: Ukryj przesyłającego na stronie obserwowanych
   Experimental Settings:
     Replace HTTP Cache: Zastąp pamięć podręczną HTTP
     Experimental Settings: Eksperymentalne
@@ -894,7 +896,7 @@ Loop is now disabled: 'Zapętlenie jest teraz wyłączone'
 Loop is now enabled: 'Zapętlenie jest teraz włączone'
 Shuffle is now disabled: 'Losowanie jest teraz wyłączone'
 Shuffle is now enabled: 'Losowanie jest teraz włączone'
-Playing Next Video: 'Odtwórz następny film'
+Playing Next Video: 'Odtwarzanie następnego filmu'
 Playing Previous Video: 'Odtwórz poprzedni film'
 Canceled next video autoplay: 'Anulowano odtworzenie następnego filmu'
 'The playlist has ended. Enable loop to continue playing': 'Playlista się zakończyła. Włącz zapętlanie by kontynuować odtwarzanie'
