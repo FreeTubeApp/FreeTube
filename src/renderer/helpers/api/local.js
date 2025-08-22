@@ -59,13 +59,49 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     client_type: clientType,
 
     // use browser fetch
-    fetch: (input, init) => {
-      if (input.url?.startsWith('https://www.youtube.com/youtubei/v1/player')) {
-        init.body = init.body.replace('"videoId":', '"params":"8AEB","videoId":')
-      }
+    fetch: !withPlayer
+      ? (input, init) => fetch(input, init)
+      : async (input, init) => {
+        if (input.url?.startsWith('https://www.youtube.com/youtubei/v1/player') && init?.headers?.get('X-Youtube-Client-Name') === '2') {
+          const response = await fetch(input, init)
 
-      return fetch(input, init)
-    },
+          const responseText = await response.text()
+
+          const json = JSON.parse(responseText)
+
+          if (Array.isArray(json.adSlots)) {
+            let waitSeconds = 0
+
+            for (const adSlot of json.adSlots) {
+              if (adSlot.adSlotRenderer?.adSlotMetadata?.triggerEvent === 'SLOT_TRIGGER_EVENT_BEFORE_CONTENT') {
+                const playerVars = adSlot.adSlotRenderer.fulfillmentContent?.fulfilledLayout?.playerBytesAdLayoutRenderer
+                  ?.renderingContent?.instreamVideoAdRenderer?.playerVars
+
+                if (playerVars) {
+                  const match = playerVars.match(/length_seconds=([\d.]+)/)
+
+                  if (match) {
+                    waitSeconds += parseFloat(match[1])
+                  }
+                }
+              }
+            }
+
+            if (waitSeconds > 0) {
+              await new Promise((resolve) => setTimeout(resolve, waitSeconds * 1000))
+            }
+          }
+
+          // Need to return a new response object, as you can only read the response body once.
+          return new Response(responseText, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: response.headers
+          })
+        }
+
+        return fetch(input, init)
+      },
     cache,
     generate_session_locally: !!generateSessionLocally
   })
