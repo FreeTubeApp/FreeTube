@@ -259,6 +259,7 @@ Settings:
       Label: Hlaða næstu síðu sjálfvirkt
       Tooltip: Hlaða viðbótarsíðum og athugasemdum sjálfkrafa inn.
     Open Deep Links In New Window: Opna slóðir sem beint er til FreeTube í nýjum glugga
+    Minimize to system tray: Lágmarka í kerfisbakka
   Theme Settings:
     Theme Settings: 'Þema'
     Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
@@ -600,6 +601,7 @@ Settings:
     Show Family Friendly Only: Aðeins sýna fjölskylduvænt efni
     Hide Search Bar: Fela leitarstiku
     Parental Control Settings: Foreldrastýringar
+    Hide Uploader on Watch page: Fela innsendingarsvæði á vöktunarsíðu
   Experimental Settings:
     Experimental Settings: Á tilraunastigi
     Warning: Þessar stillingar eru á tilraunastigi, þær geta valdið hruni þegar þær eru virkjaðar. Mælt er með því að öryggisafrit séu tekin. Notist á eigin ábyrgð!
@@ -1121,4 +1123,6 @@ KeyboardShortcutPrompt:
   Focus Secondary Search: Færa virkni í hinn leitarreitinn (ef annar er til staðar)
   Home: Hoppa í upphaf myndskeiðsins
   End: Hoppa í enda myndskeiðsins
+  Skip to Next Video: Sleppa yfir á næsta myndskeið í spilunarlista eða næsta myndskeið sem mælt er með
+  Skip to Previous Video: Sleppa yfir á fyrra myndskeið í spilunarlista
 shortcutLabelSeparator: ｜
