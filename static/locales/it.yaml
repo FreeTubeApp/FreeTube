@@ -625,7 +625,7 @@ About:
   FreeTube Wiki: Wiki FreeTube
   Help: Aiuto
   Downloads / Changelog: Download / Registro delle modifiche
-  GitHub releases: Versioni pubblicate su GitHub
+  GitHub releases: Versioni di GitHub
   these people and projects: queste persone e questi progetti
   FreeTube is made possible by: FreeTube è reso possibile grazie a
   Credits: Crediti
@@ -1007,7 +1007,7 @@ Channels:
   Title: Elenco canali
   Channels: Canali
   Search bar placeholder: Ricerca canali
-  Count: '{number} canale/i trovato/i.'
+  Count: '{number} canali trovati.'
   Empty: L'elenco dei tuoi canali è attualmente vuoto.
   Unsubscribe Prompt: Sei sicuro di voler annullare l'iscrizione a "{channelName}"?
 Clipboard:
