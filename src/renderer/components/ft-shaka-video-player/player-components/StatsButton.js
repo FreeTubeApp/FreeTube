@@ -26,7 +26,7 @@ export class StatsButton extends shaka.ui.Element {
     this.button_.appendChild(this.icon_)
 
     const label = document.createElement('label')
-    label.classList.add('shaka-overflow-button-label')
+    label.classList.add('shaka-overflow-button-label', 'shaka-simple-overflow-button-label-inline')
 
     /** @private */
     this.nameSpan_ = document.createElement('span')
@@ -75,7 +75,7 @@ export class StatsButton extends shaka.ui.Element {
       KeyboardShortcuts.VIDEO_PLAYER.GENERAL.STATS
     )
 
-    this.currentState_.textContent = label
+    this.nameSpan_.textContent = label
     this.button_.ariaLabel = label
   }
 }

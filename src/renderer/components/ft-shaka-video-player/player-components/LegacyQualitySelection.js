@@ -9,7 +9,7 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
    * @param {!shaka.ui.Controls} controls
    */
   constructor(activeLegacyFormat, legacyFormats, events, parent, controls) {
-    super(parent, controls, 'settings')
+    super(parent, controls, 'tune')
 
     this.button.classList.add('legacy-quality-button', 'shaka-tooltip-status')
     this.menu.classList.add('legacy-qualities')

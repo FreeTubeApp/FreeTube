@@ -24,7 +24,11 @@ export class ScreenshotButton extends shaka.ui.Element {
     this.button_.appendChild(icon)
 
     const label = document.createElement('label')
-    label.classList.add('shaka-overflow-button-label', 'shaka-overflow-menu-only')
+    label.classList.add(
+      'shaka-overflow-button-label',
+      'shaka-overflow-menu-only',
+      'shaka-simple-overflow-button-label-inline'
+    )
 
     /** @private */
     this.nameSpan_ = document.createElement('span')

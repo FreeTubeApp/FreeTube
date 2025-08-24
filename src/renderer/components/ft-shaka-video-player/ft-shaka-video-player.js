@@ -12,6 +12,7 @@ import { StatsButton } from './player-components/StatsButton'
 import { TheatreModeButton } from './player-components/TheatreModeButton'
 import { AutoplayToggle } from './player-components/AutoplayToggle'
 import {
+  deduplicateAudioTracks,
   findMostSimilarAudioBandwidth,
   getSponsorBlockSegments,
   logShakaError,
@@ -797,7 +798,7 @@ export default defineComponent({
 
         // only set this to label when we actually have labels, so that the warning doesn't show up
         // about it being set to labels, but that the audio tracks don't have labels
-        trackLabelFormat: hasMultipleAudioTracks.value ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE,
+        trackLabelFormat: hasMultipleAudioTracks.value ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE_ROLE,
         // Only set it to label if we added the captions ourselves,
         // some live streams come with subtitles in the DASH manifest, but without labels
         textTrackLabelFormat: sortedCaptions.length > 0 ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE,
@@ -895,6 +896,7 @@ export default defineComponent({
      */
     function configureUI(firstTime = false) {
       if (firstTime) {
+        /** @type {shaka.extern.UIConfiguration} */
         const firstTimeConfig = {
           addSeekBar: seekingIsPossible.value,
           customContextMenu: true,
@@ -918,7 +920,9 @@ export default defineComponent({
 
           // TODO: enable this when electron gets document PiP support
           // https://github.com/electron/electron/issues/39633
-          preferDocumentPictureInPicture: false
+          preferDocumentPictureInPicture: false,
+          showAudioCodec: false,
+          showVideoCodec: false
         }
 
         // Combine the config objects so we only need to do one configure call
@@ -2586,8 +2590,6 @@ export default defineComponent({
 
       if (props.format !== 'legacy') {
         player.addEventListener('streaming', () => {
-          hasMultipleAudioTracks.value = player.getAudioLanguagesAndRoles().length > 1
-
           if (props.format === 'dash') {
             const firstVariant = player.getVariantTracks()[0]
 
@@ -2659,6 +2661,8 @@ export default defineComponent({
 
       // ideally we would set this in the `streaming` event handler, but for HLS this is only set to true after the loaded event fires.
       isLive.value = player.isLive()
+      // getAudioTracks() returns an empty array when no variant is active, so we can't do this in the `streaming` event
+      hasMultipleAudioTracks.value = deduplicateAudioTracks(player.getAudioTracks()).length > 1
 
       const promises = []
 

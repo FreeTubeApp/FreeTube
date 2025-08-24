@@ -330,3 +330,22 @@ export function findMostSimilarAudioBandwidth(variants, bandwidthToMatch) {
 
   return closestVariant
 }
+
+/**
+ * @param {shaka.extern.AudioTrack[]} tracks
+ * @returns {shaka.extern.AudioTrack[]}
+ */
+export function deduplicateAudioTracks(tracks) {
+  /** @type {Map<string, shaka.extern.AudioTrack>} */
+  const knownTracks = new Map()
+
+  for (const track of tracks) {
+    const id = `${track.label}_${track.language}_${track.channelsCount}_${track.spatialAudio}`
+
+    if (!knownTracks.has(id) || track.active) {
+      knownTracks.set(id, track)
+    }
+  }
+
+  return [...knownTracks.values()]
+}
