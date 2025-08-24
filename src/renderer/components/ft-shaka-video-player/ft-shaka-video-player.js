@@ -182,7 +182,7 @@ export default defineComponent({
     const hasMultipleAudioTracks = ref(false)
     const isLive = ref(false)
 
-    const useOverFlowMenu = ref(false)
+    const onlyUseOverFlowMenu = ref(false)
     const forceAspectRatio = ref(false)
 
     const activeLegacyFormat = shallowRef(null)
@@ -808,7 +808,7 @@ export default defineComponent({
       /** @type {string[]} */
       let elementList = []
 
-      if (useOverFlowMenu.value) {
+      if (onlyUseOverFlowMenu.value) {
         uiConfig.overflowMenuButtons = [
           'ft_screenshot',
           'ft_autoplay_toggle',
@@ -825,27 +825,30 @@ export default defineComponent({
 
         elementList = uiConfig.overflowMenuButtons
 
-        uiConfig.controlPanelElements.push('overflow_menu')
+        uiConfig.controlPanelElements.push('overflow_menu', 'fullscreen')
       } else {
         uiConfig.controlPanelElements.push(
-          'recenter_vr',
-          'toggle_stereoscopic',
           'ft_screenshot',
-          'ft_autoplay_toggle',
-          'playback_rate',
           'loop',
-          'ft_audio_tracks',
-          'captions',
+          'ft_autoplay_toggle',
+          'overflow_menu',
           'picture_in_picture',
           'ft_theatre_mode',
           'ft_full_window',
-          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality'
+          'fullscreen'
+        )
+
+        uiConfig.overflowMenuButtons.push(
+          'ft_audio_tracks',
+          'captions',
+          'playback_rate',
+          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
+          'recenter_vr',
+          'toggle_stereoscopic',
         )
 
         elementList = uiConfig.controlPanelElements
       }
-
-      uiConfig.controlPanelElements.push('fullscreen')
 
       if (!enableScreenshot.value || props.format === 'audio') {
         const index = elementList.indexOf('ft_screenshot')
@@ -876,11 +879,11 @@ export default defineComponent({
       }
 
       if (!useVrMode.value) {
-        const indexRecenterVr = elementList.indexOf('recenter_vr')
-        elementList.splice(indexRecenterVr, 1)
+        const indexRecenterVr = uiConfig.overflowMenuButtons.indexOf('recenter_vr')
+        uiConfig.overflowMenuButtons.splice(indexRecenterVr, 1)
 
-        const indexToggleStereoscopic = elementList.indexOf('toggle_stereoscopic')
-        elementList.splice(indexToggleStereoscopic, 1)
+        const indexToggleStereoscopic = uiConfig.overflowMenuButtons.indexOf('toggle_stereoscopic')
+        uiConfig.overflowMenuButtons.splice(indexToggleStereoscopic, 1)
       }
 
       return uiConfig
@@ -905,6 +908,8 @@ export default defineComponent({
           seekBarColors: {
             played: 'var(--primary-color)'
           },
+          showAudioCodec: false,
+          showVideoCodec: false,
           volumeBarColors: {
             level: 'var(--primary-color)'
           },
@@ -921,8 +926,6 @@ export default defineComponent({
           // TODO: enable this when electron gets document PiP support
           // https://github.com/electron/electron/issues/39633
           preferDocumentPictureInPicture: false,
-          showAudioCodec: false,
-          showVideoCodec: false
         }
 
         // Combine the config objects so we only need to do one configure call
@@ -1059,7 +1062,7 @@ export default defineComponent({
 
     /** @type {ResizeObserverCallback} */
     function resized(entries) {
-      useOverFlowMenu.value = entries[0].contentBoxSize[0].inlineSize <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
+      onlyUseOverFlowMenu.value = entries[0].contentBoxSize[0].inlineSize <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
     }
 
     // #endregion UI config
@@ -2568,9 +2571,9 @@ export default defineComponent({
       registerStatsButton()
 
       if (ui.isMobile()) {
-        useOverFlowMenu.value = true
+        onlyUseOverFlowMenu.value = true
       } else {
-        useOverFlowMenu.value = container.value.getBoundingClientRect().width <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
+        onlyUseOverFlowMenu.value = container.value.getBoundingClientRect().width <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
 
         resizeObserver = new ResizeObserver(resized)
         resizeObserver.observe(container.value)
