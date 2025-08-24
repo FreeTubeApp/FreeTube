@@ -145,8 +145,12 @@ const historyCacheById = computed(() => {
   return store.getters.getHistoryCacheById
 })
 
+const getHideWatchedSubs = computed(() => {
+  return store.getters.getHideWatchedSubs
+})
+
 const filteredVideoList = computed(() => {
-  if (store.getters.getHideWatchedSubs) {
+  if (getHideWatchedSubs.value) {
     return props.videoList.filter((video) => {
       return !Object.hasOwn(historyCacheById.value, video.videoId)
     })
