@@ -82,7 +82,7 @@
     "@eslint/js": "^9.33.0",
     "@intlify/eslint-plugin-vue-i18n": "^3.2.0",
     "babel-loader": "^10.0.0",
-    "copy-webpack-plugin": "^13.0.0",
+    "copy-webpack-plugin": "^13.0.1",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.2",
     "electron": "^37.2.6",
