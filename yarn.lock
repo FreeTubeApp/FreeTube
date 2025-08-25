@@ -873,12 +873,12 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.6.3.tgz#f13c7c205915eb91ae54c557f5e92bddd8be0e83"
   integrity sha512-4B4OijXeVNOPZlYA2oEwWOTkzyltLao+xbotHQeqN++Rv27Y6s818+n2Qkp8q+Fxhn0t/5lA5X1Mxktud8eayQ==
 
-"@double-great/stylelint-a11y@^3.0.4":
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/@double-great/stylelint-a11y/-/stylelint-a11y-3.0.4.tgz#fef2b22ef8d9bb9423c5d6ad6ccc682e5e90430a"
-  integrity sha512-a+cFkT7XRLSh90kv3PPl1sqP2u5I0kvNMTDclEsMRPLexlI9mqdPwN2IzF+79TUpRG3+scsopMT108E772fDMg==
+"@double-great/stylelint-a11y@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@double-great/stylelint-a11y/-/stylelint-a11y-3.4.0.tgz#6cc015c594964d8187a45ee3120451a5815cc536"
+  integrity sha512-guNrEzPN3/29nKONIEy1c5LjBhhvSIkX+g69e5ZuHHMSzClhBE0XFtY8rrjy0q71ARcKn7d7jsHMdXUvaLZKUQ==
   dependencies:
-    postcss "^8.4.33"
+    postcss "^8.5.6"
 
 "@dual-bundle/import-meta-resolve@^4.1.0":
   version "4.1.0"
