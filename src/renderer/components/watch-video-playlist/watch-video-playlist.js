@@ -552,10 +552,10 @@ export default defineComponent({
 
     scrollToCurrentVideo: function () {
       const container = this.$refs.playlistItems
-      const currentVideoItem = (this.$refs.currentVideoItem || [])[0]
-      if (container != null && currentVideoItem != null) {
+      const currentVideoItemEl = (this.$refs.playlistItem || [])[this.currentVideoIndexZeroBased]
+      if (container != null && currentVideoItemEl != null) {
         // Watch view can be ready sooner than this component
-        container.scrollTop = currentVideoItem.$el.offsetTop - container.offsetTop
+        container.scrollTop = currentVideoItemEl.$el.offsetTop - container.offsetTop
       }
     },
 
@@ -585,17 +585,12 @@ export default defineComponent({
       const targetArrayIndex = targetVideoIndex - 1
 
       if (targetArrayIndex >= 0 && targetArrayIndex < this.playlistItems.length) {
-        const targetPlaylistItem = this.playlistItems[targetArrayIndex]
-
-        const playlistInfo = {
-          playlistId: this.playlistId,
-          playlistType: this.playlistType,
+        const container = this.$refs.playlistItems
+        const targetPlaylistItemEl = (this.$refs.playlistItem || [])[targetArrayIndex]
+        if (container != null && targetPlaylistItemEl != null) {
+          // Watch view can be ready sooner than this component
+          container.scrollTop = targetPlaylistItemEl.$el.offsetTop - container.offsetTop
         }
-
-        this.$router.push({
-          path: `/watch/${targetPlaylistItem.videoId}`,
-          query: Object.assign(playlistInfo, { playlistItemId: targetPlaylistItem.playlistItemId }),
-        })
       }
     },
 

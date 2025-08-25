@@ -158,7 +158,7 @@
         <ft-list-video-numbered
           v-for="(item, index) in playlistItems"
           :key="item.playlistItemId || item.videoId"
-          :ref="currentVideoIndexZeroBased === index ? 'currentVideoItem' : null"
+          ref="playlistItem"
           class="playlistItem"
           :data="item"
           :playlist-id="playlistId"
