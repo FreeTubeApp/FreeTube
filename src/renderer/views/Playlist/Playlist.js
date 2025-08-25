@@ -7,7 +7,7 @@ import FtListVideoNumbered from '../../components/FtListVideoNumbered/FtListVide
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtButton from '../../components/FtButton/FtButton.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
-import FtSelect from '../../components/ft-select/ft-select.vue'
+import FtSelect from '../../components/FtSelect/FtSelect.vue'
 import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrapper.vue'
 import {
   getLocalPlaylist,
@@ -247,11 +247,16 @@ export default defineComponent({
     totalPlaylistDuration() {
       const totalSeconds = this.shownPlaylistItems.reduce((acc, video) => {
         if (typeof video.lengthSeconds !== 'number') {
-          return NaN
+          return acc
         }
         return acc + video.lengthSeconds
       }, 0)
       return totalSeconds
+    },
+    isDurationApproximate() {
+      return this.shownPlaylistItems.some(video =>
+        typeof video.lengthSeconds !== 'number'
+      )
     },
     noPlaylistItemsPendingDeletion() {
       return this.toBeDeletedPlaylistItemIds.length === 0

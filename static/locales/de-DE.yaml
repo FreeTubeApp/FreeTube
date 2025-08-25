@@ -251,6 +251,7 @@ Settings:
       Label: Nächste Seite automatisch laden
       Tooltip: Zusätzliche Seiten und Kommentare automatisch laden.
     Open Deep Links In New Window: An FreeTube übergebene URLs in einem neuen Fenster öffnen
+    Minimize to system tray: In die Systemleiste minimieren
   Theme Settings:
     Theme Settings: Farbschema
     Match Top Bar with Main Color: Obere Leiste an Hauptfarbe anpassen

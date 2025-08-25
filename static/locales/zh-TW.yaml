@@ -250,6 +250,7 @@ Settings:
       Tooltip: 自動載入額外頁面與留言。
       Label: 自動載入下一頁
     Open Deep Links In New Window: 在新視窗中開啟傳遞給 FreeTube 的 URL
+    Minimize to system tray: 最小化至系統匣
   Theme Settings:
     Theme Settings: '主題'
     Match Top Bar with Main Color: '頂部功能表欄對應主色彩'

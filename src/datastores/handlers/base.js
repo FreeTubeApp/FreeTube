@@ -64,7 +64,8 @@ class Settings {
         { _id: 'useProxy' },
         { _id: 'proxyProtocol' },
         { _id: 'proxyHostname' },
-        { _id: 'proxyPort' }
+        { _id: 'proxyPort' },
+        { _id: 'hideToTrayOnMinimize' }
       ]
     })
   }
@@ -182,18 +183,24 @@ class Playlists {
     return db.playlists.updateAsync({ _id: playlist._id }, { $set: playlist }, { upsert: true })
   }
 
-  static upsertVideoByPlaylistId(_id, videoData) {
+  static upsertVideoByPlaylistId(_id, lastUpdatedAt, videoData) {
     return db.playlists.updateAsync(
       { _id },
-      { $push: { videos: videoData } },
+      {
+        $push: { videos: videoData },
+        $set: { lastUpdatedAt }
+      },
       { upsert: true }
     )
   }
 
-  static upsertVideosByPlaylistId(_id, videos) {
+  static upsertVideosByPlaylistId(_id, lastUpdatedAt, videos) {
     return db.playlists.updateAsync(
       { _id },
-      { $push: { videos: { $each: videos } } },
+      {
+        $push: { videos: { $each: videos } },
+        $set: { lastUpdatedAt }
+      },
       { upsert: true }
     )
   }
@@ -202,17 +209,23 @@ class Playlists {
     return db.playlists.removeAsync({ _id, protected: { $ne: true } })
   }
 
-  static deleteVideoIdByPlaylistId(_id, videoId, playlistItemId) {
+  static deleteVideoIdByPlaylistId(_id, lastUpdatedAt, videoId, playlistItemId) {
     if (playlistItemId != null) {
       return db.playlists.updateAsync(
         { _id },
-        { $pull: { videos: { playlistItemId } } },
+        {
+          $pull: { videos: { playlistItemId } },
+          $set: { lastUpdatedAt }
+        },
         { upsert: true }
       )
     } else if (videoId != null) {
       return db.playlists.updateAsync(
         { _id },
-        { $pull: { videos: { videoId } } },
+        {
+          $pull: { videos: { videoId } },
+          $set: { lastUpdatedAt }
+        },
         { upsert: true }
       )
     } else {
@@ -220,10 +233,13 @@ class Playlists {
     }
   }
 
-  static deleteVideoIdsByPlaylistId(_id, playlistItemIds) {
+  static deleteVideoIdsByPlaylistId(_id, lastUpdatedAt, playlistItemIds) {
     return db.playlists.updateAsync(
       { _id },
-      { $pull: { videos: { playlistItemId: { $in: playlistItemIds } } } },
+      {
+        $pull: { videos: { playlistItemId: { $in: playlistItemIds } } },
+        $set: { lastUpdatedAt }
+      },
       { upsert: true }
     )
   }

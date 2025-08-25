@@ -32,11 +32,9 @@ Global:
   Sort By: 'Razvrstitev'
 
   Live: V živo
-Version {versionNumber} is now available!  Click for more details: 'Na voljo je različica
-  {versionNumber}!·  Za več podrobnosti kliknite tukaj'
+Version {versionNumber} is now available!  Click for more details: 'Na voljo je različica {versionNumber}!·  Za več podrobnosti kliknite tukaj'
 Download From Site: 'Prenesi iz spletne strani'
-A new blog is now available, {blogTitle}. Click to view more: 'Na voljo je nov članek,
-  {blogTitle}. Kliknite tukaj, če ga želite prebrati'
+A new blog is now available, {blogTitle}. Click to view more: 'Na voljo je nov članek, {blogTitle}. Kliknite tukaj, če ga želite prebrati'
 
 # Search Bar
 Search / Go to URL: 'Išči/pojdi na URL naslov'
@@ -78,16 +76,11 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Naročnine'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaš
-    seznam naročnin je trenutno prazen. Začnite dodajati naročnine, da jih boste videli
-    tukaj.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ta
-    profil ima veliko količino naročnin.· Da bi se izognili omejitvi hitrosti, bo
-    uporabljen RSS
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaš seznam naročnin je trenutno prazen. Začnite dodajati naročnine, da jih boste videli tukaj.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ta profil ima veliko količino naročnin.· Da bi se izognili omejitvi hitrosti, bo uporabljen RSS
   Load More Videos: Naloži več videoposnetkov
   Error Channels: Kanali z napakami
-  Disabled Automatic Fetching: Onemogočili ste samodejno pridobivanje seznama naročnin.
-    Osvežite seznam naročnin, da jih vidite tukaj.
+  Disabled Automatic Fetching: Onemogočili ste samodejno pridobivanje seznama naročnin. Osvežite seznam naročnin, da jih vidite tukaj.
   Empty Channels: Vaši naročeni kanali trenutno nimajo nobenega novega videoposnetka.
 Trending:
   Trending: 'Priljubljeno'
@@ -100,16 +93,14 @@ Playlists: 'Seznami predvajanja'
 User Playlists:
   Your Playlists: 'Vaši seznami predvajanja'
   Search bar placeholder: Iskanje v seznamu predvajanja
-  Empty Search Message: Na tem seznamu predvajanja ni videoposnetkov, ki bi ustrezali
-    vašemu iskanju
+  Empty Search Message: Na tem seznamu predvajanja ni videoposnetkov, ki bi ustrezali vašemu iskanju
 History:
   # On History Page
   History: 'Zgodovina'
   Watch History: 'Zgodovina predvajanj'
   Your history list is currently empty.: 'Seznam vaše zgodovine je trenutno prazen.'
   Search bar placeholder: Išči v zgodovini
-  Empty Search Message: V vaši zgodovini ni videoposnetkov, ki bi ustrezali vašemu
-    iskanju
+  Empty Search Message: V vaši zgodovini ni videoposnetkov, ki bi ustrezali vašemu iskanju
 Settings:
   # On Settings Page
   Settings: 'Nastavitve'
@@ -117,14 +108,12 @@ Settings:
     General Settings: 'Splošne nastavitve'
     Check for Updates: 'Preveri posodobitve'
     Check for Latest Blog Posts: 'Preveri najnovejše članke na blogu'
-    Fallback to Non-Preferred Backend on Failure: 'Ob napaki začasno uporabi sekundarni
-      zaledni sistem'
+    Fallback to Non-Preferred Backend on Failure: 'Ob napaki začasno uporabi sekundarni zaledni sistem'
     Enable Search Suggestions: 'Vklopi iskalne predloge'
     Default Landing Page: 'Prevzeta vstopna stran'
     Locale Preference: 'Izbira lokacije'
     Preferred API Backend:
-      Preferred API Backend: 'Primarni zaledni sistem aplikacijskega programskega
-        vmesnika (APV)'
+      Preferred API Backend: 'Primarni zaledni sistem aplikacijskega programskega vmesnika (APV)'
       Local API: 'Lokalni APV'
       Invidious API: 'Invidious APV'
     Video View Type:
@@ -149,11 +138,9 @@ Settings:
     Current Invidious Instance: Trenutna Invidious instanca
     No default instance has been set: Nastavljena ni nobena privzeta instanca
     Clear Default Instance: Izbriši privzeto instanco
-    Current instance will be randomized on startup: Trenutna instanca bo ob zagonu
-      naključno izbrana
+    Current instance will be randomized on startup: Trenutna instanca bo ob zagonu naključno izbrana
     Set Current Instance as Default: Nastavi trenutno instanco kot privzeto
-    The currently set default instance is {instance}: Trenutno nastavljena privzeta
-      instanca je {instance}
+    The currently set default instance is {instance}: Trenutno nastavljena privzeta instanca je {instance}
   Theme Settings:
     Theme Settings: 'Nastavitve tem'
     Match Top Bar with Main Color: 'Uskladi zgornji trak z glavno barvo'
@@ -239,10 +226,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Screenshot:
-      File Name Tooltip: Spodaj lahko uporabite spremenljivke. %Y leto 4 števke. %M
-        mesec 2 števki. %D dan 2 števki. %H ura 2 števki. %N minuta 2 števki. %S sekunda
-        2 števki. %T milisekunda 3 števke. %s video sekunda. %t Video milisekunda
-        3 števke. %i ID videa.
+      File Name Tooltip: Spodaj lahko uporabite spremenljivke. %Y leto 4 števke. %M mesec 2 števki. %D dan 2 števki. %H ura 2 števki. %N minuta 2 števki. %S sekunda 2 števki. %T milisekunda 3 števke. %s video sekunda. %t Video milisekunda 3 števke. %i ID videa.
       Enable: Omogoči posnetek zaslona
       Format Label: Format posnetka zaslona
       Error:
@@ -252,8 +236,7 @@ Settings:
       Folder Label: Mapa posnetkov zaslona
       Folder Button: Izberi mapo
       File Name Label: Vzorec imena datoteke
-    Enter Fullscreen on Display Rotate: Pri vrtenju zaslona vstopite v celozaslonski
-      način
+    Enter Fullscreen on Display Rotate: Pri vrtenju zaslona vstopite v celozaslonski način
     Next Video Interval: Interval do naslednjega videa
     Display Play Button In Video Player: Prikaz gumba za predvajanje v video predvajalniku
     Fast-Forward / Rewind Interval: Interval za hitro previjanje naprej/nazaj
@@ -263,19 +246,14 @@ Settings:
     Remember History: 'Zapomni si zgodovino'
     Save Watched Progress: 'Zapomni si napredek gledanja'
     Clear Search Cache: 'Izbriši iskalni predpomnilnik'
-    Are you sure you want to clear out your search cache?: 'Ste prepričani, da želite
-      izbrisati vaš iskalni predpomnilnik?'
+    Are you sure you want to clear out your search cache?: 'Ste prepričani, da želite izbrisati vaš iskalni predpomnilnik?'
     Search cache has been cleared: 'Iskalni predpomnilnik je bil izbrisan'
     Remove Watch History: 'Izbriši zgodovino gledanj'
-    Are you sure you want to remove your entire watch history?: 'Ste prepričani, da
-      želite izbrisati vašo celotno zgodovino gledanj?'
+    Are you sure you want to remove your entire watch history?: 'Ste prepričani, da želite izbrisati vašo celotno zgodovino gledanj?'
     Watch history has been cleared: 'Zgodovina gledanj je bila izbrisana'
     Remove All Subscriptions / Profiles: 'Izbriši vse naročnine/profile'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ste
-      prepričani, da želite izbrisati vse naročnine in profile?·  Te odločitve ni
-      mogoče razveljaviti.'
-    Save Watched Videos With Last Viewed Playlist: Shrani gledane videoposnetke z
-      nazadnje ogledanim seznamom predvajanja
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Ste prepričani, da želite izbrisati vse naročnine in profile?·  Te odločitve ni mogoče razveljaviti.'
+    Save Watched Videos With Last Viewed Playlist: Shrani gledane videoposnetke z nazadnje ogledanim seznamom predvajanja
   Subscription Settings:
     Subscription Settings: 'Nastavitve naročnin'
     Fetch Feeds from RSS: 'Pridobi vire iz RSS'
@@ -289,23 +267,16 @@ Settings:
     Export NewPipe: 'Izvozi za NewPipe'
     Import History: 'Uvozi zgodovino'
     Export History: 'Izvozi zgodovino'
-    Profile object has insufficient data, skipping item: 'Profilni predmet ima pomankljive
-      podatke in je bil preskočen'
-    All subscriptions and profiles have been successfully imported: 'Vse naročnine
-      in profili so bili uspešno uvoženi'
-    All subscriptions have been successfully imported: 'Vse naročnine so bile uspešno
-      uvožene'
+    Profile object has insufficient data, skipping item: 'Profilni predmet ima pomankljive podatke in je bil preskočen'
+    All subscriptions and profiles have been successfully imported: 'Vse naročnine in profili so bili uspešno uvoženi'
+    All subscriptions have been successfully imported: 'Vse naročnine so bile uspešno uvožene'
     Invalid subscriptions file: 'Neveljavna datoteka z naročninami'
-    This might take a while, please wait: 'To bo lahko trajalo nekaj časa. Prosimo,
-      počakajte'
+    This might take a while, please wait: 'To bo lahko trajalo nekaj časa. Prosimo, počakajte'
     Invalid history file: 'Neveljavna datoteka z zgodovino'
     Subscriptions have been successfully exported: 'Naročnine so bile uspešno izvožene'
-    History object has insufficient data, skipping item: 'Zgodovinski objekt ima pomankljive
-      podatke in je bil preskočen'
-    All watched history has been successfully imported: 'Vsa zgodovina gledanj je
-      bila uspešno uvožena'
-    All watched history has been successfully exported: 'Vsa zgodovina gledanj je
-      bila uspešno izvožena'
+    History object has insufficient data, skipping item: 'Zgodovinski objekt ima pomankljive podatke in je bil preskočen'
+    All watched history has been successfully imported: 'Vsa zgodovina gledanj je bila uspešno uvožena'
+    All watched history has been successfully exported: 'Vsa zgodovina gledanj je bila uspešno izvožena'
     Unable to read file: 'Datoteke ni možno prebrati'
     Unable to write file: 'Datoteke ni možno prebrati'
     Unknown data key: 'Neznan podatkovni ključ'
@@ -332,21 +303,16 @@ Settings:
     Hide Video Description: Skrij opis videoposnetka
     Hide Upcoming Premieres: Skrij prihajajoče premiere
     Hide Videos on Watch: 'Skrij gledane videoposnetke'
-  The app needs to restart for changes to take effect. Restart and apply change?: Program
-    se mora ponovno zagnati, preden bodo spremembe uveljavljene. Ga želite ponovno
-    zagnati zdaj?
+  The app needs to restart for changes to take effect. Restart and apply change?: Program se mora ponovno zagnati, preden bodo spremembe uveljavljene. Ga želite ponovno zagnati zdaj?
   Proxy Settings:
-    Error getting network information. Is your proxy configured properly?: Prišlo
-      je do napake pri pridobivanju informacij o omrežju. Ali je vaš namestnik pravilno
-      nastavljen?
+    Error getting network information. Is your proxy configured properly?: Prišlo je do napake pri pridobivanju informacij o omrežju. Ali je vaš namestnik pravilno nastavljen?
     City: Mesto
     Region: Regija
     Country: Država
     Ip: IP naslov
     Your Info: Vaši podatki
     Test Proxy: Preizkusi namestnik
-    Clicking on Test Proxy will send a request to: Ko kliknete na Preizkusi namestnik,
-      bo poizvedba poslana na
+    Clicking on Test Proxy will send a request to: Ko kliknete na Preizkusi namestnik, bo poizvedba poslana na
     Proxy Port Number: Številka vrat namestnika
     Proxy Settings: Nastavitve namestnika
     Proxy Host: Gostitelj namestnika
@@ -375,8 +341,7 @@ About:
   Email: E-pošta
   Blog: Blog
   Website: Spletna stran
-  Please check for duplicates before posting: Prosimo, da pred pošiljanjem preverite,
-    da ni dvojnikov
+  Please check for duplicates before posting: Prosimo, da pred pošiljanjem preverite, da ni dvojnikov
   GitHub issues: GitHub težave
   Report a problem: Prijavi napako
   FAQ: Pogosto zastavljena vprašanja
@@ -399,17 +364,14 @@ Profile:
   Update Profile: 'Posodobi profil'
   Make Default Profile: 'Nastavi kot prevzeti profil'
   Delete Profile: 'Izbriši profil'
-  Are you sure you want to delete this profile?: 'Ste prepričani, da želite izbrisati
-    ta profil?'
+  Are you sure you want to delete this profile?: 'Ste prepričani, da želite izbrisati ta profil?'
   All subscriptions will also be deleted.: 'Izbrisane bodo tudi vse naročnine.'
   Your profile name cannot be empty: 'Ime profila ne sme biti prazno'
   Profile has been created: 'Profil je bil ustvarjen'
   Profile has been updated: 'Profil je bil posodobljen'
-  Your default profile has been set to {profile}: 'Vaš prevzeti profil je bil nastavljen
-    na {profile}'
+  Your default profile has been set to {profile}: 'Vaš prevzeti profil je bil nastavljen na {profile}'
   Removed {profile} from your profiles: 'Profil {profile} je bil izbrisan'
-  Your default profile has been changed to your primary profile: 'Vaš prevzeti profil
-    je bil nastavljen na vaš primarni profil'
+  Your default profile has been changed to your primary profile: 'Vaš prevzeti profil je bil nastavljen na vaš primarni profil'
   '{profile} is now the active profile': 'Aktivni profil je zdaj {profile}'
   Subscription List: 'Seznam naročnin'
   Other Channels: 'Drugi kanali'
@@ -419,38 +381,30 @@ Profile:
   Delete Selected: 'Izbriši označeno'
   Add Selected To Profile: 'Dodaj označeno v profil'
   No channel(s) have been selected: 'Označili niste nobenih kanalov'
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : 'To je vaš primarni profil.·  Ste prepričani, da želite izbrisati označene kanale?·  Kanali
-    bodo izbrisani v vseh profilih, kjer se nahajajo.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Ali
-    ste prepričani, da želite izbrisati označene kanale?  Kanali ne bodo izbrisani
-    iz drugih profilov.'
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : 'To je vaš primarni profil.·  Ste prepričani, da želite izbrisati označene kanale?·  Kanali bodo izbrisani v vseh profilih, kjer se nahajajo.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Ali ste prepričani, da želite izbrisati označene kanale?  Kanali ne bodo izbrisani iz drugih profilov.'
 #On Channel Page
   Profile Filter: Filter profilov
   Profile Settings: Nastavitve profila
 Channel:
   Subscribe: 'Naroči se'
   Unsubscribe: 'Prekini naročnino'
-  Channel has been removed from your subscriptions: 'Kanal je bil odstranjen iz vaših
-    naročnin'
-  Removed subscription from {count} other channel(s): 'Naročnina je bila prekinjena
-    v {count} kanalih'
+  Channel has been removed from your subscriptions: 'Kanal je bil odstranjen iz vaših naročnin'
+  Removed subscription from {count} other channel(s): 'Naročnina je bila prekinjena v {count} kanalih'
   Added channel to your subscriptions: 'Kanal je bil dodan v vaše naročnine'
   Search Channel: 'Preišči kanal'
   Your search results have returned 0 results: 'Najdenih ni bilo nobenih rezultatov'
   Videos:
     Videos: 'Videoposnetki'
-    This channel does not currently have any videos: 'Ta kanal trenutno nima nobenih
-      videoposnetkov'
+    This channel does not currently have any videos: 'Ta kanal trenutno nima nobenih videoposnetkov'
     Sort Types:
       Newest: 'Najnovejši'
       Oldest: 'Najstarejši'
       Most Popular: 'Najbolj popularni'
   Playlists:
     Playlists: 'Seznami predvajanja'
-    This channel does not currently have any playlists: 'Ta kanal trenutno nima nobenih
-      seznamov predvajanja'
+    This channel does not currently have any playlists: 'Ta kanal trenutno nima nobenih seznamov predvajanja'
     Sort Types:
       Last Video Added: 'Zadnji videoposnetek dodan'
       Newest: 'Najnovejši'
@@ -478,20 +432,15 @@ Video:
   Play Previous Video: 'Predvajaj prejšnji videoposnetek'
   Watched: 'Ogledano'
   Autoplay: 'Samodejno predvajanje'
-  Starting soon, please refresh the page to check again: 'Predvajanje se začenja.
-    Prosimo, osvežite stran, če želite poskusiti znova'
+  Starting soon, please refresh the page to check again: 'Predvajanje se začenja. Prosimo, osvežite stran, če želite poskusiti znova'
   # As in a Live Video
   Live: 'V živo'
   Live Now: 'Trenutno v živo'
   Live Chat: 'Klepet v živo'
   Enable Live Chat: 'Vklopi klepet v živo'
-  Live Chat is currently not supported in this build.: 'Klepet v živo v tej različici
-    trenutno ni podprt.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Pogovor v živo
-    je vklopljen.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Klepet
-    v živo trenutno ni podprt v Invidious APV.  Potrebna je neposredna povezava z
-    YouTubom.'
+  Live Chat is currently not supported in this build.: 'Klepet v živo v tej različici trenutno ni podprt.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Pogovor v živo je vklopljen.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Klepet v živo trenutno ni podprt v Invidious APV.  Potrebna je neposredna povezava z YouTubom.'
   Published:
     In less than a minute: Manj kot minuti
   Published on: 'Objavljeno dne'
@@ -505,8 +454,7 @@ Video:
   Open Channel in Invidious: Odpri ta kanal v Invidiousu
   Copy YouTube Channel Link: Kopiraj povezavo YouTube kanala
   Open Channel in YouTube: Odpri ta kanal v YouTubu
-  Video has been removed from your saved list: Videoposnetek je bil odstranjen iz
-    seznama
+  Video has been removed from your saved list: Videoposnetek je bil odstranjen iz seznama
   Video has been saved: Videoposnetek je bil shranjen
   Save Video: Shrani videoposnetek
 #& Playlists
@@ -524,10 +472,8 @@ Change Format:
   Use Dash Formats: 'Uporabi DASH oblike'
   Use Legacy Formats: 'Uporabi zapuščinske oblike'
   Use Audio Formats: 'Uporabi avdio oblike'
-  Dash formats are not available for this video: 'DASH oblike za ta videoposnetek
-    niso na voljo'
-  Audio formats are not available for this video: 'Avdio oblike za ta videoposnetek
-    niso na voljo'
+  Dash formats are not available for this video: 'DASH oblike za ta videoposnetek niso na voljo'
+  Audio formats are not available for this video: 'Avdio oblike za ta videoposnetek niso na voljo'
 Share:
   Share Video: 'Deli videoposnetek'
   Share Playlist: 'Deli seznam predvajanja'
@@ -548,8 +494,7 @@ Mini Player: 'Mini predvajalnik'
 Comments:
   Comments: 'Komentarji'
   Click to View Comments: 'Kliknite za prikaz komentarjev'
-  Getting comment replies, please wait: 'Pridobivanje odgovorov na komentar. Prosimo,
-    počakajte'
+  Getting comment replies, please wait: 'Pridobivanje odgovorov na komentar. Prosimo, počakajte'
   There are no more comments for this video: 'Za ta posnetek ni več komentarjev'
   Hide Comments: 'Skrij komentarje'
   # Context: View 10 Replies, View 1 Reply
@@ -570,8 +515,7 @@ Local API Error (Click to copy): 'Napaka lokalnega APV (kliknite za kopiranje)'
 Invidious API Error (Click to copy): 'Napaka Invidious APV (kliknite za kopiranje)'
 Falling back to Invidious API: 'Začasno bo uporabljen Invidious APV'
 Falling back to Local API: 'Začasno bo uporabljen lokalni APV'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Videoposnetek
-  zaradi mankajočih oblik ni dostopen. To se lahko zgodi, ko v vaši državi ni na razpolago.'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Videoposnetek zaradi mankajočih oblik ni dostopen. To se lahko zgodi, ko v vaši državi ni na razpolago.'
 Loop is now disabled: 'Ponovno predvajanje je izklopljeno'
 Loop is now enabled: 'Ponovno predvajanje je vklopljeno'
 Shuffle is now disabled: 'Mešanje je izklopljeno'
@@ -580,25 +524,18 @@ The playlist has been reversed: 'Sezam predvajanja je bil obrnjen'
 Playing Next Video: 'Predvaja se naslednji videoposnetek'
 Playing Previous Video: 'Predvaja se prejšnji videoposnetek'
 Canceled next video autoplay: 'Samodejno predvajanje preklicano'
-'The playlist has ended. Enable loop to continue playing': "Seznama predvajanja je
-  konec.  Vklopite ponovno predvajanje, če želite nadaljevati"
+'The playlist has ended. Enable loop to continue playing': "Seznama predvajanja je konec.  Vklopite ponovno predvajanje, če želite nadaljevati"
 
 Yes: 'Da'
 No: 'Ne'
 More: Več
 Tooltips:
   General Settings:
-    Preferred API Backend: Izberite zaledje, ki ga FreeTube uporablja za pridobivanje
-      podatkov. Lokalni APV je vgrajeni . Invidious APV za delovanje potrebuje Invidious
-      strežnik.
+    Preferred API Backend: Izberite zaledje, ki ga FreeTube uporablja za pridobivanje podatkov. Lokalni APV je vgrajeni . Invidious APV za delovanje potrebuje Invidious strežnik.
   Subscription Settings:
-    Fetch Feeds from RSS: Ko je omogočeno, bo FreeTube namesto privzete metode uporabljal
-      RSS za pridobivanje vašega vira naročnin. RSS je hitrejši in preprečuje blokiranje
-      IP-ja, vendar ne zagotavlja določenih informacij, kot je trajanje videa ali
-      status stanja v živo
+    Fetch Feeds from RSS: Ko je omogočeno, bo FreeTube namesto privzete metode uporabljal RSS za pridobivanje vašega vira naročnin. RSS je hitrejši in preprečuje blokiranje IP-ja, vendar ne zagotavlja določenih informacij, kot je trajanje videa ali status stanja v živo
   Player Settings:
-    Skip by Scrolling Over Video Player: Uporabite kolesce za pomikanje po videoposnetku
-      v slogu MPV.
+    Skip by Scrolling Over Video Player: Uporabite kolesce za pomikanje po videoposnetku v slogu MPV.
 New Window: Novo okno
 Channels:
   Channels: Kanali
@@ -607,8 +544,7 @@ Channels:
   Empty: Vaš seznam kanalov je trenutno prazen.
   Count: Najdenih {number} kanalov.
   Unsubscribe Prompt: Ali ste prepričani, da želite prekiniti naročnino od "{channelName}"?
-Are you sure you want to open this link?: Ali ste prepričani, da želite odpreti to
-  povezavo?
+Are you sure you want to open this link?: Ali ste prepričani, da želite odpreti to povezavo?
 Preferences: Nastavitve
 Search Bar:
   Clear Input: Počisti vnos

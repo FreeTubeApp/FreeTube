@@ -308,7 +308,7 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtCard from '../ft-card/ft-card.vue'
 import FtLoader from '../FtLoader/FtLoader.vue'
-import FtSelect from '../ft-select/ft-select.vue'
+import FtSelect from '../FtSelect/FtSelect.vue'
 import FtTimestampCatcher from '../FtTimestampCatcher.vue'
 
 import store from '../../store/index'

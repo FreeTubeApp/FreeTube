@@ -34,11 +34,9 @@ Global:
   Posts: Publicacions
   Sort By: 'Ordena Per'
   Shorts: Curts
-Version {versionNumber} is now available!  Click for more details: 'La versió {versionNumber}
-  està disponible! Fes clic per a més detalls'
+Version {versionNumber} is now available!  Click for more details: 'La versió {versionNumber} està disponible! Fes clic per a més detalls'
 Download From Site: 'Descarrega des del web'
-A new blog is now available, {blogTitle}. Click to view more: 'Nova publicació al
-  blog disponible, {blogTitle}. Fes clic per saber-ne més'
+A new blog is now available, {blogTitle}. Click to view more: 'Nova publicació al blog disponible, {blogTitle}. Fes clic per saber-ne més'
 
 # Search Bar
 Search / Go to URL: 'Cerca / Ves a l''URL'
@@ -76,19 +74,15 @@ Search Filters:
   Fetching results. Please wait: 'Obtenint resultats. Espera si us plau'
   Fetch more results: 'Obtenir més resultats'
 # Sidebar
-  There are no more results for this search: No hi ha més resultats per a aquesta
-    cerca
+  There are no more results for this search: No hi ha més resultats per a aquesta cerca
   Features:
     Subtitles: Subtítols
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscripcions'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'La
-    teva llista de subscripcions està buida. Afegeix subscripcions per veure-les aquí.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'La teva llista de subscripcions està buida. Afegeix subscripcions per veure-les aquí.'
   Load More Videos: Carregar més vídeos
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Aquest
-    perfil té un gran nombre de subscripcions. Forçant RSS per evitar la limitació
-    fixada
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Aquest perfil té un gran nombre de subscripcions. Forçant RSS per evitar la limitació fixada
   Error Channels: Canals amb errors
 Trending:
   Trending: 'Tendències'
@@ -102,8 +96,7 @@ Playlists: 'Llistes de reproducció'
 User Playlists:
   Your Playlists: 'Les teves llistes de reproducció'
   Search bar placeholder: Cerca a la llista de reproducció
-  Empty Search Message: No hi ha cap vídeo en aquesta llista de reproducció que coincideixi
-    amb la teva cerca
+  Empty Search Message: No hi ha cap vídeo en aquesta llista de reproducció que coincideixi amb la teva cerca
 History:
   # On History Page
   History: 'Historial'
@@ -118,8 +111,7 @@ Settings:
     General Settings: 'Paràmetres generals'
     Check for Updates: 'Comprovar si hi ha actualitzacions'
     Check for Latest Blog Posts: 'Consultar les darreres entrades al blog'
-    Fallback to Non-Preferred Backend on Failure: 'Torna al motor per defecte en cas
-      d''error'
+    Fallback to Non-Preferred Backend on Failure: 'Torna al motor per defecte en cas d''error'
     Enable Search Suggestions: 'Habilitar els suggeriments de cerca'
     Default Landing Page: 'Pàgina d''aterratge per defecte'
     Locale Preference: 'Preferència de configuració regional'
@@ -139,21 +131,18 @@ Settings:
       End: 'Final'
     Region for Trending: 'Regió per a les tendències'
         #! List countries
-    View all Invidious instance information: Mostra tota la informació de la instància
-      Invidious
+    View all Invidious instance information: Mostra tota la informació de la instància Invidious
     System Default: Per defecte del sistema
     Clear Default Instance: Esborra la instància per defecte
     Current Invidious Instance: Instància actual d'Invidious
-    The currently set default instance is {instance}: La instància per defecte establerta
-      actualment és {instance}
+    The currently set default instance is {instance}: La instància per defecte establerta actualment és {instance}
     No default instance has been set: No s'ha definit cap instància per defecte
     External Link Handling:
       Open Link: Obre l'enllaç
       External Link Handling: Gestió d'enllaços externs
       Ask Before Opening Link: Pregunta abans d'obrir l'enllaç
       No Action: Sense acció
-    Current instance will be randomized on startup: La instància actual es farà aleatòriament
-      a l'inici
+    Current instance will be randomized on startup: La instància actual es farà aleatòriament a l'inici
     Set Current Instance as Default: Defineix l'actual com a instància per defecte
   Theme Settings:
     Theme Settings: 'Paràmetres del tema'
@@ -201,8 +190,7 @@ Settings:
     Play Next Video: 'Reprodueix el vídeo següent'
     Turn on Subtitles by Default: 'Activa els subtítols per defecte'
     Autoplay Videos: 'Reprodueix automàticament els vídeos'
-    Proxy Videos Through Invidious: 'Fes servir Invidious com a intermediari per baixar
-      els vídeos'
+    Proxy Videos Through Invidious: 'Fes servir Invidious com a intermediari per baixar els vídeos'
     Autoplay Playlists: 'Reprodueix automàticament les llistes de reproducció'
     Enable Theatre Mode by Default: 'Activa el mode teatre per defecte'
     Default Volume: 'Volum per defecte'
@@ -224,13 +212,10 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Scroll Volume Over Video Player: Canvia el volum amb la roda del ratolí sobre
-      el vídeo
-    Display Play Button In Video Player: Mostra el botó de reproducció al reproductor
-      de vídeo
+    Scroll Volume Over Video Player: Canvia el volum amb la roda del ratolí sobre el vídeo
+    Display Play Button In Video Player: Mostra el botó de reproducció al reproductor de vídeo
     Next Video Interval: Interval de vídeo següent
-    Scroll Playback Rate Over Video Player: Canvia la velocitat de reproducció amb
-      la roda del ratolí sobre el vídeo
+    Scroll Playback Rate Over Video Player: Canvia la velocitat de reproducció amb la roda del ratolí sobre el vídeo
     Fast-Forward / Rewind Interval: Interval d'Avançament / Retrocés Ràpid
     Max Video Playback Rate: Velocitat màxima de reproducció de vídeo
     Video Playback Rate Interval: Interval de velocitat de reproducció de vídeo
@@ -239,17 +224,13 @@ Settings:
     Remember History: 'Recorda l''historial'
     Save Watched Progress: 'Desa progrés reproduït'
     Clear Search Cache: 'Elimina la memòria cau de cerca'
-    Are you sure you want to clear out your search cache?: 'Estàs segur que vols eliminar
-      la memòria cau de la cerca?'
+    Are you sure you want to clear out your search cache?: 'Estàs segur que vols eliminar la memòria cau de la cerca?'
     Search cache has been cleared: 'La memòria cau de la cerca s''ha eliminat'
     Remove Watch History: 'Elimina l''historial de reproduccions'
-    Are you sure you want to remove your entire watch history?: 'Estàs segur que vols
-      eliminar tot l''historial de reproduccions?'
+    Are you sure you want to remove your entire watch history?: 'Estàs segur que vols eliminar tot l''historial de reproduccions?'
     Watch history has been cleared: 'L''historial de reproduccions s''ha eliminat'
     Remove All Subscriptions / Profiles: 'Elimina totes les subscripcions / perfils'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Esteu
-      segur que voleu esborrar totes les subscripcions i perfils?  Aquesta acció no
-      es pot desfer.'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Esteu segur que voleu esborrar totes les subscripcions i perfils?  Aquesta acció no es pot desfer.'
   Subscription Settings:
     Subscription Settings: 'Configuració de les subscripcions'
     Fetch Feeds from RSS: 'Recupera els canals de continguts des de l''RSS'
@@ -263,40 +244,27 @@ Settings:
     Export NewPipe: 'Exporta NewPipe'
     Import History: 'Importa l''historial'
     Export History: 'Exporta l''historial'
-    Profile object has insufficient data, skipping item: 'Aquest perfil no té dades
-      suficients, ometent l''objecte'
-    All subscriptions and profiles have been successfully imported: 'Totes les subscripcions
-      i perfils s''han importat amb èxit'
-    All subscriptions have been successfully imported: 'Totes les subscripcions s''han
-      importat amb èxit'
+    Profile object has insufficient data, skipping item: 'Aquest perfil no té dades suficients, ometent l''objecte'
+    All subscriptions and profiles have been successfully imported: 'Totes les subscripcions i perfils s''han importat amb èxit'
+    All subscriptions have been successfully imported: 'Totes les subscripcions s''han importat amb èxit'
     Invalid subscriptions file: 'Fitxer de subscripcions invàlid'
-    This might take a while, please wait: 'Això pot trigar una estona, si us plau,
-      esperi'
+    This might take a while, please wait: 'Això pot trigar una estona, si us plau, esperi'
     Invalid history file: 'Fitxer d''historial invàlid'
-    Subscriptions have been successfully exported: 'Les subscripcions s''han exportat
-      amb èxit'
-    History object has insufficient data, skipping item: 'L''objecte de l''historial
-      no té suficient informació, saltant l''objecte'
-    All watched history has been successfully imported: 'Tot l''historial visualitzat
-      s''ha importat amb èxit'
-    All watched history has been successfully exported: 'Tot l''historial visualitzat
-      s''ha exportat amb èxit'
+    Subscriptions have been successfully exported: 'Les subscripcions s''han exportat amb èxit'
+    History object has insufficient data, skipping item: 'L''objecte de l''historial no té suficient informació, saltant l''objecte'
+    All watched history has been successfully imported: 'Tot l''historial visualitzat s''ha importat amb èxit'
+    All watched history has been successfully exported: 'Tot l''historial visualitzat s''ha exportat amb èxit'
     Unable to read file: 'Impossible llegir el fitxer'
     Unable to write file: 'Impossible escriure el fitxer'
     Unknown data key: 'Clau de dades desconegut'
     How do I import my subscriptions?: 'Com puc importar les meves subscripcions?'
-    Playlist insufficient data: Dades insuficients per a la llista de reproducció
-      "{playlist}", saltant l'objecte
+    Playlist insufficient data: Dades insuficients per a la llista de reproducció "{playlist}", saltant l'objecte
     Manage Subscriptions: Gestiona les subscripcions
     Import Playlists: Importa llistes de reproducció
-    All playlists has been successfully exported: Totes les llistes de reproducció
-      s'han exportat amb èxit
+    All playlists has been successfully exported: Totes les llistes de reproducció s'han exportat amb èxit
     Export Playlists: Exporta llistes de reproducció
-    All playlists has been successfully imported: Totes les llistes de reproducció
-      s'han importat amb èxit
-  The app needs to restart for changes to take effect. Restart and apply change?: Cal
-    reiniciar l'aplicació perquè els canvis tinguin efecte. Vols reiniciar i aplicar
-    els canvis?
+    All playlists has been successfully imported: Totes les llistes de reproducció s'han importat amb èxit
+  The app needs to restart for changes to take effect. Restart and apply change?: Cal reiniciar l'aplicació perquè els canvis tinguin efecte. Vols reiniciar i aplicar els canvis?
   External Player Settings:
     External Player Settings: Configuració del reproductor extern
     External Player: Reproductor extern
@@ -305,12 +273,10 @@ Settings:
     Custom External Player Arguments: Arguments personalitzats del reproductor extern
   Proxy Settings:
     Proxy Settings: Configuració del servidor intermediari
-    Clicking on Test Proxy will send a request to: En fer clic a "Prova el servidor
-      intermediari" s'enviarà una sol·licitud a
+    Clicking on Test Proxy will send a request to: En fer clic a "Prova el servidor intermediari" s'enviarà una sol·licitud a
     Ip: IP
     Country: País
-    Error getting network information. Is your proxy configured properly?: Error en
-      obtenir informació de la xarxa. El servidor intermediari està ben configurat?
+    Error getting network information. Is your proxy configured properly?: Error en obtenir informació de la xarxa. El servidor intermediari està ben configurat?
     Region: Regió
     City: Ciutat
     Proxy Port Number: Port del servidor intermediari
@@ -321,8 +287,7 @@ Settings:
     Proxy Protocol: Protocol del servidor intermediari
   SponsorBlock Settings:
     Enable SponsorBlock: Activa l'SponsorBlock
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de l'API de
-      SponsorBlock (per defecte és https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de l'API de SponsorBlock (per defecte és https://sponsor.ajay.app)
     SponsorBlock Settings: Configuració de l'SponsorBlock
     Notify when sponsor segment is skipped: Notificar quan se salta un segment esponsoritzat
   Distraction Free Settings:
@@ -359,8 +324,7 @@ About:
   Source code: Codi font
   GitHub issues: Incidències del GitHub
   Beta: Beta
-  Please check for duplicates before posting: Si us plau, abans de publicar comprova
-    no duplicar temes
+  Please check for duplicates before posting: Si us plau, abans de publicar comprova no duplicar temes
   Credits: Crèdits
   FAQ: PMF
   Report a problem: Informa d'un problema
@@ -382,17 +346,14 @@ Profile:
   Update Profile: 'Actualitzar el perfil'
   Make Default Profile: 'Establir un perfil per defecte'
   Delete Profile: 'Suprimir el perfil'
-  Are you sure you want to delete this profile?: 'Estàs segur que vols suprimir aquest
-    perfil?'
+  Are you sure you want to delete this profile?: 'Estàs segur que vols suprimir aquest perfil?'
   All subscriptions will also be deleted.: 'També se suprimiran totes les subscripcions.'
   Your profile name cannot be empty: 'El nom del perfil no pot estar buit'
   Profile has been created: 'S''ha creat el perfil'
   Profile has been updated: 'S''ha actualitzat el perfil'
-  Your default profile has been set to {profile}: 'El vostre perfil predeterminat
-    s''ha establert a {profile}'
+  Your default profile has been set to {profile}: 'El vostre perfil predeterminat s''ha establert a {profile}'
   Removed {profile} from your profiles: 'S''ha eliminat {profile} dels teus perfils'
-  Your default profile has been changed to your primary profile: 'El perfil per defecte
-    s''ha canviat al perfil principal'
+  Your default profile has been changed to your primary profile: 'El perfil per defecte s''ha canviat al perfil principal'
   '{profile} is now the active profile': '{profile} és ara el perfil actiu'
   Subscription List: 'Llista de subscripcions'
   Other Channels: 'Altres Canals'
@@ -402,39 +363,30 @@ Profile:
   Delete Selected: 'Suprimeix els seleccionats'
   Add Selected To Profile: 'Afegeix Seleccionats al Perfil'
   No channel(s) have been selected: 'Cap canal s''ha seleccionat'
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : 'Aquest és el perfil principal.  Esteu segur que voleu suprimir els canals seleccionats?   Se
-    suprimiran de tots els perfils.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Esteu
-    segur que voleu suprimir els canals seleccionats?  No se suprimiran de cap altre
-    perfil.'
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : 'Aquest és el perfil principal.  Esteu segur que voleu suprimir els canals seleccionats?   Se suprimiran de tots els perfils.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Esteu segur que voleu suprimir els canals seleccionats?  No se suprimiran de cap altre perfil.'
 #On Channel Page
   Profile Settings: Configuració del perfil
   Profile Filter: Filtre de perfil
 Channel:
   Subscribe: 'Subscriu-te'
   Unsubscribe: 'Cancel·la la subscripció'
-  Channel has been removed from your subscriptions: 'El canal s''ha eliminat de les
-    teves subscripcions'
-  Removed subscription from {count} other channel(s): 'S''ha suprimit la subscripció
-    dels altres {count} canals'
+  Channel has been removed from your subscriptions: 'El canal s''ha eliminat de les teves subscripcions'
+  Removed subscription from {count} other channel(s): 'S''ha suprimit la subscripció dels altres {count} canals'
   Added channel to your subscriptions: 'Afegeix canal a les teves subscripcions'
   Search Channel: 'Cerca Canal'
-  Your search results have returned 0 results: 'Els resultats de la teva cerca han
-    retornat 0 resultats'
+  Your search results have returned 0 results: 'Els resultats de la teva cerca han retornat 0 resultats'
   Videos:
     Videos: 'Vídeos'
-    This channel does not currently have any videos: 'Aquest canal no té actualment
-      cap vídeo'
+    This channel does not currently have any videos: 'Aquest canal no té actualment cap vídeo'
     Sort Types:
       Newest: 'Més Nou'
       Oldest: 'Més Vell'
       Most Popular: 'Més Popular'
   Playlists:
     Playlists: 'Llistes De Reproducció'
-    This channel does not currently have any playlists: 'Aquest canal no té actualment
-      cap llista de reproducció'
+    This channel does not currently have any playlists: 'Aquest canal no té actualment cap llista de reproducció'
     Sort Types:
       Last Video Added: 'Últim Vídeo Afegit'
       Newest: 'Més Nou'
@@ -467,13 +419,9 @@ Video:
   Live Now: 'Ara en directe'
   Live Chat: 'Xat en directe'
   Enable Live Chat: 'Activa el xat en directe'
-  Live Chat is currently not supported in this build.: 'No s’admet el xat en directe
-    en aquesta construcció.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'El Xat En Directe
-    està activat. Els missatges del Xat apareixeran ací una vegada s''envien.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'El
-    xat en directe no està actualment suportat per l''API d''Invidious.  Es requereix
-    una connexió directa a YouTube.'
+  Live Chat is currently not supported in this build.: 'No s’admet el xat en directe en aquesta construcció.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'El Xat En Directe està activat. Els missatges del Xat apareixeran ací una vegada s''envien.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'El xat en directe no està actualment suportat per l''API d''Invidious.  Es requereix una connexió directa a YouTube.'
   Published on: 'Publicat el'
 #& Videos
   Started streaming on: Retransmissió iniciada el
@@ -496,14 +444,12 @@ Video:
   Save Video: Desa el Vídeo
   audio only: només àudio
   Video has been saved: El vídeo s'ha desat
-  Video has been removed from your saved list: S'ha suprimit el vídeo de la llista
-    desada
+  Video has been removed from your saved list: S'ha suprimit el vídeo de la llista desada
   Open Channel in YouTube: Obri Canal a YouTube
   Copy YouTube Channel Link: Copia l'enllaç del canal de YouTube
   Open Channel in Invidious: Obra el canal a Invidious
   Copy Invidious Channel Link: Copia l'enllaç del canal d'Invidious
-  Starting soon, please refresh the page to check again: Començant prompte, si us
-    plau recàrrega la pàgina per comprovar-ho de nou
+  Starting soon, please refresh the page to check again: Començant prompte, si us plau recàrrega la pàgina per comprovar-ho de nou
   Download Video: Descàrrega El Vídeo
   video only: només vídeo
   Streamed on: Retransmès en directe el
@@ -521,10 +467,8 @@ Change Format:
   Use Dash Formats: 'Utilitza Formats DASH'
   Use Legacy Formats: 'Utilitza els formats llegats'
   Use Audio Formats: 'Utilitza els formats d’àudio'
-  Dash formats are not available for this video: 'Els formats DASH no són disponibles
-    per aquest vídeo'
-  Audio formats are not available for this video: 'Els formats d''audio no són disponibles
-    per aquest vídeo'
+  Dash formats are not available for this video: 'Els formats DASH no són disponibles per aquest vídeo'
+  Audio formats are not available for this video: 'Els formats d''audio no són disponibles per aquest vídeo'
 Share:
   Share Video: 'Comparteix Vídeo'
   Share Playlist: 'Comparteix la llista de reproducció'
@@ -535,13 +479,10 @@ Share:
   Open Embed: 'Obri Incrustat'
   # On Click
   Invidious URL copied to clipboard: 'S''ha copiat l''URL d''Invidious al porta-retalls'
-  Invidious Embed URL copied to clipboard: 'S''ha copiat l''URL d''incrustació d''Invidious
-    al porta-retalls'
+  Invidious Embed URL copied to clipboard: 'S''ha copiat l''URL d''incrustació d''Invidious al porta-retalls'
   YouTube URL copied to clipboard: 'URL de YouTube copiada al porta-retalls'
-  YouTube Embed URL copied to clipboard: 'URL d''Incrustació de YouTube copiada al
-    porta-retalls'
-  Invidious Channel URL copied to clipboard: S'ha copiat l'URL del canal d'Invidious
-    al porta-retalls
+  YouTube Embed URL copied to clipboard: 'URL d''Incrustació de YouTube copiada al porta-retalls'
+  Invidious Channel URL copied to clipboard: S'ha copiat l'URL del canal d'Invidious al porta-retalls
 Yes: 'Sí'
 No: 'No'
 More: Més
@@ -556,8 +497,7 @@ Channels:
   Channels: Canals
   Title: Llista de canals
 Falling back to Invidious API: Recorrent a l'API d'Invidious
-Invidious API Error (Click to copy): S'ha produït un error en l'API d'Invidious (feu
-  clic per copiar-lo)
+Invidious API Error (Click to copy): S'ha produït un error en l'API d'Invidious (feu clic per copiar-lo)
 Moments Ago: fa un moment
 Search Listing:
   Label:

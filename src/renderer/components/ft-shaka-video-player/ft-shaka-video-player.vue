@@ -79,12 +79,13 @@
       <div
         v-if="showValueChangePopup"
         class="valueChangePopup"
+        :class="{ 'invert-content-order': invertValueChangeContentOrder }"
       >
         <font-awesome-icon
           v-if="valueChangeIcon"
           :icon="['fas', valueChangeIcon]"
         />
-        {{ valueChangeMessage }}
+        <span>{{ valueChangeMessage }}</span>
       </div>
     </Transition>
     <div

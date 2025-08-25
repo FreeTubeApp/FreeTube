@@ -282,6 +282,7 @@ Settings:
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
     Open Deep Links In New Window: Open URLs Passed to FreeTube in a New Window
+    Minimize to system tray: Minimize to system tray
     Auto Load Next Page:
       Label: Auto Load Next Page
       Tooltip: Load additional pages and comments automatically.
@@ -599,15 +600,6 @@ Settings:
     Export History: Export History
     Import Playlists: Import Playlists
     Export Playlists: Export Playlists
-    Export Playlists For Older FreeTube Versions:
-      Label: Export Playlists For Older FreeTube Versions
-      # |- = Keep newlines, No newline at end
-      Tooltip: |-
-        This option exports videos from all playlists into one playlist named 'Favorites'.
-        How to export & import videos in playlists for an older version of FreeTube:
-        1. Export your playlists with this option enabled.
-        2. Delete all of your existing playlists using the Remove All Playlists option under Privacy Settings.
-        3. Launch the older version of FreeTube and import the exported playlists."
     Profile object has insufficient data, skipping item: Profile object has insufficient
       data, skipping item
     All subscriptions and profiles have been successfully imported: All subscriptions
@@ -697,7 +689,7 @@ About:
   Licensed under the: Licensed under the
   AGPLv3: AGPLv3
   Downloads / Changelog: Downloads / Changelog
-  GitHub releases: GitHub releases
+  GitHub releases: GitHub Releases
   Help: Help
   FreeTube Wiki: FreeTube Wiki
   FAQ: FAQ

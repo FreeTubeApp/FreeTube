@@ -250,6 +250,7 @@ Settings:
       Label: Carregamento automático da próxima página
       Tooltip: Carregar páginas e comentários adicionais automaticamente.
     Open Deep Links In New Window: Abrir URLs enviados para o FreeTube em uma nova janela
+    Minimize to system tray: Minimizar para a bandeja do sistema
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Usar cor principal na barra superior'
@@ -593,6 +594,7 @@ Settings:
     Hide Search Bar: Ocultar barra de busca
     Parental Control Settings: Controle dos Pais
     Hide Unsubscribe Button: Ocultar botão "Cancelar inscrição"
+    Hide Uploader on Watch page: Ocultar o nome do autor na página de reprodução
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: Essas configurações são experimentais, elas podem causar travamentos enquanto habilitadas. Fazer backups é altamente recomendado. Use por sua conta e risco!

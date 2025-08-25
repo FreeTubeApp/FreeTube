@@ -235,7 +235,7 @@ function handleQuickBookmarkEnabledDisabledClick() {
 async function enableQuickBookmarkForThisPlaylist() {
   const currentQuickBookmarkTargetPlaylist = store.getters.getQuickBookmarkPlaylist
 
-  store.dispatch('updateQuickBookmarkTargetPlaylistId', playlistId.value)
+  store.dispatch('updateQuickBookmarkTargetPlaylistId', playlistId)
 
   if (currentQuickBookmarkTargetPlaylist != null) {
     showToast(

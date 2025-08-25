@@ -160,6 +160,10 @@ export default defineComponent({
       return this.$store.getters.getWatchedProgressSavingMode === 'semi-auto'
     },
 
+    rememberHistory() {
+      return this.$store.getters.getRememberHistory
+    },
+
     downloadBehavior: function () {
       return this.$store.getters.getDownloadBehavior
     },
@@ -334,26 +338,28 @@ export default defineComponent({
 
       this.openInExternalPlayer(payload)
 
-      // Marking as watched
-      const videoData = {
-        videoId: this.id,
-        title: this.title,
-        author: this.channelName,
-        authorId: this.channelId,
-        published: this.published,
-        description: this.description,
-        viewCount: this.viewCount,
-        lengthSeconds: this.lengthSeconds,
-        watchProgress: 0,
-        timeWatched: Date.now(),
-        isLive: false,
-        type: 'video'
-      }
+      if (this.rememberHistory) {
+        // Marking as watched
+        const videoData = {
+          videoId: this.id,
+          title: this.title,
+          author: this.channelName,
+          authorId: this.channelId,
+          published: this.published,
+          description: this.description,
+          viewCount: this.viewCount,
+          lengthSeconds: this.lengthSeconds,
+          watchProgress: 0,
+          timeWatched: Date.now(),
+          isLive: false,
+          type: 'video'
+        }
 
-      this.updateHistory(videoData)
+        this.updateHistory(videoData)
 
-      if (!this.historyEntryExists) {
-        showToast(this.$t('Video.Video has been marked as watched'))
+        if (!this.historyEntryExists) {
+          showToast(this.$t('Video.Video has been marked as watched'))
+        }
       }
     },
 
@@ -424,8 +430,6 @@ export default defineComponent({
         _id: this.quickBookmarkPlaylist._id,
         videoData,
       })
-      // Update playlist's `lastUpdatedAt`
-      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
 
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been saved'))
@@ -436,8 +440,6 @@ export default defineComponent({
         // Remove all playlist items with same videoId
         videoId: this.id,
       })
-      // Update playlist's `lastUpdatedAt`
-      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
 
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been removed from your saved list'))
@@ -456,7 +458,6 @@ export default defineComponent({
       'downloadMedia',
       'showAddToPlaylistPromptForManyVideos',
       'addVideo',
-      'updatePlaylist',
       'updateHistory',
       'removeVideo',
     ])

@@ -9,7 +9,7 @@ import FtInput from '../../components/ft-input/ft-input.vue'
 import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrapper.vue'
 import FtToggleSwitch from '../../components/FtToggleSwitch/FtToggleSwitch.vue'
 import { ctrlFHandler, debounce, getIconForSortPreference } from '../../helpers/utils'
-import FtSelect from '../../components/ft-select/ft-select.vue'
+import FtSelect from '../../components/FtSelect/FtSelect.vue'
 
 const HISTORY_SORT_BY_VALUES = {
   DateAddedNewest: 'latest_played_first',

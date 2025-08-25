@@ -57,7 +57,7 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtChannelBubble from '../FtChannelBubble/FtChannelBubble.vue'
 import FtButton from '../FtButton/FtButton.vue'
-import FtSelect from '../ft-select/ft-select.vue'
+import FtSelect from '../FtSelect/FtSelect.vue'
 
 import store from '../../store/index'
 

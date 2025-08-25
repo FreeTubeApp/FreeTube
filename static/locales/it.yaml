@@ -253,6 +253,7 @@ Settings:
       Label: Carica automaticamente la pagina successiva
       Tooltip: Carica automaticamente pagine e commenti aggiuntivi.
     Open Deep Links In New Window: Apri URL passati a FreeTube in una nuova finestra
+    Minimize to system tray: Riduci a icona nella barra delle applicazioni
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore al colore principale'
@@ -624,7 +625,7 @@ About:
   FreeTube Wiki: Wiki FreeTube
   Help: Aiuto
   Downloads / Changelog: Download / Registro delle modifiche
-  GitHub releases: Versioni pubblicate su GitHub
+  GitHub releases: Versioni di GitHub
   these people and projects: queste persone e questi progetti
   FreeTube is made possible by: FreeTube è reso possibile grazie a
   Credits: Crediti
@@ -1006,7 +1007,7 @@ Channels:
   Title: Elenco canali
   Channels: Canali
   Search bar placeholder: Ricerca canali
-  Count: '{number} canale/i trovato/i.'
+  Count: '{number} canali trovati.'
   Empty: L'elenco dei tuoi canali è attualmente vuoto.
   Unsubscribe Prompt: Sei sicuro di voler annullare l'iscrizione a "{channelName}"?
 Clipboard:

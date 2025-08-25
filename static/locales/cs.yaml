@@ -258,6 +258,7 @@ Settings:
       Label: Automaticky načíst další stránku
       Tooltip: Automaticky načítat další stránky a komentáře.
     Open Deep Links In New Window: Otevírat adresy předané aplikaci FreeTube v novém okně
+    Minimize to system tray: Minimalizovat do systémové lišty
   Theme Settings:
     Theme Settings: 'Motiv'
     Match Top Bar with Main Color: 'Přizpůsobit horní lištu hlavní barvě'

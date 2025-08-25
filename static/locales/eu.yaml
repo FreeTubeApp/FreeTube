@@ -259,6 +259,7 @@ Settings:
       Tooltip: Kargatu orrialde eta iruzkin gehigarriak automatikoki.
       Label: Kargatu automatikoki hurrengo orria
     Open Deep Links In New Window: Ireki FreeTube-ra pasatu diren URLak leiho berri batean
+    Minimize to system tray: Minimizatu sistemaren erretiluan
   Theme Settings:
     Theme Settings: 'Gaia'
     Match Top Bar with Main Color: 'Lotu goiko barra kolore nagusiarekin'
@@ -266,13 +267,13 @@ Settings:
     Disable Smooth Scrolling: 'Desgaitu korritze leuna'
     UI Scale: 'Erabiltzaile interfazearen eskala'
     Base Theme:
-      Base Theme: 'Oinarrizko Gaia'
+      Base Theme: 'Oinarrizko gaia'
       Black: 'Beltza'
       Dark: 'Iluna'
       Light: 'Argia'
       Dracula: Drakula
       System Default: Sistemak lehenetsia
-      Catppuccin Mocha: Catppuccin Motxa
+      Catppuccin Mocha: Kaputxino Moka
       Nordic: nordikoa
       Pastel Pink: Pastel arrosa
       Hot Pink: Arrosa beroa
@@ -280,7 +281,7 @@ Settings:
       Solarized Light: Solarizatu argia
       Gruvbox Dark: Gruvbox Iluna
       Gruvbox Light: Gruvbox Argia
-      Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Frappe: Kaputxino Frappe
       Everforest Dark Medium: Everforest Ilun Erdibidekoa
       Everforest Light Medium: Everforest Argia Erdibidekoa
       Everforest Light Low: Everforest Argia Arina
@@ -290,7 +291,7 @@ Settings:
     Main Color Theme:
       Main Color Theme: 'Oinarrizko koloreen gaia'
       Red: 'Gorria'
-      Pink: 'Larrosa'
+      Pink: 'Arrosa'
       Purple: 'Ubela'
       Deep Purple: 'Ubel bizia'
       Indigo: 'Indigo kolorea'
@@ -312,20 +313,20 @@ Settings:
       Dracula Red: Drakula gorria
       Dracula Green: Drakula berdea
       Dracula Yellow: Drakula horia
-      Catppuccin Mocha Flamingo: Catppuccin Motxa Flamingo
-      Catppuccin Mocha Pink: Catppuccin Motxa Larrosa
-      Catppuccin Mocha Sapphire: Catppuccin Motxa Zafiro
-      Catppuccin Mocha Lavender: Catppuccin Motxa Izpilikua
-      Catppuccin Mocha Blue: Catppuccin Motxa Urdina
-      Catppuccin Mocha Rosewater: Catppuccin Motxa urlarrosa
-      Catppuccin Mocha Mauve: Catppuccin Motxa Ubela
-      Catppuccin Mocha Red: Catppuccin Motxa Gorria
-      Catppuccin Mocha Maroon: Catppuccin Motxa Marroia
-      Catppuccin Mocha Peach: Catppuccin Motxa Mertxika
-      Catppuccin Mocha Yellow: Catppuccin Motxa Horia
-      Catppuccin Mocha Green: Catppuccin Motxa Berdea
-      Catppuccin Mocha Teal: Catppuccin Motxa Zertzeta
-      Catppuccin Mocha Sky: Catppuccin Motxa Zerua
+      Catppuccin Mocha Flamingo: Kaputxino Moka Flamingo
+      Catppuccin Mocha Pink: Kaputxino Moka Arrosa
+      Catppuccin Mocha Sapphire: Kaputxino Moka Zafiro
+      Catppuccin Mocha Lavender: Kaputxino Moka Izpilikua
+      Catppuccin Mocha Blue: Kaputxino Moka Urdina
+      Catppuccin Mocha Rosewater: Kaputxino Moka urlarrosa
+      Catppuccin Mocha Mauve: Kaputxino Moka Ubela
+      Catppuccin Mocha Red: Kaputxino Moka Gorria
+      Catppuccin Mocha Maroon: Kaputxino Moka Marroia
+      Catppuccin Mocha Peach: Kaputxino Moka Mertxika
+      Catppuccin Mocha Yellow: Kaputxino Moka Horia
+      Catppuccin Mocha Green: Kaputxino Moka Berdea
+      Catppuccin Mocha Teal: Kaputxino Moka Berde-urdinxka
+      Catppuccin Mocha Sky: Kaputxino Moka Zerua
       Solarized Yellow: Hori solarizatua
       Solarized Orange: Laranja solarizatua
       Solarized Red: Gorri solarizatua
@@ -345,19 +346,19 @@ Settings:
       Gruvbox Dark Blue: Gruvbox Urdin Iluna
       Gruvbox Dark Green: Gruvbox Berde Iluna
       Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
-      Catppuccin Frappe Red: Catppuccin Frappe Gorria
-      Catppuccin Frappe Peach: Catppuccin Frappe Mertxika
-      Catppuccin Frappe Green: Catppuccin Frappe Berdea
-      Catppuccin Frappe Teal: Catppuccin Frappe Zertzeta
-      Catppuccin Frappe Sky: Catppuccin Frappe Zerua
-      Catppuccin Frappe Sapphire: Catppuccin Frappe Zafiroa
-      Catppuccin Frappe Blue: Catppuccin Frappe Urdina
-      Catppuccin Frappe Lavender: Catppuccin Frappe Izpilikua
+      Catppuccin Frappe Red: Kaputxino Frappe Gorria
+      Catppuccin Frappe Peach: Kaputxino Frappe Mertxika
+      Catppuccin Frappe Green: Kaputxino Frappe Berdea
+      Catppuccin Frappe Teal: Kaputxino Frappe berde-urdinxka
+      Catppuccin Frappe Sky: Kaputxino Frappe Zerua
+      Catppuccin Frappe Sapphire: Kaputxino Frappe Zafiroa
+      Catppuccin Frappe Blue: Kaputxino Frappe Urdina
+      Catppuccin Frappe Lavender: Kaputxino Frappe Izpilikua
       Catppuccin Frappe Rosewater: Catppuccin Frappe Urlarrosa
       Catppuccin Frappe Mauve: Catppuccin Frappe Ubela
       Catppuccin Frappe Pink: Catppuccin Frappe Larrosa
-      Catppuccin Frappe Maroon: Catppuccin Frappe Marroia
-      Catppuccin Frappe Yellow: Catppuccin Frappe Horia
+      Catppuccin Frappe Maroon: Kaputxino Frappe Marroia
+      Catppuccin Frappe Yellow: Kaputxino Frappe Horia
       Everforest Dark Red: Everforest Iluna Gorria
       Everforest Dark Orange: Everforest Iluna Laranja
       Everforest Dark Yellow: Everforest Iluna Horia
@@ -600,6 +601,7 @@ Settings:
     Hide Unsubscribe Button: Harpidetza kendu botoia ezkutatu
     Parental Control Settings: Gurasoen kontrola
     Hide Search Bar: Bilaketa barra ezkutatu
+    Hide Uploader on Watch page: Ezkutatu igotzailea bistaratze-orrian
   Password Dialog:
     Password: Pasahitza
     Enter Password To Unlock: Sartu pasahitza ezarpenak desblokeatzeko

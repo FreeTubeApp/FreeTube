@@ -59,7 +59,49 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     client_type: clientType,
 
     // use browser fetch
-    fetch: (input, init) => fetch(input, init),
+    fetch: !withPlayer
+      ? (input, init) => fetch(input, init)
+      : async (input, init) => {
+        if (input.url?.startsWith('https://www.youtube.com/youtubei/v1/player') && init?.headers?.get('X-Youtube-Client-Name') === '2') {
+          const response = await fetch(input, init)
+
+          const responseText = await response.text()
+
+          const json = JSON.parse(responseText)
+
+          if (Array.isArray(json.adSlots)) {
+            let waitSeconds = 0
+
+            for (const adSlot of json.adSlots) {
+              if (adSlot.adSlotRenderer?.adSlotMetadata?.triggerEvent === 'SLOT_TRIGGER_EVENT_BEFORE_CONTENT') {
+                const playerVars = adSlot.adSlotRenderer.fulfillmentContent?.fulfilledLayout?.playerBytesAdLayoutRenderer
+                  ?.renderingContent?.instreamVideoAdRenderer?.playerVars
+
+                if (playerVars) {
+                  const match = playerVars.match(/length_seconds=([\d.]+)/)
+
+                  if (match) {
+                    waitSeconds += parseFloat(match[1])
+                  }
+                }
+              }
+            }
+
+            if (waitSeconds > 0) {
+              await new Promise((resolve) => setTimeout(resolve, waitSeconds * 1000))
+            }
+          }
+
+          // Need to return a new response object, as you can only read the response body once.
+          return new Response(responseText, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: response.headers
+          })
+        }
+
+        return fetch(input, init)
+      },
     cache,
     generate_session_locally: !!generateSessionLocally
   })
@@ -224,7 +266,18 @@ export async function getLocalVideoInfo(id) {
 
   const info = await webInnertube.getInfo(id, { po_token: contentPoToken })
 
-  // temporary workaround for SABR-only responses
+  // #region temporary workaround for SABR-only responses
+
+  // MWEB doesn't have an audio track selector so it picks the audio track on the server based on the request language.
+
+  const originalAudioTrackFormat = info.streaming_data?.adaptive_formats.find(format => {
+    return format.has_audio && format.is_original && format.language
+  })
+
+  if (originalAudioTrackFormat) {
+    webInnertube.session.context.client.hl = originalAudioTrackFormat.language
+  }
+
   const mwebInfo = await webInnertube.getBasicInfo(id, { client: 'MWEB', po_token: contentPoToken })
 
   if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data) {
@@ -233,6 +286,8 @@ export async function getLocalVideoInfo(id) {
 
     clientName = 'MWEB'
   }
+
+  // #endregion temporary workaround for SABR-only responses
 
   let hasTrailer = info.has_trailer
   let trailerIsAgeRestricted = info.getTrailerInfo() === null
@@ -316,6 +371,10 @@ export async function getLocalVideoInfo(id) {
       url.searchParams.set('potc', '1')
       url.searchParams.set('pot', contentPoToken)
       url.searchParams.set('c', clientName)
+
+      // Remove &xosf=1 as it adds `position:63% line:0%` to the subtitle lines
+      // placing them in the top right corner
+      url.searchParams.delete('xosf')
 
       captionTrack.base_url = url.toString()
     }
@@ -1268,6 +1327,8 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       let publishedText
       let lengthSeconds = ''
       let liveNow = false
+      let isUpcoming = false
+      let premiereDate
 
       /** @type {YTNodes.ThumbnailOverlayBadgeView | undefined} */
       const thumbnailOverlayBadgeView = lockupView.content_image?.overlays?.firstOfType(YTNodes.ThumbnailOverlayBadgeView)
@@ -1275,6 +1336,12 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       if (thumbnailOverlayBadgeView) {
         if (thumbnailOverlayBadgeView.badges.some(badge => badge.badge_style === 'THUMBNAIL_OVERLAY_BADGE_STYLE_LIVE')) {
           liveNow = true
+        } else if (thumbnailOverlayBadgeView.badges.some(badge => badge.text.toLowerCase() === 'upcoming')) {
+          isUpcoming = true
+
+          if (lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.[1].text?.text) {
+            premiereDate = new Date(lockupView.metadata.metadata.metadata_rows[1].metadata_parts[1].text.text)
+          }
         } else {
           const durationBadge = thumbnailOverlayBadgeView.badges.find(badge => /^[\d:]+$/.test(badge.text))
 
@@ -1305,9 +1372,11 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         author: lockupView.metadata.metadata?.metadata_rows[0].metadata_parts?.[0].text?.text,
         authorId: lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.payload.browseId,
         viewCount,
-        published: calculatePublishedDate(publishedText, liveNow),
+        published: calculatePublishedDate(publishedText, liveNow, isUpcoming, premiereDate),
         lengthSeconds,
-        liveNow
+        liveNow,
+        isUpcoming,
+        premiereDate
       }
     }
     default:

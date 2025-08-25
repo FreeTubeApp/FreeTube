@@ -205,6 +205,8 @@ History:
   Search bar placeholder: Pretraži povijest
   Empty Search Message: U ovoj zbirci nema videa u tvojoj povijesti koji odgovaraju tvojem pretraživanju
   Case Sensitive Search: Razlikuj velika i mala slova tijekom pretraživanja
+  DateOldestHistory: Najprije najranije gledano
+  DateNewestHistory: Najprije nedavno gledano
 Settings:
   # On Settings Page
   Settings: 'Postavke'
@@ -594,6 +596,7 @@ Settings:
     Hide Unsubscribe Button: Sakrij gumb za odjavu
     Hide Search Bar: Sakrij traku pretrage
     Show Family Friendly Only: Prikaži samo prikladne za obitelji
+    Hide Uploader on Watch page: Sakrij prenositelja na stranici gledanja
   Experimental Settings:
     Warning: Ovo su eksperimentalne postavke. Kad su aktivirane mogu prouzročiti prekid programa. Preporučujemo spremanje sigurnosnih kopija. Koristi na vlastitu odgovornost!
     Experimental Settings: Eksperimentalno
@@ -978,6 +981,7 @@ Tooltips:
     Hide Channels: Upiši ID kanala za skrivanje svih videa, zbirki kao i samog kanala u prikazu pretrage, trendova, najpopularniji i preporučeni. Upisani ID kanala se mora potpuno poklapati i razlikuje velika i mala slova.
     Hide Subscriptions Live: Ovu postavku nadjačava programska postavka „{appWideSetting}”, u odjeljku „{subsection}” u „{settingsSection}”
     Hide Videos and Playlists Containing Text: Upiši riječ, fragment riječi ili izraz (ne razlikuje velika i mala slova) za skrivanje svih videa i zbirki s tim sadržajem u njihovim izvornim naslovima u cijelom FreeTubeu, isključujući samo povijest, tvoje zbirke i videa unutar zbirki.
+    Hide Videos on Watch: Skriva gledana videa s kartica „Videa”, „Kratka videa” i „Uživo” na stranicama „Pretplata” i „Kanal”. To ne utječe na karticu „Početna” na stranicama „Kanal”
   SponsorBlock Settings:
     UseDeArrowTitles: Zamijeni naslove videa koje su poslali korisnici s DeArrow naslovima.
     UseDeArrowThumbnails: Zamijeni minijature videa s DeArrow minijaturama.
@@ -1103,6 +1107,8 @@ KeyboardShortcutPrompt:
   Increase Video Speed: Povećaj brzinu videa na temelju intervala brzine reprodukcije videa
   Home: Premotaj na početak videa
   End: Premotaj na kraj videa
+  Skip to Next Video: Skoči na sljedeći video u zbirci ili na sljedeći preporučeni video
+  Skip to Previous Video: Skoči na prethodni video u zbirci
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Keys:

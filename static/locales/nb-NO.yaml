@@ -253,6 +253,7 @@ Settings:
       Label: Last inn den neste siden automatisk
       Tooltip: Last inn flere sider og kommentarer automatisk.
     Open Deep Links In New Window: Åpne linker gitt til FreeTube i et nytt vindu
+    Minimize to system tray: Minimer til systemkurven
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Tilpass topplinjen slik at den har samme farge som hovedfargen'
@@ -596,6 +597,7 @@ Settings:
     Hide Search Bar: Skjul søkefeltet
     Show Family Friendly Only: Vis kun familievennlig innhold
     Hide Unsubscribe Button: Skjul knapp for opphevelse av abonnement
+    Hide Uploader on Watch page: Skjul opplasteren på visningssiden
   Experimental Settings:
     Experimental Settings: Eksperimentelt
     Replace HTTP Cache: Erstatt HTTP-hurtiglager
@@ -976,6 +978,7 @@ Tooltips:
     Hide Channels: Skiv inn en kanal-ID for å skjule alle videoer, spillelister og selve kanalen fra å vises i søk eller andre steder. Kanal-ID-en må være et nøyaktig treff, og skiller mellom små og store bokstaver.
     Hide Subscriptions Live: Innstillingen overstyres av «{appWideSetting}» for hele programmet, i «{subsection}»-delen av «{settingsSection}»
     Hide Videos and Playlists Containing Text: Tast inn et ord, en del av et ord eller en frase (det skilles ikke mellom store og små bokstaver) for å gjemme alle videoer og spillelister med det i seg, med unntak av i historikken din, og videoer inne i spillelister.
+    Hide Videos on Watch: Skjul sette videoer fra Videoer, Shorts og Live-fanene på abonnementsider og kanalsider. Dette påvirker ikke Hjemme-fanen på kanalsider.
   SponsorBlock Settings:
     UseDeArrowTitles: Erstatt videonavn med brukerinnsendte navn fra DeArrow.
     UseDeArrowThumbnails: Erstatt miniatyrbilder på videoer med bilder fra DeArrow.
@@ -1106,6 +1109,8 @@ KeyboardShortcutPrompt:
   Theatre Mode: Skru teatermodus av/på
   End: Gå til slutten av videoen
   Home: Gå til starten av videoen
+  Skip to Next Video: Hopp til neste video i en spilleliste eller neste anbefalte video
+  Skip to Previous Video: Hopp til forrige video i en spilleliste
 Moments Ago: for et øyeblikk siden
 shortcutLabelSeparator: ｜
 Description:
