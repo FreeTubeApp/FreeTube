@@ -80,8 +80,8 @@
 }
 
 .previewThumbnail {
-  block-size: 40px;
-  inline-size: 40px;
+  block-size: 36px;
+  inline-size: 48px;
   object-fit: cover;
   border-radius: 4px;
   flex-shrink: 0;
