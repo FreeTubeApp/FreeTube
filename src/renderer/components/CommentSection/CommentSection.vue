@@ -239,6 +239,26 @@
                 />
                 {{ reply.likes }}
               </template>
+              <span
+                v-if="reply.isHearted"
+                class="commentHeartBadge"
+              >
+                <img
+                  :src="channelThumbnail"
+                  :title="$t('Comments.Hearted')"
+                  :aria-label="$t('Comments.Hearted')"
+                  class="commentHeartBadgeImg"
+                  alt=""
+                >
+                <FontAwesomeIcon
+                  :icon="['fas', 'heart']"
+                  class="commentHeartBadgeWhite"
+                />
+                <FontAwesomeIcon
+                  :icon="['fas', 'heart']"
+                  class="commentHeartBadgeRed"
+                />
+              </span>
             </p>
             <p
               v-if="reply.numReplies > 0"
