@@ -99,7 +99,7 @@
     "js-yaml": "^4.1.0",
     "json-minimizer-webpack-plugin": "^5.0.1",
     "lefthook": "^1.12.2",
-    "mini-css-extract-plugin": "^2.9.3",
+    "mini-css-extract-plugin": "^2.9.4",
     "neostandard": "^0.12.2",
     "npm-run-all2": "^8.0.4",
     "postcss": "^8.5.6",
