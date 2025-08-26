@@ -879,6 +879,8 @@ function runApp() {
           return '#fdf6e3'
         case 'everforest-light-low':
           return '#f3ead3'
+        case 'catppuccin-latte':
+          return '#eff1f5'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
