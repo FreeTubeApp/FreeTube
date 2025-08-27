@@ -247,11 +247,16 @@ export default defineComponent({
     totalPlaylistDuration() {
       const totalSeconds = this.shownPlaylistItems.reduce((acc, video) => {
         if (typeof video.lengthSeconds !== 'number') {
-          return NaN
+          return acc
         }
         return acc + video.lengthSeconds
       }, 0)
       return totalSeconds
+    },
+    isDurationApproximate() {
+      return this.shownPlaylistItems.some(video =>
+        typeof video.lengthSeconds !== 'number'
+      )
     },
     noPlaylistItemsPendingDeletion() {
       return this.toBeDeletedPlaylistItemIds.length === 0

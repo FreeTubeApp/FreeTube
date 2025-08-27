@@ -274,7 +274,7 @@ function runApp() {
   let mainWindow
   let startupUrl
   let tray = null
-  let trayOnMinimize
+  let trayOnMinimize = false
   let trayWindows = []
   const trayMaximizedWindows = {}
 
@@ -333,10 +333,10 @@ function runApp() {
         if (!openDeepLinksInNewWindow) {
           // Just focus the main window (instead of starting a new instance)
           if (mainWindow.isMinimized()) {
-            if (!trayOnMinimize) {
-              mainWindow.restore()
-            } else {
+            if (process.platform !== 'darwin' && trayOnMinimize) {
               trayClick(mainWindow)
+            } else {
+              mainWindow.restore()
             }
           }
           mainWindow.focus()
@@ -475,7 +475,9 @@ function runApp() {
             proxyPort = doc.value
             break
           case 'hideToTrayOnMinimize':
-            trayOnMinimize = (process.platform !== 'darwin') ? doc.value : false
+            if (process.platform !== 'darwin') {
+              trayOnMinimize = doc.value
+            }
             break
         }
       })
@@ -692,35 +694,6 @@ function runApp() {
     }
   })
 
-  function manageTray(window, removeWindow = false) {
-    if (tray) {
-      if (!removeWindow) {
-        trayWindows.push(window)
-        createTrayContextMenu()
-      } else if (trayWindows.some(item => item.id === window.id)) {
-        trayClick(window)
-      }
-    } else {
-      const icon = process.env.NODE_ENV === 'development'
-        ? path.join(__dirname, '..', '..', '_icons', 'iconColor.png')
-        : path.join(__dirname, '..', '_icons', 'iconColor.png')
-
-      tray = new Tray(icon)
-
-      tray.setIgnoreDoubleClickEvents(true)
-      tray.setToolTip('FreeTube')
-
-      trayWindows = [window]
-      createTrayContextMenu()
-
-      if (process.platform !== 'linux') {
-        tray.on('click', (event) => {
-          if (trayWindows.length === 1) { trayClick(trayWindows[0]) }
-        })
-      }
-    }
-  }
-
   function trayClick(window, close = false) {
     if (!close) {
       if (window.id in trayMaximizedWindows) {
@@ -735,13 +708,13 @@ function runApp() {
           window.show()
         }
       }
-    } else if (trayWindows.length) {
+    } else if (trayWindows.length > 0) {
       window.close()
     }
 
     trayWindows.splice(trayWindows.findIndex(item => item.id === window.id), 1)
 
-    if (trayWindows.length) {
+    if (trayWindows.length > 0) {
       createTrayContextMenu()
     } else {
       destroyTray()
@@ -983,20 +956,51 @@ function runApp() {
 
     // endregion Ensure child windows use same options since electron 14
 
-    newWindow.on('minimize', () => {
-      if (trayOnMinimize) {
-        newWindow.hide()
-        manageTray(newWindow)
+    if (process.platform !== 'darwin') {
+      function manageTray(window, removeWindow = false) {
+        if (tray) {
+          if (!removeWindow) {
+            trayWindows.push(window)
+            createTrayContextMenu()
+          } else if (trayWindows.some(item => item.id === window.id)) {
+            trayClick(window)
+          }
+        } else {
+          const icon = process.env.NODE_ENV === 'development'
+            ? path.join(__dirname, '..', '..', '_icons', 'iconColor.png')
+            : path.join(__dirname, '..', '_icons', 'iconColor.png')
+
+          tray = new Tray(icon)
+
+          tray.setIgnoreDoubleClickEvents(true)
+          tray.setToolTip('FreeTube')
+
+          trayWindows = [window]
+          createTrayContextMenu()
+
+          if (process.platform !== 'linux') {
+            tray.on('click', (event) => {
+              if (trayWindows.length === 1) { trayClick(trayWindows[0]) }
+            })
+          }
+        }
       }
-    })
 
-    newWindow.on('maximize', () => {
-      if (trayOnMinimize) { trayMaximizedWindows[newWindow.id] = true }
-    })
+      newWindow.on('minimize', () => {
+        if (trayOnMinimize) {
+          newWindow.hide()
+          manageTray(newWindow)
+        }
+      })
 
-    newWindow.on('unmaximize', () => {
-      if (trayOnMinimize) { delete trayMaximizedWindows[newWindow.id] }
-    })
+      newWindow.on('maximize', () => {
+        if (trayOnMinimize) { trayMaximizedWindows[newWindow.id] = true }
+      })
+
+      newWindow.on('unmaximize', () => {
+        if (trayOnMinimize) { delete trayMaximizedWindows[newWindow.id] }
+      })
+    }
 
     if (replaceMainWindow) {
       mainWindow = newWindow
@@ -1046,10 +1050,6 @@ function runApp() {
       newWindow.loadURL(ROOT_APP_URL)
     }
 
-    // newWindow.webContents.on('did-finish-load', () => {
-    //   dialog.showMessageBoxSync({message: 'x'})
-    // })
-
     if (typeof searchQueryText === 'string' && searchQueryText.length > 0) {
       ipcMain.once(IpcChannels.SEARCH_INPUT_HANDLING_READY, () => {
         newWindow.webContents.send(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, searchQueryText)
@@ -1066,11 +1066,11 @@ function runApp() {
         return
       }
 
-      if (!trayOnMinimize || !trayWindows.length) {
+      if (process.platform !== 'darwin' && trayOnMinimize && trayWindows.length > 0) {
+        trayClick(newWindow)
+      } else {
         newWindow.show()
         newWindow.focus()
-      } else {
-        trayClick(newWindow)
       }
 
       if (process.env.NODE_ENV === 'development') {
@@ -1490,8 +1490,10 @@ function runApp() {
               await setMenu()
               break
             case 'hideToTrayOnMinimize':
-              trayOnMinimize = data.value
-              if (!trayOnMinimize) { showHiddenWindows() }
+              if (process.platform !== 'darwin') {
+                trayOnMinimize = data.value
+                if (!trayOnMinimize) { showHiddenWindows() }
+              }
               break
 
             default:
@@ -1917,9 +1919,11 @@ function runApp() {
     })
   }
 
-  app.on('before-quit', () => {
-    if (tray) { tray.destroy() }
-  })
+  if (process.platform !== 'darwin') {
+    app.on('before-quit', () => {
+      if (tray) { tray.destroy() }
+    })
+  }
 
   function handleQuit() {
     cleanUpResources().finally(() => {

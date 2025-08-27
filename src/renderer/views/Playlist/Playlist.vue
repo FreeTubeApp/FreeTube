@@ -29,6 +29,7 @@
         :videos="shownPlaylistItems"
         :view-count="viewCount"
         :total-playlist-duration="totalPlaylistDuration"
+        :is-duration-approximate="isDurationApproximate"
         :info-source="infoSource"
         :more-video-data-available="moreVideoDataAvailable"
         :search-video-mode-allowed="isUserPlaylistRequested && shownVideoCount > 1"
