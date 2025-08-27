@@ -95,6 +95,7 @@ jobs:
         chmod +x ./"$appimage" ./appimagetool.AppImage
         ./"$appimage" --appimage-extract && rm -f ./"$appimage"
         ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
+          -u "gh-releases-zsync|FreeTubeApp|FreeTube|latest|*.AppImage.zsync" \
           -n ./squashfs-root ./"$appimage"
         rm -rf ./squashfs-root ./appimagetool.AppImage
 
