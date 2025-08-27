@@ -6,4 +6,6 @@
 
 .containingTextFlexBox {
   margin-block-end: 2em;
+  flex-direction: column;
+  align-items: center;
 }

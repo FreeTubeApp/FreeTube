@@ -87,6 +87,13 @@
         @change="handleForbiddenTitles"
         @toggle-show-tags="handleAddedForbiddenTitles"
       />
+        <FtToggleSwitch
+          :label="t('Settings.Distraction Free Settings.Hide Channels Containing Text')"
+          :compact="true"
+          :default-value="hideChannelsBasedOnText"
+          :tooltip="t('Tooltips.Distraction Free Settings.Hide Channels Containing Text')"
+          @change="updateHideChannelsBasedOnText"
+        />
     </FtFlexBox>
     <h4
       class="groupTitle"
@@ -667,6 +674,16 @@ const hideWatchedSubs = computed(() => store.getters.getHideWatchedSubs)
  */
 function updateHideWatchedSubs(value) {
   store.dispatch('updateHideWatchedSubs', value)
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideChannelsBasedOnText = computed(() => store.getters.getHideChannelsBasedOnText)
+
+/**
+ * @param {boolean} value
+ */
+function updateHideChannelsBasedOnText(value) {
+  store.dispatch('updateHideChannelsBasedOnText', value)
 }
 
 onMounted(() => {
