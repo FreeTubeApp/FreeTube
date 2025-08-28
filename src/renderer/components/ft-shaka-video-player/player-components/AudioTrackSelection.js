@@ -2,6 +2,7 @@ import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
 import { deduplicateAudioTracks } from '../../../helpers/player/utils'
+import { PlayerIcons } from '../../../../constants'
 
 export class AudioTrackSelection extends shaka.ui.SettingsMenu {
   /**
@@ -10,10 +11,18 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
    * @param {!shaka.ui.Controls} controls
    */
   constructor(events, parent, controls) {
-    super(parent, controls, 'spatial_audio_off')
+    super(parent, controls, PlayerIcons.SPATIAL_AUDIO_OFF)
 
     this.button.classList.add('audio-track-button', 'shaka-tooltip-status')
     this.menu.classList.add('audio-tracks')
+
+    /** @type {SVGElement} */
+    const checkmarkIcon = new shaka.ui.MaterialSVGIcon(null, PlayerIcons.DONE).getSvgElement()
+    checkmarkIcon.classList.add('shaka-chosen-item')
+    checkmarkIcon.ariaHidden = 'true'
+
+    /** @private */
+    this._checkmarkIcon = checkmarkIcon
 
     this.eventManager.listen(events, 'localeChanged', () => {
       this.updateLocalisedStrings_()
@@ -70,11 +79,7 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
       span.textContent = track.label || new Intl.DisplayNames('en', { type: 'language', languageDisplay: 'standard' }).of(track.language)
 
       if (track.active) {
-        const icon = document.createElement('i')
-        icon.classList.add('material-icons-round', 'shaka-chosen-item')
-        icon.textContent = 'done'
-        icon.ariaHidden = 'true'
-        button.appendChild(icon)
+        button.appendChild(this._checkmarkIcon)
 
         span.classList.add('shaka-chosen-item')
         button.ariaSelected = 'true'

@@ -1,7 +1,7 @@
 import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
-import { KeyboardShortcuts } from '../../../../constants'
+import { KeyboardShortcuts, PlayerIcons } from '../../../../constants'
 import { addKeyboardShortcutToActionTitle } from '../../../helpers/utils'
 
 export class FullWindowButton extends shaka.ui.Element {
@@ -19,11 +19,7 @@ export class FullWindowButton extends shaka.ui.Element {
     this.button_.classList.add('full-window-button', 'shaka-tooltip')
 
     /** @private */
-    this.icon_ = document.createElement('i')
-    this.icon_.classList.add('material-icons-round')
-    this.icon_.textContent = 'open_in_full'
-
-    this.button_.appendChild(this.icon_)
+    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.OPEN_IN_FULL)
 
     const label = document.createElement('label')
     label.classList.add(
@@ -71,7 +67,7 @@ export class FullWindowButton extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.icon_.textContent = this.fullWindowEnabled_ ? 'close_fullscreen' : 'open_in_full'
+    this.icon_.use(this.fullWindowEnabled_ ? PlayerIcons.CLOSE_FULLSCREEN : PlayerIcons.OPEN_IN_FULL)
     this.currentState_.textContent = this.localization.resolve(this.fullWindowEnabled_ ? 'ON' : 'OFF')
 
     const baseAriaLabel = this.fullWindowEnabled_ ? i18n.t('Video.Player.Exit Full Window') : i18n.t('Video.Player.Full Window')

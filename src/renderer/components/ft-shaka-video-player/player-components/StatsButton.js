@@ -1,7 +1,7 @@
 import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
-import { KeyboardShortcuts } from '../../../../constants'
+import { KeyboardShortcuts, PlayerIcons } from '../../../../constants'
 import { addKeyboardShortcutToActionTitle } from '../../../helpers/utils'
 
 export class StatsButton extends shaka.ui.Element {
@@ -19,11 +19,7 @@ export class StatsButton extends shaka.ui.Element {
     this.button_.classList.add('stats-button')
 
     /** @private */
-    this.icon_ = document.createElement('i')
-    this.icon_.classList.add('material-icons-round')
-    this.icon_.textContent = 'insert_chart_outlined'
-
-    this.button_.appendChild(this.icon_)
+    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.INSERT_CHART_DEFAULT)
 
     const label = document.createElement('label')
     label.classList.add('shaka-overflow-button-label', 'shaka-simple-overflow-button-label-inline')
@@ -67,7 +63,7 @@ export class StatsButton extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.icon_.textContent = this.showStats_ ? 'insert_chart' : 'insert_chart_outlined'
+    this.icon_.use(this.showStats_ ? PlayerIcons.INSERT_CHART : PlayerIcons.INSERT_CHART_DEFAULT)
 
     const baseLabel = this.showStats_ ? i18n.t('Video.Player.Hide Stats') : i18n.t('Video.Player.Show Stats')
     const label = addKeyboardShortcutToActionTitle(

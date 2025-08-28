@@ -1,5 +1,7 @@
 import shaka from 'shaka-player'
 
+import { PlayerIcons } from '../../../../constants'
+
 export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
   /**
    * @param {object} activeLegacyFormat
@@ -9,10 +11,18 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
    * @param {!shaka.ui.Controls} controls
    */
   constructor(activeLegacyFormat, legacyFormats, events, parent, controls) {
-    super(parent, controls, 'tune')
+    super(parent, controls, PlayerIcons.TUNE)
 
     this.button.classList.add('legacy-quality-button', 'shaka-tooltip-status')
     this.menu.classList.add('legacy-qualities')
+
+    /** @type {SVGElement} */
+    const checkmarkIcon = new shaka.ui.MaterialSVGIcon(null, PlayerIcons.DONE).getSvgElement()
+    checkmarkIcon.classList.add('shaka-chosen-item')
+    checkmarkIcon.ariaHidden = 'true'
+
+    /** @private */
+    this._checkmarkIcon = checkmarkIcon
 
     /** @private */
     this.events_ = events
@@ -70,7 +80,7 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
 
       const button = previousSpan.parentElement
       button.ariaSelected = 'false'
-      button.querySelector('.material-icons-round').remove()
+      this._checkmarkIcon.remove()
     }
 
     // current selection
@@ -84,11 +94,7 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
 
     span.classList.add('shaka-chosen-item')
 
-    const icon = document.createElement('i')
-    icon.classList.add('material-icons-round', 'shaka-chosen-item')
-    icon.textContent = 'done'
-    icon.ariaHidden = 'true'
-    button.appendChild(icon)
+    button.appendChild(this._checkmarkIcon)
 
     this.currentSelection.textContent = span.textContent
 

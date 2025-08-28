@@ -1,7 +1,7 @@
 import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
-import { KeyboardShortcuts } from '../../../../constants'
+import { KeyboardShortcuts, PlayerIcons } from '../../../../constants'
 import { addKeyboardShortcutToActionTitle } from '../../../helpers/utils'
 
 export class ScreenshotButton extends shaka.ui.Element {
@@ -17,11 +17,8 @@ export class ScreenshotButton extends shaka.ui.Element {
     this.button_ = document.createElement('button')
     this.button_.classList.add('screenshot-button', 'shaka-tooltip')
 
-    const icon = document.createElement('i')
-    icon.classList.add('material-icons-round')
-    icon.textContent = 'photo_camera'
-
-    this.button_.appendChild(icon)
+    /** @private */
+    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.PHOTO_CAMERA)
 
     const label = document.createElement('label')
     label.classList.add(
