@@ -103,7 +103,7 @@
       />
       <FtSelect
         :placeholder="t('Settings.Player Settings.Video Playback Rate Interval')"
-        :value="videoPlaybackRateInterval"
+        :value="videoPlaybackRateIntervalString"
         :select-names="PLAYBACK_RATE_INTERVAL_VALUES"
         :select-values="PLAYBACK_RATE_INTERVAL_VALUES"
         :icon="['fas', 'gauge']"
@@ -492,6 +492,9 @@ const PLAYBACK_RATE_INTERVAL_VALUES = ['0.1', '0.25', '0.5', '1']
 
 /** @type {import('vue').ComputedRef<number>} */
 const videoPlaybackRateInterval = computed(() => store.getters.getVideoPlaybackRateInterval)
+
+/** @type {import('vue').ComputedRef<string>} */
+const videoPlaybackRateIntervalString = computed(() => store.getters.getVideoPlaybackRateInterval.toString())
 
 /**
  * @param {string} value
