@@ -1008,8 +1008,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Невозможно получить доступ к буферу обмена без защищенного соединения
 Chapters:
   Chapters: Разделы
-  'Chapters list visible, current chapter: {chapterName}': 'Список разделов видим, текущий раздел: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Список разделов скрыт, текущий раздел: {chapterName}'
   Key Moments: Ключевые моменты
 Preferences: Предпочтения
 Ok: Хорошо

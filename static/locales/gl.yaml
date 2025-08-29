@@ -686,8 +686,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Non se pode acceder ao portapapeis sen unha conexión segura
 Chapters:
   Chapters: Capítulos
-  'Chapters list visible, current chapter: {chapterName}': 'Lista de capítulos visible, capítulo actual: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos oculta, capítulo actual: {chapterName}'
 Screenshot Success: Captura da pantalla gardada como "{filePath}"
 Ok: De acordo
 Go to page: Ir a {page}

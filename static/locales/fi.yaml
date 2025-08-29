@@ -870,9 +870,7 @@ Clipboard:
   Copy failed: Kopiointi leikepöydälle epäonnistui
   Cannot access clipboard without a secure connection: Leikepöytää ei voi käyttää ilman suojattua yhteyttä
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 'Lukujen luettelo piilotettu, nykyinen luku: {chapterName}'
   Chapters: Luvut
-  'Chapters list visible, current chapter: {chapterName}': 'Lukujen luettelo näkyvissä, nykyinen luku: {chapterName}'
 Preferences: Asetukset
 Ok: OK
 Hashtag:

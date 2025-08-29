@@ -1007,8 +1007,6 @@ Channels:
   Unsubscribe Prompt: Er du sikker på at du ikke lenger vil abonnere på «{channelName}»?
 Chapters:
   Chapters: Kapitler
-  'Chapters list visible, current chapter: {chapterName}': 'Kapittelliste synlig. Nåværende kapittel: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Kapittelliste skjult. Nåværende kapittel: {chapterName}'
   Key Moments: Høydepunkter
 Screenshot Success: Lagret skjermbilde
 Screenshot Error: Skjermavbildning mislyktes. {error}

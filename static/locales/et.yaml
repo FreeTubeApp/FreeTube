@@ -1015,8 +1015,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Ilma turvalise ühenduseta ei pääse ligi lõikelauale
 Chapters:
   Chapters: Peatükid
-  'Chapters list visible, current chapter: {chapterName}': 'Peatükkide loend on nähtav, praegune peatükk: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Peatükkide loend on peidetud, praegune peatükk: {chapterName}'
   Key Moments: Olulised hetked
 Ok: Sobib
 Preferences: Eelistused

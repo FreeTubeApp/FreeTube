@@ -1016,8 +1016,6 @@ Clipboard:
   Copy failed: Неуспешно копиране в клипборда
 Chapters:
   Chapters: Глави
-  'Chapters list visible, current chapter: {chapterName}': 'Списъкът с глави се вижда, текуща глава: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Списъкът с глави е скрит, текуща глава: {chapterName}'
   Key Moments: Основни моменти
 Preferences: Предпочитания
 Ok: Добре

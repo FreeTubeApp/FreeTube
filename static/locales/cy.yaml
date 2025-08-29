@@ -930,9 +930,6 @@ Clipboard:
 
 Chapters:
   Chapters: 'Penodau'
-  'Chapters list visible, current chapter: {chapterName}': 'Rhestr penodau yn weladwy, pennod gyfredol: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Rhestr penodau wedi''u cuddio, pennod gyfredol: {chapterName}'
-
   Key Moments: Eiliadau Allweddol
 Mini Player: 'Chwaraewr Bach'
 Comments:

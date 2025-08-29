@@ -1015,9 +1015,7 @@ Channels:
   Title: Lista de canais
   Unsubscribe Prompt: Tem a certeza de que pretende cancelar a subscrição de "{channelName}"?
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 'Lista de capítulos oculta, capítulo atual: {chapterName}'
   Chapters: Capítulos
-  'Chapters list visible, current chapter: {chapterName}': 'Lista de capítulos visível, capítulo atual: {chapterName}'
   Key Moments: Momentos-chave
 Clipboard:
   Copy failed: Falha ao copiar para a área de transferência

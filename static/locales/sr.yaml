@@ -989,9 +989,7 @@ Playing Next Video Interval: Пуштање следећег видео сним
 No: Не
 Yes: Да
 Chapters:
-  'Chapters list visible, current chapter: {chapterName}': 'Листа поглавља је видљива, тренутно поглавље: {chapterName}'
   Chapters: Поглавља
-  'Chapters list hidden, current chapter: {chapterName}': 'Листа поглавља је скривена, тренутно поглавље: {chapterName}'
   Key Moments: Кључни тренуци
 Hashtag:
   This hashtag does not currently have any videos: Ова хеш-ознака тренутно нема ниједан видео снимак
