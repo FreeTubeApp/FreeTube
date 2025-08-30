@@ -50,6 +50,11 @@ export class SkipSilenceButton extends shaka.ui.Element {
       this.updateLocalisedStrings_()
     })
 
+    this.eventManager.listen(events, 'setSkipSilence', (event) => {
+      this.skipSilenceEnabled_ = event.detail
+      this.updateLocalisedStrings_()
+    })
+
     this.eventManager.listen(events, 'localeChanged', () => {
       this.updateLocalisedStrings_()
     })

@@ -145,6 +145,10 @@ export default defineComponent({
       type: Number,
       default: 1
     },
+    skipSilenceEnabled: {
+      type: Boolean,
+      default: false
+    }
   },
   emits: [
     'error',
@@ -156,6 +160,7 @@ export default defineComponent({
     'playback-rate-updated',
     'skip-to-next',
     'skip-to-prev',
+    'skip-silence-updated',
   ],
   setup: function (props, { emit, expose }) {
     const { locale, t } = useI18n()
@@ -2644,6 +2649,13 @@ export default defineComponent({
       player.addEventListener('ratechange', () => {
         emit('playback-rate-updated', player.getPlaybackRate())
       })
+
+      if (store.getters.getSkipSilenceEnabled || props.skipSilenceEnabled) {
+        skipSilence()
+        events.dispatchEvent(new CustomEvent('setSkipSilence', {
+          detail: isSilenceSkipEnabled.value
+        }))
+      }
     })
 
     async function performFirstLoad() {
@@ -3061,6 +3073,7 @@ export default defineComponent({
         showValueChange(t('SilenceSkip.Disable Silence Skip'))
         isSilenceSkipEnabled.value = false
       }
+      emit('skip-silence-updated', isSilenceSkipEnabled.value)
 
       const video_ = video.value
 
