@@ -59,14 +59,18 @@ class Settings {
   // Unique Electron main process handlers
   static _findAppReadyRelatedSettings() {
     return db.settings.findAsync({
-      $or: [
-        { _id: 'disableSmoothScrolling' },
-        { _id: 'useProxy' },
-        { _id: 'proxyProtocol' },
-        { _id: 'proxyHostname' },
-        { _id: 'proxyPort' },
-        { _id: 'hideToTrayOnMinimize' }
-      ]
+      _id: {
+        $in: [
+          'disableSmoothScrolling',
+          'useProxy',
+          'proxyProtocol',
+          'proxyHostname',
+          'proxyPort',
+          'backendFallback',
+          'backendPreference',
+          'hideToTrayOnMinimize'
+        ]
+      }
     })
   }
 
@@ -78,8 +82,6 @@ class Settings {
     return {
       hideTrendingVideos: db.settings.findOneAsync({ _id: 'hideTrendingVideos' }),
       hidePopularVideos: db.settings.findOneAsync({ _id: 'hidePopularVideos' }),
-      backendFallback: db.settings.findOneAsync({ _id: 'backendFallback' }),
-      backendPreference: db.settings.findOneAsync({ _id: 'backendPreference' }),
       hidePlaylists: db.settings.findOneAsync({ _id: 'hidePlaylists' }),
     }
   }
