@@ -78,8 +78,7 @@ Search Filters:
   Fetching results. Please wait: 'Aνάκτηση αποτελεσμάτων. Παρακαλώ περιμένετε'
   Fetch more results: 'Λήψη περισσότερων αποτελεσμάτων'
 # Sidebar
-  There are no more results for this search: Δεν υπάρχουν άλλα αποτελέσματα για αυτήν
-    την αναζήτηση
+  There are no more results for this search: Δεν υπάρχουν άλλα αποτελέσματα για αυτήν την αναζήτηση
   Features:
     Live: Ζωντανά
     4K: 4K
@@ -95,22 +94,14 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'συνδρομές'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Η
-    λίστα Συνδρομών σας είναι προς το παρόν κενή. Αν θέλετε να εισάγετε τις συνδρομές
-    σας μπορείτε να μεταβείτε στις Ρυθμίσεις Δεδομένων και να επιλέξετε Εισαγωγή Συνδρομών
-    ή μπορείτε να αναζητήσετε ένα κανάλι και να εγγραφείτε σε αυτό.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Αυτό
-    το προφίλ διαθέτει ήδη ένα μεγάλο αριθμό Συνδρομών. Εξαναγκασμένη εναλλαγή σε
-    λειτουργία RSS για αποφυγή περιορισμού των κλήσεων
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Η λίστα Συνδρομών σας είναι προς το παρόν κενή. Αν θέλετε να εισάγετε τις συνδρομές σας μπορείτε να μεταβείτε στις Ρυθμίσεις Δεδομένων και να επιλέξετε Εισαγωγή Συνδρομών ή μπορείτε να αναζητήσετε ένα κανάλι και να εγγραφείτε σε αυτό.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Αυτό το προφίλ διαθέτει ήδη ένα μεγάλο αριθμό Συνδρομών. Εξαναγκασμένη εναλλαγή σε λειτουργία RSS για αποφυγή περιορισμού των κλήσεων
   Load More Videos: Φόρτωση περισσότερων Βίντεο
   Error Channels: Κανάλια με προβλήματα
-  Disabled Automatic Fetching: Έχετε απενεργοποιήσει την αυτόματη ανάκτηση Συνδρομών.
-    Ανανεώστε τις Συνδρομές για να τις δείτε εδώ.
+  Disabled Automatic Fetching: Έχετε απενεργοποιήσει την αυτόματη ανάκτηση Συνδρομών. Ανανεώστε τις Συνδρομές για να τις δείτε εδώ.
   Empty Channels: Τα εγγεγραμμένα κανάλια σας προς το παρόν δεν έχουν βίντεο.
   Subscriptions Tabs: Καρτέλες Συνδρομών
-  All Subscription Tabs Hidden: Όλες οι καρτέλες Συνδρομών είναι κρυμμένες. Για να
-    δείτε περιεχόμενο εδώ, εμφανίστε ορισμένες καρτέλες στην ενότητα "{subsection}"
-    στο "{settingsSection}".
+  All Subscription Tabs Hidden: Όλες οι καρτέλες Συνδρομών είναι κρυμμένες. Για να δείτε περιεχόμενο εδώ, εμφανίστε ορισμένες καρτέλες στην ενότητα "{subsection}" στο "{settingsSection}".
   Load More Posts: Φόρτωση Περισσότερων Αναρτήσεων
   Empty Posts: Τα εγγεγραμμένα κανάλια σας προς το παρόν δεν έχουν αναρτήσεις.
 Trending:
@@ -125,45 +116,28 @@ Playlists: 'Λίστες αναπαραγωγής'
 User Playlists:
   Your Playlists: 'Προσωπικές Λίστες αναπαραγωγής'
   Search bar placeholder: Αναζήτηση λίστες αναπαραγωγής
-  Empty Search Message: Δεν υπάρχουν βίντεο σε αυτή τη λίστα αναπαραγωγής που να ταιριάζουν
-    με την αναζήτησή σας
+  Empty Search Message: Δεν υπάρχουν βίντεο σε αυτή τη λίστα αναπαραγωγής που να ταιριάζουν με την αναζήτησή σας
   SinglePlaylistView:
     Toast:
       There were no videos to remove.: Δεν υπήρχαν βίντεο για αφαίρεση.
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Αυτή
-        η λίστα αναπαραγωγής χρησιμοποιεί τώρα γρήγορο σελιδοδείκτη αντί για {oldPlaylistName}.
-        Κάντε κλικ εδώ για αναίρεση
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Αυτή η λίστα αναπαραγωγής χρησιμοποιεί τώρα γρήγορο σελιδοδείκτη αντί για {oldPlaylistName}. Κάντε κλικ εδώ για αναίρεση
       This playlist does not exist: Αυτή η λίστα αναπαραγωγής δεν υπάρχει
-      This playlist is already being used for quick bookmark.: Αυτή η λίστα αναπαραγωγής
-        χρησιμοποιεί ήδη για γρήγορο σελιδοδείκτη.
+      This playlist is already being used for quick bookmark.: Αυτή η λίστα αναπαραγωγής χρησιμοποιεί ήδη για γρήγορο σελιδοδείκτη.
       This video cannot be moved down.: Αυτό το βίντεο δεν μπορεί να μετακινηθεί κάτω.
-      Playlist {playlistName} has been deleted.: Η λίστα αναπαραγωγής {playlistName}
-        έχει διαγραφεί.
-      There was an issue with updating this playlist.: Υπήρχε ένα θέμα με την ενημέρωση
-        της λίστας αναπαραγωγής.
-      Video has been removed. Click here to undo.: Το βίντεο έχει αφαιρεθεί. Κάντε
-        κλικ εδώ για να αναιρέσετε.
+      Playlist {playlistName} has been deleted.: Η λίστα αναπαραγωγής {playlistName} έχει διαγραφεί.
+      There was an issue with updating this playlist.: Υπήρχε ένα θέμα με την ενημέρωση της λίστας αναπαραγωγής.
+      Video has been removed. Click here to undo.: Το βίντεο έχει αφαιρεθεί. Κάντε κλικ εδώ για να αναιρέσετε.
       This video cannot be moved up.: Αυτό το βίντεο δεν μπορεί να μετακινηθεί πάνω.
       Video has been removed: Το βίντεο έχει αφαιρεθεί
-      There was a problem with removing this video: Υπήρχε ένα πρόβλημα με την αφαίρεση
-        αυτού του βίντεο
-      This playlist is now used for quick bookmark: Αυτή η λίστα αναπαραγωγής χρησιμοποιείται
-        τώρα με γρήγορο σελιδοδείκτη
-      Reverted to use {oldPlaylistName} for quick bookmark: Επαναφορά χρήσης {oldPlaylistName}
-        για γρήγορο σελιδοδείκτη
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Μερικά
-        βίντεο στη λίστα αναπαραγωγής δεν έχουν φορτωθεί ακόμα. Κάντε κλικ εδώ για
-        να αντιγράψετε ούτως ή άλλως.
-      Playlist name cannot be empty. Please input a name.: Το όνομα λίστας αναπαραγωγής
-        δεν μπορεί να είναι κενό. Παρακαλώ εισάγετε ένα όνομα.
+      There was a problem with removing this video: Υπήρχε ένα πρόβλημα με την αφαίρεση αυτού του βίντεο
+      This playlist is now used for quick bookmark: Αυτή η λίστα αναπαραγωγής χρησιμοποιείται τώρα με γρήγορο σελιδοδείκτη
+      Reverted to use {oldPlaylistName} for quick bookmark: Επαναφορά χρήσης {oldPlaylistName} για γρήγορο σελιδοδείκτη
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Μερικά βίντεο στη λίστα αναπαραγωγής δεν έχουν φορτωθεί ακόμα. Κάντε κλικ εδώ για να αντιγράψετε ούτως ή άλλως.
+      Playlist name cannot be empty. Please input a name.: Το όνομα λίστας αναπαραγωγής δεν μπορεί να είναι κενό. Παρακαλώ εισάγετε ένα όνομα.
       Playlist has been updated.: Η λίστα αναπαραγωγής ενημερώθηκε.
-      "{videoCount} video(s) have been removed": 1 βίντεο έχει αφαιρεθεί | {videoCount}
-        Τα βίντεο έχουν αφαιρεθεί
-      This playlist is protected and cannot be removed.: Αυτή η λίστα αναπαραγωγής
-        προστατεύεται και δεν μπορεί να αφαιρεθεί.
-      This playlist has a video with a duration error: Αυτή η λίστα περιέχει τουλάχιστον
-        ένα βίντεο το οποίο δεν έχει διάρκεια, θα ταξινομηθεί σαν η διάρκεια του να
-        είναι μηδενική.
+      "{videoCount} video(s) have been removed": 1 βίντεο έχει αφαιρεθεί | {videoCount} Τα βίντεο έχουν αφαιρεθεί
+      This playlist is protected and cannot be removed.: Αυτή η λίστα αναπαραγωγής προστατεύεται και δεν μπορεί να αφαιρεθεί.
+      This playlist has a video with a duration error: Αυτή η λίστα περιέχει τουλάχιστον ένα βίντεο το οποίο δεν έχει διάρκεια, θα ταξινομηθεί σαν η διάρκεια του να είναι μηδενική.
     Search for Videos: Αναζήτηση για βίντεο
   Playlists with Matching Videos: Λίστες αναπαραγωγής με βίντεο που ταιριάζουν
   Sort By:
@@ -175,28 +149,20 @@ User Playlists:
     EarliestUpdatedFirst: Ενημερώθηκε Νωρίτερα
     EarliestPlayedFirst: Νωρίτερα Παίχτηκε
     LatestUpdatedFirst: Πρόσφατα Ενημερώθηκε
-  Are you sure you want to delete this playlist? This cannot be undone: Σίγουρα θέλετε
-    να διαγράψετε αυτή τη λίστα αναπαραγωγής; Αυτό δεν μπορεί να αναιρεθεί.
+  Are you sure you want to delete this playlist? This cannot be undone: Σίγουρα θέλετε να διαγράψετε αυτή τη λίστα αναπαραγωγής; Αυτό δεν μπορεί να αναιρεθεί.
   AddVideoPrompt:
     Search in Playlists: Αναζήτηση σε λίστες αναπαραγωγής
     Toast:
-      You haven't selected any playlist yet.: Δεν έχετε επιλέξει καμία λίστα αναπαραγωγής
-        ακόμα.
-      "{videoCount} video(s) added to 1 playlist": 1 βίντεο προστέθηκε σε 1 λίστα
-        αναπαραγωγής | {videoCount} βίντεο που προστέθηκαν σε 1 λίστα αναπαραγωγής
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 βίντεο προστέθηκε
-        στις λίστες αναπαραγωγής {playlistCount} | {videoCount} βίντεο προστέθηκε
-        στις λίστες αναπαραγωγής {playlistCount}
+      You haven't selected any playlist yet.: Δεν έχετε επιλέξει καμία λίστα αναπαραγωγής ακόμα.
+      "{videoCount} video(s) added to 1 playlist": 1 βίντεο προστέθηκε σε 1 λίστα αναπαραγωγής | {videoCount} βίντεο που προστέθηκαν σε 1 λίστα αναπαραγωγής
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 βίντεο προστέθηκε στις λίστες αναπαραγωγής {playlistCount} | {videoCount} βίντεο προστέθηκε στις λίστες αναπαραγωγής {playlistCount}
     Allow Adding Duplicate Video(s): Επίτρεψε την προσθήκη διπλών βίντεο( ών)
     Added {count} Times: Προστέθηκε ήδη | Προστέθηκε {count} Φορές
     Save: Αποθήκευση
-    Select a playlist to add your N videos to: Επιλέξτε μια λίστα αναπαραγωγής για
-      να | Επιλέξτε μια λίστα για να προσθέσετε το {videoCount} βίντεο για
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      Τα βίντεο έχουν ήδη προστεθεί'
+    Select a playlist to add your N videos to: Επιλέξτε μια λίστα αναπαραγωγής για να | Επιλέξτε μια λίστα για να προσθέσετε το {videoCount} βίντεο για
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Τα βίντεο έχουν ήδη προστεθεί'
     N playlists selected: '{playlistCount}Επιλεγμένα'
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      Θα προστεθούν βίντεο'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Θα προστεθούν βίντεο'
   Export Playlist: Εξαγωγή αυτής της λίστας αναπαραγωγής
   The playlist has been successfully exported: Η λίστα αναπαραγωγής έχει εξαχθεί επιτυχώς
   Delete Playlist: Διαγραφή λίστας αναπαραγωγής
@@ -207,60 +173,43 @@ User Playlists:
   Add to Playlist: Προσθήκη στη λίστα αναπαραγωγής
   Add to Favorites: Προσθήκη στην{playlistName}
   Save Changes: Αποθήκευση αλλαγών
-  Cannot delete the quick bookmark target playlist.: Αδυναμία διαγραφής γρήγορης λίστας
-    αναπαραγωγής σελιδοδεικτών.
+  Cannot delete the quick bookmark target playlist.: Αδυναμία διαγραφής γρήγορης λίστας αναπαραγωγής σελιδοδεικτών.
   Quick Bookmark Enabled: Γρηγορός σελιδοδείκτης ενεργός
   Playlist Name: Όνομα λίστας αναπαραγωγής
   Remove Watched Videos: Αφαίρεση Παρακολουθημένων Βίντεο
   Move Video Up: Μετακίνηση βίντεο πάνω
   Remove Duplicate Videos: Αφαίρεση διπλών βίντεο
   Edit Playlist Info: Επεξεργασία πληροφοριών λίστας αναπαραγωγής
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Είστε
-    σίγουροι ότι θέλετε να αφαιρέσετε 1 παρακολουθημένο βίντεο από αυτή τη λίστα αναπαραγωγής;
-    Αυτό δεν μπορεί να αναιρεθεί. Είστε σίγουροι ότι θέλετε να αφαιρέσετε τα βίντεο
-    από αυτή τη λίστα; Αυτό δεν μπορεί να αναιρεθεί.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Είστε σίγουροι ότι θέλετε να αφαιρέσετε 1 παρακολουθημένο βίντεο από αυτή τη λίστα αναπαραγωγής; Αυτό δεν μπορεί να αναιρεθεί. Είστε σίγουροι ότι θέλετε να αφαιρέσετε τα βίντεο από αυτή τη λίστα; Αυτό δεν μπορεί να αναιρεθεί.
   Remove from Playlist: Αφαίρεση από τη λίστα αναπαραγωγής
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Είστε
-    σίγουροι ότι θέλετε να αφαιρέσετε 1 διπλό βίντεο από αυτή τη λίστα αναπαραγωγής;
-    Αυτό δεν μπορεί να αναιρεθεί. Είστε σίγουροι ότι θέλετε να αφαιρέσετε {playlistItemCount}
-    διπλά βίντεο από αυτή τη λίστα; Αυτό δεν μπορεί να αναιρεθεί.
-  This playlist currently has no videos.: Αυτή η λίστα αναπαραγωγής προς το παρόν
-    δεν έχει βίντεο.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Είστε σίγουροι ότι θέλετε να αφαιρέσετε 1 διπλό βίντεο από αυτή τη λίστα αναπαραγωγής; Αυτό δεν μπορεί να αναιρεθεί. Είστε σίγουροι ότι θέλετε να αφαιρέσετε {playlistItemCount} διπλά βίντεο από αυτή τη λίστα; Αυτό δεν μπορεί να αναιρεθεί.
+  This playlist currently has no videos.: Αυτή η λίστα αναπαραγωγής προς το παρόν δεν έχει βίντεο.
   Create New Playlist: Δημιουργία νέας λίστας αναπαραγωγής
   TotalTimePlaylist: 'Συνολικός χρόνος: {duration}'
-  Enable Quick Bookmark With This Playlist: Ενεργοποίηση γρήγορου σελιδοδείκτη με
-    αυτή τη λίστα αναπαραγωγής
-  You have no playlists. Click on the create new playlist button to create a new one.: Δεν
-    έχεις λίστες αναπαραγωγής. Κάντε κλικ στο κουμπί Δημιουργία νέας λίστας αναπαραγωγής
-    για να δημιουργήσετε μία νέα.
+  Enable Quick Bookmark With This Playlist: Ενεργοποίηση γρήγορου σελιδοδείκτη με αυτή τη λίστα αναπαραγωγής
+  You have no playlists. Click on the create new playlist button to create a new one.: Δεν έχεις λίστες αναπαραγωγής. Κάντε κλικ στο κουμπί Δημιουργία νέας λίστας αναπαραγωγής για να δημιουργήσετε μία νέα.
   Copy Playlist: Αντιγραφή λίστας αναπαραγωγής
   CreatePlaylistPrompt:
     New Playlist Name: Νέο όνομα λίστας αναπαραγωγής
     Toast:
-      Playlist {playlistName} has been successfully created.: Η λίστα αναπαραγωγής
-        {playlistName} δημιουργήθηκε με επιτυχία.
-      There is already a playlist with this name. Please pick a different name.: Υπάρχει
-        ήδη μια λίστα με αυτό το όνομα. Παρακαλώ επιλέξτε ένα διαφορετικό όνομα.
-      There was an issue with creating the playlist.: Υπήρχε ένα πρόβλημα με τη δημιουργία
-        της λίστας αναπαραγωγής.
+      Playlist {playlistName} has been successfully created.: Η λίστα αναπαραγωγής {playlistName} δημιουργήθηκε με επιτυχία.
+      There is already a playlist with this name. Please pick a different name.: Υπάρχει ήδη μια λίστα με αυτό το όνομα. Παρακαλώ επιλέξτε ένα διαφορετικό όνομα.
+      There was an issue with creating the playlist.: Υπήρχε ένα πρόβλημα με τη δημιουργία της λίστας αναπαραγωγής.
     Create: Δημιουργία
 History:
   # On History Page
   History: 'Ιστορικό'
   Watch History: 'Προβολή Ιστορικού'
-  Your history list is currently empty.: 'Η λίστα του ιστορικού σας είναι προς το
-    παρόν κενή.'
+  Your history list is currently empty.: 'Η λίστα του ιστορικού σας είναι προς το παρόν κενή.'
   Search bar placeholder: Αναζήτηση στο Ιστορικό
-  Empty Search Message: Δεν υπάρχουν βίντεο στο ιστορικό σας που να ταιριάζουν με
-    την αναζήτησή σας
+  Empty Search Message: Δεν υπάρχουν βίντεο στο ιστορικό σας που να ταιριάζουν με την αναζήτησή σας
   Case Sensitive Search: Ευαίσθητη αναζήτηση περίπτωσης
 Settings:
   # On Settings Page
   Settings: 'Ρυθμίσεις'
   General Settings:
     General Settings: 'Γενικά'
-    Fallback to Non-Preferred Backend on Failure: 'Εναλλαγή σε μη προτιμώμενο σύστημα
-      υποστήριξης σε περίπτωση αποτυχίας'
+    Fallback to Non-Preferred Backend on Failure: 'Εναλλαγή σε μη προτιμώμενο σύστημα υποστήριξης σε περίπτωση αποτυχίας'
     Enable Search Suggestions: 'Ενεργοποίηση προτάσεων αναζήτησης'
     Default Landing Page: 'Προεπιλεγμένη σελίδα προορισμού'
     Locale Preference: 'Προτιμήσεις γλώσσας'
@@ -282,30 +231,25 @@ Settings:
       Blur: 'Θάμπωμα'
     Region for Trending: 'Περιοχή που καθορίζει την καρτέλα των τάσεων'
         #! List countries
-    Check for Latest Blog Posts: Ελέγξτε για τις τελευταίες δημοσιεύσεις ιστολογίου
-      (Blogposts)
+    Check for Latest Blog Posts: Ελέγξτε για τις τελευταίες δημοσιεύσεις ιστολογίου (Blogposts)
     Check for Updates: Έλεγχος για ενημερώσεις
-    View all Invidious instance information: Δείτε όλες τις πληροφορίες προσβλητικών
-      περιπτώσεων
+    View all Invidious instance information: Δείτε όλες τις πληροφορίες προσβλητικών περιπτώσεων
     System Default: Προεπιλογή συστήματος
     Current Invidious Instance: Τρέχων στιγμιότυπο Invidious
-    The currently set default instance is {instance}: 'Το τρέχον προεπιλεγμένο στιγμιότυπο
-      είναι {instance}'
+    The currently set default instance is {instance}: 'Το τρέχον προεπιλεγμένο στιγμιότυπο είναι {instance}'
     No default instance has been set: Δεν έχει οριστεί κανένα προεπιλεγμένο στιγμιότυπο
     External Link Handling:
       External Link Handling: Χειρισμός εξωτερικών συνδέσμων
       Open Link: Άνοιγμα συνδέσμου
       Ask Before Opening Link: Ερώτηση πριν από το άνοιγμα του συνδέσμου
       No Action: Καμία ενέργεια
-    Current instance will be randomized on startup: Η τρέχων διακομιστής θα τυχαιοποιηθεί
-      κατά την εκκίνηση
+    Current instance will be randomized on startup: Η τρέχων διακομιστής θα τυχαιοποιηθεί κατά την εκκίνηση
     Set Current Instance as Default: Ορίστε τον τρέχων διακομιστή ως προεπιλεγμένο
     Clear Default Instance: Εκκαθάριση Προεπιλεγμένου διακομιστή
     Auto Load Next Page:
       Label: Αυτόματη φόρτωση επόμενης σελίδας
       Tooltip: Φόρτωση πρόσθετων σελίδων και σχολίων αυτόματα.
-    Open Deep Links In New Window: Άνοιγμα URL που πέρασαν στο FreeTube σε ένα νέο
-      παράθυρο
+    Open Deep Links In New Window: Άνοιγμα URL που πέρασαν στο FreeTube σε ένα νέο παράθυρο
   Theme Settings:
     Theme Settings: 'Θέματα'
     Match Top Bar with Main Color: 'Αντιστοίχηση Κύριου Χρώματος με την Μπάρα Κορυφής'
@@ -451,12 +395,9 @@ Settings:
       4k: '4k'
       8k: '8k'
     Next Video Interval: Αντίστροφη μέτρηση αυτόματης αναπαραγωγής
-    Scroll Volume Over Video Player: Αυξομείωση έντασης ήχου με κύλιση πάνω στο πρόγραμμα
-      αναπαραγωγής βίντεο
-    Display Play Button In Video Player: Εμφάνιση του κουμπιού αναπαραγωγής στο πρόγραμμα
-      αναπαραγωγής βίντεο
-    Scroll Playback Rate Over Video Player: Ποσοστό Αναπαραγωγής Κύλισης Πάνω Από
-      Το Πρόγραμμα Αναπαραγωγής Βίντεο
+    Scroll Volume Over Video Player: Αυξομείωση έντασης ήχου με κύλιση πάνω στο πρόγραμμα αναπαραγωγής βίντεο
+    Display Play Button In Video Player: Εμφάνιση του κουμπιού αναπαραγωγής στο πρόγραμμα αναπαραγωγής βίντεο
+    Scroll Playback Rate Over Video Player: Ποσοστό Αναπαραγωγής Κύλισης Πάνω Από Το Πρόγραμμα Αναπαραγωγής Βίντεο
     Fast-Forward / Rewind Interval: Διάστημα Γρήγορης προώθησης / Επανατύλιξης
     Max Video Playback Rate: Μέγιστος ρυθμός αναπαραγωγής βίντεο
     Video Playback Rate Interval: Διάστημα ρυθμού αναπαραγωγής βίντεο
@@ -470,15 +411,10 @@ Settings:
       Folder Button: Επιλέξτε φάκελο
       Folder Label: Φάκελος Στιγμιότυπου Οθόνης
       File Name Label: Μοτίβο ονόματος αρχείου
-      File Name Tooltip: Μπορείτε να χρησιμοποιήσετε μεταβλητές παρακάτω. %Y Έτος
-        4 ψηφία. %M Μήνας 2 ψηφία. %D ψηφία ημέρας 2. %H Ώρα 2 ψηφία. %N Λεπτά 2 ψηφία.
-        %S Δεύτερα 2 ψηφία. %T χιλιοστού του δευτερολέπτου 3 ψηφία. %s Βίντεο δεύτερο.
-        %t Βίντεο χιλιοστού του δευτερολέπτου 3 ψηφία. %i Αναγνωριστικό Βίντεο.
+      File Name Tooltip: Μπορείτε να χρησιμοποιήσετε μεταβλητές παρακάτω. %Y Έτος 4 ψηφία. %M Μήνας 2 ψηφία. %D ψηφία ημέρας 2. %H Ώρα 2 ψηφία. %N Λεπτά 2 ψηφία. %S Δεύτερα 2 ψηφία. %T χιλιοστού του δευτερολέπτου 3 ψηφία. %s Βίντεο δεύτερο. %t Βίντεο χιλιοστού του δευτερολέπτου 3 ψηφία. %i Αναγνωριστικό Βίντεο.
       Format Label: Μορφή Στιγμιότυπου Οθόνης
-    Skip by Scrolling Over Video Player: Παράλειψη με Κύλιση στο Πρόγραμμα Αναπαραγωγής
-      Βίντεο
-    Enter Fullscreen on Display Rotate: Μετάβαση στην Πλήρη Οθόνη κατά την Περιστροφή
-      Οθόνης
+    Skip by Scrolling Over Video Player: Παράλειψη με Κύλιση στο Πρόγραμμα Αναπαραγωγής Βίντεο
+    Enter Fullscreen on Display Rotate: Μετάβαση στην Πλήρη Οθόνη κατά την Περιστροφή Οθόνης
     Default Viewing Mode:
       Full Screen: Πλήρης Οθόνη
       Picture in Picture: Εικόνα σε εικόνα
@@ -491,46 +427,32 @@ Settings:
     Remember History: 'Διατήρηση Ιστορικού Παρακολούθησης'
     Save Watched Progress: 'Αποθήκευση προόδου βίντεο'
     Clear Search Cache: 'Εκκαθάριση της προσωρινής μνήμης αναζήτησης'
-    Are you sure you want to clear out your search cache?: 'Είστε βέβαιοι ότι θέλετε
-      να εκκαθαρίσετε την προσωρινή μνήμη αναζήτησης;'
+    Are you sure you want to clear out your search cache?: 'Είστε βέβαιοι ότι θέλετε να εκκαθαρίσετε την προσωρινή μνήμη αναζήτησης;'
     Search cache has been cleared: 'Η προσωρινή μνήμη αναζήτησης είναι πλέον κενή'
     Remove Watch History: 'Διαγραφή ιστορικού παρακολούθησης'
-    Are you sure you want to remove your entire watch history?: 'Είστε βέβαιοι ότι
-      θέλετε να διαγράψετε όλο το ιστορικό σας;'
+    Are you sure you want to remove your entire watch history?: 'Είστε βέβαιοι ότι θέλετε να διαγράψετε όλο το ιστορικό σας;'
     Watch history has been cleared: 'Το ιστορικό παρακολούθησης είναι πλέον κενό'
     Remove All Subscriptions / Profiles: 'Διαγράψτε όλες τις συνδρομές/Προφίλ'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Είστε
-      βέβαιοι ότι θέλετε να καταργήσετε όλες τις συνδρομές και τα προφίλ; Αυτό δεν
-      μπορεί να αναιρεθεί.'
-    Save Watched Videos With Last Viewed Playlist: Αποθήκευση Βίντεο που Παρακολουθήσατε
-      Με τη Λίστα Αναπαραγωγής Τελευταίας Προβολής
-    Are you sure you want to remove all your playlists?: Είστε σίγουροι ότι θέλετε
-      να αφαιρέσετε όλες τις λίστες αναπαραγωγής σας;
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Είστε βέβαιοι ότι θέλετε να καταργήσετε όλες τις συνδρομές και τα προφίλ; Αυτό δεν μπορεί να αναιρεθεί.'
+    Save Watched Videos With Last Viewed Playlist: Αποθήκευση Βίντεο που Παρακολουθήσατε Με τη Λίστα Αναπαραγωγής Τελευταίας Προβολής
+    Are you sure you want to remove all your playlists?: Είστε σίγουροι ότι θέλετε να αφαιρέσετε όλες τις λίστες αναπαραγωγής σας;
     Remove All Playlists: Κατάργηση όλων των λιστών αναπαραγωγής
     Watched Progress Saving Mode:
       Modes:
         Auto: Αυτόματο
         Never: Ποτέ
         Semi-auto: Ημι-αυτόματο
-      Tooltip: Αυτόματη = Αποθήκευση σε κάθε έξοδο από τη σελίδα βίντεο, όταν το βίντεο
-        τελειώνει και παρουσιαστεί σφάλμα (π.χ. λήξη ratelimited και λήξη περιόδου
-        παρακολούθησης). Ημιαυτόματο = Όπως το Αυτόματο, εκτός από την έξοδο από τη
-        σελίδα βίντεο και δυνατότητα αποθήκευσης της προόδου με μη αυτόματο τρόπο
-        μέσω ενός κουμπιού που ονομάζεται Αποθήκευση προόδου παρακολούθησης, το οποίο
-        βρίσκεται κάτω από το πρόγραμμα αναπαραγωγής βίντεο.
+      Tooltip: Αυτόματη = Αποθήκευση σε κάθε έξοδο από τη σελίδα βίντεο, όταν το βίντεο τελειώνει και παρουσιαστεί σφάλμα (π.χ. λήξη ratelimited και λήξη περιόδου παρακολούθησης). Ημιαυτόματο = Όπως το Αυτόματο, εκτός από την έξοδο από τη σελίδα βίντεο και δυνατότητα αποθήκευσης της προόδου με μη αυτόματο τρόπο μέσω ενός κουμπιού που ονομάζεται Αποθήκευση προόδου παρακολούθησης, το οποίο βρίσκεται κάτω από το πρόγραμμα αναπαραγωγής βίντεο.
     All playlists have been removed: Όλες οι λίστες αναπαραγωγής έχουν αφαιρεθεί
     Clear Search History and Cache: Εκκαθάριση ιστορικού αναζήτησης και μνήμης
-    Are you sure you want to clear out your search history and cache?: Είστε σίγουροι
-      ότι θέλετε να διαγράψετε το ιστορικό αναζήτησης και την προσωρινή μνήμη cache;
-    Search history and cache have been cleared: Το ιστορικό αναζήτησης και η προσωρινή
-      μνήμη έχουν εκκαθαριστεί
+    Are you sure you want to clear out your search history and cache?: Είστε σίγουροι ότι θέλετε να διαγράψετε το ιστορικό αναζήτησης και την προσωρινή μνήμη cache;
+    Search history and cache have been cleared: Το ιστορικό αναζήτησης και η προσωρινή μνήμη έχουν εκκαθαριστεί
     Remember Search History: Διατήρηση Ιστορικού Αναζήτησης
   Subscription Settings:
     Subscription Settings: 'Συνδρομές'
     Fetch Feeds from RSS: 'Φόρτωση τροφοδοσίας RSS'
     Fetch Automatically: Αυτόματη Λήψη Τροφοδοσίας
-    'Limit the number of videos displayed for each channel': Περιορίστε τον αριθμό
-      των βίντεο που εμφανίζονται για κάθε κανάλι
+    'Limit the number of videos displayed for each channel': Περιορίστε τον αριθμό των βίντεο που εμφανίζονται για κάθε κανάλι
     Confirm Before Unsubscribing: Επιβεβαίωση πριν από τη Απεγραφή
     To: Προς
   Data Settings:
@@ -543,24 +465,16 @@ Settings:
     Export NewPipe: 'Εξαγωγή για NewPipe'
     Import History: 'Εισαγωγή Ιστορικού'
     Export History: 'Εξαγωγή Ιστορικού'
-    Profile object has insufficient data, skipping item: 'Ένα αντικείμενο προφίλ έχει
-      λανθασμένα δεδομένα, παράληψη του εξής αντικειμένου'
-    All subscriptions and profiles have been successfully imported: 'Η εισαγωγή όλων
-      των συνδρομών και των προφίλ έχει γίνει με επιτυχία'
-    All subscriptions have been successfully imported: 'Η εισαγωγή των συνδρομών έχει
-      γίνει με επιτυχία'
+    Profile object has insufficient data, skipping item: 'Ένα αντικείμενο προφίλ έχει λανθασμένα δεδομένα, παράληψη του εξής αντικειμένου'
+    All subscriptions and profiles have been successfully imported: 'Η εισαγωγή όλων των συνδρομών και των προφίλ έχει γίνει με επιτυχία'
+    All subscriptions have been successfully imported: 'Η εισαγωγή των συνδρομών έχει γίνει με επιτυχία'
     Invalid subscriptions file: 'Μη συμβατό/έγκυρο αρχείο συνδρομών'
-    This might take a while, please wait: 'Αυτή η ενέργεια μπορεί να διαρκέσει για
-      λίγο, παρακαλώ περιμένετε'
+    This might take a while, please wait: 'Αυτή η ενέργεια μπορεί να διαρκέσει για λίγο, παρακαλώ περιμένετε'
     Invalid history file: 'Μη συμβατό/έγκυρο αρχείο Ιστορικού'
-    Subscriptions have been successfully exported: 'Η εξαγωγή των συνδρομών έχει γίνει
-      με επιτυχία'
-    History object has insufficient data, skipping item: 'Ένα αντικείμενο ιστορικού
-      έχει εσφαλμένα δεδομένα, παράληψη του εξής στοιχείου'
-    All watched history has been successfully imported: 'Το ιστορικό σας έχει εισαχθεί
-      με επιτυχία'
-    All watched history has been successfully exported: 'Το ιστορικό σας έχει εξαχθεί
-      με επιτυχία'
+    Subscriptions have been successfully exported: 'Η εξαγωγή των συνδρομών έχει γίνει με επιτυχία'
+    History object has insufficient data, skipping item: 'Ένα αντικείμενο ιστορικού έχει εσφαλμένα δεδομένα, παράληψη του εξής στοιχείου'
+    All watched history has been successfully imported: 'Το ιστορικό σας έχει εισαχθεί με επιτυχία'
+    All watched history has been successfully exported: 'Το ιστορικό σας έχει εξαχθεί με επιτυχία'
     Unable to read file: 'Αδύνατη η προσπέλαση του αρχείου'
     Unable to write file: 'Αδύνατη εγγραφή του αρχείου'
     Unknown data key: 'Άγνωστο κλειδί δεδομένων'
@@ -568,26 +482,16 @@ Settings:
     Manage Subscriptions: Διαχείριση συνδρομών
     Import Playlists: Εισαγωγή λιστών αναπαραγωγής
     Export Playlists: Εξαγωγή Λιστών Αναπαραγωγής
-    Playlist insufficient data: Ανεπαρκή δεδομένα για τη λίστα αναπαραγωγής "{playlist}",
-      γίνεται παράκαμψη του αντικειμένου
-    All playlists has been successfully imported: Όλες οι λίστες αναπαραγωγής έχουν
-      εισαχθεί με επιτυχία
-    All playlists has been successfully exported: Όλες οι λίστες αναπαραγωγής έχουν
-      εξαχθεί με επιτυχία
+    Playlist insufficient data: Ανεπαρκή δεδομένα για τη λίστα αναπαραγωγής "{playlist}", γίνεται παράκαμψη του αντικειμένου
+    All playlists has been successfully imported: Όλες οι λίστες αναπαραγωγής έχουν εισαχθεί με επιτυχία
+    All playlists has been successfully exported: Όλες οι λίστες αναπαραγωγής έχουν εξαχθεί με επιτυχία
     Subscription File: Αρχείο Συνδρομής
     History File: Αρχείο Ιστορικού
     Playlist File: Αρχείο Λίστας Αναπαραγωγής
 
     Export Playlists For Older FreeTube Versions:
       Label: Εξαγωγή λιστών αναπαραγωγής για παλαιότερες εκδόσεις FreeTube
-      Tooltip: "Αυτή η επιλογή εξάγει βίντεο από όλες τις λίστες αναπαραγωγής σε μία
-        λίστα αναπαραγωγής με το όνομα “Αγαπημένα”.\nΠώς να εξάγετε & να εισάγετε
-        βίντεο σε λίστες αναπαραγωγής για μια παλαιότερη έκδοση του FreeTube:\n1.
-        Εξάγετε τις λίστες αναπαραγωγής σας με ενεργοποιημένη αυτή την επιλογή.\n
-        2. Διαγράψτε όλες τις υπάρχουσες λίστες αναπαραγωγής σας χρησιμοποιώντας την
-        επιλογή Κατάργηση όλων των λιστών αναπαραγωγής στις Ρυθμίσεις απορρήτου.\n
-        3. Εκκινήστε την παλαιότερη έκδοση του FreeTube και εισαγάγετε τις εξαχθείσες
-        λίστες αναπαραγωγής.\""
+      Tooltip: "Αυτή η επιλογή εξάγει βίντεο από όλες τις λίστες αναπαραγωγής σε μία λίστα αναπαραγωγής με το όνομα “Αγαπημένα”.\nΠώς να εξάγετε & να εισάγετε βίντεο σε λίστες αναπαραγωγής για μια παλαιότερη έκδοση του FreeTube:\n1. Εξάγετε τις λίστες αναπαραγωγής σας με ενεργοποιημένη αυτή την επιλογή.\n 2. Διαγράψτε όλες τις υπάρχουσες λίστες αναπαραγωγής σας χρησιμοποιώντας την επιλογή Κατάργηση όλων των λιστών αναπαραγωγής στις Ρυθμίσεις απορρήτου.\n 3. Εκκινήστε την παλαιότερη έκδοση του FreeTube και εισαγάγετε τις εξαχθείσες λίστες αναπαραγωγής.\""
   Distraction Free Settings:
     Distraction Free Settings: Χωρίς απόσπαση
     Hide Live Chat: Απόκρυψη Ζωντανής συνομιλίας
@@ -609,8 +513,7 @@ Settings:
     Hide Comments: Απόκρυψη Σχολίων
     Hide Chapters: Απόκρυψη Κεφαλαίων
     Hide Video Description: Απόκρυψη Περιγραφής Βίντεο
-    Display Titles Without Excessive Capitalisation: Εμφάνιση τίτλων χωρίς υπερβολική
-      κεφαλαιοποίηση και στίξη
+    Display Titles Without Excessive Capitalisation: Εμφάνιση τίτλων χωρίς υπερβολική κεφαλαιοποίηση και στίξη
     Sections:
       Side Bar: Πλαϊνή Μπάρα
       Channel Page: Σελίδα Καναλιού
@@ -627,64 +530,47 @@ Settings:
     Hide Subscriptions Live: Απόκρυψη Live Συνδρομών
     Hide Profile Pictures in Comments: Απόκρυψη Εικόνων Προφίλ στα Σχόλια
     Hide Channels Invalid: Το αναγνωριστικό καναλιού που δόθηκε δεν ήταν έγκυρο
-    Hide Channels Disabled Message: Ορισμένα κανάλια αποκλείστηκαν με χρήση αναγνωριστικού
-      και δεν υποβλήθηκαν σε επεξεργασία. Η λειτουργία μπλοκάρεται κατά την ενημέρωση
-      αυτών των αναγνωριστικών
+    Hide Channels Disabled Message: Ορισμένα κανάλια αποκλείστηκαν με χρήση αναγνωριστικού και δεν υποβλήθηκαν σε επεξεργασία. Η λειτουργία μπλοκάρεται κατά την ενημέρωση αυτών των αναγνωριστικών
     Hide Channels Already Exists: Το αναγνωριστικό καναλιού υπάρχει ήδη
-    Hide Channels API Error: Σφάλμα κατά την ανάκτηση χρήστη με το παρεχόμενο αναγνωριστικό.
-      Ελέγξτε ξανά εάν το αναγνωριστικό είναι σωστό.
+    Hide Channels API Error: Σφάλμα κατά την ανάκτηση χρήστη με το παρεχόμενο αναγνωριστικό. Ελέγξτε ξανά εάν το αναγνωριστικό είναι σωστό.
     Hide Videos and Playlists Containing Text Placeholder: Λέξη, τμήμα λέξης ή φράση
-    Hide Videos and Playlists Containing Text: Απόκρυψη βίντεο και λιστών αναπαραγωγής
-      που περιέχουν κείμενο
+    Hide Videos and Playlists Containing Text: Απόκρυψη βίντεο και λιστών αναπαραγωγής που περιέχουν κείμενο
     Hide Channel Courses: Απόκρυψη της καρτέλας «Μαθήματα» του καναλιού
     Hide Channel Home: Απόκρυψη της καρτέλας «Αρχική σελίδα» του καναλιού
     Show Added Items: Εμφάνιση προστιθέμενων στοιχείων
     Hide Subscriptions Posts: Απόκρυψη αναρτήσεων συνδρομών
     Hide Channel Posts: Απόκρυψη καρτέλας "Αναρτήσεις" καναλιού
-  The app needs to restart for changes to take effect. Restart and apply change?: Η
-    εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση
-    και εφαρμογή αλλαγών;
+  The app needs to restart for changes to take effect. Restart and apply change?: Η εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση και εφαρμογή αλλαγών;
   Proxy Settings:
-    Error getting network information. Is your proxy configured properly?: Σφάλμα
-      κατά τη λήψη πληροφοριών δικτύου. Ο διακομιστής μεσολάβησης έχει ρυθμιστεί σωστά;
+    Error getting network information. Is your proxy configured properly?: Σφάλμα κατά τη λήψη πληροφοριών δικτύου. Ο διακομιστής μεσολάβησης έχει ρυθμιστεί σωστά;
     City: Πόλη
     Region: Περιοχή
     Country: Χώρα
     Ip: Πρωτόκολλο Διαδικτύου (Ip)
     Your Info: Τα στοιχεία σας
     Test Proxy: Έλεγχος Διακομιστή Μεσολάβησης
-    Clicking on Test Proxy will send a request to: Κάνοντας κλικ στο Έλεγχος Διακομιστή
-      Μεσολάβησης θα στείλετε ένα αίτημα στο
+    Clicking on Test Proxy will send a request to: Κάνοντας κλικ στο Έλεγχος Διακομιστή Μεσολάβησης θα στείλετε ένα αίτημα στο
     Proxy Port Number: Αριθμός θύρας διακομιστή μεσολάβησης
     Proxy Host: Κεντρικός υπολογιστής μεσολάβησης
     Proxy Protocol: Πρωτόκολλο μεσολάβησης
     Enable Tor / Proxy: Ενεργοποίηση Tor / Proxy
     Proxy Settings: Διακομιστής μεσολάβησης
-    Proxy Warning: Το FreeTube δεν διαθέτει ενσωματωμένο διακομιστή μεσολάβησης, αλλά
-      μπορεί να συνδεθεί σε έναν εξωτερικό διακομιστή μεσολάβησης, όπως έναν που εκτελείται
-      στο μηχάνημά σας, όπως το Tor, ή έναν εξωτερικό διακομιστή μεσολάβησης, όπως
-      ένας διακομιστής μεσολάβησης SOCKS5 που παρέχεται από ορισμένα VPN. Εάν είναι
-      ενεργοποιημένο, βεβαιωθείτε ότι ο διακομιστής μεσολάβησης/το Tor έχει ρυθμιστεί
-      σωστά, αλλιώς το FreeTube δεν θα μπορεί να αντλήσει δεδομένα.
+    Proxy Warning: Το FreeTube δεν διαθέτει ενσωματωμένο διακομιστή μεσολάβησης, αλλά μπορεί να συνδεθεί σε έναν εξωτερικό διακομιστή μεσολάβησης, όπως έναν που εκτελείται στο μηχάνημά σας, όπως το Tor, ή έναν εξωτερικό διακομιστή μεσολάβησης, όπως ένας διακομιστής μεσολάβησης SOCKS5 που παρέχεται από ορισμένα VPN. Εάν είναι ενεργοποιημένο, βεβαιωθείτε ότι ο διακομιστής μεσολάβησης/το Tor έχει ρυθμιστεί σωστά, αλλιώς το FreeTube δεν θα μπορεί να αντλήσει δεδομένα.
   External Player Settings:
     External Player Settings: Εξωτερικό πρόγραμμα αναπαραγωγής
     External Player: Εξωτερικό πρόγραμμα αναπαραγωγής
-    Ignore Unsupported Action Warnings: Παράβλεψη προειδοποιήσεων μη υποστηριζόμενων
-      ενεργειών
+    Ignore Unsupported Action Warnings: Παράβλεψη προειδοποιήσεων μη υποστηριζόμενων ενεργειών
     Custom External Player Executable: Εκτελέσιμο εξωτερικού προγράμματος αναπαραγωγής
-    Custom External Player Arguments: Προσαρμοσμένα ορίσματα εξωτερικού προγράμματος
-      αναπαραγωγής
+    Custom External Player Arguments: Προσαρμοσμένα ορίσματα εξωτερικού προγράμματος αναπαραγωγής
     Players:
       None:
         Name: Κανένα
     Ignore Default Arguments: Αγνοήστε τα προεπιλεγμένα επιχειρήματα
   SponsorBlock Settings:
     Enable SponsorBlock: Ενεργοποίηση του SponsorBlock
-    Notify when sponsor segment is skipped: Ειδοποίηση όταν παραλείπεται το τμήμα
-      χορηγού
+    Notify when sponsor segment is skipped: Ειδοποίηση όταν παραλείπεται το τμήμα χορηγού
     SponsorBlock Settings: 'SponsorBlock'
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Διεύθυνση URL του
-      API του SponsorBlock (Η προεπιλογή είναι https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Διεύθυνση URL του API του SponsorBlock (Η προεπιλογή είναι https://sponsor.ajay.app)
     Skip Options:
       Skip Option: Επιλογή Παράλειψης
       Do Nothing: Να Μην Γίνει Τίποτα
@@ -693,8 +579,7 @@ Settings:
       Prompt To Skip: Προτροπή Για Παράλειψη
     Category Color: Χρώμα Κατηγορίας
     UseDeArrowTitles: Χρήση Τίτλων Βίντεο DeArrow
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
-      Μικρογραφία Generator API Url (Η προεπιλογή είναι https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Μικρογραφία Generator API Url (Η προεπιλογή είναι https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Χρήση DeArrow για μικρογραφίες
   Download Settings:
     Download Settings: Λήψη
@@ -704,20 +589,16 @@ Settings:
     Download in app: Λήψη στην εφαρμογή
     Open in web browser: Άνοιγμα στο πρόγραμμα περιήγησης ιστού
   Password Dialog:
-    Enter Password To Unlock: Εισαγάγετε τον κωδικό πρόσβασης για να ξεκλειδώσετε
-      τις ρυθμίσεις
+    Enter Password To Unlock: Εισαγάγετε τον κωδικό πρόσβασης για να ξεκλειδώσετε τις ρυθμίσεις
     Password: Κωδικός πρόσβασης
   Password Settings:
     Password Settings: Κωδικού πρόσβασης
     Set Password: Ορίστε Κωδικό πρόσβασης
-    Set Password To Prevent Access: Ορίστε έναν κωδικό πρόσβασης για να αποτρέψετε
-      την πρόσβαση στις ρυθμίσεις
+    Set Password To Prevent Access: Ορίστε έναν κωδικό πρόσβασης για να αποτρέψετε την πρόσβαση στις ρυθμίσεις
     Remove Password: Κατάργηση Κωδικού πρόσβασης
   Experimental Settings:
     Replace HTTP Cache: Αντικατάσταση HTTP Cache
-    Warning: Αυτές οι ρυθμίσεις είναι πειραματικές, ενδέχεται να προκαλέσουν σφάλματα
-      όταν είναι ενεργοποιημένες. Συνιστάται ιδιαίτερα η δημιουργία αντιγράφων ασφαλείας.
-      Χρησιμοποιήστε το με δική σας ευθύνη!
+    Warning: Αυτές οι ρυθμίσεις είναι πειραματικές, ενδέχεται να προκαλέσουν σφάλματα όταν είναι ενεργοποιημένες. Συνιστάται ιδιαίτερα η δημιουργία αντιγράφων ασφαλείας. Χρησιμοποιήστε το με δική σας ευθύνη!
     Experimental Settings: Πειραματικές Ρυθμίσεις
   Parental Control Settings:
     Parental Control Settings: Γονικός Έλεγχος
@@ -742,8 +623,7 @@ About:
   Email: Ηλεκτρονικό ταχυδρομείο
   Blog: Ιστολόγιο
   Website: Ιστότοπος
-  Please check for duplicates before posting: Παρακαλώ ελέγξτε για διπλότυπα πριν
-    δημοσιεύσετε
+  Please check for duplicates before posting: Παρακαλώ ελέγξτε για διπλότυπα πριν δημοσιεύσετε
   GitHub issues: Προβλήματα GitHub
   Report a problem: Αναφορά προβλήματος
   FAQ: Συχνές ερωτήσεις
@@ -769,19 +649,14 @@ Profile:
   Update Profile: 'Ενημέρωση προφίλ'
   Make Default Profile: 'Επιλογή προεπιλεγμένου προφίλ'
   Delete Profile: 'Διαγραφή προφίλ'
-  Are you sure you want to delete this profile?: 'Είστε βέβαιοι ότι θέλετε να διαγράψετε
-    αυτό το προφίλ;'
+  Are you sure you want to delete this profile?: 'Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτό το προφίλ;'
   All subscriptions will also be deleted.: 'Επίσης θα διαγραφούν και όλες οι συνδρομές.'
-  Your profile name cannot be empty: 'Το όνομα του προφίλ σας δεν μπορεί να είναι
-    άδειο'
+  Your profile name cannot be empty: 'Το όνομα του προφίλ σας δεν μπορεί να είναι άδειο'
   Profile has been created: 'Το προφίλ σας έχει δημιουργηθεί'
   Profile has been updated: 'Το προφίλ σας έχει ενημερωθεί'
-  Your default profile has been set to {profile}: 'Το {profile} έχει οριστεί ως το
-    προεπιλεγμένο σας προφίλ'
-  Removed {profile} from your profiles: 'Το {profile} έχει αφαιρεθεί από τα προφίλ
-    σας'
-  Your default profile has been changed to your primary profile: 'Το κύριο προφίλ
-    σας έχει οριστεί ως το προεπιλεγμένο'
+  Your default profile has been set to {profile}: 'Το {profile} έχει οριστεί ως το προεπιλεγμένο σας προφίλ'
+  Removed {profile} from your profiles: 'Το {profile} έχει αφαιρεθεί από τα προφίλ σας'
+  Your default profile has been changed to your primary profile: 'Το κύριο προφίλ σας έχει οριστεί ως το προεπιλεγμένο'
   '{profile} is now the active profile': 'Το {profile} είναι τώρα το ενεργό προφίλ'
   Subscription List: 'Λίστα Συνδρομών/Εγγραφών'
   Other Channels: 'Άλλα κανάλια'
@@ -791,13 +666,9 @@ Profile:
   Delete Selected: 'Διαγραφή επιλεγμένου στοιχείου'
   Add Selected To Profile: 'Προσθήκη επιλεγμένου στοιχείου στο προφίλ'
   No channel(s) have been selected: 'Δεν έχει γίνει επιλογή κάποιου καναλιού'
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : 'Αυτό είναι το κύριο προφίλ σας. Είστε βέβαιοι ότι θέλετε να διαγράψετε τα επιλεγμένα
-    κανάλια; Αυτά τα κανάλια θα διαγραφούν και από τα υπόλοιπα προφίλ σας.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Είστε
-    βέβαιοι ότι θέλετε να διαγράψετε τα επιλεγμένα κανάλια;  Αυτό δε θα διαγράψει
-    το κανάλι από οποιοδήποτε άλλο προφίλ.'
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : 'Αυτό είναι το κύριο προφίλ σας. Είστε βέβαιοι ότι θέλετε να διαγράψετε τα επιλεγμένα κανάλια; Αυτά τα κανάλια θα διαγραφούν και από τα υπόλοιπα προφίλ σας.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Είστε βέβαιοι ότι θέλετε να διαγράψετε τα επιλεγμένα κανάλια;  Αυτό δε θα διαγράψει το κανάλι από οποιοδήποτε άλλο προφίλ.'
 #On Channel Page
   Profile Filter: Φίλτρο προφίλ
   Profile Settings: Προφίλ
@@ -810,27 +681,21 @@ Profile:
 Channel:
   Subscribe: 'Εγγραφή'
   Unsubscribe: 'Απεγγραφή'
-  Channel has been removed from your subscriptions: 'Το κανάλι έχει καταργηθεί από
-    τις Συνδρομές/Εγγραφές σας'
-  Removed subscription from {count} other channel(s): 'Αφαιρέθηκε η συνδρομή από {count}
-    άλλα κανάλια'
-  Added channel to your subscriptions: 'Προστέθηκε κανάλι στις συνδρομές/εγγραφές
-    σας'
+  Channel has been removed from your subscriptions: 'Το κανάλι έχει καταργηθεί από τις Συνδρομές/Εγγραφές σας'
+  Removed subscription from {count} other channel(s): 'Αφαιρέθηκε η συνδρομή από {count} άλλα κανάλια'
+  Added channel to your subscriptions: 'Προστέθηκε κανάλι στις συνδρομές/εγγραφές σας'
   Search Channel: 'Αναζήτηση στο κανάλι'
-  Your search results have returned 0 results: 'Τα αποτελέσματα της αναζήτησής σας
-    έχουν επιστρέψει 0 αποτελέσματα'
+  Your search results have returned 0 results: 'Τα αποτελέσματα της αναζήτησής σας έχουν επιστρέψει 0 αποτελέσματα'
   Videos:
     Videos: 'Βίντεο'
-    This channel does not currently have any videos: 'Αυτό το κανάλι δε διαθέτει προς
-      το παρόν κάποιο βίντεο'
+    This channel does not currently have any videos: 'Αυτό το κανάλι δε διαθέτει προς το παρόν κάποιο βίντεο'
     Sort Types:
       Newest: 'Νεότερο'
       Oldest: 'Παλαιότερο'
       Most Popular: 'Τα πιο δημοφιλή'
   Playlists:
     Playlists: 'Λίστες αναπαραγωγής'
-    This channel does not currently have any playlists: 'Αυτό το κανάλι δε διαθέτει
-      προς το παρόν κάποια λίστα αναπαραγωγής'
+    This channel does not currently have any playlists: 'Αυτό το κανάλι δε διαθέτει προς το παρόν κάποια λίστα αναπαραγωγής'
     Sort Types:
       Last Video Added: 'Τελευταίο βίντεο που προστέθηκε'
       Newest: 'Νεότερο'
@@ -846,40 +711,30 @@ Channel:
     Location: Τοποθεσία
     Joined: Εγγράφηκαν
   This channel does not allow searching: Αυτό το κανάλι δεν επιτρέπει την αναζήτηση
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: Αυτό
-    το κανάλι έχει περιορισμό ηλικίας και προς το παρόν δεν μπορεί να προβληθεί στο
-    FreeTube.
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Αυτό το κανάλι έχει περιορισμό ηλικίας και προς το παρόν δεν μπορεί να προβληθεί στο FreeTube.
   Channel Tabs: Καρτέλες Καναλιών
   This channel does not exist: Αυτό το κανάλι δεν υπάρχει
   Posts:
-    This channel currently does not have any posts: Αυτό το κανάλι προς το παρόν δεν
-      έχει αναρτήσεις
+    This channel currently does not have any posts: Αυτό το κανάλι προς το παρόν δεν έχει αναρτήσεις
     Reveal Answers: Εμφάνιση Απαντήσεων
     Hide Answers: Απόκρυψη Απαντήσεων
     votes: '{votes} ψήφοι'
     View Full Post: Προβολή πλήρους δημοσίευσης
     Video hidden by FreeTube: Βίντεο κρυμμένο από FreeTube
-    Viewing Posts Only Supported By Invidious: Η προβολή αναρτήσεων υποστηρίζεται
-      μόνο από το Invidious. Μεταβείτε στην καρτέλα της κοινότητας ενός καναλιού για
-      να δείτε το περιεχόμενο εκεί χωρίς το Invidious.
+    Viewing Posts Only Supported By Invidious: Η προβολή αναρτήσεων υποστηρίζεται μόνο από το Invidious. Μεταβείτε στην καρτέλα της κοινότητας ενός καναλιού για να δείτε το περιεχόμενο εκεί χωρίς το Invidious.
   Live:
     Live: Ζωντανά
-    This channel does not currently have any live streams: Αυτό το κανάλι δεν έχει
-      προς το παρόν ζωντανές ροές
+    This channel does not currently have any live streams: Αυτό το κανάλι δεν έχει προς το παρόν ζωντανές ροές
   Shorts:
-    This channel does not currently have any shorts: Αυτό το κανάλι δεν έχει προς
-      το παρόν κανένα shorts
+    This channel does not currently have any shorts: Αυτό το κανάλι δεν έχει προς το παρόν κανένα shorts
   Releases:
     Releases: Κυκλοφορίες
-    This channel does not currently have any releases: Αυτό το κανάλι δεν έχει προς
-      το παρόν κυκλοφορίες
+    This channel does not currently have any releases: Αυτό το κανάλι δεν έχει προς το παρόν κυκλοφορίες
   Podcasts:
     Podcasts: Podcasts
-    This channel does not currently have any podcasts: Αυτό το κανάλι δεν έχει αυτήν
-      τη στιγμή podcasts
+    This channel does not currently have any podcasts: Αυτό το κανάλι δεν έχει αυτήν τη στιγμή podcasts
   Courses:
-    This channel does not currently have any courses: Αυτό το κανάλι δεν έχει προς
-      το παρόν μαθήματα
+    This channel does not currently have any courses: Αυτό το κανάλι δεν έχει προς το παρόν μαθήματα
     Courses: Μαθήματα
   Home:
     View Playlist: Προβολή λίστας αναπαραγωγής
@@ -888,13 +743,11 @@ Video:
   Mark As Watched: 'Επισήμανση ως παρακολουθημένο'
   Remove From History: 'Κατάργηση από το ιστορικό'
   Video has been marked as watched: 'Το βίντεο έχει επισημανθεί ως παρακολουθημένο'
-  Video has been removed from your history: 'Το βίντεο έχει καταργηθεί από το ιστορικό
-    σας'
+  Video has been removed from your history: 'Το βίντεο έχει καταργηθεί από το ιστορικό σας'
   Open in YouTube: 'Άνοιγμα στο YouTube'
   Copy YouTube Link: 'Αντιγραφή συνδέσμου YouTube'
   Open YouTube Embedded Player: 'Άνοιγμα ενσωματωμένου προγράμματος αναπαραγωγής YouTube'
-  Copy YouTube Embedded Player Link: 'Αντιγραφή συνδέσμου του ενσωματωμένου προγράμματος
-    αναπαραγωγής από το YouTube'
+  Copy YouTube Embedded Player Link: 'Αντιγραφή συνδέσμου του ενσωματωμένου προγράμματος αναπαραγωγής από το YouTube'
   Open in Invidious: 'Άνοιγμα στο Invidious'
   Copy Invidious Link: 'Αντιγραφή συνδέσμου Invidious'
   Views: 'Προβολές'
@@ -910,19 +763,14 @@ Video:
   Live Now: 'Ζωντανά τώρα'
   Live Chat: 'Ζωντανή συνομιλία'
   Enable Live Chat: 'Ενεργοποίηση Ζωντανής συνομιλίας'
-  Live Chat is currently not supported in this build.: 'Η ζωντανή συνομιλία δεν υποστηρίζεται
-    προς το παρόν σε αυτήν την έκδοση.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Η ζωντανή συνομιλία
-    είναι ενεργοποιημένη.  Τα μηνύματα συνομιλίας θα εμφανίζονται εδώ μόλις σταλούν.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Η
-    ζωντανή συνομιλία δεν υποστηρίζεται προς το παρόν με το Invidious API. Απαιτείται
-    άμεση σύνδεση με το YouTube.'
+  Live Chat is currently not supported in this build.: 'Η ζωντανή συνομιλία δεν υποστηρίζεται προς το παρόν σε αυτήν την έκδοση.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Η ζωντανή συνομιλία είναι ενεργοποιημένη.  Τα μηνύματα συνομιλίας θα εμφανίζονται εδώ μόλις σταλούν.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Η ζωντανή συνομιλία δεν υποστηρίζεται προς το παρόν με το Invidious API. Απαιτείται άμεση σύνδεση με το YouTube.'
   Published:
     In less than a minute: Σε λιγότερο από ένα λεπτό
   Published on: 'Δημοσιεύθηκε στις'
 #& Videos
-  Starting soon, please refresh the page to check again: Έναρξη σύντομα, παρακαλούμε
-    κάντε ανανέωση της σελίδας για επανέλεγχο
+  Starting soon, please refresh the page to check again: Έναρξη σύντομα, παρακαλούμε κάντε ανανέωση της σελίδας για επανέλεγχο
   audio only: μόνο ήχος
   video only: μόνο βίντεο
   Download Video: Λήψη Βίντεο
@@ -932,8 +780,7 @@ Video:
   Streamed on: Μεταδίδεται ζωντανά σε
   Open Channel in Invidious: Άνοιγμα καναλιού στο Invidious
   Open Channel in YouTube: Άνοιγμα καναλιού στο YouTube
-  Video has been removed from your saved list: Το βίντεο καταργήθηκε από την αποθηκευμένη
-    λίστα σας
+  Video has been removed from your saved list: Το βίντεο καταργήθηκε από την αποθηκευμένη λίστα σας
   Video has been saved: Το βίντεο έχει αποθηκευτεί
   Save Video: Αποθήκευση βίντεο
   Sponsor Block category:
@@ -954,9 +801,7 @@ Video:
       setting a playback rate: ρύθμιση ρυθμού αναπαραγωγής
       opening playlists: άνοιγμα λιστών αναπαραγωγής
       shuffling playlists: ανακάτεμα των λιστών αναπαραγωγής
-      opening specific video in a playlist (falling back to opening the video): άνοιγμα
-        συγκεκριμένου βίντεο σε μια λίστα αναπαραγωγής (επιστροφή στο άνοιγμα του
-        βίντεο)
+      opening specific video in a playlist (falling back to opening the video): άνοιγμα συγκεκριμένου βίντεο σε μια λίστα αναπαραγωγής (επιστροφή στο άνοιγμα του βίντεο)
       reversing playlists: αντιστροφή λιστών αναπαραγωγής
     playlist: λίστα αναπαραγωγής
     OpeningTemplate: Άνοιγμα {videoOrPlaylist} σε {externalPlayer}...
@@ -965,9 +810,7 @@ Video:
   Scroll to Bottom: Κύλιση προς τα Κάτω
   Premieres: Πρεμιέρες
   Upcoming: Επερχόμενο
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': "Η
-    Zωντανή συνομιλία δεν είναι διαθέσιμη για αυτήν τη ροή. Μπορεί να έχει απενεργοποιηθεί
-    από τον χρήστη."
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': "Η Zωντανή συνομιλία δεν είναι διαθέσιμη για αυτήν τη ροή. Μπορεί να έχει απενεργοποιηθεί από τον χρήστη."
   Unhide Channel: Εμφάνιση καναλιού
   Hide Channel: Απόκρυψη καναλιού
 #& Playlists
@@ -979,11 +822,9 @@ Video:
     Stats:
       Video ID: 'Αναγνωριστικό βίντεο: {videoId}'
       Player Dimensions: 'Διαστάσεις Αναπαραγωγέα: {width}x{height}'
-      CodecsVideoAudio: 'Κωδικοποιητές: {videoCodec} ({videoItag}) / {audioCodec}
-        ({audioItag})'
+      CodecsVideoAudio: 'Κωδικοποιητές: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       Bandwidth: 'Εύρος ζώνης: {bandwidth} kbps'
-      Dropped Frames / Total Frames: 'Πεσμένα καρέ: {droppedFrames} / Σύνολο καρέ:
-        {totalFrames}'
+      Dropped Frames / Total Frames: 'Πεσμένα καρέ: {droppedFrames} / Σύνολο καρέ: {totalFrames}'
       Stats: Στατιστικά στοιχεία
       Media Formats: 'Μορφές πολυμέσων: {formats}'
       Volume: 'Ήχος: {volumePercentage}%'
@@ -1001,26 +842,18 @@ Video:
     Hide Stats: Απόκρυψη στατιστικών
     Audio Tracks: Κομμάτια ήχου
     Skipped segment: Παραλείφθηκε το τμήμα {segmentCategory}
-    Playback will resume automatically when your connection comes back: Η αναπαραγωγή
-      θα συνεχιστεί αυτόματα όταν επανέλθει η σύνδεσή σας.
+    Playback will resume automatically when your connection comes back: Η αναπαραγωγή θα συνεχιστεί αυτόματα όταν επανέλθει η σύνδεσή σας.
     You appear to be offline: Φαίνεται ότι είστε εκτός σύνδεσης.
-  MembersOnly: Τα βίντεο μόνο για μέλη δεν μπορούν να παρακολουθηθούν με το FreeTube,
-    καθώς απαιτούν σύνδεση στο Google και συνδρομή επί πληρωμή στο κανάλι του μεταφορτωτή.
+  MembersOnly: Τα βίντεο μόνο για μέλη δεν μπορούν να παρακολουθηθούν με το FreeTube, καθώς απαιτούν σύνδεση στο Google και συνδρομή επί πληρωμή στο κανάλι του μεταφορτωτή.
   Save Watched Progress: Αποθήκευση παρακολουθούμενης προόδου
   Watched Progress Saved: Παρακολουθούμενη πρόοδος Αποθηκευμένη
-  IP block: Το YouTube έχει αποκλείσει τη διεύθυνση IP σας από την παρακολούθηση βίντεο.
-    Προσπαθήστε να αλλάξετε VPN ή proxy.
-  AgeRestricted: Τα βίντεο με περιορισμούς ηλικίας δεν μπορούν να παρακολουθηθούν
-    με το FreeTube, καθώς απαιτούν σύνδεση στο Google και χρήση ενός λογαριασμού YouTube
-    που έχει επαληθευτεί ως προς την ηλικία.
+  IP block: Το YouTube έχει αποκλείσει τη διεύθυνση IP σας από την παρακολούθηση βίντεο. Προσπαθήστε να αλλάξετε VPN ή proxy.
+  AgeRestricted: Τα βίντεο με περιορισμούς ηλικίας δεν μπορούν να παρακολουθηθούν με το FreeTube, καθώς απαιτούν σύνδεση στο Google και χρήση ενός λογαριασμού YouTube που έχει επαληθευτεί ως προς την ηλικία.
   DeArrow:
     Show Original Details: Εμφάνιση αρχικών λεπτομερειών
     Show Modified Details: Εμφάνιση τροποποιημένων λεπτομερειών
   More Options: Περισσότερες Επιλογές
-  DRMProtected: Τα βίντεο που προστατεύονται με DRM δεν μπορούν να αναπαραχθούν στο
-    FreeTube, καθώς απαιτούν ιδιόκτητα εξαρτήματα κλειστού κώδικα. Αν θέλετε να παρακολουθήσετε
-    αυτό το βίντεο, παρακαλούμε να το παρακολουθήσετε στον επίσημο ιστότοπο του YouTube
-    σε ένα πρόγραμμα περιήγησης ιστού με δυνατότητα DRM.
+  DRMProtected: Τα βίντεο που προστατεύονται με DRM δεν μπορούν να αναπαραχθούν στο FreeTube, καθώς απαιτούν ιδιόκτητα εξαρτήματα κλειστού κώδικα. Αν θέλετε να παρακολουθήσετε αυτό το βίντεο, παρακαλούμε να το παρακολουθήσετε στον επίσημο ιστότοπο του YouTube σε ένα πρόγραμμα περιήγησης ιστού με δυνατότητα DRM.
 Playlist:
   #& About
   View Full Playlist: 'Προβολή πλήρους λίστας αναπαραγωγής'
@@ -1047,12 +880,9 @@ Change Format:
   Use Dash Formats: 'Χρησιμοποίηση μορφών Dash'
   Use Legacy Formats: 'Χρησιμοποίηση παλαιότερων μορφών'
   Use Audio Formats: 'Χρησιμοποίηση Μορφών Ήχου'
-  Dash formats are not available for this video: 'Οι μορφές Dash δεν είναι διαθέσιμες
-    για αυτό το βίντεο'
-  Audio formats are not available for this video: 'Δε διατίθενται μορφές ήχου για
-    αυτό το βίντεο'
-  Legacy formats are not available for this video: Οι παλαιές μορφές δεν είναι διαθέσιμες
-    για αυτό το βίντεο
+  Dash formats are not available for this video: 'Οι μορφές Dash δεν είναι διαθέσιμες για αυτό το βίντεο'
+  Audio formats are not available for this video: 'Δε διατίθενται μορφές ήχου για αυτό το βίντεο'
+  Legacy formats are not available for this video: Οι παλαιές μορφές δεν είναι διαθέσιμες για αυτό το βίντεο
 Share:
   Share Video: 'Κοινοποίηση βίντεο'
   Share Playlist: 'Κοινοποίηση λίστας αναπαραγωγής'
@@ -1063,15 +893,11 @@ Share:
   Open Embed: 'Άνοιγμα ενσωματωμένης έκδοσης'
   # On Click
   Invidious URL copied to clipboard: 'Η διεύθυνση Invidious αντιγράφηκε στο πρόχειρο'
-  Invidious Embed URL copied to clipboard: 'Η ενσωματωμένη διεύθυνση Invidious αντιγράφηκε
-    στο πρόχειρο'
+  Invidious Embed URL copied to clipboard: 'Η ενσωματωμένη διεύθυνση Invidious αντιγράφηκε στο πρόχειρο'
   YouTube URL copied to clipboard: 'Η διεύθυνση YouTube αντιγράφηκε στο πρόχειρο'
-  YouTube Embed URL copied to clipboard: 'Η ενσωματωμένη διεύθυνση Youtube αντιγράφηκε
-    στο πρόχειρο'
-  YouTube Channel URL copied to clipboard: Ο σύνδεσμος καναλιού Youtube αντιγράφηκε
-    στο πρόχειρο
-  Invidious Channel URL copied to clipboard: Ο σύνδεσμος καναλιού Invidious αντιγράφηκε
-    στο πρόχειρο
+  YouTube Embed URL copied to clipboard: 'Η ενσωματωμένη διεύθυνση Youtube αντιγράφηκε στο πρόχειρο'
+  YouTube Channel URL copied to clipboard: Ο σύνδεσμος καναλιού Youtube αντιγράφηκε στο πρόχειρο
+  Invidious Channel URL copied to clipboard: Ο σύνδεσμος καναλιού Invidious αντιγράφηκε στο πρόχειρο
   Share Channel: Κοινή χρήση Καναλιού
 Mini Player: 'Μικρή πλατφόρμα αναπαραγωγής'
 Comments:
@@ -1084,13 +910,11 @@ Comments:
   Hide: 'Απόκρυψη'
   Replies: 'Απαντήσεις'
   Reply: 'Απάντηση'
-  There are no comments available for this video: 'Δεν υπάρχουν διαθέσιμα σχόλια γι
-    αυτό το βίντεο'
+  There are no comments available for this video: 'Δεν υπάρχουν διαθέσιμα σχόλια γι αυτό το βίντεο'
   Load More Comments: 'Φόρτωση περισσότερων σχολίων'
   Newest first: Νεότερο πρώτα
   Top comments: Κορυφαία σχόλια
-  There are no more comments for this video: Δεν υπάρχουν άλλα σχόλια για αυτό το
-    βίντεο
+  There are no more comments for this video: Δεν υπάρχουν άλλα σχόλια για αυτό το βίντεο
   And others: και άλλοι
   From {channelName}: από {channelName}
   Show More Replies: Εμφάνιση περισσότερων απαντήσεων
@@ -1099,18 +923,14 @@ Comments:
   Hearted: Αγαπημένο
   View {replyCount} replies: Προβολή {replyCount} απαντήσεων
   Subscribed: Εγγεγραμμένος
-  There are no comments available for this post: Δεν υπάρχουν διαθέσιμα σχόλια για
-    αυτή τη ανάρτηση
+  There are no comments available for this post: Δεν υπάρχουν διαθέσιμα σχόλια για αυτή τη ανάρτηση
 Up Next: 'Επόμενο'
 
 # Toast Messages
-Local API Error (Click to copy): 'Τοπικό σφάλμα Διεπαφής προγραμματισμού εφαρμογής
-  (*API) (Κάντε κλικ για αντιγραφή)'
-Invidious API Error (Click to copy): 'Σφάλμα Διεπαφής προγραμματισμού εφαρμογής Invidious(*API)
-  (Κάντε κλικ για αντιγραφή)'
+Local API Error (Click to copy): 'Τοπικό σφάλμα Διεπαφής προγραμματισμού εφαρμογής (*API) (Κάντε κλικ για αντιγραφή)'
+Invidious API Error (Click to copy): 'Σφάλμα Διεπαφής προγραμματισμού εφαρμογής Invidious(*API) (Κάντε κλικ για αντιγραφή)'
 Falling back to Invidious API: 'Επιστροφή στο Invidious API'
-Falling back to Local API: 'Επιστροφή στη τοπική Διεπαφή προγραμματισμού εφαρμογής
-  (API)'
+Falling back to Local API: 'Επιστροφή στη τοπική Διεπαφή προγραμματισμού εφαρμογής (API)'
 Loop is now disabled: 'Η επανάληψη είναι πλέον απενεργοποιημένη'
 Loop is now enabled: 'Η επανάληψη έχει ενεργοποιηθεί'
 Shuffle is now disabled: 'Η τυχαία αναπαραγωγή είναι πλέον απενεργοποιημένη'
@@ -1119,122 +939,59 @@ The playlist has been reversed: 'Η λίστα αναπαραγωγής έχει
 Playing Next Video: 'Αναπαραγωγή του επόμενου βίντεο'
 Playing Previous Video: 'Αναπαραγωγή προηγούμενου βίντεο'
 Canceled next video autoplay: 'Η αναπαραγωγή του επόμενου βίντεο έχει ακυρωθεί'
-'The playlist has ended. Enable loop to continue playing': 'Η λίστα αναπαραγωγής έχει
-  τελειώσει. Ενεργοποιήστε τη λειτουργία επανάληψης για συνέχιση της αναπαραγωγής'
+'The playlist has ended. Enable loop to continue playing': 'Η λίστα αναπαραγωγής έχει τελειώσει. Ενεργοποιήστε τη λειτουργία επανάληψης για συνέχιση της αναπαραγωγής'
 
 Yes: 'Ναι'
 No: 'Όχι'
-A new blog is now available, {blogTitle}. Click to view more: Ένα καινούριο ιστολόγιο
-  είναι πλέον διαθέσιμο, {blogTitle}. Για περισσότερες λεπτομέρειες κάντε κλικ εδώ
+A new blog is now available, {blogTitle}. Click to view more: Ένα καινούριο ιστολόγιο είναι πλέον διαθέσιμο, {blogTitle}. Για περισσότερες λεπτομέρειες κάντε κλικ εδώ
 Download From Site: Κάντε λήψη από την Ιστοσελίδα
-Version {versionNumber} is now available!  Click for more details: Η έκδοση {versionNumber}
-  είναι πλέον διαθέσιμη. Κάντε κλικ για περισσότερες λεπτομέρειες
-This video is unavailable because of missing formats. This can happen due to country unavailability.: Αυτό
-  το βίντεο δεν είναι διαθέσιμο λόγω έλλειψης μορφών. Αυτό μπορεί να συμβαίνει λόγω
-  μη διαθεσιμότητας του βίντεο στη χώρα σας.
+Version {versionNumber} is now available!  Click for more details: Η έκδοση {versionNumber} είναι πλέον διαθέσιμη. Κάντε κλικ για περισσότερες λεπτομέρειες
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Αυτό το βίντεο δεν είναι διαθέσιμο λόγω έλλειψης μορφών. Αυτό μπορεί να συμβαίνει λόγω μη διαθεσιμότητας του βίντεο στη χώρα σας.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Όταν ενεργοποιηθεί, το FreeTube θα χρησιμοποιήσει RSS αντί
-      για την προεπιλεγμένη μέθοδο για να αρπάξει τη ροή συνδρομής σας. Το RSS είναι
-      ταχύτερο και αποτρέπει τον αποκλεισμό IP, αλλά δεν παρέχει ορισμένες πληροφορίες,
-      όπως διάρκεια βίντεο, ζωντανή κατάσταση ή αναρτήσεις
-    Fetch Automatically: Όταν ενεργοποιηθεί, το FreeTube θα ανακτήσει αυτόματα τη
-      ροή συνδρομής σας κατά την εκκίνηση και όταν ανοίξει ένα νέο παράθυρο.
+    Fetch Feeds from RSS: Όταν ενεργοποιηθεί, το FreeTube θα χρησιμοποιήσει RSS αντί για την προεπιλεγμένη μέθοδο για να αρπάξει τη ροή συνδρομής σας. Το RSS είναι ταχύτερο και αποτρέπει τον αποκλεισμό IP, αλλά δεν παρέχει ορισμένες πληροφορίες, όπως διάρκεια βίντεο, ζωντανή κατάσταση ή αναρτήσεις
+    Fetch Automatically: Όταν ενεργοποιηθεί, το FreeTube θα ανακτήσει αυτόματα τη ροή συνδρομής σας κατά την εκκίνηση και όταν ανοίξει ένα νέο παράθυρο.
   Player Settings:
-    Default Video Format: Ορίστε τις μορφές που χρησιμοποιούνται κατά την αναπαραγωγή
-      ενός βίντεο. Οι μορφές DASH μπορούν να αναπαράγουν υψηλότερες ποιότητες. Οι
-      μορφές παλαιού τύπου περιορίζονται σε μέγιστο 360p, αλλά χρησιμοποιούν μικρότερο
-      εύρος ζώνης. Οι μορφές ήχου είναι ροές μόνο ήχου.
-    Proxy Videos Through Invidious: Θα συνδεθεί με το Invidious για να εξυπηρετήσει
-      τα βίντεο αντί να κάνει μια άμεση σύνδεση με το YouTube.
-    Scroll Playback Rate Over Video Player: Ενώ ο δρομέας βρίσκεται πάνω από το βίντεο,
-      πατήστε και κρατήστε πατημένο το πλήκτρο Control (Command Key σε Mac) και μετακινηθείτε
-      με τον τροχό του ποντικιού προς τα εμπρός ή προς τα πίσω για να ελέγξετε το
-      ρυθμό αναπαραγωγής. Πατήστε παρατεταμένα το πλήκτρο Control (Command Key σε
-      Mac) και κάντε αριστερό κλικ στο ποντίκι για να επιστρέψετε γρήγορα στον προεπιλεγμένο
-      ρυθμό αναπαραγωγής (1x εκτός αν έχει αλλάξει στις ρυθμίσεις).
-    Skip by Scrolling Over Video Player: Χρησιμοποιήστε τον τροχό κύλισης για να παρακάμψετε
-      το βίντεο, στυλ MPV.
+    Default Video Format: Ορίστε τις μορφές που χρησιμοποιούνται κατά την αναπαραγωγή ενός βίντεο. Οι μορφές DASH μπορούν να αναπαράγουν υψηλότερες ποιότητες. Οι μορφές παλαιού τύπου περιορίζονται σε μέγιστο 360p, αλλά χρησιμοποιούν μικρότερο εύρος ζώνης. Οι μορφές ήχου είναι ροές μόνο ήχου.
+    Proxy Videos Through Invidious: Θα συνδεθεί με το Invidious για να εξυπηρετήσει τα βίντεο αντί να κάνει μια άμεση σύνδεση με το YouTube.
+    Scroll Playback Rate Over Video Player: Ενώ ο δρομέας βρίσκεται πάνω από το βίντεο, πατήστε και κρατήστε πατημένο το πλήκτρο Control (Command Key σε Mac) και μετακινηθείτε με τον τροχό του ποντικιού προς τα εμπρός ή προς τα πίσω για να ελέγξετε το ρυθμό αναπαραγωγής. Πατήστε παρατεταμένα το πλήκτρο Control (Command Key σε Mac) και κάντε αριστερό κλικ στο ποντίκι για να επιστρέψετε γρήγορα στον προεπιλεγμένο ρυθμό αναπαραγωγής (1x εκτός αν έχει αλλάξει στις ρυθμίσεις).
+    Skip by Scrolling Over Video Player: Χρησιμοποιήστε τον τροχό κύλισης για να παρακάμψετε το βίντεο, στυλ MPV.
   General Settings:
-    Region for Trending: Η περιοχή των τάσεων σας επιτρέπει να επιλέξετε τα δημοφιλή
-      βίντεο της χώρας που θέλετε να εμφανίζονται.
-    Thumbnail Preference: Όλες οι μικρογραφίες σε όλο το FreeTube θα αντικατασταθούν
-      με ένα πλαίσιο του βίντεο, θολό ή κρυφό αντί για την προεπιλεγμένη μικρογραφία.
-    Fallback to Non-Preferred Backend on Failure: Όταν το προτιμώμενο API αντιμετωπίζει
-      πρόβλημα, το FreeTube θα προσπαθήσει να χρησιμοποιήσει το μη προτιμώμενο API
-      ως εναλλακτική μέθοδο όταν ενεργοποιηθεί.
-    Preferred API Backend: Επέλεξε το σύστημα με το οποίο το Freetube θα συλλέγει
-      δεδομένα. Το τοπικό API είναι ένα ενσωματωμένο εργαλείο. Ενώ το Invidious API
-      απαιτεί έναν Invidious server για να συνδεθεί.
-    Invidious Instance: Το στιγμιότυπο Invidious στο οποίο το FreeTube θα συνδεθεί
-      για κλήσεις διεπαφής.
-    External Link Handling: "Επιλέξτε την προεπιλεγμένη συμπεριφορά όταν κάνετε κλικ
-      σε έναν σύνδεσμο, ο οποίος δεν μπορεί να ανοίξει στο FreeTube.\nΑπό προεπιλογή,
-      το FreeTube θα ανοίξει τον σύνδεσμο που έχει πατηθεί στο προεπιλεγμένο πρόγραμμα
-      περιήγησης.\n"
-    Open Deep Links In New Window: Οι διευθύνσεις URL που μεταβιβάζονται στο FreeTube,
-      όπως από επεκτάσεις του προγράμματος περιήγησης redirect ή από ορίσματα της
-      γραμμής εντολών, ανοίγουν σε ένα νέο παράθυρο.
+    Region for Trending: Η περιοχή των τάσεων σας επιτρέπει να επιλέξετε τα δημοφιλή βίντεο της χώρας που θέλετε να εμφανίζονται.
+    Thumbnail Preference: Όλες οι μικρογραφίες σε όλο το FreeTube θα αντικατασταθούν με ένα πλαίσιο του βίντεο, θολό ή κρυφό αντί για την προεπιλεγμένη μικρογραφία.
+    Fallback to Non-Preferred Backend on Failure: Όταν το προτιμώμενο API αντιμετωπίζει πρόβλημα, το FreeTube θα προσπαθήσει να χρησιμοποιήσει το μη προτιμώμενο API ως εναλλακτική μέθοδο όταν ενεργοποιηθεί.
+    Preferred API Backend: Επέλεξε το σύστημα με το οποίο το Freetube θα συλλέγει δεδομένα. Το τοπικό API είναι ένα ενσωματωμένο εργαλείο. Ενώ το Invidious API απαιτεί έναν Invidious server για να συνδεθεί.
+    Invidious Instance: Το στιγμιότυπο Invidious στο οποίο το FreeTube θα συνδεθεί για κλήσεις διεπαφής.
+    External Link Handling: "Επιλέξτε την προεπιλεγμένη συμπεριφορά όταν κάνετε κλικ σε έναν σύνδεσμο, ο οποίος δεν μπορεί να ανοίξει στο FreeTube.\nΑπό προεπιλογή, το FreeTube θα ανοίξει τον σύνδεσμο που έχει πατηθεί στο προεπιλεγμένο πρόγραμμα περιήγησης.\n"
+    Open Deep Links In New Window: Οι διευθύνσεις URL που μεταβιβάζονται στο FreeTube, όπως από επεκτάσεις του προγράμματος περιήγησης redirect ή από ορίσματα της γραμμής εντολών, ανοίγουν σε ένα νέο παράθυρο.
   External Player Settings:
-    Custom External Player Executable: Από προεπιλογή, το FreeTube θα υποθέσει ότι
-      το επιλεγμένο εξωτερικό πρόγραμμα αναπαραγωγής μπορεί να βρεθεί μέσω της μεταβλητής
-      περιβάλλοντος PATH. Εάν χρειάζεται, μπορείτε να ορίσετε μια προσαρμοσμένη διαδρομή
-      εδώ.
-    Ignore Warnings: Απόκρυψη προειδοποιήσεων για όταν το τρέχον εξωτερικό πρόγραμμα
-      αναπαραγωγής δεν υποστηρίζει την τρέχουσα ενέργεια (π.χ. αντιστροφή λιστών αναπαραγωγής
-      κ.λπ.).
-    External Player: Η επιλογή ενός εξωτερικού προγράμματος αναπαραγωγής θα εμφανίσει
-      ένα εικονίδιο, για το άνοιγμα του βίντεο (λίστα αναπαραγωγής, εάν υποστηρίζεται)
-      στο εξωτερικό πρόγραμμα αναπαραγωγής, στη μικρογραφία. Προειδοποίηση, Οι ακατάλληλες
-      ρυθμίσεις δεν επηρεάζουν τις εξωτερικές συσκευές αναπαραγωγής.
+    Custom External Player Executable: Από προεπιλογή, το FreeTube θα υποθέσει ότι το επιλεγμένο εξωτερικό πρόγραμμα αναπαραγωγής μπορεί να βρεθεί μέσω της μεταβλητής περιβάλλοντος PATH. Εάν χρειάζεται, μπορείτε να ορίσετε μια προσαρμοσμένη διαδρομή εδώ.
+    Ignore Warnings: Απόκρυψη προειδοποιήσεων για όταν το τρέχον εξωτερικό πρόγραμμα αναπαραγωγής δεν υποστηρίζει την τρέχουσα ενέργεια (π.χ. αντιστροφή λιστών αναπαραγωγής κ.λπ.).
+    External Player: Η επιλογή ενός εξωτερικού προγράμματος αναπαραγωγής θα εμφανίσει ένα εικονίδιο, για το άνοιγμα του βίντεο (λίστα αναπαραγωγής, εάν υποστηρίζεται) στο εξωτερικό πρόγραμμα αναπαραγωγής, στη μικρογραφία. Προειδοποίηση, Οι ακατάλληλες ρυθμίσεις δεν επηρεάζουν τις εξωτερικές συσκευές αναπαραγωγής.
     DefaultCustomArgumentsTemplate: "(Προεπιλογή: '{defaultCustomArguments}')"
-    Custom External Player Arguments: Τυχόν προσαρμοσμένα ορίσματα γραμμής εντολών,
-      που θέλετε να μεταβιβαστούν στο εξωτερικό πρόγραμμα αναπαραγωγής.
-    Ignore Default Arguments: Μην στέλνετε προεπιλεγμένα ορίσματα στην εξωτερική συσκευή
-      αναπαραγωγής εκτός από τη διεύθυνση URL του βίντεο (π.χ. ρυθμός αναπαραγωγής,
-      διεύθυνση URL λίστας αναπαραγωγής κ.λπ.). Τα προσαρμοσμένα ορίσματα θα εξακολουθήσουν
-      να διαβιβάζονται.
+    Custom External Player Arguments: Τυχόν προσαρμοσμένα ορίσματα γραμμής εντολών, που θέλετε να μεταβιβαστούν στο εξωτερικό πρόγραμμα αναπαραγωγής.
+    Ignore Default Arguments: Μην στέλνετε προεπιλεγμένα ορίσματα στην εξωτερική συσκευή αναπαραγωγής εκτός από τη διεύθυνση URL του βίντεο (π.χ. ρυθμός αναπαραγωγής, διεύθυνση URL λίστας αναπαραγωγής κ.λπ.). Τα προσαρμοσμένα ορίσματα θα εξακολουθήσουν να διαβιβάζονται.
   Experimental Settings:
-    Replace HTTP Cache: Απενεργοποιεί το Electron's disk-based HTTP cache και ενεργοποιεί
-      μια προσαρμοσμένη προσωρινή μνήμη εικόνων στη μνήμη. Θα οδηγήσει σε αυξημένη
-      χρήση RAM.
+    Replace HTTP Cache: Απενεργοποιεί το Electron's disk-based HTTP cache και ενεργοποιεί μια προσαρμοσμένη προσωρινή μνήμη εικόνων στη μνήμη. Θα οδηγήσει σε αυξημένη χρήση RAM.
   Distraction Free Settings:
-    Hide Channels: Εισαγάγετε ένα αναγνωριστικό καναλιού για να αποκρύψετε όλα τα
-      βίντεο, τις λίστες αναπαραγωγής και το ίδιο το κανάλι, ώστε να μην εμφανίζονται
-      στην αναζήτηση, τα ανερχόμενα, τα πιο δημοφιλή και προτεινόμενα. Το αναγνωριστικό
-      καναλιού που καταχωρίσατε πρέπει να αντιστοιχεί πλήρως και να κάνει διάκριση
-      πεζών-κεφαλαίων.
-    Hide Subscriptions Live: Αυτή η ρύθμιση παρακάμπτεται από τη ρύθμιση "{appWideSetting}"
-      σε όλη την εφαρμογή, στην ενότητα "{subsection}" του "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Εισάγετε μια λέξη, ένα τμήμα λέξης
-      ή μια φράση (χωρίς ευαισθησία στην πεζότητα) για να αποκρύψετε όλα τα βίντεο
-      και τις λίστες αναπαραγωγής των οποίων οι αρχικοί τίτλοι την περιέχουν σε όλο
-      το FreeTube, εξαιρώντας μόνο το Ιστορικό, τις Λίστες αναπαραγωγής σας και τα
-      βίντεο μέσα σε λίστες αναπαραγωγής.
+    Hide Channels: Εισαγάγετε ένα αναγνωριστικό καναλιού για να αποκρύψετε όλα τα βίντεο, τις λίστες αναπαραγωγής και το ίδιο το κανάλι, ώστε να μην εμφανίζονται στην αναζήτηση, τα ανερχόμενα, τα πιο δημοφιλή και προτεινόμενα. Το αναγνωριστικό καναλιού που καταχωρίσατε πρέπει να αντιστοιχεί πλήρως και να κάνει διάκριση πεζών-κεφαλαίων.
+    Hide Subscriptions Live: Αυτή η ρύθμιση παρακάμπτεται από τη ρύθμιση "{appWideSetting}" σε όλη την εφαρμογή, στην ενότητα "{subsection}" του "{settingsSection}"
+    Hide Videos and Playlists Containing Text: Εισάγετε μια λέξη, ένα τμήμα λέξης ή μια φράση (χωρίς ευαισθησία στην πεζότητα) για να αποκρύψετε όλα τα βίντεο και τις λίστες αναπαραγωγής των οποίων οι αρχικοί τίτλοι την περιέχουν σε όλο το FreeTube, εξαιρώντας μόνο το Ιστορικό, τις Λίστες αναπαραγωγής σας και τα βίντεο μέσα σε λίστες αναπαραγωγής.
   SponsorBlock Settings:
-    UseDeArrowTitles: Αντικαταστήστε τους τίτλους βίντεο με τίτλους που υποβλήθηκαν
-      από τους χρήστες από το DeArrow.
-    UseDeArrowThumbnails: Αντικαταστήστε τις μικρογραφίες βίντεο με μικρογραφίες από
-      το DeArrow.
-Playing Next Video Interval: Αναπαραγωγή επόμενου βίντεο άμεσα. Κάντε κλικ για ακύρωση.
-  | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτο. Κάντε κλικ για
-  ακύρωση. | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτα. Κάντε
-  κλικ για ακύρωση.
+    UseDeArrowTitles: Αντικαταστήστε τους τίτλους βίντεο με τίτλους που υποβλήθηκαν από τους χρήστες από το DeArrow.
+    UseDeArrowThumbnails: Αντικαταστήστε τις μικρογραφίες βίντεο με μικρογραφίες από το DeArrow.
+Playing Next Video Interval: Αναπαραγωγή επόμενου βίντεο άμεσα. Κάντε κλικ για ακύρωση. | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτο. Κάντε κλικ για ακύρωση. | Αναπαραγωγή επόμενου βίντεο σε {nextVideoInterval} δευτερόλεπτα. Κάντε κλικ για ακύρωση.
 More: Περισσότερα
-Unknown YouTube url type, cannot be opened in app: Άγνωστος τύπος διεύθυνσης URL YouTube,
-  δεν είναι δυνατό να ανοίξει στην εφαρμογή
+Unknown YouTube url type, cannot be opened in app: Άγνωστος τύπος διεύθυνσης URL YouTube, δεν είναι δυνατό να ανοίξει στην εφαρμογή
 Search Bar:
   Clear Input: Εκκαθάριση εισαγωγής
   Remove: Αφαίρεση
 Open New Window: Άνοιγμα Νέου παραθύρου
-Default Invidious instance has been set to {instance}: Το προεπιλεγμένο στιγμιότυπο
-  Invidious έχει οριστεί σε {instance}
+Default Invidious instance has been set to {instance}: Το προεπιλεγμένο στιγμιότυπο Invidious έχει οριστεί σε {instance}
 Downloading has completed: Η λήψη του "{videoTitle}" ολοκληρώθηκε
 Starting download: Έναρξη λήψης του "{videoTitle}"
-Default Invidious instance has been cleared: Το προεπιλεγμένο στιγμιότυπο Invidious
-  έχει διαγραφεί
-External link opening has been disabled in the general settings: Το άνοιγμα εξωτερικών
-  συνδέσμων έχει απενεργοποιηθεί στις γενικές ρυθμίσεις
+Default Invidious instance has been cleared: Το προεπιλεγμένο στιγμιότυπο Invidious έχει διαγραφεί
+External link opening has been disabled in the general settings: Το άνοιγμα εξωτερικών συνδέσμων έχει απενεργοποιηθεί στις γενικές ρυθμίσεις
 Are you sure you want to open this link?: Θέλετε σίγουρα να ανοίξετε αυτόν το σύνδεσμο;
 Downloading failed: Παρουσιάστηκε ένα πρόβλημα κατά τη λήψη του "{videoTitle}"
 Channels:
@@ -1248,22 +1005,18 @@ New Window: Νέο Παράθυρο
 Screenshot Error: 'Λήψη στιγμιότυπου απέτυχε. {error}'
 Clipboard:
   Copy failed: Η αντιγραφή στο πρόχειρο απέτυχε
-  Cannot access clipboard without a secure connection: Δεν είναι δυνατή η πρόσβαση
-    στο πρόχειρο χωρίς ασφαλή σύνδεση
+  Cannot access clipboard without a secure connection: Δεν είναι δυνατή η πρόσβαση στο πρόχειρο χωρίς ασφαλή σύνδεση
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 'Κρυφή λίστα κεφαλαίων,
-    τρέχον κεφάλαιο: {chapterName}'
+  'Chapters list hidden, current chapter: {chapterName}': 'Κρυφή λίστα κεφαλαίων, τρέχον κεφάλαιο: {chapterName}'
   Chapters: Κεφάλαια
-  'Chapters list visible, current chapter: {chapterName}': 'Ορατή λίστα κεφαλαίων,
-    τρέχον κεφάλαιο: {chapterName}'
+  'Chapters list visible, current chapter: {chapterName}': 'Ορατή λίστα κεφαλαίων, τρέχον κεφάλαιο: {chapterName}'
   Key Moments: Στιγμές κλειδιά
 Ok: Εντάξει
 Preferences: Προτιμήσεις
 Screenshot Success: Αποθηκευμένο στιγμιότυπο
 Hashtag:
   Hashtag: Χαστάγκ
-  This hashtag does not currently have any videos: Αυτό το hashtag δεν έχει προς το
-    παρόν κανένα βίντεο
+  This hashtag does not currently have any videos: Αυτό το hashtag δεν έχει προς το παρόν κανένα βίντεο
 Channel Hidden: Το {channel} προστέθηκε στο φίλτρο καναλιού
 Go to page: Μετάβαση σε {page}
 Channel Unhidden: Το {channel} καταργήθηκε από το φίλτρο καναλιού
@@ -1298,21 +1051,17 @@ KeyboardShortcutPrompt:
       General: 'App: Γενικά'
       Situational: 'Εφαρμογή: Καταστασιακή'
   History Backward: Πήγαινε μια σελίδα πίσω
-  Large Rewind: Επανάληψη 10 δευτερολέπτων / Επανάληψη βίντεο με βάση τον τρέχοντα
-    ρυθμό αναπαραγωγής βίντεο
+  Large Rewind: Επανάληψη 10 δευτερολέπτων / Επανάληψη βίντεο με βάση τον τρέχοντα ρυθμό αναπαραγωγής βίντεο
   Mute: Εναλλαγή σίγασης
-  Decrease Video Speed: Μείωση της ταχύτητας βίντεο βάσει του διαστήματος ρυθμού αναπαραγωγής
-    βίντεο
+  Decrease Video Speed: Μείωση της ταχύτητας βίντεο βάσει του διαστήματος ρυθμού αναπαραγωγής βίντεο
   Reset Zoom: Επαναφορά επιπέδου ζουμ / κλίμακας UI
   Zoom In: Μεγέθυνση
-  Small Fast Forward: Γρήγορη προώθηση X δευτερόλεπτα βάσει του διαστήματος γρήγορης
-    προώθησης και του τρέχοντος ρυθμού αναπαραγωγής βίντεο
+  Small Fast Forward: Γρήγορη προώθηση X δευτερόλεπτα βάσει του διαστήματος γρήγορης προώθησης και του τρέχοντος ρυθμού αναπαραγωγής βίντεο
   Next Frame: Επόμενο καρέ (σε παύση)
   History Forward: Πήγαινε μια σελίδα μπροστά
   Volume Down: Μείωση έντασης
   Next Chapter: Επόμενο κεφάλαιο
-  Large Fast Forward: Προώθηση 10 δευτερολέπτων / Γρήγορη προώθηση βίντεο με βάση
-    τον τρέχοντα ρυθμό αναπαραγωγής βίντεο
+  Large Fast Forward: Προώθηση 10 δευτερολέπτων / Γρήγορη προώθηση βίντεο με βάση τον τρέχοντα ρυθμό αναπαραγωγής βίντεο
   Restart Window: Επανεκκίνηση παραθύρου
   Captions: Εναλλαγή των λεζάντων ON/OFF
   Force Restart Window: Παράθυρο αναγκαστικής επανεκκίνησης
@@ -1321,8 +1070,7 @@ KeyboardShortcutPrompt:
   Last Frame: Προηγούμενο καρέ (σε παύση)
   Keyboard Shortcuts: Συντομεύσεις πληκτρολογίου
   Navigate to Settings: Πλοηγηθείτε στη σελίδα Ρυθμίσεις
-  Small Rewind: Αναδίπλωση X δευτερολέπτων βάσει του διαστήματος αναδίπλωσης και του
-    τρέχοντος ρυθμού αναπαραγωγής βίντεο
+  Small Rewind: Αναδίπλωση X δευτερολέπτων βάσει του διαστήματος αναδίπλωσης και του τρέχοντος ρυθμού αναπαραγωγής βίντεο
   Refresh: Ανανέωση της τροφοδοσίας με το πιο πρόσφατο περιεχόμενο
   Play: Εναλλαγή αναπαραγωγής/παύσης
   Fullscreen: Εναλλαγή πλήρους οθόνης
@@ -1333,8 +1081,7 @@ KeyboardShortcutPrompt:
   Take Screenshot: Τράβηξε στιγμιότυπο οθόνης
   Stats: Εμφάνιση στατιστικών βίντεο
   Picture in Picture: Εναλλαγή της λειτουργίας Εικόνα-σε-Εικόνα
-  Increase Video Speed: Αύξηση της ταχύτητας βίντεο βάσει του διαστήματος ρυθμού αναπαραγωγής
-    βίντεο
+  Increase Video Speed: Αύξηση της ταχύτητας βίντεο βάσει του διαστήματος ρυθμού αναπαραγωγής βίντεο
   Zoom Out: Σμίκρυνση
   Volume Up: Αύξηση έντασης
   Last Chapter: Τελευταίο κεφάλαιο
@@ -1359,11 +1106,8 @@ Keys:
   arrowright: Δεξί βέλος
   arrowup: Πάνω βέλος
   shift: Shift
-Trimmed input must be at least N characters long: Η περικομμένη είσοδος πρέπει να
-  έχει μήκος τουλάχιστον 1 χαρακτήρα | Η περικομμένη είσοδος πρέπει να έχει μήκος
-  τουλάχιστον {length} χαρακτήρες
-Autoplay Interruption Timer: Η αυτόματη αναπαραγωγή ακυρώθηκε λόγω {autoplayInterruptionIntervalHours}
-  ωρών αδράνειας
+Trimmed input must be at least N characters long: Η περικομμένη είσοδος πρέπει να έχει μήκος τουλάχιστον 1 χαρακτήρα | Η περικομμένη είσοδος πρέπει να έχει μήκος τουλάχιστον {length} χαρακτήρες
+Autoplay Interruption Timer: Η αυτόματη αναπαραγωγή ακυρώθηκε λόγω {autoplayInterruptionIntervalHours} ωρών αδράνειας
 Tag already exists: Η ετικέτα «{tagName}» υπάρχει ήδη
 Moments Ago: στιγμές πριν
 checkmark: ✓

@@ -331,6 +331,10 @@ const props = defineProps({
     type: Number,
     required: true
   },
+  isDurationApproximate: {
+    type: Boolean,
+    required: true
+  },
   lastUpdated: {
     type: String,
     default: undefined,
@@ -382,7 +386,17 @@ const durationFormatted = computed(() => {
     seconds: total % 60,
   }
 
-  return new Intl.DurationFormat([locale.value, 'en'], { style: 'short' }).format(duration)
+  let formatted = new Intl.DurationFormat([locale.value, 'en'], { style: 'short' }).format(duration)
+
+  if (props.moreVideoDataAvailable && !isUserPlaylist.value) {
+    formatted += '+'
+  }
+
+  if (props.isDurationApproximate && formatted) {
+    formatted = `~${formatted}`
+  }
+
+  return formatted
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */
