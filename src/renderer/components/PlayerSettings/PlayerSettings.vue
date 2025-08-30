@@ -73,6 +73,12 @@
           :default-value="enterFullscreenOnDisplayRotate"
           @change="updateEnterFullscreenOnDisplayRotate"
         />
+        <FtToggleSwitch
+          :label="t('Settings.Player Settings.Skip Silence Enabled')"
+          :compact="true"
+          :default-value="skipSilenceEnabled"
+          @change="updateSkipSilenceEnabled"
+        />
       </div>
     </div>
     <FtFlexBox>
@@ -381,6 +387,16 @@ const enterFullscreenOnDisplayRotate = computed(() => store.getters.getEnterFull
  */
 function updateEnterFullscreenOnDisplayRotate(value) {
   store.dispatch('updateEnterFullscreenOnDisplayRotate', value)
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const skipSilenceEnabled = computed(() => store.getters.getSkipSilenceEnabled)
+
+/**
+ * @param {boolean} value
+ */
+function updateSkipSilenceEnabled(value) {
+  store.dispatch('updateSkipSilenceEnabled', value)
 }
 
 /** @type {import('vue').ComputedRef<string>} */
