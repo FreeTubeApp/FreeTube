@@ -810,15 +810,15 @@ export default defineComponent({
 
       if (onlyUseOverFlowMenu.value) {
         uiConfig.overflowMenuButtons = [
-          'ft_screenshot',
           'ft_autoplay_toggle',
+          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'playback_rate',
-          'loop',
-          'ft_audio_tracks',
           'captions',
+          'ft_audio_tracks',
+          'loop',
+          'ft_screenshot',
           'picture_in_picture',
           'ft_full_window',
-          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'recenter_vr',
           'toggle_stereoscopic',
         ]
