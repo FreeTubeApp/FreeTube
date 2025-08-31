@@ -311,34 +311,36 @@ class SubscriptionCache {
   static async updateShortsWithChannelPageShortsByChannelId(channelId, entries) {
     const doc = await db.subscriptionCache.findOneAsync({ _id: channelId }, { shorts: 1 })
 
-    if (Array.isArray(doc?.shorts)) {
-      let hasUpdates = false
+    if (!Array.isArray(doc?.shorts)) {
+      return
+    }
 
-      doc.shorts.forEach(cachedVideo => {
-        const channelVideo = entries.find(short => cachedVideo.videoId === short.videoId)
-        if (!channelVideo) { return }
+    let hasUpdates = false
 
-        hasUpdates = true
+    doc.shorts.forEach(cachedVideo => {
+      const channelVideo = entries.find(short => cachedVideo.videoId === short.videoId)
+      if (!channelVideo) { return }
 
-        // authorId probably never changes, so we don't need to update that
-        cachedVideo.title = channelVideo.title
-        cachedVideo.author = channelVideo.author
+      hasUpdates = true
 
-        // as the channel shorts page only has compact view counts for numbers above 1000 e.g. 12k
-        // and the RSS feeds include an exact value, we only want to overwrite it when the number is larger than the cached value
-        // 12345 vs 12000 => 12345
-        // 12345 vs 15000 => 15000
-        if (channelVideo.viewCount > cachedVideo.viewCount) {
-          cachedVideo.viewCount = channelVideo.viewCount
-        }
-      })
+      // authorId probably never changes, so we don't need to update that
+      cachedVideo.title = channelVideo.title
+      cachedVideo.author = channelVideo.author
 
-      if (hasUpdates) {
-        await db.subscriptionCache.updateAsync(
-          { _id: channelId },
-          { $set: { shorts: doc.shorts } }
-        )
+      // as the channel shorts page only has compact view counts for numbers above 1000 e.g. 12k
+      // and the RSS feeds include an exact value, we only want to overwrite it when the number is larger than the cached value
+      // 12345 vs 12000 => 12345
+      // 12345 vs 15000 => 15000
+      if (channelVideo.viewCount > cachedVideo.viewCount) {
+        cachedVideo.viewCount = channelVideo.viewCount
       }
+    })
+
+    if (hasUpdates) {
+      await db.subscriptionCache.updateAsync(
+        { _id: channelId },
+        { $set: { shorts: doc.shorts } }
+      )
     }
   }
 
