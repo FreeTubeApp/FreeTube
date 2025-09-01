@@ -222,13 +222,62 @@ export async function getLocalTrending(location, tab, instance) {
  */
 export async function getLocalSearchResults(query, filters, safetyMode) {
   const innertube = await createInnertube({ safetyMode })
-  const response = await innertube.search(query, convertSearchFilters(filters))
+  
+  let searchResponse
 
-  const searchResponse = handleSearchResponse(response)
+  if (filters && filters.sortBy === 'random') {
+    // For random sorting, fetch multiple pages to get comprehensive results
+    const allResults = []
+    const maxPages = 5 // Fetch up to 5 pages for better randomization
+    
+    for (let page = 1; page <= maxPages; page++) {
+      try {
+        // Use different sort methods to get diverse results
+        const sortMethods = ['relevance', 'upload_date', 'view_count', 'rating']
+        const randomSort = sortMethods[Math.floor(Math.random() * sortMethods.length)]
+        
+        const tempFilters = { ...filters, sortBy: randomSort }
+        const response = await innertube.search(query, convertSearchFilters(tempFilters))
+        const pageResponse = handleSearchResponse(response)
+        
+        if (pageResponse.results && pageResponse.results.length > 0) {
+          allResults.push(...pageResponse.results)
+        } else {
+          break // No more results
+        }
+      } catch (error) {
+        console.warn(`Failed to fetch page ${page} for random search:`, error)
+        break
+      }
+    }
+    
+    // Remove duplicates based on videoId
+    const uniqueResults = []
+    const seenIds = new Set()
+    
+    for (const result of allResults) {
+      if (result.videoId && !seenIds.has(result.videoId)) {
+        seenIds.add(result.videoId)
+        uniqueResults.push(result)
+      } else if (!result.videoId) {
+        // For non-video results, include them
+        uniqueResults.push(result)
+      }
+    }
+    
+    searchResponse = {
+      results: uniqueResults,
+      continuationData: null
+    }
+  } else {
+    // Normal search for other sort options
+    const response = await innertube.search(query, convertSearchFilters(filters))
+    searchResponse = handleSearchResponse(response)
+  }
 
-  // Apply random sorting if requested
+  // Apply final random sorting if requested
   if (filters && filters.sortBy === 'random' && searchResponse.results.length > 0) {
-    // Fisher-Yates shuffle algorithm
+    // Fisher-Yates shuffle algorithm for comprehensive randomization
     for (let i = searchResponse.results.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [searchResponse.results[i], searchResponse.results[j]] = [searchResponse.results[j], searchResponse.results[i]]
@@ -1558,9 +1607,9 @@ function convertSearchFilters(filters) {
   // others have empty strings that we don't want to pass to youtubei.js
 
   if (filters) {
-    if (filters.sortBy) {
-      // For random sorting, use relevance as base and shuffle later
-      convertedFilters.sort_by = filters.sortBy === 'random' ? 'relevance' : filters.sortBy
+    if (filters.sortBy && filters.sortBy !== 'random') {
+      // Only convert non-random sort options
+      convertedFilters.sort_by = filters.sortBy
     }
 
     if (filters.time) {

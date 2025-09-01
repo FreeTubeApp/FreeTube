@@ -551,19 +551,52 @@ export async function getInvidiousTrending(tab, region) {
  */
 export async function getInvidiousSearchResults(query, page, searchSettings) {
   /** @type {Promise<(InvidiousChannelObject | InvidiousPlaylistObject | InvidiousVideoType | InvidiousHashtagObject)[] | null>} */
-  let results = await invidiousAPICall({
-    resource: 'search',
-    id: '',
-    params: {
-      q: query,
-      page,
-      sort_by: searchSettings.sortBy === 'random' ? 'relevance' : searchSettings.sortBy,
-      date: searchSettings.time,
-      duration: searchSettings.duration,
-      type: searchSettings.type,
-      features: searchSettings.features.join(',')
+  let results
+
+  if (searchSettings.sortBy === 'random') {
+    // For random sorting, fetch multiple pages to get comprehensive results
+    const allResults = []
+    const maxPages = 5 // Fetch up to 5 pages for better randomization
+    
+    for (let p = 1; p <= maxPages; p++) {
+      const pageResults = await invidiousAPICall({
+        resource: 'search',
+        id: '',
+        params: {
+          q: query,
+          page: p,
+          sort_by: 'relevance', // Use relevance to get diverse results
+          date: searchSettings.time,
+          duration: searchSettings.duration,
+          type: searchSettings.type,
+          features: searchSettings.features.join(',')
+        }
+      })
+      
+      if (pageResults && pageResults.length > 0) {
+        allResults.push(...pageResults)
+      } else {
+        break // No more results
+      }
     }
-  })
+    
+    results = allResults
+  } else {
+    // Normal search for other sort options
+    results = await invidiousAPICall({
+      resource: 'search',
+      id: '',
+      params: {
+        q: query,
+        page,
+        sort_by: searchSettings.sortBy,
+        date: searchSettings.time,
+        duration: searchSettings.duration,
+        type: searchSettings.type,
+        features: searchSettings.features.join(',')
+      }
+    })
+  }
 
   if (!results) {
     return null
@@ -581,7 +614,7 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
 
   // Apply random sorting if requested
   if (searchSettings.sortBy === 'random') {
-    // Fisher-Yates shuffle algorithm
+    // Fisher-Yates shuffle algorithm for comprehensive randomization
     for (let i = results.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [results[i], results[j]] = [results[j], results[i]]
