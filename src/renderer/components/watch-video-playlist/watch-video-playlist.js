@@ -586,10 +586,11 @@ export default defineComponent({
 
       if (targetArrayIndex >= 0 && targetArrayIndex < this.playlistItems.length) {
         const container = this.$refs.playlistItems
-        const targetPlaylistItemEl = (this.$refs.playlistItem || [])[targetArrayIndex]
+        const playlistItemElements = Array.from(container.children)
+        const targetPlaylistItemEl = playlistItemElements[targetArrayIndex]
         if (container != null && targetPlaylistItemEl != null) {
           // Watch view can be ready sooner than this component
-          container.scrollTop = targetPlaylistItemEl.$el.offsetTop - container.offsetTop
+          container.scrollTop = targetPlaylistItemEl.offsetTop - container.offsetTop
         }
       }
     },
