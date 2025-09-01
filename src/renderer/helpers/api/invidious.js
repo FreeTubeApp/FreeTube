@@ -179,7 +179,53 @@ async function getInvidiousChannelTab(tab, channelId, continuation, sortBy) {
  */
 export async function getInvidiousChannelVideos(channelId, sortBy, continuation) {
   /** @type {{continuation: string?, videos: InvidiousVideoType[]}}  */
-  const response = await getInvidiousChannelTab('videos', channelId, continuation, sortBy)
+  let response
+
+  if (sortBy === 'random' && !continuation) {
+    // For random sorting, fetch multiple pages to get comprehensive results
+    const allVideos = []
+    const maxPages = 5 // Fetch up to 5 pages for better randomization
+    
+    for (let page = 1; page <= maxPages; page++) {
+      try {
+        const pageResponse = await getInvidiousChannelTab('videos', channelId, null, 'newest')
+        
+        if (pageResponse.videos && pageResponse.videos.length > 0) {
+          allVideos.push(...pageResponse.videos)
+        } else {
+          break // No more results
+        }
+      } catch (error) {
+        console.warn(`Failed to fetch page ${page} for random channel videos:`, error)
+        break
+      }
+    }
+    
+    // Remove duplicates based on videoId
+    const uniqueVideos = []
+    const seenIds = new Set()
+    
+    for (const video of allVideos) {
+      if (video.videoId && !seenIds.has(video.videoId)) {
+        seenIds.add(video.videoId)
+        uniqueVideos.push(video)
+      }
+    }
+    
+    // Apply Fisher-Yates shuffle
+    for (let i = uniqueVideos.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [uniqueVideos[i], uniqueVideos[j]] = [uniqueVideos[j], uniqueVideos[i]]
+    }
+    
+    response = {
+      videos: uniqueVideos,
+      continuation: null
+    }
+  } else {
+    // Normal channel video fetch
+    response = await getInvidiousChannelTab('videos', channelId, continuation, sortBy === 'random' ? 'newest' : sortBy)
+  }
 
   setMultiplePublishedTimestamps(response.videos)
 

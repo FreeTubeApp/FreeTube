@@ -372,8 +372,8 @@ const playlistSelectNames = computed(() => [
 
 const videoLiveShortSelectValues = computed(() => {
   return isArtistTopicChannel.value
-    ? ['newest', 'popular']
-    : ['newest', 'popular', 'oldest']
+    ? ['newest', 'popular', 'random']
+    : ['newest', 'popular', 'oldest', 'random']
 })
 
 const videoLiveShortSelectNames = computed(() => {
@@ -381,13 +381,15 @@ const videoLiveShortSelectNames = computed(() => {
     return [
       t('Channel.Videos.Sort Types.Newest'),
       t('Channel.Videos.Sort Types.Most Popular'),
+      t('Channel.Videos.Sort Types.Random')
     ]
   }
 
   return [
     t('Channel.Videos.Sort Types.Newest'),
     t('Channel.Videos.Sort Types.Most Popular'),
-    t('Channel.Videos.Sort Types.Oldest')
+    t('Channel.Videos.Sort Types.Oldest'),
+    t('Channel.Videos.Sort Types.Random')
   ]
 })
 
@@ -1117,8 +1119,60 @@ async function getChannelVideosLocal() {
       showVideoSortBy.value = videosTab.filters.length > 1
 
       if (showVideoSortBy.value && videoSortBy.value !== 'newest') {
-        const index = videoLiveShortSelectValues.value.indexOf(videoSortBy.value)
-        videosTab = await videosTab.applyFilter(videosTab.filters[index])
+        if (videoSortBy.value === 'random') {
+          // For random sorting, fetch multiple pages and shuffle
+          const allVideos = []
+          const maxPages = 5
+          
+          for (let page = 1; page <= maxPages; page++) {
+            try {
+              // Use different sort methods to get diverse results
+              const sortMethods = ['newest', 'popular', 'oldest']
+              const randomSort = sortMethods[Math.floor(Math.random() * sortMethods.length)]
+              const randomIndex = videoLiveShortSelectValues.value.indexOf(randomSort)
+              
+              let pageVideosTab = await channelInstance.getVideos()
+              if (randomIndex >= 0 && randomIndex < pageVideosTab.filters.length) {
+                pageVideosTab = await pageVideosTab.applyFilter(pageVideosTab.filters[randomIndex])
+              }
+              
+              const pageVideos = parseLocalChannelVideos(pageVideosTab.videos, id.value, channelName.value)
+              if (pageVideos.length > 0) {
+                allVideos.push(...pageVideos)
+              } else {
+                break
+              }
+            } catch (error) {
+              console.warn(`Failed to fetch page ${page} for random channel videos:`, error)
+              break
+            }
+          }
+          
+          // Remove duplicates based on videoId
+          const uniqueVideos = []
+          const seenIds = new Set()
+          
+          for (const video of allVideos) {
+            if (video.videoId && !seenIds.has(video.videoId)) {
+              seenIds.add(video.videoId)
+              uniqueVideos.push(video)
+            }
+          }
+          
+          // Apply Fisher-Yates shuffle
+          for (let i = uniqueVideos.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [uniqueVideos[i], uniqueVideos[j]] = [uniqueVideos[j], uniqueVideos[i]]
+          }
+          
+          latestVideos.value = uniqueVideos
+          videoContinuationData.value = null
+          isElementListLoading.value = false
+          return
+        } else {
+          const index = videoLiveShortSelectValues.value.indexOf(videoSortBy.value)
+          videosTab = await videosTab.applyFilter(videosTab.filters[index])
+        }
       }
 
       if (expectedId !== id.value) {
