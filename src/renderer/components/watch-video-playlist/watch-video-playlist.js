@@ -566,7 +566,7 @@ export default defineComponent({
     updateProgressBarPreview: function (event) {
       if (!this.showProgressBarPreview) return
 
-      const rect = event.currentTarget.querySelector('.playlistProgressBar').getBoundingClientRect()
+      const rect = this.$refs.playlistProgressBar.getBoundingClientRect()
       const mouseX = event.clientX - rect.left
       const progressBarWidth = rect.width
       const percentage = Math.max(0, Math.min(100, (mouseX / progressBarWidth) * 100))

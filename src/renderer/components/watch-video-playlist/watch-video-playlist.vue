@@ -50,6 +50,7 @@
           @mousemove="updateProgressBarPreview"
         >
           <div
+            ref="playlistProgressBar"
             class="playlistProgressBar"
             :class="{ expanded: showProgressBarPreview }"
             @click="handleProgressBarClick"
