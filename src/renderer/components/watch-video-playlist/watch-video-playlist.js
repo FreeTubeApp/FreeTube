@@ -162,7 +162,7 @@ export default defineComponent({
           if (this.backendPreference === 'invidious') {
             baseUrl = this.currentInvidiousInstanceUrl
           }
-          return `${baseUrl}/vi/${videoId}/mqdefault.jpg`
+          return `${baseUrl}/vi/${videoId}/default.jpg`
         }
       }
       return null
