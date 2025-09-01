@@ -67,7 +67,7 @@
   border: 1px solid var(--primary-border-color);
   border-radius: 8px;
   padding-block: 8px;
-  padding-inline: 12px; /* remove? */
+  padding-inline: 12px;
   font-size: 12px;
   color: var(--primary-text-color);
   white-space: nowrap;
@@ -106,8 +106,7 @@
 .previewIndicator {
   inline-size: 0;
   block-size: 0;
-  border-inline-start: 6px solid transparent;
-  border-inline-end: 6px solid transparent;
+  border-inline: 6px solid transparent;
   border-block-start: 6px solid var(--card-bg-color);
   margin-block: 0;
   margin-inline: auto;
