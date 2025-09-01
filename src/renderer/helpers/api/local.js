@@ -224,7 +224,18 @@ export async function getLocalSearchResults(query, filters, safetyMode) {
   const innertube = await createInnertube({ safetyMode })
   const response = await innertube.search(query, convertSearchFilters(filters))
 
-  return handleSearchResponse(response)
+  const searchResponse = handleSearchResponse(response)
+
+  // Apply random sorting if requested
+  if (filters && filters.sortBy === 'random' && searchResponse.results.length > 0) {
+    // Fisher-Yates shuffle algorithm
+    for (let i = searchResponse.results.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [searchResponse.results[i], searchResponse.results[j]] = [searchResponse.results[j], searchResponse.results[i]]
+    }
+  }
+
+  return searchResponse
 }
 
 /**
@@ -1548,7 +1559,8 @@ function convertSearchFilters(filters) {
 
   if (filters) {
     if (filters.sortBy) {
-      convertedFilters.sort_by = filters.sortBy
+      // For random sorting, use relevance as base and shuffle later
+      convertedFilters.sort_by = filters.sortBy === 'random' ? 'relevance' : filters.sortBy
     }
 
     if (filters.time) {

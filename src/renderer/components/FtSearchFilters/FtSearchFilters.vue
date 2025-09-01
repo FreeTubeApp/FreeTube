@@ -84,7 +84,8 @@ const SORT_BY_VALUES = [
   'relevance',
   'rating',
   'upload_date',
-  'view_count'
+  'view_count',
+  'random'
 ]
 
 const TIME_VALUES = [
@@ -137,7 +138,8 @@ const sortByLabels = computed(() => [
   t('Search Filters.Sort By.Most Relevant'),
   t('Search Filters.Sort By.Rating'),
   t('Search Filters.Sort By.Upload Date'),
-  t('Search Filters.Sort By.View Count')
+  t('Search Filters.Sort By.View Count'),
+  t('Search Filters.Sort By.Random')
 ])
 
 const timeLabels = computed(() => [
@@ -179,7 +181,7 @@ const featureLabels = computed(() => [
 
 const searchSettings = store.getters.getSearchSettings
 
-/** @type {import('vue').Ref<'relevance' | 'rating' | 'upload_date' | 'view_count'>} */
+/** @type {import('vue').Ref<'relevance' | 'rating' | 'upload_date' | 'view_count' | 'random'>} */
 const sortByValue = ref(searchSettings.sortBy)
 
 watch(sortByValue, (value) => {

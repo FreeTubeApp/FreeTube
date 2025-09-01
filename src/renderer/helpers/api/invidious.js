@@ -557,7 +557,7 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
     params: {
       q: query,
       page,
-      sort_by: searchSettings.sortBy,
+      sort_by: searchSettings.sortBy === 'random' ? 'relevance' : searchSettings.sortBy,
       date: searchSettings.time,
       duration: searchSettings.duration,
       type: searchSettings.type,
@@ -578,6 +578,15 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
       setPublishedTimestamp(item)
     }
   })
+
+  // Apply random sorting if requested
+  if (searchSettings.sortBy === 'random') {
+    // Fisher-Yates shuffle algorithm
+    for (let i = results.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [results[i], results[j]] = [results[j], results[i]]
+    }
+  }
 
   return results
 }
