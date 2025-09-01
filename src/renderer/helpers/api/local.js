@@ -226,11 +226,19 @@ export async function getLocalSearchResults(query, filters, safetyMode) {
   let searchResponse
 
   if (filters && filters.sortBy === 'random') {
-    // For random sorting, fetch multiple pages to get comprehensive results
+    // For random sorting, fetch random pages to get comprehensive results
     const allResults = []
-    const maxPages = 5 // Fetch up to 5 pages for better randomization
+    const maxPages = 20 // Fetch up to 20 pages for maximum randomization
+    const pagesToFetch = Math.min(maxPages, Math.floor(Math.random() * 15) + 5) // Random 5-20 pages
     
-    for (let page = 1; page <= maxPages; page++) {
+    // Generate random page numbers to fetch
+    const pageNumbers = Array.from({ length: pagesToFetch }, (_, i) => i + 1)
+    for (let i = pageNumbers.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pageNumbers[i], pageNumbers[j]] = [pageNumbers[j], pageNumbers[i]]
+    }
+    
+    for (const page of pageNumbers) {
       try {
         // Use different sort methods to get diverse results
         const sortMethods = ['relevance', 'upload_date', 'view_count', 'rating']

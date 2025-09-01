@@ -182,11 +182,19 @@ export async function getInvidiousChannelVideos(channelId, sortBy, continuation)
   let response
 
   if (sortBy === 'random' && !continuation) {
-    // For random sorting, fetch multiple pages to get comprehensive results
+    // For random sorting, fetch random pages to get comprehensive results
     const allVideos = []
-    const maxPages = 5 // Fetch up to 5 pages for better randomization
+    const maxPages = 20 // Fetch up to 20 pages for maximum randomization
+    const pagesToFetch = Math.min(maxPages, Math.floor(Math.random() * 15) + 5) // Random 5-20 pages
     
-    for (let page = 1; page <= maxPages; page++) {
+    // Generate random page numbers to fetch
+    const pageNumbers = Array.from({ length: pagesToFetch }, (_, i) => i + 1)
+    for (let i = pageNumbers.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pageNumbers[i], pageNumbers[j]] = [pageNumbers[j], pageNumbers[i]]
+    }
+    
+    for (const page of pageNumbers) {
       try {
         const pageResponse = await getInvidiousChannelTab('videos', channelId, null, 'newest')
         
@@ -600,11 +608,19 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
   let results
 
   if (searchSettings.sortBy === 'random') {
-    // For random sorting, fetch multiple pages to get comprehensive results
+    // For random sorting, fetch random pages to get comprehensive results
     const allResults = []
-    const maxPages = 5 // Fetch up to 5 pages for better randomization
+    const maxPages = 20 // Fetch up to 20 pages for maximum randomization
+    const pagesToFetch = Math.min(maxPages, Math.floor(Math.random() * 15) + 5) // Random 5-20 pages
     
-    for (let p = 1; p <= maxPages; p++) {
+    // Generate random page numbers to fetch
+    const pageNumbers = Array.from({ length: pagesToFetch }, (_, i) => i + 1)
+    for (let i = pageNumbers.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pageNumbers[i], pageNumbers[j]] = [pageNumbers[j], pageNumbers[i]]
+    }
+    
+    for (const p of pageNumbers) {
       const pageResults = await invidiousAPICall({
         resource: 'search',
         id: '',

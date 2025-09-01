@@ -1120,11 +1120,19 @@ async function getChannelVideosLocal() {
 
       if (showVideoSortBy.value && videoSortBy.value !== 'newest') {
         if (videoSortBy.value === 'random') {
-          // For random sorting, fetch multiple pages and shuffle
+          // For random sorting, fetch random pages and shuffle
           const allVideos = []
-          const maxPages = 5
+          const maxPages = 20 // Fetch up to 20 pages for maximum randomization
+          const pagesToFetch = Math.min(maxPages, Math.floor(Math.random() * 15) + 5) // Random 5-20 pages
           
-          for (let page = 1; page <= maxPages; page++) {
+          // Generate random page numbers to fetch
+          const pageNumbers = Array.from({ length: pagesToFetch }, (_, i) => i + 1)
+          for (let i = pageNumbers.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [pageNumbers[i], pageNumbers[j]] = [pageNumbers[j], pageNumbers[i]]
+          }
+          
+          for (const page of pageNumbers) {
             try {
               // Use different sort methods to get diverse results
               const sortMethods = ['newest', 'popular', 'oldest']
