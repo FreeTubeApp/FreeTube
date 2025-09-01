@@ -1016,8 +1016,6 @@ Clipboard:
   Copy failed: فشل النسخ إلى الحافظة
 Chapters:
   Chapters: الفصول
-  'Chapters list hidden, current chapter: {chapterName}': 'قائمة الفصول مخفية ، الفصل الحالي: {chapterName}'
-  'Chapters list visible, current chapter: {chapterName}': 'قائمة الفصول المرئية ، الفصل الحالي: {chapterName}'
   Key Moments: ‌العناصر الرئيسية
 Preferences: التفضيلات
 Ok: موافق

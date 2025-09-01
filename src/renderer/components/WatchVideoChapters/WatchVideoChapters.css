@@ -2,9 +2,14 @@
   overflow-y: hidden;
 }
 
-.chaptersTitle {
+.chaptersSummary {
   margin-block: 10px 0;
   cursor: pointer;
+  list-style: none;
+}
+
+.chaptersTitle {
+  margin-block: 0;
 }
 
 .currentChapter {
@@ -28,8 +33,8 @@
   vertical-align: middle;
 }
 
-.chaptersChevron.open {
-  margin-inline-start: 4px;
+.chaptersDetails[open] .chaptersChevron {
+  transform: translateX(4px) rotate(90deg);
 }
 
 .chapter {

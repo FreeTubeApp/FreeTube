@@ -981,9 +981,6 @@ Clipboard:
 
 Chapters:
   Chapters: 'Chabistroù'
-  'Chapters list visible, current chapter: {chapterName}': 'Roll ar chabistroù diskouezet, chabistr bremanel : {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Roll ar chabistroù kuzhet, chabistr bremanel : {chapterName}'
-
   Key Moments: Mareoù a-bouez
 Mini Player: 'Lenner bihan'
 Comments:
