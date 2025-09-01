@@ -186,18 +186,18 @@ export async function getInvidiousChannelVideos(channelId, sortBy, continuation)
     const allVideos = []
     const maxPages = 20 // Fetch up to 20 pages for maximum randomization
     const pagesToFetch = Math.min(maxPages, Math.floor(Math.random() * 15) + 5) // Random 5-20 pages
-    
+
     // Generate random page numbers to fetch
     const pageNumbers = Array.from({ length: pagesToFetch }, (_, i) => i + 1)
     for (let i = pageNumbers.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [pageNumbers[i], pageNumbers[j]] = [pageNumbers[j], pageNumbers[i]]
     }
-    
+
     for (const page of pageNumbers) {
       try {
         const pageResponse = await getInvidiousChannelTab('videos', channelId, null, 'newest')
-        
+
         if (pageResponse.videos && pageResponse.videos.length > 0) {
           allVideos.push(...pageResponse.videos)
         } else {
@@ -208,24 +208,24 @@ export async function getInvidiousChannelVideos(channelId, sortBy, continuation)
         break
       }
     }
-    
+
     // Remove duplicates based on videoId
     const uniqueVideos = []
     const seenIds = new Set()
-    
+
     for (const video of allVideos) {
       if (video.videoId && !seenIds.has(video.videoId)) {
         seenIds.add(video.videoId)
         uniqueVideos.push(video)
       }
     }
-    
+
     // Apply Fisher-Yates shuffle
     for (let i = uniqueVideos.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [uniqueVideos[i], uniqueVideos[j]] = [uniqueVideos[j], uniqueVideos[i]]
     }
-    
+
     response = {
       videos: uniqueVideos,
       continuation: null
@@ -612,14 +612,14 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
     const allResults = []
     const maxPages = 20 // Fetch up to 20 pages for maximum randomization
     const pagesToFetch = Math.min(maxPages, Math.floor(Math.random() * 15) + 5) // Random 5-20 pages
-    
+
     // Generate random page numbers to fetch
     const pageNumbers = Array.from({ length: pagesToFetch }, (_, i) => i + 1)
     for (let i = pageNumbers.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [pageNumbers[i], pageNumbers[j]] = [pageNumbers[j], pageNumbers[i]]
     }
-    
+
     for (const p of pageNumbers) {
       const pageResults = await invidiousAPICall({
         resource: 'search',
@@ -634,14 +634,14 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
           features: searchSettings.features.join(',')
         }
       })
-      
+
       if (pageResults && pageResults.length > 0) {
         allResults.push(...pageResults)
       } else {
         break // No more results
       }
     }
-    
+
     results = allResults
   } else {
     // Normal search for other sort options

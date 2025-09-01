@@ -222,7 +222,7 @@ export async function getLocalTrending(location, tab, instance) {
  */
 export async function getLocalSearchResults(query, filters, safetyMode) {
   const innertube = await createInnertube({ safetyMode })
-  
+
   let searchResponse
 
   if (filters && filters.sortBy === 'random') {
@@ -230,24 +230,24 @@ export async function getLocalSearchResults(query, filters, safetyMode) {
     const allResults = []
     const maxPages = 20 // Fetch up to 20 pages for maximum randomization
     const pagesToFetch = Math.min(maxPages, Math.floor(Math.random() * 15) + 5) // Random 5-20 pages
-    
+
     // Generate random page numbers to fetch
     const pageNumbers = Array.from({ length: pagesToFetch }, (_, i) => i + 1)
     for (let i = pageNumbers.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [pageNumbers[i], pageNumbers[j]] = [pageNumbers[j], pageNumbers[i]]
     }
-    
+
     for (const page of pageNumbers) {
       try {
         // Use different sort methods to get diverse results
         const sortMethods = ['relevance', 'upload_date', 'view_count', 'rating']
         const randomSort = sortMethods[Math.floor(Math.random() * sortMethods.length)]
-        
+
         const tempFilters = { ...filters, sortBy: randomSort }
         const response = await innertube.search(query, convertSearchFilters(tempFilters))
         const pageResponse = handleSearchResponse(response)
-        
+
         if (pageResponse.results && pageResponse.results.length > 0) {
           allResults.push(...pageResponse.results)
         } else {
@@ -258,11 +258,11 @@ export async function getLocalSearchResults(query, filters, safetyMode) {
         break
       }
     }
-    
+
     // Remove duplicates based on videoId
     const uniqueResults = []
     const seenIds = new Set()
-    
+
     for (const result of allResults) {
       if (result.videoId && !seenIds.has(result.videoId)) {
         seenIds.add(result.videoId)
@@ -272,7 +272,7 @@ export async function getLocalSearchResults(query, filters, safetyMode) {
         uniqueResults.push(result)
       }
     }
-    
+
     searchResponse = {
       results: uniqueResults,
       continuationData: null

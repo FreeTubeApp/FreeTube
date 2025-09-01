@@ -1124,26 +1124,26 @@ async function getChannelVideosLocal() {
           const allVideos = []
           const maxPages = 20 // Fetch up to 20 pages for maximum randomization
           const pagesToFetch = Math.min(maxPages, Math.floor(Math.random() * 15) + 5) // Random 5-20 pages
-          
+
           // Generate random page numbers to fetch
           const pageNumbers = Array.from({ length: pagesToFetch }, (_, i) => i + 1)
           for (let i = pageNumbers.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [pageNumbers[i], pageNumbers[j]] = [pageNumbers[j], pageNumbers[i]]
           }
-          
+
           for (const page of pageNumbers) {
             try {
               // Use different sort methods to get diverse results
               const sortMethods = ['newest', 'popular', 'oldest']
               const randomSort = sortMethods[Math.floor(Math.random() * sortMethods.length)]
               const randomIndex = videoLiveShortSelectValues.value.indexOf(randomSort)
-              
+
               let pageVideosTab = await channelInstance.getVideos()
               if (randomIndex >= 0 && randomIndex < pageVideosTab.filters.length) {
                 pageVideosTab = await pageVideosTab.applyFilter(pageVideosTab.filters[randomIndex])
               }
-              
+
               const pageVideos = parseLocalChannelVideos(pageVideosTab.videos, id.value, channelName.value)
               if (pageVideos.length > 0) {
                 allVideos.push(...pageVideos)
@@ -1155,24 +1155,24 @@ async function getChannelVideosLocal() {
               break
             }
           }
-          
+
           // Remove duplicates based on videoId
           const uniqueVideos = []
           const seenIds = new Set()
-          
+
           for (const video of allVideos) {
             if (video.videoId && !seenIds.has(video.videoId)) {
               seenIds.add(video.videoId)
               uniqueVideos.push(video)
             }
           }
-          
+
           // Apply Fisher-Yates shuffle
           for (let i = uniqueVideos.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [uniqueVideos[i], uniqueVideos[j]] = [uniqueVideos[j], uniqueVideos[i]]
           }
-          
+
           latestVideos.value = uniqueVideos
           videoContinuationData.value = null
           isElementListLoading.value = false
