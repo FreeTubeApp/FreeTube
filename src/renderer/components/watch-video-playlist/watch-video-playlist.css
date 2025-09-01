@@ -28,10 +28,6 @@
   padding-block: 8px;
 }
 
-.playlistProgressBarContainer:hover {
-  opacity: 0.9;
-}
-
 .playlistProgressBar {
   cursor: pointer;
   background-color: var(--secondary-text-color);
