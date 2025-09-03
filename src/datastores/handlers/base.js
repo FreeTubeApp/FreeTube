@@ -59,14 +59,18 @@ class Settings {
   // Unique Electron main process handlers
   static _findAppReadyRelatedSettings() {
     return db.settings.findAsync({
-      $or: [
-        { _id: 'disableSmoothScrolling' },
-        { _id: 'useProxy' },
-        { _id: 'proxyProtocol' },
-        { _id: 'proxyHostname' },
-        { _id: 'proxyPort' },
-        { _id: 'hideToTrayOnMinimize' }
-      ]
+      _id: {
+        $in: [
+          'disableSmoothScrolling',
+          'useProxy',
+          'proxyProtocol',
+          'proxyHostname',
+          'proxyPort',
+          'backendFallback',
+          'backendPreference',
+          'hideToTrayOnMinimize'
+        ]
+      }
     })
   }
 
@@ -78,8 +82,6 @@ class Settings {
     return {
       hideTrendingVideos: db.settings.findOneAsync({ _id: 'hideTrendingVideos' }),
       hidePopularVideos: db.settings.findOneAsync({ _id: 'hidePopularVideos' }),
-      backendFallback: db.settings.findOneAsync({ _id: 'backendFallback' }),
-      backendPreference: db.settings.findOneAsync({ _id: 'backendPreference' }),
       hidePlaylists: db.settings.findOneAsync({ _id: 'hidePlaylists' }),
     }
   }
@@ -308,37 +310,40 @@ class SubscriptionCache {
     )
   }
 
-  static updateShortsWithChannelPageShortsByChannelId(channelId, entries) {
-    return db.subscriptionCache.findOneAsync({ _id: channelId }, { shorts: 1 }).then((doc) => {
-      if (doc == null) { return }
+  static async updateShortsWithChannelPageShortsByChannelId(channelId, entries) {
+    const doc = await db.subscriptionCache.findOneAsync({ _id: channelId }, { shorts: 1 })
 
-      const shorts = doc.shorts
-      const cacheShorts = Array.isArray(shorts) ? shorts : []
+    if (!Array.isArray(doc?.shorts)) {
+      return
+    }
 
-      cacheShorts.forEach(cachedVideo => {
-        const channelVideo = entries.find(short => cachedVideo.videoId === short.videoId)
-        if (!channelVideo) { return }
+    let hasUpdates = false
 
-        // authorId probably never changes, so we don't need to update that
-        cachedVideo.title = channelVideo.title
-        cachedVideo.author = channelVideo.author
+    doc.shorts.forEach(cachedVideo => {
+      const channelVideo = entries.find(short => cachedVideo.videoId === short.videoId)
+      if (!channelVideo) { return }
 
-        // as the channel shorts page only has compact view counts for numbers above 1000 e.g. 12k
-        // and the RSS feeds include an exact value, we only want to overwrite it when the number is larger than the cached value
-        // 12345 vs 12000 => 12345
-        // 12345 vs 15000 => 15000
+      hasUpdates = true
 
-        if (channelVideo.viewCount > cachedVideo.viewCount) {
-          cachedVideo.viewCount = channelVideo.viewCount
-        }
-      })
+      // authorId probably never changes, so we don't need to update that
+      cachedVideo.title = channelVideo.title
+      cachedVideo.author = channelVideo.author
 
-      return db.subscriptionCache.updateAsync(
-        { _id: channelId },
-        { $set: { shorts: cacheShorts } },
-        { upsert: true }
-      )
+      // as the channel shorts page only has compact view counts for numbers above 1000 e.g. 12k
+      // and the RSS feeds include an exact value, we only want to overwrite it when the number is larger than the cached value
+      // 12345 vs 12000 => 12345
+      // 12345 vs 15000 => 15000
+      if (channelVideo.viewCount > cachedVideo.viewCount) {
+        cachedVideo.viewCount = channelVideo.viewCount
+      }
     })
+
+    if (hasUpdates) {
+      await db.subscriptionCache.updateAsync(
+        { _id: channelId },
+        { $set: { shorts: doc.shorts } }
+      )
+    }
   }
 
   static updateCommunityPostsByChannelId(channelId, entries, timestamp) {

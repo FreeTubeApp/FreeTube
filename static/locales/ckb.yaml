@@ -795,10 +795,6 @@ Clipboard:
 
 Chapters:
   Chapters: 'بڕگەکان'
-  'Chapters list visible, current chapter: {chapterName}': 'پێڕستی بڕگە دیارەکان،
-    بڕگەی ئێستا: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'پێڕستی بڕگە شاراوەکان،
-    بڕگەی ئێستا: {chapterName}'
 
 Mini Player: 'لێدەری گچکە'
 Comments:

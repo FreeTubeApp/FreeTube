@@ -77,6 +77,9 @@ function runApp() {
 
   const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
 
+  let backendPreference = 'local'
+  let backendFallback = true
+
   contextMenu({
     showSearchWithGoogle: false,
     showSaveImageAs: true,
@@ -221,7 +224,7 @@ function runApp() {
         },
         {
           label: 'Copy Invidious Link',
-          visible: visible && isInAppUrl,
+          visible: visible && isInAppUrl && (backendPreference === 'invidious' || backendFallback),
           click: () => {
             copy(transformURL(false))
           }
@@ -473,6 +476,12 @@ function runApp() {
             break
           case 'proxyPort':
             proxyPort = doc.value
+            break
+          case 'backendFallback':
+            backendFallback = doc.value
+            break
+          case 'backendPreference':
+            backendPreference = doc.value
             break
           case 'hideToTrayOnMinimize':
             if (process.platform !== 'darwin') {
@@ -1482,10 +1491,16 @@ function runApp() {
           )
           switch (data._id) {
             // Update app menu on related setting update
+            case 'backendFallback':
+              backendFallback = data.value
+              await setMenu()
+              break
+            case 'backendPreference':
+              backendPreference = data.value
+              await setMenu()
+              break
             case 'hideTrendingVideos':
             case 'hidePopularVideos':
-            case 'backendFallback':
-            case 'backendPreference':
             case 'hidePlaylists':
               await setMenu()
               break
@@ -2064,8 +2079,6 @@ function runApp() {
     const sidenavSettings = baseHandlers.settings._findSidenavSettings()
     const hideTrendingVideos = (await sidenavSettings.hideTrendingVideos)?.value
     const hidePopularVideos = (await sidenavSettings.hidePopularVideos)?.value
-    const backendFallback = (await sidenavSettings.backendFallback)?.value
-    const backendPreference = (await sidenavSettings.backendPreference)?.value
     const hidePlaylists = (await sidenavSettings.hidePlaylists)?.value
 
     const template = [

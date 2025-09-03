@@ -1012,9 +1012,7 @@ Channels:
   Title: רשימת ערוצים
   Unsubscribe Prompt: לבטל את המינוי על „{channelName}”?
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 'רשימת הפרקים מוסתרת, הפרק הנוכחי: {chapterName}'
   Chapters: פרקים
-  'Chapters list visible, current chapter: {chapterName}': 'רשימת הפרקים גלויה, הפרק הנוכחי: {chapterName}'
   Key Moments: רגעי שיא
 Clipboard:
   Copy failed: ההעתקה ללוח הגזירים נכשלה

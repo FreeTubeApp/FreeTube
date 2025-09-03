@@ -1015,8 +1015,6 @@ Clipboard:
   Copy failed: Copia negli appunti non riuscita
 Chapters:
   Chapters: Capitoli
-  'Chapters list visible, current chapter: {chapterName}': 'Elenco capitoli visibile, capitolo corrente: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Elenco capitoli nascosto, capitolo corrente: {chapterName}'
   Key Moments: Momenti chiave
 Preferences: Preferenze
 Ok: OK

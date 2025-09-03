@@ -1011,9 +1011,7 @@ Clipboard:
 Go to page: Đi đến {page}
 Close Banner: Đóng thanh trên
 Chapters:
-  'Chapters list visible, current chapter: {chapterName}': 'Danh sách các chương hiển thị, chương hiện tại: {chapterName}'
   Chapters: Chương
-  'Chapters list hidden, current chapter: {chapterName}': 'Danh sách các chương bị ẩn, chương hiện tại: {chapterName}'
   Key Moments: Khoảnh khắc chính
 Channel Unhidden: '{channel} đã bị xóa khỏi bộ lọc kênh'
 Tag already exists: Thẻ "{tagName}" đã tồn tại

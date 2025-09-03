@@ -1015,8 +1015,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: 没有安全连接无法访问剪贴板
 Chapters:
   Chapters: 章节
-  'Chapters list visible, current chapter: {chapterName}': 章节列表可见，当前章节：{chapterName}
-  'Chapters list hidden, current chapter: {chapterName}': 章节列表隐藏，当前章节：{chapterName}
   Key Moments: 关键时刻
 Preferences: 选项
 Ok: 好
