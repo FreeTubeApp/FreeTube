@@ -63,7 +63,7 @@ export class StatsButton extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.icon_.use(this.showStats_ ? PlayerIcons.INSERT_CHART : PlayerIcons.INSERT_CHART_DEFAULT)
+    this.icon_.use(this.showStats_ ? PlayerIcons.INSERT_CHART_FILLED : PlayerIcons.INSERT_CHART_DEFAULT)
 
     const baseLabel = this.showStats_ ? i18n.t('Video.Player.Hide Stats') : i18n.t('Video.Player.Show Stats')
     const label = addKeyboardShortcutToActionTitle(

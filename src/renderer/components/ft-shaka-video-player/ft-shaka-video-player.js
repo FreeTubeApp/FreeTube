@@ -925,7 +925,7 @@ export default defineComponent({
 
           // TODO: enable this when electron gets document PiP support
           // https://github.com/electron/electron/issues/39633
-          preferDocumentPictureInPicture: false,
+          preferDocumentPictureInPicture: false
         }
 
         // Combine the config objects so we only need to do one configure call

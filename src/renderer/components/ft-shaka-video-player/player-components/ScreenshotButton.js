@@ -18,7 +18,7 @@ export class ScreenshotButton extends shaka.ui.Element {
     this.button_.classList.add('screenshot-button', 'shaka-tooltip')
 
     /** @private */
-    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.PHOTO_CAMERA)
+    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.PHOTO_CAMERA_FILLED)
 
     const label = document.createElement('label')
     label.classList.add(

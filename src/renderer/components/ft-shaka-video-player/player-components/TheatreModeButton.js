@@ -19,7 +19,7 @@ export class TheatreModeButton extends shaka.ui.Element {
     this.button_.classList.add('theatre-button', 'shaka-tooltip')
 
     /** @private */
-    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.TV)
+    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.TV_DEFAULT)
 
     const label = document.createElement('label')
     label.classList.add(
@@ -67,7 +67,7 @@ export class TheatreModeButton extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.icon_.use(this.theatreModeEnabled_ ? PlayerIcons.MONITOR : PlayerIcons.TV)
+    this.icon_.use(this.theatreModeEnabled_ ? PlayerIcons.MONITOR_DEFAULT : PlayerIcons.TV_DEFAULT)
 
     this.currentState_.textContent = this.localization.resolve(this.theatreModeEnabled_ ? 'ON' : 'OFF')
 

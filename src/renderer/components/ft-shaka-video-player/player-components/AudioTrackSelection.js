@@ -11,13 +11,13 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
    * @param {!shaka.ui.Controls} controls
    */
   constructor(events, parent, controls) {
-    super(parent, controls, PlayerIcons.SPATIAL_AUDIO_OFF)
+    super(parent, controls, PlayerIcons.SPATIAL_AUDIO_OFF_FILLED)
 
     this.button.classList.add('audio-track-button', 'shaka-tooltip-status')
     this.menu.classList.add('audio-tracks')
 
     /** @type {SVGElement} */
-    const checkmarkIcon = new shaka.ui.MaterialSVGIcon(null, PlayerIcons.DONE).getSvgElement()
+    const checkmarkIcon = new shaka.ui.MaterialSVGIcon(null, PlayerIcons.DONE_FILLED).getSvgElement()
     checkmarkIcon.classList.add('shaka-chosen-item')
     checkmarkIcon.ariaHidden = 'true'
 

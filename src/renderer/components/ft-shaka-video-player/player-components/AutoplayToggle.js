@@ -18,7 +18,7 @@ export class AutoplayToggle extends shaka.ui.Element {
     this.button_.classList.add('autoplay-toggle', 'shaka-tooltip')
 
     /** @private */
-    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.PAUSE_CIRCLE)
+    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.PAUSE_CIRCLE_FILLED)
 
     const label = document.createElement('label')
     label.classList.add(
@@ -69,7 +69,7 @@ export class AutoplayToggle extends shaka.ui.Element {
   updateLocalisedStrings_() {
     this.nameSpan_.textContent = i18n.t('Video.Autoplay')
 
-    this.icon_.use(this.autoplayEnabled_ ? PlayerIcons.PLAY_CIRCLE : PlayerIcons.PAUSE_CIRCLE)
+    this.icon_.use(this.autoplayEnabled_ ? PlayerIcons.PLAY_CIRCLE_FILLED : PlayerIcons.PAUSE_CIRCLE_FILLED)
 
     this.currentState_.textContent = this.localization.resolve(this.autoplayEnabled_ ? 'ON' : 'OFF')
 
