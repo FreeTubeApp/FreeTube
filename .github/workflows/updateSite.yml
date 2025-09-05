@@ -27,7 +27,7 @@ jobs:
         command: repos.listReleases
         payload: >
             {
-              "owner": "FreeTubeApp",
+              "owner": "PrestonN",
               "repo": "FreeTube"
             }
       env:
