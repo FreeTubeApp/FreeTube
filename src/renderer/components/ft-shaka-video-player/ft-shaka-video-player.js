@@ -2666,7 +2666,7 @@ export default defineComponent({
       // ideally we would set this in the `streaming` event handler, but for HLS this is only set to true after the loaded event fires.
       isLive.value = player.isLive()
       // getAudioTracks() returns an empty array when no variant is active, so we can't do this in the `streaming` event
-      hasMultipleAudioTracks.value = deduplicateAudioTracks(player.getAudioTracks()).length > 1
+      hasMultipleAudioTracks.value = deduplicateAudioTracks(player.getAudioTracks()).size > 1
 
       const promises = []
 

@@ -53,7 +53,7 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
    * @private
    */
   updateAudioTracks_() {
-    const tracks = deduplicateAudioTracks(this.player.getAudioTracks())
+    const tracks = deduplicateAudioTracks(this.player.getAudioTracks()).values()
 
     const menu = this.menu
 
