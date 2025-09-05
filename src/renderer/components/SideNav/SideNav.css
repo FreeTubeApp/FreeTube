@@ -42,6 +42,9 @@
   position: relative;
   padding: 5px;
   min-block-size: 35px;
+}
+
+.navOption {
   -webkit-user-drag: none;
 }
 

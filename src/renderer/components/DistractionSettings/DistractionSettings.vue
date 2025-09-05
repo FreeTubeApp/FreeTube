@@ -104,7 +104,8 @@
         <FtToggleSwitch
           :label="t('Settings.Distraction Free Settings.Hide Popular Videos')"
           :compact="true"
-          :default-value="hidePopularVideos"
+          :disabled="disableHidePopularVideos"
+          :default-value="disableHidePopularVideos || hidePopularVideos"
           @change="updateHidePopularVideos"
         />
       </div>
@@ -299,10 +300,15 @@ const { t } = useI18n()
 
 const channelHiderDisabled = ref(false)
 
-/** @type {import('vue').ComputedRef<{ preference: 'local' | 'invidious', fallback: boolean }>} */
+/** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
+const backendPreference = computed(() => store.getters.getBackendPreference)
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const backendFallback = computed(() => store.getters.getBackendFallback)
+
 const backendOptions = computed(() => ({
-  preference: store.getters.getBackendPreference,
-  fallback: store.getters.getBackendFallback
+  preference: backendPreference.value,
+  fallback: backendFallback.value
 }))
 
 /** @type {import('vue').ComputedRef<boolean>} */
@@ -371,6 +377,8 @@ function updateHideTrendingVideos(value) {
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hidePopularVideos = computed(() => store.getters.getHidePopularVideos)
+
+const disableHidePopularVideos = computed(() => backendPreference.value !== 'invidious' && !backendFallback.value)
 
 /**
  * @param {boolean} value

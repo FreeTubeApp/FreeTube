@@ -1013,8 +1013,6 @@ Clipboard:
   Copy failed: Falha ao copiar para a área de transferência
   Cannot access clipboard without a secure connection: Não é possível acessar a área de transferência sem uma conexão segura
 Chapters:
-  'Chapters list visible, current chapter: {chapterName}': 'Lista visível de capítulos, capítulo atual: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Lista oculta de capítulos, capítulo atual: {chapterName}'
   Chapters: Capítulos
   Key Moments: Melhores momentos
 Ok: OK

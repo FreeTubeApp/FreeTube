@@ -1013,8 +1013,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Güvenli bağlantı olmadan panoya erişilemiyor
 Chapters:
   Chapters: Bölümler
-  'Chapters list visible, current chapter: {chapterName}': 'Bölüm listesi görünür, geçerli bölüm: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Bölüm listesi gizli, geçerli bölüm: {chapterName}'
   Key Moments: Kilit Anlar
 Preferences: Tercihler
 Ok: Tamam

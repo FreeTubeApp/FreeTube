@@ -1026,9 +1026,7 @@ Clipboard:
 Tag already exists: '"{tagName}" etiketa badago jada'
 Trimmed input must be at least N characters long: Moztutako sarrerak karaktere bat izan behar du gutxienez | Moztutako sarrerak gutxienez {length} karaktere izan behar ditu
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 'Kapituluen zerrenda ezkutatuta dago, uneko kapitulua: {chapterName}'
   Chapters: Kapituluak
-  'Chapters list visible, current chapter: {chapterName}': 'Kapituluen zerrenda ikusgai, uneko kapitulua: {chapterName}'
   Key Moments: Une garrantzitsuenak
 Hashtag:
   Hashtag: Traola

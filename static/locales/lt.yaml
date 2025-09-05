@@ -671,8 +671,6 @@ Screenshot Success: Ekrano kopija išsaugota kaip „{filePath}“
 Screenshot Error: Ekrano kopija nepavyko. {error}
 Chapters:
   Chapters: Skirsniai
-  'Chapters list visible, current chapter: {chapterName}': 'Skirsnių sąrašas matomas, dabartinis skirsnis: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Skirsnių sąrašas paslėptas, dabartinis skirsnis: {chapterName}'
 Clipboard:
   Copy failed: Nepavyko nukopijuoti į iškarpinę
   Cannot access clipboard without a secure connection: Negalima pasiekti iškarpinės be saugaus ryšio

@@ -1101,8 +1101,6 @@ KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Chapters:
   Key Moments: Momen-momen penting
-  'Chapters list hidden, current chapter: {chapterName}': 'Daftar bab tersembunyi, bab saat ini: {chapterName}'
-  'Chapters list visible, current chapter: {chapterName}': 'Daftar bab terlihat, bab saat ini: {chapterName}'
   Chapters: Bab-bab
 shortcutLabelSeparator: ' '
 Description:

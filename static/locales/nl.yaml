@@ -1015,8 +1015,6 @@ Hashtag:
 Ok: Oké
 Chapters:
   Chapters: Hoofdstukken
-  'Chapters list hidden, current chapter: {chapterName}': 'Hoofdstukkenlijst verborgen, huidig hoofdstuk: {chapterName}'
-  'Chapters list visible, current chapter: {chapterName}': 'Hoofdstukkenlijst zichtbaar, huidig hoofdstuk: {chapterName}'
   Key Moments: Belangrijke Momenten
 Clipboard:
   Cannot access clipboard without a secure connection: Geen toegang tot klembord zonder een beveiligde verbinding

@@ -1014,8 +1014,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Har inte tillgång till urklipp utan en säker anslutning
   Copy failed: Kopiera till urklipp misslyckades
 Chapters:
-  'Chapters list visible, current chapter: {chapterName}': 'Kapitellista synlig, nuvarande kapitel: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Kapitellista dold, nuvarande kapitel: {chapterName}'
   Chapters: Kapitel
   Key Moments: Viktiga Ögonblick
 Downloading has completed: '"{videoTitle}" har laddats ner'

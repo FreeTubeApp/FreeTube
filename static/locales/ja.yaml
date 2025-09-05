@@ -1012,8 +1012,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: 安全な接続でなければクリップボードにはアクセスできません
 Chapters:
   Chapters: チャプター
-  'Chapters list visible, current chapter: {chapterName}': 'チャプター リストを表示、現在のチャプター： {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'チャプター リストを非表示、現在のチャプター： {chapterName}'
   Key Moments: ハイライト
 Preferences: 環境設定
 Ok: オーケー
