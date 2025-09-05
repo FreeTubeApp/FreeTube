@@ -51,9 +51,7 @@ jobs:
       run: |
         git checkout master
     - name: Update index.php
-      uses: mikefarah/yq@v4.47.1
-      with:
-        # The Command which should be run
+      run: |
         cmd: sed -in 's/${{ }}/${{ }}/' src/index.php
     - name: Commit Files
       uses: stefanzweifel/git-auto-commit-action@v6
