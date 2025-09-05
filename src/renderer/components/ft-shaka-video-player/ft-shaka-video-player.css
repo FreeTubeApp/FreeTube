@@ -248,14 +248,7 @@
 @media (prefers-reduced-transparency) {
   :deep(.playerFullscreenTitleOverlay),
   .skippedSegment,
-  :deep(.shaka-tooltips-on > .shaka-tooltip-status:active::after),
-  :deep(.shaka-tooltips-on > .shaka-tooltip-status:focus-visible::after),
-  :deep(.shaka-tooltips-on > .shaka-tooltip-status:hover::after),
-  :deep(.shaka-tooltips-on > .shaka-tooltip:active::after),
-  :deep(.shaka-tooltips-on > .shaka-tooltip:focus-visible::after),
-  :deep(.shaka-tooltips-on > .shaka-tooltip:hover::after),
-  :deep(#shaka-player-ui-time-container),
-  :deep(#shaka-player-ui-thumbnail-container #shaka-player-ui-thumbnail-time-container #shaka-player-ui-thumbnail-time) {
+  .stats {
     background-color: rgb(0 0 0 / 90%);
   }
 }
