@@ -17,7 +17,7 @@ jobs:
     steps:
     - uses: actions/checkout@v5
       with:
-        repository: PrestonN/FreeTubeApp.io
+        repository: FreeTubeApp/FreeTubeApp.io
         token: ${{ secrets.FLATHUB_TOKEN }}
     - name: Get Repo Release List
       uses: moustacheful/github-api-exec-action@v0
@@ -27,7 +27,7 @@ jobs:
         command: repos.listReleases
         payload: >
             {
-              "owner": "PrestonN",
+              "owner": "FreeTubeApp",
               "repo": "FreeTube"
             }
       env:
