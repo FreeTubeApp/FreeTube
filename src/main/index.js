@@ -753,6 +753,13 @@ function runApp() {
         type: 'separator'
       },
       {
+        label: 'New Window',
+        click: () => createWindow({
+          showWindowNow: true,
+          replaceMainWindow: true
+        })
+      },
+      {
         label: 'Quit',
         click: handleQuit
       }
