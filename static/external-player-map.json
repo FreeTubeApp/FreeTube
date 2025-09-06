@@ -173,5 +173,22 @@
           "playlistShuffle": null,
           "playlistLoop": null
         }
-    }
+    },
+    {
+      "name": "Streamledge",
+      "value": "streamledge",
+      "cmdArguments": {
+          "defaultExecutable": "streamledge",
+          "defaultCustomArguments": ["--yt"],
+          "supportsYtdlProtocol": false,
+          "videoUrl": "",
+          "playlistUrl": "",
+          "startOffset": "--vidstart",
+          "playbackRate": null,
+          "playlistIndex": "--plstart",
+          "playlistReverse": null,
+          "playlistShuffle": "--shuffle",
+          "playlistLoop": "--loop"
+      }
+  }
 ]
