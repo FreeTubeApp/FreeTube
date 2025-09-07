@@ -703,6 +703,15 @@ function runApp() {
     }
   })
 
+  app.on('login', async (event, webContents, request, authInfo, callback) => {
+    if (authInfo.isProxy) {
+      const proxyUsername = (await baseHandlers.settings._findOne('proxyUsername'))?.value
+      const proxyPassword = (await baseHandlers.settings._findOne('proxyPassword'))?.value
+      event.preventDefault()
+      callback(proxyUsername, proxyPassword)
+    }
+  })
+
   function trayClick(window, close = false) {
     if (!close) {
       if (window.id in trayMaximizedWindows) {
