@@ -782,11 +782,7 @@ function runApp() {
       tray.destroy()
       tray = null
     } else {
-<<<<<<< HEAD
       const menu = Menu.buildFromTemplate(defaultTrayMenu())
-=======
-      const menu = Menu.buildFromTemplate(...defaultTrayMenu())
->>>>>>> 8bc900e1b4f55035d49648e91212ec911486b9d6
       tray.setContextMenu(menu)
     }
   }
