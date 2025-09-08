@@ -2790,13 +2790,13 @@ cacheable-request@^7.0.2:
     normalize-url "^6.0.1"
     responselike "^2.0.0"
 
-cacheable@^1.10.3:
-  version "1.10.3"
-  resolved "https://registry.yarnpkg.com/cacheable/-/cacheable-1.10.3.tgz#8dcb02081a10c4819a8d70e1251bcce0ee5afdd4"
-  integrity sha512-M6p10iJ/VT0wT7TLIGUnm958oVrU2cUK8pQAVU21Zu7h8rbk/PeRtRWrvHJBql97Bhzk3g1N6+2VKC+Rjxna9Q==
+cacheable@^1.10.4:
+  version "1.10.4"
+  resolved "https://registry.yarnpkg.com/cacheable/-/cacheable-1.10.4.tgz#874c7ac005e9127e1daa3b09dbb4fd01743a4e91"
+  integrity sha512-Gd7ccIUkZ9TE2odLQVS+PDjIvQCdJKUlLdJRVvZu0aipj07Qfx+XIej7hhDrKGGoIxV5m5fT/kOJNJPQhQneRg==
   dependencies:
-    hookified "^1.10.0"
-    keyv "^5.4.0"
+    hookified "^1.11.0"
+    keyv "^5.5.0"
 
 call-bind-apply-helpers@^1.0.0, call-bind-apply-helpers@^1.0.1, call-bind-apply-helpers@^1.0.2:
   version "1.0.2"
@@ -4415,12 +4415,12 @@ fdir@^6.4.4:
   resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.4.6.tgz#2b268c0232697063111bbf3f64810a2a741ba281"
   integrity sha512-hiFoqpyZcfNm1yc4u8oWCf9A2c4D3QjCrks3zmoVKVxpQRzmPNar1hUJcBG2RQHvEVGDN+Jm81ZheVLAQMK6+w==
 
-file-entry-cache@^10.1.3:
-  version "10.1.3"
-  resolved "https://registry.yarnpkg.com/file-entry-cache/-/file-entry-cache-10.1.3.tgz#4b2eec07e37025434f9a99428a6923948da4dc12"
-  integrity sha512-D+w75Ub8T55yor7fPgN06rkCAUbAYw2vpxJmmjv/GDAcvCnv9g7IvHhIZoxzRZThrXPFI2maeY24pPbtyYU7Lg==
+file-entry-cache@^10.1.4:
+  version "10.1.4"
+  resolved "https://registry.yarnpkg.com/file-entry-cache/-/file-entry-cache-10.1.4.tgz#1e81441517dc33ba5fe14421d96dc5fe7e37e820"
+  integrity sha512-5XRUFc0WTtUbjfGzEwXc42tiGxQHBmtbUG1h9L2apu4SulCGN3Hqm//9D6FAolf8MYNL7f/YlJl9vy08pj5JuA==
   dependencies:
-    flat-cache "^6.1.12"
+    flat-cache "^6.1.13"
 
 file-entry-cache@^8.0.0:
   version "8.0.0"
@@ -4485,14 +4485,14 @@ flat-cache@^4.0.0:
     flatted "^3.2.9"
     keyv "^4.5.4"
 
-flat-cache@^6.1.12:
-  version "6.1.12"
-  resolved "https://registry.yarnpkg.com/flat-cache/-/flat-cache-6.1.12.tgz#385c73844b82171da8d98995b756ba84e6caa452"
-  integrity sha512-U+HqqpZPPXP5d24bWuRzjGqVqUcw64k4nZAbruniDwdRg0H10tvN7H6ku1tjhA4rg5B9GS3siEvwO2qjJJ6f8Q==
+flat-cache@^6.1.13:
+  version "6.1.13"
+  resolved "https://registry.yarnpkg.com/flat-cache/-/flat-cache-6.1.13.tgz#7428e97be2aa918f371e880ebbf7f61ff48f33fa"
+  integrity sha512-gmtS2PaUjSPa4zjObEIn4WWliKyZzYljgxODBfxugpK6q6HU9ClXzgCJ+nlcPKY9Bt090ypTOLIFWkV0jbKFjw==
   dependencies:
-    cacheable "^1.10.3"
+    cacheable "^1.10.4"
     flatted "^3.3.3"
-    hookified "^1.10.0"
+    hookified "^1.11.0"
 
 flat@^5.0.2:
   version "5.0.2"
@@ -4900,10 +4900,10 @@ he@^1.2.0:
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
-hookified@^1.10.0:
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/hookified/-/hookified-1.11.0.tgz#085a8f1e196ffe31905d5122b40a8e547c69e660"
-  integrity sha512-aDdIN3GyU5I6wextPplYdfmWCo+aLmjjVbntmX6HLD5RCi/xKsivYEBhnRD+d9224zFf008ZpLMPlWF0ZodYZw==
+hookified@^1.11.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/hookified/-/hookified-1.12.0.tgz#eb4097ed1459211eef47fe85a8b3382c5f633996"
+  integrity sha512-hMr1Y9TCLshScrBbV2QxJ9BROddxZ12MX9KsCtuGGy/3SmmN5H1PllKerrVlSotur9dlE8hmUKAOSa3WDzsZmQ==
 
 hosted-git-info@^4.1.0:
   version "4.1.0"
@@ -5743,7 +5743,7 @@ keyv@^4.0.0, keyv@^4.5.4:
   dependencies:
     json-buffer "3.0.1"
 
-keyv@^5.4.0:
+keyv@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/keyv/-/keyv-5.5.0.tgz#0ad5037484a7e01b033df7018033b5cc9ca7884f"
   integrity sha512-QG7qR2tijh1ftOvClut4YKKg1iW6cx3GZsKoGyJPxHkGWK9oJhG9P3j5deP0QQOGDowBMVQFaP+Vm4NpGYvmIQ==
@@ -8178,10 +8178,10 @@ stylelint-use-logical-spec@^5.0.1:
   resolved "https://registry.yarnpkg.com/stylelint-use-logical-spec/-/stylelint-use-logical-spec-5.0.1.tgz#d5aa254d615d373f18214297c0b49a03a6ca5980"
   integrity sha512-UfLB4LW6iG4r3cXxjxkiHQrFyhWFqt8FpNNngD+TyvgMWSokk5TYwTvBHS3atUvZhOogllTOe/PUrGE+4z84AA==
 
-stylelint@^16.23.1, stylelint@^16.8.2:
-  version "16.23.1"
-  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-16.23.1.tgz#e5f5ee173adf989db0855b825e66f9ccdde3c78a"
-  integrity sha512-dNvDTsKV1U2YtiUDfe9d2gp902veFeo3ecCWdGlmLm2WFrAV0+L5LoOj/qHSBABQwMsZPJwfC4bf39mQm1S5zw==
+stylelint@^16.24.0, stylelint@^16.8.2:
+  version "16.24.0"
+  resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-16.24.0.tgz#a436920636732b496a55665997f2804d1d63b5b6"
+  integrity sha512-7ksgz3zJaSbTUGr/ujMXvLVKdDhLbGl3R/3arNudH7z88+XZZGNLMTepsY28WlnvEFcuOmUe7fg40Q3lfhOfSQ==
   dependencies:
     "@csstools/css-parser-algorithms" "^3.0.5"
     "@csstools/css-tokenizer" "^3.0.4"
@@ -8196,7 +8196,7 @@ stylelint@^16.23.1, stylelint@^16.8.2:
     debug "^4.4.1"
     fast-glob "^3.3.3"
     fastest-levenshtein "^1.0.16"
-    file-entry-cache "^10.1.3"
+    file-entry-cache "^10.1.4"
     global-modules "^2.0.0"
     globby "^11.1.0"
     globjoin "^0.1.4"
