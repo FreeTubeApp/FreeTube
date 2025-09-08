@@ -106,7 +106,7 @@
     "postcss-scss": "^4.0.9",
     "sass": "^1.91.0",
     "sass-loader": "^16.0.5",
-    "stylelint": "^16.23.1",
+    "stylelint": "^16.24.0",
     "stylelint-config-sass-guidelines": "^12.1.0",
     "stylelint-config-standard": "^39.0.0",
     "stylelint-high-performance-animation": "^1.11.0",
