@@ -76,7 +76,7 @@
     "youtubei.js": "^15.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.3",
+    "@babel/core": "^7.28.4",
     "@babel/preset-env": "^7.28.3",
     "@double-great/stylelint-a11y": "^3.4.0",
     "@eslint/js": "^9.34.0",
