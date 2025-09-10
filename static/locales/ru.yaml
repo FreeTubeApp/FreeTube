@@ -592,9 +592,9 @@ Settings:
     Hide Unsubscribe Button: Скрыть кнопку отписки
     Hide Search Bar: Скрыть строку поиска
   Experimental Settings:
-    Experimental Settings: Эксперементы
+    Experimental Settings: Эксперименты
     Replace HTTP Cache: Заменить HTTP-кэш
-    Warning: Эти настройки являются пробными, они могут привести к вылетам приложения при включении. Желательно сделать резервные копии. Используйте на своё усмотрение!
+    Warning: Эти настройки экспериментальные и могут вызывать сбои при включении. Настоятельно рекомендуется делать резервные копии. Используйте их на свой страх и риск!
   Password Dialog:
     Password: Пароль
     Enter Password To Unlock: Введите пароль для разблокировки настроек
@@ -626,7 +626,7 @@ About:
   FAQ: ЧАВО
   FreeTube Wiki: Вики FreeTube
   Help: Помощь
-  GitHub releases: Выпуски на GitHub
+  GitHub releases: Релизы на GitHub
   Downloads / Changelog: Скачать / Список изменений
   Source code: Исходный код
   Beta: Бета
