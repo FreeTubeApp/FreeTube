@@ -9109,10 +9109,10 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-youtubei.js@^15.0.1:
-  version "15.0.1"
-  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-15.0.1.tgz#d5535cb03cffa5127a01ab98d96fead432e45592"
-  integrity sha512-2slapqJS5NuXKHvcACEknyVz0AjH/TrXaOhDM0q2twQKa54kCmfj+7B/2nGfd20uzAe29zW1ejk2qOc4ABuGkg==
+youtubei.js@^15.1.0:
+  version "15.1.0"
+  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-15.1.0.tgz#166a77cc394a0acced0096ea39ac7a47ff6c914c"
+  integrity sha512-XwSXrbLpeER4gXArQ0NPRwfR9cUC3jVSZfHe4+LFGrambSHLO5wDR+vUm8tjDTC/SpGWj2Jxd9oQ5OXQolT9iQ==
   dependencies:
     "@bufbuild/protobuf" "^2.0.0"
     jintr "^3.3.1"
