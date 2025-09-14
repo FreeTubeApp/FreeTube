@@ -4011,10 +4011,10 @@ eslint-plugin-import-x@^4.16.1:
     stable-hash-x "^0.2.0"
     unrs-resolver "^1.9.2"
 
-eslint-plugin-jsdoc@^56.1.2:
-  version "56.1.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-56.1.2.tgz#89507a53b96142b5b2c7bc50b5efb835230c0893"
-  integrity sha512-g30LmgNkpKsKNge4NKtoARCvGvGYHeCQjEWCs5xlNwHxdwVvd0rZaovHmD/D0of0H1bqcyFYv6WXDVAezndstw==
+eslint-plugin-jsdoc@^57.0.3:
+  version "57.0.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-57.0.3.tgz#08ade3bfd20bb1871a2d89f01082a86f43af1d24"
+  integrity sha512-v+9MijTLMHqYQpWPCad2Sb+4DCT7U17rZISoy/MgvSn2L8GDxWP/zz0LM7XV0EFiPU9FNjPb3ZNAfhtikpNIYA==
   dependencies:
     "@es-joy/jsdoccomment" "~0.58.0"
     are-docs-informative "^0.0.2"
