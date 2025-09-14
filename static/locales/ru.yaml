@@ -26,7 +26,7 @@ Forward: 'Вперёд'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Видео'
-  Shorts: Короткие видео
+  Shorts: Шортс
   Live: Трансляции
   Posts: Записи
   Sort By: Сортировать по
@@ -103,91 +103,91 @@ Subscriptions:
   Empty Posts: Каналы, на которые вы подписаны, сейчас без постов.
   Load More Posts: Загрузить больше постов
 Trending:
-  Trending: 'Тренды'
-  Trending Tabs: Тренды
+  Trending: 'В тренде'
+  Trending Tabs: Вкладки В тренде
   Movies: Фильмы
   Gaming: Игры
   Music: Музыка
   Default: По умолчанию
 Most Popular: 'Самые популярные'
-Playlists: 'Подборки'
+Playlists: 'Плейлисты'
 User Playlists:
-  Your Playlists: 'Ваши подборки'
-  Search bar placeholder: Поиск подборок
+  Your Playlists: 'Ваши плейлисты'
+  Search bar placeholder: Поиск плейлистов
   Empty Search Message: В этом плейлисте нет видео, соответствующих вашему запросу
-  This playlist currently has no videos.: Пока в этой подборке нет видео.
-  Add to Playlist: Добавить в подборку
+  This playlist currently has no videos.: В этом плейлисте нет видео.
+  Add to Playlist: Добавить в плейлист
   Move Video Up: Передвинуть видео вверх
   Move Video Down: Передвинуть видео вниз
   Remove from Playlist: Удалить из подборки
-  Playlist Name: Название подборки
-  Copy Playlist: Скопировать подборку
-  Delete Playlist: Удалить подборку
+  Playlist Name: Название плейлиста
+  Copy Playlist: Скопировать плейлист
+  Delete Playlist: Удалить плейлист
   Are you sure you want to delete this playlist? This cannot be undone: Ты действительно хочешь удалить эту подборку? Это действие необратимо.
   Sort By:
     NameAscending: А-Я
     NameDescending: Я-А
-    EarliestCreatedFirst: Самые ранние
-    LatestCreatedFirst: Недавно созданные
-    LatestUpdatedFirst: Недавно обновлённые
-    EarliestUpdatedFirst: Последние обновлённые
-    LatestPlayedFirst: Недавно проигранные
-    EarliestPlayedFirst: Последние проигранные
+    EarliestCreatedFirst: Давно создано
+    LatestCreatedFirst: Недавно создано
+    LatestUpdatedFirst: Недавно обновлено
+    EarliestUpdatedFirst: Давно обновлено
+    LatestPlayedFirst: Недавно воспроизведено
+    EarliestPlayedFirst: Давно воспроизведено
   SinglePlaylistView:
     Toast:
-      There was a problem with removing this video: Неудаётся удалить это видео
-      Playlist name cannot be empty. Please input a name.: У подборки должно быть название. Пожалуйста, вставьте название.
-      Playlist has been updated.: Подборка была обновлена.
+      There was a problem with removing this video: Возникла проблема с удалением видео
+      Playlist name cannot be empty. Please input a name.: Название плейлиста не может быть пустым. Пожалуйста, вставьте название.
+      Playlist has been updated.: Плейлист обновлён.
       "{videoCount} video(s) have been removed": 1 видео было удалено | {videoCount} видео было удалено
-      This playlist does not exist: Этой подборки не существует
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Некоторые видео в подборке ещё не загружены. Нажми сюда, чтобы всё равно скопировать.
+      This playlist does not exist: Плейлист не существует
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Некоторые видео в плейлисте ещё не загружены. Нажми сюда, чтобы всё равно скопировать.
       There were no videos to remove.: Нет видео для удаления.
-      This playlist is protected and cannot be removed.: Эта подборка защищена и не может быть удалена.
-      There was an issue with updating this playlist.: Есть затруднение с обновлением этой подборки.
-      Playlist {playlistName} has been deleted.: Подборка {playlistName} была удалена.
+      This playlist is protected and cannot be removed.: Этот плейлист защищён и не может быть удалён.
+      There was an issue with updating this playlist.: Возникли проблемы с обновлением плейлиста.
+      Playlist {playlistName} has been deleted.: Плейлист {playlistName} удалён.
       This video cannot be moved up.: Это видео нельзя передвинуть вверх.
       This video cannot be moved down.: Это видео нельзя передвинуть вниз.
       Video has been removed: Видео было удалено
-      Reverted to use {oldPlaylistName} for quick bookmark: Переход на использование {oldPlaylistName} для быстрого создания закладок
+      Reverted to use {oldPlaylistName} for quick bookmark: Плейлист {oldPlaylistName} снова используется для закладок
       This playlist is now used for quick bookmark: Этот список воспроизведения теперь используется для быстрого создания закладок
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Этот плейлист теперь используется для быстрой закладки вместо {oldPlaylistName}. Нажмите здесь, чтобы отменить
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Этот плейлист теперь используется для закладок вместо {oldPlaylistName}. Нажмите здесь, чтобы отменить
       This playlist is already being used for quick bookmark.: Этот плейлист уже используется для быстрого создания закладок.
       This playlist has a video with a duration error: Этот плейлист содержит хотя-бы одно видео без продолжтельности, оно будет отсротрированно как с нулевой продолжительностью.
       Video has been removed. Click here to undo.: Видео было удалено. Нажмите здесь, чтобы отменить просмотр.
     Search for Videos: Поиск видео
   AddVideoPrompt:
     N playlists selected: '{playlistCount} выбрано'
-    Search in Playlists: Поиск подборок
+    Search in Playlists: Поиск в плейлистах
     Save: Сохранить
     Toast:
-      You haven't selected any playlist yet.: Ещё не выбрана ни одна подборка.
-      "{videoCount} video(s) added to 1 playlist": 1 видео добавлено в 1 подборку | {videoCount} видео добавлено в 1 подборку
+      You haven't selected any playlist yet.: Вы не выбрали ни одного плейлиста.
+      "{videoCount} video(s) added to 1 playlist": 1 видео добавлено в 1 плейлист| {videoCount} видео добавлено в 1 плейлист
       "{videoCount} video(s) added to {playlistCount} playlists": 1 видео добавлено в {videoCount} плейлистов | {playlistCount} видео добавлено в {videoCount} плейлистов
-    Select a playlist to add your N videos to: Выбери подборку на добавление видео | Выбери подборку на добавление {videoCount} видео в неё
+    Select a playlist to add your N videos to: Выберите плейлист для добавления видео | Выберите плейлист для добавления {videoCount} видео
     Added {count} Times: Добавлено {count} Время | Добавлено {count} Времени
     Allow Adding Duplicate Video(s): Разрешить добавление дубликатов видео
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Видео будут добавлено'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Видео уже добавлено'
   CreatePlaylistPrompt:
     Toast:
-      Playlist {playlistName} has been successfully created.: Подборка {playlistName} была успешно создана.
-      There is already a playlist with this name. Please pick a different name.: Уже есть подборка с этим названием. Пожалуйста, выбери другое название.
-      There was an issue with creating the playlist.: Есть затруднение с созданием подборки.
-    New Playlist Name: Новое название подборки
+      Playlist {playlistName} has been successfully created.: Плейлист {playlistName} успешно создан.
+      There is already a playlist with this name. Please pick a different name.: Уже есть плейлист с таким названием. Пожалуйста, выбери другое название.
+      There was an issue with creating the playlist.: Возникли проблемы с созданием плейлиста.
+    New Playlist Name: Новое название плейлиста
     Create: Создать
-  Playlist Description: Описание подборки
+  Playlist Description: Описание плейлиста
   Save Changes: Сохранить изменения
-  Edit Playlist Info: Изменить сведения о подборке
+  Edit Playlist Info: Изменить сведения о плейлисте
   Remove Watched Videos: Удалить просмотренные видео
   Cancel: Отмена
-  You have no playlists. Click on the create new playlist button to create a new one.: У тебя нет подборок. Нажми на кнопку создания новой подборки, чтобы создать новую.
-  Create New Playlist: Создать новую подборку
+  You have no playlists. Click on the create new playlist button to create a new one.: У вас нет плейлистов. Нажмите кнопку «Создать плейлист», чтобы добавить новый.
+  Create New Playlist: Создать новый плейлист
   Add to Favorites: Добавить в {playlistName}
   Remove from Favorites: Убрать из {playlistName}
   Playlists with Matching Videos: Плейлисты с соответствующими видеороликами
-  Enable Quick Bookmark With This Playlist: Включите быструю закладку с помощью этого плейлиста
-  Quick Bookmark Enabled: Быстрая закладка включена
-  Cannot delete the quick bookmark target playlist.: Невозможно удалить целевой список воспроизведения быстрых закладок.
+  Enable Quick Bookmark With This Playlist: Добавлять Закладки в этот плейлист
+  Quick Bookmark Enabled: Закладка включена
+  Cannot delete the quick bookmark target playlist.: Нельзя удалить плейлист, который используется для Закладок.
   Remove Duplicate Videos: Удалить дубликаты видео
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Вы уверены, что хотите удалить 1 дублирующее видео из этого плейлиста? Это нельзя отменить. | Вы уверены, что хотите удалить {playlistItemCount} дубликатов видео из этого плейлиста? Это нельзя отменить.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Вы уверены, что хотите удалить 1 просмотренное видео из этого плейлиста? Это нельзя отменить. | Вы уверены, что хотите удалить {playlistItemCount} просмотренных видео из этого плейлиста? Это нельзя отменить.
@@ -200,8 +200,10 @@ History:
   Watch History: 'Посмотреть историю'
   Your history list is currently empty.: 'История просмотров в настоящее время пуста.'
   Search bar placeholder: Поиск в Истории
-  Empty Search Message: В вашей истории нет видеороликов, соответствующих вашему поиску
+  Empty Search Message: В истории нет видео, соответствующих критериям поиска
   Case Sensitive Search: Поиск с учетом регистра
+  DateNewestHistory: Недавно просмотренные сначала
+  DateOldestHistory: Давно просмотренные сначала
 Settings:
   # On Settings Page
   Settings: 'Настройки'
@@ -220,17 +222,17 @@ Settings:
       Grid: 'Сеткой'
       List: 'Списком'
     Thumbnail Preference:
-      Thumbnail Preference: 'Настройка заставок'
+      Thumbnail Preference: 'Выбор миниатюры'
       Default: 'По умолчанию'
-      Beginning: 'В начале'
-      Middle: 'По середине'
-      End: 'В конце'
-      Blur: Размытие
-      Hidden: Скрытый
-    Region for Trending: 'Регион подбора трендов'
+      Beginning: 'Начало'
+      Middle: 'Середина'
+      End: 'Конец'
+      Blur: Размыть
+      Hidden: Скрыть
+    Region for Trending: 'Регион для В тренде'
         #! List countries
     Check for Latest Blog Posts: Проверять последние записи в блоге
-    Check for Updates: Проверить на наличие новых версий
+    Check for Updates: Проверять наличие новых версий
     View all Invidious instance information: Просмотреть все экземпляры Invidious
     System Default: Системные настройки по умолчанию
     Clear Default Instance: Очистить экземпляр по умолчанию
@@ -240,14 +242,15 @@ Settings:
     The currently set default instance is {instance}: 'Текущий установленный экземпляр по умолчанию: {instance}'
     Current Invidious Instance: Текущий экземпляр Invidious
     External Link Handling:
-      No Action: Ничего
-      Ask Before Opening Link: Спросить перед открытием ссылки
-      Open Link: Открыть ссылку
-      External Link Handling: Обработка внешних ссылок
+      No Action: Ничего не делать
+      Ask Before Opening Link: Спрашивать перед переходом по ссылке
+      Open Link: Переходить по ссылке
+      External Link Handling: Действие по клику на ссылку
     Auto Load Next Page:
       Label: Авто-загрузка следующей страницы
       Tooltip: Автоматическая загрузка дополнительных страниц и комментариев.
     Open Deep Links In New Window: Открыть URL-адреса, переданные в FreeTube, в новом окне
+    Minimize to system tray: Сворачивать в область уведомлений
   Theme Settings:
     Theme Settings: 'Внешний вид'
     Match Top Bar with Main Color: 'Использовать основной цвет к верхней панели'
@@ -258,7 +261,7 @@ Settings:
       Light: 'Светлая'
       Dracula: 'Дракула'
       System Default: Системная
-      Catppuccin Mocha: Мокко с капучино
+      Catppuccin Mocha: Катпучино Мока
       Pastel Pink: Пастельно-розовый
       Hot Pink: Ярко-розовый
       Nordic: Северный
@@ -266,7 +269,7 @@ Settings:
       Solarized Light: Солнечное освещение
       Gruvbox Dark: Gruvbox Темный
       Gruvbox Light: Gruvbox Светлый
-      Catppuccin Frappe: Фраппе с капучином
+      Catppuccin Frappe: Катпучино Фраппе
       Everforest Dark Hard: Эверфорест Дарк Хард
       Everforest Dark Medium: Эверфорест темный средний
       Everforest Dark Low: Эверфорест Темный низкий
@@ -358,7 +361,7 @@ Settings:
       Everforest Light Aqua: Эверфорест Лайт Аква
       Everforest Light Blue: Эверфорест светло-голубой
       Everforest Light Purple: Everforest Светло-фиолетовый
-    Secondary Color Theme: 'Вторичный цвет темы'
+    Secondary Color Theme: 'Дополнительный цвет темы'
         #* Main Color Theme
     UI Scale: Масштаб интерфейса
     Expand Side Bar by Default: Расширить боковую панель
@@ -404,10 +407,10 @@ Settings:
       Error:
         Forbidden Characters: Запрещенные символы
         Empty File Name: Пустое имя файла
-      Format Label: Формат снимков экрана
-      Folder Label: Папка снимков экрана
+      Format Label: Формат скриншотов
+      Folder Label: Папка для скриншотов
       Folder Button: Выбрать папку
-      Enable: Включить снимки экрана
+      Enable: Включить скриншоты
       Quality Label: Качество снимков экрана
       File Name Label: Шаблон имени файла
       File Name Tooltip: Вы можете использовать эти переменные. %Y Год 4 цифры. %M Месяц 2 цифры. %D День 2 цифры. %H Час 2 цифры. %N Минуты 2 цифры. %S Секунды 2 цифры. %T Миллисекунды 3 цифры. %s Секунды видео. %t Миллисекунды видео 3 цифры. %i Идентификатор видео.
@@ -429,25 +432,25 @@ Settings:
     'Limit the number of videos displayed for each channel': Ограничить количество видео, отображаемых на каждом канале
     To: В
   Privacy Settings:
-    Watch history has been cleared: История Просмотров очищена
+    Watch history has been cleared: История просмотра очищена
     Are you sure you want to remove your entire watch history?: Вы уверены, что хотите удалить всю историю просмотра?
-    Remove Watch History: Удалить Историю Просмотров
+    Remove Watch History: Удалить историю просмотра
     Search cache has been cleared: Поисковой кэш был очищен
     Are you sure you want to clear out your search cache?: Выполнить очистку кэша поиска?
     Clear Search Cache: Очистить кэш поиска
     Save Watched Progress: Сохранять Прогресс Просмотра
-    Remember History: Сохранять Историю Просмотров
+    Remember History: Сохранять Историю Просмотра
     Privacy Settings: Конфиденциальность
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Вы уверены, что хотите удалить все подписки и профили? Это действие безвозвратно.
-    Remove All Subscriptions / Profiles: Удалить все Подписки/Профили
-    Save Watched Videos With Last Viewed Playlist: Сохранить Просмотренные Видео С Последним Просмотренным Плейлистом
-    Are you sure you want to remove all your playlists?: Вы действительно хотите удалить все свои Плейлисты?
-    All playlists have been removed: Все Плейлисты были удалены
-    Remove All Playlists: Удалить Все Плейлисты
-    Clear Search History and Cache: Очистить Историю Поиска и Кэш
+    Remove All Subscriptions / Profiles: Удалить все подписки/профили
+    Save Watched Videos With Last Viewed Playlist: Сохранять просмотренные видео в плейлист Недавно просмотренные
+    Are you sure you want to remove all your playlists?: Вы действительно хотите удалить все свои плейлисты?
+    All playlists have been removed: Все плейлисты были удалены
+    Remove All Playlists: Удалить все плейлисты
+    Clear Search History and Cache: Очистить историю поиска и кэш
     Are you sure you want to clear out your search history and cache?: Вы уверены, что хотите очистить историю поиска и кэш?
     Search history and cache have been cleared: История поиска и кэш были очищены
-    Remember Search History: Сохранять Историю Поисков
+    Remember Search History: Сохранять Историю Поиска
     Watched Progress Saving Mode:
       Modes:
         Auto: Авто
@@ -514,7 +517,7 @@ Settings:
     Display Titles Without Excessive Capitalisation: Отображать заголовки без сплошных заглавных букв и знаков препинания
     Hide Featured Channels: Скрыть избранные каналы
     Hide Channel Playlists: Скрыть вкладку "Списки воспроизведения" канала
-    Hide Channel Shorts: Скрыть вкладку "Шорты" канала
+    Hide Channel Shorts: Скрыть вкладку "Шортс" канала
     Sections:
       Side Bar: Боковая Панель
       Channel Page: Страница Канала
@@ -525,7 +528,7 @@ Settings:
     Hide Subscriptions Videos: Скрыть видео из подписок
     Hide Subscriptions Live: Скрыть трансляции из подписок
     Hide Channel Podcasts: Скрыть вкладку "Подкасты" канала
-    Hide Subscriptions Shorts: Скрыть короткие видео из подписок
+    Hide Subscriptions Shorts: Скрыть шортсы из подписок
     Hide Profile Pictures in Comments: Скрыть изображения профилей в комментариях
     Hide Channels Invalid: Указанный идентификатор канала недействителен
     Hide Channels Disabled Message: Некоторые каналы были заблокированы по идентификатору и не были обработаны. Функция заблокирована, пока эти идентификаторы обновляются
@@ -543,7 +546,7 @@ Settings:
     Error getting network information. Is your proxy configured properly?: Ошибка при получении информации о сети. Правильно ли настроен ваш прокси-сервер?
     Your Info: Ваша информация
     Clicking on Test Proxy will send a request to: Нажмите «Протестировать прокси», чтобы отправить запрос на
-    Test Proxy: Протестировать прокси
+    Test Proxy: Тест прокси
     Proxy Port Number: Порт прокси-сервера
     Proxy Host: Адрес прокси-сервера
     Proxy Protocol: Протокол прокси
@@ -556,9 +559,9 @@ Settings:
     Proxy Warning: FreeTube не имеет встроенного прокси, но может подключаться к внешнему прокси, например, к запущенному на вашей машине Tor или к внешнему прокси, например, SOCKS5, предоставляемому некоторыми VPN. Если прокси включен, убедитесь, что ваш прокси/Tor настроен правильно, иначе FreeTube не сможет получать данные.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Уведомлять о пропущенном сегменте
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Сетевой адрес SponsorBlock API (По умолчанию https://sponsor.ajay.app)
-    Enable SponsorBlock: Включить
-    SponsorBlock Settings: СпонсорБлок
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Адрес SponsorBlock API (По умолчанию https://sponsor.ajay.app)
+    Enable SponsorBlock: Включить SponsorBlock
+    SponsorBlock Settings: SponsorBlock
     Skip Options:
       Skip Option: Опция пропуска
       Prompt To Skip: Предлагать пропустить
@@ -566,9 +569,9 @@ Settings:
       Show In Seek Bar: Показать сегмент
       Do Nothing: Ничего не делать
     Category Color: Цвет категории
-    UseDeArrowTitles: Использовать заголовки видео «DeArrow»
-    UseDeArrowThumbnails: Использовать DeArrow для заставок
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': Адрес набора функций (API) генератора заставок DeArrow (По умолчанию, это https://dearrow-thumb.ajay.app)
+    UseDeArrowTitles: Использовать заголовки видео DeArrow
+    UseDeArrowThumbnails: Использовать миниатюры видео DeArrow
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL-адрес DeArrow API для генерации миниатюр (по умолчанию https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Аргументы внешнего проигрывателя
     Custom External Player Executable: Исполняемый файл внешнего проигрывателя
@@ -581,10 +584,10 @@ Settings:
     Ignore Default Arguments: Не учитывать аргументы по умолчанию
   Download Settings:
     Download Settings: Скачивание
-    Ask Download Path: Запрашивать путь при скачивании
+    Ask Download Path: Спрашивать путь для скачивания
     Choose Path: Выберите путь
-    Download in app: Загрузить в приложении
-    Download Behavior: Поведение при загрузке
+    Download in app: Скачать в приложении
+    Download Behavior: Действие при скачивании
     Open in web browser: Открыть в браузере
   Parental Control Settings:
     Show Family Friendly Only: Показать только семейный контент
@@ -594,7 +597,7 @@ Settings:
   Experimental Settings:
     Experimental Settings: Эксперименты
     Replace HTTP Cache: Заменить HTTP-кэш
-    Warning: Эти настройки экспериментальные и могут вызывать сбои при включении. Настоятельно рекомендуется делать резервные копии. Используйте их на свой страх и риск!
+    Warning: Экспериментальные настройки. При их включении возможны ошибки. Настоятельно рекомендуется делать резервные копии. Используйте на свой страх и риск!
   Password Dialog:
     Password: Пароль
     Enter Password To Unlock: Введите пароль для разблокировки настроек
@@ -953,7 +956,7 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: Если у вашего предпочитаемого набора функций есть проблема, FreeTube автоматически попытается использовать ваш нежелательный набор функций в качестве запасного метода, если он включен.
     Preferred API Backend: Выберите движок, который FreeTube будет использовать для получения данных. Локальный набор функций — это встроенный экстрактор. Набор функций Invidious требует подключения к серверу Invidious.
     Region for Trending: Регион трендов позволяет выбрать, в какой стране будут отображаться трендовые видео.
-    External Link Handling: "Выберите действие при нажатии на ссылку, которая не может быть открыта во FreeTube.\nПо умолчанию FreeTube откроет ссылку в вашем браузере по умолчанию.\n"
+    External Link Handling: "Выберите действие при нажатии на ссылку, которая не может быть открыта во FreeTube.\nПо умолчанию, FreeTube откроет ссылку в браузере по умолчанию.\n"
     Open Deep Links In New Window: URL-адреса, передаваемые FreeTube, например, с помощью расширений браузера или аргументов командной строки, открываются в новом окне.
   Subscription Settings:
     Fetch Feeds from RSS: Если эта настройка включена, FreeTube будет получать вашу ленту подписок с помощью RSS, вместо метода по умолчанию. RSS работает быстрее и предотвращает блокировку IP, но не предоставляет определённую информацию, такую как продолжительность видео , статус прямого эфира или публикации
@@ -978,7 +981,7 @@ Tooltips:
     Hide Videos and Playlists Containing Text: 'Вставь слово, часть слова, или выражение (вне зависимости от регистра), чтобы скрыть все видео и подборки, в чьих названиях содержится что-либо вставленное сюда; за исключением только: истории, подборок и видео в подборках.'
   SponsorBlock Settings:
     UseDeArrowTitles: Заменить пользовательски-размещённые заголовки на заголовки, предоставляемые «DeArrow».
-    UseDeArrowThumbnails: Заменить заставки видео, заставками от DeArrow.
+    UseDeArrowThumbnails: Заменить миниатюры видео на миниатюры от DeArrow.
 More: Больше
 Playing Next Video Interval: Воспроизведение следующего видео без задержки. Нажмите для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите для отмены. | Воспроизведение следующего видео через {nextVideoInterval} сек. Нажмите для отмены.
 Unknown YouTube url type, cannot be opened in app: Неизвестный тип адреса YouTube, невозможно открыть в приложении
@@ -990,11 +993,11 @@ Search Bar:
   Clear Input: Очистить
   Remove: Удалить
 Are you sure you want to open this link?: Вы действительно хотите открыть эту ссылку?
-Starting download: Запуск загрузки «{videoTitle}»
-Downloading has completed: '«{videoTitle}» закончил загрузку'
-Downloading failed: Возникла проблема с загрузкой «{videoTitle}»
+Starting download: Скачивание «{videoTitle}»
+Downloading has completed: '«{videoTitle}» скачано'
+Downloading failed: Возникла проблема при скачивании «{videoTitle}»
 Screenshot Success: Сохраненный скриншот
-Screenshot Error: Снимок экрана не удался. {error}
+Screenshot Error: Не удалось сделать скриншот. {error}
 New Window: Новое окно
 Channels:
   Title: Список каналов
@@ -1031,7 +1034,7 @@ Display Label: '{label}: {value}'
 Go to page: Перейти на {page}
 Close Banner: Закрыть баннер
 Feed:
-  Feed Last Updated: '{feedName} фид последний раз обновлялся: {date}'
+  Feed Last Updated: 'Последнее обновление ленты {feedName}: {date}'
   Refresh Feed: Обновить {subscriptionName}
 Trimmed input must be at least N characters long: Обрезанный ввод должен быть длиной не менее 1 символа | Обрезанный ввод должен быть длиной не менее {length} символов
 Search Listing:
@@ -1056,7 +1059,7 @@ Keys:
   shift: Shift
   enter: Enter
   plus: Плюс
-Right-click or hold to see history: Щелкните правой кнопкой мыши или удерживайте ее, чтобы просмотреть историю
+Right-click or hold to see history: Щёлкните правой кнопкой мыши или удерживайте ее, чтобы просмотреть историю
 KeyboardShortcutPrompt:
   Captions: Включение/выключение титров
   Focus Secondary Search: Сосредоточьтесь на вторичной строке поиска (если она есть)
