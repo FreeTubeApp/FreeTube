@@ -2,7 +2,7 @@
   "name": "freetube",
   "productName": "FreeTube",
   "description": "A private YouTube client",
-  "version": "0.23.8",
+  "version": "0.23.9",
   "license": "AGPL-3.0-or-later",
   "main": "./dist/main.js",
   "private": true,
@@ -74,7 +74,7 @@
     "vue-observe-visibility": "^1.0.0",
     "vue-router": "^3.6.5",
     "vuex": "^3.6.2",
-    "youtubei.js": "^15.0.0"
+    "youtubei.js": "^15.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.26.7",
