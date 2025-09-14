@@ -52,7 +52,7 @@ jobs:
         git checkout master
     - name: Update index.php
       run: |
-        sed -in 's/${{ steps.previous.outputs.result  }}/${{ steps.current.outputs.result }}/' src/index.php
+        sed -i 's/${{ steps.previous.outputs.result  }}/${{ steps.current.outputs.result }}/g' src/index.php
     - name: Commit Files
       uses: stefanzweifel/git-auto-commit-action@v6
       with:
