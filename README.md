@@ -125,7 +125,7 @@ The first build with a green check mark is the latest build.
 
 * FreeTubeAndroid (FreeTube port for Android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeAndroid/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeAndroid)
 
-* Homebrew Formulae (Mac only): [Download for Apple Silicon](https://github.com/PikachuEXE/homebrew-FreeTube) and for Intel, [Intel Download](https://formulae.brew.sh/cask/freetube)
+* Homebrew Formulae (Mac only): [Download for Apple Silicon](https://github.com/PikachuEXE/homebrew-FreeTube)
 
 * makedeb Package Repository (MPR): [Download](https://mpr.makedeb.org/packages/freetube-bin)
 
