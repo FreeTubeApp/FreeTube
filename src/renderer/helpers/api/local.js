@@ -829,7 +829,7 @@ export function parseLocalChannelVideos(videos, channelId, channelName) {
 
   for (const video of videos) {
     // `BADGE_STYLE_TYPE_MEMBERS_ONLY` used for both `members only` and `members first` videos
-    if (video.is(YTNodes.Video) && video.badges.some(badge => badge.style === 'BADGE_STYLE_TYPE_MEMBERS_ONLY')) {
+    if (video.is(YTNodes.Video) && video.is_members_only) {
       continue
     }
     parsedVideos.push(parseLocalListVideo(video, channelId, channelName))
@@ -1008,7 +1008,10 @@ export function parseChannelHomeTab(homeTab, channelId, channelName) {
         if (!playlistId || !playlistId.startsWith('UUMO')) {
           shelves.push({
             title: shelf.title.text,
-            content: shelf.content.items.map((item) => parseListItem(item, channelId, channelName)).filter(_ => _),
+            content: shelf.content.items
+              .filter((item) => !item.is_members_only)
+              .map((item) => parseListItem(item, channelId, channelName))
+              .filter(_ => _),
             playlistId,
             subtitle: shelf.subtitle?.text
           })
@@ -1164,6 +1167,7 @@ export function parseLocalPlaylistVideo(video) {
       lengthSeconds: isNaN(video_.duration.seconds) ? '' : video_.duration.seconds,
       liveNow: video_.is_live,
       isUpcoming: video_.is_upcoming,
+      isMembersOnly: video_.is_members_only,
       premiereDate: video_.upcoming
     }
   }
@@ -1220,7 +1224,8 @@ export function parseLocalListVideo(item, channelId, channelName) {
       lengthSeconds: isLive ? '' : Utils.timeToSeconds(video.duration.text),
       isUpcoming: video.is_upcoming,
       premiereDate: video.upcoming,
-      liveNow: isLive
+      liveNow: isLive,
+      isMembersOnly: video.is_members_only
     }
   } else if (item.type === 'GridMovie') {
     /** @type {import('youtubei.js').YTNodes.GridMovie} */
@@ -1272,6 +1277,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
       lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
       liveNow: video.is_live,
       isUpcoming: video.is_upcoming || video.is_premiere,
+      isMembersOnly: video.is_members_only,
       premiereDate: video.upcoming,
       is4k: video.is_4k,
       is8k: video.badges.some(badge => badge.label === '8K'),

@@ -110,6 +110,7 @@ export default defineComponent({
       hasCaptions: false,
       isUpcoming: false,
       isPremium: false,
+      isMembersOnly: false,
       hideViews: false,
       addToPlaylistPromptCloseCallback: null,
       debounceGetDeArrowThumbnail: null,
@@ -734,6 +735,7 @@ export default defineComponent({
       this.is3D = this.data.is3d
       this.hasCaptions = this.data.hasCaptions
       this.isPremium = this.data.premium || false
+      this.isMembersOnly = this.data.isMembersOnly || false
       this.viewCount = this.data.viewCount
 
       if (typeof this.data.premiereDate !== 'undefined') {
