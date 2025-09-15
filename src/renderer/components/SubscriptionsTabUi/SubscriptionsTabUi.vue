@@ -150,7 +150,7 @@ const hideWatchedSubs = computed(() => {
 })
 
 const filteredVideoList = computed(() => {
-  if (hideWatchedSubs.value) {
+  if (hideWatchedSubs.value && !props.isCommunity) {
     return props.videoList.filter((video) => {
       return !Object.hasOwn(historyCacheById.value, video.videoId)
     })
