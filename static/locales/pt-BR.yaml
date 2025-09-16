@@ -295,12 +295,12 @@ Settings:
       Orange: 'Laranja'
       Deep Orange: 'Laranja escuro'
       Dracula Cyan: 'Dracula: Ciano'
-      Dracula Green: 'Drácula Verde'
-      Dracula Orange: 'Drácula Laranja'
-      Dracula Pink: 'Drácula Rosa'
-      Dracula Purple: 'Drácula Roxa'
-      Dracula Red: 'Drácula Vermelha'
-      Dracula Yellow: 'Drácula Amarelo'
+      Dracula Green: 'Dracula: Verde'
+      Dracula Orange: 'Dracula: Laranja'
+      Dracula Pink: 'Dracula: Rosa'
+      Dracula Purple: 'Dracula: Roxo'
+      Dracula Red: 'Dracula: Vermelho'
+      Dracula Yellow: 'Dracula: Amarelo'
       Catppuccin Mocha Rosewater: 'Catppuccin Mocha: Água de Rosas'
       Catppuccin Mocha Flamingo: 'Catppuccin Mocha: Flamingo'
       Catppuccin Mocha Mauve: 'Catppuccin Mocha: Malva'
@@ -318,11 +318,11 @@ Settings:
       Solarized Yellow: Amarelo Solarizado
       Solarized Red: Vermelho Solarizado
       Solarized Magenta: Magenta Solarizado
-      Solarized Violet: Violeta Solarizada
+      Solarized Violet: Violeta Solarizado
       Solarized Blue: Azul Solarizado
       Solarized Cyan: Ciano Solarizado
       Solarized Green: Verde Solarizado
-      Solarized Orange: Laranja Solarizada
+      Solarized Orange: Laranja Solarizado
       Gruvbox Dark Blue: 'Gruvbox: Azul Escuro'
       Gruvbox Dark Purple: 'Gruvbox: Roxo Escuro'
       Gruvbox Dark Aqua: 'Gruvbox: Aqua Escuro'
@@ -372,19 +372,19 @@ Settings:
     Player Settings: 'Reprodução'
     Play Next Video: 'Reprodução automática de vídeos recomendados'
     Turn on Subtitles by Default: 'Habilitar legendas por padrão'
-    Autoplay Videos: 'Iniciar reprodução dos vídeos automaticamente'
+    Autoplay Videos: 'Iniciar reprodução de vídeos automaticamente'
     Proxy Videos Through Invidious: 'Usar Invidious como proxy'
-    Autoplay Playlists: 'Reprodução automática dos vídeos da playlist'
+    Autoplay Playlists: 'Reprodução automática de vídeos da playlist'
     Enable Theatre Mode by Default: 'Habilitar "Modo Teatro" por padrão'
-    Default Volume: 'Volume padrão'
+    Default Volume: 'Volume'
     Default Playback Rate: 'Velocidade de reprodução'
     Default Video Format:
-      Default Video Format: 'Formato de vídeo padrão'
+      Default Video Format: 'Formato de vídeo'
       Dash Formats: 'Formatos DASH'
       Legacy Formats: 'Formatos antigos'
       Audio Formats: 'Formato de áudio'
     Default Quality:
-      Default Quality: 'Qualidade padrão'
+      Default Quality: 'Qualidade'
       Auto: 'Auto'
       144p: '144p'
       240p: '240p'
@@ -395,11 +395,11 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Temporizador de contagem regressiva para reprodução automática
-    Display Play Button In Video Player: Mostrar botão "Reproduzir" no centro do player
-    Scroll Volume Over Video Player: Alterar volume ao rolar sobre o player
+    Next Video Interval: Mostrar contagem regressiva para reprodução automática
+    Display Play Button In Video Player: Mostrar botão "Pausar/Reproduzir"
+    Scroll Volume Over Video Player: Alterar o volume com o botão de rolagem do mouse com o cursor sobre a reprodução
     Fast-Forward / Rewind Interval: Intervalo para avançar/retroceder rapidamente
-    Scroll Playback Rate Over Video Player: Alterar taxa de reprodução ao rolar sobre o player
+    Scroll Playback Rate Over Video Player: Alterar a taxa de velocidade com o botão de rolagem do mouse com o cursor sobre a reprodução
     Max Video Playback Rate: Taxa máxima de reprodução de vídeo
     Video Playback Rate Interval: Intervalo da taxa de reprodução de vídeo
     Screenshot:
@@ -413,13 +413,13 @@ Settings:
         Forbidden Characters: Caracteres proibidos
       Format Label: Formato da captura de tela
       Quality Label: Qualidade da captura de tela
-      File Name Tooltip: Você pode usar as variáveis abaixo. %Y (o ano com 4 dígitos). %M (o mês com 2 dígitos). %D (o dia com 2 dígitos). %H (a hora com 2 dígitos). %N (o minuto com 2 dígitos). %S (o segundo com 2 dígitos). %T (o milissegundo com 3 dígitos). %s (segundo do vídeo. %t (milissegundo do vídeo com 3 dígitos). %i (id do vídeo).
+      File Name Tooltip: 'Você pode usar estas variáveis: %Y - ano com 4 dígitos, %M - mês com 2 dígitos, %D - dia com 2 dígitos, %H - hora com 2 dígitos, %N - minuto com 2 dígitos, %S - segundos com 2 dígitos, %T - milissegundos com 3 dígitos, %s - segundos do vídeo, %t - milissegundos do vídeo com 3 dígitos, %i - id do vídeo.'
     Enter Fullscreen on Display Rotate: Entrar em tela cheia ao girar o dispositivo para o modo paisagem
-    Skip by Scrolling Over Video Player: Pular vídeo ao rolar sobre o player
-    Autoplay Interruption Timer: Temporizador de interrupção para reprodução automática
+    Skip by Scrolling Over Video Player: Avançar ou retroceder com o botão de rolagem do mouse com o cursor sobre a reprodução
+    Autoplay Interruption Timer: Mostrar temporizador de interrupções para reprodução automática
     Default Viewing Mode:
       Theater: Teatro
-      Default Viewing Mode: Modo de visualização padrão
+      Default Viewing Mode: Modo de visualização
       Full Screen: Tela cheia
       Picture in Picture: Picture in Picture (PiP)
       External Player: Player externo ({externalPlayerName})
@@ -756,7 +756,7 @@ Video:
   External Player:
     Unsupported Actions:
       shuffling playlists: Playlists aleatórias
-      opening specific video in a playlist (falling back to opening the video): abrir um vídeo específico em uma playlist (voltar à abertura do vídeo)
+      opening specific video in a playlist (falling back to opening the video): abrir um vídeo específico em uma playlist (volta ao começo do vídeo)
       reversing playlists: invertendo playlists
       opening playlists: abrindo playlists
       starting video at offset: iniciando vídeo num tempo específico
@@ -958,7 +958,7 @@ Tooltips:
     Default Video Format: Define os formatos usados quando um vídeo é reproduzido. Formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos são limitados a um máximo de 360p, mas usam menos largura de banda. Formatos de áudio são para transmissões sem vídeo.
     Proxy Videos Through Invidious: Estabelece uma conexão ao Invidious para obter vídeos em vez de fazer uma conexão direta com o YouTube.
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, pressione e segure a tecla Ctrl (tecla Command no Mac) e role a roda do mouse para frente ou para trás para controlar a taxa de reprodução. Pressione e segure a tecla Ctrl (tecla Command no Mac) e clique com o botão esquerdo do mouse para retornar rapidamente à taxa de reprodução padrão (1x a menos que tenha sido alterada nas configurações).
-    Skip by Scrolling Over Video Player: Use a roda de rolagem para pular o vídeo, estilo MPV.
+    Skip by Scrolling Over Video Player: Use o botão de rolagem do mouse para avançar ou retroceder o vídeo, estilo MPV.
   General Settings:
     Region for Trending: A região de tendências permite que você escolha os vídeos em alta do país que deseja exibir.
     Invidious Instance: A instância Invidious à qual o FreeTube se conectará para chamadas de API.
@@ -969,9 +969,9 @@ Tooltips:
     Open Deep Links In New Window: Os URLs a partir do FreeTube, como por extensões de navegador de redirecionamento ou argumentos de linha de comando, são abertos em uma nova janela.
   External Player Settings:
     Custom External Player Arguments: Quaisquer argumentos de linha de comando personalizados, você deseja que seja passado para o player externo.
-    Ignore Warnings: Suprime os avisos para quando o player externo atual não suporta a ação atual (por exemplo, reverter playlist, etc.).
+    Ignore Warnings: Suprime os avisos para quando o player externo atual não suportar uma ação (por exemplo, reverter playlist, etc.).
     Custom External Player Executable: Por padrão, o FreeTube assumirá que o player externo escolhido pode ser encontrado por meio da variável de ambiente PATH. Se necessário, um caminho personalizado pode ser definido aqui.
-    External Player: A escolha de um player externo exibirá um ícone, para abrir o vídeo (playlist se suportado) no player externo, na miniatura. Atenção, as configurações do Invidious não afetam players externos.
+    External Player: 'Ao escolher um player externo, será exibido um ícone na miniatura para abrir o vídeo (ou uma playlist, se for compatível) a partir do player externo. Atenção: as configurações do Invidious não afetam reproduções externas.'
     DefaultCustomArgumentsTemplate: "(Padrão: '{defaultCustomArguments}')"
     Ignore Default Arguments: Não envie nenhum argumento padrão ao player externo além do URL do vídeo (por exemplo, taxa de reprodução, URL da playlist, etc.). Argumentos personalizados ainda serão transmitidos.
   Experimental Settings:
