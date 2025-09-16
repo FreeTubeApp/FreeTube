@@ -765,7 +765,7 @@ function runApp() {
         label: 'New Window',
         click: () => createWindow({
           showWindowNow: true,
-          replaceMainWindow: true
+          replaceMainWindow: trayWindows.some(item => item.id === mainWindow.id)
         })
       },
       {
