@@ -443,7 +443,7 @@ Settings:
     Remove All Playlists: Eliminar todas las listas de reproducción
     Are you sure you want to remove all your playlists?: ¿Estás seguro de que quieres eliminar todas tus listas de reproducción?
     Remember Search History: Guardar Historial de Búsquedas
-    Are you sure you want to clear out your search history and cache?: Está seguro de que quiere borrar su historial de búsqueda y cache?
+    Are you sure you want to clear out your search history and cache?: ¿Está seguro de que desea borrar su historial de búsqueda y la caché?
     Search history and cache have been cleared: El historial de búsquedas y el cache han sido borrados
     Clear Search History and Cache: Borrar Historial de Búsquedas y Cache
     Watched Progress Saving Mode:
@@ -966,7 +966,7 @@ Tooltips:
     Thumbnail Preference: Todas las miniaturas en FreeTube se reemplazarán con un fotograma del vídeo, borroso o oculto, en lugar de la miniatura predeterminada.
     Fallback to Non-Preferred Backend on Failure: Si la API primaria falla, FreeTube utilizará automáticamente la API secundaria cuando esté activada.
     Preferred API Backend: Elija el motor que debe utilizar FreeTube para obtener datos. La API local es un extractor incorporado. La API de Invidious requiere de un servidor Invidious al cual conectarse.
-    External Link Handling: "Elija el comportamiento por defecto cuando se hace clic en un enlace que no se pueda abrirse en FreeTube. \nPor defecto, FreeTube abrirá el enlace en el que se hizo clic en su navegador predeterminado.\n"
+    External Link Handling: "Elija el comportamiento predeterminado cuando se hace clic en un enlace que no se puede abrir en FreeTube.\nPor defecto, FreeTube abrirá el enlace en el navegador predeterminado.\n"
     Open Deep Links In New Window: Las URL que se pasan a FreeTube, por ejemplo mediante la redirección de extensiones del navegador o argumentos de la línea de comandos, se abren en una ventana nueva.
   External Player Settings:
     Custom External Player Executable: Por defecto, FreeTube buscará el reproductor externo seleccionado mediante la variable de entorno PATH, de no encontrarlo, podrás especificar una ruta personalizada aquí.
@@ -981,6 +981,7 @@ Tooltips:
     Hide Channels: Introduzca un ID del canal para ocultar todos los vídeos, listas de reproducción y el propio canal para que no aparezcan en las búsquedas, tendencias, más populares y recomendados. El ID del canal introducido debe coincidir completamente y se debe distinguir entre mayúsculas y minúsculas.
     Hide Subscriptions Live: Esta configuración se reemplaza por la configuración «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
     Hide Videos and Playlists Containing Text: Introduzca una palabra, fragmento de palabra o frase (sin distinguir mayúsculas de minúsculas) para ocultar todos los vídeos y listas de reproducción cuyos títulos originales la contengan en todo FreeTube, excluyendo únicamente Historial, Tus listas de reproducción y los vídeos dentro de las listas de reproducción.
+    Hide Videos on Watch: Oculta los vídeos vistos de las pestañas de Vídeos, Shorts y En directo en las páginas de Subscripciones y Canales. Esto no afecta a la pestaña de inicio en las páginas de Canales
   SponsorBlock Settings:
     UseDeArrowTitles: Sustituye los títulos de los vídeos por títulos enviados por los usuarios desde DeArrow.
     UseDeArrowThumbnails: Sustituye las miniaturas de vídeo por miniaturas de DeArrow.

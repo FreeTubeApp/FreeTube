@@ -125,10 +125,10 @@ const subscriptionLimit = sessionStorage.getItem('subscriptionLimit')
 const dataLimit = ref(subscriptionLimit !== null ? parseInt(subscriptionLimit) : props.initialDataLimit)
 
 const activeVideoList = computed(() => {
-  if (props.videoList.length < dataLimit.value) {
-    return props.videoList
+  if (filteredVideoList.value.length < dataLimit.value) {
+    return filteredVideoList.value
   } else {
-    return props.videoList.slice(0, dataLimit.value)
+    return filteredVideoList.value.slice(0, dataLimit.value)
   }
 })
 
@@ -139,6 +139,24 @@ const activeProfileHasSubscriptions = computed(() => {
 /** @type {import('vue').ComputedRef<boolean>} */
 const fetchSubscriptionsAutomatically = computed(() => {
   return store.getters.getFetchSubscriptionsAutomatically
+})
+
+const historyCacheById = computed(() => {
+  return store.getters.getHistoryCacheById
+})
+
+const hideWatchedSubs = computed(() => {
+  return store.getters.getHideWatchedSubs
+})
+
+const filteredVideoList = computed(() => {
+  if (hideWatchedSubs.value && !props.isCommunity) {
+    return props.videoList.filter((video) => {
+      return !Object.hasOwn(historyCacheById.value, video.videoId)
+    })
+  } else {
+    return props.videoList
+  }
 })
 
 function increaseLimit() {
