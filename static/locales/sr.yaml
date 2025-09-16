@@ -259,6 +259,7 @@ Settings:
       Label: Аутоматски учитај следећу страницу
       Tooltip: Аутоматско учитавање додатних страница и коментара.
     Open Deep Links In New Window: Отворите URL адресе прослеђене FreeTube-у у новом прозору
+    Minimize to system tray: Минимизирај у системску траку
   Theme Settings:
     Theme Settings: 'Тема'
     Match Top Bar with Main Color: 'Усклади горњу траку са главном бојом'
