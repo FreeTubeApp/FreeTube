@@ -1,6 +1,7 @@
 import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
+import { PlayerIcons } from '../../../../constants'
 
 export class AutoplayToggle extends shaka.ui.Element {
   /**
@@ -17,14 +18,14 @@ export class AutoplayToggle extends shaka.ui.Element {
     this.button_.classList.add('autoplay-toggle', 'shaka-tooltip')
 
     /** @private */
-    this.icon_ = document.createElement('i')
-    this.icon_.classList.add('material-icons-round')
-    this.icon_.textContent = 'pause_circle'
-
-    this.button_.appendChild(this.icon_)
+    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.PAUSE_CIRCLE_FILLED)
 
     const label = document.createElement('label')
-    label.classList.add('shaka-overflow-button-label', 'shaka-overflow-menu-only')
+    label.classList.add(
+      'shaka-overflow-button-label',
+      'shaka-overflow-menu-only',
+      'shaka-simple-overflow-button-label-inline'
+    )
 
     /** @private */
     this.nameSpan_ = document.createElement('span')
@@ -68,7 +69,7 @@ export class AutoplayToggle extends shaka.ui.Element {
   updateLocalisedStrings_() {
     this.nameSpan_.textContent = i18n.t('Video.Autoplay')
 
-    this.icon_.textContent = this.autoplayEnabled_ ? 'play_circle' : 'pause_circle'
+    this.icon_.use(this.autoplayEnabled_ ? PlayerIcons.PLAY_CIRCLE_FILLED : PlayerIcons.PAUSE_CIRCLE_FILLED)
 
     this.currentState_.textContent = this.localization.resolve(this.autoplayEnabled_ ? 'ON' : 'OFF')
 
