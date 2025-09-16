@@ -825,17 +825,10 @@ export function parseLocalChannelHeader(channel, onlyIdNameThumbnail = false) {
  * @param {string} channelName
  */
 export function parseLocalChannelVideos(videos, channelId, channelName) {
-  const parsedVideos = []
-
-  for (const video of videos) {
-    // `BADGE_STYLE_TYPE_MEMBERS_ONLY` used for both `members only` and `members first` videos
-    if (video.is(YTNodes.Video) && video.is_members_only) {
-      continue
-    }
-    parsedVideos.push(parseLocalListVideo(video, channelId, channelName))
-  }
-
-  return parsedVideos
+  // `BADGE_STYLE_TYPE_MEMBERS_ONLY` used for both `members only` and `members first` videos
+  return videos
+    .filter((video) => !video.is_members_only)
+    .map((video) => parseLocalListVideo(video, channelId, channelName))
 }
 
 /**
