@@ -136,7 +136,7 @@ export function sortCaptions(captions) {
 
   const collator = new Intl.Collator([currentLocale, 'en'])
 
-  return captions.slice().sort((captionA, captionB) => {
+  return captions.sort((captionA, captionB) => {
     const aCode = captionA.language.split('-') // ex. [en,US] or [en]
     const bCode = captionB.language.split('-')
     const aName = captionA.label // ex: english (auto-generated)
