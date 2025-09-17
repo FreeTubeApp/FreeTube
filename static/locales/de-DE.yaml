@@ -1015,8 +1015,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Zugriff auf die Zwischenablage ist ohne sichere Verbindung nicht möglich
 Chapters:
   Chapters: Kapitel
-  'Chapters list visible, current chapter: {chapterName}': 'Kapitelliste sichtbar, aktuelles Kapitel: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste ausgeblendet, aktuelles Kapitel: {chapterName}'
   Key Moments: Highlights
 Preferences: Einstellungen
 Ok: OK

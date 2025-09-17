@@ -1,7 +1,7 @@
 import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
-import { KeyboardShortcuts } from '../../../../constants'
+import { KeyboardShortcuts, PlayerIcons } from '../../../../constants'
 import { addKeyboardShortcutToActionTitle } from '../../../helpers/utils'
 
 export class TheatreModeButton extends shaka.ui.Element {
@@ -19,14 +19,14 @@ export class TheatreModeButton extends shaka.ui.Element {
     this.button_.classList.add('theatre-button', 'shaka-tooltip')
 
     /** @private */
-    this.icon_ = document.createElement('i')
-    this.icon_.classList.add('material-icons-round')
-    this.icon_.textContent = 'tv'
-
-    this.button_.appendChild(this.icon_)
+    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.TV_DEFAULT)
 
     const label = document.createElement('label')
-    label.classList.add('shaka-overflow-button-label', 'shaka-overflow-menu-only')
+    label.classList.add(
+      'shaka-overflow-button-label',
+      'shaka-overflow-menu-only',
+      'shaka-simple-overflow-button-label-inline'
+    )
 
     /** @private */
     this.nameSpan_ = document.createElement('span')
@@ -67,7 +67,7 @@ export class TheatreModeButton extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.icon_.textContent = this.theatreModeEnabled_ ? 'monitor' : 'tv'
+    this.icon_.use(this.theatreModeEnabled_ ? PlayerIcons.MONITOR_DEFAULT : PlayerIcons.TV_DEFAULT)
 
     this.currentState_.textContent = this.localization.resolve(this.theatreModeEnabled_ ? 'ON' : 'OFF')
 

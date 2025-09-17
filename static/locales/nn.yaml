@@ -673,8 +673,6 @@ Clipboard:
   Copy failed: Kopiering til utklipptavle feila
 Chapters:
   Chapters: Kapittel
-  'Chapters list hidden, current chapter: {chapterName}': 'Kapittelliste skjult. Gjeldande kapittel: {chapterName}'
-  'Chapters list visible, current chapter: {chapterName}': 'Kapittelliste synleg. Gjeldande kapittel: {chapterName}'
 Starting download: Starter nedlastinga av "{videoTitle}"
 Downloading failed: Det oppstod eit problem under nedlastinga av "{videoTitle}"
 Default Invidious instance has been cleared: Standard-Invidious-førekomst har blitt tilbakestilt

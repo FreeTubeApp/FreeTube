@@ -1013,8 +1013,6 @@ Clipboard:
 Chapters:
   Chapters: Kapitler
   Key Moments: Højdepunkter
-  'Chapters list visible, current chapter: {chapterName}': 'Kapitelliste synlig. Nuværende kapitel: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste skjult. Nuværende kapitel: {chapterName}'
 Age Restricted:
   This video is age restricted: Denne video er aldersbegrænset
   This channel is age restricted: Denne kanal er aldersbegrænset

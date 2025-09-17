@@ -205,6 +205,8 @@ History:
   Search bar placeholder: In geschiedenis zoeken
   Empty Search Message: Geschiedenis bevat geen video's die overeenkomen met de zoekopdracht
   Case Sensitive Search: Hoofdlettergevoelige zoekopdracht
+  DateOldestHistory: Eerst­bekeken eerst
+  DateNewestHistory: Laatst­bekeken eerst
 Settings:
   # On Settings Page
   Settings: 'Instellingen'
@@ -251,6 +253,7 @@ Settings:
       Tooltip: Extra pagina's en opmerkingen automatisch laden.
       Label: Volgende pagina automatisch laden
     Open Deep Links In New Window: Open URL's in een nieuw venster
+    Minimize to system tray: Minimaliseren naar achtergrond-apps
   Theme Settings:
     Theme Settings: 'Thema'
     Match Top Bar with Main Color: 'Primaire themakleur gebruiken voor bovenste balk'
@@ -474,7 +477,7 @@ Settings:
     Export Subscriptions: Abonnementen exporteren
     Import Subscriptions: Abonnementen importeren
     Select Export Type: Exporteertype selecteren
-    Data Settings: Gegevens­
+    Data Settings: Gegevens
     How do I import my subscriptions?: Hoe importeer ik mijn abonnementen?
     Unknown data key: Onbekende datasleutel
     Unable to write file: Bestand kan niet worden geschreven
@@ -483,13 +486,13 @@ Settings:
     All watched history has been successfully imported: De bekeken geschiedenis is met succes geïmporteerd
     Manage Subscriptions: Abonnementen beheren
     Export Playlists: Afspeellijsten exporteren
-    All playlists has been successfully imported: Alle speellijsten zijn met succes geïmporteerd
+    All playlists has been successfully imported: Alle afspeel­lĳsten zĳn succesvol geïmporteerd
     Import Playlists: Afspeellijsten importeren
-    Playlist insufficient data: Onvoldoende gegevens voor speellijst "{playlist}", item word overgeslagen
-    All playlists has been successfully exported: Alle speellijsten zijn met succes geëxporteerd
-    Subscription File: Abonnementenbestand
-    History File: Geschiedenisbestand
-    Playlist File: Afspeellijstbestand
+    Playlist insufficient data: Onvoldoende gegevens voor afspeel­lĳst ‘{playlist}’, item wordt over­geslagen
+    All playlists has been successfully exported: Alle speel­lĳsten zĳn succesvol geëxporteerd
+    Subscription File: Abonnementen­bestand
+    History File: Geschiedenis­bestand
+    Playlist File: Afspeellĳst­bestand
     Export Playlists For Older FreeTube Versions:
       Label: Afspeel­lijsten exporteren voor oudere FreeTube-versies
       Tooltip: "Deze optie exporteert video's van alle afspeel­lijsten naar één afspeel­lijst met de naam ‘Favorieten’.\nVideo's exporteren en importeren in afspeel­lijsten voor een oudere versie van FreeTube:\n1. Exporteer uw afspeel­lijsten met deze optie ingeschakeld.\n2. Verwijder al uw bestaande afspeel­lijsten met de optie ‘Alle afspeel­lijsten verwijderen’ onder ‘Privacy­instellingen’.\n 3. Start de oudere versie van FreeTube en importeer de geëxporteerde afspeel­lijsten."
@@ -520,26 +523,26 @@ Settings:
     Hide Chapters: Hoofdstukken verbergen
     Hide Upcoming Premieres: Aankomende premières verbergen
     Hide Featured Channels: Uitgelichte kanalen verbergen
-    Hide Channel Playlists: '"Kanaal­afspeellijsten" Tabblad Verbergen'
+    Hide Channel Playlists: 'Kanaal­tabblad ‘Afspeel­lĳsten’ verbergen'
     Hide Channels: Video's van kanalen verbergen
     Hide Channels Placeholder: Kanaal-ID
-    Hide Channel Podcasts: Kanaal "Podcasts" Tabblad Verbergen
-    Hide Channel Releases: Kanaal "­Uitgaven" Tabblad Verbergen
+    Hide Channel Podcasts: Kanaal­tabblad ‘Podcasts’ verbergen
+    Hide Channel Releases: Kanaal­tabblad ‘Uitgaven’ verbergen
     Hide Subscriptions Videos: Abonnement­video's verbergen
     Hide Subscriptions Live: Abonnement-live-videos verbergen
-    Hide Channel Shorts: Kanaal "Shorts" Tabblad Verbergen
+    Hide Channel Shorts: Kanaal­tabblad ‘Shorts’ verbergen
     Hide Subscriptions Shorts: Abonnement-Shorts verbergen
     Hide Profile Pictures in Comments: Profielfoto's in opmerkingen verbergen
-    Hide Channels Already Exists: Kanaal ID bestaat reeds
+    Hide Channels Already Exists: Kanaal-id bestaat al
     Hide Channels Invalid: Opgegeven kanaal-id is ongeldig
     Hide Videos and Playlists Containing Text Placeholder: Woord, woord­fragment of zin
     Hide Videos and Playlists Containing Text: Video's en afspeel­lijsten die tekst bevatten verbergen
-    Hide Channels API Error: Fout bij het ophalen van de gebruiker met de opgegeven ID. Controleer nog­maals of de ID correct is.
+    Hide Channels API Error: Fout bij het ophalen van de gebruiker met de opgegeven id. Controleer nog­maals of de id correct is.
     Hide Channels Disabled Message: Sommige kanalen zijn geblokkeerd met behulp van ID en zijn niet verwerkt. De functie is geblokkeerd terwijl deze ID's worden bij­gewerkt
     Show Added Items: Toegevoegde Items Weergeven
-    Hide Channel Home: Kanaal "Home" Tab Verbergen
-    Hide Channel Courses: Verberg het tabblad 'Cursussen' van het kanaal
-    Hide Channel Posts: Verberg tabblad ‘Berichten’ van kanalen
+    Hide Channel Home: Kanaal­tabblad ‘Thuis’ verbergen
+    Hide Channel Courses: Kanaal­tabblad ‘Cursussen’ verbergen
+    Hide Channel Posts: Kanaal­tabblad ‘Berichten’ verbergen
     Hide Subscriptions Posts: Verberg berichten van abonnementen
   The app needs to restart for changes to take effect. Restart and apply change?: Het programma moet opnieuw worden gestart voordat de veranderingen effect hebben. Wilt u het programma nu opnieuw starten en de veranderingen toepassen?
   Proxy Settings:
@@ -591,9 +594,10 @@ Settings:
     Download Behavior: Gedrag downloaden
   Parental Control Settings:
     Hide Unsubscribe Button: Deabonneer­knop verbergen
-    Parental Control Settings: Ouderlijk Toezicht
+    Parental Control Settings: Ouderlijk toezicht
     Show Family Friendly Only: Enkel familievriendelijke inhoud tonen
     Hide Search Bar: Zoek­balk verbergen
+    Hide Uploader on Watch page: Uploader verbergen op pagina ‘Bekĳken’
   Experimental Settings:
     Warning: Dit zijn experimentele instellingen, die een crash kunnen veroorzaken. Het is raadzaam backups te maken. Gebruiken op eigen risico!
     Experimental Settings: Experimentele Instellingen
@@ -695,8 +699,8 @@ Channel:
     This channel does not currently have any shorts: Dit kanaal heeft momenteel geen Shorts
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Dit kanaal heeft een leeftijdsbeperking en kan momenteel niet worden bekeken in FreeTube.
   Home:
-    View Playlist: Afspeellijst Weergeven
-    Home: Startpagina
+    View Playlist: Afspeel­lĳst tonen
+    Home: Thuis
   Courses:
     Courses: Cursussen
     This channel does not currently have any courses: Dit kanaal heeft momenteel geen cursussen
@@ -977,6 +981,7 @@ Tooltips:
     Hide Channels: Voer een kanaal-ID in om alle video's, afspeel­lijsten en het kanaal zelf te verbergen zodat ze niet worden weer­gegeven in zoeken, trending, populairst en aan­bevolen. De ingevoerde kanaal-ID moet volledig overeen­komen en is hoofdletter­gevoelig.
     Hide Subscriptions Live: Deze instelling wordt overschreven door de app-brede instelling ‘{appWideSetting}’, in het gedeelte ‘{subsection}’ van ‘{settingsSection}’
     Hide Videos and Playlists Containing Text: Voer een woord, woord­fragment of woord­groep in (niet hoofdletter­gevoelig) om alle video's en afspeel­lijsten waarvan de oorspronkelijke titel dit bevat, in heel FreeTube te verbergen, met uit­zondering van alleen geschiedenis, uw afspeel­lijsten en video's in afspeel­lijsten.
+    Hide Videos on Watch: Verbergt bekeken video's op de tabbladen Video's, Shorts en Live; op de pagina's Abonnementen en Kanalen. Dit heeft geen invloed op het tabblad Thuis op kanaal­pagina's
   SponsorBlock Settings:
     UseDeArrowTitles: Vervangt videotitels met door gebruikers ingediende titels van DeArrow.
     UseDeArrowThumbnails: Video­miniaturen vervangen met miniaturen van DeArrow.
@@ -1015,8 +1020,6 @@ Hashtag:
 Ok: Oké
 Chapters:
   Chapters: Hoofdstukken
-  'Chapters list hidden, current chapter: {chapterName}': 'Hoofdstukkenlijst verborgen, huidig hoofdstuk: {chapterName}'
-  'Chapters list visible, current chapter: {chapterName}': 'Hoofdstukkenlijst zichtbaar, huidig hoofdstuk: {chapterName}'
   Key Moments: Belangrijke Momenten
 Clipboard:
   Cannot access clipboard without a secure connection: Geen toegang tot klembord zonder een beveiligde verbinding
@@ -1065,7 +1068,7 @@ KeyboardShortcutPrompt:
   Search in New Window: Zoeken in een nieuw venster
   Last Frame: Vorige frame (tijdens pauze)
   Small Fast Forward: X seconden doorspoelen op basis van de Doorspoelinterval en de huidige Afspeelsnelheid
-  Last Chapter: Laatste Hoofdstuk
+  Last Chapter: Laatste hoofd­stuk
   Skip by Tenths: Delen van video overslaan via percentage (3x overslaan voor 30% van de lengte)
   Large Fast Forward: 10 seconden vooruitspoelen / Vooruitspoelen op basis van de huidige Afspeelsnelheid
   New Window: Een nieuw venster openen
@@ -1079,7 +1082,7 @@ KeyboardShortcutPrompt:
   Focus Search: Focus naar de zoekbalk verplaatsen
   Zoom In: Inzoomen
   Volume Down: Volume verminderen
-  Next Chapter: Volgend Hoofdstuk
+  Next Chapter: Volgend hoofd­stuk
   Sections:
     App:
       Situational: 'App: Afhankelijk van de Situatie'
@@ -1106,6 +1109,8 @@ KeyboardShortcutPrompt:
   Increase Video Speed: Videosnelheid verhogen op basis van Afspeelsnelheid
   Home: Terug­spoelen naar het begin van de video
   End: Verder­spoelen naar het eind van de video
+  Skip to Next Video: Naar de volgende video in een afspeel­lĳst of de volgende aanbevolen video gaan
+  Skip to Previous Video: Naar de vorige video in een afspeel­lĳst gaan
 shortcutLabelSeparator: ｜
 Keys:
   alt: Alt

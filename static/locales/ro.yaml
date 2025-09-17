@@ -1013,8 +1013,6 @@ Screenshot Error: Captura de ecran a eșuat {error}
 Preferences: Preferințe
 Chapters:
   Chapters: Capitole
-  'Chapters list visible, current chapter: {chapterName}': 'Lista de capitole vizibilă, capitolul curent: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Lista de capitole ascunsă, capitolul curent: {chapterName}'
   Key Moments: Momente cheie
 Clipboard:
   Cannot access clipboard without a secure connection: Nu se poate accesa clipboard-ul fără o conexiune securizată

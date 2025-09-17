@@ -46,14 +46,14 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: 'Use faster D: drive for yarn cache on Windows'
       if: startsWith(matrix.os, 'windows')
       run: yarn config set cache-folder D:\ft_yarn_cache
 
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         node-version: ${{ matrix.node-version }}
         cache: "yarn"
@@ -65,7 +65,7 @@ jobs:
 
     - name: Set Version Number Variable
       id: versionNumber
-      uses: actions/github-script@v7
+      uses: actions/github-script@v8
       env:
         IS_DEV: ${{ contains(github.ref, 'development') }}
         IS_RC: ${{ contains(github.ref, 'RC') }}

@@ -17,9 +17,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - name: Use Node.js 22.x
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         node-version: 22.x
         cache: "yarn"

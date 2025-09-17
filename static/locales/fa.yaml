@@ -884,8 +884,6 @@ Change Format:
   Use Audio Formats: از فرمت های صوتی استفاده کنید
   Legacy formats are not available for this video: قالب‌های قدیمی برای این ویدیو موجود نیست
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 'فهرست فصل‌ها پنهان است، فصل فعلی: {chapterName}'
-  'Chapters list visible, current chapter: {chapterName}': 'فهرست فصل‌ها قابل مشاهده است، فصل فعلی: {chapterName}'
   Chapters: فصل
   Key Moments: لحظات کلیدی
 Hashtag:

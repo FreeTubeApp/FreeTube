@@ -632,7 +632,7 @@ About:
   GitHub issues: problemy na GitHub
   Report a problem: Zgłoś problem
   FreeTube Wiki: Wiki FreeTube
-  GitHub releases: wydania na GitHub
+  GitHub releases: Wydania na GitHub
   Downloads / Changelog: Wydania / Lista zmian
   Source code: Kod źródłowy
   FreeTube is made possible by: FreeTube powstał dzięki
@@ -1015,8 +1015,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Bez bezpiecznego połączenia nie można uzyskać dostępu do schowka
 Chapters:
   Chapters: Rozdziały
-  'Chapters list visible, current chapter: {chapterName}': 'Spis treści widoczny, obecny rozdział: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Spis treści schowany, obecny rozdział: {chapterName}'
   Key Moments: Kluczowe momenty
 Preferences: Preferencje
 Ok: Ok

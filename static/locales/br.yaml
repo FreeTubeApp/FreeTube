@@ -316,6 +316,7 @@ Settings:
       Ask Before Opening Link: 'Goulenn a-raok digeriñ ul liamm'
       No Action: 'Netra'
     Open Deep Links In New Window: Digeriñ an URLoù kaset da FreeTube e-barzh ur prenestr nevez
+    Minimize to system tray: Bihanaat er varenn kemennadennoù
   Theme Settings:
     Theme Settings: 'Tem'
     Match Top Bar with Main Color: 'Lakaat da glotañ liv ar varenn e-krec''h gant al liv pennañ'
@@ -658,6 +659,7 @@ Settings:
     Hide Unsubscribe Button: 'Kuzhat ar bouton digoumanantiñ'
     Show Family Friendly Only: 'Diskouez videoioù evit ar familh hepken'
     Hide Search Bar: 'Kuzhat ar varenn glask'
+    Hide Uploader on Watch page: Kuzhat ar chadenn war ar bajenn lenn
   Download Settings:
     Download Settings: 'Pellgargañ'
     Ask Download Path: 'Goulenn war-lerc''h an hent pellgargañ'
@@ -979,9 +981,6 @@ Clipboard:
 
 Chapters:
   Chapters: 'Chabistroù'
-  'Chapters list visible, current chapter: {chapterName}': 'Roll ar chabistroù diskouezet, chabistr bremanel : {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Roll ar chabistroù kuzhet, chabistr bremanel : {chapterName}'
-
   Key Moments: Mareoù a-bouez
 Mini Player: 'Lenner bihan'
 Comments:

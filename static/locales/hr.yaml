@@ -253,6 +253,7 @@ Settings:
       Label: Automatski učitaj sljedeću stranicu
       Tooltip: Automatski učitaj dodatne stranice i komentare.
     Open Deep Links In New Window: Otvori URL-ove proslijeđene FreeTubeu u novom prozoru
+    Minimize to system tray: Smanji na programsku traku
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Uskladi gornju traku s glavnom bojom'
@@ -1014,8 +1015,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Pristup međuspremniku nije moguć bez sigurne veze
 Chapters:
   Chapters: Poglavlja
-  'Chapters list visible, current chapter: {chapterName}': 'Popis poglavlja vidljiv, aktualno poglavlje: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Popis poglavlja skriven, aktualno poglavlje: {chapterName}'
   Key Moments: Ključni trenuci
 Preferences: Korisničke postavke
 Ok: U redu
