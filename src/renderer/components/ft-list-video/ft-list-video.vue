@@ -5,7 +5,7 @@
       list: effectiveListTypeIsList,
       grid: !effectiveListTypeIsList,
       [appearance]: true,
-      watched: addWatchedStyle || isMembersOnly
+      dimmed: isVideoWatched || isMembersOnly
     }"
   >
     <div
@@ -98,7 +98,7 @@
         />
       </span>
       <div
-        v-if="addWatchedStyle"
+        v-if="isVideoWatched"
         class="videoWatched"
       >
         {{ $t("Video.Watched") }}

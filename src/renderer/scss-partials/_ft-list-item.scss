@@ -1,6 +1,6 @@
 /* stylelint-disable no-descending-specificity */
 $thumbnail-overlay-opacity: 0.85;
-$watched-transition-duration: 0.5s;
+$dimmed-transition-duration: 0.5s;
 
 @mixin is-result {
   @at-root {
@@ -39,15 +39,15 @@ $watched-transition-duration: 0.5s;
   color: $col;
 
   @at-root {
-    .watched &,
-    .watched#{&} {
+    .dimmed &,
+    .dimmed#{&} {
       color: var(--tertiary-text-color);
-      transition-duration: $watched-transition-duration;
+      transition-duration: $dimmed-transition-duration;
     }
-    .watched:hover &,
-    .watched:hover#{&} {
+    .dimmed:hover &,
+    .dimmed:hover#{&} {
       color: $col;
-      transition-duration: $watched-transition-duration;
+      transition-duration: $dimmed-transition-duration;
     }
   }
 }
@@ -55,7 +55,7 @@ $watched-transition-duration: 0.5s;
 .ft-list-item {
   padding: 6px;
 
-  &.watched {
+  &.dimmed {
     background-color: var(--bg-color);
 
     @include low-contrast-when-watched(var(--primary-text-color));
@@ -63,13 +63,13 @@ $watched-transition-duration: 0.5s;
     .thumbnailImage {
       opacity: 0.3;
       /* stylelint-disable-next-line declaration-property-value-no-unknown */
-      transition: opacity $watched-transition-duration;
+      transition: opacity $dimmed-transition-duration;
     }
 
     &:hover .thumbnailImage,
     &:focus .thumbnailImage {
       opacity: 1;
-      transition-duration: $watched-transition-duration;
+      transition-duration: $dimmed-transition-duration;
     }
   }
 

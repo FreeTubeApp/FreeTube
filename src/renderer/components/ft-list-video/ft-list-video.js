@@ -381,7 +381,7 @@ export default defineComponent({
       return this.$store.getters.getHideVideoViews
     },
 
-    addWatchedStyle: function () {
+    isVideoWatched: function () {
       return this.historyEntryExists && !this.inHistory
     },
 
