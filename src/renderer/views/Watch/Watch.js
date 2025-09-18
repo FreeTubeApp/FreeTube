@@ -1264,6 +1264,12 @@ export default defineComponent({
     },
 
     handleVideoLoaded: function () {
+      if (this.sabrReloadCount > 0) {
+        // DO NOT count player reload requests during video playback (at the middle)
+        // Video loaded = not reload loop
+        this.sabrReloadCount--
+      }
+
       // will trigger again if you switch formats or change legacy quality
       // Check isUpcoming to avoid marking upcoming videos as watched if the user has only watched the trailer
       if (!this.videoPlayerLoaded && !this.isUpcoming) {
