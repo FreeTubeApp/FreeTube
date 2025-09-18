@@ -1,4 +1,5 @@
 import { defineComponent } from 'vue'
+import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 import { mapActions, mapMutations } from 'vuex'
 import shaka from 'shaka-player'
 import { Utils, YTNodes } from 'youtubei.js'
@@ -1909,10 +1910,27 @@ export default defineComponent({
       this.startNextVideoInPip = uiState.startNextVideoInPip
     },
 
-    onPlayerReloadRequested() {
+    async onPlayerReloadRequested() {
       showToast('Reloading player according to SABR request')
       this.sabrReloadCount++
-      this.reloadView()
+
+      const timestamp = this.getTimestamp()
+      if (timestamp > 0) {
+        // Reload at the middle should restart at current timestamp
+        try {
+          await this.$router.replace({
+            path: this.$route.path,
+            query: { ...this.$route.query, timestamp: timestamp },
+          })
+        } catch (failure) {
+          if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+            return
+          }
+
+          throw failure
+        }
+      }
+      await this.reloadView()
     },
 
     ...mapActions([
