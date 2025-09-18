@@ -647,7 +647,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
     let playerTimeMs = '0'
 
     if (url.searchParams.has('startTimeMs')) {
-      playerTimeMs = parseInt(url.searchParams.get('startTimeMs'))
+      playerTimeMs = url.searchParams.get('startTimeMs')
     }
 
     const drcEnabled = url.searchParams.has('drc') || !!(activeVariant && activeVariant.audioRoles.includes('drc'))
