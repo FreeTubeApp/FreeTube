@@ -829,7 +829,6 @@ export default defineComponent({
       } else {
         uiConfig.controlPanelElements.push(
           'ft_screenshot',
-          'loop',
           'ft_autoplay_toggle',
           'overflow_menu',
           'picture_in_picture',
@@ -843,6 +842,7 @@ export default defineComponent({
           'captions',
           'playback_rate',
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
+          'loop',
           'recenter_vr',
           'toggle_stereoscopic',
         )
