@@ -822,7 +822,7 @@ function updatePageTitle() {
     }
   }
 
-  store.commit('setAppTitle', `${titleText} - ${packageDetails.version}`)
+  store.commit('setAppTitle', `${titleText} - ${packageDetails.productName}`)
 }
 
 /**
