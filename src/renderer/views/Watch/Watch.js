@@ -129,6 +129,8 @@ export default defineComponent({
       manifestMimeType: MANIFEST_TYPE_DASH,
       /** @type {SabrData | null} */
       sabrData: null,
+      // For the same video
+      sabrReloadCount: 0,
       legacyFormats: [],
       captions: [],
       /** @type {'EQUIRECTANGULAR' | 'EQUIRECTANGULAR_THREED_TOP_BOTTOM' | 'MESH'| null} */
@@ -311,9 +313,14 @@ export default defineComponent({
       return !this.isLoading
     },
 
-    sabrEnabled: function () {
+    sabrEnabled() {
       return this.$store.getters.getSabrEnabled
     },
+
+    sabrReloadedTooManyTimes() {
+      // Hardcoded since no idea what causes player reload loop, but 3 times probably too much already
+      return this.sabrReloadCount >= 3
+    }
   },
   watch: {
     async $route() {
@@ -321,6 +328,10 @@ export default defineComponent({
     },
     userPlaylistsReady() {
       this.onMountedDependOnLocalStateLoading()
+    },
+    videoId() {
+      // Reset SABR reload count when videoID changed
+      this.sabrReloadCount = 0
     },
   },
   created: function () {
@@ -431,7 +442,8 @@ export default defineComponent({
 
       try {
         const { info: result, poToken, clientInfo, adEndTimeUnixMs } = await getLocalVideoInfo(this.videoId)
-        if (!this.sabrEnabled) {
+        const sabrShouldBeUsed = result.streaming_data.server_abr_streaming_url && result.player_config?.media_common_config?.media_ustreamer_request_config?.video_playback_ustreamer_config != null && this.sabrEnabled && !this.sabrReloadedTooManyTimes
+        if (!sabrShouldBeUsed) {
           // The hack should only be used on non-SABR
           this.adEndTimeUnixMs = adEndTimeUnixMs
         }
@@ -862,7 +874,7 @@ export default defineComponent({
               })
               ?.projection_type ?? null
 
-            if (result.streaming_data.server_abr_streaming_url && result.player_config?.media_common_config?.media_ustreamer_request_config?.video_playback_ustreamer_config != null && this.sabrEnabled) {
+            if (sabrShouldBeUsed) {
               const storyboards = storyboard
                 ? [{
                     templateUrl: storyboard.template_url,
@@ -1899,6 +1911,7 @@ export default defineComponent({
 
     onPlayerReloadRequested() {
       showToast('Reloading player according to SABR request')
+      this.sabrReloadCount++
       this.reloadView()
     },
 
