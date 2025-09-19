@@ -257,6 +257,19 @@ User Playlists:
       There is already a playlist with this name. Please pick a different name.: There is already a playlist with this name. Please pick a different name.
       Playlist {playlistName} has been successfully created.: Playlist {playlistName} has been successfully created.
       There was an issue with creating the playlist.: There was an issue with creating the playlist.
+
+Downloads:
+  Download: Download
+  Downloads: Downloads
+  Downloading: Downloading...
+  Downloading started: Downloading started
+  Complete: Complete
+  Muxing: Muxing...
+  Failed: Failed
+  Cancel: Cancel
+  Select: Select
+  Start Local Fake Download: Start Local Fake Download
+
 History:
   # On History Page
   History: History
