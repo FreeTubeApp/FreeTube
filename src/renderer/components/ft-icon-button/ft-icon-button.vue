@@ -60,6 +60,12 @@
               @keydown.space="handleDropdownClick({url: option.value, index: index})"
             >
               {{ option.type === 'divider' ? '' : option.label }}
+              <input
+                v-if="option.is_variant"
+                v-model="option.checked"
+                type="checkbox"
+                :aria-label="$t('Downloads.Select')"
+              >
             </li>
           </ul>
         </slot>
@@ -107,6 +113,12 @@
                 />
               </div>
               {{ option.type === 'divider' ? '' : option.label }}
+              <input
+                v-if="option.is_variant"
+                v-model="option.checked"
+                type="checkbox"
+                :aria-label="$t('Downloads.Select')"
+              >
             </li>
           </ul>
         </slot>
