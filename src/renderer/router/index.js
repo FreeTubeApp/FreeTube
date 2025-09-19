@@ -6,6 +6,7 @@ import ProfileSettings from '../views/ProfileSettings/ProfileSettings.vue'
 import Trending from '../views/Trending/Trending.vue'
 import Popular from '../views/Popular/Popular.vue'
 import UserPlaylists from '../views/UserPlaylists/UserPlaylists.vue'
+import Downloads from '../views/Downloads/Downloads.vue'
 import History from '../views/History/History.vue'
 import Settings from '../views/Settings/Settings.vue'
 import About from '../views/About/About.vue'
@@ -67,6 +68,14 @@ const router = new Router({
         title: 'Your Playlists'
       },
       component: UserPlaylists
+    },
+    {
+      path: '/downloads',
+      name: 'downloads',
+      meta: {
+        title: 'Downloads'
+      },
+      component: Downloads
     },
     {
       path: '/history',
