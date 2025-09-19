@@ -128,6 +128,29 @@
       </router-link>
       <SideNavMoreOptions />
       <router-link
+        class="navOption mobileHidden"
+        role="button"
+        to="/downloads"
+        :title="$t('Downloads.Downloads')"
+      >
+        <div
+          class="thumbnailContainer"
+        >
+          <FontAwesomeIcon
+            :icon="['fas', 'download']"
+            class="navIcon"
+            :class="applyNavIconExpand"
+            fixed-width
+          />
+        </div>
+        <p
+          v-if="!hideText"
+          class="navLabel"
+        >
+          {{ $t("Downloads.Downloads") }}
+        </p>
+      </router-link>
+      <router-link
         class="navOption mobileShow"
         role="button"
         to="/history"
