@@ -443,7 +443,7 @@ export default defineComponent({
 
       try {
         const { info: result, poToken, clientInfo, adEndTimeUnixMs } = await getLocalVideoInfo(this.videoId)
-        const sabrShouldBeUsed = result.streaming_data.server_abr_streaming_url && result.player_config?.media_common_config?.media_ustreamer_request_config?.video_playback_ustreamer_config != null && this.sabrEnabled && !this.sabrReloadedTooManyTimes
+        const sabrShouldBeUsed = result.streaming_data?.server_abr_streaming_url && result.player_config?.media_common_config?.media_ustreamer_request_config?.video_playback_ustreamer_config != null && this.sabrEnabled && !this.sabrReloadedTooManyTimes
         if (!sabrShouldBeUsed) {
           // The hack should only be used on non-SABR
           this.adEndTimeUnixMs = adEndTimeUnixMs
