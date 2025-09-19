@@ -79,6 +79,10 @@ export default defineComponent({
       type: Array,
       required: true
     },
+    videoChapters: {
+      type: Array,
+      required: true
+    },
     playlistId: {
       type: String,
       default: null
@@ -364,17 +368,35 @@ export default defineComponent({
     },
 
     handleDownload: function (index) {
-      const selectedDownloadLinkOption = this.downloadLinks[index]
-      const mimeTypeUrl = selectedDownloadLinkOption.value.split('||')
-
-      if (!process.env.IS_ELECTRON || this.downloadBehavior === 'open') {
-        openExternalLink(mimeTypeUrl[1])
-      } else {
-        this.downloadMedia({
-          url: mimeTypeUrl[1],
+      if (!Array.isArray(index)) {
+        console.error("the 'index' is expected to be an array of indices.")
+        return
+      }
+      if (index.length > 1) {
+        const items = []
+        for (const i of index) {
+          const selectedDownloadLinkOption = this.downloadLinks[i]
+          const mimeTypeUrl = selectedDownloadLinkOption.value.split('||')
+          items.push({ mime: mimeTypeUrl[0], url: mimeTypeUrl[1] })
+        }
+        // items.push({ mime: 'meta/chapters', url: JSON.stringify(this.videoChapters) })
+        this.$store.dispatch('createNewDownload', {
           title: this.title,
-          mimeType: mimeTypeUrl[0]
+          items: items,
         })
+      } else if (index.length === 1) {
+        const selectedDownloadLinkOption = this.downloadLinks[index[0]]
+        const mimeTypeUrl = selectedDownloadLinkOption.value.split('||')
+
+        if (!process.env.IS_ELECTRON || this.downloadBehavior === 'open') {
+          openExternalLink(mimeTypeUrl[1])
+        } else {
+          this.downloadMedia({
+            url: mimeTypeUrl[1],
+            title: this.title,
+            mimeType: mimeTypeUrl[0]
+          })
+        }
       }
     },
 
