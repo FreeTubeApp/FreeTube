@@ -55,6 +55,8 @@ const ShakaError = shaka.util.Error
  * @property {SabrStreamState} sabrStreamState
  * @property {?TimeoutController} timeoutController
  * @property {?EventEmitterLike} eventEmitter
+ * @property {number} cumulativeBackOffTimeMs
+ * @property {number} cumulativeBackOffRequested
  */
 
 /**
@@ -254,16 +256,30 @@ async function doRequest(
 
   try {
     if ((currentState.sabrStreamState.nextRequestPolicy?.backoffTimeMs || 0) > 0) {
-      currentState.eventEmitter.emit('backoff-requested', { backoffMs: currentState.sabrStreamState.nextRequestPolicy?.backoffTimeMs })
+      const currentBackoffTimeMs = currentState.sabrStreamState.nextRequestPolicy.backoffTimeMs
+      currentState.eventEmitter.emit('backoff-requested', { backoffMs: currentBackoffTimeMs })
       // Wait but can be aborted
       await new Promise((resolve, reject) => {
-        setTimeout(resolve, currentState.sabrStreamState.nextRequestPolicy?.backoffTimeMs)
+        setTimeout(resolve, currentBackoffTimeMs)
         currentState.abortController.signal.addEventListener('abort', reject)
       })
       // Must reset AFTER waiting to avoid requested aborted
       // Since long backoff time mostly happens on the start of video playback we only reset timeout once
       // i.e. backoff time parts received will not reset timeout - counted as video loading issue
       currentState.timeoutController?.resetTimeoutOnce()
+
+      currentState.cumulativeBackOffTimeMs += currentState.sabrStreamState.nextRequestPolicy.backoffTimeMs
+      currentState.cumulativeBackOffRequested += 1
+      const timeoutMs = operationInputs.request.retryParameters.timeout
+      // Detect infinite backoff loop by no. of times requested and cumulative time approaching timeout
+      if (currentState.cumulativeBackOffRequested >= 5 || (timeoutMs > 0 && timeoutMs <= currentState.cumulativeBackOffTimeMs + currentBackoffTimeMs)) {
+        // Fire fake reload event due to detecting backoff loop
+        currentState.sabrStreamState.playerReloadRequested = true
+        if (!currentState.abortController.signal.aborted) {
+          currentState.abortController.abort()
+          currentState.eventEmitter.emit('reload')
+        }
+      }
     }
 
     response = await fetch(currentState.sabrUrl, currentState.requestInit)
@@ -757,6 +773,8 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
       sabrStreamState,
       timeoutController,
       eventEmitter,
+      cumulativeBackOffTimeMs: 0,
+      cumulativeBackOffRequested: 0,
     }
 
     const pendingRequest = doRequest(opInputs, currentState)
