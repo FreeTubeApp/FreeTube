@@ -64,6 +64,7 @@
     "bgutils-js": "^3.2.0",
     "electron-context-menu": "^4.1.1",
     "marked": "^16.2.1",
+    "mediabunny": "https://github.com/bardcrab/mediabunny#dist",
     "portal-vue": "^2.1.7",
     "process": "^0.11.10",
     "shaka-player": "^4.14.26",
