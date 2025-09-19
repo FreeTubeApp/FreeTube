@@ -826,7 +826,6 @@ export default defineComponent({
           'captions',
           'ft_audio_tracks',
           'loop',
-          'ft_screenshot',
           'picture_in_picture',
           'ft_full_window',
           'recenter_vr',
