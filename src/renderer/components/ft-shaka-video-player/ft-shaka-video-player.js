@@ -13,6 +13,7 @@ import { TheatreModeButton } from './player-components/TheatreModeButton'
 import { AutoplayToggle } from './player-components/AutoplayToggle'
 import { SkipSilenceButton } from './player-components/SkipSilenceButton'
 import {
+  deduplicateAudioTracks,
   findMostSimilarAudioBandwidth,
   getSponsorBlockSegments,
   logShakaError,
@@ -187,7 +188,7 @@ export default defineComponent({
     const hasMultipleAudioTracks = ref(false)
     const isLive = ref(false)
 
-    const useOverFlowMenu = ref(false)
+    const onlyUseOverFlowMenu = ref(false)
     const forceAspectRatio = ref(false)
 
     const activeLegacyFormat = shallowRef(null)
@@ -805,7 +806,7 @@ export default defineComponent({
 
         // only set this to label when we actually have labels, so that the warning doesn't show up
         // about it being set to labels, but that the audio tracks don't have labels
-        trackLabelFormat: hasMultipleAudioTracks.value ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE,
+        trackLabelFormat: hasMultipleAudioTracks.value ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE_ROLE,
         // Only set it to label if we added the captions ourselves,
         // some live streams come with subtitles in the DASH manifest, but without labels
         textTrackLabelFormat: sortedCaptions.length > 0 ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE,
@@ -815,46 +816,51 @@ export default defineComponent({
       /** @type {string[]} */
       let elementList = []
 
-      if (useOverFlowMenu.value) {
+      if (onlyUseOverFlowMenu.value) {
         uiConfig.overflowMenuButtons = [
           'ft_screenshot',
           'ft_skip_silence_toggle',
           'ft_autoplay_toggle',
+          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'playback_rate',
-          'loop',
-          'ft_audio_tracks',
           'captions',
+          'ft_audio_tracks',
+          'loop',
+          'ft_screenshot',
           'picture_in_picture',
           'ft_full_window',
-          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'recenter_vr',
           'toggle_stereoscopic',
         ]
 
         elementList = uiConfig.overflowMenuButtons
 
-        uiConfig.controlPanelElements.push('overflow_menu')
+        uiConfig.controlPanelElements.push('overflow_menu', 'fullscreen')
       } else {
         uiConfig.controlPanelElements.push(
-          'recenter_vr',
-          'toggle_stereoscopic',
           'ft_screenshot',
           'ft_skip_silence_toggle',
           'ft_autoplay_toggle',
-          'playback_rate',
-          'loop',
-          'ft_audio_tracks',
-          'captions',
+          'overflow_menu',
           'picture_in_picture',
           'ft_theatre_mode',
           'ft_full_window',
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
+          'fullscreen'
+        )
+
+        uiConfig.overflowMenuButtons.push(
+          'ft_audio_tracks',
+          'captions',
+          'playback_rate',
+          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
+          'loop',
+          'recenter_vr',
+          'toggle_stereoscopic',
         )
 
         elementList = uiConfig.controlPanelElements
       }
-
-      uiConfig.controlPanelElements.push('fullscreen')
 
       if (!enableScreenshot.value || props.format === 'audio') {
         const index = elementList.indexOf('ft_screenshot')
@@ -885,11 +891,11 @@ export default defineComponent({
       }
 
       if (!useVrMode.value) {
-        const indexRecenterVr = elementList.indexOf('recenter_vr')
-        elementList.splice(indexRecenterVr, 1)
+        const indexRecenterVr = uiConfig.overflowMenuButtons.indexOf('recenter_vr')
+        uiConfig.overflowMenuButtons.splice(indexRecenterVr, 1)
 
-        const indexToggleStereoscopic = elementList.indexOf('toggle_stereoscopic')
-        elementList.splice(indexToggleStereoscopic, 1)
+        const indexToggleStereoscopic = uiConfig.overflowMenuButtons.indexOf('toggle_stereoscopic')
+        uiConfig.overflowMenuButtons.splice(indexToggleStereoscopic, 1)
       }
 
       return uiConfig
@@ -905,6 +911,7 @@ export default defineComponent({
      */
     function configureUI(firstTime = false) {
       if (firstTime) {
+        /** @type {shaka.extern.UIConfiguration} */
         const firstTimeConfig = {
           addSeekBar: seekingIsPossible.value,
           customContextMenu: true,
@@ -913,6 +920,8 @@ export default defineComponent({
           seekBarColors: {
             played: 'var(--primary-color)'
           },
+          showAudioCodec: false,
+          showVideoCodec: false,
           volumeBarColors: {
             level: 'var(--primary-color)'
           },
@@ -952,7 +961,8 @@ export default defineComponent({
         classList.contains('shaka-fast-foward-container') ||
         classList.contains('shaka-rewind-container') ||
         classList.contains('shaka-play-button-container') ||
-        classList.contains('shaka-play-button')) {
+        classList.contains('shaka-play-button') ||
+        classList.contains('shaka-controls-container')) {
         //
 
         if (event.ctrlKey || event.metaKey) {
@@ -1065,7 +1075,7 @@ export default defineComponent({
 
     /** @type {ResizeObserverCallback} */
     function resized(entries) {
-      useOverFlowMenu.value = entries[0].contentBoxSize[0].inlineSize <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
+      onlyUseOverFlowMenu.value = entries[0].contentBoxSize[0].inlineSize <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
     }
 
     // #endregion UI config
@@ -2596,9 +2606,9 @@ export default defineComponent({
       registerSkipSilenceToggle()
 
       if (ui.isMobile()) {
-        useOverFlowMenu.value = true
+        onlyUseOverFlowMenu.value = true
       } else {
-        useOverFlowMenu.value = container.value.getBoundingClientRect().width <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
+        onlyUseOverFlowMenu.value = container.value.getBoundingClientRect().width <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
 
         resizeObserver = new ResizeObserver(resized)
         resizeObserver.observe(container.value)
@@ -2618,8 +2628,6 @@ export default defineComponent({
 
       if (props.format !== 'legacy') {
         player.addEventListener('streaming', () => {
-          hasMultipleAudioTracks.value = player.getAudioLanguagesAndRoles().length > 1
-
           if (props.format === 'dash') {
             const firstVariant = player.getVariantTracks()[0]
 
@@ -2698,6 +2706,8 @@ export default defineComponent({
 
       // ideally we would set this in the `streaming` event handler, but for HLS this is only set to true after the loaded event fires.
       isLive.value = player.isLive()
+      // getAudioTracks() returns an empty array when no variant is active, so we can't do this in the `streaming` event
+      hasMultipleAudioTracks.value = deduplicateAudioTracks(player.getAudioTracks()).size > 1
 
       const promises = []
 

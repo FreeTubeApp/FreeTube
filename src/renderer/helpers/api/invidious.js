@@ -285,7 +285,7 @@ export async function searchInvidiousChannel(channelId, query, page) {
 
 /**
  * @param {string} playlistId
- * @returns {{
+ * @returns {Promise<{
  *  title: string,
  *  playlistId: string,
  *  author: string,
@@ -306,7 +306,7 @@ export async function searchInvidiousChannel(channelId, query, page) {
  *    index: number,
  *    lengthSeconds: number
  *  }[]
- * }}
+ * }>}
  */
 export async function invidiousGetPlaylistInfo(playlistId) {
   const playlist = await invidiousAPICall({

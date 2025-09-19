@@ -66,7 +66,7 @@
     "marked": "^16.3.0",
     "portal-vue": "^2.1.7",
     "process": "^0.11.10",
-    "shaka-player": "^4.14.26",
+    "shaka-player": "^4.16.1",
     "swiper": "^12.0.1",
     "vue": "^2.7.16",
     "vue-i18n": "^8.28.2",
