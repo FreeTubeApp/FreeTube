@@ -1,6 +1,7 @@
 import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
+import { PlayerIcons } from '../../../../constants'
 
 export class SkipSilenceButton extends shaka.ui.Element {
   /**
@@ -17,11 +18,7 @@ export class SkipSilenceButton extends shaka.ui.Element {
     this.button_.classList.add('skip-silence-button', 'shaka-tooltip')
 
     /** @private */
-    this.icon_ = document.createElement('i')
-    this.icon_.classList.add('material-icons-round')
-    this.icon_.textContent = 'timer'
-
-    this.button_.appendChild(this.icon_)
+    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.SKIP_SILENCE_DEFAULT)
 
     const label = document.createElement('label')
     label.classList.add('shaka-overflow-button-label', 'shaka-overflow-menu-only')
@@ -65,7 +62,7 @@ export class SkipSilenceButton extends shaka.ui.Element {
   /** @private */
   updateLocalisedStrings_() {
     this.nameSpan_.textContent = this.button_.ariaLabel = this.skipSilenceEnabled_ ? i18n.t('SilenceSkip.Enable Silence Skip') : i18n.t('SilenceSkip.Disable Silence Skip')
-    this.icon_.textContent = this.skipSilenceEnabled_ ? 'shutter_speed' : 'timer'
+    this.icon_.use(this.skipSilenceEnabled_ ? PlayerIcons.SKIP_SILENCE_FILLED : PlayerIcons.SKIP_SILENCE_DEFAULT)
     this.currentState_.textContent = this.localization.resolve(this.skipSilenceEnabled_ ? 'ON' : 'OFF')
   }
 }
