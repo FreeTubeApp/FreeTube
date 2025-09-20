@@ -2495,6 +2495,10 @@ export default defineComponent({
       isOffline.value = true
     }
 
+    function fullscreenChangeHandler() {
+      nextTick(showOverlayControls)
+    }
+
     window.addEventListener('online', onlineHandler)
     window.addEventListener('offline', offlineHandler)
 
@@ -2593,9 +2597,7 @@ export default defineComponent({
 
       document.removeEventListener('keydown', keyboardShortcutHandler)
       document.addEventListener('keydown', keyboardShortcutHandler)
-      document.addEventListener('fullscreenchange', () => {
-        nextTick(showOverlayControls)
-      })
+      document.addEventListener('fullscreenchange', fullscreenChangeHandler)
 
       player.addEventListener('loading', () => {
         hasLoaded.value = false
@@ -2936,9 +2938,7 @@ export default defineComponent({
       document.body.classList.remove('playerFullWindow')
 
       document.removeEventListener('keydown', keyboardShortcutHandler)
-      document.removeEventListener('fullscreenchange', () => {
-        nextTick(showOverlayControls)
-      })
+      document.removeEventListener('fullscreenchange', fullscreenChangeHandler)
 
       if (resizeObserver) {
         resizeObserver.disconnect()
