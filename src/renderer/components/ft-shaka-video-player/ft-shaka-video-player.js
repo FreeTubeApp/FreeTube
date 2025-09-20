@@ -1,4 +1,4 @@
-import { computed, defineComponent, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
+import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
 import shaka from 'shaka-player'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
@@ -1977,6 +1977,8 @@ export default defineComponent({
         const formattedSeconds = Math.abs(seconds)
         showValueChange(`${formattedSeconds}s`, popUpLayout.icon, popUpLayout.invertContentOrder)
       }
+
+      showOverlayControls()
     }
 
     // #endregion mouse and keyboard helpers
@@ -2224,6 +2226,7 @@ export default defineComponent({
 
             const currentlyVisible = player.isTextTrackVisible()
             player.setTextTrackVisibility(!currentlyVisible)
+            showOverlayControls()
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.VOLUME_UP:
@@ -2241,6 +2244,7 @@ export default defineComponent({
           if (canChapterJump(event, 'previous')) {
             // Jump to the previous chapter
             video_.currentTime = props.chapters[props.currentChapterIndex - 1].startSeconds
+            showOverlayControls()
           } else {
             // Rewind by the time-skip interval (in seconds)
             seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate(), false, true)
@@ -2251,6 +2255,7 @@ export default defineComponent({
           if (canChapterJump(event, 'next')) {
             // Jump to the next chapter
             video_.currentTime = (props.chapters[props.currentChapterIndex + 1].startSeconds)
+            showOverlayControls()
           } else {
             // Fast-Forward by the time-skip interval (in seconds)
             seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate(), false, true)
@@ -2286,6 +2291,7 @@ export default defineComponent({
             const percentage = parseInt(event.key) / 10
 
             video_.currentTime = seekRange.start + (length * percentage)
+            showOverlayControls()
           }
           break
         }
@@ -2317,6 +2323,7 @@ export default defineComponent({
             // use seek range instead of duration so that it works for live streams too
             const seekRange = player.seekRange()
             video_.currentTime = seekRange.start
+            showOverlayControls()
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.END:
@@ -2326,6 +2333,7 @@ export default defineComponent({
             // use seek range instead of duration so that it works for live streams too
             const seekRange = player.seekRange()
             video_.currentTime = seekRange.end
+            showOverlayControls()
           }
           break
         case 'escape':
@@ -2487,6 +2495,10 @@ export default defineComponent({
       isOffline.value = true
     }
 
+    function fullscreenChangeHandler() {
+      nextTick(showOverlayControls)
+    }
+
     window.addEventListener('online', onlineHandler)
     window.addEventListener('offline', offlineHandler)
 
@@ -2585,6 +2597,7 @@ export default defineComponent({
 
       document.removeEventListener('keydown', keyboardShortcutHandler)
       document.addEventListener('keydown', keyboardShortcutHandler)
+      document.addEventListener('fullscreenchange', fullscreenChangeHandler)
 
       player.addEventListener('loading', () => {
         hasLoaded.value = false
@@ -2925,6 +2938,7 @@ export default defineComponent({
       document.body.classList.remove('playerFullWindow')
 
       document.removeEventListener('keydown', keyboardShortcutHandler)
+      document.removeEventListener('fullscreenchange', fullscreenChangeHandler)
 
       if (resizeObserver) {
         resizeObserver.disconnect()
@@ -3032,6 +3046,10 @@ export default defineComponent({
     const invertValueChangeContentOrder = ref(false)
     let valueChangeTimeout = null
 
+    function showOverlayControls() {
+      ui.getControls().showUI()
+    }
+
     /**
      * Shows a popup with a message and an icon on top of the video player.
      * @param {string} message - The message to display.
@@ -3051,6 +3069,8 @@ export default defineComponent({
       valueChangeTimeout = setTimeout(() => {
         showValueChangePopup.value = false
       }, 2000)
+
+      showOverlayControls()
     }
 
     return {
