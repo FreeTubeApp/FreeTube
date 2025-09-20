@@ -752,14 +752,27 @@ function runApp() {
       {
         type: 'separator'
       },
-      {
-        label: 'Quit',
-        click: handleQuit
-      }
+      ...defaultTrayMenu()
     )
 
     const menu = Menu.buildFromTemplate(menuItems)
     tray.setContextMenu(menu)
+  }
+
+  function defaultTrayMenu() {
+    return [
+      {
+        label: 'New Window',
+        click: () => createWindow({
+          showWindowNow: true,
+          replaceMainWindow: trayWindows.some(item => item.id === mainWindow.id)
+        })
+      },
+      {
+        label: 'Quit',
+        click: handleQuit
+      }
+    ]
   }
 
   function destroyTray() {
@@ -769,11 +782,7 @@ function runApp() {
       tray.destroy()
       tray = null
     } else {
-      const quitItem = [{
-        label: 'Quit',
-        click: handleQuit
-      }]
-      const menu = Menu.buildFromTemplate(quitItem)
+      const menu = Menu.buildFromTemplate(defaultTrayMenu())
       tray.setContextMenu(menu)
     }
   }
