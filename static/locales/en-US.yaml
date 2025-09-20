@@ -634,6 +634,8 @@ Settings:
     Proxy Protocol: Proxy Protocol
     Proxy Host: Proxy Host
     Proxy Port Number: Proxy Port Number
+    Proxy Username: Proxy Username
+    Proxy Password: Proxy Password
     Clicking on Test Proxy will send a request to: Clicking on Test Proxy will send a request to
     Test Proxy: Test Proxy
     Your Info: Your Info
