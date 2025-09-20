@@ -1,4 +1,5 @@
 // IPC Channels
+
 const IpcChannels = {
   ENABLE_PROXY: 'enable-proxy',
   DISABLE_PROXY: 'disable-proxy',
@@ -45,6 +46,10 @@ const IpcChannels = {
   GET_SCREENSHOT_FALLBACK_FOLDER: 'get-screenshot-fallback-folder',
   CHOOSE_DEFAULT_FOLDER: 'choose-default-folder',
   WRITE_TO_DEFAULT_FOLDER: 'write-to-default-folder',
+
+  GET_STORE_USER_DATA_IN_APP_FOLDER_ALLOWED: 'get-store-user-data-in-app-folder-allowed',
+  GET_STORE_USER_DATA_IN_APP_FOLDER_ENABLED: 'get-store-user-data-in-app-folder-enabled',
+  TOGGLE_STORE_USER_DATA_IN_APP_FOLDER: 'toggle-store-user-data-in-app-folder',
 }
 
 const DBActions = {
@@ -248,6 +253,9 @@ const MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT = 4
 // Displayed on the about page and used in the main.js file to only allow bitcoin URLs with this wallet address to be opened
 const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
+// Filename for enabling user data storage in app folder (Windows)
+const STORE_USER_DATA_IN_APP_FOLDER_SWITCH_FILENAME = 'store-user-data-in-app-folder'
+
 export {
   IpcChannels,
   DBActions,
@@ -262,4 +270,5 @@ export {
   SEARCH_RESULTS_DISPLAY_LIMIT,
   MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT,
   ABOUT_BITCOIN_ADDRESS,
+  STORE_USER_DATA_IN_APP_FOLDER_SWITCH_FILENAME,
 }
