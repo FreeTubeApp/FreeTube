@@ -57,6 +57,7 @@ const ShakaError = shaka.util.Error
  * @property {?EventEmitterLike} eventEmitter
  * @property {number} cumulativeBackOffTimeMs
  * @property {number} cumulativeBackOffRequested
+ * @property {number} cumulativeRetryDueToNextRequestPolicy
  */
 
 /**
@@ -255,6 +256,7 @@ async function doRequest(
   }
 
   try {
+    let shouldReloadDueToBackoffLoop = false
     if ((currentState.sabrStreamState.nextRequestPolicy?.backoffTimeMs || 0) > 0) {
       const currentBackoffTimeMs = currentState.sabrStreamState.nextRequestPolicy.backoffTimeMs
       currentState.eventEmitter.emit('backoff-requested', { backoffMs: currentBackoffTimeMs })
@@ -272,13 +274,17 @@ async function doRequest(
       currentState.cumulativeBackOffRequested += 1
       const timeoutMs = operationInputs.request.retryParameters.timeout
       // Detect infinite backoff loop by no. of times requested and cumulative time approaching timeout
-      if (currentState.cumulativeBackOffRequested >= 5 || (timeoutMs > 0 && timeoutMs <= currentState.cumulativeBackOffTimeMs + currentBackoffTimeMs)) {
-        // Fire fake reload event due to detecting backoff loop
-        currentState.sabrStreamState.playerReloadRequested = true
-        if (!currentState.abortController.signal.aborted) {
-          currentState.abortController.abort()
-          currentState.eventEmitter.emit('reload')
-        }
+      if (currentState.cumulativeBackOffRequested >= 5 || (timeoutMs > 0 && timeoutMs <= (currentState.cumulativeBackOffTimeMs + currentBackoffTimeMs))) {
+        shouldReloadDueToBackoffLoop = true
+      }
+    }
+    // Detect infinite retry due to next request policy (without backoff)
+    if (shouldReloadDueToBackoffLoop || currentState.cumulativeRetryDueToNextRequestPolicy >= 100) {
+      // Fire fake reload event due to detecting retry loop
+      currentState.sabrStreamState.playerReloadRequested = true
+      if (!currentState.abortController.signal.aborted) {
+        currentState.abortController.abort()
+        currentState.eventEmitter.emit('reload')
       }
     }
 
@@ -361,6 +367,7 @@ async function doRequest(
             const nextRequestPolicy = decodePart(part, NextRequestPolicy)
 
             shouldRetry = true
+            currentState.cumulativeRetryDueToNextRequestPolicy += 1
 
             currentState.sabrStreamState.nextRequestPolicy = nextRequestPolicy
             currentState.abrRequest.streamerContext.playbackCookie = nextRequestPolicy?.playbackCookie ? PlaybackCookie.encode(nextRequestPolicy.playbackCookie).finish() : undefined
@@ -775,6 +782,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
       eventEmitter,
       cumulativeBackOffTimeMs: 0,
       cumulativeBackOffRequested: 0,
+      cumulativeRetryDueToNextRequestPolicy: 0,
     }
 
     const pendingRequest = doRequest(opInputs, currentState)
