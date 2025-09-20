@@ -11,6 +11,7 @@ import { ScreenshotButton } from './player-components/ScreenshotButton'
 import { StatsButton } from './player-components/StatsButton'
 import { TheatreModeButton } from './player-components/TheatreModeButton'
 import { AutoplayToggle } from './player-components/AutoplayToggle'
+import { SkipSilenceButton } from './player-components/SkipSilenceButton'
 import {
   deduplicateAudioTracks,
   findMostSimilarAudioBandwidth,
@@ -145,6 +146,10 @@ export default defineComponent({
       type: Number,
       default: 1
     },
+    skipSilenceEnabled: {
+      type: Boolean,
+      default: false
+    }
   },
   emits: [
     'error',
@@ -156,6 +161,7 @@ export default defineComponent({
     'playback-rate-updated',
     'skip-to-next',
     'skip-to-prev',
+    'skip-silence-updated',
   ],
   setup: function (props, { emit, expose }) {
     const { locale, t } = useI18n()
@@ -191,6 +197,8 @@ export default defineComponent({
     const startInFullwindow = props.startInFullwindow
     let startInFullscreen = props.startInFullscreen
     let startInPip = props.startInPip
+
+    const isSilenceSkipEnabled = ref(false)
 
     /**
      * @type {{
@@ -810,13 +818,14 @@ export default defineComponent({
 
       if (onlyUseOverFlowMenu.value) {
         uiConfig.overflowMenuButtons = [
+          'ft_screenshot',
+          'ft_skip_silence_toggle',
           'ft_autoplay_toggle',
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'playback_rate',
           'captions',
           'ft_audio_tracks',
           'loop',
-          'ft_screenshot',
           'picture_in_picture',
           'ft_full_window',
           'recenter_vr',
@@ -829,11 +838,13 @@ export default defineComponent({
       } else {
         uiConfig.controlPanelElements.push(
           'ft_screenshot',
+          'ft_skip_silence_toggle',
           'ft_autoplay_toggle',
           'overflow_menu',
           'picture_in_picture',
           'ft_theatre_mode',
           'ft_full_window',
+          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'fullscreen'
         )
 
@@ -1720,6 +1731,24 @@ export default defineComponent({
       shakaOverflowMenu.registerElement('ft_autoplay_toggle', new AutoplayToggleFactory())
     }
 
+    function registerSkipSilenceToggle() {
+      events.addEventListener('toggleSkipSilence', () => {
+        skipSilence()
+      })
+
+      /**
+       * @implements {shaka.extern.IUIElement.Factory}
+       */
+      class SkipSilenceToggleFactory {
+        create(rootElement, controls) {
+          return new SkipSilenceButton(isSilenceSkipEnabled.value, events, rootElement, controls)
+        }
+      }
+
+      shakaControls.registerElement('ft_skip_silence_toggle', new SkipSilenceToggleFactory())
+      shakaOverflowMenu.registerElement('ft_skip_silence_toggle', new SkipSilenceToggleFactory())
+    }
+
     function registerTheatreModeButton() {
       events.addEventListener('toggleTheatreMode', () => {
         emit('toggle-theatre-mode')
@@ -1871,6 +1900,9 @@ export default defineComponent({
 
       shakaControls.registerElement('ft_screenshot', null)
       shakaOverflowMenu.registerElement('ft_screenshot', null)
+
+      shakaControls.registerElement('ft_skip_silence_toggle', null)
+      shakaOverflowMenu.registerElement('ft_skip_silence_toggle', null)
     }
 
     // #endregion custom player controls
@@ -2570,6 +2602,7 @@ export default defineComponent({
       registerFullWindowButton()
       registerLegacyQualitySelection()
       registerStatsButton()
+      registerSkipSilenceToggle()
 
       if (ui.isMobile()) {
         onlyUseOverFlowMenu.value = true
@@ -2623,6 +2656,13 @@ export default defineComponent({
       player.addEventListener('ratechange', () => {
         emit('playback-rate-updated', player.getPlaybackRate())
       })
+
+      if (store.getters.getSkipSilenceEnabled || props.skipSilenceEnabled) {
+        skipSilence()
+        events.dispatchEvent(new CustomEvent('setSkipSilence', {
+          detail: isSilenceSkipEnabled.value
+        }))
+      }
     })
 
     async function performFirstLoad() {
@@ -3014,6 +3054,89 @@ export default defineComponent({
       return uiState
     }
 
+    /**
+     * Toggles and manages the silence skip functionality for the video player.
+     *
+     * When silence skip is enabled, the function analyzes the audio stream of the
+     * video to detect silent segments. If a silent segment is detected, the video
+     * playback speed is increased to skip over the silence.
+     *
+     * The function uses the Web Audio API to create an AudioContext and connect it
+     * to the video element's audio source. An AnalyserNode is used to obtain the
+     * time-domain data of the audio signal, which is then processed to calculate
+     * the maximum and average volume levels. Silence is determined by comparing
+     * these levels, and if the conditions for silence are met, the player's
+     * trickPlay method is invoked to increase the playback speed.
+     *
+     * If silence skip is disabled, the playback speed is reset to normal.
+     *
+     * The function initiates a loop using requestAnimationFrame to continuously
+     * analyze the audio stream as long as the player exists and silence skip is
+     * enabled.
+     */
+    function skipSilence() {
+      if (!isSilenceSkipEnabled.value) {
+        showValueChange(t('SilenceSkip.Enable Silence Skip'))
+        isSilenceSkipEnabled.value = true
+      } else {
+        showValueChange(t('SilenceSkip.Disable Silence Skip'))
+        isSilenceSkipEnabled.value = false
+      }
+      emit('skip-silence-updated', isSilenceSkipEnabled.value)
+
+      const video_ = video.value
+
+      if (video_ && player) {
+        const audioContext = video_.audioContext ?? new AudioContext()
+        let source = video_.audioSource
+        if (!source) {
+          source = audioContext.createMediaElementSource(video_)
+          video_.audioSource = source
+        }
+        if (!video_.audioContext) {
+          video_.audioContext = audioContext
+        }
+        const analyser = audioContext.createAnalyser()
+        source.disconnect()
+        source.connect(analyser)
+        analyser.disconnect()
+        analyser.connect(audioContext.destination)
+        analyser.fftSize = 2048
+        const bufferLength = analyser.frequencyBinCount
+        const amplitudeArray = new Uint8Array(bufferLength)
+        let loopId = 0
+        const loop = () => {
+          if (!player) {
+            cancelAnimationFrame(loopId)
+            return
+          }
+
+          analyser.getByteTimeDomainData(amplitudeArray)
+          const volumeValues = Array.from(amplitudeArray)
+          const filteredVolumes = volumeValues.map(volume => volume - 128).filter(volume => volume !== 0).map(volume => Math.abs(volume))
+          const maxVolume = filteredVolumes.length ? Math.max(...filteredVolumes) : 0
+          const averageVolume = filteredVolumes.length ? filteredVolumes.reduce((a, b) => a + b, 0) / filteredVolumes.length : 0
+
+          if (isSilenceSkipEnabled.value) {
+            const silencePercentage = !isNaN(maxVolume) && !isNaN(averageVolume) ? (averageVolume / maxVolume) * 4 : 0
+
+            if (maxVolume <= averageVolume || maxVolume <= silencePercentage) {
+              player.trickPlay(2.5)
+            } else {
+              player.cancelTrickPlay()
+            }
+          } else {
+            player.cancelTrickPlay()
+            return
+          }
+
+          loopId = requestAnimationFrame(loop)
+        }
+
+        loop()
+      }
+    }
+
     expose({
       hasLoaded,
 
@@ -3021,7 +3144,7 @@ export default defineComponent({
       pause,
       getCurrentTime,
       setCurrentTime,
-      destroyPlayer
+      destroyPlayer,
     })
 
     // #endregion functions used by the watch page

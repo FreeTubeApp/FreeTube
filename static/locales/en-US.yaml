@@ -455,6 +455,7 @@ Settings:
     Skip by Scrolling Over Video Player: Skip by Scrolling Over Video Player
     Display Play Button In Video Player: Display Play Button In Video Player
     Enter Fullscreen on Display Rotate: Enter Fullscreen on Display Rotate
+    Skip Silence Enabled: Enable Skip Silence by Default
     Next Video Interval: Autoplay Countdown Timer
     Autoplay Interruption Timer: Autoplay Interruption Timer
     Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
@@ -1213,3 +1214,8 @@ KeyboardShortcutPrompt:
   End: Seek to the end of the video
   Skip to Next Video: Skip to the next video in a playlist or next recommended video
   Skip to Previous Video: Skip to the previous video in a playlist
+
+SilenceSkip:
+  Skip Silence: Skip Silence
+  Enable Silence Skip: Silence Skip enabled
+  Disable Silence Skip: Silence Skip disabled
