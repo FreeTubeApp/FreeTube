@@ -155,6 +155,11 @@ const hideUpcomingPremieres = computed(() => {
   return store.getters.getHideUpcomingPremieres
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideChannelsBasedOnText = computed(() => {
+  return store.getters.getHideChannelsBasedOnText
+})
+
 /** @type {import('vue').ComputedRef<{name : string, preferredName: string, icon: string}[]>} */
 const channelsHidden = computed(() => {
   // Some component users like channel view will have this disabled
@@ -203,12 +208,15 @@ const showResult = computed(() => {
       return false
     }
 
-    if (channelsHidden.value.some(ch => ch.name === props.data.authorId) || channelsHidden.value.some(ch => ch.name === props.data.author)) {
+    const lowerCaseAuthor = props.data.author?.toLowerCase()
+
+    if (channelsHidden.value.some(ch => ch.name === props.data.authorId) || channelsHidden.value.some(ch => ch.name === props.data.author) || (hideChannelsBasedOnText.value && forbiddenTitles.value.some((text) => lowerCaseAuthor.includes(text.toLowerCase())))) {
       // hide videos by author
       return false
     }
 
     const lowerCaseTitle = props.data.title?.toLowerCase()
+
     if (forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text.toLowerCase()))) {
       return false
     }
@@ -223,14 +231,19 @@ const showResult = computed(() => {
       props.data.authorId,
     ]
 
-    if (attrsToCheck.some(a => a != null && channelsHidden.value.some(ch => ch.name === a))) {
+    const lowerCaseName = props.data.name?.toLowerCase()
+
+    if ((attrsToCheck.some(a => a != null && channelsHidden.value.some(ch => ch.name === a))) ||
+      (hideChannelsBasedOnText.value && forbiddenTitles.value.some((text) => lowerCaseName.includes(text.toLowerCase())))) {
       // hide channels by author
       return false
     }
   } else if (dataType === 'playlist') {
     const lowerCaseTitle = props.data.title?.toLowerCase()
+    const lowerCaseChannelName = props.data.channelName?.toLowerCase()
 
-    if (forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text.toLowerCase()))) {
+    if ((forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text.toLowerCase()))) ||
+      (hideChannelsBasedOnText.value && forbiddenTitles.value.some((text) => lowerCaseChannelName.includes(text.toLowerCase())))) {
       return false
     }
 
