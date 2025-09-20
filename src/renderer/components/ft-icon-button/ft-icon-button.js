@@ -75,6 +75,7 @@ export default defineComponent({
   emits: ['click', 'disabled-click'],
   data: function () {
     return {
+      checked: false,
       dropdownShown: false,
       blockLeftClick: false,
       longPressTimer: null,
@@ -164,13 +165,36 @@ export default defineComponent({
     },
 
     handleDropdownClick: function ({ url, index }) {
-      if (this.returnIndex) {
-        this.$emit('click', index)
-      } else {
-        this.$emit('click', url)
-      }
+      const option = this.dropdownOptions[index]
 
-      this.dropdownShown = false
+      if (option.is_variant) {
+        if (option.checked === undefined) {
+          option.checked = true
+        } else {
+          option.checked = !option.checked
+        }
+        this.$forceUpdate()
+      } else {
+        let i = 0
+        const multiIndex = []
+        const multiUrl = []
+
+        for (const option of this.dropdownOptions) {
+          if (option.is_variant && option.checked) {
+            multiIndex.push(i)
+            multiUrl.push(option.value)
+          }
+          ++i
+        }
+
+        if (this.returnIndex) {
+          this.$emit('click', (multiIndex.length > 0) ? multiIndex : index)
+        } else {
+          this.$emit('click', (multiUrl.length > 0) ? multiUrl : url)
+        }
+
+        this.dropdownShown = false
+      }
     },
 
     handleResize: function () {
