@@ -1,4 +1,4 @@
-import { ClientType, Innertube, Misc, Parser, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
+import { ClientType, Constants, Innertube, Misc, Parser, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -34,9 +34,10 @@ const TRACKING_PARAM_NAMES = [
  * @param {boolean} options.safetyMode whether to hide mature content
  * @param {import('youtubei.js').ClientType} options.clientType use an alterate client
  * @param {boolean} options.generateSessionLocally generate the session locally or let YouTube generate it (local is faster, remote is more accurate)
+ * @param {?import('youtubei.js').FetchFunction} options.fetchFunc optional custom fetch function
  * @returns the Innertube instance
  */
-async function createInnertube({ withPlayer = false, location = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true } = {}) {
+async function createInnertube({ withPlayer = false, location = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true, fetchFunc = null } = {}) {
   let cache
   if (withPlayer) {
     if (process.env.IS_ELECTRON) {
@@ -59,49 +60,7 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     client_type: clientType,
 
     // use browser fetch
-    fetch: !withPlayer
-      ? (input, init) => fetch(input, init)
-      : async (input, init) => {
-        if (input.url?.startsWith('https://www.youtube.com/youtubei/v1/player') && init?.headers?.get('X-Youtube-Client-Name') === '2') {
-          const response = await fetch(input, init)
-
-          const responseText = await response.text()
-
-          const json = JSON.parse(responseText)
-
-          if (Array.isArray(json.adSlots)) {
-            let waitSeconds = 0
-
-            for (const adSlot of json.adSlots) {
-              if (adSlot.adSlotRenderer?.adSlotMetadata?.triggerEvent === 'SLOT_TRIGGER_EVENT_BEFORE_CONTENT') {
-                const playerVars = adSlot.adSlotRenderer.fulfillmentContent?.fulfilledLayout?.playerBytesAdLayoutRenderer
-                  ?.renderingContent?.instreamVideoAdRenderer?.playerVars
-
-                if (playerVars) {
-                  const match = playerVars.match(/length_seconds=([\d.]+)/)
-
-                  if (match) {
-                    waitSeconds += parseFloat(match[1])
-                  }
-                }
-              }
-            }
-
-            if (waitSeconds > 0) {
-              await new Promise((resolve) => setTimeout(resolve, waitSeconds * 1000))
-            }
-          }
-
-          // Need to return a new response object, as you can only read the response body once.
-          return new Response(responseText, {
-            status: response.status,
-            statusText: response.statusText,
-            headers: response.headers
-          })
-        }
-
-        return fetch(input, init)
-      },
+    fetch: (fetchFunc ?? ((input, init) => fetch(input, init))),
     cache,
     generate_session_locally: !!generateSessionLocally
   })
@@ -238,9 +197,60 @@ export async function getLocalSearchContinuation(continuationData) {
 
 /**
  * @param {string} id
+ * @returns {Promise<{
+ *   info: import('youtubei.js').YT.VideoInfo,
+ *   poToken: string | undefined,
+ *   clientInfo: {
+ *     clientName: number,
+ *     clientVersion: string,
+ *     osName: string,
+ *     osVersion: string
+ *   },
+ *   adEndTimeUnixMs: number,
+ * }>}
  */
 export async function getLocalVideoInfo(id) {
-  const webInnertube = await createInnertube({ withPlayer: true, generateSessionLocally: false })
+  let totalAdTimeSeconds = 0
+
+  const webInnertube = await createInnertube({
+    withPlayer: true,
+    generateSessionLocally: false,
+    fetchFunc: async (input, init) => {
+      if (!(input.url?.startsWith('https://www.youtube.com/youtubei/v1/player') && init?.headers?.get('X-Youtube-Client-Name') === '2')) {
+        return fetch(input, init)
+      }
+
+      const response = await fetch(input, init)
+
+      const responseText = await response.text()
+
+      const json = JSON.parse(responseText)
+
+      if (Array.isArray(json.adSlots)) {
+        for (const adSlot of json.adSlots) {
+          if (adSlot.adSlotRenderer?.adSlotMetadata?.triggerEvent === 'SLOT_TRIGGER_EVENT_BEFORE_CONTENT') {
+            const playerVars = adSlot.adSlotRenderer.fulfillmentContent?.fulfilledLayout?.playerBytesAdLayoutRenderer
+              ?.renderingContent?.instreamVideoAdRenderer?.playerVars
+
+            if (playerVars) {
+              const match = playerVars.match(/length_seconds=([\d.]+)/)
+
+              if (match) {
+                totalAdTimeSeconds += parseFloat(match[1])
+              }
+            }
+          }
+        }
+      }
+
+      // Need to return a new response object, as you can only read the response body once.
+      return new Response(responseText, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: response.headers
+      })
+    }
+  })
 
   // based on the videoId (added to the body of the /player request and to caption URLs)
   let contentPoToken
@@ -262,8 +272,6 @@ export async function getLocalVideoInfo(id) {
     }
   }
 
-  let clientName = webInnertube.session.context.client.clientName
-
   const info = await webInnertube.getInfo(id, { po_token: contentPoToken })
 
   // #region temporary workaround for SABR-only responses
@@ -279,15 +287,17 @@ export async function getLocalVideoInfo(id) {
   }
 
   const mwebInfo = await webInnertube.getBasicInfo(id, { client: 'MWEB', po_token: contentPoToken })
+  // Some time would be used for parsing and maybe additional requests so end time should be calculated sooner to reduce actual waiting time
+  const adEndTimeUnixMs = Date.now() + totalAdTimeSeconds * 1000
 
-  if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data) {
+  if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data?.adaptive_formats) {
     info.playability_status = mwebInfo.playability_status
-    info.streaming_data = mwebInfo.streaming_data
-
-    clientName = 'MWEB'
+    info.streaming_data.adaptive_formats = mwebInfo.streaming_data.adaptive_formats
   }
 
   // #endregion temporary workaround for SABR-only responses
+
+  let { clientName, clientVersion, osName, osVersion } = webInnertube.session.context.client
 
   let hasTrailer = info.has_trailer
   let trailerIsAgeRestricted = info.getTrailerInfo() === null
@@ -316,15 +326,22 @@ export async function getLocalVideoInfo(id) {
       info.storyboards = bypassedInfo.storyboards
 
       hasTrailer = false
-      trailerIsAgeRestricted = false
+      trailerIsAgeRestricted = false;
 
-      clientName = webEmbeddedInnertube.session.context.client.clientName
+      ({ clientName, clientVersion, osName, osVersion } = webEmbeddedInnertube.session.context.client)
     }
+  }
+
+  const clientInfo = {
+    clientName: Constants.CLIENT_NAME_IDS[clientName],
+    clientVersion,
+    osName,
+    osVersion
   }
 
   if ((info.playability_status.status === 'UNPLAYABLE' && (!hasTrailer || trailerIsAgeRestricted)) ||
     info.playability_status.status === 'LOGIN_REQUIRED') {
-    return info
+    return { info, poToken: undefined, clientInfo }
   }
 
   if (hasTrailer && info.playability_status.status !== 'OK') {
@@ -343,12 +360,18 @@ export async function getLocalVideoInfo(id) {
   }
 
   if (info.streaming_data) {
-    decipherFormats(info.streaming_data.formats, webInnertube.session.player)
+    const player = webInnertube.session.player
+
+    decipherFormats(info.streaming_data.formats, player)
+
+    if (info.streaming_data.server_abr_streaming_url) {
+      info.streaming_data.server_abr_streaming_url = player.decipher(info.streaming_data.server_abr_streaming_url)
+    }
 
     const firstFormat = info.streaming_data.adaptive_formats[0]
 
     if (firstFormat.url || firstFormat.signature_cipher || firstFormat.cipher) {
-      decipherFormats(info.streaming_data.adaptive_formats, webInnertube.session.player)
+      decipherFormats(info.streaming_data.adaptive_formats, player)
     }
 
     if (info.streaming_data.dash_manifest_url) {
@@ -380,7 +403,12 @@ export async function getLocalVideoInfo(id) {
     }
   }
 
-  return info
+  return {
+    info,
+    poToken: sessionPoToken,
+    clientInfo,
+    adEndTimeUnixMs,
+  }
 }
 
 /**

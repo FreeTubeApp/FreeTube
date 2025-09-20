@@ -163,7 +163,7 @@ export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
 export const ToastEventBus = new EventTarget()
 
 /**
- * @param {string} message
+ * @param {string | (({elapsedMs: number, remainingMs: number}) => string)} message
  * @param {number} time
  * @param {Function} action
  * @param {AbortSignal} abortSignal
