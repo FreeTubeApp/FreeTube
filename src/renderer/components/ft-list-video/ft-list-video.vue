@@ -5,7 +5,7 @@
       list: effectiveListTypeIsList,
       grid: !effectiveListTypeIsList,
       [appearance]: true,
-      watched: addWatchedStyle
+      dimmed: isVideoWatched || isMembersOnly
     }"
   >
     <div
@@ -98,11 +98,17 @@
         />
       </span>
       <div
-        v-if="addWatchedStyle"
+        v-if="isVideoWatched"
         class="videoWatched"
       >
         {{ $t("Video.Watched") }}
       </div>
+      <font-awesome-icon
+        v-if="isMembersOnly"
+        :icon="['fas', 'money-check-dollar']"
+        aria-hidden="true"
+        class="membersOnlyIcon"
+      />
       <div
         v-if="historyEntryExists"
         class="watchedProgressBar"

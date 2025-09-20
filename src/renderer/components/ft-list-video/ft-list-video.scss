@@ -28,6 +28,23 @@
   margin-inline-start: 0;
 }
 
+.membersOnlyIcon {
+  display: inline-flex;
+  grid-column: 1;
+  grid-row: 1;
+  background-color: var(--card-bg-color);
+  opacity: 0.9;
+  border-radius: 15px;
+  padding-inline: 10px;
+  padding-block: 2px;
+  place-self: center;
+  user-select: none;
+  pointer-events: none;
+  overflow: hidden;
+  font-size: clamp(12px, 5vw, 64px);
+  flex: 0 0 auto;
+}
+
 .deArrowToggleButton {
   border-radius: 50%;
   cursor: pointer;
