@@ -194,6 +194,7 @@ User Playlists:
   The playlist has been successfully exported: Playlist exportada com sucesso
   Export Playlist: Exportar esta playlist
   TotalTimePlaylist: 'Tempo total: {duration}'
+  Export list of URLs: Exportar lista de URLs
 History:
   # On History Page
   History: 'Histórico'
