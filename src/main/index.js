@@ -717,6 +717,8 @@ function runApp() {
           window.show()
         }
       }
+
+      if (trayWindows.length === BrowserWindow.getAllWindows().length) { mainWindow = window }
     } else if (trayWindows.length > 0) {
       window.close()
     }
@@ -1008,6 +1010,14 @@ function runApp() {
         if (trayOnMinimize) {
           newWindow.hide()
           manageTray(newWindow)
+
+          if (newWindow === mainWindow) {
+            // A timer is needed because getFocusedWindow doesn't update until the minimize event ends
+            setTimeout(() => {
+              const newMainWindow = BrowserWindow.getFocusedWindow() || BrowserWindow.getAllWindows().find(window => window.isVisible())
+              if (newMainWindow) { mainWindow = newMainWindow }
+            }, 100)
+          }
         }
       })
 
