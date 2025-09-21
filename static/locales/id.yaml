@@ -201,6 +201,7 @@ User Playlists:
   Remove Duplicate Videos: Hapus Video Duplikat
   Enable Quick Bookmark With This Playlist: Aktifkan Bookmark Cepat Dengan Daftar Putar Ini
   TotalTimePlaylist: Total Waktu :{duration}
+  Export list of URLs: Ekspor daftar URL
 History:
   # On History Page
   History: 'Riwayat'
@@ -956,9 +957,9 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Saat diaktifkan, FreeTube akan menggunakan RSS, bukan metode default untuk mengambil umpan langganan Anda. RSS lebih cepat dan mencegah pemblokiran IP, tetapi tidak memberikan informasi tertentu seperti durasi video, status langsung, atau postingan komunitas
-    Fetch Automatically: Ketika dinyalakan, FreeTube akan mengambil secara otomatis umpan langganan Anda ketika jendala baru dibuka atau ketika profil Anda berubah.
+    Fetch Automatically: Ketika dinyalakan, FreeTube akan mengambil secara otomatis umpan langganan Anda saat memulai ketika jendala baru dibuka.
   Player Settings:
-    Default Video Format: Atur format video. Format DASH bisa memutar kualitas yang lebih tinggi. Format lama terbatas ke maks 720p tetapi dengan bandwidth yang lebih rendah. Format audio hanya berisi stream audio.
+    Default Video Format: Atur format ketika video dimainkan. Format DASH dapat memutar kualitas yang lebih tinggi. Format lama terbatas ke maksimum 720p tetapi dengan bandwidth yang lebih rendah. Format audio hanya berisi aliran audio.
     Proxy Videos Through Invidious: Akan menyambung ke Invidious daripada YouTube.
     Scroll Playback Rate Over Video Player: Ketika kursor berada di atas video, tekan dan tahan tombol Control (tombol Command di Mac) dan scroll roda mouse ke depan atau ke belakang untuk mengontrol laju pemutaran. Tekan dan tahan tombol Control (tombol Command di Mac) dan klik kiri mouse untuk dengan cepat kembali ke laju pemutaran default (1x kecuali telah diubah dalam pengaturan).
     Allow DASH AV1 formats: Format DASH AV1 mungkin terlihat lebih baik daripada format DASH H.264. Format DASH AV1 memerlukan lebih banyak energi untuk pemutaran! Format itu juga tidak tersedia di semua video, yang mana pemutar akan menggunakan format DASH H.264.
