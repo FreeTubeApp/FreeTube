@@ -194,6 +194,7 @@ User Playlists:
   The playlist has been successfully exported: Playlist exportada com sucesso
   Export Playlist: Exportar esta playlist
   TotalTimePlaylist: 'Tempo total: {duration}'
+  Export list of URLs: Exportar lista de URLs
 History:
   # On History Page
   History: 'Histórico'
@@ -458,7 +459,7 @@ Settings:
         Auto: Auto
       Tooltip: Auto = Salvar em cada saída da página de vídeo, quando o vídeo termina e ocorre um erro (por exemplo, taxa limitada e sessão de exibição expirada). Semiautomático = O mesmo que "Auto", exceto na saída da página de vídeo e pode salvar o progresso manualmente por meio de um botão chamado "Salvar progresso de exibição", localizado abaixo do player de vídeo.
   Data Settings:
-    Subscriptions have been successfully exported: Inscrições foram exportadas com sucesso
+    Subscriptions have been successfully exported: As inscrições foram exportadas com sucesso
     Invalid history file: Arquivo de histórico inválido
     All subscriptions have been successfully imported: Todas as inscrições foram importadas com sucesso
     Data Settings: Dados
@@ -469,7 +470,7 @@ Settings:
     Export FreeTube: Exportar FreeTube
     Export Subscriptions: Exportar inscrições
     Import Subscriptions: Importar inscrições
-    Select Export Type: Escolher tipo de exportação
+    Select Export Type: Escolha o tipo de exportação
     How do I import my subscriptions?: Como faço para importar minhas inscrições?
     Unknown data key: Chave de dados desconhecida
     Unable to write file: O arquivo não pôde ser salvo
@@ -530,7 +531,7 @@ Settings:
     Hide Subscriptions Shorts: Ocultar "Shorts" de suas inscrições
     Hide Subscriptions Live: Ocultar transmissões ao vivo de suas inscrições
     Hide Profile Pictures in Comments: Ocultar foto de perfis nos comentários
-    Hide Channels Invalid: ID do canal fornecido é inválido
+    Hide Channels Invalid: ID do canal inválido
     Hide Channels Disabled Message: Alguns canais foram bloqueados por ID e não foram processados. A função está bloqueada enquanto esses IDs estão sendo atualizados
     Hide Channels Already Exists: ID do canal já existe
     Hide Channels API Error: Erro ao recuperar o usuário com o ID fornecido. Por favor, verifique novamente se o ID está correto.
@@ -571,7 +572,7 @@ Settings:
     Category Color: Cor da categoria
     UseDeArrowTitles: Usar títulos de vídeo no estilo DeArrow
     UseDeArrowThumbnails: Usar miniaturas no estilo DeArrow
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL da API para gerar miniaturas estilo DeArrow (o padrão é https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL da API para gerar miniaturas no estilo DeArrow (o padrão é https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Argumentos do player externo personalizados
     External Player: Player externo
@@ -614,7 +615,7 @@ About:
   About: 'Sobre'
   #& About
 #On Channel Page
-  GitHub issues: Publicações de Relatórios (GitHub)
+  GitHub issues: Publicações de relatórios (GitHub)
   Report a problem: Informar um problema
   FAQ: Perguntas frequentes
   FreeTube Wiki: Wiki do FreeTube
@@ -977,7 +978,7 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Desabilita o cache HTTP baseado em disco do Electron e habilita um cache de imagem em memória personalizado. Levará ao aumento do uso de RAM.
   Distraction Free Settings:
-    Hide Channels: Insira o ID de um canal para impedir que todos os vídeos, playlists e o próprio canal apareçam nas buscas, tendências, mais populares e recomendados. O ID do canal inserido deve ser uma correspondência completa e diferenciar maiúsculas de minúsculas.
+    Hide Channels: Insira o ID de um canal para impedir que todos os vídeos, playlists e o próprio canal apareçam nas buscas, em alta, mais populares e recomendados. O ID do canal inserido deve ser uma correspondência completa e diferenciar maiúsculas de minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição de toda a aplicação "{appWideSetting}", na seção "{subsection}" da "{settingsSection}"
     Hide Videos and Playlists Containing Text: Insira uma palavra, trecho de uma palavra ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar todos os vídeos e playlists cujos títulos originais a contenham em todo o FreeTube, excluindo apenas histórico, suas playlists e vídeos dentro das playlists.
     Hide Videos on Watch: Oculta vídeos já assistidos a partir das guias "Vídeos", "Shorts" e "Ao Vivo" nas páginas de "Assinatura" e "Canal". Isso não afeta a guia "Início" nas páginas de "Canal"
@@ -993,9 +994,9 @@ Default Invidious instance has been set to {instance}: A instância padrão Invi
 Search Bar:
   Clear Input: Excluir texto
   Remove: Remover
-External link opening has been disabled in the general settings: Abrir links externos foi desabilitado nas configurações gerais
+External link opening has been disabled in the general settings: Abrir links externos está desabilitado nas configurações gerais
 Are you sure you want to open this link?: Tem certeza de que deseja abrir este link?
-Downloading has completed: '"{videoTitle}" download concluído'
+Downloading has completed: 'Download concluído "{videoTitle}"'
 Starting download: Iniciando download "{videoTitle}"
 Downloading failed: Falha no download "{videoTitle}"
 New Window: Nova janela
@@ -1022,7 +1023,7 @@ Hashtag:
 Channel Hidden: '{channel} adicionado ao filtro de canais'
 Go to page: Ir para {page}
 Channel Unhidden: '{channel} removido do filtro de canais'
-Trimmed input must be at least N characters long: A entrada cortada deve ter pelo menos 1 caractere | A entrada cortada precisa ter pelo menos {length} caracteres
+Trimmed input must be at least N characters long: A entrada aparada deve ter pelo menos 1 caractere | A entrada aparada deve ter pelo menos {length} caracteres
 Tag already exists: A tag "{tagName}" já existe
 Close Banner: Fechar banner
 Age Restricted:
@@ -1074,9 +1075,9 @@ KeyboardShortcutPrompt:
     App:
       Situational: 'Aplicativo: Situação'
       General: 'Aplicativo: Geral'
-  Keyboard Shortcuts: Atalhos do teclado
+  Keyboard Shortcuts: Teclas de atalho
   Navigate to Settings: Acessar a página de Configurações
-  Show Keyboard Shortcuts: Mostrar atalhos do teclado
+  Show Keyboard Shortcuts: Mostrar teclas de atalho
   History Backward: Voltar uma página
   History Forward: Avançar uma página
   New Window: Criar uma nova janela
@@ -1091,7 +1092,7 @@ KeyboardShortcutPrompt:
   Zoom In: Ampliar
   Close Window: Fechar janela
   Restart Window: Reiniciar janela
-  Focus Search: Foco na barra de busca
+  Focus Search: Focar na barra de busca
   Search in New Window: Buscar em uma nova janela
   Zoom Out: Diminuir
   Refresh: Atualizar o feed com o conteúdo mais recente
@@ -1099,7 +1100,7 @@ KeyboardShortcutPrompt:
   Play: Reproduzir ou pausar o vídeo
   Large Fast Forward: Avançar 10 segundos / Avanço rápido do vídeo com base na taxa de reprodução do vídeo atual
   Mute: Ativar ou desativar o áudio
-  Full Window: Alternar modo janela inteira
+  Full Window: Alternar modo preenchimento de janela
   Theatre Mode: Alternar modo Teatro
   Take Screenshot: Tirar captura de tela
   Toggle Developer Tools: Alternar modo ferramentas de desenvolvedor

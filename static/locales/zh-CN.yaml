@@ -194,6 +194,7 @@ User Playlists:
   Export Playlist: 导出播放清单
   The playlist has been successfully exported: 成功导出播放清单
   TotalTimePlaylist: 总时间：{duration}
+  Export list of URLs: 导出 URL 列表
 History:
   # On History Page
   History: '历史记录'

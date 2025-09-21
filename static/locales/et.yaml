@@ -201,6 +201,7 @@ User Playlists:
   Export Playlist: Ekspordi see esitusloend
   The playlist has been successfully exported: Esitusloendi eksportimine õnnestus
   TotalTimePlaylist: 'Kestus kokku: {duration}'
+  Export list of URLs: Ekspordi võrguaadresside loend
 History:
   # On History Page
   History: 'Ajalugu'
