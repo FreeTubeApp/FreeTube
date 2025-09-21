@@ -25,6 +25,7 @@ import {
   showToast,
   writeFileWithPicker,
   throttle,
+  removeFromArrayIfExists,
 } from '../../helpers/utils'
 
 /** @typedef {import('../../helpers/sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
@@ -851,39 +852,28 @@ export default defineComponent({
       }
 
       if (!enableScreenshot.value || props.format === 'audio') {
-        const index = elementList.indexOf('ft_screenshot')
-        elementList.splice(index, 1)
+        removeFromArrayIfExists(elementList, 'ft_screenshot')
       }
 
       if (!props.theatrePossible) {
-        const index = elementList.indexOf('ft_theatre_mode')
-        // doesn't exist in overflow menu, as theatre mode only works on wide screens
-        if (index !== -1) {
-          elementList.splice(index, 1)
-        }
+        removeFromArrayIfExists(uiConfig.controlPanelElements, 'ft_theatre_mode')
       }
 
       if (!props.autoplayPossible) {
-        const index = elementList.indexOf('ft_autoplay_toggle')
-        elementList.splice(index, 1)
+        removeFromArrayIfExists(elementList, 'ft_autoplay_toggle')
       }
 
       if (props.format === 'audio') {
-        const index = elementList.indexOf('picture_in_picture')
-        elementList.splice(index, 1)
+        removeFromArrayIfExists(elementList, 'picture_in_picture')
       }
 
       if (isLive.value) {
-        const index = elementList.indexOf('loop')
-        elementList.splice(index, 1)
+        removeFromArrayIfExists(uiConfig.overflowMenuButtons, 'loop')
       }
 
       if (!useVrMode.value) {
-        const indexRecenterVr = uiConfig.overflowMenuButtons.indexOf('recenter_vr')
-        uiConfig.overflowMenuButtons.splice(indexRecenterVr, 1)
-
-        const indexToggleStereoscopic = uiConfig.overflowMenuButtons.indexOf('toggle_stereoscopic')
-        uiConfig.overflowMenuButtons.splice(indexToggleStereoscopic, 1)
+        removeFromArrayIfExists(uiConfig.overflowMenuButtons, 'recenter_vr')
+        removeFromArrayIfExists(uiConfig.overflowMenuButtons, 'toggle_stereoscopic')
       }
 
       return uiConfig
