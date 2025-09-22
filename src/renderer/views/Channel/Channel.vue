@@ -290,7 +290,8 @@ import {
   extractNumberFromString,
   showToast,
   getChannelPlaylistId,
-  getIconForSortPreference
+  getIconForSortPreference,
+  removeFromArrayIfExists
 } from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
 import {
@@ -471,19 +472,6 @@ const hideChannelCommunity = computed(() => store.getters.getHideChannelCommunit
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideWatchedSubs = computed(() => store.getters.getHideWatchedSubs)
-
-/**
- * @template T
- * @param {T[]} array
- * @param {T} entry
- */
-function removeFromArrayIfExists(array, entry) {
-  const index = array.indexOf(entry)
-
-  if (index !== -1) {
-    array.splice(index, 1)
-  }
-}
 
 const tabInfoValues = computed(() => {
   const values = [...channelTabs.value]

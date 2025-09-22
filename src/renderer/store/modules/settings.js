@@ -231,6 +231,8 @@ const state = {
   playNextVideo: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
+  proxyUsername: '',
+  proxyPassword: '',
   proxyProtocol: 'socks5',
   proxyVideos: !process.env.SUPPORTS_LOCAL_API,
   region: 'US',

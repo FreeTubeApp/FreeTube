@@ -197,6 +197,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Slå på hurtigbokmerket med denne spillelisten
   Quick Bookmark Enabled: Hurtigbokmerket aktivert
   TotalTimePlaylist: 'Total tid: {duration}'
+  Export list of URLs: Eksporter liste over URL-er
 History:
   # On History Page
   History: 'Historikk'

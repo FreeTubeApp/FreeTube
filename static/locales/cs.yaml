@@ -201,6 +201,7 @@ User Playlists:
   Export Playlist: Exportovat tento playlist
   The playlist has been successfully exported: Playlist byl úspěšně exportován
   TotalTimePlaylist: 'Celkový čas: {duration}'
+  Export list of URLs: Exportovat seznam adres URL
 History:
   # On History Page
   History: 'Historie'

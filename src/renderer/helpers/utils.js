@@ -832,6 +832,19 @@ export function randomArrayItem(array) {
 }
 
 /**
+ * @template T
+ * @param {T[]} array
+ * @param {T} entry
+ */
+export function removeFromArrayIfExists(array, entry) {
+  const index = array.indexOf(entry)
+
+  if (index !== -1) {
+    array.splice(index, 1)
+  }
+}
+
+/**
  * @param {string} text
  */
 export function base64EncodeUtf8(text) {

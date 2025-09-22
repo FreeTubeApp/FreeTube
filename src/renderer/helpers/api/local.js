@@ -95,7 +95,7 @@ export async function getLocalPlaylist(id) {
 
 /**
  * @param {import('youtubei.js').YT.Playlist} playlist
- * @returns {import('youtubei.js').YT.Playlist|null} null when no valid playlist can be found (e.g. `empty continuation response`)
+ * @returns {Promise<import('youtubei.js').YT.Playlist|null>} null when no valid playlist can be found (e.g. `empty continuation response`)
  */
 export async function getLocalPlaylistContinuation(playlist) {
   try {
