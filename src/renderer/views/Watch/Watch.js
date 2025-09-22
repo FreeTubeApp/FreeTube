@@ -442,11 +442,24 @@ export default defineComponent({
       }
 
       try {
-        const { info: result, poToken, clientInfo, adEndTimeUnixMs } = await getLocalVideoInfo(this.videoId)
-        const sabrShouldBeUsed = result.streaming_data?.server_abr_streaming_url && result.player_config?.media_common_config?.media_ustreamer_request_config?.video_playback_ustreamer_config != null && this.sabrEnabled && !this.sabrReloadedTooManyTimes
+        const sabrShouldBeTried = this.sabrEnabled && !this.sabrReloadedTooManyTimes
+        const videoInfo = await getLocalVideoInfo(this.videoId, { sabrOnlyResponseWorkaroundEnabled: !sabrShouldBeTried })
+        let { info: result, poToken, clientInfo, adEndTimeUnixMs } = videoInfo
+        const sabrShouldBeUsed = sabrShouldBeTried &&
+          result.streaming_data?.server_abr_streaming_url &&
+          result.player_config?.media_common_config?.media_ustreamer_request_config?.video_playback_ustreamer_config != null
         if (!sabrShouldBeUsed) {
           // The hack should only be used on non-SABR
           this.adEndTimeUnixMs = adEndTimeUnixMs
+          if (sabrShouldBeTried) {
+            // Some info would be missing info if SABR tried but cannot be used
+            // need to re-fetch with workaround enabled
+            const videoInfo2 = await getLocalVideoInfo(this.videoId, { sabrOnlyResponseWorkaroundEnabled: true })
+            result = videoInfo2.info
+            poToken = videoInfo2.poToken
+            clientInfo = videoInfo2.clientInfo
+            this.adEndTimeUnixMs = videoInfo2.adEndTimeUnixMs
+          }
         }
 
         this.isFamilyFriendly = result.basic_info.is_family_safe

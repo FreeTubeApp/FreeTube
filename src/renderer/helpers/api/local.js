@@ -197,6 +197,7 @@ export async function getLocalSearchContinuation(continuationData) {
 
 /**
  * @param {string} id
+ * @param {boolean} sabrOnlyResponseWorkaroundEnabled - When enabled there will be no audio track selection
  * @returns {Promise<{
  *   info: import('youtubei.js').YT.VideoInfo,
  *   poToken: string | undefined,
@@ -209,7 +210,7 @@ export async function getLocalSearchContinuation(continuationData) {
  *   adEndTimeUnixMs: number,
  * }>}
  */
-export async function getLocalVideoInfo(id) {
+export async function getLocalVideoInfo(id, { sabrOnlyResponseWorkaroundEnabled = false } = {}) {
   let totalAdTimeSeconds = 0
 
   const webInnertube = await createInnertube({
@@ -273,26 +274,28 @@ export async function getLocalVideoInfo(id) {
   }
 
   const info = await webInnertube.getInfo(id, { po_token: contentPoToken })
+  // Some time would be used for parsing and maybe additional requests so end time should be calculated sooner to reduce actual waiting time
+  let adEndTimeUnixMs = Date.now()
 
   // #region temporary workaround for SABR-only responses
 
   // MWEB doesn't have an audio track selector so it picks the audio track on the server based on the request language.
+  if (sabrOnlyResponseWorkaroundEnabled) {
+    const originalAudioTrackFormat = info.streaming_data?.adaptive_formats.find(format => {
+      return format.has_audio && format.is_original && format.language
+    })
 
-  const originalAudioTrackFormat = info.streaming_data?.adaptive_formats.find(format => {
-    return format.has_audio && format.is_original && format.language
-  })
+    if (originalAudioTrackFormat) {
+      webInnertube.session.context.client.hl = originalAudioTrackFormat.language
+    }
 
-  if (originalAudioTrackFormat) {
-    webInnertube.session.context.client.hl = originalAudioTrackFormat.language
-  }
+    const mwebInfo = await webInnertube.getBasicInfo(id, { client: 'MWEB', po_token: contentPoToken })
+    adEndTimeUnixMs += totalAdTimeSeconds * 1000
 
-  const mwebInfo = await webInnertube.getBasicInfo(id, { client: 'MWEB', po_token: contentPoToken })
-  // Some time would be used for parsing and maybe additional requests so end time should be calculated sooner to reduce actual waiting time
-  const adEndTimeUnixMs = Date.now() + totalAdTimeSeconds * 1000
-
-  if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data?.adaptive_formats) {
-    info.playability_status = mwebInfo.playability_status
-    info.streaming_data.adaptive_formats = mwebInfo.streaming_data.adaptive_formats
+    if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data?.adaptive_formats) {
+      info.playability_status = mwebInfo.playability_status
+      info.streaming_data.adaptive_formats = mwebInfo.streaming_data.adaptive_formats
+    }
   }
 
   // #endregion temporary workaround for SABR-only responses
