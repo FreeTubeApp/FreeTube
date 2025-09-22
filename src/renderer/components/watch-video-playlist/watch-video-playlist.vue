@@ -62,7 +62,7 @@
             <div
               v-if="showProgressBarPreview"
               class="progressBarPreview"
-              :style="{ left: previewPosition + '%', transform: `translateX(${ previewPosition < 20 ? 0 : previewPosition < 80 ? -50 : -100 }%)` }"
+              :style="{ left: previewPosition + '%', transform: `translateX(${ previewPosition <= 50 ? 0 : -100 }%)` }"
             >
               <div class="previewTooltip">
                 <img
