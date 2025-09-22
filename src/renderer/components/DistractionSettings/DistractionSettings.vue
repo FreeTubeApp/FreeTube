@@ -87,13 +87,13 @@
         @change="handleForbiddenTitles"
         @toggle-show-tags="handleAddedForbiddenTitles"
       />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Channels Containing Text')"
-          :compact="true"
-          :default-value="hideChannelsBasedOnText"
-          :tooltip="t('Tooltips.Distraction Free Settings.Hide Channels Containing Text')"
-          @change="updateHideChannelsBasedOnText"
-        />
+      <FtToggleSwitch
+        :label="t('Settings.Distraction Free Settings.Hide Channels Containing Text')"
+        :compact="true"
+        :default-value="hideChannelsBasedOnText"
+        :tooltip="t('Tooltips.Distraction Free Settings.Hide Channels Containing Text')"
+        @change="updateHideChannelsBasedOnText"
+      />
     </FtFlexBox>
     <h4
       class="groupTitle"
