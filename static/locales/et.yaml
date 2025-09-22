@@ -563,6 +563,8 @@ Settings:
     Enable Tor / Proxy: Kasuta Tor'i või puhverserverit
     Proxy Settings: Puhverserver
     Proxy Warning: FreeTube'is pole sisseehitatud proksilahendust, kuid ta võib luua ühenduse välise proksi kaudu. Näiteks kasutades sellist, mis töötab sinu arvutis või nutiseadmes, olgu selleks Tor või mõne VPNi poolt pakutav SOCKS5. Kui sa selle eelistuse sisse lülitad, palun jälgi et selline väline proksi on korralikult seadistatud. Vastasel juhul võrguühendus ei toimi ja FreeTube ei saa andmeid laadida.
+    Proxy Username: Puhverserveri kasutajanimi
+    Proxy Password: Puhverserveri salasõna
   The app needs to restart for changes to take effect. Restart and apply change?: See rakendus vajab muudatuste jõustamiseks uuesti käivitamist. Kas teeme seda nüüd?
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Anna teada, kui toetajate vaade jääb vahele
