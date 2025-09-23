@@ -86,7 +86,7 @@ function compareTwoPlaylistItems(a, b, sortOrder, collator) {
 }
 
 export const generateRandomUniqueId = crypto.randomUUID
-  ? crypto.randomUUID
+  ? crypto.randomUUID.bind(crypto)
   : () => `id-${Date.now()}-${Math.floor(Math.random() * 10000)}`
 
 /**
