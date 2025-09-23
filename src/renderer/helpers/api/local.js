@@ -197,7 +197,7 @@ export async function getLocalSearchContinuation(continuationData) {
 
 /**
  * @param {string} id
- * @param {boolean} sabrOnlyResponseWorkaroundEnabled - When enabled there will be no audio track selection
+ * @param {boolean} forceEnableSabrOnlyResponseWorkaround - When true workaround will be forced and there will be no audio track selection
  * @returns {Promise<{
  *   info: import('youtubei.js').YT.VideoInfo,
  *   poToken: string | undefined,
@@ -208,9 +208,10 @@ export async function getLocalSearchContinuation(continuationData) {
  *     osVersion: string
  *   },
  *   adEndTimeUnixMs: number,
+ *   sabrCanBeUsed: boolean,
  * }>}
  */
-export async function getLocalVideoInfo(id, { sabrOnlyResponseWorkaroundEnabled = false } = {}) {
+export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaround = false } = {}) {
   let totalAdTimeSeconds = 0
 
   const webInnertube = await createInnertube({
@@ -274,13 +275,16 @@ export async function getLocalVideoInfo(id, { sabrOnlyResponseWorkaroundEnabled 
   }
 
   const info = await webInnertube.getInfo(id, { po_token: contentPoToken })
+  const sabrCannotBeUsed = info.streaming_data?.server_abr_streaming_url == null ||
+    info.player_config?.media_common_config?.media_ustreamer_request_config?.video_playback_ustreamer_config == null
+  const workaroundRequired = forceEnableSabrOnlyResponseWorkaround || sabrCannotBeUsed
   // Some time would be used for parsing and maybe additional requests so end time should be calculated sooner to reduce actual waiting time
   let adEndTimeUnixMs = Date.now()
 
   // #region temporary workaround for SABR-only responses
 
-  // MWEB doesn't have an audio track selector so it picks the audio track on the server based on the request language.
-  if (sabrOnlyResponseWorkaroundEnabled) {
+  if (workaroundRequired) {
+    // MWEB doesn't have an audio track selector so it picks the audio track on the server based on the request language.
     const originalAudioTrackFormat = info.streaming_data?.adaptive_formats.find(format => {
       return format.has_audio && format.is_original && format.language
     })
@@ -290,6 +294,7 @@ export async function getLocalVideoInfo(id, { sabrOnlyResponseWorkaroundEnabled 
     }
 
     const mwebInfo = await webInnertube.getBasicInfo(id, { client: 'MWEB', po_token: contentPoToken })
+    // Some time would be used for parsing and maybe additional requests so end time should be calculated sooner to reduce actual waiting time
     adEndTimeUnixMs += totalAdTimeSeconds * 1000
 
     if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data?.adaptive_formats) {
@@ -411,6 +416,7 @@ export async function getLocalVideoInfo(id, { sabrOnlyResponseWorkaroundEnabled 
     poToken: sessionPoToken,
     clientInfo,
     adEndTimeUnixMs,
+    sabrCanBeUsed: !sabrCannotBeUsed,
   }
 }
 
