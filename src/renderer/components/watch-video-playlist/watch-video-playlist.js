@@ -59,6 +59,7 @@ export default defineComponent({
       showProgressBarPreview: false,
       previewPosition: 0,
       previewVideoIndex: 1,
+      windowWidth: window.innerWidth,
     }
   },
   computed: {
@@ -146,6 +147,16 @@ export default defineComponent({
       return this.isUserPlaylist ? this.userPlaylistSortOrder : SORT_BY_VALUES.Custom
     },
 
+    previewTransformXPercentage() {
+      // Breakpoint for single-column-template
+      if (this.windowWidth > 1050) {
+        // Align left to avoid going out of right side of the window
+        return -100
+      }
+
+      // Align left/right to avoid going out of either side of the window
+      return this.previewPosition <= 50 ? 0 : -100
+    },
     previewVideoTitle: function () {
       const index = this.previewVideoIndex - 1
       if (index >= 0 && index < this.playlistItems.length) {
@@ -245,12 +256,16 @@ export default defineComponent({
       navigator.mediaSession.setActionHandler('previoustrack', this.playPreviousVideo)
       navigator.mediaSession.setActionHandler('nexttrack', this.playNextVideo)
     }
+
+    window.addEventListener('resize', this.calculateWindowWidth)
   },
   beforeDestroy: function () {
     if ('mediaSession' in navigator) {
       navigator.mediaSession.setActionHandler('previoustrack', null)
       navigator.mediaSession.setActionHandler('nexttrack', null)
     }
+
+    window.removeEventListener('resize', this.calculateWindowWidth)
   },
   methods: {
     findIndexOfCurrentVideoInPlaylist: function (playlist) {
@@ -593,6 +608,10 @@ export default defineComponent({
           container.scrollTop = targetPlaylistItemEl.offsetTop - container.offsetTop
         }
       }
+    },
+
+    calculateWindowWidth() {
+      this.windowWidth = window.innerWidth
     },
 
     ...mapMutations([

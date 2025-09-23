@@ -46,7 +46,7 @@
           v-if="!shuffleEnabled && !reversePlaylist"
           class="playlistProgressBarContainer"
           @mouseenter="showProgressBarPreview = true"
-          @mouseleave="showProgressBarPreview = false"
+          @mouseleave="showProgressBarPreview = true"
           @mousemove="updateProgressBarPreview"
         >
           <div
@@ -62,7 +62,7 @@
             <div
               v-if="showProgressBarPreview"
               class="progressBarPreview"
-              :style="{ left: previewPosition + '%', transform: `translateX(${ previewPosition <= 50 ? 0 : -100 }%)` }"
+              :style="{ left: previewPosition + '%', transform: `translateX(${ previewTransformXPercentage }%)` }"
             >
               <div class="previewTooltip">
                 <img
