@@ -95,6 +95,7 @@ Search Filters:
     Location: Lokasi
     VR180: VR180
     Creative Commons: Hak Cipta Creative Commons
+  Clear Filters: Bersihkan Filter
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Langganan'
@@ -199,6 +200,8 @@ User Playlists:
   Quick Bookmark Enabled: Penanda Cepat Diaktifkan
   Remove Duplicate Videos: Hapus Video Duplikat
   Enable Quick Bookmark With This Playlist: Aktifkan Bookmark Cepat Dengan Daftar Putar Ini
+  TotalTimePlaylist: Total Waktu :{duration}
+  Export list of URLs: Ekspor daftar URL
 History:
   # On History Page
   History: 'Riwayat'
@@ -207,6 +210,8 @@ History:
   Search bar placeholder: Cari di Riwayat
   Empty Search Message: Tidak ada video dalam riwayat Anda yang cocok dengan pencarian Anda
   Case Sensitive Search: Pencarian Peka Huruf Besar/Kecil
+  DateOldestHistory: Ditonton Pertama
+  DateNewestHistory: Ditonton Terakhir
 Settings:
   # On Settings Page
   Settings: 'Pengaturan'
@@ -217,7 +222,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: 'Beralih ke Layanan Cadangan saat terjadi Kegagalan'
     Enable Search Suggestions: 'Aktifkan Saran Pencarian'
     Default Landing Page: 'Halaman Awal Baku'
-    Locale Preference: 'Preferensi Lokal'
+    Locale Preference: 'Bahasa'
     Preferred API Backend:
       Preferred API Backend: 'Dukungan API yang Dipilih'
       Local API: 'API Lokal'
@@ -253,6 +258,7 @@ Settings:
       Label: Otomatis Memuat Halaman Selanjutnya
       Tooltip: Muat halaman dan komentar tambahan secara otomatis.
     Open Deep Links In New Window: Buka URL yang Diteruskan ke FreeTube di Jendela Baru
+    Minimize to system tray: Minimalkan ke System Tray
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Samakan Bilah Atas dengan Warna Utama'
@@ -448,6 +454,9 @@ Settings:
     Watched Progress Saving Mode:
       Modes:
         Auto: Otomatis
+        Semi-auto: Semi Otomatis
+        Never: Tidak Pernah
+      Tooltip: Otomatis = Simpan pada setiap kali keluar dari laman video, selesai menonton video dan saat terjadi error (e.g. rate-limit dan watch session expired). Semi otomatis = Seperti mode Otomatis, kecuali hanya pada saat keluar dari laman video dan dapat menyimpan progres secara manual dengan mengklik tombol Simpan Progres Tontonan, terletak di bawah pemutar video.
   Subscription Settings:
     Subscription Settings: 'Langganan'
     Fetch Feeds from RSS: 'Ambil Umpan dari RSS'
@@ -538,6 +547,8 @@ Settings:
     Hide Channel Home: Sembunyikan Tab "Beranda" Saluran
     Hide Channel Shorts: Sembunyikan Tab "Shorts" Saluran
     Hide Channel Courses: Sembunyikan Tab "Kursus" Saluran
+    Hide Channel Posts: Sembunyikan Tab "Postingan" Saluran
+    Hide Subscriptions Posts: Sembunyikan Postingan dalam Langganan
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikasi butuh dimulai ulang agar perbubahan diterapkan. Mulai ulang dan terapkan perubahan?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Galat mendapatkan informasi jaringan. Apakah proksi Anda dikonfigurasi dengan benar?
@@ -603,6 +614,7 @@ Settings:
     Hide Unsubscribe Button: Sembunyikan Tombol Berhenti Berlangganan
     Show Family Friendly Only: Tampilkan Hanya yang Ramah Keluarga
     Hide Search Bar: Sembunyikan Kotak Pencarian
+    Hide Uploader on Watch page: Sembunyikan Pengunggah pada Halaman Tontonan
   Return to Settings Menu: Kembali ke Menu Pengaturan
   Sort Settings Sections (A-Z): Urutkan Bagian Pengaturan (A-Z)
 About:
@@ -850,6 +862,8 @@ Video:
   Scroll to Bottom: Gulir ke Bawah
   Premieres: Penayangan perdana
   AgeRestricted: Video yang dibatasi usia tidak dapat ditonton dengan FreeTube karena memerlukan login Google dan menggunakan akun YouTube yang diverifikasi usianya.
+  Save Watched Progress: Simpan Progress Tontonan
+  Watched Progress Saved: Progress Tontonan yang telah Disimpan
 Playlist:
   #& About
   View Full Playlist: 'Tampilkan Daftar Putar Penuh'
@@ -942,10 +956,10 @@ No: 'Tidak'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Video ini tidak tersedia karena format hilang. Ini bisa terjadi karena dibatasi berdasarkan wilayah.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Saat diaktifkan, FreeTube akan menggunakan RSS, bukan metode default untuk mengambil umpan langganan Anda. RSS lebih cepat dan mencegah pemblokiran IP, tetapi tidak memberikan informasi tertentu seperti durasi video, status langsung, atau kiriman komunitas
-    Fetch Automatically: Ketika dinyalakan, FreeTube akan mengambil secara otomatis umpan langganan Anda ketika jendala baru dibuka atau ketika profil Anda berubah.
+    Fetch Feeds from RSS: Saat diaktifkan, FreeTube akan menggunakan RSS, bukan metode default untuk mengambil umpan langganan Anda. RSS lebih cepat dan mencegah pemblokiran IP, tetapi tidak memberikan informasi tertentu seperti durasi video, status langsung, atau postingan komunitas
+    Fetch Automatically: Ketika dinyalakan, FreeTube akan mengambil secara otomatis umpan langganan Anda saat memulai ketika jendala baru dibuka.
   Player Settings:
-    Default Video Format: Atur format video. Format DASH bisa memutar kualitas yang lebih tinggi. Format lama terbatas ke maks 720p tetapi dengan bandwidth yang lebih rendah. Format audio hanya berisi stream audio.
+    Default Video Format: Atur format ketika video dimainkan. Format DASH dapat memutar kualitas yang lebih tinggi. Format lama terbatas ke maksimum 720p tetapi dengan bandwidth yang lebih rendah. Format audio hanya berisi aliran audio.
     Proxy Videos Through Invidious: Akan menyambung ke Invidious daripada YouTube.
     Scroll Playback Rate Over Video Player: Ketika kursor berada di atas video, tekan dan tahan tombol Control (tombol Command di Mac) dan scroll roda mouse ke depan atau ke belakang untuk mengontrol laju pemutaran. Tekan dan tahan tombol Control (tombol Command di Mac) dan klik kiri mouse untuk dengan cepat kembali ke laju pemutaran default (1x kecuali telah diubah dalam pengaturan).
     Allow DASH AV1 formats: Format DASH AV1 mungkin terlihat lebih baik daripada format DASH H.264. Format DASH AV1 memerlukan lebih banyak energi untuk pemutaran! Format itu juga tidak tersedia di semua video, yang mana pemutar akan menggunakan format DASH H.264.
@@ -953,7 +967,7 @@ Tooltips:
   General Settings:
     Region for Trending: Wilayah tren memungkinkan Anda memilih video yang sedang ngetren dari negara tersebut untuk ditampilkan.
     Invidious Instance: Situs Invidious yang akan tersambung dengan FreeTube untuk panggilan API.
-    Thumbnail Preference: Semua thumbnail di dalam aplikasi FreeTube akan diganti dengan frame dari video.
+    Thumbnail Preference: Semua thumbnail di dalam aplikasi FreeTube akan diganti dengan frame dari video. diblur atau disembunyikan
     Fallback to Non-Preferred Backend on Failure: Ketika API yang Anda pilih memiliki masalah, FreeTube akan secara otomatis menggunakan layanan API lainnya sebagai cadangan jika diaktifkan.
     Preferred API Backend: Pilih layanan yang digunakan oleh FreeTube untuk mengambil data. API lokal adalah ekstraktor bawaan. API Invidious membutuhkan sambungan ke server Invidious.
     External Link Handling: "Pilih perilaku default ketika tautan, yang tidak dapat dibuka di FreeTube, diklik.\nSecara default FreeTube akan membuka tautan yang diklik dengan browser default Anda.\n"
@@ -972,6 +986,7 @@ Tooltips:
     Hide Channels: Masukkan ID Kanal untuk menyembunyikan semua video, daftar putar, dan kanal itu sendiri dari pencarian, halaman tren, halaman video popular, dan bagian rekomendasi. ID Kanal yang dimasukkan harus sesuai.
     Hide Subscriptions Live: Pengaturan ini digantikan oleh pengaturan "{appWideSetting}" di seluruh aplikasi, di bagian "{subsection}" dari "{settingsSection}"
     Hide Videos and Playlists Containing Text: Masukkan kata, pecahan kata, atau frasa (tanpa memperhatikan huruf besar/kecil) untuk menyembunyikan semua video & daftar putar yang judul aslinya memuatnya di seluruh FreeTube, kecuali hanya Riwayat, Daftar Putar Anda, dan video di dalam daftar putar.
+    Hide Videos on Watch: Menyembunyikan video yang telah ditonton dari Tab Video, Video Pendek, dan Langsung pada Halaman Langganan dan Kanal. Hal tersebut tidak mempengaruhi Tab Beranda pada Halaman Kanal
   Experimental Settings:
     Replace HTTP Cache: Menonaktifkan cache HTTP berbasis disk Electron dan mengaktifkan cache gambar dalam memori khusus. Akan menyebabkan peningkatan penggunaan RAM.
 Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk membatalkan. | Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk membatalkan. | Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk membatalkan.

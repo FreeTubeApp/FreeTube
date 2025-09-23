@@ -194,6 +194,7 @@ User Playlists:
   The playlist has been successfully exported: Playlist exportada com sucesso
   Export Playlist: Exportar esta playlist
   TotalTimePlaylist: 'Tempo total: {duration}'
+  Export list of URLs: Exportar lista de URLs
 History:
   # On History Page
   History: 'Histórico'
@@ -557,6 +558,8 @@ Settings:
     City: Cidade
     Region: Região
     Proxy Warning: FreeTube não tem um proxy integrado, mas pode se conectar a um proxy externo, como um proxy em execução no seu computador, como o Tor, ou um proxy externo, como um proxy SOCKS5 fornecido por algumas VPNs. Se estiver habilitado, certifique-se de que seu proxy/Tor esteja configurado corretamente, ou o FreeTube não conseguirá obter nenhum dado.
+    Proxy Username: Nome de usuário do Proxy
+    Proxy Password: Senha do Proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificar quando vídeos publicitários for ignorado
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock (o padrão é https://sponsor.ajay.app)
