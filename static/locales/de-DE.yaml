@@ -559,6 +559,8 @@ Settings:
     Enable Tor / Proxy: Tor / Proxy aktivieren
     Proxy Settings: Proxy
     Proxy Warning: FreeTube hat keinen eingebauten Proxy, kann aber mit einem externen Proxy verbunden werden, wie z. B. einem, der auf deinem Gerät läuft wie Tor, oder einem externen Proxy wie einem SOCKS5-Proxy, der von einigen VPNs bereitgestellt wird. Falls aktiviert, stelle sicher, dass dein Proxy/Tor richtig konfiguriert ist, da FreeTube ansonsten keine Daten abrufen kann.
+    Proxy Username: Proxy-Anmeldename
+    Proxy Password: Proxy-Passwort
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Benachrichtigen, wenn ein Abschnitt übersprungen wird
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-URL (Standard ist https://sponsor.ajay.app)

@@ -640,6 +640,8 @@ Settings:
     City: 'Kêr'
     Error getting network information. Is your proxy configured properly?: 'C''hoarvezet ez eus bet ur gudenn en ur glask war-lerc''h titouroù ar rouedad. Ha kefluniet mat eo ho proksi ?'
     Proxy Warning: N'eus ket ur proksi enframmet gant FreeTube met gallout a ra kennaskañ gant ur proksi diavaez, evel unan o vont en-dro war hoc'h urzhiataer evel Tor pe ur proksi diavaez SOCKS5 pourvezet gant VPNoù zo. Ma vez enaouet, deoc'h da wiriekaat e vez kefluniet mat ho proksi/Tor, mod-all ne vo ket FreeTube evit mont da gerc'hat an traoù.
+    Proxy Password: Ger-tremen ar Proksi
+    Proxy Username: Anv-Implijer ar Proksi
   SponsorBlock Settings:
     SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Gweredekaat SponsorBlock'

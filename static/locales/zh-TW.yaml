@@ -194,6 +194,7 @@ User Playlists:
   Export Playlist: 匯出此播放清單
   The playlist has been successfully exported: 播放清單已成功匯出
   TotalTimePlaylist: '總時長: {duration}'
+  Export list of URLs: 匯出 URL 清單
 History:
   # On History Page
   History: '觀看紀錄'
@@ -557,6 +558,8 @@ Settings:
     Enable Tor / Proxy: 啟用 Tor 或代理伺服器
     Proxy Settings: 代理伺服器
     Proxy Warning: FreeTube 沒有內建代理伺服器，但可以連線至外部代理伺服器，例如在您的機器上執行的代理伺服器，如 Tor 或外部代理伺服器，如某些 VPN 提供的 SOCKS5 代理伺服器。如果啟用，請確定您的代理伺服器/Tor 已經正確設定，否則 FreeTube 將無法取得任何資料。
+    Proxy Username: 代理伺服器使用者名稱
+    Proxy Password: 代理伺服器密碼
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: 當贊助商片段被跳過時通知
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API 網址（預設為 https://sponsor.ajay.app）

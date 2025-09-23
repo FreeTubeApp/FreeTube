@@ -1312,6 +1312,8 @@ export function parseLocalListVideo(item, channelId, channelName) {
   }
 }
 
+const VIEWS_OR_WATCHING_REGEX = /views?|watching/i
+
 /**
  * @param {import('youtubei.js').YTNodes.LockupView} lockupView
  * @param {string | undefined} channelId
@@ -1377,13 +1379,15 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
             lengthSeconds = Utils.timeToSeconds(durationBadge.text)
           }
 
-          publishedText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.[1].text?.text
+          publishedText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts.find(part => part.text?.text?.endsWith('ago'))?.text?.text
         }
       }
 
       let viewCount = null
 
-      const viewsText = lockupView.metadata.metadata?.metadata_rows[1]?.metadata_parts?.[0].text?.text
+      const viewsText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts.find(part => {
+        return part.text?.text && VIEWS_OR_WATCHING_REGEX.test(part.text.text)
+      })?.text?.text
 
       if (viewsText) {
         const views = parseLocalSubscriberCount(viewsText)
