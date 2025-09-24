@@ -202,6 +202,7 @@ User Playlists:
   Export Playlist: Esportatu erreprodukzio zerrenda hau
   The playlist has been successfully exported: Erreprodukzio zerrenda ongi esportatu da
   TotalTimePlaylist: 'Denbora guztira: {duration}'
+  Export list of URLs: URL-en zerrenda esportatu
 History:
   # On History Page
   History: 'Historikoa'
@@ -564,6 +565,8 @@ Settings:
     City: 'Hiria'
     Error getting network information. Is your proxy configured properly?: 'Errore bat gertatu da sareko informazioa eskuratzean. Zure proxya behar bezala konfiguratuta al dago?'
     Proxy Warning: FreeTube-k ez du proxy-rik, baina kanpoko proxy batera konekta daiteke, adibidez, zure makinan Tor gisa exekutatzen den bat edo kanpoko proxy bat, VPN batzuek emandako proxy bat bezala. Aktibatuta badago, ziurtatu proxy/Tor behar bezala konfiguratuta dagoela, edo FreeTube-k ezingo du daturik lortu.
+    Proxy Username: Proxy-aren erabiltzailea
+    Proxy Password: Proxyaren pasahitza
   External Player Settings:
     Ignore Unsupported Action Warnings: Onartu gabeko ekintzen oharrei ez ikusiarena egin
     External Player Settings: Kanpoko erreproduzitzailea
