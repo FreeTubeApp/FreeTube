@@ -290,9 +290,6 @@ export default defineComponent({
       // `this.$refs.player?.hasLoaded` cannot be used in computed property
       return !this.isLoading
     },
-    hideChannelsBasedOnText: function () {
-      return this.$store.getters.getHideChannelsBasedOnText
-    },
   },
   watch: {
     async $route() {
@@ -1744,7 +1741,7 @@ export default defineComponent({
       return channelsHidden.some(ch => ch.name === video.authorId) ||
         channelsHidden.some(ch => ch.name === video.author) ||
         forbiddenTitles.some((text) => video.title?.toLowerCase().includes(text.toLowerCase())) ||
-        (this.hideChannelsBasedOnText && forbiddenTitles.some((text) => video.author?.toLowerCase().includes(text.toLowerCase())))
+        forbiddenTitles.some((text) => video.author?.toLowerCase().includes(text.toLowerCase()))
     },
 
     toggleAutoplay: function() {
