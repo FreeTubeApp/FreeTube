@@ -150,8 +150,8 @@ export default defineComponent({
     previewTransformXPercentage() {
       // Breakpoint for single-column-template
       if (this.windowWidth > 1050) {
-        // Align left to avoid going out of right side of the window
-        return -100
+        // Align left when preview is on the right half to avoid going out of right side of the window
+        return this.previewPosition <= 50 ? -50 : -100
       }
 
       // Align left/right to avoid going out of either side of the window
