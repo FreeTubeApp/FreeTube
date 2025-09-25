@@ -87,8 +87,8 @@ function createBufferedRange(formatId, buffered, segmentIndex) {
 
   return {
     formatId,
-    startTimeMs: String(Math.trunc(buffered.start * 1000)),
-    durationMs: String(Math.trunc((buffered.end - buffered.start) * 1000)),
+    startTimeMs: String(Math.round(buffered.start * 1000)),
+    durationMs: String(Math.round((buffered.end - buffered.start) * 1000)),
     startSegmentIndex: segmentIndex.find(buffered.start),
     endSegmentIndex: endSegmentIndex,
   }
