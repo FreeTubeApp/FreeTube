@@ -201,6 +201,7 @@ User Playlists:
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Är du säker på att du vill ta bort 1 dubblett av videoklipp från den här spellistan? Detta kan inte ångras. | Är du säker på att du vill ta bort {playlistItemCount} dubbletter av videoklipp från den här spellistan? Detta kan inte ångras.
   Cannot delete the quick bookmark target playlist.: Det går inte att ta bort målspellistan för snabbbokmärken.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Är du säker på att du vill ta bort 1 sett video från den här spellistan? Detta kan inte ångras. | Är du säker på att du vill ta bort {playlistItemCount} sedda videor från den här spellistan? Detta kan inte ångras.
+  Export list of URLs: Exportera lista med webbadresser
 History:
   # On History Page
   History: 'Historik'
@@ -564,6 +565,8 @@ Settings:
     Enable Tor / Proxy: Aktivera Tor / Proxy
     Proxy Settings: Proxy
     Proxy Warning: FreeTube har ingen inbyggd proxy men kan ansluta till en extern proxy, till exempel en som körs på din maskin som Tor eller en extern proxy, såsom en SOCKS5 proxy som tillhandahålls av vissa VPN. Om den är aktiverad, se till att din proxy/Tor är korrekt konfigurerad, annars kommer FreeTube inte att kunna hämta någon data.
+    Proxy Username: Proxy användarnamn
+    Proxy Password: Proxy lösenord
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifikation när sponsorsegmentet är åsidosatt
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': API Url för Sponsorblockering (Standard är https://sponsor.ajay.app)
