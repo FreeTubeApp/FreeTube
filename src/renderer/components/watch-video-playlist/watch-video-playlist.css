@@ -67,7 +67,7 @@
   font-size: 12px;
   color: var(--primary-text-color);
   white-space: nowrap;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 50%);
   margin-block-end: 4px;
   min-inline-size: 120px;
   display: flex;
@@ -97,34 +97,6 @@
   display: flex;
   flex-direction: column;
   min-inline-size: 0;
-}
-
-.previewIndicator {
-  inline-size: 0;
-  block-size: 0;
-  border-inline: 6px solid transparent;
-  border-block-start: 6px solid var(--card-bg-color);
-  margin-block: 0;
-  margin-inline: auto;
-}
-
-.progressBarTicks {
-  position: absolute;
-  inset-block-start: 0;
-  inset-inline: 0;
-  block-size: 100%;
-  pointer-events: none;
-}
-
-.progressBarTick {
-  position: absolute;
-  inline-size: 2px;
-  min-inline-size: 1px;
-  block-size: 100%;
-  background-color: var(--primary-text-color);
-  opacity: 0.3;
-  transform: translateX(-50%);
-  transition: opacity 0.2s ease;
 }
 
 .progressBarTick.current {

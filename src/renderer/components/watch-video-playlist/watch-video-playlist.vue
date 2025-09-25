@@ -76,19 +76,6 @@
                 </div>
                 <div class="previewVideoTitle">{{ previewVideoTitle }}</div>
               </div>
-              <div class="previewIndicator" />
-            </div>
-            <div
-              v-if="showProgressBarPreview && shouldShowTicks"
-              class="progressBarTicks"
-            >
-              <div
-                v-for="(item, index) in playlistItems"
-                :key="index"
-                class="progressBarTick"
-                :class="{ current: index === currentVideoIndexZeroBased }"
-                :style="{ left: ((index + 0.5) / playlistVideoCount) * 100 + '%' }"
-              />
             </div>
           </div>
         </div>
