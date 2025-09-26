@@ -44,7 +44,6 @@ const ShakaError = shaka.util.Error
 /**
  * @typedef CurrentState
  * @type {object}
- * @property {string} sabrUrl
  * @property {Map<string, Uint8Array>} initDataCache
  * @property {Map<number, SabrContextUpdate>} sabrContexts
  * @property {Set<number>} activeSabrContextTypes
@@ -288,7 +287,7 @@ async function doRequest(
       }
     }
 
-    const sabrURL = new URL(currentState.sabrUrl)
+    const sabrURL = new URL(currentState.sabrStreamState.sabrUrl)
     sabrURL.searchParams.set('rn', String(currentState.sabrStreamState.requestNumber++))
     response = await fetch(sabrURL.toString(), currentState.requestInit)
 
@@ -595,6 +594,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
   /**
    * @typedef SabrStreamState
    * @type {object}
+   * @property {string} sabrUrl
    * @property {Set<number>} activeSabrContextTypes
    * @property {Map<number, SabrContextUpdate>} sabrContexts
    * @property {?NextRequestPolicy} nextRequestPolicy
@@ -603,6 +603,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
    */
   /** @type {SabrStreamState} */
   const sabrStreamState = {
+    sabrUrl: sabrData.url,
     activeSabrContextTypes: new Set(),
     sabrContexts: new Map(),
     nextRequestPolicy: undefined,
@@ -775,7 +776,6 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
      * @type {CurrentState}
      */
     const currentState = {
-      sabrUrl: sabrData.url,
       initDataCache,
       abrRequest: requestData,
       requestInit: init,
