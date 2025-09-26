@@ -288,7 +288,9 @@ async function doRequest(
       }
     }
 
-    response = await fetch(currentState.sabrUrl, currentState.requestInit)
+    const sabrURL = new URL(currentState.sabrUrl)
+    sabrURL.searchParams.set('rn', String(currentState.sabrStreamState.requestNumber++))
+    response = await fetch(sabrURL.toString(), currentState.requestInit)
 
     operationInputs.headersReceived({})
 
@@ -597,6 +599,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
    * @property {Map<number, SabrContextUpdate>} sabrContexts
    * @property {?NextRequestPolicy} nextRequestPolicy
    * @property {boolean} playerReloadRequested
+   * @property {number} requestNumber
    */
   /** @type {SabrStreamState} */
   const sabrStreamState = {
@@ -604,6 +607,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
     sabrContexts: new Map(),
     nextRequestPolicy: undefined,
     playerReloadRequested: false,
+    requestNumber: 0,
   }
 
   shaka.net.NetworkingEngine.registerScheme('sabr', (uri, request, requestType, _progressUpdated, headersReceived, _config) => {
