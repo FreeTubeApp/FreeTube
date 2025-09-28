@@ -1935,10 +1935,10 @@ export default defineComponent({
           })
         } catch (failure) {
           if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
-            return
+            // Already on route with same timestamp, allow reloadView to run instead
+          } else {
+            throw failure
           }
-
-          throw failure
         }
       }
       await this.reloadView()
