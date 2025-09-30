@@ -147,6 +147,9 @@ export default defineComponent({
       playlistItemId: null,
       /** @type {number|null} */
       timestamp: null,
+      // This should never be saved into history
+      /** @type {number|null} */
+      oneTimeTimestamp: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
       infoAreaSticky: true,
@@ -292,7 +295,9 @@ export default defineComponent({
         return null
       }
 
-      if (this.timestamp !== null && this.timestamp < this.videoLengthSeconds) {
+      if (this.oneTimeTimestamp !== null && this.oneTimeTimestamp < this.videoLengthSeconds) {
+        return this.oneTimeTimestamp
+      } else if (this.timestamp !== null && this.timestamp < this.videoLengthSeconds) {
         return this.timestamp
       } else if (this.watchedProgressSavingEnabled && this.historyEntryExists) {
         // For UX consistency, no progress reading if writing disabled
@@ -1275,6 +1280,9 @@ export default defineComponent({
         this.sabrReloadCount--
       }
 
+      // Only used one time = remove after use
+      this.oneTimeTimestamp = null
+
       // will trigger again if you switch formats or change legacy quality
       // Check isUpcoming to avoid marking upcoming videos as watched if the user has only watched the trailer
       if (!this.videoPlayerLoaded && !this.isUpcoming) {
@@ -1344,6 +1352,9 @@ export default defineComponent({
     },
 
     checkIfTimestamp: function () {
+      const oneTimeTimestamp = parseInt(this.$route.query.oneTimeTimestamp)
+      this.oneTimeTimestamp = isNaN(oneTimeTimestamp) || oneTimeTimestamp < 0 ? null : oneTimeTimestamp
+
       const timestamp = parseInt(this.$route.query.timestamp)
       this.timestamp = isNaN(timestamp) || timestamp < 0 ? null : timestamp
     },
@@ -1933,7 +1944,7 @@ export default defineComponent({
         try {
           await this.$router.replace({
             path: this.$route.path,
-            query: { ...this.$route.query, timestamp: timestamp },
+            query: { ...this.$route.query, oneTimeTimestamp: timestamp },
           })
         } catch (failure) {
           if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
