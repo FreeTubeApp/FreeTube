@@ -224,9 +224,9 @@ Settings:
     Default Landing Page: 'Alapértelmezett kezdőlap'
     Locale Preference: 'Területi beállítás'
     Preferred API Backend:
-      Preferred API Backend: 'Előnyben részesített háttér-API'
+      Preferred API Backend: 'Előnyben részesített háttér API'
       Local API: 'Helyi API'
-      Invidious API: 'Invidious-API'
+      Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: 'Videónézet típusa'
       Grid: 'Rács'
@@ -939,10 +939,10 @@ Comments:
 Up Next: 'Következő'
 
 # Toast Messages
-Local API Error (Click to copy): 'Helyi-API hiba (kattintson a másoláshoz)'
-Invidious API Error (Click to copy): 'Invidious-API hiba (Kattintson a másoláshoz)'
-Falling back to Invidious API: 'Invidious-API-ra visszatérve'
-Falling back to Local API: 'Helyi-API-ra visszatérve'
+Local API Error (Click to copy): 'Helyi API hiba (kattintson a másoláshoz)'
+Invidious API Error (Click to copy): 'Invidious API hiba (Kattintson a másoláshoz)'
+Falling back to Invidious API: 'Invidious API-ra visszatérve'
+Falling back to Local API: 'Helyi API-ra visszatérve'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Ez a videó hiányzó formátumok miatt nem érhető el. Ez az ország nem elérhetősége miatt következhet be.'
 Loop is now disabled: 'Folyamatos lejátszás kikapcsolva'
 Loop is now enabled: 'Folyamatos lejátszás bekapcsolva'
@@ -958,9 +958,9 @@ Yes: 'Igen'
 No: 'Nem'
 Tooltips:
   General Settings:
-    Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a FreeTube használ az adatok megszerzéséhez. A helyi-API egy beépített kinyerő. Az Invidious-API használatához Invidious-kiszolgáló szükséges.
+    Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a FreeTube használ az adatok megszerzéséhez. A helyi API egy beépített kinyerő. Az Invidious API használatához Invidious-kiszolgáló szükséges.
     Region for Trending: A felkapottak régiója lehetővé teszi a választást, hogy melyik ország felkapott videóit szeretné megtekinteni.
-    Invidious Instance: Invidious-példány, amelyhez a FreeTube csatlakozni fog az API-hívásokhoz.
+    Invidious Instance: Invidious példány, amelyhez a FreeTube csatlakozni fog az API-hívásokhoz.
     Thumbnail Preference: A FreeTube-on minden bélyegkép le lesz cserélve a videó egy képkockájára, amely elmosódott vagy elrejtett lesz az alapértelmezett bélyegkép helyett.
     Fallback to Non-Preferred Backend on Failure: Amikor az előnyben részesített API-jával hiba merül fel, a FreeTube automatikusan megpróbálja a nem előnyben részesített API-t tartalékként használni, amikor engedélyezve van.
     External Link Handling: "Válassza ki az alapértelmezett viselkedést, amikor egy hivatkozásra kattint, amely nem nyitható meg FreeTube-ban.\nA FreeTube alapértelmezés szerint megnyitja a kattintott hivatkozást az alapértelmezett böngészőben.\n"
