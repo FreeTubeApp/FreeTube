@@ -273,7 +273,7 @@ async function doRequest(
       currentState.cumulativeBackOffRequested += 1
       const timeoutMs = operationInputs.request.retryParameters.timeout
       // Detect infinite backoff loop by no. of times requested and cumulative time approaching timeout
-      if (currentState.cumulativeBackOffRequested >= 5 || (timeoutMs > 0 && timeoutMs <= (currentState.cumulativeBackOffTimeMs + currentBackoffTimeMs))) {
+      if (currentState.cumulativeBackOffRequested >= 3 || (timeoutMs > 0 && timeoutMs <= (currentState.cumulativeBackOffTimeMs + currentBackoffTimeMs))) {
         shouldReloadDueToBackoffLoop = true
       }
     }
