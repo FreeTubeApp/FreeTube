@@ -756,7 +756,7 @@ Video:
       shuffling playlists: riproduzione casuale delle playlist
       reversing playlists: invertire le playlist
       opening specific video in a playlist (falling back to opening the video): apertura di un video specifico in una playlist (in caso di errore vai all'apertura del video)
-      setting a playback rate: impostare una velocità di riproduzione
+      setting a playback rate: impostazione di una velocità di riproduzione
       opening playlists: apertura delle playlist
       starting video at offset: avviare il video da un determinato punto
     UnsupportedActionTemplate: '{externalPlayer} non supporta: {action}'
