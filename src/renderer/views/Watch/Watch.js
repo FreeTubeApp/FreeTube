@@ -43,7 +43,8 @@ import { MANIFEST_TYPE_SABR } from '../../helpers/player/SabrManifestParser'
 /**
  * @typedef {{
  *   url: string,
- *   poToken: string,
+ *   sessionPoToken: string,
+ *   contentPoToken: string,
  *   ustreamerConfig: string,
  *   clientInfo: {
  *     clientName: number,
@@ -444,9 +445,8 @@ export default defineComponent({
       try {
         const sabrShouldBeTried = this.sabrEnabled && !this.sabrReloadedTooManyTimes
 
-        // const { info: result, poToken, clientInfo, adEndTimeUnixMs } = await getLocalVideoInfo(this.videoId)
         const videoInfo = await getLocalVideoInfo(this.videoId, { forceEnableSabrOnlyResponseWorkaround: !sabrShouldBeTried })
-        const { info: result, poToken, clientInfo, adEndTimeUnixMs } = videoInfo
+        const { info: result, sessionPoToken, contentPoToken, clientInfo, adEndTimeUnixMs } = videoInfo
 
         const sabrShouldBeUsed = sabrShouldBeTried && videoInfo.sabrCanBeUsed
         if (!sabrShouldBeUsed) {
@@ -895,7 +895,7 @@ export default defineComponent({
                   }]
                 : []
 
-              this.manifestSrc = this.createLocalSabrManifest(result, poToken, clientInfo, storyboards)
+              this.manifestSrc = this.createLocalSabrManifest(result, sessionPoToken, contentPoToken, clientInfo, storyboards)
               this.manifestMimeType = MANIFEST_TYPE_SABR
             } else if (result.streaming_data.adaptive_formats[0].freeTubeUrl) {
               this.manifestSrc = await this.createLocalDashManifest(result)
@@ -1607,18 +1607,20 @@ export default defineComponent({
 
     /**
      * @param {import('youtubei.js').IParsedResponse} videoInfo
-     * @param {string} poToken
+     * @param {string} sessionPoToken
+     * @param {string} contentPoToken
      * @param {SabrData['clientInfo']} clientInfo
      * @param {import('../../helpers/player/SabrManifestParser').SabrManifest['storyboards']} storyboards
      */
-    createLocalSabrManifest: function (videoInfo, poToken, clientInfo, storyboards) {
+    createLocalSabrManifest: function (videoInfo, sessionPoToken, contentPoToken, clientInfo, storyboards) {
       const url = new URL(videoInfo.streaming_data.server_abr_streaming_url)
       url.searchParams.set('alr', 'yes')
       url.searchParams.set('cpn', videoInfo.cpn)
 
       this.sabrData = {
         url: url.toString(),
-        poToken,
+        sessionPoToken,
+        contentPoToken,
         ustreamerConfig: videoInfo.player_config.media_common_config.media_ustreamer_request_config.video_playback_ustreamer_config,
         clientInfo
       }

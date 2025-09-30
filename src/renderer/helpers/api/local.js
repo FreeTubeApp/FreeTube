@@ -200,7 +200,8 @@ export async function getLocalSearchContinuation(continuationData) {
  * @param {boolean} forceEnableSabrOnlyResponseWorkaround - When true workaround will be forced and there will be no audio track selection
  * @returns {Promise<{
  *   info: import('youtubei.js').YT.VideoInfo,
- *   poToken: string | undefined,
+ *   sessionPoToken: string | undefined,
+ *   contentPoToken: string | undefined,
  *   clientInfo: {
  *     clientName: number,
  *     clientVersion: string,
@@ -413,7 +414,8 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
 
   return {
     info,
-    poToken: sessionPoToken,
+    sessionPoToken,
+    contentPoToken,
     clientInfo,
     adEndTimeUnixMs,
     sabrCanBeUsed: !sabrCannotBeUsed,
