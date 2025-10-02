@@ -3121,16 +3121,15 @@ export default defineComponent({
             return
           }
 
-          analyser.getByteTimeDomainData(amplitudeArray)
-          const volumeValues = Array.from(amplitudeArray)
-          const filteredVolumes = volumeValues.map(volume => volume - 128).filter(volume => volume !== 0).map(volume => Math.abs(volume))
-          const maxVolume = filteredVolumes.length ? Math.max(...filteredVolumes) : 0
-          const averageVolume = filteredVolumes.length ? filteredVolumes.reduce((a, b) => a + b, 0) / filteredVolumes.length : 0
-
           if (isSilenceSkipEnabled.value) {
+            analyser.getByteTimeDomainData(amplitudeArray)
+            const volumeValues = Array.from(amplitudeArray)
+            const filteredVolumes = volumeValues.map(volume => volume - 128).filter(volume => volume !== 0).map(volume => Math.abs(volume))
+            const maxVolume = filteredVolumes.length ? Math.max(...filteredVolumes) : 0
+            const averageVolume = filteredVolumes.length ? filteredVolumes.reduce((a, b) => a + b, 0) / filteredVolumes.length : 0
             const silencePercentage = !isNaN(maxVolume) && !isNaN(averageVolume) ? (averageVolume / maxVolume) * 4 : 0
 
-            if (maxVolume <= averageVolume || maxVolume <= silencePercentage) {
+            if ((maxVolume <= averageVolume || maxVolume <= silencePercentage) && !video.value.paused && !video.value.ended) {
               player.trickPlay(2.5)
             } else {
               player.trickPlay(1)
