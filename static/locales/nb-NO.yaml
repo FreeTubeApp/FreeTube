@@ -197,6 +197,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Slå på hurtigbokmerket med denne spillelisten
   Quick Bookmark Enabled: Hurtigbokmerket aktivert
   TotalTimePlaylist: 'Total tid: {duration}'
+  Export list of URLs: Eksporter liste over URL-er
 History:
   # On History Page
   History: 'Historikk'
@@ -511,6 +512,8 @@ Settings:
     Enable Tor / Proxy: Skru på Tor / mellomtjener
     Proxy Settings: Mellomtjener (proxy)
     Proxy Warning: FreeTube har ikke en innebygd mellomtjener (proxy), men det kan koble til en ekstern en, for eksempel en som kjører på din egen maskin, som Tor, eller en ekstern mellomtjener som SOCKS5 som tilbys av enkelte VPN-er. Hvis dette skrus på, pass på at mellomtjeneren din er konfigurert riktig; hvis ikke kommer ikke FreeTube til å klare å hente noen data.
+    Proxy Username: Mellomtjener-brukernavn
+    Proxy Password: Mellomtjener-passord
   Distraction Free Settings:
     Hide Trending Videos: Skjul «På vei opp»
     Hide Video Likes And Dislikes: Skjul antall liker/ikke liker på videoer

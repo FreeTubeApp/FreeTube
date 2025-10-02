@@ -202,6 +202,7 @@ User Playlists:
   Export Playlist: Flytja út þennan spilunarlista
   The playlist has been successfully exported: Það tókst að flytja út þennan spilunarlista
   TotalTimePlaylist: 'Heildartími: {duration}'
+  Export list of URLs: Flytja út lista með vefslóðum
 History:
   # On History Page
   History: 'Áhorf'
@@ -564,6 +565,8 @@ Settings:
     City: 'Borg/Sveitarfélag'
     Error getting network information. Is your proxy configured properly?: 'Það tókst ekki að sækja upplýsingar um netkerfið. Er milliþjónninn rétt uppsettur?'
     Proxy Warning: FreeTube er ekki með innbyggðan milliþjón en getur tengst við utanaðkomandi milliþjóna, til dæmis einhvern sem keyrir á vélinni þinni eins og Tor eða fjartengdan milliþjón á borð við SOCKS5-milliþjóna sem sumar VPN-þjónustur bjóða. Ef þetta er virkt skaltu ganga úr skugga um að milliþjónninn/Tor sé rétt stillt, annars mun FreeTube ekki geta sótt nein gögn.
+    Proxy Username: Notandanafn á milliþjóni
+    Proxy Password: Lykilorð á milliþjóni
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Láta vita þegar kostaður hluti er hunsaður
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-slóð (sjálfgefið er https://sponsor.ajay.app)

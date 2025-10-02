@@ -201,6 +201,7 @@ User Playlists:
   Export Playlist: Ezen lejátszási lista exportálása
   The playlist has been successfully exported: A lejátszási lista sikeresen exportálva lett
   TotalTimePlaylist: 'Teljes időtartam: {duration}'
+  Export list of URLs: Webcímek listába történő exportálása
 History:
   # On History Page
   History: 'Előzmények'
@@ -223,9 +224,9 @@ Settings:
     Default Landing Page: 'Alapértelmezett kezdőlap'
     Locale Preference: 'Területi beállítás'
     Preferred API Backend:
-      Preferred API Backend: 'Előnyben részesített háttér-API'
+      Preferred API Backend: 'Előnyben részesített háttér API'
       Local API: 'Helyi API'
-      Invidious API: 'Invidious-API'
+      Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: 'Videónézet típusa'
       Grid: 'Rács'
@@ -564,6 +565,8 @@ Settings:
     Proxy Settings: Proxy
     Error getting network information. Is your proxy configured properly?: Hiba a hálózati adatok lekérésekor. Megfelelő a proxy beállítása?
     Proxy Warning: A FreeTube nem rendelkezik beépített proxyval, de képes csatlakozni egy külső proxyhoz, például egy olyanhoz, amely az Ön gépén fut, mint a Tor, vagy egy külső proxyhoz, például egy SOCKS5 proxyhoz, amelyet egyes VPN-ek biztosítanak. Ha engedélyezve van, győződjön meg róla, hogy a proxy/Tor megfelelően van beállítva, különben a FreeTube nem fog tudni adatokat lekérni.
+    Proxy Username: Proxy felhasználónév
+    Proxy Password: Proxy jelszó
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Értesítés a szponzorált szakasz kihagyásáról
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'SponsorBlock API webcíme (Alapértelmezett: https://sponsor.ajay.app)'
@@ -936,10 +939,10 @@ Comments:
 Up Next: 'Következő'
 
 # Toast Messages
-Local API Error (Click to copy): 'Helyi-API hiba (kattintson a másoláshoz)'
-Invidious API Error (Click to copy): 'Invidious-API hiba (Kattintson a másoláshoz)'
-Falling back to Invidious API: 'Invidious-API-ra visszatérve'
-Falling back to Local API: 'Helyi-API-ra visszatérve'
+Local API Error (Click to copy): 'Helyi API hiba (kattintson a másoláshoz)'
+Invidious API Error (Click to copy): 'Invidious API hiba (Kattintson a másoláshoz)'
+Falling back to Invidious API: 'Invidious API-ra visszatérve'
+Falling back to Local API: 'Helyi API-ra visszatérve'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Ez a videó hiányzó formátumok miatt nem érhető el. Ez az ország nem elérhetősége miatt következhet be.'
 Loop is now disabled: 'Folyamatos lejátszás kikapcsolva'
 Loop is now enabled: 'Folyamatos lejátszás bekapcsolva'
@@ -955,9 +958,9 @@ Yes: 'Igen'
 No: 'Nem'
 Tooltips:
   General Settings:
-    Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a FreeTube használ az adatok megszerzéséhez. A helyi-API egy beépített kinyerő. Az Invidious-API használatához Invidious-kiszolgáló szükséges.
+    Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a FreeTube használ az adatok megszerzéséhez. A helyi API egy beépített kinyerő. Az Invidious API használatához Invidious-kiszolgáló szükséges.
     Region for Trending: A felkapottak régiója lehetővé teszi a választást, hogy melyik ország felkapott videóit szeretné megtekinteni.
-    Invidious Instance: Invidious-példány, amelyhez a FreeTube csatlakozni fog az API-hívásokhoz.
+    Invidious Instance: Invidious példány, amelyhez a FreeTube csatlakozni fog az API-hívásokhoz.
     Thumbnail Preference: A FreeTube-on minden bélyegkép le lesz cserélve a videó egy képkockájára, amely elmosódott vagy elrejtett lesz az alapértelmezett bélyegkép helyett.
     Fallback to Non-Preferred Backend on Failure: Amikor az előnyben részesített API-jával hiba merül fel, a FreeTube automatikusan megpróbálja a nem előnyben részesített API-t tartalékként használni, amikor engedélyezve van.
     External Link Handling: "Válassza ki az alapértelmezett viselkedést, amikor egy hivatkozásra kattint, amely nem nyitható meg FreeTube-ban.\nA FreeTube alapértelmezés szerint megnyitja a kattintott hivatkozást az alapértelmezett böngészőben.\n"

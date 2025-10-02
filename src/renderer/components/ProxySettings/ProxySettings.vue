@@ -53,6 +53,24 @@
           @keydown.enter.native="testProxy"
         />
       </FtFlexBox>
+      <FtFlexBox>
+        <FtInput
+          :placeholder="$t('Settings.Proxy Settings.Proxy Username')"
+          :show-action-button="false"
+          show-label
+          :value="proxyUsername"
+          @input="handleUpdateProxyUsername"
+          @keydown.enter.native="testProxy"
+        />
+        <FtInput
+          :placeholder="$t('Settings.Proxy Settings.Proxy Password')"
+          :show-action-button="false"
+          show-label
+          :value="proxyPassword"
+          @input="handleUpdateProxyPassword"
+          @keydown.enter.native="testProxy"
+        />
+      </FtFlexBox>
       <p
         class="center"
       >
@@ -151,6 +169,16 @@ const proxyPort = computed(() => {
   return store.getters.getProxyPort
 })
 
+/** @type {import('vue').ComputedRef<string>} */
+const proxyUsername = computed(() => {
+  return store.getters.getProxyUsername
+})
+
+/** @type {import('vue').ComputedRef<string>} */
+const proxyPassword = computed(() => {
+  return store.getters.getProxyPassword
+})
+
 const proxyUrl = computed(() => {
   return `${proxyProtocol.value}://${proxyHostname.value}:${proxyPort.value}`
 })
@@ -228,6 +256,28 @@ function handleUpdateProxyPort(value) {
   }
 
   store.dispatch('updateProxyPort', value)
+}
+
+/**
+ * @param {string} value
+ */
+function handleUpdateProxyUsername(value) {
+  if (useProxy.value) {
+    debouncedEnableProxy()
+  }
+
+  store.dispatch('updateProxyUsername', value)
+}
+
+/**
+ * @param {string} value
+ */
+function handleUpdateProxyPassword(value) {
+  if (useProxy.value) {
+    debouncedEnableProxy()
+  }
+
+  store.dispatch('updateProxyPassword', value)
 }
 
 function enableProxy() {

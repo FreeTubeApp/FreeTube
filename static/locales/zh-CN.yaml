@@ -194,6 +194,7 @@ User Playlists:
   Export Playlist: 导出播放清单
   The playlist has been successfully exported: 成功导出播放清单
   TotalTimePlaylist: 总时间：{duration}
+  Export list of URLs: 导出 URL 列表
 History:
   # On History Page
   History: '历史记录'
@@ -557,6 +558,8 @@ Settings:
     Proxy Port Number: 代理端口号
     Proxy Host: 代理主机
     Proxy Warning: FreeTube 没有内置的代理，但可以连接到外部代理，例如像 Tor 这样运行在你机器上的代理，或者如某些 VPN 提供的 SOCKS5 代理这样的外部代理。如果开启了代理选项，请确保你的代理/Tor 正确配置，否则 FreeTube 无法获取任何数据。
+    Proxy Username: 代理用户名
+    Proxy Password: 代理密码
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: 当赞助商时间被跳过时通知
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 赞助商区域调用的API地址（默认是 https://sponsor.ajay.app）
