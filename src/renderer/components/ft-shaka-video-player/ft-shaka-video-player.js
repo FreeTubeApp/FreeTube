@@ -3133,10 +3133,10 @@ export default defineComponent({
             if (maxVolume <= averageVolume || maxVolume <= silencePercentage) {
               player.trickPlay(2.5)
             } else {
-              player.cancelTrickPlay()
+              player.trickPlay(1)
             }
           } else {
-            player.cancelTrickPlay()
+            player.trickPlay(1)
             return
           }
 
