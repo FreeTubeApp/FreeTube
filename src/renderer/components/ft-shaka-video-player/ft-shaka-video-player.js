@@ -2194,6 +2194,8 @@ export default defineComponent({
         return
       }
 
+      const previousIsSilenceSkipEnabledState = isSilenceSkipEnabled.value
+
       switch (event.key.toLowerCase()) {
         case ' ':
         case 'spacebar': // older browsers might return spacebar instead of a space character
@@ -2263,6 +2265,9 @@ export default defineComponent({
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_REWIND:
           event.preventDefault()
+          if (previousIsSilenceSkipEnabledState) {
+            skipSilence()
+          }
           if (canChapterJump(event, 'previous')) {
             // Jump to the previous chapter
             video_.currentTime = props.chapters[props.currentChapterIndex - 1].startSeconds
@@ -2271,9 +2276,15 @@ export default defineComponent({
             // Rewind by the time-skip interval (in seconds)
             seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate(), false, true)
           }
+          if (previousIsSilenceSkipEnabledState) {
+            skipSilence()
+          }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_FAST_FORWARD:
           event.preventDefault()
+          if (previousIsSilenceSkipEnabledState) {
+            skipSilence()
+          }
           if (canChapterJump(event, 'next')) {
             // Jump to the next chapter
             video_.currentTime = (props.chapters[props.currentChapterIndex + 1].startSeconds)
@@ -2281,6 +2292,9 @@ export default defineComponent({
           } else {
             // Fast-Forward by the time-skip interval (in seconds)
             seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate(), false, true)
+          }
+          if (previousIsSilenceSkipEnabledState) {
+            skipSilence()
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE:
@@ -3129,7 +3143,7 @@ export default defineComponent({
             const averageVolume = filteredVolumes.length ? filteredVolumes.reduce((a, b) => a + b, 0) / filteredVolumes.length : 0
             const silencePercentage = !isNaN(maxVolume) && !isNaN(averageVolume) ? (averageVolume / maxVolume) * 4 : 0
 
-            if ((maxVolume <= averageVolume || maxVolume <= silencePercentage) && !video.value.paused && !video.value.ended) {
+            if ((maxVolume <= averageVolume || maxVolume <= silencePercentage) && !video_.paused && !video_.ended) {
               player.trickPlay(2.5)
             } else {
               player.trickPlay(1)
