@@ -21,7 +21,11 @@ export class SkipSilenceButton extends shaka.ui.Element {
     this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.SKIP_SILENCE_DEFAULT)
 
     const label = document.createElement('label')
-    label.classList.add('shaka-overflow-button-label', 'shaka-overflow-menu-only')
+    label.classList.add(
+      'shaka-overflow-button-label',
+      'shaka-overflow-menu-only',
+      'shaka-simple-overflow-button-label-inline'
+    )
 
     /** @private */
     this.nameSpan_ = document.createElement('span')
@@ -61,7 +65,7 @@ export class SkipSilenceButton extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.nameSpan_.textContent = this.button_.ariaLabel = this.skipSilenceEnabled_ ? i18n.t('SilenceSkip.Enable Silence Skip') : i18n.t('SilenceSkip.Disable Silence Skip')
+    this.nameSpan_.textContent = this.button_.ariaLabel = i18n.t('SilenceSkip.Skip Silence')
     this.icon_.use(this.skipSilenceEnabled_ ? PlayerIcons.SKIP_SILENCE_FILLED : PlayerIcons.SKIP_SILENCE_DEFAULT)
     this.currentState_.textContent = this.localization.resolve(this.skipSilenceEnabled_ ? 'ON' : 'OFF')
   }
