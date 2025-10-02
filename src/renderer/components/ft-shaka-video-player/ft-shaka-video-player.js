@@ -845,7 +845,6 @@ export default defineComponent({
           'picture_in_picture',
           'ft_theatre_mode',
           'ft_full_window',
-          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'fullscreen'
         )
 
