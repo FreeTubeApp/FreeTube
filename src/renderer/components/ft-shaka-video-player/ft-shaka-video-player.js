@@ -827,6 +827,7 @@ export default defineComponent({
           'captions',
           'ft_audio_tracks',
           'loop',
+          'ft_skip_silence_toggle',
           'picture_in_picture',
           'ft_full_window',
           'recenter_vr',
@@ -839,7 +840,6 @@ export default defineComponent({
       } else {
         uiConfig.controlPanelElements.push(
           'ft_screenshot',
-          'ft_skip_silence_toggle',
           'ft_autoplay_toggle',
           'overflow_menu',
           'picture_in_picture',
@@ -854,6 +854,7 @@ export default defineComponent({
           'playback_rate',
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'loop',
+          'ft_skip_silence_toggle',
           'recenter_vr',
           'toggle_stereoscopic',
         )
