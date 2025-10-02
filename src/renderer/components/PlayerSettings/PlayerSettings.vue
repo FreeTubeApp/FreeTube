@@ -40,6 +40,12 @@
           :tooltip="t('Tooltips.Player Settings.Skip by Scrolling Over Video Player')"
           @change="updateVideoSkipMouseScroll"
         />
+        <FtToggleSwitch
+          :label="t('Settings.Player Settings.Skip Silence Enabled')"
+          :compact="true"
+          :default-value="skipSilenceEnabled"
+          @change="updateSkipSilenceEnabled"
+        />
       </div>
       <div class="switchColumn">
         <FtToggleSwitch
@@ -72,12 +78,6 @@
           :compact="true"
           :default-value="enterFullscreenOnDisplayRotate"
           @change="updateEnterFullscreenOnDisplayRotate"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Player Settings.Skip Silence Enabled')"
-          :compact="true"
-          :default-value="skipSilenceEnabled"
-          @change="updateSkipSilenceEnabled"
         />
       </div>
     </div>
