@@ -3088,10 +3088,8 @@ export default defineComponent({
      */
     function skipSilence() {
       if (!isSilenceSkipEnabled.value) {
-        showValueChange(t('SilenceSkip.Enable Silence Skip'))
         isSilenceSkipEnabled.value = true
       } else {
-        showValueChange(t('SilenceSkip.Disable Silence Skip'))
         isSilenceSkipEnabled.value = false
       }
       emit('skip-silence-updated', isSilenceSkipEnabled.value)
