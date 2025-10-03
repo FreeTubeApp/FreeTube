@@ -175,6 +175,7 @@ import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrappe
 import store from '../../store/index'
 
 import {
+  extractLocalCacheablePlaylistContinuation,
   getLocalPlaylist,
   getLocalPlaylistContinuation,
   parseLocalPlaylistVideo,
@@ -887,7 +888,9 @@ onBeforeRouteLeave((to, from, next) => {
       channelName: channelName.value,
       channelId: channelId.value,
       items: sortedPlaylistItems.value,
-      continuationData: continuationData.value,
+      continuationData: continuationData.value
+        ? extractLocalCacheablePlaylistContinuation(continuationData.value)
+        : null,
     })
   }
 
