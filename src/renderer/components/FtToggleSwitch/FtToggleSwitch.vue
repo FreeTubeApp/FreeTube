@@ -36,8 +36,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
-import { useId } from '../../composables/use-id-polyfill'
+import { ref, useId, watch } from 'vue'
 
 import FtTooltip from '../FtTooltip/FtTooltip.vue'
 

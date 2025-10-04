@@ -841,7 +841,7 @@ Video:
   Player:
     Take Screenshot: Tynnu Llun Sgrin
     Stats:
-      Resolution: 'Cydraniad: {width}x{height}@{frameRate}'
+      Resolution: 'Cydraniad: {width}x{height}{''@''}{frameRate}'
       Bitrate: 'Cyfradd didau: {bitrate} kbps'
       Bandwidth: 'Lled band: {bandwidth} kbps'
       Buffered: 'Byffrwyd: {bufferedPercentage}%'

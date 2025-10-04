@@ -780,7 +780,7 @@ Video:
       CodecsVideoAudio: 'Codec: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Codec: {videoCodec} / {audioCodec}'
       Bandwidth: 'Băng thông: {bandwidth} kbps'
-      Resolution: 'Độ phân ảnh: {width}x{height}@{frameRate}'
+      Resolution: 'Độ phân ảnh: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Kích thước trình xem: {width}x{height}'
       CodecAudio: 'Codec: {audioCodec} ({audioItag})'
       Bitrate: 'Tốc độ bit: {bitrate} kbps'

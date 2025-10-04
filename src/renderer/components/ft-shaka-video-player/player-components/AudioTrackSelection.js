@@ -133,7 +133,7 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
   updateLocalisedStrings_() {
     this.backButton.ariaLabel = this.localization.resolve('BACK')
 
-    const audioTracksText = i18n.t('Video.Player.Audio Tracks')
+    const audioTracksText = i18n.global.t('Video.Player.Audio Tracks')
 
     this.button.ariaLabel = audioTracksText
     this.nameSpan.textContent = audioTracksText

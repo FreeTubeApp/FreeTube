@@ -1378,7 +1378,7 @@ export default defineComponent({
 
         // To avoid message flashing
         // `time` is manually tested to be 700
-        const message = this.$tc('Playing Next Video Interval', countDownTimeLeftInSecond, { nextVideoInterval: countDownTimeLeftInSecond })
+        const message = this.$t('Playing Next Video Interval', { nextVideoInterval: countDownTimeLeftInSecond }, countDownTimeLeftInSecond)
         showToast(message, 700, this.abortAutoplayCountdown)
 
         // At least this var should be updated AFTER showing the message

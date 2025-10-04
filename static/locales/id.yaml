@@ -839,7 +839,7 @@ Video:
       Dropped Frames / Total Frames: 'Frame yang Dihilangkan: {droppedFrames} / Jumlah Frame: {totalFrames}'
       Media Formats: 'Format Media: {formats}'
       CodecsVideoAudio: 'Kodek: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
-      Resolution: 'Resolusi: {width}x{height}@{frameRate}'
+      Resolution: 'Resolusi: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Dimensi Pemain: {width}x{height}'
       Stats: Statistik
       Bandwidth: 'bandwidth: {bandwidth} kbps'

@@ -48,7 +48,7 @@
               :show-action-button="false"
               :maxlength="100"
               @input="profileName = $event"
-              @keydown.enter.native="saveProfile"
+              @keydown.enter="saveProfile"
             />
           </div>
           <div>

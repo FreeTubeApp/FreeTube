@@ -785,7 +785,7 @@ Video:
     Show Stats: Statistieken Weergeven
     Take Screenshot: Schermopname Maken
     Stats:
-      Resolution: 'Resolutie: {width}x{height}@{frameRate}'
+      Resolution: 'Resolutie: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Speler Groote: {width}x{height}'
       CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
       Bitrate: 'Bitrate: {bitrate} kbps'

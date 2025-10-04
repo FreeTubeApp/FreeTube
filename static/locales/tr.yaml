@@ -835,7 +835,7 @@ Video:
       CodecsVideoAudioNoItags: 'Kod Çözücüler: {videoCodec} / {audioCodec}'
       Stats: İstatistikler
       Video ID: 'Video Kimliği: {videoId}'
-      Resolution: 'Çözünürlük: {width}x{height}@{frameRate}'
+      Resolution: 'Çözünürlük: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Oynatıcı Boyutları: {width}x{height}'
       Volume: 'Ses Düzeyi: {volumePercentage}%'
       Bandwidth: 'Bant Genişliği: {bandwidth} kbps'

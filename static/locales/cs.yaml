@@ -835,7 +835,7 @@ Video:
       Stats: Statistiky
       Video ID: 'ID videa: {videoId}'
       Media Formats: 'Formáty médií: {formats}'
-      Resolution: 'Rozlišení: {width}x{height}@{frameRate}'
+      Resolution: 'Rozlišení: {width}x{height}{''@''}{frameRate}'
       Bandwidth: 'Šířka pásma: {bandwidth} kb/s'
       Buffered: 'Načteno: {bufferedPercentage} %'
       Dropped Frames / Total Frames: 'Vypuštěno snímků: {droppedFrames} / Celkem snímků: {totalFrames}'

@@ -41,7 +41,7 @@
           show-label
           :value="proxyHostname"
           @input="handleUpdateProxyHostname"
-          @keydown.enter.native="testProxy"
+          @keydown.enter="testProxy"
         />
         <FtInput
           :placeholder="$t('Settings.Proxy Settings.Proxy Port Number')"
@@ -50,7 +50,7 @@
           :value="proxyPort"
           :maxlength="5"
           @input="handleUpdateProxyPort"
-          @keydown.enter.native="testProxy"
+          @keydown.enter="testProxy"
         />
       </FtFlexBox>
       <FtFlexBox>
@@ -60,7 +60,7 @@
           show-label
           :value="proxyUsername"
           @input="handleUpdateProxyUsername"
-          @keydown.enter.native="testProxy"
+          @keydown.enter="testProxy"
         />
         <FtInput
           :placeholder="$t('Settings.Proxy Settings.Proxy Password')"
@@ -68,7 +68,7 @@
           show-label
           :value="proxyPassword"
           @input="handleUpdateProxyPassword"
-          @keydown.enter.native="testProxy"
+          @keydown.enter="testProxy"
         />
       </FtFlexBox>
       <p

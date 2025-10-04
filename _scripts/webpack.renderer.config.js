@@ -2,7 +2,7 @@ const path = require('path')
 const { readFileSync, readdirSync } = require('fs')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
@@ -55,7 +55,7 @@ const config = {
         loader: 'vue-loader',
         options: {
           compilerOptions: {
-            whitespace: 'condense',
+            isCustomElement: (tag) => tag === 'swiper-container' || tag === 'swiper-slide'
           }
         }
       },
@@ -132,6 +132,12 @@ const config = {
       'process.env.IS_ELECTRON': true,
       'process.env.IS_ELECTRON_MAIN': false,
       'process.env.SUPPORTS_LOCAL_API': true,
+      __VUE_OPTIONS_API__: 'true',
+      __VUE_PROD_DEVTOOLS__: 'false',
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false',
+      __VUE_I18N_LEGACY_API__: 'true',
+      __VUE_I18N_FULL_INSTALL__: 'false',
+      __INTLIFY_PROD_DEVTOOLS__: 'false',
       'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
       'process.env.GEOLOCATION_NAMES': JSON.stringify(readdirSync(path.join(__dirname, '..', 'static', 'geolocations')).map(filename => filename.replace('.json', ''))),
       'process.env.SWIPER_VERSION': `'${swiperVersion}'`,
@@ -179,9 +185,6 @@ const config = {
   ],
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.runtime.esm.js',
-      'portal-vue$': 'portal-vue/dist/portal-vue.esm.js',
-
       DB_HANDLERS_ELECTRON_RENDERER_OR_WEB$: path.resolve(__dirname, '../src/datastores/handlers/electron.js'),
 
       'youtubei.js$': 'youtubei.js/web',

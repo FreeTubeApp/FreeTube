@@ -830,7 +830,7 @@ Video:
     Stats:
       Player Dimensions: 'Stærðir spilara: {width}x{height}'
       Bitrate: 'Bitahraði: {bitrate} kbps'
-      Resolution: 'Upplausn: {width}x{height}@{frameRate}'
+      Resolution: 'Upplausn: {width}x{height}{''@''}{frameRate}'
       Volume: 'Hljóðstyrkur: {volumePercentage}%'
       Stats: Tölfræði
       Bandwidth: 'Bandbreidd: {bandwidth} kbps'

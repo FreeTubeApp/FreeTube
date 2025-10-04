@@ -58,8 +58,8 @@
 </template>
 
 <script setup>
-import { useId } from '../../composables/use-id-polyfill'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { useId } from 'vue'
 
 const props = defineProps({
   channelId: {

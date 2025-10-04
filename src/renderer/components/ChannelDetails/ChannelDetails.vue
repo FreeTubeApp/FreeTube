@@ -42,7 +42,7 @@
               v-if="subCount !== null && !hideChannelSubscriptions"
               class="subCount"
             >
-              {{ $tc('Global.Counts.Subscriber Count', subCount, { count: formattedSubCount }) }}
+              {{ $t('Global.Counts.Subscriber Count', { count: formattedSubCount }, subCount) }}
             </p>
           </div>
         </div>

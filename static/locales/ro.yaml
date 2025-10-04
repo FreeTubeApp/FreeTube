@@ -830,7 +830,7 @@ Video:
     Autoplay is on: Redarea automată este pornită
     Take Screenshot: Faceți o captură de ecran
     Stats:
-      Resolution: 'Rezoluție: {width}x{height}@{frameRate}'
+      Resolution: 'Rezoluție: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Dimensiuni player: {width}x{height}'
       Dropped Frames / Total Frames: 'Cadre eliminate: {droppedFrames} / Total cadre: {totalFrames}'
       CodecsVideoAudio: 'Codecuri: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'

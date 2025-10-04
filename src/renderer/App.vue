@@ -101,17 +101,18 @@
           @click="handleNewBlogBannerClick"
         />
       </div>
-      <transition
+      <RouterView
         v-if="dataReady"
-        mode="out-in"
-        name="fade"
+        v-slot="{ Component }"
+        class="routerView"
       >
-        <!-- <keep-alive> -->
-        <RouterView
-          class="routerView"
-        />
-        <!-- </keep-alive> -->
-      </transition>
+        <Transition
+          mode="out-in"
+          name="fade"
+        >
+          <component :is="Component" />
+        </Transition>
+      </RouterView>
     </ft-flex-box>
   </div>
 </template>

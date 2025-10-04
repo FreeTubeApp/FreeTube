@@ -159,8 +159,7 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-import { isNavigationFailure, NavigationFailureType } from 'vue-router'
-import { onBeforeRouteLeave, useRoute, useRouter } from 'vue-router/composables'
+import { isNavigationFailure, NavigationFailureType, onBeforeRouteLeave, useRoute, useRouter } from 'vue-router'
 
 import FtLoader from '../../components/FtLoader/FtLoader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -880,7 +879,7 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize)
 })
 
-onBeforeRouteLeave((to, from, next) => {
+onBeforeRouteLeave((to) => {
   if (!isLoading.value && to.path.startsWith('/watch') && to.query.playlistId === playlistId.value) {
     store.commit('setCachedPlaylist', {
       id: playlistId.value,
@@ -895,7 +894,6 @@ onBeforeRouteLeave((to, from, next) => {
   }
 
   removeToBeDeletedVideosSometimes()
-  next()
 })
 </script>
 

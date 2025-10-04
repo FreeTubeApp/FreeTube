@@ -735,7 +735,7 @@ Video:
       Video ID: 'شناسه ویدئو: {videoId}'
       Media Formats: 'فرمت ویدئو: {formats}'
       Stats: اطلاعات
-      Resolution: 'وضوح: {width}x{height}@{frameRate}'
+      Resolution: 'وضوح: {width}x{height}{''@''}{frameRate}'
       Bandwidth: 'پهنای باند: {bandwidth} کیلوبیت‌بر‌ثانیه'
       Player Dimensions: 'ابعاد پخش کننده: {width}x{height}'
       Bitrate: 'نرخ بیت: {bitrate} کیلوبیت‌بر‌ثانیه'

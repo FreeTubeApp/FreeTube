@@ -792,7 +792,7 @@ Video:
       Stats: 統計資料
       Video ID: 影片 ID：{videoId}
       Media Formats: 媒體格式：{formats}
-      Resolution: 解析度：{width}x{height}@{frameRate}
+      Resolution: 解析度：{width}x{height}{'@'}{frameRate}
       Player Dimensions: 播放器尺寸：{width}x{height}
       Bitrate: 位元速率：{bitrate} kbps
       Volume: 音量：{volumePercentage}%

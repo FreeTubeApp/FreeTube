@@ -789,7 +789,7 @@ Video:
       Stats: Stats
       Video ID: 'Identifiant de la vidéo : {videoId}'
       Media Formats: 'Formats du média : {formats}'
-      Resolution: 'Résolution : {width}×{height}@{frameRate}'
+      Resolution: 'Résolution : {width}×{height}{''@''}{frameRate}'
       Player Dimensions: 'Dimensions du lecteur : {width}×{height}'
       Volume: 'Volume : {volumePercentage} %'
       Bandwidth: 'Bande passante : {bandwidth} kb/s'

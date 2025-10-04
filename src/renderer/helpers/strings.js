@@ -32,25 +32,25 @@ export function isKeyboardEventKeyPrintableChar(eventKey) {
 export function translateWindowTitle(title) {
   switch (title) {
     case 'Subscriptions':
-      return i18n.t('Subscriptions.Subscriptions')
+      return i18n.global.t('Subscriptions.Subscriptions')
     case 'Channels':
-      return i18n.t('Channels.Title')
+      return i18n.global.t('Channels.Title')
     case 'Trending':
-      return i18n.t('Trending.Trending')
+      return i18n.global.t('Trending.Trending')
     case 'Most Popular':
-      return i18n.t('Most Popular')
+      return i18n.global.t('Most Popular')
     case 'Your Playlists':
-      return i18n.t('User Playlists.Your Playlists')
+      return i18n.global.t('User Playlists.Your Playlists')
     case 'History':
-      return i18n.t('History.History')
+      return i18n.global.t('History.History')
     case 'Settings':
-      return i18n.t('Settings.Settings')
+      return i18n.global.t('Settings.Settings')
     case 'About':
-      return i18n.t('About.About')
+      return i18n.global.t('About.About')
     case 'Profile Settings':
-      return i18n.t('Profile.Profile Settings')
+      return i18n.global.t('Profile.Profile Settings')
     case 'Playlist':
-      return i18n.t('Playlist.Playlist')
+      return i18n.global.t('Playlist.Playlist')
     default:
       return null
   }
