@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { nextTick, onBeforeUnmount, onMounted, shallowReactive } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, reactive } from 'vue'
 import { ToastEventBus } from '../../helpers/utils'
 
 let idCounter = 0
@@ -33,20 +33,22 @@ let idCounter = 0
  * @property {number} id
  */
 
-/** @type {import('vue').ShallowReactive<Toast[]>} */
-const toasts = shallowReactive([])
+/** @type {import('vue').Reactive<Toast[]>} */
+const toasts = reactive([])
 
 /**
  * @param {CustomEvent<{ message: string, time: number | null, action: Function | null, abortSignal: AbortSignal | null }>} event
  */
 function open({ detail: { message, time, action, abortSignal } }) {
+  const id = idCounter++
+
   /** @type {Toast} */
   const toast = {
     message,
     action,
     isOpen: false,
     timeout: 0,
-    id: idCounter++
+    id
   }
 
   toast.timeout = setTimeout(close, time || 3000, toast)
@@ -57,7 +59,13 @@ function open({ detail: { message, time, action, abortSignal } }) {
   }
 
   nextTick(() => {
-    toast.isOpen = true
+    // We need to locate the object in the array so we get the reactive proxy,
+    // as modifying the original object won't trigger reactive effects such as updating the DOM
+    const toast = toasts.find(t => t.id === id)
+
+    if (toast) {
+      toast.isOpen = true
+    }
   })
 
   if (toasts.length > 4) {
