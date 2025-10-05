@@ -135,6 +135,138 @@ export async function getLocalPlaylist(id) {
 }
 
 /**
+ * @typedef {object} SerializedContinuation
+ * @property {import('youtubei.js').Context} context
+ * @property {string} path
+ * @property {any} payload
+ */
+
+/**
+ * @param {import('youtubei.js').YTNodes.ContinuationItem} continuationItem
+ * @param {import('youtubei.js').Actions} actions
+ */
+function serializeContinuationItem(continuationItem, actions) {
+  let path, payload
+
+  // Based on YouTube.js' NavigationEndpoint#call()
+  if (continuationItem.endpoint.command.is(YTNodes.CommandExecutorCommand)) {
+    /** @type {import('youtubei.js').Helpers.YTNode & import('youtubei.js').APIResponseTypes.IEndpoint} */
+    const command = continuationItem.endpoint.command.commands.at(-1)
+
+    path = command.getApiPath()
+    payload = command.buildRequest()
+  } else {
+    path = continuationItem.endpoint.metadata.api_url
+    payload = continuationItem.endpoint.payload
+  }
+
+  /** @type {SerializedContinuation} */
+  const data = {
+    path,
+    payload: payload,
+    context: actions.session.context
+  }
+
+  return JSON.stringify(data)
+}
+
+/**
+ * @param {import('youtubei.js').Mixins.Feed} feed
+ */
+function extractFeedContinuationItem(feed) {
+  let continuationItem
+
+  if (feed.page.header_memo) {
+    const headerContinuations = feed.page.header_memo.getType(YTNodes.ContinuationItem)
+    continuationItem = feed.memo.getType(YTNodes.ContinuationItem).find(
+      (continuation) => !headerContinuations.includes(continuation)
+    )
+  } else {
+    continuationItem = feed.memo.getType(YTNodes.ContinuationItem)[0]
+  }
+
+  if (!continuationItem) {
+    throw new Utils.InnertubeError('There are no continuations.')
+  }
+
+  return continuationItem
+}
+
+/**
+ * Based on YouTube.js' YT.Playlist.getContinuationData method
+ * @param {import('youtubei.js').YT.Playlist} playlist
+ */
+export function extractLocalCacheablePlaylistContinuation(playlist) {
+  const sectionList = playlist.memo.getType(YTNodes.SectionList)[0]
+
+  let continuationItem
+
+  // No section list means there can't be additional continuation nodes here,
+  // so no need to check.
+  if (!sectionList) {
+    continuationItem = extractFeedContinuationItem(playlist)
+  } else {
+    continuationItem = playlist.memo.getType(YTNodes.ContinuationItem)
+      .find((node) => !sectionList.contents.includes(node))
+  }
+
+  if (!continuationItem) {
+    throw new Utils.InnertubeError('There are no continuations.')
+  }
+
+  return serializeContinuationItem(continuationItem, playlist.actions)
+}
+
+/**
+ * Based on YouTube.js' YT.Search.getContinuationData method
+ * @param {import('youtubei.js').YT.Search} search
+ * @returns {SerializedContinuation}
+ */
+export function extractLocalCacheableSearchContinuation(search) {
+  const continuationItem = extractFeedContinuationItem(search)
+
+  return serializeContinuationItem(continuationItem, search.actions)
+}
+
+/**
+ * @overload
+ * @param {'playlist'} type
+ * @param {string} continuation
+ * @returns {Promise<import('youtubei.js').YT.Playlist>}
+ */
+
+/**
+ * @overload
+ * @param {'search'} type
+ * @param {string} continuation
+ * @returns {Promise<import('youtubei.js').YT.Search>}
+ */
+
+/**
+ * @param {'playlist' | 'search'} type
+ * @param {string} continuation
+ */
+export async function getLocalCachedFeedContinuation(type, continuation) {
+  /** @type {SerializedContinuation} */
+  const data = JSON.parse(continuation)
+
+  const innertube = await createInnertube()
+  innertube.session.context = data.context
+
+  const page = await innertube.actions.execute(data.path, { ...data.payload, parse: true })
+
+  if (!page) {
+    throw new Utils.InnertubeError('Could not get continuation data')
+  }
+
+  if (type === 'playlist') {
+    return new YT.Playlist(innertube.actions, page, true)
+  } else {
+    return new YT.Search(innertube.actions, page, true)
+  }
+}
+
+/**
  * @param {import('youtubei.js').YT.Playlist} playlist
  * @returns {Promise<import('youtubei.js').YT.Playlist|null>} null when no valid playlist can be found (e.g. `empty continuation response`)
  */
@@ -228,10 +360,16 @@ export async function getLocalSearchResults(query, filters, safetyMode) {
 }
 
 /**
- * @param {YT.Search} continuationData
+ * @param {YT.Search | SerializedContinuation} continuationData
  */
 export async function getLocalSearchContinuation(continuationData) {
-  const response = await continuationData.getContinuation()
+  let response
+
+  if (continuationData instanceof YT.Search) {
+    response = await continuationData.getContinuation()
+  } else {
+    response = await getLocalCachedFeedContinuation('search', continuationData)
+  }
 
   return handleSearchResponse(response)
 }

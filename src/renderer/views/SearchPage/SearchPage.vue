@@ -56,7 +56,11 @@ import {
   searchFiltersMatch,
   showToast,
 } from '../../helpers/utils'
-import { getLocalSearchContinuation, getLocalSearchResults } from '../../helpers/api/local'
+import {
+  extractLocalCacheableSearchContinuation,
+  getLocalSearchContinuation,
+  getLocalSearchResults
+} from '../../helpers/api/local'
 import { getInvidiousSearchResults } from '../../helpers/api/invidious'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -67,7 +71,7 @@ const isLoading = ref(false)
 const apiUsed = ref('local')
 const searchSettings = ref({})
 const searchPage = ref(1)
-/** @type {import('vue').ShallowRef<import('youtubei.js').YT.Search | null>} */
+/** @type {import('vue').ShallowRef<import('youtubei.js').YT.Search | string | null>} */
 const nextPageRef = shallowRef(null)
 const shownResults = shallowRef([])
 
@@ -207,7 +211,7 @@ async function performSearchLocal(payload) {
       query: payload.query,
       data: shownResults.value,
       searchSettings: searchSettings.value,
-      nextPageRef: nextPageRef.value,
+      nextPageRef: nextPageRef.value ? extractLocalCacheableSearchContinuation(nextPageRef.value) : null,
       apiUsed: apiUsed.value
     }
 
@@ -248,7 +252,7 @@ async function getNextpageLocal(payload) {
       query: payload.query,
       data: shownResults.value,
       searchSettings: searchSettings.value,
-      nextPageRef: nextPageRef.value,
+      nextPageRef: nextPageRef.value ? extractLocalCacheableSearchContinuation(nextPageRef.value) : null,
       apiUsed: apiUsed.value
     }
 
@@ -356,7 +360,7 @@ function replaceShownResults(history) {
   searchSettings.value = history.searchSettings
   apiUsed.value = history.apiUsed
 
-  if (typeof (history.nextPageRef) !== 'undefined') {
+  if (history.nextPageRef != null) {
     nextPageRef.value = history.nextPageRef
   }
 
