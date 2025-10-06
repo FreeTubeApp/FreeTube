@@ -1,6 +1,5 @@
 <template>
   <div
-    v-if="!hidePost"
     class="ft-list-post ft-list-item outside"
     :appearance="appearance"
     :class="{ list: listType === 'list', grid: listType === 'grid' }"
@@ -212,10 +211,6 @@ const forbiddenTitles = computed(() => {
 
 const hideVideo = computed(() => {
   return forbiddenTitles.value.some((text) => props.data.postContent.content.title?.toLowerCase().includes(text.toLowerCase()))
-})
-
-const hidePost = computed(() => {
-  return forbiddenTitles.value.some((text) => props.data.author?.toLowerCase().includes(text.toLowerCase()))
 })
 
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
