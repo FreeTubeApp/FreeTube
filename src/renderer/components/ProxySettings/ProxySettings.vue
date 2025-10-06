@@ -69,6 +69,7 @@
           :value="proxyPassword"
           @input="handleUpdateProxyPassword"
           @keydown.enter.native="testProxy"
+          input-type="password"
         />
       </FtFlexBox>
       <p
