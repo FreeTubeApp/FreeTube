@@ -1206,41 +1206,11 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #a63f9a;
 }
 
-.mainCatppuccinLatteRosewater,
-.mainCatppuccinLatteFlamingo,
-.mainCatppuccinLattePink,
 .mainCatppuccinLatteMauve,
-.mainCatppuccinLatteRed,
-.mainCatppuccinLatteMaroon,
-.mainCatppuccinLattePeach,
-.mainCatppuccinLatteYellow,
-.mainCatppuccinLatteGreen,
-.mainCatppuccinLatteTeal,
-.mainCatppuccinLatteSky,
-.mainCatppuccinLatteSapphire,
-.mainCatppuccinLatteBlue,
-.mainCatppuccinLatteLavender {
+.mainCatppuccinLatteRed {
   --text-with-main-color: #fff;
   --logo-icon-bar-color: url('../../_icons/iconCatppuccinLatteLightSmall.svg');
   --logo-text-bar-color: url('../../_icons/textCatppuccinLatteLightSmall.svg');
-}
-
-.mainCatppuccinLatteRosewater {
-  --primary-color: #dc8a78;
-  --primary-color-hover: #e3a091;
-  --primary-color-active: #c9715c;
-}
-
-.mainCatppuccinLatteFlamingo {
-  --primary-color: #dd7878;
-  --primary-color-hover: #e49292;
-  --primary-color-active: #d05b5b;
-}
-
-.mainCatppuccinLattePink {
-  --primary-color: #ea76cb;
-  --primary-color-hover: #ef93d8;
-  --primary-color-active: #e054bb;
 }
 
 .mainCatppuccinLatteMauve {
@@ -1253,60 +1223,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color: #d20f39;
   --primary-color-hover: #dd385c;
   --primary-color-active: #a60c2d;
-}
-
-.mainCatppuccinLatteMaroon {
-  --primary-color: #e64553;
-  --primary-color-hover: #ed6672;
-  --primary-color-active: #d82131;
-}
-
-.mainCatppuccinLattePeach {
-  --primary-color: #fe640b;
-  --primary-color-hover: #fe7e33;
-  --primary-color-active: #d35000;
-}
-
-.mainCatppuccinLatteYellow {
-  --primary-color: #df8e1d;
-  --primary-color-hover: #e8a33f;
-  --primary-color-active: #b36f10;
-}
-
-.mainCatppuccinLatteGreen {
-  --primary-color: #40a02b;
-  --primary-color-hover: #51b33c;
-  --primary-color-active: #2d721e;
-}
-
-.mainCatppuccinLatteTeal {
-  --primary-color: #179299;
-  --primary-color-hover: #1fb0b8;
-  --primary-color-active: #0f6469;
-}
-
-.mainCatppuccinLatteSky {
-  --primary-color: #04a5e5;
-  --primary-color-hover: #29b5eb;
-  --primary-color-active: #0381b4;
-}
-
-.mainCatppuccinLatteSapphire {
-  --primary-color: #209fb5;
-  --primary-color-hover: #36b3c9;
-  --primary-color-active: #177888;
-}
-
-.mainCatppuccinLatteBlue {
-  --primary-color: #1e66f5;
-  --primary-color-hover: #4180f7;
-  --primary-color-active: #164ec3;
-}
-
-.mainCatppuccinLatteLavender {
-  --primary-color: #7287fd;
-  --primary-color-hover: #90a1fd;
-  --primary-color-active: #4f68fc;
 }
 
 /*************** SECONDARY THEME COLOR DEFINTIONS ***************/
@@ -2127,43 +2043,9 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --text-with-accent-color: #4c4f69;
 }
 
-.secCatppuccinLattePink,
 .secCatppuccinLatteMauve,
-.secCatppuccinLatteRed,
-.secCatppuccinLatteMaroon,
-.secCatppuccinLattePeach,
-.secCatppuccinLatteYellow,
-.secCatppuccinLatteGreen,
-.secCatppuccinLatteTeal,
-.secCatppuccinLatteSky,
-.secCatppuccinLatteSapphire,
-.secCatppuccinLatteBlue,
-.secCatppuccinLatteLavender {
+.secCatppuccinLatteRed {
   --text-with-accent-color: #fff;
-}
-
-.secCatppuccinLatteRosewater {
-  --accent-color-rgb: 245 224 220;
-  --accent-color-hover: #fbf6f5;
-  --accent-color-active: #e6c9c2;
-  --accent-color-light: #f7f3ea;
-  --accent-color-visited: #d9b9b3;
-}
-
-.secCatppuccinLatteFlamingo {
-  --accent-color-rgb: 242 205 205;
-  --accent-color-hover: #f8e9e9;
-  --accent-color-active: #e8b6b6;
-  --accent-color-light: #f4dede;
-  --accent-color-visited: #d4a3a3;
-}
-
-.secCatppuccinLattePink {
-  --accent-color-rgb: 234 118 203;
-  --accent-color-hover: #ef93d8;
-  --accent-color-active: #e258bc;
-  --accent-color-light: #f4aee3;
-  --accent-color-visited: #c94ba0;
 }
 
 .secCatppuccinLatteMauve {
@@ -2181,79 +2063,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-light: #e64e71;
   --accent-color-visited: #810922;
 }
-
-.secCatppuccinLatteMaroon {
-  --accent-color-rgb: 230 69 83;
-  --accent-color-hover: #ed6672;
-  --accent-color-active: #d82131;
-  --accent-color-light: #f2838d;
-  --accent-color-visited: #b82e3a;
-}
-
-.secCatppuccinLattePeach {
-  --accent-color-rgb: 254 100 11;
-  --accent-color-hover: #fe7e33;
-  --accent-color-active: #d35000;
-  --accent-color-light: #fe9354;
-  --accent-color-visited: #a1420f;
-}
-
-.secCatppuccinLatteYellow {
-  --accent-color-rgb: 223 142 29;
-  --accent-color-hover: #e8a33f;
-  --accent-color-active: #b87211;
-  --accent-color-light: #eeb05b;
-  --accent-color-visited: #8a5615;
-}
-
-.secCatppuccinLatteGreen {
-  --accent-color-rgb: 64 160 43;
-  --accent-color-hover: #51b33c;
-  --accent-color-active: #307a20;
-  --accent-color-light: #63c450;
-  --accent-color-visited: #3a6e32;
-}
-
-.secCatppuccinLatteTeal {
-  --accent-color-rgb: 23 146 153;
-  --accent-color-hover: #1fb0b8;
-  --accent-color-active: #106b70;
-  --accent-color-light: #29c5cd;
-  --accent-color-visited: #134d50;
-}
-
-.secCatppuccinLatteSky {
-  --accent-color-rgb: 4 165 229;
-  --accent-color-hover: #29b5eb;
-  --accent-color-active: #0384b8;
-  --accent-color-light: #48c2ee;
-  --accent-color-visited: #0e6ea0;
-}
-
-.secCatppuccinLatteSapphire {
-  --accent-color-rgb: 32 159 181;
-  --accent-color-hover: #36b3c9;
-  --accent-color-active: #187f91;
-  --accent-color-light: #50c3d5;
-  --accent-color-visited: #206a77;
-}
-
-.secCatppuccinLatteBlue {
-  --accent-color-rgb: 30 102 245;
-  --accent-color-hover: #4180f7;
-  --accent-color-active: #164ec3;
-  --accent-color-light: #6295fc;
-  --accent-color-visited: #1b44a9;
-}
-
-.secCatppuccinLatteLavender {
-  --accent-color-rgb: 114 135 253;
-  --accent-color-hover: #90a1fd;
-  --accent-color-active: #4f68fc;
-  --accent-color-light: #aeb9fe;
-  --accent-color-visited: #5064e1;
-}
-
 
 /*************** DESTRUCTIVE THEME COLOR OVERRIDES ***************/
 
