@@ -210,7 +210,10 @@ const forbiddenTitles = computed(() => {
 })
 
 const hideVideo = computed(() => {
-  return forbiddenTitles.value.some((text) => props.data.postContent.content.title?.toLowerCase().includes(text.toLowerCase()))
+  return forbiddenTitles.value.some((text) => (
+    props.data.postContent.content.title?.toLowerCase().includes(text.toLowerCase()) ||
+    props.data.postContent.content.author?.toLowerCase().includes(text.toLowerCase())
+  ))
 })
 
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
