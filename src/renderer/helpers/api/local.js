@@ -200,8 +200,7 @@ export async function getLocalSearchContinuation(continuationData) {
  * @param {boolean} forceEnableSabrOnlyResponseWorkaround - When true workaround will be forced and there will be no audio track selection
  * @returns {Promise<{
  *   info: import('youtubei.js').YT.VideoInfo,
- *   sessionPoToken: string | undefined,
- *   contentPoToken: string | undefined,
+ *   poToken: string | undefined,
  *   clientInfo: {
  *     clientName: number,
  *     clientVersion: string,
@@ -259,6 +258,8 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
   let contentPoToken
   // based on the visitor data (added to the streaming URLs)
   let sessionPoToken
+  let contentTokenPreferred
+  let poToken
 
   if (process.env.IS_ELECTRON) {
     try {
@@ -268,6 +269,43 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
         JSON.stringify(webInnertube.session.context)
       ))
 
+      // region experiments
+
+      const initialWebpageResponse = await fetch(
+        `https://www.youtube.com/watch?v=${id}&bpctr=9999999999&has_verified=1`,
+        {
+          method: 'GET',
+          headers: {
+            Accept: '*/*',
+            'X-Goog-Visitor-Id': webInnertube.session.context.client.visitorData,
+            'X-Youtube-Client-Version': webInnertube.session.context.client.clientVersion,
+            'X-Youtube-Client-Name': webInnertube.session.context.client.clientName,
+          },
+        }
+      )
+      const initialWebpageText = await initialWebpageResponse.text()
+      /** @type {string|null} */
+      const ytcfgText = initialWebpageText.match(/ytcfg\.set\s*\(\s*({.+?})\s*\)\s*;/)?.at(1)
+      const ytcfg = ytcfgText != null ? JSON.parse(ytcfgText) : {}
+      const allExperiments = {}
+      if (ytcfg?.WEB_PLAYER_CONTEXT_CONFIGS != null) {
+        for (const config of Object.values(ytcfg.WEB_PLAYER_CONTEXT_CONFIGS)) {
+          if ('serializedExperimentFlags' in config) {
+            const experiments = Object.fromEntries(new URLSearchParams(config.serializedExperimentFlags).entries())
+            Object.assign(allExperiments, experiments)
+          }
+        }
+      }
+      for (const [key, value] of Object.entries(allExperiments)) {
+        if (/po_token/.test(key)) {
+          console.warn(key, value)
+        }
+      }
+      contentTokenPreferred = allExperiments.html5_generate_content_po_token === 'true'
+
+      // endregion experiments
+
+      poToken = contentTokenPreferred ? contentPoToken : sessionPoToken
       webInnertube.session.player.po_token = sessionPoToken
     } catch (error) {
       console.error('Local API, poToken generation failed', error)
@@ -414,8 +452,7 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
 
   return {
     info,
-    sessionPoToken,
-    contentPoToken,
+    poToken,
     clientInfo,
     adEndTimeUnixMs,
     sabrCanBeUsed: !sabrCannotBeUsed,

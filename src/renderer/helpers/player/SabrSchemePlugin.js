@@ -246,7 +246,6 @@ async function doRequest(
   let segmentComplete = false
   let shouldRetry = false
   let shouldRetryDueToNextRequestPolicy = false
-  let shouldRetryStreamProtectionStatusAttestationPending = false
 
   let invalidPoToken = false
   let error
@@ -313,9 +312,6 @@ async function doRequest(
             const streamProtectionStatus = decodePart(part, StreamProtectionStatus)
             if (streamProtectionStatus.status === 3) {
               invalidPoToken = true
-            } else if (streamProtectionStatus.status === 2) {
-              shouldRetry = true
-              shouldRetryStreamProtectionStatusAttestationPending = true
             }
             break
           }
@@ -492,20 +488,6 @@ async function doRequest(
       // Only count on actual retry to avoid counting false positive (when segmentComplete
       currentState.cumulativeRetryDueToNextRequestPolicy += 1
     }
-    if (shouldRetryStreamProtectionStatusAttestationPending) {
-      // Current poToken should not be retried
-      currentState.sabrStreamState.poTokensToBeTried.shift()
-      if (currentState.sabrStreamState.poTokensToBeTried.length > 0) {
-        // Retry with next poToken
-        currentState.abrRequest.streamerContext.poToken = currentState.sabrStreamState.poTokensToBeTried[0]
-      } else {
-        currentState.sabrStreamState.playerReloadRequested = true
-        if (!currentState.abortController.signal.aborted) {
-          currentState.abortController.abort()
-          currentState.eventEmitter.emit('reload')
-        }
-      }
-    }
 
     const { sabrContexts, unsentSabrContexts } = prepareSabrContexts(currentState.sabrStreamState)
 
@@ -610,8 +592,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
    */
   const initDataCache = new Map()
 
-  const sessionPoToken = base64ToU8(sabrData.sessionPoToken)
-  const contentPoToken = base64ToU8(sabrData.contentPoToken)
+  const poToken = base64ToU8(sabrData.poToken)
   const videoPlaybackUstreamerConfig = base64ToU8(sabrData.ustreamerConfig)
   const clientInfo = deepCopy(sabrData.clientInfo)
 
@@ -624,7 +605,6 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
    * @property {?NextRequestPolicy} nextRequestPolicy
    * @property {boolean} playerReloadRequested
    * @property {number} requestNumber
-   * @property {Uint8Array[]} poTokensToBeTried
    */
   /** @type {SabrStreamState} */
   const sabrStreamState = {
@@ -634,7 +614,6 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
     nextRequestPolicy: undefined,
     playerReloadRequested: false,
     requestNumber: 0,
-    poTokensToBeTried: [sessionPoToken, contentPoToken],
   }
 
   shaka.net.NetworkingEngine.registerScheme('sabr', (uri, request, requestType, _progressUpdated, headersReceived, _config) => {
@@ -728,8 +707,8 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
       selectedFormatIds: isInit ? [] : [audioFormatId, videoFormatId],
       bufferedRanges,
       streamerContext: {
-        poToken: sabrStreamState.poTokensToBeTried[0],
-        clientInfo: clientInfo,
+        poToken,
+        clientInfo,
         sabrContexts,
         unsentSabrContexts,
         playbackCookie: sabrStreamState.nextRequestPolicy?.playbackCookie ? PlaybackCookie.encode(sabrStreamState.nextRequestPolicy.playbackCookie).finish() : undefined,
