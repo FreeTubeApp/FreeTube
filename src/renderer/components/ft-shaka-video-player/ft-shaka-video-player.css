@@ -253,11 +253,4 @@
   }
 }
 
-@media (prefers-reduced-transparency:no-preference) {
-  /* add transparency to big play button */
-  :deep(.shaka-controls-container[shown='true'] > .shaka-play-button-container > .shaka-play-button) {
-    opacity: 0.75 !important;
-  }
-}
-
 /* stylelint-enable liberty/use-logical-spec */

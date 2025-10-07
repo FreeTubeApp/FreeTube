@@ -11,7 +11,7 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
    * @param {!shaka.ui.Controls} controls
    */
   constructor(events, parent, controls) {
-    super(parent, controls, PlayerIcons.SPATIAL_AUDIO_OFF_FILLED)
+    super(parent, controls, PlayerIcons.RECORD_VOICE_OVER_FILLED)
 
     this.button.classList.add('audio-track-button', 'shaka-tooltip-status')
     this.menu.classList.add('audio-tracks')
