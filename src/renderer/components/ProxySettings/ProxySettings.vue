@@ -67,6 +67,7 @@
           :show-action-button="false"
           show-label
           :value="proxyPassword"
+          input-type="password"
           @input="handleUpdateProxyPassword"
           @keydown.enter.native="testProxy"
         />
