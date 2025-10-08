@@ -58,6 +58,29 @@ const ShakaError = shaka.util.Error
  * @property {number} cumulativeBackOffRequested
  * @property {number} cumulativeRetryDueToNextRequestPolicy
  */
+/**
+ * @typedef SabrStreamState
+ * @type {object}
+ * @property {string} sabrUrl
+ * @property {Set<number>} activeSabrContextTypes
+ * @property {Map<number, SabrContextUpdate>} sabrContexts
+ * @property {?NextRequestPolicy} nextRequestPolicy
+ * @property {boolean} playerReloadRequested
+ * @property {number} requestNumber
+ */
+/**
+ * @typedef TimeoutController
+ * @type {object}
+ * @property {() => void} resetTimeoutOnce
+ * @property {() => void} clearTimeout
+ */
+/**
+ * @typedef SabrStream
+ * @type {object}
+ * @property {(cb: ({backoffMs: number}) => void) => void} onBackoffRequested
+ * @property {(cb: () => void) => void} onReloadOnce
+ * @property {() => void | undefined} cleanup
+ */
 
 /**
  * @param {string} str
@@ -203,12 +226,6 @@ function decodePart(part, decoder) {
   }
 }
 
-/**
- * @typedef TimeoutController
- * @type {object}
- * @property {() => void} resetTimeoutOnce
- * @property {() => void} clearTimeout
- */
 /**
  * @param {(args: void) => void} callback
  * @param {number} timeoutMs
@@ -568,13 +585,6 @@ async function doRequest(
 }
 
 /**
- * @typedef SabrStream
- * @type {object}
- * @property {(cb: ({backoffMs: number}) => void) => void} onBackoffRequested
- * @property {(cb: () => void) => void} onReloadOnce
- * @property {() => void | undefined} cleanup
- */
-/**
  * @param {import('../../views/Watch/Watch').SabrData} sabrData
  * @param {() => shaka.Player} getPlayer
  * @param {() => shaka.extern.Manifest} getManifest
@@ -597,16 +607,6 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
   const videoPlaybackUstreamerConfig = base64ToU8(sabrData.ustreamerConfig)
   const clientInfo = deepCopy(sabrData.clientInfo)
 
-  /**
-   * @typedef SabrStreamState
-   * @type {object}
-   * @property {string} sabrUrl
-   * @property {Set<number>} activeSabrContextTypes
-   * @property {Map<number, SabrContextUpdate>} sabrContexts
-   * @property {?NextRequestPolicy} nextRequestPolicy
-   * @property {boolean} playerReloadRequested
-   * @property {number} requestNumber
-   */
   /** @type {SabrStreamState} */
   const sabrStreamState = {
     sabrUrl: sabrData.url,
