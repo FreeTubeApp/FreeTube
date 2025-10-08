@@ -250,6 +250,14 @@ const MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT = 4
 // Displayed on the about page and used in the main.js file to only allow bitcoin URLs with this wallet address to be opened
 const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
+const SilenceSkip = {
+  SILENCE_DETECTION_MULTIPLIER: 4, // Multiplier for silence detection. Higher = more sensitive
+  TRICKPLAY_FAST_FORWARD_SPEED: 3, // Trickplay speed when skipping silence. Higher = faster
+  TRICKPLAY_DEFAULT_SPEED: 1, // Trickplay speed when not skipping silence. 1 = normal
+  MIN_SILENCE_DURATION: 250, // Min silence duration in ms. Higher for longer silence before skipping. Lower for faster reaction.
+  MIN_SOUND_DURATION: 5, // Min sound duration in ms. Higher to avoid false positives for short sounds.
+}
+
 export {
   IpcChannels,
   DBActions,
@@ -257,6 +265,7 @@ export {
   DefaultFolderKind,
   KeyboardShortcuts,
   PlayerIcons,
+  SilenceSkip,
   MAIN_PROFILE_ID,
   MOBILE_WIDTH_THRESHOLD,
   PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD,

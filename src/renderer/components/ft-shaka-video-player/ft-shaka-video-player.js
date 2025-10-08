@@ -3,7 +3,7 @@ import shaka from 'shaka-player'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import store from '../../store/index'
-import { DefaultFolderKind, KeyboardShortcuts } from '../../../constants'
+import { DefaultFolderKind, KeyboardShortcuts, SilenceSkip } from '../../../constants'
 import { AudioTrackSelection } from './player-components/AudioTrackSelection'
 import { FullWindowButton } from './player-components/FullWindowButton'
 import { LegacyQualitySelection } from './player-components/LegacyQualitySelection'
@@ -3083,22 +3083,17 @@ export default defineComponent({
     /**
      * Toggles and manages the silence skip functionality for the video player.
      *
-     * When silence skip is enabled, the function analyzes the audio stream of the
-     * video to detect silent segments. If a silent segment is detected, the video
-     * playback speed is increased to skip over the silence.
+     * When enabled, the function uses the Web Audio API to analyze the audio stream of the video element
+     * and detect silent segments. Silence detection is performed via an AnalyserNode connected in parallel
+     * to the audio output, allowing for volume analysis even when the output is muted during fast-forward.
      *
-     * The function uses the Web Audio API to create an AudioContext and connect it
-     * to the video element's audio source. An AnalyserNode is used to obtain the
-     * time-domain data of the audio signal, which is then processed to calculate
-     * the maximum and average volume levels. Silence is determined by comparing
-     * these levels, and if the conditions for silence are met, the player's
-     * trickPlay method is invoked to increase the playback speed.
+     * The detection logic calculates the maximum and average amplitude of the audio signal. If a silent segment
+     * is detected and persists for a defined minimum duration, the video is fast-forwarded and the output is smoothly
+     * muted using a GainNode to avoid click artifacts. When non-silent audio is detected and persists for a minimum duration,
+     * the output is smoothly unmuted and playback speed returns to normal, with a additional delay to further reduce audio clicks.
      *
-     * If silence skip is disabled, the playback speed is reset to normal.
-     *
-     * The function initiates a loop using requestAnimationFrame to continuously
-     * analyze the audio stream as long as the player exists and silence skip is
-     * enabled.
+     * The function continuously analyzes the audio stream using requestAnimationFrame, adapting playback and muting in real time.
+     * All transitions for muting and unmuting use smooth ramping via setTargetAtTime for click-free audio..
      */
     function skipSilence() {
       if (!isSilenceSkipEnabled.value) {
@@ -3120,15 +3115,22 @@ export default defineComponent({
         if (!video_.audioContext) {
           video_.audioContext = audioContext
         }
+        const gain = audioContext.createGain()
         const analyser = audioContext.createAnalyser()
         source.disconnect()
+        source.connect(gain)
         source.connect(analyser)
-        analyser.disconnect()
-        analyser.connect(audioContext.destination)
+        gain.connect(audioContext.destination)
+
         analyser.fftSize = 2048
         const bufferLength = analyser.frequencyBinCount
         const amplitudeArray = new Uint8Array(bufferLength)
+
         let loopId = 0
+        let silenceStart = null
+        let soundStart = null
+        let isSkipping = false
+
         const loop = () => {
           if (!player) {
             cancelAnimationFrame(loopId)
@@ -3138,18 +3140,40 @@ export default defineComponent({
           if (isSilenceSkipEnabled.value) {
             analyser.getByteTimeDomainData(amplitudeArray)
             const volumeValues = Array.from(amplitudeArray)
-            const filteredVolumes = volumeValues.map(volume => volume - 128).filter(volume => volume !== 0).map(volume => Math.abs(volume))
+            const filteredVolumes = volumeValues.map(v => v - 128).filter(v => v !== 0).map(Math.abs)
             const maxVolume = filteredVolumes.length ? Math.max(...filteredVolumes) : 0
             const averageVolume = filteredVolumes.length ? filteredVolumes.reduce((a, b) => a + b, 0) / filteredVolumes.length : 0
-            const silencePercentage = !isNaN(maxVolume) && !isNaN(averageVolume) ? (averageVolume / maxVolume) * 4 : 0
+            const silencePercentage = !isNaN(maxVolume) && !isNaN(averageVolume) ? (averageVolume / maxVolume) * SilenceSkip.SILENCE_DETECTION_MULTIPLIER : 0
+            const isSilent = (maxVolume <= averageVolume || maxVolume <= silencePercentage)
 
-            if ((maxVolume <= averageVolume || maxVolume <= silencePercentage) && !video_.paused && !video_.ended) {
-              player.trickPlay(2.5)
-            } else {
-              player.trickPlay(1)
+            const now = performance.now()
+
+            if (isSilent && !isSkipping && !video_.paused && !video_.ended && !video_.muted) {
+              if (!silenceStart) silenceStart = now
+              if (now - silenceStart > SilenceSkip.MIN_SILENCE_DURATION) {
+                gain.gain.setTargetAtTime(0, audioContext.currentTime, 0.025)
+                player.trickPlay(SilenceSkip.TRICKPLAY_FAST_FORWARD_SPEED)
+                isSkipping = true
+                soundStart = null
+              }
+            } else if (!isSilent && isSkipping) {
+              if (!soundStart) soundStart = now
+              if (now - soundStart > SilenceSkip.MIN_SOUND_DURATION) {
+                gain.gain.setTargetAtTime(1, audioContext.currentTime, 0.015)
+                setTimeout(() => {
+                  player.trickPlay(SilenceSkip.TRICKPLAY_DEFAULT_SPEED)
+                  isSkipping = false
+                  silenceStart = null
+                  soundStart = null
+                }, 25)
+              }
+            } else if (!isSilent && !isSkipping) {
+              gain.gain.setTargetAtTime(1, audioContext.currentTime, 0.015)
+              silenceStart = null
+              soundStart = null
             }
           } else {
-            player.trickPlay(1)
+            player.trickPlay(SilenceSkip.TRICKPLAY_DEFAULT_SPEED)
             return
           }
 
