@@ -50,7 +50,7 @@ function open({ detail: { message, time, action, abortSignal } }) {
     interval: 0,
     id: idCounter++
   }
-  time = time || 3000
+  time ||= 3000
   let elapsed = 0
   const updateDelay = 1000
 
