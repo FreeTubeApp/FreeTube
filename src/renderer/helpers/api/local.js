@@ -434,11 +434,6 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
           }
         }
       }
-      for (const [key, value] of Object.entries(allExperiments)) {
-        if (/po_token/.test(key)) {
-          console.warn(key, value)
-        }
-      }
       contentTokenPreferred = allExperiments.html5_generate_content_po_token === 'true'
 
       // endregion experiments
