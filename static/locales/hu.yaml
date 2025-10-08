@@ -44,7 +44,7 @@ Global:
     Comment Count: 1 hozzászólás | {count} hozzászólás
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber} verzió már elérhető! Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
-A new blog is now available, {blogTitle}. Click to view more: 'Egy új blog érhető el: {blogTitle}. Kattintson további információk megtekintéséhez'
+A new blog is now available, {blogTitle}. Click to view more: 'Egy új blog érhető el: {blogTitle}. Kattintson a további információk megtekintéséhez'
 
 # Search Bar
 Search / Go to URL: 'Keresés / Ugrás webcímre'
@@ -241,9 +241,9 @@ Settings:
       Blur: Elhomályosítás
     Region for Trending: 'Felkapottak régiója'
         #! List countries
-    View all Invidious instance information: Az Invidious-példányok listájának megtekintése
+    View all Invidious instance information: Az Invidious példányok listájának megtekintése
     System Default: Rendszer alapértelmezett
-    Current Invidious Instance: Jelenlegi Invidious-példány
+    Current Invidious Instance: Jelenlegi Invidious példány
     Clear Default Instance: Alapértelmezett példány eltávolítása
     Set Current Instance as Default: A jelenlegi példány beállítása alapértelmezettként
     Current instance will be randomized on startup: Véletlenszerű jelenlegi példány használata indításkor
@@ -757,7 +757,7 @@ Video:
   Video has been marked as watched: 'A videó megtekintettnek lett jelölve'
   Video has been removed from your history: 'A videó el lett távolítva az előzményekből'
   Open in YouTube: 'Megnyitás a YouTube-ban'
-  Copy YouTube Link: 'YouTube hivatkozás másolása'
+  Copy YouTube Link: 'YouTube-hivatkozás másolása'
   Open YouTube Embedded Player: 'YouTube beágyazott lejátszó megnyitása'
   Copy YouTube Embedded Player Link: 'YouTube beágyazott lejátszói hivatkozás másolása'
   Open in Invidious: 'Invidious megnyitása'
@@ -787,7 +787,7 @@ Video:
   video only: csak videó
   Download Video: Videó letöltése
   Copy Invidious Channel Link: Invidious csatorna hivatkozása másolása
-  Copy YouTube Channel Link: YouTube csatorna hivatkozása másolása
+  Copy YouTube Channel Link: YouTube-csatorna hivatkozás másolása
   Open Channel in YouTube: Csatorna megnyitása a YouTube-on
   Open Channel in Invidious: Csatorna megnyitása az Invidious oldalán
   Started streaming on: Folyamatos átvitel indult
@@ -857,8 +857,8 @@ Video:
     Autoplay is on: Az automatikus lejátszás be van kapcsolva
   IP block: A YouTube letiltotta az IP-címét a videók megtekintéséhez. Próbáljon meg másik VPN-re vagy proxyra váltani.
   Unlisted: Listázatlan
-  AgeRestricted: A FreeTube-on nem lehet korhatáros videókat megtekinteni, mivel ezekhez Google bejelentkezés és korhatár-ellenőrzött YouTube-fiók használata szükséges.
-  MembersOnly: A csak tagoknak szóló videók nem tekinthetők meg a FreeTube-on, mivel ezekhez Google bejelentkezés és fizetett tagság szükséges a feltöltő csatornájához.
+  AgeRestricted: A FreeTube-on nem lehet korhatáros videókat megtekinteni, mivel ezekhez Google-bejelentkezés és korhatár-ellenőrzött YouTube-fiók használata szükséges.
+  MembersOnly: A csak tagoknak szóló videók nem tekinthetők meg a FreeTube-on, mivel ezekhez Google-bejelentkezés és fizetett tagság szükséges a feltöltő csatornájához.
   DeArrow:
     Show Modified Details: Módosított részletek megjelenítése
     Show Original Details: Eredeti részletek megjelenítése
@@ -906,9 +906,9 @@ Share:
   # On Click
   Invidious URL copied to clipboard: 'Invidious webcím a vágólapra másolva'
   Invidious Embed URL copied to clipboard: 'Invidious beágyazott webcím a vágólapra másolva'
-  YouTube URL copied to clipboard: 'YouTube webcím a vágólapra másolva'
+  YouTube URL copied to clipboard: 'YouTube-webcím a vágólapra másolva'
   YouTube Embed URL copied to clipboard: 'YouTube beágyazott webcím a vágólapra másolva'
-  YouTube Channel URL copied to clipboard: YouTube csatornawebcím a vágólapra másolva
+  YouTube Channel URL copied to clipboard: YouTube-csatorna webcíme a vágólapra másolva
   Invidious Channel URL copied to clipboard: Invidious csatornawebcím a vágólapra másolva
   Share Channel: Csatorna megosztása
 Mini Player: 'Minilejátszó'
@@ -992,7 +992,7 @@ Tooltips:
     UseDeArrowThumbnails: Videó miniatűr cseréje DeArrow miniatűrrel.
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson a megszakításhoz. | A következő videó lejátszása {nextVideoInterval} másodperc múlva. Kattintson a megszakításhoz. | A következő videó lejátszása {nextVideoInterval} másodperc múlva. Kattintson a megszakításhoz.
 More: Több
-Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube webcímtípus, nem nyitható meg az alkalmazásban
+Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube-webcím, nem nyitható meg az alkalmazásban
 Open New Window: Új ablak megnyitása
 Default Invidious instance has been cleared: Az alapértelmezett Invidious-példányt eltávolítva
 Default Invidious instance has been set to {instance}: 'Az alapértelmezett Invidious-példány {instance} beállítva'

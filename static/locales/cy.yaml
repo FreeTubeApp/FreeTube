@@ -218,6 +218,7 @@ User Playlists:
   Save Changes: Cadw'r Newidiadau
   Remove Duplicate Videos: Dileu Fideos Dyblyg
   TotalTimePlaylist: 'Cyfanswm amser: {duration}'
+  Export list of URLs: Allforio'r rhestr o URLau
 History:
   # On History Page
   History: 'Hanes'
@@ -590,6 +591,8 @@ Settings:
     City: 'Dinas'
     Error getting network information. Is your proxy configured properly?: 'Gwall wrth gael manylion rhwydwaith. A yw eich dirprwy wedi''i ffurfweddu''n gywir?'
     Proxy Warning: Nid oes gan FreeTube ddirprwy mewnol ond gall gysylltu â dirprwy allanol, fel un sy'n rhedeg ar eich peiriant fel Tor neu ddirprwy allanol fel dirprwy SOCKS5 a ddarperir gan rai VPNs. Os yw wedi'i alluogi, gwnewch yn siŵr bod eich dirprwy/Tor wedi'i ffurfweddu'n gywir, neu ni fydd FreeTube yn gallu nôl unrhyw ddata.
+    Proxy Username: Enw defnyddiwr Dirprwy
+    Proxy Password: Cyfrinair Dirprwy
   SponsorBlock Settings:
     SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Galluogi SponsorBlock'
