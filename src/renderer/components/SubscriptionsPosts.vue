@@ -232,6 +232,7 @@ async function loadPostsForSubscriptionsFromRemote() {
       }
     }
 
+    posts = posts.filter(post => !forbiddenTitles.value.some(text => post.author.toLowerCase().includes(text.toLowerCase())))
     return posts
   }))).flat()
 
