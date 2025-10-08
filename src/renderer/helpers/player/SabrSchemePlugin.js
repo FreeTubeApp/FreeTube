@@ -196,7 +196,8 @@ function decodePart(part, decoder) {
   if (!part.data.chunks.length) return undefined
 
   try {
-    return decoder.decode(concatenateChunks(part.data.chunks))
+    const chunk = part.data.chunks.length === 1 ? part.data.chunks[0] : concatenateChunks(part.data.chunks)
+    return decoder.decode(chunk)
   } catch {
     return undefined
   }
