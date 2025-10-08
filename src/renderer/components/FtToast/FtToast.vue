@@ -106,9 +106,17 @@ function remove(toast) {
 
   if (index !== -1) {
     toasts.splice(index, 1)
-    clearTimeout(toast.timeout)
-    clearInterval(toast.interval)
+    cleanup(toast)
   }
+}
+
+/**
+ * @param {Toast} toast
+ */
+function cleanup(toast) {
+  // assumes `toasts.indexOf(toast) !== -1`
+  clearTimeout(toast.timeout)
+  clearInterval(toast.interval)
 }
 
 onMounted(() => {
@@ -117,7 +125,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   ToastEventBus.removeEventListener('toast-open', open)
-  toasts.forEach((toast) => clearTimeout(toast.timeout))
+  toasts.forEach(cleanup)
 })
 </script>
 
