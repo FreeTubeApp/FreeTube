@@ -1263,7 +1263,7 @@ export default defineComponent({
         showToast(
           ({ remainingMs }) => {
             // `+value` converts string back to float
-            return `Remaining SABR backoff time: ${+(remainingMs / 1000).toFixed(1)}s`
+            return t('Video.Watch.Remaining SABR backoff time: {remindingTimeSeconds}s', { remindingTimeSeconds: +(remainingMs / 1000).toFixed(1) })
           },
           // So that we don't see last countdown text like 0/N
           backoffMs,
@@ -2745,7 +2745,8 @@ export default defineComponent({
       if (initialLoadDelayMs > 0) {
         showToast(
           ({ remainingMs }) => {
-            return `Remaining preroll-ad time time: ${(remainingMs / 1000).toFixed(1)}s`
+            // `+value` converts string back to float
+            return t('Video.Watch.Remaining preroll-ad time: {remindingTimeSeconds}s', { remindingTimeSeconds: +(remainingMs / 1000).toFixed(1) })
           },
           // So that we don't see last countdown text like 0/N
           initialLoadDelayMs,
