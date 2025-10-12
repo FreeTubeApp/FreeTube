@@ -160,8 +160,8 @@ User Playlists:
   Sort By:
     EarliestCreatedFirst: Opprettelsesdato (eldste)
     EarliestUpdatedFirst: Oppdateringsdato (eldste)
-    LatestPlayedFirst: Sist spilt av
-    EarliestPlayedFirst: Tidligst spilt av
+    LatestPlayedFirst: Dato spilt av (nyeste)
+    EarliestPlayedFirst: Dato spilt av (eldste)
     LatestUpdatedFirst: Oppdateringsdato (nyeste)
     NameAscending: A-Å
     NameDescending: Å-A
@@ -206,8 +206,8 @@ History:
   Empty Search Message: Ingen videoer i historikken din samsvarer med søket ditt
   Search bar placeholder: Søk i historikken
   Case Sensitive Search: Søket skiller mellom store og små bokstaver
-  DateOldestHistory: Tidligste sett først
-  DateNewestHistory: Seneste sett først
+  DateOldestHistory: Dato sett (eldste)
+  DateNewestHistory: Dato sett (nyeste)
 Settings:
   # On Settings Page
   Settings: 'Innstillinger'
@@ -831,13 +831,13 @@ Playlist:
 #& Views
   Playlist: Spilleliste
   Sort By:
-    PublishedNewest: Siste publisert først
+    PublishedNewest: Dato lagt ut (nyeste)
     AuthorAscending: Forfatter (A-Å)
     VideoDurationDescending: Varighet (lengste)
-    PublishedOldest: Tidligste publisert først
-    DateAddedNewest: Siste lagt til først
+    PublishedOldest: Dato lagt ut (eldste)
+    DateAddedNewest: Dato lagt til (nyeste)
     VideoTitleAscending: Tittel (A-Å)
-    DateAddedOldest: Tidligste lagt til først
+    DateAddedOldest: Dato lagt til (eldst)
     AuthorDescending: Forfatter (Å-A)
     VideoTitleDescending: Tittel (Å-A)
     Custom: Tilpasset
