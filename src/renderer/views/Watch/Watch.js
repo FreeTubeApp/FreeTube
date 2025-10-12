@@ -734,7 +734,8 @@ export default defineComponent({
 
                 downloadLinks.push({
                   value: `${type}||${format.freeTubeUrl}`,
-                  label: label
+                  label: label,
+                  is_variant: true
                 })
               }
             }
@@ -786,12 +787,20 @@ export default defineComponent({
 
                 return {
                   value: `${caption.mimeType}||${caption.url}`,
-                  label: label
+                  label: label,
+                  is_variant: true
                 }
               })
 
               downloadLinks.push(...captionLinks)
             }
+
+            downloadLinks.push({
+              value: 'none||download',
+              label: this.$t('Downloads.Download'),
+              is_variant: false
+            })
+
             this.downloadLinks = downloadLinks
           } else {
             // video might be region locked or something else. This leads to no formats being available

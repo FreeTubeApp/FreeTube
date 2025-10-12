@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 // import createPersistedState from 'vuex-persistedstate'
 
 import history from './modules/history'
+import downloads from './modules/downloads'
 import invidious from './modules/invidious'
 import playlists from './modules/playlists'
 import profiles from './modules/profiles'
@@ -17,6 +18,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   modules: {
     history,
+    downloads,
     invidious,
     playlists,
     profiles,
