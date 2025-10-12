@@ -5,9 +5,7 @@ const { readFileSync } = require('fs')
 const path = join(__dirname, '../src/renderer/sigFrameScript.js')
 const rawScript = readFileSync(path, 'utf8')
 
-const script = process.env.NODE_ENV === 'development'
-  ? rawScript
-  : require('terser').minify_sync({ [path]: rawScript }).code
+const script = rawScript
 
 module.exports.sigFrameTemplateParameters = {
   sigFrameSrc: `data:text/html,${encodeURIComponent(`<!doctype html><script>${script}</script>`)}`,
