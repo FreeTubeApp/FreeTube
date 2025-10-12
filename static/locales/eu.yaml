@@ -149,13 +149,13 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Gaitu laster-marka azkarra erreprodukzio zerrenda honekin
   Sort By:
     NameDescending: Z-A
-    LatestCreatedFirst: Berriki sortu da
-    EarliestCreatedFirst: Goiztiarren sortuak
-    LatestPlayedFirst: Duela gutxi erreproduzitua
-    EarliestPlayedFirst: Goiztiarren erreproduzitua
+    LatestCreatedFirst: Sortutako dataren arabera (berriena)
+    EarliestCreatedFirst: Sortutako dataren arabera (zaharrena)
+    LatestPlayedFirst: Erreproduzitutako dataren arabera (Berriena)
+    EarliestPlayedFirst: Erreproduzitutako dataren arabera (Zaharrena)
     NameAscending: A-Z
-    EarliestUpdatedFirst: Goiztiarren eguneratuak
-    LatestUpdatedFirst: Berriki eguneratuak
+    EarliestUpdatedFirst: Eguneratutako dataren arabera (Zaharrena)
+    LatestUpdatedFirst: Eguneratutako dataren arabera (Berriena)
   Delete Playlist: Ezabatu erreprodukzio zerrenda
   Are you sure you want to delete this playlist? This cannot be undone: Ziur erreprodukzio zerrenda ezabatu nahi duzula? Hau ezin da desegin.
   SinglePlaylistView:
@@ -211,8 +211,8 @@ History:
   Empty Search Message: Ez dago historikoan zure bilaketarekin bat datorren bideorik
   Search bar placeholder: Bilatu historikoan
   Case Sensitive Search: Maiuskulak eta minuskulak bereizten ditu
-  DateOldestHistory: Lehenengo ikusitakoak aurretik
-  DateNewestHistory: Ikusitako azkenak lehenik
+  DateOldestHistory: Ikusitako dataren arabera (Zaharrena)
+  DateNewestHistory: Ikusitako dataren arabera (Berriena)
 Settings:
   # On Settings Page
   Settings: 'Ezarpenak'
@@ -876,17 +876,17 @@ Playlist:
 #& Views
   Playlist: Erreprodukzio-zerrenda
   Sort By:
-    DateAddedNewest: Azken gehitua lehenengo
+    DateAddedNewest: Gehitutako dataren arabera (Berriena)
     Custom: Pertsonalizatua
-    DateAddedOldest: Lehenago gehitutakoak lehenengo
+    DateAddedOldest: Gehitutako dataren arabera (Zaharrena)
     VideoTitleAscending: Izenburua (A-Z)
     VideoTitleDescending: Izenburua (Z-A)
     AuthorAscending: Egilea (A-Z)
     AuthorDescending: Egilea (Z-A)
-    VideoDurationDescending: Iraupena (luzeenetik laburrenera)
-    VideoDurationAscending: Iraupena (laburrenetik luzeenera)
-    PublishedNewest: Argitaratutako azkenak lehenik
-    PublishedOldest: Argitaratutako lehenak lehenik
+    VideoDurationDescending: Iraupena (luzeena)
+    VideoDurationAscending: Iraupena (Laburrena)
+    PublishedNewest: Argitaratutako dataren arabera (Berriena)
+    PublishedOldest: Argitaratutako dataren arabera (Zaharrena)
 Change Format:
   Change Media Formats: 'Bideoen formatuak aldatu'
   Use Dash Formats: 'DASH formatuak erabili'

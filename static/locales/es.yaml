@@ -206,8 +206,8 @@ History:
   Search bar placeholder: Buscar en la historia
   Empty Search Message: No hay vídeos en tu historial que coincidan con tu búsqueda
   Case Sensitive Search: Búsqueda sensible a mayúsculas y minúsculas
-  DateOldestHistory: Primero lo Recientemente Visto
-  DateNewestHistory: Primero lo Más Reciente Visto
+  DateOldestHistory: Vistos más antiguos primero
+  DateNewestHistory: Vistos más recientes primero
 Settings:
   # On Settings Page
   Settings: 'Ajustes'
@@ -600,7 +600,7 @@ Settings:
     Hide Search Bar: Ocultar barra de búsqueda
     Parental Control Settings: Control parental
     Show Family Friendly Only: Mostrar solo lo apto para las familias
-    Hide Uploader on Watch page: Ocultar el Canal en la página de Reproducción
+    Hide Uploader on Watch page: Ocultar Canal en la página de Reproducción
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: Estas configuraciones son experimentales, pueden causar fallos mientras están habilitadas. Es muy recomendable hacer copias de seguridad. ¡Úselo bajo su propio riesgo!

@@ -561,6 +561,8 @@ Settings:
     Enable Tor / Proxy: Tor / proxy inschakelen
     Proxy Settings: Proxy
     Proxy Warning: FreeTube heeft geen ingeboude proxy maar kan verbinden via een externe proxy zoals een proxy op dit apparaat (Bijvoorbeeld Tor) of een externe proxy zoals een SOCKS5 proxy verstrekt door sommige VPNs. Wanneer ingeschakeld, zorg ervoor dat de proxy of Tor correct ingesteld is anders lan FreeTube geen data verkrijgen.
+    Proxy Username: Proxy-gebruikers­naam
+    Proxy Password: Proxy-wacht­woord
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Mij informeren wanneer een gesponsord segment wordt overgeslagen
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL naar API van SponsorBlock (Standaard is https://sponsor.ajay.app)
