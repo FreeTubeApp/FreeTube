@@ -12,6 +12,7 @@ const {
   SHAKA_LOCALES_PREBUNDLED,
   SHAKA_LOCALES_TO_BE_BUNDLED
 } = require('./getShakaLocales')
+const { sigFrameTemplateParameters } = require('./sigFrameConfig')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 
@@ -132,9 +133,9 @@ const config = {
       'process.env.SHAKA_LOCALES_PREBUNDLED': JSON.stringify(SHAKA_LOCALES_PREBUNDLED)
     }),
     new HtmlWebpackPlugin({
-      excludeChunks: ['processTaskWorker'],
       filename: 'index.html',
-      template: path.resolve(__dirname, '../src/index.ejs')
+      template: path.resolve(__dirname, '../src/index.ejs'),
+      templateParameters: sigFrameTemplateParameters
     }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({

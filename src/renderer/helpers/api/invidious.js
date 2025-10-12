@@ -837,7 +837,7 @@ export async function generateInvidiousDashManifestLocally(formats) {
   // create a dummy player, as deciphering requires making requests to YouTube,
   // which we want to avoid when Invidious is selected as the backend
   const player = new Player()
-  player.decipher = (url) => url
+  player.decipher = async (url) => url
 
   let urlTransformer
 
