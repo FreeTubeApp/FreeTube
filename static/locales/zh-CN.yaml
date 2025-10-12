@@ -153,11 +153,11 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: 你确定要删除此播放列表吗？此操作无法撤销。
   Sort By:
     LatestPlayedFirst: 播放日期（最新优先）
-    EarliestCreatedFirst: 创建日期（最旧优先）
+    EarliestCreatedFirst: 创建日期（最早优先）
     LatestCreatedFirst: 创建日期（最新优先）
-    EarliestUpdatedFirst: 更新日期（最旧优先）
+    EarliestUpdatedFirst: 更新日期（最早优先）
     NameDescending: Z-A
-    EarliestPlayedFirst: 播放日期（最老优先）
+    EarliestPlayedFirst: 播放日期（最早优先）
     LatestUpdatedFirst: 更新日期（最新优先）
     NameAscending: A-Z
   You have no playlists. Click on the create new playlist button to create a new one.: 你没有播放列表。单击新建播放列表来新建一个。
@@ -203,7 +203,7 @@ History:
   Search bar placeholder: 在播放历史中搜索
   Empty Search Message: 历史记录中没有匹配你搜索的视频
   Case Sensitive Search: 区分大小写的搜索
-  DateOldestHistory: 观看日期（最旧优先）
+  DateOldestHistory: 观看日期（最早优先）
   DateNewestHistory: 观看日期（最新优先）
 Settings:
   # On Settings Page
@@ -652,7 +652,7 @@ Channel:
     This channel does not currently have any videos: '这个频道目前没有任何视频'
     Sort Types:
       Newest: '最新'
-      Oldest: '最老'
+      Oldest: '最早'
       Most Popular: '最流行'
   Playlists:
     Playlists: '播放列表'
@@ -660,7 +660,7 @@ Channel:
     Sort Types:
       Last Video Added: '最新添加的视频'
       Newest: '最新'
-      Oldest: '最老'
+      Oldest: '最早'
   About:
     About: '关于'
     Channel Description: '频道描述'
