@@ -158,14 +158,14 @@ User Playlists:
   This playlist currently has no videos.: Denne spillelisten har ingen videoer for øyeblikket.
   Export Playlist: Eksporter denne spillelisten
   Sort By:
-    EarliestCreatedFirst: Tidligst opprettet
-    EarliestUpdatedFirst: Tidligst endret
+    EarliestCreatedFirst: Opprettelsesdato (eldste)
+    EarliestUpdatedFirst: Oppdateringsdato (eldste)
     LatestPlayedFirst: Sist spilt av
     EarliestPlayedFirst: Tidligst spilt av
-    LatestUpdatedFirst: Nylig endret
+    LatestUpdatedFirst: Oppdateringsdato (nyeste)
     NameAscending: A-Å
     NameDescending: Å-A
-    LatestCreatedFirst: Nylig opprettet
+    LatestCreatedFirst: Opprettelsesdato (nyeste)
   Add to Favorites: Legg til {playlistName}
   Move Video Up: Flytt video opp
   Move Video Down: Flytt video ned
@@ -833,7 +833,7 @@ Playlist:
   Sort By:
     PublishedNewest: Siste publisert først
     AuthorAscending: Forfatter (A-Å)
-    VideoDurationDescending: Varighet (Lengste først)
+    VideoDurationDescending: Varighet (lengste)
     PublishedOldest: Tidligste publisert først
     DateAddedNewest: Siste lagt til først
     VideoTitleAscending: Tittel (A-Å)
@@ -841,7 +841,7 @@ Playlist:
     AuthorDescending: Forfatter (Å-A)
     VideoTitleDescending: Tittel (Å-A)
     Custom: Tilpasset
-    VideoDurationAscending: Varighet (Korteste først)
+    VideoDurationAscending: Varighet (korteste)
 Change Format:
   Change Media Formats: 'Endre videoformater'
   Use Dash Formats: 'Bruk DASH-formater'
