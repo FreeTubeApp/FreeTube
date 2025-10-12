@@ -152,13 +152,13 @@ User Playlists:
     Search for Videos: 搜索视频
   Are you sure you want to delete this playlist? This cannot be undone: 你确定要删除此播放列表吗？此操作无法撤销。
   Sort By:
-    LatestPlayedFirst: 最近播放的
-    EarliestCreatedFirst: 最先创建的
-    LatestCreatedFirst: 最近创建的
-    EarliestUpdatedFirst: 最先更新的
+    LatestPlayedFirst: 播放日期（最新优先）
+    EarliestCreatedFirst: 创建日期（最旧优先）
+    LatestCreatedFirst: 创建日期（最新优先）
+    EarliestUpdatedFirst: 更新日期（最旧优先）
     NameDescending: Z-A
-    EarliestPlayedFirst: 最先播放的
-    LatestUpdatedFirst: 最近更新的
+    EarliestPlayedFirst: 播放日期（最老优先）
+    LatestUpdatedFirst: 更新日期（最新优先）
     NameAscending: A-Z
   You have no playlists. Click on the create new playlist button to create a new one.: 你没有播放列表。单击新建播放列表来新建一个。
   Remove from Playlist: 从播放列表删除
@@ -203,8 +203,8 @@ History:
   Search bar placeholder: 在播放历史中搜索
   Empty Search Message: 历史记录中没有匹配你搜索的视频
   Case Sensitive Search: 区分大小写的搜索
-  DateOldestHistory: 最早观看的优先
-  DateNewestHistory: 最近观看的优先
+  DateOldestHistory: 观看日期（最旧优先）
+  DateNewestHistory: 观看日期（最新优先）
 Settings:
   # On Settings Page
   Settings: '设置'
@@ -828,8 +828,8 @@ Playlist:
 #& Views
   Playlist: 播放列表
   Sort By:
-    DateAddedNewest: 最近添加的优先
-    DateAddedOldest: 最早添加的优先
+    DateAddedNewest: 添加日期（最新优先）
+    DateAddedOldest: 添加日期（最早优先）
     AuthorAscending: 作者名（A-Z）
     AuthorDescending: 作者名（Z-A）
     VideoTitleDescending: 标题（Z-A)
@@ -837,8 +837,8 @@ Playlist:
     VideoTitleAscending: 标题（A-Z）
     VideoDurationAscending: 持续时间（最短的优先）
     VideoDurationDescending: 持续时间（最长的优先）
-    PublishedOldest: 最早发布的优先
-    PublishedNewest: 最新发布的优先
+    PublishedOldest: 发布日期（最早优先）
+    PublishedNewest: 发布日期（最新优先）
 Change Format:
   Change Media Formats: '更换视频格式'
   Use Dash Formats: '使用Dash格式'
