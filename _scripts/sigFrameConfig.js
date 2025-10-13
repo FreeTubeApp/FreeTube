@@ -9,5 +9,5 @@ const script = rawScript.split(/\r?\n/).map(line => line.trim()).filter(line => 
 
 module.exports.sigFrameTemplateParameters = {
   sigFrameSrc: `data:text/html,${encodeURIComponent(`<!doctype html><script>${script}</script>`)}`,
-  sigFrameCspHash: `sha256-${hash('sha256', script, 'base64')}`
+  sigFrameCspHash: `sha512-${hash('sha512', script, 'base64')}`
 }
