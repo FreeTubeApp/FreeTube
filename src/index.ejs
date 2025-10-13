@@ -13,6 +13,18 @@
 
   <body>
     <div id="app"></div>
+    <% if (process.env.SUPPORTS_LOCAL_API) { %>
+    <iframe
+      id="sigFrame"
+      src="<%= sigFrameSrc %>"
+      csp="default-src 'none'; script-src '<%= sigFrameCspHash %>' 'unsafe-eval'"
+      sandbox="allow-scripts"
+      height="1"
+      width="1"
+      style="display: none; pointer-events: none"
+      tabindex="-1"
+    ></iframe>
+    <% } %>
     <% if (!process.env.IS_ELECTRON) { %>
     <script>
     // This is the service worker with the Advanced caching
