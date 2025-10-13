@@ -200,14 +200,14 @@ User Playlists:
     NameAscending: 'A-Z'
     NameDescending: 'Z-A'
 
-    LatestCreatedFirst: 'Recently Created'
-    EarliestCreatedFirst: 'Earliest Created'
+    LatestCreatedFirst: 'Date Created (Newest)'
+    EarliestCreatedFirst: 'Date Created (Oldest)'
 
-    LatestUpdatedFirst: 'Recently Updated'
-    EarliestUpdatedFirst: 'Earliest Updated'
+    LatestUpdatedFirst: 'Date Updated (Newest)'
+    EarliestUpdatedFirst: 'Date Updated (Oldest)'
 
-    LatestPlayedFirst: 'Recently Played'
-    EarliestPlayedFirst: 'Earliest Played'
+    LatestPlayedFirst: 'Date Played (Newest)'
+    EarliestPlayedFirst: 'Date Played (Oldest)'
   SinglePlaylistView:
     Search for Videos: Search for Videos
 
@@ -266,8 +266,8 @@ History:
   Empty Search Message: There are no videos in your history that match your search
   Search bar placeholder: "Search in History"
   Case Sensitive Search: Case Sensitive Search
-  DateOldestHistory: Earliest Watched First
-  DateNewestHistory: Latest Watched First
+  DateOldestHistory: Date Watched (Oldest)
+  DateNewestHistory: Date Watched (Newest)
 Settings:
   # On Settings Page
   Settings: Settings
@@ -954,16 +954,16 @@ Playlist:
   View Full Playlist: View Full Playlist
   Last Updated On: Last Updated On
   Sort By:
-    DateAddedNewest: Latest added first
-    DateAddedOldest: Earliest added first
-    PublishedNewest: Latest published first
-    PublishedOldest: Earliest published first
+    DateAddedNewest: Date added (Newest)
+    DateAddedOldest: Date added (Oldest)
+    PublishedNewest: Date published (Newest)
+    PublishedOldest: Date published (Oldest)
     AuthorAscending: Author (A-Z)
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
     VideoTitleDescending: Title (Z-A)
-    VideoDurationAscending: Duration (Shortest first)
-    VideoDurationDescending: Duration (Longest first)
+    VideoDurationAscending: Duration (Shortest)
+    VideoDurationDescending: Duration (Longest)
     Custom: Custom
 
 # On Video Watch Page

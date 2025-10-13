@@ -1,4 +1,4 @@
-import { ClientType, Constants, Innertube, Misc, Parser, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
+import { ClientType, Constants, Innertube, Misc, Parser, Platform, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -19,6 +19,50 @@ const TRACKING_PARAM_NAMES = [
   'utm_term',
   'utm_content',
 ]
+
+if (process.env.SUPPORTS_LOCAL_API) {
+  Platform.shim.eval = (data, env) => {
+    return new Promise((resolve) => {
+      const properties = []
+
+      if (env.n) {
+        properties.push(`n: exportedVars.nFunction("${env.n}")`)
+      }
+
+      if (env.sig) {
+        properties.push(`sig: exportedVars.sigFunction("${env.sig}")`)
+      }
+
+      // Triggers permission errors if we don't remove it (added by YouTube.js), as sessionStorage isn't accessible in sandboxed cross-origin iframes
+      const modifiedOutput = data.output.replace('const window = Object.assign({}, globalThis);', '')
+
+      const code = `${modifiedOutput}\nreturn {${properties.join(', ')}}`
+
+      // Generate a unique ID, as there may be multiple eval calls going on at the same time (e.g. DASH manifest generation)
+      const messageId = process.env.IS_ELECTRON || crypto.randomUUID
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.floor(Math.random() * 10000)}`
+
+      const iframe = document.getElementById('sigFrame')
+
+      /** @param {MessageEvent} event */
+      const listener = (event) => {
+        if (event.source === iframe.contentWindow && typeof event.data === 'string') {
+          const data = JSON.parse(event.data)
+
+          if (data.id === messageId) {
+            window.removeEventListener('message', listener)
+
+            resolve(data.result)
+          }
+        }
+      }
+
+      window.addEventListener('message', listener)
+      iframe.contentWindow.postMessage(JSON.stringify({ id: messageId, code }), '*')
+    })
+  }
+}
 
 /**
  * Creates a lightweight Innertube instance, which is faster to create or
@@ -542,16 +586,16 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
   if (info.streaming_data) {
     const player = webInnertube.session.player
 
-    decipherFormats(info.streaming_data.formats, player)
+    await decipherFormats(info.streaming_data.formats, player)
 
     if (info.streaming_data.server_abr_streaming_url) {
-      info.streaming_data.server_abr_streaming_url = player.decipher(info.streaming_data.server_abr_streaming_url)
+      info.streaming_data.server_abr_streaming_url = await player.decipher(info.streaming_data.server_abr_streaming_url)
     }
 
     const firstFormat = info.streaming_data.adaptive_formats[0]
 
     if (firstFormat.url || firstFormat.signature_cipher || firstFormat.cipher) {
-      decipherFormats(info.streaming_data.adaptive_formats, player)
+      await decipherFormats(info.streaming_data.adaptive_formats, player)
     }
 
     if (info.streaming_data.dash_manifest_url) {
@@ -613,11 +657,11 @@ export async function getLocalComments(id) {
  * @param {Misc.Format[]} formats
  * @param {import('youtubei.js').Player} player
  */
-function decipherFormats(formats, player) {
+async function decipherFormats(formats, player) {
   for (const format of formats) {
     // toDash deciphers the format again, so if we overwrite the original URL,
     // it breaks because the n param would get deciphered twice and then be incorrect
-    format.freeTubeUrl = format.decipher(player)
+    format.freeTubeUrl = await format.decipher(player)
   }
 }
 

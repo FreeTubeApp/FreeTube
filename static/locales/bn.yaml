@@ -25,11 +25,9 @@ Close: 'বন্ধ'
 Back: 'পিছনে'
 Forward: 'সামনে'
 
-Version {versionNumber} is now available!  Click for more details: 'সংস্করণ {versionNumber}
-  এসে গেছে!  আরো জানতে টিপ দাও'
+Version {versionNumber} is now available!  Click for more details: 'সংস্করণ {versionNumber} এসে গেছে!  আরো জানতে টিপ দাও'
 Download From Site: 'সাইট থেকে ডাউনলোড করো'
-A new blog is now available, {blogTitle}. Click to view more: 'নতুন ব্লগ আছে, {blogTitle}.
-  আরো দেখতে টিপ দাও'
+A new blog is now available, {blogTitle}. Click to view more: 'নতুন ব্লগ আছে, {blogTitle}. আরো দেখতে টিপ দাও'
 
 # Search Bar
 Search / Go to URL: 'অনুসন্ধান / ইউআরএলে যাও'
@@ -76,19 +74,15 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'সদস্যতা'
   Error Channels: ত্রুটিপূর্ণ চ্যানেল
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': আপনার
-    সাবস্ক্রিপশন লিস্ট খালি, দেখতে সাবস্ক্রিপশন করুন
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': আপনার সাবস্ক্রিপশন লিস্ট খালি, দেখতে সাবস্ক্রিপশন করুন
   Load More Posts: অতিরিক্ত পোস্ট লোড করুন
   Empty Channels: আপনি যেসকল চ্যানেল সাবস্ক্রাইব করেছেন তাদের কোন ভিডিও নেই ।
   Subscriptions Tabs: সাবস্ক্রিপশন ট্যাব
   Empty Posts: আপনার সাবস্ক্রাইব কৃত চ্যানেলে কোন পোস্ট নেই ।
-  All Subscription Tabs Hidden: সকল সাবস্ক্রিপশন ট্যা গোপন করা হয়েছে ।এখানে কনটেন্ট
-    দেখতে কিছু ট্যাব আনহাইড করুন"{subsection}"এর "{settingsSection}"।
+  All Subscription Tabs Hidden: সকল সাবস্ক্রিপশন ট্যা গোপন করা হয়েছে ।এখানে কনটেন্ট দেখতে কিছু ট্যাব আনহাইড করুন"{subsection}"এর "{settingsSection}"।
   Load More Videos: অতিরিক্ত ভিডিও লোড করুন
-  Disabled Automatic Fetching: আপনি সাবস্ক্রিপশন পেচ বন্ধ করে রেখেছেন। সাবস্ক্রিপশন
-    রিফ্রেশ করুন দেখার জন্য।
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: এই
-    প্রোফাইলের অনেক সাবস্ক্রাইবার রয়েছে। জোরপূর্বক লিমিট এড়ানোর চেষ্টা করা হচ্ছে
+  Disabled Automatic Fetching: আপনি সাবস্ক্রিপশন পেচ বন্ধ করে রেখেছেন। সাবস্ক্রিপশন রিফ্রেশ করুন দেখার জন্য।
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: এই প্রোফাইলের অনেক সাবস্ক্রাইবার রয়েছে। জোরপূর্বক লিমিট এড়ানোর চেষ্টা করা হচ্ছে
 Trending:
   Trending: 'চলছে'
   Gaming: গেমিং
@@ -132,8 +126,7 @@ Global:
     Like Count: ১টি পছন্দ | {count} পছন্দ করা হয়েছে
     Comment Count: ১টি মন্তব্য | {count} মন্তব্য করা হয়েছে
   Posts: পোস্ট
-External link opening has been disabled in the general settings: সাধারণ পছন্দসমূহে
-  বহিঃসংযোগ খোলা নিষ্ক্রিয় রাখা হয়েছে
+External link opening has been disabled in the general settings: সাধারণ পছন্দসমূহে বহিঃসংযোগ খোলা নিষ্ক্রিয় রাখা হয়েছে
 Are you sure you want to open this link?: তুমি কি এই সংযোগটি খোলার ব্যাপারে নিশ্চিত?
 Preferences: পছন্দসমূহ
 Most Popular: অতিপরিচিত
@@ -159,10 +152,8 @@ User Playlists:
   Save Changes: পরিবর্তন সংরক্ষণ করুন
   Cancel: বাতিল
   Edit Playlist Info: নির্বাচিত তালিকার তথ্য পরিবর্তন
-  Empty Search Message: এই চালুতালিকাতে আপনার কাংখিত ভিডিও নেই যেটি আপনি অনুসন্ধান
-    করছেন
-  You have no playlists. Click on the create new playlist button to create a new one.: নির্বাচিত
-    তালিকা নেই। নতুন তালিকা তৈরির জন্য নিউ প্লে-লিস্ট বাটন এ চাপ দিয়ে অগ্রসর হতে পারেন।
+  Empty Search Message: এই চালুতালিকাতে আপনার কাংখিত ভিডিও নেই যেটি আপনি অনুসন্ধান করছেন
+  You have no playlists. Click on the create new playlist button to create a new one.: নির্বাচিত তালিকা নেই। নতুন তালিকা তৈরির জন্য নিউ প্লে-লিস্ট বাটন এ চাপ দিয়ে অগ্রসর হতে পারেন।
   Delete Playlist: চালুতালিকা মুছুন
   Sort By:
     EarliestUpdatedFirst: সবচেয়ে পুরনো হালনাগাদকৃত
@@ -180,20 +171,12 @@ User Playlists:
   Remove Duplicate Videos: অভিন্ন ভিডিওগুলি মুছুন
   Remove Watched Videos: দেখা ভিডিওগুলি মুছুন
   Remove from Favorites: '{playlistName} থেকে বাদ দিন'
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: আপনি
-    কি নিশ্চিত যে আপনি ১টি অভিন্ন ভিডিও চালুতালিকা হতে মুছতে চান? এটি পূর্বাবস্থায়
-    ফেরানো সম্ভব নয়। | আপনি কি নিশ্চিত যে আপনি {playlistItemCount}টি অভিন্ন ভিডিও
-    চালুতালিকা হতে মুছতে চান? এটি পূর্বাবস্থায় ফেরানো সম্ভব নয়।
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: আপনি
-    কি নিশ্চিত যে আপনি ১টি দেখা ভিডিও চালুতালিকা হতে মুছতে চান? এটি পূর্বাবস্থায়
-    ফেরানো সম্ভব নয়। | আপনি কি নিশ্চিত যে আপনি {playlistItemCount}টি দেখা ভিডিও চালুতালিকা
-    হতে মুছতে চান? এটি পূর্বাবস্থায় ফেরানো সম্ভব নয়।
-  Are you sure you want to delete this playlist? This cannot be undone: আপনি কি নিশ্চিত
-    যে আপনি চালুতালিকাটি মুছতে চান? এটি পূর্বাবস্থায় ফেরানো সম্ভব নয়।
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: আপনি কি নিশ্চিত যে আপনি ১টি অভিন্ন ভিডিও চালুতালিকা হতে মুছতে চান? এটি পূর্বাবস্থায় ফেরানো সম্ভব নয়। | আপনি কি নিশ্চিত যে আপনি {playlistItemCount}টি অভিন্ন ভিডিও চালুতালিকা হতে মুছতে চান? এটি পূর্বাবস্থায় ফেরানো সম্ভব নয়।
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: আপনি কি নিশ্চিত যে আপনি ১টি দেখা ভিডিও চালুতালিকা হতে মুছতে চান? এটি পূর্বাবস্থায় ফেরানো সম্ভব নয়। | আপনি কি নিশ্চিত যে আপনি {playlistItemCount}টি দেখা ভিডিও চালুতালিকা হতে মুছতে চান? এটি পূর্বাবস্থায় ফেরানো সম্ভব নয়।
+  Are you sure you want to delete this playlist? This cannot be undone: আপনি কি নিশ্চিত যে আপনি চালুতালিকাটি মুছতে চান? এটি পূর্বাবস্থায় ফেরানো সম্ভব নয়।
 More: অতিরিক্ত
 Go to page: পরবর্তী {page}
-Search character limit: সার্চ কোয়েরি {searchCharacterLimit} অক্ষরের সীমা অতিক্রম
-  করেছে
+Search character limit: সার্চ কোয়েরি {searchCharacterLimit} অক্ষরের সীমা অতিক্রম করেছে
 Close Banner: ব্যানারটি বন্ধ করুন
 Search Listing:
   Label:

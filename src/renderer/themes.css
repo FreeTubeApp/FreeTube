@@ -1486,21 +1486,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --text-with-accent-color: #f8f8f2;
 }
 
-.secDraculaCyan,
-.secDraculaGreen,
-.secDraculaOrange,
-.secDraculaPink,
-.secDraculaPurple,
-.secDraculaRed,
-.secDraculaYellow {
-  --accent-color-opacity1: rgb(98 114 164 / 4%);
-  --accent-color-opacity2: rgb(98 114 164 / 12%);
-  --accent-color-opacity3: rgb(98 114 164 / 16%);
-  --accent-color-opacity4: rgb(98 114 164 / 24%);
-}
-
 .secDraculaCyan {
-  --accent-color: #8be9fd;
+  --accent-color-rgb: 139 233 253;
   --accent-color-hover: #97ebfd;
   --accent-color-active: #7dd2e4;
   --accent-color-light: #a2edfd;
@@ -1509,7 +1496,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .secDraculaGreen {
-  --accent-color: #50fa7b;
+  --accent-color-rgb: 80 250 123;
   --accent-color-hover: #62fb88;
   --accent-color-active: #48e16f;
   --accent-color-light: #73fb95;
@@ -1517,7 +1504,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .secDraculaOrange {
-  --accent-color: #ffb86c;
+  --accent-color-rgb: 255 184 108;
   --accent-color-hover: #ffbf7b;
   --accent-color-active: #e6a661;
   --accent-color-light: #ffc689;
@@ -1525,7 +1512,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .secDraculaPink {
-  --accent-color: #ff79c6;
+  --accent-color-rgb: 255 121 198;
   --accent-color-hover: #ff86cc;
   --accent-color-active: #e66db2;
   --accent-color-light: #ff94d1;
@@ -1533,7 +1520,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .secDraculaPurple {
-  --accent-color: #bd93f9;
+  --accent-color-rgb: 189 147 249;
   --accent-color-hover: #c49efa;
   --accent-color-active: #aa84e0;
   --accent-color-light: #caa9fa;
@@ -1541,7 +1528,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .secDraculaRed {
-  --accent-color: #f55;
+  --accent-color-rgb: 255 85 85;
   --accent-color-hover: #f66;
   --accent-color-active: #e64d4d;
   --accent-color-light: #f77;
@@ -1549,7 +1536,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
 }
 
 .secDraculaYellow {
-  --accent-color: #f1fa8c;
+  --accent-color-rgb: 241 250 140;
   --accent-color-hover: #f2fb98;
   --accent-color-active: #d9e17e;
   --accent-color-light: #f4fba3;

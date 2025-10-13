@@ -14,7 +14,7 @@
       :select-values="COLOR_VALUES"
       :icon="['fas', 'palette']"
       :class="'sec' + sponsorBlockValues.color"
-      icon-color="var(--accent-color)"
+      icon-color="rgb(var(--accent-color-rgb))"
       @change="updateColor"
     />
     <FtSelect

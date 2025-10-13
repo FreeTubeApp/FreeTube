@@ -132,12 +132,12 @@ User Playlists:
   Sort By:
     NameAscending: A-Z
     NameDescending: Z-A
-    LatestCreatedFirst: Son Oluşturulan
-    EarliestCreatedFirst: En Eski Oluşturulan
-    LatestUpdatedFirst: Son Güncellenen
-    EarliestUpdatedFirst: En Eski Güncellenen
-    LatestPlayedFirst: Son Oynatılan
-    EarliestPlayedFirst: En Eski Oynatılan
+    LatestCreatedFirst: Oluşturulma Tarihi (En Yeni)
+    EarliestCreatedFirst: Oluşturulma Tarihi (En Eski)
+    LatestUpdatedFirst: Güncellenme Tarihi (En Yeni)
+    EarliestUpdatedFirst: Güncellenme Tarihi (En Eski)
+    LatestPlayedFirst: Oynatılma Tarihi (En Yeni)
+    EarliestPlayedFirst: Oynatılma Tarihi (En Eski)
   SinglePlaylistView:
     Toast:
       This video cannot be moved up.: Bu video yukarı taşınamaz.
@@ -210,8 +210,8 @@ History:
   Search bar placeholder: Geçmişte Ara
   Empty Search Message: Geçmişinizde aramanızla eşleşen video yok
   Case Sensitive Search: Büyük/Küçük Harfe Duyarlı Ara
-  DateOldestHistory: Önce İlk İzlenen
-  DateNewestHistory: Önce Son İzlenen
+  DateOldestHistory: İzlenme Tarihi (En Eski)
+  DateNewestHistory: İzlenme Tarihi (En Yeni)
 Settings:
   # On Settings Page
   Settings: 'Ayarlar'
@@ -876,17 +876,17 @@ Playlist:
 #& Views
   Playlist: Oynatma Listesi
   Sort By:
-    DateAddedNewest: Son eklenen önce
+    DateAddedNewest: Eklenme Tarihi (En Yeni)
     AuthorAscending: Yazar (A-Z)
     AuthorDescending: Yazar (Z-A)
     VideoTitleAscending: Başlık (A-Z)
     VideoTitleDescending: Başlık (Z-A)
-    DateAddedOldest: İlk eklenen önce
+    DateAddedOldest: Eklenme Tarihi (En Eski)
     Custom: Özel
-    VideoDurationAscending: Süre (Önce en kısa)
-    VideoDurationDescending: Süre (Önce en uzun)
-    PublishedOldest: En erken yayınlanan ilk
-    PublishedNewest: En son yayınlanan ilk
+    VideoDurationAscending: Süre (En Kısa)
+    VideoDurationDescending: Süre (En Uzun)
+    PublishedOldest: Yayınlanma Tarihi (En Eski)
+    PublishedNewest: Yayınlanma Tarihi (En Yeni)
 Change Format:
   Change Media Formats: 'Medya Biçimlerini Değiştir'
   Use Dash Formats: 'DASH Biçimlerini Kullan'
