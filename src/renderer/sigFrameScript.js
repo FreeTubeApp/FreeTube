@@ -1,7 +1,8 @@
 // This is injected into the sigFrame iframe
 // See index.ejs and webpack.renderer.config.js
 window.addEventListener('message', (event) => {
-  const data = JSON.parse(event.data)
+  // eslint-disable-next-line @stylistic/semi
+  const data = JSON.parse(event.data);
 
   window.parent.postMessage(JSON.stringify({
     id: data.id,
