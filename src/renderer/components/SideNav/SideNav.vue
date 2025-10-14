@@ -200,6 +200,7 @@
       <hr>
       <div
         v-if="!hideActiveSubscriptions"
+        class="mobileHidden"
       >
         <router-link
           v-for="channel in activeSubscriptions"
