@@ -1369,26 +1369,15 @@ export default defineComponent({
         this.playNextTimeout = null
       }, nextVideoInterval * 1000)
 
-      let countDownTimeLeftInSecond = nextVideoInterval
-      const showCountDownMessage = () => {
-        // Will not display "Playing next video in no time" as it's too late to cancel
-        // Also there is a separate message when playing next video
-        if (countDownTimeLeftInSecond <= 0) {
-          clearInterval(this.playNextCountDownIntervalId)
-          return
-        }
-
-        // To avoid message flashing
-        // `time` is manually tested to be 700
-        const message = this.$tc('Playing Next Video Interval', countDownTimeLeftInSecond, { nextVideoInterval: countDownTimeLeftInSecond })
-        showToast(message, 700, this.abortAutoplayCountdown)
-
-        // At least this var should be updated AFTER showing the message
-        countDownTimeLeftInSecond = countDownTimeLeftInSecond - 1
-      }
-      // Execute once before scheduling it
-      showCountDownMessage()
-      this.playNextCountDownIntervalId = setInterval(showCountDownMessage, 1000)
+      showToast(
+        ({ remainingMs }) => {
+          const countDownTimeLeftInSecond = remainingMs / 1000
+          return this.$tc('Playing Next Video Interval', countDownTimeLeftInSecond, { nextVideoInterval: countDownTimeLeftInSecond })
+        },
+        // So that we don't see last countdown text like 0/N
+        nextVideoInterval * 1000,
+        this.abortAutoplayCountdown,
+      )
     },
 
     // Skip to the next video if in a playlist

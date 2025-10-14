@@ -131,12 +131,12 @@ User Playlists:
   Sort By:
     NameAscending: A-Z
     NameDescending: Z-A
-    LatestCreatedFirst: 最近建立
-    LatestUpdatedFirst: 最近更新
-    EarliestUpdatedFirst: 最早更新
-    LatestPlayedFirst: 最近播放
-    EarliestPlayedFirst: 最早播放
-    EarliestCreatedFirst: 最早建立
+    LatestCreatedFirst: 建立日期（最新）
+    LatestUpdatedFirst: 更新日期（最新）
+    EarliestUpdatedFirst: 更新日期（最舊）
+    LatestPlayedFirst: 播放日期（最新）
+    EarliestPlayedFirst: 播放日期（最舊）
+    EarliestCreatedFirst: 建立日期（最舊）
   SinglePlaylistView:
     Toast:
       This video cannot be moved up.: 此影片無法向上移動。
@@ -203,8 +203,8 @@ History:
   Search bar placeholder: 在觀看紀錄中搜尋
   Empty Search Message: 您的歷史紀錄中沒有與您的搜尋相符的影片
   Case Sensitive Search: 區分大小寫的搜尋
-  DateOldestHistory: 最早觀看優先
-  DateNewestHistory: 最晚觀看優先
+  DateOldestHistory: 觀看日期（最新）
+  DateNewestHistory: 觀看日期（最新）
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -828,17 +828,17 @@ Playlist:
 #& Views
   Playlist: 播放清單
   Sort By:
-    DateAddedNewest: 最後新增優先
-    DateAddedOldest: 最早新增優先
+    DateAddedNewest: 新增日期（最新）
+    DateAddedOldest: 新增日期（最舊）
     AuthorAscending: 作者 (A-Z)
     AuthorDescending: 作者 (Z-A)
     VideoTitleAscending: 標題 (A-Z)
     VideoTitleDescending: 標題 (Z-A)
     Custom: 自訂
-    VideoDurationDescending: 持續時間（最長優先）
-    VideoDurationAscending: 持續時間（最短優先）
-    PublishedOldest: 最早發佈優先
-    PublishedNewest: 最後發佈優先
+    VideoDurationDescending: 持續時間（最長）
+    VideoDurationAscending: 持續時間（最短）
+    PublishedOldest: 發佈日期（最舊）
+    PublishedNewest: 發佈日期（最新）
 Change Format:
   Change Media Formats: '變更影片格式'
   Use Dash Formats: '使用 DASH 格式'

@@ -158,14 +158,14 @@ User Playlists:
   This playlist currently has no videos.: Denne spillelisten har ingen videoer for øyeblikket.
   Export Playlist: Eksporter denne spillelisten
   Sort By:
-    EarliestCreatedFirst: Tidligst opprettet
-    EarliestUpdatedFirst: Tidligst endret
-    LatestPlayedFirst: Sist spilt av
-    EarliestPlayedFirst: Tidligst spilt av
-    LatestUpdatedFirst: Nylig endret
+    EarliestCreatedFirst: Opprettelsesdato (eldste)
+    EarliestUpdatedFirst: Oppdateringsdato (eldste)
+    LatestPlayedFirst: Dato spilt av (nyeste)
+    EarliestPlayedFirst: Dato spilt av (eldste)
+    LatestUpdatedFirst: Oppdateringsdato (nyeste)
     NameAscending: A-Å
     NameDescending: Å-A
-    LatestCreatedFirst: Nylig opprettet
+    LatestCreatedFirst: Opprettelsesdato (nyeste)
   Add to Favorites: Legg til {playlistName}
   Move Video Up: Flytt video opp
   Move Video Down: Flytt video ned
@@ -206,8 +206,8 @@ History:
   Empty Search Message: Ingen videoer i historikken din samsvarer med søket ditt
   Search bar placeholder: Søk i historikken
   Case Sensitive Search: Søket skiller mellom store og små bokstaver
-  DateOldestHistory: Tidligste sett først
-  DateNewestHistory: Seneste sett først
+  DateOldestHistory: Dato sett (eldste)
+  DateNewestHistory: Dato sett (nyeste)
 Settings:
   # On Settings Page
   Settings: 'Innstillinger'
@@ -831,17 +831,17 @@ Playlist:
 #& Views
   Playlist: Spilleliste
   Sort By:
-    PublishedNewest: Siste publisert først
+    PublishedNewest: Dato lagt ut (nyeste)
     AuthorAscending: Forfatter (A-Å)
-    VideoDurationDescending: Varighet (Lengste først)
-    PublishedOldest: Tidligste publisert først
-    DateAddedNewest: Siste lagt til først
+    VideoDurationDescending: Varighet (lengste)
+    PublishedOldest: Dato lagt ut (eldste)
+    DateAddedNewest: Dato lagt til (nyeste)
     VideoTitleAscending: Tittel (A-Å)
-    DateAddedOldest: Tidligste lagt til først
+    DateAddedOldest: Dato lagt til (eldst)
     AuthorDescending: Forfatter (Å-A)
     VideoTitleDescending: Tittel (Å-A)
     Custom: Tilpasset
-    VideoDurationAscending: Varighet (Korteste først)
+    VideoDurationAscending: Varighet (korteste)
 Change Format:
   Change Media Formats: 'Endre videoformater'
   Use Dash Formats: 'Bruk DASH-formater'

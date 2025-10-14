@@ -26,10 +26,11 @@ let idCounter = 0
 
 /**
  * @typedef Toast
- * @property {string} message
+ * @property {string | (({elapsedMs: number, remainingMs: number}) => string)} message
  * @property {Function | null} action
  * @property {boolean} isOpen
  * @property {NodeJS.Timeout | number} timeout
+ * @property {NodeJS.Timeout | number} interval
  * @property {number} id
  */
 
@@ -37,7 +38,7 @@ let idCounter = 0
 const toasts = shallowReactive([])
 
 /**
- * @param {CustomEvent<{ message: string, time: number | null, action: Function | null, abortSignal: AbortSignal | null }>} event
+ * @param {CustomEvent<{ message: string | (({elapsedMs: number, remainingMs: number}) => string), time: number | null, action: Function | null, abortSignal: AbortSignal | null }>} event
  */
 function open({ detail: { message, time, action, abortSignal } }) {
   /** @type {Toast} */
@@ -46,10 +47,24 @@ function open({ detail: { message, time, action, abortSignal } }) {
     action,
     isOpen: false,
     timeout: 0,
+    interval: 0,
     id: idCounter++
   }
+  time ||= 3000
+  let elapsed = 0
+  const updateDelay = 1000
 
-  toast.timeout = setTimeout(close, time || 3000, toast)
+  if (typeof message === 'function') {
+    toast.message = message({ elapsedMs: elapsed, remainingMs: time - elapsed })
+    toast.interval = setInterval(() => {
+      elapsed += updateDelay
+      // Skip last update
+      if (elapsed >= time) { return }
+      toast.message = message({ elapsedMs: elapsed, remainingMs: time - elapsed })
+    }, updateDelay)
+  }
+
+  toast.timeout = setTimeout(close, time, toast)
   if (abortSignal != null) {
     abortSignal.addEventListener('abort', () => {
       close(toast)
@@ -91,8 +106,17 @@ function remove(toast) {
 
   if (index !== -1) {
     toasts.splice(index, 1)
-    clearTimeout(toast.timeout)
+    cleanup(toast)
   }
+}
+
+/**
+ * @param {Toast} toast
+ */
+function cleanup(toast) {
+  // assumes `toasts.indexOf(toast) !== -1`
+  clearTimeout(toast.timeout)
+  clearInterval(toast.interval)
 }
 
 onMounted(() => {
@@ -101,7 +125,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   ToastEventBus.removeEventListener('toast-open', open)
-  toasts.forEach((toast) => clearTimeout(toast.timeout))
+  toasts.forEach(cleanup)
 })
 </script>
 
