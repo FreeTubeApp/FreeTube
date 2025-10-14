@@ -104,7 +104,7 @@ function createBufferedRange(formatId, buffered, segmentIndex) {
   let endSegmentIndex = segmentIndex.find(buffered.end)
   if (endSegmentIndex == null) {
     // Using Last end time will get `null` in `segmentIndex.find`
-    endSegmentIndex = segmentIndex.find(buffered.end - 0.001)
+    endSegmentIndex = segmentIndex.getNumReferences() - 1
   }
 
   return {
