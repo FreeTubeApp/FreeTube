@@ -133,13 +133,13 @@ User Playlists:
   Edit Playlist Info: Breyta upplýsingum spilunarlista
   Sort By:
     NameDescending: Ö-A
-    LatestCreatedFirst: Nýlega útbúið
-    EarliestCreatedFirst: Fyrst búið til
-    LatestUpdatedFirst: Nýlega uppfært
-    EarliestPlayedFirst: Fyrst spilað
+    LatestCreatedFirst: Dags. útbúið (nýjast)
+    EarliestCreatedFirst: Dags. útbúið (elst)
+    LatestUpdatedFirst: Dags. uppfært (nýjast)
+    EarliestPlayedFirst: Dags. spilað (elst)
     NameAscending: A-Ö
-    EarliestUpdatedFirst: Fyrst uppfært
-    LatestPlayedFirst: Nýlega spilað
+    EarliestUpdatedFirst: Dags. uppfært (elst)
+    LatestPlayedFirst: Dags. spilað (nýjast)
   SinglePlaylistView:
     Toast:
       This video cannot be moved up.: Ekki er hægt að færa þetta myndskeið upp.
@@ -211,8 +211,8 @@ History:
   Search bar placeholder: Leita í áhorfsferli
   Empty Search Message: Það eru engin myndskeið í ferlinum þínum sem samsvara leitinni þinni
   Case Sensitive Search: Leit háð há-/lágstöfum
-  DateOldestHistory: Fyrst horft á fremst
-  DateNewestHistory: Síðast horft á fremst
+  DateOldestHistory: Dags. horft á (elst)
+  DateNewestHistory: Dags. horft á (nýjast)
 Settings:
   # On Settings Page
   Settings: 'Stillingar'
@@ -877,16 +877,16 @@ Playlist:
   Playlist: Spilunarlisti
   Sort By:
     AuthorAscending: Höfundur (A-Ö)
-    DateAddedNewest: Nýlegast bætt við fyrst
+    DateAddedNewest: Dags. bætt við (nýjast)
     AuthorDescending: Höfundur (Ö-A)
     VideoTitleAscending: Titill (A-Ö)
     VideoTitleDescending: Titill (Ö-A)
     Custom: Sérsniðið
-    DateAddedOldest: Elsta bætt við fyrst
-    VideoDurationAscending: Tímalengd (stysta fyrst)
-    VideoDurationDescending: Tímalengd (lengsta fyrst)
-    PublishedOldest: Elsta útgefna myndskeið fyrst
-    PublishedNewest: Síðast útgefna myndskeið fyrst
+    DateAddedOldest: Dags. bætt við (elst)
+    VideoDurationAscending: Tímalengd (styst)
+    VideoDurationDescending: Tímalengd (lengst)
+    PublishedOldest: Dags. gefið út (elst)
+    PublishedNewest: Dags. gefið út (nýjast)
 Change Format:
   Change Media Formats: 'Skipta um myndskeiðasnið'
   Use Dash Formats: 'Nota DASH-skráasnið'
