@@ -426,18 +426,16 @@ export async function getLocalVideoInfo(id) {
 
   // based on the videoId (added to the body of the /player request and to caption URLs)
   let contentPoToken
-  // based on the visitor data (added to the streaming URLs)
-  let sessionPoToken
 
   if (process.env.IS_ELECTRON) {
     try {
-      ({ contentPoToken, sessionPoToken } = await window.ftElectron.generatePoTokens(
+      ({ contentPoToken } = await window.ftElectron.generatePoTokens(
         id,
         webInnertube.session.context.client.visitorData,
         JSON.stringify(webInnertube.session.context)
       ))
 
-      webInnertube.session.player.po_token = sessionPoToken
+      webInnertube.session.player.po_token = contentPoToken
     } catch (error) {
       console.error('Local API, poToken generation failed', error)
       throw error
@@ -537,9 +535,9 @@ export async function getLocalVideoInfo(id) {
       let url = info.streaming_data.dash_manifest_url
 
       if (url.includes('?')) {
-        url += `&pot=${encodeURIComponent(sessionPoToken)}&mpd_version=7`
+        url += `&pot=${encodeURIComponent(contentPoToken)}&mpd_version=7`
       } else {
-        url += `${url.endsWith('/') ? '' : '/'}pot/${encodeURIComponent(sessionPoToken)}/mpd_version/7`
+        url += `${url.endsWith('/') ? '' : '/'}pot/${encodeURIComponent(contentPoToken)}/mpd_version/7`
       }
 
       info.streaming_data.dash_manifest_url = url
