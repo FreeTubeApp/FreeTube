@@ -40,7 +40,7 @@ const IpcChannels = {
 
   SET_INVIDIOUS_AUTHORIZATION: 'set-invidious-authorization',
 
-  GENERATE_PO_TOKENS: 'generate-po-tokens',
+  GENERATE_PO_TOKEN: 'generate-po-token',
 
   GET_SCREENSHOT_FALLBACK_FOLDER: 'get-screenshot-fallback-folder',
   CHOOSE_DEFAULT_FOLDER: 'choose-default-folder',
