@@ -142,12 +142,12 @@ User Playlists:
   Are you sure you want to delete this playlist? This cannot be undone: Tem certeza de que deseja excluir esta playlist? Isto não pode ser desfeito.
   Sort By:
     NameDescending: Z-A
-    LatestCreatedFirst: Adicionado recentemente
-    EarliestCreatedFirst: Adições mais antiga
-    LatestUpdatedFirst: Atualizado recentemente
-    LatestPlayedFirst: Reproduzido recentemente
-    EarliestPlayedFirst: Reprodução mais antiga
-    EarliestUpdatedFirst: Atualização mais antiga
+    LatestCreatedFirst: Data de criação (mais recente)
+    EarliestCreatedFirst: Data de criação (mais antiga)
+    LatestUpdatedFirst: Data de atualização (mais recente)
+    LatestPlayedFirst: Data de reprodução (mais recente)
+    EarliestPlayedFirst: Data de reprodução (mais antiga)
+    EarliestUpdatedFirst: Data de atualização (mais antiga)
     NameAscending: A-Z
   SinglePlaylistView:
     Toast:
@@ -203,8 +203,8 @@ History:
   Search bar placeholder: Buscar no histórico
   Empty Search Message: Não há vídeos em seu histórico que correspondam à sua busca
   Case Sensitive Search: Busca que diferencia maiúsculas de minúsculas
-  DateOldestHistory: Mais antigo assistido primeiro
-  DateNewestHistory: Últimos assistidos primeiro
+  DateOldestHistory: Data de visualização (mais antiga)
+  DateNewestHistory: Data de visualização (mais recente)
 Settings:
   # On Settings Page
   Settings: 'Configurações'
@@ -831,14 +831,14 @@ Playlist:
     AuthorAscending: Autor (A-Z)
     VideoTitleAscending: Título (A-Z)
     Custom: Personalizado
-    DateAddedNewest: Mais recentes
-    DateAddedOldest: Mais antigos
+    DateAddedNewest: Data adicionada (mais recente)
+    DateAddedOldest: Data adicionada (mais antiga)
     AuthorDescending: Autor (Z-A)
     VideoTitleDescending: Título (Z-A)
-    VideoDurationAscending: Duração (a mais curta primeiro)
-    VideoDurationDescending: Duração (a mais longa primeiro)
-    PublishedOldest: Primeira publicação mais antiga
-    PublishedNewest: Última publicação primeiro
+    VideoDurationAscending: Duração (a mais curta)
+    VideoDurationDescending: Duração (a mais longa)
+    PublishedOldest: Data de publicação (mais antiga)
+    PublishedNewest: Data de publicação (mais recente)
 Change Format:
   Change Media Formats: 'Mudar formato do vídeo'
   Use Dash Formats: 'Usar formatos DASH'

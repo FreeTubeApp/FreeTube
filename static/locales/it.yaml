@@ -155,13 +155,13 @@ User Playlists:
     Search for Videos: Ricerca nei video
   Are you sure you want to delete this playlist? This cannot be undone: Sei sicuro di voler eliminare questa playlist? Questa operazione non può essere annullata.
   Sort By:
-    LatestPlayedFirst: Riproduzione più recente
-    EarliestCreatedFirst: Creazione più vecchia
-    LatestCreatedFirst: Creazione più recente
-    EarliestUpdatedFirst: Aggiornamento più vecchio
+    LatestPlayedFirst: Data di riproduzione (più recente)
+    EarliestCreatedFirst: Data di creazione (più vecchia)
+    LatestCreatedFirst: Data di creazione (più recente)
+    EarliestUpdatedFirst: Data di aggiornamento (più vecchia)
     NameDescending: Z-A
-    EarliestPlayedFirst: Riproduzione più vecchia
-    LatestUpdatedFirst: Aggiornamento più recente
+    EarliestPlayedFirst: Data di riproduzione (più vecchia)
+    LatestUpdatedFirst: Data di aggiornamento (più recente)
     NameAscending: A-Z
   You have no playlists. Click on the create new playlist button to create a new one.: Non hai playlist. Fai clic sul pulsante Crea nuova playlist per crearne una nuova.
   Remove from Playlist: Rimuovi dalla playlist
@@ -206,8 +206,8 @@ History:
   Search bar placeholder: Ricerca nella Cronologia
   Empty Search Message: Non ci sono video nella tua Cronologia che corrispondono alla tua ricerca
   Case Sensitive Search: Ricerca con distinzione tra maiuscole e minuscole
-  DateOldestHistory: Prima i guardati più vecchi
-  DateNewestHistory: Prima i guardati più nuovi
+  DateOldestHistory: Data di visione (più vecchia)
+  DateNewestHistory: Data di visione (più recente)
 Settings:
   # On Settings Page
   Settings: 'Impostazioni'
@@ -835,13 +835,13 @@ Playlist:
     VideoTitleDescending: Titolo (Z-A)
     AuthorDescending: Autore (Z-A)
     AuthorAscending: Autore (A-Z)
-    DateAddedNewest: Prima gli aggiunti più nuovi
-    DateAddedOldest: Prima gli aggiunti più vecchi
+    DateAddedNewest: Data aggiunta (più recente)
+    DateAddedOldest: Data aggiunta (più vecchia)
     VideoTitleAscending: Titolo (A-Z)
-    VideoDurationAscending: Durata (prima la più breve)
-    VideoDurationDescending: Durata (prima la più lunga)
-    PublishedNewest: Prima i pubblicati più nuovi
-    PublishedOldest: Prima i pubblicati più vecchi
+    VideoDurationAscending: Durata (più breve)
+    VideoDurationDescending: Durata (più lunga)
+    PublishedNewest: Data di pubblicazione (più recente)
+    PublishedOldest: Data di pubblicazione (più vecchia)
 Change Format:
   Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
