@@ -424,16 +424,15 @@ export async function getLocalSearchContinuation(continuationData) {
 export async function getLocalVideoInfo(id) {
   const webInnertube = await createInnertube({ withPlayer: true, generateSessionLocally: false })
 
-  // based on the videoId (added to the body of the /player request and to caption URLs)
+  // based on the videoId
   let contentPoToken
 
   if (process.env.IS_ELECTRON) {
     try {
-      ({ contentPoToken } = await window.ftElectron.generatePoTokens(
+      contentPoToken = await window.ftElectron.generatePoToken(
         id,
-        webInnertube.session.context.client.visitorData,
         JSON.stringify(webInnertube.session.context)
-      ))
+      )
 
       webInnertube.session.player.po_token = contentPoToken
     } catch (error) {

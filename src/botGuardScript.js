@@ -6,10 +6,9 @@ import { BG, buildURL, GOOG_API_KEY } from 'bgutils-js'
 /**
  * Based on: https://github.com/LuanRT/BgUtils/blob/main/examples/node/innertube-challenge-fetcher-example.ts
  * @param {string} videoId
- * @param {string} visitorData
  * @param {import('youtubei.js').Session['context']} context
  */
-export default async function (videoId, visitorData, context) {
+export default async function (videoId, context) {
   const requestKey = 'O43z0dpjhgX20SCx4KAo'
 
   const challengeResponse = await fetch(
@@ -19,7 +18,7 @@ export default async function (videoId, visitorData, context) {
       headers: {
         Accept: '*/*',
         'Content-Type': 'application/json',
-        'X-Goog-Visitor-Id': visitorData,
+        'X-Goog-Visitor-Id': context.client.visitorData,
         'X-Youtube-Client-Version': context.client.clientVersion,
         'X-Youtube-Client-Name': '1'
       },
@@ -83,8 +82,5 @@ export default async function (videoId, visitorData, context) {
 
   const integrityTokenBasedMinter = await BG.WebPoMinter.create({ integrityToken: response[0] }, webPoSignalOutput)
 
-  const contentPoToken = await integrityTokenBasedMinter.mintAsWebsafeString(videoId)
-  const sessionPoToken = await integrityTokenBasedMinter.mintAsWebsafeString(visitorData)
-
-  return { contentPoToken, sessionPoToken }
+  return await integrityTokenBasedMinter.mintAsWebsafeString(videoId)
 }
