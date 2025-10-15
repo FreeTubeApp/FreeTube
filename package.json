@@ -1,6 +1,7 @@
 {
   "name": "freetube",
   "productName": "FreeTube",
+  "desktopName": "freetube",
   "description": "A private YouTube client",
   "version": "0.23.11",
   "license": "AGPL-3.0-or-later",
