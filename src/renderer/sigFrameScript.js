@@ -4,9 +4,16 @@ window.addEventListener('message', (event) => {
   // eslint-disable-next-line @stylistic/semi
   const data = JSON.parse(event.data);
 
-  window.parent.postMessage(JSON.stringify({
-    id: data.id,
-    // eslint-disable-next-line no-new-func
-    result: new Function(data.code)()
-  }), '*')
+  try {
+    window.parent.postMessage(JSON.stringify({
+      id: data.id,
+      // eslint-disable-next-line no-new-func
+      result: new Function(data.code)()
+    }), '*')
+  } catch (error) {
+    window.parent.postMessage(JSON.stringify({
+      id: data.id,
+      error
+    }), '*')
+  }
 })
