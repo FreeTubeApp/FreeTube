@@ -313,6 +313,7 @@ const state = {
   uiScale: 100,
   userPlaylistsSortBy: 'latest_played_first',
   userHistorySortBy: 'latest_played_first',
+  skipSilenceEnabled: false,
 }
 
 const sideEffectHandlers = {
