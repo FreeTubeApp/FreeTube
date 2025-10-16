@@ -155,6 +155,11 @@ function loadPostsFromCacheSometimes() {
   isLoading.value = false
 }
 
+/** @type {import('vue').ComputedRef<string[]>} */
+const forbiddenTitles = computed(() => {
+  return JSON.parse(store.getters.getForbiddenTitles.toLowerCase())
+})
+
 function loadPostsFromCacheForAllActiveProfileChannels() {
   const postList_ = cacheEntriesForAllActiveProfileChannels.value.flatMap((cacheEntry) => {
     return cacheEntry.posts
@@ -165,6 +170,7 @@ function loadPostsFromCacheForAllActiveProfileChannels() {
   })
 
   postList.value = postList_
+  postList.value = postList.value.filter(post => !forbiddenTitles.value.some(text => post.author.toLowerCase().includes(text)))
   isLoading.value = false
 }
 
@@ -224,6 +230,7 @@ async function loadPostsForSubscriptionsFromRemote() {
       }
     }
 
+    posts = posts.filter(post => !forbiddenTitles.value.some(text => post.author.toLowerCase().includes(text)))
     return posts
   }))).flat()
 
