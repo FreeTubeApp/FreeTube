@@ -1,4 +1,4 @@
-import { base64ToU8, concatenateChunks, EventEmitterLike } from 'googlevideo/utils'
+import { base64ToU8, concatenateChunks, EventEmitterLike, MAX_INT32_VALUE } from 'googlevideo/utils'
 import { CompositeBuffer, UmpReader } from 'googlevideo/ump'
 import {
   UMPPartId,
@@ -117,13 +117,36 @@ function createBufferedRange(formatId, buffered, segmentIndex) {
 }
 
 /**
+ * Creates a bogus buffered range for a format. Used when we want to signal to the server to not send any
+ * segments for this format.
+ * @param {import('googlevideo/protos').FormatId} formatId - The format to create a full buffer range for.
+ * @returns {import('googlevideo/protos').BufferedRange} A BufferedRange object indicating the entire format is buffered.
+ */
+function createFullBufferRange(formatId) {
+  return {
+    formatId: formatId,
+    durationMs: MAX_INT32_VALUE,
+    startTimeMs: '0',
+    startSegmentIndex: parseInt(MAX_INT32_VALUE),
+    endSegmentIndex: parseInt(MAX_INT32_VALUE),
+    timeRange: {
+      durationTicks: MAX_INT32_VALUE,
+      startTicks: '0',
+      timescale: 1000
+    }
+  }
+}
+
+/**
  * @param {shaka.Player} player
  * @param {shaka.extern.Manifest} manifest
  * @param {boolean} audioFormatsActive
+ * @param {boolean} streamIsVideo - Fake audio bufferRange can be used
+ * @param {boolean} streamIsAudio - Fake video bufferRange can be used
  * @param {import('googlevideo/protos').BufferedRange[]} bufferedRanges
  * @param {shaka.extern.Track} activeVariant
  */
-function fillBufferedRanges(player, manifest, audioFormatsActive, bufferedRanges, activeVariant) {
+function fillBufferedRanges(player, manifest, audioFormatsActive, streamIsVideo, streamIsAudio, bufferedRanges, activeVariant) {
   const bufferedInfo = player.getBufferedInfo()
 
   if (bufferedInfo.audio.length > 0 || bufferedInfo.video.length > 0) {
@@ -142,24 +165,33 @@ function fillBufferedRanges(player, manifest, audioFormatsActive, bufferedRanges
     const audioFormatId = formatIdFromString(activeVariant.originalAudioId)
     const audioSegmentIndex = activeManifestVariant.audio.segmentIndex
 
-    for (const buffered of bufferedInfo.audio) {
-      bufferedRanges.push(createBufferedRange(audioFormatId, buffered, audioSegmentIndex))
+    if (streamIsVideo) {
+      bufferedRanges.push(createFullBufferRange(audioFormatId))
+    } else {
+      for (const buffered of bufferedInfo.audio) {
+        bufferedRanges.push(createBufferedRange(audioFormatId, buffered, audioSegmentIndex))
+      }
     }
 
     // Lazily initialize these variables as video data won't exist for audio-only playback
     let videoFormatId
     let videoSegmentIndex
 
-    for (const buffered of bufferedInfo.video) {
-      if (!videoFormatId) {
-        videoFormatId = formatIdFromString(activeVariant.originalVideoId)
-      }
+    if (streamIsAudio && bufferedInfo.video.length > 0) {
+      videoFormatId = formatIdFromString(activeVariant.originalVideoId)
+      bufferedRanges.push(createFullBufferRange(videoFormatId))
+    } else {
+      for (const buffered of bufferedInfo.video) {
+        if (!videoFormatId) {
+          videoFormatId = formatIdFromString(activeVariant.originalVideoId)
+        }
 
-      if (!videoSegmentIndex) {
-        videoSegmentIndex = activeManifestVariant.video.segmentIndex
-      }
+        if (!videoSegmentIndex) {
+          videoSegmentIndex = activeManifestVariant.video.segmentIndex
+        }
 
-      bufferedRanges.push(createBufferedRange(videoFormatId, buffered, videoSegmentIndex))
+        bufferedRanges.push(createBufferedRange(videoFormatId, buffered, videoSegmentIndex))
+      }
     }
   }
 }
@@ -672,7 +704,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
     const bufferedRanges = []
 
     if (!isInit && activeVariant) {
-      /** @__NOINLINE__ */ fillBufferedRanges(player, getManifest(), isAudioOnly, bufferedRanges, activeVariant)
+      /** @__NOINLINE__ */ fillBufferedRanges(player, getManifest(), isAudioOnly, streamIsVideo, streamIsAudio, bufferedRanges, activeVariant)
     }
 
     let playerTimeMs = '0'
