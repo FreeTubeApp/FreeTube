@@ -22,7 +22,7 @@ const TRACKING_PARAM_NAMES = [
 
 if (process.env.SUPPORTS_LOCAL_API) {
   Platform.shim.eval = (data, env) => {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       const properties = []
 
       if (env.n) {
@@ -43,23 +43,31 @@ if (process.env.SUPPORTS_LOCAL_API) {
         ? crypto.randomUUID()
         : `${Date.now()}-${Math.floor(Math.random() * 10000)}`
 
-      const iframe = document.getElementById('sigFrame')
+      if (process.env.IS_ELECTRON) {
+        const iframe = document.getElementById('sigFrame')
 
-      /** @param {MessageEvent} event */
-      const listener = (event) => {
-        if (event.source === iframe.contentWindow && typeof event.data === 'string') {
-          const data = JSON.parse(event.data)
+        /** @param {MessageEvent} event */
+        const listener = (event) => {
+          if (event.source === iframe.contentWindow && typeof event.data === 'string') {
+            const data = JSON.parse(event.data)
 
-          if (data.id === messageId) {
-            window.removeEventListener('message', listener)
+            if (data.id === messageId) {
+              window.removeEventListener('message', listener)
 
-            resolve(data.result)
+              if (data.error) {
+                reject(data.error)
+              } else {
+                resolve(data.result)
+              }
+            }
           }
         }
-      }
 
-      window.addEventListener('message', listener)
-      iframe.contentWindow.postMessage(JSON.stringify({ id: messageId, code }), '*')
+        window.addEventListener('message', listener)
+        iframe.contentWindow.postMessage(JSON.stringify({ id: messageId, code }), '*')
+      } else {
+        reject(new Error('Please setup the eval function for the n/sig deciphering'))
+      }
     })
   }
 }
@@ -436,54 +444,17 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
     }
   })
 
-  // based on the videoId (added to the body of the /player request and to caption URLs)
+  // based on the videoId
   let contentPoToken
-  // based on the visitor data (added to the streaming URLs)
-  let sessionPoToken
-  let contentTokenPreferred
-  let poToken
 
   if (process.env.IS_ELECTRON) {
     try {
-      ({ contentPoToken, sessionPoToken } = await window.ftElectron.generatePoTokens(
+      contentPoToken = await window.ftElectron.generatePoToken(
         id,
-        webInnertube.session.context.client.visitorData,
         JSON.stringify(webInnertube.session.context)
-      ))
-
-      // region experiments
-
-      const initialWebpageResponse = await fetch(
-        `https://www.youtube.com/watch?v=${id}&bpctr=9999999999&has_verified=1`,
-        {
-          method: 'GET',
-          headers: {
-            Accept: '*/*',
-            'X-Goog-Visitor-Id': webInnertube.session.context.client.visitorData,
-            'X-Youtube-Client-Version': webInnertube.session.context.client.clientVersion,
-            'X-Youtube-Client-Name': webInnertube.session.context.client.clientName,
-          },
-        }
       )
-      const initialWebpageText = await initialWebpageResponse.text()
-      /** @type {string|null} */
-      const ytcfgText = initialWebpageText.match(/ytcfg\.set\s*\(\s*({.+?})\s*\)\s*;/)?.at(1)
-      const ytcfg = ytcfgText != null ? JSON.parse(ytcfgText) : {}
-      const allExperiments = {}
-      if (ytcfg?.WEB_PLAYER_CONTEXT_CONFIGS != null) {
-        for (const config of Object.values(ytcfg.WEB_PLAYER_CONTEXT_CONFIGS)) {
-          if ('serializedExperimentFlags' in config) {
-            const experiments = Object.fromEntries(new URLSearchParams(config.serializedExperimentFlags).entries())
-            Object.assign(allExperiments, experiments)
-          }
-        }
-      }
-      contentTokenPreferred = allExperiments.html5_generate_content_po_token === 'true'
 
-      // endregion experiments
-
-      poToken = contentTokenPreferred ? contentPoToken : sessionPoToken
-      webInnertube.session.player.po_token = sessionPoToken
+      webInnertube.session.player.po_token = contentPoToken
     } catch (error) {
       console.error('Local API, poToken generation failed', error)
       throw error
@@ -602,9 +573,9 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
       let url = info.streaming_data.dash_manifest_url
 
       if (url.includes('?')) {
-        url += `&pot=${encodeURIComponent(sessionPoToken)}&mpd_version=7`
+        url += `&pot=${encodeURIComponent(contentPoToken)}&mpd_version=7`
       } else {
-        url += `${url.endsWith('/') ? '' : '/'}pot/${encodeURIComponent(sessionPoToken)}/mpd_version/7`
+        url += `${url.endsWith('/') ? '' : '/'}pot/${encodeURIComponent(contentPoToken)}/mpd_version/7`
       }
 
       info.streaming_data.dash_manifest_url = url
@@ -629,7 +600,7 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
 
   return {
     info,
-    poToken,
+    poToken: contentPoToken,
     clientInfo,
     adEndTimeUnixMs,
     sabrCanBeUsed: !sabrCannotBeUsed,

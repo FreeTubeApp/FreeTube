@@ -100,12 +100,11 @@ export default {
 
   /**
    * @param {string} videoId
-   * @param {string} visitorData
    * @param {string} context
-   * @returns {Promise<{ contentPoToken: string, sessionPoToken: string }>}
+   * @returns {Promise<string>}
    */
-  generatePoTokens: (videoId, visitorData, context) => {
-    return ipcRenderer.invoke(IpcChannels.GENERATE_PO_TOKENS, videoId, visitorData, context)
+  generatePoToken: (videoId, context) => {
+    return ipcRenderer.invoke(IpcChannels.GENERATE_PO_TOKEN, videoId, context)
   },
 
   /**
