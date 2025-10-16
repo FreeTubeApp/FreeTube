@@ -6,7 +6,7 @@ import { IpcChannels } from '../constants.js'
  * all systems running the electron app.
  */
 ipcRenderer.on(IpcChannels.NATIVE_THEME_UPDATE, (_, shouldUseDarkColors) => {
-  webFrame.executeJavaScript(`document.body.dataset.systemTheme = "${shouldUseDarkColors ? 'dark' : 'light'}"`).catch()
+  document.body.dataset.systemTheme = shouldUseDarkColors ? 'dark' : 'light'
 })
 
 let currentUpdateSearchInputTextListener
