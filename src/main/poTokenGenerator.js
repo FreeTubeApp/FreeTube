@@ -3,19 +3,18 @@ import { readFile } from 'fs/promises'
 import { join } from 'path'
 
 /**
- * Generates a poToken (proof of origin token) using `bgutils-js`.
+ * Generates a content-bound poToken (proof of origin token) using `bgutils-js`.
  * The script to generate it is `src/botGuardScript.js`
  *
  * This is intentionally split out into it's own thing, with it's own temporary in-memory session,
  * as the BotGuard stuff accesses the global `document` and `window` objects and also requires making some requests.
  * So we definitely don't want it running in the same places as the rest of the FreeTube code with the user data.
  * @param {string} videoId
- * @param {string} visitorData
  * @param {string} context
  * @param {string|undefined} proxyUrl
- * @returns {Promise<{ contentPoToken: string, sessionPoToken: string }>}
+ * @returns {Promise<string>}
  */
-export async function generatePoToken(videoId, visitorData, context, proxyUrl) {
+export async function generatePoToken(videoId, context, proxyUrl) {
   const sessionUuid = crypto.randomUUID()
 
   const theSession = session.fromPartition(`potoken-${sessionUuid}`, { cache: false })
@@ -96,7 +95,7 @@ export async function generatePoToken(videoId, visitorData, context, proxyUrl) {
     }
   })
 
-  const script = await getScript(videoId, visitorData, context)
+  const script = await getScript(videoId, context)
 
   const response = await webContentsView.webContents.executeJavaScript(script)
 
@@ -110,10 +109,9 @@ let cachedScript
 
 /**
  * @param {string} videoId
- * @param {string} visitorData
  * @param {string} context
  */
-async function getScript(videoId, visitorData, context) {
+async function getScript(videoId, context) {
   if (!cachedScript) {
     const pathToScript = process.env.NODE_ENV === 'development'
       ? join(__dirname, '../../dist/botGuardScript.js')
@@ -129,5 +127,5 @@ async function getScript(videoId, visitorData, context) {
     cachedScript = content.replace(match[0], `;${functionName}(FT_PARAMS)`)
   }
 
-  return cachedScript.replace('FT_PARAMS', `"${videoId}","${visitorData}",${context}`)
+  return cachedScript.replace('FT_PARAMS', `"${videoId}",${context}`)
 }

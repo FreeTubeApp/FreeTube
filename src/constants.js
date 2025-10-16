@@ -47,7 +47,7 @@ const IpcChannels = {
 
   SET_INVIDIOUS_AUTHORIZATION: 'set-invidious-authorization',
 
-  GENERATE_PO_TOKENS: 'generate-po-tokens',
+  GENERATE_PO_TOKEN: 'generate-po-token',
 
   WRITE_SCREENSHOT: 'write-screenshot',
 }
