@@ -87,7 +87,7 @@ export default defineComponent({
       window.addEventListener('resize', this.handleResize)
     }
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     if (this.dropdownModalOnMobile) {
       window.removeEventListener('resize', this.handleResize)
     }

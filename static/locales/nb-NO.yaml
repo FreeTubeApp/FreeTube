@@ -786,7 +786,7 @@ Video:
       Media Formats: 'Medieformater: {formats}'
       Buffered: 'Bufret: {bufferedPercentage}%'
       Volume: 'Lydstyrke: {volumePercentage}%'
-      Resolution: 'Oppløsning: {width}x{height}@{frameRate}'
+      Resolution: 'Oppløsning: {width}x{height}{''@''}{frameRate}'
       Stats: Statistikk
       CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
       CodecsVideoAudio: 'Kodeker: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'

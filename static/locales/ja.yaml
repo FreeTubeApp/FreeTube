@@ -785,7 +785,7 @@ Video:
       CodecsVideoAudioNoItags: 'コーデック： {videoCodec} / {audioCodec}'
       Video ID: '動画 ID： {videoId}'
       Media Formats: 'メディア形式： {formats}'
-      Resolution: '解像度： {width}x{height}@{frameRate}'
+      Resolution: '解像度： {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'プレーヤーの寸法： {width}x{height}'
       Bitrate: 'ビットレート： {bitrate} kbps'
       Volume: '音量： {volumePercentage}%'

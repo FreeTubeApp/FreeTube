@@ -837,7 +837,7 @@ Video:
       Dropped Frames / Total Frames: 'Jaregindako fotogramak: {droppedFrames} / Total Frames: {totalFrames}'
       Volume: 'Bolumena: {volumePercentage}%'
       CodecsVideoAudio: 'Kodekak: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
-      Resolution: 'Bereizmena: {width}x{height}@{frameRate}'
+      Resolution: 'Bereizmena: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Erreproduzigailuaren neurriak: {width}x{height}'
       Bitrate: 'Bit-emaria: {bitrate} kbps'
       CodecsVideoAudioNoItags: 'Kodekak: {videoCodec} / {audioCodec}'

@@ -791,7 +791,7 @@ Video:
       Stats: Statistiken
       Video ID: 'Videokennung (ID): {videoId}'
       Media Formats: 'Medienformate: {formats}'
-      Resolution: 'Auflösung: {width}×{height}@{frameRate}'
+      Resolution: 'Auflösung: {width}×{height}{''@''}{frameRate}'
       Player Dimensions: 'Player-Dimensionen: {width}×{height}'
       Bitrate: 'Bitrate: {bitrate} kb/s'
       Volume: 'Lautstärke: {volumePercentage} %'

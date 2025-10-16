@@ -846,7 +846,7 @@ Video:
       CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Kodekek: {videoCodec} / {audioCodec}'
       Dropped Frames / Total Frames: 'Kihagyott képkockák: {droppedFrames} / Összes képkocka: {totalFrames}'
-      Resolution: 'Felbontás: {width}x{height}@{frameRate}'
+      Resolution: 'Felbontás: {width}x{height}{''@''}{frameRate}'
       CodecsVideoAudio: 'Kodekek: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
     You appear to be offline: Úgy tűnik, hogy jelenleg nem kapcsolódsz a hálózathoz.
     Skipped segment: Kihagyott {segmentCategory} szakasz

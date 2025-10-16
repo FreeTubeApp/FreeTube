@@ -839,7 +839,7 @@ Video:
       CodecAudio: 'Кодек: {audioCodec} ({audioItag})'
       CodecsVideoAudio: 'Кодеци: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Кодеци: {videoCodec} / {audioCodec}'
-      Resolution: 'Разделителна способност: {width}x{height}@{frameRate}'
+      Resolution: 'Разделителна способност: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Размери на плейъра: {width}x{height}'
       Bitrate: 'Скорост на предаване: {bitrate} kbps'
       Dropped Frames / Total Frames: 'Изпуснати кадри: {droppedFrames} / Общо кадри: {totalFrames}'

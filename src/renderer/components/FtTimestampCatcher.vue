@@ -7,7 +7,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useRouter } from 'vue-router/composables'
+import { useRouter } from 'vue-router'
 
 const props = defineProps({
   inputHtml: {
@@ -21,7 +21,7 @@ const props = defineProps({
 })
 
 const router = useRouter()
-const videoId = router.currentRoute.params.id
+const videoId = router.currentRoute.value.params.id
 
 /** @type {import('vue').ComputedRef<string>} */
 const displayText = computed(() => props.inputHtml.replaceAll(/(?:(\d+):)?(\d+):(\d+)/g, (timestamp, hours, minutes, seconds) => {

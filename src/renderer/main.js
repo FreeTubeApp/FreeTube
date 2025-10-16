@@ -1,5 +1,5 @@
 // import the styles
-import Vue from 'vue'
+import { createApp } from 'vue'
 import i18n from './i18n/index'
 import router from './router/index'
 import store from './store/index'
@@ -133,10 +133,6 @@ import {
 import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
 import PortalVue from 'portal-vue'
 
-Vue.config.devtools = process.env.NODE_ENV === 'development'
-Vue.config.performance = process.env.NODE_ENV === 'development'
-Vue.config.productionTip = process.env.NODE_ENV === 'development'
-
 // Please keep the list of constants sorted by name
 // to avoid code conflict and duplicate entries
 library.add(
@@ -261,19 +257,23 @@ library.add(
 
 registerSwiper()
 
-Vue.component('FontAwesomeIcon', FontAwesomeIcon)
-Vue.component('FontAwesomeLayers', FontAwesomeLayers)
-Vue.directive('observe-visibility', ObserveVisibility)
+const app = createApp(App)
 
-/* eslint-disable-next-line no-new */
-new Vue({
-  el: '#app',
-  router,
-  store,
-  i18n,
-  render: h => h(App)
+app.config.performance = process.env.NODE_ENV === 'development'
+
+app
+  .component('FontAwesomeIcon', FontAwesomeIcon)
+  .component('FontAwesomeLayers', FontAwesomeLayers)
+  .directive('observe-visibility', ObserveVisibility)
+
+  .use(router)
+  .use(store)
+  .use(i18n)
+  .use(PortalVue)
+
+router.isReady().then(() => {
+  app.mount('#app')
 })
-Vue.use(PortalVue)
 
 // to avoid accessing electron api from web app build
 if (process.env.IS_ELECTRON) {

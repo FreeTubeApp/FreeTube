@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from 'vuex'
 // import createPersistedState from 'vuex-persistedstate'
 
 import history from './modules/history'
@@ -12,9 +11,7 @@ import subscriptionCache from './modules/subscription-cache'
 import utils from './modules/utils'
 import player from './modules/player'
 
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+export default createStore({
   modules: {
     history,
     invidious,

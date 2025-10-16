@@ -198,7 +198,7 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
-import router from '../../router/index.js'
+import { useRouter } from 'vue-router'
 
 import store from '../../store/index'
 
@@ -237,6 +237,8 @@ function handleClickOutside(event) {
     closeMenu()
   }
 }
+
+const router = useRouter()
 
 onMounted(() => {
   document.addEventListener('click', handleClickOutside)

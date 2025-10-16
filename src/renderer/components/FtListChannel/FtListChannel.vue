@@ -44,14 +44,14 @@
             class="subscriberCount"
           >
             <template v-if="handle !== null"> • </template>
-            {{ $tc('Global.Counts.Subscriber Count', subscriberCount, {count: formattedSubscriberCount}) }}
+            {{ $t('Global.Counts.Subscriber Count', {count: formattedSubscriberCount}, subscriberCount) }}
           </span>
           <span
             v-if="handle == null && videoCount != null"
             class="videoCount"
           >
             <template v-if="subscriberCount !== null && !hideChannelSubscriptions"> • </template>
-            {{ $tc('Global.Counts.Video Count', videoCount, {count: formattedVideoCount}) }}
+            {{ $t('Global.Counts.Video Count', {count: formattedVideoCount}, videoCount) }}
           </span>
         </div>
         <p

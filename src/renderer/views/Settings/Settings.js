@@ -177,7 +177,7 @@ export default defineComponent({
       this.handleMounted()
     }
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     document.removeEventListener('scroll', this.markScrolledToSectionAsActive)
     window.removeEventListener('resize', this.handleResize)
   },

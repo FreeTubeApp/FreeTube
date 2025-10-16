@@ -845,7 +845,7 @@ Video:
       Player Dimensions: 'Памеры прайгравальніка: {width}x{height}'
       Bitrate: 'Бітрэйт: {bitrate} кбіт/с'
       Buffered: 'Буферызавана: {bufferedPercentage}%'
-      Resolution: 'Раздзяляльнасць: {width}x{height}@{frameRate}'
+      Resolution: 'Раздзяляльнасць: {width}x{height}{''@''}{frameRate}'
       Dropped Frames / Total Frames: 'Прапушчаныя кадры: {droppedFrames} / Усяго кадраў: {totalFrames}'
       CodecsVideoAudio: 'Кодэкі: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Кодэкі: {videoCodec} / {audioCodec}'

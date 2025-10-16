@@ -22,7 +22,7 @@
         input-type="password"
         :value="password"
         @input="e => password = e"
-        @keydown.enter.native="handleSetPassword"
+        @keydown.enter="handleSetPassword"
       />
       <FtButton
         class="centerButton"

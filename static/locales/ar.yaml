@@ -833,7 +833,7 @@ Video:
       CodecsVideoAudio: 'برامج الترميز: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       Stats: الاحصائيات
       Video ID: 'معرف الفيديو: {videoId}'
-      Resolution: 'الدقة: {width}x{height}@{frameRate}'
+      Resolution: 'الدقة: {width}x{height}{''@''}{frameRate}'
       Bandwidth: 'عرض النطاق الترددي: {bandwidth} كيلوبت في الثانية'
     Skipped segment: تم تخطي شريحة {segmentCategory}
     Theatre Mode: وضع المسرح

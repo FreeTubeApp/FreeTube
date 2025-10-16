@@ -790,7 +790,7 @@ Video:
       Stats: 统计信息
       Video ID: 视频 ID： {videoId}
       Media Formats: 媒体格式：{formats}
-      Resolution: 分辨率：{width}x{height}@{frameRate}
+      Resolution: 分辨率：{width}x{height}{'@'}{frameRate}
       Player Dimensions: 播放器尺寸： {width}x{height}
       Bitrate: 比特率：{bitrate} kbps
       Volume: 音量：{volumePercentage}%

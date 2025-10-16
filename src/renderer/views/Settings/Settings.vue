@@ -39,11 +39,11 @@
         <div class="settingsSections">
           <template
             v-for="(settingsComponent) in settingsSectionComponents"
+            :key="settingsComponent.type"
           >
             <component
               :is="settingsComponent.type"
               :ref="settingsComponent.type"
-              :key="settingsComponent.type"
               :class="{ hideOnMobile: settingsSectionTypeOpenInMobile !== settingsComponent.type }"
               class="section"
             />
