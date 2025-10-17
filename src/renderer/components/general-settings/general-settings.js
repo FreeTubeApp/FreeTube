@@ -24,6 +24,7 @@ export default defineComponent({
   data: function () {
     return {
       usingElectron: process.env.IS_ELECTRON,
+      supportsLocalAPI: process.env.SUPPORTS_LOCAL_API,
       backendValues: process.env.SUPPORTS_LOCAL_API
         ? [
             'invidious',
