@@ -33,6 +33,8 @@ export const colors = [
   { name: 'CatppuccinFrappeSapphire', value: '#85c1dc' },
   { name: 'CatppuccinFrappeBlue', value: '#8caaee' },
   { name: 'CatppuccinFrappeLavender', value: '#babbf1' },
+  { name: 'CatppuccinLatteMauve', value: '#8839ef' },
+  { name: 'CatppuccinLatteRed', value: '#d20f39' },
   { name: 'CatppuccinMochaRosewater', value: '#F5E0DC' },
   { name: 'CatppuccinMochaFlamingo', value: '#F2CDCD' },
   { name: 'CatppuccinMochaPink', value: '#F5C2E7' },
