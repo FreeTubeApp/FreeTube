@@ -22,7 +22,7 @@ const TRACKING_PARAM_NAMES = [
 
 if (process.env.SUPPORTS_LOCAL_API) {
   Platform.shim.eval = (data, env) => {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
       const properties = []
 
       if (env.n) {
@@ -43,23 +43,31 @@ if (process.env.SUPPORTS_LOCAL_API) {
         ? crypto.randomUUID()
         : `${Date.now()}-${Math.floor(Math.random() * 10000)}`
 
-      const iframe = document.getElementById('sigFrame')
+      if (process.env.IS_ELECTRON) {
+        const iframe = document.getElementById('sigFrame')
 
-      /** @param {MessageEvent} event */
-      const listener = (event) => {
-        if (event.source === iframe.contentWindow && typeof event.data === 'string') {
-          const data = JSON.parse(event.data)
+        /** @param {MessageEvent} event */
+        const listener = (event) => {
+          if (event.source === iframe.contentWindow && typeof event.data === 'string') {
+            const data = JSON.parse(event.data)
 
-          if (data.id === messageId) {
-            window.removeEventListener('message', listener)
+            if (data.id === messageId) {
+              window.removeEventListener('message', listener)
 
-            resolve(data.result)
+              if (data.error) {
+                reject(data.error)
+              } else {
+                resolve(data.result)
+              }
+            }
           }
         }
-      }
 
-      window.addEventListener('message', listener)
-      iframe.contentWindow.postMessage(JSON.stringify({ id: messageId, code }), '*')
+        window.addEventListener('message', listener)
+        iframe.contentWindow.postMessage(JSON.stringify({ id: messageId, code }), '*')
+      } else {
+        reject(new Error('Please setup the eval function for the n/sig deciphering'))
+      }
     })
   }
 }
@@ -424,20 +432,17 @@ export async function getLocalSearchContinuation(continuationData) {
 export async function getLocalVideoInfo(id) {
   const webInnertube = await createInnertube({ withPlayer: true, generateSessionLocally: false })
 
-  // based on the videoId (added to the body of the /player request and to caption URLs)
+  // based on the videoId
   let contentPoToken
-  // based on the visitor data (added to the streaming URLs)
-  let sessionPoToken
 
   if (process.env.IS_ELECTRON) {
     try {
-      ({ contentPoToken, sessionPoToken } = await window.ftElectron.generatePoTokens(
+      contentPoToken = await window.ftElectron.generatePoToken(
         id,
-        webInnertube.session.context.client.visitorData,
         JSON.stringify(webInnertube.session.context)
-      ))
+      )
 
-      webInnertube.session.player.po_token = sessionPoToken
+      webInnertube.session.player.po_token = contentPoToken
     } catch (error) {
       console.error('Local API, poToken generation failed', error)
       throw error
@@ -537,9 +542,9 @@ export async function getLocalVideoInfo(id) {
       let url = info.streaming_data.dash_manifest_url
 
       if (url.includes('?')) {
-        url += `&pot=${encodeURIComponent(sessionPoToken)}&mpd_version=7`
+        url += `&pot=${encodeURIComponent(contentPoToken)}&mpd_version=7`
       } else {
-        url += `${url.endsWith('/') ? '' : '/'}pot/${encodeURIComponent(sessionPoToken)}/mpd_version/7`
+        url += `${url.endsWith('/') ? '' : '/'}pot/${encodeURIComponent(contentPoToken)}/mpd_version/7`
       }
 
       info.streaming_data.dash_manifest_url = url
