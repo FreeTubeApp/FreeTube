@@ -203,8 +203,8 @@ History:
   Search bar placeholder: Im Verlauf suchen
   Empty Search Message: Es gibt keine Videos in deinem Verlauf, die deiner Suche entsprechen
   Case Sensitive Search: Groß- und Kleinschreibung bei der Suche beachten
-  DateOldestHistory: Ansehdatum (älteste)
-  DateNewestHistory: Ansehdatum (neueste)
+  DateOldestHistory: Wiedergabedatum (älteste)
+  DateNewestHistory: Wiedergabedatum (neueste)
 Settings:
   # On Settings Page
   Settings: Einstellungen
@@ -831,8 +831,8 @@ Playlist:
 #& Views
   Sort By:
     VideoTitleDescending: Titel (Z-A)
-    DateAddedNewest: Hinzufügedatum (neueste)
-    DateAddedOldest: Hinzufügedatum (älteste)
+    DateAddedNewest: Hinzugefügt am (neueste)
+    DateAddedOldest: Hinzugefügt am (älteste)
     AuthorAscending: Autor (A-Z)
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Titel (A-Z)
