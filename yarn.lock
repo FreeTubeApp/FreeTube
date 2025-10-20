@@ -7685,10 +7685,10 @@ setprototypeof@1.2.0:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-shaka-player@^4.16.4:
-  version "4.16.4"
-  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.16.4.tgz#4666998d89b97a6418154b568c14610e8975885c"
-  integrity sha512-jlsmZzR5sPpUUS+6G9wCZJjv0hqaP52xQSw4w+in9hfw+kOI44X/vx+YcsKNKlYixxFvPd+XBgtZJunjNP3xOg==
+shaka-player@^4.16.5:
+  version "4.16.5"
+  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.16.5.tgz#4f05bf87087dfb023970ba094054fcdccd1c0e09"
+  integrity sha512-NThX/mY2bJgu0v3RakKe9mKUS1dRAZJ4Qxroi9+3r1UoC55Vrux+iuyTybSA2kL/iXcN1vHSq9wxI3RyNLSxhQ==
 
 shallow-clone@^3.0.0:
   version "3.0.1"
