@@ -128,13 +128,7 @@ class SabrManifestParser {
     presentationTimeline.setStatic(true)
     presentationTimeline.setSegmentAvailabilityDuration(Infinity)
     presentationTimeline.lockStartTime()
-    // Avoid player stuck at the end
-    // Reproducible on some OSes with certain videos (possibly duration related)
-    // Having a longer duration than segments available will cause the issue
-    // The code below should be like `toFixed(1)` but always get a smaller value
-    // e.g. 382.49 > 382.4
-    const duration = Math.floor(manifestData.duration * 10) / 10
-    presentationTimeline.setDuration(duration)
+    presentationTimeline.setDuration(manifestData.duration)
 
     let currentId = 0
 

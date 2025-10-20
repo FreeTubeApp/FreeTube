@@ -1624,7 +1624,9 @@ export default defineComponent({
 
       /** @type {import('../../helpers/player/SabrManifestParser').SabrManifest} */
       const sabrManifest = {
-        duration: videoInfo.streaming_data.adaptive_formats[0].approx_duration_ms / 1000,
+        // Different formats have different durations and
+        // use of slightly longer duration in PresentationTimeline causes player to stuck at the end
+        duration: Math.min(...videoInfo.streaming_data.adaptive_formats.map(f => f.approx_duration_ms)) / 1000,
         formats: videoInfo.streaming_data.adaptive_formats.map((format) => ({
           itag: format.itag,
           lastModified: format.last_modified_ms,
