@@ -3701,10 +3701,10 @@ electron-to-chromium@^1.5.227:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.230.tgz#06ddb4a6302a78b2a3e8dcf1dd2563bcfdd546c9"
   integrity sha512-A6A6Fd3+gMdaed9wX83CvHYJb4UuapPD5X5SLq72VZJzxHSY0/LUweGXRWmQlh2ln7KV7iw7jnwXK7dlPoOnHQ==
 
-electron@^38.2.2:
-  version "38.2.2"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-38.2.2.tgz#117a516fa2215604e35a60f3cc2543f3f5404a16"
-  integrity sha512-OXSaVNXDlonXDjMRsFNQo1j5tzTKwKXh5/m46IjAFccBcZJZMISI+EjSI07oexIuhvKM8AZLuFuihVn4YjWWrA==
+electron@^38.3.0:
+  version "38.3.0"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-38.3.0.tgz#5f8c8bc3153555832a465cbe271b0ae8117f4145"
+  integrity sha512-Wij4AzX4SAV0X/ktq+NrWrp5piTCSS8F6YWh1KAcG+QRtNzyns9XLKERP68nFHIwfprhxF2YCN2uj7nx9DaeJw==
   dependencies:
     "@electron/get" "^2.0.0"
     "@types/node" "^22.7.7"
@@ -5961,10 +5961,10 @@ make-fetch-happen@^14.0.3:
     promise-retry "^2.0.1"
     ssri "^12.0.0"
 
-marked@^16.4.0:
-  version "16.4.0"
-  resolved "https://registry.yarnpkg.com/marked/-/marked-16.4.0.tgz#b0c22707a3add380827a75437131801cd54bf425"
-  integrity sha512-CTPAcRBq57cn3R8n3hwc2REddc28hjR7RzDXQ+lXLmMJYqn20BaI2cGw6QjgZGIgVfp2Wdfw4aMzgNteQ6qJgQ==
+marked@^16.4.1:
+  version "16.4.1"
+  resolved "https://registry.yarnpkg.com/marked/-/marked-16.4.1.tgz#db37c878cfa28fa57b8dd471fe92a83282911052"
+  integrity sha512-ntROs7RaN3EvWfy3EZi14H4YxmT6A5YvywfhO+0pm+cH/dnSQRmdAmoFIc3B9aiwTehyk7pESH4ofyBY+V5hZg==
 
 matcher@^3.0.0:
   version "3.0.0"
@@ -7658,10 +7658,10 @@ setprototypeof@1.2.0:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-shaka-player@^4.16.4:
-  version "4.16.4"
-  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.16.4.tgz#4666998d89b97a6418154b568c14610e8975885c"
-  integrity sha512-jlsmZzR5sPpUUS+6G9wCZJjv0hqaP52xQSw4w+in9hfw+kOI44X/vx+YcsKNKlYixxFvPd+XBgtZJunjNP3xOg==
+shaka-player@^4.16.6:
+  version "4.16.6"
+  resolved "https://registry.yarnpkg.com/shaka-player/-/shaka-player-4.16.6.tgz#c3862da6de5ee2868010a9596a7d761ca8878144"
+  integrity sha512-NTWjcXe1OBuZOczQ0QYn7Ib2bYJebbuyFdN06cMytA2wO2SQsilcZ2WYlyon+4Ni/Etw6Y2ee6KaQsaubzvFZA==
 
 shallow-clone@^3.0.0:
   version "3.0.1"
@@ -9043,10 +9043,10 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-youtubei.js@^16.0.0:
-  version "16.0.0"
-  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-16.0.0.tgz#b88537c4d89468216c50058cd295ce3c1da8adf2"
-  integrity sha512-aMx+ulnrxzsgVsxTr7gbBVnIjti2NQUlMwCoo1/MzICCJS3iMLOPUFdo7bSpwskL6ljzQ/LxmmB4WQC3FtkBlA==
+youtubei.js@^16.0.1:
+  version "16.0.1"
+  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-16.0.1.tgz#b1fb7d42f36e4d355ba3ca2c93605a0572fe0c9b"
+  integrity sha512-3802bCAGkBc2/G5WUTc0l/bO5mPYJbQAHL04d9hE9PnrDHoBUT8MN721Yqt4RCNncAXdHcfee9VdJy3Fhq1r5g==
   dependencies:
     "@bufbuild/protobuf" "^2.0.0"
     meriyah "^6.1.4"
