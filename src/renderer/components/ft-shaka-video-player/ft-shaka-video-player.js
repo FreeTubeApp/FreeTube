@@ -2581,14 +2581,6 @@ export default defineComponent({
     const initLoadWaitTimeToastAC = new AbortController()
 
     onMounted(async () => {
-      watch(() => props.currentPlaybackRate,
-        (newRate) => {
-          if (video.value) {
-            video.value.playbackRate = newRate
-            video.value.defaultPlaybackRate = newRate
-          }
-        }
-      )
       const videoElement = video.value
 
       const volume = sessionStorage.getItem('volume')

@@ -161,14 +161,14 @@ User Playlists:
   Playlist Description: Описание
   Cancel: Отказ
   Sort By:
-    LatestCreatedFirst: Наскоро създадени
-    EarliestCreatedFirst: Най-рано създадени
-    EarliestPlayedFirst: Най-рано възпроизведени
+    LatestCreatedFirst: Дата на създаване (най-нови)
+    EarliestCreatedFirst: Дата на създаване (най-стари)
+    EarliestPlayedFirst: Дата на възпроизвеждане (най-стари)
     NameAscending: A-Z
     NameDescending: Z-A
-    LatestUpdatedFirst: Наскоро обновени
-    EarliestUpdatedFirst: Най-рано обновени
-    LatestPlayedFirst: Наскоро възпроизведени
+    LatestUpdatedFirst: Дата на обновяване (най-нови)
+    EarliestUpdatedFirst: Дата на обновяване (най-стари)
+    LatestPlayedFirst: Дата на възпроизвеждане (най-нови)
   AddVideoPrompt:
     Search in Playlists: Търсене в плейлисти
     Select a playlist to add your N videos to: Изберете плейлист, в който да добавите своето видео | Изберете плейлист, в който да добавите своите {videoCount} видеа
@@ -201,6 +201,7 @@ User Playlists:
   Export Playlist: Изнасяне на плейлиста
   The playlist has been successfully exported: Плейлистът е изнесен успешно
   TotalTimePlaylist: 'Общо време: {duration}'
+  Export list of URLs: Изнасяне на списък с URL адреси
 History:
   # On History Page
   History: 'История'
@@ -209,8 +210,8 @@ History:
   Search bar placeholder: Търсене в историята
   Empty Search Message: В историята няма видеа, които да отговарят на търсенето ви
   Case Sensitive Search: Главни / малки букви
-  DateOldestHistory: Първо най-новите
-  DateNewestHistory: Първо най-старите
+  DateOldestHistory: Дата на гледане (най-стари)
+  DateNewestHistory: Дата на гледане (най-нови)
 Settings:
   # On Settings Page
   Settings: 'Настройки'
@@ -558,12 +559,14 @@ Settings:
     Your Info: Вашата информация
     Test Proxy: Тестване на прокси
     Clicking on Test Proxy will send a request to: Щракването върху "Тестване на прокси" ще изпрати заявка до
-    Proxy Port Number: Номер на прокси порта
-    Proxy Host: Прокси хост
-    Proxy Protocol: Прокси протокол
+    Proxy Port Number: Порт
+    Proxy Host: Хост
+    Proxy Protocol: Протокол
     Enable Tor / Proxy: Активиране на Tor / Proxy
     Proxy Settings: Прокси
     Proxy Warning: FreeTube не разполага с вграден прокси сървър, но може да се свърже с външен, например такъв, който работи на вашата машина, като Tor или SOCKS5 прокси сървър, предоставян от някои VPN услуги. Ако е активирано, уверете се, че прокси сървърът/Tor е конфигуриран правилно, тъй като FreeTube няма да може да извлича данни.
+    Proxy Username: Потребителско име
+    Proxy Password: Парола
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Известие при пропускане на спонсориран сегмент
     Enable SponsorBlock: Активиране на SponsorBlock
@@ -873,17 +876,17 @@ Playlist:
 #& Views
   Playlist: Плейлист
   Sort By:
-    DateAddedNewest: Първо най-новите
-    DateAddedOldest: Първо най-старите
+    DateAddedNewest: Дата на добавяне (най-нови)
+    DateAddedOldest: Дата на добавяне (най-стари)
     AuthorAscending: Автор (A-Z)
     AuthorDescending: Автор (Z-A)
     VideoTitleAscending: Заглавие (A-Z)
     Custom: Потребителски
     VideoTitleDescending: Заглавие (Z-A)
-    VideoDurationAscending: Първо най-кратките
-    VideoDurationDescending: Първо най-дългите
-    PublishedNewest: Първо най-новите публикувани
-    PublishedOldest: Първо най-старите публикувани
+    VideoDurationAscending: Продължителност (най-кратки)
+    VideoDurationDescending: Продължителност (най-дълги)
+    PublishedNewest: Дата на публикуване (най-нови)
+    PublishedOldest: Дата на публикуване (най-стари)
 Change Format:
   Change Media Formats: 'Смяна видео формати'
   Use Dash Formats: 'Използване на DASH формати'
