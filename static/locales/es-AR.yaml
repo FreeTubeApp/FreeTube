@@ -74,22 +74,15 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu
-    lista de suscripciones está actualmente vacía. Si deseas importar tus suscripciones,
-    puedes ir a Configuración de datos y seleccionar Importar suscripciones, o puedes
-    buscar un canal y suscribirte a él.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu lista de suscripciones está actualmente vacía. Si deseas importar tus suscripciones, puedes ir a Configuración de datos y seleccionar Importar suscripciones, o puedes buscar un canal y suscribirte a él.'
   Load More Videos: Cargar más videos
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este
-    perfil tiene un gran número de suscriptores. Forzando RSS para evitar límites
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este perfil tiene un gran número de suscriptores. Forzando RSS para evitar límites
   Load More Posts: Cargar más publicaciones
   Empty Channels: Tus canales suscriptos actualmente no tienen ningún video.
   Subscriptions Tabs: Pestañas de suscripciones
   Empty Posts: Tus canales suscriptos actualmente no tienen ninguna publicación.
-  All Subscription Tabs Hidden: Todas las pestañas de suscripciones están ocultas.
-    Para ver contenido acá, por favor, desocultá algunas pestañas en la sección "{subsection}"
-    en "{settingsSection}".
-  Disabled Automatic Fetching: Has desactivado la recuperación automática de suscripciones.
-    Actualizá las suscripciones para verlas acá.
+  All Subscription Tabs Hidden: Todas las pestañas de suscripciones están ocultas. Para ver contenido acá, por favor, desocultá algunas pestañas en la sección "{subsection}" en "{settingsSection}".
+  Disabled Automatic Fetching: Has desactivado la recuperación automática de suscripciones. Actualizá las suscripciones para verlas acá.
   Error Channels: Canales con errores
 Trending:
   Trending: 'Tendencias'
@@ -103,8 +96,7 @@ Playlists: 'Listas de reproducción'
 User Playlists:
   Your Playlists: 'Tus listas de reproducción'
   Search bar placeholder: Buscar listas de reproducción
-  Empty Search Message: No hay videos en esta lista de reproducción que coincidan
-    con tu búsqueda.
+  Empty Search Message: No hay videos en esta lista de reproducción que coincidan con tu búsqueda.
   This playlist currently has no videos.: Esta lista de reproducción no tiene videos.
   Playlists with Matching Videos: Listas de reproducción con videos repetidos
   Create New Playlist: Crear nueva lista de reproducción
@@ -112,26 +104,17 @@ User Playlists:
   Add to Playlist: Añadir a la lista de reproducción
   Remove from Playlist: Eliminar de la lista de reproducción
   Playlist Description: Descripción de la lista de reproducción
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ¿Estás
-    seguro de que quieres eliminar 1 video duplicado de esta lista de reproducción?
-    Esto no se puede deshacer.
-  You have no playlists. Click on the create new playlist button to create a new one.: No
-    tienes listas de reproducción. Haz clic en el botón de crear nueva lista de reproducción
-    para crear una.
-  Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro
-    de que quieres eliminar esta lista de reproducción? Esto no se puede deshacer.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ¿Estás seguro de que quieres eliminar 1 video duplicado de esta lista de reproducción? Esto no se puede deshacer.
+  You have no playlists. Click on the create new playlist button to create a new one.: No tienes listas de reproducción. Haz clic en el botón de crear nueva lista de reproducción para crear una.
+  Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro de que quieres eliminar esta lista de reproducción? Esto no se puede deshacer.
   Export Playlist: Exportar esta lista de reproducción
   Playlist Name: Nombre de la lista de reproducción
   Quick Bookmark Enabled: Marcador rápido habilitado
-  Cannot delete the quick bookmark target playlist.: No se puede eliminar la lista
-    de reproducción objetivo del marcador rápido.
+  Cannot delete the quick bookmark target playlist.: No se puede eliminar la lista de reproducción objetivo del marcador rápido.
   Remove Watched Videos: Eliminar videos vistos
-  Enable Quick Bookmark With This Playlist: Habilitar marcador rápido con esta lista
-    de reproducción
+  Enable Quick Bookmark With This Playlist: Habilitar marcador rápido con esta lista de reproducción
   Cancel: Cancelar
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: ¿Estás
-    seguro de que quieres eliminar 1 video duplicado de esta lista de reproducción?
-    Esto no se puede deshacer.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: ¿Estás seguro de que quieres eliminar 1 video duplicado de esta lista de reproducción? Esto no se puede deshacer.
   TotalTimePlaylist: 'Tiempo total: {duration}'
   Remove from Favorites: Eliminar de {playlistName}
   Move Video Up: Mover video hacia arriba
@@ -140,46 +123,29 @@ User Playlists:
   Edit Playlist Info: Editar información de la lista de reproducción
   Copy Playlist: Copiar lista de reproducción
   Remove Duplicate Videos: Eliminar videos duplicados
-  The playlist has been successfully exported: La lista de reproducción ha sido exportada
-    con éxito
+  The playlist has been successfully exported: La lista de reproducción ha sido exportada con éxito
   Delete Playlist: Eliminar lista de reproducción
   SinglePlaylistView:
     Toast:
       Video has been removed: El video ha sido eliminado
-      This playlist is already being used for quick bookmark.: Esta lista ya se está
-        usando para marcadores rápidos.
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Esta
-        lista de reproducción ahora se usa como marcador rápido en lugar de {oldPlaylistName}.
-        Hacé clic acá para deshacer.
-      Playlist name cannot be empty. Please input a name.: El nombre de la lista de
-        reproducción no puede estar vacío. Por favor, ingresá un nombre.
-      There was an issue with updating this playlist.: Hubo un problema al actualizar
-        esta lista de reproducción.
+      This playlist is already being used for quick bookmark.: Esta lista ya se está usando para marcadores rápidos.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Esta lista de reproducción ahora se usa como marcador rápido en lugar de {oldPlaylistName}. Hacé clic acá para deshacer.
+      Playlist name cannot be empty. Please input a name.: El nombre de la lista de reproducción no puede estar vacío. Por favor, ingresá un nombre.
+      There was an issue with updating this playlist.: Hubo un problema al actualizar esta lista de reproducción.
       This video cannot be moved down.: Este video no se puede mover hacia abajo.
       This video cannot be moved up.: Este video no se puede mover hacia arriba.
-      This playlist is now used for quick bookmark: Esta lista de reproducción ahora
-        se usa como marcador rápido
-      Reverted to use {oldPlaylistName} for quick bookmark: '"Se volvió a usar {oldPlaylistName}
-        como marcador rápido.'
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Algunos
-        videos de la lista de reproducción todavía no se cargaron. Hacé clic acá para
-        copiar igual.
+      This playlist is now used for quick bookmark: Esta lista de reproducción ahora se usa como marcador rápido
+      Reverted to use {oldPlaylistName} for quick bookmark: '"Se volvió a usar {oldPlaylistName} como marcador rápido.'
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Algunos videos de la lista de reproducción todavía no se cargaron. Hacé clic acá para copiar igual.
       Playlist has been updated.: La lista de reproducción fue actualizada.
-      "{videoCount} video(s) have been removed": Se eliminó 1 video | {videoCount}
-        videos fueron eliminados
-      Video has been removed. Click here to undo.: El video fue eliminado. Hacé clic
-        aquí para deshacer.
-      There was a problem with removing this video: Hubo un problema al eliminar este
-        video.
-      Playlist {playlistName} has been deleted.: La lista de reproducción {playlistName}
-        ha sido eliminada.
+      "{videoCount} video(s) have been removed": Se eliminó 1 video | {videoCount} videos fueron eliminados
+      Video has been removed. Click here to undo.: El video fue eliminado. Hacé clic aquí para deshacer.
+      There was a problem with removing this video: Hubo un problema al eliminar este video.
+      Playlist {playlistName} has been deleted.: La lista de reproducción {playlistName} ha sido eliminada.
       There were no videos to remove.: No había videos para eliminar.
-      This playlist is protected and cannot be removed.: Esta lista de reproducción
-        está protegida y no se puede eliminar.
+      This playlist is protected and cannot be removed.: Esta lista de reproducción está protegida y no se puede eliminar.
       This playlist does not exist: Esta lista de reproducción no existe.
-      This playlist has a video with a duration error: Esta lista de reproducción
-        contiene al menos un video sin duración; será ordenado como si su duración
-        fuera cero.
+      This playlist has a video with a duration error: Esta lista de reproducción contiene al menos un video sin duración; será ordenado como si su duración fuera cero.
     Search for Videos: Buscar videos
   Sort By:
     NameAscending: A-Z
@@ -191,34 +157,23 @@ User Playlists:
     LatestPlayedFirst: Reproducido recientemente
   AddVideoPrompt:
     Allow Adding Duplicate Video(s): Permitir agregar videos duplicados
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      videos serán agregados'
-    Select a playlist to add your N videos to: Seleccioná una lista de reproducción
-      para agregar tu video | Seleccioná una lista de reproducción para agregar tus
-      {videoCount} videos.
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videos serán agregados'
+    Select a playlist to add your N videos to: Seleccioná una lista de reproducción para agregar tu video | Seleccioná una lista de reproducción para agregar tus {videoCount} videos.
     Added {count} Times: Ya agregado | Agregado {count} veces
     Save: Guardar
     N playlists selected: '{playlistCount} seleccionadas'
     Search in Playlists: Buscar en listas de reproducción
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      videos ya agregados'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videos ya agregados'
     Toast:
-      You haven't selected any playlist yet.: Todavía no seleccionaste ninguna lista
-        de reproducción.
-      "{videoCount} video(s) added to 1 playlist": 1 video agregado a 1 lista de reproducción
-        | {videoCount} videos agregados a 1 lista de reproducción
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video agregado
-        a {playlistCount} listas de reproducción |{videoCount} videos agregados a
-        {playlistCount} listas de reproducción
+      You haven't selected any playlist yet.: Todavía no seleccionaste ninguna lista de reproducción.
+      "{videoCount} video(s) added to 1 playlist": 1 video agregado a 1 lista de reproducción | {videoCount} videos agregados a 1 lista de reproducción
+      "{videoCount} video(s) added to {playlistCount} playlists": 1 video agregado a {playlistCount} listas de reproducción |{videoCount} videos agregados a {playlistCount} listas de reproducción
   CreatePlaylistPrompt:
     New Playlist Name: Nombre de la nueva lista de reproducción
     Toast:
-      Playlist {playlistName} has been successfully created.: La lista de reproducción
-        {playlistName} se creó correctamente.
-      There is already a playlist with this name. Please pick a different name.: Ya
-        existe una lista de reproducción con este nombre. Por favor, elegí otro nombre.
-      There was an issue with creating the playlist.: Hubo un problema al crear la
-        lista de reproducción.
+      Playlist {playlistName} has been successfully created.: La lista de reproducción {playlistName} se creó correctamente.
+      There is already a playlist with this name. Please pick a different name.: Ya existe una lista de reproducción con este nombre. Por favor, elegí otro nombre.
+      There was an issue with creating the playlist.: Hubo un problema al crear la lista de reproducción.
     Create: Crear
 History:
   # On History Page
@@ -233,8 +188,7 @@ Settings:
   Settings: 'Configuraciones'
   General Settings:
     General Settings: 'General'
-    Fallback to Non-Preferred Backend on Failure: 'Usar una Alternativa en Caso de
-      Problemas con la Opción Preferida'
+    Fallback to Non-Preferred Backend on Failure: 'Usar una Alternativa en Caso de Problemas con la Opción Preferida'
     Enable Search Suggestions: 'Habilitar sugerencias de búsqueda'
     Default Landing Page: 'Página de destino predeterminada'
     Locale Preference: 'Preferencia regional'
@@ -256,8 +210,7 @@ Settings:
       Blur: Desenfocar
     Region for Trending: 'Región para Tendencias'
         #! List countries
-    View all Invidious instance information: Ver toda la información sobre la instancia
-      de Invidious
+    View all Invidious instance information: Ver toda la información sobre la instancia de Invidious
     Check for Latest Blog Posts: Buscar nuevas entradas de blogs
     Check for Updates: Buscar actualizaciones
     Set Current Instance as Default: Definir Instancia Actual como Por Defecto
@@ -265,16 +218,14 @@ Settings:
     Current Invidious Instance: Instancia Actual de Individuous
     The currently set default instance is {instance}: La instancia actual es {instance}
     No default instance has been set: No se ha elegido ninguna instancia
-    Current instance will be randomized on startup: La instancia actual será aleatorizada
-      en el inicio
+    Current instance will be randomized on startup: La instancia actual será aleatorizada en el inicio
     System Default: Por defecto del Sistema
     External Link Handling:
       No Action: Sin Acción
       External Link Handling: Manejo de Enlaces Externos
       Open Link: Abrir enlace
       Ask Before Opening Link: Preguntar antes de abrir el enlace
-    Open Deep Links In New Window: Abrir las URLs enviadas a FreeTube en una nueva
-      ventana
+    Open Deep Links In New Window: Abrir las URLs enviadas a FreeTube en una nueva ventana
     Auto Load Next Page:
       Label: Cargar automáticamente la próxima página
       Tooltip: Cargar automáticamente páginas y comentarios adicionales.
@@ -382,22 +333,17 @@ Settings:
       Enable: Habilitar capturas de pantalla
       Ask Path: Solicitar Carpeta de Guardado
       Quality Label: Calidad de Captura de Pantalla
-      File Name Tooltip: 'Podés utilizar las siguientes variables: %Y Año (4 dígitos).
-        %M Mes (2 dígitos). %D Día (2 dígitos). %H Hora (2 dígitos). %N Minuto (2
-        dígitos). %S Segundo (2 dígitos). %T Milisegundo (3 dígitos). %s Segundo del
-        Video. %t Milisegundo del Video (3 dígitos). %i ID del Video.'
+      File Name Tooltip: 'Podés utilizar las siguientes variables: %Y Año (4 dígitos). %M Mes (2 dígitos). %D Día (2 dígitos). %H Hora (2 dígitos). %N Minuto (2 dígitos). %S Segundo (2 dígitos). %T Milisegundo (3 dígitos). %s Segundo del Video. %t Milisegundo del Video (3 dígitos). %i ID del Video.'
       File Name Label: Formato de Nombre de Archivo
     Scroll Volume Over Video Player: Barra de volumen en el reproductor
-    Skip by Scrolling Over Video Player: Saltar Deslizando sobre el Reproductor de
-      Video
+    Skip by Scrolling Over Video Player: Saltar Deslizando sobre el Reproductor de Video
     Scroll Playback Rate Over Video Player: Acelerar video con la rueda del mouse
     Fast-Forward / Rewind Interval: Período de Avance Rápido / Retroceso
     Video Playback Rate Interval: Intervalo entre velocidades del video
     Max Video Playback Rate: Velocidad máxima de reproducción de video
     Enter Fullscreen on Display Rotate: Cambiar a pantalla completa al girar la pantalla
     Next Video Interval: Temporizador de reproducción automática
-    Display Play Button In Video Player: Mostrar botón de reproducir antes de empezar
-      el video
+    Display Play Button In Video Player: Mostrar botón de reproducir antes de empezar el video
     Default Viewing Mode:
       Default Viewing Mode: Modo de visualización predeterminado
       Theater: Cine
@@ -410,46 +356,33 @@ Settings:
     Remember History: 'Recordar historial de reproducciones'
     Save Watched Progress: 'Guardar el progreso observado'
     Clear Search Cache: 'Borrar la caché de búsqueda'
-    Are you sure you want to clear out your search cache?: '¿Realmente deseas limpiar
-      la caché de búsqueda?'
+    Are you sure you want to clear out your search cache?: '¿Realmente deseas limpiar la caché de búsqueda?'
     Search cache has been cleared: 'La caché de búsqueda ha sido borrada'
     Remove Watch History: 'Borrar historial de videos vistos'
-    Are you sure you want to remove your entire watch history?: '¿Estás seguro de
-      querer borrar tu historial completo de videos vistos?'
+    Are you sure you want to remove your entire watch history?: '¿Estás seguro de querer borrar tu historial completo de videos vistos?'
     Watch history has been cleared: 'El historial de videos vistos ha sido borrado'
     Remove All Subscriptions / Profiles: 'Remover todas las suscripciones / perfiles'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Realmente
-      querés remover todas las suscripciones y perfiles? Esta acción no puede deshacerse.'
-    Save Watched Videos With Last Viewed Playlist: Guardar videos vistos con la última
-      lista de reproducción vista
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '¿Realmente querés remover todas las suscripciones y perfiles? Esta acción no puede deshacerse.'
+    Save Watched Videos With Last Viewed Playlist: Guardar videos vistos con la última lista de reproducción vista
     Clear Search History and Cache: Borrar historial de búsqueda y caché
-    Are you sure you want to clear out your search history and cache?: ¿Estás seguro
-      de que querés borrar tu historial de búsqueda y caché?
+    Are you sure you want to clear out your search history and cache?: ¿Estás seguro de que querés borrar tu historial de búsqueda y caché?
     Remember Search History: Recordar historial de búsquedas
     Watched Progress Saving Mode:
-      Tooltip: Automático = Guarda al salir de cada página de video, cuando el video
-        termina y cuando ocurre un error (por ejemplo, límite de velocidad o sesión
-        de reproducción expirada). Semiautomático = Igual que Automático, excepto
-        que no guarda al salir de la página de video. Se puede guardar el progreso
-        manualmente usando el botón "Guardar progreso de visualización", ubicado debajo
-        del reproductor de video.
+      Tooltip: Automático = Guarda al salir de cada página de video, cuando el video termina y cuando ocurre un error (por ejemplo, límite de velocidad o sesión de reproducción expirada). Semiautomático = Igual que Automático, excepto que no guarda al salir de la página de video. Se puede guardar el progreso manualmente usando el botón "Guardar progreso de visualización", ubicado debajo del reproductor de video.
       Modes:
         Never: Nunca
         Auto: Automático
         Semi-auto: Semiautomático
     All playlists have been removed: Todas las listas de reproducción han sido eliminadas.
-    Search history and cache have been cleared: El historial de búsqueda y la caché
-      han sido borrados.
+    Search history and cache have been cleared: El historial de búsqueda y la caché han sido borrados.
     Remove All Playlists: Eliminar todas las listas de reproducción
-    Are you sure you want to remove all your playlists?: ¿Estás seguro de que querés
-      eliminar todas tus listas de reproducción?
+    Are you sure you want to remove all your playlists?: ¿Estás seguro de que querés eliminar todas tus listas de reproducción?
   Subscription Settings:
     Subscription Settings: 'Suscripción'
     Fetch Automatically: Obtener feed automáticamente
     Fetch Feeds from RSS: Obtener feeds desde RSS
     To: A
-    'Limit the number of videos displayed for each channel': Limitar la cantidad de
-      videos mostrados por cada canal
+    'Limit the number of videos displayed for each channel': Limitar la cantidad de videos mostrados por cada canal
     Confirm Before Unsubscribing: Confirmar antes de darse de baja
   Data Settings:
     Data Settings: 'Datos'
@@ -461,46 +394,31 @@ Settings:
     Export NewPipe: 'Exportar NewPipe'
     Import History: 'Importar historial'
     Export History: 'Exportar historial'
-    All playlists has been successfully exported: Todas las listas de reproducción
-      se han exportado con éxito
+    All playlists has been successfully exported: Todas las listas de reproducción se han exportado con éxito
     Playlist File: Archivo de lista de reproducción
-    History object has insufficient data, skipping item: El historial no tiene datos
-      suficientes, omitiendo objeto
+    History object has insufficient data, skipping item: El historial no tiene datos suficientes, omitiendo objeto
     Subscription File: Archivo de suscripción
-    All watched history has been successfully imported: Historial de reproducciones
-      se importó con éxito
+    All watched history has been successfully imported: Historial de reproducciones se importó con éxito
     How do I import my subscriptions?: ¿Cómo puedo importar mis suscripciones?
-    All subscriptions and profiles have been successfully imported: Suscripciones
-      y perfiles se importaron con éxito
+    All subscriptions and profiles have been successfully imported: Suscripciones y perfiles se importaron con éxito
     Unable to read file: No se pudo leer el archivo
     Invalid subscriptions file: Archivo de suscripciones no válido
     History File: Archivo de historial
-    Profile object has insufficient data, skipping item: El objeto de perfil tiene
-      datos insuficientes, saltando elemento
-    All watched history has been successfully exported: Historial de reproducciones
-      se exportó con éxito
+    Profile object has insufficient data, skipping item: El objeto de perfil tiene datos insuficientes, saltando elemento
+    All watched history has been successfully exported: Historial de reproducciones se exportó con éxito
     Export Playlists: Exportar lista de reproducción
     Manage Subscriptions: Administrar suscripciones
     Import Playlists: Importar lista de reproducción
-    All playlists has been successfully imported: Todas sus listas han sido importadas
-      con éxito
-    Subscriptions have been successfully exported: Suscripciones se exportaron con
-      éxito
+    All playlists has been successfully imported: Todas sus listas han sido importadas con éxito
+    Subscriptions have been successfully exported: Suscripciones se exportaron con éxito
     Playlist insufficient data: Datos insuficientes de la lista "{playlist}", omitiendo
-    All subscriptions have been successfully imported: Suscripciones se importaron
-      con éxito
+    All subscriptions have been successfully imported: Suscripciones se importaron con éxito
     Unable to write file: No se pudo escribir el archivo
     Unknown data key: Clave de datos desconocida
     This might take a while, please wait: Esto puede tardar un rato. Por favor, esperá
     Invalid history file: Archivo de historial no válido
     Export Playlists For Older FreeTube Versions:
-      Tooltip: "\"Esta opción exporta los videos de todas las listas de reproducción
-        en una sola lista llamada 'Favoritos'.\nCómo exportar e importar videos en
-        listas de reproducción para una versión anterior de FreeTube:\n\nExportá tus
-        listas de reproducción con esta opción activada.\n\nEliminá todas tus listas
-        existentes usando la opción 'Eliminar todas las listas de reproducción' en
-        la sección de Configuración de privacidad.\n\nIniciá la versión anterior de
-        FreeTube e importá las listas de reproducción exportadas.\""
+      Tooltip: "\"Esta opción exporta los videos de todas las listas de reproducción en una sola lista llamada 'Favoritos'.\nCómo exportar e importar videos en listas de reproducción para una versión anterior de FreeTube:\n\nExportá tus listas de reproducción con esta opción activada.\n\nEliminá todas tus listas existentes usando la opción 'Eliminar todas las listas de reproducción' en la sección de Configuración de privacidad.\n\nIniciá la versión anterior de FreeTube e importá las listas de reproducción exportadas.\""
       Label: Exportar listas de reproducción para versiones anteriores de FreeTube
   Distraction Free Settings:
     Hide Active Subscriptions: Ocultar suscripciones activas
@@ -533,8 +451,7 @@ Settings:
     Hide Channels: Ocultar los vídeos de los canales
     Hide Subscriptions Live: Ocultar Suscripciones en Vivo
     Hide Subscriptions Shorts: Ocultar las suscripciones para los Shorts
-    Display Titles Without Excessive Capitalisation: Mostrar títulos sin uso excesivo
-      de mayúsculas y puntuación
+    Display Titles Without Excessive Capitalisation: Mostrar títulos sin uso excesivo de mayúsculas y puntuación
     Hide Featured Channels: Ocultar los canales recomendados
     Hide Profile Pictures in Comments: Ocultar las fotos del perfil en los comentarios
     Hide Upcoming Premieres: Ocultar próximos estrenos
@@ -542,23 +459,16 @@ Settings:
     Hide Playlists: Ocultar listas de reproducción
     Hide Channels Invalid: El ID del canal proporcionado no es válido.
     Hide Channel Home: Ocultar la pestaña de 'Inicio' del canal
-    Hide Channels API Error: Error al obtener el usuario con el ID proporcionado.
-      Por favor, verificá nuevamente si el ID es correcto.
-    Hide Channels Disabled Message: Algunos canales fueron bloqueados usando ID y
-      no se procesaron. La función está bloqueada mientras se actualizan esos IDs.
-    Hide Videos and Playlists Containing Text: Ocultar videos y listas de reproducción
-      que contengan texto
+    Hide Channels API Error: Error al obtener el usuario con el ID proporcionado. Por favor, verificá nuevamente si el ID es correcto.
+    Hide Channels Disabled Message: Algunos canales fueron bloqueados usando ID y no se procesaron. La función está bloqueada mientras se actualizan esos IDs.
+    Hide Videos and Playlists Containing Text: Ocultar videos y listas de reproducción que contengan texto
     Hide Channels Already Exists: El ID del canal ya existe.
     Hide Channel Courses: Ocultar la pestaña de 'Cursos' del canal
-    Hide Videos and Playlists Containing Text Placeholder: Palabra, fragmento de palabra
-      o frase
+    Hide Videos and Playlists Containing Text Placeholder: Palabra, fragmento de palabra o frase
     Show Added Items: Mostrar elementos agregados
-  The app needs to restart for changes to take effect. Restart and apply change?: Esta
-    aplicación necesita reiniciarse para que los cambios entren en efecto. ¿Reiniciar
-    y aplicar el cambio?
+  The app needs to restart for changes to take effect. Restart and apply change?: Esta aplicación necesita reiniciarse para que los cambios entren en efecto. ¿Reiniciar y aplicar el cambio?
   Proxy Settings:
-    Clicking on Test Proxy will send a request to: Hacer clic en Probar proxy enviará
-      una solicitud a
+    Clicking on Test Proxy will send a request to: Hacer clic en Probar proxy enviará una solicitud a
     Proxy Protocol: Protocolo de Proxy
     Proxy Port Number: Puerto del Proxy
     Region: Región
@@ -568,20 +478,13 @@ Settings:
     Ip: IP
     Enable Tor / Proxy: Habilitar Tor/Proxy
     Test Proxy: Probar proxy
-    Error getting network information. Is your proxy configured properly?: Error al
-      recibir datos de la red. ¿Configuraste bien tu Proxy?
+    Error getting network information. Is your proxy configured properly?: Error al recibir datos de la red. ¿Configuraste bien tu Proxy?
     Your Info: Sus datos
     Proxy Host: Host del Proxy
-    Proxy Warning: FreeTube no tiene un proxy integrado, pero puede conectarse a un
-      proxy externo, como uno que se esté ejecutando en tu máquina (como Tor) o un
-      proxy externo, como un proxy SOCKS5 provisto por algunas VPNs. Si activás esta
-      opción, asegurate de que tu proxy o Tor esté configurado correctamente, de lo
-      contrario FreeTube no podrá obtener datos.
+    Proxy Warning: FreeTube no tiene un proxy integrado, pero puede conectarse a un proxy externo, como uno que se esté ejecutando en tu máquina (como Tor) o un proxy externo, como un proxy SOCKS5 provisto por algunas VPNs. Si activás esta opción, asegurate de que tu proxy o Tor esté configurado correctamente, de lo contrario FreeTube no podrá obtener datos.
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Notificar cuando el tramo publicitario
-      es omitido
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de la API de
-      SponsorBlock (https://sponsor.ajay.app por defecto)
+    Notify when sponsor segment is skipped: Notificar cuando el tramo publicitario es omitido
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de la API de SponsorBlock (https://sponsor.ajay.app por defecto)
     Skip Options:
       Skip Option: Omitir opción
       Auto Skip: Salto Automático
@@ -593,8 +496,7 @@ Settings:
     SponsorBlock Settings: SponsorBlock
     Category Color: Color de categoría
     UseDeArrowThumbnails: Usar DeArrow para las miniaturas
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL
-      de la API del generador de miniaturas DeArrow (la predeterminada es https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL de la API del generador de miniaturas DeArrow (la predeterminada es https://dearrow-thumb.ajay.app)
   External Player Settings:
     External Player: Reproductor externo
     External Player Settings: Reproductor externo
@@ -623,11 +525,9 @@ Channel:
     Details: Detalles
 Yes: 'Sí'
 No: 'No'
-A new blog is now available, {blogTitle}. Click to view more: 'Un nuevo blog está
-  disponible, {blogTitle}. Hacé clic para ver más'
+A new blog is now available, {blogTitle}. Click to view more: 'Un nuevo blog está disponible, {blogTitle}. Hacé clic para ver más'
 Download From Site: Descargar desde el sitio
-Version {versionNumber} is now available!  Click for more details: La versión {versionNumber}
-  ya está disponible. Hacé clic acá para más detalles
+Version {versionNumber} is now available!  Click for more details: La versión {versionNumber} ya está disponible. Hacé clic acá para más detalles
 More: Más
 Are you sure you want to open this link?: ¿Está seguro que desea abrir este enlace?
 Open New Window: Abrir nueva ventana
@@ -659,8 +559,7 @@ Channels:
 Preferences: Preferencias
 Tooltips:
   Distraction Free Settings:
-    Hide Subscriptions Live: Esta configuración se reemplaza por la configuración
-      «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
+    Hide Subscriptions Live: Esta configuración se reemplaza por la configuración «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
 Go to page: Ir a {page}
 Close Banner: Cerrar banner
 Search Listing:
@@ -676,8 +575,7 @@ Search Listing:
 Feed:
   Refresh Feed: Actualizar {subscriptionName}
   Feed Last Updated: 'Última actualización del feed de {feedName}: {date}'
-Right-click or hold to see history: Haz clic derecho o mantén presionado para ver
-  el historial
+Right-click or hold to see history: Haz clic derecho o mantén presionado para ver el historial
 KeyboardShortcutPrompt:
   Toggle Developer Tools: Activar/Desactivar Herramientas de Desarrollo
   Zoom Out: Alejarse

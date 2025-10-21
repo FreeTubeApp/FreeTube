@@ -133,13 +133,13 @@ User Playlists:
   Edit Playlist Info: Breyta upplýsingum spilunarlista
   Sort By:
     NameDescending: Ö-A
-    LatestCreatedFirst: Nýlega útbúið
-    EarliestCreatedFirst: Fyrst búið til
-    LatestUpdatedFirst: Nýlega uppfært
-    EarliestPlayedFirst: Fyrst spilað
+    LatestCreatedFirst: Dags. útbúið (nýjast)
+    EarliestCreatedFirst: Dags. útbúið (elst)
+    LatestUpdatedFirst: Dags. uppfært (nýjast)
+    EarliestPlayedFirst: Dags. spilað (elst)
     NameAscending: A-Ö
-    EarliestUpdatedFirst: Fyrst uppfært
-    LatestPlayedFirst: Nýlega spilað
+    EarliestUpdatedFirst: Dags. uppfært (elst)
+    LatestPlayedFirst: Dags. spilað (nýjast)
   SinglePlaylistView:
     Toast:
       This video cannot be moved up.: Ekki er hægt að færa þetta myndskeið upp.
@@ -202,6 +202,7 @@ User Playlists:
   Export Playlist: Flytja út þennan spilunarlista
   The playlist has been successfully exported: Það tókst að flytja út þennan spilunarlista
   TotalTimePlaylist: 'Heildartími: {duration}'
+  Export list of URLs: Flytja út lista með vefslóðum
 History:
   # On History Page
   History: 'Áhorf'
@@ -210,8 +211,8 @@ History:
   Search bar placeholder: Leita í áhorfsferli
   Empty Search Message: Það eru engin myndskeið í ferlinum þínum sem samsvara leitinni þinni
   Case Sensitive Search: Leit háð há-/lágstöfum
-  DateOldestHistory: Fyrst horft á fremst
-  DateNewestHistory: Síðast horft á fremst
+  DateOldestHistory: Dags. horft á (elst)
+  DateNewestHistory: Dags. horft á (nýjast)
 Settings:
   # On Settings Page
   Settings: 'Stillingar'
@@ -564,6 +565,8 @@ Settings:
     City: 'Borg/Sveitarfélag'
     Error getting network information. Is your proxy configured properly?: 'Það tókst ekki að sækja upplýsingar um netkerfið. Er milliþjónninn rétt uppsettur?'
     Proxy Warning: FreeTube er ekki með innbyggðan milliþjón en getur tengst við utanaðkomandi milliþjóna, til dæmis einhvern sem keyrir á vélinni þinni eins og Tor eða fjartengdan milliþjón á borð við SOCKS5-milliþjóna sem sumar VPN-þjónustur bjóða. Ef þetta er virkt skaltu ganga úr skugga um að milliþjónninn/Tor sé rétt stillt, annars mun FreeTube ekki geta sótt nein gögn.
+    Proxy Username: Notandanafn á milliþjóni
+    Proxy Password: Lykilorð á milliþjóni
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Láta vita þegar kostaður hluti er hunsaður
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-slóð (sjálfgefið er https://sponsor.ajay.app)
@@ -874,16 +877,16 @@ Playlist:
   Playlist: Spilunarlisti
   Sort By:
     AuthorAscending: Höfundur (A-Ö)
-    DateAddedNewest: Nýlegast bætt við fyrst
+    DateAddedNewest: Dags. bætt við (nýjast)
     AuthorDescending: Höfundur (Ö-A)
     VideoTitleAscending: Titill (A-Ö)
     VideoTitleDescending: Titill (Ö-A)
     Custom: Sérsniðið
-    DateAddedOldest: Elsta bætt við fyrst
-    VideoDurationAscending: Tímalengd (stysta fyrst)
-    VideoDurationDescending: Tímalengd (lengsta fyrst)
-    PublishedOldest: Elsta útgefna myndskeið fyrst
-    PublishedNewest: Síðast útgefna myndskeið fyrst
+    DateAddedOldest: Dags. bætt við (elst)
+    VideoDurationAscending: Tímalengd (styst)
+    VideoDurationDescending: Tímalengd (lengst)
+    PublishedOldest: Dags. gefið út (elst)
+    PublishedNewest: Dags. gefið út (nýjast)
 Change Format:
   Change Media Formats: 'Skipta um myndskeiðasnið'
   Use Dash Formats: 'Nota DASH-skráasnið'

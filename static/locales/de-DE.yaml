@@ -132,12 +132,12 @@ User Playlists:
   Sort By:
     NameAscending: A-Z
     NameDescending: Z-A
-    LatestCreatedFirst: Kürzlich erstellt
-    EarliestCreatedFirst: Am frühesten erstellt
-    LatestUpdatedFirst: Kürzlich aktualisiert
-    EarliestUpdatedFirst: Am frühesten aktualisiert
-    LatestPlayedFirst: Kürzlich abgespielt
-    EarliestPlayedFirst: Am frühesten abgespielt
+    LatestCreatedFirst: Erstellungsdatum (neueste)
+    EarliestCreatedFirst: Erstellungsdatum (älteste)
+    LatestUpdatedFirst: Aktualisierungsdatum (neueste)
+    EarliestUpdatedFirst: Aktualisierungsdatum (älteste)
+    LatestPlayedFirst: Abspieldatum (neueste)
+    EarliestPlayedFirst: Abspieldatum (älteste)
   SinglePlaylistView:
     Toast:
       This video cannot be moved up.: Dieses Video kann nicht nach oben verschoben werden.
@@ -203,8 +203,8 @@ History:
   Search bar placeholder: Im Verlauf suchen
   Empty Search Message: Es gibt keine Videos in deinem Verlauf, die deiner Suche entsprechen
   Case Sensitive Search: Groß- und Kleinschreibung bei der Suche beachten
-  DateOldestHistory: Älteste gesehene zuerst
-  DateNewestHistory: Zuletzt gesehene zuerst
+  DateOldestHistory: Wiedergabedatum (älteste)
+  DateNewestHistory: Wiedergabedatum (neueste)
 Settings:
   # On Settings Page
   Settings: Einstellungen
@@ -831,16 +831,16 @@ Playlist:
 #& Views
   Sort By:
     VideoTitleDescending: Titel (Z-A)
-    DateAddedNewest: Zuletzt hinzugefügt zuerst
-    DateAddedOldest: Am frühesten hinzugefügt zuerst
+    DateAddedNewest: Hinzugefügt am (neueste)
+    DateAddedOldest: Hinzugefügt am (älteste)
     AuthorAscending: Autor (A-Z)
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Titel (A-Z)
     Custom: Benutzerdefiniert
-    VideoDurationAscending: Dauer (Kürzeste zuerst)
-    VideoDurationDescending: Dauer (Längste zuerst)
-    PublishedNewest: Zuletzt veröffentlicht zuerst
-    PublishedOldest: Älteste veröffentlicht zuerst
+    VideoDurationAscending: Dauer (kürzeste)
+    VideoDurationDescending: Dauer (längste)
+    PublishedNewest: Veröffentlichungsdatum (neueste)
+    PublishedOldest: Veröffentlichungsdatum (älteste)
 Change Format:
   Change Media Formats: Medienformate ändern
   Use Dash Formats: DASH-Formate verwenden

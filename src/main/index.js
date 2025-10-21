@@ -425,23 +425,43 @@ function runApp() {
     // FreeTube needs the following permissions:
     // - "fullscreen": So that the video player can enter full screen
     // - "clipboard-sanitized-write": To allow the user to copy video URLs and error messages
+    // - "fileSystem" Needed for the Web File System API (e.g. importing and exporting data)
 
-    session.defaultSession.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+    session.defaultSession.setPermissionCheckHandler((webContents, permission, requestingOrigin, details) => {
       if (!isFreeTubeUrl(requestingOrigin)) {
         return false
       }
 
-      return permission === 'fullscreen' || permission === 'clipboard-sanitized-write'
+      return (
+        permission === 'fullscreen' ||
+        permission === 'clipboard-sanitized-write' ||
+        (permission === 'fileSystem' && !details.isDirectory)
+      )
     })
 
-    session.defaultSession.setPermissionRequestHandler((webContents, permission, callback) => {
+    session.defaultSession.setPermissionRequestHandler((webContents, permission, callback, details) => {
       if (!isFreeTubeUrl(webContents.getURL())) {
         // eslint-disable-next-line n/no-callback-literal
         callback(false)
         return
       }
 
-      callback(permission === 'fullscreen' || permission === 'clipboard-sanitized-write')
+      callback(
+        permission === 'fullscreen' ||
+        permission === 'clipboard-sanitized-write' ||
+        (permission === 'fileSystem' && !details.isDirectory)
+      )
+    })
+
+    session.defaultSession.on('file-system-access-restricted', (event, details, callback) => {
+      if (!isFreeTubeUrl(details.origin)) {
+        // eslint-disable-next-line n/no-callback-literal
+        callback('deny')
+        return
+      }
+
+      // eslint-disable-next-line n/no-callback-literal
+      callback(details.isDirectory ? 'deny' : 'allow')
     })
 
     let docArray
@@ -839,7 +859,7 @@ function runApp() {
     if (process.env.NODE_ENV === 'development') {
       return url_ !== null && url_.protocol === 'http:' && url_.host === 'localhost:9080' && (url_.pathname === '/' || url_.pathname === '/index.html')
     } else {
-      return url_ !== null && url_.protocol === 'app:' && url_.host === 'bundle' && url_.pathname === '/index.html'
+      return url_ !== null && url_.protocol === 'app:' && url_.host === 'bundle' && (url_.pathname === '/' || url_.pathname === '/index.html')
     }
   }
 
@@ -1176,8 +1196,8 @@ function runApp() {
     })
   })
 
-  ipcMain.handle(IpcChannels.GENERATE_PO_TOKENS, (_, videoId, visitorData, context) => {
-    return generatePoToken(videoId, visitorData, context, proxyUrl)
+  ipcMain.handle(IpcChannels.GENERATE_PO_TOKEN, (_, videoId, context) => {
+    return generatePoToken(videoId, context, proxyUrl)
   })
 
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {

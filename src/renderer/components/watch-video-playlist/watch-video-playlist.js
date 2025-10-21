@@ -5,6 +5,7 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtListVideoNumbered from '../FtListVideoNumbered/FtListVideoNumbered.vue'
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import {
+  getLocalCachedFeedContinuation,
   getLocalPlaylist,
   parseLocalPlaylistVideo,
   untilEndOfLocalPlayList,
@@ -442,7 +443,11 @@ export default defineComponent({
         this.playlistItems = cachedPlaylist.items
       } else {
         const videos = cachedPlaylist.items
-        await untilEndOfLocalPlayList(cachedPlaylist.continuationData, (p) => {
+
+        const continuationData = await getLocalCachedFeedContinuation('playlist', cachedPlaylist.continuationData)
+        videos.push(...continuationData.items.map(parseLocalPlaylistVideo))
+
+        await untilEndOfLocalPlayList(continuationData, (p) => {
           videos.push(...p.items.map(parseLocalPlaylistVideo))
         }, { runCallbackOnceFirst: false })
 

@@ -161,14 +161,14 @@ User Playlists:
   Quick Bookmark Enabled: Nod Tudalen Cyflym wedi'i Galluogi
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ydych chi'n siŵr eich bod am dynnu 1 fideo a wyliwyd o'r rhestr chwarae hon? Nid oes modd dadwneud hyn. | A ydych yn siŵr eich bod am ddileu {playlistItemCount} fideo a wyliwyd o'r rhestr chwarae hon? Nid oes modd dadwneud hyn.
   Sort By:
-    LatestCreatedFirst: Crëwyd yn Ddiweddar
+    LatestCreatedFirst: Dyddiad Crëwyd (Diweddaraf)
     NameAscending: A-Z
-    EarliestCreatedFirst: Crëwyd Gynharaf
-    LatestUpdatedFirst: Diweddarwyd yn Ddiweddar
+    EarliestCreatedFirst: Dyddiad Crëwyd (Hynaf)
+    LatestUpdatedFirst: Dyddiad Diweddarwyd (Mwyaf Newydd)
     NameDescending: Z-A
-    LatestPlayedFirst: Chwaraewyd yn Ddiweddar
-    EarliestPlayedFirst: Chwaraewyd Cynharaf
-    EarliestUpdatedFirst: Diweddarwyd Cynharaf
+    LatestPlayedFirst: Dyddiad Chwaraewyd (Mwyaf Newydd)
+    EarliestPlayedFirst: Dyddiad Chwaraewyd (Hynaf)
+    EarliestUpdatedFirst: Dyddiad Diweddarwyd (Hynaf)
   SinglePlaylistView:
     Toast:
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Nid yw rhai fideos yn y rhestr chwarae wedi'u llwytho eto. Cliciwch yma i gopïo beth bynnag.
@@ -218,6 +218,7 @@ User Playlists:
   Save Changes: Cadw'r Newidiadau
   Remove Duplicate Videos: Dileu Fideos Dyblyg
   TotalTimePlaylist: 'Cyfanswm amser: {duration}'
+  Export list of URLs: Allforio'r rhestr o URLau
 History:
   # On History Page
   History: 'Hanes'
@@ -226,8 +227,8 @@ History:
   Empty Search Message: 'Nid oes unrhyw fideos yn eich hanes sy''n cyfateb i''ch chwilio'
   Search bar placeholder: "Chwilio yn eich Hanes"
   Case Sensitive Search: Chwilio Nodau Mawr neu Fach
-  DateOldestHistory: Cynharaf ei Wylio'n Gyntaf
-  DateNewestHistory: Diweddaraf ei Wylio'n Gyntaf
+  DateOldestHistory: Dyddiad Gwyliwyd (Hynaf)
+  DateNewestHistory: Dyddiad Gwyliwyd (Mwyaf Newydd)
 Settings:
   # On Settings Page
   Settings: 'Gosodiadau'
@@ -590,6 +591,8 @@ Settings:
     City: 'Dinas'
     Error getting network information. Is your proxy configured properly?: 'Gwall wrth gael manylion rhwydwaith. A yw eich dirprwy wedi''i ffurfweddu''n gywir?'
     Proxy Warning: Nid oes gan FreeTube ddirprwy mewnol ond gall gysylltu â dirprwy allanol, fel un sy'n rhedeg ar eich peiriant fel Tor neu ddirprwy allanol fel dirprwy SOCKS5 a ddarperir gan rai VPNs. Os yw wedi'i alluogi, gwnewch yn siŵr bod eich dirprwy/Tor wedi'i ffurfweddu'n gywir, neu ni fydd FreeTube yn gallu nôl unrhyw ddata.
+    Proxy Username: Enw defnyddiwr Dirprwy
+    Proxy Password: Cyfrinair Dirprwy
   SponsorBlock Settings:
     SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Galluogi SponsorBlock'
@@ -893,13 +896,13 @@ Playlist:
     AuthorDescending: Awdur (Z-A)
     VideoTitleAscending: Teitl (A-Z)
     VideoTitleDescending: Teitl (Z-A)
-    VideoDurationDescending: Hyd (Hiraf gyntaf)
-    DateAddedNewest: Y diweddaraf wedi'i ychwanegu gyntaf
+    VideoDurationDescending: Hyd (Hiraf)
+    DateAddedNewest: Dyddiad ychwanegwyd (Mwyaf Newydd)
     AuthorAscending: Awdur (A-Z)
-    VideoDurationAscending: Hyd (Byrraf gyntaf)
-    DateAddedOldest: Ychwanegwyd yn gyntaf yn gyntaf
-    PublishedNewest: Cyhoeddwyd diwethaf gyntaf
-    PublishedOldest: Cyhoeddwyd gyntaf yn gyntaf
+    VideoDurationAscending: Hyd (Byrraf)
+    DateAddedOldest: Dyddiad ychwanegwyd (Hynaf)
+    PublishedNewest: Dyddiad cyhoeddwyd (Mwyaf Newydd)
+    PublishedOldest: Dyddiad cyhoeddwyd (Hynaf)
 Change Format:
   Change Media Formats: 'Newid Fformatau Cyfryngau'
   Use Dash Formats: 'Defnyddio Fformatau DASH'

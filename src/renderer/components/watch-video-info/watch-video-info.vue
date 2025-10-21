@@ -119,7 +119,7 @@
         </span>
         <span class="videoOptionsMobileRow">
           <ft-icon-button
-            v-if="externalPlayer !== ''"
+            v-if="usingElectron && externalPlayer !== ''"
             :title="$t('Video.External Player.OpenInTemplate', { externalPlayer })"
             :icon="['fas', 'external-link-alt']"
             theme="secondary"
