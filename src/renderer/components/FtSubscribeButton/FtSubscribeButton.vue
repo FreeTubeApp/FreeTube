@@ -245,7 +245,7 @@ function handleSubscription(profile) {
 const subscribeButton = ref(null)
 
 function handleProfileDropdownFocusOut() {
-  if (!subscribeButton.value.matches(':focus-within')) {
+  if (subscribeButton.value && !subscribeButton.value.matches(':focus-within')) {
     isProfileDropdownOpen.value = false
   }
 }

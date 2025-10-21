@@ -282,6 +282,7 @@ import {
   showToast,
   getTodayDateStrLocalTimezone,
   writeFileWithPicker,
+  deepCopy,
 } from '../../helpers/utils'
 import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 
@@ -594,7 +595,7 @@ async function savePlaylistInfo() {
     playlistName: newTitle.value,
     protected: selectedUserPlaylist.value.protected,
     description: newDescription.value,
-    videos: selectedUserPlaylist.value.videos,
+    videos: deepCopy(selectedUserPlaylist.value.videos),
     _id: props.id,
   }
   try {
@@ -787,7 +788,7 @@ async function handleRemoveDuplicateVideosPromptAnswer(option) {
     playlistName: props.title,
     protected: selectedUserPlaylist.value.protected,
     description: props.description,
-    videos: newVideoItems,
+    videos: deepCopy(newVideoItems),
     _id: props.id,
   }
   try {
@@ -824,7 +825,7 @@ async function handleRemoveVideosOnWatchPromptAnswer(option) {
     playlistName: props.title,
     protected: selectedUserPlaylist.value.protected,
     description: props.description,
-    videos: videosToWatch,
+    videos: deepCopy(videosToWatch),
     _id: props.id
   }
   try {

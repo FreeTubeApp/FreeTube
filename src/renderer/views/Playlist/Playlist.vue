@@ -702,7 +702,7 @@ function moveVideoUp(videoId, playlistItemId) {
     playlistName: playlistTitle.value,
     protected: selectedUserPlaylist.value.protected,
     description: playlistDescription.value,
-    videos: playlistItems_,
+    videos: deepCopy(playlistItems_),
     _id: playlistId.value
   }
 
@@ -737,7 +737,7 @@ function moveVideoDown(videoId, playlistItemId) {
     playlistName: playlistTitle.value,
     protected: selectedUserPlaylist.value.protected,
     description: playlistDescription.value,
-    videos: playlistItems_,
+    videos: deepCopy(playlistItems_),
     _id: playlistId.value
   }
 
