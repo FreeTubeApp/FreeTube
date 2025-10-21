@@ -46,7 +46,7 @@
           v-if="!shuffleEnabled && !reversePlaylist"
           class="playlistProgressBarContainer"
           @mouseenter="showProgressBarPreview = true"
-          @mouseleave="showProgressBarPreview = false"
+          @mouseleave="showProgressBarPreview = true"
           @mousemove="updateProgressBarPreview"
         >
           <div

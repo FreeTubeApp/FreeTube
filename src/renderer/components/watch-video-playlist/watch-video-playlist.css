@@ -69,7 +69,7 @@
   white-space: nowrap;
   box-shadow: 0 4px 12px rgb(0 0 0 / 50%);
   margin-block-end: 4px;
-  min-inline-size: 120px;
+  inline-size: 300px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -178,9 +178,9 @@
 }
 
 /* Adding space between playlist progress bar ticks */
-@media (width <= 768px) {
+@media only screen and (width <= 768px) {
   .previewTooltip {
-    min-inline-size: 100px;
+    inline-size: 200px;
     padding: 6px;
   }
 
@@ -191,5 +191,11 @@
 
   .previewVideoTitle {
     max-inline-size: 120px;
+  }
+}
+
+@media only screen and (width <= 500px) {
+  .previewTooltip {
+    inline-size: 150px;
   }
 }
