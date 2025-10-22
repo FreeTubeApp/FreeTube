@@ -69,34 +69,35 @@
   white-space: nowrap;
   box-shadow: 0 4px 12px rgb(0 0 0 / 50%);
   margin-block-end: 4px;
-  inline-size: 300px;
-  display: flex;
+  display: grid;
+  grid-template:
+    'thumb index title' auto /
+    max-content max-content max-content;
   align-items: center;
   gap: 8px;
 }
 
 .previewThumbnail {
+  grid-area: thumb;
   block-size: 36px;
   inline-size: 48px;
   object-fit: cover;
   border-radius: 4px;
-  flex-shrink: 0;
+}
+
+.previewText {
+  grid-area: index;
 }
 
 .previewVideoTitle {
+  grid-area: title;
   font-weight: 400;
   color: var(--secondary-text-color);
-  max-inline-size: 200px;
+  inline-size: 240px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 11px;
-}
-
-.previewText {
-  display: flex;
-  flex-direction: column;
-  min-inline-size: 0;
 }
 
 .progressBarTick.current {
@@ -177,11 +178,15 @@
   inset-block-end: 7px;
 }
 
-/* Adding space between playlist progress bar ticks */
 @media only screen and (width <= 768px) {
   .previewTooltip {
-    inline-size: 200px;
+    inline-size: auto;
     padding: 6px;
+    grid-template:
+      'thumb index' auto
+      'title title' auto /
+      auto auto;
+    column-gap: 0;
   }
 
   .previewThumbnail {
@@ -189,13 +194,18 @@
     block-size: 24px;
   }
 
+  .previewText {
+    justify-self: start;
+  }
+
   .previewVideoTitle {
-    max-inline-size: 120px;
+    inline-size: 200px;
+    text-align: center;
   }
 }
 
 @media only screen and (width <= 500px) {
-  .previewTooltip {
+  .previewVideoTitle {
     inline-size: 150px;
   }
 }
