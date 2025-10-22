@@ -13,7 +13,6 @@
       :disabled="disabled"
       :placeholder="tagNamePlaceholder"
       :label="label"
-      :min-input-length="minInputLength"
       :show-label="true"
       :tooltip="tooltip"
       :show-action-button="true"
@@ -108,10 +107,6 @@ const props = defineProps({
     type: String,
     required: true
   },
-  minInputLength: {
-    type: Number,
-    default: 1
-  },
   showTags: {
     type: Boolean,
     default: true
@@ -153,11 +148,6 @@ async function updateTags(text) {
 
   // add tag and update tag list
   const trimmedText = text.trim()
-
-  if (props.minInputLength > trimmedText.length) {
-    showToast(t('Trimmed input must be at least N characters long', { length: props.minInputLength }, props.minInputLength))
-    return
-  }
 
   if (props.tagList.includes(trimmedText)) {
     showToast(t('Tag already exists', { tagName: trimmedText }))
