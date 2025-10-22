@@ -41,9 +41,6 @@ const toasts = shallowReactive([])
  * @param {CustomEvent<{ message: string | (({elapsedMs: number, remainingMs: number}) => string), time: number | null, action: Function | null, abortSignal: AbortSignal | null }>} event
  */
 function open({ detail: { message, time, action, abortSignal } }) {
-  // Sometimes caller just pass user setting based value in and it can be zero
-  if (time === 0) { return }
-
   /** @type {Toast} */
   const toast = {
     message,
