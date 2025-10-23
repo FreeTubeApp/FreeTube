@@ -328,27 +328,25 @@ export default defineComponent({
         }
       }
 
-      if (this.channelId !== null) {
+      if (this.channelId !== null && !this.inSubscriptions) {
         const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
         const channelShouldBeHidden = hiddenChannels.some(c => c.name === this.channelId)
 
-        if (!this.inSubscriptions) {
-          options.push(
-            {
-              type: 'divider'
-            },
+        options.push(
+          {
+            type: 'divider'
+          },
 
-            channelShouldBeHidden
-              ? {
-                  label: this.$t('Video.Unhide Channel'),
-                  value: 'unhideChannel'
-                }
-              : {
-                  label: this.$t('Video.Hide Channel'),
-                  value: 'hideChannel'
-                }
-          )
-        }
+          channelShouldBeHidden
+            ? {
+                label: this.$t('Video.Unhide Channel'),
+                value: 'unhideChannel'
+              }
+            : {
+                label: this.$t('Video.Hide Channel'),
+                value: 'hideChannel'
+              }
+        )
       }
 
       return options
