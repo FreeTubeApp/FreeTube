@@ -173,6 +173,10 @@ export default defineComponent({
       return this.$route.name === 'history'
     },
 
+    inSubscriptions: function () {
+      return this.$route.name === 'subscriptions'
+    },
+
     inUserPlaylist: function () {
       return this.playlistTypeFinal === 'user' || this.selectedUserPlaylist != null
     },
@@ -327,9 +331,8 @@ export default defineComponent({
       if (this.channelId !== null) {
         const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
         const channelShouldBeHidden = hiddenChannels.some(c => c.name === this.channelId)
-        const isSubscriptionsPage = window.location.href.endsWith('subscriptions')
 
-        if (!isSubscriptionsPage) {
+        if (!this.inSubscriptions) {
           options.push(
             {
               type: 'divider'
