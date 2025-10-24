@@ -155,7 +155,7 @@ async function updateTags(text) {
   const trimmedText = text.trim()
 
   if (props.minInputLength > trimmedText.length) {
-    showToast(t('Trimmed input must be at least N character long', { length: props.minInputLength }, props.minInputLength))
+    showToast(t('Trimmed input must be at least N characters long', { length: props.minInputLength }, props.minInputLength))
     return
   }
 
