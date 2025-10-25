@@ -1538,13 +1538,13 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
             lengthSeconds = Utils.timeToSeconds(durationBadge.text)
           }
 
-          publishedText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts.find(part => part.text?.text?.endsWith('ago'))?.text?.text
+          publishedText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
         }
       }
 
       let viewCount = null
 
-      const viewsText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts.find(part => {
+      const viewsText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.find(part => {
         return part.text?.text && VIEWS_OR_WATCHING_REGEX.test(part.text.text)
       })?.text?.text
 
