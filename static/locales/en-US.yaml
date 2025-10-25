@@ -1036,7 +1036,7 @@ Tooltips:
   General settings:
     Preferred API backend: Choose the backend that FreeTube uses to obtain data. The
       Local API is a built-in extractor. The Invidious API requires an Invidious server
-      To connect to.
+      to connect to.
     Fallback to non-preferred backend on failure: When your preferred API has a problem,
       FreeTube will automatically attempt to use your non-preferred API as a fallback
       method when enabled.
