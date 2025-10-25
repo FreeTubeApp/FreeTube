@@ -44,7 +44,7 @@ Global:
     Comment Count: 1 comentários | {count} comentários
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber} está disponível! Clique aqui para mais informações.
 Download From Site: Descarregar do site
-A new blog is now available, {blogTitle}. Click to view more: 'Está disponível um novo blogue, {blogTitle}. Clique para ver mais.'
+A new blog is now available, {blogTitle}. Click to view more: 'Está disponível um novo blogue, {blogTitle}. Clique para ver mais'
 
 # Search Bar
 Search / Go to URL: Pesquisar / ir para o URL
@@ -79,7 +79,7 @@ Search Filters:
   # On Search Page
     Medium (4 - 20 minutes): Média (4 - 20 minutos)
   Search Results: Resultados
-  Fetching results. Please wait: A procurar. Por favor aguarde.
+  Fetching results. Please wait: A procurar. Por favor aguarde
   Fetch more results: Obter mais resultados
   There are no more results for this search: Não existem mais resultados
 # Sidebar
@@ -95,6 +95,7 @@ Search Filters:
     HDR: HDR
     360 Video: Vídeo 360
     VR180: VR180
+  Clear Filters: Limpar Filtros
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Subscrições
@@ -148,14 +149,14 @@ User Playlists:
   Remove from Playlist: Remover da lista de reprodução
   Save Changes: Guardar alterações
   Sort By:
-    LatestCreatedFirst: Criado recentemente
+    LatestCreatedFirst: Data de Criação (Mais Recente)
     NameDescending: Z-A
-    LatestUpdatedFirst: Atualizado recentemente
+    LatestUpdatedFirst: Data de Atualização (Mais Recente)
     NameAscending: A-Z
-    EarliestCreatedFirst: Criação mais antiga
-    EarliestUpdatedFirst: Atualização mais antiga
-    LatestPlayedFirst: Reproduzido recentemente
-    EarliestPlayedFirst: Reprodução mais antiga
+    EarliestCreatedFirst: Data de Criação (Mais Antigo)
+    EarliestUpdatedFirst: Data de Atualização (Mais Antigo)
+    LatestPlayedFirst: Data de Reprodução (Mais Recente)
+    EarliestPlayedFirst: Data de Reprodução (Mais Antigo)
   This playlist currently has no videos.: Esta lista de reprodução não tem vídeos atualmente.
   Add to Playlist: Adicionar à lista de reprodução
   Move Video Down: Mover vídeo para baixo
@@ -200,6 +201,7 @@ User Playlists:
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Tem a certeza de que pretende remover 1 vídeo duplicado desta lista de reprodução? Esta remoção não pode ser revertida. | Tem a certeza de que pretende remover {playlistItemCount} vídeos duplicados desta lista de reprodução? Esta remoção não pode ser revertida.
   Cannot delete the quick bookmark target playlist.: Não é possível eliminar a lista de reprodução de destino do marcador rápido.
   TotalTimePlaylist: 'Duração total: {duration}'
+  Export list of URLs: Exportar lista de URLs
 History:
   # On History Page
   History: Histórico
@@ -208,6 +210,8 @@ History:
   Search bar placeholder: Procurar no histórico
   Empty Search Message: Não há vídeos no histórico que coincidam com a sua pesquisa
   Case Sensitive Search: Diferenciar maiúsculas e minúsculas
+  DateOldestHistory: Data de Visualização (Mais Antigo)
+  DateNewestHistory: Data de Visualização (Mais Recente)
 Settings:
   # On Settings Page
   Settings: Definições
@@ -255,6 +259,7 @@ Settings:
       Tooltip: Carrega as páginas e comentários automaticamente.
       Label: Carregar seguinte automaticamente
     Open Deep Links In New Window: Abrir URLs passados para o FreeTube numa nova janela
+    Minimize to system tray: Minimizar para o Tabuleiro do Sistema
   Theme Settings:
     Theme Settings: Tema
     Match Top Bar with Main Color: Utilizar cor principal na barra superior
@@ -452,6 +457,7 @@ Settings:
         Never: Nunca
         Auto: Automático
         Semi-auto: Semiautomático
+      Tooltip: 'Automático = Guarda sempre: ao sair da página do vídeo, quando o vídeo termina ou se ocorrer algum erro (por ex.: limite de taxa atingido ou sessão expirada). Semiautomático = Igual ao modo Automático, exceto ao sair da página do vídeo, permite guardar o progresso manualmente através do botão "Guardar progresso de reprodução", que se encontra em baixo do reprodutor.'
   Subscription Settings:
     Subscription Settings: Subscrição
     Fetch Feeds from RSS: Obter subscrições através de RSS
@@ -505,6 +511,8 @@ Settings:
     Hide Channel Home: Ocultar o separador “Página inicial” do canal
     Show Added Items: Mostrar itens adicionados
     Hide Channel Courses: Ocultar o separador “Cursos” do canal
+    Hide Channel Posts: Ocultar separador de "Publicações" nos canais
+    Hide Subscriptions Posts: Ocultar Publicações de Subscrições
   Data Settings:
     Data Settings: Dados
     Select Export Type: Selecione o tipo de exportação
@@ -556,6 +564,8 @@ Settings:
     City: Cidade
     Error getting network information. Is your proxy configured properly?: Erro ao obter informações da rede. O seu proxy está configurado corretamente?
     Proxy Warning: O FreeTube não tem um proxy incorporado, mas pode conectar-se a um proxy externo, como um que esteja a ser executado na sua máquina, como o Tor, ou um proxy externo, como um proxy SOCKS5 fornecido por algumas VPNs. Se estiver ativado, certifique-se de que o seu proxy / Tor está configurado corretamente, ou o FreeTube não conseguirá obter quaisquer dados.
+    Proxy Username: Nome de Utilizador da Proxy
+    Proxy Password: Palavra-passe da Proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificar se um anúncio for ignorado
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock (padrão é https://sponsor.ajay.app)
@@ -586,6 +596,7 @@ Settings:
     Hide Search Bar: Ocultar barra de pesquisa
     Hide Unsubscribe Button: Ocultar botão "Cancelar subscrição"
     Show Family Friendly Only: Mostrar apenas "Para famílias"
+    Hide Uploader on Watch page: Ocultar Nome do Autor na página de Reprodução de Vídeo
   Download Settings:
     Open in web browser: Abrir no navegador de Internet
     Ask Download Path: Perguntar local para guardar
@@ -613,7 +624,7 @@ About:
   Beta: Beta
   Source code: Código-fonte
   Downloads / Changelog: Descargas / alterações
-  GitHub releases: Versões no GitHub
+  GitHub releases: Versões do GitHub
   Help: Ajuda
   FreeTube Wiki: Wiki FreeTube
   FAQ: FAQ
@@ -852,6 +863,7 @@ Video:
     Show Original Details: Mostrar detalhes originais
   DRMProtected: Os vídeos protegidos por DRM não podem ser reproduzidos no FreeTube, uma vez que requerem componentes proprietários e de código fechado. Se quiser ver este vídeo, veja-o no sítio Web oficial do YouTube num navegador Web com DRM.
   Save Watched Progress: Gravar progresso de visualização
+  Watched Progress Saved: O Progresso de Visualização foi gravado
 Playlist:
   #& About
   View Full Playlist: Ver lista de reprodução completa
@@ -862,17 +874,17 @@ Playlist:
 #& Views
   Playlist: Lista de reprodução
   Sort By:
-    DateAddedOldest: Primeiras adições primeiro
-    DateAddedNewest: Últimas adições primeiro
+    DateAddedOldest: Data de Adição (Mais Antigo)
+    DateAddedNewest: Data de Adição (Mais Recente)
     AuthorAscending: Autor (A-Z)
     VideoTitleDescending: Título (Z-A)
     Custom: Personalizado
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Título (A-Z)
-    PublishedOldest: Mais antigo publicado primeiro
-    PublishedNewest: Última publicação primeiro
-    VideoDurationAscending: Duração (curtos primeiro)
-    VideoDurationDescending: Duração (longos primeiro)
+    PublishedOldest: Data de Publicação (Mais Antigo)
+    PublishedNewest: Data de Publicação (Mais Recente)
+    VideoDurationAscending: Duração (Mais Curto)
+    VideoDurationDescending: Duração (Mais Longo)
 Change Format:
   Change Media Formats: Alterar formatos multimédia
   Use Dash Formats: Utilizar formatos DASH
@@ -930,21 +942,21 @@ Tooltips:
   General Settings:
     Preferred API Backend: Escolha o sistema que o FreeTube usa para se ligar ao YouTube. A API local é um extrator incorporado. A API Invidious requer um servidor Invidious para fazer a ligação.
     Fallback to Non-Preferred Backend on Failure: Se a sua API preferida tiver um problema, FreeTube tentará usar automaticamente a API secundária, caso esta opção esteja ativada.
-    Thumbnail Preference: Todas as miniaturas dos vídeos no FreeTube serão substituídas por um fotograma do vídeo em vez da miniatura original.
+    Thumbnail Preference: Todas as miniaturas dos vídeos no FreeTube serão substituídas por um quadro borrado ou escondido do vídeo em vez da miniatura original.
     Invidious Instance: A instância Invidious à qual o FreeTube se irá ligar para invocar a API.
     Region for Trending: A região permite-lhe escolher de que país virão os vídeos na secção de tendências.
     External Link Handling: "Escolha o comportamento padrão quando uma hiperligação, que não pode ser aberta no FreeTube, é clicada.\nPor definição, o FreeTube abrirá a hiperligação no seu navegador de Internet.\n"
     Open Deep Links In New Window: Os URLs passados para o FreeTube, como por extensões de navegador de redirecionamento ou argumentos de linha de comando, são abertos numa nova janela.
   Player Settings:
     Proxy Videos Through Invidious: Estabelece uma conexão ao Invidious para obter vídeos em vez de fazer uma conexão direta ao YouTube.
-    Default Video Format: Define os formatos usados quando um vídeo é reproduzido. Os formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos estão limitados a um máximo de 720p, mas usam menos largura de banda. Os formatos de áudio são apenas para emissões sem vídeo.
+    Default Video Format: Define os formatos usados quando um vídeo é reproduzido. Os formatos DASH podem reproduzir em qualidades mais altas. Os formatos antigos estão limitados a um máximo de 360p, mas usam menos largura de banda. Os formatos de áudio são apenas para reproduções de áudio (sem vídeo).
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, prima e mantenha premida a tecla Ctrl (tecla Comando em Mac) e desloque a roda do rato para controlar a velocidade de reprodução. Prima e mantenha premida a tecla Ctrl (tecla Comando em Mac) e clique com o botão esquerdo do rato para voltar rapidamente à velocidade de reprodução padrão (1 a não ser que tenha sido alterada nas definições).
     Skip by Scrolling Over Video Player: Utilizar roda do rato para avançar ou recuar o vídeo, estilo MPV.
   Subscription Settings:
-    Fetch Feeds from RSS: Se ativa, FreeTube irá obter as subscrições através de RSS em vez do método normal. O formato RSS é mais rápido e não é bloqueado pelo YouTube, mas não disponibiliza certas informações como, por exemplo, a duração dos vídeos, se são emissões em direto e as publicações da comunidade
+    Fetch Feeds from RSS: Se ativa, o FreeTube irá obter as subscrições através de RSS em vez do método normal. O formato RSS é mais rápido e não é bloqueado pelo YouTube, mas não disponibiliza certas informações como, por exemplo, a duração dos vídeos, se são emissões em direto e publicações
 
 # Toast Messages
-    Fetch Automatically: Se ativado, o FreeTube irá obter automaticamente as subscrições ao abrir uma nova janela e/ou quando trocar de perfil.
+    Fetch Automatically: Se ativado, o FreeTube irá obter automaticamente as subscrições ao iniciar e ao abrir uma nova janela.
   External Player Settings:
     Custom External Player Arguments: Quaisquer argumentos de linha de comando, que quiser passar ao reprodutor externo.
     Ignore Warnings: Ignorar avisos quando o reprodutor externo escolhido não suporte uma ação (por exemplo, inverter listas de reprodução).
@@ -958,6 +970,7 @@ Tooltips:
     Hide Channels: Introduza o ID de um canal para impedir que os vídeos, listas de reprodução e o próprio canal apareçam na pesquisa, tendências, mais populares e recomendados. O nome do canal introduzido tem que ser uma correspondência exata e diferencia maiúsculas de minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição global "{appWideSetting}", existente na secção "{subsection}" de "{settingsSection}"
     Hide Videos and Playlists Containing Text: Introduza uma palavra, fragmento de palavra ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar todos os vídeos e listas de reprodução cujos títulos originais a contenham em todo o FreeTube, excluindo apenas o histórico, as suas listas de reprodução e os vídeos dentro das listas de reprodução.
+    Hide Videos on Watch: Oculta os vídeos já reproduzidos dos separadores "Vídeos", "Shorts" e "Em direto" nas páginas "Subscrições" e "Canais". Não afeta o separador "Início" nas páginas "Canais"
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador a partir do DeArrow.
     UseDeArrowThumbnails: Substituir miniaturas do vídeo por miniaturas DeArrow.
@@ -1092,6 +1105,10 @@ KeyboardShortcutPrompt:
   Last Frame: Fotograma anterior (durante a pausa)
   Volume Up: Aumentar volume
   Skip by Tenths: Avançar ou recuar o vídeo por percentagem (3 saltos para 30% da duração)
+  Home: Voltar ao início do vídeo
+  End: Avançar para o final do vídeo
+  Skip to Next Video: Avançar para o próximo vídeo da lista de reprodução atual ou para o próximo vídeo recomendado
+  Skip to Previous Video: Voltar para o vídeo anterior da lista de reprodução atual
 shortcutLabelSeparator: ｜
 Keys:
   arrowdown: Seta para baixo
