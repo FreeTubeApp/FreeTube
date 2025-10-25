@@ -486,9 +486,9 @@ Settings:
       Folder label: Screenshot folder
       Folder button: Select folder
       File name label: Filename pattern
-      File name tooltip: You can use variables below. %y year 4 digits. %m month 2 digits.
-        %d day 2 digits. %h hour 2 digits. %n minute 2 digits. %s second 2 digits. %t millisecond 3 digits.
-        %s video second. %t video millisecond 3 digits. %I video ID.
+      File name tooltip: You can use variables below. %Y year 4 digits. %M month 2 digits.
+        %D day 2 digits. %H hour 2 digits. %N minute 2 digits. %S second 2 digits. %T millisecond 3 digits.
+        %s video second. %t video millisecond 3 digits. %i video ID.
       Error:
         Forbidden characters: Forbidden characters
         Empty file name: Empty file name
