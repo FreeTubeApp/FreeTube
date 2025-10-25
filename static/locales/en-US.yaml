@@ -1,9 +1,9 @@
 # Put the name of your locale in the same language
-Locale Name: English (US)
+Locale name: English (US)
 
 # Webkit Menu Bar
 File: File
-New Window: New Window
+New window: New window
 Preferences: Preferences
 Quit: Quit
 Edit: Edit
@@ -16,26 +16,26 @@ Delete: Delete
 Select all: Select all
 Reload: Reload
 Force Reload: Force Reload
-Toggle Developer Tools: Toggle Developer Tools
+Toggle developer tools: Toggle developer tools
 Actual size: Actual size
 Zoom in: Zoom in
 Zoom out: Zoom out
-Toggle fullscreen: Toggle fullscreen
+Toggle full screen: Toggle full screen
 Window: Window
 Minimize: Minimize
 Close: Close
 Back: Back
 Forward: Forward
 Right-click or hold to see history: Right-click or hold to see history
-Open New Window: Open New Window
+Open new window: Open new window
 Go to page: Go to {page}
-Close Banner: Close Banner
+Close banner: Close banner
 
-Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
-  for more details
-Download From Site: Download From Site
-A new blog is now available, {blogTitle}. Click to view more: A new blog is now available, {blogTitle}.
-  Click to view more
+Version {versionNumber} is now available!  Click for more details.: Version {versionNumber} is now available!  Click
+  For more details.
+Download from site: Download from site
+A new blog is now available, {blogTitle}. Click to view more.: A new blog is now available, {blogTitle}.
+  Click to view more.
 Are you sure you want to open this link?: Are you sure you want to open this link?
 
 # Global
@@ -45,59 +45,59 @@ Global:
   Shorts: Shorts
   Live: Live
   Posts: Posts
-  Sort By: Sort By
+  Sort by: Sort by
   Counts:
-    Video Count: 1 video | {count} videos
-    Channel Count: 1 channel | {count} channels
-    Subscriber Count: 1 subscriber | {count} subscribers
-    View Count: 1 view | {count} views
-    Like Count: 1 like | {count} likes
-    Comment Count: 1 comment | {count} comments
-    Watching Count: 1 watching | {count} watching
+    Video count: 1 video | {count} videos
+    Channel count: 1 channel | {count} channels
+    Subscriber count: 1 subscriber | {count} subscribers
+    View count: 1 view | {count} views
+    Like count: 1 like | {count} likes
+    Comment count: 1 comment | {count} comments
+    Watching count: 1 watching | {count} watching
 
-# Search Bar
-Search / Go to URL: Search / Go to URL
-Search Bar:
-  Clear Input: Clear Input
+# Search bar
+Search / go to URL: Search / go to URL
+Search bar:
+  Clear input: Clear input
   Remove: Remove
 Search character limit: Search query is over the {searchCharacterLimit} character limit
-Search Listing:
+Search listing:
   Label:
     4K: 4K
     8K: 8K
     VR180: VR180
-    360 Video: 360°
+    360 video: 360°
     Subtitles: Subtitles
     New: New
     3D: 3D
     # Aria labels
     Closed Captions: Closed Captions
-  # In Filter Button
-Search Filters:
-  Search Filters: Search Filters
-  Sort By:
-    Most Relevant: Most Relevant
+  # In filter button
+Search filters:
+  Search filters: Search filters
+  Sort by:
+    Most relevant: Most relevant
     Rating: Rating
-    Upload Date: Upload Date
-    View Count: View Count
+    Upload date: Upload date
+    View count: View count
   Time:
     Time: Time
-    Any Time: Any Time
-    Last Hour: Last Hour
+    Any time: Any time
+    Last hour: Last hour
     Today: Today
-    This Week: This Week
-    This Month: This Month
-    This Year: This Year
+    This week: This week
+    This month: This month
+    This year: This year
   Type:
     Type: Type
-    All Types: All Types
+    All types: All types
     Videos: Videos
     Channels: Channels
     Movies: Movies
     #& Playlists
   Duration:
     Duration: Duration
-    All Durations: All Durations
+    All durations: All durations
     Short (< 4 minutes): Short (< 4 minutes)
     Medium (4 - 20 minutes): Medium (4 - 20 minutes)
     Long (> 20 minutes): Long (> 20 minutes)
@@ -109,90 +109,90 @@ Search Filters:
     3D: 3D
     Live: Live
     4K: 4K
-    360 Video: 360 Video
+    360 video: 360 video
     Location: Location
     HDR: HDR
     VR180: VR180
-  # On Search Page
-  Search Results: Search Results
-  Fetching results. Please wait: Fetching results. Please wait
+  # On search page
+  Search results: Search results
+  Fetching results. Please wait.: Fetching results. Please wait.
   Fetch more results: Fetch more results
   There are no more results for this search: There are no more results for this search
-  Clear Filters: Clear Filters
+  Clear filters: Clear filters
 # Sidebar
 Subscriptions:
-    # On Subscriptions Page
+    # On subscriptions page
   Subscriptions: Subscriptions
-  # channels that were likely deleted
-  Error Channels: Channels with Errors
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: This
-    profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your Subscription list is currently empty. If you want to import your subscriptions you can go to Data Settings and select Import Subscriptions or you can search for a channel and subscribe to them.
-  Disabled Automatic Fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
-  Empty Channels: Your subscribed channels currently does not have any videos.
-  Empty Posts: Your subscribed channels currently do not have any posts.
-  Load More Videos: Load More Videos
-  Load More Posts: Load More Posts
-  Subscriptions Tabs: Subscriptions Tabs
-  All Subscription Tabs Hidden: 'All subscription tabs are hidden. To see content here, please unhide some tabs in the "{subsection}" section in "{settingsSection}".'
+  # Channels that were likely deleted
+  Error channels: Channels with errors
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting.: This
+    profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting.
+  'Your subscription list is currently empty. Start adding subscriptions to see them here.': Your subscription list is currently empty. If you want to import your subscriptions you can go to Data settings and select Import subscriptions or you can search for a channel and subscribe to them.
+  Disabled automatic fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
+  Empty channels: Your subscribed channels currently does not have any videos
+  Empty posts: Your subscribed channels currently do not have any posts
+  Load more videos: Load more videos
+  Load more posts: Load more posts
+  Subscriptions tabs: Subscriptions tabs
+  All subscription tabs hidden: 'All subscription tabs are hidden. To see content here, please unhide some tabs in the "{subsection}" section in "{settingsSection}".'
 More: More
 Channels:
   Channels: Channels
-  Title: Channel List
-  Search bar placeholder: Search Channels
-  Count: '{number} channel(s) found.'
-  Empty: Your channel list is currently empty.
-  Unsubscribe Prompt: Are you sure you want to unsubscribe from "{channelName}"?
+  Title: Channel list
+  Search bar placeholder: Search channels
+  Count: '{number} channel(s) found'
+  Empty: Your channel list is currently empty
+  Unsubscribe prompt: Are you sure you want to unsubscribe from "{channelName}"?
 Trending:
   Trending: Trending
   Default: Default
   Music: Music
   Gaming: Gaming
   Movies: Movies
-  Trending Tabs: Trending Tabs
-Most Popular: Most Popular
+  Trending tabs: Trending tabs
+Most popular: Most popular
 Feed:
-  Feed Last Updated: '{feedName} feed last updated: {date}'
-  Refresh Feed: Refresh {subscriptionName}
+  Feed last updated: '{feedName} feed last updated: {date}'
+  Refresh feed: Refresh {subscriptionName}
 Playlists: Playlists
-User Playlists:
-  Your Playlists: Your Playlists
-  You have no playlists. Click on the create new playlist button to create a new one.: You have no playlists. Click on the create new playlist button to create a new one.
-  Empty Search Message: There are no videos in this playlist that match your search
-  Search bar placeholder: Search for Playlists
-  Playlists with Matching Videos: Playlists with Matching Videos
+User playlists:
+  Your playlists: Your playlists
+  You have no playlists. Click on the Create new playlist button to create a new one.: You have no playlists. Click on the Create new playlist button to create a new one.
+  Empty search message: There are no videos in this playlist that match your search
+  Search bar placeholder: Search for playlists
+  Playlists with matching videos: Playlists with matching videos
 
-  This playlist currently has no videos.: This playlist currently has no videos.
+  This playlist currently has no videos: This playlist currently has no videos
 
-  Create New Playlist: Create New Playlist
+  Create new playlist: Create new playlist
 
-  Add to Playlist: Add to Playlist
-  Add to Favorites: Add to {playlistName}
-  Remove from Favorites: Remove from {playlistName}
+  Add to playlist: Add to playlist
+  Add to favorites: Add to {playlistName}
+  Remove from favorites: Remove from {playlistName}
 
-  Move Video Up: Move Video Up
-  Move Video Down: Move Video Down
-  Remove from Playlist: Remove from Playlist
+  Move video up: Move video up
+  Move video down: Move video down
+  Remove from playlist: Remove from playlist
 
-  Playlist Name: Playlist Name
-  Playlist Description: Playlist Description
+  Playlist name: Playlist name
+  Playlist description: Playlist description
 
-  Save Changes: Save Changes
+  Save changes: Save changes
   Cancel: Cancel
-  Edit Playlist Info: Edit Playlist Info
-  Copy Playlist: Copy Playlist
-  Remove Duplicate Videos: Remove Duplicate Videos
-  Remove Watched Videos: Remove Watched Videos
-  Enable Quick Bookmark With This Playlist: Enable Quick Bookmark With This Playlist
-  Quick Bookmark Enabled: Quick Bookmark Enabled
-  Export Playlist: Export This Playlist
+  Edit playlist info: Edit playlist info
+  Copy playlist: Copy playlist
+  Remove duplicate videos: Remove duplicate videos
+  Remove watched videos: Remove watched videos
+  Enable quick bookmark with this playlist: Enable quick bookmark with this playlist
+  Quick bookmark enabled: Quick bookmark enabled
+  Export playlist: Export this playlist
   Export list of URLs: Export list of URLs
   The playlist has been successfully exported: The playlist has been successfully exported
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Are you sure you want to remove 1 duplicate video from this playlist? This cannot be undone. | Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone.
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Are you sure you want to remove 1 watched video from this playlist? This cannot be undone. | Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone.
-  Delete Playlist: Delete Playlist
-  Cannot delete the quick bookmark target playlist.: Cannot delete the quick bookmark target playlist.
-  Are you sure you want to delete this playlist? This cannot be undone: Are you sure you want to delete this playlist? This cannot be undone.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone.: Are you sure you want to remove 1 duplicate video from this playlist? This cannot be undone. | Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone.: Are you sure you want to remove 1 watched video from this playlist? This cannot be undone. | Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone.
+  Delete playlist: Delete playlist
+  Cannot delete the quick bookmark target playlist: Cannot delete the quick bookmark target playlist
+  Are you sure you want to delete this playlist? This cannot be undone.: Are you sure you want to delete this playlist? This cannot be undone.
 
   TotalTimePlaylist: "Total time: {duration}"
 
@@ -200,139 +200,138 @@ User Playlists:
     NameAscending: 'A-Z'
     NameDescending: 'Z-A'
 
-    LatestCreatedFirst: 'Date Created (Newest)'
-    EarliestCreatedFirst: 'Date Created (Oldest)'
+    LatestCreatedFirst: 'Date created (Newest)'
+    EarliestCreatedFirst: 'Date created (Oldest)'
 
-    LatestUpdatedFirst: 'Date Updated (Newest)'
-    EarliestUpdatedFirst: 'Date Updated (Oldest)'
+    LatestUpdatedFirst: 'Date updated (Newest)'
+    EarliestUpdatedFirst: 'Date updated (Oldest)'
 
-    LatestPlayedFirst: 'Date Played (Newest)'
-    EarliestPlayedFirst: 'Date Played (Oldest)'
+    LatestPlayedFirst: 'Date played (Newest)'
+    EarliestPlayedFirst: 'Date played (Oldest)'
   SinglePlaylistView:
-    Search for Videos: Search for Videos
+    Search for videos: Search for videos
 
     Toast:
-      This video cannot be moved up.: This video cannot be moved up.
-      This video cannot be moved down.: This video cannot be moved down.
-      Video has been removed: Video has been removed
+      This video cannot be moved up: This video cannot be moved up
+      This video cannot be moved down: This video cannot be moved down
       Video has been removed. Click here to undo.: Video has been removed. Click here to undo.
       There was a problem with removing this video: There was a problem with removing this video
 
-      This playlist is already being used for quick bookmark.: This playlist is already being used for quick bookmark.
+      This playlist is already being used for quick bookmark: This playlist is already being used for quick bookmark
       This playlist is now used for quick bookmark: This playlist is now used for quick bookmark
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo.: This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo.
       Reverted to use {oldPlaylistName} for quick bookmark: Reverted to use {oldPlaylistName} for quick bookmark
 
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Some videos in the playlist are not loaded yet. Click here to copy anyway.
       Playlist name cannot be empty. Please input a name.: Playlist name cannot be empty. Please input a name.
-      Playlist has been updated.: Playlist has been updated.
-      There was an issue with updating this playlist.: There was an issue with updating this playlist.
+      Playlist has been updated: Playlist has been updated
+      There was an issue with updating this playlist: There was an issue with updating this playlist
       "{videoCount} video(s) have been removed": "1 video has been removed | {videoCount} videos have been removed"
-      There were no videos to remove.: There were no videos to remove.
-      This playlist is protected and cannot be removed.: This playlist is protected and cannot be removed.
-      Playlist {playlistName} has been deleted.: Playlist {playlistName} has been deleted.
+      There were no videos to remove: There were no videos to remove
+      This playlist is protected and cannot be removed: This playlist is protected and cannot be removed
+      Playlist {playlistName} has been deleted: Playlist {playlistName} has been deleted
 
       This playlist does not exist: This playlist does not exist
 
       This playlist has a video with a duration error: This playlist contains at least one video that doesn't have a duration, it will be sorted as if their duration is zero.
   AddVideoPrompt:
     Select a playlist to add your N videos to: 'Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to'
-    N playlists selected: '{playlistCount} Selected'
-    Search in Playlists: Search in Playlists
-    Allow Adding Duplicate Video(s): Allow Adding Duplicate Video(s)
+    N playlists selected: '{playlistCount} selected'
+    Search in playlists: Search in playlists
+    Allow adding duplicate video(s): Allow adding duplicate video(s)
     Save: Save
 
-    Added {count} Times: 'Already Added | Added {count} Times'
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videos Will Be Added'
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videos Already Added'
+    Added {count} times: 'Already added | Added {count} times'
+    "{videoCount} / {totalVideoCount} videos will be added": '{videoCount} / {totalVideoCount} videos will be added'
+    "{videoCount} / {totalVideoCount} videos already added": '{videoCount} / {totalVideoCount} videos already added'
 
     Toast:
-      You haven't selected any playlist yet.: You haven't selected any playlist yet.
+      You haven't selected any playlist yet: You haven't selected any playlist yet
       "{videoCount} video(s) added to 1 playlist": "1 video added to 1 playlist | {videoCount} videos added to 1 playlist"
       "{videoCount} video(s) added to {playlistCount} playlists": "1 video added to {playlistCount} playlists | {videoCount} videos added to  {playlistCount} playlists"
   CreatePlaylistPrompt:
-    New Playlist Name: New Playlist Name
+    New playlist name: New playlist name
     Create: Create
 
     Toast:
       There is already a playlist with this name. Please pick a different name.: There is already a playlist with this name. Please pick a different name.
-      Playlist {playlistName} has been successfully created.: Playlist {playlistName} has been successfully created.
-      There was an issue with creating the playlist.: There was an issue with creating the playlist.
+      Playlist {playlistName} has been successfully created: Playlist {playlistName} has been successfully created
+      There was an issue with creating the playlist: There was an issue with creating the playlist
 History:
-  # On History Page
+  # On history page
   History: History
-  Watch History: Watch History
-  Your history list is currently empty.: Your history list is currently empty.
-  Empty Search Message: There are no videos in your history that match your search
-  Search bar placeholder: "Search in History"
-  Case Sensitive Search: Case Sensitive Search
-  DateOldestHistory: Date Watched (Oldest)
-  DateNewestHistory: Date Watched (Newest)
+  Watch history: Watch history
+  Your history list is currently empty: Your history list is currently empty
+  Empty search message: There are no videos in your history that match your search
+  Search bar placeholder: "Search in history"
+  Case sensitive search: Case sensitive search
+  DateOldestHistory: Date watched (Oldest)
+  DateNewestHistory: Date watched (Newest)
 Settings:
-  # On Settings Page
+  # On settings page
   Settings: Settings
-  Sort Settings Sections (A-Z): Sort Settings Sections (A-Z)
-  Return to Settings Menu: Return to Settings Menu
+  Sort settings sections (A-Z): Sort settings sections (A-Z)
+  Return to settings menu: Return to settings menu
   The app needs to restart for changes to take effect. Restart and apply change?: The
     app needs to restart for changes to take effect. Restart and apply change?
-  General Settings:
-    General Settings: General
-    Check for Updates: Check for Updates
-    Check for Latest Blog Posts: Check for Latest Blog Posts
-    Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
-      on Failure
-    Enable Search Suggestions: Enable Search Suggestions
-    Open Deep Links In New Window: Open URLs Passed to FreeTube in a New Window
+  General settings:
+    General settings: General
+    Check for updates: Check for updates
+    Check for latest blog posts: Check for latest blog posts
+    Fallback to non-preferred backend on failure: Fallback to non-preferred backend
+      on failure
+    Enable search suggestions: Enable search suggestions
+    Open deep links in new window: Open URLs passed to FreeTube in a new window
     Minimize to system tray: Minimize to system tray
-    Auto Load Next Page:
-      Label: Auto Load Next Page
-      Tooltip: Load additional pages and comments automatically.
-    Default Landing Page: Default Landing Page
-    Locale Preference: Locale Preference
-    System Default: System Default
-    Preferred API Backend:
-      Preferred API Backend: Preferred API Backend
+    Auto load next page:
+      Label: Auto load next page
+      Tooltip: Load additional pages and comments automatically
+    Default landing page: Default landing page
+    Locale preference: Locale preference
+    System default: System default
+    Preferred API backend:
+      Preferred API backend: Preferred API backend
       Local API: Local API
       Invidious API: Invidious API
-    Video View Type:
-      Video View Type: Video View Type
+    Video view type:
+      Video view type: Video view type
       Grid: Grid
       List: List
-    Thumbnail Preference:
-      Thumbnail Preference: Thumbnail Preference
+    Thumbnail preference:
+      Thumbnail preference: Thumbnail preference
       Default: Default
       Beginning: Beginning
       Middle: Middle
       End: End
       Hidden: Hidden
       Blur: Blur
-    Current Invidious Instance: Current Invidious Instance
+    Current Invidious instance: Current Invidious instance
     The currently set default instance is {instance}: The currently set default instance is {instance}
     No default instance has been set: No default instance has been set
     Current instance will be randomized on startup: Current instance will be randomized on startup
-    Set Current Instance as Default: Set Current Instance as Default
-    Clear Default Instance: Clear Default Instance
+    Set current instance as default: Set current instance as default
+    Clear default instance: Clear default instance
     View all Invidious instance information: View all Invidious instance information
-    Region for Trending: Region for Trending
+    Region for trending: Region for trending
     #! List countries
-    External Link Handling:
-      External Link Handling: External Link Handling
-      Open Link: Open Link
-      Ask Before Opening Link: Ask Before Opening Link
-      No Action: No Action
-  Theme Settings:
-    Theme Settings: Theme
-    Match Top Bar with Main Color: Match Top Bar with Main Color
-    Expand Side Bar by Default: Expand Side Bar by Default
-    Disable Smooth Scrolling: Disable Smooth Scrolling
-    UI Scale: UI Scale
-    Hide Side Bar Labels: Hide Side Bar Labels
-    Hide FreeTube Header Logo: Hide FreeTube Header Logo
-    Base Theme:
-      Base Theme: Base Theme
+    External link handling:
+      External link handling: External link handling
+      Open link: Open link
+      Ask before opening link: Ask before opening link
+      No action: No action
+  Theme settings:
+    Theme settings: Theme
+    Match top bar with main color: Match top bar with main color
+    Expand side bar by default: Expand side bar by default
+    Disable smooth scrolling: Disable smooth scrolling
+    UI scale: UI scale
+    Hide side bar labels: Hide side bar labels
+    Hide FreeTube header logo: Hide FreeTube header logo
+    Base theme:
+      Base theme: Base theme
       Black: Black
       Dark: Dark
-      System Default: System Default
+      System default: System default
       Light: Light
       Dracula: Dracula
       Catppuccin Frappe: Catppuccin Frappe
@@ -350,8 +349,8 @@ Settings:
       Everforest Light Hard: Everforest Light Hard
       Everforest Light Medium: Everforest Light Medium
       Everforest Light Low: Everforest Light Low
-    Main Color Theme:
-      Main Color Theme: Main Color Theme
+    Main color theme:
+      Main color theme: Main color theme
       Red: Red
       Pink: Pink
       Purple: Purple
@@ -435,40 +434,40 @@ Settings:
       Everforest Light Aqua: Everforest Light Aqua
       Everforest Light Blue: Everforest Light Blue
       Everforest Light Purple: Everforest Light Purple
-    Secondary Color Theme: Secondary Color Theme
-        #* Main Color Theme
-  Player Settings:
-    Player Settings: Player
-    Play Next Video: Autoplay Recommended Videos
-    Autoplay Playlists: Autoplay Playlist Videos
-    Autoplay Videos: Start Videos Automatically
-    Turn on Subtitles by Default: Enable Subtitles by Default
-    Proxy Videos Through Invidious: Proxy Videos Through Invidious
-    Default Viewing Mode:
+    Secondary color theme: Secondary color theme
+        #* Main color theme
+  Player settings:
+    Player settings: Player
+    Play next video: Autoplay recommended videos
+    Autoplay playlists: Autoplay playlist videos
+    Autoplay videos: Start videos automatically
+    Turn on subtitles by default: Enable subtitles by default
+    Proxy videos through Invidious: Proxy videos through Invidious
+    Default viewing mode:
       Theater: Theater
-      Default Viewing Mode: Default Viewing Mode
-      Full Screen: Full Screen
+      Default viewing mode: Default viewing mode
+      Full screen: Full screen
       Picture in Picture: Picture in Picture
-      External Player: External Player ({externalPlayerName})
-    Scroll Volume Over Video Player: Scroll Volume Over Video Player
-    Scroll Playback Rate Over Video Player: Scroll Playback Rate Over Video Player
-    Skip by Scrolling Over Video Player: Skip by Scrolling Over Video Player
-    Display Play Button In Video Player: Display Play Button In Video Player
-    Enter Fullscreen on Display Rotate: Enter Fullscreen on Display Rotate
-    Next Video Interval: Autoplay Countdown Timer
-    Autoplay Interruption Timer: Autoplay Interruption Timer
-    Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
-    Default Volume: Default Volume
-    Default Playback Rate: Default Playback Rate
-    Max Video Playback Rate: Max Video Playback Rate
-    Video Playback Rate Interval: Video Playback Rate Interval
-    Default Video Format:
-      Default Video Format: Default Video Format
-      Dash Formats: DASH Formats
-      Legacy Formats: Legacy Formats
-      Audio Formats: Audio Formats
-    Default Quality:
-      Default Quality: Default Quality
+      External player: External player ({externalPlayerName})
+    Scroll volume over video player: Scroll volume over video player
+    Scroll playback rate over video player: Scroll playback rate over video player
+    Skip by scrolling over video player: Skip by scrolling over video player
+    Display play button in video player: Display play button in video player
+    Enter full screen on display rotate: Enter full screen on display rotate
+    Next video interval: Autoplay countdown timer
+    Autoplay interruption timer: Autoplay interruption timer
+    Fast-forward / rewind interval: Fast-forward / rewind interval
+    Default volume: Default volume
+    Default playback rate: Default playback rate
+    Max video playback rate: Max video playback rate
+    Video playback rate interval: Video playback rate interval
+    Default video format:
+      Default video format: Default video format
+      DASH formats: DASH formats
+      Legacy formats: Legacy formats
+      Audio formats: Audio formats
+    Default quality:
+      Default quality: Default quality
       Auto: Auto
       144p: 144p
       240p: 240p
@@ -477,132 +476,132 @@ Settings:
       720p: 720p
       1080p: 1080p
       1440p: 1440p
-      4k: 4k
-      8k: 8k
+      4K: 4K
+      8K: 8K
     Screenshot:
-      Enable: Enable Screenshot
-      Format Label: Screenshot Format
-      Quality Label: Screenshot Quality
-      Ask Path: Ask for Save Folder
-      Folder Label: Screenshot Folder
-      Folder Button: Select Folder
-      File Name Label: Filename Pattern
-      File Name Tooltip: You can use variables below. %Y Year 4 digits. %M Month 2 digits.
-        %D Day 2 digits. %H Hour 2 digits. %N Minute 2 digits. %S Second 2 digits. %T Millisecond 3 digits.
-        %s Video Second. %t Video Millisecond 3 digits. %i Video ID.
+      Enable: Enable screenshot
+      Format label: Screenshot format
+      Quality label: Screenshot quality
+      Ask path: Ask for save folder
+      Folder label: Screenshot folder
+      Folder button: Select folder
+      File name label: Filename pattern
+      File name tooltip: You can use variables below. %y year 4 digits. %m month 2 digits.
+        %d day 2 digits. %h hour 2 digits. %n minute 2 digits. %s second 2 digits. %t millisecond 3 digits.
+        %s video second. %t video millisecond 3 digits. %I video ID.
       Error:
-        Forbidden Characters: Forbidden Characters
-        Empty File Name: Empty File Name
-  External Player Settings:
-    External Player Settings: External Player
-    External Player: External Player
-    Ignore Unsupported Action Warnings: Ignore Unsupported Action Warnings
-    Ignore Default Arguments: Ignore Default Arguments
-    Custom External Player Executable: Custom External Player Executable
-    Custom External Player Arguments: Custom External Player Arguments
+        Forbidden characters: Forbidden characters
+        Empty file name: Empty file name
+  External player settings:
+    External player settings: External player
+    External player: External player
+    Ignore unsupported action warnings: Ignore unsupported action warnings
+    Ignore default arguments: Ignore default arguments
+    Custom external player executable: Custom external player executable
+    Custom external player arguments: Custom external player arguments
     Players:
       None:
         Name: None
-  Privacy Settings:
-    Privacy Settings: Privacy
-    Remember History: Remember Watch History
-    Remember Search History: Remember Search History
-    Save Watched Progress: Save Watched Progress
-    Watched Progress Saving Mode:
+  Privacy settings:
+    Privacy settings: Privacy
+    Remember history: Remember watch history
+    Remember search history: Remember search history
+    Save watched progress: Save watched progress
+    Watched progress saving mode:
       Modes:
         Auto: Auto
         Semi-auto: Semi-auto
         Never: Never
       Tooltip:
-        Auto = Save on every video page exit, when video ended and error encountered (e.g. ratelimited and watch session expired). Semi-auto = Like Auto except on video page exit and can save progress manually via a button called Save Watched Progress, located beneath the video player.
-    Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed Playlist
-    Clear Search History and Cache: Clear Search History and Cache
+        Auto = Save on every video page exit, when video ended and error encountered (e.g. ratelimited and watch session expired). Semi-auto = Like Auto except on video page exit and can save progress manually via a button called Save watched progress, located beneath the video player.
+    Save watched videos with last viewed playlist: Save watched videos with last viewed playlist
+    Clear search history and cache: Clear search history and cache
     Are you sure you want to clear out your search history and cache?: Are you sure you want to
       clear out your search history and cache?
     Search history and cache have been cleared: Search history and cache have been cleared
-    Remove Watch History: Remove Watch History
+    Remove watch history: Remove watch history
     Are you sure you want to remove your entire watch history?: Are you sure you want
       to remove your entire watch history?
     Watch history has been cleared: Watch history has been cleared
-    Remove All Subscriptions / Profiles: Remove All Subscriptions / Profiles
+    Remove all subscriptions / profiles: Remove all subscriptions / profiles
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Are
       you sure you want to remove all subscriptions and profiles?  This cannot be
       undone.
-    Remove All Playlists: Remove All Playlists
+    Remove all playlists: Remove all playlists
     All playlists have been removed: All playlists have been removed
     Are you sure you want to remove all your playlists?: Are you sure you want to remove all your playlists?
-  Subscription Settings:
-    Subscription Settings: Subscription
-    Fetch Feeds from RSS: Fetch Feeds from RSS
-    Fetch Automatically: Fetch Feed Automatically
+  Subscription settings:
+    Subscription settings: Subscription
+    Fetch feeds from RSS: Fetch feeds from RSS
+    Fetch automatically: Fetch feed automatically
     'Limit the number of videos displayed for each channel': 'Limit the number of videos displayed for each channel'
     To: To
-    Confirm Before Unsubscribing: Confirm Before Unsubscribing
-  Distraction Free Settings:
-    Distraction Free Settings: Distraction Free
+    Confirm before unsubscribing: Confirm before unsubscribing
+  Distraction free settings:
+    Distraction free settings: Distraction free
     Sections:
-      Side Bar: Side Bar
-      Subscriptions Page: Subscriptions Page
-      Channel Page: Channel Page
-      Watch Page: Watch Page
+      Side bar: Side bar
+      Subscriptions page: Subscriptions page
+      Channel page: Channel page
+      Watch page: Watch page
       General: General
-    Hide Video Views: Hide Video Views
-    Hide Video Likes And Dislikes: Hide Video Likes And Dislikes
-    Hide Channel Subscribers: Hide Channel Subscribers
-    Hide Comment Likes: Hide Comment Likes
-    Hide Recommended Videos: Hide Recommended Videos
-    Hide Trending Videos: Hide Trending Videos
-    Hide Popular Videos: Hide Popular Videos
-    Hide Playlists: Hide Playlists
-    Hide Live Chat: Hide Live Chat
-    Hide Active Subscriptions: Hide Active Subscriptions
-    Hide Video Description: Hide Video Description
-    Hide Comments: Hide Comments
-    Hide Profile Pictures in Comments: Hide Profile Pictures in Comments
-    Display Titles Without Excessive Capitalisation: Display Titles Without Excessive Capitalisation And Punctuation
-    Hide Live Streams: Hide Live Streams
-    Hide Upcoming Premieres: Hide Upcoming Premieres
-    Hide Sharing Actions: Hide Sharing Actions
-    Hide Videos on Watch: Hide Videos on Watch
-    Hide Chapters: Hide Chapters
-    Hide Channels: Hide Videos From Channels
-    Hide Channels Disabled Message: Some channels were blocked using ID and weren't processed. Feature is blocked while those IDs are updating
-    Hide Channels Placeholder: Channel ID
-    Hide Channels Invalid: Channel ID provided was invalid
-    Hide Channels API Error: Error retrieving user with the ID provided. Please check again if the ID is correct.
-    Hide Channels Already Exists: Channel ID already exists
-    Hide Featured Channels: Hide Featured Channels
-    Hide Channel Playlists: Hide Channel "Playlists" Tab
-    Hide Channel Posts: Hide Channel "Posts" Tab
-    Hide Channel Home: Hide Channel "Home" Tab
-    Hide Channel Shorts: Hide Channel "Shorts" Tab
-    Hide Channel Podcasts: Hide Channel "Podcasts" Tab
-    Hide Channel Releases: Hide Channel "Releases" Tab
-    Hide Channel Courses: Hide Channel "Courses" Tab
-    Hide Videos and Playlists Containing Text: Hide Videos and Playlists Containing Text
-    Hide Videos and Playlists Containing Text Placeholder: Word, Word Fragment, or Phrase
-    Hide Subscriptions Videos: Hide Subscriptions Videos
-    Hide Subscriptions Shorts: Hide Subscriptions Shorts
-    Hide Subscriptions Live: Hide Subscriptions Live
-    Hide Subscriptions Posts: Hide Subscriptions Posts
-    Show Added Items: Show Added Items
-  Data Settings:
-    Data Settings: Data
-    Select Export Type: Select Export Type
-    Import Subscriptions: Import Subscriptions
-    Subscription File: Subscription File
-    History File: History File
-    Playlist File: Playlist File
-    Export Subscriptions: Export Subscriptions
+    Hide video views: Hide video views
+    Hide video likes and dislikes: Hide video likes and dislikes
+    Hide channel subscribers: Hide channel subscribers
+    Hide comment likes: Hide comment likes
+    Hide recommended videos: Hide recommended videos
+    Hide trending videos: Hide trending videos
+    Hide popular videos: Hide popular videos
+    Hide playlists: Hide playlists
+    Hide live chat: Hide live chat
+    Hide active subscriptions: Hide active subscriptions
+    Hide video description: Hide video description
+    Hide comments: Hide comments
+    Hide profile pictures in comments: Hide profile pictures in comments
+    Display titles without excessive capitalisation: Display titles without excessive capitalisation and punctuation
+    Hide live streams: Hide live streams
+    Hide upcoming premieres: Hide upcoming premieres
+    Hide sharing actions: Hide sharing actions
+    Hide videos on watch: Hide videos on watch
+    Hide chapters: Hide chapters
+    Hide channels: Hide videos from channels
+    Hide channels disabled message: Some channels were blocked using ID and weren't processed. Feature is blocked while those IDs are updating.
+    Hide channels placeholder: Channel ID
+    Hide channels invalid: Channel ID provided was invalid
+    Hide channels API error: Error retrieving user with the ID provided. Please check again if the ID is correct.
+    Hide channels already exists: Channel ID already exists
+    Hide featured channels: Hide featured channels
+    Hide channel playlists: Hide channel "Playlists" tab
+    Hide channel posts: Hide channel "Posts" tab
+    Hide channel home: Hide channel "Home" tab
+    Hide channel shorts: Hide channel "Shorts" tab
+    Hide channel podcasts: Hide channel "Podcasts" tab
+    Hide channel releases: Hide channel "Releases" tab
+    Hide channel courses: Hide channel "Courses" tab
+    Hide videos and playlists containing text: Hide videos and playlists containing text
+    Hide videos and playlists containing text placeholder: Word, word fragment, or phrase
+    Hide subscriptions videos: Hide subscriptions videos
+    Hide subscriptions shorts: Hide subscriptions shorts
+    Hide subscriptions live: Hide subscriptions live
+    Hide subscriptions posts: Hide subscriptions posts
+    Show added items: Show added items
+  Data settings:
+    Data settings: Data
+    Select export type: Select export type
+    Import subscriptions: Import subscriptions
+    Subscription file: Subscription file
+    History file: History file
+    Playlist file: Playlist file
+    Export subscriptions: Export subscriptions
     Export FreeTube: Export FreeTube
     Export YouTube: Export YouTube
     Export NewPipe: Export NewPipe
-    Import History: Import History
-    Export History: Export History
-    Import Playlists: Import Playlists
-    Export Playlists: Export Playlists
-    Profile object has insufficient data, skipping item: Profile object has insufficient
-      data, skipping item
+    Import history: Import history
+    Export history: Export history
+    Import playlists: Import playlists
+    Export playlists: Export playlists
+    Profile object has insufficient data, skipping item.: Profile object has insufficient
+      data, skipping item.
     All subscriptions and profiles have been successfully imported: All subscriptions
       and profiles have been successfully imported
     All subscriptions have been successfully imported: All subscriptions have been
@@ -611,13 +610,13 @@ Settings:
     Invalid history file: Invalid history file
     Subscriptions have been successfully exported: Subscriptions have been successfully
       exported
-    History object has insufficient data, skipping item: History object has insufficient
-      data, skipping item
+    History object has insufficient data, skipping item.: History object has insufficient
+      data, skipping item.
     All watched history has been successfully imported: All watched history has been
       successfully imported
     All watched history has been successfully exported: All watched history has been
       successfully exported
-    Playlist insufficient data: Insufficient data for "{playlist}" playlist, skipping item
+    Playlist insufficient data: Insufficient data for "{playlist}" playlist, skipping item.
     All playlists has been successfully imported: All playlists has been
       successfully imported
     All playlists has been successfully exported: All playlists has been
@@ -626,75 +625,75 @@ Settings:
     Unable to write file: Unable to write file
     Unknown data key: Unknown data key
     How do I import my subscriptions?: How do I import my subscriptions?
-    Manage Subscriptions: Manage Subscriptions
-  Proxy Settings:
-    Proxy Settings: Proxy
-    Proxy Warning: FreeTube doesn't have a built-in proxy but can connect to an external proxy, such as one running on your machine like Tor or an external proxy such-as a SOCKS5 proxy provided by some VPNs. If enabled, make sure your proxy/Tor is configured properly, or FreeTube won't be able to fetch any data.
-    Enable Tor / Proxy: Enable Tor / Proxy
-    Proxy Protocol: Proxy Protocol
-    Proxy Host: Proxy Host
-    Proxy Port Number: Proxy Port Number
-    Proxy Username: Proxy Username
-    Proxy Password: Proxy Password
-    Clicking on Test Proxy will send a request to: Clicking on Test Proxy will send a request to
-    Test Proxy: Test Proxy
-    Your Info: Your Info
-    Ip: Ip
+    Manage subscriptions: Manage subscriptions
+  Proxy settings:
+    Proxy settings: Proxy
+    Proxy warning: FreeTube doesn't have a built-in proxy but can connect to an external proxy, such as one running on your machine like Tor or an external proxy such-as a SOCKS5 proxy provided by some VPNs. If enabled, make sure your proxy / Tor is configured properly, or FreeTube won't be able to fetch any data.
+    Enable Tor / proxy: Enable Tor / proxy
+    Proxy protocol: Proxy protocol
+    Proxy host: Proxy host
+    Proxy port number: Proxy port number
+    Proxy username: Proxy username
+    Proxy password: Proxy password
+    Clicking on Test proxy will send a request to: Clicking on Test proxy will send a request to
+    Test proxy: Test proxy
+    Your info: Your info
+    IP: IP
     Country: Country
     Region: Region
     City: City
     Error getting network information. Is your proxy configured properly?: Error getting network information. Is your proxy configured properly?
-  SponsorBlock Settings:
-    SponsorBlock Settings: SponsorBlock
+  SponsorBlock settings:
+    SponsorBlock settings: SponsorBlock
     Enable SponsorBlock: Enable SponsorBlock
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API Url (Default is https://sponsor.ajay.app)
+    'SponsorBlock API URL (default is https://sponsor.ajay.app)': SponsorBlock API URL (default is https://sponsor.ajay.app)
     Notify when sponsor segment is skipped: Notify when sponsor segment is skipped
-    UseDeArrowTitles: Use DeArrow Video Titles
+    UseDeArrowTitles: Use DeArrow video titles
     UseDeArrowThumbnails: Use DeArrow for thumbnails
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)'
-    Skip Options:
-      Skip Option: Skip Option
-      Auto Skip: Auto Skip
-      Show In Seek Bar: Show In Seek Bar
-      Prompt To Skip: Prompt To Skip
-      Do Nothing: Do Nothing
-    Category Color: Category Color
-  Parental Control Settings:
-    Parental Control Settings: Parental Control
-    Hide Unsubscribe Button: Hide Unsubscribe Button
-    Hide Uploader on Watch page: Hide Uploader on Watch page
-    Show Family Friendly Only: Show Family Friendly Only
-    Hide Search Bar: Hide Search Bar
-  Download Settings:
-    Download Settings: Download
-    Ask Download Path: Ask for download path
-    Choose Path: Choose Path
-    Download Behavior: Download Behavior
+    'DeArrow thumbnail generator API URL (default is https://dearrow-thumb.ajay.app)': 'DeArrow thumbnail generator API URL (default is https://dearrow-thumb.ajay.app)'
+    Skip options:
+      Skip option: Skip option
+      Auto skip: Auto skip
+      Show in seek bar: Show in seek bar
+      Prompt to skip: Prompt to skip
+      Do nothing: Do nothing
+    Category color: Category color
+  Parental control settings:
+    Parental control settings: Parental control
+    Hide unsubscribe button: Hide unsubscribe button
+    Hide uploader on watch page: Hide uploader on watch page
+    Show family friendly only: Show family friendly only
+    Hide search bar: Hide search bar
+  Download settings:
+    Download settings: Download
+    Ask download path: Ask for download path
+    Choose path: Choose path
+    Download behavior: Download behavior
     Download in app: Download in app
     Open in web browser: Open in web browser
-  Experimental Settings:
-    Experimental Settings: Experimental
+  Experimental settings:
+    Experimental settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
-    Replace HTTP Cache: Replace HTTP Cache
-  Password Dialog:
+    Replace HTTP cache: Replace HTTP cache
+  Password dialog:
     Password: Password
-    Enter Password To Unlock: Enter password to unlock settings
-  Password Settings:
-    Password Settings: Password
-    Set Password To Prevent Access: Set a password to prevent access to settings
-    Set Password: Set Password
-    Remove Password: Remove Password
+    Enter password to unlock: Enter password to unlock settings
+  Password settings:
+    Password settings: Password
+    Set password to prevent access: Set a password to prevent access to settings
+    Set password: Set password
+    Remove password: Remove password
 About:
-  #On About page
+  #On about page
   About: About
   Beta: Beta
   Source code: Source code
   Licensed under the: Licensed under the
   AGPLv3: AGPLv3
-  Downloads / Changelog: Downloads / Changelog
-  GitHub releases: GitHub Releases
+  Downloads / changelog: Downloads / changelog
+  GitHub Releases: GitHub Releases
   Help: Help
-  FreeTube Wiki: FreeTube Wiki
+  FreeTube wiki: FreeTube wiki
   FAQ: FAQ
   Discussions: Discussions
   Report a problem: Report a problem
@@ -706,35 +705,35 @@ About:
   Mastodon: Mastodon
   Chat on Matrix: Chat on Matrix
   Please read the: Please read the
-  room rules: room rules
+  Room rules: room rules
   Translate: Translate
   Credits: Credits
   FreeTube is made possible by: FreeTube is made possible by
-  these people and projects: these people and projects
+  These people and projects: these people and projects
   Donate: Donate
 
 Profile:
-  Profile Settings: Profile
-  Toggle Profile List: Toggle Profile List
-  Profile Select: Profile Select
-  Profile Filter: Profile Filter
-  All Channels: All Channels
-  Profile Manager: Profile Manager
-  Create New Profile: Create New Profile
-  Edit Profile: Edit Profile
-  Edit Profile Name: Edit Profile Name
-  Create Profile Name: Create Profile Name
-  Profile Name: Profile Name
-  Color Picker: Color Picker
-  Custom Color: Custom Color
-  Profile Preview: Profile Preview
-  Create Profile: Create Profile
-  Update Profile: Update Profile
-  Make Default Profile: Make Default Profile
-  Delete Profile: Delete Profile
+  Profile settings: Profile
+  Toggle profile list: Toggle profile list
+  Profile select: Profile select
+  Profile filter: Profile filter
+  All channels: All channels
+  Profile manager: Profile manager
+  Create new profile: Create new profile
+  Edit profile: Edit profile
+  Edit profile name: Edit profile name
+  Create profile name: Create profile name
+  Profile name: Profile name
+  Color picker: Color picker
+  Custom color: Custom color
+  Profile preview: Profile preview
+  Create profile: Create profile
+  Update profile: Update profile
+  Make default profile: Make default profile
+  Delete profile: Delete profile
   Are you sure you want to delete this profile?: Are you sure you want to delete this
     profile?
-  All subscriptions will also be deleted.: All subscriptions will also be deleted.
+  All subscriptions will also be deleted: All subscriptions will also be deleted
   Your profile name cannot be empty: Your profile name cannot be empty
   Profile has been created: Profile has been created
   Profile has been updated: Profile has been updated
@@ -743,13 +742,13 @@ Profile:
   Your default profile has been changed to your primary profile: Your default profile
     has been changed to your primary profile
   '{profile} is now the active profile': '{profile} is now the active profile'
-  Subscription List: Subscription List
-  Other Channels: Other Channels
+  Subscription list: Subscription list
+  Other channels: Other channels
   '{number} selected': '{number} selected'
-  Select All: Select All
-  Select None: Select None
-  Delete Selected: Delete Selected
-  Add Selected To Profile: Add Selected To Profile
+  Select all: Select all
+  Select none: Select none
+  Delete selected: Delete selected
+  Add selected to profile: Add selected to profile
   No channel(s) have been selected: No channel(s) have been selected
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
     same channels will be deleted in any profile they are found in.
@@ -758,9 +757,9 @@ Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Are
     you sure you want to delete the selected channels?  This will not delete the channel
     from any other profile.
-  Close Profile Dropdown: Close Profile Dropdown
-  Open Profile Dropdown: Open Profile Dropdown
-#On Channel Page
+  Close profile dropdown: Close profile dropdown
+  Open profile dropdown: Open profile dropdown
+#On channel page
 Channel:
   Subscribe: Subscribe
   Unsubscribe: Unsubscribe
@@ -768,21 +767,21 @@ Channel:
     your subscriptions
   Removed subscription from {count} other channel(s): Removed subscription from {count} other channel(s)
   Added channel to your subscriptions: Added channel to your subscriptions
-  Search Channel: Search Channel
+  Search channel: Search channel
   Your search results have returned 0 results: Your search results have returned 0
     results
   This channel does not exist: This channel does not exist
   This channel does not allow searching: This channel does not allow searching
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: This channel is age-restricted and currently cannot be viewed in FreeTube.
-  Channel Tabs: Channel Tabs
+  This channel is age-restricted and currently cannot be viewed in FreeTube: This channel is age-restricted and currently cannot be viewed in FreeTube
+  Channel tabs: Channel tabs
   Videos:
     Videos: Videos
     This channel does not currently have any videos: This channel does not currently
       have any videos
-    Sort Types:
+    Sort types:
       Newest: Newest
       Oldest: Oldest
-      Most Popular: Most Popular
+      Most popular: Most popular
   Shorts:
     This channel does not currently have any shorts: This channel does not currently have any shorts
   Live:
@@ -793,13 +792,13 @@ Channel:
     Playlists: Playlists
     This channel does not currently have any playlists: This channel does not currently
       have any playlists
-    Sort Types:
-      Last Video Added: Last Video Added
+    Sort types:
+      Last video added: Last video added
       Newest: Newest
       Oldest: Oldest
   Home:
     Home: Home
-    View Playlist: View Playlist
+    View playlist: View playlist
   Podcasts:
     Podcasts: Podcasts
     This channel does not currently have any podcasts: This channel does not currently have any podcasts
@@ -811,146 +810,146 @@ Channel:
     This channel does not currently have any courses: This channel does not currently have any courses
   About:
     About: About
-    Channel Description: Channel Description
+    Channel description: Channel description
     Tags:
       Tags: Tags
       Search for: Search for "{tag}"
     Details: Details
     Joined: Joined
     Location: Location
-    Featured Channels: Featured Channels
+    Featured channels: Featured channels
   Posts:
     This channel currently does not have any posts: This channel currently does not have any posts
-    votes: '{votes} votes'
-    View Full Post: View Full Post
-    Reveal Answers: Reveal Answers
-    Hide Answers: Hide Answers
+    Votes: '{votes} votes'
+    View full post: View full post
+    Reveal answers: Reveal answers
+    Hide answers: Hide answers
     Video hidden by FreeTube: Video hidden by FreeTube
 Video:
   IP block: 'YouTube has blocked your IP address from watching videos. Please try switching to a different VPN or proxy.'
-  MembersOnly: Members-only videos cannot be watched with FreeTube as they require Google login and paid membership to the uploader's channel.
-  AgeRestricted: Age-restricted videos cannot be watched with FreeTube as they require Google login and using an age-verified YouTube account.
+  MembersOnly: Members-only videos cannot be watched with FreeTube as they require Google login and paid membership to the uploader's channel
+  AgeRestricted: Age-restricted videos cannot be watched with FreeTube as they require Google login and using an age-verified YouTube account
   DRMProtected: DRM protected videos cannot be played in FreeTube, as they require proprietary, closed source components. If you want to watch this video please watch it on the official YouTube website in a DRM enabled web browser.
-  More Options: More Options
-  Mark As Watched: Mark As Watched
-  Remove From History: Remove From History
+  More options: More options
+  Mark as watched: Mark as watched
+  Remove from history: Remove from history
   Video has been marked as watched: Video has been marked as watched
   Video has been removed from your history: Video has been removed from your history
-  Save Watched Progress: Save Watched Progress
-  Watched Progress Saved: Watched Progress Saved
-  Save Video: Save Video
+  Save watched progress: Save watched progress
+  Watched progress saved: Watched progress saved
+  Save video: Save video
   Video has been saved: Video has been saved
   Video has been removed from your saved list: Video has been removed from your saved list
   Open in YouTube: Open in YouTube
-  Copy YouTube Link: Copy YouTube Link
-  Open YouTube Embedded Player: Open YouTube Embedded Player
-  Copy YouTube Embedded Player Link: Copy YouTube Embedded Player Link
+  Copy YouTube link: Copy YouTube link
+  Open YouTube embedded player: Open YouTube embedded player
+  Copy YouTube embedded player link: Copy YouTube embedded player link
   Open in Invidious: Open in Invidious
-  Copy Invidious Link: Copy Invidious Link
-  Open Channel in YouTube: Open Channel in YouTube
-  Copy YouTube Channel Link: Copy YouTube Channel Link
-  Open Channel in Invidious: Open Channel in Invidious
-  Copy Invidious Channel Link: Copy Invidious Channel Link
-  Hide Channel: Hide Channel
-  Unhide Channel: Show Channel
+  Copy Invidious link: Copy Invidious link
+  Open channel in YouTube: Open channel in YouTube
+  Copy YouTube channel link: Copy YouTube channel link
+  Open channel in Invidious: Open channel in Invidious
+  Copy Invidious channel link: Copy Invidious channel link
+  Hide channel: Hide channel
+  Unhide channel: Show channel
   Views: Views
-  Loop Playlist: Loop Playlist
-  Shuffle Playlist: Shuffle Playlist
-  Reverse Playlist: Reverse Playlist
-  Play Next Video: Play Next Video
-  Play Previous Video: Play Previous Video
+  Loop playlist: Loop playlist
+  Shuffle playlist: Shuffle playlist
+  Reverse playlist: Reverse playlist
+  Play next video: Play next video
+  Play previous video: Play previous video
   Watched: Watched
   Autoplay: Autoplay
-  Starting soon, please refresh the page to check again: Starting soon, please refresh
-    the page to check again
-  # As in a Live Video
+  Starting soon, please refresh the page to check again.: Starting soon, please refresh
+    the page to check again.
+  # As in a live video
   Premieres: Premieres
   Upcoming: Upcoming
   Unlisted: Unlisted
   Live: Live
-  Live Now: Live Now
-  Live Chat: Live Chat
-  Enable Live Chat: Enable Live Chat
-  Live Chat is currently not supported in this build.: Live Chat is currently not
-    supported in this build.
+  Live now: Live now
+  Live chat: Live chat
+  Enable live chat: Enable live chat
+  Live chat is currently not supported in this build: Live chat is currently not
+    supported in this build
   Live chat is enabled. Chat messages will appear here once sent.: Live chat is enabled.  Chat
     messages will appear here once sent.
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Live
-    Chat is currently not supported with the Invidious API.  A direct connection to
+  'Live chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Live
+    chat is currently not supported with the Invidious API.  A direct connection to
     YouTube is required.
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'Live Chat is unavailable for this stream. It may have been disabled by the uploader.'
-  Show Super Chat Comment: Show Super Chat Comment
-  Scroll to Bottom: Scroll to Bottom
-  Download Video: Download Video
-  video only: video only
-  audio only: audio only
+  'Live chat is unavailable for this stream. It may have been disabled by the uploader.': 'Live chat is unavailable for this stream. It may have been disabled by the uploader.'
+  Show Super Chat comment: Show Super Chat comment
+  Scroll to bottom: Scroll to bottom
+  Download video: Download video
+  Video only: Video only
+  Audio only: Audio only
   Published:
     In less than a minute: In less than a minute
   Published on: Published on
   Streamed on: Streamed on
   Started streaming on: Started streaming on
   DeArrow:
-    Show Original Details: Show Original Details
-    Show Modified Details: Show Modified Details
-  Sponsor Block category:
-    sponsor: Sponsor
-    intro: Intro
-    outro: Outro
-    self-promotion: Self-Promotion
-    interaction: Interaction
-    music offtopic: Music Offtopic
-    recap: Recap
-    filler: Filler
-  External Player:
+    Show original details: Show original details
+    Show modified details: Show modified details
+  Sponsor block category:
+    Sponsor: Sponsor
+    Intro: Intro
+    Outro: Outro
+    Self-promotion: Self-promotion
+    Interaction: Interaction
+    Music offtopic: Music offtopic
+    Recap: Recap
+    Filler: Filler
+  External player:
     OpenInTemplate: Open in {externalPlayer}
-    video: video
-    playlist: playlist
-    OpeningTemplate: Opening {videoOrPlaylist} in {externalPlayer}...
+    Video: Video
+    Playlist: Playlist
+    OpeningTemplate: Opening {videoOrPlaylist} in {externalPlayer}
     UnsupportedActionTemplate: '{externalPlayer} does not support: {action}'
-    Unsupported Actions:
-      starting video at offset: starting video at offset
-      setting a playback rate: setting a playback rate
-      opening playlists: opening playlists
-      opening specific video in a playlist (falling back to opening the video): opening specific video in a playlist (falling back to opening the video)
-      reversing playlists: reversing playlists
-      shuffling playlists: shuffling playlists
-      looping playlists: looping playlists
+    Unsupported actions:
+      Starting video at offset: Starting video at offset
+      Setting a playback rate: Setting a playback rate
+      Opening playlists: Opening playlists
+      Opening specific video in a playlist (falling back to opening the video): Opening specific video in a playlist (falling back to opening the video)
+      Reversing playlists: Reversing playlists
+      Shuffling playlists: Shuffling playlists
+      Looping playlists: Looping playlists
   Player:
     TranslatedCaptionTemplate: '{language} (translated from "{originalLanguage}")'
-    Audio Tracks: Audio Tracks
+    Audio tracks: Audio tracks
     Autoplay is off: Autoplay is off
     Autoplay is on: Autoplay is on
-    Theatre Mode: Theater Mode
-    Exit Theatre Mode: Exit Theater Mode
-    Full Window: Full Window
-    Exit Full Window: Exit Full Window
-    Take Screenshot: Take Screenshot
-    Show Stats: Show Stats
-    Hide Stats: Hide Stats
+    Theatre mode: Theater mode
+    Exit theatre mode: Exit theater mode
+    Full window: Full window
+    Exit full window: Exit full window
+    Take screenshot: Take screenshot
+    Show stats: Show stats
+    Hide stats: Hide stats
     Stats:
       Stats: Stats
       Video ID: 'Video ID: {videoId}'
-      Media Formats: 'Media Formats: {formats}'
+      Media formats: 'Media formats: {formats}'
       Resolution: 'Resolution: {width}x{height}@{frameRate}'
-      Player Dimensions: 'Player Dimensions: {width}x{height}'
+      Player dimensions: 'Player dimensions: {width}x{height}'
       Bitrate: 'Bitrate: {bitrate} kbps'
       Volume: 'Volume: {volumePercentage}%'
       Bandwidth: 'Bandwidth: {bandwidth} kbps'
       Buffered: 'Buffered: {bufferedPercentage}%'
-      Dropped Frames / Total Frames: 'Dropped Frames: {droppedFrames} / Total Frames: {totalFrames}'
+      Dropped frames / total frames: 'Dropped frames: {droppedFrames} / total frames: {totalFrames}'
       CodecAudio: 'Codec: {audioCodec} ({audioItag})'
       CodecsVideoAudio: 'Codecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
-    You appear to be offline: You appear to be offline.
-    Playback will resume automatically when your connection comes back: Playback will resume automatically when your connection comes back.
+    You appear to be offline: You appear to be offline
+    Playback will resume automatically when your connection comes back: Playback will resume automatically when your connection comes back
     Skipped segment: 'Skipped {segmentCategory} segment'
 #& Playlists
 Playlist:
   #& About
   Playlist: Playlist
-  View Full Playlist: View Full Playlist
-  Last Updated On: Last Updated On
-  Sort By:
+  View full playlist: View full playlist
+  Last updated on: Last updated on
+  Sort by:
     DateAddedNewest: Date added (Newest)
     DateAddedOldest: Date added (Oldest)
     PublishedNewest: Date published (Newest)
@@ -963,173 +962,172 @@ Playlist:
     VideoDurationDescending: Duration (Longest)
     Custom: Custom
 
-# On Video Watch Page
+# On video watch page
 #* Published
 #& Views
-Change Format:
-  Change Media Formats: Change Media Formats
-  Use Dash Formats: Use DASH Formats
-  Use Legacy Formats: Use Legacy Formats
-  Use Audio Formats: Use Audio Formats
-  Dash formats are not available for this video: DASH formats are not available for
+Change format:
+  Change media formats: Change media formats
+  Use DASH formats: Use DASH formats
+  Use legacy formats: Use legacy formats
+  Use audio formats: Use audio formats
+  DASH formats are not available for this video: DASH formats are not available for
     this video
   Audio formats are not available for this video: Audio formats are not available
     for this video
   Legacy formats are not available for this video: Legacy formats are not available
     for this video
 Share:
-  Share Video: Share Video
-  Share Channel: Share Channel
-  Share Playlist: Share Playlist
-  Include Timestamp: Include Timestamp
-  Copy Link: Copy Link
-  Open Link: Open Link
-  Copy Embed: Copy Embed
-  Open Embed: Open Embed
-  # On Click
+  Share video: Share video
+  Share channel: Share channel
+  Share playlist: Share playlist
+  Include timestamp: Include timestamp
+  Copy link: Copy link
+  Open link: Open link
+  Copy embed: Copy embed
+  Open embed: Open embed
+  # On click
   Invidious URL copied to clipboard: Invidious URL copied to clipboard
-  Invidious Embed URL copied to clipboard: Invidious Embed URL copied to clipboard
-  Invidious Channel URL copied to clipboard: Invidious Channel URL copied to clipboard
+  Invidious embed URL copied to clipboard: Invidious embed URL copied to clipboard
+  Invidious channel URL copied to clipboard: Invidious channel URL copied to clipboard
   YouTube URL copied to clipboard: YouTube URL copied to clipboard
-  YouTube Embed URL copied to clipboard: YouTube Embed URL copied to clipboard
-  YouTube Channel URL copied to clipboard: YouTube Channel URL copied to clipboard
+  YouTube embed URL copied to clipboard: YouTube embed URL copied to clipboard
+  YouTube channel URL copied to clipboard: YouTube channel URL copied to clipboard
 Clipboard:
   Copy failed: Copy to clipboard failed
   Cannot access clipboard without a secure connection: Cannot access clipboard without a secure connection
 
 Chapters:
   Chapters: Chapters
-  Key Moments: Key Moments
+  Key moments: Key moments
 
-Mini Player: Mini Player
 Comments:
   Comments: Comments
-  Click to View Comments: Click to View Comments
-  Getting comment replies, please wait: Getting comment replies, please wait
+  Click to view comments: Click to view comments
+  Getting comment replies, please wait.: Getting comment replies, please wait.
   There are no more comments for this video: There are no more comments for this video
-  Hide Comments: Hide Comments
+  Hide comments: Hide comments
   Top comments: Top comments
-  Newest first: Newest First
+  Newest first: Newest first
   View {replyCount} replies: View {replyCount} replies
-  # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
+  # Context: view 10 replies, view 1 reply, view 1 reply from owner, view 2 replies from owner and others
   View: View
   Hide: Hide
   Replies: Replies
-  Show More Replies: Show More Replies
+  Show more replies: Show more replies
   Reply: Reply
-  From {channelName}: from {channelName}
+  From {channelName}: From {channelName}
   And others: and others
   There are no comments available for this video: There are no comments available
     for this video
   There are no comments available for this post: There are no comments available for this post
-  Load More Comments: Load More Comments
+  Load more comments: Load more comments
   Pinned by: Pinned by
   Member: Member
   Subscribed: Subscribed
   Hearted: Hearted
 
-Up Next: Up Next
+Up next: Up next
 Description:
-  Expand Description: ...more
-  Collapse Description: Show less
+  Expand description: ...more
+  Collapse description: Show less
 
 #Tooltips
 Tooltips:
-  General Settings:
-    Preferred API Backend: Choose the backend that FreeTube uses to obtain data. The
-      local API is a built-in extractor. The Invidious API requires an Invidious server
-      to connect to.
-    Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
+  General settings:
+    Preferred API backend: Choose the backend that FreeTube uses to obtain data. The
+      Local API is a built-in extractor. The Invidious API requires an Invidious server
+      To connect to.
+    Fallback to non-preferred backend on failure: When your preferred API has a problem,
       FreeTube will automatically attempt to use your non-preferred API as a fallback
       method when enabled.
-    Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
+    Thumbnail preference: All thumbnails throughout FreeTube will be replaced with
       a frame of the video, blurred or hidden instead of the default thumbnail.
-    Invidious Instance: The Invidious instance that FreeTube will connect to for API
+    Invidious instance: The Invidious instance that FreeTube will connect to for API
       calls.
-    Region for Trending: The region of trends allows you to pick which country's trending
+    Region for trending: The region of trends allows you to pick which country's trending
       videos you want to have displayed.
-    External Link Handling: |
+    External link handling: |
       Choose the default behavior when a link, which cannot be opened in FreeTube, is clicked.
       By default FreeTube will open the clicked link in your default browser.
-    Open Deep Links In New Window: URLs passed to FreeTube, such as by redirect
+    Open deep links in new window: URLs passed to FreeTube, such as by redirect
       browser extensions or command line arguments, are opened in a new window.
-  Player Settings:
-    Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
-      of making a direct connection to YouTube.
-    Default Video Format: Set the formats used when a video plays. DASH formats can
+  Player settings:
+    Proxy videos through Invidious: Will connect to Invidious to serve videos instead
+      of making a direct connection to YouTube
+    Default video format: Set the formats used when a video plays. DASH formats can
       play higher qualities. Legacy formats are limited to a max of 360p but use less
       bandwidth. Audio formats are audio only streams.
-    Scroll Playback Rate Over Video Player: While the cursor is over the video, press and
-      hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards or backwards to control
-      the playback rate. Press and hold the Control key (Command Key on Mac) and left click the mouse
+    Scroll playback rate over video player: While the cursor is over the video, press and
+      hold the Control key (Command key on Mac) and scroll the mouse wheel forwards or backwards to control
+      the playback rate. Press and hold the Control key (Command key on Mac) and left click the mouse
       to quickly return to the default playback rate (1x unless it has been changed in the settings).
-    Skip by Scrolling Over Video Player: Use the scroll wheel to skip through the video, MPV style.
-  External Player Settings:
-    External Player: Choosing an external player will display an icon, for opening the
+    Skip by scrolling over video player: Use the scroll wheel to skip through the video, mpv style.
+  External player settings:
+    External player: Choosing an external player will display an icon, for opening the
       video (playlist if supported) in the external player, on the thumbnail. Warning, Invidious settings do not affect external players.
-    Custom External Player Executable: By default, FreeTube will assume that the chosen external
+    Custom external player executable: By default, FreeTube will assume that the chosen external
       player can be found via the PATH environment variable. If needed, a custom path can
       be set here.
-    Ignore Warnings: Suppress warnings for when the current external player does not support
-      the current action (e.g. reversing playlists, etc.).
-    Ignore Default Arguments: Do not send any default arguments to the external player
+    Ignore warnings: Suppress warnings for when the current external player does not support
+      the current action (e.g. reversing playlists, etc.)
+    Ignore default arguments: Do not send any default arguments to the external player
       aside from the video URL (e.g. playback rate, playlist URL, etc.).
       Custom arguments will still be passed on.
-    Custom External Player Arguments: Any custom command line arguments you want to be passed on to the external player.
+    Custom external player arguments: Any custom command line arguments you want to be passed on to the external player
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
-  Distraction Free Settings:
-    Hide Channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
+  Distraction free settings:
+    Hide channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
        The channel ID entered must be a complete match and is case sensitive.
-    Hide Subscriptions Live: 'This setting is overridden by the app-wide "{appWideSetting}" setting, in the "{subsection}" section of the "{settingsSection}"'
-    Hide Videos and Playlists Containing Text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos & playlists whose original titles contain it throughout all of FreeTube, excluding only History, Your Playlists, and videos inside of playlists.
-    Hide Videos on Watch: 'Hides watched videos from the Videos, Shorts, and Live tabs on the Subscription and Channel pages. This does not affect the Home tab on Channel pages'
-  Subscription Settings:
-    Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
+    Hide subscriptions live: 'This setting is overridden by the app-wide "{appWideSetting}" setting, in the "{subsection}" section of the "{settingsSection}".'
+    Hide videos and playlists containing text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos & playlists whose original titles contain it throughout all of FreeTube, excluding only history, your playlists, and videos inside of playlists.
+    Hide videos on watch: 'Hides watched videos from the videos, shorts, and live tabs on the subscription and channel pages. This does not affect the home tab on channel pages.'
+  Subscription settings:
+    Fetch feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
-      but doesn't provide certain information like video duration, live status or posts
-    Fetch Automatically: When enabled, FreeTube will automatically fetch
+      but doesn't provide certain information like video duration, live status or posts.
+    Fetch automatically: When enabled, FreeTube will automatically fetch
       your subscription feed on startup and when a new window is opened.
-  Experimental Settings:
-    Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
-  SponsorBlock Settings:
-    UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
-    UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow.
+  Experimental settings:
+    Replace HTTP cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
+  SponsorBlock settings:
+    UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow
+    UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow
 
-# Toast Messages
-Local API Error (Click to copy): Local API Error (Click to copy)
-Invidious API Error (Click to copy): Invidious API Error (Click to copy)
+# Toast messages
+Local API error (click to copy): Local API error (click to copy)
+Invidious API error (click to copy): Invidious API error (click to copy)
 Falling back to Invidious API: Falling back to Invidious API
 Falling back to Local API: Falling back to Local API
 This video is unavailable because of missing formats. This can happen due to country unavailability.: This
   video is unavailable because of missing formats. This can happen due to country
   unavailability.
-Unknown YouTube url type, cannot be opened in app: Unknown YouTube url type, cannot be opened in app
+Unknown YouTube URL type, cannot be opened in app.: Unknown YouTube URL type, cannot be opened in app.
 Loop is now disabled: Loop is now disabled
 Loop is now enabled: Loop is now enabled
 Shuffle is now disabled: Shuffle is now disabled
 Shuffle is now enabled: Shuffle is now enabled
 The playlist has been reversed: The playlist has been reversed
-Playing Next Video: Playing Next Video
-Playing Previous Video: Playing Previous Video
-Playing Next Video Interval: Playing next video in no time. Click to cancel. | Playing next video in {nextVideoInterval} second. Click to cancel. | Playing next video in {nextVideoInterval} seconds. Click to cancel.
+Playing next video: Playing next video
+Playing previous video: Playing previous video
+Playing next video interval: Playing next video in no time. Click to cancel. | Playing next video in {nextVideoInterval} second. Click to cancel. | Playing next video in {nextVideoInterval} seconds. Click to cancel.
 Canceled next video autoplay: Canceled next video autoplay
-Autoplay Interruption Timer: Autoplay canceled due to {autoplayInterruptionIntervalHours} hours of inactivity
+Autoplay interruption timer: Autoplay canceled due to {autoplayInterruptionIntervalHours} hours of inactivity
 
 Default Invidious instance has been set to {instance}: Default Invidious instance has been set to {instance}
 Default Invidious instance has been cleared: Default Invidious instance has been cleared
-'The playlist has ended. Enable loop to continue playing': 'The playlist has ended.  Enable
-  loop to continue playing'
-Age Restricted:
+'The playlist has ended. Enable loop to continue playing.': 'The playlist has ended.  Enable
+  loop to continue playing.'
+Age restricted:
   This channel is age restricted: This channel is age restricted
   This video is age restricted: This video is age restricted
-External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
+External link opening has been disabled in the General settings: 'External link opening has been disabled in the General settings'
 Downloading has completed: '"{videoTitle}" has finished downloading'
 Starting download: 'Starting download of "{videoTitle}"'
 Downloading failed: 'There was an issue downloading "{videoTitle}"'
-Screenshot Success: Saved screenshot
-Screenshot Error: Screenshot failed. {error}
-Channel Hidden: '{channel} added to channel filter'
-Channel Unhidden: '{channel} removed from channel filter'
+Screenshot success: Saved screenshot
+Screenshot error: Screenshot failed. {error}
+Channel hidden: '{channel} added to channel filter'
+Channel unhidden: '{channel} removed from channel filter'
 Trimmed input must be at least N characters long: Trimmed input must be at least 1 character long | Trimmed input must be at least {length} characters long
 Tag already exists: '"{tagName}" tag already exists'
 
@@ -1137,33 +1135,33 @@ Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: This hashtag does not currently
       have any videos
-Moments Ago: moments ago
+Moments ago: Moments ago
 Yes: Yes
 No: No
 Ok: Ok
-Yes, Delete: Yes, Delete
-Yes, Restart: Yes, Restart
-Yes, Open Link: Yes, Open Link
+Yes, delete: Yes, delete
+Yes, restart: Yes, restart
+Yes, open link: Yes, open link
 Cancel: Cancel
-# symbol used to indicate that an item is correct
-checkmark: ✓
+# Symbol used to indicate that an item is correct
+Checkmark: ✓
 # French is the only language that should change this (they have a space before the colon)
-Display Label: '{label}: {value}'
+Display label: '{label}: {value}'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 shortcutLabelSeparator: '｜'
 Keys:
-  alt: Alt
-  ctrl: Ctrl
-  shift: Shift
-  enter: Enter
-  plus: Plus
-  arrowdown: Down Arrow
-  arrowleft: Left Arrow
-  arrowright: Right Arrow
-  arrowup: Up Arrow
+  Alt: Alt
+  Ctrl: Ctrl
+  Shift: Shift
+  Enter: Enter
+  Plus: Plus
+  Arrowdown: Down arrow
+  Arrowleft: Left arrow
+  Arrowright: Right arrow
+  Arrowup: Up arrow
 KeyboardShortcutPrompt:
-  Keyboard Shortcuts: Keyboard Shortcuts
+  Keyboard shortcuts: Keyboard shortcuts
   Sections:
     Video:
       Playback: Video: Playback
@@ -1171,47 +1169,47 @@ KeyboardShortcutPrompt:
     App:
       Situational: 'App: Situational'
       General: App: General
-  Show Keyboard Shortcuts: Show keyboard shortcuts
-  History Backward: Go back one page
-  History Forward: Go forward one page
-  New Window: Create a new window
-  Navigate to Settings: Navigate to the Settings page
-  Navigate to History: Navigate to the History page
-  Refresh: Refresh feed with latest content
-  Focus Secondary Search: Focus on the secondary search bar (if one is present)
-  Captions: Toggle captions ON/OFF
-  Stats: Show video statistics
-  Fullscreen: Toggle fullscreen
-  Picture in Picture: Toggle Picture-in-Picture mode
-  Large Rewind: 'Rewind 10 seconds / Rewind video based on current Video Playback Rate'
-  Play: Toggle play/pause
-  Large Fast Forward: 'Forward 10 seconds / Fast-Forward video based on current Video Playback Rate'
-  Mute: Toggle mute
-  Decrease Video Speed: 'Decrease video speed based on Video Playback Rate Interval'
-  Increase Video Speed: 'Increase video speed based on Video Playback Rate Interval'
-  Full Window: Toggle full window
-  Theatre Mode: Toggle theater mode
-  Take Screenshot: Take screenshot
-  Minimize Window: Miminize window
-  Close Window: Close window
   Restart Window: Restart window
   Force Restart Window: Force restart window
-  Toggle Developer Tools: Toggle developer tools
-  Reset Zoom: Reset zoom level / UI scale
-  Zoom In: Zoom in
-  Zoom Out: Zoom out
-  Focus Search: Focus on the search bar
-  Search in New Window: Search in a new window
-  Last Frame: Previous frame (while paused)
-  Next Frame: Next frame (while paused)
-  Volume Up: Increase volume
-  Volume Down: Decrease volume
-  Small Rewind: 'Rewind X seconds based on the Rewind Interval and current Video Playback Rate'
-  Small Fast Forward: 'Fast-Forward X seconds based on the Fast-Forward Interval and current Video Playback Rate'
-  Last Chapter: Last Chapter
-  Next Chapter: Next Chapter
-  Skip by Tenths: Skip through video by percentage (3 skips to 30% of duration)
+  Show keyboard shortcuts: Show keyboard shortcuts
+  History backward: Go back one page
+  History forward: Go forward one page
+  New window: Create a new window
+  Navigate to settings: Navigate to the settings page
+  Navigate to history: Navigate to the history page
+  Refresh: Refresh feed with latest content
+  Focus secondary search: Focus on the secondary search bar (if one is present)
+  Captions: Toggle captions on / off
+  Stats: Show video statistics
+  Full screen: Toggle full screen
+  Picture in Picture: Toggle Picture-in-Picture mode
+  Large rewind: 'Rewind 10 seconds / rewind video based on current video playback rate'
+  Play: Toggle play / pause
+  Large fast forward: 'Forward 10 seconds / fast-forward video based on current video playback rate'
+  Mute: Toggle mute
+  Decrease video speed: 'Decrease video speed based on video playback rate interval'
+  Increase video speed: 'Increase video speed based on video playback rate interval'
+  Full window: Toggle full window
+  Theatre mode: Toggle theater mode
+  Take screenshot: Take screenshot
+  Minimize window: Miminize window
+  Close window: Close window
+  Toggle developer tools: Toggle developer tools
+  Reset zoom: Reset zoom level / UI scale
+  Zoom in: Zoom in
+  Zoom out: Zoom out
+  Focus search: Focus on the search bar
+  Search in new window: Search in a new window
+  Last frame: Previous frame (while paused)
+  Next frame: Next frame (while paused)
+  Volume up: Increase volume
+  Volume down: Decrease volume
+  Small rewind: 'Rewind X seconds based on the rewind interval and current video playback rate'
+  Small fast forward: 'Fast-forward X seconds based on the fast-forward interval and current video playback rate'
+  Last chapter: Last chapter
+  Next chapter: Next chapter
+  Skip by tenths: Skip through video by percentage (3 skips to 30% of duration)
   Home: Seek to the beginning of the video
   End: Seek to the end of the video
-  Skip to Next Video: Skip to the next video in a playlist or next recommended video
-  Skip to Previous Video: Skip to the previous video in a playlist
+  Skip to next video: Skip to the next video in a playlist or next recommended video
+  Skip to previous video: Skip to the previous video in a playlist
