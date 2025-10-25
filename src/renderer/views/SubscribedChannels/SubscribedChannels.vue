@@ -83,8 +83,7 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, onMounted, onBeforeUnmount, ref, watch } from 'vue'
-import { isNavigationFailure, NavigationFailureType } from 'vue-router'
-import { useRoute, useRouter } from 'vue-router/composables'
+import { isNavigationFailure, NavigationFailureType, useRoute, useRouter } from 'vue-router'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'

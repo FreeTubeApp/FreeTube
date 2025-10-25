@@ -843,7 +843,7 @@ Video:
       CodecsVideoAudio: 'Koodekid: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Koodekid: {videoCodec} / {audioCodec}'
       Stats: Statistika
-      Resolution: 'Mõõdud ja kaadrisagedus: {width}x{height}@{frameRate}'
+      Resolution: 'Mõõdud ja kaadrisagedus: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Meediamängija mõõdud: {width}x{height}'
       Dropped Frames / Total Frames: 'Vahelejäetud kaadreid: {droppedFrames} / Kaadreid kokku: {totalFrames}'
     Skipped segment: Vahelejäetud {segmentCategory} segment

@@ -121,7 +121,7 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-import { useRoute, useRouter } from 'vue-router/composables'
+import { useRoute, useRouter } from 'vue-router'
 
 import FtInput from '../ft-input/ft-input.vue'
 import FtProfileSelector from '../FtProfileSelector/FtProfileSelector.vue'

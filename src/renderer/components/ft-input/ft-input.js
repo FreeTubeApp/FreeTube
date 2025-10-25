@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, useId } from 'vue'
 import { mapActions } from 'vuex'
 
 import FtTooltip from '../FtTooltip/FtTooltip.vue'
@@ -77,13 +77,19 @@ export default defineComponent({
     }
   },
   emits: ['clear', 'click', 'input', 'remove'],
+  setup() {
+    const id = useId()
+
+    return {
+      id
+    }
+  },
   data: function () {
     let actionIcon = ['fas', 'search']
     if (this.forceActionButtonIconName !== null) {
       actionIcon = this.forceActionButtonIconName
     }
     return {
-      id: '',
       inputData: '',
       searchState: {
         showOptions: false,
@@ -152,7 +158,6 @@ export default defineComponent({
     }
   },
   created: function () {
-    this.id = this._uid
     this.inputData = this.value
     this.updateVisibleDataList()
   },

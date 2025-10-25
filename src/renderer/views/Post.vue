@@ -27,7 +27,7 @@
 
 <script setup>
 import { computed, onMounted, ref, shallowRef, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router/composables'
+import { useRoute, useRouter } from 'vue-router'
 import packageDetails from '../../../package.json'
 import { useI18n } from '../composables/use-i18n-polyfill'
 

@@ -837,7 +837,7 @@ Video:
       Bandwidth: 'Bandbredd: {bandwidth} kbps'
       Buffered: 'Buffrad: {bufferedPercentage} %'
       CodecsVideoAudioNoItags: 'Kodekar: {videoCodec} / {audioCodec}'
-      Resolution: 'Upplösning: {width}x{height}@{frameRate}'
+      Resolution: 'Upplösning: {width}x{height}{''@''}{frameRate}'
       Stats: Statistik
       Bitrate: 'Bithastighet: {bitrate} kbps'
       Volume: 'Volym: {volumePercentage}%'

@@ -837,7 +837,7 @@ Video:
       Stats: Estatísticas
       Dropped Frames / Total Frames: 'Fotogramas eliminados: {droppedFrames} / Total de fotogramas: {totalFrames}'
       CodecAudio: 'Codificador: {audioCodec} ({audioItag})'
-      Resolution: 'Resolução: {width}x{height}@{frameRate}'
+      Resolution: 'Resolução: {width}x{height}{''@''}{frameRate}'
       Volume: 'Volume: {volumePercentage}%'
       Bandwidth: 'Largura de banda: {bandwidth} kbps'
       Buffered: 'Armazenado em buffer: {bufferedPercentage}%'

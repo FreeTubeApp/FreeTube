@@ -831,7 +831,7 @@ Video:
       CodecsVideoAudioNoItags: 'Κωδικοποιητές: {videoCodec} / {audioCodec}'
       CodecAudio: 'Κωδικοποιητής: {audioCodec} ({audioItag})'
       Bitrate: 'Ρυθμός μετάδοσης δεδομένων: {bitrate} kbps'
-      Resolution: 'Διαστάσεις: {width}x{height}@{frameRate}'
+      Resolution: 'Διαστάσεις: {width}x{height}{''@''}{frameRate}'
       Buffered: 'Αποθηκευμένη: {bufferedPercentage}%'
     Theatre Mode: Λειτουργία Θεάτρου
     Full Window: Πλήρες Παράθυρο

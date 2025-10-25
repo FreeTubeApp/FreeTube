@@ -219,7 +219,7 @@ export default defineComponent({
         return null
       }
 
-      return this.$tc('Global.Counts.View Count', this.viewCount, { count: formatNumber(this.viewCount) })
+      return this.$t('Global.Counts.View Count', { count: formatNumber(this.viewCount) }, this.viewCount)
     },
 
     dateString: function () {

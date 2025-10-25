@@ -15,7 +15,7 @@
         class="thumbnailLink"
         tabindex="-1"
         :to="watchVideoRouterLink"
-        @click.native="handleWatchPageLinkClick"
+        @click="handleWatchPageLinkClick"
       >
         <img
           :src="thumbnail"
@@ -113,7 +113,7 @@
       <router-link
         class="title"
         :to="watchVideoRouterLink"
-        @click.native="handleWatchPageLinkClick"
+        @click="handleWatchPageLinkClick"
       >
         <h3 class="h3Title">
           {{ displayTitle }}
@@ -135,7 +135,7 @@
           class="viewCount"
         >
           <template v-if="channelId !== null || channelName !== null"> • </template>
-          {{ $tc('Global.Counts.View Count', viewCount, {count: parsedViewCount}) }}
+          {{ $t('Global.Counts.View Count', {count: parsedViewCount}, viewCount) }}
         </span>
         <span
           v-if="uploadedTime !== '' && !isLive"
@@ -144,7 +144,7 @@
         <span
           v-if="isLive && !hideViews"
           class="viewCount"
-        > • {{ $tc('Global.Counts.Watching Count', viewCount, {count: parsedViewCount}) }}</span>
+        > • {{ $t('Global.Counts.Watching Count', {count: parsedViewCount}, viewCount) }}</span>
       </div>
       <div
         v-if="is4k || hasCaptions || is8k || isNew || isVr180 || isVr360 || is3D"

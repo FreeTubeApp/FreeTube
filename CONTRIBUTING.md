@@ -16,9 +16,9 @@ Please follow these guidelines before sending your pull request and making contr
 * Stick to a similar style of code already in the project.  Please look at current code to get an idea on how to do this.
 * Follow [ES6](https://rse.github.io/es6-features/) standards in your code. Ex: Use `let` and `const` instead of `var`. Do not use `function(response){//code}` for callbacks, use `(response) => {//code}`.
 * Comment your code when necessary.  Follow the [JavaScript Documentation and Comments Standard](https://www.drupal.org/docs/develop/standards/javascript/javascript-api-documentation-and-comment-standards) for functions.
-* Please follow proper Vue structure when creating new code / components.  Use existing code as well as the [Vue.js Guide](https://vuejs.org/v2/guide/) for reference.
+* Please follow proper Vue structure when creating new code / components.  Use existing code as well as the [Vue.js Guide](https://vuejs.org/guide/introduction.html) for reference.
 * Please test your code.  Make sure new features work as well as existing core features such as watching videos or loading subscriptions.  New features need to work with both the Local API as well as the Invidious API
-* Please make sure your code does not violate any standards set by our linter.  It's up to you to make fixes whenever necessary.  You can run `npm run lint` to check locally and `npm run lint-fix` to automatically fix smaller issues.
+* Please make sure your code does not violate any standards set by our linter.  It's up to you to make fixes whenever necessary.  You can run `yarn run lint` to check locally and `yarn run lint-fix` to automatically fix smaller issues.
 * Please limit the amount of Node Modules that you introduce into the project.  Only include them when **absolutely necessary** for your code to work (Ex: Using nedb for databases) or if a module provides similar functionality to what you are trying to achieve (Ex: Using autolinker to create links to outside URLs instead of writing the functionality myself).
 * Please try to stay involved with the community and maintain your code.  We are only a handful of developers working on FreeTube in our spare time.  We do not have time to work on everything, and it would be nice if you can maintain your code when necessary.
 

@@ -1,4 +1,3 @@
-import { set as vueSet, del as vueDel } from 'vue'
 import { DBHistoryHandlers } from '../../../datastores/handlers/index'
 
 const state = {
@@ -125,7 +124,7 @@ const mutations = {
     }
 
     state.historyCacheSorted.unshift(record)
-    vueSet(state.historyCacheById, record.videoId, record)
+    state.historyCacheById[record.videoId] = record
   },
 
   updateRecordWatchProgressInHistoryCache(state, { videoId, watchProgress }) {
@@ -136,7 +135,7 @@ const mutations = {
 
     // Don't set, if the item was removed from the watch history, as we don't have any video details
     if (record) {
-      vueSet(record, 'watchProgress', watchProgress)
+      record.watchProgress = watchProgress
     }
   },
 
@@ -148,9 +147,9 @@ const mutations = {
 
     // Don't set, if the item was removed from the watch history, as we don't have any video details
     if (record) {
-      vueSet(record, 'lastViewedPlaylistId', lastViewedPlaylistId)
-      vueSet(record, 'lastViewedPlaylistType', lastViewedPlaylistType)
-      vueSet(record, 'lastViewedPlaylistItemId', lastViewedPlaylistItemId)
+      record.lastViewedPlaylistId = lastViewedPlaylistId
+      record.lastViewedPlaylistType = lastViewedPlaylistType
+      record.lastViewedPlaylistItemId = lastViewedPlaylistItemId
     }
   },
 
@@ -162,7 +161,7 @@ const mutations = {
       }
     }
 
-    vueDel(state.historyCacheById, videoId)
+    delete state.historyCacheById[videoId]
   }
 }
 

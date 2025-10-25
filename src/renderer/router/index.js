@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Subscriptions from '../views/Subscriptions/Subscriptions.vue'
 import SubscribedChannels from '../views/SubscribedChannels/SubscribedChannels.vue'
 import ProfileSettings from '../views/ProfileSettings/ProfileSettings.vue'
@@ -16,9 +15,8 @@ import Watch from '../views/Watch/Watch.vue'
 import Hashtag from '../views/Hashtag/Hashtag.vue'
 import Post from '../views/Post.vue'
 
-Vue.use(Router)
-
-const router = new Router({
+const router = createRouter({
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
@@ -149,43 +147,11 @@ const router = new Router({
         if (savedPosition !== null) {
           resolve(savedPosition)
         } else {
-          resolve({ x: 0, y: 0 })
+          resolve({ left: 0, top: 0 })
         }
       }, 500)
     })
   }
 })
-
-const originalPush = router.push.bind(router)
-
-router.push = (location) => {
-  // only navigates if the location is not identical to the current location
-
-  const currentQueryUSP = new URLSearchParams(router.currentRoute.query)
-  let newPath = ''
-  let newQueryUSP = new URLSearchParams()
-
-  if (typeof location === 'string') {
-    if (location.includes('?')) {
-      const urlParts = location.split('?')
-      newPath = urlParts[0]
-      newQueryUSP = new URLSearchParams(urlParts[1])
-    } else {
-      newPath = location
-      // newQueryUSP already empty
-    }
-  } else {
-    newPath = location.path
-    newQueryUSP = new URLSearchParams(location.query)
-  }
-
-  const pathsAreDiff = router.currentRoute.path !== newPath
-  // Comparing `URLSearchParams` objects directly will always be different
-  const queriesAreDiff = newQueryUSP.toString() !== currentQueryUSP.toString()
-
-  if (pathsAreDiff || queriesAreDiff) {
-    return originalPush(location)
-  }
-}
 
 export default router

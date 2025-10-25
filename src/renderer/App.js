@@ -209,18 +209,16 @@ export default defineComponent({
         }, 500)
       })
 
-      this.$router.onReady(() => {
-        if (this.$router.currentRoute.path === '/') {
-          this.$router.replace({ path: this.landingPage })
-        }
+      if (this.$route.path === '/') {
+        this.$router.replace({ path: this.landingPage })
+      }
 
-        this.setWindowTitle()
-      })
+      this.setWindowTitle()
     })
 
     document.addEventListener('dragstart', this.handleDragStart)
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     document.removeEventListener('dragstart', this.handleDragStart)
   },
   methods: {
@@ -332,8 +330,8 @@ export default defineComponent({
       this.showBlogBanner = false
     },
 
-    handlePromptPortalUpdate: function(newVal) {
-      this.isPromptOpen = newVal
+    handlePromptPortalUpdate: function(data) {
+      this.isPromptOpen = data.hasContent
     },
 
     openDownloadsPage: function () {

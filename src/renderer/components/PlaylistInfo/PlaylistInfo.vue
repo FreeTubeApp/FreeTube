@@ -45,7 +45,7 @@
           :value="newTitle"
           :maxlength="255"
           @input="handlePlaylistNameInput"
-          @keydown.enter.native="savePlaylistInfo"
+          @keydown.enter="savePlaylistInfo"
         />
         <FtFlexBox v-if="inputPlaylistNameBlank">
           <p>
@@ -67,9 +67,9 @@
           {{ title }}
         </h2>
         <p>
-          {{ $tc('Global.Counts.Video Count', videoCount, { count: parsedVideoCount }) }}
+          {{ t('Global.Counts.Video Count', { count: parsedVideoCount }, videoCount) }}
           <span v-if="!hideViews && !isUserPlaylist">
-            - {{ $tc('Global.Counts.View Count', viewCount, { count: parsedViewCount }) }}
+            - {{ t('Global.Counts.View Count', { count: parsedViewCount }, viewCount) }}
           </span>
           <span>- </span>
           <span v-if="infoSource !== 'local'">
@@ -92,7 +92,7 @@
       :show-label="false"
       :value="newDescription"
       @input="(input) => newDescription = input"
-      @keydown.enter.native="savePlaylistInfo"
+      @keydown.enter="savePlaylistInfo"
     />
     <p
       v-else
@@ -265,7 +265,7 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-import { useRouter } from 'vue-router/composables'
+import { useRouter } from 'vue-router'
 
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
