@@ -87,7 +87,7 @@ jobs:
       if: contains(matrix.runtime, 'arm64')
       run: yarn run build:arm64
 
-    - name: Convert X64 AppImage to static runtime
+    - name: Convert X64 AppImage to static runtime and add update information
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       run: |
         sudo apt install desktop-file-utils
@@ -95,10 +95,41 @@ jobs:
         appimage="FreeTube-${{ steps.getPackageInfo.outputs.version }}.AppImage"
         wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
         chmod +x ./"$appimage" ./appimagetool.AppImage
+        update_information="gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-amd64.AppImage.zsync"
         ./"$appimage" --appimage-extract && rm -f ./"$appimage"
         ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
-          -n ./squashfs-root ./"$appimage"
+          -u "$update_information" -n ./squashfs-root ./"$appimage"
         rm -rf ./squashfs-root ./appimagetool.AppImage
+
+    - name: Convert ARMv7l AppImage to static runtime and add update information
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
+      run: |
+        sudo apt install desktop-file-utils
+        cd build
+        appimage="FreeTube-${{ steps.getPackageInfo.outputs.version }}.AppImage"
+        wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
+        wget "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" -O runtime
+        chmod +x ./"$appimage" ./appimagetool.AppImage ./runtime
+        update_information="gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-armv7l.AppImage.zsync"
+        TARGET_APPIMAGE=$appimage" ./runtime --appimage-extract && rm -f ./"$appimage"
+        ARCH=armhf ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
+          -u "$update_information" -n ./squashfs-root ./"$appimage"
+        rm -rf ./squashfs-root ./appimagetool.AppImage ./runtime
+
+    - name: Convert ARM64 AppImage to static runtime and add update information
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
+      run: |
+        sudo apt install desktop-file-utils
+        cd build
+        appimage="FreeTube-${{ steps.getPackageInfo.outputs.version }}.AppImage"
+        wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
+        wget "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" -O runtime
+        chmod +x ./"$appimage" ./appimagetool.AppImage ./runtime
+        update_information="gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-arm64.AppImage.zsync"
+        TARGET_APPIMAGE=$appimage" ./runtime --appimage-extract && rm -f ./"$appimage"
+        ARCH=aarch64 ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
+          -u "$update_information" -n ./squashfs-root ./"$appimage"
+        rm -rf ./squashfs-root ./appimagetool.AppImage ./runtime
 
     - name: Upload Linux .zip x64 Release
       uses: actions/upload-release-asset@v1
@@ -210,6 +241,17 @@ jobs:
         asset_path: build/FreeTube-${{ steps.getPackageInfo.outputs.version }}.AppImage
         asset_content_type: application/vnd.appimage
 
+    - name: Upload AppImage .zsync x64 Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ inputs.releaseId }}/assets{?name,label}
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-beta-amd64.AppImage.zsync
+        asset_path: build/FreeTube-${{ steps.getPackageInfo.outputs.version }}.AppImage.zsync
+        asset_content_type: application/x-zsync
+
     - name: Upload AppImage ARMv7l Release
       uses: actions/upload-release-asset@v1
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
@@ -221,6 +263,17 @@ jobs:
         asset_path: build/FreeTube-${{ steps.getPackageInfo.outputs.version }}-armv7l.AppImage
         asset_content_type: application/vnd.appimage
 
+    - name: Upload AppImage .zsync ARMv7l Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ inputs.releaseId }}/assets{?name,label}
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-beta-armv7l.AppImage.zsync
+        asset_path: build/FreeTube-${{ steps.getPackageInfo.outputs.version }}-armv7l.AppImage.zsync
+        asset_content_type: application/x-zsync
+
     - name: Upload AppImage ARM64 Release
       uses: actions/upload-release-asset@v1
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
@@ -231,6 +284,17 @@ jobs:
         asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-beta-arm64.AppImage
         asset_path: build/FreeTube-${{ steps.getPackageInfo.outputs.version }}-arm64.AppImage
         asset_content_type: application/vnd.appimage
+
+    - name: Upload AppImage .zsync ARM64 Release
+      uses: actions/upload-release-asset@v1
+      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ inputs.releaseId }}/assets{?name,label}
+        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-beta-arm64.AppImage.zsync
+        asset_path: build/FreeTube-${{ steps.getPackageInfo.outputs.version }}-arm64.AppImage.zsync
+        asset_content_type: application/x-zsync
 
     - name: Upload Linux .rpm x64 Release
       uses: actions/upload-release-asset@v1
