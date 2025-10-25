@@ -169,6 +169,12 @@ export const ToastEventBus = new EventTarget()
  * @param {AbortSignal} abortSignal
  */
 export function showToast(message, time = null, action = null, abortSignal = null) {
+  // Sometimes caller just pass user setting based value in and it can be zero
+  if (time === 0) {
+    console.warn('showToast called with time: 0', { message, time, action, abortSignal })
+    return
+  }
+
   ToastEventBus.dispatchEvent(new CustomEvent('toast-open', {
     detail: {
       message,
