@@ -466,7 +466,7 @@ Settings:
     How do I import my subscriptions?: ''
     Manage Subscriptions: 'Pārvaldīt abonementus'
   Proxy Settings:
-    Proxy Settings: 'Starpniekserveru'
+    Proxy Settings: 'Starpniekservera'
     Enable Tor / Proxy: 'Iespējot Tor / starpniekserveri'
     Proxy Protocol: 'Starpniekservera protokols'
     Proxy Host: 'Starpniekservera saimnieks'
@@ -589,8 +589,8 @@ Profile:
   Profile Name: Profila vārds
   Edit Profile Name: Rediģē profila vārdu
 Channel:
-  Subscribe: 'Abonē'
-  Unsubscribe: 'Atabonē'
+  Subscribe: 'Abonēt'
+  Unsubscribe: 'Pārtraukt abonēt'
   Channel has been removed from your subscriptions: ''
   Removed subscription from {count} other channel(s): ''
   Added channel to your subscriptions: ''
@@ -604,8 +604,8 @@ Channel:
     Videos: 'Video'
     This channel does not currently have any videos: 'Šajā kanāla pašlaik nav video'
     Sort Types:
-      Newest: 'Jaunākie'
-      Oldest: 'Vecākie'
+      Newest: 'Jaunākie augšgalā'
+      Oldest: 'Vecākie augšgalā'
       Most Popular: 'Populārākie'
   Shorts:
     This channel does not currently have any shorts: 'Šajā kanālā pašlaik nav īso'
@@ -617,8 +617,8 @@ Channel:
     This channel does not currently have any playlists: 'Šajā kanālā pašlaik nav sarakstu'
     Sort Types:
       Last Video Added: 'Pēdējais pievienotais video'
-      Newest: 'Jaunākās'
-      Oldest: 'Vecākās'
+      Newest: 'Jaunākie augšgalā'
+      Oldest: 'Vecākie augšgalā'
   Podcasts:
     Podcasts: 'Podkāsti'
     This channel does not currently have any podcasts: 'Šajā kanālā pašlaik nav podkāstu'
@@ -631,9 +631,9 @@ Channel:
     Tags:
       Tags: 'Birkas'
       Search for: ''
-    Details: 'Detaļas'
+    Details: 'Informācija'
     Joined: 'Pievienojās'
-    Location: 'Vieta'
+    Location: 'Atrašanās vieta'
     Featured Channels: 'Izceltie kanāli'
   Posts:
     This channel currently does not have any posts: 'Šajā kanālā pašlaik nav ierakstu'
