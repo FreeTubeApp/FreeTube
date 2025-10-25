@@ -3,13 +3,13 @@ import Datastore from '@seald-io/nedb'
 let dbPath = null
 
 if (process.env.IS_ELECTRON_MAIN) {
-  const { app } = require('electron')
   const { join } = require('path')
   // this code only runs in the electron main process, so hopefully using sync fs code here should be fine 😬
   const { statSync, realpathSync } = require('fs')
-  const userDataPath = app.getPath('userData') // This is based on the user's OS
+
+  const { USER_DATA_PATH } = require('../main/userDataFolder')
   dbPath = (dbName) => {
-    let path = join(userDataPath, `${dbName}.db`)
+    let path = join(USER_DATA_PATH, `${dbName}.db`)
 
     // returns undefined if the path doesn't exist
     if (statSync(path, { throwIfNoEntry: false })?.isSymbolicLink) {
