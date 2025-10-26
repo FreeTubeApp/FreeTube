@@ -174,7 +174,7 @@ export default defineComponent({
     },
 
     inSubscriptions: function () {
-      return this.$route.name === 'subscriptions'
+      return this.$route.name === 'subscriptions' || this.$route.name === 'default'
     },
 
     inUserPlaylist: function () {
