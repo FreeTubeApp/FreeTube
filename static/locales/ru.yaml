@@ -3,16 +3,16 @@ File: 'Файл'
 Quit: 'Выход'
 Edit: 'Редактировать'
 Undo: 'Отменить'
-Redo: 'Переделать'
+Redo: 'Вернуть'
 Cut: 'Вырезать'
 Copy: 'Копировать'
 Paste: 'Вставить'
 Delete: 'Удалить'
 Select all: 'Выбрать все'
-Reload: 'Перезагрузка'
+Reload: 'Перезагрузить'
 Force Reload: 'Принудительно перезагрузить'
-Toggle Developer Tools: 'Отобразить инструменты для разработчиков'
-Actual size: 'Настоящий размер'
+Toggle Developer Tools: 'Показать инструменты для разработчиков'
+Actual size: 'Оригинальный масштаб'
 Zoom in: 'Увеличить'
 Zoom out: 'Уменьшить'
 Toggle fullscreen: 'Во весь экран'
@@ -45,7 +45,7 @@ Search / Go to URL: 'Поиск / Перейти по адресу'
 Search Filters:
   Search Filters: 'Фильтры поиска'
   Sort By:
-    Most Relevant: 'Наиболее подходящим'
+    Most Relevant: 'Наиболее актуальным'
     Rating: 'Оценке'
     Upload Date: 'Дате загрузки'
     View Count: 'Количеству просмотров'
@@ -71,13 +71,13 @@ Search Filters:
     Long (> 20 minutes): 'Длинные (> 20 минут)'
   # On Search Page
     Medium (4 - 20 minutes): Средние (4—20 мин)
-  Search Results: 'Итоги поиска'
+  Search Results: 'Результаты поиска'
   Fetching results. Please wait: 'Получение результатов. Подождите'
   Fetch more results: 'Получить больше результатов'
 # Sidebar
-  There are no more results for this search: Больше выдачи по этому запросу нет
+  There are no more results for this search: Больше результатов по этому запросу нет
   Features:
-    Features: Особенности
+    Features: Дополнительно
     HD: HD
     Subtitles: Субтитры
     Creative Commons: Лицензии Creative Commons
@@ -92,16 +92,16 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Подписки'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'В настоящее время список подписок пуст. Если вы хотите импортировать свои подписки, вы можете перейти в Настройки данных и выбрать Импорт подписок или найти канал и подписаться на него.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'В настоящее время подписок нет. Если вы хотите импортировать свои подписки, вы можете перейти в Настройки Данных и выбрать Импорт Подписок или найти канал и подписаться на него.'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Эта учётная запись имеет большое количество подписок. Принудительно используется RSS, чтобы избежать ограничения скорости
   Load More Videos: Загрузить больше видео
   Error Channels: Каналы с ошибками
   Disabled Automatic Fetching: Вы отключили автоматическое получение подписок. Обновите подписки, чтобы отобразить результат.
-  Empty Channels: Ваши подписанные каналы в настоящее время не содержат видео.
+  Empty Channels: Ваши подписанные каналы в настоящее время не имеют видео.
   Subscriptions Tabs: Вкладки подписок
   All Subscription Tabs Hidden: Все вкладки подписок скрыты. Чтобы увидеть содержимое здесь, пожалуйста, раскройте некоторые вкладки в разделе «{subsection}» в «{settingsSection}».
-  Empty Posts: Каналы, на которые вы подписаны, сейчас без постов.
-  Load More Posts: Загрузить больше постов
+  Empty Posts: Ваши подписанные каналы в настоящее время не имеют записей.
+  Load More Posts: Загрузить больше записей
 Trending:
   Trending: 'В тренде'
   Trending Tabs: Вкладки В тренде
@@ -119,28 +119,28 @@ User Playlists:
   Add to Playlist: Добавить в плейлист
   Move Video Up: Передвинуть видео вверх
   Move Video Down: Передвинуть видео вниз
-  Remove from Playlist: Удалить из подборки
+  Remove from Playlist: Удалить из плейлиста
   Playlist Name: Название плейлиста
   Copy Playlist: Скопировать плейлист
   Delete Playlist: Удалить плейлист
-  Are you sure you want to delete this playlist? This cannot be undone: Ты действительно хочешь удалить эту подборку? Это действие необратимо.
+  Are you sure you want to delete this playlist? This cannot be undone: Вы действительно хотите удалить этот плейлист? Это действие нелья отменить.
   Sort By:
     NameAscending: А-Я
     NameDescending: Я-А
-    EarliestCreatedFirst: Давно создано
-    LatestCreatedFirst: Недавно создано
-    LatestUpdatedFirst: Недавно обновлено
-    EarliestUpdatedFirst: Давно обновлено
-    LatestPlayedFirst: Недавно воспроизведено
-    EarliestPlayedFirst: Давно воспроизведено
+    EarliestCreatedFirst: Дата создания (Сначала старые)
+    LatestCreatedFirst: Дата создания (Сначала новые)
+    LatestUpdatedFirst: Дата изменения (Сначала новые)
+    EarliestUpdatedFirst: Дата изменения (Сначала старые)
+    LatestPlayedFirst: Дата воспроизведения (Сначала новые)
+    EarliestPlayedFirst: Дата воспроизведения (Сначала старые)
   SinglePlaylistView:
     Toast:
-      There was a problem with removing this video: Возникла проблема с удалением видео
+      There was a problem with removing this video: Возникла проблема с удалением этого видео
       Playlist name cannot be empty. Please input a name.: Название плейлиста не может быть пустым. Пожалуйста, вставьте название.
       Playlist has been updated.: Плейлист обновлён.
       "{videoCount} video(s) have been removed": 1 видео было удалено | {videoCount} видео было удалено
-      This playlist does not exist: Плейлист не существует
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Некоторые видео в плейлисте ещё не загружены. Нажми сюда, чтобы всё равно скопировать.
+      This playlist does not exist: Этот плейлист не существует
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Некоторые видео в плейлисте ещё не загружены. Нажмите сюда, чтобы всё равно скопировать.
       There were no videos to remove.: Нет видео для удаления.
       This playlist is protected and cannot be removed.: Этот плейлист защищён и не может быть удалён.
       There was an issue with updating this playlist.: Возникли проблемы с обновлением плейлиста.
@@ -152,7 +152,7 @@ User Playlists:
       This playlist is now used for quick bookmark: Этот список воспроизведения теперь используется для быстрого создания закладок
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Этот плейлист теперь используется для закладок вместо {oldPlaylistName}. Нажмите здесь, чтобы отменить
       This playlist is already being used for quick bookmark.: Этот плейлист уже используется для быстрого создания закладок.
-      This playlist has a video with a duration error: Этот плейлист содержит хотя-бы одно видео без продолжтельности, оно будет отсротрированно как с нулевой продолжительностью.
+      This playlist has a video with a duration error: Этот плейлист содержит хотя-бы одно видео без указанной продолжительности, он будет отсортирован как если бы их продолжительность была равна нулю.
       Video has been removed. Click here to undo.: Видео было удалено. Нажмите здесь, чтобы отменить просмотр.
     Search for Videos: Поиск видео
   AddVideoPrompt:
@@ -164,14 +164,14 @@ User Playlists:
       "{videoCount} video(s) added to 1 playlist": 1 видео добавлено в 1 плейлист| {videoCount} видео добавлено в 1 плейлист
       "{videoCount} video(s) added to {playlistCount} playlists": 1 видео добавлено в {videoCount} плейлистов | {playlistCount} видео добавлено в {videoCount} плейлистов
     Select a playlist to add your N videos to: Выберите плейлист для добавления видео | Выберите плейлист для добавления {videoCount} видео
-    Added {count} Times: Добавлено {count} Время | Добавлено {count} Времени
+    Added {count} Times: Уже добавлено | Добавлено {count} раз
     Allow Adding Duplicate Video(s): Разрешить добавление дубликатов видео
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Видео будут добавлено'
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Видео уже добавлено'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": 'Будет добавлено {videoCount} из {totalVideoCount} видео'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} видео уже добавлено'
   CreatePlaylistPrompt:
     Toast:
       Playlist {playlistName} has been successfully created.: Плейлист {playlistName} успешно создан.
-      There is already a playlist with this name. Please pick a different name.: Уже есть плейлист с таким названием. Пожалуйста, выбери другое название.
+      There is already a playlist with this name. Please pick a different name.: Уже есть плейлист с таким названием. Пожалуйста, выберите другое название.
       There was an issue with creating the playlist.: Возникли проблемы с созданием плейлиста.
     New Playlist Name: Новое название плейлиста
     Create: Создать
@@ -194,6 +194,7 @@ User Playlists:
   Export Playlist: Экспортировать этот плейлист
   The playlist has been successfully exported: Плейлист успешно экспортирован
   TotalTimePlaylist: 'Общее время: {duration}'
+  Export list of URLs: Экспортировать список ссылок
 History:
   # On History Page
   History: 'История'
@@ -202,8 +203,8 @@ History:
   Search bar placeholder: Поиск в Истории
   Empty Search Message: В истории нет видео, соответствующих критериям поиска
   Case Sensitive Search: Поиск с учетом регистра
-  DateNewestHistory: Недавно просмотренные сначала
-  DateOldestHistory: Давно просмотренные сначала
+  DateNewestHistory: Дата просмотра (Сначала новые)
+  DateOldestHistory: Дата просмотра (Сначала старые)
 Settings:
   # On Settings Page
   Settings: 'Настройки'
@@ -233,19 +234,19 @@ Settings:
         #! List countries
     Check for Latest Blog Posts: Проверять последние записи в блоге
     Check for Updates: Проверять наличие новых версий
-    View all Invidious instance information: Просмотреть все экземпляры Invidious
+    View all Invidious instance information: Просмотреть все инстанции Invidious
     System Default: Системные настройки по умолчанию
-    Clear Default Instance: Очистить экземпляр по умолчанию
-    Set Current Instance as Default: Установить текущий экземпляр по умолчанию
-    Current instance will be randomized on startup: Текущий экземпляр при запуске будет выбран случайно
-    No default instance has been set: Не установлен экземпляр по умолчанию
-    The currently set default instance is {instance}: 'Текущий установленный экземпляр по умолчанию: {instance}'
-    Current Invidious Instance: Текущий экземпляр Invidious
+    Clear Default Instance: Очистить инстанцию по умолчанию
+    Set Current Instance as Default: Установить текущую инстанцию по умолчанию
+    Current instance will be randomized on startup: Текущая инстанция при запуске будет выбрана случайно
+    No default instance has been set: Не установлена инстанция по умолчанию
+    The currently set default instance is {instance}: 'Текущая установленная инстанция по умолчанию: {instance}'
+    Current Invidious Instance: Текущая инстанция Invidious
     External Link Handling:
       No Action: Ничего не делать
       Ask Before Opening Link: Спрашивать перед переходом по ссылке
       Open Link: Переходить по ссылке
-      External Link Handling: Действие по клику на ссылку
+      External Link Handling: Обращение со сторонними ссылками
     Auto Load Next Page:
       Label: Авто-загрузка следующей страницы
       Tooltip: Автоматическая загрузка дополнительных страниц и комментариев.
@@ -265,17 +266,17 @@ Settings:
       Pastel Pink: Пастельно-розовый
       Hot Pink: Ярко-розовый
       Nordic: Северный
-      Solarized Dark: Соляризованная темнота
-      Solarized Light: Солнечное освещение
+      Solarized Dark: Solarized Тёмный
+      Solarized Light: Solarized Светлый
       Gruvbox Dark: Gruvbox Темный
       Gruvbox Light: Gruvbox Светлый
       Catppuccin Frappe: Катпучино Фраппе
-      Everforest Dark Hard: Эверфорест Дарк Хард
-      Everforest Dark Medium: Эверфорест темный средний
-      Everforest Dark Low: Эверфорест Темный низкий
-      Everforest Light Hard: Эверфорест Лайт Хард
-      Everforest Light Medium: Эверфорест Лайт Медиум
-      Everforest Light Low: Everforest Light низкий
+      Everforest Dark Hard: Everforest Тёмный Глубокий
+      Everforest Dark Medium: Everforest Тёмный Средний
+      Everforest Dark Low: Everforest Тёмный Лёгкий
+      Everforest Light Hard: Everforest Светлый Глубокий
+      Everforest Light Medium: Everforest Светлый Средний
+      Everforest Light Low: Everforest Светлый Лёгкий
     Main Color Theme:
       Main Color Theme: 'Основной цвет темы'
       Red: 'Красный'
@@ -288,10 +289,10 @@ Settings:
       Cyan: 'Бирюзовый'
       Teal: 'Бирюзово-зелёный'
       Green: 'Зелёный'
-      Light Green: 'Светло-зелёный'
-      Lime: 'Тёмно-зелёный'
+      Light Green: 'Салатовый'
+      Lime: 'Лайм'
       Yellow: 'Жёлтый'
-      Amber: 'Жёлто-оранжевый'
+      Amber: 'Янтарный'
       Orange: 'Оранжевый'
       Deep Orange: 'Тёмно-оранжевый'
       Dracula Cyan: 'Бирюзовый - Dracula'
@@ -302,16 +303,16 @@ Settings:
       Dracula Red: 'Красный - Dracula'
       Dracula Yellow: 'Жёлтый - Dracula'
       Catppuccin Mocha Green: Зелёный - Catppuccin Mocha
-      Catppuccin Mocha Teal: Бирюзовый - Catppuccin Mocha
+      Catppuccin Mocha Teal: Тёмно-бирюзовый - Catppuccin Mocha
       Catppuccin Mocha Rosewater: Розовая вода - Catppuccin Mocha
       Catppuccin Mocha Flamingo: Фламинго - Catppuccin Mocha
       Catppuccin Mocha Pink: Розовый - Catppuccin Mocha
-      Catppuccin Mocha Mauve: Лиловый - Catppuccin Mocha
+      Catppuccin Mocha Mauve: Сиреневый - Catppuccin Mocha
       Catppuccin Mocha Red: Красный - Catppuccin Mocha
       Catppuccin Mocha Maroon: Бордовый - Catppuccin Mocha
       Catppuccin Mocha Peach: Персиковый - Catppuccin Mocha
       Catppuccin Mocha Yellow: Жёлтый - Catppuccin Mocha
-      Catppuccin Mocha Sky: Небесный - Catppuccin Mocha
+      Catppuccin Mocha Sky: Светло-голубой - Catppuccin Mocha
       Catppuccin Mocha Sapphire: Сапфировый - Catppuccin Mocha
       Catppuccin Mocha Blue: Синий - Catppuccin Mocha
       Catppuccin Mocha Lavender: Лавандовый - Catppuccin Mocha
@@ -323,30 +324,30 @@ Settings:
       Solarized Cyan: Соляризованный голубой
       Solarized Violet: Соляризованный фиолетовый
       Solarized Green: Соляризованный зеленый
-      Gruvbox Dark Green: Gruvbox Темно-зеленый
-      Gruvbox Dark Blue: Gruvbox Темно-синий
-      Gruvbox Dark Purple: Gruvbox Темно-фиолетовый
+      Gruvbox Dark Green: Зелёный - Gruvbox Dark
+      Gruvbox Dark Blue: Синий - Gruvbox Dark
+      Gruvbox Dark Purple: Фиолетовый - Gruvbox Dark
       Gruvbox Dark Aqua: Грувбокс темный аква
       Gruvbox Light Red: Gruvbox Светло-красный
       Gruvbox Light Blue: Gruvbox Светло-голубой
       Gruvbox Light Purple: Gruvbox Светло-фиолетовый
       Gruvbox Light Orange: Gruvbox Светло-оранжевый
-      Gruvbox Dark Yellow: Gruvbox Темно-желтый
+      Gruvbox Dark Yellow: Жёлтый - Gruvbox Dark
       Gruvbox Dark Orange: Gruvbox Темно-оранжевый
-      Catppuccin Frappe Sky: Фраппе "Кэтпуччин" Небо
-      Catppuccin Frappe Teal: Фраппе Catppuccin Тиловый
-      Catppuccin Frappe Yellow: Кэтпуччин Фраппе Желтый
-      Catppuccin Frappe Green: Фраппе "Кэтпуччин" зеленый
-      Catppuccin Frappe Rosewater: Фраппе с розовой водой
-      Catppuccin Frappe Flamingo: Кэтпуччин Фраппе Фламинго
-      Catppuccin Frappe Pink: Фраппе Catppuccin розовое
-      Catppuccin Frappe Mauve: Кэтпуччин Фраппе Сиреневый
-      Catppuccin Frappe Red: Кэтпуччин Фраппе Красный
-      Catppuccin Frappe Maroon: Фраппе Catppuccin бордовый
-      Catppuccin Frappe Peach: Фраппе Catppuccin Персик
-      Catppuccin Frappe Sapphire: Кэтпуччин Фраппе Сапфир
-      Catppuccin Frappe Blue: Кэтпуччин Фраппе Синий
-      Catppuccin Frappe Lavender: Кэтпуччи Фраппе Лаванда
+      Catppuccin Frappe Sky: Светло-голубой - Catppuccin Frappe
+      Catppuccin Frappe Teal: Тёмно-бирюзовый - Catppuccin Frappe
+      Catppuccin Frappe Yellow: Жёлтый - Catppuccin Frappe
+      Catppuccin Frappe Green: Зелёный - Catppuccin Frappe
+      Catppuccin Frappe Rosewater: Розовая Вода - Catppuccin Frappe
+      Catppuccin Frappe Flamingo: Фламинго - Catppuccin Frappe
+      Catppuccin Frappe Pink: Розовый - Catppuccin Frappe
+      Catppuccin Frappe Mauve: Сиреневый - Catppuccin Frappe
+      Catppuccin Frappe Red: Красный - Catppuccin Frappe
+      Catppuccin Frappe Maroon: Бордовый - Catppuccin Frappe
+      Catppuccin Frappe Peach: Персиковый - Catppuccin Frappe
+      Catppuccin Frappe Sapphire: Сапфировый - Catppuccin Frappe
+      Catppuccin Frappe Blue: Синий - Catppuccin Frappe
+      Catppuccin Frappe Lavender: Лавандовый - Catppuccin Frappe
       Everforest Dark Aqua: Эверфорест Темная Аква
       Everforest Dark Green: Everforest Темно-зеленый
       Everforest Dark Red: Everforest Темно-красный
@@ -1002,7 +1003,7 @@ New Window: Новое окно
 Channels:
   Title: Список каналов
   Count: '{number} канал(ов) найдено.'
-  Empty: Список каналов пуст.
+  Empty: Ваш список каналов на данный момент пуст.
   Channels: Каналы
   Search bar placeholder: Поиск каналов
   Unsubscribe Prompt: Вы уверены, что хотите отписаться от «{channelName}»?
@@ -1023,7 +1024,7 @@ Age Restricted:
   This channel is age restricted: Канал с возрастным ограничением
   This video is age restricted: Видео с возрастным ограничением
 Tag already exists: «{tagName}» метка уже существует
-Search character limit: Поисковый запрос превышает лимит символов {searchCharacterLimit}
+Search character limit: Поисковый запрос превышает лимит в {searchCharacterLimit} символов
 Moments Ago: несколько минут назад
 Yes, Delete: Да, удалить
 Yes, Restart: Да, перезагрузка
@@ -1059,7 +1060,7 @@ Keys:
   shift: Shift
   enter: Enter
   plus: Плюс
-Right-click or hold to see history: Щёлкните правой кнопкой мыши или удерживайте ее, чтобы просмотреть историю
+Right-click or hold to see history: ПКМ или удерживать чтобы посмотреть историю
 KeyboardShortcutPrompt:
   Captions: Включение/выключение титров
   Focus Secondary Search: Сосредоточьтесь на вторичной строке поиска (если она есть)
