@@ -129,8 +129,8 @@ User Playlists:
     NameDescending: Я-А
     EarliestCreatedFirst: Дата создания (Сначала старые)
     LatestCreatedFirst: Дата создания (Сначала новые)
-    LatestUpdatedFirst: Дата изменения (Сначала новые)
-    EarliestUpdatedFirst: Дата изменения (Сначала старые)
+    LatestUpdatedFirst: Дата обновления (сначала новые)
+    EarliestUpdatedFirst: Дата обновления (сначала старые)
     LatestPlayedFirst: Дата воспроизведения (Сначала новые)
     EarliestPlayedFirst: Дата воспроизведения (Сначала старые)
   SinglePlaylistView:
@@ -149,7 +149,7 @@ User Playlists:
       This video cannot be moved down.: Это видео нельзя передвинуть вниз.
       Video has been removed: Видео было удалено
       Reverted to use {oldPlaylistName} for quick bookmark: Плейлист {oldPlaylistName} снова используется для закладок
-      This playlist is now used for quick bookmark: Этот список воспроизведения теперь используется для быстрого создания закладок
+      This playlist is now used for quick bookmark: Этот плейлист теперь используется для быстрого создания закладок
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Этот плейлист теперь используется для закладок вместо {oldPlaylistName}. Нажмите здесь, чтобы отменить
       This playlist is already being used for quick bookmark.: Этот плейлист уже используется для быстрого создания закладок.
       This playlist has a video with a duration error: Этот плейлист содержит хотя-бы одно видео без указанной продолжительности, он будет отсортирован как если бы их продолжительность была равна нулю.
@@ -194,7 +194,7 @@ User Playlists:
   Export Playlist: Экспортировать этот плейлист
   The playlist has been successfully exported: Плейлист успешно экспортирован
   TotalTimePlaylist: 'Общее время: {duration}'
-  Export list of URLs: Экспортировать список ссылок
+  Export list of URLs: Экспортировать список URL-адресов
 History:
   # On History Page
   History: 'История'
@@ -316,24 +316,24 @@ Settings:
       Catppuccin Mocha Sapphire: Сапфировый - Catppuccin Mocha
       Catppuccin Mocha Blue: Синий - Catppuccin Mocha
       Catppuccin Mocha Lavender: Лавандовый - Catppuccin Mocha
-      Solarized Yellow: Соляризованный желтый
-      Solarized Orange: Соляризованный оранжевый
-      Solarized Red: Соляризованный красный
-      Solarized Magenta: Соляризованный пурпурный
-      Solarized Blue: Соляризованный синий
-      Solarized Cyan: Соляризованный голубой
-      Solarized Violet: Соляризованный фиолетовый
-      Solarized Green: Соляризованный зеленый
+      Solarized Yellow: Жёлтый - Solarized
+      Solarized Orange: Оранжевый - Solarized
+      Solarized Red: Красный - Solarized
+      Solarized Magenta: Пурпурный - Solarized
+      Solarized Blue: Синий - Solarized
+      Solarized Cyan: Бирюзовый - Solarized
+      Solarized Violet: Фиолетовый - Solarized
+      Solarized Green: Зелёный - Solarized
       Gruvbox Dark Green: Зелёный - Gruvbox Dark
       Gruvbox Dark Blue: Синий - Gruvbox Dark
       Gruvbox Dark Purple: Фиолетовый - Gruvbox Dark
-      Gruvbox Dark Aqua: Грувбокс темный аква
-      Gruvbox Light Red: Gruvbox Светло-красный
-      Gruvbox Light Blue: Gruvbox Светло-голубой
-      Gruvbox Light Purple: Gruvbox Светло-фиолетовый
-      Gruvbox Light Orange: Gruvbox Светло-оранжевый
+      Gruvbox Dark Aqua: Аква - Gruvbox Dark
+      Gruvbox Light Red: Красный - Gruvbox Light
+      Gruvbox Light Blue: Синий - Gruvbox Light
+      Gruvbox Light Purple: Фиолетовый - Gruvbox Light
+      Gruvbox Light Orange: Оранжевый - Gruvbox Light
       Gruvbox Dark Yellow: Жёлтый - Gruvbox Dark
-      Gruvbox Dark Orange: Gruvbox Темно-оранжевый
+      Gruvbox Dark Orange: Оранжевый - Gruvbox Dark
       Catppuccin Frappe Sky: Светло-голубой - Catppuccin Frappe
       Catppuccin Frappe Teal: Тёмно-бирюзовый - Catppuccin Frappe
       Catppuccin Frappe Yellow: Жёлтый - Catppuccin Frappe
@@ -348,20 +348,20 @@ Settings:
       Catppuccin Frappe Sapphire: Сапфировый - Catppuccin Frappe
       Catppuccin Frappe Blue: Синий - Catppuccin Frappe
       Catppuccin Frappe Lavender: Лавандовый - Catppuccin Frappe
-      Everforest Dark Aqua: Эверфорест Темная Аква
-      Everforest Dark Green: Everforest Темно-зеленый
-      Everforest Dark Red: Everforest Темно-красный
-      Everforest Dark Orange: Everforest Темно-оранжевый
-      Everforest Dark Yellow: Everforest Темно-желтый
-      Everforest Dark Blue: Everforest Темно-синий
-      Everforest Dark Purple: Everforest Темно-фиолетовый
-      Everforest Light Red: Everforest светло-красный
-      Everforest Light Orange: Everforest Светло-оранжевый
-      Everforest Light Yellow: Everforest Светло-желтый
-      Everforest Light Green: Everforest Светло-зеленый
-      Everforest Light Aqua: Эверфорест Лайт Аква
-      Everforest Light Blue: Эверфорест светло-голубой
-      Everforest Light Purple: Everforest Светло-фиолетовый
+      Everforest Dark Aqua: Аква - Everforest Dark
+      Everforest Dark Green: Зелёный - Everforest Dark
+      Everforest Dark Red: Красный - Everforest Dark
+      Everforest Dark Orange: Оранжевый - Everforest Dark
+      Everforest Dark Yellow: Жёлтый - Everforest Dark
+      Everforest Dark Blue: Синий - Everforest Dark
+      Everforest Dark Purple: Фиолетовый - Everforest Dark
+      Everforest Light Red: Красный - Everforest Light
+      Everforest Light Orange: Оранжевый - Everforest Light
+      Everforest Light Yellow: Жёлтый - Everforest Light
+      Everforest Light Green: Зелёный - Everforest Light
+      Everforest Light Aqua: Аква - Everforest Light
+      Everforest Light Blue: Синий - Everforest Light
+      Everforest Light Purple: Фиолетовый - Everforest Light
     Secondary Color Theme: 'Дополнительный цвет темы'
         #* Main Color Theme
     UI Scale: Масштаб интерфейса
@@ -381,7 +381,7 @@ Settings:
     Default Playback Rate: 'Скорость воспроизведения по умолчанию'
     Default Video Format:
       Default Video Format: 'Формат видео по умолчанию'
-      Dash Formats: 'DASH'
+      Dash Formats: 'DASH форматы'
       Legacy Formats: 'Устаревшие форматы'
       Audio Formats: 'Звуковые форматы'
     Default Quality:
@@ -397,14 +397,14 @@ Settings:
       4k: '4k'
       8k: '8k'
     Scroll Volume Over Video Player: Прокрутка громкости поверх видеопроигрывателя
-    Next Video Interval: Таймер обратного отсчета для автоигры
+    Next Video Interval: Таймер обратного отсчета для автопроигрывания
     Display Play Button In Video Player: Отображать кнопку воспроизведения в видеопроигрывателе
     Fast-Forward / Rewind Interval: Шаг перемотки вперёд/назад
     Scroll Playback Rate Over Video Player: Прокрутка скорости воспроизведения поверх видеопроигрывателя
     Max Video Playback Rate: Предельная скорость воспроизведения
-    Video Playback Rate Interval: Промежуток скорости воспроизведения видео
+    Video Playback Rate Interval: Интервал скорости воспроизведения видео
     Screenshot:
-      Ask Path: Спрашивать, куда сохранять
+      Ask Path: Спрашивать папку для сохранения
       Error:
         Forbidden Characters: Запрещенные символы
         Empty File Name: Пустое имя файла
@@ -412,12 +412,12 @@ Settings:
       Folder Label: Папка для скриншотов
       Folder Button: Выбрать папку
       Enable: Включить скриншоты
-      Quality Label: Качество снимков экрана
+      Quality Label: Качество скриншотов
       File Name Label: Шаблон имени файла
       File Name Tooltip: Вы можете использовать эти переменные. %Y Год 4 цифры. %M Месяц 2 цифры. %D День 2 цифры. %H Час 2 цифры. %N Минуты 2 цифры. %S Секунды 2 цифры. %T Миллисекунды 3 цифры. %s Секунды видео. %t Миллисекунды видео 3 цифры. %i Идентификатор видео.
     Enter Fullscreen on Display Rotate: Входить в полноэкранный режим при повороте дисплея
     Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
-    Autoplay Interruption Timer: Таймер прерывания автоигры
+    Autoplay Interruption Timer: Таймер прерывания автопроигрывания
     Default Viewing Mode:
       Theater: Режим Театр
       Default Viewing Mode: Режим просмотра по умолчанию
@@ -428,7 +428,7 @@ Settings:
     Subscription Settings: 'Подписки'
     Fetch Feeds from RSS: Загружать Ленты из RSS
     Fetch Automatically: Автоматически загружать ленту
-    Confirm Before Unsubscribing: Запрашивать Подтверждение Перед Отпиской
+    Confirm Before Unsubscribing: Запрашивать подтверждение перед отпиской
 
     'Limit the number of videos displayed for each channel': Ограничить количество видео, отображаемых на каждом канале
     To: В
@@ -442,7 +442,7 @@ Settings:
     Save Watched Progress: Сохранять Прогресс Просмотра
     Remember History: Сохранять Историю Просмотра
     Privacy Settings: Конфиденциальность
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Вы уверены, что хотите удалить все подписки и профили? Это действие безвозвратно.
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Вы уверены, что хотите удалить все подписки и профили? Это действие нельзя отменить.
     Remove All Subscriptions / Profiles: Удалить все подписки/профили
     Save Watched Videos With Last Viewed Playlist: Сохранять просмотренные видео в плейлист Недавно просмотренные
     Are you sure you want to remove all your playlists?: Вы действительно хотите удалить все свои плейлисты?
@@ -454,10 +454,10 @@ Settings:
     Remember Search History: Сохранять Историю Поиска
     Watched Progress Saving Mode:
       Modes:
-        Auto: Авто
+        Auto: Автоматически
         Semi-auto: Полуавтоматически
         Never: Никогда
-      Tooltip: Авто = Сохранение при каждом выходе со страницы с видео, когда видео закончилось и произошла ошибка (например, скорость просмотра ограничена, а сеанс просмотра истек). Полуавтоматический = Поддерживает автоматическое сохранение, за исключением выхода со страницы с видео, и может сохранять прогресс вручную с помощью кнопки "Сохранить просмотренный прогресс", расположенной под видеоплеером.
+      Tooltip: Автоматически = Сохранение при каждом выходе со страницы с видео, когда видео закончилось и произошла ошибка (например, скорость просмотра ограничена, а сеанс просмотра истек). Полуавтоматически = Поддерживает автоматическое сохранение, за исключением выхода со страницы с видео, и может сохранять прогресс вручную с помощью кнопки "Сохранить просмотренный прогресс", расположенной под видеоплеером.
   Data Settings:
     How do I import my subscriptions?: Как импортировать подписки?
     Unknown data key: Неизвестный ключ данных
@@ -483,12 +483,12 @@ Settings:
     Select Export Type: Выбрать тип экспорта
     Data Settings: Данные
     Manage Subscriptions: Управление подписками
-    Import Playlists: Импортировать подборки
-    All playlists has been successfully exported: Все подборки успешно экспортированы
-    Export Playlists: Экспортировать подборки
-    All playlists has been successfully imported: Все подборки успешно импортированы
-    Playlist insufficient data: Недостаточно данных для подборки «{playlist}», пропуск элемента
-    Playlist File: Файл подборки
+    Import Playlists: Импортировать плейлисты
+    All playlists has been successfully exported: Все плейлисты успешно экспортированы
+    Export Playlists: Экспортировать плейлисты
+    All playlists has been successfully imported: Все плейлисты успешно импортированы
+    Playlist insufficient data: Недостаточно данных для плейлиста «{playlist}», пропуск элемента
+    Playlist File: Файл плейлистов
     Subscription File: Файл подписок
     History File: Файл истории
     Export Playlists For Older FreeTube Versions:
@@ -499,25 +499,25 @@ Settings:
     Hide Popular Videos: Скрыть популярные видео
     Hide Trending Videos: Скрыть Видео в Тренде
     Hide Recommended Videos: Скрыть Рекомендуемые Видео
-    Distraction Free Settings: Отвлекающие элементы
+    Distraction Free Settings: Ничего Лишнего
     Hide Comment Likes: Скрыть Лайки Комментариев
     Hide Channel Subscribers: Скрыть Количество Подписчиков
     Hide Video Likes And Dislikes: Скрыть Лайки и Дизлайки
     Hide Video Views: Скрыть Количество Просмотров
     Hide Active Subscriptions: Скрыть действующие подписки
-    Hide Playlists: Скрыть подборки
+    Hide Playlists: Скрыть плейлисты
     Hide Live Streams: Скрыть прямые трансляции
-    Hide Sharing Actions: Скрыть действия общего доступа
+    Hide Sharing Actions: Скрыть действия Поделиться
     Hide Videos on Watch: 'Скрывать видео после просмотра'
     Hide Comments: Скрыть комментарии
     Hide Video Description: Скрыть описание видео
     Hide Chapters: Скрыть разделы
     Hide Upcoming Premieres: Скрыть предстоящие премьеры
-    Hide Channels Placeholder: Идентификатор канала
+    Hide Channels Placeholder: ID канала
     Hide Channels: Скрыть видео с каналов
     Display Titles Without Excessive Capitalisation: Отображать заголовки без сплошных заглавных букв и знаков препинания
     Hide Featured Channels: Скрыть избранные каналы
-    Hide Channel Playlists: Скрыть вкладку "Списки воспроизведения" канала
+    Hide Channel Playlists: Скрыть вкладку "Плейлисты" канала
     Hide Channel Shorts: Скрыть вкладку "Шортс" канала
     Sections:
       Side Bar: Боковая Панель
@@ -531,17 +531,17 @@ Settings:
     Hide Channel Podcasts: Скрыть вкладку "Подкасты" канала
     Hide Subscriptions Shorts: Скрыть шортсы из подписок
     Hide Profile Pictures in Comments: Скрыть изображения профилей в комментариях
-    Hide Channels Invalid: Указанный идентификатор канала недействителен
-    Hide Channels Disabled Message: Некоторые каналы были заблокированы по идентификатору и не были обработаны. Функция заблокирована, пока эти идентификаторы обновляются
-    Hide Channels Already Exists: Идентификатор канала уже существует
-    Hide Channels API Error: Ошибка при получении пользователя с предоставленным идентификатором. Пожалуйста, проверьте еще раз, правильно ли указан идентификатор.
-    Hide Videos and Playlists Containing Text: Скрыть видео и подборки, содержащие текст
+    Hide Channels Invalid: Указанный ID канала недействителен
+    Hide Channels Disabled Message: Некоторые каналы были заблокированы по ID и не были обработаны. Функция заблокирована, пока эти идентификаторы обновляются
+    Hide Channels Already Exists: ID канала уже существует
+    Hide Channels API Error: Ошибка при получении пользователя с предоставленным ID. Пожалуйста, проверьте еще раз, правильно ли указан ID.
+    Hide Videos and Playlists Containing Text: Скрыть видео и плейлисты, содержащие текст
     Hide Videos and Playlists Containing Text Placeholder: Слово, часть слова, или выражение
     Hide Channel Home: Скрыть вкладку "Главная" канала
     Show Added Items: Показать добавленные элементы
     Hide Channel Courses: Скрыть вкладку «Курсы» канала
-    Hide Channel Posts: Скрыть вкладку "Публикации" канала
-    Hide Subscriptions Posts: Скрывать публикации в подписках
+    Hide Channel Posts: Скрыть вкладку "Записи" канала
+    Hide Subscriptions Posts: Скрывать записи в подписках
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы изменения вступили в силу, необходимо перезапустить приложение. Перезапустить и применить изменения?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Ошибка при получении информации о сети. Правильно ли настроен ваш прокси-сервер?
@@ -557,7 +557,9 @@ Settings:
     Ip: Ip
     Enable Tor / Proxy: Включить Tor/Прокси
     Proxy Settings: Прокси
-    Proxy Warning: FreeTube не имеет встроенного прокси, но может подключаться к внешнему прокси, например, к запущенному на вашей машине Tor или к внешнему прокси, например, SOCKS5, предоставляемому некоторыми VPN. Если прокси включен, убедитесь, что ваш прокси/Tor настроен правильно, иначе FreeTube не сможет получать данные.
+    Proxy Warning: FreeTube не имеет встроенного прокси, но может подключаться к внешнему прокси, например, к запущенному на вашей машине Tor или к внешнему прокси, например, SOCKS5, предоставляемому некоторыми VPN. Если он включен, убедитесь, что Ваш прокси/Tor настроен правильно, иначе FreeTube не сможет получить данные.
+    Proxy Username: Имя пользователя прокси
+    Proxy Password: Пароль прокси
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Уведомлять о пропущенном сегменте
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Адрес SponsorBlock API (По умолчанию https://sponsor.ajay.app)
@@ -591,10 +593,11 @@ Settings:
     Download Behavior: Действие при скачивании
     Open in web browser: Открыть в браузере
   Parental Control Settings:
-    Show Family Friendly Only: Показать только семейный контент
+    Show Family Friendly Only: Показывать только семейный контент
     Parental Control Settings: Родительский Контроль
     Hide Unsubscribe Button: Скрыть кнопку отписки
     Hide Search Bar: Скрыть строку поиска
+    Hide Uploader on Watch page: Скрыть канал на странице просмотра
   Experimental Settings:
     Experimental Settings: Эксперименты
     Replace HTTP Cache: Заменить HTTP-кэш
@@ -622,7 +625,7 @@ About:
   room rules: правила комнаты
   Please read the: Изучите
   Chat on Matrix: Чат на Matrix
-  Mastodon: Mastodon (Мастодон)
+  Mastodon: Mastodon
   Email: Электронная почта
   Blog: Блог
   Website: Сайт
@@ -652,8 +655,8 @@ Channel:
       Oldest: 'Старым'
       Most Popular: 'Самым популярным'
   Playlists:
-    Playlists: 'Подборки'
-    This channel does not currently have any playlists: 'На этом канале в настоящее время нет подборок'
+    Playlists: 'Плейлисты'
+    This channel does not currently have any playlists: 'На этом канале в настоящее время нет плейлистов'
     Sort Types:
       Last Video Added: 'Последнему добавленному видео'
       Newest: 'Новым'
@@ -666,7 +669,7 @@ Channel:
       Tags: Метки
       Search for: Поиск по «{tag}»
     Details: Подробности
-    Joined: Присоединился
+    Joined: Дата присоединения
     Location: Расположение
   Added channel to your subscriptions: Канал добавлен в ваши подписки
   Removed subscription from {count} other channel(s): Подписка удалена с {count} другого(их) канала(ов)
@@ -687,24 +690,24 @@ Channel:
     Live: Трансляции
     This channel does not currently have any live streams: На этом канале в настоящее время нет прямых трансляций
   Shorts:
-    This channel does not currently have any shorts: На этом канале пока что нет коротких видео
+    This channel does not currently have any shorts: На этом канале пока что нет шортс
   Podcasts:
-    Podcasts: Звукопередачи
-    This channel does not currently have any podcasts: На этом канале пока нет ни одной звукопередачи
+    Podcasts: Подкасты
+    This channel does not currently have any podcasts: На этом канале пока нет подкастов
   Releases:
-    Releases: Выпуски
-    This channel does not currently have any releases: На этом канале пока нет ни одного выпуска
+    Releases: Муз. выпуски
+    This channel does not currently have any releases: На этом канале пока нет ни одного музыкального выпуска
   Home:
-    Home: Дом
+    Home: Главная
     View Playlist: Просмотреть плейлист
   Courses:
-    Courses: курсы
+    Courses: Курсы
     This channel does not currently have any courses: На этом канале в настоящее время нет курсов
 Video:
   Mark As Watched: 'Отметить как просмотренное'
   Remove From History: 'Удалить из истории'
   Video has been marked as watched: 'Видео было отмечено как просмотренное'
-  Video has been removed from your history: 'Видео было удалено из вашей истории'
+  Video has been removed from your history: 'Видео было удалено из истории просмотров'
   Open in YouTube: 'Открыть в YouTube'
   Copy YouTube Link: 'Скопировать ссылку YouTube'
   Open YouTube Embedded Player: 'Открыть встроенный проигрыватель YouTube'
@@ -728,9 +731,9 @@ Video:
   Autoplay: Автовоспроизведение
   Play Previous Video: Воспроизвести предыдущее видео
   Play Next Video: Воспроизвести следующее видео
-  Reverse Playlist: Обратный порядок подборки
-  Shuffle Playlist: Перемешать подборку
-  Loop Playlist: Повторять подборку
+  Reverse Playlist: Обратный порядок плейлиста
+  Shuffle Playlist: Перемешать плейлист
+  Loop Playlist: Повторять плейлист
   Starting soon, please refresh the page to check again: Скоро начнется, обновите страницу, чтобы проверить ещё раз
   audio only: только звук
   video only: только видео
@@ -741,8 +744,8 @@ Video:
   Open Channel in YouTube: Открыть канал в YouTube
   Streamed on: Транслировано
   Started streaming on: Трансляция начата на
-  Video has been removed from your saved list: Видео было удалено из списка сохраненных
-  Video has been saved: Видео было добавлено в сохраненные
+  Video has been removed from your saved list: Видео было удалено из списка сохранённых
+  Video has been saved: Видео было добавлено в сохранённые
   Save Video: Добавить видео в сохранённые
   Sponsor Block category:
     music offtopic: Сегмент без музыки
@@ -755,21 +758,21 @@ Video:
     filler: Отвлечение
   External Player:
     Unsupported Actions:
-      looping playlists: повторение подборок
-      shuffling playlists: перемешивание подборок
-      reversing playlists: реверсирование подборок
-      opening specific video in a playlist (falling back to opening the video): открытие определённого видео в подборке (возврат к открытию видео)
-      opening playlists: открытие подборок
+      looping playlists: повторение плейлистов
+      shuffling playlists: перемешивание плейлистов
+      reversing playlists: реверсирование плейлистов
+      opening specific video in a playlist (falling back to opening the video): открытие определённого видео в плейлисте (возврат к открытию видео)
+      opening playlists: открытие плейлистов
       setting a playback rate: настройка скорости воспроизведения
       starting video at offset: начинать видео со смещением
     UnsupportedActionTemplate: '{externalPlayer} не поддерживает: {action}'
     OpeningTemplate: Открытие {videoOrPlaylist} в {externalPlayer}...
-    playlist: подборка
+    playlist: плейлист
     video: видео
     OpenInTemplate: Открыть в {externalPlayer}
   Premieres: Премьеры
   Show Super Chat Comment: Показать комментарий «Супер Чата»
-  Scroll to Bottom: Прокрутите вниз
+  Scroll to Bottom: Прокрутить вниз
   Upcoming: Предстоящее
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Чат прямой трансляции недоступен. Возможно, он был отключён владельцем канала.
   Hide Channel: Скрыть канал
@@ -787,7 +790,7 @@ Video:
       Dropped Frames / Total Frames: 'Пропущенные кадры: {droppedFrames} / Всего кадров: {totalFrames}'
       CodecsVideoAudio: 'Кодеки: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       Resolution: 'Разрешение: {width}x{height}@{frameRate}'
-      Player Dimensions: 'Разрешение Проигрывателя: {width}x{height}'
+      Player Dimensions: 'Разрешение проигрывателя: {width}x{height}'
       Bitrate: 'Битрейт: {bitrate} кбит/с'
       Volume: 'Громкость: {volumePercentage}%'
       Bandwidth: 'Пропускная способность: {bandwidth} кбит/с'
@@ -802,8 +805,8 @@ Video:
     Take Screenshot: Сделать Снимок Экрана
     Show Stats: Показать Статистику
     Hide Stats: Скрыть Статистику
-    Autoplay is on: Автоигра включена
-    Autoplay is off: Автоигра выключена
+    Autoplay is on: Автопроигрывание включено
+    Autoplay is off: Автопроигрывание выключено
   IP block: YouTube заблокировал ваш IP-адрес для просмотра видео. Пожалуйста, попробуйте переключиться на другой VPN или прокси.
   MembersOnly: Видео только для подписчиков нельзя смотреть на FreeTube, так как для них требуется вход в Google и платная подписка на автора канала.
   Unlisted: Отсутствует в списках
@@ -814,28 +817,28 @@ Video:
 #& Playlists
   DRMProtected: Видео, защищенное DRM, не может быть воспроизведено в FreeTube, так как оно требует использования проприетарных компонентов с закрытым исходным кодом. Если вы хотите посмотреть это видео, пожалуйста, смотрите его на официальном сайте YouTube в веб-браузере с поддержкой DRM.
   Save Watched Progress: Сохранение прогресса просмотренного видео
-  Watched Progress Saved: Прогресс просмотренного видео сохранен
+  Watched Progress Saved: Прогресс просмотренного видео сохранён
 Playlist:
   #& About
-  View Full Playlist: 'Посмотреть всю подборку'
+  View Full Playlist: 'Посмотреть весь плейлист'
   Last Updated On: 'Последнее обновление'
 
 # On Video Watch Page
 #* Published
 #& Views
-  Playlist: Подборка
+  Playlist: Плейлист
   Sort By:
-    AuthorAscending: Автор (от А до Я)
-    AuthorDescending: Автор (Z-A)
-    DateAddedNewest: Последние добавленные первыми
-    DateAddedOldest: Самый ранний, добавленный первым
-    VideoTitleAscending: Название (от А до Я)
-    VideoTitleDescending: Название (Z-A)
+    AuthorAscending: Автор (А-Я)
+    AuthorDescending: Автор (Я-А)
+    DateAddedNewest: Дата добавления (Сначала новые)
+    DateAddedOldest: Дата добавления (Сначала старые)
+    VideoTitleAscending: Название (А-Я)
+    VideoTitleDescending: Название (Я-А)
     Custom: Пользовательский
-    VideoDurationAscending: Продолжительность (Сначала кратчайшие)
-    VideoDurationDescending: Продолжительность (Сначала длиннейшие)
-    PublishedNewest: Последний опубликованный первый
-    PublishedOldest: Самая ранняя публикация
+    VideoDurationAscending: Продолжительность (Кратчайшие)
+    VideoDurationDescending: Продолжительность (Длиннейшие)
+    PublishedNewest: Дата публикации (Сначала новые)
+    PublishedOldest: Дата публикации (Сначала старые)
 Change Format:
   Change Media Formats: 'Изменить форматы видео'
   Use Dash Formats: 'Использовать форматы DASH'
@@ -846,19 +849,19 @@ Change Format:
   Legacy formats are not available for this video: Устаревшие форматы недоступны для этого видео
 Share:
   Share Video: 'Поделиться видео'
-  Share Playlist: 'Поделиться подборкой'
+  Share Playlist: 'Поделиться плейлистом'
   Copy Link: 'Скопировать ссылку'
   Open Link: 'Открыть ссылку'
   Copy Embed: 'Скопировать встраиваемые'
   Open Embed: 'Открыть встраиваемые'
   # On Click
   Invidious URL copied to clipboard: 'Адрес Invidious скопирован в буфер обмена'
-  Invidious Embed URL copied to clipboard: 'Встраиваемый адрес Invidious скопирован в буфер обмена'
+  Invidious Embed URL copied to clipboard: 'Адрес Invidious Embed скопирован в буфер обмена'
   YouTube URL copied to clipboard: 'Адрес YouTube скопирован в буфер обмена'
-  YouTube Embed URL copied to clipboard: 'Встраиваемый адрес YouTube скопирован в буфер обмена'
+  YouTube Embed URL copied to clipboard: 'Адрес YouTube Embed скопирован в буфер обмена'
   Include Timestamp: Включить отметку времени
   YouTube Channel URL copied to clipboard: Адрес канала YouTube скопирован в буфер обмена
-  Invidious Channel URL copied to clipboard: Сетевой адрес канала Invidious скопирован в буфер обмена
+  Invidious Channel URL copied to clipboard: Адрес канала Invidious скопирован в буфер обмена
   Share Channel: Поделиться каналом
 Mini Player: 'Мини-проигрыватель'
 Comments:
@@ -884,7 +887,7 @@ Comments:
   View {replyCount} replies: Смотреть {replyCount} ответа(ов)
   Hearted: С сердечком
   Subscribed: Подписан(а)
-  There are no comments available for this post: Для этого поста нет доступных комментариев
+  There are no comments available for this post: Для этой записи нет доступных комментариев
 Up Next: 'Следующий'
 
 # Toast Messages
@@ -899,7 +902,7 @@ Shuffle is now enabled: 'Перемешивание теперь включен�
 Playing Next Video: 'Воспроизведение следующего видео'
 Playing Previous Video: 'Воспроизведение предыдущего видео'
 Canceled next video autoplay: 'Отменено автовоспроизведение следующего видео'
-'The playlist has ended. Enable loop to continue playing': 'Подборка закончилась. Включите повторение, чтобы продолжить воспроизведение'
+'The playlist has ended. Enable loop to continue playing': 'Плейлист закончился. Включите повторение, чтобы продолжить воспроизведение'
 
 Yes: 'Да'
 No: 'Нет'
@@ -929,23 +932,23 @@ Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Хотите удалить выбранные каналы? Это не приведёт к удалению каналов из любого другого профиля.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
   : Это ваш основной профиль.  Вы уверены, что хотите удалить выбранные каналы?  Те же каналы будут удалены из любого профиля, в котором они находятся.
-  No channel(s) have been selected: Не выбран канал(ы)
+  No channel(s) have been selected: Не выбран(ы) канал(ы)
   Add Selected To Profile: Добавить выбранное в профиль
   Delete Selected: Удалить выбранное
-  Select None: Ничего не выбрано
+  Select None: Отменить выделение
   Select All: Выбрать все
   '{number} selected': Выбрано {number}
   Other Channels: Другие каналы
-  Subscription List: Список подписок
+  Subscription List: Подписки
   Profile Filter: Фильтр профилей
   Profile Settings: Профиль
   Toggle Profile List: Переключить список профилей
-  Create Profile Name: Создать название учётки
-  Profile Name: Название учётки
-  Edit Profile Name: Изменить название учётки
-  Close Profile Dropdown: Закрыть выпадающий список профиля
-  Open Profile Dropdown: Открыть выпадающий профиль
-The playlist has been reversed: Подборка была перевёрнута
+  Create Profile Name: Создать название профия
+  Profile Name: Название профиля
+  Edit Profile Name: Изменить название профиля
+  Close Profile Dropdown: Закрыть выпадающий список профилей
+  Open Profile Dropdown: Открыть выпадающий список профилей
+The playlist has been reversed: Порядок плейлиста был обёрнут
 A new blog is now available, {blogTitle}. Click to view more: Теперь доступен новый блог, {blogTitle}. Нажмите, чтобы посмотреть больше
 Download From Site: Скачать с сайта
 Version {versionNumber} is now available!  Click for more details: Версия {versionNumber} теперь доступна!  Нажмите для получения более подробной информации
@@ -969,17 +972,18 @@ Tooltips:
     Skip by Scrolling Over Video Player: Используйте колесо прокрутки, чтобы пропустить видео в стиле MPV.
   External Player Settings:
     Custom External Player Arguments: Любые пользовательские аргументы командной строки, которые вы хотите передать внешнему проигрывателю.
-    Ignore Warnings: Скрыть предупреждения, когда текущий внешний проигрыватель не поддерживает текущее действие (например, обратный порядок подборок и другие).
+    Ignore Warnings: Скрыть предупреждения, когда текущий внешний проигрыватель не поддерживает текущее действие (например, обратный порядок плейлистов и т.д.).
     Custom External Player Executable: По умолчанию FreeTube будет считать, что выбранный внешний проигрыватель можно найти через переменную окружения PATH. При необходимости здесь можно задать собственный путь.
-    External Player: При выборе внешнего проигрывателя на миниатюре появится значок, позволяющий открыть видео (подборку, если поддерживается) во внешнем проигрывателе. Внимание, настройки Invidious не применяются ко внешним проигрывателям.
+    External Player: При выборе внешнего проигрывателя на миниатюре появится значок, позволяющий открыть видео (плейлист, если поддерживается) во внешнем проигрывателе. Внимание, настройки Invidious не применяются ко внешним проигрывателям.
     DefaultCustomArgumentsTemplate: "(По умолчанию: '{defaultCustomArguments}')"
-    Ignore Default Arguments: 'Не передавать никаких аргументов внешнему проигрывателю по умолчанию, кроме адреса видео (напр.: частота проигрывания, адрес списка воспроизведения и т. д.). Пользовательские аргументы всё ещё будут передаваться.'
+    Ignore Default Arguments: 'Не передавать никаких аргументов внешнему проигрывателю по умолчанию, кроме адреса видео (напр.: частота проигрывания, адрес плейлиста и т. д.). Пользовательские аргументы всё ещё будут передаваться.'
   Experimental Settings:
     Replace HTTP Cache: Отключает дисковый HTTP-кэш Electron и включает пользовательский кэш изображений в памяти. Приведёт к увеличению использования оперативной памяти.
   Distraction Free Settings:
-    Hide Channels: Введите идентификатор канала, чтобы скрыть все видео, плейлисты и сам канал от появления в результатах поиска, трендах, самых популярных и рекомендуемых. Введенный идентификатор канала должен полностью совпадать и чувствителен к регистру.
+    Hide Channels: Введите ID канала, чтобы скрыть все видео, плейлисты и сам канал от появления в результатах поиска, трендах, самых популярных и рекомендуемых. Введенный ID канала должен полностью совпадать и чувствителен к регистру.
     Hide Subscriptions Live: Эта настройка переопределена общей настройкой «{appWideSetting}», в подразделе «{subsection}» раздела «{settingsSection}»
-    Hide Videos and Playlists Containing Text: 'Вставь слово, часть слова, или выражение (вне зависимости от регистра), чтобы скрыть все видео и подборки, в чьих названиях содержится что-либо вставленное сюда; за исключением только: истории, подборок и видео в подборках.'
+    Hide Videos and Playlists Containing Text: 'Вставьте слово, часть слова, или выражение (вне зависимости от регистра), чтобы скрыть все видео и плейлисты, в чьих названиях содержится что-либо вставленное сюда; за исключением только: истории, плейлистов и видео в плейлистах.'
+    Hide Videos on Watch: Скрывает просмотренные видео из вкладок Видео, Шортс и Трансляции на страницах подписок и индивидуальных каналов. Это не влияет на Главную вкладку на страницах каналов
   SponsorBlock Settings:
     UseDeArrowTitles: Заменить пользовательски-размещённые заголовки на заголовки, предоставляемые «DeArrow».
     UseDeArrowThumbnails: Заменить миниатюры видео на миниатюры от DeArrow.
@@ -1096,7 +1100,7 @@ KeyboardShortcutPrompt:
   Decrease Video Speed: Уменьшить скорость воспроизведения видео на основе интервала скорости воспроизведения
   Increase Video Speed: Увеличить скорость воспроизведения видео на основе интервала скорости воспроизведения
   Full Window: Переключить на полноэкранный режим
-  Theatre Mode: Переключить на театральный режим
+  Theatre Mode: Переключить Режим Театра
   Force Restart Window: Принудительно перезапустить окно
   Toggle Developer Tools: Включить/выключить инструменты разработчика
   Reset Zoom: Сбросить уровень масштабирования
@@ -1112,6 +1116,8 @@ KeyboardShortcutPrompt:
   Skip by Tenths: Пропустить видео на определённый процент (3 пропуска для 30%)
   End: Перейти к концу видео
   Home: Перейти к началу видео
+  Skip to Next Video: Перейти к следующему видео в плейлисте или в списке рекомендуемых видео
+  Skip to Previous Video: Перейти к следующему видео в плейлисте
 Description:
   Expand Description: '...больше'
   Collapse Description: Показать меньше
