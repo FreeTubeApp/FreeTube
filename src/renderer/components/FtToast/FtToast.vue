@@ -45,6 +45,7 @@ function open({ detail: { message, time, action, abortSignal } }) {
 
   /** @type {Toast} */
   const toast = {
+    id,
     message,
     action,
     isOpen: false,
@@ -61,7 +62,14 @@ function open({ detail: { message, time, action, abortSignal } }) {
       elapsed += updateDelay
       // Skip last update
       if (elapsed >= time) { return }
-      toast.message = message({ elapsedMs: elapsed, remainingMs: time - elapsed })
+
+      // We need to locate the object in the array so we get the reactive proxy,
+      // as modifying the original object won't trigger reactive effects such as updating the DOM
+      const toast = toasts.find(t => t.id === id)
+
+      if (toast) {
+        toast.message = message({ elapsedMs: elapsed, remainingMs: time - elapsed })
+      }
     }, updateDelay)
   }
 

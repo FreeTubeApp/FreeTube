@@ -482,7 +482,7 @@ const userPlaylistAnyVideoWatched = computed(() => {
 
   const historyCacheById_ = historyCacheById.value
   return selectedUserPlaylist.value.videos.some((video) => {
-    return Object.hasOwn(historyCacheById_, video.videoId)
+    return historyCacheById_[video.videoId] !== undefined
   })
 })
 
@@ -741,7 +741,7 @@ const userPlaylistWatchedVideoCount = computed(() => {
 
   const historyCacheById_ = historyCacheById.value
   return selectedUserPlaylist.value.videos.reduce((count, video) => {
-    return Object.hasOwn(historyCacheById_, video.videoId) ? count + 1 : count
+    return historyCacheById_[video.videoId] !== undefined ? count + 1 : count
   }, 0)
 })
 
