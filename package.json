@@ -71,7 +71,7 @@
     "vue": "^3.5.22",
     "vue-i18n": "^11.1.12",
     "vue-observe-visibility": "^2.0.0-alpha.1",
-    "vue-router": "^4.5.1",
+    "vue-router": "^4.6.3",
     "vuex": "^4.1.0",
     "youtubei.js": "^16.0.1"
   },
