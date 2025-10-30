@@ -1261,6 +1261,14 @@ export default defineComponent({
         let soundStart = null
         let isSkipping = false
 
+        function resetSkip() {
+          gain.gain.setTargetAtTime(1, audioContext.currentTime, 0.015)
+          player.trickPlay(SilenceSkip.TRICKPLAY_DEFAULT_SPEED)
+          isSkipping = false
+          silenceStart = null
+          soundStart = null
+        }
+
         const loop = () => {
           if (!player) {
             cancelAnimationFrame(loopId)
@@ -1291,19 +1299,16 @@ export default defineComponent({
               if (now - soundStart > SilenceSkip.MIN_SOUND_DURATION) {
                 gain.gain.setTargetAtTime(1, audioContext.currentTime, 0.015)
                 setTimeout(() => {
-                  player.trickPlay(SilenceSkip.TRICKPLAY_DEFAULT_SPEED)
-                  isSkipping = false
-                  silenceStart = null
-                  soundStart = null
+                  resetSkip()
                 }, 25)
               }
             } else if (!isSilent && !isSkipping) {
-              gain.gain.setTargetAtTime(1, audioContext.currentTime, 0.015)
-              silenceStart = null
-              soundStart = null
+              resetSkip()
+            } else if (isSkipping && (video_.paused || video_.ended || video_.muted)) {
+              resetSkip()
             }
           } else {
-            player.trickPlay(SilenceSkip.TRICKPLAY_DEFAULT_SPEED)
+            resetSkip()
             return
           }
 

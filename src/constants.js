@@ -254,7 +254,7 @@ const SilenceSkip = {
   SILENCE_DETECTION_MULTIPLIER: 4, // Multiplier for silence detection. Higher = more sensitive
   TRICKPLAY_FAST_FORWARD_SPEED: 3, // Trickplay speed when skipping silence. Higher = faster
   TRICKPLAY_DEFAULT_SPEED: 1, // Trickplay speed when not skipping silence. 1 = normal
-  MIN_SILENCE_DURATION: 250, // Min silence duration in ms. Higher for longer silence before skipping. Lower for faster reaction.
+  MIN_SILENCE_DURATION: 150, // Min silence duration in ms. Higher for longer silence before skipping. Lower for faster reaction.
   MIN_SOUND_DURATION: 5, // Min sound duration in ms. Higher to avoid false positives for short sounds.
 }
 
