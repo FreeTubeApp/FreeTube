@@ -34,7 +34,7 @@ Global:
 # Search Bar
   Counts:
     Video Count: 1 vidéo | {count} vidéos
-    Channel Count: 1 chaine | {count} chaines
+    Channel Count: 1 chaîne | {count} chaînes
     View Count: 1 vue | {count} vues
     Subscriber Count: 1 abonné | {count} abonnés
     Watching Count: 1 spectateur | {count} spectateurs
@@ -61,7 +61,7 @@ Search Filters:
     Type: 'Type'
     All Types: 'Tous les types'
     Videos: 'Vidéos'
-    Channels: 'Chaines'
+    Channels: 'Chaînes'
     #& Playlists
     Movies: Films
   Duration:
@@ -92,16 +92,16 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnements'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Votre liste d’abonnements est actuellement vide. Si vous souhaitez importer vos abonnements, vous pouvez aller dans Paramètres des données et sélectionner Importer des abonnements ou vous pouvez rechercher une chaine et vous y abonner.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Votre liste d’abonnements est actuellement vide. Si vous souhaitez importer vos abonnements, vous pouvez aller dans Paramètres des données et sélectionner Importer des abonnements ou vous pouvez rechercher une chaîne et vous y abonner.'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ce profil comporte un grand nombre d'abonnements.  Le flux RSS dépassera la limite fixée
   Load More Videos: Charger plus de vidéos
-  Error Channels: Chaines avec des erreurs
+  Error Channels: Chaînes avec des erreurs
   Disabled Automatic Fetching: Vous avez désactivé la récupération automatique des abonnements. Actualisez les abonnements pour les voir ici.
-  Empty Channels: Les chaines auxquelles vous êtes abonné(e) ne contiennent actuellement aucune vidéo.
+  Empty Channels: Les chaînes auxquelles vous êtes abonné(e) ne contiennent actuellement aucune vidéo.
   Subscriptions Tabs: Onglets Abonnements
   All Subscription Tabs Hidden: Tous les onglets d’abonnement sont cachés. Pour voir le contenu ici, veuillez désactiver certains onglets dans la section « {subsection} » dans « {settingsSection} ».
   Load More Posts: Charger plus de billets
-  Empty Posts: Les chaines auxquelles vous êtes abonné(e) ne contiennent actuellement aucun billet.
+  Empty Posts: Les chaînes auxquelles vous êtes abonné(e) ne contiennent actuellement aucun billet.
 Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
@@ -457,7 +457,7 @@ Settings:
         Never: Jamais
         Auto: Automatique
         Semi-auto: Semi-automatique
-      Tooltip: Automatique = Enregistre en quittant le page de chaque vidéo, quand la vidéo s'est terminée ou en cas d'erreur (par ex. taux limité ou session de visionnage expirée. Semi-automatique = Comme automatique sauf en quittant la page d'une vidéo et vous pouvez enregistrer manuellement avec le bouton "Enregistrer l'état de visionnage" situé en-dessous du lecteur vidéo.
+      Tooltip: Automatique = Enregistre en quittant le page de chaque vidéo, quand la vidéo s'est terminée ou en cas d'erreur (par ex. taux limité ou session de visionnage expirée. Semi-automatique = Comme automatique sauf en quittant la page d'une vidéo et vous pouvez enregistrer manuellement avec le bouton « Enregistrer l'état de visionnage » situé en-dessous du lecteur vidéo.
   Data Settings:
     How do I import my subscriptions?: Comment importer mes abonnements ?
     Subscriptions have been successfully exported: Les abonnements ont été exportés avec succès
@@ -497,7 +497,7 @@ Settings:
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Masquer les J’aime et Je n’aime pas des vidéos
     Hide Comment Likes: Masquer les J’aime dans les commentaires
-    Hide Channel Subscribers: Masquer le nombre d’abonnés des chaines
+    Hide Channel Subscribers: Masquer le nombre d’abonnés des chaînes
     Hide Video Views: Masquer les vues des vidéos
     Hide Live Chat: Masquer le chat en direct
     Hide Popular Videos: Masquer les vidéos populaires
@@ -516,30 +516,30 @@ Settings:
     Hide Channels: Masquer les vidéos des chaînes
     Hide Channels Placeholder: Identifiant de la chaîne
     Display Titles Without Excessive Capitalisation: Afficher les titres sans majuscules ni ponctuation excessives
-    Hide Channel Playlists: Masquer l’onglet « Listes de lecture » de la chaine
-    Hide Featured Channels: Masquer les chaines en vedette
-    Hide Channel Shorts: Masquer l’onglet « Shorts » de la chaine
+    Hide Channel Playlists: Masquer l’onglet « Listes de lecture » de la chaîne
+    Hide Featured Channels: Masquer les chaînes en vedette
+    Hide Channel Shorts: Masquer l’onglet « Shorts » de la chaîne
     Sections:
-      Channel Page: Page de la chaine
+      Channel Page: Page de la chaîne
       Side Bar: Barre latérale
       Watch Page: Page de lecture
       General: Général
       Subscriptions Page: Page Abonnements
-    Hide Channel Podcasts: Masquer l’onglet « Podcasts » de la chaine
-    Hide Channel Releases: Masquer l’onglet « Publications » de la chaine
+    Hide Channel Podcasts: Masquer l’onglet « Podcasts » de la chaîne
+    Hide Channel Releases: Masquer l’onglet « Publications » de la chaîne
     Hide Subscriptions Videos: Masquer les vidéos des abonnements
     Hide Subscriptions Shorts: Masquer les shorts des abonnements
     Hide Subscriptions Live: Masquer les diffusions en direct des abonnements
     Hide Profile Pictures in Comments: Masquer les photos de profil dans les commentaires
-    Hide Channels Invalid: L’identifiant de chaine fourni n’est pas valide
-    Hide Channels Disabled Message: Certaines chaines ont été bloquées à l’aide d’un identifiant et n’ont pas été traitées. La fonctionnalité est bloquée le temps que ces identifiants se mettent à jour
-    Hide Channels Already Exists: L’identifiant de chaine existe déjà
+    Hide Channels Invalid: L’identifiant de chaîne fourni n’est pas valide
+    Hide Channels Disabled Message: Certaines chaînes ont été bloquées à l’aide d’un identifiant et n’ont pas été traitées. La fonctionnalité est bloquée le temps que ces identifiants se mettent à jour
+    Hide Channels Already Exists: L’identifiant de chaîne existe déjà
     Hide Channels API Error: Erreur de récupération de l'utilisateur portant l'identifiant fourni. Veuillez vérifier à nouveau si l'ID est correct.
     Hide Videos and Playlists Containing Text: Masquer les vidéos et les listes de lecture contenant du texte
     Hide Videos and Playlists Containing Text Placeholder: Mot, fragment de mot ou phrase
-    Hide Channel Home: Masquer l’onglet « Accueil » de la chaine
+    Hide Channel Home: Masquer l’onglet « Accueil » de la chaîne
     Show Added Items: Afficher les éléments ajoutés
-    Hide Channel Courses: Masquer l’onglet « Cours » de la chaine
+    Hide Channel Courses: Masquer l’onglet « Cours » de la chaîne
     Hide Channel Posts: Masquer l’onglet « Posts » de la chaîne
     Hide Subscriptions Posts: Masquer les posts des abonnements
   The app needs to restart for changes to take effect. Restart and apply change?: L'application doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer les changements ?
@@ -645,7 +645,7 @@ About:
 Channel:
   Subscribe: 'S’abonner'
   Unsubscribe: 'Se désabonner'
-  Search Channel: 'Chercher dans la chaine'
+  Search Channel: 'Chercher dans la chaîne'
   Your search results have returned 0 results: 'Les résultats de votre recherche ont donné 0 résultat'
   Videos:
     Videos: 'Vidéos'
@@ -656,7 +656,7 @@ Channel:
       Most Popular: 'Les plus populaires'
   Playlists:
     Playlists: 'Listes de lecture'
-    This channel does not currently have any playlists: 'Cette chaine n’a pas encore de liste de lecture'
+    This channel does not currently have any playlists: 'Cette chaîne n’a pas encore de liste de lecture'
     Sort Types:
       Last Video Added: 'Dernière vidéo ajoutée'
       Newest: 'Les plus récentes'
@@ -688,15 +688,15 @@ Channel:
     Viewing Posts Only Supported By Invidious: L'affichage des messages n'est possible qu'avec Indivious. Allez dans l'onglet communauté de la chaîne pour visualiser le contenu sans Indivious.
   Live:
     Live: En direct
-    This channel does not currently have any live streams: Cette chaine n’a pas encore de flux en direct
+    This channel does not currently have any live streams: Cette chaîne n’a pas encore de flux en direct
   Shorts:
-    This channel does not currently have any shorts: Cette chaine n’a pas encore de shorts
+    This channel does not currently have any shorts: Cette chaîne n’a pas encore de shorts
   Releases:
     Releases: Publications
-    This channel does not currently have any releases: Cette chaine n’a actuellement aucune publication
+    This channel does not currently have any releases: Cette chaîne n’a actuellement aucune publication
   Podcasts:
     Podcasts: Podcasts
-    This channel does not currently have any podcasts: Cette chaine n’a pas encore de podcast
+    This channel does not currently have any podcasts: Cette chaîne n’a pas encore de podcast
   Home:
     Home: Accueil
     View Playlist: Afficher la liste de lecture
@@ -927,9 +927,9 @@ Profile:
   Edit Profile: Modifier le profil
   Create New Profile: Créer un nouveau profil
   Profile Manager: Gestionnaire de profil
-  All Channels: Toutes les chaines
+  All Channels: Toutes les chaînes
   Profile Select: Sélection du profil
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Êtes-vous sûr(e) de vouloir supprimer les chaines sélectionnées ?  Ceci ne supprimera pas la chaine de tout autre profil.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Êtes-vous sûr(e) de vouloir supprimer les chaînes sélectionnées ?  Ceci ne supprimera pas la chaîne de tout autre profil.
   Subscription List: Liste des abonnements
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
   : Ceci est votre profil principal.  Êtes-vous sûr(e) de vouloir supprimer les chaînes sélectionnées ?  Les mêmes chaînes seront supprimées dans tous les profils où elles se trouvent.
@@ -983,7 +983,7 @@ Tooltips:
     Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les listes de lecture et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} » applicable à l'ensemble de l'application, dans la section « {subsection} » de la section « {settingsSection} »
     Hide Videos and Playlists Containing Text: Saisissez un mot, un fragment de mot ou une phrase (insensible à la casse) pour masquer toutes les vidéos et sélections dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube, à l'exception de l'historique, de vos listes de lecture et des vidéos contenues dans les listes de lecture.
-    Hide Videos on Watch: Masque les vidéos visionnées des onglets Vidéos, Shorts, En direct des pages Abonnements et Chaines. Cela n'a pas d'effet sur l'onglet Accueil des pages Chaines
+    Hide Videos on Watch: Masque les vidéos visionnées des onglets Vidéos, Shorts, En direct des pages Abonnements et Chaînes. Ceci n'a pas d'effet sur l'onglet Accueil des pages Chaînes
   SponsorBlock Settings:
     UseDeArrowTitles: Remplacer les titres des vidéos par des titres proposés par les utilisateurs de DeArrow.
     UseDeArrowThumbnails: Remplacer les miniatures des vidéos par les miniatures de DeArrow.
@@ -1008,9 +1008,9 @@ Screenshot Error: La capture d’écran a échoué. {error}
 New Window: Nouvelle fenêtre
 Channels:
   Channels: Chaînes
-  Title: Liste des chaines
+  Title: Liste des chaînes
   Empty: Votre liste de chaînes est actuellement vide.
-  Search bar placeholder: Rechercher des chaines
+  Search bar placeholder: Rechercher des chaînes
   Count: '{number} chaîne(s) trouvée(s).'
   Unsubscribe Prompt: Êtes-vous sûr(e) de vouloir vous désabonner de « {channelName} » ?
 Clipboard:

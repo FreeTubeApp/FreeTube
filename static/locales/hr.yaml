@@ -134,12 +134,12 @@ User Playlists:
   Sort By:
     NameAscending: A-Z
     NameDescending: Z-A
-    LatestCreatedFirst: Nedavno stvoreno
-    EarliestCreatedFirst: Najranije stvoreno
-    LatestUpdatedFirst: Nedavno aktualizirano
-    EarliestUpdatedFirst: Najranije aktualizirano
-    LatestPlayedFirst: Nedavno reproducirano
-    EarliestPlayedFirst: Najranije reproducirano
+    LatestCreatedFirst: Datum stvaranja (najnoviji)
+    EarliestCreatedFirst: Datum stvaranja (najstariji)
+    LatestUpdatedFirst: Datum aktualiziranja (najnoviji)
+    EarliestUpdatedFirst: Datum aktualiziranja (najstariji)
+    LatestPlayedFirst: Datum reproduciranja (najnoviji)
+    EarliestPlayedFirst: Datum reproduciranja (najstariji)
   Remove Watched Videos: Ukloni gledana videa
   Save Changes: Spremi promjene
   You have no playlists. Click on the create new playlist button to create a new one.: Nemaš zbirke. Za stvaranje nove zbirke pritisni gumb za stvaranje nove zbirke.
@@ -197,6 +197,7 @@ User Playlists:
   Export Playlist: Izvezi ovu zbirku
   The playlist has been successfully exported: Zbirka je uspješno izvezena
   TotalTimePlaylist: 'Ukupno vrijeme: {duration}'
+  Export list of URLs: Izvezi popisa URL-ova
 History:
   # On History Page
   History: 'Povijest'
@@ -205,8 +206,8 @@ History:
   Search bar placeholder: Pretraži povijest
   Empty Search Message: U ovoj zbirci nema videa u tvojoj povijesti koji odgovaraju tvojem pretraživanju
   Case Sensitive Search: Razlikuj velika i mala slova tijekom pretraživanja
-  DateOldestHistory: Najprije najranije gledano
-  DateNewestHistory: Najprije nedavno gledano
+  DateOldestHistory: Datum gledanja (najstariji)
+  DateNewestHistory: Datum gledanja (najnoviji)
 Settings:
   # On Settings Page
   Settings: 'Postavke'
@@ -248,7 +249,7 @@ Settings:
       No Action: Bez radnje
       Ask Before Opening Link: Pitaj prije otvaranja poveznice
       Open Link: Otvori poveznicu
-      External Link Handling: Rukovanje vanjskim poveznicama
+      External Link Handling: Rukovanje eksternim poveznicama
     Auto Load Next Page:
       Label: Automatski učitaj sljedeću stranicu
       Tooltip: Automatski učitaj dodatne stranice i komentare.
@@ -425,7 +426,7 @@ Settings:
       Default Viewing Mode: Standardni modus gledanja
       Full Screen: Cijeli ekran
       Picture in Picture: Slika u slici
-      External Player: Eksterni Player ({externalPlayerName})
+      External Player: Eksterni player ({externalPlayerName})
   Privacy Settings:
     Privacy Settings: 'Privatnost'
     Remember History: 'Zapamti povijest gledanja'
@@ -559,7 +560,9 @@ Settings:
     Proxy Protocol: Protokol posrednika
     Enable Tor / Proxy: Aktiviraj Tor/Posrednik
     Proxy Settings: Posrednik
-    Proxy Warning: FreeTube nema ugrađeni proxy, ali se može povezati s vanjskim proxyjem, poput onog koji radi na tvom računalu poput Tor-a ili eksternog proxyja, poput SOCKS5 proxyja koji pružaju neki VPN-ovi. Ako je aktiviran, provjeri je li tvoj proxy/Tor pravilno konfiguriran, inače FreeTube neće moći dohvatiti nikoje podatke.
+    Proxy Warning: FreeTube nema ugrađeni proxy, ali se može povezati s eksternim proxyjem, poput onog koji radi na tvom računalu poput Tor-a ili eksternog proxyja, poput SOCKS5 proxyja koji pružaju neki VPN-ovi. Ako je aktiviran, provjeri je li tvoj proxy/Tor pravilno konfiguriran, inače FreeTube neće moći dohvatiti nikoje podatke.
+    Proxy Username: Korisničko ime za proxy
+    Proxy Password: Lozinka za proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Obavijesti kad se preskoči segment sponzora
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API-a za blokiranja sponzora (standardno je https://sponsor.ajay.app)
@@ -576,10 +579,10 @@ Settings:
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'URL za API DeArrow generatora minijatura (Standardna adresa je: https://dearrow-thumb.ajay.app)'
     UseDeArrowThumbnails: Koristi DeArrow za minijature
   External Player Settings:
-    Custom External Player Arguments: Argumenti prilagođenog vanjskog playera
+    Custom External Player Arguments: Argumenti prilagođenog eksternog playera
     Custom External Player Executable: Izvršna datoteka prilagođenog eksternog playera
     Ignore Unsupported Action Warnings: Zanemari upozorenja o nepodržanim radnjama
-    External Player: Vanjski player
+    External Player: Eksterni player
     External Player Settings: Eksterni player
     Players:
       None:
@@ -590,7 +593,7 @@ Settings:
     Download Settings: Preuzimanje
     Ask Download Path: Zatraži stazu za preuzimanja
     Download in app: Preuzmi u programu
-    Open in web browser: Otvori u web-pregledniku
+    Open in web browser: Otvori u web pregledniku
     Download Behavior: Ponašanje preuzimanja
   Parental Control Settings:
     Parental Control Settings: Roditeljski nadzor
@@ -869,17 +872,17 @@ Playlist:
 #& Views
   Playlist: Zbirka
   Sort By:
-    DateAddedNewest: Najprije najnovije dodane
-    DateAddedOldest: Najprije najranije dodane
+    DateAddedNewest: Datum dodavanja (najnoviji)
+    DateAddedOldest: Datum dodavanja (najstariji)
     AuthorAscending: Autor (A-Z)
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Naslov (A-Z)
     VideoTitleDescending: Naslov (Z-A)
     Custom: Prilagođeno
-    VideoDurationDescending: Trajanje (najprije najduže)
-    VideoDurationAscending: Trajanje (najprije najkraće)
-    PublishedNewest: Najprije najnovije izdane
-    PublishedOldest: Najprije najranije izdane
+    VideoDurationDescending: Trajanje (najduže)
+    VideoDurationAscending: Trajanje (najkraće)
+    PublishedNewest: Datum objavljivanja (najnoviji)
+    PublishedOldest: Datum objavljivanja (najstariji)
 Change Format:
   Change Media Formats: 'Promijeni videoformate'
   Use Dash Formats: 'Koristi DASH formate'
@@ -970,10 +973,10 @@ Tooltips:
     Fetch Feeds from RSS: Kada je aktivirano, FreeTube će koristiti RSS umjesto vlastite standardne metode za dohvaćanje podataka tvoje pretplate. RSS je brži i sprečava blokiranje IP adresa, ali ne pruža određene podatke kao što su trajanje videa, stanje „uživo” ili postovi
     Fetch Automatically: Kada je aktivirano, FreeTube će automatski dohvatiti feed tvoje pretplate pri pokretanju programa i kada se otvori novi prozor.
   External Player Settings:
-    External Player: Biranjem vanjskog playera prikazat će se ikona, za otvaranje videa (zbirka, ako je podržana) u vanjskom playeru, na minijaturi. Upozorenje, Invidious postavke ne utječu na vanjske playere.
-    Custom External Player Arguments: Svi prilagođeni argumenti naredbenog retka, koje želiš da se proslijede vanjskom playeru.
-    Ignore Warnings: Nemoj prikazati upozorenja kad trenutačni vanjski player ne podržava trenutačnu radnju (npr. preokretanje redoslijeda zbirke itd.).
-    Custom External Player Executable: Prema standardnim postavkama, FreeTube će pretpostaviti da se odabrani vanjski player može pronaći putem varijable okruženja PATH (putanja). Ako je potrebno, ovdje se može postaviti prilagođena putanja.
+    External Player: Biranjem eksternog playera prikazat će se ikona, za otvaranje videa (zbirka, ako je podržana) u vanjskom playeru, na minijaturi. Upozorenje, Invidious postavke ne utječu na eksterne playere.
+    Custom External Player Arguments: Svi prilagođeni argumenti naredbenog retka, koje želiš da se proslijede eksternom playeru.
+    Ignore Warnings: Nemoj prikazati upozorenja kad trenutačni eksterni player ne podržava trenutačnu radnju (npr. preokretanje redoslijeda zbirke itd.).
+    Custom External Player Executable: Prema standardnim postavkama, FreeTube će pretpostaviti da se odabrani eksterni player može pronaći putem varijable okruženja PATH (putanja). Ako je potrebno, ovdje se može postaviti prilagođena putanja.
     DefaultCustomArgumentsTemplate: '(Standardno: „{defaultCustomArguments}”)'
     Ignore Default Arguments: Ne šalji bilo koje standardne argumente eksternom playeru osim URL-a videa (npr. brzina reprodukcije, URL zbirke itd.). Prilagođeni argumenti će se i dalje prosljediti.
   Experimental Settings:
