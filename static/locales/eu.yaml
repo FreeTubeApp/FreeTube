@@ -149,13 +149,13 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Gaitu laster-marka azkarra erreprodukzio zerrenda honekin
   Sort By:
     NameDescending: Z-A
-    LatestCreatedFirst: Berriki sortu da
-    EarliestCreatedFirst: Goiztiarren sortuak
-    LatestPlayedFirst: Duela gutxi erreproduzitua
-    EarliestPlayedFirst: Goiztiarren erreproduzitua
+    LatestCreatedFirst: Sortutako dataren arabera (berriena)
+    EarliestCreatedFirst: Sortutako dataren arabera (zaharrena)
+    LatestPlayedFirst: Erreproduzitutako dataren arabera (Berriena)
+    EarliestPlayedFirst: Erreproduzitutako dataren arabera (Zaharrena)
     NameAscending: A-Z
-    EarliestUpdatedFirst: Goiztiarren eguneratuak
-    LatestUpdatedFirst: Berriki eguneratuak
+    EarliestUpdatedFirst: Eguneratutako dataren arabera (Zaharrena)
+    LatestUpdatedFirst: Eguneratutako dataren arabera (Berriena)
   Delete Playlist: Ezabatu erreprodukzio zerrenda
   Are you sure you want to delete this playlist? This cannot be undone: Ziur erreprodukzio zerrenda ezabatu nahi duzula? Hau ezin da desegin.
   SinglePlaylistView:
@@ -202,6 +202,7 @@ User Playlists:
   Export Playlist: Esportatu erreprodukzio zerrenda hau
   The playlist has been successfully exported: Erreprodukzio zerrenda ongi esportatu da
   TotalTimePlaylist: 'Denbora guztira: {duration}'
+  Export list of URLs: URL-en zerrenda esportatu
 History:
   # On History Page
   History: 'Historikoa'
@@ -210,8 +211,8 @@ History:
   Empty Search Message: Ez dago historikoan zure bilaketarekin bat datorren bideorik
   Search bar placeholder: Bilatu historikoan
   Case Sensitive Search: Maiuskulak eta minuskulak bereizten ditu
-  DateOldestHistory: Lehenengo ikusitakoak aurretik
-  DateNewestHistory: Ikusitako azkenak lehenik
+  DateOldestHistory: Ikusitako dataren arabera (Zaharrena)
+  DateNewestHistory: Ikusitako dataren arabera (Berriena)
 Settings:
   # On Settings Page
   Settings: 'Ezarpenak'
@@ -564,6 +565,8 @@ Settings:
     City: 'Hiria'
     Error getting network information. Is your proxy configured properly?: 'Errore bat gertatu da sareko informazioa eskuratzean. Zure proxya behar bezala konfiguratuta al dago?'
     Proxy Warning: FreeTube-k ez du proxy-rik, baina kanpoko proxy batera konekta daiteke, adibidez, zure makinan Tor gisa exekutatzen den bat edo kanpoko proxy bat, VPN batzuek emandako proxy bat bezala. Aktibatuta badago, ziurtatu proxy/Tor behar bezala konfiguratuta dagoela, edo FreeTube-k ezingo du daturik lortu.
+    Proxy Username: Proxy-aren erabiltzailea
+    Proxy Password: Proxyaren pasahitza
   External Player Settings:
     Ignore Unsupported Action Warnings: Onartu gabeko ekintzen oharrei ez ikusiarena egin
     External Player Settings: Kanpoko erreproduzitzailea
@@ -622,7 +625,7 @@ About:
   Beta: 'Beta'
   Source code: 'Kode iturria'
   Downloads / Changelog: 'Deskargak / Aldaketen erregistroa'
-  GitHub releases: 'Github argitalpenak'
+  GitHub releases: 'Github Argitalpenak'
   Help: 'Laguntza'
   FreeTube Wiki: 'Freetuberen wikia'
   FAQ: 'Ohiko galderak'
@@ -873,17 +876,17 @@ Playlist:
 #& Views
   Playlist: Erreprodukzio-zerrenda
   Sort By:
-    DateAddedNewest: Azken gehitua lehenengo
+    DateAddedNewest: Gehitutako dataren arabera (Berriena)
     Custom: Pertsonalizatua
-    DateAddedOldest: Lehenago gehitutakoak lehenengo
+    DateAddedOldest: Gehitutako dataren arabera (Zaharrena)
     VideoTitleAscending: Izenburua (A-Z)
     VideoTitleDescending: Izenburua (Z-A)
     AuthorAscending: Egilea (A-Z)
     AuthorDescending: Egilea (Z-A)
-    VideoDurationDescending: Iraupena (luzeenetik laburrenera)
-    VideoDurationAscending: Iraupena (laburrenetik luzeenera)
-    PublishedNewest: Argitaratutako azkenak lehenik
-    PublishedOldest: Argitaratutako lehenak lehenik
+    VideoDurationDescending: Iraupena (luzeena)
+    VideoDurationAscending: Iraupena (Laburrena)
+    PublishedNewest: Argitaratutako dataren arabera (Berriena)
+    PublishedOldest: Argitaratutako dataren arabera (Zaharrena)
 Change Format:
   Change Media Formats: 'Bideoen formatuak aldatu'
   Use Dash Formats: 'DASH formatuak erabili'
@@ -1026,9 +1029,7 @@ Clipboard:
 Tag already exists: '"{tagName}" etiketa badago jada'
 Trimmed input must be at least N characters long: Moztutako sarrerak karaktere bat izan behar du gutxienez | Moztutako sarrerak gutxienez {length} karaktere izan behar ditu
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 'Kapituluen zerrenda ezkutatuta dago, uneko kapitulua: {chapterName}'
   Chapters: Kapituluak
-  'Chapters list visible, current chapter: {chapterName}': 'Kapituluen zerrenda ikusgai, uneko kapitulua: {chapterName}'
   Key Moments: Une garrantzitsuenak
 Hashtag:
   Hashtag: Traola

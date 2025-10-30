@@ -6,7 +6,7 @@ import { IpcChannels } from '../constants.js'
  * all systems running the electron app.
  */
 ipcRenderer.on(IpcChannels.NATIVE_THEME_UPDATE, (_, shouldUseDarkColors) => {
-  webFrame.executeJavaScript(`document.body.dataset.systemTheme = "${shouldUseDarkColors ? 'dark' : 'light'}"`).catch()
+  document.body.dataset.systemTheme = shouldUseDarkColors ? 'dark' : 'light'
 })
 
 let currentUpdateSearchInputTextListener
@@ -100,12 +100,11 @@ export default {
 
   /**
    * @param {string} videoId
-   * @param {string} visitorData
    * @param {string} context
-   * @returns {Promise<{ contentPoToken: string, sessionPoToken: string }>}
+   * @returns {Promise<string>}
    */
-  generatePoTokens: (videoId, visitorData, context) => {
-    return ipcRenderer.invoke(IpcChannels.GENERATE_PO_TOKENS, videoId, visitorData, context)
+  generatePoToken: (videoId, context) => {
+    return ipcRenderer.invoke(IpcChannels.GENERATE_PO_TOKEN, videoId, context)
   },
 
   /**

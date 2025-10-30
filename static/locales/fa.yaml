@@ -155,14 +155,14 @@ User Playlists:
       Video has been removed. Click here to undo.: ویدیو حذف شد. برای لغو اینجا کلیک کنید.
     Search for Videos: جستجوی ویدئوها
   Sort By:
-    EarliestUpdatedFirst: اولین به روز شده
-    LatestUpdatedFirst: به تازگی به روز شده
+    EarliestUpdatedFirst: تاریخ به‌روزرسانی (قدیمی‌ترین)
+    LatestUpdatedFirst: تاریخ به‌روزرسانی (جدیدترین)
     NameAscending: آ-ی
     NameDescending: ی-آ
-    LatestCreatedFirst: به تازگی ایجاد شده
-    LatestPlayedFirst: اخیراً پخش شده
-    EarliestPlayedFirst: اولین پخش شده
-    EarliestCreatedFirst: قدیمی ترین ایجاد شده
+    LatestCreatedFirst: تاریخ ایجاد (جدیدترین)
+    LatestPlayedFirst: تاریخ پخش (جدیدترین)
+    EarliestPlayedFirst: تاریخ پخش (قدیمی‌ترین)
+    EarliestCreatedFirst: تاریخ ایجاد (قدیمی‌ترین)
   CreatePlaylistPrompt:
     Toast:
       Playlist {playlistName} has been successfully created.: لیست پخش {playlistName} با موفقیت ایجاد شد.
@@ -182,6 +182,7 @@ User Playlists:
   Quick Bookmark Enabled: نشانک سریع فعال شد
   Delete Playlist: حذف لیست پخش
   TotalTimePlaylist: 'زمان کل: {duration}'
+  Export list of URLs: صادرات فهرست نشانی اینترنتی
 History:
   # On History Page
   History: 'تاریخچه'
@@ -554,6 +555,8 @@ Settings:
     Clicking on Test Proxy will send a request to: با کلیک بر روی تست پروکسی یک درخواست ارسال می شود
     Your Info: اطلاعات شما
     Proxy Warning: FreeTube یک پروکسی داخلی ندارد اما می‌تواند به یک پروکسی خارجی مانند پروکسی که روی دستگاه شما اجرا می‌شود مانند تور یا یک پراکسی خارجی مثل یک پراکسی SOCKS5 که توسط برخی VPN‌ها ارائه می‌شود، متصل شود. در صورت فعال بودن، مطمئن شوید که پروکسی/تور شما به درستی پیکربندی شده است، در غیر این صورت FreeTube نمی تواند هیچ داده ای را واکشی کند.
+    Proxy Username: نام کاربری پروکسی
+    Proxy Password: رمز عبور پراکسی
   SponsorBlock Settings:
     Skip Options:
       Skip Option: گزینه پرش
@@ -884,8 +887,6 @@ Change Format:
   Use Audio Formats: از فرمت های صوتی استفاده کنید
   Legacy formats are not available for this video: قالب‌های قدیمی برای این ویدیو موجود نیست
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 'فهرست فصل‌ها پنهان است، فصل فعلی: {chapterName}'
-  'Chapters list visible, current chapter: {chapterName}': 'فهرست فصل‌ها قابل مشاهده است، فصل فعلی: {chapterName}'
   Chapters: فصل
   Key Moments: لحظات کلیدی
 Hashtag:

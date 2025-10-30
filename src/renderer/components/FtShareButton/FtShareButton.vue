@@ -69,53 +69,55 @@
         </FtButton>
       </div>
 
-      <div class="divider" />
+      <template v-if="showInvidiousOptions">
+        <div class="divider" />
 
-      <div
-        id="invidiousShare"
-        class="header invidious"
-      >
-        <span class="invidiousLogo" /> Invidious
-      </div>
+        <div
+          id="invidiousShare"
+          class="header invidious"
+        >
+          <span class="invidiousLogo" /> Invidious
+        </div>
 
-      <div class="buttons">
-        <FtButton
-          aria-describedby="invidiousShare"
-          class="action"
-          @click="copyInvidious"
-        >
-          <FontAwesomeIcon :icon="['fas', 'copy']" />
-          {{ $t("Share.Copy Link") }}
-        </FtButton>
-        <FtButton
-          aria-describedby="invidiousShare"
-          class="action"
-          @click="openInvidious"
-        >
-          <FontAwesomeIcon :icon="['fas', 'globe']" />
-          {{ $t("Share.Open Link") }}
-        </FtButton>
-        <FtButton
-          v-if="isVideo || isPlaylist"
-          aria-describedby="invidiousShare"
-          class="action"
-          background-color="var(--accent-color-active)"
-          @click="copyInvidiousEmbed"
-        >
-          <FontAwesomeIcon :icon="['fas', 'copy']" />
-          {{ $t("Share.Copy Embed") }}
-        </FtButton>
-        <FtButton
-          v-if="isVideo || isPlaylist"
-          aria-describedby="invidiousShare"
-          class="action"
-          background-color="var(--accent-color-active)"
-          @click="openInvidiousEmbed"
-        >
-          <FontAwesomeIcon :icon="['fas', 'globe']" />
-          {{ $t("Share.Open Embed") }}
-        </FtButton>
-      </div>
+        <div class="buttons">
+          <FtButton
+            aria-describedby="invidiousShare"
+            class="action"
+            @click="copyInvidious"
+          >
+            <FontAwesomeIcon :icon="['fas', 'copy']" />
+            {{ $t("Share.Copy Link") }}
+          </FtButton>
+          <FtButton
+            aria-describedby="invidiousShare"
+            class="action"
+            @click="openInvidious"
+          >
+            <FontAwesomeIcon :icon="['fas', 'globe']" />
+            {{ $t("Share.Open Link") }}
+          </FtButton>
+          <FtButton
+            v-if="isVideo || isPlaylist"
+            aria-describedby="invidiousShare"
+            class="action"
+            background-color="var(--accent-color-active)"
+            @click="copyInvidiousEmbed"
+          >
+            <FontAwesomeIcon :icon="['fas', 'copy']" />
+            {{ $t("Share.Copy Embed") }}
+          </FtButton>
+          <FtButton
+            v-if="isVideo || isPlaylist"
+            aria-describedby="invidiousShare"
+            class="action"
+            background-color="var(--accent-color-active)"
+            @click="openInvidiousEmbed"
+          >
+            <FontAwesomeIcon :icon="['fas', 'globe']" />
+            {{ $t("Share.Open Embed") }}
+          </FtButton>
+        </div>
+      </template>
     </div>
   </FtIconButton>
 </template>
@@ -189,6 +191,10 @@ const shareTitle = computed(() => {
 
 const currentInvidiousInstanceUrl = computed(() => {
   return store.getters.getCurrentInvidiousInstanceUrl
+})
+
+const showInvidiousOptions = computed(() => {
+  return store.getters.getBackendPreference === 'invidious' || store.getters.getBackendFallback
 })
 
 const selectedUserPlaylist = computed(() => {

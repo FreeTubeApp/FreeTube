@@ -161,14 +161,14 @@ User Playlists:
   Quick Bookmark Enabled: Nod Tudalen Cyflym wedi'i Galluogi
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ydych chi'n siŵr eich bod am dynnu 1 fideo a wyliwyd o'r rhestr chwarae hon? Nid oes modd dadwneud hyn. | A ydych yn siŵr eich bod am ddileu {playlistItemCount} fideo a wyliwyd o'r rhestr chwarae hon? Nid oes modd dadwneud hyn.
   Sort By:
-    LatestCreatedFirst: Crëwyd yn Ddiweddar
+    LatestCreatedFirst: Dyddiad Crëwyd (Diweddaraf)
     NameAscending: A-Z
-    EarliestCreatedFirst: Crëwyd Gynharaf
-    LatestUpdatedFirst: Diweddarwyd yn Ddiweddar
+    EarliestCreatedFirst: Dyddiad Crëwyd (Hynaf)
+    LatestUpdatedFirst: Dyddiad Diweddarwyd (Mwyaf Newydd)
     NameDescending: Z-A
-    LatestPlayedFirst: Chwaraewyd yn Ddiweddar
-    EarliestPlayedFirst: Chwaraewyd Cynharaf
-    EarliestUpdatedFirst: Diweddarwyd Cynharaf
+    LatestPlayedFirst: Dyddiad Chwaraewyd (Mwyaf Newydd)
+    EarliestPlayedFirst: Dyddiad Chwaraewyd (Hynaf)
+    EarliestUpdatedFirst: Dyddiad Diweddarwyd (Hynaf)
   SinglePlaylistView:
     Toast:
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Nid yw rhai fideos yn y rhestr chwarae wedi'u llwytho eto. Cliciwch yma i gopïo beth bynnag.
@@ -218,6 +218,7 @@ User Playlists:
   Save Changes: Cadw'r Newidiadau
   Remove Duplicate Videos: Dileu Fideos Dyblyg
   TotalTimePlaylist: 'Cyfanswm amser: {duration}'
+  Export list of URLs: Allforio'r rhestr o URLau
 History:
   # On History Page
   History: 'Hanes'
@@ -226,8 +227,8 @@ History:
   Empty Search Message: 'Nid oes unrhyw fideos yn eich hanes sy''n cyfateb i''ch chwilio'
   Search bar placeholder: "Chwilio yn eich Hanes"
   Case Sensitive Search: Chwilio Nodau Mawr neu Fach
-  DateOldestHistory: Cynharaf ei Wylio'n Gyntaf
-  DateNewestHistory: Diweddaraf ei Wylio'n Gyntaf
+  DateOldestHistory: Dyddiad Gwyliwyd (Hynaf)
+  DateNewestHistory: Dyddiad Gwyliwyd (Mwyaf Newydd)
 Settings:
   # On Settings Page
   Settings: 'Gosodiadau'
@@ -275,6 +276,7 @@ Settings:
       Label: Llwytho'r Dudalen Nesaf yn Awtomatig
       Tooltip: Llwytho tudalennau a sylwadau ychwanegol yn awtomatig.
     Open Deep Links In New Window: Agor URLs Wedi'u Pasio i FreeTube mewn Ffenest Newydd
+    Minimize to system tray: Lleihau i ddror y system
   Theme Settings:
     Theme Settings: 'Thema'
     Match Top Bar with Main Color: 'Cydweddu Bar Uchaf gyda Phrif Lliw'
@@ -589,6 +591,8 @@ Settings:
     City: 'Dinas'
     Error getting network information. Is your proxy configured properly?: 'Gwall wrth gael manylion rhwydwaith. A yw eich dirprwy wedi''i ffurfweddu''n gywir?'
     Proxy Warning: Nid oes gan FreeTube ddirprwy mewnol ond gall gysylltu â dirprwy allanol, fel un sy'n rhedeg ar eich peiriant fel Tor neu ddirprwy allanol fel dirprwy SOCKS5 a ddarperir gan rai VPNs. Os yw wedi'i alluogi, gwnewch yn siŵr bod eich dirprwy/Tor wedi'i ffurfweddu'n gywir, neu ni fydd FreeTube yn gallu nôl unrhyw ddata.
+    Proxy Username: Enw defnyddiwr Dirprwy
+    Proxy Password: Cyfrinair Dirprwy
   SponsorBlock Settings:
     SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Galluogi SponsorBlock'
@@ -609,6 +613,7 @@ Settings:
     Hide Unsubscribe Button: 'Cuddio Botwm Dad-danysgrifio'
     Show Family Friendly Only: 'Dangos Dim ond Addas i Deuluoedd'
     Hide Search Bar: 'Cuddio''r Bar Chwilio'
+    Hide Uploader on Watch page: Cuddio'r Llwythwr ar y dudalen Gwylio
   Download Settings:
     Download Settings: 'Llwytho i lawr'
     Ask Download Path: 'Gofyn am lwybr llwytho'
@@ -891,13 +896,13 @@ Playlist:
     AuthorDescending: Awdur (Z-A)
     VideoTitleAscending: Teitl (A-Z)
     VideoTitleDescending: Teitl (Z-A)
-    VideoDurationDescending: Hyd (Hiraf gyntaf)
-    DateAddedNewest: Y diweddaraf wedi'i ychwanegu gyntaf
+    VideoDurationDescending: Hyd (Hiraf)
+    DateAddedNewest: Dyddiad ychwanegwyd (Mwyaf Newydd)
     AuthorAscending: Awdur (A-Z)
-    VideoDurationAscending: Hyd (Byrraf gyntaf)
-    DateAddedOldest: Ychwanegwyd yn gyntaf yn gyntaf
-    PublishedNewest: Cyhoeddwyd diwethaf gyntaf
-    PublishedOldest: Cyhoeddwyd gyntaf yn gyntaf
+    VideoDurationAscending: Hyd (Byrraf)
+    DateAddedOldest: Dyddiad ychwanegwyd (Hynaf)
+    PublishedNewest: Dyddiad cyhoeddwyd (Mwyaf Newydd)
+    PublishedOldest: Dyddiad cyhoeddwyd (Hynaf)
 Change Format:
   Change Media Formats: 'Newid Fformatau Cyfryngau'
   Use Dash Formats: 'Defnyddio Fformatau DASH'
@@ -928,9 +933,6 @@ Clipboard:
 
 Chapters:
   Chapters: 'Penodau'
-  'Chapters list visible, current chapter: {chapterName}': 'Rhestr penodau yn weladwy, pennod gyfredol: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Rhestr penodau wedi''u cuddio, pennod gyfredol: {chapterName}'
-
   Key Moments: Eiliadau Allweddol
 Mini Player: 'Chwaraewr Bach'
 Comments:
@@ -986,7 +988,8 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: 'Rhowch ID sianel i guddio''r holl fideos, rhestri chwarae a''r sianel ei hun rhag ymddangos wrth chwilio, tueddu, mwyaf poblogaidd ac argymell. Rhaid i ID y sianel fod yn cyfateb yn llwyr ac mae''n sensitif i faint nodau.'
     Hide Subscriptions Live: 'Mae''r gosodiad hwn wedi''i ddiystyru gan y gosodiad "{appWideSetting}" ar draws yr ap, yn adran "{subsection}" y "{settingsSection}"'
-    Hide Videos, Playlists and Channels Containing Text: Rhowch air, darn gair, neu ymadrodd (anwybyddu maint nodau) i guddio'r holl fideos a rhestri chwarae y mae eu teitlau gwreiddiol yn ei gynnwys trwy FreeTube gyfan, ac eithrio dim ond Hanes, Eich Rhestrau Chwarae, a fideos o fewn rhestrau chwarae.
+    Hide Videos and Playlists Containing Text: Rhowch air, darn gair, neu ymadrodd (anwybyddu maint nodau) i guddio'r holl fideos a rhestri chwarae y mae eu teitlau gwreiddiol yn ei gynnwys trwy FreeTube gyfan, ac eithrio dim ond Hanes, Eich Rhestrau Chwarae, a fideos o fewn rhestrau chwarae.
+    Hide Videos on Watch: Yn cuddio fideos wedi'u gwylio o'r tabiau Fideos, Byrion a Byw ar dudalennau Tanysgrifio a Sianeli, Dyw hyn ddim yn effeithio ar y tab Cartref ar dudalennau Sianel
   Subscription Settings:
     Fetch Feeds from RSS: 'Pan fydd wedi''i alluogi, bydd FreeTube yn defnyddio RSS yn lle ei ddull rhagosodedig ar gyfer cydio yn eich ffrwd tanysgrifio. Mae RSS yn gyflymach ac yn atal rhwystro IP, ond nid yw''n darparu gwybodaeth benodol fel hyd fideo, statws byw neu bostiadau'
     Fetch Automatically: 'Pan fydd wedi''i alluogi, bydd FreeTube yn nôl eich ffrwd tanysgrifio yn awtomatig wrth gychwyn a phan fydd ffenestr newydd yn cael ei hagor.'
@@ -1109,6 +1112,8 @@ KeyboardShortcutPrompt:
   Next Chapter: Pennod Nesaf
   Home: Chwilio i ddechrau'r fideo
   End: Chwilio i ddiwedd y fideo
+  Skip to Next Video: Ymlaen i'r fideo nesaf yn y rhestr chwarae neu fideo sy'n cael ei argymell
+  Skip to Previous Video: Nôl i'r fideo blaenorol mewn rhestr chwarae
 Description:
   Expand Description: '...rhagor'
   Collapse Description: Dangos llai

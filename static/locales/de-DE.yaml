@@ -132,12 +132,12 @@ User Playlists:
   Sort By:
     NameAscending: A-Z
     NameDescending: Z-A
-    LatestCreatedFirst: Kürzlich erstellt
-    EarliestCreatedFirst: Am frühesten erstellt
-    LatestUpdatedFirst: Kürzlich aktualisiert
-    EarliestUpdatedFirst: Am frühesten aktualisiert
-    LatestPlayedFirst: Kürzlich abgespielt
-    EarliestPlayedFirst: Am frühesten abgespielt
+    LatestCreatedFirst: Erstellungsdatum (neueste)
+    EarliestCreatedFirst: Erstellungsdatum (älteste)
+    LatestUpdatedFirst: Aktualisierungsdatum (neueste)
+    EarliestUpdatedFirst: Aktualisierungsdatum (älteste)
+    LatestPlayedFirst: Abspieldatum (neueste)
+    EarliestPlayedFirst: Abspieldatum (älteste)
   SinglePlaylistView:
     Toast:
       This video cannot be moved up.: Dieses Video kann nicht nach oben verschoben werden.
@@ -194,6 +194,7 @@ User Playlists:
   Export Playlist: Diese Playlist exportieren
   The playlist has been successfully exported: Die Playlist wurde erfolgreich exportiert
   TotalTimePlaylist: 'Gesamtzeit: {duration}'
+  Export list of URLs: Liste der URLs exportieren
 History:
   # On History Page
   History: Verlauf
@@ -202,8 +203,8 @@ History:
   Search bar placeholder: Im Verlauf suchen
   Empty Search Message: Es gibt keine Videos in deinem Verlauf, die deiner Suche entsprechen
   Case Sensitive Search: Groß- und Kleinschreibung bei der Suche beachten
-  DateOldestHistory: Älteste gesehene zuerst
-  DateNewestHistory: Zuletzt gesehene zuerst
+  DateOldestHistory: Wiedergabedatum (älteste)
+  DateNewestHistory: Wiedergabedatum (neueste)
 Settings:
   # On Settings Page
   Settings: Einstellungen
@@ -558,6 +559,8 @@ Settings:
     Enable Tor / Proxy: Tor / Proxy aktivieren
     Proxy Settings: Proxy
     Proxy Warning: FreeTube hat keinen eingebauten Proxy, kann aber mit einem externen Proxy verbunden werden, wie z. B. einem, der auf deinem Gerät läuft wie Tor, oder einem externen Proxy wie einem SOCKS5-Proxy, der von einigen VPNs bereitgestellt wird. Falls aktiviert, stelle sicher, dass dein Proxy/Tor richtig konfiguriert ist, da FreeTube ansonsten keine Daten abrufen kann.
+    Proxy Username: Proxy-Anmeldename
+    Proxy Password: Proxy-Passwort
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Benachrichtigen, wenn ein Abschnitt übersprungen wird
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-API-URL (Standard ist https://sponsor.ajay.app)
@@ -828,16 +831,16 @@ Playlist:
 #& Views
   Sort By:
     VideoTitleDescending: Titel (Z-A)
-    DateAddedNewest: Zuletzt hinzugefügt zuerst
-    DateAddedOldest: Am frühesten hinzugefügt zuerst
+    DateAddedNewest: Hinzugefügt am (neueste)
+    DateAddedOldest: Hinzugefügt am (älteste)
     AuthorAscending: Autor (A-Z)
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Titel (A-Z)
     Custom: Benutzerdefiniert
-    VideoDurationAscending: Dauer (Kürzeste zuerst)
-    VideoDurationDescending: Dauer (Längste zuerst)
-    PublishedNewest: Zuletzt veröffentlicht zuerst
-    PublishedOldest: Älteste veröffentlicht zuerst
+    VideoDurationAscending: Dauer (kürzeste)
+    VideoDurationDescending: Dauer (längste)
+    PublishedNewest: Veröffentlichungsdatum (neueste)
+    PublishedOldest: Veröffentlichungsdatum (älteste)
 Change Format:
   Change Media Formats: Medienformate ändern
   Use Dash Formats: DASH-Formate verwenden
@@ -1015,8 +1018,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Zugriff auf die Zwischenablage ist ohne sichere Verbindung nicht möglich
 Chapters:
   Chapters: Kapitel
-  'Chapters list visible, current chapter: {chapterName}': 'Kapitelliste sichtbar, aktuelles Kapitel: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Kapitelliste ausgeblendet, aktuelles Kapitel: {chapterName}'
   Key Moments: Highlights
 Preferences: Einstellungen
 Ok: OK

@@ -943,9 +943,6 @@ Clipboard:
 
 Chapters:
   Chapters: 'Hoofstukke'
-  'Chapters list visible, current chapter: {chapterName}': 'Hoofstukke lys sigbare, huidige hoofstuk: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Hoofstukke lys versteekte, huidige hoofstuk: {chapterName}'
-
   Key Moments: Sleuteloomblikke
 Mini Player: 'Mini-speler'
 Comments:

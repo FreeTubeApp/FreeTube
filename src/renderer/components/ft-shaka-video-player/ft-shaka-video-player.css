@@ -38,42 +38,7 @@
     video.js forced the direction for their controls too
   */
   direction: ltr;
-
-  /* Place the seek bar above the controls (the default is below) */
-  display: flex;
-  flex-direction: column-reverse;
 }
-
-/*
-  Apply the active FreeTube base theme to shaka-player's menus.
-  Usually we go for classes and not element names,
-  however as we need to override shaka-player's CSS
-  we need to use the same selectors that they do.
-*/
-
-:deep(.shaka-overflow-menu),
-:deep(.shaka-settings-menu) {
-  background: var(--card-bg-color) !important;
-  max-height: 200px;
-
-}
-
-:deep(.shaka-overflow-menu button),
-:deep(.shaka-settings-menu button) {
-  color: var(--primary-text-color) !important;
-}
-
-:deep(.shaka-overflow-menu button:hover),
-:deep(.shaka-settings-menu button:hover) {
-  background: var(--side-nav-hover-color) !important;
-  color: var(--side-nav-hover-text-color) !important;
-}
-
-:deep(.shaka-overflow-menu-only .shaka-current-selection-span) {
-  color: var(--tertiary-text-color) !important;
-}
-
-/* End of theming code */
 
 .sixteenByNine {
   aspect-ratio: 16 / 9;
@@ -151,10 +116,6 @@
 
 .offlineMessageSubtitle {
   font-size: 0.8em;
-}
-
-:deep(.shaka-volume-bar-container) {
-  flex-shrink: initial;
 }
 
 .skippedSegmentsWrapper {
@@ -278,43 +239,6 @@
   }
 }
 
-@media only screen and (width >= 1000px) {
-  :deep(.shaka-bottom-controls) {
-    /* remove some bottom padding since the seek bar is above */
-    padding-bottom: 0;
-
-    /* make seekbar take full width on non-mobile devices */
-    width: 100%;
-  }
-
-  /* increase height of captions area since we remove the padding-bottom below the seekbar */
-  :deep(.shaka-controls-container[shown='true']~.shaka-text-container) {
-    bottom: 12.5%;
-  }
-
-  :deep(.shaka-controls-button-panel>button) {
-    height: 40px;
-    line-height: 0.5;
-  }
-
-  :deep(.shaka-tooltips-on button:active::after),
-  :deep(.shaka-tooltips-on button:focus-visible::after),
-  :deep(.shaka-tooltips-on button:hover::after) {
-    margin-bottom: 8px;
-  }
-
-  /*
-    similar to the styling that shaka-player applies with last-child
-    needed as we have made the controls a lot wider than they were intended to be :/
-   */
-  :deep(.shaka-tooltips-on button:nth-last-child(2):active::after),
-  :deep(.shaka-tooltips-on button:nth-last-child(2):focus-visible::after),
-  :deep(.shaka-tooltips-on button:nth-last-child(2):hover::after) {
-    left: 32px;
-    transform: translateX(-80%);
-  }
-}
-
 @media only screen and (width <=1350px) {
   :deep(.theatre-button) {
     display: none;
@@ -323,15 +247,9 @@
 
 @media (prefers-reduced-transparency) {
   :deep(.playerFullscreenTitleOverlay),
-  .skippedSegment {
+  .skippedSegment,
+  .stats {
     background-color: rgb(0 0 0 / 90%);
-  }
-}
-
-@media (prefers-reduced-transparency:no-preference) {
-  /* add transparency to big play button */
-  :deep(.shaka-controls-container[shown='true'] > .shaka-play-button-container > .shaka-play-button) {
-    opacity: 0.75 !important;
   }
 }
 

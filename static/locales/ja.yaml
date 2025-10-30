@@ -119,12 +119,12 @@ User Playlists:
   Create New Playlist: 新しい再生リストの作成
   Sort By:
     NameAscending: A-Z
-    EarliestCreatedFirst: 最も古い作成日
-    LatestUpdatedFirst: 最も新しい更新
-    EarliestUpdatedFirst: 最も古い更新
-    EarliestPlayedFirst: 最も古い再生
-    LatestPlayedFirst: 最も新しい再生
-    LatestCreatedFirst: 最も新しい作成日
+    EarliestCreatedFirst: 作成日（古い順）
+    LatestUpdatedFirst: 更新日（新しい順）
+    EarliestUpdatedFirst: 更新日（古い順）
+    EarliestPlayedFirst: 再生日（古い順）
+    LatestPlayedFirst: 再生日（新しい順）
+    LatestCreatedFirst: 作成日（新しい順）
     NameDescending: Z-A
   Remove from Favorites: '{playlistName} から削除'
   Move Video Down: 動画を下へ移動
@@ -194,6 +194,7 @@ User Playlists:
   The playlist has been successfully exported: 再生リストのエクスポートに成功しました
   Export Playlist: この再生リストをエクスポート
   TotalTimePlaylist: '合計時間: {duration}'
+  Export list of URLs: URL のリストをエクスポート
 History:
   # On History Page
   History: '履歴'
@@ -202,8 +203,8 @@ History:
   Search bar placeholder: 履歴の検索
   Empty Search Message: 検索条件に一致する動画は履歴にありません
   Case Sensitive Search: 大文字小文字を区別した検索
-  DateOldestHistory: 最初に視聴した順
-  DateNewestHistory: 最後に視聴した順
+  DateOldestHistory: 視聴日（古い順）
+  DateNewestHistory: 視聴日（新しい順）
 Settings:
   # On Settings Page
   Settings: '設定'
@@ -556,6 +557,8 @@ Settings:
     Enable Tor / Proxy: Tor / プロキシの有効化
     Proxy Settings: プロキシ
     Proxy Warning: FreeTube にはプロキシは内蔵されていませんが、Tor のようなご使用のマシン上で動作するものや、一部の VPN が提供する SOCKS5 プロキシのような外部プロキシに接続することができます。有効にした場合は、プロキシ/Tor が適切に設定されていることを確認してください。そうでないと、FreeTube はデータを取得できなくなります。
+    Proxy Username: プロキシのユーザー名
+    Proxy Password: プロキシのパスワード
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: スポンサーセグメントがスキップされたときに通知する
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': スポンサーブロック APIのURL（デフォルト https://sponsor.ajay.app）
@@ -593,7 +596,7 @@ Settings:
     Parental Control Settings: 制限付きモード
     Show Family Friendly Only: ファミリー向けのみ表示
     Hide Unsubscribe Button: 登録解除ボタンの非表示
-    Hide Uploader on Watch page: 視聴ページでアップローダーを非表示
+    Hide Uploader on Watch page: 視聴ページで投稿者情報を非表示
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 試験的
@@ -826,15 +829,15 @@ Playlist:
   Sort By:
     Custom: カスタム
     VideoTitleDescending: タイトル（Z-A）
-    DateAddedOldest: 最初に追加された順
-    DateAddedNewest: 最近の追加された順
+    DateAddedOldest: 追加日（古い順）
+    DateAddedNewest: 追加日（新しい順）
     AuthorAscending: 著者名（A-Z）
     AuthorDescending: 著者名（Z-A）
     VideoTitleAscending: タイトル（A-Z）
     VideoDurationAscending: 再生時間（短い順）
     VideoDurationDescending: 再生時間（長い順）
-    PublishedNewest: 新しい公開動画順
-    PublishedOldest: 古い公開動画順
+    PublishedNewest: 公開日（新しい順）
+    PublishedOldest: 公開日（古い順）
 Change Format:
   Change Media Formats: '動画形式の変更'
   Use Dash Formats: 'DASH 形式の使用'
@@ -1012,8 +1015,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: 安全な接続でなければクリップボードにはアクセスできません
 Chapters:
   Chapters: チャプター
-  'Chapters list visible, current chapter: {chapterName}': 'チャプター リストを表示、現在のチャプター： {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'チャプター リストを非表示、現在のチャプター： {chapterName}'
   Key Moments: ハイライト
 Preferences: 環境設定
 Ok: オーケー

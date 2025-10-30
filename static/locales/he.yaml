@@ -201,6 +201,7 @@ User Playlists:
   Export Playlist: ייצוא רשימת הנגינה הזאת
   The playlist has been successfully exported: רשימת הנגינה יוצאה בהצלחה
   TotalTimePlaylist: 'זמן כולל: {duration}'
+  Export list of URLs: ייצוא רשימת כתובות
 History:
   # On History Page
   History: 'היסטוריה'
@@ -268,7 +269,7 @@ Settings:
       Light: 'בהיר'
       Dracula: 'דרקולה'
       System Default: ברירת המחדל של המערכת
-      Catppuccin Mocha: מוקה קפוצ׳ינו
+      Catppuccin Mocha: קטפוצ׳ין מוקה
       Pastel Pink: ורוד פסטל
       Hot Pink: ורוד עז
       Nordic: נורדית
@@ -276,7 +277,7 @@ Settings:
       Solarized Light: בהיר זוהר
       Gruvbox Dark: תיבת גרוב כהה
       Gruvbox Light: תיבת גרוב בהירה
-      Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Frappe: קטפוצ׳ין פראפה
       Everforest Dark Hard: אוורפורסט כהה מאוד
       Everforest Dark Medium: אוורפורסט כהה בינוני
       Everforest Light Hard: אברפורסט לייט הארד
@@ -352,8 +353,8 @@ Settings:
       Catppuccin Frappe Rosewater: קטפוצ'ין פרפה מי ורדים
       Catppuccin Frappe Flamingo: קטפוצ'ין פרפה פלמינגו
       Catppuccin Frappe Pink: קטפוצ'ין פרפה פלמינגו
-      Catppuccin Frappe Mauve: קטפוצ'ין פרפה פלמינגו
-      Catppuccin Frappe Red: קטפוצ'ין פרפה פלמינגו
+      Catppuccin Frappe Mauve: קטפוצ׳ין פראפה סגלגל
+      Catppuccin Frappe Red: קטפוצ׳ין פראפה אדום
       Catppuccin Frappe Maroon: קטפוצ'ינו פרפה חום אדום
       Catppuccin Frappe Peach: קטפוצ'ין פרפה אפרסק
       Catppuccin Frappe Sky: קטפוצ'ינו פרפה סקיי
@@ -564,6 +565,8 @@ Settings:
     Enable Tor / Proxy: הפעלת Tor / מתווך
     Proxy Settings: מתווך (פרוקסי)
     Proxy Warning: ל־FreeTube אין מתווך מובנה אבל הוא יכול להתחבר למתווך חיצוני, כמו למשל כזה שרץ על המחשב שלך כמו Tor או מתווך חיצוני כגון מתווך SOCKS5 שמסופק על ידי איזשהו ספק VPN. אם האפשרות פעילה, נא לוודא שהמתווך/Tor שלך מוגדרים כראוי, או ש־FreeTube לא יוכל למשוך נתונים כלל.
+    Proxy Password: סיסמת מתווך
+    Proxy Username: שם משתמש במתווך
   External Player Settings:
     External Player: נגן חיצוני
     External Player Settings: נגן חיצוני
@@ -747,7 +750,7 @@ Channel:
     View Playlist: הצגת רשימת נגינה
   Courses:
     Courses: קורסים
-    This channel does not currently have any courses: ערוץ זה אינו כולל כרגע קורסים.
+    This channel does not currently have any courses: ערוץ זה אינו כולל כרגע קורסים
 Video:
   Mark As Watched: 'סימון כנצפה'
   Remove From History: 'הסרה מהיסטוריית הצפייה'
@@ -983,7 +986,8 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: יש למלא את שם או מזהה הערוץ כדי להסתיר את כל הסרטונים, רשימות הנגינה ואת הערוץ עצמו כך שלא יופיע בחיפוש, במובילים, בנפוצים ביותר או במומלצים. שם הערוץ שמילאת צריך להיות תואם במלואו ותואם מבחינת רישיות (אותיות גדולות/קטנות).
     Hide Subscriptions Live: הגדרה זו נדרסת על ידי ההגדרה הכללית „{appWideSetting}”, בסעיף „{subsection}” שב„{settingsSection}”
-    Hide Videos, Playlists and Channels Containing Text: הכנס מילה, חלק ממילה או ביטוי (ללא הבחנה בין אותיות גדולות וקטנות) כדי להסתיר את כל הסרטונים והרשימות שבשמם המקורי מופיע הביטוי, בכל FreeTube, למעט ההיסטוריה, הרשימות שלך וסרטונים בתוך רשימות.
+    Hide Videos and Playlists Containing Text: הכנס מילה, חלק ממילה או ביטוי (ללא הבחנה בין אותיות גדולות וקטנות) כדי להסתיר את כל הסרטונים והרשימות שבשמם המקורי מופיע הביטוי, בכל FreeTube, למעט ההיסטוריה, הרשימות שלך וסרטונים בתוך רשימות.
+    Hide Videos on Watch: הסתרת סרטונים שנצפו מלשוניות סרטונים, Shorts וחי בעמודי המינוי והערוץ. לא משפיע על לשונית הבית בעמודי הערוצים
   SponsorBlock Settings:
     UseDeArrowTitles: החלפת כותרות הסרטונים עם כותרות ששלחו משתמשים ב־DeArrow.
     UseDeArrowThumbnails: החלפת התמונות הממוזערות של הסרטונים בתמונות ממוזערות מ־DeArrow.
@@ -1012,9 +1016,7 @@ Channels:
   Title: רשימת ערוצים
   Unsubscribe Prompt: לבטל את המינוי על „{channelName}”?
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 'רשימת הפרקים מוסתרת, הפרק הנוכחי: {chapterName}'
   Chapters: פרקים
-  'Chapters list visible, current chapter: {chapterName}': 'רשימת הפרקים גלויה, הפרק הנוכחי: {chapterName}'
   Key Moments: רגעי שיא
 Clipboard:
   Copy failed: ההעתקה ללוח הגזירים נכשלה

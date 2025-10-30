@@ -174,13 +174,13 @@ User Playlists:
     Search for Videos: Otsi videoid
   Are you sure you want to delete this playlist? This cannot be undone: Kas sa oled kindel, et soovid selle esitusloendi kustutada? Seda tegevust ei saa tagasi pöörata.
   Sort By:
-    LatestPlayedFirst: Hiljuti esitatud esimesena
-    EarliestCreatedFirst: Varem loodud esimesena
-    LatestCreatedFirst: Loodud hiljuti esimesena
-    EarliestUpdatedFirst: Varem uuendatud esimesena
+    LatestPlayedFirst: Esitamiskuupäev (viimatine esimesena)
+    EarliestCreatedFirst: Loomisaeg (vanim esimesena)
+    LatestCreatedFirst: Loomisaeg (viimatine esimesena)
+    EarliestUpdatedFirst: Uuendamisaeg (vanim esimesena)
     NameDescending: Z-A
-    EarliestPlayedFirst: Varem esitatud esimesena
-    LatestUpdatedFirst: Hiljuti uuendatud esimesena
+    EarliestPlayedFirst: Esitamiskuupäev (vanim esimesena)
+    LatestUpdatedFirst: Uuendamisaeg (viimatine esimesena)
     NameAscending: A-Z
   CreatePlaylistPrompt:
     Create: Loo uus esitusloend
@@ -201,6 +201,7 @@ User Playlists:
   Export Playlist: Ekspordi see esitusloend
   The playlist has been successfully exported: Esitusloendi eksportimine õnnestus
   TotalTimePlaylist: 'Kestus kokku: {duration}'
+  Export list of URLs: Ekspordi võrguaadresside loend
 History:
   # On History Page
   History: 'Ajalugu'
@@ -209,8 +210,8 @@ History:
   Search bar placeholder: Otsi ajaloost
   Empty Search Message: Sinu ajaloos pole sinu otsingule vastavaid videosid
   Case Sensitive Search: Tõstutundlik otsing
-  DateOldestHistory: Esmalt varemvaadatu
-  DateNewestHistory: Esmalt hiljemvaadatu
+  DateOldestHistory: Vaatamisaeg (vanim esimesena)
+  DateNewestHistory: Vaatamisaeg (viimatine esimesena)
 Settings:
   # On Settings Page
   Settings: 'Seadistused'
@@ -562,6 +563,8 @@ Settings:
     Enable Tor / Proxy: Kasuta Tor'i või puhverserverit
     Proxy Settings: Puhverserver
     Proxy Warning: FreeTube'is pole sisseehitatud proksilahendust, kuid ta võib luua ühenduse välise proksi kaudu. Näiteks kasutades sellist, mis töötab sinu arvutis või nutiseadmes, olgu selleks Tor või mõne VPNi poolt pakutav SOCKS5. Kui sa selle eelistuse sisse lülitad, palun jälgi et selline väline proksi on korralikult seadistatud. Vastasel juhul võrguühendus ei toimi ja FreeTube ei saa andmeid laadida.
+    Proxy Username: Puhverserveri kasutajanimi
+    Proxy Password: Puhverserveri salasõna
   The app needs to restart for changes to take effect. Restart and apply change?: See rakendus vajab muudatuste jõustamiseks uuesti käivitamist. Kas teeme seda nüüd?
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Anna teada, kui toetajate vaade jääb vahele
@@ -873,16 +876,16 @@ Playlist:
   Playlist: Esitusloend
   Sort By:
     Custom: Kohandatud
-    DateAddedNewest: Esmalt viimatilisatud
-    DateAddedOldest: Esmalt ammu lisatud
+    DateAddedNewest: Lisamisaeg (viimatine esimesena)
+    DateAddedOldest: Lisamisaeg (vanim esimesena)
     AuthorAscending: Autori alusel (A-Z)
     AuthorDescending: Autori alusel (Z-A)
     VideoTitleAscending: Pealkirja alusel (A-Z)
     VideoTitleDescending: Pealkirja alusel (Z-A)
-    VideoDurationAscending: Kestuse alusel (esmalt lühemad)
-    VideoDurationDescending: Kestuse alusel (esmalt pikemad)
-    PublishedOldest: Esmalt varaseimalt avaldatu
-    PublishedNewest: Esmalt viimatiavaldatu
+    VideoDurationAscending: Kestus (esmalt lühemad)
+    VideoDurationDescending: Kestus (esmalt pikemad)
+    PublishedOldest: Avaldamisaeg (vanim esimesena)
+    PublishedNewest: Avaldamisaeg (viimatine esimesena)
 Change Format:
   Change Media Formats: 'Muuda videovorminguid'
   Use Dash Formats: 'Kasuta DASH-vorminguid'
@@ -1015,8 +1018,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Ilma turvalise ühenduseta ei pääse ligi lõikelauale
 Chapters:
   Chapters: Peatükid
-  'Chapters list visible, current chapter: {chapterName}': 'Peatükkide loend on nähtav, praegune peatükk: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Peatükkide loend on peidetud, praegune peatükk: {chapterName}'
   Key Moments: Olulised hetked
 Ok: Sobib
 Preferences: Eelistused

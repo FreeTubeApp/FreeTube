@@ -10,7 +10,6 @@
         "cmdArguments": {
             "defaultExecutable": "mpv",
             "defaultCustomArguments": null,
-            "supportsYtdlProtocol": true,
             "videoUrl": "",
             "playlistUrl": "",
             "startOffset": "--start=",
@@ -27,7 +26,6 @@
         "cmdArguments": {
             "defaultExecutable": "vlc",
             "defaultCustomArguments": null,
-            "supportsYtdlProtocol": false,
             "videoUrl": "",
             "playlistUrl": null,
             "startOffset": "--start-time=",
@@ -44,7 +42,6 @@
         "cmdArguments": {
             "defaultExecutable": "iina",
             "defaultCustomArguments": ["--no-stdin"],
-            "supportsYtdlProtocol": true,
             "videoUrl": "",
             "playlistUrl": "",
             "startOffset": "--mpv-start=",
@@ -61,7 +58,6 @@
         "cmdArguments": {
             "defaultExecutable": "smplayer",
             "defaultCustomArguments": null,
-            "supportsYtdlProtocol": true,
             "videoUrl": "",
             "playlistUrl": "",
             "startOffset": "-start",
@@ -78,7 +74,6 @@
         "cmdArguments": {
             "defaultExecutable": "mpc-be64",
             "defaultCustomArguments": null,
-            "supportsYtdlProtocol": true,
             "videoUrl": "",
             "playlistUrl": "",
             "startOffset": "/start",
@@ -95,7 +90,6 @@
         "cmdArguments": {
             "defaultExecutable": "mpc-hc64",
             "defaultCustomArguments": null,
-            "supportsYtdlProtocol": true,
             "videoUrl": "",
             "playlistUrl": "",
             "startOffset": "/start",
@@ -112,7 +106,6 @@
         "cmdArguments": {
             "defaultExecutable": "potplayermini64",
             "defaultCustomArguments": null,
-            "supportsYtdlProtocol": false,
             "videoUrl": "",
             "playlistUrl": null,
             "startOffset": "/seek=",
@@ -129,7 +122,6 @@
       "cmdArguments": {
           "defaultExecutable": "clapper",
           "defaultCustomArguments": null,
-          "supportsYtdlProtocol": false,
           "videoUrl": "",
           "playlistUrl": null,
           "startOffset": null,
@@ -146,7 +138,6 @@
       "cmdArguments": {
           "defaultExecutable": "celluloid",
           "defaultCustomArguments": null,
-          "supportsYtdlProtocol": false,
           "videoUrl": "",
           "playlistUrl": "",
           "startOffset": "--mpv-start=",
@@ -163,7 +154,6 @@
       "cmdArguments": {
           "defaultExecutable": "haruna",
           "defaultCustomArguments": null,
-          "supportsYtdlProtocol": false,
           "videoUrl": "",
           "playlistUrl": "",
           "startOffset": null,

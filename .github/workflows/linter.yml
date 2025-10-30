@@ -19,11 +19,13 @@ jobs:
     steps:
     - uses: actions/checkout@v5
     - name: Use Node.js 22.x
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v6
       with:
         node-version: 22.x
         cache: "yarn"
     - run: yarn run ci
+      env:
+        ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
     - run: yarn run lint
     # let's verify that webpack is able to package the project
     - run: yarn run pack

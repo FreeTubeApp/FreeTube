@@ -127,6 +127,11 @@ export default defineComponent({
     'scroll-to-info-area',
     'save-watched-progress',
   ],
+  data: function () {
+    return {
+      usingElectron: process.env.IS_ELECTRON
+    }
+  },
   computed: {
     hideSharingActions: function() {
       return this.$store.getters.getHideSharingActions

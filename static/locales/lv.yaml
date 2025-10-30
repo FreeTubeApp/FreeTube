@@ -7,7 +7,7 @@ New Window: 'Jauns logs'
 Preferences: 'Iestatījumi'
 Quit: 'Iziet'
 Edit: 'Rediģēt'
-Undo: 'Atcelt'
+Undo: 'Atsaukt'
 Redo: 'Darīt vēlreiz'
 Cut: 'Izgriezt'
 Copy: 'Kopēt'
@@ -60,14 +60,14 @@ Search Filters:
   Search Filters: 'Meklēšanas atlase'
   Sort By:
     Most Relevant: 'Visatbilstošākie'
-    Rating: 'Vērtējums'
+    Rating: 'Vērtējuma'
     Upload Date: 'Augšuplādes datums'
     View Count: 'Skatījumi'
   Time:
-    Time: 'Laiks'
+    Time: 'Vecums'
     Any Time: 'Jebkurā laikā'
     Last Hour: 'Pēdējā stundā'
-    Today: 'Šodien'
+    Today: 'Šodienas'
     This Week: 'Šonedēļ'
     This Month: 'Šomēnes'
     This Year: 'Šogad'
@@ -125,8 +125,8 @@ Channels:
   Empty: 'Tavs kanālu saraksts pašreiz ir tukšs.'
   Unsubscribe Prompt: 'Vai esi drošs, ka vēlies atcelt abonementu no "{channelName}"?'
 Trending:
-  Trending: 'Tendences'
-  Default: 'Noklusējuma'
+  Trending: 'Pašlaik topā'
+  Default: 'Viss'
   Music: 'Mūzika'
   Gaming: 'Spēles'
   Movies: 'Filmas'
@@ -214,7 +214,7 @@ Settings:
   Settings: 'Iestatījumi'
   The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
-    General Settings: 'Galvenie'
+    General Settings: 'Vispārīgie'
     Check for Updates: 'Pārbaudīt atjauninājumus'
     Check for Latest Blog Posts: 'Skatīt jaunākos bloga ierakstus'
     Fallback to Non-Preferred Backend on Failure: ''
@@ -255,7 +255,7 @@ Settings:
     Auto Load Next Page:
       Label: Autoielādē nākamo lapu
   Theme Settings:
-    Theme Settings: 'Izskats'
+    Theme Settings: 'Izskata'
     Match Top Bar with Main Color: 'Saskaņo augšmalu ar galveno krāsu'
     Expand Side Bar by Default: 'Izvērs sānu malu pēc noklusējuma'
     Disable Smooth Scrolling: 'Atspējot plūdeno ritināšanu'
@@ -282,13 +282,13 @@ Settings:
       Indigo: 'Indigo'
       Blue: 'Zils'
       Light Blue: 'Gaiši zils'
-      Cyan: ''
-      Teal: ''
+      Cyan: 'Ciānzaļš, zilzaļš'
+      Teal: 'Tirkīza zaļš'
       Green: 'Zaļš'
       Light Green: 'Gaiši zaļš'
-      Lime: 'Laims'
+      Lime: 'Laima zaļš, dzeltenzaļš'
       Yellow: 'Dzeltens'
-      Amber: 'Dzintars'
+      Amber: 'Dzintara (oranži) dzeltens'
       Orange: 'Oranžs'
       Deep Orange: 'Dziļi oranžs'
       Dracula Cyan: ''
@@ -340,16 +340,16 @@ Settings:
       Audio Formats: 'Audio formāti'
     Default Quality:
       Default Quality: 'Noklusējuma kvalitāte'
-      Auto: 'Auto'
+      Auto: 'Automātiski atlasīt'
       144p: '144p'
       240p: '240p'
       360p: '360p'
-      480p: '480p'
-      720p: '720p'
-      1080p: '1080p'
-      1440p: '1440p'
-      4k: '4k'
-      8k: '8k'
+      480p: '480p (SD)'
+      720p: '720p (HD)'
+      1080p: '1080p (Full HD)'
+      1440p: '1440p (2.5K)'
+      4k: '2160p (4K)'
+      8k: '4320p (8K)'
     Screenshot:
       Enable: 'Iespējot ekrānšāviņu'
       Format Label: 'Ekrānšāviņa formāti'
@@ -398,7 +398,7 @@ Settings:
       Subscriptions Page: 'Abonementu lapa'
       Channel Page: 'Kanāla lapa'
       Watch Page: 'Skatīšanās lapa'
-      General: 'Galvenais'
+      General: 'Vispārīgie'
     Hide Video Views: 'Paslēpt video skatījumus'
     Hide Video Likes And Dislikes: 'Paslēpt video novērtējuma atzīmes'
     Hide Channel Subscribers: 'Paslēpt kanāla abonentus'
@@ -466,7 +466,7 @@ Settings:
     How do I import my subscriptions?: ''
     Manage Subscriptions: 'Pārvaldīt abonementus'
   Proxy Settings:
-    Proxy Settings: 'Starpniekserveru'
+    Proxy Settings: 'Starpniekservera'
     Enable Tor / Proxy: 'Iespējot Tor / starpniekserveri'
     Proxy Protocol: 'Starpniekservera protokols'
     Proxy Host: 'Starpniekservera saimnieks'
@@ -589,8 +589,8 @@ Profile:
   Profile Name: Profila vārds
   Edit Profile Name: Rediģē profila vārdu
 Channel:
-  Subscribe: 'Abonē'
-  Unsubscribe: 'Atabonē'
+  Subscribe: 'Abonēt'
+  Unsubscribe: 'Pārtraukt abonēt'
   Channel has been removed from your subscriptions: ''
   Removed subscription from {count} other channel(s): ''
   Added channel to your subscriptions: ''
@@ -604,8 +604,8 @@ Channel:
     Videos: 'Video'
     This channel does not currently have any videos: 'Šajā kanāla pašlaik nav video'
     Sort Types:
-      Newest: 'Jaunākie'
-      Oldest: 'Vecākie'
+      Newest: 'Jaunākie augšgalā'
+      Oldest: 'Vecākie augšgalā'
       Most Popular: 'Populārākie'
   Shorts:
     This channel does not currently have any shorts: 'Šajā kanālā pašlaik nav īso'
@@ -617,8 +617,8 @@ Channel:
     This channel does not currently have any playlists: 'Šajā kanālā pašlaik nav sarakstu'
     Sort Types:
       Last Video Added: 'Pēdējais pievienotais video'
-      Newest: 'Jaunākās'
-      Oldest: 'Vecākās'
+      Newest: 'Jaunākie augšgalā'
+      Oldest: 'Vecākie augšgalā'
   Podcasts:
     Podcasts: 'Podkāsti'
     This channel does not currently have any podcasts: 'Šajā kanālā pašlaik nav podkāstu'
@@ -631,9 +631,9 @@ Channel:
     Tags:
       Tags: 'Birkas'
       Search for: ''
-    Details: 'Detaļas'
+    Details: 'Informācija'
     Joined: 'Pievienojās'
-    Location: 'Vieta'
+    Location: 'Atrašanās vieta'
     Featured Channels: 'Izceltie kanāli'
   Posts:
     This channel currently does not have any posts: 'Šajā kanālā pašlaik nav ierakstu'
@@ -750,8 +750,6 @@ Clipboard:
 
 Chapters:
   Chapters: ''
-  'Chapters list visible, current chapter: {chapterName}': ''
-  'Chapters list hidden, current chapter: {chapterName}': ''
 
 Mini Player: ''
 Comments:

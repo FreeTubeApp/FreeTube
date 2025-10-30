@@ -1007,9 +1007,7 @@ Clipboard:
   Copy failed: Η αντιγραφή στο πρόχειρο απέτυχε
   Cannot access clipboard without a secure connection: Δεν είναι δυνατή η πρόσβαση στο πρόχειρο χωρίς ασφαλή σύνδεση
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 'Κρυφή λίστα κεφαλαίων, τρέχον κεφάλαιο: {chapterName}'
   Chapters: Κεφάλαια
-  'Chapters list visible, current chapter: {chapterName}': 'Ορατή λίστα κεφαλαίων, τρέχον κεφάλαιο: {chapterName}'
   Key Moments: Στιγμές κλειδιά
 Ok: Εντάξει
 Preferences: Προτιμήσεις

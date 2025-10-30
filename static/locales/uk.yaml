@@ -1017,8 +1017,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Неможливо отримати доступ до буфера обміну без захищеного з'єднання
 Chapters:
   Chapters: Розділи
-  'Chapters list visible, current chapter: {chapterName}': 'Список розділів видимий, поточний розділ: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Список розділів схований, поточний розділ: {chapterName}'
   Key Moments: Ключові моменти
 Preferences: Налаштування
 Ok: Гаразд

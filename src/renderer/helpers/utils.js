@@ -163,7 +163,7 @@ export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
 export const ToastEventBus = new EventTarget()
 
 /**
- * @param {string} message
+ * @param {string | (({elapsedMs: number, remainingMs: number}) => string)} message
  * @param {number} time
  * @param {Function} action
  * @param {AbortSignal} abortSignal
@@ -829,6 +829,19 @@ export function ctrlFHandler(event, inputElement) {
  */
 export function randomArrayItem(array) {
   return array[Math.floor(Math.random() * array.length)]
+}
+
+/**
+ * @template T
+ * @param {T[]} array
+ * @param {T} entry
+ */
+export function removeFromArrayIfExists(array, entry) {
+  const index = array.indexOf(entry)
+
+  if (index !== -1) {
+    array.splice(index, 1)
+  }
 }
 
 /**

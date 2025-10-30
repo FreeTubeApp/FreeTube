@@ -174,6 +174,11 @@ function startRenderer(callback) {
   })
 
   const server = new WebpackDevServer({
+    client: {
+      overlay: {
+        runtimeErrors: false
+      }
+    },
     static: [
       {
         directory: path.resolve(__dirname, '..', 'static'),

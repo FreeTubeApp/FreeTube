@@ -698,8 +698,6 @@ Clipboard:
   Copy failed: 클립보드에 복사 실패
   Cannot access clipboard without a secure connection: 안전한 연결 없이 클립보드에 접근할 수 없습니다
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 챕터 목록 숨겨짐, 현재 챕터 {chapterName}
-  'Chapters list visible, current chapter: {chapterName}': '챕터 목록 보임, 현재 챕터: {chapterName}'
   Chapters: 챕터
 Preferences: 설정
 Close Banner: 배너 닫기

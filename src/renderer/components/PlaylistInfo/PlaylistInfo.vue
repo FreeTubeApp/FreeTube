@@ -177,7 +177,7 @@
             :title="$t('User Playlists.Export Playlist')"
             :icon="['fas', 'file-arrow-down']"
             theme="secondary"
-            @click="handlePlaylistExport"
+            @click="showExportPrompt = true"
           />
           <FtIconButton
             v-if="!editMode && userPlaylistDuplicateItemCount > 0"
@@ -251,6 +251,13 @@
         is-first-option-destructive
         @click="handleRemoveDuplicateVideosPromptAnswer"
       />
+      <FtPrompt
+        v-if="showExportPrompt"
+        :label="t('Settings.Data Settings.Select Export Type')"
+        :option-names="exportNames"
+        :option-values="EXPORT_VALUES"
+        @click="handleExport"
+      />
     </div>
   </div>
 </template>
@@ -323,6 +330,10 @@ const props = defineProps({
     type: Array,
     required: true
   },
+  sortedVideos: {
+    type: Array,
+    required: true
+  },
   viewCount: {
     type: Number,
     required: true,
@@ -370,6 +381,7 @@ const editMode = ref(false)
 const showDeletePlaylistPrompt = ref(false)
 const showRemoveVideosOnWatchPrompt = ref(false)
 const showRemoveDuplicateVideosPrompt = ref(false)
+const showExportPrompt = ref(false)
 const newTitle = ref(props.title)
 const newDescription = ref(props.description)
 
@@ -532,6 +544,7 @@ const playlistPersistenceDisabled = computed(() => {
 
 watch(showDeletePlaylistPrompt, handlePromptToggle)
 watch(showRemoveVideosOnWatchPrompt, handlePromptToggle)
+watch(showExportPrompt, handlePromptToggle)
 
 /**
  * @param {boolean} shown
@@ -617,10 +630,43 @@ function handlePlaylistDeleteDisabledClick() {
   showToast(playlistDeletionDisabledLabel.value)
 }
 
-async function handlePlaylistExport() {
+const EXPORT_VALUES = [
+  'database',
+  'urls',
+  'close'
+]
+
+const exportNames = computed(() => [
+  `${t('Settings.Data Settings.Export FreeTube')} (.db)`,
+  `${t('User Playlists.Export list of URLs')} (.txt)`,
+  t('Close')
+])
+
+/**
+ * @param {'database' | 'urls' | null} value
+ */
+function handleExport(value) {
+  showExportPrompt.value = false
+
+  if (value === 'database') {
+    exportAsFreeTubeDatabase()
+  } else if (value === 'urls') {
+    exportAsListOfUrls()
+  }
+}
+
+/**
+ * @param {string} title
+ * @param {string} extension
+ */
+function getExportFilename(title, extension) {
   const dateStr = getTodayDateStrLocalTimezone()
-  const title = selectedUserPlaylist.value.playlistName.replaceAll(/[ "%*/:<>?\\|]/g, '_')
-  const exportFileName = 'freetube-playlist-' + title + '-' + dateStr + '.db'
+  const sanitisedTitle = title.replaceAll(/[ "%*/:<>?\\|]/g, '_')
+  return `freetube-playlist-${sanitisedTitle}-${dateStr}.${extension}`
+}
+
+async function exportAsFreeTubeDatabase() {
+  const exportFileName = getExportFilename(selectedUserPlaylist.value.playlistName, 'db')
 
   const data = JSON.stringify(selectedUserPlaylist.value) + '\n'
 
@@ -633,6 +679,35 @@ async function handlePlaylistExport() {
       t('Settings.Data Settings.Playlist File'),
       'application/x-freetube-db',
       '.db',
+      'single-playlist-export',
+      'downloads'
+    )
+
+    if (response) {
+      showToast(t('User Playlists.The playlist has been successfully exported'))
+    }
+  } catch (error) {
+    const message = t('Settings.Data Settings.Unable to write file')
+    showToast(`${message}: ${error}`)
+  }
+}
+
+async function exportAsListOfUrls() {
+  const exportFileName = getExportFilename(props.title, 'txt')
+
+  const data = props.sortedVideos.map((video) => {
+    return `https://www.youtube.com/watch?v=${video.videoId}`
+  }).join('\n') + '\n'
+
+  // See DataSettings.vue `promptAndWriteToFile`
+
+  try {
+    const response = await writeFileWithPicker(
+      exportFileName,
+      data,
+      '',
+      'text/plain',
+      '.txt',
       'single-playlist-export',
       'downloads'
     )

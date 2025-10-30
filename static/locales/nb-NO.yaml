@@ -158,14 +158,14 @@ User Playlists:
   This playlist currently has no videos.: Denne spillelisten har ingen videoer for øyeblikket.
   Export Playlist: Eksporter denne spillelisten
   Sort By:
-    EarliestCreatedFirst: Tidligst opprettet
-    EarliestUpdatedFirst: Tidligst endret
-    LatestPlayedFirst: Sist spilt av
-    EarliestPlayedFirst: Tidligst spilt av
-    LatestUpdatedFirst: Nylig endret
+    EarliestCreatedFirst: Opprettelsesdato (eldste)
+    EarliestUpdatedFirst: Oppdateringsdato (eldste)
+    LatestPlayedFirst: Dato spilt av (nyeste)
+    EarliestPlayedFirst: Dato spilt av (eldste)
+    LatestUpdatedFirst: Oppdateringsdato (nyeste)
     NameAscending: A-Å
     NameDescending: Å-A
-    LatestCreatedFirst: Nylig opprettet
+    LatestCreatedFirst: Opprettelsesdato (nyeste)
   Add to Favorites: Legg til {playlistName}
   Move Video Up: Flytt video opp
   Move Video Down: Flytt video ned
@@ -197,6 +197,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Slå på hurtigbokmerket med denne spillelisten
   Quick Bookmark Enabled: Hurtigbokmerket aktivert
   TotalTimePlaylist: 'Total tid: {duration}'
+  Export list of URLs: Eksporter liste over URL-er
 History:
   # On History Page
   History: 'Historikk'
@@ -205,8 +206,8 @@ History:
   Empty Search Message: Ingen videoer i historikken din samsvarer med søket ditt
   Search bar placeholder: Søk i historikken
   Case Sensitive Search: Søket skiller mellom store og små bokstaver
-  DateOldestHistory: Tidligste sett først
-  DateNewestHistory: Seneste sett først
+  DateOldestHistory: Dato sett (eldste)
+  DateNewestHistory: Dato sett (nyeste)
 Settings:
   # On Settings Page
   Settings: 'Innstillinger'
@@ -511,6 +512,8 @@ Settings:
     Enable Tor / Proxy: Skru på Tor / mellomtjener
     Proxy Settings: Mellomtjener (proxy)
     Proxy Warning: FreeTube har ikke en innebygd mellomtjener (proxy), men det kan koble til en ekstern en, for eksempel en som kjører på din egen maskin, som Tor, eller en ekstern mellomtjener som SOCKS5 som tilbys av enkelte VPN-er. Hvis dette skrus på, pass på at mellomtjeneren din er konfigurert riktig; hvis ikke kommer ikke FreeTube til å klare å hente noen data.
+    Proxy Username: Mellomtjener-brukernavn
+    Proxy Password: Mellomtjener-passord
   Distraction Free Settings:
     Hide Trending Videos: Skjul «På vei opp»
     Hide Video Likes And Dislikes: Skjul antall liker/ikke liker på videoer
@@ -828,17 +831,17 @@ Playlist:
 #& Views
   Playlist: Spilleliste
   Sort By:
-    PublishedNewest: Siste publisert først
+    PublishedNewest: Dato lagt ut (nyeste)
     AuthorAscending: Forfatter (A-Å)
-    VideoDurationDescending: Varighet (Lengste først)
-    PublishedOldest: Tidligste publisert først
-    DateAddedNewest: Siste lagt til først
+    VideoDurationDescending: Varighet (lengste)
+    PublishedOldest: Dato lagt ut (eldste)
+    DateAddedNewest: Dato lagt til (nyeste)
     VideoTitleAscending: Tittel (A-Å)
-    DateAddedOldest: Tidligste lagt til først
+    DateAddedOldest: Dato lagt til (eldst)
     AuthorDescending: Forfatter (Å-A)
     VideoTitleDescending: Tittel (Å-A)
     Custom: Tilpasset
-    VideoDurationAscending: Varighet (Korteste først)
+    VideoDurationAscending: Varighet (korteste)
 Change Format:
   Change Media Formats: 'Endre videoformater'
   Use Dash Formats: 'Bruk DASH-formater'
@@ -1007,8 +1010,6 @@ Channels:
   Unsubscribe Prompt: Er du sikker på at du ikke lenger vil abonnere på «{channelName}»?
 Chapters:
   Chapters: Kapitler
-  'Chapters list visible, current chapter: {chapterName}': 'Kapittelliste synlig. Nåværende kapittel: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Kapittelliste skjult. Nåværende kapittel: {chapterName}'
   Key Moments: Høydepunkter
 Screenshot Success: Lagret skjermbilde
 Screenshot Error: Skjermavbildning mislyktes. {error}

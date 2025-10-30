@@ -1,4 +1,4 @@
-import { ClientType, Innertube, Misc, Parser, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
+import { ClientType, Innertube, Misc, Parser, Platform, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -19,6 +19,58 @@ const TRACKING_PARAM_NAMES = [
   'utm_term',
   'utm_content',
 ]
+
+if (process.env.SUPPORTS_LOCAL_API) {
+  Platform.shim.eval = (data, env) => {
+    return new Promise((resolve, reject) => {
+      const properties = []
+
+      if (env.n) {
+        properties.push(`n: exportedVars.nFunction("${env.n}")`)
+      }
+
+      if (env.sig) {
+        properties.push(`sig: exportedVars.sigFunction("${env.sig}")`)
+      }
+
+      // Triggers permission errors if we don't remove it (added by YouTube.js), as sessionStorage isn't accessible in sandboxed cross-origin iframes
+      const modifiedOutput = data.output.replace('const window = Object.assign({}, globalThis);', '')
+
+      const code = `${modifiedOutput}\nreturn {${properties.join(', ')}}`
+
+      // Generate a unique ID, as there may be multiple eval calls going on at the same time (e.g. DASH manifest generation)
+      const messageId = process.env.IS_ELECTRON || crypto.randomUUID
+        ? crypto.randomUUID()
+        : `${Date.now()}-${Math.floor(Math.random() * 10000)}`
+
+      if (process.env.IS_ELECTRON) {
+        const iframe = document.getElementById('sigFrame')
+
+        /** @param {MessageEvent} event */
+        const listener = (event) => {
+          if (event.source === iframe.contentWindow && typeof event.data === 'string') {
+            const data = JSON.parse(event.data)
+
+            if (data.id === messageId) {
+              window.removeEventListener('message', listener)
+
+              if (data.error) {
+                reject(data.error)
+              } else {
+                resolve(data.result)
+              }
+            }
+          }
+        }
+
+        window.addEventListener('message', listener)
+        iframe.contentWindow.postMessage(JSON.stringify({ id: messageId, code }), '*')
+      } else {
+        reject(new Error('Please setup the eval function for the n/sig deciphering'))
+      }
+    })
+  }
+}
 
 /**
  * Creates a lightweight Innertube instance, which is faster to create or
@@ -135,8 +187,140 @@ export async function getLocalPlaylist(id) {
 }
 
 /**
+ * @typedef {object} SerializedContinuation
+ * @property {import('youtubei.js').Context} context
+ * @property {string} path
+ * @property {any} payload
+ */
+
+/**
+ * @param {import('youtubei.js').YTNodes.ContinuationItem} continuationItem
+ * @param {import('youtubei.js').Actions} actions
+ */
+function serializeContinuationItem(continuationItem, actions) {
+  let path, payload
+
+  // Based on YouTube.js' NavigationEndpoint#call()
+  if (continuationItem.endpoint.command.is(YTNodes.CommandExecutorCommand)) {
+    /** @type {import('youtubei.js').Helpers.YTNode & import('youtubei.js').APIResponseTypes.IEndpoint} */
+    const command = continuationItem.endpoint.command.commands.at(-1)
+
+    path = command.getApiPath()
+    payload = command.buildRequest()
+  } else {
+    path = continuationItem.endpoint.metadata.api_url
+    payload = continuationItem.endpoint.payload
+  }
+
+  /** @type {SerializedContinuation} */
+  const data = {
+    path,
+    payload: payload,
+    context: actions.session.context
+  }
+
+  return JSON.stringify(data)
+}
+
+/**
+ * @param {import('youtubei.js').Mixins.Feed} feed
+ */
+function extractFeedContinuationItem(feed) {
+  let continuationItem
+
+  if (feed.page.header_memo) {
+    const headerContinuations = feed.page.header_memo.getType(YTNodes.ContinuationItem)
+    continuationItem = feed.memo.getType(YTNodes.ContinuationItem).find(
+      (continuation) => !headerContinuations.includes(continuation)
+    )
+  } else {
+    continuationItem = feed.memo.getType(YTNodes.ContinuationItem)[0]
+  }
+
+  if (!continuationItem) {
+    throw new Utils.InnertubeError('There are no continuations.')
+  }
+
+  return continuationItem
+}
+
+/**
+ * Based on YouTube.js' YT.Playlist.getContinuationData method
  * @param {import('youtubei.js').YT.Playlist} playlist
- * @returns {import('youtubei.js').YT.Playlist|null} null when no valid playlist can be found (e.g. `empty continuation response`)
+ */
+export function extractLocalCacheablePlaylistContinuation(playlist) {
+  const sectionList = playlist.memo.getType(YTNodes.SectionList)[0]
+
+  let continuationItem
+
+  // No section list means there can't be additional continuation nodes here,
+  // so no need to check.
+  if (!sectionList) {
+    continuationItem = extractFeedContinuationItem(playlist)
+  } else {
+    continuationItem = playlist.memo.getType(YTNodes.ContinuationItem)
+      .find((node) => !sectionList.contents.includes(node))
+  }
+
+  if (!continuationItem) {
+    throw new Utils.InnertubeError('There are no continuations.')
+  }
+
+  return serializeContinuationItem(continuationItem, playlist.actions)
+}
+
+/**
+ * Based on YouTube.js' YT.Search.getContinuationData method
+ * @param {import('youtubei.js').YT.Search} search
+ * @returns {SerializedContinuation}
+ */
+export function extractLocalCacheableSearchContinuation(search) {
+  const continuationItem = extractFeedContinuationItem(search)
+
+  return serializeContinuationItem(continuationItem, search.actions)
+}
+
+/**
+ * @overload
+ * @param {'playlist'} type
+ * @param {string} continuation
+ * @returns {Promise<import('youtubei.js').YT.Playlist>}
+ */
+
+/**
+ * @overload
+ * @param {'search'} type
+ * @param {string} continuation
+ * @returns {Promise<import('youtubei.js').YT.Search>}
+ */
+
+/**
+ * @param {'playlist' | 'search'} type
+ * @param {string} continuation
+ */
+export async function getLocalCachedFeedContinuation(type, continuation) {
+  /** @type {SerializedContinuation} */
+  const data = JSON.parse(continuation)
+
+  const innertube = await createInnertube()
+  innertube.session.context = data.context
+
+  const page = await innertube.actions.execute(data.path, { ...data.payload, parse: true })
+
+  if (!page) {
+    throw new Utils.InnertubeError('Could not get continuation data')
+  }
+
+  if (type === 'playlist') {
+    return new YT.Playlist(innertube.actions, page, true)
+  } else {
+    return new YT.Search(innertube.actions, page, true)
+  }
+}
+
+/**
+ * @param {import('youtubei.js').YT.Playlist} playlist
+ * @returns {Promise<import('youtubei.js').YT.Playlist|null>} null when no valid playlist can be found (e.g. `empty continuation response`)
  */
 export async function getLocalPlaylistContinuation(playlist) {
   try {
@@ -228,10 +412,16 @@ export async function getLocalSearchResults(query, filters, safetyMode) {
 }
 
 /**
- * @param {YT.Search} continuationData
+ * @param {YT.Search | SerializedContinuation} continuationData
  */
 export async function getLocalSearchContinuation(continuationData) {
-  const response = await continuationData.getContinuation()
+  let response
+
+  if (continuationData instanceof YT.Search) {
+    response = await continuationData.getContinuation()
+  } else {
+    response = await getLocalCachedFeedContinuation('search', continuationData)
+  }
 
   return handleSearchResponse(response)
 }
@@ -242,20 +432,17 @@ export async function getLocalSearchContinuation(continuationData) {
 export async function getLocalVideoInfo(id) {
   const webInnertube = await createInnertube({ withPlayer: true, generateSessionLocally: false })
 
-  // based on the videoId (added to the body of the /player request and to caption URLs)
+  // based on the videoId
   let contentPoToken
-  // based on the visitor data (added to the streaming URLs)
-  let sessionPoToken
 
   if (process.env.IS_ELECTRON) {
     try {
-      ({ contentPoToken, sessionPoToken } = await window.ftElectron.generatePoTokens(
+      contentPoToken = await window.ftElectron.generatePoToken(
         id,
-        webInnertube.session.context.client.visitorData,
         JSON.stringify(webInnertube.session.context)
-      ))
+      )
 
-      webInnertube.session.player.po_token = sessionPoToken
+      webInnertube.session.player.po_token = contentPoToken
     } catch (error) {
       console.error('Local API, poToken generation failed', error)
       throw error
@@ -343,21 +530,21 @@ export async function getLocalVideoInfo(id) {
   }
 
   if (info.streaming_data) {
-    decipherFormats(info.streaming_data.formats, webInnertube.session.player)
+    await decipherFormats(info.streaming_data.formats, webInnertube.session.player)
 
     const firstFormat = info.streaming_data.adaptive_formats[0]
 
     if (firstFormat.url || firstFormat.signature_cipher || firstFormat.cipher) {
-      decipherFormats(info.streaming_data.adaptive_formats, webInnertube.session.player)
+      await decipherFormats(info.streaming_data.adaptive_formats, webInnertube.session.player)
     }
 
     if (info.streaming_data.dash_manifest_url) {
       let url = info.streaming_data.dash_manifest_url
 
       if (url.includes('?')) {
-        url += `&pot=${encodeURIComponent(sessionPoToken)}&mpd_version=7`
+        url += `&pot=${encodeURIComponent(contentPoToken)}&mpd_version=7`
       } else {
-        url += `${url.endsWith('/') ? '' : '/'}pot/${encodeURIComponent(sessionPoToken)}/mpd_version/7`
+        url += `${url.endsWith('/') ? '' : '/'}pot/${encodeURIComponent(contentPoToken)}/mpd_version/7`
       }
 
       info.streaming_data.dash_manifest_url = url
@@ -404,11 +591,11 @@ export async function getLocalComments(id) {
  * @param {Misc.Format[]} formats
  * @param {import('youtubei.js').Player} player
  */
-function decipherFormats(formats, player) {
+async function decipherFormats(formats, player) {
   for (const format of formats) {
     // toDash deciphers the format again, so if we overwrite the original URL,
     // it breaks because the n param would get deciphered twice and then be incorrect
-    format.freeTubeUrl = format.decipher(player)
+    format.freeTubeUrl = await format.decipher(player)
   }
 }
 
@@ -1284,6 +1471,8 @@ export function parseLocalListVideo(item, channelId, channelName) {
   }
 }
 
+const VIEWS_OR_WATCHING_REGEX = /views?|watching/i
+
 /**
  * @param {import('youtubei.js').YTNodes.LockupView} lockupView
  * @param {string | undefined} channelId
@@ -1349,13 +1538,15 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
             lengthSeconds = Utils.timeToSeconds(durationBadge.text)
           }
 
-          publishedText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.[1].text?.text
+          publishedText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
         }
       }
 
       let viewCount = null
 
-      const viewsText = lockupView.metadata.metadata?.metadata_rows[1]?.metadata_parts?.[0].text?.text
+      const viewsText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.find(part => {
+        return part.text?.text && VIEWS_OR_WATCHING_REGEX.test(part.text.text)
+      })?.text?.text
 
       if (viewsText) {
         const views = parseLocalSubscriberCount(viewsText)

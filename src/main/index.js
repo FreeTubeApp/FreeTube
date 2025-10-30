@@ -77,6 +77,9 @@ function runApp() {
 
   const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
 
+  let backendPreference = 'local'
+  let backendFallback = true
+
   contextMenu({
     showSearchWithGoogle: false,
     showSaveImageAs: true,
@@ -221,7 +224,7 @@ function runApp() {
         },
         {
           label: 'Copy Invidious Link',
-          visible: visible && isInAppUrl,
+          visible: visible && isInAppUrl && (backendPreference === 'invidious' || backendFallback),
           click: () => {
             copy(transformURL(false))
           }
@@ -422,23 +425,43 @@ function runApp() {
     // FreeTube needs the following permissions:
     // - "fullscreen": So that the video player can enter full screen
     // - "clipboard-sanitized-write": To allow the user to copy video URLs and error messages
+    // - "fileSystem" Needed for the Web File System API (e.g. importing and exporting data)
 
-    session.defaultSession.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+    session.defaultSession.setPermissionCheckHandler((webContents, permission, requestingOrigin, details) => {
       if (!isFreeTubeUrl(requestingOrigin)) {
         return false
       }
 
-      return permission === 'fullscreen' || permission === 'clipboard-sanitized-write'
+      return (
+        permission === 'fullscreen' ||
+        permission === 'clipboard-sanitized-write' ||
+        (permission === 'fileSystem' && !details.isDirectory)
+      )
     })
 
-    session.defaultSession.setPermissionRequestHandler((webContents, permission, callback) => {
+    session.defaultSession.setPermissionRequestHandler((webContents, permission, callback, details) => {
       if (!isFreeTubeUrl(webContents.getURL())) {
         // eslint-disable-next-line n/no-callback-literal
         callback(false)
         return
       }
 
-      callback(permission === 'fullscreen' || permission === 'clipboard-sanitized-write')
+      callback(
+        permission === 'fullscreen' ||
+        permission === 'clipboard-sanitized-write' ||
+        (permission === 'fileSystem' && !details.isDirectory)
+      )
+    })
+
+    session.defaultSession.on('file-system-access-restricted', (event, details, callback) => {
+      if (!isFreeTubeUrl(details.origin)) {
+        // eslint-disable-next-line n/no-callback-literal
+        callback('deny')
+        return
+      }
+
+      // eslint-disable-next-line n/no-callback-literal
+      callback(details.isDirectory ? 'deny' : 'allow')
     })
 
     let docArray
@@ -473,6 +496,12 @@ function runApp() {
             break
           case 'proxyPort':
             proxyPort = doc.value
+            break
+          case 'backendFallback':
+            backendFallback = doc.value
+            break
+          case 'backendPreference':
+            backendPreference = doc.value
             break
           case 'hideToTrayOnMinimize':
             if (process.platform !== 'darwin') {
@@ -694,6 +723,15 @@ function runApp() {
     }
   })
 
+  app.on('login', async (event, webContents, request, authInfo, callback) => {
+    if (authInfo.isProxy) {
+      event.preventDefault()
+      const proxyUsername = (await baseHandlers.settings._findOne('proxyUsername'))?.value
+      const proxyPassword = (await baseHandlers.settings._findOne('proxyPassword'))?.value
+      callback(proxyUsername, proxyPassword)
+    }
+  })
+
   function trayClick(window, close = false) {
     if (!close) {
       if (window.id in trayMaximizedWindows) {
@@ -708,6 +746,8 @@ function runApp() {
           window.show()
         }
       }
+
+      if (trayWindows.length === BrowserWindow.getAllWindows().length) { mainWindow = window }
     } else if (trayWindows.length > 0) {
       window.close()
     }
@@ -743,14 +783,27 @@ function runApp() {
       {
         type: 'separator'
       },
-      {
-        label: 'Quit',
-        click: handleQuit
-      }
+      ...defaultTrayMenu()
     )
 
     const menu = Menu.buildFromTemplate(menuItems)
     tray.setContextMenu(menu)
+  }
+
+  function defaultTrayMenu() {
+    return [
+      {
+        label: 'New Window',
+        click: () => createWindow({
+          showWindowNow: true,
+          replaceMainWindow: trayWindows.some(item => item.id === mainWindow.id)
+        })
+      },
+      {
+        label: 'Quit',
+        click: handleQuit
+      }
+    ]
   }
 
   function destroyTray() {
@@ -760,11 +813,7 @@ function runApp() {
       tray.destroy()
       tray = null
     } else {
-      const quitItem = [{
-        label: 'Quit',
-        click: handleQuit
-      }]
-      const menu = Menu.buildFromTemplate(quitItem)
+      const menu = Menu.buildFromTemplate(defaultTrayMenu())
       tray.setContextMenu(menu)
     }
   }
@@ -821,7 +870,7 @@ function runApp() {
     if (process.env.NODE_ENV === 'development') {
       return url_ !== null && url_.protocol === 'http:' && url_.host === 'localhost:9080' && (url_.pathname === '/' || url_.pathname === '/index.html')
     } else {
-      return url_ !== null && url_.protocol === 'app:' && url_.host === 'bundle' && url_.pathname === '/index.html'
+      return url_ !== null && url_.protocol === 'app:' && url_.host === 'bundle' && (url_.pathname === '/' || url_.pathname === '/index.html')
     }
   }
 
@@ -990,6 +1039,14 @@ function runApp() {
         if (trayOnMinimize) {
           newWindow.hide()
           manageTray(newWindow)
+
+          if (newWindow === mainWindow) {
+            // A timer is needed because getFocusedWindow doesn't update until the minimize event ends
+            setTimeout(() => {
+              const newMainWindow = BrowserWindow.getFocusedWindow() || BrowserWindow.getAllWindows().find(window => window.isVisible())
+              if (newMainWindow) { mainWindow = newMainWindow }
+            }, 100)
+          }
         }
       })
 
@@ -1158,8 +1215,8 @@ function runApp() {
     })
   })
 
-  ipcMain.handle(IpcChannels.GENERATE_PO_TOKENS, (_, videoId, visitorData, context) => {
-    return generatePoToken(videoId, visitorData, context, proxyUrl)
+  ipcMain.handle(IpcChannels.GENERATE_PO_TOKEN, (_, videoId, context) => {
+    return generatePoToken(videoId, context, proxyUrl)
   })
 
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
@@ -1482,10 +1539,16 @@ function runApp() {
           )
           switch (data._id) {
             // Update app menu on related setting update
+            case 'backendFallback':
+              backendFallback = data.value
+              await setMenu()
+              break
+            case 'backendPreference':
+              backendPreference = data.value
+              await setMenu()
+              break
             case 'hideTrendingVideos':
             case 'hidePopularVideos':
-            case 'backendFallback':
-            case 'backendPreference':
             case 'hidePlaylists':
               await setMenu()
               break
@@ -2064,8 +2127,6 @@ function runApp() {
     const sidenavSettings = baseHandlers.settings._findSidenavSettings()
     const hideTrendingVideos = (await sidenavSettings.hideTrendingVideos)?.value
     const hidePopularVideos = (await sidenavSettings.hidePopularVideos)?.value
-    const backendFallback = (await sidenavSettings.backendFallback)?.value
-    const backendPreference = (await sidenavSettings.backendPreference)?.value
     const hidePlaylists = (await sidenavSettings.hidePlaylists)?.value
 
     const template = [

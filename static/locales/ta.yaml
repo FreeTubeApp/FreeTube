@@ -995,8 +995,6 @@ Clipboard:
 
 Chapters:
   Chapters: 'பாடங்கள்'
-  'Chapters list visible, current chapter: {chapterName}': 'அத்தியாயங்கள் பட்டியல் தெரியும், தற்போதைய அத்தியாயம்: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'அத்தியாயங்கள் பட்டியல் மறைக்கப்பட்டுள்ளது, தற்போதைய அத்தியாயம்: {chapterName}'
 
   Key Moments: முக்கிய தருணங்கள்
 Mini Player: 'மினி பிளேயர்'
