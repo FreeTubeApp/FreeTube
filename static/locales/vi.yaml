@@ -995,7 +995,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Nhập tên kênh hoặc ID kênh để ẩn tất cả video, danh sách phát và chính kênh đó khỏi xuất hiện trong tìm kiếm, xu hướng, phổ biến nhất và được đề xuất. Tên kênh đã nhập phải khớp hoàn toàn và có phân biệt chữ hoa chữ thường.
     Hide Subscriptions Live: Cài đặt này bị ghi đè bởi cài đặt "{appWideSetting}" trên toàn ứng dụng, trong phần "{subsection}" của "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Nhập một từ khóa hoặc cụm từ (không phân biết hoa thường) để ẩn các video & danh sách phát có tiêu đề gốc chứa các mục đó khỏi FreeTube, ngoại trừ các video trong Lịch sử, các danh sách phát của bạn, và video trong các danh sách phát.
+    Hide Videos, Playlists and Channels Containing Text: Nhập một từ khóa hoặc cụm từ (không phân biết hoa thường) để ẩn các video & danh sách phát có tiêu đề gốc chứa các mục đó khỏi FreeTube, ngoại trừ các video trong Lịch sử, các danh sách phát của bạn, và video trong các danh sách phát.
     Hide Videos on Watch: Ẩn các video đã xem khỏi tab Video, Video ngắn và Trực tiếp trên trang Đăng ký và Kênh. Điều này không ảnh hưởng đến tab Trang chủ trên trang Kênh
   SponsorBlock Settings:
     UseDeArrowThumbnails: Thay thế thumbnail video bằng thumbnail gửi từ DeArrow.

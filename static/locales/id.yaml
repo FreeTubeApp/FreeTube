@@ -985,7 +985,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Masukkan ID Kanal untuk menyembunyikan semua video, daftar putar, dan kanal itu sendiri dari pencarian, halaman tren, halaman video popular, dan bagian rekomendasi. ID Kanal yang dimasukkan harus sesuai.
     Hide Subscriptions Live: Pengaturan ini digantikan oleh pengaturan "{appWideSetting}" di seluruh aplikasi, di bagian "{subsection}" dari "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Masukkan kata, pecahan kata, atau frasa (tanpa memperhatikan huruf besar/kecil) untuk menyembunyikan semua video & daftar putar yang judul aslinya memuatnya di seluruh FreeTube, kecuali hanya Riwayat, Daftar Putar Anda, dan video di dalam daftar putar.
+    Hide Videos, Playlists and Channels Containing Text: Masukkan kata, pecahan kata, atau frasa (tanpa memperhatikan huruf besar/kecil) untuk menyembunyikan semua video & daftar putar yang judul aslinya memuatnya di seluruh FreeTube, kecuali hanya Riwayat, Daftar Putar Anda, dan video di dalam daftar putar.
     Hide Videos on Watch: Menyembunyikan video yang telah ditonton dari Tab Video, Video Pendek, dan Langsung pada Halaman Langganan dan Kanal. Hal tersebut tidak mempengaruhi Tab Beranda pada Halaman Kanal
   Experimental Settings:
     Replace HTTP Cache: Menonaktifkan cache HTTP berbasis disk Electron dan mengaktifkan cache gambar dalam memori khusus. Akan menyebabkan peningkatan penggunaan RAM.
