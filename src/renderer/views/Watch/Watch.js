@@ -143,7 +143,7 @@ export default defineComponent({
       /** @type {Date|null} */
       streamingDataExpiryDate: null,
       currentPlaybackRate: null,
-      skipSilenceEnabled: false
+      startNextVideoWithSkipSilenceEnabled: false
     }
   },
   computed: {
@@ -340,7 +340,7 @@ export default defineComponent({
 
     this.checkIfTimestamp()
     this.currentPlaybackRate = this.$store.getters.getDefaultPlayback
-    this.skipSilenceEnabled = this.$store.getters.getSkipSilenceEnabled
+    this.startNextVideoWithSkipSilenceEnabled = this.$store.getters.getSkipSilenceEnabled
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()
@@ -1763,7 +1763,7 @@ export default defineComponent({
       this.currentPlaybackRate = newRate
     },
     updateSkipSilence(newState) {
-      this.skipSilenceEnabled = newState
+      this.startNextVideoWithSkipSilenceEnabled = newState
     },
 
     destroyPlayer: async function() {

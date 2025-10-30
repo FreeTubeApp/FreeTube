@@ -2773,7 +2773,7 @@ export default defineComponent({
         emit('playback-rate-updated', player.getPlaybackRate())
       })
 
-      if (store.getters.getSkipSilenceEnabled || props.skipSilenceEnabled) {
+      if (props.skipSilenceEnabled) {
         skipSilence()
         events.dispatchEvent(new CustomEvent('setSkipSilence', {
           detail: isSilenceSkipEnabled.value

@@ -40,7 +40,7 @@
           :start-in-fullwindow="startNextVideoInFullwindow"
           :start-in-pip="startNextVideoInPip"
           :current-playback-rate="currentPlaybackRate"
-          :skip-silence-enabled="skipSilenceEnabled"
+          :skip-silence-enabled="startNextVideoWithSkipSilenceEnabled"
           class="videoPlayer"
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"
