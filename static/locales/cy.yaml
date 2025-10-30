@@ -531,7 +531,7 @@ Settings:
     Hide Subscriptions Videos: 'Cuddio Fideos Tanysgrifiadau'
     Hide Subscriptions Shorts: 'Cuddio Tanysgrifiadau Byrion'
     Hide Subscriptions Live: 'Cuddio Tanysgrifiadau Byw'
-    Hide Videos and Playlists Containing Text: Cuddio Fideos a Rhestrau Chwarae sy'n Cynnwys Testun
+    Hide Videos, Playlists and Channels Containing Text: Cuddio Fideos a Rhestrau Chwarae sy'n Cynnwys Testun
     Hide Videos and Playlists Containing Text Placeholder: Gair, Darn o Arian, neu Ymadrodd
     Show Added Items: Dangos Eitemau Ychwanegwyd
     Hide Channel Home: Cuddio Tab Sianel "Cartref"
@@ -986,7 +986,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: 'Rhowch ID sianel i guddio''r holl fideos, rhestri chwarae a''r sianel ei hun rhag ymddangos wrth chwilio, tueddu, mwyaf poblogaidd ac argymell. Rhaid i ID y sianel fod yn cyfateb yn llwyr ac mae''n sensitif i faint nodau.'
     Hide Subscriptions Live: 'Mae''r gosodiad hwn wedi''i ddiystyru gan y gosodiad "{appWideSetting}" ar draws yr ap, yn adran "{subsection}" y "{settingsSection}"'
-    Hide Videos and Playlists Containing Text: Rhowch air, darn gair, neu ymadrodd (anwybyddu maint nodau) i guddio'r holl fideos a rhestri chwarae y mae eu teitlau gwreiddiol yn ei gynnwys trwy FreeTube gyfan, ac eithrio dim ond Hanes, Eich Rhestrau Chwarae, a fideos o fewn rhestrau chwarae.
+    Hide Videos, Playlists and Channels Containing Text: Rhowch air, darn gair, neu ymadrodd (anwybyddu maint nodau) i guddio'r holl fideos a rhestri chwarae y mae eu teitlau gwreiddiol yn ei gynnwys trwy FreeTube gyfan, ac eithrio dim ond Hanes, Eich Rhestrau Chwarae, a fideos o fewn rhestrau chwarae.
   Subscription Settings:
     Fetch Feeds from RSS: 'Pan fydd wedi''i alluogi, bydd FreeTube yn defnyddio RSS yn lle ei ddull rhagosodedig ar gyfer cydio yn eich ffrwd tanysgrifio. Mae RSS yn gyflymach ac yn atal rhwystro IP, ond nid yw''n darparu gwybodaeth benodol fel hyd fideo, statws byw neu bostiadau'
     Fetch Automatically: 'Pan fydd wedi''i alluogi, bydd FreeTube yn nôl eich ffrwd tanysgrifio yn awtomatig wrth gychwyn a phan fydd ffenestr newydd yn cael ei hagor.'

@@ -542,7 +542,7 @@ Settings:
     Hide Channels Already Exists: Már létezik a csatornaazonosító
     Hide Channels API Error: Hiba történt a megadott azonosítóval rendelkező felhasználó lekérésekor. Ellenőrizze még egyszer, hogy helyes-e az azonosító.
     Hide Videos and Playlists Containing Text Placeholder: Szó, szótöredék, vagy kifejezés
-    Hide Videos and Playlists Containing Text: Szöveget tartalmazó videók és lejátszási listák elrejtése
+    Hide Videos, Playlists and Channels Containing Text: Szöveget tartalmazó videók és lejátszási listák elrejtése
     Hide Channel Home: Csatorna „főoldal” lap elrejtése
     Show Added Items: Hozzáadott elemek megjelenítése
     Hide Channel Courses: „Tanfolyamok” csatornalap elrejtése
@@ -982,7 +982,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Adjon meg egy csatornaazonosítót, hogy elrejtse az összes videót, lejátszási listát és magát a csatornát a keresési eredményekből, a felkapottak közül, a legnépszerűbbekből és az ajánlottak közül. A megadott csatornaazonosítónak pontosan egyeznie kell, valamint kis- és nagybetűérzékeny.
     Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}” beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
-    Hide Videos and Playlists Containing Text: Adjon meg egy szót, szótöredéket vagy kifejezést (nem érzékeny a nagy- és kisbetűkre), hogy elrejtse az összes olyan videót és lejátszási listát, amelynek eredeti címe tartalmazza ezt a szót vagy kifejezést a FreeTube egész területén, kivéve az előzményeket, a lejátszási listákat és a lejátszási listákon belüli videókat.
+    Hide Videos, Playlists and Channels Containing Text: Adjon meg egy szót, szótöredéket vagy kifejezést (nem érzékeny a nagy- és kisbetűkre), hogy elrejtse az összes olyan videót és lejátszási listát, amelynek eredeti címe tartalmazza ezt a szót vagy kifejezést a FreeTube egész területén, kivéve az előzményeket, a lejátszási listákat és a lejátszási listákon belüli videókat.
     Hide Videos on Watch: Elrejti a megtekintett videókat a videók-, rövid videók- és élő lapokról a feliratkozás- és a csatornaoldalon. Ez nem érinti a kezdőoldalon található csatornalapokat
   SponsorBlock Settings:
     UseDeArrowTitles: Cserélje le a videocímeket a DeArrow-ból, felhasználó által beküldött címekre.

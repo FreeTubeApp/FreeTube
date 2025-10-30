@@ -546,7 +546,7 @@ Settings:
       Por favor, verificá nuevamente si el ID es correcto.
     Hide Channels Disabled Message: Algunos canales fueron bloqueados usando ID y
       no se procesaron. La función está bloqueada mientras se actualizan esos IDs.
-    Hide Videos and Playlists Containing Text: Ocultar videos y listas de reproducción
+    Hide Videos, Playlists and Channels Containing Text: Ocultar videos y listas de reproducción
       que contengan texto
     Hide Channels Already Exists: El ID del canal ya existe.
     Hide Channel Courses: Ocultar la pestaña de 'Cursos' del canal

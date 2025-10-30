@@ -523,7 +523,7 @@ Settings:
     Hide Channels Placeholder: ID Kanal
     Hide Channels API Error: Galat menemukan pengguna dengan ID yang diberikan. Mohon periksa kembali apakah ID-nya benar.
     Hide Channel Releases: Sembunyikan Tab "Rilis" Saluran
-    Hide Videos and Playlists Containing Text: Sembunyikan Video dan Daftar yang Mengandung Teks
+    Hide Videos, Playlists and Channels Containing Text: Sembunyikan Video dan Daftar yang Mengandung Teks
     Hide Videos and Playlists Containing Text Placeholder: Kata, Kata-Kata, atau Frasa
     Hide Subscriptions Videos: Sembunyikan Video dalam Langganan
     Hide Subscriptions Live: Sembunyikan Siaran Langsung dalam Langganan
@@ -971,7 +971,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Masukkan ID Kanal untuk menyembunyikan semua video, daftar putar, dan kanal itu sendiri dari pencarian, halaman tren, halaman video popular, dan bagian rekomendasi. ID Kanal yang dimasukkan harus sesuai.
     Hide Subscriptions Live: Pengaturan ini digantikan oleh pengaturan "{appWideSetting}" di seluruh aplikasi, di bagian "{subsection}" dari "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Masukkan kata, pecahan kata, atau frasa (tanpa memperhatikan huruf besar/kecil) untuk menyembunyikan semua video & daftar putar yang judul aslinya memuatnya di seluruh FreeTube, kecuali hanya Riwayat, Daftar Putar Anda, dan video di dalam daftar putar.
+    Hide Videos, Playlists and Channels Containing Text: Masukkan kata, pecahan kata, atau frasa (tanpa memperhatikan huruf besar/kecil) untuk menyembunyikan semua video & daftar putar yang judul aslinya memuatnya di seluruh FreeTube, kecuali hanya Riwayat, Daftar Putar Anda, dan video di dalam daftar putar.
   Experimental Settings:
     Replace HTTP Cache: Menonaktifkan cache HTTP berbasis disk Electron dan mengaktifkan cache gambar dalam memori khusus. Akan menyebabkan peningkatan penggunaan RAM.
 Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk membatalkan. | Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk membatalkan. | Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk membatalkan.

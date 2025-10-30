@@ -554,7 +554,7 @@ Settings:
     Hide Channels Already Exists: Channel ID already exists
     Hide Channels API Error: Error retrieving user with the ID provided. Please check again if the ID is correct.
     Hide Videos and Playlists Containing Text Placeholder: Word, word Fragment or phrase
-    Hide Videos and Playlists Containing Text: Hide videos and playlists containing text
+    Hide Videos, Playlists and Channels Containing Text: Hide videos and playlists containing text
     Hide Channel Home: Hide Channel "Home" Tab
     Show Added Items: Show Added Items
     Hide Channel Courses: Hide Channel "Courses" Tab
@@ -984,7 +984,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended. The channel ID entered must be a complete match and is case sensitive.
     Hide Subscriptions Live: This setting is overridden by the app-wide ‘{appWideSetting}’ setting, in the ‘{subsection}’ section of the ‘{settingsSection}’
-    Hide Videos and Playlists Containing Text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos and playlists whose original titles contain it throughout all of FreeTube, excluding only History, Your playlists, and videos inside of playlists.
+    Hide Videos, Playlists and Channels Containing Text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos and playlists whose original titles contain it throughout all of FreeTube, excluding only History, Your playlists, and videos inside of playlists.
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
     UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow.

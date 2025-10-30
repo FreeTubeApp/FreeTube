@@ -538,7 +538,7 @@ Settings:
     Hide Channels Already Exists: ID kanala već postoji
     Hide Channels API Error: Greška pri dohvaćanju korisnika s navedenim ID-om. Ponovo provjeri točnost ID-a.
     Hide Videos and Playlists Containing Text Placeholder: Riječ, fragment riječi ili fraza
-    Hide Videos and Playlists Containing Text: Sakrij videa i zbirke koji sadrže tekst
+    Hide Videos, Playlists and Channels Containing Text: Sakrij videa i zbirke koji sadrže tekst
     Hide Channel Home: Sakrij karticu „Početna” kanala
     Show Added Items: Prikaži dodane stavke
     Hide Channel Courses: Sakrij karticu "Tečajevi" kanala
@@ -981,7 +981,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Upiši ID kanala za skrivanje svih videa, zbirki kao i samog kanala u prikazu pretrage, trendova, najpopularniji i preporučeni. Upisani ID kanala se mora potpuno poklapati i razlikuje velika i mala slova.
     Hide Subscriptions Live: Ovu postavku nadjačava programska postavka „{appWideSetting}”, u odjeljku „{subsection}” u „{settingsSection}”
-    Hide Videos and Playlists Containing Text: Upiši riječ, fragment riječi ili izraz (ne razlikuje velika i mala slova) za skrivanje svih videa i zbirki s tim sadržajem u njihovim izvornim naslovima u cijelom FreeTubeu, isključujući samo povijest, tvoje zbirke i videa unutar zbirki.
+    Hide Videos, Playlists and Channels Containing Text: Upiši riječ, fragment riječi ili izraz (ne razlikuje velika i mala slova) za skrivanje svih videa i zbirki s tim sadržajem u njihovim izvornim naslovima u cijelom FreeTubeu, isključujući samo povijest, tvoje zbirke i videa unutar zbirki.
     Hide Videos on Watch: Skriva gledana videa s kartica „Videa”, „Kratka videa” i „Uživo” na stranicama „Pretplata” i „Kanal”. To ne utječe na karticu „Početna” na stranicama „Kanal”
   SponsorBlock Settings:
     UseDeArrowTitles: Zamijeni naslove videa koje su poslali korisnici s DeArrow naslovima.

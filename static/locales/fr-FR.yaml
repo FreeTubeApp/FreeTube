@@ -534,7 +534,7 @@ Settings:
     Hide Channels Disabled Message: Certaines chaines ont été bloquées à l’aide d’un identifiant et n’ont pas été traitées. La fonctionnalité est bloquée le temps que ces identifiants se mettent à jour
     Hide Channels Already Exists: L’identifiant de chaine existe déjà
     Hide Channels API Error: Erreur de récupération de l'utilisateur portant l'identifiant fourni. Veuillez vérifier à nouveau si l'ID est correct.
-    Hide Videos and Playlists Containing Text: Masquer les vidéos et les listes de lecture contenant du texte
+    Hide Videos, Playlists and Channels Containing Text: Masquer les vidéos et les listes de lecture contenant du texte
     Hide Videos and Playlists Containing Text Placeholder: Mot, fragment de mot ou phrase
     Hide Channel Home: Masquer l’onglet « Accueil » de la chaine
     Show Added Items: Afficher les éléments ajoutés
@@ -979,7 +979,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les listes de lecture et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} » applicable à l'ensemble de l'application, dans la section « {subsection} » de la section « {settingsSection} »
-    Hide Videos and Playlists Containing Text: Saisissez un mot, un fragment de mot ou une phrase (insensible à la casse) pour masquer toutes les vidéos et sélections dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube, à l'exception de l'historique, de vos listes de lecture et des vidéos contenues dans les listes de lecture.
+    Hide Videos, Playlists and Channels Containing Text: Saisissez un mot, un fragment de mot ou une phrase (insensible à la casse) pour masquer toutes les vidéos et sélections dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube, à l'exception de l'historique, de vos listes de lecture et des vidéos contenues dans les listes de lecture.
     Hide Videos on Watch: Masque les vidéos visionnées des onglets Vidéos, Shorts, En direct des pages Abonnements et Chaines. Cela n'a pas d'effet sur l'onglet Accueil des pages Chaines
   SponsorBlock Settings:
     UseDeArrowTitles: Remplacer les titres des vidéos par des titres proposés par les utilisateurs de DeArrow.

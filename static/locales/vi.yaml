@@ -495,7 +495,7 @@ Settings:
     Hide Chapters: Ẩn các chương
     Hide Channels: Ẩn video từ các kênh
     Hide Channel Releases: Ẩn trang "Xuất bản" của kênh
-    Hide Videos and Playlists Containing Text: Ẩn các video và danh sách phát có chứa
+    Hide Videos, Playlists and Channels Containing Text: Ẩn các video và danh sách phát có chứa
     Hide Channels Invalid: ID kênh không hợp lệ
     Hide Channel Shorts: Ẩn trang "Shorts" của kênh
     Hide Subscriptions Shorts: Ẩn short từ các đăng ký
@@ -988,7 +988,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Nhập tên kênh hoặc ID kênh để ẩn tất cả video, danh sách phát và chính kênh đó khỏi xuất hiện trong tìm kiếm, xu hướng, phổ biến nhất và được đề xuất. Tên kênh đã nhập phải khớp hoàn toàn và có phân biệt chữ hoa chữ thường.
     Hide Subscriptions Live: Cài đặt này bị ghi đè bởi cài đặt "{appWideSetting}" trên toàn ứng dụng, trong phần "{subsection}" của "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Nhập một từ khóa hoặc cụm từ (không phân biết hoa thường) để ẩn các video & danh sách phát có tiêu đề gốc chứa các mục đó khỏi FreeTube, ngoại trừ các video trong Lịch sử, các danh sách phát của bạn, và video trong các danh sách phát.
+    Hide Videos, Playlists and Channels Containing Text: Nhập một từ khóa hoặc cụm từ (không phân biết hoa thường) để ẩn các video & danh sách phát có tiêu đề gốc chứa các mục đó khỏi FreeTube, ngoại trừ các video trong Lịch sử, các danh sách phát của bạn, và video trong các danh sách phát.
   SponsorBlock Settings:
     UseDeArrowThumbnails: Thay thế thumbnail video bằng thumbnail gửi từ DeArrow.
     UseDeArrowTitles: Thay thế tiêu đề video bằng tiêu đề do người dùng gửi từ DeArrow.

@@ -541,7 +541,7 @@ Settings:
     Hide Channels Disabled Message: Vissa kanaler blockerades med ID och bearbetades inte. Funktionen är blockerad medan dessa ID:n uppdateras
     Hide Channels Already Exists: Kanal-ID finns redan
     Hide Channels API Error: Fel vid hämtning av användaren med det angivna ID:t. Kontrollera igen om ID:t är korrekt.
-    Hide Videos and Playlists Containing Text: Dölj videor och spellistor som innehåller text
+    Hide Videos, Playlists and Channels Containing Text: Dölj videor och spellistor som innehåller text
     Hide Videos and Playlists Containing Text Placeholder: Ord, ordfragment eller fras
     Hide Channel Courses: Dölj kanalfliken "Kurser"
     Hide Channel Home: Dölj kanalfliken "Hem"
@@ -980,7 +980,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Ange ett kanal-ID för att dölja alla videor, spellistor och själva kanalen från att visas i sökningar, trender, mest populära och rekommenderade. Det angivna kanal-ID:t måste vara en fullständig matchning och är skiftlägeskänsligt.
     Hide Subscriptions Live: Den här inställningen åsidosätts av den program omfattande "{appWideSetting}"-inställningen, i avsnittet "{subsection}" i "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Ange ett ord, ordfragment eller en fras (okänsligt för skiftlägen) för att dölja alla videor och spellistor vars originaltitlar innehåller det i hela FreeTube, exklusive endast historik, dina spellistor och videor i spellistor.
+    Hide Videos, Playlists and Channels Containing Text: Ange ett ord, ordfragment eller en fras (okänsligt för skiftlägen) för att dölja alla videor och spellistor vars originaltitlar innehåller det i hela FreeTube, exklusive endast historik, dina spellistor och videor i spellistor.
     Hide Videos on Watch: Döljer visade videor från flikarna videor, shorts och live på sidorna prenumeration och kanal. Detta påverkar inte fliken hem på kanalsidorna
   Experimental Settings:
     Replace HTTP Cache: Inaktiverar Electrons diskbaserade HTTP-cache och aktiverar en anpassad bildcache i minnet. Kommer att leda till ökad RAM-användning.

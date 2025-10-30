@@ -505,7 +505,7 @@ Settings:
     Hide Channels Disabled Message: Některé kanály byly zablokovány pomocí ID a nebyly zpracovány. Při aktualizaci těchto ID je funkce zablokována
     Hide Channels Already Exists: ID kanálu již existuje
     Hide Channels API Error: Chyba při načítání uživatele se zadaným ID. Zkontrolujte prosím, zda je zadané ID správné.
-    Hide Videos and Playlists Containing Text: Skrýt videa a playlisty obsahující text
+    Hide Videos, Playlists and Channels Containing Text: Skrýt videa a playlisty obsahující text
     Hide Videos and Playlists Containing Text Placeholder: Slovo, část slova nebo fráze
     Hide Channel Home: Skrýt kartu „Domovská stránka“ u kanálů
     Show Added Items: Zobrazit přidané položky
@@ -968,7 +968,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Zadejte ID kanálu pro skrytí všech videí, playlistů a samotného kanálu před zobrazením ve vyhledávání, trendech, nejpopulárnějších a doporučených. Zadané ID kanálu se musí zcela shodovat a rozlišují se v něm velká a malá písmena.
     Hide Subscriptions Live: Toto nastavení je nadřazeno nastavením celé aplikace „{appWideSetting}“ v části „{subsection}“ v části „{settingsSection}“
-    Hide Videos and Playlists Containing Text: Zadejte slovo, část slova nebo frázi (velká a malá písmena nejsou rozlišovány) pro skrytí všech videí a playlistů, jejichž původní názvy obsahují zadání, napříč celým FreeTube, vyjma historie, vašich playlistů a videí uvnitř playlistů.
+    Hide Videos, Playlists and Channels Containing Text: Zadejte slovo, část slova nebo frázi (velká a malá písmena nejsou rozlišovány) pro skrytí všech videí a playlistů, jejichž původní názvy obsahují zadání, napříč celým FreeTube, vyjma historie, vašich playlistů a videí uvnitř playlistů.
     Hide Videos on Watch: Skrýt zhlédnutá videa z karet Videa, Shorts a Živě na stránkách odběrů a kanálů. Toto neovlivňuje domovskou kartu na stránkách kanálů
   SponsorBlock Settings:
     UseDeArrowTitles: Nahradit názvy videí vlastními názvy od uživatelů DeArrow.

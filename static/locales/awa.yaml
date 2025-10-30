@@ -540,7 +540,7 @@ Settings:
     Hide Channel Shorts: ''
     Hide Channel Podcasts: ''
     Hide Channel Releases: ''
-    Hide Videos and Playlists Containing Text: ''
+    Hide Videos, Playlists and Channels Containing Text: ''
     Hide Videos and Playlists Containing Text Placeholder: ''
     Hide Subscriptions Videos: ''
     Hide Subscriptions Shorts: ''
@@ -989,7 +989,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: ''
     Hide Subscriptions Live: ''
-    Hide Videos and Playlists Containing Text: ''
+    Hide Videos, Playlists and Channels Containing Text: ''
   Subscription Settings:
     Fetch Feeds from RSS: ''
     Fetch Automatically: ''

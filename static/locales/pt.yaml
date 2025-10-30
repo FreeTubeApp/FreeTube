@@ -571,7 +571,7 @@ Settings:
     Hide Channels Already Exists: Este ID já existe
     Hide Channels API Error: Não foi possível obter o utilizador através do ID. Verifique se o ID indicado está correto.
     Hide Videos and Playlists Containing Text Placeholder: Palavra, fragmento de palavra ou frase
-    Hide Videos and Playlists Containing Text: Ocultar vídeos e listas que contenham este texto
+    Hide Videos, Playlists and Channels Containing Text: Ocultar vídeos e listas que contenham este texto
     Show Added Items: Mostrar itens adicionados
     Hide Channel Home: Ocultar o separador “Página inicial” do canal
     Hide Channel Courses: Ocultar separador "Cursos"
@@ -992,7 +992,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Introduza o ID de um canal para impedir que os vídeos, listas de reprodução e o próprio canal apareçam na pesquisa, tendências, mais populares e recomendados. O nome do canal introduzido tem que ser uma correspondência exata e diferencia maiúsculas de minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição global "{appWideSetting}", existente na secção "{subsection}" de "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Introduza uma palavra, fragmento de palavra ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar todos os vídeos e listas de reprodução cujos títulos originais a contenham em todo o FreeTube, excluindo apenas o histórico, as suas listas de reprodução e os vídeos dentro das listas de reprodução.
+    Hide Videos, Playlists and Channels Containing Text: Introduza uma palavra, fragmento de palavra ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar todos os vídeos e listas de reprodução cujos títulos originais a contenham em todo o FreeTube, excluindo apenas o histórico, as suas listas de reprodução e os vídeos dentro das listas de reprodução.
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador a partir do DeArrow.
     UseDeArrowThumbnails: Substituir miniaturas do vídeo por miniaturas DeArrow.
