@@ -538,7 +538,7 @@ Settings:
     Hide Channels Already Exists: معرف القناة موجود بالفعل
     Hide Channels API Error: ‬حدث خطأ أثناء استرداد المستخدم بالمعرف المدخل. يرجى التحقق مرة أخرى إذا كان المعرف صحيحا.
     Hide Videos, Playlists and Channels Containing Text: إخفاء مقاطع الفيديو وقوائم التشغيل التي تحتوي على نص
-    Hide Videos and Playlists Containing Text Placeholder: كلمة أو جزء كلمة أو عبارة
+    Hide Videos, Playlists and Channels Containing Text Placeholder: كلمة أو جزء كلمة أو عبارة
     Hide Channel Home: إخفاء علامة التبويب "الصفحة الرئيسية" للقناة
     Show Added Items: إظهار العناصر المضافة
     Hide Channel Courses: إخفاء علامة التبويب "دورات" القناة

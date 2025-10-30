@@ -532,7 +532,7 @@ Settings:
     Hide Channels Already Exists: Идентификатор канала уже существует
     Hide Channels API Error: Ошибка при получении пользователя с предоставленным идентификатором. Пожалуйста, проверьте еще раз, правильно ли указан идентификатор.
     Hide Videos, Playlists and Channels Containing Text: Скрыть видео и подборки, содержащие текст
-    Hide Videos and Playlists Containing Text Placeholder: Слово, часть слова, или выражение
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Слово, часть слова, или выражение
     Hide Channel Home: Скрыть вкладку "Главная" канала
     Show Added Items: Показать добавленные элементы
     Hide Channel Courses: Скрыть вкладку «Курсы» канала

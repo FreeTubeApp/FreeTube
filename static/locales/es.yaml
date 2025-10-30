@@ -538,7 +538,7 @@ Settings:
     Hide Channels Already Exists: El ID del canal ya existe
     Hide Channels API Error: Error al recuperar el usuario con el ID proporcionado. Por favor, compruebe de nuevo si el ID es correcto.
     Hide Videos, Playlists and Channels Containing Text: Ocultar vídeos y listas de reproducción que contengan texto
-    Hide Videos and Playlists Containing Text Placeholder: Palabra, fragmento o frase
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Palabra, fragmento o frase
     Hide Channel Home: Ocultar la pestaña "Inicio" del canal
     Show Added Items: Mostrar elementos añadidos
     Hide Channel Courses: Ocultar la pestaña "Cursos" del canal

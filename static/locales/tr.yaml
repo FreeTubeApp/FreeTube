@@ -539,7 +539,7 @@ Settings:
     Hide Channels Already Exists: Kanal kimliği zaten var
     Hide Channels API Error: Belirtilen kimliğe sahip kullanıcı alınırken hata oluştu. Lütfen kimliğin doğru olup olmadığını tekrar gözden geçirin.
     Hide Videos, Playlists and Channels Containing Text: Metin İçeren Videoları ve Oynatma Listelerini Gizle
-    Hide Videos and Playlists Containing Text Placeholder: Sözcük, Sözcük Parçası veya İfade
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Sözcük, Sözcük Parçası veya İfade
     Hide Channel Home: Kanal "Ana Sayfa" Sekmesini Gizle
     Show Added Items: Eklenen Öğeleri Göster
     Hide Channel Courses: Kanal "Kurslar" Sekmesini Gizle

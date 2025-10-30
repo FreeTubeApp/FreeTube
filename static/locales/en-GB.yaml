@@ -553,7 +553,7 @@ Settings:
     Hide Channels Disabled Message: Some channels were blocked using ID and weren't processed. Feature is blocked while those IDs are updating
     Hide Channels Already Exists: Channel ID already exists
     Hide Channels API Error: Error retrieving user with the ID provided. Please check again if the ID is correct.
-    Hide Videos and Playlists Containing Text Placeholder: Word, word Fragment or phrase
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Word, word Fragment or phrase
     Hide Videos, Playlists and Channels Containing Text: Hide videos and playlists containing text
     Hide Channel Home: Hide Channel "Home" Tab
     Show Added Items: Show Added Items

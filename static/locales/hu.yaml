@@ -541,7 +541,7 @@ Settings:
     Hide Channels Disabled Message: Egyes csatornákat letiltottak az azonosító miatt, és nem dolgozták fel őket. A funkció le van tiltva, amíg ezek az azonosítók nem frissülnek
     Hide Channels Already Exists: Már létezik a csatornaazonosító
     Hide Channels API Error: Hiba történt a megadott azonosítóval rendelkező felhasználó lekérésekor. Ellenőrizze még egyszer, hogy helyes-e az azonosító.
-    Hide Videos and Playlists Containing Text Placeholder: Szó, szótöredék, vagy kifejezés
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Szó, szótöredék, vagy kifejezés
     Hide Videos, Playlists and Channels Containing Text: Szöveget tartalmazó videók és lejátszási listák elrejtése
     Hide Channel Home: Csatorna „főoldal” lap elrejtése
     Show Added Items: Hozzáadott elemek megjelenítése

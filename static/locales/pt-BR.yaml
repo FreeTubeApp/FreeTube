@@ -534,7 +534,7 @@ Settings:
     Hide Channels Disabled Message: Alguns canais foram bloqueados por ID e não foram processados. A função está bloqueada enquanto esses IDs estão sendo atualizados
     Hide Channels Already Exists: ID do canal já existe
     Hide Channels API Error: Erro ao recuperar o usuário com o ID fornecido. Por favor, verifique novamente se o ID está correto.
-    Hide Videos and Playlists Containing Text Placeholder: Palavra, trecho de uma palavra ou frase
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Palavra, trecho de uma palavra ou frase
     Hide Videos, Playlists and Channels Containing Text: Ocultar vídeos e playlists que contenham texto
     Hide Channel Home: Ocultar a guia "Início" do canal
     Show Added Items: Mostrar itens adicionados

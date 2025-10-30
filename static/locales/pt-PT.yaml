@@ -500,7 +500,7 @@ Settings:
     Hide Channels Disabled Message: Alguns canais foram bloqueados e não foram processados. A funcionalidade está bloqueada enquanto estiver a ocorrer a atualização dos ID.
     Hide Channels API Error: Não foi possível obter o utilizador através do ID. Verifique se o ID indicado está correto.
     Hide Channels Invalid: O ID do canal não é válido
-    Hide Videos and Playlists Containing Text Placeholder: Palavra, fragmento de palavra ou frase
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Palavra, fragmento de palavra ou frase
     Hide Videos, Playlists and Channels Containing Text: Esconda videos e playlist contendo texto
     Hide Channel Home: Ocultar o separador “Página inicial” do canal
     Show Added Items: Mostrar itens adicionados

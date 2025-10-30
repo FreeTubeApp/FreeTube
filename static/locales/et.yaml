@@ -540,7 +540,7 @@ Settings:
     Hide Channels Disabled Message: Mõned kanalid on blokeeritud nende tunnuste alusel ja nende andmeid ei töödelda. See funktsionaalsus pole kasutusel, kui nendes kanalites toimub muutusi
     Hide Channels Already Exists: Selline kanali tunnus juba on sul kirjas
     Hide Channels API Error: Selle kanali tunnus alusel andmete või kasutaja andmete laadimine ei õnnestunud. Palun kontrolli, et kanali tunnus oleks õige.
-    Hide Videos and Playlists Containing Text Placeholder: Sõna, sõnaosa või fraas
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Sõna, sõnaosa või fraas
     Hide Videos, Playlists and Channels Containing Text: Peida videod ja esitusloendid, kus leidub sellist teksti
     Hide Channel Home: Peida kanalite vahekaart „Avaleht“
     Show Added Items: Näita lisatud kirjeid

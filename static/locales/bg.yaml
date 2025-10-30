@@ -542,7 +542,7 @@ Settings:
     Hide Channels Invalid: Предоставеният идентификатор на канала е невалиден
     Hide Channels Already Exists: Идентификаторът на канала вече съществува
     Hide Videos, Playlists and Channels Containing Text: Скриване на видеа и плейлисти, съдържащи текст
-    Hide Videos and Playlists Containing Text Placeholder: Дума, част от дума или фраза
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Дума, част от дума или фраза
     Hide Channel Home: Скриване на раздел "Начало"
     Show Added Items: Показване на добавените елементи
     Hide Channel Courses: Скриване на раздел "Курсове"

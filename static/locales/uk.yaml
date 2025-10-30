@@ -503,7 +503,7 @@ Settings:
     Hide Channels Already Exists: ID каналу вже існує
     Hide Channels API Error: Помилка під час пошуку користувача з наданим ID. Перевірте ще раз, чи правильний ID.
     Hide Channel Home: Сховати вкладку "Головна" каналу
-    Hide Videos and Playlists Containing Text Placeholder: Слово, фрагмент слова або фраза
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Слово, фрагмент слова або фраза
     Hide Videos, Playlists and Channels Containing Text: Сховати відео та добірки, що містять текст
     Show Added Items: Показати додані елементи
     Hide Channel Courses: Приховати вкладку «Курси» каналу

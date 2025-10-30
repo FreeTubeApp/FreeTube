@@ -535,7 +535,7 @@ Settings:
     Hide Channels Already Exists: 頻道 ID 已存在
     Hide Channels API Error: 使用提供的 ID 擷取使用者時發生錯誤。請再次檢查 ID 是否正確。
     Hide Videos, Playlists and Channels Containing Text: 隱藏包含文字的影片與播放清單
-    Hide Videos and Playlists Containing Text Placeholder: 單字、單字片段或片語
+    Hide Videos, Playlists and Channels Containing Text Placeholder: 單字、單字片段或片語
     Hide Channel Home: 隱藏頻道「首頁」分頁
     Show Added Items: 顯示新增的項目
     Hide Channel Courses: 隱藏頻道“課程”標籤

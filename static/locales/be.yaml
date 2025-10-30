@@ -526,7 +526,7 @@ Settings:
     Hide Subscriptions Live: 'Хаваць трансляцыі з падпісак'
     Hide Channels Already Exists: Ідэнтыфікатар канала ўжо існуе
     Hide Videos, Playlists and Channels Containing Text: Хаваць відэа і плэй-лісты, якія змяшчаюць тэкст
-    Hide Videos and Playlists Containing Text Placeholder: Слова, фрагмент слова або фраза
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Слова, фрагмент слова або фраза
     Hide Channels Disabled Message: Некаторыя каналы былі заблакіраваны з дапамогай ідэнтыфікатара і не былі апрацаваны. Функцыя заблакіравана, пакуль гэтыя ідэнтыфікатары абнаўляюцца
     Hide Channels Invalid: Памылковы ідэнтыфікатар канала
     Hide Channels API Error: Памылка атрымання карыстальніка з указаным ідэнтыфікатарам. Праверце яшчэ раз, ці правільны ідэнтыфікатар.

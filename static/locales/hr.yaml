@@ -537,7 +537,7 @@ Settings:
     Hide Channels Disabled Message: Neki su kanali blokirani upotrebom ID-a i nisu obrađeni. Funkcija je blokirana tijekom aktualiziranje tih ID-ova
     Hide Channels Already Exists: ID kanala već postoji
     Hide Channels API Error: Greška pri dohvaćanju korisnika s navedenim ID-om. Ponovo provjeri točnost ID-a.
-    Hide Videos and Playlists Containing Text Placeholder: Riječ, fragment riječi ili fraza
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Riječ, fragment riječi ili fraza
     Hide Videos, Playlists and Channels Containing Text: Sakrij videa i zbirke koji sadrže tekst
     Hide Channel Home: Sakrij karticu „Početna” kanala
     Show Added Items: Prikaži dodane stavke

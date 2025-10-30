@@ -550,7 +550,7 @@ Settings:
       que contengan texto
     Hide Channels Already Exists: El ID del canal ya existe.
     Hide Channel Courses: Ocultar la pestaña de 'Cursos' del canal
-    Hide Videos and Playlists Containing Text Placeholder: Palabra, fragmento de palabra
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Palabra, fragmento de palabra
       o frase
     Show Added Items: Mostrar elementos agregados
   The app needs to restart for changes to take effect. Restart and apply change?: Esta

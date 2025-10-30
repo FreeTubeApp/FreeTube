@@ -547,7 +547,7 @@ Settings:
     Hide Channel Podcasts: Skjul "Podcasts"-fanen på kanaler
     Hide Channels Invalid: Det angivne kanal-ID var ugyldigt
     Hide Channels Disabled Message: Nogle kanaler blev blokeret via ID og blev ikke behandlet. Funktionen er blokeret, mens disse ID'er opdateres
-    Hide Videos and Playlists Containing Text Placeholder: Ord, ordfragment eller sætning
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Ord, ordfragment eller sætning
     Hide Channel Releases: Skjul "Udgivelser"-fanen på kanaler
     Show Added Items: Vis tilføjede elementer
     Hide Channel Shorts: Skjul "Shorts"-fanen på kanaler

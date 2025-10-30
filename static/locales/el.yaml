@@ -533,7 +533,7 @@ Settings:
     Hide Channels Disabled Message: Ορισμένα κανάλια αποκλείστηκαν με χρήση αναγνωριστικού και δεν υποβλήθηκαν σε επεξεργασία. Η λειτουργία μπλοκάρεται κατά την ενημέρωση αυτών των αναγνωριστικών
     Hide Channels Already Exists: Το αναγνωριστικό καναλιού υπάρχει ήδη
     Hide Channels API Error: Σφάλμα κατά την ανάκτηση χρήστη με το παρεχόμενο αναγνωριστικό. Ελέγξτε ξανά εάν το αναγνωριστικό είναι σωστό.
-    Hide Videos and Playlists Containing Text Placeholder: Λέξη, τμήμα λέξης ή φράση
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Λέξη, τμήμα λέξης ή φράση
     Hide Videos, Playlists and Channels Containing Text: Απόκρυψη βίντεο και λιστών αναπαραγωγής που περιέχουν κείμενο
     Hide Channel Courses: Απόκρυψη της καρτέλας «Μαθήματα» του καναλιού
     Hide Channel Home: Απόκρυψη της καρτέλας «Αρχική σελίδα» του καναλιού

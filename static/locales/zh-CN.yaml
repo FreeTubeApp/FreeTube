@@ -535,7 +535,7 @@ Settings:
     Hide Channels Already Exists: 频道 ID 已存在
     Hide Channels API Error: 获取 ID 为所提供值的用户出错。请再次检查 ID 是否正确。
     Hide Videos, Playlists and Channels Containing Text: 隐藏包含文本的视频和播放列表
-    Hide Videos and Playlists Containing Text Placeholder: 单词、单词片段或词组
+    Hide Videos, Playlists and Channels Containing Text Placeholder: 单词、单词片段或词组
     Hide Channel Home: 隐藏频道“主页”标签
     Show Added Items: 显示已添加项目
     Hide Channel Courses: 隐藏频道“课程”标签

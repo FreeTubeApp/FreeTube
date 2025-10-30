@@ -506,7 +506,7 @@ Settings:
     Hide Channels Already Exists: ID kanálu již existuje
     Hide Channels API Error: Chyba při načítání uživatele se zadaným ID. Zkontrolujte prosím, zda je zadané ID správné.
     Hide Videos, Playlists and Channels Containing Text: Skrýt videa a playlisty obsahující text
-    Hide Videos and Playlists Containing Text Placeholder: Slovo, část slova nebo fráze
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Slovo, část slova nebo fráze
     Hide Channel Home: Skrýt kartu „Domovská stránka“ u kanálů
     Show Added Items: Zobrazit přidané položky
     Hide Channel Courses: Skrýt kartu „Kurzy“ u kanálů

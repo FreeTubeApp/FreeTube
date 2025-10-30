@@ -535,7 +535,7 @@ Settings:
     Hide Channels Already Exists: L’identifiant de chaine existe déjà
     Hide Channels API Error: Erreur de récupération de l'utilisateur portant l'identifiant fourni. Veuillez vérifier à nouveau si l'ID est correct.
     Hide Videos, Playlists and Channels Containing Text: Masquer les vidéos et les listes de lecture contenant du texte
-    Hide Videos and Playlists Containing Text Placeholder: Mot, fragment de mot ou phrase
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Mot, fragment de mot ou phrase
     Hide Channel Home: Masquer l’onglet « Accueil » de la chaine
     Show Added Items: Afficher les éléments ajoutés
     Hide Channel Courses: Masquer l’onglet « Cours » de la chaine

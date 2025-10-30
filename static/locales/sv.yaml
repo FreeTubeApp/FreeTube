@@ -542,7 +542,7 @@ Settings:
     Hide Channels Already Exists: Kanal-ID finns redan
     Hide Channels API Error: Fel vid hämtning av användaren med det angivna ID:t. Kontrollera igen om ID:t är korrekt.
     Hide Videos, Playlists and Channels Containing Text: Dölj videor och spellistor som innehåller text
-    Hide Videos and Playlists Containing Text Placeholder: Ord, ordfragment eller fras
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Ord, ordfragment eller fras
     Hide Channel Courses: Dölj kanalfliken "Kurser"
     Hide Channel Home: Dölj kanalfliken "Hem"
     Show Added Items: Visa Tillagda Objekt

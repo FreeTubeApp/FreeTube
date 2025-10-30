@@ -532,7 +532,7 @@ Settings:
     Hide Profile Pictures in Comments: Profielfoto's in opmerkingen verbergen
     Hide Channels Already Exists: Kanaal ID bestaat reeds
     Hide Channels Invalid: Opgegeven kanaal-id is ongeldig
-    Hide Videos and Playlists Containing Text Placeholder: Woord, woord­fragment of zin
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Woord, woord­fragment of zin
     Hide Videos, Playlists and Channels Containing Text: Video's en afspeel­lijsten die tekst bevatten verbergen
     Hide Channels API Error: Fout bij het ophalen van de gebruiker met de opgegeven ID. Controleer nog­maals of de ID correct is.
     Hide Channels Disabled Message: Sommige kanalen zijn geblokkeerd met behulp van ID en zijn niet verwerkt. De functie is geblokkeerd terwijl deze ID's worden bij­gewerkt

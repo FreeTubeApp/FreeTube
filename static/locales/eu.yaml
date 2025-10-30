@@ -504,7 +504,7 @@ Settings:
     Hide Channels API Error: Errore bat gertatu da emandako IDa duen erabiltzailea berreskuratzean. Mesedez, egiaztatu berriro IDa zuzena den.
     Hide Channels Already Exists: Kanalaren IDa badago jada
     Hide Channel Shorts: Ezkutatu kanalaren "bideo laburrak" fitxa
-    Hide Videos and Playlists Containing Text Placeholder: Hitza, Hitzaren zatia edo esaldia
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Hitza, Hitzaren zatia edo esaldia
     Hide Subscriptions Live: Ezkutatu zuzenekoen harpidetzak
     Hide Featured Channels: Ezkutatu nabarmendutako kanalak
     Hide Channels Disabled Message: Kanal batzuk IDa erabiliz blokeatu dira eta ez dira prozesatu. Eginbidea blokeatuta dago ID horiek eguneratzen ari diren bitartean

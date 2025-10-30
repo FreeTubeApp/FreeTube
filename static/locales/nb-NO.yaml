@@ -551,7 +551,7 @@ Settings:
     Hide Channel Home: Skjule «Start»-fanen i kanaler
     Hide Videos, Playlists and Channels Containing Text: Skjul videoer og spillelister som inneholder tekst
     Hide Channels Already Exists: Kanal-ID-en finnes allerede
-    Hide Videos and Playlists Containing Text Placeholder: Ord, del av ord eller setning
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Ord, del av ord eller setning
     Hide Channels Invalid: Kanal-ID-en var ugyldig
     Hide Channels Disabled Message: Noen kanaler ble blokkert med ID og ble ikke prosessert. Funksjonen er blokkert mens disse ID-ene blir oppdatert
     Show Added Items: Vis videoer lagt til

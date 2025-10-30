@@ -507,7 +507,7 @@ Settings:
     Hide Channels Already Exists: Auðkenni rásar er þegar til
     Hide Channels API Error: Villa við að ná í notanda með uppgefið auðkenni. Athugaðu aftur hvort auðkennið ré rétt.
     Hide Videos, Playlists and Channels Containing Text: Fela myndskeið og spilunarlista sem innihalda texta
-    Hide Videos and Playlists Containing Text Placeholder: Orð, orðhluti eða setning
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Orð, orðhluti eða setning
     Hide Channel Home: Fela "Heim"-flipa rása
     Show Added Items: Sýna atriði sem bætt hefur verið við
     Hide Channel Courses: Fela flipann með rásinni "Kennsluefni"

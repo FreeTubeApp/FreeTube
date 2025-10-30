@@ -506,7 +506,7 @@ Settings:
     Hide Channels Already Exists: ID канала већ постоји
     Hide Channels API Error: Грешка при преузимању корисника са наведеним ID-ом. Проверите поново да ли је ID тачан.
     Hide Videos, Playlists and Channels Containing Text: Сакриј видео снимке и плејлисте које садрже текст
-    Hide Videos and Playlists Containing Text Placeholder: Реч, део речи или фраза
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Реч, део речи или фраза
     Hide Channel Home: Сакриј картицу „Почетна“ канала
     Show Added Items: Прикажи додате предмете
     Hide Channel Courses: Сакриј картицу „Курсеви“ на каналу

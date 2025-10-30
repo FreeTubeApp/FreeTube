@@ -533,7 +533,7 @@ Settings:
     Hide Channels Disabled Message: 一部のチャンネルが ID を使用してブロックされ、処理されませんでした。これらの ID が更新されている間、機能はブロックされます
     Hide Channels Already Exists: チャンネル ID は既に存在します
     Hide Channels API Error: 指定されたIDのユーザーを検索する際にエラーが発生しました。IDが正しいかもう一度確認してください。
-    Hide Videos and Playlists Containing Text Placeholder: 単語、単語の一部、またはフレーズ
+    Hide Videos, Playlists and Channels Containing Text Placeholder: 単語、単語の一部、またはフレーズ
     Hide Videos, Playlists and Channels Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
     Hide Channel Home: チャンネルの「ホーム」タブを隠す
     Show Added Items: 追加された項目を表示
