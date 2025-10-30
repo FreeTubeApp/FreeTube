@@ -305,6 +305,7 @@ const state = {
   quickBookmarkTargetPlaylistId: 'favorites',
   generalAutoLoadMorePaginatedItemsEnabled: false,
   hideToTrayOnMinimize: false,
+  skipSilenceEnabled: false,
 
   // The settings below have side effects
   currentLocale: 'system',
@@ -313,7 +314,6 @@ const state = {
   uiScale: 100,
   userPlaylistsSortBy: 'latest_played_first',
   userHistorySortBy: 'latest_played_first',
-  skipSilenceEnabled: false,
 }
 
 const sideEffectHandlers = {
