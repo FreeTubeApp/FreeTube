@@ -18,7 +18,7 @@ export class SkipSilenceButton extends shaka.ui.Element {
     this.button_.classList.add('skip-silence-button', 'shaka-tooltip')
 
     /** @private */
-    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.SKIP_SILENCE_DEFAULT)
+    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.TIMER_DEFAULT)
 
     const label = document.createElement('label')
     label.classList.add(
@@ -65,8 +65,8 @@ export class SkipSilenceButton extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.nameSpan_.textContent = this.button_.ariaLabel = i18n.t('SilenceSkip.Skip Silence')
-    this.icon_.use(this.skipSilenceEnabled_ ? PlayerIcons.SKIP_SILENCE_FILLED : PlayerIcons.SKIP_SILENCE_DEFAULT)
+    this.nameSpan_.textContent = this.button_.ariaLabel = i18n.t('Video.Player.SilenceSkip.Skip Silence')
+    this.icon_.use(this.skipSilenceEnabled_ ? PlayerIcons.SHUTTER_SPEED_DEFAULT : PlayerIcons.TIMER_DEFAULT)
     this.currentState_.textContent = this.localization.resolve(this.skipSilenceEnabled_ ? 'ON' : 'OFF')
   }
 }
