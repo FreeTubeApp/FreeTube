@@ -819,7 +819,6 @@ export default defineComponent({
 
       if (onlyUseOverFlowMenu.value) {
         uiConfig.overflowMenuButtons = [
-          'ft_screenshot',
           'ft_autoplay_toggle',
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'playback_rate',
