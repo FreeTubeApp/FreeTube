@@ -169,8 +169,7 @@ function loadPostsFromCacheForAllActiveProfileChannels() {
     return b.publishedTime - a.publishedTime
   })
 
-  postList.value = postList_
-  postList.value = postList.value.filter(post => !forbiddenTitles.value.some(text => post.author.toLowerCase().includes(text)))
+  postList.value = postList_.filter(post => !forbiddenTitles.value.some(text => post.author.toLowerCase().includes(text)))
   isLoading.value = false
 }
 
