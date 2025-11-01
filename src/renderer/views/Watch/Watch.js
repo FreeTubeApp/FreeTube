@@ -1367,15 +1367,18 @@ export default defineComponent({
         this.playNextTimeout = null
       }, nextVideoInterval * 1000)
 
-      showToast(
-        ({ remainingMs }) => {
-          const countDownTimeLeftInSecond = remainingMs / 1000
-          return this.$tc('Playing Next Video Interval', countDownTimeLeftInSecond, { nextVideoInterval: countDownTimeLeftInSecond })
-        },
-        // So that we don't see last countdown text like 0/N
-        nextVideoInterval * 1000,
-        this.abortAutoplayCountdown,
-      )
+      if (nextVideoInterval > 0) {
+        // No countdown for 0s interval
+        showToast(
+          ({ remainingMs }) => {
+            const countDownTimeLeftInSecond = remainingMs / 1000
+            return this.$tc('Playing Next Video Interval', countDownTimeLeftInSecond, { nextVideoInterval: countDownTimeLeftInSecond })
+          },
+          // So that we don't see last countdown text like 0/N
+          nextVideoInterval * 1000,
+          this.abortAutoplayCountdown,
+        )
+      }
     },
 
     // Skip to the next video if in a playlist
