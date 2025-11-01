@@ -11,15 +11,16 @@
         >
           {{ title }}
         </h2>
-        <FontAwesomeIcon
+        <button
           v-if="searchFilterValueChanged"
-          class="navIcon clearFilterIcon"
+          class="clearFilterIcon"
           :title="$t('Search Filters.Clear Filters')"
-          :icon="['fas', 'filter-circle-xmark']"
-          role="button"
-          tabindex="0"
           @click="clearFilters"
-        />
+        >
+          <FontAwesomeIcon
+            :icon="['fas', 'filter-circle-xmark']"
+          />
+        </button>
       </div>
     </template>
 
