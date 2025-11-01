@@ -2287,16 +2287,18 @@ export default defineComponent({
         }
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LAST_FRAME:
           // `⌘+,` is for settings in MacOS
-          if (!event.metaKey) {
+          if (!event.metaKey && video_.paused) {
             event.preventDefault()
             // Return to previous frame
             frameByFrame(-1)
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.NEXT_FRAME:
-          event.preventDefault()
-          // Advance to next frame
-          frameByFrame(1)
+          if (video_.paused) {
+            event.preventDefault()
+            // Advance to next frame
+            frameByFrame(1)
+          }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.STATS:
           // Toggle stats display
