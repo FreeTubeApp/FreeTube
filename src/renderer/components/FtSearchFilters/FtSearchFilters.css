@@ -1,5 +1,5 @@
 .center {
-  margin-block: 5px 10px;
+  margin-block-start: 10px;
   text-align: center;
   user-select: none;
 }
@@ -20,8 +20,10 @@
 
 .titleContainer {
   display: flex;
+  align-items: baseline;
   justify-content: center;
   gap: 0.5rem;
+  block-size: inherit;
 }
 
 .clearFilterIcon {
@@ -30,6 +32,18 @@
   font-size: 22px;
   border: 0;
   background-color: transparent;
+  aspect-ratio: 1 / 1;
+
+  &:hover {
+    border-radius: 50%;
+    background-color: var(--side-nav-hover-color);
+    color: var(--side-nav-hover-text-color);
+    transition: background 0.2s ease-in;
+  }
+
+  svg {
+    vertical-align: -0.25em;
+  }
 }
 
 @media only screen and (width <= 680px) {
