@@ -13,11 +13,12 @@
         </h2>
         <button
           v-if="searchFilterValueChanged"
-          class="clearFilterIcon"
+          class="clearFilterButton"
           :title="$t('Search Filters.Clear Filters')"
           @click="clearFilters"
         >
           <FontAwesomeIcon
+            class="clearFilterIcon"
             :icon="['fas', 'filter-circle-xmark']"
           />
         </button>

@@ -26,24 +26,35 @@
   block-size: inherit;
 }
 
-.clearFilterIcon {
+.clearFilterButton {
+  border-radius: 50%;
+  border-style: none;
+  background-color: transparent;
   color: var(--primary-text-color);
   cursor: pointer;
-  font-size: 22px;
-  border: 0;
-  background-color: transparent;
-  aspect-ratio: 1 / 1;
+  font-size: 20px;
+  line-height: 1em;
+  padding: 10px;
+  transition: background 0.2s ease-out;
+}
 
+.clearFilterButton,
+:deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
   &:hover {
-    border-radius: 50%;
     background-color: var(--side-nav-hover-color);
     color: var(--side-nav-hover-text-color);
     transition: background 0.2s ease-in;
   }
 
-  svg {
-    vertical-align: -0.25em;
+  &:active {
+    background-color: var(--tertiary-text-color);
+    color: var(--side-nav-active-text-color);
+    transition: background 0.2s ease-in;
   }
+}
+
+.clearFilterIcon {
+  vertical-align: -0.25em;
 }
 
 @media only screen and (width <= 680px) {
