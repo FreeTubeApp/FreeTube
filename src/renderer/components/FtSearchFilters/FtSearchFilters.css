@@ -18,6 +18,30 @@
   justify-content: center;
 }
 
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.clearFilterIcon {
+  border-radius: 50%;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  font-size: 22px;
+  block-size: 1em;
+  padding: 10px;
+  transition: background 0.2s ease-out;
+  inline-size: 1em;
+
+  &:hover {
+    background-color: var(--side-nav-hover-color);
+    color: var(--side-nav-hover-text-color);
+    transition: background 0.2s ease-in;
+
+  }
+}
+
 @media only screen and (width <= 680px) {
   .searchRadio {
     border-inline-end: 0;

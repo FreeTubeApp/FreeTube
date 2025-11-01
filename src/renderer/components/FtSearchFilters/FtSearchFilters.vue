@@ -4,12 +4,23 @@
     @click="hideSearchFilters"
   >
     <template #label="{ labelId }">
-      <h2
-        :id="labelId"
-        class="center"
-      >
-        {{ title }}
-      </h2>
+      <div class="titleContainer">
+        <h2
+          :id="labelId"
+          class="center"
+        >
+          {{ title }}
+        </h2>
+        <FontAwesomeIcon
+          v-if="searchFilterValueChanged"
+          class="navIcon clearFilterIcon"
+          :title="$t('Search Filters.Clear Filters')"
+          :icon="['fas', 'filter-circle-xmark']"
+          role="button"
+          tabindex="0"
+          @click="clearFilters"
+        />
+      </div>
     </template>
 
     <FtFlexBox class="radioFlexBox">
@@ -50,12 +61,6 @@
       />
     </FtFlexBox>
     <div class="searchFilterCloseButtonContainer">
-      <FtButton
-        :label="$t('Search Filters.Clear Filters')"
-        background-color="var(--accent-color)"
-        text-color="var(--text-with-accent-color)"
-        @click="clearFilters"
-      />
       <FtButton
         :label="$t('Close')"
         background-color="null"
