@@ -738,6 +738,8 @@ function runApp() {
           window.show()
         }
       }
+
+      if (trayWindows.length === BrowserWindow.getAllWindows().length) { mainWindow = window }
     } else if (trayWindows.length > 0) {
       window.close()
     }
@@ -773,14 +775,27 @@ function runApp() {
       {
         type: 'separator'
       },
-      {
-        label: 'Quit',
-        click: handleQuit
-      }
+      ...defaultTrayMenu()
     )
 
     const menu = Menu.buildFromTemplate(menuItems)
     tray.setContextMenu(menu)
+  }
+
+  function defaultTrayMenu() {
+    return [
+      {
+        label: 'New Window',
+        click: () => createWindow({
+          showWindowNow: true,
+          replaceMainWindow: trayWindows.some(item => item.id === mainWindow.id)
+        })
+      },
+      {
+        label: 'Quit',
+        click: handleQuit
+      }
+    ]
   }
 
   function destroyTray() {
@@ -790,11 +805,7 @@ function runApp() {
       tray.destroy()
       tray = null
     } else {
-      const quitItem = [{
-        label: 'Quit',
-        click: handleQuit
-      }]
-      const menu = Menu.buildFromTemplate(quitItem)
+      const menu = Menu.buildFromTemplate(defaultTrayMenu())
       tray.setContextMenu(menu)
     }
   }
@@ -1020,6 +1031,14 @@ function runApp() {
         if (trayOnMinimize) {
           newWindow.hide()
           manageTray(newWindow)
+
+          if (newWindow === mainWindow) {
+            // A timer is needed because getFocusedWindow doesn't update until the minimize event ends
+            setTimeout(() => {
+              const newMainWindow = BrowserWindow.getFocusedWindow() || BrowserWindow.getAllWindows().find(window => window.isVisible())
+              if (newMainWindow) { mainWindow = newMainWindow }
+            }, 100)
+          }
         }
       })
 

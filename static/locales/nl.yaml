@@ -123,14 +123,14 @@ User Playlists:
   Playlist Description: Afspeellijst omschrijving
   Delete Playlist: Afspeellijst verwijderen
   Sort By:
-    LatestCreatedFirst: Recent toegevoegd
+    LatestCreatedFirst: Datum aangemaakt (nieuwste)
     NameDescending: Z - A
     NameAscending: A - Z
-    EarliestPlayedFirst: Eerst gespeeld
-    EarliestCreatedFirst: Oudste
-    LatestUpdatedFirst: Recent bijgewerkt
-    EarliestUpdatedFirst: Oudste
-    LatestPlayedFirst: Recent afgespeeld
+    EarliestPlayedFirst: Datum afgespeeld (oudste)
+    EarliestCreatedFirst: Datum aangemaakt (oudste)
+    LatestUpdatedFirst: Datum bĳgewerkt (nieuwste)
+    EarliestUpdatedFirst: Datum bĳgewerkt (oudste)
+    LatestPlayedFirst: Datum afgespeeld (nieuwste)
   CreatePlaylistPrompt:
     Create: Aanmaken
     New Playlist Name: Naam voor nieuwe afspeellijst
@@ -206,8 +206,8 @@ History:
   Search bar placeholder: In geschiedenis zoeken
   Empty Search Message: Geschiedenis bevat geen video's die overeenkomen met de zoekopdracht
   Case Sensitive Search: Hoofdlettergevoelige zoekopdracht
-  DateOldestHistory: Eerst­bekeken eerst
-  DateNewestHistory: Laatst­bekeken eerst
+  DateOldestHistory: Datum bekeken (oudste)
+  DateNewestHistory: Datum bekeken (nieuwste)
 Settings:
   # On Settings Page
   Settings: 'Instellingen'
