@@ -543,7 +543,7 @@ Settings:
     Hide Channels Already Exists: Kanal kimliği zaten var
     Hide Channels API Error: Belirtilen kimliğe sahip kullanıcı alınırken hata oluştu. Lütfen kimliğin doğru olup olmadığını tekrar gözden geçirin.
     Hide Videos and Playlists Containing Text: Metin İçeren Videoları ve Oynatma Listelerini Gizle
-    Hide Videos and Playlists Containing Text Placeholder: Sözcük, Sözcük Parçası veya İfade
+    Hide Videos and Playlists Containing Text Placeholder: Sözcük Parçası, Sözcük veya İfade
     Hide Channel Home: Kanal "Ana Sayfa" Sekmesini Gizle
     Show Added Items: Eklenen Öğeleri Göster
     Hide Channel Courses: Kanal "Kurslar" Sekmesini Gizle
@@ -985,7 +985,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama, öne çıkanlar, en popüler ve tavsiye edilenlerde görünmesini engellemek için bir kanal kimliği girin. Girilen kanal kimliği tam olarak eşleşmelidir ve büyük/küçük harfe duyarlıdır.
     Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}" kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz kılınıyor
-    Hide Videos and Playlists Containing Text: Yalnızca Geçmiş, Oynatma Listeleriniz ve oynatma listelerindeki videolar hariç olmak üzere, FreeTube'un tamamında orijinal başlıkları bu sözcüğü içeren tüm videoları ve oynatma listelerini gizlemek için bir sözcük, sözcük parçası veya ifade girin (büyük/küçük harfe duyarlı değildir).
+    Hide Videos and Playlists Containing Text: Yalnızca Geçmiş, Oynatma Listeleriniz ve oynatma listelerindeki videolar hariç olmak üzere, FreeTube'un tamamında orijinal başlıkları bu sözcüğü içeren tüm videoları ve oynatma listelerini gizlemek için bir sözcük parçası, sözcük veya ifade girin (büyük/küçük harfe duyarlı değildir).
     Hide Videos on Watch: Abonelik ve kanal sayfalarındaki videolar, kısalar ve canlı sekmelerindeki izlenen videoları gizler. Bu, kanal sayfalarındaki ana sayfa sekmesini etkilemez
   SponsorBlock Settings:
     UseDeArrowTitles: Video başlıklarını DeArrow'dan kullanıcıların gönderdiği başlıklarla değiştir.
