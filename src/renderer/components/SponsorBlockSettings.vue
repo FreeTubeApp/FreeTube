@@ -74,7 +74,7 @@ import { computed } from 'vue'
 
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
-import FtInput from './ft-input/ft-input.vue'
+import FtInput from './FtInput/FtInput.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
 import FtSponsorBlockCategory from './FtSponsorBlockCategory/FtSponsorBlockCategory.vue'
 

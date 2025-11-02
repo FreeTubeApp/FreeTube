@@ -108,7 +108,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtButton from '../FtButton/FtButton.vue'
 import FtPlaylistSelector from '../FtPlaylistSelector/FtPlaylistSelector.vue'
-import FtInput from '../ft-input/ft-input.vue'
+import FtInput from '../FtInput/FtInput.vue'
 import FtSelect from '../FtSelect/FtSelect.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 
