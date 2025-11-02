@@ -48,7 +48,7 @@
               :show-action-button="false"
               :maxlength="100"
               @input="profileName = $event"
-              @keydown.enter.native="saveProfile"
+              @keydown.enter="saveProfile"
             />
           </div>
           <div>
@@ -121,7 +121,7 @@ import store from '../../store/index'
 
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculateColorLuminance, colors } from '../../helpers/colors'
-import { showToast } from '../../helpers/utils'
+import { deepCopy, showToast } from '../../helpers/utils'
 import { getFirstCharacter } from '../../helpers/strings'
 
 /**
@@ -204,7 +204,7 @@ function saveProfile() {
     name: profileName.value,
     bgColor: profileBgColor.value,
     textColor: profileTextColor.value,
-    subscriptions: props.profile.subscriptions
+    subscriptions: deepCopy(props.profile.subscriptions)
   }
 
   if (!props.isNew) {

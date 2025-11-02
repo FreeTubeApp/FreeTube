@@ -827,7 +827,7 @@ Video:
       Stats: Statistika
       CodecsVideoAudio: 'Kodeci: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       Bitrate: 'Brzina: {bitrate} kbps'
-      Resolution: 'Rezolucija: {width}x{height}@{frameRate}'
+      Resolution: 'Rezolucija: {width}x{height}{''@''}{frameRate}'
       CodecsVideoAudioNoItags: 'Kodeci: {videoCodec} / {audioCodec}'
       Volume: 'Glasnoća: {volumePercentage}%'
       Video ID: 'ID videa: {videoId}'

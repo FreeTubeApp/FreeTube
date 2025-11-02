@@ -710,14 +710,6 @@ function runApp() {
 
     await createWindow()
 
-    if (process.env.NODE_ENV === 'development') {
-      try {
-        require('vue-devtools').install()
-      } catch (err) {
-        console.error(err)
-      }
-    }
-
     if (isDebug) {
       mainWindow.webContents.openDevTools()
     }

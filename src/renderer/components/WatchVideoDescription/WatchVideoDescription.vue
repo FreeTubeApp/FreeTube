@@ -20,7 +20,7 @@
       :input-html="processedShownDescription"
       :link-tab-index="linkTabIndex"
       @timestamp-event="onTimestamp"
-      @click.native="expandDescriptionWithClick"
+      @click="expandDescriptionWithClick"
     />
     <span
       v-if="license && showFullDescription"

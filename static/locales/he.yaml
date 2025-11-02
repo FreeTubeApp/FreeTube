@@ -835,7 +835,7 @@ Video:
     Show Stats: הצג נתונים
     Stats:
       Video ID: 'ID סרטון: {videoId}'
-      Resolution: 'רזולוציה: {height}‎‏x‏{width}@{frameRate}'
+      Resolution: 'רזולוציה: {height}‎‏x‏{width}{''@''}{frameRate}'
       Stats: נתונים
       Media Formats: 'פורמטים מדיה: {formats}'
       Player Dimensions: 'ממדי הנגן: {height}x‏{width}'

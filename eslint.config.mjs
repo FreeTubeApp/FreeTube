@@ -33,9 +33,9 @@ export default [
     ts: false,
   }),
   js.configs.recommended,
-  ...eslintPluginVue.configs['flat/vue2-recommended'],
+  ...eslintPluginVue.configs['flat/recommended'],
   ...vuejsAccessibility.configs["flat/recommended"],
-  ...intlifyVueI18N.configs['flat/recommended'],
+  ...intlifyVueI18N.configs['recommended'],
   {
     files: [
       '**/*.{js,vue}',
@@ -63,7 +63,7 @@ export default [
     settings: {
       'vue-i18n': {
         localeDir: `./static/locales/{${activeLocales.join(',')}}.yaml`,
-        messageSyntaxVersion: '^8.0.0',
+        messageSyntaxVersion: '^11.0.0',
       },
     },
 
@@ -79,7 +79,6 @@ export default [
       'no-unused-vars': 'warn',
       'no-undef': 'warn',
       'object-shorthand': 'off',
-      'vue/no-template-key': 'warn',
       'vue/multi-word-component-names': 'off',
 
       'vuejs-accessibility/label-has-for': ['error', {
@@ -119,8 +118,6 @@ export default [
         ignoreText: ['-', '•', '/', 'YouTube', 'Invidious', 'FreeTube'],
       }],
 
-      '@intlify/vue-i18n/no-deprecated-tc': 'off',
-      'vue/require-explicit-emits': 'error',
       'vue/no-unused-emit-declarations': 'error',
 
       'jsdoc/check-alignment': 'error',
@@ -166,7 +163,7 @@ export default [
     settings: {
       'vue-i18n': {
         localeDir: `./static/locales/{${activeLocales.join(',')}}.yaml`,
-        messageSyntaxVersion: '^8.0.0',
+        messageSyntaxVersion: '^11.0.0',
       },
     },
   },
@@ -191,7 +188,7 @@ export default [
     settings: {
       'vue-i18n': {
         localeDir: `./static/locales/{${activeLocales.join(',')}}.yaml`,
-        messageSyntaxVersion: '^8.0.0',
+        messageSyntaxVersion: '^11.0.0',
       },
     },
   },
@@ -210,7 +207,7 @@ export default [
     settings: {
       'vue-i18n': {
         localeDir: `./static/locales/{${activeLocales.join(',')}}.yaml`,
-        messageSyntaxVersion: '^8.0.0',
+        messageSyntaxVersion: '^11.0.0',
       },
     },
   },

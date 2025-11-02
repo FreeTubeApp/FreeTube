@@ -206,11 +206,11 @@ export async function copyToClipboard(content, { messageOnSuccess = null, messag
       if (messageOnError !== null) {
         showToast(`${messageOnError}: ${error}`, 5000)
       } else {
-        showToast(`${i18n.t('Clipboard.Copy failed')}: ${error}`, 5000)
+        showToast(`${i18n.global.t('Clipboard.Copy failed')}: ${error}`, 5000)
       }
     }
   } else {
-    showToast(i18n.t('Clipboard.Cannot access clipboard without a secure connection'), 5000)
+    showToast(i18n.global.t('Clipboard.Cannot access clipboard without a secure connection'), 5000)
   }
 }
 
@@ -556,7 +556,7 @@ export function extractNumberFromString(str) {
 }
 
 export function showExternalPlayerUnsupportedActionToast(externalPlayer, action) {
-  const message = i18n.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action })
+  const message = i18n.global.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action })
   showToast(message)
 }
 
@@ -682,7 +682,7 @@ export function toDistractionFreeTitle(title, minUpperCase = 3) {
  * @returns {string}
  */
 export function formatNumber(number, options = undefined) {
-  return Intl.NumberFormat([i18n.locale, 'en'], options).format(number)
+  return Intl.NumberFormat([i18n.global.locale, 'en'], options).format(number)
 }
 
 export function getTodayDateStrLocalTimezone() {
@@ -715,7 +715,7 @@ export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayM
   let timeUnit = 'second'
 
   if (timeDiffFromNow < 60 && hideSeconds) {
-    return i18n.t('Moments Ago')
+    return i18n.global.t('Moments Ago')
   }
 
   if (timeDiffFromNow >= 60) {
@@ -755,7 +755,7 @@ export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayM
 
   // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
   // Notice that the value is turned to negative to be displayed as "ago"
-  return new Intl.RelativeTimeFormat([i18n.locale, 'en']).format(Math.ceil(-timeDiffFromNow), timeUnit)
+  return new Intl.RelativeTimeFormat([i18n.global.locale, 'en']).format(Math.ceil(-timeDiffFromNow), timeUnit)
 }
 
 /**
@@ -906,23 +906,23 @@ export function getChannelPlaylistId(channelId, type, sortBy) {
 function getIndividualLocalizedShortcut(shortcut) {
   switch (shortcut) {
     case 'alt':
-      return i18n.t('Keys.alt')
+      return i18n.global.t('Keys.alt')
     case 'ctrl':
-      return i18n.t('Keys.ctrl')
+      return i18n.global.t('Keys.ctrl')
     case 'shift':
-      return i18n.t('Keys.shift')
+      return i18n.global.t('Keys.shift')
     case 'enter':
-      return i18n.t('Keys.enter')
+      return i18n.global.t('Keys.enter')
     case 'plus':
-      return i18n.t('Keys.plus')
+      return i18n.global.t('Keys.plus')
     case 'arrowleft':
-      return i18n.t('Keys.arrowleft')
+      return i18n.global.t('Keys.arrowleft')
     case 'arrowright':
-      return i18n.t('Keys.arrowright')
+      return i18n.global.t('Keys.arrowright')
     case 'arrowup':
-      return i18n.t('Keys.arrowup')
+      return i18n.global.t('Keys.arrowup')
     case 'arrowdown':
-      return i18n.t('Keys.arrowdown')
+      return i18n.global.t('Keys.arrowdown')
     default:
       return shortcut
   }
@@ -967,7 +967,7 @@ export function getLocalizedShortcut(shortcut) {
     return shortcutsAsIcons.join('')
   } else {
     const localizedShortcuts = shortcuts.map((shortcut) => getIndividualLocalizedShortcut(shortcut))
-    const shortcutJoinOperator = i18n.t('shortcutJoinOperator')
+    const shortcutJoinOperator = i18n.global.t('shortcutJoinOperator')
     return localizedShortcuts.join(shortcutJoinOperator)
   }
 }
@@ -978,7 +978,7 @@ export function getLocalizedShortcut(shortcut) {
  * @returns {string} the localized action title with keyboard shortcut
  */
 export function addKeyboardShortcutToActionTitle(actionTitle, shortcut) {
-  return i18n.t('KeyboardShortcutTemplate', {
+  return i18n.global.t('KeyboardShortcutTemplate', {
     label: actionTitle,
     shortcut
   })
@@ -995,7 +995,7 @@ export function localizeAndAddKeyboardShortcutToActionTitle(localizedActionTitle
     unlocalizedShortcuts = [unlocalizedShortcuts]
   }
   const localizedShortcuts = unlocalizedShortcuts.map((s) => getLocalizedShortcut(s))
-  const shortcutLabelSeparator = i18n.t('shortcutLabelSeparator')
+  const shortcutLabelSeparator = i18n.global.t('shortcutLabelSeparator')
   return addKeyboardShortcutToActionTitle(localizedActionTitle, localizedShortcuts.join(shortcutLabelSeparator))
 }
 

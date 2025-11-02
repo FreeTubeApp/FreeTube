@@ -1372,7 +1372,7 @@ export default defineComponent({
         showToast(
           ({ remainingMs }) => {
             const countDownTimeLeftInSecond = remainingMs / 1000
-            return this.$tc('Playing Next Video Interval', countDownTimeLeftInSecond, { nextVideoInterval: countDownTimeLeftInSecond })
+            return this.$t('Playing Next Video Interval', { nextVideoInterval: countDownTimeLeftInSecond }, countDownTimeLeftInSecond)
           },
           // So that we don't see last countdown text like 0/N
           nextVideoInterval * 1000,

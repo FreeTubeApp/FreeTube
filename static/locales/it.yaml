@@ -789,7 +789,7 @@ Video:
     Show Stats: Mostra statistiche
     Stats:
       Media Formats: 'Formati multimediali: {formats}'
-      Resolution: 'Risoluzione: {width}×{height}@{frameRate}'
+      Resolution: 'Risoluzione: {width}×{height}{''@''}{frameRate}'
       Player Dimensions: 'Dimensioni del lettore: {width}×{height}'
       Stats: Statistiche
       Video ID: 'ID video: {videoId}'

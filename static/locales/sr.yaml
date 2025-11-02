@@ -833,7 +833,7 @@ Video:
     Stats:
       Video ID: 'ID видеа: {videoId}'
       Media Formats: 'Формат медија: {formats}'
-      Resolution: 'Резолуција: {width}x{height}@{frameRate}'
+      Resolution: 'Резолуција: {width}x{height}{''@''}{frameRate}'
       Volume: 'Волумен: {volumePercentage}%'
       Stats: Статистика
       Dropped Frames / Total Frames: 'Испуштени кадрови: {droppedFrames} / Укупан број кадрова: {totalFrames}'

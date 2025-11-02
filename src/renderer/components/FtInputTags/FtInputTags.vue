@@ -79,8 +79,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { ref } from 'vue'
-import { useId } from '../../composables/use-id-polyfill'
+import { ref, useId } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtInput from '../ft-input/ft-input.vue'

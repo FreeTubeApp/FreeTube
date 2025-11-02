@@ -67,12 +67,12 @@ export class AutoplayToggle extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.nameSpan_.textContent = i18n.t('Video.Autoplay')
+    this.nameSpan_.textContent = i18n.global.t('Video.Autoplay')
 
     this.icon_.use(this.autoplayEnabled_ ? PlayerIcons.PLAY_CIRCLE_FILLED : PlayerIcons.PAUSE_CIRCLE_FILLED)
 
     this.currentState_.textContent = this.localization.resolve(this.autoplayEnabled_ ? 'ON' : 'OFF')
 
-    this.button_.ariaLabel = this.autoplayEnabled_ ? i18n.t('Video.Player.Autoplay is on') : i18n.t('Video.Player.Autoplay is off')
+    this.button_.ariaLabel = this.autoplayEnabled_ ? i18n.global.t('Video.Player.Autoplay is on') : i18n.global.t('Video.Player.Autoplay is off')
   }
 }

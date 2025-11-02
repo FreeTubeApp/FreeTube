@@ -1192,16 +1192,18 @@ export default defineComponent({
     }
 
     function handleTimeupdate() {
-      const currentTime = video.value.currentTime
+      if (video.value) {
+        const currentTime = video.value.currentTime
 
-      emit('timeupdate', currentTime)
+        emit('timeupdate', currentTime)
 
-      if (showStats.value && hasLoaded.value) {
-        updateStats()
-      }
+        if (showStats.value && hasLoaded.value) {
+          updateStats()
+        }
 
-      if (useSponsorBlock.value && sponsorBlockSegments.length > 0 && canSeek()) {
-        skipSponsorBlockSegments(currentTime)
+        if (useSponsorBlock.value && sponsorBlockSegments.length > 0 && canSeek()) {
+          skipSponsorBlockSegments(currentTime)
+        }
       }
     }
 
