@@ -817,7 +817,7 @@ Video:
     Stats:
       Video ID: 'Video-ID: {videoId}'
       Media Formats: 'Medieformater: {formats}'
-      Resolution: 'Opløsning: {width}x{height}@{frameRate}'
+      Resolution: 'Opløsning: {width}x{height}{''@''}{frameRate}'
       Bandwidth: 'Båndbredde: {bandwidth} kbps'
       Stats: Statistik
       Bitrate: 'Bitrate: {bitrate} kbps'

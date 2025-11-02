@@ -65,7 +65,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useI18n } from '../composables/use-i18n-polyfill'
-import { useRouter } from 'vue-router/composables'
+import { useRouter } from 'vue-router'
 
 import FtButton from './FtButton/FtButton.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'

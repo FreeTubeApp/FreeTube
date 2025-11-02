@@ -51,7 +51,7 @@ export class ScreenshotButton extends shaka.ui.Element {
   /** @private */
   updateLocalisedStrings_() {
     const label = addKeyboardShortcutToActionTitle(
-      i18n.t('Video.Player.Take Screenshot'),
+      i18n.global.t('Video.Player.Take Screenshot'),
       KeyboardShortcuts.VIDEO_PLAYER.GENERAL.TAKE_SCREENSHOT
     )
     this.nameSpan_.textContent = this.button_.ariaLabel = label

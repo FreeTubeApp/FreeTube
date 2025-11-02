@@ -56,8 +56,7 @@
 </template>
 
 <script setup>
-import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
-import { useId } from '../../composables/use-id-polyfill'
+import { nextTick, onBeforeUnmount, onMounted, ref, useId } from 'vue'
 
 import store from '../../store/index'
 

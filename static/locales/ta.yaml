@@ -921,7 +921,7 @@ Video:
       Stats: 'புள்ளிவிவரங்கள்'
       Video ID: 'வீடியோ ஐடி: {videoId}'
       Media Formats: 'ஊடக வடிவங்கள்: {formats}'
-      Resolution: 'தீர்மானம்: {width} ஃச் {height}@{frameRate}'
+      Resolution: 'தீர்மானம்: {width} ஃச் {height}{''@''}{frameRate}'
       Player Dimensions: 'பிளேயர் பரிமாணங்கள்: {width} ஃச் {height}'
       Bitrate: 'பிட்ரேட்: {bitrate} kbps'
       Volume: 'தொகுதி: {volumePercentage}%'

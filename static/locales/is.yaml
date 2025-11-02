@@ -508,7 +508,7 @@ Settings:
     Hide Channels Already Exists: Auðkenni rásar er þegar til
     Hide Channels API Error: Villa við að ná í notanda með uppgefið auðkenni. Athugaðu aftur hvort auðkennið ré rétt.
     Hide Videos and Playlists Containing Text: Fela myndskeið og spilunarlista sem innihalda texta
-    Hide Videos and Playlists Containing Text Placeholder: Orð, orðhluti eða setning
+    Hide Videos and Playlists Containing Text Placeholder: Orðhluti, orð eða setning
     Hide Channel Home: Fela "Heim"-flipa rása
     Show Added Items: Sýna atriði sem bætt hefur verið við
     Hide Channel Courses: Fela flipann með rásinni "Kennsluefni"
@@ -830,7 +830,7 @@ Video:
     Stats:
       Player Dimensions: 'Stærðir spilara: {width}x{height}'
       Bitrate: 'Bitahraði: {bitrate} kbps'
-      Resolution: 'Upplausn: {width}x{height}@{frameRate}'
+      Resolution: 'Upplausn: {width}x{height}{''@''}{frameRate}'
       Volume: 'Hljóðstyrkur: {volumePercentage}%'
       Stats: Tölfræði
       Bandwidth: 'Bandbreidd: {bandwidth} kbps'
@@ -971,7 +971,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Settu inn auðkenni rásar til að fela öll myndskeið, spilunarlista og sjálfa rásina við leit eða því sem er vinsælast, mest skoðað og mælt með. Auðkenni rásarinnar sem sett er inn þarf að vera nákvæmlega stafrétt og tekur tillit til hástafa/lágstafa.
     Hide Subscriptions Live: Þessa stillingu er hægt að taka yfir með "{appWideSetting}" stillingunni fyrir allt forritið, í "{subsection}" hlutanum í "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Settu inn orð, orðhluta eða setningu (óháð stafstöðu) til að fela öll myndskeið og spilunarlista þar sem titillinn inniheldur þetta, hvar sem er í FreeTube, með undantekningum innan áhorfsferils, spilunarlistanna þinna og myndskeiða innan spilunarlista.
+    Hide Videos and Playlists Containing Text: Settu inn orðhluta, orð eða setningu (óháð stafstöðu) til að fela öll myndskeið og spilunarlista þar sem titillinn inniheldur þetta, hvar sem er í FreeTube, með undantekningum innan áhorfsferils, spilunarlistanna þinna og myndskeiða innan spilunarlista.
     Hide Videos on Watch: Felur myndskeið sem búið er að horfa á, úr flipunum Myndskeið, Símamyndir og Í beinni, á áskriftar- og rásasíðunum. Þetta hefur ekki áhrif á heimaflipann á rásasíðunum
   SponsorBlock Settings:
     UseDeArrowTitles: Skipta út titlum myndskeiða fyrir titla sem notendur hafa sent inn á DeArrow.

@@ -121,91 +121,91 @@ jobs:
         rm -rf ./squashfs-root ./appimagetool.AppImage
 
     - name: Upload Linux .zip x64 Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-linux-x64-portable.zip
         path: build/freetube-${{ steps.versionNumber.outputs.result }}.zip
 
     - name: Upload Linux .7z x64 Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-linux-x64-portable.7z
         path: build/freetube-${{ steps.versionNumber.outputs.result }}.7z
 
     - name: Upload Linux .zip ARMv7l Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-linux-armv7l-portable.zip
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-armv7l.zip
 
     - name: Upload Linux .7z ARMv7l Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-linux-armv7l-portable.7z
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-armv7l.7z
 
     - name: Upload Linux .zip ARM64 Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-linux-arm64-portable.zip
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64.zip
 
     - name: Upload Linux .7z ARM64 Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-linux-arm64-portable.7z
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64.7z
 
     - name: Upload .deb x64 Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       with:
         name: freetube_${{ steps.versionNumber.outputs.result }}_amd64.deb
         path: build/freetube_${{ steps.versionNumber.outputs.result }}_amd64.deb
 
     - name: Upload .deb ARMv7l Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
       with:
         name: freetube_${{ steps.versionNumber.outputs.result }}_armv7l.deb
         path: build/freetube_${{ steps.versionNumber.outputs.result }}_armv7l.deb
 
     - name: Upload .deb ARM64 Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       with:
         name: freetube_${{ steps.versionNumber.outputs.result }}_arm64.deb
         path: build/freetube_${{ steps.versionNumber.outputs.result }}_arm64.deb
 
     - name: Upload AppImage x64 Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-amd64.AppImage
         path: build/FreeTube-${{ steps.versionNumber.outputs.result }}.AppImage
 
     - name: Upload AppImage ARMv7l Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-armv7l.AppImage
         path: build/FreeTube-${{ steps.versionNumber.outputs.result }}-armv7l.AppImage
 
     - name: Upload AppImage ARM64 Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-arm64.AppImage
         path: build/FreeTube-${{ steps.versionNumber.outputs.result }}-arm64.AppImage
 
     - name: Upload .rpm x64 Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}.amd64.rpm
@@ -214,119 +214,119 @@ jobs:
     # rpm are not built for armv7l
 
     - name: Upload .rpm ARM64 Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}.arm64.rpm
         path: build/freetube-${{ steps.versionNumber.outputs.result }}.aarch64.rpm
 
     - name: Upload Pacman .pacman x64 Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-amd64.pacman
         path: build/freetube-${{ steps.versionNumber.outputs.result }}.pacman
 
     # - name: Upload Web Build
-      # uses: actions/upload-artifact@v4
+      # uses: actions/upload-artifact@v5
       # if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       # with:
         # name: freetube-${{ steps.versionNumber.outputs.result }}-static-web
         # path: dist/web
 
     - name: Upload Windows x64 .exe Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-setup-x64.exe
         path: build/freetube Setup ${{ steps.versionNumber.outputs.result }}.exe
 
     - name: Upload Windows x64 Portable Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-win-x64-portable.exe
         path: build/freetube ${{ steps.versionNumber.outputs.result }}.exe
 
     - name: Upload Windows x64 .zip Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-win-x64-portable.zip
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-win.zip
 
     - name: Upload Windows x64 .7z Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-win-x64-portable.7z
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-win.7z
 
     - name: Upload Windows arm64 .exe Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-setup-arm64.exe
         path: build/freetube Setup ${{ steps.versionNumber.outputs.result }}.exe
 
     - name: Upload Windows arm64 Portable Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-win-arm64-portable.exe
         path: build/freetube ${{ steps.versionNumber.outputs.result }}.exe
 
     - name: Upload Windows arm64 .zip Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-win-arm64-portable.zip
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64-win.zip
 
     - name: Upload Windows arm64 .7z Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-win-arm64-portable.7z
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64-win.7z
 
     - name: Upload Mac x64 .dmg Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-x64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-mac-x64.dmg
         path: build/freetube-${{ steps.versionNumber.outputs.result }}.dmg
 
     - name: Upload Mac x64 .zip Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-x64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-mac-x64.zip
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-mac.zip
 
     - name: Upload Mac x64 .7z Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-x64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-mac-x64.7z
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-mac.7z
 
     - name: Upload Mac arm64 .dmg Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.dmg
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64.dmg
 
     - name: Upload Mac arm64 .zip Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.zip
         path: build/freetube-${{ steps.versionNumber.outputs.result }}-arm64-mac.zip
 
     - name: Upload Mac arm64 .7z Artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
       with:
         name: freetube-${{ steps.versionNumber.outputs.result }}-mac-arm64.7z

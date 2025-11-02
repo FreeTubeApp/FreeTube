@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { nextTick, onBeforeUnmount, onMounted, shallowReactive } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, reactive } from 'vue'
 import { ToastEventBus } from '../../helpers/utils'
 
 let idCounter = 0
@@ -34,21 +34,23 @@ let idCounter = 0
  * @property {number} id
  */
 
-/** @type {import('vue').ShallowReactive<Toast[]>} */
-const toasts = shallowReactive([])
+/** @type {import('vue').Reactive<Toast[]>} */
+const toasts = reactive([])
 
 /**
  * @param {CustomEvent<{ message: string | (({elapsedMs: number, remainingMs: number}) => string), time: number | null, action: Function | null, abortSignal: AbortSignal | null }>} event
  */
 function open({ detail: { message, time, action, abortSignal } }) {
+  const id = idCounter++
+
   /** @type {Toast} */
   const toast = {
+    id,
     message,
     action,
     isOpen: false,
     timeout: 0,
-    interval: 0,
-    id: idCounter++
+    interval: 0
   }
   time ||= 3000
   let elapsed = 0
@@ -60,7 +62,14 @@ function open({ detail: { message, time, action, abortSignal } }) {
       elapsed += updateDelay
       // Skip last update
       if (elapsed >= time) { return }
-      toast.message = message({ elapsedMs: elapsed, remainingMs: time - elapsed })
+
+      // We need to locate the object in the array so we get the reactive proxy,
+      // as modifying the original object won't trigger reactive effects such as updating the DOM
+      const toast = toasts.find(t => t.id === id)
+
+      if (toast) {
+        toast.message = message({ elapsedMs: elapsed, remainingMs: time - elapsed })
+      }
     }, updateDelay)
   }
 
@@ -72,7 +81,13 @@ function open({ detail: { message, time, action, abortSignal } }) {
   }
 
   nextTick(() => {
-    toast.isOpen = true
+    // We need to locate the object in the array so we get the reactive proxy,
+    // as modifying the original object won't trigger reactive effects such as updating the DOM
+    const toast = toasts.find(t => t.id === id)
+
+    if (toast) {
+      toast.isOpen = true
+    }
   })
 
   if (toasts.length > 4) {
