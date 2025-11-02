@@ -9,11 +9,6 @@
       hideLabelsSideBar: hideLabelsSideBar && !isSideNavOpen
     }"
   >
-    <portal-target
-      name="promptPortal"
-      multiple
-      @change="handlePromptPortalUpdate"
-    />
     <ft-prompt
       v-if="showReleaseNotes"
       theme="readable-width"
@@ -70,16 +65,16 @@
       v-if="showProgressBar"
     />
     <top-nav
-      :inert="isPromptOpen"
+      :inert="isAnyPromptOpen"
     />
     <side-nav
       ref="sideNav"
-      :inert="isPromptOpen"
+      :inert="isAnyPromptOpen"
     />
     <ft-flex-box
       class="flexBox routerView"
       role="main"
-      :inert="isPromptOpen"
+      :inert="isAnyPromptOpen"
     >
       <div
         v-if="showUpdatesBanner || showBlogBanner"
