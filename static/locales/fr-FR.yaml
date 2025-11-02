@@ -536,7 +536,7 @@ Settings:
     Hide Channels Already Exists: L’identifiant de chaîne existe déjà
     Hide Channels API Error: Erreur de récupération de l'utilisateur portant l'identifiant fourni. Veuillez vérifier à nouveau si l'ID est correct.
     Hide Videos and Playlists Containing Text: Masquer les vidéos et les listes de lecture contenant du texte
-    Hide Videos and Playlists Containing Text Placeholder: Mot, fragment de mot ou phrase
+    Hide Videos and Playlists Containing Text Placeholder: Fragment, mot ou phrase
     Hide Channel Home: Masquer l’onglet « Accueil » de la chaîne
     Show Added Items: Afficher les éléments ajoutés
     Hide Channel Courses: Masquer l’onglet « Cours » de la chaîne
@@ -982,7 +982,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les listes de lecture et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} » applicable à l'ensemble de l'application, dans la section « {subsection} » de la section « {settingsSection} »
-    Hide Videos and Playlists Containing Text: Saisissez un mot, un fragment de mot ou une phrase (insensible à la casse) pour masquer toutes les vidéos et sélections dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube, à l'exception de l'historique, de vos listes de lecture et des vidéos contenues dans les listes de lecture.
+    Hide Videos and Playlists Containing Text: Saisissez un fragment, un mot ou une expression (sans tenir compte de la casse) pour masquer toutes les vidéos et playlists dont les titres originaux le contiennent sur l'ensemble de FreeTube, à l'exception de l'historique, de vos playlists et des vidéos contenues dans les playlists.
     Hide Videos on Watch: Masque les vidéos visionnées des onglets Vidéos, Shorts, En direct des pages Abonnements et Chaînes. Ceci n'a pas d'effet sur l'onglet Accueil des pages Chaînes
   SponsorBlock Settings:
     UseDeArrowTitles: Remplacer les titres des vidéos par des titres proposés par les utilisateurs de DeArrow.
