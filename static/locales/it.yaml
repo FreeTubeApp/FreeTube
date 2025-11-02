@@ -12,8 +12,6 @@ Copy: 'Copia'
 Paste: 'Incolla'
 Delete: 'Elimina'
 Select all: 'Seleziona tutto'
-Reload: 'Ricarica'
-Force Reload: 'Forza ricarica'
 Toggle Developer Tools: 'Attiva/disattiva strumenti per sviluppatori'
 Actual size: 'Dimensione reale'
 Zoom in: 'Ingrandisci'
@@ -1096,8 +1094,6 @@ KeyboardShortcutPrompt:
   Decrease Video Speed: Riduci la velocità del video in base all'intervallo di velocità di riproduzione video
   Increase Video Speed: Aumenta la velocità del video in base all'intervallo di velocità di riproduzione video
   Full Window: Attiva/disattiva finestra intera
-  Restart Window: Riavvia la finestra
-  Force Restart Window: Forza il riavvio della finestra
   Toggle Developer Tools: Attiva/disattiva gli strumenti per sviluppatori
   Reset Zoom: Ripristina livello zoom / scala interfaccia utente
   Theatre Mode: Attiva/disattiva la modalità teatro

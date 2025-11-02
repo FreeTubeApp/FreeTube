@@ -2197,11 +2197,6 @@ function runApp() {
       {
         label: 'View',
         submenu: [
-          { role: 'reload' },
-          {
-            role: 'forcereload',
-            accelerator: 'CmdOrCtrl+Shift+R'
-          },
           { role: 'toggledevtools' },
           { role: 'toggledevtools', accelerator: 'f12', visible: false },
           {

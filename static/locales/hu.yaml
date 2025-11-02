@@ -12,8 +12,6 @@ Copy: 'Másolás'
 Paste: 'Beillesztés'
 Delete: 'Törlés'
 Select all: 'Összes kiválasztása'
-Reload: 'Újra-betöltés'
-Force Reload: 'Újra-betöltés kényszerítése'
 Toggle Developer Tools: 'Fejlesztői eszközök be-/kikapcsolása'
 Actual size: 'Tényleges méret'
 Zoom in: 'Nagyítás'
@@ -1119,8 +1117,6 @@ KeyboardShortcutPrompt:
   Captions: Feliratok be/ki
   Large Rewind: Visszatekerés 10 másodperccel / Visszatekerés a jelenlegi videólejátszási sebesség alapján
   Close Window: Ablak bezárása
-  Restart Window: Ablak újraindítása
-  Force Restart Window: Ablak kényszerített újraindítása
   Home: Keressen a videó elejére
   End: Keressen a videó végére
   Skip to Next Video: Ugrás a lejátszási lista következő videójára vagy a következő ajánlott videóra

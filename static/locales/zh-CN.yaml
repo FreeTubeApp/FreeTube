@@ -9,8 +9,6 @@ Copy: '复制'
 Paste: '粘贴'
 Delete: '删除'
 Select all: '全选'
-Reload: '重载'
-Force Reload: '强制重载'
 Toggle Developer Tools: '切换开发者工具'
 Actual size: '实际尺寸'
 Zoom in: '放大'
@@ -1098,8 +1096,6 @@ KeyboardShortcutPrompt:
   Theatre Mode: 切换影院模式
   Take Screenshot: 截屏
   Close Window: 关闭窗口
-  Restart Window: 重启窗口
-  Force Restart Window: 强制重启窗口
   Toggle Developer Tools: 切换开发者工具
   Reset Zoom: 重置缩放级别/用户界面缩放比例
   Zoom In: 缩小

@@ -9,8 +9,6 @@ Copy: 'Копировать'
 Paste: 'Вставить'
 Delete: 'Удалить'
 Select all: 'Выбрать все'
-Reload: 'Перезагрузить'
-Force Reload: 'Принудительно перезагрузить'
 Toggle Developer Tools: 'Показать инструменты для разработчиков'
 Actual size: 'Оригинальный масштаб'
 Zoom in: 'Увеличить'
@@ -1101,7 +1099,6 @@ KeyboardShortcutPrompt:
   Increase Video Speed: Увеличить скорость воспроизведения видео на основе интервала скорости воспроизведения
   Full Window: Переключить на полноэкранный режим
   Theatre Mode: Переключить Режим Театра
-  Force Restart Window: Принудительно перезапустить окно
   Toggle Developer Tools: Включить/выключить инструменты разработчика
   Reset Zoom: Сбросить уровень масштабирования
   Zoom In: Увеличить масштаб
@@ -1111,7 +1108,6 @@ KeyboardShortcutPrompt:
   Volume Up: Увеличить громкость
   Take Screenshot: Сделать Снимок Экрана
   Minimize Window: Свернуть окно
-  Restart Window: Перезапустить окно
   Search in New Window: Выполнить поиск в отдельном окне
   Skip by Tenths: Пропустить видео на определённый процент (3 пропуска для 30%)
   End: Перейти к концу видео

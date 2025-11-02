@@ -14,8 +14,6 @@ Copy: ''
 Paste: ''
 Delete: ''
 Select all: ''
-Reload: ''
-Force Reload: ''
 Toggle Developer Tools: ''
 Actual size: ''
 Zoom in: ''
@@ -728,8 +726,8 @@ Profile:
   Delete Selected: ''
   Add Selected To Profile: ''
   No channel(s) have been selected: ''
-  ? This is your primary profile.  Are you sure you want to delete the selected 
-    channels?  The same channels will be deleted in any profile they are found 
+  ? This is your primary profile.  Are you sure you want to delete the selected
+    channels?  The same channels will be deleted in any profile they are found
     in.
   : ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
@@ -1125,8 +1123,6 @@ KeyboardShortcutPrompt:
   Take Screenshot: ''
   Minimize Window: ''
   Close Window: ''
-  Restart Window: ''
-  Force Restart Window: ''
   Toggle Developer Tools: ''
   Reset Zoom: ''
   Zoom In: ''

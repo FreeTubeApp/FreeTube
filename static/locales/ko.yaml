@@ -12,8 +12,6 @@ Copy: '복사하기'
 Paste: '붙여넣기'
 Delete: '지우기'
 Select all: '전체선택'
-Reload: '새로고침'
-Force Reload: '강제 새로고침'
 Toggle Developer Tools: '개발자도구 전환'
 Actual size: '실제크기'
 Zoom in: '확대'
@@ -718,7 +716,6 @@ KeyboardShortcutPrompt:
   Small Fast Forward: 현재 비디오 재생 속도와 빨리 감기 간격을 기준으로 X초 빨리 감기
   Next Frame: 다음 프레임 (일시정지 중)
   Volume Up: 볼륨 높이기
-  Force Restart Window: 강제 재시작 창
   Toggle Developer Tools: 개발자 도구 전환
   Reset Zoom: 확대/축소 수준 / UI 크기 초기화
   Zoom In: 확대

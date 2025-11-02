@@ -12,8 +12,6 @@ Copy: 'Kopiatu'
 Paste: 'Itsatsi'
 Delete: 'Ezabatu'
 Select all: 'Hautatu guztia'
-Reload: 'Birkargatu'
-Force Reload: 'Birkarga behartu'
 Toggle Developer Tools: 'Garatzaile erremintak erakutsi'
 Actual size: 'Uneko tamaina'
 Zoom in: 'Handiagotu'
@@ -1101,8 +1099,6 @@ KeyboardShortcutPrompt:
   Last Frame: Aurreko fotograma (geldituta dagoen bitartean)
   Next Frame: Hurrengo fotograma (geldituta dagoen bitartean)
   Volume Up: Bolumena igo
-  Restart Window: Berrabiarazi leihoa
-  Force Restart Window: Behartu leihoaren berrabiaraztea
   Toggle Developer Tools: Aldatu garatzailearen tresnak
   Reset Zoom: Berrezarri zoom maila / Erabiltzaile Interfazearen eskala
   Zoom In: Zoom-a handitu

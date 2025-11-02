@@ -12,8 +12,6 @@ Copy: 'Kopeeri'
 Paste: 'Aseta'
 Delete: 'Kustuta'
 Select all: 'Vali kõik'
-Reload: 'Laadi uuesti'
-Force Reload: 'Sunni uuesti laadima'
 Toggle Developer Tools: 'Lülita arendustööriistad sisse/välja'
 Actual size: 'Tegelik suurus'
 Zoom in: 'Suurenda'
@@ -1099,8 +1097,6 @@ KeyboardShortcutPrompt:
   Take Screenshot: Tee ekraanitõmmis
   Minimize Window: Minimeeri aken
   Close Window: Sulge aken
-  Restart Window: Laadi kogu aken uuesti
-  Force Restart Window: Laadi kogu aken sundkorras uuesti
   Toggle Developer Tools: Lülita arendaja tarvikud sisse/välja
   Reset Zoom: Lähtesta suumitase / kasutajaliidese mõõtkava
   Zoom Out: Suumi välja

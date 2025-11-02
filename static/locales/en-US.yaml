@@ -14,8 +14,6 @@ Copy: Copy
 Paste: Paste
 Delete: Delete
 Select all: Select all
-Reload: Reload
-Force Reload: Force Reload
 Toggle Developer Tools: Toggle Developer Tools
 Actual size: Actual size
 Zoom in: Zoom in
@@ -1194,8 +1192,6 @@ KeyboardShortcutPrompt:
   Take Screenshot: Take screenshot
   Minimize Window: Miminize window
   Close Window: Close window
-  Restart Window: Restart window
-  Force Restart Window: Force restart window
   Toggle Developer Tools: Toggle developer tools
   Reset Zoom: Reset zoom level / UI scale
   Zoom In: Zoom in

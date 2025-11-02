@@ -12,8 +12,6 @@ Copy: 'Copiar'
 Paste: 'Pegar'
 Delete: 'Eliminar'
 Select all: 'Seleccionar todo'
-Reload: 'Recargar'
-Force Reload: 'Forzar recarga'
 Toggle Developer Tools: 'Activar herramientas de desarrollo'
 Actual size: 'Tamaño actual'
 Zoom in: 'Ampliar'
@@ -1095,7 +1093,6 @@ KeyboardShortcutPrompt:
   History Backward: Retroceder una página
   Stats: Mostrar estadísticas del video
   Minimize Window: Minimizar ventana
-  Force Restart Window: Forzar reinicio de ventana
   Small Rewind: Rebobinar X segundos según el intervalo de rebobinado y la tasa de reproducción actual
   Next Chapter: Próximo capítulo
   Fullscreen: Activar/desactivar pantalla completa
@@ -1119,7 +1116,6 @@ KeyboardShortcutPrompt:
   Skip by Tenths: Saltar en el video por porcentaje (3 saltos a 30% de la duración)
   Refresh: Actualizar el feed con el contenido más reciente
   Close Window: Cerrar ventana
-  Restart Window: Reiniciar ventana
   Home: Saltar al inicio del vídeo
   End: Saltar al final del vídeo
   Skip to Next Video: Salta al siguiente vídeo en la lista de reproducción o al siguiente vídeo recomendado
