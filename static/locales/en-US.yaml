@@ -200,14 +200,14 @@ User playlists:
     NameAscending: 'A-Z'
     NameDescending: 'Z-A'
 
-    LatestCreatedFirst: 'Date created (Newest)'
-    EarliestCreatedFirst: 'Date created (Oldest)'
+    LatestCreatedFirst: 'Date created (newest)'
+    EarliestCreatedFirst: 'Date created (oldest)'
 
-    LatestUpdatedFirst: 'Date updated (Newest)'
-    EarliestUpdatedFirst: 'Date updated (Oldest)'
+    LatestUpdatedFirst: 'Date updated (newest)'
+    EarliestUpdatedFirst: 'Date updated (oldest)'
 
-    LatestPlayedFirst: 'Date played (Newest)'
-    EarliestPlayedFirst: 'Date played (Oldest)'
+    LatestPlayedFirst: 'Date played (newest)'
+    EarliestPlayedFirst: 'Date played (oldest)'
   SinglePlaylistView:
     Search for videos: Search for videos
 
@@ -265,8 +265,8 @@ History:
   Empty search message: There are no videos in your history that match your search
   Search bar placeholder: "Search in history"
   Case sensitive search: Case sensitive search
-  DateOldestHistory: Date watched (Oldest)
-  DateNewestHistory: Date watched (Newest)
+  DateOldestHistory: Date watched (oldest)
+  DateNewestHistory: Date watched (newest)
 Settings:
   # On settings page
   Settings: Settings
@@ -950,16 +950,16 @@ Playlist:
   View full playlist: View full playlist
   Last updated on: Last updated on
   Sort by:
-    DateAddedNewest: Date added (Newest)
-    DateAddedOldest: Date added (Oldest)
-    PublishedNewest: Date published (Newest)
-    PublishedOldest: Date published (Oldest)
+    DateAddedNewest: Date added (newest)
+    DateAddedOldest: Date added (oldest)
+    PublishedNewest: Date published (newest)
+    PublishedOldest: Date published (oldest)
     AuthorAscending: Author (A-Z)
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
     VideoTitleDescending: Title (Z-A)
-    VideoDurationAscending: Duration (Shortest)
-    VideoDurationDescending: Duration (Longest)
+    VideoDurationAscending: Duration (shortest)
+    VideoDurationDescending: Duration (longest)
     Custom: Custom
 
 # On video watch page
