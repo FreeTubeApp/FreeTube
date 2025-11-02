@@ -159,8 +159,7 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-import { isNavigationFailure, NavigationFailureType } from 'vue-router'
-import { onBeforeRouteLeave, useRoute, useRouter } from 'vue-router/composables'
+import { isNavigationFailure, NavigationFailureType, onBeforeRouteLeave, useRoute, useRouter } from 'vue-router'
 
 import FtLoader from '../../components/FtLoader/FtLoader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -703,7 +702,7 @@ function moveVideoUp(videoId, playlistItemId) {
     playlistName: playlistTitle.value,
     protected: selectedUserPlaylist.value.protected,
     description: playlistDescription.value,
-    videos: playlistItems_,
+    videos: deepCopy(playlistItems_),
     _id: playlistId.value
   }
 
@@ -738,7 +737,7 @@ function moveVideoDown(videoId, playlistItemId) {
     playlistName: playlistTitle.value,
     protected: selectedUserPlaylist.value.protected,
     description: playlistDescription.value,
-    videos: playlistItems_,
+    videos: deepCopy(playlistItems_),
     _id: playlistId.value
   }
 
@@ -797,7 +796,8 @@ async function removeToBeDeletedVideosSometimes() {
   if (toBeDeletedPlaylistItemIds.value.length > 0) {
     await store.dispatch('removeVideos', {
       _id: playlistId.value,
-      playlistItemIds: toBeDeletedPlaylistItemIds.value,
+      // Create a new non-reactive array to avoid Electron erroring about Proxy objects not being clonable
+      playlistItemIds: [...toBeDeletedPlaylistItemIds.value],
     })
 
     toBeDeletedPlaylistItemIds.value = []
@@ -880,7 +880,7 @@ onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize)
 })
 
-onBeforeRouteLeave((to, from, next) => {
+onBeforeRouteLeave((to) => {
   if (!isLoading.value && to.path.startsWith('/watch') && to.query.playlistId === playlistId.value) {
     store.commit('setCachedPlaylist', {
       id: playlistId.value,
@@ -895,7 +895,6 @@ onBeforeRouteLeave((to, from, next) => {
   }
 
   removeToBeDeletedVideosSometimes()
-  next()
 })
 </script>
 

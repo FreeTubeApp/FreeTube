@@ -930,7 +930,7 @@ Video:
       Stats: Stats
       Video ID: 'Video ID: {videoId}'
       Media formats: 'Media formats: {formats}'
-      Resolution: 'Resolution: {width}x{height}@{frameRate}'
+      Resolution: 'Resolution: {width}x{height}{''@''}{frameRate}'
       Player dimensions: 'Player dimensions: {width}x{height}'
       Bitrate: 'Bitrate: {bitrate} kbps'
       Volume: 'Volume: {volumePercentage}%'

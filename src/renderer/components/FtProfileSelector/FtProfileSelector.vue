@@ -26,8 +26,8 @@
       ref="profileListRef"
       class="profileList"
       tabindex="-1"
-      @focusout.native="handleProfileListFocusOut"
-      @keydown.native.esc.stop="handleProfileListEscape"
+      @focusout="handleProfileListFocusOut"
+      @keydown.esc.stop="handleProfileListEscape"
     >
       <h3
         :id="id + 'title'"
@@ -80,10 +80,9 @@
 </template>
 
 <script setup>
-import { computed, nextTick, ref } from 'vue'
-import { useId } from '../../composables/use-id-polyfill'
+import { computed, nextTick, ref, useId } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-import { useRouter } from 'vue-router/composables'
+import { useRouter } from 'vue-router'
 
 import FtCard from '../ft-card/ft-card.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
