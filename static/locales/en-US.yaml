@@ -579,7 +579,7 @@ Settings:
     Hide channel releases: Hide channel "Releases" tab
     Hide channel courses: Hide channel "Courses" tab
     Hide videos and playlists containing text: Hide videos and playlists containing text
-    Hide videos and playlists containing text placeholder: Word, word fragment, or phrase
+    Hide videos and playlists containing text placeholder: Fragment, word, or phrase
     Hide subscriptions videos: Hide subscriptions videos
     Hide subscriptions shorts: Hide subscriptions shorts
     Hide subscriptions live: Hide subscriptions live
@@ -1079,7 +1079,7 @@ Tooltips:
     Hide channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
        The channel ID entered must be a complete match and is case sensitive.
     Hide subscriptions live: 'This setting is overridden by the app-wide "{appWideSetting}" setting, in the "{subsection}" section of the "{settingsSection}".'
-    Hide videos and playlists containing text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos & playlists whose original titles contain it throughout all of FreeTube, excluding only history, your playlists, and videos inside of playlists.
+    Hide videos and playlists containing text: Enter a fragment, word, or phrase (case insensitive) to hide all videos & playlists whose original titles contain it throughout all of FreeTube, excluding only history, your playlists, and videos inside of playlists.
     Hide videos on watch: 'Hides watched videos from the videos, shorts, and live tabs on the subscription and channel pages. This does not affect the home tab on channel pages.'
   Subscription settings:
     Fetch feeds from RSS: When enabled, FreeTube will use RSS instead of its default
