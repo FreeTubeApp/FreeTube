@@ -200,6 +200,7 @@ export default defineComponent({
     let startInPip = props.startInPip
 
     const isSilenceSkipEnabled = ref(false)
+    const trickPlayNormalSpeed = ref(props.currentPlaybackRate)
 
     /**
      * @type {{
@@ -1263,9 +1264,12 @@ export default defineComponent({
         let soundStart = null
         let isSkipping = false
 
+        trickPlayNormalSpeed.value = player.getPlaybackRate()
+        const trickPlayFastForwardSpeed = maxVideoPlaybackRate.value
+
         function resetSkip() {
           gain.gain.setTargetAtTime(1, audioContext.currentTime, 0.015)
-          player.trickPlay(SilenceSkip.TRICKPLAY_DEFAULT_SPEED)
+          player.trickPlay(trickPlayNormalSpeed.value)
           isSkipping = false
           silenceStart = null
           soundStart = null
@@ -1275,6 +1279,12 @@ export default defineComponent({
           if (!player) {
             cancelAnimationFrame(loopId)
             return
+          }
+
+          const currentPlaybackRate = player.getPlaybackRate()
+          // Update the trick play speed, if the user changes the playback rate
+          if (trickPlayNormalSpeed.value !== currentPlaybackRate && trickPlayFastForwardSpeed !== currentPlaybackRate) {
+            trickPlayNormalSpeed.value = player.getPlaybackRate()
           }
 
           if (isSilenceSkipEnabled.value) {
@@ -1292,7 +1302,7 @@ export default defineComponent({
               if (!silenceStart) silenceStart = now
               if (now - silenceStart > SilenceSkip.MIN_SILENCE_DURATION) {
                 gain.gain.setTargetAtTime(0, audioContext.currentTime, 0.025)
-                player.trickPlay(SilenceSkip.TRICKPLAY_FAST_FORWARD_SPEED)
+                player.trickPlay(trickPlayFastForwardSpeed)
                 isSkipping = true
                 soundStart = null
               }
@@ -2300,7 +2310,7 @@ export default defineComponent({
         return
       }
 
-      const previousIsSilenceSkipEnabledState = isSilenceSkipEnabled.value
+      const playbackRate = isSilenceSkipEnabled.value ? trickPlayNormalSpeed.value : player.getPlaybackRate()
 
       switch (event.key.toLowerCase()) {
         case ' ':
@@ -2313,12 +2323,12 @@ export default defineComponent({
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_REWIND:
           // Rewind by 2x the time-skip interval (in seconds)
           event.preventDefault()
-          seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate() * 2, false, true)
+          seekBySeconds(-defaultSkipInterval.value * playbackRate * 2, false, true)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_FAST_FORWARD:
           // Fast-Forward by 2x the time-skip interval (in seconds)
           event.preventDefault()
-          seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate() * 2, false, true)
+          seekBySeconds(defaultSkipInterval.value * playbackRate * 2, false, true)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED:
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED_ALT:
@@ -2371,36 +2381,24 @@ export default defineComponent({
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_REWIND:
           event.preventDefault()
-          if (previousIsSilenceSkipEnabledState) {
-            skipSilence()
-          }
           if (canChapterJump(event, 'previous')) {
             // Jump to the previous chapter
             video_.currentTime = props.chapters[props.currentChapterIndex - 1].startSeconds
             showOverlayControls()
           } else {
             // Rewind by the time-skip interval (in seconds)
-            seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate(), false, true)
-          }
-          if (previousIsSilenceSkipEnabledState) {
-            skipSilence()
+            seekBySeconds(-defaultSkipInterval.value * playbackRate, false, true)
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_FAST_FORWARD:
           event.preventDefault()
-          if (previousIsSilenceSkipEnabledState) {
-            skipSilence()
-          }
           if (canChapterJump(event, 'next')) {
             // Jump to the next chapter
             video_.currentTime = (props.chapters[props.currentChapterIndex + 1].startSeconds)
             showOverlayControls()
           } else {
             // Fast-Forward by the time-skip interval (in seconds)
-            seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate(), false, true)
-          }
-          if (previousIsSilenceSkipEnabledState) {
-            skipSilence()
+            seekBySeconds(defaultSkipInterval.value * playbackRate, false, true)
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE:
