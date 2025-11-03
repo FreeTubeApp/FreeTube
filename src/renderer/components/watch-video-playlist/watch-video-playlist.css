@@ -150,7 +150,7 @@
   transition: background 0.2s ease-in;
 }
 
-.playlistItems {
+.playlistItemsWrapper {
   overflow-y: auto;
   block-size: 360px;
 }

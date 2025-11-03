@@ -140,8 +140,8 @@
       </p>
       <div
         v-if="!isLoading"
-        ref="playlistItems"
-        class="playlistItems"
+        ref="playlistItemsWrapper"
+        class="playlistItemsWrapper"
       >
         <ft-list-video-numbered
           v-for="(item, index) in playlistItems"

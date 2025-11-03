@@ -571,11 +571,11 @@ export default defineComponent({
     },
 
     scrollToCurrentVideo: function () {
-      const container = this.$refs.playlistItems
-      const currentVideoItemEl = (this.$refs.playlistItem || [])[this.currentVideoIndexZeroBased]
+      const container = this.$refs.playlistItemsWrapper
+      const currentVideoItemEl = container ? Array.from(container.children)[this.currentVideoIndexZeroBased] : null
       if (container != null && currentVideoItemEl != null) {
         // Watch view can be ready sooner than this component
-        container.scrollTop = currentVideoItemEl.$el.offsetTop - container.offsetTop
+        container.scrollTop = currentVideoItemEl.offsetTop - container.offsetTop
       }
     },
 
@@ -605,9 +605,8 @@ export default defineComponent({
       const targetArrayIndex = targetVideoIndex - 1
 
       if (targetArrayIndex >= 0 && targetArrayIndex < this.playlistItems.length) {
-        const container = this.$refs.playlistItems
-        const playlistItemElements = Array.from(container.children)
-        const targetPlaylistItemEl = playlistItemElements[targetArrayIndex]
+        const container = this.$refs.playlistItemsWrapper
+        const targetPlaylistItemEl = container ? Array.from(container.children)[targetArrayIndex] : null
         if (container != null && targetPlaylistItemEl != null) {
           // Watch view can be ready sooner than this component
           container.scrollTop = targetPlaylistItemEl.offsetTop - container.offsetTop
