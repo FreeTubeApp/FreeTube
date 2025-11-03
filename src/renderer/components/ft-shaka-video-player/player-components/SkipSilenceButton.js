@@ -65,7 +65,7 @@ export class SkipSilenceButton extends shaka.ui.Element {
 
   /** @private */
   updateLocalisedStrings_() {
-    this.nameSpan_.textContent = this.button_.ariaLabel = i18n.t('Video.Player.Skip Silence')
+    this.nameSpan_.textContent = this.button_.ariaLabel = i18n.global.t('Video.Player.Skip Silence')
     this.icon_.use(this.skipSilenceEnabled_ ? PlayerIcons.SHUTTER_SPEED_DEFAULT : PlayerIcons.TIMER_DEFAULT)
     this.currentState_.textContent = this.localization.resolve(this.skipSilenceEnabled_ ? 'ON' : 'OFF')
   }
