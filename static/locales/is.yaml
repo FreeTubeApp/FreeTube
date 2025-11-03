@@ -922,15 +922,9 @@ Comments:
   Top comments: 'Efstu athugasemdir'
   Newest first: 'Nýjasta fyrst'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Skoða'
-  Hide: 'Fela'
-  Replies: 'Svör'
-  Reply: 'Svara'
   There are no comments available for this video: 'Engar athugasemdir eru tiltækar fyrir þetta myndskeið'
   Load More Comments: 'Hlaða inn fleiri athugasemdum'
   Show More Replies: Birta fleiri svör
-  From {channelName}: frá {channelName}
-  And others: og fleirum
   Pinned by: Fest af
   Member: Meðlimur
   View {replyCount} replies: Skoða {replyCount} svör

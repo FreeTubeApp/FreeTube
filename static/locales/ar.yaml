@@ -911,10 +911,6 @@ Comments:
   Getting comment replies, please wait: 'جاري الحصول على ردود التعليق, يرجى الانتظار'
   Hide Comments: 'إخفاء التعليقات'
   # Context: View 10 Replies, View 1 Reply
-  View: 'عرض'
-  Hide: 'إخفاء'
-  Replies: 'رداً'
-  Reply: 'ردّ'
   There are no comments available for this video: 'لا يتوفر تعليقات لهذا الفيديو'
   Load More Comments: 'تحميل المزيد من التعليقات'
   There are no more comments for this video: لا يوجد المزيد من التعليقات لهذا الفيديو
@@ -922,8 +918,6 @@ Comments:
   Top comments: أهم التعليقات
   Show More Replies: إظهار المزيد من الردود
   Pinned by: تم التثبيت بواسطة
-  And others: و اخرين
-  From {channelName}: من {channelName}
   Member: عضو
   View {replyCount} replies: عرض {replyCount} ردود
   Hearted: القلب

@@ -870,10 +870,6 @@ Comments:
   Getting comment replies, please wait: 'Buscando respostas, por favor, aguarde'
   Hide Comments: 'Ocultar comentários'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Mostrar'
-  Hide: 'Ocultar'
-  Replies: 'Respostas'
-  Reply: 'Resposta'
   There are no comments available for this video: 'Não há comentários disponíveis neste vídeo'
   Load More Comments: 'Buscar mais comentários'
   Newest first: Mais recentes primeiro
@@ -881,8 +877,6 @@ Comments:
   There are no more comments for this video: Não há mais comentários para este vídeo
   Show More Replies: Mostrar mais respostas
   Pinned by: Fixado por
-  And others: e outros
-  From {channelName}: A partir de {channelName}
   Member: Membro
   Hearted: Recebeu um coração
   View {replyCount} replies: Exibir {replyCount} respostas

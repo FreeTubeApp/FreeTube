@@ -597,16 +597,10 @@ Comments:
   Top comments: 'Comentarios destacados'
   Newest first: 'Máis recentes'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Ver'
-  Hide: 'Agochar'
-  Replies: 'Respostas'
-  Reply: 'Resposta'
   There are no comments available for this video: 'Este vídeo non contén ningún comentario'
   Load More Comments: 'Cargar máis comentarios'
   Pinned by: Fixado por
-  And others: e outros
   Member: Membro
-  From {channelName}: de {channelName}
   Show More Replies: Amosar máis respostas
   View {replyCount} replies: Consulta {replyCount} respostas
   Hearted: Corazón

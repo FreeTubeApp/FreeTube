@@ -955,13 +955,7 @@ Comments:
   Newest first: 'Nuutste eerste'
   View {replyCount} replies: 'Sien {replyCount} antwoorde'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: 'Sien'
-  Hide: 'Versteek'
-  Replies: 'Antwoorde'
   Show More Replies: 'Toon nog antwoorde'
-  Reply: 'Antwoord'
-  From {channelName}: 'van {channelName}'
-  And others: 'en ander'
   There are no comments available for this video: 'Daar is geen reaksies beskikbaar vir hierdie video nie'
   Load More Comments: 'Laai nog kommentare'
   Pinned by: 'Vasgemaak deur'

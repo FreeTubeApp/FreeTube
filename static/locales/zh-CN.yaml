@@ -870,10 +870,6 @@ Comments:
   Getting comment replies, please wait: '获取评论中，请稍候'
   Hide Comments: '隐藏评论'
   # Context: View 10 Replies, View 1 Reply
-  View: '观看'
-  Hide: '隐藏'
-  Replies: '回复'
-  Reply: '回复'
   There are no comments available for this video: '这个视频没有评论'
   Load More Comments: '加载更多评论'
   There are no more comments for this video: 此视频无更多评论
@@ -881,8 +877,6 @@ Comments:
   Top comments: 最热评论
   Show More Replies: 显示更多回复
   Pinned by: 置顶人
-  From {channelName}: 来自 {channelName}
-  And others: 及其他
   Member: 成员
   Hearted: 喜欢的
   View {replyCount} replies: 查看 {replyCount} 条回复

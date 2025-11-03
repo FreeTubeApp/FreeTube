@@ -612,16 +612,10 @@ Comments:
   Top comments: '인기 댓글'
   Newest first: '최신 우선'
   # Context: View 10 Replies, View 1 Reply
-  View: '보기'
-  Hide: '숨기기'
-  Replies: '답글'
-  Reply: '회신'
   There are no comments available for this video: '이 영상에 대한 댓글이 없습니다'
   Load More Comments: '더 많은 댓글 불러오기'
   Show More Replies: 더 많은 답글 보기
-  From {channelName}: '{channelName}에서'
   Pinned by: 고정된 댓글
-  And others: 및 기타
   Member: 구성원
   Hearted: 좋아요 표시한
   View {replyCount} replies: '{replyCount} 개의 답글 보기'

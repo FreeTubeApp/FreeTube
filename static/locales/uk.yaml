@@ -915,15 +915,9 @@ Comments:
   Top comments: 'Найпопулярніші коментарі'
   Newest first: 'Спочатку новіші'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Перегляд'
-  Hide: 'Сховати'
-  Replies: 'Відповіді'
-  Reply: 'Відповідь'
   There are no comments available for this video: 'Немає коментарів до цього відео'
   Load More Comments: 'Завантажити більше коментарів'
   Show More Replies: Показати інші відповіді
-  From {channelName}: від {channelName}
-  And others: та інших
   Pinned by: Закріплено
   Member: Учасник
   Hearted: З сердечком

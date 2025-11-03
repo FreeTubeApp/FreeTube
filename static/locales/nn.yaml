@@ -587,16 +587,10 @@ Comments:
   Top comments: 'Toppkommentarar'
   Newest first: 'Nyaste først'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Vis'
-  Hide: 'Skjul'
-  Replies: 'Svar'
-  Reply: 'Svar'
   There are no comments available for this video: 'Det er ingen kommentarar tilgjengeleg for denne videoen'
   Load More Comments: 'Last inn fleire kommentarar'
   Show More Replies: Vis fleire svar
   Pinned by: Festa av
-  And others: og andre
-  From {channelName}: frå {channelName}
   Member: Medlem
   Hearted: Likt
   View {replyCount} replies: Vis {replyCount} svar

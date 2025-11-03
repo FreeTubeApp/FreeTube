@@ -870,18 +870,12 @@ Comments:
   Getting comment replies, please wait: '正在取得留言回覆，請稍候'
   Hide Comments: '隱藏留言'
   # Context: View 10 Replies, View 1 Reply
-  View: '觀看'
-  Hide: '隱藏'
-  Replies: '回覆'
-  Reply: '回覆'
   There are no comments available for this video: '這個影片沒有留言'
   Load More Comments: '載入更多留言'
   There are no more comments for this video: 此影片無更多留言
   Newest first: 最新優先
   Top comments: 最熱門留言
   Show More Replies: 顯示更多回覆
-  And others: 與其他人
-  From {channelName}: 來自 {channelName}
   Pinned by: 釘選由
   Member: 成員
   View {replyCount} replies: 檢視 {replyCount} 則回覆

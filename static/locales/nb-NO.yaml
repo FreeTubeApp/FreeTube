@@ -873,20 +873,14 @@ Comments:
   Getting comment replies, please wait: 'Henter kommentarsvar...'
   Hide Comments: 'Skjul kommentarer'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Vis'
-  Hide: 'Skjul'
-  Replies: 'Svar'
-  Reply: 'Svar'
   There are no comments available for this video: 'Det er ingen kommentarer tilgjengelig på denne videoen'
   Load More Comments: 'Last inn flere kommentarer'
   Newest first: Nyeste først
   There are no more comments for this video: Ingen flere kommentarer på denne videoen
   Top comments: Toppkommentarer
   Show More Replies: Vis flere svar
-  From {channelName}: fra {channelName}
   Pinned by: Festet av
   Member: Medlem
-  And others: og andre
   View {replyCount} replies: Vis {replyCount} svar
   Hearted: Hjertemerket
   Subscribed: Abonnert
