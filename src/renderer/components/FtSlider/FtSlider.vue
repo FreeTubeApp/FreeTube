@@ -20,8 +20,7 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue'
-import { useId } from '../../composables/use-id-polyfill.js'
+import { computed, ref, useId, watch } from 'vue'
 
 const props = defineProps({
   label: {

@@ -260,7 +260,7 @@ export default defineComponent({
 
     window.addEventListener('resize', this.calculateWindowWidth)
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     if ('mediaSession' in navigator) {
       navigator.mediaSession.setActionHandler('previoustrack', null)
       navigator.mediaSession.setActionHandler('nexttrack', null)

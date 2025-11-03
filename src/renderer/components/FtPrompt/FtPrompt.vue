@@ -1,5 +1,5 @@
 <template>
-  <portal to="promptPortal">
+  <Teleport to=".app">
     <div
       class="prompt"
       tabindex="-1"
@@ -52,12 +52,11 @@
         </slot>
       </FtCard>
     </div>
-  </portal>
+  </Teleport>
 </template>
 
 <script setup>
-import { nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
-import { useId } from '../../composables/use-id-polyfill'
+import { nextTick, onBeforeUnmount, onMounted, ref, useId } from 'vue'
 
 import store from '../../store/index'
 
@@ -112,6 +111,7 @@ let lastActiveElement = null
 onMounted(() => {
   lastActiveElement = document.activeElement
   document.addEventListener('keydown', handleEscape, true)
+  store.commit('addOpenPrompt', id)
 
   nextTick(() => {
     promptButtons = Array.from(promptCard.value.$el.querySelectorAll('.btn.ripple, .iconButton'))
@@ -121,6 +121,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleEscape, true)
+  store.commit('removeOpenPrompt', id)
   nextTick(() => lastActiveElement?.focus())
 })
 
