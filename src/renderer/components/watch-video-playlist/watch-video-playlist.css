@@ -210,21 +210,8 @@
   }
 }
 
-/* The primary input mechanism includes a pointing device of limited accuracy, such as a finger on a touchscreen. */
-@media (pointer: coarse) {
-  .progressBarPreview {
-    display: none;
-  }
-
-  /* Show progress bar as always expanded */
-  .playlistProgressBar {
-    block-size: 12px;
-    margin-block: -3px;
-  }
-}
-
-/* The primary input mechanism does not include a pointing device.. */
-@media (pointer: none) {
+/* The primary input mechanism does not include a pointing device or includes a pointing device of limited accuracy, such as a finger on a touchscreen. */
+@media (pointer: none), (pointer: coarse) {
   .progressBarPreview {
     display: none;
   }
