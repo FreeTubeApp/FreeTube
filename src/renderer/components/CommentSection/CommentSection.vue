@@ -165,7 +165,7 @@
             </span>
             <template v-else>
               <template v-if="comment.hasOwnerReplied">
-                <span v-if="comment.hasOwnerReplied  && comment.numReplies > 1">
+                <span v-if="comment.hasOwnerReplied && comment.numReplies > 1">
                   {{ $t("Comments.View {replyCount} replies from {channelName} and others", { replyCount: comment.numReplies, channelName }) }}
                 </span>
                 <span v-else-if="comment.hasOwnerReplied">
