@@ -12,8 +12,6 @@ Copy: 'Afrita'
 Paste: 'Líma'
 Delete: 'Eyða'
 Select all: 'Velja allt'
-Reload: 'Endurlesa'
-Force Reload: 'Þvinga endurlestur'
 Toggle Developer Tools: 'Víxla forritaratólum af/á'
 Actual size: 'Raunstærð'
 Zoom in: 'Renna að'
@@ -1086,8 +1084,6 @@ KeyboardShortcutPrompt:
   Captions: Víxla skýringartextum af/á
   Full Window: Víxla fullum glugga af/á
   Theatre Mode: Víxla bíóham af/á
-  Restart Window: Endurræsa glugga
-  Force Restart Window: Þvinga endurræsingu glugga
   Toggle Developer Tools: Víxla forritunarverkfærum af/á
   Play: Víxla spilun / í bið
   Next Frame: Næsti rammi (í bið)

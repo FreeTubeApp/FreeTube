@@ -14,9 +14,7 @@ Copy: Copy
 Paste: Paste
 Delete: Delete
 Select all: Select all
-Reload: Reload
-Force Reload: Force Reload
-Toggle developer tools: Toggle developer tools
+Toggle Developer Tools: Toggle developer tools
 Actual size: Actual size
 Zoom in: Zoom in
 Zoom out: Zoom out
@@ -1169,8 +1167,6 @@ KeyboardShortcutPrompt:
     App:
       Situational: 'App: Situational'
       General: App: General
-  Restart Window: Restart window
-  Force Restart Window: Force restart window
   Show keyboard shortcuts: Show keyboard shortcuts
   History backward: Go back one page
   History forward: Go forward one page

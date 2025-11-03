@@ -131,7 +131,6 @@ import {
   faMastodon,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
-import PortalVue from 'portal-vue'
 
 // Please keep the list of constants sorted by name
 // to avoid code conflict and duplicate entries
@@ -269,7 +268,6 @@ app
   .use(router)
   .use(store)
   .use(i18n)
-  .use(PortalVue)
 
 router.isReady().then(() => {
   app.mount('#app')

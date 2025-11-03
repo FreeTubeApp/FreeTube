@@ -12,8 +12,6 @@ Copy: 'Copiere'
 Paste: 'Lipire'
 Delete: 'Ștergeți'
 Select all: 'Selectați toate'
-Reload: 'Reîncărcare'
-Force Reload: 'Reîncărcare forțată'
 Toggle Developer Tools: 'Comutați instrumentele pentru dezvoltatori'
 Actual size: 'Mărimea actuală'
 Zoom in: 'Mărire'
@@ -1079,14 +1077,12 @@ KeyboardShortcutPrompt:
   Small Rewind: Derulează înapoi X secunde pe baza intervalului de derulare înapoi și a vitezei actuale de redare video
   Last Chapter: Ultimul capitol
   Decrease Video Speed: Reducerea vitezei video în funcție de intervalul ratei de redare video
-  Restart Window: fereastra de repornire
   Volume Up: Creșterea volumului
   Skip by Tenths: Salt prin video în funcție de procent (3 salturi la 30% din durată)
   Focus Search: Concentrați-vă pe bara de căutare
   Last Frame: Cadrul anterior (în timpul pauzei)
   Next Frame: Următorul cadru (în timpul pauzei)
   Small Fast Forward: Derulare rapidă X secunde pe baza intervalului de derulare rapidă și a vitezei actuale de redare video
-  Force Restart Window: fereastră de repornire forțată
   Next Chapter: Capitolul următor
   Zoom In: zoom in
   Zoom Out: micșorați imaginea

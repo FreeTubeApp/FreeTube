@@ -152,8 +152,6 @@ const KeyboardShortcuts = {
       NEW_WINDOW: 'ctrl+N',
       MINIMIZE_WINDOW: 'ctrl+M',
       CLOSE_WINDOW: 'ctrl+W',
-      RESTART_WINDOW: 'ctrl+R',
-      FORCE_RESTART_WINDOW: 'ctrl+shift+R',
       TOGGLE_DEVTOOLS: 'ctrl+shift+I',
       FOCUS_SEARCH: 'alt+D',
       SEARCH_IN_NEW_WINDOW: 'shift+enter',

@@ -9,8 +9,6 @@ Copy: 'Copiar'
 Paste: 'Colar'
 Delete: 'Excluir'
 Select all: 'Selecionar tudo'
-Reload: 'Recarregar'
-Force Reload: 'Recarregar forçadamente'
 Toggle Developer Tools: 'Alternar ferramentas de desenvolvedor'
 Actual size: 'Tamanho real'
 Zoom in: 'Ampliar'
@@ -1090,10 +1088,8 @@ KeyboardShortcutPrompt:
   Increase Video Speed: Aumentar a velocidade do vídeo com base no intervalo da taxa de reprodução do vídeo
   Decrease Video Speed: Diminuir a velocidade do vídeo com base no intervalo da taxa de reprodução do vídeo
   Minimize Window: Minimizar janela
-  Force Restart Window: Forçar reinicialização da janela
   Zoom In: Ampliar
   Close Window: Fechar janela
-  Restart Window: Reiniciar janela
   Focus Search: Focar na barra de busca
   Search in New Window: Buscar em uma nova janela
   Zoom Out: Diminuir

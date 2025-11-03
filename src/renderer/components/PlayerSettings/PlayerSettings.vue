@@ -264,7 +264,7 @@ import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtSlider from '../FtSlider/FtSlider.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../FtButton/FtButton.vue'
-import FtInput from '../ft-input/ft-input.vue'
+import FtInput from '../FtInput/FtInput.vue'
 import FtTooltip from '../FtTooltip/FtTooltip.vue'
 
 import store from '../../store/index'

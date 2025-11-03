@@ -44,7 +44,6 @@ export default defineComponent({
       latestBlogUrl: '',
       updateChangelog: '',
       changeLogTitle: '',
-      isPromptOpen: false,
       lastExternalLinkToBeOpened: '',
       showExternalLinkOpeningPrompt: false,
       externalLinkOpeningPromptValues: [
@@ -154,6 +153,10 @@ export default defineComponent({
     appTitle: function () {
       return this.$store.getters.getAppTitle
     },
+
+    isAnyPromptOpen: function () {
+      return this.$store.getters.isAnyPromptOpen
+    }
   },
   watch: {
     windowTitle: 'setWindowTitle',
@@ -328,10 +331,6 @@ export default defineComponent({
       }
 
       this.showBlogBanner = false
-    },
-
-    handlePromptPortalUpdate: function(data) {
-      this.isPromptOpen = data.hasContent
     },
 
     openDownloadsPage: function () {

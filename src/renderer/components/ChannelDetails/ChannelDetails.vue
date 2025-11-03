@@ -258,7 +258,7 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtShareButton from '../FtShareButton/FtShareButton.vue'
 import FtSubscribeButton from '../FtSubscribeButton/FtSubscribeButton.vue'
-import FtInput from '../ft-input/ft-input.vue'
+import FtInput from '../FtInput/FtInput.vue'
 
 import store from '../../store/index'
 
