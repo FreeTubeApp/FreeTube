@@ -12,8 +12,6 @@ Copy: 'Копиране'
 Paste: 'Поставяне'
 Delete: 'Изтриване'
 Select all: 'Избиране на всичко'
-Reload: 'Презареждане'
-Force Reload: 'Принудително презареждане'
 Toggle Developer Tools: 'Показване на инструменти за разработчици'
 Actual size: 'Действителен размер'
 Zoom in: 'Увеличаване'
@@ -1102,8 +1100,6 @@ KeyboardShortcutPrompt:
   Take Screenshot: Снимка на екрана
   Minimize Window: Минимизиране на прозореца
   Close Window: Затваряне на прозореца
-  Restart Window: Рестартиране на прозореца
-  Force Restart Window: Принудително рестартиране на прозореца
   Toggle Developer Tools: Превключване на инструментите за разработчици
   Reset Zoom: Нулиране на мащабирането
   Zoom In: Увеличаване на мащаба

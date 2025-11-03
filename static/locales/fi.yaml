@@ -9,8 +9,6 @@ Copy: 'Kopioi'
 Paste: 'Liitä'
 Delete: 'Poista'
 Select all: 'Valitse kaikki'
-Reload: 'Lataa uudelleen'
-Force Reload: 'Pakota uudelleenlataus'
 Toggle Developer Tools: 'Kehittäjän työkalut päällä/pois'
 Actual size: 'Todellinen koko'
 Zoom in: 'Lähennä'
@@ -931,8 +929,6 @@ KeyboardShortcutPrompt:
   Theatre Mode: Teatteritila päälle/pois
   Minimize Window: Pienennä ikkuna
   Close Window: Sulje ikkuna
-  Restart Window: Avaa ikkuna uudelleen
-  Force Restart Window: Pakota ikkunan uudelleenavaus
   Search in New Window: Hae uudessa ikkunassa
   Last Frame: Aiempi kuvaruutu (kun pysäytetty)
   Next Frame: Seuraava kuvaruutu (kun pysäytetty)

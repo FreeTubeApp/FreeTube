@@ -12,8 +12,6 @@ Copy: 'העתקה'
 Paste: 'הדבקה'
 Delete: 'מחיקה'
 Select all: 'בחירה בהכול'
-Reload: 'רענון'
-Force Reload: 'רענון בכוח'
 Toggle Developer Tools: 'הפעלת / השבתת כלים למפתחים'
 Actual size: 'גודל מקורי'
 Zoom in: 'הגדלה'
@@ -1080,7 +1078,6 @@ KeyboardShortcutPrompt:
   Zoom Out: התרחקות
   Zoom In: התקרבות
   Reset Zoom: איפוס המרחק / קנה מידת ממשק המשתמש
-  Force Restart Window: אילוץ הפעלת החלון מחדש
   Close Window: סגירת החלון
   Next Frame: התמונית הבאה (תוך כדי השהייה)
   Last Frame: התמונית הקודמת (תוך כדי השהייה)
@@ -1088,7 +1085,6 @@ KeyboardShortcutPrompt:
   Skip by Tenths: דילוג בתוך הווידאו באחוזים (3 דילוגים ל־30% ממשך הנגינה)
   Volume Up: הגברת עוצמת השמע
   Volume Down: הנמכת עוצמת השמע
-  Restart Window: הפעלת החלון מחדש
   Full Window: מסך מלא/רגיל
   Toggle Developer Tools: הצגת/הסתרת כלי פיתוח
   Minimize Window: מזעור החלון

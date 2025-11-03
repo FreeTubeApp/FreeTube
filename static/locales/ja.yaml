@@ -9,8 +9,6 @@ Copy: 'コピー'
 Paste: '貼り付け'
 Delete: '削除'
 Select all: 'すべて選択'
-Reload: '再読み込み'
-Force Reload: '強制的に再読み込み'
 Toggle Developer Tools: '開発者ツールの切替'
 Actual size: '実際のサイズ'
 Zoom in: '拡大'
@@ -1091,8 +1089,6 @@ KeyboardShortcutPrompt:
   Reset Zoom: ズームレベル / UI拡大率をリセット
   Zoom In: 拡大
   Zoom Out: 縮小
-  Restart Window: ウィンドウを再起動
-  Force Restart Window: ウィンドウを強制再起動
   Toggle Developer Tools: 開発者ツールの切り替え
   Focus Search: 検索バーにフォーカスする
   Keyboard Shortcuts: キーボード ショートカット
