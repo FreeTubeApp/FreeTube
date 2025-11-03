@@ -239,6 +239,26 @@
                 />
                 {{ reply.likes }}
               </template>
+              <span
+                v-if="reply.isHearted"
+                class="commentHeartBadge"
+              >
+                <img
+                  :src="channelThumbnail"
+                  :title="$t('Comments.Hearted')"
+                  :aria-label="$t('Comments.Hearted')"
+                  class="commentHeartBadgeImg"
+                  alt=""
+                >
+                <FontAwesomeIcon
+                  :icon="['fas', 'heart']"
+                  class="commentHeartBadgeWhite"
+                />
+                <FontAwesomeIcon
+                  :icon="['fas', 'heart']"
+                  class="commentHeartBadgeRed"
+                />
+              </span>
             </p>
             <p
               v-if="reply.numReplies > 0"
@@ -308,7 +328,7 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtCard from '../ft-card/ft-card.vue'
 import FtLoader from '../FtLoader/FtLoader.vue'
-import FtSelect from '../ft-select/ft-select.vue'
+import FtSelect from '../FtSelect/FtSelect.vue'
 import FtTimestampCatcher from '../FtTimestampCatcher.vue'
 
 import store from '../../store/index'

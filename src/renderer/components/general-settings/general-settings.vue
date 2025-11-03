@@ -11,6 +11,7 @@
           @change="updateCheckForUpdates"
         />
         <ft-toggle-switch
+          v-if="supportsLocalAPI"
           :label="$t('Settings.General Settings.Fallback to Non-Preferred Backend on Failure')"
           :default-value="backendFallback"
           :compact="true"
@@ -23,6 +24,13 @@
           :compact="true"
           :tooltip="$t('Settings.General Settings.Auto Load Next Page.Tooltip')"
           @change="updateGeneralAutoLoadMorePaginatedItemsEnabled"
+        />
+        <ft-toggle-switch
+          v-if="!isMac && usingElectron"
+          :label="$t('Settings.General Settings.Minimize to system tray')"
+          :default-value="hideToTrayOnMinimize"
+          :compact="true"
+          @change="updateHideToTrayOnMinimize"
         />
       </div>
       <div class="switchColumn">
@@ -39,6 +47,7 @@
           @change="updateEnableSearchSuggestions"
         />
         <ft-toggle-switch
+          v-if="usingElectron"
           :label="$t('Settings.General Settings.Open Deep Links In New Window')"
           :default-value="openDeepLinksInNewWindow"
           :compact="true"
@@ -92,6 +101,7 @@
         @change="updateCurrentLocale"
       />
       <ft-select
+        v-if="regionDataLoaded"
         :placeholder="$t('Settings.General Settings.Region for Trending')"
         :value="region"
         :select-names="regionNames"

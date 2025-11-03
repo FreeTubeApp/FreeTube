@@ -49,17 +49,7 @@
       />
       <FtButton
         :label="$t('Settings.Data Settings.Export Playlists')"
-        @click="exportPlaylistsForOlderVersionsSometimes"
-      />
-    </FtFlexBox>
-    <FtFlexBox>
-      <FtToggleSwitch
-        :label="$t('Settings.Data Settings.Export Playlists For Older FreeTube Versions.Label')"
-        :compact="true"
-        :default-value="shouldExportPlaylistForOlderVersions"
-        :tooltip="$t('Settings.Data Settings.Export Playlists For Older FreeTube Versions.Tooltip')"
-        :tooltip-allow-newlines="true"
-        @change="shouldExportPlaylistForOlderVersions = !shouldExportPlaylistForOlderVersions"
+        @click="exportPlaylists"
       />
     </FtFlexBox>
     <FtPrompt
@@ -75,13 +65,12 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useI18n } from '../composables/use-i18n-polyfill'
-import { useRouter } from 'vue-router/composables'
+import { useRouter } from 'vue-router'
 
 import FtButton from './FtButton/FtButton.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
 import FtPrompt from './FtPrompt/FtPrompt.vue'
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
-import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
 
 import store from '../store/index'
 
@@ -95,6 +84,7 @@ import {
   showToast,
   writeFileWithPicker,
 } from '../helpers/utils'
+import { processToBeAddedPlaylistVideo } from '../helpers/playlists'
 
 const IMPORT_DIRECTORY_ID = 'data-settings-import'
 const START_IN_DIRECTORY = 'downloads'
@@ -963,8 +953,6 @@ async function exportHistory() {
 
 const allPlaylists = computed(() => store.getters.getAllPlaylists)
 
-const shouldExportPlaylistForOlderVersions = ref(false)
-
 async function importPlaylists() {
   let response
   try {
@@ -1032,6 +1020,8 @@ async function importPlaylists() {
     'videoCount',
   ]
 
+  const knownKeys = [...requiredKeys, ...optionalKeys, ...ignoredKeys]
+
   const requiredVideoKeys = [
     'videoId',
     'title',
@@ -1046,6 +1036,8 @@ async function importPlaylists() {
     // 'playlistItemId',
   ]
 
+  const newPlaylists = []
+
   playlists.forEach((playlistData) => {
     // We would technically already be done by the time the data is parsed,
     // however we want to limit the possibility of malicious data being sent
@@ -1053,9 +1045,10 @@ async function importPlaylists() {
 
     const playlistObject = {}
     const videoIdToBeAddedSet = new Set()
+    let countRequiredKeysPresent = 0
 
     Object.keys(playlistData).forEach((key) => {
-      if ([requiredKeys, optionalKeys, ignoredKeys].every((ks) => !ks.includes(key))) {
+      if (!knownKeys.includes(key)) {
         const message = `${t('Settings.Data Settings.Unknown data key')}: ${key}`
         showToast(message)
       } else if (key === 'videos') {
@@ -1070,17 +1063,22 @@ async function importPlaylists() {
           }
         })
 
-        playlistObject[key] = videoArray
+        playlistObject.videos = videoArray
+
+        if (requiredKeys.includes(key)) {
+          countRequiredKeysPresent++
+        }
       } else if (!ignoredKeys.includes(key)) {
         // Do nothing for keys to be ignored
         playlistObject[key] = playlistData[key]
+
+        if (requiredKeys.includes(key)) {
+          countRequiredKeysPresent++
+        }
       }
     })
 
-    const playlistObjectKeys = Object.keys(playlistObject)
-    const playlistObjectHasAllRequiredKeys = requiredKeys.every((k) => playlistObjectKeys.includes(k))
-
-    if (!playlistObjectHasAllRequiredKeys) {
+    if (countRequiredKeysPresent !== requiredKeys.length) {
       const message = t('Settings.Data Settings.Playlist insufficient data', { playlist: playlistData.playlistName })
       showToast(message)
       return
@@ -1095,34 +1093,49 @@ async function importPlaylists() {
     })
 
     if (existingPlaylist === undefined) {
-      store.dispatch('addPlaylist', playlistObject)
+      newPlaylists.push(playlistObject)
       return
     }
 
-    const duplicateVideoPresentInToBeAdded = playlistObject.videos.length > videoIdToBeAddedSet.size
-    const existingVideoIdSet = existingPlaylist.videos.reduce((video) => videoIdToBeAddedSet.add(video.videoId), new Set())
-    const duplicateVideoPresentInExistingPlaylist = existingPlaylist.videos.length > existingVideoIdSet.size
-    const shouldAddDuplicateVideos = duplicateVideoPresentInToBeAdded || duplicateVideoPresentInExistingPlaylist
+    /** @type {Set<string> | undefined} */
+    let existingVideoIdSet
+
+    let shouldAddDuplicateVideos = playlistObject.videos.length > videoIdToBeAddedSet.size
+
+    if (!shouldAddDuplicateVideos) {
+      existingVideoIdSet = existingPlaylist.videos.reduce((set, video) => set.add(video.videoId), new Set())
+      shouldAddDuplicateVideos = existingPlaylist.videos.length > existingVideoIdSet.size
+    }
+
+    const playlistVideos = [...existingPlaylist.videos]
 
     playlistObject.videos.forEach((video) => {
       let videoExists = false
       if (shouldAddDuplicateVideos) {
         if (video.playlistItemId != null) {
           // Find by `playlistItemId` if present
-          videoExists = existingPlaylist.videos.some((x) => {
+          videoExists = playlistVideos.some((x) => {
             // Allow duplicate (by videoId) videos to be added
             return x.videoId === video.videoId && x.playlistItemId === video.playlistItemId
           })
         } else {
           // Older playlist exports have no `playlistItemId` but have `timeAdded`
           // Which might be duplicate for copied playlists with duplicate `videoId`
-          videoExists = existingPlaylist.videos.some((x) => {
+          videoExists = playlistVideos.some((x) => {
             // Allow duplicate (by videoId) videos to be added
             return x.videoId === video.videoId && x.timeAdded === video.timeAdded
           })
         }
+      } else if (existingVideoIdSet !== undefined) {
+        // Disallow duplicate (by videoId) videos to be added
+
+        if (existingVideoIdSet.has(video.videoId)) {
+          videoExists = true
+        } else {
+          existingVideoIdSet.add(video.videoId)
+        }
       } else {
-        videoExists = existingPlaylist.videos.some((x) => {
+        videoExists = playlistVideos.some((x) => {
           // Disallow duplicate (by videoId) videos to be added
           return x.videoId === video.videoId
         })
@@ -1130,12 +1143,8 @@ async function importPlaylists() {
 
       if (!videoExists) {
         // Keep original `timeAdded` value
-        const payload = {
-          _id: existingPlaylist._id,
-          videoData: video,
-        }
-
-        store.dispatch('addVideo', payload)
+        processToBeAddedPlaylistVideo(video)
+        playlistVideos.push(video)
       }
     })
     // Update playlist's `lastUpdatedAt` & other attributes
@@ -1144,8 +1153,13 @@ async function importPlaylists() {
       // Only these attributes would be updated (besides videos)
       playlistName: playlistObject.playlistName,
       description: playlistObject.description,
+      videos: playlistVideos
     })
   })
+
+  if (newPlaylists.length > 0) {
+    store.dispatch('addPlaylists', newPlaylists)
+  }
 
   showToast(t('Settings.Data Settings.All playlists has been successfully imported'))
 }
@@ -1161,52 +1175,6 @@ async function exportPlaylists() {
   await promptAndWriteToFile(
     exportFileName,
     playlistsDb,
-    t('Settings.Data Settings.Playlist File'),
-    'application/x-freetube-db',
-    '.db',
-    t('Settings.Data Settings.All playlists has been successfully exported')
-  )
-}
-
-function exportPlaylistsForOlderVersionsSometimes() {
-  if (shouldExportPlaylistForOlderVersions.value) {
-    exportPlaylistsForOlderVersions()
-  } else {
-    exportPlaylists()
-  }
-}
-
-async function exportPlaylistsForOlderVersions() {
-  const dateStr = getTodayDateStrLocalTimezone()
-  const exportFileName = 'freetube-playlists-as-single-favorites-playlist-' + dateStr + '.db'
-
-  const favoritesPlaylistData = {
-    playlistName: 'Favorites',
-    protected: true,
-    videos: [],
-  }
-
-  allPlaylists.value.forEach((playlist) => {
-    playlist.videos.forEach((video) => {
-      const videoAlreadyAdded = favoritesPlaylistData.videos.some((v) => {
-        return v.videoId === video.videoId
-      })
-      if (videoAlreadyAdded) { return }
-
-      favoritesPlaylistData.videos.push(
-        Object.assign({
-          // The "required" keys during import (but actually unused) in older versions
-          isLive: false,
-          paid: false,
-          published: '',
-        }, video)
-      )
-    })
-  })
-
-  await promptAndWriteToFile(
-    exportFileName,
-    JSON.stringify([favoritesPlaylistData]),
     t('Settings.Data Settings.Playlist File'),
     'application/x-freetube-db',
     '.db',

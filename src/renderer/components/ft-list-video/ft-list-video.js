@@ -173,6 +173,10 @@ export default defineComponent({
       return this.$route.name === 'history'
     },
 
+    inSubscriptions: function () {
+      return this.$route.name === 'subscriptions' || this.$route.name === 'default'
+    },
+
     inUserPlaylist: function () {
       return this.playlistTypeFinal === 'user' || this.selectedUserPlaylist != null
     },
@@ -242,6 +246,10 @@ export default defineComponent({
       return this.$store.getters.getHideSharingActions
     },
 
+    showInvidiousShareOptions: function () {
+      return this.backendPreference === 'invidious' || this.$store.getters.getBackendFallback
+    },
+
     dropdownOptions: function () {
       const options = [
         {
@@ -264,10 +272,12 @@ export default defineComponent({
             label: this.$t('Video.Copy YouTube Embedded Player Link'),
             value: 'copyYoutubeEmbed'
           },
-          {
-            label: this.$t('Video.Copy Invidious Link'),
-            value: 'copyInvidious'
-          },
+          ...this.showInvidiousShareOptions
+            ? [{
+                label: this.$t('Video.Copy Invidious Link'),
+                value: 'copyInvidious'
+              }]
+            : [],
           {
             type: 'divider'
           },
@@ -279,10 +289,12 @@ export default defineComponent({
             label: this.$t('Video.Open YouTube Embedded Player'),
             value: 'openYoutubeEmbed'
           },
-          {
-            label: this.$t('Video.Open in Invidious'),
-            value: 'openInvidious'
-          }
+          ...this.showInvidiousShareOptions
+            ? [{
+                label: this.$t('Video.Open in Invidious'),
+                value: 'openInvidious'
+              }]
+            : [],
         )
         if (this.channelId !== null) {
           options.push(
@@ -293,10 +305,12 @@ export default defineComponent({
               label: this.$t('Video.Copy YouTube Channel Link'),
               value: 'copyYoutubeChannel'
             },
-            {
-              label: this.$t('Video.Copy Invidious Channel Link'),
-              value: 'copyInvidiousChannel'
-            },
+            ...this.showInvidiousShareOptions
+              ? [{
+                  label: this.$t('Video.Copy Invidious Channel Link'),
+                  value: 'copyInvidiousChannel'
+                }]
+              : [],
             {
               type: 'divider'
             },
@@ -304,15 +318,17 @@ export default defineComponent({
               label: this.$t('Video.Open Channel in YouTube'),
               value: 'openYoutubeChannel'
             },
-            {
-              label: this.$t('Video.Open Channel in Invidious'),
-              value: 'openInvidiousChannel'
-            }
+            ...this.showInvidiousShareOptions
+              ? [{
+                  label: this.$t('Video.Open Channel in Invidious'),
+                  value: 'openInvidiousChannel'
+                }]
+              : [],
           )
         }
       }
 
-      if (this.channelId !== null) {
+      if (this.channelId !== null && !this.inSubscriptions) {
         const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
         const channelShouldBeHidden = hiddenChannels.some(c => c.name === this.channelId)
 
@@ -391,8 +407,8 @@ export default defineComponent({
     watchedProgressSavingEnabled: function () {
       return ['auto', 'semi-auto'].includes(this.$store.getters.getWatchedProgressSavingMode)
     },
-    autosaveWatchedProgress: function () {
-      return this.$store.getters.getWatchedProgressSavingMode === 'auto'
+    rememberHistory: function () {
+      return this.$store.getters.getRememberHistory
     },
 
     saveVideoHistoryWithLastViewedPlaylist: function () {
@@ -642,7 +658,9 @@ export default defineComponent({
       }
       this.openInExternalPlayer(payload)
 
-      this.markAsWatched()
+      if (this.rememberHistory) {
+        this.markAsWatched()
+      }
     },
 
     handleOptionsClick: function (option) {
@@ -850,8 +868,6 @@ export default defineComponent({
         _id: this.quickBookmarkPlaylist._id,
         videoData,
       })
-      // Update playlist's `lastUpdatedAt`
-      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
 
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been saved'))
@@ -862,8 +878,6 @@ export default defineComponent({
         // Remove all playlist items with same videoId
         videoId: this.id,
       })
-      // Update playlist's `lastUpdatedAt`
-      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
 
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been removed from your saved list'))
@@ -887,7 +901,6 @@ export default defineComponent({
       'updateChannelsHidden',
       'showAddToPlaylistPromptForManyVideos',
       'addVideo',
-      'updatePlaylist',
       'removeVideo',
     ])
   }

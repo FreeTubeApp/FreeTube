@@ -45,7 +45,7 @@
           :value="newTitle"
           :maxlength="255"
           @input="handlePlaylistNameInput"
-          @keydown.enter.native="savePlaylistInfo"
+          @keydown.enter="savePlaylistInfo"
         />
         <FtFlexBox v-if="inputPlaylistNameBlank">
           <p>
@@ -67,9 +67,9 @@
           {{ title }}
         </h2>
         <p>
-          {{ $tc('Global.Counts.Video Count', videoCount, { count: parsedVideoCount }) }}
+          {{ t('Global.Counts.Video Count', { count: parsedVideoCount }, videoCount) }}
           <span v-if="!hideViews && !isUserPlaylist">
-            - {{ $tc('Global.Counts.View Count', viewCount, { count: parsedViewCount }) }}
+            - {{ t('Global.Counts.View Count', { count: parsedViewCount }, viewCount) }}
           </span>
           <span>- </span>
           <span v-if="infoSource !== 'local'">
@@ -92,7 +92,7 @@
       :show-label="false"
       :value="newDescription"
       @input="(input) => newDescription = input"
-      @keydown.enter.native="savePlaylistInfo"
+      @keydown.enter="savePlaylistInfo"
     />
     <p
       v-else
@@ -177,7 +177,7 @@
             :title="$t('User Playlists.Export Playlist')"
             :icon="['fas', 'file-arrow-down']"
             theme="secondary"
-            @click="handlePlaylistExport"
+            @click="showExportPrompt = true"
           />
           <FtIconButton
             v-if="!editMode && userPlaylistDuplicateItemCount > 0"
@@ -251,6 +251,13 @@
         is-first-option-destructive
         @click="handleRemoveDuplicateVideosPromptAnswer"
       />
+      <FtPrompt
+        v-if="showExportPrompt"
+        :label="t('Settings.Data Settings.Select Export Type')"
+        :option-names="exportNames"
+        :option-values="EXPORT_VALUES"
+        @click="handleExport"
+      />
     </div>
   </div>
 </template>
@@ -258,7 +265,7 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-import { useRouter } from 'vue-router/composables'
+import { useRouter } from 'vue-router'
 
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
@@ -275,6 +282,7 @@ import {
   showToast,
   getTodayDateStrLocalTimezone,
   writeFileWithPicker,
+  deepCopy,
 } from '../../helpers/utils'
 import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 
@@ -323,12 +331,20 @@ const props = defineProps({
     type: Array,
     required: true
   },
+  sortedVideos: {
+    type: Array,
+    required: true
+  },
   viewCount: {
     type: Number,
     required: true,
   },
   totalPlaylistDuration: {
     type: Number,
+    required: true
+  },
+  isDurationApproximate: {
+    type: Boolean,
     required: true
   },
   lastUpdated: {
@@ -366,6 +382,7 @@ const editMode = ref(false)
 const showDeletePlaylistPrompt = ref(false)
 const showRemoveVideosOnWatchPrompt = ref(false)
 const showRemoveDuplicateVideosPrompt = ref(false)
+const showExportPrompt = ref(false)
 const newTitle = ref(props.title)
 const newDescription = ref(props.description)
 
@@ -382,7 +399,17 @@ const durationFormatted = computed(() => {
     seconds: total % 60,
   }
 
-  return new Intl.DurationFormat([locale.value, 'en'], { style: 'short' }).format(duration)
+  let formatted = new Intl.DurationFormat([locale.value, 'en'], { style: 'short' }).format(duration)
+
+  if (props.moreVideoDataAvailable && !isUserPlaylist.value) {
+    formatted += '+'
+  }
+
+  if (props.isDurationApproximate && formatted) {
+    formatted = `~${formatted}`
+  }
+
+  return formatted
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */
@@ -455,7 +482,7 @@ const userPlaylistAnyVideoWatched = computed(() => {
 
   const historyCacheById_ = historyCacheById.value
   return selectedUserPlaylist.value.videos.some((video) => {
-    return Object.hasOwn(historyCacheById_, video.videoId)
+    return historyCacheById_[video.videoId] !== undefined
   })
 })
 
@@ -518,6 +545,7 @@ const playlistPersistenceDisabled = computed(() => {
 
 watch(showDeletePlaylistPrompt, handlePromptToggle)
 watch(showRemoveVideosOnWatchPrompt, handlePromptToggle)
+watch(showExportPrompt, handlePromptToggle)
 
 /**
  * @param {boolean} shown
@@ -567,7 +595,7 @@ async function savePlaylistInfo() {
     playlistName: newTitle.value,
     protected: selectedUserPlaylist.value.protected,
     description: newDescription.value,
-    videos: selectedUserPlaylist.value.videos,
+    videos: deepCopy(selectedUserPlaylist.value.videos),
     _id: props.id,
   }
   try {
@@ -603,10 +631,43 @@ function handlePlaylistDeleteDisabledClick() {
   showToast(playlistDeletionDisabledLabel.value)
 }
 
-async function handlePlaylistExport() {
+const EXPORT_VALUES = [
+  'database',
+  'urls',
+  'close'
+]
+
+const exportNames = computed(() => [
+  `${t('Settings.Data Settings.Export FreeTube')} (.db)`,
+  `${t('User Playlists.Export list of URLs')} (.txt)`,
+  t('Close')
+])
+
+/**
+ * @param {'database' | 'urls' | null} value
+ */
+function handleExport(value) {
+  showExportPrompt.value = false
+
+  if (value === 'database') {
+    exportAsFreeTubeDatabase()
+  } else if (value === 'urls') {
+    exportAsListOfUrls()
+  }
+}
+
+/**
+ * @param {string} title
+ * @param {string} extension
+ */
+function getExportFilename(title, extension) {
   const dateStr = getTodayDateStrLocalTimezone()
-  const title = selectedUserPlaylist.value.playlistName.replaceAll(/[ "%*/:<>?\\|]/g, '_')
-  const exportFileName = 'freetube-playlist-' + title + '-' + dateStr + '.db'
+  const sanitisedTitle = title.replaceAll(/[ "%*/:<>?\\|]/g, '_')
+  return `freetube-playlist-${sanitisedTitle}-${dateStr}.${extension}`
+}
+
+async function exportAsFreeTubeDatabase() {
+  const exportFileName = getExportFilename(selectedUserPlaylist.value.playlistName, 'db')
 
   const data = JSON.stringify(selectedUserPlaylist.value) + '\n'
 
@@ -619,6 +680,35 @@ async function handlePlaylistExport() {
       t('Settings.Data Settings.Playlist File'),
       'application/x-freetube-db',
       '.db',
+      'single-playlist-export',
+      'downloads'
+    )
+
+    if (response) {
+      showToast(t('User Playlists.The playlist has been successfully exported'))
+    }
+  } catch (error) {
+    const message = t('Settings.Data Settings.Unable to write file')
+    showToast(`${message}: ${error}`)
+  }
+}
+
+async function exportAsListOfUrls() {
+  const exportFileName = getExportFilename(props.title, 'txt')
+
+  const data = props.sortedVideos.map((video) => {
+    return `https://www.youtube.com/watch?v=${video.videoId}`
+  }).join('\n') + '\n'
+
+  // See DataSettings.vue `promptAndWriteToFile`
+
+  try {
+    const response = await writeFileWithPicker(
+      exportFileName,
+      data,
+      '',
+      'text/plain',
+      '.txt',
       'single-playlist-export',
       'downloads'
     )
@@ -651,7 +741,7 @@ const userPlaylistWatchedVideoCount = computed(() => {
 
   const historyCacheById_ = historyCacheById.value
   return selectedUserPlaylist.value.videos.reduce((count, video) => {
-    return Object.hasOwn(historyCacheById_, video.videoId) ? count + 1 : count
+    return historyCacheById_[video.videoId] !== undefined ? count + 1 : count
   }, 0)
 })
 
@@ -698,7 +788,7 @@ async function handleRemoveDuplicateVideosPromptAnswer(option) {
     playlistName: props.title,
     protected: selectedUserPlaylist.value.protected,
     description: props.description,
-    videos: newVideoItems,
+    videos: deepCopy(newVideoItems),
     _id: props.id,
   }
   try {
@@ -735,7 +825,7 @@ async function handleRemoveVideosOnWatchPromptAnswer(option) {
     playlistName: props.title,
     protected: selectedUserPlaylist.value.protected,
     description: props.description,
-    videos: videosToWatch,
+    videos: deepCopy(videosToWatch),
     _id: props.id
   }
   try {

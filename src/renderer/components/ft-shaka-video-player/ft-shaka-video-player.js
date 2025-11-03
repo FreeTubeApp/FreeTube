@@ -1,4 +1,4 @@
-import { computed, defineComponent, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
+import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
 import shaka from 'shaka-player'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
@@ -12,6 +12,7 @@ import { StatsButton } from './player-components/StatsButton'
 import { TheatreModeButton } from './player-components/TheatreModeButton'
 import { AutoplayToggle } from './player-components/AutoplayToggle'
 import {
+  deduplicateAudioTracks,
   findMostSimilarAudioBandwidth,
   getSponsorBlockSegments,
   logShakaError,
@@ -24,6 +25,7 @@ import {
   showToast,
   writeFileWithPicker,
   throttle,
+  removeFromArrayIfExists,
 } from '../../helpers/utils'
 
 /** @typedef {import('../../helpers/sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
@@ -181,7 +183,7 @@ export default defineComponent({
     const hasMultipleAudioTracks = ref(false)
     const isLive = ref(false)
 
-    const useOverFlowMenu = ref(false)
+    const onlyUseOverFlowMenu = ref(false)
     const forceAspectRatio = ref(false)
 
     const activeLegacyFormat = shallowRef(null)
@@ -797,7 +799,7 @@ export default defineComponent({
 
         // only set this to label when we actually have labels, so that the warning doesn't show up
         // about it being set to labels, but that the audio tracks don't have labels
-        trackLabelFormat: hasMultipleAudioTracks.value ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE,
+        trackLabelFormat: hasMultipleAudioTracks.value ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE_ROLE,
         // Only set it to label if we added the captions ourselves,
         // some live streams come with subtitles in the DASH manifest, but without labels
         textTrackLabelFormat: sortedCaptions.length > 0 ? TrackLabelFormat.LABEL : TrackLabelFormat.LANGUAGE,
@@ -807,79 +809,71 @@ export default defineComponent({
       /** @type {string[]} */
       let elementList = []
 
-      if (useOverFlowMenu.value) {
+      if (onlyUseOverFlowMenu.value) {
         uiConfig.overflowMenuButtons = [
-          'ft_screenshot',
           'ft_autoplay_toggle',
+          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'playback_rate',
-          'loop',
-          'ft_audio_tracks',
           'captions',
+          'ft_audio_tracks',
+          'loop',
+          'ft_screenshot',
           'picture_in_picture',
           'ft_full_window',
-          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'recenter_vr',
           'toggle_stereoscopic',
         ]
 
         elementList = uiConfig.overflowMenuButtons
 
-        uiConfig.controlPanelElements.push('overflow_menu')
+        uiConfig.controlPanelElements.push('overflow_menu', 'fullscreen')
       } else {
         uiConfig.controlPanelElements.push(
-          'recenter_vr',
-          'toggle_stereoscopic',
           'ft_screenshot',
           'ft_autoplay_toggle',
-          'playback_rate',
-          'loop',
-          'ft_audio_tracks',
-          'captions',
+          'overflow_menu',
           'picture_in_picture',
           'ft_theatre_mode',
           'ft_full_window',
-          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality'
+          'fullscreen'
+        )
+
+        uiConfig.overflowMenuButtons.push(
+          'ft_audio_tracks',
+          'captions',
+          'playback_rate',
+          props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
+          'loop',
+          'recenter_vr',
+          'toggle_stereoscopic',
         )
 
         elementList = uiConfig.controlPanelElements
       }
 
-      uiConfig.controlPanelElements.push('fullscreen')
-
       if (!enableScreenshot.value || props.format === 'audio') {
-        const index = elementList.indexOf('ft_screenshot')
-        elementList.splice(index, 1)
+        removeFromArrayIfExists(elementList, 'ft_screenshot')
       }
 
       if (!props.theatrePossible) {
-        const index = elementList.indexOf('ft_theatre_mode')
-        // doesn't exist in overflow menu, as theatre mode only works on wide screens
-        if (index !== -1) {
-          elementList.splice(index, 1)
-        }
+        removeFromArrayIfExists(uiConfig.controlPanelElements, 'ft_theatre_mode')
       }
 
       if (!props.autoplayPossible) {
-        const index = elementList.indexOf('ft_autoplay_toggle')
-        elementList.splice(index, 1)
+        removeFromArrayIfExists(elementList, 'ft_autoplay_toggle')
       }
 
       if (props.format === 'audio') {
-        const index = elementList.indexOf('picture_in_picture')
-        elementList.splice(index, 1)
+        removeFromArrayIfExists(elementList, 'picture_in_picture')
       }
 
       if (isLive.value) {
-        const index = elementList.indexOf('loop')
-        elementList.splice(index, 1)
+        removeFromArrayIfExists(uiConfig.overflowMenuButtons, 'loop')
       }
 
       if (!useVrMode.value) {
-        const indexRecenterVr = elementList.indexOf('recenter_vr')
-        elementList.splice(indexRecenterVr, 1)
-
-        const indexToggleStereoscopic = elementList.indexOf('toggle_stereoscopic')
-        elementList.splice(indexToggleStereoscopic, 1)
+        removeFromArrayIfExists(uiConfig.overflowMenuButtons, 'recenter_vr')
+        removeFromArrayIfExists(uiConfig.overflowMenuButtons, 'toggle_stereoscopic')
       }
 
       return uiConfig
@@ -895,6 +889,7 @@ export default defineComponent({
      */
     function configureUI(firstTime = false) {
       if (firstTime) {
+        /** @type {shaka.extern.UIConfiguration} */
         const firstTimeConfig = {
           addSeekBar: seekingIsPossible.value,
           customContextMenu: true,
@@ -903,6 +898,8 @@ export default defineComponent({
           seekBarColors: {
             played: 'var(--primary-color)'
           },
+          showAudioCodec: false,
+          showVideoCodec: false,
           volumeBarColors: {
             level: 'var(--primary-color)'
           },
@@ -942,7 +939,8 @@ export default defineComponent({
         classList.contains('shaka-fast-foward-container') ||
         classList.contains('shaka-rewind-container') ||
         classList.contains('shaka-play-button-container') ||
-        classList.contains('shaka-play-button')) {
+        classList.contains('shaka-play-button') ||
+        classList.contains('shaka-controls-container')) {
         //
 
         if (event.ctrlKey || event.metaKey) {
@@ -1055,7 +1053,7 @@ export default defineComponent({
 
     /** @type {ResizeObserverCallback} */
     function resized(entries) {
-      useOverFlowMenu.value = entries[0].contentBoxSize[0].inlineSize <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
+      onlyUseOverFlowMenu.value = entries[0].contentBoxSize[0].inlineSize <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
     }
 
     // #endregion UI config
@@ -1194,16 +1192,18 @@ export default defineComponent({
     }
 
     function handleTimeupdate() {
-      const currentTime = video.value.currentTime
+      if (video.value) {
+        const currentTime = video.value.currentTime
 
-      emit('timeupdate', currentTime)
+        emit('timeupdate', currentTime)
 
-      if (showStats.value && hasLoaded.value) {
-        updateStats()
-      }
+        if (showStats.value && hasLoaded.value) {
+          updateStats()
+        }
 
-      if (useSponsorBlock.value && sponsorBlockSegments.length > 0 && canSeek()) {
-        skipSponsorBlockSegments(currentTime)
+        if (useSponsorBlock.value && sponsorBlockSegments.length > 0 && canSeek()) {
+          skipSponsorBlockSegments(currentTime)
+        }
       }
     }
 
@@ -1937,8 +1937,9 @@ export default defineComponent({
     /**
      * @param {number} seconds The number of seconds to seek by, positive values seek forwards, negative ones seek backwards
      * @param {boolean} canSeekResult Allow functions that have already checked whether seeking is possible, to skip the extra check (e.g. frameByFrame)
+     * @param {boolean} showPopUp Whether to show a pop-up with the seconds seeked
      */
-    function seekBySeconds(seconds, canSeekResult = false) {
+    function seekBySeconds(seconds, canSeekResult = false, showPopUp = false) {
       if (!(canSeekResult || canSeek())) {
         return
       }
@@ -1961,6 +1962,15 @@ export default defineComponent({
       } else {
         video_.currentTime = newTime
       }
+      if (showPopUp) {
+        const popUpLayout = seconds > 0
+          ? { icon: 'arrow-right', invertContentOrder: true }
+          : { icon: 'arrow-left', invertContentOrder: false }
+        const formattedSeconds = Math.abs(seconds)
+        showValueChange(`${formattedSeconds}s`, popUpLayout.icon, popUpLayout.invertContentOrder)
+      }
+
+      showOverlayControls()
     }
 
     // #endregion mouse and keyboard helpers
@@ -2165,12 +2175,12 @@ export default defineComponent({
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_REWIND:
           // Rewind by 2x the time-skip interval (in seconds)
           event.preventDefault()
-          seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate() * 2)
+          seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate() * 2, false, true)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_FAST_FORWARD:
           // Fast-Forward by 2x the time-skip interval (in seconds)
           event.preventDefault()
-          seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate() * 2)
+          seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate() * 2, false, true)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED:
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED_ALT:
@@ -2208,6 +2218,7 @@ export default defineComponent({
 
             const currentlyVisible = player.isTextTrackVisible()
             player.setTextTrackVisibility(!currentlyVisible)
+            showOverlayControls()
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.VOLUME_UP:
@@ -2225,9 +2236,10 @@ export default defineComponent({
           if (canChapterJump(event, 'previous')) {
             // Jump to the previous chapter
             video_.currentTime = props.chapters[props.currentChapterIndex - 1].startSeconds
+            showOverlayControls()
           } else {
             // Rewind by the time-skip interval (in seconds)
-            seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate())
+            seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate(), false, true)
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_FAST_FORWARD:
@@ -2235,9 +2247,10 @@ export default defineComponent({
           if (canChapterJump(event, 'next')) {
             // Jump to the next chapter
             video_.currentTime = (props.chapters[props.currentChapterIndex + 1].startSeconds)
+            showOverlayControls()
           } else {
             // Fast-Forward by the time-skip interval (in seconds)
-            seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate())
+            seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate(), false, true)
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE:
@@ -2270,21 +2283,24 @@ export default defineComponent({
             const percentage = parseInt(event.key) / 10
 
             video_.currentTime = seekRange.start + (length * percentage)
+            showOverlayControls()
           }
           break
         }
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LAST_FRAME:
           // `⌘+,` is for settings in MacOS
-          if (!event.metaKey) {
+          if (!event.metaKey && video_.paused) {
             event.preventDefault()
             // Return to previous frame
             frameByFrame(-1)
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.NEXT_FRAME:
-          event.preventDefault()
-          // Advance to next frame
-          frameByFrame(1)
+          if (video_.paused) {
+            event.preventDefault()
+            // Advance to next frame
+            frameByFrame(1)
+          }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.STATS:
           // Toggle stats display
@@ -2301,6 +2317,7 @@ export default defineComponent({
             // use seek range instead of duration so that it works for live streams too
             const seekRange = player.seekRange()
             video_.currentTime = seekRange.start
+            showOverlayControls()
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.END:
@@ -2310,6 +2327,7 @@ export default defineComponent({
             // use seek range instead of duration so that it works for live streams too
             const seekRange = player.seekRange()
             video_.currentTime = seekRange.end
+            showOverlayControls()
           }
           break
         case 'escape':
@@ -2471,6 +2489,10 @@ export default defineComponent({
       isOffline.value = true
     }
 
+    function fullscreenChangeHandler() {
+      nextTick(showOverlayControls)
+    }
+
     window.addEventListener('online', onlineHandler)
     window.addEventListener('offline', offlineHandler)
 
@@ -2556,9 +2578,9 @@ export default defineComponent({
       registerStatsButton()
 
       if (ui.isMobile()) {
-        useOverFlowMenu.value = true
+        onlyUseOverFlowMenu.value = true
       } else {
-        useOverFlowMenu.value = container.value.getBoundingClientRect().width <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
+        onlyUseOverFlowMenu.value = container.value.getBoundingClientRect().width <= USE_OVERFLOW_MENU_WIDTH_THRESHOLD
 
         resizeObserver = new ResizeObserver(resized)
         resizeObserver.observe(container.value)
@@ -2569,6 +2591,7 @@ export default defineComponent({
 
       document.removeEventListener('keydown', keyboardShortcutHandler)
       document.addEventListener('keydown', keyboardShortcutHandler)
+      document.addEventListener('fullscreenchange', fullscreenChangeHandler)
 
       player.addEventListener('loading', () => {
         hasLoaded.value = false
@@ -2578,8 +2601,6 @@ export default defineComponent({
 
       if (props.format !== 'legacy') {
         player.addEventListener('streaming', () => {
-          hasMultipleAudioTracks.value = player.getAudioLanguagesAndRoles().length > 1
-
           if (props.format === 'dash') {
             const firstVariant = player.getVariantTracks()[0]
 
@@ -2651,6 +2672,8 @@ export default defineComponent({
 
       // ideally we would set this in the `streaming` event handler, but for HLS this is only set to true after the loaded event fires.
       isLive.value = player.isLive()
+      // getAudioTracks() returns an empty array when no variant is active, so we can't do this in the `streaming` event
+      hasMultipleAudioTracks.value = deduplicateAudioTracks(player.getAudioTracks()).size > 1
 
       const promises = []
 
@@ -2909,6 +2932,7 @@ export default defineComponent({
       document.body.classList.remove('playerFullWindow')
 
       document.removeEventListener('keydown', keyboardShortcutHandler)
+      document.removeEventListener('fullscreenchange', fullscreenChangeHandler)
 
       if (resizeObserver) {
         resizeObserver.disconnect()
@@ -3013,12 +3037,24 @@ export default defineComponent({
     const showValueChangePopup = ref(false)
     const valueChangeMessage = ref('')
     const valueChangeIcon = ref(null)
+    const invertValueChangeContentOrder = ref(false)
     let valueChangeTimeout = null
 
-    function showValueChange(message, icon = null) {
+    function showOverlayControls() {
+      ui.getControls().showUI()
+    }
+
+    /**
+     * Shows a popup with a message and an icon on top of the video player.
+     * @param {string} message - The message to display.
+     * @param {string} icon - The icon to display.
+     * @param {boolean} invertContentOrder - Whether to invert the order of the icon and message.
+     */
+    function showValueChange(message, icon = null, invertContentOrder = false) {
       valueChangeMessage.value = message
       valueChangeIcon.value = icon
       showValueChangePopup.value = true
+      invertValueChangeContentOrder.value = invertContentOrder
 
       if (valueChangeTimeout) {
         clearTimeout(valueChangeTimeout)
@@ -3027,6 +3063,8 @@ export default defineComponent({
       valueChangeTimeout = setTimeout(() => {
         showValueChangePopup.value = false
       }, 2000)
+
+      showOverlayControls()
     }
 
     return {
@@ -3056,7 +3094,8 @@ export default defineComponent({
 
       valueChangeMessage,
       valueChangeIcon,
-      showValueChangePopup
+      showValueChangePopup,
+      invertValueChangeContentOrder,
     }
   }
 })

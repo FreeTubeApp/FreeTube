@@ -267,8 +267,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import autolinker from 'autolinker'
 import { computed, onMounted, ref, shallowRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-import { isNavigationFailure, NavigationFailureType } from 'vue-router'
-import { useRoute, useRouter } from 'vue-router/composables'
+import { isNavigationFailure, NavigationFailureType, useRoute, useRouter } from 'vue-router'
 import { YTNodes } from 'youtubei.js'
 
 import ChannelAbout from '../../components/ChannelAbout/ChannelAbout.vue'
@@ -280,7 +279,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtLoader from '../../components/FtLoader/FtLoader.vue'
-import FtSelect from '../../components/ft-select/ft-select.vue'
+import FtSelect from '../../components/FtSelect/FtSelect.vue'
 
 import store from '../../store/index'
 
@@ -290,7 +289,8 @@ import {
   extractNumberFromString,
   showToast,
   getChannelPlaylistId,
-  getIconForSortPreference
+  getIconForSortPreference,
+  removeFromArrayIfExists
 } from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
 import {
@@ -471,19 +471,6 @@ const hideChannelCommunity = computed(() => store.getters.getHideChannelCommunit
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideWatchedSubs = computed(() => store.getters.getHideWatchedSubs)
-
-/**
- * @template T
- * @param {T[]} array
- * @param {T} entry
- */
-function removeFromArrayIfExists(array, entry) {
-  const index = array.indexOf(entry)
-
-  if (index !== -1) {
-    array.splice(index, 1)
-  }
-}
 
 const tabInfoValues = computed(() => {
   const values = [...channelTabs.value]
@@ -2345,7 +2332,7 @@ function handleSubscription() {
 
 function filterWatchedArray(videos) {
   const historyCache = store.getters.getHistoryCacheById
-  return videos.filter(video => !Object.hasOwn(historyCache, video.videoId))
+  return videos.filter(video => historyCache[video.videoId] === undefined)
 }
 </script>
 

@@ -259,6 +259,7 @@ Settings:
       Label: Аутоматски учитај следећу страницу
       Tooltip: Аутоматско учитавање додатних страница и коментара.
     Open Deep Links In New Window: Отворите URL адресе прослеђене FreeTube-у у новом прозору
+    Minimize to system tray: Минимизирај у системску траку
   Theme Settings:
     Theme Settings: 'Тема'
     Match Top Bar with Main Color: 'Усклади горњу траку са главном бојом'
@@ -609,6 +610,7 @@ Settings:
     Hide Unsubscribe Button: Сакриј дугме „Прекини праћење“
     Hide Search Bar: Сакриј траку за претрагу
     Parental Control Settings: Родитељска контрола
+    Hide Uploader on Watch page: Сакриј отпремаоца на страници за гледање
   Password Dialog:
     Password: Лозинка
     Enter Password To Unlock: Унесите лозинку да бисте откључали подешавања
@@ -831,7 +833,7 @@ Video:
     Stats:
       Video ID: 'ID видеа: {videoId}'
       Media Formats: 'Формат медија: {formats}'
-      Resolution: 'Резолуција: {width}x{height}@{frameRate}'
+      Resolution: 'Резолуција: {width}x{height}{''@''}{frameRate}'
       Volume: 'Волумен: {volumePercentage}%'
       Stats: Статистика
       Dropped Frames / Total Frames: 'Испуштени кадрови: {droppedFrames} / Укупан број кадрова: {totalFrames}'
@@ -988,9 +990,7 @@ Playing Next Video Interval: Пуштање следећег видео сним
 No: Не
 Yes: Да
 Chapters:
-  'Chapters list visible, current chapter: {chapterName}': 'Листа поглавља је видљива, тренутно поглавље: {chapterName}'
   Chapters: Поглавља
-  'Chapters list hidden, current chapter: {chapterName}': 'Листа поглавља је скривена, тренутно поглавље: {chapterName}'
   Key Moments: Кључни тренуци
 Hashtag:
   This hashtag does not currently have any videos: Ова хеш-ознака тренутно нема ниједан видео снимак

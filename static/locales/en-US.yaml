@@ -186,6 +186,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Enable Quick Bookmark With This Playlist
   Quick Bookmark Enabled: Quick Bookmark Enabled
   Export Playlist: Export This Playlist
+  Export list of URLs: Export list of URLs
   The playlist has been successfully exported: The playlist has been successfully exported
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Are you sure you want to remove 1 duplicate video from this playlist? This cannot be undone. | Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Are you sure you want to remove 1 watched video from this playlist? This cannot be undone. | Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone.
@@ -199,14 +200,14 @@ User Playlists:
     NameAscending: 'A-Z'
     NameDescending: 'Z-A'
 
-    LatestCreatedFirst: 'Recently Created'
-    EarliestCreatedFirst: 'Earliest Created'
+    LatestCreatedFirst: 'Date Created (Newest)'
+    EarliestCreatedFirst: 'Date Created (Oldest)'
 
-    LatestUpdatedFirst: 'Recently Updated'
-    EarliestUpdatedFirst: 'Earliest Updated'
+    LatestUpdatedFirst: 'Date Updated (Newest)'
+    EarliestUpdatedFirst: 'Date Updated (Oldest)'
 
-    LatestPlayedFirst: 'Recently Played'
-    EarliestPlayedFirst: 'Earliest Played'
+    LatestPlayedFirst: 'Date Played (Newest)'
+    EarliestPlayedFirst: 'Date Played (Oldest)'
   SinglePlaylistView:
     Search for Videos: Search for Videos
 
@@ -265,8 +266,8 @@ History:
   Empty Search Message: There are no videos in your history that match your search
   Search bar placeholder: "Search in History"
   Case Sensitive Search: Case Sensitive Search
-  DateOldestHistory: Earliest Watched First
-  DateNewestHistory: Latest Watched First
+  DateOldestHistory: Date Watched (Oldest)
+  DateNewestHistory: Date Watched (Newest)
 Settings:
   # On Settings Page
   Settings: Settings
@@ -282,6 +283,7 @@ Settings:
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
     Open Deep Links In New Window: Open URLs Passed to FreeTube in a New Window
+    Minimize to system tray: Minimize to system tray
     Auto Load Next Page:
       Label: Auto Load Next Page
       Tooltip: Load additional pages and comments automatically.
@@ -578,7 +580,7 @@ Settings:
     Hide Channel Releases: Hide Channel "Releases" Tab
     Hide Channel Courses: Hide Channel "Courses" Tab
     Hide Videos and Playlists Containing Text: Hide Videos and Playlists Containing Text
-    Hide Videos and Playlists Containing Text Placeholder: Word, Word Fragment, or Phrase
+    Hide Videos and Playlists Containing Text Placeholder: Fragment, Word, or Phrase
     Hide Subscriptions Videos: Hide Subscriptions Videos
     Hide Subscriptions Shorts: Hide Subscriptions Shorts
     Hide Subscriptions Live: Hide Subscriptions Live
@@ -599,15 +601,6 @@ Settings:
     Export History: Export History
     Import Playlists: Import Playlists
     Export Playlists: Export Playlists
-    Export Playlists For Older FreeTube Versions:
-      Label: Export Playlists For Older FreeTube Versions
-      # |- = Keep newlines, No newline at end
-      Tooltip: |-
-        This option exports videos from all playlists into one playlist named 'Favorites'.
-        How to export & import videos in playlists for an older version of FreeTube:
-        1. Export your playlists with this option enabled.
-        2. Delete all of your existing playlists using the Remove All Playlists option under Privacy Settings.
-        3. Launch the older version of FreeTube and import the exported playlists."
     Profile object has insufficient data, skipping item: Profile object has insufficient
       data, skipping item
     All subscriptions and profiles have been successfully imported: All subscriptions
@@ -641,6 +634,8 @@ Settings:
     Proxy Protocol: Proxy Protocol
     Proxy Host: Proxy Host
     Proxy Port Number: Proxy Port Number
+    Proxy Username: Proxy Username
+    Proxy Password: Proxy Password
     Clicking on Test Proxy will send a request to: Clicking on Test Proxy will send a request to
     Test Proxy: Test Proxy
     Your Info: Your Info
@@ -700,7 +695,7 @@ About:
   Licensed under the: Licensed under the
   AGPLv3: AGPLv3
   Downloads / Changelog: Downloads / Changelog
-  GitHub releases: GitHub releases
+  GitHub releases: GitHub Releases
   Help: Help
   FreeTube Wiki: FreeTube Wiki
   FAQ: FAQ
@@ -939,7 +934,7 @@ Video:
       Stats: Stats
       Video ID: 'Video ID: {videoId}'
       Media Formats: 'Media Formats: {formats}'
-      Resolution: 'Resolution: {width}x{height}@{frameRate}'
+      Resolution: 'Resolution: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Player Dimensions: {width}x{height}'
       Bitrate: 'Bitrate: {bitrate} kbps'
       Volume: 'Volume: {volumePercentage}%'
@@ -959,16 +954,16 @@ Playlist:
   View Full Playlist: View Full Playlist
   Last Updated On: Last Updated On
   Sort By:
-    DateAddedNewest: Latest added first
-    DateAddedOldest: Earliest added first
-    PublishedNewest: Latest published first
-    PublishedOldest: Earliest published first
+    DateAddedNewest: Date added (Newest)
+    DateAddedOldest: Date added (Oldest)
+    PublishedNewest: Date published (Newest)
+    PublishedOldest: Date published (Oldest)
     AuthorAscending: Author (A-Z)
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
     VideoTitleDescending: Title (Z-A)
-    VideoDurationAscending: Duration (Shortest first)
-    VideoDurationDescending: Duration (Longest first)
+    VideoDurationAscending: Duration (Shortest)
+    VideoDurationDescending: Duration (Longest)
     Custom: Custom
 
 # On Video Watch Page
@@ -1008,8 +1003,6 @@ Clipboard:
 Chapters:
   Chapters: Chapters
   Key Moments: Key Moments
-  'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible, current chapter: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Chapters list hidden, current chapter: {chapterName}'
 
 Mini Player: Mini Player
 Comments:
@@ -1091,7 +1084,7 @@ Tooltips:
     Hide Channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
        The channel ID entered must be a complete match and is case sensitive.
     Hide Subscriptions Live: 'This setting is overridden by the app-wide "{appWideSetting}" setting, in the "{subsection}" section of the "{settingsSection}"'
-    Hide Videos and Playlists Containing Text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos & playlists whose original titles contain it throughout all of FreeTube, excluding only History, Your Playlists, and videos inside of playlists.
+    Hide Videos and Playlists Containing Text: Enter a fragment, word, or phrase (case insensitive) to hide all videos & playlists whose original titles contain it throughout all of FreeTube, excluding only History, Your Playlists, and videos inside of playlists.
     Hide Videos on Watch: 'Hides watched videos from the Videos, Shorts, and Live tabs on the Subscription and Channel pages. This does not affect the Home tab on Channel pages'
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default

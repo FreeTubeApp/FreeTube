@@ -122,14 +122,14 @@ User Playlists:
   Save Changes: Lưu thay đổi
   Remove Watched Videos: Xóa video đã xem
   Sort By:
-    LatestUpdatedFirst: Được cập nhật gần đây
-    LatestPlayedFirst: Được phát gần đây
-    EarliestUpdatedFirst: Được cập nhật sớm nhất
+    LatestUpdatedFirst: Ngày cập nhật (Mới nhất)
+    LatestPlayedFirst: Ngày chơi (Mới nhất)
+    EarliestUpdatedFirst: Ngày cập nhật (Cũ nhất)
     NameAscending: A-Z
     NameDescending: Z-A
-    LatestCreatedFirst: Được tạo gần đây
-    EarliestCreatedFirst: Được tạo sớm nhất
-    EarliestPlayedFirst: Được phát sớm nhất
+    LatestCreatedFirst: Ngày tạo (Mới nhất)
+    EarliestCreatedFirst: Ngày tạo (Cũ nhất)
+    EarliestPlayedFirst: Ngày chơi (Cũ nhất)
   SinglePlaylistView:
     Toast:
       Video has been removed: Video đã được xóa
@@ -196,6 +196,7 @@ User Playlists:
   Export Playlist: Xuất danh sách phát này
   The playlist has been successfully exported: Đã xuất thành công danh sách phát này
   TotalTimePlaylist: 'Tổng thời lượng: {duration}'
+  Export list of URLs: Xuất danh sách URL
 History:
   # On History Page
   History: 'Lịch sử'
@@ -204,6 +205,8 @@ History:
   Search bar placeholder: Tìm trong lịch sử
   Empty Search Message: Không có video nào trong lịch sử của bạn khớp với tìm kiếm của bạn
   Case Sensitive Search: Phân biệt hoa thường
+  DateOldestHistory: Ngày xem (Cũ nhất)
+  DateNewestHistory: Ngày xem (Mới nhất)
 Settings:
   # On Settings Page
   Settings: 'Cài đặt'
@@ -250,6 +253,7 @@ Settings:
       Tooltip: Tự động tải các trang video và bình luận.
       Label: Tự động nhấn tải thêm
     Open Deep Links In New Window: Mở các URL được truyền đến FreeTube vào cửa sổ mới
+    Minimize to system tray: Thu nhỏ xuống khay hệ thống
   Theme Settings:
     Theme Settings: 'Chủ đề'
     Match Top Bar with Main Color: 'Khớp thanh trên cùng với màu chính'
@@ -555,6 +559,8 @@ Settings:
     Clicking on Test Proxy will send a request to: Nhấn vào Thử proxy sẽ gửi yêu cầu đến
     Test Proxy: Thử proxy
     Proxy Warning: FreeTube không bao gồm proxy theo mặc định nhưng có thể kết nối đến một proxy bên ngoài, bao gồm các proxy chạy cục bộ như Tor hoặc các proxy SOCKS5 được cung cấp bởi một số các VPN. Nếu bạn sử dụng tính năng này, hãy đảm bảo proxy/Tor của bạn được cấu hình đúng cách, nếu không FreeTube sẽ không thể tải dữ liệu về được.
+    Proxy Username: Tên người dùng ủy quyền
+    Proxy Password: Mật khẩu Proxy
   SponsorBlock Settings:
     Enable SponsorBlock: Bật SponsorBlock
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API SponsorBlock (Mặc định là https://sponsor.ajay.app)
@@ -585,6 +591,7 @@ Settings:
     Hide Unsubscribe Button: Ẩn nút huỷ đăng ký
     Show Family Friendly Only: Chỉ hiển thị nội dung thân thiện với gia đình
     Hide Search Bar: Ẩn thanh tìm kiếm
+    Hide Uploader on Watch page: Ẩn Người tải lên trên trang Xem
   Download Settings:
     Download Behavior: Hành vi tải xuống
     Download in app: Tải xuống trong ứng dụng
@@ -626,7 +633,7 @@ About:
   FreeTube Wiki: FreeTube Wiki
   Beta: Thử nghiệm
   Downloads / Changelog: Tải xuống / nhật ký thay đổi
-  GitHub releases: Tải xuống trên GitHub
+  GitHub releases: Bản phát hành GitHub
   Please check for duplicates before posting: Vui lòng kiểm tra trùng lặp trước khi đăng
   Chat on Matrix: Trò chuyện trên Matrix
   room rules: quy định phòng chat
@@ -780,7 +787,7 @@ Video:
       CodecsVideoAudio: 'Codec: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Codec: {videoCodec} / {audioCodec}'
       Bandwidth: 'Băng thông: {bandwidth} kbps'
-      Resolution: 'Độ phân ảnh: {width}x{height}@{frameRate}'
+      Resolution: 'Độ phân ảnh: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Kích thước trình xem: {width}x{height}'
       CodecAudio: 'Codec: {audioCodec} ({audioItag})'
       Bitrate: 'Tốc độ bit: {bitrate} kbps'
@@ -823,17 +830,17 @@ Playlist:
 #& Views
   Playlist: Danh sách phát
   Sort By:
-    VideoDurationAscending: Thời lượng (Ngắn nhất trước)
-    DateAddedOldest: Thêm vào cũ nhất
+    VideoDurationAscending: Thời lượng (Ngắn nhất)
+    DateAddedOldest: Ngày thêm (Cũ nhất)
     AuthorDescending: Tác giả (Z-A)
     VideoTitleAscending: Tiêu đề (A-Z)
-    VideoDurationDescending: Thời lượng (Dài nhất trước)
+    VideoDurationDescending: Thời lượng (Dài nhất)
     Custom: Tùy chỉnh
     AuthorAscending: Tác giả (A-Z)
-    DateAddedNewest: Thêm vào gần đây nhất
+    DateAddedNewest: Ngày thêm (Mới nhất)
     VideoTitleDescending: Tiêu đề (Z-A)
-    PublishedNewest: Mới nhất được xuất bản đầu tiên
-    PublishedOldest: Xuất bản sớm nhất đầu tiên
+    PublishedNewest: Ngày xuất bản (Mới nhất)
+    PublishedOldest: Ngày xuất bản (Cũ nhất)
 Change Format:
   Change Media Formats: 'Chuyển đổi định dạng video'
   Use Dash Formats: 'Sử dụng định dạng DASH'
@@ -989,6 +996,7 @@ Tooltips:
     Hide Channels: Nhập tên kênh hoặc ID kênh để ẩn tất cả video, danh sách phát và chính kênh đó khỏi xuất hiện trong tìm kiếm, xu hướng, phổ biến nhất và được đề xuất. Tên kênh đã nhập phải khớp hoàn toàn và có phân biệt chữ hoa chữ thường.
     Hide Subscriptions Live: Cài đặt này bị ghi đè bởi cài đặt "{appWideSetting}" trên toàn ứng dụng, trong phần "{subsection}" của "{settingsSection}"
     Hide Videos and Playlists Containing Text: Nhập một từ khóa hoặc cụm từ (không phân biết hoa thường) để ẩn các video & danh sách phát có tiêu đề gốc chứa các mục đó khỏi FreeTube, ngoại trừ các video trong Lịch sử, các danh sách phát của bạn, và video trong các danh sách phát.
+    Hide Videos on Watch: Ẩn các video đã xem khỏi tab Video, Video ngắn và Trực tiếp trên trang Đăng ký và Kênh. Điều này không ảnh hưởng đến tab Trang chủ trên trang Kênh
   SponsorBlock Settings:
     UseDeArrowThumbnails: Thay thế thumbnail video bằng thumbnail gửi từ DeArrow.
     UseDeArrowTitles: Thay thế tiêu đề video bằng tiêu đề do người dùng gửi từ DeArrow.
@@ -1011,9 +1019,7 @@ Clipboard:
 Go to page: Đi đến {page}
 Close Banner: Đóng thanh trên
 Chapters:
-  'Chapters list visible, current chapter: {chapterName}': 'Danh sách các chương hiển thị, chương hiện tại: {chapterName}'
   Chapters: Chương
-  'Chapters list hidden, current chapter: {chapterName}': 'Danh sách các chương bị ẩn, chương hiện tại: {chapterName}'
   Key Moments: Khoảnh khắc chính
 Channel Unhidden: '{channel} đã bị xóa khỏi bộ lọc kênh'
 Tag already exists: Thẻ "{tagName}" đã tồn tại
@@ -1115,4 +1121,6 @@ KeyboardShortcutPrompt:
   Last Frame: Khung ảnh trước (khi tạm dừng)
   End: Di chuyển tới cuối video
   Home: Di chuyển đến đầu video
+  Skip to Next Video: Chuyển sang video tiếp theo trong danh sách phát hoặc video được đề xuất tiếp theo
+  Skip to Previous Video: Chuyển về video trước trong danh sách phát
 shortcutLabelSeparator: ｜

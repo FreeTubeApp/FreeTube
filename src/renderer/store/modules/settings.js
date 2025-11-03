@@ -151,10 +151,10 @@ const defaultSideEffectsTriggerId = settingId =>
 const state = {
   autoplayPlaylists: true,
   autoplayVideos: true,
-  backendFallback: process.env.SUPPORTS_LOCAL_API,
+  backendFallback: false,
   backendPreference: !process.env.SUPPORTS_LOCAL_API ? 'invidious' : 'local',
   barColor: false,
-  checkForBlogPosts: true,
+  checkForBlogPosts: false,
   checkForUpdates: true,
   baseTheme: 'system',
   mainColor: 'Red',
@@ -230,6 +230,8 @@ const state = {
   playNextVideo: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
+  proxyUsername: '',
+  proxyPassword: '',
   proxyProtocol: 'socks5',
   proxyVideos: !process.env.SUPPORTS_LOCAL_API,
   region: 'US',
@@ -302,6 +304,7 @@ const state = {
   // If the playlist is removed quick bookmark is disabled
   quickBookmarkTargetPlaylistId: 'favorites',
   generalAutoLoadMorePaginatedItemsEnabled: false,
+  hideToTrayOnMinimize: false,
 
   // The settings below have side effects
   currentLocale: 'system',
@@ -382,7 +385,7 @@ const sideEffectHandlers = {
 
     await Promise.allSettled(loadPromises)
 
-    i18n.locale = targetLocale
+    i18n.global.locale = targetLocale
     await dispatch('getRegionData', targetLocale)
   },
 

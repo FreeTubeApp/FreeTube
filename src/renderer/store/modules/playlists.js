@@ -1,4 +1,5 @@
 import { DBPlaylistHandlers } from '../../../datastores/handlers/index'
+import { generateRandomUniqueId, processToBeAddedPlaylistVideo } from '../../helpers/playlists'
 
 function generateRandomPlaylistId() {
   return `ft-playlist--${generateRandomUniqueId()}`
@@ -6,11 +7,6 @@ function generateRandomPlaylistId() {
 
 function generateRandomPlaylistName() {
   return `Playlist ${new Date().toISOString()}-${Math.floor(Math.random() * 10000)}`
-}
-
-function generateRandomUniqueId() {
-  // To avoid importing `crypto` from NodeJS
-  return crypto.randomUUID ? crypto.randomUUID() : `id-${Date.now()}-${Math.floor(Math.random() * 10000)}`
 }
 
 /*
@@ -31,6 +27,36 @@ function findEmptyOrLatestPlayedPlaylist(playlists) {
   }
 
   return playlists[maxIndex]
+}
+
+/**
+ * @param {any} playlist
+ */
+function processNewPlayist(playlist) {
+  // In case internal id is forgotten, generate one (instead of relying on caller and there being a chance of data corruption)
+  if (playlist._id == null) {
+    // {Time now in unix time}-{0-9999}
+    playlist._id = generateRandomPlaylistId()
+  }
+
+  // Ensure playlist name trimmed
+  if (typeof playlist.playlistName === 'string') {
+    playlist.playlistName = playlist.playlistName.trim()
+  }
+
+  // Ensure playlist description trimmed
+  if (typeof playlist.description === 'string') {
+    playlist.description = playlist.description.trim()
+  }
+
+  const now = Date.now()
+  playlist.createdAt = now
+  playlist.lastUpdatedAt = now
+
+  // Ensure all videos have required attributes
+  if (Array.isArray(playlist.videos)) {
+    playlist.videos.forEach(processToBeAddedPlaylistVideo)
+  }
 }
 
 const state = {
@@ -76,35 +102,7 @@ const getters = {
 
 const actions = {
   async addPlaylist({ state, commit, rootState, dispatch }, payload) {
-    // In case internal id is forgotten, generate one (instead of relying on caller and have a chance to cause data corruption)
-    if (payload._id == null) {
-      // {Time now in unix time}-{0-9999}
-      payload._id = generateRandomPlaylistId()
-    }
-    // Ensure playlist name trimmed
-    if (typeof payload.playlistName === 'string') {
-      payload.playlistName = payload.playlistName.trim()
-    }
-    // Ensure playlist description trimmed
-    if (typeof payload.description === 'string') {
-      payload.description = payload.description.trim()
-    }
-    payload.createdAt = Date.now()
-    payload.lastUpdatedAt = Date.now()
-    // Ensure all videos has required attributes
-
-    const currentTime = Date.now()
-
-    if (Array.isArray(payload.videos)) {
-      payload.videos.forEach(videoData => {
-        if (videoData.timeAdded == null) {
-          videoData.timeAdded = currentTime
-        }
-        if (videoData.playlistItemId == null) {
-          videoData.playlistItemId = generateRandomUniqueId()
-        }
-      })
-    }
+    processNewPlayist(payload)
 
     try {
       await DBPlaylistHandlers.create([payload])
@@ -121,6 +119,8 @@ const actions = {
   },
 
   async addPlaylists({ state, commit, rootState, dispatch }, payload) {
+    payload.forEach(processNewPlayist)
+
     try {
       await DBPlaylistHandlers.create(payload)
 
@@ -172,17 +172,14 @@ const actions = {
   async addVideo({ commit }, payload) {
     try {
       const { _id, videoData } = payload
-      if (videoData.timeAdded == null) {
-        videoData.timeAdded = Date.now()
-      }
-      if (videoData.playlistItemId == null) {
-        videoData.playlistItemId = generateRandomUniqueId()
-      }
-      // For backward compatibility
-      if (videoData.type == null) {
-        videoData.type = 'video'
-      }
-      await DBPlaylistHandlers.upsertVideoByPlaylistId(_id, videoData)
+
+      processToBeAddedPlaylistVideo(videoData)
+
+      const lastUpdatedAt = Date.now()
+
+      await DBPlaylistHandlers.upsertVideoByPlaylistId(_id, lastUpdatedAt, videoData)
+
+      payload.lastUpdatedAt = lastUpdatedAt
       commit('addVideo', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -224,8 +221,11 @@ const actions = {
 
         return videoData
       })
-      await DBPlaylistHandlers.upsertVideosByPlaylistId(_id, newVideoObjects)
-      commit('addVideos', { _id, videos: newVideoObjects })
+
+      const lastUpdatedAt = Date.now()
+
+      await DBPlaylistHandlers.upsertVideosByPlaylistId(_id, lastUpdatedAt, newVideoObjects)
+      commit('addVideos', { _id, lastUpdatedAt, videos: newVideoObjects })
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -408,7 +408,13 @@ const actions = {
   async removeVideo({ commit }, payload) {
     try {
       const { _id, videoId, playlistItemId } = payload
-      await DBPlaylistHandlers.deleteVideoIdByPlaylistId(_id, videoId, playlistItemId)
+
+      const lastUpdatedAt = Date.now()
+
+      await DBPlaylistHandlers.deleteVideoIdByPlaylistId(_id, lastUpdatedAt, videoId, playlistItemId)
+
+      payload.lastUpdatedAt = lastUpdatedAt
+
       commit('removeVideo', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -418,7 +424,13 @@ const actions = {
   async removeVideos({ commit }, payload) {
     try {
       const { _id, playlistItemIds } = payload
-      await DBPlaylistHandlers.deleteVideoIdsByPlaylistId(_id, playlistItemIds)
+
+      const lastUpdatedAt = Date.now()
+
+      await DBPlaylistHandlers.deleteVideoIdsByPlaylistId(_id, lastUpdatedAt, playlistItemIds)
+
+      payload.lastUpdatedAt = lastUpdatedAt
+
       commit('removeVideos', payload)
     } catch (errMessage) {
       console.error(errMessage)
@@ -432,7 +444,7 @@ const mutations = {
   },
 
   addPlaylists(state, payload) {
-    state.playlists = state.playlists.concat(payload)
+    state.playlists.push(...payload)
   },
 
   upsertPlaylistToList(state, updatedPlaylist) {
@@ -452,6 +464,7 @@ const mutations = {
     const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
       playlist.videos.push(payload.videoData)
+      playlist.lastUpdatedAt = payload.lastUpdatedAt
     }
   },
 
@@ -459,6 +472,7 @@ const mutations = {
     const playlist = state.playlists.find(playlist => playlist._id === payload._id)
     if (playlist) {
       playlist.videos = [].concat(playlist.videos, payload.videos)
+      playlist.lastUpdatedAt = payload.lastUpdatedAt
     }
   },
 
@@ -473,24 +487,27 @@ const mutations = {
     }
   },
 
-  removeVideo(state, { _id, videoId, playlistItemId }) {
+  removeVideo(state, { _id, lastUpdatedAt, videoId, playlistItemId }) {
     const playlist = state.playlists.find(playlist => playlist._id === _id)
     if (playlist) {
       if (playlistItemId != null) {
         playlist.videos = playlist.videos.filter(video => video.playlistItemId !== playlistItemId)
+        playlist.lastUpdatedAt = lastUpdatedAt
       } else if (videoId != null) {
         playlist.videos = playlist.videos.filter(video => video.videoId !== videoId)
+        playlist.lastUpdatedAt = lastUpdatedAt
       }
     }
   },
 
-  removeVideos(state, { _id, playlistItemIds }) {
+  removeVideos(state, { _id, lastUpdatedAt, playlistItemIds }) {
     const playlist = state.playlists.find(playlist => playlist._id === _id)
     if (playlist) {
       playlist.videos = playlist.videos.filter(video => {
         const playlistItemIdMatches = playlistItemIds.includes(video.playlistItemId)
         return !playlistItemIdMatches
       })
+      playlist.lastUpdatedAt = lastUpdatedAt
     }
   },
 

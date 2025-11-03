@@ -1,7 +1,8 @@
 import {
   app, BrowserWindow, dialog, Menu, ipcMain,
   powerSaveBlocker, screen, session, shell,
-  nativeTheme, net, protocol, clipboard
+  nativeTheme, net, protocol, clipboard,
+  Tray
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -82,6 +83,9 @@ function runApp() {
 
   const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
   const APP_FOLDER_PATH = path.dirname(process.execPath)
+
+  let backendPreference = 'local'
+  let backendFallback = true
 
   contextMenu({
     showSearchWithGoogle: false,
@@ -227,7 +231,7 @@ function runApp() {
         },
         {
           label: 'Copy Invidious Link',
-          visible: visible && isInAppUrl,
+          visible: visible && isInAppUrl && (backendPreference === 'invidious' || backendFallback),
           click: () => {
             copy(transformURL(false))
           }
@@ -279,6 +283,10 @@ function runApp() {
 
   let mainWindow
   let startupUrl
+  let tray = null
+  let trayOnMinimize = false
+  let trayWindows = []
+  const trayMaximizedWindows = {}
 
   // command line switches need to be added before the app ready event first
   // that means we can't use the normal settings system as that is asynchronous,
@@ -332,7 +340,13 @@ function runApp() {
         const openDeepLinksInNewWindow = (await baseHandlers.settings._findOne('openDeepLinksInNewWindow'))?.value
         if (!openDeepLinksInNewWindow) {
           // Just focus the main window (instead of starting a new instance)
-          if (mainWindow.isMinimized()) mainWindow.restore()
+          if (mainWindow.isMinimized()) {
+            if (process.platform !== 'darwin' && trayOnMinimize) {
+              trayClick(mainWindow)
+            } else {
+              mainWindow.restore()
+            }
+          }
           mainWindow.focus()
           if (newStartupUrl) mainWindow.webContents.send(IpcChannels.OPEN_URL, newStartupUrl)
           return
@@ -416,23 +430,43 @@ function runApp() {
     // FreeTube needs the following permissions:
     // - "fullscreen": So that the video player can enter full screen
     // - "clipboard-sanitized-write": To allow the user to copy video URLs and error messages
+    // - "fileSystem" Needed for the Web File System API (e.g. importing and exporting data)
 
-    session.defaultSession.setPermissionCheckHandler((webContents, permission, requestingOrigin) => {
+    session.defaultSession.setPermissionCheckHandler((webContents, permission, requestingOrigin, details) => {
       if (!isFreeTubeUrl(requestingOrigin)) {
         return false
       }
 
-      return permission === 'fullscreen' || permission === 'clipboard-sanitized-write'
+      return (
+        permission === 'fullscreen' ||
+        permission === 'clipboard-sanitized-write' ||
+        (permission === 'fileSystem' && !details.isDirectory)
+      )
     })
 
-    session.defaultSession.setPermissionRequestHandler((webContents, permission, callback) => {
+    session.defaultSession.setPermissionRequestHandler((webContents, permission, callback, details) => {
       if (!isFreeTubeUrl(webContents.getURL())) {
         // eslint-disable-next-line n/no-callback-literal
         callback(false)
         return
       }
 
-      callback(permission === 'fullscreen' || permission === 'clipboard-sanitized-write')
+      callback(
+        permission === 'fullscreen' ||
+        permission === 'clipboard-sanitized-write' ||
+        (permission === 'fileSystem' && !details.isDirectory)
+      )
+    })
+
+    session.defaultSession.on('file-system-access-restricted', (event, details, callback) => {
+      if (!isFreeTubeUrl(details.origin)) {
+        // eslint-disable-next-line n/no-callback-literal
+        callback('deny')
+        return
+      }
+
+      // eslint-disable-next-line n/no-callback-literal
+      callback(details.isDirectory ? 'deny' : 'allow')
     })
 
     let docArray
@@ -467,6 +501,17 @@ function runApp() {
             break
           case 'proxyPort':
             proxyPort = doc.value
+            break
+          case 'backendFallback':
+            backendFallback = doc.value
+            break
+          case 'backendPreference':
+            backendPreference = doc.value
+            break
+          case 'hideToTrayOnMinimize':
+            if (process.platform !== 'darwin') {
+              trayOnMinimize = doc.value
+            }
             break
         }
       })
@@ -670,18 +715,114 @@ function runApp() {
 
     await createWindow()
 
-    if (process.env.NODE_ENV === 'development') {
-      try {
-        require('vue-devtools').install()
-      } catch (err) {
-        console.error(err)
-      }
-    }
-
     if (isDebug) {
       mainWindow.webContents.openDevTools()
     }
   })
+
+  app.on('login', async (event, webContents, request, authInfo, callback) => {
+    if (authInfo.isProxy) {
+      event.preventDefault()
+      const proxyUsername = (await baseHandlers.settings._findOne('proxyUsername'))?.value
+      const proxyPassword = (await baseHandlers.settings._findOne('proxyPassword'))?.value
+      callback(proxyUsername, proxyPassword)
+    }
+  })
+
+  function trayClick(window, close = false) {
+    if (!close) {
+      if (window.id in trayMaximizedWindows) {
+        window.maximize()
+      } else {
+        window.show()
+
+        // Calling hide() inside minimize is broken for some Linux distros (window minimizes again when trying to drag,
+        // resize or maximize it, among other shenanigans). It seems to work as intended with this workaround.
+        if (process.platform === 'linux') {
+          window.hide()
+          window.show()
+        }
+      }
+
+      if (trayWindows.length === BrowserWindow.getAllWindows().length) { mainWindow = window }
+    } else if (trayWindows.length > 0) {
+      window.close()
+    }
+
+    trayWindows.splice(trayWindows.findIndex(item => item.id === window.id), 1)
+
+    if (trayWindows.length > 0) {
+      createTrayContextMenu()
+    } else {
+      destroyTray()
+    }
+  }
+
+  function createTrayContextMenu() {
+    const menuItems = []
+    trayWindows.forEach(window => {
+      menuItems.push({
+        label: window.title,
+        submenu: [
+          {
+            label: 'Show',
+            click: () => trayClick(window)
+          },
+          {
+            label: 'Close',
+            click: () => trayClick(window, true)
+          }
+        ]
+      })
+    })
+
+    menuItems.push(
+      {
+        type: 'separator'
+      },
+      ...defaultTrayMenu()
+    )
+
+    const menu = Menu.buildFromTemplate(menuItems)
+    tray.setContextMenu(menu)
+  }
+
+  function defaultTrayMenu() {
+    return [
+      {
+        label: 'New Window',
+        click: () => createWindow({
+          showWindowNow: true,
+          replaceMainWindow: trayWindows.some(item => item.id === mainWindow.id)
+        })
+      },
+      {
+        label: 'Quit',
+        click: handleQuit
+      }
+    ]
+  }
+
+  function destroyTray() {
+    if (!tray) return
+
+    if (process.platform !== 'linux') {
+      tray.destroy()
+      tray = null
+    } else {
+      const menu = Menu.buildFromTemplate(defaultTrayMenu())
+      tray.setContextMenu(menu)
+    }
+  }
+
+  function showHiddenWindows() {
+    trayWindows.forEach(window => {
+      window.minimize()
+    })
+
+    destroyTray()
+    trayWindows = []
+  }
 
   /**
    * @param {string} extension
@@ -726,7 +867,7 @@ function runApp() {
     if (process.env.NODE_ENV === 'development') {
       return url_ !== null && url_.protocol === 'http:' && url_.host === 'localhost:9080' && (url_.pathname === '/' || url_.pathname === '/index.html')
     } else {
-      return url_ !== null && url_.protocol === 'app:' && url_.host === 'bundle' && url_.pathname === '/index.html'
+      return url_ !== null && url_.protocol === 'app:' && url_.host === 'bundle' && (url_.pathname === '/' || url_.pathname === '/index.html')
     }
   }
 
@@ -861,6 +1002,60 @@ function runApp() {
 
     // endregion Ensure child windows use same options since electron 14
 
+    if (process.platform !== 'darwin') {
+      function manageTray(window, removeWindow = false) {
+        if (tray) {
+          if (!removeWindow) {
+            trayWindows.push(window)
+            createTrayContextMenu()
+          } else if (trayWindows.some(item => item.id === window.id)) {
+            trayClick(window)
+          }
+        } else {
+          const icon = process.env.NODE_ENV === 'development'
+            ? path.join(__dirname, '..', '..', '_icons', 'iconColor.png')
+            : path.join(__dirname, '..', '_icons', 'iconColor.png')
+
+          tray = new Tray(icon)
+
+          tray.setIgnoreDoubleClickEvents(true)
+          tray.setToolTip('FreeTube')
+
+          trayWindows = [window]
+          createTrayContextMenu()
+
+          if (process.platform !== 'linux') {
+            tray.on('click', (event) => {
+              if (trayWindows.length === 1) { trayClick(trayWindows[0]) }
+            })
+          }
+        }
+      }
+
+      newWindow.on('minimize', () => {
+        if (trayOnMinimize) {
+          newWindow.hide()
+          manageTray(newWindow)
+
+          if (newWindow === mainWindow) {
+            // A timer is needed because getFocusedWindow doesn't update until the minimize event ends
+            setTimeout(() => {
+              const newMainWindow = BrowserWindow.getFocusedWindow() || BrowserWindow.getAllWindows().find(window => window.isVisible())
+              if (newMainWindow) { mainWindow = newMainWindow }
+            }, 100)
+          }
+        }
+      })
+
+      newWindow.on('maximize', () => {
+        if (trayOnMinimize) { trayMaximizedWindows[newWindow.id] = true }
+      })
+
+      newWindow.on('unmaximize', () => {
+        if (trayOnMinimize) { delete trayMaximizedWindows[newWindow.id] }
+      })
+    }
+
     if (replaceMainWindow) {
       mainWindow = newWindow
     }
@@ -925,8 +1120,12 @@ function runApp() {
         return
       }
 
-      newWindow.show()
-      newWindow.focus()
+      if (process.platform !== 'darwin' && trayOnMinimize && trayWindows.length > 0) {
+        trayClick(newWindow)
+      } else {
+        newWindow.show()
+        newWindow.focus()
+      }
 
       if (process.env.NODE_ENV === 'development') {
         newWindow.webContents.openDevTools({ activate: false })
@@ -1013,8 +1212,8 @@ function runApp() {
     })
   })
 
-  ipcMain.handle(IpcChannels.GENERATE_PO_TOKENS, (_, videoId, visitorData, context) => {
-    return generatePoToken(videoId, visitorData, context, proxyUrl)
+  ipcMain.handle(IpcChannels.GENERATE_PO_TOKEN, (_, videoId, context) => {
+    return generatePoToken(videoId, context, proxyUrl)
   })
 
   ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
@@ -1351,12 +1550,24 @@ function runApp() {
           )
           switch (data._id) {
             // Update app menu on related setting update
+            case 'backendFallback':
+              backendFallback = data.value
+              await setMenu()
+              break
+            case 'backendPreference':
+              backendPreference = data.value
+              await setMenu()
+              break
             case 'hideTrendingVideos':
             case 'hidePopularVideos':
-            case 'backendFallback':
-            case 'backendPreference':
             case 'hidePlaylists':
               await setMenu()
+              break
+            case 'hideToTrayOnMinimize':
+              if (process.platform !== 'darwin') {
+                trayOnMinimize = data.value
+                if (!trayOnMinimize) { showHiddenWindows() }
+              }
               break
 
             default:
@@ -1541,7 +1752,7 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.UPSERT_VIDEO:
-          await baseHandlers.playlists.upsertVideoByPlaylistId(data._id, data.videoData)
+          await baseHandlers.playlists.upsertVideoByPlaylistId(data._id, data.lastUpdatedAt, data.videoData)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -1550,7 +1761,7 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.UPSERT_VIDEOS:
-          await baseHandlers.playlists.upsertVideosByPlaylistId(data._id, data.videos)
+          await baseHandlers.playlists.upsertVideosByPlaylistId(data._id, data.lastUpdatedAt, data.videos)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -1568,7 +1779,7 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_ID:
-          await baseHandlers.playlists.deleteVideoIdByPlaylistId(data._id, data.videoId, data.playlistItemId)
+          await baseHandlers.playlists.deleteVideoIdByPlaylistId(data._id, data.lastUpdatedAt, data.videoId, data.playlistItemId)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -1577,7 +1788,7 @@ function runApp() {
           return null
 
         case DBActions.PLAYLISTS.DELETE_VIDEO_IDS:
-          await baseHandlers.playlists.deleteVideoIdsByPlaylistId(data._id, data.playlistItemIds)
+          await baseHandlers.playlists.deleteVideoIdsByPlaylistId(data._id, data.lastUpdatedAt, data.playlistItemIds)
           syncOtherWindows(
             IpcChannels.SYNC_PLAYLISTS,
             event,
@@ -1759,12 +1970,7 @@ function runApp() {
 
   app.on('window-all-closed', () => {
     // Clean up resources (datastores' compaction + Electron cache and storage data clearing)
-    cleanUpResources().finally(() => {
-      mainWindow = null
-      if (process.platform !== 'darwin') {
-        app.quit()
-      }
-    })
+    handleQuit()
   })
 
   if (process.platform === 'darwin') {
@@ -1784,6 +1990,21 @@ function runApp() {
 
         app.quit()
       })
+    })
+  }
+
+  if (process.platform !== 'darwin') {
+    app.on('before-quit', () => {
+      if (tray) { tray.destroy() }
+    })
+  }
+
+  function handleQuit() {
+    cleanUpResources().finally(() => {
+      mainWindow = null
+      if (process.platform !== 'darwin') {
+        app.quit()
+      }
     })
   }
 
@@ -1917,8 +2138,6 @@ function runApp() {
     const sidenavSettings = baseHandlers.settings._findSidenavSettings()
     const hideTrendingVideos = (await sidenavSettings.hideTrendingVideos)?.value
     const hidePopularVideos = (await sidenavSettings.hidePopularVideos)?.value
-    const backendFallback = (await sidenavSettings.backendFallback)?.value
-    const backendPreference = (await sidenavSettings.backendPreference)?.value
     const hidePlaylists = (await sidenavSettings.hidePlaylists)?.value
 
     const template = [

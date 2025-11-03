@@ -1,0 +1,68 @@
+# This is a basic workflow that is manually triggered
+
+name: Update Site Version Number
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v5
+      with:
+        repository: FreeTubeApp/FreeTubeApp.io
+        token: ${{ secrets.FLATHUB_TOKEN }}
+    - name: Get Repo Release List
+      uses: moustacheful/github-api-exec-action@v0
+      id: list_results
+      with:
+        # Command to execute, (e.g: `pulls.create`), see https://octokit.github.io/rest.js/ for available commands
+        command: repos.listReleases
+        payload: >
+            {
+              "owner": "FreeTubeApp",
+              "repo": "FreeTube"
+            }
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Create Current Version Variable
+      uses: bluwy/substitute-string-action@v3
+      id: current
+      with:
+        _input-text: ${{ fromJson(steps.list_results.outputs.result)[0].tag_name }}
+        -beta: ''
+        v: ''
+    - name: Create Previous Version Variable
+      uses: bluwy/substitute-string-action@v3
+      id: previous
+      with:
+        _input-text: ${{ fromJson(steps.list_results.outputs.result)[1].tag_name }}
+        -beta: ''
+        v: ''
+    - name: Set Master Branch
+    # Currently the default branch is master, but if that changes later, then this acts as a failsafe.
+      run: |
+        git checkout master
+    - name: Update index.php
+      run: |
+        sed -i 's/${{ steps.previous.outputs.result  }}/${{ steps.current.outputs.result }}/g' src/index.php
+    - name: Commit Files
+      uses: stefanzweifel/git-auto-commit-action@v7
+      with:
+        # Optional but recommended
+        # Defaults to "Apply automatic changes"
+        commit_message: Update version number to v${{ steps.current.outputs.result }}
+
+        # Optional options appended to `git-commit`
+        # See https://git-scm.com/docs/git-commit for a list of available options
+        commit_options: '--no-verify --signoff'
+
+        # Optional: Disable dirty check and always try to create a commit and push
+        skip_dirty_check: true

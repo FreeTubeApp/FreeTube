@@ -19,37 +19,61 @@
 </template>
 
 <script setup>
-import { nextTick, onBeforeUnmount, onMounted, shallowReactive } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, reactive } from 'vue'
 import { ToastEventBus } from '../../helpers/utils'
 
 let idCounter = 0
 
 /**
  * @typedef Toast
- * @property {string} message
+ * @property {string | (({elapsedMs: number, remainingMs: number}) => string)} message
  * @property {Function | null} action
  * @property {boolean} isOpen
  * @property {NodeJS.Timeout | number} timeout
+ * @property {NodeJS.Timeout | number} interval
  * @property {number} id
  */
 
-/** @type {import('vue').ShallowReactive<Toast[]>} */
-const toasts = shallowReactive([])
+/** @type {import('vue').Reactive<Toast[]>} */
+const toasts = reactive([])
 
 /**
- * @param {CustomEvent<{ message: string, time: number | null, action: Function | null, abortSignal: AbortSignal | null }>} event
+ * @param {CustomEvent<{ message: string | (({elapsedMs: number, remainingMs: number}) => string), time: number | null, action: Function | null, abortSignal: AbortSignal | null }>} event
  */
 function open({ detail: { message, time, action, abortSignal } }) {
+  const id = idCounter++
+
   /** @type {Toast} */
   const toast = {
+    id,
     message,
     action,
     isOpen: false,
     timeout: 0,
-    id: idCounter++
+    interval: 0
+  }
+  time ||= 3000
+  let elapsed = 0
+  const updateDelay = 1000
+
+  if (typeof message === 'function') {
+    toast.message = message({ elapsedMs: elapsed, remainingMs: time - elapsed })
+    toast.interval = setInterval(() => {
+      elapsed += updateDelay
+      // Skip last update
+      if (elapsed >= time) { return }
+
+      // We need to locate the object in the array so we get the reactive proxy,
+      // as modifying the original object won't trigger reactive effects such as updating the DOM
+      const toast = toasts.find(t => t.id === id)
+
+      if (toast) {
+        toast.message = message({ elapsedMs: elapsed, remainingMs: time - elapsed })
+      }
+    }, updateDelay)
   }
 
-  toast.timeout = setTimeout(close, time || 3000, toast)
+  toast.timeout = setTimeout(close, time, toast)
   if (abortSignal != null) {
     abortSignal.addEventListener('abort', () => {
       close(toast)
@@ -57,7 +81,13 @@ function open({ detail: { message, time, action, abortSignal } }) {
   }
 
   nextTick(() => {
-    toast.isOpen = true
+    // We need to locate the object in the array so we get the reactive proxy,
+    // as modifying the original object won't trigger reactive effects such as updating the DOM
+    const toast = toasts.find(t => t.id === id)
+
+    if (toast) {
+      toast.isOpen = true
+    }
   })
 
   if (toasts.length > 4) {
@@ -91,8 +121,17 @@ function remove(toast) {
 
   if (index !== -1) {
     toasts.splice(index, 1)
-    clearTimeout(toast.timeout)
+    cleanup(toast)
   }
+}
+
+/**
+ * @param {Toast} toast
+ */
+function cleanup(toast) {
+  // assumes `toasts.indexOf(toast) !== -1`
+  clearTimeout(toast.timeout)
+  clearInterval(toast.interval)
 }
 
 onMounted(() => {
@@ -101,7 +140,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   ToastEventBus.removeEventListener('toast-open', open)
-  toasts.forEach((toast) => clearTimeout(toast.timeout))
+  toasts.forEach(cleanup)
 })
 </script>
 

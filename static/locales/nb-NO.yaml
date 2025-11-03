@@ -158,14 +158,14 @@ User Playlists:
   This playlist currently has no videos.: Denne spillelisten har ingen videoer for øyeblikket.
   Export Playlist: Eksporter denne spillelisten
   Sort By:
-    EarliestCreatedFirst: Tidligst opprettet
-    EarliestUpdatedFirst: Tidligst endret
-    LatestPlayedFirst: Sist spilt av
-    EarliestPlayedFirst: Tidligst spilt av
-    LatestUpdatedFirst: Nylig endret
+    EarliestCreatedFirst: Opprettelsesdato (eldste)
+    EarliestUpdatedFirst: Oppdateringsdato (eldste)
+    LatestPlayedFirst: Dato spilt av (nyeste)
+    EarliestPlayedFirst: Dato spilt av (eldste)
+    LatestUpdatedFirst: Oppdateringsdato (nyeste)
     NameAscending: A-Å
     NameDescending: Å-A
-    LatestCreatedFirst: Nylig opprettet
+    LatestCreatedFirst: Opprettelsesdato (nyeste)
   Add to Favorites: Legg til {playlistName}
   Move Video Up: Flytt video opp
   Move Video Down: Flytt video ned
@@ -197,6 +197,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Slå på hurtigbokmerket med denne spillelisten
   Quick Bookmark Enabled: Hurtigbokmerket aktivert
   TotalTimePlaylist: 'Total tid: {duration}'
+  Export list of URLs: Eksporter liste over URL-er
 History:
   # On History Page
   History: 'Historikk'
@@ -205,8 +206,8 @@ History:
   Empty Search Message: Ingen videoer i historikken din samsvarer med søket ditt
   Search bar placeholder: Søk i historikken
   Case Sensitive Search: Søket skiller mellom store og små bokstaver
-  DateOldestHistory: Tidligste sett først
-  DateNewestHistory: Seneste sett først
+  DateOldestHistory: Dato sett (eldste)
+  DateNewestHistory: Dato sett (nyeste)
 Settings:
   # On Settings Page
   Settings: 'Innstillinger'
@@ -253,6 +254,7 @@ Settings:
       Label: Last inn den neste siden automatisk
       Tooltip: Last inn flere sider og kommentarer automatisk.
     Open Deep Links In New Window: Åpne linker gitt til FreeTube i et nytt vindu
+    Minimize to system tray: Minimer til systemkurven
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Tilpass topplinjen slik at den har samme farge som hovedfargen'
@@ -510,6 +512,8 @@ Settings:
     Enable Tor / Proxy: Skru på Tor / mellomtjener
     Proxy Settings: Mellomtjener (proxy)
     Proxy Warning: FreeTube har ikke en innebygd mellomtjener (proxy), men det kan koble til en ekstern en, for eksempel en som kjører på din egen maskin, som Tor, eller en ekstern mellomtjener som SOCKS5 som tilbys av enkelte VPN-er. Hvis dette skrus på, pass på at mellomtjeneren din er konfigurert riktig; hvis ikke kommer ikke FreeTube til å klare å hente noen data.
+    Proxy Username: Mellomtjener-brukernavn
+    Proxy Password: Mellomtjener-passord
   Distraction Free Settings:
     Hide Trending Videos: Skjul «På vei opp»
     Hide Video Likes And Dislikes: Skjul antall liker/ikke liker på videoer
@@ -550,7 +554,7 @@ Settings:
     Hide Channel Home: Skjule «Start»-fanen i kanaler
     Hide Videos and Playlists Containing Text: Skjul videoer og spillelister som inneholder tekst
     Hide Channels Already Exists: Kanal-ID-en finnes allerede
-    Hide Videos and Playlists Containing Text Placeholder: Ord, del av ord eller setning
+    Hide Videos and Playlists Containing Text Placeholder: Orddel, ord eller frase
     Hide Channels Invalid: Kanal-ID-en var ugyldig
     Hide Channels Disabled Message: Noen kanaler ble blokkert med ID og ble ikke prosessert. Funksjonen er blokkert mens disse ID-ene blir oppdatert
     Show Added Items: Vis videoer lagt til
@@ -596,6 +600,7 @@ Settings:
     Hide Search Bar: Skjul søkefeltet
     Show Family Friendly Only: Vis kun familievennlig innhold
     Hide Unsubscribe Button: Skjul knapp for opphevelse av abonnement
+    Hide Uploader on Watch page: Skjul opplasteren på visningssiden
   Experimental Settings:
     Experimental Settings: Eksperimentelt
     Replace HTTP Cache: Erstatt HTTP-hurtiglager
@@ -781,7 +786,7 @@ Video:
       Media Formats: 'Medieformater: {formats}'
       Buffered: 'Bufret: {bufferedPercentage}%'
       Volume: 'Lydstyrke: {volumePercentage}%'
-      Resolution: 'Oppløsning: {width}x{height}@{frameRate}'
+      Resolution: 'Oppløsning: {width}x{height}{''@''}{frameRate}'
       Stats: Statistikk
       CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
       CodecsVideoAudio: 'Kodeker: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
@@ -826,17 +831,17 @@ Playlist:
 #& Views
   Playlist: Spilleliste
   Sort By:
-    PublishedNewest: Siste publisert først
+    PublishedNewest: Dato lagt ut (nyeste)
     AuthorAscending: Forfatter (A-Å)
-    VideoDurationDescending: Varighet (Lengste først)
-    PublishedOldest: Tidligste publisert først
-    DateAddedNewest: Siste lagt til først
+    VideoDurationDescending: Varighet (lengste)
+    PublishedOldest: Dato lagt ut (eldste)
+    DateAddedNewest: Dato lagt til (nyeste)
     VideoTitleAscending: Tittel (A-Å)
-    DateAddedOldest: Tidligste lagt til først
+    DateAddedOldest: Dato lagt til (eldst)
     AuthorDescending: Forfatter (Å-A)
     VideoTitleDescending: Tittel (Å-A)
     Custom: Tilpasset
-    VideoDurationAscending: Varighet (Korteste først)
+    VideoDurationAscending: Varighet (korteste)
 Change Format:
   Change Media Formats: 'Endre videoformater'
   Use Dash Formats: 'Bruk DASH-formater'
@@ -976,6 +981,7 @@ Tooltips:
     Hide Channels: Skiv inn en kanal-ID for å skjule alle videoer, spillelister og selve kanalen fra å vises i søk eller andre steder. Kanal-ID-en må være et nøyaktig treff, og skiller mellom små og store bokstaver.
     Hide Subscriptions Live: Innstillingen overstyres av «{appWideSetting}» for hele programmet, i «{subsection}»-delen av «{settingsSection}»
     Hide Videos and Playlists Containing Text: Tast inn et ord, en del av et ord eller en frase (det skilles ikke mellom store og små bokstaver) for å gjemme alle videoer og spillelister med det i seg, med unntak av i historikken din, og videoer inne i spillelister.
+    Hide Videos on Watch: Skjul sette videoer fra Videoer, Shorts og Live-fanene på abonnementsider og kanalsider. Dette påvirker ikke Hjemme-fanen på kanalsider.
   SponsorBlock Settings:
     UseDeArrowTitles: Erstatt videonavn med brukerinnsendte navn fra DeArrow.
     UseDeArrowThumbnails: Erstatt miniatyrbilder på videoer med bilder fra DeArrow.
@@ -1004,8 +1010,6 @@ Channels:
   Unsubscribe Prompt: Er du sikker på at du ikke lenger vil abonnere på «{channelName}»?
 Chapters:
   Chapters: Kapitler
-  'Chapters list visible, current chapter: {chapterName}': 'Kapittelliste synlig. Nåværende kapittel: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Kapittelliste skjult. Nåværende kapittel: {chapterName}'
   Key Moments: Høydepunkter
 Screenshot Success: Lagret skjermbilde
 Screenshot Error: Skjermavbildning mislyktes. {error}
@@ -1106,6 +1110,8 @@ KeyboardShortcutPrompt:
   Theatre Mode: Skru teatermodus av/på
   End: Gå til slutten av videoen
   Home: Gå til starten av videoen
+  Skip to Next Video: Hopp til neste video i en spilleliste eller neste anbefalte video
+  Skip to Previous Video: Hopp til forrige video i en spilleliste
 Moments Ago: for et øyeblikk siden
 shortcutLabelSeparator: ｜
 Description:

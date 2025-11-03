@@ -197,6 +197,7 @@ User Playlists:
   Export Playlist: Exportar esta Playlist
   The playlist has been successfully exported: La playlist se ha exportado correctamente
   TotalTimePlaylist: 'Duración total: {duration}'
+  Export list of URLs: Exportar lista de URLs
 History:
   # On History Page
   History: 'Historial'
@@ -205,8 +206,8 @@ History:
   Search bar placeholder: Buscar en la historia
   Empty Search Message: No hay vídeos en tu historial que coincidan con tu búsqueda
   Case Sensitive Search: Búsqueda sensible a mayúsculas y minúsculas
-  DateOldestHistory: Primero lo Más Antiguo Visto
-  DateNewestHistory: Primero lo Más Reciente Visto
+  DateOldestHistory: Vistos más antiguos primero
+  DateNewestHistory: Vistos más recientes primero
 Settings:
   # On Settings Page
   Settings: 'Ajustes'
@@ -253,6 +254,7 @@ Settings:
       Label: Carga automática de la página siguiente
       Tooltip: Cargar automáticamente páginas adicionales y comentarios.
     Open Deep Links In New Window: Abrir URL pasadas a FreeTube en una nueva ventana
+    Minimize to system tray: Minimizar a la bandeja del sistema
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Usar color principal para barra superior'
@@ -442,7 +444,7 @@ Settings:
     Remove All Playlists: Eliminar todas las listas de reproducción
     Are you sure you want to remove all your playlists?: ¿Estás seguro de que quieres eliminar todas tus listas de reproducción?
     Remember Search History: Guardar Historial de Búsquedas
-    Are you sure you want to clear out your search history and cache?: Está seguro de que quiere borrar su historial de búsqueda y cache?
+    Are you sure you want to clear out your search history and cache?: ¿Está seguro de que desea borrar su historial de búsqueda y la caché?
     Search history and cache have been cleared: El historial de búsquedas y el cache han sido borrados
     Clear Search History and Cache: Borrar Historial de Búsquedas y Cache
     Watched Progress Saving Mode:
@@ -559,6 +561,8 @@ Settings:
     Enable Tor / Proxy: Activar Tor o «proxy»
     Proxy Settings: Proxy
     Proxy Warning: FreeTube no tiene un proxy incorporado, pero puede conectarse a un proxy externo, como uno que se ejecuta en su máquina como Tor o un proxy externo como un proxy SOCKS5 proporcionado por algunas VPN. Si está habilitado, asegúrese de que su proxy/Tor esté configurado correctamente, o FreeTube no podrá recuperar ningún dato.
+    Proxy Password: Contraseña del proxy
+    Proxy Username: Nombre de Usuario del proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificar cuando se salta un segmento de patrocinio
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de la API de SponsorBlock (por defecto es https://sponsor.ajay.app)
@@ -596,6 +600,7 @@ Settings:
     Hide Search Bar: Ocultar barra de búsqueda
     Parental Control Settings: Control parental
     Show Family Friendly Only: Mostrar solo lo apto para las familias
+    Hide Uploader on Watch page: Ocultar Canal en la página de Reproducción
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: Estas configuraciones son experimentales, pueden causar fallos mientras están habilitadas. Es muy recomendable hacer copias de seguridad. ¡Úselo bajo su propio riesgo!
@@ -827,7 +832,7 @@ Video:
       Stats: Estadísticas
       Video ID: 'ID del vídeo: {videoId}'
       Media Formats: 'Formatos del medio: {formats}'
-      Resolution: 'Resolución: {width}x{height}@{frameRate}'
+      Resolution: 'Resolución: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Dimensiones del reproductor: {width}x{height}'
       Bitrate: 'Tasa de bits: {bitrate} kbps'
       Volume: 'Volumen: {volumePercentage}%'
@@ -953,7 +958,7 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Cuando se activa, FreeTube utilizará RSS en lugar de su método por defecto para obtener su feed de suscripción. RSS es más rápido y evita el bloqueo de IP, pero no proporciona cierta información como la duración del vídeo, el estado en directo o los mensajes
-    Fetch Automatically: Cuando esté habilitado, FreeTube obtendrá automáticamente su feed de suscripción al iniciar y cuando se abra una nueva ventana.
+    Fetch Automatically: Cuando esté habilitado, FreeTube obtendrá automáticamente su feed de suscripciones al iniciar y cuando se abra una nueva ventana.
   Player Settings:
     Default Video Format: Selecciona el formato usado para reproducir vídeos. El formato DASH puede reproducir resoluciones más altas. El formato Legacy está limitado a 360p, pero requiere menos ancho de banda. El formato del audio se limita al reproducir solo audio.
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en lugar de conectar directamente con YouTube.
@@ -965,7 +970,7 @@ Tooltips:
     Thumbnail Preference: Todas las miniaturas en FreeTube se reemplazarán con un fotograma del vídeo, borroso o oculto, en lugar de la miniatura predeterminada.
     Fallback to Non-Preferred Backend on Failure: Si la API primaria falla, FreeTube utilizará automáticamente la API secundaria cuando esté activada.
     Preferred API Backend: Elija el motor que debe utilizar FreeTube para obtener datos. La API local es un extractor incorporado. La API de Invidious requiere de un servidor Invidious al cual conectarse.
-    External Link Handling: "Elija el comportamiento por defecto cuando se hace clic en un enlace que no se pueda abrirse en FreeTube. \nPor defecto, FreeTube abrirá el enlace en el que se hizo clic en su navegador predeterminado.\n"
+    External Link Handling: "Elija el comportamiento predeterminado cuando se hace clic en un enlace que no se puede abrir en FreeTube.\nPor defecto, FreeTube abrirá el enlace en el navegador predeterminado.\n"
     Open Deep Links In New Window: Las URL que se pasan a FreeTube, por ejemplo mediante la redirección de extensiones del navegador o argumentos de la línea de comandos, se abren en una ventana nueva.
   External Player Settings:
     Custom External Player Executable: Por defecto, FreeTube buscará el reproductor externo seleccionado mediante la variable de entorno PATH, de no encontrarlo, podrás especificar una ruta personalizada aquí.
@@ -980,6 +985,7 @@ Tooltips:
     Hide Channels: Introduzca un ID del canal para ocultar todos los vídeos, listas de reproducción y el propio canal para que no aparezcan en las búsquedas, tendencias, más populares y recomendados. El ID del canal introducido debe coincidir completamente y se debe distinguir entre mayúsculas y minúsculas.
     Hide Subscriptions Live: Esta configuración se reemplaza por la configuración «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
     Hide Videos and Playlists Containing Text: Introduzca una palabra, fragmento de palabra o frase (sin distinguir mayúsculas de minúsculas) para ocultar todos los vídeos y listas de reproducción cuyos títulos originales la contengan en todo FreeTube, excluyendo únicamente Historial, Tus listas de reproducción y los vídeos dentro de las listas de reproducción.
+    Hide Videos on Watch: Oculta los vídeos vistos de las pestañas de Vídeos, Shorts y En directo en las páginas de Suscripciones y Canales. Esto no afecta a la pestaña de inicio en las páginas de Canales
   SponsorBlock Settings:
     UseDeArrowTitles: Sustituye los títulos de los vídeos por títulos enviados por los usuarios desde DeArrow.
     UseDeArrowThumbnails: Sustituye las miniaturas de vídeo por miniaturas de DeArrow.
@@ -1011,8 +1017,6 @@ Clipboard:
   Copy failed: Error al copiar al portapapeles
   Cannot access clipboard without a secure connection: No se puede acceder al portapapeles sin una conexión segura
 Chapters:
-  'Chapters list visible, current chapter: {chapterName}': 'Lista de los capítulos visibles, capítulo actual: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Lista de los capítulos ocultos, capítulo actual: {chapterName}'
   Chapters: Capítulos
   Key Moments: Momentos clave
 Preferences: Preferencias
@@ -1116,6 +1120,8 @@ KeyboardShortcutPrompt:
   Refresh: Actualizar el feed con el contenido más reciente
   Close Window: Cerrar ventana
   Restart Window: Reiniciar ventana
-  Home: Ir al principio del vídeo
-  End: Ir al final del vídeo
+  Home: Saltar al inicio del vídeo
+  End: Saltar al final del vídeo
+  Skip to Next Video: Salta al siguiente vídeo en la lista de reproducción o al siguiente vídeo recomendado
+  Skip to Previous Video: Salta al vídeo anterior en la lista de reproducción
 shortcutLabelSeparator: ｜

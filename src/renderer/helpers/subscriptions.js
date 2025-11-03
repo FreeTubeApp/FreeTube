@@ -31,14 +31,6 @@ export function updateVideoListAfterProcessing(videos) {
     })
   }
 
-  if (store.getters.getHideWatchedSubs) {
-    const historyCacheById = store.getters.getHistoryCacheById
-
-    videoList = videoList.filter((video) => {
-      return !Object.hasOwn(historyCacheById, video.videoId)
-    })
-  }
-
   // ordered last to show first eligible video from channel
   // if the first one incidentally failed one of the above checks
   if (store.getters.getOnlyShowLatestFromChannel) {

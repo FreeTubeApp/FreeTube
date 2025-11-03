@@ -109,7 +109,7 @@ import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtButton from '../FtButton/FtButton.vue'
 import FtPlaylistSelector from '../FtPlaylistSelector/FtPlaylistSelector.vue'
 import FtInput from '../ft-input/ft-input.vue'
-import FtSelect from '../ft-select/ft-select.vue'
+import FtSelect from '../FtSelect/FtSelect.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 
 import store from '../../store/index'
@@ -393,9 +393,6 @@ function addSelectedToPlaylists() {
     })
 
     addedPlaylistIds.add(playlist._id)
-
-    // Update playlist's `lastUpdatedAt`
-    store.dispatch('updatePlaylist', { _id: playlist._id })
   })
 
   let message

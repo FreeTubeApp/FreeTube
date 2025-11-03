@@ -98,21 +98,21 @@ export async function getSponsorBlockSegments(videoId, categories) {
 export function translateSponsorBlockCategory(category) {
   switch (category) {
     case 'sponsor':
-      return i18n.t('Video.Sponsor Block category.sponsor')
+      return i18n.global.t('Video.Sponsor Block category.sponsor')
     case 'intro':
-      return i18n.t('Video.Sponsor Block category.intro')
+      return i18n.global.t('Video.Sponsor Block category.intro')
     case 'outro':
-      return i18n.t('Video.Sponsor Block category.outro')
+      return i18n.global.t('Video.Sponsor Block category.outro')
     case 'recap':
-      return i18n.t('Video.Sponsor Block category.recap')
+      return i18n.global.t('Video.Sponsor Block category.recap')
     case 'selfpromo':
-      return i18n.t('Video.Sponsor Block category.self-promotion')
+      return i18n.global.t('Video.Sponsor Block category.self-promotion')
     case 'interaction':
-      return i18n.t('Video.Sponsor Block category.interaction')
+      return i18n.global.t('Video.Sponsor Block category.interaction')
     case 'music_offtopic':
-      return i18n.t('Video.Sponsor Block category.music offtopic')
+      return i18n.global.t('Video.Sponsor Block category.music offtopic')
     case 'filler':
-      return i18n.t('Video.Sponsor Block category.filler')
+      return i18n.global.t('Video.Sponsor Block category.filler')
     default:
       console.error(`Unknown translation for SponsorBlock category ${category}`)
       return category
@@ -131,7 +131,7 @@ export function translateSponsorBlockCategory(category) {
  * }[]} captions
  */
 export function sortCaptions(captions) {
-  const currentLocale = i18n.locale
+  const currentLocale = i18n.global.locale
   const userLocale = currentLocale.split('-') // ex. [en,US]
 
   const collator = new Intl.Collator([currentLocale, 'en'])
@@ -329,4 +329,22 @@ export function findMostSimilarAudioBandwidth(variants, bandwidthToMatch) {
   }
 
   return closestVariant
+}
+
+/**
+ * @param {shaka.extern.AudioTrack[]} tracks
+ */
+export function deduplicateAudioTracks(tracks) {
+  /** @type {Map<string, shaka.extern.AudioTrack>} */
+  const knownTracks = new Map()
+
+  for (const track of tracks) {
+    const id = `${track.label}_${track.language}_${track.channelsCount}_${track.spatialAudio}`
+
+    if (!knownTracks.has(id) || track.active) {
+      knownTracks.set(id, track)
+    }
+  }
+
+  return knownTracks
 }

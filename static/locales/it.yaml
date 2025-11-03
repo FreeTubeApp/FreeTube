@@ -155,13 +155,13 @@ User Playlists:
     Search for Videos: Ricerca nei video
   Are you sure you want to delete this playlist? This cannot be undone: Sei sicuro di voler eliminare questa playlist? Questa operazione non può essere annullata.
   Sort By:
-    LatestPlayedFirst: Riproduzione più recente
-    EarliestCreatedFirst: Creazione più vecchia
-    LatestCreatedFirst: Creazione più recente
-    EarliestUpdatedFirst: Aggiornamento più vecchio
+    LatestPlayedFirst: Data di riproduzione (più recente)
+    EarliestCreatedFirst: Data di creazione (più vecchia)
+    LatestCreatedFirst: Data di creazione (più recente)
+    EarliestUpdatedFirst: Data di aggiornamento (più vecchia)
     NameDescending: Z-A
-    EarliestPlayedFirst: Riproduzione più vecchia
-    LatestUpdatedFirst: Aggiornamento più recente
+    EarliestPlayedFirst: Data di riproduzione (più vecchia)
+    LatestUpdatedFirst: Data di aggiornamento (più recente)
     NameAscending: A-Z
   You have no playlists. Click on the create new playlist button to create a new one.: Non hai playlist. Fai clic sul pulsante Crea nuova playlist per crearne una nuova.
   Remove from Playlist: Rimuovi dalla playlist
@@ -197,6 +197,7 @@ User Playlists:
   Export Playlist: Esporta questa playlist
   The playlist has been successfully exported: La playlist è stata esportata correttamente
   TotalTimePlaylist: 'Tempo totale: {duration}'
+  Export list of URLs: Esporta l'elenco degli URL
 History:
   # On History Page
   History: 'Cronologia'
@@ -205,8 +206,8 @@ History:
   Search bar placeholder: Ricerca nella Cronologia
   Empty Search Message: Non ci sono video nella tua Cronologia che corrispondono alla tua ricerca
   Case Sensitive Search: Ricerca con distinzione tra maiuscole e minuscole
-  DateOldestHistory: Prima i guardati più vecchi
-  DateNewestHistory: Prima i guardati più nuovi
+  DateOldestHistory: Data di visione (più vecchia)
+  DateNewestHistory: Data di visione (più recente)
 Settings:
   # On Settings Page
   Settings: 'Impostazioni'
@@ -253,6 +254,7 @@ Settings:
       Label: Carica automaticamente la pagina successiva
       Tooltip: Carica automaticamente pagine e commenti aggiuntivi.
     Open Deep Links In New Window: Apri URL passati a FreeTube in una nuova finestra
+    Minimize to system tray: Riduci a icona nella barra delle applicazioni
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Abbina la barra superiore al colore principale'
@@ -537,7 +539,7 @@ Settings:
     Hide Channels Already Exists: L'ID canale esiste già
     Hide Channels API Error: Errore durante il recupero dell'utente con l'ID fornito. Controlla di nuovo se l'ID è corretto.
     Hide Videos and Playlists Containing Text: Nascondi i video e le playlist contenenti il testo
-    Hide Videos and Playlists Containing Text Placeholder: Parola, frammento di parola o frase
+    Hide Videos and Playlists Containing Text Placeholder: Frammento, parola o frase
     Hide Channel Home: Nascondi la scheda "Pagina iniziale" del canale
     Show Added Items: Mostra elementi aggiunti
     Hide Channel Courses: Nascondi la scheda "Corsi" del canale
@@ -559,6 +561,8 @@ Settings:
     Proxy Port Number: Numero di porta del proxy
     Proxy Host: Host del proxy
     Proxy Warning: FreeTube non ha un proxy integrato ma può connettersi a un proxy esterno, come uno in esecuzione sul tuo computer come Tor o un proxy esterno come un proxy SOCKS5 fornito da alcune VPN. Se abilitato, assicurati che il tuo proxy/Tor sia configurato correttamente, altrimenti FreeTube non sarà in grado di recuperare alcun dato.
+    Proxy Username: Nome utente proxy
+    Proxy Password: Password proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifica quando un segmento sponsor viene saltato
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL dell'API di SponsorBlock (l'impostazione predefinita è https://sponsor.ajay.app)
@@ -624,7 +628,7 @@ About:
   FreeTube Wiki: Wiki FreeTube
   Help: Aiuto
   Downloads / Changelog: Download / Registro delle modifiche
-  GitHub releases: Versioni pubblicate su GitHub
+  GitHub releases: Versioni di GitHub
   these people and projects: queste persone e questi progetti
   FreeTube is made possible by: FreeTube è reso possibile grazie a
   Credits: Crediti
@@ -752,7 +756,7 @@ Video:
       shuffling playlists: riproduzione casuale delle playlist
       reversing playlists: invertire le playlist
       opening specific video in a playlist (falling back to opening the video): apertura di un video specifico in una playlist (in caso di errore vai all'apertura del video)
-      setting a playback rate: impostare una velocità di riproduzione
+      setting a playback rate: impostazione di una velocità di riproduzione
       opening playlists: apertura delle playlist
       starting video at offset: avviare il video da un determinato punto
     UnsupportedActionTemplate: '{externalPlayer} non supporta: {action}'
@@ -785,7 +789,7 @@ Video:
     Show Stats: Mostra statistiche
     Stats:
       Media Formats: 'Formati multimediali: {formats}'
-      Resolution: 'Risoluzione: {width}×{height}@{frameRate}'
+      Resolution: 'Risoluzione: {width}×{height}{''@''}{frameRate}'
       Player Dimensions: 'Dimensioni del lettore: {width}×{height}'
       Stats: Statistiche
       Video ID: 'ID video: {videoId}'
@@ -831,13 +835,13 @@ Playlist:
     VideoTitleDescending: Titolo (Z-A)
     AuthorDescending: Autore (Z-A)
     AuthorAscending: Autore (A-Z)
-    DateAddedNewest: Prima gli aggiunti più nuovi
-    DateAddedOldest: Prima gli aggiunti più vecchi
+    DateAddedNewest: Data aggiunta (più recente)
+    DateAddedOldest: Data aggiunta (più vecchia)
     VideoTitleAscending: Titolo (A-Z)
-    VideoDurationAscending: Durata (prima la più breve)
-    VideoDurationDescending: Durata (prima la più lunga)
-    PublishedNewest: Prima i pubblicati più nuovi
-    PublishedOldest: Prima i pubblicati più vecchi
+    VideoDurationAscending: Durata (più breve)
+    VideoDurationDescending: Durata (più lunga)
+    PublishedNewest: Data di pubblicazione (più recente)
+    PublishedOldest: Data di pubblicazione (più vecchia)
 Change Format:
   Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
@@ -980,7 +984,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Inserisci l'ID di un canale per impedire che tutti i video, le playlist e il canale stesso vengano visualizzati nelle ricerche, tendenze, più popolari e consigliati. Il nome del canale inserito deve avere una corrispondenza completa e fa distinzione tra maiuscole e minuscole.
     Hide Subscriptions Live: Questa impostazione è sovrascritta dall'impostazione "{appWideSetting}" a livello di app, nella sezione "{subsection}" di "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Inserisci una parola, un frammento di parola o una frase (senza distinzione tra maiuscole e minuscole) per nascondere tutti i video e le playlist i cui titoli originali la contengono in tutto FreeTube, escludendo solo Cronologia, Le tue playlist e i video all'interno delle playlist.
+    Hide Videos and Playlists Containing Text: Inserisci un frammento, una parola o una frase (senza distinzione tra maiuscole e minuscole) per nascondere tutti i video e le playlist i cui titoli originali lo contengono, in tutta l'applicazione FreeTube, escludendo solo la Cronologia, le Tue playlist e i video all'interno delle playlist.
     Hide Videos on Watch: Nasconde i video guardati dalle schede Video, Video brevi e Dal vivo nelle pagine Iscrizioni e Canali. Questo non influisce sulla scheda Pagina iniziale nelle pagine Canali
   SponsorBlock Settings:
     UseDeArrowTitles: Sostituisci i titoli dei video coi titoli inviati dagli utenti di DeArrow.
@@ -1006,7 +1010,7 @@ Channels:
   Title: Elenco canali
   Channels: Canali
   Search bar placeholder: Ricerca canali
-  Count: '{number} canale/i trovato/i.'
+  Count: '{number} canali trovati.'
   Empty: L'elenco dei tuoi canali è attualmente vuoto.
   Unsubscribe Prompt: Sei sicuro di voler annullare l'iscrizione a "{channelName}"?
 Clipboard:
@@ -1014,8 +1018,6 @@ Clipboard:
   Copy failed: Copia negli appunti non riuscita
 Chapters:
   Chapters: Capitoli
-  'Chapters list visible, current chapter: {chapterName}': 'Elenco capitoli visibile, capitolo corrente: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Elenco capitoli nascosto, capitolo corrente: {chapterName}'
   Key Moments: Momenti chiave
 Preferences: Preferenze
 Ok: OK

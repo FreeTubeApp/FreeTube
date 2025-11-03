@@ -2,13 +2,13 @@ import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
 import GeneralSettings from '../../components/general-settings/general-settings.vue'
 import ThemeSettings from '../../components/ThemeSettings.vue'
-import PlayerSettings from '../../components/player-settings/player-settings.vue'
+import PlayerSettings from '../../components/PlayerSettings/PlayerSettings.vue'
 import ExternalPlayerSettings from '../../components/ExternalPlayerSettings.vue'
 import SubscriptionSettings from '../../components/SubscriptionSettings/SubscriptionSettings.vue'
 import DownloadSettings from '../../components/DownloadSettings/DownloadSettings.vue'
 import PrivacySettings from '../../components/PrivacySettings.vue'
 import DataSettings from '../../components/DataSettings.vue'
-import DistractionSettings from '../../components/distraction-settings/distraction-settings.vue'
+import DistractionSettings from '../../components/DistractionSettings/DistractionSettings.vue'
 import ProxySettings from '../../components/ProxySettings/ProxySettings.vue'
 import SponsorBlockSettings from '../../components/SponsorBlockSettings.vue'
 import ParentalControlSettings from '../../components/ParentalControlSettings.vue'
@@ -177,7 +177,7 @@ export default defineComponent({
       this.handleMounted()
     }
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     document.removeEventListener('scroll', this.markScrolledToSectionAsActive)
     window.removeEventListener('resize', this.handleResize)
   },

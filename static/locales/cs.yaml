@@ -159,13 +159,13 @@ User Playlists:
     Search for Videos: Hledat videa
   Are you sure you want to delete this playlist? This cannot be undone: Opravdu chcete odstranit tento playlist? Tato akce je nevratná.
   Sort By:
-    LatestPlayedFirst: Nejnověji přehrané
-    EarliestCreatedFirst: Nejdéle vytvořené
-    LatestCreatedFirst: Nejnověji vytvořené
-    EarliestUpdatedFirst: Nejdéle bez aktualizace
+    LatestPlayedFirst: Datum přehrání (nejnovější)
+    EarliestCreatedFirst: Datum vytvoření (nejstarší)
+    LatestCreatedFirst: Datum vytvoření (nejnovější)
+    EarliestUpdatedFirst: Datum úpravy (nejstarší)
     NameDescending: Z-A
-    EarliestPlayedFirst: Nejdéle bez přehrání
-    LatestUpdatedFirst: Nejnověji aktualizované
+    EarliestPlayedFirst: Datum přehrání (nejstarší)
+    LatestUpdatedFirst: Datum úpravy (nejnovější)
     NameAscending: A-Z
   You have no playlists. Click on the create new playlist button to create a new one.: Nemáte žádné playlisty. Klikněte na tlačítko pro vytvoření nového playlistu.
   Remove from Playlist: Odebrat z playlistu
@@ -201,6 +201,7 @@ User Playlists:
   Export Playlist: Exportovat tento playlist
   The playlist has been successfully exported: Playlist byl úspěšně exportován
   TotalTimePlaylist: 'Celkový čas: {duration}'
+  Export list of URLs: Exportovat seznam adres URL
 History:
   # On History Page
   History: 'Historie'
@@ -209,8 +210,8 @@ History:
   Empty Search Message: Ve vaší historii nejsou žádná videa, která by odpovídala vašemu vyhledávání
   Search bar placeholder: Hledat v historii
   Case Sensitive Search: Vyhledávání citlivé na velikost písmen
-  DateOldestHistory: Nejprve nejdříve zhlédnuté
-  DateNewestHistory: Nejprve naposledy zhlédnuté
+  DateOldestHistory: Datum zhlédnutí (nejstarší)
+  DateNewestHistory: Datum zhlédnutí (nejnovější)
 Settings:
   # On Settings Page
   Settings: 'Nastavení'
@@ -258,6 +259,7 @@ Settings:
       Label: Automaticky načíst další stránku
       Tooltip: Automaticky načítat další stránky a komentáře.
     Open Deep Links In New Window: Otevírat adresy předané aplikaci FreeTube v novém okně
+    Minimize to system tray: Minimalizovat do systémové lišty
   Theme Settings:
     Theme Settings: 'Motiv'
     Match Top Bar with Main Color: 'Přizpůsobit horní lištu hlavní barvě'
@@ -474,7 +476,7 @@ Settings:
     Hide Popular Videos: 'Skrýt populární videa'
     Hide Live Chat: 'Skrýt chat'
     Hide Active Subscriptions: Skrýt aktivní odběry
-    Hide Playlists: Skrýt playlist
+    Hide Playlists: Skrýt playlisty
     Hide Video Description: Skrýt popis videa
     Hide Comments: Skrýt komentáře
     Hide Live Streams: Skrýt živé přenosy
@@ -563,6 +565,8 @@ Settings:
     Proxy Protocol: Protokol proxy
     Error getting network information. Is your proxy configured properly?: Chyba při získávání informací o síti. Je vaše proxy správně nakonfigurována?
     Proxy Warning: FreeTube nemá vestavěný proxy server, ale může se připojit k externímu proxy serveru, například k proxy serveru běžícímu na vašem počítači, jako je Tor, nebo k externímu proxy serveru, jako je proxy server SOCKS5 poskytovaný některými sítěmi VPN. Pokud je tato funkce povolena, ujistěte se, že je proxy server/Tor správně nakonfigurován, jinak FreeTube nebude moci načítat žádná data.
+    Proxy Username: Uživatelské jméno proxy
+    Proxy Password: Heslo proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Upozornit při přeskočení segmentu
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API SponsorBlock (výchozí je https://sponsor.ajay.app)
@@ -831,7 +835,7 @@ Video:
       Stats: Statistiky
       Video ID: 'ID videa: {videoId}'
       Media Formats: 'Formáty médií: {formats}'
-      Resolution: 'Rozlišení: {width}x{height}@{frameRate}'
+      Resolution: 'Rozlišení: {width}x{height}{''@''}{frameRate}'
       Bandwidth: 'Šířka pásma: {bandwidth} kb/s'
       Buffered: 'Načteno: {bufferedPercentage} %'
       Dropped Frames / Total Frames: 'Vypuštěno snímků: {droppedFrames} / Celkem snímků: {totalFrames}'
@@ -872,17 +876,17 @@ Playlist:
 #& Views
   Playlist: Playlist
   Sort By:
-    DateAddedNewest: Naposledy přidáno
-    DateAddedOldest: Nejdříve přidáno
+    DateAddedNewest: Datum přidání (nejnovější)
+    DateAddedOldest: Datum přidání (nejstarší)
     AuthorAscending: Autor (A-Z)
     AuthorDescending: Autor (Z-A)
     VideoTitleDescending: Název (Z-A)
     VideoTitleAscending: Název (A-Z)
     Custom: Vlastní
-    VideoDurationAscending: Doba trvání (od nejkratších)
-    VideoDurationDescending: Doba trvání (od nejdelších)
-    PublishedOldest: Od nejstarších
-    PublishedNewest: Od nejnovějších
+    VideoDurationAscending: Doba trvání (nejkratší)
+    VideoDurationDescending: Doba trvání (nejdelší)
+    PublishedOldest: Datum zveřejnění (nejstarší)
+    PublishedNewest: Datum zveřejnění (nejnovější)
 Change Format:
   Change Media Formats: 'Změnit formát videa'
   Use Dash Formats: 'Použít formáty DASH'
@@ -1017,8 +1021,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Nelze přistupovat ke schránce bez zabezpečeného připojení
   Copy failed: Kopírování do schránky selhalo
 Chapters:
-  'Chapters list visible, current chapter: {chapterName}': 'Seznam kapitol je viditelný, současná kapitola: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Seznam kapitol je skrytý, současná kapitola: {chapterName}'
   Chapters: Kapitoly
   Key Moments: Klíčové momenty
 Preferences: Předvolby

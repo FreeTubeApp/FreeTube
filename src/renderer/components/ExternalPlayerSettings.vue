@@ -63,7 +63,7 @@ import { computed } from 'vue'
 import { useI18n } from '../composables/use-i18n-polyfill'
 
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
-import FtSelect from './ft-select/ft-select.vue'
+import FtSelect from './FtSelect/FtSelect.vue'
 import FtInput from './ft-input/ft-input.vue'
 import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'

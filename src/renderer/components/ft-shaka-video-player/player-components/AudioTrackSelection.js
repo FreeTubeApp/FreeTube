@@ -1,7 +1,8 @@
 import shaka from 'shaka-player'
 
 import i18n from '../../../i18n/index'
-import { findMostSimilarAudioBandwidth } from '../../../helpers/player/utils'
+import { deduplicateAudioTracks } from '../../../helpers/player/utils'
+import { PlayerIcons } from '../../../../constants'
 
 export class AudioTrackSelection extends shaka.ui.SettingsMenu {
   /**
@@ -10,21 +11,29 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
    * @param {!shaka.ui.Controls} controls
    */
   constructor(events, parent, controls) {
-    super(parent, controls, 'spatial_audio_off')
+    super(parent, controls, PlayerIcons.RECORD_VOICE_OVER_FILLED)
 
     this.button.classList.add('audio-track-button', 'shaka-tooltip-status')
     this.menu.classList.add('audio-tracks')
+
+    /** @type {SVGElement} */
+    const checkmarkIcon = new shaka.ui.MaterialSVGIcon(null, PlayerIcons.DONE_FILLED).getSvgElement()
+    checkmarkIcon.classList.add('shaka-chosen-item')
+    checkmarkIcon.ariaHidden = 'true'
+
+    /** @private */
+    this._checkmarkIcon = checkmarkIcon
 
     this.eventManager.listen(events, 'localeChanged', () => {
       this.updateLocalisedStrings_()
     })
 
     this.eventManager.listen(this.player, 'loading', () => {
-      this.onTracksChanged_()
+      this.updateAudioTracks_()
     })
 
     this.eventManager.listen(this.player, 'trackschanged', () => {
-      this.onTracksChanged_()
+      this.updateAudioTracks_()
     })
 
     this.eventManager.listen(this.player, 'variantchanged', () => {
@@ -42,14 +51,9 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
 
   /**
    * @private
-   * @param {shaka.extern.TrackList?} tracks
    */
-  updateAudioTracks_(tracks) {
-    if (!tracks) {
-      tracks = this.player.getVariantTracks()
-    }
-
-    const selectedTrack = tracks.find(track => track.active)
+  updateAudioTracks_() {
+    const tracks = deduplicateAudioTracks(this.player.getAudioTracks()).values()
 
     const menu = this.menu
 
@@ -61,32 +65,21 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
 
     menu.appendChild(backButton)
 
-    /** @type {Set<string>} */
-    const knownLabels = new Set()
+    let count = 0
 
     for (const track of tracks) {
-      if (!track.label || knownLabels.has(track.label)) {
-        continue
-      }
-
-      knownLabels.add(track.label)
-
       const button = document.createElement('button')
       button.addEventListener('click', () => {
-        this.onAudioTrackSelected_(track.label)
+        this.onAudioTrackSelected_(track)
       })
 
       const span = document.createElement('span')
       button.appendChild(span)
 
-      span.textContent = track.label
+      span.textContent = track.label || new Intl.DisplayNames('en', { type: 'language', languageDisplay: 'standard' }).of(track.language)
 
-      if (selectedTrack && track.label === selectedTrack.label) {
-        const icon = document.createElement('i')
-        icon.classList.add('material-icons-round', 'shaka-chosen-item')
-        icon.textContent = 'done'
-        icon.ariaHidden = 'true'
-        button.appendChild(icon)
+      if (track.active) {
+        button.appendChild(this._checkmarkIcon)
 
         span.classList.add('shaka-chosen-item')
         button.ariaSelected = 'true'
@@ -94,65 +87,53 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
       }
 
       menu.appendChild(button)
+      count++
     }
 
     menu.querySelector('shaka-chosen-item')?.parentElement.focus()
 
     this.button.setAttribute('shaka-status', this.currentSelection.innerText)
 
-    if (knownLabels.size > 1) {
+    if (count > 1) {
       this.button.classList.remove('shaka-hidden')
     } else {
       this.button.classList.add('shaka-hidden')
     }
-  }
-
-  /** @private */
-  onTracksChanged_() {
-    const hasVariants = this.player.getVariantTracks().length > 0
-
-    if (hasVariants) {
-      this.button.classList.remove('shaka-hidden')
-    } else {
-      this.button.classList.add('shaka-hidden')
-    }
-
-    this.updateAudioTracks_()
   }
 
   /**
-   * @param {string} label
+   * @param {shaka.extern.AudioTrack} track
    * @private
    */
-  onAudioTrackSelected_(label) {
-    if (this.player.getConfiguration().abr.enabled) {
-      this.player.selectVariantsByLabel(label)
-    } else {
-      const variants = this.player.getVariantTracks()
-      const previousVariant = variants.find(variant => variant.active)
+  onAudioTrackSelected_(track) {
+    track.codecs = null
 
-      let matchingVariants = variants.filter(variant => variant.label === label)
+    this.player.selectAudioTrack(track)
 
-      if (!this.player.isAudioOnly()) {
-        matchingVariants = matchingVariants.filter(variant => {
-          return variant.width === previousVariant.width &&
-            variant.height === previousVariant.height &&
-            variant.frameRate === previousVariant.frameRate &&
-            variant.hdr === previousVariant.hdr
-        })
-      }
-
-      const closestVariant = findMostSimilarAudioBandwidth(matchingVariants, previousVariant.audioBandwidth)
-
-      this.player.selectVariantTrack(closestVariant, true)
+    const config = {
+      preferSpatialAudio: track.spatialAudio
     }
+
+    if (track.language !== 'und') {
+      config.preferredAudioLanguage = track.language
+    }
+
+    if (track.label) {
+      config.preferredAudioLabel = track.label
+    }
+
+    if (track.channelsCount) {
+      config.preferredAudioChannelCount = track.channelsCount
+    }
+
+    this.player.configure(config)
   }
 
   /** @private */
   updateLocalisedStrings_() {
     this.backButton.ariaLabel = this.localization.resolve('BACK')
 
-    const audioTracksText = i18n.t('Video.Player.Audio Tracks')
+    const audioTracksText = i18n.global.t('Video.Player.Audio Tracks')
 
     this.button.ariaLabel = audioTracksText
     this.nameSpan.textContent = audioTracksText

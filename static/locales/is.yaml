@@ -133,13 +133,13 @@ User Playlists:
   Edit Playlist Info: Breyta upplýsingum spilunarlista
   Sort By:
     NameDescending: Ö-A
-    LatestCreatedFirst: Nýlega útbúið
-    EarliestCreatedFirst: Fyrst búið til
-    LatestUpdatedFirst: Nýlega uppfært
-    EarliestPlayedFirst: Fyrst spilað
+    LatestCreatedFirst: Dags. útbúið (nýjast)
+    EarliestCreatedFirst: Dags. útbúið (elst)
+    LatestUpdatedFirst: Dags. uppfært (nýjast)
+    EarliestPlayedFirst: Dags. spilað (elst)
     NameAscending: A-Ö
-    EarliestUpdatedFirst: Fyrst uppfært
-    LatestPlayedFirst: Nýlega spilað
+    EarliestUpdatedFirst: Dags. uppfært (elst)
+    LatestPlayedFirst: Dags. spilað (nýjast)
   SinglePlaylistView:
     Toast:
       This video cannot be moved up.: Ekki er hægt að færa þetta myndskeið upp.
@@ -202,6 +202,7 @@ User Playlists:
   Export Playlist: Flytja út þennan spilunarlista
   The playlist has been successfully exported: Það tókst að flytja út þennan spilunarlista
   TotalTimePlaylist: 'Heildartími: {duration}'
+  Export list of URLs: Flytja út lista með vefslóðum
 History:
   # On History Page
   History: 'Áhorf'
@@ -210,8 +211,8 @@ History:
   Search bar placeholder: Leita í áhorfsferli
   Empty Search Message: Það eru engin myndskeið í ferlinum þínum sem samsvara leitinni þinni
   Case Sensitive Search: Leit háð há-/lágstöfum
-  DateOldestHistory: Fyrst horft á fremst
-  DateNewestHistory: Síðast horft á fremst
+  DateOldestHistory: Dags. horft á (elst)
+  DateNewestHistory: Dags. horft á (nýjast)
 Settings:
   # On Settings Page
   Settings: 'Stillingar'
@@ -259,6 +260,7 @@ Settings:
       Label: Hlaða næstu síðu sjálfvirkt
       Tooltip: Hlaða viðbótarsíðum og athugasemdum sjálfkrafa inn.
     Open Deep Links In New Window: Opna slóðir sem beint er til FreeTube í nýjum glugga
+    Minimize to system tray: Lágmarka í kerfisbakka
   Theme Settings:
     Theme Settings: 'Þema'
     Match Top Bar with Main Color: 'Láta toppstiku samsvara aðallit'
@@ -506,7 +508,7 @@ Settings:
     Hide Channels Already Exists: Auðkenni rásar er þegar til
     Hide Channels API Error: Villa við að ná í notanda með uppgefið auðkenni. Athugaðu aftur hvort auðkennið ré rétt.
     Hide Videos and Playlists Containing Text: Fela myndskeið og spilunarlista sem innihalda texta
-    Hide Videos and Playlists Containing Text Placeholder: Orð, orðhluti eða setning
+    Hide Videos and Playlists Containing Text Placeholder: Orðhluti, orð eða setning
     Hide Channel Home: Fela "Heim"-flipa rása
     Show Added Items: Sýna atriði sem bætt hefur verið við
     Hide Channel Courses: Fela flipann með rásinni "Kennsluefni"
@@ -563,6 +565,8 @@ Settings:
     City: 'Borg/Sveitarfélag'
     Error getting network information. Is your proxy configured properly?: 'Það tókst ekki að sækja upplýsingar um netkerfið. Er milliþjónninn rétt uppsettur?'
     Proxy Warning: FreeTube er ekki með innbyggðan milliþjón en getur tengst við utanaðkomandi milliþjóna, til dæmis einhvern sem keyrir á vélinni þinni eins og Tor eða fjartengdan milliþjón á borð við SOCKS5-milliþjóna sem sumar VPN-þjónustur bjóða. Ef þetta er virkt skaltu ganga úr skugga um að milliþjónninn/Tor sé rétt stillt, annars mun FreeTube ekki geta sótt nein gögn.
+    Proxy Username: Notandanafn á milliþjóni
+    Proxy Password: Lykilorð á milliþjóni
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Láta vita þegar kostaður hluti er hunsaður
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-slóð (sjálfgefið er https://sponsor.ajay.app)
@@ -600,6 +604,7 @@ Settings:
     Show Family Friendly Only: Aðeins sýna fjölskylduvænt efni
     Hide Search Bar: Fela leitarstiku
     Parental Control Settings: Foreldrastýringar
+    Hide Uploader on Watch page: Fela innsendingarsvæði á vöktunarsíðu
   Experimental Settings:
     Experimental Settings: Á tilraunastigi
     Warning: Þessar stillingar eru á tilraunastigi, þær geta valdið hruni þegar þær eru virkjaðar. Mælt er með því að öryggisafrit séu tekin. Notist á eigin ábyrgð!
@@ -825,7 +830,7 @@ Video:
     Stats:
       Player Dimensions: 'Stærðir spilara: {width}x{height}'
       Bitrate: 'Bitahraði: {bitrate} kbps'
-      Resolution: 'Upplausn: {width}x{height}@{frameRate}'
+      Resolution: 'Upplausn: {width}x{height}{''@''}{frameRate}'
       Volume: 'Hljóðstyrkur: {volumePercentage}%'
       Stats: Tölfræði
       Bandwidth: 'Bandbreidd: {bandwidth} kbps'
@@ -872,16 +877,16 @@ Playlist:
   Playlist: Spilunarlisti
   Sort By:
     AuthorAscending: Höfundur (A-Ö)
-    DateAddedNewest: Nýlegast bætt við fyrst
+    DateAddedNewest: Dags. bætt við (nýjast)
     AuthorDescending: Höfundur (Ö-A)
     VideoTitleAscending: Titill (A-Ö)
     VideoTitleDescending: Titill (Ö-A)
     Custom: Sérsniðið
-    DateAddedOldest: Elsta bætt við fyrst
-    VideoDurationAscending: Tímalengd (stysta fyrst)
-    VideoDurationDescending: Tímalengd (lengsta fyrst)
-    PublishedOldest: Elsta útgefna myndskeið fyrst
-    PublishedNewest: Síðast útgefna myndskeið fyrst
+    DateAddedOldest: Dags. bætt við (elst)
+    VideoDurationAscending: Tímalengd (styst)
+    VideoDurationDescending: Tímalengd (lengst)
+    PublishedOldest: Dags. gefið út (elst)
+    PublishedNewest: Dags. gefið út (nýjast)
 Change Format:
   Change Media Formats: 'Skipta um myndskeiðasnið'
   Use Dash Formats: 'Nota DASH-skráasnið'
@@ -966,7 +971,8 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Settu inn auðkenni rásar til að fela öll myndskeið, spilunarlista og sjálfa rásina við leit eða því sem er vinsælast, mest skoðað og mælt með. Auðkenni rásarinnar sem sett er inn þarf að vera nákvæmlega stafrétt og tekur tillit til hástafa/lágstafa.
     Hide Subscriptions Live: Þessa stillingu er hægt að taka yfir með "{appWideSetting}" stillingunni fyrir allt forritið, í "{subsection}" hlutanum í "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Settu inn orð, orðhluta eða setningu (óháð stafstöðu) til að fela öll myndskeið og spilunarlista þar sem titillinn inniheldur þetta, hvar sem er í FreeTube, með undantekningum innan áhorfsferils, spilunarlistanna þinna og myndskeiða innan spilunarlista.
+    Hide Videos and Playlists Containing Text: Settu inn orðhluta, orð eða setningu (óháð stafstöðu) til að fela öll myndskeið og spilunarlista þar sem titillinn inniheldur þetta, hvar sem er í FreeTube, með undantekningum innan áhorfsferils, spilunarlistanna þinna og myndskeiða innan spilunarlista.
+    Hide Videos on Watch: Felur myndskeið sem búið er að horfa á, úr flipunum Myndskeið, Símamyndir og Í beinni, á áskriftar- og rásasíðunum. Þetta hefur ekki áhrif á heimaflipann á rásasíðunum
   SponsorBlock Settings:
     UseDeArrowTitles: Skipta út titlum myndskeiða fyrir titla sem notendur hafa sent inn á DeArrow.
     UseDeArrowThumbnails: Skipta út smámyndum myndskeiða fyrir smámyndir frá DeArrow.
@@ -1015,8 +1021,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Get ekki tengst klippispjaldi án öruggrar tengingar
 Chapters:
   Chapters: Kaflar
-  'Chapters list visible, current chapter: {chapterName}': 'Listi yfir kafla sýnilegur, núverandi kafli: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Listi yfir kafla falinn, núverandi kafli: {chapterName}'
   Key Moments: Helstu augnablik
 Preferences: Kjörstillingar
 Ok: Í lagi
@@ -1121,4 +1125,6 @@ KeyboardShortcutPrompt:
   Focus Secondary Search: Færa virkni í hinn leitarreitinn (ef annar er til staðar)
   Home: Hoppa í upphaf myndskeiðsins
   End: Hoppa í enda myndskeiðsins
+  Skip to Next Video: Sleppa yfir á næsta myndskeið í spilunarlista eða næsta myndskeið sem mælt er með
+  Skip to Previous Video: Sleppa yfir á fyrra myndskeið í spilunarlista
 shortcutLabelSeparator: ｜

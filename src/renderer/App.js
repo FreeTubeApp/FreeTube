@@ -44,7 +44,6 @@ export default defineComponent({
       latestBlogUrl: '',
       updateChangelog: '',
       changeLogTitle: '',
-      isPromptOpen: false,
       lastExternalLinkToBeOpened: '',
       showExternalLinkOpeningPrompt: false,
       externalLinkOpeningPromptValues: [
@@ -104,6 +103,10 @@ export default defineComponent({
       return this.$store.getters.getDefaultInvidiousInstance
     },
 
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
+    },
+
     baseTheme: function () {
       return this.$store.getters.getBaseTheme
     },
@@ -150,6 +153,10 @@ export default defineComponent({
     appTitle: function () {
       return this.$store.getters.getAppTitle
     },
+
+    isAnyPromptOpen: function () {
+      return this.$store.getters.isAnyPromptOpen
+    }
   },
   watch: {
     windowTitle: 'setWindowTitle',
@@ -205,14 +212,17 @@ export default defineComponent({
         }, 500)
       })
 
-      this.$router.onReady(() => {
-        if (this.$router.currentRoute.path === '/') {
-          this.$router.replace({ path: this.landingPage })
-        }
+      if (this.$route.path === '/') {
+        this.$router.replace({ path: this.landingPage })
+      }
 
-        this.setWindowTitle()
-      })
+      this.setWindowTitle()
     })
+
+    document.addEventListener('dragstart', this.handleDragStart)
+  },
+  beforeUnmount: function () {
+    document.removeEventListener('dragstart', this.handleDragStart)
   },
   methods: {
     setDocumentTitle: function(value) {
@@ -321,10 +331,6 @@ export default defineComponent({
       }
 
       this.showBlogBanner = false
-    },
-
-    handlePromptPortalUpdate: function(newVal) {
-      this.isPromptOpen = newVal
     },
 
     openDownloadsPage: function () {
@@ -532,6 +538,140 @@ export default defineComponent({
         document.body.dir = 'rtl'
       } else {
         document.body.dir = 'ltr'
+      }
+    },
+
+    /**
+     * Transforms dragged in-app URLs into YouTube ones, so they they can be dragged into other applications.
+     * Cancels the drag operation if the URL is FreeTube specific and cannot be transformed e.g. user playlist URLs
+     * @param {DragEvent} event
+     */
+    handleDragStart: function (event) {
+      if (!event.dataTransfer.types.includes('text/uri-list')) {
+        return
+      }
+
+      const originalUrlString = event.dataTransfer.getData('text/uri-list')
+      const originalUrl = new URL(originalUrlString)
+
+      // Check if this is an in-app URL
+      if (originalUrl.origin !== window.location.origin || originalUrl.pathname !== window.location.pathname) {
+        return
+      }
+
+      const [path, query] = originalUrl.hash.slice(2).split('?')
+      const pathParts = path.split('/')
+      const params = new URLSearchParams(query)
+
+      let transformed = false
+      let transformedURL = new URL('https://www.youtube.com')
+
+      switch (pathParts[0]) {
+        case 'watch':
+          transformedURL.pathname = '/watch'
+          transformedURL.searchParams.set('v', pathParts[1])
+
+          if (params.has('timestamp')) {
+            transformedURL.searchParams.set('t', params.get('timestamp') + 's')
+          }
+
+          if (params.has('playlistId') && params.get('playlistType') !== 'user') {
+            transformedURL.searchParams.set('list', params.get('playlistId'))
+          }
+
+          transformed = true
+          break
+        case 'playlist':
+          if (params.get('playlistType') !== 'user') {
+            transformedURL.pathname = '/playlist'
+            transformedURL.searchParams.set('list', pathParts[1])
+
+            transformed = true
+          }
+          break
+        case 'channel':
+          transformedURL.pathname = `/channel/${pathParts[1]}`
+
+          if (pathParts[2]) {
+            switch (pathParts[2]) {
+              case 'community':
+                transformedURL.pathname += '/posts'
+                break
+              case 'search':
+                transformedURL.pathname += '/search'
+                if (params.has('searchQueryText')) {
+                  transformedURL.searchParams.set('query', params.get('searchQueryText'))
+                }
+                break
+              case 'videos':
+              case 'shorts':
+              case 'releases':
+              case 'podcasts':
+              case 'courses':
+              case 'playlists':
+              case 'about':
+                transformedURL.pathname += `/${pathParts[2]}`
+                break
+            }
+          }
+
+          transformed = true
+          break
+        case 'search':
+          transformedURL.pathname = '/results'
+          transformedURL.searchParams.set('search_query', decodeURIComponent(pathParts[1]))
+          transformed = true
+          break
+        case 'hashtag':
+        case 'post':
+          transformedURL.pathname = `/${pathParts[0]}/${pathParts[1]}`
+          transformed = true
+          break
+        case 'subscriptions':
+        case 'trending':
+        case 'history':
+          transformedURL.pathname = `/feed/${pathParts[1]}`
+          transformed = true
+          break
+        case 'userplaylists':
+          transformedURL.pathname = '/feed/playlists'
+          transformed = true
+          break
+        case 'settings':
+          transformedURL.pathname = '/account'
+          transformed = true
+          break
+        case 'about':
+          transformedURL.pathname = '/about'
+          transformed = true
+          break
+        case 'popular':
+          transformedURL = new URL(`${this.currentInvidiousInstanceUrl}/feed/popular`)
+          transformed = true
+          break
+      }
+
+      if (transformed) {
+        const transformedURLString = transformedURL.toString()
+
+        event.dataTransfer.setData('text/uri-list', transformedURLString)
+
+        const plainText = event.dataTransfer.getData('text/plain')
+        if (plainText.length > 0) {
+          event.dataTransfer.setData('text/plain', plainText.replaceAll(originalUrlString, transformedURLString))
+        }
+
+        const html = event.dataTransfer.getData('text/html')
+        if (html.length > 0) {
+          const originalUrlStringEncoded = originalUrlString.replaceAll('&', '&amp;')
+          const transformedURLStringEncoded = transformedURLString.replaceAll('&', '&amp;')
+
+          event.dataTransfer.setData('text/html', html.replaceAll(originalUrlStringEncoded, transformedURLStringEncoded))
+        }
+      } else {
+        // Cancel the drag operation for FreeTube specific URLs that cannot be transformed such as user playlist URLs
+        event.preventDefault()
+        event.stopPropagation()
       }
     },
 

@@ -195,14 +195,14 @@ User Playlists:
     NameAscending: 'A-Z'
     NameDescending: 'Z-A'
 
-    LatestCreatedFirst: 'Krouet nevez ''zo'
-    EarliestCreatedFirst: 'Krouet pell ''zo'
+    LatestCreatedFirst: 'Deiziad Krouet (Nevez ''zo)'
+    EarliestCreatedFirst: 'Deiziad Krouet (Pell ''zo)'
 
-    LatestUpdatedFirst: 'Kemmet nevez ''zo'
-    EarliestUpdatedFirst: 'Kemmet pell ''zo'
+    LatestUpdatedFirst: 'Deiziad Hizivaat (Nevez ''zo)'
+    EarliestUpdatedFirst: 'Deiziad Hizivaat (Pell ''zo)'
 
-    LatestPlayedFirst: 'Lennet nevez ''zo'
-    EarliestPlayedFirst: 'Lennet pell ''zo'
+    LatestPlayedFirst: 'Deiziad Lennet (Nevez ''zo)'
+    EarliestPlayedFirst: 'Deiziad Lennet (Pell ''zo)'
   SinglePlaylistView:
     Search for Videos: 'Klask Videoioù'
 
@@ -256,6 +256,7 @@ User Playlists:
   Export Playlist: Ezporzhiañ ar Roll-videoioù
   The playlist has been successfully exported: Ezporzhiet eo bet ar roll-videoioù gant berzh
   TotalTimePlaylist: 'Amzer hollek : {duration}'
+  Export list of URLs: Ezporzhiañ roll an URLoù
 History:
   # On History Page
   History: 'Roll istor'
@@ -264,8 +265,8 @@ History:
   Empty Search Message: 'N''eus video ebet e-barzh ho roll istor o klotañ gant ho klask'
   Search bar placeholder: "Klask e-barzh ar roll istor"
   Case Sensitive Search: 'Klask o toujañ d''ar pennlizherennoù'
-  DateNewestHistory: Sellet da Ziwezhañ da Gentañ
-  DateOldestHistory: Sellet Pell 'zo da Gentañ
+  DateNewestHistory: Deiziad Sellet (Nevez 'zo)
+  DateOldestHistory: Deiziad Sellet (Pell 'zo)
 Settings:
   # On Settings Page
   Settings: 'Arventennoù'
@@ -316,6 +317,7 @@ Settings:
       Ask Before Opening Link: 'Goulenn a-raok digeriñ ul liamm'
       No Action: 'Netra'
     Open Deep Links In New Window: Digeriñ an URLoù kaset da FreeTube e-barzh ur prenestr nevez
+    Minimize to system tray: Bihanaat er varenn kemennadennoù
   Theme Settings:
     Theme Settings: 'Tem'
     Match Top Bar with Main Color: 'Lakaat da glotañ liv ar varenn e-krec''h gant al liv pennañ'
@@ -638,6 +640,8 @@ Settings:
     City: 'Kêr'
     Error getting network information. Is your proxy configured properly?: 'C''hoarvezet ez eus bet ur gudenn en ur glask war-lerc''h titouroù ar rouedad. Ha kefluniet mat eo ho proksi ?'
     Proxy Warning: N'eus ket ur proksi enframmet gant FreeTube met gallout a ra kennaskañ gant ur proksi diavaez, evel unan o vont en-dro war hoc'h urzhiataer evel Tor pe ur proksi diavaez SOCKS5 pourvezet gant VPNoù zo. Ma vez enaouet, deoc'h da wiriekaat e vez kefluniet mat ho proksi/Tor, mod-all ne vo ket FreeTube evit mont da gerc'hat an traoù.
+    Proxy Password: Ger-tremen ar Proksi
+    Proxy Username: Anv-Implijer ar Proksi
   SponsorBlock Settings:
     SponsorBlock Settings: 'SponsorBlock'
     Enable SponsorBlock: 'Gweredekaat SponsorBlock'
@@ -658,6 +662,7 @@ Settings:
     Hide Unsubscribe Button: 'Kuzhat ar bouton digoumanantiñ'
     Show Family Friendly Only: 'Diskouez videoioù evit ar familh hepken'
     Hide Search Bar: 'Kuzhat ar varenn glask'
+    Hide Uploader on Watch page: Kuzhat ar chadenn war ar bajenn lenn
   Download Settings:
     Download Settings: 'Pellgargañ'
     Ask Download Path: 'Goulenn war-lerc''h an hent pellgargañ'
@@ -898,7 +903,7 @@ Video:
       Stats: 'Stadegoù'
       Video ID: 'ID ar Video : {videoId}'
       Media Formats: 'Furmadoù ar media : {formats}'
-      Resolution: 'Spisder : {width}x{height}@{frameRate}'
+      Resolution: 'Spisder : {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Ment al lenner : {width}x{height}'
       Bitrate: 'Fonnder bit : {bitrate} kbps'
       Volume: 'Live-son : {volumePercentage}%'
@@ -933,21 +938,21 @@ Playlist:
   Views: ''
   Last Updated On: 'Hizivadenn ziwezhañ'
   Sort By:
-    DateAddedNewest: 'Ouzhpennet diwezhañ da gentañ'
-    DateAddedOldest: 'Ouzhpennet abretañ da gentañ'
+    DateAddedNewest: 'Deiziad Ouzhpennet (Nevez ''zo)'
+    DateAddedOldest: 'Deiziad Ouzhpennet (Pell ''zo)'
     AuthorAscending: 'Aozer (A-Z)'
     AuthorDescending: 'Aozer (Z-A)'
     VideoTitleAscending: 'Titl (A-Z)'
     VideoTitleDescending: 'Titl (Z-A)'
-    VideoDurationAscending: 'Padelezh (Berrañ da gentañ)'
-    VideoDurationDescending: 'Padelezh (Hirañ da gentañ)'
+    VideoDurationAscending: 'Padelezh (Berrañ)'
+    VideoDurationDescending: 'Padelezh (Hirañ)'
     Custom: 'Personelaat'
 
 # On Video Watch Page
 #* Published
 #& Views
-    PublishedNewest: Embannet diwezhañ da gentañ
-    PublishedOldest: Embannet abretañ da gentañ
+    PublishedNewest: Deiziad Embannet (Nevez 'zo)
+    PublishedOldest: Deiziad embannet (Pell 'zo)
 Toggle Theatre Mode: ''
 Change Format:
   Change Media Formats: 'Cheñch furmad ar video'
@@ -979,9 +984,6 @@ Clipboard:
 
 Chapters:
   Chapters: 'Chabistroù'
-  'Chapters list visible, current chapter: {chapterName}': 'Roll ar chabistroù diskouezet, chabistr bremanel : {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Roll ar chabistroù kuzhet, chabistr bremanel : {chapterName}'
-
   Key Moments: Mareoù a-bouez
 Mini Player: 'Lenner bihan'
 Comments:

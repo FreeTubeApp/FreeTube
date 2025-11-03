@@ -99,8 +99,7 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-import { isNavigationFailure, NavigationFailureType } from 'vue-router'
-import { useRoute, useRouter } from 'vue-router/composables'
+import { isNavigationFailure, NavigationFailureType, useRoute, useRouter } from 'vue-router'
 
 import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrapper.vue'
 import FtButton from '../../components/FtButton/FtButton.vue'
@@ -109,7 +108,7 @@ import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
 import FtInput from '../../components/ft-input/ft-input.vue'
-import FtSelect from '../../components/ft-select/ft-select.vue'
+import FtSelect from '../../components/FtSelect/FtSelect.vue'
 import FtToggleSwitch from '../../components/FtToggleSwitch/FtToggleSwitch.vue'
 
 import store from '../../store/index'

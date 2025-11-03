@@ -132,12 +132,12 @@ User Playlists:
   Sort By:
     NameAscending: A-Z
     NameDescending: Z-A
-    LatestCreatedFirst: Son Oluşturulan
-    EarliestCreatedFirst: En Eski Oluşturulan
-    LatestUpdatedFirst: Son Güncellenen
-    EarliestUpdatedFirst: En Eski Güncellenen
-    LatestPlayedFirst: Son Oynatılan
-    EarliestPlayedFirst: En Eski Oynatılan
+    LatestCreatedFirst: Oluşturulma Tarihi (En Yeni)
+    EarliestCreatedFirst: Oluşturulma Tarihi (En Eski)
+    LatestUpdatedFirst: Güncellenme Tarihi (En Yeni)
+    EarliestUpdatedFirst: Güncellenme Tarihi (En Eski)
+    LatestPlayedFirst: Oynatılma Tarihi (En Yeni)
+    EarliestPlayedFirst: Oynatılma Tarihi (En Eski)
   SinglePlaylistView:
     Toast:
       This video cannot be moved up.: Bu video yukarı taşınamaz.
@@ -201,6 +201,7 @@ User Playlists:
   Export Playlist: Bu Oynatma Listesini Dışa Aktar
   The playlist has been successfully exported: Oynatma listesi başarılı bir şekilde dışa aktarıldı
   TotalTimePlaylist: 'Toplam süre: {duration}'
+  Export list of URLs: URL'lerin listesini dışa aktar
 History:
   # On History Page
   History: 'Geçmiş'
@@ -209,6 +210,8 @@ History:
   Search bar placeholder: Geçmişte Ara
   Empty Search Message: Geçmişinizde aramanızla eşleşen video yok
   Case Sensitive Search: Büyük/Küçük Harfe Duyarlı Ara
+  DateOldestHistory: İzlenme Tarihi (En Eski)
+  DateNewestHistory: İzlenme Tarihi (En Yeni)
 Settings:
   # On Settings Page
   Settings: 'Ayarlar'
@@ -255,6 +258,7 @@ Settings:
       Label: Sonraki Sayfayı Otomatik Yükle
       Tooltip: Sonraki sayfaları ve yorumları otomatik olarak yükle.
     Open Deep Links In New Window: FreeTube'a Geçen URL'leri Yeni Pencerede Aç
+    Minimize to system tray: Sistem tepsisine küçült
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Üst Barı Ana Renk ile Eşleştir'
@@ -539,7 +543,7 @@ Settings:
     Hide Channels Already Exists: Kanal kimliği zaten var
     Hide Channels API Error: Belirtilen kimliğe sahip kullanıcı alınırken hata oluştu. Lütfen kimliğin doğru olup olmadığını tekrar gözden geçirin.
     Hide Videos and Playlists Containing Text: Metin İçeren Videoları ve Oynatma Listelerini Gizle
-    Hide Videos and Playlists Containing Text Placeholder: Sözcük, Sözcük Parçası veya İfade
+    Hide Videos and Playlists Containing Text Placeholder: Sözcük Parçası, Sözcük veya İfade
     Hide Channel Home: Kanal "Ana Sayfa" Sekmesini Gizle
     Show Added Items: Eklenen Öğeleri Göster
     Hide Channel Courses: Kanal "Kurslar" Sekmesini Gizle
@@ -561,6 +565,8 @@ Settings:
     Enable Tor / Proxy: Tor / Vekil Sunucu Etkinleştir
     Proxy Settings: Vekil Sunucu
     Proxy Warning: FreeTube yerleşik bir vekil sunucusu sağlamaz fakat cihazınızda çalışan Tor veya bazı VPN'ler tarafından sağlanan harici vekil sunucu SOCKS5 gibi harici bir vekil sunucuya bağlanabilir. İzin verildiği takdirde, vekil sunucu/Tor ağının düzgün ayarlandığından emin olun, aksi takdirde FreeTube herhangi bir veri sağlayamayacaktır.
+    Proxy Username: Vekil Kullanıcı Adı
+    Proxy Password: Vekil Parolası
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Sponsor bölümü atlandığında bildir
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API bağlantısı (Varsayılan https://sponsor.ajay.app)
@@ -598,6 +604,7 @@ Settings:
     Show Family Friendly Only: Yalnızca Aileye Uygun Olanları Göster
     Hide Unsubscribe Button: Abonelikten Çık Düğmesini Gizle
     Hide Search Bar: Arama Çubuğunu Gizle
+    Hide Uploader on Watch page: İzleme sayfasında yükleyiciyi gizle
   Experimental Settings:
     Replace HTTP Cache: HTTP Önbelleğini Değiştir
     Warning: Bu ayarlar deneyseldir, etkin durumdayken çökmelere neden olabilirler. Yedekleme yapılması şiddetle tavsiye edilir. Kullanmanız durumunda risk size aittir!
@@ -635,7 +642,7 @@ About:
   GitHub issues: GitHub sorunları
   Report a problem: Sorun bildir
   FreeTube Wiki: FreeTube Wiki
-  GitHub releases: GitHub yayınları
+  GitHub releases: GitHub Sürümleri
   Downloads / Changelog: İndirmeler / Değişiklikler
   Source code: Kaynak kodları
   Discussions: Tartışmalar
@@ -828,7 +835,7 @@ Video:
       CodecsVideoAudioNoItags: 'Kod Çözücüler: {videoCodec} / {audioCodec}'
       Stats: İstatistikler
       Video ID: 'Video Kimliği: {videoId}'
-      Resolution: 'Çözünürlük: {width}x{height}@{frameRate}'
+      Resolution: 'Çözünürlük: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Oynatıcı Boyutları: {width}x{height}'
       Volume: 'Ses Düzeyi: {volumePercentage}%'
       Bandwidth: 'Bant Genişliği: {bandwidth} kbps'
@@ -869,17 +876,17 @@ Playlist:
 #& Views
   Playlist: Oynatma Listesi
   Sort By:
-    DateAddedNewest: Son eklenen önce
+    DateAddedNewest: Eklenme Tarihi (En Yeni)
     AuthorAscending: Yazar (A-Z)
     AuthorDescending: Yazar (Z-A)
     VideoTitleAscending: Başlık (A-Z)
     VideoTitleDescending: Başlık (Z-A)
-    DateAddedOldest: İlk eklenen önce
+    DateAddedOldest: Eklenme Tarihi (En Eski)
     Custom: Özel
-    VideoDurationAscending: Süre (Önce en kısa)
-    VideoDurationDescending: Süre (Önce en uzun)
-    PublishedOldest: En erken yayınlanan ilk
-    PublishedNewest: En son yayınlanan ilk
+    VideoDurationAscending: Süre (En Kısa)
+    VideoDurationDescending: Süre (En Uzun)
+    PublishedOldest: Yayınlanma Tarihi (En Eski)
+    PublishedNewest: Yayınlanma Tarihi (En Yeni)
 Change Format:
   Change Media Formats: 'Medya Biçimlerini Değiştir'
   Use Dash Formats: 'DASH Biçimlerini Kullan'
@@ -978,7 +985,8 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama, öne çıkanlar, en popüler ve tavsiye edilenlerde görünmesini engellemek için bir kanal kimliği girin. Girilen kanal kimliği tam olarak eşleşmelidir ve büyük/küçük harfe duyarlıdır.
     Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}" kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz kılınıyor
-    Hide Videos and Playlists Containing Text: Yalnızca Geçmiş, Oynatma Listeleriniz ve oynatma listelerindeki videolar hariç olmak üzere, FreeTube'un tamamında orijinal başlıkları bu sözcüğü içeren tüm videoları ve oynatma listelerini gizlemek için bir sözcük, sözcük parçası veya ifade girin (büyük/küçük harfe duyarlı değildir).
+    Hide Videos and Playlists Containing Text: Yalnızca Geçmiş, Oynatma Listeleriniz ve oynatma listelerindeki videolar hariç olmak üzere, FreeTube'un tamamında orijinal başlıkları bu sözcüğü içeren tüm videoları ve oynatma listelerini gizlemek için bir sözcük parçası, sözcük veya ifade girin (büyük/küçük harfe duyarlı değildir).
+    Hide Videos on Watch: Abonelik ve kanal sayfalarındaki videolar, kısalar ve canlı sekmelerindeki izlenen videoları gizler. Bu, kanal sayfalarındaki ana sayfa sekmesini etkilemez
   SponsorBlock Settings:
     UseDeArrowTitles: Video başlıklarını DeArrow'dan kullanıcıların gönderdiği başlıklarla değiştir.
     UseDeArrowThumbnails: Video önizleme görsellerini DeArrow'dan önizleme görselleriyle değiştirin.
@@ -1013,8 +1021,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: Güvenli bağlantı olmadan panoya erişilemiyor
 Chapters:
   Chapters: Bölümler
-  'Chapters list visible, current chapter: {chapterName}': 'Bölüm listesi görünür, geçerli bölüm: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Bölüm listesi gizli, geçerli bölüm: {chapterName}'
   Key Moments: Kilit Anlar
 Preferences: Tercihler
 Ok: Tamam

@@ -253,6 +253,7 @@ Settings:
       Label: تحميل تلقائي للصفحة التالية
       Tooltip: قم بتحميل الصفحات والتعليقات الإضافية تلقائيًا.
     Open Deep Links In New Window: افتح عناوين URL التي تم تمريرها إلى FreeTube في نافذة جديدة
+    Minimize to system tray: تصفير إلى علبة النظام
   Theme Settings:
     Theme Settings: 'السِمة'
     Match Top Bar with Main Color: 'طابق الشريط العلوي مع اللون الأساسي'
@@ -596,6 +597,7 @@ Settings:
     Parental Control Settings: الرقابة الأبوية
     Hide Unsubscribe Button: إخفاء زر إلغاء الاشتراك
     Show Family Friendly Only: عرض مناسب للعائلة فقط
+    Hide Uploader on Watch page: إخفاء الرافع من صفحة المشاهدة
   Experimental Settings:
     Replace HTTP Cache: استبدال ذاكرة التخزين المؤقت HTTP
     Experimental Settings: الاختبارية
@@ -831,7 +833,7 @@ Video:
       CodecsVideoAudio: 'برامج الترميز: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       Stats: الاحصائيات
       Video ID: 'معرف الفيديو: {videoId}'
-      Resolution: 'الدقة: {width}x{height}@{frameRate}'
+      Resolution: 'الدقة: {width}x{height}{''@''}{frameRate}'
       Bandwidth: 'عرض النطاق الترددي: {bandwidth} كيلوبت في الثانية'
     Skipped segment: تم تخطي شريحة {segmentCategory}
     Theatre Mode: وضع المسرح
@@ -1014,8 +1016,6 @@ Clipboard:
   Copy failed: فشل النسخ إلى الحافظة
 Chapters:
   Chapters: الفصول
-  'Chapters list hidden, current chapter: {chapterName}': 'قائمة الفصول مخفية ، الفصل الحالي: {chapterName}'
-  'Chapters list visible, current chapter: {chapterName}': 'قائمة الفصول المرئية ، الفصل الحالي: {chapterName}'
   Key Moments: ‌العناصر الرئيسية
 Preferences: التفضيلات
 Ok: موافق
@@ -1104,6 +1104,8 @@ KeyboardShortcutPrompt:
   Play: تبديل التشغيل/الإيقاف المؤقت
   Home: انتقل إلى بداية الفيديو
   End: انتقل إلى نهاية الفيديو
+  Skip to Next Video: تخطي إلى الفيديو التالي في قائمة التشغيل أو الفيديو الموصى التالي
+  Skip to Previous Video: تخطي إلى الفيديو السابق في قائمة التشغيل
 Keys:
   arrowright: ‫ السهم الأيمن
   enter: Enter

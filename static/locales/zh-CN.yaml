@@ -152,13 +152,13 @@ User Playlists:
     Search for Videos: 搜索视频
   Are you sure you want to delete this playlist? This cannot be undone: 你确定要删除此播放列表吗？此操作无法撤销。
   Sort By:
-    LatestPlayedFirst: 最近播放的
-    EarliestCreatedFirst: 最先创建的
-    LatestCreatedFirst: 最近创建的
-    EarliestUpdatedFirst: 最先更新的
+    LatestPlayedFirst: 播放日期（最新优先）
+    EarliestCreatedFirst: 创建日期（最早优先）
+    LatestCreatedFirst: 创建日期（最新优先）
+    EarliestUpdatedFirst: 更新日期（最早优先）
     NameDescending: Z-A
-    EarliestPlayedFirst: 最先播放的
-    LatestUpdatedFirst: 最近更新的
+    EarliestPlayedFirst: 播放日期（最早优先）
+    LatestUpdatedFirst: 更新日期（最新优先）
     NameAscending: A-Z
   You have no playlists. Click on the create new playlist button to create a new one.: 你没有播放列表。单击新建播放列表来新建一个。
   Remove from Playlist: 从播放列表删除
@@ -194,6 +194,7 @@ User Playlists:
   Export Playlist: 导出播放清单
   The playlist has been successfully exported: 成功导出播放清单
   TotalTimePlaylist: 总时间：{duration}
+  Export list of URLs: 导出 URL 列表
 History:
   # On History Page
   History: '历史记录'
@@ -202,8 +203,8 @@ History:
   Search bar placeholder: 在播放历史中搜索
   Empty Search Message: 历史记录中没有匹配你搜索的视频
   Case Sensitive Search: 区分大小写的搜索
-  DateOldestHistory: 最早观看的优先
-  DateNewestHistory: 最近观看的优先
+  DateOldestHistory: 观看日期（最早优先）
+  DateNewestHistory: 观看日期（最新优先）
 Settings:
   # On Settings Page
   Settings: '设置'
@@ -250,6 +251,7 @@ Settings:
       Label: 自动加载下一页
       Tooltip: 自动加载额外页面和评论。
     Open Deep Links In New Window: 在新窗口打开传递到 FreeTube 的 URL
+    Minimize to system tray: 最小化到系统托盘
   Theme Settings:
     Theme Settings: '主题'
     Match Top Bar with Main Color: '顶部菜单栏对应主颜色'
@@ -534,7 +536,7 @@ Settings:
     Hide Channels Already Exists: 频道 ID 已存在
     Hide Channels API Error: 获取 ID 为所提供值的用户出错。请再次检查 ID 是否正确。
     Hide Videos and Playlists Containing Text: 隐藏包含文本的视频和播放列表
-    Hide Videos and Playlists Containing Text Placeholder: 单词、单词片段或词组
+    Hide Videos and Playlists Containing Text Placeholder: 片段、单词或词组
     Hide Channel Home: 隐藏频道“主页”标签
     Show Added Items: 显示已添加项目
     Hide Channel Courses: 隐藏频道“课程”标签
@@ -556,6 +558,8 @@ Settings:
     Proxy Port Number: 代理端口号
     Proxy Host: 代理主机
     Proxy Warning: FreeTube 没有内置的代理，但可以连接到外部代理，例如像 Tor 这样运行在你机器上的代理，或者如某些 VPN 提供的 SOCKS5 代理这样的外部代理。如果开启了代理选项，请确保你的代理/Tor 正确配置，否则 FreeTube 无法获取任何数据。
+    Proxy Username: 代理用户名
+    Proxy Password: 代理密码
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: 当赞助商时间被跳过时通知
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 赞助商区域调用的API地址（默认是 https://sponsor.ajay.app）
@@ -648,7 +652,7 @@ Channel:
     This channel does not currently have any videos: '这个频道目前没有任何视频'
     Sort Types:
       Newest: '最新'
-      Oldest: '最老'
+      Oldest: '最早'
       Most Popular: '最流行'
   Playlists:
     Playlists: '播放列表'
@@ -656,7 +660,7 @@ Channel:
     Sort Types:
       Last Video Added: '最新添加的视频'
       Newest: '最新'
-      Oldest: '最老'
+      Oldest: '最早'
   About:
     About: '关于'
     Channel Description: '频道描述'
@@ -786,7 +790,7 @@ Video:
       Stats: 统计信息
       Video ID: 视频 ID： {videoId}
       Media Formats: 媒体格式：{formats}
-      Resolution: 分辨率：{width}x{height}@{frameRate}
+      Resolution: 分辨率：{width}x{height}{'@'}{frameRate}
       Player Dimensions: 播放器尺寸： {width}x{height}
       Bitrate: 比特率：{bitrate} kbps
       Volume: 音量：{volumePercentage}%
@@ -824,8 +828,8 @@ Playlist:
 #& Views
   Playlist: 播放列表
   Sort By:
-    DateAddedNewest: 最近添加的优先
-    DateAddedOldest: 最早添加的优先
+    DateAddedNewest: 添加日期（最新优先）
+    DateAddedOldest: 添加日期（最早优先）
     AuthorAscending: 作者名（A-Z）
     AuthorDescending: 作者名（Z-A）
     VideoTitleDescending: 标题（Z-A)
@@ -833,8 +837,8 @@ Playlist:
     VideoTitleAscending: 标题（A-Z）
     VideoDurationAscending: 持续时间（最短的优先）
     VideoDurationDescending: 持续时间（最长的优先）
-    PublishedOldest: 最早发布的优先
-    PublishedNewest: 最新发布的优先
+    PublishedOldest: 发布日期（最早优先）
+    PublishedNewest: 发布日期（最新优先）
 Change Format:
   Change Media Formats: '更换视频格式'
   Use Dash Formats: '使用Dash格式'
@@ -978,7 +982,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: 输入频道 ID 使其中的所有视频、播放列表和频道本身不出现在搜索结果、时下流行、最受欢迎和推荐中。 输入的频道 ID 必须完全匹配，并且区分大小写。
     Hide Subscriptions Live: 此设置被应用级的 "{appWideSetting}" 设置所覆盖，"{appWideSetting}" 位于 "{subsection}" 部分，该部分在 "{settingsSection}" 中
-    Hide Videos and Playlists Containing Text: 输入单词、单词片段或词组（区分大小写）在整个 FreeTube 软件中隐藏所有原始标题包含这些内容的视频和播放列表。注意：历史记录、你的播放列表和播放列表内的视频不受限制约束。
+    Hide Videos and Playlists Containing Text: 输入片段、单词或词组（区分大小写）在整个 FreeTube 软件中隐藏所有原始标题包含这些内容的视频和播放列表。注意：历史记录、你的播放列表和播放列表内的视频不受限制约束。
     Hide Videos on Watch: 在订阅和频道页上的视频、短视频和直播标签页中隐藏已观看的视频。这不影响频道页上的主页
   SponsorBlock Settings:
     UseDeArrowTitles: 使用来自 DeArrow 的用户提交的标题替换原始视频标题。
@@ -1014,8 +1018,6 @@ Clipboard:
   Cannot access clipboard without a secure connection: 没有安全连接无法访问剪贴板
 Chapters:
   Chapters: 章节
-  'Chapters list visible, current chapter: {chapterName}': 章节列表可见，当前章节：{chapterName}
-  'Chapters list hidden, current chapter: {chapterName}': 章节列表隐藏，当前章节：{chapterName}
   Key Moments: 关键时刻
 Preferences: 选项
 Ok: 好

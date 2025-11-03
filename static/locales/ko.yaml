@@ -42,11 +42,9 @@ Global:
     Channel Count: 1개 채널 | {count}개 채널
     Comment Count: 1개 댓글 | {count}개 댓글
     Like Count: 1개 좋아요 | {count}개 좋아요
-Version {versionNumber} is now available!  Click for more details: '{versionNumber}
-  버전이 사용가능합니다! 클릭하여 자세한 정보를 확인하세요'
+Version {versionNumber} is now available!  Click for more details: '{versionNumber} 버전이 사용가능합니다! 클릭하여 자세한 정보를 확인하세요'
 Download From Site: '사이트로부터 다운로드'
-A new blog is now available, {blogTitle}. Click to view more: '새로운 블로그가 업로드되었습니다,
-  {blogTitle}. 클릭하여 확인하세요'
+A new blog is now available, {blogTitle}. Click to view more: '새로운 블로그가 업로드되었습니다, {blogTitle}. 클릭하여 확인하세요'
 
 # Search Bar
 Search / Go to URL: '검색 / URL로 이동'
@@ -100,10 +98,8 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '구독'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: '이
-    프로필에는 많은 구독이 있습니다. RSS가 속도 제한을 피하도록 강요합니다'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '구독
-    목록이 현재 비어 있습니다. 구독을 가져오려면 데이터 설정으로 이동하여 구독 가져오기를 선택하거나, 채널을 검색하여 구독할 수 있습니다'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: '이 프로필에는 많은 구독이 있습니다. RSS가 속도 제한을 피하도록 강요합니다'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '구독 목록이 현재 비어 있습니다. 구독을 가져오려면 데이터 설정으로 이동하여 구독 가져오기를 선택하거나, 채널을 검색하여 구독할 수 있습니다'
   Load More Videos: '더 많은 동영상 불러오기'
   Error Channels: 오류가 있는 채널
   Disabled Automatic Fetching: 자동 구독 정보 수집이 비활성화 되어 있습니다. 구독을 새로고침해주세요.
@@ -111,8 +107,7 @@ Subscriptions:
   Empty Posts: 구독한 채널에 현재 게시물이 없습니다.
   Subscriptions Tabs: 구독 탭
   Load More Posts: 더 많은 게시물 불러오기
-  All Subscription Tabs Hidden: 모든 구독 탭이 숨겨져 있습니다. 여기에 콘텐츠를 보려면 "{settingsSection}"의
-    "{subsection}" 섹션에서 일부 탭을 표시해 주세요.
+  All Subscription Tabs Hidden: 모든 구독 탭이 숨겨져 있습니다. 여기에 콘텐츠를 보려면 "{settingsSection}"의 "{subsection}" 섹션에서 일부 탭을 표시해 주세요.
 Trending:
   Trending: '트렌딩'
   Trending Tabs: 트렌딩 탭
@@ -128,8 +123,7 @@ User Playlists:
   Empty Search Message: 이 재생목록에는 검색어와 일치하는 동영상이 없습니다
   This playlist currently has no videos.: 이 재생목록에는 현재 동영상이 없습니다.
   Playlists with Matching Videos: 일치하는 동영상이 포함된 재생목록
-  You have no playlists. Click on the create new playlist button to create a new one.: 재생목록이
-    없습니다. 새 재생목록을 만들려면 새 재생목록 만들기 버튼을 클릭하세요.
+  You have no playlists. Click on the create new playlist button to create a new one.: 재생목록이 없습니다. 새 재생목록을 만들려면 새 재생목록 만들기 버튼을 클릭하세요.
   Add to Playlist: 재생목록에 추가
   Create New Playlist: 새 재생목록 만들기
 History:
@@ -142,8 +136,7 @@ History:
 Settings:
   # On Settings Page
   Settings: '설정'
-  The app needs to restart for changes to take effect. Restart and apply change?: '변경된
-    설정을 적용하려면 재실행해야합니다. 재실행하고 설정을 변경하시겠습니까?'
+  The app needs to restart for changes to take effect. Restart and apply change?: '변경된 설정을 적용하려면 재실행해야합니다. 재실행하고 설정을 변경하시겠습니까?'
   General Settings:
     General Settings: '일반 설정'
     Check for Updates: '업데이트 확인하기'
@@ -283,8 +276,7 @@ Settings:
       Format Label: 스크린샷 형식
       Quality Label: 스크린샷 품질
       File Name Label: 파일 이름 패턴
-      File Name Tooltip: 아래 변수를 사용할 수 있습니다. %Y 년 4자리. %M 월 2자리. %D 일 2자리. %H 시간 2자리.
-        %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID.
+      File Name Tooltip: 아래 변수를 사용할 수 있습니다. %Y 년 4자리. %M 월 2자리. %D 일 2자리. %H 시간 2자리. %N 분 2자리. %S 초 2자리. %T 밀리초 3자리. %s 비디오초. %t 비디오 밀리초 3자리. %i 비디오 ID.
     Skip by Scrolling Over Video Player: 비디오 플레이어를 스크롤하여 건너뛰기
     Enter Fullscreen on Display Rotate: 화면 회전 시 전체화면 활성화하기
   Privacy Settings:
@@ -298,8 +290,7 @@ Settings:
     Are you sure you want to remove your entire watch history?: '정말로 시청기록을 삭제하시겠습니까?'
     Watch history has been cleared: '시청기록이 삭제되었습니다'
     Remove All Subscriptions / Profiles: '모든 구독채널과 프로필 삭제'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '정말로
-      모든 구독채널과 프로필을 삭제하시겠습니까? 삭제하면 복구가되지않습니다.'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: '정말로 모든 구독채널과 프로필을 삭제하시겠습니까? 삭제하면 복구가되지않습니다.'
   Subscription Settings:
     Subscription Settings: '구독 설정'
     Fetch Feeds from RSS: 'RSS에서 피드 가져오기'
@@ -337,8 +328,7 @@ Settings:
     Import History: '재생 기록 가져오기'
     Export History: '재생 기록 내보내기'
     Profile object has insufficient data, skipping item: '프로필 개체에 데이터가 부족하여 항목을 건너뜁니다'
-    All subscriptions and profiles have been successfully imported: '모든 구독 및 프로필을
-      성공적으로 가져왔습니다'
+    All subscriptions and profiles have been successfully imported: '모든 구독 및 프로필을 성공적으로 가져왔습니다'
     All subscriptions have been successfully imported: '모든 구독을 성공적으로 가져왔습니다'
     Invalid subscriptions file: '잘못된 구독 파일입니다'
     This might take a while, please wait: '시간이 좀 걸릴 수 있습니다. 잠시 기다려 주십시오'
@@ -361,8 +351,7 @@ Settings:
     Playlist File: 재생목록 파일
     History File: 시청기록 파일
   Proxy Settings:
-    Error getting network information. Is your proxy configured properly?: 네트워크 정보를
-      가져오는 중 오류가 발생했습니다. 프록시가 올바르게 구성되어 있습니까?
+    Error getting network information. Is your proxy configured properly?: 네트워크 정보를 가져오는 중 오류가 발생했습니다. 프록시가 올바르게 구성되어 있습니까?
     City: 도시
     Region: 지역
     Country: 국가
@@ -379,8 +368,7 @@ Settings:
     SponsorBlock Settings: SponsorBlock 설정
     Enable SponsorBlock: SponsorBlock 사용
     Notify when sponsor segment is skipped: 스폰서 구간을 건너뛸 경우 알림
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
-      주소 (기본 주소는 https://sponsor.ajay.app 입니다)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API 주소 (기본 주소는 https://sponsor.ajay.app 입니다)
     Skip Options:
       Auto Skip: 자동 건너뛰기
       Show In Seek Bar: 탐색 막대에 표시
@@ -414,8 +402,7 @@ Settings:
     Enter Password To Unlock: 설정을 활성화하기 위해서 비밀번호를 입력하세요
   Experimental Settings:
     Experimental Settings: 실험적 기능 설정
-    Warning: 본 설정들은 실험적 기능이며, 활성화 되었을 때 충돌을 유발할 수 있습니다. 백업을 하는 것을 강력히 권장합니다. 모든 책임은
-      사용자 본인에게 있습니다!
+    Warning: 본 설정들은 실험적 기능이며, 활성화 되었을 때 충돌을 유발할 수 있습니다. 백업을 하는 것을 강력히 권장합니다. 모든 책임은 사용자 본인에게 있습니다!
     Replace HTTP Cache: HTTP 캐시 대체하기
   Password Settings:
     Password Settings: 비밀번호 설정
@@ -468,8 +455,7 @@ Profile:
   Profile has been updated: '프로필이 업데이트되었습니다'
   Your default profile has been set to {profile}: '기본 프로필이 {profile}로 설정되었습니다'
   Removed {profile} from your profiles: '프로필에서 {profile}가 제거되었습니다'
-  Your default profile has been changed to your primary profile: '기본값 프로필이 기본 프로필로
-    변경되었습니다'
+  Your default profile has been changed to your primary profile: '기본값 프로필이 기본 프로필로 변경되었습니다'
   '{profile} is now the active profile': '{profile}가 현재 활성 프로필입니다'
   Subscription List: '구독 목록'
   Other Channels: '기타 채널'
@@ -479,11 +465,9 @@ Profile:
   Delete Selected: '선택한 항목 삭제'
   Add Selected To Profile: '프로필에 선택한 항목 추가'
   No channel(s) have been selected: '선택된 채널이 없습니다'
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
   : '이것은 귀하의 기본 프로필입니다. 선택한 채널을 삭제하시겠습니까? 동일한 채널이 발견되는 모든 프로필에서 삭제됩니다.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: '선택한
-    채널을 삭제하시겠습니까? 다른 프로파일에서는 채널이 삭제되지 않습니다.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: '선택한 채널을 삭제하시겠습니까? 다른 프로파일에서는 채널이 삭제되지 않습니다.'
 #On Channel Page
   Profile Filter: 프로필 필터
   Profile Settings: 프로필 설정
@@ -543,10 +527,8 @@ Video:
   Live Chat: '라이브 채팅'
   Enable Live Chat: '라이브 채팅 활성화'
   Live Chat is currently not supported in this build.: '라이브 채팅은 현재 이 빌드에서 지원되지 않습니다.'
-  Live chat is enabled. Chat messages will appear here once sent.: '라이브 채팅이 활성화되었습니다.   채팅
-    메시지가 전송되면 여기에 표시됩니다.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '라이브
-    채팅은 현재 Invidious API에서 지원되지 않습니다.   YouTube에 직접 연결해야 합니다.'
+  Live chat is enabled. Chat messages will appear here once sent.: '라이브 채팅이 활성화되었습니다.   채팅 메시지가 전송되면 여기에 표시됩니다.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': '라이브 채팅은 현재 Invidious API에서 지원되지 않습니다.   YouTube에 직접 연결해야 합니다.'
   Download Video: '동영상 다운로드'
   video only: '비디오만'
   audio only: '오디오만'
@@ -561,8 +543,7 @@ Video:
   Save Video: 비디오 저장
   External Player:
     Unsupported Actions:
-      opening specific video in a playlist (falling back to opening the video): 재생
-        목록에서 특정 비디오 열기 (비디오 열기로 되돌아가기)
+      opening specific video in a playlist (falling back to opening the video): 재생 목록에서 특정 비디오 열기 (비디오 열기로 되돌아가기)
       reversing playlists: 재생 목록 되돌리기
       shuffling playlists: 재생 목록을 뒤섞기
       looping playlists: 재생 목록 반복
@@ -649,47 +630,34 @@ Up Next: '다음 위로'
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: 'FreeTube가 데이터를 얻기 위해 사용하는 백엔드를 선택하십시오. 로컬 API는 기본 제공 추출기입니다.
-      Invidious API는 연결할 Invidious 서버가 필요합니다.'
-    Fallback to Non-Preferred Backend on Failure: '선호하는 API에 문제가 있는 경우 FreeTube는 활성화될
-      때, 선호하지 않는 API를 대체 방법으로 사용하려고 자동으로 시도합니다.'
+    Preferred API Backend: 'FreeTube가 데이터를 얻기 위해 사용하는 백엔드를 선택하십시오. 로컬 API는 기본 제공 추출기입니다. Invidious API는 연결할 Invidious 서버가 필요합니다.'
+    Fallback to Non-Preferred Backend on Failure: '선호하는 API에 문제가 있는 경우 FreeTube는 활성화될 때, 선호하지 않는 API를 대체 방법으로 사용하려고 자동으로 시도합니다.'
     Thumbnail Preference: 'FreeTube 전체의 모든 썸네일은 기본 썸네일 대신 비디오 프레임으로 대체됩니다.'
     Invidious Instance: 'FreeTube가 API 호출을 위해 연결할 Invidious 인스턴스입니다.'
     Region for Trending: '트렌드 지역을 통해 표시하고 싶은 국가의 트렌드 비디오를 선택할 수 있습니다.'
-    External Link Handling: "FreeTube에서 열 수 없는 링크를 클릭할 때 기본 동작을 선택합니다.\n기본적으로 FreeTube는
-      기본 브라우저에서 클릭한 링크를 엽니다.\n"
+    External Link Handling: "FreeTube에서 열 수 없는 링크를 클릭할 때 기본 동작을 선택합니다.\n기본적으로 FreeTube는 기본 브라우저에서 클릭한 링크를 엽니다.\n"
   Player Settings:
-    Proxy Videos Through Invidious: 'YouTube에 직접 연결하는 대신 Invidious에 연결하여 동영상을 제공합니다.
-      API 기본 설정을 재정의합니다.'
-    Default Video Format: '동영상 재생 시 사용되는 형식을 설정합니다. DASH 형식은 더 높은 품질을 재생할 수 있습니다.
-      레거시 형식은 최대 720p로 제한되지만 더 적은 대역폭을 사용합니다. 오디오 형식은 오디오 전용 스트림입니다.'
-    Scroll Playback Rate Over Video Player: 커서가 비디오 위에 있는 동안 Control 키( Mac의 경우 Command
-      키)를 길게 누르고 마우스 휠을 앞뒤로 스크롤하여 재생 속도를 제어합니다. Control 키 (Mac의 경우 Command 키)를 길게
-      누르고 마우스 왼쪽 버튼을 클릭하여 기본 재생 속도(설정에서 변경되지 않은 경우 1배)로 빠르게 돌아갑니다.
+    Proxy Videos Through Invidious: 'YouTube에 직접 연결하는 대신 Invidious에 연결하여 동영상을 제공합니다. API 기본 설정을 재정의합니다.'
+    Default Video Format: '동영상 재생 시 사용되는 형식을 설정합니다. DASH 형식은 더 높은 품질을 재생할 수 있습니다. 레거시 형식은 최대 720p로 제한되지만 더 적은 대역폭을 사용합니다. 오디오 형식은 오디오 전용 스트림입니다.'
+    Scroll Playback Rate Over Video Player: 커서가 비디오 위에 있는 동안 Control 키( Mac의 경우 Command 키)를 길게 누르고 마우스 휠을 앞뒤로 스크롤하여 재생 속도를 제어합니다. Control 키 (Mac의 경우 Command 키)를 길게 누르고 마우스 왼쪽 버튼을 클릭하여 기본 재생 속도(설정에서 변경되지 않은 경우 1배)로 빠르게 돌아갑니다.
     Skip by Scrolling Over Video Player: MPV 방식으로 마우스 스크롤을 이용해 영상을 스킵합니다.
   Subscription Settings:
-    Fetch Feeds from RSS: '활성화되면 FreeTube는 구독 피드를 가져오는 기본 방법 대신 RSS를 사용합니다. RSS는 더
-      빠르고 IP 차단을 방지하지만 비디오 길이 또는 라이브 상태와 같은 특정 정보를 제공하지 않습니다'
+    Fetch Feeds from RSS: '활성화되면 FreeTube는 구독 피드를 가져오는 기본 방법 대신 RSS를 사용합니다. RSS는 더 빠르고 IP 차단을 방지하지만 비디오 길이 또는 라이브 상태와 같은 특정 정보를 제공하지 않습니다'
 
 # Toast Messages
   External Player Settings:
     DefaultCustomArgumentsTemplate: "(기본: '{defaultCustomArguments}')"
-    External Player: 외부 플레이어를 선택하면 썸네일에서 비디오 (지원되는 경우 재생 목록)를 열 수 있는 아이콘이 표시됩니다. 경고,
-      위반 설정은 외부 플레이어에 영향을 주지 않습니다.
-    Custom External Player Executable: 기본적으로 FreeTube는 PATH 환경 변수를 통해 선택한 외부 플레이어를
-      찾을 수 있다고 가정합니다. 필요한 경우 여기에서 사용자 정의 경로를 설정할 수 있습니다.
+    External Player: 외부 플레이어를 선택하면 썸네일에서 비디오 (지원되는 경우 재생 목록)를 열 수 있는 아이콘이 표시됩니다. 경고, 위반 설정은 외부 플레이어에 영향을 주지 않습니다.
+    Custom External Player Executable: 기본적으로 FreeTube는 PATH 환경 변수를 통해 선택한 외부 플레이어를 찾을 수 있다고 가정합니다. 필요한 경우 여기에서 사용자 정의 경로를 설정할 수 있습니다.
     Ignore Warnings: '현재 외부 플레이어가 현재 작업을 지원하지 않는 경우(예: 재생 목록 반전 등) 경고를 표시하지 않습니다.'
-    Custom External Player Arguments: 외부 플레이어로 전달되기를 원하는사용자 지정 명령줄 인수는 세미콜론(';')으로
-      구분됩니다.
+    Custom External Player Arguments: 외부 플레이어로 전달되기를 원하는사용자 지정 명령줄 인수는 세미콜론(';')으로 구분됩니다.
   Distraction Free Settings:
-    Hide Channels: 채널 이름이나 채널 ID를 입력해 해당 채널의 영상이나 재생목록, 채널 자체가 검색이나 인기 영상에 나타나지 않도록
-      합니다. 입력되는 채널 이름은 완전히 일치해야하며, 대소문자를 구별합니다.
+    Hide Channels: 채널 이름이나 채널 ID를 입력해 해당 채널의 영상이나 재생목록, 채널 자체가 검색이나 인기 영상에 나타나지 않도록 합니다. 입력되는 채널 이름은 완전히 일치해야하며, 대소문자를 구별합니다.
 Local API Error (Click to copy): '로컬 API 오류(복사하려면 클릭)'
 Invidious API Error (Click to copy): 'Invidious API 오류(복사하려면 클릭)'
 Falling back to Invidious API: 'Invidious API로 대체'
 Falling back to Local API: '로컬 API로 대체'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: '이
-  동영상은 형식이 누락되어 사용할 수 없습니다. 이는 국가를 사용할 수 없기 때문에 발생할 수 있습니다.'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: '이 동영상은 형식이 누락되어 사용할 수 없습니다. 이는 국가를 사용할 수 없기 때문에 발생할 수 있습니다.'
 Loop is now disabled: '반복이 비활성화되었습니다'
 Loop is now enabled: '반복이 활성화되었습니다'
 Shuffle is now disabled: '셔플이 비활성화되었습니다'
@@ -698,20 +666,15 @@ The playlist has been reversed: '재생 목록이 역순이 되었습니다'
 Playing Next Video: '다음 비디오 재생'
 Playing Previous Video: '이전 비디오 재생'
 Canceled next video autoplay: '다음 동영상 자동재생 취소됨'
-'The playlist has ended. Enable loop to continue playing': '재생목록이 종료되었습니다. 계속 재생하려면
-  반복 활성화'
+'The playlist has ended. Enable loop to continue playing': '재생목록이 종료되었습니다. 계속 재생하려면 반복 활성화'
 
 Yes: '예'
 No: '아니오'
 More: 더 보기
-Unknown YouTube url type, cannot be opened in app: 알 수 없는 YouTube URL 유형, 앱에서 열 수
-  없음
-Playing Next Video Interval: 즉시 다음 동영상을 재생합니다. 취소하려면 클릭하세요. | {nextVideoInterval}초
-  후에 다음 동영상을 재생합니다. 취소하려면 클릭하세요. | {nextVideoInterval}초 후에 다음 동영상을 재생합니다. 취소하려면 클릭하세요.
-Default Invidious instance has been set to {instance}: 기본 Invidious 인스턴스가 {instance}로
-  설정되었습니다
-External link opening has been disabled in the general settings: 일반 설정에서 외부 링크 열기가
-  비활성화되었습니다
+Unknown YouTube url type, cannot be opened in app: 알 수 없는 YouTube URL 유형, 앱에서 열 수 없음
+Playing Next Video Interval: 즉시 다음 동영상을 재생합니다. 취소하려면 클릭하세요. | {nextVideoInterval}초 후에 다음 동영상을 재생합니다. 취소하려면 클릭하세요. | {nextVideoInterval}초 후에 다음 동영상을 재생합니다. 취소하려면 클릭하세요.
+Default Invidious instance has been set to {instance}: 기본 Invidious 인스턴스가 {instance}로 설정되었습니다
+External link opening has been disabled in the general settings: 일반 설정에서 외부 링크 열기가 비활성화되었습니다
 Open New Window: 새 창 열기
 Default Invidious instance has been cleared: 기본 Invidious 인스턴스가 제거되었습니다
 Are you sure you want to open this link?: 이 링크를 여시겠습니까?
@@ -735,8 +698,6 @@ Clipboard:
   Copy failed: 클립보드에 복사 실패
   Cannot access clipboard without a secure connection: 안전한 연결 없이 클립보드에 접근할 수 없습니다
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 챕터 목록 숨겨짐, 현재 챕터 {chapterName}
-  'Chapters list visible, current chapter: {chapterName}': '챕터 목록 보임, 현재 챕터: {chapterName}'
   Chapters: 챕터
 Preferences: 설정
 Close Banner: 배너 닫기

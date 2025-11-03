@@ -41,7 +41,7 @@
           show-label
           :value="proxyHostname"
           @input="handleUpdateProxyHostname"
-          @keydown.enter.native="testProxy"
+          @keydown.enter="testProxy"
         />
         <FtInput
           :placeholder="$t('Settings.Proxy Settings.Proxy Port Number')"
@@ -50,7 +50,26 @@
           :value="proxyPort"
           :maxlength="5"
           @input="handleUpdateProxyPort"
-          @keydown.enter.native="testProxy"
+          @keydown.enter="testProxy"
+        />
+      </FtFlexBox>
+      <FtFlexBox>
+        <FtInput
+          :placeholder="$t('Settings.Proxy Settings.Proxy Username')"
+          :show-action-button="false"
+          show-label
+          :value="proxyUsername"
+          @input="handleUpdateProxyUsername"
+          @keydown.enter="testProxy"
+        />
+        <FtInput
+          :placeholder="$t('Settings.Proxy Settings.Proxy Password')"
+          :show-action-button="false"
+          show-label
+          :value="proxyPassword"
+          input-type="password"
+          @input="handleUpdateProxyPassword"
+          @keydown.enter="testProxy"
         />
       </FtFlexBox>
       <p
@@ -99,7 +118,7 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtButton from '../FtButton/FtButton.vue'
-import FtSelect from '../ft-select/ft-select.vue'
+import FtSelect from '../FtSelect/FtSelect.vue'
 import FtInput from '../ft-input/ft-input.vue'
 import FtLoader from '../FtLoader/FtLoader.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -149,6 +168,16 @@ const proxyHostname = computed(() => {
 /** @type {import('vue').ComputedRef<string>} */
 const proxyPort = computed(() => {
   return store.getters.getProxyPort
+})
+
+/** @type {import('vue').ComputedRef<string>} */
+const proxyUsername = computed(() => {
+  return store.getters.getProxyUsername
+})
+
+/** @type {import('vue').ComputedRef<string>} */
+const proxyPassword = computed(() => {
+  return store.getters.getProxyPassword
 })
 
 const proxyUrl = computed(() => {
@@ -228,6 +257,28 @@ function handleUpdateProxyPort(value) {
   }
 
   store.dispatch('updateProxyPort', value)
+}
+
+/**
+ * @param {string} value
+ */
+function handleUpdateProxyUsername(value) {
+  if (useProxy.value) {
+    debouncedEnableProxy()
+  }
+
+  store.dispatch('updateProxyUsername', value)
+}
+
+/**
+ * @param {string} value
+ */
+function handleUpdateProxyPassword(value) {
+  if (useProxy.value) {
+    debouncedEnableProxy()
+  }
+
+  store.dispatch('updateProxyPassword', value)
 }
 
 function enableProxy() {

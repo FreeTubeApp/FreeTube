@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         repository: flathub/io.freetubeapp.FreeTube
         token: ${{ secrets.FLATHUB_TOKEN }}
@@ -76,22 +76,22 @@ jobs:
         date +"%Y-%m-%d" >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
     - name: Update x64 File Location in yml File
-      uses: mikefarah/yq@v4.47.1
+      uses: mikefarah/yq@v4.48.1
       with:
         # The Command which should be run
         cmd: yq -i '.modules[0].sources[0].url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-beta-linux-x64-portable.zip"' io.freetubeapp.FreeTube.yml
     - name: Update x64 Hash in yml File
-      uses: mikefarah/yq@v4.47.1
+      uses: mikefarah/yq@v4.48.1
       with:
         # The Command which should be run
         cmd: yq -i '.modules[0].sources[0].sha256 = "${{ env.HASH_X64 }}"' io.freetubeapp.FreeTube.yml
     - name: Update ARM File Location in yml File
-      uses: mikefarah/yq@v4.47.1
+      uses: mikefarah/yq@v4.48.1
       with:
         # The Command which should be run
         cmd: yq -i '.modules[0].sources[1].url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-beta-linux-arm64-portable.zip"' io.freetubeapp.FreeTube.yml
     - name: Update ARM Hash in yml File
-      uses: mikefarah/yq@v4.47.1
+      uses: mikefarah/yq@v4.48.1
       with:
         # The Command which should be run
         cmd: yq -i '.modules[0].sources[1].sha256 = "${{ env.HASH_ARM64 }}"' io.freetubeapp.FreeTube.yml
@@ -102,7 +102,7 @@ jobs:
         rm freetube-${{ steps.sub.outputs.result }}-beta-linux-x64-portable.zip
         rm freetube-${{ steps.sub.outputs.result }}-beta-linux-arm64-portable.zip
     - name: Commit Files
-      uses: stefanzweifel/git-auto-commit-action@v6
+      uses: stefanzweifel/git-auto-commit-action@v7
       with:
         # Optional but recommended
         # Defaults to "Apply automatic changes"

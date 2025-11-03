@@ -1,7 +1,6 @@
 <template>
   <div
     v-if="dataReady"
-    id="app"
     class="app"
     :class="{
       hideOutlines: outlinesHidden,
@@ -10,11 +9,6 @@
       hideLabelsSideBar: hideLabelsSideBar && !isSideNavOpen
     }"
   >
-    <portal-target
-      name="promptPortal"
-      multiple
-      @change="handlePromptPortalUpdate"
-    />
     <ft-prompt
       v-if="showReleaseNotes"
       theme="readable-width"
@@ -71,16 +65,16 @@
       v-if="showProgressBar"
     />
     <top-nav
-      :inert="isPromptOpen"
+      :inert="isAnyPromptOpen"
     />
     <side-nav
       ref="sideNav"
-      :inert="isPromptOpen"
+      :inert="isAnyPromptOpen"
     />
     <ft-flex-box
       class="flexBox routerView"
       role="main"
-      :inert="isPromptOpen"
+      :inert="isAnyPromptOpen"
     >
       <div
         v-if="showUpdatesBanner || showBlogBanner"
@@ -101,17 +95,18 @@
           @click="handleNewBlogBannerClick"
         />
       </div>
-      <transition
+      <RouterView
         v-if="dataReady"
-        mode="out-in"
-        name="fade"
+        v-slot="{ Component }"
+        class="routerView"
       >
-        <!-- <keep-alive> -->
-        <RouterView
-          class="routerView"
-        />
-        <!-- </keep-alive> -->
-      </transition>
+        <Transition
+          mode="out-in"
+          name="fade"
+        >
+          <component :is="Component" />
+        </Transition>
+      </RouterView>
     </ft-flex-box>
   </div>
 </template>
