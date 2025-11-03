@@ -44,8 +44,7 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
   opacity: 1;
 }
 
-.disabled label,
-.disabled .ft-input {
+.disabled {
   opacity: 0.4;
   cursor: not-allowed;
 }
