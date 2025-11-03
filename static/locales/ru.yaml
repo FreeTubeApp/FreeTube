@@ -789,7 +789,7 @@ Video:
       Buffered: 'Буферизовано: {bufferedPercentage}%'
       Dropped Frames / Total Frames: 'Пропущенные кадры: {droppedFrames} / Всего кадров: {totalFrames}'
       CodecsVideoAudio: 'Кодеки: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
-      Resolution: 'Разрешение: {width}x{height}@{frameRate}'
+      Resolution: 'Разрешение: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Разрешение проигрывателя: {width}x{height}'
       Bitrate: 'Битрейт: {bitrate} кбит/с'
       Volume: 'Громкость: {volumePercentage}%'

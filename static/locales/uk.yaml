@@ -832,7 +832,7 @@ Video:
       Stats: Статистика
       Video ID: 'ID відео: {videoId}'
       Media Formats: 'Медійні формати: {formats}'
-      Resolution: 'Роздільна здатність: {width}x{height}@{frameRate}'
+      Resolution: 'Роздільна здатність: {width}x{height}{''@''}{frameRate}'
       CodecsVideoAudioNoItags: 'Кодеки: {videoCodec} / {audioCodec}'
     Show Stats: Показати статистику
     Full Window: Повний екран

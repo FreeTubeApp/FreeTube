@@ -903,7 +903,7 @@ Video:
       Stats: 'Stadegoù'
       Video ID: 'ID ar Video : {videoId}'
       Media Formats: 'Furmadoù ar media : {formats}'
-      Resolution: 'Spisder : {width}x{height}@{frameRate}'
+      Resolution: 'Spisder : {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Ment al lenner : {width}x{height}'
       Bitrate: 'Fonnder bit : {bitrate} kbps'
       Volume: 'Live-son : {volumePercentage}%'

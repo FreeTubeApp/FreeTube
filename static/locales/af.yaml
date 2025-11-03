@@ -867,7 +867,7 @@ Video:
       Stats: 'Statistieke'
       Video ID: 'Video ID: {videoId}'
       Media Formats: 'Mediaformate: {formats}'
-      Resolution: 'Resolusie: {width}x{height}@{frameRate}'
+      Resolution: 'Resolusie: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Spelerdimensies: {width}x{height}'
       Bitrate: 'Bistempo: {bitrate} kbps'
       Volume: 'Volume: {volumePercentage}%'

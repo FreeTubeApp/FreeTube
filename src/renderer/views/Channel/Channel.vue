@@ -267,8 +267,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import autolinker from 'autolinker'
 import { computed, onMounted, ref, shallowRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-import { isNavigationFailure, NavigationFailureType } from 'vue-router'
-import { useRoute, useRouter } from 'vue-router/composables'
+import { isNavigationFailure, NavigationFailureType, useRoute, useRouter } from 'vue-router'
 import { YTNodes } from 'youtubei.js'
 
 import ChannelAbout from '../../components/ChannelAbout/ChannelAbout.vue'
@@ -2333,7 +2332,7 @@ function handleSubscription() {
 
 function filterWatchedArray(videos) {
   const historyCache = store.getters.getHistoryCacheById
-  return videos.filter(video => !Object.hasOwn(historyCache, video.videoId))
+  return videos.filter(video => historyCache[video.videoId] === undefined)
 }
 </script>
 

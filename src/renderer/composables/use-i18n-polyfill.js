@@ -17,10 +17,10 @@ import i18n from '../i18n/index'
 export function useI18n() {
   const locale = computed({
     get() {
-      return i18n.locale
+      return i18n.global.locale
     },
     set(locale) {
-      i18n.locale = locale
+      i18n.global.locale = locale
     }
   })
 
@@ -74,22 +74,9 @@ export function useI18n() {
  */
 
 /**
- * @param {string} key
- * @param {number | unknown[] | Record<string, unknown> | undefined} arg1
- * @param {number | undefined} arg2
+ * @param {...any} args
  * @returns {string}
  */
-function t(key, arg1, arg2) {
-  // Remove these lines in the Vue 3 migration and pass all args to the `.t()` call
-  if (typeof arg1 === 'number') {
-    return i18n.tc(key, arg1)
-  } else if (typeof arg2 === 'number') {
-    return i18n.tc(key, arg2, arg1)
-  }
-
-  if (arg1 != null) {
-    return i18n.t(key, arg1)
-  }
-
-  return i18n.t(key)
+function t(...args) {
+  return i18n.global.t(...args)
 }
