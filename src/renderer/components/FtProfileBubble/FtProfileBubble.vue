@@ -25,8 +25,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useId } from '../../composables/use-id-polyfill'
+import { computed, useId } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import { getFirstCharacter } from '../../helpers/strings'

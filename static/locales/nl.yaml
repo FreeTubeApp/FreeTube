@@ -12,8 +12,6 @@ Copy: 'Kopiëren'
 Paste: 'Plakken'
 Delete: 'Verwĳderen'
 Select all: 'Alles selecteren'
-Reload: 'Herladen'
-Force Reload: 'Geforceerd herladen'
 Toggle Developer Tools: 'Ontwikkelgereedschap aan/uit'
 Actual size: 'Werkelĳke grootte'
 Zoom in: 'Inzoomen'
@@ -123,14 +121,14 @@ User Playlists:
   Playlist Description: Afspeellijst omschrijving
   Delete Playlist: Afspeellijst verwijderen
   Sort By:
-    LatestCreatedFirst: Recent toegevoegd
+    LatestCreatedFirst: Datum aangemaakt (nieuwste)
     NameDescending: Z - A
     NameAscending: A - Z
-    EarliestPlayedFirst: Eerst gespeeld
-    EarliestCreatedFirst: Oudste
-    LatestUpdatedFirst: Recent bijgewerkt
-    EarliestUpdatedFirst: Oudste
-    LatestPlayedFirst: Recent afgespeeld
+    EarliestPlayedFirst: Datum afgespeeld (oudste)
+    EarliestCreatedFirst: Datum aangemaakt (oudste)
+    LatestUpdatedFirst: Datum bĳgewerkt (nieuwste)
+    EarliestUpdatedFirst: Datum bĳgewerkt (oudste)
+    LatestPlayedFirst: Datum afgespeeld (nieuwste)
   CreatePlaylistPrompt:
     Create: Aanmaken
     New Playlist Name: Naam voor nieuwe afspeellijst
@@ -206,8 +204,8 @@ History:
   Search bar placeholder: In geschiedenis zoeken
   Empty Search Message: Geschiedenis bevat geen video's die overeenkomen met de zoekopdracht
   Case Sensitive Search: Hoofdlettergevoelige zoekopdracht
-  DateOldestHistory: Eerst­bekeken eerst
-  DateNewestHistory: Laatst­bekeken eerst
+  DateOldestHistory: Datum bekeken (oudste)
+  DateNewestHistory: Datum bekeken (nieuwste)
 Settings:
   # On Settings Page
   Settings: 'Instellingen'
@@ -787,7 +785,7 @@ Video:
     Show Stats: Statistieken Weergeven
     Take Screenshot: Schermopname Maken
     Stats:
-      Resolution: 'Resolutie: {width}x{height}@{frameRate}'
+      Resolution: 'Resolutie: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Speler Groote: {width}x{height}'
       CodecsVideoAudioNoItags: 'Codecs: {videoCodec} / {audioCodec}'
       Bitrate: 'Bitrate: {bitrate} kbps'
@@ -1104,8 +1102,6 @@ KeyboardShortcutPrompt:
   Large Rewind: 10 seconden terugspoelen/ Video terugspoelen op basis van de huidige Afspeelsnelheid
   Full Window: Volledig venster wisselen
   Reset Zoom: Reset zoom niveau / UI groote
-  Restart Window: Venster opnieuw opstarten
-  Force Restart Window: Venster geforceerd opnieuw opstarten
   Close Window: Venster sluiten
   Zoom Out: Uitzoomen
   Decrease Video Speed: Videosnelheid verminderen op basis van Afspeelsnelheid

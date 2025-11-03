@@ -12,8 +12,6 @@ Copy: 'Kopiera'
 Paste: 'Klistra In'
 Delete: 'Radera'
 Select all: 'Markera alla'
-Reload: 'Uppdatera'
-Force Reload: 'Framtvinga Uppdatering'
 Toggle Developer Tools: 'Växla utvecklarverktyg'
 Actual size: 'Verklig storlek'
 Zoom in: 'Zooma in'
@@ -837,7 +835,7 @@ Video:
       Bandwidth: 'Bandbredd: {bandwidth} kbps'
       Buffered: 'Buffrad: {bufferedPercentage} %'
       CodecsVideoAudioNoItags: 'Kodekar: {videoCodec} / {audioCodec}'
-      Resolution: 'Upplösning: {width}x{height}@{frameRate}'
+      Resolution: 'Upplösning: {width}x{height}{''@''}{frameRate}'
       Stats: Statistik
       Bitrate: 'Bithastighet: {bitrate} kbps'
       Volume: 'Volym: {volumePercentage}%'
@@ -1083,8 +1081,6 @@ KeyboardShortcutPrompt:
   Focus Search: Fokusera på sökfältet
   Search in New Window: Sök i ett nytt fönster
   Close Window: Stäng fönstret
-  Restart Window: Starta om fönstret
-  Force Restart Window: Tvinga starta om fönstret
   Next Frame: Nästa bildruta (medan pausad)
   Skip by Tenths: Hoppa igenom videon efter procentandel (3 hopp till 30 % av varaktigheten)
   Keyboard Shortcuts: Tangentbordsgenvägar

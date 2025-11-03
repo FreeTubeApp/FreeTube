@@ -29,7 +29,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { useId } from '../../composables/use-id-polyfill'
+import { useId } from 'vue'
 
 defineProps({
   message: {

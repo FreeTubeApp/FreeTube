@@ -12,8 +12,6 @@ Copy: 'Kopier'
 Paste: 'Lim inn'
 Delete: 'Slett'
 Select all: 'Velg alt'
-Reload: 'Last inn på nytt'
-Force Reload: 'Tving gjeninnlasting'
 Toggle Developer Tools: 'Utviklerverktøy'
 Actual size: 'Faktisk størrelse'
 Zoom in: 'Zoom inn'
@@ -554,7 +552,7 @@ Settings:
     Hide Channel Home: Skjule «Start»-fanen i kanaler
     Hide Videos and Playlists Containing Text: Skjul videoer og spillelister som inneholder tekst
     Hide Channels Already Exists: Kanal-ID-en finnes allerede
-    Hide Videos and Playlists Containing Text Placeholder: Ord, del av ord eller setning
+    Hide Videos and Playlists Containing Text Placeholder: Orddel, ord eller frase
     Hide Channels Invalid: Kanal-ID-en var ugyldig
     Hide Channels Disabled Message: Noen kanaler ble blokkert med ID og ble ikke prosessert. Funksjonen er blokkert mens disse ID-ene blir oppdatert
     Show Added Items: Vis videoer lagt til
@@ -786,7 +784,7 @@ Video:
       Media Formats: 'Medieformater: {formats}'
       Buffered: 'Bufret: {bufferedPercentage}%'
       Volume: 'Lydstyrke: {volumePercentage}%'
-      Resolution: 'Oppløsning: {width}x{height}@{frameRate}'
+      Resolution: 'Oppløsning: {width}x{height}{''@''}{frameRate}'
       Stats: Statistikk
       CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
       CodecsVideoAudio: 'Kodeker: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
@@ -1083,7 +1081,6 @@ KeyboardShortcutPrompt:
   Increase Video Speed: Øk videohastighet basert på gjeldende avspillingshastighetsintervallet
   Full Window: Fullt vindu av/på
   Close Window: Lukk vinduet
-  Restart Window: Start vinduet på nytt
   Volume Down: Senk volumet
   Zoom In: Zoom inn
   Zoom Out: Zoom ut
@@ -1106,7 +1103,6 @@ KeyboardShortcutPrompt:
   History Forward: Gå fremover en side
   Toggle Developer Tools: Utviklerverktøy
   Minimize Window: Minimer vinduet
-  Force Restart Window: Tving vinduet til å starte på nytt
   Theatre Mode: Skru teatermodus av/på
   End: Gå til slutten av videoen
   Home: Gå til starten av videoen

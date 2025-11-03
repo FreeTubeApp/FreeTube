@@ -14,8 +14,6 @@ Copy: 'Eilañ'
 Paste: 'Pegañ'
 Delete: 'Dilemel'
 Select all: 'Diuzañ pep tra'
-Reload: 'Adkargañ'
-Force Reload: 'Rediañ an adkargañ'
 Toggle Developer Tools: 'Enaouiñ/Lazhañ Ostilhoù diorren'
 Actual size: 'Ment a-vremañ'
 Zoom in: 'Zoum brassat'
@@ -903,7 +901,7 @@ Video:
       Stats: 'Stadegoù'
       Video ID: 'ID ar Video : {videoId}'
       Media Formats: 'Furmadoù ar media : {formats}'
-      Resolution: 'Spisder : {width}x{height}@{frameRate}'
+      Resolution: 'Spisder : {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Ment al lenner : {width}x{height}'
       Bitrate: 'Fonnder bit : {bitrate} kbps'
       Volume: 'Live-son : {volumePercentage}%'
@@ -1132,8 +1130,6 @@ KeyboardShortcutPrompt:
   Take Screenshot: Kemer un dapadenn skramm
   Minimize Window: Bihanaat ar prenestr
   Close Window: Serriñ ar prenestr
-  Restart Window: Adlañsal ar prenestr
-  Force Restart Window: Rediañ da adlañsal ar prenestr
   Search in New Window: Klask e-barzh ur prenestr nevez
   Volume Up: Uhelaat al live-son
   Volume Down: Izelaat al live-son

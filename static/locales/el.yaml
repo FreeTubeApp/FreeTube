@@ -12,8 +12,6 @@ Copy: 'Αντιγραφή'
 Paste: 'Επικόλληση'
 Delete: 'Διαγραφή'
 Select all: 'Επιλογή όλων'
-Reload: 'Ανανέωση'
-Force Reload: 'Εξαναγκασμένη ανανέωση'
 Toggle Developer Tools: 'Εναλλαγή Εργαλείων Προγραμματιστών'
 Actual size: 'Πραγματικό μέγεθος'
 Zoom in: 'Μεγέθυνση'
@@ -831,7 +829,7 @@ Video:
       CodecsVideoAudioNoItags: 'Κωδικοποιητές: {videoCodec} / {audioCodec}'
       CodecAudio: 'Κωδικοποιητής: {audioCodec} ({audioItag})'
       Bitrate: 'Ρυθμός μετάδοσης δεδομένων: {bitrate} kbps'
-      Resolution: 'Διαστάσεις: {width}x{height}@{frameRate}'
+      Resolution: 'Διαστάσεις: {width}x{height}{''@''}{frameRate}'
       Buffered: 'Αποθηκευμένη: {bufferedPercentage}%'
     Theatre Mode: Λειτουργία Θεάτρου
     Full Window: Πλήρες Παράθυρο
@@ -1060,9 +1058,7 @@ KeyboardShortcutPrompt:
   Volume Down: Μείωση έντασης
   Next Chapter: Επόμενο κεφάλαιο
   Large Fast Forward: Προώθηση 10 δευτερολέπτων / Γρήγορη προώθηση βίντεο με βάση τον τρέχοντα ρυθμό αναπαραγωγής βίντεο
-  Restart Window: Επανεκκίνηση παραθύρου
   Captions: Εναλλαγή των λεζάντων ON/OFF
-  Force Restart Window: Παράθυρο αναγκαστικής επανεκκίνησης
   New Window: Δημιουργία νέου παραθύρου
   Navigate to History: Πλοηγηθείτε στη σελίδα Ιστορικό
   Last Frame: Προηγούμενο καρέ (σε παύση)

@@ -12,8 +12,6 @@ Copy: 'Kopiatu'
 Paste: 'Itsatsi'
 Delete: 'Ezabatu'
 Select all: 'Hautatu guztia'
-Reload: 'Birkargatu'
-Force Reload: 'Birkarga behartu'
 Toggle Developer Tools: 'Garatzaile erremintak erakutsi'
 Actual size: 'Uneko tamaina'
 Zoom in: 'Handiagotu'
@@ -505,7 +503,7 @@ Settings:
     Hide Channels API Error: Errore bat gertatu da emandako IDa duen erabiltzailea berreskuratzean. Mesedez, egiaztatu berriro IDa zuzena den.
     Hide Channels Already Exists: Kanalaren IDa badago jada
     Hide Channel Shorts: Ezkutatu kanalaren "bideo laburrak" fitxa
-    Hide Videos and Playlists Containing Text Placeholder: Hitza, Hitzaren zatia edo esaldia
+    Hide Videos and Playlists Containing Text Placeholder: Zatia, Hitza edo Esaldia
     Hide Subscriptions Live: Ezkutatu zuzenekoen harpidetzak
     Hide Featured Channels: Ezkutatu nabarmendutako kanalak
     Hide Channels Disabled Message: Kanal batzuk IDa erabiliz blokeatu dira eta ez dira prozesatu. Eginbidea blokeatuta dago ID horiek eguneratzen ari diren bitartean
@@ -837,7 +835,7 @@ Video:
       Dropped Frames / Total Frames: 'Jaregindako fotogramak: {droppedFrames} / Total Frames: {totalFrames}'
       Volume: 'Bolumena: {volumePercentage}%'
       CodecsVideoAudio: 'Kodekak: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
-      Resolution: 'Bereizmena: {width}x{height}@{frameRate}'
+      Resolution: 'Bereizmena: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Erreproduzigailuaren neurriak: {width}x{height}'
       Bitrate: 'Bit-emaria: {bitrate} kbps'
       CodecsVideoAudioNoItags: 'Kodekak: {videoCodec} / {audioCodec}'
@@ -968,7 +966,7 @@ Tooltips:
     Ignore Default Arguments: Ez bidali argumentu lehenetsirik kanpoko erreproduzitzaileari bideoaren URLaz gain (adibidez, erreprodukzio-tasa, erreprodukzio-zerrendaren URLa, etab.). Argumentu pertsonalizatuak transmitituko dira oraindik.
   Distraction Free Settings:
     Hide Channels: Sartu kanalaren ID bat bideo, erreprodukzio-zerrenda eta kanala bera bilaketetan, joeran, ezagunenetan eta gomendagarrienetan ager ez dadin ezkutatzeko. Sartutako kanalaren IDak guztiz bat etorri behar du eta maiuskulak eta minuskulak bereizten ditu.
-    Hide Videos and Playlists Containing Text: Idatzi hitz bat, hitz-zati bat edo esaldi bat (maiuskulak eta minuskulak bereizten ez diren) jatorrizko izenburuak FreeTube osoan duten bideo eta erreprodukzio-zerrenda guztiak ezkutatzeko, historia, zure erreprodukzio-zerrendak eta erreprodukzio-zerrenden barneko bideoak soilik kenduta.
+    Hide Videos and Playlists Containing Text: Sartu zati, hitz edo esaldi bat (letra larriz edo minuskulaz bereiz gabe) jatorrizko izenburuetan hitz hori duten bideo eta erreprodukzio-zerrenda guztiak FreeTube osoan ezkutatzeko, Historia, Zure erreprodukzio-zerrendak eta erreprodukzio-zerrenden barruko bideoak izan ezik.
     Hide Subscriptions Live: Ezarpen hau aplikazio osorako "{appWideSetting}" ezarpenak ordezkatzen du, "{settingsSection}" ataleko "{subsection}" atalean
     Hide Videos on Watch: Ikusitako bideoak ezkutatzen ditu Harpidetza eta Kanalen orrialdeetako Bideoak, Laburpenak eta Zuzeneko fitxetatik. Honek ez dio eragiten Kanalen orrialdeetako Hasiera fitxari
   Experimental Settings:
@@ -1101,8 +1099,6 @@ KeyboardShortcutPrompt:
   Last Frame: Aurreko fotograma (geldituta dagoen bitartean)
   Next Frame: Hurrengo fotograma (geldituta dagoen bitartean)
   Volume Up: Bolumena igo
-  Restart Window: Berrabiarazi leihoa
-  Force Restart Window: Behartu leihoaren berrabiaraztea
   Toggle Developer Tools: Aldatu garatzailearen tresnak
   Reset Zoom: Berrezarri zoom maila / Erabiltzaile Interfazearen eskala
   Zoom In: Zoom-a handitu

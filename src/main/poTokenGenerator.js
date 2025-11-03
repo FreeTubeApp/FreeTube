@@ -52,15 +52,31 @@ export async function generatePoToken(videoId, context, proxyUrl) {
     callback({ requestHeaders })
   })
 
+  theSession.webRequest.onHeadersReceived({ urls: ['https://*/*'] }, ({ responseHeaders }, callback) => {
+    if (responseHeaders) {
+      callback({
+        responseHeaders: {
+          ...responseHeaders,
+          'Access-Control-Allow-Origin': ['*'],
+          'Access-Control-Allow-Methods': ['GET, HEAD, POST, PUT, DELETE, CONNECT, OPTIONS, TRACE, PATCH']
+        }
+      })
+    }
+  })
+
+  theSession.webRequest.onBeforeRequest({ urls: ['<all_urls>'], types: ['cspReport', 'ping'] }, (details, callback) => {
+    callback({ cancel: true })
+  })
+
   const webContentsView = new WebContentsView({
     webPreferences: {
       backgroundThrottling: false,
       safeDialogs: true,
       sandbox: true,
+      contextIsolation: true,
       v8CacheOptions: 'none',
       session: theSession,
       offscreen: true,
-      webSecurity: false,
       disableBlinkFeatures: 'ElectronCSSCornerSmoothing'
     }
   })

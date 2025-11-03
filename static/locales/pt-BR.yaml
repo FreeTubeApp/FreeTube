@@ -9,8 +9,6 @@ Copy: 'Copiar'
 Paste: 'Colar'
 Delete: 'Excluir'
 Select all: 'Selecionar tudo'
-Reload: 'Recarregar'
-Force Reload: 'Recarregar forçadamente'
 Toggle Developer Tools: 'Alternar ferramentas de desenvolvedor'
 Actual size: 'Tamanho real'
 Zoom in: 'Ampliar'
@@ -535,7 +533,7 @@ Settings:
     Hide Channels Disabled Message: Alguns canais foram bloqueados por ID e não foram processados. A função está bloqueada enquanto esses IDs estão sendo atualizados
     Hide Channels Already Exists: ID do canal já existe
     Hide Channels API Error: Erro ao recuperar o usuário com o ID fornecido. Por favor, verifique novamente se o ID está correto.
-    Hide Videos and Playlists Containing Text Placeholder: Palavra, trecho de uma palavra ou frase
+    Hide Videos and Playlists Containing Text Placeholder: Trecho, palavra ou frase
     Hide Videos and Playlists Containing Text: Ocultar vídeos e playlists que contenham texto
     Hide Channel Home: Ocultar a guia "Início" do canal
     Show Added Items: Mostrar itens adicionados
@@ -788,7 +786,7 @@ Video:
       Stats: Estatísticas
       Video ID: 'ID do vídeo: {videoId}'
       Media Formats: 'Formatos de mídia: {formats}'
-      Resolution: 'Resolução: {width}x{height}@{frameRate}'
+      Resolution: 'Resolução: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Dimensões do player: {width}x{height}'
       Bitrate: 'Taxa de bits: {bitrate} kbps'
       Volume: 'Volume: {volumePercentage}%'
@@ -982,7 +980,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Insira o ID de um canal para impedir que todos os vídeos, playlists e o próprio canal apareçam nas buscas, em alta, mais populares e recomendados. O ID do canal inserido deve ser uma correspondência completa e diferenciar maiúsculas de minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição de toda a aplicação "{appWideSetting}", na seção "{subsection}" da "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Insira uma palavra, trecho de uma palavra ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar todos os vídeos e playlists cujos títulos originais a contenham em todo o FreeTube, excluindo apenas histórico, suas playlists e vídeos dentro das playlists.
+    Hide Videos and Playlists Containing Text: Insira um trecho, palavra ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar todos os vídeos e playlists cujos títulos originais a contenham em todo o FreeTube, excluindo apenas histórico, suas playlists e vídeos dentro das playlists.
     Hide Videos on Watch: Oculta vídeos já assistidos a partir das guias "Vídeos", "Shorts" e "Ao Vivo" nas páginas de "Assinatura" e "Canal". Isso não afeta a guia "Início" nas páginas de "Canal"
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo usuário a partir do DeArrow.
@@ -1090,10 +1088,8 @@ KeyboardShortcutPrompt:
   Increase Video Speed: Aumentar a velocidade do vídeo com base no intervalo da taxa de reprodução do vídeo
   Decrease Video Speed: Diminuir a velocidade do vídeo com base no intervalo da taxa de reprodução do vídeo
   Minimize Window: Minimizar janela
-  Force Restart Window: Forçar reinicialização da janela
   Zoom In: Ampliar
   Close Window: Fechar janela
-  Restart Window: Reiniciar janela
   Focus Search: Focar na barra de busca
   Search in New Window: Buscar em uma nova janela
   Zoom Out: Diminuir

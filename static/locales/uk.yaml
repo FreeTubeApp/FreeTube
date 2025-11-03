@@ -12,8 +12,6 @@ Copy: 'Скопіювати'
 Paste: 'Вставити'
 Delete: 'Видалити'
 Select all: 'Вибрати все'
-Reload: 'Перезавантажити'
-Force Reload: 'Примусове перезавантаження'
 Toggle Developer Tools: 'Перемкнути інструменти розробника'
 Actual size: 'Дійсний розмір'
 Zoom in: 'Збільшити'
@@ -832,7 +830,7 @@ Video:
       Stats: Статистика
       Video ID: 'ID відео: {videoId}'
       Media Formats: 'Медійні формати: {formats}'
-      Resolution: 'Роздільна здатність: {width}x{height}@{frameRate}'
+      Resolution: 'Роздільна здатність: {width}x{height}{''@''}{frameRate}'
       CodecsVideoAudioNoItags: 'Кодеки: {videoCodec} / {audioCodec}'
     Show Stats: Показати статистику
     Full Window: Повний екран
@@ -1097,8 +1095,6 @@ KeyboardShortcutPrompt:
   Take Screenshot: Зробити скріншот
   Minimize Window: Згорнути вікно
   Close Window: Закрити вікно
-  Restart Window: Перезапустити вікно
-  Force Restart Window: Примусово перезапустити вікно
   Refresh: Оновити стрічку з останнім вмістом
   Large Fast Forward: Перемотати вперед на 10 секунд / Швидка перемотка відео відповідно до поточної швидкості відтворення
   Decrease Video Speed: Зменшити швидкість відео відповідно до інтервалу швидкості відтворення відео

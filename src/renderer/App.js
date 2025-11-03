@@ -44,7 +44,6 @@ export default defineComponent({
       latestBlogUrl: '',
       updateChangelog: '',
       changeLogTitle: '',
-      isPromptOpen: false,
       lastExternalLinkToBeOpened: '',
       showExternalLinkOpeningPrompt: false,
       externalLinkOpeningPromptValues: [
@@ -154,6 +153,10 @@ export default defineComponent({
     appTitle: function () {
       return this.$store.getters.getAppTitle
     },
+
+    isAnyPromptOpen: function () {
+      return this.$store.getters.isAnyPromptOpen
+    }
   },
   watch: {
     windowTitle: 'setWindowTitle',
@@ -209,18 +212,16 @@ export default defineComponent({
         }, 500)
       })
 
-      this.$router.onReady(() => {
-        if (this.$router.currentRoute.path === '/') {
-          this.$router.replace({ path: this.landingPage })
-        }
+      if (this.$route.path === '/') {
+        this.$router.replace({ path: this.landingPage })
+      }
 
-        this.setWindowTitle()
-      })
+      this.setWindowTitle()
     })
 
     document.addEventListener('dragstart', this.handleDragStart)
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     document.removeEventListener('dragstart', this.handleDragStart)
   },
   methods: {
@@ -330,10 +331,6 @@ export default defineComponent({
       }
 
       this.showBlogBanner = false
-    },
-
-    handlePromptPortalUpdate: function(newVal) {
-      this.isPromptOpen = newVal
     },
 
     openDownloadsPage: function () {

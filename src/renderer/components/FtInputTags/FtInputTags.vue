@@ -79,11 +79,10 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { ref } from 'vue'
-import { useId } from '../../composables/use-id-polyfill'
+import { ref, useId } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
-import FtInput from '../ft-input/ft-input.vue'
+import FtInput from '../FtInput/FtInput.vue'
 
 import { showToast } from '../../helpers/utils'
 
@@ -168,7 +167,7 @@ async function updateTags(text) {
   newList.push(trimmedText)
   emit('change', newList)
   // clear input box
-  tagNameInput.value.handleClearTextClick()
+  tagNameInput.value.clear()
 }
 
 /**
@@ -199,7 +198,7 @@ async function updateChannelTags(text) {
   }
 
   // clear input box
-  tagNameInput.value.handleClearTextClick()
+  tagNameInput.value.clear()
 }
 
 function removeTag(tag) {
