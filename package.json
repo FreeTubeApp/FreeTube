@@ -64,7 +64,6 @@
     "bgutils-js": "^3.2.0",
     "electron-context-menu": "^4.1.1",
     "marked": "^16.4.1",
-    "portal-vue": "^3.0.0",
     "process": "^0.11.10",
     "shaka-player": "^4.16.6",
     "swiper": "^12.0.3",
