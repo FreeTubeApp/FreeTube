@@ -87,7 +87,7 @@
     "electron": "^38.4.0",
     "electron-builder": "^26.1.0",
     "eslint": "^9.39.0",
-    "eslint-plugin-jsdoc": "^61.1.11",
+    "eslint-plugin-jsdoc": "^61.1.12",
     "eslint-plugin-jsonc": "^2.21.0",
     "eslint-plugin-unicorn": "^62.0.0",
     "eslint-plugin-vue": "^10.5.1",
