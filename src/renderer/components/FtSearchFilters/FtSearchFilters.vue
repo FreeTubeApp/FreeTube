@@ -12,9 +12,9 @@
           {{ title }}
         </h2>
         <button
-          v-if="searchFilterValueChanged"
           class="clearFilterButton"
           :title="$t('Search Filters.Clear Filters')"
+          :style="{visibility: (searchFilterValueChanged ? 'visible' : 'hidden')}"
           @click="clearFilters"
         >
           <FontAwesomeIcon
