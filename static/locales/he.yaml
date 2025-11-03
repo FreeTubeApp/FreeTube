@@ -132,14 +132,14 @@ User Playlists:
   Remove Duplicate Videos: הסרת סרטונים כפולים
   Are you sure you want to delete this playlist? This cannot be undone: למחוק את רשימת הנגינה הזו? זאת פעולה בלתי הפיכה.
   Sort By:
-    EarliestUpdatedFirst: הראשונים שעודכנו
+    EarliestUpdatedFirst: תאריך העדכון (הישן ביותר)
     NameAscending: א-ת
     NameDescending: ת-א
-    LatestPlayedFirst: האחרונים שהתנגנו
-    EarliestPlayedFirst: הראשונים שהתנגנו
-    LatestCreatedFirst: נוצרו לאחרונה
-    EarliestCreatedFirst: הראשונים שנוצרו
-    LatestUpdatedFirst: האחרונים שעודכנו
+    LatestPlayedFirst: תאריך הנגינה (החדש ביותר)
+    EarliestPlayedFirst: תאריך הנגינה (הישן ביותר)
+    LatestCreatedFirst: תאריך יצירה (החדש ביותר)
+    EarliestCreatedFirst: תאריך יצירה (הישן ביותר)
+    LatestUpdatedFirst: תאריך העדכון (החדש ביותר)
   SinglePlaylistView:
     Toast:
       This playlist is already being used for quick bookmark.: רשימת הנגינה הזאת כבר משמשת למועדפים זריזים.
@@ -210,8 +210,8 @@ History:
   Search bar placeholder: חיפוש בהיסטוריה
   Empty Search Message: אין סרטונים בהיסטוריה שלך שעונים לחיפוש שלך
   Case Sensitive Search: חיפוש תלוי רישיות
-  DateOldestHistory: הראשונים שנצפו ראשונים
-  DateNewestHistory: האחרונים שנצפו ראשונים
+  DateOldestHistory: תאריך הצפייה (הישן ביותר)
+  DateNewestHistory: תאריך הצפייה (החדש ביותר)
 Settings:
   # On Settings Page
   Settings: 'הגדרות'
@@ -538,7 +538,7 @@ Settings:
     Hide Subscriptions Shorts: הסתרת Shorts של המינויים
     Hide Subscriptions Videos: הסתרת סרטוני מינוי
     Hide Profile Pictures in Comments: הסתרת תמונות הפרופיל בהערות
-    Hide Videos and Playlists Containing Text Placeholder: מילה, חלק מילה או ביטוי
+    Hide Videos and Playlists Containing Text Placeholder: קטע, מילה או ביטוי
     Hide Channels Invalid: ID הערוץ שסופק לא תקין
     Hide Channels Disabled Message: חלק מהערוצים נחסמו באמצעות ID ולא טופלו. התכונה נחסמת עד שה-ID האלו מתעדכנים
     Hide Channels Already Exists: ID הערוץ כבר קיים
@@ -878,16 +878,16 @@ Playlist:
   Playlist: רשימת נגינה
   Sort By:
     AuthorDescending: יוצר (ת-א)
-    DateAddedOldest: הראשונים שנוספו ראשונים
+    DateAddedOldest: תאריך ההוספה (הישן ביותר)
     AuthorAscending: יוצר (א-ת)
     VideoTitleAscending: כותר (א-ת)
     Custom: מותאם
     VideoTitleDescending: כותר (ת-א)
-    DateAddedNewest: האחרונים שנוספו ראשונים
-    VideoDurationAscending: משך (קצרים בהתחלה)
-    VideoDurationDescending: משך (ארוכים בהתחלה)
-    PublishedNewest: המאמרים החדשים ביותר קודם
-    PublishedOldest: הראשון שפורסם ראשון
+    DateAddedNewest: תאריך ההוספה (החדש ביותר)
+    VideoDurationAscending: משך (הקצרים ביותר)
+    VideoDurationDescending: משך (הארוכים ביותר)
+    PublishedNewest: תאריך הפרסום (החדש ביותר)
+    PublishedOldest: תאריך הפרסום (הישן ביותר)
 Change Format:
   Change Media Formats: 'שינוי תסדירי המדיה'
   Use Dash Formats: 'שימוש בתסדירי DASH'
@@ -986,7 +986,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: יש למלא את שם או מזהה הערוץ כדי להסתיר את כל הסרטונים, רשימות הנגינה ואת הערוץ עצמו כך שלא יופיע בחיפוש, במובילים, בנפוצים ביותר או במומלצים. שם הערוץ שמילאת צריך להיות תואם במלואו ותואם מבחינת רישיות (אותיות גדולות/קטנות).
     Hide Subscriptions Live: הגדרה זו נדרסת על ידי ההגדרה הכללית „{appWideSetting}”, בסעיף „{subsection}” שב„{settingsSection}”
-    Hide Videos and Playlists Containing Text: הכנס מילה, חלק ממילה או ביטוי (ללא הבחנה בין אותיות גדולות וקטנות) כדי להסתיר את כל הסרטונים והרשימות שבשמם המקורי מופיע הביטוי, בכל FreeTube, למעט ההיסטוריה, הרשימות שלך וסרטונים בתוך רשימות.
+    Hide Videos and Playlists Containing Text: נא למלא קטע, מילה או ביטוי (ללא הבחנה בין אותיות גדולות וקטנות) כדי להסתיר את כל הסרטונים והרשימות שבשמם המקורי מופיע הביטוי, בכל FreeTube, למעט ההיסטוריה, הרשימות שלך וסרטונים בתוך רשימות.
     Hide Videos on Watch: הסתרת סרטונים שנצפו מלשוניות סרטונים, Shorts וחי בעמודי המינוי והערוץ. לא משפיע על לשונית הבית בעמודי הערוצים
   SponsorBlock Settings:
     UseDeArrowTitles: החלפת כותרות הסרטונים עם כותרות ששלחו משתמשים ב־DeArrow.
