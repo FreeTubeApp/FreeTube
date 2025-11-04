@@ -14,8 +14,6 @@ Copy: 'Copïo'
 Paste: 'Gludo'
 Delete: 'Dileu'
 Select all: 'Dewis y cyfan'
-Reload: 'Adnewyddu'
-Force Reload: 'Gorfodi Adnewyddu'
 Toggle Developer Tools: 'Toglo Teclynnau Datblygwr'
 Actual size: 'Gwir faint'
 Zoom in: 'Chwyddo i mewn'
@@ -1100,8 +1098,6 @@ KeyboardShortcutPrompt:
   Theatre Mode: Toglo modd theatr
   Minimize Window: Lleihau ffenestr
   Close Window: Cau ffenestr
-  Restart Window: Ailgychwyn ffenestr
-  Force Restart Window: Gorfodi ailgychwyn ffenestr
   Toggle Developer Tools: Toglo offer datblygwr
   Reset Zoom: Ailosod lefel chwyddo / graddfa UI
   Zoom In: Chwyddo mewn

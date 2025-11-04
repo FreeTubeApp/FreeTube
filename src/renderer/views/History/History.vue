@@ -91,7 +91,7 @@ import FtButton from '../../components/FtButton/FtButton.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import FtInput from '../../components/ft-input/ft-input.vue'
+import FtInput from '../../components/FtInput/FtInput.vue'
 import FtSelect from '../../components/FtSelect/FtSelect.vue'
 import FtToggleSwitch from '../../components/FtToggleSwitch/FtToggleSwitch.vue'
 

@@ -12,8 +12,6 @@ Copy: 'Kopyala'
 Paste: 'Yapıştır'
 Delete: 'Sil'
 Select all: 'Tümünü seç'
-Reload: 'Yeniden yükle'
-Force Reload: 'Yeniden Yüklemeyi Zorla'
 Toggle Developer Tools: 'Geliştirici Araçlarını Aç/Kapat'
 Actual size: 'Gerçek boyut'
 Zoom in: 'Yakınlaştır'
@@ -1084,7 +1082,6 @@ KeyboardShortcutPrompt:
   Large Rewind: 10 saniye geri sar / Mevcut Video Oynatma Hızına göre videoyu geri sar
   Minimize Window: Pencereyi küçült
   Take Screenshot: Ekran görüntüsü al
-  Restart Window: Pencereyi yeniden başlat
   History Backward: Bir sayfa geriye git
   Skip by Tenths: Videoyu yüzdeye göre atla (3 atlayışla sürenin %30'una ulaş)
   Refresh: Beslemeyi en son içerikle yenileyin
@@ -1097,7 +1094,6 @@ KeyboardShortcutPrompt:
   Play: Oynat/duraklat değiştir
   Mute: Sesi kapat
   Decrease Video Speed: Video Oynatma Hızı Aralığına göre video hızını azalt
-  Force Restart Window: Pencereyi zorla yeniden başlat
   Large Fast Forward: 10 saniye ileri / Mevcut Video Oynatma Hızına göre videoyu ileri sar
   Keyboard Shortcuts: Klavye Kısayolları
   History Forward: Bir sayfa ileri git

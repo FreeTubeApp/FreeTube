@@ -11,8 +11,6 @@ Copy: 'Sao chép'
 Paste: 'Dán'
 Delete: 'Xóa'
 Select all: 'Chọn tất cả'
-Reload: 'Tải lại'
-Force Reload: 'Buộc tải lại'
 Toggle Developer Tools: 'Bật/Tắt Công cụ dành cho nhà phát triển'
 Actual size: 'Kích thước thật'
 Zoom in: 'Phóng to'
@@ -507,7 +505,7 @@ Settings:
     Hide Upcoming Premieres: Ẩn video sắp ra mắt
     Hide Channel Podcasts: Ẩn trang "Podcast" của kênh
     Hide Channels Already Exists: ID kênh đã tồn tại
-    Hide Videos and Playlists Containing Text Placeholder: Từ, tiếng, hoặc cụm từ
+    Hide Videos and Playlists Containing Text Placeholder: Đoạn, từ hoặc cụm từ
     Hide Subscriptions Videos: Ẩn video từ các đăng ký
     Display Titles Without Excessive Capitalisation: Hiển thị tiêu đề không viết hoa quá mức
     Show Added Items: Hiện các mục đã thêm
@@ -995,7 +993,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Nhập tên kênh hoặc ID kênh để ẩn tất cả video, danh sách phát và chính kênh đó khỏi xuất hiện trong tìm kiếm, xu hướng, phổ biến nhất và được đề xuất. Tên kênh đã nhập phải khớp hoàn toàn và có phân biệt chữ hoa chữ thường.
     Hide Subscriptions Live: Cài đặt này bị ghi đè bởi cài đặt "{appWideSetting}" trên toàn ứng dụng, trong phần "{subsection}" của "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Nhập một từ khóa hoặc cụm từ (không phân biết hoa thường) để ẩn các video & danh sách phát có tiêu đề gốc chứa các mục đó khỏi FreeTube, ngoại trừ các video trong Lịch sử, các danh sách phát của bạn, và video trong các danh sách phát.
+    Hide Videos and Playlists Containing Text: Nhập một đoạn, từ hoặc cụm từ (không phân biệt chữ hoa chữ thường) để ẩn tất cả video và danh sách phát có tiêu đề gốc chứa nó trên toàn bộ FreeTube, ngoại trừ Lịch sử, Danh sách phát của bạn và video bên trong danh sách phát.
     Hide Videos on Watch: Ẩn các video đã xem khỏi tab Video, Video ngắn và Trực tiếp trên trang Đăng ký và Kênh. Điều này không ảnh hưởng đến tab Trang chủ trên trang Kênh
   SponsorBlock Settings:
     UseDeArrowThumbnails: Thay thế thumbnail video bằng thumbnail gửi từ DeArrow.
@@ -1115,8 +1113,6 @@ KeyboardShortcutPrompt:
   Minimize Window: Thu nhỏ cửa sổ
   Theatre Mode: Bật/tắt chế độ rạp hát
   Close Window: Đóng cửa sổ
-  Restart Window: Tải lại cửa sổ
-  Force Restart Window: Buộc tải lại cửa sổ
   Search in New Window: Tìm kiếm trong cửa sổ mới
   Last Frame: Khung ảnh trước (khi tạm dừng)
   End: Di chuyển tới cuối video

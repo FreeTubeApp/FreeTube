@@ -9,8 +9,6 @@ Copy: 'Copier'
 Paste: 'Coller'
 Delete: 'Supprimer'
 Select all: 'Tout sélectionner'
-Reload: 'Actualiser'
-Force Reload: 'Forcer l''actualisation'
 Toggle Developer Tools: 'Activer les outils de développement'
 Actual size: 'Taille réelle'
 Zoom in: 'Zoom avant'
@@ -1103,8 +1101,6 @@ KeyboardShortcutPrompt:
   Take Screenshot: Faire une capture d'écran
   Minimize Window: Minimiser la fenêtre
   Close Window: Fermer la fenêtre
-  Restart Window: Redémarrer la fenêtre
-  Force Restart Window: Forcer le redémarrage de la fenêtre
   Toggle Developer Tools: Activer/désactiver les outils de développement
   Reset Zoom: Réinitialiser le niveau de zoom / l'échelle de l'interface utilisateur
   Zoom In: Zoom avant

@@ -12,8 +12,6 @@ Copy: 'Copy'
 Paste: 'Paste'
 Delete: 'Delete'
 Select all: 'Select all'
-Reload: 'Reload'
-Force Reload: 'Force reload'
 Toggle Developer Tools: 'Toggle Developer Tools'
 Actual size: 'Actual size'
 Zoom in: 'Zoom in'
@@ -1085,8 +1083,6 @@ KeyboardShortcutPrompt:
   Large Fast Forward: Forward 10 seconds / Fast-Forward video based on current Video Playback Rate
   Mute: Toggle mute
   Next Frame: Next frame (while paused)
-  Restart Window: Restart window
-  Force Restart Window: Force restart window
   Toggle Developer Tools: Toggle developer tools
   Reset Zoom: Reset zoom level / UI scale
   Zoom In: Zoom in

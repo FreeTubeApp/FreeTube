@@ -124,8 +124,6 @@ const localizedShortcutNameToShortcutsMappings = computed(() => {
     [t('KeyboardShortcutPrompt.New Window'), ['NEW_WINDOW']],
     [t('KeyboardShortcutPrompt.Minimize Window'), ['MINIMIZE_WINDOW']],
     [t('KeyboardShortcutPrompt.Close Window'), ['CLOSE_WINDOW']],
-    [t('KeyboardShortcutPrompt.Restart Window'), ['RESTART_WINDOW']],
-    [t('KeyboardShortcutPrompt.Force Restart Window'), ['FORCE_RESTART_WINDOW']],
     [t('KeyboardShortcutPrompt.Toggle Developer Tools'), ['TOGGLE_DEVTOOLS']],
     [t('KeyboardShortcutPrompt.Reset Zoom'), ['RESET_ZOOM']],
     [t('KeyboardShortcutPrompt.Zoom In'), ['ZOOM_IN']],

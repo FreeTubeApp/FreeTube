@@ -14,8 +14,6 @@ Copy: 'Скапіяваць'
 Paste: 'Уставіць'
 Delete: 'Выдаліць'
 Select all: 'Вылучыць усё'
-Reload: 'Абнавіць'
-Force Reload: 'Абнавіць прымусова'
 Toggle Developer Tools: 'Пераключыць інструменты распрацоўшчыка'
 Actual size: 'Фактычны памер'
 Zoom in: 'Павялічыць'
@@ -1074,7 +1072,6 @@ KeyboardShortcutPrompt:
   Stats: Паказаць статыстыку відэа
   Fullscreen: Уключыць/выключыць поўнаэкранны рэжым
   Play: Уключыць прайграванне/паўзу
-  Force Restart Window: Прымусова перазапусціць акно
   Toggle Developer Tools: Уключыць/выключыць інструменты распрацоўшчыка
   Zoom In: Павялічыць
   Next Frame: Наступны кадр (падчас паўзы)
@@ -1086,7 +1083,6 @@ KeyboardShortcutPrompt:
   Theatre Mode: Пераключыць рэжым тэатра
   Minimize Window: Згарнуць акно
   Close Window: Закрыць акно
-  Restart Window: Перазапусціць акно
   Zoom Out: Паменшыць
   Search in New Window: Пошук у новым акне
   Picture in Picture: Уключыць/выключыць міні-прайгравальнік

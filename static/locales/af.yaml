@@ -14,8 +14,6 @@ Copy: 'Kopieer'
 Paste: 'Plak'
 Delete: 'Verwyder'
 Select all: 'Kies alles'
-Reload: 'Herlaii'
-Force Reload: 'Forseer herlaai'
 Toggle Developer Tools: 'Wissel Ontwikkelaar Gereedskap'
 Actual size: 'Werklike grootte'
 Zoom in: 'Zoom in'
@@ -1075,7 +1073,6 @@ Description:
 Autoplay Interruption Timer: Outo-afspeel is gekanselleer weens {autoplayInterruptionIntervalHours} uur van onaktiwiteit
 KeyboardShortcutPrompt:
   Navigate to Settings: Navigeer na die instellingsblad
-  Force Restart Window: Dwing herbegin van venster
   Play: Tokkel afspeel/wag
   Navigate to History: Navigeer na die geskiedenisblad
   Refresh: Verfris voer met nuutste inhoud
@@ -1113,7 +1110,6 @@ KeyboardShortcutPrompt:
   Toggle Developer Tools: Tokkel ontwikkelaarsnutsmiddels
   Focus Secondary Search: Fokus op die sekondêre soekbalk (indien een teenwoordig is)
   Large Fast Forward: Spoel 10 sekondes vorentoe / Spoel video vorentoe gebaseer op huidige video-afspeeltempo
-  Restart Window: Herbegin venster
   Sections:
     Video:
       General: 'Video: Algemeen'
