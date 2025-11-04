@@ -653,6 +653,10 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
     // lazily fetch it as the variable is only set after setupSabrScheme is called
     // but it will definitely exist when we receive a request here.
     const player = getPlayer()
+    if (player == null) {
+      // This is true during reload, returning a promise to suppress error
+      return new AbortableOperation(Promise.resolve())
+    }
     const isAudioOnly = player.isAudioOnly()
 
     const url = new URL(request.uris[0])
