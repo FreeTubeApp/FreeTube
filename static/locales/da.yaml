@@ -530,7 +530,7 @@ Settings:
     Hide Chapters: Skjul kapitler
     Hide Channels Already Exists: Kanal-ID findes allerede
     Hide Featured Channels: Skjul fremhævede kanaler
-    Hide Videos and Playlists Containing Text: Skjul videoer og playlister med tekst
+    Hide Videos, Playlists and Channels Containing Text: Skjul videoer og playlister med tekst
     Hide Profile Pictures in Comments: Skjul profilbilleder i kommentarer
     Display Titles Without Excessive Capitalisation: Vis titler uden overdreven brug af store bogstaver og tegnsætning
     Sections:
@@ -545,7 +545,7 @@ Settings:
     Hide Channel Podcasts: Skjul "Podcasts"-fanen på kanaler
     Hide Channels Invalid: Det angivne kanal-ID var ugyldigt
     Hide Channels Disabled Message: Nogle kanaler blev blokeret via ID og blev ikke behandlet. Funktionen er blokeret, mens disse ID'er opdateres
-    Hide Videos and Playlists Containing Text Placeholder: Ord, ordfragment eller sætning
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Ord, ordfragment eller sætning
     Hide Channel Releases: Skjul "Udgivelser"-fanen på kanaler
     Show Added Items: Vis tilføjede elementer
     Hide Channel Shorts: Skjul "Shorts"-fanen på kanaler
@@ -972,7 +972,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Indtast en kanal-ID for at skjule alle videoer, playlister og selve kanalen fra søgeresultater, trending, mest populære og anbefalinger. Den indtastede kanal-ID skal matche fuldstændigt og er versalfølsom.
     Hide Subscriptions Live: Denne indstilling tilsidesættes af den app-dækkende "{appWideSetting}"-indstilling i sektionen "{subsection}" i "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Indtast et ord, ordfragment eller en sætning (ikke versalfølsom) for at skjule alle videoer og playlister, hvis originale titler indeholder det, overalt i FreeTube – undtagen historik, dine playlister og videoer inde i playlister.
+    Hide Videos, Playlists and Channels Containing Text: Indtast et ord, ordfragment eller en sætning (ikke versalfølsom) for at skjule alle videoer og playlister, hvis originale titler indeholder det, overalt i FreeTube – undtagen historik, dine playlister og videoer inde i playlister.
   SponsorBlock Settings:
     UseDeArrowTitles: Udskift videotitler med brugerindsendte titler fra DeArrow.
     UseDeArrowThumbnails: Erstat videominiaturebilleder med miniaturebilleder fra DeArrow.

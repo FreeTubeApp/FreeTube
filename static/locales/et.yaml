@@ -539,8 +539,8 @@ Settings:
     Hide Channels Disabled Message: Mõned kanalid on blokeeritud nende tunnuste alusel ja nende andmeid ei töödelda. See funktsionaalsus pole kasutusel, kui nendes kanalites toimub muutusi
     Hide Channels Already Exists: Selline kanali tunnus juba on sul kirjas
     Hide Channels API Error: Selle kanali tunnus alusel andmete või kasutaja andmete laadimine ei õnnestunud. Palun kontrolli, et kanali tunnus oleks õige.
-    Hide Videos and Playlists Containing Text Placeholder: Sõnaosa, sõna või fraas
-    Hide Videos and Playlists Containing Text: Peida videod ja esitusloendid, kus leidub sellist teksti
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Sõna, sõnaosa või fraas
+    Hide Videos, Playlists and Channels Containing Text: Peida videod ja esitusloendid, kus leidub sellist teksti
     Hide Channel Home: Peida kanalite vahekaart „Avaleht“
     Show Added Items: Näita lisatud kirjeid
     Hide Channel Courses: Peida kanalite vahekaart „Kursused“
@@ -983,7 +983,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Sisesta kanali tunnus, et kõik videod, esitusloendid ja kanal ise ei oleks nähtav otsingus, soovitatavate videote, populaarsete videote ja populaarsust koguvate videote vaates. Sisestatud kanali tunnus peab otsingule vastama täpselt ja on tõstutundlik.
     Hide Subscriptions Live: Selle seadistuse tühistab rakenduseülene „{appWideSetting}“ seadistus „{subsection}“/„{settingsSection}“
-    Hide Videos and Playlists Containing Text: Sisesta sõnaosa, sõna või fraas (tõstutundetuna), mille alusel peidetakse läbivalt FreeTube'is kõik videod või esitusloendid, kus see leidub algses pealkirjas. Peitmine ei toimi ajaloos, sinu loodud esitusloendites ja esitusloendi sees olevate videote puhul.
+    Hide Videos, Playlists and Channels Containing Text: Sisesta sõna, sõnaosa või fraas (tõstutundetuna), mille alusel peidetakse läbivalt FreeTube'is kõik videod või esitusloendid, kus see leidub algses pealkirjas. Peitmine ei toimi ajaloos, sinu loodud esitusloendites ja esitusloendi sees olevate videote puhul.
     Hide Videos on Watch: Peidab vaadatud sisu videote, lühivideote ja otseeetri kaartidelt tellimuste ja kanalite lehtedelt. Ei mõjuta avakaarti kanalite lehtedel
   Experimental Settings:
     Replace HTTP Cache: Sellega lülitatakse välja Electron'i standardne kettal paiknev http-puhver ja võetakse kasutusele rakenduse mälupõhine puhver. Üheks tulemuseks saab olema suurem mälukasutus.
