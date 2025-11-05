@@ -36,6 +36,7 @@
   line-height: 1em;
   padding: 10px;
   transition: background 0.2s ease-out;
+
   &:hover {
     background-color: var(--side-nav-hover-color);
     color: var(--side-nav-hover-text-color);
