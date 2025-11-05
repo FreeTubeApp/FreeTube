@@ -38,8 +38,7 @@
   transition: background 0.2s ease-out;
 }
 
-.clearFilterButton,
-:deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
+.clearFilterButton {
   &:hover {
     background-color: var(--side-nav-hover-color);
     color: var(--side-nav-hover-text-color);
