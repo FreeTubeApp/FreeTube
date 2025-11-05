@@ -222,14 +222,15 @@ function handleDeletePromptClick(value) {
       showToast(t('Profile.Profile has been updated'))
       selectNone()
     } else {
-      /** @type {Profile} */
-      const profile = deepCopy(props.profile)
-
       subscriptions.value = subscriptions.value.filter((channel) => {
         return !selected_.includes(channel.id)
       })
 
-      profile.subscriptions = subscriptions.value
+      /** @type {Profile} */
+      const profile = {
+        ...props.profile,
+        subscriptions: deepCopy(subscriptions.value)
+      }
 
       store.dispatch('updateProfile', profile)
 

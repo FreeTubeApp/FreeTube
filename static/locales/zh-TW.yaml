@@ -9,8 +9,6 @@ Copy: '複製'
 Paste: '貼上'
 Delete: '刪除'
 Select all: '全選'
-Reload: '重新載入'
-Force Reload: '強制重新載入'
 Toggle Developer Tools: '切換開發者工具'
 Actual size: '實際大小'
 Zoom in: '放大'
@@ -792,7 +790,7 @@ Video:
       Stats: 統計資料
       Video ID: 影片 ID：{videoId}
       Media Formats: 媒體格式：{formats}
-      Resolution: 解析度：{width}x{height}@{frameRate}
+      Resolution: 解析度：{width}x{height}{'@'}{frameRate}
       Player Dimensions: 播放器尺寸：{width}x{height}
       Bitrate: 位元速率：{bitrate} kbps
       Volume: 音量：{volumePercentage}%
@@ -1093,7 +1091,6 @@ KeyboardShortcutPrompt:
   Theatre Mode: 切換劇院模式
   Focus Secondary Search: 焦點置於次要搜尋列（若有）
   Take Screenshot: 拍攝螢幕截圖
-  Force Restart Window: 強制重新啟動視窗
   New Window: 建立新視窗
   Navigate to Settings: 前往設定頁面
   Focus Search: 將焦點置於搜尋列
@@ -1117,7 +1114,6 @@ KeyboardShortcutPrompt:
   Full Window: 切換全視窗
   Minimize Window: 最小化視窗
   Close Window: 關閉視窗
-  Restart Window: 重新啟動視窗
   Home: 跳至影片開頭
   End: 跳至影片結尾
   Skip to Next Video: 跳到播放清單中的下一部影片或下一部推薦影片

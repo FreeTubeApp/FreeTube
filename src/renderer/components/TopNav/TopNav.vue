@@ -121,9 +121,9 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-import { useRoute, useRouter } from 'vue-router/composables'
+import { useRoute, useRouter } from 'vue-router'
 
-import FtInput from '../ft-input/ft-input.vue'
+import FtInput from '../FtInput/FtInput.vue'
 import FtProfileSelector from '../FtProfileSelector/FtProfileSelector.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
 
@@ -516,7 +516,7 @@ function clearLastSuggestionQuery() {
  * @param {string} text
  */
 function updateSearchInputText(text) {
-  searchInput.value?.updateInputData(text)
+  searchInput.value?.setText(text)
 }
 
 /**

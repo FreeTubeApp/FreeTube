@@ -12,8 +12,6 @@ Copy: 'Копиране'
 Paste: 'Поставяне'
 Delete: 'Изтриване'
 Select all: 'Избиране на всичко'
-Reload: 'Презареждане'
-Force Reload: 'Принудително презареждане'
 Toggle Developer Tools: 'Показване на инструменти за разработчици'
 Actual size: 'Действителен размер'
 Zoom in: 'Увеличаване'
@@ -842,7 +840,7 @@ Video:
       CodecAudio: 'Кодек: {audioCodec} ({audioItag})'
       CodecsVideoAudio: 'Кодеци: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Кодеци: {videoCodec} / {audioCodec}'
-      Resolution: 'Разделителна способност: {width}x{height}@{frameRate}'
+      Resolution: 'Разделителна способност: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Размери на плейъра: {width}x{height}'
       Bitrate: 'Скорост на предаване: {bitrate} kbps'
       Dropped Frames / Total Frames: 'Изпуснати кадри: {droppedFrames} / Общо кадри: {totalFrames}'
@@ -1102,8 +1100,6 @@ KeyboardShortcutPrompt:
   Take Screenshot: Снимка на екрана
   Minimize Window: Минимизиране на прозореца
   Close Window: Затваряне на прозореца
-  Restart Window: Рестартиране на прозореца
-  Force Restart Window: Принудително рестартиране на прозореца
   Toggle Developer Tools: Превключване на инструментите за разработчици
   Reset Zoom: Нулиране на мащабирането
   Zoom In: Увеличаване на мащаба

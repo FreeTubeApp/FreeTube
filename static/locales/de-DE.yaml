@@ -9,8 +9,6 @@ Copy: Kopieren
 Paste: Einfügen
 Delete: Löschen
 Select all: Alles auswählen
-Reload: Neu laden
-Force Reload: Neu laden erzwingen
 Toggle Developer Tools: Entwicklungswerkzeuge aktivieren/deaktivieren
 Actual size: Tatsächliche Größe
 Zoom in: Vergrößern
@@ -791,7 +789,7 @@ Video:
       Stats: Statistiken
       Video ID: 'Videokennung (ID): {videoId}'
       Media Formats: 'Medienformate: {formats}'
-      Resolution: 'Auflösung: {width}×{height}@{frameRate}'
+      Resolution: 'Auflösung: {width}×{height}{''@''}{frameRate}'
       Player Dimensions: 'Player-Dimensionen: {width}×{height}'
       Bitrate: 'Bitrate: {bitrate} kb/s'
       Volume: 'Lautstärke: {volumePercentage} %'
@@ -1090,7 +1088,6 @@ KeyboardShortcutPrompt:
   Take Screenshot: Screenshot erstellen
   Minimize Window: Fenster minimieren
   Close Window: Fenster schließen
-  Restart Window: Fenster neu starten
   Reset Zoom: Zoomstufe / UI-Skalierung zurücksetzen
   Zoom In: Vergrößern
   Zoom Out: Verkleinern
@@ -1099,7 +1096,6 @@ KeyboardShortcutPrompt:
   Refresh: Feed mit aktuellen Inhalten aktualisieren
   Large Fast Forward: 10 Sekunden vorspulen / Vorspulen basierend auf der aktuellen Wiedergabegeschwindigkeit
   Mute: Stummschaltung
-  Force Restart Window: Neustart des Fensters erzwingen
   Volume Up: Lautstärke erhöhen
   Volume Down: Lautstärke verringern
   Next Chapter: Nächstes Kapitel

@@ -12,8 +12,6 @@ Copy: 'Kopiraj'
 Paste: 'Umetni'
 Delete: 'Izbriši'
 Select all: 'Odaberi sve'
-Reload: 'Učitaj ponovo'
-Force Reload: 'Prisili ponovno učitavanje'
 Toggle Developer Tools: 'Uključi/Isključi alate za programere'
 Actual size: 'Stvarna veličina'
 Zoom in: 'Uvećaj prikaz'
@@ -827,7 +825,7 @@ Video:
       Stats: Statistika
       CodecsVideoAudio: 'Kodeci: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       Bitrate: 'Brzina: {bitrate} kbps'
-      Resolution: 'Rezolucija: {width}x{height}@{frameRate}'
+      Resolution: 'Rezolucija: {width}x{height}{''@''}{frameRate}'
       CodecsVideoAudioNoItags: 'Kodeci: {videoCodec} / {audioCodec}'
       Volume: 'Glasnoća: {volumePercentage}%'
       Video ID: 'ID videa: {videoId}'
@@ -1064,7 +1062,6 @@ KeyboardShortcutPrompt:
   Toggle Developer Tools: Uključi/Isključi alate za programere
   Volume Up: Povećaj glasnoću
   Volume Down: Smanji glasnoću
-  Force Restart Window: Prisili ponovno pokretanje prozora
   History Backward: Idi jednu stranicu natrag
   New Window: Stvori novi prozor
   Show Keyboard Shortcuts: Prikaži tipkovničke prečace
@@ -1080,7 +1077,6 @@ KeyboardShortcutPrompt:
   Theatre Mode: Uključi/Isključi kinematografski modus
   Take Screenshot: Snimi snimku ekrana
   Minimize Window: Sklopi prozor
-  Restart Window: Ponovo pokreni prozor
   Focus Search: Fokusiraj traku pretrage
   Search in New Window: Traži u novom prozoru
   History Forward: Idi jednu stranicu naprijed

@@ -1,5 +1,4 @@
 import i18n from '../../i18n/index'
-import { set as vueSet } from 'vue'
 
 import { DefaultFolderKind } from '../../../constants'
 import {
@@ -61,7 +60,8 @@ const state = {
     shorts: false,
     posts: false,
   },
-  appTitle: ''
+  appTitle: '',
+  openPrompts: new Set()
 }
 
 const getters = {
@@ -183,6 +183,9 @@ const getters = {
   },
   getAppTitle (state) {
     return state.appTitle
+  },
+  isAnyPromptOpen(state) {
+    return state.openPrompts.size > 0
   }
 }
 
@@ -223,11 +226,11 @@ const actions = {
         }
 
         console.error(error)
-        showToast(i18n.t('Downloading failed', { videoTitle: title }))
+        showToast(i18n.global.t('Downloading failed', { videoTitle: title }))
         return
       }
 
-      showToast(i18n.t('Starting download', { videoTitle: title }))
+      showToast(i18n.global.t('Starting download', { videoTitle: title }))
 
       let writeableFileStream
 
@@ -238,20 +241,20 @@ const actions = {
           writeableFileStream = await handle.createWritable()
 
           await response.body.pipeTo(writeableFileStream, { preventClose: true })
-          showToast(i18n.t('Downloading has completed', { videoTitle: title }))
+          showToast(i18n.global.t('Downloading has completed', { videoTitle: title }))
         } else {
           throw new Error(`Bad status code: ${response.status}`)
         }
       } catch (error) {
         console.error(error)
-        showToast(i18n.t('Downloading failed', { videoTitle: title }))
+        showToast(i18n.global.t('Downloading failed', { videoTitle: title }))
       } finally {
         if (writeableFileStream) {
           await writeableFileStream.close()
         }
       }
     } else {
-      showToast(i18n.t('Starting download', { videoTitle: title }))
+      showToast(i18n.global.t('Starting download', { videoTitle: title }))
 
       try {
         const response = await fetch(url)
@@ -263,13 +266,13 @@ const actions = {
             await window.ftElectron.writeToDefaultFolder(DefaultFolderKind.DOWNLOADS, fileName, arrayBuffer)
           }
 
-          showToast(i18n.t('Downloading has completed', { videoTitle: title }))
+          showToast(i18n.global.t('Downloading has completed', { videoTitle: title }))
         } else {
           throw new Error(`Bad status code: ${response.status}`)
         }
       } catch (error) {
         console.error(error)
-        showToast(i18n.t('Downloading failed', { videoTitle: title }))
+        showToast(i18n.global.t('Downloading failed', { videoTitle: title }))
       }
     }
   },
@@ -295,11 +298,11 @@ const actions = {
     }
 
     if (parsedString !== replaceFilenameForbiddenChars(parsedString)) {
-      throw new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Forbidden Characters'))
+      throw new Error(i18n.global.t('Settings.Player Settings.Screenshot.Error.Forbidden Characters'))
     }
 
     if (!parsedString) {
-      throw new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Empty File Name'))
+      throw new Error(i18n.global.t('Settings.Player Settings.Screenshot.Error.Empty File Name'))
     }
 
     return parsedString
@@ -733,7 +736,7 @@ const actions = {
             args.push(cmdArgs.startOffset, Math.trunc(payload.watchProgress))
           }
         } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.starting video at offset'))
+          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.global.t('Video.External Player.Unsupported Actions.starting video at offset'))
         }
       }
 
@@ -741,7 +744,7 @@ const actions = {
         if (typeof cmdArgs.playbackRate === 'string') {
           args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
         } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.setting a playback rate'))
+          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.global.t('Video.External Player.Unsupported Actions.setting a playback rate'))
         }
       }
 
@@ -751,7 +754,7 @@ const actions = {
           if (typeof cmdArgs.playlistIndex === 'string') {
             args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)'))
+            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.global.t('Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)'))
           }
         }
 
@@ -759,7 +762,7 @@ const actions = {
           if (typeof cmdArgs.playlistReverse === 'string') {
             args.push(cmdArgs.playlistReverse)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.reversing playlists'))
+            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.global.t('Video.External Player.Unsupported Actions.reversing playlists'))
           }
         }
 
@@ -767,7 +770,7 @@ const actions = {
           if (typeof cmdArgs.playlistShuffle === 'string') {
             args.push(cmdArgs.playlistShuffle)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.shuffling playlists'))
+            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.global.t('Video.External Player.Unsupported Actions.shuffling playlists'))
           }
         }
 
@@ -775,7 +778,7 @@ const actions = {
           if (typeof cmdArgs.playlistLoop === 'string') {
             args.push(cmdArgs.playlistLoop)
           } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.looping playlists'))
+            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.global.t('Video.External Player.Unsupported Actions.looping playlists'))
           }
         }
 
@@ -787,7 +790,7 @@ const actions = {
         }
       } else {
         if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.opening playlists'))
+          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.global.t('Video.External Player.Unsupported Actions.opening playlists'))
         }
         if (payload.videoId != null) {
           args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
@@ -796,10 +799,10 @@ const actions = {
     }
 
     const videoOrPlaylist = payload.playlistId != null && payload.playlistId !== ''
-      ? i18n.t('Video.External Player.playlist')
-      : i18n.t('Video.External Player.video')
+      ? i18n.global.t('Video.External Player.playlist')
+      : i18n.global.t('Video.External Player.video')
 
-    showToast(i18n.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
+    showToast(i18n.global.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
 
     if (process.env.IS_ELECTRON) {
       window.ftElectron.openInExternalPlayer(executable, args)
@@ -836,14 +839,12 @@ const mutations = {
     const sameVideo = state.deArrowCache[payload.videoId]
 
     if (!sameVideo) {
-      // setting properties directly doesn't trigger watchers in Vue 2,
-      // so we need to use Vue's set function
-      vueSet(state.deArrowCache, payload.videoId, payload)
+      state.deArrowCache[payload.videoId] = payload
     }
   },
 
   addThumbnailToDeArrowCache (state, payload) {
-    vueSet(state.deArrowCache, payload.videoId, payload)
+    state.deArrowCache[payload.videoId] = payload
   },
 
   removeFromSessionSearchHistory (state, query) {
@@ -983,6 +984,14 @@ const mutations = {
   // Use this to set the app title / document.title
   setAppTitle (state, value) {
     state.appTitle = value
+  },
+
+  addOpenPrompt(state, id) {
+    state.openPrompts.add(id)
+  },
+
+  removeOpenPrompt(state, id) {
+    state.openPrompts.delete(id)
   },
 
   setSubscriptionForVideosFirstAutoFetchRun (state) {

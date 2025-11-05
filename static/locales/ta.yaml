@@ -14,8 +14,6 @@ Copy: 'நகலெடு'
 Paste: 'ஒட்டு'
 Delete: 'அழி'
 Select all: 'அனைத்தையும் தேர்ந்தெடு'
-Reload: 'மீள் ஏற்று'
-Force Reload: 'வற்புறுத்தி மீள்ஏற்று'
 Toggle Developer Tools: 'டெவலப்பர் கருவிகளை நிலைமாற்று'
 Actual size: 'உண்மை அளவு'
 Zoom in: 'பெரிதாக்கு'
@@ -921,7 +919,7 @@ Video:
       Stats: 'புள்ளிவிவரங்கள்'
       Video ID: 'வீடியோ ஐடி: {videoId}'
       Media Formats: 'ஊடக வடிவங்கள்: {formats}'
-      Resolution: 'தீர்மானம்: {width} ஃச் {height}@{frameRate}'
+      Resolution: 'தீர்மானம்: {width} ஃச் {height}{''@''}{frameRate}'
       Player Dimensions: 'பிளேயர் பரிமாணங்கள்: {width} ஃச் {height}'
       Bitrate: 'பிட்ரேட்: {bitrate} kbps'
       Volume: 'தொகுதி: {volumePercentage}%'
@@ -1163,8 +1161,6 @@ KeyboardShortcutPrompt:
   Take Screenshot: திரைக்காட்சி எடுத்துக் கொள்ளுங்கள்
   Minimize Window: சாளரத்தைக் குறைக்கவும்
   Close Window: சாளரத்தை மூடு
-  Restart Window: சாளரத்தை மறுதொடக்கம் செய்யுங்கள்
-  Force Restart Window: மறுதொடக்கம் சாளரத்தை கட்டாயப்படுத்துங்கள்
   Reset Zoom: சூம் நிலை / இடைமுகம் அளவை மீட்டமைக்கவும்
   Focus Search: தேடல் பட்டியில் கவனம் செலுத்துங்கள்
   Search in New Window: புதிய சாளரத்தில் தேடுங்கள்

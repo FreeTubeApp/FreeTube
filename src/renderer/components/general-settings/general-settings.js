@@ -2,7 +2,7 @@ import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtSelect from '../FtSelect/FtSelect.vue'
-import FtInput from '../ft-input/ft-input.vue'
+import FtInput from '../FtInput/FtInput.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../FtButton/FtButton.vue'
@@ -220,7 +220,7 @@ export default defineComponent({
     this.setCurrentInvidiousInstanceBounce =
       debounce(this.setCurrentInvidiousInstance, 500)
   },
-  beforeDestroy: function () {
+  beforeUnmount: function () {
     if (this.currentInvidiousInstance === '') {
       // FIXME: If we call an action from here, there's no guarantee it will finish
       // before the component is destroyed, which could bring up some problems

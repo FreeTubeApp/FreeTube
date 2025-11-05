@@ -45,7 +45,7 @@
           :value="newTitle"
           :maxlength="255"
           @input="handlePlaylistNameInput"
-          @keydown.enter.native="savePlaylistInfo"
+          @keydown.enter="savePlaylistInfo"
         />
         <FtFlexBox v-if="inputPlaylistNameBlank">
           <p>
@@ -67,9 +67,9 @@
           {{ title }}
         </h2>
         <p>
-          {{ $tc('Global.Counts.Video Count', videoCount, { count: parsedVideoCount }) }}
+          {{ t('Global.Counts.Video Count', { count: parsedVideoCount }, videoCount) }}
           <span v-if="!hideViews && !isUserPlaylist">
-            - {{ $tc('Global.Counts.View Count', viewCount, { count: parsedViewCount }) }}
+            - {{ t('Global.Counts.View Count', { count: parsedViewCount }, viewCount) }}
           </span>
           <span>- </span>
           <span v-if="infoSource !== 'local'">
@@ -92,7 +92,7 @@
       :show-label="false"
       :value="newDescription"
       @input="(input) => newDescription = input"
-      @keydown.enter.native="savePlaylistInfo"
+      @keydown.enter="savePlaylistInfo"
     />
     <p
       v-else
@@ -265,11 +265,11 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-import { useRouter } from 'vue-router/composables'
+import { useRouter } from 'vue-router'
 
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
-import FtInput from '../ft-input/ft-input.vue'
+import FtInput from '../FtInput/FtInput.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtShareButton from '../FtShareButton/FtShareButton.vue'
 
@@ -282,6 +282,7 @@ import {
   showToast,
   getTodayDateStrLocalTimezone,
   writeFileWithPicker,
+  deepCopy,
 } from '../../helpers/utils'
 import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 
@@ -481,7 +482,7 @@ const userPlaylistAnyVideoWatched = computed(() => {
 
   const historyCacheById_ = historyCacheById.value
   return selectedUserPlaylist.value.videos.some((video) => {
-    return Object.hasOwn(historyCacheById_, video.videoId)
+    return historyCacheById_[video.videoId] !== undefined
   })
 })
 
@@ -594,7 +595,7 @@ async function savePlaylistInfo() {
     playlistName: newTitle.value,
     protected: selectedUserPlaylist.value.protected,
     description: newDescription.value,
-    videos: selectedUserPlaylist.value.videos,
+    videos: deepCopy(selectedUserPlaylist.value.videos),
     _id: props.id,
   }
   try {
@@ -740,7 +741,7 @@ const userPlaylistWatchedVideoCount = computed(() => {
 
   const historyCacheById_ = historyCacheById.value
   return selectedUserPlaylist.value.videos.reduce((count, video) => {
-    return Object.hasOwn(historyCacheById_, video.videoId) ? count + 1 : count
+    return historyCacheById_[video.videoId] !== undefined ? count + 1 : count
   }, 0)
 })
 
@@ -787,7 +788,7 @@ async function handleRemoveDuplicateVideosPromptAnswer(option) {
     playlistName: props.title,
     protected: selectedUserPlaylist.value.protected,
     description: props.description,
-    videos: newVideoItems,
+    videos: deepCopy(newVideoItems),
     _id: props.id,
   }
   try {
@@ -824,7 +825,7 @@ async function handleRemoveVideosOnWatchPromptAnswer(option) {
     playlistName: props.title,
     protected: selectedUserPlaylist.value.protected,
     description: props.description,
-    videos: videosToWatch,
+    videos: deepCopy(videosToWatch),
     _id: props.id
   }
   try {

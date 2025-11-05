@@ -11,8 +11,6 @@ Copy: 'Sao chép'
 Paste: 'Dán'
 Delete: 'Xóa'
 Select all: 'Chọn tất cả'
-Reload: 'Tải lại'
-Force Reload: 'Buộc tải lại'
 Toggle Developer Tools: 'Bật/Tắt Công cụ dành cho nhà phát triển'
 Actual size: 'Kích thước thật'
 Zoom in: 'Phóng to'
@@ -787,7 +785,7 @@ Video:
       CodecsVideoAudio: 'Codec: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Codec: {videoCodec} / {audioCodec}'
       Bandwidth: 'Băng thông: {bandwidth} kbps'
-      Resolution: 'Độ phân ảnh: {width}x{height}@{frameRate}'
+      Resolution: 'Độ phân ảnh: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Kích thước trình xem: {width}x{height}'
       CodecAudio: 'Codec: {audioCodec} ({audioItag})'
       Bitrate: 'Tốc độ bit: {bitrate} kbps'
@@ -1115,8 +1113,6 @@ KeyboardShortcutPrompt:
   Minimize Window: Thu nhỏ cửa sổ
   Theatre Mode: Bật/tắt chế độ rạp hát
   Close Window: Đóng cửa sổ
-  Restart Window: Tải lại cửa sổ
-  Force Restart Window: Buộc tải lại cửa sổ
   Search in New Window: Tìm kiếm trong cửa sổ mới
   Last Frame: Khung ảnh trước (khi tạm dừng)
   End: Di chuyển tới cuối video

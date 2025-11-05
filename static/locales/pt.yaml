@@ -12,8 +12,6 @@ Copy: 'Copiar'
 Paste: 'Colar'
 Delete: 'Eliminar'
 Select all: 'Selecionar tudo'
-Reload: 'Recarregar'
-Force Reload: 'Impor recarregamento'
 Toggle Developer Tools: 'Comutar ferramentas de desenvolvimento'
 Actual size: 'Tamanho real'
 Zoom in: 'Ampliar'
@@ -836,7 +834,7 @@ Video:
       Bitrate: Taxa de dados :{bitrate} kbps
       Volume: 'Volume: {volumePercentage}%'
       Bandwidth: 'Largura de banda: {bandwidth} kbps'
-      Resolution: 'Resolução: {width}x{height}@{frameRate}'
+      Resolution: 'Resolução: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Dimensões do reprodutor: {width}x{height}'
       Stats: Estatísticas
       Video ID: 'ID do vídeo: {videoId}'
@@ -1077,7 +1075,6 @@ KeyboardShortcutPrompt:
   Skip by Tenths: Avançar ou recuar o vídeo em percentagem (3 saltos para 30% da duração)
   Keyboard Shortcuts: Atalhos de teclado
   Zoom Out: Diminuir
-  Force Restart Window: Forçar reinicialização da janela
   Toggle Developer Tools: Alternar ferramentas de programador
   Full Window: Alternar modo de janela completa
   Next Frame: Fotograma seguinte (durante a pausa)
@@ -1096,7 +1093,6 @@ KeyboardShortcutPrompt:
   Mute: Ativar ou desativar som
   Theatre Mode: Alternar modo Teatro
   Take Screenshot: Obter captura de ecrã
-  Restart Window: Reiniciar janela
   Last Frame: Fotograma anterior (durante a pausa)
   Focus Secondary Search: Focar na barra de pesquisa secundária (se existir)
   History Forward: Avançar uma página

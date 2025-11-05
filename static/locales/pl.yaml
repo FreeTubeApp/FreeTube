@@ -9,8 +9,6 @@ Copy: 'Kopiuj'
 Paste: 'Wklej'
 Delete: 'Usuń'
 Select all: 'Zaznacz wszystko'
-Reload: 'Odśwież'
-Force Reload: 'Wymuś odświeżenie'
 Toggle Developer Tools: 'Włącz/wyłącz narzędzia deweloperskie'
 Actual size: 'Rzeczywisty rozmiar'
 Zoom in: 'Powiększ'
@@ -800,7 +798,7 @@ Video:
       CodecsVideoAudio: 'Kodeki: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Kodeki: {videoCodec} / {audioCodec}'
       Media Formats: 'Formaty ścieżek: {formats}'
-      Resolution: 'Rozdzielczość: {width}x{height}@{frameRate}'
+      Resolution: 'Rozdzielczość: {width}x{height}{''@''}{frameRate}'
     You appear to be offline: Zdaje się, że jesteś rozłączony.
     Playback will resume automatically when your connection comes back: Odtwarzanie zostanie wznowione, jak tylko połączenie zostanie odzyskane.
     Skipped segment: Pominięto segment {segmentCategory}
@@ -1110,13 +1108,11 @@ KeyboardShortcutPrompt:
   Increase Video Speed: Przyśpiesz odtwarzanie filmu o wartość przeskoku w wyborze prędkości odtwarzania filmu
   Theatre Mode: Przełącz na tryb kina
   Close Window: Zamknij okno
-  Force Restart Window: Wymuś zrestartowanie okna
   Toggle Developer Tools: Przełącz narzędzia deweloperskie
   Zoom In: Powiększ
   Focus Search: Przełącz na pasek wyszukiwania
   Last Frame: Poprzednia klatka (podczas wstrzymania)
   Next Frame: Następna klatka (podczas wstrzymania)
-  Restart Window: Zrestartuj okno
   Large Rewind: Przewiń o 10 sekund wstecz / Przewiń film wstecz, bazując na obecnej prędkości odtwarzania
   Large Fast Forward: Przewiń o 10 sekund do przodu / Przewiń film do przodu, bazując na obecnej prędkości odtwarzania
   Stats: Pokaż statystyki filmu

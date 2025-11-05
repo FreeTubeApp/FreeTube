@@ -41,7 +41,7 @@
           show-label
           :value="proxyHostname"
           @input="handleUpdateProxyHostname"
-          @keydown.enter.native="testProxy"
+          @keydown.enter="testProxy"
         />
         <FtInput
           :placeholder="$t('Settings.Proxy Settings.Proxy Port Number')"
@@ -50,7 +50,7 @@
           :value="proxyPort"
           :maxlength="5"
           @input="handleUpdateProxyPort"
-          @keydown.enter.native="testProxy"
+          @keydown.enter="testProxy"
         />
       </FtFlexBox>
       <FtFlexBox>
@@ -60,7 +60,7 @@
           show-label
           :value="proxyUsername"
           @input="handleUpdateProxyUsername"
-          @keydown.enter.native="testProxy"
+          @keydown.enter="testProxy"
         />
         <FtInput
           :placeholder="$t('Settings.Proxy Settings.Proxy Password')"
@@ -69,7 +69,7 @@
           :value="proxyPassword"
           input-type="password"
           @input="handleUpdateProxyPassword"
-          @keydown.enter.native="testProxy"
+          @keydown.enter="testProxy"
         />
       </FtFlexBox>
       <p
@@ -119,7 +119,7 @@ import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtButton from '../FtButton/FtButton.vue'
 import FtSelect from '../FtSelect/FtSelect.vue'
-import FtInput from '../ft-input/ft-input.vue'
+import FtInput from '../FtInput/FtInput.vue'
 import FtLoader from '../FtLoader/FtLoader.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 

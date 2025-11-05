@@ -12,8 +12,6 @@ Copy: 'Копирај'
 Paste: 'Налепи'
 Delete: 'Избриши'
 Select all: 'Изабери све'
-Reload: 'Освежи'
-Force Reload: 'Присилно освежи'
 Toggle Developer Tools: 'Укључи алатке за програмере'
 Actual size: 'Стварна величина'
 Zoom in: 'Увећај'
@@ -833,7 +831,7 @@ Video:
     Stats:
       Video ID: 'ID видеа: {videoId}'
       Media Formats: 'Формат медија: {formats}'
-      Resolution: 'Резолуција: {width}x{height}@{frameRate}'
+      Resolution: 'Резолуција: {width}x{height}{''@''}{frameRate}'
       Volume: 'Волумен: {volumePercentage}%'
       Stats: Статистика
       Dropped Frames / Total Frames: 'Испуштени кадрови: {droppedFrames} / Укупан број кадрова: {totalFrames}'
@@ -1093,8 +1091,6 @@ KeyboardShortcutPrompt:
   Take Screenshot: Снимак екрана
   Minimize Window: Минимизирање прозора
   Close Window: Затварање прозора
-  Restart Window: Рестартовање прозора
-  Force Restart Window: Присилно рестартовање прозора
   Focus Search: Фокусирање на траку за претрагу
   Last Frame: Претходни кадар (приликом паузе)
   Next Frame: Следећи кадар (приликом паузе)

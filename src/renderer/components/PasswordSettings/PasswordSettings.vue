@@ -22,7 +22,7 @@
         input-type="password"
         :value="password"
         @input="e => password = e"
-        @keydown.enter.native="handleSetPassword"
+        @keydown.enter="handleSetPassword"
       />
       <FtButton
         class="centerButton"
@@ -37,7 +37,7 @@
 import { computed, ref } from 'vue'
 
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
-import FtInput from '../ft-input/ft-input.vue'
+import FtInput from '../FtInput/FtInput.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../FtButton/FtButton.vue'
 

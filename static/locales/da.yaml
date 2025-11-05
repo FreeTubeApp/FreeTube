@@ -12,8 +12,6 @@ Copy: 'Kopiér'
 Paste: 'Indsæt'
 Delete: 'Slet'
 Select all: 'Vælg alt'
-Reload: 'Genindlæs'
-Force Reload: 'Tving genindlæsning'
 Toggle Developer Tools: 'Slå udviklerværktøjer til/fra'
 Actual size: 'Faktisk størrelse'
 Zoom in: 'Zoom ind'
@@ -817,7 +815,7 @@ Video:
     Stats:
       Video ID: 'Video-ID: {videoId}'
       Media Formats: 'Medieformater: {formats}'
-      Resolution: 'Opløsning: {width}x{height}@{frameRate}'
+      Resolution: 'Opløsning: {width}x{height}{''@''}{frameRate}'
       Bandwidth: 'Båndbredde: {bandwidth} kbps'
       Stats: Statistik
       Bitrate: 'Bitrate: {bitrate} kbps'
@@ -1093,8 +1091,6 @@ KeyboardShortcutPrompt:
   Theatre Mode: Skift biograftilstand
   Take Screenshot: Tag et skærmbillede
   Close Window: Luk vindue
-  Restart Window: Genstart vindue
-  Force Restart Window: Tving genstart af vindue
   Toggle Developer Tools: Vis/skjul udviklerværktøjer
   Focus Search: Fokuser på søgelinjen
   Home: Spring til starten af videoen

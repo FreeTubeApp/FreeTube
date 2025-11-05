@@ -12,8 +12,6 @@ Copy: 'نسخ'
 Paste: 'لصق'
 Delete: 'حذف'
 Select all: 'حدد الكل'
-Reload: 'إعادة تحميل'
-Force Reload: 'فرض إعادة التحميل'
 Toggle Developer Tools: 'إظهار/إخفاء أدوات المطوّر'
 Actual size: 'الحجم الأصلي'
 Zoom in: 'تكبير'
@@ -833,7 +831,7 @@ Video:
       CodecsVideoAudio: 'برامج الترميز: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       Stats: الاحصائيات
       Video ID: 'معرف الفيديو: {videoId}'
-      Resolution: 'الدقة: {width}x{height}@{frameRate}'
+      Resolution: 'الدقة: {width}x{height}{''@''}{frameRate}'
       Bandwidth: 'عرض النطاق الترددي: {bandwidth} كيلوبت في الثانية'
     Skipped segment: تم تخطي شريحة {segmentCategory}
     Theatre Mode: وضع المسرح
@@ -1054,7 +1052,6 @@ Search Listing:
     3D: ثلاثي الابعاد
 Right-click or hold to see history: انقر زر الفارة الأيمن أو اضغط مطولا لعرض السجل
 KeyboardShortcutPrompt:
-  Force Restart Window: إجبار إعادة تشغيل النافذة
   Toggle Developer Tools: تبديل أدوات المطور
   Zoom In: تقريب
   Zoom Out: تبعيد
@@ -1087,7 +1084,6 @@ KeyboardShortcutPrompt:
   Last Chapter: الفصل الأخير
   Next Chapter: الفصل التالي
   Decrease Video Speed: تقليل سرعة الفيديو بناء على الفاصل الزمني لمعدل تشغيل الفيديو
-  Restart Window: إعادة تشغيل النافذة
   Increase Video Speed: زيادة سرعة الفيديو استنادا إلى الفاصل الزمني لمعدل تشغيل الفيديو
   Full Window: تبديل النافذة الكاملة
   Theatre Mode: تبديل وضع المسرح

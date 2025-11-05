@@ -12,8 +12,6 @@ Copy: 'העתקה'
 Paste: 'הדבקה'
 Delete: 'מחיקה'
 Select all: 'בחירה בהכול'
-Reload: 'רענון'
-Force Reload: 'רענון בכוח'
 Toggle Developer Tools: 'הפעלת / השבתת כלים למפתחים'
 Actual size: 'גודל מקורי'
 Zoom in: 'הגדלה'
@@ -132,14 +130,14 @@ User Playlists:
   Remove Duplicate Videos: הסרת סרטונים כפולים
   Are you sure you want to delete this playlist? This cannot be undone: למחוק את רשימת הנגינה הזו? זאת פעולה בלתי הפיכה.
   Sort By:
-    EarliestUpdatedFirst: הראשונים שעודכנו
+    EarliestUpdatedFirst: תאריך העדכון (הישן ביותר)
     NameAscending: א-ת
     NameDescending: ת-א
-    LatestPlayedFirst: האחרונים שהתנגנו
-    EarliestPlayedFirst: הראשונים שהתנגנו
-    LatestCreatedFirst: נוצרו לאחרונה
-    EarliestCreatedFirst: הראשונים שנוצרו
-    LatestUpdatedFirst: האחרונים שעודכנו
+    LatestPlayedFirst: תאריך הנגינה (החדש ביותר)
+    EarliestPlayedFirst: תאריך הנגינה (הישן ביותר)
+    LatestCreatedFirst: תאריך יצירה (החדש ביותר)
+    EarliestCreatedFirst: תאריך יצירה (הישן ביותר)
+    LatestUpdatedFirst: תאריך העדכון (החדש ביותר)
   SinglePlaylistView:
     Toast:
       This playlist is already being used for quick bookmark.: רשימת הנגינה הזאת כבר משמשת למועדפים זריזים.
@@ -210,8 +208,8 @@ History:
   Search bar placeholder: חיפוש בהיסטוריה
   Empty Search Message: אין סרטונים בהיסטוריה שלך שעונים לחיפוש שלך
   Case Sensitive Search: חיפוש תלוי רישיות
-  DateOldestHistory: הראשונים שנצפו ראשונים
-  DateNewestHistory: האחרונים שנצפו ראשונים
+  DateOldestHistory: תאריך הצפייה (הישן ביותר)
+  DateNewestHistory: תאריך הצפייה (החדש ביותר)
 Settings:
   # On Settings Page
   Settings: 'הגדרות'
@@ -835,7 +833,7 @@ Video:
     Show Stats: הצג נתונים
     Stats:
       Video ID: 'ID סרטון: {videoId}'
-      Resolution: 'רזולוציה: {height}‎‏x‏{width}@{frameRate}'
+      Resolution: 'רזולוציה: {height}‎‏x‏{width}{''@''}{frameRate}'
       Stats: נתונים
       Media Formats: 'פורמטים מדיה: {formats}'
       Player Dimensions: 'ממדי הנגן: {height}x‏{width}'
@@ -878,16 +876,16 @@ Playlist:
   Playlist: רשימת נגינה
   Sort By:
     AuthorDescending: יוצר (ת-א)
-    DateAddedOldest: הראשונים שנוספו ראשונים
+    DateAddedOldest: תאריך ההוספה (הישן ביותר)
     AuthorAscending: יוצר (א-ת)
     VideoTitleAscending: כותר (א-ת)
     Custom: מותאם
     VideoTitleDescending: כותר (ת-א)
-    DateAddedNewest: האחרונים שנוספו ראשונים
-    VideoDurationAscending: משך (קצרים בהתחלה)
-    VideoDurationDescending: משך (ארוכים בהתחלה)
-    PublishedNewest: המאמרים החדשים ביותר קודם
-    PublishedOldest: הראשון שפורסם ראשון
+    DateAddedNewest: תאריך ההוספה (החדש ביותר)
+    VideoDurationAscending: משך (הקצרים ביותר)
+    VideoDurationDescending: משך (הארוכים ביותר)
+    PublishedNewest: תאריך הפרסום (החדש ביותר)
+    PublishedOldest: תאריך הפרסום (הישן ביותר)
 Change Format:
   Change Media Formats: 'שינוי תסדירי המדיה'
   Use Dash Formats: 'שימוש בתסדירי DASH'
@@ -1080,7 +1078,6 @@ KeyboardShortcutPrompt:
   Zoom Out: התרחקות
   Zoom In: התקרבות
   Reset Zoom: איפוס המרחק / קנה מידת ממשק המשתמש
-  Force Restart Window: אילוץ הפעלת החלון מחדש
   Close Window: סגירת החלון
   Next Frame: התמונית הבאה (תוך כדי השהייה)
   Last Frame: התמונית הקודמת (תוך כדי השהייה)
@@ -1088,7 +1085,6 @@ KeyboardShortcutPrompt:
   Skip by Tenths: דילוג בתוך הווידאו באחוזים (3 דילוגים ל־30% ממשך הנגינה)
   Volume Up: הגברת עוצמת השמע
   Volume Down: הנמכת עוצמת השמע
-  Restart Window: הפעלת החלון מחדש
   Full Window: מסך מלא/רגיל
   Toggle Developer Tools: הצגת/הסתרת כלי פיתוח
   Minimize Window: מזעור החלון
