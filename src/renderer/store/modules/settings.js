@@ -486,7 +486,7 @@ const customActions = {
             commit('upsertToHistoryCache', data)
             break
 
-          case SyncEvents.HISTORY.OVERWRITE: {
+          case SyncEvents.GENERAL.OVERWRITE: {
             const byId = {}
             data.forEach(video => {
               byId[video.videoId] = video
@@ -524,6 +524,11 @@ const customActions = {
         switch (event) {
           case SyncEvents.GENERAL.UPSERT:
             commit('upsertSearchHistoryEntryToList', data)
+            break
+
+          case SyncEvents.GENERAL.OVERWRITE:
+            // It comes pre-sorted, so we don't have to sort it here
+            commit('setSearchHistoryEntries', data)
             break
 
           case SyncEvents.GENERAL.DELETE:

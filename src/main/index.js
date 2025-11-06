@@ -1583,12 +1583,12 @@ function runApp() {
           )
           return null
 
-        case DBActions.HISTORY.OVERWRITE:
+        case DBActions.GENERAL.OVERWRITE:
           await baseHandlers.history.overwrite(data)
           syncOtherWindows(
             IpcChannels.SYNC_HISTORY,
             event,
-            { event: SyncEvents.HISTORY.OVERWRITE, data }
+            { event: SyncEvents.GENERAL.OVERWRITE, data }
           )
           return null
 
@@ -1821,6 +1821,15 @@ function runApp() {
             IpcChannels.SYNC_SEARCH_HISTORY,
             event,
             { event: SyncEvents.GENERAL.UPSERT, data }
+          )
+          return null
+
+        case DBActions.GENERAL.OVERWRITE:
+          await baseHandlers.searchHistory.overwrite(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SEARCH_HISTORY,
+            event,
+            { event: SyncEvents.GENERAL.OVERWRITE, data }
           )
           return null
 

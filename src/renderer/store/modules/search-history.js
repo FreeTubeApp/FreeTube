@@ -57,6 +57,23 @@ const actions = {
     }
   },
 
+  /**
+   * @param {any} param0
+   * @param {{ _id: string, lastUpdatedAt: number }[]} historyItems
+   */
+  async overwriteSearchHistory({ commit }, historyItems) {
+    try {
+      // sort before sending saving to the database and passing to other windows
+      // so that the other windows can use it as is, without having to sort the array themselves
+      historyItems.sort((a, b) => b.timeWatched - a.timeWatched)
+
+      await DBSearchHistoryHandlers.overwrite(historyItems)
+      commit('setSearchHistoryEntries', historyItems)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
   async removeSearchHistoryEntry({ commit }, _id) {
     try {
       await DBSearchHistoryHandlers.delete(_id)
