@@ -930,10 +930,27 @@ function runApp() {
       return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
     })
 
-    /**
-     * Initial window options
-     */
-    const commonBrowserWindowOptions = {
+    let savedBounds, savedMaximized, savedFullScreen
+
+    const boundsDoc = await baseHandlers.settings._findOne('bounds')
+    if (typeof boundsDoc?.value === 'object') {
+      const { maximized, fullScreen, ...bounds } = boundsDoc.value
+      const windowVisible = screen.getAllDisplays().some(display => {
+        const { x, y, width, height } = display.bounds
+        return !(bounds.x > x + width || bounds.x + bounds.width < x || bounds.y > y + height || bounds.y + bounds.height < y)
+      })
+
+      if (windowVisible) {
+        savedBounds = bounds
+      }
+
+      savedMaximized = maximized
+      savedFullScreen = fullScreen
+    }
+
+    const newWindow = new BrowserWindow({
+      // It will be shown later when ready via `ready-to-show` event
+      show: showWindowNow,
       backgroundColor: windowBackground,
       darkTheme: nativeTheme.shouldUseDarkColors,
       icon: process.env.NODE_ENV === 'development'
@@ -949,18 +966,19 @@ function runApp() {
           : path.resolve(__dirname, 'preload.js')
       },
       minWidth: 340,
-      minHeight: 380
-    }
-
-    const newWindow = new BrowserWindow(
-      Object.assign(
-        {
-          // It will be shown later when ready via `ready-to-show` event
-          show: showWindowNow
-        },
-        commonBrowserWindowOptions
-      )
-    )
+      minHeight: 380,
+      ...savedBounds
+        ? {
+            x: savedBounds.x,
+            y: savedBounds.y,
+            width: savedBounds.width,
+            height: savedBounds.height
+          }
+        : {
+            width: 1200,
+            height: 800
+          }
+    })
 
     // region Ensure child windows use same options since electron 14
 
@@ -1055,35 +1073,12 @@ function runApp() {
       mainWindow = newWindow
     }
 
-    newWindow.setBounds({
-      width: 1200,
-      height: 800
-    })
+    if (savedMaximized) {
+      newWindow.maximize()
+    }
 
-    const boundsDoc = await baseHandlers.settings._findOne('bounds')
-    if (typeof boundsDoc?.value === 'object') {
-      const { maximized, fullScreen, ...bounds } = boundsDoc.value
-      const windowVisible = screen.getAllDisplays().some(display => {
-        const { x, y, width, height } = display.bounds
-        return !(bounds.x > x + width || bounds.x + bounds.width < x || bounds.y > y + height || bounds.y + bounds.height < y)
-      })
-
-      if (windowVisible) {
-        newWindow.setBounds({
-          x: bounds.x,
-          y: bounds.y,
-          width: bounds.width,
-          height: bounds.height
-        })
-      }
-
-      if (maximized) {
-        newWindow.maximize()
-      }
-
-      if (fullScreen) {
-        newWindow.setFullScreen(true)
-      }
+    if (savedFullScreen) {
+      newWindow.setFullScreen(true)
     }
 
     // If called multiple times
