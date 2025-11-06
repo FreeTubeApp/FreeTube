@@ -179,6 +179,7 @@ const state = {
   externalPlayerIgnoreWarnings: false,
   externalPlayerIgnoreDefaultArgs: false,
   externalPlayerCustomArgs: '[]',
+  showAddedExternalPlayerCustomArgs: true,
   expandSideBar: false,
   hideActiveSubscriptions: false,
   hideChannelCommunity: false,
