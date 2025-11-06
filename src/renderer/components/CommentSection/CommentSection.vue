@@ -160,22 +160,9 @@
             @keydown.space.prevent="toggleCommentReplies(index)"
             @keydown.enter.prevent="toggleCommentReplies(index)"
           >
-            <span v-if="comment.showReplies">
-              {{ $t("Comments.Hide {replyCount} replies", { replyCount: comment.numReplies }, comment.numReplies) }}
+            <span>
+              {{ toggleCommentRepliesLinkText(comment) }}
             </span>
-            <template v-else>
-              <template v-if="comment.hasOwnerReplied">
-                <span v-if="comment.numReplies > 1">
-                  {{ $t("Comments.View {replyCount} replies from {channelName} and others", { replyCount: comment.numReplies, channelName }) }}
-                </span>
-                <span v-else>
-                  {{ $t("Comments.View 1 reply from {channelName}", { channelName }) }}
-                </span>
-              </template>
-              <span v-else>
-                {{ $t("Comments.View {replyCount} replies", { replyCount: comment.numReplies }, comment.numReplies) }}
-              </span>
-            </template>
           </span>
         </p>
         <div
@@ -530,6 +517,26 @@ function getMoreComments() {
       getCommentDataLocal(true)
     }
   }
+}
+
+/** @typedef {import('../../helpers/api/local').LocalComment | import('../../helpers/api/invidious').InvidiousComment} Comment */
+/**
+ * @param {Comment} comment
+ */
+function toggleCommentRepliesLinkText(comment) {
+  if (comment.showReplies) {
+    return t('Comments.Hide {replyCount} replies', { replyCount: comment.numReplies }, comment.numReplies)
+  }
+
+  if (comment.hasOwnerReplied) {
+    if (comment.numReplies > 1) {
+      return t('Comments.View {replyCount} replies from {channelName} and others', { replyCount: comment.numReplies, channelName: props.channelName })
+    }
+
+    return t('Comments.View 1 reply from {channelName}', { channelName: props.channelName })
+  }
+
+  return t('Comments.View {replyCount} replies', { replyCount: comment.numReplies }, comment.numReplies)
 }
 
 /**
