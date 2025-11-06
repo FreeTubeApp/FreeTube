@@ -826,7 +826,8 @@ async function importFreeTubeWatchHistory(textDecode) {
     'paid',
   ]
 
-  const historyItems = new Map(Object.entries(historyCacheById.value))
+  // deep copy so we don't get errors from Electron when we try to pass reactive objects through the IPC channels
+  const historyItems = new Map(deepCopy(Object.entries(historyCacheById.value)))
 
   textDecode.forEach((history) => {
     const historyData = JSON.parse(history)
@@ -911,7 +912,8 @@ async function importYouTubeWatchHistory(historyData) {
     'activityControls',
   ].concat(Object.keys(keyMapping))
 
-  const historyItems = new Map(Object.entries(historyCacheById.value))
+  // deep copy so we don't get errors from Electron when we try to pass reactive objects through the IPC channels
+  const historyItems = new Map(deepCopy(Object.entries(historyCacheById.value)))
 
   filteredHistoryData.forEach(element => {
     const historyObject = {}
@@ -1248,7 +1250,8 @@ async function importSearchHistory() {
 async function importFreeTubeSearchHistory(textDecode) {
   textDecode.pop()
 
-  const historyItems = new Map(searchHistoryEntries.value.map(entry => [entry._id, entry]))
+  // deep copy so we don't get errors from Electron when we try to pass reactive objects through the IPC channels
+  const historyItems = new Map(deepCopy(searchHistoryEntries.value).map(entry => [entry._id, entry]))
 
   textDecode.forEach((rawEntry) => {
     const entry = JSON.parse(rawEntry)
@@ -1284,7 +1287,8 @@ async function importFreeTubeSearchHistory(textDecode) {
  * @param {any[]} historyData
  */
 async function importYouTubeSearchHistory(historyData) {
-  const historyItems = new Map(searchHistoryEntries.value.map(entry => [entry._id, entry]))
+  // deep copy so we don't get errors from Electron when we try to pass reactive objects through the IPC channels
+  const historyItems = new Map(deepCopy(searchHistoryEntries.value).map(entry => [entry._id, entry]))
 
   for (const entry of historyData) {
     if (
