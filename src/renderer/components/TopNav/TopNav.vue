@@ -5,14 +5,15 @@
     role="navigation"
   >
     <div class="side">
-      <FontAwesomeIcon
-        class="menuIcon navIcon"
-        :icon="['fas', 'bars']"
-        role="button"
-        tabindex="0"
+      <button
+        class="menuButton navButton"
         @click="toggleSideNav"
-        @keydown.enter.prevent="toggleSideNav"
-      />
+      >
+        <FontAwesomeIcon
+          class="navIcon"
+          :icon="['fas', 'bars']"
+        />
+      </button>
       <FtIconButton
         class="navIconButton"
         :disabled="isArrowBackwardDisabled"
@@ -43,24 +44,27 @@
         @click="historyForward"
         @keydown.enter.prevent="historyForward"
       />
-      <FontAwesomeIcon
+      <button
         v-if="!hideSearchBar"
-        class="navSearchIcon navIcon"
-        :icon="['fas', 'search']"
-        role="button"
-        tabindex="0"
+        class="navSearchButton navButton"
         @click="toggleSearchContainer"
-        @keydown.enter.prevent="toggleSearchContainer"
-      />
-      <FontAwesomeIcon
-        class="navNewWindowIcon navIcon"
-        :icon="['fas', 'clone']"
+      >
+        <FontAwesomeIcon
+          class="navIcon"
+          :icon="['fas', 'search']"
+        />
+      </button>
+      <button
+        class="navNewWindowButton navButton"
+        :aria-label="t('Open New Window')"
         :title="newWindowText"
-        role="button"
-        tabindex="0"
         @click="createNewWindow"
-        @keydown.enter.prevent="createNewWindow"
-      />
+      >
+        <FontAwesomeIcon
+          class="navIcon"
+          :icon="['fas', 'clone']"
+        />
+      </button>
       <div
         v-if="!hideHeaderLogo"
         class="logo"
@@ -89,7 +93,7 @@
       >
         <FtInput
           ref="searchInput"
-          :placeholder="$t('Search / Go to URL')"
+          :placeholder="t('Search / Go to URL')"
           class="searchInput"
           is-search
           :data-list="activeDataList"
@@ -101,16 +105,18 @@
           @clear="clearLastSuggestionQuery"
           @remove="removeSearchHistoryEntryInDbAndCache"
         />
-        <FontAwesomeIcon
-          class="navFilterIcon navIcon"
+        <button
+          class="navFilterButton navButton"
           :class="{ filterChanged: searchFilterValueChanged }"
-          :icon="['fas', 'filter']"
-          :title="$t('Search Filters.Search Filters')"
-          role="button"
-          tabindex="0"
+          :aria-label="t('Search Filters.Search Filters')"
+          :title="t('Search Filters.Search Filters')"
           @click="showSearchFilters"
-          @keydown.enter.prevent="showSearchFilters"
-        />
+        >
+          <FontAwesomeIcon
+            class="navIcon"
+            :icon="['fas', 'filter']"
+          />
+        </button>
       </div>
     </div>
     <FtProfileSelector class="side profiles" />

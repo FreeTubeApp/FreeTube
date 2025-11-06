@@ -39,7 +39,7 @@
   }
 }
 
-.menuIcon {
+.menuButton {
   @media only screen and (width <= 680px) {
     display: none;
   }
@@ -54,22 +54,24 @@
   user-select: none;
 }
 
-.navIcon,
-:deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
+.navButton {
   border-radius: 50%;
+  border-style: none;
+  background-color: transparent;
   color: var(--primary-text-color);
   cursor: pointer;
   font-size: 20px;
-  block-size: 1em;
+  line-height: 1em;
   padding: 10px;
   transition: background 0.2s ease-out;
-  inline-size: 1em;
+}
 
+.navButton,
+:deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
   &:hover {
     background-color: var(--side-nav-hover-color);
     color: var(--side-nav-hover-text-color);
     transition: background 0.2s ease-in;
-
   }
 
   &:active {
@@ -79,7 +81,11 @@
   }
 }
 
-.topNavBarColor .navIcon,
+.navIcon {
+  inline-size: 1em;
+}
+
+.topNavBarColor .navButton,
 .topNavBarColor :deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
   color: var(--text-with-main-color);
 
@@ -93,7 +99,7 @@
 }
 
 
-.navFilterIcon {
+.navFilterButton {
   $effect-distance: 20px;
 
   margin-inline-start: $effect-distance;
@@ -121,13 +127,13 @@
     justify-content: flex-end;
   }
 
-  .navSearchIcon {
+  .navSearchButton {
     @media only screen and (width >= 681px) {
       display: none;
     }
   }
 
-  .navNewWindowIcon {
+  .navNewWindowButton {
     @media only screen and (width <= 680px) {
       display: none;
     }
