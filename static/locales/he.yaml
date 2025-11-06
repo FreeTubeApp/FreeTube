@@ -536,12 +536,12 @@ Settings:
     Hide Subscriptions Shorts: הסתרת Shorts של המינויים
     Hide Subscriptions Videos: הסתרת סרטוני מינוי
     Hide Profile Pictures in Comments: הסתרת תמונות הפרופיל בהערות
-    Hide Videos and Playlists Containing Text Placeholder: קטע, מילה או ביטוי
+    Hide Videos, Playlists and Channels Containing Text Placeholder: מילה, חלק מילה או ביטוי
     Hide Channels Invalid: ID הערוץ שסופק לא תקין
     Hide Channels Disabled Message: חלק מהערוצים נחסמו באמצעות ID ולא טופלו. התכונה נחסמת עד שה-ID האלו מתעדכנים
     Hide Channels Already Exists: ID הערוץ כבר קיים
     Hide Channels API Error: אירעה שגיאה באיחזור משתמש עם ה-ID שסופק. נא לבדוק שוב אם ה-ID נכון.
-    Hide Videos and Playlists Containing Text: הסתרת סרטונים ורשימות שידורים המכילים טקסט
+    Hide Videos, Playlists and Channels Containing Text: הסתרת סרטונים ורשימות שידורים המכילים טקסט
     Hide Channel Home: הסתרת לשונית ה„בית” של הערוץ
     Show Added Items: הצגת פריטים שנוספו
     Hide Channel Posts: הסתר את לשונית "פוסטים" של הערוץ
@@ -984,7 +984,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: יש למלא את שם או מזהה הערוץ כדי להסתיר את כל הסרטונים, רשימות הנגינה ואת הערוץ עצמו כך שלא יופיע בחיפוש, במובילים, בנפוצים ביותר או במומלצים. שם הערוץ שמילאת צריך להיות תואם במלואו ותואם מבחינת רישיות (אותיות גדולות/קטנות).
     Hide Subscriptions Live: הגדרה זו נדרסת על ידי ההגדרה הכללית „{appWideSetting}”, בסעיף „{subsection}” שב„{settingsSection}”
-    Hide Videos and Playlists Containing Text: נא למלא קטע, מילה או ביטוי (ללא הבחנה בין אותיות גדולות וקטנות) כדי להסתיר את כל הסרטונים והרשימות שבשמם המקורי מופיע הביטוי, בכל FreeTube, למעט ההיסטוריה, הרשימות שלך וסרטונים בתוך רשימות.
+    Hide Videos, Playlists and Channels Containing Text: הכנס מילה, חלק ממילה או ביטוי (ללא הבחנה בין אותיות גדולות וקטנות) כדי להסתיר את כל הסרטונים והרשימות שבשמם המקורי מופיע הביטוי, בכל FreeTube, למעט ההיסטוריה, הרשימות שלך וסרטונים בתוך רשימות.
     Hide Videos on Watch: הסתרת סרטונים שנצפו מלשוניות סרטונים, Shorts וחי בעמודי המינוי והערוץ. לא משפיע על לשונית הבית בעמודי הערוצים
   SponsorBlock Settings:
     UseDeArrowTitles: החלפת כותרות הסרטונים עם כותרות ששלחו משתמשים ב־DeArrow.

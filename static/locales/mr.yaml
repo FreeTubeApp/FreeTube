@@ -565,8 +565,8 @@ Settings:
     Hide Channel Podcasts: ''
     Hide Channel Releases: ''
     Hide Channel Courses: ''
-    Hide Videos and Playlists Containing Text: ''
-    Hide Videos and Playlists Containing Text Placeholder: ''
+    Hide Videos, Playlists and Channels Containing Text: ''
+    Hide Videos, Playlists and Channels Containing Text Placeholder: ''
     Hide Subscriptions Videos: ''
     Hide Subscriptions Shorts: ''
     Hide Subscriptions Live: ''
@@ -1017,7 +1017,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: ''
     Hide Subscriptions Live: ''
-    Hide Videos and Playlists Containing Text: ''
+    Hide Videos, Playlists and Channels Containing Text: ''
     Hide Videos on Watch: ''
   Subscription Settings:
     Fetch Feeds from RSS: ''

@@ -546,8 +546,8 @@ Settings:
     Hide Channel Shorts: 'Versteek kanaal-“kortvideo’s”-oortjie'
     Hide Channel Podcasts: 'Versteek kanaal-“podsendings”-oortjie'
     Hide Channel Releases: 'Versteek kanaal-“vrystellings”-oortjie'
-    Hide Videos and Playlists Containing Text: 'Versteek video’s en afspeellyste wat teks bevat'
-    Hide Videos and Playlists Containing Text Placeholder: 'Woord, woordfragment of frase'
+    Hide Videos, Playlists and Channels Containing Text: 'Versteek video’s en afspeellyste wat teks bevat'
+    Hide Videos, Playlists and Channels Containing Text Placeholder: 'Woord, woordfragment of frase'
     Hide Subscriptions Videos: 'Versteek intekenings video’s'
     Hide Subscriptions Shorts: 'Versteek intekenings kortvideo’s'
     Hide Subscriptions Live: 'Versteek intekenings regstreeks'
@@ -996,7 +996,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: 'Voer ’n kanaal-ID in om alle video’s, afspeellyste en die kanaal self te versteek sodat dit nie in soek, stygend, gewildste, en aanbeveel weergegee word nie. Die ingevoerde kanaal-ID moet volledig ooreenstem en is hooflettergevoelig.'
     Hide Subscriptions Live: 'Hierdie instelling woord oorheers deur die toepwye “{appWideSetting}”-instelling in die “{subsection}” gedeelte van “{settingsSection}”'
-    Hide Videos and Playlists Containing Text: 'Voer ’n woord, woordfragment of woordgroep in (nie hooflettergevoelig) om alle video’s en afspeellyste waarvan die oorspronklike titel dit bevat, regoor FreeTube te versteek, met uitsondering van net geskiedenis, u afspeellyste en video’s in afspeellyste.'
+    Hide Videos, Playlists and Channels Containing Text: 'Voer ’n woord, woordfragment of woordgroep in (nie hooflettergevoelig) om alle video’s en afspeellyste waarvan die oorspronklike titel dit bevat, regoor FreeTube te versteek, met uitsondering van net geskiedenis, u afspeellyste en video’s in afspeellyste.'
   Subscription Settings:
     Fetch Feeds from RSS: 'Wanneer geaktiveer, sal FreeTube RSS i.p.v. sy verstek metode gebruik om u intekenvoer op te haal. RSS is vinniger en voorkom IP-versperring, maar bied nie sekere inligting soos videoduur, status of plasings nie'
     Fetch Automatically: 'Wanneer geaktiveer, sal FreeTube u intekenvoer outomaties ophaal wanneer ’n nuwe venster geopen word.'

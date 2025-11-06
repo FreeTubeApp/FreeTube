@@ -40,13 +40,45 @@
         <label for="playlistProgressBar">
           {{ currentVideoIndexOneBased }} / {{ playlistVideoCount }}
         </label>
-        <progress
+
+        <!-- eslint-disable vuejs-accessibility/mouse-events-have-key-events, vuejs-accessibility/click-events-have-key-events -->
+        <div
           v-if="!shuffleEnabled && !reversePlaylist"
-          id="playlistProgressBar"
-          class="playlistProgressBar"
-          :value="currentVideoIndexOneBased"
-          :max="playlistVideoCount"
-        />
+          class="playlistProgressBarContainer"
+          @mouseenter="showProgressBarPreview = true"
+          @mouseleave="showProgressBarPreview = false"
+          @mousemove="updateProgressBarPreview"
+        >
+          <div
+            ref="playlistProgressBar"
+            class="playlistProgressBar"
+            :class="{ expanded: showProgressBarPreview }"
+            @click="handleProgressBarClick"
+          >
+            <div
+              class="playlistProgressBarFill"
+              :style="{ width: (currentVideoIndexOneBased / playlistVideoCount) * 100 + '%' }"
+            />
+            <div
+              v-if="showProgressBarPreview"
+              class="progressBarPreview"
+              :style="{ left: previewPosition + '%', transform: `translateX(${ previewTransformXPercentage }%)` }"
+            >
+              <div class="previewTooltip">
+                <img
+                  v-if="previewVideoThumbnail"
+                  :src="previewVideoThumbnail"
+                  alt=""
+                  class="previewThumbnail"
+                >
+                <div class="previewText">
+                  {{ previewVideoIndex }} / {{ playlistVideoCount }}
+                </div>
+                <div class="previewVideoTitle">{{ previewVideoTitle }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </span>
       <p>
         <font-awesome-icon
@@ -108,13 +140,13 @@
       </p>
       <div
         v-if="!isLoading"
-        ref="playlistItems"
-        class="playlistItems"
+        ref="playlistItemsWrapper"
+        class="playlistItemsWrapper"
       >
         <ft-list-video-numbered
           v-for="(item, index) in playlistItems"
           :key="item.playlistItemId || item.videoId"
-          :ref="currentVideoIndexZeroBased === index ? 'currentVideoItem' : null"
+          ref="playlistItem"
           class="playlistItem"
           :data="item"
           :playlist-id="playlistId"

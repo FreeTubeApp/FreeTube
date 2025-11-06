@@ -532,8 +532,8 @@ Settings:
     Hide Channels Disabled Message: 一部のチャンネルが ID を使用してブロックされ、処理されませんでした。これらの ID が更新されている間、機能はブロックされます
     Hide Channels Already Exists: チャンネル ID は既に存在します
     Hide Channels API Error: 指定されたIDのユーザーを検索する際にエラーが発生しました。IDが正しいかもう一度確認してください。
-    Hide Videos and Playlists Containing Text Placeholder: 単語、単語の一部、またはフレーズ
-    Hide Videos and Playlists Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
+    Hide Videos, Playlists and Channels Containing Text Placeholder: 単語、単語の一部、またはフレーズ
+    Hide Videos, Playlists and Channels Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
     Hide Channel Home: チャンネルの「ホーム」タブを隠す
     Show Added Items: 追加された項目を表示
     Hide Channel Courses: チャンネルの「コース」タブを隠す
@@ -979,7 +979,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: チャンネル ID を入力すると、すべての動画、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル ID は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}" 項目の "{subsection}" にあります
-    Hide Videos and Playlists Containing Text: FreeTube 全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
+    Hide Videos, Playlists and Channels Containing Text: FreeTube 全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
     Hide Videos on Watch: 視聴済みの動画を、購読ページやチャンネルページの 動画、ショート、ライブ タブから非表示にします。ただし、チャンネルページの ホーム タブには影響しません
   SponsorBlock Settings:
     UseDeArrowTitles: 動画のタイトルを DeArrow からユーザーが投稿したタイトルに置き換えます。

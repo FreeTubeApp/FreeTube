@@ -571,8 +571,8 @@ Settings:
     Hide Channel Shorts: 'Kuzhat ivinell "Shortoù" ar chadenn'
     Hide Channel Podcasts: 'Kuzhat ivinell "Podskignañ" ar chadenn'
     Hide Channel Releases: 'Kuzhat ivinell "ermaeziadennoù" ar chadenn'
-    Hide Videos and Playlists Containing Text: 'Kuzhat ar videoioù hag ar rolloù-videoioù gant testennoù'
-    Hide Videos and Playlists Containing Text Placeholder: 'Ger, lodenn deus ur ger, pe frazenn'
+    Hide Videos, Playlists and Channels Containing Text: 'Kuzhat ar videoioù hag ar rolloù-videoioù gant testennoù'
+    Hide Videos, Playlists and Channels Containing Text Placeholder: 'Ger, lodenn deus ur ger, pe frazenn'
     Hide Subscriptions Videos: 'Kuzhat videoioù ar c''houmanantoù'
     Hide Subscriptions Shorts: 'Kuzhat Shortoù ar c''houmanantoù'
     Hide Subscriptions Live: 'Kuzhat ar skignañ war-eeun deus ar c''houmanantoù'
@@ -1038,7 +1038,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: 'Lakait ID ur chadenn evit mirout ouzh an holl videoioù, rolloù-videoioù hag ar chadenn hec''h-unan da vezañ gwelet en enklaskoù, e roll ar videoioù brudetañ, ar re vuiañ karet, hag ar re aliet. Ret eo d''an ID bezañ klot ha ret eo doujañ d''ar pennlizherennoù.'
     Hide Subscriptions Live: 'Erlec''hiet eo an arventenn-mañ gant an arventenn "{appWideSetting}" evit an arload a-bezh, e lodenn "{subsection}" e-barzh "{settingsSection}"'
-    Hide Videos and Playlists Containing Text: 'Ebarzhit ur ger, lodenn ur ger pe ur frazenn (o toujañ d''ar pennlizherennoù) evit kuzhat an holl videoioù & rolloù-videoioù gant ar ger pe ar frazenn-mañ en titl orin war FreeTube, nemet er roll-istor, e-barzh ho rolloù-videoioù hag ar videoioù e-barzh ar rolloù-videoioù.'
+    Hide Videos, Playlists and Channels Containing Text: 'Ebarzhit ur ger, lodenn ur ger pe ur frazenn (o toujañ d''ar pennlizherennoù) evit kuzhat an holl videoioù & rolloù-videoioù gant ar ger pe ar frazenn-mañ en titl orin war FreeTube, nemet er roll-istor, e-barzh ho rolloù-videoioù hag ar videoioù e-barzh ar rolloù-videoioù.'
     Hide Videos on Watch: Kuzhat ar videoioù bet lennet diouzh ar Videoioù, Shortoù hag ivinell ar skignañ war-eeun war bajenn ar c'houmanantoù ha pajenn ar chadennoù. Ne vo ket kemmet pajenn degemer ar chadennoù
   Subscription Settings:
     Fetch Feeds from RSS: 'Pa vez gweredekaet e vez implijet RSS gant FreeTube e-lec''h e zoare dre ziouer evit adtapout ho kwazh koumanantiñ. Buanoc''h ez an traoù gant an RSS ha ne vo ket stanket ar chomlec''h IP, met ne ginnig ket titouroù ''zo evel padelezh ar video, statud ar video war-eeun, pe c''hoazh an evezhiadennoù'
