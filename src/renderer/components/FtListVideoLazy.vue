@@ -130,15 +130,21 @@ const channelsHidden = computed(() => {
 
 const forbiddenTitles = computed(() => {
   if (!props.hideForbiddenTitles) { return [] }
-  return JSON.parse(store.getters.getForbiddenTitles)
+  return JSON.parse(store.getters.getForbiddenTitles.toLowerCase())
+})
+
+const hideChannelsBasedOnText = computed(() => {
+  return store.getters.getHideChannelsBasedOnText
 })
 
 const shouldBeVisible = computed(() => {
   const lowerCaseTitle = props.data.title?.toLowerCase()
+  const lowerCaseAuthor = props.data.author?.toLowerCase()
 
   return !(channelsHidden.value.some(ch => ch.name === props.data.authorId) ||
     channelsHidden.value.some(ch => ch.name === props.data.author) ||
-    (lowerCaseTitle && forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text.toLowerCase()))))
+    (lowerCaseTitle && forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text))) ||
+    (hideChannelsBasedOnText.value && lowerCaseAuthor && forbiddenTitles.value.some((text) => lowerCaseAuthor.includes(text))))
 })
 
 /**

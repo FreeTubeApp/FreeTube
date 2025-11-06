@@ -459,10 +459,10 @@ Settings:
     Hide Channel Home: Ocultar la pestaña de 'Inicio' del canal
     Hide Channels API Error: Error al obtener el usuario con el ID proporcionado. Por favor, verificá nuevamente si el ID es correcto.
     Hide Channels Disabled Message: Algunos canales fueron bloqueados usando ID y no se procesaron. La función está bloqueada mientras se actualizan esos IDs.
-    Hide Videos and Playlists Containing Text: Ocultar videos y listas de reproducción que contengan texto
+    Hide Videos, Playlists and Channels Containing Text: Ocultar videos y listas de reproducción que contengan texto
     Hide Channels Already Exists: El ID del canal ya existe.
     Hide Channel Courses: Ocultar la pestaña de 'Cursos' del canal
-    Hide Videos and Playlists Containing Text Placeholder: Palabra, fragmento de palabra o frase
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Palabra, fragmento de palabra o frase
     Show Added Items: Mostrar elementos agregados
   The app needs to restart for changes to take effect. Restart and apply change?: Esta aplicación necesita reiniciarse para que los cambios entren en efecto. ¿Reiniciar y aplicar el cambio?
   Proxy Settings:

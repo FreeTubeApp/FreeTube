@@ -491,10 +491,10 @@ Settings:
     Hide Channel Releases: مخفی کردن "انتشارات" کانال
     Hide Sharing Actions: مخفی کردن فعالیت های مشترک
     Hide Videos on Watch: 'مخفی کردن ویدیو ها هنگام تماشا'
-    Hide Videos and Playlists Containing Text Placeholder: کلمه، بخش کلمه یا عبارت
+    Hide Videos, Playlists and Channels Containing Text Placeholder: کلمه، بخش کلمه یا عبارت
     Hide Channels Invalid: شناسه کانال ارائه شده نامعتبر بود
     Hide Channels Already Exists: شناسه کانال از قبل وجود دارد
-    Hide Videos and Playlists Containing Text: ویدیوها و لیست های پخش حاوی متن را مخفی کنید
+    Hide Videos, Playlists and Channels Containing Text: ویدیوها و لیست های پخش حاوی متن را مخفی کنید
     Hide Channel Home: مخفی کردن "صفحه اصلی" کانال
     Hide Channels API Error: خطای بازیابی کاربر با شناسه ارائه شده. لطفا دوباره بررسی کنید که شناسه درست باشد.
     Hide Channels Disabled Message: برخی از کانال‌ها با استفاده از شناسه مسدود شدند و پردازش نشدند. در حالی که آن شناسه ها در حال به روز رسانی هستند، ویژگی مسدود می شود
@@ -801,7 +801,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Subscriptions Live: این تنظیم توسط تنظیم "{appWideSetting}" در سطح برنامه، در بخش "{subsection}" از "{settingsSection}" لغو می‌شود
     Hide Channels: یک شناسه کانال وارد کنید تا همه ویدیوها، لیست‌های پخش و خود کانال در جستجو، پرطرفدار، محبوب‌ترین و توصیه‌شده‌ها ظاهر نشود. شناسه کانال وارد شده باید کاملاً مطابقت داشته باشد و شامل حروف کوچک و بزرگ باشد.
-    Hide Videos and Playlists Containing Text: یک کلمه، قطعه کلمه یا عبارت (بدون حساسیت به حروف کوچک) وارد کنید تا همه ویدیوها و فهرست‌های پخشی که عنوان اصلی آنها حاوی آن در تمام FreeTube است، پنهان شود، به استثنای تاریخچه، فهرست‌های پخش شما، و ویدیوهای داخل فهرست‌های پخش.
+    Hide Videos, Playlists and Channels Containing Text: یک کلمه، قطعه کلمه یا عبارت (بدون حساسیت به حروف کوچک) وارد کنید تا همه ویدیوها و فهرست‌های پخشی که عنوان اصلی آنها حاوی آن در تمام FreeTube است، پنهان شود، به استثنای تاریخچه، فهرست‌های پخش شما، و ویدیوهای داخل فهرست‌های پخش.
     Hide Videos on Watch: ویدیوهای تماشا شده را از تب‌های ویدیوها، ویدیوهای کوتاه و ویدیوهای زنده در صفحات اشتراک و کانال پنهان می‌کند. این کار روی تب خانه در صفحات کانال تأثیری ندارد
   Experimental Settings:
     Replace HTTP Cache: حافظه پنهان HTTP مبتنی بر دیسک Electron را غیرفعال می کند و یک کش تصویر سفارشی در حافظه را فعال می کند. منجر به افزایش مصرف رم خواهد شد.

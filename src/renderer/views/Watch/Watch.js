@@ -270,7 +270,7 @@ export default defineComponent({
       })
     },
     forbiddenTitles() {
-      return JSON.parse(this.$store.getters.getForbiddenTitles)
+      return JSON.parse(this.$store.getters.getForbiddenTitles.toLowerCase())
     },
     isUserPlaylistRequested: function () {
       return this.$route.query.playlistType === 'user'
@@ -1886,7 +1886,8 @@ export default defineComponent({
     isHiddenVideo: function (forbiddenTitles, channelsHidden, video) {
       return channelsHidden.some(ch => ch.name === video.authorId) ||
         channelsHidden.some(ch => ch.name === video.author) ||
-        forbiddenTitles.some((text) => video.title?.toLowerCase().includes(text.toLowerCase()))
+        forbiddenTitles.some((text) => video.title?.toLowerCase().includes(text)) ||
+        forbiddenTitles.some((text) => video.author?.toLowerCase().includes(text))
     },
 
     toggleAutoplay: function() {

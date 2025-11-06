@@ -545,8 +545,8 @@ Settings:
     Hide Upcoming Premieres: Ascundeți premierele viitoare
     Hide Profile Pictures in Comments: Ascundeți imaginile de profil în comentarii
     Hide Channels Already Exists: ID-ul Canalului există deja
-    Hide Videos and Playlists Containing Text Placeholder: Cuvânt, fragment de cuvânt sau frază
-    Hide Videos and Playlists Containing Text: Ascundeți videoclipurile și listele de redare care conțin text
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Cuvânt, fragment de cuvânt sau frază
+    Hide Videos, Playlists and Channels Containing Text: Ascundeți videoclipurile și listele de redare care conțin text
     Hide Channel Home: Ascundeți fila "Acasă" a canalului
     Hide Channels Disabled Message: Unele canale au fost blocate folosind ID și nu au fost procesate. Funcția este blocată în timp ce acele ID-uri se actualizează
     Hide Channels Invalid: ID-ul canalului furnizat nu este valid
@@ -987,7 +987,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Introduceți un ID de canal pentru a ascunde toate videoclipurile, listele de redare și canalul însuși de la apariția în căutare, tendințe, cele mai populare și recomandate. ID-ul canalului introdus trebuie să fie o potrivire completă și este sensibil la majuscule și minuscule.
     Hide Subscriptions Live: Această setare este înlocuită de setarea "{appWideSetting}” la nivel de aplicație, în secțiunea „{subsection}” din „{settingsSection}”
-    Hide Videos and Playlists Containing Text: Introduceți un cuvânt, un fragment de cuvânt sau o frază (fără a ține cont de majuscule) pentru a ascunde toate videoclipurile și listele de redare ale căror titluri originale conțin acest cuvânt în întregul FreeTube, excluzând doar Istoric, Listele dvs. de redare și videoclipurile din listele de redare.
+    Hide Videos, Playlists and Channels Containing Text: Introduceți un cuvânt, un fragment de cuvânt sau o frază (fără a ține cont de majuscule) pentru a ascunde toate videoclipurile și listele de redare ale căror titluri originale conțin acest cuvânt în întregul FreeTube, excluzând doar Istoric, Listele dvs. de redare și videoclipurile din listele de redare.
     Hide Videos on Watch: Ascunde videoclipurile vizionate din secțiunile Shorts, Live și Videoclipuri de pe paginile Abonamente și Canal. Aceasta nu afectează fila Acasă de pe paginile de canal
   Experimental Settings:
     Replace HTTP Cache: Dezactivează memoria cache HTTP bazată pe disc Electron și activează un cache de imagini personalizat în memorie. Va duce la o utilizare crescută a memoriei RAM.

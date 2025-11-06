@@ -536,8 +536,8 @@ Settings:
     Hide Channels Disabled Message: Alcuni canali sono stati bloccati usando l'ID e non sono stati elaborati. La funzionalità è bloccata durante l'aggiornamento di tali ID
     Hide Channels Already Exists: L'ID canale esiste già
     Hide Channels API Error: Errore durante il recupero dell'utente con l'ID fornito. Controlla di nuovo se l'ID è corretto.
-    Hide Videos and Playlists Containing Text: Nascondi i video e le playlist contenenti il testo
-    Hide Videos and Playlists Containing Text Placeholder: Frammento, parola o frase
+    Hide Videos, Playlists and Channels Containing Text: Nascondi i video e le playlist contenenti il testo
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Parola, frammento di parola o frase
     Hide Channel Home: Nascondi la scheda "Pagina iniziale" del canale
     Show Added Items: Mostra elementi aggiunti
     Hide Channel Courses: Nascondi la scheda "Corsi" del canale
@@ -982,7 +982,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Inserisci l'ID di un canale per impedire che tutti i video, le playlist e il canale stesso vengano visualizzati nelle ricerche, tendenze, più popolari e consigliati. Il nome del canale inserito deve avere una corrispondenza completa e fa distinzione tra maiuscole e minuscole.
     Hide Subscriptions Live: Questa impostazione è sovrascritta dall'impostazione "{appWideSetting}" a livello di app, nella sezione "{subsection}" di "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Inserisci un frammento, una parola o una frase (senza distinzione tra maiuscole e minuscole) per nascondere tutti i video e le playlist i cui titoli originali lo contengono, in tutta l'applicazione FreeTube, escludendo solo la Cronologia, le Tue playlist e i video all'interno delle playlist.
+    Hide Videos, Playlists and Channels Containing Text: Inserisci una parola, un frammento di parola o una frase (senza distinzione tra maiuscole e minuscole) per nascondere tutti i video e le playlist i cui titoli originali la contengono in tutto FreeTube, escludendo solo Cronologia, Le tue playlist e i video all'interno delle playlist.
     Hide Videos on Watch: Nasconde i video guardati dalle schede Video, Video brevi e Dal vivo nelle pagine Iscrizioni e Canali. Questo non influisce sulla scheda Pagina iniziale nelle pagine Canali
   SponsorBlock Settings:
     UseDeArrowTitles: Sostituisci i titoli dei video coi titoli inviati dagli utenti di DeArrow.

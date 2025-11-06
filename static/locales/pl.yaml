@@ -533,8 +533,8 @@ Settings:
     Hide Channels Disabled Message: Niektóre z kanałów nie zostały przetworzone, ponieważ zostały zablokowane po swoim ID. Funkcja jest zablokowana, aż do momentu, w którym zostaną one zaktualizowane
     Hide Channels Already Exists: To ID kanału już jest
     Hide Channels API Error: Nie udało się wyszukać użytkownika po podanym ID. Proszę sprawdzić, czy wpisane ID jest poprawne.
-    Hide Videos and Playlists Containing Text: Schowaj filmy i playlisty zawierające poniższy tekst
-    Hide Videos and Playlists Containing Text Placeholder: Słowo, fragment słowa, lub wyrażenie
+    Hide Videos, Playlists and Channels Containing Text: Schowaj filmy i playlisty zawierające poniższy tekst
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Słowo, fragment słowa, lub wyrażenie
     Hide Channel Home: Schowaj kartę kanału „Główna”
     Show Added Items: Pokaż dodane rzeczy
     Hide Channel Courses: Ukryj kartę „Kursy” kanału
@@ -980,7 +980,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Wprowadź ID kanału, aby schować wszystkie filmy i playlisty tego kanału, oraz sam kanał z wyszukiwań, z zakładek „Na czasie” i „Popularne” oraz z polecanych. ID kanału musi być dokładnym dopasowaniem, z uwzględnieniem wielkości liter.
     Hide Subscriptions Live: Ta opcja została nadpisana opcją ogólną „{appWideSetting}” z podgrupy „{subsection}” grupy „{settingsSection}”
-    Hide Videos and Playlists Containing Text: Wprowadź słowo, fragment słowa, lub wyrażenie (bez znaczenia jest wielkość liter), by schować wszystkie filmy i playlisty zawierające w tytule podane sformułowanie w całym programie FreeTube, poza Historią, Twoimi playlistami i filmami w tych playlistach.
+    Hide Videos, Playlists and Channels Containing Text: Wprowadź słowo, fragment słowa, lub wyrażenie (bez znaczenia jest wielkość liter), by schować wszystkie filmy i playlisty zawierające w tytule podane sformułowanie w całym programie FreeTube, poza Historią, Twoimi playlistami i filmami w tych playlistach.
     Hide Videos on Watch: Ukryj obejrzane filmy z kart „Filmy”, „Filmy Short” oraz z „Na żywo” na stronie subskrypcji oraz na stronie kanału. Opcja ta nie wpływa na kartę „Główna” ze strony kanału
   SponsorBlock Settings:
     UseDeArrowTitles: Zastąp tytuły filmów tytułami zasugerowanymi przez użytkowników DeArrow.

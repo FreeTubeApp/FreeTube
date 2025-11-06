@@ -550,9 +550,9 @@ Settings:
     Hide Subscriptions Live: Skjul abonnements direktesendinger
     Hide Profile Pictures in Comments: Skjul profilbilder i kommentarfeltet
     Hide Channel Home: Skjule «Start»-fanen i kanaler
-    Hide Videos and Playlists Containing Text: Skjul videoer og spillelister som inneholder tekst
+    Hide Videos, Playlists and Channels Containing Text: Skjul videoer og spillelister som inneholder tekst
     Hide Channels Already Exists: Kanal-ID-en finnes allerede
-    Hide Videos and Playlists Containing Text Placeholder: Orddel, ord eller frase
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Ord, del av ord eller setning
     Hide Channels Invalid: Kanal-ID-en var ugyldig
     Hide Channels Disabled Message: Noen kanaler ble blokkert med ID og ble ikke prosessert. Funksjonen er blokkert mens disse ID-ene blir oppdatert
     Show Added Items: Vis videoer lagt til
@@ -978,7 +978,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Skiv inn en kanal-ID for å skjule alle videoer, spillelister og selve kanalen fra å vises i søk eller andre steder. Kanal-ID-en må være et nøyaktig treff, og skiller mellom små og store bokstaver.
     Hide Subscriptions Live: Innstillingen overstyres av «{appWideSetting}» for hele programmet, i «{subsection}»-delen av «{settingsSection}»
-    Hide Videos and Playlists Containing Text: Tast inn et ord, en del av et ord eller en frase (det skilles ikke mellom store og små bokstaver) for å gjemme alle videoer og spillelister med det i seg, med unntak av i historikken din, og videoer inne i spillelister.
+    Hide Videos, Playlists and Channels Containing Text: Tast inn et ord, en del av et ord eller en frase (det skilles ikke mellom store og små bokstaver) for å gjemme alle videoer og spillelister med det i seg, med unntak av i historikken din, og videoer inne i spillelister.
     Hide Videos on Watch: Skjul sette videoer fra Videoer, Shorts og Live-fanene på abonnementsider og kanalsider. Dette påvirker ikke Hjemme-fanen på kanalsider.
   SponsorBlock Settings:
     UseDeArrowTitles: Erstatt videonavn med brukerinnsendte navn fra DeArrow.
