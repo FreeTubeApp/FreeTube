@@ -992,7 +992,7 @@ Comments:
   Hide Comments: 'Kuzhat an evezhiadennoù'
   Top comments: 'Evezhiadennoù gwellañ'
   Newest first: 'Nevesañ da gentañ'
-  View {replyCount} replies: 'Diskouez {replyCount} respont'
+  View {replyCount} replies: 'Diskouez 1 respont | Diskouez {replyCount} respont'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
   Show More Replies: 'Diskouez respontoù all'
   There are no comments available for this video: 'N''eus evezhiadenn ebet evit ar video-mañ'
@@ -1003,6 +1003,9 @@ Comments:
   Subscribed: 'Koumanantet'
   Hearted: 'Karet'
 
+  Hide {replyCount} replies: Kuzhat 1 respont | Kuzhat {replyCount} respont
+  View 1 reply from {channelName}: Diskouez 1 respont gant {channelName}
+  View {replyCount} replies from {channelName} and others: Diskouez {replyCount} respont gant {channelName} ha reoù all
 Up Next: 'Da-heul'
 
 #Tooltips
