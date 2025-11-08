@@ -52,7 +52,9 @@
         :tag-name-placeholder="$t('Settings.External Player Settings.Custom External Player Arguments')"
         :tag-list="externalPlayerCustomArgs"
         :tooltip="externalPlayerCustomArgsTooltip"
+        :show-tags="showAddedExternalPlayerCustomArgs"
         @change="handleExternalPlayerCustomArgs"
+        @toggle-show-tags="handleAddedExternalPayerCustomArgs"
       />
     </FtFlexBox>
   </FtSettingsSection>
@@ -149,5 +151,12 @@ function updateExternalPlayerExecutable(value) {
  */
 function handleExternalPlayerCustomArgs(args) {
   store.dispatch('updateExternalPlayerCustomArgs', JSON.stringify(args))
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const showAddedExternalPlayerCustomArgs = computed(() => store.getters.getShowAddedExternalPlayerCustomArgs)
+
+function handleAddedExternalPayerCustomArgs() {
+  store.dispatch('updateShowAddedExternalPlayerCustomArgs', !showAddedExternalPlayerCustomArgs.value)
 }
 </script>
