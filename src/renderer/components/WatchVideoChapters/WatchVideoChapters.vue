@@ -177,7 +177,7 @@ function chaptersToggled(event) {
 
 function scrollToCurrentChapter() {
   const container = chaptersWrapper.value
-  const currentItem = container ? Array.from(chaptersWrapper.value.children)[currentIndex.value] : null
+  const currentItem = container ? Array.from(container.children)[currentIndex.value] : null
 
   if (currentItem != null) {
     container.scrollTop = currentItem.offsetTop - container.offsetTop
