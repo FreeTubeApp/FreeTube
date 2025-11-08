@@ -32,7 +32,6 @@
         <div
           v-for="(chapter, index) in chapters"
           :key="index"
-          :ref="index === currentIndex ? 'currentChaptersItem' : null"
           class="chapter"
           role="button"
           tabindex="0"
@@ -89,9 +88,6 @@ const emit = defineEmits(['timestamp-event'])
 
 /** @type {import('vue').Ref<HTMLDivElement | null>} */
 const chaptersWrapper = ref(null)
-
-/** @type {import('vue').Ref<HTMLDivElement[]>} */
-const currentChaptersItem = ref([])
 
 let chaptersVisible = false
 const currentIndex = ref(props.currentChapterIndex)
@@ -181,9 +177,9 @@ function chaptersToggled(event) {
 
 function scrollToCurrentChapter() {
   const container = chaptersWrapper.value
-  const currentItem = currentChaptersItem.value[0]
+  const currentItem = container ? Array.from(chaptersWrapper.value.children)[currentIndex.value] : null
 
-  if (container != null && currentItem != null) {
+  if (currentItem != null) {
     container.scrollTop = currentItem.offsetTop - container.offsetTop
   }
 }
