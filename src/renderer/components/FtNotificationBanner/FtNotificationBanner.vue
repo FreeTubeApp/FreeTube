@@ -20,6 +20,7 @@
       :aria-label="$t('Close Banner')"
       :title="$t('Close Banner')"
       @click="handleClose"
+      @keydown.enter.space.stop
     >
       <FontAwesomeIcon
         class="closeIcon"

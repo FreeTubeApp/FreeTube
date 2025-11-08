@@ -27,7 +27,6 @@
         open-on-right-or-long-click
         :title="backwardText"
         @click="historyBack"
-        @keydown.enter.prevent="historyBack"
       />
       <FtIconButton
         class="navIconButton"
@@ -42,7 +41,6 @@
         open-on-right-or-long-click
         :title="forwardText"
         @click="historyForward"
-        @keydown.enter.prevent="historyForward"
       />
       <button
         v-if="!hideSearchBar"
