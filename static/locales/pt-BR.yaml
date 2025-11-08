@@ -877,9 +877,12 @@ Comments:
   Pinned by: Fixado por
   Member: Membro
   Hearted: Recebeu um coração
-  View {replyCount} replies: Exibir {replyCount} respostas
+  View {replyCount} replies: Mostrar 1 resposta | Mostrar {replyCount} respostas
   Subscribed: Inscrito
   There are no comments available for this post: Não há comentários disponíveis para esta postagem
+  Hide {replyCount} replies: Ocultar 1 resposta | Ocultar {replyCount} respostas
+  View 1 reply from {channelName}: Mostrar 1 resposta de {channelName}
+  View {replyCount} replies from {channelName} and others: Mostrar {replyCount} respostas de {channelName} e outros
 Up Next: 'Próximo'
 
 # Toast Messages
