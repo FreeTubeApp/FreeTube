@@ -920,16 +920,10 @@ Comments:
   Top comments: 'Nejlepší komentáře'
   Newest first: 'Nejnovější první'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Zobrazit'
-  Hide: 'Skrýt'
-  Replies: 'Odpovědí'
-  Reply: 'Odpověď'
   There are no comments available for this video: 'K tomuto videu nejsou dostupné žádné komentáře'
   Load More Comments: 'Načíst další komentáře'
   Show More Replies: Načíst více výsledků
   Pinned by: připnuto uživatelem
-  From {channelName}: od {channelName}
-  And others: a dalších
   Member: Člen
   View {replyCount} replies: Zobrazit {replyCount} odpovědí
   Hearted: Se srdíčkem

@@ -571,10 +571,6 @@ Comments:
   Getting comment replies, please wait: 'Získavanie odpovedí na komentáre, čakajte prosím'
   Hide Comments: 'Skryť komentáre'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Pozrieť'
-  Hide: 'Skryť'
-  Replies: 'Odpovede'
-  Reply: 'Odpovedať'
   There are no comments available for this video: 'K tomuto videu nie sú k dispozícii žiadne komentáre'
   Load More Comments: 'Načítať ďalšie komentáre'
   There are no more comments for this video: K tomuto videu nie sú žiadne ďalšie komentáre
@@ -582,8 +578,6 @@ Comments:
   Top comments: Najlepšie komentáre
   Pinned by: Pripnuté používateľom
   Show More Replies: Zobraziť viac odpovedí
-  From {channelName}: z {channelName}
-  And others: a ďalšie
 Up Next: 'Nasledujúci'
 
 # Toast Messages

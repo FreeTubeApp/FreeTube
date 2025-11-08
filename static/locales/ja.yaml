@@ -867,19 +867,13 @@ Comments:
   Getting comment replies, please wait: 'コメント返信を取得中。お待ちください'
   Hide Comments: 'コメント非表示'
   # Context: View 10 Replies, View 1 Reply
-  View: '表示'
-  Hide: '非表示'
-  Replies: '返信'
-  Reply: '返信'
   There are no comments available for this video: 'この動画にはコメントがありません'
   Load More Comments: 'もっと見る'
   There are no more comments for this video: この動画へのコメントはまだありません
   Top comments: 評価順
   Newest first: 新しい順
   Show More Replies: 返信をもっと見る
-  And others: その他
   Pinned by: 固定
-  From {channelName}: '{channelName} から'
   Member: メンバー
   Hearted: ハート
   View {replyCount} replies: '{replyCount} 件の返信を表示'

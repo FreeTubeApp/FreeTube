@@ -917,17 +917,11 @@ Comments:
   There are no more comments for this video: 'Bu video için daha fazla yorum yok'
   Hide Comments: 'Yorumları Gizle'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Görüntüle'
-  Hide: 'Gizle'
-  Replies: 'Yanıtlar'
-  Reply: 'Yanıt'
   There are no comments available for this video: 'Bu videoya hiç yorum yapılmamış'
   Load More Comments: 'Daha Fazla Yorum Yükle'
   Newest first: En yeni ilk önce
   Top comments: En iyi yorumlar
   Show More Replies: Daha Fazla Yanıt Göster
-  From {channelName}: "{channelName}'den"
-  And others: ve diğerleri
   Pinned by: Sabitleyen
   Member: Üye
   View {replyCount} replies: '{replyCount} yanıtı görüntüle'
