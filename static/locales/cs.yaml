@@ -925,10 +925,13 @@ Comments:
   Show More Replies: Načíst více výsledků
   Pinned by: připnuto uživatelem
   Member: Člen
-  View {replyCount} replies: Zobrazit {replyCount} odpovědí
+  View {replyCount} replies: Zobrazit 1 odpověď | Zobrazit {replyCount} odpovědí
   Hearted: Se srdíčkem
   Subscribed: Odebíráno
   There are no comments available for this post: U tohoto příspěvku nejsou dostupné žádné komentáře
+  Hide {replyCount} replies: Skrýt 1 odpověď | Skrýt {replyCount} odpovědí
+  View 1 reply from {channelName}: Zobrazit 1 odpověď od {channelName}
+  View {replyCount} replies from {channelName} and others: Zobrazit {replyCount} odpovědí od {channelName} a dalších
 Up Next: 'Další'
 
 #Tooltips
