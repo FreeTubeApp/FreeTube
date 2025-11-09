@@ -880,6 +880,9 @@ Comments:
   View {replyCount} replies: Voir les {replyCount} réponses
   Subscribed: Abonné(e)
   There are no comments available for this post: Il n'y a pas de commentaire associé à ce message
+  Hide {replyCount} replies: Masquer une réponse | Masquer {replyCount} réponses
+  View 1 reply from {channelName}: Afficher une réponse depuis {channelName}
+  View {replyCount} replies from {channelName} and others: Afficher {replyCount} réponses depuis {channelName} et autres
 Up Next: 'À suivre'
 
 # Toast Messages
