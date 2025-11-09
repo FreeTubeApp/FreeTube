@@ -924,10 +924,13 @@ Comments:
   Show More Replies: Показване на още отговори
   Pinned by: Прихванато от
   Member: Член
-  View {replyCount} replies: Преглед на {replyCount} отговора
+  View {replyCount} replies: Преглед на 1 отговор | Преглед на {replyCount} отговора
   Hearted: Сърдечно
   Subscribed: Абониран
   There are no comments available for this post: За тази публикация няма налични коментари
+  Hide {replyCount} replies: Скриване на 1 отговор | Скриване на {replyCount} отговора
+  View 1 reply from {channelName}: Преглед на 1 отговор от {channelName}
+  View {replyCount} replies from {channelName} and others: Преглед на {replyCount} отговора от {channelName} и други
 Up Next: 'Следващ'
 
 # Toast Messages
