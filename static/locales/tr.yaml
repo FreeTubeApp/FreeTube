@@ -924,10 +924,13 @@ Comments:
   Show More Replies: Daha Fazla Yanıt Göster
   Pinned by: Sabitleyen
   Member: Üye
-  View {replyCount} replies: '{replyCount} yanıtı görüntüle'
+  View {replyCount} replies: '1 yanıtı görüntüle | {replyCount} yanıtı görüntüle'
   Hearted: Kalplendi
   Subscribed: Abone olundu
   There are no comments available for this post: Bu gönderi için hiç yorum yok
+  Hide {replyCount} replies: 1 yanıtı gizle | {replyCount} yanıtı gizle
+  View 1 reply from {channelName}: '{channelName} kanalından 1 yanıtı görüntüle'
+  View {replyCount} replies from {channelName} and others: '{channelName} kanalından ve diğerlerinden {replyCount} yanıtı görüntüle'
 Up Next: 'Sonraki'
 
 # Toast Messages
