@@ -880,9 +880,12 @@ Comments:
   Pinned by: Messo in primo piano da
   Member: Membro
   Hearted: Di cuore
-  View {replyCount} replies: Visualizza {replyCount} risposte
+  View {replyCount} replies: Visualizza 1 risposta | Visualizza {replyCount} risposte
   Subscribed: Iscritto
   There are no comments available for this post: Non ci sono commenti disponibili per questo post
+  Hide {replyCount} replies: Nascondi 1 risposta | Nascondi {replyCount} risposte
+  View 1 reply from {channelName}: Visualizza 1 risposta da {channelName}
+  View {replyCount} replies from {channelName} and others: Visualizza {replyCount} risposte da {channelName} e altri
 Up Next: 'Prossimi video'
 
 # Toast Messages
