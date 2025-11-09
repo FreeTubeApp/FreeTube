@@ -59,7 +59,7 @@ const translatedProfileName = computed(() => {
 
 const profileInitial = computed(() => {
   return props.profileName
-    ? getFirstCharacter(translatedProfileName.value, locale.value).toUpperCase()
+    ? getFirstCharacter(translatedProfileName.value, locale.value)
     : ''
 })
 
