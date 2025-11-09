@@ -924,10 +924,13 @@ Comments:
   Show More Replies: További válaszok megjelenítése
   Pinned by: 'Kitűzve'
   Member: Tag
-  View {replyCount} replies: '{replyCount} válasz megtekintése'
+  View {replyCount} replies: '1 válasz megtekintése | {replyCount} válasz megtekintése'
   Hearted: Kedvenc
   Subscribed: Feliratkozott
   There are no comments available for this post: Nincsenek hozzászólások ehhez a bejegyzéshez
+  Hide {replyCount} replies: 1 válasz elrejtése | {replyCount} válasz elrejtése
+  View 1 reply from {channelName}: 1 válasz megtekintése a(z) {channelName} csatornában
+  View {replyCount} replies from {channelName} and others: '{replyCount} válasz megtekintése a(z) {channelName} és egyéb csatornákban'
 Up Next: 'Következő'
 
 # Toast Messages
