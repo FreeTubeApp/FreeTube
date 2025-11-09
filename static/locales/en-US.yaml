@@ -1006,15 +1006,11 @@ Comments:
   Hide comments: Hide comments
   Top comments: Top comments
   Newest first: Newest first
-  View {replyCount} replies: View {replyCount} replies
-  # Context: view 10 replies, view 1 reply, view 1 reply from owner, view 2 replies from owner and others
-  View: View
-  Hide: Hide
-  Replies: Replies
-  Show more replies: Show more replies
-  Reply: Reply
-  From {channelName}: From {channelName}
-  And others: and others
+  View {replyCount} replies: View 1 reply | View {replyCount} replies
+  Hide {replyCount} replies: Hide 1 reply | Hide {replyCount} replies
+  View 1 reply from {channelName}: View 1 reply from {channelName}
+  View {replyCount} replies from {channelName} and others: View {replyCount} replies from {channelName} and others
+  Show More Replies: Show more replies
   There are no comments available for this video: There are no comments available
     for this video
   There are no comments available for this post: There are no comments available for this post

@@ -943,13 +943,7 @@ Comments:
   Newest first: 'Diweddaraf yn gyntaf'
   View {replyCount} replies: 'Gweld {replyCount} ateb'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: 'Golwg'
-  Hide: 'Cuddio'
-  Replies: 'Atebion'
   Show More Replies: 'Dangos Rhagor o Atebion'
-  Reply: 'Ateb'
-  From {channelName}: 'gan {channelName}'
-  And others: 'ac eraill'
   There are no comments available for this video: 'Nid oes unrhyw sylwadau ar gael ar gyfer y fideo hwn'
   Load More Comments: 'Llwytho Rhagor o Sylwadau'
   Pinned by: 'Piniwyd gan'

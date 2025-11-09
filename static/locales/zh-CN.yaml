@@ -868,10 +868,6 @@ Comments:
   Getting comment replies, please wait: '获取评论中，请稍候'
   Hide Comments: '隐藏评论'
   # Context: View 10 Replies, View 1 Reply
-  View: '观看'
-  Hide: '隐藏'
-  Replies: '回复'
-  Reply: '回复'
   There are no comments available for this video: '这个视频没有评论'
   Load More Comments: '加载更多评论'
   There are no more comments for this video: 此视频无更多评论
@@ -879,13 +875,14 @@ Comments:
   Top comments: 最热评论
   Show More Replies: 显示更多回复
   Pinned by: 置顶人
-  From {channelName}: 来自 {channelName}
-  And others: 及其他
   Member: 成员
   Hearted: 喜欢的
-  View {replyCount} replies: 查看 {replyCount} 条回复
+  View {replyCount} replies: 查看 1 条回复|查看 {replyCount} 条回复
   Subscribed: 已订阅
   There are no comments available for this post: 此帖子没有评论
+  Hide {replyCount} replies: 隐藏 1 条回复| 隐藏 {replyCount} 条回复
+  View 1 reply from {channelName}: 查看 1 条来自 {channelName}的回复
+  View {replyCount} replies from {channelName} and others: 查看 {replyCount} 条来自 {channelName} 和其他频道的回复
 Up Next: 'Up Next'
 
 # Toast Messages

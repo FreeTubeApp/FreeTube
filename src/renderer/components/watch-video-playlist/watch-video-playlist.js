@@ -218,12 +218,12 @@ export default defineComponent({
       this.prevVideoBeforeDeletion = null
     },
     watchViewLoading: function (newVal, oldVal) {
-      // This component is loaded/rendered before watch view loaded
+      // If watch view is loaded after this component loaded
       if (oldVal && !newVal) {
         // Scroll after watch view loaded, otherwise doesn't work
         // Mainly for Local API
-        // nextTick(() => this.scrollToCurrentVideo())
-        this.scrollToCurrentVideo()
+        // `nextTick` is required (tested via reloading)
+        nextTick(() => this.scrollToCurrentVideo())
       }
     },
     isLoading: function (newVal, oldVal) {
