@@ -878,10 +878,13 @@ Comments:
   Show More Replies: Weitere Antworten anzeigen
   Pinned by: Angeheftet von
   Member: Mitglied
-  View {replyCount} replies: '{replyCount} Antworten ansehen'
+  View {replyCount} replies: '1 Antwort ansehen | {replyCount} Antworten ansehen'
   Hearted: Gefällt mir
   Subscribed: Abonniert
   There are no comments available for this post: Keine Kommentare für diesen Beitrag vorhanden
+  Hide {replyCount} replies: 1 Antwort ausblenden | {replyCount} Antworten ausblenden
+  View 1 reply from {channelName}: 1 Antwort von {channelName} ansehen
+  View {replyCount} replies from {channelName} and others: '{replyCount} Antworten von {channelName} und anderen ansehen'
 Up Next: Nächster Titel
 
 # Toast Messages
