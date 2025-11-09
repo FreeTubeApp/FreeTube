@@ -879,10 +879,13 @@ Comments:
   Show More Replies: Vis flere svar
   Pinned by: Festet av
   Member: Medlem
-  View {replyCount} replies: Vis {replyCount} svar
+  View {replyCount} replies: Vis 1 svar | Vis {replyCount} svar
   Hearted: Hjertemerket
   Subscribed: Abonnert
   There are no comments available for this post: Det er ingen kommentarer tilgjengelig på denne posten
+  Hide {replyCount} replies: Skjul 1 svar | Skjul {replyCount} svar
+  View 1 reply from {channelName}: Vis 1 svar fra {channelName}
+  View {replyCount} replies from {channelName} and others: Vis {replyCount} svar fra {channelName} og andre
 Up Next: 'Neste'
 
 # Toast Messages
