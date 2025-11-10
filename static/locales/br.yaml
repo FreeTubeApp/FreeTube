@@ -346,6 +346,7 @@ Settings:
       Everforest Light Hard: Everforest Kalet Sklaer
       Everforest Light Medium: Everforest Sklaer Krenn
       Everforest Light Low: Everforest Sklaer Bihan
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Liv pennañ an tem'
       Red: 'Ruz'
@@ -431,6 +432,8 @@ Settings:
       Everforest Light Blue: Everforest Glas Sklaer
       Everforest Light Purple: Everforest Mouk Sklaer
       Catppuccin Frappe Rosewater: Catppuccin Frappe Dour Rozenn
+      Catppuccin Latte Mauve: Catppuccin Latte Mouk
+      Catppuccin Latte Red: Catppuccin Latte Ruz
     Secondary Color Theme: 'Liv eilvedel an tem'
         #* Main Color Theme
   Player Settings:
@@ -623,6 +626,12 @@ Settings:
     Unknown data key: 'Alc''hwez ar roadennoù dianav'
     How do I import my subscriptions?: 'Penaos enporzhiañ ma c''houmanantoù ?'
     Manage Subscriptions: 'Merañ ar c''houmanantoù'
+    Search history: Roll istor ar c'hlask
+    Import search history: Enporzhiañ roll istor ar c'hlask
+    Export search history: Ezporzhiañ roll istor ar c'hlask
+    Search history file: Restr roll istor ar c'hlask
+    All search history has been successfully imported: Enporzhiet eo bet roll istor ar c'hlask gant berzh
+    All search history has been successfully exported: Ezporzhiet eo bet roll istor ar c'hlask gant berzh
   Proxy Settings:
     Proxy Settings: 'Proksi'
     Enable Tor / Proxy: 'Gweredekaat Tor / Proksi'
