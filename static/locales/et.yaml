@@ -924,9 +924,12 @@ Comments:
   Pinned by: Esiplaanile tõstja
   Member: Liige
   Hearted: Südamlik
-  View {replyCount} replies: Näita {replyCount} vastust
+  View {replyCount} replies: Näita üht vastust | Näita {replyCount} vastust
   Subscribed: Tellitud
   There are no comments available for this post: Sellel postitusel pole ühtegi kommentaari
+  Hide {replyCount} replies: Peida üks vastus | Peida {replyCount} vastust
+  View 1 reply from {channelName}: Vaata üht vastust kanalist {channelName}
+  View {replyCount} replies from {channelName} and others: Vaata {replyCount} vastust kanalist {channelName} ja muudest allikatest
 Up Next: 'Järgmisena'
 
 # Toast Messages
