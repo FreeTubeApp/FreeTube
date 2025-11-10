@@ -20,7 +20,7 @@ class History {
   }
 
   static overwrite(records) {
-    return window.ftElectron.dbHistory(DBActions.HISTORY.OVERWRITE, records)
+    return window.ftElectron.dbHistory(DBActions.GENERAL.OVERWRITE, records)
   }
 
   static updateWatchProgress(videoId, watchProgress) {
@@ -137,6 +137,10 @@ class SearchHistory {
 
   static upsert(searchHistoryEntry) {
     return window.ftElectron.dbSearchHistory(DBActions.GENERAL.UPSERT, searchHistoryEntry)
+  }
+
+  static overwrite(records) {
+    return window.ftElectron.dbSearchHistory(DBActions.GENERAL.OVERWRITE, records)
   }
 
   static delete(_id) {

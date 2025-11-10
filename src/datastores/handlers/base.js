@@ -272,6 +272,12 @@ class SearchHistory {
     return db.searchHistory.updateAsync({ _id: searchHistoryEntry._id }, searchHistoryEntry, { upsert: true })
   }
 
+  static async overwrite(records) {
+    await db.searchHistory.removeAsync({}, { multi: true })
+
+    await db.searchHistory.insertAsync(records)
+  }
+
   static delete(_id) {
     return db.searchHistory.removeAsync({ _id: _id })
   }
