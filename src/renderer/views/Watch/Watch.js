@@ -859,7 +859,7 @@ export default defineComponent({
 
           this.videoTitle = result.title
           this.videoViewCount = result.viewCount
-          this.channelSubscriptionCountText = isNaN(result.subCountText) ? '' : result.subCountText
+          this.channelSubscriptionCountText = isNaN(result.subCountText.replace(/[KM]$/, '')) ? '' : result.subCountText
           if (this.hideVideoLikesAndDislikes) {
             this.videoLikeCount = null
             this.videoDislikeCount = null
