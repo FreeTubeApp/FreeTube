@@ -275,6 +275,7 @@ Settings:
       Everforest Light Medium: Jungle Médian Clair
       Everforest Dark Hard: Jungle Dur Sombre
       Everforest Dark Medium: Jungle Médian Sombre
+      Catppuccin Latte: Latté Catppuccin
     Main Color Theme:
       Main Color Theme: 'Couleur principale'
       Red: 'Rouge'
@@ -360,6 +361,8 @@ Settings:
       Everforest Light Purple: Jungle Violet Clair
       Everforest Dark Red: Jungle Rouge Sombre
       Everforest Light Yellow: Jungle Jaune Clair
+      Catppuccin Latte Mauve: Latté Catppuccin Mauve
+      Catppuccin Latte Red: Latté Catppuccin Rouge
     Secondary Color Theme: 'Couleur secondaire'
         #* Main Color Theme
     UI Scale: Échelle de l'interface utilisateur
@@ -492,6 +495,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Cette option permet d'exporter les vidéos de toutes les listes de lecture vers une seule liste de lecture nommée « Favorites ».\nComment exporter et importer des vidéos dans des sélections pour une ancienne version de FreeTube :\n 1. Exportez vos sélections avec cette option activée.\n2. Supprimez toutes vos sélections existantes à l'aide de l'option Supprimer toutes les sélections sous Paramètres de confidentialité.\n3. Lancez l'ancienne version de FreeTube et importez les listes de lecture exportées. »"
       Label: Exportation des listes de lecture pour les anciennes versions de FreeTube
+    Search history file: Fichier de l'historique des recherches
+    Search history: Historique des recherches
+    Import search history: Importer l'historique des recherches
+    Export search history: Exporter l'historique des recherches
+    All search history has been successfully imported: Tous les historiques de recherche ont été importées avec succès
+    All search history has been successfully exported: Tous les historiques de recherche ont été exportées avec succès
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Masquer les J’aime et Je n’aime pas des vidéos
     Hide Comment Likes: Masquer les J’aime dans les commentaires
