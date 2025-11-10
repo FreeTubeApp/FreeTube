@@ -67,10 +67,13 @@ export default defineComponent({
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
-
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
+    },
+
     currentLocale: function () {
       return this.$i18n.locale
     },
