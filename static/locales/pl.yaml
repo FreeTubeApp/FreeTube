@@ -275,6 +275,7 @@ Settings:
       Everforest Dark Hard: Everforest Mocno Ciemny
       Everforest Dark Low: Everforest Lekko Ciemny
       Everforest Light Medium: Everforest Jasny
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -360,6 +361,8 @@ Settings:
       Everforest Dark Aqua: Everforest Ciemny Aqua
       Everforest Light Purple: Everforest Jasny Fioletowy
       Everforest Dark Blue: Everforest Ciemny Niebieski
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Czerwony
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI
@@ -492,6 +495,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Opcja ta wyeksportuje filmy ze wszystkich playlist, jako jedną playlistę o nazwie „Ulubione”.\nOto jak wyeksportować i zaimportować filmy z playlist do starszych wersji FreeTube:\n1. Wyeksportuj swoje playlisty z tą opcją włączoną.\n 2. Usuń wszystkie swoje istniejące playlisty przy użyciu opcji „Usuń wszystkie playlisty” z ustawień prywatności.\n3. Uruchom starszą wersję FreeTube, następnie zaimportuj wyeksportowane playlisty."
       Label: Wyeksportuj playlisty dla starszych wersji FreeTube
+    Search history file: Plik historii wyszukiwania
+    Search history: Historia wyszukiwania
+    Import search history: Zaimportuj historię wyszukiwania
+    Export search history: Wyeksportuj historię wyszukiwania
+    All search history has been successfully imported: Cała historia wyszukiwania została pomyślnie zaimportowana
+    All search history has been successfully exported: Cała historia wyszukiwania została pomyślnie wyeksportowana
   Distraction Free Settings:
     Distraction Free Settings: Skupienie uwagi
     Hide Live Chat: Schowaj czat na żywo
@@ -877,9 +886,12 @@ Comments:
   Pinned by: Przypięty przez
   Member: Wspierający
   Hearted: z serduszkiem
-  View {replyCount} replies: Zobacz {replyCount} odpowiedzi
+  View {replyCount} replies: Zobacz 1 odpowiedź | Zobacz {replyCount} odpowiedzi
   Subscribed: Zasubskrybowano
   There are no comments available for this post: Nie ma żadnych komentarzy pod tym postem
+  Hide {replyCount} replies: Ukryj 1 odpowiedź | Ukryj {replyCount} odpowiedzi
+  View 1 reply from {channelName}: Zobacz 1 odpowiedź od {channelName}
+  View {replyCount} replies from {channelName} and others: Zobacz {replyCount} odpowiedzi od {channelName} i innych
 Up Next: 'Następne'
 
 # Toast Messages
