@@ -497,7 +497,8 @@ function goToSearch(queryText, { event }) {
             time: searchSettings.value.time,
             type: searchSettings.value.type,
             duration: searchSettings.value.duration,
-            features: searchSettings.value.features,
+            // Array proxy cannot be cloned during IPC call
+            features: [...searchSettings.value.features],
           },
           doCreateNewWindow,
           searchQueryText: queryText,
