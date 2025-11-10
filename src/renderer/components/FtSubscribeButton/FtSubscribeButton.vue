@@ -169,7 +169,7 @@ const profileInitials = computed(() => {
 
   return profileList.value.reduce((accumulator, profile) => {
     accumulator[profile._id] = profile.name
-      ? getFirstCharacter(profile.name, locale_).toUpperCase()
+      ? getFirstCharacter(profile.name, locale_)
       : ''
 
     return accumulator
