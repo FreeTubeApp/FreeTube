@@ -275,6 +275,7 @@ Settings:
       Everforest Light Medium: Everforest Light （中度）
       Everforest Light Low: Everforest Light （弱）
       Everforest Light Hard: Everforest Light （强）
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -360,6 +361,8 @@ Settings:
       Everforest Light Aqua: Everforest Light Aqua
       Everforest Light Blue: Everforest Light 蓝
       Everforest Light Purple: Everforest 淡紫
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Red
     Secondary Color Theme: '次主题色'
         #* Main Color Theme
     UI Scale: UI缩放
