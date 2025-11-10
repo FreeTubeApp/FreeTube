@@ -9,21 +9,24 @@
     @keydown.enter.prevent="handleClick"
     @keydown.space.prevent="handleClick"
   >
-    <div
+    <p
+      :id="id"
       class="message"
     >
-      <p :id="id">
-        {{ message }}
-      </p>
-    </div>
-    <FontAwesomeIcon
-      class="bannerIcon"
-      :icon="['fas', 'times']"
-      tabindex="0"
+      {{ message }}
+    </p>
+    <button
+      class="closeButton"
+      :aria-label="$t('Close Banner')"
       :title="$t('Close Banner')"
-      @click.stop="handleClose"
-      @keydown.enter.space.stop.prevent="handleClose"
-    />
+      @click="handleClose"
+      @keydown.enter.space.stop
+    >
+      <FontAwesomeIcon
+        class="closeIcon"
+        :icon="['fas', 'times']"
+      />
+    </button>
   </div>
 </template>
 

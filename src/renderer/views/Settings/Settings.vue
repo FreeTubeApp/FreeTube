@@ -2,15 +2,17 @@
   <div class="settingsPage">
     <template v-if="unlocked">
       <div v-show="settingsSectionTypeOpenInMobile != null">
-        <font-awesome-icon
-          :icon="['fas', 'angle-left']"
-          class="returnToMenuMobileIcon"
-          role="button"
+        <button
+          class="returnToMenuMobileButton"
+          :aria-label="$t('Settings.Return to Settings Menu')"
           :title="$t('Settings.Return to Settings Menu')"
-          tabindex="0"
           @click="returnToSettingsMenu"
-          @keydown.space.enter="returnToSettingsMenu"
-        />
+        >
+          <font-awesome-icon
+            class="returnToMenuMobileIcon"
+            :icon="['fas', 'angle-left']"
+          />
+        </button>
       </div>
       <ft-settings-menu
         v-show="isInDesktopView || settingsSectionTypeOpenInMobile == null"

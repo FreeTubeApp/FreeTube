@@ -31,12 +31,13 @@
 .deArrowToggleButton {
   border-radius: 50%;
   cursor: pointer;
-  block-size: 1em;
-  inline-size: 1em;
   padding: 10px;
   font-size: 16px;
+  line-height: 1em;
   transition: background 0.15s ease-out;
+  background-color: transparent;
   color: var(--primary-color);
+  border-color: transparent;
 
   &:not(.disabled) {
     &:hover,
@@ -53,4 +54,8 @@
       filter: grayscale(1);
     }
   }
+}
+
+.deArrowToggleIcon {
+  inline-size: 1em;
 }

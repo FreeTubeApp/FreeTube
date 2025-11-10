@@ -4,10 +4,10 @@
     class="ftIconButton"
     @focusout="handleDropdownFocusOut"
   >
-    <font-awesome-icon
+    <button
       class="iconButton"
+      :aria-label="title"
       :title="title"
-      :icon="icon"
       :class="{
         [theme]: true,
         shadow: useShadow,
@@ -18,16 +18,17 @@
         padding: padding + 'px',
         fontSize: size + 'px'
       }"
-      tabindex="0"
-      role="button"
       :aria-disabled="disabled"
       :aria-expanded="dropdownShown"
       @pointerdown="handleIconPointerDown"
       @contextmenu.prevent=""
       @click="handleIconClick"
-      @keydown.enter.prevent="handleIconClick"
-      @keydown.space.prevent="handleIconClick"
-    />
+    >
+      <font-awesome-icon
+        class="icon"
+        :icon="icon"
+      />
+    </button>
     <template
       v-if="dropdownShown"
     >

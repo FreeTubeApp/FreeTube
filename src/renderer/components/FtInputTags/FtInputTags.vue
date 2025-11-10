@@ -62,15 +62,15 @@
             <span>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</span>
           </template>
           <span v-else>{{ tag }}</span>
-          <FontAwesomeIcon
+          <button
             v-if="!disabled"
-            :icon="['fas', 'fa-times']"
             class="removeTagButton"
-            tabindex="0"
-            role="button"
             @click="removeTag(tag)"
-            @keydown.enter.prevent="removeTag(tag)"
-          />
+          >
+            <FontAwesomeIcon
+              :icon="['fas', 'fa-times']"
+            />
+          </button>
         </li>
       </ul>
     </div>
