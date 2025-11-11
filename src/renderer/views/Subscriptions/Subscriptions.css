@@ -28,7 +28,6 @@
   font-size: 1.1em;
   cursor: pointer;
   align-self: flex-end;
-  text-transform: uppercase;
 }
 
 .tab:hover {

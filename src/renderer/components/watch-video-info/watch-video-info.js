@@ -176,15 +176,15 @@ export default defineComponent({
     formatTypeOptions: function () {
       return [
         {
-          label: this.$t('Change Format.Use Dash Formats').toUpperCase(),
+          label: this.$t('Change Format.Use Dash Formats'),
           value: 'dash'
         },
         {
-          label: this.$t('Change Format.Use Legacy Formats').toUpperCase(),
+          label: this.$t('Change Format.Use Legacy Formats'),
           value: 'legacy'
         },
         {
-          label: this.$t('Change Format.Use Audio Formats').toUpperCase(),
+          label: this.$t('Change Format.Use Audio Formats'),
           value: 'audio'
         }
       ]

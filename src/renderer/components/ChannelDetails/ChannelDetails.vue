@@ -88,7 +88,7 @@
             @keydown.left.right="focusTab('home', $event)"
             @keydown.enter.space.prevent="changeTab('home')"
           >
-            {{ $t("Channel.Home.Home").toUpperCase() }}
+            {{ $t("Channel.Home.Home") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -104,7 +104,7 @@
             @keydown.left.right="focusTab('videos', $event)"
             @keydown.enter.space.prevent="changeTab('videos')"
           >
-            {{ $t("Channel.Videos.Videos").toUpperCase() }}
+            {{ $t("Channel.Videos.Videos") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -120,7 +120,7 @@
             @keydown.left.right="focusTab('shorts', $event)"
             @keydown.enter.space.prevent="changeTab('shorts')"
           >
-            {{ $t("Global.Shorts").toUpperCase() }}
+            {{ $t("Global.Shorts") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -136,7 +136,7 @@
             @keydown.left.right="focusTab('live', $event)"
             @keydown.enter.space.prevent="changeTab('live')"
           >
-            {{ $t("Channel.Live.Live").toUpperCase() }}
+            {{ $t("Channel.Live.Live") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -152,7 +152,7 @@
             @keydown.left.right="focusTab('releases', $event)"
             @keydown.enter.space.prevent="changeTab('releases')"
           >
-            {{ $t("Channel.Releases.Releases").toUpperCase() }}
+            {{ $t("Channel.Releases.Releases") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -168,7 +168,7 @@
             @keydown.left.right="focusTab('podcasts', $event)"
             @keydown.enter.space.prevent="changeTab('podcasts')"
           >
-            {{ $t("Channel.Podcasts.Podcasts").toUpperCase() }}
+            {{ $t("Channel.Podcasts.Podcasts") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -184,7 +184,7 @@
             @keydown.left.right="focusTab('courses', $event)"
             @keydown.enter.space.prevent="changeTab('courses')"
           >
-            {{ $t("Channel.Courses.Courses").toUpperCase() }}
+            {{ $t("Channel.Courses.Courses") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -200,7 +200,7 @@
             @keydown.left.right="focusTab('playlists', $event)"
             @keydown.enter.space.prevent="changeTab('playlists')"
           >
-            {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
+            {{ $t("Channel.Playlists.Playlists") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -216,7 +216,7 @@
             @keydown.left.right="focusTab('community', $event)"
             @keydown.enter.space.prevent="changeTab('community')"
           >
-            {{ $t("Global.Posts").toUpperCase() }}
+            {{ $t("Global.Posts") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -231,7 +231,7 @@
             @keydown.left.right="focusTab('about', $event)"
             @keydown.enter.space.prevent="changeTab('about')"
           >
-            {{ $t("Channel.About.About").toUpperCase() }}
+            {{ $t("Channel.About.About") }}
           </div>
         </div>
 

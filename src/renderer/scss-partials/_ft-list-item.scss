@@ -388,9 +388,7 @@ $watched-transition-duration: 0.5s;
   }
 }
 
-.videoWatched,
-.live,
-.upcoming {
+.live {
   text-transform: uppercase;
   user-select: none;
 }
