@@ -282,6 +282,7 @@ Settings:
       Everforest Light Hard: Everforest Açık Sert
       Everforest Light Medium: Everforest Açık Orta
       Everforest Light Low: Everforest Açık Düşük
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -349,7 +350,7 @@ Settings:
       Catppuccin Frappe Teal: Catppuccin Frappe Deniz
       Catppuccin Frappe Rosewater: Catppuccin Frappe Gül Rengi
       Catppuccin Frappe Yellow: Catppuccin Frappe Sarı
-      Catppuccin Frappe Mauve: Catppuccin Frappe Leylak
+      Catppuccin Frappe Mauve: Catppuccin Frappe Eflatun
       Catppuccin Frappe Green: Catppuccin Frappe Yeşil
       Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
       Catppuccin Frappe Blue: Catppuccin Frappe Mavi
@@ -367,6 +368,8 @@ Settings:
       Everforest Light Aqua: Everforest Açık Deniz
       Everforest Light Blue: Everforest Açık Mavi
       Everforest Light Purple: Everforest Açık Mor
+      Catppuccin Latte Mauve: Catppuccin Latte Eflatun
+      Catppuccin Latte Red: Catppuccin Latte Kırmızı
     Secondary Color Theme: 'İkincil Renk Teması'
         #* Main Color Theme
     UI Scale: Kullanıcı Arayüzü Ölçeği
@@ -499,6 +502,12 @@ Settings:
       Label: Eski FreeTube Sürümleri İçin Oynatma Listelerini Dışa Aktar
       Tooltip: "Bu seçenek, tüm oynatma listelerindeki videoları 'Favoriler' adlı tek bir oynatma listesine aktarır.\nFreeTube'un eski bir sürümü için oynatma listelerindeki videolar nasıl dışa ve içe aktarılır:\n1. Oynatma listelerinizi bu seçenek etkinken dışa aktarın.\n2. Gizlilik Ayarları altındaki Tüm Oynatma Listelerini Kaldır seçeneğini kullanarak var olan tüm oynatma listelerinizi silin.\n3. FreeTube'un eski sürümünü başlatın ve dışa aktarılan oynatma listelerini içe aktarın.\""
 
+    Search history file: Arama geçmişi dosyası
+    Search history: Arama geçmişi
+    Import search history: Arama geçmişini içe aktar
+    Export search history: Arama geçmişini dışa aktar
+    All search history has been successfully imported: Tüm arama geçmişi başarıyla içe aktarıldı
+    All search history has been successfully exported: Tüm arama geçmişi başarıyla dışa aktarıldı
   Distraction Free Settings:
     Hide Live Chat: Canlı Sohbeti Gizle
     Hide Popular Videos: Popüler Videoları Gizle
@@ -917,23 +926,20 @@ Comments:
   There are no more comments for this video: 'Bu video için daha fazla yorum yok'
   Hide Comments: 'Yorumları Gizle'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Görüntüle'
-  Hide: 'Gizle'
-  Replies: 'Yanıtlar'
-  Reply: 'Yanıt'
   There are no comments available for this video: 'Bu videoya hiç yorum yapılmamış'
   Load More Comments: 'Daha Fazla Yorum Yükle'
   Newest first: En yeni ilk önce
   Top comments: En iyi yorumlar
   Show More Replies: Daha Fazla Yanıt Göster
-  From {channelName}: "{channelName}'den"
-  And others: ve diğerleri
   Pinned by: Sabitleyen
   Member: Üye
-  View {replyCount} replies: '{replyCount} yanıtı görüntüle'
+  View {replyCount} replies: '1 yanıtı görüntüle | {replyCount} yanıtı görüntüle'
   Hearted: Kalplendi
   Subscribed: Abone olundu
   There are no comments available for this post: Bu gönderi için hiç yorum yok
+  Hide {replyCount} replies: 1 yanıtı gizle | {replyCount} yanıtı gizle
+  View 1 reply from {channelName}: '{channelName} kanalından 1 yanıtı görüntüle'
+  View {replyCount} replies from {channelName} and others: '{channelName} kanalından ve diğerlerinden {replyCount} yanıtı görüntüle'
 Up Next: 'Sonraki'
 
 # Toast Messages

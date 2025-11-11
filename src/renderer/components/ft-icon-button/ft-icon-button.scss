@@ -9,11 +9,13 @@
 }
 
 .iconButton {
+  background-color: transparent;
   border-radius: 50%;
+  border-style: none;
+  color: inherit;
   cursor: pointer;
-  block-size: 1em;
+  line-height: 1em;
   transition: background 0.15s ease-out;
-  inline-size: 1em;
 
   &.shadow {
     box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
@@ -113,6 +115,10 @@
       color: var(--favorite-icon-color);
     }
   }
+}
+
+.icon {
+  inline-size: 1em;
 }
 
 .disabled {

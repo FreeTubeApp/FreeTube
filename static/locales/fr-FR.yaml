@@ -275,6 +275,7 @@ Settings:
       Everforest Light Medium: Jungle Médian Clair
       Everforest Dark Hard: Jungle Dur Sombre
       Everforest Dark Medium: Jungle Médian Sombre
+      Catppuccin Latte: Latté Catppuccin
     Main Color Theme:
       Main Color Theme: 'Couleur principale'
       Red: 'Rouge'
@@ -360,6 +361,8 @@ Settings:
       Everforest Light Purple: Jungle Violet Clair
       Everforest Dark Red: Jungle Rouge Sombre
       Everforest Light Yellow: Jungle Jaune Clair
+      Catppuccin Latte Mauve: Latté Catppuccin Mauve
+      Catppuccin Latte Red: Latté Catppuccin Rouge
     Secondary Color Theme: 'Couleur secondaire'
         #* Main Color Theme
     UI Scale: Échelle de l'interface utilisateur
@@ -492,6 +495,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Cette option permet d'exporter les vidéos de toutes les listes de lecture vers une seule liste de lecture nommée « Favorites ».\nComment exporter et importer des vidéos dans des sélections pour une ancienne version de FreeTube :\n 1. Exportez vos sélections avec cette option activée.\n2. Supprimez toutes vos sélections existantes à l'aide de l'option Supprimer toutes les sélections sous Paramètres de confidentialité.\n3. Lancez l'ancienne version de FreeTube et importez les listes de lecture exportées. »"
       Label: Exportation des listes de lecture pour les anciennes versions de FreeTube
+    Search history file: Fichier de l'historique des recherches
+    Search history: Historique des recherches
+    Import search history: Importer l'historique des recherches
+    Export search history: Exporter l'historique des recherches
+    All search history has been successfully imported: Tous les historiques de recherche ont été importées avec succès
+    All search history has been successfully exported: Tous les historiques de recherche ont été exportées avec succès
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Masquer les J’aime et Je n’aime pas des vidéos
     Hide Comment Likes: Masquer les J’aime dans les commentaires
@@ -868,24 +877,21 @@ Comments:
   Getting comment replies, please wait: 'Récupération des commentaires, veuillez patienter'
   Hide Comments: 'Masquer les commentaires'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Voir'
-  Hide: 'Masquer'
-  Replies: 'Réponses'
-  Reply: 'Réponse'
   There are no comments available for this video: 'Il n''y a aucun commentaire pour cette vidéo'
   Load More Comments: 'Charger plus de commentaires'
   There are no more comments for this video: Il n'y a plus de commentaires pour cette vidéo
   Newest first: Les plus récents d'abord
   Top comments: Top des commentaires
   Show More Replies: Afficher plus de réponses
-  From {channelName}: de {channelName}
   Pinned by: Épinglé par
-  And others: et d'autres
   Member: Membre
   Hearted: Aimé
-  View {replyCount} replies: Voir les {replyCount} réponses
+  View {replyCount} replies: Voir 1 réponse | Voir {replyCount} réponses
   Subscribed: Abonné(e)
   There are no comments available for this post: Il n'y a pas de commentaire associé à ce message
+  Hide {replyCount} replies: Masquer 1 réponse | Masquer {replyCount} réponses
+  View 1 reply from {channelName}: Voir 1 réponse de {channelName}
+  View {replyCount} replies from {channelName} and others: Afficher {replyCount} réponses de {channelName} et autres
 Up Next: 'À suivre'
 
 # Toast Messages

@@ -1006,13 +1006,7 @@ Comments:
   Newest first: 'புதிய முதல்'
   View {replyCount} replies: '{replyCount} பதில்களைக் காண்க'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: 'பார்வை'
-  Hide: 'மறை'
-  Replies: 'பதில்கள்'
   Show More Replies: 'மேலும் பதில்களைக் காட்டு'
-  Reply: 'பதில்'
-  From {channelName}: '{channelName} இருந்து இலிருந்து'
-  And others: 'மற்றும் மற்றவர்கள்'
   There are no comments available for this video: 'இந்த வீடியோவுக்கு எந்தக் கருத்தும் கிடைக்கவில்லை'
   There are no comments available for this post: 'இந்த இடுகைக்கு எந்தக் கருத்தும் கிடைக்கவில்லை'
   Load More Comments: 'மேலும் கருத்துகளை ஏற்றவும்'

@@ -160,13 +160,9 @@
             @keydown.space.prevent="toggleCommentReplies(index)"
             @keydown.enter.prevent="toggleCommentReplies(index)"
           >
-            <span v-if="!comment.showReplies">{{ $t("Comments.View") }}</span>
-            <span v-else>{{ $t("Comments.Hide") }}</span>
-            {{ comment.numReplies }}
-            <span v-if="comment.numReplies === 1">{{ $t("Comments.Reply").toLowerCase() }}</span>
-            <span v-else>{{ $t("Comments.Replies").toLowerCase() }}</span>
-            <span v-if="comment.hasOwnerReplied && !comment.showReplies"> {{ $t("Comments.From {channelName}", { channelName }) }}</span>
-            <span v-if="comment.numReplies > 1 && comment.hasOwnerReplied && !comment.showReplies"> {{ $t("Comments.And others") }}</span>
+            <span>
+              {{ toggleCommentRepliesLinkText(comment) }}
+            </span>
           </span>
         </p>
         <div
@@ -264,7 +260,7 @@
               v-if="reply.numReplies > 0"
               class="commentMoreReplies"
             >
-              {{ $t('Comments.View {replyCount} replies', { replyCount: reply.numReplies }) }}
+              {{ $t('Comments.View {replyCount} replies', { replyCount: reply.numReplies }, reply.numReplies) }}
             </p>
           </div>
           <div
@@ -521,6 +517,26 @@ function getMoreComments() {
       getCommentDataLocal(true)
     }
   }
+}
+
+/** @typedef {import('../../helpers/api/local').LocalComment | import('../../helpers/api/invidious').InvidiousComment} Comment */
+/**
+ * @param {Comment} comment
+ */
+function toggleCommentRepliesLinkText(comment) {
+  if (comment.showReplies) {
+    return t('Comments.Hide {replyCount} replies', { replyCount: comment.numReplies }, comment.numReplies)
+  }
+
+  if (comment.hasOwnerReplied) {
+    if (comment.numReplies > 1) {
+      return t('Comments.View {replyCount} replies from {channelName} and others', { replyCount: comment.numReplies, channelName: props.channelName })
+    }
+
+    return t('Comments.View 1 reply from {channelName}', { channelName: props.channelName })
+  }
+
+  return t('Comments.View {replyCount} replies', { replyCount: comment.numReplies }, comment.numReplies)
 }
 
 /**

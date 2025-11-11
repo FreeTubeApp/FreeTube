@@ -282,6 +282,7 @@ Settings:
       Everforest Light Low: Everforest gyenge világos
       Everforest Dark Hard: Everforest erős sötét
       Everforest Dark Low: Everforest gyenge sötét
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Fő színtéma'
       Red: 'Vörös'
@@ -367,6 +368,8 @@ Settings:
       Everforest Light Purple: Everforest világos lila
       Everforest Dark Purple: Everforest sötét lila
       Everforest Light Aqua: Everforest világos vízkék
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte piros
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése
@@ -493,12 +496,18 @@ Settings:
     All playlists has been successfully exported: Az összes lejátszási lista exportálása sikeresen megtörtént
     All playlists has been successfully imported: Az összes lejátszási lista importálása sikeresen megtörtént
     Subscription File: Feliratkozás-fájl
-    History File: Előzmények-fájl
+    History File: Előzményfájl
     Playlist File: Lejátszási lista fájl
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Ez az opció az összes lejátszási lista videóit egyetlen, „Kedvencek” nevű lejátszási listába exportálja.\nHogyan exportálhat és importálhat videókat lejátszási listákba a FreeTube régebbi verziója esetében:\n1. Exportálja a lejátszási listáit, ezzel az opcióval bekacsolva.\n2. Törölje az összes meglévő lejátszási listáját az Adatvédelmi beállítások alatt található Összes lejátszási lista eltávolítása opcióval.\n3. Indítsa el a FreeTube régebbi verzióját, és importálja az exportált lejátszási listákat."
       Label: Lejátszási listák exportálása régebbi FreeTube verziókhoz
 
+    Search history file: Keresési előzmények fájl
+    Search history: Keresési előzmények
+    Import search history: Keresési előzmények importálása
+    Export search history: Keresési előzmények exportálása
+    All search history has been successfully imported: Az összes keresési előzmény sikeresen importálva
+    All search history has been successfully exported: Az összes keresési előzmény sikeresen exportálva
   Distraction Free Settings:
     Hide Live Chat: Élő csevegés elrejtése
     Hide Popular Videos: Népszerű videók elrejtése
@@ -917,23 +926,20 @@ Comments:
   There are no more comments for this video: 'Ehhez a videóhoz nincsenek további hozzászólások'
   Hide Comments: 'Hozzászólások elrejtése'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Megjelenítés'
-  Hide: 'Elrejtés'
-  Replies: 'Válasz'
-  Reply: 'Válasz'
   There are no comments available for this video: 'Ehhez a videóhoz még nincsenek hozzászólások'
   Load More Comments: 'További hozzászólások betöltése'
   Newest first: Legújabb elöl
   Top comments: Legnépszerűbb hozzászólások
   Show More Replies: További válaszok megjelenítése
-  From {channelName}: 'forrás: {channelName}'
-  And others: és mások
   Pinned by: 'Kitűzve'
   Member: Tag
-  View {replyCount} replies: '{replyCount} válasz megtekintése'
+  View {replyCount} replies: '1 válasz megtekintése | {replyCount} válasz megtekintése'
   Hearted: Kedvenc
   Subscribed: Feliratkozott
   There are no comments available for this post: Nincsenek hozzászólások ehhez a bejegyzéshez
+  Hide {replyCount} replies: 1 válasz elrejtése | {replyCount} válasz elrejtése
+  View 1 reply from {channelName}: 1 válasz megtekintése a(z) {channelName} csatornában
+  View {replyCount} replies from {channelName} and others: '{replyCount} válasz megtekintése a(z) {channelName} és egyéb csatornákban'
 Up Next: 'Következő'
 
 # Toast Messages

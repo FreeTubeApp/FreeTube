@@ -334,6 +334,7 @@ Settings:
       Light: Light
       Dracula: Dracula
       Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Latte: Catppuccin Latte
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
@@ -387,6 +388,8 @@ Settings:
       Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
       Catppuccin Frappe Blue: Catppuccin Frappe Blue
       Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Red
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
       Catppuccin Mocha Pink: Catppuccin Mocha Pink
@@ -591,6 +594,7 @@ Settings:
     Subscription File: Subscription File
     History File: History File
     Playlist File: Playlist File
+    Search history file: Search history file
     Export Subscriptions: Export Subscriptions
     Export FreeTube: Export FreeTube
     Export YouTube: Export YouTube
@@ -599,6 +603,9 @@ Settings:
     Export History: Export History
     Import Playlists: Import Playlists
     Export Playlists: Export Playlists
+    Search history: Search history
+    Import search history: Import search history
+    Export search history: Export search history
     Profile object has insufficient data, skipping item: Profile object has insufficient
       data, skipping item
     All subscriptions and profiles have been successfully imported: All subscriptions
@@ -619,6 +626,10 @@ Settings:
     All playlists has been successfully imported: All playlists has been
       successfully imported
     All playlists has been successfully exported: All playlists has been
+      successfully exported
+    All search history has been successfully imported: All search history has been
+      successfully imported
+    All search history has been successfully exported: All search history has been
       successfully exported
     Unable to read file: Unable to read file
     Unable to write file: Unable to write file
@@ -1011,15 +1022,11 @@ Comments:
   Hide Comments: Hide Comments
   Top comments: Top comments
   Newest first: Newest First
-  View {replyCount} replies: View {replyCount} replies
-  # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: View
-  Hide: Hide
-  Replies: Replies
+  View {replyCount} replies: View 1 reply | View {replyCount} replies
+  Hide {replyCount} replies: Hide 1 reply | Hide {replyCount} replies
+  View 1 reply from {channelName}: View 1 reply from {channelName}
+  View {replyCount} replies from {channelName} and others: View {replyCount} replies from {channelName} and others
   Show More Replies: Show More Replies
-  Reply: Reply
-  From {channelName}: from {channelName}
-  And others: and others
   There are no comments available for this video: There are no comments available
     for this video
   There are no comments available for this post: There are no comments available for this post

@@ -275,6 +275,7 @@ Settings:
       Everforest Light Medium: Everforest Light （中度）
       Everforest Light Low: Everforest Light （弱）
       Everforest Light Hard: Everforest Light （强）
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: '主题色'
       Red: '红'
@@ -360,6 +361,8 @@ Settings:
       Everforest Light Aqua: Everforest Light Aqua
       Everforest Light Blue: Everforest Light 蓝
       Everforest Light Purple: Everforest 淡紫
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Red
     Secondary Color Theme: '次主题色'
         #* Main Color Theme
     UI Scale: UI缩放
@@ -492,6 +495,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Tooltip: "此选项将所有播放列表中的视频导出到一个名为'Favorities'的播放列表文件\n如何为老版本的 FreeTube 导出&导入播放列表中的视频：\n 1. 启用此选项来导出播放列表\n2. 使用“隐私”设置下的“删除所有播放列表”选项来删除所有现存播放列表\n3. 启动老版本的 FreeTube 并导入导出的播放列表。“"
       Label: 为老版本 FreeTube 导出播放列表
+    Search history file: 搜索历史文件
+    Search history: 搜索历史
+    Import search history: 导入搜索历史
+    Export search history: 导出搜索历史
+    All search history has been successfully imported: 成功导入了所有搜索历史
+    All search history has been successfully exported: 成功导出了所有搜索历史
   Distraction Free Settings:
     Hide Popular Videos: 隐藏流行视频
     Hide Trending Videos: 隐藏热门视频
@@ -868,10 +877,6 @@ Comments:
   Getting comment replies, please wait: '获取评论中，请稍候'
   Hide Comments: '隐藏评论'
   # Context: View 10 Replies, View 1 Reply
-  View: '观看'
-  Hide: '隐藏'
-  Replies: '回复'
-  Reply: '回复'
   There are no comments available for this video: '这个视频没有评论'
   Load More Comments: '加载更多评论'
   There are no more comments for this video: 此视频无更多评论
@@ -879,13 +884,14 @@ Comments:
   Top comments: 最热评论
   Show More Replies: 显示更多回复
   Pinned by: 置顶人
-  From {channelName}: 来自 {channelName}
-  And others: 及其他
   Member: 成员
   Hearted: 喜欢的
-  View {replyCount} replies: 查看 {replyCount} 条回复
+  View {replyCount} replies: 查看 1 条回复|查看 {replyCount} 条回复
   Subscribed: 已订阅
   There are no comments available for this post: 此帖子没有评论
+  Hide {replyCount} replies: 隐藏 1 条回复| 隐藏 {replyCount} 条回复
+  View 1 reply from {channelName}: 查看 1 条来自 {channelName}的回复
+  View {replyCount} replies from {channelName} and others: 查看 {replyCount} 条来自 {channelName} 和其他频道的回复
 Up Next: 'Up Next'
 
 # Toast Messages

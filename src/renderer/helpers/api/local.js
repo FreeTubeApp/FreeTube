@@ -1941,8 +1941,33 @@ export function mapLocalLegacyFormat(format) {
 }
 
 /**
+ * The complete Triforce, or one or more components of the Triforce.
+ * @typedef {object} LocalComment
+ * @property {string} id
+ * @property {string} dataType
+ * @property {string} authorLink
+ * @property {string} author
+ * @property {string} authorId
+ * @property {string} authorThumb
+ * @property {boolean} isPinned
+ * @property {boolean} isOwner
+ * @property {boolean} isMember
+ * @property {string} text
+ * @property {boolean} isHearted
+ * @property {boolean} hasOwnerReplied
+ * @property {boolean} hasReplyToken
+ * @property {CommentThread} replyToken
+ * @property {boolean} showReplies
+ * @property {LocalComment[]} replies
+ * @property {string} memberIconUrl
+ * @property {string} time
+ * @property {number} likes
+ * @property {number} numReplies
+ */
+/**
  * @param {import('youtubei.js').YTNodes.CommentView} comment
  * @param {import('youtubei.js').YTNodes.CommentThread} commentThread
+ * @return LocalComment
  */
 export function parseLocalComment(comment, commentThread = undefined) {
   let hasOwnerReplied = false

@@ -114,21 +114,26 @@
   opacity: 1;
 }
 
-.playlistIcon {
-  block-size: 20px;
-  inline-size: 20px;
+.playlistButtons {
+  margin-block: 8px;
+}
+
+.playlistButton {
+  background-color: transparent;
   font-size: 20px;
+  line-height: 1em;
   padding: 10px;
   margin-block-start: -25px;
   cursor: pointer;
   border-radius: 50%;
+  border-style: none;
   color: var(--tertiary-text-color);
   transition: background 0.2s ease-out;
   stroke-width: 20;
   stroke: var(--bg-color);
 }
 
-.playlistIcon:hover {
+.playlistButton:hover {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
   stroke-width: 20;
@@ -136,18 +141,22 @@
   transition: background 0.2s ease-in;
 }
 
-.playlistIconActive {
+.playlistButtonActive {
   color: var(--accent-color);
   stroke-width: 10;
   stroke: var(--accent-color);
 }
 
-.playlistIconActive:hover {
+.playlistButtonActive:hover {
   background-color: var(--side-nav-hover-color);
   color: var(--accent-color-hover);
   stroke-width: 10;
   stroke: var(--accent-color-hover);
   transition: background 0.2s ease-in;
+}
+
+.playlistIcon {
+  inline-size: 1em;
 }
 
 .playlistItemsWrapper {

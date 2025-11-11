@@ -278,6 +278,7 @@ Settings:
       Everforest Dark Medium: Everforest medium og mørk
       Everforest Light Medium: Everforest medium og lys
       Everforest Light Low: Everforest lav og lys
+      Catppuccin Latte: Catppuccin-latte
     Main Color Theme:
       Main Color Theme: 'Hovedfarge'
       Red: 'Rød'
@@ -363,6 +364,8 @@ Settings:
       Everforest Light Aqua: Everforest-lysaqua
       Everforest Light Blue: Everforest-lyseblå
       Everforest Light Purple: Everforest-lyselilla
+      Catppuccin Latte Mauve: Catppuccin-latte-fiolett
+      Catppuccin Latte Red: Catppuccin-latte-rød
     Secondary Color Theme: 'Sekundærfarge'
         #* Main Color Theme
     UI Scale: Grensesnittskalering
@@ -495,6 +498,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Eksporter spillelister for eldre FreeTube-versjoner
       Tooltip: "Denne funksjonen eksporterer videoer fra alle spillelister inn i en spilleliste med navnet «Favoritter».\nFor å eksportere og importere videoer i spillelister i eldre versjoner av FreeTube:\n1.) Eksporter spillelistene dine med denne funksjonen skrudd på.\n2.) Slett alle spillelistene dine med «Fjern alle spillelister» under «Personvern».\n3.) Start opp den eldre versjonen av FreeTube og importer de eksporterte spillelistene dine."
+    Search history file: Søkshistorikkfil
+    Search history: Søkshistorikk
+    Import search history: Importer søkshistorikk
+    Export search history: Eksporter søkshistorikk
+    All search history has been successfully imported: Søkshistorikken har blitt importert
+    All search history has been successfully exported: Søkshistorikken har blitt eksportert
   Proxy Settings:
     Region: Region
     Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for å sende en forespørsel til
@@ -871,24 +880,21 @@ Comments:
   Getting comment replies, please wait: 'Henter kommentarsvar...'
   Hide Comments: 'Skjul kommentarer'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Vis'
-  Hide: 'Skjul'
-  Replies: 'Svar'
-  Reply: 'Svar'
   There are no comments available for this video: 'Det er ingen kommentarer tilgjengelig på denne videoen'
   Load More Comments: 'Last inn flere kommentarer'
   Newest first: Nyeste først
   There are no more comments for this video: Ingen flere kommentarer på denne videoen
   Top comments: Toppkommentarer
   Show More Replies: Vis flere svar
-  From {channelName}: fra {channelName}
   Pinned by: Festet av
   Member: Medlem
-  And others: og andre
-  View {replyCount} replies: Vis {replyCount} svar
+  View {replyCount} replies: Vis 1 svar | Vis {replyCount} svar
   Hearted: Hjertemerket
   Subscribed: Abonnert
   There are no comments available for this post: Det er ingen kommentarer tilgjengelig på denne posten
+  Hide {replyCount} replies: Skjul 1 svar | Skjul {replyCount} svar
+  View 1 reply from {channelName}: Vis 1 svar fra {channelName}
+  View {replyCount} replies from {channelName} and others: Vis {replyCount} svar fra {channelName} og andre
 Up Next: 'Neste'
 
 # Toast Messages

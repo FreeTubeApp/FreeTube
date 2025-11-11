@@ -286,6 +286,7 @@ Settings:
       Everforest Light Medium: Everforest Light Medium
       Everforest Light Low: Everforest Light Low
       Everforest Dark Medium: Everforest Dark Medium
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Hlavní barva motivu'
       Red: 'Červená'
@@ -371,6 +372,8 @@ Settings:
       Everforest Light Blue: Everforest Light Blue
       Everforest Dark Red: Everforest Dark Red
       Everforest Dark Yellow: Everforest Dark Yellow
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Red
     Secondary Color Theme: 'Sekundární barva motivu'
         #* Main Color Theme
     Hide Side Bar Labels: Skrýt popisky na bočním panelu
@@ -548,6 +551,12 @@ Settings:
       Tooltip: "Tato možnost exportuje videa ze všech playlistů do jednoho playlistu s názvem „Favorites“.\nJak exportovat a importovat videa z playlistů do starších verzí FreeTube:\n1. Povolte tuto možnost a exportujte své playlisty.\n2. Odstraňte všechny své stávající playlisty možností Odstranit všechny playlisty v nastavení soukromí.\n3. Spusťte starší verzi FreeTube a importujte exportované playlisty."
       Label: Exportovat playlisty pro starší verze FreeTube
 
+    Search history file: Soubor historie vyhledávání
+    Search history: Historie vyhledávání
+    Import search history: Importovat historii vyhledávání
+    Export search history: Exportovat historii vyhledávání
+    All search history has been successfully imported: Veškerá historie vyhledávání byla úspěšně importována
+    All search history has been successfully exported: Veškerá historie vyhledávání byla úspěšně exportována
   Proxy Settings:
     Proxy Settings: Proxy
     City: Město
@@ -920,21 +929,18 @@ Comments:
   Top comments: 'Nejlepší komentáře'
   Newest first: 'Nejnovější první'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Zobrazit'
-  Hide: 'Skrýt'
-  Replies: 'Odpovědí'
-  Reply: 'Odpověď'
   There are no comments available for this video: 'K tomuto videu nejsou dostupné žádné komentáře'
   Load More Comments: 'Načíst další komentáře'
   Show More Replies: Načíst více výsledků
   Pinned by: připnuto uživatelem
-  From {channelName}: od {channelName}
-  And others: a dalších
   Member: Člen
-  View {replyCount} replies: Zobrazit {replyCount} odpovědí
+  View {replyCount} replies: Zobrazit 1 odpověď | Zobrazit {replyCount} odpovědí
   Hearted: Se srdíčkem
   Subscribed: Odebíráno
   There are no comments available for this post: U tohoto příspěvku nejsou dostupné žádné komentáře
+  Hide {replyCount} replies: Skrýt 1 odpověď | Skrýt {replyCount} odpovědí
+  View 1 reply from {channelName}: Zobrazit 1 odpověď od {channelName}
+  View {replyCount} replies from {channelName} and others: Zobrazit {replyCount} odpovědí od {channelName} a dalších
 Up Next: 'Další'
 
 #Tooltips
