@@ -276,6 +276,7 @@ Settings:
       Everforest Light Hard: Everforest Hellhart
       Everforest Light Medium: Everforest Hellmittel
       Everforest Light Low: Everforest Hellniedrig
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: Hauptfarbe des Farbschemas
       Red: Rot
@@ -361,6 +362,8 @@ Settings:
       Everforest Light Aqua: Everforest Helltürkis
       Everforest Light Blue: Everforest Hellblau
       Everforest Light Purple: Everforest Helllilla
+      Catppuccin Latte Mauve: Catppuccin Latte rötliches Violett
+      Catppuccin Latte Red: Catppuccin Latte Rot
     Secondary Color Theme: Sekundäres Farbschema
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
@@ -493,6 +496,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Playlists für ältere FreeTube-Versionen exportieren
       Tooltip: "Diese Option exportiert Videos aus allen Playlists in eine Playlist namens „Favoriten“.\nSo kannst du Playlists für eine ältere Version von FreeTube exportieren und importieren:\n1. Exportiere deine Playlists, wenn diese Option aktiviert ist.\n2. Lösche alle deine bestehenden Playlists mit der Option „Alle Playlists entfernen“ unter den Datenschutzeinstellungen.\n3. Starte die ältere Version von FreeTube und importiere die exportierten Playlists.\""
+    Search history file: Suchverlaufsdatei
+    Search history: Suchverlauf
+    Import search history: Suchverlauf importieren
+    Export search history: Suchverlauf exportieren
+    All search history has been successfully imported: Der gesamte Suchverlauf wurde erfolgreich importiert
+    All search history has been successfully exported: Der gesamte Suchverlauf wurde erfolgreich exportiert
   Distraction Free Settings:
     Hide Live Chat: Live-Chat ausblenden
     Hide Popular Videos: Beliebte Videos ausblenden
