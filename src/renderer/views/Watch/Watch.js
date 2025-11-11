@@ -859,7 +859,14 @@ export default defineComponent({
 
           this.videoTitle = result.title
           this.videoViewCount = result.viewCount
-          this.channelSubscriptionCountText = isNaN(result.subCountText.replace(/[KM]$/, '')) ? '' : result.subCountText
+
+          const subCount = parseLocalSubscriberCount(result.subCountText)
+          if (!isNaN(subCount)) {
+            this.channelSubscriptionCountText = formatNumber(subCount, subCount >= 10000 ? { notation: 'compact' } : undefined)
+          } else {
+            this.channelSubscriptionCountText = ''
+          }
+
           if (this.hideVideoLikesAndDislikes) {
             this.videoLikeCount = null
             this.videoDislikeCount = null
