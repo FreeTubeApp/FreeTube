@@ -160,6 +160,12 @@ class SabrManifestParser {
 
     for (const format of manifestData.formats) {
       if (format.mimeType.startsWith('audio/')) {
+        if (format.xtags === 'CgcKAnZiEgEx') {
+          // Workaround to reject certain xtags value to avoid reload
+          // https://github.com/LuanRT/googlevideo/issues/42
+          // console.log('CgcKAnZiEgEx audio format', format)
+          continue
+        }
         audioStreams.push(
           /** @__NOINLINE__ */ createAudioStream(
             format,
