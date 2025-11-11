@@ -45,8 +45,6 @@ const ShakaError = shaka.util.Error
  * @typedef CurrentState
  * @type {object}
  * @property {Map<string, Uint8Array>} initDataCache
- * @property {Map<number, SabrContextUpdate>} sabrContexts
- * @property {Set<number>} activeSabrContextTypes
  * @property {VideoPlaybackAbrRequest} abrRequest
  * @property {RequestInit} requestInit
  * @property {AbortStatus} abortStatus
