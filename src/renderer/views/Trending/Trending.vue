@@ -35,7 +35,7 @@
             class="trendingIcon"
             fixed-width
           />
-          {{ $t("Trending.Default").toUpperCase() }}
+          {{ $t("Trending.Default") }}
         </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
@@ -56,7 +56,7 @@
             class="trendingIcon"
             fixed-width
           />
-          {{ $t("Trending.Music").toUpperCase() }}
+          {{ $t("Trending.Music") }}
         </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
@@ -77,7 +77,7 @@
             class="trendingIcon"
             fixed-width
           />
-          {{ $t("Trending.Gaming").toUpperCase() }}
+          {{ $t("Trending.Gaming") }}
         </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
@@ -98,7 +98,7 @@
             class="trendingIcon"
             fixed-width
           />
-          {{ $t("Trending.Movies").toUpperCase() }}
+          {{ $t("Trending.Movies") }}
         </div>
       </FtFlexBox>
       <div
