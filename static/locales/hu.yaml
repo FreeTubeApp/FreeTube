@@ -101,7 +101,7 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ez a profil nagyszámú feliratkozást tartalmaz. RSS kényszerítése a sebességkorlátozás elkerülésére
   Load More Videos: További videók betöltése
   Error Channels: Hibás csatornák
-  Disabled Automatic Fetching: Ön kikapcsolta a feliratkozások automatikus lekérdezését. Frissítse a feliratkozásokat, hogy itt láthassa őket.
+  Disabled Automatic Fetching: Ön letiltotta a feliratkozások automatikus lekérdezését. Frissítse a feliratkozásokat, hogy itt láthassa őket.
   Empty Channels: A feliratkozott csatornák jelenleg nem tartalmaznak videókat.
   All Subscription Tabs Hidden: Az összes feliratkozási lap el van rejtve. Az itteni tartalom megtekintéséhez törölje néhány lap rejtését a(z) „{settingsSection}” „{subsection}” szakaszában.
   Subscriptions Tabs: Feliratkozások lapok
@@ -230,7 +230,7 @@ Settings:
       Grid: 'Rács'
       List: 'Lista'
     Thumbnail Preference:
-      Thumbnail Preference: 'Miniatűr beállítása'
+      Thumbnail Preference: 'Bélyegkép beállítása'
       Default: 'Alapértelmezett'
       Beginning: 'Eleje'
       Middle: 'Középső'
@@ -302,26 +302,26 @@ Settings:
       Orange: 'Narancssárga'
       Deep Orange: 'Sötét narancssárga'
       Dracula Cyan: 'Drakula ciánkék'
-      Dracula Green: 'Drakula Zöld'
-      Dracula Orange: 'Drakula Narancssárga'
-      Dracula Pink: 'Drakula Rózsaszín'
-      Dracula Purple: 'Drakula Lila'
-      Dracula Red: 'Drakula Vörös'
-      Dracula Yellow: 'Drakula Sárga'
-      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingó
-      Catppuccin Mocha Mauve: Catppuccin Mocha Mályvaszínű
-      Catppuccin Mocha Red: Catppuccin Mocha Vörös
-      Catppuccin Mocha Green: Catppuccin Mocha Zöld
+      Dracula Green: 'Drakula zöld'
+      Dracula Orange: 'Drakula narancssárga'
+      Dracula Pink: 'Drakula rózsaszín'
+      Dracula Purple: 'Drakula lila'
+      Dracula Red: 'Drakula vörös'
+      Dracula Yellow: 'Drakula sárga'
+      Catppuccin Mocha Flamingo: Catppuccin Mocha flamingó
+      Catppuccin Mocha Mauve: Catppuccin Mocha mályva
+      Catppuccin Mocha Red: Catppuccin Mocha vörös
+      Catppuccin Mocha Green: Catppuccin Mocha zöld
       Catppuccin Mocha Teal: Catppuccin Mocha pávakék
       Catppuccin Mocha Sky: Catppuccin Mocha égszínkék
-      Catppuccin Mocha Sapphire: Catppuccin Mocha Zafír
-      Catppuccin Mocha Pink: Catppuccin Mocha Rózsaszín
-      Catppuccin Mocha Blue: Catppuccin Mocha Kék
-      Catppuccin Mocha Lavender: Catppuccin Mocha Levendula
-      Catppuccin Mocha Maroon: Catppuccin Mocha Gesztenyebarna
-      Catppuccin Mocha Rosewater: Catppuccin Mocha Rózsavíz
-      Catppuccin Mocha Peach: Catppuccin Mocha Barackvirágszínű
-      Catppuccin Mocha Yellow: Catppuccin Mocha Sárga
+      Catppuccin Mocha Sapphire: Catppuccin Mocha zafír
+      Catppuccin Mocha Pink: Catppuccin Mocha rózsaszín
+      Catppuccin Mocha Blue: Catppuccin Mocha kék
+      Catppuccin Mocha Lavender: Catppuccin Mocha levendula
+      Catppuccin Mocha Maroon: Catppuccin Mocha gesztenyebarna
+      Catppuccin Mocha Rosewater: Catppuccin Mocha rózsavíz
+      Catppuccin Mocha Peach: Catppuccin Mocha barackvirág
+      Catppuccin Mocha Yellow: Catppuccin Mocha sárga
       Solarized Yellow: Szolarizált sárga
       Solarized Orange: Szolarizált narancssárga
       Solarized Red: Szolarizált vörös
@@ -340,19 +340,19 @@ Settings:
       Gruvbox Dark Purple: Gruvbox sötét lila
       Gruvbox Light Orange: Gruvbox világos narancssárga
       Gruvbox Light Purple: Gruvbox világos lila
-      Catppuccin Frappe Pink: Catppuccin Frappe Rózsaszín
-      Catppuccin Frappe Mauve: Catppuccin Frappe Mályva
-      Catppuccin Frappe Rosewater: Catppuccin Frappe Rózsavíz
-      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingó
-      Catppuccin Frappe Red: Catppuccin Frappe Piros
-      Catppuccin Frappe Maroon: Catppuccin Frappe Gesztenyebarna
-      Catppuccin Frappe Peach: Catppuccin Frappe Barackvirág
-      Catppuccin Frappe Yellow: Catppuccin Frappe Sárga
-      Catppuccin Frappe Green: Catppuccin Frappe Zöld
+      Catppuccin Frappe Pink: Catppuccin Frappe rózsaszín
+      Catppuccin Frappe Mauve: Catppuccin Frappe mályva
+      Catppuccin Frappe Rosewater: Catppuccin Frappe rózsavíz
+      Catppuccin Frappe Flamingo: Catppuccin Frappe flamingó
+      Catppuccin Frappe Red: Catppuccin Frappe piros
+      Catppuccin Frappe Maroon: Catppuccin Frappe gesztenyebarna
+      Catppuccin Frappe Peach: Catppuccin Frappe barackvirág
+      Catppuccin Frappe Yellow: Catppuccin Frappe sárga
+      Catppuccin Frappe Green: Catppuccin Frappe zöld
       Catppuccin Frappe Teal: Catppuccin Frappe pávakék
       Catppuccin Frappe Sky: Catppuccin Frappe égszínkék
-      Catppuccin Frappe Blue: Catppuccin Frappe Kék
-      Catppuccin Frappe Lavender: Catppuccin Frappe Levendula
+      Catppuccin Frappe Blue: Catppuccin Frappe kék
+      Catppuccin Frappe Lavender: Catppuccin Frappe levendula
       Catppuccin Frappe Sapphire: Catppuccin Frappe zafírkék
       Everforest Dark Orange: Everforest sötét narancssárga
       Everforest Dark Green: Everforest sötét zöld
@@ -368,13 +368,13 @@ Settings:
       Everforest Light Purple: Everforest világos lila
       Everforest Dark Purple: Everforest sötét lila
       Everforest Light Aqua: Everforest világos vízkék
-      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Mauve: Catppuccin Latte mályva
       Catppuccin Latte Red: Catppuccin Latte piros
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése
     Expand Side Bar by Default: Alapértelmezés szerinti oldalsáv megjelenítés
-    Disable Smooth Scrolling: Finom-görgetés kikapcsolása
+    Disable Smooth Scrolling: Finom görgetés letiltása
     Hide Side Bar Labels: Gombfeliratok elrejtése az oldalsávról
     Hide FreeTube Header Logo: FreeTube logo elrejtése a fejlécből
   Player Settings:
@@ -382,8 +382,8 @@ Settings:
     Play Next Video: 'Ajánlott videók automatikus lejátszása'
     Turn on Subtitles by Default: 'Feliratok engedélyezése alapértelmezetten'
     Autoplay Videos: 'Videók automatikus elindítása'
-    Proxy Videos Through Invidious: 'Videók proxyzása az Invidiouson keresztül'
-    Autoplay Playlists: 'Lejátszási lista az automatikus videó-lejátszáshoz'
+    Proxy Videos Through Invidious: 'Videók közvetítése az Invidiouson keresztül'
+    Autoplay Playlists: 'Lejátszási lista az automatikus videólejátszáshoz'
     Enable Theatre Mode by Default: 'A mozimód bekapcsolása alapértelmezetten'
     Default Volume: 'Alapértelmezett hangerő'
     Default Playback Rate: 'Alapértelmezett lejátszási sebesség'
@@ -462,7 +462,7 @@ Settings:
     Subscription Settings: 'Feliratkozás'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
-    Confirm Before Unsubscribing: Megerősítés kérése leíratkozáskor
+    Confirm Before Unsubscribing: Megerősítés kérése leiratkozáskor
     'Limit the number of videos displayed for each channel': Az egyes csatornákon megjelenített videók számának korlátozása
     To: 'Ennyire'
   Data Settings:
@@ -588,7 +588,7 @@ Settings:
     Category Color: Kategória színe
     UseDeArrowTitles: DeArrow-videocímek használata
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow előnézet-előállító API webcíme (alapértelmezett: https://dearrow-thumb.ajay.app)'
-    UseDeArrowThumbnails: DeArrow használata miniatűrökhöz
+    UseDeArrowThumbnails: DeArrow használata bélyegképekhez
   External Player Settings:
     Ignore Unsupported Action Warnings: Nem támogatott műveletek figyelmeztetéseinek mellőzése
     Custom External Player Arguments: Egyéni külső lejátszó argumentumok
@@ -948,10 +948,10 @@ Invidious API Error (Click to copy): 'Invidious API hiba (Kattintson a másolás
 Falling back to Invidious API: 'Invidious API-ra visszatérve'
 Falling back to Local API: 'Helyi API-ra visszatérve'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Ez a videó hiányzó formátumok miatt nem érhető el. Ez az ország nem elérhetősége miatt következhet be.'
-Loop is now disabled: 'Folyamatos lejátszás kikapcsolva'
-Loop is now enabled: 'Folyamatos lejátszás bekapcsolva'
-Shuffle is now disabled: 'Véletlen sorrendű lejátszás kikapcsolva'
-Shuffle is now enabled: 'Véletlen sorrendű lejátszás bekapcsolva'
+Loop is now disabled: 'Folyamatos lejátszás letiltva'
+Loop is now enabled: 'Folyamatos lejátszás engedélyezve'
+Shuffle is now disabled: 'Véletlen sorrendű lejátszás letiltva'
+Shuffle is now enabled: 'Véletlen sorrendű lejátszás engedélyezve'
 The playlist has been reversed: 'Lejátszási lista megfordítva'
 Playing Next Video: 'Következő videó lejátszása'
 Playing Previous Video: 'Előző videó lejátszása'
@@ -973,7 +973,7 @@ Tooltips:
     Fetch Feeds from RSS: Amikor engedélyezve van, a FreeTube az RSS-t fogja használni az alapértelmezett módszer helyett a feliratkozási hírfolyam lekérdezéséhez. Az RSS gyorsabb és megakadályozza az IP-tiltást, de nem tartalmaz bizonyos információkat, például a videó időtartamát, az élő állapotot vagy a bejegyzéseket
     Fetch Automatically: Amikor engedélyezve van, a FreeTube új ablak megnyitásakor és az alkalmazás elindításakor automatikusan lekérdezi az feliratkozási hírfolyamot.
   Player Settings:
-    Default Video Format: A videólejátszáshoz használt formátumok beállítása. A DASH-formátumok magasabb minőségű lejátszást tesznek lehetővé. A régebbi formátumok legfeljebb 360p felbontásúak, de kevesebb sávszélességet igényelnek. A hangformátumok kizárólag hangadatfolyamokat tartalmaznak.
+    Default Video Format: A videóhoz használt formátumok beállítása. A DASH-formátumok magasabb minőségű lejátszást tesznek lehetővé. A régebbi formátumok legfeljebb 360p felbontásúak, de kevesebb sávszélességet igényelnek. A hangformátumok kizárólag hangadatfolyamokat tartalmaznak.
     Proxy Videos Through Invidious: Csatlakozik az Invidious szolgáltatáshoz, hogy videókat szolgáltasson, ahelyett, hogy közvetlen kapcsolatot létesítene a YouTube szolgáltatással.
     Scroll Playback Rate Over Video Player: Amíg a kurzor a videó felett van, nyomja meg és tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű), és görgesse az egér görgőjét előre vagy hátra a lejátszási sebesség szabályozásához. Tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű), majd kattintson az egér bal gombjával az alapértelmezett lejátszási sebesség gyors visszatéréséhez (1x, hacsak nem módosították a beállításokban).
     Skip by Scrolling Over Video Player: MPV módban a görgetőkerék használatával kihagyhatja a videót.
@@ -981,11 +981,11 @@ Tooltips:
     Custom External Player Executable: Alapértelmezés szerint a FreeTube feltételezi, hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti változón keresztül. Szükség esetén itt egyéni útvonal állítható be.
     Ignore Warnings: A figyelmeztetések mellőzése, amikor a jelenlegi külső lejátszó nem támogatja a jelenlegi műveletet (pl. lejátszási listák megfordítása stb.).
     Custom External Player Arguments: A külső lejátszónak átadni kívánt egyéni parancssori argumentumok.
-    External Player: Külső lejátszó kiválasztása esetén megjelenik egy ikon a videó (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen. Figyelem! Az Invidious beállításai nincsenek hatással a külső lejátszókra.
+    External Player: Külső lejátszó kiválasztása esetén megjelenik egy ikon a videó (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, a bélyegképen. Figyelem! Az Invidious beállításai nincsenek hatással a külső lejátszókra.
     DefaultCustomArgumentsTemplate: '(Alapértelmezett: „{defaultCustomArguments}”)'
     Ignore Default Arguments: Ne küldjön semmilyen alapértelmezett argumentumot a külső lejátszónak a videó webcímén kívül (pl. lejátszási sebesség, lejátszási lista webcíme stb.). Az egyéni argumentumok továbbra is átadásra kerülnek.
   Experimental Settings:
-    Replace HTTP Cache: Letiltja az Electron lemez alapú HTTP-gyorsítótárát, és engedélyezi az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
+    Replace HTTP Cache: Letiltja az Electron lemezalapú HTTP-gyorsítótárát, és engedélyezi az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
   Distraction Free Settings:
     Hide Channels: Adjon meg egy csatornaazonosítót, hogy elrejtse az összes videót, lejátszási listát és magát a csatornát a keresési eredményekből, a felkapottak közül, a legnépszerűbbekből és az ajánlottak közül. A megadott csatornaazonosítónak pontosan egyeznie kell, valamint kis- és nagybetűérzékeny.
     Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}” beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
@@ -993,13 +993,13 @@ Tooltips:
     Hide Videos on Watch: Elrejti a megtekintett videókat a videók-, rövidek- és élő lapokról a feliratkozás- és a csatornaoldalon. Ez nem érinti a kezdőoldalon található csatornalapokat
   SponsorBlock Settings:
     UseDeArrowTitles: Cserélje le a videocímeket a DeArrow-ból, felhasználó által beküldött címekre.
-    UseDeArrowThumbnails: Videó miniatűr cseréje DeArrow miniatűrrel.
+    UseDeArrowThumbnails: Videóbélyegkép cseréje DeArrow bélyegképpel.
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson a megszakításhoz. | A következő videó lejátszása {nextVideoInterval} másodperc múlva. Kattintson a megszakításhoz. | A következő videó lejátszása {nextVideoInterval} másodperc múlva. Kattintson a megszakításhoz.
 More: Több
 Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube-webcím, nem nyitható meg az alkalmazásban
 Open New Window: Új ablak megnyitása
-Default Invidious instance has been cleared: Az alapértelmezett Invidious-példányt eltávolítva
-Default Invidious instance has been set to {instance}: 'Az alapértelmezett Invidious-példány {instance} beállítva'
+Default Invidious instance has been cleared: Alapértelmezett Invidious példány eltávolítva
+Default Invidious instance has been set to {instance}: 'Alapértelmezett Invidious példány {instance} beállítva'
 Search Bar:
   Clear Input: Bemenet törlése
   Remove: Eltávolítás
