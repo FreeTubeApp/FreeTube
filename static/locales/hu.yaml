@@ -27,7 +27,7 @@ Forward: 'Előre'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videók'
-  Shorts: Rövid videók
+  Shorts: Rövidek
   Live: Élő
   Posts: Bejegyzések
   Sort By: Rendezési szempont
@@ -117,7 +117,7 @@ Trending:
 Most Popular: 'Legnépszerűbb'
 Playlists: 'Lejátszási listák'
 User Playlists:
-  Your Playlists: 'Az Ön lejátszási listái'
+  Your Playlists: 'Saját lejátszási listák'
   Search bar placeholder: Lejátszási listák keresése
   Empty Search Message: Ebben a lejátszási listában nincsenek olyan videók, amelyek megfelelnek a keresésnek
   AddVideoPrompt:
@@ -531,16 +531,16 @@ Settings:
     Hide Channels Placeholder: Csatornaazonosító
     Display Titles Without Excessive Capitalisation: Címek túlzott nagybetűs írás és írásjelek nélkül való megjelenítése
     Hide Featured Channels: Kiemelt csatornák elrejtése
-    Hide Channel Playlists: Csatorna „lejátszási listák” lap elrejtése
-    Hide Channel Shorts: Csatorna „rövid videók” lap elrejtése
+    Hide Channel Playlists: „Lejátszási listák” csatornalap elrejtése
+    Hide Channel Shorts: „Rövidek” csatornalap elrejtése
     Sections:
       Side Bar: Oldalsáv
       Channel Page: Csatornalap
       Watch Page: Megtekintési lap
       General: Általános
       Subscriptions Page: Feliratkozások oldal
-    Hide Channel Podcasts: Csatorna „podcastok” lap elrejtése
-    Hide Channel Releases: Csatorna „kiadások” lap elrejtése
+    Hide Channel Podcasts: „Podcastok” csatornalap elrejtése
+    Hide Channel Releases: „Kiadások” csatornalap elrejtése
     Hide Subscriptions Shorts: Feliratkozások rövid videóinak elrejtése
     Hide Subscriptions Videos: Feliratkozási videók elrejtése
     Hide Subscriptions Live: Élő feliratkozások elrejtése
@@ -551,10 +551,10 @@ Settings:
     Hide Channels API Error: Hiba történt a megadott azonosítóval rendelkező felhasználó lekérésekor. Ellenőrizze még egyszer, hogy helyes-e az azonosító.
     Hide Videos, Playlists and Channels Containing Text Placeholder: Szó, szótöredék, vagy kifejezés
     Hide Videos, Playlists and Channels Containing Text: Szöveget tartalmazó videók és lejátszási listák elrejtése
-    Hide Channel Home: Csatorna „főoldal” lap elrejtése
+    Hide Channel Home: „Főoldal” csatornalap elrejtése
     Show Added Items: Hozzáadott elemek megjelenítése
     Hide Channel Courses: „Tanfolyamok” csatornalap elrejtése
-    Hide Channel Posts: Csatorna „Bejegyzések” lap elrejtése
+    Hide Channel Posts: „Bejegyzések” csatornalap elrejtése
     Hide Subscriptions Posts: Feliratkozási bejegyzések elrejtése
   The app needs to restart for changes to take effect. Restart and apply change?: Az alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon újra és alkalmazza a módosítást?
   Proxy Settings:
@@ -562,7 +562,7 @@ Settings:
     Region: Körzet
     Country: Ország
     Ip: IP-cím
-    Your Info: Az Ön adatai
+    Your Info: Saját adatok
     Clicking on Test Proxy will send a request to: 'A Proxy tesztelés gombra kattintva kérést küld a következő címre'
     Test Proxy: Proxy tesztelés
     Proxy Port Number: Proxy port száma
@@ -743,7 +743,7 @@ Channel:
     View Full Post: Teljes bejegyzés megtekintése
     Viewing Posts Only Supported By Invidious: A hozzászólások megtekintését csak az Invidious támogatja. Az Invidious nélkül is megtekintheti a csatornák közösségi fülét.
   Shorts:
-    This channel does not currently have any shorts: Ezen a csatornán jelenleg nincsenek rövid videók
+    This channel does not currently have any shorts: Ezen a csatornán jelenleg nincsenek rövidek
   This channel does not exist: Nem létezik ez a csatorna
   This channel does not allow searching: Keresés nem engedélyezett ezen a csatornán
   Releases:
@@ -990,7 +990,7 @@ Tooltips:
     Hide Channels: Adjon meg egy csatornaazonosítót, hogy elrejtse az összes videót, lejátszási listát és magát a csatornát a keresési eredményekből, a felkapottak közül, a legnépszerűbbekből és az ajánlottak közül. A megadott csatornaazonosítónak pontosan egyeznie kell, valamint kis- és nagybetűérzékeny.
     Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}” beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
     Hide Videos, Playlists and Channels Containing Text: Adjon meg egy szót, szótöredéket vagy kifejezést (nem érzékeny a nagy- és kisbetűkre), hogy elrejtse az összes olyan videót és lejátszási listát, amelynek eredeti címe tartalmazza ezt a szót vagy kifejezést a FreeTube egész területén, kivéve az előzményeket, a lejátszási listákat és a lejátszási listákon belüli videókat.
-    Hide Videos on Watch: Elrejti a megtekintett videókat a videók-, rövid videók- és élő lapokról a feliratkozás- és a csatornaoldalon. Ez nem érinti a kezdőoldalon található csatornalapokat
+    Hide Videos on Watch: Elrejti a megtekintett videókat a videók-, rövidek- és élő lapokról a feliratkozás- és a csatornaoldalon. Ez nem érinti a kezdőoldalon található csatornalapokat
   SponsorBlock Settings:
     UseDeArrowTitles: Cserélje le a videocímeket a DeArrow-ból, felhasználó által beküldött címekre.
     UseDeArrowThumbnails: Videó miniatűr cseréje DeArrow miniatűrrel.
