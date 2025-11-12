@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: English (US)
+Locale name: English (US)
 
 # Webkit Menu Bar
 File: File
@@ -13,27 +13,27 @@ Cut: Cut
 Copy: Copy
 Paste: Paste
 Delete: Delete
-Select all: Select all
+Select All: Select All
 Toggle Developer Tools: Toggle Developer Tools
-Actual size: Actual size
-Zoom in: Zoom in
-Zoom out: Zoom out
-Toggle fullscreen: Toggle fullscreen
+Actual Size: Actual Size
+Zoom In: Zoom In
+Zoom Out: Zoom Out
+Toggle Full Screen: Toggle Full Screen
 Window: Window
 Minimize: Minimize
 Close: Close
 Back: Back
 Forward: Forward
 Right-click or hold to see history: Right-click or hold to see history
-Open New Window: Open New Window
+Open new window: Open new window
 Go to page: Go to {page}
-Close Banner: Close Banner
+Close banner: Close banner
 
-Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
-  for more details
-Download From Site: Download From Site
-A new blog is now available, {blogTitle}. Click to view more: A new blog is now available, {blogTitle}.
-  Click to view more
+Version {versionNumber} is now available!  Click for more details.: Version {versionNumber} is now available!  Click
+  for more details.
+Download from site: Download from site
+A new blog is now available, {blogTitle}. Click to view more.: A new blog is now available, {blogTitle}.
+  Click to view more.
 Are you sure you want to open this link?: Are you sure you want to open this link?
 
 # Global
@@ -43,59 +43,59 @@ Global:
   Shorts: Shorts
   Live: Live
   Posts: Posts
-  Sort By: Sort By
+  Sort by: Sort by
   Counts:
-    Video Count: 1 video | {count} videos
-    Channel Count: 1 channel | {count} channels
-    Subscriber Count: 1 subscriber | {count} subscribers
-    View Count: 1 view | {count} views
-    Like Count: 1 like | {count} likes
-    Comment Count: 1 comment | {count} comments
-    Watching Count: 1 watching | {count} watching
+    Video count: 1 video | {count} videos
+    Channel count: 1 channel | {count} channels
+    Subscriber count: 1 subscriber | {count} subscribers
+    View count: 1 view | {count} views
+    Like count: 1 like | {count} likes
+    Comment count: 1 comment | {count} comments
+    Watching count: 1 watching | {count} watching
 
-# Search Bar
-Search / Go to URL: Search / Go to URL
-Search Bar:
-  Clear Input: Clear Input
+# Search bar
+Search / go to URL: Search / go to URL
+Search bar:
+  Clear input: Clear input
   Remove: Remove
 Search character limit: Search query is over the {searchCharacterLimit} character limit
-Search Listing:
+Search listing:
   Label:
     4K: 4K
     8K: 8K
     VR180: VR180
-    360 Video: 360°
+    360 video: 360°
     Subtitles: Subtitles
     New: New
     3D: 3D
     # Aria labels
     Closed Captions: Closed Captions
-  # In Filter Button
-Search Filters:
-  Search Filters: Search Filters
-  Sort By:
-    Most Relevant: Most Relevant
+  # In filter button
+Search filters:
+  Search filters: Search filters
+  Sort by:
+    Most relevant: Most relevant
     Rating: Rating
-    Upload Date: Upload Date
-    View Count: View Count
+    Upload date: Upload date
+    View count: View count
   Time:
     Time: Time
-    Any Time: Any Time
-    Last Hour: Last Hour
+    Any time: Any time
+    Last hour: Last hour
     Today: Today
-    This Week: This Week
-    This Month: This Month
-    This Year: This Year
+    This week: This week
+    This month: This month
+    This year: This year
   Type:
     Type: Type
-    All Types: All Types
+    All types: All types
     Videos: Videos
     Channels: Channels
     Movies: Movies
     #& Playlists
   Duration:
     Duration: Duration
-    All Durations: All Durations
+    All durations: All durations
     Short (< 4 minutes): Short (< 4 minutes)
     Medium (4 - 20 minutes): Medium (4 - 20 minutes)
     Long (> 20 minutes): Long (> 20 minutes)
@@ -107,7 +107,7 @@ Search Filters:
     3D: 3D
     Live: Live
     4K: 4K
-    360 Video: 360 Video
+    360 video: 360 video
     Location: Location
     HDR: HDR
     VR180: VR180
