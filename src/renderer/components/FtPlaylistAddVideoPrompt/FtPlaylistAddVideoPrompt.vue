@@ -373,11 +373,11 @@ function addSelectedToPlaylists() {
   const allPlaylists_ = allPlaylists.value
   const toBeAddedToPlaylistVideoList_ = toBeAddedToPlaylistVideoList.value
 
-  let videosToBeAdded
-
   selectedPlaylistIdList.value.forEach((selectedPlaylistId) => {
     const playlist = allPlaylists_.find((list) => list._id === selectedPlaylistId)
     if (playlist == null) { return }
+
+    let videosToBeAdded
 
     if (!addingDuplicateVideosEnabled.value) {
       const playlistVideoIds = playlist.videos.map((v) => v.videoId)
@@ -397,12 +397,10 @@ function addSelectedToPlaylists() {
 
   let message
   if (addedPlaylistIds.size === 1) {
-    message = t('User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to 1 playlist', {
-      videoCount: videosToBeAdded.length,
+    message = t('User Playlists.AddVideoPrompt.Toast.Video(s) added to 1 playlist', {
     }, toBeAddedToPlaylistVideoCount.value)
   } else {
-    message = t('User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to {playlistCount} playlists', {
-      videoCount: videosToBeAdded.length,
+    message = t('User Playlists.AddVideoPrompt.Toast.Video(s) added to {playlistCount} playlists', {
       playlistCount: addedPlaylistIds.size,
     }, toBeAddedToPlaylistVideoCount.value)
   }
