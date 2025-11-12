@@ -166,9 +166,9 @@ User Playlists:
     N playlists selected: Đã chọn {playlistCount}
     Search in Playlists: Tìm trong danh sách phát
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": Đã thêm 1 video vào {playlistCount} danh sách phát | Đã thêm {videoCount} video vào {playlistCount} danh sách phát
+      "Video(s) added to {playlistCount} playlists": Đã thêm 1 video vào {playlistCount} danh sách phát | Đã thêm {videoCount} video vào {playlistCount} danh sách phát
       You haven't selected any playlist yet.: Bạn đang chưa chọn danh sách phát nào.
-      "{videoCount} video(s) added to 1 playlist": Đã thêm 1 video vào 1 danh sách phát | Đã thêm {videoCount} vào 1 danh sách phát
+      "Video(s) added to 1 playlist": Đã thêm 1 video vào 1 danh sách phát | Đã thêm {videoCount} vào 1 danh sách phát
     Save: Lưu
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} đã có trong danh sách phát'
     Added {count} Times: Đã được thêm | Đã được thêm {count} lần

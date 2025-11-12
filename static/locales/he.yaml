@@ -175,8 +175,8 @@ User Playlists:
     Select a playlist to add your N videos to: בחר רשימת שידורים להוספת הסרטון שלך | בחר רשימת שידורים להוספת {videoCount} הסרטונים שלך
     Toast:
       You haven't selected any playlist yet.: עדיין לא נבחרה רשימת שידורים.
-      "{videoCount} video(s) added to 1 playlist": סרטון נוסף לרשימת השמעה | {videoCount} סרטונים נוספו לרשימת השמעה
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 סרטון הוסף ל{playlistCount} רשימות שידורים | {videoCount} סרטונים הוספו ל{playlistCount} רשימות שידורים
+      "Video(s) added to 1 playlist": סרטון נוסף לרשימת השמעה | {videoCount} סרטונים נוספו לרשימת השמעה
+      "Video(s) added to {playlistCount} playlists": 1 סרטון הוסף ל{playlistCount} רשימות שידורים | {videoCount} סרטונים הוספו ל{playlistCount} רשימות שידורים
   CreatePlaylistPrompt:
     Create: יצירה
     New Playlist Name: שם חדש לרשימת נגינה

@@ -146,8 +146,8 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videoer vil bli lagt til'
     Toast:
       You haven't selected any playlist yet.: Du har ikke valgt noen spillelister enda.
-      "{videoCount} video(s) added to 1 playlist": 1 video lagt til 1 spilleliste | {videoCount} videoer lagt til 1 spilleliste
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video lagt til {playlistCount} spillelister | {videoCount} videoer lagt til  {playlistCount} spillelister
+      "Video(s) added to 1 playlist": 1 video lagt til 1 spilleliste | {videoCount} videoer lagt til 1 spilleliste
+      "Video(s) added to {playlistCount} playlists": 1 video lagt til {playlistCount} spillelister | {videoCount} videoer lagt til  {playlistCount} spillelister
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videoer allerede lagt til'
     Added {count} Times: Allerede lagt til | Lagt til {count} ganger
     Select a playlist to add your N videos to: Velg en spilleliste å legge videoen til | Velg en spilleliste å legge dine {videoCount} videoer til

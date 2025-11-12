@@ -139,8 +139,8 @@ User Playlists:
     Search in Playlists: Otsi esindusloenditest
     Save: Salvesta
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video on lisatud {playlistCount} esitusloendisse | {videoCount} videot on lisatud {playlistCount} esitusloendisse
-      "{videoCount} video(s) added to 1 playlist": 1 video on lisatud 1'te esitusloendisse | {videoCount} videot on lisatud 1'te esitusloendisse
+      "Video(s) added to {playlistCount} playlists": 1 video on lisatud {playlistCount} esitusloendisse | {videoCount} videot on lisatud {playlistCount} esitusloendisse
+      "Video(s) added to 1 playlist": 1 video on lisatud 1'te esitusloendisse | {videoCount} videot on lisatud 1'te esitusloendisse
       You haven't selected any playlist yet.: Sa pole veel ühtegi esitusloendit valinud.
     Select a playlist to add your N videos to: Vali esitusloend, kuhu soovid oma video lisada | Vali esitusloend, kuhu soovid oma {videoCount} videot lisada
     N playlists selected: '{playlistCount} valitud'

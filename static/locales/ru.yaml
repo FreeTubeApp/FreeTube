@@ -159,8 +159,8 @@ User Playlists:
     Save: Сохранить
     Toast:
       You haven't selected any playlist yet.: Вы не выбрали ни одного плейлиста.
-      "{videoCount} video(s) added to 1 playlist": 1 видео добавлено в 1 плейлист| {videoCount} видео добавлено в 1 плейлист
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 видео добавлено в {videoCount} плейлистов | {playlistCount} видео добавлено в {videoCount} плейлистов
+      "Video(s) added to 1 playlist": 1 видео добавлено в 1 плейлист| {videoCount} видео добавлено в 1 плейлист
+      "Video(s) added to {playlistCount} playlists": 1 видео добавлено в {videoCount} плейлистов | {playlistCount} видео добавлено в {videoCount} плейлистов
     Select a playlist to add your N videos to: Выберите плейлист для добавления видео | Выберите плейлист для добавления {videoCount} видео
     Added {count} Times: Уже добавлено | Добавлено {count} раз
     Allow Adding Duplicate Video(s): Разрешить добавление дубликатов видео
