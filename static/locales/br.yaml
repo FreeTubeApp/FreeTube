@@ -241,8 +241,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: 'N''ho peus diuzet ur roll-videoioù c''hoazh.'
-      "Videos added to 1 playlist": "1 video ouzhpennet d'1 roll-videoioù | video ouzhpennet d'1 roll-videoioù"
-      "Videos added to {playlistCount} playlists": "1 video ouzhpennet da {playlistCount} roll-videoioù | video ouzhpennet da  {playlistCount} roll-videoioù"
+      "Video(s) added to {playlistCount} playlists": "1 video ouzhpennet da {playlistCount} roll-videoioù | video ouzhpennet da  {playlistCount} roll-videoioù"
   CreatePlaylistPrompt:
     New Playlist Name: 'Anv nevez ar roll-videoioù'
     Create: 'Krouiñ'

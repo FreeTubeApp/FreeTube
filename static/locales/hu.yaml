@@ -124,8 +124,7 @@ User Playlists:
     Search in Playlists: Keresés a lejátszási listában
     Save: Mentés
     Toast:
-      "Videos added to {playlistCount} playlists": videó hozzáadva a {playlistCount} lejátszási listákhoz | videó hozzáadása a {playlistCount} lejátszási listákhoz
-      "Videos added to 1 playlist": 1 videó hozzáadva 1 lejátszási listához | videó hozzáadása 1 lejátszási listához
+      "Video(s) added to {playlistCount} playlists": videó hozzáadva a {playlistCount} lejátszási listákhoz | videó hozzáadása a {playlistCount} lejátszási listákhoz
       You haven't selected any playlist yet.: Még nem választott ki egyetlen lejátszási listát sem.
     Select a playlist to add your N videos to: Válasszon ki egy lejátszási listát a videó hozzáadásához | Válasszon ki egy lejátszási listát a {videoCount} videó hozzáadásához
     N playlists selected: '{playlistCount} kiválasztva'

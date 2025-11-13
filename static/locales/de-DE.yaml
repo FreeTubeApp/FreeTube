@@ -164,8 +164,7 @@ User Playlists:
     Save: Speichern
     Toast:
       You haven't selected any playlist yet.: Du hast noch keine Playlist ausgewählt.
-      "Videos added to 1 playlist": 1 Video zu 1 Playlist hinzugefügt | Videos zu 1 Playlist hinzugefügt
-      "Videos added to {playlistCount} playlists": Video zu {playlistCount} Playlists hinzugefügt | Videos zu {playlistCount} Playlists hinzugefügt
+      "Video(s) added to {playlistCount} playlists": Video zu {playlistCount} Playlists hinzugefügt | Videos zu {playlistCount} Playlists hinzugefügt
     Select a playlist to add your N videos to: Wähle eine Playlist, der du dein Video hinzufügen möchtest | Wähle eine Playlist, der du deine {videoCount} Videos hinzufügen möchtest
     Added {count} Times: 'Bereits hinzugefügt | {count} Mal hinzugefügt'
     Allow Adding Duplicate Video(s): Hinzufügen doppelter Videos zulassen

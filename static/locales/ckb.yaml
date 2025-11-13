@@ -185,8 +185,7 @@ User Playlists:
     Search in Playlists: گەڕان لەناو پێڕستی لێدانەکان
     Toast:
       You haven't selected any playlist yet.: هێشتا هیچ پێڕستێکی لێدانت دیاری نەکردووە.
-      "Videos added to {playlistCount} playlists": ڤیدیۆیەک زیاد کرا بۆ {playlistCount} پێڕستی لێدان | ڤیدیۆ زیاد کرا بۆ {playlistCount} پێڕستی لێدان
-      "Videos added to 1 playlist": ڤیدیۆیەک زیاد کرا بۆ یەک پێڕستی لێدان | ڤیدیۆ زیاد کرا بۆ یەک پێڕستی لێدان
+      "Video(s) added to {playlistCount} playlists": ڤیدیۆیەک زیاد کرا بۆ {playlistCount} پێڕستی لێدان | ڤیدیۆ زیاد کرا بۆ {playlistCount} پێڕستی لێدان
     Allow Adding Duplicate Video(s): ڕێ بە زیادکردنی ڤیدیۆی دووبارە بدە
     N playlists selected: '{playlistCount} دیاریکراوە'
   CreatePlaylistPrompt:

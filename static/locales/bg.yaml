@@ -173,8 +173,7 @@ User Playlists:
     N playlists selected: '{playlistCount} избрани'
     Toast:
       You haven't selected any playlist yet.: Все още не сте избрали плейлист.
-      "Videos added to 1 playlist": Добавено 1 видео в 1 плейлист | Добавени видеа в 1 плейлист
-      "Videos added to {playlistCount} playlists": Добавено видео към {playlistCount} плейлиста | Добавени видеа към {playlistCount} плейлиста
+      "Video(s) added to {playlistCount} playlists": Добавено видео към {playlistCount} плейлиста | Добавени видеа към {playlistCount} плейлиста
     Save: Запазване
     Added {count} Times: Вече е добавено | Добавено {count} пъти
     "{videoCount}/{totalVideoCount} Videos Already Added": Вече са добавени {videoCount}/{totalVideoCount} видеа

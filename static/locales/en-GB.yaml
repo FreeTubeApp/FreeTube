@@ -166,9 +166,8 @@ User Playlists:
     Search in Playlists: Search in playlists
     Save: Save
     Toast:
-      "Videos added to 1 playlist": Video added to 1 playlist | Videos added to 1 playlist
       You haven't selected any playlist yet.: You haven't selected any playlist yet.
-      "Videos added to {playlistCount} playlists": Video added to {playlistCount} playlists | Videos added to  {playlistCount} playlists
+      "Video(s) added to {playlistCount} playlists": Video added to {playlistCount} playlists | Videos added to  {playlistCount} playlists
     Select a playlist to add your N videos to: Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to
     Added {count} Times: Already Added | Added {count} times
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videos will be added'

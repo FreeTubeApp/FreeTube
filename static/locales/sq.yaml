@@ -242,8 +242,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: 'Nuk ke zgjedhur akoma asnjë playlist.'
-      "Videos added to 1 playlist": "1 video shtuar në 1 playlist | video shtuar në 1 playlist"
-      "Videos added to {playlistCount} playlists": "1 video shtuar në {playlistCount} playlist | video shtuar në {playlistCount} playlist"
+      "Video(s) added to {playlistCount} playlists": "1 video shtuar në {playlistCount} playlist | video shtuar në {playlistCount} playlist"
   CreatePlaylistPrompt:
     New Playlist Name: 'Emri i playlist'
     Create: 'Krijo'
