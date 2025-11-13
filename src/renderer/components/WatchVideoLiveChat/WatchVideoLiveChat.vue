@@ -42,15 +42,31 @@
       v-else
       class="relative"
     >
-      <h4>
-        {{ t("Video.Live Chat") }}
+      <div
+        class="titleContainer"
+      >
         <span
-          v-if="!hideVideoViews && watchingCount !== null"
-          class="watchingCount"
+          class="title"
         >
-          {{ t('Global.Counts.Watching Count', { count: formattedWatchingCount }, watchingCount) }}
+          {{ t("Video.Live Chat") }}
+          <span
+            v-if="!hideVideoViews && watchingCount !== null"
+            class="watchingCount"
+          >
+            {{ t('Global.Counts.Watching Count', { count: formattedWatchingCount }, watchingCount) }}
+          </span>
         </span>
-      </h4>
+        <button
+          class="popoutChatButton"
+          :title="$t('Video.Popout Live Chat')"
+          @click="popoutChat"
+        >
+          <FontAwesomeIcon
+            class="popoutChatIcon"
+            :icon="['fas', 'fa-arrow-up-right-from-square']"
+          />
+        </button>
+      </div>
       <div
         v-if="superChatComments.length > 0"
         class="superChatComments"
@@ -571,6 +587,12 @@ function scrollToBottom() {
   stayAtBottom = true
   showScrollToBottom.value = false
 }
+
+function popoutChat() {
+  const url = `https://www.youtube.com/live_chat?is_popout=1&v=${props.videoId}`
+  window.open(url, '_blank', 'noreferrer')
+}
+
 </script>
 
 <style scoped src="./WatchVideoLiveChat.css" />

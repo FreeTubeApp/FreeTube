@@ -232,3 +232,38 @@
   position: relative;
   inset-block-start: 0.45rem;
 }
+
+.popoutChatButton {
+  border-radius: 50%;
+  border-style: none;
+  background-color: transparent;
+  line-height: 1em;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  font-size: 20px;
+  transition: background 0.2s ease-out;
+
+  &:hover {
+    background-color: var(--side-nav-hover-color);
+    color: var(--side-nav-hover-text-color);
+    transition: background 0.2s ease-in;
+  }
+
+  &:active {
+    background-color: var(--tertiary-text-color);
+    color: var(--side-nav-active-text-color);
+    transition: background 0.2s ease-in;
+  }
+}
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 1em;
+
+  .title,
+  .popoutChatButton {
+    padding: 10px;
+  }
+}
+
