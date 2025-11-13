@@ -267,13 +267,35 @@ export default defineComponent({
     })
 
     /** @type {import('vue').ComputedRef<number>} */
-    const defaultSkipInterval = computed(() => {
-      return store.getters.getDefaultSkipInterval
+    const wheelSkipInterval = computed(() => {
+      return store.getters.getWheelSkipInterval
     })
 
-    watch(defaultSkipInterval, (newValue) => {
+    watch(wheelSkipInterval, (newValue) => {
       ui.configure({
-        tapSeekDistance: newValue
+        tapSeekWheelDistance: newValue
+      })
+    })
+
+    /** @type {import('vue').ComputedRef<number>} */
+    const fwdSkipInterval = computed(() => {
+      return store.getters.getFwdSkipInterval
+    })
+
+    watch(fwdSkipInterval, (newValue) => {
+      ui.configure({
+        tapSeekFwdDistance: newValue
+      })
+    })
+
+    /** @type {import('vue').ComputedRef<number>} */
+    const rewSkipInterval = computed(() => {
+      return store.getters.getRewSkipInterval
+    })
+
+    watch(rewSkipInterval, (newValue) => {
+      ui.configure({
+        tapSeekRewDistance: newValue
       })
     })
 
@@ -908,7 +930,9 @@ export default defineComponent({
           addBigPlayButton: displayVideoPlayButton.value,
           enableFullscreenOnRotation: enterFullscreenOnDisplayRotate.value,
           playbackRates: playbackRates.value,
-          tapSeekDistance: defaultSkipInterval.value,
+          tapSeekWheelDistance: wheelSkipInterval.value,
+          tapSeekFwdDistance: fwdSkipInterval.value,
+          tapSeekRewDistance: rewSkipInterval.value,
 
           // we have our own ones (shaka-player's ones are quite limited)
           enableKeyboardPlaybackControls: false,
@@ -2010,9 +2034,9 @@ export default defineComponent({
      */
     function mouseScrollSkip(event) {
       if ((event.deltaY < 0 || event.deltaX > 0)) {
-        seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate(), true)
+        seekBySeconds(wheelSkipInterval.value * player.getPlaybackRate(), true)
       } else if ((event.deltaY > 0 || event.deltaX < 0)) {
-        seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate(), true)
+        seekBySeconds(-wheelSkipInterval.value * player.getPlaybackRate(), true)
       }
     }
     const mouseScrollSkipThrottle = throttle(mouseScrollSkip, mouseScrollThrottleWaitMs)
@@ -2176,12 +2200,12 @@ export default defineComponent({
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_REWIND:
           // Rewind by 2x the time-skip interval (in seconds)
           event.preventDefault()
-          seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate() * 2, false, true)
+          seekBySeconds(-rewSkipInterval.value * player.getPlaybackRate() * 2, false, true)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_FAST_FORWARD:
           // Fast-Forward by 2x the time-skip interval (in seconds)
           event.preventDefault()
-          seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate() * 2, false, true)
+          seekBySeconds(fwdSkipInterval.value * player.getPlaybackRate() * 2, false, true)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED:
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED_ALT:
@@ -2240,7 +2264,7 @@ export default defineComponent({
             showOverlayControls()
           } else {
             // Rewind by the time-skip interval (in seconds)
-            seekBySeconds(-defaultSkipInterval.value * player.getPlaybackRate(), false, true)
+            seekBySeconds(-rewSkipInterval.value * player.getPlaybackRate(), false, true)
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_FAST_FORWARD:
@@ -2251,7 +2275,7 @@ export default defineComponent({
             showOverlayControls()
           } else {
             // Fast-Forward by the time-skip interval (in seconds)
-            seekBySeconds(defaultSkipInterval.value * player.getPlaybackRate(), false, true)
+            seekBySeconds(fwdSkipInterval.value * player.getPlaybackRate(), false, true)
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE:

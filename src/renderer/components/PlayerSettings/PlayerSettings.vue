@@ -19,11 +19,10 @@
           @change="updateEnableSubtitlesByDefault"
         />
         <FtToggleSwitch
-          :label="t('Settings.Player Settings.Scroll Volume Over Video Player')"
+          :label="t('Settings.Player Settings.Enter Fullscreen on Display Rotate')"
           :compact="true"
-          :disabled="videoSkipMouseScroll"
-          :default-value="videoVolumeMouseScroll"
-          @change="updateVideoVolumeMouseScroll"
+          :default-value="enterFullscreenOnDisplayRotate"
+          @change="updateEnterFullscreenOnDisplayRotate"
         />
         <FtToggleSwitch
           :label="t('Settings.Player Settings.Scroll Playback Rate Over Video Player')"
@@ -31,14 +30,6 @@
           :default-value="videoPlaybackRateMouseScroll"
           :tooltip="t('Tooltips.Player Settings.Scroll Playback Rate Over Video Player')"
           @change="updateVideoPlaybackRateMouseScroll"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Player Settings.Skip by Scrolling Over Video Player')"
-          :compact="true"
-          :disabled="videoVolumeMouseScroll"
-          :default-value="videoSkipMouseScroll"
-          :tooltip="t('Tooltips.Player Settings.Skip by Scrolling Over Video Player')"
-          @change="updateVideoSkipMouseScroll"
         />
       </div>
       <div class="switchColumn">
@@ -67,11 +58,37 @@
           :default-value="displayVideoPlayButton"
           @change="updateDisplayVideoPlayButton"
         />
+      </div>
+    </div>
+    <div class="switchColumnGrid">
+      <div class="switchColumn">
         <FtToggleSwitch
-          :label="t('Settings.Player Settings.Enter Fullscreen on Display Rotate')"
+          :label="t('Settings.Player Settings.Scroll Volume Over Video Player')"
           :compact="true"
-          :default-value="enterFullscreenOnDisplayRotate"
-          @change="updateEnterFullscreenOnDisplayRotate"
+          :disabled="videoSkipMouseScroll"
+          :default-value="videoVolumeMouseScroll"
+          @change="updateVideoVolumeMouseScroll"
+        />
+        <FtToggleSwitch
+          :label="t('Settings.Player Settings.Skip by Scrolling Over Video Player')"
+          :compact="true"
+          :disabled="videoVolumeMouseScroll"
+          :default-value="videoSkipMouseScroll"
+          :tooltip="t('Tooltips.Player Settings.Skip by Scrolling Over Video Player')"
+          @change="updateVideoSkipMouseScroll"
+        />
+      </div>
+      <div class="switchColumn">
+        <br>
+        <FtSlider
+          :label="t('Settings.Player Settings.Mouse Wheel Interval')"
+          :default-value="wheelSkipInterval"
+          :disabled="!videoSkipMouseScroll || videoVolumeMouseScroll"
+          :min-value="0"
+          :max-value="10"
+          :step=".1"
+          value-extension="s"
+          @change="updateWheelSkipInterval"
         />
       </div>
     </div>
@@ -130,13 +147,22 @@
         @change="updateDefaultAutoplayInterruptionIntervalHours"
       />
       <FtSlider
-        :label="t('Settings.Player Settings.Fast-Forward / Rewind Interval')"
-        :default-value="defaultSkipInterval"
+        :label="t('Settings.Player Settings.Fast-Forward Interval')"
+        :default-value="fwdSkipInterval"
         :min-value="1"
         :max-value="70"
         :step="1"
         value-extension="s"
-        @change="updateDefaultSkipInterval"
+        @change="updateFwdSkipInterval"
+      />
+      <FtSlider
+        :label="t('Settings.Player Settings.Rewind Interval')"
+        :default-value="rewSkipInterval"
+        :min-value="1"
+        :max-value="70"
+        :step="1"
+        value-extension="s"
+        @change="updateRewSkipInterval"
       />
       <FtSlider
         :label="t('Settings.Player Settings.Default Volume')"
@@ -526,13 +552,33 @@ function updateDefaultAutoplayInterruptionIntervalHours(value) {
 }
 
 /** @type {import('vue').ComputedRef<number>} */
-const defaultSkipInterval = computed(() => store.getters.getDefaultSkipInterval)
+const wheelSkipInterval = computed(() => store.getters.getWheelSkipInterval)
 
 /**
  * @param {number} value
  */
-function updateDefaultSkipInterval(value) {
-  store.dispatch('updateDefaultSkipInterval', value)
+function updateWheelSkipInterval(value) {
+  store.dispatch('updateWheelSkipInterval', value)
+}
+
+/** @type {import('vue').ComputedRef<number>} */
+const fwdSkipInterval = computed(() => store.getters.getFwdSkipInterval)
+
+/**
+ * @param {number} value
+ */
+function updateFwdSkipInterval(value) {
+  store.dispatch('updateFwdSkipInterval', value)
+}
+
+/** @type {import('vue').ComputedRef<number>} */
+const rewSkipInterval = computed(() => store.getters.getRewSkipInterval)
+
+/**
+ * @param {number} value
+ */
+function updateRewSkipInterval(value) {
+  store.dispatch('updateRewSkipInterval', value)
 }
 
 /** @type {import('vue').ComputedRef<number>} */
