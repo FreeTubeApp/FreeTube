@@ -171,8 +171,8 @@ User Playlists:
     Search for Videos: Buscar vídeos
   AddVideoPrompt:
     Toast:
-      "Video(s) added to 1 playlist": 1 vídeo adicionado a 1 playlist | {videoCount} vídeos adicionados a 1 playlist
-      "Video(s) added to {playlistCount} playlists": 1 vídeo adicionado a {playlistCount} playlists | {videoCount} vídeos adicionados a {playlistCount} playlists
+      "Videos added to 1 playlist": 1 vídeo adicionado a 1 playlist | vídeos adicionados a 1 playlist
+      "Videos added to {playlistCount} playlists": vídeo adicionado a {playlistCount} playlists | vídeos adicionados a {playlistCount} playlists
       You haven't selected any playlist yet.: Você ainda não selecionou nenhuma playlist.
     Select a playlist to add your N videos to: Selecione uma playlist para adicionar seu vídeo | Selecione uma playlist para adicionar seus {videoCount} vídeos
     N playlists selected: '{playlistCount} selecionada(s)'

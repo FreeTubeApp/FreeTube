@@ -166,9 +166,9 @@ User Playlists:
     Search in Playlists: Procurar nas listas de reprodução
     Save: Guardar
     Toast:
-      "Video(s) added to {playlistCount} playlists": 1 vídeo adicionado a {playlistCount} listas de reprodução | {videoCount} vídeos adicionados a {playlistCount} listas de reprodução
+      "Videos added to {playlistCount} playlists": vídeo adicionado a {playlistCount} listas de reprodução | vídeos adicionados a {playlistCount} listas de reprodução
       You haven't selected any playlist yet.: Ainda não selecionou uma lista de reprodução.
-      "Video(s) added to 1 playlist": 1 vídeo adicionado a 1 lista de reprodução | {videoCount} vídeos adicionados a 1 lista de reprodução
+      "Videos added to 1 playlist": 1 vídeo adicionado a 1 lista de reprodução | vídeos adicionados a 1 lista de reprodução
     Select a playlist to add your N videos to: Selecione uma lista de reprodução à qual adicionar o seu vídeo | Selecione uma lista de reprodução à qual adicionar os seus {videoCount} vídeos
     N playlists selected: '{playlistCount} selecionados'
     Added {count} Times: Já adicionado | Adicionado {count} vezes

@@ -175,9 +175,9 @@ User Playlists:
     Select a playlist to add your N videos to: Vyberte zoznam videí, do ktorého chcete pridať svoje video | Vyberte zoznam videí, do ktorého chcete pridať svoje {videoCount} videá
     "{videoCount}/{totalVideoCount} Videos Already Added": 'Počet už pridaných videí: {videoCount}/{totalVideoCount}'
     Toast:
-      "Video(s) added to {playlistCount} playlists": 1 video pridané do {playlistCount} zoznamov skladieb | {videoCount} videí pridaných do {playlistCount} zoznamov skladieb
+      "Videos added to {playlistCount} playlists": video pridané do {playlistCount} zoznamov skladieb | videí pridaných do {playlistCount} zoznamov skladieb
       You haven't selected any playlist yet.: Zatiaľ ste nevybrali žiadny zoznam skladieb.
-      "Video(s) added to 1 playlist": 1 video pridané do 1 zoznamu videí | {videoCount} videí pridaných do 1 zoznamu videí
+      "Videos added to 1 playlist": 1 video pridané do 1 zoznamu videí | videí pridaných do 1 zoznamu videí
     Save: uložiť
     "{videoCount}/{totalVideoCount} Videos Will Be Added": Budú pridané videá ({videoCount}/{totalVideoCount})
   Quick Bookmark Enabled: Rýchle záložky povolené

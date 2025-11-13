@@ -239,8 +239,8 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: 'நீங்கள் இதுவரை எந்த பிளேலிச்ட்டையும் தேர்வு செய்யவில்லை.'
-      "Video(s) added to 1 playlist": "1 பிளேலிச்ட்டில் 1 வீடியோ சேர்க்கப்பட்டது | {videoCount} வீடியோக்கள் 1 பிளேலிச்ட்டில் சேர்க்கப்பட்டன"
-      "Video(s) added to {playlistCount} playlists": "1 பிளேலிச்ட்கவுண்ட்} பிளேலிச்ட்களில் 1 வீடியோ சேர்க்கப்பட்டது {playlistCount} வீடியோக்கள் {videoCount} பிளேலிச்ட்களில் சேர்க்கப்பட்டன"
+      "Videos added to 1 playlist": "1 பிளேலிச்ட்டில் 1 வீடியோ சேர்க்கப்பட்டது | வீடியோக்கள் 1 பிளேலிச்ட்டில் சேர்க்கப்பட்டன"
+      "Videos added to {playlistCount} playlists": "1 பிளேலிச்ட்கவுண்ட்} பிளேலிச்ட்களில் வீடியோ சேர்க்கப்பட்டது {playlistCount} வீடியோக்கள் பிளேலிச்ட்களில் சேர்க்கப்பட்டன"
   CreatePlaylistPrompt:
     New Playlist Name: 'புதிய பிளேலிச்ட் பெயர்'
     Create: 'உருவாக்கு'

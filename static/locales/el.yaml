@@ -152,8 +152,8 @@ User Playlists:
     Search in Playlists: Αναζήτηση σε λίστες αναπαραγωγής
     Toast:
       You haven't selected any playlist yet.: Δεν έχετε επιλέξει καμία λίστα αναπαραγωγής ακόμα.
-      "Video(s) added to 1 playlist": 1 βίντεο προστέθηκε σε 1 λίστα αναπαραγωγής | {videoCount} βίντεο που προστέθηκαν σε 1 λίστα αναπαραγωγής
-      "Video(s) added to {playlistCount} playlists": 1 βίντεο προστέθηκε στις λίστες αναπαραγωγής {playlistCount} | {videoCount} βίντεο προστέθηκε στις λίστες αναπαραγωγής {playlistCount}
+      "Videos added to 1 playlist": 1 βίντεο προστέθηκε σε 1 λίστα αναπαραγωγής | βίντεο που προστέθηκαν σε 1 λίστα αναπαραγωγής
+      "Videos added to {playlistCount} playlists": βίντεο προστέθηκε στις λίστες αναπαραγωγής {playlistCount} | βίντεο προστέθηκε στις λίστες αναπαραγωγής {playlistCount}
     Allow Adding Duplicate Video(s): Επίτρεψε την προσθήκη διπλών βίντεο( ών)
     Added {count} Times: Προστέθηκε ήδη | Προστέθηκε {count} Φορές
     Save: Αποθήκευση

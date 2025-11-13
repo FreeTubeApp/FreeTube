@@ -122,9 +122,9 @@ User Playlists:
     Search in Playlists: جستجو در لیست‌های پخش
     Allow Adding Duplicate Video(s): اجازه افزودن ویدیو(های) تکراری
     Toast:
-      "Video(s) added to {playlistCount} playlists": 1 ویدیو به {playlistCount} لیست پخش اضافه شد | {videoCount} ویدیو به {playlistCount} لیست پخش اضافه شد
+      "Videos added to {playlistCount} playlists": ویدیو به {playlistCount} لیست پخش اضافه شد | ویدیو به {playlistCount} لیست پخش اضافه شد
       You haven't selected any playlist yet.: هنوز هیچ لیست پخشی را انتخاب نکرده‌اید.
-      "Video(s) added to 1 playlist": 1 ویدیو به 1 لیست پخش اضافه شد | {videoCount} ویدیو به 1 لیست پخش اضافه شد
+      "Videos added to 1 playlist": 1 ویدیو به 1 لیست پخش اضافه شد | ویدیو به 1 لیست پخش اضافه شد
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} ویدیو از قبل اضافه شده'
     N playlists selected: '{playlistCount} انتخاب شد'
     Added {count} Times: قبلا اضافه شده | {count} بار اضافه شد

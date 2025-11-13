@@ -147,8 +147,8 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} відэа ўжо дададзена'
     Toast:
       You haven't selected any playlist yet.: Вы яшчэ не выбралі плэй-ліст.
-      "Video(s) added to {playlistCount} playlists": 1 відэа дададзена ў {playlistCount} плэй-лістоў | {videoCount} відэа дададзены ў {playlistCount} плэй-лістоў
-      "Video(s) added to 1 playlist": 1 відэа дададзена ў 1 плэй-ліст | {videoCount} відэа дададзены ў 1 плэй-ліст
+      "Videos added to {playlistCount} playlists": відэа дададзена ў {playlistCount} плэй-лістоў | відэа дададзены ў {playlistCount} плэй-лістоў
+      "Videos added to 1 playlist": 1 відэа дададзена ў 1 плэй-ліст | відэа дададзены ў 1 плэй-ліст
     Select a playlist to add your N videos to: Выберыце плэй-ліст, каб дадаць сваё відэа | Выберыце плэй-ліст, каб дадаць у яго {videoCount} відэа
     Search in Playlists: Пошук у плэй-лістах
     Added {count} Times: Ужо дададзена | Дададзена {count} разоў

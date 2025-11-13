@@ -141,8 +141,8 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videoclipuri vor fi adăugate'
     Toast:
       You haven't selected any playlist yet.: Nu ați selectat încă nicio listă de redare.
-      "Video(s) added to 1 playlist": 1 videoclip adăugat la 1 listă de redare | {videoCount} videoclipuri adăugate la 1 listă de redare
-      "Video(s) added to {playlistCount} playlists": 1 videoclip adăugat la {playlistCount} liste de redare | {videoCount} videoclipuri adăugate la {playlistCount} liste de redare
+      "Videos added to 1 playlist": 1 videoclip adăugat la 1 listă de redare | videoclipuri adăugate la 1 listă de redare
+      "Videos added to {playlistCount} playlists": videoclip adăugat la {playlistCount} liste de redare | videoclipuri adăugate la {playlistCount} liste de redare
     N playlists selected: '{playlistCount} Selectat'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videoclipuri deja adăugate'
     Search in Playlists: Caută in listele de redare
