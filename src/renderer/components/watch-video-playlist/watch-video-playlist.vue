@@ -120,28 +120,6 @@
             :icon="['fas', 'exchange-alt']"
           />
         </button>
-        <button
-          class="playlistButton"
-          :aria-label="$t('Video.Play Previous Video')"
-          :title="$t('Video.Play Previous Video')"
-          @click="playPreviousVideo"
-        >
-          <font-awesome-icon
-            class="playlistIcon"
-            :icon="['fas', 'step-backward']"
-          />
-        </button>
-        <button
-          class="playlistButton"
-          :aria-label="$t('Video.Play Next Video')"
-          :title="$t('Video.Play Next Video')"
-          @click="playNextVideo"
-        >
-          <font-awesome-icon
-            class="playlistIcon"
-            :icon="['fas', 'step-forward']"
-          />
-        </button>
       </div>
       <div
         v-if="!isLoading"
