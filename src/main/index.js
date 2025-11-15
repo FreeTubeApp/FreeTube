@@ -2391,7 +2391,7 @@ function runApp() {
             },
             type: 'normal'
           },
-          !hideTrendingVideos && {
+          (!hideTrendingVideos && (backendFallback || backendPreference === 'local')) && {
             label: 'Trending',
             click: (_menuItem, browserWindow, _event) => {
               navigateTo('/trending', browserWindow)
