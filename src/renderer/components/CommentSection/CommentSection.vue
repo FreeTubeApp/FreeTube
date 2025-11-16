@@ -136,7 +136,7 @@
             class="commentHeartBadge"
           >
             <img
-              :src="channelThumbnail"
+              :src="channelThumbnail.replace(/^app:\/\//, 'https://').replace(/^\/\//, 'https://')"
               :title="$t('Comments.Hearted')"
               :aria-label="$t('Comments.Hearted')"
               class="commentHeartBadgeImg"
@@ -240,7 +240,7 @@
                 class="commentHeartBadge"
               >
                 <img
-                  :src="channelThumbnail"
+                  :src="channelThumbnail.replace(/^app:\/\//, 'https://').replace(/^\/\//, 'https://')""
                   :title="$t('Comments.Hearted')"
                   :aria-label="$t('Comments.Hearted')"
                   class="commentHeartBadgeImg"
