@@ -74,7 +74,7 @@ const channelThumbnail = computed(() => {
     store.getters.getCurrentInvidiousInstanceUrl
   )
 })
-  
+
 onMounted(async () => {
   id.value = route.params.id
   authorId.value = route.query.authorId
