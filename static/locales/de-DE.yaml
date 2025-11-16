@@ -270,15 +270,15 @@ Settings:
       Gruvbox Light: Gruvbox Hell
       Gruvbox Dark: Gruvbox Dunkel
       Catppuccin Frappe: Catppuccin Frappe
-      Everforest Dark Hard: Everforest Dunkelhart
-      Everforest Dark Medium: Everforest Dunkelmittel
-      Everforest Dark Low: Everforest Dunkelniedrig
-      Everforest Light Hard: Everforest Hellhart
-      Everforest Light Medium: Everforest Hellmittel
-      Everforest Light Low: Everforest Hellniedrig
+      Everforest Dark Hard: Everforest Dunkel (harter Kontrast)
+      Everforest Dark Medium: Everforest Dunkel (normaler Kontrast)
+      Everforest Dark Low: Everforest Dunkel (softer Kontrast)
+      Everforest Light Hard: Everforest Hell (harter Kontrast)
+      Everforest Light Medium: Everforest Hell (normaler Kontrast)
+      Everforest Light Low: Everforest Hell (softer Kontrast)
       Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
-      Main Color Theme: Hauptfarbe des Farbschemas
+      Main Color Theme: Hauptfarbe
       Red: Rot
       Pink: Rosa
       Purple: Lila
@@ -312,9 +312,9 @@ Settings:
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rosenwasser
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
       Catppuccin Mocha Pink: Catppuccin Mocha Pink
-      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Mauve: Catppuccin Mocha Malve
       Catppuccin Mocha Red: Catppuccin Mocha Rot
-      Catppuccin Mocha Maroon: Catppuccin Mocha Kastanienbraun
+      Catppuccin Mocha Maroon: Catppuccin Mocha Kastanie
       Catppuccin Mocha Teal: Catppuccin Mokka Blaugrün
       Solarized Red: Solarisiertes Rot
       Solarized Yellow: Solarisiertes Gelb
@@ -334,20 +334,20 @@ Settings:
       Gruvbox Dark Aqua: Gruvbox dunkles Wasser
       Gruvbox Light Orange: Gruvbox Hellorange
       Gruvbox Dark Blue: Gruvbox Dunkelblau
-      Catppuccin Frappe Yellow: Catppuccin Frappe gelb
-      Catppuccin Frappe Sky: Catppuccin Frappe himmelblau
-      Catppuccin Frappe Mauve: Catppuccin Frappe malvenfarben
-      Catppuccin Frappe Blue: Catppuccin Frappe blau
+      Catppuccin Frappe Yellow: Catppuccin Frappe Gelb
+      Catppuccin Frappe Sky: Catppuccin Frappe Himmel
+      Catppuccin Frappe Mauve: Catppuccin Frappe Malve
+      Catppuccin Frappe Blue: Catppuccin Frappe Blau
       Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
-      Catppuccin Frappe Red: Catppuccin Frappe rot
-      Catppuccin Frappe Teal: Catppuccin Frappe blaugrün
-      Catppuccin Frappe Peach: Catppuccin Frappe pfirsichfarben
+      Catppuccin Frappe Red: Catppuccin Frappe Rot
+      Catppuccin Frappe Teal: Catppuccin Frappe Blaugrün
+      Catppuccin Frappe Peach: Catppuccin Frappe Pfirsich
       Catppuccin Frappe Rosewater: Catppuccin Frappe Rosenwasser
-      Catppuccin Frappe Green: Catppuccin Frappe grün
-      Catppuccin Frappe Sapphire: Catppuccin Frappe saphirblau
-      Catppuccin Frappe Pink: Catppuccin Frappe pink
-      Catppuccin Frappe Lavender: Catppuccin Frappe lavendelfarben
-      Catppuccin Frappe Maroon: Catppuccin Frappe kastanienbraun
+      Catppuccin Frappe Green: Catppuccin Frappe Grün
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Saphir
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavendel
+      Catppuccin Frappe Maroon: Catppuccin Frappe Kastanie
       Everforest Dark Red: Everforest Dunkelrot
       Everforest Dark Orange: Everforest Dunkelorange
       Everforest Dark Yellow: Everforest Dunkelgelb
@@ -362,9 +362,9 @@ Settings:
       Everforest Light Aqua: Everforest Helltürkis
       Everforest Light Blue: Everforest Hellblau
       Everforest Light Purple: Everforest Helllilla
-      Catppuccin Latte Mauve: Catppuccin Latte rötliches Violett
+      Catppuccin Latte Mauve: Catppuccin Latte Malve
       Catppuccin Latte Red: Catppuccin Latte Rot
-    Secondary Color Theme: Sekundäres Farbschema
+    Secondary Color Theme: Sekundäre Farbe
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
     Disable Smooth Scrolling: Gleichmäßiges Scrollen deaktivieren
