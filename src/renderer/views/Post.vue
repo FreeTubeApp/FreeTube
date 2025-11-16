@@ -18,7 +18,7 @@
         :video-player-ready="false"
         :force-state="null"
         :is-post-comments="true"
-        :channel-thumbnail="post.authorThumbnails[0].url"
+        :channel-thumbnail="channelThumbnail"
         :show-sort-by="backendPreference == 'local'"
       />
     </template>
@@ -38,7 +38,7 @@ import CommentSection from '../components/CommentSection/CommentSection.vue'
 
 import store from '../store/index'
 
-import { getInvidiousCommunityPost } from '../helpers/api/invidious'
+import { getInvidiousCommunityPost, youtubeImageUrlToInvidious } from '../helpers/api/invidious'
 import { getLocalCommunityPost } from '../helpers/api/local'
 import { copyToClipboard, showToast } from '../helpers/utils'
 
@@ -62,6 +62,19 @@ const backendFallback = computed(() => {
   return store.getters.getBackendFallback
 })
 
+const channelThumbnail = computed(() => {
+  if (!post.value?.authorThumbnails?.length) return ''
+
+  const thumb = post.value.authorThumbnails[0] // small-sized thumbnail
+
+  if (!thumb?.url) return ''
+
+  return youtubeImageUrlToInvidious(
+    thumb.url,
+    store.getters.getCurrentInvidiousInstanceUrl
+  )
+})
+  
 onMounted(async () => {
   id.value = route.params.id
   authorId.value = route.query.authorId
