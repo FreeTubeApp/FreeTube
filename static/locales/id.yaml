@@ -169,7 +169,7 @@ User Playlists:
   AddVideoPrompt:
     Toast:
       You haven't selected any playlist yet.: Anda belum memilih daftar putar apa pun.
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
     N playlists selected: '{playlistCount} Dipilih'
     Search in Playlists: Cari di Daftar Putar
     Save: Simpan

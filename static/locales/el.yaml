@@ -152,7 +152,7 @@ User Playlists:
     Search in Playlists: Αναζήτηση σε λίστες αναπαραγωγής
     Toast:
       You haven't selected any playlist yet.: Δεν έχετε επιλέξει καμία λίστα αναπαραγωγής ακόμα.
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
     Allow Adding Duplicate Video(s): Επίτρεψε την προσθήκη διπλών βίντεο( ών)
     Added {count} Times: Προστέθηκε ήδη | Προστέθηκε {count} Φορές
     Save: Αποθήκευση

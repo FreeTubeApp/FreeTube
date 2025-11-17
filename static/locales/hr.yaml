@@ -169,7 +169,7 @@ User Playlists:
     Save: Spremi
     Toast:
       You haven't selected any playlist yet.: Još nisi odabrao/la nijednu zbirku.
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
     Select a playlist to add your N videos to: Odaberi zbirku za dodavanje tvog videa | Odaberi zbirku za dodavanje tvojih {videoCount} videa
     Added {count} Times: Već dodano | Dodano {count} puta
     Allow Adding Duplicate Video(s): Dozvoli dodavanje duplih videa

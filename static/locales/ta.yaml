@@ -239,7 +239,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: 'நீங்கள் இதுவரை எந்த பிளேலிச்ட்டையும் தேர்வு செய்யவில்லை.'
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
     New Playlist Name: 'புதிய பிளேலிச்ட் பெயர்'
     Create: 'உருவாக்கு'

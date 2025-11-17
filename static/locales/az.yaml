@@ -170,7 +170,7 @@ User Playlists:
     Added {count} Times: Artıq Əlavə Edilib | {count} dəfə əlavə edildi
     Toast:
       You haven't selected any playlist yet.: Siz hələ heç bir pleylist seçməmisiniz.
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Video Artıq Əlavə Edilib'
   Remove Duplicate Videos: Eyni Videoları Sil
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Bu pleylistdən 1 eyni videonu silmək istədiyinizə əminsiniz? Bu geri alına bilməz | {playlistItemCount} eyni videonu bu pleylistdən silmək istədiyinizə əminsiniz? Bu geri alına bilməz.

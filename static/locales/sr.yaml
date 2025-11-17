@@ -125,7 +125,7 @@ User Playlists:
     Search in Playlists: Претрага у плејлистама
     Save: Сачувај
     Toast:
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Још увек нисте изабрали ниједну плејлисту.
     Select a playlist to add your N videos to: Изаберите плејлисту на коју желите да додате видео снимак | Изаберите плејлисту на коју желите да додате {videoCount} видео снимака
     N playlists selected: 'Изабрано: {playlistCount}'

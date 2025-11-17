@@ -242,7 +242,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: 'Nuk ke zgjedhur akoma asnjë playlist.'
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
     New Playlist Name: 'Emri i playlist'
     Create: 'Krijo'

@@ -118,7 +118,7 @@ User Playlists:
   AddVideoPrompt:
     Toast:
       You haven't selected any playlist yet.: هێشتا هیچ لیستێکی پەخشکردنت دیاری نەکردووە.
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
     Select a playlist to add your N videos to: لیستێکی پەخشکردن دەسنیشان بکە بۆ زیادکردنی ڤیدیۆکەت بۆ | لیستێکی پەخشکردن دەسنیشان بکە بۆ زیادکردنی ڤیدیۆکانی {videoCount} بۆی
     Allow Adding Duplicate Video(s): ڕێگە بدە بە زیادکردنی ڤیدیۆ(ەکان)ی دووبارە
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} ڤیدیۆکان پێشتر زیادکراون'

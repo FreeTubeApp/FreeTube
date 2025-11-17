@@ -164,7 +164,7 @@ User Playlists:
     Save: 儲存
     Toast:
       You haven't selected any playlist yet.: 您尚未選取任何播放清單。
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
     Added {count} Times: 已新增 | 新增了 {count} 次
     Allow Adding Duplicate Video(s): 允許新增重複影片
     "{videoCount}/{totalVideoCount} Videos Already Added": 已新增 {videoCount}/{totalVideoCount} 部影片

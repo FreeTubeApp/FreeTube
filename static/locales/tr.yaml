@@ -163,7 +163,7 @@ User Playlists:
     Save: Kaydet
     Toast:
       You haven't selected any playlist yet.: Henüz bir oynatma listesi seçmediniz.
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
     N playlists selected: '{playlistCount} Seçildi'
     Search in Playlists: Oynatma Listelerinde Ara
     Added {count} Times: 'Zaten Eklendi | {count} Defa Eklendi'

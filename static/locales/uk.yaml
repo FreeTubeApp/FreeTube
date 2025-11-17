@@ -186,7 +186,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Відео буде додано'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Відео вже додано'
     Toast:
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Ви ще не вибрали жодної добірки.
     N playlists selected: '{playlistCount} вибрано'
     Select a playlist to add your N videos to: Виберіть добірку, до якої ви хочете додати своє відео | Виберіть добірку, до якої ви хочете додати свої {videoCount} відео

@@ -147,7 +147,7 @@ User Playlists:
     Added {count} Times: Wedi'u Hychwanegu Eisoes | Ychwanegwyd {count} Gwaith
     Toast:
       You haven't selected any playlist yet.: Nid ydych wedi dewis unrhyw restr chwarae eto.
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
     Allow Adding Duplicate Video(s): Caniatáu Ychwanegu Fideo(s) Dyblyg
     "{videoCount}/{totalVideoCount} Videos Will Be Added": "{videoCount}/{totalVideoCount} Fideo i'w Hychwanegu"
     N playlists selected: "{playlistCount} Wedi'u Dewis"

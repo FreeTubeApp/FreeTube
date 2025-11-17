@@ -169,7 +169,7 @@ User Playlists:
   Playlist Description: Descrição da lista de reprodução
   AddVideoPrompt:
     Toast:
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Ainda não selecionou uma lista de reprodução.
     Select a playlist to add your N videos to: Selecione uma lista de reprodução à qual adicionar o seu vídeo | Selecione uma lista de reprodução à qual adicionar os seus {videoCount} vídeos
     N playlists selected: '{playlistCount} selecionados'

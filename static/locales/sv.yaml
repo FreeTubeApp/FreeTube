@@ -154,7 +154,7 @@ User Playlists:
     N playlists selected: '{playlistCount} valda'
     Toast:
       You haven't selected any playlist yet.: Du har inte valt någon spellista ännu.
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
     Allow Adding Duplicate Video(s): Tillåt tilläggning av dubblettvideo(n)
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videor Kommer Att Läggas Till'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videor Redan Tillagda'

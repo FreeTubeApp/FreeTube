@@ -142,7 +142,7 @@ User Playlists:
     Search in Playlists: Zoeken in afspeellijsten
     Toast:
       You haven't selected any playlist yet.: U heeft nog geen afspeellijst geselecteerd.
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
     Select a playlist to add your N videos to: Selecteer een afspeellijst om je video aan toe te voegen | Selecteer een afspeellijst om je {videoCount} video's aan toe te voegen
     Added {count} Times: 'Video is al toegevoegd | {count} keer toegevoegd'
     Allow Adding Duplicate Video(s): Toevoegen van dubbele video's toestaan

@@ -165,7 +165,7 @@ User Playlists:
     N playlists selected: '{playlistCount} valgt'
     Search in Playlists: Søg i playlister
     Toast:
-      "Video(s) added to {playlistCount} playlists":
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Du har ikke valgt nogen playliste endnu.
     Added {count} Times: Allerede tilføjet | Tilføjet {count} gange
     Save: Gem
