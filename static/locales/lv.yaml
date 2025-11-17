@@ -124,10 +124,7 @@ Channels:
   Unsubscribe Prompt: 'Vai esi drošs, ka vēlies atcelt abonementu no "{channelName}"?'
 Trending:
   Trending: 'Pašlaik topā'
-  Default: 'Viss'
-  Music: 'Mūzika'
   Gaming: 'Spēles'
-  Movies: 'Filmas'
   Trending Tabs: 'Tendenču cilnes'
 Most Popular: 'Vispopulārākie'
 Playlists: 'Atskaņošanas saraksti'

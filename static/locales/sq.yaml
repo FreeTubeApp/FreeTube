@@ -140,10 +140,7 @@ Channels:
   Unsubscribe Prompt: 'A je i sigurt se do të heqësh abonimin nga "{channelName}"?'
 Trending:
   Trending: 'Në trend'
-  Default: 'Parazgjedhur'
-  Music: 'Muzikë'
   Gaming: 'Lojëra'
-  Movies: 'Filma'
   Trending Tabs: 'Skeda në trend'
 Most Popular: 'Më populloret'
 Feed:

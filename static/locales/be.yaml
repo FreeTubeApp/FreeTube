@@ -125,10 +125,7 @@ Channels:
   Unsubscribe Prompt: 'Сапраўды хочаце адпісацца ад «{channelName}»?'
 Trending:
   Trending: 'У трэндзе'
-  Default: 'Па змаўчанні'
-  Music: 'Музыка'
   Gaming: 'Гульні'
-  Movies: 'Фільмы'
   Trending Tabs: 'Укладкі Трэндаў'
 Most Popular: 'Папулярныя'
 Playlists: 'Плэй-лісты'

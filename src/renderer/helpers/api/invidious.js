@@ -530,43 +530,6 @@ export async function getInvidiousPopularFeed() {
 }
 
 /**
- * @param {'default' | 'music' | 'gaming' | 'movies'} tab
- * @param {string} region
- * @returns {Promise<InvidiousVideoType[] | null>}
- */
-export async function getInvidiousTrending(tab, region) {
-  const params = {
-    resource: 'trending',
-    id: '',
-    params: {
-      region
-    }
-  }
-
-  if (tab !== 'default') {
-    params.params.type = tab.charAt(0).toUpperCase() + tab.substring(1)
-  }
-
-  const response = await invidiousAPICall(params)
-
-  if (!response) {
-    return null
-  }
-
-  const items = response.filter((item) => {
-    return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
-  })
-
-  items.forEach((item) => {
-    if (item.type === 'video') {
-      setPublishedTimestamp(item)
-    }
-  })
-
-  return items
-}
-
-/**
  * @param {string} query
  * @param {number} page
  * @param {any} searchSettings

@@ -55,7 +55,7 @@
         </p>
       </router-link>
       <router-link
-        v-if="!hideTrendingVideos"
+        v-if="SUPPORTS_LOCAL_API && !hideTrendingVideos && (backendFallback || backendPreference === 'local')"
         class="navOption mobileHidden"
         role="button"
         to="/trending"
@@ -255,6 +255,8 @@ import { deepCopy, localizeAndAddKeyboardShortcutToActionTitle } from '../../hel
 import { KeyboardShortcuts } from '../../../constants'
 
 const { locale, t } = useI18n()
+
+const SUPPORTS_LOCAL_API = process.env.SUPPORTS_LOCAL_API
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const isOpen = computed(() => {

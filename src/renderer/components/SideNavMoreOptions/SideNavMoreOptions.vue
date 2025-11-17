@@ -56,7 +56,7 @@
         </p>
       </router-link>
       <router-link
-        v-if="!hideTrendingVideos"
+        v-if=" SUPPORTS_LOCAL_API && trendingVisible"
         class="navOption"
         :title="$t('Trending.Trending')"
         :aria-label="hideLabelsSideBar ? $t('Trending.Trending') : null"
@@ -202,13 +202,16 @@ import { useRouter } from 'vue-router'
 
 import store from '../../store/index'
 
+const SUPPORTS_LOCAL_API = process.env.SUPPORTS_LOCAL_API
+
 const openMoreOptions = ref(false)
 
 const menuRef = ref(null)
 
 /** @type {import('vue').ComputedRef<boolean>} */
-const hideTrendingVideos = computed(() => {
-  return store.getters.getHideTrendingVideos
+const trendingVisible = computed(() => {
+  return !store.getters.getHideTrendingVideos &&
+    (store.getters.getBackendFallback || store.getters.getBackendPreference === 'local')
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */
