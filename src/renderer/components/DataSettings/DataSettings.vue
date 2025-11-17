@@ -5,7 +5,7 @@
     <h4 class="groupTitle">
       {{ $t('Subscriptions.Subscriptions') }}
     </h4>
-    <FtFlexBox class="dataSettingsBox">
+    <FtFlexBox class="box">
       <FtButton
         :label="$t('Settings.Data Settings.Import Subscriptions')"
         @click="importSubscriptions"
@@ -29,7 +29,7 @@
     <h4 class="groupTitle">
       {{ $t('History.History') }}
     </h4>
-    <FtFlexBox class="dataSettingsBox">
+    <FtFlexBox class="box">
       <FtButton
         :label="$t('Settings.Data Settings.Import History')"
         @click="importWatchHistory"
@@ -42,7 +42,7 @@
     <h4 class="groupTitle">
       {{ $t('Playlists') }}
     </h4>
-    <FtFlexBox class="dataSettingsBox">
+    <FtFlexBox class="box">
       <FtButton
         :label="$t('Settings.Data Settings.Import Playlists')"
         @click="importPlaylists"
@@ -55,7 +55,7 @@
     <h4 class="groupTitle">
       {{ t('Settings.Data Settings.Search history') }}
     </h4>
-    <FtFlexBox class="dataSettingsBox">
+    <FtFlexBox class="box">
       <FtButton
         :label="t('Settings.Data Settings.Import search history')"
         @click="importSearchHistory"
@@ -84,18 +84,18 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { useI18n } from '../composables/use-i18n-polyfill'
+import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRouter } from 'vue-router'
 
-import FtButton from './FtButton/FtButton.vue'
-import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
-import FtPrompt from './FtPrompt/FtPrompt.vue'
-import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
+import FtButton from '../FtButton/FtButton.vue'
+import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtPrompt from '../FtPrompt/FtPrompt.vue'
+import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 
-import store from '../store/index'
+import store from '../../store/index'
 
-import { MAIN_PROFILE_ID } from '../../constants'
-import { calculateColorLuminance, getRandomColor } from '../helpers/colors'
+import { MAIN_PROFILE_ID } from '../../../constants'
+import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
 import {
   deepCopy,
   escapeHTML,
@@ -103,8 +103,8 @@ import {
   readFileWithPicker,
   showToast,
   writeFileWithPicker,
-} from '../helpers/utils'
-import { processToBeAddedPlaylistVideo } from '../helpers/playlists'
+} from '../../helpers/utils'
+import { processToBeAddedPlaylistVideo } from '../../helpers/playlists'
 
 const IMPORT_DIRECTORY_ID = 'data-settings-import'
 const START_IN_DIRECTORY = 'downloads'
@@ -1403,3 +1403,5 @@ async function exportYouTubeSearchHistory() {
 
 // #endregion search history
 </script>
+
+<style scoped src="./DataSettings.css" />
