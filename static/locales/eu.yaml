@@ -182,7 +182,7 @@ User Playlists:
     Added {count} Times: Gehitu da | {count} aldiz gehitu da
     Toast:
       You haven't selected any playlist yet.: Oraindik ez duzu erreprodukzio zerrendarik hautatu.
-      "Video(s) added to {playlistCount} playlists": Bideo gehitu da {playlistCount} erreprodukzio zerrendetan | bideo gehitu dira {playlistCount} erreprodukzio-zerrendetan
+      "Video(s) added to {playlistCount} playlists":
     Select a playlist to add your N videos to: Hautatu erreprodukzio-zerrenda zure bideoa -ra gehitzeko | Hautatu erreprodukzio-zerrenda zure {videoCount} bideoak gehitzeko
     N playlists selected: '{playlistCount} hautatuta'
     Search in Playlists: Bilatu erreprodukzio-zerrendetan

@@ -117,7 +117,7 @@ User Playlists:
     Search in Playlists: 在播放列表中搜索
     Save: 保存
     Toast:
-      "Video(s) added to {playlistCount} playlists": 添加了 则视频到 {playlistCount} 个播放列表 | 添加了 则视频到 {playlistCount} 个播放列表
+      "Video(s) added to {playlistCount} playlists":
       You haven't selected any playlist yet.: 你尚未选中任何播放列表。
     Select a playlist to add your N videos to: 选择一个播放列表来添加你的视频 | 选择一个播放列表来添加你的 {videoCount} 个视频
     N playlists selected: 选中了 {playlistCount} 个播放列表

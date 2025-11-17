@@ -159,7 +159,7 @@ User Playlists:
     Save: Сохранить
     Toast:
       You haven't selected any playlist yet.: Вы не выбрали ни одного плейлиста.
-      "Video(s) added to {playlistCount} playlists": видео добавлено в {videoCount} плейлистов | {playlistCount} видео добавлено в плейлистов
+      "Video(s) added to {playlistCount} playlists":
     Select a playlist to add your N videos to: Выберите плейлист для добавления видео | Выберите плейлист для добавления {videoCount} видео
     Added {count} Times: Уже добавлено | Добавлено {count} раз
     Allow Adding Duplicate Video(s): Разрешить добавление дубликатов видео

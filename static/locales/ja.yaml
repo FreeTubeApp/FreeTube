@@ -170,7 +170,7 @@ User Playlists:
     Allow Adding Duplicate Video(s): 重複した動画の追加を許可する
     Toast:
       You haven't selected any playlist yet.: まだ再生リストを選択していません。
-      "Video(s) added to {playlistCount} playlists": 本の動画が {playlistCount} 個の再生リストに追加されました | 本の動画が {playlistCount} 個の再生リストに追加されました
+      "Video(s) added to {playlistCount} playlists":
     Search in Playlists: 再生リストで検索
     N playlists selected: '{playlistCount} 選択中'
     Save: 保存

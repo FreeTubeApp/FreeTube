@@ -117,7 +117,7 @@ User Playlists:
     Search in Playlists: Szukaj w playlistach
     Save: Zapisz
     Toast:
-      "Video(s) added to {playlistCount} playlists": film dodano do {playlistCount} playlist | film(y/ów) dodano do {playlistCount} playlist
+      "Video(s) added to {playlistCount} playlists":
       You haven't selected any playlist yet.: Nie wybrano jeszcze żadnych playlist.
     Select a playlist to add your N videos to: Wybierz playlistę, do której chcesz dodać swój film | Wybierz playlistę, do której chcesz dodać swoje {videoCount} film(y/ów)
     N playlists selected: Zaznaczono {playlistCount}

@@ -163,7 +163,7 @@ User Playlists:
     Save: Tallenna
     Toast:
       You haven't selected any playlist yet.: Et ole valinnut yhtäkään soittolistaa.
-      "Video(s) added to {playlistCount} playlists": video lisätty {playlistCount}-soittolistoihin | videot lisätty {playlistCount}-soittolistoihin
+      "Video(s) added to {playlistCount} playlists":
     Added {count} Times: Jo lisätty | Lisätty {count} kertaa
     Search in Playlists: Haku soittolistoista
     Select a playlist to add your N videos to: Valitse soittoluettelo, johon haluat lisätä videosi | Valitse soittoluettelo, johon haluat lisätä {videoCount}-videot

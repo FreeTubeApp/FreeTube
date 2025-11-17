@@ -248,7 +248,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: ''
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists":
   CreatePlaylistPrompt:
     New Playlist Name: ''
     Create: ''

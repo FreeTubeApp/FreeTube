@@ -166,7 +166,7 @@ User Playlists:
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ¿Estás seguro de que deseas eliminar 1 video visto de esta lista de reproducción? Esto no se puede deshacer.
   AddVideoPrompt:
     Toast:
-      "Video(s) added to {playlistCount} playlists": '{videoCount} videos agregados a {playlistCount} playlists'
+      "Video(s) added to {playlistCount} playlists":
       You haven't selected any playlist yet.: Aún no has seleccionado ninguna playlist.
     Save: Guardar
     Allow Adding Duplicate Video(s): Permitir agregar videos duplicados
