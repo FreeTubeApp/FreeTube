@@ -277,6 +277,7 @@ Settings:
       Everforest Dark Medium: Everforest tối trung bình
       Everforest Light Hard: Everforest Nhẹ Cứng
       Everforest Light Medium: Everforest Light trung bình
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Màu chủ đề chính'
       Red: 'Đỏ'
@@ -362,6 +363,8 @@ Settings:
       Gruvbox Dark Purple: Gruvbox Tím Đậm
       Gruvbox Dark Aqua: Gruvbox màu tối Aqua
       Gruvbox Light Orange: Gruvbox màu cam nhạt
+      Catppuccin Latte Mauve: Catppuccin Latte Cẩm quỳ
+      Catppuccin Latte Red: Catppuccin Latte Đỏ
     Secondary Color Theme: 'Màu chủ đề phụ'
         #* Main Color Theme
     UI Scale: Tỉ lệ UI
@@ -467,6 +470,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Xuất danh sách phát cho các phiên bản FreeTube cũ hơn
       Tooltip: "Tùy chọn này sẽ gộp tất cả các danh sách phát vào một danh sách phát mang tên 'Ưa thích'.\nCách để nhập & xuất video trong danh sách phát cho một phiên bản cũ hơn của FreeTube:\n1. Xuất danh sách phát với tùy chọn này được bật.\n2. Xóa tất cả các danh sách phát qua tùy chọn Xóa tất cả danh sách phát trong mục Cài đặt quyền riêng tư.\n3. Mở phiên bản cũ hơn và nhập danh sách phát đã được xuất ra."
+    Search history: Lịch sử tìm kiếm
+    Import search history: Nhập lịch sử tìm kiếm
+    Export search history: Xuất lịch sử tìm kiếm
+    All search history has been successfully imported: Tất cả lịch sử tìm kiếm đã được nhập thành công
+    All search history has been successfully exported: Toàn bộ lịch sử tìm kiếm đã được xuất thành công
+    Search history file: Tập tin lịch sử tìm kiếm
   Distraction Free Settings:
     Hide Live Chat: Ẩn live chat
     Hide Popular Videos: Ẩn video phổ biến
@@ -878,10 +887,13 @@ Comments:
   Member: Thành viên
   Pinned by: Được ghim bởi
   Show More Replies: Hiện thêm câu trả lời
-  View {replyCount} replies: Hiển thị {replyCount} câu trả lời
+  View {replyCount} replies: Xem 1 phản hồi | Xem {replyCount} phản hồi
   Hearted: Đã thả tim
   Subscribed: Đã đăng ký
   There are no comments available for this post: Không có bình luận nào cho bài đăng này
+  Hide {replyCount} replies: Ẩn 1 phản hồi | Ẩn {replyCount} phản hồi
+  View 1 reply from {channelName}: Xem 1 phản hồi từ {channelName}
+  View {replyCount} replies from {channelName} and others: Xem {replyCount} phản hồi từ {channelName} và những người khác
 Up Next: 'Tiếp theo'
 
 # Toast Messages

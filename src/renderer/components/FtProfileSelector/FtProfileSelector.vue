@@ -119,7 +119,7 @@ const activeProfile = computed(() => store.getters.getActiveProfile)
 
 const activeProfileInitial = computed(() => {
   return activeProfile.value?.name
-    ? getFirstCharacter(translateProfileName(activeProfile.value), locale.value).toUpperCase()
+    ? getFirstCharacter(translateProfileName(activeProfile.value), locale.value)
     : ''
 })
 
@@ -129,7 +129,7 @@ const profileInitials = computed(() => {
 
   return profileList.value.reduce((initials, profile) => {
     initials[profile._id] = profile?.name
-      ? getFirstCharacter(translateProfileName(profile), locale_).toUpperCase()
+      ? getFirstCharacter(translateProfileName(profile), locale_)
       : ''
 
     return initials

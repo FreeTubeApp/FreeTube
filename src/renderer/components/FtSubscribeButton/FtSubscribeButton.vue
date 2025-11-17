@@ -169,7 +169,7 @@ const profileInitials = computed(() => {
 
   return profileList.value.reduce((accumulator, profile) => {
     accumulator[profile._id] = profile.name
-      ? getFirstCharacter(profile.name, locale_).toUpperCase()
+      ? getFirstCharacter(profile.name, locale_)
       : ''
 
     return accumulator
@@ -182,7 +182,7 @@ const hideChannelSubscriptions = computed(() => {
 })
 
 const subscribedText = computed(() => {
-  let subscribedValue = (isProfileSubscribed(activeProfile.value) ? t('Channel.Unsubscribe') : t('Channel.Subscribe')).toUpperCase()
+  let subscribedValue = (isProfileSubscribed(activeProfile.value) ? t('Channel.Unsubscribe') : t('Channel.Subscribe'))
   if (props.subscriptionCountText !== '' && !hideChannelSubscriptions.value) {
     subscribedValue += ' ' + props.subscriptionCountText
   }

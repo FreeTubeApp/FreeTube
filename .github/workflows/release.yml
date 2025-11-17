@@ -17,7 +17,7 @@ jobs:
   build:
     strategy:
       matrix:
-        node-version: [22.x]
+        node-version: [24.x]
         runtime:
           - linux-x64
           - linux-armv7l

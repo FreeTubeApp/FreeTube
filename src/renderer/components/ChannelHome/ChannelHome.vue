@@ -3,6 +3,7 @@
     <div
       v-for="(shelf, index) in filteredShelves"
       :key="index"
+      class="shelfContainer"
     >
       <details
         open

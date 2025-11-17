@@ -275,6 +275,7 @@ Settings:
       Everforest Light Hard: Everforest Светлый Глубокий
       Everforest Light Medium: Everforest Светлый Средний
       Everforest Light Low: Everforest Светлый Лёгкий
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Основной цвет темы'
       Red: 'Красный'
@@ -360,6 +361,8 @@ Settings:
       Everforest Light Aqua: Аква - Everforest Light
       Everforest Light Blue: Синий - Everforest Light
       Everforest Light Purple: Фиолетовый - Everforest Light
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Red
     Secondary Color Theme: 'Дополнительный цвет темы'
         #* Main Color Theme
     UI Scale: Масштаб интерфейса
@@ -492,6 +495,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Экспортировать подборки для старых выпусков FreeTube
       Tooltip: "Эта настройка экспортирует видео из всех плейлистов в один с названием «Избранное».\nКак экспортировать и импортировать видео в плейлистах для старых версий FreeTube:\n1. Экспортируй свои плейлисты с этой включённой настройкой.\n 2. Удали все свои существующие плейлисты, используя настройку удаления всех плейлистов под разделом Настройки Конфиденциальности.\n3. Запусти старую версию Freetube и импортируй экспортированные ранее плейлисты."
+    Search history file: Файл истории поиска
+    Search history: История поиска
+    Import search history: Импортировать историю поиска
+    Export search history: Экспортировать историю поиска
+    All search history has been successfully imported: Вся история поиска успешно импортирована
+    All search history has been successfully exported: Вся история поиска успешно экспортирована
   Distraction Free Settings:
     Hide Live Chat: Скрыть чат прямой трансляции
     Hide Popular Videos: Скрыть популярные видео
@@ -876,10 +885,13 @@ Comments:
   Show More Replies: Показать больше ответов
   Pinned by: Закреплено
   Member: Участник
-  View {replyCount} replies: Смотреть {replyCount} ответа(ов)
+  View {replyCount} replies: Смотреть 1 ответ | Смотреть {replyCount} ответа(ов)
   Hearted: С сердечком
   Subscribed: Подписан(а)
   There are no comments available for this post: Для этой записи нет доступных комментариев
+  Hide {replyCount} replies: Скрыть 1 ответ | Скрыть {replyCount} ответа(ов)
+  View 1 reply from {channelName}: Смотреть 1 ответ от {channelName}
+  View {replyCount} replies from {channelName} and others: Смотреть {replyCount} ответа(ов) от {channelName} и других
 Up Next: 'Следующий'
 
 # Toast Messages
