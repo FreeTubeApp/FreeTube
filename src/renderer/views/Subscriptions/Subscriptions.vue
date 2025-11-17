@@ -131,7 +131,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, ref, watch } from 'vue'
+import { computed, ref, useTemplateRef, watch } from 'vue'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
@@ -244,14 +244,10 @@ function changeTab(tab) {
   }
 }
 
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const videosTab = ref(null)
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const liveTab = ref(null)
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const shortsTab = ref(null)
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const communityTab = ref(null)
+const videosTab = useTemplateRef('videosTab')
+const liveTab = useTemplateRef('liveTab')
+const shortsTab = useTemplateRef('shortsTab')
+const communityTab = useTemplateRef('communityTab')
 
 /**
  * @param {KeyboardEvent} event

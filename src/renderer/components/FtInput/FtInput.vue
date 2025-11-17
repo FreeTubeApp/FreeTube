@@ -113,7 +113,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, reactive, ref, shallowRef, useId, watch } from 'vue'
+import { computed, reactive, ref, shallowRef, useId, useTemplateRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtTooltip from '../FtTooltip/FtTooltip.vue'
@@ -195,7 +195,7 @@ const emit = defineEmits(['clear', 'click', 'input', 'remove'])
 
 const id = useId()
 
-const inputRef = ref(null)
+const inputRef = useTemplateRef('inputRef')
 
 const inputData = ref(props.value)
 const searchState = reactive({

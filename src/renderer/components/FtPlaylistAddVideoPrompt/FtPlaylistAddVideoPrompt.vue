@@ -101,7 +101,7 @@
 </template>
 
 <script setup>
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -282,7 +282,7 @@ const anyPlaylistContainsVideosToBeAdded = computed(() => {
   return playlistIdsContainingVideosToBeAdded.value.size > 0
 })
 
-const searchBar = ref(null)
+const searchBar = useTemplateRef('searchBar')
 
 watch(allPlaylistsLength, (val, oldVal) => {
   const allPlaylistIds = new Set()

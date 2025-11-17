@@ -80,7 +80,7 @@
 </template>
 
 <script setup>
-import { computed, nextTick, ref, useId } from 'vue'
+import { computed, nextTick, ref, useId, useTemplateRef } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRouter } from 'vue-router'
 
@@ -143,7 +143,7 @@ function isActiveProfile(profile) {
   return profile._id === activeProfile.value._id
 }
 
-const profileListRef = ref(null)
+const profileListRef = useTemplateRef('profileListRef')
 
 function toggleProfileList() {
   profileListShown.value = !profileListShown.value
@@ -178,8 +178,7 @@ function handleProfileListFocusOut() {
   }
 }
 
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const iconButton = ref(null)
+const iconButton = useTemplateRef('iconButton')
 
 function handleProfileListEscape() {
   iconButton.value?.focus()
