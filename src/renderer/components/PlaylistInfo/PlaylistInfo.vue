@@ -263,7 +263,7 @@
 </template>
 
 <script setup>
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRouter } from 'vue-router'
 
@@ -609,7 +609,7 @@ async function savePlaylistInfo() {
   }
 }
 
-const playlistTitleInput = ref(null)
+const playlistTitleInput = useTemplateRef('playlistTitleInput')
 
 function enterEditMode() {
   newTitle.value = props.title
@@ -893,7 +893,7 @@ const updateQueryDebounced = debounce((newQuery) => {
   emit('search-video-query-change', newQuery)
 }, 500)
 
-const searchInput = ref(null)
+const searchInput = useTemplateRef('searchInput')
 
 /**
  * @param {KeyboardEvent} event
