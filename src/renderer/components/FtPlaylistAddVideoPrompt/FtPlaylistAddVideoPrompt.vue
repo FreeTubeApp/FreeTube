@@ -397,7 +397,7 @@ function addSelectedToPlaylists() {
 
   showToast(t('User Playlists.AddVideoPrompt.Toast.Video(s) added to {playlistCount} playlists', {
     playlistCount: addedPlaylistIds.size,
-  }, addedPlaylistIds.value))
+  }, addedPlaylistIds.size))
 
   hide()
 }
