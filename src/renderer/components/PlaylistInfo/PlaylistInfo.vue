@@ -68,13 +68,13 @@
         </h2>
         <p>
           {{ t('Global.Counts.Video Count', { count: parsedVideoCount }, videoCount) }}
-          <span v-if="!hideViews && !isUserPlaylist">
+          <template v-if="!hideViews && !isUserPlaylist">
             - {{ t('Global.Counts.View Count', { count: parsedViewCount }, viewCount) }}
-          </span>
-          <span>- </span>
-          <span v-if="infoSource !== 'local'">
+          </template>
+          -
+          <template v-if="infoSource !== 'local'">
             {{ $t("Playlist.Last Updated On") }}
-          </span>
+          </template>
           {{ lastUpdated }}
           <template v-if="durationFormatted !== ''">
             <br>
