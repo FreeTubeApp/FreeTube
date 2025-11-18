@@ -110,10 +110,7 @@ Subscriptions:
 Trending:
   Trending: 'Набиращи популярност'
   Trending Tabs: Раздели за набиращи популярност
-  Movies: Филми
   Gaming: Игри
-  Music: Музика
-  Default: По подразбиране
 Most Popular: 'Най-популярни'
 Playlists: 'Плейлисти'
 User Playlists:
@@ -282,6 +279,7 @@ Settings:
       Everforest Light Medium: Everforest светло средно
       Everforest Dark Medium: Everforest Тъмно средно
       Everforest Dark Low: Everforest Тъмно ниско
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Основна цветова тема'
       Red: 'Червено'
@@ -367,6 +365,8 @@ Settings:
       Everforest Light Aqua: Everforest Светла вода
       Everforest Light Blue: Everforest Светлосиньо
       Everforest Light Purple: Everforest Светлопурпурно
+      Catppuccin Latte Mauve: Catppuccin Latte Лилаво
+      Catppuccin Latte Red: Catppuccin Latte Червено
     Secondary Color Theme: 'Вторична цветова тема'
         #* Main Color Theme
     UI Scale: Мащаб на интерфейса
@@ -499,6 +499,12 @@ Settings:
       Tooltip: "Тази опция изнася видеа от всички плейлисти в един плейлист с име \"Предпочитани\".\nКак да изнесете и внесете видеа в плейлисти за по-стара версия на FreeTube:\n1. Изнесете плейлистите си с включена тази опция.\n2. Изтрийте всичките си съществуващи плейлисти, като използвате опцията \"Премахване на всички плейлисти\" в Настройки за поверителност.\n3. Стартирайте по-старата версия на FreeTube и внесете изнесените плейлисти.\""
       Label: Изнасяне на плейлисти за по-стари версии на FreeTube
 
+    Search history file: Файл с история на търсенията
+    Search history: История с търсения
+    Import search history: Внасяне на история с търсения
+    Export search history: Изнасяне на история с търсения
+    All search history has been successfully imported: Цялата история на търсенията е внесена успешно
+    All search history has been successfully exported: Цялата история на търсенията е изнесена успешно
   Distraction Free Settings:
     Hide Live Chat: Скриване на чата на живо
     Hide Popular Videos: Скриване на популярните видеа

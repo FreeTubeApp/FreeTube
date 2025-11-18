@@ -107,10 +107,7 @@ Channels:
   Unsubscribe Prompt: 'დარწმუნებული ხართ, რომ გსურთ "{channelName}"ის გამოწერის გაუქმება?'
 Trending:
   Trending: 'პოპულარული'
-  Default: 'სტანდარტულად'
-  Music: 'მუსიკები'
   Gaming: 'თამაშები'
-  Movies: 'ფილმები'
   Trending Tabs: 'პოპულარული'
 Most Popular: 'ყველაზე პოპულარული'
 Playlists: 'დასაკრავი სიები'
