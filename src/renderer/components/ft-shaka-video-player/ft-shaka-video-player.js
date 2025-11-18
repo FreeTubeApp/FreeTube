@@ -971,6 +971,81 @@ export default defineComponent({
       }
     }
 
+    /**
+     * @param {MouseEvent} event
+     */
+    function handleSeekBarMouseMove(event) {
+      if (!container.value) return
+
+      const seekBarContainer = container.value.querySelector('.shaka-seek-bar-container')
+      if (!seekBarContainer || !player) return
+
+      let chapterPreview = seekBarContainer.querySelector('.ft-chapter-preview')
+      if (!chapterPreview) {
+        chapterPreview = document.createElement('div')
+        chapterPreview.className = 'ft-chapter-preview'
+        seekBarContainer.appendChild(chapterPreview)
+      }
+
+      if (props.chapters.length === 0) {
+        if (chapterPreview.style.display !== 'none') {
+          chapterPreview.style.display = 'none'
+        }
+        return
+      }
+
+      const rect = seekBarContainer.getBoundingClientRect()
+      if (rect.width === 0) return
+
+      const offsetX = event.clientX - rect.left
+      // Clamp percentage between 0 and 1
+      const percentage = Math.max(0, Math.min(1, offsetX / rect.width))
+
+      const seekRange = player.seekRange()
+      const duration = seekRange.end - seekRange.start
+      const hoverTime = seekRange.start + (duration * percentage)
+
+      const chapter = props.chapters.find((c, i) => hoverTime >= c.startSeconds && (hoverTime < c.endSeconds || (i === props.chapters.length - 1 && hoverTime === c.endSeconds)))
+
+      if (chapter) {
+        if (chapterPreview.textContent !== chapter.title) {
+          chapterPreview.textContent = chapter.title
+        }
+        if (chapterPreview.style.display !== 'block') {
+          chapterPreview.style.display = 'block'
+        }
+        chapterPreview.style.left = `${percentage * 100}%`
+      } else {
+        if (chapterPreview.style.display !== 'none') {
+          chapterPreview.style.display = 'none'
+        }
+      }
+    }
+
+    function handleSeekBarMouseLeave() {
+      if (!container.value) return
+
+      const seekBarContainer = container.value.querySelector('.shaka-seek-bar-container')
+      if (seekBarContainer) {
+        const chapterPreview = seekBarContainer.querySelector('.ft-chapter-preview')
+        if (chapterPreview) {
+          chapterPreview.style.display = 'none'
+        }
+      }
+    }
+
+    function setupChapterPreview() {
+      if (!container.value) return
+
+      const seekBarContainer = container.value.querySelector('.shaka-seek-bar-container')
+      if (!seekBarContainer) return
+
+      seekBarContainer.removeEventListener('mousemove', handleSeekBarMouseMove)
+      seekBarContainer.removeEventListener('mouseleave', handleSeekBarMouseLeave)
+      seekBarContainer.addEventListener('mousemove', handleSeekBarMouseMove)
+      seekBarContainer.addEventListener('mouseleave', handleSeekBarMouseLeave)
+    }
+
     function addUICustomizations() {
       /** @type {HTMLDivElement} */
       const controlsContainer = ui.getControls().getControlsContainer()
@@ -1001,6 +1076,8 @@ export default defineComponent({
       if (hasLoaded.value && props.chapters.length > 0) {
         createChapterMarkers()
       }
+
+      setupChapterPreview()
 
       if (useSponsorBlock.value && sponsorBlockSegments.length > 0) {
         let duration

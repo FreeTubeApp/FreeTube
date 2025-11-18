@@ -253,4 +253,29 @@
   }
 }
 
+/* Timestamps labels just above frame video while moving the timeline */
+:deep(.ft-chapter-preview) {
+  position: absolute;
+  bottom: 104px; /* Positioned just above the frame of timeline */
+  transform: translateX(-50%);
+  background-color: rgb(89 89 89 / 78%);
+  border-radius: 999px; /* shape of the background colour */
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  font-family: Roboto, Arial, sans-serif;
+  white-space: nowrap;
+  text-align: center;
+  padding: 6px 12px;
+  box-shadow: none;
+  text-shadow: none;
+  pointer-events: none;
+  z-index: 11;
+  display: none;
+}
+
+.ftVideoPlayer:fullscreen :deep(.ft-chapter-preview) {
+  bottom: 160px;
+}
+
 /* stylelint-enable liberty/use-logical-spec */
