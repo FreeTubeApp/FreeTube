@@ -96,8 +96,10 @@
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <FtToggleSwitch
+          v-if="SUPPORTS_LOCAL_API"
           :label="t('Settings.Distraction Free Settings.Hide Trending Videos')"
           :compact="true"
+          :disabled="disableHideTrendingVideos"
           :default-value="hideTrendingVideos"
           @change="updateHideTrendingVideos"
         />
@@ -298,6 +300,8 @@ import { checkYoutubeChannelId, findChannelTagInfo } from '../../helpers/channel
 
 const { t } = useI18n()
 
+const SUPPORTS_LOCAL_API = process.env.SUPPORTS_LOCAL_API
+
 const channelHiderDisabled = ref(false)
 
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
@@ -368,6 +372,7 @@ function handleHideRecommendedVideos(value) {
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideTrendingVideos = computed(() => store.getters.getHideTrendingVideos)
 
+const disableHideTrendingVideos = computed(() => backendPreference.value !== 'local' && !backendFallback.value)
 /**
  * @param {boolean} value
  */

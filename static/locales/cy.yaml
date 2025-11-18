@@ -126,10 +126,7 @@ Channels:
   Unsubscribe Prompt: 'Ydych chi''n siŵr eich bod am ddad-danysgrifio o "{channelName}"?'
 Trending:
   Trending: 'Trendio'
-  Default: 'Rhagosodedig'
-  Music: 'Cerddoriaeth'
   Gaming: 'Gemau'
-  Movies: 'Ffilmiau'
   Trending Tabs: 'Tabiau Trendio'
 Most Popular: 'Poblogaidd'
 Playlists: 'Rhestrau'

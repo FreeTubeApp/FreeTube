@@ -143,10 +143,8 @@ Channels:
   Unsubscribe Prompt: Are you sure you want to unsubscribe from "{channelName}"?
 Trending:
   Trending: Trending
-  Default: Default
-  Music: Music
   Gaming: Gaming
-  Movies: Movies
+  Sports: Sports
   Trending Tabs: Trending Tabs
 Most Popular: Most Popular
 Feed:
