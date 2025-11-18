@@ -691,6 +691,9 @@ Settings:
     Set Password To Prevent Access: Set a password to prevent access to settings
     Set Password: Set Password
     Remove Password: Remove Password
+  SABR:
+    Label: Enable SABR as DASH backend
+    Tooltip: SABR will become the only DASH backend in future release and cannot be disabled. This toggle is provided in case early implementation has unrecoverable issues.
 About:
   #On About page
   About: About

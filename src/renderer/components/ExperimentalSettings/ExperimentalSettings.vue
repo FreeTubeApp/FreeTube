@@ -19,10 +19,10 @@
     <FtFlexBox v-if="sabrAllowedOnPlatform">
       <FtToggleSwitch
         tooltip-position="top"
-        :label="'Enable SABR as DASH backend'"
+        :label="$t('Settings.SABR.Label')"
         compact
         :default-value="sabrEnabled"
-        :tooltip="'Experimental and often has backoff time at the start of video playback. But a good alternative backend to try when default DASH backend failed.'"
+        :tooltip="$t('Settings.SABR.Tooltip')"
         @change="updateSabrEnabled"
       />
     </FtFlexBox>
