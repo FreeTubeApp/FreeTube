@@ -85,10 +85,6 @@
       padding: 10px;
     }
   }
-
-  .playlistPage {
-    inline-size: 85vw;
-  }
 }
 
 
@@ -149,6 +145,8 @@
         inset-block-start: 0;
         block-size: auto;
         inline-size: 100%;
+        // Reset margin
+        margin-inline-end: 0;
       }
 
       .playlistItemsCard {
