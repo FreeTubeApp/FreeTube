@@ -3,8 +3,8 @@
     class="card"
   >
     <h3
-      ref="commentsTitle"
       v-if="commentData.length > 0 && !isLoading && showComments"
+      ref="commentsTitle"
       class="commentsTitle"
     >
       {{ $t("Comments.Comments") }}
@@ -320,7 +320,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, nextTick, ref, shallowRef } from 'vue'
+import { computed, nextTick, ref, shallowRef, useTemplateRef } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtCard from '../ft-card/ft-card.vue'
@@ -373,7 +373,7 @@ const props = defineProps({
 })
 
 const isLoading = ref(false)
-const commentsTitle = ref(null)
+const commentsTitle = useTemplateRef('commentsTitle')
 const showComments = ref(false)
 const nextPageToken = shallowRef(null)
 
@@ -623,7 +623,6 @@ async function getCommentDataLocal(more = false) {
         commentsTitle.value?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
       })
     }
-
   } catch (err) {
     // region No comment detection
     // No comment related info when video info requested earlier in parent component
@@ -736,7 +735,6 @@ async function getCommentDataInvidious() {
         commentsTitle.value?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
       })
     }
-
   } catch (err) {
     // region No comment detection
     // No comment related info when video info requested earlier in parent component
@@ -827,7 +825,6 @@ function getPostCommentsInvidious() {
         commentsTitle.value?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
       })
     }
-
   }).catch((err) => {
     console.error(err)
     const errorMessage = t('Invidious API Error (Click to copy)')
