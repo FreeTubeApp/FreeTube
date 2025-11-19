@@ -130,12 +130,12 @@ User Playlists:
   Sort By:
     NameAscending: A-Z
     NameDescending: Z-A
-    EarliestCreatedFirst: Earliest created
-    LatestUpdatedFirst: Recently updated
+    EarliestCreatedFirst: Date Created (Oldest)
+    LatestUpdatedFirst: Date Updated (Newest)
     EarliestUpdatedFirst: Earliest updated
     LatestPlayedFirst: Recently played
     EarliestPlayedFirst: Earliest played
-    LatestCreatedFirst: Recently created
+    LatestCreatedFirst: Date Created (Newest)
   SinglePlaylistView:
     Toast:
       This video cannot be moved up.: This video cannot be moved up.
