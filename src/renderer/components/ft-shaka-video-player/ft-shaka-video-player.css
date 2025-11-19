@@ -275,7 +275,7 @@
 }
 
 .ftVideoPlayer:fullscreen :deep(.ft-chapter-preview) {
-  bottom: 160px;
+  bottom: 125px;
 }
 
 /* stylelint-enable liberty/use-logical-spec */
