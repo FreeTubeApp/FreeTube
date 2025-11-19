@@ -3,6 +3,7 @@
     class="card"
   >
     <h3
+      ref="commentsTitle"
       v-if="commentData.length > 0 && !isLoading && showComments"
       class="commentsTitle"
     >
@@ -319,7 +320,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, ref, shallowRef } from 'vue'
+import { computed, nextTick, ref, shallowRef } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtCard from '../ft-card/ft-card.vue'
@@ -372,6 +373,7 @@ const props = defineProps({
 })
 
 const isLoading = ref(false)
+const commentsTitle = ref(null)
 const showComments = ref(false)
 const nextPageToken = shallowRef(null)
 
@@ -615,6 +617,13 @@ async function getCommentDataLocal(more = false) {
     nextPageToken.value = comments.has_continuation ? comments : null
     isLoading.value = false
     showComments.value = true
+
+    if (!more) {
+      nextTick(() => {
+        commentsTitle.value?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+      })
+    }
+
   } catch (err) {
     // region No comment detection
     // No comment related info when video info requested earlier in parent component
@@ -716,10 +725,18 @@ async function getCommentDataInvidious() {
       return comment
     })
 
+    const isInitialLoad = commentData.value.length === 0
     commentData.value = commentData.value.concat(comments)
     nextPageToken.value = response.continuation
     isLoading.value = false
     showComments.value = true
+
+    if (isInitialLoad) {
+      nextTick(() => {
+        commentsTitle.value?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+      })
+    }
+
   } catch (err) {
     // region No comment detection
     // No comment related info when video info requested earlier in parent component
@@ -799,10 +816,18 @@ function getPostCommentsInvidious() {
       return comment
     })
 
+    const isInitialLoad = commentData.value.length === 0
     commentData.value = commentData.value.concat(comments)
     nextPageToken.value = response?.continuation ?? continuation
     isLoading.value = false
     showComments.value = true
+
+    if (isInitialLoad) {
+      nextTick(() => {
+        commentsTitle.value?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+      })
+    }
+
   }).catch((err) => {
     console.error(err)
     const errorMessage = t('Invidious API Error (Click to copy)')
