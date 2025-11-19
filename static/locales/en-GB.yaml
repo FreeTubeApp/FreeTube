@@ -132,9 +132,9 @@ User Playlists:
     NameDescending: Z-A
     EarliestCreatedFirst: Date Created (Oldest)
     LatestUpdatedFirst: Date Updated (Newest)
-    EarliestUpdatedFirst: Earliest updated
-    LatestPlayedFirst: Recently played
-    EarliestPlayedFirst: Earliest played
+    EarliestUpdatedFirst: Date Updated (Oldest)
+    LatestPlayedFirst: Date Played (Newest)
+    EarliestPlayedFirst: Date Played (Oldest)
     LatestCreatedFirst: Date Created (Newest)
   SinglePlaylistView:
     Toast:
@@ -208,7 +208,7 @@ History:
   Empty Search Message: There are no videos in your history that match your search
   Case Sensitive Search: Case Sensitive Search
   DateOldestHistory: Date Watched (Oldest)
-  DateNewestHistory: Latest Watched First
+  DateNewestHistory: Date Watched (Newest)
 Settings:
   # On Settings Page
   Settings: 'Settings'
@@ -281,6 +281,7 @@ Settings:
       Everforest Light Hard: Everforest Light Hard
       Everforest Light Medium: Everforest Light Medium
       Everforest Light Low: Everforest Light Low
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Main colour theme'
       Red: 'Red'
@@ -366,6 +367,8 @@ Settings:
       Everforest Dark Green: Everforest Dark Green
       Everforest Dark Orange: Everforest Dark Orange
       Everforest Light Red: Everforest Light Red
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Red
     Secondary Color Theme: 'Secondary colour theme'
         #* Main Color Theme
     UI Scale: UI Scale
@@ -508,6 +511,12 @@ Settings:
       Label: Export playlists for older FreeTube versions
       Tooltip: "This option exports videos from all playlists into one playlist named ‘Favourites’.\nHow to export and import videos in playlists for an older version of FreeTube:\n1. Export your playlists with this option enabled.\n2. Delete all of your existing playlists using the Remove All playlists option under Privacy settings.\n3. Launch the older version of FreeTube and import the exported playlists.’"
 
+    Search history file: Search history file
+    Search history: Search history
+    Import search history: Import search history
+    Export search history: Export search history
+    All search history has been successfully imported: All search history has been successfully imported
+    All search history has been successfully exported: All search history has been successfully exported
   Distraction Free Settings:
     Hide Live Chat: Hide Live Chat
     Hide Popular Videos: Hide Popular Videos
@@ -873,7 +882,7 @@ Playlist:
 #* Published
 #& Views
   Sort By:
-    DateAddedNewest: Latest added first
+    DateAddedNewest: Date added (Newest)
     VideoTitleDescending: Title (Z-A)
     Custom: Custom
     DateAddedOldest: Earliest added first
@@ -927,6 +936,9 @@ Comments:
   View {replyCount} replies: View {replyCount} replies
   Subscribed: Subscribed
   There are no comments available for this post: There are no comments available for this post
+  Hide {replyCount} replies: Hide 1 reply | Hide {replyCount} replies
+  View 1 reply from {channelName}: View 1 reply from {channelName}
+  View {replyCount} replies from {channelName} and others: View {replyCount} replies from {channelName} and others
 Up Next: 'Up Next'
 Description:
   Expand Description: '...more'
