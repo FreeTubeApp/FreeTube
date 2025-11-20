@@ -107,6 +107,7 @@ Trending:
   Trending: 'Tendencias'
   Trending Tabs: Pestañas de tendencias
   Gaming: Videojuegos
+  Sports: Deportes
 Most Popular: 'Más populares'
 Playlists: 'Listas de reproducción'
 User Playlists:
@@ -921,6 +922,8 @@ Comments:
   View {replyCount} replies: Ver {replyCount} respuestas
   Subscribed: Suscrito
   There are no comments available for this post: No hay comentarios disponibles para este tema
+  View 1 reply from {channelName}: Ver 1 respuesta de {channelName}
+  View {replyCount} replies from {channelName} and others: Ver {replyCount} respuesta de {channelName} y otros
 Up Next: 'A continuación'
 
 # Toast Messages
