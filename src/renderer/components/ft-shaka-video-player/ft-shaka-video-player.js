@@ -1014,7 +1014,14 @@ export default defineComponent({
         if (chapterPreview.style.display !== 'block') {
           chapterPreview.style.display = 'block'
         }
-        chapterPreview.style.left = `${percentage * 100}%`
+
+        const previewWidth = chapterPreview.offsetWidth
+        const minX = previewWidth / 2
+        const maxX = rect.width - (previewWidth / 2)
+        const targetX = percentage * rect.width
+        const clampedX = Math.max(minX, Math.min(maxX, targetX))
+
+        chapterPreview.style.left = `${clampedX}px`
       } else {
         if (chapterPreview.style.display !== 'none') {
           chapterPreview.style.display = 'none'

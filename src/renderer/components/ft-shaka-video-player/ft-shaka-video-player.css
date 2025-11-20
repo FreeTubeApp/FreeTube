@@ -258,7 +258,7 @@
   position: absolute;
   bottom: 104px; /* Positioned just above the frame of timeline */
   transform: translateX(-50%);
-  background-color: rgb(89 89 89 / 78%);
+  background-color: rgb(27 27 27 / 67%);
   border-radius: 999px; /* shape of the background colour */
   color: #fff;
   font-size: 13px;
@@ -275,7 +275,7 @@
 }
 
 .ftVideoPlayer:fullscreen :deep(.ft-chapter-preview) {
-  bottom: 125px;
+  bottom: 160px;
 }
 
 /* stylelint-enable liberty/use-logical-spec */
