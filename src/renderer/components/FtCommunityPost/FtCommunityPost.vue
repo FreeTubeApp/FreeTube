@@ -50,6 +50,17 @@
       >
         {{ publishedText }}
       </p>
+      <div class="header-share-button">
+        <FtShareButton
+          v-if="postId"
+          :id="postId"
+          share-target-type="Post"
+          dropdown-position-y="bottom"
+          theme="base-no-default"
+          :use-shadow="false"
+          :size="16"
+        />
+      </div>
     </div>
     <p
       class="postText"
@@ -168,6 +179,7 @@ import { computed, onMounted, useTemplateRef } from 'vue'
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListPlaylist from '../FtListPlaylist/FtListPlaylist.vue'
 import FtCommunityPoll from '../FtCommunityPoll/FtCommunityPoll.vue'
+import FtShareButton from '../FtShareButton/FtShareButton.vue'
 
 import store from '../../store/index'
 
@@ -336,3 +348,10 @@ if (postType === 'multiImage' && postContent.content.length > 0) {
 </script>
 
 <style scoped src="./FtCommunityPost.scss" lang="scss" />
+<style scoped>
+.header-share-button {
+  margin-left: auto;
+  align-self: center;
+  margin-right: 5px;
+}
+</style>

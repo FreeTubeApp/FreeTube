@@ -2,7 +2,9 @@
   <FtIconButton
     ref="iconButton"
     :title="shareTitle"
-    theme="secondary"
+    :theme="theme"
+    :use-shadow="useShadow"
+    :size="size"
     :icon="['fas', 'share-alt']"
     :dropdown-modal-on-mobile="true"
     dropdown-position-x="left"
@@ -161,6 +163,18 @@ const props = defineProps({
   dropdownPositionY: {
     type: String,
     default: 'bottom'
+  },
+  theme: {
+    type: String,
+    default: 'secondary'
+  },
+  useShadow: {
+    type: Boolean,
+    default: true
+  },
+  size: {
+    type: Number,
+    default: 20
   }
 })
 
@@ -175,6 +189,10 @@ const isPlaylist = computed(() => {
   return props.shareTargetType === 'Playlist'
 })
 
+const isPost = computed(() => {
+  return props.shareTargetType === 'Post'
+})
+
 const isVideo = computed(() => {
   return props.shareTargetType === 'Video'
 })
@@ -185,6 +203,9 @@ const shareTitle = computed(() => {
   }
   if (isPlaylist.value) {
     return t('Share.Share Playlist')
+  }
+  if (isPost.value) {
+    return t('Share.Share Post')
   }
   return t('Share.Share Video')
 })
@@ -215,6 +236,9 @@ const invidiousURL = computed(() => {
   }
   if (isPlaylist.value) {
     return `${currentInvidiousInstanceUrl.value}/playlist?list=${props.id}`
+  }
+  if (isPost.value) {
+    return `${currentInvidiousInstanceUrl.value}/post/${props.id}`
   }
   let videoUrl = `${currentInvidiousInstanceUrl.value}/watch?v=${props.id}`
   // `playlistId` can be undefined
@@ -247,6 +271,9 @@ const youtubeURL = computed(() => {
   if (isPlaylist.value) {
     return youtubePlaylistUrl.value
   }
+  if (isPost.value) {
+    return `https://www.youtube.com/post/${props.id}`
+  }
   let videoUrl = `https://www.youtube.com/watch?v=${props.id}`
   if (playlistSharable.value) {
     // `index` seems can be ignored
@@ -261,6 +288,9 @@ const youtubeShareURL = computed(() => {
   }
   if (isPlaylist.value) {
     return youtubePlaylistUrl.value
+  }
+  if (isPost.value) {
+    return `https://www.youtube.com/post/${props.id}`
   }
   const videoUrl = `https://youtu.be/${props.id}`
   if (playlistSharable.value) {
@@ -326,7 +356,7 @@ function updateIncludeTimestamp() {
 }
 
 function getFinalUrl(url) {
-  if (isChannel.value || isPlaylist.value) {
+  if (isChannel.value || isPlaylist.value || isPost.value) {
     return url
   }
   if (url.indexOf('?') === -1) {
