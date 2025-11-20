@@ -885,14 +885,14 @@ Playlist:
     DateAddedNewest: Date added (Newest)
     VideoTitleDescending: Title (Z-A)
     Custom: Custom
-    DateAddedOldest: Earliest added first
+    DateAddedOldest: Date added (Oldest)
     AuthorAscending: Author (A-Z)
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
-    VideoDurationAscending: Duration (Shortest first)
-    VideoDurationDescending: Duration (Longest first)
-    PublishedNewest: Latest published first
-    PublishedOldest: Earliest published first
+    VideoDurationAscending: Duration (Shortest)
+    VideoDurationDescending: Duration (Longest)
+    PublishedNewest: Date published (Newest)
+    PublishedOldest: Date published (Oldest)
 Change Format:
   Change Media Formats: 'Change Media Formats'
   Use Dash Formats: 'Use DASH Formats'
@@ -933,7 +933,7 @@ Comments:
   Pinned by: Pinned by
   Member: Member
   Hearted: Hearted
-  View {replyCount} replies: View {replyCount} replies
+  View {replyCount} replies: View 1 reply | View {replyCount} replies
   Subscribed: Subscribed
   There are no comments available for this post: There are no comments available for this post
   Hide {replyCount} replies: Hide 1 reply | Hide {replyCount} replies
