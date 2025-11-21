@@ -26,20 +26,21 @@
         :tooltip="tooltip"
       />
     </label>
-    <FontAwesomeIcon
+    <button
       v-if="showClearTextButton"
-      :icon="['fas', 'times-circle']"
       class="clearInputTextButton"
       :class="{
         visible: inputDataPresent || showOptions
       }"
-      tabindex="0"
-      role="button"
+      :aria-label="t('Search Bar.Clear Input')"
       :title="t('Search Bar.Clear Input')"
       @click="handleClearTextClick"
-      @keydown.space.prevent="handleClearTextClick"
-      @keydown.enter.prevent="handleClearTextClick"
-    />
+    >
+      <FontAwesomeIcon
+        class="buttonIcon"
+        :icon="['fas', 'times-circle']"
+      />
+    </button>
     <span class="inputWrapper">
       <input
         :id="id"
@@ -58,16 +59,20 @@
         @blur="handleInputBlur"
         @keydown="handleKeyDown"
       >
-      <FontAwesomeIcon
+      <button
         v-if="showActionButton"
-        :icon="actionButtonIconName"
         class="inputAction"
         :class="{
           enabled: inputDataPresent,
           withLabel: showLabel
         }"
         @click="handleClick"
-      />
+      >
+        <FontAwesomeIcon
+          class="buttonIcon"
+          :icon="actionButtonIconName"
+        />
+      </button>
     </span>
     <div class="options">
       <ul
