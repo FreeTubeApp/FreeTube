@@ -50,13 +50,6 @@
       >
         {{ publishedText }}
       </p>
-      <div class="header-share-button">
-        <FtShareButton
-          v-if="postId"
-          :id="postId"
-          share-target-type="Post"
-        />
-      </div>
     </div>
     <p
       class="postText"
@@ -162,6 +155,13 @@
           class="comment-count-icon"
           :icon="['fas', 'comment']"
         /> {{ commentCount }}</span>
+      <FtShareButton
+        v-if="postId"
+        :id="postId"
+        share-target-type="Post"
+        class="shareButton"
+        :size="18"
+      />
     </div>
   </div>
 </template>
