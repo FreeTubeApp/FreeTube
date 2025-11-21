@@ -395,19 +395,10 @@ function addSelectedToPlaylists() {
     addedPlaylistIds.add(playlist._id)
   })
 
-  let message
-  if (addedPlaylistIds.size === 1) {
-    message = t('User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to 1 playlist', {
-      videoCount: toBeAddedToPlaylistVideoCount.value,
-    }, toBeAddedToPlaylistVideoCount.value)
-  } else {
-    message = t('User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to {playlistCount} playlists', {
-      videoCount: toBeAddedToPlaylistVideoCount.value,
-      playlistCount: addedPlaylistIds.size,
-    }, toBeAddedToPlaylistVideoCount.value)
-  }
+  showToast(t('User Playlists.AddVideoPrompt.Toast.Video(s) added to {playlistCount} playlists', {
+    playlistCount: addedPlaylistIds.size,
+  }, addedPlaylistIds.size))
 
-  showToast(message)
   hide()
 }
 

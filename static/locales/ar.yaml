@@ -161,8 +161,7 @@ User Playlists:
     Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص بك إلى | حدد قائمة تشغيل لإضافة مقاطع الفيديو {videoCount} إليها
     Toast:
       You haven't selected any playlist yet.: لم تقم بتحديد أي قائمة تشغيل حتى الآن.
-      "{videoCount} video(s) added to 1 playlist": تمت إضافة فيديو واحد إلى قائمة تشغيل واحدة | تمت إضافة {videoCount} من مقاطع الفيديو إلى قائمة تشغيل واحدة
-      "{videoCount} video(s) added to {playlistCount} playlists": تمت إضافة مقطع فيديو واحد إلى قوائم التشغيل {playlistCount} | تمت إضافة {videoCount} من مقاطع الفيديو إلى قوائم التشغيل {playlistCount}
+      "Video(s) added to {playlistCount} playlists": ""
     Save: حفظ
     Search in Playlists: البحث في قوائم التشغيل
     N playlists selected: تم تحديد {playlistCount}

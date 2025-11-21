@@ -179,9 +179,8 @@ User Playlists:
   AddVideoPrompt:
     Added {count} Times: Gehitu da | {count} aldiz gehitu da
     Toast:
-      "{videoCount} video(s) added to 1 playlist": Bideo 1 gehitu da erreprodukzio-zerrenda batera | {videoCount} bideo gehitu dira erreprodukzio-zerrenda batera
       You haven't selected any playlist yet.: Oraindik ez duzu erreprodukzio zerrendarik hautatu.
-      "{videoCount} video(s) added to {playlistCount} playlists": Bideo 1 gehitu da {playlistCount} erreprodukzio zerrendetan | {videoCount} bideo gehitu dira {playlistCount} erreprodukzio-zerrendetan
+      "Video(s) added to {playlistCount} playlists": ""
     Select a playlist to add your N videos to: Hautatu erreprodukzio-zerrenda zure bideoa -ra gehitzeko | Hautatu erreprodukzio-zerrenda zure {videoCount} bideoak gehitzeko
     N playlists selected: '{playlistCount} hautatuta'
     Search in Playlists: Bilatu erreprodukzio-zerrendetan

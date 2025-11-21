@@ -116,9 +116,8 @@ User Playlists:
     Save: Sauvegarder
     Select a playlist to add your N videos to: Sélectionnez une liste de lecture à laquelle ajouter votre vidéo | Sélectionnez une liste de lecture à laquelle ajouter vos {videoCount} vidéos
     Toast:
-      "{videoCount} video(s) added to 1 playlist": 1 vidéo ajoutée à 1 liste de lecture | {videoCount} vidéos ajoutées à 1 liste de lecture
       You haven't selected any playlist yet.: Vous n'avez pas encore sélectionné de liste de lecture.
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 vidéo ajoutée à {playlistCount} listes de lecture | {videoCount} vidéos ajoutées à {playlistCount} listes de lecture
+      "Video(s) added to {playlistCount} playlists": ""
     N playlists selected: '{playlistCount} Sélectionnée(s)'
     Added {count} Times: Déjà ajouté | Ajouté {count} fois
     Allow Adding Duplicate Video(s): Autoriser l'ajout de vidéos en double

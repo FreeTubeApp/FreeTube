@@ -161,8 +161,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videos ya agregados'
     Toast:
       You haven't selected any playlist yet.: Todavía no seleccionaste ninguna lista de reproducción.
-      "{videoCount} video(s) added to 1 playlist": 1 video agregado a 1 lista de reproducción | {videoCount} videos agregados a 1 lista de reproducción
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video agregado a {playlistCount} listas de reproducción |{videoCount} videos agregados a {playlistCount} listas de reproducción
+      "Video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
     New Playlist Name: Nombre de la nueva lista de reproducción
     Toast:
