@@ -2,8 +2,7 @@
   <FtIconButton
     ref="iconButton"
     :title="shareTitle"
-    :theme="theme"
-    :use-shadow="useShadow"
+    theme="secondary"
     :size="size"
     :icon="['fas', 'share-alt']"
     :dropdown-modal-on-mobile="true"
@@ -163,14 +162,6 @@ const props = defineProps({
   dropdownPositionY: {
     type: String,
     default: 'bottom'
-  },
-  theme: {
-    type: String,
-    default: 'secondary'
-  },
-  useShadow: {
-    type: Boolean,
-    default: true
   },
   size: {
     type: Number,

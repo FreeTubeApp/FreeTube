@@ -156,7 +156,6 @@
           :icon="['fas', 'comment']"
         /> {{ commentCount }}</span>
       <FtShareButton
-        v-if="postId"
         :id="postId"
         share-target-type="Post"
         class="shareButton"
