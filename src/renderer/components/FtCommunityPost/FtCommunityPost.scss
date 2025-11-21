@@ -52,11 +52,6 @@
     margin-block: 5px 0;
     margin-inline: 5px 6px;
   }
-
-  .header-share-button {
-    align-self: center;
-    margin-inline: auto 5px;
-  }
 }
 
 .postText {
@@ -72,11 +67,11 @@
 
 .bottomSection {
   color: var(--tertiary-text-color);
-  display: block;
-  flex-direction: column;
+  display: flex;
+  align-items: center;
   font-size: 15px;
   margin-block-start: 4px;
-  max-inline-size: 210px;
+  max-inline-size: 100%;
   text-align: start;
 
   @media screen and (width <= 680px) {
@@ -92,6 +87,10 @@
 
   .likeCount {
     margin-inline: 5px 6px;
+  }
+
+  .shareButton {
+    margin-inline-start: 10px;
   }
 }
 
