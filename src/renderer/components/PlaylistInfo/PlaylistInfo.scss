@@ -27,7 +27,9 @@
 
 .playlistTitle {
   margin-block-end: 0.1em;
-  overflow-wrap: break-word;
+
+  /* Prevents overflow for long values */
+  overflow-wrap: anywhere;
 
   @media only screen and (width <= 850px) {
     // margin-inline-in routerView = 8px x2 = 16px
