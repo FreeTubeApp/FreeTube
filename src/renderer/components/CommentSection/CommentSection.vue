@@ -620,7 +620,7 @@ async function getCommentDataLocal(more = false) {
 
     if (!more) {
       nextTick(() => {
-        commentsTitle.value?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+        commentsTitle.value?.scrollIntoView({ behavior: 'smooth', block: 'center' })
       })
     }
   } catch (err) {
@@ -732,7 +732,7 @@ async function getCommentDataInvidious() {
 
     if (isInitialLoad) {
       nextTick(() => {
-        commentsTitle.value?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+        commentsTitle.value?.scrollIntoView({ behavior: 'smooth', block: 'center' })
       })
     }
   } catch (err) {
