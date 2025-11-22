@@ -526,7 +526,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Profil eta harpidetza guztiak ongi inportatu dira'
     All subscriptions have been successfully imported: 'Harpidetza guztiak ongi inportatu dira'
     Invalid subscriptions file: 'Harpidetza fitxategi baliogabea'
-    This might take a while, please wait: 'Baliteke denbora pixka bat behar izatea, itxaron mesedez'
     Invalid history file: 'Historia fitxategi baliogabea'
     Subscriptions have been successfully exported: 'Harpidetzak ongi esportatu dira'
     History object has insufficient data, skipping item: 'Historiako objektuak ez du datu nahikorik, elementutik ateratzen'

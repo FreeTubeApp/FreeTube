@@ -526,7 +526,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Innflutningur á öllum áskriftum og notkunarsniðum tókst'
     All subscriptions have been successfully imported: 'Innflutningur á öllum áskriftum tókst'
     Invalid subscriptions file: 'Ógild áskriftaskrá'
-    This might take a while, please wait: 'Þetta getur tekið dálítinn tíma, sýndu smá þolinmæði'
     Invalid history file: 'Ógild áhorfsferilskrá'
     Subscriptions have been successfully exported: 'Úflutningur á áskriftum tókst'
     History object has insufficient data, skipping item: 'Atriði áhorfsferils er ekki með næg gögn, sleppi þessu'

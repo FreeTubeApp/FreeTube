@@ -476,7 +476,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Az összes feliratkozás és a profil sikeresen importálva'
     All subscriptions have been successfully imported: 'Az összes feliratkozás sikeresen importálva'
     Invalid subscriptions file: 'Érvénytelen feliratkozási fájl'
-    This might take a while, please wait: 'Ez eltarthat egy ideig. Kis türelmet kérünk'
     Invalid history file: 'Érvénytelen előzményfájl'
     Subscriptions have been successfully exported: 'Feliratkozások sikeresen exportálva'
     History object has insufficient data, skipping item: 'Az előzményobjektum nem rendelkezik elegendő adattal, az elem kihagyása'

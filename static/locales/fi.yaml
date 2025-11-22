@@ -397,7 +397,6 @@ Settings:
     History object has insufficient data, skipping item: Historiakohteen tiedot ovat puuttelliset, ohitetaan kohde
     Subscriptions have been successfully exported: Tilaukset on viety onnistuneesti
     Invalid history file: Puutteellinen historiatiedosto
-    This might take a while, please wait: Tämä saattaa viedä tovin, odota hetki
     Invalid subscriptions file: Puutteellinen tilaustiedosto
     All subscriptions have been successfully imported: Kaikki tilaukset on tuotu onnistuneesti
     All subscriptions and profiles have been successfully imported: Kaikki tilaukset ja profiilit on tuotu onnistuneesti

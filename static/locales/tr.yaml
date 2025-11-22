@@ -476,7 +476,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Tüm abonelikler ve profiller başarılı bir şekilde içe aktarıldı'
     All subscriptions have been successfully imported: 'Tüm abonelikler başarılı bir şekilde içe aktarıldı'
     Invalid subscriptions file: 'Geçersiz aboneler dosyası'
-    This might take a while, please wait: 'Biraz uzun sürebilir, lütfen bekleyin'
     Invalid history file: 'Geçersiz geçmiş dosyası'
     Subscriptions have been successfully exported: 'Tüm abonelikler başarılı bir şekilde dışa aktarıldı'
     History object has insufficient data, skipping item: 'Geçmiş nesnesinde yetersiz veri var, öğe atlanıyor'
