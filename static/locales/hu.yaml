@@ -122,7 +122,7 @@ User Playlists:
     Search in Playlists: Keresés a lejátszási listában
     Save: Mentés
     Toast:
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Videó(k) hozzáadva a(z) 1 lejátszási listához | Videó(k) hozzáadva a(z) {playlistCount} lejátszási listához"
       You haven't selected any playlist yet.: Még nem választott ki egyetlen lejátszási listát sem.
     Select a playlist to add your N videos to: Válasszon ki egy lejátszási listát a videó hozzáadásához | Válasszon ki egy lejátszási listát a {videoCount} videó hozzáadásához
     N playlists selected: '{playlistCount} kiválasztva'
@@ -915,6 +915,7 @@ Share:
   YouTube Channel URL copied to clipboard: YouTube-csatorna webcíme a vágólapra másolva
   Invidious Channel URL copied to clipboard: Invidious csatornawebcím a vágólapra másolva
   Share Channel: Csatorna megosztása
+  Share Post: Bejegyzés megosztása
 Mini Player: 'Minilejátszó'
 Comments:
   Comments: 'Hozzászólások'
