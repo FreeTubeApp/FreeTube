@@ -122,7 +122,7 @@ User Playlists:
     Search in Playlists: Hledat v playlistech
     Save: Uložit
     Toast:
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Videa přidána do 1 playlistu | Videa přidána do {playlistCount} playlistů"
       You haven't selected any playlist yet.: Zatím jste nevybrali žádný playlist.
     Select a playlist to add your N videos to: Vyberte playlist, do kterého přidat vaše video | Vyberte playlist, do kterého přidat vašich {videoCount} videí
     N playlists selected: Vybráno {playlistCount}
@@ -916,6 +916,7 @@ Share:
   YouTube Channel URL copied to clipboard: 'URL kanálu YouTube bylo zkopírováno do schránky'
 
   Share Channel: Sdílet kanál
+  Share Post: Sdílet příspěvek
 Mini Player: 'Mini přehrávač'
 Comments:
   Comments: 'Komentáře'
