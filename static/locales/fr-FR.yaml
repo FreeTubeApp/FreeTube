@@ -117,7 +117,7 @@ User Playlists:
     Select a playlist to add your N videos to: Sélectionnez une liste de lecture à laquelle ajouter votre vidéo | Sélectionnez une liste de lecture à laquelle ajouter vos {videoCount} vidéos
     Toast:
       You haven't selected any playlist yet.: Vous n'avez pas encore sélectionné de liste de lecture.
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Vidéo(s) ajoutée(s) à une liste de lecture | Vidéo(s) ajoutée(s) à {playlistCount} listes de lecture"
     N playlists selected: '{playlistCount} Sélectionnée(s)'
     Added {count} Times: Déjà ajouté | Ajouté {count} fois
     Allow Adding Duplicate Video(s): Autoriser l'ajout de vidéos en double
@@ -867,6 +867,7 @@ Share:
   YouTube Channel URL copied to clipboard: L'URL YouTube de la chaîne est copiée dans le presse-papiers
   Invidious Channel URL copied to clipboard: L'URL Invidious de la chaîne est copiée dans le presse-papiers
   Share Channel: Partager la chaîne
+  Share Post: Partage de post
 Mini Player: 'Mini-lecteur'
 Comments:
   Comments: 'Commentaires'
