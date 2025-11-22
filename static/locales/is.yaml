@@ -163,7 +163,7 @@ User Playlists:
     Search in Playlists: Leita í spilunarlistum
     Save: Vista
     Toast:
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Myndskeið(um) bætt við 1 spilunarlista | Myndskeið(um) bætt við {playlistCount} spilunarlista"
       You haven't selected any playlist yet.: Þú hefur enn ekki valið neina spilunarlista.
     Select a playlist to add your N videos to: Veldu spilunarlista til að bæta myndskeiðinu þínu á | Veldu spilunarlista til að bæta {videoCount}̣ myndskeiðunum þínum á
     Added {count} Times: Þegar bætt við | Bætt við {count} sinnum
