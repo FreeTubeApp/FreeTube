@@ -43,7 +43,7 @@ Search / Go to URL: 'Hľadať / Ísť na URL adresu'
 Search Filters:
   Search Filters: 'Vyhľadávacie filtre'
   Sort By:
-    Most Relevant: 'Najvhodnejšie'
+    Most Relevant: 'Najdôležitejšie'
     Rating: 'Hodnotenie'
     Upload Date: 'Dátum nahratia'
     View Count: 'Počet zhliadnutí'
@@ -659,7 +659,7 @@ Unknown YouTube url type, cannot be opened in app: Neznámy typ adresy URL YouTu
 Open New Window: Otvoriť nové okno
 Default Invidious instance has been set to {instance}: Predvolená Invidious inštancia bola nastavená na {instance}
 Search Bar:
-  Clear Input: Vymazať
+  Clear Input: Vymazať zadané údaje
   Remove: Odstrániť
 Default Invidious instance has been cleared: Predvolená Invidious inštancia bola vymazaná
 External link opening has been disabled in the general settings: V nastaveniach bolo vypnuté otváranie odkazov v externých aplikáciach
