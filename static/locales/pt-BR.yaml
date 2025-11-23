@@ -169,7 +169,7 @@ User Playlists:
     Search for Videos: Buscar vídeos
   AddVideoPrompt:
     Toast:
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Vídeo(s) adicionado(s) a 1 playlist | Vídeo(s) adicionado(s) a {playlistCount} playlists"
       You haven't selected any playlist yet.: Você ainda não selecionou nenhuma playlist.
     Select a playlist to add your N videos to: Selecione uma playlist para adicionar seu vídeo | Selecione uma playlist para adicionar seus {videoCount} vídeos
     N playlists selected: '{playlistCount} selecionada(s)'
@@ -867,6 +867,7 @@ Share:
   Invidious Channel URL copied to clipboard: URL do canal Invidious copiado para a área de transferência
   Include Timestamp: Incluir momento atual
   Share Channel: Compartilhar canal
+  Share Post: Compartilhar postagem
 Mini Player: 'Mini Player'
 Comments:
   Comments: 'Comentários'
