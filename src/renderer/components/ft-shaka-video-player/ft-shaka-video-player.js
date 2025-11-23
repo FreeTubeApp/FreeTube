@@ -799,8 +799,8 @@ export default defineComponent({
         'spacer'
       ]
       const controlPanelElementsWithSkipButtons = [
-        'ft_skip_previous',
         ...controlPanelElements.slice(0, 1),
+        'ft_skip_previous',
         'ft_skip_next',
         ...controlPanelElements.slice(1)
       ]
