@@ -127,6 +127,10 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+    watchingPlaylist: {
+      type: Boolean,
+      default: false
+    },
     vrProjection: {
       type: String,
       default: null
@@ -787,17 +791,23 @@ export default defineComponent({
     })
 
     const uiConfig = computed(() => {
+      const controlPanelElements = [
+        'play_pause',
+        'mute',
+        'volume',
+        'time_and_duration',
+        'spacer'
+      ]
+      const controlPanelElementsWithSkipButtons = [
+        'ft_skip_previous',
+        ...controlPanelElements.slice(0, 1),
+        'ft_skip_next',
+        ...controlPanelElements.slice(1)
+      ]
+
       /** @type {shaka.extern.UIConfiguration} */
       const uiConfig = {
-        controlPanelElements: [
-          'ft_skip_previous',
-          'play_pause',
-          'ft_skip_next',
-          'mute',
-          'volume',
-          'time_and_duration',
-          'spacer'
-        ],
+        controlPanelElements: props.watchingPlaylist ? controlPanelElementsWithSkipButtons : controlPanelElements,
         overflowMenuButtons: [],
 
         // only set this to label when we actually have labels, so that the warning doesn't show up
