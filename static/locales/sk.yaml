@@ -147,7 +147,7 @@ User Playlists:
       Video has been removed. Click here to undo.: Video bolo odstránené. Ak chcete akciu vrátiť späť, kliknite sem.
       Playlist name cannot be empty. Please input a name.: Meno zoznamu nemôže byť prázdne. Prosím zadajte názov.
       This playlist is already being used for quick bookmark.: Tento zoznam skladieb sa už používa na rýchle uloženie do záložiek.
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Tento zoznam skladieb sa teraz používa na rýchle uloženie záložiek namiesto {oldPlaylistName}. Kliknite sem pre vrátenie späť.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Namiesto {oldPlaylistName} sa teraz používa tento playlist na rýchle pridanie do záložiek. Kliknutím sem zrušíte túto zmenu
       This playlist is now used for quick bookmark: Tento playlist sa teraz používa na rýchle uloženie záložiek
       Reverted to use {oldPlaylistName} for quick bookmark: Vrátené na použitie {oldPlaylistName} pre rýchle záložky
     Search for Videos: Vyhľadať videá
