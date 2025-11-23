@@ -78,12 +78,12 @@
     </FtFlexBox>
     <FtFlexBox class="containingTextFlexBox">
       <FtInputTags
-        :label="t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
-        :tag-name-placeholder="t('Settings.Distraction Free Settings.Hide Videos and Playlists Containing Text Placeholder')"
+        :label="t('Settings.Distraction Free Settings.Hide Videos, Playlists and Channels Containing Text')"
+        :tag-name-placeholder="t('Settings.Distraction Free Settings.Hide Videos, Playlists and Channels Containing Text Placeholder')"
         :show-tags="showAddedForbiddenTitles"
         :tag-list="forbiddenTitles"
         :min-input-length="1"
-        :tooltip="t('Tooltips.Distraction Free Settings.Hide Videos and Playlists Containing Text')"
+        :tooltip="t('Tooltips.Distraction Free Settings.Hide Videos, Playlists and Channels Containing Text')"
         @change="handleForbiddenTitles"
         @toggle-show-tags="handleAddedForbiddenTitles"
       />
@@ -96,8 +96,10 @@
     <div class="switchColumnGrid">
       <div class="switchColumn">
         <FtToggleSwitch
+          v-if="SUPPORTS_LOCAL_API"
           :label="t('Settings.Distraction Free Settings.Hide Trending Videos')"
           :compact="true"
+          :disabled="disableHideTrendingVideos"
           :default-value="hideTrendingVideos"
           @change="updateHideTrendingVideos"
         />
@@ -298,6 +300,8 @@ import { checkYoutubeChannelId, findChannelTagInfo } from '../../helpers/channel
 
 const { t } = useI18n()
 
+const SUPPORTS_LOCAL_API = process.env.SUPPORTS_LOCAL_API
+
 const channelHiderDisabled = ref(false)
 
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
@@ -368,6 +372,7 @@ function handleHideRecommendedVideos(value) {
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideTrendingVideos = computed(() => store.getters.getHideTrendingVideos)
 
+const disableHideTrendingVideos = computed(() => backendPreference.value !== 'local' && !backendFallback.value)
 /**
  * @param {boolean} value
  */

@@ -103,10 +103,7 @@ Subscriptions:
 Trending:
   Trending: '急上昇'
   Trending Tabs: 急上昇のタブ
-  Movies: 映画
   Gaming: ゲーム
-  Music: 音楽
-  Default: デフォルト
 Most Popular: '人気'
 Playlists: '再生リスト'
 User Playlists:
@@ -170,8 +167,7 @@ User Playlists:
     Allow Adding Duplicate Video(s): 重複した動画の追加を許可する
     Toast:
       You haven't selected any playlist yet.: まだ再生リストを選択していません。
-      "{videoCount} video(s) added to 1 playlist": 1本の動画が1個の再生リストに追加されました | {videoCount} 本の動画が1個の再生リストに追加されました
-      "{videoCount} video(s) added to {playlistCount} playlists": 1本の動画が {playlistCount} 個の再生リストに追加されました | {videoCount} 本の動画が {playlistCount} 個の再生リストに追加されました
+      "Video(s) added to {playlistCount} playlists": ""
     Search in Playlists: 再生リストで検索
     N playlists selected: '{playlistCount} 選択中'
     Save: 保存
@@ -532,8 +528,8 @@ Settings:
     Hide Channels Disabled Message: 一部のチャンネルが ID を使用してブロックされ、処理されませんでした。これらの ID が更新されている間、機能はブロックされます
     Hide Channels Already Exists: チャンネル ID は既に存在します
     Hide Channels API Error: 指定されたIDのユーザーを検索する際にエラーが発生しました。IDが正しいかもう一度確認してください。
-    Hide Videos and Playlists Containing Text Placeholder: 単語、単語の一部、またはフレーズ
-    Hide Videos and Playlists Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
+    Hide Videos, Playlists and Channels Containing Text Placeholder: 単語、単語の一部、またはフレーズ
+    Hide Videos, Playlists and Channels Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
     Hide Channel Home: チャンネルの「ホーム」タブを隠す
     Show Added Items: 追加された項目を表示
     Hide Channel Courses: チャンネルの「コース」タブを隠す
@@ -867,19 +863,13 @@ Comments:
   Getting comment replies, please wait: 'コメント返信を取得中。お待ちください'
   Hide Comments: 'コメント非表示'
   # Context: View 10 Replies, View 1 Reply
-  View: '表示'
-  Hide: '非表示'
-  Replies: '返信'
-  Reply: '返信'
   There are no comments available for this video: 'この動画にはコメントがありません'
   Load More Comments: 'もっと見る'
   There are no more comments for this video: この動画へのコメントはまだありません
   Top comments: 評価順
   Newest first: 新しい順
   Show More Replies: 返信をもっと見る
-  And others: その他
   Pinned by: 固定
-  From {channelName}: '{channelName} から'
   Member: メンバー
   Hearted: ハート
   View {replyCount} replies: '{replyCount} 件の返信を表示'
@@ -979,7 +969,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: チャンネル ID を入力すると、すべての動画、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル ID は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}" 項目の "{subsection}" にあります
-    Hide Videos and Playlists Containing Text: FreeTube 全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
+    Hide Videos, Playlists and Channels Containing Text: FreeTube 全体での履歴やあなたの再生リストと再生リスト内の動画を除き、元のタイトルにその単語を含む動画や単語の一部または、フレーズ（大文字と小文字を区別しない）が含まれているすべての動画と再生リストを非表示にします。
     Hide Videos on Watch: 視聴済みの動画を、購読ページやチャンネルページの 動画、ショート、ライブ タブから非表示にします。ただし、チャンネルページの ホーム タブには影響しません
   SponsorBlock Settings:
     UseDeArrowTitles: 動画のタイトルを DeArrow からユーザーが投稿したタイトルに置き換えます。

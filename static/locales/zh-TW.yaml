@@ -103,10 +103,8 @@ Subscriptions:
 Trending:
   Trending: '發燒影片'
   Trending Tabs: 熱門分頁
-  Movies: 電影
   Gaming: 遊戲
-  Music: 音樂
-  Default: 預設
+  Sports: 運動
 Most Popular: '最受歡迎'
 Playlists: '播放清單'
 User Playlists:
@@ -164,8 +162,7 @@ User Playlists:
     Save: 儲存
     Toast:
       You haven't selected any playlist yet.: 您尚未選取任何播放清單。
-      "{videoCount} video(s) added to 1 playlist": 1 部影片新增至 1 個播放清單 | {videoCount} 部影片新增至 1 個播放清單
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 部影片新增至 {playlistCount} 個播放清單 | {videoCount} 部影片新增至 {playlistCount} 個播放清單
+      "Video(s) added to {playlistCount} playlists": ""
     Added {count} Times: 已新增 | 新增了 {count} 次
     Allow Adding Duplicate Video(s): 允許新增重複影片
     "{videoCount}/{totalVideoCount} Videos Already Added": 已新增 {videoCount}/{totalVideoCount} 部影片
@@ -275,6 +272,7 @@ Settings:
       Everforest Dark Low: 永恆森林 輕度 深色
       Everforest Light Hard: 永恆森林 重度 淺色
       Everforest Light Medium: 永恆森林 中度 淺色
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: '主題色'
       Red: '紅'
@@ -360,6 +358,8 @@ Settings:
       Everforest Light Aqua: Everest 淺綠色
       Everforest Light Purple: 永恆森林 淺紫色
       Everforest Light Blue: Everforest 淡藍色
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Red
     Secondary Color Theme: '次要主題色'
         #* Main Color Theme
     UI Scale: UI縮放
@@ -492,6 +492,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: 匯出較舊 FreeTube 版本的播放清單
       Tooltip: "此選項將所有播放清單中的影片匯出到名為「我的最愛」的播放清單中。\n如何匯出和匯入舊版 FreeTube 播放清單中的影片：\n1. 啟用此選項後匯出播放清單。\n2. 使用「隱私設定」下的「刪除所有播放清單」選項刪除所有現有播放清單。\n3. 啟動舊版的 FreeTube 並導入匯出的播放清單。”"
+    Search history file: 搜尋歷史紀錄檔案
+    Search history: 搜尋歷史紀錄
+    Import search history: 匯入搜尋歷史紀錄
+    Export search history: 匯出搜尋歷史紀錄
+    All search history has been successfully imported: 已成功匯入所有搜尋歷史紀錄
+    All search history has been successfully exported: 已成功匯出所有搜尋歷史紀錄
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 勿擾
@@ -533,8 +539,8 @@ Settings:
     Hide Channels Disabled Message: 某些頻道被使用 ID 封鎖且無法處理。當這些 ID 更新時，功能將會被封鎖
     Hide Channels Already Exists: 頻道 ID 已存在
     Hide Channels API Error: 使用提供的 ID 擷取使用者時發生錯誤。請再次檢查 ID 是否正確。
-    Hide Videos and Playlists Containing Text: 隱藏包含文字的影片與播放清單
-    Hide Videos and Playlists Containing Text Placeholder: 片段、單字或片語
+    Hide Videos, Playlists and Channels Containing Text: 隱藏包含文字的影片與播放清單
+    Hide Videos, Playlists and Channels Containing Text Placeholder: 單字、單字片段或片語
     Hide Channel Home: 隱藏頻道「首頁」分頁
     Show Added Items: 顯示新增的項目
     Hide Channel Courses: 隱藏頻道“課程”標籤
@@ -868,24 +874,21 @@ Comments:
   Getting comment replies, please wait: '正在取得留言回覆，請稍候'
   Hide Comments: '隱藏留言'
   # Context: View 10 Replies, View 1 Reply
-  View: '觀看'
-  Hide: '隱藏'
-  Replies: '回覆'
-  Reply: '回覆'
   There are no comments available for this video: '這個影片沒有留言'
   Load More Comments: '載入更多留言'
   There are no more comments for this video: 此影片無更多留言
   Newest first: 最新優先
   Top comments: 最熱門留言
   Show More Replies: 顯示更多回覆
-  And others: 與其他人
-  From {channelName}: 來自 {channelName}
   Pinned by: 釘選由
   Member: 成員
-  View {replyCount} replies: 檢視 {replyCount} 則回覆
+  View {replyCount} replies: 檢視 1 則回覆 | 檢視 {replyCount} 則回覆
   Hearted: 喜歡的
   Subscribed: 已訂閱
   There are no comments available for this post: 此貼文尚無留言
+  Hide {replyCount} replies: 隱藏 1 則回覆 | 隱藏 {replyCount} 則回覆
+  View 1 reply from {channelName}: 檢視來自 {channelName} 的 1 則回覆
+  View {replyCount} replies from {channelName} and others: 檢視來自 {channelName} 與其他頻道的 {replyCount} 則回覆
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
@@ -980,7 +983,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: 輸入頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋、趨勢、熱門與建議中。輸入的頻道 ID 必須完全符合，且區分大小寫。
     Hide Subscriptions Live: 此設定會被「{settingsSection}」的「{subsection}」部分中應用程式範圍的「{appWideSetting}」設定覆寫
-    Hide Videos and Playlists Containing Text: 輸入片段、單字或片語（不分大小寫），以隱藏整個 FreeTube 中原始標題包含該片段、單字或片語的所有影片與播放清單，僅不包括歷史紀錄、您的播放清單與播放清單內的影片。
+    Hide Videos, Playlists and Channels Containing Text: 輸入單字、單字片段或片語（不分大小寫），以隱藏整個 FreeTube 中原始標題包含該單字、單字片段或片語的所有影片與播放清單，僅不包括歷史紀錄、您的播放清單與播放清單內的影片。
     Hide Videos on Watch: 在訂閱和頻道頁面上的影片、短片和直播頁面中隱藏已觀看的影片。這不會影響頻道頁面上的主頁
   SponsorBlock Settings:
     UseDeArrowTitles: 將影片標題取代為 DeArrow 使用者遞交的標題。

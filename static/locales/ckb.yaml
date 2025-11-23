@@ -122,10 +122,7 @@ Channels:
   Unsubscribe Prompt: ''
 Trending:
   Trending: 'باو'
-  Default: 'بنەڕەت'
-  Music: 'مۆسیقا'
   Gaming: 'یاری'
-  Movies: 'فیلم'
   Trending Tabs: ''
 Most Popular: 'باوترین'
 Playlists: 'پێڕستی لێدانەکان'
@@ -185,8 +182,7 @@ User Playlists:
     Search in Playlists: گەڕان لەناو پێڕستی لێدانەکان
     Toast:
       You haven't selected any playlist yet.: هێشتا هیچ پێڕستێکی لێدانت دیاری نەکردووە.
-      "{videoCount} video(s) added to {playlistCount} playlists": ڤیدیۆیەک زیاد کرا بۆ {playlistCount} پێڕستی لێدان | {videoCount} ڤیدیۆ زیاد کرا بۆ {playlistCount} پێڕستی لێدان
-      "{videoCount} video(s) added to 1 playlist": ڤیدیۆیەک زیاد کرا بۆ یەک پێڕستی لێدان | {videoCount} ڤیدیۆ زیاد کرا بۆ یەک پێڕستی لێدان
+      "Video(s) added to {playlistCount} playlists": ""
     Allow Adding Duplicate Video(s): ڕێ بە زیادکردنی ڤیدیۆی دووبارە بدە
     N playlists selected: '{playlistCount} دیاریکراوە'
   CreatePlaylistPrompt:
@@ -771,13 +767,7 @@ Comments:
   Newest first: 'سەرەتا نوێترینەکان'
   View {replyCount} replies: ''
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: 'بینین'
-  Hide: 'شاردنەوە'
-  Replies: 'وەڵامدانەوەکان'
   Show More Replies: 'پیشاندانی وەڵامدانەوەی زۆرتر'
-  Reply: 'وەڵامدانەوە'
-  From {channelName}: 'لە {channelName}ەوە'
-  And others: 'هی تر'
   There are no comments available for this video: ''
   Load More Comments: ''
   Pinned by: ''

@@ -70,9 +70,17 @@
     display: none;
   }
 
-  .returnToMenuMobileIcon {
+  .returnToMenuMobileButton {
     margin-block-start: 20px;
-    block-size: 30px;
+    background-color: transparent;
+    color: inherit;
+    cursor: pointer;
+    border-style: none;
     font-size: 30px;
+    line-height: 1em;
+  }
+
+  .returnToMenuMobileIcon {
+    inline-size: 1em;
   }
 }

@@ -104,11 +104,9 @@ Subscriptions:
   Empty Posts: Các kênh bạn đăng ký hiện chưa đăng bài đăng nào.
 Trending:
   Trending: 'Xu hướng'
-  Movies: Phim
-  Music: Âm nhạc
-  Default: Mặc định
   Gaming: Trò chơi
   Trending Tabs: Trang Xu hướng
+  Sports: Thể thao
 Most Popular: 'Phổ biến nhất'
 Playlists: 'Danh sách phát'
 User Playlists:
@@ -166,9 +164,8 @@ User Playlists:
     N playlists selected: Đã chọn {playlistCount}
     Search in Playlists: Tìm trong danh sách phát
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": Đã thêm 1 video vào {playlistCount} danh sách phát | Đã thêm {videoCount} video vào {playlistCount} danh sách phát
+      "Video(s) added to {playlistCount} playlists": "(Các) Video đã được thêm vào 1 danh sách phát | (Các) Video đã được thêm vào danh sách phát {playlistCount}"
       You haven't selected any playlist yet.: Bạn đang chưa chọn danh sách phát nào.
-      "{videoCount} video(s) added to 1 playlist": Đã thêm 1 video vào 1 danh sách phát | Đã thêm {videoCount} vào 1 danh sách phát
     Save: Lưu
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} đã có trong danh sách phát'
     Added {count} Times: Đã được thêm | Đã được thêm {count} lần
@@ -277,6 +274,7 @@ Settings:
       Everforest Dark Medium: Everforest tối trung bình
       Everforest Light Hard: Everforest Nhẹ Cứng
       Everforest Light Medium: Everforest Light trung bình
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Màu chủ đề chính'
       Red: 'Đỏ'
@@ -362,6 +360,8 @@ Settings:
       Gruvbox Dark Purple: Gruvbox Tím Đậm
       Gruvbox Dark Aqua: Gruvbox màu tối Aqua
       Gruvbox Light Orange: Gruvbox màu cam nhạt
+      Catppuccin Latte Mauve: Catppuccin Latte Cẩm quỳ
+      Catppuccin Latte Red: Catppuccin Latte Đỏ
     Secondary Color Theme: 'Màu chủ đề phụ'
         #* Main Color Theme
     UI Scale: Tỉ lệ UI
@@ -467,6 +467,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Xuất danh sách phát cho các phiên bản FreeTube cũ hơn
       Tooltip: "Tùy chọn này sẽ gộp tất cả các danh sách phát vào một danh sách phát mang tên 'Ưa thích'.\nCách để nhập & xuất video trong danh sách phát cho một phiên bản cũ hơn của FreeTube:\n1. Xuất danh sách phát với tùy chọn này được bật.\n2. Xóa tất cả các danh sách phát qua tùy chọn Xóa tất cả danh sách phát trong mục Cài đặt quyền riêng tư.\n3. Mở phiên bản cũ hơn và nhập danh sách phát đã được xuất ra."
+    Search history: Lịch sử tìm kiếm
+    Import search history: Nhập lịch sử tìm kiếm
+    Export search history: Xuất lịch sử tìm kiếm
+    All search history has been successfully imported: Tất cả lịch sử tìm kiếm đã được nhập thành công
+    All search history has been successfully exported: Toàn bộ lịch sử tìm kiếm đã được xuất thành công
+    Search history file: Tập tin lịch sử tìm kiếm
   Distraction Free Settings:
     Hide Live Chat: Ẩn live chat
     Hide Popular Videos: Ẩn video phổ biến
@@ -497,7 +503,7 @@ Settings:
     Hide Chapters: Ẩn các chương
     Hide Channels: Ẩn video từ các kênh
     Hide Channel Releases: Ẩn trang "Xuất bản" của kênh
-    Hide Videos and Playlists Containing Text: Ẩn các video và danh sách phát có chứa
+    Hide Videos, Playlists and Channels Containing Text: Ẩn các video và danh sách phát có chứa
     Hide Channels Invalid: ID kênh không hợp lệ
     Hide Channel Shorts: Ẩn trang "Shorts" của kênh
     Hide Subscriptions Shorts: Ẩn short từ các đăng ký
@@ -505,7 +511,7 @@ Settings:
     Hide Upcoming Premieres: Ẩn video sắp ra mắt
     Hide Channel Podcasts: Ẩn trang "Podcast" của kênh
     Hide Channels Already Exists: ID kênh đã tồn tại
-    Hide Videos and Playlists Containing Text Placeholder: Đoạn, từ hoặc cụm từ
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Từ, tiếng, hoặc cụm từ
     Hide Subscriptions Videos: Ẩn video từ các đăng ký
     Display Titles Without Excessive Capitalisation: Hiển thị tiêu đề không viết hoa quá mức
     Show Added Items: Hiện các mục đã thêm
@@ -863,6 +869,7 @@ Share:
   YouTube Channel URL copied to clipboard: Đã sao chép liên kết kênh Youtube
   Invidious Channel URL copied to clipboard: URL của kênh ưu tiên đã được sao chép
   Share Channel: Chia sẻ kênh
+  Share Post: Chia Sẻ Bài Viết
 Mini Player: 'Trình phát Mini'
 Comments:
   Comments: 'Bình luận'
@@ -870,24 +877,21 @@ Comments:
   Getting comment replies, please wait: 'Đang lấy trả lời bình luận, vui lòng chờ'
   Hide Comments: 'Ẩn bình luận'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Xem'
-  Hide: 'Ẩn'
-  Replies: 'Trả lời'
-  Reply: 'Trả lời'
   There are no comments available for this video: 'Không có bình luận nào cho video này'
   Load More Comments: 'Tải thêm bình luận'
   Newest first: Mới nhất trước
   Top comments: Top bình luận
   There are no more comments for this video: Không có bình luận cho video này
   Member: Thành viên
-  From {channelName}: từ {channelName}
-  And others: và những người khác
   Pinned by: Được ghim bởi
   Show More Replies: Hiện thêm câu trả lời
-  View {replyCount} replies: Hiển thị {replyCount} câu trả lời
+  View {replyCount} replies: Xem 1 phản hồi | Xem {replyCount} phản hồi
   Hearted: Đã thả tim
   Subscribed: Đã đăng ký
   There are no comments available for this post: Không có bình luận nào cho bài đăng này
+  Hide {replyCount} replies: Ẩn 1 phản hồi | Ẩn {replyCount} phản hồi
+  View 1 reply from {channelName}: Xem 1 phản hồi từ {channelName}
+  View {replyCount} replies from {channelName} and others: Xem {replyCount} phản hồi từ {channelName} và những người khác
 Up Next: 'Tiếp theo'
 
 # Toast Messages
@@ -988,12 +992,12 @@ Tooltips:
     External Player: Chọn một trình phát bên ngoài sẽ hiển thị một biểu tượng để mở video (danh sách phát nếu được hỗ trợ) trong trình phát bên ngoài, trên hình thu nhỏ của video. Cảnh báo, cài đặt Invidious không ảnh hưởng đến trình phát bên ngoài.
     Ignore Default Arguments: Không gửi các tham số mặc định đến trình phát bên ngoài ngoài URL của video (như tốc độ phát, URL danh sách phát, v.v.). Các tham số tùy chỉnh vẫn sẽ được gửi.
   Subscription Settings:
-    Fetch Feeds from RSS: Khi được bật lên, FreeTube sẽ sử dụng RSS thay vì phương thức mặc định để lấy nguồn cấp dữ liệu đăng ký của bạn. RSS nhanh hơn và tránh việc bị chặn IP, nhưng không cung cấp thông tin nhất định như thời lượng video, trạng thái phát trực tiếp hoặc các bài đăng.
+    Fetch Feeds from RSS: Khi được bật lên, FreeTube sẽ sử dụng RSS thay vì phương thức mặc định để lấy nguồn cấp dữ liệu đăng ký của bạn. RSS nhanh hơn và tránh việc bị chặn IP, nhưng không cung cấp thông tin nhất định như thời lượng video, trạng thái phát trực tiếp hoặc các bài đăng
     Fetch Automatically: Khi được bật, FreeTube sẽ tự động lấy nguồn cấp dữ liệu đăng ký của bạn khi khởi động, khi mở cửa sổ mới.
   Distraction Free Settings:
     Hide Channels: Nhập tên kênh hoặc ID kênh để ẩn tất cả video, danh sách phát và chính kênh đó khỏi xuất hiện trong tìm kiếm, xu hướng, phổ biến nhất và được đề xuất. Tên kênh đã nhập phải khớp hoàn toàn và có phân biệt chữ hoa chữ thường.
     Hide Subscriptions Live: Cài đặt này bị ghi đè bởi cài đặt "{appWideSetting}" trên toàn ứng dụng, trong phần "{subsection}" của "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Nhập một đoạn, từ hoặc cụm từ (không phân biệt chữ hoa chữ thường) để ẩn tất cả video và danh sách phát có tiêu đề gốc chứa nó trên toàn bộ FreeTube, ngoại trừ Lịch sử, Danh sách phát của bạn và video bên trong danh sách phát.
+    Hide Videos, Playlists and Channels Containing Text: Nhập một từ khóa hoặc cụm từ (không phân biết hoa thường) để ẩn các video & danh sách phát có tiêu đề gốc chứa các mục đó khỏi FreeTube, ngoại trừ các video trong Lịch sử, các danh sách phát của bạn, và video trong các danh sách phát.
     Hide Videos on Watch: Ẩn các video đã xem khỏi tab Video, Video ngắn và Trực tiếp trên trang Đăng ký và Kênh. Điều này không ảnh hưởng đến tab Trang chủ trên trang Kênh
   SponsorBlock Settings:
     UseDeArrowThumbnails: Thay thế thumbnail video bằng thumbnail gửi từ DeArrow.

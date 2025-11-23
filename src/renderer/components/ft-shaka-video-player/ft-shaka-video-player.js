@@ -2112,7 +2112,8 @@ export default defineComponent({
         const popUpLayout = seconds > 0
           ? { icon: 'arrow-right', invertContentOrder: true }
           : { icon: 'arrow-left', invertContentOrder: false }
-        const formattedSeconds = Math.abs(seconds)
+        // `+value` converts string back to float
+        const formattedSeconds = +Math.abs(seconds).toFixed(2)
         showValueChange(`${formattedSeconds}s`, popUpLayout.icon, popUpLayout.invertContentOrder)
       }
 

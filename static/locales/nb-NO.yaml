@@ -106,10 +106,8 @@ Subscriptions:
 Trending:
   Trending: 'På vei opp'
   Trending Tabs: På vei opp-faner
-  Movies: Filmer
   Gaming: Videospill
-  Music: Musikk
-  Default: Standard
+  Sports: Sport
 Most Popular: 'Mest populære'
 Playlists: 'Spillelister'
 User Playlists:
@@ -146,8 +144,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videoer vil bli lagt til'
     Toast:
       You haven't selected any playlist yet.: Du har ikke valgt noen spillelister enda.
-      "{videoCount} video(s) added to 1 playlist": 1 video lagt til 1 spilleliste | {videoCount} videoer lagt til 1 spilleliste
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video lagt til {playlistCount} spillelister | {videoCount} videoer lagt til  {playlistCount} spillelister
+      "Video(s) added to {playlistCount} playlists": "Video(er) lagt til 1 spilleliste | Video(er) lagt til {playlistCount} spillelister"
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videoer allerede lagt til'
     Added {count} Times: Allerede lagt til | Lagt til {count} ganger
     Select a playlist to add your N videos to: Velg en spilleliste å legge videoen til | Velg en spilleliste å legge dine {videoCount} videoer til
@@ -278,6 +275,7 @@ Settings:
       Everforest Dark Medium: Everforest medium og mørk
       Everforest Light Medium: Everforest medium og lys
       Everforest Light Low: Everforest lav og lys
+      Catppuccin Latte: Catppuccin-latte
     Main Color Theme:
       Main Color Theme: 'Hovedfarge'
       Red: 'Rød'
@@ -363,6 +361,8 @@ Settings:
       Everforest Light Aqua: Everforest-lysaqua
       Everforest Light Blue: Everforest-lyseblå
       Everforest Light Purple: Everforest-lyselilla
+      Catppuccin Latte Mauve: Catppuccin-latte-fiolett
+      Catppuccin Latte Red: Catppuccin-latte-rød
     Secondary Color Theme: 'Sekundærfarge'
         #* Main Color Theme
     UI Scale: Grensesnittskalering
@@ -495,6 +495,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Eksporter spillelister for eldre FreeTube-versjoner
       Tooltip: "Denne funksjonen eksporterer videoer fra alle spillelister inn i en spilleliste med navnet «Favoritter».\nFor å eksportere og importere videoer i spillelister i eldre versjoner av FreeTube:\n1.) Eksporter spillelistene dine med denne funksjonen skrudd på.\n2.) Slett alle spillelistene dine med «Fjern alle spillelister» under «Personvern».\n3.) Start opp den eldre versjonen av FreeTube og importer de eksporterte spillelistene dine."
+    Search history file: Søkshistorikkfil
+    Search history: Søkshistorikk
+    Import search history: Importer søkshistorikk
+    Export search history: Eksporter søkshistorikk
+    All search history has been successfully imported: Søkshistorikken har blitt importert
+    All search history has been successfully exported: Søkshistorikken har blitt eksportert
   Proxy Settings:
     Region: Region
     Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for å sende en forespørsel til
@@ -550,9 +556,9 @@ Settings:
     Hide Subscriptions Live: Skjul abonnements direktesendinger
     Hide Profile Pictures in Comments: Skjul profilbilder i kommentarfeltet
     Hide Channel Home: Skjule «Start»-fanen i kanaler
-    Hide Videos and Playlists Containing Text: Skjul videoer og spillelister som inneholder tekst
+    Hide Videos, Playlists and Channels Containing Text: Skjul videoer og spillelister som inneholder tekst
     Hide Channels Already Exists: Kanal-ID-en finnes allerede
-    Hide Videos and Playlists Containing Text Placeholder: Orddel, ord eller frase
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Ord, del av ord eller setning
     Hide Channels Invalid: Kanal-ID-en var ugyldig
     Hide Channels Disabled Message: Noen kanaler ble blokkert med ID og ble ikke prosessert. Funksjonen er blokkert mens disse ID-ene blir oppdatert
     Show Added Items: Vis videoer lagt til
@@ -864,6 +870,7 @@ Share:
   Include Timestamp: Inkluder tidsstempel
   Invidious Channel URL copied to clipboard: Invidious-kanalnettadresse kopiert til utklippstavle
   Share Channel: Del kanal
+  Share Post: Del innlegg
 Mini Player: 'Miniavspiller'
 Comments:
   Comments: 'Kommentarer'
@@ -871,24 +878,21 @@ Comments:
   Getting comment replies, please wait: 'Henter kommentarsvar...'
   Hide Comments: 'Skjul kommentarer'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Vis'
-  Hide: 'Skjul'
-  Replies: 'Svar'
-  Reply: 'Svar'
   There are no comments available for this video: 'Det er ingen kommentarer tilgjengelig på denne videoen'
   Load More Comments: 'Last inn flere kommentarer'
   Newest first: Nyeste først
   There are no more comments for this video: Ingen flere kommentarer på denne videoen
   Top comments: Toppkommentarer
   Show More Replies: Vis flere svar
-  From {channelName}: fra {channelName}
   Pinned by: Festet av
   Member: Medlem
-  And others: og andre
-  View {replyCount} replies: Vis {replyCount} svar
+  View {replyCount} replies: Vis 1 svar | Vis {replyCount} svar
   Hearted: Hjertemerket
   Subscribed: Abonnert
   There are no comments available for this post: Det er ingen kommentarer tilgjengelig på denne posten
+  Hide {replyCount} replies: Skjul 1 svar | Skjul {replyCount} svar
+  View 1 reply from {channelName}: Vis 1 svar fra {channelName}
+  View {replyCount} replies from {channelName} and others: Vis {replyCount} svar fra {channelName} og andre
 Up Next: 'Neste'
 
 # Toast Messages
@@ -978,7 +982,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Skiv inn en kanal-ID for å skjule alle videoer, spillelister og selve kanalen fra å vises i søk eller andre steder. Kanal-ID-en må være et nøyaktig treff, og skiller mellom små og store bokstaver.
     Hide Subscriptions Live: Innstillingen overstyres av «{appWideSetting}» for hele programmet, i «{subsection}»-delen av «{settingsSection}»
-    Hide Videos and Playlists Containing Text: Tast inn et ord, en del av et ord eller en frase (det skilles ikke mellom store og små bokstaver) for å gjemme alle videoer og spillelister med det i seg, med unntak av i historikken din, og videoer inne i spillelister.
+    Hide Videos, Playlists and Channels Containing Text: Tast inn et ord, en del av et ord eller en frase (det skilles ikke mellom store og små bokstaver) for å gjemme alle videoer og spillelister med det i seg, med unntak av i historikken din, og videoer inne i spillelister.
     Hide Videos on Watch: Skjul sette videoer fra Videoer, Shorts og Live-fanene på abonnementsider og kanalsider. Dette påvirker ikke Hjemme-fanen på kanalsider.
   SponsorBlock Settings:
     UseDeArrowTitles: Erstatt videonavn med brukerinnsendte navn fra DeArrow.

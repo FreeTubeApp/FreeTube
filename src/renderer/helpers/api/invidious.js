@@ -425,7 +425,29 @@ export async function invidiousGetVideoInformation(videoId) {
   })
 }
 
-/** @typedef {{commentCount: number, videoId: string, continuation: string?, comments: {author: string, authorThumbnails: InvidiousImageObject[], authorId: string, authorUrl: string, isEdited: boolean, isPinned: boolean, content: string, contentHtml: string, published: number, publishedText: string, likeCount: number, commentId: string, authorIsChannelOwner: boolean, creatorHeart: { creatorThumbnail: string, creatorName: string}?, isSponsor: boolean, sponsorIconUrl: string, replies: {replyCount: number, continuation: string}}[]}} InvidiousCommentResponse */
+/**
+ * The complete Triforce, or one or more components of the Triforce.
+ * @typedef {object} InvidiousComment
+ * @property {string} id
+ * @property {string} authorLink
+ * @property {string} authorThumb
+ * @property {string} author
+ * @property {number} likes
+ * @property {string} text
+ * @property {string} dataType
+ * @property {boolean} isOwner
+ * @property {boolean} isPinned
+ * @property {number} numReplies
+ * @property {boolean} hasReplyToken
+ * @property {string} replyToken
+ * @property {boolean} showReplies
+ * @property {InvidiousComment[]} replies
+ * @property {boolean} isHearted
+ * @property {boolean} isMember
+ * @property {string} memberIconUrl
+ * @property {string} time
+ */
+/** @typedef {{commentCount: number, videoId: string, continuation: string?, comments: InvidiousComment[]}} InvidiousCommentResponse */
 
 export async function invidiousGetComments({ id, nextPageToken = '', sortNewest = true }) {
   const payload = {
@@ -500,43 +522,6 @@ export async function getInvidiousPopularFeed() {
 
   items.forEach((item) => {
     if (item.type === 'video' || item.type === 'shortVideo') {
-      setPublishedTimestamp(item)
-    }
-  })
-
-  return items
-}
-
-/**
- * @param {'default' | 'music' | 'gaming' | 'movies'} tab
- * @param {string} region
- * @returns {Promise<InvidiousVideoType[] | null>}
- */
-export async function getInvidiousTrending(tab, region) {
-  const params = {
-    resource: 'trending',
-    id: '',
-    params: {
-      region
-    }
-  }
-
-  if (tab !== 'default') {
-    params.params.type = tab.charAt(0).toUpperCase() + tab.substring(1)
-  }
-
-  const response = await invidiousAPICall(params)
-
-  if (!response) {
-    return null
-  }
-
-  const items = response.filter((item) => {
-    return item.type === 'video' || item.type === 'channel' || item.type === 'playlist'
-  })
-
-  items.forEach((item) => {
-    if (item.type === 'video') {
       setPublishedTimestamp(item)
     }
   })
@@ -621,7 +606,6 @@ function parseInvidiousCommentData(response) {
   return response.comments.map((comment) => {
     return {
       id: comment.commentId,
-      showReplies: false,
       authorLink: comment.authorId,
       authorThumb: youtubeImageUrlToInvidious(comment.authorThumbnails.at(-1).url),
       author: comment.author,
@@ -633,10 +617,11 @@ function parseInvidiousCommentData(response) {
       numReplies: comment.replies?.replyCount ?? 0,
       hasReplyToken: !!comment.replies?.continuation,
       replyToken: comment.replies?.continuation ?? '',
+      showReplies: false,
+      replies: [],
       isHearted: comment.creatorHeart !== undefined,
       isMember: comment.isSponsor,
       memberIconUrl: youtubeImageUrlToInvidious(comment.sponsorIconUrl),
-      replies: [],
       time: getRelativeTimeFromDate(comment.published * 1000, false)
     }
   })

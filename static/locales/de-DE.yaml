@@ -103,10 +103,8 @@ Subscriptions:
 Trending:
   Trending: Trends
   Trending Tabs: Trends-Tabs
-  Movies: Filme
   Gaming: Gaming
-  Music: Musik
-  Default: Standard
+  Sports: Sport
 Most Popular: Am beliebtesten
 Playlists: Playlists
 User Playlists:
@@ -164,8 +162,7 @@ User Playlists:
     Save: Speichern
     Toast:
       You haven't selected any playlist yet.: Du hast noch keine Playlist ausgewählt.
-      "{videoCount} video(s) added to 1 playlist": 1 Video zu 1 Playlist hinzugefügt | {videoCount} Videos zu 1 Playlist hinzugefügt
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 Video zu {playlistCount} Playlists hinzugefügt | {videoCount} Videos zu {playlistCount} Playlists hinzugefügt
+      "Video(s) added to {playlistCount} playlists": "Video(s) wurden zu 1 Playlist hinzugefügt | Video(s) wurden zu {playlistCount} Playlists hinzugefügt"
     Select a playlist to add your N videos to: Wähle eine Playlist, der du dein Video hinzufügen möchtest | Wähle eine Playlist, der du deine {videoCount} Videos hinzufügen möchtest
     Added {count} Times: 'Bereits hinzugefügt | {count} Mal hinzugefügt'
     Allow Adding Duplicate Video(s): Hinzufügen doppelter Videos zulassen
@@ -270,14 +267,15 @@ Settings:
       Gruvbox Light: Gruvbox Hell
       Gruvbox Dark: Gruvbox Dunkel
       Catppuccin Frappe: Catppuccin Frappe
-      Everforest Dark Hard: Everforest Dunkelhart
-      Everforest Dark Medium: Everforest Dunkelmittel
-      Everforest Dark Low: Everforest Dunkelniedrig
-      Everforest Light Hard: Everforest Hellhart
-      Everforest Light Medium: Everforest Hellmittel
-      Everforest Light Low: Everforest Hellniedrig
+      Everforest Dark Hard: Everforest Dunkel (harter Kontrast)
+      Everforest Dark Medium: Everforest Dunkel (normaler Kontrast)
+      Everforest Dark Low: Everforest Dunkel (softer Kontrast)
+      Everforest Light Hard: Everforest Hell (harter Kontrast)
+      Everforest Light Medium: Everforest Hell (normaler Kontrast)
+      Everforest Light Low: Everforest Hell (softer Kontrast)
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
-      Main Color Theme: Hauptfarbe des Farbschemas
+      Main Color Theme: Hauptfarbe
       Red: Rot
       Pink: Rosa
       Purple: Lila
@@ -311,9 +309,9 @@ Settings:
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rosenwasser
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
       Catppuccin Mocha Pink: Catppuccin Mocha Pink
-      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
+      Catppuccin Mocha Mauve: Catppuccin Mocha Malve
       Catppuccin Mocha Red: Catppuccin Mocha Rot
-      Catppuccin Mocha Maroon: Catppuccin Mocha Kastanienbraun
+      Catppuccin Mocha Maroon: Catppuccin Mocha Kastanie
       Catppuccin Mocha Teal: Catppuccin Mokka Blaugrün
       Solarized Red: Solarisiertes Rot
       Solarized Yellow: Solarisiertes Gelb
@@ -333,20 +331,20 @@ Settings:
       Gruvbox Dark Aqua: Gruvbox dunkles Wasser
       Gruvbox Light Orange: Gruvbox Hellorange
       Gruvbox Dark Blue: Gruvbox Dunkelblau
-      Catppuccin Frappe Yellow: Catppuccin Frappe gelb
-      Catppuccin Frappe Sky: Catppuccin Frappe himmelblau
-      Catppuccin Frappe Mauve: Catppuccin Frappe malvenfarben
-      Catppuccin Frappe Blue: Catppuccin Frappe blau
+      Catppuccin Frappe Yellow: Catppuccin Frappe Gelb
+      Catppuccin Frappe Sky: Catppuccin Frappe Himmel
+      Catppuccin Frappe Mauve: Catppuccin Frappe Malve
+      Catppuccin Frappe Blue: Catppuccin Frappe Blau
       Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
-      Catppuccin Frappe Red: Catppuccin Frappe rot
-      Catppuccin Frappe Teal: Catppuccin Frappe blaugrün
-      Catppuccin Frappe Peach: Catppuccin Frappe pfirsichfarben
+      Catppuccin Frappe Red: Catppuccin Frappe Rot
+      Catppuccin Frappe Teal: Catppuccin Frappe Blaugrün
+      Catppuccin Frappe Peach: Catppuccin Frappe Pfirsich
       Catppuccin Frappe Rosewater: Catppuccin Frappe Rosenwasser
-      Catppuccin Frappe Green: Catppuccin Frappe grün
-      Catppuccin Frappe Sapphire: Catppuccin Frappe saphirblau
-      Catppuccin Frappe Pink: Catppuccin Frappe pink
-      Catppuccin Frappe Lavender: Catppuccin Frappe lavendelfarben
-      Catppuccin Frappe Maroon: Catppuccin Frappe kastanienbraun
+      Catppuccin Frappe Green: Catppuccin Frappe Grün
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Saphir
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavendel
+      Catppuccin Frappe Maroon: Catppuccin Frappe Kastanie
       Everforest Dark Red: Everforest Dunkelrot
       Everforest Dark Orange: Everforest Dunkelorange
       Everforest Dark Yellow: Everforest Dunkelgelb
@@ -361,7 +359,9 @@ Settings:
       Everforest Light Aqua: Everforest Helltürkis
       Everforest Light Blue: Everforest Hellblau
       Everforest Light Purple: Everforest Helllilla
-    Secondary Color Theme: Sekundäres Farbschema
+      Catppuccin Latte Mauve: Catppuccin Latte Malve
+      Catppuccin Latte Red: Catppuccin Latte Rot
+    Secondary Color Theme: Sekundäre Farbe
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
     Disable Smooth Scrolling: Gleichmäßiges Scrollen deaktivieren
@@ -493,6 +493,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Playlists für ältere FreeTube-Versionen exportieren
       Tooltip: "Diese Option exportiert Videos aus allen Playlists in eine Playlist namens „Favoriten“.\nSo kannst du Playlists für eine ältere Version von FreeTube exportieren und importieren:\n1. Exportiere deine Playlists, wenn diese Option aktiviert ist.\n2. Lösche alle deine bestehenden Playlists mit der Option „Alle Playlists entfernen“ unter den Datenschutzeinstellungen.\n3. Starte die ältere Version von FreeTube und importiere die exportierten Playlists.\""
+    Search history file: Suchverlaufsdatei
+    Search history: Suchverlauf
+    Import search history: Suchverlauf importieren
+    Export search history: Suchverlauf exportieren
+    All search history has been successfully imported: Der gesamte Suchverlauf wurde erfolgreich importiert
+    All search history has been successfully exported: Der gesamte Suchverlauf wurde erfolgreich exportiert
   Distraction Free Settings:
     Hide Live Chat: Live-Chat ausblenden
     Hide Popular Videos: Beliebte Videos ausblenden
@@ -534,8 +540,8 @@ Settings:
     Hide Channels Disabled Message: Einige Kanäle wurden mit ID gesperrt und nicht verarbeitet. Die Funktion wird blockiert, während diese IDs aktualisieren
     Hide Channels Already Exists: Kanal-ID bereits vorhanden
     Hide Channels API Error: Fehler beim Abrufen des Kontos mit der bereitgestellten ID. Bitte überprüfe erneut, ob die ID korrekt ist.
-    Hide Videos and Playlists Containing Text: Videos und Playlists, die Text enthalten, ausblenden
-    Hide Videos and Playlists Containing Text Placeholder: Wortteil, Wort oder mehrere Wörter
+    Hide Videos, Playlists and Channels Containing Text: Videos und Playlists, die Text enthalten, ausblenden
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Wort, Wortfragment oder Phrase
     Hide Channel Home: 'Tab „Startseite“ im Kanal ausblenden'
     Show Added Items: Hinzugefügte Elemente anzeigen
     Hide Channel Courses: Tab „Kurse“ im Kanal ausblenden
@@ -863,6 +869,7 @@ Share:
   YouTube Channel URL copied to clipboard: YouTube-Kanal-URL in die Zwischenablage kopiert
   Invidious Channel URL copied to clipboard: Invidious-Kanal-URL in die Zwischenablage kopiert
   Share Channel: Kanal teilen
+  Share Post: Post teilen
 Mini Player: Mini-Video-Player
 Comments:
   Comments: Kommentare
@@ -870,24 +877,21 @@ Comments:
   Getting comment replies, please wait: Antworten auf Kommentare werden geladen, bitte warten
   Hide Comments: Kommentare ausblenden
   # Context: View 10 Replies, View 1 Reply
-  View: Anzeigen
-  Hide: Ausblenden
-  Replies: Antworten
-  Reply: Antworten
   There are no comments available for this video: Keine Kommentare zu diesem Video vorhanden
   Load More Comments: Weitere Kommentare laden
   There are no more comments for this video: Es gibt keine weiteren Kommentare zu diesem Video
   Newest first: Neueste zuerst
   Top comments: Top-Kommentare
   Show More Replies: Weitere Antworten anzeigen
-  From {channelName}: von {channelName}
-  And others: und andere
   Pinned by: Angeheftet von
   Member: Mitglied
-  View {replyCount} replies: '{replyCount} Antworten ansehen'
+  View {replyCount} replies: '1 Antwort ansehen | {replyCount} Antworten ansehen'
   Hearted: Gefällt mir
   Subscribed: Abonniert
   There are no comments available for this post: Keine Kommentare für diesen Beitrag vorhanden
+  Hide {replyCount} replies: 1 Antwort ausblenden | {replyCount} Antworten ausblenden
+  View 1 reply from {channelName}: 1 Antwort von {channelName} ansehen
+  View {replyCount} replies from {channelName} and others: '{replyCount} Antworten von {channelName} und anderen ansehen'
 Up Next: Nächster Titel
 
 # Toast Messages
@@ -982,7 +986,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Gebe eine Kanal-ID ein, um zu verhindern, dass alle Videos, Playlists und der Kanal selbst in der Suche, den Trends, den beliebtesten und den empfohlenen Videos angezeigt werden. Die eingegebene Kanal-ID muss vollständig übereinstimmen und es wird zwischen Groß- und Kleinschreibung unterschieden.
     Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer Kraft gesetzt
-    Hide Videos and Playlists Containing Text: Gib einen Teil eines Wortes, ein Wort oder mehrere Wörter ein (Groß-/Kleinschreibung spielt keine Rolle), um alle Videos und Playlists auszublenden, deren Originaltitel diese Wortfolge enthalten, und zwar überall auf FreeTube, mit Ausnahme des Verlaufs, deiner persönlichen Playlists und der Videos innerhalb von Playlists.
+    Hide Videos, Playlists and Channels Containing Text: Gib ein Wort, einen Teil eines Wortes oder einen Satz ein (Groß-/Kleinschreibung wird ignoriert) um alle Videos und Playlists, welche es in ihren Originaltiteln enthalten, auf ganz FreeTube auszublenden. Dein Verlauf, deine eigenen Playlists und Videos innerhalb Playlists sind davon nicht betroffen.
     Hide Videos on Watch: Blendet bereits angesehene Videos aus den Tabs „Videos“, „Shorts“ und „Live“ der Abo- und Kanalseiten aus. Beeinflusst nicht den „Home“-Tab der Kanalseiten
   SponsorBlock Settings:
     UseDeArrowTitles: Videotitel durch von der Community eingereichte Titel von DeArrow ersetzen.

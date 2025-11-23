@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-import { computed, nextTick, onMounted, ref } from 'vue'
+import { computed, nextTick, onMounted, ref, useTemplateRef } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtButton from '../FtButton/FtButton.vue'
@@ -83,7 +83,7 @@ const playlistPersistenceDisabled = computed(() => {
   return playlistName.value === '' || playlistNameBlank.value || playlistWithNameExists.value
 })
 
-const playlistNameInput = ref(null)
+const playlistNameInput = useTemplateRef('playlistNameInput')
 
 onMounted(() => {
   // Faster to input required playlist name

@@ -26,7 +26,7 @@ Global:
   Videos: 'Filmy'
   Shorts: Filmy Short
   Live: Na żywo
-  Posts: Posty
+  Posts: Wpisy
   Sort By: Sortuj według
 
 # Search Bar
@@ -103,10 +103,8 @@ Subscriptions:
 Trending:
   Trending: 'Na czasie'
   Trending Tabs: Karty „Na czasie”
-  Default: Domyślna
-  Music: Muzyka
   Gaming: Gry
-  Movies: Filmy
+  Sports: Sport
 Most Popular: 'Popularne'
 Playlists: 'Playlisty'
 User Playlists:
@@ -117,8 +115,7 @@ User Playlists:
     Search in Playlists: Szukaj w playlistach
     Save: Zapisz
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 film dodano do {playlistCount} playlist | {videoCount} film(y/ów) dodano do {playlistCount} playlist
-      "{videoCount} video(s) added to 1 playlist": 1 film dodano do 1 playlisty | Do 1 playlisty dodano {videoCount} film(y/ów)
+      "Video(s) added to {playlistCount} playlists": "Film(y) dodan(y/e) do playlisty | Film(y) dodan(y/e) do {playlistCount} playlist"
       You haven't selected any playlist yet.: Nie wybrano jeszcze żadnych playlist.
     Select a playlist to add your N videos to: Wybierz playlistę, do której chcesz dodać swój film | Wybierz playlistę, do której chcesz dodać swoje {videoCount} film(y/ów)
     N playlists selected: Zaznaczono {playlistCount}
@@ -275,6 +272,7 @@ Settings:
       Everforest Dark Hard: Everforest Mocno Ciemny
       Everforest Dark Low: Everforest Lekko Ciemny
       Everforest Light Medium: Everforest Jasny
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Główny kolor motywu'
       Red: 'Czerwony'
@@ -360,6 +358,8 @@ Settings:
       Everforest Dark Aqua: Everforest Ciemny Aqua
       Everforest Light Purple: Everforest Jasny Fioletowy
       Everforest Dark Blue: Everforest Ciemny Niebieski
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Czerwony
     Secondary Color Theme: 'Drugi kolor motywu'
         #* Main Color Theme
     UI Scale: Skala UI
@@ -492,6 +492,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Opcja ta wyeksportuje filmy ze wszystkich playlist, jako jedną playlistę o nazwie „Ulubione”.\nOto jak wyeksportować i zaimportować filmy z playlist do starszych wersji FreeTube:\n1. Wyeksportuj swoje playlisty z tą opcją włączoną.\n 2. Usuń wszystkie swoje istniejące playlisty przy użyciu opcji „Usuń wszystkie playlisty” z ustawień prywatności.\n3. Uruchom starszą wersję FreeTube, następnie zaimportuj wyeksportowane playlisty."
       Label: Wyeksportuj playlisty dla starszych wersji FreeTube
+    Search history file: Plik historii wyszukiwania
+    Search history: Historia wyszukiwania
+    Import search history: Zaimportuj historię wyszukiwania
+    Export search history: Wyeksportuj historię wyszukiwania
+    All search history has been successfully imported: Cała historia wyszukiwania została pomyślnie zaimportowana
+    All search history has been successfully exported: Cała historia wyszukiwania została pomyślnie wyeksportowana
   Distraction Free Settings:
     Distraction Free Settings: Skupienie uwagi
     Hide Live Chat: Schowaj czat na żywo
@@ -533,13 +539,13 @@ Settings:
     Hide Channels Disabled Message: Niektóre z kanałów nie zostały przetworzone, ponieważ zostały zablokowane po swoim ID. Funkcja jest zablokowana, aż do momentu, w którym zostaną one zaktualizowane
     Hide Channels Already Exists: To ID kanału już jest
     Hide Channels API Error: Nie udało się wyszukać użytkownika po podanym ID. Proszę sprawdzić, czy wpisane ID jest poprawne.
-    Hide Videos and Playlists Containing Text: Schowaj filmy i playlisty zawierające poniższy tekst
-    Hide Videos and Playlists Containing Text Placeholder: Słowo, fragment słowa, lub wyrażenie
+    Hide Videos, Playlists and Channels Containing Text: Schowaj filmy i playlisty zawierające poniższy tekst
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Słowo, fragment słowa, lub wyrażenie
     Hide Channel Home: Schowaj kartę kanału „Główna”
     Show Added Items: Pokaż dodane rzeczy
     Hide Channel Courses: Ukryj kartę „Kursy” kanału
-    Hide Channel Posts: Schowaj kartę kanału „Posty”
-    Hide Subscriptions Posts: Schowaj posty z subskrypcji
+    Hide Channel Posts: Schowaj kartę kanału „Wpisy”
+    Hide Subscriptions Posts: Schowaj wpisy z subskrypcji
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie i zastosować zmiany?
   Proxy Settings:
     Your Info: O Tobie
@@ -682,7 +688,7 @@ Channel:
     Reveal Answers: Pokaż odpowiedzi
     Hide Answers: Schowaj odpowiedzi
     Video hidden by FreeTube: Film schowany przez FreeTube
-    View Full Post: Zobacz całe posty
+    View Full Post: Zobacz całe wpisy
     Viewing Posts Only Supported By Invidious: Wyświetlanie postów jest wspierane tylko przez Invidious. Możesz zobaczyć zawartość nie korzystając z Invidious, przechodząc do karty „Społeczność” danego kanału.
   Live:
     Live: Transmisje
@@ -861,6 +867,7 @@ Share:
   YouTube Channel URL copied to clipboard: Skopiowano URL kanału na YouTube do schowka
   Invidious Channel URL copied to clipboard: Skopiowano URL kanału na Invidious do schowka
   Share Channel: Podziel się kanałem
+  Share Post: Podziel się wpisem
 Mini Player: 'Mini odtwarzacz'
 Comments:
   Comments: 'Komentarze'
@@ -868,24 +875,21 @@ Comments:
   Getting comment replies, please wait: 'Pobieranie odpowiedzi do komentarza, proszę poczekać'
   Hide Comments: 'Schowaj komentarze'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Zobacz'
-  Hide: 'Schowaj'
-  Replies: 'odpowiedzi'
-  Reply: 'odpowiedź'
   There are no comments available for this video: 'Nie ma żadnych komentarzy odnośnie tego filmu'
   Load More Comments: 'Pokaż więcej komentarzy'
   There are no more comments for this video: Nie ma więcej komentarzy pod tym filmem
   Newest first: Najpierw najnowsze
   Top comments: Najlepsze komentarze
   Show More Replies: Pokaż więcej odpowiedzi
-  And others: i innych
   Pinned by: Przypięty przez
-  From {channelName}: od {channelName}
   Member: Wspierający
   Hearted: z serduszkiem
-  View {replyCount} replies: Zobacz {replyCount} odpowiedzi
+  View {replyCount} replies: Zobacz 1 odpowiedź | Zobacz {replyCount} odpowiedzi
   Subscribed: Zasubskrybowano
-  There are no comments available for this post: Nie ma żadnych komentarzy pod tym postem
+  There are no comments available for this post: Nie ma żadnych komentarzy pod tym wpisem
+  Hide {replyCount} replies: Ukryj 1 odpowiedź | Ukryj {replyCount} odpowiedzi
+  View 1 reply from {channelName}: Zobacz 1 odpowiedź od {channelName}
+  View {replyCount} replies from {channelName} and others: Zobacz {replyCount} odpowiedzi od {channelName} i innych
 Up Next: 'Następne'
 
 # Toast Messages
@@ -953,7 +957,7 @@ Version {versionNumber} is now available!  Click for more details: Wersja {versi
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ten film jest niedostępny z powodu brakujących formatów. Przyczyną może być blokada regionalna.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Po włączeniu FreeTube będzie używać RSS zamiast domyślnej metody pobierania subskrypcji. RSS jest szybszy i zapobiega blokadzie IP, ale nie dostarcza informacji, takich jak czas trwania filmu,status transmisji na żywo, czy posty
+    Fetch Feeds from RSS: Po włączeniu FreeTube będzie używać RSS zamiast domyślnej metody pobierania subskrypcji. RSS jest szybszy i zapobiega blokadzie IP, ale nie dostarcza informacji, takich jak czas trwania filmu, status transmisji na żywo, czy wpisy
     Fetch Automatically: Po włączeniu lub przy otwarciu nowego okna FreeTube będzie automatycznie odświeżał Twoje subskrypcje.
   General Settings:
     Fallback to Non-Preferred Backend on Failure: Po włączeniu, kiedy Twój preferowany API napotka problem, FreeTube automatycznie spróbuje użyć niepreferowanego API jako metody zapasowej.
@@ -980,7 +984,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Wprowadź ID kanału, aby schować wszystkie filmy i playlisty tego kanału, oraz sam kanał z wyszukiwań, z zakładek „Na czasie” i „Popularne” oraz z polecanych. ID kanału musi być dokładnym dopasowaniem, z uwzględnieniem wielkości liter.
     Hide Subscriptions Live: Ta opcja została nadpisana opcją ogólną „{appWideSetting}” z podgrupy „{subsection}” grupy „{settingsSection}”
-    Hide Videos and Playlists Containing Text: Wprowadź słowo, fragment słowa, lub wyrażenie (bez znaczenia jest wielkość liter), by schować wszystkie filmy i playlisty zawierające w tytule podane sformułowanie w całym programie FreeTube, poza Historią, Twoimi playlistami i filmami w tych playlistach.
+    Hide Videos, Playlists and Channels Containing Text: Wprowadź słowo, fragment słowa, lub wyrażenie (bez znaczenia jest wielkość liter), by schować wszystkie filmy i playlisty zawierające w tytule podane sformułowanie w całym programie FreeTube, poza Historią, Twoimi playlistami i filmami w tych playlistach.
     Hide Videos on Watch: Ukryj obejrzane filmy z kart „Filmy”, „Filmy Short” oraz z „Na żywo” na stronie subskrypcji oraz na stronie kanału. Opcja ta nie wpływa na kartę „Główna” ze strony kanału
   SponsorBlock Settings:
     UseDeArrowTitles: Zastąp tytuły filmów tytułami zasugerowanymi przez użytkowników DeArrow.

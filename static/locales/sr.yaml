@@ -111,9 +111,6 @@ More: 'Више'
 Trending:
   Trending: 'У тренду'
   Gaming: Видео игре
-  Default: Подразумевано
-  Music: Музика
-  Movies: Филмови
   Trending Tabs: Картице у тренду
 Most Popular: 'Најпопуларније'
 Playlists: 'Плејлисте'
@@ -125,8 +122,7 @@ User Playlists:
     Search in Playlists: Претрага у плејлистама
     Save: Сачувај
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 видео снимак додат је на {playlistCount} плејлисте | {videoCount} видео снимака додато је на {playlistCount} плејлисте
-      "{videoCount} video(s) added to 1 playlist": 1 видео снимак додат је на 1 плејлисту | {videoCount} видео снимака додато је на 1 плејлисту
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Још увек нисте изабрали ниједну плејлисту.
     Select a playlist to add your N videos to: Изаберите плејлисту на коју желите да додате видео снимак | Изаберите плејлисту на коју желите да додате {videoCount} видео снимака
     N playlists selected: 'Изабрано: {playlistCount}'
@@ -504,8 +500,8 @@ Settings:
     Hide Channels Disabled Message: Неки канали су блокирани помоћу ID-а и нису обрађени. Функција је блокирана док се ти ID-ови ажурирају
     Hide Channels Already Exists: ID канала већ постоји
     Hide Channels API Error: Грешка при преузимању корисника са наведеним ID-ом. Проверите поново да ли је ID тачан.
-    Hide Videos and Playlists Containing Text: Сакриј видео снимке и плејлисте које садрже текст
-    Hide Videos and Playlists Containing Text Placeholder: Реч, део речи или фраза
+    Hide Videos, Playlists and Channels Containing Text: Сакриј видео снимке и плејлисте које садрже текст
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Реч, део речи или фраза
     Hide Channel Home: Сакриј картицу „Почетна“ канала
     Show Added Items: Прикажи додате предмете
     Hide Channel Courses: Сакриј картицу „Курсеви“ на каналу
@@ -883,7 +879,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Унесите назив канала или ID канала да бисте сакрили све видео снимке, плејлисте и сам канал, да се не појављују у претрази, у тренду, најпопуларнијима и препорученима. ID канала који сте унели мора се потпуно подударати и разликовати велика и мала слова.
     Hide Subscriptions Live: Ово подешавање је замењено подешавањем за целу апликацију „{appWideSetting}“ у одељку „{subsection}“ у „{settingsSection}“
-    Hide Videos and Playlists Containing Text: Унесите реч, део речи или фразу (не разликује велика и мала слова) да бисте сакрили све видео снимке и плејлисте чији их оригинални наслови садрже у целом FreeTube-у, искључујући само историју, ваше плејлисте и видео снимке унутар плејлиста.
+    Hide Videos, Playlists and Channels Containing Text: Унесите реч, део речи или фразу (не разликује велика и мала слова) да бисте сакрили све видео снимке и плејлисте чији их оригинални наслови садрже у целом FreeTube-у, искључујући само историју, ваше плејлисте и видео снимке унутар плејлиста.
     Hide Videos on Watch: Скрива гледане видео снимке са картица „Видео снимци“, „Shorts“ и „Уживо“ на страницама „Праћења“ и „Канал“. Ово не утиче на картицу „Почетна“ на страницама „Канал“
   Player Settings:
     Default Video Format: Подесите формате који се користе приликом репродукције видеа. DASH формати могу да репродукују бољи квалитет. Застарели формати су ограничени на највише 360p, али користе мањи пропусни опсег. Звучни формати су само звучни стримови.
@@ -928,9 +924,7 @@ Change Format:
   Legacy formats are not available for this video: Застарели формати нису доступни за овај видео снимак
 Comments:
   Comments: Коментари
-  View: Погледај
   Click to View Comments: Кликни да видиш коментаре
-  From {channelName}: од {channelName}
   Top comments: Топ коментари
   Subscribed: Пратите
   Getting comment replies, please wait: Набављање одговора на коментаре, сачекајте
@@ -940,13 +934,9 @@ Comments:
   Pinned by: Закачио
   Hearted: Са срцем
   There are no comments available for this video: Нема доступних коментара за овај видео снимак
-  Replies: Одговори
-  Reply: Одговори
   View {replyCount} replies: Погледај {replyCount} одговор(а)
   Member: Члан
-  Hide: Сакриј
   There are no more comments for this video: Нема више коментара за овај видео снимак
-  And others: и осталих
   Newest first: Најновије прво
   There are no comments available for this post: Нема доступних коментара за ову објаву
 Share:

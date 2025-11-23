@@ -105,9 +105,6 @@ Subscriptions:
 Trending:
   Trending: 'Τάσεις'
   Gaming: Παιχνίδια
-  Music: Μουσική
-  Movies: Ταινίες
-  Default: Προεπιλογή
   Trending Tabs: Καρτέλες Τάσεων
 Most Popular: 'Δημοφιλέστερα'
 Playlists: 'Λίστες αναπαραγωγής'
@@ -152,8 +149,7 @@ User Playlists:
     Search in Playlists: Αναζήτηση σε λίστες αναπαραγωγής
     Toast:
       You haven't selected any playlist yet.: Δεν έχετε επιλέξει καμία λίστα αναπαραγωγής ακόμα.
-      "{videoCount} video(s) added to 1 playlist": 1 βίντεο προστέθηκε σε 1 λίστα αναπαραγωγής | {videoCount} βίντεο που προστέθηκαν σε 1 λίστα αναπαραγωγής
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 βίντεο προστέθηκε στις λίστες αναπαραγωγής {playlistCount} | {videoCount} βίντεο προστέθηκε στις λίστες αναπαραγωγής {playlistCount}
+      "Video(s) added to {playlistCount} playlists": ""
     Allow Adding Duplicate Video(s): Επίτρεψε την προσθήκη διπλών βίντεο( ών)
     Added {count} Times: Προστέθηκε ήδη | Προστέθηκε {count} Φορές
     Save: Αποθήκευση
@@ -531,8 +527,8 @@ Settings:
     Hide Channels Disabled Message: Ορισμένα κανάλια αποκλείστηκαν με χρήση αναγνωριστικού και δεν υποβλήθηκαν σε επεξεργασία. Η λειτουργία μπλοκάρεται κατά την ενημέρωση αυτών των αναγνωριστικών
     Hide Channels Already Exists: Το αναγνωριστικό καναλιού υπάρχει ήδη
     Hide Channels API Error: Σφάλμα κατά την ανάκτηση χρήστη με το παρεχόμενο αναγνωριστικό. Ελέγξτε ξανά εάν το αναγνωριστικό είναι σωστό.
-    Hide Videos and Playlists Containing Text Placeholder: Λέξη, τμήμα λέξης ή φράση
-    Hide Videos and Playlists Containing Text: Απόκρυψη βίντεο και λιστών αναπαραγωγής που περιέχουν κείμενο
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Λέξη, τμήμα λέξης ή φράση
+    Hide Videos, Playlists and Channels Containing Text: Απόκρυψη βίντεο και λιστών αναπαραγωγής που περιέχουν κείμενο
     Hide Channel Courses: Απόκρυψη της καρτέλας «Μαθήματα» του καναλιού
     Hide Channel Home: Απόκρυψη της καρτέλας «Αρχική σελίδα» του καναλιού
     Show Added Items: Εμφάνιση προστιθέμενων στοιχείων
@@ -904,17 +900,11 @@ Comments:
   Getting comment replies, please wait: 'Λήψη απαντήσεων σε σχόλια, παρακαλώ περιμένετε'
   Hide Comments: 'Απόκρυψη σχολίων'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Προβολή'
-  Hide: 'Απόκρυψη'
-  Replies: 'Απαντήσεις'
-  Reply: 'Απάντηση'
   There are no comments available for this video: 'Δεν υπάρχουν διαθέσιμα σχόλια γι αυτό το βίντεο'
   Load More Comments: 'Φόρτωση περισσότερων σχολίων'
   Newest first: Νεότερο πρώτα
   Top comments: Κορυφαία σχόλια
   There are no more comments for this video: Δεν υπάρχουν άλλα σχόλια για αυτό το βίντεο
-  And others: και άλλοι
-  From {channelName}: από {channelName}
   Show More Replies: Εμφάνιση περισσότερων απαντήσεων
   Pinned by: Καρφώθηκε από
   Member: Μέλος
@@ -974,7 +964,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Εισαγάγετε ένα αναγνωριστικό καναλιού για να αποκρύψετε όλα τα βίντεο, τις λίστες αναπαραγωγής και το ίδιο το κανάλι, ώστε να μην εμφανίζονται στην αναζήτηση, τα ανερχόμενα, τα πιο δημοφιλή και προτεινόμενα. Το αναγνωριστικό καναλιού που καταχωρίσατε πρέπει να αντιστοιχεί πλήρως και να κάνει διάκριση πεζών-κεφαλαίων.
     Hide Subscriptions Live: Αυτή η ρύθμιση παρακάμπτεται από τη ρύθμιση "{appWideSetting}" σε όλη την εφαρμογή, στην ενότητα "{subsection}" του "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Εισάγετε μια λέξη, ένα τμήμα λέξης ή μια φράση (χωρίς ευαισθησία στην πεζότητα) για να αποκρύψετε όλα τα βίντεο και τις λίστες αναπαραγωγής των οποίων οι αρχικοί τίτλοι την περιέχουν σε όλο το FreeTube, εξαιρώντας μόνο το Ιστορικό, τις Λίστες αναπαραγωγής σας και τα βίντεο μέσα σε λίστες αναπαραγωγής.
+    Hide Videos, Playlists and Channels Containing Text: Εισάγετε μια λέξη, ένα τμήμα λέξης ή μια φράση (χωρίς ευαισθησία στην πεζότητα) για να αποκρύψετε όλα τα βίντεο και τις λίστες αναπαραγωγής των οποίων οι αρχικοί τίτλοι την περιέχουν σε όλο το FreeTube, εξαιρώντας μόνο το Ιστορικό, τις Λίστες αναπαραγωγής σας και τα βίντεο μέσα σε λίστες αναπαραγωγής.
   SponsorBlock Settings:
     UseDeArrowTitles: Αντικαταστήστε τους τίτλους βίντεο με τίτλους που υποβλήθηκαν από τους χρήστες από το DeArrow.
     UseDeArrowThumbnails: Αντικαταστήστε τις μικρογραφίες βίντεο με μικρογραφίες από το DeArrow.

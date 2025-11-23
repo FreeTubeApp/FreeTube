@@ -106,10 +106,7 @@ Subscriptions:
 Trending:
   Trending: 'المحتوى الرائج'
   Trending Tabs: علامات التبويب الشائعة
-  Movies: أفلام
   Gaming: الالعاب
-  Music: الموسيقى
-  Default: الإفتراضي
 Most Popular: 'الأكثر شعبية'
 Playlists: 'قوائم التشغيل'
 User Playlists:
@@ -164,8 +161,7 @@ User Playlists:
     Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص بك إلى | حدد قائمة تشغيل لإضافة مقاطع الفيديو {videoCount} إليها
     Toast:
       You haven't selected any playlist yet.: لم تقم بتحديد أي قائمة تشغيل حتى الآن.
-      "{videoCount} video(s) added to 1 playlist": تمت إضافة فيديو واحد إلى قائمة تشغيل واحدة | تمت إضافة {videoCount} من مقاطع الفيديو إلى قائمة تشغيل واحدة
-      "{videoCount} video(s) added to {playlistCount} playlists": تمت إضافة مقطع فيديو واحد إلى قوائم التشغيل {playlistCount} | تمت إضافة {videoCount} من مقاطع الفيديو إلى قوائم التشغيل {playlistCount}
+      "Video(s) added to {playlistCount} playlists": ""
     Save: حفظ
     Search in Playlists: البحث في قوائم التشغيل
     N playlists selected: تم تحديد {playlistCount}
@@ -535,8 +531,8 @@ Settings:
     Hide Channels Disabled Message: تم حظر بعض القنوات باستخدام المعرّف ولم تتم معالجتها. يتم حظر الميزة أثناء تحديث هذه المعرفات
     Hide Channels Already Exists: معرف القناة موجود بالفعل
     Hide Channels API Error: ‬حدث خطأ أثناء استرداد المستخدم بالمعرف المدخل. يرجى التحقق مرة أخرى إذا كان المعرف صحيحا.
-    Hide Videos and Playlists Containing Text: إخفاء مقاطع الفيديو وقوائم التشغيل التي تحتوي على نص
-    Hide Videos and Playlists Containing Text Placeholder: كلمة أو جزء كلمة أو عبارة
+    Hide Videos, Playlists and Channels Containing Text: إخفاء مقاطع الفيديو وقوائم التشغيل التي تحتوي على نص
+    Hide Videos, Playlists and Channels Containing Text Placeholder: كلمة أو جزء كلمة أو عبارة
     Hide Channel Home: إخفاء علامة التبويب "الصفحة الرئيسية" للقناة
     Show Added Items: إظهار العناصر المضافة
     Hide Channel Courses: إخفاء علامة التبويب "دورات" القناة
@@ -909,10 +905,6 @@ Comments:
   Getting comment replies, please wait: 'جاري الحصول على ردود التعليق, يرجى الانتظار'
   Hide Comments: 'إخفاء التعليقات'
   # Context: View 10 Replies, View 1 Reply
-  View: 'عرض'
-  Hide: 'إخفاء'
-  Replies: 'رداً'
-  Reply: 'ردّ'
   There are no comments available for this video: 'لا يتوفر تعليقات لهذا الفيديو'
   Load More Comments: 'تحميل المزيد من التعليقات'
   There are no more comments for this video: لا يوجد المزيد من التعليقات لهذا الفيديو
@@ -920,8 +912,6 @@ Comments:
   Top comments: أهم التعليقات
   Show More Replies: إظهار المزيد من الردود
   Pinned by: تم التثبيت بواسطة
-  And others: و اخرين
-  From {channelName}: من {channelName}
   Member: عضو
   View {replyCount} replies: عرض {replyCount} ردود
   Hearted: القلب
@@ -978,7 +968,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: أدخل معرف القناة لإخفاء جميع مقاطع الفيديو وقوائم التشغيل والقناة نفسها من الظهور في نتائج البحث والشائعة والأكثر شهرة والموصى بها. يجب أن يكون معرف القناة الذي تم إدخاله متطابقًا تمامًا وأن يكون حساسًا لحالة الأحرف.
     Hide Subscriptions Live: يتم تجاوز هذا الإعداد من خلال إعداد "{appWideSetting}" على مستوى التطبيق، في قسم "{subsection}" من "{settingsSection}"
-    Hide Videos and Playlists Containing Text: أدخل كلمة أو جزء كلمة أو عبارة (غير حساسة لحالة الأحرف) لإخفاء جميع مقاطع الفيديو وقوائم التشغيل التي تحتوي عناوينها الأصلية عليها في جميع أنحاء FreeTube، باستثناء السجل وقوائم التشغيل الخاصة بك ومقاطع الفيديو الموجودة داخل قوائم التشغيل فقط.
+    Hide Videos, Playlists and Channels Containing Text: أدخل كلمة أو جزء كلمة أو عبارة (غير حساسة لحالة الأحرف) لإخفاء جميع مقاطع الفيديو وقوائم التشغيل التي تحتوي عناوينها الأصلية عليها في جميع أنحاء FreeTube، باستثناء السجل وقوائم التشغيل الخاصة بك ومقاطع الفيديو الموجودة داخل قوائم التشغيل فقط.
     Hide Videos on Watch: إخفاء مقاطع الفيديو التي تمت مشاهدتها من علامات التبويب "مقاطع الفيديو" و "الفيديوهات القصيرة" و "البث المباشر" في صفحتي الاشتراك والقناة. هذا لا يؤثر على علامة التبويب الرئيسية على صفحات القناة
   SponsorBlock Settings:
     UseDeArrowTitles: استبدل عناوين الفيديو بالعناوين التي أرسلها المستخدم من DeArrow.

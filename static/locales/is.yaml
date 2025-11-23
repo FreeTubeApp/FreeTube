@@ -111,10 +111,8 @@ More: 'Meira'
 Trending:
   Trending: 'Í umræðunni'
   Trending Tabs: Vinsælir flipar
-  Movies: Kvikmyndir
   Gaming: Leikir
-  Music: Tónlist
-  Default: Sjálfgefið
+  Sports: Íþróttir
 Most Popular: 'Vinsælast'
 Playlists: 'Spilunarlistar'
 User Playlists:
@@ -165,9 +163,8 @@ User Playlists:
     Search in Playlists: Leita í spilunarlistum
     Save: Vista
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 myndskeiði bætt við  {playlistCount} spilunarlista | {videoCount} myndskeiðum bætt við {playlistCount} spilunarlista
+      "Video(s) added to {playlistCount} playlists": "Myndskeið(um) bætt við 1 spilunarlista | Myndskeið(um) bætt við {playlistCount} spilunarlista"
       You haven't selected any playlist yet.: Þú hefur enn ekki valið neina spilunarlista.
-      "{videoCount} video(s) added to 1 playlist": 1 myndskeiði bætt við 1 spilunarlista | {videoCount} myndskeiðum bætt við 1 spilunarlista
     Select a playlist to add your N videos to: Veldu spilunarlista til að bæta myndskeiðinu þínu á | Veldu spilunarlista til að bæta {videoCount}̣ myndskeiðunum þínum á
     Added {count} Times: Þegar bætt við | Bætt við {count} sinnum
     Allow Adding Duplicate Video(s): Leyfa að tvíteknum myndskeiðum sé bætt við
@@ -287,6 +284,7 @@ Settings:
       Everforest Dark Low: Everforest Dökkt-lítið
       Everforest Light Hard: Everforest Ljóst-skarpt
       Everforest Light Medium: Everforest Ljóst-miðlungs
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -372,6 +370,8 @@ Settings:
       Everforest Light Aqua: Everforest Ljóssægrænt
       Everforest Light Blue: Everforest Ljósblátt
       Everforest Light Purple: Everforest Ljóspurpuralitað
+      Catppuccin Latte Mauve: Catppuccin Latte fjólublár
+      Catppuccin Latte Red: Catppuccin Latte rautt
     Secondary Color Theme: 'Aukalitur þema'
         #* Main Color Theme
     Hide Side Bar Labels: Fela skýringar á hliðarstiku
@@ -505,8 +505,8 @@ Settings:
     Hide Channels Disabled Message: Sumar rásir voru útilokaðar út frá auðkenni og voru ekki meðhöndlaðar. Lokað er á eiginleikann á meðan verið er að uppfæra þessi auðkenni
     Hide Channels Already Exists: Auðkenni rásar er þegar til
     Hide Channels API Error: Villa við að ná í notanda með uppgefið auðkenni. Athugaðu aftur hvort auðkennið ré rétt.
-    Hide Videos and Playlists Containing Text: Fela myndskeið og spilunarlista sem innihalda texta
-    Hide Videos and Playlists Containing Text Placeholder: Orðhluti, orð eða setning
+    Hide Videos, Playlists and Channels Containing Text: Fela myndskeið og spilunarlista sem innihalda texta
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Orð, orðhluti eða setning
     Hide Channel Home: Fela "Heim"-flipa rása
     Show Added Items: Sýna atriði sem bætt hefur verið við
     Hide Channel Courses: Fela flipann með rásinni "Kennsluefni"
@@ -548,6 +548,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Flytja út spilunarlista fyrir eldri útgáfur FreeTube
       Tooltip: "Þessi valkostur flytur út myndskeið úr öllum spilunarlistum inn í einn spilunarlista sem kallast 'Eftirlæti'.\nHér er skýrt hvernig eigi að flytja út eða inn myndskeið í spilunarlistum fyrir eldri útgáfur FreeTube:\n 1. Flyttu út spilunarlistana þína með þennan valkost virkann.\n2. Eyddu út öllum fyrirliggjandi spilunarlistum hjá þér með valkostinum 'Fjarlægja alla spilunarlista' í stillingum gagnaleyndar.\n3. Ræstu eldri útgáfu FreeTube og flyttu inn spilunarlistana sem þú fluttir út.\""
+    Search history file: Leita í ferilskrá
+    Search history: Leitarferill
+    Import search history: Flytja inn leitarferil
+    Export search history: Flytja út leitarferil
+    All search history has been successfully imported: Allur leitarferill hefur verið fluttur inn
+    All search history has been successfully exported: Allur leitarferill hefur verið fluttur út
   Proxy Settings:
     Proxy Settings: 'Milliþjónn (proxy)'
     Enable Tor / Proxy: 'Virkja Tor / milliþjón'
@@ -910,6 +916,7 @@ Share:
   YouTube Channel URL copied to clipboard: 'Slóð YouTube-rásar afrituð á klippispjaldið'
 
   Share Channel: Deila rás
+  Share Post: Deila færslu
 Mini Player: 'Smáspilari'
 Comments:
   Comments: 'Athugasemdir'
@@ -920,21 +927,18 @@ Comments:
   Top comments: 'Efstu athugasemdir'
   Newest first: 'Nýjasta fyrst'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Skoða'
-  Hide: 'Fela'
-  Replies: 'Svör'
-  Reply: 'Svara'
   There are no comments available for this video: 'Engar athugasemdir eru tiltækar fyrir þetta myndskeið'
   Load More Comments: 'Hlaða inn fleiri athugasemdum'
   Show More Replies: Birta fleiri svör
-  From {channelName}: frá {channelName}
-  And others: og fleirum
   Pinned by: Fest af
   Member: Meðlimur
-  View {replyCount} replies: Skoða {replyCount} svör
+  View {replyCount} replies: Skoða 1 svar | Skoða {replyCount} svör
   Hearted: Líkað
   Subscribed: Áskrifandi
   There are no comments available for this post: Engar athugasemdir finnast fyrir þessa færslu
+  Hide {replyCount} replies: Fela 1 svar | Fela {replyCount} svör
+  View 1 reply from {channelName}: Skoða 1 svar frá {channelName}
+  View {replyCount} replies from {channelName} and others: Skoða {replyCount} svör frá {channelName} og fleirum
 Up Next: 'Næst í spilun'
 
 #Tooltips
@@ -969,7 +973,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Settu inn auðkenni rásar til að fela öll myndskeið, spilunarlista og sjálfa rásina við leit eða því sem er vinsælast, mest skoðað og mælt með. Auðkenni rásarinnar sem sett er inn þarf að vera nákvæmlega stafrétt og tekur tillit til hástafa/lágstafa.
     Hide Subscriptions Live: Þessa stillingu er hægt að taka yfir með "{appWideSetting}" stillingunni fyrir allt forritið, í "{subsection}" hlutanum í "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Settu inn orðhluta, orð eða setningu (óháð stafstöðu) til að fela öll myndskeið og spilunarlista þar sem titillinn inniheldur þetta, hvar sem er í FreeTube, með undantekningum innan áhorfsferils, spilunarlistanna þinna og myndskeiða innan spilunarlista.
+    Hide Videos, Playlists and Channels Containing Text: Settu inn orð, orðhluta eða setningu (óháð stafstöðu) til að fela öll myndskeið og spilunarlista þar sem titillinn inniheldur þetta, hvar sem er í FreeTube, með undantekningum innan áhorfsferils, spilunarlistanna þinna og myndskeiða innan spilunarlista.
     Hide Videos on Watch: Felur myndskeið sem búið er að horfa á, úr flipunum Myndskeið, Símamyndir og Í beinni, á áskriftar- og rásasíðunum. Þetta hefur ekki áhrif á heimaflipann á rásasíðunum
   SponsorBlock Settings:
     UseDeArrowTitles: Skipta út titlum myndskeiða fyrir titla sem notendur hafa sent inn á DeArrow.

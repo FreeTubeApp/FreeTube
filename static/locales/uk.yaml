@@ -110,10 +110,7 @@ Subscriptions:
 Trending:
   Trending: 'Популярне'
   Trending Tabs: Популярні вкладки
-  Movies: Фільми
   Gaming: Ігри
-  Music: Музика
-  Default: Типово
 Most Popular: 'Найпопулярніші'
 Playlists: 'Добірки'
 User Playlists:
@@ -186,8 +183,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Відео буде додано'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Відео вже додано'
     Toast:
-      "{videoCount} video(s) added to 1 playlist": 1 відео додано до 1 добірки | {videoCount} відео додано до 1 добірки
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 відео додано до {playlistCount} добірок | {videoCount} відео додано до {playlistCount} добірок
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Ви ще не вибрали жодної добірки.
     N playlists selected: '{playlistCount} вибрано'
     Select a playlist to add your N videos to: Виберіть добірку, до якої ви хочете додати своє відео | Виберіть добірку, до якої ви хочете додати свої {videoCount} відео
@@ -501,8 +497,8 @@ Settings:
     Hide Channels Already Exists: ID каналу вже існує
     Hide Channels API Error: Помилка під час пошуку користувача з наданим ID. Перевірте ще раз, чи правильний ID.
     Hide Channel Home: Сховати вкладку "Головна" каналу
-    Hide Videos and Playlists Containing Text Placeholder: Слово, фрагмент слова або фраза
-    Hide Videos and Playlists Containing Text: Сховати відео та добірки, що містять текст
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Слово, фрагмент слова або фраза
+    Hide Videos, Playlists and Channels Containing Text: Сховати відео та добірки, що містять текст
     Show Added Items: Показати додані елементи
     Hide Channel Courses: Приховати вкладку «Курси» каналу
     Hide Channel Posts: Сховати вкладку "Пости" каналу
@@ -913,15 +909,9 @@ Comments:
   Top comments: 'Найпопулярніші коментарі'
   Newest first: 'Спочатку новіші'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Перегляд'
-  Hide: 'Сховати'
-  Replies: 'Відповіді'
-  Reply: 'Відповідь'
   There are no comments available for this video: 'Немає коментарів до цього відео'
   Load More Comments: 'Завантажити більше коментарів'
   Show More Replies: Показати інші відповіді
-  From {channelName}: від {channelName}
-  And others: та інших
   Pinned by: Закріплено
   Member: Учасник
   Hearted: З сердечком
@@ -962,7 +952,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Введіть ID, щоб сховати всі відео, добірки та сам канал від появи в пошуку, тренді, найпопулярніших і рекомендованих. Введений ID каналу повинен повністю збігатися і чутливий до регістру.
     Hide Subscriptions Live: Цей параметр перевизначається загальнодоступним налаштуванням "{appWideSetting}" у розділі "{subsection}" "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Введіть слово, фрагмент слова або фразу (незалежно від регістру), щоб приховати всі відео та добірки, у заголовках яких вона міститься, по всьому FreeTube, за винятком Історії, Ваших Добірок і відео в межах добірок.
+    Hide Videos, Playlists and Channels Containing Text: Введіть слово, фрагмент слова або фразу (незалежно від регістру), щоб приховати всі відео та добірки, у заголовках яких вона міститься, по всьому FreeTube, за винятком Історії, Ваших Добірок і відео в межах добірок.
     Hide Videos on Watch: Приховує переглянуті відео з вкладок Відео,Shorts, та Наживо на сторінках підписок та каналу. Це не впливає на Домашню вкладку сторінок каналів
   SponsorBlock Settings:
     UseDeArrowTitles: Замінити назви відео на надіслані користувачем назви з DeArrow.

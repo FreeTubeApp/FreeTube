@@ -125,10 +125,7 @@ Channels:
   Unsubscribe Prompt: 'Сапраўды хочаце адпісацца ад «{channelName}»?'
 Trending:
   Trending: 'У трэндзе'
-  Default: 'Па змаўчанні'
-  Music: 'Музыка'
   Gaming: 'Гульні'
-  Movies: 'Фільмы'
   Trending Tabs: 'Укладкі Трэндаў'
 Most Popular: 'Папулярныя'
 Playlists: 'Плэй-лісты'
@@ -147,8 +144,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} відэа ўжо дададзена'
     Toast:
       You haven't selected any playlist yet.: Вы яшчэ не выбралі плэй-ліст.
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 відэа дададзена ў {playlistCount} плэй-лістоў | {videoCount} відэа дададзены ў {playlistCount} плэй-лістоў
-      "{videoCount} video(s) added to 1 playlist": 1 відэа дададзена ў 1 плэй-ліст | {videoCount} відэа дададзены ў 1 плэй-ліст
+      "Video(s) added to {playlistCount} playlists": ""
     Select a playlist to add your N videos to: Выберыце плэй-ліст, каб дадаць сваё відэа | Выберыце плэй-ліст, каб дадаць у яго {videoCount} відэа
     Search in Playlists: Пошук у плэй-лістах
     Added {count} Times: Ужо дададзена | Дададзена {count} разоў
@@ -523,8 +519,8 @@ Settings:
     Hide Subscriptions Shorts: 'Хаваць кароткія відэа з падпісак'
     Hide Subscriptions Live: 'Хаваць трансляцыі з падпісак'
     Hide Channels Already Exists: Ідэнтыфікатар канала ўжо існуе
-    Hide Videos and Playlists Containing Text: Хаваць відэа і плэй-лісты, якія змяшчаюць тэкст
-    Hide Videos and Playlists Containing Text Placeholder: Слова, фрагмент слова або фраза
+    Hide Videos, Playlists and Channels Containing Text: Хаваць відэа і плэй-лісты, якія змяшчаюць тэкст
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Слова, фрагмент слова або фраза
     Hide Channels Disabled Message: Некаторыя каналы былі заблакіраваны з дапамогай ідэнтыфікатара і не былі апрацаваны. Функцыя заблакіравана, пакуль гэтыя ідэнтыфікатары абнаўляюцца
     Hide Channels Invalid: Памылковы ідэнтыфікатар канала
     Hide Channels API Error: Памылка атрымання карыстальніка з указаным ідэнтыфікатарам. Праверце яшчэ раз, ці правільны ідэнтыфікатар.
@@ -935,13 +931,7 @@ Comments:
   Newest first: 'Спачатку новыя'
   View {replyCount} replies: 'Праглядзець {replyCount} адказаў'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: 'Праглядзець'
-  Hide: 'Схаваць'
-  Replies: 'Адказы'
   Show More Replies: 'Паказаць больш адказаў'
-  Reply: 'Адказ'
-  From {channelName}: 'ад {channelName}'
-  And others: 'і інш'
   There are no comments available for this video: 'Да гэтага відэа няма каментарыяў'
   Load More Comments: 'Загрузіць больш каментарыяў'
   Pinned by: 'Замацавана'
@@ -978,7 +968,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: 'Увядзіце ідэнтыфікатар канала, каб схаваць усе відэа, плэй-лісты і сам канал ад з''яўлення ў пошукавых, трэндавых, самых папулярных і рэкамендаваных. Уведзены ідэнтыфікатар канала павінен цалкам супадаць і ўлічваць рэгістр.'
     Hide Subscriptions Live: 'Гэта налада перавызначаецца наладай "{appWideSetting}" для ўсёй праграмы ў раздзеле "{subsection}" у "{settingsSection}"'
-    Hide Videos and Playlists Containing Text: Увядзіце слова, фрагмент слова або фразу (без уліку рэгістра), каб схаваць усе відэа і плэй-лісты, арыгінальныя назвы якіх утрымліваюць гэта, ва ўсім FreeTube, за выключэннем толькі Гісторыі, Вашых плэй-лістоў і відэа ў плэй-лістах.
+    Hide Videos, Playlists and Channels Containing Text: Увядзіце слова, фрагмент слова або фразу (без уліку рэгістра), каб схаваць усе відэа і плэй-лісты, арыгінальныя назвы якіх утрымліваюць гэта, ва ўсім FreeTube, за выключэннем толькі Гісторыі, Вашых плэй-лістоў і відэа ў плэй-лістах.
   Subscription Settings:
     Fetch Feeds from RSS: 'Пры ўключэнні FreeTube будзе выкарыстоўваць RSS замест метаду па змаўчанні для атрымання вашай стужкі падпіскі. RSS працуе хутчэй і прадухіляе блакіроўку IP-адрасоў, але не дае пэўнай інфармацыі, такой як працягласць відэа, стан у прамым эфіры або паведамленняў у супольнасці'
     Fetch Automatically: 'Калі ўключана, FreeTube будзе аўтаматычна атрымліваць стужку з вашых падпісак падчас запуску і пры адкрыцці новага акна.'

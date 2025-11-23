@@ -110,10 +110,8 @@ Subscriptions:
 Trending:
   Trending: 'Populaarsust koguvad videod'
   Trending Tabs: Populaarsust koguvad kaardid
-  Movies: Filmid
   Gaming: Arvutimängud
-  Music: Muusika
-  Default: Vaikimisi
+  Sports: Sport
 Most Popular: 'Populaarseimad'
 Playlists: 'Esitusloendid'
 User Playlists:
@@ -139,8 +137,7 @@ User Playlists:
     Search in Playlists: Otsi esindusloenditest
     Save: Salvesta
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video on lisatud {playlistCount} esitusloendisse | {videoCount} videot on lisatud {playlistCount} esitusloendisse
-      "{videoCount} video(s) added to 1 playlist": 1 video on lisatud 1'te esitusloendisse | {videoCount} videot on lisatud 1'te esitusloendisse
+      "Video(s) added to {playlistCount} playlists": "Video(d) onlisatud ühte esitusloendisse | Video(d) on lisatud esitusloendistesse: {playlistCount} tk"
       You haven't selected any playlist yet.: Sa pole veel ühtegi esitusloendit valinud.
     Select a playlist to add your N videos to: Vali esitusloend, kuhu soovid oma video lisada | Vali esitusloend, kuhu soovid oma {videoCount} videot lisada
     N playlists selected: '{playlistCount} valitud'
@@ -282,6 +279,7 @@ Settings:
       Everforest Dark Hard: Tõsine ja tume alatine mets (Everforest Dark Hard)
       Everforest Light Medium: Keskmine ja hele alatine mets (Everforest Light Medium)
       Everforest Dark Medium: Keskmine ja tume alatine mets (Everforest Dark Medium)
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Põhiline värviteema'
       Red: 'Punane'
@@ -367,6 +365,8 @@ Settings:
       Everforest Light Blue: Helesinine alatine mets (Everforest Light Blue)
       Everforest Dark Purple: Tume purpurpunane alatine mets (Everforest Dark Purple)
       Everforest Dark Aqua: Tume veesinine alatine mets (Everforest Dark Aqua)
+      Catppuccin Latte Mauve: Catppuccin Latte lillakas
+      Catppuccin Latte Red: Catppuccin Latte punane
     Secondary Color Theme: 'Värvide alamteema'
         #* Main Color Theme
     UI Scale: Kasutajaliidese suurus
@@ -498,6 +498,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Selle valikuga ekspordid kõik esitusloendid ühte esitusloendisse „Lemmikud“.\n Kuidas saad seda eksportimise ja importimise valikut kasutada vanemate FreeTube'i versioonidega:\n1. Ekspordi kõik oma esitusloendid kasutades seda valikut.\n 2. Kustuta kõik oma esitusloendid Privaatsusseadistustest kasutades valikut „Kustuta kõik esitusloendid“.\n3. Käivita vanem FreeTube'i versioon ja impordi esimeses sammus eksporditud esitusloendid."
       Label: Ekspordi esitusloendid vanemate FreeTube'i versioonide jaoks
+    Search history file: Otsinguajaloo fail
+    Search history: Otsinguajalugu
+    Import search history: Impordi otsinguajalugu
+    Export search history: Ekspordi otsinguajalugu
+    All search history has been successfully imported: Kogu otsinguajaloo importimine õnnestus
+    All search history has been successfully exported: Kogu otsinguajaloo eksportimine õnnestus
   Distraction Free Settings:
     Hide Active Subscriptions: Peida aktiivsed tellimused
     Hide Live Chat: Peida veebivestlused
@@ -539,8 +545,8 @@ Settings:
     Hide Channels Disabled Message: Mõned kanalid on blokeeritud nende tunnuste alusel ja nende andmeid ei töödelda. See funktsionaalsus pole kasutusel, kui nendes kanalites toimub muutusi
     Hide Channels Already Exists: Selline kanali tunnus juba on sul kirjas
     Hide Channels API Error: Selle kanali tunnus alusel andmete või kasutaja andmete laadimine ei õnnestunud. Palun kontrolli, et kanali tunnus oleks õige.
-    Hide Videos and Playlists Containing Text Placeholder: Sõnaosa, sõna või fraas
-    Hide Videos and Playlists Containing Text: Peida videod ja esitusloendid, kus leidub sellist teksti
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Sõna, sõnaosa või fraas
+    Hide Videos, Playlists and Channels Containing Text: Peida videod ja esitusloendid, kus leidub sellist teksti
     Hide Channel Home: Peida kanalite vahekaart „Avaleht“
     Show Added Items: Näita lisatud kirjeid
     Hide Channel Courses: Peida kanalite vahekaart „Kursused“
@@ -908,6 +914,7 @@ Share:
   YouTube Channel URL copied to clipboard: Kopeerisin YouTube'i kanali aadressi lõikelauale
   Invidious Channel URL copied to clipboard: Kopeerisin kanali aadressi Invidious'e API'st lõikelauale
   Share Channel: Jaga kanalit
+  Share Post: Jaga postitust
 Mini Player: 'Kompaktne vaade'
 Comments:
   Comments: 'Kommentaarid'
@@ -916,23 +923,20 @@ Comments:
   There are no more comments for this video: 'Sellel videol ei ole rohkem kommentaare'
   Hide Comments: 'Peida kommentaarid'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Näita'
-  Hide: 'Peida'
-  Replies: 'vastust'
-  Reply: 'vastus'
   There are no comments available for this video: 'Seda videot pole veel kommenteeritud'
   Load More Comments: 'Laadi veel kommentaare'
   Newest first: Uuemad esimesena
   Top comments: Parimad esimesena
   Show More Replies: Näita järgmisi vastuseid
-  And others: ja teised
   Pinned by: Esiplaanile tõstja
-  From {channelName}: kanalist {channelName}
   Member: Liige
   Hearted: Südamlik
-  View {replyCount} replies: Näita {replyCount} vastust
+  View {replyCount} replies: Näita üht vastust | Näita {replyCount} vastust
   Subscribed: Tellitud
   There are no comments available for this post: Sellel postitusel pole ühtegi kommentaari
+  Hide {replyCount} replies: Peida üks vastus | Peida {replyCount} vastust
+  View 1 reply from {channelName}: Vaata üht vastust kanalist {channelName}
+  View {replyCount} replies from {channelName} and others: Vaata {replyCount} vastust kanalist {channelName} ja muudest allikatest
 Up Next: 'Järgmisena'
 
 # Toast Messages
@@ -983,7 +987,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Sisesta kanali tunnus, et kõik videod, esitusloendid ja kanal ise ei oleks nähtav otsingus, soovitatavate videote, populaarsete videote ja populaarsust koguvate videote vaates. Sisestatud kanali tunnus peab otsingule vastama täpselt ja on tõstutundlik.
     Hide Subscriptions Live: Selle seadistuse tühistab rakenduseülene „{appWideSetting}“ seadistus „{subsection}“/„{settingsSection}“
-    Hide Videos and Playlists Containing Text: Sisesta sõnaosa, sõna või fraas (tõstutundetuna), mille alusel peidetakse läbivalt FreeTube'is kõik videod või esitusloendid, kus see leidub algses pealkirjas. Peitmine ei toimi ajaloos, sinu loodud esitusloendites ja esitusloendi sees olevate videote puhul.
+    Hide Videos, Playlists and Channels Containing Text: Sisesta sõna, sõnaosa või fraas (tõstutundetuna), mille alusel peidetakse läbivalt FreeTube'is kõik videod või esitusloendid, kus see leidub algses pealkirjas. Peitmine ei toimi ajaloos, sinu loodud esitusloendites ja esitusloendi sees olevate videote puhul.
     Hide Videos on Watch: Peidab vaadatud sisu videote, lühivideote ja otseeetri kaartidelt tellimuste ja kanalite lehtedelt. Ei mõjuta avakaarti kanalite lehtedel
   Experimental Settings:
     Replace HTTP Cache: Sellega lülitatakse välja Electron'i standardne kettal paiknev http-puhver ja võetakse kasutusele rakenduse mälupõhine puhver. Üheks tulemuseks saab olema suurem mälukasutus.

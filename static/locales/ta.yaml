@@ -139,10 +139,7 @@ Channels:
   Unsubscribe Prompt: '"{channelName}" இலிருந்து குழுவிலக விரும்புகிறீர்களா?'
 Trending:
   Trending: 'டிரெண்டிங்'
-  Default: 'இயல்புநிலை'
-  Music: 'இசை'
   Gaming: 'கேமிங்'
-  Movies: 'திரைப்படங்கள்'
   Trending Tabs: 'பிரபலமான தாவல்கள்'
 Most Popular: 'மிகவும் பிரபலமானது'
 Feed:
@@ -239,8 +236,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: 'நீங்கள் இதுவரை எந்த பிளேலிச்ட்டையும் தேர்வு செய்யவில்லை.'
-      "{videoCount} video(s) added to 1 playlist": "1 பிளேலிச்ட்டில் 1 வீடியோ சேர்க்கப்பட்டது | {videoCount} வீடியோக்கள் 1 பிளேலிச்ட்டில் சேர்க்கப்பட்டன"
-      "{videoCount} video(s) added to {playlistCount} playlists": "1 பிளேலிச்ட்கவுண்ட்} பிளேலிச்ட்களில் 1 வீடியோ சேர்க்கப்பட்டது {playlistCount} வீடியோக்கள் {videoCount} பிளேலிச்ட்களில் சேர்க்கப்பட்டன"
+      "Video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
     New Playlist Name: 'புதிய பிளேலிச்ட் பெயர்'
     Create: 'உருவாக்கு'
@@ -561,8 +557,8 @@ Settings:
     Hide Channel Shorts: 'சேனல் "சார்ட்ச்" தாவலை மறைக்கவும்'
     Hide Channel Podcasts: 'சேனல் "பாட்காச்ட்கள்" தாவலை மறைக்கவும்'
     Hide Channel Releases: 'சேனல் "வெளியீடுகள்" தாவலை மறைக்கவும்'
-    Hide Videos and Playlists Containing Text: 'உரையைக் கொண்ட வீடியோக்கள் மற்றும் பிளேலிச்ட்களை மறைக்கவும்'
-    Hide Videos and Playlists Containing Text Placeholder: 'சொல், சொல் துண்டு அல்லது சொற்றொடர்'
+    Hide Videos, Playlists and Channels Containing Text: 'உரையைக் கொண்ட வீடியோக்கள் மற்றும் பிளேலிச்ட்களை மறைக்கவும்'
+    Hide Videos, Playlists and Channels Containing Text Placeholder: 'சொல், சொல் துண்டு அல்லது சொற்றொடர்'
     Hide Subscriptions Videos: 'சந்தா வீடியோக்களை மறைக்கவும்'
     Hide Subscriptions Shorts: 'சந்தாக்கள் குறும்படங்களை மறைக்கவும்'
     Hide Subscriptions Live: 'சந்தாக்களை நேரடியாக மறைக்கவும்'
@@ -1006,13 +1002,7 @@ Comments:
   Newest first: 'புதிய முதல்'
   View {replyCount} replies: '{replyCount} பதில்களைக் காண்க'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: 'பார்வை'
-  Hide: 'மறை'
-  Replies: 'பதில்கள்'
   Show More Replies: 'மேலும் பதில்களைக் காட்டு'
-  Reply: 'பதில்'
-  From {channelName}: '{channelName} இருந்து இலிருந்து'
-  And others: 'மற்றும் மற்றவர்கள்'
   There are no comments available for this video: 'இந்த வீடியோவுக்கு எந்தக் கருத்தும் கிடைக்கவில்லை'
   There are no comments available for this post: 'இந்த இடுகைக்கு எந்தக் கருத்தும் கிடைக்கவில்லை'
   Load More Comments: 'மேலும் கருத்துகளை ஏற்றவும்'
@@ -1050,7 +1040,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: 'அனைத்து வீடியோக்கள், பிளேலிச்ட்கள் மற்றும் சேனலை தேட, பிரபலமான, மிகவும் பிரபலமான மற்றும் பரிந்துரைக்கப்படுவதிலிருந்து மறைக்க ஒரு சேனல் ஐடியை உள்ளிடவும். உள்ளிடப்பட்ட சேனல் ஐடி ஒரு முழுமையான பொருத்தமாக இருக்க வேண்டும் மற்றும் வழக்கு உணர்திறன் கொண்டது.'
     Hide Subscriptions Live: 'இந்த அமைப்பு "{appWideSetting}" இன் "{subsection}" பிரிவில், பயன்பாட்டு அளவிலான "{settingsSection}" அமைப்பால் மீறப்பட்டுள்ளது'
-    Hide Videos and Playlists Containing Text: 'அனைத்து வீடியோக்களையும் பிளேலிச்ட்களையும் மறைக்க ஒரு சொல், சொல் துண்டு அல்லது சொற்றொடர் (வழக்கு உணர்வற்றது) உள்ளிடவும், அதன் அசல் தலைப்புகள் அனைத்து ஃப்ரீட்யூப் முழுவதும் உள்ளன, வரலாறு, உங்கள் பிளேலிச்ட்கள் மற்றும் வீடியோக்களை பிளேலிச்ட்களுக்குள் தவிர்த்து.'
+    Hide Videos, Playlists and Channels Containing Text: 'அனைத்து வீடியோக்களையும் பிளேலிச்ட்களையும் மறைக்க ஒரு சொல், சொல் துண்டு அல்லது சொற்றொடர் (வழக்கு உணர்வற்றது) உள்ளிடவும், அதன் அசல் தலைப்புகள் அனைத்து ஃப்ரீட்யூப் முழுவதும் உள்ளன, வரலாறு, உங்கள் பிளேலிச்ட்கள் மற்றும் வீடியோக்களை பிளேலிச்ட்களுக்குள் தவிர்த்து.'
   Subscription Settings:
     Fetch Feeds from RSS: 'இயக்கப்பட்டால், உங்கள் சந்தா ஊட்டத்தைப் பிடிக்க அதன் இயல்புநிலை முறைக்கு பதிலாக RSS ஐப் பயன்படுத்தும். ஆர்எச்எச் வேகமானது மற்றும் ஐபி தடுப்பதைத் தடுக்கிறது, ஆனால் வீடியோ காலம், நேரடி நிலை அல்லது இடுகைகள் போன்ற சில தகவல்களை வழங்காது'
     Fetch Automatically: 'இயக்கப்பட்டால், தொடக்கத்தில் உங்கள் சந்தா ஊட்டத்தையும் புதிய சாளரம் திறக்கப்படும் போது ஃப்ரீட்யூப் தானாகவே பெறும்.'

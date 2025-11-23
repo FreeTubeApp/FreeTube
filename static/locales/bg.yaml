@@ -110,10 +110,8 @@ Subscriptions:
 Trending:
   Trending: 'Набиращи популярност'
   Trending Tabs: Раздели за набиращи популярност
-  Movies: Филми
   Gaming: Игри
-  Music: Музика
-  Default: По подразбиране
+  Sports: Спорт
 Most Popular: 'Най-популярни'
 Playlists: 'Плейлисти'
 User Playlists:
@@ -173,8 +171,7 @@ User Playlists:
     N playlists selected: '{playlistCount} избрани'
     Toast:
       You haven't selected any playlist yet.: Все още не сте избрали плейлист.
-      "{videoCount} video(s) added to 1 playlist": Добавено 1 видео в 1 плейлист | Добавени {videoCount} видеа в 1 плейлист
-      "{videoCount} video(s) added to {playlistCount} playlists": Добавено 1 видео към {playlistCount} плейлиста | Добавени {videoCount} видеа към {playlistCount} плейлиста
+      "Video(s) added to {playlistCount} playlists": ""
     Save: Запазване
     Added {count} Times: Вече е добавено | Добавено {count} пъти
     "{videoCount}/{totalVideoCount} Videos Already Added": Вече са добавени {videoCount}/{totalVideoCount} видеа
@@ -282,6 +279,7 @@ Settings:
       Everforest Light Medium: Everforest светло средно
       Everforest Dark Medium: Everforest Тъмно средно
       Everforest Dark Low: Everforest Тъмно ниско
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Основна цветова тема'
       Red: 'Червено'
@@ -367,6 +365,8 @@ Settings:
       Everforest Light Aqua: Everforest Светла вода
       Everforest Light Blue: Everforest Светлосиньо
       Everforest Light Purple: Everforest Светлопурпурно
+      Catppuccin Latte Mauve: Catppuccin Latte Лилаво
+      Catppuccin Latte Red: Catppuccin Latte Червено
     Secondary Color Theme: 'Вторична цветова тема'
         #* Main Color Theme
     UI Scale: Мащаб на интерфейса
@@ -499,6 +499,12 @@ Settings:
       Tooltip: "Тази опция изнася видеа от всички плейлисти в един плейлист с име \"Предпочитани\".\nКак да изнесете и внесете видеа в плейлисти за по-стара версия на FreeTube:\n1. Изнесете плейлистите си с включена тази опция.\n2. Изтрийте всичките си съществуващи плейлисти, като използвате опцията \"Премахване на всички плейлисти\" в Настройки за поверителност.\n3. Стартирайте по-старата версия на FreeTube и внесете изнесените плейлисти.\""
       Label: Изнасяне на плейлисти за по-стари версии на FreeTube
 
+    Search history file: Файл с история на търсенията
+    Search history: История с търсения
+    Import search history: Внасяне на история с търсения
+    Export search history: Изнасяне на история с търсения
+    All search history has been successfully imported: Цялата история на търсенията е внесена успешно
+    All search history has been successfully exported: Цялата история на търсенията е изнесена успешно
   Distraction Free Settings:
     Hide Live Chat: Скриване на чата на живо
     Hide Popular Videos: Скриване на популярните видеа
@@ -540,8 +546,8 @@ Settings:
     Hide Channels API Error: Грешка при извличането на потребител с предоставения идентификатор. Моля, проверете отново дали идентификаторът е правилен.
     Hide Channels Invalid: Предоставеният идентификатор на канала е невалиден
     Hide Channels Already Exists: Идентификаторът на канала вече съществува
-    Hide Videos and Playlists Containing Text: Скриване на видеа и плейлисти, съдържащи текст
-    Hide Videos and Playlists Containing Text Placeholder: Дума, част от дума или фраза
+    Hide Videos, Playlists and Channels Containing Text: Скриване на видеа и плейлисти, съдържащи текст
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Дума, част от дума или фраза
     Hide Channel Home: Скриване на раздел "Начало"
     Show Added Items: Показване на добавените елементи
     Hide Channel Courses: Скриване на раздел "Курсове"
@@ -917,23 +923,20 @@ Comments:
   There are no more comments for this video: 'Към това видео няма повече коментари'
   Hide Comments: 'Скриване на коментарите'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Показване на'
-  Hide: 'Скриване'
-  Replies: 'Отговора'
-  Reply: 'Отговор'
   There are no comments available for this video: 'Към това видео няма коментари'
   Load More Comments: 'Зареждане на още коментари'
   Newest first: Първо най-новите
   Top comments: Последни коментари
   Show More Replies: Показване на още отговори
   Pinned by: Прихванато от
-  From {channelName}: от {channelName}
-  And others: и други
   Member: Член
-  View {replyCount} replies: Преглед на {replyCount} отговора
+  View {replyCount} replies: Преглед на 1 отговор | Преглед на {replyCount} отговора
   Hearted: Сърдечно
   Subscribed: Абониран
   There are no comments available for this post: За тази публикация няма налични коментари
+  Hide {replyCount} replies: Скриване на 1 отговор | Скриване на {replyCount} отговора
+  View 1 reply from {channelName}: Преглед на 1 отговор от {channelName}
+  View {replyCount} replies from {channelName} and others: Преглед на {replyCount} отговора от {channelName} и други
 Up Next: 'Следващ'
 
 # Toast Messages
@@ -983,7 +986,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Въведете идентификатор на канал, за да скриете всички видеа, плейлисти и самия канал от показване в търсенето, тенденциите, най-популярните и препоръчаните. Въведеният идентификатор трябва да съвпада напълно и е чувствителен към главни и малки букви.
     Hide Subscriptions Live: Тази настройка се отменя от настройката за цялото приложение "{appWideSetting}" в секция "{subsection}" на "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Въведете дума, част от дума или фраза (без значение от главни и малки букви), за да скриете всички видеа и плейлисти, чиито оригинални заглавия ги съдържат в целия FreeTube, с изключение само на Историята, Вашите плейлисти и видеата в плейлистите.
+    Hide Videos, Playlists and Channels Containing Text: Въведете дума, част от дума или фраза (без значение от главни и малки букви), за да скриете всички видеа и плейлисти, чиито оригинални заглавия ги съдържат в целия FreeTube, с изключение само на Историята, Вашите плейлисти и видеата в плейлистите.
     Hide Videos on Watch: Скрива гледаните видеа от разделите "Видеа", "Кратки видеа" и "На живо" на страниците "Абонамент" и "Канал". Това не засяга раздел "Начало" на страниците на канала
   SponsorBlock Settings:
     UseDeArrowTitles: Заменя заглавията на видеата с подадени от потребителите заглавия от DeArrow.

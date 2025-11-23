@@ -84,10 +84,7 @@ Subscriptions:
   Error Channels: Canales con errores
 Trending:
   Trending: 'Tendencias'
-  Movies: Películas
   Gaming: Juegos
-  Music: Música
-  Default: Por defecto
   Trending Tabs: Lo más destacado
 Most Popular: 'Más popular'
 Playlists: 'Listas de reproducción'
@@ -164,8 +161,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videos ya agregados'
     Toast:
       You haven't selected any playlist yet.: Todavía no seleccionaste ninguna lista de reproducción.
-      "{videoCount} video(s) added to 1 playlist": 1 video agregado a 1 lista de reproducción | {videoCount} videos agregados a 1 lista de reproducción
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video agregado a {playlistCount} listas de reproducción |{videoCount} videos agregados a {playlistCount} listas de reproducción
+      "Video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
     New Playlist Name: Nombre de la nueva lista de reproducción
     Toast:
@@ -459,10 +455,10 @@ Settings:
     Hide Channel Home: Ocultar la pestaña de 'Inicio' del canal
     Hide Channels API Error: Error al obtener el usuario con el ID proporcionado. Por favor, verificá nuevamente si el ID es correcto.
     Hide Channels Disabled Message: Algunos canales fueron bloqueados usando ID y no se procesaron. La función está bloqueada mientras se actualizan esos IDs.
-    Hide Videos and Playlists Containing Text: Ocultar videos y listas de reproducción que contengan texto
+    Hide Videos, Playlists and Channels Containing Text: Ocultar videos y listas de reproducción que contengan texto
     Hide Channels Already Exists: El ID del canal ya existe.
     Hide Channel Courses: Ocultar la pestaña de 'Cursos' del canal
-    Hide Videos and Playlists Containing Text Placeholder: Palabra, fragmento de palabra o frase
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Palabra, fragmento de palabra o frase
     Show Added Items: Mostrar elementos agregados
   The app needs to restart for changes to take effect. Restart and apply change?: Esta aplicación necesita reiniciarse para que los cambios entren en efecto. ¿Reiniciar y aplicar el cambio?
   Proxy Settings:

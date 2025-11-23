@@ -103,10 +103,8 @@ Subscriptions:
 Trending:
   Trending: 'Em alta'
   Trending Tabs: Guias em destaque
-  Movies: Filmes
   Gaming: Jogos
-  Music: Música
-  Default: Padrão
+  Sports: Esportes
 Most Popular: 'Mais populares'
 Playlists: 'Playlists'
 User Playlists:
@@ -171,8 +169,7 @@ User Playlists:
     Search for Videos: Buscar vídeos
   AddVideoPrompt:
     Toast:
-      "{videoCount} video(s) added to 1 playlist": 1 vídeo adicionado a 1 playlist | {videoCount} vídeos adicionados a 1 playlist
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 vídeo adicionado a {playlistCount} playlists | {videoCount} vídeos adicionados a {playlistCount} playlists
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Você ainda não selecionou nenhuma playlist.
     Select a playlist to add your N videos to: Selecione uma playlist para adicionar seu vídeo | Selecione uma playlist para adicionar seus {videoCount} vídeos
     N playlists selected: '{playlistCount} selecionada(s)'
@@ -275,6 +272,7 @@ Settings:
       Everforest Light Hard: 'Everforest: Claro Sólido'
       Everforest Light Medium: 'Everforest: Claro Médio'
       Everforest Light Low: 'Everforest: Claro Suave'
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
@@ -360,6 +358,8 @@ Settings:
       Everforest Dark Green: 'Everforest: Verde Escuro'
       Everforest Dark Aqua: 'Everforest: Aqua Escuro'
       Everforest Light Green: 'Everforest: Verde Claro'
+      Catppuccin Latte Mauve: 'Catppuccin Latte: Malva'
+      Catppuccin Latte Red: 'Catppuccin Latte: Vermelho'
     Secondary Color Theme: 'Cor secundária'
         #* Main Color Theme
     UI Scale: Escala da Interface de Usuário
@@ -492,6 +492,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Exportar playlists para versões mais antigas do FreeTube
       Tooltip: "Esta opção exporta vídeos de todas as playlists para uma playlist chamada \"Favoritos\".\nComo exportar e importar vídeos em playlists para uma versão mais antiga do FreeTube:\n1. Exporte suas playlists com esta opção habilitada.\n2. Exclua todas as suas playlists existentes usando a opção \"Remover todas as playlists\" em \"Configurações de privacidade\".\n3. Inicie a versão mais antiga do FreeTube e importe as playlists exportadas"
+    Search history file: Arquivo de histórico de buscas
+    Search history: Histórico de buscas
+    Import search history: Importar histórico de buscas
+    Export search history: Exportar histórico de buscas
+    All search history has been successfully imported: Todo o histórico de buscas foi importado com sucesso
+    All search history has been successfully exported: Todo o histórico de buscas foi exportado com sucesso
   Distraction Free Settings:
     Hide Live Chat: Ocultar chat ao vivo
     Hide Popular Videos: Ocultar vídeos populares
@@ -533,8 +539,8 @@ Settings:
     Hide Channels Disabled Message: Alguns canais foram bloqueados por ID e não foram processados. A função está bloqueada enquanto esses IDs estão sendo atualizados
     Hide Channels Already Exists: ID do canal já existe
     Hide Channels API Error: Erro ao recuperar o usuário com o ID fornecido. Por favor, verifique novamente se o ID está correto.
-    Hide Videos and Playlists Containing Text Placeholder: Trecho, palavra ou frase
-    Hide Videos and Playlists Containing Text: Ocultar vídeos e playlists que contenham texto
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Palavra, trecho de uma palavra ou frase
+    Hide Videos, Playlists and Channels Containing Text: Ocultar vídeos e playlists que contenham texto
     Hide Channel Home: Ocultar a guia "Início" do canal
     Show Added Items: Mostrar itens adicionados
     Hide Channel Courses: Ocultar a guia “Cursos” do canal
@@ -868,10 +874,6 @@ Comments:
   Getting comment replies, please wait: 'Buscando respostas, por favor, aguarde'
   Hide Comments: 'Ocultar comentários'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Mostrar'
-  Hide: 'Ocultar'
-  Replies: 'Respostas'
-  Reply: 'Resposta'
   There are no comments available for this video: 'Não há comentários disponíveis neste vídeo'
   Load More Comments: 'Buscar mais comentários'
   Newest first: Mais recentes primeiro
@@ -879,13 +881,14 @@ Comments:
   There are no more comments for this video: Não há mais comentários para este vídeo
   Show More Replies: Mostrar mais respostas
   Pinned by: Fixado por
-  And others: e outros
-  From {channelName}: A partir de {channelName}
   Member: Membro
   Hearted: Recebeu um coração
-  View {replyCount} replies: Exibir {replyCount} respostas
+  View {replyCount} replies: Mostrar 1 resposta | Mostrar {replyCount} respostas
   Subscribed: Inscrito
   There are no comments available for this post: Não há comentários disponíveis para esta postagem
+  Hide {replyCount} replies: Ocultar 1 resposta | Ocultar {replyCount} respostas
+  View 1 reply from {channelName}: Mostrar 1 resposta de {channelName}
+  View {replyCount} replies from {channelName} and others: Mostrar {replyCount} respostas de {channelName} e outros
 Up Next: 'Próximo'
 
 # Toast Messages
@@ -980,7 +983,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Insira o ID de um canal para impedir que todos os vídeos, playlists e o próprio canal apareçam nas buscas, em alta, mais populares e recomendados. O ID do canal inserido deve ser uma correspondência completa e diferenciar maiúsculas de minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição de toda a aplicação "{appWideSetting}", na seção "{subsection}" da "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Insira um trecho, palavra ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar todos os vídeos e playlists cujos títulos originais a contenham em todo o FreeTube, excluindo apenas histórico, suas playlists e vídeos dentro das playlists.
+    Hide Videos, Playlists and Channels Containing Text: Insira uma palavra, trecho de uma palavra ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar todos os vídeos e playlists cujos títulos originais a contenham em todo o FreeTube, excluindo apenas histórico, suas playlists e vídeos dentro das playlists.
     Hide Videos on Watch: Oculta vídeos já assistidos a partir das guias "Vídeos", "Shorts" e "Ao Vivo" nas páginas de "Assinatura" e "Canal". Isso não afeta a guia "Início" nas páginas de "Canal"
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo usuário a partir do DeArrow.

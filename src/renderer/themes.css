@@ -68,6 +68,13 @@ body:not(.hotPink, .pastelPink) {
   --logo-tertiary-color: #000;
 }
 
+/* Text "app" should be visible but retain FreeTube color logo */
+.system[data-system-theme*='dark'],
+.dark,
+.black {
+  --logo-tertiary-color: #fff;
+}
+
 /* Given that the Hot Pink theme does not need link underlining due to meeting
 WCAG 2 Level AA (https://webaim.org/resources/linkcontrastchecker/?fcolor=FFFFFF&bcolor=DE1C85&lcolor=000000),
 it can be safely elided. This looks quite pleasant on this theme. */
@@ -133,7 +140,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
 .everforestLightMedium,
 .everforestLightLow,
 .gruvboxLight,
-.solarizedLight {
+.solarizedLight,
+.catppuccinLatte {
   --primary-shadow-color: rgb(255 255 255 / 75%);
 }
 
@@ -536,6 +544,25 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --search-bar-color: #eae4ca;
   --logo-icon: url('../../_icons/iconEverforestDarkLowSmall.svg');
   --logo-text: url('../../_icons/textEverforestDarkLowSmall.svg');
+}
+
+.catppuccinLatte {
+  --primary-text-color: #4c4f69;
+  --secondary-text-color: #4c4f69;
+  --tertiary-text-color: #6c6f85;
+  --title-color: #4c4f69;
+  --bg-color: #eff1f5;
+  --favorite-icon-color: #0f0;
+  --card-bg-color: #e6e9ef;
+  --secondary-card-bg-color: #eff1f5;
+  --scrollbar-color: #ccd0da;
+  --scrollbar-color-hover: #bdbdbd;
+  --side-nav-color: #e6e9ef;
+  --side-nav-hover-color: #dce0e8;
+  --side-nav-active-color: #dce0e8;
+  --search-bar-color: #ccd0da;
+  --logo-icon: url('../../_icons/iconCatppuccinLatteDarkSmall.svg');
+  --logo-text: url('../../_icons/textCatppuccinLatteDarkSmall.svg');
 }
 
 /*************** PRIMARY THEME COLOR DEFINTIONS ***************/
@@ -980,7 +1007,6 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-text-bar-color: url('../../_icons/textGruvboxDarkSmall.svg');
 }
 
-
 .mainCatppuccinFrappeRosewater,
 .mainCatppuccinFrappeFlamingo,
 .mainCatppuccinFrappePink,
@@ -1185,6 +1211,25 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color: #cf59aa;
   --primary-color-hover: #e77dc9;
   --primary-color-active: #a63f9a;
+}
+
+.mainCatppuccinLatteMauve,
+.mainCatppuccinLatteRed {
+  --text-with-main-color: #fff;
+  --logo-icon-bar-color: url('../../_icons/iconCatppuccinLatteLightSmall.svg');
+  --logo-text-bar-color: url('../../_icons/textCatppuccinLatteLightSmall.svg');
+}
+
+.mainCatppuccinLatteMauve {
+  --primary-color: #8839ef;
+  --primary-color-hover: #9f5cf1;
+  --primary-color-active: #6c28ce;
+}
+
+.mainCatppuccinLatteRed {
+  --primary-color: #d20f39;
+  --primary-color-hover: #dd385c;
+  --primary-color-active: #a60c2d;
 }
 
 /*************** SECONDARY THEME COLOR DEFINTIONS ***************/
@@ -1985,6 +2030,27 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --accent-color-active: #c84f9a;
   --accent-color-light: #f09ed0;
   --accent-color-visited: #c84f9a;
+}
+
+.secCatppuccinLatteMauve,
+.secCatppuccinLatteRed {
+  --text-with-accent-color: #fff;
+}
+
+.secCatppuccinLatteMauve {
+  --accent-color-rgb: 136 57 239;
+  --accent-color-hover: #9f5cf1;
+  --accent-color-active: #7129d2;
+  --accent-color-light: #b076f8;
+  --accent-color-visited: #6021a9;
+}
+
+.secCatppuccinLatteRed {
+  --accent-color-rgb: 210 15 57;
+  --accent-color-hover: #dd385c;
+  --accent-color-active: #ad0c2e;
+  --accent-color-light: #e64e71;
+  --accent-color-visited: #810922;
 }
 
 /*************** DESTRUCTIVE THEME COLOR OVERRIDES ***************/

@@ -67,12 +67,13 @@
   }
 
   &.list {
+    gap: 1em;
+
     .playlistInfoContainer {
       background-color: var(--card-bg-color);
       block-size: calc(100vh - 132px);
       inline-size: 30%;
       inset-block-start: 96px;
-      margin-inline-end: 1em;
       position: sticky;
 
       .playlistInfo {
@@ -139,12 +140,16 @@
     flex-direction: column;
 
     &.list {
+      gap: 0;
+
       .playlistInfoContainer {
         box-sizing: border-box;
         position: relative;
         inset-block-start: 0;
         block-size: auto;
         inline-size: 100%;
+        // Reset margin
+        margin-inline-end: 0;
       }
 
       .playlistItemsCard {

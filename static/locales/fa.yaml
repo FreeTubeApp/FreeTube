@@ -90,10 +90,7 @@ Subscriptions:
 More: 'بیشتر'
 Trending:
   Trending: 'پربازدید ها'
-  Default: 'حالت عادی'
-  Music: 'موسیقی'
   Gaming: 'بازی'
-  Movies: 'فیلم ها'
   Trending Tabs: 'سربرگ پربازدید ها'
 Most Popular: 'پر طرفدارترین ها'
 Playlists: 'لیست های پخش'
@@ -122,9 +119,8 @@ User Playlists:
     Search in Playlists: جستجو در لیست‌های پخش
     Allow Adding Duplicate Video(s): اجازه افزودن ویدیو(های) تکراری
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 ویدیو به {playlistCount} لیست پخش اضافه شد | {videoCount} ویدیو به {playlistCount} لیست پخش اضافه شد
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: هنوز هیچ لیست پخشی را انتخاب نکرده‌اید.
-      "{videoCount} video(s) added to 1 playlist": 1 ویدیو به 1 لیست پخش اضافه شد | {videoCount} ویدیو به 1 لیست پخش اضافه شد
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} ویدیو از قبل اضافه شده'
     N playlists selected: '{playlistCount} انتخاب شد'
     Added {count} Times: قبلا اضافه شده | {count} بار اضافه شد
@@ -491,10 +487,10 @@ Settings:
     Hide Channel Releases: مخفی کردن "انتشارات" کانال
     Hide Sharing Actions: مخفی کردن فعالیت های مشترک
     Hide Videos on Watch: 'مخفی کردن ویدیو ها هنگام تماشا'
-    Hide Videos and Playlists Containing Text Placeholder: کلمه، بخش کلمه یا عبارت
+    Hide Videos, Playlists and Channels Containing Text Placeholder: کلمه، بخش کلمه یا عبارت
     Hide Channels Invalid: شناسه کانال ارائه شده نامعتبر بود
     Hide Channels Already Exists: شناسه کانال از قبل وجود دارد
-    Hide Videos and Playlists Containing Text: ویدیوها و لیست های پخش حاوی متن را مخفی کنید
+    Hide Videos, Playlists and Channels Containing Text: ویدیوها و لیست های پخش حاوی متن را مخفی کنید
     Hide Channel Home: مخفی کردن "صفحه اصلی" کانال
     Hide Channels API Error: خطای بازیابی کاربر با شناسه ارائه شده. لطفا دوباره بررسی کنید که شناسه درست باشد.
     Hide Channels Disabled Message: برخی از کانال‌ها با استفاده از شناسه مسدود شدند و پردازش نشدند. در حالی که آن شناسه ها در حال به روز رسانی هستند، ویژگی مسدود می شود
@@ -801,7 +797,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Subscriptions Live: این تنظیم توسط تنظیم "{appWideSetting}" در سطح برنامه، در بخش "{subsection}" از "{settingsSection}" لغو می‌شود
     Hide Channels: یک شناسه کانال وارد کنید تا همه ویدیوها، لیست‌های پخش و خود کانال در جستجو، پرطرفدار، محبوب‌ترین و توصیه‌شده‌ها ظاهر نشود. شناسه کانال وارد شده باید کاملاً مطابقت داشته باشد و شامل حروف کوچک و بزرگ باشد.
-    Hide Videos and Playlists Containing Text: یک کلمه، قطعه کلمه یا عبارت (بدون حساسیت به حروف کوچک) وارد کنید تا همه ویدیوها و فهرست‌های پخشی که عنوان اصلی آنها حاوی آن در تمام FreeTube است، پنهان شود، به استثنای تاریخچه، فهرست‌های پخش شما، و ویدیوهای داخل فهرست‌های پخش.
+    Hide Videos, Playlists and Channels Containing Text: یک کلمه، قطعه کلمه یا عبارت (بدون حساسیت به حروف کوچک) وارد کنید تا همه ویدیوها و فهرست‌های پخشی که عنوان اصلی آنها حاوی آن در تمام FreeTube است، پنهان شود، به استثنای تاریخچه، فهرست‌های پخش شما، و ویدیوهای داخل فهرست‌های پخش.
     Hide Videos on Watch: ویدیوهای تماشا شده را از تب‌های ویدیوها، ویدیوهای کوتاه و ویدیوهای زنده در صفحات اشتراک و کانال پنهان می‌کند. این کار روی تب خانه در صفحات کانال تأثیری ندارد
   Experimental Settings:
     Replace HTTP Cache: حافظه پنهان HTTP مبتنی بر دیسک Electron را غیرفعال می کند و یک کش تصویر سفارشی در حافظه را فعال می کند. منجر به افزایش مصرف رم خواهد شد.
@@ -903,12 +899,8 @@ Comments:
   View {replyCount} replies: مشاهده {replyCount} پاسخ
   Pinned by: پین شده توسط
   Member: عضو
-  From {channelName}: از {channelName}
-  And others: و دیگران
   Load More Comments: بارگذاری نظرات بیشتر
   There are no comments available for this video: هیچ نظری برای این ویدیو موجود نیست
-  View: مشاهده
-  Reply: پاسخ
   Comments: نظرات
   Getting comment replies, please wait: در حال دریافت پاسخ نظرات، لطفا صبر کنید
   There are no more comments for this video: هیچ نظر دیگری برای این ویدیو وجود ندارد
@@ -917,8 +909,6 @@ Comments:
   Show More Replies: نمایش پاسخ های بیشتر
   Click to View Comments: برای مشاهده نظرات کلیک کنید
   Newest first: جدیدترین اول
-  Hide: مخفی کردن
-  Replies: پاسخ
   Hearted: دلی
   There are no comments available for this post: هیچ نظری برای این پست موجود نیست
   Subscribed: دنبال شده

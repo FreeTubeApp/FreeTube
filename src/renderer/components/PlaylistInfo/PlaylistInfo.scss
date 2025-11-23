@@ -27,6 +27,18 @@
 
 .playlistTitle {
   margin-block-end: 0.1em;
+
+  /* Prevents overflow for long values */
+  overflow-wrap: anywhere;
+
+  @media only screen and (width <= 850px) {
+    // margin-inline-in routerView = 8px x2 = 16px
+    // For unknown reason class `routerView` is in 2 containers
+    // padding for `playlistInfo` is 10px x2 = 20px
+    // Also scrollbar got unknown width so using 95vw instead of 100vw
+    max-inline-size: calc(95vw - 32px - 20px);
+    text-overflow: ellipsis;
+  }
 }
 
 .playlistDescription {
@@ -99,7 +111,6 @@
   .playlistDescription {
     overflow-x: hidden;
     text-align: center;
-    white-space: nowrap;
     text-overflow: ellipsis;
     max-inline-size: 750px;
     inline-size: 100%;

@@ -219,18 +219,18 @@
           :dropdown-options="dropdownOptions"
           @click="handleOptionsClick"
         />
-        <font-awesome-icon
+        <button
           v-if="deArrowChangedContent || deArrowTogglePinned"
           :title="deArrowToggleTitle"
-          :icon="['far', 'dot-circle']"
           class="optionsButton deArrowToggleButton"
           :class="{ alwaysVisible: deArrowTogglePinned }"
-          tabindex="0"
-          role="button"
           @click="toggleDeArrow"
-          @keydown.enter.prevent="toggleDeArrow"
-          @keydown.space.prevent="toggleDeArrow"
-        />
+        >
+          <font-awesome-icon
+            class="deArrowToggleIcon"
+            :icon="['far', 'dot-circle']"
+          />
+        </button>
       </div>
       <p
         v-if="description && effectiveListTypeIsList && appearance === 'result'"

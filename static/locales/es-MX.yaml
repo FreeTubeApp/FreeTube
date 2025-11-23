@@ -86,6 +86,7 @@ Search Filters:
     VR180: VR180
     Creative Commons: Comunes Creativos
     3D: 3D
+  Clear Filters: Limpiar Filtros
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
@@ -101,16 +102,13 @@ Subscriptions:
   Load More Posts: Cargar más publicaciones
 Trending:
   Trending: 'Tendencias'
-  Default: Predeterminado
-  Music: Música
   Gaming: Juegos
   Trending Tabs: Tendencias
-  Movies: Películas
 Most Popular: 'Más Popular'
 Playlists: 'Listas de Reproducción'
 User Playlists:
   Your Playlists: 'Tus Listas de Reproducción'
-  Search bar placeholder: Buscar en la lista de reproducción
+  Search bar placeholder: Buscar en la listas de reproducción
   Empty Search Message: No hay videos en esta lista de reproducción que coincidan con su búsqueda
   SinglePlaylistView:
     Toast:
@@ -124,6 +122,8 @@ User Playlists:
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Algunos videos en la lista de reproducción aún no se han cargado. Haz clic aquí para copiar de todos modos.
       Playlist name cannot be empty. Please input a name.: El nombre de la lista de reproducción no puede estar vacío. Por favor, ingresa un nombre.
       There were no videos to remove.: No había videos para eliminar.
+      This video cannot be moved up.: Este vídeo no se puede mover.
+    Search for Videos: Buscar videos
   You have no playlists. Click on the create new playlist button to create a new one.: No tienes listas de reproducción. Haz clic en el botón de crear nueva lista de reproducción para crear una nueva.
   Playlists with Matching Videos: Listas de reproducción con videos coincidentes
   Remove from Favorites: Eliminar de {playlistName}
@@ -132,14 +132,14 @@ User Playlists:
   Delete Playlist: Eliminar lista de reproducción
   Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro de que deseas eliminar esta lista de reproducción? Esto no se puede deshacer.
   Sort By:
-    LatestCreatedFirst: Recientemente creado
-    EarliestCreatedFirst: Creado más temprano
+    LatestCreatedFirst: Fecha de creación (más reciente)
+    EarliestCreatedFirst: Fecha de creación (más antiguo)
     NameAscending: A-Z
     NameDescending: Z-A
-    LatestUpdatedFirst: Recientemente actualizado
-    EarliestUpdatedFirst: Actualizado más temprano
-    EarliestPlayedFirst: Reproducido más temprano
-    LatestPlayedFirst: Reproducido recientemente
+    LatestUpdatedFirst: Fecha de actualización (más reciente)
+    EarliestUpdatedFirst: Fecha de actualización (más antigua)
+    EarliestPlayedFirst: Fecha de reproducción (más antiguo)
+    LatestPlayedFirst: Fecha de reproducción (más reciente)
   Export Playlist: Exportar esta lista de reproducción
   The playlist has been successfully exported: La lista de reproducción ha sido exportada con éxito
   This playlist currently has no videos.: Esta lista de reproducción no tiene videos actualmente.
@@ -163,9 +163,8 @@ User Playlists:
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ¿Estás seguro de que deseas eliminar 1 video visto de esta lista de reproducción? Esto no se puede deshacer.
   AddVideoPrompt:
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": '{videoCount} videos agregados a {playlistCount} playlists'
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Aún no has seleccionado ninguna playlist.
-      "{videoCount} video(s) added to 1 playlist": 1 video agregado a 1 playlist
     Save: Guardar
     Allow Adding Duplicate Video(s): Permitir agregar videos duplicados
     Added {count} Times: Ya agregado | Agregado {count} veces
@@ -178,6 +177,7 @@ User Playlists:
       There was an issue with creating the playlist.: Hubo un problema al crear la playlist.
     New Playlist Name: Nombre de la nueva playlist
     Create: Crear
+  Export list of URLs: Exportar lista de URL
 History:
   # On History Page
   History: 'Historial'
@@ -596,17 +596,11 @@ Comments:
   Getting comment replies, please wait: 'Recibiendo respuestas de comentarios, por favor espere'
   Hide Comments: 'Esconde comentarios'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Vista'
-  Hide: 'Esconde'
-  Replies: 'Respuestas'
-  Reply: 'Responde'
   There are no comments available for this video: 'No hay comentarios disponibles para este video'
   Load More Comments: 'Cargar Más Comentarios'
   Top comments: Más populares
   Member: Miembro
   Pinned by: Fijado por
-  From {channelName}: de {channelName}
-  And others: y otros
   There are no more comments for this video: No hay más comentarios en este video
   Newest first: Más recientes
   Show More Replies: Mostrar más respuestas

@@ -140,10 +140,7 @@ Channels:
   Unsubscribe Prompt: ''
 Trending:
   Trending: ''
-  Default: ''
-  Music: ''
   Gaming: ''
-  Movies: ''
   Trending Tabs: ''
 Most Popular: ''
 Feed:
@@ -243,8 +240,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: ''
-      "{videoCount} video(s) added to 1 playlist": ""
-      "{videoCount} video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
     New Playlist Name: ''
     Create: ''
@@ -565,8 +561,8 @@ Settings:
     Hide Channel Podcasts: ''
     Hide Channel Releases: ''
     Hide Channel Courses: ''
-    Hide Videos and Playlists Containing Text: ''
-    Hide Videos and Playlists Containing Text Placeholder: ''
+    Hide Videos, Playlists and Channels Containing Text: ''
+    Hide Videos, Playlists and Channels Containing Text Placeholder: ''
     Hide Subscriptions Videos: ''
     Hide Subscriptions Shorts: ''
     Hide Subscriptions Live: ''
@@ -970,13 +966,7 @@ Comments:
   Newest first: ''
   View {replyCount} replies: ''
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: ''
-  Hide: ''
-  Replies: ''
   Show More Replies: ''
-  Reply: ''
-  From {channelName}: ''
-  And others: ''
   There are no comments available for this video: ''
   There are no comments available for this post: ''
   Load More Comments: ''
@@ -1015,7 +1005,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: ''
     Hide Subscriptions Live: ''
-    Hide Videos and Playlists Containing Text: ''
+    Hide Videos, Playlists and Channels Containing Text: ''
     Hide Videos on Watch: ''
   Subscription Settings:
     Fetch Feeds from RSS: ''

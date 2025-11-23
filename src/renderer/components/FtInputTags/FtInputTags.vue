@@ -62,15 +62,15 @@
             <span>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</span>
           </template>
           <span v-else>{{ tag }}</span>
-          <FontAwesomeIcon
+          <button
             v-if="!disabled"
-            :icon="['fas', 'fa-times']"
             class="removeTagButton"
-            tabindex="0"
-            role="button"
             @click="removeTag(tag)"
-            @keydown.enter.prevent="removeTag(tag)"
-          />
+          >
+            <FontAwesomeIcon
+              :icon="['fas', 'fa-times']"
+            />
+          </button>
         </li>
       </ul>
     </div>
@@ -79,7 +79,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { ref, useId } from 'vue'
+import { useId, useTemplateRef } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtInput from '../FtInput/FtInput.vue'
@@ -139,7 +139,7 @@ const { t } = useI18n()
 
 const id = useId()
 
-const tagNameInput = ref(null)
+const tagNameInput = useTemplateRef('tagNameInput')
 
 /**
  * @param {string} text

@@ -124,10 +124,7 @@ Channels:
   Unsubscribe Prompt: 'Vai esi drošs, ka vēlies atcelt abonementu no "{channelName}"?'
 Trending:
   Trending: 'Pašlaik topā'
-  Default: 'Viss'
-  Music: 'Mūzika'
   Gaming: 'Spēles'
-  Movies: 'Filmas'
   Trending Tabs: 'Tendenču cilnes'
 Most Popular: 'Vispopulārākie'
 Playlists: 'Atskaņošanas saraksti'
@@ -427,7 +424,7 @@ Settings:
     Hide Subscriptions Shorts: 'Paslēp abonementu īsos video'
     Hide Subscriptions Live: 'Paslēp abonementu tiešraides'
     Hide Channels Already Exists: Kanāla ID jau eksistē
-    Hide Videos and Playlists Containing Text Placeholder: Vārds, vārda daļa, vai frāze
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Vārds, vārda daļa, vai frāze
     Hide Channel Home: Slēpt kanālā "Sākums" cilni
     Hide Channel Courses: Slēpt kanālā "Kursi" cilni
   Data Settings:
@@ -760,13 +757,7 @@ Comments:
   Newest first: ''
   View {replyCount} replies: ''
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: ''
-  Hide: ''
-  Replies: ''
   Show More Replies: ''
-  Reply: ''
-  From {channelName}: ''
-  And others: ''
   There are no comments available for this video: ''
   Load More Comments: ''
   Pinned by: ''

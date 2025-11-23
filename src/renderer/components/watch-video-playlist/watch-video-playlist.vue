@@ -40,81 +40,118 @@
         <label for="playlistProgressBar">
           {{ currentVideoIndexOneBased }} / {{ playlistVideoCount }}
         </label>
-        <progress
+
+        <!-- eslint-disable vuejs-accessibility/mouse-events-have-key-events, vuejs-accessibility/click-events-have-key-events -->
+        <div
           v-if="!shuffleEnabled && !reversePlaylist"
-          id="playlistProgressBar"
-          class="playlistProgressBar"
-          :value="currentVideoIndexOneBased"
-          :max="playlistVideoCount"
-        />
+          class="playlistProgressBarContainer"
+          @mouseenter="showProgressBarPreview = true"
+          @mouseleave="showProgressBarPreview = false"
+          @mousemove="updateProgressBarPreview"
+        >
+          <div
+            ref="playlistProgressBar"
+            class="playlistProgressBar"
+            :class="{ expanded: showProgressBarPreview }"
+            @click="handleProgressBarClick"
+          >
+            <div
+              class="playlistProgressBarFill"
+              :style="{ width: (currentVideoIndexOneBased / playlistVideoCount) * 100 + '%' }"
+            />
+            <div
+              v-if="showProgressBarPreview"
+              class="progressBarPreview"
+              :style="{ left: previewPosition + '%', transform: `translateX(${ previewTransformXPercentage }%)` }"
+            >
+              <div class="previewTooltip">
+                <img
+                  v-if="previewVideoThumbnail"
+                  :src="previewVideoThumbnail"
+                  alt=""
+                  class="previewThumbnail"
+                >
+                <div class="previewText">
+                  {{ previewVideoIndex }} / {{ playlistVideoCount }}
+                </div>
+                <div class="previewVideoTitle">{{ previewVideoTitle }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </span>
-      <p>
-        <font-awesome-icon
-          class="playlistIcon"
-          :class="{ playlistIconActive: loopEnabled }"
-          :icon="['fas', 'retweet']"
-          :title="$t('Video.Loop Playlist')"
-          role="button"
-          tabindex="0"
+      <div class="playlistButtons">
+        <button
+          class="playlistButton"
+          :class="{ playlistButtonActive: loopEnabled }"
+          :aria-label="$t('Video.Loop Playlist')"
           :aria-pressed="loopEnabled"
+          :title="$t('Video.Loop Playlist')"
           @click="toggleLoop"
-          @keydown.enter.prevent="toggleLoop"
-          @keydown.space.prevent="toggleLoop"
-        />
-        <font-awesome-icon
-          class="playlistIcon"
-          :class="{ playlistIconActive: shuffleEnabled }"
-          :icon="['fas', 'random']"
-          :title="$t('Video.Shuffle Playlist')"
-          role="button"
-          tabindex="0"
+        >
+          <font-awesome-icon
+            class="playlistIcon"
+            :icon="['fas', 'retweet']"
+          />
+        </button>
+        <button
+          class="playlistButton"
+          :class="{ playlistButtonActive: shuffleEnabled }"
+          :aria-label="$t('Video.Shuffle Playlist')"
           :aria-pressed="shuffleEnabled"
+          :title="$t('Video.Shuffle Playlist')"
           @click="toggleShuffle"
-          @keydown.enter.prevent="toggleShuffle"
-          @keydown.space.prevent="toggleShuffle"
-        />
-        <font-awesome-icon
-          class="playlistIcon"
-          :class="{ playlistIconActive: reversePlaylist }"
-          :icon="['fas', 'exchange-alt']"
-          :title="$t('Video.Reverse Playlist')"
-          role="button"
-          tabindex="0"
+        >
+          <font-awesome-icon
+            class="playlistIcon"
+            :icon="['fas', 'random']"
+          />
+        </button>
+        <button
+          class="playlistButton"
+          :class="{ playlistButtonActive: reversePlaylist }"
+          :aria-label="$t('Video.Reverse Playlist')"
           :aria-pressed="reversePlaylist"
+          :title="$t('Video.Reverse Playlist')"
           @click="toggleReversePlaylist"
-          @keydown.enter.prevent="toggleReversePlaylist"
-          @keydown.space.prevent="toggleReversePlaylist"
-        />
-        <font-awesome-icon
-          class="playlistIcon"
-          :icon="['fas', 'step-backward']"
+        >
+          <font-awesome-icon
+            class="playlistIcon"
+            :icon="['fas', 'exchange-alt']"
+          />
+        </button>
+        <button
+          class="playlistButton"
+          :aria-label="$t('Video.Play Previous Video')"
           :title="$t('Video.Play Previous Video')"
-          role="button"
-          tabindex="0"
           @click="playPreviousVideo"
-          @keydown.enter.prevent="playPreviousVideo"
-          @keydown.space.prevent="playPreviousVideo"
-        />
-        <font-awesome-icon
-          class="playlistIcon"
-          :icon="['fas', 'step-forward']"
+        >
+          <font-awesome-icon
+            class="playlistIcon"
+            :icon="['fas', 'step-backward']"
+          />
+        </button>
+        <button
+          class="playlistButton"
+          :aria-label="$t('Video.Play Next Video')"
           :title="$t('Video.Play Next Video')"
-          role="button"
-          tabindex="0"
           @click="playNextVideo"
-          @keydown.enter.prevent="playNextVideo"
-          @keydown.space.prevent="playNextVideo"
-        />
-      </p>
+        >
+          <font-awesome-icon
+            class="playlistIcon"
+            :icon="['fas', 'step-forward']"
+          />
+        </button>
+      </div>
       <div
         v-if="!isLoading"
-        ref="playlistItems"
-        class="playlistItems"
+        ref="playlistItemsWrapper"
+        class="playlistItemsWrapper"
       >
         <ft-list-video-numbered
           v-for="(item, index) in playlistItems"
           :key="item.playlistItemId || item.videoId"
-          :ref="currentVideoIndexZeroBased === index ? 'currentVideoItem' : null"
+          ref="playlistItem"
           class="playlistItem"
           :data="item"
           :playlist-id="playlistId"

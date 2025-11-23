@@ -57,16 +57,23 @@ export default defineComponent({
       randomizedPlaylistItems: [],
 
       getPlaylistInfoRun: false,
+      showProgressBarPreview: false,
+      previewPosition: 0,
+      previewVideoIndex: 1,
+      windowWidth: window.innerWidth,
     }
   },
   computed: {
     backendPreference: function () {
       return this.$store.getters.getBackendPreference
     },
-
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
     },
+    currentInvidiousInstanceUrl: function () {
+      return this.$store.getters.getCurrentInvidiousInstanceUrl
+    },
+
     currentLocale: function () {
       return this.$i18n.locale
     },
@@ -143,6 +150,42 @@ export default defineComponent({
     sortOrder: function () {
       return this.isUserPlaylist ? this.userPlaylistSortOrder : SORT_BY_VALUES.Custom
     },
+
+    previewTransformXPercentage() {
+      // Breakpoint for single-column-template
+      if (this.windowWidth > 1050) {
+        // Align left when preview is on the right half to avoid going out of right side of the window
+        return this.previewPosition <= 50 ? -50 : -100
+      }
+
+      // Align left/right to avoid going out of either side of the window
+      return this.previewPosition <= 50 ? 0 : -100
+    },
+    previewVideoTitle: function () {
+      const index = this.previewVideoIndex - 1
+      if (index >= 0 && index < this.playlistItems.length) {
+        return this.playlistItems[index].title || 'Unknown Title'
+      }
+      return ''
+    },
+    previewVideoThumbnail: function () {
+      const index = this.previewVideoIndex - 1
+      if (index >= 0 && index < this.playlistItems.length) {
+        const videoId = this.playlistItems[index].videoId
+        if (videoId) {
+          let baseUrl = 'https://i.ytimg.com'
+          if (this.backendPreference === 'invidious') {
+            baseUrl = this.currentInvidiousInstanceUrl
+          }
+          return `${baseUrl}/vi/${videoId}/default.jpg`
+        }
+      }
+      return null
+    },
+    shouldShowTicks: function () {
+      // Only show ticks if <= 50 videos in playlist to avoid clutter
+      return this.playlistVideoCount <= 50
+    }
   },
   watch: {
     userPlaylistsReady: function() {
@@ -178,12 +221,12 @@ export default defineComponent({
       this.prevVideoBeforeDeletion = null
     },
     watchViewLoading: function (newVal, oldVal) {
-      // This component is loaded/rendered before watch view loaded
+      // If watch view is loaded after this component loaded
       if (oldVal && !newVal) {
         // Scroll after watch view loaded, otherwise doesn't work
         // Mainly for Local API
-        // nextTick(() => this.scrollToCurrentVideo())
-        this.scrollToCurrentVideo()
+        // `nextTick` is required (tested via reloading)
+        nextTick(() => this.scrollToCurrentVideo())
       }
     },
     isLoading: function (newVal, oldVal) {
@@ -217,12 +260,16 @@ export default defineComponent({
       navigator.mediaSession.setActionHandler('previoustrack', this.playPreviousVideo)
       navigator.mediaSession.setActionHandler('nexttrack', this.playNextVideo)
     }
+
+    window.addEventListener('resize', this.calculateWindowWidth)
   },
   beforeUnmount: function () {
     if ('mediaSession' in navigator) {
       navigator.mediaSession.setActionHandler('previoustrack', null)
       navigator.mediaSession.setActionHandler('nexttrack', null)
     }
+
+    window.removeEventListener('resize', this.calculateWindowWidth)
   },
   methods: {
     findIndexOfCurrentVideoInPlaylist: function (playlist) {
@@ -527,16 +574,51 @@ export default defineComponent({
     },
 
     scrollToCurrentVideo: function () {
-      const container = this.$refs.playlistItems
-      const currentVideoItem = (this.$refs.currentVideoItem || [])[0]
-      if (container != null && currentVideoItem != null) {
+      const container = this.$refs.playlistItemsWrapper
+      const currentVideoItemEl = container ? Array.from(container.children)[this.currentVideoIndexZeroBased] : null
+      if (container != null && currentVideoItemEl != null) {
         // Watch view can be ready sooner than this component
-        container.scrollTop = currentVideoItem.$el.offsetTop - container.offsetTop
+        container.scrollTop = currentVideoItemEl.offsetTop - container.offsetTop
       }
     },
 
     pausePlayer: function () {
       this.$emit('pause-player')
+    },
+
+    updateProgressBarPreview: function (event) {
+      if (!this.showProgressBarPreview) return
+
+      const rect = this.$refs.playlistProgressBar.getBoundingClientRect()
+      const mouseX = event.clientX - rect.left
+      const progressBarWidth = rect.width
+      const percentage = Math.max(0, Math.min(100, (mouseX / progressBarWidth) * 100))
+
+      this.previewPosition = percentage
+      this.previewVideoIndex = Math.max(1, Math.min(this.playlistVideoCount, Math.ceil((percentage / 100) * this.playlistVideoCount)))
+    },
+
+    handleProgressBarClick: function (event) {
+      const rect = event.currentTarget.getBoundingClientRect()
+      const clickX = event.clientX - rect.left
+      const progressBarWidth = rect.width
+      const clickPercentage = clickX / progressBarWidth
+
+      const targetVideoIndex = Math.max(1, Math.min(this.playlistVideoCount, Math.ceil(clickPercentage * this.playlistVideoCount)))
+      const targetArrayIndex = targetVideoIndex - 1
+
+      if (targetArrayIndex >= 0 && targetArrayIndex < this.playlistItems.length) {
+        const container = this.$refs.playlistItemsWrapper
+        const targetPlaylistItemEl = container ? Array.from(container.children)[targetArrayIndex] : null
+        if (container != null && targetPlaylistItemEl != null) {
+          // Watch view can be ready sooner than this component
+          container.scrollTop = targetPlaylistItemEl.offsetTop - container.offsetTop
+        }
+      }
+    },
+
+    calculateWindowWidth() {
+      this.windowWidth = window.innerWidth
     },
 
     ...mapMutations([

@@ -79,6 +79,10 @@
   }
 }
 
+.containsTooltip .switch-label-text {
+  margin-inline-end: 5px;
+}
+
 .disabled {
   .switch-label {
     cursor: not-allowed;

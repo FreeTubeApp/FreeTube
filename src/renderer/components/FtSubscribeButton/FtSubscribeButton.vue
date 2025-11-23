@@ -90,7 +90,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, ref, shallowRef, useId } from 'vue'
+import { computed, ref, shallowRef, useId, useTemplateRef } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtButton from '../FtButton/FtButton.vue'
@@ -169,7 +169,7 @@ const profileInitials = computed(() => {
 
   return profileList.value.reduce((accumulator, profile) => {
     accumulator[profile._id] = profile.name
-      ? getFirstCharacter(profile.name, locale_).toUpperCase()
+      ? getFirstCharacter(profile.name, locale_)
       : ''
 
     return accumulator
@@ -182,7 +182,7 @@ const hideChannelSubscriptions = computed(() => {
 })
 
 const subscribedText = computed(() => {
-  let subscribedValue = (isProfileSubscribed(activeProfile.value) ? t('Channel.Unsubscribe') : t('Channel.Subscribe')).toUpperCase()
+  let subscribedValue = (isProfileSubscribed(activeProfile.value) ? t('Channel.Unsubscribe') : t('Channel.Subscribe'))
   if (props.subscriptionCountText !== '' && !hideChannelSubscriptions.value) {
     subscribedValue += ' ' + props.subscriptionCountText
   }
@@ -242,7 +242,7 @@ function handleSubscription(profile) {
   }
 }
 
-const subscribeButton = ref(null)
+const subscribeButton = useTemplateRef('subscribeButton')
 
 function handleProfileDropdownFocusOut() {
   if (subscribeButton.value && !subscribeButton.value.matches(':focus-within')) {

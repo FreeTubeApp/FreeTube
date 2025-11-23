@@ -110,10 +110,8 @@ Subscriptions:
 Trending:
   Trending: 'Trending'
   Trending Tabs: Trending Tabs
-  Movies: Films
   Gaming: Gaming
-  Music: Music
-  Default: Default
+  Sports: Sports
 Most Popular: 'Most Popular'
 Playlists: 'Playlists'
 User Playlists:
@@ -132,12 +130,12 @@ User Playlists:
   Sort By:
     NameAscending: A-Z
     NameDescending: Z-A
-    EarliestCreatedFirst: Earliest created
-    LatestUpdatedFirst: Recently updated
-    EarliestUpdatedFirst: Earliest updated
-    LatestPlayedFirst: Recently played
-    EarliestPlayedFirst: Earliest played
-    LatestCreatedFirst: Recently created
+    EarliestCreatedFirst: Date Created (Oldest)
+    LatestUpdatedFirst: Date Updated (Newest)
+    EarliestUpdatedFirst: Date Updated (Oldest)
+    LatestPlayedFirst: Date Played (Newest)
+    EarliestPlayedFirst: Date Played (Oldest)
+    LatestCreatedFirst: Date Created (Newest)
   SinglePlaylistView:
     Toast:
       This video cannot be moved up.: This video cannot be moved up.
@@ -166,9 +164,8 @@ User Playlists:
     Search in Playlists: Search in playlists
     Save: Save
     Toast:
-      "{videoCount} video(s) added to 1 playlist": 1 video added to 1 playlist | {videoCount} videos added to 1 playlist
       You haven't selected any playlist yet.: You haven't selected any playlist yet.
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video added to {playlistCount} playlists | {videoCount} videos added to  {playlistCount} playlists
+      "Video(s) added to {playlistCount} playlists": "Video(s) added to 1 playlist | Video(s) added to {playlistCount} playlists"
     Select a playlist to add your N videos to: Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to
     Added {count} Times: Already Added | Added {count} times
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videos will be added'
@@ -209,8 +206,8 @@ History:
   Search bar placeholder: Search in History
   Empty Search Message: There are no videos in your history that match your search
   Case Sensitive Search: Case Sensitive Search
-  DateOldestHistory: Earliest Watched First
-  DateNewestHistory: Latest Watched First
+  DateOldestHistory: Date Watched (Oldest)
+  DateNewestHistory: Date Watched (Newest)
 Settings:
   # On Settings Page
   Settings: 'Settings'
@@ -283,6 +280,7 @@ Settings:
       Everforest Light Hard: Everforest Light Hard
       Everforest Light Medium: Everforest Light Medium
       Everforest Light Low: Everforest Light Low
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Main colour theme'
       Red: 'Red'
@@ -368,6 +366,8 @@ Settings:
       Everforest Dark Green: Everforest Dark Green
       Everforest Dark Orange: Everforest Dark Orange
       Everforest Light Red: Everforest Light Red
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Red
     Secondary Color Theme: 'Secondary colour theme'
         #* Main Color Theme
     UI Scale: UI Scale
@@ -510,6 +510,12 @@ Settings:
       Label: Export playlists for older FreeTube versions
       Tooltip: "This option exports videos from all playlists into one playlist named ‘Favourites’.\nHow to export and import videos in playlists for an older version of FreeTube:\n1. Export your playlists with this option enabled.\n2. Delete all of your existing playlists using the Remove All playlists option under Privacy settings.\n3. Launch the older version of FreeTube and import the exported playlists.’"
 
+    Search history file: Search history file
+    Search history: Search history
+    Import search history: Import search history
+    Export search history: Export search history
+    All search history has been successfully imported: All search history has been successfully imported
+    All search history has been successfully exported: All search history has been successfully exported
   Distraction Free Settings:
     Hide Live Chat: Hide Live Chat
     Hide Popular Videos: Hide Popular Videos
@@ -553,8 +559,8 @@ Settings:
     Hide Channels Disabled Message: Some channels were blocked using ID and weren't processed. Feature is blocked while those IDs are updating
     Hide Channels Already Exists: Channel ID already exists
     Hide Channels API Error: Error retrieving user with the ID provided. Please check again if the ID is correct.
-    Hide Videos and Playlists Containing Text Placeholder: Word, word Fragment or phrase
-    Hide Videos and Playlists Containing Text: Hide videos and playlists containing text
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Word, word Fragment or phrase
+    Hide Videos, Playlists and Channels Containing Text: Hide videos and playlists containing text
     Hide Channel Home: Hide Channel "Home" Tab
     Show Added Items: Show Added Items
     Hide Channel Courses: Hide Channel "Courses" Tab
@@ -875,17 +881,17 @@ Playlist:
 #* Published
 #& Views
   Sort By:
-    DateAddedNewest: Latest added first
+    DateAddedNewest: Date added (Newest)
     VideoTitleDescending: Title (Z-A)
     Custom: Custom
-    DateAddedOldest: Earliest added first
+    DateAddedOldest: Date added (Oldest)
     AuthorAscending: Author (A-Z)
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
-    VideoDurationAscending: Duration (Shortest first)
-    VideoDurationDescending: Duration (Longest first)
-    PublishedNewest: Latest published first
-    PublishedOldest: Earliest published first
+    VideoDurationAscending: Duration (Shortest)
+    VideoDurationDescending: Duration (Longest)
+    PublishedNewest: Date published (Newest)
+    PublishedOldest: Date published (Oldest)
 Change Format:
   Change Media Formats: 'Change Media Formats'
   Use Dash Formats: 'Use DASH Formats'
@@ -918,23 +924,20 @@ Comments:
   There are no more comments for this video: 'There are no more comments for this video'
   Hide Comments: 'Hide Comments'
   # Context: View 10 Replies, View 1 Reply
-  View: 'View'
-  Hide: 'Hide'
-  Replies: 'Replies'
-  Reply: 'Reply'
   There are no comments available for this video: 'There are no comments available for this video'
   Load More Comments: 'Load More Comments'
   Newest first: Newest First
   Top comments: Top comments
   Show More Replies: Show more replies
   Pinned by: Pinned by
-  From {channelName}: from {channelName}
-  And others: and others
   Member: Member
   Hearted: Hearted
-  View {replyCount} replies: View {replyCount} replies
+  View {replyCount} replies: View 1 reply | View {replyCount} replies
   Subscribed: Subscribed
   There are no comments available for this post: There are no comments available for this post
+  Hide {replyCount} replies: Hide 1 reply | Hide {replyCount} replies
+  View 1 reply from {channelName}: View 1 reply from {channelName}
+  View {replyCount} replies from {channelName} and others: View {replyCount} replies from {channelName} and others
 Up Next: 'Up Next'
 Description:
   Expand Description: '...more'
@@ -987,7 +990,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended. The channel ID entered must be a complete match and is case sensitive.
     Hide Subscriptions Live: This setting is overridden by the app-wide ‘{appWideSetting}’ setting, in the ‘{subsection}’ section of the ‘{settingsSection}’
-    Hide Videos and Playlists Containing Text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos and playlists whose original titles contain it throughout all of FreeTube, excluding only History, Your playlists, and videos inside of playlists.
+    Hide Videos, Playlists and Channels Containing Text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos and playlists whose original titles contain it throughout all of FreeTube, excluding only History, Your playlists, and videos inside of playlists.
     Hide Videos on Watch: Hides watched videos from the Videos, Shorts, and Live tabs on the Subscription and Channel pages. This does not affect the Home tab on Channel pages
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.

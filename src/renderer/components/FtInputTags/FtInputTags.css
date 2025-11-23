@@ -55,7 +55,11 @@
 }
 
 .removeTagButton {
+  background-color: transparent;
+  border-style: none;
   color: var(--primary-text-color);
+  font-size: 1em;
+  line-height: 1em;
   opacity: 0.5;
   padding: 10px;
   padding-inline-start: 0;

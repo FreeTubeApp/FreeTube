@@ -110,10 +110,7 @@ Subscriptions:
 Trending:
   Trending: Tendências
   Trending Tabs: Separadores de tendências
-  Movies: Filmes
   Gaming: Jogos
-  Music: Música
-  Default: Padrão
 Most Popular: Mais populares
 Playlists: Listas de reprodução
 User Playlists:
@@ -169,8 +166,7 @@ User Playlists:
   Playlist Description: Descrição da lista de reprodução
   AddVideoPrompt:
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 vídeo adicionado a {playlistCount} listas de reprodução | {videoCount} vídeos adicionados a {playlistCount} listas de reprodução
-      "{videoCount} video(s) added to 1 playlist": 1 vídeo adicionado a 1 lista de reprodução | {videoCount} vídeos adicionados a 1 lista de reprodução
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Ainda não selecionou uma lista de reprodução.
     Select a playlist to add your N videos to: Selecione uma lista de reprodução à qual adicionar o seu vídeo | Selecione uma lista de reprodução à qual adicionar os seus {videoCount} vídeos
     N playlists selected: '{playlistCount} selecionados'
@@ -504,8 +500,8 @@ Settings:
     Hide Channels Disabled Message: Alguns canais foram bloqueados e não foram processados. A funcionalidade está bloqueada enquanto estiver a ocorrer a atualização dos ID.
     Hide Channels API Error: Não foi possível obter o utilizador através do ID. Verifique se o ID indicado está correto.
     Hide Channels Invalid: O ID do canal não é válido
-    Hide Videos and Playlists Containing Text Placeholder: Palavra, fragmento de palavra ou frase
-    Hide Videos and Playlists Containing Text: Esconda videos e playlist contendo texto
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Palavra, fragmento de palavra ou frase
+    Hide Videos, Playlists and Channels Containing Text: Esconda videos e playlist contendo texto
     Hide Channel Home: Ocultar o separador “Página inicial” do canal
     Show Added Items: Mostrar itens adicionados
     Hide Channel Courses: Ocultar o separador “Cursos” do canal
@@ -918,15 +914,9 @@ Comments:
   Top comments: Melhores comentários
   Newest first: Mais recentes
   # Context: View 10 Replies, View 1 Reply
-  View: Ver
-  Hide: Ocultar
-  Replies: Respostas
-  Reply: Resposta
   There are no comments available for this video: Este vídeo não tem comentários
   Load More Comments: Carregar mais comentários
   Show More Replies: Mostrar mais respostas
-  And others: e outros
-  From {channelName}: de {channelName}
   Pinned by: Fixado por
   Member: Membro
   View {replyCount} replies: Ver {replyCount} respostas
@@ -967,7 +957,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Introduza o ID de um canal para impedir que os vídeos, listas de reprodução e o próprio canal apareçam na pesquisa, tendências, mais populares e recomendados. O nome do canal introduzido tem que ser uma correspondência exata e diferencia maiúsculas de minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição global "{appWideSetting}", existente na secção "{subsection}" de "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Introduza uma palavra, fragmento de palavra ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar todos os vídeos e listas de reprodução cujos títulos originais a contenham em todo o FreeTube, excluindo apenas o histórico, as suas listas de reprodução e os vídeos dentro das listas de reprodução.
+    Hide Videos, Playlists and Channels Containing Text: Introduza uma palavra, fragmento de palavra ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar todos os vídeos e listas de reprodução cujos títulos originais a contenham em todo o FreeTube, excluindo apenas o histórico, as suas listas de reprodução e os vídeos dentro das listas de reprodução.
     Hide Videos on Watch: Oculta os vídeos já reproduzidos dos separadores "Vídeos", "Shorts" e "Em direto" nas páginas "Subscrições" e "Canais". Não afeta o separador "Início" nas páginas "Canais"
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador a partir do DeArrow.

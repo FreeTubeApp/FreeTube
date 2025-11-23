@@ -103,10 +103,8 @@ Subscriptions:
 Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
-  Movies: Films
   Gaming: Jeux vidéo
-  Music: Musique
-  Default: Par défaut
+  Sports: Sports
 Most Popular: 'Les plus populaires'
 Playlists: 'Listes de lecture'
 User Playlists:
@@ -118,9 +116,8 @@ User Playlists:
     Save: Sauvegarder
     Select a playlist to add your N videos to: Sélectionnez une liste de lecture à laquelle ajouter votre vidéo | Sélectionnez une liste de lecture à laquelle ajouter vos {videoCount} vidéos
     Toast:
-      "{videoCount} video(s) added to 1 playlist": 1 vidéo ajoutée à 1 liste de lecture | {videoCount} vidéos ajoutées à 1 liste de lecture
       You haven't selected any playlist yet.: Vous n'avez pas encore sélectionné de liste de lecture.
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 vidéo ajoutée à {playlistCount} listes de lecture | {videoCount} vidéos ajoutées à {playlistCount} listes de lecture
+      "Video(s) added to {playlistCount} playlists": "Vidéo(s) ajoutée(s) à une liste de lecture | Vidéo(s) ajoutée(s) à {playlistCount} listes de lecture"
     N playlists selected: '{playlistCount} Sélectionnée(s)'
     Added {count} Times: Déjà ajouté | Ajouté {count} fois
     Allow Adding Duplicate Video(s): Autoriser l'ajout de vidéos en double
@@ -275,6 +272,7 @@ Settings:
       Everforest Light Medium: Jungle Médian Clair
       Everforest Dark Hard: Jungle Dur Sombre
       Everforest Dark Medium: Jungle Médian Sombre
+      Catppuccin Latte: Latté Catppuccin
     Main Color Theme:
       Main Color Theme: 'Couleur principale'
       Red: 'Rouge'
@@ -360,6 +358,8 @@ Settings:
       Everforest Light Purple: Jungle Violet Clair
       Everforest Dark Red: Jungle Rouge Sombre
       Everforest Light Yellow: Jungle Jaune Clair
+      Catppuccin Latte Mauve: Latté Catppuccin Mauve
+      Catppuccin Latte Red: Latté Catppuccin Rouge
     Secondary Color Theme: 'Couleur secondaire'
         #* Main Color Theme
     UI Scale: Échelle de l'interface utilisateur
@@ -492,6 +492,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Cette option permet d'exporter les vidéos de toutes les listes de lecture vers une seule liste de lecture nommée « Favorites ».\nComment exporter et importer des vidéos dans des sélections pour une ancienne version de FreeTube :\n 1. Exportez vos sélections avec cette option activée.\n2. Supprimez toutes vos sélections existantes à l'aide de l'option Supprimer toutes les sélections sous Paramètres de confidentialité.\n3. Lancez l'ancienne version de FreeTube et importez les listes de lecture exportées. »"
       Label: Exportation des listes de lecture pour les anciennes versions de FreeTube
+    Search history file: Fichier d'historique de recherche
+    Search history: Historique des recherches
+    Import search history: Importer l'historique de recherche
+    Export search history: Exporter l'historique des recherches
+    All search history has been successfully imported: Tous les historiques de recherche ont été importées avec succès
+    All search history has been successfully exported: Tous les historiques de recherche ont été exportées avec succès
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Masquer les J’aime et Je n’aime pas des vidéos
     Hide Comment Likes: Masquer les J’aime dans les commentaires
@@ -533,8 +539,8 @@ Settings:
     Hide Channels Disabled Message: Certaines chaînes ont été bloquées à l’aide d’un identifiant et n’ont pas été traitées. La fonctionnalité est bloquée le temps que ces identifiants se mettent à jour
     Hide Channels Already Exists: L’identifiant de chaîne existe déjà
     Hide Channels API Error: Erreur de récupération de l'utilisateur portant l'identifiant fourni. Veuillez vérifier à nouveau si l'ID est correct.
-    Hide Videos and Playlists Containing Text: Masquer les vidéos et les listes de lecture contenant du texte
-    Hide Videos and Playlists Containing Text Placeholder: Fragment, mot ou phrase
+    Hide Videos, Playlists and Channels Containing Text: Masquer les vidéos et les listes de lecture contenant du texte
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Mot, fragment de mot ou phrase
     Hide Channel Home: Masquer l’onglet « Accueil » de la chaîne
     Show Added Items: Afficher les éléments ajoutés
     Hide Channel Courses: Masquer l’onglet « Cours » de la chaîne
@@ -861,6 +867,7 @@ Share:
   YouTube Channel URL copied to clipboard: L'URL YouTube de la chaîne est copiée dans le presse-papiers
   Invidious Channel URL copied to clipboard: L'URL Invidious de la chaîne est copiée dans le presse-papiers
   Share Channel: Partager la chaîne
+  Share Post: Partager la publication
 Mini Player: 'Mini-lecteur'
 Comments:
   Comments: 'Commentaires'
@@ -868,24 +875,21 @@ Comments:
   Getting comment replies, please wait: 'Récupération des commentaires, veuillez patienter'
   Hide Comments: 'Masquer les commentaires'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Voir'
-  Hide: 'Masquer'
-  Replies: 'Réponses'
-  Reply: 'Réponse'
   There are no comments available for this video: 'Il n''y a aucun commentaire pour cette vidéo'
   Load More Comments: 'Charger plus de commentaires'
   There are no more comments for this video: Il n'y a plus de commentaires pour cette vidéo
   Newest first: Les plus récents d'abord
   Top comments: Top des commentaires
   Show More Replies: Afficher plus de réponses
-  From {channelName}: de {channelName}
   Pinned by: Épinglé par
-  And others: et d'autres
   Member: Membre
   Hearted: Aimé
-  View {replyCount} replies: Voir les {replyCount} réponses
+  View {replyCount} replies: Voir 1 réponse | Voir {replyCount} réponses
   Subscribed: Abonné(e)
   There are no comments available for this post: Il n'y a pas de commentaire associé à ce message
+  Hide {replyCount} replies: Masquer 1 réponse | Masquer {replyCount} réponses
+  View 1 reply from {channelName}: Voir 1 réponse de {channelName}
+  View {replyCount} replies from {channelName} and others: Afficher {replyCount} réponses de {channelName} et autres
 Up Next: 'À suivre'
 
 # Toast Messages
@@ -980,7 +984,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les listes de lecture et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} » applicable à l'ensemble de l'application, dans la section « {subsection} » de la section « {settingsSection} »
-    Hide Videos and Playlists Containing Text: Saisissez un fragment, un mot ou une expression (sans tenir compte de la casse) pour masquer toutes les vidéos et playlists dont les titres originaux le contiennent sur l'ensemble de FreeTube, à l'exception de l'historique, de vos playlists et des vidéos contenues dans les playlists.
+    Hide Videos, Playlists and Channels Containing Text: Saisissez un mot, un fragment de mot ou une phrase (insensible à la casse) pour masquer toutes les vidéos et sélections dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube, à l'exception de l'historique, de vos listes de lecture et des vidéos contenues dans les listes de lecture.
     Hide Videos on Watch: Masque les vidéos visionnées des onglets Vidéos, Shorts, En direct des pages Abonnements et Chaînes. Ceci n'a pas d'effet sur l'onglet Accueil des pages Chaînes
   SponsorBlock Settings:
     UseDeArrowTitles: Remplacer les titres des vidéos par des titres proposés par les utilisateurs de DeArrow.

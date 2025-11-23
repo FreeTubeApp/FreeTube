@@ -110,10 +110,7 @@ Subscriptions:
 Trending:
   Trending: 'Tendências'
   Trending Tabs: Separadores de tendências
-  Movies: Filmes
   Gaming: Jogos
-  Music: Músicas
-  Default: Padrão
 Most Popular: 'Mais populares'
 Playlists: 'Listas de reprodução'
 User Playlists:
@@ -166,9 +163,8 @@ User Playlists:
     Search in Playlists: Procurar nas listas de reprodução
     Save: Guardar
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 vídeo adicionado a {playlistCount} listas de reprodução | {videoCount} vídeos adicionados a {playlistCount} listas de reprodução
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Ainda não selecionou uma lista de reprodução.
-      "{videoCount} video(s) added to 1 playlist": 1 vídeo adicionado a 1 lista de reprodução | {videoCount} vídeos adicionados a 1 lista de reprodução
     Select a playlist to add your N videos to: Selecione uma lista de reprodução à qual adicionar o seu vídeo | Selecione uma lista de reprodução à qual adicionar os seus {videoCount} vídeos
     N playlists selected: '{playlistCount} selecionados'
     Added {count} Times: Já adicionado | Adicionado {count} vezes
@@ -569,8 +565,8 @@ Settings:
     Hide Channels Disabled Message: Alguns canais foram bloqueados e não foram processados. A funcionalidade está bloqueada enquanto estiver a ocorrer a atualização dos ID.
     Hide Channels Already Exists: Este ID já existe
     Hide Channels API Error: Não foi possível obter o utilizador através do ID. Verifique se o ID indicado está correto.
-    Hide Videos and Playlists Containing Text Placeholder: Palavra, fragmento de palavra ou frase
-    Hide Videos and Playlists Containing Text: Ocultar vídeos e listas que contenham este texto
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Palavra, fragmento de palavra ou frase
+    Hide Videos, Playlists and Channels Containing Text: Ocultar vídeos e listas que contenham este texto
     Show Added Items: Mostrar itens adicionados
     Hide Channel Home: Ocultar separador “Início” do canal
     Hide Channel Courses: Ocultar separador "Cursos"
@@ -919,10 +915,6 @@ Comments:
   Getting comment replies, please wait: 'A obter respostas ao comentário, por favor aguarde'
   Hide Comments: 'Ocultar comentários'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Ver'
-  Hide: 'Ocultar'
-  Replies: 'Respostas'
-  Reply: 'Resposta'
   There are no comments available for this video: 'Este vídeo não tem comentários'
   Load More Comments: 'Carregar mais comentários'
   There are no more comments for this video: Não há mais comentários para este vídeo
@@ -930,8 +922,6 @@ Comments:
   Newest first: Mais recentes
   Top comments: Melhores comentários
   Pinned by: Fixado por
-  And others: e outros
-  From {channelName}: de {channelName}
   Member: Membro
   Hearted: Favorito
   View {replyCount} replies: Ver {replyCount} respostas
@@ -992,7 +982,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Introduza o ID de um canal para impedir que os vídeos, listas de reprodução e o próprio canal apareçam na pesquisa, tendências, mais populares e recomendados. O nome do canal introduzido tem que ser uma correspondência exata e diferencia maiúsculas de minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição global "{appWideSetting}", existente na secção "{subsection}" de "{settingsSection}"
-    Hide Videos and Playlists Containing Text: Introduza uma palavra, fragmento de palavra ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar todos os vídeos e listas de reprodução cujos títulos originais a contenham em todo o FreeTube, excluindo apenas o histórico, as suas listas de reprodução e os vídeos dentro das listas de reprodução.
+    Hide Videos, Playlists and Channels Containing Text: Introduza uma palavra, fragmento de palavra ou frase (sem distinção entre maiúsculas e minúsculas) para ocultar todos os vídeos e listas de reprodução cujos títulos originais a contenham em todo o FreeTube, excluindo apenas o histórico, as suas listas de reprodução e os vídeos dentro das listas de reprodução.
     Hide Videos on Watch: Oculta os vídeos já reproduzidos nos separadores "Vídeos", "Shorts" e "Em direto" nas páginas "Subscrição" e "Canal". Não afeta o separador "Início" nas páginas "Canal".
   SponsorBlock Settings:
     UseDeArrowTitles: Substituir títulos de vídeo por títulos enviados pelo utilizador a partir do DeArrow.

@@ -110,11 +110,9 @@ Subscriptions:
 More: 'Gehiago'
 Trending:
   Trending: 'Joerak'
-  Default: Lehenetsia
-  Music: Musika
   Gaming: Bideo jokoak
-  Movies: Filmak
   Trending Tabs: Joeren fitxak
+  Sports: Kirolak
 Most Popular: 'Ikusienak'
 Playlists: 'Erreprodukzio zerrendak'
 User Playlists:
@@ -181,9 +179,8 @@ User Playlists:
   AddVideoPrompt:
     Added {count} Times: Gehitu da | {count} aldiz gehitu da
     Toast:
-      "{videoCount} video(s) added to 1 playlist": Bideo 1 gehitu da erreprodukzio-zerrenda batera | {videoCount} bideo gehitu dira erreprodukzio-zerrenda batera
       You haven't selected any playlist yet.: Oraindik ez duzu erreprodukzio zerrendarik hautatu.
-      "{videoCount} video(s) added to {playlistCount} playlists": Bideo 1 gehitu da {playlistCount} erreprodukzio zerrendetan | {videoCount} bideo gehitu dira {playlistCount} erreprodukzio-zerrendetan
+      "Video(s) added to {playlistCount} playlists": "Bideoa(k) erreprodukzio-zerrenda 1era gehitu da | Bideoa(k) {playlistCount} erreprodukzio-zerrendetara gehitu da"
     Select a playlist to add your N videos to: Hautatu erreprodukzio-zerrenda zure bideoa -ra gehitzeko | Hautatu erreprodukzio-zerrenda zure {videoCount} bideoak gehitzeko
     N playlists selected: '{playlistCount} hautatuta'
     Search in Playlists: Bilatu erreprodukzio-zerrendetan
@@ -287,6 +284,7 @@ Settings:
       Everforest Dark Hard: Everforest Ilun Gogorra
       Everforest Dark Low: Everforest Ilun Arina
       Everforest Light Hard: Everforest Argia Gogorra
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Oinarrizko koloreen gaia'
       Red: 'Gorria'
@@ -372,6 +370,8 @@ Settings:
       Everforest Light Blue: Everforest Argia Urdina
       Everforest Light Purple: Everforest Argia Ubela
       Everforest Light Yellow: Everforest Argia Horia
+      Catppuccin Latte Mauve: Catppuccin Latte Malba
+      Catppuccin Latte Red: Catppuccin Latte Gorria
     Secondary Color Theme: 'Gaiaren bigarren mailako kolorea'
         #* Main Color Theme
     Hide Side Bar Labels: Ezkutatu alboko barraren etiketak
@@ -492,7 +492,7 @@ Settings:
     Hide Channels Placeholder: Kanalaren IDa
     Hide Channel Playlists: Ezkutatu kanaleko "erreprodukzio-zerrendak" fitxa
     Hide Channel Podcasts: Ezkutatu kanaleko "podcastak" fitxa
-    Hide Videos and Playlists Containing Text: Ezkutatu testua duten bideoak eta erreprodukzio-zerrendak
+    Hide Videos, Playlists and Channels Containing Text: Ezkutatu testua duten bideoak eta erreprodukzio-zerrendak
     Hide Channels: Ezkutatu bideoak kanaletatik
     Hide Upcoming Premieres: Ezkutatu datozen estreinaldiak
     Hide Subscriptions Videos: Ezkutatu harpidetza-bideoak
@@ -503,7 +503,7 @@ Settings:
     Hide Channels API Error: Errore bat gertatu da emandako IDa duen erabiltzailea berreskuratzean. Mesedez, egiaztatu berriro IDa zuzena den.
     Hide Channels Already Exists: Kanalaren IDa badago jada
     Hide Channel Shorts: Ezkutatu kanalaren "bideo laburrak" fitxa
-    Hide Videos and Playlists Containing Text Placeholder: Zatia, Hitza edo Esaldia
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Hitza, Hitzaren zatia edo esaldia
     Hide Subscriptions Live: Ezkutatu zuzenekoen harpidetzak
     Hide Featured Channels: Ezkutatu nabarmendutako kanalak
     Hide Channels Disabled Message: Kanal batzuk IDa erabiliz blokeatu dira eta ez dira prozesatu. Eginbidea blokeatuta dago ID horiek eguneratzen ari diren bitartean
@@ -548,6 +548,12 @@ Settings:
       Label: Esportatu erreprodukzio zerrendak FreeTube bertsio zaharretarako
       Tooltip: "Aukera honek erreprodukzio-zerrenda guztietako bideoak \"Gogokoak\" izeneko erreprodukzio-zerrenda batera esportatzen ditu.\nNola esportatu eta inportatu bideoak erreprodukzio-zerrendetan FreeTube-ren bertsio zaharrago baterako:\n 1. Esportatu zure erreprodukzio zerrendak aukera hau gaituta.\n 2. Ezabatu lehendik dituzun erreprodukzio-zerrenda guztiak Pribatutasun-ezarpenetan dagoen Kendu zerrenda guztiak aukera erabiliz.\n 3. Abiarazi FreeTube-ren bertsio zaharra eta inportatu esportatutako erreprodukzio-zerrendak.\""
     Subscription File: Harpidetza Fitxategia
+    Search history file: Bilaketa-historiaren fitxategia
+    Search history: Bilaketa-historia
+    Import search history: Inportatu bilaketa-historia
+    Export search history: Esportatu bilaketa-historia
+    All search history has been successfully imported: Bilaketa-historia guztia behar bezala inportatu da
+    All search history has been successfully exported: Bilaketa-historia guztia behar bezala esportatu da
   Proxy Settings:
     Proxy Settings: 'Proxy-a'
     Enable Tor / Proxy: 'Tor / Proxy ahalbidetu'
@@ -910,6 +916,7 @@ Share:
   YouTube Channel URL copied to clipboard: 'Youtube-ko kanalaren URL-a arbelean itsatsi da'
 
   Share Channel: Kanala partekatu
+  Share Post: Partekatu argitalpena
 Mini Player: 'Erreproduzitzaile txikia'
 Comments:
   Comments: 'Iruzkinak'
@@ -920,21 +927,18 @@ Comments:
   Top comments: 'Iruzkin nagusiak'
   Newest first: 'Berrienak lehenik'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Ikusi'
-  Hide: 'Ezkutatu'
-  Replies: 'Erantzunak'
-  Reply: 'Erantzun'
   There are no comments available for this video: 'Ez da iruzkin eskuragarririk bideo honentzat'
   Load More Comments: 'Iruzkin gehiago kargatu'
   Member: Kide
   Show More Replies: Erantzun gehiago erakutsi
-  And others: eta bestelakoak
   Pinned by: Honengatik ainguratuta
   Hearted: Bihotzez
-  From {channelName}: '{channelName}-tik'
-  View {replyCount} replies: Ikusi {replyCount} erantzunak
+  View {replyCount} replies: Ikusi erantzun 1 | Ikusi {replyCount} erantzun
   Subscribed: Harpidetuta
   There are no comments available for this post: Ez dago iruzkinik eskuragarri mezu honetarako
+  Hide {replyCount} replies: Ezkutatu erantzun 1 | Ezkutatu {replyCount} erantzun
+  View 1 reply from {channelName}: Ikusi {channelName}-ren erantzun bat
+  View {replyCount} replies from {channelName} and others: Ikusi {channelName} eta beste batzuen {replyCount} erantzunak
 Up Next: 'Hurrengoa'
 
 #Tooltips
@@ -966,7 +970,7 @@ Tooltips:
     Ignore Default Arguments: Ez bidali argumentu lehenetsirik kanpoko erreproduzitzaileari bideoaren URLaz gain (adibidez, erreprodukzio-tasa, erreprodukzio-zerrendaren URLa, etab.). Argumentu pertsonalizatuak transmitituko dira oraindik.
   Distraction Free Settings:
     Hide Channels: Sartu kanalaren ID bat bideo, erreprodukzio-zerrenda eta kanala bera bilaketetan, joeran, ezagunenetan eta gomendagarrienetan ager ez dadin ezkutatzeko. Sartutako kanalaren IDak guztiz bat etorri behar du eta maiuskulak eta minuskulak bereizten ditu.
-    Hide Videos and Playlists Containing Text: Sartu zati, hitz edo esaldi bat (letra larriz edo minuskulaz bereiz gabe) jatorrizko izenburuetan hitz hori duten bideo eta erreprodukzio-zerrenda guztiak FreeTube osoan ezkutatzeko, Historia, Zure erreprodukzio-zerrendak eta erreprodukzio-zerrenden barruko bideoak izan ezik.
+    Hide Videos, Playlists and Channels Containing Text: Idatzi hitz bat, hitz-zati bat edo esaldi bat (maiuskulak eta minuskulak bereizten ez diren) jatorrizko izenburuak FreeTube osoan duten bideo eta erreprodukzio-zerrenda guztiak ezkutatzeko, historia, zure erreprodukzio-zerrendak eta erreprodukzio-zerrenden barneko bideoak soilik kenduta.
     Hide Subscriptions Live: Ezarpen hau aplikazio osorako "{appWideSetting}" ezarpenak ordezkatzen du, "{settingsSection}" ataleko "{subsection}" atalean
     Hide Videos on Watch: Ikusitako bideoak ezkutatzen ditu Harpidetza eta Kanalen orrialdeetako Bideoak, Laburpenak eta Zuzeneko fitxetatik. Honek ez dio eragiten Kanalen orrialdeetako Hasiera fitxari
   Experimental Settings:

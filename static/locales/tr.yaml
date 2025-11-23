@@ -110,10 +110,8 @@ Subscriptions:
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
-  Movies: Film
   Gaming: Oyun
-  Music: Müzik
-  Default: Öntanımlı
+  Sports: Spor
 Most Popular: 'Popüler Olanlar'
 Playlists: 'Oynatma Listeleri'
 User Playlists:
@@ -163,8 +161,7 @@ User Playlists:
     Save: Kaydet
     Toast:
       You haven't selected any playlist yet.: Henüz bir oynatma listesi seçmediniz.
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video {playlistCount} oynatma listesine eklendi | {videoCount} video {playlistCount} oynatma listesine eklendi
-      "{videoCount} video(s) added to 1 playlist": 1 video 1 oynatma listesine eklendi | {videoCount} video 1 oynatma listesine eklendi
+      "Video(s) added to {playlistCount} playlists": "Video(lar) 1 oynatma listesine eklendi | Video(lar) {playlistCount} oynatma listesine eklendi"
     N playlists selected: '{playlistCount} Seçildi'
     Search in Playlists: Oynatma Listelerinde Ara
     Added {count} Times: 'Zaten Eklendi | {count} Defa Eklendi'
@@ -282,6 +279,7 @@ Settings:
       Everforest Light Hard: Everforest Açık Sert
       Everforest Light Medium: Everforest Açık Orta
       Everforest Light Low: Everforest Açık Düşük
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -349,7 +347,7 @@ Settings:
       Catppuccin Frappe Teal: Catppuccin Frappe Deniz
       Catppuccin Frappe Rosewater: Catppuccin Frappe Gül Rengi
       Catppuccin Frappe Yellow: Catppuccin Frappe Sarı
-      Catppuccin Frappe Mauve: Catppuccin Frappe Leylak
+      Catppuccin Frappe Mauve: Catppuccin Frappe Eflatun
       Catppuccin Frappe Green: Catppuccin Frappe Yeşil
       Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
       Catppuccin Frappe Blue: Catppuccin Frappe Mavi
@@ -367,6 +365,8 @@ Settings:
       Everforest Light Aqua: Everforest Açık Deniz
       Everforest Light Blue: Everforest Açık Mavi
       Everforest Light Purple: Everforest Açık Mor
+      Catppuccin Latte Mauve: Catppuccin Latte Eflatun
+      Catppuccin Latte Red: Catppuccin Latte Kırmızı
     Secondary Color Theme: 'İkincil Renk Teması'
         #* Main Color Theme
     UI Scale: Kullanıcı Arayüzü Ölçeği
@@ -499,6 +499,12 @@ Settings:
       Label: Eski FreeTube Sürümleri İçin Oynatma Listelerini Dışa Aktar
       Tooltip: "Bu seçenek, tüm oynatma listelerindeki videoları 'Favoriler' adlı tek bir oynatma listesine aktarır.\nFreeTube'un eski bir sürümü için oynatma listelerindeki videolar nasıl dışa ve içe aktarılır:\n1. Oynatma listelerinizi bu seçenek etkinken dışa aktarın.\n2. Gizlilik Ayarları altındaki Tüm Oynatma Listelerini Kaldır seçeneğini kullanarak var olan tüm oynatma listelerinizi silin.\n3. FreeTube'un eski sürümünü başlatın ve dışa aktarılan oynatma listelerini içe aktarın.\""
 
+    Search history file: Arama geçmişi dosyası
+    Search history: Arama geçmişi
+    Import search history: Arama geçmişini içe aktar
+    Export search history: Arama geçmişini dışa aktar
+    All search history has been successfully imported: Tüm arama geçmişi başarıyla içe aktarıldı
+    All search history has been successfully exported: Tüm arama geçmişi başarıyla dışa aktarıldı
   Distraction Free Settings:
     Hide Live Chat: Canlı Sohbeti Gizle
     Hide Popular Videos: Popüler Videoları Gizle
@@ -540,8 +546,8 @@ Settings:
     Hide Channels Disabled Message: Bazı kanallar kimliği kullanılarak engellendi ve işlenmedi. Bu kimlikler güncellenirken özellik engellenir
     Hide Channels Already Exists: Kanal kimliği zaten var
     Hide Channels API Error: Belirtilen kimliğe sahip kullanıcı alınırken hata oluştu. Lütfen kimliğin doğru olup olmadığını tekrar gözden geçirin.
-    Hide Videos and Playlists Containing Text: Metin İçeren Videoları ve Oynatma Listelerini Gizle
-    Hide Videos and Playlists Containing Text Placeholder: Sözcük Parçası, Sözcük veya İfade
+    Hide Videos, Playlists and Channels Containing Text: Metin İçeren Videoları ve Oynatma Listelerini Gizle
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Sözcük, Sözcük Parçası veya İfade
     Hide Channel Home: Kanal "Ana Sayfa" Sekmesini Gizle
     Show Added Items: Eklenen Öğeleri Göster
     Hide Channel Courses: Kanal "Kurslar" Sekmesini Gizle
@@ -909,6 +915,7 @@ Share:
   YouTube Channel URL copied to clipboard: Youtube Kanalı Adresi panoya kopyalandı
   Invidious Channel URL copied to clipboard: Invidious Kanalı Adresi panoya kopyalandı
   Share Channel: Kanalı Paylaş
+  Share Post: Gönderiyi Paylaş
 Mini Player: 'Mini Oynatıcı'
 Comments:
   Comments: 'Yorumlar'
@@ -917,23 +924,20 @@ Comments:
   There are no more comments for this video: 'Bu video için daha fazla yorum yok'
   Hide Comments: 'Yorumları Gizle'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Görüntüle'
-  Hide: 'Gizle'
-  Replies: 'Yanıtlar'
-  Reply: 'Yanıt'
   There are no comments available for this video: 'Bu videoya hiç yorum yapılmamış'
   Load More Comments: 'Daha Fazla Yorum Yükle'
   Newest first: En yeni ilk önce
   Top comments: En iyi yorumlar
   Show More Replies: Daha Fazla Yanıt Göster
-  From {channelName}: "{channelName}'den"
-  And others: ve diğerleri
   Pinned by: Sabitleyen
   Member: Üye
-  View {replyCount} replies: '{replyCount} yanıtı görüntüle'
+  View {replyCount} replies: '1 yanıtı görüntüle | {replyCount} yanıtı görüntüle'
   Hearted: Kalplendi
   Subscribed: Abone olundu
   There are no comments available for this post: Bu gönderi için hiç yorum yok
+  Hide {replyCount} replies: 1 yanıtı gizle | {replyCount} yanıtı gizle
+  View 1 reply from {channelName}: '{channelName} kanalından 1 yanıtı görüntüle'
+  View {replyCount} replies from {channelName} and others: '{channelName} kanalından ve diğerlerinden {replyCount} yanıtı görüntüle'
 Up Next: 'Sonraki'
 
 # Toast Messages
@@ -983,7 +987,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama, öne çıkanlar, en popüler ve tavsiye edilenlerde görünmesini engellemek için bir kanal kimliği girin. Girilen kanal kimliği tam olarak eşleşmelidir ve büyük/küçük harfe duyarlıdır.
     Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}" kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz kılınıyor
-    Hide Videos and Playlists Containing Text: Yalnızca Geçmiş, Oynatma Listeleriniz ve oynatma listelerindeki videolar hariç olmak üzere, FreeTube'un tamamında orijinal başlıkları bu sözcüğü içeren tüm videoları ve oynatma listelerini gizlemek için bir sözcük parçası, sözcük veya ifade girin (büyük/küçük harfe duyarlı değildir).
+    Hide Videos, Playlists and Channels Containing Text: Yalnızca Geçmiş, Oynatma Listeleriniz ve oynatma listelerindeki videolar hariç olmak üzere, FreeTube'un tamamında orijinal başlıkları bu sözcüğü içeren tüm videoları ve oynatma listelerini gizlemek için bir sözcük, sözcük parçası veya ifade girin (büyük/küçük harfe duyarlı değildir).
     Hide Videos on Watch: Abonelik ve kanal sayfalarındaki videolar, kısalar ve canlı sekmelerindeki izlenen videoları gizler. Bu, kanal sayfalarındaki ana sayfa sekmesini etkilemez
   SponsorBlock Settings:
     UseDeArrowTitles: Video başlıklarını DeArrow'dan kullanıcıların gönderdiği başlıklarla değiştir.

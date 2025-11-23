@@ -143,10 +143,8 @@ Channels:
   Unsubscribe Prompt: Are you sure you want to unsubscribe from "{channelName}"?
 Trending:
   Trending: Trending
-  Default: Default
-  Music: Music
   Gaming: Gaming
-  Movies: Movies
+  Sports: Sports
   Trending Tabs: Trending Tabs
 Most Popular: Most Popular
 Feed:
@@ -246,8 +244,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: You haven't selected any playlist yet.
-      "{videoCount} video(s) added to 1 playlist": "1 video added to 1 playlist | {videoCount} videos added to 1 playlist"
-      "{videoCount} video(s) added to {playlistCount} playlists": "1 video added to {playlistCount} playlists | {videoCount} videos added to  {playlistCount} playlists"
+      "Video(s) added to {playlistCount} playlists": "Video(s) added to 1 playlist | Video(s) added to {playlistCount} playlists"
   CreatePlaylistPrompt:
     New Playlist Name: New Playlist Name
     Create: Create
@@ -334,6 +331,7 @@ Settings:
       Light: Light
       Dracula: Dracula
       Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Latte: Catppuccin Latte
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
@@ -387,6 +385,8 @@ Settings:
       Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
       Catppuccin Frappe Blue: Catppuccin Frappe Blue
       Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Red
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
       Catppuccin Mocha Pink: Catppuccin Mocha Pink
@@ -578,8 +578,8 @@ Settings:
     Hide Channel Podcasts: Hide Channel "Podcasts" Tab
     Hide Channel Releases: Hide Channel "Releases" Tab
     Hide Channel Courses: Hide Channel "Courses" Tab
-    Hide Videos and Playlists Containing Text: Hide Videos and Playlists Containing Text
-    Hide Videos and Playlists Containing Text Placeholder: Fragment, Word, or Phrase
+    Hide Videos, Playlists and Channels Containing Text: Hide Videos, Playlists and Channels Containing Text
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Word, Word Fragment, or Phrase
     Hide Subscriptions Videos: Hide Subscriptions Videos
     Hide Subscriptions Shorts: Hide Subscriptions Shorts
     Hide Subscriptions Live: Hide Subscriptions Live
@@ -592,6 +592,7 @@ Settings:
     Subscription File: Subscription File
     History File: History File
     Playlist File: Playlist File
+    Search history file: Search history file
     Export Subscriptions: Export Subscriptions
     Export FreeTube: Export FreeTube
     Export YouTube: Export YouTube
@@ -600,6 +601,9 @@ Settings:
     Export History: Export History
     Import Playlists: Import Playlists
     Export Playlists: Export Playlists
+    Search history: Search history
+    Import search history: Import search history
+    Export search history: Export search history
     Profile object has insufficient data, skipping item: Profile object has insufficient
       data, skipping item
     All subscriptions and profiles have been successfully imported: All subscriptions
@@ -620,6 +624,10 @@ Settings:
     All playlists has been successfully imported: All playlists has been
       successfully imported
     All playlists has been successfully exported: All playlists has been
+      successfully exported
+    All search history has been successfully imported: All search history has been
+      successfully imported
+    All search history has been successfully exported: All search history has been
       successfully exported
     Unable to read file: Unable to read file
     Unable to write file: Unable to write file
@@ -979,6 +987,7 @@ Change Format:
     for this video
 Share:
   Share Video: Share Video
+  Share Post: Share Post
   Share Channel: Share Channel
   Share Playlist: Share Playlist
   Include Timestamp: Include Timestamp
@@ -1010,15 +1019,11 @@ Comments:
   Hide Comments: Hide Comments
   Top comments: Top comments
   Newest first: Newest First
-  View {replyCount} replies: View {replyCount} replies
-  # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: View
-  Hide: Hide
-  Replies: Replies
+  View {replyCount} replies: View 1 reply | View {replyCount} replies
+  Hide {replyCount} replies: Hide 1 reply | Hide {replyCount} replies
+  View 1 reply from {channelName}: View 1 reply from {channelName}
+  View {replyCount} replies from {channelName} and others: View {replyCount} replies from {channelName} and others
   Show More Replies: Show More Replies
-  Reply: Reply
-  From {channelName}: from {channelName}
-  And others: and others
   There are no comments available for this video: There are no comments available
     for this video
   There are no comments available for this post: There are no comments available for this post
@@ -1081,7 +1086,7 @@ Tooltips:
     Hide Channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
        The channel ID entered must be a complete match and is case sensitive.
     Hide Subscriptions Live: 'This setting is overridden by the app-wide "{appWideSetting}" setting, in the "{subsection}" section of the "{settingsSection}"'
-    Hide Videos and Playlists Containing Text: Enter a fragment, word, or phrase (case insensitive) to hide all videos & playlists whose original titles contain it throughout all of FreeTube, excluding only History, Your Playlists, and videos inside of playlists.
+    Hide Videos, Playlists and Channels Containing Text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos, playlists and channels whose original titles contain it throughout all of FreeTube, excluding only History, Your Playlists, and videos inside of playlists.
     Hide Videos on Watch: 'Hides watched videos from the Videos, Shorts, and Live tabs on the Subscription and Channel pages. This does not affect the Home tab on Channel pages'
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default

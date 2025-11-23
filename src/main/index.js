@@ -351,9 +351,19 @@ function runApp() {
           replaceMainWindow: false,
           showWindowNow: true,
         })
-        ipcMain.once(IpcChannels.APP_READY, () => {
-          newWindow.webContents.send(IpcChannels.OPEN_URL, newStartupUrl)
-        })
+
+        /**
+         * @param {import('electron').IpcMainEvent} event
+         */
+        const readyHandler = (event) => {
+          if (isFreeTubeUrl(event.senderFrame.url)) {
+            newWindow.webContents.ipc.off(IpcChannels.APP_READY, readyHandler)
+
+            event.reply(IpcChannels.OPEN_URL, newStartupUrl)
+          }
+        }
+
+        newWindow.webContents.ipc.on(IpcChannels.APP_READY, readyHandler)
       }
     })
   }
@@ -920,6 +930,8 @@ function runApp() {
           return '#fdf6e3'
         case 'everforest-light-low':
           return '#f3ead3'
+        case 'catppuccin-latte':
+          return '#eff1f5'
         case 'system':
         default:
           return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
@@ -930,10 +942,27 @@ function runApp() {
       return nativeTheme.shouldUseDarkColors ? '#212121' : '#f1f1f1'
     })
 
-    /**
-     * Initial window options
-     */
-    const commonBrowserWindowOptions = {
+    let savedBounds, savedMaximized, savedFullScreen
+
+    const boundsDoc = await baseHandlers.settings._findOne('bounds')
+    if (typeof boundsDoc?.value === 'object') {
+      const { maximized, fullScreen, ...bounds } = boundsDoc.value
+      const windowVisible = screen.getAllDisplays().some(display => {
+        const { x, y, width, height } = display.bounds
+        return !(bounds.x > x + width || bounds.x + bounds.width < x || bounds.y > y + height || bounds.y + bounds.height < y)
+      })
+
+      if (windowVisible) {
+        savedBounds = bounds
+      }
+
+      savedMaximized = maximized
+      savedFullScreen = fullScreen
+    }
+
+    const newWindow = new BrowserWindow({
+      // It will be shown later when ready via `ready-to-show` event
+      show: showWindowNow,
       backgroundColor: windowBackground,
       darkTheme: nativeTheme.shouldUseDarkColors,
       icon: process.env.NODE_ENV === 'development'
@@ -949,18 +978,19 @@ function runApp() {
           : path.resolve(__dirname, 'preload.js')
       },
       minWidth: 340,
-      minHeight: 380
-    }
-
-    const newWindow = new BrowserWindow(
-      Object.assign(
-        {
-          // It will be shown later when ready via `ready-to-show` event
-          show: showWindowNow
-        },
-        commonBrowserWindowOptions
-      )
-    )
+      minHeight: 380,
+      ...savedBounds
+        ? {
+            x: savedBounds.x,
+            y: savedBounds.y,
+            width: savedBounds.width,
+            height: savedBounds.height
+          }
+        : {
+            width: 1200,
+            height: 800
+          }
+    })
 
     // region Ensure child windows use same options since electron 14
 
@@ -1055,35 +1085,12 @@ function runApp() {
       mainWindow = newWindow
     }
 
-    newWindow.setBounds({
-      width: 1200,
-      height: 800
-    })
+    if (savedMaximized) {
+      newWindow.maximize()
+    }
 
-    const boundsDoc = await baseHandlers.settings._findOne('bounds')
-    if (typeof boundsDoc?.value === 'object') {
-      const { maximized, fullScreen, ...bounds } = boundsDoc.value
-      const windowVisible = screen.getAllDisplays().some(display => {
-        const { x, y, width, height } = display.bounds
-        return !(bounds.x > x + width || bounds.x + bounds.width < x || bounds.y > y + height || bounds.y + bounds.height < y)
-      })
-
-      if (windowVisible) {
-        newWindow.setBounds({
-          x: bounds.x,
-          y: bounds.y,
-          width: bounds.width,
-          height: bounds.height
-        })
-      }
-
-      if (maximized) {
-        newWindow.maximize()
-      }
-
-      if (fullScreen) {
-        newWindow.setFullScreen(true)
-      }
+    if (savedFullScreen) {
+      newWindow.setFullScreen(true)
     }
 
     // If called multiple times
@@ -1100,13 +1107,21 @@ function runApp() {
     }
 
     if (typeof searchQueryText === 'string' && searchQueryText.length > 0) {
-      ipcMain.once(IpcChannels.SEARCH_INPUT_HANDLING_READY, () => {
-        newWindow.webContents.send(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, searchQueryText)
-      })
+      /**
+       * @param {import('electron').IpcMainEvent} event
+       */
+      const searchInputReadyHandler = (event) => {
+        if (isFreeTubeUrl(event.senderFrame.url)) {
+          newWindow.webContents.ipc.off(IpcChannels.SEARCH_INPUT_HANDLING_READY, searchInputReadyHandler)
+
+          event.reply(IpcChannels.UPDATE_SEARCH_INPUT_TEXT, searchQueryText)
+        }
+      }
+
+      newWindow.webContents.ipc.on(IpcChannels.SEARCH_INPUT_HANDLING_READY, searchInputReadyHandler)
     }
 
-    // Show when loaded
-    newWindow.once('ready-to-show', () => {
+    const showWindow = () => {
       if (newWindow.isVisible()) {
         // only open the dev tools if they aren't already open
         if (process.env.NODE_ENV === 'development' && !newWindow.webContents.isDevToolsOpened()) {
@@ -1125,7 +1140,18 @@ function runApp() {
       if (process.env.NODE_ENV === 'development') {
         newWindow.webContents.openDevTools({ activate: false })
       }
-    })
+    }
+
+    // The `ready-to-show` event doesn't always fire on wayland.
+    // Use the `did-finish-load` event on the web contents instead as that is similar enough
+    // https://github.com/electron/electron/issues/48859
+
+    if (process.platform === 'linux' && app.commandLine.getSwitchValue('ozone-platform') === 'wayland') {
+      newWindow.webContents.once('did-finish-load', showWindow)
+    } else {
+      // Show when loaded
+      newWindow.once('ready-to-show', showWindow)
+    }
 
     newWindow.once('close', async () => {
       if (BrowserWindow.getAllWindows().length !== 1) {
@@ -1155,11 +1181,13 @@ function runApp() {
     return newWindow
   }
 
-  ipcMain.on(IpcChannels.APP_READY, () => {
-    if (startupUrl) {
-      mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
+  ipcMain.on(IpcChannels.APP_READY, (event) => {
+    if (isFreeTubeUrl(event.senderFrame.url)) {
+      if (startupUrl) {
+        mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
+      }
+      startupUrl = null
     }
-    startupUrl = null
   })
 
   function relaunch() {
@@ -1203,15 +1231,23 @@ function runApp() {
     const allWindows = BrowserWindow.getAllWindows()
 
     allWindows.forEach((window) => {
-      window.webContents.send(IpcChannels.NATIVE_THEME_UPDATE, nativeTheme.shouldUseDarkColors)
+      if (isFreeTubeUrl(window.webContents.getURL())) {
+        window.webContents.send(IpcChannels.NATIVE_THEME_UPDATE, nativeTheme.shouldUseDarkColors)
+      }
     })
   })
 
-  ipcMain.handle(IpcChannels.GENERATE_PO_TOKEN, (_, videoId, context) => {
-    return generatePoToken(videoId, context, proxyUrl)
+  ipcMain.handle(IpcChannels.GENERATE_PO_TOKEN, (event, videoId, context) => {
+    if (isFreeTubeUrl(event.senderFrame.url)) {
+      return generatePoToken(videoId, context, proxyUrl)
+    }
   })
 
-  ipcMain.on(IpcChannels.ENABLE_PROXY, (_, url) => {
+  ipcMain.on(IpcChannels.ENABLE_PROXY, (event, url) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
     session.defaultSession.setProxy({
       proxyRules: url
     })
@@ -1219,7 +1255,11 @@ function runApp() {
     session.defaultSession.closeAllConnections()
   })
 
-  ipcMain.on(IpcChannels.DISABLE_PROXY, () => {
+  ipcMain.on(IpcChannels.DISABLE_PROXY, (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
     session.defaultSession.setProxy({})
     proxyUrl = undefined
     session.defaultSession.closeAllConnections()
@@ -1231,7 +1271,11 @@ function runApp() {
   // Math.trunc but with a bitwise OR so that it can be calcuated at build time and the number inlined
   const HALF_OF_NAV_HISTORY_DISPLAY_LIMIT = (NAV_HISTORY_DISPLAY_LIMIT / 2) | 0
 
-  ipcMain.handle(IpcChannels.GET_NAVIGATION_HISTORY, ({ sender }) => {
+  ipcMain.handle(IpcChannels.GET_NAVIGATION_HISTORY, ({ senderFrame, sender }) => {
+    if (!isFreeTubeUrl(senderFrame.url)) {
+      return
+    }
+
     const activeIndex = sender.navigationHistory.getActiveIndex()
     const length = sender.navigationHistory.length()
 
@@ -1262,17 +1306,17 @@ function runApp() {
 
   // #endregion navigation history
 
-  ipcMain.handle(IpcChannels.GET_SYSTEM_LOCALE, () => {
-    // we should switch to getPreferredSystemLanguages at some point and iterate through until we find a supported locale
-    return app.getSystemLocale()
+  ipcMain.handle(IpcChannels.GET_SYSTEM_LOCALE, (event) => {
+    if (isFreeTubeUrl(event.senderFrame.url)) {
+      // we should switch to getPreferredSystemLanguages at some point and iterate through until we find a supported locale
+      return app.getSystemLocale()
+    }
   })
 
   ipcMain.handle(IpcChannels.GET_SCREENSHOT_FALLBACK_FOLDER, (event) => {
-    if (!isFreeTubeUrl(event.senderFrame.url)) {
-      return
+    if (isFreeTubeUrl(event.senderFrame.url)) {
+      return path.join(app.getPath('pictures'), 'Freetube')
     }
-
-    return path.join(app.getPath('pictures'), 'Freetube')
   })
 
   ipcMain.on(IpcChannels.CHOOSE_DEFAULT_FOLDER, async (event, kind) => {
@@ -1317,7 +1361,9 @@ function runApp() {
     }
 
     BrowserWindow.getAllWindows().forEach((window) => {
-      window.webContents.send(IpcChannels.SYNC_SETTINGS, syncPayload)
+      if (isFreeTubeUrl(window.webContents.getURL())) {
+        window.webContents.send(IpcChannels.SYNC_SETTINGS, syncPayload)
+      }
     })
   })
 
@@ -1434,16 +1480,24 @@ function runApp() {
     })
   })
 
-  ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (_, executable, args) => {
-    const child = cp.spawn(executable, args, { detached: true, stdio: 'ignore' })
-    child.unref()
+  ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (event, executable, args) => {
+    if (isFreeTubeUrl(event.senderFrame.url)) {
+      const child = cp.spawn(executable, args, { detached: true, stdio: 'ignore' })
+      child.unref()
+    }
   })
 
-  ipcMain.handle(IpcChannels.GET_REPLACE_HTTP_CACHE, () => {
-    return replaceHttpCache
+  ipcMain.handle(IpcChannels.GET_REPLACE_HTTP_CACHE, (event) => {
+    if (isFreeTubeUrl(event.senderFrame.url)) {
+      return replaceHttpCache
+    }
   })
 
-  ipcMain.once(IpcChannels.TOGGLE_REPLACE_HTTP_CACHE, async () => {
+  ipcMain.once(IpcChannels.TOGGLE_REPLACE_HTTP_CACHE, async (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
     if (replaceHttpCache) {
       await asyncFs.rm(REPLACE_HTTP_CACHE_PATH)
     } else {
@@ -1464,7 +1518,11 @@ function runApp() {
     return path.join(PLAYER_CACHE_PATH, sanitizedKey)
   }
 
-  ipcMain.handle(IpcChannels.PLAYER_CACHE_GET, async (_, key) => {
+  ipcMain.handle(IpcChannels.PLAYER_CACHE_GET, async (event, key) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
     const filePath = playerCachePathForKey(key)
 
     try {
@@ -1482,7 +1540,11 @@ function runApp() {
     }
   })
 
-  ipcMain.handle(IpcChannels.PLAYER_CACHE_SET, async (_, key, value) => {
+  ipcMain.handle(IpcChannels.PLAYER_CACHE_SET, async (event, key, value) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
     const filePath = playerCachePathForKey(key)
 
     await asyncFs.mkdir(PLAYER_CACHE_PATH, { recursive: true })
@@ -1511,6 +1573,10 @@ function runApp() {
 
   // Settings
   ipcMain.handle(IpcChannels.DB_SETTINGS, async (event, { action, data }) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
     try {
       switch (action) {
         case DBActions.GENERAL.FIND:
@@ -1569,6 +1635,10 @@ function runApp() {
   // *********** //
   // History
   ipcMain.handle(IpcChannels.DB_HISTORY, async (event, { action, data }) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
     try {
       switch (action) {
         case DBActions.GENERAL.FIND:
@@ -1583,12 +1653,12 @@ function runApp() {
           )
           return null
 
-        case DBActions.HISTORY.OVERWRITE:
+        case DBActions.GENERAL.OVERWRITE:
           await baseHandlers.history.overwrite(data)
           syncOtherWindows(
             IpcChannels.SYNC_HISTORY,
             event,
-            { event: SyncEvents.HISTORY.OVERWRITE, data }
+            { event: SyncEvents.GENERAL.OVERWRITE, data }
           )
           return null
 
@@ -1641,6 +1711,10 @@ function runApp() {
   // *********** //
   // Profiles
   ipcMain.handle(IpcChannels.DB_PROFILES, async (event, { action, data }) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
     try {
       switch (action) {
         case DBActions.GENERAL.CREATE: {
@@ -1709,6 +1783,10 @@ function runApp() {
   // The remaining should have it implemented only when playlists
   // get fully implemented into the app
   ipcMain.handle(IpcChannels.DB_PLAYLISTS, async (event, { action, data }) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
     try {
       switch (action) {
         case DBActions.GENERAL.CREATE:
@@ -1810,6 +1888,10 @@ function runApp() {
   // ************** //
   // Search History
   ipcMain.handle(IpcChannels.DB_SEARCH_HISTORY, async (event, { action, data }) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
     try {
       switch (action) {
         case DBActions.GENERAL.FIND:
@@ -1821,6 +1903,15 @@ function runApp() {
             IpcChannels.SYNC_SEARCH_HISTORY,
             event,
             { event: SyncEvents.GENERAL.UPSERT, data }
+          )
+          return null
+
+        case DBActions.GENERAL.OVERWRITE:
+          await baseHandlers.searchHistory.overwrite(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SEARCH_HISTORY,
+            event,
+            { event: SyncEvents.GENERAL.OVERWRITE, data }
           )
           return null
 
@@ -1855,6 +1946,10 @@ function runApp() {
   // *********** //
   // Profiles
   ipcMain.handle(IpcChannels.DB_SUBSCRIPTION_CACHE, async (event, { action, data }) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
     try {
       switch (action) {
         case DBActions.GENERAL.FIND:
@@ -1937,7 +2032,7 @@ function runApp() {
 
   function syncOtherWindows(channel, event, payload) {
     const otherWindows = BrowserWindow.getAllWindows().filter((window) => {
-      return window.webContents.id !== event.sender.id
+      return window.webContents.id !== event.sender.id && isFreeTubeUrl(window.webContents.getURL())
     })
 
     for (const window of otherWindows) {
@@ -2047,9 +2142,19 @@ function runApp() {
       replaceMainWindow: false,
       showWindowNow: true,
     })
-    ipcMain.once(IpcChannels.APP_READY, () => {
-      newWindow.webContents.send(IpcChannels.OPEN_URL, newStartupUrl)
-    })
+
+    /**
+     * @param {import('electron').IpcMainEvent} event
+     */
+    const readyHandler = (event) => {
+      if (isFreeTubeUrl(event.senderFrame.url)) {
+        newWindow.webContents.ipc.off(IpcChannels.APP_READY, readyHandler)
+
+        event.reply(IpcChannels.OPEN_URL, newStartupUrl)
+      }
+    }
+
+    newWindow.webContents.ipc.on(IpcChannels.APP_READY, readyHandler)
   })
 
   app.on('web-contents-created', (_, webContents) => {
@@ -2108,7 +2213,7 @@ function runApp() {
    */
 
   function navigateTo(path, browserWindow) {
-    if (browserWindow == null) {
+    if (browserWindow == null || !isFreeTubeUrl(browserWindow.webContents.getURL())) {
       return
     }
 
@@ -2296,7 +2401,7 @@ function runApp() {
             },
             type: 'normal'
           },
-          !hideTrendingVideos && {
+          (!hideTrendingVideos && (backendFallback || backendPreference === 'local')) && {
             label: 'Trending',
             click: (_menuItem, browserWindow, _event) => {
               navigateTo('/trending', browserWindow)

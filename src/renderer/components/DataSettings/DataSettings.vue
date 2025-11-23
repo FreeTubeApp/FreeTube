@@ -5,7 +5,7 @@
     <h4 class="groupTitle">
       {{ $t('Subscriptions.Subscriptions') }}
     </h4>
-    <FtFlexBox class="dataSettingsBox">
+    <FtFlexBox class="box">
       <FtButton
         :label="$t('Settings.Data Settings.Import Subscriptions')"
         @click="importSubscriptions"
@@ -29,20 +29,20 @@
     <h4 class="groupTitle">
       {{ $t('History.History') }}
     </h4>
-    <FtFlexBox class="dataSettingsBox">
+    <FtFlexBox class="box">
       <FtButton
         :label="$t('Settings.Data Settings.Import History')"
-        @click="importHistory"
+        @click="importWatchHistory"
       />
       <FtButton
         :label="$t('Settings.Data Settings.Export History')"
-        @click="exportHistory"
+        @click="exportWatchHistory"
       />
     </FtFlexBox>
     <h4 class="groupTitle">
       {{ $t('Playlists') }}
     </h4>
-    <FtFlexBox class="dataSettingsBox">
+    <FtFlexBox class="box">
       <FtButton
         :label="$t('Settings.Data Settings.Import Playlists')"
         @click="importPlaylists"
@@ -52,6 +52,19 @@
         @click="exportPlaylists"
       />
     </FtFlexBox>
+    <h4 class="groupTitle">
+      {{ t('Settings.Data Settings.Search history') }}
+    </h4>
+    <FtFlexBox class="box">
+      <FtButton
+        :label="t('Settings.Data Settings.Import search history')"
+        @click="importSearchHistory"
+      />
+      <FtButton
+        :label="t('Settings.Data Settings.Export search history')"
+        @click="showSearchExportHistoryPrompt = true"
+      />
+    </FtFlexBox>
     <FtPrompt
       v-if="showExportSubscriptionsPrompt"
       :label="$t('Settings.Data Settings.Select Export Type')"
@@ -59,23 +72,30 @@
       :option-values="SUBSCRIPTIONS_PROMPT_VALUES"
       @click="exportSubscriptions"
     />
+    <FtPrompt
+      v-if="showSearchExportHistoryPrompt"
+      :label="t('Settings.Data Settings.Select Export Type')"
+      :option-names="exportSearchHistoryPromptNames"
+      :option-values="SEARCH_HISTORY_PROMPT_VALUES"
+      @click="exportSearchHistory"
+    />
   </FtSettingsSection>
 </template>
 
 <script setup>
 import { computed, ref } from 'vue'
-import { useI18n } from '../composables/use-i18n-polyfill'
+import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRouter } from 'vue-router'
 
-import FtButton from './FtButton/FtButton.vue'
-import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
-import FtPrompt from './FtPrompt/FtPrompt.vue'
-import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
+import FtButton from '../FtButton/FtButton.vue'
+import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtPrompt from '../FtPrompt/FtPrompt.vue'
+import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 
-import store from '../store/index'
+import store from '../../store/index'
 
-import { MAIN_PROFILE_ID } from '../../constants'
-import { calculateColorLuminance, getRandomColor } from '../helpers/colors'
+import { MAIN_PROFILE_ID } from '../../../constants'
+import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
 import {
   deepCopy,
   escapeHTML,
@@ -83,8 +103,8 @@ import {
   readFileWithPicker,
   showToast,
   writeFileWithPicker,
-} from '../helpers/utils'
-import { processToBeAddedPlaylistVideo } from '../helpers/playlists'
+} from '../../helpers/utils'
+import { processToBeAddedPlaylistVideo } from '../../helpers/playlists'
 
 const IMPORT_DIRECTORY_ID = 'data-settings-import'
 const START_IN_DIRECTORY = 'downloads'
@@ -732,7 +752,7 @@ async function exportNewPipeSubscriptions() {
 
 // #endregion subscriptions export
 
-// #region history
+// #region watch history
 
 const historyCacheById = computed(() => {
   return store.getters.getHistoryCacheById
@@ -742,7 +762,7 @@ const historyCacheSorted = computed(() => {
   return store.getters.getHistoryCacheSorted
 })
 
-async function importHistory() {
+async function importWatchHistory() {
   let response
   try {
     response = await readFileWithPicker(
@@ -767,16 +787,16 @@ async function importHistory() {
   const { filename, content } = response
 
   if (filename.endsWith('.db')) {
-    importFreeTubeHistory(content.split('\n'))
+    importFreeTubeWatchHistory(content.split('\n'))
   } else if (filename.endsWith('.json')) {
-    importYouTubeHistory(JSON.parse(content))
+    importYouTubeWatchHistory(JSON.parse(content))
   }
 }
 
 /**
  * @param {string[]} textDecode
  */
-async function importFreeTubeHistory(textDecode) {
+async function importFreeTubeWatchHistory(textDecode) {
   textDecode.pop()
 
   const requiredKeys = [
@@ -806,7 +826,8 @@ async function importFreeTubeHistory(textDecode) {
     'paid',
   ]
 
-  const historyItems = new Map(Object.entries(historyCacheById.value))
+  // deep copy so we don't get errors from Electron when we try to pass reactive objects through the IPC channels
+  const historyItems = new Map(deepCopy(Object.entries(historyCacheById.value)))
 
   textDecode.forEach((history) => {
     const historyData = JSON.parse(history)
@@ -843,7 +864,7 @@ async function importFreeTubeHistory(textDecode) {
 /**
  * @param {any[]} historyData
  */
-async function importYouTubeHistory(historyData) {
+async function importYouTubeWatchHistory(historyData) {
   const filterPredicate = item =>
     item.products.includes('YouTube') &&
     item.titleUrl != null && // removed video doesnt contain url...
@@ -891,7 +912,8 @@ async function importYouTubeHistory(historyData) {
     'activityControls',
   ].concat(Object.keys(keyMapping))
 
-  const historyItems = new Map(Object.entries(historyCacheById.value))
+  // deep copy so we don't get errors from Electron when we try to pass reactive objects through the IPC channels
+  const historyItems = new Map(deepCopy(Object.entries(historyCacheById.value)))
 
   filteredHistoryData.forEach(element => {
     const historyObject = {}
@@ -930,12 +952,12 @@ async function importYouTubeHistory(historyData) {
   showToast(t('Settings.Data Settings.All watched history has been successfully imported'))
 }
 
-async function exportHistory() {
+async function exportWatchHistory() {
   const historyDb = historyCacheSorted.value.map((historyEntry) => {
     return JSON.stringify(historyEntry)
   }).join('\n') + '\n'
   const dateStr = getTodayDateStrLocalTimezone()
-  const exportFileName = 'freetube-history-' + dateStr + '.db'
+  const exportFileName = 'freetube-watch-history-' + dateStr + '.db'
 
   await promptAndWriteToFile(
     exportFileName,
@@ -947,7 +969,7 @@ async function exportHistory() {
   )
 }
 
-// #endregion history
+// #endregion watch history
 
 // #region playlists
 
@@ -1183,4 +1205,203 @@ async function exportPlaylists() {
 }
 
 // #endregion playlists
+
+// #region search history
+
+/** @type {import('vue').ComputedRef<{ _id: string, lastUpdatedAt: number }[]>} */
+const searchHistoryEntries = computed(() => {
+  return store.getters.getSearchHistoryEntries
+})
+
+async function importSearchHistory() {
+  let response
+  try {
+    response = await readFileWithPicker(
+      t('Settings.Data Settings.Search history file'),
+      {
+        'application/x-freetube-db': '.db',
+        'application/json': '.json'
+      },
+      IMPORT_DIRECTORY_ID,
+      START_IN_DIRECTORY
+    )
+  } catch (err) {
+    const message = t('Settings.Data Settings.Unable to read file')
+    showToast(`${message}: ${err}`)
+    return
+  }
+
+  if (response === null) {
+    return
+  }
+
+  const { filename, content } = response
+
+  if (filename.endsWith('.db')) {
+    importFreeTubeSearchHistory(content.split('\n'))
+  } else if (filename.endsWith('.json')) {
+    importYouTubeSearchHistory(JSON.parse(content))
+  }
+}
+
+/**
+ * @param {string[]} textDecode
+ */
+async function importFreeTubeSearchHistory(textDecode) {
+  textDecode.pop()
+
+  // deep copy so we don't get errors from Electron when we try to pass reactive objects through the IPC channels
+  const historyItems = new Map(deepCopy(searchHistoryEntries.value).map(entry => [entry._id, entry]))
+
+  textDecode.forEach((rawEntry) => {
+    const entry = JSON.parse(rawEntry)
+
+    if (typeof entry._id !== 'string' || typeof entry.lastUpdatedAt !== 'number') {
+      showToast(t('Settings.Data Settings.History object has insufficient data, skipping item'))
+      console.error('Missing keys:', entry)
+    } else {
+      const existingEntry = historyItems.get(entry._id)
+
+      if (existingEntry == null || entry.lastUpdatedAt > existingEntry.lastUpdatedAt) {
+        let newEntry
+
+        if (Object.keys(entry) === 2) {
+          newEntry = entry
+        } else {
+          newEntry = { _id: entry._id, lastUpdatedAt: entry.lastUpdatedAt }
+        }
+
+        historyItems.set(entry._id, newEntry)
+      }
+    }
+  })
+
+  const newSearchHistoryEntries = Array.from(historyItems.values())
+
+  await store.dispatch('overwriteSearchHistory', newSearchHistoryEntries)
+
+  showToast(t('Settings.Data Settings.All search history has been successfully imported'))
+}
+
+/**
+ * @param {any[]} historyData
+ */
+async function importYouTubeSearchHistory(historyData) {
+  // deep copy so we don't get errors from Electron when we try to pass reactive objects through the IPC channels
+  const historyItems = new Map(deepCopy(searchHistoryEntries.value).map(entry => [entry._id, entry]))
+
+  for (const entry of historyData) {
+    if (
+      entry.products?.includes('YouTube') &&
+      entry.titleUrl?.includes('youtube.com/results?search_query') &&
+      entry.details == null // dont import ads
+    ) {
+      try {
+        const url = new URL(entry.titleUrl)
+        const query = url.searchParams.get('search_query')
+
+        const lastUpdatedAt = Date.parse(entry.time)
+
+        if (!query || typeof query !== 'string' || query.length === 0 || isNaN(lastUpdatedAt)) {
+          showToast(t('Settings.Data Settings.History object has insufficient data, skipping item'))
+          console.error('Missing keys:', entry)
+        } else {
+          const existingEntry = historyItems.get(query)
+
+          if (existingEntry == null || lastUpdatedAt > existingEntry.lastUpdatedAt) {
+            historyItems.set(query, { _id: query, lastUpdatedAt })
+          }
+        }
+      } catch (error) {
+        console.error(error)
+        showToast(t('Settings.Data Settings.History object has insufficient data, skipping item'))
+      }
+    }
+  }
+
+  const newSearchHistoryEntries = Array.from(historyItems.values())
+
+  await store.dispatch('overwriteSearchHistory', newSearchHistoryEntries)
+
+  showToast(t('Settings.Data Settings.All search history has been successfully imported'))
+}
+
+const SEARCH_HISTORY_PROMPT_VALUES = [
+  'freetube',
+  'youtube'
+]
+
+const exportSearchHistoryPromptNames = computed(() => [
+  `${t('Settings.Data Settings.Export FreeTube')} (.db)`,
+  `${t('Settings.Data Settings.Export YouTube')} (.json)`,
+  t('Close')
+])
+
+const showSearchExportHistoryPrompt = ref(false)
+
+/**
+ * @param {'freetube' | 'youtube' | null} option
+ */
+async function exportSearchHistory(option) {
+  showSearchExportHistoryPrompt.value = false
+
+  switch (option) {
+    case 'freetube':
+      exportFreeTubeSearchHistory()
+      break
+    case 'youtube':
+      exportYouTubeSearchHistory()
+      break
+  }
+}
+
+async function exportFreeTubeSearchHistory() {
+  const historyDb = searchHistoryEntries.value.map((entry) => {
+    return JSON.stringify(entry)
+  }).join('\n') + '\n'
+  const dateStr = getTodayDateStrLocalTimezone()
+  const exportFileName = 'freetube-search-history-' + dateStr + '.db'
+
+  await promptAndWriteToFile(
+    exportFileName,
+    historyDb,
+    t('Settings.Data Settings.Search history file'),
+    'application/x-freetube-db',
+    '.db',
+    t('Settings.Data Settings.All search history has been successfully exported')
+  )
+}
+
+async function exportYouTubeSearchHistory() {
+  const historyData = searchHistoryEntries.value.map((entry) => {
+    return {
+      header: 'YouTube',
+      title: `Searched for ${entry._id}`,
+      titleUrl: `https://www.youtube.com/results?search_query=${encodeURIComponent(entry._id)}`,
+      time: new Date(entry.lastUpdatedAt).toISOString(),
+      products: [
+        'YouTube'
+      ],
+      activityControls: [
+        'YouTube search history'
+      ]
+    }
+  })
+
+  const dateStr = getTodayDateStrLocalTimezone()
+  const exportFileName = 'youtube-search-history-' + dateStr + '.json'
+
+  await promptAndWriteToFile(
+    exportFileName,
+    JSON.stringify(historyData),
+    t('Settings.Data Settings.Search history file'),
+    'application/json',
+    '.json',
+    t('Settings.Data Settings.All search history has been successfully exported')
+  )
+}
+
+// #endregion search history
 </script>
+
+<style scoped src="./DataSettings.css" />

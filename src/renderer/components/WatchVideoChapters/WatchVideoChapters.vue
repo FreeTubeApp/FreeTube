@@ -32,7 +32,6 @@
         <div
           v-for="(chapter, index) in chapters"
           :key="index"
-          :ref="index === currentIndex ? 'currentChaptersItem' : null"
           class="chapter"
           role="button"
           tabindex="0"
@@ -65,7 +64,7 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, useTemplateRef, watch } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import FtCard from '../ft-card/ft-card.vue'
@@ -87,11 +86,7 @@ const props = defineProps({
 
 const emit = defineEmits(['timestamp-event'])
 
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const chaptersWrapper = ref(null)
-
-/** @type {import('vue').Ref<HTMLDivElement[]>} */
-const currentChaptersItem = ref([])
+const chaptersWrapper = useTemplateRef('chaptersWrapper')
 
 let chaptersVisible = false
 const currentIndex = ref(props.currentChapterIndex)
@@ -181,9 +176,9 @@ function chaptersToggled(event) {
 
 function scrollToCurrentChapter() {
   const container = chaptersWrapper.value
-  const currentItem = currentChaptersItem.value[0]
+  const currentItem = container ? Array.from(container.children)[currentIndex.value] : null
 
-  if (container != null && currentItem != null) {
+  if (currentItem != null) {
     container.scrollTop = currentItem.offsetTop - container.offsetTop
   }
 }

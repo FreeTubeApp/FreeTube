@@ -17,10 +17,9 @@ const state = {
   sessionSearchHistory: [],
   popularCache: null,
   trendingCache: {
-    default: null,
-    music: null,
     gaming: null,
-    movies: null
+    sports: null,
+    podcasts: null
   },
   cachedPlaylist: null,
   deArrowCache: {},
@@ -49,10 +48,9 @@ const state = {
   externalPlayerCmdArguments: {},
   lastPopularRefreshTimestamp: '',
   lastTrendingRefreshTimestamp: {
-    default: '',
-    music: '',
     gaming: '',
-    movies: ''
+    sports: '',
+    podcasts: ''
   },
   subscriptionFirstAutoFetchRunData: {
     videos: false,
@@ -656,9 +654,10 @@ const actions = {
 
         if (feedType === 'playlists' || feedType === 'you' || feedType === 'library') {
           return { urlType: 'userplaylists' }
-        } else {
+        } else if (process.env.SUPPORTS_LOCAL_API || feedType !== 'trending') {
           return { urlType: feedType }
         }
+        // Can fall through if a trending URL is detected in a build without the local API
       }
 
       default: {
@@ -911,7 +910,7 @@ const mutations = {
 
   /**
    * @param {typeof state} state
-   * @param {{page: 'default' | 'music' | 'gaming' | 'movies', timestamp: Date}} param1
+   * @param {{page: 'gaming' | 'sports' | 'podcasts', timestamp: Date}} param1
    */
   setLastTrendingRefreshTimestamp (state, { page, timestamp }) {
     state.lastTrendingRefreshTimestamp[page] = timestamp
@@ -923,7 +922,7 @@ const mutations = {
 
   /**
    * @param {typeof state} state
-   * @param {'default' | 'music' | 'gaming' | 'movies'} page
+   * @param {'gaming' | 'sports' | 'podcasts'} page
    */
   clearTrendingCache(state, page) {
     state.trendingCache[page] = null

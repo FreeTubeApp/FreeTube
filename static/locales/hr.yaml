@@ -106,10 +106,7 @@ Subscriptions:
 Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
-  Movies: Filmovi
   Gaming: Igre
-  Music: Glazba
-  Default: Standardno
 Most Popular: 'Najpopularniji'
 Playlists: 'Zbirke'
 User Playlists:
@@ -169,8 +166,7 @@ User Playlists:
     Save: Spremi
     Toast:
       You haven't selected any playlist yet.: Još nisi odabrao/la nijednu zbirku.
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video dodan u {playlistCount} zbirke | {videoCount} videa dodana u {playlistCount} zbirke
-      "{videoCount} video(s) added to 1 playlist": 1 video dodan u 1 zbirku | {videoCount} videa dodana u 1 zbirku
+      "Video(s) added to {playlistCount} playlists": ""
     Select a playlist to add your N videos to: Odaberi zbirku za dodavanje tvog videa | Odaberi zbirku za dodavanje tvojih {videoCount} videa
     Added {count} Times: Već dodano | Dodano {count} puta
     Allow Adding Duplicate Video(s): Dozvoli dodavanje duplih videa
@@ -536,8 +532,8 @@ Settings:
     Hide Channels Disabled Message: Neki su kanali blokirani upotrebom ID-a i nisu obrađeni. Funkcija je blokirana tijekom aktualiziranje tih ID-ova
     Hide Channels Already Exists: ID kanala već postoji
     Hide Channels API Error: Greška pri dohvaćanju korisnika s navedenim ID-om. Ponovo provjeri točnost ID-a.
-    Hide Videos and Playlists Containing Text Placeholder: Fragment, riječ ili fraza
-    Hide Videos and Playlists Containing Text: Sakrij videa i zbirke koji sadrže tekst
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Riječ, fragment riječi ili fraza
+    Hide Videos, Playlists and Channels Containing Text: Sakrij videa i zbirke koji sadrže tekst
     Hide Channel Home: Sakrij karticu „Početna” kanala
     Show Added Items: Prikaži dodane stavke
     Hide Channel Courses: Sakrij karticu "Tečajevi" kanala
@@ -912,18 +908,12 @@ Comments:
   Getting comment replies, please wait: 'Preuzimaju se odgovori na komentare. Pričekaj'
   Hide Comments: 'Sakrij komentare'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Pogledaj'
-  Hide: 'Sakrij'
-  Replies: 'Odgovori'
-  Reply: 'Odgovor'
   There are no comments available for this video: 'Za ovaj video nema komentara'
   Load More Comments: 'Učitaj još komentara'
   There are no more comments for this video: Nema daljnjih komentara za ovaj video
   Newest first: Najprije najnovije
   Top comments: Najpopularniji komentari
   Show More Replies: Prikaži više odgovora
-  From {channelName}: od {channelName}
-  And others: i drugi
   Pinned by: Prikvačio/la
   Member: Član
   Hearted: Omiljeno
@@ -982,7 +972,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Upiši ID kanala za skrivanje svih videa, zbirki kao i samog kanala u prikazu pretrage, trendova, najpopularniji i preporučeni. Upisani ID kanala se mora potpuno poklapati i razlikuje velika i mala slova.
     Hide Subscriptions Live: Ovu postavku nadjačava programska postavka „{appWideSetting}”, u odjeljku „{subsection}” u „{settingsSection}”
-    Hide Videos and Playlists Containing Text: Upiši fragment, riječ ili frazu (ne razlikuje velika i mala slova) za skrivanje svih videa i zbirki s tim sadržajem u njihovim izvornim naslovima u cijelom FreeTubeu, isključujući samo povijest, tvoje zbirke i videa unutar zbirki.
+    Hide Videos, Playlists and Channels Containing Text: Upiši riječ, fragment riječi ili izraz (ne razlikuje velika i mala slova) za skrivanje svih videa i zbirki s tim sadržajem u njihovim izvornim naslovima u cijelom FreeTubeu, isključujući samo povijest, tvoje zbirke i videa unutar zbirki.
     Hide Videos on Watch: Skriva gledana videa s kartica „Videa”, „Kratka videa” i „Uživo” na stranicama „Pretplata” i „Kanal”. To ne utječe na karticu „Početna” na stranicama „Kanal”
   SponsorBlock Settings:
     UseDeArrowTitles: Zamijeni naslove videa koje su poslali korisnici s DeArrow naslovima.
