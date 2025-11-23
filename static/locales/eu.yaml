@@ -180,7 +180,7 @@ User Playlists:
     Added {count} Times: Gehitu da | {count} aldiz gehitu da
     Toast:
       You haven't selected any playlist yet.: Oraindik ez duzu erreprodukzio zerrendarik hautatu.
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Bideoa(k) erreprodukzio-zerrenda 1era gehitu da | Bideoa(k) {playlistCount} erreprodukzio-zerrendetara gehitu da"
     Select a playlist to add your N videos to: Hautatu erreprodukzio-zerrenda zure bideoa -ra gehitzeko | Hautatu erreprodukzio-zerrenda zure {videoCount} bideoak gehitzeko
     N playlists selected: '{playlistCount} hautatuta'
     Search in Playlists: Bilatu erreprodukzio-zerrendetan
@@ -916,6 +916,7 @@ Share:
   YouTube Channel URL copied to clipboard: 'Youtube-ko kanalaren URL-a arbelean itsatsi da'
 
   Share Channel: Kanala partekatu
+  Share Post: Partekatu argitalpena
 Mini Player: 'Erreproduzitzaile txikia'
 Comments:
   Comments: 'Iruzkinak'
