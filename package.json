@@ -77,7 +77,7 @@
   "devDependencies": {
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
-    "@double-great/stylelint-a11y": "^3.4.0",
+    "@double-great/stylelint-a11y": "^3.4.1",
     "@eslint/js": "^9.39.1",
     "@intlify/eslint-plugin-vue-i18n": "^4.1.0",
     "babel-loader": "^10.0.0",
@@ -105,7 +105,7 @@
     "postcss-scss": "^4.0.9",
     "sass": "^1.94.2",
     "sass-loader": "^16.0.6",
-    "stylelint": "^16.25.0",
+    "stylelint": "^16.26.0",
     "stylelint-config-sass-guidelines": "^12.1.0",
     "stylelint-config-standard": "^39.0.1",
     "stylelint-high-performance-animation": "^1.11.0",
