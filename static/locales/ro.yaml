@@ -138,8 +138,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videoclipuri vor fi adăugate'
     Toast:
       You haven't selected any playlist yet.: Nu ați selectat încă nicio listă de redare.
-      "{videoCount} video(s) added to 1 playlist": 1 videoclip adăugat la 1 listă de redare | {videoCount} videoclipuri adăugate la 1 listă de redare
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 videoclip adăugat la {playlistCount} liste de redare | {videoCount} videoclipuri adăugate la {playlistCount} liste de redare
+      "Video(s) added to {playlistCount} playlists": ""
     N playlists selected: '{playlistCount} Selectat'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videoclipuri deja adăugate'
     Search in Playlists: Caută in listele de redare
@@ -471,7 +470,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Toate abonamentele și profilurile au fost importate cu succes'
     All subscriptions have been successfully imported: 'Toate abonamentele au fost importate cu succes'
     Invalid subscriptions file: 'Fișier de abonamente invalid'
-    This might take a while, please wait: 'Acest lucru ar putea dura ceva timp, vă rugăm să așteptați'
     Invalid history file: 'Fișier istoric invalid'
     Subscriptions have been successfully exported: 'Abonamentele au fost exportate cu succes'
     History object has insufficient data, skipping item: 'Obiectul de istoric are date insuficiente, se omite elementul'

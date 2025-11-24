@@ -130,12 +130,12 @@ User Playlists:
   Sort By:
     NameAscending: A-Z
     NameDescending: Z-A
-    EarliestCreatedFirst: Earliest created
-    LatestUpdatedFirst: Recently updated
-    EarliestUpdatedFirst: Earliest updated
-    LatestPlayedFirst: Recently played
-    EarliestPlayedFirst: Earliest played
-    LatestCreatedFirst: Recently created
+    EarliestCreatedFirst: Date Created (Oldest)
+    LatestUpdatedFirst: Date Updated (Newest)
+    EarliestUpdatedFirst: Date Updated (Oldest)
+    LatestPlayedFirst: Date Played (Newest)
+    EarliestPlayedFirst: Date Played (Oldest)
+    LatestCreatedFirst: Date Created (Newest)
   SinglePlaylistView:
     Toast:
       This video cannot be moved up.: This video cannot be moved up.
@@ -164,9 +164,8 @@ User Playlists:
     Search in Playlists: Search in playlists
     Save: Save
     Toast:
-      "{videoCount} video(s) added to 1 playlist": 1 video added to 1 playlist | {videoCount} videos added to 1 playlist
       You haven't selected any playlist yet.: You haven't selected any playlist yet.
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video added to {playlistCount} playlists | {videoCount} videos added to  {playlistCount} playlists
+      "Video(s) added to {playlistCount} playlists": "Video(s) added to 1 playlist | Video(s) added to {playlistCount} playlists"
     Select a playlist to add your N videos to: Select a playlist to add your video to | Select a playlist to add your {videoCount} videos to
     Added {count} Times: Already Added | Added {count} times
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videos will be added'
@@ -207,8 +206,8 @@ History:
   Search bar placeholder: Search in History
   Empty Search Message: There are no videos in your history that match your search
   Case Sensitive Search: Case Sensitive Search
-  DateOldestHistory: Earliest Watched First
-  DateNewestHistory: Latest Watched First
+  DateOldestHistory: Date Watched (Oldest)
+  DateNewestHistory: Date Watched (Newest)
 Settings:
   # On Settings Page
   Settings: 'Settings'
@@ -281,6 +280,7 @@ Settings:
       Everforest Light Hard: Everforest Light Hard
       Everforest Light Medium: Everforest Light Medium
       Everforest Light Low: Everforest Light Low
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Main colour theme'
       Red: 'Red'
@@ -366,6 +366,8 @@ Settings:
       Everforest Dark Green: Everforest Dark Green
       Everforest Dark Orange: Everforest Dark Orange
       Everforest Light Red: Everforest Light Red
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Red
     Secondary Color Theme: 'Secondary colour theme'
         #* Main Color Theme
     UI Scale: UI Scale
@@ -485,7 +487,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'All subscriptions and profiles have been successfully imported'
     All subscriptions have been successfully imported: 'All subscriptions have been successfully imported'
     Invalid subscriptions file: 'Invalid subscriptions file'
-    This might take a while, please wait: 'This might take a while, please wait'
     Invalid history file: 'Invalid history file'
     Subscriptions have been successfully exported: 'Subscriptions have been successfully exported'
     History object has insufficient data, skipping item: 'History object has insufficient data, skipping item'
@@ -508,6 +509,12 @@ Settings:
       Label: Export playlists for older FreeTube versions
       Tooltip: "This option exports videos from all playlists into one playlist named ‘Favourites’.\nHow to export and import videos in playlists for an older version of FreeTube:\n1. Export your playlists with this option enabled.\n2. Delete all of your existing playlists using the Remove All playlists option under Privacy settings.\n3. Launch the older version of FreeTube and import the exported playlists.’"
 
+    Search history file: Search history file
+    Search history: Search history
+    Import search history: Import search history
+    Export search history: Export search history
+    All search history has been successfully imported: All search history has been successfully imported
+    All search history has been successfully exported: All search history has been successfully exported
   Distraction Free Settings:
     Hide Live Chat: Hide Live Chat
     Hide Popular Videos: Hide Popular Videos
@@ -873,17 +880,17 @@ Playlist:
 #* Published
 #& Views
   Sort By:
-    DateAddedNewest: Latest added first
+    DateAddedNewest: Date added (Newest)
     VideoTitleDescending: Title (Z-A)
     Custom: Custom
-    DateAddedOldest: Earliest added first
+    DateAddedOldest: Date added (Oldest)
     AuthorAscending: Author (A-Z)
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
-    VideoDurationAscending: Duration (Shortest first)
-    VideoDurationDescending: Duration (Longest first)
-    PublishedNewest: Latest published first
-    PublishedOldest: Earliest published first
+    VideoDurationAscending: Duration (Shortest)
+    VideoDurationDescending: Duration (Longest)
+    PublishedNewest: Date published (Newest)
+    PublishedOldest: Date published (Oldest)
 Change Format:
   Change Media Formats: 'Change Media Formats'
   Use Dash Formats: 'Use DASH Formats'
@@ -908,6 +915,7 @@ Share:
   YouTube Embed URL copied to clipboard: 'YouTube Embed URL copied to clipboard'
   YouTube Channel URL copied to clipboard: YouTube Channel URL copied to clipboard
   Invidious Channel URL copied to clipboard: Invidious Channel URL copied to clipboard
+  Share Post: Share Post
 Mini Player: 'Mini Player'
 Comments:
   Comments: 'Comments'
@@ -924,9 +932,12 @@ Comments:
   Pinned by: Pinned by
   Member: Member
   Hearted: Hearted
-  View {replyCount} replies: View {replyCount} replies
+  View {replyCount} replies: View 1 reply | View {replyCount} replies
   Subscribed: Subscribed
   There are no comments available for this post: There are no comments available for this post
+  Hide {replyCount} replies: Hide 1 reply | Hide {replyCount} replies
+  View 1 reply from {channelName}: View 1 reply from {channelName}
+  View {replyCount} replies from {channelName} and others: View {replyCount} replies from {channelName} and others
 Up Next: 'Up Next'
 Description:
   Expand Description: '...more'

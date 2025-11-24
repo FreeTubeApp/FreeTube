@@ -144,8 +144,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} відэа ўжо дададзена'
     Toast:
       You haven't selected any playlist yet.: Вы яшчэ не выбралі плэй-ліст.
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 відэа дададзена ў {playlistCount} плэй-лістоў | {videoCount} відэа дададзены ў {playlistCount} плэй-лістоў
-      "{videoCount} video(s) added to 1 playlist": 1 відэа дададзена ў 1 плэй-ліст | {videoCount} відэа дададзены ў 1 плэй-ліст
+      "Video(s) added to {playlistCount} playlists": ""
     Select a playlist to add your N videos to: Выберыце плэй-ліст, каб дадаць сваё відэа | Выберыце плэй-ліст, каб дадаць у яго {videoCount} відэа
     Search in Playlists: Пошук у плэй-лістах
     Added {count} Times: Ужо дададзена | Дададзена {count} разоў
@@ -549,7 +548,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Усе падпіскі і профілі былі паспяхова імпартаваны'
     All subscriptions have been successfully imported: 'Усе падпіскі былі паспяхова імпартаваны'
     Invalid subscriptions file: 'Няправільны файл падпісак'
-    This might take a while, please wait: ''
     Invalid history file: 'Няправільны файл гісторыі'
     Subscriptions have been successfully exported: 'Падпіскі былі паспяхова экспартаваныя'
     History object has insufficient data, skipping item: 'Аб''ект гісторыі мае недастаткова даных, пропуск элемента'

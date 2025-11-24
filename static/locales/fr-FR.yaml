@@ -116,9 +116,8 @@ User Playlists:
     Save: Sauvegarder
     Select a playlist to add your N videos to: Sélectionnez une liste de lecture à laquelle ajouter votre vidéo | Sélectionnez une liste de lecture à laquelle ajouter vos {videoCount} vidéos
     Toast:
-      "{videoCount} video(s) added to 1 playlist": 1 vidéo ajoutée à 1 liste de lecture | {videoCount} vidéos ajoutées à 1 liste de lecture
       You haven't selected any playlist yet.: Vous n'avez pas encore sélectionné de liste de lecture.
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 vidéo ajoutée à {playlistCount} listes de lecture | {videoCount} vidéos ajoutées à {playlistCount} listes de lecture
+      "Video(s) added to {playlistCount} playlists": "Vidéo(s) ajoutée(s) à une liste de lecture | Vidéo(s) ajoutée(s) à {playlistCount} listes de lecture"
     N playlists selected: '{playlistCount} Sélectionnée(s)'
     Added {count} Times: Déjà ajouté | Ajouté {count} fois
     Allow Adding Duplicate Video(s): Autoriser l'ajout de vidéos en double
@@ -474,7 +473,6 @@ Settings:
     Unable to write file: Impossible d'écrire le fichier
     Unable to read file: Impossible de lire le fichier
     Invalid history file: Fichier d'historique non valide
-    This might take a while, please wait: Cela pourrait prendre un certain temps, veuillez patienter
     Invalid subscriptions file: Fichier d'abonnements invalide
     Data Settings: Données
     All watched history has been successfully exported: Tout votre historique de visionnage a été exporté avec succès
@@ -868,6 +866,7 @@ Share:
   YouTube Channel URL copied to clipboard: L'URL YouTube de la chaîne est copiée dans le presse-papiers
   Invidious Channel URL copied to clipboard: L'URL Invidious de la chaîne est copiée dans le presse-papiers
   Share Channel: Partager la chaîne
+  Share Post: Partager la publication
 Mini Player: 'Mini-lecteur'
 Comments:
   Comments: 'Commentaires'

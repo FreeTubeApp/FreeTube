@@ -163,9 +163,8 @@ User Playlists:
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ¿Estás seguro de que deseas eliminar 1 video visto de esta lista de reproducción? Esto no se puede deshacer.
   AddVideoPrompt:
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": '{videoCount} videos agregados a {playlistCount} playlists'
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Aún no has seleccionado ninguna playlist.
-      "{videoCount} video(s) added to 1 playlist": 1 video agregado a 1 playlist
     Save: Guardar
     Allow Adding Duplicate Video(s): Permitir agregar videos duplicados
     Added {count} Times: Ya agregado | Agregado {count} veces
@@ -365,7 +364,6 @@ Settings:
     Data Settings: Ajustes de datos
     All watched history has been successfully exported: Historial de reproducciones se exportó con éxito
     All watched history has been successfully imported: Historial de reproducciones se importó con éxito
-    This might take a while, please wait: Esto puede tomar un tiempo, por favor espera
     All subscriptions and profiles have been successfully imported: Suscripciones y perfiles se importaron con éxito
     All subscriptions have been successfully imported: Suscripciones se importaron con éxito
     Subscriptions have been successfully exported: Suscripciones se exportaron con éxito

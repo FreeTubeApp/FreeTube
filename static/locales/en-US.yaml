@@ -244,8 +244,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: You haven't selected any playlist yet.
-      "{videoCount} video(s) added to 1 playlist": "1 video added to 1 playlist | {videoCount} videos added to 1 playlist"
-      "{videoCount} video(s) added to {playlistCount} playlists": "1 video added to {playlistCount} playlists | {videoCount} videos added to  {playlistCount} playlists"
+      "Video(s) added to {playlistCount} playlists": "Video(s) added to 1 playlist | Video(s) added to {playlistCount} playlists"
   CreatePlaylistPrompt:
     New Playlist Name: New Playlist Name
     Create: Create
@@ -992,6 +991,7 @@ Change Format:
     for this video
 Share:
   Share Video: Share Video
+  Share Post: Share Post
   Share Channel: Share Channel
   Share Playlist: Share Playlist
   Include Timestamp: Include Timestamp

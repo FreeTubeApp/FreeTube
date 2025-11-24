@@ -167,8 +167,7 @@ User Playlists:
     Allow Adding Duplicate Video(s): 重複した動画の追加を許可する
     Toast:
       You haven't selected any playlist yet.: まだ再生リストを選択していません。
-      "{videoCount} video(s) added to 1 playlist": 1本の動画が1個の再生リストに追加されました | {videoCount} 本の動画が1個の再生リストに追加されました
-      "{videoCount} video(s) added to {playlistCount} playlists": 1本の動画が {playlistCount} 個の再生リストに追加されました | {videoCount} 本の動画が {playlistCount} 個の再生リストに追加されました
+      "Video(s) added to {playlistCount} playlists": ""
     Search in Playlists: 再生リストで検索
     N playlists selected: '{playlistCount} 選択中'
     Save: 保存
@@ -463,7 +462,6 @@ Settings:
     History object has insufficient data, skipping item: 履歴情報に問題があるので、破損したデータは除外して実行します
     Subscriptions have been successfully exported: 登録チャンネルを正常にエクスポートしました
     Invalid history file: 無効な履歴ファイル
-    This might take a while, please wait: 少し時間がかかります...お待ちください
     Invalid subscriptions file: 無効な登録チャンネルのファイル
     All subscriptions have been successfully imported: すべての登録チャンネルを正常にインポートしました
     All subscriptions and profiles have been successfully imported: すべての登録チャンネルとプロファイルを正常にインポートしました

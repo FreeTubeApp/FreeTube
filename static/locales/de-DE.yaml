@@ -104,6 +104,7 @@ Trending:
   Trending: Trends
   Trending Tabs: Trends-Tabs
   Gaming: Gaming
+  Sports: Sport
 Most Popular: Am beliebtesten
 Playlists: Playlists
 User Playlists:
@@ -161,8 +162,7 @@ User Playlists:
     Save: Speichern
     Toast:
       You haven't selected any playlist yet.: Du hast noch keine Playlist ausgewählt.
-      "{videoCount} video(s) added to 1 playlist": 1 Video zu 1 Playlist hinzugefügt | {videoCount} Videos zu 1 Playlist hinzugefügt
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 Video zu {playlistCount} Playlists hinzugefügt | {videoCount} Videos zu {playlistCount} Playlists hinzugefügt
+      "Video(s) added to {playlistCount} playlists": "Video(s) wurden zu 1 Playlist hinzugefügt | Video(s) wurden zu {playlistCount} Playlists hinzugefügt"
     Select a playlist to add your N videos to: Wähle eine Playlist, der du dein Video hinzufügen möchtest | Wähle eine Playlist, der du deine {videoCount} Videos hinzufügen möchtest
     Added {count} Times: 'Bereits hinzugefügt | {count} Mal hinzugefügt'
     Allow Adding Duplicate Video(s): Hinzufügen doppelter Videos zulassen
@@ -467,7 +467,6 @@ Settings:
     History object has insufficient data, skipping item: Verlaufsobjekt hat unzureichende Daten, Element wird übersprungen
     Subscriptions have been successfully exported: Abos wurden erfolgreich exportiert
     Invalid history file: Ungültige Verlaufsdatei
-    This might take a while, please wait: Dies dauert einen Moment, bitte warten
     Invalid subscriptions file: Ungültige Abo-Datei
     All subscriptions and profiles have been successfully imported: Alle Abos und Profile wurden erfolgreich importiert
     All subscriptions have been successfully imported: Alle Abos wurden erfolgreich importiert
@@ -869,6 +868,7 @@ Share:
   YouTube Channel URL copied to clipboard: YouTube-Kanal-URL in die Zwischenablage kopiert
   Invidious Channel URL copied to clipboard: Invidious-Kanal-URL in die Zwischenablage kopiert
   Share Channel: Kanal teilen
+  Share Post: Post teilen
 Mini Player: Mini-Video-Player
 Comments:
   Comments: Kommentare

@@ -243,7 +243,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Totes les subscripcions i perfils s''han importat amb èxit'
     All subscriptions have been successfully imported: 'Totes les subscripcions s''han importat amb èxit'
     Invalid subscriptions file: 'Fitxer de subscripcions invàlid'
-    This might take a while, please wait: 'Això pot trigar una estona, si us plau, esperi'
     Invalid history file: 'Fitxer d''historial invàlid'
     Subscriptions have been successfully exported: 'Les subscripcions s''han exportat amb èxit'
     History object has insufficient data, skipping item: 'L''objecte de l''historial no té suficient informació, saltant l''objecte'

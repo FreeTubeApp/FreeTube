@@ -10,7 +10,7 @@ Paste: 'Vložiť'
 Delete: 'Vymazať'
 Select all: 'Vybrať všetko'
 Toggle Developer Tools: 'Prepnúť vývojárske nástroje'
-Actual size: 'Skutočná veľkosť'
+Actual size: 'Akstuálna veľkosť'
 Zoom in: 'Priblížiť'
 Zoom out: 'Oddialiť'
 Toggle fullscreen: 'Prepnúť na celú obrazovku'
@@ -36,14 +36,14 @@ Global:
     Comment Count: 1 komentár | {count} komentárov
   Live: Naživo
   Posts: Príspevky
-  Shorts: Shorts
+  Shorts: Krátke
   Sort By: 'Triediť podľa'
 Search / Go to URL: 'Hľadať / Ísť na URL adresu'
   # In Filter Button
 Search Filters:
   Search Filters: 'Vyhľadávacie filtre'
   Sort By:
-    Most Relevant: 'Najvhodnejšie'
+    Most Relevant: 'Najdôležitejšie'
     Rating: 'Hodnotenie'
     Upload Date: 'Dátum nahratia'
     View Count: 'Počet zhliadnutí'
@@ -70,10 +70,10 @@ Search Filters:
   # On Search Page
     Medium (4 - 20 minutes): Stredné (4 až 20 minút)
   Search Results: 'Výsledky vyhľadávania'
-  Fetching results. Please wait: 'Načítavam výsledky. Prosím čakajte'
+  Fetching results. Please wait: 'Načítavanie výsledkov. Čakajte, prosím'
   Fetch more results: 'Načítať viac výsledkov'
 # Sidebar
-  There are no more results for this search: Pre toto hľadanie nie sú ďalšie výsledky
+  There are no more results for this search: Pre toto vyhľadávanie nie sú ďalšie výsledky
   Features:
     Subtitles: Titulky
     Features: Vlastnosti
@@ -86,6 +86,7 @@ Search Filters:
     Live: Naživo
     HDR: HDR
     VR180: VR180
+  Clear Filters: Vymazať filtre
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odbery'
@@ -103,7 +104,8 @@ Trending:
   Trending: 'Trendy'
   Trending Tabs: Karty trendov
   Gaming: Hry
-Most Popular: 'Populárne'
+  Sports: Šport
+Most Popular: 'Najpopulárnejšie'
 Playlists: 'Playlist'
 User Playlists:
   Your Playlists: 'Tvoj playlist'
@@ -112,7 +114,7 @@ User Playlists:
   Add to Playlist: Pridať do playlistu
   Move Video Down: Posunúť video nadol
   Copy Playlist: Kopírovať playlist
-  Search bar placeholder: Hľadať playlisty
+  Search bar placeholder: Vyhľadať playlisty
   Create New Playlist: Vytvoriť nový playlist
   This playlist currently has no videos.: Tento playlist momentálne neobsahuje žiadne videá.
   Add to Favorites: Pridať do playlistu {playlistName}
@@ -145,19 +147,19 @@ User Playlists:
       Video has been removed. Click here to undo.: Video bolo odstránené. Ak chcete akciu vrátiť späť, kliknite sem.
       Playlist name cannot be empty. Please input a name.: Meno zoznamu nemôže byť prázdne. Prosím zadajte názov.
       This playlist is already being used for quick bookmark.: Tento zoznam skladieb sa už používa na rýchle uloženie do záložiek.
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Tento zoznam skladieb sa teraz používa na rýchle uloženie záložiek namiesto {oldPlaylistName}. Kliknite sem pre vrátenie späť.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Namiesto {oldPlaylistName} sa teraz používa tento playlist na rýchle pridanie do záložiek. Kliknutím sem zrušíte túto zmenu
       This playlist is now used for quick bookmark: Tento playlist sa teraz používa na rýchle uloženie záložiek
       Reverted to use {oldPlaylistName} for quick bookmark: Vrátené na použitie {oldPlaylistName} pre rýchle záložky
     Search for Videos: Vyhľadať videá
   Sort By:
     NameAscending: A-Z
-    LatestCreatedFirst: Nedávno vytvorené
-    LatestUpdatedFirst: Nedávno aktualizované
+    LatestCreatedFirst: Dátum vytvorenia (najnovšie)
+    LatestUpdatedFirst: Dátum aktualizácie (najnovšie)
     NameDescending: Z-A
-    EarliestCreatedFirst: Najskoršie vytvorené
-    LatestPlayedFirst: Nedávno prehrávané
-    EarliestPlayedFirst: Najskôr hrané
-    EarliestUpdatedFirst: Najskôr aktualizované
+    EarliestCreatedFirst: Dátum vytvorenia (najstaršie)
+    LatestPlayedFirst: Dátum prehrávania (najnovšie)
+    EarliestPlayedFirst: Dátum prehrávania (najstaršie)
+    EarliestUpdatedFirst: Dátum aktualizácie (najstaršie)
   Are you sure you want to delete this playlist? This cannot be undone: Naozaj chcete odstrániť tento playlist? Toto sa nedá vrátiť späť.
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Naozaj chcete z tohto playlistu odstrániť 1 duplicitné video? Toto sa nedá vrátiť späť. | Naozaj chcete z tohto zoznamu videí odstrániť duplicitné videá ({playlistItemCount})? Toto sa nedá vrátiť späť.
   Export Playlist: Exportovať tento playlist
@@ -167,14 +169,13 @@ User Playlists:
   AddVideoPrompt:
     Allow Adding Duplicate Video(s): Povoliť pridávanie duplikátnych videí
     N playlists selected: '{playlistCount} vybraných'
-    Search in Playlists: Hľadať v zoznamoch
+    Search in Playlists: Vyhľadať v playlistoch
     Added {count} Times: Už pridané | Pridané {count} krát
     Select a playlist to add your N videos to: Vyberte zoznam videí, do ktorého chcete pridať svoje video | Vyberte zoznam videí, do ktorého chcete pridať svoje {videoCount} videá
     "{videoCount}/{totalVideoCount} Videos Already Added": 'Počet už pridaných videí: {videoCount}/{totalVideoCount}'
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video pridané do {playlistCount} zoznamov skladieb | {videoCount} videí pridaných do {playlistCount} zoznamov skladieb
+      "Video(s) added to {playlistCount} playlists": "Video(á) pridané do 1 playlistu | Video(á) pridané do {playlistCount} playlistov"
       You haven't selected any playlist yet.: Zatiaľ ste nevybrali žiadny zoznam skladieb.
-      "{videoCount} video(s) added to 1 playlist": 1 video pridané do 1 zoznamu videí | {videoCount} videí pridaných do 1 zoznamu videí
     Save: uložiť
     "{videoCount}/{totalVideoCount} Videos Will Be Added": Budú pridané videá ({videoCount}/{totalVideoCount})
   Quick Bookmark Enabled: Rýchle záložky povolené
@@ -188,14 +189,17 @@ User Playlists:
       There is already a playlist with this name. Please pick a different name.: Zoznam skladieb s týmto názvom už existuje. Vyberte iný názov.
       Playlist {playlistName} has been successfully created.: Zoznam skladieb {playlistName} bol úspešne vytvorený.
     New Playlist Name: Názov nového zoznamu skladieb
+  Export list of URLs: Exportovať zoznam adries URL
 History:
   # On History Page
   History: 'História'
   Watch History: 'Pozreté videá'
   Your history list is currently empty.: 'Váša história je momentálne prázdna.'
-  Search bar placeholder: Hľadať v histórii
+  Search bar placeholder: Vyhľadať v histórii
   Case Sensitive Search: Vyhľadávanie s rozlišovaním veľkých a malých písmen
   Empty Search Message: Vo vašej histórii nie sú žiadne videá, ktoré by zodpovedali vášmu vyhľadávaniu
+  DateOldestHistory: Dátum zhliadnutia (najstaršie)
+  DateNewestHistory: Dátum zhliadnutia (najnovšie)
 Settings:
   # On Settings Page
   Settings: 'Nastavenia'
@@ -242,6 +246,7 @@ Settings:
       Tooltip: Automaticky načítať ďalšie stránky a komentáre.
       Label: Automatické načítanie ďalšej strany
     Open Deep Links In New Window: Otvoriť adresy URL odoslané do FreeTube v novom okne
+    Minimize to system tray: Minimalizovať do systémovej lišty
   Theme Settings:
     Theme Settings: 'Téma'
     Match Top Bar with Main Color: 'Prispôsobiť hornú lištu s hlavnou farbou'
@@ -267,6 +272,7 @@ Settings:
       Hot Pink: Horúca ružová
       Solarized Dark: Solarizovaná tma
       Everforest Dark Medium: Everforest tmavý stredný
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Predvolená farebná téma'
       Red: 'Červená'
@@ -292,6 +298,22 @@ Settings:
       Dracula Purple: 'Dracula Fialová'
       Dracula Red: 'Dracula Červená'
       Dracula Yellow: 'Dracula Žltá'
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe Pink
+      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
+      Catppuccin Frappe Red: Catppuccin Frappe Red
+      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
+      Catppuccin Frappe Peach: Catppuccin Frappe Peach
+      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
+      Catppuccin Frappe Green: Catppuccin Frappe Green
+      Catppuccin Frappe Teal: Catppuccin Frappe Teal
+      Catppuccin Frappe Sky: Catppuccin Frappe Sky
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
+      Catppuccin Frappe Blue: Catppuccin Frappe Blue
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Red
     Secondary Color Theme: 'Sekundárna Farebná Téma'
         #* Main Color Theme
     UI Scale: Veľkosť UI
@@ -345,7 +367,6 @@ Settings:
     History object has insufficient data, skipping item: Objekt história nemá dostatok údajov, preskakujem položku
     Subscriptions have been successfully exported: Odbery sa úspešne exportovali
     Invalid history file: Neplatný súbor histórie
-    This might take a while, please wait: Môže to chvíľu trvať, čakajte prosím
     Invalid subscriptions file: Neplatný súbor s odbermi
     All subscriptions have been successfully imported: Všetky odbery sa úspešne importovali
     All subscriptions and profiles have been successfully imported: Všetky odbery a profily sa úspešne importovali
@@ -360,6 +381,12 @@ Settings:
     Select Export Type: Vybrať typ exportu
     Data Settings: Dáta
     Manage Subscriptions: Spravovať odbery
+    Search history file: Súbor histórie vyhľadávania
+    Search history: História vyhľadávania
+    Import search history: Importovať históriu vyhľadávania
+    Export search history: Exportovať históriu vyhľadávania
+    All search history has been successfully imported: Všetka história vyhľadávania bola úspešne importovaná
+    All search history has been successfully exported: Všetka história vyhľadávania bola úspešne exportovaná
   Distraction Free Settings:
     Hide Live Chat: Skryť živý chat
     Hide Popular Videos: Skryť populárne videá
@@ -385,6 +412,10 @@ Settings:
     Watch history has been cleared: História prezerania bola vymazaná
     Are you sure you want to remove your entire watch history?: Naozaj chcete odstrániť celú históriu pozerania?
     Search cache has been cleared: Vyrovnávacia pamäť vyhľadávania bola vymazaná
+    Remember Search History: Zapamätať históriu vyhľadávania
+    Clear Search History and Cache: Vymazať históriu vyhľadávania a vyrovnávaciu pamäť
+    Are you sure you want to clear out your search history and cache?: Naozaj chcete vymazať históriu vyhľadávania a vyrovnávaciu pamäť?
+    Search history and cache have been cleared: História vyhľadávania a vyrovnávacia pamäť boli vymazané
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikácia požaduje reštart, aby sa zmeny prejavili. Reštartovať a aplikovať zmeny?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Chyba pri získavaní informácií o sieti. Je váš server proxy správne nakonfigurovaný?
@@ -413,6 +444,8 @@ Settings:
     Custom External Player Executable: Vlastný spustiteľný externý prehrávač
   Sort Settings Sections (A-Z): Sekcie nastavení zoradenia (A-Z)
   Return to Settings Menu: Späť do ponuky nastavení
+  Parental Control Settings:
+    Hide Search Bar: Skryť lištu vyhľadávania
 About:
   #On About page
   About: 'O FreeTube'
@@ -463,9 +496,12 @@ Channel:
     About: 'O kanáli'
     Channel Description: 'Popis Kanála'
     Featured Channels: 'Odporúčané kanály'
+    Tags:
+      Search for: Vyhľadať „{tag}“
   Added channel to your subscriptions: Kanál bol pridaný k vašim odberom
   Channel has been removed from your subscriptions: Kanál bol odstránený z vašich odberov
   Removed subscription from {count} other channel(s): Odstránené predplatné z {count} iných kanálov
+  This channel does not allow searching: Tento kanál neumožňuje vyhľadávanie
 Video:
   Mark As Watched: 'Označiť ako zhliadnuté'
   Remove From History: 'Vymazať z histórie'
@@ -591,21 +627,21 @@ Playing Previous Video: 'Prehráva sa predchádzajúce video'
 Canceled next video autoplay: 'Automatické prehrávanie ďalšieho videa bolo zrušené'
 'The playlist has ended. Enable loop to continue playing': 'Zoznam videí sa skončil. Ak chcete pokračovať v hraní, povoľte opakovania'
 
-Yes: 'Ano'
+Yes: 'Áno'
 No: 'Nie'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Toto video nie je k dispozícii z dôvodu chýbajúcich formátov. Môže sa to stať z dôvodu nedostupnosti krajiny.
 The playlist has been reversed: Zoznam videí bol obrátený
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Ak je to povolené, FreeTube použije namiesto predvolenej metódy získavania dát RSS. Protokol RSS je rýchlejší a zabraňuje blokovaniu adries IP, ale neposkytuje určité informácie, ako je trvanie videa, stav živých prenosov alebo komunitné príspevky
+    Fetch Feeds from RSS: Keď je táto funkcia zapnutá, FreeTube bude namiesto svojej predvolenej metódy používať RSS na získanie vášho odberového kanála. RSS je rýchlejší a zabraňuje blokovaniu IP, ale neposkytuje určité informácie, ako je dĺžka videa, stav živého vysielania alebo príspevky
   Player Settings:
-    Default Video Format: Nastavte formáty použité pri prehrávaní videa. Formáty DASH môžu hrať vyššiu kvalitu. Staršie formáty sú obmedzené na maximum 720p, ale využívajú menej dát. Zvukové formáty sú iba zvukové streamy.
+    Default Video Format: Nastavte formáty používané pri prehrávaní videa. Formáty DASH umožňujú prehrávanie vo vyššej kvalite. Staršie formáty sú obmedzené na maximálne rozlíšenie 360p, ale využívajú menšiu šírku pásma. Formáty zvuku sú iba audio streamy.
     Proxy Videos Through Invidious: Namiesto priameho pripojenia k YouTube sa pripojí k Invidious, aby poskytoval videá.
     Scroll Playback Rate Over Video Player: Keď je kurzor nad videom, stlačte a podržte kláves Control (kláves Command na Macu) a posúvaním kolieska myši dopredu alebo dozadu ovládajte rýchlosť prehrávania. Stlačte a podržte kláves Control (kláves Command na Macu) a kliknite ľavým tlačidlom myši, aby ste sa rýchlo vrátili na predvolenú rýchlosť prehrávania (1x, pokiaľ nebola zmenená v nastaveniach).
   General Settings:
     Region for Trending: Región trendov vám umožňuje zvoliť si trendové videá z krajiny, ktoré chcete zobraziť.
     Invidious Instance: Invidious inštancia, ku ktorej sa FreeTube pripojí pre volania API.
-    Thumbnail Preference: Všetky miniatúry v rámci služby FreeTube budú nahradené obrázkom z videa namiesto predvolenej miniatúry.
+    Thumbnail Preference: Všetky miniatúry v aplikácii FreeTube budú nahradené snímkou z videa, ktorá bude rozmazaná alebo skrytá namiesto východzej miniatúry.
     Fallback to Non-Preferred Backend on Failure: Ak má vaše preferované rozhranie API problém, služba FreeTube sa po zapnutí automaticky pokúsi použiť vaše nepreferované rozhranie API ako záložnú metódu.
     Preferred API Backend: Vyberte backend, ktorý FreeTube používa na získavanie údajov. Lokálne API je zabudovaný extraktor. Invidious API vyžaduje na pripojenie server Invidious.
     External Link Handling: "Vyberte predvolené správanie pri kliknutí na odkaz, ktorý nemožno otvoriť vo FreeTube.\nV predvolenom nastavení FreeTube otvorí odkaz, na ktorý ste klikli, vo vašom predvolenom prehliadači.\n"
@@ -615,6 +651,8 @@ Tooltips:
     Custom External Player Executable: V predvolenom nastavení bude FreeTube predpokladať, že vybraný externý prehrávač možno nájsť prostredníctvom premennej prostredia PATH. V prípade potreby tu môžete nastaviť vlastnú cestu.
     Ignore Warnings: Stíšiť upozornenia, keď aktuálny externý prehrávač nepodporuje aktuálnu akciu (napr. obrátenie zoznamov skladieb atď.).
     Custom External Player Arguments: Akékoľvek vlastné argumenty príkazového riadka, ktoré chcete odovzdať externému prehrávaču.
+  Distraction Free Settings:
+    Hide Channels: Zadajte ID kanála, aby sa všetky videá, playlisty a samotný kanál nezobrazovali vo vyhľadávaní, trendoch, najobľúbenejších a odporúčaných položkách. Zadané ID kanála musí byť úplne zhodné a rozlišujú sa veľké a malé písmená.
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Naozaj chcete odstrániť vybraté kanály?  Týmto sa neodstráni kanál z iného profilu.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
@@ -660,10 +698,10 @@ Unknown YouTube url type, cannot be opened in app: Neznámy typ adresy URL YouTu
 Open New Window: Otvoriť nové okno
 Default Invidious instance has been set to {instance}: Predvolená Invidious inštancia bola nastavená na {instance}
 Search Bar:
-  Clear Input: Vymazať
+  Clear Input: Vymazať zadané údaje
   Remove: Odstrániť
 Default Invidious instance has been cleared: Predvolená Invidious inštancia bola vymazaná
-External link opening has been disabled in the general settings: V nastaveniach bolo vypnuté otváranie odkazov v externých aplikáciach
+External link opening has been disabled in the general settings: Vo všeobecných nastaveniach bolo zakázané otváranie externých odkazov
 Are you sure you want to open this link?: Naozaj chcete otvoriť tento odkaz?
 New Window: Nové okno
 Channels:
@@ -696,3 +734,39 @@ KeyboardShortcutPrompt:
   Zoom In: Priblížiť
   Zoom Out: Oddialiť
   Fullscreen: Prepnúť na celú obrazovku
+  Focus Secondary Search: Zamerať na sekundárnu lištu vyhľadávania (ak je k dispozícii)
+  Focus Search: Zamerať na lištu vyhľadávania
+  Search in New Window: Vyhľadávať v novom okne
+  Skip to Previous Video: Preskočiť na predchádzajúce video v playliste
+  Volume Up: Zvýšiť hlasitosť
+  Decrease Video Speed: Znížiť rýchlosť videa
+  Increase Video Speed: Zvýšiť rýchlosť videa
+  New Window: Vytvoriť nové okno
+  Navigate to Settings: Prejsť na stránku Nastavenia
+  Navigate to History: Prejsť na stránku História
+  Refresh: Obnoviť zdroj s najnovším obsahom
+  Keyboard Shortcuts: Klávesové skratky
+  Sections:
+    Video:
+      Playback: 'Video: Prehrávanie'
+      General: Video: Všeobecné
+    App:
+      Situational: Aplikácia->Situačné
+      General: 'Aplikácia: Všeobecné'
+  Show Keyboard Shortcuts: Zobraziť klávesové skratky
+  History Backward: Prejsť o jednu stránku naspäť
+  History Forward: Prejsť o jednu stránku dopredu
+Keys:
+  arrowdown: Šípka nadol
+  arrowleft: Šípka doľava
+  arrowright: Šípka doprava
+  arrowup: Šípka nahor
+  shift: Shift
+  enter: Enter
+  plus: Plus
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+Age Restricted:
+  This video is age restricted: Toto video je vekovo obmedzené
+Downloading has completed: Sťahovanie videa"{videoTitle}" je dokončené
+Starting download: Začína sa sťahovanie súboru „{videoTitle}“

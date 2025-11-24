@@ -27,7 +27,7 @@ Forward: 'Framåt'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videor'
-  Shorts: Korta videor
+  Shorts: Shorts
   Live: Live
   Posts: Inlägg
   Sort By: Sortera efter
@@ -111,6 +111,7 @@ Trending:
   Trending: 'Populärt'
   Gaming: Spel
   Trending Tabs: Populära flikar
+  Sports: Sport
 Most Popular: 'Mest populära'
 Playlists: 'Spellistor'
 User Playlists:
@@ -134,14 +135,14 @@ User Playlists:
   This playlist currently has no videos.: Denna spellista har för närvarande inga videor.
   Add to Playlist: Lägg till Spellista
   Sort By:
-    EarliestPlayedFirst: Tidigast spelade
-    EarliestUpdatedFirst: Tidigast uppdaterad
+    EarliestPlayedFirst: Datum spelad (äldst)
+    EarliestUpdatedFirst: Datum uppdaterad (äldst)
     NameAscending: A-Z
     NameDescending: Z-A
-    LatestCreatedFirst: Nyligen skapad
-    EarliestCreatedFirst: Tidigast skapad
-    LatestUpdatedFirst: Nyligen uppdaterad
-    LatestPlayedFirst: Nyligen spelad
+    LatestCreatedFirst: Datum skapad (nyast)
+    EarliestCreatedFirst: Datum skapad (äldst)
+    LatestUpdatedFirst: Datum uppdaterad (nyast)
+    LatestPlayedFirst: Datum spelad (nyast)
   Are you sure you want to delete this playlist? This cannot be undone: Är du säker på att du vill ta bort den här spellistan? Detta kan inte ångras.
   AddVideoPrompt:
     Added {count} Times: Redan Tillagd | Lade Till {count} Gånger
@@ -151,8 +152,7 @@ User Playlists:
     N playlists selected: '{playlistCount} valda'
     Toast:
       You haven't selected any playlist yet.: Du har inte valt någon spellista ännu.
-      "{videoCount} video(s) added to 1 playlist": 1 video tillagd i 1 spellista | {videoCount} videor tillagda i 1 spellista
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video tillagd i {playlistCount} spellistor | {videoCount} videor tillagda i {playlistCount} spellistor
+      "Video(s) added to {playlistCount} playlists": "Videoer tillagda i 1 spellista | Videoer tillagda i {playlistCount} spellistor"
     Allow Adding Duplicate Video(s): Tillåt tilläggning av dubblettvideo(n)
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videor Kommer Att Läggas Till'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videor Redan Tillagda'
@@ -205,8 +205,8 @@ History:
   Empty Search Message: Det finns inga videor i din historik som matchar din sökning
   Search bar placeholder: Sök i historiken
   Case Sensitive Search: Skiftlägeskänslig Sökning
-  DateOldestHistory: Tidigast sedda först
-  DateNewestHistory: Senast sedda först
+  DateOldestHistory: Datum sedda (äldst)
+  DateNewestHistory: Datum sedda (nyast)
 Settings:
   # On Settings Page
   Settings: 'Inställningar'
@@ -279,6 +279,7 @@ Settings:
       Everforest Light Medium: Everforest ljus medium
       Everforest Light Low: Everforest ljus låg
       Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Huvudfärg'
       Red: 'Röd'
@@ -364,6 +365,8 @@ Settings:
       Solarized Violet: Solariserad violett
       Everforest Dark Orange: Everforest mörkorange
       Everforest Light Orange: Everforest ljusorange
+      Catppuccin Latte Red: Catppuccin Latte Röd
+      Catppuccin Latte Mauve: Catppuccin Latte Malva
     Secondary Color Theme: 'Sekundärfärg'
         #* Main Color Theme
     UI Scale: Skala för användargränssnitt
@@ -399,7 +402,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Next Video Interval: Autospela Nedräkningstimer
-    Display Play Button In Video Player: Visa Spelaknapp i videospelaren
+    Display Play Button In Video Player: Visa uppspelningsknappen i videospelaren
     Scroll Volume Over Video Player: Rullvolym i videospelaren
     Fast-Forward / Rewind Interval: Spola fram / spola bak intervall
     Screenshot:
@@ -473,7 +476,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Alla prenumerationer och profiler har importerats'
     All subscriptions have been successfully imported: 'Alla prenumerationer har importerats'
     Invalid subscriptions file: 'Ogiltigt prenumerationsarkiv'
-    This might take a while, please wait: 'Detta kan ta ett tag, vänligen vänta'
     Invalid history file: 'Ogiltigt historikarkiv'
     Subscriptions have been successfully exported: 'Alla prenumerationer har exporterats'
     History object has insufficient data, skipping item: 'Historikarkivet har otillräcklig data, objektet utelämnas'
@@ -496,6 +498,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Exportera spellistor för äldre versioner av FreeTube
       Tooltip: "Det här alternativet exporterar videor från alla spellistor till en spellista med namnet \"Favoriter\".\nSå här exporterar och importerar du videor i spellistor för en äldre version av FreeTube:\n1. Exportera dina spellistor med det här alternativet aktiverat.\n2. Ta bort alla dina befintliga spellistor med alternativet Ta bort alla spellistor under Sekretessinställningar.\n3. Starta den äldre versionen av FreeTube och importera de exporterade spellistorna.\""
+    Search history file: Sökhistorikfil
+    Search history: Sökhistorik
+    Import search history: Importera sökhistorik
+    Export search history: Exportera sökhistorik
+    All search history has been successfully imported: All sökhistorik har importerats
+    All search history has been successfully exported: All sökhistorik har exporterats
   Distraction Free Settings:
     Hide Live Chat: Dölj livechatt
     Hide Popular Videos: Dölj mest populära
@@ -521,14 +529,14 @@ Settings:
     Hide Featured Channels: Dölj utvalda kanaler
     Hide Channel Shorts: Dölj kanalfliken "Shorts"
     Sections:
-      Side Bar: Sidofält
+      Side Bar: Sidpanel
       General: Allmänt
-      Channel Page: Kanal sida
-      Watch Page: Titta sida
+      Channel Page: Kanalsida
+      Watch Page: Visningssida
       Subscriptions Page: Prenumerationssida
     Hide Channel Playlists: Dölj kanalfliken "Spellistor"
-    Hide Channel Podcasts: Dölj kanalfliken "Podcasts"
-    Hide Channel Releases: Dölj kanalfliken "Släpp"
+    Hide Channel Podcasts: Dölj kanalfliken "Poddsändningar"
+    Hide Channel Releases: Dölj kanalfliken "Utgåvor"
     Hide Subscriptions Videos: Dölj prenumerationsvideor
     Hide Subscriptions Shorts: Dölj prenumerationsshorts
     Hide Subscriptions Live: Dölj prenumerationer live-sändningar
@@ -564,8 +572,8 @@ Settings:
     Proxy Password: Proxy lösenord
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifikation när sponsorsegmentet är åsidosatt
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': API Url för Sponsorblockering (Standard är https://sponsor.ajay.app)
-    Enable SponsorBlock: Använd Sponsorblockering (SponsorBlock)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': API Url för sponsorblockering (Standard är https://sponsor.ajay.app)
+    Enable SponsorBlock: Använd sponsorblockering (SponsorBlock)
     SponsorBlock Settings: Sponsorblockering
     Skip Options:
       Skip Option: Hoppa över-alternativ
@@ -575,7 +583,7 @@ Settings:
       Prompt To Skip: Prompt för att hoppa över
     Category Color: Kategorifärg
     UseDeArrowTitles: Använd DeArrow-videotitlar
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL:en till DeArrows Miniatyrbildsgenerator-API (Standard är https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL:en till DeArrows miniatyrbildsgenerator-API (standard är https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Använd DeArrow för miniatyrer
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorera händelsevarningar som inte stöds
@@ -591,7 +599,7 @@ Settings:
     Hide Unsubscribe Button: Dölj knappen Avprenumerera
     Parental Control Settings: Föräldrakontroll
     Show Family Friendly Only: Visa endast barnvänligt innehåll
-    Hide Search Bar: Dölj sökfält
+    Hide Search Bar: Dölj sökpanel
     Hide Uploader on Watch page: Dölj uppladdaren på visningssidan
   Password Dialog:
     Password: Lösenord
@@ -738,8 +746,8 @@ Channel:
     Releases: Släpp
     This channel does not currently have any releases: Den här kanalen har för närvarande inga släpp
   Podcasts:
-    Podcasts: Podcasts
-    This channel does not currently have any podcasts: Den här kanalen har inga podcasts
+    Podcasts: Poddsändningar
+    This channel does not currently have any podcasts: Den här kanalen har inga poddsändningar
   Courses:
     This channel does not currently have any courses: Den här kanalen har för närvarande inga kurser
     Courses: Kurser
@@ -872,15 +880,15 @@ Playlist:
   Playlist: Spellista
   Sort By:
     AuthorAscending: Upphovsman (A-Ö)
-    VideoDurationDescending: Varaktighet (Längsta först)
+    VideoDurationDescending: Varaktighet (längst)
     AuthorDescending: Upphovsman (Ö-A)
-    VideoDurationAscending: Varaktighet (Kortast först)
-    DateAddedOldest: Tidigast tillagd först
+    VideoDurationAscending: Varaktighet (kortast)
+    DateAddedOldest: Datum tillagd (äldst)
     VideoTitleAscending: Titel (A-Ö)
     VideoTitleDescending: Titel (Ö-A)
-    DateAddedNewest: Senast tillagd först
-    PublishedNewest: Senast publicerad först
-    PublishedOldest: Tidigast publicerad först
+    DateAddedNewest: Datum tillagd (nyast)
+    PublishedNewest: Datum publicerad (nyast)
+    PublishedOldest: Datum publicerad (äldst)
     Custom: Anpassad
 Change Format:
   Change Media Formats: 'Ändra videoformat'
@@ -920,11 +928,14 @@ Comments:
   Top comments: Toppkommentarer
   Show More Replies: Visa fler svar
   Member: Medlem
-  View {replyCount} replies: Visa {replyCount} repliker
+  View {replyCount} replies: Visa 1 svar | Visa {replyCount} svar
   Pinned by: Nålad av
   Hearted: Hjärtade
   Subscribed: Prenumererar
   There are no comments available for this post: Det finns inga kommentarer tillgängliga för detta inlägg
+  Hide {replyCount} replies: Dölj 1 svar | Dölj {replyCount} svar
+  View 1 reply from {channelName}: Visa 1 svar från {channelName}
+  View {replyCount} replies from {channelName} and others: Visa {replyCount} svar från {channelName} och andra
 Up Next: 'Kommer härnäst'
 
 # Toast Messages

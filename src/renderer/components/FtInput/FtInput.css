@@ -60,7 +60,11 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
   margin-inline: 3px;
   padding: 10px;
   border-radius: 100%;
+  border-style: none;
+  background-color: transparent;
   color: var(--primary-text-color);
+  font-size: 1em;
+  line-height: 1em;
   opacity: 0;
   transition: background 0.2s ease-in;
 }
@@ -129,6 +133,10 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
   position: relative;
 }
 
+.buttonIcon {
+  inline-size: 1em;
+}
+
 .inputAction {
   position: absolute;
   margin-block: 0;
@@ -136,8 +144,12 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
   padding: 10px;
   inset-block-start: -8px;
   inset-inline-end: 0;
+  border-style: none;
   border-radius: 100%;
+  background-color: transparent;
   color: var(--primary-text-color);
+  font-size: 1em;
+  line-height: 1em;
 
   /* this should look disabled by default */
   opacity: 0.5;

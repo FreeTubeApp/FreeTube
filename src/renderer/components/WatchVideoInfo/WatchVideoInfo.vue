@@ -429,17 +429,20 @@ onMounted(() => {
     })
   }
 
-  downloadDropdownWatcher = watch(() => downloadButton.value.dropdownShown, (dropdownShown) => {
-    emit('set-info-area-sticky', !dropdownShown)
+  // live and post-live DVR don't have a download button
+  if (downloadButton.value) {
+    downloadDropdownWatcher = watch(() => downloadButton.value.dropdownShown, (dropdownShown) => {
+      emit('set-info-area-sticky', !dropdownShown)
 
-    if (dropdownShown && window.innerWidth >= 901) {
-      // adds a slight delay so we know that the dropdown has shown up
-      // and won't mess up our scrolling
-      nextTick(() => {
-        emit('scroll-to-info-area')
-      })
-    }
-  })
+      if (dropdownShown && window.innerWidth >= 901) {
+        // adds a slight delay so we know that the dropdown has shown up
+        // and won't mess up our scrolling
+        nextTick(() => {
+          emit('scroll-to-info-area')
+        })
+      }
+    })
+  }
 })
 
 onBeforeUnmount(() => {

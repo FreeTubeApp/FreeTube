@@ -45,7 +45,7 @@
 <script setup>
 import autolinker from 'autolinker'
 
-import { onMounted, ref, computed } from 'vue'
+import { onMounted, ref, computed, useTemplateRef } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtTimestampCatcher from '../FtTimestampCatcher.vue'
 
@@ -67,7 +67,7 @@ const props = defineProps({
 const emit = defineEmits(['timestamp-event'])
 
 let shownDescription = ''
-const descriptionContainer = ref()
+const descriptionContainer = useTemplateRef('descriptionContainer')
 const showFullDescription = ref(false)
 const showControls = ref(false)
 
