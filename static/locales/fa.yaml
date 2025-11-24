@@ -512,7 +512,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'همه دنبال شوندگان و پروفایل ها با موفقیت ثبت شد'
     All subscriptions have been successfully imported: 'همه دنبال شوندگان با موفقیت ثبت شد'
     Invalid subscriptions file: 'فایل دنبال شوندگان نامعتبر است'
-    This might take a while, please wait: 'ممکن است کمی طول بکشد، لطفا اندکی صبر کنید'
     Invalid history file: 'فایل تاریخچه نامعتبر است'
     Subscriptions have been successfully exported: 'دنبال شوندگان با موفقیت استخراج شدند'
     History object has insufficient data, skipping item: 'تاریخچه داده کافی ندارد، در حال چشم پوشی'

@@ -414,8 +414,6 @@ function importYouTubeSubscriptions(textDecode) {
   const subscriptions = []
   let count = 0
 
-  showToast(t('Settings.Data Settings.This might take a while, please wait'))
-
   store.commit('setShowProgressBar', true)
   store.commit('setProgressBarPercentage', 0)
 

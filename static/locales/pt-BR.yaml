@@ -476,7 +476,6 @@ Settings:
     All watched history has been successfully exported: O histórico de exibição foi exportado com sucesso
     All watched history has been successfully imported: O histórico de exibição foi importado com sucesso
     History object has insufficient data, skipping item: O histórico tem dados insuficientes, ignorando item
-    This might take a while, please wait: Este processo pode demorar, por favor aguarde
     Invalid subscriptions file: Arquivo de inscrições inválido
     All subscriptions and profiles have been successfully imported: Todas as inscrições e perfis foram importados com sucesso
     Profile object has insufficient data, skipping item: O perfil tem dados insuficientes, ignorando o item

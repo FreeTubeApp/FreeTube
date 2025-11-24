@@ -462,7 +462,6 @@ Settings:
     History object has insufficient data, skipping item: 履歴情報に問題があるので、破損したデータは除外して実行します
     Subscriptions have been successfully exported: 登録チャンネルを正常にエクスポートしました
     Invalid history file: 無効な履歴ファイル
-    This might take a while, please wait: 少し時間がかかります...お待ちください
     Invalid subscriptions file: 無効な登録チャンネルのファイル
     All subscriptions have been successfully imported: すべての登録チャンネルを正常にインポートしました
     All subscriptions and profiles have been successfully imported: すべての登録チャンネルとプロファイルを正常にインポートしました

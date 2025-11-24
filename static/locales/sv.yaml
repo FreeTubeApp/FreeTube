@@ -476,7 +476,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Alla prenumerationer och profiler har importerats'
     All subscriptions have been successfully imported: 'Alla prenumerationer har importerats'
     Invalid subscriptions file: 'Ogiltigt prenumerationsarkiv'
-    This might take a while, please wait: 'Detta kan ta ett tag, vänligen vänta'
     Invalid history file: 'Ogiltigt historikarkiv'
     Subscriptions have been successfully exported: 'Alla prenumerationer har exporterats'
     History object has insufficient data, skipping item: 'Historikarkivet har otillräcklig data, objektet utelämnas'

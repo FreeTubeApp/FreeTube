@@ -476,7 +476,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Всички абонаменти и профили бяха внесени успешно'
     All subscriptions have been successfully imported: 'Всички абонаменти бяха внесени успешно'
     Invalid subscriptions file: 'Невалиден файл с абонаменти'
-    This might take a while, please wait: 'Това може да отнеме повече време, моля изчакайте'
     Invalid history file: 'Невалиден файл с история'
     Subscriptions have been successfully exported: 'Абонаментите бяха изнесени успешно'
     History object has insufficient data, skipping item: 'Историята няма достатъчно данни, прескачане на обекта'
