@@ -4015,10 +4015,10 @@ eslint-plugin-import-x@^4.16.1:
     stable-hash-x "^0.2.0"
     unrs-resolver "^1.9.2"
 
-eslint-plugin-jsdoc@^61.2.1:
-  version "61.2.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-61.2.1.tgz#9a7afd946a0a5c4cff6fa262fc4ddcc184d11bef"
-  integrity sha512-Htacti3dbkNm4rlp/Bk9lqhv+gi6US9jyN22yaJ42G6wbteiTbNLChQwi25jr/BN+NOzDWhZHvCDdrhX0F8dXQ==
+eslint-plugin-jsdoc@^61.4.1:
+  version "61.4.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-61.4.1.tgz#3a0b2f72ee67083677dce1a248217336786d1da4"
+  integrity sha512-3c1QW/bV25sJ1MsIvsvW+EtLtN6yZMduw7LVQNVt72y2/5BbV5Pg5b//TE5T48LRUxoEQGaZJejCmcj3wCxBzw==
   dependencies:
     "@es-joy/jsdoccomment" "~0.76.0"
     "@es-joy/resolve.exports" "1.2.0"
@@ -4120,15 +4120,15 @@ eslint-plugin-unicorn@^62.0.0:
     semver "^7.7.3"
     strip-indent "^4.1.1"
 
-eslint-plugin-vue@^10.5.1:
-  version "10.5.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-10.5.1.tgz#b172bab0b78100484e21726af138debb998a369f"
-  integrity sha512-SbR9ZBUFKgvWAbq3RrdCtWaW0IKm6wwUiApxf3BVTNfqUIo4IQQmreMg2iHFJJ6C/0wss3LXURBJ1OwS/MhFcQ==
+eslint-plugin-vue@^10.6.0:
+  version "10.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-10.6.0.tgz#c9e6d71320ad58fba6ffcb6c5d005737a9caae9c"
+  integrity sha512-TsoFluWxOpsJlE/l2jJygLQLWBPJ3Qdkesv7tBIunICbTcG0dS1/NBw/Ol4tJw5kHWlAVds4lUmC29/vlPUcEQ==
   dependencies:
     "@eslint-community/eslint-utils" "^4.4.0"
     natural-compare "^1.4.0"
     nth-check "^2.1.1"
-    postcss-selector-parser "^6.0.15"
+    postcss-selector-parser "^7.1.0"
     semver "^7.6.3"
     xml-name-validator "^4.0.0"
 
