@@ -55,8 +55,8 @@ export class SkipButton extends shaka.ui.Element {
   updateLocalisedStrings_() {
     const labelText =
       this.type_ === 'next'
-        ? i18n.global.t('Video.Play Next Video')
-        : i18n.global.t('Video.Play Previous Video')
+        ? i18n.global.t('Video.Next')
+        : i18n.global.t('Video.Previous')
 
     const shortcut =
       this.type_ === 'next'
