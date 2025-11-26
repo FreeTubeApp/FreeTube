@@ -426,7 +426,7 @@ export default defineComponent({
         }
 
         // extract localised title first and fall back to the not localised one
-        this.videoTitle = result.primary_info?.title.text ?? result.basic_info.title
+        this.videoTitle = result.primary_info?.title.text?.trim() ?? result.basic_info.title?.trim()
         this.videoViewCount = result.basic_info.view_count ?? (result.primary_info.view_count ? extractNumberFromString(result.primary_info.view_count.text) : null)
         this.license = result.secondary_info.metadata.rows.find(element => element.title?.text === 'License')?.contents[0]?.text
 

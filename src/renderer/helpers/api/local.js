@@ -1039,7 +1039,7 @@ export function parseShort(short, channelId, channelName) {
     return {
       type: 'video',
       videoId: reelItem.id,
-      title: reelItem.title.text,
+      title: reelItem.title.text?.trim(),
       author: channelName,
       authorId: channelId,
       viewCount: reelItem.views.isEmpty() ? null : parseLocalSubscriberCount(reelItem.views.text),
@@ -1052,7 +1052,7 @@ export function parseShort(short, channelId, channelName) {
     return {
       type: 'video',
       videoId: shortsLockupView.on_tap_endpoint.payload.videoId,
-      title: shortsLockupView.overlay_metadata.primary_text.text,
+      title: shortsLockupView.overlay_metadata.primary_text.text?.trim(),
       author: channelName,
       authorId: channelId,
       viewCount: shortsLockupView.overlay_metadata.secondary_text ? parseLocalSubscriberCount(shortsLockupView.overlay_metadata.secondary_text.text) : null,
@@ -1247,7 +1247,7 @@ export function parseLocalPlaylistVideo(video) {
     return {
       type: 'video',
       videoId: short.id,
-      title: short.title.text,
+      title: short.title.text?.trim(),
       viewCount: parseLocalSubscriberCount(short.views.text),
       lengthSeconds: ''
     }
@@ -1283,7 +1283,7 @@ export function parseLocalPlaylistVideo(video) {
     return {
       type: 'video',
       videoId: shortsLockupView.on_tap_endpoint.payload.videoId,
-      title: shortsLockupView.overlay_metadata.primary_text.text,
+      title: shortsLockupView.overlay_metadata.primary_text.text?.trim(),
       viewCount,
       lengthSeconds: ''
     }
@@ -1329,7 +1329,7 @@ export function parseLocalPlaylistVideo(video) {
     return {
       type: 'video',
       videoId: video_.id,
-      title: video_.title.text,
+      title: video_.title.text?.trim(),
       author: video_.author.name,
       authorId: video_.author.id,
       viewCount,
@@ -1355,7 +1355,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
     return {
       type: 'video',
       videoId: movie.id,
-      title: movie.title.text,
+      title: movie.title.text?.trim(),
       author: movie.author.name !== 'N/A' ? movie.author.name : channelName,
       authorId: movie.author.id !== 'N/A' ? movie.author.id : channelId,
       description: movie.description_snippet?.text,
@@ -1385,7 +1385,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
     return {
       type: 'video',
       videoId: video.video_id,
-      title: video.title.text,
+      title: video.title.text?.trim(),
       author: video.author?.name ?? channelName,
       authorId: video.author?.id ?? channelId,
       viewCount: video.views.text == null ? null : extractNumberFromString(video.views.text),
@@ -1436,7 +1436,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
     return {
       type: 'video',
       videoId: video.video_id,
-      title: video.title.text,
+      title: video.title.text?.trim(),
       author: video.author.name !== 'N/A' ? video.author.name : channelName,
       authorId: video.author.id !== 'N/A' ? video.author.id : channelId,
       description: video.description,
@@ -1545,7 +1545,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       return {
         type: 'video',
         videoId: lockupView.content_id,
-        title: lockupView.metadata.title.text,
+        title: lockupView.metadata.title.text?.trim(),
         author: lockupView.metadata.metadata?.metadata_rows[0].metadata_parts?.[0].text?.text,
         authorId: lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.payload.browseId,
         viewCount,
@@ -1686,7 +1686,7 @@ export function parseLocalWatchNextVideo(video) {
     return {
       type: 'video',
       videoId: video.id,
-      title: video.title.text,
+      title: video.title.text?.trim(),
       author: video.author.name,
       authorId: video.author.id,
       lengthSeconds: video.duration.seconds
@@ -1705,7 +1705,7 @@ export function parseLocalWatchNextVideo(video) {
     return {
       type: 'video',
       videoId: video.video_id,
-      title: video.title.text,
+      title: video.title.text?.trim(),
       author: video.author.name,
       authorId: video.author.id,
       viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
