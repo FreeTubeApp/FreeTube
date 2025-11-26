@@ -85,7 +85,7 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRouter } from 'vue-router'
 
 import FtCard from '../ft-card/ft-card.vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 
 import store from '../../store/index'
 
