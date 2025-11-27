@@ -764,8 +764,8 @@ Video:
   Loop Playlist: 'ניגון רשימת נגינה במחזוריות'
   Shuffle Playlist: 'ערבוב רשימת הנגינה'
   Reverse Playlist: 'נגינת רשימת הנגינה בסדר הפוך'
-  Play Next Video: 'נגינת הסרטון הבא'
-  Play Previous Video: 'נגינת הסרטון הקודם'
+  Previous: 'הקודם'
+  Next: 'הבא'
   # Context is "X People Watching"
   Watched: 'נצפה'
   Autoplay: 'ניגון אוטומטי'

@@ -408,8 +408,8 @@ Video:
   Loop Playlist: 'Llista de reproducció en bucle'
   Shuffle Playlist: 'Llista de reproducció en aleatori'
   Reverse Playlist: 'Llista de reproducció invertida'
-  Play Next Video: 'Reprodueix el vídeo següent'
-  Play Previous Video: 'Reprodueix el vídeo anterior'
+  Previous: Anterior
+  Next: Següent
   Watched: 'Visualitzat'
   Autoplay: 'Reproducció Automàtica'
   # As in a Live Video
