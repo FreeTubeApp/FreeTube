@@ -127,8 +127,6 @@ The first build with a green check mark is the latest build.
 
 * Homebrew Formulae (Mac only): [Download for Apple Silicon](https://github.com/PikachuEXE/homebrew-FreeTube)
 
-* makedeb Package Repository (MPR): [Download](https://mpr.makedeb.org/packages/freetube-bin)
-
 * Nix Packages: [Download](https://search.nixos.org/packages?query=freetube)
 
 * PortableApps (Windows Only): [Download](https://github.com/rddim/FreeTubePortable/releases) and [Source Code](https://github.com/rddim/FreeTubePortable)
