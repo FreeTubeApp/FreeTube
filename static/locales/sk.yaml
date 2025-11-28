@@ -249,7 +249,7 @@ Settings:
     Minimize to system tray: Minimalizovať do systémovej lišty
   Theme Settings:
     Theme Settings: 'Téma'
-    Match Top Bar with Main Color: 'Prispôsobiť hornú lištu s hlavnou farbou'
+    Match Top Bar with Main Color: 'Prispôsobiť hornú lištu hlavnej farbe'
     Base Theme:
       Base Theme: 'Základný motív'
       Black: 'Čierny'
@@ -274,51 +274,93 @@ Settings:
       Everforest Dark Medium: Everforest tmavý stredný
       Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
-      Main Color Theme: 'Predvolená farebná téma'
+      Main Color Theme: 'Hlavná farba témy'
       Red: 'Červená'
       Pink: 'Ružová'
       Purple: 'Fialová'
-      Deep Purple: 'Tmavo Fialová'
-      Indigo: 'Indigová modrá'
+      Deep Purple: 'Tmavofialová'
+      Indigo: 'Indigová'
       Blue: 'Modrá'
-      Light Blue: 'Bledomodrá'
+      Light Blue: 'Svetlomodrá'
       Cyan: 'Azúrová'
       Teal: 'Zelenomodrá'
       Green: 'Zelená'
-      Light Green: 'Bledozelená'
+      Light Green: 'Svetlozelená'
       Lime: 'Limetková'
       Yellow: 'Žltá'
       Amber: 'Jantárová'
       Orange: 'Oranžová'
       Deep Orange: 'Tmavooranžová'
-      Dracula Cyan: 'Dracula CAzúrováyan'
-      Dracula Green: 'Dracula Zelená'
-      Dracula Orange: 'Dracula Oranžová'
-      Dracula Pink: 'Dracula Ružová'
-      Dracula Purple: 'Dracula Fialová'
-      Dracula Red: 'Dracula Červená'
-      Dracula Yellow: 'Dracula Žltá'
-      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
-      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
-      Catppuccin Frappe Pink: Catppuccin Frappe Pink
-      Catppuccin Frappe Mauve: Catppuccin Frappe Mauve
-      Catppuccin Frappe Red: Catppuccin Frappe Red
-      Catppuccin Frappe Maroon: Catppuccin Frappe Maroon
-      Catppuccin Frappe Peach: Catppuccin Frappe Peach
-      Catppuccin Frappe Yellow: Catppuccin Frappe Yellow
-      Catppuccin Frappe Green: Catppuccin Frappe Green
-      Catppuccin Frappe Teal: Catppuccin Frappe Teal
-      Catppuccin Frappe Sky: Catppuccin Frappe Sky
-      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
-      Catppuccin Frappe Blue: Catppuccin Frappe Blue
-      Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
-      Catppuccin Latte Mauve: Catppuccin Latte Mauve
-      Catppuccin Latte Red: Catppuccin Latte Red
-      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
-      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
-      Catppuccin Mocha Pink: Catppuccin Mocha Pink
-      Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
-    Secondary Color Theme: 'Sekundárna farebná téma'
+      Dracula Cyan: 'Dracula azúrová'
+      Dracula Green: 'Dracula zelená'
+      Dracula Orange: 'Dracula oranžová'
+      Dracula Pink: 'Dracula ružová'
+      Dracula Purple: 'Dracula fialová'
+      Dracula Red: 'Dracula červená'
+      Dracula Yellow: 'Dracula žltá'
+      Catppuccin Frappe Rosewater: Catppuccin Frappe ružová voda
+      Catppuccin Frappe Flamingo: Catppuccin Frappe plameniakovoružová
+      Catppuccin Frappe Pink: Catppuccin Frappe ružová
+      Catppuccin Frappe Mauve: Catppuccin Frappe lilavá
+      Catppuccin Frappe Red: Catppuccin Frappe červená
+      Catppuccin Frappe Maroon: Catppuccin Frappe gaštanovohnedá
+      Catppuccin Frappe Peach: Catppuccin Frappe broskyňová
+      Catppuccin Frappe Yellow: Catppuccin Frappe žltá
+      Catppuccin Frappe Green: Catppuccin Frappe zelená
+      Catppuccin Frappe Teal: Catppuccin Frappe zelenomodrá
+      Catppuccin Frappe Sky: Catppuccin Frappe nebeská modrá
+      Catppuccin Frappe Sapphire: Catppuccin Frappe zafírová
+      Catppuccin Frappe Blue: Catppuccin Frappe modrá
+      Catppuccin Frappe Lavender: Catppuccin Frappe levanduľová
+      Catppuccin Latte Mauve: Catppuccin Latte lilavá
+      Catppuccin Latte Red: Catppuccin Latte červená
+      Catppuccin Mocha Rosewater: Catppuccin Mocha ružová voda
+      Catppuccin Mocha Flamingo: Catppuccin Mocha plameniakovoružová
+      Catppuccin Mocha Pink: Catppuccin Mocha ružová
+      Catppuccin Mocha Mauve: Catppuccin Mocha lilavá
+      Catppuccin Mocha Red: Catppuccin Mocha červená
+      Catppuccin Mocha Maroon: Catppuccin Mocha gaštanovohnedá
+      Catppuccin Mocha Peach: Catppuccin Mocha broskyňová
+      Catppuccin Mocha Yellow: Catppuccin Mocha žltá
+      Catppuccin Mocha Green: Catppuccin Mocha zelená
+      Catppuccin Mocha Teal: Catppuccin Mocha zelenomodrá
+      Catppuccin Mocha Sky: Catppuccin Mocha nebeská modrá
+      Catppuccin Mocha Sapphire: Catppuccin Mocha zafírová
+      Catppuccin Mocha Blue: Catppuccin Mocha modrá
+      Catppuccin Mocha Lavender: Catppuccin Mocha levanduľová
+      Gruvbox Dark Green: Gruvbox tmavozelená
+      Gruvbox Dark Yellow: Gruvbox tmavožltá
+      Gruvbox Dark Blue: Gruvbox tmavomodrá
+      Gruvbox Dark Purple: Gruvbox tmavofialová
+      Gruvbox Dark Aqua: Gruvbox tmavá akvamarínová
+      Gruvbox Dark Orange: Gruvbox tmavooranžová
+      Gruvbox Light Red: Gruvbox svetločervená
+      Gruvbox Light Blue: Gruvbox svetlomodrá
+      Gruvbox Light Purple: Gruvbox svetlofialová
+      Gruvbox Light Orange: Gruvbox svetlooranžová
+      Solarized Yellow: Solarized žltá
+      Solarized Orange: Solarized oranžová
+      Solarized Red: Solarized červená
+      Solarized Magenta: Solarized purpurová
+      Solarized Violet: Solarized fialková
+      Solarized Blue: Solarized modrá
+      Solarized Cyan: Solarized zelenomodrá
+      Solarized Green: Solarized zelená
+      Everforest Dark Red: Everforest tmavočervená
+      Everforest Dark Orange: Everforest tmavooranžová
+      Everforest Dark Yellow: Everforest tmavožltá
+      Everforest Dark Green: Everforest tmavozelená
+      Everforest Dark Aqua: Everforest tmavá akvamarínová
+      Everforest Dark Blue: Everforest tmavomodrá
+      Everforest Dark Purple: Everforest tmavofialová
+      Everforest Light Red: Everforest svetločervená
+      Everforest Light Orange: Everforest svetlooranžová
+      Everforest Light Yellow: Everforest svetložltá
+      Everforest Light Green: Everforest svetlozelená
+      Everforest Light Aqua: Everforest svetlá akvamarínová
+      Everforest Light Blue: Everforest svetlomodrá
+      Everforest Light Purple: Everforest svetlofialová
+    Secondary Color Theme: 'Sekundárna farba témy'
         #* Main Color Theme
     UI Scale: Veľkosť UI
     Disable Smooth Scrolling: Vypnúť plynulé scrollovanie
