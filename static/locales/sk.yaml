@@ -198,8 +198,8 @@ History:
   Search bar placeholder: Vyhľadať v histórii
   Case Sensitive Search: Vyhľadávanie s rozlišovaním veľkých a malých písmen
   Empty Search Message: Vo vašej histórii nie sú žiadne videá, ktoré by zodpovedali vášmu vyhľadávaniu
-  DateOldestHistory: Dátum zhliadnutia (najstaršie)
-  DateNewestHistory: Dátum zhliadnutia (najnovšie)
+  DateOldestHistory: Dátum pozerania (najstaršie)
+  DateNewestHistory: Dátum pozerania (najnovšie)
 Settings:
   # On Settings Page
   Settings: 'Nastavenia'
@@ -263,11 +263,11 @@ Settings:
       Everforest Light Hard: Everforest Ľahký Tvrdý
       Solarized Light: Solárne svetlo
       Catppuccin Mocha: Catpuccino Mocha
-      Everforest Dark Low: Everforest Dark Low
+      Everforest Dark Low: Everforest tmavá nízka
       Everforest Light Medium: Everforest Svetlý Stredný
-      Everforest Light Low: Everforest Light Low
+      Everforest Light Low: Everforest svetlá nízka
       Pastel Pink: Pastelovo ružová
-      Everforest Dark Hard: Everforest Dark Hard
+      Everforest Dark Hard: Everforest tmavá drsná
       Catppuccin Frappe: Frappé z mačacej mäty
       Hot Pink: Horúca ružová
       Solarized Dark: Solarizovaná tma
