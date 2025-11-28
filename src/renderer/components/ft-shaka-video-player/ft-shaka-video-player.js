@@ -1300,7 +1300,7 @@ export default defineComponent({
 
             if (isSilent && !isSkipping && !video_.paused && !video_.ended && !video_.muted) {
               if (!silenceStart) silenceStart = now
-              if (now - silenceStart > SilenceSkip.MIN_SILENCE_DURATION) {
+              if (now - silenceStart > SilenceSkip.MIN_SILENCE_DURATION_MS) {
                 gain.gain.setTargetAtTime(0, audioContext.currentTime, 0.025)
                 player.trickPlay(trickPlayFastForwardSpeed)
                 isSkipping = true
@@ -1308,7 +1308,7 @@ export default defineComponent({
               }
             } else if (!isSilent && isSkipping) {
               if (!soundStart) soundStart = now
-              if (now - soundStart > SilenceSkip.MIN_SOUND_DURATION) {
+              if (now - soundStart > SilenceSkip.MIN_SOUND_DURATION_MS) {
                 gain.gain.setTargetAtTime(1, audioContext.currentTime, 0.015)
                 setTimeout(() => {
                   resetSkip()

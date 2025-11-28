@@ -250,8 +250,8 @@ const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
 const SilenceSkip = {
   SILENCE_DETECTION_MULTIPLIER: 4, // Multiplier for silence detection. Higher = more sensitive
-  MIN_SILENCE_DURATION: 150, // Min silence duration in ms. Higher for longer silence before skipping. Lower for faster reaction.
-  MIN_SOUND_DURATION: 5, // Min sound duration in ms. Higher to avoid false positives for short sounds.
+  MIN_SILENCE_DURATION_MS: 150, // Min silence duration in ms. Higher for longer silence before skipping. Lower for faster reaction.
+  MIN_SOUND_DURATION_MS: 5, // Min sound duration in ms. Higher to avoid false positives for short sounds.
 }
 
 export {
