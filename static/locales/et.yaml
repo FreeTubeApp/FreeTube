@@ -476,7 +476,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Kõikide tellimuste ja profiilide import õnnestus'
     All subscriptions have been successfully imported: 'Kõikide tellimuste import õnnestus'
     Invalid subscriptions file: 'Vigane tellimuste fail'
-    This might take a while, please wait: 'Nüüd võib natuke aega kuluda, palun oota'
     Invalid history file: 'Vigane ajaloofail'
     Subscriptions have been successfully exported: 'Tellimuste eksportimine õnnestus'
     History object has insufficient data, skipping item: 'Jätan vahele puuduliku ajalookirje importimise'

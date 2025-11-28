@@ -141,7 +141,7 @@ import { computed, nextTick, onBeforeUnmount, onMounted, useTemplateRef, watch }
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtCard from '../ft-card/ft-card.vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 import FtShareButton from '../FtShareButton/FtShareButton.vue'
 import FtSubscribeButton from '../FtSubscribeButton/FtSubscribeButton.vue'
 
@@ -429,17 +429,20 @@ onMounted(() => {
     })
   }
 
-  downloadDropdownWatcher = watch(() => downloadButton.value.dropdownShown, (dropdownShown) => {
-    emit('set-info-area-sticky', !dropdownShown)
+  // live and post-live DVR don't have a download button
+  if (downloadButton.value) {
+    downloadDropdownWatcher = watch(() => downloadButton.value.dropdownShown, (dropdownShown) => {
+      emit('set-info-area-sticky', !dropdownShown)
 
-    if (dropdownShown && window.innerWidth >= 901) {
-      // adds a slight delay so we know that the dropdown has shown up
-      // and won't mess up our scrolling
-      nextTick(() => {
-        emit('scroll-to-info-area')
-      })
-    }
-  })
+      if (dropdownShown && window.innerWidth >= 901) {
+        // adds a slight delay so we know that the dropdown has shown up
+        // and won't mess up our scrolling
+        nextTick(() => {
+          emit('scroll-to-info-area')
+        })
+      }
+    })
+  }
 })
 
 onBeforeUnmount(() => {

@@ -5,7 +5,6 @@
         <FontAwesomeIcon
           :icon="['fas', 'rss']"
           class="subscriptionIcon"
-          fixed-width
         />
         {{ $t("Subscriptions.Subscriptions") }}
       </h2>
@@ -31,7 +30,6 @@
           <FontAwesomeIcon
             :icon="['fa', 'video']"
             class="subscriptionIcon"
-            fixed-width
           />
           {{ $t("Global.Videos") }}
         </div>
@@ -52,7 +50,6 @@
           <FontAwesomeIcon
             :icon="['fa', 'clapperboard']"
             class="subscriptionIcon"
-            fixed-width
           />
           {{ $t("Global.Shorts") }}
         </div>
@@ -73,7 +70,6 @@
           <FontAwesomeIcon
             :icon="['fa', 'tower-broadcast']"
             class="subscriptionIcon"
-            fixed-width
           />
           {{ $t("Global.Live") }}
         </div>
@@ -94,7 +90,6 @@
           <FontAwesomeIcon
             :icon="['fa', 'message']"
             class="subscriptionIcon"
-            fixed-width
           />
           {{ $t("Global.Posts") }}
         </div>

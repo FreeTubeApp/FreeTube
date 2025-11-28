@@ -521,7 +521,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Сва праћења и профили су успешно увезени'
     All subscriptions have been successfully imported: 'Сва праћења су успешно увезена'
     Invalid subscriptions file: 'Неважећи фајл праћења'
-    This might take a while, please wait: 'Ово може потрајати, сачекајте'
     Invalid history file: 'Неважећи фајл историје'
     Subscriptions have been successfully exported: 'Праћења су успешно извезена'
     History object has insufficient data, skipping item: 'Објекат историје нема довољно података, прескакање предмета'

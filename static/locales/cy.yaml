@@ -553,7 +553,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Mae''r holl danysgrifiadau a phroffiliau wedi''u mewnforio''n llwyddiannus'
     All subscriptions have been successfully imported: 'Mae pob tanysgrifiad wedi''i fewnforio''n llwyddiannus'
     Invalid subscriptions file: 'Ffeil tanysgrifiadau annilys'
-    This might take a while, please wait: ''
     Invalid history file: 'Ffeil hanes annilys'
     Subscriptions have been successfully exported: 'Mae tanysgrifiadau wedi''u hallforio''n llwyddiannus'
     History object has insufficient data, skipping item: 'Nid oes gan y gwrthrych hanes ddigon o ddata, gan hepgor yr eitem'

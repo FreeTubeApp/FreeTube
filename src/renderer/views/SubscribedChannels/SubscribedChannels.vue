@@ -5,7 +5,6 @@
         <FontAwesomeIcon
           :icon="['fas', 'user-check']"
           class="headingIcon"
-          fixed-width
         />
         {{ $t('Channels.Title') }}
       </h2>

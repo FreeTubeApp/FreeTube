@@ -517,7 +517,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Усі підписки та профілі успішно імпортовано'
     All subscriptions have been successfully imported: 'Усі підписки успішно імпортовано'
     Invalid subscriptions file: 'Недійсний файл підписок'
-    This might take a while, please wait: 'Це може тривати деякий час, зачекайте'
     Invalid history file: 'Недійсний файл історії'
     Subscriptions have been successfully exported: 'Підписки успішно експортовано'
     History object has insufficient data, skipping item: 'У об’єкта історії недостатньо даних, пропуск елемента'

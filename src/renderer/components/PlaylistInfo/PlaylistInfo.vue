@@ -268,7 +268,7 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRouter } from 'vue-router'
 
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 import FtInput from '../FtInput/FtInput.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtShareButton from '../FtShareButton/FtShareButton.vue'

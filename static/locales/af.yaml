@@ -88,20 +88,20 @@ Search Filters:
     All Types: 'Alle tipes'
     Videos: 'Video''s'
     Channels: 'Kanale'
-    Movies: ''
+    Movies: 'Rolprente'
     #& Playlists
   Duration:
-    Duration: ''
-    All Durations: ''
-    Short (< 4 minutes): ''
-    Medium (4 - 20 minutes): ''
-    Long (> 20 minutes): ''
+    Duration: 'Duur'
+    All Durations: 'Alle durasies'
+    Short (< 4 minutes): 'Kort (<4 minute)'
+    Medium (4 - 20 minutes): 'Medium (4 - 20 minute)'
+    Long (> 20 minutes): 'Lank (> 20 minute)'
   Features:
-    Features: ''
-    HD: ''
-    Subtitles: ''
-    Creative Commons: ''
-    3D: ''
+    Features: 'Funksies'
+    HD: 'HD'
+    Subtitles: 'Onderskrifte'
+    Creative Commons: 'Creative-Commons'
+    3D: '3D'
     Live: ''
     4K: ''
     360 Video: ''
@@ -886,14 +886,15 @@ Video:
     Show Modified Details: Toon gewysigde details
 #& Playlists
   DRMProtected: DRM-beskermde video’s kan nie in FreeTube afgespeel word nie omdat dit eiendoms geslotebronkomponente vereis. Indien u die video wil kyk, doen dit asb. op die amptelike YouTube-webwerf in ’n webblaaier met DRM geaktiveer.
+  Watched Progress Saved: Kykvordering is bewaar
 Playlist:
   #& About
   Playlist: 'Afspeellys'
   View Full Playlist: 'Bekyk volledige afspeellys'
   Last Updated On: 'Laas bygewerk op'
   Sort By:
-    DateAddedNewest: 'Laaste toegevoeg boaan'
-    DateAddedOldest: 'Eerste toegevoeg boaan'
+    DateAddedNewest: 'Datum toegevoeg (nuutste)'
+    DateAddedOldest: 'Datum toegevoeg (oudste)'
     AuthorAscending: 'Outeur (A-Z)'
     AuthorDescending: 'Outeur (Z-A)'
     VideoTitleAscending: 'Titel (A-Z)'
@@ -903,10 +904,10 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
-    VideoDurationAscending: Duur (korste eerste)
-    VideoDurationDescending: Duur (langste eerste)
-    PublishedOldest: Vroegste gepubliseer eerste
-    PublishedNewest: Laaste gepubliseer eerste
+    VideoDurationAscending: Duur (korste)
+    VideoDurationDescending: Duur (langste)
+    PublishedOldest: Datum gepubliseer (oudste)
+    PublishedNewest: Datum gepubliseer (nuutste)
 Change Format:
   Change Media Formats: 'Verander mediaformate'
   Use Dash Formats: 'Gebruik DASH-formate'
@@ -931,6 +932,7 @@ Share:
   YouTube URL copied to clipboard: 'YouTube-skakel is na knipbord gekopieer'
   YouTube Embed URL copied to clipboard: 'YouTube-inbedskakel is na knipbord gekopieer'
   YouTube Channel URL copied to clipboard: 'YouTube-kanaalskakel is na knipbord gekopieer'
+  Share Post: Deel plasing
 Clipboard:
   Copy failed: 'Kopiëring na knipbord het misluk'
   Cannot access clipboard without a secure connection: 'Geen toegang tot knipbord sonder ’n beveiligde verbinding'
@@ -947,7 +949,7 @@ Comments:
   Hide Comments: 'Versteek kommentare'
   Top comments: 'Topkommentare'
   Newest first: 'Nuutste eerste'
-  View {replyCount} replies: 'Sien {replyCount} antwoorde'
+  View {replyCount} replies: 'Sien 1 antwoord | Sien {replyCount} antwoorde'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
   Show More Replies: 'Toon nog antwoorde'
   There are no comments available for this video: 'Daar is geen reaksies beskikbaar vir hierdie video nie'
@@ -957,6 +959,9 @@ Comments:
   Subscribed: 'Ingeteken'
   Hearted: 'Met hart'
   There are no comments available for this post: Daar is geen kommentare beskikbaar vir hierdie plasing nie
+  Hide {replyCount} replies: Versteek 1 antwoord | Versteek {replyCount} antwoorde
+  View 1 reply from {channelName}: Sien 1 antwoord van {channelName}
+  View {replyCount} replies from {channelName} and others: Sien {replyCount} antwoorde van {channelName} en ander
 Up Next: 'Volgende'
 
 #Tooltips
@@ -987,6 +992,7 @@ Tooltips:
     Hide Channels: 'Voer ’n kanaal-ID in om alle video’s, afspeellyste en die kanaal self te versteek sodat dit nie in soek, stygend, gewildste, en aanbeveel weergegee word nie. Die ingevoerde kanaal-ID moet volledig ooreenstem en is hooflettergevoelig.'
     Hide Subscriptions Live: 'Hierdie instelling woord oorheers deur die toepwye “{appWideSetting}”-instelling in die “{subsection}” gedeelte van “{settingsSection}”'
     Hide Videos, Playlists and Channels Containing Text: 'Voer ’n woord, woordfragment of woordgroep in (nie hooflettergevoelig) om alle video’s en afspeellyste waarvan die oorspronklike titel dit bevat, regoor FreeTube te versteek, met uitsondering van net geskiedenis, u afspeellyste en video’s in afspeellyste.'
+    Hide Videos on Watch: Versteek bekykte video’s op die Video’s-, Shorts- en Live-oortjies op die blaaie Intekeninge en Kanale. Dit beïnvloed nie die Tuis-oortjie op kanaalblaaie nie
   Subscription Settings:
     Fetch Feeds from RSS: 'Wanneer geaktiveer, sal FreeTube RSS i.p.v. sy verstek metode gebruik om u intekenvoer op te haal. RSS is vinniger en voorkom IP-versperring, maar bied nie sekere inligting soos videoduur, status of plasings nie'
     Fetch Automatically: 'Wanneer geaktiveer, sal FreeTube u intekenvoer outomaties ophaal wanneer ’n nuwe venster geopen word.'
@@ -1108,5 +1114,9 @@ KeyboardShortcutPrompt:
       Situational: 'Toep: Omstandigheid'
       General: 'Toep: Algemeen'
   Keyboard Shortcuts: Sneltoetse
+  Home: Speol terug na die begin van die video
+  End: Spoel vorentoe na die einde van die video
+  Skip to Next Video: Gaan na die volgende video in ’n afspeellys of die volgende aanbevole video
+  Skip to Previous Video: Gaan na die volgende video in ’n afspeellys
 shortcutLabelSeparator: ｜
 Right-click or hold to see history: Regskliek of hou in om die geskiedenis te sien

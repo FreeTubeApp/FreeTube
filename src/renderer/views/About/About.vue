@@ -5,7 +5,6 @@
         <FontAwesomeIcon
           :icon="['fas', 'info-circle']"
           class="headingIcon"
-          fixed-width
         />
         {{ $t("About.About") }}
       </h2>

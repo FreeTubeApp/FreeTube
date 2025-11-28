@@ -471,7 +471,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Todas as subscrições e perfis foram importados com sucesso'
     All subscriptions have been successfully imported: 'Todas as subscrições foram importadas com sucesso'
     Invalid subscriptions file: 'Ficheiro de subscrições inválido'
-    This might take a while, please wait: 'Este processo pode ser demorado.'
     Invalid history file: 'Ficheiro de histórico inválido'
     Subscriptions have been successfully exported: 'As subscrições foram exportadas com sucesso'
     History object has insufficient data, skipping item: 'O histórico tem dados em falta, a ignorar'

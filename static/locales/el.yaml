@@ -463,7 +463,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Η εισαγωγή όλων των συνδρομών και των προφίλ έχει γίνει με επιτυχία'
     All subscriptions have been successfully imported: 'Η εισαγωγή των συνδρομών έχει γίνει με επιτυχία'
     Invalid subscriptions file: 'Μη συμβατό/έγκυρο αρχείο συνδρομών'
-    This might take a while, please wait: 'Αυτή η ενέργεια μπορεί να διαρκέσει για λίγο, παρακαλώ περιμένετε'
     Invalid history file: 'Μη συμβατό/έγκυρο αρχείο Ιστορικού'
     Subscriptions have been successfully exported: 'Η εξαγωγή των συνδρομών έχει γίνει με επιτυχία'
     History object has insufficient data, skipping item: 'Ένα αντικείμενο ιστορικού έχει εσφαλμένα δεδομένα, παράληψη του εξής στοιχείου'

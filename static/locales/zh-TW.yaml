@@ -162,7 +162,7 @@ User Playlists:
     Save: 儲存
     Toast:
       You haven't selected any playlist yet.: 您尚未選取任何播放清單。
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "影片已新增至 1 個播放清單 | 影片已新增至 {playlistCount} 個播放清單"
     Added {count} Times: 已新增 | 新增了 {count} 次
     Allow Adding Duplicate Video(s): 允許新增重複影片
     "{videoCount}/{totalVideoCount} Videos Already Added": 已新增 {videoCount}/{totalVideoCount} 部影片
@@ -466,7 +466,6 @@ Settings:
     History object has insufficient data, skipping item: 觀看紀錄物件資料不足，正在跳過項目
     Subscriptions have been successfully exported: 訂閱已成功匯出
     Invalid history file: 無效的觀看紀錄檔案
-    This might take a while, please wait: 這可能需要一段時間，請稍候
     Invalid subscriptions file: 無效的訂閱檔案
     All subscriptions have been successfully imported: 所有訂閱已成功匯入
     All subscriptions and profiles have been successfully imported: 所有訂閱與設定檔已成功匯入
@@ -867,6 +866,7 @@ Share:
   YouTube Channel URL copied to clipboard: YouTube頻道URL已複製到剪貼簿
   Invidious Channel URL copied to clipboard: Invidious頻道URL已複製到剪貼簿
   Share Channel: 分享頻道
+  Share Post: 分享貼文
 Mini Player: '迷你播放器'
 Comments:
   Comments: '留言'
