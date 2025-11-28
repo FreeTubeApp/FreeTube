@@ -318,7 +318,7 @@ Settings:
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
       Catppuccin Mocha Pink: Catppuccin Mocha Pink
       Catppuccin Mocha Mauve: Catppuccin Mocha Mauve
-    Secondary Color Theme: 'Sekundárna Farebná Téma'
+    Secondary Color Theme: 'Sekundárna farebná téma'
         #* Main Color Theme
     UI Scale: Veľkosť UI
     Disable Smooth Scrolling: Vypnúť plynulé scrollovanie
@@ -440,6 +440,7 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Adresa volaná službou SponsorBlock (Predvolená je https://sponsor.ajay.app)
     Enable SponsorBlock: Povoliť SponsorBlock
     SponsorBlock Settings: SponsorBlock
+    Category Color: Farba kategórie
   External Player Settings:
     Custom External Player Arguments: Vlastné argumenty externého prehrávača
     External Player: Externý prehrávač
