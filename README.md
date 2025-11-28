@@ -55,8 +55,8 @@ longer track you using cookies or JavaScript. Your subscriptions, playlists and 
 * View and search your local subscriptions, playlists and history
 * Organize your subscriptions into "Profiles" to create a more focused feed
 * Export & import subscriptions
-* Youtube Trending
-* Youtube Chapters
+* YouTube Trending
+* YouTube Chapters
 * Most popular videos page based on the set Invidious instance
 * SponsorBlock
 * DeArrow
@@ -117,7 +117,7 @@ The first build with a green check mark is the latest build.
 
 ### Unofficial Downloads
 > [!WARNING]
-> These builds are maintained by the community. While they should be safe, download at your own risk. There may be issues with using these versus the official builds. Any issues specific with these builds should be sent to their respective maintainer. Make sure u always try an [official download](https://github.com/freetubeapp/freetube/#official-downloads) before reporting your issue to us!
+> These builds are maintained by the community. While they should be safe, download at your own risk. There may be issues with using these versus the official builds. Any issues specific with these builds should be sent to their respective maintainer. Make sure you always try an [official download](https://github.com/freetubeapp/freetube/#official-downloads) before reporting your issue to us!
 
 * Arch User Repository (AUR): [Download](https://aur.archlinux.org/packages/freetube-bin/)
 
