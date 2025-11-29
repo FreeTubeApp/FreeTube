@@ -706,6 +706,8 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Zadajte ID kanála, aby sa všetky videá, playlisty a samotný kanál nezobrazovali vo vyhľadávaní, trendoch, najobľúbenejších a odporúčaných položkách. Zadané ID kanála musí byť úplne zhodné a rozlišujú sa veľké a malé písmená.
     Hide Videos on Watch: Skryje pozerané videá z kariet Videá, Krátke a Naživo na stránkach Odber a Kanál. Toto neovplyvní kartu Domov na stránkach Kanál
+    Hide Videos, Playlists and Channels Containing Text: Zadajte slovo, fragment slova alebo frázu (necitlivé na veľkosť písmen) na skrytie všetkých videí, playlistov a kanálov, ktorých originálne názvy ho obsahujú v celom FreeTube, okrem kariet História, Vaše playlisty a videí vnútri playlistov.
+    Hide Subscriptions Live: Toto nastavenie je prepísané nastavením celej aplikácie "{appWideSetting}", v časti "{subsection}" sekcie "{settingsSection}"
   SponsorBlock Settings:
     UseDeArrowThumbnails: Nahradiť miniatúry videí miniatúrami z DeArrow.
     UseDeArrowTitles: Nahradiť názvy videí názvami, ktoré zadali používatelia z DeArrow.
