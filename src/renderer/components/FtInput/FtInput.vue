@@ -32,8 +32,8 @@
       :class="{
         visible: inputDataPresent || showOptions
       }"
-      :aria-label="t('Search Bar.Clear Input')"
-      :title="t('Search Bar.Clear Input')"
+      :aria-label="t('Search bar.Clear input')"
+      :title="t('Search bar.Clear input')"
       @click="handleClearTextClick"
     >
       <FontAwesomeIcon
