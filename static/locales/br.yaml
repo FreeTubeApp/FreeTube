@@ -143,6 +143,7 @@ Trending:
   Trending: 'Diouzh ar cʼhiz'
   Gaming: 'C''hoarioù video'
   Trending Tabs: 'Ivinelloù ar re diouzh ar c''hiz'
+  Sports: Sport
 Most Popular: 'Ar muiañ a verzh ganto'
 Feed:
   Feed Last Updated: '{feedName} hizivadenn diwezhañ ar wazh : {date}'
@@ -238,7 +239,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: 'N''ho peus diuzet ur roll-videoioù c''hoazh.'
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Video ouzhpennet d'ur roll-videoioù | Video ouzhpennet da {playlistCount} roll-videoioù"
   CreatePlaylistPrompt:
     New Playlist Name: 'Anv nevez ar roll-videoioù'
     Create: 'Krouiñ'
@@ -981,6 +982,7 @@ Share:
   YouTube URL copied to clipboard: 'Liamm YouTube eilet er golver'
   YouTube Embed URL copied to clipboard: 'Liamm lenner enkorfet YouTube eilet er golver'
   YouTube Channel URL copied to clipboard: 'Liamm YouTube ar chadenn eilet er golver'
+  Share Post: Rannañ an embann
 Clipboard:
   Copy failed: 'Eilañ er golver c''hwitet'
   Cannot access clipboard without a secure connection: 'Ne c''haller ket adtapout ar golver hep ur c''hennask suraet'
