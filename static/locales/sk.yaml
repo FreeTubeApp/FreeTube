@@ -665,14 +665,14 @@ Comments:
 Up Next: 'Nasledujúci'
 
 # Toast Messages
-Local API Error (Click to copy): 'Local API chyba (kliknutím skopírujete)'
-Invidious API Error (Click to copy): 'Invidious API chyba (kliknutím skopírujete)'
+Local API Error (Click to copy): 'Chyba lokálneho API (kliknite pre kopírovanie)'
+Invidious API Error (Click to copy): 'Chyba Invidious API (kliknite pre kopírovanie)'
 Falling back to Invidious API: 'Návrat k Invidious API'
-Falling back to Local API: 'Návrat k local API'
-Loop is now disabled: 'Opakovanie je teraz deaktivované'
-Loop is now enabled: 'Opakovanie je teraz povolené'
-Shuffle is now disabled: 'Náhodné prehrávanie je teraz zakázané'
-Shuffle is now enabled: 'Náhodné prehrávanie je teraz povolené'
+Falling back to Local API: 'Návrat k lokálnemu API'
+Loop is now disabled: 'Slučka je teraz vypnutá'
+Loop is now enabled: 'Slučka je teraz zapnutá'
+Shuffle is now disabled: 'Zamiešanie je teraz vypnuté'
+Shuffle is now enabled: 'Zamiešanie je teraz zapnuté'
 Playing Next Video: 'Prehrávanie nasledujúceho videa'
 Playing Previous Video: 'Prehrávanie predchádzajúceho videa'
 Canceled next video autoplay: 'Zrušené automatické prehrávanie ďalšieho videa'
@@ -680,11 +680,12 @@ Canceled next video autoplay: 'Zrušené automatické prehrávanie ďalšieho vi
 
 Yes: 'Áno'
 No: 'Nie'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: Toto video nie je k dispozícii z dôvodu chýbajúcich formátov. Môže sa to stať z dôvodu nedostupnosti krajiny.
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Toto video nie je dostupné kvôli chýbajúcim formátom. Toto sa môže stať kvôli nedostupnosti krajiny.
 The playlist has been reversed: Playlist bol obrátený
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Keď je táto funkcia zapnutá, FreeTube bude namiesto svojej predvolenej metódy používať RSS na získanie vášho odberového kanála. RSS je rýchlejší a zabraňuje blokovaniu IP, ale neposkytuje určité informácie, ako je dĺžka videa, stav živého vysielania alebo príspevky
+    Fetch Feeds from RSS: Keď je zapnuté, FreeTube použije RSS namiesto predvolenej metódy na získanie vášho odoberaného kanála. RSS je rýchlejší a zabraňuje blokovaniu IP, ale neposkytuje určité informácie ako trvanie videa, stav naživo alebo príspevky
+    Fetch Automatically: Keď je zapnuté, FreeTube automaticky načíta váš odoberanýkanál pri spustení a keď je otvorené nové okno.
   Player Settings:
     Default Video Format: Nastavte formáty používané pri prehrávaní videa. Formáty DASH umožňujú prehrávanie vo vyššej kvalite. Staršie formáty sú obmedzené na maximálne rozlíšenie 360p, ale využívajú menšiu šírku pásma. Formáty zvuku sú iba audio streamy.
     Proxy Videos Through Invidious: Namiesto priameho pripojenia k YouTube sa pripojí k Invidious, aby poskytoval videá.
@@ -704,6 +705,12 @@ Tooltips:
     Custom External Player Arguments: Akékoľvek vlastné argumenty príkazového riadka, ktoré chcete odovzdať externému prehrávaču.
   Distraction Free Settings:
     Hide Channels: Zadajte ID kanála, aby sa všetky videá, playlisty a samotný kanál nezobrazovali vo vyhľadávaní, trendoch, najobľúbenejších a odporúčaných položkách. Zadané ID kanála musí byť úplne zhodné a rozlišujú sa veľké a malé písmená.
+    Hide Videos on Watch: Skryje pozerané videá z kariet Videá, Krátke a Naživo na stránkach Odber a Kanál. Toto neovplyvní kartu Domov na stránkach Kanál
+  SponsorBlock Settings:
+    UseDeArrowThumbnails: Nahradiť miniatúry videí miniatúrami z DeArrow.
+    UseDeArrowTitles: Nahradiť názvy videí názvami, ktoré zadali používatelia z DeArrow.
+  Experimental Settings:
+    Replace HTTP Cache: Zakáže diskovú cache HTTP Electron a povolí vlastnú cache obrázkov v pamäti. Vedie k zvýšenému použitiu RAM.
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Naozaj chcete odstrániť vybraté kanály?  Týmto sa neodstráni kanál z iného profilu.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
@@ -745,7 +752,7 @@ Version {versionNumber} is now available!  Click for more details: Verzia {versi
 Locale Name: Slovenčina
 Playing Next Video Interval: Prehrávanie ďalšieho videa okamžite. Kliknite pre zrušenie. | Prehrávanie ďalšieho videa o {nextVideoInterval} sekundu. Kliknite pre zrušenie. | Prehrávanie ďalšieho videa o {nextVideoInterval} sekúnd. Kliknite pre zrušenie.
 More: Viac
-Unknown YouTube url type, cannot be opened in app: Neznámy typ adresy URL YouTube, v aplikácii sa nedá otvoriť
+Unknown YouTube url type, cannot be opened in app: Neznámy typ adresy URL YouTube, nemôže byť otvorený v aplikácii
 Open New Window: Otvoriť nové okno
 Default Invidious instance has been set to {instance}: Predvolená inštancia Invidious bola nastavená na {instance}
 Search Bar:
