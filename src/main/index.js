@@ -1190,6 +1190,12 @@ function runApp() {
     }
   })
 
+  ipcMain.on(IpcChannels.SET_WINDOW_TITLE, (event, title) => {
+    if (isFreeTubeUrl(event.senderFrame.url) && typeof title === 'string') {
+      BrowserWindow.fromWebContents(event.sender)?.setTitle(title)
+    }
+  })
+
   function relaunch() {
     if (process.env.NODE_ENV === 'development') {
       app.exit(parseInt(process.env.FREETUBE_RELAUNCH_EXIT_CODE))
