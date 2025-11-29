@@ -106,9 +106,9 @@ Trending:
   Gaming: Hry
   Sports: Šport
 Most Popular: 'Najpopulárnejšie'
-Playlists: 'Playlist'
+Playlists: 'Playlisty'
 User Playlists:
-  Your Playlists: 'Tvoj playlist'
+  Your Playlists: 'Vaše playlisty'
   You have no playlists. Click on the create new playlist button to create a new one.: Nemáte žiadne playlisty. Kliknutím na tlačidlo playlistu vytvoríte nový.
   Empty Search Message: V tomto playliste nie sú žiadne videá, ktoré by zodpovedali vášmu vyhľadávaniu
   Add to Playlist: Pridať do playlistu
@@ -116,7 +116,7 @@ User Playlists:
   Copy Playlist: Kopírovať playlist
   Search bar placeholder: Vyhľadať playlisty
   Create New Playlist: Vytvoriť nový playlist
-  This playlist currently has no videos.: Tento playlist momentálne neobsahuje žiadne videá.
+  This playlist currently has no videos.: Tento playlist momentálne nemá žiadne videá.
   Add to Favorites: Pridať do playlistu {playlistName}
   Remove from Favorites: Odobrať z playlistu {playlistName}
   Playlist Name: Názov playlistu
@@ -133,22 +133,22 @@ User Playlists:
     Toast:
       This playlist does not exist: Tento playlist neexistuje
       Video has been removed: Video bolo odstránené
-      There was a problem with removing this video: Pri odstraňovaní tohto videa sa vyskytol problém
+      There was a problem with removing this video: Došlo k problému s odstránením tohto videa
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Niektoré videá v playliste ešte nie sú načítané. Ak chcete napriek tomu skopírovať, kliknite sem.
       "{videoCount} video(s) have been removed": '1 video bolo odstránené | Počet odstránených videí: {videoCount}'
       Playlist {playlistName} has been deleted.: Playlist {playlistName} bol odstránený.
       There were no videos to remove.: Neboli žiadne videá na odstránenie.
       Playlist has been updated.: Playlist bol aktualizovaný.
       This playlist is protected and cannot be removed.: Tento playlist je chránený a nemožno ho odstrániť.
-      This video cannot be moved up.: Toto video nie je možné posunúť nahor.
-      This video cannot be moved down.: Toto video nie je možné posunúť nadol.
+      This video cannot be moved up.: Toto video nemôže byť posunuté nahor.
+      This video cannot be moved down.: Toto video nemôže byť posunuté nadol.
       This playlist has a video with a duration error: Tento playlist obsahuje aspoň jedno video, ktoré nemá dĺžku trvania, bude zoradený tak, akoby jeho dĺžka trvania bola nulová.
       There was an issue with updating this playlist.: Pri aktualizácii tohto playlistu sa vyskytol problém.
-      Video has been removed. Click here to undo.: Video bolo odstránené. Ak chcete akciu vrátiť späť, kliknite sem.
+      Video has been removed. Click here to undo.: Video bolo odstránené. Kliknite sem pre vrátenie späť.
       Playlist name cannot be empty. Please input a name.: Meno zoznamu nemôže byť prázdne. Prosím zadajte názov.
-      This playlist is already being used for quick bookmark.: Tento zoznam skladieb sa už používa na rýchle uloženie do záložiek.
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Namiesto {oldPlaylistName} sa teraz používa tento playlist na rýchle pridanie do záložiek. Kliknutím sem zrušíte túto zmenu
-      This playlist is now used for quick bookmark: Tento playlist sa teraz používa na rýchle uloženie záložiek
+      This playlist is already being used for quick bookmark.: Tento playlist sa už používa pre rýchle záložky.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Tento playlist sa teraz používa pre rýchle záložky namiesto {oldPlaylistName}. Kliknite sem pre vrátenie späť
+      This playlist is now used for quick bookmark: Tento playlist sa teraz používa pre rýchle záložky
       Reverted to use {oldPlaylistName} for quick bookmark: Vrátené na použitie {oldPlaylistName} pre rýchle záložky
     Search for Videos: Vyhľadať videá
   Sort By:
@@ -160,11 +160,11 @@ User Playlists:
     LatestPlayedFirst: Dátum prehrávania (najnovšie)
     EarliestPlayedFirst: Dátum prehrávania (najstaršie)
     EarliestUpdatedFirst: Dátum aktualizácie (najstaršie)
-  Are you sure you want to delete this playlist? This cannot be undone: Naozaj chcete odstrániť tento playlist? Toto sa nedá vrátiť späť.
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Naozaj chcete z tohto playlistu odstrániť 1 duplicitné video? Toto sa nedá vrátiť späť. | Naozaj chcete z tohto zoznamu videí odstrániť duplicitné videá ({playlistItemCount})? Toto sa nedá vrátiť späť.
+  Are you sure you want to delete this playlist? This cannot be undone: Naozaj chcete vymazať tento playlist? Toto sa nedá vrátiť späť.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Naozaj chcete z tohto playlistu odstrániť 1 duplicitné video? Toto sa nedá vrátiť späť. | Naozaj chcete z tohto playlistu odstrániť duplicitné videá v počte {playlistItemCount}? Toto sa nedá vrátiť späť.
   Export Playlist: Exportovať tento playlist
   The playlist has been successfully exported: Playlist bol úspešne exportovaný
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Naozaj chcete z tohto playlistu odstrániť 1 sledované video? Toto sa nedá vrátiť späť. | Naozaj chcete z tohto playlistu odstrániť sledované videá ({playlistItemCount})? Toto sa nedá vrátiť späť.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Naozaj chcete z tohto playlistu odstrániť 1 pozerané video? Toto sa nedá vrátiť späť. | Naozaj chcete z tohto playlistu odstrániť pozerané videá v počte {playlistItemCount}? Toto sa nedá vrátiť späť.
   Delete Playlist: Vymazať playlist
   AddVideoPrompt:
     Allow Adding Duplicate Video(s): Povoliť pridávanie duplikátnych videí
@@ -178,10 +178,10 @@ User Playlists:
       You haven't selected any playlist yet.: Zatiaľ ste nevybrali žiadny zoznam skladieb.
     Save: uložiť
     "{videoCount}/{totalVideoCount} Videos Will Be Added": Budú pridané videá ({videoCount}/{totalVideoCount})
-  Quick Bookmark Enabled: Rýchle záložky povolené
-  Enable Quick Bookmark With This Playlist: Povoliť rýchle záložky v tomto zozname
+  Quick Bookmark Enabled: Rýchle záložky zapnuté
+  Enable Quick Bookmark With This Playlist: Zapnúť rýchle záložky v tomto playliste
   TotalTimePlaylist: 'Celkový čas: {duration}'
-  Cannot delete the quick bookmark target playlist.: Zoznam cieľov rýchleho ukladania záložiek nie je možné odstrániť.
+  Cannot delete the quick bookmark target playlist.: Nie je možné vymazať cieľový playlist rýchlych záložiek.
   CreatePlaylistPrompt:
     Create: Vytvoriť
     Toast:
