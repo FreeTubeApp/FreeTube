@@ -96,7 +96,7 @@ Subscriptions:
   Empty Channels: Vaše odoberané kanály v súčasnosti nemajú žiadne videá.
   Load More Posts: Načítať ďalšie príspevky
   Subscriptions Tabs: Záložky s odbermi
-  All Subscription Tabs Hidden: Všetky záložky odberov sú skryté. Ak tu chcete vidieť obsah, zrušte skrytie niektorých záložiek v sekcii "{subsection}" v časti "{settingsSection}".
+  All Subscription Tabs Hidden: Všetky karty odberov sú skryté. Ak tu chcete vidieť obsah, odkryte niektoré karty v sekcii "{subsection}" v časti "{settingsSection}".
   Error Channels: Kanály s chybami
   Empty Posts: Vaše odoberané kanály momentálne nemajú žiadne príspevky.
   Disabled Automatic Fetching: Vypli ste automatické načítanie odberov. Obnovte odbery, aby ste ich tu videli.
@@ -134,18 +134,18 @@ User Playlists:
       This playlist does not exist: Tento playlist neexistuje
       Video has been removed: Video bolo odstránené
       There was a problem with removing this video: Došlo k problému s odstránením tohto videa
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Niektoré videá v playliste ešte nie sú načítané. Ak chcete napriek tomu skopírovať, kliknite sem.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Niektoré videá v playliste nie sú ešte načítané. Ak chcete predsa len skopírovať, kliknite sem.
       "{videoCount} video(s) have been removed": '1 video bolo odstránené | Počet odstránených videí: {videoCount}'
-      Playlist {playlistName} has been deleted.: Playlist {playlistName} bol odstránený.
+      Playlist {playlistName} has been deleted.: Playlist {playlistName} bol vymazaný.
       There were no videos to remove.: Neboli žiadne videá na odstránenie.
       Playlist has been updated.: Playlist bol aktualizovaný.
-      This playlist is protected and cannot be removed.: Tento playlist je chránený a nemožno ho odstrániť.
+      This playlist is protected and cannot be removed.: Tento playlist je chránený a nemôže byť odstránený.
       This video cannot be moved up.: Toto video nemôže byť posunuté nahor.
       This video cannot be moved down.: Toto video nemôže byť posunuté nadol.
-      This playlist has a video with a duration error: Tento playlist obsahuje aspoň jedno video, ktoré nemá dĺžku trvania, bude zoradený tak, akoby jeho dĺžka trvania bola nulová.
-      There was an issue with updating this playlist.: Pri aktualizácii tohto playlistu sa vyskytol problém.
+      This playlist has a video with a duration error: Tento playlist obsahuje aspoň jedno video, ktoré nemá trvanie, bude zoradený akoby jeho trvanie bolo nula.
+      There was an issue with updating this playlist.: Došlo k problému s aktualizáciou tohto playlistu.
       Video has been removed. Click here to undo.: Video bolo odstránené. Kliknite sem pre vrátenie späť.
-      Playlist name cannot be empty. Please input a name.: Meno zoznamu nemôže byť prázdne. Prosím zadajte názov.
+      Playlist name cannot be empty. Please input a name.: Názov playlistu nemôže byť prázdny. Prosím zadajte názov.
       This playlist is already being used for quick bookmark.: Tento playlist sa už používa pre rýchle záložky.
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Tento playlist sa teraz používa pre rýchle záložky namiesto {oldPlaylistName}. Kliknite sem pre vrátenie späť
       This playlist is now used for quick bookmark: Tento playlist sa teraz používa pre rýchle záložky
@@ -167,17 +167,17 @@ User Playlists:
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Naozaj chcete z tohto playlistu odstrániť 1 pozerané video? Toto sa nedá vrátiť späť. | Naozaj chcete z tohto playlistu odstrániť pozerané videá v počte {playlistItemCount}? Toto sa nedá vrátiť späť.
   Delete Playlist: Vymazať playlist
   AddVideoPrompt:
-    Allow Adding Duplicate Video(s): Povoliť pridávanie duplikátnych videí
-    N playlists selected: '{playlistCount} vybraných'
+    Allow Adding Duplicate Video(s): Povoliť pridávanie duplicitnych videí
+    N playlists selected: 'Vybrané: {playlistCount}'
     Search in Playlists: Vyhľadať v playlistoch
     Added {count} Times: Už pridané | Pridané {count} krát
-    Select a playlist to add your N videos to: Vyberte zoznam videí, do ktorého chcete pridať svoje video | Vyberte zoznam videí, do ktorého chcete pridať svoje {videoCount} videá
+    Select a playlist to add your N videos to: Vyberte playlist pre pridanie vášho videa | Vyberte playlist pre pridanie vašich {videoCount} videí
     "{videoCount}/{totalVideoCount} Videos Already Added": 'Počet už pridaných videí: {videoCount}/{totalVideoCount}'
     Toast:
       "Video(s) added to {playlistCount} playlists": "Video(á) pridané do 1 playlistu | Video(á) pridané do {playlistCount} playlistov"
-      You haven't selected any playlist yet.: Zatiaľ ste nevybrali žiadny zoznam skladieb.
-    Save: uložiť
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": Budú pridané videá ({videoCount}/{totalVideoCount})
+      You haven't selected any playlist yet.: Ešte ste nevybrali žiadny playlist.
+    Save: Uložiť
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": 'Budú pridané videá: {videoCount}/{totalVideoCount}'
   Quick Bookmark Enabled: Rýchle záložky zapnuté
   Enable Quick Bookmark With This Playlist: Zapnúť rýchle záložky v tomto playliste
   TotalTimePlaylist: 'Celkový čas: {duration}'
@@ -185,10 +185,10 @@ User Playlists:
   CreatePlaylistPrompt:
     Create: Vytvoriť
     Toast:
-      There was an issue with creating the playlist.: Pri vytváraní zoznamu skladieb sa vyskytol problém.
-      There is already a playlist with this name. Please pick a different name.: Zoznam skladieb s týmto názvom už existuje. Vyberte iný názov.
-      Playlist {playlistName} has been successfully created.: Zoznam skladieb {playlistName} bol úspešne vytvorený.
-    New Playlist Name: Názov nového zoznamu skladieb
+      There was an issue with creating the playlist.: Došlo k problému s vytvorením playlistu.
+      There is already a playlist with this name. Please pick a different name.: Playlist s týmto názvom už existuje. Vyberte iný názov.
+      Playlist {playlistName} has been successfully created.: Playlist {playlistName} bol úspešne vytvorený.
+    New Playlist Name: Názov nového playlistu
   Export list of URLs: Exportovať zoznam adries URL
 History:
   # On History Page
@@ -365,7 +365,7 @@ Settings:
     UI Scale: Veľkosť UI
     Disable Smooth Scrolling: Vypnúť plynulé scrollovanie
     Expand Side Bar by Default: Roztvárať bočný panel ako východzie nastavenie
-    Hide Side Bar Labels: Skryť označenia v bočnom paneli
+    Hide Side Bar Labels: Skryť označenia bočného panelu
     Hide FreeTube Header Logo: Skryť logo hlavičky FreeTube
   Player Settings:
     Player Settings: 'Prehrávač'
@@ -373,7 +373,7 @@ Settings:
     Turn on Subtitles by Default: 'Zapínať titulky predvolene'
     Autoplay Videos: 'Spustiť videá automaticky'
     Proxy Videos Through Invidious: 'Prehnať videá cez Invidious'
-    Autoplay Playlists: 'Automatické prehrávanie videí z playlistov'
+    Autoplay Playlists: 'Automaticky prehrávať videá v playliste'
     Enable Theatre Mode by Default: 'Predvolene zapínať Kino mód'
     Default Volume: 'Predvolená hlasitosť'
     Default Playback Rate: 'Východzia rýchlosť prehrávania'
@@ -444,7 +444,7 @@ Settings:
     Hide Video Views: Skryť počet zhliadnutí
     Distraction Free Settings: Bez rušenia
     Hide Active Subscriptions: Skryť aktívne odbery
-    Hide Playlists: Skryť zoznamy videí
+    Hide Playlists: Skryť playlisty
     Hide Videos on Watch: 'Skryť videá po zhliadnutí'
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Naozaj chcete odstrániť všetky odbery a profily? Toto je nenávratná akcia.
@@ -462,6 +462,10 @@ Settings:
     Clear Search History and Cache: Vymazať históriu vyhľadávania a vyrovnávaciu pamäť
     Are you sure you want to clear out your search history and cache?: Naozaj chcete vymazať históriu vyhľadávania a vyrovnávaciu pamäť?
     Search history and cache have been cleared: História vyhľadávania a vyrovnávacia pamäť boli vymazané
+    Save Watched Videos With Last Viewed Playlist: Ukladať pozerané videá do naposledy zobrazeného playlistu
+    Remove All Playlists: Odstrániť všetky playlisty
+    All playlists have been removed: Všetky playlisty boli odstránené
+    Are you sure you want to remove all your playlists?: Naozaj chcete odstrániť všetky vaše playlisty?
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikácia požaduje reštart, aby sa zmeny prejavili. Reštartovať a aplikovať zmeny?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Chyba pri získavaní informácií o sieti. Je váš server proxy správne nakonfigurovaný?
@@ -803,6 +807,13 @@ KeyboardShortcutPrompt:
   Show Keyboard Shortcuts: Zobraziť klávesové skratky
   History Backward: Prejsť o jednu stránku naspäť
   History Forward: Prejsť o jednu stránku dopredu
+  Skip to Next Video: Preskočiť na ďalšie video v playliste alebo ďalšie odporúčané video
+  End: Posunúť na koniec videa
+  Home: Posunúť na začiatok videa
+  Skip by Tenths: Preskočiť cez video percentom (3 preskočenia na 30% trvania)
+  Next Chapter: Ďalšia kapitola
+  Last Chapter: Posledná kapitola
+  Small Fast Forward: Rýchlo posunúť X sekúnd na základe intervalu rýchleho posunu a aktuálnej rýchlosti prehrávania videa
 Keys:
   arrowdown: Šípka nadol
   arrowleft: Šípka doľava
