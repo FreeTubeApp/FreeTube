@@ -781,17 +781,17 @@ Feed:
 Go to page: Prejsť na {page}
 Right-click or hold to see history: Kliknite alebo podržte pravé tlačidlo myši aby sa zobrazila história
 KeyboardShortcutPrompt:
-  Toggle Developer Tools: Prepnúť vývojárske nástroje
+  Toggle Developer Tools: Prepnúť nástroje pre vývojárov
   Zoom In: Priblížiť
   Zoom Out: Oddialiť
-  Fullscreen: Prepnúť na celú obrazovku
+  Fullscreen: Prepnúť celú obrazovku
   Focus Secondary Search: Zamerať na sekundárnu lištu vyhľadávania (ak je k dispozícii)
   Focus Search: Zamerať na lištu vyhľadávania
   Search in New Window: Vyhľadávať v novom okne
   Skip to Previous Video: Preskočiť na predchádzajúce video v playliste
   Volume Up: Zvýšiť hlasitosť
-  Decrease Video Speed: Znížiť rýchlosť videa
-  Increase Video Speed: Zvýšiť rýchlosť videa
+  Decrease Video Speed: Znížiť rýchlosť videa na základe intervalu rýchlosti zvukovej stopy videa
+  Increase Video Speed: Zvýšiť rýchlosť videa na základe intervalu rýchlosti zvukovej stopy videa
   New Window: Vytvoriť nové okno
   Navigate to Settings: Prejsť na stránku Nastavenia
   Navigate to History: Prejsť na stránku História
@@ -814,6 +814,23 @@ KeyboardShortcutPrompt:
   Next Chapter: Ďalšia kapitola
   Last Chapter: Posledná kapitola
   Small Fast Forward: Rýchlo posunúť X sekúnd na základe intervalu rýchleho posunu a aktuálnej rýchlosti prehrávania videa
+  Small Rewind: Posunúť dozadu X sekúnd na základe intervalu posunu dozadu a aktuálnej rýchlosti prehrávania videa
+  Volume Down: Znížiť hlasitosť
+  Next Frame: Ďalší rámček (pri pauze)
+  Last Frame: Predchádzajúci rámček (pri pauze)
+  Reset Zoom: Resetovať úroveň priblíženia / rozpätia používateľského rozhrania
+  Close Window: Zatvoriť okno
+  Minimize Window: Minimalizovať okno
+  Take Screenshot: Urobiť snímku obrazovky
+  Theatre Mode: Prepnúť režim kina
+  Full Window: Prepnúť celé okno
+  Mute: Prepnúť stlmenie
+  Large Fast Forward: Posunúť dopredu 10 sekúnd / Rýchlo posunúť video dopredu na základe aktuálnej rýchlosti prehrávania videa
+  Play: Prepnúť prehrávanie/pauzu
+  Large Rewind: Posunúť dozadu 10 sekúnd / Posunúť video dozadu na základe aktuálnej rýchlosti prehrávania videa
+  Picture in Picture: Prepnúť režim obraz v obraze
+  Stats: Zobraziť štatistiku videa
+  Captions: Prepnúť titulky ZAP/VYP
 Keys:
   arrowdown: Šípka nadol
   arrowleft: Šípka doľava
