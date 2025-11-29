@@ -264,8 +264,8 @@ function runApp() {
         arguments: '--new-window',
         iconPath: process.execPath,
         iconIndex: 0,
-        title: 'New Window',
-        description: 'Open New Window'
+        title: 'Open new window',
+        description: 'Open new window'
       }
     ])
   }

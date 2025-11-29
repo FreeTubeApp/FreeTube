@@ -98,11 +98,11 @@
             class="removeButton"
             :class="{ removeButtonSelected: removeButtonSelectedIndex === index }"
             role="button"
-            :aria-label="t('Search Bar.Remove')"
+            :aria-label="t('Search bar.Remove')"
             href="javascript:void(0)"
             @click.prevent.stop="handleRemoveClick(index)"
           >
-            {{ t('Search Bar.Remove') }}
+            {{ t('Search bar.Remove') }}
           </a>
         </li>
         <!-- skipped -->

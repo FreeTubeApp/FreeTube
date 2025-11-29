@@ -54,7 +54,7 @@
       </button>
       <button
         class="navNewWindowButton navButton"
-        :aria-label="t('Open New Window')"
+        :aria-label="t('Open new window')"
         :title="newWindowText"
         @click="createNewWindow"
       >
@@ -91,7 +91,7 @@
       >
         <FtInput
           ref="searchInput"
-          :placeholder="t('Search / Go to URL')"
+          :placeholder="t('Search / go to URL')"
           class="searchInput"
           is-search
           :data-list="activeDataList"
@@ -106,8 +106,8 @@
         <button
           class="navFilterButton navButton"
           :class="{ filterChanged: searchFilterValueChanged }"
-          :aria-label="t('Search Filters.Search Filters')"
-          :title="t('Search Filters.Search Filters')"
+          :aria-label="t('Search filters.Search filters')"
+          :title="t('Search filters.Search filters')"
           @click="showSearchFilters"
         >
           <FontAwesomeIcon
@@ -242,7 +242,7 @@ function historyForward(offset) {
 
 const newWindowText = computed(() => {
   return localizeAndAddKeyboardShortcutToActionTitle(
-    t('Open New Window'),
+    t('Open new window'),
     KeyboardShortcuts.APP.GENERAL.NEW_WINDOW
   )
 })

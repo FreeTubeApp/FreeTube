@@ -52,7 +52,7 @@
         :value="sortBy"
         :select-names="sortBySelectNames"
         :select-values="SORT_BY_SELECT_VALUES"
-        :placeholder="t('Global.Sort By')"
+        :placeholder="t('Global.Sort by')"
         :icon="sortBySelectIcon"
         @change="sortBy = $event"
       />

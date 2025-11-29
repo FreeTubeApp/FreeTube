@@ -29,7 +29,7 @@
       />
       <ft-flex-box>
         <ft-button
-          :label="$t('Download From Site')"
+          :label="$t('Download from site')"
           @click="openDownloadsPage"
         />
         <ft-button

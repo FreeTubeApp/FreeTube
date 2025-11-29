@@ -50,7 +50,7 @@
             :value="sortBy"
             :select-names="sortByNames"
             :select-values="SORT_BY_VALUES"
-            :placeholder="$t('Global.Sort By')"
+            :placeholder="$t('Global.Sort by')"
             :icon="sortByIcon"
             @change="updateUserPlaylistsSortBy"
           />

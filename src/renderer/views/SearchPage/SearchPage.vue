@@ -14,7 +14,7 @@
           class="headingIcon"
           fixed-width
         />
-        {{ t("Search Filters.Search Results") }}
+        {{ t("Search filters.Search results") }}
       </h2>
       <FtElementList
         :data="shownResults"
@@ -30,7 +30,7 @@
           @keydown.enter.prevent="nextPage"
           @keydown.space.prevent="nextPage"
         >
-          <FontAwesomeIcon :icon="['fas', 'search']" /> {{ t("Search Filters.Fetch more results") }}
+          <FontAwesomeIcon :icon="['fas', 'search']" /> {{ t("Search filters.Fetch more results") }}
         </div>
       </FtAutoLoadNextPageWrapper>
     </FtCard>
@@ -343,13 +343,13 @@ function nextPage() {
 
   if (apiUsed.value === 'local') {
     if (nextPageRef.value !== null) {
-      showToast(t('Search Filters["Fetching results. Please wait"]'))
+      showToast(t('Search filters["Fetching results. Please wait"]'))
       getNextpageLocal(payload)
     } else {
-      showToast(t('Search Filters.There are no more results for this search'))
+      showToast(t('Search filters.There are no more results for this search'))
     }
   } else {
-    showToast(t('Search Filters["Fetching results. Please wait"]'))
+    showToast(t('Search filters["Fetching results. Please wait"]'))
     performSearchInvidious(payload)
   }
 }

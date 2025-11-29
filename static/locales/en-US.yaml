@@ -29,10 +29,10 @@ Open new window: Open new window
 Go to page: Go to {page}
 Close banner: Close banner
 
-Version {versionNumber} is now available!  Click for more details.: Version {versionNumber} is now available!  Click
+Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
   for more details.
 Download from site: Download from site
-A new blog is now available, {blogTitle}. Click to view more.: A new blog is now available, {blogTitle}.
+A new blog is now available, {blogTitle}. Click to view more: A new blog is now available, {blogTitle}.
   Click to view more.
 Are you sure you want to open this link?: Are you sure you want to open this link?
 
@@ -111,12 +111,12 @@ Search filters:
     Location: Location
     HDR: HDR
     VR180: VR180
-  # On Search Page
-  Search Results: Search Results
-  Fetching results. Please wait: Fetching results. Please wait
+  # On search page
+  Search results: Search results
+  Fetching results. Please wait: Fetching results. Please wait.
   Fetch more results: Fetch more results
   There are no more results for this search: There are no more results for this search
-  Clear Filters: Clear Filters
+  Clear filters: Clear filters
 # Sidebar
 Subscriptions:
     # On Subscriptions Page

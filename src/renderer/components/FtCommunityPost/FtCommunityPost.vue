@@ -117,8 +117,8 @@
     >
       <span
         class="likeCount"
-        :title="$t('Global.Counts.Like Count', {count: formattedVoteCount}, voteCount)"
-        :aria-label="$t('Global.Counts.Like Count', {count: formattedVoteCount}, voteCount)"
+        :title="$t('Global.Counts.Like count', {count: formattedVoteCount}, voteCount)"
+        :aria-label="$t('Global.Counts.Like count', {count: formattedVoteCount}, voteCount)"
       >
         <FontAwesomeIcon
           class="thumbs-up-icon"
@@ -136,8 +136,8 @@
       >
         <span
           class="commentCount"
-          :title="$t('Global.Counts.Comment Count', {count: formattedCommentCount}, commentCount)"
-          :aria-label="$t('Global.Counts.Comment Count', {count: formattedCommentCount}, commentCount)"
+          :title="$t('Global.Counts.Comment count', {count: formattedCommentCount}, commentCount)"
+          :aria-label="$t('Global.Counts.Comment count', {count: formattedCommentCount}, commentCount)"
         >
           <FontAwesomeIcon
             class="comment-count-icon"
@@ -148,8 +148,8 @@
       <span
         v-else-if="commentCount != null"
         class="commentCount"
-        :title="$t('Global.Counts.Comment Count', {count: formattedCommentCount}, commentCount)"
-        :aria-label="$t('Global.Counts.Comment Count', {count: formattedCommentCount}, commentCount)"
+        :title="$t('Global.Counts.Comment count', {count: formattedCommentCount}, commentCount)"
+        :aria-label="$t('Global.Counts.Comment count', {count: formattedCommentCount}, commentCount)"
       >
         <FontAwesomeIcon
           class="comment-count-icon"

@@ -34,14 +34,14 @@
           v-if="channelCount"
           class="channelCount"
         >
-          {{ $t('Global.Counts.Channel Count', {count: formattedChannelCount}, channelCount) }}
+          {{ $t('Global.Counts.Channel count', {count: formattedChannelCount}, channelCount) }}
         </span>
         <span
           v-if="videoCount"
           class="videoCount"
         >
           <template v-if="channelCount"> • </template>
-          {{ $t('Global.Counts.Video Count', {count: formattedVideosCount}, videoCount) }}
+          {{ $t('Global.Counts.Video count', {count: formattedVideosCount}, videoCount) }}
         </span>
       </div>
     </div>

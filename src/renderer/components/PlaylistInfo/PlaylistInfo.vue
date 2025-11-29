@@ -67,9 +67,9 @@
           {{ title }}
         </h2>
         <p>
-          {{ t('Global.Counts.Video Count', { count: parsedVideoCount }, videoCount) }}
+          {{ t('Global.Counts.Video count', { count: parsedVideoCount }, videoCount) }}
           <span v-if="!hideViews && !isUserPlaylist">
-            - {{ t('Global.Counts.View Count', { count: parsedViewCount }, viewCount) }}
+            - {{ t('Global.Counts.View count', { count: parsedViewCount }, viewCount) }}
           </span>
           <span>- </span>
           <span v-if="infoSource !== 'local'">
