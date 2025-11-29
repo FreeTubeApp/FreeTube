@@ -171,7 +171,7 @@ User Playlists:
     N playlists selected: '{playlistCount} избрани'
     Toast:
       You haven't selected any playlist yet.: Все още не сте избрали плейлист.
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Видеа, добавени към 1 плейлист | Видеа, добавени към {playlistCount} плейлиста"
     Save: Запазване
     Added {count} Times: Вече е добавено | Добавено {count} пъти
     "{videoCount}/{totalVideoCount} Videos Already Added": Вече са добавени {videoCount}/{totalVideoCount} видеа
@@ -914,6 +914,7 @@ Share:
   YouTube Channel URL copied to clipboard: YouTube адресът на канала е копиран
   Invidious Channel URL copied to clipboard: Invidious адресът на канала е копиран
   Share Channel: Споделяне на канал
+  Share Post: Споделяне на публикация
 Mini Player: 'Мини плейър'
 Comments:
   Comments: 'Коментари'
