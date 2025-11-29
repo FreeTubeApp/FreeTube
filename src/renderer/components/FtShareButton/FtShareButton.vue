@@ -3,6 +3,7 @@
     ref="iconButton"
     :title="shareTitle"
     theme="secondary"
+    :size="size"
     :icon="['fas', 'share-alt']"
     :dropdown-modal-on-mobile="true"
     dropdown-position-x="left"
@@ -12,7 +13,7 @@
     <FtFlexBox>
       <FtToggleSwitch
         v-if="isVideo"
-        :label="$t('Share.Include Timestamp')"
+        :label="t('Share.Include Timestamp')"
         :compact="true"
         :default-value="includeTimestamp"
         @change="updateIncludeTimestamp"
@@ -34,39 +35,35 @@
         <FtButton
           class="action"
           aria-describedby="youtubeShareImage"
+          :icon="['fas', 'copy']"
+          :label="t('Share.Copy Link')"
           @click="copyYoutube"
-        >
-          <FontAwesomeIcon :icon="['fas', 'copy']" />
-          {{ $t("Share.Copy Link") }}
-        </FtButton>
+        />
         <FtButton
           class="action"
           aria-describedby="youtubeShareImage"
+          :icon="['fas', 'globe']"
+          :label="t('Share.Open Link')"
           @click="openYoutube"
-        >
-          <FontAwesomeIcon :icon="['fas', 'globe']" />
-          {{ $t("Share.Open Link") }}
-        </FtButton>
+        />
         <FtButton
           v-if="isVideo || isPlaylist"
           class="action"
           aria-describedby="youtubeShareImage"
           background-color="var(--accent-color-active)"
+          :icon="['fas', 'copy']"
+          :label="t('Share.Copy Embed')"
           @click="copyYoutubeEmbed"
-        >
-          <FontAwesomeIcon :icon="['fas', 'copy']" />
-          {{ $t("Share.Copy Embed") }}
-        </FtButton>
+        />
         <FtButton
           v-if="isVideo || isPlaylist"
           class="action"
           aria-describedby="youtubeShareImage"
           background-color="var(--accent-color-active)"
+          :icon="['fas', 'globe']"
+          :label="t('Share.Open Embed')"
           @click="openYoutubeEmbed"
-        >
-          <FontAwesomeIcon :icon="['fas', 'globe']" />
-          {{ $t("Share.Open Embed") }}
-        </FtButton>
+        />
       </div>
 
       <template v-if="showInvidiousOptions">
@@ -83,39 +80,35 @@
           <FtButton
             aria-describedby="invidiousShare"
             class="action"
+            :icon="['fas', 'copy']"
+            :label="t('Share.Copy Link')"
             @click="copyInvidious"
-          >
-            <FontAwesomeIcon :icon="['fas', 'copy']" />
-            {{ $t("Share.Copy Link") }}
-          </FtButton>
+          />
           <FtButton
             aria-describedby="invidiousShare"
             class="action"
+            :icon="['fas', 'globe']"
+            :label="t('Share.Open Link')"
             @click="openInvidious"
-          >
-            <FontAwesomeIcon :icon="['fas', 'globe']" />
-            {{ $t("Share.Open Link") }}
-          </FtButton>
+          />
           <FtButton
             v-if="isVideo || isPlaylist"
             aria-describedby="invidiousShare"
             class="action"
             background-color="var(--accent-color-active)"
+            :icon="['fas', 'copy']"
+            :label="t('Share.Copy Embed')"
             @click="copyInvidiousEmbed"
-          >
-            <FontAwesomeIcon :icon="['fas', 'copy']" />
-            {{ $t("Share.Copy Embed") }}
-          </FtButton>
+          />
           <FtButton
             v-if="isVideo || isPlaylist"
             aria-describedby="invidiousShare"
             class="action"
             background-color="var(--accent-color-active)"
+            :icon="['fas', 'globe']"
+            :label="t('Share.Open Embed')"
             @click="openInvidiousEmbed"
-          >
-            <FontAwesomeIcon :icon="['fas', 'globe']" />
-            {{ $t("Share.Open Embed") }}
-          </FtButton>
+          />
         </div>
       </template>
     </div>
@@ -123,13 +116,12 @@
 </template>
 
 <script setup>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, ref } from 'vue'
+import { computed, ref, useTemplateRef } from 'vue'
 import { copyToClipboard, openExternalLink } from '../../helpers/utils'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 import FtButton from '../FtButton/FtButton.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import store from '../../store/index'
@@ -161,11 +153,15 @@ const props = defineProps({
   dropdownPositionY: {
     type: String,
     default: 'bottom'
+  },
+  size: {
+    type: Number,
+    default: 20
   }
 })
 
 const includeTimestamp = ref(false)
-const iconButton = ref(null)
+const iconButton = useTemplateRef('iconButton')
 
 const isChannel = computed(() => {
   return props.shareTargetType === 'Channel'
@@ -173,6 +169,10 @@ const isChannel = computed(() => {
 
 const isPlaylist = computed(() => {
   return props.shareTargetType === 'Playlist'
+})
+
+const isPost = computed(() => {
+  return props.shareTargetType === 'Post'
 })
 
 const isVideo = computed(() => {
@@ -185,6 +185,9 @@ const shareTitle = computed(() => {
   }
   if (isPlaylist.value) {
     return t('Share.Share Playlist')
+  }
+  if (isPost.value) {
+    return t('Share.Share Post')
   }
   return t('Share.Share Video')
 })
@@ -215,6 +218,9 @@ const invidiousURL = computed(() => {
   }
   if (isPlaylist.value) {
     return `${currentInvidiousInstanceUrl.value}/playlist?list=${props.id}`
+  }
+  if (isPost.value) {
+    return `${currentInvidiousInstanceUrl.value}/post/${props.id}`
   }
   let videoUrl = `${currentInvidiousInstanceUrl.value}/watch?v=${props.id}`
   // `playlistId` can be undefined
@@ -247,6 +253,9 @@ const youtubeURL = computed(() => {
   if (isPlaylist.value) {
     return youtubePlaylistUrl.value
   }
+  if (isPost.value) {
+    return `https://www.youtube.com/post/${props.id}`
+  }
   let videoUrl = `https://www.youtube.com/watch?v=${props.id}`
   if (playlistSharable.value) {
     // `index` seems can be ignored
@@ -261,6 +270,9 @@ const youtubeShareURL = computed(() => {
   }
   if (isPlaylist.value) {
     return youtubePlaylistUrl.value
+  }
+  if (isPost.value) {
+    return `https://www.youtube.com/post/${props.id}`
   }
   const videoUrl = `https://youtu.be/${props.id}`
   if (playlistSharable.value) {
@@ -326,7 +338,7 @@ function updateIncludeTimestamp() {
 }
 
 function getFinalUrl(url) {
-  if (isChannel.value || isPlaylist.value) {
+  if (isChannel.value || isPlaylist.value || isPost.value) {
     return url
   }
   if (url.indexOf('?') === -1) {

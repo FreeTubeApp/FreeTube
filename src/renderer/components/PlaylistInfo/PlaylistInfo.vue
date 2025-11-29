@@ -68,13 +68,13 @@
         </h2>
         <p>
           {{ t('Global.Counts.Video count', { count: parsedVideoCount }, videoCount) }}
-          <span v-if="!hideViews && !isUserPlaylist">
+          <template v-if="!hideViews && !isUserPlaylist">
             - {{ t('Global.Counts.View count', { count: parsedViewCount }, viewCount) }}
-          </span>
-          <span>- </span>
-          <span v-if="infoSource !== 'local'">
+          </template>
+          -
+          <template v-if="infoSource !== 'local'">
             {{ $t("Playlist.Last Updated On") }}
-          </span>
+          </template>
           {{ lastUpdated }}
           <template v-if="durationFormatted !== ''">
             <br>
@@ -263,12 +263,12 @@
 </template>
 
 <script setup>
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRouter } from 'vue-router'
 
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 import FtInput from '../FtInput/FtInput.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtShareButton from '../FtShareButton/FtShareButton.vue'
@@ -609,7 +609,7 @@ async function savePlaylistInfo() {
   }
 }
 
-const playlistTitleInput = ref(null)
+const playlistTitleInput = useTemplateRef('playlistTitleInput')
 
 function enterEditMode() {
   newTitle.value = props.title
@@ -893,7 +893,7 @@ const updateQueryDebounced = debounce((newQuery) => {
   emit('search-video-query-change', newQuery)
 }, 500)
 
-const searchInput = ref(null)
+const searchInput = useTemplateRef('searchInput')
 
 /**
  * @param {KeyboardEvent} event

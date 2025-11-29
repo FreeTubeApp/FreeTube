@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, useTemplateRef } from 'vue'
 
 import FtCard from '../ft-card/ft-card.vue'
 import FtInput from '../FtInput/FtInput.vue'
@@ -25,7 +25,7 @@ import store from '../../store/index'
 
 const emit = defineEmits(['unlocked'])
 
-const password = ref(null)
+const password = useTemplateRef('password')
 
 onMounted(() => {
   password.value.focus()

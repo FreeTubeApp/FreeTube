@@ -1121,8 +1121,7 @@ function runApp() {
       newWindow.webContents.ipc.on(IpcChannels.SEARCH_INPUT_HANDLING_READY, searchInputReadyHandler)
     }
 
-    // Show when loaded
-    newWindow.once('ready-to-show', () => {
+    const showWindow = () => {
       if (newWindow.isVisible()) {
         // only open the dev tools if they aren't already open
         if (process.env.NODE_ENV === 'development' && !newWindow.webContents.isDevToolsOpened()) {
@@ -1141,7 +1140,18 @@ function runApp() {
       if (process.env.NODE_ENV === 'development') {
         newWindow.webContents.openDevTools({ activate: false })
       }
-    })
+    }
+
+    // The `ready-to-show` event doesn't always fire on wayland.
+    // Use the `did-finish-load` event on the web contents instead as that is similar enough
+    // https://github.com/electron/electron/issues/48859
+
+    if (process.platform === 'linux' && app.commandLine.getSwitchValue('ozone-platform') === 'wayland') {
+      newWindow.webContents.once('did-finish-load', showWindow)
+    } else {
+      // Show when loaded
+      newWindow.once('ready-to-show', showWindow)
+    }
 
     newWindow.once('close', async () => {
       if (BrowserWindow.getAllWindows().length !== 1) {
@@ -1177,6 +1187,12 @@ function runApp() {
         mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
       }
       startupUrl = null
+    }
+  })
+
+  ipcMain.on(IpcChannels.SET_WINDOW_TITLE, (event, title) => {
+    if (isFreeTubeUrl(event.senderFrame.url) && typeof title === 'string') {
+      BrowserWindow.fromWebContents(event.sender)?.setTitle(title)
     }
   })
 
@@ -2391,7 +2407,7 @@ function runApp() {
             },
             type: 'normal'
           },
-          !hideTrendingVideos && {
+          (!hideTrendingVideos && (backendFallback || backendPreference === 'local')) && {
             label: 'Trending',
             click: (_menuItem, browserWindow, _event) => {
               navigateTo('/trending', browserWindow)

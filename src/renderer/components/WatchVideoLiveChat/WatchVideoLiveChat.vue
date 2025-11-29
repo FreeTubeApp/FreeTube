@@ -29,7 +29,6 @@
     </div>
     <div
       v-else-if="comments.length === 0"
-      ref="liveChatMessage"
       class="messageContainer liveChatMessage"
     >
       <p
@@ -225,7 +224,7 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import autolinker from 'autolinker'
-import { computed, nextTick, onBeforeUnmount, ref, shallowReactive } from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref, shallowReactive, useTemplateRef } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import { YTNodes } from 'youtubei.js'
 
@@ -370,8 +369,7 @@ function startLiveChatLocal() {
   liveChatInstance.start()
 }
 
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const commentsRef = ref(null)
+const commentsRef = useTemplateRef('commentsRef')
 
 /**
  * @param {import ('youtubei.js/dist/src/parser/continuations').LiveChatContinuation} initialData

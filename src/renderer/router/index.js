@@ -42,14 +42,16 @@ const router = createRouter({
       },
       component: SubscribedChannels
     },
-    {
-      path: '/trending',
-      name: 'trending',
-      meta: {
-        title: 'Trending'
-      },
-      component: Trending
-    },
+    ...(process.env.SUPPORTS_LOCAL_API
+      ? [{
+          path: '/trending',
+          name: 'trending',
+          meta: {
+            title: 'Trending'
+          },
+          component: Trending
+        }]
+      : []),
     {
       path: '/popular',
       name: 'popular',

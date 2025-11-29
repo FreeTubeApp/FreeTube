@@ -92,7 +92,9 @@ export default defineComponent({
     },
     defaultPages: function () {
       let includedPageNames = this.includedDefaultPageNames
-      if (this.hideTrendingVideos) includedPageNames = includedPageNames.filter((pageName) => pageName !== 'trending')
+      if (!process.env.SUPPORTS_LOCAL_API || this.hideTrendingVideos || !this.backendFallback || this.backendPreference !== 'local') {
+        includedPageNames = includedPageNames.filter((pageName) => pageName !== 'trending')
+      }
       if (this.hidePlaylists) includedPageNames = includedPageNames.filter((pageName) => pageName !== 'userPlaylists')
       if (!(!this.hidePopularVideos && (this.backendFallback || this.backendPreference === 'invidious'))) includedPageNames = includedPageNames.filter((pageName) => pageName !== 'popular')
       return this.$router.getRoutes().filter((route) => includedPageNames.includes(route.name))

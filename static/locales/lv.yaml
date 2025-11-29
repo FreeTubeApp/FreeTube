@@ -124,10 +124,7 @@ Channels:
   Unsubscribe Prompt: 'Vai esi drošs, ka vēlies atcelt abonementu no "{channelName}"?'
 Trending:
   Trending: 'Pašlaik topā'
-  Default: 'Viss'
-  Music: 'Mūzika'
   Gaming: 'Spēles'
-  Movies: 'Filmas'
   Trending Tabs: 'Tendenču cilnes'
 Most Popular: 'Vispopulārākie'
 Playlists: 'Atskaņošanas saraksti'
@@ -449,7 +446,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: 'Visi abonementi tika veiksmīgi ievesti'
     Invalid subscriptions file: 'Nederīga abonementu datne'
-    This might take a while, please wait: 'Tas var aizņemt kādu laiku, lūdzu gaidiet'
     Invalid history file: 'Nederīga vēstures datne'
     Subscriptions have been successfully exported: 'Visi abonementi tika veiksmīgi izvesti'
     History object has insufficient data, skipping item: 'Vēstures objektam nav pietiekami datu, izlaiž vienumu'

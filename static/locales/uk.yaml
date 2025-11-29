@@ -110,10 +110,7 @@ Subscriptions:
 Trending:
   Trending: 'Популярне'
   Trending Tabs: Популярні вкладки
-  Movies: Фільми
   Gaming: Ігри
-  Music: Музика
-  Default: Типово
 Most Popular: 'Найпопулярніші'
 Playlists: 'Добірки'
 User Playlists:
@@ -186,8 +183,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Відео буде додано'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Відео вже додано'
     Toast:
-      "{videoCount} video(s) added to 1 playlist": 1 відео додано до 1 добірки | {videoCount} відео додано до 1 добірки
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 відео додано до {playlistCount} добірок | {videoCount} відео додано до {playlistCount} добірок
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Ви ще не вибрали жодної добірки.
     N playlists selected: '{playlistCount} вибрано'
     Select a playlist to add your N videos to: Виберіть добірку, до якої ви хочете додати своє відео | Виберіть добірку, до якої ви хочете додати свої {videoCount} відео
@@ -521,7 +517,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Усі підписки та профілі успішно імпортовано'
     All subscriptions have been successfully imported: 'Усі підписки успішно імпортовано'
     Invalid subscriptions file: 'Недійсний файл підписок'
-    This might take a while, please wait: 'Це може тривати деякий час, зачекайте'
     Invalid history file: 'Недійсний файл історії'
     Subscriptions have been successfully exported: 'Підписки успішно експортовано'
     History object has insufficient data, skipping item: 'У об’єкта історії недостатньо даних, пропуск елемента'

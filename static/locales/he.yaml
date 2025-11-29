@@ -110,10 +110,7 @@ Subscriptions:
 Trending:
   Trending: 'הסרטונים החמים'
   Trending Tabs: לשוניות מובילים
-  Movies: סרטים
   Gaming: משחקים
-  Music: מוזיקה
-  Default: ברירת מחדל
 Most Popular: 'הכי פופולרי'
 Playlists: 'רשימות נגינה'
 User Playlists:
@@ -175,8 +172,7 @@ User Playlists:
     Select a playlist to add your N videos to: בחר רשימת שידורים להוספת הסרטון שלך | בחר רשימת שידורים להוספת {videoCount} הסרטונים שלך
     Toast:
       You haven't selected any playlist yet.: עדיין לא נבחרה רשימת שידורים.
-      "{videoCount} video(s) added to 1 playlist": סרטון נוסף לרשימת השמעה | {videoCount} סרטונים נוספו לרשימת השמעה
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 סרטון הוסף ל{playlistCount} רשימות שידורים | {videoCount} סרטונים הוספו ל{playlistCount} רשימות שידורים
+      "Video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
     Create: יצירה
     New Playlist Name: שם חדש לרשימת נגינה
@@ -476,7 +472,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'כל המינויים והפרופילים יובאו בהצלחה'
     All subscriptions have been successfully imported: 'כל המינויים יובאו בהצלחה'
     Invalid subscriptions file: 'קובץ מינויים בלתי קריא'
-    This might take a while, please wait: 'זה עלול לקחת זמן מה, נא להמתין'
     Invalid history file: 'קובץ היסטוריה בלתי קריא'
     Subscriptions have been successfully exported: 'המינויים יוצאו בהצלחה'
     History object has insufficient data, skipping item: 'לאובייקט ההיסטוריה אין מספיק מידע, נדלג על פריט זה'

@@ -84,10 +84,7 @@ Subscriptions:
   Error Channels: Canales con errores
 Trending:
   Trending: 'Tendencias'
-  Movies: Películas
   Gaming: Juegos
-  Music: Música
-  Default: Por defecto
   Trending Tabs: Lo más destacado
 Most Popular: 'Más popular'
 Playlists: 'Listas de reproducción'
@@ -164,8 +161,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videos ya agregados'
     Toast:
       You haven't selected any playlist yet.: Todavía no seleccionaste ninguna lista de reproducción.
-      "{videoCount} video(s) added to 1 playlist": 1 video agregado a 1 lista de reproducción | {videoCount} videos agregados a 1 lista de reproducción
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video agregado a {playlistCount} listas de reproducción |{videoCount} videos agregados a {playlistCount} listas de reproducción
+      "Video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
     New Playlist Name: Nombre de la nueva lista de reproducción
     Toast:
@@ -413,7 +409,6 @@ Settings:
     All subscriptions have been successfully imported: Suscripciones se importaron con éxito
     Unable to write file: No se pudo escribir el archivo
     Unknown data key: Clave de datos desconocida
-    This might take a while, please wait: Esto puede tardar un rato. Por favor, esperá
     Invalid history file: Archivo de historial no válido
     Export Playlists For Older FreeTube Versions:
       Tooltip: "\"Esta opción exporta los videos de todas las listas de reproducción en una sola lista llamada 'Favoritos'.\nCómo exportar e importar videos en listas de reproducción para una versión anterior de FreeTube:\n\nExportá tus listas de reproducción con esta opción activada.\n\nEliminá todas tus listas existentes usando la opción 'Eliminar todas las listas de reproducción' en la sección de Configuración de privacidad.\n\nIniciá la versión anterior de FreeTube e importá las listas de reproducción exportadas.\""

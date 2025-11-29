@@ -105,11 +105,9 @@ Subscriptions:
   Empty Posts: I canali a cui sei iscritto attualmente non hanno post.
 Trending:
   Trending: 'Tendenze'
-  Music: Musica
-  Default: Predefinito
   Trending Tabs: Schede di tendenza
-  Movies: Film
   Gaming: Videogiochi
+  Sports: Sport
 Most Popular: 'Più popolari'
 Playlists: 'Playlist'
 User Playlists:
@@ -120,8 +118,7 @@ User Playlists:
     Search in Playlists: Ricerca nelle playlist
     Save: Salva
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video aggiunto a {playlistCount} playlist | {videoCount} video aggiunti a {playlistCount} playlist
-      "{videoCount} video(s) added to 1 playlist": 1 video aggiunto a 1 playlist | {videoCount} video aggiunti a 1 playlist
+      "Video(s) added to {playlistCount} playlists": "Video aggiunti a 1 playlist | Video aggiunti a {playlistCount} playlist"
       You haven't selected any playlist yet.: Non hai ancora selezionato nessuna playlist.
     Select a playlist to add your N videos to: Seleziona una playlist a cui aggiungere il tuo video | Seleziona una playlist a cui aggiungere i tuoi {videoCount} video
     N playlists selected: '{playlistCount} selezionate'
@@ -473,7 +470,6 @@ Settings:
     Import Subscriptions: Importa le iscrizioni
     Subscriptions have been successfully exported: Tutte le iscrizioni sono state esportate correttamente
     Invalid history file: File Cronologia non valido
-    This might take a while, please wait: Questa operazione potrebbe richiedere del tempo. Per favore attendi
     Invalid subscriptions file: File iscrizioni non valido
     All subscriptions have been successfully imported: Tutte le iscrizioni sono state importate correttamente
     All subscriptions and profiles have been successfully imported: Tutte le iscrizioni e i profili sono stati importati correttamente
@@ -859,7 +855,7 @@ Change Format:
   Legacy formats are not available for this video: I formati compatibili non sono disponibili per questo video
 Share:
   Share Video: 'Condividi video'
-  Share Playlist: 'Condividi la playlist'
+  Share Playlist: 'Condividi playlist'
   Copy Link: 'Copia link'
   Open Link: 'Apri link'
   Copy Embed: 'Copia codice da incorporare'
@@ -873,6 +869,7 @@ Share:
   YouTube Channel URL copied to clipboard: URL del canale YouTube copiato negli appunti
   Invidious Channel URL copied to clipboard: URL del canale Invidious copiato negli appunti
   Share Channel: Condividi canale
+  Share Post: Condividi post
 Mini Player: 'Mini visualizzatore'
 Comments:
   Comments: 'Commenti'

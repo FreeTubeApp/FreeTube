@@ -17,7 +17,7 @@ jobs:
   build:
     strategy:
       matrix:
-        node-version: [22.x]
+        node-version: [24.x]
         runtime:
           - linux-x64
           - linux-armv7l
@@ -51,7 +51,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - name: 'Use faster D: drive for yarn cache on Windows'
       if: startsWith(matrix.os, 'windows')

@@ -123,13 +123,13 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, useTemplateRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRoute, useRouter } from 'vue-router'
 
 import FtInput from '../FtInput/FtInput.vue'
 import FtProfileSelector from '../FtProfileSelector/FtProfileSelector.vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 
 import store from '../../store/index'
 
@@ -369,10 +369,8 @@ function showSearchFilters() {
   store.dispatch('showSearchFilters')
 }
 
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const searchContainer = ref(null)
-/** @type {import('vue').Ref<InstanceType<typeof FtInput> | null>} */
-const searchInput = ref(null)
+const searchContainer = useTemplateRef('searchContainer')
+const searchInput = useTemplateRef('searchInput')
 
 /** @type {import('vue').ComputedRef<any>} */
 const searchSettings = computed(() => store.getters.getSearchSettings)
