@@ -14,7 +14,7 @@
           aria-hidden="false"
           class="headingIcon"
         />
-        {{ hashtag }}
+        <bdi>{{ hashtag }}</bdi>
       </h2>
       <FtElementList
         v-if="videos.length > 0"

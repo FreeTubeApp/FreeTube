@@ -38,7 +38,10 @@
         class="title"
         :to="playlistPageLinkTo"
       >
-        <h3 class="h3Title">
+        <h3
+          class="h3Title"
+          dir="auto"
+        >
           {{ titleForDisplay }}
         </h3>
       </RouterLink>
@@ -46,16 +49,17 @@
         <RouterLink
           v-if="channelId"
           class="channelName"
+          dir="auto"
           :to="`/channel/${channelId}`"
         >
           {{ channelName }}
         </RouterLink>
-        <span
+        <bdi
           v-else
           class="channelName"
         >
           {{ channelName }}
-        </span>
+        </bdi>
       </div>
       <FtIconButton
         v-if="externalPlayer !== '' && !isUserPlaylist"

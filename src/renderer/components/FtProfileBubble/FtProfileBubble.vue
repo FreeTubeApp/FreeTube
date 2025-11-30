@@ -11,13 +11,17 @@
       class="bubble"
       :style="{ background: backgroundColor, color: textColor }"
     >
-      <div class="initial">
+      <div
+        class="initial"
+        dir="auto"
+      >
         {{ profileInitial }}
       </div>
     </div>
     <div
       :id="id"
       class="profileName"
+      dir="auto"
     >
       {{ translatedProfileName }}
     </div>

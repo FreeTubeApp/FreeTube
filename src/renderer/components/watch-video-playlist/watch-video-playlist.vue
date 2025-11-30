@@ -12,6 +12,7 @@
       >
         <router-link
           class="playlistTitleLink"
+          dir="auto"
           :to="playlistPageLinkTo"
         >
           {{ playlistTitle }}
@@ -23,16 +24,17 @@
         <router-link
           v-if="channelId"
           class="channelName"
+          dir="auto"
           :to="`/channel/${channelId}`"
         >
           {{ channelName }} -
         </router-link>
-        <span
+        <bdi
           v-else
           class="channelName"
         >
           {{ channelName }} -
-        </span>
+        </bdi>
       </template>
       <span
         class="playlistIndex"
@@ -74,7 +76,10 @@
                 <div class="previewText">
                   {{ previewVideoIndex }} / {{ playlistVideoCount }}
                 </div>
-                <div class="previewVideoTitle">{{ previewVideoTitle }}</div>
+                <div
+                  class="previewVideoTitle"
+                  dir="auto"
+                >{{ previewVideoTitle }}</div>
               </div>
             </div>
           </div>

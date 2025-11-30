@@ -63,6 +63,7 @@
       >
         <h2
           class="playlistTitle"
+          dir="auto"
         >
           {{ title }}
         </h2>
@@ -97,8 +98,10 @@
     <p
       v-else
       class="playlistDescription"
-      v-text="description"
-    />
+      dir="auto"
+    >
+      {{ description }}
+    </p>
 
     <hr class="playlistInfoSeparator">
 
@@ -117,6 +120,7 @@
         >
         <h3
           class="channelName"
+          dir="auto"
         >
           {{ channelName }}
         </h3>
@@ -127,6 +131,7 @@
       >
         <h3
           class="channelName"
+          dir="auto"
         >
           {{ channelName }}
         </h3>

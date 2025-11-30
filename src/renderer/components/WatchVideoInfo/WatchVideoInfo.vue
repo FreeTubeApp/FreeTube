@@ -3,6 +3,7 @@
     <div>
       <h1
         class="videoTitle"
+        dir="auto"
       >
         {{ title }}
       </h1>
@@ -57,6 +58,7 @@
             <RouterLink
               :to="`/channel/${channelId}`"
               class="channelName"
+              dir="auto"
             >
               {{ channelName }}
             </RouterLink>
