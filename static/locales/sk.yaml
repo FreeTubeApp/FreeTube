@@ -655,14 +655,22 @@ Comments:
   Getting comment replies, please wait: 'Získavanie odpovedí na komentáre, čakajte prosím'
   Hide Comments: 'Skryť komentáre'
   # Context: View 10 Replies, View 1 Reply
-  There are no comments available for this video: 'K tomuto videu nie sú k dispozícii žiadne komentáre'
-  Load More Comments: 'Načítať ďalšie komentáre'
-  There are no more comments for this video: K tomuto videu nie sú žiadne ďalšie komentáre
-  Newest first: Najnovšie najprv
+  There are no comments available for this video: 'Pre toto video nie sú dostupné žiadne komentáre'
+  Load More Comments: 'Načítať viac komentárov'
+  There are no more comments for this video: Pre toto video nie sú žiadne ďalšie komentáre
+  Newest first: Najnovšie prvé
   Top comments: Najlepšie komentáre
-  Pinned by: Pripnuté používateľom
+  Pinned by: Pripnuté od
   Show More Replies: Zobraziť viac odpovedí
-Up Next: 'Nasledujúci'
+  Hearted: Obľúbené
+  Subscribed: Odoberané
+  Member: Člen
+  There are no comments available for this post: Pre tento príspevok nie sú dostupné žiadne komentáre
+  View {replyCount} replies from {channelName} and others: Zobraziť {replyCount} odpovedí od {channelName} a ostatných
+  View 1 reply from {channelName}: Zobraziť 1 odpoveď od {channelName}
+  Hide {replyCount} replies: Skryť 1 odpoveď | Skryť odpovede v počte {replyCount}
+  View {replyCount} replies: Zobraziť 1 odpoveď | Zobraziť {replyCount} odpovedí
+Up Next: 'Ďalšie'
 
 # Toast Messages
 Local API Error (Click to copy): 'Chyba lokálneho API (kliknite pre kopírovanie)'
@@ -696,7 +704,7 @@ Tooltips:
     Invidious Instance: Inštancia Invidious, ku ktorej sa FreeTube pripojí pre volania API.
     Thumbnail Preference: Všetky miniatúry vo FreeTube budú nahradené snímkou z videa, ktorá bude rozmazaná alebo skrytá namiesto východzej miniatúry.
     Fallback to Non-Preferred Backend on Failure: Keď má vaše preferované API problém, FreeTube sa automaticky pokúsi použiť vaše nepreferované API ako náhradnú metódu, ak je táto funkcia zapnutá.
-    Preferred API Backend: Vyberte backend, ktorý FreeTube používa na získavanie údajov. Lokálne API je zabudovaný extraktor. Invidious API vyžaduje na pripojenie server Invidious.
+    Preferred API Backend: Vyberte backend, ktorý FreeTube používa na získavanie údajov. Lokálne API je vstavaný extraktor. API Invidious vyžaduje pripojenie k serveru Invidious.
     External Link Handling: "Vyberte predvolené správanie pri kliknutí na odkaz, ktorý nemožno otvoriť vo FreeTube.\nV predvolenom nastavení FreeTube otvorí odkaz, na ktorý ste klikli, vo vašom predvolenom prehliadači.\n"
     Open Deep Links In New Window: URL adresy odovzdané do FreeTube, napríklad presmerovaním rozšírení prehliadača alebo cez argumenty príkazového riadku, sa otvoria v novom okne.
   External Player Settings:
@@ -879,3 +887,6 @@ Screenshot Error: Snímka obrazovky sa nepodarila. {error}
 Screenshot Success: Snímka obrazovky uložená
 Downloading failed: Došlo k problému so sťahovaním "{videoTitle}"
 Autoplay Interruption Timer: Automatické prehrávanie zrušené kvôli {autoplayInterruptionIntervalHours} hodinám nečinnosti
+Description:
+  Collapse Description: Zobraziť menej
+  Expand Description: '...viac'
