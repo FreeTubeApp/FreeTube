@@ -111,6 +111,7 @@ Trending:
   Trending: 'Tendências'
   Trending Tabs: Separadores de tendências
   Gaming: Jogos
+  Sports: Esportes
 Most Popular: 'Mais populares'
 Playlists: 'Listas de reprodução'
 User Playlists:
@@ -129,7 +130,7 @@ User Playlists:
   Delete Playlist: Eliminar lista de reprodução
   Are you sure you want to delete this playlist? This cannot be undone: Tem certeza de que pretende eliminar esta lista de reprodução? A remoção não pode ser revertida.
   Sort By:
-    LatestCreatedFirst: Criação mais recente
+    LatestCreatedFirst: Data de criação (mais recente)
     EarliestCreatedFirst: Criação mais antiga
     EarliestUpdatedFirst: Atualização mais antiga
     LatestPlayedFirst: Reprodução mais recente
@@ -195,6 +196,7 @@ User Playlists:
   The playlist has been successfully exported: Lista de reprodução exportada com sucesso
   Cannot delete the quick bookmark target playlist.: Não é possível eliminar a lista de reprodução de destino do marcador rápido.
   TotalTimePlaylist: 'Duração total: {duration}'
+  Export list of URLs: Exportar lista de URLs
 History:
   # On History Page
   History: 'Histórico'
@@ -277,6 +279,7 @@ Settings:
       Everforest Light Hard: Everforest Light Duro
       Everforest Light Medium: Everforest Light Médio
       Everforest Light Low: Everforest Luz Baixa
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
@@ -493,6 +496,10 @@ Settings:
       Label: Exportar listas de reprodução para versões mais antigas do FreeTube
       Tooltip: "Esta opção exporta os vídeos de todas as listas de reprodução para uma lista de reprodução chamada \"Favoritos\".\nComo exportar e importar vídeos em listas de reprodução para uma versão mais antiga do FreeTube:\n1. Exporte as suas listas de reprodução com esta opção ativada.\n2. Elimine todas as listas de reprodução existentes usando a opção \"Remover todas as listas de reprodução\" em \"Definições de privacidade\".\n3. Abra a versão mais antiga do FreeTube e importe as listas de reprodução."
 
+    Search history file: Arquivo de histórico de pesquisa
+    Search history: Histórico de pesquisa
+    Import search history: Importar histórico de pesquisa
+    Export search history: Exportar histórico de pesquisa
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificar se um anúncio for ignorado
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock (padrão é https://sponsor.ajay.app)
@@ -907,6 +914,7 @@ Share:
   YouTube Channel URL copied to clipboard: URL do canal do YouTube copiado para a área de transferência
   Invidious Channel URL copied to clipboard: URL do canal Invidious copiado para a área de transferência
   Share Channel: Partilhar canal
+  Share Post: Compartilhar postagem
 Mini Player: 'Mini-reprodutor'
 Comments:
   Comments: 'Comentários'
@@ -926,6 +934,9 @@ Comments:
   View {replyCount} replies: Ver {replyCount} respostas
   Subscribed: Subscrito
   There are no comments available for this post: Não existem comentários para esta publicação
+  Hide {replyCount} replies: Ocultar 1 resposta | Ocultar {replyCount} respostas
+  View 1 reply from {channelName}: Ver 1 resposta de {channelName}
+  View {replyCount} replies from {channelName} and others: Veja {replyCount} respostas de {channelName} e outros
 Up Next: 'Próximo'
 
 # Toast Messages
