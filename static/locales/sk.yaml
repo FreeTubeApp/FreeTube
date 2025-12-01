@@ -638,16 +638,16 @@ Share:
   Share Playlist: 'Zdieľať zoznam videí'
   Copy Link: 'Skopírovať odkaz'
   Open Link: 'Otvoriť odkaz'
-  Copy Embed: 'Kopírovať Embed'
-  Open Embed: 'Otvoriť Embed'
+  Copy Embed: 'Kopírovať vložené'
+  Open Embed: 'Otvoriť vložené'
   # On Click
-  Invidious URL copied to clipboard: 'Invidious URL bola skopírovaná do schránky'
-  Invidious Embed URL copied to clipboard: 'Invidious Embed URL bola skopírovaná do schránky'
-  YouTube URL copied to clipboard: 'Adresa URL služby YouTube bola skopírovaná do schránky'
-  YouTube Embed URL copied to clipboard: 'YouTube Adresa URL bola skopírovaná do schránky'
+  Invidious URL copied to clipboard: 'URL Invidious bola skopírovaná do schránky'
+  Invidious Embed URL copied to clipboard: 'Vložená URL Invidious bola skopírovaná do schránky'
+  YouTube URL copied to clipboard: 'URL adresa YouTube bola skopírovaná do schránky'
+  YouTube Embed URL copied to clipboard: 'Vložená URL adresa YouTube skopírovaná do schránky'
   Include Timestamp: Zahrnúť časovú pečiatku
-  YouTube Channel URL copied to clipboard: Adresa kanála v službe Youtube skopírovaná do schránky
-  Invidious Channel URL copied to clipboard: Adresa kanálu v službe Invidious skopírovaná do schránky
+  YouTube Channel URL copied to clipboard: URL kanála YouTube bola skopírovaná do schránky
+  Invidious Channel URL copied to clipboard: URL kanála Invidious skopírovaná do schránky
 Mini Player: 'Mini prehrávač'
 Comments:
   Comments: 'Komentáre'
@@ -893,3 +893,6 @@ Description:
 Chapters:
   Key Moments: Kľúčové momenty
   Chapters: Kapitoly
+Clipboard:
+  Cannot access clipboard without a secure connection: Prístup k schránke nie je možný bez zabezpečeného pripojenia
+  Copy failed: Kopírovanie do schránky zlyhalo
