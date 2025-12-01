@@ -598,41 +598,85 @@ Video:
   Sponsor Block category:
     music offtopic: Hudba offtopic
     interaction: Interakcia
-    self-promotion: Samopropagácia
+    self-promotion: Sebapropagácia
     outro: Záver
     intro: Úvod
     sponsor: Sponzor
+    filler: Výplň
+    recap: Zhrnutie
   External Player:
     OpenInTemplate: Otvoriť v {externalPlayer}
     Unsupported Actions:
       setting a playback rate: nastavenie rýchlosti prehrávania
-      reversing playlists: zoznamy videí odzadu
-      looping playlists: opakovanie zoznamov videí
-      starting video at offset: video sa spúšťa s posunom
-      opening playlists: otváranie zoznamov skladieb
-      opening specific video in a playlist (falling back to opening the video): otvorenie konkrétneho videa v zozname videí (keďtak otvorí video samotné)
-      shuffling playlists: premiešavanie zoznamov videí
-    playlist: zoznam videí
+      reversing playlists: obrátenie playlistov
+      looping playlists: opakovanie playlistov
+      starting video at offset: spustenie videa od určitého miesta
+      opening playlists: otváranie playlistov
+      opening specific video in a playlist (falling back to opening the video): otvorenie konkrétneho videa v playliste (vrátenie sa k otvoreniu videa)
+      shuffling playlists: premiešavanie playlistov
+    playlist: playlist
     UnsupportedActionTemplate: '{externalPlayer} nepodporuje: {action}'
     video: video
     OpeningTemplate: Otvára sa {videoOrPlaylist} v {externalPlayer}...
 #& Playlists
+  Player:
+    Skipped segment: Preskočený segment {segmentCategory}
+    Playback will resume automatically when your connection comes back: Prehrávanie bude automaticky pokračovať, keď sa obnoví pripojenie.
+    You appear to be offline: Zdá sa, že ste offline.
+    Stats:
+      CodecsVideoAudioNoItags: 'Kodeky: {videoCodec} / {audioCodec}'
+      CodecsVideoAudio: 'Kodeky: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
+      Dropped Frames / Total Frames: 'Vypustené snímky: {droppedFrames} / Celkom snímok: {totalFrames}'
+      Buffered: 'Načítané: {bufferedPercentage} %'
+      Bandwidth: 'Šírka pásma: {bandwidth} kb/s'
+      Volume: 'Hlasitosť: {volumePercentage}%'
+      Bitrate: 'Dátový tok: {bitrate} kb/s'
+      Player Dimensions: 'Rozmery prehrávača: {width}x{height}'
+      Resolution: "Rozlíšenie: {width}x{height}{'@'}{frameRate}"
+      Media Formats: 'Formáty médií: {formats}'
+      Video ID: 'ID videa: {videoId}'
+      Stats: Štatistika
+    Hide Stats: Skryť štatistiku
+    Show Stats: Zobraziť štatistiku
+    Take Screenshot: Urobiť snímku obrazovky
+    Exit Full Window: Opustiť celé okno
+    Full Window: Celé okno
+    Exit Theatre Mode: Opustiť režim kina
+    Theatre Mode: Režim kina
+    Autoplay is on: Automatické prehrávanie je zapnuté
+    Autoplay is off: Automatické prehrávanie je vypnuté
+    Audio Tracks: Zvukové stopy
+    TranslatedCaptionTemplate: '{language} (preložené z "{originalLanguage}")'
 Playlist:
   #& About
-  View Full Playlist: 'Zobraziť celý zoznam videí'
-  Last Updated On: 'Posledná aktualizácia'
+  View Full Playlist: 'Zobraziť celý playlist'
+  Last Updated On: 'Naposledy aktualizované dňa'
 
 # On Video Watch Page
 #* Published
 #& Views
-  Playlist: Zoznam videí
+  Playlist: Playlist
+  Sort By:
+    Custom: Vlastné
+    VideoDurationDescending: Trvanie (najdlhšie)
+    VideoDurationAscending: Trvanie (najkratšie)
+    VideoTitleDescending: Názov (Z-A)
+    VideoTitleAscending: Názov (A-Z)
+    AuthorDescending: Autor (Z-A)
+    AuthorAscending: Autor (A-Z)
+    PublishedOldest: Dátum publikovania (najstaršie)
+    PublishedNewest: Dátum publikovania (najnovšie)
+    DateAddedOldest: Dátum pridania (najstaršie)
+    DateAddedNewest: Dátum pridania (najnovšie)
 Change Format:
   Change Media Formats: 'Zmena formátov videa'
-  Use Dash Formats: 'Použitie formátov DASH'
-  Use Legacy Formats: 'Použitie zastaraných formátov'
-  Use Audio Formats: 'Použitie zvukových formátov'
-  Dash formats are not available for this video: Dash formáty nie sú pre toto video k dispozícii
-  Audio formats are not available for this video: Pre toto video nie sú k dispozícii zvukové formáty
+  Use Dash Formats: 'Použiť formáty DASH'
+  Use Legacy Formats: 'Použiť staré formáty'
+  Use Audio Formats: 'Použiť zvukové formáty'
+  Dash formats are not available for this video: Formáty DASH nie sú dostupné pre toto video
+  Audio formats are not available for this video: Pre toto video nie sú k dostupné zvukové formáty
+  Legacy formats are not available for this video: Staré formáty nie sú dostupné pre toto video
 Share:
   Share Video: 'Zdieľať video'
   Share Playlist: 'Zdieľať playlist'
