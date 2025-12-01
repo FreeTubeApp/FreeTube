@@ -25,7 +25,7 @@ class Settings {
       await this.upsert('externalPlayerCustomArgs', newValue)
     }
 
-    // In FreeTube 0.23.0, the "Enable Theatre Mode by Default" setting was incoporated as an option
+    // In FreeTube 0.23.0, the "Enable Theatre Mode by Default" setting was incorporated as an option
     // of the "Default Viewing Mode" setting. This is a one time migration to preserve users'
     // Theater Mode preference through this change.
     const defaultTheatreMode = await db.settings.findOneAsync({ _id: 'defaultTheatreMode' })
@@ -392,13 +392,5 @@ function compactAllDatastores() {
 }
 
 export {
-  Settings as settings,
-  History as history,
-  Profiles as profiles,
-  Playlists as playlists,
-  SearchHistory as searchHistory,
-  SubscriptionCache as subscriptionCache,
-
-  loadDatastores,
-  compactAllDatastores,
+  compactAllDatastores, History as history, loadDatastores, Playlists as playlists, Profiles as profiles, SearchHistory as searchHistory, Settings as settings, SubscriptionCache as subscriptionCache
 }

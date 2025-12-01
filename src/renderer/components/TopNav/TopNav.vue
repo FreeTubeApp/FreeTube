@@ -572,7 +572,7 @@ async function getSearchSuggestionsInvidious(query) {
 
     if (process.env.SUPPORTS_LOCAL_API && backendFallback.value) {
       console.error(
-        'Error gettings search suggestions.  Falling back to Local API'
+        'Error getting search suggestions.  Falling back to Local API'
       )
       getSearchSuggestionsLocal(query)
     }

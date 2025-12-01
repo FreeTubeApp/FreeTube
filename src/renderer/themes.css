@@ -565,7 +565,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-text: url('../../_icons/textCatppuccinLatteDarkSmall.svg');
 }
 
-/*************** PRIMARY THEME COLOR DEFINTIONS ***************/
+/*************** PRIMARY THEME COLOR DEFINITIONS ***************/
 
 .mainRed,
 .mainPink,
@@ -1232,7 +1232,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --primary-color-active: #a60c2d;
 }
 
-/*************** SECONDARY THEME COLOR DEFINTIONS ***************/
+/*************** SECONDARY THEME COLOR DEFINITIONS ***************/
 
 /* dark secondary theme colors */
 .secRed,

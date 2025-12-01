@@ -1,7 +1,7 @@
 import shaka from 'shaka-player'
-import { deepCopy } from '../utils'
 import i18n from '../../i18n/index'
 import { sponsorBlockSkipSegments } from '../sponsorblock'
+import { deepCopy } from '../utils'
 
 /** @typedef {import('../sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
 
@@ -26,7 +26,7 @@ export function logShakaError(error, context, videoId, details) {
   const codeText = Object.keys(Code).find((/** @type {keyof Code} */ key) => Code[key] === error.code)
 
   const message =
-    'Player Error (category and code explainations here: https://shaka-player-demo.appspot.com/docs/api/shaka.util.Error.html)\n' +
+    'Player Error (category and code explanations here: https://shaka-player-demo.appspot.com/docs/api/shaka.util.Error.html)\n' +
     `Video ID: "${videoId}"\n` +
     `FreeTube player context: "${context}"\n\n` +
     `Severity: ${severityText} (${error.severity})\n` +
@@ -190,7 +190,7 @@ export function sortCaptions(captions) {
  *
  * Here is a list of things this function does:
  * - Removes bogus roles and labels
- * - Extracts the languages from the audio URLs if available and adds it to the adapation sets
+ * - Extracts the languages from the audio URLs if available and adds it to the adaptation sets
  * - Adds roles and labels when possible to add support for multiple audio tracks
  *
  * Things this function does not do:

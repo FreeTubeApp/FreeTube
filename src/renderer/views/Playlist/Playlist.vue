@@ -628,7 +628,7 @@ function getNextPage() {
   if (process.env.SUPPORTS_LOCAL_API && infoSource.value === 'local') {
     getNextPageLocal()
   } else if (infoSource.value === 'user') {
-    // Stop users from spamming the load more button, by replacing it with a loading symbol until the newly added items are renderered
+    // Stop users from spamming the load more button, by replacing it with a loading symbol until the newly added items are rendered
     isLoadingMore.value = true
 
     nextTick(() => {

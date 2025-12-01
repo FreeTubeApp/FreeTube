@@ -883,9 +883,9 @@ async function importFreeTubeWatchHistory(textDecode) {
 async function importYouTubeWatchHistory(historyData) {
   const filterPredicate = item =>
     item.products.includes('YouTube') &&
-    item.titleUrl != null && // removed video doesnt contain url...
+    item.titleUrl != null && // removed video doesn't contain url...
     item.titleUrl.includes('www.youtube.com/watch?v') &&
-    item.details == null // dont import ads
+    item.details == null // don't import ads
 
   const filteredHistoryData = historyData.filter(filterPredicate)
 

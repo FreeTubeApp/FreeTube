@@ -1,33 +1,18 @@
+import shaka from 'shaka-player'
 import { defineComponent } from 'vue'
 import { mapActions, mapMutations } from 'vuex'
-import shaka from 'shaka-player'
 import { Utils, YTNodes } from 'youtubei.js'
-import FtLoader from '../../components/FtLoader/FtLoader.vue'
+import packageDetails from '../../../../package.json'
+import CommentSection from '../../components/CommentSection/CommentSection.vue'
 import FtShakaVideoPlayer from '../../components/ft-shaka-video-player/ft-shaka-video-player.vue'
-import WatchVideoInfo from '../../components/WatchVideoInfo/WatchVideoInfo.vue'
+import FtAgeRestricted from '../../components/FtAgeRestricted/FtAgeRestricted.vue'
+import FtLoader from '../../components/FtLoader/FtLoader.vue'
+import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoChapters from '../../components/WatchVideoChapters/WatchVideoChapters.vue'
 import WatchVideoDescription from '../../components/WatchVideoDescription/WatchVideoDescription.vue'
-import CommentSection from '../../components/CommentSection/CommentSection.vue'
+import WatchVideoInfo from '../../components/WatchVideoInfo/WatchVideoInfo.vue'
 import WatchVideoLiveChat from '../../components/WatchVideoLiveChat/WatchVideoLiveChat.vue'
-import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
 import WatchVideoRecommendations from '../../components/WatchVideoRecommendations/WatchVideoRecommendations.vue'
-import FtAgeRestricted from '../../components/FtAgeRestricted/FtAgeRestricted.vue'
-import packageDetails from '../../../../package.json'
-import {
-  buildVTTFileLocally,
-  copyToClipboard,
-  extractNumberFromString,
-  formatDurationAsTimestamp,
-  formatNumber,
-  showToast
-} from '../../helpers/utils'
-import {
-  getLocalVideoInfo,
-  mapLocalLegacyFormat,
-  parseLocalSubscriberCount,
-  parseLocalTextRuns,
-  parseLocalWatchNextVideo
-} from '../../helpers/api/local'
 import {
   convertInvidiousToLocalFormat,
   generateInvidiousDashManifestLocally,
@@ -36,6 +21,21 @@ import {
   mapInvidiousLegacyFormat,
   youtubeImageUrlToInvidious
 } from '../../helpers/api/invidious'
+import {
+  getLocalVideoInfo,
+  mapLocalLegacyFormat,
+  parseLocalSubscriberCount,
+  parseLocalTextRuns,
+  parseLocalWatchNextVideo
+} from '../../helpers/api/local'
+import {
+  buildVTTFileLocally,
+  copyToClipboard,
+  extractNumberFromString,
+  formatDurationAsTimestamp,
+  formatNumber,
+  showToast
+} from '../../helpers/utils'
 
 const MANIFEST_TYPE_DASH = 'application/dash+xml'
 const MANIFEST_TYPE_HLS = 'application/x-mpegurl'
@@ -226,7 +226,7 @@ export default defineComponent({
     },
     autoplayPossible: function () {
       return (!this.watchingPlaylist && !this.hideRecommendedVideos && !!this.nextRecommendedVideo) ||
-      (this.watchingPlaylist && !this.$refs.watchVideoPlaylist?.shouldStopDueToPlaylistEnd)
+        (this.watchingPlaylist && !this.$refs.watchVideoPlaylist?.shouldStopDueToPlaylistEnd)
     },
     currentLocale: function () {
       return this.$i18n.locale
@@ -525,7 +525,7 @@ export default defineComponent({
           } else {
             /** @type {import('youtubei.js').YTNodes.MacroMarkersList | null | undefined} */
             const macroMarkersList = result.page[1]?.engagement_panels
-              ?.find(pannel => pannel.panel_identifier === 'engagement-panel-macro-markers-auto-chapters')?.content
+              ?.find(panel => panel.panel_identifier === 'engagement-panel-macro-markers-auto-chapters')?.content
 
             if (macroMarkersList) {
               for (const item of macroMarkersList.contents) {
@@ -1324,8 +1324,8 @@ export default defineComponent({
 
       if (this.manifestSrc === null ||
         ((this.isLive || this.isPostLiveDvr) &&
-        // The WEB HLS manifests only contain combined audio and video files, so we can't do audio only
-        // The IOS HLS manifests have audio-only streams
+          // The WEB HLS manifests only contain combined audio and video files, so we can't do audio only
+          // The IOS HLS manifests have audio-only streams
           this.manifestMimeType === MANIFEST_TYPE_HLS && !this.manifestSrc.includes('/demuxed/1'))) {
         showToast(this.$t('Change Format.Audio formats are not available for this video'))
         return
@@ -1346,7 +1346,7 @@ export default defineComponent({
           {
             autoplayInterruptionIntervalHours: this.defaultAutoplayInterruptionIntervalHours
           }),
-        3_600_000
+          3_600_000
         )
         this.resetAutoplayInterruptionTimeout()
         return
@@ -1752,7 +1752,7 @@ export default defineComponent({
         forbiddenTitles.some((text) => video.author?.toLowerCase().includes(text))
     },
 
-    toggleAutoplay: function() {
+    toggleAutoplay: function () {
       if (this.autoplayEnabled && this.playNextTimeout) {
         this.abortAutoplayCountdown()
       }
@@ -1781,7 +1781,7 @@ export default defineComponent({
       this.currentPlaybackRate = newRate
     },
 
-    destroyPlayer: async function() {
+    destroyPlayer: async function () {
       const uiState = await this.$refs.player.destroyPlayer()
       this.startNextVideoInFullscreen = uiState.startNextVideoInFullscreen
       this.startNextVideoInFullwindow = uiState.startNextVideoInFullwindow

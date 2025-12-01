@@ -26,7 +26,7 @@ export default {
     '!node_modules/**/*',
   ],
 
-  // As we bundle all dependecies with webpack, the `node_modules` folder is excluded from packaging in the `files` array.
+  // As we bundle all dependencies with webpack, the `node_modules` folder is excluded from packaging in the `files` array.
   // electron-builder will however still spend time scanning the `node_modules` folder and building up a list of dependencies,
   // returning `false` from the `beforeBuild` hook skips that.
   beforeBuild: () => Promise.resolve(false),

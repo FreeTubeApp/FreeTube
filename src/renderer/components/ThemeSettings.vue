@@ -111,7 +111,7 @@ import { useColorTranslations } from '../composables/colors'
 
 const { t } = useI18n()
 
-// Themes are devided into 3 groups.
+// Themes are divided into 3 groups.
 // The first group contains the default themes.
 // The second group are themes that don't have specific primary and secondary colors.
 // The third group are themes that do have specific primary and secondary colors available.

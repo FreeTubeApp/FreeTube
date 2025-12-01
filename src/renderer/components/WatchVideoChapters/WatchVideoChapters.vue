@@ -125,7 +125,7 @@ const observeVisibilityOptions = {
     // Only when it intersects with N% above bottom
     rootMargin: '0% 0% 0% 0%',
   },
-  // Callback responsible for scolling to current chapter multiple times
+  // Callback responsible for scrolling to current chapter multiple times
   once: false,
 }
 

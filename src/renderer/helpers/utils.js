@@ -1,6 +1,6 @@
+import { nextTick } from 'vue'
 import i18n from '../i18n/index'
 import router from '../router/index'
-import { nextTick } from 'vue'
 
 // allowed characters in channel handle: A-Z, a-z, 0-9, -, _, .
 // https://support.google.com/youtube/answer/11585688#change_handle
@@ -268,6 +268,7 @@ export async function readFileWithPicker(
         excludeAcceptAllOption: true,
         multiple: false,
         id: rememberDirectoryId,
+        // codespell:ignore startIn (API option name)
         startIn: startInDirectory,
         types: [{
           description: fileTypeDescription,
@@ -359,6 +360,7 @@ export async function writeFileWithPicker(
         excludeAcceptAllOption: true,
         multiple: false,
         id: rememberDirectoryId,
+        // codespell:ignore startIn (API option name)
         startIn: startInDirectory,
         types: [{
           description: fileTypeDescription,
@@ -1010,7 +1012,7 @@ export function debounce(func, wait) {
 
   // Using a fully fledged function here instead of an arrow function
   // so that we can get `this` and pass it onto the original function.
-  // Vue components using the options API use `this` alot.
+  // Vue components using the options API use `this` a lot.
   return function (...args) {
     const context = this
 
@@ -1034,7 +1036,7 @@ export function throttle(func, wait) {
 
   // Using a fully fledged function here instead of an arrow function
   // so that we can get `this` and pass it onto the original function.
-  // Vue components using the options API use `this` alot.
+  // Vue components using the options API use `this` a lot.
   return function (...args) {
     const context = this
     if (!isWaiting) {

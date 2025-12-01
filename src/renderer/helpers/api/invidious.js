@@ -1,12 +1,12 @@
+import autolinker from 'autolinker'
+import { FormatUtils, Misc, Player } from 'youtubei.js'
 import store from '../../store/index'
+import { isNullOrEmpty } from '../strings'
 import {
   calculatePublishedDate,
   getRelativeTimeFromDate,
   stripHTML,
 } from '../utils'
-import { isNullOrEmpty } from '../strings'
-import autolinker from 'autolinker'
-import { FormatUtils, Misc, Player } from 'youtubei.js'
 
 /** @typedef {{url: string, width: number, height: number}} InvidiousImageObject */
 /** @typedef {{quality: string, url: string, width: number, height: number}} InvidiousThumbnailObject */
@@ -62,7 +62,7 @@ function invidiousAPICall({ resource, id = '', params = {}, doLogError = true, s
       .then((json) => {
         if (json.error !== undefined) {
           // community is empty, no need to display error.
-          // This code can be removed when: https://github.com/iv-org/invidious/issues/3814 is reolved
+          // This code can be removed when: https://github.com/iv-org/invidious/issues/3814 is resolved
           if (json.error === 'This channel hasn\'t posted yet') {
             resolve({ comments: [] })
           } else {
@@ -373,8 +373,8 @@ export async function invidiousGetPlaylistInfo(playlistId) {
  *    init: string,
  *    url: string,
  *    itag: string,
- *    type; string,
- *    clen: string,
+ *    type: string,
+ *    clen: string, // codespell:ignore clen (API field name)
  *    lmt: string,
  *    projectionType: string,
  *    container: string,
@@ -884,20 +884,20 @@ export function convertInvidiousToLocalFormat(format) {
       end: indexEnd
     },
     // lastModified: format.lmt,
-    // contentLength: format.clen,
+    // contentLength: format.clen, // codespell:ignore clen
     url: format.url,
     approxDurationMs: duration,
     ...(format.type.startsWith('audio/')
       ? {
-          audioQuality: format.audioQuality,
-          audioSampleRate: format.audioSampleRate,
-          audioChannels: format.audioChannels
-        }
+        audioQuality: format.audioQuality,
+        audioSampleRate: format.audioSampleRate,
+        audioChannels: format.audioChannels
+      }
       : {
-          fps: format.fps,
-          qualityLabel: format.qualityLabel,
-          ...(format.colorInfo ? { colorInfo: format.colorInfo } : {})
-        })
+        fps: format.fps,
+        qualityLabel: format.qualityLabel,
+        ...(format.colorInfo ? { colorInfo: format.colorInfo } : {})
+      })
   })
 
   if (localFormat.has_audio && url.searchParams.has('xtags')) {

@@ -3,13 +3,13 @@ import { createStore } from 'vuex'
 
 import history from './modules/history'
 import invidious from './modules/invidious'
+import player from './modules/player'
 import playlists from './modules/playlists'
 import profiles from './modules/profiles'
-import settings from './modules/settings'
 import searchHistory from './modules/search-history'
+import settings from './modules/settings'
 import subscriptionCache from './modules/subscription-cache'
 import utils from './modules/utils'
-import player from './modules/player'
 
 export default createStore({
   modules: {
@@ -26,7 +26,7 @@ export default createStore({
 
   // Detects unsafe changes to the store state e.g. outside of mutations
   // but we have to turn it off despite its usefulness as we have so much data in the store
-  // that it causes a noticable slow-down :(
+  // that it causes a noticeable slow-down :(
   strict: false
 
   // TODO: Enable when deploy

@@ -155,7 +155,7 @@ const getters = {
     return state.externalPlayerValues
   },
 
-  getExternalPlayerCmdArguments (state) {
+  getExternalPlayerCmdArguments(state) {
     return state.externalPlayerCmdArguments
   },
 
@@ -170,16 +170,16 @@ const getters = {
   getSubscriptionForVideosFirstAutoFetchRun(state) {
     return state.subscriptionFirstAutoFetchRunData.videos === true
   },
-  getSubscriptionForLiveStreamsFirstAutoFetchRun (state) {
+  getSubscriptionForLiveStreamsFirstAutoFetchRun(state) {
     return state.subscriptionFirstAutoFetchRunData.liveStreams === true
   },
-  getSubscriptionForShortsFirstAutoFetchRun (state) {
+  getSubscriptionForShortsFirstAutoFetchRun(state) {
     return state.subscriptionFirstAutoFetchRunData.shorts === true
   },
-  getSubscriptionForPostsFirstAutoFetchRun (state) {
+  getSubscriptionForPostsFirstAutoFetchRun(state) {
     return state.subscriptionFirstAutoFetchRunData.posts === true
   },
-  getAppTitle (state) {
+  getAppTitle(state) {
     return state.appTitle
   },
   isAnyPromptOpen(state) {
@@ -209,6 +209,7 @@ const actions = {
         handle = await window.showSaveFilePicker({
           excludeAcceptAllOption: true,
           id: 'downloads',
+          // codespell:ignore startIn (API option name)
           startIn: 'downloads',
           suggestedName: fileName,
           types: [{
@@ -275,7 +276,7 @@ const actions = {
     }
   },
 
-  parseScreenshotCustomFileName: function({ rootState }, payload) {
+  parseScreenshotCustomFileName: function ({ rootState }, payload) {
     const { pattern = rootState.settings.screenshotFilenamePattern, date, playerTime, videoId } = payload
     const keywords = [
       ['%Y', date.getFullYear()], // year 4 digits
@@ -306,7 +307,7 @@ const actions = {
     return parsedString
   },
 
-  showAddToPlaylistPromptForManyVideos ({ commit }, { videos: videoObjectArray, newPlaylistDefaultProperties }) {
+  showAddToPlaylistPromptForManyVideos({ commit }, { videos: videoObjectArray, newPlaylistDefaultProperties }) {
     let videoDataValid = true
     if (!Array.isArray(videoObjectArray)) {
       videoDataValid = false
@@ -365,38 +366,38 @@ const actions = {
     }
   },
 
-  hideAddToPlaylistPrompt ({ commit }) {
+  hideAddToPlaylistPrompt({ commit }) {
     commit('setShowAddToPlaylistPrompt', false)
     // The default value properties are only valid until prompt is closed
     commit('resetNewPlaylistDefaultProperties')
   },
 
-  showCreatePlaylistPrompt ({ commit }, data) {
+  showCreatePlaylistPrompt({ commit }, data) {
     commit('setShowCreatePlaylistPrompt', true)
     commit('setNewPlaylistVideoObject', data)
   },
 
-  showKeyboardShortcutPrompt ({ commit }) {
+  showKeyboardShortcutPrompt({ commit }) {
     commit('setIsKeyboardShortcutPromptShown', true)
   },
 
-  hideKeyboardShortcutPrompt ({ commit }) {
+  hideKeyboardShortcutPrompt({ commit }) {
     commit('setIsKeyboardShortcutPromptShown', false)
   },
 
-  showSearchFilters ({ commit }) {
+  showSearchFilters({ commit }) {
     commit('setShowSearchFilters', true)
   },
 
-  hideSearchFilters ({ commit }) {
+  hideSearchFilters({ commit }) {
     commit('setShowSearchFilters', false)
   },
 
-  updateShowProgressBar ({ commit }, value) {
+  updateShowProgressBar({ commit }, value) {
     commit('setShowProgressBar', value)
   },
 
-  async getRegionData ({ commit }, locale) {
+  async getRegionData({ commit }, locale) {
     const localePathExists = process.env.GEOLOCATION_NAMES.includes(locale)
 
     const url = createWebURL(`/static/geolocations/${localePathExists ? locale : 'en-US'}.json`)
@@ -669,11 +670,11 @@ const actions = {
     }
   },
 
-  clearSessionSearchHistory ({ commit }) {
+  clearSessionSearchHistory({ commit }) {
     commit('setSessionSearchHistory', [])
   },
 
-  async getExternalPlayerCmdArgumentsData ({ commit }) {
+  async getExternalPlayerCmdArgumentsData({ commit }) {
     const url = createWebURL('/static/external-player-map.json')
     const externalPlayerMap = await (await fetch(url)).json()
     // Sort external players alphabetically & case-insensitive, keep default entry at the top
@@ -693,7 +694,7 @@ const actions = {
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
 
-  openInExternalPlayer ({ state, rootState }, payload) {
+  openInExternalPlayer({ state, rootState }, payload) {
     const args = []
     const externalPlayer = rootState.settings.externalPlayer
     const cmdArgs = state.externalPlayerCmdArguments[externalPlayer]
@@ -810,7 +811,7 @@ const actions = {
 }
 
 const mutations = {
-  toggleSideNav (state) {
+  toggleSideNav(state) {
     state.isSideNavOpen = !state.isSideNavOpen
   },
 
@@ -818,23 +819,23 @@ const mutations = {
     state.outlinesHidden = value
   },
 
-  setShowProgressBar (state, value) {
+  setShowProgressBar(state, value) {
     state.showProgressBar = value
   },
 
-  setProgressBarPercentage (state, value) {
+  setProgressBarPercentage(state, value) {
     state.progressBarPercentage = value
   },
 
-  setSessionSearchHistory (state, history) {
+  setSessionSearchHistory(state, history) {
     state.sessionSearchHistory = history
   },
 
-  setDeArrowCache (state, cache) {
+  setDeArrowCache(state, cache) {
     state.deArrowCache = cache
   },
 
-  addVideoToDeArrowCache (state, payload) {
+  addVideoToDeArrowCache(state, payload) {
     const sameVideo = state.deArrowCache[payload.videoId]
 
     if (!sameVideo) {
@@ -842,15 +843,15 @@ const mutations = {
     }
   },
 
-  addThumbnailToDeArrowCache (state, payload) {
+  addThumbnailToDeArrowCache(state, payload) {
     state.deArrowCache[payload.videoId] = payload
   },
 
-  removeFromSessionSearchHistory (state, query) {
+  removeFromSessionSearchHistory(state, query) {
     state.sessionSearchHistory = state.sessionSearchHistory.filter((search) => search.query !== query)
   },
 
-  addToSessionSearchHistory (state, payload) {
+  addToSessionSearchHistory(state, payload) {
     const sameSearch = state.sessionSearchHistory.findIndex((search) => {
       return search.query === payload.query && searchFiltersMatch(payload.searchSettings, search.searchSettings)
     })
@@ -869,42 +870,42 @@ const mutations = {
     }
   },
 
-  setShowAddToPlaylistPrompt (state, payload) {
+  setShowAddToPlaylistPrompt(state, payload) {
     state.showAddToPlaylistPrompt = payload
   },
 
-  setShowCreatePlaylistPrompt (state, payload) {
+  setShowCreatePlaylistPrompt(state, payload) {
     state.showCreatePlaylistPrompt = payload
   },
 
-  setIsKeyboardShortcutPromptShown (state, payload) {
+  setIsKeyboardShortcutPromptShown(state, payload) {
     state.isKeyboardShortcutPromptShown = payload
   },
 
-  setShowSearchFilters (state, payload) {
+  setShowSearchFilters(state, payload) {
     state.showSearchFilters = payload
   },
 
-  setToBeAddedToPlaylistVideoList (state, payload) {
+  setToBeAddedToPlaylistVideoList(state, payload) {
     state.toBeAddedToPlaylistVideoList = payload
   },
 
-  setNewPlaylistDefaultProperties (state, payload) {
+  setNewPlaylistDefaultProperties(state, payload) {
     state.newPlaylistDefaultProperties = payload
   },
-  resetNewPlaylistDefaultProperties (state) {
+  resetNewPlaylistDefaultProperties(state) {
     state.newPlaylistDefaultProperties = {}
   },
 
-  setNewPlaylistVideoObject (state, payload) {
+  setNewPlaylistVideoObject(state, payload) {
     state.newPlaylistVideoObject = payload
   },
 
-  setPopularCache (state, value) {
+  setPopularCache(state, value) {
     state.popularCache = value
   },
 
-  setTrendingCache (state, { value, page }) {
+  setTrendingCache(state, { value, page }) {
     state.trendingCache[page] = value
   },
 
@@ -912,11 +913,11 @@ const mutations = {
    * @param {typeof state} state
    * @param {{page: 'gaming' | 'sports' | 'podcasts', timestamp: Date}} param1
    */
-  setLastTrendingRefreshTimestamp (state, { page, timestamp }) {
+  setLastTrendingRefreshTimestamp(state, { page, timestamp }) {
     state.lastTrendingRefreshTimestamp[page] = timestamp
   },
 
-  setLastPopularRefreshTimestamp (state, timestamp) {
+  setLastPopularRefreshTimestamp(state, timestamp) {
     state.lastPopularRefreshTimestamp = timestamp
   },
 
@@ -932,56 +933,56 @@ const mutations = {
     state.cachedPlaylist = value
   },
 
-  setSearchFilterValueChanged (state, value) {
+  setSearchFilterValueChanged(state, value) {
     state.searchFilterValueChanged = value
   },
 
-  setSearchSortBy (state, value) {
+  setSearchSortBy(state, value) {
     state.searchSettings.sortBy = value
   },
 
-  setSearchTime (state, value) {
+  setSearchTime(state, value) {
     state.searchSettings.time = value
   },
 
-  setSearchType (state, value) {
+  setSearchType(state, value) {
     state.searchSettings.type = value
   },
 
-  setSearchDuration (state, value) {
+  setSearchDuration(state, value) {
     state.searchSettings.duration = value
   },
 
-  setSearchFeatures (state, value) {
+  setSearchFeatures(state, value) {
     state.searchSettings.features = value
   },
 
-  setRegionNames (state, value) {
+  setRegionNames(state, value) {
     state.regionNames = value
   },
 
-  setRegionValues (state, value) {
+  setRegionValues(state, value) {
     state.regionValues = value
   },
 
-  setRecentBlogPosts (state, value) {
+  setRecentBlogPosts(state, value) {
     state.recentBlogPosts = value
   },
 
-  setExternalPlayerNames (state, value) {
+  setExternalPlayerNames(state, value) {
     state.externalPlayerNames = value
   },
 
-  setExternalPlayerValues (state, value) {
+  setExternalPlayerValues(state, value) {
     state.externalPlayerValues = value
   },
 
-  setExternalPlayerCmdArguments (state, value) {
+  setExternalPlayerCmdArguments(state, value) {
     state.externalPlayerCmdArguments = value
   },
 
   // Use this to set the app title / document.title
-  setAppTitle (state, value) {
+  setAppTitle(state, value) {
     state.appTitle = value
   },
 
@@ -993,16 +994,16 @@ const mutations = {
     state.openPrompts.delete(id)
   },
 
-  setSubscriptionForVideosFirstAutoFetchRun (state) {
+  setSubscriptionForVideosFirstAutoFetchRun(state) {
     state.subscriptionFirstAutoFetchRunData.videos = true
   },
-  setSubscriptionForLiveStreamsFirstAutoFetchRun (state) {
+  setSubscriptionForLiveStreamsFirstAutoFetchRun(state) {
     state.subscriptionFirstAutoFetchRunData.liveStreams = true
   },
-  setSubscriptionForShortsFirstAutoFetchRun (state) {
+  setSubscriptionForShortsFirstAutoFetchRun(state) {
     state.subscriptionFirstAutoFetchRunData.shorts = true
   },
-  setSubscriptionForPostsFirstAutoFetchRun (state) {
+  setSubscriptionForPostsFirstAutoFetchRun(state) {
     state.subscriptionFirstAutoFetchRunData.posts = true
   }
 }

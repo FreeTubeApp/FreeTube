@@ -74,7 +74,7 @@ const showControls = ref(false)
 if (props.descriptionHtml !== '') {
   const parsed = parseDescriptionHtml(props.descriptionHtml)
 
-  // the invidious API returns emtpy html elements when the description is empty
+  // the invidious API returns empty html elements when the description is empty
   // so we need to parse it to see if there is any meaningful text in the html
   // or if it's just empty html elements e.g. `<p></p>`
 

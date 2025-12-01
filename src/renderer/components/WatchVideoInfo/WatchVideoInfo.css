@@ -97,7 +97,7 @@
   gap: 4px;
 }
 
-@media screen and (width <= 730px) {
+@media screen and (width <=730px) {
   .videoButtons {
     flex-direction: column;
     align-items: flex-start;
@@ -105,26 +105,26 @@
   }
 }
 
-@media screen and (width <= 680px) {
+@media screen and (width <=680px) {
   .likeSection {
     margin-inline-start: 0;
     text-align: start;
   }
 }
 
-@media screen and (width <= 460px) {
+@media screen and (width <=460px) {
   .datePublishedAndViewCount {
     display: flex;
     justify-content: left;
     flex-direction: column;
   }
 
-  .seperator {
+  .separator {
     display: none;
   }
 }
 
-@media screen and (width <= 380px) {
+@media screen and (width <=380px) {
   .videoOptions {
     flex-direction: column;
     align-items: flex-start;

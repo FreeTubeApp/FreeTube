@@ -19,7 +19,7 @@
         <template
           v-if="!hideVideoViews"
         >
-          <span class="seperator">• </span><span class="videoViews">{{ parsedViewCount }}</span>
+          <span class="separator">• </span><span class="videoViews">{{ parsedViewCount }}</span>
         </template>
       </div>
       <div

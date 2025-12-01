@@ -1,27 +1,33 @@
+import cp from 'child_process'
 import {
-  app, BrowserWindow, dialog, Menu, ipcMain,
-  powerSaveBlocker, screen, session, shell,
-  nativeTheme, net, protocol, clipboard,
+  app, BrowserWindow,
+  clipboard,
+  dialog,
+  ipcMain,
+  Menu,
+  nativeTheme, net,
+  powerSaveBlocker,
+  protocol,
+  screen, session, shell,
   Tray
 } from 'electron'
 import path from 'path'
-import cp from 'child_process'
 
-import {
-  IpcChannels,
-  DBActions,
-  SyncEvents,
-  ABOUT_BITCOIN_ADDRESS,
-  KeyboardShortcuts,
-  DefaultFolderKind,
-  SEARCH_CHAR_LIMIT,
-} from '../constants'
-import * as baseHandlers from '../datastores/handlers/base'
-import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 import { existsSync } from 'fs'
 import asyncFs from 'fs/promises'
 import { promisify } from 'util'
 import { brotliDecompress } from 'zlib'
+import {
+  ABOUT_BITCOIN_ADDRESS,
+  DBActions,
+  DefaultFolderKind,
+  IpcChannels,
+  KeyboardShortcuts,
+  SEARCH_CHAR_LIMIT,
+  SyncEvents,
+} from '../constants'
+import * as baseHandlers from '../datastores/handlers/base'
+import { extractExpiryTimestamp, ImageCache } from './ImageCache'
 
 import contextMenu from 'electron-context-menu'
 
@@ -882,7 +888,7 @@ function runApp() {
       windowStartupUrl = null,
       showWindowNow = false,
       searchQueryText = null
-    } = { }) {
+    } = {}) {
     // Syncing new window background to theme choice.
     const windowBackground = await baseHandlers.settings._findOne('baseTheme').then((setting) => {
       if (!setting) {
@@ -981,15 +987,15 @@ function runApp() {
       minHeight: 380,
       ...savedBounds
         ? {
-            x: savedBounds.x,
-            y: savedBounds.y,
-            width: savedBounds.width,
-            height: savedBounds.height
-          }
+          x: savedBounds.x,
+          y: savedBounds.y,
+          width: savedBounds.width,
+          height: savedBounds.height
+        }
         : {
-            width: 1200,
-            height: 800
-          }
+          width: 1200,
+          height: 800
+        }
     })
 
     // region Ensure child windows use same options since electron 14
@@ -1169,6 +1175,8 @@ function runApp() {
 
     newWindow.once('closed', () => {
       const allWindows = BrowserWindow.getAllWindows()
+      const totalWindows = allWindows.length
+      const calculatedSize = Math.ceil(Math.sqrt(Math.max(1, totalWindows)))
       if (allWindows.length !== 0 && newWindow === mainWindow) {
         // Replace mainWindow to avoid accessing `mainWindow.webContents`
         // Which raises "Object has been destroyed" error
@@ -1274,7 +1282,7 @@ function runApp() {
   // #region navigation history
 
   const NAV_HISTORY_DISPLAY_LIMIT = 15
-  // Math.trunc but with a bitwise OR so that it can be calcuated at build time and the number inlined
+  // Math.trunc but with a bitwise OR so that it can be calculated at build time and the number inlined
   const HALF_OF_NAV_HISTORY_DISPLAY_LIMIT = (NAV_HISTORY_DISPLAY_LIMIT / 2) | 0
 
   ipcMain.handle(IpcChannels.GET_NAVIGATION_HISTORY, ({ senderFrame, sender }) => {
@@ -1624,7 +1632,7 @@ function runApp() {
               break
 
             default:
-              // Do nothing for unmatched settings
+            // Do nothing for unmatched settings
           }
           return null
 
@@ -2180,7 +2188,7 @@ function runApp() {
 
   function baseUrl(arg) {
     let newArg = arg.replace('freetube://', '')
-    // add support for authority free url
+      // add support for authority free url
       .replace('freetube:', '')
 
     // fix for Qt URL, like `freetube://https//www.youtube.com/watch?v=...`
@@ -2235,21 +2243,21 @@ function runApp() {
     const template = [
       ...process.platform === 'darwin'
         ? [
-            {
-              label: app.getName(),
-              submenu: [
-                { role: 'about' },
-                { type: 'separator' },
-                { role: 'services' },
-                { type: 'separator' },
-                { role: 'hide' },
-                { role: 'hideothers' },
-                { role: 'unhide' },
-                { type: 'separator' },
-                { role: 'quit' }
-              ]
-            }
-          ]
+          {
+            label: app.getName(),
+            submenu: [
+              { role: 'about' },
+              { type: 'separator' },
+              { role: 'services' },
+              { type: 'separator' },
+              { role: 'hide' },
+              { role: 'hideothers' },
+              { role: 'unhide' },
+              { type: 'separator' },
+              { role: 'quit' }
+            ]
+          }
+        ]
         : [],
       {
         label: 'File',
@@ -2352,17 +2360,17 @@ function runApp() {
           },
           ...(process.platform === 'darwin'
             ? [
-                {
-                  label: 'Back',
-                  accelerator: KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD_ALT_MAC,
-                  click: (_menuItem, browserWindow, _event) => {
-                    if (browserWindow == null) { return }
+              {
+                label: 'Back',
+                accelerator: KeyboardShortcuts.APP.GENERAL.HISTORY_BACKWARD_ALT_MAC,
+                click: (_menuItem, browserWindow, _event) => {
+                  if (browserWindow == null) { return }
 
-                    browserWindow.webContents.navigationHistory.goBack()
-                  },
-                  visible: false,
+                  browserWindow.webContents.navigationHistory.goBack()
                 },
-              ]
+                visible: false,
+              },
+            ]
             : []),
           {
             label: 'Forward',
@@ -2376,17 +2384,17 @@ function runApp() {
           },
           ...(process.platform === 'darwin'
             ? [
-                {
-                  label: 'Forward',
-                  accelerator: KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD_ALT_MAC,
-                  click: (_menuItem, browserWindow, _event) => {
-                    if (browserWindow == null) { return }
+              {
+                label: 'Forward',
+                accelerator: KeyboardShortcuts.APP.GENERAL.HISTORY_FORWARD_ALT_MAC,
+                click: (_menuItem, browserWindow, _event) => {
+                  if (browserWindow == null) { return }
 
-                    browserWindow.webContents.navigationHistory.goForward()
-                  },
-                  visible: false,
+                  browserWindow.webContents.navigationHistory.goForward()
                 },
-              ]
+                visible: false,
+              },
+            ]
             : []),
         ]
       },
@@ -2456,10 +2464,10 @@ function runApp() {
       },
       ...process.platform === 'darwin'
         ? [
-            { role: 'window' },
-            { role: 'help' },
-            { role: 'services' }
-          ]
+          { role: 'window' },
+          { role: 'help' },
+          { role: 'services' }
+        ]
         : []
     ]
 

@@ -1,16 +1,8 @@
-import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
 import shaka from 'shaka-player'
+import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, reactive, ref, shallowRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
-import store from '../../store/index'
 import { DefaultFolderKind, KeyboardShortcuts } from '../../../constants'
-import { AudioTrackSelection } from './player-components/AudioTrackSelection'
-import { FullWindowButton } from './player-components/FullWindowButton'
-import { LegacyQualitySelection } from './player-components/LegacyQualitySelection'
-import { ScreenshotButton } from './player-components/ScreenshotButton'
-import { StatsButton } from './player-components/StatsButton'
-import { TheatreModeButton } from './player-components/TheatreModeButton'
-import { AutoplayToggle } from './player-components/AutoplayToggle'
 import {
   deduplicateAudioTracks,
   findMostSimilarAudioBandwidth,
@@ -22,11 +14,19 @@ import {
 } from '../../helpers/player/utils'
 import {
   addKeyboardShortcutToActionTitle,
-  showToast,
-  writeFileWithPicker,
-  throttle,
   removeFromArrayIfExists,
+  showToast,
+  throttle,
+  writeFileWithPicker,
 } from '../../helpers/utils'
+import store from '../../store/index'
+import { AudioTrackSelection } from './player-components/AudioTrackSelection'
+import { AutoplayToggle } from './player-components/AutoplayToggle'
+import { FullWindowButton } from './player-components/FullWindowButton'
+import { LegacyQualitySelection } from './player-components/LegacyQualitySelection'
+import { ScreenshotButton } from './player-components/ScreenshotButton'
+import { StatsButton } from './player-components/StatsButton'
+import { TheatreModeButton } from './player-components/TheatreModeButton'
 
 /** @typedef {import('../../helpers/sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
 
@@ -2077,7 +2077,7 @@ export default defineComponent({
      * determines whether the jump to the previous or next chapter
      * with the the keyboard shortcuts, should be done
      * first it checks whether there are any chapters (the array is also empty if chapters are hidden)
-     * it also checks that the approprate combination was used ALT/OPTION on macOS and CTRL everywhere else
+     * it also checks that the appropriate combination was used ALT/OPTION on macOS and CTRL everywhere else
      * @param {KeyboardEvent} event the keyboard event
      * @param {string} direction the direction of the jump either previous or next
      */
@@ -2979,7 +2979,7 @@ export default defineComponent({
     }
 
     /**
-     * Vue's lifecycle hooks are synchonous, so if we destroy the player in {@linkcode onBeforeUnmount},
+     * Vue's lifecycle hooks are synchronous, so if we destroy the player in {@linkcode onBeforeUnmount},
      * it won't be finished in time, as the player destruction is asynchronous.
      * To workaround that we destroy the player first and wait for it to finish before we unmount this component.
      *

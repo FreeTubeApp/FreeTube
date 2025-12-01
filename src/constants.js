@@ -49,7 +49,7 @@ const IpcChannels = {
 }
 
 const DBActions = {
-  // The constants in the GENERAL group are usally intermingeled with the ones in other groups, so they need unique values.
+  // The constants in the GENERAL group are usually intermingled with the ones in other groups, so they need unique values.
   // The other groups however are usually not mixed (e.g. HISTORY and PROFILES),
   // so they can have similar values (as long as they don't overlap with the GENERAL group).
   GENERAL: {
@@ -90,7 +90,7 @@ const DBActions = {
 }
 
 const SyncEvents = {
-  // The constants in the GENERAL group are usally intermingeled with the ones in other groups, so they need unique values.
+  // The constants in the GENERAL group are usually intermingled with the ones in other groups, so they need unique values.
   // The other groups however are usually not mixed (e.g. HISTORY and PROFILES),
   // so they can have similar values (as long as they don't overlap with the GENERAL group).
   GENERAL: {
@@ -248,17 +248,6 @@ const MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT = 4
 const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
 export {
-  IpcChannels,
-  DBActions,
-  SyncEvents,
-  DefaultFolderKind,
-  KeyboardShortcuts,
-  PlayerIcons,
-  MAIN_PROFILE_ID,
-  MOBILE_WIDTH_THRESHOLD,
-  PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD,
-  SEARCH_CHAR_LIMIT,
-  SEARCH_RESULTS_DISPLAY_LIMIT,
-  MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT,
-  ABOUT_BITCOIN_ADDRESS,
+  ABOUT_BITCOIN_ADDRESS, DBActions, DefaultFolderKind, IpcChannels, KeyboardShortcuts, MAIN_PROFILE_ID, MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT, MOBILE_WIDTH_THRESHOLD, PlayerIcons, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD, SEARCH_CHAR_LIMIT,
+  SEARCH_RESULTS_DISPLAY_LIMIT, SyncEvents
 }

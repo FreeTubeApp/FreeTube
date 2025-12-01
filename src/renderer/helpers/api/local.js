@@ -1,8 +1,7 @@
-import { ClientType, Innertube, Misc, Mixins, Parser, Platform, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
+import { ClientType, Innertube, Misc, Mixins, Parser, Platform, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
-import { PlayerCache } from './PlayerCache'
 import {
   CHANNEL_HANDLE_REGEX,
   calculatePublishedDate,
@@ -11,6 +10,7 @@ import {
   getChannelPlaylistId,
   getRelativeTimeFromDate,
 } from '../utils'
+import { PlayerCache } from './PlayerCache'
 
 const TRACKING_PARAM_NAMES = [
   'utm_source',
@@ -84,7 +84,7 @@ if (process.env.SUPPORTS_LOCAL_API) {
  * @param {boolean} options.withPlayer set to true to get an Innertube instance that can decode the streaming URLs
  * @param {string|undefined} options.location the geolocation to pass to YouTube get different content
  * @param {boolean} options.safetyMode whether to hide mature content
- * @param {import('youtubei.js').ClientType} options.clientType use an alterate client
+ * @param {import('youtubei.js').ClientType} options.clientType use an alternate client
  * @param {boolean} options.generateSessionLocally generate the session locally or let YouTube generate it (local is faster, remote is more accurate)
  * @returns the Innertube instance
  */
@@ -1257,9 +1257,9 @@ export function parseLocalPlaylistVideo(video) {
 
     let viewCount = null
 
-    // the accessiblity text is the only place with the view count
+    // the accessibility text is the only place with the view count
     if (shortsLockupView.accessibility_text) {
-      // the `.*\s+` at the start of the regex, ensures we match the last occurence
+      // the `.*\s+` at the start of the regex, ensures we match the last occurrence
       // just in case the video title also contains that pattern
       const match = shortsLockupView.accessibility_text.match(/.*\s+(\d+(?:[,.]\d+)?\s?(?:[BKMbkm]|million)?|no)\s+views?/)
 
