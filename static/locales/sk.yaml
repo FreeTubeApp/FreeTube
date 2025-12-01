@@ -635,7 +635,7 @@ Change Format:
   Audio formats are not available for this video: Pre toto video nie sú k dispozícii zvukové formáty
 Share:
   Share Video: 'Zdieľať video'
-  Share Playlist: 'Zdieľať zoznam videí'
+  Share Playlist: 'Zdieľať playlist'
   Copy Link: 'Skopírovať odkaz'
   Open Link: 'Otvoriť odkaz'
   Copy Embed: 'Kopírovať vložené'
@@ -648,6 +648,8 @@ Share:
   Include Timestamp: Zahrnúť časovú pečiatku
   YouTube Channel URL copied to clipboard: URL kanála YouTube bola skopírovaná do schránky
   Invidious Channel URL copied to clipboard: URL kanála Invidious skopírovaná do schránky
+  Share Channel: Zdieľať kanál
+  Share Post: Zdieľať príspevok
 Mini Player: 'Mini prehrávač'
 Comments:
   Comments: 'Komentáre'
