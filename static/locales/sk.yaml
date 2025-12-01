@@ -578,7 +578,7 @@ Video:
 #& Videos
   Autoplay: Automatické prehrávanie
   Starting soon, please refresh the page to check again: Čoskoro začína, obnovte stránku a znova skontrolujte
-  Started streaming on: Vysielanie začaté o
+  Started streaming on: Začiatok vysielania o
   Streamed on: Odvysielané dňa
   audio only: len zvuk
   video only: len video
@@ -648,6 +648,11 @@ Video:
     Autoplay is off: Automatické prehrávanie je vypnuté
     Audio Tracks: Zvukové stopy
     TranslatedCaptionTemplate: '{language} (preložené z "{originalLanguage}")'
+  DeArrow:
+    Show Modified Details: Zobraziť upravené detaily
+    Show Original Details: Zobraziť pôvodné detaily
+  Published:
+    In less than a minute: Za menej ako minútu
 Playlist:
   #& About
   View Full Playlist: 'Zobraziť celý playlist'
