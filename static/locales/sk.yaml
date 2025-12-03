@@ -553,27 +553,33 @@ Channel:
   Channel has been removed from your subscriptions: Kanál bol odstránený z vašich odberov
   Removed subscription from {count} other channel(s): Odstránené predplatné z {count} iných kanálov
   This channel does not allow searching: Tento kanál neumožňuje vyhľadávanie
+  Posts:
+    Video hidden by FreeTube: Video skryté FreeTube
+    Hide Answers: Skryť odpovede
+    Reveal Answers: Ukázať odpovede
+    View Full Post: Zobraziť celý príspevok
+    votes: 'Počet hlasov: {votes}'
 Video:
-  Mark As Watched: 'Označiť ako zhliadnuté'
-  Remove From History: 'Vymazať z histórie'
-  Video has been marked as watched: 'Video označené ako zhliadnuté'
+  Mark As Watched: 'Označiť ako pozerané'
+  Remove From History: 'Odstrániť z histórie'
+  Video has been marked as watched: 'Video bolo označené ako pozerané'
   Video has been removed from your history: 'Video bolo odstránené z vašej histórie'
   Open in YouTube: 'Otvoriť na Youtube'
-  Copy YouTube Link: 'Skopírovať Youtube link'
-  Open YouTube Embedded Player: 'Otvoriť v Youtube embede'
-  Copy YouTube Embedded Player Link: 'Skopírovať link na vložený prehrávač Youtube'
+  Copy YouTube Link: 'Kopírovať odkaz YouTube'
+  Open YouTube Embedded Player: 'Otvoriť vložený prehrávač YouTube'
+  Copy YouTube Embedded Player Link: 'Kopírovať odkaz vloženého prehrávača YouTube'
   Open in Invidious: 'Otvoriť v Invidious'
-  Copy Invidious Link: 'Skopírovať Invidious linku'
-  Views: 'Zhliadnutí'
-  Watched: 'Prehraté'
+  Copy Invidious Link: 'Kopírovať odkaz Invidious'
+  Views: 'Zobrazenia'
+  Watched: 'Pozerané'
   # As in a Live Video
   Live: 'Naživo'
-  Live Now: 'Teraz Naživo'
-  Live Chat: 'Živý Chat'
-  Enable Live Chat: 'Povoliť Live Chat'
+  Live Now: 'Teraz naživo'
+  Live Chat: 'Živý chat'
+  Enable Live Chat: 'Povoliť živý chat'
   Live Chat is currently not supported in this build.: 'Live chat nie je v tejto verzií momentálne podporovaný.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Live chat je povolený. Po odoslaní sa tu zobrazia četové správy.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Live Chat momentálne nie je podporovaný pomocou API Invidious. Vyžaduje sa priame pripojenie k službe YouTube.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Live chat je povolený.   Po odoslaní sa tu zobrazia četové správy.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Živý chat momentálne nie je podporovaný s API Invidious. Vyžaduje sa priame spojenie s YouTube.'
   Published on: 'Publikované dňa'
 #& Videos
   Autoplay: Automatické prehrávanie
@@ -584,17 +590,17 @@ Video:
   video only: len video
   Download Video: Stiahnuť video
   Play Previous Video: Prehrať predchádzajúce video
-  Play Next Video: Prehrať daľšie video
-  Reverse Playlist: Spustiť odzadu
-  Shuffle Playlist: Náhodne rozhádzať
-  Loop Playlist: Opakovať zoznam
-  Copy Invidious Channel Link: Skopírovať Invidious link na kanál
+  Play Next Video: Prehrať ďalšie video
+  Reverse Playlist: Obrátiť playlist
+  Shuffle Playlist: Zamiešať playlist
+  Loop Playlist: Opakovať playlist
+  Copy Invidious Channel Link: Kopírovať odkaz kanála Invidious
   Open Channel in Invidious: Otvoriť kanál v Invidious
-  Copy YouTube Channel Link: Skopírovať Youtube link na kanál
-  Open Channel in YouTube: Otvoriť kanál v Youtube
-  Video has been removed from your saved list: Video odstránené z uložených
-  Video has been saved: Video uložené
-  Save Video: Uložiť Video
+  Copy YouTube Channel Link: Kopírovať odkaz kanála YouTube
+  Open Channel in YouTube: Otvoriť kanál v YouTube
+  Video has been removed from your saved list: Video bolo odstránené z vášho zoznamu uložených
+  Video has been saved: Video bolo uložené
+  Save Video: Uložiť video
   Sponsor Block category:
     music offtopic: Hudba offtopic
     interaction: Interakcia
@@ -653,6 +659,20 @@ Video:
     Show Original Details: Zobraziť pôvodné detaily
   Published:
     In less than a minute: Za menej ako minútu
+  Show Super Chat Comment: Zobraziť komentár super chatu
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Živý chat nie je dostupný pre tento stream. Mohol byť zakázaný nahrávačom.
+  Unlisted: Neuvedené
+  Upcoming: Nadchádzajúce
+  Premieres: Premiéra
+  Unhide Channel: Zobraziť kanál
+  Hide Channel: Skryť kanál
+  Watched Progress Saved: Postup pozerania uložený
+  Save Watched Progress: Uložiť postup pozerania
+  More Options: Viac možností
+  DRMProtected: Videá chránené DRM nemôžu byť prehrávané vo FreeTube, pretože vyžadujú proprietárne, uzavreté zdrojové komponenty. Ak chcete pozerať toto video, prosím pozrite si ho na oficiálnej stránke YouTube vo webovom prehliadači s povoleným DRM.
+  AgeRestricted: Videá obmedzené vekom nemôžu byť pozerané vo FreeTube, pretože vyžadujú prihlásenie Google a použitie vekovo overeného účtu YouTube.
+  MembersOnly: Videá len pre členov nemôžu byť pozerané vo FreeTube, pretože vyžadujú prihlásenie Google a platené členstvo v kanáli nahrávača.
+  IP block: YouTube zablokoval pozeranie videa z vašej IP adresy. Prosím skúste prepnúť na inú VPN alebo proxy.
 Playlist:
   #& About
   View Full Playlist: 'Zobraziť celý playlist'
