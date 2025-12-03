@@ -68,7 +68,7 @@ Search Filters:
     Short (< 4 minutes): Kurz (< 4 Minuten)
     Long (> 20 minutes): Lang (> 20 Minuten)
   # On Search Page
-    Medium (4 - 20 minutes): Mittel (4 - 20 Minuten)
+    Medium (4 - 20 minutes): Mittel (4–20 Minuten)
   Search Results: Suchergebnisse
   Fetching results. Please wait: Ergebnisse werden abgerufen. Bitte warten
   Fetch more results: Weitere Ergebnisse abrufen
@@ -78,7 +78,7 @@ Search Filters:
     3D: 3D
     Live: Live
     4K: 4K
-    360 Video: 360 Video
+    360 Video: 360°-Video
     HDR: HDR
     VR180: VR180
     Features: Eigenschaften
@@ -126,8 +126,8 @@ User Playlists:
   Delete Playlist: Playlist löschen
   Are you sure you want to delete this playlist? This cannot be undone: Bist du sicher, dass du diese Playlist löschen möchtest? Dies kann nicht rückgängig gemacht werden.
   Sort By:
-    NameAscending: A-Z
-    NameDescending: Z-A
+    NameAscending: A–Z
+    NameDescending: Z–A
     LatestCreatedFirst: Erstellungsdatum (neueste)
     EarliestCreatedFirst: Erstellungsdatum (älteste)
     LatestUpdatedFirst: Aktualisierungsdatum (neueste)
@@ -207,7 +207,7 @@ Settings:
     General Settings: Allgemein
     Fallback to Non-Preferred Backend on Failure: Bei Ausfall auf nicht bevorzugtes Backend zurückgreifen
     Enable Search Suggestions: Suchvorschläge aktivieren
-    Default Landing Page: Standard Startseite
+    Default Landing Page: Standard-Startseite
 
     Locale Preference: Sprache
     Preferred API Backend:
@@ -258,22 +258,22 @@ Settings:
       Light: Hell
       Dracula: Dracula
       System Default: Systemvorgabe
-      Catppuccin Mocha: Catppuccin Mocha
+      Catppuccin Mocha: Catppuccin-Mocha
       Hot Pink: Pink
       Pastel Pink: Pastellrosa
       Nordic: Nordic
-      Solarized Dark: Solarisiert Dunkel
-      Solarized Light: Solarisiert Hell
-      Gruvbox Light: Gruvbox Hell
-      Gruvbox Dark: Gruvbox Dunkel
-      Catppuccin Frappe: Catppuccin Frappe
-      Everforest Dark Hard: Everforest Dunkel (harter Kontrast)
-      Everforest Dark Medium: Everforest Dunkel (normaler Kontrast)
-      Everforest Dark Low: Everforest Dunkel (softer Kontrast)
-      Everforest Light Hard: Everforest Hell (harter Kontrast)
-      Everforest Light Medium: Everforest Hell (normaler Kontrast)
-      Everforest Light Low: Everforest Hell (softer Kontrast)
-      Catppuccin Latte: Catppuccin Latte
+      Solarized Dark: Solarisiert-Dunkel
+      Solarized Light: Solarisiert-Hell
+      Gruvbox Light: Gruvbox-Hell
+      Gruvbox Dark: Gruvbox-Dunkel
+      Catppuccin Frappe: Catppuccin-Frappe
+      Everforest Dark Hard: Everforest-Dunkel (harter Kontrast)
+      Everforest Dark Medium: Everforest-Dunkel (normaler Kontrast)
+      Everforest Dark Low: Everforest-Dunkel (geringer Kontrast)
+      Everforest Light Hard: Everforest-Hell (harter Kontrast)
+      Everforest Light Medium: Everforest-Hell (normaler Kontrast)
+      Everforest Light Low: Everforest-Hell (geringer Kontrast)
+      Catppuccin Latte: Catppuccin-Latte
     Main Color Theme:
       Main Color Theme: Hauptfarbe
       Red: Rot
@@ -294,25 +294,25 @@ Settings:
       Deep Orange: Dunkelorange
       Dracula Cyan: Dracula Türkis
       Dracula Green: Dracula Grün
-      Dracula Orange: Dracula Orange
-      Dracula Pink: Dracula Rosa
-      Dracula Purple: Dracula Lila
-      Dracula Red: Dracula Rot
-      Dracula Yellow: Dracula Gelb
-      Catppuccin Mocha Green: Catppuccin Mocha Grün
-      Catppuccin Mocha Blue: Catppuccin Mocha Blau
-      Catppuccin Mocha Peach: Catppuccin Mocha Pfirsich
-      Catppuccin Mocha Yellow: Catppuccin Mocha Gelb
-      Catppuccin Mocha Sky: Catppuccin Mocha Himmel
-      Catppuccin Mocha Sapphire: Catppuccin Mocha Saphir
-      Catppuccin Mocha Lavender: Catppuccin Mocha Lavendel
+      Dracula Orange: Dracula-Orange
+      Dracula Pink: Dracula-Rosa
+      Dracula Purple: Dracula-Lila
+      Dracula Red: Dracula-Rot
+      Dracula Yellow: Dracula-Gelb
+      Catppuccin Mocha Green: Catppuccin-Mocha-Grün
+      Catppuccin Mocha Blue: Catppuccin-Mocha-Blau
+      Catppuccin Mocha Peach: Catppuccin-Mocha-Pfirsich
+      Catppuccin Mocha Yellow: Catppuccin-Mocha-Gelb
+      Catppuccin Mocha Sky: Catppuccin-Mocha-Himmel
+      Catppuccin Mocha Sapphire: Catppuccin-Mocha-Saphir
+      Catppuccin Mocha Lavender: Catppuccin-Mocha-Lavendel
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rosenwasser
-      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
-      Catppuccin Mocha Pink: Catppuccin Mocha Pink
-      Catppuccin Mocha Mauve: Catppuccin Mocha Malve
-      Catppuccin Mocha Red: Catppuccin Mocha Rot
-      Catppuccin Mocha Maroon: Catppuccin Mocha Kastanie
-      Catppuccin Mocha Teal: Catppuccin Mokka Blaugrün
+      Catppuccin Mocha Flamingo: Catppuccin-Mocha-Flamingo
+      Catppuccin Mocha Pink: Catppuccin-Mocha-Pink
+      Catppuccin Mocha Mauve: Catppuccin-Mocha-Malve
+      Catppuccin Mocha Red: Catppuccin-Mocha-Rot
+      Catppuccin Mocha Maroon: Catppuccin-Mocha-Kastanie
+      Catppuccin Mocha Teal: Catppuccin-Mokka-Blaugrün
       Solarized Red: Solarisiertes Rot
       Solarized Yellow: Solarisiertes Gelb
       Solarized Orange: Solarisiertes Orange
@@ -321,46 +321,46 @@ Settings:
       Solarized Cyan: Solarisiertes Cyan
       Solarized Violet: Solarisiertes Violett
       Solarized Green: Solarisiertes Grün
-      Gruvbox Dark Green: Gruvbox Dunkelgrün
-      Gruvbox Dark Yellow: Gruvbox Dunkelgelb
-      Gruvbox Dark Purple: Gruvbox Dunkellila
-      Gruvbox Light Red: Gruvbox Hellrot
-      Gruvbox Light Blue: Gruvbox Hellblau
-      Gruvbox Light Purple: Gruvbox Helllila
-      Gruvbox Dark Orange: Gruvbox Dunkelorange
-      Gruvbox Dark Aqua: Gruvbox dunkles Wasser
-      Gruvbox Light Orange: Gruvbox Hellorange
-      Gruvbox Dark Blue: Gruvbox Dunkelblau
-      Catppuccin Frappe Yellow: Catppuccin Frappe Gelb
-      Catppuccin Frappe Sky: Catppuccin Frappe Himmel
-      Catppuccin Frappe Mauve: Catppuccin Frappe Malve
-      Catppuccin Frappe Blue: Catppuccin Frappe Blau
-      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
-      Catppuccin Frappe Red: Catppuccin Frappe Rot
-      Catppuccin Frappe Teal: Catppuccin Frappe Blaugrün
+      Gruvbox Dark Green: Gruvbox-Dunkelgrün
+      Gruvbox Dark Yellow: Gruvbox-Dunkelgelb
+      Gruvbox Dark Purple: Gruvbox-Dunkellila
+      Gruvbox Light Red: Gruvbox-Hellrot
+      Gruvbox Light Blue: Gruvbox-Hellblau
+      Gruvbox Light Purple: Gruvbox-Helllila
+      Gruvbox Dark Orange: Gruvbox-Dunkelorange
+      Gruvbox Dark Aqua: Gruvbox „Dunkles Wasser“
+      Gruvbox Light Orange: Gruvbox-Hellorange
+      Gruvbox Dark Blue: Gruvbox-Dunkelblau
+      Catppuccin Frappe Yellow: Catppuccin-Frappe-Gelb
+      Catppuccin Frappe Sky: Catppuccin-Frappe-Himmel
+      Catppuccin Frappe Mauve: Catppuccin-Frappe-Malve
+      Catppuccin Frappe Blue: Catppuccin-Frappe-Blau
+      Catppuccin Frappe Flamingo: Catppuccin-Frappe-Flamingo
+      Catppuccin Frappe Red: Catppuccin-Frappe-Rot
+      Catppuccin Frappe Teal: Catppuccin-Frappe-Blaugrün
       Catppuccin Frappe Peach: Catppuccin Frappe Pfirsich
-      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosenwasser
-      Catppuccin Frappe Green: Catppuccin Frappe Grün
-      Catppuccin Frappe Sapphire: Catppuccin Frappe Saphir
-      Catppuccin Frappe Pink: Catppuccin Frappe Pink
-      Catppuccin Frappe Lavender: Catppuccin Frappe Lavendel
-      Catppuccin Frappe Maroon: Catppuccin Frappe Kastanie
-      Everforest Dark Red: Everforest Dunkelrot
-      Everforest Dark Orange: Everforest Dunkelorange
-      Everforest Dark Yellow: Everforest Dunkelgelb
-      Everforest Dark Green: Everforest Dunkelgrün
-      Everforest Dark Aqua: Everforest Dunkeltürkis
-      Everforest Dark Blue: Everforest Dunkelblau
-      Everforest Dark Purple: Everforest Dunkellila
-      Everforest Light Red: Everforest Hellrot
-      Everforest Light Orange: Everforest Hellorange
-      Everforest Light Yellow: Everforest Hellgelb
-      Everforest Light Green: Everforest Hellgrün
-      Everforest Light Aqua: Everforest Helltürkis
-      Everforest Light Blue: Everforest Hellblau
-      Everforest Light Purple: Everforest Helllilla
-      Catppuccin Latte Mauve: Catppuccin Latte Malve
-      Catppuccin Latte Red: Catppuccin Latte Rot
+      Catppuccin Frappe Rosewater: Catppuccin-Frappe-Rosenwasser
+      Catppuccin Frappe Green: Catppuccin-Frappe-Grün
+      Catppuccin Frappe Sapphire: Catppuccin-Frappe-Saphir
+      Catppuccin Frappe Pink: Catppuccin-Frappe-Pink
+      Catppuccin Frappe Lavender: Catppuccin-Frappe-Lavendel
+      Catppuccin Frappe Maroon: Catppuccin-Frappe-Kastanie
+      Everforest Dark Red: Everforest-Dunkelrot
+      Everforest Dark Orange: Everforest-Dunkelorange
+      Everforest Dark Yellow: Everforest-Dunkelgelb
+      Everforest Dark Green: Everforest-Dunkelgrün
+      Everforest Dark Aqua: Everforest-Dunkeltürkis
+      Everforest Dark Blue: Everforest-Dunkelblau
+      Everforest Dark Purple: Everforest-Dunkellila
+      Everforest Light Red: Everforest-Hellrot
+      Everforest Light Orange: Everforest-Hellorange
+      Everforest Light Yellow: Everforest-Hellgelb
+      Everforest Light Green: Everforest-Hellgrün
+      Everforest Light Aqua: Everforest-Helltürkis
+      Everforest Light Blue: Everforest-Hellblau
+      Everforest Light Purple: Everforest-Helllilla
+      Catppuccin Latte Mauve: Catppuccin-Latte-Malve
+      Catppuccin Latte Red: Catppuccin-Latte-Rot
     Secondary Color Theme: Sekundäre Farbe
         #* Main Color Theme
     UI Scale: Skalierung der Benutzeroberfläche
@@ -452,9 +452,9 @@ Settings:
     Clear Search History and Cache: Suchverlauf und Cache löschen
     Search history and cache have been cleared: Suchverlauf und Cache wurden gelöscht
     Watched Progress Saving Mode:
-      Tooltip: Automatisch = Beim Verlassen des Videos, nachdem das Video beendet wurde und wenn ein Fehler auftritt (z. B. bei einer Ratenbegrenzung oder wenn die Sitzung abgelaufen ist) speichern. Semi-automatisch = Wie automatisch, jedoch nur beim Verlassen des Videos, außerdem kann der Fortschritt manuell über einen Button namens „Videofortschritt speichern“, der sich unter dem Videoplayer befindet, gespeichert werden.
+      Tooltip: Automatisch = Beim Verlassen des Videos, nachdem das Video beendet wurde und wenn ein Fehler auftritt (z. B. bei einer Ratenbegrenzung oder wenn die Sitzung abgelaufen ist) speichern. Halbautomatisch = Wie automatisch, jedoch nur beim Verlassen des Videos, außerdem kann der Fortschritt manuell über einen Button namens „Videofortschritt speichern“, der sich unter dem Videoplayer befindet, gespeichert werden.
       Modes:
-        Semi-auto: Semi-automatisch
+        Semi-auto: Halbautomatisch
         Auto: Automatisch
         Never: Nie
   Data Settings:
@@ -578,7 +578,7 @@ Settings:
     Category Color: Kategoriefarbe
     UseDeArrowTitles: DeArrow-Videotitel verwenden
     UseDeArrowThumbnails: DeArrow für Miniaturansichten verwenden
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Thumbnail Generator API URL (Standard ist https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow-Thumbnail-Generator-API-URL (Standard ist https://dearrow-thumb.ajay.app)
   External Player Settings:
     Ignore Unsupported Action Warnings: Warnungen vor nicht unterstützten Aktionen ignorieren
     External Player: Externer Video-Player
@@ -614,7 +614,7 @@ Settings:
     Password Settings: Passwort
     Set Password To Prevent Access: Passwort festlegen, um den Zugriff auf die Einstellungen zu verhindern
     Set Password: Passwort festlegen
-  Sort Settings Sections (A-Z): Einstellungsabschnitte sortieren (A-Z)
+  Sort Settings Sections (A-Z): Einstellungsabschnitte sortieren (A–Z)
   Return to Settings Menu: Zurück zum Einstellungsmenü
 About:
   #On About page
@@ -633,7 +633,7 @@ About:
   FreeTube is made possible by: FreeTube wird ermöglicht von
   Translate: Übersetzen
   room rules: Raum-Regeln
-  Please read the: Bitte lese die
+  Please read the: Bitte lies die
   Chat on Matrix: Auf Matrix chatten
   Mastodon: Mastodon
   Please check for duplicates before posting: Bitte überprüfe vor dem Erstellen, ob eine ähnliche Issue bereits existiert
@@ -676,7 +676,7 @@ Channel:
     Location: Standort
     Joined: Beigetreten
   Added channel to your subscriptions: Der Kanal wurde deinen Abos hinzugefügt
-  Removed subscription from {count} other channel(s): Abo von {count} anderen Kanal/ Kanälen entfernt
+  Removed subscription from {count} other channel(s): Abo von {count} anderem Kanal / anderen Kanälen entfernt
   Channel has been removed from your subscriptions: Der Kanal wurde von deinen Abos entfernt
   Channel Tabs: Kanal-Registerkarten
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Dieser Kanal ist altersbeschränkt und kann derzeit nicht in FreeTube angesehen werden.
@@ -795,7 +795,7 @@ Video:
       Video ID: 'Videokennung (ID): {videoId}'
       Media Formats: 'Medienformate: {formats}'
       Resolution: 'Auflösung: {width}×{height}{''@''}{frameRate}'
-      Player Dimensions: 'Player-Dimensionen: {width}×{height}'
+      Player Dimensions: 'Player-Ausmaße: {width}×{height}'
       Bitrate: 'Bitrate: {bitrate} kb/s'
       Volume: 'Lautstärke: {volumePercentage} %'
       Bandwidth: 'Bandbreite: {bandwidth} kb/s'
@@ -833,12 +833,12 @@ Playlist:
 #* Published
 #& Views
   Sort By:
-    VideoTitleDescending: Titel (Z-A)
+    VideoTitleDescending: Titel (Z–A)
     DateAddedNewest: Hinzugefügt am (neueste)
     DateAddedOldest: Hinzugefügt am (älteste)
-    AuthorAscending: Autor (A-Z)
-    AuthorDescending: Autor (Z-A)
-    VideoTitleAscending: Titel (A-Z)
+    AuthorAscending: Autor (A–Z)
+    AuthorDescending: Autor (Z–A)
+    VideoTitleAscending: Titel (A–Z)
     Custom: Benutzerdefiniert
     VideoDurationAscending: Dauer (kürzeste)
     VideoDurationDescending: Dauer (längste)
@@ -953,7 +953,7 @@ Profile:
   Open Profile Dropdown: Profil-Klappliste öffnen
   Close Profile Dropdown: Profil-Klappliste schließen
 The playlist has been reversed: Die Playlist wurde umgedreht
-A new blog is now available, {blogTitle}. Click to view more: Ein neuer Blogeintrag ist verfügbar, {blogTitle}. Klicke, um mehr zu sehen
+A new blog is now available, {blogTitle}. Click to view more: 'Ein neuer Blogeintrag ist verfügbar: „{blogTitle}“. Klicke, um mehr zu sehen'
 Download From Site: Von der Website herunterladen
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} ist jetzt verfügbar!  Für mehr Details klicken
 Tooltips:
@@ -964,12 +964,12 @@ Tooltips:
     Preferred API Backend: Wähle das Backend aus, welches FreeTube zum Laden der Daten nutzen soll. Die lokale API ist ein eingebauter Extrahierer. Die Invidious-API erfordert einen Invidious-Server, zu dem eine Verbindung hergestellt werden muss.
     Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land die Trends angezeigt werden sollen.
     External Link Handling: "Wähle das Standardverhalten, wenn ein Link angeklickt wird, der nicht in FreeTube geöffnet werden kann.\nStandardmäßig wird FreeTube den angeklickten Link in deinem Standardbrowser öffnen.\n"
-    Open Deep Links In New Window: URLs die an FreeTube übergeben werden, z. B. durch Redirect-Browser-Erweiterungen oder Befehlszeilenargumente, werden in einem neuen Fenster geöffnet.
+    Open Deep Links In New Window: URLs, die an FreeTube übergeben werden, z. B. durch Redirect-Browser-Erweiterungen oder Befehlszeilenargumente, werden in einem neuen Fenster geöffnet.
   Subscription Settings:
-    Fetch Feeds from RSS: Wenn aktiviert, verwendet FreeTube RSS anstelle der Standardmethode, um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Blockierung, liefert aber bestimmte Informationen wie Videodauer, den Live-Status oder Beiträge nicht
+    Fetch Feeds from RSS: Wenn aktiviert, verwendet FreeTube RSS anstelle der Standardmethode, um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Sperren, liefert aber bestimmte Informationen wie Videodauer, den Live-Status oder Beiträge nicht
     Fetch Automatically: Wenn aktiviert, ruft FreeTube deine Abos automatisch beim Start und beim Öffnen eines neuen Fensters ab.
   Player Settings:
-    Default Video Format: Lege die Formate fest, die bei der Wiedergabe eines Videos verwendet werden. DASH-Formate können höhere Qualitäten wiedergeben. Altformate sind auf maximal 360p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate sind reine Audiostreams.
+    Default Video Format: Lege die Formate fest, die bei der Wiedergabe eines Videos verwendet werden. DASH-Formate können höhere Auflösungen wiedergeben. Altformate sind auf maximal 360p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate sind reine Audiostreams.
     Proxy Videos Through Invidious: Stellt eine Verbindung zu Invidious her, um Videos bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen.
     Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video befindet, halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und bewege das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit zu steuern. Halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und klicke mit der linken Maustaste, um schnell zur Standard-Wiedergabegeschwindigkeit zurückzukehren (1x, sofern sie nicht in den Einstellungen geändert wurde).
     Skip by Scrolling Over Video Player: Verwende das Scrollrad, um durch das Video zu springen, MPV-Stil.
@@ -979,13 +979,13 @@ Tooltips:
     Custom External Player Executable: Standardmäßig wird FreeTube annehmen, dass der gewählte externe Video-Player unter der PATH-Umgebungsvariable gefunden werden kann. Falls nötig, kann hier ein benutzerdefinierter Pfad festgelegt werden.
     External Player: Wenn du einen externen Video-Player auswählst, wird auf dem Vorschaubild ein Symbol angezeigt, mit dem du das Video (die Playlist, falls unterstützt) im externen Video-Player öffnen kannst. Achtung, die Einstellungen von Invidious wirken sich nicht auf externe Video-Player aus.
     DefaultCustomArgumentsTemplate: '(Standardwert: „{defaultCustomArguments}“)'
-    Ignore Default Arguments: Schicke keine Standardargumente an den externen Video-Player außer der Video URL (z.B. Abspiel-Geschwindigkeit, Playlist-URL etc.). Besondere Argumente werden weiterhin weitergeleitet.
+    Ignore Default Arguments: Schicke keine Standardargumente an den externen Video-Player außer der Video-URL (z.B. Abspiel-Geschwindigkeit, Playlist-URL etc.). Besondere Argumente werden weiterhin weitergeleitet.
   Experimental Settings:
     Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu einer erhöhten RAM-Auslastung.
   Distraction Free Settings:
-    Hide Channels: Gebe eine Kanal-ID ein, um zu verhindern, dass alle Videos, Playlists und der Kanal selbst in der Suche, den Trends, den beliebtesten und den empfohlenen Videos angezeigt werden. Die eingegebene Kanal-ID muss vollständig übereinstimmen und es wird zwischen Groß- und Kleinschreibung unterschieden.
+    Hide Channels: Gib eine Kanal-ID ein, um zu verhindern, dass alle Videos, Playlists und der Kanal selbst in der Suche, den Trends, den beliebtesten und den empfohlenen Videos angezeigt werden. Die eingegebene Kanal-ID muss vollständig übereinstimmen, und es wird zwischen Groß- und Kleinschreibung unterschieden.
     Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer Kraft gesetzt
-    Hide Videos, Playlists and Channels Containing Text: Gib ein Wort, einen Teil eines Wortes oder einen Satz ein (Groß-/Kleinschreibung wird ignoriert) um alle Videos und Playlists, welche es in ihren Originaltiteln enthalten, auf ganz FreeTube auszublenden. Dein Verlauf, deine eigenen Playlists und Videos innerhalb Playlists sind davon nicht betroffen.
+    Hide Videos, Playlists and Channels Containing Text: Gib ein Wort, einen Teil eines Wortes oder einen Satz ein (Groß-/Kleinschreibung wird ignoriert), um alle Videos und Playlists, welche es in ihren Originaltiteln enthalten, auf ganz FreeTube auszublenden. Dein Verlauf, deine eigenen Playlists und Videos innerhalb Playlists sind davon nicht betroffen.
     Hide Videos on Watch: Blendet bereits angesehene Videos aus den Tabs „Videos“, „Shorts“ und „Live“ der Abo- und Kanalseiten aus. Beeinflusst nicht den „Home“-Tab der Kanalseiten
   SponsorBlock Settings:
     UseDeArrowTitles: Videotitel durch von der Community eingereichte Titel von DeArrow ersetzen.
@@ -1048,7 +1048,7 @@ Yes, Open Link: Ja, Link öffnen
 Search Listing:
   Label:
     4K: 4K
-    Closed Captions: Geschlossene Untertitel
+    Closed Captions: Untertitel
     Subtitles: Untertitel
     8K: 8K
     VR180: VR180
@@ -1079,8 +1079,8 @@ KeyboardShortcutPrompt:
       Playback: 'Video: Wiedergabe'
       General: 'Video: Allgemein'
     App:
-      Situational: 'App: Situationsbezogen'
-      General: 'App: Allgemein'
+      Situational: 'App: situationsbezogen'
+      General: 'App: allgemein'
   History Backward: Eine Seite zurückgehen
   New Window: Ein neues Fenster öffnen
   Navigate to Settings: Zur Einstellungsseite navigieren
@@ -1108,11 +1108,11 @@ KeyboardShortcutPrompt:
   Increase Video Speed: Erhöhen der Videogeschwindigkeit basierend auf dem Intervall der Videowiedergaberate
   Large Rewind: 10 Sekunden zurückspulen / Zurückspulen basierend auf der aktuellen Wiedergabegeschwindigkeit
   Full Window: Ganzes Fenster umschalten
-  Theatre Mode: Theatermodus umschalten
+  Theatre Mode: Kinomodus umschalten
   Toggle Developer Tools: Entwicklungswerkzeuge umschalten
   Play: Wiedergabe/Pause umschalten
   Focus Secondary Search: Fokus auf die sekundäre Suchleiste (falls eine vorhanden ist)
-  Captions: Untertitel EIN/AUS umschalten
+  Captions: Untertitel ein-/ausschalten
   Picture in Picture: Bild-in-Bild-Modus umschalten
   Last Frame: Vorheriges Bild (bei pausierter Wiedergabe)
   Small Fast Forward: X Sekunden vorspulen, basierend auf dem Vorspulintervall und der aktuellen Wiedergabegeschwindigkeit
