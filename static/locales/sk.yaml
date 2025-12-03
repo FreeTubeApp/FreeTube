@@ -525,33 +525,37 @@ About:
   Website: Webstránka
   Please check for duplicates before posting: Pred odoslaním prosím skontrolujte duplicitné otázky
 Channel:
-  Subscribe: 'Odberať'
+  Subscribe: 'Odoberať'
   Unsubscribe: 'Zrušiť odber'
   Search Channel: 'Vyhľadať v kanáli'
   Your search results have returned 0 results: 'Vaše vyhľadávanie vrátilo 0 výsledkov'
   Videos:
     Videos: 'Videá'
-    This channel does not currently have any videos: 'Tento kanál nemá žiadne videá'
+    This channel does not currently have any videos: 'Tento kanál momentálne nemá žiadne videá'
     Sort Types:
       Newest: 'Najnovšie'
       Oldest: 'Najstaršie'
       Most Popular: 'Najpopulárnejšie'
   Playlists:
-    Playlists: 'Zoznamy videí'
-    This channel does not currently have any playlists: 'Tento kanál nemá žiadne zoznamy videí'
+    Playlists: 'Playlisty'
+    This channel does not currently have any playlists: 'Tento kanál momentálne nemá žiadne playlisty'
     Sort Types:
-      Last Video Added: 'Najnovšie pridané video'
+      Last Video Added: 'Posledné pridané video'
       Newest: 'Najnovšie'
       Oldest: 'Najstaršie'
   About:
     About: 'O kanáli'
-    Channel Description: 'Popis Kanála'
+    Channel Description: 'Popis kanála'
     Featured Channels: 'Odporúčané kanály'
     Tags:
       Search for: Vyhľadať „{tag}“
+      Tags: Označenia
+    Location: Lokácia
+    Joined: Pripojený
+    Details: Podrobnosti
   Added channel to your subscriptions: Kanál bol pridaný k vašim odberom
   Channel has been removed from your subscriptions: Kanál bol odstránený z vašich odberov
-  Removed subscription from {count} other channel(s): Odstránené predplatné z {count} iných kanálov
+  Removed subscription from {count} other channel(s): Odstránený odber z {count} iných kanálov
   This channel does not allow searching: Tento kanál neumožňuje vyhľadávanie
   Posts:
     Video hidden by FreeTube: Video skryté FreeTube
@@ -559,6 +563,27 @@ Channel:
     Reveal Answers: Ukázať odpovede
     View Full Post: Zobraziť celý príspevok
     votes: 'Počet hlasov: {votes}'
+    This channel currently does not have any posts: Tento kanál momentálne nemá žiadne príspevky
+  Courses:
+    This channel does not currently have any courses: Tento kanál momentálne nemá žiadne kurzy
+    Courses: Kurzy
+  Releases:
+    This channel does not currently have any releases: Tento kanál momentálne nemá žiadne vydania
+    Releases: Vydania
+  Podcasts:
+    This channel does not currently have any podcasts: Tento kanál momentálne nemá žiadne podcasty
+    Podcasts: Podcasty
+  Home:
+    View Playlist: Pozrieť playlist
+    Home: Domov
+  Live:
+    This channel does not currently have any live streams: Tento kanál momentálne nemá žiadne živé prenosy
+    Live: Naživo
+  Shorts:
+    This channel does not currently have any shorts: Tento kanál momentálne nemá žiadne krátke videá
+  Channel Tabs: Karty kanálov
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Tento kanál je obmedzený vekom a momentálne nemôže byť pozeraný vo FreeTube.
+  This channel does not exist: Tento kanál neexistuje
 Video:
   Mark As Watched: 'Označiť ako pozerané'
   Remove From History: 'Odstrániť z histórie'
@@ -830,6 +855,8 @@ Profile:
   Profile Select: Vyberte profil
   Profile Filter: Filter Profilov
   Profile Settings: Profil
+  Open Profile Dropdown: Otvoriť rozbaľovacie menu profilu
+  Close Profile Dropdown: Zatvoriť rozbaľovacie menu profilu
 A new blog is now available, {blogTitle}. Click to view more: 'Dostupný nový článok na blogu: {blogTitle}. Kliknite pre viac info'
 Download From Site: Stiahnuť z webu
 Version {versionNumber} is now available!  Click for more details: Verzia {versionNumber} je k dispozícii! Kliknite pre viac info
