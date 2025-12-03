@@ -139,10 +139,7 @@ Channels:
   Unsubscribe Prompt: '"{channelName}" இலிருந்து குழுவிலக விரும்புகிறீர்களா?'
 Trending:
   Trending: 'டிரெண்டிங்'
-  Default: 'இயல்புநிலை'
-  Music: 'இசை'
   Gaming: 'கேமிங்'
-  Movies: 'திரைப்படங்கள்'
   Trending Tabs: 'பிரபலமான தாவல்கள்'
 Most Popular: 'மிகவும் பிரபலமானது'
 Feed:
@@ -239,8 +236,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: 'நீங்கள் இதுவரை எந்த பிளேலிச்ட்டையும் தேர்வு செய்யவில்லை.'
-      "{videoCount} video(s) added to 1 playlist": "1 பிளேலிச்ட்டில் 1 வீடியோ சேர்க்கப்பட்டது | {videoCount} வீடியோக்கள் 1 பிளேலிச்ட்டில் சேர்க்கப்பட்டன"
-      "{videoCount} video(s) added to {playlistCount} playlists": "1 பிளேலிச்ட்கவுண்ட்} பிளேலிச்ட்களில் 1 வீடியோ சேர்க்கப்பட்டது {playlistCount} வீடியோக்கள் {videoCount} பிளேலிச்ட்களில் சேர்க்கப்பட்டன"
+      "Video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
     New Playlist Name: 'புதிய பிளேலிச்ட் பெயர்'
     Create: 'உருவாக்கு'

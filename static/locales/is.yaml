@@ -111,10 +111,8 @@ More: 'Meira'
 Trending:
   Trending: 'Í umræðunni'
   Trending Tabs: Vinsælir flipar
-  Movies: Kvikmyndir
   Gaming: Leikir
-  Music: Tónlist
-  Default: Sjálfgefið
+  Sports: Íþróttir
 Most Popular: 'Vinsælast'
 Playlists: 'Spilunarlistar'
 User Playlists:
@@ -165,9 +163,8 @@ User Playlists:
     Search in Playlists: Leita í spilunarlistum
     Save: Vista
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 myndskeiði bætt við  {playlistCount} spilunarlista | {videoCount} myndskeiðum bætt við {playlistCount} spilunarlista
+      "Video(s) added to {playlistCount} playlists": "Myndskeið(um) bætt við 1 spilunarlista | Myndskeið(um) bætt við {playlistCount} spilunarlista"
       You haven't selected any playlist yet.: Þú hefur enn ekki valið neina spilunarlista.
-      "{videoCount} video(s) added to 1 playlist": 1 myndskeiði bætt við 1 spilunarlista | {videoCount} myndskeiðum bætt við 1 spilunarlista
     Select a playlist to add your N videos to: Veldu spilunarlista til að bæta myndskeiðinu þínu á | Veldu spilunarlista til að bæta {videoCount}̣ myndskeiðunum þínum á
     Added {count} Times: Þegar bætt við | Bætt við {count} sinnum
     Allow Adding Duplicate Video(s): Leyfa að tvíteknum myndskeiðum sé bætt við
@@ -287,6 +284,7 @@ Settings:
       Everforest Dark Low: Everforest Dökkt-lítið
       Everforest Light Hard: Everforest Ljóst-skarpt
       Everforest Light Medium: Everforest Ljóst-miðlungs
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Aðallitur þema'
       Red: 'Rautt'
@@ -372,6 +370,8 @@ Settings:
       Everforest Light Aqua: Everforest Ljóssægrænt
       Everforest Light Blue: Everforest Ljósblátt
       Everforest Light Purple: Everforest Ljóspurpuralitað
+      Catppuccin Latte Mauve: Catppuccin Latte fjólublár
+      Catppuccin Latte Red: Catppuccin Latte rautt
     Secondary Color Theme: 'Aukalitur þema'
         #* Main Color Theme
     Hide Side Bar Labels: Fela skýringar á hliðarstiku
@@ -526,7 +526,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Innflutningur á öllum áskriftum og notkunarsniðum tókst'
     All subscriptions have been successfully imported: 'Innflutningur á öllum áskriftum tókst'
     Invalid subscriptions file: 'Ógild áskriftaskrá'
-    This might take a while, please wait: 'Þetta getur tekið dálítinn tíma, sýndu smá þolinmæði'
     Invalid history file: 'Ógild áhorfsferilskrá'
     Subscriptions have been successfully exported: 'Úflutningur á áskriftum tókst'
     History object has insufficient data, skipping item: 'Atriði áhorfsferils er ekki með næg gögn, sleppi þessu'
@@ -548,6 +547,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Flytja út spilunarlista fyrir eldri útgáfur FreeTube
       Tooltip: "Þessi valkostur flytur út myndskeið úr öllum spilunarlistum inn í einn spilunarlista sem kallast 'Eftirlæti'.\nHér er skýrt hvernig eigi að flytja út eða inn myndskeið í spilunarlistum fyrir eldri útgáfur FreeTube:\n 1. Flyttu út spilunarlistana þína með þennan valkost virkann.\n2. Eyddu út öllum fyrirliggjandi spilunarlistum hjá þér með valkostinum 'Fjarlægja alla spilunarlista' í stillingum gagnaleyndar.\n3. Ræstu eldri útgáfu FreeTube og flyttu inn spilunarlistana sem þú fluttir út.\""
+    Search history file: Leita í ferilskrá
+    Search history: Leitarferill
+    Import search history: Flytja inn leitarferil
+    Export search history: Flytja út leitarferil
+    All search history has been successfully imported: Allur leitarferill hefur verið fluttur inn
+    All search history has been successfully exported: Allur leitarferill hefur verið fluttur út
   Proxy Settings:
     Proxy Settings: 'Milliþjónn (proxy)'
     Enable Tor / Proxy: 'Virkja Tor / milliþjón'
@@ -910,6 +915,7 @@ Share:
   YouTube Channel URL copied to clipboard: 'Slóð YouTube-rásar afrituð á klippispjaldið'
 
   Share Channel: Deila rás
+  Share Post: Deila færslu
 Mini Player: 'Smáspilari'
 Comments:
   Comments: 'Athugasemdir'
@@ -925,10 +931,13 @@ Comments:
   Show More Replies: Birta fleiri svör
   Pinned by: Fest af
   Member: Meðlimur
-  View {replyCount} replies: Skoða {replyCount} svör
+  View {replyCount} replies: Skoða 1 svar | Skoða {replyCount} svör
   Hearted: Líkað
   Subscribed: Áskrifandi
   There are no comments available for this post: Engar athugasemdir finnast fyrir þessa færslu
+  Hide {replyCount} replies: Fela 1 svar | Fela {replyCount} svör
+  View 1 reply from {channelName}: Skoða 1 svar frá {channelName}
+  View {replyCount} replies from {channelName} and others: Skoða {replyCount} svör frá {channelName} og fleirum
 Up Next: 'Næst í spilun'
 
 #Tooltips

@@ -110,10 +110,8 @@ Subscriptions:
 Trending:
   Trending: 'Felkapott'
   Trending Tabs: Felkapott lapok
-  Movies: Filmek
   Gaming: Játék
-  Music: Zene
-  Default: Alapértelmezett
+  Sports: Sportok
 Most Popular: 'Legnépszerűbb'
 Playlists: 'Lejátszási listák'
 User Playlists:
@@ -124,8 +122,7 @@ User Playlists:
     Search in Playlists: Keresés a lejátszási listában
     Save: Mentés
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 videó hozzáadva a {playlistCount} lejátszási listákhoz | {videoCount} videó hozzáadása a {playlistCount} lejátszási listákhoz
-      "{videoCount} video(s) added to 1 playlist": 1 videó hozzáadva 1 lejátszási listához | {videoCount} videó hozzáadása 1 lejátszási listához
+      "Video(s) added to {playlistCount} playlists": "A videó(k) hozzá lettek adva 1 lejátszási listához | A videó(k) lettek adva {playlistCount} lejátszási listához"
       You haven't selected any playlist yet.: Még nem választott ki egyetlen lejátszási listát sem.
     Select a playlist to add your N videos to: Válasszon ki egy lejátszási listát a videó hozzáadásához | Válasszon ki egy lejátszási listát a {videoCount} videó hozzáadásához
     N playlists selected: '{playlistCount} kiválasztva'
@@ -479,7 +476,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Az összes feliratkozás és a profil sikeresen importálva'
     All subscriptions have been successfully imported: 'Az összes feliratkozás sikeresen importálva'
     Invalid subscriptions file: 'Érvénytelen feliratkozási fájl'
-    This might take a while, please wait: 'Ez eltarthat egy ideig. Kis türelmet kérünk'
     Invalid history file: 'Érvénytelen előzményfájl'
     Subscriptions have been successfully exported: 'Feliratkozások sikeresen exportálva'
     History object has insufficient data, skipping item: 'Az előzményobjektum nem rendelkezik elegendő adattal, az elem kihagyása'
@@ -666,14 +662,14 @@ Profile:
   Profile Preview: 'Profil előnézet'
   Create Profile: 'Profil létrehozása'
   Update Profile: 'Profil frissítése'
-  Make Default Profile: 'Alapértelmezett profil létrehozása'
+  Make Default Profile: 'Legyen alapértelmezett profil'
   Delete Profile: 'Profil törlése'
   Are you sure you want to delete this profile?: 'Biztosan törli ezt a profilt?'
   All subscriptions will also be deleted.: 'Az összes feliratkozás is törlődik.'
   Your profile name cannot be empty: 'A profil neve nem lehet üres'
   Profile has been created: 'Profil létrehozva'
   Profile has been updated: 'A profil frissült'
-  Your default profile has been set to {profile}: 'Alapértelmezett profilja a következőre lett beállítva: {profile}'
+  Your default profile has been set to {profile}: 'Az alapértelmezett profil a következőre lett beállítva: {profile}'
   Removed {profile} from your profiles: 'A(z) {profile} nevű profilja el lett távolítva a profiljaiból'
   Your default profile has been changed to your primary profile: 'Az alapértelmezett profil az elsődleges profilra változott'
   '{profile} is now the active profile': 'A(z) {profile} most az aktív profil'
@@ -918,6 +914,7 @@ Share:
   YouTube Channel URL copied to clipboard: YouTube-csatorna webcíme a vágólapra másolva
   Invidious Channel URL copied to clipboard: Invidious csatornawebcím a vágólapra másolva
   Share Channel: Csatorna megosztása
+  Share Post: Bejegyzés megosztása
 Mini Player: 'Minilejátszó'
 Comments:
   Comments: 'Hozzászólások'

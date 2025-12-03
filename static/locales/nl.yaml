@@ -106,10 +106,8 @@ Subscriptions:
 Trending:
   Trending: 'Trending'
   Trending Tabs: Trending
-  Movies: Films
   Gaming: Gaming
-  Music: Muziek
-  Default: Standaard
+  Sports: Sport
 Most Popular: 'Populairste'
 Playlists: 'Afspeellĳsten'
 User Playlists:
@@ -142,8 +140,7 @@ User Playlists:
     Search in Playlists: Zoeken in afspeellijsten
     Toast:
       You haven't selected any playlist yet.: U heeft nog geen afspeellijst geselecteerd.
-      "{videoCount} video(s) added to 1 playlist": 1 video toegevoegd aan 1 afspeellijst | {videoCount} video's toegevoegd aan 1 afspeellijst
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video toegevoegd aan {playlistCount} afspeellijsten | {videoCount} video's toegevoegd aan {playlistCount} afspeellijsten
+      "Video(s) added to {playlistCount} playlists": "Video(s) toegevoegd aan 1 afspeellijst | Video(s) toegevoegd aan {playlistCount} afspeellijsten"
     Select a playlist to add your N videos to: Selecteer een afspeellijst om je video aan toe te voegen | Selecteer een afspeellijst om je {videoCount} video's aan toe te voegen
     Added {count} Times: 'Video is al toegevoegd | {count} keer toegevoegd'
     Allow Adding Duplicate Video(s): Toevoegen van dubbele video's toestaan
@@ -278,6 +275,7 @@ Settings:
       Everforest Light Hard: Everforest Licht Hoog
       Everforest Light Medium: Everforest Licht Middel
       Everforest Light Low: Everforest Licht Laag
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Primaire themakleur'
       Red: 'Rood'
@@ -363,6 +361,8 @@ Settings:
       Everforest Light Orange: Everforest Licht Oranje
       Everforest Light Blue: Everforest Licht Blauw
       Everforest Light Purple: Everforest Licht Paars
+      Catppuccin Latte Red: Catppuccin Latte Rood
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
     Secondary Color Theme: 'Secundaire themakleur'
         #* Main Color Theme
     UI Scale: Interface schaal
@@ -463,7 +463,6 @@ Settings:
     History object has insufficient data, skipping item: Geschiedenis object heeft niet genoeg data, item wordt overgeslagen
     Subscriptions have been successfully exported: Abonnementen zijn met succes geïmporteerd
     Invalid history file: Ongeldig geschiedenisbestand
-    This might take a while, please wait: Dit kan eventjes duren, even geduld aub
     Invalid subscriptions file: Ongeldig abonnementenbestand
     All subscriptions have been successfully imported: Alle abonnementen zijn met succes geïmporteerd
     All subscriptions and profiles have been successfully imported: Alle abonnementen en profielen zijn succesvol geïmporteerd
@@ -495,6 +494,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Afspeel­lijsten exporteren voor oudere FreeTube-versies
       Tooltip: "Deze optie exporteert video's van alle afspeel­lijsten naar één afspeel­lijst met de naam ‘Favorieten’.\nVideo's exporteren en importeren in afspeel­lijsten voor een oudere versie van FreeTube:\n1. Exporteer uw afspeel­lijsten met deze optie ingeschakeld.\n2. Verwijder al uw bestaande afspeel­lijsten met de optie ‘Alle afspeel­lijsten verwijderen’ onder ‘Privacy­instellingen’.\n 3. Start de oudere versie van FreeTube en importeer de geëxporteerde afspeel­lijsten."
+    Search history file: Zoekgeschiedenisbestand
+    Search history: Zoekgeschiedenis
+    Import search history: Zoekgeschiedenis importeren
+    Export search history: Zoekgeschiedenis exporteren
+    All search history has been successfully imported: De gehele zoekgeschiedenis is succesvol geïmporteerd
+    All search history has been successfully exported: De gehele zoekgeschiedenis is succesvol geëxporteerd
   Distraction Free Settings:
     Hide Live Chat: Live­chat verbergen
     Hide Popular Videos: Populaire video's verbergen
@@ -830,17 +835,17 @@ Playlist:
 #& Views
   Playlist: Afspeellijst
   Sort By:
-    DateAddedNewest: Laatst toegevoegd bovenaan
+    DateAddedNewest: Datum toegevoegd (Nieuwste)
     AuthorAscending: Auteur (A-Z)
     AuthorDescending: Auteur (Z-A)
     VideoTitleAscending: Titel (A-Z)
     VideoTitleDescending: Titel (Z-A)
-    DateAddedOldest: Eerst toegevoegd bovenaan
+    DateAddedOldest: Datum toegevoegd (Oudste)
     Custom: Aangepast
-    PublishedOldest: Vroegst gepubliceerde videos eerst
-    PublishedNewest: Recenst gepubliceerde videos eerst
-    VideoDurationDescending: Lengte (Langste eerst)
-    VideoDurationAscending: Lengte (Kortste eerst)
+    PublishedOldest: Publiceringsdatum (Oudste)
+    PublishedNewest: Publiceringsdatum (Nieuwste)
+    VideoDurationDescending: Lengte (Langste)
+    VideoDurationAscending: Lengte (Kortste)
 Change Format:
   Change Media Formats: 'Videoformaten veranderen'
   Use Dash Formats: 'DASH-formaten gebruiken'
@@ -865,6 +870,7 @@ Share:
   YouTube Channel URL copied to clipboard: YouTube URL is gekopieerd naar het klembord
   Invidious Channel URL copied to clipboard: Invidiouskanaal-URL is naar het klembord gekopieerd
   Share Channel: Kanaal delen
+  Share Post: Post delen
 Mini Player: 'Mini­speler'
 Comments:
   Comments: 'Opmerkingen'
@@ -881,9 +887,12 @@ Comments:
   Pinned by: Vastgemaakt door
   Member: Lid
   Hearted: Met hartje
-  View {replyCount} replies: '{replyCount} reacties bekijken'
+  View {replyCount} replies: '1 reactie bekijken | {replyCount} reacties bekijken'
   Subscribed: Geabonneerd
   There are no comments available for this post: Er zijn geen reacties beschikbaar voor deze post
+  Hide {replyCount} replies: 1 reactie verbergen | Verberg {replyCount} reacties
+  View 1 reply from {channelName}: Bekijk 1 reactie van {channelName}
+  View {replyCount} replies from {channelName} and others: '{replyCount} reacties van {channelName} en anderen bekijken'
 Up Next: 'Volgende'
 
 # Toast Messages

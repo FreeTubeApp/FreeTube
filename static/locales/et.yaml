@@ -110,10 +110,8 @@ Subscriptions:
 Trending:
   Trending: 'Populaarsust koguvad videod'
   Trending Tabs: Populaarsust koguvad kaardid
-  Movies: Filmid
   Gaming: Arvutimängud
-  Music: Muusika
-  Default: Vaikimisi
+  Sports: Sport
 Most Popular: 'Populaarseimad'
 Playlists: 'Esitusloendid'
 User Playlists:
@@ -139,8 +137,7 @@ User Playlists:
     Search in Playlists: Otsi esindusloenditest
     Save: Salvesta
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video on lisatud {playlistCount} esitusloendisse | {videoCount} videot on lisatud {playlistCount} esitusloendisse
-      "{videoCount} video(s) added to 1 playlist": 1 video on lisatud 1'te esitusloendisse | {videoCount} videot on lisatud 1'te esitusloendisse
+      "Video(s) added to {playlistCount} playlists": "Video(d) onlisatud ühte esitusloendisse | Video(d) on lisatud esitusloendistesse: {playlistCount} tk"
       You haven't selected any playlist yet.: Sa pole veel ühtegi esitusloendit valinud.
     Select a playlist to add your N videos to: Vali esitusloend, kuhu soovid oma video lisada | Vali esitusloend, kuhu soovid oma {videoCount} videot lisada
     N playlists selected: '{playlistCount} valitud'
@@ -479,7 +476,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Kõikide tellimuste ja profiilide import õnnestus'
     All subscriptions have been successfully imported: 'Kõikide tellimuste import õnnestus'
     Invalid subscriptions file: 'Vigane tellimuste fail'
-    This might take a while, please wait: 'Nüüd võib natuke aega kuluda, palun oota'
     Invalid history file: 'Vigane ajaloofail'
     Subscriptions have been successfully exported: 'Tellimuste eksportimine õnnestus'
     History object has insufficient data, skipping item: 'Jätan vahele puuduliku ajalookirje importimise'
@@ -917,6 +913,7 @@ Share:
   YouTube Channel URL copied to clipboard: Kopeerisin YouTube'i kanali aadressi lõikelauale
   Invidious Channel URL copied to clipboard: Kopeerisin kanali aadressi Invidious'e API'st lõikelauale
   Share Channel: Jaga kanalit
+  Share Post: Jaga postitust
 Mini Player: 'Kompaktne vaade'
 Comments:
   Comments: 'Kommentaarid'

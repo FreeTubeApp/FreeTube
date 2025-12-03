@@ -90,7 +90,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, ref, shallowRef, useId } from 'vue'
+import { computed, ref, shallowRef, useId, useTemplateRef } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtButton from '../FtButton/FtButton.vue'
@@ -242,7 +242,7 @@ function handleSubscription(profile) {
   }
 }
 
-const subscribeButton = ref(null)
+const subscribeButton = useTemplateRef('subscribeButton')
 
 function handleProfileDropdownFocusOut() {
   if (subscribeButton.value && !subscribeButton.value.matches(':focus-within')) {

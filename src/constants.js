@@ -11,6 +11,7 @@ const IpcChannels = {
   NATIVE_THEME_UPDATE: 'native-theme-update',
   APP_READY: 'app-ready',
   RELAUNCH_REQUEST: 'relaunch-request',
+  SET_WINDOW_TITLE: 'set-window-title',
 
   SEARCH_INPUT_HANDLING_READY: 'search-input-handling-ready',
   UPDATE_SEARCH_INPUT_TEXT: 'update-search-input-text',

@@ -5,7 +5,7 @@
     <h4 class="groupTitle">
       {{ $t('Subscriptions.Subscriptions') }}
     </h4>
-    <FtFlexBox class="dataSettingsBox">
+    <FtFlexBox class="box">
       <FtButton
         :label="$t('Settings.Data Settings.Import Subscriptions')"
         @click="importSubscriptions"
@@ -29,20 +29,20 @@
     <h4 class="groupTitle">
       {{ $t('History.History') }}
     </h4>
-    <FtFlexBox class="dataSettingsBox">
+    <FtFlexBox class="box">
       <FtButton
         :label="$t('Settings.Data Settings.Import History')"
         @click="importWatchHistory"
       />
       <FtButton
         :label="$t('Settings.Data Settings.Export History')"
-        @click="exportWatchHistory"
+        @click="showExportWatchHistoryPrompt = true"
       />
     </FtFlexBox>
     <h4 class="groupTitle">
       {{ $t('Playlists') }}
     </h4>
-    <FtFlexBox class="dataSettingsBox">
+    <FtFlexBox class="box">
       <FtButton
         :label="$t('Settings.Data Settings.Import Playlists')"
         @click="importPlaylists"
@@ -55,14 +55,14 @@
     <h4 class="groupTitle">
       {{ t('Settings.Data Settings.Search history') }}
     </h4>
-    <FtFlexBox class="dataSettingsBox">
+    <FtFlexBox class="box">
       <FtButton
         :label="t('Settings.Data Settings.Import search history')"
         @click="importSearchHistory"
       />
       <FtButton
         :label="t('Settings.Data Settings.Export search history')"
-        @click="showSearchExportHistoryPrompt = true"
+        @click="showExportSearchHistoryPrompt = true"
       />
     </FtFlexBox>
     <FtPrompt
@@ -73,10 +73,17 @@
       @click="exportSubscriptions"
     />
     <FtPrompt
-      v-if="showSearchExportHistoryPrompt"
+      v-if="showExportWatchHistoryPrompt"
       :label="t('Settings.Data Settings.Select Export Type')"
-      :option-names="exportSearchHistoryPromptNames"
-      :option-values="SEARCH_HISTORY_PROMPT_VALUES"
+      :option-names="exportWatchSearchHistoryPromptNames"
+      :option-values="WATCH_SEARCH_HISTORY_PROMPT_VALUES"
+      @click="exportWatchHistory"
+    />
+    <FtPrompt
+      v-if="showExportSearchHistoryPrompt"
+      :label="t('Settings.Data Settings.Select Export Type')"
+      :option-names="exportWatchSearchHistoryPromptNames"
+      :option-values="WATCH_SEARCH_HISTORY_PROMPT_VALUES"
       @click="exportSearchHistory"
     />
   </FtSettingsSection>
@@ -84,18 +91,18 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { useI18n } from '../composables/use-i18n-polyfill'
+import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRouter } from 'vue-router'
 
-import FtButton from './FtButton/FtButton.vue'
-import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
-import FtPrompt from './FtPrompt/FtPrompt.vue'
-import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
+import FtButton from '../FtButton/FtButton.vue'
+import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtPrompt from '../FtPrompt/FtPrompt.vue'
+import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 
-import store from '../store/index'
+import store from '../../store/index'
 
-import { MAIN_PROFILE_ID } from '../../constants'
-import { calculateColorLuminance, getRandomColor } from '../helpers/colors'
+import { MAIN_PROFILE_ID } from '../../../constants'
+import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
 import {
   deepCopy,
   escapeHTML,
@@ -103,8 +110,8 @@ import {
   readFileWithPicker,
   showToast,
   writeFileWithPicker,
-} from '../helpers/utils'
-import { processToBeAddedPlaylistVideo } from '../helpers/playlists'
+} from '../../helpers/utils'
+import { processToBeAddedPlaylistVideo } from '../../helpers/playlists'
 
 const IMPORT_DIRECTORY_ID = 'data-settings-import'
 const START_IN_DIRECTORY = 'downloads'
@@ -413,8 +420,6 @@ function importCsvYouTubeSubscriptions(textDecode) { // first row = header, last
 function importYouTubeSubscriptions(textDecode) {
   const subscriptions = []
   let count = 0
-
-  showToast(t('Settings.Data Settings.This might take a while, please wait'))
 
   store.commit('setShowProgressBar', true)
   store.commit('setProgressBarPercentage', 0)
@@ -752,6 +757,17 @@ async function exportNewPipeSubscriptions() {
 
 // #endregion subscriptions export
 
+const WATCH_SEARCH_HISTORY_PROMPT_VALUES = [
+  'freetube',
+  'youtube'
+]
+
+const exportWatchSearchHistoryPromptNames = computed(() => [
+  `${t('Settings.Data Settings.Export FreeTube')} (.db)`,
+  `${t('Settings.Data Settings.Export YouTube')} (.json)`,
+  t('Close')
+])
+
 // #region watch history
 
 const historyCacheById = computed(() => {
@@ -952,7 +968,25 @@ async function importYouTubeWatchHistory(historyData) {
   showToast(t('Settings.Data Settings.All watched history has been successfully imported'))
 }
 
-async function exportWatchHistory() {
+const showExportWatchHistoryPrompt = ref(false)
+
+/**
+ * @param {'freetube' | 'youtube' | null} option
+ */
+async function exportWatchHistory(option) {
+  showExportWatchHistoryPrompt.value = false
+
+  switch (option) {
+    case 'freetube':
+      exportFreeTubeWatchHistory()
+      break
+    case 'youtube':
+      exportYouTubeWatchHistory()
+      break
+  }
+}
+
+async function exportFreeTubeWatchHistory() {
   const historyDb = historyCacheSorted.value.map((historyEntry) => {
     return JSON.stringify(historyEntry)
   }).join('\n') + '\n'
@@ -965,6 +999,39 @@ async function exportWatchHistory() {
     t('Settings.Data Settings.History File'),
     'application/x-freetube-db',
     '.db',
+    t('Settings.Data Settings.All watched history has been successfully exported')
+  )
+}
+
+async function exportYouTubeWatchHistory() {
+  const historyData = historyCacheSorted.value.map((entry) => {
+    return {
+      header: 'YouTube',
+      title: `Watched ${entry.title}`,
+      titleUrl: `https://www.youtube.com/watch?v=${entry.videoId}`,
+      subtitles: [{
+        name: entry.author,
+        url: `https://www.youtube.com/channel/${entry.authorId}`
+      }],
+      time: new Date(entry.timeWatched).toISOString(),
+      products: [
+        'YouTube'
+      ],
+      activityControls: [
+        'YouTube watch history'
+      ]
+    }
+  })
+
+  const dateStr = getTodayDateStrLocalTimezone()
+  const exportFileName = 'youtube-watch-history-' + dateStr + '.json'
+
+  await promptAndWriteToFile(
+    exportFileName,
+    JSON.stringify(historyData),
+    t('Settings.Data Settings.History File'),
+    'application/json',
+    '.json',
     t('Settings.Data Settings.All watched history has been successfully exported')
   )
 }
@@ -1326,24 +1393,13 @@ async function importYouTubeSearchHistory(historyData) {
   showToast(t('Settings.Data Settings.All search history has been successfully imported'))
 }
 
-const SEARCH_HISTORY_PROMPT_VALUES = [
-  'freetube',
-  'youtube'
-]
-
-const exportSearchHistoryPromptNames = computed(() => [
-  `${t('Settings.Data Settings.Export FreeTube')} (.db)`,
-  `${t('Settings.Data Settings.Export YouTube')} (.json)`,
-  t('Close')
-])
-
-const showSearchExportHistoryPrompt = ref(false)
+const showExportSearchHistoryPrompt = ref(false)
 
 /**
  * @param {'freetube' | 'youtube' | null} option
  */
 async function exportSearchHistory(option) {
-  showSearchExportHistoryPrompt.value = false
+  showExportSearchHistoryPrompt.value = false
 
   switch (option) {
     case 'freetube':
@@ -1403,3 +1459,5 @@ async function exportYouTubeSearchHistory() {
 
 // #endregion search history
 </script>
+
+<style scoped src="./DataSettings.css" />

@@ -101,7 +101,7 @@
 </template>
 
 <script setup>
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -282,7 +282,7 @@ const anyPlaylistContainsVideosToBeAdded = computed(() => {
   return playlistIdsContainingVideosToBeAdded.value.size > 0
 })
 
-const searchBar = ref(null)
+const searchBar = useTemplateRef('searchBar')
 
 watch(allPlaylistsLength, (val, oldVal) => {
   const allPlaylistIds = new Set()
@@ -395,19 +395,10 @@ function addSelectedToPlaylists() {
     addedPlaylistIds.add(playlist._id)
   })
 
-  let message
-  if (addedPlaylistIds.size === 1) {
-    message = t('User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to 1 playlist', {
-      videoCount: toBeAddedToPlaylistVideoCount.value,
-    }, toBeAddedToPlaylistVideoCount.value)
-  } else {
-    message = t('User Playlists.AddVideoPrompt.Toast.{videoCount} video(s) added to {playlistCount} playlists', {
-      videoCount: toBeAddedToPlaylistVideoCount.value,
-      playlistCount: addedPlaylistIds.size,
-    }, toBeAddedToPlaylistVideoCount.value)
-  }
+  showToast(t('User Playlists.AddVideoPrompt.Toast.Video(s) added to {playlistCount} playlists', {
+    playlistCount: addedPlaylistIds.size,
+  }, addedPlaylistIds.size))
 
-  showToast(message)
   hide()
 }
 

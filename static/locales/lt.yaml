@@ -93,10 +93,7 @@ More: 'Daugiau'
 Trending:
   Trending: 'Dabar populiaru'
   Trending Tabs: „Dabar populiaru“ kortelės
-  Default: Numatytoji
-  Movies: Filmai
   Gaming: Žaidimai
-  Music: Muzika
 Most Popular: 'Populiariausia'
 Playlists: 'Grojaraščiai'
 User Playlists:
@@ -326,7 +323,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Visos prenumeratos ir profiliai sėkmingai importuoti'
     All subscriptions have been successfully imported: 'Visos prenumeratos sėkmingai importuotos'
     Invalid subscriptions file: 'Netinkamas prenumeratų failas'
-    This might take a while, please wait: 'Tai gali užtrukti, palaukite'
     Invalid history file: 'Netinkamas žiūrėjimo istorijos failas'
     Subscriptions have been successfully exported: 'Prenumeratos sėkmingai eksportuotos'
     History object has insufficient data, skipping item: 'Žiūrėjimo istorijos objektas neturi pakankamai duomenų, elementas praleidžiamas'

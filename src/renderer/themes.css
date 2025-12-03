@@ -68,6 +68,13 @@ body:not(.hotPink, .pastelPink) {
   --logo-tertiary-color: #000;
 }
 
+/* Text "app" should be visible but retain FreeTube color logo */
+.system[data-system-theme*='dark'],
+.dark,
+.black {
+  --logo-tertiary-color: #fff;
+}
+
 /* Given that the Hot Pink theme does not need link underlining due to meeting
 WCAG 2 Level AA (https://webaim.org/resources/linkcontrastchecker/?fcolor=FFFFFF&bcolor=DE1C85&lcolor=000000),
 it can be safely elided. This looks quite pleasant on this theme. */

@@ -27,7 +27,7 @@ Forward: 'Framåt'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videor'
-  Shorts: Korta videor
+  Shorts: Shorts
   Live: Live
   Posts: Inlägg
   Sort By: Sortera efter
@@ -42,7 +42,7 @@ Global:
     Comment Count: 1 kommentar | {count} kommentarer
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} är nu tillgänglig!  Klicka för mer detaljer'
 Download From Site: 'Ladda ner från sajten'
-A new blog is now available, {blogTitle}. Click to view more: 'En ny bloggpost är nu tillgänglig, {blogTitle}. Klicka för att se mer'
+A new blog is now available, {blogTitle}. Click to view more: 'En ny blogg finns nu tillgänglig, {blogTitle}. Klicka för att se mer'
 
 # Search Bar
 Search / Go to URL: 'Sök / Gå till URL'
@@ -109,11 +109,9 @@ Subscriptions:
   Empty Posts: Dina prenumererade kanaler har för närvarande inga inlägg.
 Trending:
   Trending: 'Populärt'
-  Movies: Filmer
   Gaming: Spel
-  Music: Musik
-  Default: Standard
   Trending Tabs: Populära flikar
+  Sports: Sport
 Most Popular: 'Mest populära'
 Playlists: 'Spellistor'
 User Playlists:
@@ -137,14 +135,14 @@ User Playlists:
   This playlist currently has no videos.: Denna spellista har för närvarande inga videor.
   Add to Playlist: Lägg till Spellista
   Sort By:
-    EarliestPlayedFirst: Tidigast spelade
-    EarliestUpdatedFirst: Tidigast uppdaterad
+    EarliestPlayedFirst: Datum spelad (äldst)
+    EarliestUpdatedFirst: Datum uppdaterad (äldst)
     NameAscending: A-Z
     NameDescending: Z-A
-    LatestCreatedFirst: Nyligen skapad
-    EarliestCreatedFirst: Tidigast skapad
-    LatestUpdatedFirst: Nyligen uppdaterad
-    LatestPlayedFirst: Nyligen spelad
+    LatestCreatedFirst: Datum skapad (nyast)
+    EarliestCreatedFirst: Datum skapad (äldst)
+    LatestUpdatedFirst: Datum uppdaterad (nyast)
+    LatestPlayedFirst: Datum spelad (nyast)
   Are you sure you want to delete this playlist? This cannot be undone: Är du säker på att du vill ta bort den här spellistan? Detta kan inte ångras.
   AddVideoPrompt:
     Added {count} Times: Redan Tillagd | Lade Till {count} Gånger
@@ -154,8 +152,7 @@ User Playlists:
     N playlists selected: '{playlistCount} valda'
     Toast:
       You haven't selected any playlist yet.: Du har inte valt någon spellista ännu.
-      "{videoCount} video(s) added to 1 playlist": 1 video tillagd i 1 spellista | {videoCount} videor tillagda i 1 spellista
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video tillagd i {playlistCount} spellistor | {videoCount} videor tillagda i {playlistCount} spellistor
+      "Video(s) added to {playlistCount} playlists": "Videoer tillagda i 1 spellista | Videoer tillagda i {playlistCount} spellistor"
     Allow Adding Duplicate Video(s): Tillåt tilläggning av dubblettvideo(n)
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videor Kommer Att Läggas Till'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videor Redan Tillagda'
@@ -170,7 +167,7 @@ User Playlists:
       This playlist is now used for quick bookmark: Den här spellistan används nu för snabb bokmärke
       Reverted to use {oldPlaylistName} for quick bookmark: Återgått till att använda {oldPlaylistName} för snabbt bokmärke
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Vissa videor i spellistan är inte inlästa ännu. Klicka här för att kopiera ändå.
-      Playlist name cannot be empty. Please input a name.: Spellistans namn kan inte vara tomt. Vänligen ange ett namn.
+      Playlist name cannot be empty. Please input a name.: Spellistans namn får inte vara tomt. Ange ett namn.
       Playlist has been updated.: Spellistan har uppdaterats.
       There was an issue with updating this playlist.: Det uppstod ett problem med uppdateringen av den här spellistan.
       This playlist is protected and cannot be removed.: Den här spellistan är skyddad och kan inte tas bort.
@@ -208,15 +205,15 @@ History:
   Empty Search Message: Det finns inga videor i din historik som matchar din sökning
   Search bar placeholder: Sök i historiken
   Case Sensitive Search: Skiftlägeskänslig Sökning
-  DateOldestHistory: Tidigast sedda först
-  DateNewestHistory: Senast sedda först
+  DateOldestHistory: Datum sedda (äldst)
+  DateNewestHistory: Datum sedda (nyast)
 Settings:
   # On Settings Page
   Settings: 'Inställningar'
   General Settings:
     General Settings: 'Allmänt'
     Check for Updates: 'Sök efter uppdateringar'
-    Check for Latest Blog Posts: 'Sök efter senaste blogginlägg'
+    Check for Latest Blog Posts: 'Sök efter de senaste blogginläggen'
     Fallback to Non-Preferred Backend on Failure: 'Falla tillbaka till icke-föredragen Backend vid felet'
     Enable Search Suggestions: 'Aktivera sökförslag'
     Default Landing Page: 'Standardsida'
@@ -239,7 +236,7 @@ Settings:
       Blur: Oskärpa
     Region for Trending: 'Region för trender'
         #! List countries
-    View all Invidious instance information: Visa all Invidious instansinformation
+    View all Invidious instance information: Visa all Invidious-instansinformation
     System Default: Standardinställningar
     Clear Default Instance: Rensa standardinstansen
     Set Current Instance as Default: Välj den nuvarande instansen som standard
@@ -282,6 +279,7 @@ Settings:
       Everforest Light Medium: Everforest ljus medium
       Everforest Light Low: Everforest ljus låg
       Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Huvudfärg'
       Red: 'Röd'
@@ -367,6 +365,8 @@ Settings:
       Solarized Violet: Solariserad violett
       Everforest Dark Orange: Everforest mörkorange
       Everforest Light Orange: Everforest ljusorange
+      Catppuccin Latte Red: Catppuccin Latte Röd
+      Catppuccin Latte Mauve: Catppuccin Latte Malva
     Secondary Color Theme: 'Sekundärfärg'
         #* Main Color Theme
     UI Scale: Skala för användargränssnitt
@@ -402,7 +402,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Next Video Interval: Autospela Nedräkningstimer
-    Display Play Button In Video Player: Visa Spelaknapp i videospelaren
+    Display Play Button In Video Player: Visa uppspelningsknappen i videospelaren
     Scroll Volume Over Video Player: Rullvolym i videospelaren
     Fast-Forward / Rewind Interval: Spola fram / spola bak intervall
     Screenshot:
@@ -457,7 +457,7 @@ Settings:
         Never: Aldrig
   Subscription Settings:
     Subscription Settings: 'Prenumeration'
-    Fetch Feeds from RSS: 'Hämta prenumerationer från RSS'
+    Fetch Feeds from RSS: 'Hämta flöden från RSS'
     Fetch Automatically: Hämta flödet automatiskt
     'Limit the number of videos displayed for each channel': Begränsa antalet videor som visas för varje kanal
     To: Till
@@ -476,7 +476,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Alla prenumerationer och profiler har importerats'
     All subscriptions have been successfully imported: 'Alla prenumerationer har importerats'
     Invalid subscriptions file: 'Ogiltigt prenumerationsarkiv'
-    This might take a while, please wait: 'Detta kan ta ett tag, vänligen vänta'
     Invalid history file: 'Ogiltigt historikarkiv'
     Subscriptions have been successfully exported: 'Alla prenumerationer har exporterats'
     History object has insufficient data, skipping item: 'Historikarkivet har otillräcklig data, objektet utelämnas'
@@ -499,6 +498,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Exportera spellistor för äldre versioner av FreeTube
       Tooltip: "Det här alternativet exporterar videor från alla spellistor till en spellista med namnet \"Favoriter\".\nSå här exporterar och importerar du videor i spellistor för en äldre version av FreeTube:\n1. Exportera dina spellistor med det här alternativet aktiverat.\n2. Ta bort alla dina befintliga spellistor med alternativet Ta bort alla spellistor under Sekretessinställningar.\n3. Starta den äldre versionen av FreeTube och importera de exporterade spellistorna.\""
+    Search history file: Sökhistorikfil
+    Search history: Sökhistorik
+    Import search history: Importera sökhistorik
+    Export search history: Exportera sökhistorik
+    All search history has been successfully imported: All sökhistorik har importerats
+    All search history has been successfully exported: All sökhistorik har exporterats
   Distraction Free Settings:
     Hide Live Chat: Dölj livechatt
     Hide Popular Videos: Dölj mest populära
@@ -519,19 +524,19 @@ Settings:
     Hide Videos on Watch: 'Dölj videor under visning'
     Hide Live Streams: Dölj liveströmningar
     Hide Upcoming Premieres: Dölj kommande premiärer
-    Display Titles Without Excessive Capitalisation: Visa titlar utan överdriven versalisering och skiljetecken
+    Display Titles Without Excessive Capitalisation: Visa titlar utan överdriven användning av versaler och interpunktion
     Hide Channels Placeholder: Kanal-ID
     Hide Featured Channels: Dölj utvalda kanaler
     Hide Channel Shorts: Dölj kanalfliken "Shorts"
     Sections:
-      Side Bar: Sidofält
+      Side Bar: Sidpanel
       General: Allmänt
-      Channel Page: Kanal sida
-      Watch Page: Titta sida
+      Channel Page: Kanalsida
+      Watch Page: Visningssida
       Subscriptions Page: Prenumerationssida
     Hide Channel Playlists: Dölj kanalfliken "Spellistor"
-    Hide Channel Podcasts: Dölj kanalfliken "Podcasts"
-    Hide Channel Releases: Dölj kanalfliken "Släpp"
+    Hide Channel Podcasts: Dölj kanalfliken "Poddsändningar"
+    Hide Channel Releases: Dölj kanalfliken "Utgåvor"
     Hide Subscriptions Videos: Dölj prenumerationsvideor
     Hide Subscriptions Shorts: Dölj prenumerationsshorts
     Hide Subscriptions Live: Dölj prenumerationer live-sändningar
@@ -544,7 +549,7 @@ Settings:
     Hide Videos, Playlists and Channels Containing Text Placeholder: Ord, ordfragment eller fras
     Hide Channel Courses: Dölj kanalfliken "Kurser"
     Hide Channel Home: Dölj kanalfliken "Hem"
-    Show Added Items: Visa Tillagda Objekt
+    Show Added Items: Visa tillagda objekt
     Hide Subscriptions Posts: Dölj prenumerationsinlägg
     Hide Channel Posts: Dölj kanalfliken "Inlägg"
   The app needs to restart for changes to take effect. Restart and apply change?: Starta om FreeTube nu för att tillämpa ändringarna?
@@ -567,18 +572,18 @@ Settings:
     Proxy Password: Proxy lösenord
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifikation när sponsorsegmentet är åsidosatt
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': API Url för Sponsorblockering (Standard är https://sponsor.ajay.app)
-    Enable SponsorBlock: Använd Sponsorblockering (SponsorBlock)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': API Url för sponsorblockering (Standard är https://sponsor.ajay.app)
+    Enable SponsorBlock: Använd sponsorblockering (SponsorBlock)
     SponsorBlock Settings: Sponsorblockering
     Skip Options:
       Skip Option: Hoppa över-alternativ
-      Show In Seek Bar: Visa i tidslinjen
+      Show In Seek Bar: Visa i sökpanelen
       Do Nothing: Gör ingenting
       Auto Skip: Hoppa över automatiskt
       Prompt To Skip: Prompt för att hoppa över
     Category Color: Kategorifärg
     UseDeArrowTitles: Använd DeArrow-videotitlar
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL:en till DeArrows Miniatyrbildsgenerator-API (Standard är https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL:en till DeArrows miniatyrbildsgenerator-API (standard är https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Använd DeArrow för miniatyrer
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorera händelsevarningar som inte stöds
@@ -594,7 +599,7 @@ Settings:
     Hide Unsubscribe Button: Dölj knappen Avprenumerera
     Parental Control Settings: Föräldrakontroll
     Show Family Friendly Only: Visa endast barnvänligt innehåll
-    Hide Search Bar: Dölj sökfält
+    Hide Search Bar: Dölj sökpanel
     Hide Uploader on Watch page: Dölj uppladdaren på visningssidan
   Password Dialog:
     Password: Lösenord
@@ -627,13 +632,13 @@ About:
   Credits: Erkännande
   Translate: Översätt
   room rules: Rumsregler
-  Please read the: Vänligen läs
+  Please read the: Läs
   Chat on Matrix: Chatta på Matrix
   Mastodon: Mastodon
   Email: E-post
   Blog: Blogg
   Website: Webbplats
-  Please check for duplicates before posting: Kontrollera om dubbletter finns innan du skriver
+  Please check for duplicates before posting: Kontrollera om det finns dubbletter innan du publicerar
   GitHub issues: GitHub-problem
   Report a problem: Rapportera ett problem
   FAQ: Frågor och svar
@@ -729,7 +734,7 @@ Channel:
     votes: '{votes} röster'
     Reveal Answers: Avslöja svar
     Hide Answers: Dölj svar
-    View Full Post: Visa Hela Inlägget
+    View Full Post: Visa hela inlägget
     Video hidden by FreeTube: Video dold av FreeTube
     Viewing Posts Only Supported By Invidious: Visa Inlägg stöds endast av Invidious. Gå till en kanals community-flik för att se innehåll där utan Invidious.
   Shorts:
@@ -741,14 +746,14 @@ Channel:
     Releases: Släpp
     This channel does not currently have any releases: Den här kanalen har för närvarande inga släpp
   Podcasts:
-    Podcasts: Podcasts
-    This channel does not currently have any podcasts: Den här kanalen har inga podcasts
+    Podcasts: Poddsändningar
+    This channel does not currently have any podcasts: Den här kanalen har inga poddsändningar
   Courses:
     This channel does not currently have any courses: Den här kanalen har för närvarande inga kurser
     Courses: Kurser
   Home:
     Home: Hem
-    View Playlist: Visa Spellista
+    View Playlist: Visa spellista
 Video:
   Mark As Watched: 'Markera som sedd'
   Remove From History: 'Ta bort från historik'
@@ -756,8 +761,8 @@ Video:
   Video has been removed from your history: 'Videon har tagits bort från din visningshistorik'
   Open in YouTube: 'Öppna på YouTube'
   Copy YouTube Link: 'Kopiera YouTube-länk'
-  Open YouTube Embedded Player: 'Öppna den interna YouTube spelaren'
-  Copy YouTube Embedded Player Link: 'Kopiera länk till den interna YouTube-spelaren'
+  Open YouTube Embedded Player: 'Öppna YouTubes inbäddade spelare'
+  Copy YouTube Embedded Player Link: 'Kopiera länken till den inbäddade YouTube-spelaren'
   Open in Invidious: 'Öppna på Invidious'
   Copy Invidious Link: 'Kopiera Invidious-länk'
   Views: 'Visningar'
@@ -768,14 +773,14 @@ Video:
   Next: 'Nästa'
   Watched: 'Visad'
   Autoplay: 'Autospelning'
-  Starting soon, please refresh the page to check again: 'Börjar snart, vänligen uppdatera sidan för att kontrollera igen'
+  Starting soon, please refresh the page to check again: 'Börjar snart, uppdatera sidan för att kontrollera igen'
   # As in a Live Video
   Live: 'Live-visning'
   Live Now: 'Live nu'
   Live Chat: 'Livechatt'
   Enable Live Chat: 'Aktivera livechatt'
   Live Chat is currently not supported in this build.: 'Livechatt stöds för närvarande inte i denna version.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Livechatt är aktiverat. Meddelanden visas här när de har skickats.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Livechatt är aktiverad.   Chattmeddelanden visas här när de har skickats.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Livechatt stöds för närvarande inte med Invidious API. En direktanslutning till YouTube krävs.'
   Published:
     In less than a minute: Mindre än en minut
@@ -818,7 +823,7 @@ Video:
     OpenInTemplate: Öppna i {externalPlayer}
   Premieres: Premiärer
   Upcoming: Kommande
-  Show Super Chat Comment: Visa Super Chat-kommentarer
+  Show Super Chat Comment: Visa Superchatt-kommentar
   Scroll to Bottom: Skrolla till botten
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Livechatt är inte tillgängligt för den här strömmen. Den kan ha inaktiverats av uppladdaren.
   Unhide Channel: Visa kanal
@@ -851,7 +856,7 @@ Video:
     Theatre Mode: Teaterläge
     Exit Theatre Mode: Avsluta Teaterläget
     Take Screenshot: Ta Skärmdump
-    Show Stats: Visa Statistik
+    Show Stats: Visa statistik
     TranslatedCaptionTemplate: '{language} (översatt från "{originalLanguage}")'
   More Options: Fler Alternativ
   AgeRestricted: Åldersbegränsade videor kan inte ses med FreeTube eftersom de kräver Google-inloggning och användning av ett åldersverifierat YouTube-konto.
@@ -875,15 +880,15 @@ Playlist:
   Playlist: Spellista
   Sort By:
     AuthorAscending: Upphovsman (A-Ö)
-    VideoDurationDescending: Varaktighet (Längsta först)
+    VideoDurationDescending: Varaktighet (längst)
     AuthorDescending: Upphovsman (Ö-A)
-    VideoDurationAscending: Varaktighet (Kortast först)
-    DateAddedOldest: Tidigast tillagd först
+    VideoDurationAscending: Varaktighet (kortast)
+    DateAddedOldest: Datum tillagd (äldst)
     VideoTitleAscending: Titel (A-Ö)
     VideoTitleDescending: Titel (Ö-A)
-    DateAddedNewest: Senast tillagd först
-    PublishedNewest: Senast publicerad först
-    PublishedOldest: Tidigast publicerad först
+    DateAddedNewest: Datum tillagd (nyast)
+    PublishedNewest: Datum publicerad (nyast)
+    PublishedOldest: Datum publicerad (äldst)
     Custom: Anpassad
 Change Format:
   Change Media Formats: 'Ändra videoformat'
@@ -899,21 +904,22 @@ Share:
   Include Timestamp: 'Inkludera tidsstämpel'
   Copy Link: 'Kopiera länk'
   Open Link: 'Öppna länk'
-  Copy Embed: 'Kopiera inbyggd'
-  Open Embed: 'Öppna inbyggd'
+  Copy Embed: 'Kopiera inbäddad'
+  Open Embed: 'Öppna inbäddad'
   # On Click
-  Invidious URL copied to clipboard: 'Kopiera Invidious URL till urklipp'
-  Invidious Embed URL copied to clipboard: 'Kopiera inbyggd Invidious URL till urklipp'
+  Invidious URL copied to clipboard: 'Skadlig URL kopierad till urklipp'
+  Invidious Embed URL copied to clipboard: 'Invidious-inbäddnings-URL kopierad till urklipp'
   YouTube URL copied to clipboard: 'Youtube URL kopierad till urklipp'
-  YouTube Embed URL copied to clipboard: 'Inbyggd Youtube URL kopierad till urklipp'
-  YouTube Channel URL copied to clipboard: URL till Youtubekanal kopieras till urklipp
+  YouTube Embed URL copied to clipboard: 'YouTube-inbäddnings-URL kopierad till urklipp'
+  YouTube Channel URL copied to clipboard: YouTube-kanalens URL kopierad till urklipp
   Invidious Channel URL copied to clipboard: Invidious Kanal-URL kopierad till urklipp
   Share Channel: Dela Kanal
+  Share Post: Dela inlägg
 Mini Player: 'Minispelare'
 Comments:
   Comments: 'Kommentarer'
-  Click to View Comments: 'Klicka för att Visa kommentarer'
-  Getting comment replies, please wait: 'Hämtar kommentar svar, vänligen vänta'
+  Click to View Comments: 'Klicka för att visa kommentarer'
+  Getting comment replies, please wait: 'Tar emot svar på kommentarer, vänta'
   There are no more comments for this video: 'Det finns inga fler kommentarer för videon'
   Hide Comments: 'Dölj kommentarer'
   # Context: View 10 Replies, View 1 Reply
@@ -923,11 +929,14 @@ Comments:
   Top comments: Toppkommentarer
   Show More Replies: Visa fler svar
   Member: Medlem
-  View {replyCount} replies: Visa {replyCount} repliker
+  View {replyCount} replies: Visa 1 svar | Visa {replyCount} svar
   Pinned by: Nålad av
   Hearted: Hjärtade
   Subscribed: Prenumererar
   There are no comments available for this post: Det finns inga kommentarer tillgängliga för detta inlägg
+  Hide {replyCount} replies: Dölj 1 svar | Dölj {replyCount} svar
+  View 1 reply from {channelName}: Visa 1 svar från {channelName}
+  View {replyCount} replies from {channelName} and others: Visa {replyCount} svar från {channelName} och andra
 Up Next: 'Kommer härnäst'
 
 # Toast Messages
@@ -950,8 +959,8 @@ Yes: 'Ja'
 No: 'Nej'
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: När det är aktiverat kommer FreeTube att använda RSS istället för standardmetoden för att hämta ditt prenumerationsflöde. RSS är snabbare och förhindrar IP-blockering, men ger inte viss information som videons längd, livestatus eller kommentarer
-    Fetch Automatically: Om aktiverat så kommer FreeTube automatiskt hämta ditt prenumerationsflöde när du startar FreeTube och när ett nytt fönster öppnas.
+    Fetch Feeds from RSS: När det är aktiverat använder FreeTube RSS istället för standardmetoden för att hämta ditt prenumerationsflöde. RSS är snabbare och förhindrar IP-blockering, men ger inte viss information som videolängd, livestatus eller inlägg
+    Fetch Automatically: När det är aktiverat hämtar FreeTube automatiskt ditt prenumerationsflöde vid start och när ett nytt fönster öppnas.
   Player Settings:
     Default Video Format: Ställ in de format som används när en video spelas upp. DASH-format kan spela högre kvaliteter. Äldre format är begränsade till max 360p men använder mindre bandbredd. Ljudformat är endast ljudströmmningar.
     Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att hämta videor istället för att göra en direkt anslutning till YouTube.
@@ -997,7 +1006,7 @@ New Window: Nytt Fönster
 Channels:
   Channels: Kanaler
   Title: Kanallista
-  Search bar placeholder: Sök Kanaler
+  Search bar placeholder: Sök kanaler
   Unsubscribe Prompt: Är du säker på att du vill avprenumerera från "{channelName}"?
   Count: '{number} kanal(er) hittade.'
   Empty: Din kanallista är tom.
@@ -1022,7 +1031,7 @@ Go to page: Gå till {page}
 Channel Unhidden: '{channel} har tagits bort från kanalfiltret'
 Close Banner: Stäng bannern
 Feed:
-  Feed Last Updated: '{feedName} feed senast uppdaterad: {date}'
+  Feed Last Updated: '{feedName} flödet senast uppdaterat: {date}'
   Refresh Feed: Uppdatera {subscriptionName}
 checkmark: ✓
 Display Label: '{label}: {value}'

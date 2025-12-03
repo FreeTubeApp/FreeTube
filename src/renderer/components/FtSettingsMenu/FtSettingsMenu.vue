@@ -6,7 +6,6 @@
       <FontAwesomeIcon
         :icon="['fas', 'sliders-h']"
         class="headingIcon"
-        fixed-width
       />
       {{ $t('Settings.Settings') }}
     </h2>

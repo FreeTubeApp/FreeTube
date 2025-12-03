@@ -110,10 +110,7 @@ Subscriptions:
 Trending:
   Trending: Tendências
   Trending Tabs: Separadores de tendências
-  Movies: Filmes
   Gaming: Jogos
-  Music: Música
-  Default: Padrão
 Most Popular: Mais populares
 Playlists: Listas de reprodução
 User Playlists:
@@ -169,8 +166,7 @@ User Playlists:
   Playlist Description: Descrição da lista de reprodução
   AddVideoPrompt:
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 vídeo adicionado a {playlistCount} listas de reprodução | {videoCount} vídeos adicionados a {playlistCount} listas de reprodução
-      "{videoCount} video(s) added to 1 playlist": 1 vídeo adicionado a 1 lista de reprodução | {videoCount} vídeos adicionados a 1 lista de reprodução
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Ainda não selecionou uma lista de reprodução.
     Select a playlist to add your N videos to: Selecione uma lista de reprodução à qual adicionar o seu vídeo | Selecione uma lista de reprodução à qual adicionar os seus {videoCount} vídeos
     N playlists selected: '{playlistCount} selecionados'
@@ -525,7 +521,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: Todas as subscrições e perfis foram importados com sucesso
     All subscriptions have been successfully imported: Todas as subscrições foram importadas com sucesso
     Invalid subscriptions file: Ficheiro de subscrições inválido
-    This might take a while, please wait: Este processo pode ser demorado.
     Invalid history file: Ficheiro de histórico inválido
     Subscriptions have been successfully exported: As subscrições foram exportadas com sucesso
     History object has insufficient data, skipping item: O histórico tem dados em falta, a ignorar

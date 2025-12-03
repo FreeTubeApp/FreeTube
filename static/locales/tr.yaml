@@ -110,10 +110,8 @@ Subscriptions:
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
-  Movies: Film
   Gaming: Oyun
-  Music: Müzik
-  Default: Öntanımlı
+  Sports: Spor
 Most Popular: 'Popüler Olanlar'
 Playlists: 'Oynatma Listeleri'
 User Playlists:
@@ -163,8 +161,7 @@ User Playlists:
     Save: Kaydet
     Toast:
       You haven't selected any playlist yet.: Henüz bir oynatma listesi seçmediniz.
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video {playlistCount} oynatma listesine eklendi | {videoCount} video {playlistCount} oynatma listesine eklendi
-      "{videoCount} video(s) added to 1 playlist": 1 video 1 oynatma listesine eklendi | {videoCount} video 1 oynatma listesine eklendi
+      "Video(s) added to {playlistCount} playlists": "Video(lar) 1 oynatma listesine eklendi | Video(lar) {playlistCount} oynatma listesine eklendi"
     N playlists selected: '{playlistCount} Seçildi'
     Search in Playlists: Oynatma Listelerinde Ara
     Added {count} Times: 'Zaten Eklendi | {count} Defa Eklendi'
@@ -479,7 +476,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Tüm abonelikler ve profiller başarılı bir şekilde içe aktarıldı'
     All subscriptions have been successfully imported: 'Tüm abonelikler başarılı bir şekilde içe aktarıldı'
     Invalid subscriptions file: 'Geçersiz aboneler dosyası'
-    This might take a while, please wait: 'Biraz uzun sürebilir, lütfen bekleyin'
     Invalid history file: 'Geçersiz geçmiş dosyası'
     Subscriptions have been successfully exported: 'Tüm abonelikler başarılı bir şekilde dışa aktarıldı'
     History object has insufficient data, skipping item: 'Geçmiş nesnesinde yetersiz veri var, öğe atlanıyor'
@@ -918,6 +914,7 @@ Share:
   YouTube Channel URL copied to clipboard: Youtube Kanalı Adresi panoya kopyalandı
   Invidious Channel URL copied to clipboard: Invidious Kanalı Adresi panoya kopyalandı
   Share Channel: Kanalı Paylaş
+  Share Post: Gönderiyi Paylaş
 Mini Player: 'Mini Oynatıcı'
 Comments:
   Comments: 'Yorumlar'

@@ -7,7 +7,6 @@
         <FontAwesomeIcon
           :icon="['fas', 'fire']"
           class="trendingIcon"
-          fixed-width
         />
         {{ $t("Trending.Trending") }}
       </h2>
@@ -16,48 +15,6 @@
         role="tablist"
         :aria-label="$t('Trending.Trending Tabs')"
       >
-        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
-        <div
-          ref="defaultTab"
-          class="tab"
-          role="tab"
-          :aria-selected="currentTab === 'default'"
-          aria-controls="trendingPanel"
-          :tabindex="currentTab === 'default' ? 0 : -1"
-          :class="{ selectedTab: currentTab === 'default' }"
-          @click="changeTab('default')"
-          @keydown.space.enter.prevent="changeTab('default')"
-          @keydown.left="focusTab('movies', $event)"
-          @keydown.right="focusTab('music', $event)"
-        >
-          <FontAwesomeIcon
-            :icon="['fas', 'fire']"
-            class="trendingIcon"
-            fixed-width
-          />
-          {{ $t("Trending.Default") }}
-        </div>
-        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
-        <div
-          ref="musicTab"
-          class="tab"
-          role="tab"
-          :aria-selected="currentTab === 'music'"
-          aria-controls="trendingPanel"
-          :tabindex="currentTab === 'music' ? 0 : -1"
-          :class="{ selectedTab: currentTab === 'music' }"
-          @click="changeTab('music')"
-          @keydown.space.enter.prevent="changeTab('music')"
-          @keydown.left="focusTab('default', $event)"
-          @keydown.right="focusTab('gaming', $event)"
-        >
-          <FontAwesomeIcon
-            :icon="['fas', 'music']"
-            class="trendingIcon"
-            fixed-width
-          />
-          {{ $t("Trending.Music") }}
-        </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
           ref="gamingTab"
@@ -69,36 +26,54 @@
           :class="{ selectedTab: currentTab === 'gaming' }"
           @click="changeTab('gaming')"
           @keydown.space.enter.prevent="changeTab('gaming')"
-          @keydown.left="focusTab('music', $event)"
-          @keydown.right="focusTab('movies', $event)"
+          @keydown.left="focusTab('podcasts', $event)"
+          @keydown.right="focusTab('sports', $event)"
         >
           <FontAwesomeIcon
             :icon="['fas', 'gamepad']"
             class="trendingIcon"
-            fixed-width
           />
           {{ $t("Trending.Gaming") }}
         </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
         <div
-          ref="moviesTab"
+          ref="sportsTab"
           class="tab"
           role="tab"
-          :aria-selected="currentTab === 'movies'"
+          :aria-selected="currentTab === 'sports'"
           aria-controls="trendingPanel"
-          :tabindex="currentTab === 'movies' ? 0 : -1"
-          :class="{ selectedTab: currentTab === 'movies' }"
-          @click="changeTab('movies')"
-          @keydown.space.enter.prevent="changeTab('movies')"
+          :tabindex="currentTab === 'sports' ? 0 : -1"
+          :class="{ selectedTab: currentTab === 'sports' }"
+          @click="changeTab('sports')"
+          @keydown.space.enter.prevent="changeTab('sports')"
           @keydown.left="focusTab('gaming', $event)"
-          @keydown.right="focusTab('default', $event)"
+          @keydown.right="focusTab('podcasts', $event)"
         >
           <FontAwesomeIcon
-            :icon="['fas', 'film']"
+            :icon="['fas', 'trophy']"
             class="trendingIcon"
-            fixed-width
           />
-          {{ $t("Trending.Movies") }}
+          {{ t("Trending.Sports") }}
+        </div>
+        <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
+        <div
+          ref="podcastsTab"
+          class="tab"
+          role="tab"
+          :aria-selected="currentTab === 'podcasts'"
+          aria-controls="trendingPanel"
+          :tabindex="currentTab === 'podcasts' ? 0 : -1"
+          :class="{ selectedTab: currentTab === 'podcasts' }"
+          @click="changeTab('podcasts')"
+          @keydown.space.enter.prevent="changeTab('podcasts')"
+          @keydown.left="focusTab('sports', $event)"
+          @keydown.right="focusTab('gaming', $event)"
+        >
+          <FontAwesomeIcon
+            :icon="['fas', 'podcast']"
+            class="trendingIcon"
+          />
+          {{ t("Channel.Podcasts.Podcasts") }}
         </div>
       </FtFlexBox>
       <div
@@ -125,7 +100,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, useTemplateRef } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -138,7 +113,6 @@ import store from '../../store/index'
 
 import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
 import { getLocalTrending } from '../../helpers/api/local'
-import { getInvidiousTrending } from '../../helpers/api/invidious'
 import { KeyboardShortcuts } from '../../../constants'
 
 const { t } = useI18n()
@@ -162,16 +136,16 @@ const region = computed(() => {
   return store.getters.getRegion.toUpperCase()
 })
 
-/** @type {import('vue').ComputedRef<{ default: any[] | null, music: any[] | null, gaming: any[] | null, movies: any[] | null }>} */
+/** @type {import('vue').ComputedRef<{ gaming: any[] | null, sports: any[] | null, podcasts: any[] | null }>} */
 const trendingCache = computed(() => {
   return store.getters.getTrendingCache
 })
 
-const isLoading = ref({ default: false, music: false, gaming: false, movies: false })
+const isLoading = ref({ gaming: false, sports: false, podcasts: false })
 const shownResults = shallowRef([])
 
-/** @type {import('vue').Ref<'default' | 'music' | 'gaming' | 'movies'>} */
-const currentTab = ref('default')
+/** @type {import('vue').Ref<'gaming' | 'sports' | 'podcasts'>} */
+const currentTab = ref('gaming')
 
 const cacheEntry = trendingCache.value[currentTab.value]
 
@@ -183,21 +157,12 @@ if (cacheEntry && cacheEntry.length > 0) {
   })
 }
 
-/** @type {import('youtubei.js').Mixins.TabbedFeed<import('youtubei.js').IBrowseResponse> | null} */
-let trendingInstance = null
-
 function getTrendingInfo(refresh = false) {
   if (refresh) {
-    if (process.env.SUPPORTS_LOCAL_API) {
-      trendingInstance = null
-    }
-
     store.commit('clearTrendingCache', currentTab.value)
   }
 
-  if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
-    getTrendingInfoInvidious()
-  } else {
+  if (process.env.SUPPORTS_LOCAL_API && (backendFallback.value || backendPreference.value === 'local')) {
     getTrendingInfoLocal()
   }
 
@@ -208,11 +173,10 @@ async function getTrendingInfoLocal() {
   isLoading.value[currentTab.value] = true
 
   try {
-    const { results, instance } = await getLocalTrending(region.value, currentTab.value, trendingInstance)
+    const results = await getLocalTrending(region.value, currentTab.value)
 
     shownResults.value = results
     isLoading.value[currentTab.value] = false
-    trendingInstance = instance
 
     store.commit('setTrendingCache', { value: results, page: currentTab.value })
     nextTick(() => {
@@ -224,56 +188,16 @@ async function getTrendingInfoLocal() {
     showToast(`${errorMessage}: ${error}`, 10000, () => {
       copyToClipboard(error)
     })
-    if (backendPreference.value === 'local' && backendFallback.value) {
-      showToast(t('Falling back to Invidious API'))
-      getTrendingInfoInvidious()
-    } else {
-      isLoading.value[currentTab.value] = false
-    }
+    isLoading.value[currentTab.value] = false
   }
 }
 
-function getTrendingInfoInvidious() {
-  isLoading.value[currentTab.value] = true
-
-  getInvidiousTrending(currentTab.value, region.value).then((items) => {
-    if (!items) {
-      return
-    }
-
-    shownResults.value = items
-    isLoading.value[currentTab.value] = false
-    store.commit('setTrendingCache', { value: items, page: currentTab.value })
-    nextTick(() => {
-      focusTab(currentTab.value)
-    })
-  }).catch((err) => {
-    console.error(err)
-    const errorMessage = t('Invidious API Error (Click to copy)')
-    showToast(`${errorMessage}: ${err}`, 10000, () => {
-      copyToClipboard(err)
-    })
-
-    if (process.env.SUPPORTS_LOCAL_API && backendPreference.value === 'invidious' && backendFallback.value) {
-      showToast(t('Falling back to Local API'))
-      getTrendingInfoLocal()
-    } else {
-      isLoading.value[currentTab.value] = false
-    }
-  })
-}
-
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const defaultTab = ref(null)
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const musicTab = ref(null)
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const gamingTab = ref(null)
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const moviesTab = ref(null)
+const gamingTab = useTemplateRef('gamingTab')
+const sportsTab = useTemplateRef('sportsTab')
+const podcastsTab = useTemplateRef('podcastsTab')
 
 /**
- * @param {'default' | 'music' | 'gaming' | 'movies'} tab
+ * @param {'gaming' | 'sports' | 'podcasts'} tab
  * @param {KeyboardEvent | undefined} event
  */
 function focusTab(tab, event = undefined) {
@@ -285,23 +209,20 @@ function focusTab(tab, event = undefined) {
   }
 
   switch (tab) {
-    case 'default':
-      defaultTab.value?.focus()
-      break
-    case 'music':
-      musicTab.value?.focus()
-      break
     case 'gaming':
       gamingTab.value?.focus()
       break
-    case 'movies':
-      moviesTab.value?.focus()
+    case 'sports':
+      sportsTab.value?.focus()
+      break
+    case 'podcasts':
+      podcastsTab.value?.focus()
       break
   }
 }
 
 /**
- * @param {'default' | 'music' | 'gaming' | 'movies'} tab
+ * @param {'gaming' | 'sports' | 'podcasts'} tab
  */
 function changeTab(tab) {
   if (tab === currentTab.value) {

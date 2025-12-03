@@ -9,6 +9,17 @@ ipcRenderer.on(IpcChannels.NATIVE_THEME_UPDATE, (_, shouldUseDarkColors) => {
   document.body.dataset.systemTheme = shouldUseDarkColors ? 'dark' : 'light'
 })
 
+// Force update the window title whenever the page title changes
+// as Electron doesn't do it when the back button is pressed, probably a bug.
+// It doesn't even fire the `page-title-updated` in the main process.
+
+const titleMutationObserver = new MutationObserver((mutations) => {
+  ipcRenderer.send(IpcChannels.SET_WINDOW_TITLE, mutations[0].addedNodes[0].textContent)
+})
+document.addEventListener('DOMContentLoaded', () => {
+  titleMutationObserver.observe(document.querySelector('title'), { childList: true })
+}, { once: true })
+
 let currentUpdateSearchInputTextListener
 
 export default {

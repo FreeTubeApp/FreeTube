@@ -10,7 +10,6 @@
         <FontAwesomeIcon
           :icon="['fas', 'circle-exclamation']"
           class="warning-icon"
-          fixed-width
         />
         {{ $t('Settings.Proxy Settings.Proxy Warning') }}
       </p>

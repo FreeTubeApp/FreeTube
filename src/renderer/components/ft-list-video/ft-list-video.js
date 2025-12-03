@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 import { mapActions } from 'vuex'
 import {
   copyToClipboard,
