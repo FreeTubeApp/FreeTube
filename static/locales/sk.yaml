@@ -472,7 +472,7 @@ Settings:
     City: Mesto
     Region: Región
     Country: Krajina
-    Ip: Internetový Protokol
+    Ip: IP adresa
     Your Info: Informácie o Vás
     Test Proxy: Vyskúšať proxy
     Clicking on Test Proxy will send a request to: Kliknutím na "Vyskúšať Proxy" pošlete žiadosť do
@@ -483,10 +483,19 @@ Settings:
     Proxy Settings: Proxy
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Upozorniť, keď bude segment sponzora preskočený
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Adresa volaná službou SponsorBlock (Predvolená je https://sponsor.ajay.app)
-    Enable SponsorBlock: Povoliť SponsorBlock
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API SponsorBlock (predvolená adresa je https://sponsor.ajay.app)
+    Enable SponsorBlock: Zapnúť SponsorBlock
     SponsorBlock Settings: SponsorBlock
     Category Color: Farba kategórie
+    Skip Options:
+      Do Nothing: Nerobiť nič
+      Prompt To Skip: Spýtať sa na preskočenie
+      Show In Seek Bar: Zobraziť vo vyhľadávacej lište
+      Auto Skip: Automaticky preskočiť
+      Skip Option: Možnosť preskočenia
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL API generátora miniatúr DeArrow (predvolená adresa je https://dearrow-thumb.ajay.app)
+    UseDeArrowThumbnails: Použiť DeArrow pre miniatúry
+    UseDeArrowTitles: Použiť titulky videa DeArrow
   External Player Settings:
     Custom External Player Arguments: Vlastné argumenty externého prehrávača
     External Player: Externý prehrávač
@@ -497,6 +506,29 @@ Settings:
   Return to Settings Menu: Späť do ponuky nastavení
   Parental Control Settings:
     Hide Search Bar: Skryť lištu vyhľadávania
+    Show Family Friendly Only: Zobraziť len obsah vhodný pre rodinu
+    Hide Uploader on Watch page: Skryť nahrávača na stránke pozerania
+    Hide Unsubscribe Button: Skryť tlačidlo odhlásenia
+    Parental Control Settings: Rodičovská kontrola
+  Password Settings:
+    Remove Password: Odstrániť heslo
+    Set Password: Nastaviť heslo
+    Set Password To Prevent Access: Nastavte heslo na zabránenie prístupu k nastaveniam
+    Password Settings: Heslo
+  Password Dialog:
+    Enter Password To Unlock: Zadajte heslo pre odomknutie nastavení
+    Password: Heslo
+  Experimental Settings:
+    Replace HTTP Cache: Nahradiť medzipamäť HTTP
+    Warning: Tieto nastavenia sú experimentálne a môžu spôsobiť zlyhanie systému, ak sú aktivované. Dôrazne odporúčame vytvárať zálohy. Používajte na vlastné riziko!
+    Experimental Settings: Experimentálne
+  Download Settings:
+    Open in web browser: Otvoriť vo webovom prehliadači
+    Download in app: Stiahnuť v aplikácii
+    Download Behavior: Správanie sťahovania
+    Choose Path: Vybrať cestu
+    Ask Download Path: Spýtať sa na cieľové umiestnenie sťahovania
+    Download Settings: Sťahovanie
 About:
   #On About page
   About: 'O FreeTube'
@@ -512,8 +544,8 @@ About:
   Report a problem: Nahlásiť problém
   FAQ: Otázky a odpovede
   Donate: Darujte
-  FreeTube is made possible by: FreeTube umožňujú
-  these people and projects: títo ľudia a projekty
+  FreeTube is made possible by: FreeTube existuje vďaka
+  these people and projects: týmto ľuďom a projektom
   Credits: Zásluhy
   Translate: Preložiť
   room rules: pravidlá miestností
@@ -524,9 +556,12 @@ About:
   Blog: Blog
   Website: Webstránka
   Please check for duplicates before posting: Pred odoslaním prosím skontrolujte duplicitné otázky
+  Discussions: Diskusie
+  AGPLv3: AGPLv3
+  Licensed under the: Licencované pod
 Channel:
   Subscribe: 'Odoberať'
-  Unsubscribe: 'Zrušiť odber'
+  Unsubscribe: 'Odhlásiť odber'
   Search Channel: 'Vyhľadať v kanáli'
   Your search results have returned 0 results: 'Vaše vyhľadávanie vrátilo 0 výsledkov'
   Videos:
