@@ -408,21 +408,21 @@ Settings:
     Unknown data key: Neznámy dátový kľúč
     Unable to write file: Súbor sa nepodarilo zapísať
     Unable to read file: Súbor sa nepodarilo prečítať
-    All watched history has been successfully exported: Celá zhliadnutá história bola úspešne exportovaná
-    All watched history has been successfully imported: Celá zhliadnutá história bola úspešne importovaná
-    History object has insufficient data, skipping item: Objekt história nemá dostatok údajov, preskakujem položku
-    Subscriptions have been successfully exported: Odbery sa úspešne exportovali
-    Invalid history file: Neplatný súbor histórie
-    Invalid subscriptions file: Neplatný súbor s odbermi
-    All subscriptions have been successfully imported: Všetky odbery sa úspešne importovali
-    All subscriptions and profiles have been successfully imported: Všetky odbery a profily sa úspešne importovali
-    Profile object has insufficient data, skipping item: Objekt profil nemá dostatok údajov, preskakujem položku
+    All watched history has been successfully exported: Celá história pozerania bola úspešne exportovaná
+    All watched history has been successfully imported: Celá história pozerania bola úspešne importovaná
+    History object has insufficient data, skipping item: Predmet histórie má nedostatočné údaje, preskakovanie položky
+    Subscriptions have been successfully exported: Odbery boli úspešne exportované
+    Invalid history file: Chybný súbor histórie
+    Invalid subscriptions file: Chybný súbor odberov
+    All subscriptions have been successfully imported: Všetky odbery boli úspešne importované
+    All subscriptions and profiles have been successfully imported: Všetky odbery a profily boli úspešne importované
+    Profile object has insufficient data, skipping item: Predmet profilu má nedostatočné údaje, preskakovanie položky
     Export History: Exportovať históriu
     Import History: Importovať históriu
     Export NewPipe: Exportovať dáta vo formáte NewPipe
     Export YouTube: Exportovať dáta vo formáte Youtube
     Export FreeTube: Exportovať dáta vo formáte FreeTube
-    Export Subscriptions: Exportovať Odbery
+    Export Subscriptions: Exportovať odbery
     Import Subscriptions: Importovať odbery
     Select Export Type: Vybrať typ exportu
     Data Settings: Dáta
@@ -431,8 +431,16 @@ Settings:
     Search history: História vyhľadávania
     Import search history: Importovať históriu vyhľadávania
     Export search history: Exportovať históriu vyhľadávania
-    All search history has been successfully imported: Všetka história vyhľadávania bola úspešne importovaná
-    All search history has been successfully exported: Všetka história vyhľadávania bola úspešne exportovaná
+    All search history has been successfully imported: Celá história vyhľadávania bola úspešne importovaná
+    All search history has been successfully exported: Celá história vyhľadávania bola úspešne exportovaná
+    All playlists has been successfully exported: Všetky playlisty boli úspešne exportované
+    All playlists has been successfully imported: Všetky playlisty boli úspešne importované
+    Playlist insufficient data: Nedostatočné údaje pre playlist "{playlist}", preskakovanie položky
+    Export Playlists: Exportovať playlisty
+    Import Playlists: Importovať playlisty
+    Playlist File: Súbor playlistov
+    History File: Súbor histórie
+    Subscription File: Súbor odberov
   Distraction Free Settings:
     Hide Live Chat: Skryť živý chat
     Hide Popular Videos: Skryť populárne videá
@@ -446,6 +454,22 @@ Settings:
     Hide Active Subscriptions: Skryť aktívne odbery
     Hide Playlists: Skryť playlisty
     Hide Videos on Watch: 'Skryť videá po zhliadnutí'
+    Show Added Items: Zobraziť pridané položky
+    Hide Subscriptions Posts: Skryť príspevky odberov
+    Hide Subscriptions Live: Skryť živé prenosy odberov
+    Hide Subscriptions Shorts: Skryť krátke videá odberov
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Slovo, časť slova alebo fráza
+    Hide Videos, Playlists and Channels Containing Text: Skryť videá, playlisty a kanály obsahujúce text
+    Hide Channel Courses: Skryť kartu kanálov "Kurzy"
+    Hide Channel Releases: Skryť kartu kanálov "Vydania"
+    Hide Channel Podcasts: Skryť kartu kanálov "Podcasty"
+    Hide Channel Shorts: Skryť kartu kanálov "Krátke"
+    Hide Channel Home: Skryť kartu kanálov "Domov"
+    Hide Channel Posts: Skryť kartu kanálov "Príspevky"
+    Hide Channel Playlists: Skryť kartu kanálov "Playlisty"
+    Hide Featured Channels: Skryť doporučené kanály
+    Hide Channels Already Exists: ID kanála už existuje
+    Hide Subscriptions Videos: Skryť videá odberov
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Naozaj chcete odstrániť všetky odbery a profily? Toto je nenávratná akcia.
     Remove All Subscriptions / Profiles: Odstrániť všetky odbery / profily
@@ -473,14 +497,17 @@ Settings:
     Region: Región
     Country: Krajina
     Ip: IP adresa
-    Your Info: Informácie o Vás
-    Test Proxy: Vyskúšať proxy
-    Clicking on Test Proxy will send a request to: Kliknutím na "Vyskúšať Proxy" pošlete žiadosť do
+    Your Info: Vaše údaje
+    Test Proxy: Testovať proxy
+    Clicking on Test Proxy will send a request to: Kliknutím na "Testovať proxy" sa odošle žiadosť na
     Proxy Port Number: Číslo portu proxy servera
-    Proxy Host: Proxy Hosť
-    Proxy Protocol: Proxy Protokol
+    Proxy Host: Adresa proxy
+    Proxy Protocol: Protokol proxy
     Enable Tor / Proxy: Povoliť Tor / server Proxy
     Proxy Settings: Proxy
+    Proxy Password: Heslo proxy
+    Proxy Username: Používateľské meno proxy
+    Proxy Warning: FreeTube nemá vstavaný proxy server, ale môže sa pripojiť k externému proxy serveru, napríklad k serveru bežiacemu na vašom počítači, ako je Tor, alebo k externému proxy serveru, ako je SOCKS5 proxy server poskytovaný niektorými VPN. Ak je táto funkcia povolená, uistite sa, že je váš proxy server/Tor správne nakonfigurovaný, inak FreeTube nebude môcť načítať žiadne údaje.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Upozorniť, keď bude segment sponzora preskočený
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API SponsorBlock (predvolená adresa je https://sponsor.ajay.app)
