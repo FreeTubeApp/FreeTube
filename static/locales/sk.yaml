@@ -821,28 +821,28 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Zakáže diskovú cache HTTP Electron a povolí vlastnú cache obrázkov v pamäti. Vedie k zvýšenému použitiu RAM.
 Profile:
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Naozaj chcete odstrániť vybraté kanály?  Týmto sa neodstráni kanál z iného profilu.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Naozaj chcete odstrániť vybrané kanály?  Týmto sa kanál neodstráni z žiadneho iného profilu.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
-  : Toto je váš primárny profil.  Naozaj chcete odstrániť vybraté kanály?  Rovnaké kanály budú odstránené aj zo všetkých profilov, v ktorých sa nachádzajú.
+  : Toto je váš primárny profil. Naozaj chcete vymazať vybrané kanály? Tie isté kanály budú vymazané v akomkoľvek profile, kde sa nachádzajú.
   No channel(s) have been selected: Neboli vybrané žiadne kanály
   Add Selected To Profile: Pridať vybrané do profilu
-  Delete Selected: Zmazať vybrané
-  Select None: Zrušiť výber
+  Delete Selected: Vymazať vybrané
+  Select None: Nevybrať nič
   Select All: Vybrať všetko
-  '{number} selected': '{number} vybraný'
-  Other Channels: Ostatné kanály
+  '{number} selected': 'Vybrané: {number}'
+  Other Channels: Iné kanály
   Subscription List: Zoznam odberov
   '{profile} is now the active profile': '{profile} je teraz aktívny profil'
-  Your default profile has been changed to your primary profile: Váš predvolený profil bol zmenený na hlavný profil
-  Removed {profile} from your profiles: Odstránený {profile} spomedzi vašich profilov
+  Your default profile has been changed to your primary profile: Váš predvolený profil bol zmenený na váš hlavný profil
+  Removed {profile} from your profiles: '{profile} odstránený z vašich profilov'
   Your default profile has been set to {profile}: Váš predvolený profil bol nastavený na {profile}
-  Profile has been updated: Profil aktualizovaný
-  Profile has been created: Profil vytvorený
-  Your profile name cannot be empty: Meno nesmie byť prázdne
-  All subscriptions will also be deleted.: Budú tiež odstránené všetky odbery.
-  Are you sure you want to delete this profile?: Naozaj chcete odstrániť tento profil?
-  Delete Profile: Zmazať profil
-  Make Default Profile: Spraviť profil predvoleným
+  Profile has been updated: Profil bol aktualizovaný
+  Profile has been created: Profil bol vytvorený
+  Your profile name cannot be empty: Názov vášho profilu nemôže byť prázdny
+  All subscriptions will also be deleted.: Budú tiež vymazané všetky odbery.
+  Are you sure you want to delete this profile?: Naozaj chcete vymazať tento profil?
+  Delete Profile: Vymazať profil
+  Make Default Profile: Nastaviť ako predvolený profil
   Update Profile: Aktualizovať profil
   Create Profile: Vytvoriť profil
   Profile Preview: Náhľad profilu
@@ -852,11 +852,15 @@ Profile:
   Create New Profile: Vytvoriť nový profil
   Profile Manager: Správca profilov
   All Channels: Všetky kanály
-  Profile Select: Vyberte profil
-  Profile Filter: Filter Profilov
+  Profile Select: Výber profilu
+  Profile Filter: Filter profilov
   Profile Settings: Profil
   Open Profile Dropdown: Otvoriť rozbaľovacie menu profilu
   Close Profile Dropdown: Zatvoriť rozbaľovacie menu profilu
+  Profile Name: Názov profilu
+  Create Profile Name: Vytvoriť názov profilu
+  Edit Profile Name: Upraviť názov profilu
+  Toggle Profile List: Prepnúť zoznam profilov
 A new blog is now available, {blogTitle}. Click to view more: 'Dostupný nový článok na blogu: {blogTitle}. Kliknite pre viac info'
 Download From Site: Stiahnuť z webu
 Version {versionNumber} is now available!  Click for more details: Verzia {versionNumber} je k dispozícii! Kliknite pre viac info
