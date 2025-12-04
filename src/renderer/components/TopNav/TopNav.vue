@@ -129,7 +129,7 @@ import { useRoute, useRouter } from 'vue-router'
 
 import FtInput from '../FtInput/FtInput.vue'
 import FtProfileSelector from '../FtProfileSelector/FtProfileSelector.vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 
 import store from '../../store/index'
 

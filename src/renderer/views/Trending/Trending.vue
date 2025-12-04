@@ -7,7 +7,6 @@
         <FontAwesomeIcon
           :icon="['fas', 'fire']"
           class="trendingIcon"
-          fixed-width
         />
         {{ $t("Trending.Trending") }}
       </h2>
@@ -33,7 +32,6 @@
           <FontAwesomeIcon
             :icon="['fas', 'gamepad']"
             class="trendingIcon"
-            fixed-width
           />
           {{ $t("Trending.Gaming") }}
         </div>
@@ -54,7 +52,6 @@
           <FontAwesomeIcon
             :icon="['fas', 'trophy']"
             class="trendingIcon"
-            fixed-width
           />
           {{ t("Trending.Sports") }}
         </div>
@@ -75,7 +72,6 @@
           <FontAwesomeIcon
             :icon="['fas', 'podcast']"
             class="trendingIcon"
-            fixed-width
           />
           {{ t("Channel.Podcasts.Podcasts") }}
         </div>

@@ -13,7 +13,7 @@
     <FtFlexBox>
       <FtToggleSwitch
         v-if="isVideo"
-        :label="$t('Share.Include Timestamp')"
+        :label="t('Share.Include Timestamp')"
         :compact="true"
         :default-value="includeTimestamp"
         @change="updateIncludeTimestamp"
@@ -35,39 +35,35 @@
         <FtButton
           class="action"
           aria-describedby="youtubeShareImage"
+          :icon="['fas', 'copy']"
+          :label="t('Share.Copy Link')"
           @click="copyYoutube"
-        >
-          <FontAwesomeIcon :icon="['fas', 'copy']" />
-          {{ $t("Share.Copy Link") }}
-        </FtButton>
+        />
         <FtButton
           class="action"
           aria-describedby="youtubeShareImage"
+          :icon="['fas', 'globe']"
+          :label="t('Share.Open Link')"
           @click="openYoutube"
-        >
-          <FontAwesomeIcon :icon="['fas', 'globe']" />
-          {{ $t("Share.Open Link") }}
-        </FtButton>
+        />
         <FtButton
           v-if="isVideo || isPlaylist"
           class="action"
           aria-describedby="youtubeShareImage"
           background-color="var(--accent-color-active)"
+          :icon="['fas', 'copy']"
+          :label="t('Share.Copy Embed')"
           @click="copyYoutubeEmbed"
-        >
-          <FontAwesomeIcon :icon="['fas', 'copy']" />
-          {{ $t("Share.Copy Embed") }}
-        </FtButton>
+        />
         <FtButton
           v-if="isVideo || isPlaylist"
           class="action"
           aria-describedby="youtubeShareImage"
           background-color="var(--accent-color-active)"
+          :icon="['fas', 'globe']"
+          :label="t('Share.Open Embed')"
           @click="openYoutubeEmbed"
-        >
-          <FontAwesomeIcon :icon="['fas', 'globe']" />
-          {{ $t("Share.Open Embed") }}
-        </FtButton>
+        />
       </div>
 
       <template v-if="showInvidiousOptions">
@@ -84,39 +80,35 @@
           <FtButton
             aria-describedby="invidiousShare"
             class="action"
+            :icon="['fas', 'copy']"
+            :label="t('Share.Copy Link')"
             @click="copyInvidious"
-          >
-            <FontAwesomeIcon :icon="['fas', 'copy']" />
-            {{ $t("Share.Copy Link") }}
-          </FtButton>
+          />
           <FtButton
             aria-describedby="invidiousShare"
             class="action"
+            :icon="['fas', 'globe']"
+            :label="t('Share.Open Link')"
             @click="openInvidious"
-          >
-            <FontAwesomeIcon :icon="['fas', 'globe']" />
-            {{ $t("Share.Open Link") }}
-          </FtButton>
+          />
           <FtButton
             v-if="isVideo || isPlaylist"
             aria-describedby="invidiousShare"
             class="action"
             background-color="var(--accent-color-active)"
+            :icon="['fas', 'copy']"
+            :label="t('Share.Copy Embed')"
             @click="copyInvidiousEmbed"
-          >
-            <FontAwesomeIcon :icon="['fas', 'copy']" />
-            {{ $t("Share.Copy Embed") }}
-          </FtButton>
+          />
           <FtButton
             v-if="isVideo || isPlaylist"
             aria-describedby="invidiousShare"
             class="action"
             background-color="var(--accent-color-active)"
+            :icon="['fas', 'globe']"
+            :label="t('Share.Open Embed')"
             @click="openInvidiousEmbed"
-          >
-            <FontAwesomeIcon :icon="['fas', 'globe']" />
-            {{ $t("Share.Open Embed") }}
-          </FtButton>
+          />
         </div>
       </template>
     </div>
@@ -124,13 +116,12 @@
 </template>
 
 <script setup>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, ref, useTemplateRef } from 'vue'
 import { copyToClipboard, openExternalLink } from '../../helpers/utils'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 import FtButton from '../FtButton/FtButton.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import store from '../../store/index'

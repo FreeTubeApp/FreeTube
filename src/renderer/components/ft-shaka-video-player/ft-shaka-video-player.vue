@@ -95,7 +95,6 @@
       class="offlineWrapper"
     >
       <font-awesome-layers
-        fixed-width
         class="offlineIcon"
         aria-hidden="true"
       >

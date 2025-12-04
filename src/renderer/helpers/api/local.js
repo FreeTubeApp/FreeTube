@@ -2060,10 +2060,18 @@ function parseLocalCommunityPost(post) {
     replyCount = parseLocalSubscriberCount(post?.action_buttons.reply_button.text)
   }
 
+  const authorThumbnails = post.author.thumbnails
+
+  authorThumbnails.forEach((thumbnail) => {
+    if (thumbnail.url.startsWith('//')) {
+      thumbnail.url = 'https:' + thumbnail.url
+    }
+  })
+
   return {
     postText: post.content.isEmpty() ? '' : Autolinker.link(parseLocalTextRuns(post.content.runs, 16)),
     postId: post.id,
-    authorThumbnails: post.author.thumbnails,
+    authorThumbnails,
     publishedTime: calculatePublishedDate(post.published.text),
     // YouTube hides the vote/like count on posts when it is zero
     voteCount: post.vote_count ? parseLocalSubscriberCount(post.vote_count.text) : 0,

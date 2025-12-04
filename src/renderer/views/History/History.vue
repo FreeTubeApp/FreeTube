@@ -7,7 +7,6 @@
         <FontAwesomeIcon
           :icon="['fas', 'history']"
           class="headingIcon"
-          fixed-width
         />
         {{ t('History.History') }}
       </h2>
