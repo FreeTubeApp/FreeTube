@@ -283,7 +283,7 @@ Settings:
       Blue: 'Modrá'
       Light Blue: 'Svetlomodrá'
       Cyan: 'Azúrová'
-      Teal: 'Zelenomodrá'
+      Teal: 'Modrozelená'
       Green: 'Zelená'
       Light Green: 'Svetlozelená'
       Lime: 'Limetková'
@@ -307,7 +307,7 @@ Settings:
       Catppuccin Frappe Peach: Catppuccin Frappe broskyňová
       Catppuccin Frappe Yellow: Catppuccin Frappe žltá
       Catppuccin Frappe Green: Catppuccin Frappe zelená
-      Catppuccin Frappe Teal: Catppuccin Frappe zelenomodrá
+      Catppuccin Frappe Teal: Catppuccin Frappe modrozelená
       Catppuccin Frappe Sky: Catppuccin Frappe nebeská modrá
       Catppuccin Frappe Sapphire: Catppuccin Frappe zafírová
       Catppuccin Frappe Blue: Catppuccin Frappe modrá
@@ -323,7 +323,7 @@ Settings:
       Catppuccin Mocha Peach: Catppuccin Mocha broskyňová
       Catppuccin Mocha Yellow: Catppuccin Mocha žltá
       Catppuccin Mocha Green: Catppuccin Mocha zelená
-      Catppuccin Mocha Teal: Catppuccin Mocha zelenomodrá
+      Catppuccin Mocha Teal: Catppuccin Mocha modrozelená
       Catppuccin Mocha Sky: Catppuccin Mocha nebeská modrá
       Catppuccin Mocha Sapphire: Catppuccin Mocha zafírová
       Catppuccin Mocha Blue: Catppuccin Mocha modrá
@@ -344,7 +344,7 @@ Settings:
       Solarized Magenta: Solarized purpurová
       Solarized Violet: Solarized fialková
       Solarized Blue: Solarized modrá
-      Solarized Cyan: Solarized zelenomodrá
+      Solarized Cyan: Solarized azúrová
       Solarized Green: Solarized zelená
       Everforest Dark Red: Everforest tmavočervená
       Everforest Dark Orange: Everforest tmavooranžová
@@ -572,8 +572,8 @@ Settings:
       Show In Seek Bar: Zobraziť vo vyhľadávacej lište
       Auto Skip: Automaticky preskočiť
       Skip Option: Možnosť preskočenia
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL API generátora miniatúr DeArrow (predvolená adresa je https://dearrow-thumb.ajay.app)
-    UseDeArrowThumbnails: Použiť DeArrow pre miniatúry
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL API generátora náhľadov DeArrow (predvolená adresa je https://dearrow-thumb.ajay.app)
+    UseDeArrowThumbnails: Použiť DeArrow pre náhľady
     UseDeArrowTitles: Použiť titulky videa DeArrow
   External Player Settings:
     Custom External Player Arguments: Vlastné argumenty externého prehrávača
@@ -908,7 +908,7 @@ The playlist has been reversed: Playlist bol obrátený
 Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Keď je zapnuté, FreeTube použije RSS namiesto predvolenej metódy na získanie vášho odoberaného kanála. RSS je rýchlejší a zabraňuje blokovaniu IP, ale neposkytuje určité informácie ako trvanie videa, stav naživo alebo príspevky
-    Fetch Automatically: Keď je zapnuté, FreeTube automaticky načíta váš odoberanýkanál pri spustení a keď je otvorené nové okno.
+    Fetch Automatically: Keď je zapnuté, FreeTube automaticky načíta váš odoberaný kanál pri spustení a keď je otvorené nové okno.
   Player Settings:
     Default Video Format: Nastavte formáty používané pri prehrávaní videa. Formáty DASH umožňujú prehrávanie vo vyššej kvalite. Staršie formáty sú obmedzené na maximálne rozlíšenie 360p, ale využívajú menšiu šírku pásma. Formáty zvuku sú iba audio streamy.
     Proxy Videos Through Invidious: Pripojí sa k Invidious na poskytovanie videí namiesto priameho pripojenia k YouTube.
@@ -917,14 +917,14 @@ Tooltips:
   General Settings:
     Region for Trending: Región trendov vám umožňuje zvoliť si krajinu pre trendové videá, ktoré chcete zobraziť.
     Invidious Instance: Inštancia Invidious, ku ktorej sa FreeTube pripojí pre volania API.
-    Thumbnail Preference: Všetky miniatúry vo FreeTube budú nahradené snímkou z videa, ktorá bude rozmazaná alebo skrytá namiesto východzej miniatúry.
+    Thumbnail Preference: Všetky náhľady vo FreeTube budú nahradené snímkou z videa, ktorá bude rozmazaná alebo skrytá namiesto východzieho náhľadu.
     Fallback to Non-Preferred Backend on Failure: Keď má vaše preferované API problém, FreeTube sa automaticky pokúsi použiť vaše nepreferované API ako náhradnú metódu, ak je táto funkcia zapnutá.
     Preferred API Backend: Vyberte backend, ktorý FreeTube používa na získavanie údajov. Lokálne API je vstavaný extraktor. API Invidious vyžaduje pripojenie k serveru Invidious.
     External Link Handling: "Vyberte predvolené správanie pri kliknutí na odkaz, ktorý nemožno otvoriť vo FreeTube.\nV predvolenom nastavení FreeTube otvorí odkaz, na ktorý ste klikli, vo vašom predvolenom prehliadači.\n"
     Open Deep Links In New Window: URL adresy odovzdané do FreeTube, napríklad presmerovaním rozšírení prehliadača alebo cez argumenty príkazového riadku, sa otvoria v novom okne.
   External Player Settings:
     DefaultCustomArgumentsTemplate: "(Predvolené: '{defaultCustomArguments}')"
-    External Player: Pri výbere externého prehrávača sa na miniatúre zobrazí ikona na otvorenie videa (playlistu, ak je podporovaný) v externom prehrávači. Pozor, nastavenia Invidious nemajú vplyv na externé prehrávače.
+    External Player: Pri výbere externého prehrávača sa na náhľade zobrazí ikona na otvorenie videa (playlistu, ak je podporovaný) v externom prehrávači. Pozor, nastavenia Invidious nemajú vplyv na externé prehrávače.
     Custom External Player Executable: Predvolene FreeTube predpokladá, že zvolený externý prehrávač je možné nájsť prostredníctvom premennej prostredia PATH. V prípade potreby je možné tu nastaviť vlastnú cestu.
     Ignore Warnings: Zakážte upozornenia, keď aktuálny externý prehrávač nepodporuje aktuálnu akciu (napr. obrátenie playlistov atď.).
     Custom External Player Arguments: Akékoľvek vlastné argumenty príkazového riadka, ktoré chcete odovzdať externému prehrávaču.
@@ -935,8 +935,8 @@ Tooltips:
     Hide Videos, Playlists and Channels Containing Text: Zadajte slovo, fragment slova alebo frázu (necitlivé na veľkosť písmen) na skrytie všetkých videí, playlistov a kanálov, ktorých originálne názvy ho obsahujú v celom FreeTube, okrem kariet História, Vaše playlisty a videí vnútri playlistov.
     Hide Subscriptions Live: Toto nastavenie je prepísané nastavením celej aplikácie "{appWideSetting}", v časti "{subsection}" sekcie "{settingsSection}"
   SponsorBlock Settings:
-    UseDeArrowThumbnails: Nahradiť miniatúry videí miniatúrami z DeArrow.
-    UseDeArrowTitles: Nahradiť názvy videí názvami, ktoré zadali používatelia z DeArrow.
+    UseDeArrowThumbnails: Nahradí náhľady videí náhľadmi z DeArrow.
+    UseDeArrowTitles: Nahradí názvy videí názvami z DeArrow, ktoré zadali jeho používatelia.
   Experimental Settings:
     Replace HTTP Cache: Zakáže diskovú cache HTTP Electron a povolí vlastnú cache obrázkov v pamäti. Vedie k zvýšenému použitiu RAM.
 Profile:
