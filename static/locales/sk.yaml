@@ -10,7 +10,7 @@ Paste: 'Vložiť'
 Delete: 'Vymazať'
 Select all: 'Vybrať všetko'
 Toggle Developer Tools: 'Prepnúť vývojárske nástroje'
-Actual size: 'Akstuálna veľkosť'
+Actual size: 'Aktuálna veľkosť'
 Zoom in: 'Priblížiť'
 Zoom out: 'Oddialiť'
 Toggle fullscreen: 'Prepnúť na celú obrazovku'
@@ -30,7 +30,7 @@ Global:
     Video Count: 1 video | {count} videí
     Subscriber Count: 1 odberateľ | {count} odberateľov
     Channel Count: 1 kanál | {count} kanálov
-    View Count: 1 pozretie | {count} pozretí
+    View Count: 1 zobrazenie | {count} zobrazení
     Watching Count: 1 sledujúci | {count} sledujúcich
     Like Count: 1 like | {count} likes
     Comment Count: 1 komentár | {count} komentárov
@@ -45,8 +45,8 @@ Search Filters:
   Sort By:
     Most Relevant: 'Najdôležitejšie'
     Rating: 'Hodnotenie'
-    Upload Date: 'Dátum nahratia'
-    View Count: 'Počet zhliadnutí'
+    Upload Date: 'Dátum nahrávania'
+    View Count: 'Počet pozeraní'
   Time:
     Time: 'Čas'
     Any Time: 'Kedykoľvek'
@@ -56,15 +56,15 @@ Search Filters:
     This Month: 'Tento mesiac'
     This Year: 'Tento rok'
   Type:
-    Type: 'Druh'
-    All Types: 'Všetky'
+    Type: 'Typ'
+    All Types: 'Všetky typy'
     Videos: 'Videá'
     Channels: 'Kanály'
     #& Playlists
     Movies: Filmy
   Duration:
     Duration: 'Trvanie'
-    All Durations: 'Všetky'
+    All Durations: 'Všetky trvania'
     Short (< 4 minutes): 'Krátke (menej ako 4 minúty)'
     Long (> 20 minutes): 'Dlhé (viac ako 20 minút)'
   # On Search Page
@@ -86,16 +86,16 @@ Search Filters:
     Live: Naživo
     HDR: HDR
     VR180: VR180
-  Clear Filters: Vymazať filtre
+  Clear Filters: Vyčistiť filtre
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odbery'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Váš zoznam odberov je momentálne prázdny. Ak chcete importovať svoje odbery, prejdite do časti Nastavenia údajov a vyberte možnosť Importovať odbery alebo môžete vyhľadať kanál a prihlásiť sa na jeho odber.'
   Load More Videos: Načítať viac videí
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Tento profil má priveľa odberov. Vynucujem RSS na obídenie limitov
-  Empty Channels: Vaše odoberané kanály v súčasnosti nemajú žiadne videá.
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Tento profil má veľký počet odberov.  Vynútenie RSS, aby sa zabránilo obmedzeniu rýchlosti
+  Empty Channels: Vaše odoberané kanály momentálne nemajú žiadne videá.
   Load More Posts: Načítať ďalšie príspevky
-  Subscriptions Tabs: Záložky s odbermi
+  Subscriptions Tabs: Karty s odbermi
   All Subscription Tabs Hidden: Všetky karty odberov sú skryté. Ak tu chcete vidieť obsah, odkryte niektoré karty v sekcii "{subsection}" v časti "{settingsSection}".
   Error Channels: Kanály s chybami
   Empty Posts: Vaše odoberané kanály momentálne nemajú žiadne príspevky.
@@ -110,7 +110,7 @@ Playlists: 'Playlisty'
 User Playlists:
   Your Playlists: 'Vaše playlisty'
   You have no playlists. Click on the create new playlist button to create a new one.: Nemáte žiadne playlisty. Kliknutím na tlačidlo playlistu vytvoríte nový.
-  Empty Search Message: V tomto playliste nie sú žiadne videá, ktoré by zodpovedali vášmu vyhľadávaniu
+  Empty Search Message: V tomto playliste nie sú žiadne videá zodpovedajúce vášmu vyhľadávaniu
   Add to Playlist: Pridať do playlistu
   Move Video Down: Posunúť video nadol
   Copy Playlist: Kopírovať playlist
@@ -118,7 +118,7 @@ User Playlists:
   Create New Playlist: Vytvoriť nový playlist
   This playlist currently has no videos.: Tento playlist momentálne nemá žiadne videá.
   Add to Favorites: Pridať do playlistu {playlistName}
-  Remove from Favorites: Odobrať z playlistu {playlistName}
+  Remove from Favorites: Odstrániť z playlistu {playlistName}
   Playlist Name: Názov playlistu
   Cancel: Zrušiť
   Playlist Description: Popis playlistu
@@ -133,7 +133,7 @@ User Playlists:
     Toast:
       This playlist does not exist: Tento playlist neexistuje
       Video has been removed: Video bolo odstránené
-      There was a problem with removing this video: Došlo k problému s odstránením tohto videa
+      There was a problem with removing this video: Došlo k problému pri odstránení tohto videa
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Niektoré videá v playliste nie sú ešte načítané. Ak chcete predsa len skopírovať, kliknite sem.
       "{videoCount} video(s) have been removed": '1 video bolo odstránené | Počet odstránených videí: {videoCount}'
       Playlist {playlistName} has been deleted.: Playlist {playlistName} bol vymazaný.
@@ -143,7 +143,7 @@ User Playlists:
       This video cannot be moved up.: Toto video nemôže byť posunuté nahor.
       This video cannot be moved down.: Toto video nemôže byť posunuté nadol.
       This playlist has a video with a duration error: Tento playlist obsahuje aspoň jedno video, ktoré nemá trvanie, bude zoradený akoby jeho trvanie bolo nula.
-      There was an issue with updating this playlist.: Došlo k problému s aktualizáciou tohto playlistu.
+      There was an issue with updating this playlist.: Došlo k problému pri aktualizácii tohto playlistu.
       Video has been removed. Click here to undo.: Video bolo odstránené. Kliknite sem pre vrátenie späť.
       Playlist name cannot be empty. Please input a name.: Názov playlistu nemôže byť prázdny. Prosím zadajte názov.
       This playlist is already being used for quick bookmark.: Tento playlist sa už používa pre rýchle záložky.
@@ -185,7 +185,7 @@ User Playlists:
   CreatePlaylistPrompt:
     Create: Vytvoriť
     Toast:
-      There was an issue with creating the playlist.: Došlo k problému s vytvorením playlistu.
+      There was an issue with creating the playlist.: Došlo k problému pri vytváraní playlistu.
       There is already a playlist with this name. Please pick a different name.: Playlist s týmto názvom už existuje. Vyberte iný názov.
       Playlist {playlistName} has been successfully created.: Playlist {playlistName} bol úspešne vytvorený.
     New Playlist Name: Názov nového playlistu
@@ -193,11 +193,11 @@ User Playlists:
 History:
   # On History Page
   History: 'História'
-  Watch History: 'Pozreté videá'
-  Your history list is currently empty.: 'Váša história je momentálne prázdna.'
+  Watch History: 'História pozerania'
+  Your history list is currently empty.: 'Váš zoznam histórie je momentálne prázdny.'
   Search bar placeholder: Vyhľadať v histórii
   Case Sensitive Search: Vyhľadávanie s rozlišovaním veľkých a malých písmen
-  Empty Search Message: Vo vašej histórii nie sú žiadne videá, ktoré by zodpovedali vášmu vyhľadávaniu
+  Empty Search Message: V histórii nie sú žiadne videá zodpovedajúce vášmu vyhľadávaniu
   DateOldestHistory: Dátum pozerania (najstaršie)
   DateNewestHistory: Dátum pozerania (najnovšie)
 Settings:
@@ -212,39 +212,39 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'Preferované API Backend'
       Local API: 'Lokálne API'
-      Invidious API: 'API služby Invidious'
+      Invidious API: 'API Invidious'
     Video View Type:
       Video View Type: 'Typ zobrazenia videa'
       Grid: 'Mriežka'
       List: 'Zoznam'
     Thumbnail Preference:
       Thumbnail Preference: 'Preferencia náhľadu'
-      Default: 'Štandardné'
+      Default: 'Predvolene'
       Beginning: 'Začiatok'
       Middle: 'Stred'
       End: 'Koniec'
       Hidden: Skryté
-      Blur: Rozmazanie
+      Blur: Rozmazané
     Region for Trending: 'Región pre trendy'
         #! List countries
     Check for Latest Blog Posts: Kontrolovať najnovšie príspevky na blogu
     Check for Updates: Kontrolovať aktualizácie
-    View all Invidious instance information: Zobraziť všetko info o Invidious inštancií
+    View all Invidious instance information: Zobraziť všetky informácie o inštancii Invidious
     System Default: Podľa systému
-    Set Current Instance as Default: Nastaviť Aktuálne vybranú inštanciu ako predvolenú
+    Set Current Instance as Default: Nastaviť aktuálnu inštanciu ako predvolenú
     External Link Handling:
       External Link Handling: Spracovanie externých odkazov
       No Action: Žiadna akcia
       Ask Before Opening Link: Spýtať sa pred otvorením odkazu
       Open Link: Otvoriť odkaz
     The currently set default instance is {instance}: Aktuálne nastavená predvolená inštancia je {instance}
-    No default instance has been set: Žiadna predvolená inštancia nebola nastavená
-    Current instance will be randomized on startup: Aktuálne nastavená inštancia bude vybraná náhodne pri spustení
-    Clear Default Instance: Zmazať predvolenú inštanciu
+    No default instance has been set: Nebola nastavená žiadna predvolená inštancia
+    Current instance will be randomized on startup: Aktuálna inštancia bude pri spustení náhodná
+    Clear Default Instance: Vyčistiť predvolenú inštanciu
     Current Invidious Instance: Aktuálna inštancia Invidious
     Auto Load Next Page:
-      Tooltip: Automaticky načítať ďalšie stránky a komentáre.
-      Label: Automatické načítanie ďalšej strany
+      Tooltip: Automaticky načíta ďalšie stránky a komentáre.
+      Label: Automaticky načítať ďalšiu stránku
     Open Deep Links In New Window: Otvoriť adresy URL odoslané do FreeTube v novom okne
     Minimize to system tray: Minimalizovať do systémovej lišty
   Theme Settings:
@@ -363,9 +363,9 @@ Settings:
     Secondary Color Theme: 'Sekundárna farba témy'
         #* Main Color Theme
     UI Scale: Veľkosť UI
-    Disable Smooth Scrolling: Vypnúť plynulé scrollovanie
-    Expand Side Bar by Default: Roztvárať bočný panel ako východzie nastavenie
-    Hide Side Bar Labels: Skryť označenia bočného panelu
+    Disable Smooth Scrolling: Vypnúť plynulé posúvanie
+    Expand Side Bar by Default: Predvolene rozbaliť bočnú lištu
+    Hide Side Bar Labels: Skryť označenia bočnej lišty
     Hide FreeTube Header Logo: Skryť logo hlavičky FreeTube
   Player Settings:
     Player Settings: 'Prehrávač'
@@ -537,12 +537,12 @@ Settings:
     All playlists have been removed: Všetky playlisty boli odstránené
     Are you sure you want to remove all your playlists?: Naozaj chcete odstrániť všetky vaše playlisty?
     Watched Progress Saving Mode:
-      Tooltip: Automaticky = Ukladať pri každom opustení stránky s videom, keď sa video skončí a pri chybe (napr. obmedzená rýchlosť a vypršanie platnosti relácie pozerania). Poloautomaticky = Podobne ako Automaticky okrem opustenia stránky s videom, pričom postup pozerania je možné uložiť manuálne pomocou tlačidla Uložiť postup pozerania, umiestnené pod prehrávačom videa.
+      Tooltip: Automaticky = Ukladá pri každom opustení stránky s videom, keď sa video skončí a pri chybe (napr. obmedzená rýchlosť a vypršanie platnosti relácie pozerania). Poloautomaticky = Podobne ako Automaticky okrem opustenia stránky s videom, pričom postup pozerania je možné uložiť manuálne pomocou tlačidla Uložiť postup pozerania, umiestnené pod prehrávačom videa.
       Modes:
         Never: Nikdy
         Semi-auto: Poloautomaticky
         Auto: Automaticky
-  The app needs to restart for changes to take effect. Restart and apply change?: Aplikácia požaduje reštart, aby sa zmeny prejavili. Reštartovať a aplikovať zmeny?
+  The app needs to restart for changes to take effect. Restart and apply change?: Aplikácia sa musí reštartovať, aby sa zmeny prejavili. Reštartovať a aplikovať zmeny?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Chyba pri získavaní informácií o sieti. Je váš server proxy správne nakonfigurovaný?
     City: Mesto
@@ -585,8 +585,8 @@ Settings:
       None:
         Name: Žiadny
     Ignore Default Arguments: Ignorovať predvolené argumenty
-  Sort Settings Sections (A-Z): Sekcie nastavení zoradenia (A-Z)
-  Return to Settings Menu: Späť do ponuky nastavení
+  Sort Settings Sections (A-Z): Zoradiť sekcie nastavení (A-Z)
+  Return to Settings Menu: Vrátiť sa do menu nastavení
   Parental Control Settings:
     Hide Search Bar: Skryť lištu vyhľadávania
     Show Family Friendly Only: Zobraziť len obsah vhodný pre rodinu
@@ -666,7 +666,7 @@ Channel:
     Channel Description: 'Popis kanála'
     Featured Channels: 'Odporúčané kanály'
     Tags:
-      Search for: Vyhľadať „{tag}“
+      Search for: Vyhľadať "{tag}"
       Tags: Označenia
     Location: Lokácia
     Joined: Pripojený
@@ -777,7 +777,7 @@ Video:
       CodecsVideoAudio: 'Kodeky: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
       Dropped Frames / Total Frames: 'Vypustené snímky: {droppedFrames} / Celkom snímok: {totalFrames}'
-      Buffered: 'Načítané: {bufferedPercentage} %'
+      Buffered: 'Načítané: {bufferedPercentage}%'
       Bandwidth: 'Šírka pásma: {bandwidth} kb/s'
       Volume: 'Hlasitosť: {volumePercentage}%'
       Bitrate: 'Dátový tok: {bitrate} kb/s'
@@ -816,6 +816,7 @@ Video:
   AgeRestricted: Videá obmedzené vekom nemôžu byť pozerané vo FreeTube, pretože vyžadujú prihlásenie Google a použitie vekovo overeného účtu YouTube.
   MembersOnly: Videá len pre členov nemôžu byť pozerané vo FreeTube, pretože vyžadujú prihlásenie Google a platené členstvo v kanáli nahrávača.
   IP block: YouTube zablokoval pozeranie videa z vašej IP adresy. Prosím skúste prepnúť na inú VPN alebo proxy.
+  Scroll to Bottom: Posunúť na koniec
 Playlist:
   #& About
   View Full Playlist: 'Zobraziť celý playlist'
@@ -910,7 +911,7 @@ Tooltips:
     Fetch Automatically: Keď je zapnuté, FreeTube automaticky načíta váš odoberanýkanál pri spustení a keď je otvorené nové okno.
   Player Settings:
     Default Video Format: Nastavte formáty používané pri prehrávaní videa. Formáty DASH umožňujú prehrávanie vo vyššej kvalite. Staršie formáty sú obmedzené na maximálne rozlíšenie 360p, ale využívajú menšiu šírku pásma. Formáty zvuku sú iba audio streamy.
-    Proxy Videos Through Invidious: Namiesto priameho pripojenia k YouTube sa pripojí k Invidious, aby poskytoval videá.
+    Proxy Videos Through Invidious: Pripojí sa k Invidious na poskytovanie videí namiesto priameho pripojenia k YouTube.
     Scroll Playback Rate Over Video Player: Keď je kurzor nad videom, stlačte a podržte kláves Control (kláves Command na Macu) a posúvaním kolieska myši dopredu alebo dozadu ovládajte rýchlosť prehrávania. Stlačte a podržte kláves Control (kláves Command na Macu) a kliknite ľavým tlačidlom myši pre rýchly návrat k predvolenej rýchlosti prehrávania (1x, ak nebola zmenená v nastaveniach).
     Skip by Scrolling Over Video Player: Použite koliesko myši na preskakovanie cez video v štýle MPV.
   General Settings:
@@ -981,7 +982,7 @@ Profile:
   Toggle Profile List: Prepnúť zoznam profilov
 A new blog is now available, {blogTitle}. Click to view more: 'Dostupný nový článok na blogu: {blogTitle}. Kliknite pre viac info'
 Download From Site: Stiahnuť z webu
-Version {versionNumber} is now available!  Click for more details: Verzia {versionNumber} je k dispozícii! Kliknite pre viac info
+Version {versionNumber} is now available!  Click for more details: Verzia {versionNumber} je k dispozícii! Kliknite pre viac podrobností
 Locale Name: Slovenčina
 Playing Next Video Interval: Prehrávanie ďalšieho videa okamžite. Kliknite pre zrušenie. | Prehrávanie ďalšieho videa o {nextVideoInterval} sekundu. Kliknite pre zrušenie. | Prehrávanie ďalšieho videa o {nextVideoInterval} sekúnd. Kliknite pre zrušenie.
 More: Viac
@@ -989,7 +990,7 @@ Unknown YouTube url type, cannot be opened in app: Neznámy typ adresy URL YouTu
 Open New Window: Otvoriť nové okno
 Default Invidious instance has been set to {instance}: Predvolená inštancia Invidious bola nastavená na {instance}
 Search Bar:
-  Clear Input: Vymazať zadané údaje
+  Clear Input: Vyčistiť zadané údaje
   Remove: Odstrániť
 Default Invidious instance has been cleared: Predvolená inštancia Invidious bola vymazaná
 External link opening has been disabled in the general settings: Otváranie externých odkazov bolo zakázané vo všeobecných nastaveniach
@@ -998,12 +999,12 @@ New Window: Nové okno
 Channels:
   Channels: Kanály
   Title: Zoznam kanálov
-  Count: 'Nájdených {number} kanálov.'
+  Count: 'Nájdené kanály: {number}.'
   Search bar placeholder: Vyhľadať kanály
   Empty: Váš zoznam kanálov je momentálne prázdny.
   Unsubscribe Prompt: Určite sa chcete odhlásiť z odberu "{channelName}"?
 Preferences: Predvoľby
-Close Banner: Zatvoriť panel
+Close Banner: Zatvoriť banner
 Search character limit: Hľadaný výraz presahuje povolený limit {searchCharacterLimit} znakov
 Search Listing:
   Label:
@@ -1016,10 +1017,10 @@ Search Listing:
     VR180: VR180
     New: Nové
 Feed:
-  Feed Last Updated: 'Zdroj {feedName} naposledy aktualizovaný: {date}'
+  Feed Last Updated: 'Kanál {feedName} naposledy aktualizovaný: {date}'
   Refresh Feed: Obnoviť {subscriptionName}
 Go to page: Prejsť na {page}
-Right-click or hold to see history: Kliknite alebo podržte pravé tlačidlo myši aby sa zobrazila história
+Right-click or hold to see history: Podržte alebo kliknite pravým tlačidlom pre zobrazenie histórie
 KeyboardShortcutPrompt:
   Toggle Developer Tools: Prepnúť nástroje pre vývojárov
   Zoom In: Priblížiť
@@ -1116,3 +1117,4 @@ Chapters:
 Clipboard:
   Cannot access clipboard without a secure connection: Prístup k schránke nie je možný bez zabezpečeného pripojenia
   Copy failed: Kopírovanie do schránky zlyhalo
+Tag already exists: Označenie "{tagName}" už existuje
