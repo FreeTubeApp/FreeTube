@@ -401,8 +401,12 @@ Settings:
     Scroll Volume Over Video Player: Ovládanie hlasitosti kolieskom myši cez prehrávač videa
   Subscription Settings:
     Subscription Settings: 'Odber'
-    Fetch Feeds from RSS: Natiahnuť kanály z RSS
+    Fetch Feeds from RSS: Načítať kanály z RSS
 
+    Confirm Before Unsubscribing: Potvrdiť pred odhlásením
+    To: Do
+    'Limit the number of videos displayed for each channel': Obmedziť počet zobrazovaných videí pre každý kanál
+    Fetch Automatically: Automaticky načítať kanál
   Data Settings:
     How do I import my subscriptions?: Ako môžem importovať svoje odbery?
     Unknown data key: Neznámy dátový kľúč
@@ -446,14 +450,14 @@ Settings:
     Hide Popular Videos: Skryť populárne videá
     Hide Trending Videos: Skryť trendujúce videá
     Hide Recommended Videos: Skryť odporúčané videá
-    Hide Comment Likes: Skryť palce hore na komentároch
+    Hide Comment Likes: Skryť hodnotenie komentárov
     Hide Channel Subscribers: Skryť počet odberateľov
-    Hide Video Likes And Dislikes: Skryť palce hore a dolu na videách
-    Hide Video Views: Skryť počet zhliadnutí
+    Hide Video Likes And Dislikes: Skryť hodnotenie videa
+    Hide Video Views: Skryť počet zobrazení
     Distraction Free Settings: Bez rušenia
     Hide Active Subscriptions: Skryť aktívne odbery
     Hide Playlists: Skryť playlisty
-    Hide Videos on Watch: 'Skryť videá po zhliadnutí'
+    Hide Videos on Watch: 'Skryť videá pri pozeraní'
     Show Added Items: Zobraziť pridané položky
     Hide Subscriptions Posts: Skryť príspevky odberov
     Hide Subscriptions Live: Skryť živé prenosy odberov
@@ -470,26 +474,49 @@ Settings:
     Hide Featured Channels: Skryť doporučené kanály
     Hide Channels Already Exists: ID kanála už existuje
     Hide Subscriptions Videos: Skryť videá odberov
+    Hide Channels API Error: Chyba pri načítaní používateľa so zadaným ID. Skontrolujte, či je ID správny.
+    Hide Channels Invalid: Zadaný ID kanála bol neplatný
+    Hide Channels Placeholder: ID kanála
+    Hide Channels Disabled Message: Niektoré kanály boli blokované pomocou ID a neboli spracované. Funkcia je blokovaná počas aktualizácie týchto ID
+    Hide Channels: Skryť videá z kanálov
+    Hide Chapters: Skryť kapitoly
+    Hide Sharing Actions: Skryť akcie zdieľania
+    Hide Upcoming Premieres: Skryť nadchádzajúce premiéry
+    Hide Live Streams: Skryť živé prenosy
+    Display Titles Without Excessive Capitalisation: Zobraziť nadpisy bez nadmerne veľkého písma a interpunkcie
+    Hide Profile Pictures in Comments: Skryť profilové obrázky v komentároch
+    Hide Comments: Skryť komentáre
+    Hide Video Description: Skryť popis videa
+    Sections:
+      General: Všeobecné
+      Watch Page: Stránka pozerania
+      Channel Page: Stránka kanála
+      Subscriptions Page: Stránka odberov
+      Side Bar: Bočná lišta
   Privacy Settings:
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Naozaj chcete odstrániť všetky odbery a profily? Toto je nenávratná akcia.
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Naozaj chcete odstrániť všetky odbery a profily? Toto sa nedá vrátiť späť.
     Remove All Subscriptions / Profiles: Odstrániť všetky odbery / profily
-    Remove Watch History: Zmazať históriu vyhľadávania
+    Remove Watch History: Odstrániť históriu pozerania
     Are you sure you want to clear out your search cache?: Ste si istý, že chcete vymazať vyrovnávaciu pamäť vyhľadávania?
     Clear Search Cache: Zmazať vyrovnávaciu pamäť vyhľadávania
     Save Watched Progress: Uložiť prezretý pokrok
     Remember History: Zapamätať históriu sledovania
     Privacy Settings: Súkromie
-    Watch history has been cleared: História prezerania bola vymazaná
+    Watch history has been cleared: História pozerania bola vyčistená
     Are you sure you want to remove your entire watch history?: Naozaj chcete odstrániť celú históriu pozerania?
     Search cache has been cleared: Vyrovnávacia pamäť vyhľadávania bola vymazaná
     Remember Search History: Zapamätať históriu vyhľadávania
-    Clear Search History and Cache: Vymazať históriu vyhľadávania a vyrovnávaciu pamäť
-    Are you sure you want to clear out your search history and cache?: Naozaj chcete vymazať históriu vyhľadávania a vyrovnávaciu pamäť?
-    Search history and cache have been cleared: História vyhľadávania a vyrovnávacia pamäť boli vymazané
+    Clear Search History and Cache: Vyčistiť históriu vyhľadávania a medzipamäť
+    Are you sure you want to clear out your search history and cache?: Naozaj chcete vyčistiť históriu vyhľadávania a medzipamäť?
+    Search history and cache have been cleared: História vyhľadávania a medzipamäť boli vyčistené
     Save Watched Videos With Last Viewed Playlist: Ukladať pozerané videá do naposledy zobrazeného playlistu
     Remove All Playlists: Odstrániť všetky playlisty
     All playlists have been removed: Všetky playlisty boli odstránené
     Are you sure you want to remove all your playlists?: Naozaj chcete odstrániť všetky vaše playlisty?
+    Watched Progress Saving Mode:
+      Tooltip: Automaticky = Ukladať pri každom opustení stránky s videom, keď sa video skončí a pri chybe (napr. obmedzená rýchlosť a vypršanie platnosti relácie pozerania). Poloautomaticky = Podobne ako Automaticky okrem opustenia stránky s videom, pričom postup pozerania je možné uložiť manuálne pomocou tlačidla Uložiť postup pozerania, umiestnené pod prehrávačom videa.
+      Modes:
+        Never: Nikdy
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikácia požaduje reštart, aby sa zmeny prejavili. Reštartovať a aplikovať zmeny?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Chyba pri získavaní informácií o sieti. Je váš server proxy správne nakonfigurovaný?
