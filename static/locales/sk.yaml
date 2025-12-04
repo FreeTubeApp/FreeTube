@@ -251,27 +251,27 @@ Settings:
     Theme Settings: 'Téma'
     Match Top Bar with Main Color: 'Prispôsobiť hornú lištu hlavnej farbe'
     Base Theme:
-      Base Theme: 'Základný motív'
-      Black: 'Čierny'
-      Dark: 'Tmavý'
-      Light: 'Svetlý'
-      Dracula: 'Tmavá téma'
-      Nordic: Severské
-      Gruvbox Dark: Ťažobný box Dark
-      Gruvbox Light: Svetlo ťažobnej skrinky
-      System Default: Predvolené nastavenie systému
-      Everforest Light Hard: Everforest Ľahký Tvrdý
-      Solarized Light: Solárne svetlo
+      Base Theme: 'Základnâ téma'
+      Black: 'Čierna'
+      Dark: 'Tmavá'
+      Light: 'Svetlá'
+      Dracula: 'Dracula'
+      Nordic: Nordic
+      Gruvbox Dark: Gruvbox tmavá
+      Gruvbox Light: Gruvbox svetlá
+      System Default: Systémovo predvolená
+      Everforest Light Hard: Everforest svetlá drsná
+      Solarized Light: Solarized svetlá
       Catppuccin Mocha: Catpuccino Mocha
-      Everforest Dark Low: Everforest tmavá nízka
-      Everforest Light Medium: Everforest Svetlý Stredný
-      Everforest Light Low: Everforest svetlá nízka
+      Everforest Dark Low: Everforest tmavá jemná
+      Everforest Light Medium: Everforest svetlá stredná
+      Everforest Light Low: Everforest svetlá jemná
       Pastel Pink: Pastelovo ružová
       Everforest Dark Hard: Everforest tmavá drsná
-      Catppuccin Frappe: Frappé z mačacej mäty
+      Catppuccin Frappe: Catppuccin Frappe
       Hot Pink: Horúca ružová
-      Solarized Dark: Solarizovaná tma
-      Everforest Dark Medium: Everforest tmavý stredný
+      Solarized Dark: Solarized tmavá
+      Everforest Dark Medium: Everforest tmavá stredná
       Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Hlavná farba témy'
@@ -369,18 +369,18 @@ Settings:
     Hide FreeTube Header Logo: Skryť logo hlavičky FreeTube
   Player Settings:
     Player Settings: 'Prehrávač'
-    Play Next Video: 'Automatické prehrávanie odporúčaných videí'
-    Turn on Subtitles by Default: 'Zapínať titulky predvolene'
+    Play Next Video: 'Automaticky prehrávať odporúčané videá'
+    Turn on Subtitles by Default: 'Zapnúť titulky predvolene'
     Autoplay Videos: 'Spustiť videá automaticky'
-    Proxy Videos Through Invidious: 'Prehnať videá cez Invidious'
+    Proxy Videos Through Invidious: 'Proxy videá cez Invidious'
     Autoplay Playlists: 'Automaticky prehrávať videá v playliste'
     Enable Theatre Mode by Default: 'Predvolene zapínať Kino mód'
     Default Volume: 'Predvolená hlasitosť'
-    Default Playback Rate: 'Východzia rýchlosť prehrávania'
+    Default Playback Rate: 'Predvolená rýchlosť prehrávania'
     Default Video Format:
       Default Video Format: 'Predvolený formát videa'
       Dash Formats: 'Formáty DASH'
-      Legacy Formats: 'Zastarané formáty'
+      Legacy Formats: 'Staré formáty'
       Audio Formats: 'Zvukové formáty'
     Default Quality:
       Default Quality: 'Predvolená kvalita'
@@ -394,11 +394,34 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Časovač automatického prehrávania
-    Scroll Playback Rate Over Video Player: Posúvanie vo videu kolieskom myši cez prehrávač videa
-    Fast-Forward / Rewind Interval: Citlivosť rýchleho pretáčania dopredu/dozadu
+    Next Video Interval: Časovač odpočítavania automatického prehrávania
+    Scroll Playback Rate Over Video Player: Meniť rýchlosť prehrávania posúvaním cez prehrávač videa
+    Fast-Forward / Rewind Interval: Interval rýchleho posunu dopredu / dozadu
     Display Play Button In Video Player: Zobraziť tlačidlo prehrávania v prehrávači videa
-    Scroll Volume Over Video Player: Ovládanie hlasitosti kolieskom myši cez prehrávač videa
+    Scroll Volume Over Video Player: Meniť hlasitosť posúvaním cez prehrávač videa
+    Screenshot:
+      Error:
+        Empty File Name: Prázdny názov súboru
+        Forbidden Characters: Zakázané znaky
+      File Name Tooltip: Môžete používať nasledujúce premenné. %Y Rok 4 číslice. %M Mesiac 2 číslice. %D Deň 2 číslice. %H Hodina 2 číslice. %N Minúta 2 číslice. %S Sekunda 2 číslice. %T Milisekunda 3 číslice. %s Sekunda videa. %t Milisekunda videa 3 číslice. %i ID videa.
+      File Name Label: Vzor názvu súboru
+      Folder Button: Vybrať priečinok
+      Folder Label: Priečinok snímky obrazovky
+      Ask Path: Spýtať sa na priečinok uloženia
+      Quality Label: Kvalita snímky obrazovky
+      Format Label: Formát snímky obrazovky
+      Enable: Povoliť snímku obrazovky
+    Video Playback Rate Interval: Interval rýchlosti prehrávania videa
+    Max Video Playback Rate: Maximálna rýchlosť prehrávania videa
+    Autoplay Interruption Timer: Časovač prerušenia automatického prehrávania
+    Enter Fullscreen on Display Rotate: Prejsť do režimu celej obrazovky pri otočení displeja
+    Skip by Scrolling Over Video Player: Preskočiť posúvaním cez prehrávač videa
+    Default Viewing Mode:
+      External Player: Externý prehrávač ({externalPlayerName})
+      Picture in Picture: Obraz v obraze
+      Full Screen: Celá obrazovka
+      Default Viewing Mode: Predvolený režim zobrazenia
+      Theater: Kino
   Subscription Settings:
     Subscription Settings: 'Odber'
     Fetch Feeds from RSS: Načítať kanály z RSS
@@ -499,13 +522,13 @@ Settings:
     Remove Watch History: Odstrániť históriu pozerania
     Are you sure you want to clear out your search cache?: Ste si istý, že chcete vymazať vyrovnávaciu pamäť vyhľadávania?
     Clear Search Cache: Zmazať vyrovnávaciu pamäť vyhľadávania
-    Save Watched Progress: Uložiť prezretý pokrok
-    Remember History: Zapamätať históriu sledovania
+    Save Watched Progress: Uložiť postup pozerania
+    Remember History: Pamätať si históriu pozerania
     Privacy Settings: Súkromie
     Watch history has been cleared: História pozerania bola vyčistená
     Are you sure you want to remove your entire watch history?: Naozaj chcete odstrániť celú históriu pozerania?
     Search cache has been cleared: Vyrovnávacia pamäť vyhľadávania bola vymazaná
-    Remember Search History: Zapamätať históriu vyhľadávania
+    Remember Search History: Pamätať si históriu vyhľadávania
     Clear Search History and Cache: Vyčistiť históriu vyhľadávania a medzipamäť
     Are you sure you want to clear out your search history and cache?: Naozaj chcete vyčistiť históriu vyhľadávania a medzipamäť?
     Search history and cache have been cleared: História vyhľadávania a medzipamäť boli vyčistené
@@ -517,6 +540,8 @@ Settings:
       Tooltip: Automaticky = Ukladať pri každom opustení stránky s videom, keď sa video skončí a pri chybe (napr. obmedzená rýchlosť a vypršanie platnosti relácie pozerania). Poloautomaticky = Podobne ako Automaticky okrem opustenia stránky s videom, pričom postup pozerania je možné uložiť manuálne pomocou tlačidla Uložiť postup pozerania, umiestnené pod prehrávačom videa.
       Modes:
         Never: Nikdy
+        Semi-auto: Poloautomaticky
+        Auto: Automaticky
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikácia požaduje reštart, aby sa zmeny prejavili. Reštartovať a aplikovať zmeny?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Chyba pri získavaní informácií o sieti. Je váš server proxy správne nakonfigurovaný?
@@ -556,6 +581,10 @@ Settings:
     External Player Settings: Externý prehrávač
     Ignore Unsupported Action Warnings: Ignorovať upozornenia na nepodporované akcie
     Custom External Player Executable: Vlastný spustiteľný externý prehrávač
+    Players:
+      None:
+        Name: Žiadny
+    Ignore Default Arguments: Ignorovať predvolené argumenty
   Sort Settings Sections (A-Z): Sekcie nastavení zoradenia (A-Z)
   Return to Settings Menu: Späť do ponuky nastavení
   Parental Control Settings:
