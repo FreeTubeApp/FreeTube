@@ -44,7 +44,6 @@
             :icon="['fas', 'user-check']"
             class="navIcon"
             :class="applyNavIconExpand"
-            fixed-width
           />
         </div>
         <p
@@ -197,7 +196,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
+import { computed, ref, onMounted, onBeforeUnmount, useTemplateRef } from 'vue'
 import { useRouter } from 'vue-router'
 
 import store from '../../store/index'
@@ -206,7 +205,7 @@ const SUPPORTS_LOCAL_API = process.env.SUPPORTS_LOCAL_API
 
 const openMoreOptions = ref(false)
 
-const menuRef = ref(null)
+const menuRef = useTemplateRef('menuRef')
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const trendingVisible = computed(() => {

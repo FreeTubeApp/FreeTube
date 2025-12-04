@@ -15,7 +15,6 @@
       v-else
       :icon="['fas', 'circle-user']"
       class="bubble"
-      fixed-width
     />
     <div
       :id="id"

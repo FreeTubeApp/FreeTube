@@ -111,6 +111,7 @@ Trending:
   Trending: 'Набиращи популярност'
   Trending Tabs: Раздели за набиращи популярност
   Gaming: Игри
+  Sports: Спорт
 Most Popular: 'Най-популярни'
 Playlists: 'Плейлисти'
 User Playlists:
@@ -170,8 +171,7 @@ User Playlists:
     N playlists selected: '{playlistCount} избрани'
     Toast:
       You haven't selected any playlist yet.: Все още не сте избрали плейлист.
-      "{videoCount} video(s) added to 1 playlist": Добавено 1 видео в 1 плейлист | Добавени {videoCount} видеа в 1 плейлист
-      "{videoCount} video(s) added to {playlistCount} playlists": Добавено 1 видео към {playlistCount} плейлиста | Добавени {videoCount} видеа към {playlistCount} плейлиста
+      "Video(s) added to {playlistCount} playlists": "Видеа, добавени към 1 плейлист | Видеа, добавени към {playlistCount} плейлиста"
     Save: Запазване
     Added {count} Times: Вече е добавено | Добавено {count} пъти
     "{videoCount}/{totalVideoCount} Videos Already Added": Вече са добавени {videoCount}/{totalVideoCount} видеа
@@ -476,7 +476,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Всички абонаменти и профили бяха внесени успешно'
     All subscriptions have been successfully imported: 'Всички абонаменти бяха внесени успешно'
     Invalid subscriptions file: 'Невалиден файл с абонаменти'
-    This might take a while, please wait: 'Това може да отнеме повече време, моля изчакайте'
     Invalid history file: 'Невалиден файл с история'
     Subscriptions have been successfully exported: 'Абонаментите бяха изнесени успешно'
     History object has insufficient data, skipping item: 'Историята няма достатъчно данни, прескачане на обекта'
@@ -770,8 +769,8 @@ Video:
   Loop Playlist: 'Повтаряне на плейлиста'
   Shuffle Playlist: 'Разбъркване на плейлиста'
   Reverse Playlist: 'Обръщане на плейлиста'
-  Play Next Video: 'Следващо видео'
-  Play Previous Video: 'Предишно видео'
+  Previous: 'Пускане пак'
+  Next: 'Следващ'
   Watched: 'Гледано'
   Autoplay: 'Автоматично пускане'
   Starting soon, please refresh the page to check again: 'Започва скоро, моля опреснете страницата за актуализация'
@@ -915,6 +914,7 @@ Share:
   YouTube Channel URL copied to clipboard: YouTube адресът на канала е копиран
   Invidious Channel URL copied to clipboard: Invidious адресът на канала е копиран
   Share Channel: Споделяне на канал
+  Share Post: Споделяне на публикация
 Mini Player: 'Мини плейър'
 Comments:
   Comments: 'Коментари'

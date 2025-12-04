@@ -104,6 +104,7 @@ Trending:
   Trending: 'Em alta'
   Trending Tabs: Guias em destaque
   Gaming: Jogos
+  Sports: Esportes
 Most Popular: 'Mais populares'
 Playlists: 'Playlists'
 User Playlists:
@@ -168,8 +169,7 @@ User Playlists:
     Search for Videos: Buscar vídeos
   AddVideoPrompt:
     Toast:
-      "{videoCount} video(s) added to 1 playlist": 1 vídeo adicionado a 1 playlist | {videoCount} vídeos adicionados a 1 playlist
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 vídeo adicionado a {playlistCount} playlists | {videoCount} vídeos adicionados a {playlistCount} playlists
+      "Video(s) added to {playlistCount} playlists": "Vídeo(s) adicionado(s) a 1 playlist | Vídeo(s) adicionado(s) a {playlistCount} playlists"
       You haven't selected any playlist yet.: Você ainda não selecionou nenhuma playlist.
     Select a playlist to add your N videos to: Selecione uma playlist para adicionar seu vídeo | Selecione uma playlist para adicionar seus {videoCount} vídeos
     N playlists selected: '{playlistCount} selecionada(s)'
@@ -476,7 +476,6 @@ Settings:
     All watched history has been successfully exported: O histórico de exibição foi exportado com sucesso
     All watched history has been successfully imported: O histórico de exibição foi importado com sucesso
     History object has insufficient data, skipping item: O histórico tem dados insuficientes, ignorando item
-    This might take a while, please wait: Este processo pode demorar, por favor aguarde
     Invalid subscriptions file: Arquivo de inscrições inválido
     All subscriptions and profiles have been successfully imported: Todas as inscrições e perfis foram importados com sucesso
     Profile object has insufficient data, skipping item: O perfil tem dados insuficientes, ignorando o item
@@ -739,8 +738,8 @@ Video:
   Download Video: Baixar vídeo
   Starting soon, please refresh the page to check again: Vai começar em breve, atualize a página para verificar novamente
   Autoplay: Reprodução automática
-  Play Previous Video: Reproduzir vídeo anterior
-  Play Next Video: Reproduzir próximo vídeo
+  Previous: Anterior
+  Next: Próximo
   Reverse Playlist: Inverter ordem da playlist
   Shuffle Playlist: Playlist aleatória
   Loop Playlist: Repetir playlist
@@ -867,6 +866,7 @@ Share:
   Invidious Channel URL copied to clipboard: URL do canal Invidious copiado para a área de transferência
   Include Timestamp: Incluir momento atual
   Share Channel: Compartilhar canal
+  Share Post: Compartilhar postagem
 Mini Player: 'Mini Player'
 Comments:
   Comments: 'Comentários'

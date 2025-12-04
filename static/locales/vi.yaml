@@ -106,6 +106,7 @@ Trending:
   Trending: 'Xu hướng'
   Gaming: Trò chơi
   Trending Tabs: Trang Xu hướng
+  Sports: Thể thao
 Most Popular: 'Phổ biến nhất'
 Playlists: 'Danh sách phát'
 User Playlists:
@@ -163,9 +164,8 @@ User Playlists:
     N playlists selected: Đã chọn {playlistCount}
     Search in Playlists: Tìm trong danh sách phát
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": Đã thêm 1 video vào {playlistCount} danh sách phát | Đã thêm {videoCount} video vào {playlistCount} danh sách phát
+      "Video(s) added to {playlistCount} playlists": "(Các) Video đã được thêm vào 1 danh sách phát | (Các) Video đã được thêm vào danh sách phát {playlistCount}"
       You haven't selected any playlist yet.: Bạn đang chưa chọn danh sách phát nào.
-      "{videoCount} video(s) added to 1 playlist": Đã thêm 1 video vào 1 danh sách phát | Đã thêm {videoCount} vào 1 danh sách phát
     Save: Lưu
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} đã có trong danh sách phát'
     Added {count} Times: Đã được thêm | Đã được thêm {count} lần
@@ -441,7 +441,6 @@ Settings:
     History object has insufficient data, skipping item: Lịch sử không đủ dữ liệu, đang bỏ qua mục này
     Subscriptions have been successfully exported: Đăng ký đã được xuất thành công
     Invalid history file: Tệp lịch sử không hợp lệ
-    This might take a while, please wait: Điều này có thể tốn thời gian, xin hãy chờ
     Invalid subscriptions file: Tệp đăng ký không hợp lệ
     All subscriptions have been successfully imported: Tất cả đăng ký đã được nhập vào thành công
     All subscriptions and profiles have been successfully imported: Tất cả các đăng ký và hồ sơ đã được nhập thành công
@@ -739,8 +738,8 @@ Video:
   Download Video: Tải video
   Starting soon, please refresh the page to check again: Sắp bắt đầu, vui lòng refresh trang để kiểm tra
   Autoplay: Tự động phát
-  Play Previous Video: Phát video trước
-  Play Next Video: Phát video tiếp theo
+  Previous: Trước
+  Next: Tiếp theo
   Reverse Playlist: Đảo ngược Playlist
   Shuffle Playlist: Trộn Playlist
   Loop Playlist: Lặp lại Playlist
@@ -869,6 +868,7 @@ Share:
   YouTube Channel URL copied to clipboard: Đã sao chép liên kết kênh Youtube
   Invidious Channel URL copied to clipboard: URL của kênh ưu tiên đã được sao chép
   Share Channel: Chia sẻ kênh
+  Share Post: Chia Sẻ Bài Viết
 Mini Player: 'Trình phát Mini'
 Comments:
   Comments: 'Bình luận'
@@ -991,7 +991,7 @@ Tooltips:
     External Player: Chọn một trình phát bên ngoài sẽ hiển thị một biểu tượng để mở video (danh sách phát nếu được hỗ trợ) trong trình phát bên ngoài, trên hình thu nhỏ của video. Cảnh báo, cài đặt Invidious không ảnh hưởng đến trình phát bên ngoài.
     Ignore Default Arguments: Không gửi các tham số mặc định đến trình phát bên ngoài ngoài URL của video (như tốc độ phát, URL danh sách phát, v.v.). Các tham số tùy chỉnh vẫn sẽ được gửi.
   Subscription Settings:
-    Fetch Feeds from RSS: Khi được bật lên, FreeTube sẽ sử dụng RSS thay vì phương thức mặc định để lấy nguồn cấp dữ liệu đăng ký của bạn. RSS nhanh hơn và tránh việc bị chặn IP, nhưng không cung cấp thông tin nhất định như thời lượng video, trạng thái phát trực tiếp hoặc các bài đăng.
+    Fetch Feeds from RSS: Khi được bật lên, FreeTube sẽ sử dụng RSS thay vì phương thức mặc định để lấy nguồn cấp dữ liệu đăng ký của bạn. RSS nhanh hơn và tránh việc bị chặn IP, nhưng không cung cấp thông tin nhất định như thời lượng video, trạng thái phát trực tiếp hoặc các bài đăng
     Fetch Automatically: Khi được bật, FreeTube sẽ tự động lấy nguồn cấp dữ liệu đăng ký của bạn khi khởi động, khi mở cửa sổ mới.
   Distraction Free Settings:
     Hide Channels: Nhập tên kênh hoặc ID kênh để ẩn tất cả video, danh sách phát và chính kênh đó khỏi xuất hiện trong tìm kiếm, xu hướng, phổ biến nhất và được đề xuất. Tên kênh đã nhập phải khớp hoàn toàn và có phân biệt chữ hoa chữ thường.

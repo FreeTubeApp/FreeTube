@@ -104,6 +104,7 @@ Trending:
   Trending: 'В тренде'
   Trending Tabs: Вкладки В тренде
   Gaming: Игры
+  Sports: Спорт
 Most Popular: 'Самые популярные'
 Playlists: 'Плейлисты'
 User Playlists:
@@ -156,8 +157,7 @@ User Playlists:
     Save: Сохранить
     Toast:
       You haven't selected any playlist yet.: Вы не выбрали ни одного плейлиста.
-      "{videoCount} video(s) added to 1 playlist": 1 видео добавлено в 1 плейлист| {videoCount} видео добавлено в 1 плейлист
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 видео добавлено в {videoCount} плейлистов | {playlistCount} видео добавлено в {videoCount} плейлистов
+      "Video(s) added to {playlistCount} playlists": "Видео добавлено в 1 плейлист | Видео добавлено в {playlistCount} плейлиста(ов)"
     Select a playlist to add your N videos to: Выберите плейлист для добавления видео | Выберите плейлист для добавления {videoCount} видео
     Added {count} Times: Уже добавлено | Добавлено {count} раз
     Allow Adding Duplicate Video(s): Разрешить добавление дубликатов видео
@@ -373,7 +373,7 @@ Settings:
     Turn on Subtitles by Default: 'Субтитры по умолчанию включены'
     Autoplay Videos: 'Автовоспроизведение видео'
     Proxy Videos Through Invidious: 'Смотреть видео через прокси Invidious'
-    Autoplay Playlists: 'Автоматическое воспроизведение видео из списка'
+    Autoplay Playlists: 'Автовоспроизведение видео из плейлиста'
     Enable Theatre Mode by Default: 'Включать режим широкого экрана'
     Default Volume: 'Громкость по умолчанию'
     Default Playback Rate: 'Скорость воспроизведения по умолчанию'
@@ -417,7 +417,7 @@ Settings:
     Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
     Autoplay Interruption Timer: Таймер прерывания автопроигрывания
     Default Viewing Mode:
-      Theater: Режим Театр
+      Theater: Широкий экран
       Default Viewing Mode: Режим просмотра по умолчанию
       Full Screen: На весь экран
       Picture in Picture: Картинка в картинке
@@ -467,7 +467,6 @@ Settings:
     Subscriptions have been successfully exported: Подписки успешно экспортированы
     Invalid history file: Неверный файл истории
     Invalid subscriptions file: Неверный файл подписок
-    This might take a while, please wait: Может занять некоторое время, подождите
     All subscriptions have been successfully imported: Все подписки успешно импортированы
     All subscriptions and profiles have been successfully imported: Все подписки и профили успешно импортированы
     Profile object has insufficient data, skipping item: Объект профиля имеет недостаточно данных, пропуск элемента
@@ -733,8 +732,8 @@ Video:
   Published on: 'Размещено'
 #& Videos
   Autoplay: Автовоспроизведение
-  Play Previous Video: Воспроизвести предыдущее видео
-  Play Next Video: Воспроизвести следующее видео
+  Previous: Назад
+  Next: Следующее
   Reverse Playlist: Обратный порядок плейлиста
   Shuffle Playlist: Перемешать плейлист
   Loop Playlist: Повторять плейлист
@@ -802,8 +801,8 @@ Video:
     Skipped segment: Пропущен {segmentCategory} сегмент
     Playback will resume automatically when your connection comes back: Воспроизведение будет возобновлено автоматически, когда соединение будет восстановлено.
     Audio Tracks: Аудиодорожки
-    Theatre Mode: Режим Театра
-    Exit Theatre Mode: Выход из Режима Театра
+    Theatre Mode: Широкий экран
+    Exit Theatre Mode: Выйти из широкого экрана
     Full Window: Полноэкранный Режим
     Exit Full Window: Выйти из Полноэкранного Режима
     Take Screenshot: Сделать Снимок Экрана
@@ -867,6 +866,7 @@ Share:
   YouTube Channel URL copied to clipboard: Адрес канала YouTube скопирован в буфер обмена
   Invidious Channel URL copied to clipboard: Адрес канала Invidious скопирован в буфер обмена
   Share Channel: Поделиться каналом
+  Share Post: Поделиться постом
 Mini Player: 'Мини-проигрыватель'
 Comments:
   Comments: 'Комментарии'
@@ -1101,7 +1101,7 @@ KeyboardShortcutPrompt:
   Decrease Video Speed: Уменьшить скорость воспроизведения видео на основе интервала скорости воспроизведения
   Increase Video Speed: Увеличить скорость воспроизведения видео на основе интервала скорости воспроизведения
   Full Window: Переключить на полноэкранный режим
-  Theatre Mode: Переключить Режим Театра
+  Theatre Mode: Переключить широкий экран
   Toggle Developer Tools: Включить/выключить инструменты разработчика
   Reset Zoom: Сбросить уровень масштабирования
   Zoom In: Увеличить масштаб
@@ -1109,7 +1109,7 @@ KeyboardShortcutPrompt:
   Focus Search: Перевести фокус на строку поиска
   Next Frame: Следующий кадр (при паузе)
   Volume Up: Увеличить громкость
-  Take Screenshot: Сделать Снимок Экрана
+  Take Screenshot: Сделать снимок экрана
   Minimize Window: Свернуть окно
   Search in New Window: Выполнить поиск в отдельном окне
   Skip by Tenths: Пропустить видео на определённый процент (3 пропуска для 30%)

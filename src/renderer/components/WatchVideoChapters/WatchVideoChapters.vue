@@ -64,7 +64,7 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, useTemplateRef, watch } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import FtCard from '../ft-card/ft-card.vue'
@@ -86,8 +86,7 @@ const props = defineProps({
 
 const emit = defineEmits(['timestamp-event'])
 
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const chaptersWrapper = ref(null)
+const chaptersWrapper = useTemplateRef('chaptersWrapper')
 
 let chaptersVisible = false
 const currentIndex = ref(props.currentChapterIndex)

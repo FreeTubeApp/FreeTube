@@ -104,6 +104,7 @@ Trending:
   Trending: '急上昇'
   Trending Tabs: 急上昇のタブ
   Gaming: ゲーム
+  Sports: スポーツ
 Most Popular: '人気'
 Playlists: '再生リスト'
 User Playlists:
@@ -167,8 +168,7 @@ User Playlists:
     Allow Adding Duplicate Video(s): 重複した動画の追加を許可する
     Toast:
       You haven't selected any playlist yet.: まだ再生リストを選択していません。
-      "{videoCount} video(s) added to 1 playlist": 1本の動画が1個の再生リストに追加されました | {videoCount} 本の動画が1個の再生リストに追加されました
-      "{videoCount} video(s) added to {playlistCount} playlists": 1本の動画が {playlistCount} 個の再生リストに追加されました | {videoCount} 本の動画が {playlistCount} 個の再生リストに追加されました
+      "Video(s) added to {playlistCount} playlists": "動画を {playlistCount} 個の再生リストに追加しました"
     Search in Playlists: 再生リストで検索
     N playlists selected: '{playlistCount} 選択中'
     Save: 保存
@@ -272,6 +272,7 @@ Settings:
       Everforest Light Low: エバーフォレスト・ライト・ロー
       Everforest Dark Hard: エバーフォレスト・ダーク・ハード
       Everforest Dark Medium: エバーフォレスト・ダーク・ミディアム
+      Catppuccin Latte: キャプチーノ・ラテ
     Main Color Theme:
       Main Color Theme: 'テーマのメイン カラー'
       Red: '赤'
@@ -357,6 +358,8 @@ Settings:
       Everforest Light Orange: エバーフォレスト・ライトオレンジ
       Everforest Light Blue: エバーフォレスト・ライトブルー
       Everforest Light Purple: エバーフォレスト・ライトパープル
+      Catppuccin Latte Mauve: キャプチーノ・ラテ モーヴ
+      Catppuccin Latte Red: キャプチーノ・ラテ レッド
     Secondary Color Theme: 'テーマのアクセント カラー'
         #* Main Color Theme
     UI Scale: UIの拡大率
@@ -463,7 +466,6 @@ Settings:
     History object has insufficient data, skipping item: 履歴情報に問題があるので、破損したデータは除外して実行します
     Subscriptions have been successfully exported: 登録チャンネルを正常にエクスポートしました
     Invalid history file: 無効な履歴ファイル
-    This might take a while, please wait: 少し時間がかかります...お待ちください
     Invalid subscriptions file: 無効な登録チャンネルのファイル
     All subscriptions have been successfully imported: すべての登録チャンネルを正常にインポートしました
     All subscriptions and profiles have been successfully imported: すべての登録チャンネルとプロファイルを正常にインポートしました
@@ -488,6 +490,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: 古いバージョンの FreeTube 用に再生リストをエクスポートする
       Tooltip: "このオプションは、すべての再生リストから動画をエクスポートし、1つの再生リスト「Favorites」にまとめます。\n古いバージョンのFreeTube用に再生リストの動画をエクスポートおよびインポートする方法は以下の通りです：\n 1. このオプションを有効にして再生リストをエクスポートします。\n2. プライバシー設定の「再生リストをすべて削除」オプションを使用して、既存のすべての再生リストを削除します。\n 3. 古いバージョンのFreeTubeを起動し、エクスポートした再生リストをインポートします。"
+    Search history file: 検索履歴ファイル
+    Search history: 検索履歴
+    Import search history: 検索履歴のインポート
+    Export search history: 検索履歴のエクスポート
+    All search history has been successfully imported: すべての検索履歴が正常にインポートされました
+    All search history has been successfully exported: すべての検索履歴が正常にエクスポートされました
   Distraction Free Settings:
     Hide Live Chat: ライブチャットの非表示
     Hide Popular Videos: 人気動画の非表示
@@ -723,8 +731,8 @@ Video:
   Video has been marked as watched: 視聴済みに変更しました
   Mark As Watched: 視聴済みに変更
   Autoplay: 自動再生
-  Play Previous Video: 前の動画を再生
-  Play Next Video: 次の動画を再生
+  Previous: 前へ
+  Next: 次へ
   Reverse Playlist: 再生リストを逆順にする
   Shuffle Playlist: 再生リストをシャッフル
   Loop Playlist: 再生リストのループ
@@ -857,6 +865,7 @@ Share:
   YouTube Channel URL copied to clipboard: クリップボードにコピーした YouTube チャンネルの URL
   Invidious Channel URL copied to clipboard: クリップボードにコピーした Invidious チャンネルの URL
   Share Channel: チャンネルを共有
+  Share Post: ポストの共有
 Mini Player: 'ミニプレーヤー'
 Comments:
   Comments: 'コメント'
@@ -873,9 +882,12 @@ Comments:
   Pinned by: 固定
   Member: メンバー
   Hearted: ハート
-  View {replyCount} replies: '{replyCount} 件の返信を表示'
+  View {replyCount} replies: '1 件の返信を見る | {replyCount} 件の返信を見る'
   Subscribed: チャンネル登録済み
   There are no comments available for this post: この記事にコメントはありません
+  Hide {replyCount} replies: 1 件の返信を非表示にする | {replyCount} 件の返信を非表示にする
+  View 1 reply from {channelName}: '{channelName} からの 1 件の返信を見る'
+  View {replyCount} replies from {channelName} and others: '{channelName} や他のユーザーからの {replyCount} 件の返信を見る'
 Up Next: '次の動画'
 
 # Toast Messages

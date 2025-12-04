@@ -13,7 +13,6 @@
           :icon="['fas', 'hashtag']"
           aria-hidden="false"
           class="headingIcon"
-          fixed-width
         />
         {{ hashtag }}
       </h2>

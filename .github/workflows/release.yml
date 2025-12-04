@@ -51,7 +51,7 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
 
     - name: 'Use faster D: drive for yarn cache on Windows'
       if: startsWith(matrix.os, 'windows')

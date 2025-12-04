@@ -111,6 +111,7 @@ Trending:
   Trending: 'Trendy'
   Trending Tabs: Tabulka trendů
   Gaming: Hry
+  Sports: Sporty
 Most Popular: 'Populární'
 Playlists: 'Playlisty'
 User Playlists:
@@ -121,8 +122,7 @@ User Playlists:
     Search in Playlists: Hledat v playlistech
     Save: Uložit
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video přidáno do {playlistCount} playlistů| {videoCount} videí přidáno do  {playlistCount} playlistů
-      "{videoCount} video(s) added to 1 playlist": 1 video přidáno do playlistu | {videoCount} videí přidáno do playlistu
+      "Video(s) added to {playlistCount} playlists": "Videa přidána do 1 playlistu | Videa přidána do {playlistCount} playlistů"
       You haven't selected any playlist yet.: Zatím jste nevybrali žádný playlist.
     Select a playlist to add your N videos to: Vyberte playlist, do kterého přidat vaše video | Vyberte playlist, do kterého přidat vašich {videoCount} videí
     N playlists selected: Vybráno {playlistCount}
@@ -525,7 +525,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Všechny odebírané kanály a profily byly úspěšně importovány'
     All subscriptions have been successfully imported: 'Všechny odebírané kanály byly úspěšně importovány'
     Invalid subscriptions file: 'Vadný soubor odebíraných kanálů'
-    This might take a while, please wait: 'Tato akce může chvíli trvat, prosím počkejte'
     Invalid history file: 'Vadný soubor s historií'
     Subscriptions have been successfully exported: 'Odebírané kanály byly úspěšně exportovány'
     History object has insufficient data, skipping item: 'Objekt historie má nedostatečná data, přeskakuji položku'
@@ -774,8 +773,8 @@ Video:
   Loop Playlist: 'Smyčka playlistu'
   Shuffle Playlist: 'Zamíchat playlist'
   Reverse Playlist: 'Obrátit playlist'
-  Play Next Video: 'Přehrát další video'
-  Play Previous Video: 'Přehrát předchozí video'
+  Previous: 'Předchozí'
+  Next: 'Další'
   Watched: 'Zhlédnuto'
   Autoplay: 'Automatické přehrávání'
   Starting soon, please refresh the page to check again: 'Začínáme brzy, obnovte prosím stránku pro opětovnou kontrolu'
@@ -916,6 +915,7 @@ Share:
   YouTube Channel URL copied to clipboard: 'URL kanálu YouTube bylo zkopírováno do schránky'
 
   Share Channel: Sdílet kanál
+  Share Post: Sdílet příspěvek
 Mini Player: 'Mini přehrávač'
 Comments:
   Comments: 'Komentáře'

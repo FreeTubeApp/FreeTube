@@ -149,8 +149,7 @@ User Playlists:
     Search in Playlists: Αναζήτηση σε λίστες αναπαραγωγής
     Toast:
       You haven't selected any playlist yet.: Δεν έχετε επιλέξει καμία λίστα αναπαραγωγής ακόμα.
-      "{videoCount} video(s) added to 1 playlist": 1 βίντεο προστέθηκε σε 1 λίστα αναπαραγωγής | {videoCount} βίντεο που προστέθηκαν σε 1 λίστα αναπαραγωγής
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 βίντεο προστέθηκε στις λίστες αναπαραγωγής {playlistCount} | {videoCount} βίντεο προστέθηκε στις λίστες αναπαραγωγής {playlistCount}
+      "Video(s) added to {playlistCount} playlists": ""
     Allow Adding Duplicate Video(s): Επίτρεψε την προσθήκη διπλών βίντεο( ών)
     Added {count} Times: Προστέθηκε ήδη | Προστέθηκε {count} Φορές
     Save: Αποθήκευση
@@ -464,7 +463,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Η εισαγωγή όλων των συνδρομών και των προφίλ έχει γίνει με επιτυχία'
     All subscriptions have been successfully imported: 'Η εισαγωγή των συνδρομών έχει γίνει με επιτυχία'
     Invalid subscriptions file: 'Μη συμβατό/έγκυρο αρχείο συνδρομών'
-    This might take a while, please wait: 'Αυτή η ενέργεια μπορεί να διαρκέσει για λίγο, παρακαλώ περιμένετε'
     Invalid history file: 'Μη συμβατό/έγκυρο αρχείο Ιστορικού'
     Subscriptions have been successfully exported: 'Η εξαγωγή των συνδρομών έχει γίνει με επιτυχία'
     History object has insufficient data, skipping item: 'Ένα αντικείμενο ιστορικού έχει εσφαλμένα δεδομένα, παράληψη του εξής στοιχείου'
@@ -749,8 +747,8 @@ Video:
   Loop Playlist: 'Επανάληψη λίστας αναπαραγωγής'
   Shuffle Playlist: 'Τυχαία σειρά στη λίστα αναπαραγωγής'
   Reverse Playlist: 'Αντιστροφή της λίστας αναπαραγωγής'
-  Play Next Video: 'Αναπαραγωγή επόμενου βίντεο'
-  Play Previous Video: 'Αναπαραγωγή προηγούμενου βίντεο'
+  Previous: 'Προηγούμενο'
+  Next: 'Επόμενο'
   Watched: 'Παρακολουθήθηκε'
   Autoplay: 'Αυτόματη αναπαραγωγή'
   # As in a Live Video

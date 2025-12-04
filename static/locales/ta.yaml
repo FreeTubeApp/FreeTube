@@ -236,8 +236,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: 'நீங்கள் இதுவரை எந்த பிளேலிச்ட்டையும் தேர்வு செய்யவில்லை.'
-      "{videoCount} video(s) added to 1 playlist": "1 பிளேலிச்ட்டில் 1 வீடியோ சேர்க்கப்பட்டது | {videoCount} வீடியோக்கள் 1 பிளேலிச்ட்டில் சேர்க்கப்பட்டன"
-      "{videoCount} video(s) added to {playlistCount} playlists": "1 பிளேலிச்ட்கவுண்ட்} பிளேலிச்ட்களில் 1 வீடியோ சேர்க்கப்பட்டது {playlistCount} வீடியோக்கள் {videoCount} பிளேலிச்ட்களில் சேர்க்கப்பட்டன"
+      "Video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
     New Playlist Name: 'புதிய பிளேலிச்ட் பெயர்'
     Create: 'உருவாக்கு'
@@ -823,8 +822,8 @@ Video:
   Loop Playlist: 'லூப் பிளேலிச்ட்'
   Shuffle Playlist: 'கலக்கு பிளேலிச்ட்'
   Reverse Playlist: 'தலைகீழ் பிளேலிச்ட்'
-  Play Next Video: 'அடுத்த வீடியோவை இயக்கவும்'
-  Play Previous Video: 'முந்தைய வீடியோவை இயக்கவும்'
+  Previous: 'முந்தையது'
+  Next: 'அடுத்து'
   Watched: 'பார்த்தேன்'
   Autoplay: 'ஆட்டோபிளே'
   Starting soon, please refresh the page to check again: 'விரைவில் தொடங்கி, மீண்டும் சரிபார்க்க பக்கத்தைப் புதுப்பிக்கவும்'

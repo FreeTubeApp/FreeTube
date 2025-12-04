@@ -160,8 +160,7 @@ User Playlists:
     Save: Tallenna
     Toast:
       You haven't selected any playlist yet.: Et ole valinnut yhtäkään soittolistaa.
-      "{videoCount} video(s) added to 1 playlist": 1 video lisätty 1 soittolistaan | {videoCount} videoita lisätty 1 soittolistaan
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video lisätty {playlistCount}-soittolistoihin | {videoCount} videot lisätty {playlistCount}-soittolistoihin
+      "Video(s) added to {playlistCount} playlists": ""
     Added {count} Times: Jo lisätty | Lisätty {count} kertaa
     Search in Playlists: Haku soittolistoista
     Select a playlist to add your N videos to: Valitse soittoluettelo, johon haluat lisätä videosi | Valitse soittoluettelo, johon haluat lisätä {videoCount}-videot
@@ -398,7 +397,6 @@ Settings:
     History object has insufficient data, skipping item: Historiakohteen tiedot ovat puuttelliset, ohitetaan kohde
     Subscriptions have been successfully exported: Tilaukset on viety onnistuneesti
     Invalid history file: Puutteellinen historiatiedosto
-    This might take a while, please wait: Tämä saattaa viedä tovin, odota hetki
     Invalid subscriptions file: Puutteellinen tilaustiedosto
     All subscriptions have been successfully imported: Kaikki tilaukset on tuotu onnistuneesti
     All subscriptions and profiles have been successfully imported: Kaikki tilaukset ja profiilit on tuotu onnistuneesti
@@ -635,8 +633,8 @@ Video:
   Remove From History: Poista historiasta
   Mark As Watched: Merkitse katsotuksi
   Autoplay: Automaattinen toisto
-  Play Previous Video: Toista edellinen video
-  Play Next Video: Toista seuraava video
+  Previous: Edellinen
+  Next: Seuraava
   Reverse Playlist: Käänteinen soittolista
   Shuffle Playlist: Sekoita soittolistaa
   Loop Playlist: Kierrätä soittolistaa

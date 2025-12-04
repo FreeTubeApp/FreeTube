@@ -24,7 +24,7 @@
 import { computed } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 
 import { KeyboardShortcuts } from '../../../constants'
 import { addKeyboardShortcutToActionTitle } from '../../helpers/utils'

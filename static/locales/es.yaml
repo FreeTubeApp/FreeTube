@@ -107,6 +107,7 @@ Trending:
   Trending: 'Tendencias'
   Trending Tabs: Pestañas de tendencias
   Gaming: Videojuegos
+  Sports: Deportes
 Most Popular: 'Más populares'
 Playlists: 'Listas de reproducción'
 User Playlists:
@@ -117,8 +118,7 @@ User Playlists:
     Search in Playlists: Buscar en listas de reproducción
     Save: Guardar
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 vídeo añadido a {playlistCount} listas de reproducción | {videoCount} vídeos añadidos a {playlistCount} listas de reproducción
-      "{videoCount} video(s) added to 1 playlist": 1 vídeo añadido a 1 lista de reproducción | {videoCount} vídeos añadidos a 1 lista de reproducción
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Aún no has seleccionado ninguna lista de reproducción.
     Select a playlist to add your N videos to: Seleccione una lista de reproducción a la que añadir su vídeo | Seleccione una lista de reproducción a la que añadir sus {videoCount} vídeos
     N playlists selected: '{playlistCount} seleccionada'
@@ -469,7 +469,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Todas las suscripciones y perfiles han sido importados con éxito'
     All subscriptions have been successfully imported: 'Todas las suscripciones han sido importadas con éxito'
     Invalid subscriptions file: 'Archivo de suscripciones no válido'
-    This might take a while, please wait: 'Esto puede tardar un rato. Por favor, espere'
     Invalid history file: 'Archivo de historial no válido'
     Subscriptions have been successfully exported: 'Las suscripciones han sido exportadas con éxito'
     History object has insufficient data, skipping item: 'El historial no tiene datos suficientes, omitiendo objeto'
@@ -768,8 +767,8 @@ Video:
     In less than a minute: En menos de un minuto
   Published on: 'Publicado el'
 #& Videos
-  Play Previous Video: Reproducir el vídeo anterior
-  Play Next Video: Reproducir vídeo siguiente
+  Previous: Anterior
+  Next: Siguiente
   Reverse Playlist: Invertir orden
   Shuffle Playlist: Reproducción aleatoria
   Loop Playlist: Reproducción en bucle
@@ -921,6 +920,8 @@ Comments:
   View {replyCount} replies: Ver {replyCount} respuestas
   Subscribed: Suscrito
   There are no comments available for this post: No hay comentarios disponibles para este tema
+  View 1 reply from {channelName}: Ver 1 respuesta de {channelName}
+  View {replyCount} replies from {channelName} and others: Ver {replyCount} respuesta de {channelName} y otros
 Up Next: 'A continuación'
 
 # Toast Messages
