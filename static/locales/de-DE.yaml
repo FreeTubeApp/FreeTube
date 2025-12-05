@@ -795,7 +795,7 @@ Video:
       Video ID: 'Videokennung (ID): {videoId}'
       Media Formats: 'Medienformate: {formats}'
       Resolution: 'Auflösung: {width}×{height}{''@''}{frameRate}'
-      Player Dimensions: 'Player-Ausmaße: {width}×{height}'
+      Player Dimensions: 'Player-Größe: {width}×{height}'
       Bitrate: 'Bitrate: {bitrate} kb/s'
       Volume: 'Lautstärke: {volumePercentage} %'
       Bandwidth: 'Bandbreite: {bandwidth} kb/s'
