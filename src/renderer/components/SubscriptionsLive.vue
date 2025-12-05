@@ -59,6 +59,8 @@ const fetchSubscriptionsAutomatically = computed(() => store.getters.getFetchSub
 
 const activeSubscriptionList = computed(() => store.getters.getActiveProfile.subscriptions)
 
+const activeProfileId = computed(() => store.getters.getActiveProfile._id)
+
 const cacheEntriesForAllActiveProfileChannels = computed(() => {
   const liveCache = store.getters.getLiveCache
   const entries = []
@@ -140,22 +142,25 @@ function loadVideosFromRemoteFirstPerWindowSometimes() {
 
   alreadyLoadedRemotely = true
   loadVideosForSubscriptionsFromRemote()
-  store.commit('setSubscriptionForLiveStreamsFirstAutoFetchRun')
+  store.commit('setSubscriptionForLiveStreamsFirstAutoFetchRun', activeProfileId.value)
 }
 
 function loadVideosFromCacheSometimes() {
   // Can only load reliably when cache ready
   if (!subscriptionCacheReady.value) { return }
 
-  // This method is called on view visible
-  if (videoCacheForAllActiveProfileChannelsPresent.value) {
-    loadVideosFromCacheForAllActiveProfileChannels()
+  // Check if this profile needs to be auto-fetched for the first time
+  if (fetchSubscriptionsAutomatically.value && !store.getters.getSubscriptionForLiveStreamsFirstAutoFetchRun) {
+    // `isLoading.value = false` is called inside `loadVideosForSubscriptionsFromRemote` when needed
+    alreadyLoadedRemotely = true
+    loadVideosForSubscriptionsFromRemote()
+    store.commit('setSubscriptionForLiveStreamsFirstAutoFetchRun', activeProfileId.value)
     return
   }
 
-  if (fetchSubscriptionsAutomatically.value) {
-    // `isLoading.value = false` is called inside `loadVideosForSubscriptionsFromRemote` when needed
-    loadVideosForSubscriptionsFromRemote()
+  // This method is called on view visible
+  if (videoCacheForAllActiveProfileChannelsPresent.value) {
+    loadVideosFromCacheForAllActiveProfileChannels()
     return
   }
 

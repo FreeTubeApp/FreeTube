@@ -49,10 +49,10 @@ const state = {
     podcasts: ''
   },
   subscriptionFirstAutoFetchRunData: {
-    videos: false,
-    liveStreams: false,
-    shorts: false,
-    posts: false,
+    videos: new Set(),
+    liveStreams: new Set(),
+    shorts: new Set(),
+    posts: new Set(),
   },
   appTitle: '',
   openPrompts: new Set()
@@ -159,17 +159,21 @@ const getters = {
     return state.lastPopularRefreshTimestamp
   },
 
-  getSubscriptionForVideosFirstAutoFetchRun(state) {
-    return state.subscriptionFirstAutoFetchRunData.videos === true
+  getSubscriptionForVideosFirstAutoFetchRun: (state, getters, rootState, rootGetters) => {
+    const activeProfileId = rootGetters.getActiveProfile._id
+    return state.subscriptionFirstAutoFetchRunData.videos.has(activeProfileId)
   },
-  getSubscriptionForLiveStreamsFirstAutoFetchRun (state) {
-    return state.subscriptionFirstAutoFetchRunData.liveStreams === true
+  getSubscriptionForLiveStreamsFirstAutoFetchRun: (state, getters, rootState, rootGetters) => {
+    const activeProfileId = rootGetters.getActiveProfile._id
+    return state.subscriptionFirstAutoFetchRunData.liveStreams.has(activeProfileId)
   },
-  getSubscriptionForShortsFirstAutoFetchRun (state) {
-    return state.subscriptionFirstAutoFetchRunData.shorts === true
+  getSubscriptionForShortsFirstAutoFetchRun: (state, getters, rootState, rootGetters) => {
+    const activeProfileId = rootGetters.getActiveProfile._id
+    return state.subscriptionFirstAutoFetchRunData.shorts.has(activeProfileId)
   },
-  getSubscriptionForPostsFirstAutoFetchRun (state) {
-    return state.subscriptionFirstAutoFetchRunData.posts === true
+  getSubscriptionForPostsFirstAutoFetchRun: (state, getters, rootState, rootGetters) => {
+    const activeProfileId = rootGetters.getActiveProfile._id
+    return state.subscriptionFirstAutoFetchRunData.posts.has(activeProfileId)
   },
   getAppTitle (state) {
     return state.appTitle
@@ -787,17 +791,17 @@ const mutations = {
     state.openPrompts.delete(id)
   },
 
-  setSubscriptionForVideosFirstAutoFetchRun (state) {
-    state.subscriptionFirstAutoFetchRunData.videos = true
+  setSubscriptionForVideosFirstAutoFetchRun (state, profileId) {
+    state.subscriptionFirstAutoFetchRunData.videos.add(profileId)
   },
-  setSubscriptionForLiveStreamsFirstAutoFetchRun (state) {
-    state.subscriptionFirstAutoFetchRunData.liveStreams = true
+  setSubscriptionForLiveStreamsFirstAutoFetchRun (state, profileId) {
+    state.subscriptionFirstAutoFetchRunData.liveStreams.add(profileId)
   },
-  setSubscriptionForShortsFirstAutoFetchRun (state) {
-    state.subscriptionFirstAutoFetchRunData.shorts = true
+  setSubscriptionForShortsFirstAutoFetchRun (state, profileId) {
+    state.subscriptionFirstAutoFetchRunData.shorts.add(profileId)
   },
-  setSubscriptionForPostsFirstAutoFetchRun (state) {
-    state.subscriptionFirstAutoFetchRunData.posts = true
+  setSubscriptionForPostsFirstAutoFetchRun (state, profileId) {
+    state.subscriptionFirstAutoFetchRunData.posts.add(profileId)
   }
 }
 
