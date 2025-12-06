@@ -494,7 +494,7 @@ Settings:
     Hide Channel Home: Skryť kartu kanálov "Domov"
     Hide Channel Posts: Skryť kartu kanálov "Príspevky"
     Hide Channel Playlists: Skryť kartu kanálov "Playlisty"
-    Hide Featured Channels: Skryť doporučené kanály
+    Hide Featured Channels: Skryť odporúčané kanály
     Hide Channels Already Exists: ID kanála už existuje
     Hide Subscriptions Videos: Skryť videá odberov
     Hide Channels API Error: Chyba pri načítaní používateľa so zadaným ID. Skontrolujte, či je ID správny.
@@ -558,7 +558,7 @@ Settings:
     Enable Tor / Proxy: Povoliť Tor / server Proxy
     Proxy Settings: Proxy
     Proxy Password: Heslo proxy
-    Proxy Username: Používateľské meno proxy
+    Proxy Username: Používateľský názov proxy
     Proxy Warning: FreeTube nemá vstavaný proxy server, ale môže sa pripojiť k externému proxy serveru, napríklad k serveru bežiacemu na vašom počítači, ako je Tor, alebo k externému proxy serveru, ako je SOCKS5 proxy server poskytovaný niektorými VPN. Ak je táto funkcia povolená, uistite sa, že je váš proxy server/Tor správne nakonfigurovaný, inak FreeTube nebude môcť načítať žiadne údaje.
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Upozorniť, keď bude segment sponzora preskočený
@@ -603,7 +603,7 @@ Settings:
     Password: Heslo
   Experimental Settings:
     Replace HTTP Cache: Nahradiť medzipamäť HTTP
-    Warning: Tieto nastavenia sú experimentálne a môžu spôsobiť zlyhanie systému, ak sú aktivované. Dôrazne odporúčame vytvárať zálohy. Používajte na vlastné riziko!
+    Warning: Tieto nastavenia sú experimentálne a môžu spôsobiť zlyhanie systému, ak sú aktivované. Dôrazne odporúčame vytvárať zálohy. Používate na vlastné riziko!
     Experimental Settings: Experimentálne
   Download Settings:
     Open in web browser: Otvoriť vo webovom prehliadači
@@ -709,8 +709,8 @@ Video:
   Video has been removed from your history: 'Video bolo odstránené z vašej histórie'
   Open in YouTube: 'Otvoriť na Youtube'
   Copy YouTube Link: 'Kopírovať odkaz YouTube'
-  Open YouTube Embedded Player: 'Otvoriť vložený prehrávač YouTube'
-  Copy YouTube Embedded Player Link: 'Kopírovať odkaz vloženého prehrávača YouTube'
+  Open YouTube Embedded Player: 'Otvoriť vstavaný prehrávač YouTube'
+  Copy YouTube Embedded Player Link: 'Kopírovať odkaz vstavaného prehrávača YouTube'
   Open in Invidious: 'Otvoriť v Invidious'
   Copy Invidious Link: 'Kopírovať odkaz Invidious'
   Views: 'Zobrazenia'
@@ -776,7 +776,7 @@ Video:
       CodecsVideoAudioNoItags: 'Kodeky: {videoCodec} / {audioCodec}'
       CodecsVideoAudio: 'Kodeky: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
-      Dropped Frames / Total Frames: 'Vypustené snímky: {droppedFrames} / Celkom snímok: {totalFrames}'
+      Dropped Frames / Total Frames: 'Vynechané snímky: {droppedFrames} / Celkom snímok: {totalFrames}'
       Buffered: 'Načítané: {bufferedPercentage}%'
       Bandwidth: 'Šírka pásma: {bandwidth} kb/s'
       Volume: 'Hlasitosť: {volumePercentage}%'
@@ -806,7 +806,7 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Živý chat nie je dostupný pre tento stream. Mohol byť zakázaný nahrávačom.
   Unlisted: Neuvedené
   Upcoming: Nadchádzajúce
-  Premieres: Premiéra
+  Premieres: Premiéry
   Unhide Channel: Zobraziť kanál
   Hide Channel: Skryť kanál
   Watched Progress Saved: Postup pozerania uložený
@@ -844,7 +844,7 @@ Change Format:
   Use Legacy Formats: 'Použiť staré formáty'
   Use Audio Formats: 'Použiť zvukové formáty'
   Dash formats are not available for this video: Formáty DASH nie sú dostupné pre toto video
-  Audio formats are not available for this video: Pre toto video nie sú k dostupné zvukové formáty
+  Audio formats are not available for this video: Pre toto video nie sú dostupné zvukové formáty
   Legacy formats are not available for this video: Staré formáty nie sú dostupné pre toto video
 Share:
   Share Video: 'Zdieľať video'
@@ -942,7 +942,7 @@ Tooltips:
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Naozaj chcete odstrániť vybrané kanály?  Týmto sa kanál neodstráni z žiadneho iného profilu.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
-  : Toto je váš primárny profil. Naozaj chcete vymazať vybrané kanály? Tie isté kanály budú vymazané v akomkoľvek profile, kde sa nachádzajú.
+  : Toto je váš hlavný profil. Naozaj chcete vymazať vybrané kanály? Tie isté kanály budú vymazané v akomkoľvek profile, kde sa nachádzajú.
   No channel(s) have been selected: Neboli vybrané žiadne kanály
   Add Selected To Profile: Pridať vybrané do profilu
   Delete Selected: Vymazať vybrané
@@ -1031,8 +1031,8 @@ KeyboardShortcutPrompt:
   Search in New Window: Vyhľadávať v novom okne
   Skip to Previous Video: Preskočiť na predchádzajúce video v playliste
   Volume Up: Zvýšiť hlasitosť
-  Decrease Video Speed: Znížiť rýchlosť videa na základe intervalu rýchlosti zvukovej stopy videa
-  Increase Video Speed: Zvýšiť rýchlosť videa na základe intervalu rýchlosti zvukovej stopy videa
+  Decrease Video Speed: Znížiť rýchlosť videa na základe intervalu rýchlosti prehrávania videa
+  Increase Video Speed: Zvýšiť rýchlosť videa na základe intervalu rýchlosti prehrávania videa
   New Window: Vytvoriť nové okno
   Navigate to Settings: Prejsť na stránku Nastavenia
   Navigate to History: Prejsť na stránku História
@@ -1057,8 +1057,8 @@ KeyboardShortcutPrompt:
   Small Fast Forward: Rýchlo posunúť X sekúnd na základe intervalu rýchleho posunu a aktuálnej rýchlosti prehrávania videa
   Small Rewind: Posunúť dozadu X sekúnd na základe intervalu posunu dozadu a aktuálnej rýchlosti prehrávania videa
   Volume Down: Znížiť hlasitosť
-  Next Frame: Ďalší rámček (pri pauze)
-  Last Frame: Predchádzajúci rámček (pri pauze)
+  Next Frame: Ďalšia snímka (pri pauze)
+  Last Frame: Predchádzajúca snímka (pri pauze)
   Reset Zoom: Resetovať úroveň priblíženia / rozpätia používateľského rozhrania
   Close Window: Zatvoriť okno
   Minimize Window: Minimalizovať okno
