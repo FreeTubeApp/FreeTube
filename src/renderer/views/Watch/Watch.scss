@@ -194,6 +194,12 @@
   @media only screen and (width >= 1051px) {
     &.useTheatreMode {
       @include theatre-mode-template;
+
+      .videoArea {
+        .videoPlayer {
+          max-block-size: 81vh;
+        }
+      }
     }
   }
 
