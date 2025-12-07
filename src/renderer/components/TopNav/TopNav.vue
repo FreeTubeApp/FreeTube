@@ -43,16 +43,6 @@
         @click="historyForward"
       />
       <button
-        v-if="!hideSearchBar"
-        class="navSearchButton navButton"
-        @click="toggleSearchContainer"
-      >
-        <FontAwesomeIcon
-          class="navIcon"
-          :icon="['fas', 'search']"
-        />
-      </button>
-      <button
         class="navNewWindowButton navButton"
         :aria-label="t('Open New Window')"
         :title="newWindowText"
@@ -61,6 +51,16 @@
         <FontAwesomeIcon
           class="navIcon"
           :icon="['fas', 'clone']"
+        />
+      </button>
+      <button
+        v-if="!hideSearchBar"
+        class="navSearchButton navButton"
+        @click="toggleSearchContainer"
+      >
+        <FontAwesomeIcon
+          class="navIcon"
+          :icon="['fas', 'search']"
         />
       </button>
       <div
