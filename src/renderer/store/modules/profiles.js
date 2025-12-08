@@ -267,6 +267,10 @@ const mutations = {
       // use filter instead of splice in case the subscription appears multiple times
       // https://github.com/FreeTubeApp/FreeTube/pull/3468#discussion_r1179290877
       profile.subscriptions = profile.subscriptions.filter(channel => channel.id !== channelId)
+
+      if (profile.pinnedChannels) {
+        profile.pinnedChannels = profile.pinnedChannels.filter(id => id !== channelId)
+      }
     }
   },
 

@@ -199,7 +199,6 @@
           :key="channel.id"
           :to="`/channel/${channel.id}`"
           class="navChannel channelLink mobileHidden"
-          :class="{ pinnedChannel: isChannelPinned(channel.id) }"
           :title="channel.name"
           role="button"
           @contextmenu.prevent="showContextMenu($event, channel)"

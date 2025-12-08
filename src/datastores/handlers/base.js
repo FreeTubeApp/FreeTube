@@ -156,12 +156,12 @@ class Profiles {
     if (profileIds.length === 1) {
       return db.profiles.updateAsync(
         { _id: profileIds[0] },
-        { $pull: { subscriptions: { id: channelId } } }
+        { $pull: { subscriptions: { id: channelId }, pinnedChannels: channelId } }
       )
     } else {
       return db.profiles.updateAsync(
         { _id: { $in: profileIds } },
-        { $pull: { subscriptions: { id: channelId } } },
+        { $pull: { subscriptions: { id: channelId }, pinnedChannels: channelId } },
         { multi: true }
       )
     }
