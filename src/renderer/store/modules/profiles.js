@@ -9,7 +9,8 @@ const state = {
     name: 'All Channels',
     bgColor: '#000000',
     textColor: '#FFFFFF',
-    subscriptions: []
+    subscriptions: [],
+    pinnedChannels: []
   }],
   activeProfile: MAIN_PROFILE_ID
 }
@@ -67,7 +68,8 @@ const actions = {
         name: defaultName,
         bgColor: randomColor,
         textColor: textColor,
-        subscriptions: []
+        subscriptions: [],
+        pinnedChannels: []
       }
 
       try {

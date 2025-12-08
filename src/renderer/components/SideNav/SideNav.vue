@@ -314,11 +314,7 @@ const activeProfile = computed(() => {
 
 /** @type {import('vue').ComputedRef<string[]>} */
 const pinnedChannelIds = computed(() => {
-  try {
-    return JSON.parse(store.getters.getSideNavChannelPinned)
-  } catch {
-    return []
-  }
+  return activeProfile.value.pinnedChannels ?? []
 })
 
 /**
@@ -454,7 +450,9 @@ function togglePinChannel() {
     currentPinned.push(channelId)
   }
 
-  store.dispatch('updateSideNavChannelPinned', JSON.stringify(currentPinned))
+  const updatedProfile = deepCopy(activeProfile.value)
+  updatedProfile.pinnedChannels = currentPinned
+  store.dispatch('updateProfile', updatedProfile)
   hideContextMenu()
 }
 

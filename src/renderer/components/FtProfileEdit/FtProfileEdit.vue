@@ -204,7 +204,8 @@ function saveProfile() {
     name: profileName.value,
     bgColor: profileBgColor.value,
     textColor: profileTextColor.value,
-    subscriptions: deepCopy(props.profile.subscriptions)
+    subscriptions: deepCopy(props.profile.subscriptions),
+    pinnedChannels: deepCopy(props.profile.pinnedChannels ?? [])
   }
 
   if (!props.isNew) {
