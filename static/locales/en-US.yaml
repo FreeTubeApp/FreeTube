@@ -134,6 +134,9 @@ Subscriptions:
   Subscriptions Tabs: Subscriptions Tabs
   All Subscription Tabs Hidden: 'All subscription tabs are hidden. To see content here, please unhide some tabs in the "{subsection}" section in "{settingsSection}".'
 More: More
+Side Nav:
+  Pin to Top: Pin to Top
+  Unpin from Top: Unpin from Top
 Channels:
   Channels: Channels
   Title: Channel List

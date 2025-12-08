@@ -199,8 +199,10 @@
           :key="channel.id"
           :to="`/channel/${channel.id}`"
           class="navChannel channelLink mobileHidden"
+          :class="{ pinnedChannel: isChannelPinned(channel.id) }"
           :title="channel.name"
           role="button"
+          @contextmenu.prevent="showContextMenu($event, channel)"
         >
           <div
             class="thumbnailContainer"
@@ -219,6 +221,11 @@
               class="channelThumbnail noThumbnail"
               :icon="['fas', 'circle-user']"
             />
+            <FontAwesomeIcon
+              v-if="isChannelPinned(channel.id)"
+              class="pinnedIcon"
+              :icon="['fas', 'thumbtack']"
+            />
           </div>
           <p
             v-if="isOpen"
@@ -229,12 +236,37 @@
         </router-link>
       </div>
     </div>
+    <div
+      v-if="showMenu"
+      ref="contextMenu"
+      class="contextMenu"
+      :style="{ top: menuPosition.y + 'px', left: menuPosition.x + 'px' }"
+      tabindex="-1"
+      @blur="hideContextMenu"
+      @keydown.esc="hideContextMenu"
+    >
+      <ul class="contextMenuList">
+        <li
+          class="contextMenuItem"
+          role="menuitem"
+          tabindex="0"
+          @mousedown="togglePinChannel"
+          @keydown.enter="togglePinChannel"
+        >
+          <FontAwesomeIcon
+            :icon="['fas', 'thumbtack']"
+            class="contextMenuIcon"
+          />
+          {{ contextMenuChannel && isChannelPinned(contextMenuChannel.id) ? $t('Side Nav.Unpin from Top') : $t('Side Nav.Pin to Top') }}
+        </li>
+      </ul>
+    </div>
   </FtFlexBox>
 </template>
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed } from 'vue'
+import { computed, nextTick, ref, useTemplateRef } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
@@ -249,6 +281,11 @@ import { KeyboardShortcuts } from '../../../constants'
 const { locale, t } = useI18n()
 
 const SUPPORTS_LOCAL_API = process.env.SUPPORTS_LOCAL_API
+
+const showMenu = ref(false)
+const menuPosition = ref({ x: 0, y: 0 })
+const contextMenuChannel = ref(null)
+const contextMenu = useTemplateRef('contextMenu')
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const isOpen = computed(() => {
@@ -275,6 +312,24 @@ const activeProfile = computed(() => {
   return store.getters.getActiveProfile
 })
 
+/** @type {import('vue').ComputedRef<string[]>} */
+const pinnedChannelIds = computed(() => {
+  try {
+    return JSON.parse(store.getters.getSideNavChannelPinned)
+  } catch {
+    return []
+  }
+})
+
+/**
+ * Check if a channel is pinned
+ * @param {string} channelId
+ * @returns {boolean}
+ */
+function isChannelPinned(channelId) {
+  return pinnedChannelIds.value.includes(channelId)
+}
+
 const activeSubscriptions = computed(() => {
   /** @type {any[]} */
   const subscriptions = deepCopy(activeProfile.value.subscriptions)
@@ -286,9 +341,15 @@ const activeSubscriptions = computed(() => {
   })
 
   const locale_ = locale.value
-  subscriptions.sort((a, b) => {
-    return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), locale_)
-  })
+  const pinned = pinnedChannelIds.value
+  const pinnedChannels = subscriptions.filter(channel => pinned.includes(channel.id))
+  const unpinnedChannels = subscriptions.filter(channel => !pinned.includes(channel.id))
+
+  pinnedChannels.sort((a, b) => pinned.indexOf(a.id) - pinned.indexOf(b.id))
+  unpinnedChannels.sort((a, b) => a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), locale_))
+
+  subscriptions.length = 0
+  subscriptions.push(...pinnedChannels, ...unpinnedChannels)
 
   if (backendPreference.value === 'invidious') {
     const instanceUrl = currentInvidiousInstanceUrl.value
@@ -355,6 +416,48 @@ const settingsTitle = computed(() => {
     KeyboardShortcuts.APP.GENERAL.NAVIGATE_TO_SETTINGS
   )
 })
+
+/**
+ * Show the context menu at the position of the right-click
+ * @param {MouseEvent} event
+ * @param {object} channel
+ */
+function showContextMenu(event, channel) {
+  contextMenuChannel.value = channel
+  menuPosition.value = { x: event.clientX, y: event.clientY }
+  showMenu.value = true
+
+  nextTick(() => {
+    if (contextMenu.value) {
+      contextMenu.value.focus()
+    }
+  })
+}
+
+function hideContextMenu() {
+  showMenu.value = false
+  contextMenuChannel.value = null
+}
+
+function togglePinChannel() {
+  if (!contextMenuChannel.value) return
+
+  const channelId = contextMenuChannel.value.id
+  const currentPinned = [...pinnedChannelIds.value]
+
+  if (isChannelPinned(channelId)) {
+    const index = currentPinned.indexOf(channelId)
+    if (index > -1) {
+      currentPinned.splice(index, 1)
+    }
+  } else {
+    currentPinned.push(channelId)
+  }
+
+  store.dispatch('updateSideNavChannelPinned', JSON.stringify(currentPinned))
+  hideContextMenu()
+}
+
 </script>
 
 <style scoped src="./SideNav.css" />

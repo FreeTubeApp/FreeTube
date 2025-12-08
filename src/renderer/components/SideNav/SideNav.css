@@ -266,3 +266,46 @@
   }
 }
 
+.pinnedIcon {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
+  font-size: 10px;
+  color: var(--primary-color);
+  transform: rotate(45deg);
+}
+
+.contextMenu {
+  position: fixed;
+  z-index: 1000;
+  background-color: var(--card-bg-color);
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px var(--primary-shadow-color);
+  min-inline-size: 150px;
+}
+
+.contextMenuList {
+  list-style: none;
+  margin: 0;
+  padding-block: 5px;
+  padding-inline: 0;
+}
+
+.contextMenuItem {
+  display: flex;
+  align-items: center;
+  padding-block: 8px;
+  padding-inline: 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.contextMenuItem:hover,
+.contextMenuItem:focus-visible {
+  background-color: var(--side-nav-hover-color);
+}
+
+.contextMenuIcon {
+  margin-inline-end: 8px;
+  inline-size: 14px;
+}
