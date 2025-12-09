@@ -34,6 +34,7 @@
           >
             <h1
               class="name"
+              dir="auto"
             >
               {{ name }}
             </h1>

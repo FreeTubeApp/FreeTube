@@ -8,6 +8,7 @@
       <h2>{{ $t("Channel.About.Channel Description") }}</h2>
       <div
         class="aboutInfo"
+        dir="auto"
         v-html="description"
       />
     </template>
@@ -56,7 +57,11 @@
           >
             {{ $t('Channel.About.Location') }}
           </th>
-          <td>{{ location }}</td>
+          <td
+            dir="auto"
+          >
+            {{ location }}
+          </td>
         </tr>
       </table>
     </template>
@@ -71,6 +76,7 @@
           v-for="tag in tags"
           :key="tag"
           class="aboutTag"
+          dir="auto"
         >
           <router-link
             v-if="!hideSearchBar"

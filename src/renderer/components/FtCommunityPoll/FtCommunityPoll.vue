@@ -20,6 +20,7 @@
         </span>
         <div
           class="option-text"
+          dir="auto"
         >
           {{ choice.text }}
         </div>
@@ -34,7 +35,10 @@
           :src="findSmallestPollImage(choice.image)"
           alt=""
         >
-        <div class="option-text">
+        <div
+          class="option-text"
+          dir="auto"
+        >
           {{ choice.text }}
         </div>
       </div>
