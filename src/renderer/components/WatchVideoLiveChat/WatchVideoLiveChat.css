@@ -242,18 +242,18 @@
   cursor: pointer;
   font-size: 20px;
   transition: background 0.2s ease-out;
+}
 
-  &:hover {
-    background-color: var(--side-nav-hover-color);
-    color: var(--side-nav-hover-text-color);
-    transition: background 0.2s ease-in;
-  }
+.popoutChatButton:hover {
+  background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
+  transition: background 0.2s ease-in;
+}
 
-  &:active {
-    background-color: var(--tertiary-text-color);
-    color: var(--side-nav-active-text-color);
-    transition: background 0.2s ease-in;
-  }
+.popoutChatButton:active {
+  background-color: var(--tertiary-text-color);
+  color: var(--side-nav-active-text-color);
+  transition: background 0.2s ease-in;
 }
 
 .titleContainer {
