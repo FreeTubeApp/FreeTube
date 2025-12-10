@@ -1,12 +1,13 @@
 <template>
-  <div
+  <nav
     class="topNav"
     :class="{ topNavBarColor: barColor }"
-    role="navigation"
   >
     <div class="side">
       <button
         class="menuButton navButton"
+        :aria-label="expandCollapseSideBarLabel"
+        :title="expandCollapseSideBarLabel"
         @click="toggleSideNav"
       >
         <FontAwesomeIcon
@@ -63,16 +64,12 @@
           :icon="['fas', 'search']"
         />
       </button>
-      <div
+      <RouterLink
         v-if="!hideHeaderLogo"
         class="logo"
         dir="ltr"
-        role="link"
-        tabindex="0"
         :title="headerLogoTitle"
-        @click="goToLandingPage"
-        @keydown.space.prevent="goToLandingPage"
-        @keydown.enter.prevent="goToLandingPage"
+        :to="landingPage"
       >
         <div
           class="logoIcon"
@@ -80,7 +77,7 @@
         <div
           class="logoText"
         />
-      </div>
+      </RouterLink>
     </div>
     <div class="middle">
       <div
@@ -118,7 +115,7 @@
       </div>
     </div>
     <FtProfileSelector class="side profiles" />
-  </div>
+  </nav>
 </template>
 
 <script setup>
@@ -159,6 +156,10 @@ const enableSearchSuggestions = computed(() => store.getters.getEnableSearchSugg
 /** @type {import('vue').ComputedRef<string>} */
 const barColor = computed(() => store.getters.getBarColor)
 
+const expandCollapseSideBarLabel = computed(() => {
+  return store.getters.getIsSideNavOpen ? t('Compact side navigation') : t('Expand side navigation')
+})
+
 const landingPage = computed(() => '/' + store.getters.getLandingPage)
 
 const headerLogoTitle = computed(() => {
@@ -169,10 +170,6 @@ const headerLogoTitle = computed(() => {
         .meta.title)
   })
 })
-
-function goToLandingPage() {
-  router.push(landingPage.value)
-}
 
 const navigationHistoryAddendum = computed(() => {
   return navigationHistoryDropdownOptions.value.length === 0

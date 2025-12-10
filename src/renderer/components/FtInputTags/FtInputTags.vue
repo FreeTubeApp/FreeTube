@@ -59,9 +59,9 @@
                 loading="lazy"
               >
             </RouterLink>
-            <span>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</span>
+            <bdi>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</bdi>
           </template>
-          <span v-else>{{ tag }}</span>
+          <bdi v-else>{{ tag }}</bdi>
           <button
             v-if="!disabled"
             class="removeTagButton"

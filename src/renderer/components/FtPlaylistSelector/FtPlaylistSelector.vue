@@ -38,6 +38,7 @@
     >
       <div
         class="title"
+        dir="auto"
       >
         {{ titleForDisplay }}
       </div>

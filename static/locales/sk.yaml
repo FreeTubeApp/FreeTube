@@ -32,7 +32,7 @@ Global:
     Channel Count: 1 kanál | {count} kanálov
     View Count: 1 zobrazenie | {count} zobrazení
     Watching Count: 1 sledujúci | {count} sledujúcich
-    Like Count: 1 like | {count} likes
+    Like Count: 1 lajk | {count} lajkov
     Comment Count: 1 komentár | {count} komentárov
   Live: Naživo
   Posts: Príspevky
@@ -1118,3 +1118,5 @@ Clipboard:
   Cannot access clipboard without a secure connection: Prístup k schránke nie je možný bez zabezpečeného pripojenia
   Copy failed: Kopírovanie do schránky zlyhalo
 Tag already exists: Označenie "{tagName}" už existuje
+Compact side navigation: Kompaktná bočná navigácia
+Expand side navigation: Rozbaliť bočnú navigáciu

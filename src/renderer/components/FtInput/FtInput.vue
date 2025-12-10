@@ -96,7 +96,7 @@
               :icon="['fas', dataListProperties[index].iconName]"
               class="searchResultIcon"
             />
-            <span>{{ entry }}</span>
+            <bdi>{{ entry }}</bdi>
           </div>
           <a
             v-if="dataListProperties[index]?.isRemoveable"

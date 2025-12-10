@@ -1,10 +1,11 @@
-// import the styles
 import { createApp } from 'vue'
 import i18n from './i18n/index'
 import router from './router/index'
 import store from './store/index'
 import App from './App.vue'
-import { library } from '@fortawesome/fontawesome-svg-core'
+import { library } from './fontawesome-minimal'
+// import the styles
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import { register as registerSwiper } from 'swiper/element'
 

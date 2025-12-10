@@ -25,13 +25,10 @@ Back: 'უკან'
 Forward: 'წინ'
 Open New Window: 'ახალი ფანჯრის გახსნა'
 
-Version {versionNumber} is now available!  Click for more details: 'ხელმისაწვდომია
-  {versionNumber} ვერსია!  დააჭირეთ დამატებითი ინფორმაციისთვის'
+Version {versionNumber} is now available!  Click for more details: 'ხელმისაწვდომია {versionNumber} ვერსია!  დააჭირეთ დამატებითი ინფორმაციისთვის'
 Download From Site: 'საიტიდან ჩამოტვირთვა'
-A new blog is now available, {blogTitle}. Click to view more: 'ხელმისაწვდომია ახალი
-  ბლოგი, {blogTitle}. დააჭირეთ დამატებითი ინფორმაციისთვის'
-Are you sure you want to open this link?: 'დარწმუნებული ხართ, რომ გსურთ ამ ბმულის
-  გახსნა?'
+A new blog is now available, {blogTitle}. Click to view more: 'ხელმისაწვდომია ახალი ბლოგი, {blogTitle}. დააჭირეთ დამატებითი ინფორმაციისთვის'
+Are you sure you want to open this link?: 'დარწმუნებული ხართ, რომ გსურთ ამ ბმულის გახსნა?'
 
 Global:
   Sort By: 'დალაგება'
@@ -91,11 +88,8 @@ Subscriptions:
   Subscriptions: 'გამოწერები'
   # channels that were likely deleted
   Error Channels: 'შეცდომების მქონე არხები'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'ამ
-    ანგარიშს აქვს გამოწერების დიდი რაოდენობა. იძულებით გამოიყენება RSS, რათა არ მოხდეს
-    ტარიფის შეზღუდვა'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'თქვენი
-    გამოწერების სია ამჟამად ცარიელია. დაამატეთ გამოწერები, რათა ნახოთ ისინი'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'ამ ანგარიშს აქვს გამოწერების დიდი რაოდენობა. იძულებით გამოიყენება RSS, რათა არ მოხდეს ტარიფის შეზღუდვა'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'თქვენი გამოწერების სია ამჟამად ცარიელია. დაამატეთ გამოწერები, რათა ნახოთ ისინი'
   Load More Videos: 'მეტი ვიდეოს ჩატვირთვა'
 More: 'მეტი'
 Channels:
@@ -109,6 +103,7 @@ Trending:
   Trending: 'პოპულარული'
   Gaming: 'თამაშები'
   Trending Tabs: 'პოპულარული'
+  Sports: სპორტი
 Most Popular: 'ყველაზე პოპულარული'
 Playlists: 'დასაკრავი სიები'
 User Playlists:
@@ -120,21 +115,17 @@ History:
   History: 'ისტორია'
   Watch History: 'ნახვის ისტორია'
   Your history list is currently empty.: 'თქვენი ისტორიების სია ამჟამად ცარიელია.'
-  Empty Search Message: 'თქვენს ისტორიაში არ არის ვიდეოები, რომლებიც ემთხვევა თქვენს
-    ძიებას'
+  Empty Search Message: 'თქვენს ისტორიაში არ არის ვიდეოები, რომლებიც ემთხვევა თქვენს ძიებას'
   Search bar placeholder: "ისტორიაში ძიება"
 Settings:
   # On Settings Page
   Settings: 'პარამეტრები'
-  The app needs to restart for changes to take effect. Restart and apply change?: 'ცვლილებების
-    ძალაში შესასვლელად საჭიროა აპლიკაციის გადატვირთვა. გსურთ რომ გადატვირთოთ და დაადასტუროთ
-    შეტანილი ცვლილებები?'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'ცვლილებების ძალაში შესასვლელად საჭიროა აპლიკაციის გადატვირთვა. გსურთ რომ გადატვირთოთ და დაადასტუროთ შეტანილი ცვლილებები?'
   General Settings:
     General Settings: 'ზოგადი პარამეტრები'
     Check for Updates: 'განახლებების შემოწმება'
     Check for Latest Blog Posts: 'უახლესი ბლოგპოსტების შემოწმება'
-    Fallback to Non-Preferred Backend on Failure: 'შეფერხების შემთხვევაში არაუპირატეს
-      ძრავაზე დაბრუნება'
+    Fallback to Non-Preferred Backend on Failure: 'შეფერხების შემთხვევაში არაუპირატეს ძრავაზე დაბრუნება'
     Enable Search Suggestions: 'ძიების შემოთავაზებების ჩართვა'
     Default Landing Page: 'შესვლის სტანდარტული გვერდი'
     Locale Preference: 'აპლიკაციის ენა'
@@ -155,12 +146,10 @@ Settings:
     Current Invidious Instance: 'Invidious-ის მიმდინარე ასლი'
     The currently set default instance is {instance}: 'ამჟამად დაყენებული ასლია {instance}'
     No default instance has been set: 'სტანდარტული ასლი არ არის დაყენებული'
-    Current instance will be randomized on startup: 'ჩართვისას მიმდინარე ასლი იქნება
-      შემთხვევით არჩეული'
+    Current instance will be randomized on startup: 'ჩართვისას მიმდინარე ასლი იქნება შემთხვევით არჩეული'
     Set Current Instance as Default: 'მიმდინარე ასლის ნაგულისხმევად დაყენება'
     Clear Default Instance: 'ნაგულისხმევი ასლის გასუფთავება'
-    View all Invidious instance information: 'Invidious-ის ასლის შესახებ ყველა ინფორმაციის
-      ნახვა'
+    View all Invidious instance information: 'Invidious-ის ასლის შესახებ ყველა ინფორმაციის ნახვა'
     Region for Trending: 'პოპულარული ვიდეოების არეალი'
     #! List countries
     External Link Handling:
@@ -236,9 +225,7 @@ KeyboardShortcutPrompt:
 Preferences: პრეფერენციები
 Profile:
   Select All: ყველას მონიშვნა
-Search character limit: ძებნის შეკითხვა აღემატება {searchCharacterLimit}-ის სიმბოლოს
-  ლიმიტს.
+Search character limit: ძებნის შეკითხვა აღემატება {searchCharacterLimit}-ის სიმბოლოს ლიმიტს.
 Go to page: გადადით გვერდზე
-Right-click or hold to see history: მარჯვენა ღილაკით დააწკაპუნეთ ან დააჭირეთ და გააჩერეთ
-  ისტორიის სანახავად
+Right-click or hold to see history: მარჯვენა ღილაკით დააწკაპუნეთ ან დააჭირეთ და გააჩერეთ ისტორიის სანახავად
 Close Banner: დახურვა ბანერის

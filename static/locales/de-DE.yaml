@@ -43,7 +43,7 @@ Search / Go to URL: Suchen / URL öffnen
 Search Filters:
   Search Filters: Suchfilter
   Sort By:
-    Most Relevant: Am relevantesten
+    Most Relevant: Relevanz
     Rating: Bewertung
     Upload Date: Upload-Datum
     View Count: Anzahl der Aufrufe
@@ -946,7 +946,7 @@ Profile:
   Profile Select: Profilauswahl
   Profile Filter: Profilfilter
   Profile Settings: Profil
-  Toggle Profile List: Profilliste umschalten
+  Toggle Profile List: Profilauswahl
   Profile Name: Profilname
   Edit Profile Name: Profilname bearbeiten
   Create Profile Name: Profilname erstellen
@@ -1124,3 +1124,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Zum nächsten Video in der Playlist bzw. nächsten empfohlenen Video springen
   Skip to Previous Video: Zum vorherigen Video in der Playlist springen
 shortcutLabelSeparator: ｜
+Compact side navigation: Kompakte Seitenleiste
+Expand side navigation: Seitenleiste erweitern
