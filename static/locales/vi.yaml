@@ -543,7 +543,7 @@ Settings:
     Watched Progress Saving Mode:
       Modes:
         Auto: Tự động
-        Semi-auto: Bán-tự động
+        Semi-auto: Bán tự động
         Never: Không
       Tooltip: 'Tự động = Lưu mỗi khi thoát khỏi trang video, khi video kết thúc và gặp lỗi (ví dụ: giới hạn tốc độ và phiên xem đã hết hạn). Bán tự động = Như tự động, trừ lúc thoát khỏi trang video và có thể lưu tiến trình theo cách thủ công thông qua nút Lưu tiến trình đã xem, nằm bên dưới trình phát video.'
   The app needs to restart for changes to take effect. Restart and apply change?: Ứng dụng cần được khởi động lại để chỉnh sửa có hiệu nghiệm. Khởi động lại và áp dụng cài đặt?
@@ -755,7 +755,7 @@ Video:
     recap: Tóm tắt
     filler: Bộ lọc
   Streamed on: Phát trực tiếp vào lúc
-  Started streaming on: Bắt đầu.phát trực tiếp vào lúc
+  Started streaming on: Bắt đầu phát trực tiếp vào lúc
   External Player:
     playlist: danh sách phát
     Unsupported Actions:
@@ -790,7 +790,7 @@ Video:
       CodecsVideoAudio: 'Codec: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Codec: {videoCodec} / {audioCodec}'
       Bandwidth: 'Băng thông: {bandwidth} kbps'
-      Resolution: 'Độ phân ảnh: {width}x{height}{''@''}{frameRate}'
+      Resolution: 'Độ phân giải: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Kích thước trình xem: {width}x{height}'
       CodecAudio: 'Codec: {audioCodec} ({audioItag})'
       Bitrate: 'Tốc độ bit: {bitrate} kbps'
@@ -857,18 +857,18 @@ Share:
   Share Playlist: 'Chia sẻ danh sách phát'
   Copy Link: 'Sao chép liên kết'
   Open Link: 'Mở liên kết'
-  Copy Embed: 'Sao chép Embed'
-  Open Embed: 'Mở Embed'
+  Copy Embed: 'Sao chép đã nhúng'
+  Open Embed: 'Mở đã nhúng'
   # On Click
-  Invidious URL copied to clipboard: 'Invidious URL sao chép đến clipboard'
-  Invidious Embed URL copied to clipboard: 'Invidious Embed URL sao chép đến clipboard'
+  Invidious URL copied to clipboard: 'Invidious URL sao chép đến bộ nhớ tạm'
+  Invidious Embed URL copied to clipboard: 'Invidious Embed URL sao chép đến bộ nhớ tạm'
   YouTube URL copied to clipboard: 'Youtube URL sao chép đến clipboard'
   YouTube Embed URL copied to clipboard: 'Youtube Embed URL sao chép đến clipboard'
   Include Timestamp: Có kèm dấu thời gian
   YouTube Channel URL copied to clipboard: Đã sao chép liên kết kênh Youtube
   Invidious Channel URL copied to clipboard: URL của kênh ưu tiên đã được sao chép
   Share Channel: Chia sẻ kênh
-  Share Post: Chia Sẻ Bài Viết
+  Share Post: Chia sẻ bài viết
 Mini Player: 'Trình phát Mini'
 Comments:
   Comments: 'Bình luận'
