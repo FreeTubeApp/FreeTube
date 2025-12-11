@@ -2574,7 +2574,7 @@ export default defineComponent({
       }
 
       videoElement.playbackRate = props.currentPlaybackRate
-      videoElement.defaultPlaybackRate = props.currentPlaybackRate
+      videoElement.defaultPlaybackRate = defaultPlaybackRate.value
 
       const localPlayer = new shaka.Player()
 
