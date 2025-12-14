@@ -367,18 +367,16 @@ function handleExternalPlayer() {
   // Only play video in non playlist mode when user playlist detected
   if (props.inUserPlaylist) {
     payload = {
-      watchProgress: props.getTimestamp(),
-      playbackRate: defaultPlayback.value,
       videoId: props.id,
-      videoLength: props.lengthSeconds
+      startTime: props.getTimestamp(),
+      playbackRate: defaultPlayback.value,
     }
   } else {
     payload = {
-      watchProgress: props.getTimestamp(),
-      playbackRate: defaultPlayback.value,
       videoId: props.id,
-      videoLength: props.lengthSeconds,
       playlistId: props.playlistId,
+      startTime: props.getTimestamp(),
+      playbackRate: defaultPlayback.value,
       playlistIndex: props.getPlaylistIndex(),
       playlistReverse: props.getPlaylistReverse(),
       playlistShuffle: props.getPlaylistShuffle(),
@@ -386,7 +384,9 @@ function handleExternalPlayer() {
     }
   }
 
-  store.dispatch('openInExternalPlayer', payload)
+  if (process.env.IS_ELECTRON) {
+    window.ftElectron.openInExternalPlayer(payload)
+  }
 
   if (rememberHistory.value) {
     // Marking as watched

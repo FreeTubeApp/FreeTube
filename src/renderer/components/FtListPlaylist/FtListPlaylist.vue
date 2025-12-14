@@ -269,16 +269,12 @@ const externalPlayer = computed(() => store.getters.getExternalPlayer)
 const defaultPlayback = computed(() => store.getters.getDefaultPlayback)
 
 function handleExternalPlayer() {
-  store.dispatch('openInExternalPlayer', {
-    watchProgress: 0,
-    playbackRate: defaultPlayback.value,
-    videoId: null,
-    playlistId: playlistId,
-    playlistIndex: null,
-    playlistReverse: null,
-    playlistShuffle: null,
-    playlistLoop: null
-  })
+  if (process.env.IS_ELECTRON) {
+    window.ftElectron.openInExternalPlayer({
+      playlistId: playlistId,
+      playbackRate: defaultPlayback.value,
+    })
+  }
 }
 </script>
 

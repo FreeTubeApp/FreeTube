@@ -1,6 +1,7 @@
+import { nextTick } from 'vue'
 import i18n from '../i18n/index'
 import router from '../router/index'
-import { nextTick } from 'vue'
+import { UnsupportedPlayerActions } from '../../constants'
 
 // allowed characters in channel handle: A-Z, a-z, 0-9, -, _, .
 // https://support.google.com/youtube/answer/11585688#change_handle
@@ -555,8 +556,40 @@ export function extractNumberFromString(str) {
   }
 }
 
+/**
+ * @param {string} externalPlayer
+ * @param {import('../../constants').UnsupportedPlayerAction} action
+ */
 export function showExternalPlayerUnsupportedActionToast(externalPlayer, action) {
-  const message = i18n.global.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action })
+  let actionString = ''
+
+  switch (action) {
+    case UnsupportedPlayerActions.STARTING_VIDEO_AT_OFFSET:
+      actionString = i18n.global.t('Video.External Player.Unsupported Actions.starting video at offset')
+      break
+    case UnsupportedPlayerActions.PLAYBACK_RATE:
+      actionString = i18n.global.t('Video.External Player.Unsupported Actions.setting a playback rate')
+      break
+    case UnsupportedPlayerActions.OPENING_PLAYLISTS:
+      actionString = i18n.global.t('Video.External Player.Unsupported Actions.opening playlists')
+      break
+    case UnsupportedPlayerActions.PLAYLIST_SPECIFIC_VIDEO:
+      actionString = i18n.global.t('Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)')
+      break
+    case UnsupportedPlayerActions.PLAYLIST_REVERSE:
+      actionString = i18n.global.t('Video.External Player.Unsupported Actions.reversing playlists')
+      break
+    case UnsupportedPlayerActions.PLAYLIST_SHUFFLE:
+      actionString = i18n.global.t('Video.External Player.Unsupported Actions.shuffling playlists')
+      break
+    case UnsupportedPlayerActions.PLAYLIST_LOOP:
+      actionString = i18n.global.t('Video.External Player.Unsupported Actions.looping playlists')
+      break
+  }
+
+  const message = i18n.global.t('Video.External Player.UnsupportedActionTemplate', {
+    externalPlayer, action: actionString
+  })
   showToast(message)
 }
 
