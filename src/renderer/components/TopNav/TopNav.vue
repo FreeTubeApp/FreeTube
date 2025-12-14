@@ -43,6 +43,15 @@
         :title="forwardText"
         @click="historyForward"
       />
+      <FtIconButton
+        class="navIconButton"
+        :icon="['fas', 'refresh']"
+        :theme="null"
+        :size="20"
+        :use-shadow="false"
+        :title="$t('Reload')"
+        @click="reloadWindow"
+      />
       <button
         v-if="!hideSearchBar"
         class="navSearchButton navButton"
@@ -243,6 +252,10 @@ const newWindowText = computed(() => {
     KeyboardShortcuts.APP.GENERAL.NEW_WINDOW
   )
 })
+
+function reloadWindow() {
+  window.location.reload()
+}
 
 function createNewWindow() {
   const url = new URL(window.location.href)

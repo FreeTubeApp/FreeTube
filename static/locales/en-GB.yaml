@@ -22,6 +22,7 @@ Minimize: 'Minimise'
 Close: 'Close'
 Back: 'Back'
 Forward: 'Forward'
+Reload: Reload
 
 # Global
 # Anything shared among components / views should be put here
