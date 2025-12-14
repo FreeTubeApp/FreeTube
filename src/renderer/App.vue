@@ -252,13 +252,19 @@ function updateTheme() {
 updateTheme()
 
 const showUpdatesBanner = ref(false)
-const updateBannerMessage = ref('')
+const latestVersionNumber = ref('')
 const showReleaseNotes = ref(false)
 const changeLogTitle = ref('')
 const updateChangelog = ref('')
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const checkForUpdates = computed(() => store.getters.getCheckForUpdates)
+
+const updateBannerMessage = computed(() => {
+  return t('Version {versionNumber} is now available!  Click for more details', {
+    versionNumber: latestVersionNumber.value
+  })
+})
 
 async function checkForNewUpdates() {
   if (!checkForUpdates.value) {
@@ -283,8 +289,7 @@ async function checkForNewUpdates() {
 
     updateChangelog.value = marked.parse(changelog)
     changeLogTitle.value = json[0].name
-
-    updateBannerMessage.value = t('Version {versionNumber} is now available!  Click for more details', { versionNumber })
+    latestVersionNumber.value = versionNumber
 
     const appVersion = packageDetails.version.split('.')
     const latestVersion = versionNumber.split('.')
@@ -309,7 +314,11 @@ function toggleShowReleaseNotes() {
  * @param {boolean} response
  */
 function handleUpdateBannerClick(response) {
-  showReleaseNotes.value = !!response
+  if (response) {
+    showReleaseNotes.value = true
+  } else {
+    showUpdatesBanner.value = false
+  }
 }
 
 function openDownloadsPage() {
@@ -319,8 +328,12 @@ function openDownloadsPage() {
 }
 
 const showBlogBanner = ref(false)
-const blogBannerMessage = ref('')
+const latestBlogTitle = ref('')
 const latestBlogUrl = ref('')
+
+const blogBannerMessage = computed(() => {
+  return t('A new blog is now available, {blogTitle}. Click to view more', { blogTitle: latestBlogTitle.value })
+})
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const checkForBlogPosts = computed(() => store.getters.getCheckForBlogPosts)
@@ -344,9 +357,7 @@ async function checkForNewBlogPosts() {
   const latestPubDate = new Date(latestBlog.querySelector('pubDate').textContent)
 
   if (lastAppWasRunning === null || latestPubDate > lastAppWasRunning) {
-    const title = latestBlog.querySelector('title').textContent
-
-    blogBannerMessage.value = t('A new blog is now available, {blogTitle}. Click to view more', { blogTitle: title })
+    latestBlogTitle.value = latestBlog.querySelector('title').textContent
     latestBlogUrl.value = latestBlog.querySelector('link').textContent
     showBlogBanner.value = true
   }
