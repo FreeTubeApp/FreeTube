@@ -2421,10 +2421,10 @@ app-builder-bin@5.0.0-alpha.12:
   resolved "https://registry.yarnpkg.com/app-builder-bin/-/app-builder-bin-5.0.0-alpha.12.tgz#2daf82f8badc698e0adcc95ba36af4ff0650dc80"
   integrity sha512-j87o0j6LqPL3QRr8yid6c+Tt5gC7xNfYo6uQIQkorAC6MpeayVMZrEDzKmJJ/Hlv7EnOQpaRm53k6ktDYZyB6w==
 
-app-builder-lib@26.3.5:
-  version "26.3.5"
-  resolved "https://registry.yarnpkg.com/app-builder-lib/-/app-builder-lib-26.3.5.tgz#a734e6673ab3b69cf7890aae007687f5373186ac"
-  integrity sha512-AluSgBV7oWEE6wqC80S4drTTBWB8opxBgRGa8kSClRhULttN7pKiRz5K/74rCUi7XkstggtdQALsI6zCqenNzA==
+app-builder-lib@26.3.6:
+  version "26.3.6"
+  resolved "https://registry.yarnpkg.com/app-builder-lib/-/app-builder-lib-26.3.6.tgz#42aeb5010aa8d00862dfa0afb791ba59e4e9d9a6"
+  integrity sha512-PmABRmTJKEE4WC0Kan5q23iLpt6LFZ5MVxEYBLgi6ZGjoboGSE536ZO+iCsaoBo3+/hpwx0XK1Njts0/Y1Fe7w==
   dependencies:
     "@develar/schema-utils" "~2.6.5"
     "@electron/asar" "3.4.1"
@@ -3549,12 +3549,12 @@ dir-glob@^3.0.1:
   dependencies:
     path-type "^4.0.0"
 
-dmg-builder@26.3.5:
-  version "26.3.5"
-  resolved "https://registry.yarnpkg.com/dmg-builder/-/dmg-builder-26.3.5.tgz#71f7172bbdb1ef019a910ecb31cca5fd20250c84"
-  integrity sha512-3qXWrP5zWswQi3EqFQyQWMkAHpwMdNDoVaJfqbfLPqX1umq7m+Fav30mQd6Sk7nXH+YvrrjjoeIfif/PH/l1mQ==
+dmg-builder@26.3.6:
+  version "26.3.6"
+  resolved "https://registry.yarnpkg.com/dmg-builder/-/dmg-builder-26.3.6.tgz#b42b2add19eda3661b0e267c7566d0438a0f50ea"
+  integrity sha512-DFUJbtO6AQWZRZgMZnYd+/G1ehD1wncIKbu0fX5P0PJOnJ6K22GeYBESTjviFROsgTQCUtW1J5Lubx63ePt4Jw==
   dependencies:
-    app-builder-lib "26.3.5"
+    app-builder-lib "26.3.6"
     builder-util "26.3.4"
     fs-extra "^10.1.0"
     iconv-lite "^0.6.2"
@@ -3698,17 +3698,17 @@ ejs@^3.1.8:
   dependencies:
     jake "^10.8.5"
 
-electron-builder@^26.3.5:
-  version "26.3.5"
-  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-26.3.5.tgz#4fbc0f7afed051b3d802baef4eac683b98c44354"
-  integrity sha512-I0HNjrWEGnCKDsQ9GkFa92E1hW/FmKe88bh75jucBoHRIcZUvTwbqJFGn9kKG6cFq9eOWCXOEVs+RvXT/Ma49Q==
+electron-builder@^26.3.6:
+  version "26.3.6"
+  resolved "https://registry.yarnpkg.com/electron-builder/-/electron-builder-26.3.6.tgz#35b3d570b1d45d00a68f15808d79ba1bafc8ca0d"
+  integrity sha512-6pf4oKHq+yotN8N6D9dWJaGbRMgZMG4mVQJ6CyvG0Y+6Y8dqUShUA8I/cxMhY5uI5XfFM3CpOp2wYU5aVCn4cQ==
   dependencies:
-    app-builder-lib "26.3.5"
+    app-builder-lib "26.3.6"
     builder-util "26.3.4"
     builder-util-runtime "9.5.1"
     chalk "^4.1.2"
     ci-info "^4.2.0"
-    dmg-builder "26.3.5"
+    dmg-builder "26.3.6"
     fs-extra "^10.1.0"
     lazy-val "^1.0.5"
     simple-update-notifier "2.0.0"
