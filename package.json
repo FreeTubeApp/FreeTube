@@ -70,7 +70,7 @@
     "vue": "^3.5.25",
     "vue-i18n": "^11.2.2",
     "vue-observe-visibility": "^2.0.0-alpha.1",
-    "vue-router": "^4.6.3",
+    "vue-router": "^4.6.4",
     "vuex": "^4.1.0",
     "youtubei.js": "^16.0.1"
   },
