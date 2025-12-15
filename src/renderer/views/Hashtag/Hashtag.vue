@@ -42,7 +42,7 @@
           @keydown.space.prevent="handleFetchMore"
           @keydown.enter.prevent="handleFetchMore"
         >
-          <FontAwesomeIcon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
+          <FontAwesomeIcon :icon="['fas', 'search']" /> {{ $t("Search filters.Fetch more results") }}
         </div>
       </FtAutoLoadNextPageWrapper>
     </FtCard>

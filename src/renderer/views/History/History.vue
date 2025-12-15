@@ -33,7 +33,7 @@
         <FtSelect
           v-if="fullData.length > 1"
           class="sortSelect"
-          :placeholder="t('Global.Sort By')"
+          :placeholder="t('Global.Sort by')"
           :value="sortBy"
           :select-names="sortByNames"
           :select-values="SORT_BY_VALUES"

@@ -43,7 +43,7 @@
     <FtSelect
       v-if="commentData.length > 0 && !isLoading && showComments && showSortBy"
       class="commentSort"
-      :placeholder="$t('Global.Sort By')"
+      :placeholder="$t('Global.Sort by')"
       :value="currentSortValue"
       :select-names="sortNames"
       :select-values="sortValues"

@@ -47,7 +47,7 @@
           v-if="!hideVideoViews && watchingCount !== null"
           class="watchingCount"
         >
-          {{ t('Global.Counts.Watching Count', { count: formattedWatchingCount }, watchingCount) }}
+          {{ t('Global.Counts.Watching count', { count: formattedWatchingCount }, watchingCount) }}
         </span>
       </h4>
       <div

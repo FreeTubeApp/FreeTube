@@ -17,8 +17,8 @@
     </p>
     <button
       class="closeButton"
-      :aria-label="$t('Close Banner')"
-      :title="$t('Close Banner')"
+      :aria-label="$t('Close banner')"
+      :title="$t('Close banner')"
       @click="handleClose"
       @keydown.enter.space.stop
     >

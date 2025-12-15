@@ -152,7 +152,7 @@ class ProcessLocalesPlugin {
       const data = loadYaml(contents)
       this.locales.set(locale, data)
 
-      this.localeNames.push(data['Locale Name'] ?? locale)
+      this.localeNames.push(data['Locale name'] ?? locale)
     }
   }
 

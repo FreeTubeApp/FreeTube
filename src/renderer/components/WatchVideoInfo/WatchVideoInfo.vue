@@ -298,7 +298,7 @@ const parsedViewCount = computed(() => {
     return null
   }
 
-  return t('Global.Counts.View Count', { count: formatNumber(props.viewCount) }, props.viewCount)
+  return t('Global.Counts.View count', { count: formatNumber(props.viewCount) }, props.viewCount)
 })
 
 const dateString = computed(() => {

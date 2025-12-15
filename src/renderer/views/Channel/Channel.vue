@@ -45,7 +45,7 @@
           :value="videoSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
-          :placeholder="$t('Global.Sort By')"
+          :placeholder="$t('Global.Sort by')"
           :icon="getIconForSortPreference(videoSortBy)"
           @change="videoSortBy = $event"
         />
@@ -55,7 +55,7 @@
           :value="shortSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
-          :placeholder="$t('Global.Sort By')"
+          :placeholder="$t('Global.Sort by')"
           :icon="getIconForSortPreference(shortSortBy)"
           @change="shortSortBy = $event"
         />
@@ -65,7 +65,7 @@
           :value="liveSortBy"
           :select-names="videoLiveShortSelectNames"
           :select-values="videoLiveShortSelectValues"
-          :placeholder="$t('Global.Sort By')"
+          :placeholder="$t('Global.Sort by')"
           :icon="getIconForSortPreference(liveSortBy)"
           @change="liveSortBy = $event"
         />
@@ -75,7 +75,7 @@
           :value="playlistSortBy"
           :select-names="playlistSelectNames"
           :select-values="PLAYLIST_SELECT_VALUES"
-          :placeholder="$t('Global.Sort By')"
+          :placeholder="$t('Global.Sort by')"
           :icon="getIconForSortPreference(playlistSortBy)"
           @change="playlistSortBy = $event"
         />
@@ -241,7 +241,7 @@
             @keydown.space.prevent="handleFetchMore"
             @keydown.enter.prevent="handleFetchMore"
           >
-            <FontAwesomeIcon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
+            <FontAwesomeIcon :icon="['fas', 'search']" /> {{ $t("Search filters.Fetch more results") }}
           </div>
         </FtAutoLoadNextPageWrapper>
       </div>

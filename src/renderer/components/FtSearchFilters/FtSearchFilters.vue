@@ -13,7 +13,7 @@
         </h2>
         <button
           class="clearFilterButton"
-          :title="$t('Search Filters.Clear Filters')"
+          :title="$t('Search filters.Clear filters')"
           :style="{visibility: (searchFilterValueChanged ? 'visible' : 'hidden')}"
           @click="clearFilters"
         >
@@ -28,35 +28,35 @@
     <FtFlexBox class="radioFlexBox">
       <FtRadioButton
         v-model="sortByValue"
-        :title="$t('Global.Sort By')"
+        :title="$t('Global.Sort by')"
         :labels="sortByLabels"
         :values="SORT_BY_VALUES"
         class="searchRadio"
       />
       <FtRadioButton
         v-model="timeValue"
-        :title="$t('Search Filters.Time.Time')"
+        :title="$t('Search filters.Time.Time')"
         :labels="timeLabels"
         :values="TIME_VALUES"
         class="searchRadio"
       />
       <FtRadioButton
         v-model="typeValue"
-        :title="$t('Search Filters.Type.Type')"
+        :title="$t('Search filters.Type.Type')"
         :labels="typeLabels"
         :values="TYPE_VALUES"
         class="searchRadio"
       />
       <FtRadioButton
         v-model="durationValue"
-        :title="$t('Search Filters.Duration.Duration')"
+        :title="$t('Search filters.Duration.Duration')"
         :labels="durationLabels"
         :values="DURATION_VALUES"
         class="searchRadio"
       />
       <FtCheckboxList
         v-model="featuresValue"
-        :title="$t('Search Filters.Features.Features')"
+        :title="$t('Search filters.Features.Features')"
         :labels="featureLabels"
         :values="FEATURE_VALUES"
         class="searchRadio"
@@ -138,50 +138,50 @@ const NOT_ALLOWED_FOR_MOVIES_FEATURES = [
   'creative_commons'
 ]
 
-const title = computed(() => t('Search Filters.Search Filters'))
+const title = computed(() => t('Search filters.Search filters'))
 
 const sortByLabels = computed(() => [
-  t('Search Filters.Sort By.Most Relevant'),
-  t('Search Filters.Sort By.Rating'),
-  t('Search Filters.Sort By.Upload Date'),
-  t('Search Filters.Sort By.View Count')
+  t('Search filters.Sort by.Most relevant'),
+  t('Search filters.Sort by.Rating'),
+  t('Search filters.Sort by.Upload date'),
+  t('Search filters.Sort by.View count')
 ])
 
 const timeLabels = computed(() => [
-  t('Search Filters.Time.Any Time'),
-  t('Search Filters.Time.Last Hour'),
-  t('Search Filters.Time.Today'),
-  t('Search Filters.Time.This Week'),
-  t('Search Filters.Time.This Month'),
-  t('Search Filters.Time.This Year')
+  t('Search filters.Time.Any time'),
+  t('Search filters.Time.Last hour'),
+  t('Search filters.Time.Today'),
+  t('Search filters.Time.This week'),
+  t('Search filters.Time.This month'),
+  t('Search filters.Time.This year')
 ])
 
 const typeLabels = computed(() => [
-  t('Search Filters.Type.All Types'),
-  t('Search Filters.Type.Videos'),
-  t('Search Filters.Type.Channels'),
+  t('Search filters.Type.All types'),
+  t('Search filters.Type.Videos'),
+  t('Search filters.Type.Channels'),
   t('Playlists'),
-  t('Search Filters.Type.Movies')
+  t('Search filters.Type.Movies')
 ])
 
 const durationLabels = computed(() => [
-  t('Search Filters.Duration.All Durations'),
-  t('Search Filters.Duration.Short (< 4 minutes)'),
-  t('Search Filters.Duration.Medium (4 - 20 minutes)'),
-  t('Search Filters.Duration.Long (> 20 minutes)')
+  t('Search filters.Duration.All durations'),
+  t('Search filters.Duration.Short (< 4 minutes)'),
+  t('Search filters.Duration.Medium (4 - 20 minutes)'),
+  t('Search filters.Duration.Long (> 20 minutes)')
 ])
 
 const featureLabels = computed(() => [
-  t('Search Filters.Features.HD'),
-  t('Search Filters.Features.Subtitles'),
-  t('Search Filters.Features.Creative Commons'),
-  t('Search Filters.Features.3D'),
-  t('Search Filters.Features.Live'),
-  t('Search Filters.Features.4K'),
-  t('Search Filters.Features.360 Video'),
-  t('Search Filters.Features.Location'),
-  t('Search Filters.Features.HDR'),
-  t('Search Filters.Features.VR180')
+  t('Search filters.Features.HD'),
+  t('Search filters.Features.Subtitles'),
+  t('Search filters.Features.Creative Commons'),
+  t('Search filters.Features.3D'),
+  t('Search filters.Features.Live'),
+  t('Search filters.Features.4K'),
+  t('Search filters.Features.360 video'),
+  t('Search filters.Features.Location'),
+  t('Search filters.Features.HDR'),
+  t('Search filters.Features.VR180')
 ])
 
 const searchSettings = store.getters.getSearchSettings

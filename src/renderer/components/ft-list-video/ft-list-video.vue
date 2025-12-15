@@ -139,7 +139,7 @@
           class="viewCount"
         >
           <template v-if="channelId !== null || channelName !== null"> • </template>
-          {{ $t('Global.Counts.View Count', {count: parsedViewCount}, viewCount) }}
+          {{ $t('Global.Counts.View count', {count: parsedViewCount}, viewCount) }}
         </span>
         <span
           v-if="uploadedTime !== '' && !isLive"
@@ -148,7 +148,7 @@
         <span
           v-if="isLive && !hideViews"
           class="viewCount"
-        > • {{ $t('Global.Counts.Watching Count', {count: parsedViewCount}, viewCount) }}</span>
+        > • {{ $t('Global.Counts.Watching count', {count: parsedViewCount}, viewCount) }}</span>
       </div>
       <div
         v-if="is4k || hasCaptions || is8k || isNew || isVr180 || isVr360 || is3D"
@@ -157,58 +157,58 @@
         <div
           v-if="isNew"
           class="videoTag"
-          :aria-label="$t('Search Listing.Label.New')"
+          :aria-label="$t('Search listing.Label.New')"
           role="img"
         >
-          {{ $t('Search Listing.Label.New') }}
+          {{ $t('Search listing.Label.New') }}
         </div>
         <div
           v-if="is4k"
           class="videoTag"
-          :aria-label="$t('Search Listing.Label.4K')"
+          :aria-label="$t('Search listing.Label.4K')"
           role="img"
         >
-          {{ $t('Search Listing.Label.4K') }}
+          {{ $t('Search listing.Label.4K') }}
         </div>
         <div
           v-if="is8k"
           class="videoTag"
-          :aria-label="$t('Search Listing.Label.8K')"
+          :aria-label="$t('Search listing.Label.8K')"
           role="img"
         >
-          {{ $t('Search Listing.Label.8K') }}
+          {{ $t('Search listing.Label.8K') }}
         </div>
         <div
           v-if="isVr180"
           class="videoTag"
-          :aria-label="$t('Search Listing.Label.VR180')"
+          :aria-label="$t('Search listing.Label.VR180')"
           role="img"
         >
-          {{ $t('Search Listing.Label.VR180') }}
+          {{ $t('Search listing.Label.VR180') }}
         </div>
         <div
           v-if="isVr360"
           class="videoTag"
-          :aria-label="$t('Search Listing.Label.360 Video')"
+          :aria-label="$t('Search listing.Label.360 video')"
           role="img"
         >
-          {{ $t('Search Listing.Label.360 Video') }}
+          {{ $t('Search listing.Label.360 video') }}
         </div>
         <div
           v-if="is3D"
           class="videoTag"
-          :aria-label="$t('Search Listing.Label.3D')"
+          :aria-label="$t('Search listing.Label.3D')"
           role="img"
         >
-          {{ $t('Search Listing.Label.3D') }}
+          {{ $t('Search listing.Label.3D') }}
         </div>
         <div
           v-if="hasCaptions"
           class="videoTag"
-          :aria-label="$t('Search Listing.Label.Closed Captions')"
+          :aria-label="$t('Search listing.Label.Closed Captions')"
           role="img"
         >
-          {{ $t('Search Listing.Label.Subtitles') }}
+          {{ $t('Search listing.Label.Subtitles') }}
         </div>
       </div>
       <div class="buttonStack">
