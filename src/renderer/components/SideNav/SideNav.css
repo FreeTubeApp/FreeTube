@@ -164,51 +164,51 @@
     block-size: 10px;
   }
 
-  .open {
+  .opened {
     inline-size: 200px;
   }
 
-  .open .inner {
+  .opened .inner {
     inline-size: 200px;
   }
 
-  .open .refreshIcon {
+  .opened .refreshIcon {
     display: block;
   }
 
-  .open .navIcon {
+  .opened .navIcon {
     inline-size: 1.25em;
     margin-inline-start: 10px;
   }
 
-  .open .navIconExpand.fa-user-check {
+  .opened .navIconExpand.fa-user-check {
     /* This icon is too big by default */
     inline-size: 1em;
   }
 
-  .open .navOption {
+  .opened .navOption {
     padding-inline: 5px;
   }
 
-  .open .navLabel {
+  .opened .navLabel {
     text-align: start;
     margin-inline-start: 40px;
     margin-block-end: 16px;
     font-size: 16px;
   }
 
-  .open .navChannel .navLabel {
+  .opened .navChannel .navLabel {
     font-size: 12px;
   }
 
-  .open .thumbnailContainer {
+  .opened .thumbnailContainer {
     inset-block-start: 50%;
     position: absolute;
     transform: translateY(-50%);
     margin-block: 0;
   }
 
-  .open.hiddenLabels .navLabel {
+  .opened.hiddenLabels .navLabel {
     display: block;
   }
 }
