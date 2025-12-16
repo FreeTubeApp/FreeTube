@@ -197,8 +197,15 @@
     font-size: 16px;
   }
 
+  .opened .channelLink {
+    display: flex;
+    align-items: center;
+  }
+
   .opened .navChannel .navLabel {
     font-size: 12px;
+    flex-grow: 1;
+    margin: 0;
   }
 
   .opened .thumbnailContainer {
@@ -206,6 +213,12 @@
     position: absolute;
     transform: translateY(-50%);
     margin-block: 0;
+  }
+
+  .opened .navChannel .thumbnailContainer {
+    position: static;
+    transform: none;
+    margin: 5px;
   }
 
   .opened.hiddenLabels .navLabel {
