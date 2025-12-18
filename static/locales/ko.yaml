@@ -110,6 +110,7 @@ Trending:
   Trending: '트렌딩'
   Trending Tabs: 트렌딩 탭
   Gaming: 게임
+  Sports: 스포츠
 Most Popular: '인기 동영상'
 Playlists: '재생 목록'
 User Playlists:
@@ -491,6 +492,8 @@ Channel:
     About: '정보'
     Channel Description: '채널 설명'
     Featured Channels: '추천 채널'
+  Podcasts:
+    Podcasts: 팟캐스트
 Video:
   Mark As Watched: '시청함으로 표시'
   Remove From History: '기록에서 제거'

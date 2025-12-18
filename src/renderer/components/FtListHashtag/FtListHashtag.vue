@@ -25,7 +25,10 @@
         class="title"
         :to="url"
       >
-        <h3 class="h3Title">
+        <h3
+          class="h3Title"
+          dir="auto"
+        >
           {{ title }}
         </h3>
       </router-link>

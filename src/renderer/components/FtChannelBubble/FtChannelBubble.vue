@@ -19,6 +19,7 @@
     <div
       :id="id"
       class="channelName"
+      dir="auto"
     >
       {{ channelName }}
     </div>
@@ -50,6 +51,7 @@
     <div
       :id="id"
       class="channelName"
+      dir="auto"
     >
       {{ channelName }}
     </div>

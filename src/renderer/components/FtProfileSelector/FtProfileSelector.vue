@@ -16,6 +16,7 @@
     >
       <div
         class="initial"
+        dir="auto"
       >
         {{ activeProfileInitial }}
       </div>
@@ -63,6 +64,7 @@
           >
             <div
               class="initial"
+              dir="auto"
             >
               {{ profileInitials[profile._id] }}
             </div>
@@ -70,6 +72,7 @@
           <p
             :id="id + profile._id"
             class="profileName"
+            dir="auto"
           >
             {{ translateProfileName(profile) }}
           </p>

@@ -7,7 +7,6 @@ const IpcChannels = {
   STOP_POWER_SAVE_BLOCKER: 'stop-power-save-blocker',
   START_POWER_SAVE_BLOCKER: 'start-power-save-blocker',
   CREATE_NEW_WINDOW: 'create-new-window',
-  OPEN_IN_EXTERNAL_PLAYER: 'open-in-external-player',
   NATIVE_THEME_UPDATE: 'native-theme-update',
   APP_READY: 'app-ready',
   RELAUNCH_REQUEST: 'relaunch-request',
@@ -46,6 +45,9 @@ const IpcChannels = {
   GET_SCREENSHOT_FALLBACK_FOLDER: 'get-screenshot-fallback-folder',
   CHOOSE_DEFAULT_FOLDER: 'choose-default-folder',
   WRITE_TO_DEFAULT_FOLDER: 'write-to-default-folder',
+
+  OPEN_IN_EXTERNAL_PLAYER: 'open-in-external-player',
+  OPEN_IN_EXTERNAL_PLAYER_RESULT: 'open-in-external-player-result'
 }
 
 const DBActions = {
@@ -228,6 +230,20 @@ const PlayerIcons = {
   SKIP_PREVIOUS_FILLED: 'M220-280v-400q0-17 11.5-28.5T260-720q17 0 28.5 11.5T300-680v400q0 17-11.5 28.5T260-240q-17 0-28.5-11.5T220-280Zm458-1L430-447q-9-6-13.5-14.5T412-480q0-10 4.5-18.5T430-513l248-166q5-4 11-5t11-1q16 0 28 11t12 29v330q0 18-12 29t-28 11q-5 0-11-1t-11-5Z'
 }
 
+const UnsupportedPlayerActions = /** @type {const} */({
+  STARTING_VIDEO_AT_OFFSET: 1,
+  PLAYBACK_RATE: 2,
+  OPENING_PLAYLISTS: 3,
+  PLAYLIST_SPECIFIC_VIDEO: 4,
+  PLAYLIST_REVERSE: 5,
+  PLAYLIST_SHUFFLE: 6,
+  PLAYLIST_LOOP: 7,
+})
+
+/**
+ * @typedef {UnsupportedPlayerActions[(keyof typeof UnsupportedPlayerActions)]} UnsupportedPlayerAction
+ */
+
 // Utils
 const MAIN_PROFILE_ID = 'allChannels'
 
@@ -256,6 +272,7 @@ export {
   DefaultFolderKind,
   KeyboardShortcuts,
   PlayerIcons,
+  UnsupportedPlayerActions,
   MAIN_PROFILE_ID,
   MOBILE_WIDTH_THRESHOLD,
   PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD,

@@ -93,10 +93,18 @@
 .commentText {
   white-space: pre-wrap;
   font-size: 14px;
-  margin-block-start: -10px;
+  /* stylelint-disable-next-line liberty/use-logical-spec */
+  margin-left: -10px;
   margin-inline-start: 70px;
   overflow-wrap: break-word;
 }
+
+/* stylelint-disable liberty/use-logical-spec */
+:global(body[dir='rtl'] .commentText) {
+  margin-left: initial;
+  margin-right: -10px;
+}
+/* stylelint-enable liberty/use-logical-spec */
 
 .commentPinned {
   font-weight: normal;

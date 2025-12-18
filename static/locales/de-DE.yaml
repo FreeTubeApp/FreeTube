@@ -43,7 +43,7 @@ Search / Go to URL: Suchen / URL öffnen
 Search Filters:
   Search Filters: Suchfilter
   Sort By:
-    Most Relevant: Am relevantesten
+    Most Relevant: Relevanz
     Rating: Bewertung
     Upload Date: Upload-Datum
     View Count: Anzahl der Aufrufe
@@ -373,7 +373,7 @@ Settings:
     Play Next Video: Empfohlene Videos automatisch abspielen
     Turn on Subtitles by Default: Untertitel standardmäßig einschalten
     Autoplay Videos: Videos automatisch starten
-    Proxy Videos Through Invidious: Proxy-Videos durch Invidious
+    Proxy Videos Through Invidious: Videos durch Invidious leiten
     Autoplay Playlists: Videos in Playlist automatisch abspielen
     Enable Theatre Mode by Default: Kinomodus standardmäßig aktivieren
     Default Volume: Standard-Lautstärke
@@ -795,7 +795,7 @@ Video:
       Video ID: 'Videokennung (ID): {videoId}'
       Media Formats: 'Medienformate: {formats}'
       Resolution: 'Auflösung: {width}×{height}{''@''}{frameRate}'
-      Player Dimensions: 'Player-Ausmaße: {width}×{height}'
+      Player Dimensions: 'Player-Größe: {width}×{height}'
       Bitrate: 'Bitrate: {bitrate} kb/s'
       Volume: 'Lautstärke: {volumePercentage} %'
       Bandwidth: 'Bandbreite: {bandwidth} kb/s'
@@ -946,7 +946,7 @@ Profile:
   Profile Select: Profilauswahl
   Profile Filter: Profilfilter
   Profile Settings: Profil
-  Toggle Profile List: Profilliste umschalten
+  Toggle Profile List: Profilauswahl
   Profile Name: Profilname
   Edit Profile Name: Profilname bearbeiten
   Create Profile Name: Profilname erstellen
@@ -1124,3 +1124,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Zum nächsten Video in der Playlist bzw. nächsten empfohlenen Video springen
   Skip to Previous Video: Zum vorherigen Video in der Playlist springen
 shortcutLabelSeparator: ｜
+Compact side navigation: Seitenleiste minimieren
+Expand side navigation: Seitenleiste erweitern

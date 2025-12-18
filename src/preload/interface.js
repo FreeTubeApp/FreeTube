@@ -146,11 +146,27 @@ export default {
   },
 
   /**
-   * @param {string} executable
-   * @param {string} args
+   * @param {import('../main/externalPlayer').ExternalPlayerPayload} payload
    */
-  openInExternalPlayer: (executable, args) => {
-    ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, executable, args)
+  openInExternalPlayer: (payload) => {
+    // require the user to have interacted with the page recently
+    if (navigator.userActivation.isActive) {
+      ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, payload)
+    }
+  },
+
+  /**
+   * @param {(
+   *   externalPlayer: string,
+   *   unsuportedActions: (import('../constants').UnsupportedPlayerAction)[],
+   *   isPlaylist: boolean
+   * ) => void} handler
+   */
+  handleOpenInExternalPlayerResult: (handler) => {
+    ipcRenderer.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER_RESULT,
+      (event, externalPlayer, unsupportedActions, isPlaylist) => {
+        handler(externalPlayer, unsupportedActions, isPlaylist)
+      })
   },
 
   /**
