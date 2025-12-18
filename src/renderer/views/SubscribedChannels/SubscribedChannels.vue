@@ -56,6 +56,7 @@
             </router-link>
             <router-link
               class="channelName"
+              dir="auto"
               :title="channel.name"
               :to="`/channel/${channel.id}`"
             >

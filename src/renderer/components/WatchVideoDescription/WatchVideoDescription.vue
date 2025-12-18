@@ -22,12 +22,12 @@
       @timestamp-event="onTimestamp"
       @click="expandDescriptionWithClick"
     />
-    <span
+    <bdi
       v-if="license && showFullDescription"
       class="license"
     >
       {{ license }}
-    </span>
+    </bdi>
     <span
       v-if="showControls && showFullDescription"
       class="descriptionStatus"

@@ -734,8 +734,8 @@ Video:
     In less than a minute: In meno di un minuto
   Published on: 'Pubblicato il'
 #& Videos
-  Previous: Indietro
-  Next: Avanti
+  Previous: Precedente
+  Next: Successivo
   Reverse Playlist: Playlist al contrario
   Shuffle Playlist: Riproduzione playlist casuale
   Loop Playlist: Riproduzione continua playlist
@@ -1124,3 +1124,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Salta al video successivo in una playlist o al video consigliato successivo
   Skip to Previous Video: Salta al video precedente in una playlist
 shortcutLabelSeparator: ｜
+Expand side navigation: Espandi la navigazione laterale
+Compact side navigation: Compatta la navigazione laterale

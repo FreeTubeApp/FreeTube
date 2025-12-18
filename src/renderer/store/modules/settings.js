@@ -360,13 +360,6 @@ const sideEffectHandlers = {
 
     const loadPromises = []
 
-    if (targetLocale !== fallbackLocale) {
-      // "en-US" is used as a fallback for missing strings in other locales
-      loadPromises.push(
-        loadLocale(fallbackLocale)
-      )
-    }
-
     // "es" is used as a fallback for "es-AR" and "es-MX"
     if (targetLocale === 'es-AR' || targetLocale === 'es-MX') {
       loadPromises.push(

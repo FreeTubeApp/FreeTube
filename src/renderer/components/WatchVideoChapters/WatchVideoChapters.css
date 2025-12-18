@@ -37,13 +37,16 @@
   transform: translateX(4px) rotate(90deg);
 }
 
+.chaptersDetails[open]:dir(rtl) .chaptersChevron {
+  transform: translateX(-4px) rotate(90deg);
+}
+
 .chapter {
   display: grid;
   grid-template:
     'thumbnail title' 2fr
     'thumbnail timestamp' 2fr / auto 1fr;
   column-gap: 10px;
-  justify-items: start;
   cursor: pointer;
   font-size: 15px;
 }
@@ -76,7 +79,7 @@
 
 .chapterTimestamp {
   grid-area: timestamp;
-  align-self: flex-start;
+  place-self: flex-start start;
   padding-block: 3px;
   padding-inline: 4px;
   border-radius: 5px;

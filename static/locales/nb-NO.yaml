@@ -1124,3 +1124,5 @@ Channel Hidden: '{channel} lagt til i kanalfilteret'
 Channel Unhidden: '{channel} fjernet fra kanalfilteret'
 Tag already exists: «{tagName}»-taggen eksisterer allerede
 Trimmed input must be at least N characters long: Trimmet input må være minst ett tegn langt | Trimmet input må være minst {length} tegn langt
+Compact side navigation: Kompakt sidenavigasjon
+Expand side navigation: Utvid sidenavigasjon

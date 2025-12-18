@@ -74,11 +74,11 @@
           <p
             class="superChatContent"
           >
-            <span
+            <bdi
               class="donationAmount"
             >
               {{ comment.superChat.amount }}
-            </span>
+            </bdi>
           </p>
         </div>
       </div>
@@ -106,17 +106,20 @@
             >
             <p
               class="channelName"
+              dir="auto"
             >
               {{ superChat.author.name }}
             </p>
             <p
               class="donationAmount"
+              dir="auto"
             >
               {{ superChat.superChat.amount }}
             </p>
           </div>
           <p
             class="chatMessage"
+            dir="auto"
             v-html="superChat.message"
           />
         </div>
@@ -147,11 +150,13 @@
               >
               <p
                 class="channelName"
+                dir="auto"
               >
                 {{ comment.author.name }}
               </p>
               <p
                 class="donationAmount"
+                dir="auto"
               >
                 {{ comment.superChat.amount }}
               </p>
@@ -159,6 +164,7 @@
             <p
               v-if="comment.message"
               class="chatMessage"
+              dir="auto"
               v-html="comment.message"
             />
           </template>
@@ -173,7 +179,7 @@
             <p
               class="chatContent"
             >
-              <span
+              <bdi
                 class="channelName"
                 :class="{
                   member: comment.author.isMember,
@@ -182,7 +188,7 @@
                 }"
               >
                 {{ comment.author.name }}
-              </span>
+              </bdi>
               <span
                 v-if="comment.author.badge"
                 class="badge"
@@ -194,7 +200,7 @@
                   class="badgeImage"
                 >
               </span>
-              <span
+              <bdi
                 class="chatMessage"
                 v-html="comment.message"
               />

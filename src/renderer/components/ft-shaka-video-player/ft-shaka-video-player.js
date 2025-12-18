@@ -1001,6 +1001,7 @@ export default defineComponent({
       const fullscreenTitleOverlay = document.createElement('h1')
       fullscreenTitleOverlay.textContent = props.title
       fullscreenTitleOverlay.className = 'playerFullscreenTitleOverlay'
+      fullscreenTitleOverlay.dir = 'auto'
       controlsContainer.appendChild(fullscreenTitleOverlay)
 
       if (hasLoaded.value && props.chapters.length > 0) {
