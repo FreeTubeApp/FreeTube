@@ -110,6 +110,7 @@ Trending:
   Trending: 'Hot lige nu'
   Trending Tabs: Hot lige nu-faner
   Gaming: Gaming
+  Sports: Sport
 Most Popular: 'Mest populære'
 Playlists: 'Playlister'
 User Playlists:
@@ -750,8 +751,8 @@ Video:
   Loop Playlist: 'Gentag playliste'
   Shuffle Playlist: 'Bland playliste'
   Reverse Playlist: 'Omvendt playliste'
-  Play Next Video: 'Afspil næste video'
-  Play Previous Video: 'Afspil forrige video'
+  Previous: 'Forrige'
+  Next: 'Næste'
   Watched: 'Set'
   Autoplay: 'Auto-afspil'
   Starting soon, please refresh the page to check again: 'Begynder snart; opdater venligst siden for at tjekke igen'

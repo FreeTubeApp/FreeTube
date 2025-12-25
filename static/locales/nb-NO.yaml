@@ -751,8 +751,8 @@ Video:
   Copy YouTube Channel Link: Kopier YouTube-kanallenke
   Video has been removed from your saved list: Videoen har blitt fjernet fra din liste over lagrede videoer
   Open Channel in YouTube: Åpne kanal i YouTube
-  Play Previous Video: Spill av forrige video
-  Play Next Video: Spill av neste video
+  Previous: 'Forrige'
+  Next: 'Neste'
   Sponsor Block category:
     interaction: Samhandling
     outro: Outro
@@ -1124,3 +1124,5 @@ Channel Hidden: '{channel} lagt til i kanalfilteret'
 Channel Unhidden: '{channel} fjernet fra kanalfilteret'
 Tag already exists: «{tagName}»-taggen eksisterer allerede
 Trimmed input must be at least N characters long: Trimmet input må være minst ett tegn langt | Trimmet input må være minst {length} tegn langt
+Compact side navigation: Kompakt sidenavigasjon
+Expand side navigation: Utvid sidenavigasjon

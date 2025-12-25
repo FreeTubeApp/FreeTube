@@ -776,8 +776,8 @@ Video:
   Loop Playlist: 'Endurtaka spilunarlista endalaust'
   Shuffle Playlist: 'Stokka spilunarlista'
   Reverse Playlist: 'Snúa við spilunarlista'
-  Play Next Video: 'Spila næsta myndskeið'
-  Play Previous Video: 'Spila fyrra myndskeið'
+  Previous: 'Spila aftur'
+  Next: 'Næsta'
   Watched: 'Búið að horfa'
   Autoplay: 'Spila sjálfkrafa'
   Starting soon, please refresh the page to check again: 'Byrjar bráðum, endurlestu síðuna til að fylgjast með'
@@ -1127,3 +1127,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Sleppa yfir á næsta myndskeið í spilunarlista eða næsta myndskeið sem mælt er með
   Skip to Previous Video: Sleppa yfir á fyrra myndskeið í spilunarlista
 shortcutLabelSeparator: ｜
+Compact side navigation: Þjöppuð hliðarflakkstika
+Expand side navigation: Fella út hliðarflakkstiku

@@ -35,6 +35,7 @@
           :use-theatre-mode="useTheatreMode"
           :autoplay-possible="autoplayPossible"
           :autoplay-enabled="autoplayEnabled"
+          :watching-playlist="watchingPlaylist"
           :vr-projection="vrProjection"
           :start-in-fullscreen="startNextVideoInFullscreen"
           :start-in-fullwindow="startNextVideoInFullwindow"

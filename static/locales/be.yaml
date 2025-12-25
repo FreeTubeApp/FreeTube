@@ -127,6 +127,7 @@ Trending:
   Trending: 'У трэндзе'
   Gaming: 'Гульні'
   Trending Tabs: 'Укладкі Трэндаў'
+  Sports: Спорт
 Most Popular: 'Папулярныя'
 Playlists: 'Плэй-лісты'
 User Playlists:
@@ -774,8 +775,8 @@ Video:
   Loop Playlist: 'Зацыкліць плэй-ліст'
   Shuffle Playlist: 'Перамяшаць плэй-ліст'
   Reverse Playlist: 'Перавернуць плэй-ліст'
-  Play Next Video: 'Прайграць наступнае відэа'
-  Play Previous Video: 'Прайграць папярэдняе відэа'
+  Previous: 'Назад'
+  Next: 'Наступнае'
   Watched: 'Прагледжанае'
   Autoplay: 'Аўтапрайграванне'
   Starting soon, please refresh the page to check again: 'Хутка пачнецца, абнавіце старонку, каб праверыць яшчэ раз'

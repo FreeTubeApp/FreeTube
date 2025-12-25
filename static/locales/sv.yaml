@@ -42,7 +42,7 @@ Global:
     Comment Count: 1 kommentar | {count} kommentarer
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} är nu tillgänglig!  Klicka för mer detaljer'
 Download From Site: 'Ladda ner från sajten'
-A new blog is now available, {blogTitle}. Click to view more: 'En ny bloggpost är nu tillgänglig, {blogTitle}. Klicka för att se mer'
+A new blog is now available, {blogTitle}. Click to view more: 'En ny blogg finns nu tillgänglig, {blogTitle}. Klicka för att se mer'
 
 # Search Bar
 Search / Go to URL: 'Sök / Gå till URL'
@@ -167,7 +167,7 @@ User Playlists:
       This playlist is now used for quick bookmark: Den här spellistan används nu för snabb bokmärke
       Reverted to use {oldPlaylistName} for quick bookmark: Återgått till att använda {oldPlaylistName} för snabbt bokmärke
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Vissa videor i spellistan är inte inlästa ännu. Klicka här för att kopiera ändå.
-      Playlist name cannot be empty. Please input a name.: Spellistans namn kan inte vara tomt. Vänligen ange ett namn.
+      Playlist name cannot be empty. Please input a name.: Spellistans namn får inte vara tomt. Ange ett namn.
       Playlist has been updated.: Spellistan har uppdaterats.
       There was an issue with updating this playlist.: Det uppstod ett problem med uppdateringen av den här spellistan.
       This playlist is protected and cannot be removed.: Den här spellistan är skyddad och kan inte tas bort.
@@ -213,7 +213,7 @@ Settings:
   General Settings:
     General Settings: 'Allmänt'
     Check for Updates: 'Sök efter uppdateringar'
-    Check for Latest Blog Posts: 'Sök efter senaste blogginlägg'
+    Check for Latest Blog Posts: 'Sök efter de senaste blogginläggen'
     Fallback to Non-Preferred Backend on Failure: 'Falla tillbaka till icke-föredragen Backend vid felet'
     Enable Search Suggestions: 'Aktivera sökförslag'
     Default Landing Page: 'Standardsida'
@@ -236,7 +236,7 @@ Settings:
       Blur: Oskärpa
     Region for Trending: 'Region för trender'
         #! List countries
-    View all Invidious instance information: Visa all Invidious instansinformation
+    View all Invidious instance information: Visa all Invidious-instansinformation
     System Default: Standardinställningar
     Clear Default Instance: Rensa standardinstansen
     Set Current Instance as Default: Välj den nuvarande instansen som standard
@@ -457,7 +457,7 @@ Settings:
         Never: Aldrig
   Subscription Settings:
     Subscription Settings: 'Prenumeration'
-    Fetch Feeds from RSS: 'Hämta prenumerationer från RSS'
+    Fetch Feeds from RSS: 'Hämta flöden från RSS'
     Fetch Automatically: Hämta flödet automatiskt
     'Limit the number of videos displayed for each channel': Begränsa antalet videor som visas för varje kanal
     To: Till
@@ -524,7 +524,7 @@ Settings:
     Hide Videos on Watch: 'Dölj videor under visning'
     Hide Live Streams: Dölj liveströmningar
     Hide Upcoming Premieres: Dölj kommande premiärer
-    Display Titles Without Excessive Capitalisation: Visa titlar utan överdriven versalisering och skiljetecken
+    Display Titles Without Excessive Capitalisation: Visa titlar utan överdriven användning av versaler och interpunktion
     Hide Channels Placeholder: Kanal-ID
     Hide Featured Channels: Dölj utvalda kanaler
     Hide Channel Shorts: Dölj kanalfliken "Shorts"
@@ -549,7 +549,7 @@ Settings:
     Hide Videos, Playlists and Channels Containing Text Placeholder: Ord, ordfragment eller fras
     Hide Channel Courses: Dölj kanalfliken "Kurser"
     Hide Channel Home: Dölj kanalfliken "Hem"
-    Show Added Items: Visa Tillagda Objekt
+    Show Added Items: Visa tillagda objekt
     Hide Subscriptions Posts: Dölj prenumerationsinlägg
     Hide Channel Posts: Dölj kanalfliken "Inlägg"
   The app needs to restart for changes to take effect. Restart and apply change?: Starta om FreeTube nu för att tillämpa ändringarna?
@@ -577,7 +577,7 @@ Settings:
     SponsorBlock Settings: Sponsorblockering
     Skip Options:
       Skip Option: Hoppa över-alternativ
-      Show In Seek Bar: Visa i tidslinjen
+      Show In Seek Bar: Visa i sökpanelen
       Do Nothing: Gör ingenting
       Auto Skip: Hoppa över automatiskt
       Prompt To Skip: Prompt för att hoppa över
@@ -632,13 +632,13 @@ About:
   Credits: Erkännande
   Translate: Översätt
   room rules: Rumsregler
-  Please read the: Vänligen läs
+  Please read the: Läs
   Chat on Matrix: Chatta på Matrix
   Mastodon: Mastodon
   Email: E-post
   Blog: Blogg
   Website: Webbplats
-  Please check for duplicates before posting: Kontrollera om dubbletter finns innan du skriver
+  Please check for duplicates before posting: Kontrollera om det finns dubbletter innan du publicerar
   GitHub issues: GitHub-problem
   Report a problem: Rapportera ett problem
   FAQ: Frågor och svar
@@ -734,7 +734,7 @@ Channel:
     votes: '{votes} röster'
     Reveal Answers: Avslöja svar
     Hide Answers: Dölj svar
-    View Full Post: Visa Hela Inlägget
+    View Full Post: Visa hela inlägget
     Video hidden by FreeTube: Video dold av FreeTube
     Viewing Posts Only Supported By Invidious: Visa Inlägg stöds endast av Invidious. Gå till en kanals community-flik för att se innehåll där utan Invidious.
   Shorts:
@@ -753,7 +753,7 @@ Channel:
     Courses: Kurser
   Home:
     Home: Hem
-    View Playlist: Visa Spellista
+    View Playlist: Visa spellista
 Video:
   Mark As Watched: 'Markera som sedd'
   Remove From History: 'Ta bort från historik'
@@ -761,26 +761,26 @@ Video:
   Video has been removed from your history: 'Videon har tagits bort från din visningshistorik'
   Open in YouTube: 'Öppna på YouTube'
   Copy YouTube Link: 'Kopiera YouTube-länk'
-  Open YouTube Embedded Player: 'Öppna den interna YouTube spelaren'
-  Copy YouTube Embedded Player Link: 'Kopiera länk till den interna YouTube-spelaren'
+  Open YouTube Embedded Player: 'Öppna YouTubes inbäddade spelare'
+  Copy YouTube Embedded Player Link: 'Kopiera länken till den inbäddade YouTube-spelaren'
   Open in Invidious: 'Öppna på Invidious'
   Copy Invidious Link: 'Kopiera Invidious-länk'
   Views: 'Visningar'
   Loop Playlist: 'Loop spellista'
   Shuffle Playlist: 'Blanda spellista'
   Reverse Playlist: 'Omvänd spellista'
-  Play Next Video: 'Spela nästa video'
-  Play Previous Video: 'Spela föregående video'
+  Previous: 'Föregående'
+  Next: 'Nästa'
   Watched: 'Visad'
   Autoplay: 'Autospelning'
-  Starting soon, please refresh the page to check again: 'Börjar snart, vänligen uppdatera sidan för att kontrollera igen'
+  Starting soon, please refresh the page to check again: 'Börjar snart, uppdatera sidan för att kontrollera igen'
   # As in a Live Video
   Live: 'Live-visning'
   Live Now: 'Live nu'
   Live Chat: 'Livechatt'
   Enable Live Chat: 'Aktivera livechatt'
   Live Chat is currently not supported in this build.: 'Livechatt stöds för närvarande inte i denna version.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Livechatt är aktiverat. Meddelanden visas här när de har skickats.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Livechatt är aktiverad.   Chattmeddelanden visas här när de har skickats.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Livechatt stöds för närvarande inte med Invidious API. En direktanslutning till YouTube krävs.'
   Published:
     In less than a minute: Mindre än en minut
@@ -823,7 +823,7 @@ Video:
     OpenInTemplate: Öppna i {externalPlayer}
   Premieres: Premiärer
   Upcoming: Kommande
-  Show Super Chat Comment: Visa Super Chat-kommentarer
+  Show Super Chat Comment: Visa Superchatt-kommentar
   Scroll to Bottom: Skrolla till botten
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Livechatt är inte tillgängligt för den här strömmen. Den kan ha inaktiverats av uppladdaren.
   Unhide Channel: Visa kanal
@@ -856,7 +856,7 @@ Video:
     Theatre Mode: Teaterläge
     Exit Theatre Mode: Avsluta Teaterläget
     Take Screenshot: Ta Skärmdump
-    Show Stats: Visa Statistik
+    Show Stats: Visa statistik
     TranslatedCaptionTemplate: '{language} (översatt från "{originalLanguage}")'
   More Options: Fler Alternativ
   AgeRestricted: Åldersbegränsade videor kan inte ses med FreeTube eftersom de kräver Google-inloggning och användning av ett åldersverifierat YouTube-konto.
@@ -904,22 +904,22 @@ Share:
   Include Timestamp: 'Inkludera tidsstämpel'
   Copy Link: 'Kopiera länk'
   Open Link: 'Öppna länk'
-  Copy Embed: 'Kopiera inbyggd'
-  Open Embed: 'Öppna inbyggd'
+  Copy Embed: 'Kopiera inbäddad'
+  Open Embed: 'Öppna inbäddad'
   # On Click
-  Invidious URL copied to clipboard: 'Kopiera Invidious URL till urklipp'
-  Invidious Embed URL copied to clipboard: 'Kopiera inbyggd Invidious URL till urklipp'
+  Invidious URL copied to clipboard: 'Skadlig URL kopierad till urklipp'
+  Invidious Embed URL copied to clipboard: 'Invidious-inbäddnings-URL kopierad till urklipp'
   YouTube URL copied to clipboard: 'Youtube URL kopierad till urklipp'
-  YouTube Embed URL copied to clipboard: 'Inbyggd Youtube URL kopierad till urklipp'
-  YouTube Channel URL copied to clipboard: URL till Youtubekanal kopieras till urklipp
+  YouTube Embed URL copied to clipboard: 'YouTube-inbäddnings-URL kopierad till urklipp'
+  YouTube Channel URL copied to clipboard: YouTube-kanalens URL kopierad till urklipp
   Invidious Channel URL copied to clipboard: Invidious Kanal-URL kopierad till urklipp
   Share Channel: Dela Kanal
   Share Post: Dela inlägg
 Mini Player: 'Minispelare'
 Comments:
   Comments: 'Kommentarer'
-  Click to View Comments: 'Klicka för att Visa kommentarer'
-  Getting comment replies, please wait: 'Hämtar kommentar svar, vänligen vänta'
+  Click to View Comments: 'Klicka för att visa kommentarer'
+  Getting comment replies, please wait: 'Tar emot svar på kommentarer, vänta'
   There are no more comments for this video: 'Det finns inga fler kommentarer för videon'
   Hide Comments: 'Dölj kommentarer'
   # Context: View 10 Replies, View 1 Reply
@@ -959,8 +959,8 @@ Yes: 'Ja'
 No: 'Nej'
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: När det är aktiverat kommer FreeTube att använda RSS istället för standardmetoden för att hämta ditt prenumerationsflöde. RSS är snabbare och förhindrar IP-blockering, men ger inte viss information som videons längd, livestatus eller kommentarer
-    Fetch Automatically: Om aktiverat så kommer FreeTube automatiskt hämta ditt prenumerationsflöde när du startar FreeTube och när ett nytt fönster öppnas.
+    Fetch Feeds from RSS: När det är aktiverat använder FreeTube RSS istället för standardmetoden för att hämta ditt prenumerationsflöde. RSS är snabbare och förhindrar IP-blockering, men ger inte viss information som videolängd, livestatus eller inlägg
+    Fetch Automatically: När det är aktiverat hämtar FreeTube automatiskt ditt prenumerationsflöde vid start och när ett nytt fönster öppnas.
   Player Settings:
     Default Video Format: Ställ in de format som används när en video spelas upp. DASH-format kan spela högre kvaliteter. Äldre format är begränsade till max 360p men använder mindre bandbredd. Ljudformat är endast ljudströmmningar.
     Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att hämta videor istället för att göra en direkt anslutning till YouTube.
@@ -1006,7 +1006,7 @@ New Window: Nytt Fönster
 Channels:
   Channels: Kanaler
   Title: Kanallista
-  Search bar placeholder: Sök Kanaler
+  Search bar placeholder: Sök kanaler
   Unsubscribe Prompt: Är du säker på att du vill avprenumerera från "{channelName}"?
   Count: '{number} kanal(er) hittade.'
   Empty: Din kanallista är tom.
@@ -1031,7 +1031,7 @@ Go to page: Gå till {page}
 Channel Unhidden: '{channel} har tagits bort från kanalfiltret'
 Close Banner: Stäng bannern
 Feed:
-  Feed Last Updated: '{feedName} feed senast uppdaterad: {date}'
+  Feed Last Updated: '{feedName} flödet senast uppdaterat: {date}'
   Refresh Feed: Uppdatera {subscriptionName}
 checkmark: ✓
 Display Label: '{label}: {value}'
@@ -1125,3 +1125,5 @@ Keys:
   arrowleft: Vänsterpil
   arrowright: Högerpil
   arrowup: Uppåtpil
+Compact side navigation: Kompakt sidonavigering
+Expand side navigation: Expandera sidnavigeringen

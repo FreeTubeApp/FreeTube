@@ -31,6 +31,7 @@
       </template>
       <p
         class="authorName"
+        dir="auto"
       >
         <router-link
           v-if="authorId"
@@ -53,6 +54,7 @@
     </div>
     <p
       class="postText"
+      dir="auto"
       v-html="postText"
     />
     <swiper-container

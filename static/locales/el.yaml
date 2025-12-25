@@ -106,6 +106,7 @@ Trending:
   Trending: 'Τάσεις'
   Gaming: Παιχνίδια
   Trending Tabs: Καρτέλες Τάσεων
+  Sports: Αθλητικά
 Most Popular: 'Δημοφιλέστερα'
 Playlists: 'Λίστες αναπαραγωγής'
 User Playlists:
@@ -747,8 +748,8 @@ Video:
   Loop Playlist: 'Επανάληψη λίστας αναπαραγωγής'
   Shuffle Playlist: 'Τυχαία σειρά στη λίστα αναπαραγωγής'
   Reverse Playlist: 'Αντιστροφή της λίστας αναπαραγωγής'
-  Play Next Video: 'Αναπαραγωγή επόμενου βίντεο'
-  Play Previous Video: 'Αναπαραγωγή προηγούμενου βίντεο'
+  Previous: 'Προηγούμενο'
+  Next: 'Επόμενο'
   Watched: 'Παρακολουθήθηκε'
   Autoplay: 'Αυτόματη αναπαραγωγή'
   # As in a Live Video

@@ -732,8 +732,8 @@ Video:
   Published on: 'Opublikowano'
 #& Videos
   Autoplay: Autoodtwarzanie
-  Play Previous Video: Odtwórz poprzedni film
-  Play Next Video: Odtwórz następny film
+  Previous: Poprzedni
+  Next: Dalej
   Reverse Playlist: Odwróć playlistę
   Shuffle Playlist: Losuj z playlisty
   Loop Playlist: Zapętl playlistę
@@ -1124,3 +1124,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Odtwórz następny film z playlisty lub z rekomendowanych filmów
   Skip to Previous Video: Odtwórz poprzedni film z playlisty lub z rekomendowanych filmów
 shortcutLabelSeparator: ｜
+Compact side navigation: Skompresuj boczną nawigację
+Expand side navigation: Rozwiń boczną nawigację

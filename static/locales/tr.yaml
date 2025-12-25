@@ -769,8 +769,8 @@ Video:
   Loop Playlist: 'Listeyi Döngüye Al'
   Shuffle Playlist: 'Oynatma Listesini Karıştır'
   Reverse Playlist: 'Oynatma Listesini Geriden Oynat'
-  Play Next Video: 'Sonraki Videoyu Oynat'
-  Play Previous Video: 'Önceki Videoyu Oynat'
+  Previous: 'Önceki'
+  Next: 'Sonraki'
   Watched: 'İzlendi'
   Autoplay: 'Otomatik Oynat'
   Starting soon, please refresh the page to check again: 'Yakında başlayacak, lütfen tekrar denetlemek için sayfayı yenileyin'
@@ -1127,3 +1127,5 @@ KeyboardShortcutPrompt:
   Home: Videonun başına git
   Skip to Next Video: Oynatma listesindeki sonraki videoya veya sonraki önerilen videoya atla
   Skip to Previous Video: Oynatma listesindeki bir önceki videoya atla
+Compact side navigation: Yan gezinmeyi daralt
+Expand side navigation: Yan gezinmeyi genişlet

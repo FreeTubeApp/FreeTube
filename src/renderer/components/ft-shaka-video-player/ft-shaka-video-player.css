@@ -184,7 +184,7 @@
   transition: opacity cubic-bezier(0.4, 0, 0.6, 1) 0.6s;
 }
 
-:global(body[dir='rtl'] .playerFullscreenTitleOverlay) {
+:deep(.playerFullscreenTitleOverlay:dir(rtl)) {
   left: initial;
   right: 5px;
 }
@@ -199,6 +199,10 @@
 
 :deep(.shaka-controls-container > .shaka-play-button-container > .shaka-play-button) {
   padding: min(calc(15% / 2), 55px);
+}
+
+:deep(.shaka-controls-button-panel>.ft-shaka-skip-button .material-svg-icon) {
+  font-size: 32px;
 }
 
 .ftVideoPlayer:fullscreen :deep(.theatre-button),

@@ -7,7 +7,6 @@ import {
   getVideoParamsFromUrl,
   replaceFilenameForbiddenChars,
   searchFiltersMatch,
-  showExternalPlayerUnsupportedActionToast,
   showToast
 } from '../../helpers/utils'
 
@@ -691,121 +690,6 @@ const actions = {
     commit('setExternalPlayerNames', externalPlayerNames)
     commit('setExternalPlayerValues', externalPlayerValues)
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
-  },
-
-  openInExternalPlayer ({ state, rootState }, payload) {
-    const args = []
-    const externalPlayer = rootState.settings.externalPlayer
-    const cmdArgs = state.externalPlayerCmdArguments[externalPlayer]
-    const executable = rootState.settings.externalPlayerExecutable !== ''
-      ? rootState.settings.externalPlayerExecutable
-      : cmdArgs.defaultExecutable
-    const ignoreWarnings = rootState.settings.externalPlayerIgnoreWarnings
-    const ignoreDefaultArgs = rootState.settings.externalPlayerIgnoreDefaultArgs
-    const customArgs = rootState.settings.externalPlayerCustomArgs
-
-    if (ignoreDefaultArgs) {
-      if (typeof customArgs === 'string' && customArgs !== '[]') {
-        const custom = JSON.parse(customArgs)
-        args.push(...custom)
-      }
-      if (payload.videoId != null) args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
-    } else {
-      // Append custom user-defined arguments,
-      // or use the default ones specified for the external player.
-      if (typeof customArgs === 'string' && customArgs !== '[]') {
-        const custom = JSON.parse(customArgs)
-        args.push(...custom)
-      } else if (Array.isArray(cmdArgs.defaultCustomArguments)) {
-        args.push(...cmdArgs.defaultCustomArguments)
-      }
-
-      if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
-        if (typeof cmdArgs.startOffset === 'string') {
-          if (cmdArgs.defaultExecutable.startsWith('mpc')) {
-            // For mpc-hc and mpc-be, which require startOffset to be in milliseconds
-            args.push(cmdArgs.startOffset, (Math.trunc(payload.watchProgress) * 1000))
-          } else if (cmdArgs.startOffset.endsWith('=')) {
-            // For players using `=` in arguments
-            // e.g. vlc --start-time=xxxxx
-            args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
-          } else {
-            // For players using space in arguments
-            // e.g. smplayer -start xxxxx
-            args.push(cmdArgs.startOffset, Math.trunc(payload.watchProgress))
-          }
-        } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.global.t('Video.External Player.Unsupported Actions.starting video at offset'))
-        }
-      }
-
-      if (payload.playbackRate != null) {
-        if (typeof cmdArgs.playbackRate === 'string') {
-          args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
-        } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.global.t('Video.External Player.Unsupported Actions.setting a playback rate'))
-        }
-      }
-
-      // Check whether the video is in a playlist
-      if (typeof cmdArgs.playlistUrl === 'string' && payload.playlistId != null && payload.playlistId !== '') {
-        if (payload.playlistIndex != null) {
-          if (typeof cmdArgs.playlistIndex === 'string') {
-            args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
-          } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.global.t('Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)'))
-          }
-        }
-
-        if (payload.playlistReverse) {
-          if (typeof cmdArgs.playlistReverse === 'string') {
-            args.push(cmdArgs.playlistReverse)
-          } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.global.t('Video.External Player.Unsupported Actions.reversing playlists'))
-          }
-        }
-
-        if (payload.playlistShuffle) {
-          if (typeof cmdArgs.playlistShuffle === 'string') {
-            args.push(cmdArgs.playlistShuffle)
-          } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.global.t('Video.External Player.Unsupported Actions.shuffling playlists'))
-          }
-        }
-
-        if (payload.playlistLoop) {
-          if (typeof cmdArgs.playlistLoop === 'string') {
-            args.push(cmdArgs.playlistLoop)
-          } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.global.t('Video.External Player.Unsupported Actions.looping playlists'))
-          }
-        }
-
-        // If the player supports opening playlists but not indexes, send only the video URL if an index is specified
-        if (cmdArgs.playlistIndex == null && payload.playlistIndex != null && payload.playlistIndex !== '') {
-          args.push(`${cmdArgs.videoUrl}https://youtube.com/watch?v=${payload.videoId}`)
-        } else {
-          args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
-        }
-      } else {
-        if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.global.t('Video.External Player.Unsupported Actions.opening playlists'))
-        }
-        if (payload.videoId != null) {
-          args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
-        }
-      }
-    }
-
-    const videoOrPlaylist = payload.playlistId != null && payload.playlistId !== ''
-      ? i18n.global.t('Video.External Player.playlist')
-      : i18n.global.t('Video.External Player.video')
-
-    showToast(i18n.global.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
-
-    if (process.env.IS_ELECTRON) {
-      window.ftElectron.openInExternalPlayer(executable, args)
-    }
   },
 }
 

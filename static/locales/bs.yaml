@@ -23,11 +23,9 @@ Close: 'Zatvori'
 Back: 'Nazad'
 Forward: 'Unapred'
 
-Version {versionNumber} is now available!  Click for more details: 'Verzija {versionNumber}
-  je sada dostupna! Kliknite za više detalja'
+Version {versionNumber} is now available!  Click for more details: 'Verzija {versionNumber} je sada dostupna! Kliknite za više detalja'
 Download From Site: 'Instaliraj preko stranice'
-A new blog is now available, {blogTitle}. Click to view more: 'Sada je dostupan novi
-  blog, {blogTitle}. Kliknite da vidite više'
+A new blog is now available, {blogTitle}. Click to view more: 'Sada je dostupan novi blog, {blogTitle}. Kliknite da vidite više'
 
 Global:
   Sort By: 'Poredaj po'
@@ -71,15 +69,12 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Pretplate'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Ovaj
-    profil ima veliki broj pretplata. Prisiljavanje RSS-a da izbjegne ograničenje
-    brzine'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaša
-    lista pretplata je trenutno prazna. Počnite dodavati pretplate da biste ih vidjeli
-    ovdje.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Ovaj profil ima veliki broj pretplata. Prisiljavanje RSS-a da izbjegne ograničenje brzine'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaša lista pretplata je trenutno prazna. Počnite dodavati pretplate da biste ih vidjeli ovdje.'
   Load More Videos: 'Očitaj više videozapisa'
 Trending:
   Trending: 'U trendu'
+  Sports: Sport
 Most Popular: 'Naj popularnije'
 Playlists: 'playliste'
 User Playlists:
@@ -92,15 +87,12 @@ History:
 Settings:
   # On Settings Page
   Settings: 'Postavke'
-  The app needs to restart for changes to take effect. Restart and apply change?: 'Aplikacija
-    se treba restartovati da bi promjene stupile na snagu. Restartuj i primijeniti
-    promjenu?'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Aplikacija se treba restartovati da bi promjene stupile na snagu. Restartuj i primijeniti promjenu?'
   General Settings:
     General Settings: 'Generalne postavke'
     Check for Updates: 'Provjeri ima li update'
     Check for Latest Blog Posts: 'Potraži najnovije objave na blogu'
-    Fallback to Non-Preferred Backend on Failure: 'Vraćanje na neželjeni backend u
-      slučaju neuspjeha'
+    Fallback to Non-Preferred Backend on Failure: 'Vraćanje na neželjeni backend u slučaju neuspjeha'
     Enable Search Suggestions: 'Omogući prijedloge pretraživanja'
     Default Landing Page: 'Zadana odredišna stranica'
     Locale Preference: 'Jezik'

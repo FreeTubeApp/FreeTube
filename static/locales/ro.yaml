@@ -110,6 +110,7 @@ Trending:
   Trending: 'Tendințe'
   Trending Tabs: File în tendințe
   Gaming: Gaming
+  Sports: Sport
 Most Popular: 'Cele mai populare'
 Playlists: 'Liste de redare'
 User Playlists:
@@ -755,8 +756,8 @@ Video:
   Loop Playlist: 'Lista de redare în buclă'
   Shuffle Playlist: 'Lista de redare aleatorie'
   Reverse Playlist: 'Lista de redare inversă'
-  Play Next Video: 'Redă videoclipul următor'
-  Play Previous Video: 'Redă videoclipul anterior'
+  Previous: 'Înapoi'
+  Next: 'Înainte'
   Watched: 'Vizionat'
   Autoplay: 'Redare automată'
   Starting soon, please refresh the page to check again: 'Începe în curând, vă rugăm să reîmprospătați pagina pentru a verifica din nou'

@@ -140,6 +140,7 @@ Trending:
   Trending: ''
   Gaming: ''
   Trending Tabs: ''
+  Sports: Sport
 Most Popular: ''
 Feed:
   Feed Last Updated: ''
@@ -798,8 +799,8 @@ Video:
   Loop Playlist: 'Herhaal afspeellys'
   Shuffle Playlist: 'Skommel afspeellys'
   Reverse Playlist: 'Keer afspeellys om'
-  Play Next Video: 'Speel volgende video af'
-  Play Previous Video: 'Speel vorige video af'
+  Previous: 'Vorige'
+  Next: 'Volgende'
   Watched: 'Gekyk'
   Autoplay: 'Outo-afspeel'
   Starting soon, please refresh the page to check again: 'Begin binnekort, verfris asb. die blad om weer na te gaan'

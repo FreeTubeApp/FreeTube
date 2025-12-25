@@ -1,5 +1,6 @@
 <template>
   <p
+    dir="auto"
     @timestamp-clicked="catchTimestampClick"
     v-html="displayText"
   />

@@ -768,8 +768,8 @@ Video:
   Loop Playlist: 'Korda esitusloendit'
   Shuffle Playlist: 'Sega esitusloend'
   Reverse Playlist: 'Pööra esitusloend tagurpidi'
-  Play Next Video: 'Esita järgmist videot'
-  Play Previous Video: 'Esita eelmist videot'
+  Previous: 'Eelmine'
+  Next: 'Järgmine'
   Watched: 'Vaadatud'
   Autoplay: 'Automaatne esitus'
   Starting soon, please refresh the page to check again: 'Kuvamine algab varsti, vajadusel värskenda uuesti kontrollimiseks lehte'
@@ -1124,3 +1124,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Hüppa esitusloendi järgmise video või järgmise soovituse juurde
   Skip to Previous Video: Hüppa esitusloendi eelmise video juurde
 shortcutLabelSeparator: ｜
+Compact side navigation: Näita külgpaani kompaktsena
+Expand side navigation: Näita külgpaani avatuna

@@ -732,8 +732,8 @@ Video:
   Published on: 'Размещено'
 #& Videos
   Autoplay: Автовоспроизведение
-  Play Previous Video: Воспроизвести предыдущее видео
-  Play Next Video: Воспроизвести следующее видео
+  Previous: Назад
+  Next: Следующее
   Reverse Playlist: Обратный порядок плейлиста
   Shuffle Playlist: Перемешать плейлист
   Loop Playlist: Повторять плейлист
@@ -1122,3 +1122,5 @@ Description:
   Collapse Description: Показать меньше
 Autoplay Interruption Timer: Автоигра отменена из-за {autoplayInterruptionIntervalHours} часов бездействия
 shortcutLabelSeparator: ｜
+Compact side navigation: Свернуть боковую панель
+Expand side navigation: Развернуть боковую панель

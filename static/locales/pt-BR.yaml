@@ -738,8 +738,8 @@ Video:
   Download Video: Baixar vídeo
   Starting soon, please refresh the page to check again: Vai começar em breve, atualize a página para verificar novamente
   Autoplay: Reprodução automática
-  Play Previous Video: Reproduzir vídeo anterior
-  Play Next Video: Reproduzir próximo vídeo
+  Previous: Anterior
+  Next: Próximo
   Reverse Playlist: Inverter ordem da playlist
   Shuffle Playlist: Playlist aleatória
   Loop Playlist: Repetir playlist
@@ -1122,3 +1122,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Pular para o próximo vídeo em uma playlist ou para o próximo vídeo recomendado
   Skip to Previous Video: Pular para o vídeo anterior em uma playlist
 shortcutLabelSeparator: ｜
+Compact side navigation: Navegação lateral compacta
+Expand side navigation: Expandir navegação lateral

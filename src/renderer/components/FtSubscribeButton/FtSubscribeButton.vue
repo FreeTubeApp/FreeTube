@@ -72,6 +72,7 @@
           >
             <div
               class="initial"
+              dir="auto"
             >
               {{ isProfileSubscribed(profile) ? $t('checkmark') : profileInitials[profile._id] }}
             </div>
@@ -79,6 +80,7 @@
           <p
             :id="id + '-' + index"
             class="profileName"
+            dir="auto"
           >
             {{ profile.name }}
           </p>

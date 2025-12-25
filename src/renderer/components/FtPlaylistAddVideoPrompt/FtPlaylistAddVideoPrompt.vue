@@ -270,7 +270,7 @@ const playlistIdsContainingVideosToBeAdded = computed(() => {
   allPlaylists.value.forEach((playlist) => {
     const playlistVideoIdSet = playlist.videos.reduce((s, v) => s.add(v.videoId), new Set())
 
-    if (toBeAddedToPlaylistVideoIdList_.every((vid) => playlistVideoIdSet.has(vid))) {
+    if (toBeAddedToPlaylistVideoIdList_.some((vid) => playlistVideoIdSet.has(vid))) {
       ids.add(playlist._id)
     }
   })

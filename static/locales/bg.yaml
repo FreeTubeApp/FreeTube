@@ -171,7 +171,7 @@ User Playlists:
     N playlists selected: '{playlistCount} избрани'
     Toast:
       You haven't selected any playlist yet.: Все още не сте избрали плейлист.
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Видеа, добавени към 1 плейлист | Видеа, добавени към {playlistCount} плейлиста"
     Save: Запазване
     Added {count} Times: Вече е добавено | Добавено {count} пъти
     "{videoCount}/{totalVideoCount} Videos Already Added": Вече са добавени {videoCount}/{totalVideoCount} видеа
@@ -769,8 +769,8 @@ Video:
   Loop Playlist: 'Повтаряне на плейлиста'
   Shuffle Playlist: 'Разбъркване на плейлиста'
   Reverse Playlist: 'Обръщане на плейлиста'
-  Play Next Video: 'Следващо видео'
-  Play Previous Video: 'Предишно видео'
+  Previous: 'Пускане пак'
+  Next: 'Следващ'
   Watched: 'Гледано'
   Autoplay: 'Автоматично пускане'
   Starting soon, please refresh the page to check again: 'Започва скоро, моля опреснете страницата за актуализация'
@@ -914,6 +914,7 @@ Share:
   YouTube Channel URL copied to clipboard: YouTube адресът на канала е копиран
   Invidious Channel URL copied to clipboard: Invidious адресът на канала е копиран
   Share Channel: Споделяне на канал
+  Share Post: Споделяне на публикация
 Mini Player: 'Мини плейър'
 Comments:
   Comments: 'Коментари'
@@ -1124,3 +1125,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Преминаване към следващото видео в плейлиста или към следващото препоръчано
   Skip to Previous Video: Преминаване към предходното видео в плейлиста
 shortcutLabelSeparator: '|'
+Compact side navigation: Компактна странична навигация
+Expand side navigation: Разширена странична навигация

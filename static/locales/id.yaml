@@ -769,8 +769,8 @@ Video:
   Loop Playlist: 'Ulangi Daftar Putar'
   Shuffle Playlist: 'Acak Daftar Putar'
   Reverse Playlist: 'Putar-Balik Daftar Putar'
-  Play Next Video: 'Putar Video Berikutnya'
-  Play Previous Video: 'Putar Video Sebelumnya'
+  Previous: 'Sebelumnya'
+  Next: 'Berikutnya'
   Watched: 'Sudah Ditonton'
   Autoplay: 'Putar-Otomatis'
   # As in a Live Video
@@ -1126,3 +1126,5 @@ shortcutLabelSeparator: ' '
 Description:
   Collapse Description: Tampilkan lebih sedikit
   Expand Description: '...lanjutan'
+Compact side navigation: Navigasi samping ringkas
+Expand side navigation: Perluas navigasi samping

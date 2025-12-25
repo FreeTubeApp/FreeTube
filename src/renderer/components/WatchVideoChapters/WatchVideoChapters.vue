@@ -11,7 +11,7 @@
           {{ kind === 'keyMoments' ? $t('Chapters.Key Moments') : $t("Chapters.Chapters") }}
 
           <span class="currentChapter">
-            • {{ currentTitle }}
+            • <bdi>{{ currentTitle }}</bdi>
           </span>
 
           <FontAwesomeIcon
@@ -54,7 +54,10 @@
           <div class="chapterTimestamp">
             {{ chapter.timestamp }}
           </div>
-          <p class="chapterTitle">
+          <p
+            class="chapterTitle"
+            dir="auto"
+          >
             {{ chapter.title }}
           </p>
         </div>

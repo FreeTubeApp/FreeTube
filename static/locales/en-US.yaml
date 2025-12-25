@@ -22,6 +22,8 @@ Toggle fullscreen: Toggle fullscreen
 Window: Window
 Minimize: Minimize
 Close: Close
+Compact side navigation: Compact side navigation
+Expand side navigation: Expand side navigation
 Back: Back
 Forward: Forward
 Right-click or hold to see history: Right-click or hold to see history
@@ -864,8 +866,8 @@ Video:
   Loop Playlist: Loop Playlist
   Shuffle Playlist: Shuffle Playlist
   Reverse Playlist: Reverse Playlist
-  Play Next Video: Play Next Video
-  Play Previous Video: Play Previous Video
+  Previous: Previous
+  Next: Next
   Watched: Watched
   Autoplay: Autoplay
   Starting soon, please refresh the page to check again: Starting soon, please refresh
