@@ -8,8 +8,15 @@ on:
     branches: [ master, development, '**-RC' ]
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   build:
+
+    permissions:
+      actions: write
+      contents: read
+
     strategy:
       matrix:
         node-version: [24.x]

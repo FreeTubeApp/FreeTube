@@ -3,10 +3,16 @@ on:
   issue_comment:
     types: [created]
 
+permissions: {}
+
 jobs:
   test:
     if: github.event.comment.author_association == 'MEMBER' || github.event.comment.author_association == 'OWNER'
     runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+
     steps:
       - name: Check Comment Author
         uses: Amwam/issue-comment-action@v1.5.0

@@ -9,9 +9,15 @@ on:
     # Run daily at midnight.
     - cron: '0 0 * * *'
 
+permissions: {}
+
 jobs:
   noResponse:
     runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+
     steps:
       - uses: lee-dohm/no-response@v0.5.0
         with:

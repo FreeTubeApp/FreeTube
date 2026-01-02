@@ -9,10 +9,13 @@ on:
   schedule:
     - cron: '36 3 * * 5'
 
+permissions: {}
+
 jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
+
     permissions:
       actions: read
       contents: read

@@ -12,9 +12,16 @@ on:
         required: true
         description: Release ID
 
+permissions: {}
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
+
+    permissions:
+      actions: write
+      contents: write
+
     strategy:
       matrix:
         node-version: [24.x]
