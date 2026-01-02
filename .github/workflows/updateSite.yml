@@ -24,6 +24,8 @@ jobs:
       with:
         repository: FreeTubeApp/FreeTubeApp.io
         token: ${{ secrets.FLATHUB_TOKEN }}
+        persist-credentials: true
+
     - name: Get Repo Release List
       uses: moustacheful/github-api-exec-action@v0
       id: list_results

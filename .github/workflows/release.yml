@@ -59,6 +59,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v6
+      with:
+        persist-credentials: false
 
     - name: 'Use faster D: drive for yarn cache on Windows'
       if: startsWith(matrix.os, 'windows')

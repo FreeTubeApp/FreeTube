@@ -24,6 +24,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - uses: actions/checkout@v6
+      with:
+        persist-credentials: false
+
     - name: Use Node.js 24.x
       uses: actions/setup-node@v6
       with:
