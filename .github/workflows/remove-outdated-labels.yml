@@ -18,7 +18,7 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: mondeja/remove-labels-gh-action@v2.0.0
+      - uses: mondeja/remove-labels-gh-action@b7118e4ba5dca74acf1059b3cb7660378ff9ab1a #v2.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           labels: |
@@ -38,7 +38,7 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: mondeja/remove-labels-gh-action@v2.0.0
+      - uses: mondeja/remove-labels-gh-action@b7118e4ba5dca74acf1059b3cb7660378ff9ab1a #v2.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           labels: |
@@ -58,7 +58,7 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: mondeja/remove-labels-gh-action@v2.0.0
+      - uses: mondeja/remove-labels-gh-action@b7118e4ba5dca74acf1059b3cb7660378ff9ab1a #v2.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           labels: |
@@ -73,7 +73,7 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: mondeja/remove-labels-gh-action@v2.0.0
+      - uses: mondeja/remove-labels-gh-action@b7118e4ba5dca74acf1059b3cb7660378ff9ab1a #v2.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           labels: |

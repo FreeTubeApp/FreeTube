@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Check Comment Author
-        uses: Amwam/issue-comment-action@v1.5.0
+        uses: Amwam/issue-comment-action@b1d80926ace1eb32660ac96c7e89a16d4c36b749 #v1.5.0
         with:
           keywords: '["duplicate of #", "duplicate of https://github.com/FreeTubeApp/FreeTube/issues/", "duplicate of https://github.com/FreeTubeApp/FreeTube/pulls/"]'
           labels: '["U: duplicate"]'
