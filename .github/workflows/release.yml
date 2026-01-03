@@ -64,6 +64,7 @@ jobs:
 
     - name: 'Use faster D: drive for yarn cache on Windows'
       if: startsWith(matrix.os, 'windows')
+      shell: cmd
       run: yarn config set cache-folder D:\ft_yarn_cache
 
     - name: Use Node.js ${{ matrix.node-version }}
@@ -72,9 +73,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: "yarn"
     - run: yarn run ci
+      shell: ${{ (startsWith(matrix.os, 'windows') && 'cmd') || 'bash' }}
       env:
         ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
     - run: yarn run lint
+      shell: ${{ (startsWith(matrix.os, 'windows') && 'cmd') || 'bash' }}
 
     - name: Get Version Number
       id: getPackageInfo
@@ -82,22 +85,29 @@ jobs:
 
     - name: Install libarchive-tools
       if: startsWith(matrix.os, 'ubuntu')
-      run: sudo apt update; sudo apt -y install libarchive-tools; echo "Version Number ${{ toJson(job) }} ${{ toJson(needs) }}"
+      shell: bash
+      run: |
+        sudo apt update
+        sudo apt -y install libarchive-tools
 
     - name: Build x64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'x64')
+      shell: ${{ (startsWith(matrix.os, 'windows') && 'cmd') || 'bash' }}
       run: yarn run build
 
     - name: Build ARMv7l with Node.js ${{ matrix.node-version}}
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
+      shell: bash
       run: yarn run build:arm32
 
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'arm64')
+      shell: ${{ (startsWith(matrix.os, 'windows') && 'cmd') || 'bash' }}
       run: yarn run build:arm64
 
     - name: Convert X64 AppImage to static runtime and add update information
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+      shell: bash
       run: |
         sudo apt install desktop-file-utils
         cd build
@@ -112,6 +122,7 @@ jobs:
 
     - name: Convert ARMv7l AppImage to static runtime and add update information
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
+      shell: bash
       run: |
         sudo apt install desktop-file-utils
         cd build
@@ -127,6 +138,7 @@ jobs:
 
     - name: Convert ARM64 AppImage to static runtime and add update information
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
+      shell: bash
       run: |
         sudo apt install desktop-file-utils
         cd build

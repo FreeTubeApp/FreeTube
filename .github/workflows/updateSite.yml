@@ -55,9 +55,11 @@ jobs:
         v: ''
     - name: Set Master Branch
     # Currently the default branch is master, but if that changes later, then this acts as a failsafe.
+      shell: bash
       run: |
         git checkout master
     - name: Update index.php
+      shell: bash
       run: |
         sed -i 's/${{ steps.previous.outputs.result  }}/${{ steps.current.outputs.result }}/g' src/index.php
     - name: Commit Files

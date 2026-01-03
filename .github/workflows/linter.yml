@@ -33,10 +33,14 @@ jobs:
         node-version: 24.x
         cache: "yarn"
     - run: yarn run ci
+      shell: bash
       env:
         ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
     - run: yarn run lint
+      shell: bash
     # let's verify that webpack is able to package the project
     - run: yarn run pack
+      shell: bash
     # verify that webpack is able to package the project using the web config
     - run: yarn run pack:web
+      shell: bash
