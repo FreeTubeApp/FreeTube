@@ -41,6 +41,7 @@ const state = {
     type: 'all',
     duration: '',
     features: [],
+    maxViews: '',
   },
   externalPlayerNames: [],
   externalPlayerValues: [],
@@ -525,7 +526,8 @@ const actions = {
           time: searchSettings.time,
           type: searchSettings.type,
           duration: searchSettings.duration,
-          features: searchSettings.features
+          features: searchSettings.features,
+          maxViews: searchSettings.maxViews
         }
 
         for (const [param, value] of url.searchParams) {
@@ -838,6 +840,10 @@ const mutations = {
 
   setSearchFeatures (state, value) {
     state.searchSettings.features = value
+  },
+
+  setSearchMaxViews (state, value) {
+    state.searchSettings.maxViews = value
   },
 
   setRegionNames (state, value) {

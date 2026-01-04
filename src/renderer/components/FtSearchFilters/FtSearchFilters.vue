@@ -54,6 +54,13 @@
         :values="DURATION_VALUES"
         class="searchRadio"
       />
+      <FtRadioButton
+        v-model="maxViewsValue"
+        :title="$t('Search Filters.Views.Views')"
+        :labels="maxViewsLabels"
+        :values="MAX_VIEWS_VALUES"
+        class="searchRadio"
+      />
       <FtCheckboxList
         v-model="featuresValue"
         :title="$t('Search Filters.Features.Features')"
@@ -131,6 +138,13 @@ const FEATURE_VALUES = [
   'vr180'
 ]
 
+const MAX_VIEWS_VALUES = [
+  '',
+  '10',
+  '100',
+  '1000'
+]
+
 const NOT_ALLOWED_FOR_MOVIES_FEATURES = [
   'live',
   'subtitles',
@@ -184,6 +198,13 @@ const featureLabels = computed(() => [
   t('Search Filters.Features.VR180')
 ])
 
+const maxViewsLabels = computed(() => [
+  t('Search Filters.Views.Any Views'),
+  t('Search Filters.Views.Less than 10'),
+  t('Search Filters.Views.Less than 100'),
+  t('Search Filters.Views.Less than 1000')
+])
+
 const searchSettings = store.getters.getSearchSettings
 
 /** @type {import('vue').Ref<'relevance' | 'rating' | 'upload_date' | 'view_count'>} */
@@ -212,6 +233,7 @@ watch(typeValue, (value) => {
     timeValue.value = ''
     durationValue.value = ''
     sortByValue.value = SORT_BY_VALUES[0]
+    maxViewsValue.value = ''
     if (featuresValue.value.length > 0) {
       featuresValue.value = []
     }
@@ -246,12 +268,24 @@ watch(featuresValue, (values) => {
   store.commit('setSearchFeatures', [...values])
 }, { deep: true })
 
+/** @type {import('vue').Ref<'' | '10' | '100' | '1000'>} */
+const maxViewsValue = ref(searchSettings.maxViews)
+
+watch(maxViewsValue, (value) => {
+  if (value !== '' && !isVideoOrMovieOrAll(typeValue.value)) {
+    typeValue.value = 'all'
+  }
+
+  store.commit('setSearchMaxViews', value)
+})
+
 const searchFilterValueChanged = computed(() => {
   return sortByValue.value !== SORT_BY_VALUES[0] ||
     timeValue.value !== TIME_VALUES[0] ||
     typeValue.value !== TYPE_VALUES[0] ||
     durationValue.value !== DURATION_VALUES[0] ||
-    featuresValue.value.length > 0
+    featuresValue.value.length > 0 ||
+    maxViewsValue.value !== MAX_VIEWS_VALUES[0]
 })
 
 watch(searchFilterValueChanged, (value) => {
@@ -275,6 +309,7 @@ function clearFilters() {
   typeValue.value = TYPE_VALUES[0]
   durationValue.value = DURATION_VALUES[0]
   featuresValue.value = []
+  maxViewsValue.value = MAX_VIEWS_VALUES[0]
 }
 
 </script>

@@ -16,7 +16,7 @@
         {{ t("Search Filters.Search Results") }}
       </h2>
       <FtElementList
-        :data="shownResults"
+        :data="filteredResults"
       />
       <FtAutoLoadNextPageWrapper
         @load-next-page="nextPage"
@@ -77,6 +77,32 @@ const shownResults = shallowRef([])
 const query = ref('')
 const processedQuery = computed(() => query.value.trim())
 
+/**
+ * Filters results by view count if maxViews filter is set
+ * @param {any[]} results
+ * @returns {any[]}
+ */
+function filterByViewCount(results) {
+  const maxViews = searchSettings.value?.maxViews
+  if (!maxViews) {
+    return results
+  }
+
+  const maxViewsNum = parseInt(maxViews)
+  return results.filter(result => {
+    // Only filter video types, not channels or playlists
+    if (result.type !== 'video' && result.type !== 'shortVideo') {
+      return true
+    }
+
+    // Handle different data sources (local API vs Invidious)
+    const viewCount = result.viewCount ?? result.views ?? 0
+    return viewCount < maxViewsNum
+  })
+}
+
+const filteredResults = computed(() => filterByViewCount(shownResults.value))
+
 /** @type {import('vue').ComputedRef<any[]>} */
 const sessionSearchHistory = computed(() => store.getters.getSessionSearchHistory)
 
@@ -105,6 +131,7 @@ watch(route, () => {
     type: route.query.type,
     duration: route.query.duration,
     features: features ?? [],
+    maxViews: route.query.maxViews ?? '',
   }
 
   const payload = {
@@ -135,6 +162,7 @@ onMounted(() => {
     type: route.query.type,
     duration: route.query.duration,
     features: features ?? [],
+    maxViews: route.query.maxViews ?? '',
   }
 
   const payload = {

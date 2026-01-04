@@ -483,8 +483,8 @@ export function formatDurationAsTimestamp(lengthSeconds) {
 }
 
 /**
- * @param {{sortBy? : string, time?: string, duration?: string, features: string[]}?} filtersA
- * @param {{sortBy? : string, time?: string, duration?: string, features: string[]}?} filtersB
+ * @param {{sortBy? : string, time?: string, duration?: string, maxViews?: string, features: string[]}?} filtersA
+ * @param {{sortBy? : string, time?: string, duration?: string, maxViews?: string, features: string[]}?} filtersB
  * @returns {boolean}
  */
 export function searchFiltersMatch(filtersA, filtersB) {
@@ -492,6 +492,7 @@ export function searchFiltersMatch(filtersA, filtersB) {
     filtersA?.time === filtersB?.time &&
     filtersA?.type === filtersB?.type &&
     filtersA?.duration === filtersB?.duration &&
+    filtersA?.maxViews === filtersB?.maxViews &&
     filtersA?.features?.length === filtersB?.features?.length && filtersA?.features?.every((val, index) => val === filtersB?.features[index])
 }
 
