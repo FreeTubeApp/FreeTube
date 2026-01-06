@@ -2283,6 +2283,9 @@ export default defineComponent({
           changeVolume(-0.05)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_REWIND:
+          if (event.shiftKey) {
+            break
+          }
           event.preventDefault()
           if (canChapterJump(event, 'previous')) {
             // Jump to the previous chapter
@@ -2294,6 +2297,9 @@ export default defineComponent({
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.SMALL_FAST_FORWARD:
+          if (event.shiftKey) {
+            break
+          }
           event.preventDefault()
           if (canChapterJump(event, 'next')) {
             // Jump to the next chapter
