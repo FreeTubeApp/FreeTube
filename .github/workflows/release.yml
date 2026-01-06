@@ -73,11 +73,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: "yarn"
     - run: yarn run ci
-      shell: ${{ (startsWith(matrix.os, 'windows') && 'cmd') || 'bash' }}
+      shell: bash
       env:
         ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
     - run: yarn run lint
-      shell: ${{ (startsWith(matrix.os, 'windows') && 'cmd') || 'bash' }}
+      shell: bash
 
     - name: Get Version Number
       id: getPackageInfo
@@ -92,7 +92,7 @@ jobs:
 
     - name: Build x64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'x64')
-      shell: ${{ (startsWith(matrix.os, 'windows') && 'cmd') || 'bash' }}
+      shell: bash
       run: yarn run build
 
     - name: Build ARMv7l with Node.js ${{ matrix.node-version}}
@@ -102,7 +102,7 @@ jobs:
 
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'arm64')
-      shell: ${{ (startsWith(matrix.os, 'windows') && 'cmd') || 'bash' }}
+      shell: bash
       run: yarn run build:arm64
 
     - name: Convert X64 AppImage to static runtime and add update information
