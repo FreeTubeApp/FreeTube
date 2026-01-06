@@ -8,6 +8,8 @@ on:
   pull_request:
     branches: [ master, development, '**-RC' ]
 
+permissions: {}
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
@@ -15,19 +17,30 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    permissions:
+      actions: write
+      contents: read
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
+      with:
+        persist-credentials: false
+
     - name: Use Node.js 24.x
-      uses: actions/setup-node@v6
+      uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f #v6.1.0
       with:
         node-version: 24.x
         cache: "yarn"
     - run: yarn run ci
+      shell: bash
       env:
         ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
     - run: yarn run lint
+      shell: bash
     # let's verify that webpack is able to package the project
     - run: yarn run pack
+      shell: bash
     # verify that webpack is able to package the project using the web config
     - run: yarn run pack:web
+      shell: bash

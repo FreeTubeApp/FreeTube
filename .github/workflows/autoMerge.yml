@@ -12,6 +12,7 @@ jobs:
 
     steps:
     - name: Auto Merge PR
+      shell: bash
       env:
         GH_TOKEN: ${{ secrets.PUSH_TOKEN }}
       run: gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto --squash
