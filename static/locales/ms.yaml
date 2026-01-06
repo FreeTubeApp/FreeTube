@@ -1,12 +1,12 @@
 # Put the name of your locale in the same language
-Locale Name: ''
+Locale Name: 'Bahasa Melayu'
 
 # Webkit Menu Bar
-File: ''
-New Window: ''
-Preferences: ''
-Quit: ''
-Edit: ''
+File: 'Fail'
+New Window: 'Tetingkap baru'
+Preferences: 'Pilihan'
+Quit: 'Keluar'
+Edit: 'Edit'
 Undo: ''
 Redo: ''
 Cut: ''
