@@ -77,22 +77,10 @@ jobs:
       id: versionNumber
       uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd #v8.0.0
       env:
-        IS_DEV: ${{ contains(github.ref, 'development') }}
-        IS_RC: ${{ contains(github.ref, 'RC') }}
         VERSION_NUMBER_NIGHTLY: ${{ steps.getPackageInfo.outputs.version }}-nightly-${{ github.run_number }}
-        VERSION_NUMBER_RC: ${{ steps.getPackageInfo.outputs.version }}-RC-${{ github.run_number }}
-        VERSION_NUMBER: ${{ steps.getPackageInfo.outputs.version }}
       with:
         result-encoding: string
-        script: |
-          if (${{ env.IS_DEV }}) {
-            return "${{ env.VERSION_NUMBER_NIGHTLY }}"
-          } else if (${{ env.IS_RC }}) {
-            return "${{ env.VERSION_NUMBER_RC }}"
-          } else {
-            return "${{env.VERSION_NUMBER }}"
-          }
-        # script: if ${{ env.IS_DEV }} then echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER_NIGHTLY }}" else echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER }}" fi
+        script: return "${{ env.VERSION_NUMBER_NIGHTLY }}"
 
     - name: Update package.json version
       uses: jaywcjlove/github-action-package@ee84f0c52bd8de8d25601af0402a9059320cb87a
