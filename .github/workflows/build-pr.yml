@@ -6,7 +6,6 @@ name: Build PR
 on:
   pull_request_target:
     types: [opened, synchronize, reopened, auto_merge_disabled, ready_for_review]
-  workflow_dispatch:
 
 permissions: {}
 
