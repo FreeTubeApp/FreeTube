@@ -797,14 +797,14 @@ function runApp() {
   function defaultTrayMenu() {
     return [
       {
-        label: 'New window',
+        label: 'New Window',
         click: () => createWindow({
           showWindowNow: true,
           replaceMainWindow: trayWindows.some(item => item.id === mainWindow.id)
         })
       },
       {
-        label: 'Show all windows',
+        label: 'Show All Windows',
         click: () => {
           // Use while loop instead of for loop as trayClick modifies the trayWindows array
           while (trayWindows.length > 0) {
