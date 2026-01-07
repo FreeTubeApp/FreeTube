@@ -337,6 +337,9 @@ $watched-transition-duration: 0.5s;
       .thumbnailImage {
         // Ensure placeholder image displayed at same aspect ratio as most other images
         aspect-ratio: 16/9;
+        // DeArrrow thumbnails are vertical for shorts.
+        // Set the object-fit so they don't get stretched to 16:9
+        object-fit: contain;
       }
     }
 
