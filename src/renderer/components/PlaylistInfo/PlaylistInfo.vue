@@ -63,18 +63,19 @@
       >
         <h2
           class="playlistTitle"
+          dir="auto"
         >
           {{ title }}
         </h2>
         <p>
           {{ t('Global.Counts.Video Count', { count: parsedVideoCount }, videoCount) }}
-          <span v-if="!hideViews && !isUserPlaylist">
+          <template v-if="!hideViews && !isUserPlaylist">
             - {{ t('Global.Counts.View Count', { count: parsedViewCount }, viewCount) }}
-          </span>
-          <span>- </span>
-          <span v-if="infoSource !== 'local'">
+          </template>
+          -
+          <template v-if="infoSource !== 'local'">
             {{ $t("Playlist.Last Updated On") }}
-          </span>
+          </template>
           {{ lastUpdated }}
           <template v-if="durationFormatted !== ''">
             <br>
@@ -97,8 +98,10 @@
     <p
       v-else
       class="playlistDescription"
-      v-text="description"
-    />
+      dir="auto"
+    >
+      {{ description }}
+    </p>
 
     <hr class="playlistInfoSeparator">
 
@@ -117,6 +120,7 @@
         >
         <h3
           class="channelName"
+          dir="auto"
         >
           {{ channelName }}
         </h3>
@@ -127,6 +131,7 @@
       >
         <h3
           class="channelName"
+          dir="auto"
         >
           {{ channelName }}
         </h3>
@@ -263,12 +268,12 @@
 </template>
 
 <script setup>
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRouter } from 'vue-router'
 
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 import FtInput from '../FtInput/FtInput.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtShareButton from '../FtShareButton/FtShareButton.vue'
@@ -609,7 +614,7 @@ async function savePlaylistInfo() {
   }
 }
 
-const playlistTitleInput = ref(null)
+const playlistTitleInput = useTemplateRef('playlistTitleInput')
 
 function enterEditMode() {
   newTitle.value = props.title
@@ -633,26 +638,34 @@ function handlePlaylistDeleteDisabledClick() {
 
 const EXPORT_VALUES = [
   'database',
+  'youtube',
   'urls',
   'close'
 ]
 
 const exportNames = computed(() => [
   `${t('Settings.Data Settings.Export FreeTube')} (.db)`,
+  `${t('Settings.Data Settings.Export YouTube')} (.csv)`,
   `${t('User Playlists.Export list of URLs')} (.txt)`,
   t('Close')
 ])
 
 /**
- * @param {'database' | 'urls' | null} value
+ * @param {'database' | 'youtube' | 'urls' | null} value
  */
 function handleExport(value) {
   showExportPrompt.value = false
 
-  if (value === 'database') {
-    exportAsFreeTubeDatabase()
-  } else if (value === 'urls') {
-    exportAsListOfUrls()
+  switch (value) {
+    case 'database':
+      exportAsFreeTubeDatabase()
+      break
+    case 'youtube':
+      exportAsYouTubeCsv()
+      break
+    case 'urls':
+      exportAsListOfUrls()
+      break
   }
 }
 
@@ -680,6 +693,41 @@ async function exportAsFreeTubeDatabase() {
       t('Settings.Data Settings.Playlist File'),
       'application/x-freetube-db',
       '.db',
+      'single-playlist-export',
+      'downloads'
+    )
+
+    if (response) {
+      showToast(t('User Playlists.The playlist has been successfully exported'))
+    }
+  } catch (error) {
+    const message = t('Settings.Data Settings.Unable to write file')
+    showToast(`${message}: ${error}`)
+  }
+}
+
+async function exportAsYouTubeCsv() {
+  const exportFileName = getExportFilename(props.title, 'csv')
+
+  const videoData = props.sortedVideos.map((video) => {
+    // Remove milliseconds and replace "Z" with +00:00 to match YouTube's exports
+    const timestamp = new Date(video.timeAdded).toISOString().slice(0, -5) + '+00:00'
+
+    return `${video.videoId},${timestamp}`
+  }).join('\n')
+
+  // YouTube includes 6 line feed characters at the end of the file, so we do the same here
+  const data = `Video ID,Playlist video creation timestamp\n${videoData}\n\n\n\n\n\n`
+
+  // See DataSettings.vue `promptAndWriteToFile`
+
+  try {
+    const response = await writeFileWithPicker(
+      exportFileName,
+      data,
+      '',
+      'text/csv',
+      '.csv',
       'single-playlist-export',
       'downloads'
     )
@@ -893,7 +941,7 @@ const updateQueryDebounced = debounce((newQuery) => {
   emit('search-video-query-change', newQuery)
 }, 500)
 
-const searchInput = ref(null)
+const searchInput = useTemplateRef('searchInput')
 
 /**
  * @param {KeyboardEvent} event

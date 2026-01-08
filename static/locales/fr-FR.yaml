@@ -103,24 +103,21 @@ Subscriptions:
 Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
-  Movies: Films
   Gaming: Jeux vidéo
-  Music: Musique
-  Default: Par défaut
+  Sports: Sports
 Most Popular: 'Les plus populaires'
-Playlists: 'Listes de lecture'
+Playlists: 'Playlists'
 User Playlists:
-  Your Playlists: 'Vos listes de lecture'
-  Search bar placeholder: Recherche de listes de lecture
-  Empty Search Message: Il n'y a pas de vidéos dans cette liste de lecture qui correspondent à votre recherche
+  Your Playlists: 'Vos playlists'
+  Search bar placeholder: Recherche de playlists
+  Empty Search Message: Il n'y a pas de vidéos dans cette playlist qui correspondent à votre recherche
   AddVideoPrompt:
-    Search in Playlists: Recherche dans les listes de lecture
+    Search in Playlists: Recherche dans les playlists
     Save: Sauvegarder
-    Select a playlist to add your N videos to: Sélectionnez une liste de lecture à laquelle ajouter votre vidéo | Sélectionnez une liste de lecture à laquelle ajouter vos {videoCount} vidéos
+    Select a playlist to add your N videos to: Sélectionnez une playlist à laquelle ajouter votre vidéo | Sélectionnez une playlist à laquelle ajouter vos {videoCount} vidéos
     Toast:
-      "{videoCount} video(s) added to 1 playlist": 1 vidéo ajoutée à 1 liste de lecture | {videoCount} vidéos ajoutées à 1 liste de lecture
-      You haven't selected any playlist yet.: Vous n'avez pas encore sélectionné de liste de lecture.
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 vidéo ajoutée à {playlistCount} listes de lecture | {videoCount} vidéos ajoutées à {playlistCount} listes de lecture
+      You haven't selected any playlist yet.: Vous n'avez pas encore sélectionné de playlist.
+      "Video(s) added to {playlistCount} playlists": "Vidéo(s) ajoutée(s) à une playlist | Vidéo(s) ajoutée(s) à {playlistCount} playlists"
     N playlists selected: '{playlistCount} Sélectionnée(s)'
     Added {count} Times: Déjà ajouté | Ajouté {count} fois
     Allow Adding Duplicate Video(s): Autoriser l'ajout de vidéos en double
@@ -130,25 +127,25 @@ User Playlists:
     Toast:
       There were no videos to remove.: Il n'y avait aucune vidéo à supprimer.
       Video has been removed: La vidéo a été supprimée
-      Playlist has been updated.: La liste de lecture a été mise à jour.
-      There was an issue with updating this playlist.: Un problème est survenu lors de la mise à jour de cette liste de lecture.
+      Playlist has been updated.: La playlist a été mise à jour.
+      There was an issue with updating this playlist.: Un problème est survenu lors de la mise à jour de cette playlist.
       This video cannot be moved up.: Cette vidéo ne peut pas être déplacée vers le haut.
-      This playlist is protected and cannot be removed.: Cette liste de lecture est protégée et ne peut pas être supprimée.
-      Playlist {playlistName} has been deleted.: La liste de lecture {playlistName} a été supprimée.
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Certaines vidéos de la liste de lecture ne sont pas encore chargées. Cliquez ici pour les copier quand même.
-      This playlist does not exist: Cette liste de lecture n'existe pas
-      Playlist name cannot be empty. Please input a name.: Le nom de la liste de lecture ne peut pas être vide. Veuillez saisir un nom.
+      This playlist is protected and cannot be removed.: Cette playlist est protégée et ne peut pas être supprimée.
+      Playlist {playlistName} has been deleted.: La playlist {playlistName} a été supprimée.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Certaines vidéos de la playlist ne sont pas encore chargées. Cliquez ici pour les copier quand même.
+      This playlist does not exist: Cette playlist n'existe pas
+      Playlist name cannot be empty. Please input a name.: Le nom de la playlist ne peut pas être vide. Veuillez saisir un nom.
       There was a problem with removing this video: Il y a eu un problème lors de la suppression de cette vidéo
       "{videoCount} video(s) have been removed": 1 vidéo a été supprimée | {videoCount} vidéos ont été supprimées
       This video cannot be moved down.: Cette vidéo ne peut pas être déplacée vers le bas.
-      This playlist is now used for quick bookmark: Cette liste de lecture est maintenant utilisée comme marque-page rapide
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Cette liste de lecture est désormais utilisée comme marque-page rapide à la place de {oldPlaylistName}. Cliquez ici pour annuler
+      This playlist is now used for quick bookmark: Cette playlist est maintenant utilisée comme marque-page rapide
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Cette playlist est désormais utilisée comme marque-page rapide à la place de {oldPlaylistName}. Cliquez ici pour annuler
       Reverted to use {oldPlaylistName} for quick bookmark: Reprise de {oldPlaylistName} pour un marque-page rapide
-      This playlist is already being used for quick bookmark.: Cette liste de lecture est déjà utilisée comme signet rapide.
-      This playlist has a video with a duration error: Cette liste de lecture contient au moins une vidéo qui n'a pas de durée, elle sera triée comme si la durée était nulle.
+      This playlist is already being used for quick bookmark.: Cette playlist est déjà utilisée comme signet rapide.
+      This playlist has a video with a duration error: Cette playlist contient au moins une vidéo qui n'a pas de durée, elle sera triée comme si la durée était nulle.
       Video has been removed. Click here to undo.: La vidéo a été supprimée. Cliquez ici pour annuler.
     Search for Videos: Rechercher des vidéos
-  Are you sure you want to delete this playlist? This cannot be undone: Êtes-vous sûr(e) de vouloir supprimer cette liste de lecture ? Cette opération ne peut pas être annulée.
+  Are you sure you want to delete this playlist? This cannot be undone: Êtes-vous sûr(e) de vouloir supprimer cette playlist ? Cette opération ne peut pas être annulée.
   Sort By:
     LatestPlayedFirst: Date de lecture (la plus récente)
     EarliestCreatedFirst: Date de création (la plus ancienne)
@@ -158,39 +155,39 @@ User Playlists:
     EarliestPlayedFirst: Date de lecture (la plus ancienne)
     LatestUpdatedFirst: Date de mise à jour (la plus récente)
     NameAscending: A→Z
-  You have no playlists. Click on the create new playlist button to create a new one.: Vous n'avez pas de listes de lecture. Cliquez sur le bouton créer une nouvelle liste de lecture pour en créer une nouvelle.
-  Remove from Playlist: Retirer de la liste de lecture
+  You have no playlists. Click on the create new playlist button to create a new one.: Vous n'avez pas de playlist. Cliquez sur le bouton créer une nouvelle playlist pour en créer une nouvelle.
+  Remove from Playlist: Retirer de la playlist
   Save Changes: Enregistrer les modifications
   CreatePlaylistPrompt:
     Create: Créer
     Toast:
-      There was an issue with creating the playlist.: Il y a eu un problème lors de la création de la liste de lecture.
-      Playlist {playlistName} has been successfully created.: La liste de lecture {playlistName} a été créée avec succès.
-      There is already a playlist with this name. Please pick a different name.: Il existe déjà une liste de lecture portant ce nom. Veuillez choisir un autre nom.
-    New Playlist Name: Nouveau nom de la liste de lecture
-  This playlist currently has no videos.: Cette liste de lecture ne contient actuellement aucune vidéo.
-  Add to Playlist: Ajouter à la liste de lecture
+      There was an issue with creating the playlist.: Il y a eu un problème lors de la création de la playlist.
+      Playlist {playlistName} has been successfully created.: La playlist {playlistName} a été créée avec succès.
+      There is already a playlist with this name. Please pick a different name.: Il existe déjà une playlist portant ce nom. Veuillez choisir un autre nom.
+    New Playlist Name: Nouveau nom de la playlist
+  This playlist currently has no videos.: Cette playlist ne contient actuellement aucune vidéo.
+  Add to Playlist: Ajouter à la playlist
   Move Video Down: Déplacer la vidéo vers le bas
-  Playlist Name: Nom de la liste de lecture
+  Playlist Name: Nom de la playlist
   Remove Watched Videos: Retirer les vidéos visionnées
   Move Video Up: Déplacer la vidéo vers le haut
   Cancel: Annuler
-  Delete Playlist: Supprimer la liste de lecture
-  Create New Playlist: Créer une nouvelle liste de lecture
-  Edit Playlist Info: Modifier les informations de la liste de lecture
-  Copy Playlist: Copier la liste de lecture
-  Playlist Description: Description de la liste de lecture
+  Delete Playlist: Supprimer la playlist
+  Create New Playlist: Créer une nouvelle playlist
+  Edit Playlist Info: Modifier les informations de la playlist
+  Copy Playlist: Copier la playlist
+  Playlist Description: Description de la playlist
   Add to Favorites: Ajouter à {playlistName}
   Remove from Favorites: Retirer de {playlistName}
-  Enable Quick Bookmark With This Playlist: Activer le marque-page rapide avec cette liste de lecture
-  Playlists with Matching Videos: Listes de lecture avec des vidéos correspondantes
+  Enable Quick Bookmark With This Playlist: Activer le marque-page rapide avec cette playlist
+  Playlists with Matching Videos: Playlists avec des vidéos correspondantes
   Quick Bookmark Enabled: Signet rapide activé
-  Cannot delete the quick bookmark target playlist.: Impossible de supprimer la liste de lecture cible des signets rapides.
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Êtes-vous sûr(e) de vouloir retirer 1 vidéo en double de cette liste de lecture ? Cette opération est irréversible. | Êtes-vous sûr(e) de vouloir retirer {playlistItemCount} vidéos en double de cette liste de lecture ? Cette opération est irréversible.
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Êtes-vous sûr(e) de vouloir retirer 1 vidéo regardée de cette liste de lecture ? Cette opération est irréversible. | Êtes-vous sûr(e) de vouloir retirer {playlistItemCount} vidéos regardées de cette liste de lecture ? Cette opération est irréversible.
+  Cannot delete the quick bookmark target playlist.: Impossible de supprimer la playlist cible des signets rapides.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Êtes-vous sûr(e) de vouloir retirer 1 vidéo en double de cette playlist ? Cette opération est irréversible. | Êtes-vous sûr(e) de vouloir retirer {playlistItemCount} vidéos en double de cette playlist ? Cette opération est irréversible.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Êtes-vous sûr(e) de vouloir retirer 1 vidéo regardée de cette playlist ? Cette opération est irréversible. | Êtes-vous sûr(e) de vouloir retirer {playlistItemCount} vidéos regardées de cette playlist ? Cette opération est irréversible.
   Remove Duplicate Videos: Retirer les vidéos en double
-  The playlist has been successfully exported: La liste de lecture a été exportée avec succès
-  Export Playlist: Exporter cette liste de lecture
+  The playlist has been successfully exported: La playlist a été exportée avec succès
+  Export Playlist: Exporter cette playlist
   TotalTimePlaylist: 'Durée totale : {duration}'
   Export list of URLs: Exporter la liste des URL
 History:
@@ -376,7 +373,7 @@ Settings:
     Turn on Subtitles by Default: 'Activer les sous-titres par défaut'
     Autoplay Videos: 'Démarrer les vidéos automatiquement'
     Proxy Videos Through Invidious: 'Proxy vidéo via Invidious'
-    Autoplay Playlists: 'Lire automatiquement les vidéos des listes de lecture'
+    Autoplay Playlists: 'Lire automatiquement les vidéos des playlists'
     Enable Theatre Mode by Default: 'Activer le mode cinéma par défaut'
     Default Volume: 'Volume par défaut'
     Default Playback Rate: 'Vitesse de lecture par défaut'
@@ -445,10 +442,10 @@ Settings:
     Remove Watch History: Effacer l’historique de lecture
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Êtes-vous sûr(e) de vouloir supprimer tous les abonnements et profils ? Cette action est irréversible.
     Remove All Subscriptions / Profiles: Supprimer tous les abonnements et profils
-    Save Watched Videos With Last Viewed Playlist: Sauvegarder les vidéos regardées avec la dernière liste de lecture vue
-    All playlists have been removed: Toutes les listes de lecture ont été supprimées
-    Remove All Playlists: Supprimer toutes les listes de lecture
-    Are you sure you want to remove all your playlists?: Êtes-vous sûr de vouloir supprimer toutes vos listes de lecture ?
+    Save Watched Videos With Last Viewed Playlist: Sauvegarder les vidéos regardées avec la dernière playlist vue
+    All playlists have been removed: Toutes les playlists ont été supprimées
+    Remove All Playlists: Supprimer toutes les playlists
+    Are you sure you want to remove all your playlists?: Êtes-vous sûr de vouloir supprimer toutes vos playlists ?
     Remember Search History: Conserver l'historique de recherche
     Are you sure you want to clear out your search history and cache?: Êtes-vous sûr(e) de vouloir effacer votre historique de recherche et votre cache ?
     Clear Search History and Cache: Effacer l’historique de recherche et le cache
@@ -476,7 +473,6 @@ Settings:
     Unable to write file: Impossible d'écrire le fichier
     Unable to read file: Impossible de lire le fichier
     Invalid history file: Fichier d'historique non valide
-    This might take a while, please wait: Cela pourrait prendre un certain temps, veuillez patienter
     Invalid subscriptions file: Fichier d'abonnements invalide
     Data Settings: Données
     All watched history has been successfully exported: Tout votre historique de visionnage a été exporté avec succès
@@ -484,14 +480,14 @@ Settings:
     History object has insufficient data, skipping item: Ignorer cet élément car les données d'historique sont insuffisantes
     Profile object has insufficient data, skipping item: Ignorer cet élément car les données de profil sont insuffisantes
     Manage Subscriptions: Gérer les abonnements
-    Import Playlists: Importer des listes de lecture
-    Export Playlists: Exporter des listes de lecture
-    Playlist insufficient data: Données insuffisantes pour la liste de lecture « {playlist} », saut de l'élément
-    All playlists has been successfully imported: Toutes les listes de lecture ont été importées avec succès
-    All playlists has been successfully exported: Toutes les listes de lecture ont été exportées avec succès
+    Import Playlists: Importer des playlists
+    Export Playlists: Exporter des playlists
+    Playlist insufficient data: Données insuffisantes pour la playlist « {playlist} », saut de l'élément
+    All playlists has been successfully imported: Toutes les playlists ont été importées avec succès
+    All playlists has been successfully exported: Toutes les playlists ont été exportées avec succès
     History File: Fichier de l'historique
     Subscription File: Fichier des abonnements
-    Playlist File: Fichier des listes de lecture
+    Playlist File: Fichier des playlists
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Cette option permet d'exporter les vidéos de toutes les listes de lecture vers une seule liste de lecture nommée « Favorites ».\nComment exporter et importer des vidéos dans des sélections pour une ancienne version de FreeTube :\n 1. Exportez vos sélections avec cette option activée.\n2. Supprimez toutes vos sélections existantes à l'aide de l'option Supprimer toutes les sélections sous Paramètres de confidentialité.\n3. Lancez l'ancienne version de FreeTube et importez les listes de lecture exportées. »"
       Label: Exportation des listes de lecture pour les anciennes versions de FreeTube
@@ -512,7 +508,7 @@ Settings:
     Hide Recommended Videos: Masquer les vidéos recommandées
     Distraction Free Settings: Sans distraction
     Hide Active Subscriptions: Masquer les abonnements actifs
-    Hide Playlists: Masquer les listes de lecture
+    Hide Playlists: Masquer les playlists
     Hide Video Description: Masquer la description de la vidéo
     Hide Comments: Masquer les commentaires
     Hide Live Streams: Masquer les flux en direct
@@ -523,7 +519,7 @@ Settings:
     Hide Channels: Masquer les vidéos des chaînes
     Hide Channels Placeholder: Identifiant de la chaîne
     Display Titles Without Excessive Capitalisation: Afficher les titres sans majuscules ni ponctuation excessives
-    Hide Channel Playlists: Masquer l’onglet « Listes de lecture » de la chaîne
+    Hide Channel Playlists: Masquer l’onglet « Playlists » de la chaîne
     Hide Featured Channels: Masquer les chaînes en vedette
     Hide Channel Shorts: Masquer l’onglet « Shorts » de la chaîne
     Sections:
@@ -542,7 +538,7 @@ Settings:
     Hide Channels Disabled Message: Certaines chaînes ont été bloquées à l’aide d’un identifiant et n’ont pas été traitées. La fonctionnalité est bloquée le temps que ces identifiants se mettent à jour
     Hide Channels Already Exists: L’identifiant de chaîne existe déjà
     Hide Channels API Error: Erreur de récupération de l'utilisateur portant l'identifiant fourni. Veuillez vérifier à nouveau si l'ID est correct.
-    Hide Videos, Playlists and Channels Containing Text: Masquer les vidéos et les listes de lecture contenant du texte
+    Hide Videos, Playlists and Channels Containing Text: Masquer les vidéos et les playlists contenant du texte
     Hide Videos, Playlists and Channels Containing Text Placeholder: Mot, fragment de mot ou phrase
     Hide Channel Home: Masquer l’onglet « Accueil » de la chaîne
     Show Added Items: Afficher les éléments ajoutés
@@ -562,7 +558,7 @@ Settings:
     Proxy Port Number: Numéro de port du proxy
     Proxy Host: Hôte du proxy
     Proxy Protocol: Protocole du proxy
-    Enable Tor / Proxy: Activer Tor / proxy
+    Enable Tor / Proxy: Activer Tor / Proxy
     Proxy Settings: Proxy
     Proxy Warning: FreeTube n'a pas de proxy intégré mais peut se connecter à un proxy externe, tel qu'un proxy fonctionnant sur votre machine comme Tor ou un proxy externe tel qu'un proxy SOCKS5 fourni par certains VPN. Si cette option est activée, assurez-vous que votre proxy/Tor est configuré correctement, sinon FreeTube ne pourra pas récupérer de données.
     Proxy Password: Mot de passe du proxy
@@ -662,8 +658,8 @@ Channel:
       Oldest: 'Plus ancien'
       Most Popular: 'Les plus populaires'
   Playlists:
-    Playlists: 'Listes de lecture'
-    This channel does not currently have any playlists: 'Cette chaîne n’a pas encore de liste de lecture'
+    Playlists: 'Playlists'
+    This channel does not currently have any playlists: 'Cette chaîne n’a pas encore de playlist'
     Sort Types:
       Last Video Added: 'Dernière vidéo ajoutée'
       Newest: 'Les plus récentes'
@@ -706,7 +702,7 @@ Channel:
     This channel does not currently have any podcasts: Cette chaîne n’a pas encore de podcast
   Home:
     Home: Accueil
-    View Playlist: Afficher la liste de lecture
+    View Playlist: Afficher la playlist
   Courses:
     Courses: Cours
     This channel does not currently have any courses: Cette chaîne n'a actuellement pas de cours
@@ -735,12 +731,12 @@ Video:
     In less than a minute: En moins d'une minute
   Published on: 'Mise en ligne le'
 #& Videos
-  Play Previous Video: Lire la vidéo précédente
-  Play Next Video: Lire la vidéo suivante
+  Previous: Précédente
+  Next: Suivante
   Autoplay: Lecture auto
-  Reverse Playlist: Inverser la liste de lecture
-  Shuffle Playlist: Mélanger la liste de lecture
-  Loop Playlist: Liste de lecture en boucle
+  Reverse Playlist: Inverser la playlist
+  Shuffle Playlist: Mélanger la playlist
+  Loop Playlist: Playlist en boucle
   Starting soon, please refresh the page to check again: Débute prochainement, veuillez actualiser la page pour vérifier à nouveau
   audio only: audio uniquement
   video only: vidéo uniquement
@@ -764,14 +760,14 @@ Video:
     filler: Bouche-trou
     recap: Récap
   External Player:
-    playlist: liste de lecture
+    playlist: playlist
     video: vidéo
     Unsupported Actions:
-      looping playlists: listes de lecture en boucle
-      shuffling playlists: lecture aléatoire des listes de lecture
-      reversing playlists: inverser l'ordre des listes de lecture
-      opening specific video in a playlist (falling back to opening the video): ouvrir la vidéo sélectionnée dans la liste de lecture (retour à l'ouverture de la vidéo)
-      opening playlists: ouvrir des listes de lecture
+      looping playlists: playlists en boucle
+      shuffling playlists: lecture aléatoire des playlists
+      reversing playlists: inverser l'ordre des playlists
+      opening specific video in a playlist (falling back to opening the video): ouvrir la vidéo sélectionnée dans la playlist (retour à l'ouverture de la vidéo)
+      opening playlists: ouvrir des playlists
       setting a playback rate: régler la vitesse de lecture
       starting video at offset: démarrer la vidéo avec un décalage
     UnsupportedActionTemplate: '{externalPlayer} non pris en charge : {action}'
@@ -827,13 +823,13 @@ Video:
   Watched Progress Saved: État de visionnage enregistré
 Playlist:
   #& About
-  View Full Playlist: 'Afficher la liste de lecture complète'
+  View Full Playlist: 'Afficher la playlist complète'
   Last Updated On: 'Dernière mise à jour le'
 
 # On Video Watch Page
 #* Published
 #& Views
-  Playlist: Liste de lecture
+  Playlist: Playlist
   Sort By:
     DateAddedNewest: Date d'ajout (la plus récente)
     AuthorDescending: Auteur (Z-A)
@@ -856,7 +852,7 @@ Change Format:
   Legacy formats are not available for this video: Les formats héritage ne sont pas disponibles pour cette vidéo
 Share:
   Share Video: 'Partager la vidéo'
-  Share Playlist: 'Partager la liste de lecture'
+  Share Playlist: 'Partager la playlist'
   Copy Link: 'Copier le lien'
   Open Link: 'Ouvrir le lien'
   Copy Embed: 'Copier le code d''intégration'
@@ -870,6 +866,7 @@ Share:
   YouTube Channel URL copied to clipboard: L'URL YouTube de la chaîne est copiée dans le presse-papiers
   Invidious Channel URL copied to clipboard: L'URL Invidious de la chaîne est copiée dans le presse-papiers
   Share Channel: Partager la chaîne
+  Share Post: Partager la publication
 Mini Player: 'Mini-lecteur'
 Comments:
   Comments: 'Commentaires'
@@ -906,7 +903,7 @@ Shuffle is now enabled: 'Mode aléatoire activé'
 Playing Next Video: 'Lecture de la vidéo suivante'
 Playing Previous Video: 'Lecture de la vidéo précédente'
 Canceled next video autoplay: 'Annuler la lecture automatique'
-'The playlist has ended. Enable loop to continue playing': 'Fin de la liste de lecture. Activer la lecture en boucle pour continuer'
+'The playlist has ended. Enable loop to continue playing': 'La playlist est terminée. Activez la lecture en boucle pour continuer.'
 
 Yes: 'Oui'
 No: 'Non'
@@ -952,7 +949,7 @@ Profile:
   Profile Name: Nom du profil
   Edit Profile Name: Modifier le nom du profil
   Create Profile Name: Créer un nom de profil
-The playlist has been reversed: La liste de lecture a été inversée
+The playlist has been reversed: La playlist a été inversée
 A new blog is now available, {blogTitle}. Click to view more: Un nouveau billet de blog est maintenant disponible, {blogTitle}. Cliquez pour en savoir plus
 Download From Site: Télécharger depuis le site
 Version {versionNumber} is now available!  Click for more details: La version {versionNumber} est maintenant disponible !  Cliquez pour plus de détails
@@ -976,17 +973,17 @@ Tooltips:
     Open Deep Links In New Window: Les URL transmises à FreeTube, par exemple via des extensions de redirection d'un navigateur web ou via des arguments en ligne de commande, seront ouvertes dans une nouvelle fenêtre.
   External Player Settings:
     Custom External Player Arguments: Tous les arguments de ligne de commande personnalisés, que vous souhaitez transmettre au lecteur externe.
-    Ignore Warnings: Suppression des avertissements lorsque le lecteur externe actuel ne prend pas en charge l'action en cours (par exemple, inversion des listes de lecture, etc.).
+    Ignore Warnings: Suppression des avertissements lorsque le lecteur externe actuel ne prend pas en charge l'action en cours (par exemple, inversion des playlists, etc.).
     Custom External Player Executable: Par défaut, FreeTube suppose que le lecteur externe choisi peut être trouvé via la variable d'environnement PATH. Si nécessaire, un chemin personnalisé peut être défini ici.
-    External Player: La sélection du lecteur externe affichera une icône sur la miniature qui ouvrira la vidéo (liste de lecture, si prise en charge) dans le lecteur externe. Attention, les paramètres Invidious n'affectent pas les lecteurs externes.
+    External Player: La sélection du lecteur externe affichera une icône sur la miniature qui ouvrira la vidéo (playlist, si prise en charge) dans le lecteur externe. Attention, les paramètres Invidious n'affectent pas les lecteurs externes.
     DefaultCustomArgumentsTemplate: '(Par défaut : « {defaultCustomArguments} »)'
-    Ignore Default Arguments: Ne pas envoyer d'arguments par défaut au lecteur externe en dehors de l'URL de la vidéo (par exemple, la vitesse de lecture, l'URL de la liste de lecture, etc...). Les arguments personnalisés seront toujours transmis.
+    Ignore Default Arguments: Ne pas envoyer d'arguments par défaut au lecteur externe en dehors de l'URL de la vidéo (par exemple, la vitesse de lecture, l'URL de la playlist, etc...). Les arguments personnalisés seront toujours transmis.
   Experimental Settings:
     Replace HTTP Cache: Désactive le cache HTTP d'Electron basé sur le disque et active un cache d'image personnalisé en mémoire. Ceci entraînera une augmentation de l'utilisation de la mémoire vive.
   Distraction Free Settings:
-    Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les listes de lecture et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
+    Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les playlists et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} » applicable à l'ensemble de l'application, dans la section « {subsection} » de la section « {settingsSection} »
-    Hide Videos, Playlists and Channels Containing Text: Saisissez un mot, un fragment de mot ou une phrase (insensible à la casse) pour masquer toutes les vidéos et sélections dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube, à l'exception de l'historique, de vos listes de lecture et des vidéos contenues dans les listes de lecture.
+    Hide Videos, Playlists and Channels Containing Text: Saisissez un mot, un fragment de mot ou une phrase (insensible à la casse) pour masquer toutes les vidéos et sélections dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube, à l'exception de l'historique, de vos playlists et des vidéos contenues dans les playlists.
     Hide Videos on Watch: Masque les vidéos visionnées des onglets Vidéos, Shorts, En direct des pages Abonnements et Chaînes. Ceci n'a pas d'effet sur l'onglet Accueil des pages Chaînes
   SponsorBlock Settings:
     UseDeArrowTitles: Remplacer les titres des vidéos par des titres proposés par les utilisateurs de DeArrow.
@@ -1125,6 +1122,8 @@ KeyboardShortcutPrompt:
   Skip by Tenths: Sauter dans la vidéo par pourcentage (3 sauts pour atteindre 30 % de la durée)
   Home: Aller au début de la vidéo
   End: Aller à la fin de la vidéo
-  Skip to Next Video: Passer à la vidéo suivante dans la liste de lecture ou à la vidéo recommandée suivante
-  Skip to Previous Video: Revenir à la vidéo précédente dans la liste de lecture
+  Skip to Next Video: Passer à la vidéo suivante dans la playlist ou à la vidéo recommandée suivante
+  Skip to Previous Video: Revenir à la vidéo précédente dans la playlist
 shortcutLabelSeparator: ｜
+Compact side navigation: Navigation latérale compacte
+Expand side navigation: Développer la navigation latérale

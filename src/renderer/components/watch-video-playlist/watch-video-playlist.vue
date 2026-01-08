@@ -12,6 +12,7 @@
       >
         <router-link
           class="playlistTitleLink"
+          dir="auto"
           :to="playlistPageLinkTo"
         >
           {{ playlistTitle }}
@@ -23,16 +24,17 @@
         <router-link
           v-if="channelId"
           class="channelName"
+          dir="auto"
           :to="`/channel/${channelId}`"
         >
           {{ channelName }} -
         </router-link>
-        <span
+        <bdi
           v-else
           class="channelName"
         >
           {{ channelName }} -
-        </span>
+        </bdi>
       </template>
       <span
         class="playlistIndex"
@@ -74,7 +76,10 @@
                 <div class="previewText">
                   {{ previewVideoIndex }} / {{ playlistVideoCount }}
                 </div>
-                <div class="previewVideoTitle">{{ previewVideoTitle }}</div>
+                <div
+                  class="previewVideoTitle"
+                  dir="auto"
+                >{{ previewVideoTitle }}</div>
               </div>
             </div>
           </div>
@@ -118,28 +123,6 @@
           <font-awesome-icon
             class="playlistIcon"
             :icon="['fas', 'exchange-alt']"
-          />
-        </button>
-        <button
-          class="playlistButton"
-          :aria-label="$t('Video.Play Previous Video')"
-          :title="$t('Video.Play Previous Video')"
-          @click="playPreviousVideo"
-        >
-          <font-awesome-icon
-            class="playlistIcon"
-            :icon="['fas', 'step-backward']"
-          />
-        </button>
-        <button
-          class="playlistButton"
-          :aria-label="$t('Video.Play Next Video')"
-          :title="$t('Video.Play Next Video')"
-          @click="playNextVideo"
-        >
-          <font-awesome-icon
-            class="playlistIcon"
-            :icon="['fas', 'step-forward']"
           />
         </button>
       </div>

@@ -13,9 +13,8 @@
           :icon="['fas', 'hashtag']"
           aria-hidden="false"
           class="headingIcon"
-          fixed-width
         />
-        {{ hashtag }}
+        <bdi>{{ hashtag }}</bdi>
       </h2>
       <FtElementList
         v-if="videos.length > 0"

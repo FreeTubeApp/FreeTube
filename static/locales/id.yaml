@@ -97,7 +97,7 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Langganan'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Daftar Langganan Anda saat ini kosong. Jika Anda ingin mengimpor langganan, Anda dapat membuka Setelan Data dan memilih Impor Langganan atau Anda dapat mencari saluran dan berlangganan saluran tersebut.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Daftar Langganan Anda saat ini kosong. Jika Anda ingin mengimpor langganan Anda, bukalah Pengaturan Data dan pilih Impor Langganan atau Anda dapat mencari saluran dan berlangganan saluran tersebut.'
   Load More Videos: Muat Lebih Banyak Video
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Profil ini berlangganan ke banyak kanal. Beralih ke RSS untuk menghindari pembatasan akses
   Load More Posts: Muat Lebih Banyak Pos
@@ -109,11 +109,9 @@ Subscriptions:
   All Subscription Tabs Hidden: Semua tab langganan disembunyikan. Untuk melihat konten di sini, harap tampilkan beberapa tab di bagian "{subsection}" di "{settingsSection}".
 Trending:
   Trending: 'Sedang Tren'
-  Movies: Film
-  Music: Musik
   Gaming: Bermain game
-  Default: Bawaan
   Trending Tabs: Tab Trending
+  Sports: Olahraga
 Most Popular: 'Paling Populer'
 Playlists: 'Daftar Putar'
 User Playlists:
@@ -127,12 +125,12 @@ User Playlists:
   Sort By:
     NameDescending: Z-A
     NameAscending: A-Z
-    LatestUpdatedFirst: Baru-baru Ini Diperbarui
-    EarliestCreatedFirst: Paling Awal Dibuat
-    EarliestUpdatedFirst: Paling Awal Diperbarui
-    LatestPlayedFirst: Baru-baru Ini Diputar
-    LatestCreatedFirst: Baru-baru Ini Dibuat
-    EarliestPlayedFirst: Paling Awal Dimainkan
+    LatestUpdatedFirst: Tanggal Diperbarui (Terbaru)
+    EarliestCreatedFirst: Tanggal Dibuat (Terlama)
+    EarliestUpdatedFirst: Tanggal Diperbarui (Terlama)
+    LatestPlayedFirst: Tanggal Diputar (Terbaru)
+    LatestCreatedFirst: Tanggal Dibuat (Terbaru)
+    EarliestPlayedFirst: Tanggal Diputar (Terlama)
   CreatePlaylistPrompt:
     Create: Buat
     New Playlist Name: Nama Daftar Putar yang Baru
@@ -169,8 +167,7 @@ User Playlists:
   AddVideoPrompt:
     Toast:
       You haven't selected any playlist yet.: Anda belum memilih daftar putar apa pun.
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video ditambahkan ke {playlistCount} daftar putar | {videoCount} video ditambahkan ke {playlistCount} daftar putar
-      "{videoCount} video(s) added to 1 playlist": 1 video ditambahkan ke 1 daftar putar | {videoCount} video ditambahkan ke 1 daftar putar
+      "Video(s) added to {playlistCount} playlists": "Video ditambahkan ke 1 daftar putar | Video ditambahkan ke daftar putar {playlistCount}"
     N playlists selected: '{playlistCount} Dipilih'
     Search in Playlists: Cari di Daftar Putar
     Save: Simpan
@@ -208,8 +205,8 @@ History:
   Search bar placeholder: Cari di Riwayat
   Empty Search Message: Tidak ada video dalam riwayat Anda yang cocok dengan pencarian Anda
   Case Sensitive Search: Pencarian Peka Huruf Besar/Kecil
-  DateOldestHistory: Ditonton Pertama
-  DateNewestHistory: Ditonton Terakhir
+  DateOldestHistory: Tanggal Ditonton (Terlama)
+  DateNewestHistory: Tanggal Ditonton (Terbaru)
 Settings:
   # On Settings Page
   Settings: 'Pengaturan'
@@ -282,6 +279,7 @@ Settings:
       Everforest Light Hard: Everforest Ringan Keras
       Everforest Light Medium: Everforest Ringan Sedang
       Everforest Light Low: Everforest Cahaya rendah
+      Catppuccin Latte: Kopi Susu Latte
     Main Color Theme:
       Main Color Theme: 'Tema Warna Utama'
       Red: 'Merah'
@@ -367,6 +365,8 @@ Settings:
       Everforest Light Aqua: Cahaya Everforest Aqua
       Everforest Light Blue: Everforest Biru muda
       Everforest Light Purple: Everforest Ungu Muda
+      Catppuccin Latte Mauve: Kopi Susu Latte Ungu Muda
+      Catppuccin Latte Red: Kopi Susu Latte Merah
     Secondary Color Theme: 'Warna Tema Sekunder'
         #* Main Color Theme
     Expand Side Bar by Default: Perluas Bilah Samping
@@ -476,7 +476,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Semua langganan dan profil telah berhasil diimpor'
     All subscriptions have been successfully imported: 'Semua langganan telah berhasil diimpor'
     Invalid subscriptions file: 'Berkas langganan tidak valid'
-    This might take a while, please wait: 'Mungkin memakan waktu cukup lama, silakan tunggu'
     Invalid history file: 'Berkas riwayat tidak valid'
     Subscriptions have been successfully exported: 'Langganan telah berhasil diekspor'
     History object has insufficient data, skipping item: 'Obyek riwayat tidak memiliki cukup data, melewati item'
@@ -499,6 +498,12 @@ Settings:
       Label: Ekspor Daftar Putar untuk Versi FreeTube yang Lebih Tua
 
       Tooltip: "Opsi ini mengekspor video dari semua daftar putar ke dalam satu daftar putar bernama 'Favorit'.\nCara mengekspor & mengimpor video dalam daftar putar untuk FreeTube versi lama:\n1. Ekspor daftar putar Anda dengan mengaktifkan opsi ini.\n2. Hapus semua daftar putar Anda yang ada menggunakan opsi Hapus Semua Daftar Putar di bawah Pengaturan Privasi.\n3. Luncurkan FreeTube versi lama dan impor daftar putar yang diekspor.\""
+    Search history file: Berkas riwayat pencarian
+    Search history: Riwayat pencarian
+    Import search history: Impor riwayat pencarian
+    Export search history: Ekspor riwayat pencarian
+    All search history has been successfully imported: Semua riwayat pencarian telah berhasil diimpor
+    All search history has been successfully exported: Semua riwayat pencarian telah berhasil diekspor
   Distraction Free Settings:
     Hide Comment Likes: Sembunyikan Jumlah Suka pada Komentar
     Hide Channel Subscribers: Sembunyikan Jumlah Pelanggan Kanal
@@ -563,6 +568,8 @@ Settings:
     Enable Tor / Proxy: Aktifkan Tor / Proksi
     Proxy Settings: Proksi
     Proxy Warning: FreeTube tidak memiliki proxy bawaan tetapi dapat terhubung ke proxy eksternal, seperti proxy yang berjalan di komputer Anda seperti Tor atau proxy eksternal seperti proxy SOCKS5 yang disediakan oleh beberapa VPN. Jika diaktifkan, pastikan proxy/Tor Anda dikonfigurasi dengan benar, atau FreeTube tidak akan dapat mengambil data apa pun.
+    Proxy Username: Nama pengguna proksi
+    Proxy Password: Kata sandi proksi
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Beri tahu saat segmen sponsor dilewati
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Url SponsorBlock API (Default is https://sponsor.ajay.app)
@@ -762,8 +769,8 @@ Video:
   Loop Playlist: 'Ulangi Daftar Putar'
   Shuffle Playlist: 'Acak Daftar Putar'
   Reverse Playlist: 'Putar-Balik Daftar Putar'
-  Play Next Video: 'Putar Video Berikutnya'
-  Play Previous Video: 'Putar Video Sebelumnya'
+  Previous: 'Sebelumnya'
+  Next: 'Berikutnya'
   Watched: 'Sudah Ditonton'
   Autoplay: 'Putar-Otomatis'
   # As in a Live Video
@@ -872,15 +879,15 @@ Playlist:
 #& Views
   Playlist: Daftar Putar
   Sort By:
-    PublishedNewest: Terbaru dipublikasikan pertama kali
-    PublishedOldest: Paling awal diterbitkan pertama kali
+    PublishedNewest: Tanggal dipublikasikan (Terbaru)
+    PublishedOldest: Tanggal dipublikasikan (Terlama)
     AuthorAscending: Penulis (A-Z)
     Custom: Aturan sendiri
     VideoTitleAscending: Judul (A-Z)
-    DateAddedOldest: Yang paling awal ditambahkan terlebih dahulu
-    DateAddedNewest: Terbaru ditambahkan pertama
-    VideoDurationAscending: Durasi (Terpendek dulu)
-    VideoDurationDescending: Durasi (Terpanjang dulu)
+    DateAddedOldest: Tanggal ditambahkan (Terlama)
+    DateAddedNewest: Tanggal ditambahkan (Terbaru)
+    VideoDurationAscending: Durasi (Terpendek)
+    VideoDurationDescending: Durasi (Terpanjang)
     VideoTitleDescending: Judul (Z-A)
     AuthorDescending: Penulis (Z-A)
 Change Format:
@@ -907,6 +914,7 @@ Share:
   YouTube Channel URL copied to clipboard: URL Kanal YouTube disalin ke papan klip
   Invidious Channel URL copied to clipboard: URL Kanal Invidious disalin ke papan klip
   Share Channel: Bagikan Kanal
+  Share Post: Bagikan Postingan
 Mini Player: 'Pemutar Kecil'
 Comments:
   Comments: 'Komentar'
@@ -922,10 +930,13 @@ Comments:
   Show More Replies: Tampilkan Lebih Banyak Balasan
   Pinned by: Disematkan oleh
   Member: Anggota
-  View {replyCount} replies: Lihat {replyCount} balasan
+  View {replyCount} replies: Lihat 1 balasan | Lihat {replyCount} balasan
   Subscribed: Berlangganan
   Hearted: Disukai
   There are no comments available for this post: Tidak ada komentar yang tersedia untuk posting ini
+  Hide {replyCount} replies: Sembunyikan 1 balasan | Sembunyikan {replyCount} balasan
+  View 1 reply from {channelName}: Lihat 1 balasan dari {channelName}
+  View {replyCount} replies from {channelName} and others: Lihat {replyCount} balasan dari {channelName} dan lainnya
 Up Next: 'Akan Datang'
 
 # Toast Messages
@@ -959,7 +970,7 @@ Tooltips:
   General Settings:
     Region for Trending: Wilayah tren memungkinkan Anda memilih video yang sedang ngetren dari negara tersebut untuk ditampilkan.
     Invidious Instance: Situs Invidious yang akan tersambung dengan FreeTube untuk panggilan API.
-    Thumbnail Preference: Semua thumbnail di dalam aplikasi FreeTube akan diganti dengan frame dari video. diblur atau disembunyikan
+    Thumbnail Preference: Semua gambar mini di dalam aplikasi FreeTube akan diganti dengan frame dari video, diburamkan atau disembunyikan alih-alih menggunakan gambar mini bawaan.
     Fallback to Non-Preferred Backend on Failure: Ketika API yang Anda pilih memiliki masalah, FreeTube akan secara otomatis menggunakan layanan API lainnya sebagai cadangan jika diaktifkan.
     Preferred API Backend: Pilih layanan yang digunakan oleh FreeTube untuk mengambil data. API lokal adalah ekstraktor bawaan. API Invidious membutuhkan sambungan ke server Invidious.
     External Link Handling: "Pilih perilaku default ketika tautan, yang tidak dapat dibuka di FreeTube, diklik.\nSecara default FreeTube akan membuka tautan yang diklik dengan browser default Anda.\n"
@@ -1080,6 +1091,10 @@ KeyboardShortcutPrompt:
   Reset Zoom: Setel ulang tingkat zoom / skala UI
   Zoom In: Perbesar
   Last Frame: Bingkai sebelumnya (saat dijeda)
+  Home: Lihat ke awal video
+  End: Lihat ke akhir video
+  Skip to Next Video: Lewati ke video berikutnya dalam daftar putar atau video yang direkomendasikan berikutnya
+  Skip to Previous Video: Lewati ke video sebelumnya dalam daftar putar
 Tag already exists: Tag "{tagName}" sudah ada
 Channel Unhidden: '{channel} dihapus dari filter saluran'
 Keys:
@@ -1111,3 +1126,5 @@ shortcutLabelSeparator: ' '
 Description:
   Collapse Description: Tampilkan lebih sedikit
   Expand Description: '...lanjutan'
+Compact side navigation: Navigasi samping ringkas
+Expand side navigation: Perluas navigasi samping

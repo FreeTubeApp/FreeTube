@@ -5,7 +5,6 @@
         <FontAwesomeIcon
           :icon="['fas', 'user-check']"
           class="headingIcon"
-          fixed-width
         />
         {{ $t('Channels.Title') }}
       </h2>
@@ -57,6 +56,7 @@
             </router-link>
             <router-link
               class="channelName"
+              dir="auto"
               :title="channel.name"
               :to="`/channel/${channel.id}`"
             >
@@ -82,7 +82,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, onMounted, onBeforeUnmount, ref, watch } from 'vue'
+import { computed, onMounted, onBeforeUnmount, ref, watch, useTemplateRef } from 'vue'
 import { isNavigationFailure, NavigationFailureType, useRoute, useRouter } from 'vue-router'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
@@ -110,8 +110,7 @@ const query = ref('')
 const subscribedChannels = ref([])
 const filteredChannels = ref([])
 
-/** @type {import('vue').Ref<HTMLInputElement | null>} */
-const searchBarChannels = ref(null)
+const searchBarChannels = useTemplateRef('searchBarChannels')
 
 /** @type {import('vue').ComputedRef<object>} */
 const activeProfile = computed(() => {

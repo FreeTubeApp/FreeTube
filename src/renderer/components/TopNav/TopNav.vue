@@ -1,12 +1,13 @@
 <template>
-  <div
+  <nav
     class="topNav"
     :class="{ topNavBarColor: barColor }"
-    role="navigation"
   >
     <div class="side">
       <button
         class="menuButton navButton"
+        :aria-label="expandCollapseSideBarLabel"
+        :title="expandCollapseSideBarLabel"
         @click="toggleSideNav"
       >
         <FontAwesomeIcon
@@ -63,16 +64,12 @@
           :icon="['fas', 'clone']"
         />
       </button>
-      <div
+      <RouterLink
         v-if="!hideHeaderLogo"
         class="logo"
         dir="ltr"
-        role="link"
-        tabindex="0"
         :title="headerLogoTitle"
-        @click="goToLandingPage"
-        @keydown.space.prevent="goToLandingPage"
-        @keydown.enter.prevent="goToLandingPage"
+        :to="landingPage"
       >
         <div
           class="logoIcon"
@@ -80,7 +77,7 @@
         <div
           class="logoText"
         />
-      </div>
+      </RouterLink>
     </div>
     <div class="middle">
       <div
@@ -118,18 +115,18 @@
       </div>
     </div>
     <FtProfileSelector class="side profiles" />
-  </div>
+  </nav>
 </template>
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, useTemplateRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRoute, useRouter } from 'vue-router'
 
 import FtInput from '../FtInput/FtInput.vue'
 import FtProfileSelector from '../FtProfileSelector/FtProfileSelector.vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 
 import store from '../../store/index'
 
@@ -159,6 +156,10 @@ const enableSearchSuggestions = computed(() => store.getters.getEnableSearchSugg
 /** @type {import('vue').ComputedRef<string>} */
 const barColor = computed(() => store.getters.getBarColor)
 
+const expandCollapseSideBarLabel = computed(() => {
+  return store.getters.getIsSideNavOpen ? t('Compact side navigation') : t('Expand side navigation')
+})
+
 const landingPage = computed(() => '/' + store.getters.getLandingPage)
 
 const headerLogoTitle = computed(() => {
@@ -169,10 +170,6 @@ const headerLogoTitle = computed(() => {
         .meta.title)
   })
 })
-
-function goToLandingPage() {
-  router.push(landingPage.value)
-}
 
 const navigationHistoryAddendum = computed(() => {
   return navigationHistoryDropdownOptions.value.length === 0
@@ -369,10 +366,8 @@ function showSearchFilters() {
   store.dispatch('showSearchFilters')
 }
 
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const searchContainer = ref(null)
-/** @type {import('vue').Ref<InstanceType<typeof FtInput> | null>} */
-const searchInput = ref(null)
+const searchContainer = useTemplateRef('searchContainer')
+const searchInput = useTemplateRef('searchInput')
 
 /** @type {import('vue').ComputedRef<any>} */
 const searchSettings = computed(() => store.getters.getSearchSettings)

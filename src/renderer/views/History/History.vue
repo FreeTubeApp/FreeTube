@@ -7,7 +7,6 @@
         <FontAwesomeIcon
           :icon="['fas', 'history']"
           class="headingIcon"
-          fixed-width
         />
         {{ t('History.History') }}
       </h2>
@@ -82,7 +81,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import { isNavigationFailure, NavigationFailureType, useRoute, useRouter } from 'vue-router'
 
@@ -270,7 +269,7 @@ if (oldQuery != null && oldQuery !== '') {
   filterHistory()
 }
 
-const searchBar = ref(null)
+const searchBar = useTemplateRef('searchBar')
 
 /**
  * @param {KeyboardEvent} event

@@ -84,11 +84,8 @@ Subscriptions:
   Error Channels: Canals amb errors
 Trending:
   Trending: 'Tendències'
-  Default: Per defecte
-  Music: Música
   Gaming: Jocs
   Trending Tabs: Pestanyes de tendència
-  Movies: Pel·lícules
 Most Popular: 'Més populars'
 Playlists: 'Llistes de reproducció'
 User Playlists:
@@ -246,7 +243,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Totes les subscripcions i perfils s''han importat amb èxit'
     All subscriptions have been successfully imported: 'Totes les subscripcions s''han importat amb èxit'
     Invalid subscriptions file: 'Fitxer de subscripcions invàlid'
-    This might take a while, please wait: 'Això pot trigar una estona, si us plau, esperi'
     Invalid history file: 'Fitxer d''historial invàlid'
     Subscriptions have been successfully exported: 'Les subscripcions s''han exportat amb èxit'
     History object has insufficient data, skipping item: 'L''objecte de l''historial no té suficient informació, saltant l''objecte'
@@ -408,8 +404,8 @@ Video:
   Loop Playlist: 'Llista de reproducció en bucle'
   Shuffle Playlist: 'Llista de reproducció en aleatori'
   Reverse Playlist: 'Llista de reproducció invertida'
-  Play Next Video: 'Reprodueix el vídeo següent'
-  Play Previous Video: 'Reprodueix el vídeo anterior'
+  Previous: Anterior
+  Next: Següent
   Watched: 'Visualitzat'
   Autoplay: 'Reproducció Automàtica'
   # As in a Live Video

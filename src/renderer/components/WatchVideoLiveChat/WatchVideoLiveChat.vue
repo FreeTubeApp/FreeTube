@@ -29,7 +29,6 @@
     </div>
     <div
       v-else-if="comments.length === 0"
-      ref="liveChatMessage"
       class="messageContainer liveChatMessage"
     >
       <p
@@ -94,11 +93,11 @@
           <p
             class="superChatContent"
           >
-            <span
+            <bdi
               class="donationAmount"
             >
               {{ comment.superChat.amount }}
-            </span>
+            </bdi>
           </p>
         </div>
       </div>
@@ -126,17 +125,20 @@
             >
             <p
               class="channelName"
+              dir="auto"
             >
               {{ superChat.author.name }}
             </p>
             <p
               class="donationAmount"
+              dir="auto"
             >
               {{ superChat.superChat.amount }}
             </p>
           </div>
           <p
             class="chatMessage"
+            dir="auto"
             v-html="superChat.message"
           />
         </div>
@@ -167,11 +169,13 @@
               >
               <p
                 class="channelName"
+                dir="auto"
               >
                 {{ comment.author.name }}
               </p>
               <p
                 class="donationAmount"
+                dir="auto"
               >
                 {{ comment.superChat.amount }}
               </p>
@@ -179,6 +183,7 @@
             <p
               v-if="comment.message"
               class="chatMessage"
+              dir="auto"
               v-html="comment.message"
             />
           </template>
@@ -193,7 +198,7 @@
             <p
               class="chatContent"
             >
-              <span
+              <bdi
                 class="channelName"
                 :class="{
                   member: comment.author.isMember,
@@ -202,7 +207,7 @@
                 }"
               >
                 {{ comment.author.name }}
-              </span>
+              </bdi>
               <span
                 v-if="comment.author.badge"
                 class="badge"
@@ -214,7 +219,7 @@
                   class="badgeImage"
                 >
               </span>
-              <span
+              <bdi
                 class="chatMessage"
                 v-html="comment.message"
               />
@@ -244,7 +249,7 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import autolinker from 'autolinker'
-import { computed, nextTick, onBeforeUnmount, ref, shallowReactive } from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref, shallowReactive, useTemplateRef } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import { YTNodes } from 'youtubei.js'
 
@@ -389,8 +394,7 @@ function startLiveChatLocal() {
   liveChatInstance.start()
 }
 
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const commentsRef = ref(null)
+const commentsRef = useTemplateRef('commentsRef')
 
 /**
  * @param {import ('youtubei.js/dist/src/parser/continuations').LiveChatContinuation} initialData

@@ -101,7 +101,7 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ez a profil nagyszámú feliratkozást tartalmaz. RSS kényszerítése a sebességkorlátozás elkerülésére
   Load More Videos: További videók betöltése
   Error Channels: Hibás csatornák
-  Disabled Automatic Fetching: Ön kikapcsolta a feliratkozások automatikus lekérdezését. Frissítse a feliratkozásokat, hogy itt láthassa őket.
+  Disabled Automatic Fetching: Ön letiltotta a feliratkozások automatikus lekérdezését. Frissítse a feliratkozásokat, hogy itt láthassa őket.
   Empty Channels: A feliratkozott csatornák jelenleg nem tartalmaznak videókat.
   All Subscription Tabs Hidden: Az összes feliratkozási lap el van rejtve. Az itteni tartalom megtekintéséhez törölje néhány lap rejtését a(z) „{settingsSection}” „{subsection}” szakaszában.
   Subscriptions Tabs: Feliratkozások lapok
@@ -110,10 +110,8 @@ Subscriptions:
 Trending:
   Trending: 'Felkapott'
   Trending Tabs: Felkapott lapok
-  Movies: Filmek
   Gaming: Játék
-  Music: Zene
-  Default: Alapértelmezett
+  Sports: Sportok
 Most Popular: 'Legnépszerűbb'
 Playlists: 'Lejátszási listák'
 User Playlists:
@@ -124,8 +122,7 @@ User Playlists:
     Search in Playlists: Keresés a lejátszási listában
     Save: Mentés
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 videó hozzáadva a {playlistCount} lejátszási listákhoz | {videoCount} videó hozzáadása a {playlistCount} lejátszási listákhoz
-      "{videoCount} video(s) added to 1 playlist": 1 videó hozzáadva 1 lejátszási listához | {videoCount} videó hozzáadása 1 lejátszási listához
+      "Video(s) added to {playlistCount} playlists": "A videó(k) hozzá lettek adva 1 lejátszási listához | A videó(k) lettek adva {playlistCount} lejátszási listához"
       You haven't selected any playlist yet.: Még nem választott ki egyetlen lejátszási listát sem.
     Select a playlist to add your N videos to: Válasszon ki egy lejátszási listát a videó hozzáadásához | Válasszon ki egy lejátszási listát a {videoCount} videó hozzáadásához
     N playlists selected: '{playlistCount} kiválasztva'
@@ -137,11 +134,11 @@ User Playlists:
     Toast:
       There were no videos to remove.: Nem voltak eltávolítható videók.
       Video has been removed: A videó el lett távolítva
-      Playlist has been updated.: A lejátszási lista frissítésre került.
+      Playlist has been updated.: Lejátszási lista frissítve.
       There was an issue with updating this playlist.: Volt egy probléma a lejátszási lista frissítésével.
       This video cannot be moved up.: Ez a videó nem mozgatható feljebb.
       This playlist is protected and cannot be removed.: Ez a lejátszási lista védett, és nem távolítható el.
-      Playlist {playlistName} has been deleted.: A {playlistName} lejátszási lista törlésre került.
+      Playlist {playlistName} has been deleted.: '{playlistName} lejátszási lista törölve.'
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Néhány videó a lejátszási listában még nem töltődött be. Kattintson ide a másoláshoz ennek ellenére.
       This playlist does not exist: Ez a lejátszási lista nem létezik
       Playlist name cannot be empty. Please input a name.: A lejátszási lista neve nem lehet üres. Adjon meg egy nevet.
@@ -153,7 +150,7 @@ User Playlists:
       Reverted to use {oldPlaylistName} for quick bookmark: Visszaállítva a(z) {oldPlaylistName} használatára a gyors könyvjelzőhöz
       This playlist is already being used for quick bookmark.: Ez a lejátszási lista már használatban van mint gyors könyvjelző.
       This playlist has a video with a duration error: Ez a lejátszási lista legalább egy olyan videót tartalmaz, amelynek nincs időtartama, ezért úgy lesz rendezve, mintha az időtartamuk nulla lenne.
-      Video has been removed. Click here to undo.: A videó eltávolításra került. Kattintson ide a visszavonáshoz.
+      Video has been removed. Click here to undo.: Videó eltávolítva. Kattintson ide a visszavonáshoz.
     Search for Videos: Videók keresése
   Are you sure you want to delete this playlist? This cannot be undone: Biztosan törölni szeretné ezt a lejátszási listát? Ezt nem lehet visszacsinálni.
   Sort By:
@@ -230,7 +227,7 @@ Settings:
       Grid: 'Rács'
       List: 'Lista'
     Thumbnail Preference:
-      Thumbnail Preference: 'Miniatűr beállítása'
+      Thumbnail Preference: 'Bélyegkép beállítása'
       Default: 'Alapértelmezett'
       Beginning: 'Eleje'
       Middle: 'Középső'
@@ -302,26 +299,26 @@ Settings:
       Orange: 'Narancssárga'
       Deep Orange: 'Sötét narancssárga'
       Dracula Cyan: 'Drakula ciánkék'
-      Dracula Green: 'Drakula Zöld'
-      Dracula Orange: 'Drakula Narancssárga'
-      Dracula Pink: 'Drakula Rózsaszín'
-      Dracula Purple: 'Drakula Lila'
-      Dracula Red: 'Drakula Vörös'
-      Dracula Yellow: 'Drakula Sárga'
-      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingó
-      Catppuccin Mocha Mauve: Catppuccin Mocha Mályvaszínű
-      Catppuccin Mocha Red: Catppuccin Mocha Vörös
-      Catppuccin Mocha Green: Catppuccin Mocha Zöld
+      Dracula Green: 'Drakula zöld'
+      Dracula Orange: 'Drakula narancssárga'
+      Dracula Pink: 'Drakula rózsaszín'
+      Dracula Purple: 'Drakula lila'
+      Dracula Red: 'Drakula vörös'
+      Dracula Yellow: 'Drakula sárga'
+      Catppuccin Mocha Flamingo: Catppuccin Mocha flamingó
+      Catppuccin Mocha Mauve: Catppuccin Mocha mályva
+      Catppuccin Mocha Red: Catppuccin Mocha vörös
+      Catppuccin Mocha Green: Catppuccin Mocha zöld
       Catppuccin Mocha Teal: Catppuccin Mocha pávakék
       Catppuccin Mocha Sky: Catppuccin Mocha égszínkék
-      Catppuccin Mocha Sapphire: Catppuccin Mocha Zafír
-      Catppuccin Mocha Pink: Catppuccin Mocha Rózsaszín
-      Catppuccin Mocha Blue: Catppuccin Mocha Kék
-      Catppuccin Mocha Lavender: Catppuccin Mocha Levendula
-      Catppuccin Mocha Maroon: Catppuccin Mocha Gesztenyebarna
-      Catppuccin Mocha Rosewater: Catppuccin Mocha Rózsavíz
-      Catppuccin Mocha Peach: Catppuccin Mocha Barackvirágszínű
-      Catppuccin Mocha Yellow: Catppuccin Mocha Sárga
+      Catppuccin Mocha Sapphire: Catppuccin Mocha zafír
+      Catppuccin Mocha Pink: Catppuccin Mocha rózsaszín
+      Catppuccin Mocha Blue: Catppuccin Mocha kék
+      Catppuccin Mocha Lavender: Catppuccin Mocha levendula
+      Catppuccin Mocha Maroon: Catppuccin Mocha gesztenyebarna
+      Catppuccin Mocha Rosewater: Catppuccin Mocha rózsavíz
+      Catppuccin Mocha Peach: Catppuccin Mocha barackvirág
+      Catppuccin Mocha Yellow: Catppuccin Mocha sárga
       Solarized Yellow: Szolarizált sárga
       Solarized Orange: Szolarizált narancssárga
       Solarized Red: Szolarizált vörös
@@ -340,19 +337,19 @@ Settings:
       Gruvbox Dark Purple: Gruvbox sötét lila
       Gruvbox Light Orange: Gruvbox világos narancssárga
       Gruvbox Light Purple: Gruvbox világos lila
-      Catppuccin Frappe Pink: Catppuccin Frappe Rózsaszín
-      Catppuccin Frappe Mauve: Catppuccin Frappe Mályva
-      Catppuccin Frappe Rosewater: Catppuccin Frappe Rózsavíz
-      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingó
-      Catppuccin Frappe Red: Catppuccin Frappe Piros
-      Catppuccin Frappe Maroon: Catppuccin Frappe Gesztenyebarna
-      Catppuccin Frappe Peach: Catppuccin Frappe Barackvirág
-      Catppuccin Frappe Yellow: Catppuccin Frappe Sárga
-      Catppuccin Frappe Green: Catppuccin Frappe Zöld
+      Catppuccin Frappe Pink: Catppuccin Frappe rózsaszín
+      Catppuccin Frappe Mauve: Catppuccin Frappe mályva
+      Catppuccin Frappe Rosewater: Catppuccin Frappe rózsavíz
+      Catppuccin Frappe Flamingo: Catppuccin Frappe flamingó
+      Catppuccin Frappe Red: Catppuccin Frappe piros
+      Catppuccin Frappe Maroon: Catppuccin Frappe gesztenyebarna
+      Catppuccin Frappe Peach: Catppuccin Frappe barackvirág
+      Catppuccin Frappe Yellow: Catppuccin Frappe sárga
+      Catppuccin Frappe Green: Catppuccin Frappe zöld
       Catppuccin Frappe Teal: Catppuccin Frappe pávakék
       Catppuccin Frappe Sky: Catppuccin Frappe égszínkék
-      Catppuccin Frappe Blue: Catppuccin Frappe Kék
-      Catppuccin Frappe Lavender: Catppuccin Frappe Levendula
+      Catppuccin Frappe Blue: Catppuccin Frappe kék
+      Catppuccin Frappe Lavender: Catppuccin Frappe levendula
       Catppuccin Frappe Sapphire: Catppuccin Frappe zafírkék
       Everforest Dark Orange: Everforest sötét narancssárga
       Everforest Dark Green: Everforest sötét zöld
@@ -368,13 +365,13 @@ Settings:
       Everforest Light Purple: Everforest világos lila
       Everforest Dark Purple: Everforest sötét lila
       Everforest Light Aqua: Everforest világos vízkék
-      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Mauve: Catppuccin Latte mályva
       Catppuccin Latte Red: Catppuccin Latte piros
     Secondary Color Theme: 'Másodlagos színtéma'
         #* Main Color Theme
     UI Scale: Felhasználói felület méretezése
     Expand Side Bar by Default: Alapértelmezés szerinti oldalsáv megjelenítés
-    Disable Smooth Scrolling: Finom-görgetés kikapcsolása
+    Disable Smooth Scrolling: Finom görgetés letiltása
     Hide Side Bar Labels: Gombfeliratok elrejtése az oldalsávról
     Hide FreeTube Header Logo: FreeTube logo elrejtése a fejlécből
   Player Settings:
@@ -382,8 +379,8 @@ Settings:
     Play Next Video: 'Ajánlott videók automatikus lejátszása'
     Turn on Subtitles by Default: 'Feliratok engedélyezése alapértelmezetten'
     Autoplay Videos: 'Videók automatikus elindítása'
-    Proxy Videos Through Invidious: 'Videók proxyzása az Invidiouson keresztül'
-    Autoplay Playlists: 'Lejátszási lista az automatikus videó-lejátszáshoz'
+    Proxy Videos Through Invidious: 'Videók közvetítése az Invidiouson keresztül'
+    Autoplay Playlists: 'Lejátszási lista az automatikus videólejátszáshoz'
     Enable Theatre Mode by Default: 'A mozimód bekapcsolása alapértelmezetten'
     Default Volume: 'Alapértelmezett hangerő'
     Default Playback Rate: 'Alapértelmezett lejátszási sebesség'
@@ -445,13 +442,13 @@ Settings:
     Remove All Subscriptions / Profiles: 'Összes feliratkozás és profil eltávolítása'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Biztosan eltávolítja az összes feliratkozást és profilt? Ez a művelet nem vonható vissza.'
     Save Watched Videos With Last Viewed Playlist: Megtekintett videók mentése az utoljára megtekintett lejátszási listával
-    All playlists have been removed: Minden lejátszási lista eltávolításra került
-    Remove All Playlists: Minden lejátszási lista eltávolítása
+    All playlists have been removed: Összes lejátszási lista eltávolítva
+    Remove All Playlists: Összes lejátszási lista eltávolítása
     Are you sure you want to remove all your playlists?: Biztosan el akarja távolítani az összes lejátszási listáját?
     Remember Search History: Keresési előzmények megjegyzése
     Clear Search History and Cache: A keresési előzmények és a gyorsítótár törlése
     Are you sure you want to clear out your search history and cache?: Biztosan törölni szeretné a keresési előzményeket és a gyorsítótárat?
-    Search history and cache have been cleared: A keresési előzmények és a gyorsítótár törlésre került
+    Search history and cache have been cleared: A keresési előzmények és a gyorsítótár törölve
     Watched Progress Saving Mode:
       Modes:
         Semi-auto: Félautomatikus
@@ -462,7 +459,7 @@ Settings:
     Subscription Settings: 'Feliratkozás'
     Fetch Feeds from RSS: 'RSS-hírcsatornák beolvasása'
     Fetch Automatically: Hírcsatorna automatikus lekérdezése
-    Confirm Before Unsubscribing: Megerősítés kérése leíratkozáskor
+    Confirm Before Unsubscribing: Megerősítés kérése leiratkozáskor
     'Limit the number of videos displayed for each channel': Az egyes csatornákon megjelenített videók számának korlátozása
     To: 'Ennyire'
   Data Settings:
@@ -479,7 +476,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Az összes feliratkozás és a profil sikeresen importálva'
     All subscriptions have been successfully imported: 'Az összes feliratkozás sikeresen importálva'
     Invalid subscriptions file: 'Érvénytelen feliratkozási fájl'
-    This might take a while, please wait: 'Ez eltarthat egy ideig. Kis türelmet kérünk'
     Invalid history file: 'Érvénytelen előzményfájl'
     Subscriptions have been successfully exported: 'Feliratkozások sikeresen exportálva'
     History object has insufficient data, skipping item: 'Az előzményobjektum nem rendelkezik elegendő adattal, az elem kihagyása'
@@ -588,7 +584,7 @@ Settings:
     Category Color: Kategória színe
     UseDeArrowTitles: DeArrow-videocímek használata
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow előnézet-előállító API webcíme (alapértelmezett: https://dearrow-thumb.ajay.app)'
-    UseDeArrowThumbnails: DeArrow használata miniatűrökhöz
+    UseDeArrowThumbnails: DeArrow használata bélyegképekhez
   External Player Settings:
     Ignore Unsupported Action Warnings: Nem támogatott műveletek figyelmeztetéseinek mellőzése
     Custom External Player Arguments: Egyéni külső lejátszó argumentumok
@@ -666,14 +662,14 @@ Profile:
   Profile Preview: 'Profil előnézet'
   Create Profile: 'Profil létrehozása'
   Update Profile: 'Profil frissítése'
-  Make Default Profile: 'Alapértelmezett profil létrehozása'
+  Make Default Profile: 'Legyen alapértelmezett profil'
   Delete Profile: 'Profil törlése'
   Are you sure you want to delete this profile?: 'Biztosan törli ezt a profilt?'
   All subscriptions will also be deleted.: 'Az összes feliratkozás is törlődik.'
   Your profile name cannot be empty: 'A profil neve nem lehet üres'
   Profile has been created: 'Profil létrehozva'
   Profile has been updated: 'A profil frissült'
-  Your default profile has been set to {profile}: 'Alapértelmezett profilja a következőre lett beállítva: {profile}'
+  Your default profile has been set to {profile}: 'Az alapértelmezett profil a következőre lett beállítva: {profile}'
   Removed {profile} from your profiles: 'A(z) {profile} nevű profilja el lett távolítva a profiljaiból'
   Your default profile has been changed to your primary profile: 'Az alapértelmezett profil az elsődleges profilra változott'
   '{profile} is now the active profile': 'A(z) {profile} most az aktív profil'
@@ -773,8 +769,8 @@ Video:
   Loop Playlist: 'Lejátszási lista folyamatos lejátszása'
   Shuffle Playlist: 'Véletlen sorrendű lejátszás'
   Reverse Playlist: 'Fordított lejátszási lista'
-  Play Next Video: 'Következő videó lejátszása'
-  Play Previous Video: 'Előző videó lejátszása'
+  Previous: 'Előző'
+  Next: 'Következő'
   Watched: 'Megtekintett'
   Autoplay: 'Automatikus lejátszás'
   Starting soon, please refresh the page to check again: 'Hamarosan kezdődik, frissítse a lapot az ellenőrzéshez'
@@ -918,6 +914,7 @@ Share:
   YouTube Channel URL copied to clipboard: YouTube-csatorna webcíme a vágólapra másolva
   Invidious Channel URL copied to clipboard: Invidious csatornawebcím a vágólapra másolva
   Share Channel: Csatorna megosztása
+  Share Post: Bejegyzés megosztása
 Mini Player: 'Minilejátszó'
 Comments:
   Comments: 'Hozzászólások'
@@ -948,10 +945,10 @@ Invidious API Error (Click to copy): 'Invidious API hiba (Kattintson a másolás
 Falling back to Invidious API: 'Invidious API-ra visszatérve'
 Falling back to Local API: 'Helyi API-ra visszatérve'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Ez a videó hiányzó formátumok miatt nem érhető el. Ez az ország nem elérhetősége miatt következhet be.'
-Loop is now disabled: 'Folyamatos lejátszás kikapcsolva'
-Loop is now enabled: 'Folyamatos lejátszás bekapcsolva'
-Shuffle is now disabled: 'Véletlen sorrendű lejátszás kikapcsolva'
-Shuffle is now enabled: 'Véletlen sorrendű lejátszás bekapcsolva'
+Loop is now disabled: 'Folyamatos lejátszás letiltva'
+Loop is now enabled: 'Folyamatos lejátszás engedélyezve'
+Shuffle is now disabled: 'Véletlen sorrendű lejátszás letiltva'
+Shuffle is now enabled: 'Véletlen sorrendű lejátszás engedélyezve'
 The playlist has been reversed: 'Lejátszási lista megfordítva'
 Playing Next Video: 'Következő videó lejátszása'
 Playing Previous Video: 'Előző videó lejátszása'
@@ -973,7 +970,7 @@ Tooltips:
     Fetch Feeds from RSS: Amikor engedélyezve van, a FreeTube az RSS-t fogja használni az alapértelmezett módszer helyett a feliratkozási hírfolyam lekérdezéséhez. Az RSS gyorsabb és megakadályozza az IP-tiltást, de nem tartalmaz bizonyos információkat, például a videó időtartamát, az élő állapotot vagy a bejegyzéseket
     Fetch Automatically: Amikor engedélyezve van, a FreeTube új ablak megnyitásakor és az alkalmazás elindításakor automatikusan lekérdezi az feliratkozási hírfolyamot.
   Player Settings:
-    Default Video Format: A videólejátszáshoz használt formátumok beállítása. A DASH-formátumok magasabb minőségű lejátszást tesznek lehetővé. A régebbi formátumok legfeljebb 360p felbontásúak, de kevesebb sávszélességet igényelnek. A hangformátumok kizárólag hangadatfolyamokat tartalmaznak.
+    Default Video Format: A videóhoz használt formátumok beállítása. A DASH-formátumok magasabb minőségű lejátszást tesznek lehetővé. A régebbi formátumok legfeljebb 360p felbontásúak, de kevesebb sávszélességet igényelnek. A hangformátumok kizárólag hangadatfolyamokat tartalmaznak.
     Proxy Videos Through Invidious: Csatlakozik az Invidious szolgáltatáshoz, hogy videókat szolgáltasson, ahelyett, hogy közvetlen kapcsolatot létesítene a YouTube szolgáltatással.
     Scroll Playback Rate Over Video Player: Amíg a kurzor a videó felett van, nyomja meg és tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű), és görgesse az egér görgőjét előre vagy hátra a lejátszási sebesség szabályozásához. Tartsa lenyomva a Control billentyűt (Mac gépen a Command billentyű), majd kattintson az egér bal gombjával az alapértelmezett lejátszási sebesség gyors visszatéréséhez (1x, hacsak nem módosították a beállításokban).
     Skip by Scrolling Over Video Player: MPV módban a görgetőkerék használatával kihagyhatja a videót.
@@ -981,11 +978,11 @@ Tooltips:
     Custom External Player Executable: Alapértelmezés szerint a FreeTube feltételezi, hogy a kiválasztott külső lejátszó megtalálható a PATH (ÚTVONAL) környezeti változón keresztül. Szükség esetén itt egyéni útvonal állítható be.
     Ignore Warnings: A figyelmeztetések mellőzése, amikor a jelenlegi külső lejátszó nem támogatja a jelenlegi műveletet (pl. lejátszási listák megfordítása stb.).
     Custom External Player Arguments: A külső lejátszónak átadni kívánt egyéni parancssori argumentumok.
-    External Player: Külső lejátszó kiválasztása esetén megjelenik egy ikon a videó (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, az indexképen. Figyelem! Az Invidious beállításai nincsenek hatással a külső lejátszókra.
+    External Player: Külső lejátszó kiválasztása esetén megjelenik egy ikon a videó (lejátszási lista, ha támogatott) megnyitásához a külső lejátszóban, a bélyegképen. Figyelem! Az Invidious beállításai nincsenek hatással a külső lejátszókra.
     DefaultCustomArgumentsTemplate: '(Alapértelmezett: „{defaultCustomArguments}”)'
     Ignore Default Arguments: Ne küldjön semmilyen alapértelmezett argumentumot a külső lejátszónak a videó webcímén kívül (pl. lejátszási sebesség, lejátszási lista webcíme stb.). Az egyéni argumentumok továbbra is átadásra kerülnek.
   Experimental Settings:
-    Replace HTTP Cache: Letiltja az Electron lemez alapú HTTP-gyorsítótárát, és engedélyezi az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
+    Replace HTTP Cache: Letiltja az Electron lemezalapú HTTP-gyorsítótárát, és engedélyezi az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
   Distraction Free Settings:
     Hide Channels: Adjon meg egy csatornaazonosítót, hogy elrejtse az összes videót, lejátszási listát és magát a csatornát a keresési eredményekből, a felkapottak közül, a legnépszerűbbekből és az ajánlottak közül. A megadott csatornaazonosítónak pontosan egyeznie kell, valamint kis- és nagybetűérzékeny.
     Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}” beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
@@ -993,13 +990,13 @@ Tooltips:
     Hide Videos on Watch: Elrejti a megtekintett videókat a videók-, rövidek- és élő lapokról a feliratkozás- és a csatornaoldalon. Ez nem érinti a kezdőoldalon található csatornalapokat
   SponsorBlock Settings:
     UseDeArrowTitles: Cserélje le a videocímeket a DeArrow-ból, felhasználó által beküldött címekre.
-    UseDeArrowThumbnails: Videó miniatűr cseréje DeArrow miniatűrrel.
+    UseDeArrowThumbnails: Videóbélyegkép cseréje DeArrow bélyegképpel.
 Playing Next Video Interval: A következő videó lejátszása folyamatban van. Kattintson a megszakításhoz. | A következő videó lejátszása {nextVideoInterval} másodperc múlva. Kattintson a megszakításhoz. | A következő videó lejátszása {nextVideoInterval} másodperc múlva. Kattintson a megszakításhoz.
 More: Több
 Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube-webcím, nem nyitható meg az alkalmazásban
 Open New Window: Új ablak megnyitása
-Default Invidious instance has been cleared: Az alapértelmezett Invidious-példányt eltávolítva
-Default Invidious instance has been set to {instance}: 'Az alapértelmezett Invidious-példány {instance} beállítva'
+Default Invidious instance has been cleared: Alapértelmezett Invidious példány eltávolítva
+Default Invidious instance has been set to {instance}: 'Alapértelmezett Invidious példány {instance} beállítva'
 Search Bar:
   Clear Input: Bemenet törlése
   Remove: Eltávolítás
@@ -1072,7 +1069,7 @@ Keys:
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Right-click or hold to see history: Kattintson a jobb gombbal vagy tartsa lenyomva az előzmények megtekintéséhez
-Autoplay Interruption Timer: Az automatikus lejátszás {autoplayInterruptionIntervalHours} óra inaktivitás miatt visszavonásra került
+Autoplay Interruption Timer: Az automatikus lejátszás {autoplayInterruptionIntervalHours} óra inaktivitás miatt meg lett szakítva
 Description:
   Collapse Description: Kevesebb megjelenítése
   Expand Description: …továbbiak
@@ -1128,3 +1125,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Ugrás a lejátszási lista következő videójára vagy a következő ajánlott videóra
   Skip to Previous Video: Ugrás a lejátszási lista előző videójára
 shortcutLabelSeparator: ｜
+Compact side navigation: Kompakt oldalsó navigáció
+Expand side navigation: Oldal navigáció kibontása

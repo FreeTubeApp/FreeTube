@@ -110,10 +110,8 @@ Subscriptions:
 Trending:
   Trending: 'Tendências'
   Trending Tabs: Separadores de tendências
-  Movies: Filmes
   Gaming: Jogos
-  Music: Músicas
-  Default: Padrão
+  Sports: Esportes
 Most Popular: 'Mais populares'
 Playlists: 'Listas de reprodução'
 User Playlists:
@@ -132,7 +130,7 @@ User Playlists:
   Delete Playlist: Eliminar lista de reprodução
   Are you sure you want to delete this playlist? This cannot be undone: Tem certeza de que pretende eliminar esta lista de reprodução? A remoção não pode ser revertida.
   Sort By:
-    LatestCreatedFirst: Criação mais recente
+    LatestCreatedFirst: Data de criação (mais recente)
     EarliestCreatedFirst: Criação mais antiga
     EarliestUpdatedFirst: Atualização mais antiga
     LatestPlayedFirst: Reprodução mais recente
@@ -166,9 +164,8 @@ User Playlists:
     Search in Playlists: Procurar nas listas de reprodução
     Save: Guardar
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 vídeo adicionado a {playlistCount} listas de reprodução | {videoCount} vídeos adicionados a {playlistCount} listas de reprodução
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Ainda não selecionou uma lista de reprodução.
-      "{videoCount} video(s) added to 1 playlist": 1 vídeo adicionado a 1 lista de reprodução | {videoCount} vídeos adicionados a 1 lista de reprodução
     Select a playlist to add your N videos to: Selecione uma lista de reprodução à qual adicionar o seu vídeo | Selecione uma lista de reprodução à qual adicionar os seus {videoCount} vídeos
     N playlists selected: '{playlistCount} selecionados'
     Added {count} Times: Já adicionado | Adicionado {count} vezes
@@ -199,6 +196,7 @@ User Playlists:
   The playlist has been successfully exported: Lista de reprodução exportada com sucesso
   Cannot delete the quick bookmark target playlist.: Não é possível eliminar a lista de reprodução de destino do marcador rápido.
   TotalTimePlaylist: 'Duração total: {duration}'
+  Export list of URLs: Exportar lista de URLs
 History:
   # On History Page
   History: 'Histórico'
@@ -281,6 +279,7 @@ Settings:
       Everforest Light Hard: Everforest Light Duro
       Everforest Light Medium: Everforest Light Médio
       Everforest Light Low: Everforest Luz Baixa
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Cor principal'
       Red: 'Vermelho'
@@ -475,7 +474,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Todas as subscrições e perfis foram importados com sucesso'
     All subscriptions have been successfully imported: 'Todas as subscrições foram importadas com sucesso'
     Invalid subscriptions file: 'Ficheiro de subscrições inválido'
-    This might take a while, please wait: 'Este processo pode ser demorado.'
     Invalid history file: 'Ficheiro de histórico inválido'
     Subscriptions have been successfully exported: 'As subscrições foram exportadas com sucesso'
     History object has insufficient data, skipping item: 'O histórico tem dados em falta, a ignorar'
@@ -498,6 +496,10 @@ Settings:
       Label: Exportar listas de reprodução para versões mais antigas do FreeTube
       Tooltip: "Esta opção exporta os vídeos de todas as listas de reprodução para uma lista de reprodução chamada \"Favoritos\".\nComo exportar e importar vídeos em listas de reprodução para uma versão mais antiga do FreeTube:\n1. Exporte as suas listas de reprodução com esta opção ativada.\n2. Elimine todas as listas de reprodução existentes usando a opção \"Remover todas as listas de reprodução\" em \"Definições de privacidade\".\n3. Abra a versão mais antiga do FreeTube e importe as listas de reprodução."
 
+    Search history file: Arquivo de histórico de pesquisa
+    Search history: Histórico de pesquisa
+    Import search history: Importar histórico de pesquisa
+    Export search history: Exportar histórico de pesquisa
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificar se um anúncio for ignorado
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock (padrão é https://sponsor.ajay.app)
@@ -762,8 +764,8 @@ Video:
   Loop Playlist: 'Repetir lista de reprodução'
   Shuffle Playlist: 'Baralhar lista de reprodução'
   Reverse Playlist: 'Inverter lista de reprodução'
-  Play Next Video: 'Reproduzir vídeo seguinte'
-  Play Previous Video: 'Reproduzir vídeo anterior'
+  Previous: 'Anterior'
+  Next: 'Seguinte'
   Watched: 'Reproduzido'
   Autoplay: 'Reprodução automática'
   # As in a Live Video
@@ -912,6 +914,7 @@ Share:
   YouTube Channel URL copied to clipboard: URL do canal do YouTube copiado para a área de transferência
   Invidious Channel URL copied to clipboard: URL do canal Invidious copiado para a área de transferência
   Share Channel: Partilhar canal
+  Share Post: Compartilhar postagem
 Mini Player: 'Mini-reprodutor'
 Comments:
   Comments: 'Comentários'
@@ -931,6 +934,9 @@ Comments:
   View {replyCount} replies: Ver {replyCount} respostas
   Subscribed: Subscrito
   There are no comments available for this post: Não existem comentários para esta publicação
+  Hide {replyCount} replies: Ocultar 1 resposta | Ocultar {replyCount} respostas
+  View 1 reply from {channelName}: Ver 1 resposta de {channelName}
+  View {replyCount} replies from {channelName} and others: Veja {replyCount} respostas de {channelName} e outros
 Up Next: 'Próximo'
 
 # Toast Messages

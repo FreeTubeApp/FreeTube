@@ -9,6 +9,17 @@ ipcRenderer.on(IpcChannels.NATIVE_THEME_UPDATE, (_, shouldUseDarkColors) => {
   document.body.dataset.systemTheme = shouldUseDarkColors ? 'dark' : 'light'
 })
 
+// Force update the window title whenever the page title changes
+// as Electron doesn't do it when the back button is pressed, probably a bug.
+// It doesn't even fire the `page-title-updated` in the main process.
+
+const titleMutationObserver = new MutationObserver((mutations) => {
+  ipcRenderer.send(IpcChannels.SET_WINDOW_TITLE, mutations[0].addedNodes[0].textContent)
+})
+document.addEventListener('DOMContentLoaded', () => {
+  titleMutationObserver.observe(document.querySelector('title'), { childList: true })
+}, { once: true })
+
 let currentUpdateSearchInputTextListener
 
 export default {
@@ -135,11 +146,27 @@ export default {
   },
 
   /**
-   * @param {string} executable
-   * @param {string} args
+   * @param {import('../main/externalPlayer').ExternalPlayerPayload} payload
    */
-  openInExternalPlayer: (executable, args) => {
-    ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, executable, args)
+  openInExternalPlayer: (payload) => {
+    // require the user to have interacted with the page recently
+    if (navigator.userActivation.isActive) {
+      ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, payload)
+    }
+  },
+
+  /**
+   * @param {(
+   *   externalPlayer: string,
+   *   unsuportedActions: (import('../constants').UnsupportedPlayerAction)[],
+   *   isPlaylist: boolean
+   * ) => void} handler
+   */
+  handleOpenInExternalPlayerResult: (handler) => {
+    ipcRenderer.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER_RESULT,
+      (event, externalPlayer, unsupportedActions, isPlaylist) => {
+        handler(externalPlayer, unsupportedActions, isPlaylist)
+      })
   },
 
   /**

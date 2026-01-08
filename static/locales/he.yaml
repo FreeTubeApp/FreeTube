@@ -110,10 +110,8 @@ Subscriptions:
 Trending:
   Trending: 'הסרטונים החמים'
   Trending Tabs: לשוניות מובילים
-  Movies: סרטים
   Gaming: משחקים
-  Music: מוזיקה
-  Default: ברירת מחדל
+  Sports: ספורט
 Most Popular: 'הכי פופולרי'
 Playlists: 'רשימות נגינה'
 User Playlists:
@@ -175,8 +173,7 @@ User Playlists:
     Select a playlist to add your N videos to: בחר רשימת שידורים להוספת הסרטון שלך | בחר רשימת שידורים להוספת {videoCount} הסרטונים שלך
     Toast:
       You haven't selected any playlist yet.: עדיין לא נבחרה רשימת שידורים.
-      "{videoCount} video(s) added to 1 playlist": סרטון נוסף לרשימת השמעה | {videoCount} סרטונים נוספו לרשימת השמעה
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 סרטון הוסף ל{playlistCount} רשימות שידורים | {videoCount} סרטונים הוספו ל{playlistCount} רשימות שידורים
+      "Video(s) added to {playlistCount} playlists": "סרטונים נוספו לרשימת נגינה|סרטונים נוספו ל־{playlistCount} רשימות נגינה"
   CreatePlaylistPrompt:
     Create: יצירה
     New Playlist Name: שם חדש לרשימת נגינה
@@ -282,6 +279,7 @@ Settings:
       Everforest Light Medium: אברפורסט לייט מידיום
       Everforest Dark Low: אברפורסט דארק לואו
       Everforest Light Low: אברפורסט לייט לואו
+      Catppuccin Latte: קטפוצ׳ין לאטה
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
@@ -367,6 +365,8 @@ Settings:
       Everforest Light Aqua: אברפול לייט אקווה
       Everforest Light Blue: אברפורסט כחול בהיר
       Everforest Light Purple: אברפורסט סגול בהיר
+      Catppuccin Latte Mauve: קטפוצ׳ין לאטה סגלגל
+      Catppuccin Latte Red: קטפוצ׳ין לאטה אדום
     Secondary Color Theme: 'ערכת צבע משנית'
         #* Main Color Theme
     UI Scale: יחס גודל הממשק
@@ -476,7 +476,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'כל המינויים והפרופילים יובאו בהצלחה'
     All subscriptions have been successfully imported: 'כל המינויים יובאו בהצלחה'
     Invalid subscriptions file: 'קובץ מינויים בלתי קריא'
-    This might take a while, please wait: 'זה עלול לקחת זמן מה, נא להמתין'
     Invalid history file: 'קובץ היסטוריה בלתי קריא'
     Subscriptions have been successfully exported: 'המינויים יוצאו בהצלחה'
     History object has insufficient data, skipping item: 'לאובייקט ההיסטוריה אין מספיק מידע, נדלג על פריט זה'
@@ -499,6 +498,12 @@ Settings:
       Tooltip: "אפשרות זו מייצאת סרטונים מכל הרשימות לרשימת שידורים אחת בשם 'מועדפים'.\n איך לייצא ולייבא סרטונים ברשימות לגרסה ישנה של FreeTube:\n1. יצא את הרשימות שלך עם אפשרות זו מופעלת.\n2. מחק את כל הרשימות הקיימות שלך באמצעות אפשרות הסרת כל הרשימות בהגדרות הפרטיות.\n3. הפעל את הגרסה הישנה של FreeTube וייבא את הרשימות שיוצאו."
       Label: ייצוא רשימות לגרסאות ישנות של FreeTube
 
+    Search history file: קובץ היסטוריית חיפוש
+    Search history: היסטוריית חיפוש
+    Import search history: ייבוא היסטוריית חיפוש
+    Export search history: ייצוא היסטוריית חיפוש
+    All search history has been successfully imported: כל היסטוריית החיפוש ייובאה בהצלחה
+    All search history has been successfully exported: כל היסטוריית החיפוש ייוצאה בהצלחה
   Distraction Free Settings:
     Hide Live Chat: הסתרת צ׳אט חי
     Hide Popular Videos: הסתרת סרטונים נפוצים
@@ -764,8 +769,8 @@ Video:
   Loop Playlist: 'ניגון רשימת נגינה במחזוריות'
   Shuffle Playlist: 'ערבוב רשימת הנגינה'
   Reverse Playlist: 'נגינת רשימת הנגינה בסדר הפוך'
-  Play Next Video: 'נגינת הסרטון הבא'
-  Play Previous Video: 'נגינת הסרטון הקודם'
+  Previous: 'הקודם'
+  Next: 'הבא'
   # Context is "X People Watching"
   Watched: 'נצפה'
   Autoplay: 'ניגון אוטומטי'
@@ -910,6 +915,7 @@ Share:
   YouTube Channel URL copied to clipboard: כתובת ערוץ ה־YouTube הועתקה ללוח הגזירים
   Invidious Channel URL copied to clipboard: כתובת ערוץ ה־Invidious הועתק ללוח הגזירים
   Share Channel: שיתוף ערוץ
+  Share Post: שיתוף רשומה
 Mini Player: 'נגן מזערי'
 Comments:
   Comments: 'תגובות'
@@ -925,10 +931,13 @@ Comments:
   Show More Replies: הצגת תגובות נוספות
   Pinned by: ננעץ על ידי
   Member: חבר
-  View {replyCount} replies: הצגת {replyCount} תגובות
+  View {replyCount} replies: הצגת תגובה|הצגת {replyCount} תגובות
   Hearted: סומן בלב
   Subscribed: נרשמת
   There are no comments available for this post: אין תגובות זמינות לפוסט זה
+  Hide {replyCount} replies: הסתרת תגובה|הסתרת {replyCount} תגובות
+  View 1 reply from {channelName}: הצגת תגובה מאת {channelName}
+  View {replyCount} replies from {channelName} and others: הצגת {replyCount} תגובות מאת {channelName} ואחרים
 Up Next: 'הסרטון הבא'
 
 # Toast Messages

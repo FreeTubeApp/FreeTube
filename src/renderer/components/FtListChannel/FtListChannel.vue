@@ -27,7 +27,10 @@
           class="title"
           :to="`/channel/${id}`"
         >
-          <h3 class="h3Title">
+          <h3
+            class="h3Title"
+            dir="auto"
+          >
             {{ name }}
           </h3>
         </router-link>
@@ -35,6 +38,7 @@
           <router-link
             v-if="handle !== null"
             class="handle"
+            dir="auto"
             :to="`/channel/${id}`"
           >
             {{ handle }}
@@ -57,6 +61,7 @@
         <p
           v-if="listType !== 'grid'"
           class="description"
+          dir="auto"
           v-html="description"
         />
       </div>

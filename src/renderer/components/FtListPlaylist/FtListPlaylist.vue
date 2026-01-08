@@ -38,7 +38,10 @@
         class="title"
         :to="playlistPageLinkTo"
       >
-        <h3 class="h3Title">
+        <h3
+          class="h3Title"
+          dir="auto"
+        >
           {{ titleForDisplay }}
         </h3>
       </RouterLink>
@@ -46,16 +49,17 @@
         <RouterLink
           v-if="channelId"
           class="channelName"
+          dir="auto"
           :to="`/channel/${channelId}`"
         >
           {{ channelName }}
         </RouterLink>
-        <span
+        <bdi
           v-else
           class="channelName"
         >
           {{ channelName }}
-        </span>
+        </bdi>
       </div>
       <FtIconButton
         v-if="externalPlayer !== '' && !isUserPlaylist"
@@ -90,7 +94,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 
 import store from '../../store/index'
 
@@ -265,16 +269,12 @@ const externalPlayer = computed(() => store.getters.getExternalPlayer)
 const defaultPlayback = computed(() => store.getters.getDefaultPlayback)
 
 function handleExternalPlayer() {
-  store.dispatch('openInExternalPlayer', {
-    watchProgress: 0,
-    playbackRate: defaultPlayback.value,
-    videoId: null,
-    playlistId: playlistId,
-    playlistIndex: null,
-    playlistReverse: null,
-    playlistShuffle: null,
-    playlistLoop: null
-  })
+  if (process.env.IS_ELECTRON) {
+    window.ftElectron.openInExternalPlayer({
+      playlistId: playlistId,
+      playbackRate: defaultPlayback.value,
+    })
+  }
 }
 </script>
 

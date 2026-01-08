@@ -26,7 +26,7 @@ Global:
   Videos: 'Filmy'
   Shorts: Filmy Short
   Live: Na żywo
-  Posts: Posty
+  Posts: Wpisy
   Sort By: Sortuj według
 
 # Search Bar
@@ -103,10 +103,8 @@ Subscriptions:
 Trending:
   Trending: 'Na czasie'
   Trending Tabs: Karty „Na czasie”
-  Default: Domyślna
-  Music: Muzyka
   Gaming: Gry
-  Movies: Filmy
+  Sports: Sport
 Most Popular: 'Popularne'
 Playlists: 'Playlisty'
 User Playlists:
@@ -117,8 +115,7 @@ User Playlists:
     Search in Playlists: Szukaj w playlistach
     Save: Zapisz
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 film dodano do {playlistCount} playlist | {videoCount} film(y/ów) dodano do {playlistCount} playlist
-      "{videoCount} video(s) added to 1 playlist": 1 film dodano do 1 playlisty | Do 1 playlisty dodano {videoCount} film(y/ów)
+      "Video(s) added to {playlistCount} playlists": "Film(y) dodan(y/e) do playlisty | Film(y) dodan(y/e) do {playlistCount} playlist"
       You haven't selected any playlist yet.: Nie wybrano jeszcze żadnych playlist.
     Select a playlist to add your N videos to: Wybierz playlistę, do której chcesz dodać swój film | Wybierz playlistę, do której chcesz dodać swoje {videoCount} film(y/ów)
     N playlists selected: Zaznaczono {playlistCount}
@@ -469,7 +466,6 @@ Settings:
     History object has insufficient data, skipping item: Obiekt historii ma niewystarczającą ilość danych, pomijam element
     Subscriptions have been successfully exported: Subskrypcje zostały z powodzeniem wyeksportowane
     Invalid history file: Nieprawidłowy plik historii
-    This might take a while, please wait: Może to chwilę potrwać, proszę poczekać
     Invalid subscriptions file: Nieprawidłowy plik subskrypcji
     All subscriptions have been successfully imported: Wszystkie subskrypcje zostały z powodzeniem zaimportowane
     All subscriptions and profiles have been successfully imported: Wszystkie subskrypcje i profile zostały z powodzeniem zaimportowane
@@ -547,8 +543,8 @@ Settings:
     Hide Channel Home: Schowaj kartę kanału „Główna”
     Show Added Items: Pokaż dodane rzeczy
     Hide Channel Courses: Ukryj kartę „Kursy” kanału
-    Hide Channel Posts: Schowaj kartę kanału „Posty”
-    Hide Subscriptions Posts: Schowaj posty z subskrypcji
+    Hide Channel Posts: Schowaj kartę kanału „Wpisy”
+    Hide Subscriptions Posts: Schowaj wpisy z subskrypcji
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie i zastosować zmiany?
   Proxy Settings:
     Your Info: O Tobie
@@ -691,7 +687,7 @@ Channel:
     Reveal Answers: Pokaż odpowiedzi
     Hide Answers: Schowaj odpowiedzi
     Video hidden by FreeTube: Film schowany przez FreeTube
-    View Full Post: Zobacz całe posty
+    View Full Post: Zobacz całe wpisy
     Viewing Posts Only Supported By Invidious: Wyświetlanie postów jest wspierane tylko przez Invidious. Możesz zobaczyć zawartość nie korzystając z Invidious, przechodząc do karty „Społeczność” danego kanału.
   Live:
     Live: Transmisje
@@ -736,8 +732,8 @@ Video:
   Published on: 'Opublikowano'
 #& Videos
   Autoplay: Autoodtwarzanie
-  Play Previous Video: Odtwórz poprzedni film
-  Play Next Video: Odtwórz następny film
+  Previous: Poprzedni
+  Next: Dalej
   Reverse Playlist: Odwróć playlistę
   Shuffle Playlist: Losuj z playlisty
   Loop Playlist: Zapętl playlistę
@@ -870,6 +866,7 @@ Share:
   YouTube Channel URL copied to clipboard: Skopiowano URL kanału na YouTube do schowka
   Invidious Channel URL copied to clipboard: Skopiowano URL kanału na Invidious do schowka
   Share Channel: Podziel się kanałem
+  Share Post: Podziel się wpisem
 Mini Player: 'Mini odtwarzacz'
 Comments:
   Comments: 'Komentarze'
@@ -888,7 +885,7 @@ Comments:
   Hearted: z serduszkiem
   View {replyCount} replies: Zobacz 1 odpowiedź | Zobacz {replyCount} odpowiedzi
   Subscribed: Zasubskrybowano
-  There are no comments available for this post: Nie ma żadnych komentarzy pod tym postem
+  There are no comments available for this post: Nie ma żadnych komentarzy pod tym wpisem
   Hide {replyCount} replies: Ukryj 1 odpowiedź | Ukryj {replyCount} odpowiedzi
   View 1 reply from {channelName}: Zobacz 1 odpowiedź od {channelName}
   View {replyCount} replies from {channelName} and others: Zobacz {replyCount} odpowiedzi od {channelName} i innych
@@ -959,7 +956,7 @@ Version {versionNumber} is now available!  Click for more details: Wersja {versi
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ten film jest niedostępny z powodu brakujących formatów. Przyczyną może być blokada regionalna.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Po włączeniu FreeTube będzie używać RSS zamiast domyślnej metody pobierania subskrypcji. RSS jest szybszy i zapobiega blokadzie IP, ale nie dostarcza informacji, takich jak czas trwania filmu,status transmisji na żywo, czy posty
+    Fetch Feeds from RSS: Po włączeniu FreeTube będzie używać RSS zamiast domyślnej metody pobierania subskrypcji. RSS jest szybszy i zapobiega blokadzie IP, ale nie dostarcza informacji, takich jak czas trwania filmu, status transmisji na żywo, czy wpisy
     Fetch Automatically: Po włączeniu lub przy otwarciu nowego okna FreeTube będzie automatycznie odświeżał Twoje subskrypcje.
   General Settings:
     Fallback to Non-Preferred Backend on Failure: Po włączeniu, kiedy Twój preferowany API napotka problem, FreeTube automatycznie spróbuje użyć niepreferowanego API jako metody zapasowej.
@@ -1127,3 +1124,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Odtwórz następny film z playlisty lub z rekomendowanych filmów
   Skip to Previous Video: Odtwórz poprzedni film z playlisty lub z rekomendowanych filmów
 shortcutLabelSeparator: ｜
+Compact side navigation: Skompresuj boczną nawigację
+Expand side navigation: Rozwiń boczną nawigację

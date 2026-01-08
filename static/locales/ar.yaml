@@ -106,10 +106,8 @@ Subscriptions:
 Trending:
   Trending: 'المحتوى الرائج'
   Trending Tabs: علامات التبويب الشائعة
-  Movies: أفلام
   Gaming: الالعاب
-  Music: الموسيقى
-  Default: الإفتراضي
+  Sports: رياضة
 Most Popular: 'الأكثر شعبية'
 Playlists: 'قوائم التشغيل'
 User Playlists:
@@ -164,8 +162,7 @@ User Playlists:
     Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص بك إلى | حدد قائمة تشغيل لإضافة مقاطع الفيديو {videoCount} إليها
     Toast:
       You haven't selected any playlist yet.: لم تقم بتحديد أي قائمة تشغيل حتى الآن.
-      "{videoCount} video(s) added to 1 playlist": تمت إضافة فيديو واحد إلى قائمة تشغيل واحدة | تمت إضافة {videoCount} من مقاطع الفيديو إلى قائمة تشغيل واحدة
-      "{videoCount} video(s) added to {playlistCount} playlists": تمت إضافة مقطع فيديو واحد إلى قوائم التشغيل {playlistCount} | تمت إضافة {videoCount} من مقاطع الفيديو إلى قوائم التشغيل {playlistCount}
+      "Video(s) added to {playlistCount} playlists": ""
     Save: حفظ
     Search in Playlists: البحث في قوائم التشغيل
     N playlists selected: تم تحديد {playlistCount}
@@ -470,7 +467,6 @@ Settings:
     Export History: تصدير السجلّ
     Import History: استيراد السجلّ
     Invalid history file: ملف السجلّ غير صالح
-    This might take a while, please wait: قد يستغرق هذا بعض الوقت، يرجى الانتظار
     Invalid subscriptions file: ملف الاشتراكات غير صالح
     All subscriptions have been successfully imported: تم استيراد جميع الاشتراكات بنجاح
     All subscriptions and profiles have been successfully imported: تم استيراد جميع الاشتراكات والملفات الشخصية بنجاح
@@ -768,8 +764,8 @@ Video:
   Published on: 'نُشر في'
 #& Videos
   Autoplay: تشغيل تلقائي
-  Play Previous Video: شغل الفيديو السابق
-  Play Next Video: شغل الفيديو التالي
+  Previous: السابق
+  Next: التالي
   Reverse Playlist: عكس قائمة التشغيل
   Shuffle Playlist: ‮خلط قائمة التشغيل
   Loop Playlist: تكرار قائمة التشغيل

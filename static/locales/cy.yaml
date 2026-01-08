@@ -126,11 +126,9 @@ Channels:
   Unsubscribe Prompt: 'Ydych chi''n siŵr eich bod am ddad-danysgrifio o "{channelName}"?'
 Trending:
   Trending: 'Trendio'
-  Default: 'Rhagosodedig'
-  Music: 'Cerddoriaeth'
   Gaming: 'Gemau'
-  Movies: 'Ffilmiau'
   Trending Tabs: 'Tabiau Trendio'
+  Sports: Chwaraeon
 Most Popular: 'Poblogaidd'
 Playlists: 'Rhestrau'
 User Playlists:
@@ -147,8 +145,7 @@ User Playlists:
     Added {count} Times: Wedi'u Hychwanegu Eisoes | Ychwanegwyd {count} Gwaith
     Toast:
       You haven't selected any playlist yet.: Nid ydych wedi dewis unrhyw restr chwarae eto.
-      "{videoCount} video(s) added to 1 playlist": 1 fideo wedi'i ychwanegu at 1 rhestr chwarae | {videoCount} fideo wedi'u hychwanegu at 1 rhestr chwarae
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 fideo wedi'i ychwanegu at {playlistCount} rhestr chwarae | {videoCount} fideo wedi'u hychwanegu at {playlistCount} rhestr chwarae
+      "Video(s) added to {playlistCount} playlists": "Fideo(au) wedi'u hychwanegu at 1 rhestr chwarae | Fideo(au) wedi'u hychwanegu at {playlistCount} rhestr chwarae"
     Allow Adding Duplicate Video(s): Caniatáu Ychwanegu Fideo(s) Dyblyg
     "{videoCount}/{totalVideoCount} Videos Will Be Added": "{videoCount}/{totalVideoCount} Fideo i'w Hychwanegu"
     N playlists selected: "{playlistCount} Wedi'u Dewis"
@@ -305,6 +302,7 @@ Settings:
       Everforest Light Hard: Everforest Caled Golau
       Everforest Light Medium: Everforest Canolig Golau
       Everforest Light Low: Everforest Isel Golau
+      Catppuccin Latte: Latte Catppuccino
     Main Color Theme:
       Main Color Theme: 'Thema Prif Lliw'
       Red: 'Coch'
@@ -390,6 +388,8 @@ Settings:
       Everforest Light Aqua: Everforest Aqua Golau
       Everforest Light Blue: Everforest Glas Golau
       Everforest Light Purple: Everforest Porffor Golau
+      Catppuccin Latte Mauve: Latte Catppuccino Porffor
+      Catppuccin Latte Red: Latte Catppuccino Coch
     Secondary Color Theme: 'Thema Lliw Eilaidd'
         #* Main Color Theme
   Player Settings:
@@ -557,7 +557,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Mae''r holl danysgrifiadau a phroffiliau wedi''u mewnforio''n llwyddiannus'
     All subscriptions have been successfully imported: 'Mae pob tanysgrifiad wedi''i fewnforio''n llwyddiannus'
     Invalid subscriptions file: 'Ffeil tanysgrifiadau annilys'
-    This might take a while, please wait: ''
     Invalid history file: 'Ffeil hanes annilys'
     Subscriptions have been successfully exported: 'Mae tanysgrifiadau wedi''u hallforio''n llwyddiannus'
     History object has insufficient data, skipping item: 'Nid oes gan y gwrthrych hanes ddigon o ddata, gan hepgor yr eitem'
@@ -574,6 +573,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Mae'r opsiwn hwn yn allforio fideos o bob rhestr chwarae i un rhestr chwarae o'r enw 'Ffefrynnau'.\nSut i allforio a mewnforio fideos mewn rhestrau chwarae ar gyfer fersiwn hŷn o FreeTube:\n1. Allforio eich rhestri chwarae gyda'r opsiwn hwn wedi'i alluogi.\n2. Dileu eich holl restrau chwarae presennol gan ddefnyddio'r opsiwn Dileu Pob Rhestr Chwarae o dan Gosodiadau Preifatrwydd.\n 3. Lansio'r fersiwn hŷn o FreeTube a mewngludo'r rhestri chwarae allforio.\""
       Label: Allforio Rhestrau Chwarae Fersiynau FreeTube Hŷn
+    Search history file: Ffeil hanes chwilio
+    Search history: Hanes chwilio
+    Import search history: Mewnforio hanes chwilio
+    Export search history: Allforio hanes chwilio
+    All search history has been successfully imported: Mae'r holl hanes chwilio wedi'i fewnforio'n llwyddiannus
+    All search history has been successfully exported: Mae'r holl hanes chwilio wedi'i allforio'n llwyddiannus
   Proxy Settings:
     Proxy Settings: 'Dirprwy'
     Enable Tor / Proxy: 'Galluogi Tor/Dirprwy'
@@ -789,8 +794,8 @@ Video:
   Loop Playlist: 'Cylchu Rhestr Chwarae'
   Shuffle Playlist: 'Cymysgu Rhestr Chwarae'
   Reverse Playlist: 'Gwrthdroi Rhestr Chwarae'
-  Play Next Video: 'Chwarae''r Fideo Nesaf'
-  Play Previous Video: 'Chwarae''r Fideo Blaenorol'
+  Previous: 'Blaenorol'
+  Next: 'Nesaf'
   Watched: 'Wedi gwylio'
   Autoplay: 'Awtochwarae'
   Starting soon, please refresh the page to check again: 'Yn dechrau''n fuan, adnewyddwch y dudalen i wirio eto'
@@ -925,6 +930,7 @@ Share:
   YouTube URL copied to clipboard: 'URL YouTube wedi''i gopïo i''r clipfwrdd'
   YouTube Embed URL copied to clipboard: 'URL Mewnblaniad YouTube wedi''i gopïo i''r clipfwrdd'
   YouTube Channel URL copied to clipboard: 'URL Sianel YouTube wedi''i gopïo i''r clipfwrdd'
+  Share Post: Rhannu'r Postiad
 Clipboard:
   Copy failed: 'Methodd copïo i''r clipfwrdd'
   Cannot access clipboard without a secure connection: 'Methu cael mynediad at y clipfwrdd heb gysylltiad diogel'
@@ -941,7 +947,7 @@ Comments:
   Hide Comments: 'Cuddio Sylwadau'
   Top comments: 'Sylwadau poblogaidd'
   Newest first: 'Diweddaraf yn gyntaf'
-  View {replyCount} replies: 'Gweld {replyCount} ateb'
+  View {replyCount} replies: 'Gweld 1 ateb | Gweld {replyCount} ateb'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
   Show More Replies: 'Dangos Rhagor o Atebion'
   There are no comments available for this video: 'Nid oes unrhyw sylwadau ar gael ar gyfer y fideo hwn'
@@ -951,6 +957,9 @@ Comments:
   Subscribed: 'Tanysgrifiwyd'
   Hearted: 'Hoffwyd'
   There are no comments available for this post: Nid oes unrhyw sylwadau ar gael ar gyfer y cofnod hon
+  Hide {replyCount} replies: Cuddio 1 ateb | Cuddio {replyCount} ateb
+  View 1 reply from {channelName}: Gweld 1 ateb gan {channelName}
+  View {replyCount} replies from {channelName} and others: Gweld {replyCount} ateb gan {channelName} ac eraill
 Up Next: 'Nesaf'
 
 #Tooltips
@@ -1122,3 +1131,5 @@ Keys:
 Right-click or hold to see history: De-gliciwch neu ddal i weld yr hanes
 Autoplay Interruption Timer: Diddymwyd awtochwarae oherwydd {autoplayInterruptionIntervalHours} awr o heb ei ddefnyddio
 shortcutLabelSeparator: ｜
+Compact side navigation: LLywio ochr cryno
+Expand side navigation: Ehangu llywio ochr

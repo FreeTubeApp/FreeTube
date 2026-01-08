@@ -11,6 +11,7 @@ import { ScreenshotButton } from './player-components/ScreenshotButton'
 import { StatsButton } from './player-components/StatsButton'
 import { TheatreModeButton } from './player-components/TheatreModeButton'
 import { AutoplayToggle } from './player-components/AutoplayToggle'
+import { SkipButton } from './player-components/SkipButton'
 import {
   deduplicateAudioTracks,
   findMostSimilarAudioBandwidth,
@@ -123,6 +124,10 @@ export default defineComponent({
       default: false
     },
     autoplayEnabled: {
+      type: Boolean,
+      default: false
+    },
+    watchingPlaylist: {
       type: Boolean,
       default: false
     },
@@ -786,15 +791,23 @@ export default defineComponent({
     })
 
     const uiConfig = computed(() => {
+      const controlPanelElements = [
+        'play_pause',
+        'mute',
+        'volume',
+        'time_and_duration',
+        'spacer'
+      ]
+      const controlPanelElementsWithSkipButtons = [
+        ...controlPanelElements.slice(0, 1),
+        'ft_skip_previous',
+        'ft_skip_next',
+        ...controlPanelElements.slice(1)
+      ]
+
       /** @type {shaka.extern.UIConfiguration} */
       const uiConfig = {
-        controlPanelElements: [
-          'play_pause',
-          'mute',
-          'volume',
-          'time_and_duration',
-          'spacer'
-        ],
+        controlPanelElements: props.watchingPlaylist ? controlPanelElementsWithSkipButtons : controlPanelElements,
         overflowMenuButtons: [],
 
         // only set this to label when we actually have labels, so that the warning doesn't show up
@@ -996,6 +1009,7 @@ export default defineComponent({
       const fullscreenTitleOverlay = document.createElement('h1')
       fullscreenTitleOverlay.textContent = props.title
       fullscreenTitleOverlay.className = 'playerFullscreenTitleOverlay'
+      fullscreenTitleOverlay.dir = 'auto'
       controlsContainer.appendChild(fullscreenTitleOverlay)
 
       if (hasLoaded.value && props.chapters.length > 0) {
@@ -1838,6 +1852,36 @@ export default defineComponent({
       shakaOverflowMenu.registerElement('ft_screenshot', new ScreenshotButtonFactory())
     }
 
+    function registerSkipButtons() {
+      // skip to next video button
+      events.addEventListener('nextVideo', () => {
+        emit('skip-to-next')
+      })
+
+      class SkipNextButtonFactory {
+        create(rootElement, controls) {
+          return new SkipButton(events, rootElement, controls, 'next')
+        }
+      }
+
+      shakaControls.registerElement('ft_skip_next', new SkipNextButtonFactory())
+      shakaOverflowMenu.registerElement('ft_skip_next', new SkipNextButtonFactory())
+
+      // skip to previous video button
+      events.addEventListener('previousVideo', () => {
+        emit('skip-to-prev')
+      })
+
+      class SkipPreviousButtonFactory {
+        create(rootElement, controls) {
+          return new SkipButton(events, rootElement, controls, 'previous')
+        }
+      }
+
+      shakaControls.registerElement('ft_skip_previous', new SkipPreviousButtonFactory())
+      shakaOverflowMenu.registerElement('ft_skip_previous', new SkipPreviousButtonFactory())
+    }
+
     /**
      * As shaka-player doesn't let you unregister custom control factories,
      * overwrite them with `null` instead so the referenced objects
@@ -1863,6 +1907,12 @@ export default defineComponent({
 
       shakaControls.registerElement('ft_screenshot', null)
       shakaOverflowMenu.registerElement('ft_screenshot', null)
+
+      shakaControls.registerElement('ft_next_previous', null)
+      shakaOverflowMenu.registerElement('ft_next_previous', null)
+
+      shakaControls.registerElement('ft_skip_previous', null)
+      shakaOverflowMenu.registerElement('ft_skip_previous', null)
     }
 
     // #endregion custom player controls
@@ -2577,6 +2627,7 @@ export default defineComponent({
       registerFullWindowButton()
       registerLegacyQualitySelection()
       registerStatsButton()
+      registerSkipButtons()
 
       if (ui.isMobile()) {
         onlyUseOverFlowMenu.value = true

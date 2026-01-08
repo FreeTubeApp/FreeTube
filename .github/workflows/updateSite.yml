@@ -9,18 +9,25 @@ on:
   release:
     types: [published]
 
+permissions: {}
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
       with:
         repository: FreeTubeApp/FreeTubeApp.io
         token: ${{ secrets.FLATHUB_TOKEN }}
+        persist-credentials: true
+
     - name: Get Repo Release List
-      uses: moustacheful/github-api-exec-action@v0
+      uses: moustacheful/github-api-exec-action@2135aaccb1220f81e6fa4f14c90cc20efba069fe #v0
       id: list_results
       with:
         # Command to execute, (e.g: `pulls.create`), see https://octokit.github.io/rest.js/ for available commands
@@ -33,14 +40,14 @@ jobs:
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Create Current Version Variable
-      uses: bluwy/substitute-string-action@v3
+      uses: bluwy/substitute-string-action@70ff0b17357670ffd3fee68e95b6de9963b66bad #v3.0.0
       id: current
       with:
         _input-text: ${{ fromJson(steps.list_results.outputs.result)[0].tag_name }}
         -beta: ''
         v: ''
     - name: Create Previous Version Variable
-      uses: bluwy/substitute-string-action@v3
+      uses: bluwy/substitute-string-action@70ff0b17357670ffd3fee68e95b6de9963b66bad #v3.0.0
       id: previous
       with:
         _input-text: ${{ fromJson(steps.list_results.outputs.result)[1].tag_name }}
@@ -48,13 +55,15 @@ jobs:
         v: ''
     - name: Set Master Branch
     # Currently the default branch is master, but if that changes later, then this acts as a failsafe.
+      shell: bash
       run: |
         git checkout master
     - name: Update index.php
+      shell: bash
       run: |
         sed -i 's/${{ steps.previous.outputs.result  }}/${{ steps.current.outputs.result }}/g' src/index.php
     - name: Commit Files
-      uses: stefanzweifel/git-auto-commit-action@v7
+      uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 #v7.1.0
       with:
         # Optional but recommended
         # Defaults to "Apply automatic changes"

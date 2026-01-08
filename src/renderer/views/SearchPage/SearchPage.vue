@@ -12,7 +12,6 @@
         <FontAwesomeIcon
           :icon="['fas', 'search']"
           class="headingIcon"
-          fixed-width
         />
         {{ t("Search Filters.Search Results") }}
       </h2>

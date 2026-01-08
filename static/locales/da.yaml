@@ -108,11 +108,9 @@ Subscriptions:
   All Subscription Tabs Hidden: Alle abonnement-faner er skjult. Gør nogle faner synlige i "{subsection}" under "{settingsSection}" for at se indhold her.
 Trending:
   Trending: 'Hot lige nu'
-  Music: Musik
   Trending Tabs: Hot lige nu-faner
   Gaming: Gaming
-  Default: Standard
-  Movies: Film
+  Sports: Sport
 Most Popular: 'Mest populære'
 Playlists: 'Playlister'
 User Playlists:
@@ -165,9 +163,8 @@ User Playlists:
     N playlists selected: '{playlistCount} valgt'
     Search in Playlists: Søg i playlister
     Toast:
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video føjet til {playlistCount} playlister | {videoCount} videoer føjet til {playlistCount} playlister
+      "Video(s) added to {playlistCount} playlists": ""
       You haven't selected any playlist yet.: Du har ikke valgt nogen playliste endnu.
-      "{videoCount} video(s) added to 1 playlist": 1 video føjet til 1 playliste | {videoCount} videoer føjet til 1 playliste
     Added {count} Times: Allerede tilføjet | Tilføjet {count} gange
     Save: Gem
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videoer tilføjes'
@@ -470,7 +467,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: 'Det lykkedes at importere alle abonnementer og profiler'
     All subscriptions have been successfully imported: 'Det lykkedes at importere alle abonnementer'
     Invalid subscriptions file: 'Ugyldig abonnementsfil'
-    This might take a while, please wait: 'Dette kan tage et stykke tid. Vent venligst'
     Invalid history file: 'Ugyldig historikfil'
     Subscriptions have been successfully exported: 'Det lykkedes at eksportere abonnementer'
     History object has insufficient data, skipping item: 'Historikobjekt har utilstrækkelige data; springer element over'
@@ -755,8 +751,8 @@ Video:
   Loop Playlist: 'Gentag playliste'
   Shuffle Playlist: 'Bland playliste'
   Reverse Playlist: 'Omvendt playliste'
-  Play Next Video: 'Afspil næste video'
-  Play Previous Video: 'Afspil forrige video'
+  Previous: 'Forrige'
+  Next: 'Næste'
   Watched: 'Set'
   Autoplay: 'Auto-afspil'
   Starting soon, please refresh the page to check again: 'Begynder snart; opdater venligst siden for at tjekke igen'

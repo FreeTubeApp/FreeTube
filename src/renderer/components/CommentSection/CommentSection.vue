@@ -67,6 +67,7 @@
           <div
             v-if="hideCommentPhotos && !comment.isOwner"
             class="commentThumbnailHidden"
+            dir="auto"
           >
             {{ comment.author.substring(1, 2) }}
           </div>
@@ -84,13 +85,14 @@
           <FontAwesomeIcon
             :icon="['fas', 'thumbtack']"
           />
-          {{ $t("Comments.Pinned by") }} {{ channelName }}
+          {{ $t("Comments.Pinned by") }} <bdi>{{ channelName }}</bdi>
         </p>
         <p
           class="commentAuthorWrapper"
         >
           <router-link
             class="commentAuthor"
+            dir="auto"
             :class="{
               commentOwner: comment.isOwner
             }"
@@ -183,6 +185,7 @@
               <div
                 v-if="hideCommentPhotos && !reply.isOwner"
                 class="commentThumbnailHidden"
+                dir="auto"
               >
                 {{ reply.author.substring(1, 2) }}
               </div>
@@ -196,6 +199,7 @@
             <p class="commentAuthorWrapper">
               <router-link
                 class="commentAuthor"
+                dir="auto"
                 :class="{
                   commentOwner: reply.isOwner
                 }"

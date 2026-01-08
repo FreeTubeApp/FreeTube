@@ -26,7 +26,9 @@ import { brotliDecompress } from 'zlib'
 import contextMenu from 'electron-context-menu'
 
 import packageDetails from '../../package.json'
+import { handleOpenInExternalPlayer } from './externalPlayer'
 import { generatePoToken } from './poTokenGenerator'
+import { isFreeTubeUrl } from './utils'
 
 const brotliDecompressAsync = promisify(brotliDecompress)
 
@@ -857,25 +859,6 @@ function runApp() {
     }
   }
 
-  /**
-   * @param {string | URL} url
-   */
-  function isFreeTubeUrl(url) {
-    let url_
-
-    if (url instanceof URL) {
-      url_ = url
-    } else {
-      url_ = URL.parse(url)
-    }
-
-    if (process.env.NODE_ENV === 'development') {
-      return url_ !== null && url_.protocol === 'http:' && url_.host === 'localhost:9080' && (url_.pathname === '/' || url_.pathname === '/index.html')
-    } else {
-      return url_ !== null && url_.protocol === 'app:' && url_.host === 'bundle' && (url_.pathname === '/' || url_.pathname === '/index.html')
-    }
-  }
-
   async function createWindow(
     {
       replaceMainWindow = true,
@@ -1121,8 +1104,7 @@ function runApp() {
       newWindow.webContents.ipc.on(IpcChannels.SEARCH_INPUT_HANDLING_READY, searchInputReadyHandler)
     }
 
-    // Show when loaded
-    newWindow.once('ready-to-show', () => {
+    const showWindow = () => {
       if (newWindow.isVisible()) {
         // only open the dev tools if they aren't already open
         if (process.env.NODE_ENV === 'development' && !newWindow.webContents.isDevToolsOpened()) {
@@ -1141,7 +1123,18 @@ function runApp() {
       if (process.env.NODE_ENV === 'development') {
         newWindow.webContents.openDevTools({ activate: false })
       }
-    })
+    }
+
+    // The `ready-to-show` event doesn't always fire on wayland.
+    // Use the `did-finish-load` event on the web contents instead as that is similar enough
+    // https://github.com/electron/electron/issues/48859
+
+    if (process.platform === 'linux' && app.commandLine.getSwitchValue('ozone-platform') === 'wayland') {
+      newWindow.webContents.once('did-finish-load', showWindow)
+    } else {
+      // Show when loaded
+      newWindow.once('ready-to-show', showWindow)
+    }
 
     newWindow.once('close', async () => {
       if (BrowserWindow.getAllWindows().length !== 1) {
@@ -1177,6 +1170,12 @@ function runApp() {
         mainWindow.webContents.send(IpcChannels.OPEN_URL, startupUrl)
       }
       startupUrl = null
+    }
+  })
+
+  ipcMain.on(IpcChannels.SET_WINDOW_TITLE, (event, title) => {
+    if (isFreeTubeUrl(event.senderFrame.url) && typeof title === 'string') {
+      BrowserWindow.fromWebContents(event.sender)?.setTitle(title)
     }
   })
 
@@ -1470,12 +1469,7 @@ function runApp() {
     })
   })
 
-  ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, (event, executable, args) => {
-    if (isFreeTubeUrl(event.senderFrame.url)) {
-      const child = cp.spawn(executable, args, { detached: true, stdio: 'ignore' })
-      child.unref()
-    }
-  })
+  ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, handleOpenInExternalPlayer)
 
   ipcMain.handle(IpcChannels.GET_REPLACE_HTTP_CACHE, (event) => {
     if (isFreeTubeUrl(event.senderFrame.url)) {
@@ -2391,7 +2385,7 @@ function runApp() {
             },
             type: 'normal'
           },
-          !hideTrendingVideos && {
+          (!hideTrendingVideos && (backendFallback || backendPreference === 'local')) && {
             label: 'Trending',
             click: (_menuItem, browserWindow, _event) => {
               navigateTo('/trending', browserWindow)

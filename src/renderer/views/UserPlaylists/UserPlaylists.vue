@@ -8,7 +8,6 @@
           <FontAwesomeIcon
             :icon="['fas', 'bookmark']"
             class="headingIcon"
-            fixed-width
           />
           {{ $t("User Playlists.Your Playlists") }}
         </h2>
@@ -97,7 +96,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import { isNavigationFailure, NavigationFailureType, useRoute, useRouter } from 'vue-router'
 
@@ -106,7 +105,7 @@ import FtButton from '../../components/FtButton/FtButton.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import FtIconButton from '../../components/ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../../components/FtIconButton/FtIconButton.vue'
 import FtInput from '../../components/FtInput/FtInput.vue'
 import FtSelect from '../../components/FtSelect/FtSelect.vue'
 import FtToggleSwitch from '../../components/FtToggleSwitch/FtToggleSwitch.vue'
@@ -409,7 +408,7 @@ if (oldQuery != null && oldQuery !== '') {
   filterPlaylist()
 }
 
-const searchBar = ref(null)
+const searchBar = useTemplateRef('searchBar')
 
 /**
  * @param {KeyboardEvent} event

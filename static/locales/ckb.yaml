@@ -122,10 +122,7 @@ Channels:
   Unsubscribe Prompt: ''
 Trending:
   Trending: 'باو'
-  Default: 'بنەڕەت'
-  Music: 'مۆسیقا'
   Gaming: 'یاری'
-  Movies: 'فیلم'
   Trending Tabs: ''
 Most Popular: 'باوترین'
 Playlists: 'پێڕستی لێدانەکان'
@@ -185,8 +182,7 @@ User Playlists:
     Search in Playlists: گەڕان لەناو پێڕستی لێدانەکان
     Toast:
       You haven't selected any playlist yet.: هێشتا هیچ پێڕستێکی لێدانت دیاری نەکردووە.
-      "{videoCount} video(s) added to {playlistCount} playlists": ڤیدیۆیەک زیاد کرا بۆ {playlistCount} پێڕستی لێدان | {videoCount} ڤیدیۆ زیاد کرا بۆ {playlistCount} پێڕستی لێدان
-      "{videoCount} video(s) added to 1 playlist": ڤیدیۆیەک زیاد کرا بۆ یەک پێڕستی لێدان | {videoCount} ڤیدیۆ زیاد کرا بۆ یەک پێڕستی لێدان
+      "Video(s) added to {playlistCount} playlists": ""
     Allow Adding Duplicate Video(s): ڕێ بە زیادکردنی ڤیدیۆی دووبارە بدە
     N playlists selected: '{playlistCount} دیاریکراوە'
   CreatePlaylistPrompt:
@@ -455,7 +451,6 @@ Settings:
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''
     Invalid subscriptions file: ''
-    This might take a while, please wait: 'تکایە چاوەڕوانبە لەوانەیە هەندێک کاتی پێ بچێت'
     Invalid history file: 'پەڕگەی نادرووستی مێژوو'
     Subscriptions have been successfully exported: ''
     History object has insufficient data, skipping item: ''
@@ -661,8 +656,8 @@ Video:
   Loop Playlist: ''
   Shuffle Playlist: ''
   Reverse Playlist: ''
-  Play Next Video: 'لێدانی ڤیدیۆی دواتر'
-  Play Previous Video: 'لێدانی ڤیدیۆی پێشوو'
+  Previous: ''
+  Next: ''
   Watched: 'تەمەشاکراو'
   Autoplay: 'خۆلێدان'
   Starting soon, please refresh the page to check again: ''

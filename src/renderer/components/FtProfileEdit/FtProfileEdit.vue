@@ -60,6 +60,7 @@
               >
                 <div
                   class="initial"
+                  dir="auto"
                 >
                   {{ profileInitial }}
                 </div>

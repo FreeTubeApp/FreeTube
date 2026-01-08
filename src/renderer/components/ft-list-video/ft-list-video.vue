@@ -115,7 +115,10 @@
         :to="watchVideoRouterLink"
         @click="handleWatchPageLinkClick"
       >
-        <h3 class="h3Title">
+        <h3
+          class="h3Title"
+          dir="auto"
+        >
           {{ displayTitle }}
         </h3>
       </router-link>
@@ -123,13 +126,14 @@
         <router-link
           v-if="channelId !== null"
           class="channelName"
+          dir="auto"
           :to="`/channel/${channelId}`"
         >
-          <span>{{ channelName }}</span>
-        </router-link>
-        <span v-else-if="channelName !== null">
           {{ channelName }}
-        </span>
+        </router-link>
+        <bdi v-else-if="channelName !== null">
+          {{ channelName }}
+        </bdi>
         <span
           v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null"
           class="viewCount"
@@ -235,6 +239,7 @@
       <p
         v-if="description && effectiveListTypeIsList && appearance === 'result'"
         class="description"
+        dir="auto"
         v-html="description"
       />
     </div>

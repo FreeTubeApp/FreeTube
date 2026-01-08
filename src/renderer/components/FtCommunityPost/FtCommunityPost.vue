@@ -31,6 +31,7 @@
       </template>
       <p
         class="authorName"
+        dir="auto"
       >
         <router-link
           v-if="authorId"
@@ -53,6 +54,7 @@
     </div>
     <p
       class="postText"
+      dir="auto"
       v-html="postText"
     />
     <swiper-container
@@ -155,6 +157,12 @@
           class="comment-count-icon"
           :icon="['fas', 'comment']"
         /> {{ commentCount }}</span>
+      <FtShareButton
+        :id="postId"
+        share-target-type="Post"
+        class="shareButton"
+        :size="18"
+      />
     </div>
   </div>
 </template>
@@ -163,11 +171,12 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import autolinker from 'autolinker'
 import { A11y, Navigation, Pagination } from 'swiper/modules'
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, useTemplateRef } from 'vue'
 
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListPlaylist from '../FtListPlaylist/FtListPlaylist.vue'
 import FtCommunityPoll from '../FtCommunityPoll/FtCommunityPoll.vue'
+import FtShareButton from '../FtShareButton/FtShareButton.vue'
 
 import store from '../../store/index'
 
@@ -305,7 +314,7 @@ function getBestQualityImage(imageArray) {
   return imageArrayCopy[0]?.url?.replace(/-c-fcrop64=[^-]+/i, '') ?? ''
 }
 
-const swiperContainerRef = ref(null)
+const swiperContainerRef = useTemplateRef('swiperContainerRef')
 
 if (postType === 'multiImage' && postContent.content.length > 0) {
   onMounted(() => {

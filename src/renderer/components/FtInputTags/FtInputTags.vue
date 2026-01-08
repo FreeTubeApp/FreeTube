@@ -59,9 +59,9 @@
                 loading="lazy"
               >
             </RouterLink>
-            <span>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</span>
+            <bdi>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</bdi>
           </template>
-          <span v-else>{{ tag }}</span>
+          <bdi v-else>{{ tag }}</bdi>
           <button
             v-if="!disabled"
             class="removeTagButton"
@@ -79,7 +79,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { ref, useId } from 'vue'
+import { useId, useTemplateRef } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtInput from '../FtInput/FtInput.vue'
@@ -139,7 +139,7 @@ const { t } = useI18n()
 
 const id = useId()
 
-const tagNameInput = ref(null)
+const tagNameInput = useTemplateRef('tagNameInput')
 
 /**
  * @param {string} text

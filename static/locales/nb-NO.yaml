@@ -106,10 +106,8 @@ Subscriptions:
 Trending:
   Trending: 'På vei opp'
   Trending Tabs: På vei opp-faner
-  Movies: Filmer
   Gaming: Videospill
-  Music: Musikk
-  Default: Standard
+  Sports: Sport
 Most Popular: 'Mest populære'
 Playlists: 'Spillelister'
 User Playlists:
@@ -146,8 +144,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videoer vil bli lagt til'
     Toast:
       You haven't selected any playlist yet.: Du har ikke valgt noen spillelister enda.
-      "{videoCount} video(s) added to 1 playlist": 1 video lagt til 1 spilleliste | {videoCount} videoer lagt til 1 spilleliste
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video lagt til {playlistCount} spillelister | {videoCount} videoer lagt til  {playlistCount} spillelister
+      "Video(s) added to {playlistCount} playlists": "Video(er) lagt til 1 spilleliste | Video(er) lagt til {playlistCount} spillelister"
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videoer allerede lagt til'
     Added {count} Times: Allerede lagt til | Lagt til {count} ganger
     Select a playlist to add your N videos to: Velg en spilleliste å legge videoen til | Velg en spilleliste å legge dine {videoCount} videoer til
@@ -477,7 +474,6 @@ Settings:
     Invalid subscriptions file: Ugyldig abonnementsfil
     Profile object has insufficient data, skipping item: Hopper over profilobjektet siden det har utilstrekkelig data
     Subscriptions have been successfully exported: Alle abonnementer har blitt eksportert
-    This might take a while, please wait: Dette kan ta litt tid …
     Export History: Eksporter historikk
     Import History: Importer historikk
     Export NewPipe: Eksporter NewPipe
@@ -755,8 +751,8 @@ Video:
   Copy YouTube Channel Link: Kopier YouTube-kanallenke
   Video has been removed from your saved list: Videoen har blitt fjernet fra din liste over lagrede videoer
   Open Channel in YouTube: Åpne kanal i YouTube
-  Play Previous Video: Spill av forrige video
-  Play Next Video: Spill av neste video
+  Previous: 'Forrige'
+  Next: 'Neste'
   Sponsor Block category:
     interaction: Samhandling
     outro: Outro
@@ -873,6 +869,7 @@ Share:
   Include Timestamp: Inkluder tidsstempel
   Invidious Channel URL copied to clipboard: Invidious-kanalnettadresse kopiert til utklippstavle
   Share Channel: Del kanal
+  Share Post: Del innlegg
 Mini Player: 'Miniavspiller'
 Comments:
   Comments: 'Kommentarer'
@@ -1127,3 +1124,5 @@ Channel Hidden: '{channel} lagt til i kanalfilteret'
 Channel Unhidden: '{channel} fjernet fra kanalfilteret'
 Tag already exists: «{tagName}»-taggen eksisterer allerede
 Trimmed input must be at least N characters long: Trimmet input må være minst ett tegn langt | Trimmet input må være minst {length} tegn langt
+Compact side navigation: Kompakt sidenavigasjon
+Expand side navigation: Utvid sidenavigasjon

@@ -3,6 +3,7 @@
     <div
       v-for="(shelf, index) in filteredShelves"
       :key="index"
+      class="shelfContainer"
     >
       <details
         open
@@ -10,7 +11,9 @@
         <summary
           class="shelfTitle"
         >
-          {{ shelf.title }}
+          <bdi>
+            {{ shelf.title }}
+          </bdi>
           <span
             v-if="shelf.playlistId"
             class="playAllSpan"
@@ -33,6 +36,7 @@
         <p
           v-if="shelf.subtitle"
           class="shelfSubtitle"
+          dir="auto"
         >
           {{ shelf.subtitle }}
         </p>

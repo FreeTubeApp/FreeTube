@@ -34,6 +34,7 @@
           >
             <h1
               class="name"
+              dir="auto"
             >
               {{ name }}
             </h1>
@@ -251,7 +252,7 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, useTemplateRef } from 'vue'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import FtCard from '../ft-card/ft-card.vue'
@@ -381,7 +382,7 @@ function search(query) {
   emit('search', query)
 }
 
-const searchBar = ref(null)
+const searchBar = useTemplateRef('searchBar')
 
 /**
  * @param {KeyboardEvent} event

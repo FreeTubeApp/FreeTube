@@ -1,12 +1,12 @@
 # Put the name of your locale in the same language
-Locale Name: ''
+Locale Name: 'Bahasa Melayu'
 
 # Webkit Menu Bar
-File: ''
-New Window: ''
-Preferences: ''
-Quit: ''
-Edit: ''
+File: 'Fail'
+New Window: 'Tetingkap baru'
+Preferences: 'Pilihan'
+Quit: 'Keluar'
+Edit: 'Edit'
 Undo: ''
 Redo: ''
 Cut: ''
@@ -22,6 +22,8 @@ Toggle fullscreen: ''
 Window: ''
 Minimize: ''
 Close: ''
+Compact side navigation: ''
+Expand side navigation: ''
 Back: ''
 Forward: ''
 Right-click or hold to see history: ''
@@ -140,10 +142,8 @@ Channels:
   Unsubscribe Prompt: ''
 Trending:
   Trending: ''
-  Default: ''
-  Music: ''
   Gaming: ''
-  Movies: ''
+  Sports: ''
   Trending Tabs: ''
 Most Popular: ''
 Feed:
@@ -243,8 +243,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: ''
-      "{videoCount} video(s) added to 1 playlist": ""
-      "{videoCount} video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
     New Playlist Name: ''
     Create: ''
@@ -329,6 +328,7 @@ Settings:
       Light: ''
       Dracula: ''
       Catppuccin Frappe: ''
+      Catppuccin Latte: ''
       Catppuccin Mocha: ''
       Pastel Pink: ''
       Hot Pink: ''
@@ -382,6 +382,8 @@ Settings:
       Catppuccin Frappe Sapphire: ''
       Catppuccin Frappe Blue: ''
       Catppuccin Frappe Lavender: ''
+      Catppuccin Latte Mauve: ''
+      Catppuccin Latte Red: ''
       Catppuccin Mocha Rosewater: ''
       Catppuccin Mocha Flamingo: ''
       Catppuccin Mocha Pink: ''
@@ -579,6 +581,7 @@ Settings:
     Subscription File: ''
     History File: ''
     Playlist File: ''
+    Search history file: ''
     Export Subscriptions: ''
     Export FreeTube: ''
     Export YouTube: ''
@@ -587,6 +590,9 @@ Settings:
     Export History: ''
     Import Playlists: ''
     Export Playlists: ''
+    Search history: ''
+    Import search history: ''
+    Export search history: ''
     Profile object has insufficient data, skipping item: ''
     All subscriptions and profiles have been successfully imported: ''
     All subscriptions have been successfully imported: ''
@@ -599,6 +605,8 @@ Settings:
     Playlist insufficient data: ''
     All playlists has been successfully imported: ''
     All playlists has been successfully exported: ''
+    All search history has been successfully imported: ''
+    All search history has been successfully exported: ''
     Unable to read file: ''
     Unable to write file: ''
     Unknown data key: ''
@@ -726,9 +734,7 @@ Profile:
   Delete Selected: ''
   Add Selected To Profile: ''
   No channel(s) have been selected: ''
-  ? This is your primary profile.  Are you sure you want to delete the selected
-    channels?  The same channels will be deleted in any profile they are found
-    in.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
   : ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
   Close Profile Dropdown: ''
@@ -825,8 +831,8 @@ Video:
   Loop Playlist: ''
   Shuffle Playlist: ''
   Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
+  Previous: ''
+  Next: ''
   Watched: ''
   Autoplay: ''
   Starting soon, please refresh the page to check again: ''
@@ -939,6 +945,7 @@ Change Format:
   Legacy formats are not available for this video: ''
 Share:
   Share Video: ''
+  Share Post: ''
   Share Channel: ''
   Share Playlist: ''
   Include Timestamp: ''
@@ -971,7 +978,9 @@ Comments:
   Top comments: ''
   Newest first: ''
   View {replyCount} replies: ''
-  # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
+  Hide {replyCount} replies: ''
+  View 1 reply from {channelName}: ''
+  View {replyCount} replies from {channelName} and others: ''
   Show More Replies: ''
   There are no comments available for this video: ''
   There are no comments available for this post: ''
