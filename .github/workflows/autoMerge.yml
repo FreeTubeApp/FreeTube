@@ -15,4 +15,5 @@ jobs:
       shell: bash
       env:
         GH_TOKEN: ${{ secrets.PUSH_TOKEN }}
-      run: gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto --squash
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+      run: gh pr merge "https://github.com/FreeTubeApp/FreeTube/pull/${PR_NUMBER}" --auto --squash
