@@ -381,8 +381,9 @@ export default defineComponent({
       const el = event.target
       event.preventDefault()
 
-      // Check if it's a YouTube link
-      const youtubeUrlPattern = /^https?:\/\/((www\.)?youtube\.com(\/embed)?|youtu\.be)\/.*$/
+      // Check if it's a YouTube link, but exclude live chat pop out
+      const youtubeUrlPattern = /^https?:\/\/((www\.)?youtube\.com(\/embed)?|youtu\.be)\/(?!.*live_chat).*$/
+
       const isYoutubeLink = youtubeUrlPattern.test(el.href)
 
       if (isYoutubeLink) {

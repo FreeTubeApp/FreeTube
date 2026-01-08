@@ -56,16 +56,19 @@
             {{ t('Global.Counts.Watching Count', { count: formattedWatchingCount }, watchingCount) }}
           </span>
         </span>
-        <button
-          class="popoutChatButton"
+        <a
+          :href="`https://www.youtube.com/live_chat?is_popout=1&v=${props.videoId}`"
           :title="$t('Video.Popout Live Chat')"
-          @click="popoutChat"
+          target="_blank"
+          class="popoutChatButton"
         >
           <FontAwesomeIcon
             class="popoutChatIcon"
             :icon="['fas', 'fa-arrow-up-right-from-square']"
-          />
-        </button>
+          >
+            {{ t("Video.Popout Live Chat") }}
+          </FontAwesomeIcon>
+        </a>
       </div>
       <div
         v-if="superChatComments.length > 0"
@@ -586,11 +589,6 @@ function scrollToBottom() {
 
   stayAtBottom = true
   showScrollToBottom.value = false
-}
-
-function popoutChat() {
-  const url = `https://www.youtube.com/live_chat?is_popout=1&v=${props.videoId}`
-  window.open(url, '_blank', 'noreferrer')
 }
 
 </script>

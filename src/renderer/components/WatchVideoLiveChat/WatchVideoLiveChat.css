@@ -256,6 +256,10 @@
   transition: background 0.2s ease-in;
 }
 
+.popoutChatIcon {
+  pointer-events: none;
+}
+
 .titleContainer {
   display: flex;
   justify-content: space-between;
