@@ -233,6 +233,15 @@
   inset-block-start: 0.45rem;
 }
 
+.title {
+  margin: 0;
+}
+
+.title,
+.popoutChatButton {
+  padding: 10px;
+}
+
 .popoutChatButton {
   border-radius: 50%;
   border-style: none;
@@ -264,11 +273,4 @@
   display: flex;
   justify-content: space-between;
   margin-block: 1em;
-
 }
-
-.title,
-.popoutChatButton {
-  padding: 10px;
-}
-

@@ -44,7 +44,7 @@
       <div
         class="titleContainer"
       >
-        <span
+        <h4
           class="title"
         >
           {{ t("Video.Live Chat") }}
@@ -54,10 +54,10 @@
           >
             {{ t('Global.Counts.Watching Count', { count: formattedWatchingCount }, watchingCount) }}
           </span>
-        </span>
+        </h4>
         <a
           :href="`https://www.youtube.com/live_chat?is_popout=1&v=${props.videoId}`"
-          :title="$t('Video.Popout Live Chat')"
+          :title="t('Video.Popout Live Chat')"
           target="_blank"
           class="popoutChatButton"
         >
