@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
+      actions: write
       issues: write
       pull-requests: write
 
