@@ -1,7 +1,7 @@
 name: Auto Merge PR
 on:
   pull_request_target:
-    types: [opened, synchronize, reopened, auto_merge_disabled, ready_for_review]
+    types: [opened, reopened, auto_merge_disabled, ready_for_review]
 
 permissions: {}
 
