@@ -10,6 +10,11 @@ permissions: {}
 
 jobs:
   build:
+    # As this action runs on a schedule, only run it in the FreeTubeApp/FreeTube repository to avoid unnecessary GitHub Actions usage/billing in forks.
+    # Still allow the workflow to be manually triggered.
+    # If a fork does need this workflow, they can change this condition in their fork to include their repository.
+    if: github.repository == 'FreeTubeApp/FreeTube' || github.event_name == 'workflow_dispatch'
+
     name: calibreapp/image-actions
     runs-on: ubuntu-latest
 
