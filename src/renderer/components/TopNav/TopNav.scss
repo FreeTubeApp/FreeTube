@@ -99,7 +99,8 @@
 }
 
 
-.navFilterButton {
+.navFilterButton,
+.navRandomButton {
   $effect-distance: 20px;
 
   margin-inline-start: $effect-distance;

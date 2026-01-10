@@ -112,6 +112,17 @@
             :icon="['fas', 'filter']"
           />
         </button>
+        <button
+          class="navRandomButton navButton"
+          :aria-label="t('Random Search')"
+          :title="t('Random Search')"
+          @click="doRandomSearch"
+        >
+          <FontAwesomeIcon
+            class="navIcon"
+            :icon="['fas', 'question-circle']"
+          />
+        </button>
       </div>
     </div>
     <FtProfileSelector class="side profiles" />
@@ -364,6 +375,36 @@ const searchFilterValueChanged = computed(() => store.getters.getSearchFilterVal
 
 function showSearchFilters() {
   store.dispatch('showSearchFilters')
+}
+
+/** @type {string[] | null} */
+let cachedWords = null
+
+async function loadWords() {
+  if (cachedWords) {
+    return cachedWords
+  }
+
+  try {
+    const response = await fetch(new URL('../../../data/words.txt', import.meta.url))
+    const text = await response.text()
+    cachedWords = text.split('\n').filter(word => word.trim().length > 0)
+    return cachedWords
+  } catch (err) {
+    console.error('Failed to load words list:', err)
+    return []
+  }
+}
+
+async function doRandomSearch() {
+  const words = await loadWords()
+  if (words.length === 0) {
+    return
+  }
+
+  const randomWord = words[Math.floor(Math.random() * words.length)]
+  updateSearchInputText(randomWord)
+  goToSearch(randomWord, { event: null })
 }
 
 const searchContainer = useTemplateRef('searchContainer')
