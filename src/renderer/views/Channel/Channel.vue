@@ -336,6 +336,43 @@ let channelInstance = null
 let apiUsed = ''
 let mayContainContentFromOtherChannels = false
 
+/**
+ * Gets the sessionStorage key for storing channel sort preferences
+ * @param {string} channelId
+ * @returns {string}
+ */
+function getChannelSortStorageKey(channelId) {
+  return `channel-sort-${channelId}`
+}
+
+/**
+ * Saves channel sort preferences to sessionStorage
+ * @param {string} channelId
+ * @param {object} sortValues
+ */
+function saveChannelSortState(channelId, sortValues) {
+  try {
+    sessionStorage.setItem(getChannelSortStorageKey(channelId), JSON.stringify(sortValues))
+  } catch (e) {
+    console.error('Failed to save channel sort state:', e)
+  }
+}
+
+/**
+ * Restores channel sort preferences from sessionStorage
+ * @param {string} channelId
+ * @returns {object|null}
+ */
+function getChannelSortState(channelId) {
+  try {
+    const stored = sessionStorage.getItem(getChannelSortStorageKey(channelId))
+    return stored ? JSON.parse(stored) : null
+  } catch (e) {
+    console.error('Failed to restore channel sort state:', e)
+    return null
+  }
+}
+
 const isLoading = ref(true)
 const isElementListLoading = ref(false)
 const isSearchTabLoading = ref(false)
@@ -532,10 +569,14 @@ watch(route, () => {
   latestVideos.value = []
   latestShorts.value = []
   latestLive.value = []
-  videoSortBy.value = 'newest'
-  shortSortBy.value = 'newest'
-  liveSortBy.value = 'newest'
-  playlistSortBy.value = 'newest'
+
+  // Restore saved sort values from sessionStorage, or default to 'newest'
+  const savedSortState = getChannelSortState(id.value)
+  videoSortBy.value = savedSortState?.videoSortBy ?? 'newest'
+  shortSortBy.value = savedSortState?.shortSortBy ?? 'newest'
+  liveSortBy.value = savedSortState?.liveSortBy ?? 'newest'
+  playlistSortBy.value = savedSortState?.playlistSortBy ?? 'newest'
+
   latestPlaylists.value = []
   latestPodcasts.value = []
   latestReleases.value = []
@@ -559,7 +600,16 @@ watch(route, () => {
   showLiveSortBy.value = true
   showPlaylistSortBy.value = true
 
-  currentTab.value = currentOrFirstTab(route.params.currentTab)
+  // Use saved tab if available and no tab specified in URL, otherwise use URL param or default
+  const tabFromUrl = route.params.currentTab
+  const savedTab = savedSortState?.currentTab
+  if (tabFromUrl) {
+    currentTab.value = currentOrFirstTab(tabFromUrl)
+  } else if (savedTab) {
+    currentTab.value = currentOrFirstTab(savedTab)
+  } else {
+    currentTab.value = currentOrFirstTab(undefined)
+  }
 
   if (id.value === '@@@') {
     showShareMenu.value = false
@@ -582,6 +632,19 @@ watch(route, () => {
   }
 }, { deep: true })
 
+// Save state when tab changes
+watch(currentTab, () => {
+  if (!autoRefreshOnSortByChangeEnabled) { return }
+
+  saveChannelSortState(id.value, {
+    videoSortBy: videoSortBy.value,
+    shortSortBy: shortSortBy.value,
+    liveSortBy: liveSortBy.value,
+    playlistSortBy: playlistSortBy.value,
+    currentTab: currentTab.value
+  })
+})
+
 onMounted(async () => {
   if (route.query.url) {
     await resolveChannelUrl(route.query.url, route.params.currentTab)
@@ -590,7 +653,23 @@ onMounted(async () => {
 
   id.value = route.params.id
 
-  currentTab.value = currentOrFirstTab(route.params.currentTab)
+  // Restore saved sort values and tab from sessionStorage, or use defaults
+  const savedSortState = getChannelSortState(id.value)
+  videoSortBy.value = savedSortState?.videoSortBy ?? 'newest'
+  shortSortBy.value = savedSortState?.shortSortBy ?? 'newest'
+  liveSortBy.value = savedSortState?.liveSortBy ?? 'newest'
+  playlistSortBy.value = savedSortState?.playlistSortBy ?? 'newest'
+
+  // Use saved tab if available and no tab specified in URL, otherwise use URL param or default
+  const tabFromUrl = route.params.currentTab
+  const savedTab = savedSortState?.currentTab
+  if (tabFromUrl) {
+    currentTab.value = currentOrFirstTab(tabFromUrl)
+  } else if (savedTab) {
+    currentTab.value = currentOrFirstTab(savedTab)
+  } else {
+    currentTab.value = currentOrFirstTab(undefined)
+  }
 
   if (id.value === '@@@') {
     showShareMenu.value = false
@@ -811,7 +890,8 @@ async function getChannelLocal() {
       return tabs.includes(tab)
     })
 
-    currentTab.value = currentOrFirstTab(route.params.currentTab)
+    // Only update currentTab if it's not valid for the new tabs list, preserving saved state
+    currentTab.value = currentOrFirstTab(currentTab.value)
     showSearchBar.value = channelInstance.has_search
 
     isLoading.value = false
@@ -980,7 +1060,8 @@ async function getChannelInfoInvidious() {
       return response.tabs.includes(tab) && tab !== 'home'
     })
 
-    currentTab.value = currentOrFirstTab(route.params.currentTab)
+    // Only update currentTab if it's not valid for the new tabs list, preserving saved state
+    currentTab.value = currentOrFirstTab(currentTab.value)
 
     if (response.tabs.includes('videos')) {
       channelInvidiousVideos()
@@ -1064,6 +1145,15 @@ const filteredLive = computed(() => {
 
 watch(videoSortBy, () => {
   if (!autoRefreshOnSortByChangeEnabled) { return }
+
+  // Save sort state to sessionStorage
+  saveChannelSortState(id.value, {
+    videoSortBy: videoSortBy.value,
+    shortSortBy: shortSortBy.value,
+    liveSortBy: liveSortBy.value,
+    playlistSortBy: playlistSortBy.value,
+    currentTab: currentTab.value
+  })
 
   isElementListLoading.value = true
   latestVideos.value = []
@@ -1217,6 +1307,15 @@ const shortSortBy = ref('newest')
 watch(shortSortBy, () => {
   if (!autoRefreshOnSortByChangeEnabled) { return }
 
+  // Save sort state to sessionStorage
+  saveChannelSortState(id.value, {
+    videoSortBy: videoSortBy.value,
+    shortSortBy: shortSortBy.value,
+    liveSortBy: liveSortBy.value,
+    playlistSortBy: playlistSortBy.value,
+    currentTab: currentTab.value
+  })
+
   isElementListLoading.value = true
   latestShorts.value = []
   shortContinuationData.value = null
@@ -1362,6 +1461,15 @@ const liveSortBy = ref('newest')
 watch(liveSortBy, () => {
   if (!autoRefreshOnSortByChangeEnabled) { return }
 
+  // Save sort state to sessionStorage
+  saveChannelSortState(id.value, {
+    videoSortBy: videoSortBy.value,
+    shortSortBy: shortSortBy.value,
+    liveSortBy: liveSortBy.value,
+    playlistSortBy: playlistSortBy.value,
+    currentTab: currentTab.value
+  })
+
   isElementListLoading.value = true
   latestLive.value = []
   liveContinuationData.value = null
@@ -1492,6 +1600,15 @@ const playlistSortBy = ref('newest')
 
 watch(playlistSortBy, () => {
   if (!autoRefreshOnSortByChangeEnabled) { return }
+
+  // Save sort state to sessionStorage
+  saveChannelSortState(id.value, {
+    videoSortBy: videoSortBy.value,
+    shortSortBy: shortSortBy.value,
+    liveSortBy: liveSortBy.value,
+    playlistSortBy: playlistSortBy.value,
+    currentTab: currentTab.value
+  })
 
   isElementListLoading.value = true
   latestPlaylists.value = []
