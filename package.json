@@ -65,7 +65,7 @@
     "electron-context-menu": "^4.1.1",
     "marked": "^17.0.1",
     "process": "^0.11.10",
-    "shaka-player": "^4.16.12",
+    "shaka-player": "^4.16.13",
     "swiper": "^12.0.3",
     "vue": "^3.5.26",
     "vue-i18n": "^11.2.8",
