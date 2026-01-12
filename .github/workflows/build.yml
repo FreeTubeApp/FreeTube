@@ -81,7 +81,7 @@ jobs:
       shell: bash
     - name: Get Version Number
       id: getPackageInfo
-      uses: jaywcjlove/github-action-package@ee84f0c52bd8de8d25601af0402a9059320cb87a
+      uses: jaywcjlove/github-action-package@f6a7afaf74f96a166243f05560d5af4bd4eaa570
 
     - name: Set Version Number Variable
       id: versionNumber
@@ -102,7 +102,7 @@ jobs:
           }
 
     - name: Update package.json version
-      uses: jaywcjlove/github-action-package@ee84f0c52bd8de8d25601af0402a9059320cb87a
+      uses: jaywcjlove/github-action-package@f6a7afaf74f96a166243f05560d5af4bd4eaa570
       with:
         version: ${{ steps.versionNumber.outputs.result }}
 
