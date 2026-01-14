@@ -13,6 +13,12 @@ permissions: {}
 jobs:
   build:
 
+    # As this action runs on every push to the default branch and uses quite a lot of resources (both minutes and caches),
+    # only run it in the FreeTubeApp/FreeTube repository to avoid unnecessary GitHub Actions usage/billing in forks.
+    # Still allow manually triggering the workflow.
+    # If a fork does need this workflow to run on every push to the default branch, they can change this condition in their fork to include their repository.
+    if: github.repository == 'FreeTubeApp/FreeTube' || github.event_name == 'workflow_dispatch'
+
     permissions:
       actions: write
       contents: read
@@ -75,31 +81,28 @@ jobs:
       shell: bash
     - name: Get Version Number
       id: getPackageInfo
-      uses: jaywcjlove/github-action-package@ee84f0c52bd8de8d25601af0402a9059320cb87a
+      uses: jaywcjlove/github-action-package@f6a7afaf74f96a166243f05560d5af4bd4eaa570
 
     - name: Set Version Number Variable
       id: versionNumber
       uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd #v8.0.0
       env:
-        IS_DEV: ${{ contains(github.ref, 'development') }}
-        IS_RC: ${{ contains(github.ref, 'RC') }}
         VERSION_NUMBER_NIGHTLY: ${{ steps.getPackageInfo.outputs.version }}-nightly-${{ github.run_number }}
         VERSION_NUMBER_RC: ${{ steps.getPackageInfo.outputs.version }}-RC-${{ github.run_number }}
         VERSION_NUMBER: ${{ steps.getPackageInfo.outputs.version }}
       with:
         result-encoding: string
         script: |
-          if (${{ env.IS_DEV }}) {
-            return "${{ env.VERSION_NUMBER_NIGHTLY }}"
-          } else if (${{ env.IS_RC }}) {
-            return "${{ env.VERSION_NUMBER_RC }}"
+          if (context.ref.toLowerCase().includes('development')) {
+            return `${process.env.VERSION_NUMBER_NIGHTLY}`
+          } else if (context.ref.toUpperCase().includes('RC')) {
+            return `${process.env.VERSION_NUMBER_RC}`
           } else {
-            return "${{env.VERSION_NUMBER }}"
+            return `${process.env.VERSION_NUMBER}`
           }
-        # script: if ${{ env.IS_DEV }} then echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER_NIGHTLY }}" else echo "::set-output name=VERSION_NUMBER::${{ env.VERSION_NUMBER }}" fi
 
     - name: Update package.json version
-      uses: jaywcjlove/github-action-package@ee84f0c52bd8de8d25601af0402a9059320cb87a
+      uses: jaywcjlove/github-action-package@f6a7afaf74f96a166243f05560d5af4bd4eaa570
       with:
         version: ${{ steps.versionNumber.outputs.result }}
 
@@ -128,10 +131,12 @@ jobs:
     - name: Convert X64 AppImage to static runtime
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       shell: bash
+      env:
+        VERSION: ${{ steps.versionNumber.outputs.result }}
       run: |
         sudo apt install desktop-file-utils
         cd build
-        appimage="FreeTube-${{ steps.versionNumber.outputs.result }}.AppImage"
+        appimage="FreeTube-${VERSION}.AppImage"
         wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
         chmod +x ./"$appimage" ./appimagetool.AppImage
         ./"$appimage" --appimage-extract && rm -f ./"$appimage"

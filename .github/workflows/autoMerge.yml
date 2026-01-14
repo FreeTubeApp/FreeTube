@@ -1,13 +1,16 @@
 name: Auto Merge PR
 on:
   pull_request_target:
-    types: [opened, synchronize, reopened, auto_merge_disabled, ready_for_review]
+    types: [opened, reopened, auto_merge_disabled, ready_for_review]
 
 permissions: {}
 
 jobs:
   build:
-    if: ${{ !github.event.pull_request.draft && (contains(github.event.pull_request.base.ref, 'development') || contains(github.event.pull_request.base.ref, 'RC')) }}
+    if: |
+      github.event.pull_request == 'open' &&
+      !github.event.pull_request.draft &&
+      (contains(github.event.pull_request.base.ref, 'development') || contains(github.event.pull_request.base.ref, 'RC'))
     runs-on: ubuntu-latest
 
     steps:
@@ -15,4 +18,5 @@ jobs:
       shell: bash
       env:
         GH_TOKEN: ${{ secrets.PUSH_TOKEN }}
-      run: gh pr merge https://github.com/FreeTubeApp/FreeTube/pull/${{ github.event.pull_request.number }} --auto --squash
+        PR_NUMBER: ${{ github.event.pull_request.number }}
+      run: gh pr merge "https://github.com/FreeTubeApp/FreeTube/pull/${PR_NUMBER}" --auto --squash

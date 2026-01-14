@@ -81,7 +81,7 @@ jobs:
 
     - name: Get Version Number
       id: getPackageInfo
-      uses: jaywcjlove/github-action-package@ee84f0c52bd8de8d25601af0402a9059320cb87a
+      uses: jaywcjlove/github-action-package@f6a7afaf74f96a166243f05560d5af4bd4eaa570
 
     - name: Install libarchive-tools
       if: startsWith(matrix.os, 'ubuntu')
@@ -108,10 +108,12 @@ jobs:
     - name: Convert X64 AppImage to static runtime and add update information
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       shell: bash
+      env:
+        VERSION: ${{ steps.getPackageInfo.outputs.version }}
       run: |
         sudo apt install desktop-file-utils
         cd build
-        appimage="FreeTube-${{ steps.getPackageInfo.outputs.version }}.AppImage"
+        appimage="FreeTube-${VERSION}.AppImage"
         wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
         chmod +x ./"$appimage" ./appimagetool.AppImage
         update_information="gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-amd64.AppImage.zsync"
@@ -123,10 +125,12 @@ jobs:
     - name: Convert ARMv7l AppImage to static runtime and add update information
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
       shell: bash
+      env:
+        VERSION: ${{ steps.getPackageInfo.outputs.version }}
       run: |
         sudo apt install desktop-file-utils
         cd build
-        appimage="FreeTube-${{ steps.getPackageInfo.outputs.version }}.AppImage"
+        appimage="FreeTube-${VERSION}.AppImage"
         wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
         wget "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" -O runtime
         chmod +x ./"$appimage" ./appimagetool.AppImage ./runtime
@@ -139,10 +143,12 @@ jobs:
     - name: Convert ARM64 AppImage to static runtime and add update information
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       shell: bash
+      env:
+        VERSION: ${{ steps.getPackageInfo.outputs.version }}
       run: |
         sudo apt install desktop-file-utils
         cd build
-        appimage="FreeTube-${{ steps.getPackageInfo.outputs.version }}.AppImage"
+        appimage="FreeTube-${VERSION}.AppImage"
         wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
         wget "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" -O runtime
         chmod +x ./"$appimage" ./appimagetool.AppImage ./runtime
