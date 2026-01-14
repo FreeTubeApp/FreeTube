@@ -1,4 +1,5 @@
 import { ClientType, Constants, Innertube, Misc, Mixins, Parser, Platform, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
+import { FormatXTags } from '../../../../node_modules/youtubei.js/dist/protos/generated/misc/common'
 import Autolinker from 'autolinker'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -2160,4 +2161,17 @@ export async function getLocalCommunityPostComments(postId, channelId) {
   const innertube = await createInnertube()
 
   return await innertube.getPostComments(postId, channelId)
+}
+
+/**
+ * @param {Misc.Format} format
+ */
+export function formatHasVoiceBoostTag(format) {
+  if (!format.xtags) {
+    return undefined
+  }
+
+  const xtags = FormatXTags.decode(Utils.base64ToU8(format.xtags)).xtags
+
+  return xtags.some(tag => tag.key === 'vb' && tag.value === '1')
 }

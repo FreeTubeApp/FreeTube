@@ -23,6 +23,7 @@ import {
   showToast
 } from '../../helpers/utils'
 import {
+  formatHasVoiceBoostTag,
   getLocalVideoInfo,
   mapLocalLegacyFormat,
   parseLocalSubscriberCount,
@@ -1662,6 +1663,7 @@ export default defineComponent({
           audioSampleRate: format.audio_sample_rate,
           audioChannels: format.audio_channels,
           isDrc: format.is_drc,
+          isVoiceBoost: formatHasVoiceBoostTag(format),
           isOriginal: format.is_original,
           isDubbed: format.is_dubbed,
           isAutoDubbed: format.is_auto_dubbed,

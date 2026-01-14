@@ -716,6 +716,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
     }
 
     const drcEnabled = url.searchParams.has('drc') || !!(activeVariant && activeVariant.audioRoles.includes('drc'))
+    const enableVoiceBoost = url.searchParams.has('vb') || !!(activeVariant && activeVariant.audioRoles.includes('vb'))
 
     const resolution = streamIsVideo ? parseInt(url.searchParams.get('resolution')) : undefined
 
@@ -731,6 +732,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
         playbackRate: player.getPlaybackRate(),
         enabledTrackTypesBitfield: streamIsAudio ? 1 : 0,
         drcEnabled,
+        enableVoiceBoost,
         playerTimeMs,
         clientViewportWidth: playerWidth.value,
         clientViewportHeight: playerHeight.value,

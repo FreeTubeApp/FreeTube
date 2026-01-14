@@ -27,6 +27,7 @@ import { parseMp4SegmentIndex } from './Mp4SegmentIndexParser'
  *     audioSampleRate: number | undefined,
  *     audioChannels: number | undefined,
  *     isDrc: boolean | undefined,
+ *     isVoiceBoost: boolean | undefined,
  *     isOriginal: boolean | undefined,
  *     isDubbed: boolean | undefined,
  *     isAutoDubbed: boolean | undefined,
@@ -138,6 +139,7 @@ class SabrManifestParser {
     const videoStreams = []
 
     const hasDrcAudio = manifestData.formats.some(format => format.isDrc)
+    const hasVoiceBoostAudio = manifestData.formats.some(format => format.isVoiceBoost)
 
     // For audio only playback we still need to specify a video fromat ID
     // the server won't return it but it will error if we don't list one
@@ -171,6 +173,7 @@ class SabrManifestParser {
             format,
             currentId++,
             hasDrcAudio,
+            hasVoiceBoostAudio,
             presentationTimeline,
             networkingEngine,
             fakeVideoFormatId
@@ -278,6 +281,7 @@ function buildFormatId(format) {
  * @param {SabrManifest['formats'][0]} format
  * @param {number} id
  * @param {boolean} hasDrcAudio
+ * @param {boolean} hasVoiceBoostAudio
  * @param {shaka.media.PresentationTimeline} presentationTimeline
  * @param {shaka.net.NetworkingEngine} networkingEngine
  * @param {string | undefined} fakeVideoFormatId
@@ -286,6 +290,7 @@ function createAudioStream(
   format,
   id,
   hasDrcAudio,
+  hasVoiceBoostAudio,
   presentationTimeline,
   networkingEngine,
   fakeVideoFormatId
@@ -296,6 +301,8 @@ function createAudioStream(
     roles.push('main')
   } else if (format.isDrc) {
     roles.push('drc')
+  } else if (format.isVoiceBoost) {
+    roles.push('voice-boost')
   } else if (format.isDubbed) {
     roles.push('dubbed')
   } else if (format.isAutoDubbed) {
@@ -309,9 +316,21 @@ function createAudioStream(
   let label = null
 
   if (format.label) {
-    label = format.label
-  } else if (hasDrcAudio) {
-    label = format.isDrc ? 'Stable Volume' : 'Original'
+    if (format.isDrc) {
+      label = `${format.label} (Stable Volume)`
+    } else if (format.isVoiceBoost) {
+      label = `${format.label} (Voice Boost)`
+    } else {
+      label = format.label
+    }
+  } else if (hasDrcAudio || hasVoiceBoostAudio) {
+    if (format.isDrc) {
+      label = 'Stable Volume'
+    } else if (format.isVoiceBoost) {
+      label = 'Voice Boost'
+    } else {
+      label = 'Original'
+    }
   }
 
   /** @type {shaka.extern.Stream} */
@@ -613,6 +632,8 @@ async function createMediaSegmentIndex(
 
   if (format.isDrc) {
     url += '&drc'
+  } else if (format.isVoiceBoost) {
+    url += '&vb'
   }
 
   if (stream.type === 'video') {
