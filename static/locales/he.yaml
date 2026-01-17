@@ -13,7 +13,7 @@ Paste: 'הדבקה'
 Delete: 'מחיקה'
 Select all: 'בחירה בהכול'
 Toggle Developer Tools: 'הפעלת / השבתת כלים למפתחים'
-Actual size: 'גודל נוכחי'
+Actual size: 'גודל בפועל'
 Zoom in: 'התקרבות'
 Zoom out: 'התרחקות'
 Toggle fullscreen: 'מיתוג ממסך מלא'
@@ -40,7 +40,7 @@ Global:
     Watching Count: עוקב/ת | {count} עוקבים
     Like Count: לייק | {count} לייקים
     Comment Count: תגובה | {count} תגובות
-Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber} זמינה כעת!  הקשה לפרטים נוספים'
+Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber} זמינה מעתה!  לחיצה תציג פרטים נוספים'
 Download From Site: 'הורדה מאתר'
 A new blog is now available, {blogTitle}. Click to view more: 'בלוג חדש זמין, {blogTitle}. לחיצה תציג פרטים נוספים'
 
@@ -1126,5 +1126,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: דילוג לסרטון הבא ברשימת הנגינה או הסרטון המומלץ הבא
   Skip to Previous Video: דילוג לסרטון הקודם ברשימת הנגינה
 shortcutLabelSeparator: ｜
-Compact side navigation: ניווט צד צמום
+Compact side navigation: ניווט צד מצומצם
 Expand side navigation: הרחבת ניווט צד
