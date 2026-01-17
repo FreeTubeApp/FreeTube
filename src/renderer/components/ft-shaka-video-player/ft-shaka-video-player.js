@@ -2586,9 +2586,6 @@ export default defineComponent({
       // otherwise it uses the browsers native captions which get displayed underneath the UI controls
       await localPlayer.attach(videoElement)
 
-      // override values set by default after player is initialized
-      // localPlayer.attach(videoElement) seems to set the playback rate of videoElement to the
-      // provided default playback rate
       videoElement.playbackRate = props.currentPlaybackRate
       videoElement.defaultPlaybackRate = defaultPlaybackRate.value
 
