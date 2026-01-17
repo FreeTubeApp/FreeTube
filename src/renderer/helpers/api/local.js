@@ -540,15 +540,11 @@ export async function getLocalVideoInfo(id) {
     }
 
     if (info.streaming_data.dash_manifest_url) {
-      let url = info.streaming_data.dash_manifest_url
-
-      if (url.includes('?')) {
-        url += `&pot=${encodeURIComponent(contentPoToken)}&mpd_version=7`
-      } else {
-        url += `${url.endsWith('/') ? '' : '/'}pot/${encodeURIComponent(contentPoToken)}/mpd_version/7`
-      }
-
-      info.streaming_data.dash_manifest_url = url
+      info.streaming_data.dash_manifest_url = await decipherDashManifestUrl(
+        info.streaming_data.dash_manifest_url,
+        webInnertube.session.player,
+        contentPoToken
+      )
     }
   }
 
@@ -598,6 +594,49 @@ async function decipherFormats(formats, player) {
     // it breaks because the n param would get deciphered twice and then be incorrect
     format.freeTubeUrl = await format.decipher(player)
   }
+}
+
+/**
+ * @param {string} url
+ * @param {import('youtubei.js').Player} player
+ * @param {string} poToken
+ */
+async function decipherDashManifestUrl(url, player, poToken) {
+  const urlObject = new URL(url)
+
+  if (urlObject.searchParams.size > 0) {
+    urlObject.searchParams.set('pot', poToken)
+    urlObject.searchParams.set('mpd_version', '7')
+
+    return await player.decipher(urlObject.toString())
+  }
+
+  // Convert path params to query params
+  const pathParts = urlObject.pathname
+    .replace('/api/manifest/dash', '')
+    .split('/')
+    .filter(part => part.length > 0)
+
+  urlObject.pathname = '/api/manifest/dash'
+
+  for (let i = 0; i + 1 < pathParts.length; i += 2) {
+    urlObject.searchParams.set(pathParts[i], decodeURIComponent(pathParts[i + 1]))
+  }
+
+  // decipher
+  const deciphered = await player.decipher(urlObject.toString())
+
+  // convert query parameters back to path parameters
+  const decipheredUrlObject = new URL(deciphered)
+
+  for (const [key, value] of decipheredUrlObject.searchParams) {
+    decipheredUrlObject.pathname += `/${key}/${encodeURIComponent(value)}`
+  }
+
+  decipheredUrlObject.search = ''
+  decipheredUrlObject.pathname += `/pot/${encodeURIComponent(poToken)}/mpd_version/7`
+
+  return decipheredUrlObject.toString()
 }
 
 /**
