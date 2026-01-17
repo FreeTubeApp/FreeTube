@@ -410,7 +410,7 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
     withPlayer: true,
     generateSessionLocally: false,
     fetchFunc: async (input, init) => {
-      if (!(input.url?.startsWith('https://www.youtube.com/youtubei/v1/player') && init?.headers?.get('X-Youtube-Client-Name') === '2')) {
+      if (!(input.url?.startsWith('https://www.youtube.com/youtubei/v1/player'))) {
         return fetch(input, init)
       }
 
@@ -483,14 +483,15 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
     }
 
     const mwebInfo = await webInnertube.getBasicInfo(id, { client: 'MWEB', po_token: contentPoToken })
-    // Some time would be used for parsing and maybe additional requests so end time should be calculated sooner to reduce actual waiting time
-    adEndTimeUnixMs += totalAdTimeSeconds * 1000
 
     if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data?.adaptive_formats) {
       info.playability_status = mwebInfo.playability_status
       info.streaming_data.adaptive_formats = mwebInfo.streaming_data.adaptive_formats
     }
   }
+  // Some time would be used for parsing and maybe additional requests so end time should be calculated sooner to reduce actual waiting time
+  // Legacy format also requires this
+  adEndTimeUnixMs += totalAdTimeSeconds * 1000
 
   // #endregion temporary workaround for SABR-only responses
 

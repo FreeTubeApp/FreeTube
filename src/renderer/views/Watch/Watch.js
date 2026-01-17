@@ -453,7 +453,7 @@ export default defineComponent({
         const videoInfo = await getLocalVideoInfo(this.videoId, { forceEnableSabrOnlyResponseWorkaround: !sabrShouldBeTried })
         const { info: result, poToken, clientInfo, adEndTimeUnixMs } = videoInfo
 
-        const sabrShouldBeUsed = sabrShouldBeTried && videoInfo.sabrCanBeUsed
+        const sabrShouldBeUsed = sabrShouldBeTried && videoInfo.sabrCanBeUsed && this.activeFormat !== 'legacy'
         if (!sabrShouldBeUsed) {
           // The hack should only be used on non-SABR
           this.adEndTimeUnixMs = adEndTimeUnixMs
