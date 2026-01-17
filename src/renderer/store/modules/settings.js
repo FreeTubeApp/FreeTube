@@ -306,6 +306,7 @@ const state = {
   quickBookmarkTargetPlaylistId: 'favorites',
   generalAutoLoadMorePaginatedItemsEnabled: false,
   hideToTrayOnMinimize: false,
+  skipSilenceEnabled: false,
 
   // The settings below have side effects
   currentLocale: 'system',

@@ -143,6 +143,7 @@ export default defineComponent({
       /** @type {Date|null} */
       streamingDataExpiryDate: null,
       currentPlaybackRate: null,
+      startNextVideoWithSkipSilenceEnabled: false
     }
   },
   computed: {
@@ -339,6 +340,7 @@ export default defineComponent({
 
     this.checkIfTimestamp()
     this.currentPlaybackRate = this.$store.getters.getDefaultPlayback
+    this.startNextVideoWithSkipSilenceEnabled = this.$store.getters.getSkipSilenceEnabled
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()
@@ -1779,6 +1781,9 @@ export default defineComponent({
 
     updatePlaybackRate(newRate) {
       this.currentPlaybackRate = newRate
+    },
+    updateSkipSilence(newState) {
+      this.startNextVideoWithSkipSilenceEnabled = newState
     },
 
     destroyPlayer: async function() {

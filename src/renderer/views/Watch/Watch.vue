@@ -41,6 +41,7 @@
           :start-in-fullwindow="startNextVideoInFullwindow"
           :start-in-pip="startNextVideoInPip"
           :current-playback-rate="currentPlaybackRate"
+          :skip-silence-enabled="startNextVideoWithSkipSilenceEnabled"
           class="videoPlayer"
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"
@@ -51,6 +52,7 @@
           @playback-rate-updated="updatePlaybackRate"
           @skip-to-next="handleSkipToNext"
           @skip-to-prev="handleSkipToPrev"
+          @skip-silence-updated="updateSkipSilence"
         />
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"
