@@ -6,8 +6,10 @@ name: Create Flatpak PR
 # or API.
 on:
   workflow_dispatch:
-  release:
-    types: [published]
+  # Disable running automatically as we now use flathub's external data checker
+  # to automatically open pull requests when we release updates
+  # release:
+  #   types: [published]
 
 permissions: {}
 
