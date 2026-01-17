@@ -297,9 +297,7 @@ function createAudioStream(
 ) {
   const roles = []
 
-  if (format.isOriginal) {
-    roles.push('main')
-  } else if (format.isDrc) {
+  if (format.isDrc) {
     roles.push('drc')
   } else if (format.isVoiceBoost) {
     roles.push('voice-boost')
@@ -311,6 +309,8 @@ function createAudioStream(
     roles.push('descriptive')
   } else if (format.isSecondary) {
     roles.push('secondary')
+  } else if (format.isOriginal) {
+    roles.push('main')
   }
 
   let label = null
