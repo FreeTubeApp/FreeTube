@@ -2579,9 +2579,6 @@ export default defineComponent({
         videoElement.muted = (muted === 'true')
       }
 
-      videoElement.playbackRate = props.currentPlaybackRate
-      videoElement.defaultPlaybackRate = props.currentPlaybackRate
-
       const localPlayer = new shaka.Player()
 
       ui = new shaka.ui.Overlay(
@@ -2594,6 +2591,9 @@ export default defineComponent({
       // This has to be called after creating the UI, so that the player uses the UI's UITextDisplayer
       // otherwise it uses the browsers native captions which get displayed underneath the UI controls
       await localPlayer.attach(videoElement)
+
+      videoElement.playbackRate = props.currentPlaybackRate
+      videoElement.defaultPlaybackRate = defaultPlaybackRate.value
 
       // check if the component is already getting destroyed
       // which is possible because this function runs asynchronously
