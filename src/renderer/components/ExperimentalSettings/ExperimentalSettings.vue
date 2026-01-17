@@ -16,6 +16,16 @@
         @change="handleRestartPrompt"
       />
     </FtFlexBox>
+    <FtFlexBox v-if="sabrAllowedOnPlatform">
+      <FtToggleSwitch
+        tooltip-position="top"
+        :label="$t('Settings.SABR.Label')"
+        compact
+        :default-value="sabrEnabled"
+        :tooltip="$t('Settings.SABR.Tooltip')"
+        @change="updateSabrEnabled"
+      />
+    </FtFlexBox>
     <FtPrompt
       v-if="showRestartPrompt"
       :label="$t('Settings[\'The app needs to restart for changes to take effect. Restart and apply change?\']')"
@@ -27,12 +37,14 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
+
+import store from '../../store/index'
 
 const replaceHttpCacheLoading = ref(true)
 const replaceHttpCache = ref(false)
@@ -69,6 +81,18 @@ function handleReplaceHttpCache(value) {
     window.ftElectron.toggleReplaceHttpCache()
   }
 }
+
+const sabrAllowedOnPlatform = process.env.SUPPORTS_LOCAL_API
+/** @type {import('vue').ComputedRef<boolean>} */
+const sabrEnabled = process.env.SUPPORTS_LOCAL_API ? computed(() => store.getters.getSabrEnabled) : false
+
+/**
+ * @param {boolean} value
+ */
+function updateSabrEnabled(value) {
+  store.dispatch('updateSabrEnabled', value)
+}
+
 </script>
 
 <style scoped src="./ExperimentalSettings.css" />
