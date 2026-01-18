@@ -591,13 +591,6 @@ Settings:
       None:
         Name: Geen
     Ignore Default Arguments: Standaard­argumenten negeren
-  Download Settings:
-    Choose Path: Pad kiezen
-    Download Settings: Download
-    Ask Download Path: Om downloadpad vragen
-    Download in app: Downloaden in app
-    Open in web browser: Openen in web­browser
-    Download Behavior: Gedrag downloaden
   Parental Control Settings:
     Hide Unsubscribe Button: Deabonneer­knop verbergen
     Parental Control Settings: Ouderlijk toezicht
@@ -742,9 +735,6 @@ Video:
   Shuffle Playlist: Afspeellijst in willekeurige volgorde afspelen
   Loop Playlist: Playlist herhalen
   Starting soon, please refresh the page to check again: Start binnenkort, vernieuw de pagina om opnieuw te controleren
-  audio only: alleen audio
-  video only: alleen video
-  Download Video: Video downloaden
   Copy Invidious Channel Link: Kopieer Invidious-kanaallink
   Open Channel in Invidious: Open Kanaal op Invidious
   Copy YouTube Channel Link: Link naar YouTubekanaal kopiëren
@@ -1002,11 +992,6 @@ Search Bar:
   Clear Input: Invoer wissen
   Remove: Verwĳderen
 External link opening has been disabled in the general settings: Het openen van externe links is uitgeschakeld in de algemene instellingen
-Downloading canceled: De gebruiker heeft de download geannuleerd
-Downloading has completed: '"{videoTitle}" is gedownload'
-Starting download: Begin download van "{videoTitle}"
-Downloading failed: Probleem bij download van "{videoTitle}"
-Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag map" modus.
 New Window: Nieuw Venster
 Screenshot Success: Schermafbeelding opgeslagen
 Channels:

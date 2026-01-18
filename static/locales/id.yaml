@@ -595,13 +595,6 @@ Settings:
       None:
         Name: Nihil
     Ignore Default Arguments: Abaikan Argumen Default
-  Download Settings:
-    Ask Download Path: Minta jalur unduhan
-    Download Settings: Unduh
-    Choose Path: Pilih Tempat
-    Open in web browser: Buka di peramban web
-    Download Behavior: Tindakan Unduhan
-    Download in app: Unduh di aplikasi
   Experimental Settings:
     Experimental Settings: Eksperimental
     Replace HTTP Cache: Ganti Tembolok HTTP
@@ -783,9 +776,6 @@ Video:
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Obrolan Langsung belum didukung dengan API Invidious. Koneksi langsung dengan YouTube dibutuhkan.'
   Published on: 'Dipublikasi pada'
 #& Videos
-  audio only: hanya audio
-  video only: hanya video
-  Download Video: Unduh Video
   Starting soon, please refresh the page to check again: Segera dimulai, silakan muat ulang halaman untuk mengeceknya kembali
   Copy Invidious Channel Link: Salin Tautan Kanal Invidious
   Open Channel in Invidious: Buka Kanal di Invidious
@@ -1003,9 +993,6 @@ External link opening has been disabled in the general settings: Pembukaan tauta
 Are you sure you want to open this link?: Yakin ingin membuka tautan ini?
 Default Invidious instance has been set to {instance}: 'Situs Invidious baku telah di atur ke {instance}'
 Default Invidious instance has been cleared: Peladen Invidious yang baku telah disetel ulang
-Downloading has completed: '"{videoTitle}" telah selesai diunduh'
-Starting download: Mulai mengunduh "{videoTitle}"
-Downloading failed: Ada masalah saat mengunduh "{videoTitle}"
 New Window: Jendela Baru
 Channels:
   Channels: Kanal

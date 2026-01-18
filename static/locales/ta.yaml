@@ -643,13 +643,6 @@ Settings:
     Hide Unsubscribe Button: 'குழுவிலக பொத்தானை மறைக்கவும்'
     Show Family Friendly Only: 'குடும்ப நட்பை மட்டும் காட்டு'
     Hide Search Bar: 'தேடல் பட்டியை மறைக்கவும்'
-  Download Settings:
-    Download Settings: 'பதிவிறக்கம்'
-    Ask Download Path: 'பதிவிறக்க பாதையைக் கேளுங்கள்'
-    Choose Path: 'பாதையைத் தேர்வுசெய்க'
-    Download Behavior: 'நடத்தை பதிவிறக்கவும்'
-    Download in app: 'பயன்பாட்டில் பதிவிறக்கவும்'
-    Open in web browser: 'வலை உலாவியில் திறக்கவும்'
   Experimental Settings:
     Experimental Settings: 'சோதனை'
     Warning: 'இந்த அமைப்புகள் சோதனைக்குரியவை, அவை இயக்கப்பட்டிருக்கும் போது செயலிழப்பை ஏற்படுத்தக்கூடும். காப்புப்பிரதிகளை உருவாக்குவது மிகவும் பரிந்துரைக்கப்படுகிறது. உங்கள் சொந்த ஆபத்தில் பயன்படுத்தவும்!'
@@ -841,9 +834,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'இந்த ச்ட்ரீமுக்கு நேரடி அரட்டை கிடைக்கவில்லை. இது பதிவேற்றியவரால் முடக்கப்பட்டிருக்கலாம்.'
   Show Super Chat Comment: 'சூப்பர் அரட்டை கருத்தைக் காட்டு'
   Scroll to Bottom: 'கீழே உருட்டவும்'
-  Download Video: 'வீடியோவைப் பதிவிறக்கவும்'
-  video only: 'வீடியோ மட்டும்'
-  audio only: 'ஆடியோ மட்டும்'
   Published:
     Jan: ''
     Feb: ''
@@ -1074,9 +1064,6 @@ Age Restricted:
   This channel is age restricted: 'இந்த சேனல் அகவை தடைசெய்யப்பட்டுள்ளது'
   This video is age restricted: 'இந்த வீடியோ அகவை தடைசெய்யப்பட்டுள்ளது'
 External link opening has been disabled in the general settings: 'பொது அமைப்புகளில் வெளிப்புற இணைப்பு திறப்பு முடக்கப்பட்டுள்ளது'
-Downloading has completed: '"{videoTitle}" பதிவிறக்கம் முடித்துவிட்டது'
-Starting download: '"{videoTitle}" இன் பதிவிறக்கத்தைத் தொடங்குகிறது'
-Downloading failed: '"{videoTitle}" ஐ பதிவிறக்குவதில் சிக்கல் இருந்தது'
 Screenshot Success: 'சேமித்த திரை காட்சி'
 Screenshot Error: 'திரைக்காட்சி தோல்வியடைந்தது. {error}'
 Channel Hidden: '{channel} the சேனல் வடிகட்டியில் சேர்க்கப்பட்டுள்ளது'

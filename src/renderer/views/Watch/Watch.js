@@ -140,7 +140,6 @@ export default defineComponent({
       autoplayNextRecommendedVideo: false,
       autoplayNextPlaylistVideo: false,
       recommendedVideos: [],
-      downloadLinks: [],
       watchingPlaylist: false,
       playlistId: '',
       playlistType: '',
@@ -152,7 +151,6 @@ export default defineComponent({
       oneTimeTimestamp: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
-      infoAreaSticky: true,
       blockVideoAutoplay: false,
       autoplayInterruptionTimeout: null,
       playabilityStatus: '',
@@ -374,7 +372,6 @@ export default defineComponent({
       this.videoStoryboardSrc = ''
       this.captions = []
       this.vrProjection = null
-      this.downloadLinks = []
       this.videoCurrentChapterIndex = 0
       this.videoGenreIsMusic = false
 
@@ -680,7 +677,11 @@ export default defineComponent({
           if (this.isPostLiveDvr) {
             // I wasn't able to get SABR working with Post-Live-DVR yet, so for the moment we'll use YouTube's provided DASH manifest instead.
             // It only contains the last 4 hours of the stream, instead of starting from the beginning but that is better than nothing.
-            if (result.streaming_data.adaptive_formats.some(format => format.freeTubeUrl)) {
+            if (
+              result.streaming_data.adaptive_formats[0]?.url ||
+              result.streaming_data.adaptive_formats[0]?.signature_cipher ||
+              result.streaming_data.adaptive_formats[0]?.cipher
+            ) {
               try {
                 this.manifestSrc = await this.createLocalDashManifest(result, true)
                 this.manifestMimeType = MANIFEST_TYPE_DASH
@@ -771,33 +772,6 @@ export default defineComponent({
               this.legacyFormats = result.streaming_data.formats.map(mapLocalLegacyFormat)
             }
 
-            /** @type {import('../../helpers/api/local').LocalFormat[]} */
-            const formats = [...result.streaming_data.formats, ...result.streaming_data.adaptive_formats]
-
-            const downloadLinks = []
-
-            for (const format of formats) {
-              if (format.freeTubeUrl) {
-                const qualityLabel = format.quality_label ?? format.bitrate
-                const fps = format.fps ? `${format.fps}fps` : 'kbps'
-                const type = format.mime_type.split(';')[0]
-                let label = `${qualityLabel} ${fps} - ${type}`
-
-                if (format.has_audio !== format.has_video) {
-                  if (format.has_video) {
-                    label += ` ${this.$t('Video.video only')}`
-                  } else {
-                    label += ` ${this.$t('Video.audio only')}`
-                  }
-                }
-
-                downloadLinks.push({
-                  value: `${type}||${format.freeTubeUrl}`,
-                  label: label
-                })
-              }
-            }
-
             if (result.captions) {
               const captionTracks = result.captions?.caption_tracks?.map((caption) => {
                 const url = new URL(caption.base_url)
@@ -840,19 +814,7 @@ export default defineComponent({
               }
 
               this.captions = sortCaptions(captionTracks)
-
-              const captionLinks = captionTracks.map((caption) => {
-                const label = `${caption.label} (${caption.language}) - text/vtt`
-
-                return {
-                  value: `${caption.mimeType}||${caption.url}`,
-                  label: label
-                }
-              })
-
-              downloadLinks.push(...captionLinks)
             }
-            this.downloadLinks = downloadLinks
           } else {
             // video might be region locked or something else. This leads to no formats being available
             showToast(
@@ -902,7 +864,11 @@ export default defineComponent({
 
               this.manifestSrc = this.createLocalSabrManifest(result, poToken, clientInfo, storyboards)
               this.manifestMimeType = MANIFEST_TYPE_SABR
-            } else if (result.streaming_data.adaptive_formats[0].freeTubeUrl) {
+            } else if (
+              result.streaming_data.adaptive_formats[0]?.url ||
+              result.streaming_data.adaptive_formats[0]?.signature_cipher ||
+              result.streaming_data.adaptive_formats[0]?.cipher
+            ) {
               this.manifestSrc = await this.createLocalDashManifest(result)
               this.manifestMimeType = MANIFEST_TYPE_DASH
             } else {
@@ -1095,36 +1061,6 @@ export default defineComponent({
                   stream.projectionType !== 'RECTANGULAR'
               })
               ?.projectionType ?? null
-
-            this.downloadLinks = result.adaptiveFormats.concat(result.formatStreams).map((format) => {
-              const qualityLabel = format.qualityLabel || format.bitrate
-              const itag = parseInt(format.itag)
-              const fps = format.fps ? (format.fps + 'fps') : 'kbps'
-              const type = format.type.split(';')[0]
-              let label = `${qualityLabel} ${fps} - ${type}`
-
-              if (itag !== 18 && itag !== 22) {
-                if (type.includes('video')) {
-                  label += ` ${this.$t('Video.video only')}`
-                } else {
-                  label += ` ${this.$t('Video.audio only')}`
-                }
-              }
-              const object = {
-                value: `${type}||${format.url}`,
-                label: label
-              }
-
-              return object
-            }).reverse().concat(result.captions.map((caption) => {
-              const label = `${caption.label} (${caption.languageCode}) - text/vtt`
-              const object = {
-                value: `text/vtt||${caption.url}`,
-                label: label
-              }
-
-              return object
-            }))
 
             this.manifestSrc = await this.createInvidiousDashManifest(result)
             this.manifestMimeType = MANIFEST_TYPE_DASH

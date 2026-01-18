@@ -566,12 +566,6 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
       info.streaming_data.server_abr_streaming_url = await player.decipher(info.streaming_data.server_abr_streaming_url)
     }
 
-    const firstFormat = info.streaming_data.adaptive_formats[0]
-
-    if (firstFormat.url || firstFormat.signature_cipher || firstFormat.cipher) {
-      await decipherFormats(info.streaming_data.adaptive_formats, player)
-    }
-
     if (info.streaming_data.dash_manifest_url) {
       info.streaming_data.dash_manifest_url = await decipherDashManifestUrl(
         info.streaming_data.dash_manifest_url,

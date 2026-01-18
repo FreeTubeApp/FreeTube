@@ -125,9 +125,7 @@
     />
     <div
       v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
-      ref="infoArea"
       class="infoArea"
-      :class="{ infoAreaSticky }"
     >
       <watch-video-info
         v-if="!isLoading"
@@ -146,7 +144,6 @@
         :is-live-content="isLiveContent"
         :is-live="isLive"
         :is-upcoming="isUpcoming"
-        :download-links="downloadLinks"
         :playlist-id="playlistId"
         :get-playlist-index="getPlaylistIndex"
         :get-playlist-reverse="getPlaylistReverse"
@@ -161,8 +158,6 @@
         :class="{ theatreWatchVideo: useTheatreMode }"
         @change-format="handleFormatChange"
         @pause-player="pausePlayer"
-        @set-info-area-sticky="infoAreaSticky = $event"
-        @scroll-to-info-area="$refs.infoArea.scrollIntoView()"
         @save-watched-progress="handleWatchProgressManualSave"
       />
       <watch-video-chapters

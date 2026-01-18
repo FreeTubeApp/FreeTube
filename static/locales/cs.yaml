@@ -595,13 +595,6 @@ Settings:
       None:
         Name: Žádný
     Ignore Default Arguments: Ignorovat výchozí argumenty
-  Download Settings:
-    Ask Download Path: Zeptat se na cestu umístění souboru
-    Download Settings: Stahování
-    Choose Path: Zvolit cestu
-    Download in app: Stáhnout v aplikaci
-    Open in web browser: Otevřít v prohlížeči
-    Download Behavior: Chování stahování
   Parental Control Settings:
     Parental Control Settings: Rodičovská kontrola
     Hide Search Bar: Skrýt lištu vyhledávání
@@ -786,9 +779,6 @@ Video:
   Live Chat is currently not supported in this build.: 'Živý chat není v této verzi programu podporován.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Živý chat je povolen.  Po odeslání se zde zobrazí zprávy chatu.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Živý chat momentálně není podporován s Invidious API. Je vyžadováno přímé připojení k YouTube.'
-  Download Video: 'Stáhnout Video'
-  video only: 'pouze video'
-  audio only: 'pouze zvuk'
   Published:
     In less than a minute: Za méně než minutu
   Published on: 'Publikováno'
@@ -1005,9 +995,6 @@ Search Bar:
   Remove: Odstranit
 External link opening has been disabled in the general settings: Otevírání externích odkazů bylo zakázáno v obecných nastaveních
 Are you sure you want to open this link?: Opravdu chcete otevřít tento dokaz?
-Downloading has completed: Bylo dokončeno stahování "{videoTitle}"
-Downloading failed: Došlo k problému při stahování "{videoTitle}"
-Starting download: Zahájení stahování "{videoTitle}"
 New Window: Nové okno
 Channels:
   Channels: Kanály

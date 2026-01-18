@@ -581,13 +581,6 @@ Settings:
       None:
         Name: Bez
     Ignore Default Arguments: Zanemari zadane argumente
-  Download Settings:
-    Choose Path: Odaberi stazu
-    Download Settings: Preuzimanje
-    Ask Download Path: Zatraži stazu za preuzimanja
-    Download in app: Preuzmi u programu
-    Open in web browser: Otvori u web pregledniku
-    Download Behavior: Ponašanje preuzimanja
   Parental Control Settings:
     Parental Control Settings: Roditeljski nadzor
     Hide Unsubscribe Button: Sakrij gumb za odjavu
@@ -772,9 +765,6 @@ Video:
   Shuffle Playlist: Slučajni redoslijed zbirke
   Loop Playlist: Ponavljaj zbirku
   Starting soon, please refresh the page to check again: Uskoro počinje. Aktualiziraj stranicu za ponovnu provjeru
-  audio only: samo audiosnimku
-  video only: samo video
-  Download Video: Preuzmi video
   Copy Invidious Channel Link: 'Kopiraj poveznicu na Invidious kanal'
   Open Channel in Invidious: 'Otvori kanal na Invidious stranici'
   Copy YouTube Channel Link: 'Kopiraj poveznicu na YouTube kanal'
@@ -987,9 +977,6 @@ Search Bar:
   Clear Input: Izbriši unos
   Remove: Ukloni
 Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu?
-Downloading failed: Došlo je do problema prilikom preuzimanja „{videoTitle}”
-Downloading has completed: „{videoTitle}” je preuzeto
-Starting download: Početak preuzimanja „{videoTitle}”
 Screenshot Success: Snimka ekrana je spremljena
 Screenshot Error: Neuspjela snimka ekrana. {error}
 New Window: Novi prozor

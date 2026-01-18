@@ -588,13 +588,6 @@ Settings:
       None:
         Name: Żaden
     Ignore Default Arguments: Zignoruj argumenty domyślne
-  Download Settings:
-    Ask Download Path: Pytaj o lokalizację pobierania
-    Download Settings: Pobieranie
-    Choose Path: Wybierz folder
-    Download Behavior: Sposób pobierania
-    Download in app: Pobierz w aplikacji
-    Open in web browser: Otwórz w przeglądarce
   Parental Control Settings:
     Parental Control Settings: Kontrola rodzicielska
     Hide Unsubscribe Button: Schowaj przycisk „Odsubskrybuj”
@@ -738,9 +731,6 @@ Video:
   Shuffle Playlist: Losuj z playlisty
   Loop Playlist: Zapętl playlistę
   Starting soon, please refresh the page to check again: Wkrótce się zacznie. Proszę odświeżyć stronę, aby ponownie sprawdzić
-  audio only: tylko audio
-  video only: tylko wideo
-  Download Video: Pobierz film
   Copy Invidious Channel Link: Skopiuj odnośnik do kanału na stronie Invidious
   Open Channel in Invidious: Otwórz kanał na stronie Invidious
   Copy YouTube Channel Link: Skopiuj odnośnik do kanału na stronie YouTube
@@ -999,11 +989,6 @@ Search Bar:
   Remove: Usuń
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych odnośników zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
-Downloading has completed: '„{videoTitle}” został pobrany'
-Starting download: Rozpoczęto pobieranie „{videoTitle}”
-Downloading failed: Wystąpił problem z pobieraniem „{videoTitle}”
-Downloading canceled: Pobieranie zostało przerwane przez użytkownika
-Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączono na tryb "pytaj o folder".
 Screenshot Error: Wykonanie zrzutu nie powiodło się. {error}
 Screenshot Success: Zapisano zrzut ekranu jako „{filePath}”
 New Window: Nowe okno

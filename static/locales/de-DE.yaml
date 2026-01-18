@@ -589,13 +589,6 @@ Settings:
       None:
         Name: Keine
     Ignore Default Arguments: Standardargumente ignorieren
-  Download Settings:
-    Download Settings: Herunterladen
-    Ask Download Path: Nach Zielort zum Herunterladen fragen
-    Choose Path: Pfad auswählen
-    Download Behavior: Download-Verhalten
-    Download in app: In der App herunterladen
-    Open in web browser: Im Webbrowser öffnen
   Parental Control Settings:
     Parental Control Settings: Kindersicherung
     Hide Unsubscribe Button: Schaltfläche „Deabonnieren“ ausblenden
@@ -740,9 +733,6 @@ Video:
   Shuffle Playlist: Zufällige Reihenfolge
   Loop Playlist: Playlist wiederholen
   Starting soon, please refresh the page to check again: Stream startet bald. Bitte aktualisiere die Seite, um erneut nachzusehen
-  audio only: nur Audio
-  video only: nur Video
-  Download Video: Video herunterladen
   Copy Invidious Channel Link: Invidious-Kanallink kopieren
   Open Channel in Invidious: Kanal auf Invidious öffnen
   Copy YouTube Channel Link: YouTube-Kanallink kopieren
@@ -1001,9 +991,6 @@ Search Bar:
   Remove: Entfernen
 Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen willst?
 External link opening has been disabled in the general settings: Das Öffnen externer Links wurde in den allgemeinen Einstellungen deaktiviert
-Downloading has completed: „{videoTitle}“ wurde vollständig heruntergeladen
-Starting download: Herunterladen von „{videoTitle}“ wird gestartet
-Downloading failed: Beim Herunterladen von „{videoTitle}“ gab es ein Problem
 Screenshot Success: Screenshot wurde gespeichert
 Screenshot Error: Screenshot fehlgeschlagen. {error}
 New Window: Neues Fenster

@@ -626,13 +626,6 @@ Settings:
     Hide Unsubscribe Button: 'Versteek uittekenknop'
     Show Family Friendly Only: 'Toon slegs gesinsvriendelike inhoud'
     Hide Search Bar: 'Versteek soekbalk'
-  Download Settings:
-    Download Settings: 'Laai af'
-    Ask Download Path: 'Vra vir aflaaipad'
-    Choose Path: 'Kies pad'
-    Download Behavior: 'Aflaaigedrag'
-    Download in app: 'Laai in toep af'
-    Open in web browser: 'Open in webblaaier'
   Experimental Settings:
     Experimental Settings: 'Eksperimenteel'
     Warning: 'Dit is eksperimentele instellings wat die toep kan laat uitbom indien geaktiveer. Dit word aanbeveel om rugsteune te maak. Gebruik op eie risiko!'
@@ -817,9 +810,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'Regstreekse klets is nie vir hierdie stroom beskikbaar nie. Die oplaaier het dit gedeaktiveer.'
   Show Super Chat Comment: 'Toon superkletskommentaar'
   Scroll to Bottom: 'Rol na onderent'
-  Download Video: 'Laai video af'
-  video only: 'slegs video'
-  audio only: 'slegs oudio'
   Published:
     In less than a minute: 'Oor minder as een minuut'
   Published on: 'Gepubliseer op'
@@ -1027,9 +1017,6 @@ Age Restricted:
   This channel is age restricted: 'Hierdie kanaal het ’n ouderdomsperk'
   This video is age restricted: 'Hierdie video het ’n ouderdomsperk'
 External link opening has been disabled in the general settings: 'Die open van eksterne skakels is gedeaktiveer in die algemene instellings'
-Downloading has completed: '“{videoTitle}” is afgelaai'
-Starting download: 'Begin aflaai van “{videoTitle}”'
-Downloading failed: 'Daar was ’n probleem by die aflaai van “{videoTitle}”'
 Screenshot Success: 'Bewaarde skermkiekie'
 Screenshot Error: 'Skermkiekie het misluk. {error}'
 Channel Hidden: '{channel} tot kanaalfilter toegevoeg'

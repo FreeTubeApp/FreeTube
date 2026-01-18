@@ -357,13 +357,6 @@ Settings:
     Hide Unsubscribe Button: Ocultalo botón para cancelala subscrición
     Show Family Friendly Only: Mostrar só para as familias
     Hide Search Bar: Ocultala barra de busca
-  Download Settings:
-    Download in app: Descarga na aplicación
-    Download Settings: Configuración das descargas
-    Open in web browser: Abrir no navegador
-    Ask Download Path: Solicitala ruta da descarga
-    Choose Path: Ecollela ruta
-    Download Behavior: Comportamento da descarga
   Experimental Settings:
     Experimental Settings: Configuracións experimentais
     Warning: Estas opcións de configuración son experimentais, poden causar fallos mentres están activadas. É moi recomendable facer copias de seguridade. Use baixo o seu propio risco!
@@ -508,9 +501,6 @@ Video:
   Live Chat is currently not supported in this build.: 'O chat en vivo non está soportado nesta versión.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Chat en vivo activado.  As mensaxes aparecerán aquí ao seren enviadas.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Chat en vivo actualmente non soportado coa API de Invidious.  Precísase dunha conexión directa con YouTube.'
-  Download Video: 'Descargar vídeo'
-  video only: 'Só vídeo'
-  audio only: 'Só audio'
   Published:
     In less than a minute: En menos dun minuto
   Published on: 'Publicado'
@@ -662,10 +652,7 @@ Search Bar:
   Clear Input: Borrar entrada
 Are you sure you want to open this link?: Estás seguro de que queres abrir esta ligazón?
 Preferences: Preferencias
-Downloading failed: Produciuse un problema ao descargar "{videoTitle}"
-Downloading has completed: '"{videoTitle}" rematou de descargarse'
 External link opening has been disabled in the general settings: A apertura das ligazóns externas desactivouse na configuración xeral
-Starting download: Comenzando a descarga de "{videoTitle}"
 Default Invidious instance has been cleared: Borrouse a instancia predeterminada de Invidious
 Screenshot Error: Produciuse un erro na captura de pantalla. {error}
 Default Invidious instance has been set to {instance}: A instancia predeterminada de Invidious estableceuse en {instance}

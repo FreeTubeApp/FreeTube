@@ -588,13 +588,6 @@ Settings:
       None:
         Name: 无
     Ignore Default Arguments: 忽略默认变量
-  Download Settings:
-    Download Settings: 下载
-    Ask Download Path: 询问下载路径
-    Choose Path: 选择路径
-    Download in app: 应用内下载
-    Open in web browser: 在网络浏览器内打开
-    Download Behavior: 下载行为
   Parental Control Settings:
     Parental Control Settings: 家长控制
     Show Family Friendly Only: 仅显示“家庭友好”视频
@@ -738,9 +731,6 @@ Video:
   Shuffle Playlist: 随机播放列表
   Loop Playlist: 循环播放列表
   Starting soon, please refresh the page to check again: 即将开始，请刷新页面再次检查
-  audio only: 仅音频
-  video only: 仅视频
-  Download Video: 下载视频
   Copy Invidious Channel Link: 复制Invidious频道连结
   Open Channel in Invidious: 在Invidious打开频道
   Copy YouTube Channel Link: 复制YouTube频道链接
@@ -999,11 +989,6 @@ External link opening has been disabled in the general settings: 外部链接打
 Default Invidious instance has been set to {instance}: 默认的 Invidious 实例已被设置为 {instance}
 Playing Next Video Interval: 马上播放下一个视频。单击取消。| {nextVideoInterval} 秒内播放下个视频。单击取消。 | {nextVideoInterval} 秒内播放下个视频。单击取消。
 Default Invidious instance has been cleared: 已清除默认的 Invidious 实例
-Downloading failed: 下载“{videoTitle}”出现一个问题
-Downloading has completed: 已完成下载 “{videoTitle}”
-Starting download: 开始下载“{videoTitle}”
-Downloading canceled: 用户取消了下载
-Download folder does not exist: 下载目录“$”不存在，退回到 “询问文件夹”模式。
 Screenshot Error: 截屏失败。{error}
 Screenshot Success: 已保存截屏
 New Window: 新窗口

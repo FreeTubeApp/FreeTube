@@ -591,13 +591,6 @@ Settings:
       None:
         Name: Nessuno
     Ignore Default Arguments: Ignora argomenti predefiniti
-  Download Settings:
-    Download Settings: Download
-    Ask Download Path: Chiedi il percorso di download
-    Choose Path: Scegli percorso
-    Download Behavior: Comportamento download
-    Open in web browser: Apri nel browser web
-    Download in app: Download nell'app
   Parental Control Settings:
     Hide Unsubscribe Button: Nascondi il pulsante Annulla iscrizione
     Parental Control Settings: Controllo genitori
@@ -741,9 +734,6 @@ Video:
   Loop Playlist: Riproduzione continua playlist
   Autoplay: Riproduzione automatica
   Starting soon, please refresh the page to check again: La riproduzione partirà tra breve, aggiorna la pagina per ricontrollare
-  audio only: solo audio
-  video only: solo video
-  Download Video: Download video
   Copy Invidious Channel Link: Copia link canale Invidious
   Open Channel in Invidious: Apri il canale con Invidious
   Copy YouTube Channel Link: Copia link canale YouTube
@@ -1001,9 +991,6 @@ Search Bar:
   Remove: Rimuovi
 External link opening has been disabled in the general settings: L'apertura dei link esterni è stata disabilitata nelle Impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
-Downloading has completed: 'Il download di {videoTitle} è terminato'
-Starting download: Avvio del download di "{videoTitle}"
-Downloading failed: Si è verificato un problema durante il download di "{videoTitle}"
 Screenshot Success: Screenshot salvato
 Screenshot Error: Screenshot non riuscito. {error}
 New Window: Nuova finestra

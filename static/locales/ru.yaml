@@ -588,13 +588,6 @@ Settings:
       None:
         Name: Нет
     Ignore Default Arguments: Не учитывать аргументы по умолчанию
-  Download Settings:
-    Download Settings: Скачивание
-    Ask Download Path: Спрашивать путь для скачивания
-    Choose Path: Выберите путь
-    Download in app: Скачать в приложении
-    Download Behavior: Действие при скачивании
-    Open in web browser: Открыть в браузере
   Parental Control Settings:
     Show Family Friendly Only: Показывать только семейный контент
     Parental Control Settings: Родительский Контроль
@@ -738,9 +731,6 @@ Video:
   Shuffle Playlist: Перемешать плейлист
   Loop Playlist: Повторять плейлист
   Starting soon, please refresh the page to check again: Скоро начнется, обновите страницу, чтобы проверить ещё раз
-  audio only: только звук
-  video only: только видео
-  Download Video: Скачать видео
   Copy Invidious Channel Link: Скопировать ссылку на канал Invidious
   Open Channel in Invidious: Открыть канал в Invidious
   Copy YouTube Channel Link: Скопировать ссылку на канал YouTube
@@ -999,9 +989,6 @@ Search Bar:
   Clear Input: Очистить
   Remove: Удалить
 Are you sure you want to open this link?: Вы действительно хотите открыть эту ссылку?
-Starting download: Скачивание «{videoTitle}»
-Downloading has completed: '«{videoTitle}» скачано'
-Downloading failed: Возникла проблема при скачивании «{videoTitle}»
 Screenshot Success: Сохраненный скриншот
 Screenshot Error: Не удалось сделать скриншот. {error}
 New Window: Новое окно
