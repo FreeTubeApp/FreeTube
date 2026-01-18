@@ -13,10 +13,13 @@ jobs:
       (contains(github.event.pull_request.base.ref, 'development') || contains(github.event.pull_request.base.ref, 'RC'))
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
     - name: Auto Merge PR
       shell: bash
       env:
-        GH_TOKEN: ${{ secrets.PUSH_TOKEN }}
-        PR_NUMBER: ${{ github.event.pull_request.number }}
-      run: gh pr merge "https://github.com/FreeTubeApp/FreeTube/pull/${PR_NUMBER}" --auto --squash
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PR_URL: ${{ github.event.pull_request.html_url }}
+      run: gh pr merge "$PR_URL" --auto --squash
