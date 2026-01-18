@@ -2794,9 +2794,8 @@ export default defineComponent({
         })
       }
 
-      const delayLoadUntilUnix = props.delayLoadUntilUnix
-      const initialLoadDelayMs = delayLoadUntilUnix - Date.now()
-      if (initialLoadDelayMs > 0) {
+      const initialLoadDelayMs = props.delayLoadUntilUnix - Date.now()
+      if (initialLoadDelayMs > 0 && (props.format === 'legacy' || props.manifestMimeType !== MANIFEST_TYPE_SABR)) {
         showToast(
           ({ remainingMs }) => {
             // `+value` converts string back to float

@@ -131,8 +131,6 @@ export default defineComponent({
       manifestMimeType: MANIFEST_TYPE_DASH,
       /** @type {SabrData | null} */
       sabrData: null,
-      // For the same video
-      sabrReloadCount: 0,
       legacyFormats: [],
       captions: [],
       /** @type {'EQUIRECTANGULAR' | 'EQUIRECTANGULAR_THREED_TOP_BOTTOM' | 'MESH'| null} */
@@ -319,15 +317,6 @@ export default defineComponent({
       // `this.$refs.player?.hasLoaded` cannot be used in computed property
       return !this.isLoading
     },
-
-    sabrEnabled() {
-      return this.$store.getters.getSabrEnabled
-    },
-
-    sabrReloadedTooManyTimes() {
-      // Hardcoded since no idea what causes player reload loop, but 3 times probably too much already
-      return this.sabrReloadCount >= 3
-    }
   },
   watch: {
     async $route() {
@@ -335,10 +324,6 @@ export default defineComponent({
     },
     userPlaylistsReady() {
       this.onMountedDependOnLocalStateLoading()
-    },
-    videoId() {
-      // Reset SABR reload count when videoID changed
-      this.sabrReloadCount = 0
     },
   },
   created: function () {
@@ -448,16 +433,10 @@ export default defineComponent({
       }
 
       try {
-        const sabrShouldBeTried = this.sabrEnabled && !this.sabrReloadedTooManyTimes
-
-        const videoInfo = await getLocalVideoInfo(this.videoId, { forceEnableSabrOnlyResponseWorkaround: !sabrShouldBeTried })
+        const videoInfo = await getLocalVideoInfo(this.videoId)
         const { info: result, poToken, clientInfo, adEndTimeUnixMs } = videoInfo
 
-        const sabrShouldBeUsed = sabrShouldBeTried && videoInfo.sabrCanBeUsed && this.activeFormat !== 'legacy'
-        if (!sabrShouldBeUsed) {
-          // The hack should only be used on non-SABR
-          this.adEndTimeUnixMs = adEndTimeUnixMs
-        }
+        this.adEndTimeUnixMs = adEndTimeUnixMs
 
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
@@ -885,7 +864,10 @@ export default defineComponent({
               })
               ?.projection_type ?? null
 
-            if (sabrShouldBeUsed) {
+            if (
+              videoInfo.info.streaming_data?.server_abr_streaming_url &&
+              videoInfo.info.player_config.media_common_config.media_ustreamer_request_config
+            ) {
               const storyboards = storyboard
                 ? [{
                     templateUrl: storyboard.template_url,
@@ -1290,12 +1272,6 @@ export default defineComponent({
     },
 
     handleVideoLoaded: function () {
-      if (this.sabrReloadCount > 0) {
-        // DO NOT count player reload requests during video playback (at the middle)
-        // Video loaded = not reload loop
-        this.sabrReloadCount--
-      }
-
       // Only used one time = remove after use
       this.oneTimeTimestamp = null
 
@@ -1946,7 +1922,6 @@ export default defineComponent({
 
     async onPlayerReloadRequested() {
       showToast('Reloading player according to SABR request')
-      this.sabrReloadCount++
 
       const timestamp = this.getTimestamp()
       if (timestamp > 0) {
