@@ -48,6 +48,7 @@ Global:
 # Search Bar
     Comment Count: ١ توانج | {count} توانج
     Like Count: ١ بەدڵبوون | {count} بەدڵبوون
+  Posts: بڵاوکراوەکان
 Search / Go to URL: 'گەڕان/ بڕۆ بۆ ئرڵ'
 Search Bar:
   Clear Input: 'سڕینەوەی نووسراو'
@@ -107,7 +108,7 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   Disabled Automatic Fetching: ''
   Empty Channels: 'کەناڵە بەشداربووەکانت هێشتا هیچ ڤیدیۆیەکیان نییە.'
-  Empty Posts: ''
+  Empty Posts: 'کەناڵە بەشداربووەکانت هێشتا هیچ بڵاوکراوەیەکیان نییە.'
   Load More Videos: 'ڤیدیۆی زۆرتر بار بکە'
   Load More Posts: 'بڵاوکراوەی زۆرتر بار بکە'
   Subscriptions Tabs: ''
@@ -124,6 +125,7 @@ Trending:
   Trending: 'باو'
   Gaming: 'یاری'
   Trending Tabs: ''
+  Sports: وەرزش
 Most Popular: 'باوترین'
 Playlists: 'پێڕستی لێدانەکان'
 User Playlists:
@@ -185,6 +187,8 @@ User Playlists:
       "Video(s) added to {playlistCount} playlists": ""
     Allow Adding Duplicate Video(s): ڕێ بە زیادکردنی ڤیدیۆی دووبارە بدە
     N playlists selected: '{playlistCount} دیاریکراوە'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} ڤیدیۆ زیاد دەکرێتن'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} ڤیدیۆ زیاد کراینە'
   CreatePlaylistPrompt:
     New Playlist Name: ناوی پێڕستی لێدانی نوێ
     Create: درووستکردن
@@ -194,6 +198,8 @@ User Playlists:
       There was an issue with creating the playlist.: هەڵەیەک ڕوویدا لە درووستکردنی پێڕستی لێدانەکە.
   Are you sure you want to delete this playlist? This cannot be undone: دڵنیایت لە سڕینەوەی ئەم پێڕستی لێدانە؟ چونکە ناگەڕێندرێتەوە.
   Playlist Description: پێناسەی پێڕستی لێدان
+  Playlists with Matching Videos: پێڕستەکانی لێدان لەگەڵ ڤیدیۆ هاوتاکان
+  TotalTimePlaylist: 'سەرجەمی کات: {duration}'
 History:
   # On History Page
   History: 'مێژوو'
