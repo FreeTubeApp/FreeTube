@@ -622,6 +622,9 @@ Settings:
     Set Password: Parola Ayarla
   Sort Settings Sections (A-Z): Ayarlar Bölümlerini Sırala (A-Z)
   Return to Settings Menu: Ayarlar Menüsüne Dön
+  SABR:
+    Label: DASH arka ucu olarak SABR etkinleştir
+    Tooltip: SABR, gelecek sürümlerde tek DASH arka ucu olacak ve devre dışı bırakılamayacaktır. Bu seçenek, erken uygulamada kurtarılamaz sorunlar olması ihtimaline karşı sunulmaktadır.
 About:
   #On About page
   About: 'Hakkında'
@@ -869,6 +872,9 @@ Video:
   DRMProtected: DRM korumalı videolar, özel kapalı kaynak bileşenleri gerektirdiğinden FreeTube ile oynatılamaz. Bu videoyu izlemek istiyorsanız lütfen resmi YouTube web sitesinde DRM etkinleştirilmiş bir web tarayıcısında izleyin.
   Watched Progress Saved: İzlenen İlerleme Kaydedildi
   Save Watched Progress: İzlenen İlerlemeyi Kaydet
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Kalan ön reklam süresi: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Kalan SABR bekleme süresi: {remindingTimeSeconds}s'
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'
