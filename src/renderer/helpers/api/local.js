@@ -389,7 +389,6 @@ export async function getLocalSearchContinuation(continuationData) {
 
 /**
  * @param {string} id
- * @param {boolean} forceEnableSabrOnlyResponseWorkaround - When true workaround will be forced and there will be no audio track selection
  * @returns {Promise<{
  *   info: import('youtubei.js').YT.VideoInfo,
  *   poToken: string | undefined,
@@ -399,12 +398,12 @@ export async function getLocalSearchContinuation(continuationData) {
  *     osName: string,
  *     osVersion: string
  *   },
- *   adEndTimeUnixMs: number,
- *   sabrCanBeUsed: boolean,
+ *   adEndTimeUnixMs: number
  * }>}
  */
-export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaround = false } = {}) {
-  let totalAdTimeSeconds = 0
+export async function getLocalVideoInfo(id) {
+  let responseTime = Date.now()
+  let totalAdTimeMilliseconds = 0
 
   const webInnertube = await createInnertube({
     withPlayer: true,
@@ -418,19 +417,25 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
 
       const responseText = await response.text()
 
+      responseTime = Date.now()
+
       const json = JSON.parse(responseText)
 
       if (Array.isArray(json.adSlots)) {
         for (const adSlot of json.adSlots) {
           if (adSlot.adSlotRenderer?.adSlotMetadata?.triggerEvent === 'SLOT_TRIGGER_EVENT_BEFORE_CONTENT') {
-            const playerVars = adSlot.adSlotRenderer.fulfillmentContent?.fulfilledLayout?.playerBytesAdLayoutRenderer
-              ?.renderingContent?.instreamVideoAdRenderer?.playerVars
+            const instreamVideoAdRenderer = adSlot.adSlotRenderer.fulfillmentContent?.fulfilledLayout?.playerBytesAdLayoutRenderer
+              ?.renderingContent?.instreamVideoAdRenderer
 
-            if (playerVars) {
-              const match = playerVars.match(/length_seconds=([\d.]+)/)
+            if (instreamVideoAdRenderer) {
+              if (typeof instreamVideoAdRenderer.skipOffsetMilliseconds === 'number') {
+                totalAdTimeMilliseconds += instreamVideoAdRenderer.skipOffsetMilliseconds
+              } else if (instreamVideoAdRenderer.playerVars) {
+                const match = instreamVideoAdRenderer.playerVars.match(/length_seconds=([\d.]+)/)
 
-              if (match) {
-                totalAdTimeSeconds += parseFloat(match[1])
+                if (match) {
+                  totalAdTimeMilliseconds += parseFloat(match[1]) * 1000
+                }
               }
             }
           }
@@ -464,36 +469,10 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
   }
 
   const info = await webInnertube.getInfo(id, { po_token: contentPoToken })
-  const sabrCannotBeUsed = info.streaming_data?.server_abr_streaming_url == null ||
-    info.player_config?.media_common_config?.media_ustreamer_request_config?.video_playback_ustreamer_config == null
-  const workaroundRequired = forceEnableSabrOnlyResponseWorkaround || sabrCannotBeUsed
+
   // Some time would be used for parsing and maybe additional requests so end time should be calculated sooner to reduce actual waiting time
-  let adEndTimeUnixMs = Date.now()
-
-  // #region temporary workaround for SABR-only responses
-
-  if (workaroundRequired) {
-    // MWEB doesn't have an audio track selector so it picks the audio track on the server based on the request language.
-    const originalAudioTrackFormat = info.streaming_data?.adaptive_formats.find(format => {
-      return format.has_audio && format.is_original && format.language
-    })
-
-    if (originalAudioTrackFormat) {
-      webInnertube.session.context.client.hl = originalAudioTrackFormat.language
-    }
-
-    const mwebInfo = await webInnertube.getBasicInfo(id, { client: 'MWEB', po_token: contentPoToken })
-
-    if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data?.adaptive_formats) {
-      info.playability_status = mwebInfo.playability_status
-      info.streaming_data.adaptive_formats = mwebInfo.streaming_data.adaptive_formats
-    }
-  }
-  // Some time would be used for parsing and maybe additional requests so end time should be calculated sooner to reduce actual waiting time
-  // Legacy format also requires this
-  adEndTimeUnixMs += totalAdTimeSeconds * 1000
-
-  // #endregion temporary workaround for SABR-only responses
+  // Legacy format requires this
+  const adEndTimeUnixMs = responseTime + totalAdTimeMilliseconds
 
   let { clientName, clientVersion, osName, osVersion } = webInnertube.session.context.client
 
@@ -602,7 +581,6 @@ export async function getLocalVideoInfo(id, { forceEnableSabrOnlyResponseWorkaro
     poToken: contentPoToken,
     clientInfo,
     adEndTimeUnixMs,
-    sabrCanBeUsed: !sabrCannotBeUsed,
   }
 }
 
