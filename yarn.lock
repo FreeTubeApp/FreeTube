@@ -5048,10 +5048,10 @@ html-tags@^3.3.1:
   resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-3.3.1.tgz#a04026a18c882e4bba8a01a3d39cfe465d40b5ce"
   integrity sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==
 
-html-webpack-plugin@^5.6.5:
-  version "5.6.5"
-  resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-5.6.5.tgz#d57defb83cabbf29bf56b2d4bf10b67b650066be"
-  integrity sha512-4xynFbKNNk+WlzXeQQ+6YYsH2g7mpfPszQZUi3ovKlj+pDmngQ7vRXjrrmGROabmKwyQkcgcX5hqfOwHbFmK5g==
+html-webpack-plugin@^5.6.6:
+  version "5.6.6"
+  resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-5.6.6.tgz#5321b9579f4a1949318550ced99c2a4a4e60cbaf"
+  integrity sha512-bLjW01UTrvoWTJQL5LsMRo1SypHW80FTm12OJRSnr3v6YHNhfe+1r0MYUZJMACxnCHURVnBWRwAsWs2yPU9Ezw==
   dependencies:
     "@types/html-minifier-terser" "^6.0.0"
     html-minifier-terser "^6.0.2"
