@@ -615,6 +615,9 @@ Settings:
     Remove Password: 删除密码
   Sort Settings Sections (A-Z): 对设置部分进行排序（A-Z）
   Return to Settings Menu: 返回设置菜单
+  SABR:
+    Label: 启用 SABR 为 DASH 后端
+    Tooltip: SABR 在未来版本中将成为唯一后端，无法禁用。提供此开关是以防提早实实施有不可恢复的问题。
 About:
   #On About page
   About: '关于'
@@ -821,6 +824,9 @@ Video:
 #& Playlists
   Watched Progress Saved: 保存了已观看进度
   Save Watched Progress: 保存已观看进度
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 剩余的预滚动广告时间:：{remindingTimeSeconds} 秒
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 剩余 SABR 后退时间：{remindingTimeSeconds} 秒
 Playlist:
   #& About
   View Full Playlist: '查看完整播放列表'
