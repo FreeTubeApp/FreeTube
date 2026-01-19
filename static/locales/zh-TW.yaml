@@ -615,6 +615,9 @@ Settings:
     Enter Password To Unlock: 輸入密碼以解鎖設定
   Sort Settings Sections (A-Z): 對設定區塊進行排序 (A-Z)
   Return to Settings Menu: 回到設定選單
+  SABR:
+    Label: 啟用 SABR 作為 DASH 後端
+    Tooltip: SABR 將在未來版本成為唯一的 DASH 後端，且無法停用。此切換功能僅供早期實作出現無法修復的問題時使用。
 About:
   #On About page
   About: '關於'
@@ -821,6 +824,9 @@ Video:
   DRMProtected: 受 DRM 保護的影片無法在 FreeTube 上播放，因為它們需要專屬的封閉原始碼元件。如果您想觀賞此影片，請使用支援 DRM 的網路瀏覽器在 YouTube 官方網站觀賞。
   Save Watched Progress: 儲存觀看進度
   Watched Progress Saved: 觀看進度已儲存
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 剩餘前置廣告時間：{remindingTimeSeconds}秒
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 剩餘 SABR 後退時間：{remindingTimeSeconds}秒
 Playlist:
   #& About
   View Full Playlist: '觀看完整播放清單'
