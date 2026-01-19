@@ -868,6 +868,9 @@ Video:
 #& Playlists
   Save Watched Progress: Salvesta vaatamise järg
   Watched Progress Saved: Vaatamise järg on salvestatud
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Järelejäänud sisueelse reklaami aeg: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Järelejäänud aeg SABR-protokollist loobumiseks: {remindingTimeSeconds}s'
 Playlist:
   #& About
   View Full Playlist: 'Näita kogu esitusloendit'
