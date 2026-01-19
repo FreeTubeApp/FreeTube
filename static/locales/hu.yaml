@@ -622,6 +622,9 @@ Settings:
     Remove Password: Jelszó eltávolítása
   Sort Settings Sections (A-Z): Beállítások rendezése (A-Z)
   Return to Settings Menu: Vissza a „Beállítások” menübe
+  SABR:
+    Label: SABR engedélyezése mint DASH-háttérprogram
+    Tooltip: A SABR lesz az egyetlen DASH-háttérprogram a jövőbeli kiadásokban, és nem lehet majd letiltani. Ez a kapcsoló arra az esetre szolgál, ha a korai megvalósítása helyrehozhatatlan problémákat okozna.
 About:
   #On About page
   About: 'Névjegy'
@@ -869,6 +872,9 @@ Video:
 #& Playlists
   Save Watched Progress: Megtekintett videó folyamatának mentése
   Watched Progress Saved: Megtekintett videó folyamata elmentve
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Hátralévő előzetes hirdetési idő: {remindingTimeSeconds} mp'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Hátralévő várakozási idő a SABR-re: {remindingTimeSeconds} mp'
 Playlist:
   #& About
   View Full Playlist: 'Teljes lejátszási lista megtekintése'
@@ -1126,4 +1132,4 @@ KeyboardShortcutPrompt:
   Skip to Previous Video: Ugrás a lejátszási lista előző videójára
 shortcutLabelSeparator: ｜
 Compact side navigation: Kompakt oldalsó navigáció
-Expand side navigation: Oldal navigáció kibontása
+Expand side navigation: Oldalsó navigáció kibontása
