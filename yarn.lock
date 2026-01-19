@@ -1185,10 +1185,10 @@
     "@intlify/message-compiler" "11.2.8"
     "@intlify/shared" "11.2.8"
 
-"@intlify/eslint-plugin-vue-i18n@^4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@intlify/eslint-plugin-vue-i18n/-/eslint-plugin-vue-i18n-4.1.0.tgz#ba57243e28b947fe6591b6d21bbb9905f5bcaa42"
-  integrity sha512-MPAr3LGTrkB5CZBHN5eUf4kASUEiSaDM371jADmxNbTL1Ew7IAyCIBGm3+/1sWcvsfVHe4wz8RFoo6FpeQZ4Nw==
+"@intlify/eslint-plugin-vue-i18n@^4.1.1":
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/@intlify/eslint-plugin-vue-i18n/-/eslint-plugin-vue-i18n-4.1.1.tgz#f096795a5e5edb36a181535908c281a8893dcca0"
+  integrity sha512-TgeLqdNEwt9wDOxXwJ7lSxw4f2saXd0QfZ4ZM3oCU4m1H1r1tBbuV6nRuhtsy4DwGqC0nlFFhsvKONlEyUxZkg==
   dependencies:
     "@eslint/eslintrc" "^3.0.0"
     "@intlify/core-base" "^11.0.0"
@@ -1207,26 +1207,13 @@
     semver "^7.5.4"
     synckit "^0.10.0"
 
-"@intlify/message-compiler@11.2.8":
+"@intlify/message-compiler@11.2.8", "@intlify/message-compiler@^11.0.0":
   version "11.2.8"
   resolved "https://registry.yarnpkg.com/@intlify/message-compiler/-/message-compiler-11.2.8.tgz#3d967c07a36a8d6060730c1d3a2d40e3caaf07b3"
   integrity sha512-A5n33doOjmHsBtCN421386cG1tWp5rpOjOYPNsnpjIJbQ4POF0QY2ezhZR9kr0boKwaHjbOifvyQvHj2UTrDFQ==
   dependencies:
     "@intlify/shared" "11.2.8"
     source-map-js "^1.0.2"
-
-"@intlify/message-compiler@^11.0.0":
-  version "11.1.12"
-  resolved "https://registry.yarnpkg.com/@intlify/message-compiler/-/message-compiler-11.1.12.tgz#27e69790b711a92cddb07175187dd09a7b270b55"
-  integrity sha512-Fv9iQSJoJaXl4ZGkOCN1LDM3trzze0AS2zRz2EHLiwenwL6t0Ki9KySYlyr27yVOj5aVz0e55JePO+kELIvfdQ==
-  dependencies:
-    "@intlify/shared" "11.1.12"
-    source-map-js "^1.0.2"
-
-"@intlify/shared@11.1.12":
-  version "11.1.12"
-  resolved "https://registry.yarnpkg.com/@intlify/shared/-/shared-11.1.12.tgz#ab41083e017d622cf63c7dc88a0ee0bc27f4127a"
-  integrity sha512-Om86EjuQtA69hdNj3GQec9ZC0L0vPSAnXzB3gP/gyJ7+mA7t06d9aOAiqMZ+xEOsumGP4eEBlfl8zF2LOTzf2A==
 
 "@intlify/shared@11.2.8":
   version "11.2.8"
