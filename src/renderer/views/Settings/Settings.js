@@ -1,6 +1,6 @@
 import { defineComponent, nextTick } from 'vue'
 import { mapActions } from 'vuex'
-import GeneralSettings from '../../components/general-settings/general-settings.vue'
+import GeneralSettings from '../../components/GeneralSettings/GeneralSettings.vue'
 import ThemeSettings from '../../components/ThemeSettings.vue'
 import PlayerSettings from '../../components/PlayerSettings/PlayerSettings.vue'
 import ExternalPlayerSettings from '../../components/ExternalPlayerSettings.vue'

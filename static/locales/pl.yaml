@@ -615,6 +615,9 @@ Settings:
     Remove Password: Usuń hasło
   Sort Settings Sections (A-Z): Sortuj sekcje ustawień (A-Z)
   Return to Settings Menu: Wróć do menu „Ustawienia”
+  SABR:
+    Label: Włącz SABR jako back-end dla DASH-a
+    Tooltip: W przyszłości SABR będzie jedynym back-endem DASH-a i nie będzie można go wyłączyć. Ten przełącznik został wprowadzony na wypadek, gdyby wczesna implementacja powodowała problemy.
 About:
   #On About page
   About: 'O projekcie'

@@ -9,11 +9,21 @@ on:
     # Run daily at midnight.
     - cron: '0 0 * * *'
 
+permissions: {}
+
 jobs:
   noResponse:
+    # As this action runs on a schedule, only run it in the FreeTubeApp/FreeTube repository to avoid unnecessary GitHub Actions usage/billing in forks.
+    # If a fork does need this workflow, they can change this condition in their fork to include their repository.
+    if: github.repository == 'FreeTubeApp/FreeTube'
+
     runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+
     steps:
-      - uses: lee-dohm/no-response@v0.5.0
+      - uses: lee-dohm/no-response@9bb0a4b5e6a45046f00353d5de7d90fb8bd773bb #v0.5.0
         with:
           token: ${{ github.token }}
           closeComment: >

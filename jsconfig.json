@@ -3,6 +3,8 @@
     "target": 3.5
   },
   "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "strictNullChecks": true,
     "baseUrl": "./",
     "paths": {

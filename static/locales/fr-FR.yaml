@@ -615,6 +615,9 @@ Settings:
     Password Settings: Mot de passe
   Sort Settings Sections (A-Z): Trier de À à Z les rubriques des paramètres
   Return to Settings Menu: Revenir au Menu paramètres
+  SABR:
+    Label: Activer SABR comme backend DASH
+    Tooltip: SABR deviendra le seul moteur DASH dans les prochaines versions et ne pourra pas être désactivé. Cette option est disponible au cas où une implémentation préliminaire présenterait des problèmes irrémédiables.
 About:
   #On About page
   About: 'À propos'
@@ -821,6 +824,9 @@ Video:
 #& Playlists
   Save Watched Progress: Enregistrer l'état de visionnage
   Watched Progress Saved: État de visionnage enregistré
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Temps restant avant la publicité : {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Temps de recul SABR restant : {remindingTimeSeconds}s'
 Playlist:
   #& About
   View Full Playlist: 'Afficher la playlist complète'

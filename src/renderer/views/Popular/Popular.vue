@@ -93,7 +93,7 @@ async function fetchPopularInfo() {
  * @param {KeyboardEvent} event the keyboard event
  */
 function keyboardShortcutHandler(event) {
-  if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
+  if (document.activeElement.classList.contains('ft-input')) {
     return
   }
   // Avoid handling events due to user holding a key (not released)

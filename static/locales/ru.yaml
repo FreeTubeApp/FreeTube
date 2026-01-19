@@ -615,6 +615,9 @@ Settings:
     Remove Password: Удалить пароль
   Sort Settings Sections (A-Z): Сортировка разделов настроек (A-Z)
   Return to Settings Menu: Вернуться в Настройки
+  SABR:
+    Label: Включить SABR как движок DASH
+    Tooltip: SABR станет единственным движком DASH в будущих версиях и не сможет быть отключён. Этот переключатель предусмотрен на случай, если ранняя реализация будет содержать неустранимые ошибки.
 About:
   #On About page
   About: 'О приложении'
@@ -821,6 +824,9 @@ Video:
   DRMProtected: Видео, защищенное DRM, не может быть воспроизведено в FreeTube, так как оно требует использования проприетарных компонентов с закрытым исходным кодом. Если вы хотите посмотреть это видео, пожалуйста, смотрите его на официальном сайте YouTube в веб-браузере с поддержкой DRM.
   Save Watched Progress: Сохранение прогресса просмотренного видео
   Watched Progress Saved: Прогресс просмотренного видео сохранён
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Оставшееся время preroll-рекламы: {remindingTimeSeconds} сек'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Оставшееся время задержки SABR: {remindingTimeSeconds} сек'
 Playlist:
   #& About
   View Full Playlist: 'Посмотреть весь плейлист'

@@ -3,15 +3,18 @@ on:
   issues:
     types: [opened]
 
-permissions:
-  issues: write
-  contents: read
+permissions: {}
 
 jobs:
   triage:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      issues: write
+
     steps:
-    - uses: github/issue-labeler@v3.4
+    - uses: github/issue-labeler@c1b0f9f52a63158c4adc09425e858e87b32e9685 #v3.4
       with:
         configuration-path: .github/issue-labeler.yml
         enable-versioned-regex: 0
