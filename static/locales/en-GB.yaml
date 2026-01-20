@@ -870,6 +870,9 @@ Video:
   DRMProtected: DRM protected videos cannot be played in FreeTube, as they require proprietary, closed source components. If you want to watch this video please watch it on the official YouTube website in a DRM enabled web browser.
   Save Watched Progress: Save Watched Progress
   Watched Progress Saved: Watched Progress Saved
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Remaining preroll-ad time: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Remaining SABR backoff time: {remindingTimeSeconds}s'
 Playlist:
   #& About
   Playlist: Playlist
