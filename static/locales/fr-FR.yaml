@@ -825,8 +825,8 @@ Video:
   Save Watched Progress: Enregistrer l'état de visionnage
   Watched Progress Saved: État de visionnage enregistré
   Watch:
-    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Temps restant avant la publicité : {remindingTimeSeconds}s'
-    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Temps de recul SABR restant : {remindingTimeSeconds}s'
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Temps de publicité pré-roll restant : {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Temps d’attente SABR restant : {remindingTimeSeconds}s'
 Playlist:
   #& About
   View Full Playlist: 'Afficher la playlist complète'
