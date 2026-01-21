@@ -595,13 +595,6 @@ Settings:
       None:
         Name: Yok
     Ignore Default Arguments: Öntanımlı Argümanları Yoksay
-  Download Settings:
-    Choose Path: Yol Seç
-    Ask Download Path: İndirme yolu için sor
-    Download Settings: İndirme
-    Download Behavior: İndirme Davranışı
-    Download in app: Uygulamada indir
-    Open in web browser: Web tarayıcısında aç
   Parental Control Settings:
     Parental Control Settings: Ebeveyn Denetimi
     Show Family Friendly Only: Yalnızca Aileye Uygun Olanları Göster
@@ -789,9 +782,6 @@ Video:
     In less than a minute: Bir dakikadan kısa sürede
   Published on: 'Yayımlanma tarihi'
 #& Videos
-  audio only: yalnızca ses
-  video only: yalnızca video
-  Download Video: Video İndir
   Copy Invidious Channel Link: Invidious Kanalı Bağlantısını Kopyala
   Open Channel in Invidious: İnvidious'da Kanal Aç
   Copy YouTube Channel Link: Youtube Kanalı Bağlantısını Kopyala
@@ -1008,11 +998,6 @@ Search Bar:
   Remove: Kaldır
 External link opening has been disabled in the general settings: Harici bağlantı açma genel ayarlarda devre dışı bırakıldı
 Are you sure you want to open this link?: Bu bağlantıyı açmak istediğinizden emin misiniz?
-Downloading canceled: İndirme, kullanıcı tarafından iptal edildi
-Starting download: '"{videoTitle}" indirme işlemi başlatılıyor'
-Downloading has completed: '"{videoTitle}" indirme işlemi tamamlandı'
-Downloading failed: '"{videoTitle}" indirilirken bir sorun oluştu'
-Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor" moduna geri dönülüyor.
 Screenshot Success: Ekran görüntüsü kaydedildi
 Screenshot Error: Ekran görüntüsü başarısız oldu. {error}
 New Window: Yeni Pencere

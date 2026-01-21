@@ -3,7 +3,7 @@ import shaka from 'shaka-player'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import store from '../../store/index'
-import { DefaultFolderKind, KeyboardShortcuts } from '../../../constants'
+import { KeyboardShortcuts } from '../../../constants'
 import { AudioTrackSelection } from './player-components/AudioTrackSelection'
 import { FullWindowButton } from './player-components/FullWindowButton'
 import { LegacyQualitySelection } from './player-components/LegacyQualitySelection'
@@ -1733,7 +1733,7 @@ export default defineComponent({
         } else {
           const arrayBuffer = await blob.arrayBuffer()
 
-          await window.ftElectron.writeToDefaultFolder(DefaultFolderKind.SCREENSHOTS, filenameWithExtension, arrayBuffer)
+          await window.ftElectron.writeToDefaultFolder(filenameWithExtension, arrayBuffer)
 
           showToast(t('Screenshot Success'))
         }

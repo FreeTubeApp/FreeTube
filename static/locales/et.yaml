@@ -594,13 +594,6 @@ Settings:
       None:
         Name: Puudub
     Ignore Default Arguments: Eira vaikimisi käsureaargumente
-  Download Settings:
-    Download Settings: Allalaadimised
-    Ask Download Path: Küsi kuhu kausta soovid faile alla laadida
-    Choose Path: Vali asukoht
-    Download Behavior: Tegevus allalaadimisel
-    Open in web browser: Ava veebibrauseris
-    Download in app: Laadi alla rakenduses
   Parental Control Settings:
     Parental Control Settings: Vanemlik järelevalve
     Hide Unsubscribe Button: Peida tellimuse tühistamise nupp
@@ -794,9 +787,6 @@ Video:
   Save Video: Salvesta video
   Started streaming on: Voogedastus algas
   Streamed on: Voogedastatud
-  audio only: vaid helivoog
-  video only: vaid videovoog
-  Download Video: Laadi video alla
   Sponsor Block category:
     music offtopic: Esitatava muusika teemaväline teave
     self-promotion: Enesereklaam
@@ -1004,9 +994,6 @@ Search Bar:
   Remove: Eemalda
 External link opening has been disabled in the general settings: Väliste linkide avamine on üldistes seadistustes keelatud
 Are you sure you want to open this link?: Oled kindel, et soovid seda linki avada?
-Downloading has completed: „{videoTitle}“ allalaadimine on lõppenud
-Starting download: „{videoTitle}“ allalaadimine algas
-Downloading failed: „{videoTitle}“ allalaadimisel tekkis viga
 New Window: Uus aken
 Screenshot Error: Kuvatõmmise tegemine ei õnnestunud. {error}
 Channels:

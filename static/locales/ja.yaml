@@ -587,13 +587,6 @@ Settings:
       None:
         Name: なし
     Ignore Default Arguments: デフォルト引数を無視する
-  Download Settings:
-    Download Settings: ダウンロード
-    Ask Download Path: ダウンロードパスを尋ねる
-    Choose Path: パスの選択
-    Download Behavior: ダウンロードの処理方法
-    Open in web browser: Web ブラウザで開く
-    Download in app: アプリでダウンロード
   Parental Control Settings:
     Hide Search Bar: 検索バーの非表示
     Parental Control Settings: 制限付きモード
@@ -737,9 +730,6 @@ Video:
   Shuffle Playlist: 再生リストをシャッフル
   Loop Playlist: 再生リストのループ
   Starting soon, please refresh the page to check again: すぐに再生されます、ページを再読み込みしてお待ちください
-  audio only: '音声のみ'
-  video only: '映像のみ'
-  Download Video: '動画のダウンロード'
   Copy Invidious Channel Link: Invidious チャンネルへのリンクのコピー
   Open Channel in Invidious: Invidious でチャンネル表示
   Copy YouTube Channel Link: YouTube チャンネルへのリンクのコピー
@@ -998,9 +988,6 @@ Search Bar:
   Clear Input: 入力の消去
   Remove: 削除
 Are you sure you want to open this link?: このリンクを開きますか？
-Starting download: '"{videoTitle}" のダウンロードを開始します'
-Downloading has completed: '"{videoTitle}" のダウンロードが完了しました'
-Downloading failed: '"{videoTitle}" のダウンロード中に問題が発生しました'
 Channels:
   Channels: チャンネル
   Title: チャンネル一覧

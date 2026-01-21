@@ -589,13 +589,6 @@ Settings:
         Name: Nenhum
     Ignore Default Arguments: Ignorar argumentos padrão
   The app needs to restart for changes to take effect. Restart and apply change?: Tem que reiniciar a aplicação para aplicar as alterações. Reiniciar e aplicar alterações?
-  Download Settings:
-    Download Settings: Descargas
-    Ask Download Path: Perguntar local para guardar
-    Choose Path: Escolher local
-    Download in app: Descarregar no FreeTube
-    Open in web browser: Abrir no navegador de Internet
-    Download Behavior: Como descarregar
   Parental Control Settings:
     Hide Unsubscribe Button: Ocultar botão "Cancelar subscrição"
     Show Family Friendly Only: Mostrar apenas "Para famílias"
@@ -811,9 +804,6 @@ Video:
     High: Alta
     Medium: Média
     Low: Baixa
-  audio only: apenas áudio
-  video only: apenas vídeo
-  Download Video: Descarregar vídeo
   Copy Invidious Channel Link: Copiar hiperligação do canal do Invidious
   Open Channel in Invidious: Abrir canal no Invidious
   Copy YouTube Channel Link: Copiar hiperligação do canal do YouTube
@@ -1002,9 +992,6 @@ Search Bar:
   Remove: Remover
 Are you sure you want to open this link?: Tem a certeza de que deseja abrir esta ligação?
 External link opening has been disabled in the general settings: A abertura de hiperligações externas foi desativada nas definições
-Starting download: A descarregar "{videoTitle}"
-Downloading failed: Ocorreu um erro ao descarregar "{videoTitle}"
-Downloading has completed: '"{videoTitle}" foi descarregado'
 Screenshot Success: Captura de ecrã guardada
 Screenshot Error: Erro ao capturar o ecrã. {error}
 New Window: Nova janela

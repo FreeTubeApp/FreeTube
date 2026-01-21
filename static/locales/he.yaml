@@ -595,13 +595,6 @@ Settings:
     UseDeArrowTitles: להשתמש בכותרות סרטונים דרך DeArrow
     UseDeArrowThumbnails: השתמש ב-DeArrow לתמונות מיניאטורה
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': כתובת API של DeArrow Thumbnail Generator (ברירת מחדל היא https://dearrow-thumb.ajay.app)
-  Download Settings:
-    Download Settings: הורדה
-    Ask Download Path: לשאול מה נתיב ההורדות
-    Choose Path: בחירת נתיב
-    Download Behavior: התנהגות הורדה
-    Download in app: הורדה ביישומון
-    Open in web browser: פתיחה בדפדפן
   Parental Control Settings:
     Parental Control Settings: בקרת הורים
     Hide Search Bar: הסתרת סרגל החיפוש
@@ -787,9 +780,6 @@ Video:
     In less than a minute: עוד פחות מדקה
   Published on: 'פורסם'
 #& Videos
-  audio only: שמע בלבד
-  video only: סרטון בלבד
-  Download Video: להוריד סרטון
   Copy Invidious Channel Link: העתקת קישור ערוץ ה־Invidious
   Open Channel in Invidious: פתיחת הערוץ ב־Invidious
   Copy YouTube Channel Link: העתקת קישור ערוץ ה־YouTube
@@ -1002,9 +992,6 @@ Unknown YouTube url type, cannot be opened in app: סוג כתובת לא ידו
 Default Invidious instance has been set to {instance}: עותק Invidious שהוגדר כברירת מחדל הוא {instance}
 Default Invidious instance has been cleared: נוקתה העדפת עותק ברירת המחדל של Invidious
 External link opening has been disabled in the general settings: פתיחת הקישורים החיצוניים מושבתת בהגדרות הכלליות
-Downloading failed: אירעה שגיאה בהורדת "{videoTitle}"
-Starting download: 'ההורדה של „{videoTitle}” החלה'
-Downloading has completed: 'ההורדה של „{videoTitle}” הסתיימה'
 Playing Next Video Interval: הסרטון הבא יתחיל מייד. לחיצה לביטול. | הסרטון הבא יתנגן בעוד שנייה. לחיצה לביטול. | הסרטון הבא יתנגן בעוד {nextVideoInterval} שניות. לחיצה לביטול.
 Screenshot Success: צילום המסך נשמר
 Screenshot Error: צילום המסך נכשל. {error}

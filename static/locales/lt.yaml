@@ -368,13 +368,6 @@ Settings:
       Do Nothing: Nieko nedaryti
       Show In Seek Bar: Rodyti peržiūros progreso juostoje
     Category Color: Kategorija spalva
-  Download Settings:
-    Download Settings: Atsisiuntimo nustatymai
-    Ask Download Path: Klausti atsisiuntimo kelio
-    Choose Path: Pasirinkite kelią
-    Download Behavior: Atsisiuntimo elgsena
-    Download in app: Atsisiųsti programėlėje
-    Open in web browser: Atidaryti žiniatinklio naršyklėje
   Parental Control Settings:
     Parental Control Settings: Tėvų kontrolės nustatymai
     Hide Unsubscribe Button: Slėpti prenumeratos atšaukimo mygtuką
@@ -510,9 +503,6 @@ Video:
   Live Chat is currently not supported in this build.: 'Šioje versijoje tiesioginė diskusija kol kas nepalaikoma.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Tiesioginė diskusija yra įgalinta.  Čia bus rodomi pokalbio pranešimai.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Tiesioginė diskusija šiuo metu nepalaikoma naudojant Invidious API. Būtinas tiesioginis ryšys su YouTube.'
-  Download Video: 'Atsisiųsti vaizdo įrašą'
-  video only: 'tik video'
-  audio only: 'tik audio'
   Published:
     In less than a minute: prieš mažiau nei minutę
   Published on: 'Publikuota'
@@ -653,9 +643,6 @@ Channels:
   Count: rastas (-i) {number} kanalas (-ai).
   Empty: Jūsų kanalų sąrašas šiuo metu tuščias.
   Unsubscribe Prompt: Ar tikrai norite atšaukti {channelName} prenumeratą?
-Downloading has completed: „{videoTitle}“ atsisiuntimas baigtas
-Starting download: Pradedamas „{videoTitle}“ atsisiuntimas
-Downloading failed: Atsisiunčiant „{videoTitle}“ kilo problema
 Screenshot Success: Ekrano kopija išsaugota kaip „{filePath}“
 Screenshot Error: Ekrano kopija nepavyko. {error}
 Chapters:

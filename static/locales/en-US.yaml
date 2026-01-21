@@ -673,13 +673,6 @@ Settings:
     Hide Uploader on Watch page: Hide Uploader on Watch page
     Show Family Friendly Only: Show Family Friendly Only
     Hide Search Bar: Hide Search Bar
-  Download Settings:
-    Download Settings: Download
-    Ask Download Path: Ask for download path
-    Choose Path: Choose Path
-    Download Behavior: Download Behavior
-    Download in app: Download in app
-    Open in web browser: Open in web browser
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
@@ -889,9 +882,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'Live Chat is unavailable for this stream. It may have been disabled by the uploader.'
   Show Super Chat Comment: Show Super Chat Comment
   Scroll to Bottom: Scroll to Bottom
-  Download Video: Download Video
-  video only: video only
-  audio only: audio only
   Published:
     In less than a minute: In less than a minute
   Published on: Published on
@@ -1131,9 +1121,6 @@ Age Restricted:
   This channel is age restricted: This channel is age restricted
   This video is age restricted: This video is age restricted
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
-Downloading has completed: '"{videoTitle}" has finished downloading'
-Starting download: 'Starting download of "{videoTitle}"'
-Downloading failed: 'There was an issue downloading "{videoTitle}"'
 Screenshot Success: Saved screenshot
 Screenshot Error: Screenshot failed. {error}
 Channel Hidden: '{channel} added to channel filter'

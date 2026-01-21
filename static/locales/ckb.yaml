@@ -502,13 +502,6 @@ Settings:
     Hide Unsubscribe Button: ''
     Show Family Friendly Only: ''
     Hide Search Bar: 'شاردنەوەی میلی گەڕان'
-  Download Settings:
-    Download Settings: 'داگرتن'
-    Ask Download Path: 'لە شوێنی دابەزاندن بپرسە'
-    Choose Path: ''
-    Download Behavior: ''
-    Download in app: 'لەناو کاربەرنامە دایبەزێنە'
-    Open in web browser: ''
   Experimental Settings:
     Experimental Settings: ''
     Warning: ''
@@ -680,9 +673,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
   Show Super Chat Comment: ''
   Scroll to Bottom: ''
-  Download Video: 'داگرتنی ڤیدیۆ'
-  video only: 'تەنیا ڤیدیۆ'
-  audio only: 'تەنیا دەنگ'
   Published:
     In less than a minute: ''
   Published on: 'بڵاوکرایەوە لە'
@@ -833,9 +823,6 @@ Default Invidious instance has been set to {instance}: ''
 Default Invidious instance has been cleared: ''
 'The playlist has ended. Enable loop to continue playing': ''
 External link opening has been disabled in the general settings: ''
-Downloading has completed: ''
-Starting download: ''
-Downloading failed: ''
 Screenshot Success: ''
 Screenshot Error: ''
 

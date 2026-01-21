@@ -596,13 +596,6 @@ Settings:
     UseDeArrowTitles: Use DeArrow video titles
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Thumbnail Generator API URL (Default is https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Use DeArrow for thumbnails
-  Download Settings:
-    Download Settings: Download
-    Ask Download Path: Ask for download path
-    Choose Path: Choose path
-    Download Behavior: Download behaviour
-    Open in web browser: Open in web browser
-    Download in app: Download in app
   Parental Control Settings:
     Hide Unsubscribe Button: Hide Unsubscribe button
     Parental Control Settings: Parental Control
@@ -789,9 +782,6 @@ Video:
 #& Videos
   Started streaming on: Started streaming on
   Streamed on: Streamed on
-  audio only: audio only
-  video only: video only
-  Download Video: Download Video
   Copy Invidious Channel Link: Copy the link of this Invidious Channel
   Open Channel in Invidious: Open this Channel in Invidious
   Copy YouTube Channel Link: Copy the Link of this YouTube Channel
@@ -1009,9 +999,6 @@ Search Bar:
   Remove: Remove
 External link opening has been disabled in the general settings: External link opening has been disabled in the general settings
 Are you sure you want to open this link?: Are you sure you want to open this link?
-Downloading has completed: '‘{videoTitle}’ has finished downloading'
-Starting download: Starting download of ‘{videoTitle}’
-Downloading failed: There was an issue downloading ‘{videoTitle}’
 Screenshot Error: Screenshot failed. {error}
 Screenshot Success: Saved screenshot
 New Window: New window

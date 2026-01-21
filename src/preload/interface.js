@@ -118,20 +118,16 @@ export default {
     return ipcRenderer.invoke(IpcChannels.GENERATE_PO_TOKEN, videoId, context)
   },
 
-  /**
-   * @param {0 | 1} kind
-   */
-  chooseDefaultFolder: (kind) => {
-    ipcRenderer.send(IpcChannels.CHOOSE_DEFAULT_FOLDER, kind)
+  chooseDefaultFolder: () => {
+    ipcRenderer.send(IpcChannels.CHOOSE_DEFAULT_FOLDER)
   },
 
   /**
-   * @param {0 | 1} kind
    * @param {string} filename
    * @param {ArrayBuffer} contents
    */
-  writeToDefaultFolder: async (kind, filename, contents) => {
-    await ipcRenderer.invoke(IpcChannels.WRITE_TO_DEFAULT_FOLDER, kind, filename, contents)
+  writeToDefaultFolder: async (filename, contents) => {
+    await ipcRenderer.invoke(IpcChannels.WRITE_TO_DEFAULT_FOLDER, filename, contents)
   },
 
   /**

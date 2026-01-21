@@ -297,10 +297,7 @@ Settings:
     Distraction Free Settings: Configuració del mode sense distraccions
     Hide Popular Videos: Amaga els vídeos populars
     Hide Videos on Watch: 'Oculta els vídeos visualitzats'
-  Download Settings:
-    Choose Path: Escull el camí
-    Download Settings: Configuració de les descàrregues
-    Ask Download Path: Demaneu la ruta de descàrrega
+
 About:
   #On About page
   About: 'Quant a'
@@ -436,7 +433,6 @@ Video:
     playlist: llista de reproducció
     UnsupportedActionTemplate: '{externalPlayer} no suporta: {action}'
   Save Video: Desa el Vídeo
-  audio only: només àudio
   Video has been saved: El vídeo s'ha desat
   Video has been removed from your saved list: S'ha suprimit el vídeo de la llista desada
   Open Channel in YouTube: Obri Canal a YouTube
@@ -444,8 +440,6 @@ Video:
   Open Channel in Invidious: Obra el canal a Invidious
   Copy Invidious Channel Link: Copia l'enllaç del canal d'Invidious
   Starting soon, please refresh the page to check again: Començant prompte, si us plau recàrrega la pàgina per comprovar-ho de nou
-  Download Video: Descàrrega El Vídeo
-  video only: només vídeo
   Streamed on: Retransmès en directe el
 #& Playlists
 Playlist:

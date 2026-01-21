@@ -208,9 +208,6 @@ Default Invidious instance has been cleared: 'طے شدہ Invidious instance ک�
   فعال کھیل جاری رکھنے کے لیے لوپ'
 External link opening has been disabled in the general settings: 'عام ترتیبات میں
   بیرونی لنک کھولنے کو غیر فعال کر دیا گیا ہے'
-Downloading has completed: '"{videoTitle}" نے ڈاؤن لوڈ مکمل کر لیا ہے'
-Starting download: '"{videoTitle}" کا ڈاؤن لوڈ شروع ہو رہا ہے'
-Downloading failed: '"{videoTitle}" کو ڈاؤن لوڈ کرنے میں ایک مسئلہ تھا'
 Screenshot Error: 'اسکرین شاٹ ناکام ہو گیا۔ {error}'
 Version {versionNumber} is now available!  Click for more details: ورژن {versionNumber}
   اب دستیاب ہے! . . مزید تفصیلات کے لیے کلک کریں

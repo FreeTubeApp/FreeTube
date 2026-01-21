@@ -595,13 +595,6 @@ Settings:
     Show Family Friendly Only: Chỉ hiển thị nội dung thân thiện với gia đình
     Hide Search Bar: Ẩn thanh tìm kiếm
     Hide Uploader on Watch page: Ẩn Người tải lên trên trang Xem
-  Download Settings:
-    Download Behavior: Hành vi tải xuống
-    Download in app: Tải xuống trong ứng dụng
-    Open in web browser: Mở trên trình duyệt
-    Ask Download Path: Yêu cầu đường dẫn tải xuống
-    Choose Path: Chọn đường dẫn
-    Download Settings: Tải xuống
   Password Dialog:
     Password: Mật khẩu
     Enter Password To Unlock: Nhập mật khẩu để mở cài đặt
@@ -733,9 +726,6 @@ Video:
   Video has been marked as watched: Video đánh dấu đã xem
   Remove From History: Xóa khỏi lịch sử
   Mark As Watched: Đánh dấu đã xem
-  audio only: Chỉ âm thanh
-  video only: Chỉ video
-  Download Video: Tải video
   Starting soon, please refresh the page to check again: Sắp bắt đầu, vui lòng refresh trang để kiểm tra
   Autoplay: Tự động phát
   Previous: Trước
@@ -1004,15 +994,12 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Tắt bộ nhớ đệm HTTP dựa trên đĩa của Electron và bật bộ nhớ đệm hình ảnh trong bộ nhớ tùy chỉnh. Sẽ dẫn đến việc sử dụng RAM tăng lên.
 Playing Next Video Interval: Phát video tiếp theo ngay lập tức. Nhấn vào để hủy. | Phát video tiếp theo sau {nextVideoInterval} giây nữa. Nhấn vào để hủy. | Phát video tiếp theo sau {nextVideoInterval} giây. Nhấn vào để hủy.
-Downloading has completed: '"{videoTitle}" đã hoàn tất quá trình tải xuống'
 External link opening has been disabled in the general settings: Tính năng mở liên kết bên ngoài đã bị tắt trong cài đặt chung
-Downloading failed: Đã xảy ra sự cố trong quá trình tải xuống "{videoTitle}"
 Default Invidious instance has been cleared: Phiên bản Invidious mặc định đã bị xóa
 Screenshot Success: Ảnh chụp màn hình đã lưu
 Screenshot Error: Chụp màn hình không thành công. {error}
 Default Invidious instance has been set to {instance}: Phiên bản Invidious mặc định đã được đặt thành {instance}
 Unknown YouTube url type, cannot be opened in app: Dạng YouTube URL không xác định, không thể mở trong ứng dụng này
-Starting download: Bắt đầu tải xuống "{videoTitle}"
 Ok: Ok
 Clipboard:
   Copy failed: Sao chép vào bộ nhớ tạm thất bại
