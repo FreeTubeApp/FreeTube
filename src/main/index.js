@@ -275,6 +275,9 @@ function runApp() {
   process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
   const isDebug = process.argv.includes('--debug')
 
+  // Add support for Wayland IME
+  app.commandLine.appendSwitch('enable-wayland-ime')
+
   let mainWindow
   let startupUrl
   let tray = null
