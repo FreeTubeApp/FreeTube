@@ -392,7 +392,12 @@ Settings:
     All playlists have been removed: هەموو پێڕستەکانی لێدان سڕایەوە
     Are you sure you want to clear out your search history and cache?: دڵنیایت لە سڕینەوەی حەشارگە و مێژووی گەڕان؟
     Search history and cache have been cleared: حەشارگە و مێژووی گەڕان سڕایەوە
-    Are you sure you want to remove all your playlists?: دڵنیات لە سڕینەوەی هەموو پێڕستەکانی لێدان؟
+    Are you sure you want to remove all your playlists?: دڵنیایت لە سڕینەوەی هەموو پێڕستەکانی لێدان؟
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: خۆکار
+        Semi-auto: نیمچە خۆکار
+        Never: هەرگیز
   Subscription Settings:
     Subscription Settings: ''
     Fetch Feeds from RSS: ''
@@ -407,9 +412,9 @@ Settings:
       Watch Page: 'پەڕەی تەمەشاکردن'
       General: 'گشتی'
     Hide Video Views: 'شاردنەوەی ژمارەی بینینەکانی ڤیدیۆ'
-    Hide Video Likes And Dislikes: ''
+    Hide Video Likes And Dislikes: 'شاردنەوەی بەدڵبوون و نەبوونی ڤیدیۆ'
     Hide Channel Subscribers: ''
-    Hide Comment Likes: ''
+    Hide Comment Likes: 'شاردنەوەی بەدڵبوونەکانی سەرنج'
     Hide Recommended Videos: 'شاردنەوەی ڤیدیۆ پێشنیازکراوەکان'
     Hide Trending Videos: 'شاردنەوەی ڤیدیۆ باوەکان'
     Hide Popular Videos: 'شاردنەوەی ڤیدیۆ جەماوەرییەکان'
@@ -418,7 +423,7 @@ Settings:
     Hide Active Subscriptions: ''
     Hide Video Description: 'شاردنەوەی پێناسەی ڤیدیۆ'
     Hide Comments: 'شاردنەوەی لێدوانەکان'
-    Hide Profile Pictures in Comments: ''
+    Hide Profile Pictures in Comments: 'شاردنەوەی وێنەی لادیمەن لە سەرنجەکان'
     Display Titles Without Excessive Capitalisation: ''
     Hide Live Streams: 'شاردنەوەی پەخشە ڕاستەوخۆکان'
     Hide Upcoming Premieres: ''
@@ -470,6 +475,7 @@ Settings:
     Unknown data key: ''
     How do I import my subscriptions?: ''
     Manage Subscriptions: ''
+    Search history: مێژووی گەڕان
   Proxy Settings:
     Proxy Settings: 'پێشکار'
     Enable Tor / Proxy: 'کاراکردنی تۆر / پێشکار'
@@ -484,6 +490,8 @@ Settings:
     Region: 'هەرێم'
     City: 'شار'
     Error getting network information. Is your proxy configured properly?: ''
+    Proxy Password: تێپەڕەوشەی پێشکار
+    Proxy Username: ناوی بەکارهێنەری پێشکار
   SponsorBlock Settings:
     SponsorBlock Settings: ''
     Enable SponsorBlock: ''
