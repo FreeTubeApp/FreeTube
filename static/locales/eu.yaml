@@ -859,6 +859,9 @@ Video:
 #& Playlists
   Save Watched Progress: Gorde ikusitako aurrerapena
   Watched Progress Saved: Ikusitako aurrerapena gordeta
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Aurre-iragarkiaren gainerako denbora: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'SABR atzerapen denbora geratzen da: {remindingTimeSeconds}s'
 Playlist:
   #& About
   View Full Playlist: 'Ikusi erreprodukzio-zerrenda osoa'
