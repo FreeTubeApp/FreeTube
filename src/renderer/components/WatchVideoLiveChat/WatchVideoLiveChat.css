@@ -266,6 +266,7 @@
 }
 
 .popoutChatIcon {
+  inline-size: 1em;
   pointer-events: none;
 }
 

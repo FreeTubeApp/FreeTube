@@ -57,6 +57,7 @@
         </h4>
         <a
           :href="`https://www.youtube.com/live_chat?is_popout=1&v=${props.videoId}`"
+          :aria-label="t('Video.Popout Live Chat')"
           :title="t('Video.Popout Live Chat')"
           target="_blank"
           class="popoutChatButton"
@@ -64,9 +65,7 @@
           <FontAwesomeIcon
             class="popoutChatIcon"
             :icon="['fas', 'fa-arrow-up-right-from-square']"
-          >
-            {{ t("Video.Popout Live Chat") }}
-          </FontAwesomeIcon>
+          />
         </a>
       </div>
       <div
