@@ -17,7 +17,7 @@ jobs:
     # If a fork does need this workflow, they can change this condition in their fork to include their repository.
     if: github.repository == 'FreeTubeApp/FreeTube'
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
 
     permissions:
       issues: write
