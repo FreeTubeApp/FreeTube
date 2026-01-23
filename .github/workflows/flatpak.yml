@@ -6,8 +6,10 @@ name: Create Flatpak PR
 # or API.
 on:
   workflow_dispatch:
-  release:
-    types: [published]
+  # Disable running automatically as we now use flathub's external data checker
+  # to automatically open pull requests when we release updates
+  # release:
+  #   types: [published]
 
 permissions: {}
 
@@ -20,7 +22,7 @@ jobs:
       contents: read
 
     steps:
-    - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
       with:
         repository: flathub/io.freetubeapp.FreeTube
         token: ${{ secrets.FLATHUB_TOKEN }}
@@ -51,9 +53,11 @@ jobs:
         v: ''
     - name: Create Release Branch
       shell: bash
+      env:
+        VERSION: ${{ steps.sub.outputs.result }}
       run: |
-        git checkout -b release-v${{ steps.sub.outputs.result }}
-        git push --set-upstream origin release-v${{ steps.sub.outputs.result }}
+        git checkout -b "release-v${VERSION}"
+        git push --set-upstream origin "release-v${VERSION}"
     - name: Download x64 Release
       uses: fabriciobastian/download-release-asset-action@35e62aa5a2fe4a6ec79004f6052918349013ae4f #v1.0.6
       with:
@@ -67,54 +71,72 @@ jobs:
         repository: FreeTubeApp/FreeTube
         file: freetube-${{ steps.sub.outputs.result }}-beta-linux-arm64-portable.zip
     - name: Set x64 Hash Variable
-      id: hash-x64
+      id: hash_x64
       shell: bash
+      env:
+        VERSION: ${{ steps.sub.outputs.result }}
       run: |
-        echo 'HASH_X64<<EOF' >> $GITHUB_ENV
-        sha256sum freetube-${{ steps.sub.outputs.result }}-beta-linux-x64-portable.zip | awk '{print $1}' >> $GITHUB_ENV
-        echo 'EOF' >> $GITHUB_ENV
+        echo 'HASH_X64<<EOF' >> "$GITHUB_OUTPUT"
+        sha256sum "freetube-${VERSION}-beta-linux-x64-portable.zip" | awk '{print $1}' >> "$GITHUB_OUTPUT"
+        echo 'EOF' >> "$GITHUB_OUTPUT"
     - name: Set ARM Hash Variable
-      id: hash-arm64
+      id: hash_arm64
       shell: bash
+      env:
+        VERSION: ${{ steps.sub.outputs.result }}
       run: |
-        echo 'HASH_ARM64<<EOF' >> $GITHUB_ENV
-        sha256sum freetube-${{ steps.sub.outputs.result }}-beta-linux-arm64-portable.zip | awk '{print $1}' >> $GITHUB_ENV
-        echo 'EOF' >> $GITHUB_ENV
+        echo 'HASH_ARM64<<EOF' >> "$GITHUB_OUTPUT"
+        sha256sum "freetube-${VERSION}-beta-linux-arm64-portable.zip" | awk '{print $1}' >> "$GITHUB_OUTPUT"
+        echo 'EOF' >> "$GITHUB_OUTPUT"
+
     - name: Set Date Variable
-      id: current-date
+      id: current_date
       shell: bash
       run: |
-        echo 'CURRENT_DATE<<EOF' >> $GITHUB_ENV
-        date +"%Y-%m-%d" >> $GITHUB_ENV
-        echo 'EOF' >> $GITHUB_ENV
+        echo 'CURRENT_DATE<<EOF' >> "$GITHUB_OUTPUT"
+        date +"%Y-%m-%d" >> "$GITHUB_OUTPUT"
+        echo 'EOF' >> "$GITHUB_OUTPUT"
     - name: Update x64 File Location in yml File
-      uses: mikefarah/yq@065b200af9851db0d5132f50bc10b1406ea5c0a8 #v4.50.1
-      with:
-        # The Command which should be run
-        cmd: yq -i '.modules[0].sources[0].url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-beta-linux-x64-portable.zip"' io.freetubeapp.FreeTube.yml
+      shell: bash
+      env:
+        VERSION: steps.sub.outputs.result
+      run: |
+        yq -i '.modules[0].sources[0].url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v" + strenv(VERSION) + "-beta/freetube-" + strenv(VERSION) + "-beta-linux-x64-portable.zip"' io.freetubeapp.FreeTube.yml
+
     - name: Update x64 Hash in yml File
-      uses: mikefarah/yq@065b200af9851db0d5132f50bc10b1406ea5c0a8 #v4.50.1
-      with:
-        # The Command which should be run
-        cmd: yq -i '.modules[0].sources[0].sha256 = "${{ env.HASH_X64 }}"' io.freetubeapp.FreeTube.yml
+      shell: bash
+      env:
+        HASH_X64: ${{ steps.hash_x64.outputs.HASH_X64 }}
+      run: |
+        yq -i '.modules[0].sources[0].sha256 = strenv(HASH_X64)' io.freetubeapp.FreeTube.yml
+
     - name: Update ARM File Location in yml File
-      uses: mikefarah/yq@065b200af9851db0d5132f50bc10b1406ea5c0a8 #v4.50.1
-      with:
-        # The Command which should be run
-        cmd: yq -i '.modules[0].sources[1].url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v${{ steps.sub.outputs.result }}-beta/freetube-${{ steps.sub.outputs.result }}-beta-linux-arm64-portable.zip"' io.freetubeapp.FreeTube.yml
+      shell: bash
+      env:
+        VERSION: steps.sub.outputs.result
+      run: |
+        yq -i '.modules[0].sources[1].url = "https://github.com/FreeTubeApp/FreeTube/releases/download/v" + strenv(VERSION) + "-beta/freetube-" + strenv(VERSION) + "-beta-linux-arm64-portable.zip"' io.freetubeapp.FreeTube.yml
+
     - name: Update ARM Hash in yml File
-      uses: mikefarah/yq@065b200af9851db0d5132f50bc10b1406ea5c0a8 #v4.50.1
-      with:
-        # The Command which should be run
-        cmd: yq -i '.modules[0].sources[1].sha256 = "${{ env.HASH_ARM64 }}"' io.freetubeapp.FreeTube.yml
+      shell: bash
+      env:
+        HASH_ARM64: ${{ steps.hash_arm64.outputs.HASH_ARM64 }}
+      run: |
+        yq -i '.modules[0].sources[1].sha256 = strenv(HASH_ARM64)' io.freetubeapp.FreeTube.yml
+
     - name: Add Patch Notes to XML File
       shell: bash
-      run: xmlstarlet ed -L -i /component/releases/release[1] -t elem -n releaseTMP -v "" -i //releaseTMP -t attr -n version -v "${{ steps.sub.outputs.result }} Beta" -i //releaseTMP -t attr -n date -v "${{ env.CURRENT_DATE }}" -s //releaseTMP -t elem -n url -v "" -s //releaseTMP/url -t text -n "" -v "https://github.com/FreeTubeApp/FreeTube/releases/tag/v${{ steps.sub.outputs.result }}-beta" -r //releaseTMP -v "release" io.freetubeapp.FreeTube.metainfo.xml
+      env:
+        CURRENT_DATE: ${{ steps.current_date.outputs.current_date }}
+        VERSION: ${{ steps.sub.outputs.result }}
+      run: xmlstarlet ed -L -i /component/releases/release[1] -t elem -n releaseTMP -v "" -i //releaseTMP -t attr -n version -v "${VERSION} Beta" -i //releaseTMP -t attr -n date -v "${CURRENT_DATE}" -s //releaseTMP -t elem -n url -v "" -s //releaseTMP/url -t text -n "" -v "https://github.com/FreeTubeApp/FreeTube/releases/tag/v${VERSION}-beta" -r //releaseTMP -v "release" io.freetubeapp.FreeTube.metainfo.xml
     - name: Remove Release Files
       shell: bash
+      env:
+        VERSION: ${{ steps.sub.outputs.result }}
       run: |
-        rm freetube-${{ steps.sub.outputs.result }}-beta-linux-x64-portable.zip
-        rm freetube-${{ steps.sub.outputs.result }}-beta-linux-arm64-portable.zip
+        rm "freetube-${VERSION}-beta-linux-x64-portable.zip"
+        rm "freetube-${VERSION}-beta-linux-arm64-portable.zip"
     - name: Commit Files
       uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 #v7.1.0
       with:
@@ -132,4 +154,5 @@ jobs:
       shell: bash
       env:
         GH_TOKEN: ${{ secrets.FLATHUB_TOKEN }}
-      run: gh pr create --title "Release v${{ steps.sub.outputs.result }}" --body "This is an automated PR for the v${{ steps.sub.outputs.result }} release. This PR will be updated and merged once testing is complete."
+        VERSION: ${{ steps.sub.outputs.result }}
+      run: gh pr create --title "Release v${VERSION}" --body "This is an automated PR for the v${VERSION} release. This PR will be updated and merged once testing is complete."

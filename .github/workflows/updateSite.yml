@@ -20,7 +20,7 @@ jobs:
       contents: read
 
     steps:
-    - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 #v6.0.1
+    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
       with:
         repository: FreeTubeApp/FreeTubeApp.io
         token: ${{ secrets.FLATHUB_TOKEN }}
@@ -60,8 +60,11 @@ jobs:
         git checkout master
     - name: Update index.php
       shell: bash
+      env:
+        CURRENT: ${{ steps.current.outputs.result }}
+        PREVIOUS: ${{ steps.previous.outputs.result }}
       run: |
-        sed -i 's/${{ steps.previous.outputs.result  }}/${{ steps.current.outputs.result }}/g' src/index.php
+        sed -i "s/${PREVIOUS}/${CURRENT}/g" src/index.php
     - name: Commit Files
       uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 #v7.1.0
       with:

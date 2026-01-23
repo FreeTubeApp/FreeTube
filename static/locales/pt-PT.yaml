@@ -591,13 +591,6 @@ Settings:
     Hide Unsubscribe Button: Ocultar botão "Cancelar subscrição"
     Show Family Friendly Only: Mostrar apenas "Para famílias"
     Hide Uploader on Watch page: Ocultar Nome do Autor na página de Reprodução de Vídeo
-  Download Settings:
-    Open in web browser: Abrir no navegador de Internet
-    Ask Download Path: Perguntar local para guardar
-    Choose Path: Escolher local
-    Download Behavior: Como descarregar
-    Download in app: Descarregar no FreeTube
-    Download Settings: Descargas
   Experimental Settings:
     Experimental Settings: Experimentais
     Warning: Estas definições são experimentais e podem provocar falhas se ativadas. É altamente recomendado fazer cópias de segurança. Use por sua conta e risco!
@@ -773,9 +766,6 @@ Video:
   Live Chat is currently not supported in this build.: A conversa em direto não é permitida nesta versão.
   Live chat is enabled. Chat messages will appear here once sent.: A conversa em direto está ativada. As mensagens vão aparecer aqui.
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Atualmente, a conversa em direto não é suportada pela API Invidious. É necessária uma conexão direta ao YouTube.
-  Download Video: Descarregar vídeo
-  video only: apenas vídeo
-  audio only: apenas áudio
   Published:
     In less than a minute: Em menos de um minuto
   Published on: Publicado a
@@ -999,9 +989,6 @@ Channels:
   Count: '{number} canais encontrados.'
   Empty: A lista de canais está vazia.
   Unsubscribe Prompt: Tem a certeza de que pretende cancelar a subscrição em "{channelName}"?
-Downloading has completed: '"{videoTitle}" foi descarregado'
-Starting download: A descarregar "{videoTitle}"
-Downloading failed: Ocorreu um erro ao descarregar "{videoTitle}"
 Screenshot Success: Captura de ecrã guardada
 Screenshot Error: Erro ao capturar o ecrã. {error}
 Chapters:

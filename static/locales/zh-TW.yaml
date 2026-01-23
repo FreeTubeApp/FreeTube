@@ -588,13 +588,6 @@ Settings:
       None:
         Name: 無
     Ignore Default Arguments: 忽略預設引數
-  Download Settings:
-    Download Settings: 下載
-    Ask Download Path: 詢問下載路徑
-    Choose Path: 選擇路徑
-    Download in app: 在應用程式中下載
-    Open in web browser: 在網路瀏覽器中開啟
-    Download Behavior: 下載行為
   Parental Control Settings:
     Hide Unsubscribe Button: 隱藏取消訂閱按鈕
     Show Family Friendly Only: 僅顯示適合家庭觀看
@@ -615,6 +608,9 @@ Settings:
     Enter Password To Unlock: 輸入密碼以解鎖設定
   Sort Settings Sections (A-Z): 對設定區塊進行排序 (A-Z)
   Return to Settings Menu: 回到設定選單
+  SABR:
+    Label: 啟用 SABR 作為 DASH 後端
+    Tooltip: SABR 將在未來版本成為唯一的 DASH 後端，且無法停用。此切換功能僅供早期實作出現無法修復的問題時使用。
 About:
   #On About page
   About: '關於'
@@ -738,9 +734,6 @@ Video:
   Shuffle Playlist: 隨機播放清單
   Loop Playlist: 循環播放清單
   Starting soon, please refresh the page to check again: 影片即將開始，請重新整理頁面以再次檢查是否有更新
-  audio only: 僅音訊
-  video only: 僅影片
-  Download Video: 下載影片
   Copy Invidious Channel Link: 複製 Invidious 頻道連結
   Open Channel in Invidious: 在 Invidious 開啟頻道
   Copy YouTube Channel Link: 複製 YouTube 頻道連結
@@ -821,6 +814,9 @@ Video:
   DRMProtected: 受 DRM 保護的影片無法在 FreeTube 上播放，因為它們需要專屬的封閉原始碼元件。如果您想觀賞此影片，請使用支援 DRM 的網路瀏覽器在 YouTube 官方網站觀賞。
   Save Watched Progress: 儲存觀看進度
   Watched Progress Saved: 觀看進度已儲存
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 剩餘前置廣告時間：{remindingTimeSeconds}秒
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 剩餘 SABR 後退時間：{remindingTimeSeconds}秒
 Playlist:
   #& About
   View Full Playlist: '觀看完整播放清單'
@@ -999,9 +995,6 @@ Search Bar:
   Remove: 移除
 External link opening has been disabled in the general settings: 已在一般設定中停用外部連結開啟
 Are you sure you want to open this link?: 您確定您想要開啟此連結嗎？
-Downloading failed: 下載「{videoTitle}」時發生問題
-Downloading has completed: 「{videoTitle}」已下載結束
-Starting download: 正在開始下載「{videoTitle}」
 Screenshot Success: 已儲存螢幕截圖
 Screenshot Error: 螢幕截圖失敗。 {error}
 New Window: 新視窗

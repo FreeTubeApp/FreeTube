@@ -8,7 +8,6 @@ import js from '@eslint/js'
 import jsoncEslintParser from 'jsonc-eslint-parser'
 import eslintPluginJsonc from 'eslint-plugin-jsonc'
 import eslintPluginYml from 'eslint-plugin-yml'
-import yamlEslintParser from 'yaml-eslint-parser'
 // Faster than importing the default import,
 // because the default import imports a lot of other dependencies
 // for the `resolveIgnoresFromGitignore` function that we don't use
@@ -169,17 +168,13 @@ export default [
     },
   },
 
-  ...eslintPluginYml.configs['flat/recommended'],
+  ...eslintPluginYml.configs.recommended,
   {
     files: ['**/*.{yml,yaml}'],
     ignores: [
       '.github/',
       '_scripts/'
     ],
-
-    languageOptions: {
-      parser: yamlEslintParser,
-    },
 
     rules: {
       'yml/no-irregular-whitespace': 'off',
@@ -195,10 +190,6 @@ export default [
   },
   {
     files: ['.github/**/*.{yml,yaml}'],
-
-    languageOptions: {
-      parser: yamlEslintParser,
-    },
 
     rules: {
       'yml/no-empty-mapping-value': 'off',

@@ -580,13 +580,6 @@ Settings:
     Players:
       None:
         Name: Bat ere ez
-  Download Settings:
-    Download Settings: Deskargak
-    Ask Download Path: Deskargaren ibilbidea galdetu
-    Choose Path: Ibilbidea hautatu
-    Download Behavior: Deskargen portaera
-    Open in web browser: Nabigatzailean ireki
-    Download in app: Aplikazioetan deskargatu
   SponsorBlock Settings:
     Skip Options:
       Prompt To Skip: Saltatzeko abisua
@@ -789,9 +782,6 @@ Video:
   Live Chat is currently not supported in this build.: 'Zuzeneko txata ez da oraindik onartzen konpilazio honetan.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Zuzeneko txata gaituta dago. Txat-mezuak bidalitakoan hemen agertuko dira.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Zuzeneko txata ez da onartzen Invidious APIarekin. Beharrezkoa da  YouTube-ra zuzenean konektatzea.'
-  Download Video: 'Bideoa deskargatu'
-  video only: 'Bideoa soilik'
-  audio only: 'Audioa soilik'
   Published:
     In less than a minute: Minutu bat baino gutxiagoan
   Published on: 'Noiz argitaratua'
@@ -869,6 +859,9 @@ Video:
 #& Playlists
   Save Watched Progress: Gorde ikusitako aurrerapena
   Watched Progress Saved: Ikusitako aurrerapena gordeta
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Aurre-iragarkiaren gainerako denbora: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'SABR atzerapen denbora geratzen da: {remindingTimeSeconds}s'
 Playlist:
   #& About
   View Full Playlist: 'Ikusi erreprodukzio-zerrenda osoa'
@@ -1003,12 +996,9 @@ Open New Window: Leiho berria ireki
 Default Invidious instance has been set to {instance}: 'Lehenetsitako Individious-eko instantzia {instance} gisa ezarri da'
 Default Invidious instance has been cleared: Lehenetsitako Individious-eko instantzia ezabatu egin da
 External link opening has been disabled in the general settings: Kanpo estekak irekitzea desaktibatu egin da ezarpen orokorretan
-Downloading has completed: '"{videoTitle}" deskargatu egin da'
 Unknown YouTube url type, cannot be opened in app: Youtube-ko URL mota ezezaguna, ezin da aplikazioan ireki
-Downloading failed: Akats bat gertatu da "{videoTitle}" deskargatzerakoan
 Screenshot Success: Pantaila-argazkia gode da
 Screenshot Error: Pantaila-argazkiak huts egin du. {error}
-Starting download: '"{videoTitle}"-ren deskarga abiatzen'
 New Window: Leiho berria
 Channels:
   Channels: Kanalak

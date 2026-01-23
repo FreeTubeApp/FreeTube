@@ -604,13 +604,6 @@ Settings:
   Password Dialog:
     Password: Lösenord
     Enter Password To Unlock: Ange lösenord för att låsa upp inställningar
-  Download Settings:
-    Ask Download Path: Välj nerladdningsmapp varje gång
-    Download Settings: Nerladdning
-    Choose Path: Välj Sökväg
-    Download in app: Ladda ner i appen
-    Download Behavior: Nerladdningsalternativ
-    Open in web browser: Öppna i webbläsare
   Password Settings:
     Remove Password: Ta bort lösenord
     Password Settings: Lösenord
@@ -786,9 +779,6 @@ Video:
     In less than a minute: Mindre än en minut
   Published on: 'Publicerad den'
 #& Videos
-  audio only: endast ljud
-  video only: endast video
-  Download Video: Ladda ner video
   Copy Invidious Channel Link: Kopiera Invidious Kanal Länk
   Open Channel in Invidious: Öppna kanalen i Invidious
   Copy YouTube Channel Link: Kopiera YouTube-kanallänk
@@ -1020,9 +1010,6 @@ Clipboard:
 Chapters:
   Chapters: Kapitel
   Key Moments: Viktiga Ögonblick
-Downloading has completed: '"{videoTitle}" har laddats ner'
-Starting download: Påbörjar nerladdning av "{videoTitle}"
-Downloading failed: Det uppstod ett problem med nerladdning av "{videoTitle}"
 Hashtag:
   Hashtag: Hashtaggar
   This hashtag does not currently have any videos: Den här hashtaggen har för närvarande inga videor

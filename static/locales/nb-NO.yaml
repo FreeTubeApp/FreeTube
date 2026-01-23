@@ -591,13 +591,6 @@ Settings:
       None:
         Name: Ingen
     Ignore Default Arguments: Ignorer standardargumenter
-  Download Settings:
-    Choose Path: Velg mappe
-    Download Settings: Nedlastning
-    Download in app: Last ned i programmet
-    Open in web browser: Åpne i nettleser
-    Download Behavior: Nedlastingsadferd
-    Ask Download Path: Spør om nedlastingsmappe
   Parental Control Settings:
     Parental Control Settings: Foreldrekontroll
     Hide Search Bar: Skjul søkefeltet
@@ -734,9 +727,6 @@ Video:
     In less than a minute: Om mindre enn ett minutt
   Published on: 'Publisert'
 #& Videos
-  audio only: bare lyd
-  video only: bare video
-  Download Video: Last ned video
   Video has been saved: Videoen har blitt lagret
   Save Video: Lagre video
   Copy Invidious Channel Link: Kopier Invidious-kanallenke
@@ -1016,12 +1006,9 @@ Screenshot Success: Lagret skjermbilde
 Screenshot Error: Skjermavbildning mislyktes. {error}
 Ok: OK
 Preferences: Innstillinger
-Downloading failed: Kunne ikke laste ned «{videoTitle}»
-Starting download: Starter nedlasting av «{videoTitle}»
 Clipboard:
   Cannot access clipboard without a secure connection: Får ikke tilgang til utklippstavlen uten sikker forbindelse
   Copy failed: Kunne ikke kopiere til utklippstavlen
-Downloading has completed: «{videoTitle}» har blitt lastet ned
 Hashtag:
   Hashtag: Emneknagg
   This hashtag does not currently have any videos: Denne emneknaggen har ingen videoer enda

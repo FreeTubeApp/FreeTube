@@ -13,10 +13,10 @@ Paste: 'הדבקה'
 Delete: 'מחיקה'
 Select all: 'בחירה בהכול'
 Toggle Developer Tools: 'הפעלת / השבתת כלים למפתחים'
-Actual size: 'גודל מקורי'
-Zoom in: 'הגדלה'
-Zoom out: 'הקטנה'
-Toggle fullscreen: 'כניסה / יציאה ממסך מלא'
+Actual size: 'גודל בפועל'
+Zoom in: 'התקרבות'
+Zoom out: 'התרחקות'
+Toggle fullscreen: 'מיתוג ממסך מלא'
 Window: 'חלון'
 Minimize: 'מזעור'
 Close: 'סגירה'
@@ -41,7 +41,7 @@ Global:
     Like Count: לייק | {count} לייקים
     Comment Count: תגובה | {count} תגובות
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber} זמינה מעתה!  לחיצה תציג פרטים נוספים'
-Download From Site: 'הורדה מהאתר'
+Download From Site: 'הורדה מאתר'
 A new blog is now available, {blogTitle}. Click to view more: 'בלוג חדש זמין, {blogTitle}. לחיצה תציג פרטים נוספים'
 
 # Search Bar
@@ -595,13 +595,6 @@ Settings:
     UseDeArrowTitles: להשתמש בכותרות סרטונים דרך DeArrow
     UseDeArrowThumbnails: השתמש ב-DeArrow לתמונות מיניאטורה
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': כתובת API של DeArrow Thumbnail Generator (ברירת מחדל היא https://dearrow-thumb.ajay.app)
-  Download Settings:
-    Download Settings: הורדה
-    Ask Download Path: לשאול מה נתיב ההורדות
-    Choose Path: בחירת נתיב
-    Download Behavior: התנהגות הורדה
-    Download in app: הורדה ביישומון
-    Open in web browser: פתיחה בדפדפן
   Parental Control Settings:
     Parental Control Settings: בקרת הורים
     Hide Search Bar: הסתרת סרגל החיפוש
@@ -787,9 +780,6 @@ Video:
     In less than a minute: עוד פחות מדקה
   Published on: 'פורסם'
 #& Videos
-  audio only: שמע בלבד
-  video only: סרטון בלבד
-  Download Video: להוריד סרטון
   Copy Invidious Channel Link: העתקת קישור ערוץ ה־Invidious
   Open Channel in Invidious: פתיחת הערוץ ב־Invidious
   Copy YouTube Channel Link: העתקת קישור ערוץ ה־YouTube
@@ -1002,9 +992,6 @@ Unknown YouTube url type, cannot be opened in app: סוג כתובת לא ידו
 Default Invidious instance has been set to {instance}: עותק Invidious שהוגדר כברירת מחדל הוא {instance}
 Default Invidious instance has been cleared: נוקתה העדפת עותק ברירת המחדל של Invidious
 External link opening has been disabled in the general settings: פתיחת הקישורים החיצוניים מושבתת בהגדרות הכלליות
-Downloading failed: אירעה שגיאה בהורדת "{videoTitle}"
-Starting download: 'ההורדה של „{videoTitle}” החלה'
-Downloading has completed: 'ההורדה של „{videoTitle}” הסתיימה'
 Playing Next Video Interval: הסרטון הבא יתחיל מייד. לחיצה לביטול. | הסרטון הבא יתנגן בעוד שנייה. לחיצה לביטול. | הסרטון הבא יתנגן בעוד {nextVideoInterval} שניות. לחיצה לביטול.
 Screenshot Success: צילום המסך נשמר
 Screenshot Error: צילום המסך נכשל. {error}
@@ -1126,3 +1113,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: דילוג לסרטון הבא ברשימת הנגינה או הסרטון המומלץ הבא
   Skip to Previous Video: דילוג לסרטון הקודם ברשימת הנגינה
 shortcutLabelSeparator: ｜
+Compact side navigation: ניווט צד מצומצם
+Expand side navigation: הרחבת ניווט צד

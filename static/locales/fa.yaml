@@ -566,13 +566,6 @@ Settings:
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API URL (پیش‌فرض https://sponsor.ajay.app است)
     UseDeArrowThumbnails: استفاده از افزونه DeArrow برای ریز‌عکسها
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': رابط آدرس سازنده ریز‌عکس DeArrow (پیش‌فرض https://dearrow-thumb.ajay.app است)
-  Download Settings:
-    Download in app: دانلود از طریق برنامه
-    Open in web browser: در مرورگر وب باز کنید
-    Download Settings: بارگیری
-    Ask Download Path: هربار مسیر دانلود را سوال کند
-    Choose Path: مکان ذخیره دانلود را انتخاب کنید
-    Download Behavior: روش دانلود
   Parental Control Settings:
     Hide Unsubscribe Button: پنهان کردن دکمه لغو اشتراک
     Show Family Friendly Only: نمایش فقط دوستانه برای خانواده
@@ -679,7 +672,6 @@ Video:
   Copy YouTube Channel Link: لینک کانال یوتیوب را کپی کنید
   Views: دیده شده ها
   Live Chat is currently not supported in this build.: گفتگوی زنده در حال حاضر در این ساخت پشتیبانی نمی شود.
-  video only: فقط ویدیو
   Sponsor Block category:
     sponsor: حامی
     intro: معرفی
@@ -694,7 +686,6 @@ Video:
   Save Video: ذخیره ویدیو
   Open in Invidious: در Invidious باز کنید
   Video has been removed from your saved list: ویدیو از لیست ذخیره شده شما حذف شده است
-  Download Video: دانلود ویدیو
   Open in YouTube: در یوتیوب باز کنید
   Next: بعدی
   Open Channel in Invidious: کانال را در Invidious باز کنید
@@ -711,7 +702,6 @@ Video:
   Enable Live Chat: فعال کردن چت زنده
   Streamed on: پخش جریانی
   Published on: منتشر شده در
-  audio only: فقط صدا
   Video has been saved: ویدیو ذخیره شده است
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': گفتگوی زنده در حال حاضر با Invidious API پشتیبانی نمی شود. اتصال مستقیم به YouTube مورد نیاز است.
   Premieres: نخستین نمایش
@@ -957,7 +947,6 @@ Profile:
   Close Profile Dropdown: بستن نمایه کشویی
 Screenshot Success: عکس‌صفحه ذخیره شد
 Ok: تایید
-Downloading has completed: دانلود '{videoTitle}' به پایان رسید
 Loop is now enabled: حلقه اکنون فعال است
 Shuffle is now enabled: Shuffle اکنون فعال است
 Falling back to Invidious API: بازگشت به Invidious API
@@ -969,10 +958,8 @@ Falling back to Local API: بازگشت به API محلی
 This video is unavailable because of missing formats. This can happen due to country unavailability.: این ویدیو به دلیل عدم وجود قالب در دسترس نیست. این ممکن است به دلیل در دسترس نبودن کشور اتفاق بیفتد.
 Playing Previous Video: پخش ویدیوی قبلی
 Default Invidious instance has been set to {instance}: نمونه پیش‌فرض Invidious روی {instance} تنظیم شده است
-Starting download: شروع دانلود «{videoTitle}»
 Yes: بلی
 Invidious API Error (Click to copy): خطای Invidious API (برای کپی کلیک کنید)
-Downloading failed: مشکلی در بارگیری «{videoTitle}» وجود داشت
 No: خیر
 Playlist:
   Last Updated On: آخرین بروز رسانی در تاریخ

@@ -588,13 +588,6 @@ Settings:
       None:
         Name: Aucun
     Ignore Default Arguments: Ignorer les arguments par défaut
-  Download Settings:
-    Download Settings: 'Téléchargement'
-    Ask Download Path: 'Demander l’emplacement de téléchargement'
-    Choose Path: 'Choisir l’emplacement'
-    Download Behavior: Méthode de téléchargement
-    Download in app: Via l’application
-    Open in web browser: Ouvrir dans le navigateur web
   Parental Control Settings:
     Hide Unsubscribe Button: Masquer le bouton de désabonnement
     Hide Search Bar: Masquer la barre de recherche
@@ -615,6 +608,9 @@ Settings:
     Password Settings: Mot de passe
   Sort Settings Sections (A-Z): Trier de À à Z les rubriques des paramètres
   Return to Settings Menu: Revenir au Menu paramètres
+  SABR:
+    Label: Activer SABR comme backend DASH
+    Tooltip: SABR deviendra le seul moteur DASH dans les prochaines versions et ne pourra pas être désactivé. Cette option est disponible au cas où une implémentation préliminaire présenterait des problèmes irrémédiables.
 About:
   #On About page
   About: 'À propos'
@@ -738,9 +734,6 @@ Video:
   Shuffle Playlist: Mélanger la playlist
   Loop Playlist: Playlist en boucle
   Starting soon, please refresh the page to check again: Débute prochainement, veuillez actualiser la page pour vérifier à nouveau
-  audio only: audio uniquement
-  video only: vidéo uniquement
-  Download Video: Télécharger la vidéo
   Copy Invidious Channel Link: Copier le lien Invidious de la chaîne
   Open Channel in Invidious: Ouvrir la chaîne sur Invidious
   Copy YouTube Channel Link: Copier le lien de la chaîne YouTube
@@ -821,6 +814,9 @@ Video:
 #& Playlists
   Save Watched Progress: Enregistrer l'état de visionnage
   Watched Progress Saved: État de visionnage enregistré
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Temps de publicité pré-roll restant : {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Temps d’attente SABR restant : {remindingTimeSeconds}s'
 Playlist:
   #& About
   View Full Playlist: 'Afficher la playlist complète'
@@ -999,11 +995,6 @@ Search Bar:
   Remove: Retirer
 Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
 External link opening has been disabled in the general settings: L'ouverture des liens externes a été désactivée dans les paramètres généraux
-Downloading has completed: '{videoTitle} a fini de se télécharger'
-Starting download: 'Début du téléchargement de {videoTitle}'
-Downloading failed: 'Il y a eu un problème lors du téléchargement de {videoTitle}'
-Downloading canceled: 'Le téléchargement est annulé par l''utilisateur'
-Download folder does not exist: 'Le répertoire "$" de téléchargement n''existe pas. Mode sans répertoire activé.'
 Screenshot Success: Capture d'écran enregistrée
 Screenshot Error: La capture d’écran a échoué. {error}
 New Window: Nouvelle fenêtre

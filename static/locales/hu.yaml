@@ -595,13 +595,6 @@ Settings:
       None:
         Name: Nincs
     Ignore Default Arguments: Alapértelmezett argumentumok mellőzése
-  Download Settings:
-    Ask Download Path: Rákérdezés a letöltés elérési útjára
-    Choose Path: Elérési út kiválasztása
-    Download Settings: Letöltés
-    Download Behavior: Letöltés viselkedése
-    Open in web browser: Megnyitás böngészőben
-    Download in app: Letöltés az alkalmazásban
   Parental Control Settings:
     Parental Control Settings: Szülői felügyelet
     Show Family Friendly Only: Csak a családbarát videók megjelenítése
@@ -622,6 +615,9 @@ Settings:
     Remove Password: Jelszó eltávolítása
   Sort Settings Sections (A-Z): Beállítások rendezése (A-Z)
   Return to Settings Menu: Vissza a „Beállítások” menübe
+  SABR:
+    Label: SABR engedélyezése mint DASH-háttérprogram
+    Tooltip: A SABR lesz az egyetlen DASH-háttérprogram a jövőbeli kiadásokban, és nem lehet majd letiltani. Ez a kapcsoló arra az esetre szolgál, ha a korai megvalósítása helyrehozhatatlan problémákat okozna.
 About:
   #On About page
   About: 'Névjegy'
@@ -786,9 +782,6 @@ Video:
     In less than a minute: Kevesebb, mint egy perce
   Published on: 'Megjelent'
 #& Videos
-  audio only: csak hang
-  video only: csak videó
-  Download Video: Videó letöltése
   Copy Invidious Channel Link: Invidious csatorna hivatkozása másolása
   Copy YouTube Channel Link: YouTube-csatorna hivatkozás másolása
   Open Channel in YouTube: Csatorna megnyitása a YouTube-on
@@ -869,6 +862,9 @@ Video:
 #& Playlists
   Save Watched Progress: Megtekintett videó folyamatának mentése
   Watched Progress Saved: Megtekintett videó folyamata elmentve
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Hátralévő előzetes hirdetési idő: {remindingTimeSeconds} mp'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Hátralévő várakozási idő a SABR-re: {remindingTimeSeconds} mp'
 Playlist:
   #& About
   View Full Playlist: 'Teljes lejátszási lista megtekintése'
@@ -1010,9 +1006,6 @@ Channels:
   Count: '{number} csatorna találat.'
   Empty: A csatornalistája jelenleg üres.
   Unsubscribe Prompt: Biztosan le szeretne iratkozni a(z) „{channelName}” csatornáról?
-Downloading failed: Hiba történt a(z) „{videoTitle}” letöltésekor
-Starting download: „{videoTitle}” letöltésének indítása
-Downloading has completed: A(z) „{videoTitle}” letöltése befejeződött
 Screenshot Success: Képernyőkép elmentve
 Chapters:
   Chapters: Fejezetek
@@ -1126,4 +1119,4 @@ KeyboardShortcutPrompt:
   Skip to Previous Video: Ugrás a lejátszási lista előző videójára
 shortcutLabelSeparator: ｜
 Compact side navigation: Kompakt oldalsó navigáció
-Expand side navigation: Oldal navigáció kibontása
+Expand side navigation: Oldalsó navigáció kibontása

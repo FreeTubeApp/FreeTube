@@ -56,9 +56,9 @@
                 listItem: option.type !== 'divider',
                 active: option.active
               }"
-              @click="handleDropdownClick({ url: option.value, index: index })"
-              @keydown.enter="handleDropdownClick({ url: option.value, index: index })"
-              @keydown.space="handleDropdownClick({ url: option.value, index: index })"
+              @click="handleDropdownClick(option.value)"
+              @keydown.enter="handleDropdownClick(option.value)"
+              @keydown.space="handleDropdownClick(option.value)"
             >
               {{ option.type === 'divider' ? '' : option.label }}
             </li>
@@ -97,9 +97,9 @@
                 listItem: option.type !== 'divider',
                 active: option.active
               }"
-              @click="handleDropdownClick({ url: option.value, index: index })"
-              @keydown.enter="handleDropdownClick({ url: option.value, index: index })"
-              @keydown.space="handleDropdownClick({ url: option.value, index: index })"
+              @click="handleDropdownClick(option.value)"
+              @keydown.enter="handleDropdownClick(option.value)"
+              @keydown.space="handleDropdownClick(option.value)"
             >
               <div class="checkmarkColumn">
                 <FontAwesomeIcon
@@ -152,10 +152,6 @@ const props = defineProps({
     default: 20
   },
   forceDropdown: {
-    type: Boolean,
-    default: false
-  },
-  returnIndex: {
     type: Boolean,
     default: false
   },
@@ -289,12 +285,8 @@ function handleDropdownEscape() {
   ftIconButton.value?.firstElementChild?.focus()
 }
 
-function handleDropdownClick({ url, index }) {
-  if (props.returnIndex) {
-    emit('click', index)
-  } else {
-    emit('click', url)
-  }
+function handleDropdownClick(value) {
+  emit('click', value)
 
   dropdownShown.value = false
 }

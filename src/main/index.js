@@ -13,7 +13,6 @@ import {
   SyncEvents,
   ABOUT_BITCOIN_ADDRESS,
   KeyboardShortcuts,
-  DefaultFolderKind,
   SEARCH_CHAR_LIMIT,
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
@@ -804,6 +803,15 @@ function runApp() {
         })
       },
       {
+        label: 'Show All Windows',
+        click: () => {
+          // Use while loop instead of for loop as trayClick modifies the trayWindows array
+          while (trayWindows.length > 0) {
+            trayClick(trayWindows[0])
+          }
+        }
+      },
+      {
         label: 'Quit',
         click: handleQuit
       }
@@ -1308,17 +1316,17 @@ function runApp() {
     }
   })
 
-  ipcMain.on(IpcChannels.CHOOSE_DEFAULT_FOLDER, async (event, kind) => {
-    if (!isFreeTubeUrl(event.senderFrame.url) || (kind !== DefaultFolderKind.DOWNLOADS && kind !== DefaultFolderKind.SCREENSHOTS)) {
+  ipcMain.on(IpcChannels.CHOOSE_DEFAULT_FOLDER, async (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
       return
     }
 
-    const settingId = kind === DefaultFolderKind.DOWNLOADS ? 'downloadFolderPath' : 'screenshotFolderPath'
+    const settingId = 'screenshotFolderPath'
 
     let currentPath = (await baseHandlers.settings._findOne(settingId))?.value
 
     if (typeof currentPath !== 'string' || currentPath.length === 0) {
-      currentPath = app.getPath(kind === DefaultFolderKind.DOWNLOADS ? 'downloads' : 'pictures')
+      currentPath = app.getPath('pictures')
     }
 
     const dialogOptions = {
@@ -1356,24 +1364,21 @@ function runApp() {
     })
   })
 
-  ipcMain.handle(IpcChannels.WRITE_TO_DEFAULT_FOLDER, async (event, kind, filename, arrayBuffer) => {
+  ipcMain.handle(IpcChannels.WRITE_TO_DEFAULT_FOLDER, async (event, filename, arrayBuffer) => {
     if (
       !isFreeTubeUrl(event.senderFrame.url) ||
-      (kind !== DefaultFolderKind.DOWNLOADS && kind !== DefaultFolderKind.SCREENSHOTS) ||
       typeof filename !== 'string' ||
       !(arrayBuffer instanceof ArrayBuffer)) {
       return
     }
 
-    const settingId = kind === DefaultFolderKind.DOWNLOADS ? 'downloadFolderPath' : 'screenshotFolderPath'
-
-    const folderPath = (await baseHandlers.settings._findOne(settingId))?.value
+    const folderPath = (await baseHandlers.settings._findOne('screenshotFolderPath'))?.value
 
     let directory
     if (typeof folderPath === 'string' && folderPath.length > 0) {
       directory = folderPath
     } else {
-      directory = path.join(app.getPath(kind === DefaultFolderKind.DOWNLOADS ? 'downloads' : 'pictures'), 'FreeTube')
+      directory = path.join(app.getPath('pictures'), 'FreeTube')
     }
 
     directory = path.normalize(directory)
@@ -1567,9 +1572,9 @@ function runApp() {
           return await baseHandlers.settings.find()
 
         case DBActions.GENERAL.UPSERT:
-          // These two are only allowed to be changed by the CHOOSE_DEFAULT_FOLDER IPC action
+          // This one is only allowed to be changed by the CHOOSE_DEFAULT_FOLDER IPC action
           // to avoid the "write to default folder" IPC calls being abused to write to arbitrary locations
-          if (data._id === 'downloadFolderPath' || data._id === 'screenshotFolderPath') {
+          if (data._id === 'screenshotFolderPath') {
             return null
           }
 

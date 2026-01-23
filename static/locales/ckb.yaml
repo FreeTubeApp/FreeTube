@@ -48,6 +48,7 @@ Global:
 # Search Bar
     Comment Count: ١ توانج | {count} توانج
     Like Count: ١ بەدڵبوون | {count} بەدڵبوون
+  Posts: بڵاوکراوەکان
 Search / Go to URL: 'گەڕان/ بڕۆ بۆ ئرڵ'
 Search Bar:
   Clear Input: 'سڕینەوەی نووسراو'
@@ -107,7 +108,7 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   Disabled Automatic Fetching: ''
   Empty Channels: 'کەناڵە بەشداربووەکانت هێشتا هیچ ڤیدیۆیەکیان نییە.'
-  Empty Posts: ''
+  Empty Posts: 'کەناڵە بەشداربووەکانت هێشتا هیچ بڵاوکراوەیەکیان نییە.'
   Load More Videos: 'ڤیدیۆی زۆرتر بار بکە'
   Load More Posts: 'بڵاوکراوەی زۆرتر بار بکە'
   Subscriptions Tabs: ''
@@ -124,6 +125,7 @@ Trending:
   Trending: 'باو'
   Gaming: 'یاری'
   Trending Tabs: ''
+  Sports: وەرزش
 Most Popular: 'باوترین'
 Playlists: 'پێڕستی لێدانەکان'
 User Playlists:
@@ -185,6 +187,8 @@ User Playlists:
       "Video(s) added to {playlistCount} playlists": ""
     Allow Adding Duplicate Video(s): ڕێ بە زیادکردنی ڤیدیۆی دووبارە بدە
     N playlists selected: '{playlistCount} دیاریکراوە'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} ڤیدیۆ زیاد دەکرێتن'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} ڤیدیۆ زیاد کراینە'
   CreatePlaylistPrompt:
     New Playlist Name: ناوی پێڕستی لێدانی نوێ
     Create: درووستکردن
@@ -194,6 +198,8 @@ User Playlists:
       There was an issue with creating the playlist.: هەڵەیەک ڕوویدا لە درووستکردنی پێڕستی لێدانەکە.
   Are you sure you want to delete this playlist? This cannot be undone: دڵنیایت لە سڕینەوەی ئەم پێڕستی لێدانە؟ چونکە ناگەڕێندرێتەوە.
   Playlist Description: پێناسەی پێڕستی لێدان
+  Playlists with Matching Videos: پێڕستەکانی لێدان لەگەڵ ڤیدیۆ هاوتاکان
+  TotalTimePlaylist: 'سەرجەمی کات: {duration}'
 History:
   # On History Page
   History: 'مێژوو'
@@ -386,7 +392,12 @@ Settings:
     All playlists have been removed: هەموو پێڕستەکانی لێدان سڕایەوە
     Are you sure you want to clear out your search history and cache?: دڵنیایت لە سڕینەوەی حەشارگە و مێژووی گەڕان؟
     Search history and cache have been cleared: حەشارگە و مێژووی گەڕان سڕایەوە
-    Are you sure you want to remove all your playlists?: دڵنیات لە سڕینەوەی هەموو پێڕستەکانی لێدان؟
+    Are you sure you want to remove all your playlists?: دڵنیایت لە سڕینەوەی هەموو پێڕستەکانی لێدان؟
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: خۆکار
+        Semi-auto: نیمچە خۆکار
+        Never: هەرگیز
   Subscription Settings:
     Subscription Settings: ''
     Fetch Feeds from RSS: ''
@@ -401,9 +412,9 @@ Settings:
       Watch Page: 'پەڕەی تەمەشاکردن'
       General: 'گشتی'
     Hide Video Views: 'شاردنەوەی ژمارەی بینینەکانی ڤیدیۆ'
-    Hide Video Likes And Dislikes: ''
+    Hide Video Likes And Dislikes: 'شاردنەوەی بەدڵبوون و نەبوونی ڤیدیۆ'
     Hide Channel Subscribers: ''
-    Hide Comment Likes: ''
+    Hide Comment Likes: 'شاردنەوەی بەدڵبوونەکانی سەرنج'
     Hide Recommended Videos: 'شاردنەوەی ڤیدیۆ پێشنیازکراوەکان'
     Hide Trending Videos: 'شاردنەوەی ڤیدیۆ باوەکان'
     Hide Popular Videos: 'شاردنەوەی ڤیدیۆ جەماوەرییەکان'
@@ -412,7 +423,7 @@ Settings:
     Hide Active Subscriptions: ''
     Hide Video Description: 'شاردنەوەی پێناسەی ڤیدیۆ'
     Hide Comments: 'شاردنەوەی لێدوانەکان'
-    Hide Profile Pictures in Comments: ''
+    Hide Profile Pictures in Comments: 'شاردنەوەی وێنەی لادیمەن لە سەرنجەکان'
     Display Titles Without Excessive Capitalisation: ''
     Hide Live Streams: 'شاردنەوەی پەخشە ڕاستەوخۆکان'
     Hide Upcoming Premieres: ''
@@ -464,6 +475,7 @@ Settings:
     Unknown data key: ''
     How do I import my subscriptions?: ''
     Manage Subscriptions: ''
+    Search history: مێژووی گەڕان
   Proxy Settings:
     Proxy Settings: 'پێشکار'
     Enable Tor / Proxy: 'کاراکردنی تۆر / پێشکار'
@@ -478,6 +490,8 @@ Settings:
     Region: 'هەرێم'
     City: 'شار'
     Error getting network information. Is your proxy configured properly?: ''
+    Proxy Password: تێپەڕەوشەی پێشکار
+    Proxy Username: ناوی بەکارهێنەری پێشکار
   SponsorBlock Settings:
     SponsorBlock Settings: ''
     Enable SponsorBlock: ''
@@ -496,13 +510,6 @@ Settings:
     Hide Unsubscribe Button: ''
     Show Family Friendly Only: ''
     Hide Search Bar: 'شاردنەوەی میلی گەڕان'
-  Download Settings:
-    Download Settings: 'داگرتن'
-    Ask Download Path: 'لە شوێنی دابەزاندن بپرسە'
-    Choose Path: ''
-    Download Behavior: ''
-    Download in app: 'لەناو کاربەرنامە دایبەزێنە'
-    Open in web browser: ''
   Experimental Settings:
     Experimental Settings: ''
     Warning: ''
@@ -674,9 +681,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
   Show Super Chat Comment: ''
   Scroll to Bottom: ''
-  Download Video: 'داگرتنی ڤیدیۆ'
-  video only: 'تەنیا ڤیدیۆ'
-  audio only: 'تەنیا دەنگ'
   Published:
     In less than a minute: ''
   Published on: 'بڵاوکرایەوە لە'
@@ -827,9 +831,6 @@ Default Invidious instance has been set to {instance}: ''
 Default Invidious instance has been cleared: ''
 'The playlist has ended. Enable loop to continue playing': ''
 External link opening has been disabled in the general settings: ''
-Downloading has completed: ''
-Starting download: ''
-Downloading failed: ''
 Screenshot Success: ''
 Screenshot Error: ''
 

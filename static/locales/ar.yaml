@@ -579,13 +579,6 @@ Settings:
       None:
         Name: لاشيء
     Ignore Default Arguments: تجاهل الحجج الافتراضية
-  Download Settings:
-    Download Settings: التنزيل
-    Choose Path: اختر المسار
-    Ask Download Path: اطلب مسار التنزيل
-    Download Behavior: سلوك التحميل
-    Open in web browser: فتح في متصفح الويب
-    Download in app: تحميل في التطبيق
   Parental Control Settings:
     Hide Search Bar: إخفاء شريط البحث
     Parental Control Settings: الرقابة الأبوية
@@ -770,9 +763,6 @@ Video:
   Shuffle Playlist: ‮خلط قائمة التشغيل
   Loop Playlist: تكرار قائمة التشغيل
   Starting soon, please refresh the page to check again: سيبدأ قريباً ، يرجى تحديث الصفحة للتحقق مرة أخرى
-  audio only: الصوت فقط
-  video only: الفيديو فقط
-  Download Video: تحميل الفيديو
   Started streaming on: بدأ البث على
   Streamed on: تبث على
   Copy Invidious Channel Link: انسخ رابط قناة انفيديوس
@@ -985,10 +975,6 @@ Search Bar:
   Remove: إزالة
 External link opening has been disabled in the general settings: تم تعطيل فتح الارتباط الخارجي في الإعدادات العامة
 Are you sure you want to open this link?: هل أنت متأكد أنك تريد فتح هذا الرابط؟
-Downloading has completed: 'انتهى تنزيل "{videoTitle}"'
-Downloading failed: حدثت مشكلة أثناء تنزيل "{videoTitle}"
-Downloading canceled: تم إلغاء التحميل من قبل المستخدم
-Starting download: بدء تنزيل "{videoTitle}"
 Screenshot Success: تم حفظ لقطة الشاشة
 Screenshot Error: فشل أخذ لقطة للشاشة. {error}
 New Window: نافذة جديدة
