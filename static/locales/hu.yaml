@@ -865,6 +865,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Hátralévő előzetes hirdetési idő: {remindingTimeSeconds} mp'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Hátralévő várakozási idő a SABR-re: {remindingTimeSeconds} mp'
+  Popout Live Chat: Felugró csevegés
 Playlist:
   #& About
   View Full Playlist: 'Teljes lejátszási lista megtekintése'
