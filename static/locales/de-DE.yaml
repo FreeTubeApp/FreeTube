@@ -813,6 +813,10 @@ Video:
 #& Playlists
   Save Watched Progress: Videofortschritt speichern
   Watched Progress Saved: Videofortschritt gespeichert
+  Popout Live Chat: Öffnet ein neues Browserfenster mit dem aktuellen Video-Live-Chat
+  Watch:
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Verbleibende SABR Wartezeit: {remindingTimeSeconds}s'
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Verbleibende Werbezeit: {remindingTimeSeconds}s'
 Playlist:
   #& About
   View Full Playlist: Vollständige Playlist ansehen
