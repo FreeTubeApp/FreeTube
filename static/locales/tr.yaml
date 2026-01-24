@@ -865,6 +865,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Kalan ön reklam süresi: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Kalan SABR bekleme süresi: {remindingTimeSeconds}s'
+  Popout Live Chat: Açılır Sohbet
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'
