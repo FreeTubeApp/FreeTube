@@ -862,6 +862,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Tími sem eftir er af forkeyrslu auglýsingar: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tími sem eftir er af bakkeyrslu SABR: {remindingTimeSeconds}s'
+  Popout Live Chat: Spjall í sprettglugga
 Playlist:
   #& About
   View Full Playlist: 'Sjá allan spilunarlistann'
