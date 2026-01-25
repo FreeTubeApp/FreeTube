@@ -859,6 +859,10 @@ Video:
   AgeRestricted: Video yang dibatasi usia tidak dapat ditonton dengan FreeTube karena memerlukan login Google dan menggunakan akun YouTube yang diverifikasi usianya.
   Save Watched Progress: Simpan Progress Tontonan
   Watched Progress Saved: Progress Tontonan yang telah Disimpan
+  Popout Live Chat: Obrolan Popout
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Waktu iklan pra-putar yang tersisa: {remindingTimeSeconds}detik'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Waktu tunggu SABR yang tersisa: {remindingTimeSeconds}detik'
 Playlist:
   #& About
   View Full Playlist: 'Tampilkan Daftar Putar Penuh'
