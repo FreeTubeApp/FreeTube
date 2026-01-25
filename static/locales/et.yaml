@@ -861,6 +861,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Järelejäänud sisueelse reklaami aeg: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Järelejäänud aeg SABR-protokollist loobumiseks: {remindingTimeSeconds}s'
+  Popout Live Chat: Vestlus hüpikaknas
 Playlist:
   #& About
   View Full Playlist: 'Näita kogu esitusloendit'
