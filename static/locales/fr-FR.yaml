@@ -718,11 +718,11 @@ Video:
   # As in a Live Video
   Live: 'En direct'
   Live Now: 'En direct maintenant'
-  Live Chat: 'Tchat en direct'
-  Enable Live Chat: 'Activer le tchat en direct'
-  Live Chat is currently not supported in this build.: 'Le tchat en direct n''est actuellement pas pris en charge dans cette version.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Le tchat en direct est activé. Les messages de tchat apparaîtront ici une fois envoyés.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Le tchat en direct n''est actuellement pas pris en charge avec l''API Invidious. Une connexion directe à YouTube est requise.'
+  Live Chat: 'Chat en direct'
+  Enable Live Chat: 'Activer le chat en direct'
+  Live Chat is currently not supported in this build.: 'Le chat en direct n''est actuellement pas pris en charge dans cette version.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Le chat en direct est activé. Les messages apparaîtront ici une fois envoyés.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Le chat en direct n''est actuellement pas pris en charge avec l''API Invidious. Une connexion directe à YouTube est requise.'
   Published:
     In less than a minute: En moins d'une minute
   Published on: 'Mise en ligne le'
@@ -770,7 +770,7 @@ Video:
   Show Super Chat Comment: Afficher le commentaire Super Chat
   Scroll to Bottom: Faire défiler jusqu'en bas
   Upcoming: À venir
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Le chat en direct n'est pas disponible pour ce flux. Il a peut-être été désactivé par le téléchargeur.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Le chat en direct n'est pas disponible pour ce flux. Il a peut-être été désactivé par le diffuseur.
   Hide Channel: Cacher la chaîne
   Unhide Channel: Rétablir la chaîne
   More Options: Plus d'options
@@ -817,7 +817,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Temps de publicité pré-roll restant : {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Temps d’attente SABR restant : {remindingTimeSeconds}s'
-  Popout Live Chat: Discussion contextuelle
+  Popout Live Chat: Ouvrir le chat dans une nouvelle fenêtre
 Playlist:
   #& About
   View Full Playlist: 'Afficher la playlist complète'
