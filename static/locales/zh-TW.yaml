@@ -817,6 +817,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 剩餘前置廣告時間：{remindingTimeSeconds}秒
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 剩餘 SABR 後退時間：{remindingTimeSeconds}秒
+  Popout Live Chat: 彈出式聊天
 Playlist:
   #& About
   View Full Playlist: '觀看完整播放清單'
