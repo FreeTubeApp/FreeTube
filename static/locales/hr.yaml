@@ -107,6 +107,7 @@ Trending:
   Trending: 'U trendu'
   Trending Tabs: Kartice „U trendu”
   Gaming: Igre
+  Sports: Sportovi
 Most Popular: 'Najpopularniji'
 Playlists: 'Zbirke'
 User Playlists:
@@ -906,9 +907,10 @@ Comments:
   Pinned by: Prikvačio/la
   Member: Član
   Hearted: Omiljeno
-  View {replyCount} replies: Pogledaj {replyCount} odgovora
+  View {replyCount} replies: Pogledaj 1 odgovor | Pogledaj {replyCount} odgovora
   Subscribed: Pretplaćeno
   There are no comments available for this post: Za ovaj post nema komentara
+  Hide {replyCount} replies: Sakrij 1 odgovor | Sakrij {replyCount} odgovora
 Up Next: 'Sljedeći'
 
 # Toast Messages
