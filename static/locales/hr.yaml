@@ -29,7 +29,7 @@ Global:
   Videos: 'Videa'
   Shorts: Shorts videozapisi
   Live: Uživo
-  Posts: Postovi
+  Posts: Objave
   Sort By: Redoslijed
 
 # Search Bar
@@ -167,7 +167,7 @@ User Playlists:
     Save: Spremi
     Toast:
       You haven't selected any playlist yet.: Još nisi odabrao/la nijednu zbirku.
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Videa dodana u 1 zbirku | Videa dodana u {playlistCount} zbirke | Videa dodana u {playlistCount} zbirki"
     Select a playlist to add your N videos to: Odaberi zbirku za dodavanje tvog videa | Odaberi zbirku za dodavanje tvojih {videoCount} videa
     Added {count} Times: Već dodano | Dodano {count} puta
     Allow Adding Duplicate Video(s): Dozvoli dodavanje duplih videa
@@ -210,7 +210,7 @@ Settings:
     General Settings: 'Opće'
     Fallback to Non-Preferred Backend on Failure: 'U slučaju problema koristi sekundarni pozadinski sustav'
     Enable Search Suggestions: 'Aktiviraj prijedloge pretrage'
-    Default Landing Page: 'Standardna odredišna stranica'
+    Default Landing Page: 'Standardna početna stranica'
     Locale Preference: 'Jezik'
     Preferred API Backend:
       Preferred API Backend: 'Primarno sučelje'
@@ -275,6 +275,7 @@ Settings:
       Everforest Light Hard: Everforest svjetlo tvrdo
       Everforest Light Medium: Everforest svjetlo srednje
       Everforest Light Low: Everforest svjetlo nisko
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Glavna boja teme'
       Red: 'Crvena'
@@ -360,6 +361,8 @@ Settings:
       Everforest Light Aqua: Everforest svjetlo vodena
       Everforest Light Blue: Everforest svijetlo plava
       Everforest Light Purple: Everforest svijetlo ljubičasta
+      Catppuccin Latte Mauve: Catppuccin Latte ljubičasta
+      Catppuccin Latte Red: Catppuccin Latte crvena
     Secondary Color Theme: 'Sekundarna boja teme'
         #* Main Color Theme
     UI Scale: Uvećanje korisničkog sučelja
@@ -491,6 +494,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Ova opcija izvozi videa iz svih zbirki u jednu zbirku pod nazivom „Favoriti”.\nKako izvesti i uvesti videa u zbirkama za stariju FreeTube verziju:\n 1. Izvezi svoje zbirke s ovom opcijom aktiviranom.\n2. Izbriši sve svoje postojeće zbirke pomoću opcije „Ukloni sve zbirke” u postavkama privatnosti.\n3. Pokreni stariju FreeTube verziju i uvezi izvezene zbirke.\""
       Label: Izvezi zbirke za starije FreeTube verzije
+    Search history file: Datoteka povijesti pretraživanja
+    Search history: Povijest pretraživanja
+    Import search history: Uvezi povijesti pretraživanja
+    Export search history: Izvezi povijesti pretraživanja
+    All search history has been successfully imported: Sva povijest pretraživanja je uspješno uvezena
+    All search history has been successfully exported: Sva povijest pretraživanja je uspješno izvezena
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videa u trendu
     Hide Recommended Videos: Sakrij preporučena videa
@@ -537,8 +546,8 @@ Settings:
     Hide Channel Home: Sakrij karticu „Početna” kanala
     Show Added Items: Prikaži dodane stavke
     Hide Channel Courses: Sakrij karticu "Tečajevi" kanala
-    Hide Channel Posts: Sakrij karticu "Objave" kanala
-    Hide Subscriptions Posts: Sakrij pretplata objave
+    Hide Channel Posts: Sakrij karticu „Objave” kanala
+    Hide Subscriptions Posts: Sakrij objave o pretplatama
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
     Country: Zemlja
@@ -718,7 +727,7 @@ Channel:
     Hide Answers: Sakrij odgovore
     votes: '{votes} glasa'
     Video hidden by FreeTube: Video skriven od FreeTubea
-    View Full Post: Pogledaj cijeli post
+    View Full Post: Pogledaj cijelu objavu
     Viewing Posts Only Supported By Invidious: Prikazivanje postova podržava samo Invidious. Idi na karticu zajednice kanala za prikaz sadržaja bez Invidiousa.
   Shorts:
     This channel does not currently have any shorts: Ovaj kanal trenutačno nema kratka videa
@@ -846,6 +855,10 @@ Video:
 #& Playlists
   Watched Progress Saved: Napredak gledanja spremljen
   Save Watched Progress: Spremi napredak gledanja
+  Popout Live Chat: Skočni prozor za razgovor uživo
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Oglas završava za: {remindingTimeSeconds} s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Preostalo vrijeme prije ponovnog pokušaja: {remindingTimeSeconds} s'
 Playlist:
   #& About
   View Full Playlist: 'Pogledaj cijelu zbirku'
@@ -891,6 +904,7 @@ Share:
   YouTube Channel URL copied to clipboard: 'URL YouTube kanala kopiran je u međuspremnik'
   Invidious Channel URL copied to clipboard: 'URL Invidious kanala kopiran je u međuspremnik'
   Share Channel: Dijeli kanal
+  Share Post: Dijeli objavu
 Mini Player: 'Mali player'
 Comments:
   Comments: 'Komentari'
@@ -911,6 +925,8 @@ Comments:
   Subscribed: Pretplaćeno
   There are no comments available for this post: Za ovaj post nema komentara
   Hide {replyCount} replies: Sakrij 1 odgovor | Sakrij {replyCount} odgovora
+  View 1 reply from {channelName}: Pogledaj 1 odgovor od {channelName}
+  View {replyCount} replies from {channelName} and others: Pogledaj {replyCount} odgovora od {channelName} i drugih
 Up Next: 'Sljedeći'
 
 # Toast Messages
@@ -1035,14 +1051,14 @@ Description:
   Expand Description: … više
   Collapse Description: Prikaži manje
 KeyboardShortcutPrompt:
-  Keyboard Shortcuts: Tipkovnički prečaci
+  Keyboard Shortcuts: Tipkovni prečaci
   Close Window: Zatvori prozor
   Toggle Developer Tools: Uključi/Isključi alate za programere
   Volume Up: Povećaj glasnoću
   Volume Down: Smanji glasnoću
   History Backward: Idi jednu stranicu natrag
   New Window: Stvori novi prozor
-  Show Keyboard Shortcuts: Prikaži tipkovničke prečace
+  Show Keyboard Shortcuts: Prikaži tipkovne prečace
   Focus Secondary Search: Fokusiraj sekundarnu traku pretrage (ako postoji)
   Captions: Uključi/Isključi titlove
   Stats: Prikaži statistiku videa
@@ -1099,3 +1115,5 @@ Keys:
   plus: Plus
 Autoplay Interruption Timer: Automatska reprodukcija je prekinuta zbog {autoplayInterruptionIntervalHours} sata neaktivnosti
 shortcutLabelSeparator: ｜
+Compact side navigation: Sažmi bočnu navigaciju
+Expand side navigation: Proširi bočnu navigaciju
