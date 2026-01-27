@@ -810,6 +810,10 @@ Video:
 #& Playlists
   Save Watched Progress: 視聴進捗を保存
   Watched Progress Saved: 視聴進捗を保存しました
+  Popout Live Chat: チャットをポップアウト
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': '残りのプレロール広告時間: {remindingTimeSeconds}秒'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': '残りのSABRバックオフ時間: {remindingTimeSeconds}秒'
 Playlist:
   #& About
   View Full Playlist: '完全な再生リストの表示'
