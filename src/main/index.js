@@ -17,7 +17,7 @@ import {
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
-import { existsSync } from 'fs'
+import { constants as fsConstants, existsSync } from 'fs'
 import asyncFs from 'fs/promises'
 import { promisify } from 'util'
 import { brotliDecompress } from 'zlib'
@@ -1310,21 +1310,11 @@ function runApp() {
     }
   })
 
-  ipcMain.handle(IpcChannels.GET_SCREENSHOT_FALLBACK_FOLDER, (event) => {
-    if (isFreeTubeUrl(event.senderFrame.url)) {
-      return path.join(app.getPath('pictures'), 'Freetube')
-    }
-  })
-
-  ipcMain.on(IpcChannels.CHOOSE_DEFAULT_FOLDER, async (event) => {
-    if (!isFreeTubeUrl(event.senderFrame.url)) {
-      return
-    }
-
-    const settingId = 'screenshotFolderPath'
-
-    let currentPath = (await baseHandlers.settings._findOne(settingId))?.value
-
+  /**
+   * @param {import('electron').WebContents} webContents
+   * @param {string | undefined} [currentPath]
+   */
+  async function chooseDefaultFolder(webContents, currentPath) {
     if (typeof currentPath !== 'string' || currentPath.length === 0) {
       currentPath = app.getPath('pictures')
     }
@@ -1336,7 +1326,7 @@ function runApp() {
 
     let result
 
-    const window = BrowserWindow.fromWebContents(event.sender)
+    const window = BrowserWindow.fromWebContents(webContents)
     if (window) {
       result = await dialog.showOpenDialog(window, dialogOptions)
     } else {
@@ -1346,6 +1336,8 @@ function runApp() {
     if (result.canceled) {
       return
     }
+
+    const settingId = 'screenshotFolderPath'
 
     await baseHandlers.settings.upsert(settingId, result.filePaths[0])
 
@@ -1362,6 +1354,22 @@ function runApp() {
         window.webContents.send(IpcChannels.SYNC_SETTINGS, syncPayload)
       }
     })
+
+    return result.filePaths[0]
+  }
+
+  ipcMain.on(IpcChannels.CHOOSE_DEFAULT_FOLDER, async (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
+    let currentPath = (await baseHandlers.settings._findOne('screenshotFolderPath'))?.value
+
+    await chooseDefaultFolder(event.sender, currentPath)
+
+    if (typeof currentPath !== 'string' || currentPath.length === 0) {
+      currentPath = app.getPath('pictures')
+    }
   })
 
   ipcMain.handle(IpcChannels.WRITE_TO_DEFAULT_FOLDER, async (event, filename, arrayBuffer) => {
@@ -1376,9 +1384,22 @@ function runApp() {
 
     let directory
     if (typeof folderPath === 'string' && folderPath.length > 0) {
-      directory = folderPath
-    } else {
-      directory = path.join(app.getPath('pictures'), 'FreeTube')
+      try {
+        await asyncFs.access(path.normalize(folderPath), fsConstants.W_OK)
+        directory = folderPath
+      } catch {}
+    }
+
+    // if setting is not set or we do not have write access to the folder
+    // prompt the user for a folder
+    // not having write access can happen if the user copies their settings to different machines
+    // or if they revoke a previously permitted folder in flatseal
+    if (directory === undefined) {
+      directory = await chooseDefaultFolder(event.sender)
+
+      if (typeof directory !== 'string' || directory.length === 0) {
+        return false
+      }
     }
 
     directory = path.normalize(directory)
@@ -1399,6 +1420,8 @@ function runApp() {
       // throw a new error so that we don't expose the real error to the renderer
       throw new Error('Failed to save')
     }
+
+    return true
   })
 
   /** @type {Map<number, number>} */
