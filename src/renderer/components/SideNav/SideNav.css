@@ -1,7 +1,7 @@
 .sideNav {
   display: block;
   block-size: calc(100vh - 60px);
-  inline-size: 200px;
+  inline-size: 80px;
   overflow-x: hidden;
   position: sticky;
   inset-inline-start: 0;
@@ -17,20 +17,8 @@
 
 .inner {
   block-size: 100%;
-  inline-size: 200px;
-  overflow: hidden auto;
-}
-
-.closed .inner {
   inline-size: 80px;
-}
-
-.closed .hiddenLabels {
-  inline-size: 60px;
-}
-
-.closed.hiddenLabels {
-  inline-size: 60px;
+  overflow: hidden auto;
 }
 
 .topNavOption {
@@ -44,26 +32,23 @@
   min-block-size: 35px;
 }
 
-.navOption {
-  -webkit-user-drag: none;
-}
-
 .moreOption {
   display: none;
 }
 
-.navOption,
+.navOption {
+  display: block;
+  color: inherit;
+  text-decoration: inherit;
+  padding-block: 5px;
+  padding-inline: 0;
+  -webkit-user-drag: none;
+}
+
 .channelLink {
   display: block;
   color: inherit;
   text-decoration: inherit;
-}
-
-
-.navOption .navLabel {
-  margin-inline-start: 40px;
-  overflow: hidden;
-  overflow-wrap: break-word;
 }
 
 .navOption:hover,
@@ -82,16 +67,31 @@
 
 .navIcon {
   block-size: 1em;
-  inline-size: 1.25em;
-  margin-inline-start: 10px;
+  margin-inline-start: 0;
+  inline-size: 100%;
+  display: block;
+  margin-block-end: 0;
 }
 
 .navIcon.fa-user-check {
   /* This icon is too big by default */
-  inline-size: 1em;
+  block-size: 1.15em;
 
   /* Align icon according to torso */
   transform: translateX(0.2em);
+}
+
+.navLabel {
+  text-align: center;
+  inset-inline-start: 0;
+  margin-inline-start: 0;
+  font-size: 11px;
+  margin-block-end: 0;
+}
+
+.navOption .navLabel {
+  overflow: hidden;
+  overflow-wrap: break-word;
 }
 
 .navChannel .navLabel {
@@ -111,11 +111,15 @@
 
 .thumbnailContainer {
   inline-size: 35px;
+  display: block;
   margin: 0;
-  position: absolute;
-  inset-block-start: 50%;
-  transform: translateY(-50%);
+  position: static;
   text-align: center;
+  transform: none;
+  float: none;
+  margin-inline: auto;
+  inset-block-start: 0;
+  margin-block: 0.3em;
 }
 
 .channelThumbnail {
@@ -128,10 +132,6 @@
   font-size: 35px;
 }
 
-.closed {
-  inline-size: 80px;
-}
-
 .sideNav hr {
   inline-size: 90%;
   block-size: 1px;
@@ -140,67 +140,89 @@
 }
 
 .refreshIcon {
+  display: none;
   position: absolute;
   inset-block-start: 20px;
   inset-inline-end: 20px;
 }
 
-.closed .refreshIcon {
+.hiddenLabels {
+  inline-size: 60px;
+}
+
+.hiddenLabels .navLabel {
   display: none;
 }
 
-.closed .navOption {
-  inline-size: 100%;
-  padding-block: 5px;
-  padding-inline: 0;
-}
-
-.closed .navIcon {
-  margin-inline-start: 0;
-  inline-size: 100%;
-  display: block;
-  margin-block-end: 0;
-}
-
-.closed .navIconExpand {
+.navIconExpand {
   block-size: 1.3em;
-}
-
-.closed .navIconExpand.fa-user-check {
-  /* This icon is too big by default */
-  block-size: 1.15em;
-}
-
-.closed .navLabel {
-  margin-inline: 0;
-  inline-size: 100%;
-  text-align: center;
-  inset-inline-start: 0;
-  font-size: 11px;
-  margin-block-end: 0;
-}
-
-.closed .navChannel {
-  inline-size: 100%;
-  block-size: 45px;
-  padding-block: 5px;
-  padding-inline: 0;
-}
-
-.closed .thumbnailContainer {
-  position: static;
-  display: block;
-  float: none;
-  margin-inline: auto;
-  inset-block-start: 0;
-  transform: none;
-  margin-block: 0.3em;
 }
 
 @media only screen and (width > 680px) {
   ::-webkit-scrollbar {
     inline-size: 10px;
     block-size: 10px;
+  }
+
+  .opened {
+    inline-size: 200px;
+  }
+
+  .opened .inner {
+    inline-size: 200px;
+  }
+
+  .opened .refreshIcon {
+    display: block;
+  }
+
+  .opened .navIcon {
+    inline-size: 1.25em;
+    margin-inline-start: 10px;
+  }
+
+  .opened .navIconExpand.fa-user-check {
+    /* This icon is too big by default */
+    inline-size: 1em;
+  }
+
+  .opened .navOption {
+    padding-inline: 5px;
+  }
+
+  .opened .navLabel {
+    text-align: start;
+    margin-inline-start: 40px;
+    margin-block-end: 16px;
+    font-size: 16px;
+  }
+
+  .opened .channelLink {
+    display: flex;
+    align-items: center;
+  }
+
+  .opened .navChannel .navLabel {
+    font-size: 12px;
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  .opened .thumbnailContainer {
+    inset-block-start: 50%;
+    position: absolute;
+    transform: translateY(-50%);
+    margin-block: 0;
+  }
+
+  .opened .navChannel .thumbnailContainer {
+    position: static;
+    transform: none;
+    margin: 5px;
+  }
+
+  .opened.hiddenLabels .navLabel {
+    display: block;
   }
 }
 
@@ -216,19 +238,9 @@
   }
 
   .sideNav {
-    position: fixed;
     inset-inline-start: 0;
-    inset-block-end: 0;
+    position: fixed;
     display: flex;
-  }
-
-  .topNavOption {
-    margin-block-start: 0;
-    padding-inline: 10px;
-  }
-
-  .sideNav,
-  .closed {
     margin-block-start: 0;
     block-size: 60px;
     inline-size: 100%;
@@ -236,12 +248,9 @@
     overflow-y: hidden;
   }
 
-  .navOption,
-  .closed .navOption {
-    inline-size: 70px;
-    block-size: 40px;
-    padding: 0;
-    padding-block: 10px;
+  .topNavOption {
+    margin-block-start: 0;
+    padding-inline: 10px;
   }
 
   .navLabel {
@@ -256,7 +265,14 @@
     display: block;
   }
 
-  .closed.hiddenLabels {
+  .navOption {
+    inline-size: 70px;
+    block-size: 40px;
+    padding: 0;
+    padding-block: 10px;
+  }
+
+  .hiddenLabels {
     inline-size: 100%;
   }
 }

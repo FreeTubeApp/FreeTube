@@ -1,7 +1,7 @@
 <template>
   <FtFlexBox
     class="sideNav"
-    :class="[{closed: !isOpen}, applyHiddenLabels]"
+    :class="[{opened: isOpen}, applyHiddenLabels]"
     role="navigation"
   >
     <div
@@ -24,7 +24,6 @@
           />
         </div>
         <p
-          v-if="!hideText"
           class="navLabel"
         >
           {{ $t("Subscriptions.Subscriptions") }}
@@ -46,7 +45,6 @@
           />
         </div>
         <p
-          v-if="!hideText"
           class="navLabel"
         >
           {{ $t("Channels.Channels") }}
@@ -69,7 +67,6 @@
           />
         </div>
         <p
-          v-if="!hideText"
           class="navLabel"
         >
           {{ $t("Trending.Trending") }}
@@ -92,7 +89,6 @@
           />
         </div>
         <p
-          v-if="!hideText"
           class="navLabel"
         >
           {{ $t("Most Popular") }}
@@ -115,7 +111,6 @@
           />
         </div>
         <p
-          v-if="!hideText"
           class="navLabel"
         >
           {{ $t("Playlists") }}
@@ -138,7 +133,6 @@
           />
         </div>
         <p
-          v-if="!hideText"
           class="navLabel"
         >
           {{ $t("History.History") }}
@@ -161,7 +155,6 @@
           />
         </div>
         <p
-          v-if="!hideText"
           class="navLabel"
         >
           {{ $t('Settings.Settings') }}
@@ -183,7 +176,6 @@
           />
         </div>
         <p
-          v-if="!hideText"
           class="navLabel"
         >
           {{ $t("About.About") }}
@@ -324,12 +316,12 @@ const hideActiveSubscriptions = computed(() => {
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideText = computed(() => {
-  return !isOpen.value && store.getters.getHideLabelsSideBar
+  return store.getters.getHideLabelsSideBar
 })
 
 const applyNavIconExpand = computed(() => {
   return {
-    navIconExpand: hideText.value
+    navIconExpand: hideText.value && !store.getters.getIsSideNavOpen
   }
 })
 
