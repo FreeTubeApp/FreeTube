@@ -6,12 +6,12 @@ File: 'Fil'
 Quit: 'Avsluta'
 Edit: 'Redigera'
 Undo: 'Ångra'
-Redo: 'Upprepa'
-Cut: 'Klipp Ut'
+Redo: 'Gör om'
+Cut: 'Klipp ut'
 Copy: 'Kopiera'
-Paste: 'Klistra In'
+Paste: 'Klistra in'
 Delete: 'Radera'
-Select all: 'Markera alla'
+Select all: 'Markera allt'
 Toggle Developer Tools: 'Växla utvecklarverktyg'
 Actual size: 'Verklig storlek'
 Zoom in: 'Zooma in'
@@ -36,7 +36,7 @@ Global:
     Video Count: 1 video | {count} videor
     Subscriber Count: 1 prenumerant | {count} prenumeranter
     View Count: 1 visning | {count} visningar
-    Watching Count: 1 tittar | {count} tittare
+    Watching Count: 1 tittare | {count} tittare
     Channel Count: 1 kanal | {count} kanaler
     Like Count: 1 gillning | {count} gillningar
     Comment Count: 1 kommentar | {count} kommentarer
@@ -145,7 +145,7 @@ User Playlists:
     LatestPlayedFirst: Datum spelad (nyast)
   Are you sure you want to delete this playlist? This cannot be undone: Är du säker på att du vill ta bort den här spellistan? Detta kan inte ångras.
   AddVideoPrompt:
-    Added {count} Times: Redan Tillagd | Lade Till {count} Gånger
+    Added {count} Times: Redan tillagd | Tillagd {count} gånger
     Save: Spara
     Search in Playlists: Sök i spellistor
     Select a playlist to add your N videos to: Välj en spellista att lägga till din video i | Välj en spellista att lägga till dina {videoCount} videor i
@@ -193,9 +193,9 @@ User Playlists:
   Quick Bookmark Enabled: Snabbbokmärke Aktiverat
   TotalTimePlaylist: 'Total tid: {duration}'
   Remove Duplicate Videos: Ta Bort Dubbletter Av Videor
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Är du säker på att du vill ta bort 1 dubblett av videoklipp från den här spellistan? Detta kan inte ångras. | Är du säker på att du vill ta bort {playlistItemCount} dubbletter av videoklipp från den här spellistan? Detta kan inte ångras.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Är du säker på att du vill ta bort 1 dubblettvideo från den här spellistan? Detta kan inte ångras. | Är du säker på att du vill ta bort {playlistItemCount} dubblettvideor från den här spellistan? Detta kan inte ångras.
   Cannot delete the quick bookmark target playlist.: Det går inte att ta bort målspellistan för snabbbokmärken.
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Är du säker på att du vill ta bort 1 sett video från den här spellistan? Detta kan inte ångras. | Är du säker på att du vill ta bort {playlistItemCount} sedda videor från den här spellistan? Detta kan inte ångras.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Är du säker på att du vill ta bort 1 sedd video från den här spellistan? Detta kan inte ångras. | Är du säker på att du vill ta bort {playlistItemCount} sedda videor från den här spellistan? Detta kan inte ångras.
   Export list of URLs: Exportera lista med webbadresser
 History:
   # On History Page
@@ -391,7 +391,7 @@ Settings:
       Audio Formats: 'Ljudformat'
     Default Quality:
       Default Quality: 'Standardkvalitet'
-      Auto: 'Auto'
+      Auto: 'Automatisk'
       144p: '144p'
       240p: '240p'
       360p: '360p'
@@ -563,7 +563,7 @@ Settings:
     Test Proxy: Testa proxy
     Clicking on Test Proxy will send a request to: Om du klickar på TestProxy skickas en begäran till
     Proxy Port Number: Proxy-portnummer
-    Proxy Host: Proxy Host
+    Proxy Host: Proxyvärd
     Proxy Protocol: Proxy-protokoll
     Enable Tor / Proxy: Aktivera Tor / Proxy
     Proxy Settings: Proxy
@@ -613,7 +613,7 @@ Settings:
     Experimental Settings: Experimentella
     Warning: Dessa inställlningar är experimentella, de kan eventuellt orsakar kracher om de är aktiverade. Att göra backupfiler rekomenderas. Används på egen risk!
     Replace HTTP Cache: Ersätt HTTP-cache
-  Return to Settings Menu: Återgå till Menyn Inställningar
+  Return to Settings Menu: Återgå till inställningsmenyn
   Sort Settings Sections (A-Z): Sortera inställningssektioner (A-Ö)
 About:
   #On About page
@@ -676,7 +676,7 @@ Profile:
   No channel(s) have been selected: 'Ingen kanal(er) har markerats'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
   : 'Det här är din primära profil. Vill du ta bort de markerade kanalerna? Samma kanaler kommer att raderas i alla profil där de hittas.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Är du säker på att du ta bort de markerade kanalerna?  Detta kommer inte att radera kanalen från någon annan profil.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Är du säker på att du vill ta bort de markerade kanalerna?  Detta tar inte bort kanalen från någon annan profil.'
 #On Channel Page
   Profile Filter: Profilfilter
   Profile Settings: Profil
@@ -966,7 +966,7 @@ Tooltips:
     Thumbnail Preference: Alla miniatyrbilder på FreeTube kommer att ersättas med en bildruta från videon, suddig eller dold istället för standardminiatyrbilden.
     Fallback to Non-Preferred Backend on Failure: När ditt föredragna API har ett problem, kommer FreeTube automatiskt att försöka använda ditt icke-föredragna API som reservmetod när det är aktiverat.
     Preferred API Backend: Välj den resurs som FreeTube använder för att få fram data. Det lokala API:et är en inbyggd utdragare. Invidious API kräver en Invidious server att ansluta till.
-    External Link Handling: "Välj standardförfarande när en länk klickas, som inte kan öppnas i FreeTube är. \nStandard är att FreeTube kommer öppna länken i din standardwebbläsare.\n"
+    External Link Handling: "Välj standardbeteendet när en länk som inte kan öppnas i FreeTube klickas.\nSom standard öppnar FreeTube den klickade länken i din standardwebbläsare.\n"
     Open Deep Links In New Window: URL:er som skickas till FreeTube, till exempel via omdirigering av webbläsartillägg eller kommandoradsargument, öppnas i ett nytt fönster.
   External Player Settings:
     Custom External Player Arguments: Alla anpassade kommandoradsargument, ska skickas till den externa spelaren.
@@ -996,7 +996,7 @@ Search Bar:
   Clear Input: Rensa inmatning
   Remove: Ta Bort
 Are you sure you want to open this link?: Är du säker på att du vill öppna den här länken?
-New Window: Nytt Fönster
+New Window: Nytt fönster
 Channels:
   Channels: Kanaler
   Title: Kanallista
@@ -1036,8 +1036,8 @@ Search Listing:
     3D: 3D
     8K: 8K
     Closed Captions: Dold Bildtext
-Yes, Open Link: Ja, Öppna Länken
-Yes, Restart: Ja, Starta Om
+Yes, Open Link: Ja, öppna länken
+Yes, Restart: Ja, starta om
 Age Restricted:
   This video is age restricted: Den här videon är åldersbegränsad
   This channel is age restricted: Denna kanal är åldersbegränsad
@@ -1049,7 +1049,7 @@ Trimmed input must be at least N characters long: Trimmad inmatning måste vara 
 Description:
   Expand Description: '...mer'
   Collapse Description: Visa mindre
-Yes, Delete: Ja, Radera
+Yes, Delete: Ja, ta bort
 Autoplay Interruption Timer: Autouppspelningen avbröts på grund av {autoplayInterruptionIntervalHours} timmars inaktivitet
 shortcutJoinOperator: +
 shortcutLabelSeparator: ｜
