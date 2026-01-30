@@ -13,8 +13,9 @@
         />
         <FtToggleSwitch
           :label="$t('Settings.Subscription Settings.Fetch Feeds from RSS')"
-          :default-value="useRssFeeds"
+          :default-value="useRssFeeds || forceRssFeeds"
           :tooltip="$t('Tooltips.Subscription Settings.Fetch Feeds from RSS')"
+          :disabled="forceRssFeeds"
           compact
           @change="updateUseRssFeeds"
         />
@@ -69,6 +70,8 @@ function updateFetchSubscriptionsAutomatically(value) {
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const useRssFeeds = computed(() => store.getters.getUseRssFeeds)
+
+const forceRssFeeds = computed(() => store.getters.getActiveProfile.subscriptions.length >= 125)
 
 /**
  * @param {boolean} value

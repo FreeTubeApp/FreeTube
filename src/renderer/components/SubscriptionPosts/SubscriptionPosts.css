@@ -1,0 +1,5 @@
+.message {
+  color: var(--tertiary-text-color);
+  inline-size: fit-content;
+  margin-inline: auto;
+}

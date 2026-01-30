@@ -135,6 +135,9 @@ Subscriptions:
   Load More Posts: Load More Posts
   Subscriptions Tabs: Subscriptions Tabs
   All Subscription Tabs Hidden: 'All subscription tabs are hidden. To see content here, please unhide some tabs in the "{subsection}" section in "{settingsSection}".'
+  Posts:
+    RSS Message: The "{setting}" setting is enabled and YouTube does not provide RSS feeds for posts.
+    Forced RSS Message: This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting. YouTube does not provide RSS feeds for posts.
 More: More
 Channels:
   Channels: Channels
