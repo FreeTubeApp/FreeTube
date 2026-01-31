@@ -631,15 +631,15 @@ export function getVideoParamsFromUrl(url) {
     // anything with /watch?v=
     function () {
       if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
-        extractParams(urlObject.searchParams.get('v'))
+        extractParams(urlObject.searchParams.get('v').slice(0, 11))
         paramsObject.playlistId = urlObject.searchParams.get('list')
         return paramsObject
       }
     },
     // youtu.be
     function () {
-      if (urlObject.host === 'youtu.be' && /^\/[\w-]+$/.test(urlObject.pathname)) {
-        extractParams(urlObject.pathname.slice(1))
+      if (urlObject.host === 'youtu.be' && /^\/[\w-]{11,}/.test(urlObject.pathname)) {
+        extractParams(urlObject.pathname.slice(1, 12))
         paramsObject.playlistId = urlObject.searchParams.get('list')
         return paramsObject
       }
