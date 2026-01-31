@@ -540,17 +540,11 @@ export default defineComponent({
       if (!isCurrentVideoInParsedPlaylist) {
         // grab 2nd video if the 1st one is current & deleted
         // or the prior video in the list before the current video's deletion
-        const targetVideoIndex = (this.currentVideoIndexZeroBased === 0 ? 1 : this.currentVideoIndexZeroBased - 1)
-        this.prevVideoBeforeDeletion = this.playlistItems[targetVideoIndex]
+        const targetVideoIndex = this.currentVideoIndexZeroBased - 1
+        this.prevVideoBeforeDeletion = targetVideoIndex >= 0 ? this.playlistItems[targetVideoIndex] : null
       }
 
       this.playlistItems = getSortedPlaylistItems(playlist.videos, this.sortOrder, this.currentLocale, this.reversePlaylist)
-
-      // grab the first video of the parsed playlit if the current video is not in either the current or parsed data
-      // (e.g., reloading the page after the current video has already been removed from the playlist)
-      if (!isCurrentVideoInParsedPlaylist && this.prevVideoBeforeDeletion == null) {
-        this.prevVideoBeforeDeletion = this.playlistItems[0]
-      }
 
       this.isLoading = false
     },
