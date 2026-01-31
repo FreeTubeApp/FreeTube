@@ -811,6 +811,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Zostávajúci čas prvotnej reklamy: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Zostávajúci čas pauzy SABR: {remindingTimeSeconds} s'
+  Popout Live Chat: Popout Chat
 Playlist:
   #& About
   View Full Playlist: 'Zobraziť celý playlist'
