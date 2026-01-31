@@ -814,6 +814,10 @@ Video:
   DeArrow:
     Show Modified Details: Vis endrede detaljer
     Show Original Details: Vis originaldetaljer
+  Popout Live Chat: Chat i eget vindu
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Tid før reklamen før videoen kan hoppes over: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tid før en SABR-strømmen blir tilgjengelig: {remindingTimeSeconds}s'
 Playlist:
   #& About
   View Full Playlist: 'Vis full spilleliste'
