@@ -5,13 +5,20 @@ on:
       - closed
       - converted_to_draft
       - ready_for_review
+
+permissions: {}
+
 jobs:
   remove-merged-pr-labels:
     name: Remove merged pull request labels
     if: github.event.pull_request.merged
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
+
+    permissions:
+      pull-requests: write
+
     steps:
-      - uses: mondeja/remove-labels-gh-action@v2.0.0
+      - uses: mondeja/remove-labels-gh-action@b7118e4ba5dca74acf1059b3cb7660378ff9ab1a #v2.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           labels: |
@@ -25,9 +32,13 @@ jobs:
   remove-closed-pr-labels:
     name: Remove closed pull request labels
     if: github.event_name == 'pull_request_target' && (! github.event.pull_request.merged) && (github.event.action != 'converted_to_draft') && (github.event.action != 'ready_for_review')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
+
+    permissions:
+      pull-requests: write
+
     steps:
-      - uses: mondeja/remove-labels-gh-action@v2.0.0
+      - uses: mondeja/remove-labels-gh-action@b7118e4ba5dca74acf1059b3cb7660378ff9ab1a #v2.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           labels: |
@@ -41,9 +52,13 @@ jobs:
   remove-draft-pr-labels:
     name: Remove labels from draft pull requests
     if: github.event_name == 'pull_request_target' && github.event.action == 'converted_to_draft'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
+
+    permissions:
+      pull-requests: write
+
     steps:
-      - uses: mondeja/remove-labels-gh-action@v2.0.0
+      - uses: mondeja/remove-labels-gh-action@b7118e4ba5dca74acf1059b3cb7660378ff9ab1a #v2.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           labels: |
@@ -52,9 +67,13 @@ jobs:
   remove-ready-pr-labels:
     name: Remove labels when draft pr is marked ready for review
     if: github.event_name == 'pull_request_target' && github.event.action == 'ready_for_review'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
+
+    permissions:
+      pull-requests: write
+
     steps:
-      - uses: mondeja/remove-labels-gh-action@v2.0.0
+      - uses: mondeja/remove-labels-gh-action@b7118e4ba5dca74acf1059b3cb7660378ff9ab1a #v2.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           labels: |

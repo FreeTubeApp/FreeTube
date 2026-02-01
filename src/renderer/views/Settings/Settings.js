@@ -5,7 +5,6 @@ import ThemeSettings from '../../components/ThemeSettings.vue'
 import PlayerSettings from '../../components/PlayerSettings/PlayerSettings.vue'
 import ExternalPlayerSettings from '../../components/ExternalPlayerSettings.vue'
 import SubscriptionSettings from '../../components/SubscriptionSettings/SubscriptionSettings.vue'
-import DownloadSettings from '../../components/DownloadSettings/DownloadSettings.vue'
 import PrivacySettings from '../../components/PrivacySettings.vue'
 import DataSettings from '../../components/DataSettings/DataSettings.vue'
 import DistractionSettings from '../../components/DistractionSettings/DistractionSettings.vue'
@@ -42,7 +41,6 @@ export default defineComponent({
     ...(process.env.IS_ELECTRON
       ? {
           'proxy-settings': ProxySettings,
-          'download-settings': DownloadSettings,
           'external-player-settings': ExternalPlayerSettings,
           'experimental-settings': ExperimentalSettings
         }
@@ -119,11 +117,6 @@ export default defineComponent({
                 type: 'proxy-settings',
                 title: this.$t('Settings.Proxy Settings.Proxy Settings'),
                 icon: 'network-wired',
-              },
-              {
-                type: 'download-settings',
-                title: this.$t('Settings.Download Settings.Download Settings'),
-                icon: 'download',
               }
             ]
           : []),

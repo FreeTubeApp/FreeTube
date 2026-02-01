@@ -275,8 +275,6 @@ import FtTooltip from '../FtTooltip/FtTooltip.vue'
 
 import store from '../../store/index'
 
-import { DefaultFolderKind } from '../../../constants'
-
 const { t } = useI18n()
 
 /** @type {boolean} */
@@ -637,7 +635,7 @@ watch(screenshotFolder, () => {
 function chooseScreenshotFolder() {
   // only use with electron
   if (process.env.IS_ELECTRON) {
-    window.ftElectron.chooseDefaultFolder(DefaultFolderKind.SCREENSHOTS)
+    window.ftElectron.chooseDefaultFolder()
   }
 }
 

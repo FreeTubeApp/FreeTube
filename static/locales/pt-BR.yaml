@@ -588,13 +588,6 @@ Settings:
       None:
         Name: Nenhum
     Ignore Default Arguments: Ignorar argumentos padrão
-  Download Settings:
-    Download Settings: Download
-    Ask Download Path: Perguntar onde salvar o download
-    Choose Path: Escolha o caminho
-    Open in web browser: Abrir no navegador
-    Download in app: Baixar no aplicativo
-    Download Behavior: Comportamento de download
   Parental Control Settings:
     Show Family Friendly Only: Ocultar conteúdo inadequado para menores de idade
     Hide Search Bar: Ocultar barra de busca
@@ -733,9 +726,6 @@ Video:
 #& Videos
   Started streaming on: Transmissão iniciada em
   Streamed on: Transmitido em
-  audio only: somente áudio
-  video only: somente vídeo
-  Download Video: Baixar vídeo
   Starting soon, please refresh the page to check again: Vai começar em breve, atualize a página para verificar novamente
   Autoplay: Reprodução automática
   Previous: Anterior
@@ -999,9 +989,6 @@ Search Bar:
   Remove: Remover
 External link opening has been disabled in the general settings: Abrir links externos está desabilitado nas configurações gerais
 Are you sure you want to open this link?: Tem certeza de que deseja abrir este link?
-Downloading has completed: 'Download concluído "{videoTitle}"'
-Starting download: Iniciando download "{videoTitle}"
-Downloading failed: Falha no download "{videoTitle}"
 New Window: Nova janela
 Channels:
   Channels: Canais

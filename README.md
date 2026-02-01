@@ -135,7 +135,7 @@ The first build with a green check mark is the latest build.
 
 * Snap: [Download](https://snapcraft.io/freetube) and [Source Code](https://git.launchpad.net/freetube)
 
-* WAPT: [Download](https://wapt.tranquil.it/store/tis-freetube)
+* WAPT: [Download](https://wapt.tranquil.it/store/en/tis-freetube)
 
 * Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
 

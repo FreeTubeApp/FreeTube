@@ -595,13 +595,6 @@ Settings:
       None:
         Name: Няма
     Ignore Default Arguments: Игнориране на аргументите по подразбиране
-  Download Settings:
-    Download Settings: Изтегляне
-    Choose Path: Избор на път
-    Ask Download Path: Питане за пътя за изтегляне
-    Download Behavior: Поведение при изтегляне
-    Download in app: Изтегляне в приложението
-    Open in web browser: Отваряне в уеб браузър
   Parental Control Settings:
     Parental Control Settings: Родителски контрол
     Hide Unsubscribe Button: Скриване на бутона за отписване
@@ -786,9 +779,6 @@ Video:
     In less than a minute: След по-малко от минута
   Published on: 'Публикувано на'
 #& Videos
-  audio only: само аудио
-  video only: само видео
-  Download Video: Сваляне на видео
   Copy Invidious Channel Link: Копиране на връзка за канала в Invidious
   Open Channel in Invidious: Отваряне на канала в Invidious
   Copy YouTube Channel Link: Копиране на връзка за канала в YouTube
@@ -1002,9 +992,6 @@ Search Bar:
   Clear Input: Изчистване на въведеното
   Remove: Премахване
 Are you sure you want to open this link?: Сигурни ли сте, че искате да отворите тази връзка?
-Downloading has completed: '"{videoTitle}" приключи изтеглянето'
-Starting download: Започва изтегляне на "{videoTitle}"
-Downloading failed: Имаше проблем при изтеглянето на "{videoTitle}"
 Screenshot Error: Снимката на екрана е неуспешна. {error}
 Screenshot Success: Запазена снимка на екрана
 New Window: Нов прозорец

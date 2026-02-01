@@ -244,7 +244,7 @@ function changeTab(tab) {
  * @param {KeyboardEvent} event the keyboard event
  */
 function keyboardShortcutHandler(event) {
-  if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
+  if (document.activeElement.classList.contains('ft-input')) {
     return
   }
 

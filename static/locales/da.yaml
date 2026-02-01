@@ -568,13 +568,6 @@ Settings:
     UseDeArrowTitles: Brug DeArrow-videotitler
     UseDeArrowThumbnails: Brug DeArrow til miniaturebilleder
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Thumbnail Generator API-URL (standard er https://dearrow-thumb.ajay.app)
-  Download Settings:
-    Open in web browser: Åbn i webbrowser
-    Download Settings: Download
-    Choose Path: Vælg sti
-    Ask Download Path: Bed om download-sti
-    Download Behavior: Downloadadfærd
-    Download in app: Download i appen
   Parental Control Settings:
     Hide Unsubscribe Button: Skjul afmeldingsknap
     Show Family Friendly Only: Vis kun familievenligt
@@ -775,9 +768,6 @@ Video:
   Save Video: Gem video
   Started streaming on: Begyndte at sende
   Streamed on: Sendt
-  audio only: kun lyd
-  video only: kun video
-  Download Video: Hent video
   Sponsor Block category:
     intro: Intro
     sponsor: Sponsor
@@ -984,12 +974,9 @@ Are you sure you want to open this link?: Er du sikker på, at du vil åbne dett
 Search Bar:
   Clear Input: Ryd input
   Remove: Fjern
-Downloading failed: Der var et problem med at downloade "{videoTitle}"
 Unknown YouTube url type, cannot be opened in app: Ukendt YouTube-URL-type; kan ikke åbnes i appen
 Screenshot Error: Skærmbillede mislykkedes. {error}
 External link opening has been disabled in the general settings: Åbning af eksterne links er slået fra i generelle indstillinger
-Starting download: Starter download af "{videoTitle}"
-Downloading has completed: '"{videoTitle}" er færdig med at downloade'
 Screenshot Success: Gemt skærmbillede
 Playing Next Video Interval: Afspiller næste video om lidt. Klik for at afbryde. | Afspiller næste video om {nextVideoInterval} sekund. Klik for at afbryde. | Afspiller næste video om {nextVideoInterval} sekunder. Klik for at afbryde.
 Preferences: Præferencer

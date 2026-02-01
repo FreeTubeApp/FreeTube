@@ -1,13 +1,11 @@
 import i18n from '../../i18n/index'
 
-import { DefaultFolderKind } from '../../../constants'
 import {
   CHANNEL_HANDLE_REGEX,
   createWebURL,
   getVideoParamsFromUrl,
   replaceFilenameForbiddenChars,
   searchFiltersMatch,
-  showToast
 } from '../../helpers/utils'
 
 const state = {
@@ -193,85 +191,6 @@ const actions = {
 
   hideOutlines({ commit }) {
     commit('setOutlinesHidden', true)
-  },
-
-  async downloadMedia({ rootState }, { url, title, mimeType }) {
-    const extension = mimeType === 'audio/mp4' ? 'm4a' : mimeType.split('/')[1]
-
-    const fileName = `${replaceFilenameForbiddenChars(title)}.${extension}`
-
-    if (rootState.settings.downloadAskPath) {
-      /** @type {FileSystemFileHandle} */
-      let handle
-
-      try {
-        handle = await window.showSaveFilePicker({
-          excludeAcceptAllOption: true,
-          id: 'downloads',
-          startIn: 'downloads',
-          suggestedName: fileName,
-          types: [{
-            accept: {
-              [mimeType]: [`.${extension}`]
-            }
-          }]
-        })
-      } catch (error) {
-        // user pressed cancel in the file picker
-        if (error.name === 'AbortError') {
-          return
-        }
-
-        console.error(error)
-        showToast(i18n.global.t('Downloading failed', { videoTitle: title }))
-        return
-      }
-
-      showToast(i18n.global.t('Starting download', { videoTitle: title }))
-
-      let writeableFileStream
-
-      try {
-        const response = await fetch(url)
-
-        if (response.ok) {
-          writeableFileStream = await handle.createWritable()
-
-          await response.body.pipeTo(writeableFileStream, { preventClose: true })
-          showToast(i18n.global.t('Downloading has completed', { videoTitle: title }))
-        } else {
-          throw new Error(`Bad status code: ${response.status}`)
-        }
-      } catch (error) {
-        console.error(error)
-        showToast(i18n.global.t('Downloading failed', { videoTitle: title }))
-      } finally {
-        if (writeableFileStream) {
-          await writeableFileStream.close()
-        }
-      }
-    } else {
-      showToast(i18n.global.t('Starting download', { videoTitle: title }))
-
-      try {
-        const response = await fetch(url)
-
-        if (response.ok) {
-          const arrayBuffer = await response.arrayBuffer()
-
-          if (process.env.IS_ELECTRON) {
-            await window.ftElectron.writeToDefaultFolder(DefaultFolderKind.DOWNLOADS, fileName, arrayBuffer)
-          }
-
-          showToast(i18n.global.t('Downloading has completed', { videoTitle: title }))
-        } else {
-          throw new Error(`Bad status code: ${response.status}`)
-        }
-      } catch (error) {
-        console.error(error)
-        showToast(i18n.global.t('Downloading failed', { videoTitle: title }))
-      }
-    }
   },
 
   parseScreenshotCustomFileName: function({ rootState }, payload) {

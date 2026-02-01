@@ -416,10 +416,6 @@ Settings:
     Hide Channels Invalid: El ID del canal proporcionado no es válido.
     Hide Sharing Actions: Ocultar acciones de compartición
     Hide Videos on Watch: 'Ocultar videos vistos'
-  Download Settings:
-    Choose Path: Elegir ubicación
-    Ask Download Path: Preguntar dónde se descarga
-    Download Settings: Configuración de descargas
   External Player Settings:
     External Player: 'Reproductor externo:'
     Ignore Unsupported Action Warnings: Ignorar advertencias de acciones inválidas
@@ -549,13 +545,10 @@ Video:
   Save Video: Guardar video
   Streamed on: Transmitido en
   Open Channel in YouTube: Abrir canal en YouTube
-  video only: sólo video
-  audio only: sólo audio
   Started streaming on: Empezó a transmitir
   Open Channel in Invidious: Abrir canal en Invidious
   Copy Invidious Channel Link: Copiar link del canal en Invidious
   Copy YouTube Channel Link: Copiar link del canal en YouTube
-  Download Video: Descargar video
 #& Playlists
 Playlist:
   #& About
@@ -689,11 +682,8 @@ Tooltips:
     Fetch Feeds from RSS: Si se habilita, FreeTube usará RSS en lugar del método predeterminado para recibir videos de sus suscripciones. RSS es más rápido y previene que bloqueen su IP, pero no es capaz de proveer ciertos datos del video, como su duración, o si está en directo
   Distraction Free Settings:
     Hide Subscriptions Live: Esta configuración se reemplaza por la configuración «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
-Downloading has completed: '"{videoTitle}" ha acabado de descargarse'
 Default Invidious instance has been cleared: La dirección de Invidious predeterminada se ha borrado
 External link opening has been disabled in the general settings: La apertura de links externos está deshabilitada en la configuración general
-Starting download: Comenzando descarga de "{videoTitle}"
-Downloading failed: Ha habido un error al descargar "{videoTitle}"
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este video no está disponible debido a que no se encontraron formatos. Esto puede suceder a causa de indisponibilidad en su región.
 Default Invidious instance has been set to {instance}: La dirección de Invidious predeterminada se ha establecido en {instance}
 Unknown YouTube url type, cannot be opened in app: Tipo de URL de YouTube desconocida, imposible de abrir en la app

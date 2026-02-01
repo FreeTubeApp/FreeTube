@@ -18,9 +18,9 @@ updates:
           - "eslint"
           - "eslint-*"
           - "@eslint/*"
-          - "yaml-eslint-parser"
           - "vue-eslint-parser"
           - "neostandard"
+          - "@intlify/eslint-plugin-vue-i18n"
       stylelint:
         patterns:
           - "stylelint"
