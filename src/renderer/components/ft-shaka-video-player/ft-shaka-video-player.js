@@ -1317,7 +1317,7 @@ export default defineComponent({
         let isSkipping = false
 
         trickPlayNormalSpeed.value = player.getPlaybackRate()
-        const trickPlayFastForwardSpeed = maxVideoPlaybackRate.value
+        const trickPlayFastForwardSpeed = SilenceSkip.SILENCE_SKIP_SPEED
 
         function resetSkip() {
           gain.gain.setTargetAtTime(1, audioContext.currentTime, 0.015)
