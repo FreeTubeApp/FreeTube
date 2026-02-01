@@ -1339,6 +1339,15 @@ export default defineComponent({
             trickPlayNormalSpeed.value = player.getPlaybackRate()
           }
 
+          // Stop the silence skip if the playback rate is higher than the threshold
+          if (currentPlaybackRate > SilenceSkip.SILENCE_SKIP_SPEED) {
+            cancelAnimationFrame(loopId)
+            resetSkip()
+            isSilenceSkipEnabled.value = false
+            events.dispatchEvent(new CustomEvent('toggleSkipSilence'))
+            return
+          }
+
           if (isSilenceSkipEnabled.value) {
             analyser.getByteTimeDomainData(amplitudeArray)
             const volumeValues = Array.from(amplitudeArray)
