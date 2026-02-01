@@ -1919,9 +1919,18 @@ export default defineComponent({
     }
 
     function registerSkipSilenceToggle() {
-      events.addEventListener('toggleSkipSilence', () => {
-        emit('skip-silence-updated', !isSilenceSkipEnabled.value)
-        skipSilence()
+      events.addEventListener('toggleSkipSilence', (event) => {
+        if (event.detail === 'click') {
+          emit('skip-silence-updated', !isSilenceSkipEnabled.value)
+          skipSilence()
+        } else {
+          setTimeout(() => {
+            emit('skip-silence-updated', false)
+            events.dispatchEvent(new CustomEvent('setSkipSilence', {
+              detail: false
+            }))
+          }, 100)
+        }
       })
 
       /**
