@@ -7,6 +7,7 @@
       [appearance]: true,
       watched: addWatchedStyle
     }"
+    @dragstart.prevent
   >
     <div
       class="videoThumbnail"
