@@ -531,14 +531,12 @@ About:
   Chat on Matrix: Matrix
   these people and projects: nämä henkilöt ja projektit
   room rules: huoneen säännöt
-  Please read the: Lue
   Please check for duplicates before posting: Tarkista kopioiden varalta ennen julkaisua
   Website: Verkkosivusto
   Mastodon: Mastodon
   Translate: Käännös
   Credits: Kiitettävää
   Help: Apua
-  FreeTube is made possible by: FreeTuben mahdollistavat
   GitHub releases: GitHub-julkaisut
   Downloads / Changelog: Lataukset/muutosloki
   Beta: Beta
@@ -546,7 +544,6 @@ About:
   Donate: Lahjoita
   Source code: Lähdekoodi
   Discussions: Keskustelut
-  Licensed under the: Lisenssi
   AGPLv3: AGPLv3
 Channel:
   Subscribe: 'Tilaa'
