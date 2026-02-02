@@ -91,7 +91,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '訂閱'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的訂閱清單目前是空的。如果您想要匯入您的訂閱，您可以前往「資料設定」，然後選取「匯入訂閱」，或者您也可以搜尋頻道並訂閱。'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 這個設定檔有大量訂閱。 強制RSS以防止速率限制
   Load More Videos: 載入更多影片
   Error Channels: 有錯誤的頻道
   Disabled Automatic Fetching: 您已停用自動訂閱擷取。重新整理訂閱以在此處檢視。

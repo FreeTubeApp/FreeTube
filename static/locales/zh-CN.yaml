@@ -91,7 +91,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '订阅'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '您的订阅列表目前是空的。如果想要导入订阅，可以转到“数据设置”并选择“导入订阅”，或者搜索频道并订阅。'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 这个配置文件有大量订阅。 强制RSS已防止速率限制
   Load More Videos: 加载更多视频
   Error Channels: 有错误的频道
   Disabled Automatic Fetching: 你仅用了自动订阅获取。刷新订阅在此处看到它们。

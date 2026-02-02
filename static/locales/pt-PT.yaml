@@ -97,7 +97,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Subscrições
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este perfil contém um elevado número de subscrições. A forçar utilização de RSS para evitar que a sua rede seja bloqueada.
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': A sua lista de subscrições está vazia. Se quiser importar subscrições, pode aceder às definições de dados e selecionar Importar subscrições. Em alternativa, pode procurar os canais e efetuar a subscrição.
   Load More Videos: Carregar mais vídeos
   Error Channels: Canais com erros

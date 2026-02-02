@@ -83,7 +83,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Prenumeratos'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Šiame profilyje yra daug prenumeratų.   Vengiant ribojimų RSS bus naudojamas priverstinai'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Jūsų prenumeratų sąrašas šiuo metu tuščias. Pridėkite prenumeratas, kad jas pamatytumėte čia.'
   Load More Videos: 'Įkelti daugiau vaizdo įrašų'
   Error Channels: Kanalai su klaidomis

@@ -68,8 +68,6 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ang
     iyong listahan ng Suskripsyon ay kasalukuyang walang laman. Simulang magdagdag
     ng mga suskripsyon upang makita ang mga ito dito.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Maraming
-    subscriptions itong profile.   Pilitin na iwasan ang rate limiting
 Trending:
   Trending: 'Nagte-trend'
 Most Popular: 'Pinakasikat'

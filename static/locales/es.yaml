@@ -94,7 +94,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Suscripciones'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tu lista de suscripciones está vacía. Si deseas importar tus suscripciones puedes ir a Configuración de datos y seleccionar Importar suscripciones o puedes buscar un canal y suscribirte.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este perfil tiene muchas suscripciones. Forzar RSS para evitar la limitación de velocidad
   Load More Videos: Cargar más vídeos
   Error Channels: Canales con errores
   Disabled Automatic Fetching: Has desactivado la búsqueda automática de suscripciones. Actualice las suscripciones para verlas aquí.

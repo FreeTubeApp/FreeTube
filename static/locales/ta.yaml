@@ -120,7 +120,6 @@ Subscriptions:
   Subscriptions: 'சந்தாக்கள்'
   # channels that were likely deleted
   Error Channels: 'பிழைகள் கொண்ட சேனல்கள்'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'இந்த சுயவிவரத்தில் அதிக எண்ணிக்கையிலான சந்தாக்கள் உள்ளன. விகிதத்தைக் கட்டுப்படுத்துவதைத் தவிர்க்க ஆர்.எச்.எச்'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'உங்கள் சந்தா பட்டியல் தற்போது காலியாக உள்ளது. உங்கள் சந்தாக்களை இறக்குமதி செய்ய விரும்பினால், நீங்கள் தரவு அமைப்புகளுக்குச் சென்று இறக்குமதி சந்தாக்களைத் தேர்ந்தெடுக்கலாம் அல்லது நீங்கள் ஒரு சேனலைத் தேடி அவற்றில் குழுசேரலாம்.'
   Disabled Automatic Fetching: 'தானியங்கி சந்தா பெறுவதை நீங்கள் முடக்கியுள்ளீர்கள். சந்தாக்களை இங்கே காண புதுப்பிக்கவும்.'
   Empty Channels: 'உங்கள் சந்தா சேனல்களில் தற்போது எந்த வீடியோக்களும் இல்லை.'

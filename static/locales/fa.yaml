@@ -77,7 +77,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'دنبال کرده ها'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'این پروفایل تعداد زیادی اشتراک دارد. اجبار RSS برای جلوگیری از محدودیت نرخ'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'لیست اشتراک شما در حال حاضر خالی است. اضافه کردن اشتراک‌ها را برای مشاهده آنها در اینجا شروع کنید. اگر می‌خواهید اشتراک‌های خود را وارد کنید، می‌توانید به تنظیمات داده رفته و وارد کردن اشتراک‌ها را انتخاب کنید یا می‌توانید کانالی را جستجو کرده و در آن‌ها مشترک شوید.'
   Load More Videos: 'بارگیری ویدیو های بیشتر'
   Error Channels: کانال های خطادار

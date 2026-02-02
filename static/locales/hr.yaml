@@ -94,7 +94,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Pretplate'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tvoj popis pretplata je trenutačno prazan. Ako želiš uvesti tvoje pretplate, idi u postavke podataka i odaberi „Uvezi pretplate” ili traži kanale i pretplati se na njih.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ovaj profil sadrži velik broj pretplata. Za izbjegavanje ograničenja stope koristit će se RSS
   Load More Videos: Učitaj još videa
   Error Channels: Kanali s greškama
   Empty Channels: Tvoji pretplaćeni kanali trenutačno nemaju videa.

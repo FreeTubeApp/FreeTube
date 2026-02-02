@@ -98,7 +98,6 @@ Subscriptions:
   Subscriptions: 'Abonnenter'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din abonnementsliste er tom. Hvis du vil importere dine abonnementer, gå til "Dataindstillinger" og vælg "Importér Abonnementer" – eller søg efter en kanal og abonner på den.'
   Load More Videos: Indlæs flere videoer
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne profil har et stort antal abonnenter. Gennemtvinger RSS for at undgå adgangsbegrænsning
   Error Channels: Kanaler med fejl
   Empty Channels: De kanaler, du abonnerer på, har i øjeblikket ingen videoer.
   Disabled Automatic Fetching: Du har deaktiveret automatisk hentning af abonnenter. Opdatér abonnenter for at se dem her.

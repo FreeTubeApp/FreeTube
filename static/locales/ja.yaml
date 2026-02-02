@@ -91,7 +91,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: '登録チャンネル'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '登録チャンネルリストは現在空です。登録チャンネルをインポートするには、設定からデータの設定に移動して登録チャンネルをインポートするか、チャンネルを検索して登録することができます。'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: このプロファイルの登録チャンネル数が多いようです。接続制限を回避するため RSS を使用します
   Load More Videos: もっと見る
   Error Channels: エラーが発生したチャンネル
   Disabled Automatic Fetching: 登録チャンネルの自動取得が無効になっています。動画を表示するには更新をしてください。

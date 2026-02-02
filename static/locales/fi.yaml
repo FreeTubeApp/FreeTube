@@ -90,7 +90,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Tilaukset'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sinulla ei juuri nyt ole tilauksia. Tilaa kanavia nähdäksesi ne täällä.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Tällä profiililla on paljon tilauksia.  Pakotetaan RSS nopeuden rajoittamisen välttämiseksi
   Load More Videos: Lataa lisää videoita
   Error Channels: Kanavat, joissa on virheitä
   Empty Channels: Tilaamillasi kanavilla ei ole videoita tällä hetkellä.

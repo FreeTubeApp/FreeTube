@@ -98,7 +98,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'מינויים'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'רשימת המינויים שלך ריקה כרגע. כדי לייבא את המינויים שלך ניתן לגשת להגדרות הנתונים ולבחור בייבוא מנויים או לחפש ערוצים ולהירשם אליהם.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: לפרופיל זה יש מספר רב של מינויים. עוברים לעדכוני RSS כדי להימנע מהגבלות קצב
   Load More Videos: לטעון סרטונים נוספים
   Error Channels: ערוצים עם שגיאות
   Disabled Automatic Fetching: השבתת משיכת מינויים אוטומטית. יש לרענן את המינויים כדי לצפות בהם כאן.

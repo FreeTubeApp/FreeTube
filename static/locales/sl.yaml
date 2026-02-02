@@ -75,7 +75,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Naročnine'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaš seznam naročnin je trenutno prazen. Začnite dodajati naročnine, da jih boste videli tukaj.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ta profil ima veliko količino naročnin.· Da bi se izognili omejitvi hitrosti, bo uporabljen RSS
   Load More Videos: Naloži več videoposnetkov
   Error Channels: Kanali z napakami
   Disabled Automatic Fetching: Onemogočili ste samodejno pridobivanje seznama naročnin. Osvežite seznam naročnin, da jih vidite tukaj.

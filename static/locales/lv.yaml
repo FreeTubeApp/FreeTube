@@ -105,7 +105,6 @@ Subscriptions:
   Subscriptions: 'Abonementi'
   # channels that were likely deleted
   Error Channels: 'Kanāli ar kļūdām'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Šim profilam ir daudz abonementu.  Piespiežu RSS, lai izvairītos no ierobežojumiem'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tavs abonementu saraksts ir tukšs. Ja vēlies ievest savus abonementus, dodies uz "Datņu iestatījumiem" un izvēlies "Ievest abonementus", vai arī vari meklēt kanālus un abonēt tos.'
   Disabled Automatic Fetching: 'Tu esi izslēdzis automātisko abonementu iegūšanu. Atsvaidzini abonementus, lai redzētu tos šeit.'
   Empty Channels: 'Taviem abonētajiem kanāliem pašreiz nav neviena video.'

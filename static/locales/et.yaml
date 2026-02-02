@@ -99,7 +99,6 @@ Subscriptions:
   Subscriptions: 'Tellimused'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Sinu tellimuste loend on hetkel tühi. Kui sa soovid importida oma tellimusi, siis ava seadistustest „Andmehaldus“ ja vali „Impordi tellimused“, aga samuti võid kanaleid lihtsalt otsida ning seejärel tellida.'
   Load More Videos: Laadi veel videosid
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Sellel profiilil on väga palju tellimusi. Vältimaks serveripoolseid piiranguid teeme RSS-voo päringud harvemini
   Error Channels: Vigadega kanalid
   Disabled Automatic Fetching: Sa oled lülitanud välja automaatse tellimuste laadimise. Uuendatud teabe nägemiseks laadi vaade uuesti.
   Empty Channels: Sinu tellitud kanalites hetkel pole ühtegi videot.

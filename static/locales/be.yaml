@@ -106,7 +106,6 @@ Subscriptions:
   Subscriptions: 'Падпіскі'
   # channels that were likely deleted
   Error Channels: 'Каналы з памылкамі'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'У гэтага профілю вялікая колькасць падпісак.  Прымусовае выкарыстанне RSS, каб пазбегнуць абмежавання хуткасці'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваш спіс падпісак зараз пусты. Калі вы хочаце імпартаваць свае падпіскі, вы можаце перайсці ў Налады даных і выбраць Імпартаваць падпіскі або вы можаце знайсці каналы і падпісацца на іх.'
   Disabled Automatic Fetching: 'Вы адключылі аўтаматычнае загрузку падпісак. Каб убачыць іх тут, абнавіце падпіскі.'
   Empty Channels: 'На каналах, на якія вы падпісаны, зараз няма відэа.'

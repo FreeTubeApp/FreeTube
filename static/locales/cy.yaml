@@ -107,7 +107,6 @@ Subscriptions:
   Subscriptions: 'Tanysgrifiadau'
   # channels that were likely deleted
   Error Channels: 'Sianeli gyda Gwallau'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Mae gan y proffil hwn nifer fawr o danysgrifiadau.  Yn gorfodi RSS i osgoi cyfyngu ar gyfraddau'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Mae eich rhestr Tanysgrifio yn wag ar hyn o bryd. Os ydych chi am fewnforio''ch tanysgrifiadau gallwch fynd i Gosodiadau Data a dewis Mewnforio Tanysgrifiadau neu gallwch chwilio am sianel a thanysgrifio iddyn nhw.'
   Disabled Automatic Fetching: 'Rydych wedi analluogi cyrchu tanysgrifiad awtomatig. Adnewyddwch danysgrifiadau i''w gweld yma.'
   Empty Channels: 'Nid oes gan eich sianeli tanysgrifio unrhyw fideos ar hyn o bryd.'

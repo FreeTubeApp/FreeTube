@@ -123,9 +123,6 @@ Subscriptions:
   Subscriptions: 'सब्सक्रिप्सन'
   # channels that were likely deleted
   Error Channels: 'गलती वाले चैनल'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'यहि
-    प्रोफ़ाइल के पास ढेर सब्सक्रिप्शनस है।  RSS का जोर से परयोग कइके रेट लिमिटिंग
-    से बचावा'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'तोहाय
     सदस्सता सूची येह समय खाली अहै। अगर तू आपन सदस्यता इम्पोर्ट करै चाहत हैं तौ तू
     डेटा सेटिंग्स मा जाइ सकत हौ अउर सदस्सता इम्पोर्ट करै का चुनि सकत हौ या तू एक चैनल

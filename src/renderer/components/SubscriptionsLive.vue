@@ -188,7 +188,7 @@ async function loadVideosForSubscriptionsFromRemote() {
   let useRss = useRssFeeds.value
   if (channelsToLoadFromRemote.length >= 125 && !useRss) {
     showToast(
-      t('Subscriptions["This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting"]'),
+      t('Subscriptions["RSS is forced for profiles with 125 or more subscriptions to avoid rate limiting"]'),
       10000
     )
     useRss = true

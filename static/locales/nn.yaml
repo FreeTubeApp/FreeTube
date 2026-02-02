@@ -80,7 +80,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnement'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Denne profilen har ei stor mengd abonnentar. Tvinger RSS til å unngå å avgrense hastigheita'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Di abonnementliste er tom for augeblikket. Start å legge til fleire abonnement for å sjå dei her.'
   Load More Videos: 'Last inn fleire videoar'
   Error Channels: Kanalar med feil

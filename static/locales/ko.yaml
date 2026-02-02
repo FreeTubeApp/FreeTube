@@ -96,7 +96,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: '구독'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: '이 프로필에는 많은 구독이 있습니다. RSS가 속도 제한을 피하도록 강요합니다'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': '구독 목록이 현재 비어 있습니다. 구독을 가져오려면 데이터 설정으로 이동하여 구독 가져오기를 선택하거나, 채널을 검색하여 구독할 수 있습니다'
   Load More Videos: '더 많은 동영상 불러오기'
   Error Channels: 오류가 있는 채널

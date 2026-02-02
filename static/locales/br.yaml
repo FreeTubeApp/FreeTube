@@ -120,7 +120,6 @@ Subscriptions:
   Subscriptions: 'Koumanantoù'
   # channels that were likely deleted
   Error Channels: 'Chadennoù gant fazioù'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Ur bochad koumanantoù en deus ar profil-mañ. Ar wazh RSS a yelo en tu all d''ar vevenn lakaet'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Goullo eo ho roll koumanantoù. Ma faot deoc''h enporzhiañ ho koumanantoù, e c''hellit mont da Arventennoù ar Roadennoù ha choaz Enporzhiañ ho koumanantoù, mod all e c''hellit klask chadennoù da goumanantiñ dezho.'
   Disabled Automatic Fetching: 'Diweredekaet ho peus an adtapout koumanantoù ent emgefreek. Hizivaat ar c''houmanantoù evit gwelet anezho.'
   Empty Channels: 'N''eus video ebet gant ar chadennoù heuliet ganeoc''h evit poent.'
