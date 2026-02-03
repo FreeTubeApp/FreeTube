@@ -42,6 +42,7 @@
         :search-query-text="searchQueryTextRequested"
         :theme="listType === 'list' ? 'base' : 'top-bar'"
         class="playlistInfo"
+        @dragstart.prevent
         @enter-edit-mode="playlistInEditMode = true"
         @exit-edit-mode="playlistInEditMode = false"
         @search-video-query-change="handleVideoSearchQueryChange"
