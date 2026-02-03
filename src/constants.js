@@ -42,7 +42,6 @@ const IpcChannels = {
 
   GENERATE_PO_TOKEN: 'generate-po-token',
 
-  GET_SCREENSHOT_FALLBACK_FOLDER: 'get-screenshot-fallback-folder',
   CHOOSE_DEFAULT_FOLDER: 'choose-default-folder',
   WRITE_TO_DEFAULT_FOLDER: 'write-to-default-folder',
 
