@@ -92,7 +92,7 @@ jobs:
           version="${original_version}-RC-${GITHUB_RUN_NUMBER}"
         fi
 
-        package_json="$(jq --binary --arg version "$version" '.version = $version' package.json)"
+        package_json="$(jq --arg version "$version" '.version = $version' package.json)"
 
         echo -E "$package_json" > package.json
         echo "version=${version}" >> "$GITHUB_OUTPUT"
