@@ -83,7 +83,7 @@ const props = defineProps({
   },
   draggedVideo: {
     type: Object,
-    default: null,
+    default: () => ({ videoId: null, playlistItemId: null }),
   },
   isSortOrderCustom: {
     type: Boolean,
