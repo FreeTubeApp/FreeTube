@@ -100,6 +100,8 @@
               :key="`${item.videoId}-${item.playlistItemId || index}`"
               class="playlistItem"
               :data="item"
+              :dragged-video="draggedVideo"
+              :is-sort-order-custom="isSortOrderCustom"
               :playlist-id="playlistId"
               :playlist-type="infoSource"
               :playlist-index="playlistInVideoSearchMode ? shownPlaylistItems.findIndex(i => i === item) : index"
@@ -112,6 +114,12 @@
               :can-remove-from-playlist="true"
               :video-index="playlistInVideoSearchMode ? shownPlaylistItems.findIndex(i => i === item) : index"
               :initial-visible-state="index < 10"
+              @drag-video="setDraggedVideo"
+              @drag-video-end="() => setDraggedVideo({
+                videoId: null,
+                playlistItemId: null,
+              })"
+              @move-dragged-video="moveDraggedVideo"
               @move-video-up="moveVideoUp"
               @move-video-down="moveVideoDown"
               @remove-from-playlist="removeVideoFromPlaylist"
@@ -185,6 +193,7 @@ import {
   getIconForSortPreference,
   showToast,
   deepCopy,
+  range,
 } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getSortedPlaylistItems, videoDurationPresent, videoDurationWithFallback, SORT_BY_VALUES } from '../../helpers/playlists'
@@ -210,6 +219,7 @@ const channelThumbnail = ref('')
 const channelId = ref('')
 const infoSource = ref('local')
 const playlistItems = ref([])
+const draggedVideo = ref({ videoId: null, playlistItemId: null })
 const userPlaylistVisibleLimit = ref(100)
 /** @type {import('vue').ShallowRef<import('youtubei.js').YT.Playlist | null>} */
 const continuationData = shallowRef(null)
@@ -683,8 +693,9 @@ const canMoveVideos = computed(() => {
 /**
  * @param {string} videoId
  * @param {string} playlistItemId
+ * @param {number?} amount
  */
-function moveVideoUp(videoId, playlistItemId) {
+function moveVideoUp(videoId, playlistItemId, amount = 1) {
   const playlistItems_ = playlistItems.value.slice()
 
   const index = playlistItems_.findIndex((video) => {
@@ -696,7 +707,47 @@ function moveVideoUp(videoId, playlistItemId) {
     return
   }
 
-  [playlistItems_[index], playlistItems_[index - 1]] = [playlistItems_[index - 1], playlistItems_[index]]
+  range(0, amount).forEach(() => {
+    [playlistItems_[index], playlistItems_[index - 1]] = [playlistItems_[index - 1], playlistItems_[index]]
+  })
+
+  const playlist = {
+    playlistName: playlistTitle.value,
+    protected: selectedUserPlaylist.value.protected,
+    description: playlistDescription.value,
+    videos: deepCopy(playlistItems_),
+    _id: playlistId.value
+  }
+
+  try {
+    store.dispatch('updatePlaylist', playlist)
+    playlistItems.value = playlistItems_
+  } catch (e) {
+    showToast(t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+    console.error(e)
+  }
+}
+
+/**
+ * @param {string} videoId
+ * @param {string} playlistItemId
+ * @param {number?} amount
+ */
+function moveVideoDown(videoId, playlistItemId, amount = 1) {
+  const playlistItems_ = playlistItems.value.slice()
+
+  const index = playlistItems_.findIndex((video) => {
+    return video.videoId === videoId && video.playlistItemId === playlistItemId
+  })
+
+  if (index + 1 >= playlistItems_.length) {
+    showToast(t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved down."]'))
+    return
+  }
+
+  range(0, amount).forEach(() => {
+    [playlistItems_[index], playlistItems_[index + 1]] = [playlistItems_[index + 1], playlistItems_[index]]
+  })
 
   const playlist = {
     playlistName: playlistTitle.value,
@@ -719,35 +770,36 @@ function moveVideoUp(videoId, playlistItemId) {
  * @param {string} videoId
  * @param {string} playlistItemId
  */
-function moveVideoDown(videoId, playlistItemId) {
+function setDraggedVideo(videoId, playlistItemId) {
+  draggedVideo.value = { videoId, playlistItemId }
+}
+
+/**
+ * @param {object} draggedOver
+ * @param {string} draggedOver.videoId
+ * @param {string} draggedOver.playlistItemId
+ * @param {object} dropped
+ * @param {string} dropped.videoId
+ * @param {string} dropped.playlistItemId
+ */
+function moveDraggedVideo({ videoId, playlistItemId }, { videoId: droppedVideoId, playlistItemId: droppedPlaylistItemId }) {
   const playlistItems_ = playlistItems.value.slice()
 
-  const index = playlistItems_.findIndex((video) => {
+  const draggedOverIndex = playlistItems_.findIndex((video) => {
     return video.videoId === videoId && video.playlistItemId === playlistItemId
   })
 
-  if (index + 1 >= playlistItems_.length) {
-    showToast(t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved down."]'))
-    return
-  }
+  const droppedIndex = playlistItems_.findIndex((video) => {
+    return video.videoId === droppedVideoId && video.playlistItemId === droppedPlaylistItemId
+  })
 
-  [playlistItems_[index], playlistItems_[index + 1]] = [playlistItems_[index + 1], playlistItems_[index]]
+  const moveDown = droppedIndex < draggedOverIndex
 
-  const playlist = {
-    playlistName: playlistTitle.value,
-    protected: selectedUserPlaylist.value.protected,
-    description: playlistDescription.value,
-    videos: deepCopy(playlistItems_),
-    _id: playlistId.value
-  }
+  const procedure = moveDown ? moveVideoDown : moveVideoUp
 
-  try {
-    store.dispatch('updatePlaylist', playlist)
-    playlistItems.value = playlistItems_
-  } catch (e) {
-    showToast(t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
-    console.error(e)
-  }
+  const difference = moveDown ? draggedOverIndex - droppedIndex : droppedIndex - draggedOverIndex
+
+  procedure(droppedVideoId, droppedPlaylistItemId, difference)
 }
 
 /**

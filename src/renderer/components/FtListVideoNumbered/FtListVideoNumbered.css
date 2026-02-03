@@ -7,9 +7,22 @@
   block-size: 40px;
 }
 
+.customSort {
+  cursor: pointer;
+}
+
+.customSort:active {
+  cursor: grabbing;
+}
+
+.preventJankyDrag {
+  pointer-events: none;
+}
+
 .videoIndex {
   color: var(--tertiary-text-color);
   text-align: center;
+  user-select: none;
 }
 
 .videoIndexIcon {

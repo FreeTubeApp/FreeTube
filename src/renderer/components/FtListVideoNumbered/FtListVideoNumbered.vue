@@ -3,19 +3,39 @@
     v-observe-visibility="visible ? false : {
       callback: onVisibilityChanged
     }"
-    :class="{ placeholder: !visible }"
+    :class="{
+      placeholder: !visible,
+      customSort: isSortOrderCustom,
+    }"
+    :draggable="isSortOrderCustom"
+    v-on="isSortOrderCustom ? {
+      dragstart: dragVideo,
+      dragenter: moveDraggedVideo,
+      dragend: afterDrag,
+      mouseenter: () => mouseEnter = true,
+      mouseleave: () => mouseEnter = false,
+    } : {}"
   >
     <template
       v-if="visible"
     >
       <p
         class="videoIndex"
+        :class="{
+          preventJankyDrag: preventJankyDrag(),
+        }"
       >
         <FontAwesomeIcon
           v-if="isCurrentVideo"
           class="videoIndexIcon"
           :icon="['fas', 'play']"
         />
+
+        <FontAwesomeIcon
+          v-else-if="isSortOrderCustom && mouseEnter"
+          :icon="['fas', 'fa-bars']"
+        />
+
         <template
           v-else
         >
@@ -23,6 +43,9 @@
         </template>
       </p>
       <FtListVideo
+        :class="{
+          preventJankyDrag: preventJankyDrag(),
+        }"
         :data="data"
         :playlist-id="playlistId"
         :playlist-type="playlistType"
@@ -57,6 +80,14 @@ const props = defineProps({
   data: {
     type: Object,
     required: true
+  },
+  draggedVideo: {
+    type: Object,
+    default: null,
+  },
+  isSortOrderCustom: {
+    type: Boolean,
+    default: null
   },
   playlistId: {
     type: String,
@@ -124,8 +155,8 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist'])
-
+const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
+const mouseEnter = ref(false)
 const visible = ref(props.initialVisibleState)
 
 let stopWatchingInitialVisibleState = null
@@ -136,6 +167,15 @@ if (!props.initialVisibleState) {
     stopWatchingInitialVisibleState()
     stopWatchingInitialVisibleState = null
   })
+}
+
+/**
+ * @returns {boolean} isVideoDragging
+ */
+const preventJankyDrag = () => {
+  const { draggedVideo: { videoId, playlistItemId } } = props
+
+  return videoId && playlistItemId
 }
 
 /**
@@ -170,6 +210,45 @@ function moveVideoUp(videoId, playlistItemId) {
  */
 function moveVideoDown(videoId, playlistItemId) {
   emit('move-video-down', videoId, playlistItemId)
+}
+
+/**
+ * @param {DragEvent} event
+ */
+function hideDraggedVideoElement(event) {
+  const { target: element, target: { clientX, clientY } } = event
+  event.dataTransfer.setDragImage(element, clientX, clientY)
+
+  // Ensures the drag image is set before hiding the element.
+  setTimeout(() => {
+    element.style.visibility = 'hidden'
+  }, 0)
+}
+
+/**
+ * @param {DragEvent} event
+ */
+function dragVideo(event) {
+  hideDraggedVideoElement(event)
+
+  const { data: { videoId }, playlistItemId } = props
+
+  emit('drag-video', videoId, playlistItemId)
+}
+
+function moveDraggedVideo() {
+  const { data: { videoId }, playlistItemId, draggedVideo } = props
+
+  emit('move-dragged-video', { videoId, playlistItemId }, draggedVideo)
+}
+
+/**
+ * @param {DragEvent} event
+ */
+function afterDrag(event) {
+  event.target.style.visibility = 'revert'
+
+  emit('drag-video-end')
 }
 
 /**
