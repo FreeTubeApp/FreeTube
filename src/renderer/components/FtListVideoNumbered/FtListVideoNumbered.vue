@@ -44,9 +44,6 @@
         </template>
       </p>
       <FtListVideo
-        :class="{
-          preventJankyDrag,
-        }"
         :data="data"
         :playlist-id="playlistId"
         :playlist-type="playlistType"
@@ -56,7 +53,9 @@
         :playlist-loop="playlistLoop"
         :playlist-item-id="playlistItemId"
         force-list-type="list"
-        class="preventJankyDrag"
+        :class="{
+          preventJankyDrag,
+        }"
         :appearance="appearance"
         :always-show-add-to-playlist-button="alwaysShowAddToPlaylistButton"
         :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
@@ -82,18 +81,6 @@ const props = defineProps({
   data: {
     type: Object,
     required: true
-  },
-  draggedVideo: {
-    type: Object,
-    default: () => ({ videoId: null, playlistItemId: null }),
-  },
-  preventJankyDrag: {
-    type: Boolean,
-    default: false,
-  },
-  isSortOrderCustom: {
-    type: Boolean,
-    default: null
   },
   playlistId: {
     type: String,
@@ -158,6 +145,10 @@ const props = defineProps({
   isSortOrderCustom: {
     type: Boolean,
     default: null
+  },
+  preventJankyDrag: {
+    type: Boolean,
+    default: false,
   },
   videoIndex: {
     type: Number,

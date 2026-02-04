@@ -87,8 +87,8 @@
             :playlist-items-length="shownPlaylistItems.length"
             :can-remove-from-playlist="true"
             :dragged-video="draggedVideo"
-            :prevent-janky-drag="preventJankyDrag()"
             :is-sort-order-custom="isSortOrderCustom"
+            :prevent-janky-drag="preventJankyDrag()"
             @drag-video="setDraggedVideo"
             @drag-video-end="() => setDraggedVideo({
               videoId: null,
@@ -110,9 +110,6 @@
               :key="`${item.videoId}-${item.playlistItemId || index}`"
               class="playlistItem"
               :data="item"
-              :dragged-video="draggedVideo"
-              :prevent-janky-drag="preventJankyDrag()"
-              :is-sort-order-custom="isSortOrderCustom"
               :playlist-id="playlistId"
               :playlist-type="infoSource"
               :playlist-index="playlistInVideoSearchMode ? shownPlaylistItems.findIndex(i => i === item) : index"
@@ -127,6 +124,7 @@
               :initial-visible-state="index < 10"
               :dragged-video="draggedVideo"
               :is-sort-order-custom="isSortOrderCustom"
+              :prevent-janky-drag="preventJankyDrag()"
               @drag-video="setDraggedVideo"
               @drag-video-end="() => setDraggedVideo({
                 videoId: null,
