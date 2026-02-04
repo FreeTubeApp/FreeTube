@@ -769,11 +769,10 @@ function moveVideoDown(videoId, playlistItemId, amount = 1) {
 }
 
 /**
- * @param {string} videoId
- * @param {string} playlistItemId
+ * @param {object} video
  */
-function setDraggedVideo(videoId, playlistItemId) {
-  draggedVideo.value = { videoId, playlistItemId }
+function setDraggedVideo(video) {
+  draggedVideo.value = video
 }
 
 /**

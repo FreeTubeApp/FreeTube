@@ -236,7 +236,7 @@ function dragVideo(event) {
 
     const { data: { videoId }, playlistItemId } = props
 
-    emit('drag-video', videoId, playlistItemId)
+    emit('drag-video', { videoId, playlistItemId })
   }
 }
 
