@@ -24,7 +24,7 @@
       :playlist-item-id="result.playlistItemId"
       :dragged-video="draggedVideo"
       :is-sort-order-custom="isSortOrderCustom"
-      :prevent-janky-drag="preventJankyDrag"
+      :is-video-dragging="isVideoDragging"
       @drag-video="dragVideo"
       @move-dragged-video="moveDraggedVideo"
       @drag-video-end="afterDrag"
@@ -114,7 +114,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  preventJankyDrag: {
+  isVideoDragging: {
     type: Boolean,
     default: false,
   },

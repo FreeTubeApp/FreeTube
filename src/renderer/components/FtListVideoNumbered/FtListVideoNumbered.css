@@ -15,6 +15,11 @@
   cursor: grabbing;
 }
 
+.draggedVideo {
+  opacity: 0;
+  transition: 0.01s;
+}
+
 .preventJankyDrag {
   pointer-events: none;
 }

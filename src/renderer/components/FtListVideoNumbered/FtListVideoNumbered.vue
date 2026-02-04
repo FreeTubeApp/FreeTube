@@ -1,12 +1,12 @@
 <template>
   <div
-    ref="video"
     v-observe-visibility="visible ? false : {
       callback: onVisibilityChanged
     }"
     :class="{
       placeholder: !visible,
       customSort: isSortOrderCustom,
+      draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId,
     }"
     :draggable="isSortOrderCustom"
     v-on="isSortOrderCustom ? {
@@ -23,7 +23,7 @@
       <p
         class="videoIndex"
         :class="{
-          preventJankyDrag,
+          preventJankyDrag: isVideoDragging,
         }"
       >
         <FontAwesomeIcon
@@ -54,7 +54,7 @@
         :playlist-item-id="playlistItemId"
         force-list-type="list"
         :class="{
-          preventJankyDrag,
+          preventJankyDrag: isVideoDragging,
         }"
         :appearance="appearance"
         :always-show-add-to-playlist-button="alwaysShowAddToPlaylistButton"
@@ -73,7 +73,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { ref, watch, useTemplateRef } from 'vue'
+import { ref, watch } from 'vue'
 
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 
@@ -146,7 +146,7 @@ const props = defineProps({
     type: Boolean,
     default: null
   },
-  preventJankyDrag: {
+  isVideoDragging: {
     type: Boolean,
     default: false,
   },
@@ -209,56 +209,23 @@ function moveVideoDown(videoId, playlistItemId) {
   emit('move-video-down', videoId, playlistItemId)
 }
 
-const videoElement = useTemplateRef('video')
+function dragVideo() {
+  const { data: { videoId }, playlistItemId } = props
 
-/**
- * @param {DragEvent} event
- */
-function hideDraggedVideoElement(event) {
-  const { value: video } = videoElement.value
-
-  if (video) {
-    const { target: { clientX, clientY } } = event
-    event.dataTransfer.setDragImage(video, clientX, clientY)
-
-    // Ensures the drag image is set before hiding the element.
-    setTimeout(() => {
-      video.style.visibility = 'hidden'
-    }, 0)
-  }
-}
-
-/**
- * @param {DragEvent} event
- */
-function dragVideo(event) {
-  if (videoElement.value) {
-    hideDraggedVideoElement(event)
-
-    const { data: { videoId }, playlistItemId } = props
-
-    emit('drag-video', { videoId, playlistItemId })
-  }
+  emit('drag-video', { videoId, playlistItemId })
 }
 
 function moveDraggedVideo() {
-  if (videoElement.value) {
-    const { data: { videoId }, playlistItemId, draggedVideo } = props
+  const { data: { videoId }, playlistItemId, draggedVideo } = props
 
-    const differentVideo = videoId !== draggedVideo.videoId
+  const differentVideo = videoId !== draggedVideo.videoId
 
-    if (differentVideo) {
-      emit('move-dragged-video', { videoId, playlistItemId }, draggedVideo)
-    }
+  if (differentVideo) {
+    emit('move-dragged-video', { videoId, playlistItemId }, draggedVideo)
   }
 }
 
-/**
- * @param {DragEvent} event
- */
-function afterDrag(event) {
-  event.target.style.visibility = 'revert'
-
+function afterDrag() {
   emit('drag-video-end')
 }
 

@@ -88,7 +88,7 @@
             :can-remove-from-playlist="true"
             :dragged-video="draggedVideo"
             :is-sort-order-custom="isSortOrderCustom"
-            :prevent-janky-drag="preventJankyDrag()"
+            :is-video-dragging="isVideoDragging()"
             @drag-video="setDraggedVideo"
             @drag-video-end="() => setDraggedVideo({
               videoId: null,
@@ -124,7 +124,7 @@
               :initial-visible-state="index < 10"
               :dragged-video="draggedVideo"
               :is-sort-order-custom="isSortOrderCustom"
-              :prevent-janky-drag="preventJankyDrag()"
+              :is-video-dragging="isVideoDragging()"
               @drag-video="setDraggedVideo"
               @drag-video-end="() => setDraggedVideo({
                 videoId: null,
@@ -787,7 +787,7 @@ function setDraggedVideo(video) {
 /**
  * @returns {boolean} isVideoDragging
  */
-const preventJankyDrag = () => {
+const isVideoDragging = () => {
   const { videoId, playlistItemId } = draggedVideo.value
 
   return Boolean(videoId && playlistItemId)
