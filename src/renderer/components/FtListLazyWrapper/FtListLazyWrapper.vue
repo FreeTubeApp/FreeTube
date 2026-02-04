@@ -362,14 +362,13 @@ function moveDraggedVideo() {
   }
 }
 
-function afterDrag() {
-  const { value: video } = videoElement.value
+/**
+ * @param {DragEvent} event
+ */
+function afterDrag(event) {
+  event.target.style.visibility = 'revert'
 
-  if (video) {
-    video.style.visibility = 'revert'
-
-    emit('drag-video-end')
-  }
+  emit('drag-video-end')
 }
 
 </script>
