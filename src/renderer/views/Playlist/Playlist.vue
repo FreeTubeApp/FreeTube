@@ -230,6 +230,9 @@ const channelThumbnail = ref('')
 const channelId = ref('')
 const infoSource = ref('local')
 const playlistItems = ref([])
+/** @import { VideoData } from '../../helpers/dragAndDrop' */
+/** @import { Ref } from 'vue' */
+/** @type {Ref<VideoData>} draggedVideo */
 const draggedVideo = ref({ videoId: null, playlistItemId: null })
 const userPlaylistVisibleLimit = ref(100)
 /** @type {import('vue').ShallowRef<import('youtubei.js').YT.Playlist | null>} */
@@ -778,7 +781,7 @@ function moveVideoDown(videoId, playlistItemId, amount = 1) {
 }
 
 /**
- * @param {object} video
+ * @param {VideoData} video
  */
 function setDraggedVideo(video) {
   draggedVideo.value = video
@@ -794,12 +797,8 @@ const isVideoDragging = () => {
 }
 
 /**
- * @param {object} draggedOver
- * @param {string} draggedOver.videoId
- * @param {string} draggedOver.playlistItemId
- * @param {object} dropped
- * @param {string} dropped.videoId
- * @param {string} dropped.playlistItemId
+ * @param {VideoData} video
+ * @param {VideoData} draggedVideo
  */
 function moveDraggedVideo({ videoId, playlistItemId }, { videoId: droppedVideoId, playlistItemId: droppedPlaylistItemId }) {
   const playlistItems_ = playlistItems.value.slice()

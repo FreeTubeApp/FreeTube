@@ -1,7 +1,7 @@
 /**
  * @typedef {object} VideoData
- * @prop {string} videoId
- * @prop {string} playlistItemId
+ * @prop {string | null} videoId
+ * @prop {string | null} playlistItemId
  */
 
 /**

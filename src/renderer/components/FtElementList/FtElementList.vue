@@ -156,16 +156,18 @@ function removeFromPlaylist(videoId, playlistItemId) {
   emit('remove-from-playlist', videoId, playlistItemId)
 }
 
+/** @import { VideoData } from '../../helpers/dragAndDrop' */
+
 /**
- * @param {object} video
+ * @param {VideoData} video
  */
 function dragVideo(video) {
   emit('drag-video', video)
 }
 
 /**
- * @param {object} video
- * @param {object} draggedVideo
+ * @param {VideoData} video
+ * @param {VideoData} draggedVideo
  */
 function moveDraggedVideo(video, draggedVideo) {
   emit('move-dragged-video', video, draggedVideo)

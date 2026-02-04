@@ -322,6 +322,9 @@ function removeFromPlaylist(videoId, playlistItemId) {
 
 const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
 
+/** @import { VideoData } from '../../helpers/dragAndDrop' */
+
+/** @type {VideoData} */
 const videoData = {
   videoId: props.data.videoId,
   playlistItemId: props.playlistItemId,
