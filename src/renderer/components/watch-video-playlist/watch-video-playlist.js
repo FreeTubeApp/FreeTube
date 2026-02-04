@@ -277,10 +277,6 @@ export default defineComponent({
       const prevVideoBeforeDeletion = this.prevVideoBeforeDeletion
       const videoId = this.videoId
       return playlist.findIndex((item) => {
-        // It's possible to get outdated `shufflePlaylistItems` here while recalculating computed values
-        // So the `playlist` here might contain `undefined`
-        if (item == null) { return false }
-
         if (item.playlistItemId && (playlistItemId || prevVideoBeforeDeletion?.playlistItemId)) {
           return item.playlistItemId === playlistItemId || item.playlistItemId === prevVideoBeforeDeletion?.playlistItemId
         } else if (item.videoId) {
@@ -558,8 +554,12 @@ export default defineComponent({
       const remainingItems = [].concat(this.playlistItems)
       const items = []
 
-      items.push(this.currentVideo)
-      remainingItems.splice(this.currentVideoIndexZeroBased, 1)
+      if (this.currentVideo != null) {
+        items.push(this.currentVideo)
+        remainingItems.splice(this.currentVideoIndexZeroBased, 1)
+        // There is no else case
+        // If current video is absent in (removed from) the playlist, nothing should be changed
+      }
 
       while (remainingItems.length > 0) {
         const randomInt = Math.floor(Math.random() * remainingItems.length)
