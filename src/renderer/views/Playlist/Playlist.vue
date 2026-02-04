@@ -125,6 +125,8 @@
               :can-remove-from-playlist="true"
               :video-index="playlistInVideoSearchMode ? shownPlaylistItems.findIndex(i => i === item) : index"
               :initial-visible-state="index < 10"
+              :dragged-video="draggedVideo"
+              :is-sort-order-custom="isSortOrderCustom"
               @drag-video="setDraggedVideo"
               @drag-video-end="() => setDraggedVideo({
                 videoId: null,

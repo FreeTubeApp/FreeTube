@@ -7,8 +7,6 @@
       :key="`${dataType || result.type}-${result.videoId || result.playlistId || result.postId || result.id || result._id || result.authorId || result.title}-${result.playlistItemId || index}-${result.lastUpdatedAt || 0}`"
       appearance="result"
       :data="result"
-      :dragged-video="draggedVideo"
-      :is-sort-order-custom="isSortOrderCustom"
       :prevent-janky-drag="preventJankyDrag"
       :data-type="dataType || result.type"
       :first-screen="index < 16"
@@ -25,6 +23,8 @@
       :playlist-id="playlistId"
       :playlist-type="playlistType"
       :playlist-item-id="result.playlistItemId"
+      :dragged-video="draggedVideo"
+      :is-sort-order-custom="isSortOrderCustom"
       @drag-video="dragVideo"
       @move-dragged-video="moveDraggedVideo"
       @drag-video-end="afterDrag"
@@ -56,14 +56,6 @@ const props = defineProps({
     type: String,
     required: false,
     default: ''
-  },
-  isSortOrderCustom: {
-    type: Boolean,
-    default: false,
-  },
-  draggedVideo: {
-    type: Object,
-    default: () => ({ videoId: null, playlistItemId: null }),
   },
   preventJankyDrag: {
     type: Boolean,
@@ -117,6 +109,14 @@ const props = defineProps({
   playlistType: {
     type: String,
     default: null
+  },
+  isSortOrderCustom: {
+    type: Boolean,
+    default: false,
+  },
+  draggedVideo: {
+    type: Object,
+    default: () => ({ videoId: null, playlistItemId: null }),
   },
 })
 

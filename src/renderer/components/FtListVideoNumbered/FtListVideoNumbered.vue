@@ -56,6 +56,7 @@
         :playlist-loop="playlistLoop"
         :playlist-item-id="playlistItemId"
         force-list-type="list"
+        class="preventJankyDrag"
         :appearance="appearance"
         :always-show-add-to-playlist-button="alwaysShowAddToPlaylistButton"
         :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
@@ -150,6 +151,14 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  draggedVideo: {
+    type: Object,
+    default: () => ({ videoId: null, playlistItemId: null }),
+  },
+  isSortOrderCustom: {
+    type: Boolean,
+    default: null
+  },
   videoIndex: {
     type: Number,
     default: -1
@@ -161,8 +170,9 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
-const mouseEnter = ref(false)
 const visible = ref(props.initialVisibleState)
+
+const mouseEnter = ref(false)
 
 let stopWatchingInitialVisibleState = null
 
