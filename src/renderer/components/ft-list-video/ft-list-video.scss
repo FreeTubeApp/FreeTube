@@ -7,6 +7,7 @@
 .thumbnailImage {
   // Makes img element sized correctly before image loading starts
   aspect-ratio: 16/9 auto;
+  pointer-events: none;
 }
 
 .videoTagLine {
