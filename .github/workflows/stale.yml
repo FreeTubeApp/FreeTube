@@ -26,3 +26,8 @@ jobs:
           days-before-pr-close: 14
           stale-pr-label: 'PR: stale'
           exempt-pr-labels: 'PR: WIP'
+
+          # actions/stale doesn't have a way of running only on pull requests
+          # so set the issue thresholds to -1 so it at least doesn't try to label or close them
+          days-before-stale: -1
+          days-before-close: -1

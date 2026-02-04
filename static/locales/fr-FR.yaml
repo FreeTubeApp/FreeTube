@@ -106,10 +106,10 @@ Trending:
   Gaming: Jeux vidéo
   Sports: Sports
 Most Popular: 'Les plus populaires'
-Playlists: 'Playlists'
+Playlists: 'Listes de lecture'
 User Playlists:
-  Your Playlists: 'Vos playlists'
-  Search bar placeholder: Recherche de playlists
+  Your Playlists: 'Vos Listes de lecture'
+  Search bar placeholder: Recherche de listes de lecture
   Empty Search Message: Il n'y a pas de vidéos dans cette playlist qui correspondent à votre recherche
   AddVideoPrompt:
     Search in Playlists: Recherche dans les playlists
@@ -156,7 +156,7 @@ User Playlists:
     LatestUpdatedFirst: Date de mise à jour (la plus récente)
     NameAscending: A→Z
   You have no playlists. Click on the create new playlist button to create a new one.: Vous n'avez pas de playlist. Cliquez sur le bouton créer une nouvelle playlist pour en créer une nouvelle.
-  Remove from Playlist: Retirer de la playlist
+  Remove from Playlist: Retirer de la listes de lecture
   Save Changes: Enregistrer les modifications
   CreatePlaylistPrompt:
     Create: Créer
@@ -165,22 +165,22 @@ User Playlists:
       Playlist {playlistName} has been successfully created.: La playlist {playlistName} a été créée avec succès.
       There is already a playlist with this name. Please pick a different name.: Il existe déjà une playlist portant ce nom. Veuillez choisir un autre nom.
     New Playlist Name: Nouveau nom de la playlist
-  This playlist currently has no videos.: Cette playlist ne contient actuellement aucune vidéo.
-  Add to Playlist: Ajouter à la playlist
+  This playlist currently has no videos.: Cette listes de lecture ne contient actuellement aucune vidéo.
+  Add to Playlist: Ajouter à la listes de lecture
   Move Video Down: Déplacer la vidéo vers le bas
-  Playlist Name: Nom de la playlist
+  Playlist Name: Nom de la listes de lecture
   Remove Watched Videos: Retirer les vidéos visionnées
   Move Video Up: Déplacer la vidéo vers le haut
   Cancel: Annuler
   Delete Playlist: Supprimer la playlist
-  Create New Playlist: Créer une nouvelle playlist
-  Edit Playlist Info: Modifier les informations de la playlist
-  Copy Playlist: Copier la playlist
-  Playlist Description: Description de la playlist
+  Create New Playlist: Créer une nouvelle listes de lecture
+  Edit Playlist Info: Modifier les informations de la listes de lecture
+  Copy Playlist: Copier la listes de lecture
+  Playlist Description: Description de la listes de lecture
   Add to Favorites: Ajouter à {playlistName}
   Remove from Favorites: Retirer de {playlistName}
   Enable Quick Bookmark With This Playlist: Activer le marque-page rapide avec cette playlist
-  Playlists with Matching Videos: Playlists avec des vidéos correspondantes
+  Playlists with Matching Videos: Listes de lecture avec des vidéos correspondantes
   Quick Bookmark Enabled: Signet rapide activé
   Cannot delete the quick bookmark target playlist.: Impossible de supprimer la playlist cible des signets rapides.
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Êtes-vous sûr(e) de vouloir retirer 1 vidéo en double de cette playlist ? Cette opération est irréversible. | Êtes-vous sûr(e) de vouloir retirer {playlistItemCount} vidéos en double de cette playlist ? Cette opération est irréversible.
