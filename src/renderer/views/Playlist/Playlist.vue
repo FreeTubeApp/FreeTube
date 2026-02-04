@@ -102,6 +102,7 @@
               class="playlistItem"
               :data="item"
               :dragged-video="draggedVideo"
+              :prevent-janky-drag="preventJankyDrag()"
               :is-sort-order-custom="isSortOrderCustom"
               :playlist-id="playlistId"
               :playlist-type="infoSource"
@@ -773,6 +774,15 @@ function moveVideoDown(videoId, playlistItemId, amount = 1) {
  */
 function setDraggedVideo(videoId, playlistItemId) {
   draggedVideo.value = { videoId, playlistItemId }
+}
+
+/**
+ * @returns {boolean} isVideoDragging
+ */
+const preventJankyDrag = () => {
+  const { videoId, playlistItemId } = draggedVideo.value
+
+  return Boolean(videoId && playlistItemId)
 }
 
 /**
