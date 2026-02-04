@@ -86,6 +86,15 @@
             :can-move-video-down="canMoveVideos"
             :playlist-items-length="shownPlaylistItems.length"
             :can-remove-from-playlist="true"
+            :dragged-video="draggedVideo"
+            :prevent-janky-drag="preventJankyDrag()"
+            :is-sort-order-custom="isSortOrderCustom"
+            @drag-video="setDraggedVideo"
+            @drag-video-end="() => setDraggedVideo({
+              videoId: null,
+              playlistItemId: null,
+            })"
+            @move-dragged-video="moveDraggedVideo"
             @move-video-up="moveVideoUp"
             @move-video-down="moveVideoDown"
             @remove-from-playlist="removeVideoFromPlaylist"

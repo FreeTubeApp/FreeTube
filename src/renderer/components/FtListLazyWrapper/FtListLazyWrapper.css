@@ -5,3 +5,15 @@
 .list {
   min-block-size: 131px;
 }
+
+.customSort {
+  cursor: pointer;
+}
+
+.customSort:active {
+  cursor: grabbing;
+}
+
+.preventJankyDrag {
+  pointer-events: none;
+}

@@ -7,6 +7,9 @@
       :key="`${dataType || result.type}-${result.videoId || result.playlistId || result.postId || result.id || result._id || result.authorId || result.title}-${result.playlistItemId || index}-${result.lastUpdatedAt || 0}`"
       appearance="result"
       :data="result"
+      :dragged-video="draggedVideo"
+      :is-sort-order-custom="isSortOrderCustom"
+      :prevent-janky-drag="preventJankyDrag"
       :data-type="dataType || result.type"
       :first-screen="index < 16"
       :layout="displayValue"
@@ -22,6 +25,9 @@
       :playlist-id="playlistId"
       :playlist-type="playlistType"
       :playlist-item-id="result.playlistItemId"
+      @drag-video="dragVideo"
+      @move-dragged-video="moveDraggedVideo"
+      @drag-video-end="afterDrag"
       @move-video-up="moveVideoUp"
       @move-video-down="moveVideoDown"
       @remove-from-playlist="removeFromPlaylist"
@@ -50,6 +56,18 @@ const props = defineProps({
     type: String,
     required: false,
     default: ''
+  },
+  isSortOrderCustom: {
+    type: Boolean,
+    default: false,
+  },
+  draggedVideo: {
+    type: Object,
+    default: () => ({ videoId: null, playlistItemId: null }),
+  },
+  preventJankyDrag: {
+    type: Boolean,
+    default: false,
   },
   showVideoWithLastViewedPlaylist: {
     type: Boolean,
@@ -102,7 +120,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['move-video-down', 'move-video-up', 'remove-from-playlist'])
+const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
 
 /** @type {import('vue').ComputedRef<'grid' | 'list'>} */
 const listType = computed(() => {
@@ -137,6 +155,26 @@ function moveVideoDown(videoId, playlistItemId) {
 function removeFromPlaylist(videoId, playlistItemId) {
   emit('remove-from-playlist', videoId, playlistItemId)
 }
+
+/**
+ * @param {object} video
+ */
+function dragVideo(video) {
+  emit('drag-video', video)
+}
+
+/**
+ * @param {object} video
+ * @param {object} draggedVideo
+ */
+function moveDraggedVideo(video, draggedVideo) {
+  emit('move-dragged-video', video, draggedVideo)
+}
+
+function afterDrag() {
+  emit('drag-video-end')
+}
+
 </script>
 
 <style scoped src="./FtElementList.css" />

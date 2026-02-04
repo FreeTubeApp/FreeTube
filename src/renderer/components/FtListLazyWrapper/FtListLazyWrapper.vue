@@ -1,13 +1,21 @@
 <template>
   <div
     v-if="showResult"
+    ref="video"
     v-observe-visibility="visible ? false : {
       callback: onVisibilityChanged
     }"
     :class="{
       grid: layout === 'grid',
-      list: layout === 'list'
+      list: layout === 'list',
+      customSort: isSortOrderCustom,
     }"
+    :draggable="isSortOrderCustom"
+    v-on="isSortOrderCustom ? {
+      dragstart: dragVideo,
+      dragenter: moveDraggedVideo,
+      dragend: afterDrag,
+    } : {}"
   >
     <template
       v-if="visible"
@@ -15,6 +23,9 @@
       <FtListVideo
         v-if="finalDataType === 'video' || finalDataType === 'shortVideo'"
         :appearance="appearance"
+        :class="{
+          preventJankyDrag,
+        }"
         :data="data"
         :playlist-id="playlistId"
         :playlist-type="playlistType"
@@ -56,7 +67,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, useTemplateRef } from 'vue'
 
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListChannel from '../FtListChannel/FtListChannel.vue'
@@ -78,6 +89,18 @@ const props = defineProps({
   appearance: {
     type: String,
     required: true
+  },
+  isSortOrderCustom: {
+    type: Boolean,
+    default: false,
+  },
+  draggedVideo: {
+    type: Object,
+    default: () => ({ videoId: null, playlistItemId: null }),
+  },
+  preventJankyDrag: {
+    type: Boolean,
+    default: false,
   },
   firstScreen: {
     type: Boolean,
@@ -138,7 +161,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['move-video-down', 'move-video-up', 'remove-from-playlist'])
+const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
 
 /** @type {import('vue').ComputedRef<'video' | 'shortVideo' | 'channel' | 'playlist' | 'community'>} */
 const finalDataType = computed(() => {
@@ -294,6 +317,57 @@ function moveVideoDown(videoId, playlistItemId) {
 function removeFromPlaylist(videoId, playlistItemId) {
   emit('remove-from-playlist', videoId, playlistItemId)
 }
+
+const videoElement = useTemplateRef('video')
+
+/**
+ * @param {DragEvent} event
+ */
+function hideDraggedVideoElement(event) {
+  const { value: video } = videoElement.value
+
+  if (video) {
+    const { target: { clientX, clientY } } = event
+    event.dataTransfer.setDragImage(video, clientX, clientY)
+
+    // Ensures the drag image is set before hiding the element.
+    setTimeout(() => {
+      video.style.visibility = 'hidden'
+    }, 0)
+  }
+}
+
+/**
+ * @param {DragEvent} event
+ */
+function dragVideo(event) {
+  if (videoElement.value) {
+    hideDraggedVideoElement(event)
+
+    const { data: { videoId }, playlistItemId } = props
+
+    emit('drag-video', { videoId, playlistItemId })
+  }
+}
+
+function moveDraggedVideo() {
+  if (videoElement.value) {
+    const { data: { videoId }, playlistItemId, draggedVideo } = props
+
+    emit('move-dragged-video', { videoId, playlistItemId }, draggedVideo)
+  }
+}
+
+function afterDrag() {
+  const { value: video } = videoElement.value
+
+  if (video) {
+    video.style.visibility = 'revert'
+
+    emit('drag-video-end')
+  }
+}
+
 </script>
 
 <style scoped src="./FtListLazyWrapper.css" />
