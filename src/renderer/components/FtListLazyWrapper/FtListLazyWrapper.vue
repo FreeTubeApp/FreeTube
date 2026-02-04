@@ -355,7 +355,11 @@ function moveDraggedVideo() {
   if (videoElement.value) {
     const { data: { videoId }, playlistItemId, draggedVideo } = props
 
-    emit('move-dragged-video', { videoId, playlistItemId }, draggedVideo)
+    const differentVideo = videoId !== draggedVideo.videoId
+
+    if (differentVideo) {
+      emit('move-dragged-video', { videoId, playlistItemId }, draggedVideo)
+    }
   }
 }
 
