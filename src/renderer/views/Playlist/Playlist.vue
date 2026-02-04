@@ -707,9 +707,8 @@ const canMoveVideos = computed(() => {
 /**
  * @param {string} videoId
  * @param {string} playlistItemId
- * @param {number?} amount
  */
-function moveVideoUp(videoId, playlistItemId, amount = 1) {
+function moveVideoUp(videoId, playlistItemId) {
   const playlistItems_ = playlistItems.value.slice()
 
   const index = playlistItems_.findIndex((video) => {
@@ -721,9 +720,7 @@ function moveVideoUp(videoId, playlistItemId, amount = 1) {
     return
   }
 
-  range(0, amount).forEach(() => {
-    [playlistItems_[index], playlistItems_[index - 1]] = [playlistItems_[index - 1], playlistItems_[index]]
-  })
+  [playlistItems_[index], playlistItems_[index - 1]] = [playlistItems_[index - 1], playlistItems_[index]]
 
   const playlist = {
     playlistName: playlistTitle.value,
@@ -745,9 +742,8 @@ function moveVideoUp(videoId, playlistItemId, amount = 1) {
 /**
  * @param {string} videoId
  * @param {string} playlistItemId
- * @param {number?} amount
  */
-function moveVideoDown(videoId, playlistItemId, amount = 1) {
+function moveVideoDown(videoId, playlistItemId) {
   const playlistItems_ = playlistItems.value.slice()
 
   const index = playlistItems_.findIndex((video) => {
@@ -759,9 +755,7 @@ function moveVideoDown(videoId, playlistItemId, amount = 1) {
     return
   }
 
-  range(0, amount).forEach(() => {
-    [playlistItems_[index], playlistItems_[index + 1]] = [playlistItems_[index + 1], playlistItems_[index]]
-  })
+  [playlistItems_[index], playlistItems_[index + 1]] = [playlistItems_[index + 1], playlistItems_[index]]
 
   const playlist = {
     playlistName: playlistTitle.value,
@@ -817,7 +811,11 @@ function moveDraggedVideo({ videoId, playlistItemId }, { videoId: droppedVideoId
 
   const difference = moveDown ? draggedOverIndex - droppedIndex : droppedIndex - draggedOverIndex
 
-  procedure(droppedVideoId, droppedPlaylistItemId, difference)
+  // Need to let the store dispatch each call
+  // to make grid layout work
+  range(0, difference).forEach(() => {
+    procedure(droppedVideoId, droppedPlaylistItemId)
+  })
 }
 
 /**
