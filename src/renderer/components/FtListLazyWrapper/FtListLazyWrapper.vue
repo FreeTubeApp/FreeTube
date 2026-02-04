@@ -12,8 +12,8 @@
     }"
     :draggable="isSortOrderCustom"
     v-on="isSortOrderCustom ? {
-      dragstart: dragVideo,
-      dragenter: moveDraggedVideo,
+      dragstart: () => dragVideo(videoData),
+      dragenter: () => moveDraggedVideo(videoData, draggedVideo),
       dragend: afterDrag,
     } : {}"
   >
@@ -68,6 +68,8 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+
+import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListChannel from '../FtListChannel/FtListChannel.vue'
@@ -318,24 +320,11 @@ function removeFromPlaylist(videoId, playlistItemId) {
   emit('remove-from-playlist', videoId, playlistItemId)
 }
 
-function dragVideo() {
-  const { data: { videoId }, playlistItemId } = props
+const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
 
-  emit('drag-video', { videoId, playlistItemId })
-}
-
-function moveDraggedVideo() {
-  const { data: { videoId }, playlistItemId, draggedVideo } = props
-
-  const differentVideo = videoId !== draggedVideo.videoId
-
-  if (differentVideo) {
-    emit('move-dragged-video', { videoId, playlistItemId }, draggedVideo)
-  }
-}
-
-function afterDrag() {
-  emit('drag-video-end')
+const videoData = {
+  videoId: props.data.videoId,
+  playlistItemId: props.playlistItemId,
 }
 
 </script>
