@@ -7,7 +7,6 @@
       [appearance]: true,
       watched: addWatchedStyle
     }"
-    @dragstart.prevent
   >
     <div
       class="videoThumbnail"
@@ -23,6 +22,7 @@
           class="thumbnailImage"
           alt=""
           :style="{filter: blurThumbnailsStyle}"
+          @dragstart.prevent
         >
       </router-link>
       <div

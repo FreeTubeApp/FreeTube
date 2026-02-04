@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="video"
     v-observe-visibility="visible ? false : {
       callback: onVisibilityChanged
     }"
@@ -72,7 +73,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { ref, watch } from 'vue'
+import { ref, watch, useTemplateRef } from 'vue'
 
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 
@@ -207,43 +208,54 @@ function moveVideoDown(videoId, playlistItemId) {
   emit('move-video-down', videoId, playlistItemId)
 }
 
+const videoElement = useTemplateRef('video')
+
 /**
  * @param {DragEvent} event
  */
 function hideDraggedVideoElement(event) {
-  const { target: element, target: { clientX, clientY } } = event
-  event.dataTransfer.setDragImage(element, clientX, clientY)
+  const { value: video } = videoElement.value
 
-  // Ensures the drag image is set before hiding the element.
-  setTimeout(() => {
-    element.style.visibility = 'hidden'
-  }, 0)
+  if (video) {
+    const { target: { clientX, clientY } } = event
+    event.dataTransfer.setDragImage(video, clientX, clientY)
+
+    // Ensures the drag image is set before hiding the element.
+    setTimeout(() => {
+      video.style.visibility = 'hidden'
+    }, 0)
+  }
 }
 
 /**
  * @param {DragEvent} event
  */
 function dragVideo(event) {
-  hideDraggedVideoElement(event)
+  if (videoElement.value) {
+    hideDraggedVideoElement(event)
 
-  const { data: { videoId }, playlistItemId } = props
+    const { data: { videoId }, playlistItemId } = props
 
-  emit('drag-video', videoId, playlistItemId)
+    emit('drag-video', videoId, playlistItemId)
+  }
 }
 
 function moveDraggedVideo() {
-  const { data: { videoId }, playlistItemId, draggedVideo } = props
+  if (videoElement.value) {
+    const { data: { videoId }, playlistItemId, draggedVideo } = props
 
-  emit('move-dragged-video', { videoId, playlistItemId }, draggedVideo)
+    emit('move-dragged-video', { videoId, playlistItemId }, draggedVideo)
+  }
 }
 
-/**
- * @param {DragEvent} event
- */
-function afterDrag(event) {
-  event.target.style.visibility = 'revert'
+function afterDrag() {
+  const { value: video } = videoElement.value
 
-  emit('drag-video-end')
+  if (video) {
+    video.style.visibility = 'revert'
+
+    emit('drag-video-end')
+  }
 }
 
 /**
