@@ -6,11 +6,11 @@
   min-block-size: 131px;
 }
 
-.customSort {
+.draggable {
   cursor: pointer;
 }
 
-.customSort:active {
+.draggable:active {
   cursor: grabbing;
 }
 

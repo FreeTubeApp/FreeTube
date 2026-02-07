@@ -7,10 +7,10 @@
     :class="{
       grid: layout === 'grid',
       list: layout === 'list',
-      customSort: isSortOrderCustom,
+      draggable: isSortOrderCustom && isUserPlaylist,
       draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId,
     }"
-    :draggable="isSortOrderCustom"
+    :draggable="isSortOrderCustom && isUserPlaylist"
     v-on="isSortOrderCustom ? {
       dragstart: () => dragVideo(videoData),
       dragover: event => event.preventDefault(),
@@ -165,6 +165,8 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
+
+const isUserPlaylist = props.playlistType === 'user'
 
 /** @type {import('vue').ComputedRef<'video' | 'shortVideo' | 'channel' | 'playlist' | 'community'>} */
 const finalDataType = computed(() => {

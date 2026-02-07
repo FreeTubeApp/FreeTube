@@ -5,10 +5,10 @@
     }"
     :class="{
       placeholder: !visible,
-      customSort: isSortOrderCustom,
+      draggable: isSortOrderCustom && isUserPlaylist,
       draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId,
     }"
-    :draggable="isSortOrderCustom"
+    :draggable="isSortOrderCustom && isUserPlaylist"
     v-on="isSortOrderCustom ? {
       dragstart: () => dragVideo(videoData),
       dragover: event => event.preventDefault(),
@@ -34,7 +34,7 @@
         />
 
         <FontAwesomeIcon
-          v-else-if="isSortOrderCustom && mouseEnter"
+          v-else-if="(isSortOrderCustom && isUserPlaylist) && mouseEnter"
           :icon="['fas', 'fa-bars']"
         />
 
@@ -167,6 +167,8 @@ const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-u
 const visible = ref(props.initialVisibleState)
 
 const mouseEnter = ref(false)
+
+const isUserPlaylist = props.playlistType === 'user'
 
 let stopWatchingInitialVisibleState = null
 
