@@ -16,11 +16,18 @@
       dragover: event => event.preventDefault(),
       dragenter: () => moveDraggedVideo(videoData, draggedVideo),
       dragend: afterDrag,
+      mouseenter: () => mouseEnter = true,
+      mouseleave: () => mouseEnter = false,
     } : {}"
   >
     <template
       v-if="visible"
     >
+      <FontAwesomeIcon
+        v-if="isUserPlaylist && mouseEnter"
+        class="grabBar"
+        :icon="['fas', 'fa-bars']"
+      />
       <FtListVideo
         v-if="finalDataType === 'video' || finalDataType === 'shortVideo'"
         :appearance="appearance"
@@ -69,6 +76,8 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 
@@ -165,6 +174,8 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
+
+const mouseEnter = ref(false)
 
 const isUserPlaylist = props.playlistType === 'user'
 

@@ -8,6 +8,7 @@
 
 .draggable {
   cursor: pointer;
+  position: relative;
 }
 
 .draggable:active {
@@ -17,6 +18,24 @@
 .draggedVideo {
   opacity: 0;
   transition: 0.01s;
+}
+
+.grabBar {
+  font-size: 1rem;
+  aspect-ratio: 1 / 1;
+  padding: 8px;
+
+  /* Make it the same color as thumbnail border to blend in. */
+  background: var(--side-nav-hover-color);
+
+  /* Prevent watched video fade in from affecting the grab icon. */
+  z-index: 1;
+  border-start-end-radius: 0.25em;
+  border-end-end-radius: 0.25em;
+  pointer-events: none;
+  position: absolute;
+  inset-block-start: 30%;
+  inset-inline-start: 6px;
 }
 
 .preventJankyDrag {
