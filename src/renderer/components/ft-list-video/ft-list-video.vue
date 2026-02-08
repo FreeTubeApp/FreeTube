@@ -18,6 +18,11 @@
         draggable="false"
         @click="handleWatchPageLinkClick"
       >
+        <font-awesome-icon
+          v-if="showGrabBar"
+          class="grabBar"
+          :icon="['fas', 'fa-bars']"
+        />
         <img
           :src="thumbnail"
           class="thumbnailImage"

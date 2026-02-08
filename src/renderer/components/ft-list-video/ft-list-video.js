@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue'
 import FtIconButton from '../FtIconButton/FtIconButton.vue'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { mapActions } from 'vuex'
 import {
   copyToClipboard,
@@ -18,7 +19,8 @@ import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 export default defineComponent({
   name: 'FtListVideo',
   components: {
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-awesome-icon': FontAwesomeIcon,
   },
   props: {
     data: {
@@ -84,6 +86,11 @@ export default defineComponent({
     canRemoveFromPlaylist: {
       type: Boolean,
       default: false,
+    },
+    showGrabBar: {
+      type: Boolean,
+      default: false,
+      required: false,
     },
   },
   emits: ['move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist'],

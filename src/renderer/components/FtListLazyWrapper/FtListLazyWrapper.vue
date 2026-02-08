@@ -23,11 +23,6 @@
     <template
       v-if="visible"
     >
-      <FontAwesomeIcon
-        v-if="isUserPlaylist && mouseEnter"
-        class="grabBar"
-        :icon="['fas', 'fa-bars']"
-      />
       <FtListVideo
         v-if="finalDataType === 'video' || finalDataType === 'shortVideo'"
         :appearance="appearance"
@@ -44,6 +39,7 @@
         :can-move-video-up="canMoveVideoUp"
         :can-move-video-down="canMoveVideoDown"
         :can-remove-from-playlist="canRemoveFromPlaylist"
+        :show-grab-bar="(layout === 'grid' && isUserPlaylist) && mouseEnter"
         @move-video-up="moveVideoUp"
         @move-video-down="moveVideoDown"
         @remove-from-playlist="removeFromPlaylist"
@@ -76,8 +72,6 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 

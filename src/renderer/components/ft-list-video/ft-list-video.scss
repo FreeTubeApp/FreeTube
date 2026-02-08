@@ -4,12 +4,41 @@
   outline: 3px solid var(--side-nav-hover-color);
 }
 
+.grabBar {
+  font-size: 1rem;
+
+  // Prevent blue color inherited from the thumbnail link.
+  color: #fff;
+  padding: 8px;
+
+  // Make it the same color as thumbnail border to blend in.
+  background: var(--side-nav-hover-color);
+
+  // Prevent watched video fade in from affecting the grab icon.
+  z-index: 1;
+
+  $corner-rounding: 0.35em;
+
+  border-start-end-radius: $corner-rounding;
+  border-end-end-radius: $corner-rounding;
+  pointer-events: none;
+  position: absolute;
+
+  // Position at y axis halfway point over the thumbnail image.
+  inset-block-start: 50%;
+  translate: 0 -50%;
+}
+
 .thumbnailImage {
   // Makes img element sized correctly before image loading starts
   aspect-ratio: 16/9 auto;
 
   // Prevent image from blocking drag and drop
   pointer-events: none;
+}
+
+.thumbnailLink:has(.grabBar) {
+  position: relative;
 }
 
 .videoTagLine {
