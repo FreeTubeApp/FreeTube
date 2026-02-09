@@ -11,6 +11,7 @@
     :draggable="isSortOrderCustom"
     v-on="isSortOrderCustom ? {
       dragstart: () => dragVideo(videoData),
+      dragover: event => event.preventDefault(),
       dragenter: () => moveDraggedVideo(videoData, draggedVideo),
       dragend: afterDrag,
       mouseenter: () => mouseEnter = true,
