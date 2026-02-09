@@ -575,13 +575,6 @@ Settings:
     UseDeArrowTitles: Χρήση Τίτλων Βίντεο DeArrow
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Μικρογραφία Generator API Url (Η προεπιλογή είναι https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Χρήση DeArrow για μικρογραφίες
-  Download Settings:
-    Download Settings: Λήψη
-    Ask Download Path: Ζητήστε τη διαδρομή λήψης
-    Choose Path: Επιλέξτε διαδρομή
-    Download Behavior: Συμπεριφορά Λήψης
-    Download in app: Λήψη στην εφαρμογή
-    Open in web browser: Άνοιγμα στο πρόγραμμα περιήγησης ιστού
   Password Dialog:
     Enter Password To Unlock: Εισαγάγετε τον κωδικό πρόσβασης για να ξεκλειδώσετε τις ρυθμίσεις
     Password: Κωδικός πρόσβασης
@@ -765,9 +758,6 @@ Video:
   Published on: 'Δημοσιεύθηκε στις'
 #& Videos
   Starting soon, please refresh the page to check again: Έναρξη σύντομα, παρακαλούμε κάντε ανανέωση της σελίδας για επανέλεγχο
-  audio only: μόνο ήχος
-  video only: μόνο βίντεο
-  Download Video: Λήψη Βίντεο
   Copy Invidious Channel Link: Αντιγραφή συνδέσμου καναλιού Invidious
   Copy YouTube Channel Link: Αντιγραφή συνδέσμου καναλιού YouTube
   Started streaming on: Ξεκίνησε να μεταδίδει ζωντανά την
@@ -976,12 +966,9 @@ Search Bar:
   Remove: Αφαίρεση
 Open New Window: Άνοιγμα Νέου παραθύρου
 Default Invidious instance has been set to {instance}: Το προεπιλεγμένο στιγμιότυπο Invidious έχει οριστεί σε {instance}
-Downloading has completed: Η λήψη του "{videoTitle}" ολοκληρώθηκε
-Starting download: Έναρξη λήψης του "{videoTitle}"
 Default Invidious instance has been cleared: Το προεπιλεγμένο στιγμιότυπο Invidious έχει διαγραφεί
 External link opening has been disabled in the general settings: Το άνοιγμα εξωτερικών συνδέσμων έχει απενεργοποιηθεί στις γενικές ρυθμίσεις
 Are you sure you want to open this link?: Θέλετε σίγουρα να ανοίξετε αυτόν το σύνδεσμο;
-Downloading failed: Παρουσιάστηκε ένα πρόβλημα κατά τη λήψη του "{videoTitle}"
 Channels:
   Channels: Κανάλια
   Title: Λίστα Καναλιών

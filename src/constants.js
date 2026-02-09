@@ -42,7 +42,6 @@ const IpcChannels = {
 
   GENERATE_PO_TOKEN: 'generate-po-token',
 
-  GET_SCREENSHOT_FALLBACK_FOLDER: 'get-screenshot-fallback-folder',
   CHOOSE_DEFAULT_FOLDER: 'choose-default-folder',
   WRITE_TO_DEFAULT_FOLDER: 'write-to-default-folder',
 
@@ -128,11 +127,6 @@ const SyncEvents = {
     UPDATE_SHORTS_WITH_CHANNEL_PAGE_SHORTS_BY_CHANNEL: 23,
     UPDATE_COMMUNITY_POSTS_BY_CHANNEL: 24,
   },
-}
-
-const DefaultFolderKind = {
-  DOWNLOADS: 0,
-  SCREENSHOTS: 1
 }
 
 /*
@@ -269,7 +263,6 @@ export {
   IpcChannels,
   DBActions,
   SyncEvents,
-  DefaultFolderKind,
   KeyboardShortcuts,
   PlayerIcons,
   UnsupportedPlayerActions,

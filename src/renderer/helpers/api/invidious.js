@@ -181,6 +181,7 @@ export async function getInvidiousChannelVideos(channelId, sortBy, continuation)
   /** @type {{continuation: string?, videos: InvidiousVideoType[]}}  */
   const response = await getInvidiousChannelTab('videos', channelId, continuation, sortBy)
 
+  normalizeManyInvidiousVideosAttributes(response.videos, channelId)
   setMultiplePublishedTimestamps(response.videos)
 
   return response
@@ -215,6 +216,7 @@ export async function getInvidiousChannelLive(channelId, sortBy, continuation) {
   /** @type {{continuation: string?, videos: InvidiousVideoType[]}}  */
   const response = await getInvidiousChannelTab('streams', channelId, continuation, sortBy)
 
+  normalizeManyInvidiousVideosAttributes(response.videos, channelId)
   setMultiplePublishedTimestamps(response.videos)
 
   return response
@@ -276,6 +278,7 @@ export async function searchInvidiousChannel(channelId, query, page) {
 
   response.forEach((item) => {
     if (item.type === 'video') {
+      normalizeOneInvidiousVideoAttributes(item, channelId)
       setPublishedTimestamp(item)
     }
   })
@@ -314,6 +317,7 @@ export async function invidiousGetPlaylistInfo(playlistId) {
     id: playlistId,
   })
 
+  normalizeManyInvidiousVideosAttributes(playlist.videos)
   setMultiplePublishedTimestamps(playlist.videos)
 
   return playlist
@@ -522,6 +526,7 @@ export async function getInvidiousPopularFeed() {
 
   items.forEach((item) => {
     if (item.type === 'video' || item.type === 'shortVideo') {
+      normalizeOneInvidiousVideoAttributes(item)
       setPublishedTimestamp(item)
     }
   })
@@ -560,6 +565,7 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
 
   results.forEach((item) => {
     if (item.type === 'video') {
+      normalizeOneInvidiousVideoAttributes(item)
       setPublishedTimestamp(item)
     }
   })
@@ -825,6 +831,7 @@ export async function getHashtagInvidious(hashtag, page = 1) {
     }
   })
 
+  normalizeManyInvidiousVideosAttributes(response.results)
   setMultiplePublishedTimestamps(response.results)
 
   return response.results
@@ -940,6 +947,28 @@ export function mapInvidiousLegacyFormat(format) {
     width: parseInt(stringWidth),
     url: format.url
   }
+}
+
+/**
+ * @param {{
+ *  authorId: string | null,
+ * }[]} videos
+ * @param {string|null} [fallbackAuthorId]
+ */
+function normalizeManyInvidiousVideosAttributes(videos, fallbackAuthorId = null) {
+  const actualFallbackAuthorId = fallbackAuthorId === '' ? null : fallbackAuthorId
+
+  videos.forEach((v) => normalizeOneInvidiousVideoAttributes(v, actualFallbackAuthorId))
+}
+
+/**
+ * @param {{
+ *  authorId: string | null,
+ * }} video
+ * @param {string|null} [fallbackAuthorId]
+ */
+function normalizeOneInvidiousVideoAttributes(video, fallbackAuthorId = null) {
+  if (video.authorId === '') video.authorId = fallbackAuthorId
 }
 
 /**

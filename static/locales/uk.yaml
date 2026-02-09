@@ -579,13 +579,6 @@ Settings:
       None:
         Name: Немає
     Ignore Default Arguments: Ігнорувати стандартні аргументи
-  Download Settings:
-    Download Settings: Завантаження
-    Choose Path: Вибрати шлях
-    Ask Download Path: Запитувати шлях завантаження
-    Download Behavior: Поведінка завантаження
-    Download in app: Завантажити в застосунку
-    Open in web browser: Відкрити у переглядачі
   Parental Control Settings:
     Parental Control Settings: Батьківський контроль
     Hide Unsubscribe Button: Сховати кнопку скасування підписки
@@ -770,9 +763,6 @@ Video:
   Live Chat is currently not supported in this build.: 'Чат в режимі реального часу наразі не підтримується в цій збірці.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Чат увімкнено.  Повідомлення чату з''являться тут після надсилання.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Чат в режимі реального часу наразі не підтримується API Invidious.  Потрібне пряме з''єднання з YouTube.'
-  Download Video: 'Завантажити відео'
-  video only: 'лише відео'
-  audio only: 'лише звук'
   Published:
     In less than a minute: Менше ніж за хвилину
   Published on: 'Опубліковано'
@@ -985,11 +975,6 @@ Search Bar:
   Remove: Видалити
 External link opening has been disabled in the general settings: Відкриття зовнішнього посилання вимкнено в загальних налаштуваннях
 Are you sure you want to open this link?: Ви впевнені, що хочете відкрити це посилання?
-Downloading failed: Сталася проблема із завантаженням "{videoTitle}"
-Downloading canceled: Завантаження скасовано користувачем
-Starting download: Починається завантаження "{videoTitle}"
-Downloading has completed: '"{videoTitle}" завершив завантаження'
-Download folder does not exist: Каталог завантаження "$" не існує. Повернення до режиму «запитати теку».
 Screenshot Success: Збережений знімок екрана
 Screenshot Error: Не вдалося зробити знімок екрана. {error}
 New Window: Нове вікно

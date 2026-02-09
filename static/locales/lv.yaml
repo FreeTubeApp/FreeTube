@@ -492,13 +492,6 @@ Settings:
     Hide Unsubscribe Button: 'Paslēpt Atabonēt pogu'
     Show Family Friendly Only: 'Rādīt tikai ģimenei draudzīgi'
     Hide Search Bar: 'Paslēp meklēšanas joslu'
-  Download Settings:
-    Download Settings: 'Lejuplādes'
-    Ask Download Path: 'Jautāt lejuplādes ceļu'
-    Choose Path: 'Izvēlēties ceļu'
-    Download Behavior: 'Lejuplādes uzvedība'
-    Download in app: 'Lejuplādēt aplikācijā'
-    Open in web browser: 'Atvērt tīkla pārlūkā'
   Experimental Settings:
     Experimental Settings: 'Izmēģinājuma'
     Warning: ''
@@ -674,9 +667,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
   Show Super Chat Comment: ''
   Scroll to Bottom: ''
-  Download Video: ''
-  video only: ''
-  audio only: ''
   Published:
     In less than a minute: ''
   Published on: ''
@@ -817,9 +807,6 @@ Default Invidious instance has been set to {instance}: ''
 Default Invidious instance has been cleared: ''
 'The playlist has ended. Enable loop to continue playing': ''
 External link opening has been disabled in the general settings: ''
-Downloading has completed: ''
-Starting download: ''
-Downloading failed: ''
 Screenshot Success: ''
 Screenshot Error: ''
 

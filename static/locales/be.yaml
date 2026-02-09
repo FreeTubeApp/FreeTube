@@ -600,13 +600,6 @@ Settings:
     Hide Unsubscribe Button: 'Хаваць кнопку адпіскі'
     Show Family Friendly Only: 'Паказаць толькі для сямейнага прагляду'
     Hide Search Bar: 'Хаваць панэль пошуку'
-  Download Settings:
-    Download Settings: 'Спампоўванне'
-    Ask Download Path: 'Пытаць шлях спампоўвання'
-    Choose Path: 'Выберыце шлях'
-    Download Behavior: 'Паводзіны для спампоўвання'
-    Download in app: 'Спампоўваць у праграме'
-    Open in web browser: 'Адкрываць у вэб-браўзеры'
   Experimental Settings:
     Experimental Settings: 'Эксперыменты'
     Warning: 'Гэтыя налады эксперыментальныя і могуць выклікаць збоі праграмы. Вы выкарыстоўвайце іх на свой страх і рызыку. Настойліва рэкамендуем рабіць рэзервовыя копіі!'
@@ -793,9 +786,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'Жывы чат недаступны для гэтай трансляцыі. Магчыма, ён быў адключаны запампавальнікам.'
   Show Super Chat Comment: 'Паказаць каментарый Суперчата'
   Scroll to Bottom: 'Пракруціць уніз'
-  Download Video: 'Спампаваць відэа'
-  video only: 'толькі відэа'
-  audio only: 'толькі аўдыя'
   Published:
     In less than a minute: 'Менш чым праз хвіліну'
   Published on: 'Апублікавана'
@@ -999,9 +989,6 @@ Default Invidious instance has been set to {instance}: 'Экзэмпляр Invid
 Default Invidious instance has been cleared: 'Экзэмпляр Invidious па змаўчанні быў выдалены'
 'The playlist has ended. Enable loop to continue playing': 'Плэй-ліст скончыўся.  Каб працягнуць прайграванне, уключыце цыкл'
 External link opening has been disabled in the general settings: 'Адкрыццё знешніх спасылак было адключана ў агульных наладах'
-Downloading has completed: 'Спампоўванне «{videoTitle}» завершана'
-Starting download: 'Пачалося спампоўванне «{videoTitle}»'
-Downloading failed: 'Узнікла праблема са спампоўваннем «{videoTitle}»'
 Screenshot Success: 'Здымак захаваны'
 Screenshot Error: 'Здымак не ўдаўся. {error}'
 

@@ -31,7 +31,8 @@ const config = {
     filename: '[name].js',
   },
   externals: {
-    'youtubei.js': '{}'
+    'youtubei.js': '{}',
+    googlevideo: '{}'
   },
   module: {
     rules: [
@@ -137,7 +138,7 @@ const config = {
       'process.env.SWIPER_VERSION': `'${swiperVersion}'`
     }),
     new webpack.ProvidePlugin({
-      process: 'process/browser'
+      process: 'process/browser.js'
     }),
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
