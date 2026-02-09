@@ -104,12 +104,12 @@ Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
   Gaming: Jeux vidéo
-  Sports: Sports
+  Sports: Sport
 Most Popular: 'Les plus populaires'
-Playlists: 'Listes de lecture'
+Playlists: 'Playlists'
 User Playlists:
-  Your Playlists: 'Vos Listes de lecture'
-  Search bar placeholder: Recherche de listes de lecture
+  Your Playlists: 'Vos playlists'
+  Search bar placeholder: Recherche de playlists
   Empty Search Message: Il n'y a pas de vidéos dans cette playlist qui correspondent à votre recherche
   AddVideoPrompt:
     Search in Playlists: Recherche dans les playlists
@@ -156,7 +156,7 @@ User Playlists:
     LatestUpdatedFirst: Date de mise à jour (la plus récente)
     NameAscending: A→Z
   You have no playlists. Click on the create new playlist button to create a new one.: Vous n'avez pas de playlist. Cliquez sur le bouton créer une nouvelle playlist pour en créer une nouvelle.
-  Remove from Playlist: Retirer de la listes de lecture
+  Remove from Playlist: Retirer de la playlist
   Save Changes: Enregistrer les modifications
   CreatePlaylistPrompt:
     Create: Créer
@@ -165,22 +165,22 @@ User Playlists:
       Playlist {playlistName} has been successfully created.: La playlist {playlistName} a été créée avec succès.
       There is already a playlist with this name. Please pick a different name.: Il existe déjà une playlist portant ce nom. Veuillez choisir un autre nom.
     New Playlist Name: Nouveau nom de la playlist
-  This playlist currently has no videos.: Cette listes de lecture ne contient actuellement aucune vidéo.
-  Add to Playlist: Ajouter à la listes de lecture
+  This playlist currently has no videos.: Cette playlist ne contient actuellement aucune vidéo.
+  Add to Playlist: Ajouter à la playlist
   Move Video Down: Déplacer la vidéo vers le bas
-  Playlist Name: Nom de la listes de lecture
+  Playlist Name: Nom de la playlist
   Remove Watched Videos: Retirer les vidéos visionnées
   Move Video Up: Déplacer la vidéo vers le haut
   Cancel: Annuler
   Delete Playlist: Supprimer la playlist
-  Create New Playlist: Créer une nouvelle listes de lecture
-  Edit Playlist Info: Modifier les informations de la listes de lecture
-  Copy Playlist: Copier la listes de lecture
-  Playlist Description: Description de la listes de lecture
+  Create New Playlist: Créer une nouvelle playlist
+  Edit Playlist Info: Modifier les informations de la playlist
+  Copy Playlist: Copier la playlist
+  Playlist Description: Description de la playlist
   Add to Favorites: Ajouter à {playlistName}
   Remove from Favorites: Retirer de {playlistName}
   Enable Quick Bookmark With This Playlist: Activer le marque-page rapide avec cette playlist
-  Playlists with Matching Videos: Listes de lecture avec des vidéos correspondantes
+  Playlists with Matching Videos: Playlists avec des vidéos correspondantes
   Quick Bookmark Enabled: Signet rapide activé
   Cannot delete the quick bookmark target playlist.: Impossible de supprimer la playlist cible des signets rapides.
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Êtes-vous sûr(e) de vouloir retirer 1 vidéo en double de cette playlist ? Cette opération est irréversible. | Êtes-vous sûr(e) de vouloir retirer {playlistItemCount} vidéos en double de cette playlist ? Cette opération est irréversible.
@@ -900,7 +900,7 @@ Shuffle is now enabled: 'Mode aléatoire activé'
 Playing Next Video: 'Lecture de la vidéo suivante'
 Playing Previous Video: 'Lecture de la vidéo précédente'
 Canceled next video autoplay: 'Annuler la lecture automatique'
-'The playlist has ended. Enable loop to continue playing': 'La playlist est terminée. Activez la lecture en boucle pour continuer.'
+'The playlist has ended. Enable loop to continue playing': 'La playlist est terminée. Activez la lecture en boucle pour continuer'
 
 Yes: 'Oui'
 No: 'Non'
@@ -980,7 +980,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les playlists et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} » applicable à l'ensemble de l'application, dans la section « {subsection} » de la section « {settingsSection} »
-    Hide Videos, Playlists and Channels Containing Text: Saisissez un mot, un fragment de mot ou une phrase (insensible à la casse) pour masquer toutes les vidéos et sélections dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube, à l'exception de l'historique, de vos playlists et des vidéos contenues dans les playlists.
+    Hide Videos, Playlists and Channels Containing Text: Saisissez un mot, un fragment de mot ou une phrase (insensible à la casse) pour masquer toutes les vidéos, playlists et chaînes dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube, à l'exception de l'historique, de vos playlists et des vidéos contenues dans les playlists.
     Hide Videos on Watch: Masque les vidéos visionnées des onglets Vidéos, Shorts, En direct des pages Abonnements et Chaînes. Ceci n'a pas d'effet sur l'onglet Accueil des pages Chaînes
   SponsorBlock Settings:
     UseDeArrowTitles: Remplacer les titres des vidéos par des titres proposés par les utilisateurs de DeArrow.
