@@ -296,6 +296,13 @@ function runApp() {
     app.commandLine.appendSwitch('disable-http-cache')
   }
 
+  // Workaround for Electron 40 RGBAF16/overexposure on Linux (issue #49566). Disable the new
+  // Wayland color-management/HDR path so Chromium uses the previous rendering path on SDR displays.
+  // Same switch mentioned in Brave issue #50027 for washed-out colors on Wayland
+  if (process.platform === 'linux') {
+    app.commandLine.appendSwitch('disable-features', 'WaylandWpColorManagerV1')
+  }
+
   const PLAYER_CACHE_PATH = `${userDataPath}/player_cache`
 
   // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
