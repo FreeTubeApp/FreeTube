@@ -6,10 +6,6 @@
   min-block-size: 131px;
 }
 
-.draggable {
-  cursor: pointer;
-}
-
 .draggable:active {
   cursor: grabbing;
 }
