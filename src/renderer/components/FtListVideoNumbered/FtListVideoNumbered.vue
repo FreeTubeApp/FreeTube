@@ -35,6 +35,7 @@
 
         <FontAwesomeIcon
           v-else-if="(isSortOrderCustom && isUserPlaylist) && mouseEnter"
+          class="grabBar"
           :icon="['fas', 'fa-bars']"
         />
 

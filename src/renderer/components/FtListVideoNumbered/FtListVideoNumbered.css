@@ -16,6 +16,10 @@
   transition: 0.01s;
 }
 
+.grabBar {
+  cursor: grab;
+}
+
 .preventJankyDrag {
   pointer-events: none;
 }

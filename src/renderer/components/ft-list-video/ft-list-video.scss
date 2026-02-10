@@ -6,6 +6,7 @@
 
 .grabBar {
   font-size: 1rem;
+  cursor: grab;
 
   // Prevent blue color inherited from the thumbnail link.
   color: #fff;
@@ -21,7 +22,6 @@
 
   border-start-end-radius: $corner-rounding;
   border-end-end-radius: $corner-rounding;
-  pointer-events: none;
   position: absolute;
 
   // Position at y axis halfway point over the thumbnail image.
