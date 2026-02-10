@@ -10,7 +10,7 @@
     }"
     :draggable="isSortOrderCustom && isUserPlaylist"
     v-on="isSortOrderCustom ? {
-      dragstart: () => dragVideo(videoData),
+      dragstart: event => dragVideo(event, videoData),
       dragover: event => event.preventDefault(),
       dragenter: () => moveDraggedVideo(videoData, draggedVideo),
       dragend: afterDrag,

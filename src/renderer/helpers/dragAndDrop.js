@@ -6,7 +6,7 @@
 
 /**
  * @typedef {object} EventHandlers
- * @prop {(video: VideoData) => void} dragVideo
+ * @prop {(event: DragEvent, video: VideoData) => void} dragVideo
  * @prop {(video: VideoData, draggedVideo: VideoData) => void} moveDraggedVideo
  * @prop {() => void} afterDrag
  */
@@ -20,7 +20,10 @@ export const handleDragAndDrop = (emit) => {
   /**
    * @type {EventHandlers.dragVideo}
    */
-  const dragVideo = ({ videoId, playlistItemId }) => {
+  const dragVideo = (event, { videoId, playlistItemId }) => {
+    // Prevent grabbing cursor from being overridden by the copy cursor.
+    event.dataTransfer.effectAllowed = 'move'
+
     emit('drag-video', { videoId, playlistItemId })
   }
 
