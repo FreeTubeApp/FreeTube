@@ -32,9 +32,6 @@
 .thumbnailImage {
   // Makes img element sized correctly before image loading starts
   aspect-ratio: 16/9 auto;
-
-  // Prevent image from blocking drag and drop
-  pointer-events: none;
 }
 
 .thumbnailLink:has(.grabBar) {

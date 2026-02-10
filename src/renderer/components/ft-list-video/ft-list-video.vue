@@ -28,6 +28,7 @@
           class="thumbnailImage"
           alt=""
           :style="{filter: blurThumbnailsStyle}"
+          draggable="false"
         >
       </router-link>
       <div
