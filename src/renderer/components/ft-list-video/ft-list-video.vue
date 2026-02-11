@@ -19,7 +19,7 @@
         @click="handleWatchPageLinkClick"
       >
         <font-awesome-icon
-          v-if="showGrabBar"
+          v-if="inUserPlaylist && layout === 'grid'"
           class="grabBar"
           :icon="['fas', 'fa-bars']"
         />

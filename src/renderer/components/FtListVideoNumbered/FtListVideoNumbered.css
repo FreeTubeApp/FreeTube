@@ -16,20 +16,46 @@
   transition: 0.01s;
 }
 
-.grabBar {
-  cursor: grab;
-}
-
-.preventJankyDrag {
-  pointer-events: none;
-}
-
-.videoIndex {
+.videoIndexArea {
   color: var(--tertiary-text-color);
   text-align: center;
   user-select: none;
 }
 
+.grabBar {
+  display: none;
+  cursor: grab;
+  color: var(--tertiary-text-color);
+  margin: auto;
+}
+
+.draggable:not(.draggable:only-child):focus .grabBar,
+.draggable:not(.draggable:only-child):hover .grabBar {
+  display: revert;
+}
+
+.draggable:not(.draggable:only-child):focus .videoIndex,
+.draggable:not(.draggable:only-child):hover .videoIndex {
+  display: none;
+}
+
+/* If touch screen device, always show grab bar. */
+@media (hover: none) {
+  .draggable:not(.draggable:only-child) .videoIndexArea {
+    display: grid;
+    justify-content: center;
+  }
+
+  .draggable:not(.draggable:only-child) .grabBar {
+    display: revert;
+    order: 2;
+  }
+}
+
 .videoIndexIcon {
   font-size: 14px;
+}
+
+.preventJankyDrag {
+  pointer-events: none;
 }

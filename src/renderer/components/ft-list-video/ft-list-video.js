@@ -87,10 +87,9 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
-    showGrabBar: {
-      type: Boolean,
-      default: false,
-      required: false,
+    layout: {
+      type: String,
+      default: 'list',
     },
   },
   emits: ['move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist'],

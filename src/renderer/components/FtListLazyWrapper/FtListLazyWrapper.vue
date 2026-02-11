@@ -16,8 +16,6 @@
       dragover: event => event.preventDefault(),
       dragenter: () => moveDraggedVideo(videoData, draggedVideo),
       dragend: afterDrag,
-      mouseenter: () => mouseEnter = true,
-      mouseleave: () => mouseEnter = false,
     } : {}"
   >
     <template
@@ -39,7 +37,7 @@
         :can-move-video-up="canMoveVideoUp"
         :can-move-video-down="canMoveVideoDown"
         :can-remove-from-playlist="canRemoveFromPlaylist"
-        :show-grab-bar="(layout === 'grid' && isUserPlaylist) && mouseEnter"
+        :layout="layout"
         @move-video-up="moveVideoUp"
         @move-video-down="moveVideoDown"
         @remove-from-playlist="removeFromPlaylist"
@@ -168,8 +166,6 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
-
-const mouseEnter = ref(false)
 
 const isUserPlaylist = props.playlistType === 'user'
 

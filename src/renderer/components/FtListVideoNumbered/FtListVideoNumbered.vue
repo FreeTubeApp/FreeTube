@@ -14,15 +14,13 @@
       dragover: event => event.preventDefault(),
       dragenter: () => moveDraggedVideo(videoData, draggedVideo),
       dragend: afterDrag,
-      mouseenter: () => mouseEnter = true,
-      mouseleave: () => mouseEnter = false,
     } : {}"
   >
     <template
       v-if="visible"
     >
       <p
-        class="videoIndex"
+        class="videoIndexArea"
         :class="{
           preventJankyDrag: isVideoDragging,
         }"
@@ -33,16 +31,20 @@
           :icon="['fas', 'play']"
         />
 
-        <FontAwesomeIcon
-          v-else-if="(isSortOrderCustom && isUserPlaylist) && mouseEnter"
-          class="grabBar"
-          :icon="['fas', 'fa-bars']"
-        />
-
         <template
           v-else
         >
-          {{ videoIndex + 1 }}
+          <FontAwesomeIcon
+            v-if="isSortOrderCustom && isUserPlaylist"
+            class="grabBar"
+            :icon="['fas', 'fa-bars']"
+          />
+
+          <span
+            class="videoIndex"
+          >
+            {{ videoIndex + 1 }}
+          </span>
         </template>
       </p>
       <FtListVideo
@@ -166,8 +168,6 @@ const props = defineProps({
 
 const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
 const visible = ref(props.initialVisibleState)
-
-const mouseEnter = ref(false)
 
 const isUserPlaylist = props.playlistType === 'user'
 

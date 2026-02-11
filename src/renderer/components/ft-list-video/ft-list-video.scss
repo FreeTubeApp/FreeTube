@@ -5,6 +5,7 @@
 }
 
 .grabBar {
+  display: none;
   font-size: 1rem;
   cursor: grab;
 
@@ -27,6 +28,18 @@
   // Position at y axis halfway point over the thumbnail image.
   inset-block-start: 50%;
   translate: 0 -50%;
+}
+
+.draggable:not(.draggable:only-child):focus .grabBar,
+.draggable:not(.draggable:only-child):hover .grabBar {
+  display: revert;
+}
+
+// If touch screen device, always show grab bar.
+@media (hover: none) {
+  .draggable:not(.draggable:only-child) .grabBar {
+    display: revert;
+  }
 }
 
 .thumbnailImage {
