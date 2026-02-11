@@ -80,7 +80,7 @@ Search Filters:
   Fetching results. Please wait: 'Hämtar resultat. Vänta'
   Fetch more results: 'Hämta fler resultat'
 # Sidebar
-  There are no more results for this search: Det finns inga mer resultat för denna sökning
+  There are no more results for this search: Det finns inga fler resultat för denna sökning
   Features:
     360 Video: 360 Video
     Location: Plats
@@ -116,24 +116,24 @@ Most Popular: 'Mest populära'
 Playlists: 'Spellistor'
 User Playlists:
   Your Playlists: 'Dina spellistor'
-  Search bar placeholder: Sök efter Spellistor
+  Search bar placeholder: Sök efter spellistor
   Empty Search Message: Det finns inga videor i denna spellista som matchar din sökning
   Playlist Name: Spellistenamn
   Playlist Description: Spellistebeskrivning
-  Delete Playlist: Ta bort Spellista
+  Delete Playlist: Ta bort spellista
   Create New Playlist: Skapa ny spellista
-  Save Changes: Spara Ändringar
+  Save Changes: Spara ändringar
   Cancel: Avbryt
-  Edit Playlist Info: Redigera Spellisteinformation
-  Copy Playlist: Kopiera Spellista
+  Edit Playlist Info: Redigera spellisteinformation
+  Copy Playlist: Kopiera spellista
   Add to Favorites: Lägg till {playlistName}
   Remove from Favorites: Ta bort från {playlistName}
-  Move Video Up: Flytta upp Video
-  Move Video Down: Flytta ner Video
-  Remove from Playlist: Ta bort från Spellista
+  Move Video Up: Flytta upp video
+  Move Video Down: Flytta ner video
+  Remove from Playlist: Ta bort från spellista
   You have no playlists. Click on the create new playlist button to create a new one.: Du har inga spellistor. Klicka på Skapa ny spellista-knappen för att skapa en ny.
   This playlist currently has no videos.: Denna spellista har för närvarande inga videor.
-  Add to Playlist: Lägg till Spellista
+  Add to Playlist: Lägg till spellista
   Sort By:
     EarliestPlayedFirst: Datum spelad (äldst)
     EarliestUpdatedFirst: Datum uppdaterad (äldst)
@@ -152,7 +152,7 @@ User Playlists:
     N playlists selected: '{playlistCount} valda'
     Toast:
       You haven't selected any playlist yet.: Du har inte valt någon spellista ännu.
-      "Video(s) added to {playlistCount} playlists": "Videoer tillagda i 1 spellista | Videoer tillagda i {playlistCount} spellistor"
+      "Video(s) added to {playlistCount} playlists": "Videor tillagda i 1 spellista | Videor tillagda i {playlistCount} spellistor"
     Allow Adding Duplicate Video(s): Tillåt tilläggning av dubblettvideo(n)
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videor Kommer Att Läggas Till'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videor Redan Tillagda'
@@ -163,9 +163,9 @@ User Playlists:
       There were no videos to remove.: Det fanns inga videor att ta bort.
       This video cannot be moved up.: Den här videon kan inte flyttas upp.
       There was a problem with removing this video: Det uppstod ett problem med att ta bort den här videon
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Den här spellistan används nu för snabb bokmärke istället för {oldPlaylistName}. Klicka här för att ångra
-      This playlist is now used for quick bookmark: Den här spellistan används nu för snabb bokmärke
-      Reverted to use {oldPlaylistName} for quick bookmark: Återgått till att använda {oldPlaylistName} för snabbt bokmärke
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Den här spellistan används nu för snabbokmärke istället för {oldPlaylistName}. Klicka här för att ångra
+      This playlist is now used for quick bookmark: Den här spellistan används nu för snabbokmärke
+      Reverted to use {oldPlaylistName} for quick bookmark: Återgått till att använda {oldPlaylistName} för snabbokmärke
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Vissa videor i spellistan är inte inlästa ännu. Klicka här för att kopiera ändå.
       Playlist name cannot be empty. Please input a name.: Spellistans namn får inte vara tomt. Ange ett namn.
       Playlist has been updated.: Spellistan har uppdaterats.
@@ -179,7 +179,7 @@ User Playlists:
       This playlist is already being used for quick bookmark.: Den här spellistan används redan för snabbbokmärken.
     Search for Videos: Sök efter videor
   Playlists with Matching Videos: Spellistor med passande videor
-  Enable Quick Bookmark With This Playlist: Aktivera snabb bokmärke på den här spellistan
+  Enable Quick Bookmark With This Playlist: Aktivera snabbokmärke med den här spellistan
   Remove Watched Videos: Ta bort sedda videor
   CreatePlaylistPrompt:
     Create: Skapa
@@ -190,11 +190,11 @@ User Playlists:
     New Playlist Name: Nytt spellistanamn
   The playlist has been successfully exported: Spellistan har exporterats
   Export Playlist: Exportera denna spellista
-  Quick Bookmark Enabled: Snabbbokmärke Aktiverat
+  Quick Bookmark Enabled: Snabbokmärke aktiverat
   TotalTimePlaylist: 'Total tid: {duration}'
-  Remove Duplicate Videos: Ta Bort Dubbletter Av Videor
+  Remove Duplicate Videos: Ta bort dubbletter av videor
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Är du säker på att du vill ta bort 1 dubblettvideo från den här spellistan? Detta kan inte ångras. | Är du säker på att du vill ta bort {playlistItemCount} dubblettvideor från den här spellistan? Detta kan inte ångras.
-  Cannot delete the quick bookmark target playlist.: Det går inte att ta bort målspellistan för snabbbokmärken.
+  Cannot delete the quick bookmark target playlist.: Det går inte att ta bort målspellistan för snabbokmärken.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Är du säker på att du vill ta bort 1 sedd video från den här spellistan? Detta kan inte ångras. | Är du säker på att du vill ta bort {playlistItemCount} sedda videor från den här spellistan? Detta kan inte ångras.
   Export list of URLs: Exportera lista med webbadresser
 History:
@@ -380,7 +380,7 @@ Settings:
     Turn on Subtitles by Default: 'Aktivera Undertexter som Standard'
     Autoplay Videos: 'Starta Videor Automatiskt'
     Proxy Videos Through Invidious: 'Proxy Videos Genom Invidious'
-    Autoplay Playlists: 'Autospela Spellista Videor'
+    Autoplay Playlists: 'Spela upp videor i spellistan automatiskt'
     Enable Theatre Mode by Default: 'Aktivera Bioläge som standard'
     Default Volume: 'Standardvolym'
     Default Playback Rate: 'Standard uppspelningshastighet'
@@ -668,15 +668,15 @@ Profile:
   '{profile} is now the active profile': '{profile} är nu den aktiva profilen'
   Subscription List: 'Prenumerationslista'
   Other Channels: 'Andra kanaler'
-  '{number} selected': '{number} markerad'
+  '{number} selected': '{number} markerade'
   Select All: 'Markera alla'
   Select None: 'Markera ingen'
-  Delete Selected: 'Ta bort markerad'
-  Add Selected To Profile: 'Lägg till markerad i profil'
+  Delete Selected: 'Ta bort markerade'
+  Add Selected To Profile: 'Lägg till markerade i profilen'
   No channel(s) have been selected: 'Ingen kanal(er) har markerats'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
-  : 'Det här är din primära profil. Vill du ta bort de markerade kanalerna? Samma kanaler kommer att raderas i alla profil där de hittas.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Är du säker på att du vill ta bort de markerade kanalerna?  Detta tar inte bort kanalen från någon annan profil.'
+  : 'Det här är din primära profil.  Vill du ta bort de markerade kanalerna?  Samma kanaler kommer att tas bort i alla profil där de hittas.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Är du säker på att du vill ta bort de markerade kanalerna?   Detta tar inte bort kanalen från någon annan profil.'
 #On Channel Page
   Profile Filter: Profilfilter
   Profile Settings: Profil
@@ -759,7 +759,7 @@ Video:
   Open in Invidious: 'Öppna på Invidious'
   Copy Invidious Link: 'Kopiera Invidious-länk'
   Views: 'Visningar'
-  Loop Playlist: 'Loop spellista'
+  Loop Playlist: 'Loop-spellista'
   Shuffle Playlist: 'Blanda spellista'
   Reverse Playlist: 'Omvänd spellista'
   Previous: 'Föregående'
