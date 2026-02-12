@@ -82,7 +82,7 @@ Search Filters:
   Clear Filters: فلٹرز ختم کریں
 Subscriptions:
     # On Subscriptions Page
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'یہ پروفائل میں سبسکرپشنز کی ایک بڑی تعداد ہے۔ . .شرح کو محدود کرنے سے بچنے کے لیے آر ایس ایس کو مجبور کر رہے ہیں'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'یہ پروفائل میں سبسکرپشنز کی ایک بڑی تعداد ہے۔ . .شرح کو محدود کرنے سے بچنے کے لیے RSS کو مجبور کر رہے ہیں'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'آپ کی سبسکرپشن کی فہرست فی الحال خالی ہے۔ اگر آپ اپنی سبسکرپشنز امپورٹ کرنا چاہتے ہیں تو آپ ڈیٹا سیٹنگز میں جا کر امپورٹ سبسکرپشنز کو منتخب کر سکتے ہیں یا آپ کوئی چینل تلاش کر کے سبسکرائب کر سکتے ہیں۔'
   Load More Videos: 'مزید ویڈیوز لوڈ کریں'
   Subscriptions: سبسکرپشنز
@@ -98,7 +98,7 @@ Channels:
   Channels: 'چینلز'
   Title: 'چینل کی فہرست'
   Search bar placeholder: 'چینلز تلاش کریں'
-  Count: '{number}چینل ملا۔'
+  Count: '{number} چینل(ز) ملا/ملے۔'
   Empty: 'آپ کے چینل کی فہرست فی الحال خالی ہے۔'
   Unsubscribe Prompt: کیا آپ واقعی "{channelName}" سے ان سبسکرائب کرنا چاہتے ہیں؟
 User Playlists:
@@ -504,7 +504,7 @@ Settings:
     Are you sure you want to remove all your playlists?: کیا آپ واقعی اپنی تمام پلے لسٹس ہٹانا چاہتے ہیں؟
   Subscription Settings:
     Subscription Settings: سبسکرپشن
-    Fetch Feeds from RSS: آر ایس ایس سے فیڈز حاصل کریں
+    Fetch Feeds from RSS: RSS سے فیڈز حاصل کریں
     Fetch Automatically: فیڈز خود بخود حاصل کریں
     'Limit the number of videos displayed for each channel': ہر چینل کے لیے ویڈیوز کی تعداد محدود کریں
     To: تک
@@ -537,7 +537,7 @@ Settings:
     Hide Videos on Watch: واچ پیج پر ویڈیوز چھپائیں
     Hide Chapters: چیپٹرز چھپائیں
     Hide Channels: چینلز سے ویڈیوز چھپائیں
-    Hide Channels Disabled Message: کچھ چینلز کو آئی ڈی کے ذریعے بلاک کیا گیا تھا اور ان پر کارروائی نہیں ہوئی۔ جب تک وہ آئی ڈیز اپ ڈیٹ ہو رہی ہیں، یہ فیچر بلاک رہے گا۔
+    Hide Channels Disabled Message: کچھ چینلز کو آئی ڈی کے ذریعے بلاک کیا گیا تھا اور ان پر کارروائی نہیں ہوئی۔ جب تک وہ آئی ڈیز اپ ڈیٹ ہو رہی ہیں، یہ فیچر بلاک رہے گا
     Hide Channels Placeholder: چینل آئی ڈی
     Hide Channels Invalid: فراہم کردہ چینل آئی ڈی غیر درست ہے
     Hide Channels API Error: فراہم کردہ آئی ڈی کے ساتھ صارف کی معلومات حاصل کرنے میں غلطی ہوئی۔ براہ کرم دوبارہ چیک کریں کہ آیا آئی ڈی درست ہے۔
@@ -566,7 +566,7 @@ Settings:
     Proxy Port Number: پراکسی پورٹ نمبر
     Proxy Username: پراکسی یوزر نیم
     Proxy Password: پراکسی پاس ورڈ
-    Clicking on Test Proxy will send a request to: 'ٹیسٹ پراکسی پر کلک کرنے سے ایک درخواست اس پر بھیجی جائے گی:'
+    Clicking on Test Proxy will send a request to: 'ٹیسٹ پراکسی پر کلک کرنے سے ایک درخواست اس پر بھیجی جائے گی'
     Test Proxy: پراکسی ٹیسٹ کریں
     Your Info: آپ کی معلومات
     Ip: آئی پی (Ip)
@@ -613,11 +613,11 @@ About:
   Email: ای میل
   Mastodon: Mastodon
   Chat on Matrix: ۔Matrix پر چیٹ کریں
-  Please read the: 'براہ کرم پڑھیں:'
+  Please read the: 'براہ کرم پڑھیں'
   room rules: کمرے کے اصول
   Translate: ترجمہ کریں
   Credits: کریڈٹس
-  FreeTube is made possible by: 'فری ٹیوب ان لوگوں اور پروجیکٹس کی بدولت ممکن ہوا ہے:'
+  FreeTube is made possible by: 'فری ٹیوب ان لوگوں کی بدولت ممکن ہوا ہے'
   these people and projects: یہ لوگ اور پروجیکٹس
   Donate: عطیہ دیں
 Profile:
@@ -865,9 +865,9 @@ Tooltips:
     Fetch Automatically: فعال ہونے پر، FreeTube ایپ شروع ہوتے ہی اور نئی ونڈو کھلنے پر آپ کی سبسکرپشن فیڈ خود بخود حاصل کر لے گا۔
   Distraction Free Settings:
     Hide Channels: تلاش، ٹرینڈنگ، مقبول اور تجویز کردہ فہرستوں سے ویڈیوز، پلے لسٹس اور چینل کو چھپانے کے لیے چینل آئی ڈی درج کریں۔ آئی ڈی کا مکمل طور پر درست ہونا ضروری ہے۔
-    Hide Subscriptions Live: یہ سیٹنگ ایپ بھر کی ”{appWideSetting}“ سیٹنگ کے ذریعے تبدیل کر دی گئی ہے، جو کہ ”{settingsSection}“ کے ”{subsection}“ سیکشن میں ہے۔
+    Hide Subscriptions Live: یہ سیٹنگ ایپ بھر کی ”{appWideSetting}“ سیٹنگ کے ذریعے تبدیل کر دی گئی ہے، جو کہ ”{settingsSection}“ کے ”{subsection}“ سیکشن میں ہے
     Hide Videos, Playlists and Channels Containing Text: کسی لفظ، جملے یا لفظ کے حصے کے ذریعے ان تمام ویڈیوز، پلے لسٹس اور چینلز کو چھپائیں جن کے عنوان میں وہ موجود ہو (سوائے ہسٹری، آپ کی پلے لسٹس اور پلے لسٹس کے اندر موجود ویڈیوز کے)۔
-    Hide Videos on Watch: سبسکرپشن اور چینل کے صفحات پر ویڈیوز، شارٹس اور لائیو ٹیبز سے دیکھی گئی ویڈیوز کو چھپاتا ہے۔ یہ چینل صفحات کے ہوم ٹیب پر اثر انداز نہیں ہوتا۔
+    Hide Videos on Watch: سبسکرپشن اور چینل کے صفحات پر ویڈیوز، شارٹس اور لائیو ٹیبز سے دیکھی گئی ویڈیوز کو چھپاتا ہے۔ یہ چینل صفحات کے ہوم ٹیب پر اثر انداز نہیں ہوتا
   Experimental Settings:
     Replace HTTP Cache: Electron کے ڈسک پر مبنی HTTP کیشے کو غیر فعال کرتا ہے اور کسٹم میموری امیج کیشے کو فعال کرتا ہے۔ اس سے ریم (RAM) کا استعمال بڑھ سکتا ہے۔
   SponsorBlock Settings:
@@ -924,11 +924,11 @@ KeyboardShortcutPrompt:
   Keyboard Shortcuts: کی بورڈ شارٹ کٹس
   Sections:
     Video:
-      Playback: Video: Playback
-      General: Video: General
+      Playback: ویڈیو: پلے بیک
+      General: ویڈیو: عمومی
     App:
       Situational: 'ایپ: حالات کے مطابق'
-      General: App: General
+      General: ایپ: عمومی
   Show Keyboard Shortcuts: کی بورڈ شارٹ کٹس دکھائیں
   History Backward: ایک صفحہ پیچھے جائیں
   History Forward: ایک صفحہ آگے جائیں
@@ -1088,7 +1088,7 @@ Keys:
   shift: Shift
   enter: Enter
   plus: Plus
-  arrowdown: Down Arrow
-  arrowleft: Left Arrow
-  arrowright: Right Arrow
-  arrowup: Up Arrow
+  arrowdown: نچلی تیر
+  arrowleft: بایاں تیر
+  arrowright: دایاں تیر
+  arrowup: اوپری تیر
