@@ -91,7 +91,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: Abos
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Deine Aboliste ist derzeit leer. Wenn du deine Abos importieren möchtest, wähle in den Einstellungen unter dem Bereich „Daten“ „Abos importieren“. Alternativ kannst du nach einem Kanal suchen und diesen abonnieren.
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dieses Profil hat eine große Anzahl von Abos.  RSS zur Vermeidung von Geschwindigkeitsbeschränkungen erzwingen
   Load More Videos: Weitere Videos laden
   Error Channels: Kanäle mit Fehlern
   Disabled Automatic Fetching: Du hast den automatischen Abruf von Abos deaktiviert. Aktualisiere die Abos, um sie hier zu sehen.

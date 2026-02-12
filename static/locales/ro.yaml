@@ -98,7 +98,6 @@ Subscriptions:
   Subscriptions: 'Abonamente'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Lista dvs. de abonamente este momentan goală. Dacă vreți să importați abonamente, vă puteți duce la setări de date și să selectați Importă Anonamente sau puteți căuta un canal și să vă abonați la el.'
   Load More Videos: Încarcă mai mult
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Acest profil are un număr mare de abonamente.  Se forțează RSS pentru a evita limitarea vitezei
   Error Channels: Canale cu erori
   Empty Channels: Canalele la care sunteți abonat(ă) nu au în prezent clipuri video.
   Disabled Automatic Fetching: Ați dezactivat preluarea automată a abonamentelor. Reîmprospătați abonamentele pentru a le vedea aici.

@@ -91,7 +91,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Подписки'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'В настоящее время подписок нет. Если вы хотите импортировать свои подписки, вы можете перейти в Настройки Данных и выбрать Импорт Подписок или найти канал и подписаться на него.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Эта учётная запись имеет большое количество подписок. Принудительно используется RSS, чтобы избежать ограничения скорости
   Load More Videos: Загрузить больше видео
   Error Channels: Каналы с ошибками
   Disabled Automatic Fetching: Вы отключили автоматическое получение подписок. Обновите подписки, чтобы отобразить результат.

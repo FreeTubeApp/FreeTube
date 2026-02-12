@@ -85,7 +85,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abunəliklər'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Bu profilin çoxlu sayda abunəsi var. Sürət məhdudiyyətinin qarşısını almaq üçün RSS-i zorlanır'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abunəlik siyahınız hazırda boşdur. Abunəliklərinizi idxal etmək istəyirsinizsə, Məlumat Parametrlərinə gedib ''Abunəlikləri İdxal Et'' seçimini edə bilərsiniz və ya bir kanal axtarıb abunə ola bilərsiniz.'
   Load More Videos: 'Daha çox Video Yüklə'
   Error Channels: Xətalı Kanallar

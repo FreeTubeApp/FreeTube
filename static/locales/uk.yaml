@@ -97,7 +97,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Підписки'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Цей профіль має велику кількість підписок. Використайте RSS щоб уникнути обмеження швидкості'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваш список підписок наразі порожній. Якщо ви хочете імпортувати свої підписки, перейдіть до налаштувань даних і виберіть "Імпортувати підписки", або ви можете знайти канал і підписатися на нього.'
   Load More Videos: 'Завантажити більше відео'
   Error Channels: Канали з помилками

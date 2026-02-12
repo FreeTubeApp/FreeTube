@@ -95,7 +95,6 @@ Subscriptions:
   Subscriptions: 'الاشتراكات'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'قائمة اشتراكك فارغة حاليًا. إذا كنت ترغب في استيراد اشتراكاتك، فيمكنك الانتقال إلى إعدادات البيانات وتحديد استيراد الاشتراكات أو يمكنك البحث عن قناة والاشتراك فيها.'
   Load More Videos: حمّل المزيد من الفيديوهات
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: لدى هذا الملف الشخصي عدد كبير من الاشتراكات. يتم فرض وضع RSS لتجنب تقييد الوصول للاشتراكات
   Error Channels: القنوات التي بها أخطاء
   Disabled Automatic Fetching: لقد قمت بتعطيل الجلب التلقائي للاشتراك. قم بتحديث الاشتراكات لرؤيتها هنا.
   Empty Channels: لا تحتوي قنواتك التي اشتركت فيها حاليا على أي مقاطع فيديو.

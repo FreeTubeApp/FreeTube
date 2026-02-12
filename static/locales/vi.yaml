@@ -94,7 +94,6 @@ Subscriptions:
   Subscriptions: 'Đăng ký'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Danh sách Đăng ký đang trống. Bắt đầu bằng cách tìm kiếm và đăng ký các kênh hoặc nhập các đăng ký hiện có của bạn bằng cách đi đến Cài đặt dữ liệu và nhấn vào Nhập đăng ký.'
   Load More Videos: Tải thêm video
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Hồ sơ này có nhiều đăng ký.  Đang buộc RSS để tránh bị giới hạn
   Error Channels: Các kênh có lỗi
   Subscriptions Tabs: Trang đăng ký
   Disabled Automatic Fetching: Bạn đã vô hiệu hóa tự động tải đăng ký. Hãy tải lại danh sách đăng ký để xem chúng tại đây.

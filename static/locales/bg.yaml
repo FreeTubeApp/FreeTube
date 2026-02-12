@@ -98,7 +98,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Абонаменти'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Списъкът с абонаменти е празен. Ако искате да внесете абонаментите си, отидете в "Настройки на данни" и изберете "Внасяне на абонаменти" или можете да потърсите канал и да се абонирате за него.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Този профил има голям брой абонаменти. Принудително използване на RSS за заобикаляне на ограниченията
   Load More Videos: Зареждане на още видеа
   Error Channels: Канали с грешки
   Disabled Automatic Fetching: Автоматичното извличане на абонаменти е деактивирано. Обновете абонаментите, за да ги видите тук.

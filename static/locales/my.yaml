@@ -118,7 +118,6 @@ Subscriptions:
   Subscriptions: ''
   # channels that were likely deleted
   Error Channels: ''
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: ''
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': ''
   Disabled Automatic Fetching: ''
   Empty Channels: ''

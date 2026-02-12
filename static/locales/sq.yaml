@@ -121,7 +121,6 @@ Subscriptions:
   Subscriptions: 'Abonimet'
   # channels that were likely deleted
   Error Channels: 'Kanale me probleme'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Ky profil ka një numër të madh abonimesh. Do të përdoret RSS për të shmangur limitimet'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Lista e abonimeve është bosh. Nëse dëshiron të importosh abonimet e tua mund të shkosh tek Opsionet e të dhënave dhe të zgjedhësh të importosh abonimet ose mund të kërkosh për një kanal dhe të abonohesh.'
   Disabled Automatic Fetching: 'Ke çaktivizuar rekuperimin automatik të abonimeve. Rifresko abonimet që ti shohësh këtu.'
   Empty Channels: 'Kanalet me të cilët je abonuar nuk kanë ndonjë video.'

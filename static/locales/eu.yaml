@@ -97,7 +97,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Harpidetzak'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Honako profilak harpidetza anitz ditu. RSS behartu abiadura muga saihesteko'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Zure harpidetza-zerrenda hutsik dago. Zure harpidetzak inportatu nahi badituzu, Datuen konfigurazioa atalera joan eta Inportaziorako harpidetzak aukera ditzakezu, edo kanal bat bilatu eta harpidetza egin dezakezu.'
   Load More Videos: 'Bideo gehiago kargatu'
   Error Channels: Akatsak dituzten kanalak

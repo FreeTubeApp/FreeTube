@@ -93,7 +93,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'συνδρομές'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Η λίστα Συνδρομών σας είναι προς το παρόν κενή. Αν θέλετε να εισάγετε τις συνδρομές σας μπορείτε να μεταβείτε στις Ρυθμίσεις Δεδομένων και να επιλέξετε Εισαγωγή Συνδρομών ή μπορείτε να αναζητήσετε ένα κανάλι και να εγγραφείτε σε αυτό.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Αυτό το προφίλ διαθέτει ήδη ένα μεγάλο αριθμό Συνδρομών. Εξαναγκασμένη εναλλαγή σε λειτουργία RSS για αποφυγή περιορισμού των κλήσεων
   Load More Videos: Φόρτωση περισσότερων Βίντεο
   Error Channels: Κανάλια με προβλήματα
   Disabled Automatic Fetching: Έχετε απενεργοποιήσει την αυτόματη ανάκτηση Συνδρομών. Ανανεώστε τις Συνδρομές για να τις δείτε εδώ.

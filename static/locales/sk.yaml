@@ -92,7 +92,6 @@ Subscriptions:
   Subscriptions: 'Odbery'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Váš zoznam odberov je momentálne prázdny. Ak chcete importovať svoje odbery, prejdite do časti Nastavenia údajov a vyberte možnosť Importovať odbery alebo môžete vyhľadať kanál a prihlásiť sa na jeho odber.'
   Load More Videos: Načítať viac videí
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Tento profil má veľký počet odberov.  Vynútenie RSS, aby sa zabránilo obmedzeniu rýchlosti
   Empty Channels: Vaše odoberané kanály momentálne nemajú žiadne videá.
   Load More Posts: Načítať ďalšie príspevky
   Subscriptions Tabs: Karty s odbermi

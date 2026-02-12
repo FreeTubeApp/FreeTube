@@ -97,7 +97,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Áskriftir'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Þetta notkunarsnið er með mikinn fjölda áskrifta. Þvinga notkun á RSS til að forðast takmarkanir á magni'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Listi með áskriftum er tómur í augnablikinu. Ef þú vilt flytja inn áskriftirnar þínar, geturðu farið í stillingar gagna og valið ''Flytja inn áskriftir'' eða leitað að rás og gerst áskrifandi að henni.'
   Load More Videos: 'Hlaða inn fleiri myndskeiðum'
   Error Channels: Hugbúnaðarrásir með villum

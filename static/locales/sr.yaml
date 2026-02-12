@@ -97,7 +97,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Праћења'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Овај профил има велики број праћења.  Присиљавање RSS-а да се избегне ограничавање брзине'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ваша листа праћења је тренутно празна. Ако желите да увезете своја праћења, можете отићи у Подешавања података и изабрати Увоз праћења или можете претражити канал и запратити га.'
   Load More Videos: 'Учитај више видео снимака'
   Load More Posts: Учитај више објава

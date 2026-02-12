@@ -97,7 +97,6 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odběry'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Tento profil má velký počet odběrů.  Vynucení RSS, aby se zabránilo omezení rychlosti'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Váš seznam odběrů je prázdný. Pokud chcete importovat své odběry, přejděte do Nastavení dat a vyberte Importovat odběry. Můžete také jednoduše vyhledat kanál a přihlásit se u něj k odběru.'
   Load More Videos: 'Načíst více videí'
   Error Channels: Kanály s chybami

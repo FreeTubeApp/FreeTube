@@ -98,7 +98,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Prenumerationer'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din prenumerationslista är för närvarande tom. Om du vill importera dina prenumerationer kan du gå till Datainställningar och välja Importera prenumerationer eller så kan du söka efter en kanal och prenumerera på dem.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denna profil har ett stort antal prenumerationer. Tvingar RSS för att undvika hastighetsbegränsning
   Load More Videos: Se mer
   Error Channels: Kanaler med fel
   Disabled Automatic Fetching: Du har avaktiverat automatisk prenumerationshämtning. Uppdatera prenumerationerna för att se dem här.

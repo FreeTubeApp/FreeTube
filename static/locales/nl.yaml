@@ -94,7 +94,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnementen'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Je abonnementenlĳst is momenteel leeg. Ga naar instellingen en selecteer "importeer abonnementen" als je jouw abonnementen wilt importeren. Je kunt ook zoeken naar een kanaal en hierop abonneren.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Dit profiel heeft een groot aantal abonnees. RSS wordt geforceerd om rate-limiting te vermĳden
   Load More Videos: Meer video's laden
   Error Channels: Kanalen met fouten
   Disabled Automatic Fetching: U heeft het automatisch ophalen van abonnementen uitgeschakeld. Ververs abonnementen om ze hier te zien.

@@ -95,7 +95,6 @@ Subscriptions:
   Subscriptions: 'Iscrizioni'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Il tuo elenco di iscrizioni è attualmente vuoto. Se vuoi importare le tue iscrizioni puoi andare su Impostazioni dati e selezionare Importa iscrizioni oppure puoi cercare un canale e iscriverti ad esso.'
   Load More Videos: Carica più video
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Questo profilo ha un grande numero di iscrizioni. Userò RSS per evitare limitazioni
   Error Channels: Canali con errori
   Disabled Automatic Fetching: Hai disabilitato il recupero automatico dell'iscrizione. Aggiorna le iscrizioni per vederle qui.
   Empty Channels: I canali a cui sei iscritto attualmente non hanno alcun video.

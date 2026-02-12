@@ -98,7 +98,6 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Feliratkozások'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'A feliratkozások listája jelenleg üres. Ha importálni szeretné feliratkozásait, akkor lépjen az Adatok beállításaiba és válassza a feliratkozások importálása lehetőséget, vagy kereshet csatornákat és feliratkozhat rájuk.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Ez a profil nagyszámú feliratkozást tartalmaz. RSS kényszerítése a sebességkorlátozás elkerülésére
   Load More Videos: További videók betöltése
   Error Channels: Hibás csatornák
   Disabled Automatic Fetching: Ön letiltotta a feliratkozások automatikus lekérdezését. Frissítse a feliratkozásokat, hogy itt láthassa őket.
