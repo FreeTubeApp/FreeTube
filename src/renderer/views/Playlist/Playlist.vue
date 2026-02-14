@@ -68,8 +68,9 @@
           :icon="sortOrderIcon"
           @change="updateUserPlaylistSortOrder"
         />
-        <template
+        <AutoScrollWrapper
           v-if="visiblePlaylistItems.length > 0"
+          :hot-zone-enabled="isSortOrderCustom && isVideoDragging()"
         >
           <FtElementList
             v-if="listType === 'grid'"
@@ -155,7 +156,7 @@
           >
             <FtLoader />
           </div>
-        </template>
+        </AutoScrollWrapper>
         <FtFlexBox
           v-else
         >
@@ -189,6 +190,7 @@ import FtButton from '../../components/FtButton/FtButton.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtSelect from '../../components/FtSelect/FtSelect.vue'
 import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrapper.vue'
+import AutoScrollWrapper from '../../components/AutoScrollWrapper/AutoScrollWrapper.vue'
 
 import store from '../../store/index'
 

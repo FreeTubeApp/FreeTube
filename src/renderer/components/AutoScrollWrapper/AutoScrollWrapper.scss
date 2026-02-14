@@ -1,0 +1,28 @@
+$height: 150px;
+
+.hotZone {
+  position: fixed;
+  inset-inline-start: 0;
+  inline-size: 100%;
+  block-size: $height;
+  z-index: 99;
+
+  // Allows clicking through when disabled,
+  // as this sits on top of everything else.
+  pointer-events: none;
+}
+
+.hotZoneEnabled {
+  pointer-events: all;
+}
+
+.topZone {
+  inset-block-start: 0;
+}
+
+.bottomZone {
+  // calc is valid SCSS; linter is complaining,
+  // that it's not recognized.
+  /* stylelint-disable-next-line declaration-property-value-no-unknown */
+  inset-block-start: calc(100% - $height);
+}
