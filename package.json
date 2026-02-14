@@ -29,6 +29,7 @@
     "debug": "node _scripts/dev-runner.js --remote-debug",
     "dev": "node _scripts/dev-runner.js",
     "dev:web": "node _scripts/dev-runner.js --web",
+    "dev:web-noopen": "node _scripts/dev-runner.js --web --no-open",
     "get-instances": "node _scripts/getInstances.js",
     "get-regions": "node _scripts/getRegions.mjs",
     "lint-all": "pnpm run \"/^(lint|lint-json)$/\"",
@@ -47,7 +48,8 @@
     "pack:web": "webpack --mode=production --config-node-env=production --config _scripts/webpack.web.config.js",
     "pack:botGuardScript": "webpack --config _scripts/webpack.botGuardScript.config.js",
     "checkforbadtemplates": "node _scripts/findMissingTemplates.mjs",
-    "ci": "pnpm install --frozen-lockfile"
+    "ci": "pnpm install --frozen-lockfile",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.2.0",
@@ -74,11 +76,13 @@
     "youtubei.js": "^17.0.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.2",
     "@double-great/stylelint-a11y": "^3.4.10",
     "@eslint/js": "^10.0.1",
     "@intlify/eslint-plugin-vue-i18n": "^4.3.0",
+    "@playwright/test": "^1.58.2",
     "@stylistic/eslint-plugin": "^5.10.0",
     "babel-loader": "^10.1.1",
     "copy-webpack-plugin": "^14.0.0",

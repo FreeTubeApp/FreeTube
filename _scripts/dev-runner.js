@@ -15,6 +15,7 @@ let manualRestart = null
 
 const remoteDebugging = process.argv.indexOf('--remote-debug') !== -1
 const web = process.argv.indexOf('--web') !== -1
+const noopen = process.argv.indexOf('--no-open') !== -1
 
 let mainConfig
 let rendererConfig
@@ -222,7 +223,7 @@ function startWeb () {
   })
 
   const server = new WebpackDevServer({
-    open: true,
+    open: !noopen,
     static: {
       directory: path.resolve(__dirname, '..', 'static'),
       watch: {
