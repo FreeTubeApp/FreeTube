@@ -4041,6 +4041,13 @@ eslint-plugin-n@^17.24.0:
     semver "^7.6.3"
     ts-declaration-location "^1.0.6"
 
+eslint-plugin-playwright@^2.5.1:
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-playwright/-/eslint-plugin-playwright-2.5.1.tgz#f4bdc721ecaab2dac4690208ebd48ae020513435"
+  integrity sha512-q7oqVQTTfa3VXJQ8E+ln0QttPGrs/XmSO1FjOMzQYBMYF3btih4FIrhEYh34JF184GYDmq3lJ/n7CMa49OHBvA==
+  dependencies:
+    globals "^16.4.0"
+
 eslint-plugin-promise@^7.2.1:
   version "7.2.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-7.2.1.tgz#a0652195700aea40b926dc3c74b38e373377bfb0"
