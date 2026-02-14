@@ -12,7 +12,11 @@
     v-on="isSortOrderCustom ? {
       dragstart: event => dragVideo(event, videoData),
       dragover: event => event.preventDefault(),
-      dragenter: () => moveDraggedVideo(videoData, draggedVideo),
+      dragenter: () => {
+        if (isVideoDragging) {
+          moveDraggedVideo(videoData, draggedVideo)
+        }
+      },
       dragend: afterDrag,
     } : {}"
   >
