@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="video-list"
     v-observe-visibility="visible ? false : {
       callback: onVisibilityChanged
     }"
@@ -81,7 +82,8 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { ref, watch } from 'vue'
+import { ref, watch, useTemplateRef, onMounted } from 'vue'
+import { enableDragDropTouch } from '@dragdroptouch/drag-drop-touch'
 
 import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 
@@ -218,6 +220,18 @@ function moveVideoUp(videoId, playlistItemId) {
 function moveVideoDown(videoId, playlistItemId) {
   emit('move-video-down', videoId, playlistItemId)
 }
+
+const videoListRef = useTemplateRef('video-list')
+
+onMounted(() => {
+  const { value: videos } = videoListRef
+
+  if (props.isSortOrderCustom) {
+    enableDragDropTouch(videos, videos, {
+      allowDragScroll: false,
+    })
+  }
+})
 
 const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
 

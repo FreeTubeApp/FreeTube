@@ -908,6 +908,11 @@
   dependencies:
     postcss "^8.5.6"
 
+"@dragdroptouch/drag-drop-touch@^2.0.3":
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/@dragdroptouch/drag-drop-touch/-/drag-drop-touch-2.0.3.tgz#22ce219472ae81a92c7671f6b84b0e7e041726b1"
+  integrity sha512-4Yv1+S2Yxs/5iYLZyZYobAlCvIJPN6TYBjvJDyI9kH30GfBxA+ffHgKK2l00EyyBlUpB10j8BWAbRsgXRtBbPw==
+
 "@electron/asar@3.4.1", "@electron/asar@^3.3.1":
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/@electron/asar/-/asar-3.4.1.tgz#4e9196a4b54fba18c56cd8d5cac67c5bdc588065"
