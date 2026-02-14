@@ -5,10 +5,26 @@
  */
 
 /**
+ * @callback DragVideo
+ * @param {DragEvent} event
+ * @param {VideoData} video
+ */
+
+/**
+ * @callback MoveDraggedVideo
+ * @param {VideoData} video
+ * @param {VideoData} draggedVideo
+ */
+
+/**
+ * @callback AfterDrag
+ */
+
+/**
  * @typedef {object} EventHandlers
- * @prop {(event: DragEvent, video: VideoData) => void} dragVideo
- * @prop {(video: VideoData, draggedVideo: VideoData) => void} moveDraggedVideo
- * @prop {() => void} afterDrag
+ * @prop {DragVideo} dragVideo
+ * @prop {MoveDraggedVideo} moveDraggedVideo
+ * @prop {AfterDrag} afterDrag
  */
 
 /**
@@ -18,7 +34,7 @@
  */
 export const handleDragAndDrop = (emit) => {
   /**
-   * @type {EventHandlers.dragVideo}
+   * @type {DragVideo}
    */
   const dragVideo = (event, { videoId, playlistItemId }) => {
     // Prevent grabbing cursor from being overridden by the copy cursor.
@@ -28,7 +44,7 @@ export const handleDragAndDrop = (emit) => {
   }
 
   /**
-   * @type {EventHandlers.moveDraggedVideo}
+   * @type {MoveDraggedVideo}
    */
   const moveDraggedVideo = (video, draggedVideo) => {
     const differentVideo = video.videoId !== draggedVideo.videoId
@@ -39,7 +55,7 @@ export const handleDragAndDrop = (emit) => {
   }
 
   /**
-   * @type {EventHandlers.afterDrag}
+   * @type {AfterDrag}
    */
   const afterDrag = () => {
     emit('drag-video-end')
