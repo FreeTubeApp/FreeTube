@@ -60,6 +60,7 @@ Search / Go to URL: Search / Go to URL
 Search Bar:
   Clear Input: Clear Input
   Remove: Remove
+  Open Search Container: Open Search Container
 Search character limit: Search query is over the {searchCharacterLimit} character limit
 Search Listing:
   Label:
