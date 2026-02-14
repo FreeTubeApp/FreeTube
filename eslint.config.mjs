@@ -15,10 +15,12 @@ import eslintPluginN from 'eslint-plugin-n'
 import eslintPluginPromise from 'eslint-plugin-promise'
 
 import freetube from './_scripts/eslint-rules/plugin.mjs'
+import eslintPluginPlaywright from 'eslint-plugin-playwright'
 
 import activeLocales from './static/locales/activeLocales.json' with { type: 'json' }
+import { defineConfig } from "eslint/config";
 
-export default [
+export default defineConfig([
   {
     ignores: [
       'build/',
@@ -427,7 +429,7 @@ export default [
     }
   },
   {
-    files: ['_scripts/**/*.mjs'],
+    files: ['_scripts/**/*.mjs', 'tests/**/*.mjs'],
     languageOptions: {
       globals: globals.node,
       ecmaVersion: 'latest',
@@ -447,5 +449,24 @@ export default [
       'unicorn/prefer-date-now': 'error',
       'unicorn/prefer-array-index-of': 'error',
     }
+  },
+  {
+    files: ['tests/playwright/helpers.mjs', 'tests/playwright/**/*spec.mjs'],
+    extends: [eslintPluginPlaywright.configs['flat/recommended']],
+    settings: {
+      playwright: {
+        globalAliases: {
+          test: ["electronDesktopTest", "electronMobileTest", "electronTabletTest"],
+        }
+      }
+    },
+    rules: {
+      "playwright/expect-expect": [
+        "error",
+        {
+          "assertFunctionNames": ["validateAccessibility"],
+        }
+      ]
+    }
   }
-]
+])
