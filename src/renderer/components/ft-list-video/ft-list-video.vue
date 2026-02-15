@@ -15,8 +15,8 @@
         class="thumbnailLink"
         tabindex="-1"
         :to="watchVideoRouterLink"
-        draggable="false"
         @click="handleWatchPageLinkClick"
+        @dragstart.stop
       >
         <font-awesome-icon
           v-if="inUserPlaylist && layout === 'grid'"
@@ -28,7 +28,6 @@
           class="thumbnailImage"
           alt=""
           :style="{filter: blurThumbnailsStyle}"
-          draggable="false"
         >
       </router-link>
       <div
@@ -120,8 +119,8 @@
       <router-link
         class="title"
         :to="watchVideoRouterLink"
-        draggable="false"
         @click="handleWatchPageLinkClick"
+        @dragstart.stop
       >
         <h3
           class="h3Title"
@@ -136,7 +135,7 @@
           class="channelName"
           dir="auto"
           :to="`/channel/${channelId}`"
-          draggable="false"
+          @dragstart.stop
         >
           {{ channelName }}
         </router-link>
