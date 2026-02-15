@@ -116,11 +116,15 @@
       class="skippedSegmentsWrapper"
     >
       <p
-        v-for="{ uuid, translatedCategory } in skippedSponsorBlockSegments"
+        v-for="{ uuid, translatedCategory, unskipped, timeLeft } in skippedSponsorBlockSegments"
         :key="uuid"
         class="skippedSegment"
       >
         {{ $t('Video.Player.Skipped segment', { segmentCategory: translatedCategory }) }}
+        <br>
+        <span class="unskipInstruction">
+          {{ unskipped ? $t('Video.Player.Press Enter to reskip') : $t('Video.Player.Press Enter to unskip', { timeLeft }) }}
+        </span>
       </p>
     </div>
   </div>
