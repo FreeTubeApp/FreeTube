@@ -5,29 +5,11 @@
 }
 
 .grabBar {
-  display: none;
-  font-size: 1rem;
+  color: var(--tertiary-text-color);
   cursor: grab;
-
-  // Prevent blue color inherited from the thumbnail link.
-  color: #fff;
-  padding: 8px;
-
-  // Make it the same color as thumbnail border to blend in.
-  background: var(--side-nav-hover-color);
-
-  // Prevent watched video fade in from affecting the grab icon.
-  z-index: 1;
-
-  $corner-rounding: 0.35em;
-
-  border-start-end-radius: $corner-rounding;
-  border-end-end-radius: $corner-rounding;
-  position: absolute;
-
-  // Position at y axis halfway point over the thumbnail image.
-  inset-block-start: 50%;
-  translate: 0 -50%;
+  justify-self: center;
+  user-select: none;
+  margin-block: 1em;
 }
 
 .draggable:not(.draggable:only-child):focus .grabBar,

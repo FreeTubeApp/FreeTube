@@ -86,7 +86,8 @@ $watched-transition-duration: 0.5s;
     .background,
     .inner {
       grid-column: 1;
-      grid-row: 1;
+      // Grab bar will be on top.
+      grid-row: 2;
       user-select: none;
     }
 

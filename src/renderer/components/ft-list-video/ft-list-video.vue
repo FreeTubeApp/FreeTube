@@ -11,6 +11,11 @@
     <div
       class="videoThumbnail"
     >
+      <font-awesome-icon
+        v-if="inUserPlaylist && layout === 'grid'"
+        class="grabBar"
+        :icon="['fas', 'fa-bars']"
+      />
       <router-link
         class="thumbnailLink"
         tabindex="-1"
@@ -18,11 +23,6 @@
         @click="handleWatchPageLinkClick"
         @dragstart.stop
       >
-        <font-awesome-icon
-          v-if="inUserPlaylist && layout === 'grid'"
-          class="grabBar"
-          :icon="['fas', 'fa-bars']"
-        />
         <img
           :src="thumbnail"
           class="thumbnailImage"
