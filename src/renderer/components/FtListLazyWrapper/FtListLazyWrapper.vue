@@ -1,7 +1,6 @@
 <template>
   <div
     v-if="showResult"
-    ref="video-grid"
     v-observe-visibility="visible ? false : {
       callback: onVisibilityChanged
     }"
@@ -74,8 +73,7 @@
 </template>
 
 <script setup>
-import { computed, ref, useTemplateRef, onMounted } from 'vue'
-import { enableDragDropTouch } from '@dragdroptouch/drag-drop-touch'
+import { computed, ref } from 'vue'
 
 import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 
@@ -329,18 +327,6 @@ function moveVideoDown(videoId, playlistItemId) {
 function removeFromPlaylist(videoId, playlistItemId) {
   emit('remove-from-playlist', videoId, playlistItemId)
 }
-
-const videoGridRef = useTemplateRef('video-grid')
-
-onMounted(() => {
-  const { value: videos } = videoGridRef
-
-  if (props.isSortOrderCustom) {
-    enableDragDropTouch(videos, videos, {
-      allowDragScroll: false,
-    })
-  }
-})
 
 const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
 

@@ -54,7 +54,6 @@
     "ci": "yarn install --silent --frozen-lockfile --network-concurrency 1"
   },
   "dependencies": {
-    "@dragdroptouch/drag-drop-touch": "^2.0.3",
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
     "@fortawesome/free-brands-svg-icons": "^7.1.0",
     "@fortawesome/free-regular-svg-icons": "^7.1.0",
