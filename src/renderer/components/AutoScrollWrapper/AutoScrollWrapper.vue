@@ -1,10 +1,8 @@
 <template>
   <div>
     <div
+      v-if="hotZoneEnabled"
       class="hotZone topZone"
-      :class="{
-        hotZoneEnabled
-      }"
       v-on="{
         dragenter: () => setScrollDirection('up'),
         dragleave: clearScrollDirection,
@@ -14,10 +12,8 @@
     <slot />
 
     <div
+      v-if="hotZoneEnabled"
       class="hotZone bottomZone"
-      :class="{
-        hotZoneEnabled
-      }"
       v-on="{
         dragenter: () => setScrollDirection('down'),
         dragleave: clearScrollDirection,

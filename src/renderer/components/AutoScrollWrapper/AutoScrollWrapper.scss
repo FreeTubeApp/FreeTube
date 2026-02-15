@@ -6,14 +6,6 @@ $height: 150px;
   inline-size: 100%;
   block-size: $height;
   z-index: 99;
-
-  // Allows clicking through when disabled,
-  // as this sits on top of everything else.
-  pointer-events: none;
-}
-
-.hotZoneEnabled {
-  pointer-events: all;
 }
 
 .topZone {
