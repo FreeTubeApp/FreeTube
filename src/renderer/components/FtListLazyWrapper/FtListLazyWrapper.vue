@@ -20,6 +20,7 @@
         }
       },
       dragend: afterDrag,
+      drop: event => event.preventDefault(),
     } : {}"
   >
     <template

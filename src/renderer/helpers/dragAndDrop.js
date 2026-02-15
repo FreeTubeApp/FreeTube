@@ -40,6 +40,9 @@ export const handleDragAndDrop = (emit) => {
     // Prevent grabbing cursor from being overridden by the copy cursor.
     event.dataTransfer.effectAllowed = 'move'
 
+    // Allows drag and drop to work with touch devices.
+    event.dataTransfer.setData('text/plain', '_')
+
     emit('drag-video', { videoId, playlistItemId })
   }
 
