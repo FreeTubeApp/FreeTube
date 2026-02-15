@@ -5,10 +5,10 @@
     }"
     :class="{
       placeholder: !visible,
-      draggable: isSortOrderCustom && isUserPlaylist,
+      draggable: isSortOrderCustom && inUserPlaylist,
       draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId,
     }"
-    :draggable="isSortOrderCustom && isUserPlaylist"
+    :draggable="isSortOrderCustom && inUserPlaylist"
     v-on="isSortOrderCustom ? {
       dragstart: event => dragVideo(event, videoData),
       dragover: event => event.preventDefault(),
@@ -40,7 +40,7 @@
           v-else
         >
           <FontAwesomeIcon
-            v-if="isSortOrderCustom && isUserPlaylist"
+            v-if="isSortOrderCustom && inUserPlaylist"
             class="grabBar"
             :icon="['fas', 'fa-bars']"
           />
@@ -174,7 +174,7 @@ const props = defineProps({
 const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
 const visible = ref(props.initialVisibleState)
 
-const isUserPlaylist = props.playlistType === 'user'
+const inUserPlaylist = props.playlistType === 'user'
 
 let stopWatchingInitialVisibleState = null
 
