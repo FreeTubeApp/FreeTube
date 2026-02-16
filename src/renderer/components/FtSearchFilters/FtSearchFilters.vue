@@ -89,8 +89,6 @@ const { t } = useI18n()
 
 const SORT_BY_VALUES = [
   'relevance',
-  'rating',
-  'upload_date',
   'view_count'
 ]
 
@@ -142,8 +140,6 @@ const title = computed(() => t('Search Filters.Search Filters'))
 
 const sortByLabels = computed(() => [
   t('Search Filters.Sort By.Most Relevant'),
-  t('Search Filters.Sort By.Rating'),
-  t('Search Filters.Sort By.Upload Date'),
   t('Search Filters.Sort By.View Count')
 ])
 
@@ -186,7 +182,7 @@ const featureLabels = computed(() => [
 
 const searchSettings = store.getters.getSearchSettings
 
-/** @type {import('vue').Ref<'relevance' | 'rating' | 'upload_date' | 'view_count'>} */
+/** @type {import('vue').Ref<'relevance' | 'view_count'>} */
 const sortByValue = ref(searchSettings.sortBy)
 
 watch(sortByValue, (value) => {
