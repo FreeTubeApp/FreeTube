@@ -330,7 +330,7 @@ function removeFromPlaylist(videoId, playlistItemId) {
   emit('remove-from-playlist', videoId, playlistItemId)
 }
 
-const { value: { dragVideo, moveDraggedVideo, afterDrag } } = computed(() => handleDragAndDrop(emit))
+const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
 
 /** @import { VideoData } from '../../helpers/dragAndDrop' */
 
