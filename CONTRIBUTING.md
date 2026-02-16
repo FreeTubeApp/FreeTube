@@ -4,7 +4,8 @@
  Please follow these guidelines before starting to code you feature or bugfix.
  * If you want to implement a bugfix or feature request from an existing issue, please comment on that issue that you will work on it. This helps us to coordinate what needs to be done and what not.
  * If you want to implement a feature request without an existing issue, please create an issue, so we know what you are working on and discuss the feature.
- * For major feature implementations make sure you are able to maintain your code in the future in regard to bugs and possible code conflicts in future updates. Optionally you could join the [Matrix](https://matrix.to/#/#freetube:matrix.org) channel, so you will hear instantly if something needs to be worked on.  
+ * For major feature implementations make sure you are able to maintain your code in the future in regard to bugs and possible code conflicts in future updates. Optionally you could join the [Matrix](https://matrix.to/#/#freetube:matrix.org) channel, so you will hear instantly if something needs to be worked on. 
+ * Do not open pull requests that are primarily written by AI. It's a waste of our team's time. Repeat offenders will be banned.
 
 ## Before your Pull Request
 Please follow these guidelines before sending your pull request and making contributions.

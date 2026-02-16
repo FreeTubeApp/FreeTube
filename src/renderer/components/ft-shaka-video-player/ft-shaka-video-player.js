@@ -1733,9 +1733,9 @@ export default defineComponent({
         } else {
           const arrayBuffer = await blob.arrayBuffer()
 
-          await window.ftElectron.writeToDefaultFolder(filenameWithExtension, arrayBuffer)
-
-          showToast(t('Screenshot Success'))
+          if (await window.ftElectron.writeToDefaultFolder(filenameWithExtension, arrayBuffer)) {
+            showToast(t('Screenshot Success'))
+          }
         }
       } catch (error) {
         console.error(error)
