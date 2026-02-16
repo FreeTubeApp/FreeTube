@@ -1387,6 +1387,40 @@ function runApp() {
     }
   })
 
+  ipcMain.handle(IpcChannels.SHOW_SAVE_DIALOG, async (event, { fileName, content, fileTypeDescription, fileExtension }) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return false
+    }
+
+    const window = BrowserWindow.fromWebContents(event.sender)
+
+    const dialogOptions = {
+      defaultPath: fileName,
+      filters: [
+        { name: fileTypeDescription, extensions: [fileExtension.replace('.', '')] }
+      ]
+    }
+
+    let result
+    if (window) {
+      result = await dialog.showSaveDialog(window, dialogOptions)
+    } else {
+      result = await dialog.showSaveDialog(dialogOptions)
+    }
+
+    if (result.canceled || !result.filePath) {
+      return false
+    }
+
+    if (content instanceof ArrayBuffer) {
+      await asyncFs.writeFile(result.filePath, new DataView(content))
+    } else {
+      await asyncFs.writeFile(result.filePath, content, 'utf-8')
+    }
+
+    return true
+  })
+
   ipcMain.handle(IpcChannels.WRITE_TO_DEFAULT_FOLDER, async (event, filename, arrayBuffer) => {
     if (
       !isFreeTubeUrl(event.senderFrame.url) ||

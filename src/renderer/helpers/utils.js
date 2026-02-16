@@ -350,7 +350,19 @@ export async function writeFileWithPicker(
   // https://developer.mozilla.org/en-US/docs/Web/API/Window/showOpenFilePicker#browser_compatibility
   // As we know it is supported in Electron, adding the build flag means we can skip the runtime check in Electron
   // and allow terser to remove the unused else block
-  if (process.env.IS_ELECTRON || 'showSaveFilePicker' in window) {
+  if (process.env.IS_ELECTRON) {
+    // Use Electron's native dialog.showSaveDialog + fs.writeFile via IPC
+    // instead of the File System Access API (showSaveFilePicker + createWritable),
+    // as the latter produces 0-byte files in some environments (e.g. Flatpak sandboxes)
+    // where the FileSystemWritableFileStream doesn't work correctly.
+    // See: https://github.com/FreeTubeApp/FreeTube/issues/8670
+    return await window.ftElectron.showSaveDialog({
+      fileName,
+      content,
+      fileTypeDescription,
+      fileExtension
+    })
+  } else if ('showSaveFilePicker' in window) {
     let writableFileStream
 
     try {

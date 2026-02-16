@@ -118,6 +118,18 @@ export default {
     return ipcRenderer.invoke(IpcChannels.GENERATE_PO_TOKEN, videoId, context)
   },
 
+  /**
+   * @param {object} options
+   * @param {string} options.fileName
+   * @param {string} options.content
+   * @param {string} options.fileTypeDescription
+   * @param {string} options.fileExtension
+   * @returns {Promise<boolean>}
+   */
+  showSaveDialog: async (options) => {
+    return await ipcRenderer.invoke(IpcChannels.SHOW_SAVE_DIALOG, options)
+  },
+
   chooseDefaultFolder: () => {
     ipcRenderer.send(IpcChannels.CHOOSE_DEFAULT_FOLDER)
   },
