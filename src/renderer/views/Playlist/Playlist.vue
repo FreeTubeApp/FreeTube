@@ -91,10 +91,7 @@
             :is-sort-order-custom="isSortOrderCustom"
             :is-video-dragging="isVideoDragging()"
             @drag-video="setDraggedVideo"
-            @drag-video-end="() => setDraggedVideo({
-              videoId: null,
-              playlistItemId: null,
-            })"
+            @drag-video-end="unsetDraggedVideo"
             @move-dragged-video="moveDraggedVideo"
             @move-video-up="moveVideoUp"
             @move-video-down="moveVideoDown"
@@ -127,10 +124,7 @@
               :is-sort-order-custom="isSortOrderCustom"
               :is-video-dragging="isVideoDragging()"
               @drag-video="setDraggedVideo"
-              @drag-video-end="() => setDraggedVideo({
-                videoId: null,
-                playlistItemId: null,
-              })"
+              @drag-video-end="unsetDraggedVideo"
               @move-dragged-video="moveDraggedVideo"
               @move-video-up="moveVideoUp"
               @move-video-down="moveVideoDown"
@@ -781,6 +775,13 @@ function moveVideoDown(videoId, playlistItemId) {
  */
 function setDraggedVideo(video) {
   draggedVideo.value = video
+}
+
+function unsetDraggedVideo() {
+  setDraggedVideo({
+    videoId: null,
+    playlistItemId: null,
+  })
 }
 
 /**
