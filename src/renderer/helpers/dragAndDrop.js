@@ -37,7 +37,7 @@ export const handleDragAndDrop = (emit) => {
    * @type {DragVideo}
    */
   const dragVideo = (event, { videoId, playlistItemId }) => {
-    // Prevent grabbing cursor from being overridden by the copy cursor.
+    // Use correct drag cursor.
     event.dataTransfer.effectAllowed = 'move'
 
     // Allows drag and drop to work with touch devices.
