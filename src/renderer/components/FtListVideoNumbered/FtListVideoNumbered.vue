@@ -82,7 +82,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 
 import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 
@@ -220,7 +220,7 @@ function moveVideoDown(videoId, playlistItemId) {
   emit('move-video-down', videoId, playlistItemId)
 }
 
-const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
+const { value: { dragVideo, moveDraggedVideo, afterDrag } } = computed(() => handleDragAndDrop(emit))
 
 /** @import { VideoData } from '../../helpers/dragAndDrop' */
 
