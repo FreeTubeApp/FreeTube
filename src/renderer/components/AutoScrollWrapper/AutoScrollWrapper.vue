@@ -3,10 +3,8 @@
     <div
       v-if="hotZoneEnabled"
       class="hotZone topZone"
-      v-on="{
-        dragenter: () => setScrollDirection('up'),
-        dragleave: clearScrollDirection,
-      }"
+      @dragenter="setScrollDirection('up')"
+      @dragleave="clearScrollDirection"
     />
 
     <slot />
@@ -14,10 +12,8 @@
     <div
       v-if="hotZoneEnabled"
       class="hotZone bottomZone"
-      v-on="{
-        dragenter: () => setScrollDirection('down'),
-        dragleave: clearScrollDirection,
-      }"
+      @dragenter="setScrollDirection('down')"
+      @dragleave="clearScrollDirection"
     />
   </div>
 </template>
@@ -81,8 +77,4 @@ watch(scrollDirection, direction => {
 })
 </script>
 
-<style
-  scoped
-  src="./AutoScrollWrapper.scss"
-  lang="scss"
-/>
+<style scoped src="./AutoScrollWrapper.css" />
