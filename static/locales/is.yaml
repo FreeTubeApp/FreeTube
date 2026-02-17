@@ -641,6 +641,9 @@ About:
 
   Discussions: Umræður
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Notkunarleyfi samkvæmt {licenseLink}
+  Please read the {roomRulesLink}: Þú ættir endilega að lesa {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube er gert mögulegt af {creditsPageLink}
 Profile:
   Profile Select: 'Val á notkunarsniði'
   Profile Filter: 'Sía notkunarsnið'
