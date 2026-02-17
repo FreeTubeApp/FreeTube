@@ -321,10 +321,16 @@ async function loadVideosForSubscriptionsFromRemote() {
   ])
 
   // Merge and process all videos
-  videoList.value = updateVideoListAfterProcessing([
-    ...channelVideos.flat(),
-    ...playlistVideos.flat()
-  ])
+  const allVideos = [...channelVideos.flat(), ...playlistVideos.flat()]
+  // Filter video duplicates that can occur when a video is both in a channel and a playlist subscription
+  const uniqueVideosMap = new Map()
+  allVideos.forEach(video => {
+    if (!uniqueVideosMap.has(video.videoId)) {
+      uniqueVideosMap.set(video.videoId, video)
+    }
+  })
+
+  videoList.value = updateVideoListAfterProcessing([...uniqueVideosMap.values()])
 
   store.commit('setShowProgressBar', false)
   isLoading.value = false
