@@ -633,17 +633,17 @@ About:
   Email: 'Helbide elektronikoa'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Matrix-en txata'
-  Please read the: 'Irakur ezazu mesedez'
   room rules: 'Gelaren arauak'
   Translate: 'Itzuli'
   Credits: 'Kredituak'
-  FreeTube is made possible by: 'Freetube honakoei esker sortu da'
   these people and projects: 'Hurrengo pertsonak eta proiektuak'
   Donate: 'Donazioa egin'
 
   Discussions: Eztabaidak
-  Licensed under the: Lizentziapean
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: '{licenseLink} lizentziapean lizentziatua'
+  Please read the {roomRulesLink}: Mesedez, irakurri {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube {creditsPageLink}-ri esker posible da
 Profile:
   Profile Select: 'Hautatu profila'
   Profile Filter: 'Profilaren iragazkiak'
@@ -997,7 +997,7 @@ Open New Window: Leiho berria ireki
 Default Invidious instance has been set to {instance}: 'Lehenetsitako Individious-eko instantzia {instance} gisa ezarri da'
 Default Invidious instance has been cleared: Lehenetsitako Individious-eko instantzia ezabatu egin da
 External link opening has been disabled in the general settings: Kanpo estekak irekitzea desaktibatu egin da ezarpen orokorretan
-Unknown YouTube url type, cannot be opened in app: Youtube-ko URL mota ezezaguna, ezin da aplikazioan ireki
+Unknown YouTube url type, cannot be opened in app: Youtube-ko url mota ezezaguna, ezin da aplikazioan ireki
 Screenshot Success: Pantaila-argazkia gode da
 Screenshot Error: Pantaila-argazkiak huts egin du. {error}
 New Window: Leiho berria

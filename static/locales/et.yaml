@@ -621,11 +621,9 @@ About:
   Email: E-post
   Donate: Toeta meid
   these people and projects: tänu nendele inimestele ja projektidele
-  FreeTube is made possible by: FreeTube loomine ja arendamine on olnud võimalik
   Credits: Tänuavaldused
   Translate: Tõlgi
   room rules: jututoa reeglitega
-  Please read the: Palun kindlasti tutvu
   Chat on Matrix: Vestle meiega Matrixi võrgus
   Mastodon: Mikroblogiteenus Mastodon
   Blog: Blogi
@@ -641,8 +639,10 @@ About:
   Source code: Lähtekood
   Beta: beetaversioon
   Discussions: Arutelud
-  Licensed under the: Avaldatud ja litsentseeritud
   AGPLv3: AGPLv3 alusel
+  FreeTube is made possible by {creditsPageLink}: 'FreeTube on loodud järgnevate arendajate poolt: {creditsPageLink}'
+  Please read the {roomRulesLink}: 'Palun loe: {roomRulesLink}'
+  Licensed under the {licenseLink}: 'Kasutusel litsents: {licenseLink}'
 Profile:
   Profile Select: 'Vali profiil'
   All Channels: 'Kõik kanalid'

@@ -626,11 +626,9 @@ About:
   Downloads / Changelog: Download / Registro delle modifiche
   GitHub releases: Versioni di GitHub
   these people and projects: queste persone e questi progetti
-  FreeTube is made possible by: FreeTube è reso possibile grazie a
   Credits: Crediti
   Translate: Traduzioni
   room rules: regole stanza
-  Please read the: Per favore leggi
   Chat on Matrix: Chatta su Matrix
   Mastodon: Mastodon
   Email: E-mail
@@ -640,7 +638,6 @@ About:
   Beta: Beta
   Discussions: Discussioni
   AGPLv3: AGPLv3
-  Licensed under the: Concesso con licenza
 Channel:
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
@@ -954,7 +951,7 @@ Tooltips:
   Player Settings:
     Default Video Format: Imposta i formati usati quando un video viene riprodotto. I formati DASH possono riprodurre qualità maggiore. I formati compatibili sono limitati ad un massimo di 360p ma usano meno banda. I formati audio riproducono solo l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video invece di una connessione diretta a YouTube.
-    Scroll Playback Rate Over Video Player: Mentre il cursore è sopra il video, tieni premuto il tasto CTRL (Command su Mac) e scorri la rotella del mouse in avanti o indietro per controllare la velocità di riproduzione. Tieni premuto il tasto CTRL (Command su Mac) e fai clic con il tasto sinistro del mouse per tornare rapidamente alla velocità di riproduzione predefinita (1x a meno che non sia stata cambiata nelle Impostazioni).
+    Scroll Playback Rate Over Video Player: Mentre il cursore si trova sul video, tieni premuto il tasto Control (Command su Mac) e ruota la rotellina del mouse in avanti o all'indietro per regolare la velocità di riproduzione. Tieni premuto il tasto Control (Command su Mac) e fai clic con il tasto sinistro del mouse per tornare rapidamente alla velocità di riproduzione predefinita (1x, a meno che non sia stata modificata nelle impostazioni).
     Skip by Scrolling Over Video Player: Usa la rotella di scorrimento per saltare il video, in stile MPV.
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard per leggere le iscrizioni. Gli RSS sono più veloci e impediscono il blocco dell'IP, ma non forniscono determinate informazioni come la durata del video, lo stato dal vivo o i post
@@ -989,7 +986,7 @@ More: Altro
 Open New Window: Apri una nuova finestra
 Default Invidious instance has been cleared: L'istanza predefinita di Invidious è stata cancellata
 Default Invidious instance has been set to {instance}: L'istanza predefinita di Invidious è stata impostata a {instance}
-Unknown YouTube url type, cannot be opened in app: Tipo di URL di YouTube sconosciuto, non può essere aperto nell'app
+Unknown YouTube url type, cannot be opened in app: Tipo di URL YouTube sconosciuto, impossibile aprirlo nell'app
 Search Bar:
   Clear Input: Pulisci ricerca
   Remove: Rimuovi
