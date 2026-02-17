@@ -67,7 +67,7 @@ export function updateVideoListAfterProcessing(videos) {
  * @param {string} rssString
  * @param {string} channelId
  */
-export async function parseYouTubeRSSFeed(rssString, channelId) {
+export async function parseYouTubeChannelRSSFeed(rssString, channelId) {
   // doesn't need to be asynchronous, but doing it allows us to do the relatively slow DOM querying in parallel
   try {
     const xmlDom = new DOMParser().parseFromString(rssString, 'application/xml')
@@ -91,6 +91,28 @@ export async function parseYouTubeRSSFeed(rssString, channelId) {
   }
 }
 
+export async function parseYouTubePlaylistRSSFeed(rssString, playlistId) {
+  try {
+    const xmlDom = new DOMParser().parseFromString(rssString, 'application/xml')
+    const playlistTitle = xmlDom.querySelector('title')?.textContent || 'Untitled Playlist'
+    const entries = xmlDom.querySelectorAll('entry')
+
+    const promises = []
+
+    for (const entry of entries) {
+      // Use playlistId as authorId to associate videos with the playlist
+      promises.push(parseRSSEntry(entry, playlistId, playlistTitle))
+    }
+
+    return {
+      name: playlistTitle,
+      videos: await Promise.all(promises)
+    }
+  } catch (err) {
+    console.error(`Failed to parse playlist RSS for ${playlistId}`, err)
+    return { name: '', videos: [] }
+  }
+}
 /**
  * @param {Element} entry
  * @param {string} channelId

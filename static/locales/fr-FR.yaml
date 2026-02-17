@@ -822,7 +822,11 @@ Playlist:
   #& About
   View Full Playlist: 'Afficher la playlist complète'
   Last Updated On: 'Dernière mise à jour le'
-
+  Subscribe: 'S’abonner'
+  Unsubscribe: 'Se désabonner'
+  Unsubscribe Prompt: Êtes-vous sûr(e) de vouloir vous désabonner de « {listName} » ?
+  List removed: La playlist a été supprimée de vos abonnements
+  List added: La playlist a été ajoutée à vos abonnements
 # On Video Watch Page
 #* Published
 #& Views

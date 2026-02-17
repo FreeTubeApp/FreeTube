@@ -228,6 +228,39 @@
             {{ channel.name }}
           </p>
         </router-link>
+        <router-link
+          v-for="playlist in activePlaylistSubscriptions"
+          :key="playlist.id"
+          :to="`/playlist/${playlist.id}`"
+          class="navChannel channelLink mobileHidden"
+          :title="playlist.name"
+          role="button"
+        >
+          <div class="thumbnailContainer">
+            <img
+              v-if="playlist.thumbnail != null"
+              class="channelThumbnail"
+              height="35"
+              width="35"
+              loading="lazy"
+              :src="playlist.thumbnail"
+              :alt="isOpen ? '' : playlist.name"
+            >
+            <FontAwesomeIcon
+              v-else
+              class="channelThumbnail noThumbnail"
+              :icon="['fas', 'bookmark']"
+            />
+          </div>
+
+          <p
+            v-if="isOpen"
+            class="navLabel"
+            dir="auto"
+          >
+            {{ playlist.name }}
+          </p>
+        </router-link>
       </div>
     </div>
   </FtFlexBox>
@@ -276,20 +309,44 @@ const activeProfile = computed(() => {
   return store.getters.getActiveProfile
 })
 
+const activePlaylistSubscriptions = computed(() => {
+  if (!activeProfile.value?.listSubscriptions) return []
+
+  const playlists = deepCopy(
+    (activeProfile.value.listSubscriptions ?? []).filter(Boolean)
+  )
+
+  const locale_ = locale.value
+
+  playlists.sort((a, b) =>
+    a.name?.toLowerCase().localeCompare(
+      b.name?.toLowerCase(),
+      locale_
+    )
+  )
+
+  return playlists
+})
+
 const activeSubscriptions = computed(() => {
-  /** @type {any[]} */
-  const subscriptions = deepCopy(activeProfile.value.subscriptions)
+  if (!activeProfile.value?.subscriptions) return []
+
+  const subscriptions = deepCopy(
+    (activeProfile.value.subscriptions ?? []).filter(Boolean)
+  )
 
   subscriptions.forEach(channel => {
-    // Change thumbnail size to 35x35, as that's the size we display it
-    // so we don't need to download a bigger image (the default is 176x176)
     channel.thumbnail = channel.thumbnail?.replace(/=s\d+/, '=s35')
   })
 
   const locale_ = locale.value
-  subscriptions.sort((a, b) => {
-    return a.name?.toLowerCase().localeCompare(b.name?.toLowerCase(), locale_)
-  })
+
+  subscriptions.sort((a, b) =>
+    a.name?.toLowerCase().localeCompare(
+      b.name?.toLowerCase(),
+      locale_
+    )
+  )
 
   if (backendPreference.value === 'invidious') {
     const instanceUrl = currentInvidiousInstanceUrl.value

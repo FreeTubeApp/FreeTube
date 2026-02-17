@@ -67,6 +67,14 @@ class Profiles {
     return window.ftElectron.dbProfiles(DBActions.PROFILES.REMOVE_CHANNEL, { channelId, profileIds })
   }
 
+  static addListToProfiles(list, profileIds) {
+    return window.ftElectron.dbProfiles(DBActions.PROFILES.ADD_PLAYLIST, { list, profileIds })
+  }
+
+  static removeListFromProfiles(listId, profileIds) {
+    return window.ftElectron.dbProfiles(DBActions.PROFILES.REMOVE_PLAYLIST, { listId, profileIds })
+  }
+
   static delete(id) {
     return window.ftElectron.dbProfiles(DBActions.GENERAL.DELETE, id)
   }
@@ -201,6 +209,27 @@ class SubscriptionCache {
   }
 }
 
+class SubscriptionPlaylistCache {
+  static find() {
+    return window.ftElectron.dbSubscriptionPlaylistCache(DBActions.GENERAL.FIND)
+  }
+
+  static updateVideosByPlaylistId(playlistId, entries, timestamp) {
+    return window.ftElectron.dbSubscriptionPlaylistCache(
+      DBActions.SUBSCRIPTION_PLAYLIST_CACHE.UPDATE_VIDEOS_BY_PLAYLIST,
+      { playlistId, entries, timestamp }
+    )
+  }
+
+  static deleteMultiplePlaylists(playlistIds) {
+    return window.ftElectron.dbSubscriptionPlaylistCache(DBActions.GENERAL.DELETE_MULTIPLE, playlistIds)
+  }
+
+  static deleteAll() {
+    return window.ftElectron.dbSubscriptionPlaylistCache(DBActions.GENERAL.DELETE_ALL)
+  }
+}
+
 export {
   Settings as settings,
   History as history,
@@ -208,4 +237,5 @@ export {
   Playlists as playlists,
   SearchHistory as searchHistory,
   SubscriptionCache as subscriptionCache,
+  SubscriptionPlaylistCache as subscriptionPlaylistCache,
 }
