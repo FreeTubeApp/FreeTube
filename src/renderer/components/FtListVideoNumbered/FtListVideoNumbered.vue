@@ -30,7 +30,7 @@
         @mouseenter="grabBarHovered = true"
         @mouseleave="grabBarHovered = false"
       >
-      <!-- eslint-enable vuejs-accessibility/mouse-events-have-key-events -->
+        <!-- eslint-enable vuejs-accessibility/mouse-events-have-key-events -->
         <FontAwesomeIcon
           v-if="isCurrentVideo"
           class="videoIndexIcon"
@@ -227,14 +227,6 @@ function onDragVideo(event) {
   if (!event.target.classList.contains('draggable')) { return }
 
   dragVideo(event, videoData)
-}
-
-function onChildDragStart(event) {
-  // Prevent drag event except links
-  if (event.target.nodeName === 'A') { return }
-
-  event.preventDefault()
-  event.stopPropagation()
 }
 
 /** @import { VideoData } from '../../helpers/dragAndDrop' */

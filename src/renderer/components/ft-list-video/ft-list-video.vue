@@ -50,8 +50,8 @@
         theme="base"
         :padding="appearance === `watchPlaylistItem` ? 6 : 7"
         :size="appearance === `watchPlaylistItem` ? 12 : 16"
-        @click="handleExternalPlayer"
         draggable="true"
+        @click="handleExternalPlayer"
         @dragstart="onDragStart"
       />
       <span
