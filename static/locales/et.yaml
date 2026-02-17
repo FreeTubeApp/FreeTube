@@ -640,6 +640,9 @@ About:
   Beta: beetaversioon
   Discussions: Arutelud
   AGPLv3: AGPLv3 alusel
+  FreeTube is made possible by {creditsPageLink}: 'FreeTube on loodud järgnevate arendajate poolt: {creditsPageLink}'
+  Please read the {roomRulesLink}: 'Palun loe: {roomRulesLink}'
+  Licensed under the {licenseLink}: 'Kasutusel litsents: {licenseLink}'
 Profile:
   Profile Select: 'Vali profiil'
   All Channels: 'Kõik kanalid'
