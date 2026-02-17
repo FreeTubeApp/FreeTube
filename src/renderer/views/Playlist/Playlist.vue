@@ -808,17 +808,24 @@ function moveDraggedVideo({ videoId, playlistItemId }, { videoId: droppedVideoId
     return video.videoId === droppedVideoId && video.playlistItemId === droppedPlaylistItemId
   })
 
-  const moveDown = droppedIndex < draggedOverIndex
+  const playlistItemToBeMoved = playlistItems_.splice(draggedOverIndex, 1)[0]
+  playlistItems_.splice(droppedIndex, 0, playlistItemToBeMoved)
 
-  const procedure = moveDown ? moveVideoDown : moveVideoUp
+  const playlist = {
+    playlistName: playlistTitle.value,
+    protected: selectedUserPlaylist.value.protected,
+    description: playlistDescription.value,
+    videos: deepCopy(playlistItems_),
+    _id: playlistId.value
+  }
 
-  const difference = moveDown ? draggedOverIndex - droppedIndex : droppedIndex - draggedOverIndex
-
-  // Need to let the store dispatch each call
-  // to make grid layout work
-  range(0, difference).forEach(() => {
-    procedure(droppedVideoId, droppedPlaylistItemId)
-  })
+  try {
+    store.dispatch('updatePlaylist', playlist)
+    playlistItems.value = playlistItems_
+  } catch (e) {
+    showToast(t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+    console.error(e)
+  }
 }
 
 /**
