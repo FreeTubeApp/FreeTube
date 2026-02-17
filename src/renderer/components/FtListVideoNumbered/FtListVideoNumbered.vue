@@ -9,7 +9,7 @@
       draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId,
     }"
     :draggable="isDraggable"
-    v-on="isDraggable ? {
+    v-on="canBecomeDraggable ? {
       dragstart: onDragVideo,
       dragover: event => event.preventDefault(),
       dragenter: () => {
@@ -24,9 +24,13 @@
     <template
       v-if="visible"
     >
+      <!-- eslint-disable vuejs-accessibility/mouse-events-have-key-events -->
       <p
         class="videoIndexArea"
+        @mouseenter="grabBarHovered = true"
+        @mouseleave="grabBarHovered = false"
       >
+      <!-- eslint-enable vuejs-accessibility/mouse-events-have-key-events -->
         <FontAwesomeIcon
           v-if="isCurrentVideo"
           class="videoIndexIcon"
@@ -169,7 +173,9 @@ const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-u
 const visible = ref(props.initialVisibleState)
 
 const inUserPlaylist = props.playlistType === 'user'
-const isDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom)
+const canBecomeDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom)
+const grabBarHovered = ref(false)
+const isDraggable = computed(() => canBecomeDraggable.value && grabBarHovered.value)
 
 let stopWatchingInitialVisibleState = null
 
