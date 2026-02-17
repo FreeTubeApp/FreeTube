@@ -644,6 +644,9 @@ About:
   Report a problem: Probléma jelentése
   Discussions: Vitalapok
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Licencelve a(z) {licenseLink} alatt
+  Please read the {roomRulesLink}: 'Olvassa el a következőt: {roomRulesLink}'
+  FreeTube is made possible by {creditsPageLink}: A FreeTube a {creditsPageLink} jóvoltából jöhetett létre
 Profile:
   Profile Select: 'Profil kiválasztása'
   All Channels: 'Összes csatorna'
