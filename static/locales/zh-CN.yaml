@@ -624,7 +624,6 @@ About:
   Donate: 捐款
   Credits: 贡献者
   Translate: 翻译
-  Please read the: 请阅读
   Chat on Matrix: 在 Matrix 上聊天
   Mastodon: Mastodon
   FAQ: 常见问题
@@ -637,10 +636,11 @@ About:
   Downloads / Changelog: 下载 / 更新日志
   room rules: 聊天室规则
   these people and projects: 这些人和项目
-  FreeTube is made possible by: FreeTube 的存在依赖
   Discussions: 讨论
-  Licensed under the: 许可依据
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: 在 {licenseLink} 许可证下授权
+  Please read the {roomRulesLink}: 请阅读 {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: 没有 {creditsPageLink} 就不可能有 FreeTube
 Channel:
   Subscribe: '订阅'
   Unsubscribe: '取消订阅'
@@ -1116,5 +1116,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: 跳到播放列表中下一个视频或下一个推荐的视频
   Skip to Previous Video: 跳到播放列表中前一个视频
 shortcutLabelSeparator: ｜
-Compact side navigation: 压缩侧边栏导航
+Compact side navigation: 紧凑侧边栏导航
 Expand side navigation: 扩展侧边栏导航
