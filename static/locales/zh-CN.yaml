@@ -638,6 +638,9 @@ About:
   these people and projects: 这些人和项目
   Discussions: 讨论
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: 在 {licenseLink} 许可证下授权
+  Please read the {roomRulesLink}: 请阅读 {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: 没有 {creditsPageLink} 就不可能有 FreeTube
 Channel:
   Subscribe: '订阅'
   Unsubscribe: '取消订阅'
