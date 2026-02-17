@@ -1080,14 +1080,3 @@ export function throttle(func, wait) {
     }
   }
 }
-
-/**
- * @param {number} from
- * @param {number} to
- * @param {number} step
- * @returns {number[]}
- */
-export const range = (from, to, step = 1) => {
-  return Array.from(Array(to - from))
-    .map((_, number) => (number + 1) * step)
-}
