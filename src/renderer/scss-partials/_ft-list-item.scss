@@ -86,9 +86,7 @@ $watched-transition-duration: 0.5s;
     .background,
     .inner {
       grid-column: 1;
-      // Grab bar will be on top in playlist grid view
-      // when sort order is custom.
-      grid-row: 2;
+      grid-row: 1;
       user-select: none;
     }
 

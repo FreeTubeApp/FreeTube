@@ -9,13 +9,16 @@
     }"
   >
     <div
-      class="videoThumbnail"
+      v-if="showGrabBar"
+      class="grabBar"
     >
       <font-awesome-icon
-        v-if="showGrabBar"
-        class="grabBar"
         :icon="['fas', 'fa-bars']"
       />
+    </div>
+    <div
+      class="videoThumbnail"
+    >
       <router-link
         class="thumbnailLink"
         tabindex="-1"
