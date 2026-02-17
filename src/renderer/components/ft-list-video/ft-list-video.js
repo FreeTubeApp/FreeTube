@@ -906,6 +906,14 @@ export default defineComponent({
       this.$emit('remove-from-playlist', this.id, this.playlistItemId)
     },
 
+    onDragStart(event) {
+      // Prevent drag event except links
+      if (event.target.nodeName === 'A') { return }
+
+      event.preventDefault()
+      event.stopPropagation()
+    },
+
     ...mapActions([
       'updateHistory',
       'removeFromHistory',

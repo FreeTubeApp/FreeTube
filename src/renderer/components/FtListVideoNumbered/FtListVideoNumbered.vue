@@ -5,12 +5,12 @@
     }"
     :class="{
       placeholder: !visible,
-      draggable: isSortOrderCustom && inUserPlaylist,
+      draggable: isDraggable,
       draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId,
     }"
-    :draggable="isSortOrderCustom && inUserPlaylist"
-    v-on="isSortOrderCustom ? {
-      dragstart: event => dragVideo(event, videoData),
+    :draggable="isDraggable"
+    v-on="isDraggable ? {
+      dragstart: onDragVideo,
       dragover: event => event.preventDefault(),
       dragenter: () => {
         if (isVideoDragging) {
@@ -26,9 +26,6 @@
     >
       <p
         class="videoIndexArea"
-        :class="{
-          preventJankyDrag: isVideoDragging,
-        }"
       >
         <FontAwesomeIcon
           v-if="isCurrentVideo"
@@ -40,7 +37,7 @@
           v-else
         >
           <FontAwesomeIcon
-            v-if="isSortOrderCustom && inUserPlaylist"
+            v-if="isDraggable"
             class="grabBar"
             :icon="['fas', 'fa-bars']"
           />
@@ -62,9 +59,6 @@
         :playlist-loop="playlistLoop"
         :playlist-item-id="playlistItemId"
         force-list-type="list"
-        :class="{
-          preventJankyDrag: isVideoDragging,
-        }"
         :appearance="appearance"
         :always-show-add-to-playlist-button="alwaysShowAddToPlaylistButton"
         :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
@@ -82,7 +76,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 
@@ -175,6 +169,7 @@ const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-u
 const visible = ref(props.initialVisibleState)
 
 const inUserPlaylist = props.playlistType === 'user'
+const isDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom)
 
 let stopWatchingInitialVisibleState = null
 
@@ -221,6 +216,20 @@ function moveVideoDown(videoId, playlistItemId) {
 }
 
 const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
+function onDragVideo(event) {
+  // Only allow dragging via the drag bar
+  if (!event.target.classList.contains('draggable')) { return }
+
+  dragVideo(event, videoData)
+}
+
+function onChildDragStart(event) {
+  // Prevent drag event except links
+  if (event.target.nodeName === 'A') { return }
+
+  event.preventDefault()
+  event.stopPropagation()
+}
 
 /** @import { VideoData } from '../../helpers/dragAndDrop' */
 

@@ -7,12 +7,12 @@
     :class="{
       grid: layout === 'grid',
       list: layout === 'list',
-      draggable: isSortOrderCustom && inUserPlaylist,
+      draggable: isDraggable,
       draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId,
     }"
-    :draggable="isSortOrderCustom && inUserPlaylist"
-    v-on="isSortOrderCustom ? {
-      dragstart: event => dragVideo(event, videoData),
+    :draggable="isDraggable"
+    v-on="isDraggable ? {
+      dragstart: onDragVideo,
       dragover: event => event.preventDefault(),
       dragenter: () => {
         if (isVideoDragging) {
@@ -29,9 +29,6 @@
       <FtListVideo
         v-if="finalDataType === 'video' || finalDataType === 'shortVideo'"
         :appearance="appearance"
-        :class="{
-          preventJankyDrag: isVideoDragging,
-        }"
         :data="data"
         :playlist-id="playlistId"
         :playlist-type="playlistType"
@@ -43,7 +40,7 @@
         :can-move-video-down="canMoveVideoDown"
         :can-remove-from-playlist="canRemoveFromPlaylist"
         :layout="layout"
-        :show-grab-bar="inUserPlaylist && layout === 'grid' && isSortOrderCustom"
+        :show-grab-bar="isDraggable && layout === 'grid'"
         @move-video-up="moveVideoUp"
         @move-video-down="moveVideoDown"
         @remove-from-playlist="removeFromPlaylist"
@@ -174,6 +171,7 @@ const props = defineProps({
 const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
 
 const inUserPlaylist = props.playlistType === 'user'
+const isDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom)
 
 /** @type {import('vue').ComputedRef<'video' | 'shortVideo' | 'channel' | 'playlist' | 'community'>} */
 const finalDataType = computed(() => {
@@ -331,6 +329,12 @@ function removeFromPlaylist(videoId, playlistItemId) {
 }
 
 const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
+function onDragVideo(event) {
+  // Only allow dragging via the drag bar
+  if (!event.target.classList.contains('draggable')) { return }
+
+  dragVideo(event, videoData)
+}
 
 /** @import { VideoData } from '../../helpers/dragAndDrop' */
 

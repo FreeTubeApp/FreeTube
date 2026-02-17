@@ -29,6 +29,16 @@
   margin: auto;
 }
 
+.draggable .videoIndexArea {
+  /* Make draggable area large */
+  margin-block: 0;
+  block-size: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: grab;
+}
+
 .draggable:not(.draggable:only-child):focus .grabBar,
 .draggable:not(.draggable:only-child):hover .grabBar {
   display: revert;
@@ -54,8 +64,4 @@
 
 .videoIndexIcon {
   font-size: 14px;
-}
-
-.preventJankyDrag {
-  pointer-events: none;
 }

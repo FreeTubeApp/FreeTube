@@ -24,7 +24,6 @@
         tabindex="-1"
         :to="watchVideoRouterLink"
         @click="handleWatchPageLinkClick"
-        @dragstart.stop
       >
         <img
           :src="thumbnail"
@@ -52,8 +51,14 @@
         :padding="appearance === `watchPlaylistItem` ? 6 : 7"
         :size="appearance === `watchPlaylistItem` ? 12 : 16"
         @click="handleExternalPlayer"
+        draggable="true"
+        @dragstart="onDragStart"
       />
-      <span class="playlistIcons">
+      <span
+        class="playlistIcons"
+        draggable="true"
+        @dragstart="onDragStart"
+      >
         <ft-icon-button
           v-if="showPlaylists"
           :title="$t('User Playlists.Add to Playlist')"
@@ -118,12 +123,15 @@
         :style="{inlineSize: progressPercentage + '%'}"
       />
     </div>
-    <div class="info">
+    <div
+      class="info"
+      draggable="true"
+      @dragstart="onDragStart"
+    >
       <router-link
         class="title"
         :to="watchVideoRouterLink"
         @click="handleWatchPageLinkClick"
-        @dragstart.stop
       >
         <h3
           class="h3Title"
@@ -138,7 +146,6 @@
           class="channelName"
           dir="auto"
           :to="`/channel/${channelId}`"
-          @dragstart.stop
         >
           {{ channelName }}
         </router-link>
