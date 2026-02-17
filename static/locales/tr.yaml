@@ -644,6 +644,9 @@ About:
   Source code: Kaynak kodları
   Discussions: Tartışmalar
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: '{licenseLink} altında lisanslanmıştır'
+  Please read the {roomRulesLink}: 'Lütfen okuyun: {roomRulesLink}'
+  FreeTube is made possible by {creditsPageLink}: 'FreeTube için emeği geçenler: {creditsPageLink}'
 Profile:
   Profile Select: 'Profil Seçimi'
   All Channels: 'Tüm Kanallar'
