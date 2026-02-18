@@ -91,8 +91,8 @@
             :is-sort-order-custom="isSortOrderCustom"
             :is-video-dragging="isVideoDragging()"
             @drag-video="setDraggedVideo"
-            @drag-video-end="unsetDraggedVideo"
-            @move-dragged-video="moveDraggedVideo"
+            @drag-video-end="onDragVideoEnd"
+            @move-dragged-video="moveDraggedVideoTemporarily"
             @move-video-up="moveVideoUp"
             @move-video-down="moveVideoDown"
             @remove-from-playlist="removeVideoFromPlaylist"
@@ -124,8 +124,8 @@
               :is-sort-order-custom="isSortOrderCustom"
               :is-video-dragging="isVideoDragging()"
               @drag-video="setDraggedVideo"
-              @drag-video-end="unsetDraggedVideo"
-              @move-dragged-video="moveDraggedVideo"
+              @drag-video-end="onDragVideoEnd"
+              @move-dragged-video="moveDraggedVideoTemporarily"
               @move-video-up="moveVideoUp"
               @move-video-down="moveVideoDown"
               @remove-from-playlist="removeVideoFromPlaylist"
@@ -225,6 +225,8 @@ const channelThumbnail = ref('')
 const channelId = ref('')
 const infoSource = ref('local')
 const playlistItems = ref([])
+/** @type {import('vue').ComputedRef<any[] | null>} */
+const tempShownPlaylistItems = ref(null)
 /** @import { VideoData } from '../../helpers/dragAndDrop' */
 /** @import { Ref } from 'vue' */
 /** @type {Ref<VideoData>} draggedVideo */
@@ -411,6 +413,7 @@ const isDurationApproximate = computed(() => {
 const noPlaylistItemsPendingDeletion = computed(() => toBeDeletedPlaylistItemIds.value.length === 0)
 
 const shownPlaylistItems = computed(() => {
+  if (tempShownPlaylistItems.value != null) { return tempShownPlaylistItems.value }
   if (noPlaylistItemsPendingDeletion.value) {
     return playlistItems.value
   }
@@ -776,7 +779,31 @@ function setDraggedVideo(video) {
   draggedVideo.value = video
 }
 
-function unsetDraggedVideo() {
+function onDragVideoEnd() {
+  if (tempShownPlaylistItems.value != null) {
+    // Save on drag end ONLY
+    const playlist = {
+      playlistName: playlistTitle.value,
+      protected: selectedUserPlaylist.value.protected,
+      description: playlistDescription.value,
+      // Save whatever is shown
+      videos: deepCopy(tempShownPlaylistItems.value),
+      _id: playlistId.value
+    }
+
+    try {
+      store.dispatch('updatePlaylist', playlist)
+      playlistItems.value = tempShownPlaylistItems.value
+    } catch (e) {
+      showToast(t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+      console.error(e)
+    }
+  }
+
+  // Cleanup
+  tempShownPlaylistItems.value = null
+
+  // Unset dragged video
   setDraggedVideo({
     videoId: null,
     playlistItemId: null,
@@ -792,39 +819,21 @@ const isVideoDragging = () => {
   return Boolean(videoId && playlistItemId)
 }
 
-/**
- * @param {VideoData} video
- * @param {VideoData} draggedVideo
- */
-function moveDraggedVideo({ videoId, playlistItemId }, { videoId: droppedVideoId, playlistItemId: droppedPlaylistItemId }) {
+function moveDraggedVideoTemporarily({ videoId, playlistItemId }, { videoId: droppedVideoId, playlistItemId: droppedPlaylistItemId }) {
   const playlistItems_ = playlistItems.value.slice()
 
   const draggedOverIndex = playlistItems_.findIndex((video) => {
     return video.videoId === videoId && video.playlistItemId === playlistItemId
   })
 
-  const droppedIndex = playlistItems_.findIndex((video) => {
+  const droppedVideoOriginalIndex = playlistItems_.findIndex((video) => {
     return video.videoId === droppedVideoId && video.playlistItemId === droppedPlaylistItemId
   })
 
-  const playlistItemToBeMoved = playlistItems_.splice(draggedOverIndex, 1)[0]
-  playlistItems_.splice(droppedIndex, 0, playlistItemToBeMoved)
+  const playlistItemToBeMoved = playlistItems_.splice(droppedVideoOriginalIndex, 1)[0]
+  playlistItems_.splice(draggedOverIndex, 0, playlistItemToBeMoved)
 
-  const playlist = {
-    playlistName: playlistTitle.value,
-    protected: selectedUserPlaylist.value.protected,
-    description: playlistDescription.value,
-    videos: deepCopy(playlistItems_),
-    _id: playlistId.value
-  }
-
-  try {
-    store.dispatch('updatePlaylist', playlist)
-    playlistItems.value = playlistItems_
-  } catch (e) {
-    showToast(t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
-    console.error(e)
-  }
+  tempShownPlaylistItems.value = playlistItems_
 }
 
 /**
