@@ -377,7 +377,7 @@ Settings:
   Player Settings:
     Player Settings: 'Spelare'
     Play Next Video: 'Autospela Rekommenderade Videor'
-    Turn on Subtitles by Default: 'Aktivera Undertexter som Standard'
+    Turn on Subtitles by Default: 'Aktivera undertexter som standard'
     Autoplay Videos: 'Starta Videor Automatiskt'
     Proxy Videos Through Invidious: 'Proxy Videos Genom Invidious'
     Autoplay Playlists: 'Spela upp videor i spellistan automatiskt'
@@ -572,7 +572,7 @@ Settings:
     Proxy Password: Proxy lösenord
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifikation när sponsorsegmentet är åsidosatt
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': API Url för sponsorblockering (Standard är https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': API Url för sponsorblockering (standard är https://sponsor.ajay.app)
     Enable SponsorBlock: Använd sponsorblockering (SponsorBlock)
     SponsorBlock Settings: Sponsorblockering
     Skip Options:
@@ -641,6 +641,9 @@ About:
   Beta: Beta
   Discussions: Diskussioner
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Licensierad under {licenseLink}
+  Please read the {roomRulesLink}: Läs {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube möjliggörs av {creditsPageLink}
 Profile:
   Profile Select: 'Välj profil'
   All Channels: 'Alla kanaler'
