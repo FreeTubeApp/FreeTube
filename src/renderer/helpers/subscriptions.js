@@ -77,7 +77,7 @@ export async function parseYouTubeChannelRSSFeed(rssString, channelId) {
     const promises = []
 
     for (const entry of entries) {
-      promises.push(parseRSSEntry(entry, channelId, channelName))
+      promises.push(parseRSSEntry(entry))
     }
 
     return {
@@ -101,7 +101,7 @@ export async function parseYouTubePlaylistRSSFeed(rssString, playlistId) {
 
     for (const entry of entries) {
       // Use playlistId as authorId to associate videos with the playlist
-      promises.push(parseRSSEntry(entry, playlistId, playlistTitle))
+      promises.push(parseRSSEntry(entry))
     }
 
     return {
@@ -115,10 +115,8 @@ export async function parseYouTubePlaylistRSSFeed(rssString, playlistId) {
 }
 /**
  * @param {Element} entry
- * @param {string} channelId
- * @param {string} channelName
  */
-async function parseRSSEntry(entry, channelId, channelName) {
+async function parseRSSEntry(entry) {
   // doesn't need to be asynchronous, but doing it allows us to do the relatively slow DOM querying in parallel
 
   const rawViewCount = entry.getElementsByTagName('media:statistics')[0]?.getAttribute('views')
@@ -134,9 +132,9 @@ async function parseRSSEntry(entry, channelId, channelName) {
   }
 
   return {
-    authorId: channelId,
-    author: channelName,
     // querySelector doesn't support xml namespaces so we have to use getElementsByTagName here
+    authorId: entry.getElementsByTagName('yt:channelId')[0].textContent,
+    author: entry.getElementsByTagName('author')[0].getElementsByTagName('name')[0].textContent,
     videoId: entry.getElementsByTagName('yt:videoId')[0].textContent,
     title: entry.querySelector('title').textContent,
     published: Date.parse(entry.querySelector('published').textContent),

@@ -322,7 +322,8 @@ async function loadVideosForSubscriptionsFromRemote() {
 
   // Merge and process all videos
   const allVideos = [...channelVideos.flat(), ...playlistVideos.flat()]
-  // Filter video duplicates that can occur when a video is both in a channel and a playlist subscription
+  // Filter video duplicates that can occur when a video is both in a channel and a playlist subscription,
+  // TODO: maybe this could be done automatically in DB ?
   const uniqueVideosMap = new Map()
   allVideos.forEach(video => {
     if (!uniqueVideosMap.has(video.videoId)) {
