@@ -814,7 +814,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Tempo restante para anúncios antes da reprodução: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tempo restante de espera do SABR: {remindingTimeSeconds}s'
-  Popout Live Chat: Chat (pop-up)
+  Popout Live Chat: Chat flutuante
 Playlist:
   #& About
   View Full Playlist: 'Mostrar playlist completa'
