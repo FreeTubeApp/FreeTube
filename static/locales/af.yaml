@@ -128,7 +128,7 @@ Subscriptions:
   Load More Posts: ''
   Subscriptions Tabs: ''
   All Subscription Tabs Hidden: ''
-More: ''
+More: 'Meer'
 Channels:
   Channels: ''
   Title: ''
@@ -141,7 +141,7 @@ Trending:
   Gaming: ''
   Trending Tabs: ''
   Sports: Sport
-Most Popular: ''
+Most Popular: 'Mees Populêr'
 Feed:
   Feed Last Updated: ''
   Refresh Feed: ''
@@ -996,7 +996,7 @@ Invidious API Error (Click to copy): 'Invidious API-fout (Klik om te kopieer)'
 Falling back to Invidious API: 'Val terug op Invidious API'
 Falling back to Local API: 'Val terug op lokale API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Hierdie video is onbeskikbaar vanweë ontbrekende formate. Dit kan gebeur weens video-onbeskikbaarheid in u land.'
-Unknown YouTube url type, cannot be opened in app: 'Onbekende YouTube-URL; die URL kan nie in die toep geopen word nie'
+Unknown YouTube url type, cannot be opened in app: 'Onbekende YouTube-bronadres, die URL kan nie in die toep geopen word nie'
 Loop is now disabled: 'Herhaling is nou gedeaktiveer'
 Loop is now enabled: 'Herhaling is nou geaktiveer'
 Shuffle is now disabled: 'Skommel is nou gedeaktiveer'
