@@ -588,7 +588,7 @@ Settings:
     Clicking on Test Proxy will send a request to: 'Bydd clicio ar Test Proxy yn anfon cais at'
     Test Proxy: 'Profi Dirprwy'
     Your Info: 'Eich Manylion'
-    Ip: 'IP'
+    Ip: 'Ip'
     Country: 'Gwlad'
     Region: 'Rhanbarth'
     City: 'Dinas'
@@ -657,6 +657,9 @@ About:
   Donate: 'Cyfrannu'
 
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Trwyddedwyd o dan {licenseLink}
+  FreeTube is made possible by {creditsPageLink}: Mae Freetube ar gael oherwydd {creditsPageLink}
+  Please read the {roomRulesLink}: Darllenwch y {roomRulesLink}
 Profile:
   Profile Settings: 'Proffil'
   Toggle Profile List: 'Toglo Rhestr Proffil'
@@ -1119,5 +1122,5 @@ Keys:
 Right-click or hold to see history: De-gliciwch neu ddal i weld yr hanes
 Autoplay Interruption Timer: Diddymwyd awtochwarae oherwydd {autoplayInterruptionIntervalHours} awr o heb ei ddefnyddio
 shortcutLabelSeparator: ｜
-Compact side navigation: LLywio ochr cryno
+Compact side navigation: Ochr llywio cryno
 Expand side navigation: Ehangu llywio ochr
