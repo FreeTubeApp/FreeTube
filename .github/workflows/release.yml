@@ -19,7 +19,6 @@ jobs:
   build:
 
     permissions:
-      actions: write
       contents: write
 
     strategy:
@@ -62,16 +61,13 @@ jobs:
       with:
         persist-credentials: false
 
-    - name: 'Use faster D: drive for yarn cache on Windows'
-      if: startsWith(matrix.os, 'windows')
-      shell: cmd
-      run: yarn config set cache-folder D:\ft_yarn_cache
-
+    # Do not restore the yarn cache, to avoid cache poisoning affecting releases
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 #v6.2.0
       with:
         node-version: ${{ matrix.node-version }}
-        cache: "yarn"
+        package-manager-cache: false
+
     - run: yarn run ci
       shell: bash
       env:
@@ -81,7 +77,9 @@ jobs:
 
     - name: Get Version Number
       id: getPackageInfo
-      uses: jaywcjlove/github-action-package@f6a7afaf74f96a166243f05560d5af4bd4eaa570
+      shell: bash
+      run: |
+        jq --raw-output '"version=" + .version' package.json >> "$GITHUB_OUTPUT"
 
     - name: Install libarchive-tools
       if: startsWith(matrix.os, 'ubuntu')
@@ -116,7 +114,7 @@ jobs:
         appimage="FreeTube-${VERSION}.AppImage"
         wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
         chmod +x ./"$appimage" ./appimagetool.AppImage
-        update_information="gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-amd64.AppImage.zsync"
+        update_information='gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-amd64.AppImage.zsync'
         ./"$appimage" --appimage-extract && rm -f ./"$appimage"
         ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
           -u "$update_information" -n ./squashfs-root ./"$appimage"
@@ -134,8 +132,8 @@ jobs:
         wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
         wget "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" -O runtime
         chmod +x ./"$appimage" ./appimagetool.AppImage ./runtime
-        update_information="gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-armv7l.AppImage.zsync"
-        TARGET_APPIMAGE=$appimage" ./runtime --appimage-extract && rm -f ./"$appimage"
+        update_information='gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-armv7l.AppImage.zsync'
+        TARGET_APPIMAGE="$appimage" ./runtime --appimage-extract && rm -f ./"$appimage"
         ARCH=armhf ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
           -u "$update_information" -n ./squashfs-root ./"$appimage"
         rm -rf ./squashfs-root ./appimagetool.AppImage ./runtime
@@ -152,8 +150,8 @@ jobs:
         wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
         wget "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" -O runtime
         chmod +x ./"$appimage" ./appimagetool.AppImage ./runtime
-        update_information="gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-arm64.AppImage.zsync"
-        TARGET_APPIMAGE=$appimage" ./runtime --appimage-extract && rm -f ./"$appimage"
+        update_information='gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-arm64.AppImage.zsync'
+        TARGET_APPIMAGE="$appimage" ./runtime --appimage-extract && rm -f ./"$appimage"
         ARCH=aarch64 ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
           -u "$update_information" -n ./squashfs-root ./"$appimage"
         rm -rf ./squashfs-root ./appimagetool.AppImage ./runtime

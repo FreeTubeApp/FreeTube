@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'català'
+Locale Name: 'Català'
 
 # Webkit Menu Bar
 File: 'Fitxer'
@@ -32,6 +32,11 @@ Global:
   Posts: Publicacions
   Sort By: 'Ordena Per'
   Shorts: Curts
+  Counts:
+    Video Count: 1 vídeo | {count} vídeos
+    Channel Count: 1 canal | {count} canals
+    Subscriber Count: 1 subscriptor | {count} subscriptors
+    View Count: 1 visualització | {count} visualitzacions
 Version {versionNumber} is now available!  Click for more details: 'La versió {versionNumber} està disponible! Fes clic per a més detalls'
 Download From Site: 'Descarrega des del web'
 A new blog is now available, {blogTitle}. Click to view more: 'Nova publicació al blog disponible, {blogTitle}. Fes clic per saber-ne més'
@@ -308,9 +313,7 @@ About:
   Help: Ajuda
   Downloads / Changelog: Descàrregues / Registre de canvis
   Chat on Matrix: Xat a Matrix
-  Please read the: Si us plau, llegeix les
   room rules: normes de la sala
-  FreeTube is made possible by: FreeTube és possible gràcies a
   these people and projects: aquesta gent i projectes
   Source code: Codi font
   GitHub issues: Incidències del GitHub
@@ -497,3 +500,8 @@ KeyboardShortcutPrompt:
   Zoom In: Amplia
   Zoom Out: Allunya
   Fullscreen: Commuta la pantalla completa
+Compact side navigation: Navegació lateral compacta
+Expand side navigation: Expandir navegació lateral
+Right-click or hold to see history: Clic dret o manté pressionat per veure l'historial
+Go to page: Ves a {page}
+Close Banner: Tanca el bàner

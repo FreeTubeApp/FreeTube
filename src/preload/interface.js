@@ -125,16 +125,10 @@ export default {
   /**
    * @param {string} filename
    * @param {ArrayBuffer} contents
+   * @returns {Promise<boolean>}
    */
   writeToDefaultFolder: async (filename, contents) => {
-    await ipcRenderer.invoke(IpcChannels.WRITE_TO_DEFAULT_FOLDER, filename, contents)
-  },
-
-  /**
-   * @returns {Promise<string>}
-   */
-  getScreenshotFallbackFolder: () => {
-    return ipcRenderer.invoke(IpcChannels.GET_SCREENSHOT_FALLBACK_FOLDER)
+    return await ipcRenderer.invoke(IpcChannels.WRITE_TO_DEFAULT_FOLDER, filename, contents)
   },
 
   relaunch: () => {

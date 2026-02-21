@@ -588,7 +588,7 @@ Settings:
     Clicking on Test Proxy will send a request to: 'Bydd clicio ar Test Proxy yn anfon cais at'
     Test Proxy: 'Profi Dirprwy'
     Your Info: 'Eich Manylion'
-    Ip: 'IP'
+    Ip: 'Ip'
     Country: 'Gwlad'
     Region: 'Rhanbarth'
     City: 'Dinas'
@@ -650,16 +650,16 @@ About:
   Email: 'E-bost'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Sgwrsio ar Matrix'
-  Please read the: 'Darllenwch y'
   room rules: 'rheolau ystafell'
   Translate: 'Cyfieithu'
   Credits: 'Cydnabyddiaeth'
-  FreeTube is made possible by: 'Mae FreeTube yn bosibl oherwydd gwaith'
   these people and projects: 'y bobl a''r projectau hyn'
   Donate: 'Cyfrannu'
 
-  Licensed under the: Trwyddedig o dan y
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Trwyddedwyd o dan {licenseLink}
+  FreeTube is made possible by {creditsPageLink}: Mae Freetube ar gael oherwydd {creditsPageLink}
+  Please read the {roomRulesLink}: Darllenwch y {roomRulesLink}
 Profile:
   Profile Settings: 'Proffil'
   Toggle Profile List: 'Toglo Rhestr Proffil'
@@ -875,6 +875,10 @@ Video:
 #& Playlists
   Save Watched Progress: Cadw Cynnydd Gwylio
   Watched Progress Saved: Cynnydd Gwylio Wedi'i Gadw
+  Popout Live Chat: Llamlen Sgwrs
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Amser hysbysiadau cyn cyflwyniad: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': "Amser cefnu SABR sy'n weddill: {remindingTimeSeconds}s"
 Playlist:
   #& About
   Playlist: 'Rhestr chwarae'
@@ -1118,5 +1122,5 @@ Keys:
 Right-click or hold to see history: De-gliciwch neu ddal i weld yr hanes
 Autoplay Interruption Timer: Diddymwyd awtochwarae oherwydd {autoplayInterruptionIntervalHours} awr o heb ei ddefnyddio
 shortcutLabelSeparator: ｜
-Compact side navigation: LLywio ochr cryno
+Compact side navigation: Ochr llywio cryno
 Expand side navigation: Ehangu llywio ochr

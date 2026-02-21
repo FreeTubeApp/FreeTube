@@ -613,12 +613,10 @@ About:
   #& About
 #On Channel Page
   Donate: 寄付
-  FreeTube is made possible by: FreeTube が実現できているのは
   these people and projects: これらの人々とプロジェクトのおかげです
   Credits: クレジット
   Translate: 翻訳
   room rules: ルームの規則
-  Please read the: '次をお読みください：'
   Chat on Matrix: Matrix でチャット
   Mastodon: マストドン
   Email: メールアドレス
@@ -635,7 +633,6 @@ About:
   Source code: ソースコード
   Beta: ベータ
   Discussions: 議論
-  Licensed under the: ライセンス
   AGPLv3: AGPLv3
 Channel:
   Subscribe: 'チャンネル登録'

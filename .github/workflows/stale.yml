@@ -18,7 +18,7 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/stale@997185467fa4f803885201cee163a9f38240193d #v10.1.1
+      - uses: actions/stale@b5d41d4e1d5dceea10e7104786b73624c18a190f #v10.2.0
         with:
           stale-pr-message: 'This PR is stale because it has been open 14 days with no activity. Remove stale label or comment or this will be closed in 14 days.'
           close-pr-message: 'This PR was closed because it has been stalled for 14 days with no activity.'
@@ -26,3 +26,8 @@ jobs:
           days-before-pr-close: 14
           stale-pr-label: 'PR: stale'
           exempt-pr-labels: 'PR: WIP'
+
+          # actions/stale doesn't have a way of running only on pull requests
+          # so set the issue thresholds to -1 so it at least doesn't try to label or close them
+          days-before-stale: -1
+          days-before-close: -1

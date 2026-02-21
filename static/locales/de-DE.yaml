@@ -555,7 +555,7 @@ Settings:
     Country: Land
     Your Info: Deine Info
     Test Proxy: Proxy testen
-    Clicking on Test Proxy will send a request to: Indem du auf Proxy testen klickst, schickst du eine Anfrage an
+    Clicking on Test Proxy will send a request to: Indem du auf „Proxy testen“ klickst, sendest du eine Anfrage an
     Proxy Port Number: Proxy-Portnummer
     Proxy Host: Proxy-Host
     Proxy Protocol: Proxy-Protokoll
@@ -623,10 +623,8 @@ About:
   Donate: Spenden
   Help: Hilfe
   these people and projects: diesen Menschen und Projekten
-  FreeTube is made possible by: FreeTube wird ermöglicht von
   Translate: Übersetzen
   room rules: Raum-Regeln
-  Please read the: Bitte lies die
   Chat on Matrix: Auf Matrix chatten
   Mastodon: Mastodon
   Please check for duplicates before posting: Bitte überprüfe vor dem Erstellen, ob eine ähnliche Issue bereits existiert
@@ -637,8 +635,10 @@ About:
   Downloads / Changelog: Downloads / Änderungsprotokoll
   Source code: Quellcode
   Discussions: Diskussionen
-  Licensed under the: Lizenziert unter der
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Lizenziert unter der {licenseLink}
+  Please read the {roomRulesLink}: Bitte lies die {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube wird ermöglicht durch {creditsPageLink}
 Channel:
   Subscribe: Abonnieren
   Unsubscribe: Deabonnieren
@@ -964,7 +964,7 @@ Tooltips:
     Fetch Automatically: Wenn aktiviert, ruft FreeTube deine Abos automatisch beim Start und beim Öffnen eines neuen Fensters ab.
   Player Settings:
     Default Video Format: Lege die Formate fest, die bei der Wiedergabe eines Videos verwendet werden. DASH-Formate können höhere Auflösungen wiedergeben. Altformate sind auf maximal 360p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate sind reine Audiostreams.
-    Proxy Videos Through Invidious: Stellt eine Verbindung zu Invidious her, um Videos bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen.
+    Proxy Videos Through Invidious: Stellt eine Verbindung mit Invidious her, um Videos bereitzustellen, anstatt eine direkte Verbindung mit YouTube herzustellen.
     Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video befindet, halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und bewege das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit zu steuern. Halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und klicke mit der linken Maustaste, um schnell zur Standard-Wiedergabegeschwindigkeit zurückzukehren (1x, sofern sie nicht in den Einstellungen geändert wurde).
     Skip by Scrolling Over Video Player: Verwende das Scrollrad, um durch das Video zu springen, MPV-Stil.
   External Player Settings:

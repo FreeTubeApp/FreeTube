@@ -104,7 +104,7 @@ Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
   Gaming: Jeux vidéo
-  Sports: Sports
+  Sports: Sport
 Most Popular: 'Les plus populaires'
 Playlists: 'Playlists'
 User Playlists:
@@ -630,9 +630,7 @@ About:
   Report a problem: Signaler un problème
   Source code: Code source
   these people and projects: ces personnes et ces projets
-  FreeTube is made possible by: FreeTube est rendu possible par
   room rules: règles du salon
-  Please read the: Veuillez lire les
   Please check for duplicates before posting: Veuillez vérifier s'il y a des doublons avant de publier
   GitHub issues: Les problèmes identifiés par la communauté sur GitHub
   FreeTube Wiki: Wiki de FreeTube
@@ -640,7 +638,9 @@ About:
   Downloads / Changelog: Téléchargements / Journal des modifications
   Discussions: Discussions
   AGPLv3: AGPLv3
-  Licensed under the: Sous licence
+  Licensed under the {licenseLink}: Sous licence {licenseLink}
+  Please read the {roomRulesLink}: Veuillez lire les {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube est rendu possible grâce à {creditsPageLink}
 Channel:
   Subscribe: 'S’abonner'
   Unsubscribe: 'Se désabonner'
@@ -900,7 +900,7 @@ Shuffle is now enabled: 'Mode aléatoire activé'
 Playing Next Video: 'Lecture de la vidéo suivante'
 Playing Previous Video: 'Lecture de la vidéo précédente'
 Canceled next video autoplay: 'Annuler la lecture automatique'
-'The playlist has ended. Enable loop to continue playing': 'La playlist est terminée. Activez la lecture en boucle pour continuer.'
+'The playlist has ended. Enable loop to continue playing': 'La playlist est terminée. Activez la lecture en boucle pour continuer'
 
 Yes: 'Oui'
 No: 'Non'
@@ -980,7 +980,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les playlists et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} » applicable à l'ensemble de l'application, dans la section « {subsection} » de la section « {settingsSection} »
-    Hide Videos, Playlists and Channels Containing Text: Saisissez un mot, un fragment de mot ou une phrase (insensible à la casse) pour masquer toutes les vidéos et sélections dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube, à l'exception de l'historique, de vos playlists et des vidéos contenues dans les playlists.
+    Hide Videos, Playlists and Channels Containing Text: Saisissez un mot, un fragment de mot ou une phrase (insensible à la casse) pour masquer toutes les vidéos, playlists et chaînes dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube, à l'exception de l'historique, de vos playlists et des vidéos contenues dans les playlists.
     Hide Videos on Watch: Masque les vidéos visionnées des onglets Vidéos, Shorts, En direct des pages Abonnements et Chaînes. Ceci n'a pas d'effet sur l'onglet Accueil des pages Chaînes
   SponsorBlock Settings:
     UseDeArrowTitles: Remplacer les titres des vidéos par des titres proposés par les utilisateurs de DeArrow.
