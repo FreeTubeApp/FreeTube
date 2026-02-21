@@ -597,6 +597,9 @@ function runApp() {
 
         // YouTube doesn't send the Content-Type header for the media requests, so we shouldn't either
         delete requestHeaders['Content-Type']
+      } else if (urlObj.origin === 'https://ipwho.is') {
+        // Fix the CORS error with the proxy test button
+        requestHeaders = {}
       } else if (webContents) {
         const invidiousAuthorization = invidiousAuthorizations.get(webContents.id)
 
