@@ -15,6 +15,7 @@ let manualRestart = null
 
 const remoteDebugging = process.argv.indexOf('--remote-debug') !== -1
 const web = process.argv.indexOf('--web') !== -1
+const isTest = process.argv.includes('--test')
 
 let mainConfig
 let rendererConfig
@@ -38,6 +39,10 @@ if (!web) {
 if (remoteDebugging) {
   // disable dvtools open in electron
   process.env.RENDERER_REMOTE_DEBUGGING = true
+}
+
+if (isTest) {
+  process.env.IS_TESTS = true
 }
 
 // Define exit code for relaunch and set it in the environment
