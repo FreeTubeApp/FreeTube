@@ -637,6 +637,9 @@ About:
   Source code: Izvorni kod
   Discussions: Diskusije
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: 'Licenca: {licenseLink}'
+  Please read the {roomRulesLink}: Pročitaj {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube omogućuju {creditsPageLink}
 Profile:
   All Channels: 'Svi kanali'
   Profile Manager: 'Upravljač profila'
