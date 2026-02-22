@@ -16,7 +16,9 @@
       </div>
       <FtSettingsMenu
         v-show="isInDesktopView || settingsSectionTypeOpenInMobile == null"
+        ref="menuRef"
         :settings-sections="settingsSectionComponents"
+        :active-section="activeSection"
         @navigate-to-section="navigateToSection"
       />
       <div
@@ -58,6 +60,7 @@
 </template>
 
 <script setup>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
@@ -82,13 +85,13 @@ import FtSettingsMenu from '../../components/FtSettingsMenu/FtSettingsMenu.vue'
 import store from '../../store/index'
 
 const USING_ELECTRON = !!process.env.IS_ELECTRON
-const ACTIVE_CLASS_NAME = 'active'
 const SETTINGS_MOBILE_WIDTH_THRESHOLD = 1015
 
 const { locale, t } = useI18n()
 
 const isInDesktopView = ref(true)
 const settingsSectionTypeOpenInMobile = ref(null)
+const activeSection = ref(null)
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const settingsSectionSortEnabled = computed(() => store.getters.getSettingsSectionSortEnabled)
@@ -96,51 +99,51 @@ const settingsSectionSortEnabled = computed(() => store.getters.getSettingsSecti
 const settingsComponentsData = computed(() => {
   return [
     {
-      type: 'theme-settings',
+      type: 'theme',
       title: t('Settings.Theme Settings.Theme Settings'),
       icon: ['fas', 'display'],
       component: ThemeSettings
     },
     {
-      type: 'player-settings',
+      type: 'player',
       title: t('Settings.Player Settings.Player Settings'),
       icon: ['fas', 'circle-play'],
       component: PlayerSettings
     },
     ...(process.env.IS_ELECTRON
       ? [{
-          type: 'external-player-settings',
+          type: 'external-player',
           title: t('Settings.External Player Settings.External Player Settings'),
           icon: ['fas', 'clapperboard'],
           component: ExternalPlayerSettings
         }]
       : []),
     {
-      type: 'subscription-settings',
+      type: 'subscription',
       title: t('Settings.Subscription Settings.Subscription Settings'),
       icon: ['fas', 'play'],
       component: SubscriptionSettings
     },
     {
-      type: 'distraction-settings',
+      type: 'distraction',
       title: t('Settings.Distraction Free Settings.Distraction Free Settings'),
       icon: ['fas', 'eye-slash'],
       component: DistractionSettings
     },
     {
-      type: 'parental-control-settings',
+      type: 'parental-control',
       title: t('Settings.Parental Control Settings.Parental Control Settings'),
       icon: ['fas', 'user-lock'],
       component: ParentalControlSettings
     },
     {
-      type: 'privacy-settings',
+      type: 'privacy',
       title: t('Settings.Privacy Settings.Privacy Settings'),
       icon: ['fas', 'lock'],
       component: PrivacySettings
     },
     {
-      type: 'data-settings',
+      type: 'data',
       title: t('Settings.Data Settings.Data Settings'),
       icon: ['fas', 'database'],
       component: DataSettings
@@ -148,7 +151,7 @@ const settingsComponentsData = computed(() => {
     ...(process.env.IS_ELECTRON
       ? [
           {
-            type: 'proxy-settings',
+            type: 'proxy',
             title: t('Settings.Proxy Settings.Proxy Settings'),
             icon: ['fas', 'network-wired'],
             component: ProxySettings
@@ -156,21 +159,21 @@ const settingsComponentsData = computed(() => {
         ]
       : []),
     {
-      type: 'sponsor-block-settings',
+      type: 'sponsor-block',
       title: t('Settings.SponsorBlock Settings.SponsorBlock Settings'),
       // TODO: replace with SponsorBlock icon
       icon: ['fas', 'shield'],
       component: SponsorBlockSettings
     },
     {
-      type: 'password-settings',
+      type: 'password',
       title: t('Settings.Password Settings.Password Settings'),
       icon: ['fas', 'key'],
       component: PasswordSettings
     },
     ...(process.env.IS_ELECTRON
       ? [{
-          type: 'experimental-settings',
+          type: 'experimental',
           title: t('Settings.Experimental Settings.Experimental Settings'),
           icon: ['fas', 'flask'],
           component: ExperimentalSettings
@@ -196,7 +199,7 @@ const settingsSectionComponents = computed(() => {
 
   // ensure General Settings is placed first regardless of sorting
   const generalSettingsEntry = {
-    type: 'general-settings',
+    type: 'general',
     title: t('Settings.General Settings.General Settings'),
     icon: ['fas', 'border-all'],
     component: GeneralSettings
@@ -241,8 +244,7 @@ function handleMounted() {
   document.addEventListener('scroll', markScrolledToSectionAsActive)
 
   // mark first section as active before any scrolling has taken place
-  const firstSection = document.getElementById(settingsSectionComponents.value[0].type)
-  firstSection.classList.add(ACTIVE_CLASS_NAME)
+  activeSection.value = settingsSectionComponents.value[0].type
 }
 
 const sectionRefs = useTemplateRef('sectionRefs')
@@ -268,32 +270,39 @@ function navigateToSection(sectionType) {
   }
 }
 
+const menuRef = useTemplateRef('menuRef')
+
 function returnToSettingsMenu() {
   const openSection = settingsSectionTypeOpenInMobile.value
   settingsSectionTypeOpenInMobile.value = null
 
   // focus the corresponding Settings Menu title
-  nextTick(() => document.getElementById(openSection)?.focus())
+  nextTick(() => {
+    return menuRef.value?.focusLink(openSection)
+  })
 }
 
 /* Set the current section to be shown as active in the Settings Menu
 * if it is the lowest section within the top quarter of the viewport (25vh) */
 function markScrolledToSectionAsActive() {
+  if (!isInDesktopView.value) {
+    activeSection.value = null
+    return
+  }
+
   const scrollY = window.scrollY + window.innerHeight / 4
 
-  sectionRefs.value.forEach((sectionRef) => {
+  for (const sectionRef of sectionRefs.value) {
     const sectionElement = sectionRef.$el
 
     const sectionHeight = sectionElement.offsetHeight
     const sectionTop = sectionElement.offsetTop
-    const correspondingMenuLink = document.getElementById(sectionElement.dataset.section)
 
-    if (isInDesktopView.value && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-      correspondingMenuLink.classList.add(ACTIVE_CLASS_NAME)
-    } else {
-      correspondingMenuLink.classList.remove(ACTIVE_CLASS_NAME)
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      activeSection.value = sectionElement.dataset.section
+      break
     }
-  })
+  }
 }
 
 function handleResize() {
@@ -304,14 +313,8 @@ function handleResize() {
   if (isInDesktopView.value && wasNotInDesktopView && settingsSectionTypeOpenInMobile.value != null) {
     navigateToSection(settingsSectionTypeOpenInMobile.value)
     settingsSectionTypeOpenInMobile.value = null
-  } else if (!isInDesktopView.value && !wasNotInDesktopView) {
-    const activeMenuLink = document.querySelector(`.settingsMenu .title.${ACTIVE_CLASS_NAME}`)
-    if (!activeMenuLink) {
-      return
-    }
-
-    const sectionType = activeMenuLink.id
-    navigateToSection(sectionType)
+  } else if (!isInDesktopView.value && !wasNotInDesktopView && activeSection.value) {
+    navigateToSection(activeSection.value)
   }
 }
 </script>

@@ -11,12 +11,14 @@
     </h2>
     <a
       v-for="settingsSection in settingsSections"
-      :id="settingsSection.type"
+      ref="linkRefs"
       :key="settingsSection.type"
       class="title"
+      :class="{ active: activeSection === settingsSection.type }"
       href="javascript:;"
-      @click.stop="goToSettingsSection(settingsSection.type)"
-      @keydown.enter.stop="goToSettingsSection(settingsSection.type)"
+      :data-section="settingsSection.type"
+      @click.stop="goToSettingsSection"
+      @keydown.enter.stop="goToSettingsSection"
     >
       <div class="titleContent">
         <div class="iconAndTitleText">
@@ -34,22 +36,38 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { useTemplateRef } from 'vue'
 
 defineProps({
   settingsSections: {
     type: Array,
     required: true
+  },
+  activeSection: {
+    type: String,
+    default: null
   }
 })
 
 const emit = defineEmits(['navigate-to-section'])
 
 /**
- * @param {string} sectionType
+ * @param {PointerEvent | KeyboardEvent} event
  */
-function goToSettingsSection(sectionType) {
-  emit('navigate-to-section', sectionType)
+function goToSettingsSection(event) {
+  emit('navigate-to-section', event.currentTarget.dataset.section)
 }
+
+const linkRefs = useTemplateRef('linkRefs')
+
+defineExpose({
+  /**
+   * @param {string} name
+   */
+  focusLink: (name) => {
+    linkRefs.value.find((link) => link.dataset.section === name)?.focus()
+  }
+})
 </script>
 
 <style scoped src="./FtSettingsMenu.css" />
