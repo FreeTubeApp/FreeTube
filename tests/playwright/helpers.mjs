@@ -28,7 +28,7 @@ const electronTest = async (name, viewPortSize, func) => {
  * @param {(function({ app: import('@playwright/test').ElectronApplication, page: import('@playwright/test').Page }) : Promise<void>)} func
 */
 export const electronDesktopTest = async (name, func) => {
-  await electronTest(name, devices['Desktop Firefox'].viewport, func)
+  await electronTest(name, devices['Desktop Chrome'].viewport, func)
 }
 
 /**
