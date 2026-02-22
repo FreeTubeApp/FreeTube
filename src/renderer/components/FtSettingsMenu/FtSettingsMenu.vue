@@ -21,7 +21,7 @@
       <div class="titleContent">
         <div class="iconAndTitleText">
           <FontAwesomeIcon
-            :icon="['fas', settingsSection.icon]"
+            :icon="settingsSection.icon"
             class="titleIcon"
           />
           {{ settingsSection.title }}
