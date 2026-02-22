@@ -29,6 +29,7 @@ function createDatastore(name) {
   return new Datastore({
     filename: dbPath(name),
     autoload: !process.env.IS_ELECTRON_MAIN,
+    inMemoryOnly: !!process.env.IS_TESTS,
     // Automatically clean up corrupted data, instead of crashing
     corruptAlertThreshold: 1
   })
