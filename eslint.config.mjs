@@ -1,3 +1,4 @@
+import { defineConfig } from "eslint/config";
 import eslintPluginVue from 'eslint-plugin-vue'
 import vuejsAccessibility from 'eslint-plugin-vuejs-accessibility'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
@@ -12,13 +13,12 @@ import jsdoc from 'eslint-plugin-jsdoc'
 import stylistic from '@stylistic/eslint-plugin'
 import eslintPluginImportX from 'eslint-plugin-import-x'
 import eslintPluginN from 'eslint-plugin-n'
+import eslintPluginPlaywright from 'eslint-plugin-playwright'
 import eslintPluginPromise from 'eslint-plugin-promise'
 
 import freetube from './_scripts/eslint-rules/plugin.mjs'
-import eslintPluginPlaywright from 'eslint-plugin-playwright'
 
 import activeLocales from './static/locales/activeLocales.json' with { type: 'json' }
-import { defineConfig } from "eslint/config";
 
 export default defineConfig([
   {
