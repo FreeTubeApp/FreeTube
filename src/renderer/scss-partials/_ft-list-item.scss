@@ -222,7 +222,8 @@ $watched-transition-duration: 0.5s;
       'title optionsExternalButton' auto
       'infoLine optionsExternalButton' auto
       'description optionsExternalButton' auto
-      'restArea optionsExternalButton' 1fr / 1fr auto;
+      'videoTagLine optionsExternalButton' auto
+      'restArea empty' 1fr / 1fr auto;
 
     .buttonStack {
       grid-area: optionsExternalButton;
@@ -268,6 +269,10 @@ $watched-transition-duration: 0.5s;
       }
     }
 
+    .videoTagLine {
+      grid-area: videoTagLine;
+    }
+
     .description {
       font-size: 14px;
       grid-area: description;
@@ -284,7 +289,10 @@ $watched-transition-duration: 0.5s;
 
   &.list {
     align-items: flex-start;
-    display: flex;
+    display: grid;
+    grid-template:
+      'grabBar thumbnail info' auto /
+      auto auto 1fr;
 
     @include is-sidebar-item {
       .videoThumbnail {
@@ -317,9 +325,23 @@ $watched-transition-duration: 0.5s;
     }
 
 
+    .grabBar {
+      grid-area: grabBar;
+    }
+
+    .videoThumbnail {
+      grid-area: thumbnail;
+    }
+
     .videoThumbnail,
     .channelThumbnail {
+      grid-area: thumbnail;
       margin-inline-end: 20px;
+    }
+
+    .info,
+    .infoAndSubscribe {
+      grid-area: info;
     }
 
     .info {

@@ -263,9 +263,9 @@
       <div
         v-if="effectiveListTypeIsList"
         class="restArea"
-        draggable="true"
-        @dragstart="onDragStart"
-      >&nbsp;</div>
+      >
+        &nbsp;
+      </div>
     </div>
   </div>
 </template>
