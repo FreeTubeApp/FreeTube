@@ -221,7 +221,8 @@ $watched-transition-duration: 0.5s;
     grid-template:
       'title optionsExternalButton' auto
       'infoLine optionsExternalButton' auto
-      'description optionsExternalButton' auto / 1fr auto;
+      'description optionsExternalButton' auto
+      'restArea optionsExternalButton' 1fr / 1fr auto;
 
     .buttonStack {
       grid-area: optionsExternalButton;
@@ -275,6 +276,10 @@ $watched-transition-duration: 0.5s;
 
       @include low-contrast-when-watched(var(--secondary-text-color));
     }
+
+    .restArea {
+      grid-area: restArea;
+    }
   }
 
   &.list {
@@ -317,6 +322,11 @@ $watched-transition-duration: 0.5s;
       margin-inline-end: 20px;
     }
 
+    .info {
+      // To allow `.restArea` to cover the empty space
+      block-size: 100%;
+    }
+
     .info .description {
       margin-inline-end: 10px;
     }
@@ -355,6 +365,10 @@ $watched-transition-duration: 0.5s;
     .infoLine {
       font-size: 13px;
       margin-block-start: 8px;
+    }
+
+    .restArea {
+      display: none;
     }
   }
 

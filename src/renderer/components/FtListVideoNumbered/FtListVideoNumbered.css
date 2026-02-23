@@ -53,12 +53,18 @@
 @media (hover: none) {
   .draggable:not(.draggable:only-child) .videoIndexArea {
     display: grid;
-    justify-content: center;
+    place-content: center;
+    grid-auto-rows: min-content;
   }
 
   .draggable:not(.draggable:only-child) .grabBar {
     display: revert;
     order: 2;
+  }
+
+  .draggable:not(.draggable:only-child):focus .videoIndex,
+  .draggable:not(.draggable:only-child):hover .videoIndex {
+    display: revert;
   }
 }
 

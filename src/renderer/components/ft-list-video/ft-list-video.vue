@@ -260,6 +260,12 @@
         dir="auto"
         v-html="description"
       />
+      <div
+        v-if="effectiveListTypeIsList"
+        class="restArea"
+        draggable="true"
+        @dragstart="onDragStart"
+      >&nbsp;</div>
     </div>
   </div>
 </template>
