@@ -820,7 +820,8 @@ const isVideoDragging = () => {
 }
 
 function moveDraggedVideoTemporarily({ videoId, playlistItemId }, { videoId: droppedVideoId, playlistItemId: droppedPlaylistItemId }) {
-  const playlistItems_ = playlistItems.value.slice()
+  // To ensure we can drag an item back to its original position in a single drag (i.e. no change), the temp items should be used
+  const playlistItems_ = tempShownPlaylistItems.value != null ? tempShownPlaylistItems.value.slice() : playlistItems.value.slice()
 
   const draggedOverIndex = playlistItems_.findIndex((video) => {
     return video.videoId === videoId && video.playlistItemId === playlistItemId
