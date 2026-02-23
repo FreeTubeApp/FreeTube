@@ -11,17 +11,7 @@
       draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId,
     }"
     :draggable="isDraggable"
-    v-on="isDraggable ? {
-      dragstart: onDragVideo,
-      dragover: event => event.preventDefault(),
-      dragenter: () => {
-        if (isVideoDragging) {
-          moveDraggedVideo(videoData, draggedVideo)
-        }
-      },
-      dragend: afterDrag,
-      drop: event => event.preventDefault(),
-    } : {}"
+    v-on="isDraggable ? draggableEventHandlers : {}"
   >
     <template
       v-if="visible"
@@ -172,6 +162,18 @@ const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-u
 
 const inUserPlaylist = props.playlistType === 'user'
 const isDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom)
+const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
+const draggableEventHandlers = {
+  dragstart: onDragVideo,
+  dragover: event => event.preventDefault(),
+  dragenter: () => {
+    if (props.isVideoDragging) {
+      moveDraggedVideo(videoData, props.draggedVideo)
+    }
+  },
+  dragend: afterDrag,
+  drop: event => event.preventDefault(),
+}
 
 /** @type {import('vue').ComputedRef<'video' | 'shortVideo' | 'channel' | 'playlist' | 'community'>} */
 const finalDataType = computed(() => {
@@ -328,7 +330,6 @@ function removeFromPlaylist(videoId, playlistItemId) {
   emit('remove-from-playlist', videoId, playlistItemId)
 }
 
-const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
 function onDragVideo(event) {
   // Only allow dragging via the drag bar
   if (!event.target.classList.contains('draggable')) { return }

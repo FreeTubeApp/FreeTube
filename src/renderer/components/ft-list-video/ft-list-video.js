@@ -94,7 +94,6 @@ export default defineComponent({
     showGrabBar: {
       type: Boolean,
       default: false,
-      required: false,
     },
   },
   emits: ['move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist'],

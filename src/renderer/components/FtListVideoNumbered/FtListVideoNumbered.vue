@@ -9,17 +9,7 @@
       draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId,
     }"
     :draggable="isDraggable"
-    v-on="canBecomeDraggable ? {
-      dragstart: onDragVideo,
-      dragover: event => event.preventDefault(),
-      dragenter: () => {
-        if (isVideoDragging) {
-          moveDraggedVideo(videoData, draggedVideo)
-        }
-      },
-      dragend: afterDrag,
-      drop: event => event.preventDefault(),
-    } : {}"
+    v-on="canBecomeDraggable ? draggableEventHandlers : {}"
   >
     <template
       v-if="visible"
@@ -176,6 +166,18 @@ const inUserPlaylist = props.playlistType === 'user'
 const canBecomeDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom)
 const grabBarHovered = ref(false)
 const isDraggable = computed(() => canBecomeDraggable.value && grabBarHovered.value)
+const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
+const draggableEventHandlers = {
+  dragstart: onDragVideo,
+  dragover: event => event.preventDefault(),
+  dragenter: () => {
+    if (props.isVideoDragging) {
+      moveDraggedVideo(videoData, props.draggedVideo)
+    }
+  },
+  dragend: afterDrag,
+  drop: event => event.preventDefault(),
+}
 
 let stopWatchingInitialVisibleState = null
 
@@ -221,7 +223,6 @@ function moveVideoDown(videoId, playlistItemId) {
   emit('move-video-down', videoId, playlistItemId)
 }
 
-const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
 function onDragVideo(event) {
   // Only allow dragging via the drag bar
   if (!event.target.classList.contains('draggable')) { return }
