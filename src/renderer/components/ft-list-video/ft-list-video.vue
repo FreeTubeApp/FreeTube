@@ -18,6 +18,8 @@
     </div>
     <div
       class="videoThumbnail"
+      draggable="true"
+      @dragstart="onDragStart"
     >
       <router-link
         class="thumbnailLink"

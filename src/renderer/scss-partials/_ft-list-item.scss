@@ -224,6 +224,8 @@ $watched-transition-duration: 0.5s;
       'description optionsExternalButton' auto
       'videoTagLine optionsExternalButton' auto
       'restArea empty' 1fr / 1fr auto;
+    // Draggable items cannot have text selected by default
+    user-select: text;
 
     .buttonStack {
       grid-area: optionsExternalButton;
@@ -364,7 +366,8 @@ $watched-transition-duration: 0.5s;
 
     .videoThumbnail,
     .channelThumbnail {
-      margin-block-end: 12px;
+      // Using padding not margin to avoid being able to drag on empty space
+      padding-block-end: 12px;
 
       .thumbnailImage {
         // Ensure placeholder image displayed at same aspect ratio as most other images
