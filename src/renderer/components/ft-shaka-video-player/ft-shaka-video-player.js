@@ -579,7 +579,7 @@ export default defineComponent({
             }, 1000)
             existingSkip.timeoutId = setTimeout(removeSegment, 4000)
           } else {
-            const segmentObj = reactive({
+            const segmentObj = {
               uuid,
               translatedCategory: translateSponsorBlockCategory(category),
               startTime,
@@ -588,14 +588,15 @@ export default defineComponent({
               timeLeft: 4,
               intervalId: null,
               timeoutId: null
-            })
-
-            segmentObj.intervalId = setInterval(() => {
-              segmentObj.timeLeft--
-            }, 1000)
-            segmentObj.timeoutId = setTimeout(removeSegment, 4000)
+            }
 
             skippedSponsorBlockSegments.value.push(segmentObj)
+            const reactiveSegmentObj = skippedSponsorBlockSegments.value.find(skipped => skipped.uuid === uuid)
+
+            reactiveSegmentObj.intervalId = setInterval(() => {
+              reactiveSegmentObj.timeLeft--
+            }, 1000)
+            reactiveSegmentObj.timeoutId = setTimeout(removeSegment, 4000)
           }
         })
       }
