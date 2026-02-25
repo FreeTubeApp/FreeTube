@@ -479,7 +479,7 @@ export default defineComponent({
      * @type {import('vue').Ref<{uuid: string, translatedCategory: string, timeoutId: number, startTime: number, endTime: number, unskipped: boolean}[]>}
      */
     const skippedSponsorBlockSegments = ref([])
-    const ignoredSponsorBlockSegments = ref(new Set())
+    const ignoredSponsorBlockSegments = reactive(new Set())
 
     async function setupSponsorBlock() {
       let segments, averageDuration
@@ -511,7 +511,7 @@ export default defineComponent({
     function skipSponsorBlockSegments(currentTime) {
       skippedSponsorBlockSegments.value = skippedSponsorBlockSegments.value.filter(segment => {
         if (segment.unskipped && (currentTime >= segment.endTime || currentTime < segment.startTime)) {
-          ignoredSponsorBlockSegments.value.delete(segment.uuid)
+          ignoredSponsorBlockSegments.delete(segment.uuid)
           return false
         }
         return true
@@ -529,7 +529,7 @@ export default defineComponent({
       const skippedSegments = []
 
       sponsorBlockSegments.forEach(segment => {
-        if (!ignoredSponsorBlockSegments.value.has(segment.uuid) && autoSkip.has(segment.category) && currentTime < segment.endTime &&
+        if (!ignoredSponsorBlockSegments.has(segment.uuid) && autoSkip.has(segment.category) && currentTime < segment.endTime &&
           (segment.startTime <= currentTime ||
             // if we already have a segment to skip, check if there are any that are less than 150ms later,
             // so that we can skip them all in one go (especially useful on slow connections)
@@ -565,7 +565,7 @@ export default defineComponent({
               clearInterval(segment.intervalId)
               skippedSponsorBlockSegments.value.splice(index, 1)
             }
-            ignoredSponsorBlockSegments.value.delete(uuid)
+            ignoredSponsorBlockSegments.delete(uuid)
           }
 
           const existingSkip = skippedSponsorBlockSegments.value.find(skipped => skipped.uuid === uuid)
@@ -2314,14 +2314,14 @@ export default defineComponent({
               if (index !== -1) {
                 skippedSponsorBlockSegments.value.splice(index, 1)
               }
-              ignoredSponsorBlockSegments.value.delete(segment.uuid)
+              ignoredSponsorBlockSegments.delete(segment.uuid)
             } else {
               video_.currentTime = segment.startTime
               segment.unskipped = true
               clearTimeout(segment.timeoutId)
               clearInterval(segment.intervalId)
               segment.timeLeft = null
-              ignoredSponsorBlockSegments.value.add(segment.uuid)
+              ignoredSponsorBlockSegments.add(segment.uuid)
             }
           }
           break
