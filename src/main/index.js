@@ -1052,7 +1052,16 @@ function runApp() {
 
       newWindow.on('minimize', () => {
         if (trayOnMinimize) {
-          newWindow.hide()
+          // Workaround for https://github.com/electron/electron/issues/49253
+          if (process.platform !== 'linux') {
+            newWindow.hide()
+          } else {
+            setTimeout(() => {
+              newWindow.restore()
+              newWindow.hide()
+            }, 100)
+          }
+
           manageTray(newWindow)
 
           if (newWindow === mainWindow) {
