@@ -516,31 +516,31 @@ Settings:
     Data Settings: 'Datuak'
     Select Export Type: 'Hautatu esportazio mota'
     Import Subscriptions: 'Inportatu harpidetzak'
-    Export Subscriptions: 'Harpidetzak esportatu'
-    Export FreeTube: 'Freetubera esportatu'
-    Export YouTube: 'Youtubera esportatu'
-    Export NewPipe: 'Newpipera esportatu'
-    Import History: 'Historikoa inportatu'
-    Export History: 'Historikoa esportatu'
-    Profile object has insufficient data, skipping item: 'Profileko objektuak ez du datu nahikorik, elementutik ateratzen'
+    Export Subscriptions: 'Esportatu harpidetzak'
+    Export FreeTube: 'Esportatu Freetube'
+    Export YouTube: 'Esportatu Youtube'
+    Export NewPipe: 'Esportatu Newpipe'
+    Import History: 'Inportatu historikoa'
+    Export History: 'Esportatu historikoa'
+    Profile object has insufficient data, skipping item: 'Profil-objektuak ez du datu nahikorik, elementua saltatzen'
     All subscriptions and profiles have been successfully imported: 'Profil eta harpidetza guztiak ongi inportatu dira'
     All subscriptions have been successfully imported: 'Harpidetza guztiak ongi inportatu dira'
-    Invalid subscriptions file: 'Harpidetza fitxategi baliogabea'
-    Invalid history file: 'Historia fitxategi baliogabea'
+    Invalid subscriptions file: 'Harpidetzen fitxategi baliogabea'
+    Invalid history file: 'Historikoaren fitxategi baliogabea'
     Subscriptions have been successfully exported: 'Harpidetzak ongi esportatu dira'
-    History object has insufficient data, skipping item: 'Historiako objektuak ez du datu nahikorik, elementutik ateratzen'
+    History object has insufficient data, skipping item: 'Historiako objektuak ez du datu nahikorik, elementua saltatzen'
     All watched history has been successfully imported: 'Ikusitakoaren historikoa ongi inportatu da'
     All watched history has been successfully exported: 'Ikusitakoaren historikoa ongi esportatu da'
     Unable to read file: 'Ezin da fitxategia irakurri'
     Unable to write file: 'Ezin da fitxategia idatzi'
     Unknown data key: 'Datu-gako ezezaguna'
     How do I import my subscriptions?: 'Nola inporta ditzaket nire harpidetzak?'
-    Manage Subscriptions: 'Harpidetzak kudeatu'
-    Import Playlists: Erreprodukzio zerrendak inportatu
-    Export Playlists: Erreprodukzio zerrendak esportatu
-    All playlists has been successfully imported: Erreprodukzio zerrenda guztiak ongi inportatu dira
-    All playlists has been successfully exported: Erreprodukzio zerrenda guztiak ongi esportatu dira
-    Playlist insufficient data: Ez da datu nahikorik "{playlist}" erreprodukzio zerrendarentzat, elementutik ateratzen
+    Manage Subscriptions: 'Kudeatu harpidetzak'
+    Import Playlists: Inportatu erreprodukzio-zerrendak
+    Export Playlists: Esportatu erreprodukzio-zerrendak
+    All playlists has been successfully imported: Erreprodukzio-zerrenda guztiak ongi inportatu dira
+    All playlists has been successfully exported: Erreprodukzio-zerrenda guztiak ongi esportatu dira
+    Playlist insufficient data: Ez dago datu nahikorik "{playlist}" erreprodukzio-zerrendarentzat, elementua saltatzen
     History File: Historikoaren fitxategia
     Playlist File: Erreprodukzio-zerrendaren fitxategia
     Export Playlists For Older FreeTube Versions:
@@ -555,21 +555,21 @@ Settings:
     All search history has been successfully exported: Bilaketa-historia guztia behar bezala esportatu da
   Proxy Settings:
     Proxy Settings: 'Proxy-a'
-    Enable Tor / Proxy: 'Tor / Proxy ahalbidetu'
+    Enable Tor / Proxy: 'Gaitu Tor / Proxy-a'
     Proxy Protocol: 'Proxy protokoloa'
     Proxy Host: 'Proxy ostalaria'
-    Proxy Port Number: 'Proxy portu zenbakia'
+    Proxy Port Number: 'Proxy-aren ataka-zenbakia'
     Clicking on Test Proxy will send a request to: 'Test Proxy-n klik eginez gero, eskaera bat bidaliko da'
-    Test Proxy: 'Proxy-a frogatu'
+    Test Proxy: 'Probatu proxy-a'
     Your Info: 'Zure informazioa'
     Ip: 'Ip'
     Country: 'Herrialdea'
     Region: 'Eskualdea'
     City: 'Hiria'
-    Error getting network information. Is your proxy configured properly?: 'Errore bat gertatu da sareko informazioa eskuratzean. Zure proxya behar bezala konfiguratuta al dago?'
+    Error getting network information. Is your proxy configured properly?: 'Errore bat gertatu da sareko informazioa eskuratzean. Zure proxy-a behar bezala konfiguratuta al dago?'
     Proxy Warning: FreeTube-k ez du proxy-rik, baina kanpoko proxy batera konekta daiteke, adibidez, zure makinan Tor gisa exekutatzen den bat edo kanpoko proxy bat, VPN batzuek emandako proxy bat bezala. Aktibatuta badago, ziurtatu proxy/Tor behar bezala konfiguratuta dagoela, edo FreeTube-k ezingo du daturik lortu.
     Proxy Username: Proxy-aren erabiltzailea
-    Proxy Password: Proxyaren pasahitza
+    Proxy Password: Proxy-aren pasahitza
   External Player Settings:
     Ignore Unsupported Action Warnings: Ez ikusiarena egin onartu gabeko ekintzen abisuei
     External Player Settings: Kanpoko erreproduzitzailea
@@ -583,13 +583,13 @@ Settings:
   SponsorBlock Settings:
     Skip Options:
       Prompt To Skip: Saltatzeko abisua
-      Show In Seek Bar: Erakutsi Bilaketen barran
+      Show In Seek Bar: Erakutsi bilaketa-barran
       Do Nothing: Ez egin ezer
-      Skip Option: Aukera saltatu
+      Skip Option: Saltatu aukera
       Auto Skip: Saltatze automatikoa
-    Category Color: Kolore kategoria
+    Category Color: Kategoriaren kolorea
     Notify when sponsor segment is skipped: Jakinarazi babesleen segmentua saltatzen denean
-    Enable SponsorBlock: Babesleak blokeatzea ahalbidetu
+    Enable SponsorBlock: Gaitu babesleak blokeatzea
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Babesleak blokeatzeko API Url (lehenetsia https://sponsor.ajay.app da)
     SponsorBlock Settings: Babesleak blokeatu
     UseDeArrowTitles: Erabili DeArrow bideo-izenburuak
@@ -597,21 +597,21 @@ Settings:
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Thumbnail Generator API URLa (lehenetsia https://dearrow-thumb.ajay.app da)
   Parental Control Settings:
     Show Family Friendly Only: Erakutsi familientzat aproposa dena bakarrik
-    Hide Unsubscribe Button: Harpidetza kendu botoia ezkutatu
+    Hide Unsubscribe Button: Ezkutatu harpidetza kentzeko botoia
     Parental Control Settings: Gurasoen kontrola
-    Hide Search Bar: Bilaketa barra ezkutatu
-    Hide Uploader on Watch page: Ezkutatu igotzailea bistaratze-orrian
+    Hide Search Bar: Ezkutatu bilaketa-barra
+    Hide Uploader on Watch page: Ezkutatu igotzailea ikusitakoen orrian
   Password Dialog:
     Password: Pasahitza
     Enter Password To Unlock: Sartu pasahitza ezarpenak desblokeatzeko
   Experimental Settings:
     Replace HTTP Cache: Ordeztu HTTP cachea
-    Experimental Settings: Esperimentalak
+    Experimental Settings: Esperimentala
     Warning: Ezarpen hauek esperimentalak dira, aktibatuta dauden bitartean hutsegiteak eragin ditzakete. Oso gomendagarria da babeskopiak egitea. Erabili zure ardurapean!
   Password Settings:
     Password Settings: Pasahitza
     Set Password To Prevent Access: Ezarri pasahitz bat ezarpenetara sarbidea galarazteko
-    Remove Password: Pasahitza ezabatu
+    Remove Password: Kendu pasahitza
     Set Password: Ezarri pasahitza
   Sort Settings Sections (A-Z): Ordenatu ezarpenen atalak (A-Z)
   Return to Settings Menu: Itzuli ezarpenen menura
@@ -619,9 +619,9 @@ About:
   #On About page
   About: 'Honi buruz'
   Beta: 'Beta'
-  Source code: 'Kode iturria'
+  Source code: 'Iturburu-kodea'
   Downloads / Changelog: 'Deskargak / Aldaketen erregistroa'
-  GitHub releases: 'Github Argitalpenak'
+  GitHub releases: 'Github-eko argitalpenak'
   Help: 'Laguntza'
   FreeTube Wiki: 'Freetuberen wikia'
   FAQ: 'Ohiko galderak'
@@ -629,39 +629,39 @@ About:
   GitHub issues: 'Github-en gaiak'
   Please check for duplicates before posting: 'Mesedez, egiaztatu bikoiztutakoak ote dauden argitaratu aurretik'
   Website: 'Webgunea'
-  Blog: 'Blog-a'
-  Email: 'Helbide elektronikoa'
+  Blog: 'Bloga'
+  Email: 'Posta elektronikoa'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Matrix-en txata'
   room rules: 'Gelaren arauak'
   Translate: 'Itzuli'
   Credits: 'Kredituak'
   these people and projects: 'Hurrengo pertsonak eta proiektuak'
-  Donate: 'Donazioa egin'
+  Donate: 'Diruz lagundu'
 
   Discussions: Eztabaidak
   AGPLv3: AGPLv3
-  Licensed under the {licenseLink}: '{licenseLink} lizentziapean lizentziatua'
+  Licensed under the {licenseLink}: '{licenseLink} lizentziapekoa'
   Please read the {roomRulesLink}: Mesedez, irakurri {roomRulesLink}
   FreeTube is made possible by {creditsPageLink}: FreeTube {creditsPageLink}-ri esker posible da
 Profile:
   Profile Select: 'Hautatu profila'
-  Profile Filter: 'Profilaren iragazkiak'
+  Profile Filter: 'Profil-iragazkia'
   All Channels: 'Kanal guztiak'
-  Profile Manager: 'Profilaren kudeatzailea'
-  Create New Profile: 'Profil berria sortu'
-  Edit Profile: 'Profila editatu'
-  Color Picker: 'Kolore hautatzailea'
+  Profile Manager: 'Profil-kudeatzailea'
+  Create New Profile: 'Sortu profil berria'
+  Edit Profile: 'Editatu profila'
+  Color Picker: 'Kolore-hautatzailea'
   Custom Color: 'Kolore lehenetsia'
   Profile Preview: 'Profilaren aurreikuspena'
-  Create Profile: 'Profila sortu'
-  Update Profile: 'Profila eguneratu'
-  Make Default Profile: 'Lehenetsitako profil gisa hautatu'
-  Delete Profile: 'Profila ezabatu'
+  Create Profile: 'Sortu profila'
+  Update Profile: 'Eguneratu profila'
+  Make Default Profile: 'Bihurtu profil lehenetsi'
+  Delete Profile: 'Ezabatu profila'
   Are you sure you want to delete this profile?: 'Ziur al zaude profil hau ezabatu nahi duzula?'
   All subscriptions will also be deleted.: 'Harpidetza guztiak ere ezabatuko dira.'
   Your profile name cannot be empty: 'Zure profilaren izena ezin da hutsik egon'
-  Profile has been created: 'Profila ongi eratu da'
+  Profile has been created: 'Profila ongi sortu da'
   Profile has been updated: 'Profila ongi eguneratu da'
   Your default profile has been set to {profile}: 'Zure lehenetsitako profila {profile} gisa ezarri da'
   Removed {profile} from your profiles: '{profile} ezabatu berri da zure profiletatik'
@@ -669,27 +669,27 @@ Profile:
   '{profile} is now the active profile': '{profile} da profil aktibo berria'
   Subscription List: 'Harpidetzen zerrenda'
   Other Channels: 'Beste kanalak'
-  '{number} selected': '{number} ezarria'
+  '{number} selected': '{number} hautatu da'
   Select All: 'Denak hautatu'
   Select None: 'Bat ere ez hautatu'
-  Delete Selected: 'hautatutakoa ezabatu'
-  Add Selected To Profile: 'Hautatutakoa profilera gehitu'
+  Delete Selected: 'Ezabatu hautatutakoa'
+  Add Selected To Profile: 'Gehitu hautatutakoa profilera'
   No channel(s) have been selected: 'Kanal bat ere ez da hautatu'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
   : 'Hau da zure profil nagusia. Ziur al zaude hautatutako kanalak ezabatu nahi dituzula? Kanal hauek ageri diren profil guztietan ezabatuko dira.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Ziur al zaude hautatutako kanalak ezabatu nahi dituzula? Honek ez du kanala beste profil batetik ezabatuko.'
 #On Channel Page
   Profile Settings: Profila
-  Close Profile Dropdown: Itxi goitibeherako profila
-  Open Profile Dropdown: Ireki goitibeherako profila
+  Close Profile Dropdown: Itxi profilen goitibeherakoa
+  Open Profile Dropdown: Ireki profilen goitibeherakoa
   Toggle Profile List: Aldatu profilen zerrenda
-  Edit Profile Name: Editatu profilaren izena
-  Create Profile Name: Sortu profilaren izena
-  Profile Name: Profilaren izena
+  Edit Profile Name: Editatu profil-izena
+  Create Profile Name: Sortu profil-izena
+  Profile Name: Profil-izena
 Channel:
   Subscribe: 'Harpidetu'
-  Unsubscribe: 'Harpidetza kendu'
-  Channel has been removed from your subscriptions: 'kanala zure harpidetzetatik kendu da'
+  Unsubscribe: 'Kendu harpidetza'
+  Channel has been removed from your subscriptions: 'Kanala zure harpidetzetatik kendu da'
   Removed subscription from {count} other channel(s): 'Harpidetza beste {count} kanaletatik ezabatu da'
   Added channel to your subscriptions: 'Kanala zure harpidetzetara gehitu da'
   Search Channel: 'Kanala bilatu'
@@ -913,7 +913,7 @@ Share:
 Mini Player: 'Erreproduzitzaile txikia'
 Comments:
   Comments: 'Iruzkinak'
-  Click to View Comments: 'Klikatu iruzkinak ikustearren'
+  Click to View Comments: 'Egin klik iruzkinak ikusteko'
   Getting comment replies, please wait: 'Iruzkinen erantzunak eskuratzen. Itxaron mesedez'
   There are no more comments for this video: 'Ez dago iruzkin gehiagorik bideo honentzat'
   Hide Comments: 'Iruzkinak ezkutatu'
