@@ -254,7 +254,7 @@ Settings:
     Auto Load Next Page:
       Tooltip: Kargatu orri eta iruzkin gehigarriak automatikoki.
       Label: Kargatu automatikoki hurrengo orria
-    Open Deep Links In New Window: Ireki FreeTube-ra pasatu diren URLak leiho berri batean
+    Open Deep Links In New Window: Ireki FreeTubera pasatu diren URLak leiho berri batean
     Minimize to system tray: Minimizatu sistemaren erretiluan
   Theme Settings:
     Theme Settings: 'Gaia'
@@ -567,7 +567,7 @@ Settings:
     Region: 'Eskualdea'
     City: 'Hiria'
     Error getting network information. Is your proxy configured properly?: 'Errore bat gertatu da sareko informazioa eskuratzean. Zure proxy-a behar bezala konfiguratuta al dago?'
-    Proxy Warning: FreeTube-k ez du proxy-rik, baina kanpoko proxy batera konekta daiteke, adibidez, zure makinan Tor gisa exekutatzen den bat edo kanpoko proxy bat, VPN batzuek emandako proxy bat bezala. Aktibatuta badago, ziurtatu proxy/Tor behar bezala konfiguratuta dagoela, edo FreeTube-k ezingo du daturik lortu.
+    Proxy Warning: FreeTubek ez du proxy-rik, baina kanpoko proxy batera konekta daiteke, adibidez, zure makinan Tor gisa exekutatzen den bat edo kanpoko proxy bat, VPN batzuek emandako proxy bat bezala. Aktibatuta badago, ziurtatu proxy/Tor behar bezala konfiguratuta dagoela, edo FreeTubek ezingo du daturik lortu.
     Proxy Username: Proxy-aren erabiltzailea
     Proxy Password: Proxy-aren pasahitza
   External Player Settings:
@@ -692,7 +692,7 @@ Channel:
   Channel has been removed from your subscriptions: 'Kanala zure harpidetzetatik kendu da'
   Removed subscription from {count} other channel(s): 'Harpidetza beste {count} kanaletatik ezabatu da'
   Added channel to your subscriptions: 'Kanala zure harpidetzetara gehitu da'
-  Search Channel: 'Kanala bilatu'
+  Search Channel: 'Bilatu kanalean'
   Your search results have returned 0 results: 'Zure bilaketak 0 emaitza lortu ditu'
   Videos:
     Videos: 'Bideoak'
@@ -702,8 +702,8 @@ Channel:
       Oldest: 'Zaharrenak'
       Most Popular: 'Jarraituenak'
   Playlists:
-    Playlists: 'Erreprodukzio zerrendak'
-    This channel does not currently have any playlists: 'Kanal honek ez du erreprodukzio zerrendarik'
+    Playlists: 'Erreprodukzio-zerrendak'
+    This channel does not currently have any playlists: 'Kanal honek ez du erreprodukzio-zerrendarik'
     Sort Types:
       Last Video Added: 'Gehitutako azken bideoak'
       Newest: 'Berrienak'
@@ -719,18 +719,18 @@ Channel:
       Search for: Bilatu "{tag}"
     Details: Xehetasunak
   This channel does not exist: Kanal hau ez da existitzen
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: Kanal hau adin mugatuta dago eta une honetan ezin da ikusi FreeTube-n.
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Kanal hau adin mugatuta dago eta une honetan ezin da ikusi FreeTuben.
   Shorts:
     This channel does not currently have any shorts: Une honetan kanal honek ez du bideo laburrik
   Releases:
     This channel does not currently have any releases: Une honetan kanal honek ez du argitalpenik
     Releases: Argitalpenak
   Posts:
-    Hide Answers: Erantzunak ezkutatu
-    votes: '{votes} bozka'
+    Hide Answers: Ezkutatu erantzunak
+    votes: '{votes} boto'
     This channel currently does not have any posts: Une honetan kanal honek ez du argitalpenik
-    Reveal Answers: Erantzunak agerian utzi
-    Video hidden by FreeTube: FreeTube-k ezkutatutako bideoa
+    Reveal Answers: Erakutsi erantzunak
+    Video hidden by FreeTube: FreeTubek ezkutatutako bideoa
     View Full Post: Ikusi mezu osoa
     Viewing Posts Only Supported By Invidious: Argitalpenak ikustea Invidious-ek soilik onartzen du. Zoaz kanal baten komunitatearen fitxara bertan edukia ikusteko Invidious gabe.
   Channel Tabs: Kanalaren fitxak
@@ -743,45 +743,45 @@ Channel:
     This channel does not currently have any podcasts: Une honetan kanal honek ez du podcastik
   Home:
     Home: Menu nagusia
-    View Playlist: Ikusi Erreprodukzio zerrenda
+    View Playlist: Ikusi erreprodukzio-zerrenda
   Courses:
     Courses: Ikastaroak
     This channel does not currently have any courses: Une honetan kanal honek ez du ikastarorik
 Video:
   Mark As Watched: 'Ikusitako gisa jarri'
-  Remove From History: 'Historikotik ezabatu'
+  Remove From History: 'Ezabatu historikotik'
   Video has been marked as watched: 'Bideoa ikusia gisa ezarri da'
-  Video has been removed from your history: 'Bideoa zure historikotik ezabatu egin da'
+  Video has been removed from your history: 'Bideoa zure historikotik ezabatu da'
   Save Video: 'Gorde bideoa'
   Video has been saved: 'Bideoa ongi gorde da'
   Video has been removed from your saved list: 'Bideoa gordetakoen zerrendatik kendu da'
-  Open in YouTube: 'Youtuben ireki'
-  Copy YouTube Link: 'Youtube-ren esteka kopiatu'
-  Open YouTube Embedded Player: 'Youtuberen erreproduzitzaile integratua ireki'
-  Copy YouTube Embedded Player Link: 'Youtuberen erreproduzitzaile integratuaren esteka kopiatu'
-  Open in Invidious: 'Invidious-en ireki'
-  Copy Invidious Link: 'Invidious-en esteka kopiatu'
-  Open Channel in YouTube: 'Kanala Youtube-n ireki'
-  Copy YouTube Channel Link: 'Youtubeko kanalaren esteka kopiatu'
-  Open Channel in Invidious: 'Kanala Invidious-en ireki'
-  Copy Invidious Channel Link: 'Invidious-eko kanalaren esteka kopiatu'
+  Open in YouTube: 'Ireki Youtuben'
+  Copy YouTube Link: 'Kopiatu Youtuberen esteka'
+  Open YouTube Embedded Player: 'Ireki Youtuberen erreproduzitzaile integratua'
+  Copy YouTube Embedded Player Link: 'Kopiatu Youtuberen erreproduzitzaile integratuaren esteka'
+  Open in Invidious: 'Ireki Invidiousen'
+  Copy Invidious Link: 'Kopiatu Invidiousen esteka'
+  Open Channel in YouTube: 'Ireki kanala Youtuben'
+  Copy YouTube Channel Link: 'Kopiatu Youtubeko kanalaren esteka'
+  Open Channel in Invidious: 'Ireki kanala Invidiousen'
+  Copy Invidious Channel Link: 'Kopiatu Invidiouseko kanalaren esteka'
   Views: 'Ikustaldiak'
-  Loop Playlist: 'etengabeko erreprodukzio zerrenda'
-  Shuffle Playlist: 'Nahasketa erreprodukzio zerrenda'
-  Reverse Playlist: 'Alderantzizko erreprodukzio zerrenda'
+  Loop Playlist: 'Erreprodukzio-zerrenda begiztan'
+  Shuffle Playlist: 'Erreprodukzio-zerrendaren nahastea'
+  Reverse Playlist: 'Erreprodukzio-zerrenda alderantziz'
   Previous: 'Aurrekoa'
   Next: 'Hurrengoa'
   Watched: 'Ikusitakoak'
   Autoplay: 'Automatikoki ikusi'
-  Starting soon, please refresh the page to check again: 'Laster hasiko da, mesedez, freskatu orria berriro egiaztatzeko'
+  Starting soon, please refresh the page to check again: 'Laster hasiko da, freskatu orria berriro egiaztatzeko'
   # As in a Live Video
   Live: 'Zuzenekoak'
   Live Now: 'Uneko zuzenekoak'
   Live Chat: 'Zuzenekoaren txata'
-  Enable Live Chat: 'Zuzeneko txata aktibatu'
+  Enable Live Chat: 'Gaitu zuzeneko txata'
   Live Chat is currently not supported in this build.: 'Zuzeneko txata ez da oraindik onartzen konpilazio honetan.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Zuzeneko txata gaituta dago. Txat-mezuak bidalitakoan hemen agertuko dira.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Zuzeneko txata ez da onartzen Invidious APIarekin. Beharrezkoa da  YouTube-ra zuzenean konektatzea.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Zuzeneko txata ez da onartzen Invidious APIarekin. Beharrezkoa da  YouTubera zuzenean konektatzea.'
   Published:
     In less than a minute: Minutu bat baino gutxiagoan
   Published on: 'Noiz argitaratua'
@@ -790,40 +790,40 @@ Video:
 #& Videos
   External Player:
     Unsupported Actions:
-      opening playlists: erreprodukzio zerrendak irekitzen
-      shuffling playlists: erreprodukzio zerrendak nahasten
-      setting a playback rate: erreprodukzio tasa ezarri
-      reversing playlists: erreprodukzio zerrendak alderantzizkatzen
-      starting video at offset: hasierako bideoa offset moduan
+      opening playlists: erreprodukzio-zerrendak irekitzen
+      shuffling playlists: erreprodukzio-zerrendak nahasten
+      setting a playback rate: erreprodukzio-tasa ezartzen
+      reversing playlists: erreprodukzio-zerrendak alderantzizkatzen
+      starting video at offset: bideoa desplazamenduarekin abiarazten
       opening specific video in a playlist (falling back to opening the video): erreprodukzio zerrenda batean bideoa irekitzen (bideoa berriz ere irekitzen)
-      looping playlists: erreprodukzio zerrendak etengabe erreproduzitzen
-    OpenInTemplate: '{externalPlayer}-an irekia'
+      looping playlists: erreprodukzio-zerrendak begiztan erreproduzitzen
+    OpenInTemplate: 'Ireki {externalPlayer} erreproduzitzailean'
     video: bideoa
     OpeningTemplate: '{videoOrPlaylist} irekitzen {externalPlayer}-an...'
     UnsupportedActionTemplate: '{externalPlayer}-k ez du onartzen: {action}'
-    playlist: erreprodukzio zerrenda
+    playlist: erreprodukzio-zerrenda
   Sponsor Block category:
     music offtopic: Gaiaz kanpoko musika
     interaction: Elkarrekintza
     sponsor: Babeslea
     outro: Bukaera
     self-promotion: Autosustapena
-    recap: Laburpen
+    recap: Laburpena
     filler: Betegarria
     intro: Sarrera
-  Hide Channel: Kanala ezkutatu
-  Unhide Channel: Kanala erakutsi
+  Hide Channel: Ezkutatu kanala
+  Unhide Channel: Erakutsi kanala
   Premieres: Estreinaldiak
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Zuzeneko txata ez dago erabilgarri zuzeneko honentzat. Baliteke igo duenak desgaitu izana.
   Show Super Chat Comment: Erakutsi Super txat iruzkina
   More Options: Aukera gehiago
   Upcoming: Datozenak
-  Scroll to Bottom: Joan Beherantz
+  Scroll to Bottom: Joan beheraino
   Player:
     Stats:
-      Media Formats: 'Multimediaren formatuak: {formats}'
+      Media Formats: 'Multimedia-formatuak: {formats}'
       Stats: Estatistikak
-      Video ID: 'Bideoaren ID: {videoId}'
+      Video ID: 'Bideoaren IDa: {videoId}'
       Bandwidth: 'Banda-zabalera: {bandwidth} kbps'
       Buffered: 'Bufferrean: {bufferedPercentage}%'
       CodecAudio: 'Kodeka: {audioCodec} ({audioItag})'
@@ -831,7 +831,7 @@ Video:
       Volume: 'Bolumena: {volumePercentage}%'
       CodecsVideoAudio: 'Kodekak: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       Resolution: 'Bereizmena: {width}x{height}{''@''}{frameRate}'
-      Player Dimensions: 'Erreproduzigailuaren neurriak: {width}x{height}'
+      Player Dimensions: 'Erreproduzitzailearen neurriak: {width}x{height}'
       Bitrate: 'Bit-emaria: {bitrate} kbps'
       CodecsVideoAudioNoItags: 'Kodekak: {videoCodec} / {audioCodec}'
     Show Stats: Erakutsi estatistikak
@@ -848,21 +848,21 @@ Video:
     Full Window: Leiho osoa
     Autoplay is off: Autoerreprodukzioa desaktibatuta dago
     Autoplay is on: Autoerreprodukzioa aktibatuta dago
-  MembersOnly: Kideentzat baino ez diren bideoak ezin dira FreeTube-rekin ikusi, Googleren saioa hastea eta eduki sortzailearen kanalari ordaindutako bazkidetza eskatzen baitute.
-  Unlisted: Zerrendatugabeak
-  AgeRestricted: Adin muga duten bideoak ezin dira FreeTube-rekin ikusi, Googlen saioa hasi eta adinak egiaztatutako YouTube-ko kontu bat erabili behar delako.
+  MembersOnly: Kideentzat baino ez diren bideoak ezin dira FreeTuberekin ikusi, Googleren saioa hastea eta eduki sortzailearen kanalari ordaindutako bazkidetza eskatzen baitute.
+  Unlisted: Zerrendatu gabeak
+  AgeRestricted: Adin muga duten bideoak ezin dira FreeTuberekin ikusi, Googlen saioa hasi eta adinak egiaztatutako YouTubeko kontu bat erabili behar delako.
   IP block: YouTubek bideoak ikusteko zure IP helbidea blokeatu du. Mesedez, saiatu VPN edo proxy desberdin batera aldatzen.
   DeArrow:
     Show Original Details: Erakutsi jatorrizko xehetasunak
     Show Modified Details: Erakutsi aldatutako xehetasunak
-  DRMProtected: DRM babestutako bideoak ezin dira erreproduzitu FreeTube-n, kode itxiko osagai jabedunak behar baitituzte. Bideo hau ikusi nahi baduzu, ikusi YouTube webgune ofizialean DRM gaituta duen web arakatzaile batean.
+  DRMProtected: DRM babestutako bideoak ezin dira erreproduzitu FreeTuben, kode itxiko osagai jabedunak behar baitituzte. Bideo hau ikusi nahi baduzu, ikusi YouTube webgune ofizialean DRM gaituta duen web arakatzaile batean.
 #& Playlists
   Save Watched Progress: Gorde ikusitako aurrerapena
   Watched Progress Saved: Ikusitako aurrerapena gordeta
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Aurre-iragarkiaren gainerako denbora: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'SABR atzerapen denbora geratzen da: {remindingTimeSeconds}s'
-  Popout Live Chat: Txata agerrarazi
+  Popout Live Chat: Erakutsi txata
 Playlist:
   #& About
   View Full Playlist: 'Ikusi erreprodukzio-zerrenda osoa'
@@ -885,30 +885,30 @@ Playlist:
     PublishedNewest: Argitaratutako dataren arabera (Berriena)
     PublishedOldest: Argitaratutako dataren arabera (Zaharrena)
 Change Format:
-  Change Media Formats: 'Bideoen formatuak aldatu'
-  Use Dash Formats: 'DASH formatuak erabili'
-  Use Legacy Formats: 'Legacy formatuak erabili'
-  Use Audio Formats: 'Audio formatuak erabili'
-  Dash formats are not available for this video: 'DASH formatuak ez dira eskuragarri bideo honentzat'
-  Audio formats are not available for this video: 'Audio formatuak ez dira eskuragarri bideo honentzat'
+  Change Media Formats: 'Aldatu multimedia-formatuak'
+  Use Dash Formats: 'Erabili DASH formatuak'
+  Use Legacy Formats: 'Erabili formatu zaharrak'
+  Use Audio Formats: 'Erabili audio-formatuak'
+  Dash formats are not available for this video: 'DASH formatuak ez daude eskuragarri bideo honentzat'
+  Audio formats are not available for this video: 'Audio-formatuak ez daude eskuragarri bideo honentzat'
   Legacy formats are not available for this video: Formatu zaharrak ez daude bideo honetarako erabilgarri
 Share:
-  Share Video: 'Bideoa partekatu'
-  Share Playlist: 'Erreprodukzio-zerrenda partekatu'
-  Include Timestamp: 'Timestamp erantsi'
-  Copy Link: 'Esteka kopiatu'
-  Open Link: 'Esteka ireki'
+  Share Video: 'Partekatu bideoa'
+  Share Playlist: 'Partekatu erreprodukzio-zerrenda'
+  Include Timestamp: 'Erantsi denbora-zigilua'
+  Copy Link: 'Kopiatu esteka'
+  Open Link: 'Ireki esteka'
   Copy Embed: 'Kopiatu integratuta'
-  Open Embed: 'Integratuta ireki'
+  Open Embed: 'Ireki integratuta'
   # On Click
-  Invidious URL copied to clipboard: 'Invidious-eko URL-a arbelean itsatsi da'
-  Invidious Embed URL copied to clipboard: 'Invidious-eko URL integratua arbelera itsatsi da'
-  Invidious Channel URL copied to clipboard: 'Invidious-eko kanalaren URL-a arbelera itsatsi da'
-  YouTube URL copied to clipboard: 'Youtube-ko URL-a arbelean itsatsi da'
-  YouTube Embed URL copied to clipboard: 'Youtube-ko URL integratua arbelean itsatsi da'
-  YouTube Channel URL copied to clipboard: 'Youtube-ko kanalaren URL-a arbelean itsatsi da'
+  Invidious URL copied to clipboard: 'Invidiousen URLa arbelean kopiatu da'
+  Invidious Embed URL copied to clipboard: 'Invidiousen URL integratua arbelera kopiatu da'
+  Invidious Channel URL copied to clipboard: 'Invidiousen kanalaren URLa arbelera kopiatu da'
+  YouTube URL copied to clipboard: 'Youtuberen URLa arbelean kopiatu da'
+  YouTube Embed URL copied to clipboard: 'Youtuberen URL integratua arbelean kopiatu da'
+  YouTube Channel URL copied to clipboard: 'Youtuberen kanalaren URLa arbelean kopiatu da'
 
-  Share Channel: Kanala partekatu
+  Share Channel: Partekatu kanala
   Share Post: Partekatu argitalpena
 Mini Player: 'Erreproduzitzaile txikia'
 Comments:
@@ -916,14 +916,14 @@ Comments:
   Click to View Comments: 'Egin klik iruzkinak ikusteko'
   Getting comment replies, please wait: 'Iruzkinen erantzunak eskuratzen. Itxaron mesedez'
   There are no more comments for this video: 'Ez dago iruzkin gehiagorik bideo honentzat'
-  Hide Comments: 'Iruzkinak ezkutatu'
+  Hide Comments: 'Ezkutatu iruzkinak'
   Top comments: 'Iruzkin nagusiak'
   Newest first: 'Berrienak lehenik'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'Ez da iruzkin eskuragarririk bideo honentzat'
-  Load More Comments: 'Iruzkin gehiago kargatu'
-  Member: Kide
-  Show More Replies: Erantzun gehiago erakutsi
+  Load More Comments: 'Kargatu iruzkin gehiago'
+  Member: Kidea
+  Show More Replies: Erakutsi erantzun gehiago
   Pinned by: Honengatik ainguratuta
   Hearted: Bihotzez
   View {replyCount} replies: Ikusi erantzun 1 | Ikusi {replyCount} erantzun
@@ -937,28 +937,28 @@ Up Next: 'Hurrengoa'
 #Tooltips
 Tooltips:
   General Settings:
-    Preferred API Backend: 'Aukeratu FreeTubek datuak lortzeko erabiltzen duen backend-a. Tokiko APIa integratutako erauzgailua da. Invidious APIak Invidious zerbitzari bat behar du konektatzeko.'
+    Preferred API Backend: 'Aukeratu FreeTubek datuak lortzeko erabiltzen duen motorra. Tokiko APIa integratutako erauzgailua da. Invidious APIak Invidious zerbitzari bat behar du konektatzeko.'
     Fallback to Non-Preferred Backend on Failure: 'Zure hobetsitako APIak arazoren bat duenean, FreeTube automatikoki saiatuko da hobetsi ez den APIa erabiltzen ordezko metodo gisa, posible denean.'
-    Thumbnail Preference: 'FreeTube-ko miniatura guztiak bideoaren fotograma batekin ordezkatuko dira, lausotuta edo ezkutatuta, lehenetsitako miniaturaren ordez.'
-    Invidious Instance: 'API deientzat Individious-eko instantzia, zeinetara Freetube konektatuko den.'
+    Thumbnail Preference: 'FreeTubeko miniatura guztiak bideoaren fotograma batekin ordezkatuko dira, lausotuta edo ezkutatuta, lehenetsitako miniaturaren ordez.'
+    Invidious Instance: 'API deietan Freetube konektatuko den Individious instantzia.'
     Region for Trending: 'Joeren eskualdeak aukera ematen dizu bistaratu nahi dituzun herrialdeko joerako bideoak hautatzeko.'
-    External Link Handling: "Lehenetsitako portaera hautatu, Freetube-n ireki ezin den esteka bat klikatua izan denean.\nLehentasunez, Freetube-k lehenetsitako nabigatazailean irekiko du klikatutako esteka.\n"
-    Open Deep Links In New Window: FreeTube-ra pasatzen diren URLak, birbideratzeko arakatzailearen luzapenek edo komando-lerroko argumentuek, leiho berri batean irekiko dira.
+    External Link Handling: "Lehenetsitako portaera hautatu, Freetuben ireki ezin den esteka bat klikatua izan denean.\nLehentasunez, Freetubek lehenetsitako nabigatazailean irekiko du klikatutako esteka.\n"
+    Open Deep Links In New Window: FreeTubera pasatzen diren URLak, birbideratzeko arakatzailearen luzapenek edo komando-lerroko argumentuek, leiho berri batean irekiko dira.
   Player Settings:
-    Proxy Videos Through Invidious: 'Bideoak hornitzeko Invidious-era konektatuko da, YouTube-ra zuzeneko konexioa egin beharrean.'
+    Proxy Videos Through Invidious: 'Bideoak hornitzeko Invidiousera konektatuko da, YouTubera zuzeneko konexioa egin beharrean.'
     Default Video Format: 'Ezarri bideo bat erreproduzitzean erabiliko diren formatuak. DASH formatuek kalitate handiagoak erreproduzi ditzakete. Legatu diren formatuek gehienez 360p-ra mugatuta daude, baina banda-zabalera gutxiago erabiltzen dute. Audio formatuak audio-jarioak soilik dira.'
-    Scroll Playback Rate Over Video Player: Kursorea bideoaren gainean denean, kontrol tekla sakatu eta mantendu (Komando tekla MAC-etan) eta saguaren gurpila aurrera eta atzera mugiarazi erreprodukzio tasa kontrolatzeko. Kontrol tekla sakatu eta mantendu (Komando tekla MAC-etan) eta ondoren saguaren ezkerreko botoia sakatu, lehenetsitako erreprodukzio tasara itzultzeko (1x baldin eta ezarpenetan aldaketarik egin ez bada).
+    Scroll Playback Rate Over Video Player: Kursorea bideoaren gainean denean, kontrol tekla sakatu eta mantendu (Komando tekla MACetan) eta saguaren gurpila aurrera eta atzera mugiarazi erreprodukzio tasa kontrolatzeko. Kontrol tekla sakatu eta mantendu (Komando tekla MACetan) eta ondoren saguaren ezkerreko botoia sakatu, lehenetsitako erreprodukzio tasara itzultzeko (1x baldin eta ezarpenetan aldaketarik egin ez bada).
     Skip by Scrolling Over Video Player: Erabili korritze-gurpila bideoa saltatzeko, MPV estiloa.
   Subscription Settings:
-    Fetch Feeds from RSS: 'Gaituta dagoenean, FreeTube-k RSS erabiliko du bere metodo lehenetsiaren ordez zure harpidetza-jarioa lortzeko. RSS azkarragoa da eta IP blokeatzea eragozten du, baina ez du informazio jakin bat ematen, hala nola bideoaren iraupena, zuzeneko egoera edo argitalpenak'
-    Fetch Automatically: Gaituta dagoenean, FreeTube-k automatikoki eskuratuko du zure harpidetza-jarioa abiaraztean eta leiho berri bat irekitzen denean.
+    Fetch Feeds from RSS: 'Gaituta dagoenean, FreeTubek RSS erabiliko du bere metodo lehenetsiaren ordez zure harpidetza-jarioa lortzeko. RSS azkarragoa da eta IP blokeatzea eragozten du, baina ez du informazio jakin bat ematen, hala nola bideoaren iraupena, zuzeneko egoera edo argitalpenak'
+    Fetch Automatically: Gaituta dagoenean, FreeTubek automatikoki eskuratuko du zure harpidetza-jarioa abiaraztean eta leiho berri bat irekitzen denean.
 
 # Toast Messages
   External Player Settings:
-    Custom External Player Executable: Lehentasunez, Freetube-k uste izango du hautatutako kanpo erreproduzitzailea aurkitu dezakeela PATH ingurune aldagaiari esker. Beharrezkoa balitz, ohiko PATH-a ezarri ahalko litzateke.
+    Custom External Player Executable: Lehentasunez, Freetubek uste izango du hautatutako kanpo erreproduzitzailea aurkitu dezakeela PATH ingurune aldagaiari esker. Beharrezkoa balitz, ohiko PATHa ezarri ahalko litzateke.
     DefaultCustomArgumentsTemplate: "(Lehenetsia: '{defaultCustomArguments}')"
     Ignore Warnings: Jakinarazpenak kendu, uneko kanpo erreproduzitzaileak uneko ekintza onartzen ez duenean (esaterako, alderantzizko erreprodukzio zerrendak, etab.).
-    External Player: Kanpo erreproduzitzaile bat hautatuz gero, bideoa edo erreproduzkio zerrenda (posible bada) irekitzerakoan, ikono bat agertuko da miniaturan. Kontuz, Individious-en ezarpenek ez dituzte kanpo erreproduzitzaileak trabatzen.
+    External Player: Kanpo erreproduzitzaile bat hautatuz gero, bideoa edo erreproduzkio zerrenda (posible bada) irekitzerakoan, ikono bat agertuko da miniaturan. Kontuz, Individiousen ezarpenek ez dituzte kanpo erreproduzitzaileak trabatzen.
     Custom External Player Arguments: Komando-lerroko argumentu pertsonalizatuak, kanpoko erreproduzitzailera pasatzea nahi duzu.
     Ignore Default Arguments: Ez bidali argumentu lehenetsirik kanpoko erreproduzitzaileari bideoaren URLaz gain (adibidez, erreprodukzio-tasa, erreprodukzio-zerrendaren URLa, etab.). Argumentu pertsonalizatuak transmitituko dira oraindik.
   Distraction Free Settings:
@@ -971,21 +971,21 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowThumbnails: Ordeztu bideoaren miniaturak DeArrow-en miniaturaz.
     UseDeArrowTitles: Ordeztu bideoen izenburuak DeArrow-en erabiltzaileek bidalitako tituluekin.
-Local API Error (Click to copy): 'Tokiko API-ak huts egin du (klikatu kopiatzeko)'
-Invidious API Error (Click to copy): 'Individious-eko APIak huts egin du (klikatu kopiatzeko)'
-Falling back to Invidious API: 'Individious-eko APIra itzultzen'
+Local API Error (Click to copy): 'Tokiko APIak huts egin du (klikatu kopiatzeko)'
+Invidious API Error (Click to copy): 'Individious APIak huts egin du (klikatu kopiatzeko)'
+Falling back to Invidious API: 'Individious APIra itzultzen'
 Falling back to Local API: 'Tokiko APIra itzultzen'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Bideo hau ez dago erabilgarri, zenbait formatu eskas baitira. Honakoa zure herrialdean erabilgarri ez dagoelako gerta daiteke.'
 Loop is now disabled: 'Etengabeko erreprodukzioa desaktibatu egin da'
 Loop is now enabled: 'Etengabeko ereprodukzioa aktibatu egin da'
 Shuffle is now disabled: 'Erreprodukzioen nahasketak desaktibatu egin dira'
 Shuffle is now enabled: 'Erreprodukzioen nahasketak aktibatu egin dira'
-The playlist has been reversed: 'Erreprodukzio zerrenda alderantzizkatua izan da'
+The playlist has been reversed: 'Erreprodukzio-zerrenda alderantzizkatua izan da'
 Playing Next Video: 'Hurrengo bideoa erreproduzitzen'
 Playing Previous Video: 'Aurreko bideoa erreproduzitzen'
 Playing Next Video Interval: 'Denbora gutxi barru hurrengo bideoa erreproduzituko da. Klikatu deuseztatzeko. | Hurrengo bideoa {nextVideoInterval} segundu barru erreproduzitzen. Klikatu deuseztatzeko. | Hurrengo bideoa {nextVideoInterval} segundu barru erreproduzitzen. Klikatu deuseztatzeko.'
 Canceled next video autoplay: 'Hurrengo bideoa automatikoki erreproduzituko da'
-'The playlist has ended. Enable loop to continue playing': 'Erreprodukzio zerrenda bukatu da. Etengabeko erreprodukzioa aktibatu erreproduzitzen jarraitzeko'
+'The playlist has ended. Enable loop to continue playing': 'Erreprodukzio-zerrenda bukatu da. Etengabeko erreprodukzioa aktibatu erreproduzitzen jarraitzeko'
 
 Yes: 'Bai'
 No: 'Ez'
@@ -994,11 +994,11 @@ Search Bar:
   Remove: Kendu
 Are you sure you want to open this link?: Ziur al zaude esteka hau ireki nahi duzula?
 Open New Window: Ireki leiho berria
-Default Invidious instance has been set to {instance}: 'Lehenetsitako Individious-eko instantzia {instance} gisa ezarri da'
-Default Invidious instance has been cleared: Lehenetsitako Individious-eko instantzia ezabatu egin da
+Default Invidious instance has been set to {instance}: 'Lehenetsitako Individious instantzia {instance} gisa ezarri da'
+Default Invidious instance has been cleared: Lehenetsitako Individious instantzia ezabatu egin da
 External link opening has been disabled in the general settings: Kanpo estekak irekitzea desaktibatu egin da ezarpen orokorretan
-Unknown YouTube url type, cannot be opened in app: Youtube-ko url mota ezezaguna, ezin da aplikazioan ireki
-Screenshot Success: Pantaila-argazkia gode da
+Unknown YouTube url type, cannot be opened in app: Youtubeko URL mota ezezaguna, ezin da aplikazioan ireki
+Screenshot Success: Pantaila-argazkia gorde da
 Screenshot Error: Pantaila-argazkiak huts egin du. {error}
 New Window: Leiho berria
 Channels:
@@ -1012,8 +1012,8 @@ Preferences: Hobespenak
 Go to page: Joan {page}-ra
 Close Banner: Itxi iragarkia
 Age Restricted:
-  This channel is age restricted: Kanal hau adin mugatuta dago
-  This video is age restricted: Bideo hau adin mugatuta dago
+  This channel is age restricted: Kanal honek adin-muga du
+  This video is age restricted: Bideo honek adin-muga du
 Channel Unhidden: '{channel} kanalaren iragazkitik kendu da'
 Clipboard:
   Cannot access clipboard without a secure connection: Ezin da arbelera sartu konexio segururik gabe
@@ -1056,47 +1056,47 @@ Keys:
   arrowdown: Gezia behera
   alt: Alt
   ctrl: Ctrl
-  shift: Txanda
-  enter: Sartu
-  plus: Gehi
+  shift: Shift
+  enter: Enter
+  plus: Plus
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Right-click or hold to see history: Egin klik eskuineko botoiarekin edo mantendu sakatuta historia ikusteko
 Autoplay Interruption Timer: Erreprodukzio automatikoa bertan behera utzi da {autoplayInterruptionIntervalHours} orduz geldirik egon delako
 Description:
-  Collapse Description: Gutxiago erakutsi
+  Collapse Description: Erakutsi gutxiago
   Expand Description: '...gehiago'
 KeyboardShortcutPrompt:
   Skip by Tenths: Saltatu bideoa ehunekoaren arabera (3 jauzi iraupenaren %30era iristeko)
   New Window: Sortu leiho berri bat
-  Navigate to Settings: Nabigatu Ezarpenak orrialdera
-  Navigate to History: Nabigatu Historia orrialdera
+  Navigate to Settings: Nabigatu ezarpenen orrira
+  Navigate to History: Nabigatu historiaren orrira
   Refresh: Freskatu jarioa azken edukiarekin
-  Volume Down: Bolumena jaitsi
-  Small Rewind: Birbobinatu X segundo Atzerako tartean eta uneko bideo-erreprodukzio-tasaren arabera
-  Small Fast Forward: Aurrera egin X segundo Atzerako tartean eta uneko bideo-erreprodukzio-tasaren arabera
-  Last Chapter: Azken Atala
-  Next Chapter: Hurrengo Atala
-  Captions: Txandakatu ON/OFF epigrafeak
+  Volume Down: Jaitsi bolumena
+  Small Rewind: Birbobinatu X segundo atzerako tartearen eta uneko bideo-erreprodukzioaren tasaren arabera
+  Small Fast Forward: Aurrera egin X segundo atzerako tartearen eta uneko bideo-erreprodukzioaren tasaren arabera
+  Last Chapter: Azken atala
+  Next Chapter: Hurrengo atala
+  Captions: Aktibatu/Desaktibatu epigrafeak
   Stats: Erakutsi bideoaren estatistikak
   Fullscreen: Aldatu pantaila osora
   History Forward: Egin orrialde bat aurrera
-  Focus Secondary Search: Bigarren mailako bilaketa-barran zentratu (bat badago)
+  Focus Secondary Search: Fokuratu bigarren mailako bilaketa-barran (bat badago)
   Play: Txandakatu erreproduzitu/gelditu
   Large Fast Forward: Egin aurrera 10 segundo / Egin aurrera bideoa egungo bideoaren erreprodukzio tasan oinarrituta
   Large Rewind: Birbobinatu 10 segundo / Birbobinatu bideoa uneko bideo-erreprodukzio tasan oinarrituta
   Full Window: Aldatu leiho osora
   Theatre Mode: Aldatu antzerki modura
-  Decrease Video Speed: Murriztu bideoaren abiadura bideoaren erreprodukzio-tasa-tartearen arabera
-  Increase Video Speed: Handitu bideoaren abiadura bideoaren erreprodukzio tasaren tartean oinarrituta
+  Decrease Video Speed: Murriztu bideoaren abiadura bideoaren erreprodukzio-tasaren tartearen arabera
+  Increase Video Speed: Handitu bideoaren abiadura bideoaren erreprodukzio-tasaren tartearen arabera
   Search in New Window: Bilatu leiho berrian
   Last Frame: Aurreko fotograma (geldituta dagoen bitartean)
   Next Frame: Hurrengo fotograma (geldituta dagoen bitartean)
-  Volume Up: Bolumena igo
-  Toggle Developer Tools: Aldatu garatzailearen tresnak
+  Volume Up: Igo bolumena
+  Toggle Developer Tools: Txandakatu garatzailearen tresnak
   Reset Zoom: Berrezarri zoom maila / Erabiltzaile Interfazearen eskala
-  Zoom In: Zoom-a handitu
-  Zoom Out: Zoom-a txikitu
+  Zoom In: Handiagotu
+  Zoom Out: Txikiagotu
   Focus Search: Fokuratu bilaketa-barran
   Keyboard Shortcuts: Teklatuko laster-bideak
   Sections:
@@ -1106,16 +1106,16 @@ KeyboardShortcutPrompt:
     App:
       Situational: 'App: Egoera mailakoa'
       General: 'App: Orokorra'
-  Picture in Picture: Aldatu irudian-irudian modura
-  Mute: Aldatu mutu
+  Picture in Picture: Aldatu irudiz irudiko modura
+  Mute: Aldatu mututasuna
   Take Screenshot: Hartu pantaila-argazkia
   Minimize Window: Minimizatu leihoa
   Close Window: Itxi leihoa
   Show Keyboard Shortcuts: Erakutsi teklatuko laster-bideak
   History Backward: Egin orrialde bat atzera
-  Home: Bideoaren hasierara joan
-  End: Bilatu bideoaren amaierara
-  Skip to Next Video: Joan erreprodukzio-zerrendaren hurrengo bideora edo hurrengo gomendatutako bideora
+  Home: Joan bideoaren hasierara
+  End: Bilatu bideoaren amaierarantz
+  Skip to Next Video: Joan erreprodukzio-zerrendaren hurrengo bideora edo gomendatutako hurrengo bideora
   Skip to Previous Video: Joan erreprodukzio-zerrendaren aurreko bideora
 shortcutLabelSeparator: ｜
 Compact side navigation: Trinkotu alboko nabigazioa
