@@ -159,7 +159,7 @@ const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-u
 const visible = ref(props.initialVisibleState)
 
 const inUserPlaylist = props.playlistType === 'user'
-const canBecomeDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom)
+const canBecomeDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom && (props.canMoveVideoUp || props.canMoveVideoDown))
 const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
 const draggableEventHandlers = {
   dragstart: onDragVideo,

@@ -161,7 +161,7 @@ const props = defineProps({
 const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
 
 const inUserPlaylist = props.playlistType === 'user'
-const isDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom)
+const isDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom && (props.canMoveVideoUp || props.canMoveVideoDown))
 const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
 const draggableEventHandlers = {
   dragstart: onDragVideo,
