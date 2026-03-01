@@ -39,33 +39,15 @@
   cursor: grab;
 }
 
-.draggable:not(.draggable:only-child):focus .grabBar,
-.draggable:not(.draggable:only-child):hover .grabBar {
+.draggable:not(.draggable:only-child) .videoIndexArea {
+  display: grid;
+  place-content: center;
+  grid-auto-rows: min-content;
+}
+
+.draggable:not(.draggable:only-child) .grabBar {
   display: revert;
-}
-
-.draggable:not(.draggable:only-child):focus .videoIndex,
-.draggable:not(.draggable:only-child):hover .videoIndex {
-  display: none;
-}
-
-/* If touch screen device, always show grab bar. */
-@media (hover: none) {
-  .draggable:not(.draggable:only-child) .videoIndexArea {
-    display: grid;
-    place-content: center;
-    grid-auto-rows: min-content;
-  }
-
-  .draggable:not(.draggable:only-child) .grabBar {
-    display: revert;
-    order: 2;
-  }
-
-  .draggable:not(.draggable:only-child):focus .videoIndex,
-  .draggable:not(.draggable:only-child):hover .videoIndex {
-    display: revert;
-  }
+  order: 2;
 }
 
 .videoIndexIcon {
