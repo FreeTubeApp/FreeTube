@@ -144,6 +144,7 @@ const localizedShortcutNameToShortcutsMappings = computed(() => {
     [t('KeyboardShortcutPrompt.Volume Down'), ['VOLUME_DOWN']],
     [t('KeyboardShortcutPrompt.Take Screenshot'), ['TAKE_SCREENSHOT']],
     [t('KeyboardShortcutPrompt.Stats'), ['STATS']],
+    [t('KeyboardShortcutPrompt.Unskip Sponsor Block'), ['UNSKIP_SPONSOR_BLOCK']],
 
     [t('KeyboardShortcutPrompt.Play'), ['PLAY']],
     [t('KeyboardShortcutPrompt.Large Rewind'), ['LARGE_REWIND']],
