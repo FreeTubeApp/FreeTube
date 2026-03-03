@@ -2305,7 +2305,7 @@ export default defineComponent({
       }
 
       switch (event.key.toLowerCase()) {
-        case 'enter': {
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.UNSKIP_SPONSOR_BLOCK: {
           if (skippedSponsorBlockSegments.value.length > 0) {
             event.preventDefault()
             const segment = skippedSponsorBlockSegments.value[skippedSponsorBlockSegments.value.length - 1]
