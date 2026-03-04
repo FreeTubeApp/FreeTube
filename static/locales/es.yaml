@@ -118,7 +118,7 @@ User Playlists:
     Search in Playlists: Buscar en listas de reproducción
     Save: Guardar
     Toast:
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Video(s) agregado(s) a 1 lista de reproducción | Video(s) agregado(s) a {playlistCount} listas de reproducción"
       You haven't selected any playlist yet.: Aún no has seleccionado ninguna lista de reproducción.
     Select a playlist to add your N videos to: Seleccione una lista de reproducción a la que añadir su vídeo | Seleccione una lista de reproducción a la que añadir sus {videoCount} vídeos
     N playlists selected: '{playlistCount} seleccionada'
@@ -150,13 +150,13 @@ User Playlists:
     Search for Videos: Buscar vídeos
   Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro de que quieres borrar esta lista de reproducción? Esto no se puede deshacer.
   Sort By:
-    LatestPlayedFirst: Reproducido recientemente
-    EarliestCreatedFirst: Creado por primera vez
-    LatestCreatedFirst: Creado recientemente
-    EarliestUpdatedFirst: Última actualización
+    LatestPlayedFirst: Fecha de reproducción (Más reciente)
+    EarliestCreatedFirst: Fecha de Creación (Más antigua)
+    LatestCreatedFirst: Fecha de Creación (Más reciente)
+    EarliestUpdatedFirst: Fecha de Actualización (Más antigua)
     NameDescending: Z-A
-    EarliestPlayedFirst: Reproducido más recientemente
-    LatestUpdatedFirst: Actualizado recientemente
+    EarliestPlayedFirst: Fecha de Reproducción (Más antigua)
+    LatestUpdatedFirst: Fecha de Actualización (Más reciente)
     NameAscending: A-Z
   You have no playlists. Click on the create new playlist button to create a new one.: No tienes listas de reproducción. Haz clic en el botón Crear nueva lista de reproducción para crear una nueva.
   Remove from Playlist: Eliminar de la lista de reproducción
@@ -201,7 +201,7 @@ History:
   Search bar placeholder: Buscar en la historia
   Empty Search Message: No hay vídeos en tu historial que coincidan con tu búsqueda
   Case Sensitive Search: Búsqueda sensible a mayúsculas y minúsculas
-  DateOldestHistory: Vistos más antiguos primero
+  DateOldestHistory: Fecha de Visualización (Más antigua)
   DateNewestHistory: Vistos más recientes primero
 Settings:
   # On Settings Page
@@ -1097,3 +1097,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Salta al siguiente vídeo en la lista de reproducción o al siguiente vídeo recomendado
   Skip to Previous Video: Salta al vídeo anterior en la lista de reproducción
 shortcutLabelSeparator: ｜
+Compact side navigation: Navegación lateral compacta
+Expand side navigation: Expandir navegación lateral
