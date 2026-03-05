@@ -41,9 +41,7 @@ const getters = {
 function profileSort(a, b) {
   if (a._id === MAIN_PROFILE_ID) return -1
   if (b._id === MAIN_PROFILE_ID) return 1
-  if (a.name < b.name) return -1
-  if (a.name > b.name) return 1
-  return 0
+  return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' })
 }
 
 const actions = {
