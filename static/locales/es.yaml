@@ -202,7 +202,7 @@ History:
   Empty Search Message: No hay vídeos en tu historial que coincidan con tu búsqueda
   Case Sensitive Search: Búsqueda sensible a mayúsculas y minúsculas
   DateOldestHistory: Fecha de Visualización (Más antigua)
-  DateNewestHistory: Vistos más recientes primero
+  DateNewestHistory: Fecha de visualización (Más reciente)
 Settings:
   # On Settings Page
   Settings: 'Ajustes'
@@ -275,6 +275,7 @@ Settings:
       Everforest Light Hard: Everforest Claro Intenso
       Everforest Light Medium: Everforest Claro Medio
       Everforest Light Low: Everforest Claro Suave
+      Catppuccin Latte: Capuchino con leche
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -360,6 +361,8 @@ Settings:
       Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
       Catppuccin Frappe Pink: Catppuccin Frappe Rosa
       Catppuccin Frappe Mauve: Catppuccin Frappe Malva
+      Catppuccin Latte Mauve: Capuchino con leche malva
+      Catppuccin Latte Red: Capuchino con leche rojo
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de IU
@@ -491,6 +494,12 @@ Settings:
       Tooltip: "Esta opción exporta vídeos de todas las listas de reproducción a una lista de reproducción llamada \"Favoritos\".\nCómo exportar e importar vídeos en las listas de reproducción para una versión antigua de FreeTube:\n1. Exporta tus listas de reproducción con esta opción activada.\n2. Elimine todas sus listas de reproducción existentes utilizando la opción Eliminar todas las listas de reproducción en Configuración de privacidad.\n3. Inicia la versión anterior de FreeTube e importa las listas de reproducción exportadas.\""
       Label: Exportar listas de reproducción de versiones anteriores de FreeTube
 
+    Search history file: Archivo de historial de búsqueda
+    Search history: historial de búsqueda
+    Import search history: Importar historial de búsqueda
+    Export search history: Exportar historial de búsqueda
+    All search history has been successfully imported: Todo el historial de búsqueda se ha importado correctamente
+    All search history has been successfully exported: Todo el historial de búsqueda se ha exportado correctamente
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Ocultar «likes» y «dislikes» de vídeos
     Hide Video Views: Ocultar las vistas del vídeo
