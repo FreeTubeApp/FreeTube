@@ -108,6 +108,7 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     user_agent: navigator.userAgent,
 
     retrieve_player: !!withPlayer,
+    player_id: '9f4cc5e4',
     location: location,
     enable_safety_mode: !!safetyMode,
     client_type: clientType,
