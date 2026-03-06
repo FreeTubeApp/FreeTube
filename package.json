@@ -44,11 +44,13 @@
     "pack:main": "webpack --mode=production --node-env=production --config _scripts/webpack.main.config.js",
     "pack:renderer": "webpack --mode=production --node-env=production --config _scripts/webpack.renderer.config.js",
     "pack:preload": "webpack --mode=production --node-env=production --config _scripts/webpack.preload.config.js",
+    "pack:tests": "run-p pack:main-tests pack:renderer pack:preload pack:botGuardScript && node _scripts/injectAllowedPaths.mjs",
+    "pack:main-tests": "webpack --mode=production --node-env=production --env \"IS_TESTS=true\" --config _scripts/webpack.main.config.js",
     "pack:web": "webpack --mode=production --node-env=production --config _scripts/webpack.web.config.js",
     "pack:botGuardScript": "webpack --config _scripts/webpack.botGuardScript.config.js",
     "checkforbadtemplates": "node _scripts/findMissingTemplates.mjs",
     "ci": "yarn install --silent --frozen-lockfile --network-concurrency 1",
-    "test:playwright": "run-s pack test:playwright-nopack",
+    "test:playwright": "run-s pack:tests test:playwright-nopack",
     "test:playwright-nopack": "playwright test"
   },
   "dependencies": {
