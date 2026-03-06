@@ -58,7 +58,19 @@ function invidiousAPICall({ resource, id = '', params = {}, doLogError = true, s
   return new Promise((resolve, reject) => {
     const requestUrl = getCurrentInstanceUrl() + '/api/v1/' + resource + '/' + id + (!isNullOrEmpty(subResource) ? `/${subResource}` : '') + '?' + new URLSearchParams(params).toString()
     invidiousFetch(requestUrl)
-      .then((response) => response.json())
+      .then(async (response) => {
+        const responseText = await response.text()
+
+        if (!response.ok) {
+          throw new Error(responseText || `${response.status}: ${response.statusText}`)
+        }
+
+        try {
+          return JSON.parse(responseText)
+        } catch {
+          throw new Error(responseText || 'Invalid response from Invidious instance')
+        }
+      })
       .then((json) => {
         if (json.error !== undefined) {
           // community is empty, no need to display error.
