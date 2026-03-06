@@ -692,21 +692,26 @@ function parseUserPlaylist(playlist) {
 
 function shufflePlaylistItems() {
   // Prevents the array from affecting the original object
-  const remainingItems = [].concat(playlistItems.value)
-  const items = []
+  const items = playlistItems.value.slice()
+
+  let cachedCurrentVideo
 
   if (currentVideo.value != null) {
-    items.push(currentVideo.value)
-    remainingItems.splice(currentVideoIndexZeroBased.value, 1)
+    cachedCurrentVideo = items.splice(currentVideoIndexZeroBased.value, 1)
     // There is no else case
     // If current video is absent in (removed from) the playlist, nothing should be changed
   }
 
-  while (remainingItems.length > 0) {
-    const randomInt = Math.floor(Math.random() * remainingItems.length)
+  for (let i = items.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1))
 
-    items.push(remainingItems[randomInt])
-    remainingItems.splice(randomInt, 1)
+    const temp = items[i]
+    items[i] = items[j]
+    items[j] = temp
+  }
+
+  if (cachedCurrentVideo !== undefined) {
+    items.unshift(cachedCurrentVideo)
   }
 
   randomizedPlaylistItems.value = items
