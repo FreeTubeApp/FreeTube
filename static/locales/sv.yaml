@@ -959,7 +959,7 @@ Tooltips:
     Default Video Format: Ställ in de format som används när en video spelas upp. DASH-format kan spela högre kvaliteter. Äldre format är begränsade till max 360p men använder mindre bandbredd. Ljudformat är endast ljudströmmningar.
     Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att hämta videor istället för att göra en direkt anslutning till YouTube.
     Skip by Scrolling Over Video Player: Använd scrollhjulet för att snabbspola igenom videon, MPV stil.
-    Scroll Playback Rate Over Video Player: När muspekaren är över videon, håll nere CTRL (Kommandotangenten på Mac) och skrolla upp och ner för att ändra uppspelningshastigheten. Håll nere CTRL (Kommandotangenten på Mac) och vänsterklicka för att återställa till standardhastighet (1x såvida det inte ändrats i spelarinställningar).
+    Scroll Playback Rate Over Video Player: Medan markören är över videon, håll ner Ctrl-tangenten (Kommandotangenten på Mac) och skrolla mushjulet framåt eller bakåt för att styra uppspelningshastigheten. Håll ner Ctrl-tangenten (Kommandotangenten på Mac) och vänsterklicka med musen för att snabbt återgå till standarduppspelningshastigheten (1x om den inte har ändrats i inställningarna).
   General Settings:
     Region for Trending: Med trenderegionen kan du välja vilket lands trendiga videor du vill ska visas.
     Invidious Instance: Invidious-instansen som FreeTube kommer att ansluta till för API-anrop.
@@ -988,7 +988,7 @@ Tooltips:
 More: Mer
 Open New Window: Öppna nytt fönster
 Playing Next Video Interval: Spelar strax nästa video. Klicka för att stoppa. | Spelar nästa video om {nextVideoInterval} sekunder. Klicka för att stoppa. | Spelar nästa video om {nextVideoInterval} sekunder. Klicka för att stoppa.
-Unknown YouTube url type, cannot be opened in app: Okänd YouTube URL, kan inte öppnas i programmet
+Unknown YouTube url type, cannot be opened in app: Okänd YouTube-urltyp, kan inte öppnas i appen
 Default Invidious instance has been cleared: Standard Invidious-instans har rensats
 Default Invidious instance has been set to {instance}: Standard Invidious-instans har ställts in på {instance}
 External link opening has been disabled in the general settings: Öppning av externa länkar har inaktiverats i de allmänna inställningarna

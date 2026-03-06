@@ -1108,6 +1108,6 @@ KeyboardShortcutPrompt:
   End: Преминаване към края на видеото
   Skip to Next Video: Преминаване към следващото видео в плейлиста или към следващото препоръчано
   Skip to Previous Video: Преминаване към предходното видео в плейлиста
-shortcutLabelSeparator: '|'
+shortcutLabelSeparator: '{''|''}'
 Compact side navigation: Компактна странична навигация
 Expand side navigation: Разширена странична навигация
