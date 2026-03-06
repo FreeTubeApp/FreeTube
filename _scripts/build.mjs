@@ -37,9 +37,5 @@ if (platform === 'darwin') {
   targets = Platform.LINUX.createTarget(['deb', 'zip', '7z', 'rpm', 'AppImage', 'pacman'], arch)
 }
 
-try {
-  const output = await build({ targets, config, publish: 'never' })
-  console.log(output)
-} catch (error) {
-  console.error(error)
-}
+const output = await build({ targets, config, publish: 'never' })
+console.log(output)
