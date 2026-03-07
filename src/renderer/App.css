@@ -19,7 +19,6 @@
 .banner {
   inline-size: 85%;
   margin-inline: auto;
-  margin-block-start: -2px;
 }
 
 .banner + .banner {
