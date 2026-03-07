@@ -812,7 +812,7 @@ export default defineComponent({
       }
 
       /** @type {string[]} */
-      let elementList = []
+      let elementList
 
       if (onlyUseOverFlowMenu.value) {
         uiConfig.overflowMenuButtons = [

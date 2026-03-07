@@ -1647,10 +1647,10 @@ export default defineComponent({
      * @param {Intl.DisplayNames} languageNames
      */
     generateAudioTrackFieldInvidious: function (format, languageNames) {
-      let type = ''
+      let type
 
       // use the same id numbers as YouTube (except -1, when we aren't sure what it is)
-      let idNumber = ''
+      let idNumber
 
       if (format.is_descriptive) {
         type = ' descriptive'
