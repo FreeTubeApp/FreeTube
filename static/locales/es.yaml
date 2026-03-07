@@ -876,8 +876,8 @@ Playlist:
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Título (A-Z)
     VideoTitleDescending: Título (Z-A)
-    VideoDurationAscending: Duración (primero la más corta)
-    VideoDurationDescending: Duración (la más larga primero)
+    VideoDurationAscending: Duración (Más corta)
+    VideoDurationDescending: Duración (más larga)
     PublishedNewest: Fecha de publicación (Más reciente)
     PublishedOldest: Fecha de publicación (Más antigua)
 Change Format:
@@ -904,6 +904,7 @@ Share:
   YouTube Channel URL copied to clipboard: Se copió el URL del canal de YouTube en el portapapeles
   Invidious Channel URL copied to clipboard: Se copió el URL al canal de Invidious en el portapapeles
   Share Channel: Compartir el canal
+  Share Post: Compartir Publicación
 Mini Player: 'Minirreproductor'
 Comments:
   Comments: 'Comentarios'
@@ -920,11 +921,12 @@ Comments:
   Pinned by: Fijado por
   Member: Miembro
   Hearted: Corazón
-  View {replyCount} replies: Ver {replyCount} respuestas
+  View {replyCount} replies: Ver 1 respuesta | Ver {replyCount} respuestas
   Subscribed: Suscrito
   There are no comments available for this post: No hay comentarios disponibles para este tema
   View 1 reply from {channelName}: Ver 1 respuesta de {channelName}
   View {replyCount} replies from {channelName} and others: Ver {replyCount} respuesta de {channelName} y otros
+  Hide {replyCount} replies: Ocultar 1 respuesta | Ocultar {replyCount} respuestas
 Up Next: 'A continuación'
 
 # Toast Messages
