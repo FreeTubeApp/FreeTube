@@ -6,6 +6,7 @@
     "syler.sass-indented",
     "redhat.vscode-yaml",
     "vue.volar",
-    "eamodio.gitlens"
+    "eamodio.gitlens",
+    "ms-playwright.playwright"
   ]
 }

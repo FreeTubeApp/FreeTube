@@ -34,8 +34,8 @@
     "lint-all": "run-p lint lint-json",
     "lint": "run-p eslint-lint lint-style",
     "lint-fix": "run-p eslint-lint-fix lint-style-fix",
-    "eslint-lint": "eslint --config eslint.config.mjs \"src/**/*.js\" \"src/renderer/**/*.vue\" \"static/*.js\" \"_scripts/*.js\" \"_scripts/**/*.mjs\"",
-    "eslint-lint-fix": "eslint --config eslint.config.mjs --fix \"src/**/*.js\" \"src/renderer/**/*.vue\" \"static/*.js\" \"_scripts/*.js\" \"_scripts/**/*.mjs\"",
+    "eslint-lint": "eslint --config eslint.config.mjs \"src/**/*.js\" \"src/renderer/**/*.vue\" \"static/*.js\" \"_scripts/*.js\" \"_scripts/**/*.mjs\" \"tests/**/*.mjs\"",
+    "eslint-lint-fix": "eslint --config eslint.config.mjs --fix \"src/**/*.js\" \"src/renderer/**/*.vue\" \"static/*.js\" \"_scripts/*.js\" \"_scripts/**/*.mjs\" \"tests/**/*.mjs\"",
     "lint-json": "eslint --config eslint.config.mjs \"static/**/*.json\"",
     "lint-style": "stylelint \"src/**/*.{css,scss}\"",
     "lint-style-fix": "stylelint --fix \"src/**/*.{css,scss}\"",
@@ -44,10 +44,14 @@
     "pack:main": "webpack --mode=production --node-env=production --config _scripts/webpack.main.config.js",
     "pack:renderer": "webpack --mode=production --node-env=production --config _scripts/webpack.renderer.config.js",
     "pack:preload": "webpack --mode=production --node-env=production --config _scripts/webpack.preload.config.js",
+    "pack:tests": "run-p pack:main-tests pack:renderer pack:preload pack:botGuardScript && node _scripts/injectAllowedPaths.mjs",
+    "pack:main-tests": "webpack --mode=production --node-env=production --env \"IS_TESTS=true\" --config _scripts/webpack.main.config.js",
     "pack:web": "webpack --mode=production --node-env=production --config _scripts/webpack.web.config.js",
     "pack:botGuardScript": "webpack --config _scripts/webpack.botGuardScript.config.js",
     "checkforbadtemplates": "node _scripts/findMissingTemplates.mjs",
-    "ci": "yarn install --silent --frozen-lockfile --network-concurrency 1"
+    "ci": "yarn install --silent --frozen-lockfile --network-concurrency 1",
+    "test:playwright": "run-s pack:tests test:playwright-nopack",
+    "test:playwright-nopack": "playwright test"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
@@ -72,11 +76,13 @@
     "youtubei.js": "^16.0.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.0",
     "@double-great/stylelint-a11y": "^3.4.5",
     "@eslint/js": "^10.0.1",
     "@intlify/eslint-plugin-vue-i18n": "^4.3.0",
+    "@playwright/test": "^1.58.2",
     "@stylistic/eslint-plugin": "^5.10.0",
     "babel-loader": "^10.0.0",
     "copy-webpack-plugin": "^14.0.0",
@@ -89,6 +95,7 @@
     "eslint-plugin-jsdoc": "^62.7.1",
     "eslint-plugin-jsonc": "^3.1.1",
     "eslint-plugin-n": "^17.24.0",
+    "eslint-plugin-playwright": "^2.5.1",
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-unicorn": "^63.0.0",
     "eslint-plugin-vue": "^10.8.0",
