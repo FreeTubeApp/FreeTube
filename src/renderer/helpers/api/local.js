@@ -1578,6 +1578,8 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
 
       /** @type {YTNodes.ThumbnailOverlayBadgeView | undefined} */
       const thumbnailOverlayBadgeView = lockupView.content_image?.overlays?.firstOfType(YTNodes.ThumbnailOverlayBadgeView)
+      const metadataRows = lockupView.metadata.metadata?.metadata_rows ?? []
+      const metadataParts = metadataRows.flatMap((row) => row?.metadata_parts ?? [])
 
       if (thumbnailOverlayBadgeView) {
         if (thumbnailOverlayBadgeView.badges.some(badge => badge.badge_style === 'THUMBNAIL_OVERLAY_BADGE_STYLE_LIVE')) {
@@ -1585,8 +1587,13 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         } else if (thumbnailOverlayBadgeView.badges.some(badge => badge.text.toLowerCase() === 'upcoming')) {
           isUpcoming = true
 
-          if (lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.[1].text?.text) {
-            premiereDate = new Date(lockupView.metadata.metadata.metadata_rows[1].metadata_parts[1].text.text)
+          const premiereDateText = metadataParts.find((part) => {
+            const text = part.text?.text
+            return text && !isNaN(Date.parse(text))
+          })?.text?.text
+
+          if (premiereDateText) {
+            premiereDate = new Date(premiereDateText)
           }
         } else {
           const durationBadge = thumbnailOverlayBadgeView.badges.find(badge => /^[\d:]+$/.test(badge.text))
@@ -1595,13 +1602,13 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
             lengthSeconds = Utils.timeToSeconds(durationBadge.text)
           }
 
-          publishedText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
+          publishedText = metadataParts.find(part => part.text?.text?.endsWith('ago'))?.text?.text
         }
       }
 
       let viewCount = null
 
-      const viewsText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.find(part => {
+      const viewsText = metadataParts.find(part => {
         return part.text?.text && VIEWS_OR_WATCHING_REGEX.test(part.text.text)
       })?.text?.text
 
