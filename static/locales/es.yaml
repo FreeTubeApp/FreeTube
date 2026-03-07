@@ -637,6 +637,9 @@ About:
   Beta: Beta
   Discussions: Debates
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Licenciado bajo {licenseLink}
+  Please read the {roomRulesLink}: Por favor, lea el {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube es posible gracias a {creditsPageLink}
 Profile:
   All Channels: 'Todos los canales'
   Profile Manager: 'Administrador de perfiles'
@@ -852,6 +855,10 @@ Video:
   DRMProtected: Los videos restringidos con DRM no pueden reproducirse en FreeTube, dado que requieren componentes propietarias de fuente cerrada. Si desea ver este video, por favor véalo en la página oficial de YouTube con un buscador que tenga DRM habilitado.
   Watched Progress Saved: Progreso de visualización guardado
   Save Watched Progress: Guardar progreso de visualización
+  Popout Live Chat: Chat popout
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Tiempo restante previo al anuncio: {remindingTimeSeconds} s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tiempo restante de retroceso de SABR: {remindingTimeSeconds} s'
 Playlist:
   #& About
   View Full Playlist: 'Ver la lista de reproducción completa'
@@ -863,16 +870,16 @@ Playlist:
   Playlist: Lista de reproducción
   Sort By:
     Custom: Personalizado
-    DateAddedNewest: Último añadido primero
-    DateAddedOldest: Primeros añadidos primero
+    DateAddedNewest: Fecha de adición (Más reciente)
+    DateAddedOldest: Fecha de adición (Más antigua)
     AuthorAscending: Autor (A-Z)
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Título (A-Z)
     VideoTitleDescending: Título (Z-A)
     VideoDurationAscending: Duración (primero la más corta)
     VideoDurationDescending: Duración (la más larga primero)
-    PublishedNewest: Presentar primero los últimos publicados
-    PublishedOldest: Presentar primero los primeramente publicados
+    PublishedNewest: Fecha de publicación (Más reciente)
+    PublishedOldest: Fecha de publicación (Más antigua)
 Change Format:
   Change Media Formats: 'Cambiar formato de vídeo'
   Use Dash Formats: 'Utilizar formatos DASH'
