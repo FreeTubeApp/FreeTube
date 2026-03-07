@@ -5,7 +5,6 @@ import intlifyVueI18N from '@intlify/eslint-plugin-vue-i18n'
 import globals from 'globals'
 import vueEslintParser from 'vue-eslint-parser'
 import js from '@eslint/js'
-import jsoncEslintParser from 'jsonc-eslint-parser'
 import eslintPluginJsonc from 'eslint-plugin-jsonc'
 import eslintPluginYml from 'eslint-plugin-yml'
 import jsdoc from 'eslint-plugin-jsdoc'
@@ -236,7 +235,7 @@ export default [
   js.configs.recommended,
   ...eslintPluginVue.configs['flat/recommended'],
   ...vuejsAccessibility.configs["flat/recommended"],
-  ...intlifyVueI18N.configs['recommended'],
+  ...intlifyVueI18N.configs.recommended,
   {
     files: [
       '**/*.{js,vue}',
@@ -344,16 +343,12 @@ export default [
     }
   },
 
-  ...eslintPluginJsonc.configs['flat/base'],
+  ...eslintPluginJsonc.configs.base,
   {
     files: ['**/*.json'],
     ignores: [
       '_scripts/',
     ],
-
-    languageOptions: {
-      parser: jsoncEslintParser,
-    },
 
     rules: {
       '@stylistic/no-tabs': 'off',
