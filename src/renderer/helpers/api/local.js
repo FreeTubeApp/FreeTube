@@ -1664,13 +1664,12 @@ function parseListItem(item, channelId, channelName) {
       /** @type {import('youtubei.js').YTNodes.GridChannel} */
       const channel = item
       let subscribers = null
-      let videos = null
 
       if (channel.subscribers?.text) {
         subscribers = parseLocalSubscriberCount(channel.subscribers.text)
       }
 
-      videos = extractNumberFromString(channel.video_count.text)
+      const videos = extractNumberFromString(channel.video_count.text)
 
       return {
         type: 'channel',

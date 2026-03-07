@@ -1381,13 +1381,9 @@ function runApp() {
       return
     }
 
-    let currentPath = (await baseHandlers.settings._findOne('screenshotFolderPath'))?.value
+    const currentPath = (await baseHandlers.settings._findOne('screenshotFolderPath'))?.value
 
     await chooseDefaultFolder(event.sender, currentPath)
-
-    if (typeof currentPath !== 'string' || currentPath.length === 0) {
-      currentPath = app.getPath('pictures')
-    }
   })
 
   ipcMain.handle(IpcChannels.WRITE_TO_DEFAULT_FOLDER, async (event, filename, arrayBuffer) => {
@@ -1436,6 +1432,7 @@ function runApp() {
     } catch (error) {
       console.error('WRITE_TO_DEFAULT_FOLDER failed', error)
       // throw a new error so that we don't expose the real error to the renderer
+      // eslint-disable-next-line preserve-caught-error
       throw new Error('Failed to save')
     }
 
