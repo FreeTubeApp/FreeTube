@@ -25,11 +25,11 @@
   margin-block-start: 20px;
 }
 
-body:has(.floatingRefreshSection) .banner {
+:has(.floatingRefreshSection) .banner {
   margin-block: 40px 0;
 }
 
-body:has(.floatingRefreshSection) .banner + .banner {
+:has(.floatingRefreshSection) .banner + .banner {
   margin-block-start: 20px;
 }
 
@@ -70,33 +70,33 @@ body:has(.floatingRefreshSection) .banner + .banner {
 
 @media only screen and (width <= 680px) {
   .routerView {
-    margin-block: 34px;
+    margin-block: 22px;
     margin-inline: 8px;
   }
   
   .routerView:has(.floatingRefreshSection) {
+    margin-block: 62px;
+  }
+
+  .routerView:has(.floatingRefreshSection):has(.banner) {
     margin-block: 68px;
   }
 
   .banner-wrapper + .routerView:has(.floatingRefreshSection) {
-    margin-block: 34px;
+    margin-block: 24px;
   }
 
   .banner {
     inline-size: 90%;
-    margin-block-start: 34px;
+    margin-block-start: 21px;
   }
 
-  .banner + .banner {
-    margin-block-start: 34px;
-  }
-
-  body:has(.floatingRefreshSection) .banner {
-    margin-block-start: 68px;
+  :has(.floatingRefreshSection) .banner {
+    margin-block-start: 56px;
   }
   
-  body:has(.floatingRefreshSection) .banner + .banner {
-    margin-block-start: 34px;
+  .banner + .banner {
+    margin-block-start: 20px;
   }
 
   .flexBox {
