@@ -18,12 +18,16 @@
 
 .banner {
   inline-size: 85%;
-  margin-block: 40px 0;
   margin-inline: auto;
+  margin-block-start: -2px;
 }
 
 .banner + .banner {
   margin-block: 20px;
+}
+
+body:has(.floatingRefreshSection) .banner {
+  margin-block: 40px 0;
 }
 
 .banner-wrapper {
