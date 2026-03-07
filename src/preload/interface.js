@@ -224,6 +224,13 @@ export default {
   },
 
   /**
+   * @param {number} action
+   * @param {any} [data]
+   */
+  dbSubscriptionPlaylistCache: (action, data) => {
+    return ipcRenderer.invoke(IpcChannels.DB_SUBSCRIPTION_PLAYLIST_CACHE, data ? { action, data } : { action })
+  },
+  /**
    * @param {(route: string) => void} handler
    */
   handleChangeView: (handler) => {
@@ -312,6 +319,15 @@ export default {
    */
   handleSyncSubscriptionCache: (handler) => {
     ipcRenderer.on(IpcChannels.SYNC_SUBSCRIPTION_CACHE, (_, { event, data }) => {
+      handler(event, data)
+    })
+  },
+
+  /**
+   * @param {(event: number, data: any) => void} handler
+   */
+  handleSyncSubscriptionPlaylistCache: (handler) => {
+    ipcRenderer.on(IpcChannels.SYNC_SUBSCRIPTION_PLAYLIST_CACHE, (_, { event, data }) => {
       handler(event, data)
     })
   }

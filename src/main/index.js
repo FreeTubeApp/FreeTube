@@ -1769,6 +1769,24 @@ function runApp() {
           )
           return null
 
+        case DBActions.PROFILES.ADD_PLAYLIST:
+          await baseHandlers.profiles.addPlaylistToProfiles(data.list, data.profileIds)
+          syncOtherWindows(
+            IpcChannels.SYNC_PROFILES,
+            event,
+            { event: SyncEvents.PROFILES.ADD_PLAYLIST, data }
+          )
+          return null
+
+        case DBActions.PROFILES.REMOVE_PLAYLIST:
+          await baseHandlers.profiles.removePlaylistFromProfiles(data.listId, data.profileIds)
+          syncOtherWindows(
+            IpcChannels.SYNC_PROFILES,
+            event,
+            { event: SyncEvents.PROFILES.REMOVE_PLAYLIST, data }
+          )
+          return null
+
         case DBActions.PROFILES.ADD_CHANNEL:
           await baseHandlers.profiles.addChannelToProfiles(data.channel, data.profileIds)
           syncOtherWindows(
@@ -2051,6 +2069,53 @@ function runApp() {
         default:
           // eslint-disable-next-line no-throw-literal
           throw 'invalid subscriptionCache db action'
+      }
+    } catch (err) {
+      if (typeof err === 'string') throw err
+      else throw err.toString()
+    }
+  })
+
+  ipcMain.handle(IpcChannels.DB_SUBSCRIPTION_PLAYLIST_CACHE, async (event, { action, data }) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
+    try {
+      switch (action) {
+        case DBActions.GENERAL.FIND:
+          return await baseHandlers.subscriptionPlaylistCache.find()
+
+        case DBActions.SUBSCRIPTION_PLAYLIST_CACHE.UPDATE_VIDEOS_BY_PLAYLIST:
+          await baseHandlers.subscriptionPlaylistCache.updateVideosByPlaylistId(data.playlistId, data.entries, data.timestamp)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_PLAYLIST_CACHE,
+            event,
+            { event: SyncEvents.SUBSCRIPTION_PLAYLIST_CACHE.UPDATE_VIDEOS_BY_PLAYLIST, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE_MULTIPLE:
+          await baseHandlers.subscriptionPlaylistCache.deleteMultiplePlaylists(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_PLAYLIST_CACHE,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_MULTIPLE, data }
+          )
+          return null
+
+        case DBActions.GENERAL.DELETE_ALL:
+          await baseHandlers.subscriptionPlaylistCache.deleteAll()
+          syncOtherWindows(
+            IpcChannels.SYNC_SUBSCRIPTION_PLAYLIST_CACHE,
+            event,
+            { event: SyncEvents.GENERAL.DELETE_ALL, data }
+          )
+          return null
+
+        default:
+          // eslint-disable-next-line no-throw-literal
+          throw 'invalid subscriptionPlaylistCache db action'
       }
     } catch (err) {
       if (typeof err === 'string') throw err

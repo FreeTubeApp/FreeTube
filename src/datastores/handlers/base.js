@@ -137,6 +137,36 @@ class Profiles {
     return db.profiles.updateAsync({ _id: profile._id }, profile, { upsert: true })
   }
 
+  static addPlaylistToProfiles(list, profileIds) {
+    if (profileIds.length === 1) {
+      return db.profiles.updateAsync(
+        { _id: profileIds[0] },
+        { $push: { listSubscriptions: list } }
+      )
+    } else {
+      return db.profiles.updateAsync(
+        { _id: { $in: profileIds } },
+        { $push: { listSubscriptions: list } },
+        { multi: true }
+      )
+    }
+  }
+
+  static removePlaylistFromProfiles(listId, profileIds) {
+    if (profileIds.length === 1) {
+      return db.profiles.updateAsync(
+        { _id: profileIds[0] },
+        { $pull: { listSubscriptions: { id: listId } } }
+      )
+    } else {
+      return db.profiles.updateAsync(
+        { _id: { $in: profileIds } },
+        { $pull: { listSubscriptions: { id: listId } } },
+        { multi: true }
+      )
+    }
+  }
+
   static addChannelToProfiles(channel, profileIds) {
     if (profileIds.length === 1) {
       return db.profiles.updateAsync(
@@ -369,6 +399,28 @@ class SubscriptionCache {
   }
 }
 
+class SubscriptionPlaylistCache {
+  static find() {
+    return db.subscriptionPlaylistCache.findAsync({})
+  }
+
+  static updateVideosByPlaylistId(playlistId, entries, timestamp) {
+    return db.subscriptionPlaylistCache.updateAsync(
+      { _id: playlistId },
+      { $set: { videos: entries, timestamp: timestamp } },
+      { upsert: true }
+    )
+  }
+
+  static deleteMultiplePlaylists(playlistIds) {
+    return db.subscriptionPlaylistCache.removeAsync({ _id: { $in: playlistIds } }, { multi: true })
+  }
+
+  static deleteAll() {
+    return db.subscriptionPlaylistCache.removeAsync({}, { multi: true })
+  }
+}
+
 function loadDatastores() {
   return Promise.allSettled([
     db.settings.loadDatabaseAsync(),
@@ -377,6 +429,7 @@ function loadDatastores() {
     db.playlists.loadDatabaseAsync(),
     db.searchHistory.loadDatabaseAsync(),
     db.subscriptionCache.loadDatabaseAsync(),
+    db.subscriptionPlaylistCache.loadDatabaseAsync(),
   ])
 }
 
@@ -388,6 +441,7 @@ function compactAllDatastores() {
     db.playlists.compactDatafileAsync(),
     db.searchHistory.compactDatafileAsync(),
     db.subscriptionCache.compactDatafileAsync(),
+    db.subscriptionPlaylistCache.compactDatafileAsync(),
   ])
 }
 
@@ -398,6 +452,7 @@ export {
   Playlists as playlists,
   SearchHistory as searchHistory,
   SubscriptionCache as subscriptionCache,
+  SubscriptionPlaylistCache as subscriptionPlaylistCache,
 
   loadDatastores,
   compactAllDatastores,

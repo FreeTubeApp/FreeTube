@@ -26,7 +26,7 @@ import {
 } from '../helpers/utils'
 import { getInvidiousChannelLive, invidiousFetch } from '../helpers/api/invidious'
 import { getLocalChannelLiveStreams } from '../helpers/api/local'
-import { parseYouTubeRSSFeed, updateVideoListAfterProcessing } from '../helpers/subscriptions'
+import { parseYouTubeChannelRSSFeed, updateVideoListAfterProcessing } from '../helpers/subscriptions'
 
 const { t } = useI18n()
 
@@ -320,7 +320,7 @@ async function getChannelLiveLocalRSS(channel, failedAttempts = 0) {
       }
     }
 
-    return await parseYouTubeRSSFeed(await response.text(), channel.id)
+    return await parseYouTubeChannelRSSFeed(await response.text(), channel.id)
   } catch (error) {
     console.error(error)
     const errorMessage = t('Local API Error (Click to copy)')
@@ -417,7 +417,7 @@ async function getChannelLiveInvidiousRSS(channel, failedAttempts = 0) {
       }
     }
 
-    return await parseYouTubeRSSFeed(await response.text(), channel.id)
+    return await parseYouTubeChannelRSSFeed(await response.text(), channel.id)
   } catch (error) {
     console.error(error)
     const errorMessage = t('Invidious API Error (Click to copy)')

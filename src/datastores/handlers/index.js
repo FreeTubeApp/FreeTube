@@ -5,4 +5,5 @@ export {
   playlists as DBPlaylistHandlers,
   searchHistory as DBSearchHistoryHandlers,
   subscriptionCache as DBSubscriptionCacheHandlers,
+  subscriptionPlaylistCache as DBSubscriptionPlaylistCacheHandlers,
 } from 'DB_HANDLERS_ELECTRON_RENDERER_OR_WEB'
