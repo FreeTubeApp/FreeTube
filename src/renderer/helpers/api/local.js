@@ -1577,8 +1577,11 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       let premiereDate
 
       /** @type {YTNodes.ThumbnailOverlayBadgeView | undefined} */
+      /** @type {YTNodes.ThumbnailBottomOverlayView | undefined } */
       const thumbnailOverlayBadgeView = lockupView.content_image?.overlays?.firstOfType(YTNodes.ThumbnailOverlayBadgeView)
 
+      // New structure appears to use ThumbnailBottomOverlayView so we need to check for both
+      const thumbnailBottomOverlayView = lockupView.content_image?.overlays?.firstOfType(YTNodes.ThumbnailBottomOverlayView)
       if (thumbnailOverlayBadgeView) {
         if (thumbnailOverlayBadgeView.badges.some(badge => badge.badge_style === 'THUMBNAIL_OVERLAY_BADGE_STYLE_LIVE')) {
           liveNow = true
@@ -1593,6 +1596,21 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
 
           if (durationBadge) {
             lengthSeconds = Utils.timeToSeconds(durationBadge.text)
+          }
+        }
+      } else if (thumbnailBottomOverlayView) {
+        const badge = thumbnailBottomOverlayView?.badges?.[0]
+        if (badge) {
+          if (badge.badge_style === 'THUMBNAIL_OVERLAY_BADGE_STYLE_LIVE') {
+            liveNow = true
+          } else if (badge.text.toLowerCase() === 'upcoming') {
+            isUpcoming = true
+          } else {
+            const durationBadge = thumbnailBottomOverlayView.badges.find(badge => /^[\d:]+$/.test(badge.text))
+
+            if (durationBadge) {
+              lengthSeconds = Utils.timeToSeconds(durationBadge.text)
+            }
           }
         }
       }
