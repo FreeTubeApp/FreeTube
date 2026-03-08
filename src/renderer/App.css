@@ -25,6 +25,10 @@
   margin-block-start: 20px;
 }
 
+:has(:not(.floatingRefreshSection)) .banner {
+  margin-block: 0;
+}
+
 :has(.floatingRefreshSection) .banner {
   margin-block: 40px 0;
 }
@@ -76,6 +80,10 @@
   
   .routerView:has(.floatingRefreshSection) {
     margin-block: 62px;
+  }
+
+  :has(:not(.floatingRefreshSection)) {
+    margin-block: 22px;
   }
 
   .routerView:has(.floatingRefreshSection):has(.banner) {
