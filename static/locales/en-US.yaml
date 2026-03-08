@@ -673,6 +673,14 @@ Settings:
     Hide Uploader on Watch page: Hide Uploader on Watch page
     Show Family Friendly Only: Show Family Friendly Only
     Hide Search Bar: Hide Search Bar
+    Disable Channel Link on Videos : Disable Channel Link on Vidoes
+  Download Settings:
+    Download Settings: Download
+    Ask Download Path: Ask for download path
+    Choose Path: Choose Path
+    Download Behavior: Download Behavior
+    Download in app: Download in app
+    Open in web browser: Open in web browser
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
