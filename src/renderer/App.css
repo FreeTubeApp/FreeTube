@@ -70,7 +70,7 @@
 
 @media only screen and (width <= 680px) {
   .routerView {
-    margin-block: 22px;
+    margin-block: 22px 68px;
     margin-inline: 8px;
   }
   
