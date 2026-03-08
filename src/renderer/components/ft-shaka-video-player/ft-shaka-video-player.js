@@ -476,9 +476,10 @@ export default defineComponent({
     /**
      * Yes a map would be much more suitable for this (unlike objects they retain the order that items were inserted),
      * but Vue 2 doesn't support reactivity on Maps, so we have to use an array instead
-     * @type {import('vue').Ref<{uuid: string, translatedCategory: string, timeoutId: number}[]>}
+     * @type {import('vue').Ref<{uuid: string, translatedCategory: string, timeoutId: number, startTime: number, endTime: number, unskipped: boolean}[]>}
      */
     const skippedSponsorBlockSegments = ref([])
+    const ignoredSponsorBlockSegments = reactive(new Set())
 
     async function setupSponsorBlock() {
       let segments, averageDuration
@@ -508,6 +509,14 @@ export default defineComponent({
      * @param {number} currentTime
      */
     function skipSponsorBlockSegments(currentTime) {
+      skippedSponsorBlockSegments.value = skippedSponsorBlockSegments.value.filter(segment => {
+        if (segment.unskipped && (currentTime >= segment.endTime || currentTime < segment.startTime)) {
+          ignoredSponsorBlockSegments.delete(segment.uuid)
+          return false
+        }
+        return true
+      })
+
       const { autoSkip } = sponsorSkips.value
 
       if (autoSkip.size === 0) {
@@ -520,7 +529,7 @@ export default defineComponent({
       const skippedSegments = []
 
       sponsorBlockSegments.forEach(segment => {
-        if (autoSkip.has(segment.category) && currentTime < segment.endTime &&
+        if (!ignoredSponsorBlockSegments.has(segment.uuid) && autoSkip.has(segment.category) && currentTime < segment.endTime &&
           (segment.startTime <= currentTime ||
             // if we already have a segment to skip, check if there are any that are less than 150ms later,
             // so that we can skip them all in one go (especially useful on slow connections)
@@ -547,26 +556,47 @@ export default defineComponent({
       video_.currentTime = newTime
 
       if (sponsorBlockShowSkippedToast.value) {
-        skippedSegments.forEach(({ uuid, category }) => {
-          // if the element already exists, just update the timeout, instead of creating a duplicate
-          // can happen at the end of the video sometimes
+        skippedSegments.forEach(({ uuid, category, startTime, endTime }) => {
+          const removeSegment = () => {
+            const index = skippedSponsorBlockSegments.value.findIndex(skipped => skipped.uuid === uuid)
+            if (index !== -1) {
+              const segment = skippedSponsorBlockSegments.value[index]
+              clearTimeout(segment.timeoutId)
+              clearInterval(segment.intervalId)
+              skippedSponsorBlockSegments.value.splice(index, 1)
+            }
+            ignoredSponsorBlockSegments.delete(uuid)
+          }
+
           const existingSkip = skippedSponsorBlockSegments.value.find(skipped => skipped.uuid === uuid)
           if (existingSkip) {
             clearTimeout(existingSkip.timeoutId)
+            clearInterval(existingSkip.intervalId)
 
-            existingSkip.timeoutId = setTimeout(() => {
-              const index = skippedSponsorBlockSegments.value.findIndex(skipped => skipped.uuid === uuid)
-              skippedSponsorBlockSegments.value.splice(index, 1)
-            }, 2000)
+            existingSkip.timeLeft = 4
+            existingSkip.intervalId = setInterval(() => {
+              existingSkip.timeLeft--
+            }, 1000)
+            existingSkip.timeoutId = setTimeout(removeSegment, 4000)
           } else {
-            skippedSponsorBlockSegments.value.push({
+            const segmentObj = {
               uuid,
               translatedCategory: translateSponsorBlockCategory(category),
-              timeoutId: setTimeout(() => {
-                const index = skippedSponsorBlockSegments.value.findIndex(skipped => skipped.uuid === uuid)
-                skippedSponsorBlockSegments.value.splice(index, 1)
-              }, 2000)
-            })
+              startTime,
+              endTime,
+              unskipped: false,
+              timeLeft: 4,
+              intervalId: null,
+              timeoutId: null
+            }
+
+            skippedSponsorBlockSegments.value.push(segmentObj)
+            const reactiveSegmentObj = skippedSponsorBlockSegments.value.find(skipped => skipped.uuid === uuid)
+
+            reactiveSegmentObj.intervalId = setInterval(() => {
+              reactiveSegmentObj.timeLeft--
+            }, 1000)
+            reactiveSegmentObj.timeoutId = setTimeout(removeSegment, 4000)
           }
         })
       }
@@ -2275,6 +2305,28 @@ export default defineComponent({
       }
 
       switch (event.key.toLowerCase()) {
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.UNSKIP_SPONSOR_BLOCK: {
+          if (skippedSponsorBlockSegments.value.length > 0) {
+            event.preventDefault()
+            const segment = skippedSponsorBlockSegments.value[skippedSponsorBlockSegments.value.length - 1]
+            if (segment.unskipped) {
+              video_.currentTime = segment.endTime
+              const index = skippedSponsorBlockSegments.value.indexOf(segment)
+              if (index !== -1) {
+                skippedSponsorBlockSegments.value.splice(index, 1)
+              }
+              ignoredSponsorBlockSegments.delete(segment.uuid)
+            } else {
+              video_.currentTime = segment.startTime
+              segment.unskipped = true
+              clearTimeout(segment.timeoutId)
+              clearInterval(segment.intervalId)
+              segment.timeLeft = null
+              ignoredSponsorBlockSegments.add(segment.uuid)
+            }
+          }
+          break
+        }
         case ' ':
         case 'spacebar': // older browsers might return spacebar instead of a space character
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.PLAY:
@@ -3142,7 +3194,10 @@ export default defineComponent({
         navigator.mediaSession.playbackState = 'none'
       }
 
-      skippedSponsorBlockSegments.value.forEach(segment => clearTimeout(segment.timeoutId))
+      skippedSponsorBlockSegments.value.forEach(segment => {
+        clearTimeout(segment.timeoutId)
+        clearInterval(segment.intervalId)
+      })
 
       window.removeEventListener('online', onlineHandler)
       window.removeEventListener('offline', offlineHandler)
