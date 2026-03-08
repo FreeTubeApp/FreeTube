@@ -1594,9 +1594,10 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
           if (durationBadge) {
             lengthSeconds = Utils.timeToSeconds(durationBadge.text)
           }
-
-          publishedText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
         }
+      }
+      if (!liveNow && !isUpcoming) {
+        publishedText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
       }
 
       let viewCount = null
