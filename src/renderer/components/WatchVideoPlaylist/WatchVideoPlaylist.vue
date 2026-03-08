@@ -667,7 +667,6 @@ async function getPlaylistInformationInvidious() {
       getPlaylistInformationLocal()
     } else {
       isLoading.value = false
-      // TODO: Show toast with error message
     }
   }
 }
@@ -694,10 +693,10 @@ function shufflePlaylistItems() {
   // Prevents the array from affecting the original object
   const items = playlistItems.value.slice()
 
-  let cachedCurrentVideo
+  let cachedCurrentVideos
 
   if (currentVideo.value != null) {
-    cachedCurrentVideo = items.splice(currentVideoIndexZeroBased.value, 1)
+    cachedCurrentVideos = items.splice(currentVideoIndexZeroBased.value, 1)
     // There is no else case
     // If current video is absent in (removed from) the playlist, nothing should be changed
   }
@@ -710,8 +709,8 @@ function shufflePlaylistItems() {
     items[j] = temp
   }
 
-  if (cachedCurrentVideo !== undefined) {
-    items.unshift(cachedCurrentVideo)
+  if (cachedCurrentVideos && cachedCurrentVideos.length > 0) {
+    items.unshift(cachedCurrentVideos[0])
   }
 
   randomizedPlaylistItems.value = items
