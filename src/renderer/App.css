@@ -18,12 +18,23 @@
 
 .banner {
   inline-size: 85%;
-  margin-block: 40px 0;
   margin-inline: auto;
 }
 
 .banner + .banner {
-  margin-block: 20px;
+  margin-block-start: 20px;
+}
+
+:has(:not(.floatingRefreshSection)) .banner {
+  margin-block: 0;
+}
+
+:has(.floatingRefreshSection) .banner {
+  margin-block: 40px 0;
+}
+
+:has(.floatingRefreshSection) .banner + .banner {
+  margin-block-start: 20px;
 }
 
 .banner-wrapper {
@@ -63,13 +74,37 @@
 
 @media only screen and (width <= 680px) {
   .routerView {
-    margin-block: 68px;
+    margin-block: 22px 68px;
     margin-inline: 8px;
+  }
+  
+  .routerView:has(.floatingRefreshSection) {
+    margin-block: 62px;
+  }
+
+  :has(:not(.floatingRefreshSection)) {
+    margin-block: 22px;
+  }
+
+  .routerView:has(.floatingRefreshSection):has(.banner) {
+    margin-block: 68px;
+  }
+
+  .banner-wrapper + .routerView:has(.floatingRefreshSection) {
+    margin-block: 24px;
   }
 
   .banner {
     inline-size: 90%;
-    margin-block: 60px 0;
+    margin-block-start: 21px;
+  }
+
+  :has(.floatingRefreshSection) .banner {
+    margin-block-start: 56px;
+  }
+  
+  .banner + .banner {
+    margin-block-start: 20px;
   }
 
   .flexBox {
