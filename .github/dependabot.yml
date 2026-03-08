@@ -32,6 +32,15 @@ updates:
       fortawesome:
         patterns:
           - "@fortawesome/*"
+      webpack:
+        patterns:
+          - "css-loader"
+          - "mini-css-extract-plugin"
+          - "sass"
+          - "sass-loader"
+          - "webpack"
+          - "webpack-*"
+          - "*-webpack-plugin"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
