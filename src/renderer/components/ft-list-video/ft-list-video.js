@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue'
 import FtIconButton from '../FtIconButton/FtIconButton.vue'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { mapActions } from 'vuex'
 import {
   copyToClipboard,
@@ -18,7 +19,8 @@ import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 export default defineComponent({
   name: 'FtListVideo',
   components: {
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-awesome-icon': FontAwesomeIcon,
   },
   props: {
     data: {
@@ -82,6 +84,14 @@ export default defineComponent({
       default: false,
     },
     canRemoveFromPlaylist: {
+      type: Boolean,
+      default: false,
+    },
+    layout: {
+      type: String,
+      default: 'list',
+    },
+    showGrabBar: {
       type: Boolean,
       default: false,
     },
@@ -893,6 +903,14 @@ export default defineComponent({
 
     removeFromPlaylist: function() {
       this.$emit('remove-from-playlist', this.id, this.playlistItemId)
+    },
+
+    onDragStart(event) {
+      // Prevent drag event except links
+      if (event.target.nodeName === 'A') { return }
+
+      event.preventDefault()
+      event.stopPropagation()
     },
 
     ...mapActions([

@@ -6,8 +6,12 @@
     }"
     :class="{
       grid: layout === 'grid',
-      list: layout === 'list'
+      list: layout === 'list',
+      draggable: isDraggable,
+      draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId,
     }"
+    :draggable="isDraggable"
+    v-on="isDraggable ? draggableEventHandlers : {}"
   >
     <template
       v-if="visible"
@@ -25,6 +29,8 @@
         :can-move-video-up="canMoveVideoUp"
         :can-move-video-down="canMoveVideoDown"
         :can-remove-from-playlist="canRemoveFromPlaylist"
+        :layout="layout"
+        :show-grab-bar="isDraggable && layout === 'grid'"
         @move-video-up="moveVideoUp"
         @move-video-down="moveVideoDown"
         @remove-from-playlist="removeFromPlaylist"
@@ -57,6 +63,8 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+
+import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListChannel from '../FtListChannel/FtListChannel.vue'
@@ -136,9 +144,36 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  draggedVideo: {
+    type: Object,
+    default: () => ({ videoId: null, playlistItemId: null }),
+  },
+  isSortOrderCustom: {
+    type: Boolean,
+    default: false,
+  },
+  isVideoDragging: {
+    type: Boolean,
+    default: false,
+  },
 })
 
-const emit = defineEmits(['move-video-down', 'move-video-up', 'remove-from-playlist'])
+const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
+
+const inUserPlaylist = props.playlistType === 'user'
+const isDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom && (props.canMoveVideoUp || props.canMoveVideoDown))
+const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
+const draggableEventHandlers = {
+  dragstart: onDragVideo,
+  dragover: event => event.preventDefault(),
+  dragenter: () => {
+    if (props.isVideoDragging) {
+      moveDraggedVideo(videoData, props.draggedVideo)
+    }
+  },
+  dragend: afterDrag,
+  drop: event => event.preventDefault(),
+}
 
 /** @type {import('vue').ComputedRef<'video' | 'shortVideo' | 'channel' | 'playlist' | 'community'>} */
 const finalDataType = computed(() => {
@@ -294,6 +329,22 @@ function moveVideoDown(videoId, playlistItemId) {
 function removeFromPlaylist(videoId, playlistItemId) {
   emit('remove-from-playlist', videoId, playlistItemId)
 }
+
+function onDragVideo(event) {
+  // Only allow dragging via the drag bar
+  if (!event.target.classList.contains('draggable')) { return }
+
+  dragVideo(event, videoData)
+}
+
+/** @import { VideoData } from '../../helpers/dragAndDrop' */
+
+/** @type {VideoData} */
+const videoData = {
+  videoId: props.data.videoId,
+  playlistItemId: props.playlistItemId,
+}
+
 </script>
 
 <style scoped src="./FtListLazyWrapper.css" />

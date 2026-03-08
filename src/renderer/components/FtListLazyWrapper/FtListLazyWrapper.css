@@ -5,3 +5,12 @@
 .list {
   min-block-size: 131px;
 }
+
+.draggable:active {
+  cursor: grabbing;
+}
+
+.draggedVideo {
+  opacity: 0;
+  transition: 0.01s;
+}
