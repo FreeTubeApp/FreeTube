@@ -18,7 +18,7 @@ export class AutoplayToggle extends shaka.ui.Element {
     this.button_.classList.add('autoplay-toggle', 'shaka-tooltip')
 
     /** @private */
-    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.PAUSE_CIRCLE_FILLED)
+    this.icon_ = new shaka.ui.Icon(this.button_, PlayerIcons.PAUSE_CIRCLE_FILLED)
 
     const label = document.createElement('label')
     label.classList.add(

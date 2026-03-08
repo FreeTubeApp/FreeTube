@@ -238,12 +238,14 @@ class SabrManifestParser {
 
     const imageStreams = /** @__NOINLINE__ */ createImageStreams(manifestData.storyboards, presentationTimeline, currentId)
 
+    /** @type {shaka.extern.Manifest} */
     const manifest = {
       type: 'SABR',
       startTime: 0,
       variants,
       textStreams,
       imageStreams,
+      chapterStreams: [],
       presentationTimeline,
 
       gapCount: 0,
