@@ -50,9 +50,9 @@ export const handleDragAndDrop = (emit) => {
    * @type {MoveDraggedVideo}
    */
   const moveDraggedVideo = (video, draggedVideo) => {
-    const differentVideo = video.videoId !== draggedVideo.videoId
+    const differentPlaylistItem = video.videoId !== draggedVideo.videoId || video.playlistItemId !== draggedVideo.playlistItemId
 
-    if (differentVideo) {
+    if (differentPlaylistItem) {
       emit('move-dragged-video', video, draggedVideo)
     }
   }

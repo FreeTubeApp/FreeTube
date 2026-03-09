@@ -8,7 +8,7 @@
       grid: layout === 'grid',
       list: layout === 'list',
       draggable: isDraggable,
-      draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId,
+      draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId && draggedVideo.playlistItemId === data.playlistItemId,
     }"
     :draggable="isDraggable"
     v-on="isDraggable ? draggableEventHandlers : {}"

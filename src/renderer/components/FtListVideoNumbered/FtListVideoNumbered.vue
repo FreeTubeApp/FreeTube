@@ -6,7 +6,7 @@
     :class="{
       placeholder: !visible,
       draggable: canBecomeDraggable,
-      draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId,
+      draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId && draggedVideo.playlistItemId === data.playlistItemId,
     }"
     :draggable="canBecomeDraggable"
     v-on="canBecomeDraggable ? draggableEventHandlers : {}"
