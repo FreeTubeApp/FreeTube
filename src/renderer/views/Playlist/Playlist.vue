@@ -92,7 +92,7 @@
             :is-video-dragging="isVideoDragging()"
             @drag-video="setDraggedVideo"
             @drag-video-end="onDragVideoEnd"
-            @move-dragged-video="moveDraggedVideoTemporarily"
+            @move-dragged-video="moveDraggedVideoTemporarilyThrottled"
             @move-video-up="moveVideoUp"
             @move-video-down="moveVideoDown"
             @remove-from-playlist="removeVideoFromPlaylist"
@@ -125,7 +125,7 @@
               :is-video-dragging="isVideoDragging()"
               @drag-video="setDraggedVideo"
               @drag-video-end="onDragVideoEnd"
-              @move-dragged-video="moveDraggedVideoTemporarily"
+              @move-dragged-video="moveDraggedVideoTemporarilyThrottled"
               @move-video-up="moveVideoUp"
               @move-video-down="moveVideoDown"
               @remove-from-playlist="removeVideoFromPlaylist"
@@ -200,6 +200,7 @@ import {
   getIconForSortPreference,
   showToast,
   deepCopy,
+  throttle,
 } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getSortedPlaylistItems, videoDurationPresent, videoDurationWithFallback, SORT_BY_VALUES } from '../../helpers/playlists'
@@ -836,6 +837,10 @@ function moveDraggedVideoTemporarily({ videoId, playlistItemId }, { videoId: dro
 
   tempShownPlaylistItems.value = playlistItems_
 }
+
+// Only fire once per 100ms to prevent items moving up and down repeatedly during transition
+// 100ms is manually tested value (50ms won't work)
+const moveDraggedVideoTemporarilyThrottled = throttle(moveDraggedVideoTemporarily, 100)
 
 /**
  * @param {string} videoId
