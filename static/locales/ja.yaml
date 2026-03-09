@@ -621,7 +621,7 @@ About:
   Mastodon: マストドン
   Email: メールアドレス
   Blog: ブログ
-  Website: WEB サイト
+  Website: ウェブサイト
   Please check for duplicates before posting: 投稿する前に重複を確認してください
   GitHub issues: GitHub の課題
   Report a problem: 問題の報告
@@ -634,6 +634,9 @@ About:
   Beta: ベータ
   Discussions: 議論
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: '{licenseLink} に基づいてライセンス供与されています'
+  Please read the {roomRulesLink}: '{roomRulesLink} をお読みください'
+  FreeTube is made possible by {creditsPageLink}: FreeTube は {creditsPageLink} によって支えられています
 Channel:
   Subscribe: 'チャンネル登録'
   Unsubscribe: '登録解除'
