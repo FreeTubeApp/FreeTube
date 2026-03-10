@@ -320,6 +320,11 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --logo-text: url('../../_icons/textCatppuccinMochaLightSmall.svg');
 }
 
+/* Fix owner comment contrast - secondary-card-bg-color (#1e1e2e) has only 1.07:1 contrast with card-bg-color (#181825). Use Surface1 (#45475a) for improved visibility (1.92:1) while maintaining text readability (6.30:1). See #6597 */
+.catppuccinMocha .commentOwner {
+  background-color: #45475a;
+}
+
 .dracula {
   --primary-text-color: #f8f8f2;
   --secondary-text-color: #c6cee6;
