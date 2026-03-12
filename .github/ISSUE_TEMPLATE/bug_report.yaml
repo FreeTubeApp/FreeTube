@@ -122,12 +122,19 @@ body:
       label: 'Last Known Working FreeTube Version (If Any)'
       description: What is the last version of FreeTube this worked in, if applicable?
       placeholder: v0.14.0
+  - type: upload
+    id: screenshots
+    attributes:
+      label: Upload screenshots or videos
+      description: If applicable, add screenshots or videos to help explain your problem.
+    validations:
+      required: false
   - type: textarea
     attributes:
       label: Additional Information
       description: |
         Add additional information here.
-        You may drag-and-drop screenshots/videos and log files here, or paste the log file in code blocks.
+        You may drag-and-drop log files here, or paste the log file in code blocks.
   - type: checkboxes
     attributes:
       label: Nightly Build

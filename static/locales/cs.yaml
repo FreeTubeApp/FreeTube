@@ -627,7 +627,6 @@ About:
   Donate: Přispět
   Credits: Poděkování
   room rules: pravidla místnosti
-  Please read the: Přečtěte si prosím
   Chat on Matrix: Chat na síti Matrix
   Mastodon: Mastodon
   Email: E-mail
@@ -638,15 +637,16 @@ About:
   Downloads / Changelog: Ke stažení / Seznam změn
   Translate: Překlady
   these people and projects: těmto lidem a projektům
-  FreeTube is made possible by: FreeTube je možné dělat díky
   Please check for duplicates before posting: Před odesláním prosím zkontrolujte duplicity
   GitHub issues: Chyby na GitHub
   Report a problem: Nahlásit problém
   Help: Nápověda
   GitHub releases: Vydání na GitHubu
   Discussions: Diskuze
-  Licensed under the: Licencováno pod
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Licencováno pod {licenseLink}
+  Please read the {roomRulesLink}: Přečtěte si prosím {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube existuje díky {creditsPageLink}
 Profile:
   Profile Select: 'Výběr profilu'
   All Channels: 'Všechny kanály'

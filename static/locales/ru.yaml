@@ -618,11 +618,9 @@ About:
 #On Channel Page
   Donate: Пожертвовать
   these people and projects: этим людям и проектам
-  FreeTube is made possible by: FreeTube появился благодаря
   Credits: Участники
   Translate: Перевод
   room rules: правила комнаты
-  Please read the: Изучите
   Chat on Matrix: Чат на Matrix
   Mastodon: Mastodon
   Email: Электронная почта
@@ -639,8 +637,10 @@ About:
   Please check for duplicates before posting: Перед публикацией проблемы, проверьте нет ли дубликатов
   GitHub issues: Проблемы на GitHub
   Discussions: Обсуждения
-  Licensed under the: Лицензия выдана под
   AGPLv3: Лицензия AGPLv3
+  Licensed under the {licenseLink}: Лицензируется на условиях {licenseLink}
+  Please read the {roomRulesLink}: Пожалуйста, прочтите {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube стал возможен благодаря {creditsPageLink}
 Channel:
   Subscribe: 'Подписаться'
   Unsubscribe: 'Отписаться'

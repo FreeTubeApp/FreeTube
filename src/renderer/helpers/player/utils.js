@@ -265,7 +265,7 @@ export function repairInvidiousManifest(periods) {
             }
 
             if (audioContent) {
-              let role = ''
+              let role
 
               switch (audioContent) {
                 case 'original':

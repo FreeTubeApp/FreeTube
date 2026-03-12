@@ -613,17 +613,15 @@ About:
   #& About
 #On Channel Page
   Donate: 寄付
-  FreeTube is made possible by: FreeTube が実現できているのは
   these people and projects: これらの人々とプロジェクトのおかげです
   Credits: クレジット
   Translate: 翻訳
   room rules: ルームの規則
-  Please read the: '次をお読みください：'
   Chat on Matrix: Matrix でチャット
   Mastodon: マストドン
   Email: メールアドレス
   Blog: ブログ
-  Website: WEB サイト
+  Website: ウェブサイト
   Please check for duplicates before posting: 投稿する前に重複を確認してください
   GitHub issues: GitHub の課題
   Report a problem: 問題の報告
@@ -635,8 +633,10 @@ About:
   Source code: ソースコード
   Beta: ベータ
   Discussions: 議論
-  Licensed under the: ライセンス
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: '{licenseLink} に基づいてライセンス供与されています'
+  Please read the {roomRulesLink}: '{roomRulesLink} をお読みください'
+  FreeTube is made possible by {creditsPageLink}: FreeTube は {creditsPageLink} によって支えられています
 Channel:
   Subscribe: 'チャンネル登録'
   Unsubscribe: '登録解除'

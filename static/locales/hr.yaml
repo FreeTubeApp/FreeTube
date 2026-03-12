@@ -626,10 +626,8 @@ About:
   Chat on Matrix: Razgovaraj na Matrixu
   Please check for duplicates before posting: Prije slanja greške, provjeri, je li ista greška već prijavljena
   these people and projects: ovi ljudi i projekti
-  FreeTube is made possible by: FreeTube omogućuju
   Translate: Prevodi
   room rules: pravila sobe
-  Please read the: Pročitaj
   Mastodon: Mastodon
   GitHub issues: GitHub problemi
   Report a problem: Prijavi grešku
@@ -638,8 +636,10 @@ About:
   Downloads / Changelog: Preuzimanja/dnevnik promjena
   Source code: Izvorni kod
   Discussions: Diskusije
-  Licensed under the: Licencirano pod
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: 'Licenca: {licenseLink}'
+  Please read the {roomRulesLink}: Pročitaj {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube omogućuju {creditsPageLink}
 Profile:
   All Channels: 'Svi kanali'
   Profile Manager: 'Upravljač profila'

@@ -621,11 +621,9 @@ About:
   #& About
   Donate: Donasi
   these people and projects: pengembang dan proyek berikut
-  FreeTube is made possible by: FreeTube dikembangkan oleh
   Credits: Kredit
   Translate: Terjemahkan
   room rules: aturan kamar
-  Please read the: Silakan baca
   Chat on Matrix: Mengobrol di Matrix
   Mastodon: mastodon
   Email: Surel
@@ -642,8 +640,10 @@ About:
   Source code: Kode sumber
   Beta: Beta
   Discussions: Diskusi
-  Licensed under the: Dilisensikan dengan lisensi
   AGPLv3: Agplv3
+  Licensed under the {licenseLink}: Dilisensikan di bawah {licenseLink}
+  Please read the {roomRulesLink}: Silahkan baca {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube dapat dibuat atas dukungan dari {creditsPageLink}
 Profile:
   Profile Select: 'Pilih Profil'
   All Channels: 'Semua Kanal'

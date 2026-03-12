@@ -13,7 +13,7 @@ Toggle Developer Tools: 'Włącz/wyłącz narzędzia deweloperskie'
 Actual size: 'Rzeczywisty rozmiar'
 Zoom in: 'Powiększ'
 Zoom out: 'Zmniejsz'
-Toggle fullscreen: 'Włącz/wyłącz tryb pełnoekranowy'
+Toggle fullscreen: 'Przełącz na cały ekran'
 Window: 'Okno'
 Minimize: 'Zminimalizuj'
 Close: 'Zamknij'
@@ -219,7 +219,7 @@ Settings:
       List: 'Lista'
     Thumbnail Preference:
       Thumbnail Preference: 'Ustawienia miniaturek'
-      Default: 'Domyślna'
+      Default: 'Domyślnie'
       Beginning: 'Początek'
       Middle: 'Środek'
       End: 'Koniec'
@@ -413,7 +413,7 @@ Settings:
         Forbidden Characters: Niedozwolone znaki
         Empty File Name: Pusta nazwa pliku
       Enable: Włącz zrzuty ekranu
-    Enter Fullscreen on Display Rotate: Przyłącz na tryb pełnoekranowy przy zmianie orientacji ekranu
+    Enter Fullscreen on Display Rotate: Przyłącz na cały ekran przy obrocie wyświetlacza
     Skip by Scrolling Over Video Player: Przewijaj film kółkiem myszy na obszarze odtwarzacza
     Autoplay Interruption Timer: Czas do przerwania autoodtwarzania
     Default Viewing Mode:
@@ -421,7 +421,7 @@ Settings:
       Picture in Picture: Obraz w obrazie
       External Player: Zewnętrzny odtwarzacz ({externalPlayerName})
       Default Viewing Mode: Domyślny tryb odtwarzania
-      Full Screen: Pełny ekran
+      Full Screen: Cały ekran
   Subscription Settings:
     Subscription Settings: 'Subskrypcje'
     Fetch Feeds from RSS: Pobierz subskrypcje z RSS
@@ -629,7 +629,6 @@ About:
   room rules: zasady pokoju
   Chat on Matrix: Czat na Matrix
   Mastodon: Mastodon
-  Please read the: Proszę przeczytać
   Please check for duplicates before posting: Proszę poszukać duplikatów przed wysłaniem
   GitHub issues: problemy na GitHub
   Report a problem: Zgłoś problem
@@ -637,10 +636,11 @@ About:
   GitHub releases: Wydania na GitHub
   Downloads / Changelog: Wydania / Lista zmian
   Source code: Kod źródłowy
-  FreeTube is made possible by: FreeTube powstał dzięki
   Discussions: Dyskusje
-  Licensed under the: Licencjonowany na
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Licencjonowany na {licenseLink}
+  Please read the {roomRulesLink}: Proszę przeczytać {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube powstał dzięki {creditsPageLink}
 Channel:
   Subscribe: 'Zasubskrybuj'
   Unsubscribe: 'Odsubskrybuj'
@@ -779,7 +779,7 @@ Video:
     Audio Tracks: Ścieżki audio
     Theatre Mode: Tryb kina
     Exit Theatre Mode: Wyłącz tryb kina
-    Exit Full Window: Wyłącz pełny ekran
+    Exit Full Window: Wyłącz pełne okno
     Take Screenshot: Zrób zrzut ekranu
     Show Stats: Pokaż statystyki
     Hide Stats: Schowaj statystyki
@@ -800,7 +800,7 @@ Video:
     You appear to be offline: Zdaje się, że jesteś rozłączony.
     Playback will resume automatically when your connection comes back: Odtwarzanie zostanie wznowione, jak tylko połączenie zostanie odzyskane.
     Skipped segment: Pominięto segment {segmentCategory}
-    Full Window: Pełny ekran
+    Full Window: Pełne okno
     Autoplay is off: Autoodtwarzanie jest wyłączone
     Autoplay is on: Autoodtwarzanie jest włączone
   IP block: YouTube uniemożliwił odtworzenie filmów blokując Twój adres IP. Możesz spróbować przełączyć się na inny, korzystając z VPN lub proxy.
@@ -1082,7 +1082,7 @@ KeyboardShortcutPrompt:
   History Forward: Dalej o jedną stronę
   Refresh: Wczytaj ponownie subskrypcje z nową zawartością
   History Backward: Wróć o jedną stronę
-  Fullscreen: Przełącz na pełny ekran
+  Fullscreen: Przełącz na cały ekran
   Picture in Picture: Przełącz na tryb obraz w obrazie
   Decrease Video Speed: Zwolnij odtwarzanie filmu o wartość przeskoku w wyborze prędkości odtwarzania filmu
   Full Window: Przełącz na pełne okno

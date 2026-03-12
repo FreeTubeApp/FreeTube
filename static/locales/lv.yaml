@@ -136,12 +136,12 @@ User Playlists:
   Sort By:
     NameDescending: Z-A
     NameAscending: A-Z
-    EarliestUpdatedFirst: Visagrāk atjaunināti
-    LatestPlayedFirst: Nesen atskaņoti
-    LatestUpdatedFirst: Nesen atjaunināti
-    LatestCreatedFirst: Nesen izveidoti
-    EarliestCreatedFirst: Visagrāk izveidoti
-    EarliestPlayedFirst: Visagrāk atskaņoti
+    EarliestUpdatedFirst: Atjaunināšanas datums (vecākos augšgalā)
+    LatestPlayedFirst: Atskaņošanas datums (jaunākos augšgalā)
+    LatestUpdatedFirst: Atjaunināšanas datums (jaunākos augšgalā)
+    LatestCreatedFirst: Izveidošanas datums (jaunākos augšgalā)
+    EarliestCreatedFirst: Izveidošanas datums (vecākos augšgalā)
+    EarliestPlayedFirst: Atskaņošanas datums (vecākos augšgalā)
   Cannot delete the quick bookmark target playlist.: Nevar izdzēst ātrās grāmatzīmes mērķa atskaņošanas sarakstu.
   Delete Playlist: Dzēs atskaņošanas sarakstu
   Remove from Favorites: Noņem no {playlistName}
@@ -189,6 +189,7 @@ User Playlists:
   CreatePlaylistPrompt:
     Toast:
       There was an issue with creating the playlist.: Izveidojot atskaņošanas sarakstu radās kļūda.
+    Create: Izveidot
   AddVideoPrompt:
     Save: Saglabāt
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} video jau pievienoti'
@@ -525,15 +526,12 @@ About:
   Email: 'E-pasts'
   Mastodon: "Mastodon\uFEFF"
   Chat on Matrix: 'Tērzēt Matrixā'
-  Please read the: 'Lūdzu izlasi'
   room rules: 'istabas noteikumi'
   Translate: 'Tulkot'
   Credits: 'Nopelni'
-  FreeTube is made possible by: 'FreeTube padarīja iespējamu'
   these people and projects: 'šie cilvēki un apvienības'
   Donate: 'Ziedot'
 
-  Licensed under the: Licenzēts ar
   AGPLv3: "AGPLv3\uFEFF"
 Profile:
   Profile Settings: 'Profila'
@@ -627,6 +625,8 @@ Channel:
     votes: ''
     Reveal Answers: 'Atklāj atbildes'
     Hide Answers: 'Paslēp atbildes'
+  Courses:
+    Courses: Kursi
 Video:
   Mark As Watched: 'Atzīmē kā skatītu'
   Remove From History: 'Noņem no vēstures'
@@ -673,18 +673,18 @@ Video:
   Streamed on: ''
   Started streaming on: ''
   Sponsor Block category:
-    sponsor: ''
+    sponsor: 'Sponsors'
     intro: ''
     outro: ''
-    self-promotion: ''
+    self-promotion: 'Pašreklāma'
     interaction: ''
     music offtopic: ''
     recap: ''
     filler: ''
   External Player:
     OpenInTemplate: ''
-    video: ''
-    playlist: ''
+    video: 'video'
+    playlist: 'atskaņošanas saraksts'
     OpeningTemplate: ''
     UnsupportedActionTemplate: ''
     Unsupported Actions:
@@ -696,9 +696,12 @@ Video:
       shuffling playlists: ''
       looping playlists: ''
 #& Playlists
+  Player:
+    Stats:
+      Stats: Statistika
 Playlist:
   #& About
-  Playlist: ''
+  Playlist: 'Atskaņošanas saraksts'
   View Full Playlist: ''
   Last Updated On: ''
 
@@ -733,11 +736,11 @@ Clipboard:
   Cannot access clipboard without a secure connection: ''
 
 Chapters:
-  Chapters: ''
+  Chapters: 'Nodaļas'
 
 Mini Player: ''
 Comments:
-  Comments: ''
+  Comments: 'Komentāri'
   Click to View Comments: ''
   Getting comment replies, please wait: ''
   There are no more comments for this video: ''
@@ -811,11 +814,11 @@ Screenshot Success: ''
 Screenshot Error: ''
 
 Hashtag:
-  Hashtag: ''
+  Hashtag: 'Mirkļbirka, tēmturis'
   This hashtag does not currently have any videos: ''
-Yes: ''
-No: ''
-Ok: ''
+Yes: 'Jā'
+No: 'Nē'
+Ok: 'Labi'
 Search character limit: Meklējamā frāze pārsniedz {searchCharacterLimit} simbolu ierobežojumu
 Feed:
   Refresh Feed: Atsvaidzini {subscriptionName}
@@ -837,3 +840,11 @@ KeyboardShortcutPrompt:
   Zoom In: Tuvināt
   Zoom Out: Tālināt
   Fullscreen: Pilnekrāns
+checkmark: ✓
+Cancel: Atcelt
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  shift: Shift
+shortcutLabelSeparator: ｜

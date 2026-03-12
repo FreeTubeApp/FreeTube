@@ -1065,7 +1065,7 @@ async function importPlaylists() {
 
   let data = response.content
 
-  let playlists = null
+  let playlists
 
   // for the sake of backwards compatibility,
   // check if this is the old JSON array export (used until version 0.19.1),

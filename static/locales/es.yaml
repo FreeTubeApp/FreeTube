@@ -118,7 +118,7 @@ User Playlists:
     Search in Playlists: Buscar en listas de reproducción
     Save: Guardar
     Toast:
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Video(s) agregado(s) a 1 lista de reproducción | Video(s) agregado(s) a {playlistCount} listas de reproducción"
       You haven't selected any playlist yet.: Aún no has seleccionado ninguna lista de reproducción.
     Select a playlist to add your N videos to: Seleccione una lista de reproducción a la que añadir su vídeo | Seleccione una lista de reproducción a la que añadir sus {videoCount} vídeos
     N playlists selected: '{playlistCount} seleccionada'
@@ -150,13 +150,13 @@ User Playlists:
     Search for Videos: Buscar vídeos
   Are you sure you want to delete this playlist? This cannot be undone: ¿Estás seguro de que quieres borrar esta lista de reproducción? Esto no se puede deshacer.
   Sort By:
-    LatestPlayedFirst: Reproducido recientemente
-    EarliestCreatedFirst: Creado por primera vez
-    LatestCreatedFirst: Creado recientemente
-    EarliestUpdatedFirst: Última actualización
+    LatestPlayedFirst: Fecha de reproducción (Más reciente)
+    EarliestCreatedFirst: Fecha de Creación (Más antigua)
+    LatestCreatedFirst: Fecha de Creación (Más reciente)
+    EarliestUpdatedFirst: Fecha de Actualización (Más antigua)
     NameDescending: Z-A
-    EarliestPlayedFirst: Reproducido más recientemente
-    LatestUpdatedFirst: Actualizado recientemente
+    EarliestPlayedFirst: Fecha de Reproducción (Más antigua)
+    LatestUpdatedFirst: Fecha de Actualización (Más reciente)
     NameAscending: A-Z
   You have no playlists. Click on the create new playlist button to create a new one.: No tienes listas de reproducción. Haz clic en el botón Crear nueva lista de reproducción para crear una nueva.
   Remove from Playlist: Eliminar de la lista de reproducción
@@ -201,8 +201,8 @@ History:
   Search bar placeholder: Buscar en la historia
   Empty Search Message: No hay vídeos en tu historial que coincidan con tu búsqueda
   Case Sensitive Search: Búsqueda sensible a mayúsculas y minúsculas
-  DateOldestHistory: Vistos más antiguos primero
-  DateNewestHistory: Vistos más recientes primero
+  DateOldestHistory: Fecha de Visualización (Más antigua)
+  DateNewestHistory: Fecha de visualización (Más reciente)
 Settings:
   # On Settings Page
   Settings: 'Ajustes'
@@ -275,6 +275,7 @@ Settings:
       Everforest Light Hard: Everforest Claro Intenso
       Everforest Light Medium: Everforest Claro Medio
       Everforest Light Low: Everforest Claro Suave
+      Catppuccin Latte: Capuchino con leche
     Main Color Theme:
       Main Color Theme: 'Color principal'
       Red: 'Rojo'
@@ -360,6 +361,8 @@ Settings:
       Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
       Catppuccin Frappe Pink: Catppuccin Frappe Rosa
       Catppuccin Frappe Mauve: Catppuccin Frappe Malva
+      Catppuccin Latte Mauve: Capuchino con leche malva
+      Catppuccin Latte Red: Capuchino con leche rojo
     Secondary Color Theme: 'Color secundario'
         #* Main Color Theme
     UI Scale: Escala de IU
@@ -491,6 +494,12 @@ Settings:
       Tooltip: "Esta opción exporta vídeos de todas las listas de reproducción a una lista de reproducción llamada \"Favoritos\".\nCómo exportar e importar vídeos en las listas de reproducción para una versión antigua de FreeTube:\n1. Exporta tus listas de reproducción con esta opción activada.\n2. Elimine todas sus listas de reproducción existentes utilizando la opción Eliminar todas las listas de reproducción en Configuración de privacidad.\n3. Inicia la versión anterior de FreeTube e importa las listas de reproducción exportadas.\""
       Label: Exportar listas de reproducción de versiones anteriores de FreeTube
 
+    Search history file: Archivo de historial de búsqueda
+    Search history: historial de búsqueda
+    Import search history: Importar historial de búsqueda
+    Export search history: Exportar historial de búsqueda
+    All search history has been successfully imported: Todo el historial de búsqueda se ha importado correctamente
+    All search history has been successfully exported: Todo el historial de búsqueda se ha exportado correctamente
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Ocultar «likes» y «dislikes» de vídeos
     Hide Video Views: Ocultar las vistas del vídeo
@@ -608,11 +617,9 @@ About:
   #& About
   Donate: Donar
   these people and projects: estas personas y proyectos
-  FreeTube is made possible by: FreeTube es posible gracias a
   Credits: Créditos
   Translate: Traducir
   room rules: reglas de la sala
-  Please read the: Por favor, lee las
   Chat on Matrix: Chat en Matrix
   Mastodon: Mastodon (red social)
   Email: Correo electrónico
@@ -629,8 +636,10 @@ About:
   Source code: Código fuente
   Beta: Beta
   Discussions: Debates
-  Licensed under the: Bajo la licencia
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Licenciado bajo {licenseLink}
+  Please read the {roomRulesLink}: Por favor, lea el {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube es posible gracias a {creditsPageLink}
 Profile:
   All Channels: 'Todos los canales'
   Profile Manager: 'Administrador de perfiles'
@@ -846,6 +855,10 @@ Video:
   DRMProtected: Los videos restringidos con DRM no pueden reproducirse en FreeTube, dado que requieren componentes propietarias de fuente cerrada. Si desea ver este video, por favor véalo en la página oficial de YouTube con un buscador que tenga DRM habilitado.
   Watched Progress Saved: Progreso de visualización guardado
   Save Watched Progress: Guardar progreso de visualización
+  Popout Live Chat: Chat popout
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Tiempo restante previo al anuncio: {remindingTimeSeconds} s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tiempo restante de retroceso de SABR: {remindingTimeSeconds} s'
 Playlist:
   #& About
   View Full Playlist: 'Ver la lista de reproducción completa'
@@ -857,16 +870,16 @@ Playlist:
   Playlist: Lista de reproducción
   Sort By:
     Custom: Personalizado
-    DateAddedNewest: Último añadido primero
-    DateAddedOldest: Primeros añadidos primero
+    DateAddedNewest: Fecha de adición (Más reciente)
+    DateAddedOldest: Fecha de adición (Más antigua)
     AuthorAscending: Autor (A-Z)
     AuthorDescending: Autor (Z-A)
     VideoTitleAscending: Título (A-Z)
     VideoTitleDescending: Título (Z-A)
-    VideoDurationAscending: Duración (primero la más corta)
-    VideoDurationDescending: Duración (la más larga primero)
-    PublishedNewest: Presentar primero los últimos publicados
-    PublishedOldest: Presentar primero los primeramente publicados
+    VideoDurationAscending: Duración (Más corta)
+    VideoDurationDescending: Duración (más larga)
+    PublishedNewest: Fecha de publicación (Más reciente)
+    PublishedOldest: Fecha de publicación (Más antigua)
 Change Format:
   Change Media Formats: 'Cambiar formato de vídeo'
   Use Dash Formats: 'Utilizar formatos DASH'
@@ -891,6 +904,7 @@ Share:
   YouTube Channel URL copied to clipboard: Se copió el URL del canal de YouTube en el portapapeles
   Invidious Channel URL copied to clipboard: Se copió el URL al canal de Invidious en el portapapeles
   Share Channel: Compartir el canal
+  Share Post: Compartir Publicación
 Mini Player: 'Minirreproductor'
 Comments:
   Comments: 'Comentarios'
@@ -907,11 +921,12 @@ Comments:
   Pinned by: Fijado por
   Member: Miembro
   Hearted: Corazón
-  View {replyCount} replies: Ver {replyCount} respuestas
+  View {replyCount} replies: Ver 1 respuesta | Ver {replyCount} respuestas
   Subscribed: Suscrito
   There are no comments available for this post: No hay comentarios disponibles para este tema
   View 1 reply from {channelName}: Ver 1 respuesta de {channelName}
   View {replyCount} replies from {channelName} and others: Ver {replyCount} respuesta de {channelName} y otros
+  Hide {replyCount} replies: Ocultar 1 respuesta | Ocultar {replyCount} respuestas
 Up Next: 'A continuación'
 
 # Toast Messages
@@ -1100,3 +1115,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Salta al siguiente vídeo en la lista de reproducción o al siguiente vídeo recomendado
   Skip to Previous Video: Salta al vídeo anterior en la lista de reproducción
 shortcutLabelSeparator: ｜
+Compact side navigation: Navegación lateral compacta
+Expand side navigation: Expandir navegación lateral

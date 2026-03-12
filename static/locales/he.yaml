@@ -628,10 +628,8 @@ About:
   Donate: תרומה
   Help: עזרה
   these people and projects: האנשים והמיזמים האלו
-  FreeTube is made possible by: FreeTube קיים בזכות
   Translate: תרגום
   room rules: כללי החדר
-  Please read the: נא לקרוא את
   Chat on Matrix: צ׳אט ב־Matrix
   Mastodon: ‎Mastodon
   Please check for duplicates before posting: נא לבדוק כפילויות בטרם פרסום תקלה
@@ -643,7 +641,6 @@ About:
   Source code: קוד מקור
   Discussions: דיונים
   AGPLv3: AGPLv3
-  Licensed under the: מורשה תחת
 Profile:
   Profile Select: 'בחירת פרופיל'
   All Channels: 'כל הערוצים'
@@ -860,6 +857,10 @@ Video:
   Save Watched Progress: שמור התקדמות נצפית
   DRMProtected: סרטונים המוגנים ב-DRM אינם יכולים להתנגן ב-FreeTube, מכיוון שהם דורשים רכיבים סגורים ובעלים. אם אתה רוצה לצפות בסרטון הזה, אנא צפה בו באתר הרשמי של YouTube בדפדפן אינטרנט עם תמיכה ב-DRM.
   Watched Progress Saved: התקדמות שנשמרה נצפתה
+  Popout Live Chat: צ׳אט קופץ
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'זמן שנותר לפרסומת מקדימה: {remindingTimeSeconds} שנ׳'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'זמן שנותר לטיפול בתשדיר (SABR): {remindingTimeSeconds} שנ׳'
 Playlist:
   #& About
   View Full Playlist: 'צפייה ברשימת הנגינה המלאה'

@@ -633,11 +633,8 @@ About:
   Please check for duplicates before posting: Vui lòng kiểm tra trùng lặp trước khi đăng
   Chat on Matrix: Trò chuyện trên Matrix
   room rules: quy định phòng chat
-  FreeTube is made possible by: FreeTube được tạo ra bởi
   these people and projects: những người và dự án này
-  Please read the: Hãy đọc
   Discussions: Thảo luận
-  Licensed under the: Được cấp phép theo
   AGPLv3: giấy phép AGPLv3
 Channel:
   Subscribe: 'Đăng ký'
@@ -813,6 +810,10 @@ Video:
   DRMProtected: Không thể phát video được bảo vệ DRM trong FreeTube vì chúng yêu cầu các thành phần nguồn đóng độc quyền. Nếu bạn muốn xem video này, vui lòng xem trên trang web chính thức của YouTube trong trình duyệt web hỗ trợ DRM.
   Save Watched Progress: Lưu tiến trình đã xem
   Watched Progress Saved: Xem tiến trình đã lưu
+  Popout Live Chat: Trò chuyện bật lên
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Thời gian quảng cáo đầu video còn lại: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Thời gian chờ SABR còn lại: {remindingTimeSeconds}s'
 Playlist:
   #& About
   View Full Playlist: 'Xem danh sách phát hoàn chỉnh'
