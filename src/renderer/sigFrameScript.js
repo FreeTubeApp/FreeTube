@@ -12,7 +12,7 @@ window.addEventListener('message', (event) => {
   } catch (error) {
     window.parent.postMessage(JSON.stringify({
       id: data.id,
-      error
+      error: error.toString()
     }), '*')
   }
 })
