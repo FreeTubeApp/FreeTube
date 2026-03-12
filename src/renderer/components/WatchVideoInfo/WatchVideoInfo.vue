@@ -42,6 +42,7 @@
           v-if="!hideUploader"
         >
           <RouterLink
+            v-if="!disableChannelLink"
             :to="`/channel/${channelId}`"
           >
             <img
@@ -50,18 +51,30 @@
               alt=""
             >
           </RouterLink>
+          <img
+            v-if="disableChannelLink"
+            :src="channelThumbnail"
+            class="channelThumbnail revertCursor"
+            alt=""
+          >
         </div>
         <div>
           <div
             v-if="!hideUploader"
           >
             <RouterLink
+              v-if="!disableChannelLink"
               :to="`/channel/${channelId}`"
               class="channelName"
               dir="auto"
             >
               {{ channelName }}
             </RouterLink>
+            <div
+              v-if="disableChannelLink"
+              class="channelName revertCursor">
+                {{ channelName }}
+            </div>
           </div>
           <FtSubscribeButton
             v-if="!hideUnsubscribeButton"
@@ -503,6 +516,8 @@ function removeFromQuickBookmarkPlaylist() {
   // TODO: Maybe show playlist name
   showToast(t('Video.Video has been removed from your saved list'))
 }
+
+const disableChannelLink = computed(() => store.getters.getDisableChannelLink)
 </script>
 
 <style scoped src="./WatchVideoInfo.css" />

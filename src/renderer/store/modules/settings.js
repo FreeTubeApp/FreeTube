@@ -169,7 +169,7 @@ const state = {
   defaultViewingMode: 'default',
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
-  disableChannelLinks: false,
+  disableChannelLink: false,
   displayVideoPlayButton: false,
   enableSearchSuggestions: true,
   enableSubtitlesByDefault: false,
