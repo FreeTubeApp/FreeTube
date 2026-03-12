@@ -427,7 +427,7 @@ Settings:
     Fetch Feeds from RSS: Récupération de flux RSS
     Fetch Automatically: Récupération automatique des flux
     Confirm Before Unsubscribing: Confirmer avant de se désabonner
-
+    Add Playlist Videos to Subscriptions: Ajouter les vidéos des listes de lectures aux abonnements
     'Limit the number of videos displayed for each channel': Limiter le nombre de vidéos affichées pour chaque chaîne
     To: Pour
   Privacy Settings:
@@ -957,8 +957,12 @@ Version {versionNumber} is now available!  Click for more details: La version {v
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Cette vidéo est indisponible car elle n'est pas dans un format valide. Cela peut arriver en raison de restrictions d'accès dans certains pays.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera RSS au lieu de sa méthode par défaut pour récupérer votre flux d'abonnement. RSS est plus rapide et empêche le blocage d'IP, mais ne fournit pas certaines informations comme la durée de la vidéo, le statut en direct ou les commentaires
-    Fetch Automatically: Lorsque cette option est activée, FreeTube récupère automatiquement le flux de votre abonnement au démarrage et à l'ouverture d'une nouvelle fenêtre.
+    Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera RSS au lieu de sa méthode par 
+     défaut pour récupérer votre flux d'abonnement. RSS est plus rapide et empêche le blocage d'IP, mais ne fournit pas certaines informations comme la durée de la vidéo, le statut en direct ou les commentaires
+    Fetch Automatically: Lorsque cette option est activée, FreeTube récupère automatiquement le 
+      flux de votre abonnement au démarrage et à l'ouverture d'une nouvelle fenêtre.
+    Fetch Playlist into Subscriptions: Lorsque cette option est activée, FreeTube récupère également 
+     les flux de vos abonnements de playlist.
   Player Settings:
     Default Video Format: Définir les formats utilisés lors de la lecture d'une vidéo. Les formats DASH peuvent être lus en qualité supérieure. Les formats Legacy sont limités à un maximum de 360p mais utilisent moins de bande passante. Les formats audio sont des flux audio uniquement.
     Proxy Videos Through Invidious: Se connectera à Invidious pour lire des vidéos au lieu d'établir une connexion directe avec YouTube.

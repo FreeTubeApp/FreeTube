@@ -42,6 +42,13 @@
             :step="1"
             @change="updateOnlyShowLatestFromChannelNumber"
           />
+          <FtToggleSwitch
+            :label="$t('Settings.Subscription Settings.Add Playlist Videos to Subscriptions')"
+            :default-value="fetchPlaylistSubscriptions"
+            :tooltip="$t('Tooltips.Subscription Settings.Fetch Playlist into Subscriptions')"
+            compact
+            @change="updateFetchPlaylistSubscriptions"
+          />
         </div>
       </div>
     </div>
@@ -105,6 +112,16 @@ const onlyShowLatestFromChannelNumber = computed(() => store.getters.getOnlyShow
  */
 function updateOnlyShowLatestFromChannelNumber(value) {
   store.dispatch('updateOnlyShowLatestFromChannelNumber', value)
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const fetchPlaylistSubscriptions = computed(() => store.getters.getFetchPlaylistSubscriptions)
+
+/**
+ * @param {boolean} value
+ */
+function updateFetchPlaylistSubscriptions(value) {
+  store.dispatch('updateFetchPlaylistSubscriptions', value)
 }
 </script>
 

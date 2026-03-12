@@ -57,8 +57,14 @@ const useRssFeeds = computed(() => store.getters.getUseRssFeeds)
 /** @type {import('vue').ComputedRef<boolean>} */
 const fetchSubscriptionsAutomatically = computed(() => store.getters.getFetchSubscriptionsAutomatically)
 
+/** @type {import('vue').ComputedRef<boolean>} */
+const fetchPlaylistSubscriptions = computed(() => store.getters.getFetchPlaylistSubscriptions)
+
 const activeSubscriptionList = computed(() => store.getters.getActiveProfile.subscriptions)
-const activePlaylistSubscriptionList = computed(() => store.getters.getActiveProfile.listSubscriptions || [])
+const activePlaylistSubscriptionList = computed(() => {
+  if (!fetchPlaylistSubscriptions.value) { return [] }
+  return store.getters.getActiveProfile.listSubscriptions || []
+})
 
 const cacheEntriesForAllActiveProfileChannels = computed(() => {
   const videoCache = store.getters.getVideoCache

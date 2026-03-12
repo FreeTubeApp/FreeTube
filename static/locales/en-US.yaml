@@ -535,6 +535,7 @@ Settings:
     Subscription Settings: Subscription
     Fetch Feeds from RSS: Fetch Feeds from RSS
     Fetch Automatically: Fetch Feed Automatically
+    Add Playlist Videos to Subscriptions: Fetch Playlist Videos with Subscriptions
     'Limit the number of videos displayed for each channel': 'Limit the number of videos displayed for each channel'
     To: To
     Confirm Before Unsubscribing: Confirm Before Unsubscribing
@@ -1088,12 +1089,13 @@ Tooltips:
       but doesn't provide certain information like video duration, live status or posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch
       your subscription feed on startup and when a new window is opened.
+    Fetch Playlist into Subscriptions : When enabled, FreeTube will fetch
+      and display the videos of the subscribed playlists with channel in subscriptions.
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
     UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow.
-
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)
 Invidious API Error (Click to copy): Invidious API Error (Click to copy)
