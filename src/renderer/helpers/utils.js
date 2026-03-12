@@ -472,7 +472,7 @@ export function formatDurationAsTimestamp(lengthSeconds) {
     seconds = '0' + seconds
   }
 
-  let timestamp = ''
+  let timestamp
   if (hours > 0) {
     timestamp = hours + ':' + minutes + ':' + seconds
   } else {

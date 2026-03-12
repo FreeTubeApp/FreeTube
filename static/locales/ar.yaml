@@ -1090,5 +1090,5 @@ Description:
   Expand Description: '...المزيد'
 Autoplay Interruption Timer: تم إلغاء التشغيل التلقائي بسبب {autoplayInterruptionIntervalHours} ساعات من عدم النشاط
 shortcutJoinOperator: +
-shortcutLabelSeparator: '|'
+shortcutLabelSeparator: '{''|''}'
 KeyboardShortcutTemplate: '{label} ({shortcut})'

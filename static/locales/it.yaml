@@ -638,6 +638,9 @@ About:
   Beta: Beta
   Discussions: Discussioni
   AGPLv3: AGPLv3
+  FreeTube is made possible by {creditsPageLink}: FreeTube è reso possibile da {creditsPageLink}
+  Licensed under the {licenseLink}: Concesso in licenza con {licenseLink}
+  Please read the {roomRulesLink}: Per favore leggi il {roomRulesLink}
 Channel:
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'

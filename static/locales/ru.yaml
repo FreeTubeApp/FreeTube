@@ -638,6 +638,9 @@ About:
   GitHub issues: Проблемы на GitHub
   Discussions: Обсуждения
   AGPLv3: Лицензия AGPLv3
+  Licensed under the {licenseLink}: Лицензируется на условиях {licenseLink}
+  Please read the {roomRulesLink}: Пожалуйста, прочтите {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube стал возможен благодаря {creditsPageLink}
 Channel:
   Subscribe: 'Подписаться'
   Unsubscribe: 'Отписаться'

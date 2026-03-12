@@ -84,7 +84,15 @@ export default {
       ],
       CFBundleURLSchemes: [
         'freetube'
-      ]
+      ],
+
+      // Clear the default usage descriptions in the Info.plist file set by Electron that we don't need
+      // see: https://github.com/electron/electron/blob/main/shell/browser/resources/mac/Info.plist
+      NSAudioCaptureUsageDescription: undefined,
+      NSBluetoothAlwaysUsageDescription: undefined,
+      NSBluetoothPeripheralUsageDescription: undefined,
+      NSCameraUsageDescription: undefined,
+      NSMicrophoneUsageDescription: undefined,
     }
   },
   win: {

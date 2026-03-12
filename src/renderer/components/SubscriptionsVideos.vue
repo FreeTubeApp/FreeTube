@@ -228,8 +228,9 @@ async function loadVideosForSubscriptionsFromRemote() {
     return
   }
 
-  const totalItems =
-    activeSubscriptionList.value.length + activePlaylistSubscriptionList.value.length
+  const channelsToLoadFromRemote = activeSubscriptionList.value
+  const playlistsToLoadFromRemote = activePlaylistSubscriptionList.value
+  const totalItems = channelsToLoadFromRemote.length + playlistsToLoadFromRemote.length
   let itemCount = 0
 
   let useRss = useRssFeeds.value
@@ -242,88 +243,84 @@ async function loadVideosForSubscriptionsFromRemote() {
   }
 
   isLoading.value = true
-  attemptedFetch.value = true
   store.commit('setShowProgressBar', true)
   store.commit('setProgressBarPercentage', 0)
-  errorChannels.value = []
+  attemptedFetch.value = true
 
+  errorChannels.value = []
   const subscriptionUpdates = []
 
-  // Unified fetch helper
-  const fetchItem = async (item, type) => {
-    try {
-      let result = { videos: [], name: '', thumbnailUrl: '' }
+  // Fetch channel videos (matches upstream pattern)
+  const videoListFromChannels = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
+    let videos, name, thumbnailUrl
 
-      if (type === 'channel') {
-        if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
-          if (useRss) {
-            result = await getChannelVideosInvidiousRSS(item)
-          } else {
-            result = await getChannelVideosInvidiousScraper(item)
-          }
-        } else {
-          if (useRss) {
-            result = await getChannelVideosLocalRSS(item)
-          } else {
-            result = await getChannelVideosLocalScraper(item)
-          }
-        }
-      } else if (type === 'playlist') {
-        if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
-          result = await getPlaylistVideosInvidiousScraper(item)
-        } else {
-          result = await getPlaylistVideosLocalRSS(item)
-        }
+    if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
+      if (useRss) {
+        ({ videos, name, thumbnailUrl } = await getChannelVideosInvidiousRSS(channel))
+      } else {
+        ({ videos, name, thumbnailUrl } = await getChannelVideosInvidiousScraper(channel))
       }
-
-      // Update caches
-      if (type === 'channel' && result.videos) {
-        store.dispatch('updateSubscriptionVideosCacheByChannel', {
-          channelId: item.id,
-          videos: result.videos
-        })
-      } else if (type === 'playlist' && result.videos) {
-        store.dispatch('updateSubscriptionPlaylistCacheByPlaylist', {
-          playlistId: item.id,
-          videos: result.videos
-        })
+    } else {
+      if (useRss) {
+        ({ videos, name, thumbnailUrl } = await getChannelVideosLocalRSS(channel))
+      } else {
+        ({ videos, name, thumbnailUrl } = await getChannelVideosLocalScraper(channel))
       }
-
-      // Update subscription details (channel name + thumbnail)
-      if (result.name || result.thumbnailUrl) {
-        subscriptionUpdates.push({
-          channelId: type === 'channel' ? item.id : undefined,
-          playlistId: type === 'playlist' ? item.id : undefined,
-          channelName: result.name,
-          channelThumbnailUrl: result.thumbnailUrl
-        })
-      }
-      return result.videos ?? []
-    } catch (err) {
-      console.error(`Failed fetching ${type} ${item.id}:`, err)
-      errorChannels.value.push(item)
-      return []
-    } finally {
-      itemCount++
-      store.commit('setProgressBarPercentage', (itemCount / totalItems) * 100)
     }
-  }
 
-  // Fetch channels
-  const channelPromises = activeSubscriptionList.value.map(channel => fetchItem(channel, 'channel'))
+    itemCount++
+    store.commit('setProgressBarPercentage', (itemCount / totalItems) * 100)
 
-  // Fetch playlists
-  const playlistPromises = activePlaylistSubscriptionList.value.map(playlist => fetchItem(playlist, 'playlist'))
+    if (videos != null) {
+      store.dispatch('updateSubscriptionVideosCacheByChannel', {
+        channelId: channel.id,
+        videos: videos
+      })
+    }
 
-  const [channelVideos, playlistVideos] = await Promise.all([
-    Promise.all(channelPromises),
-    Promise.all(playlistPromises)
-  ])
+    if (name || thumbnailUrl) {
+      subscriptionUpdates.push({
+        channelId: channel.id,
+        channelName: name,
+        channelThumbnailUrl: thumbnailUrl
+      })
+    }
 
-  // Merge and process all videos
-  const allVideos = [...channelVideos.flat(), ...playlistVideos.flat()]
-  // Filter video duplicates that can occur when a video is both in a channel and a playlist subscription,
-  // TODO: maybe this could be done automatically in DB ?
+    return videos ?? []
+  }))).flat()
+
+  // Fetch playlist videos (same pattern, adapted for playlists)
+  const videoListFromPlaylists = (await Promise.all(playlistsToLoadFromRemote.map(async (playlist) => {
+    let videos, name
+
+    if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
+      ({ videos, name } = await getPlaylistVideosInvidiousScraper(playlist))
+    } else {
+      ({ videos, name } = await getPlaylistVideosLocalRSS(playlist))
+    }
+
+    itemCount++
+    store.commit('setProgressBarPercentage', (itemCount / totalItems) * 100)
+
+    if (videos != null) {
+      store.dispatch('updateSubscriptionPlaylistCacheByPlaylist', {
+        playlistId: playlist.id,
+        videos: videos
+      })
+    }
+
+    if (name) {
+      subscriptionUpdates.push({
+        playlistId: playlist.id,
+        channelName: name
+      })
+    }
+
+    return videos ?? []
+  }))).flat()
+
+  // Deduplicate videos across channels and playlists
+  const allVideos = [...videoListFromChannels, ...videoListFromPlaylists]
   const uniqueVideosMap = new Map()
   allVideos.forEach(video => {
     if (!uniqueVideosMap.has(video.videoId)) {
@@ -332,12 +329,10 @@ async function loadVideosForSubscriptionsFromRemote() {
   })
 
   videoList.value = updateVideoListAfterProcessing([...uniqueVideosMap.values()])
-
-  store.commit('setShowProgressBar', false)
   isLoading.value = false
+  store.commit('setShowProgressBar', false)
   lastRemoteRefreshSuccessTimestamp.value = Date.now()
 
-  // Batch update subscription metadata
   store.dispatch('batchUpdateSubscriptionDetails', subscriptionUpdates)
 }
 

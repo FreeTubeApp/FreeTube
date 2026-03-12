@@ -187,8 +187,7 @@ async function loadVideosForSubscriptionsFromRemote() {
   const subscriptionUpdates = []
 
   const videoListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
-    let videos = []
-    let name
+    let videos, name
 
     if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
       ({ videos, name } = await getChannelShortsInvidious(channel))

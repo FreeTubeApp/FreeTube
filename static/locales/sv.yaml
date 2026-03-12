@@ -41,7 +41,7 @@ Global:
     Like Count: 1 gillning | {count} gillningar
     Comment Count: 1 kommentar | {count} kommentarer
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} är nu tillgänglig!  Klicka för mer detaljer'
-Download From Site: 'Ladda ner från sajten'
+Download From Site: 'Ladda ner från webbplatsen'
 A new blog is now available, {blogTitle}. Click to view more: 'En ny blogg finns nu tillgänglig, {blogTitle}. Klicka för att se mer'
 
 # Search Bar
@@ -196,7 +196,7 @@ User Playlists:
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Är du säker på att du vill ta bort 1 dubblettvideo från den här spellistan? Detta kan inte ångras. | Är du säker på att du vill ta bort {playlistItemCount} dubblettvideor från den här spellistan? Detta kan inte ångras.
   Cannot delete the quick bookmark target playlist.: Det går inte att ta bort målspellistan för snabbokmärken.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Är du säker på att du vill ta bort 1 sedd video från den här spellistan? Detta kan inte ångras. | Är du säker på att du vill ta bort {playlistItemCount} sedda videor från den här spellistan? Detta kan inte ångras.
-  Export list of URLs: Exportera lista med webbadresser
+  Export list of URLs: Exportera lista med URL:er
 History:
   # On History Page
   History: 'Historik'
@@ -221,7 +221,7 @@ Settings:
     Preferred API Backend:
       Preferred API Backend: 'Föredragen API-backend'
       Local API: 'Lokalt API'
-      Invidious API: 'Invidious API:er'
+      Invidious API: 'Invidious API'
     Video View Type:
       Video View Type: 'Video visningtypen'
       Grid: 'Rutnät'
@@ -243,7 +243,7 @@ Settings:
     Current instance will be randomized on startup: Instansen kommer att väljas slumpmässigt vid start
     No default instance has been set: Ingen standardinstans är vald
     The currently set default instance is {instance}: Den nuvarande aktiva instansen är {instance}
-    Current Invidious Instance: Aktiva Invidious-instansen
+    Current Invidious Instance: Aktiv Invidious-instans
     External Link Handling:
       No Action: Ingen åtgärd
       Ask Before Opening Link: Fråga innan du öppnar länk
@@ -377,9 +377,9 @@ Settings:
   Player Settings:
     Player Settings: 'Spelare'
     Play Next Video: 'Autospela Rekommenderade Videor'
-    Turn on Subtitles by Default: 'Aktivera Undertexter som Standard'
+    Turn on Subtitles by Default: 'Aktivera undertexter som standard'
     Autoplay Videos: 'Starta Videor Automatiskt'
-    Proxy Videos Through Invidious: 'Proxy Videos Genom Invidious'
+    Proxy Videos Through Invidious: 'Proxyvideor via Invidious'
     Autoplay Playlists: 'Spela upp videor i spellistan automatiskt'
     Enable Theatre Mode by Default: 'Aktivera Bioläge som standard'
     Default Volume: 'Standardvolym'
@@ -411,7 +411,7 @@ Settings:
       Error:
         Empty File Name: Tomt filnamn
         Forbidden Characters: Förbjudna symboler
-      Ask Path: Fråga om nerladdnigsmapp
+      Ask Path: Fråga efter sparmapp
       Folder Label: Skärmdumpsmapp
       Quality Label: Skärmdumpskvalité
       Format Label: Skärmdumpsformat
@@ -552,7 +552,7 @@ Settings:
     Show Added Items: Visa tillagda objekt
     Hide Subscriptions Posts: Dölj prenumerationsinlägg
     Hide Channel Posts: Dölj kanalfliken "Inlägg"
-  The app needs to restart for changes to take effect. Restart and apply change?: Starta om FreeTube nu för att tillämpa ändringarna?
+  The app needs to restart for changes to take effect. Restart and apply change?: Appen måste startas om för att ändringarna ska träda i kraft. Starta om och tillämpa ändringen?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Fel uppstod vid hämtning av nätverksinformationen. Är din proxy korrekt konfigurerad?
     City: Stad
@@ -572,7 +572,7 @@ Settings:
     Proxy Password: Proxy lösenord
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifikation när sponsorsegmentet är åsidosatt
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': API Url för sponsorblockering (Standard är https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-URL (standard är https://sponsor.ajay.app)
     Enable SponsorBlock: Använd sponsorblockering (SponsorBlock)
     SponsorBlock Settings: Sponsorblockering
     Skip Options:
@@ -583,7 +583,7 @@ Settings:
       Prompt To Skip: Prompt för att hoppa över
     Category Color: Kategorifärg
     UseDeArrowTitles: Använd DeArrow-videotitlar
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL:en till DeArrows miniatyrbildsgenerator-API (standard är https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow-miniatyrbildsgenerator API-URL (standard är https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Använd DeArrow för miniatyrer
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorera händelsevarningar som inte stöds
@@ -611,7 +611,7 @@ Settings:
     Set Password To Prevent Access: Ange lösenord för att förhindra tillgång till inställningar
   Experimental Settings:
     Experimental Settings: Experimentella
-    Warning: Dessa inställlningar är experimentella, de kan eventuellt orsakar kracher om de är aktiverade. Att göra backupfiler rekomenderas. Används på egen risk!
+    Warning: Dessa inställningar är experimentella och kan orsaka krascher när de är aktiverade. Det rekommenderas starkt att säkerhetskopiera. Användning sker på egen risk!
     Replace HTTP Cache: Ersätt HTTP-cache
   Return to Settings Menu: Återgå till inställningsmenyn
   Sort Settings Sections (A-Z): Sortera inställningssektioner (A-Ö)
@@ -641,6 +641,9 @@ About:
   Beta: Beta
   Discussions: Diskussioner
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Licensierad under {licenseLink}
+  Please read the {roomRulesLink}: Läs {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube möjliggörs av {creditsPageLink}
 Profile:
   Profile Select: 'Välj profil'
   All Channels: 'Alla kanaler'
@@ -652,7 +655,7 @@ Profile:
   Profile Preview: 'Förhandsvisa profil'
   Create Profile: 'Skapa profil'
   Update Profile: 'Uppdatera profil'
-  Make Default Profile: 'Gör standardprofil'
+  Make Default Profile: 'Skapa standardprofil'
   Delete Profile: 'Ta bort profil'
   Are you sure you want to delete this profile?: 'Vill du verkligen ta bort profilen?'
   All subscriptions will also be deleted.: 'Alla prenumerationer raderas också.'
@@ -677,7 +680,7 @@ Profile:
 #On Channel Page
   Profile Filter: Profilfilter
   Profile Settings: Profil
-  Toggle Profile List: Aktivera Profillista
+  Toggle Profile List: Aktivera profillista
   Open Profile Dropdown: Öppna profilrullgardinsmenyn
   Close Profile Dropdown: Stäng profilrullgardinsmenyn
   Profile Name: Profilnamn
@@ -776,7 +779,7 @@ Video:
     In less than a minute: Mindre än en minut
   Published on: 'Publicerad den'
 #& Videos
-  Copy Invidious Channel Link: Kopiera Invidious Kanal Länk
+  Copy Invidious Channel Link: Kopiera Invidious-kanallänk
   Open Channel in Invidious: Öppna kanalen i Invidious
   Copy YouTube Channel Link: Kopiera YouTube-kanallänk
   Open Channel in YouTube: Öppna kanal i YouTube
@@ -834,7 +837,7 @@ Video:
       CodecsVideoAudio: 'Kodekar: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       Dropped Frames / Total Frames: 'Bildrutefall: {droppedFrames} / Totalt antal bildrutor: {totalFrames}'
     Hide Stats: Dölj statistik
-    You appear to be offline: Du verkar vara offline.
+    You appear to be offline: Du verkar vara frånkopplad.
     Playback will resume automatically when your connection comes back: Uppspelningen återupptas automatiskt när din anslutning kommer tillbaka.
     Skipped segment: Hoppade över {segmentCategory} segmentet
     Audio Tracks: Ljudspår
@@ -898,12 +901,12 @@ Share:
   Copy Embed: 'Kopiera inbäddad'
   Open Embed: 'Öppna inbäddad'
   # On Click
-  Invidious URL copied to clipboard: 'Skadlig URL kopierad till urklipp'
+  Invidious URL copied to clipboard: 'Invidious-URL kopierad till urklipp'
   Invidious Embed URL copied to clipboard: 'Invidious-inbäddnings-URL kopierad till urklipp'
-  YouTube URL copied to clipboard: 'Youtube URL kopierad till urklipp'
+  YouTube URL copied to clipboard: 'Youtube-URL kopierad till urklipp'
   YouTube Embed URL copied to clipboard: 'YouTube-inbäddnings-URL kopierad till urklipp'
   YouTube Channel URL copied to clipboard: YouTube-kanalens URL kopierad till urklipp
-  Invidious Channel URL copied to clipboard: Invidious Kanal-URL kopierad till urklipp
+  Invidious Channel URL copied to clipboard: Invidious kanal-URL kopierad till urklipp
   Share Channel: Dela Kanal
   Share Post: Dela inlägg
 Mini Player: 'Minispelare'
@@ -932,7 +935,7 @@ Up Next: 'Kommer härnäst'
 
 # Toast Messages
 Local API Error (Click to copy): 'Lokalt API-fel (Klicka för att kopiera koden)'
-Invidious API Error (Click to copy): 'Invidious API-fel (Klicka för att kopiera koden)'
+Invidious API Error (Click to copy): 'Invidious API-fel (klicka för att kopiera)'
 Falling back to Invidious API: 'Faller tillbaka till Invidious API'
 Falling back to Local API: 'Faller tillbaka till lokal API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Den här videon är inte tillgänglig på grund av format som saknas. Detta kan hända på grund av landets otillgänglighet.'
@@ -954,9 +957,9 @@ Tooltips:
     Fetch Automatically: När det är aktiverat hämtar FreeTube automatiskt ditt prenumerationsflöde vid start och när ett nytt fönster öppnas.
   Player Settings:
     Default Video Format: Ställ in de format som används när en video spelas upp. DASH-format kan spela högre kvaliteter. Äldre format är begränsade till max 360p men använder mindre bandbredd. Ljudformat är endast ljudströmmningar.
-    Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att hämta videor istället för att göra en direkt anslutning till YouTube.
+    Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att visa videor istället för att skapa en direktanslutning till YouTube.
     Skip by Scrolling Over Video Player: Använd scrollhjulet för att snabbspola igenom videon, MPV stil.
-    Scroll Playback Rate Over Video Player: När muspekaren är över videon, håll nere CTRL (Kommandotangenten på Mac) och skrolla upp och ner för att ändra uppspelningshastigheten. Håll nere CTRL (Kommandotangenten på Mac) och vänsterklicka för att återställa till standardhastighet (1x såvida det inte ändrats i spelarinställningar).
+    Scroll Playback Rate Over Video Player: Medan markören är över videon, håll ner Ctrl-tangenten (Kommandotangenten på Mac) och skrolla mushjulet framåt eller bakåt för att styra uppspelningshastigheten. Håll ner Ctrl-tangenten (Kommandotangenten på Mac) och vänsterklicka med musen för att snabbt återgå till standarduppspelningshastigheten (1x om den inte har ändrats i inställningarna).
   General Settings:
     Region for Trending: Med trenderegionen kan du välja vilket lands trendiga videor du vill ska visas.
     Invidious Instance: Invidious-instansen som FreeTube kommer att ansluta till för API-anrop.
@@ -969,7 +972,7 @@ Tooltips:
     Custom External Player Arguments: Alla anpassade kommandoradsargument, ska skickas till den externa spelaren.
     Ignore Warnings: Dämpa varningar för när den aktuella externa spelaren inte stöder den aktuella åtgärden (t.ex. backning av spellistor, etc.).
     Custom External Player Executable: Som standard antar FreeTube att den valda externa spelaren kan hittas via PATH-miljövariabeln. Om det behövs kan en anpassad sökväg ställas in här.
-    External Player: Att välja en extern spelare visar en ikon för att öppna videon (spellista om den stöds) i den externa spelaren på miniatyrbilden. Varning, Invidiousinställningar påverkar inte externa videospelare.
+    External Player: Att välja en extern spelare visar en ikon för att öppna videon (spellista om den stöds) i den externa spelaren på miniatyrbilden. Varning, Invidious-inställningar påverkar inte externa videospelare.
     DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
     Ignore Default Arguments: Skicka inga standardargument till den externa spelaren förutom videons URL (t.ex. uppspelningshastighet, spellista URL, etc.). Anpassade argument kommer fortfarande att föras vidare.
   Distraction Free Settings:
@@ -985,7 +988,7 @@ Tooltips:
 More: Mer
 Open New Window: Öppna nytt fönster
 Playing Next Video Interval: Spelar strax nästa video. Klicka för att stoppa. | Spelar nästa video om {nextVideoInterval} sekunder. Klicka för att stoppa. | Spelar nästa video om {nextVideoInterval} sekunder. Klicka för att stoppa.
-Unknown YouTube url type, cannot be opened in app: Okänd YouTube URL, kan inte öppnas i programmet
+Unknown YouTube url type, cannot be opened in app: Okänd YouTube-URL-typ, kan inte öppnas i appen
 Default Invidious instance has been cleared: Standard Invidious-instans har rensats
 Default Invidious instance has been set to {instance}: Standard Invidious-instans har ställts in på {instance}
 External link opening has been disabled in the general settings: Öppning av externa länkar har inaktiverats i de allmänna inställningarna

@@ -434,7 +434,7 @@ Settings:
     Search cache has been cleared: 'Hurtiglageret for søk har blitt tømt'
     Remove Watch History: 'Fjern visningshistorikk'
     Are you sure you want to remove your entire watch history?: 'Er du sikker på at du vil tømme hele visningshistorikken din?'
-    Watch history has been cleared: 'VIsningshistorikk har blitt tømt'
+    Watch history has been cleared: 'Visningshistorikken har blitt tømt'
     Remove All Subscriptions / Profiles: Fjern alle abonnementer/profiler
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Er du sikker på at du vil fjerne alle abonnementer og profiler? Dette kan ikke bli omgjort.
     Save Watched Videos With Last Viewed Playlist: Lagre sette videoer med sist sette spilleliste
@@ -630,7 +630,7 @@ About:
   Please check for duplicates before posting: Vennligst sjekk om problemet ditt allerede har blitt sendt inn før du sender inn en melding
   these people and projects: disse folkene og prosjektene
   Credits: Bidragsytere
-  room rules: reglene for rommet
+  room rules: rommreglene
   GitHub issues: GitHub-problemsporer
   FreeTube Wiki: FreeTube-wiki
   GitHub releases: GitHub-utgivelser
@@ -638,6 +638,9 @@ About:
   Chat on Matrix: Snakk med oss på Matrix
   Discussions: Diskusjoner
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Lisensiert under {licenseLink}
+  Please read the {roomRulesLink}: Les {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube blir til takket være {creditsPageLink}
 Channel:
   Subscribe: 'Abonner'
   Unsubscribe: 'Opphev abonnement'
