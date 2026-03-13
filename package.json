@@ -78,7 +78,7 @@
     "@eslint/js": "^10.0.1",
     "@intlify/eslint-plugin-vue-i18n": "^4.3.0",
     "@stylistic/eslint-plugin": "^5.10.0",
-    "babel-loader": "^10.1.0",
+    "babel-loader": "^10.1.1",
     "copy-webpack-plugin": "^14.0.0",
     "css-loader": "^7.1.4",
     "css-minimizer-webpack-plugin": "^8.0.0",
