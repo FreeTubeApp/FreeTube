@@ -21,6 +21,23 @@
         }
     },
     {
+        "name": "QMPlay2",
+        "value": "QMPlay2",
+        "cmdArguments": {
+            "defaultExecutable": "QMPlay2",
+            "defaultCustomArguments": null,
+            "supportsYtdlProtocol": true,
+            "videoUrl": "",
+            "playlistUrl": "",
+            "startOffset": "",
+            "playbackRate": "--speed",
+            "playlistIndex": null,
+            "playlistReverse": null,
+            "playlistShuffle": null,
+            "playlistLoop": null
+        }
+    },
+    {
         "name": "VLC",
         "value": "vlc",
         "cmdArguments": {
@@ -52,7 +69,7 @@
             "playlistLoop": "--mpv-loop-playlist"
         }
     },
-      {
+    {
         "name": "SMPlayer",
         "value": "smplayer",
         "cmdArguments": {
