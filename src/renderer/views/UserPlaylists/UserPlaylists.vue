@@ -299,20 +299,26 @@ const lowerCaseQuery = computed(() => query.value.toLowerCase())
 
 const subscribedPlaylists = computed(() => {
   const lists = store.getters.getActiveProfile.listSubscriptions || []
-  return lists.map((playlist) => ({
-    type: 'playlist',
-    dataSource: 'local',
-    playlistId: playlist.id,
-    playlistName: playlist.name || playlist.id,
-    title: playlist.name || playlist.id,
-    description: '',
-    channelName: '',
-    channelId: '',
-    playlistThumbnail: playlist.thumbnail || '',
-    thumbnail: playlist.thumbnail || '',
-    videoCount: 0,
-    videos: []
-  }))
+  const playlistCache = store.getters.getPlaylistCache
+  return lists.map((playlist) => {
+    const cacheEntry = playlistCache[playlist.id]
+    const cachedVideoCount = cacheEntry?.videos?.length ?? 0
+
+    return {
+      type: 'playlist',
+      dataSource: 'local',
+      playlistId: playlist.id,
+      playlistName: playlist.name || playlist.id,
+      title: playlist.name || playlist.id,
+      description: '',
+      channelName: '',
+      channelId: '',
+      playlistThumbnail: playlist.thumbnail || '',
+      thumbnail: playlist.thumbnail || '',
+      videoCount: cachedVideoCount,
+      videos: []
+    }
+  })
 })
 
 const activeSubscribedPlaylists = computed(() => {
