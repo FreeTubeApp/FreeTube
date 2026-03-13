@@ -547,8 +547,8 @@ export default defineComponent({
       return this.$store.getters.getDeArrowCache[this.id]
     },
 
-    disableChannelLink: function () {
-      return this.$store.getters.getDisableChannelLink
+    disableChannelLinks: function () {
+      return this.$store.getters.getDisableChannelLinks
     },
   },
   watch: {

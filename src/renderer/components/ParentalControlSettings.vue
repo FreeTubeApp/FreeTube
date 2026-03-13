@@ -19,8 +19,8 @@
         <FtToggleSwitch
           :label="$t('Settings.Parental Control Settings.Disable Channel Link on Videos')"
           compact
-          :default-value="disableChannelLink"
-          @change="updateDisableChannelLink"
+          :default-value="disableChannelLinks"
+          @change="updateDisableChannelLinks"
         />
       </div>
       <div class="switchColumn">
@@ -65,8 +65,8 @@ const showFamilyFriendlyOnly = computed(() => {
   return store.getters.getShowFamilyFriendlyOnly
 })
 
-const disableChannelLink = computed(() => {
-  return store.getters.getDisableChannelLink
+const disableChannelLinks = computed(() => {
+  return store.getters.getDisableChannelLinks
 })
 
 /**
@@ -100,7 +100,7 @@ function updateShowFamilyFriendlyOnly(value) {
 /**
  * @param {boolean} value
  */
-function updateDisableChannelLink(value) {
-  store.dispatch('updateDisableChannelLink', value)
+function updateDisableChannelLinks(value) {
+  store.dispatch('updateDisableChannelLinks', value)
 }
 </script>

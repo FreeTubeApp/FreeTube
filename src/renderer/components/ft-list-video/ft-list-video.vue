@@ -126,9 +126,9 @@
         <router-link
           v-if="channelId !== null"
           class="channelName"
-          :class="{ 'linkDisabled': disableChannelLink }"
+          :class="{ 'linkDisabled': disableChannelLinks }"
           dir="auto"
-          :to="!disableChannelLink ? `/channel/${channelId}`: ``"
+          :to="!disableChannelLinks ? `/channel/${channelId}`: ``"
         >
           {{ channelName }}
         </router-link>
