@@ -124,15 +124,14 @@
       </router-link>
       <div class="infoLine">
         <router-link
-          v-if="channelId !== null"
+          v-if="channelId !== null && !disableChannelLinks"
           class="channelName"
-          :class="{ 'linkDisabled': disableChannelLinks }"
           dir="auto"
-          :to="!disableChannelLinks ? `/channel/${channelId}`: ``"
+          :to="`/channel/${channelId}`"
         >
           {{ channelName }}
         </router-link>
-        <bdi v-else-if="channelName !== null">
+        <bdi v-else-if="channelName !== null || disableChannelLinks">
           {{ channelName }}
         </bdi>
         <span
