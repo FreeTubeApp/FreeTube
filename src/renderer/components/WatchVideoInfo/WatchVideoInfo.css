@@ -97,8 +97,8 @@
   gap: 4px;
 }
 
-.revertCursor {
-  cursor: revert;
+.initialCursor {
+  cursor: initial;
 }
 
 @media screen and (width <= 730px) {
