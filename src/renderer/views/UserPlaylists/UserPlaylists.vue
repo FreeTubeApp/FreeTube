@@ -91,6 +91,48 @@
         </FtFlexBox>
       </FtAutoLoadNextPageWrapper>
     </FtCard>
+    <FtCard
+      v-if="subscribedPlaylists.length > 0"
+      class="card"
+    >
+      <div class="heading">
+        <h2 class="headingText">
+          <FontAwesomeIcon
+            :icon="['fas', 'list']"
+            class="headingIcon"
+          />
+          {{ $t("User Playlists.Subscribed Playlists") }}
+        </h2>
+        <div
+          v-if="subscribedPlaylists.length > 1"
+          class="searchInputsRow"
+        >
+          <FtInput
+            :placeholder="$t('User Playlists.Search bar placeholder')"
+            :value="subscribedQuery"
+            :show-clear-text-button="true"
+            :show-action-button="false"
+            :maxlength="255"
+            @input="(val) => { subscribedQuery = val }"
+            @clear="() => { subscribedQuery = '' }"
+          />
+        </div>
+      </div>
+      <FtFlexBox
+        v-if="activeSubscribedPlaylists.length === 0 && subscribedQuery !== ''"
+      >
+        <p class="message">
+          {{ $t("User Playlists['Empty Search Message']") }}
+        </p>
+      </FtFlexBox>
+      <FtElementList
+        v-else-if="activeSubscribedPlaylists.length > 0"
+        :data="activeSubscribedPlaylists"
+        data-type="playlist"
+        :use-channels-hidden-preference="false"
+        :hide-forbidden-titles="false"
+      />
+    </FtCard>
   </div>
 </template>
 
@@ -122,6 +164,7 @@ const dataLimit = ref(sessionDataLimit !== null ? parseInt(sessionDataLimit) : 1
 const searchDataLimit = ref(100)
 const showLoadMoreButton = ref(false)
 const query = ref('')
+const subscribedQuery = ref('')
 const doSearchPlaylistsWithMatchingVideos = ref(false)
 const activeData = ref([])
 
@@ -253,6 +296,36 @@ const fullData = computed(() => {
 })
 
 const lowerCaseQuery = computed(() => query.value.toLowerCase())
+
+const subscribedPlaylists = computed(() => {
+  const lists = store.getters.getActiveProfile.listSubscriptions || []
+  return lists.map((playlist) => ({
+    type: 'playlist',
+    dataSource: 'local',
+    playlistId: playlist.id,
+    playlistName: playlist.name || playlist.id,
+    title: playlist.name || playlist.id,
+    description: '',
+    channelName: '',
+    channelId: '',
+    playlistThumbnail: playlist.thumbnail || '',
+    thumbnail: playlist.thumbnail || '',
+    videoCount: 0,
+    videos: []
+  }))
+})
+
+const activeSubscribedPlaylists = computed(() => {
+  const lowerQuery = subscribedQuery.value.toLowerCase()
+
+  if (lowerQuery === '') {
+    return subscribedPlaylists.value
+  }
+
+  return subscribedPlaylists.value.filter((playlist) => {
+    return playlist.title.toLowerCase().includes(lowerQuery)
+  })
+})
 
 watch(lowerCaseQuery, () => {
   searchDataLimit.value = 100

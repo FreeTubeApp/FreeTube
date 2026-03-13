@@ -1,4 +1,4 @@
-<template>
+  <template>
   <ft-card class="relative">
     <ft-loader
       v-if="isLoading"
