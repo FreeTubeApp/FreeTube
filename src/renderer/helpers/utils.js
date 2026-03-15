@@ -432,15 +432,6 @@ export function createWebURL(path) {
 }
 
 /**
- * strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
- * @param {string} value
- * @returns {string}
- */
-export function stripHTML(value) {
-  return value.replaceAll(/(<(?!br|\/?[abis]|img>)([^>]+)>)/gi, '')
-}
-
-/**
  * This formats the duration of a video in seconds into a user friendly timestamp.
  * It will return strings like LIVE or UPCOMING, without making any changes
  * @param {string|number} lengthSeconds the video duration in seconds or the strings LIVE or UPCOMING
