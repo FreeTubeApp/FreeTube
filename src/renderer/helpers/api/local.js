@@ -1780,8 +1780,8 @@ function convertSearchFilters(filters) {
   // others have empty strings that we don't want to pass to youtubei.js
 
   if (filters) {
-    if (filters.sortBy) {
-      convertedFilters.sort_by = filters.sortBy
+    if (filters.prioritize) {
+      convertedFilters.prioritize = filters.prioritize
     }
 
     if (filters.time) {

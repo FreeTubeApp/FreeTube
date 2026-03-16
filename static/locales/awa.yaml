@@ -73,15 +73,11 @@ Search Listing:
   # In Filter Button
 Search Filters:
   Search Filters: 'हेरय कै फिलटर'
-  Sort By:
+  Prioritize:
     Most Relevant: 'सबसे ठीक'
-    Rating: 'रेटिंग'
-    Upload Date: 'अपलोड तारिख'
-    View Count: 'ब्यू कै गिनती'
   Time:
     Time: 'समय'
     Any Time: 'कबो भी'
-    Last Hour: 'पिछले घंटा'
     Today: 'आज'
     This Week: 'यहि हफ्ता'
     This Month: 'यहि महीना'
@@ -96,9 +92,6 @@ Search Filters:
   Duration:
     Duration: 'मियाद'
     All Durations: 'सब अवधि (मियाद)'
-    Short (< 4 minutes): '4 मिनट से छोट'
-    Medium (4 - 20 minutes): 'मद्धिम 4 से 20 मिनट कै'
-    Long (> 20 minutes): 'बड़वार 20 मिनट से जादा'
   Features:
     Features: 'सुबिधा'
     HD: 'एचडी'

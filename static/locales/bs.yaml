@@ -37,15 +37,11 @@ Search / Go to URL: 'Pretražite / idite na URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Pretraži filtere'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Naj relevantnije'
-    Rating: 'Ocjena'
-    Upload Date: 'Datum uploada'
-    View Count: 'Broj pregleda'
   Time:
     Time: 'Vrjeme'
     Any Time: 'Bilo kada'
-    Last Hour: 'Zadnji sat'
     Today: 'Danas'
     This Week: 'Ove sedmice'
     This Month: 'Ovog Mjeseca'
@@ -59,8 +55,8 @@ Search Filters:
   Duration:
     Duration: 'Trajanje'
     All Durations: 'Sva trajanja'
-    Short (< 4 minutes): 'Kratko (<4 minute)'
-    Long (> 20 minutes): 'Dugo (>20 minuta)'
+    '< 3 minutes': '<3 minute'
+    '> 20 minutes': '>20 minuta'
   # On Search Page
   Search Results: 'Rezultati pretrage'
   Fetching results. Please wait: 'Dohvaćanje rezultata. Molimo sačekajte'

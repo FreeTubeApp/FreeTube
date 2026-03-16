@@ -70,15 +70,11 @@ Search Listing:
     8K: 8K
 Search Filters:
   Search Filters: 'Soekfilters'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Mees relevant'
-    Rating: 'Gradering'
-    Upload Date: 'Oplaaddatum'
-    View Count: 'Beskouingsaantal'
   Time:
     Time: 'Tyd'
     Any Time: 'Enige tyd'
-    Last Hour: 'Laaste uur'
     Today: 'Vandag'
     This Week: 'Hierdie week'
     This Month: 'Hierdie maand'
@@ -93,9 +89,9 @@ Search Filters:
   Duration:
     Duration: 'Duur'
     All Durations: 'Alle durasies'
-    Short (< 4 minutes): 'Kort (<4 minute)'
-    Medium (4 - 20 minutes): 'Medium (4 - 20 minute)'
-    Long (> 20 minutes): 'Lank (> 20 minute)'
+    '< 3 minutes': '<3 minute'
+    '3 - 20 minutes': '3 - 20 minute'
+    '> 20 minutes': '> 20 minute'
   Features:
     Features: 'Funksies'
     HD: 'HD'

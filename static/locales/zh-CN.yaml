@@ -42,15 +42,11 @@ Search / Go to URL: '搜索 / 前往URL'
   # In Filter Button
 Search Filters:
   Search Filters: '搜索过滤'
-  Sort By:
+  Prioritize:
     Most Relevant: '最相关'
-    Rating: '评分'
-    Upload Date: '上传日期'
-    View Count: '观看数量'
   Time:
     Time: '发布时间'
     Any Time: '任何时间'
-    Last Hour: '一小时内'
     Today: '今天'
     This Week: '本周'
     This Month: '本月'
@@ -65,10 +61,9 @@ Search Filters:
   Duration:
     Duration: '时长'
     All Durations: '所有时长'
-    Short (< 4 minutes): '短（< 4分钟）'
-    Long (> 20 minutes): '长（> 20分钟）'
-  # On Search Page
-    Medium (4 - 20 minutes): 中等（4-20 分钟）
+    '< 3 minutes': '< 3分钟'
+    '> 20 minutes': '> 20分钟'
+    '3 - 20 minutes': 3-20 分钟
   Search Results: '搜索结果'
   Fetching results. Please wait: '摘取结果中。请稍候'
   Fetch more results: '摘取更多结果'

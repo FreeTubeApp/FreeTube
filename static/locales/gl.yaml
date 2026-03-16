@@ -41,15 +41,11 @@ Search / Go to URL: 'Buscar / Ir a URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Buscar filtros'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Máis relevante'
-    Rating: 'Valoración'
-    Upload Date: 'Data de subida'
-    View Count: 'Visualizacións'
   Time:
     Time: 'Tempo'
     Any Time: 'Cando queiras'
-    Last Hour: 'Última hora'
     Today: 'Hoxe'
     This Week: 'Esta semana'
     This Month: 'Este mes'
@@ -64,10 +60,9 @@ Search Filters:
   Duration:
     Duration: 'Duración'
     All Durations: 'Tódalas duracións'
-    Short (< 4 minutes): 'Curta (< 4 minutos)'
-    Long (> 20 minutes): 'Longa (> 20 minutos)'
-  # On Search Page
-    Medium (4 - 20 minutes): Medio (4-20 minutos)
+    '< 3 minutes': '< 3 minutos'
+    '> 20 minutes': '> 20 minutos'
+    '3 - 20 minutes': 3-20 minutos
   Search Results: 'Resultados da busca'
   Fetching results. Please wait: 'Buscando resultados. Por favor, agarda'
   Fetch more results: 'Buscar máis resultados'

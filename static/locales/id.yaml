@@ -49,15 +49,11 @@ Search / Go to URL: 'Cari / Pergi ke URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filter Pencarian'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Paling Relevan'
-    Rating: 'Peringkat'
-    Upload Date: 'Tanggal Diunggah'
-    View Count: 'Jumlah Tontonan'
   Time:
     Time: 'Durasi'
     Any Time: 'Kapan Saja'
-    Last Hour: 'Sejam Terakhir'
     Today: 'Hari ini'
     This Week: 'Minggu ini'
     This Month: 'Bulan ini'
@@ -72,10 +68,9 @@ Search Filters:
   Duration:
     Duration: 'Durasi'
     All Durations: 'Semua Durasi'
-    Short (< 4 minutes): 'Pendek (< 4 menit)'
-    Long (> 20 minutes): 'Panjang (> 20 menit)'
-  # On Search Page
-    Medium (4 - 20 minutes): Sedang (4 - 20 menit)
+    '< 3 minutes': '< 3 menit'
+    '> 20 minutes': '> 20 menit'
+    '3 - 20 minutes': 3 - 20 menit
   Search Results: 'Hasil Pencarian'
   Fetching results. Please wait: 'Mengambil hasil. Silakan tunggu'
   Fetch more results: 'Ambil lebih banyak hasil'

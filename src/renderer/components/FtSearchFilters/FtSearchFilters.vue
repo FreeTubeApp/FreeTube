@@ -27,10 +27,10 @@
 
     <FtFlexBox class="radioFlexBox">
       <FtRadioButton
-        v-model="sortByValue"
-        :title="$t('Global.Sort By')"
-        :labels="sortByLabels"
-        :values="SORT_BY_VALUES"
+        v-model="prioritizeValue"
+        :title="$t('Search Filters.Prioritize.Prioritize')"
+        :labels="prioritizeLabels"
+        :values="PRIORITIZE_VALUES"
         class="searchRadio"
       />
       <FtRadioButton
@@ -87,16 +87,13 @@ import store from '../../store/index'
 
 const { t } = useI18n()
 
-const SORT_BY_VALUES = [
+const PRIORITIZE_VALUES = [
   'relevance',
-  'rating',
-  'upload_date',
-  'view_count'
+  'popularity'
 ]
 
 const TIME_VALUES = [
   '',
-  'hour',
   'today',
   'week',
   'month',
@@ -106,6 +103,7 @@ const TIME_VALUES = [
 const TYPE_VALUES = [
   'all',
   'video',
+  'shorts',
   'channel',
   'playlist',
   'movie'
@@ -113,9 +111,9 @@ const TYPE_VALUES = [
 
 const DURATION_VALUES = [
   '',
-  'short',
-  'medium',
-  'long'
+  'under_three_mins',
+  'three_to_twenty_mins',
+  'over_twenty_mins'
 ]
 
 const FEATURE_VALUES = [
@@ -140,16 +138,13 @@ const NOT_ALLOWED_FOR_MOVIES_FEATURES = [
 
 const title = computed(() => t('Search Filters.Search Filters'))
 
-const sortByLabels = computed(() => [
-  t('Search Filters.Sort By.Most Relevant'),
-  t('Search Filters.Sort By.Rating'),
-  t('Search Filters.Sort By.Upload Date'),
-  t('Search Filters.Sort By.View Count')
+const prioritizeLabels = computed(() => [
+  t('Search Filters.Prioritize.Most Relevant'),
+  t('Search Filters.Prioritize.Popularity')
 ])
 
 const timeLabels = computed(() => [
   t('Search Filters.Time.Any Time'),
-  t('Search Filters.Time.Last Hour'),
   t('Search Filters.Time.Today'),
   t('Search Filters.Time.This Week'),
   t('Search Filters.Time.This Month'),
@@ -159,6 +154,7 @@ const timeLabels = computed(() => [
 const typeLabels = computed(() => [
   t('Search Filters.Type.All Types'),
   t('Search Filters.Type.Videos'),
+  t('Global.Shorts'),
   t('Search Filters.Type.Channels'),
   t('Playlists'),
   t('Search Filters.Type.Movies')
@@ -166,9 +162,9 @@ const typeLabels = computed(() => [
 
 const durationLabels = computed(() => [
   t('Search Filters.Duration.All Durations'),
-  t('Search Filters.Duration.Short (< 4 minutes)'),
-  t('Search Filters.Duration.Medium (4 - 20 minutes)'),
-  t('Search Filters.Duration.Long (> 20 minutes)')
+  t('Search Filters.Duration.< 3 minutes'),
+  t('Search Filters.Duration.3 - 20 minutes'),
+  t('Search Filters.Duration.> 20 minutes')
 ])
 
 const featureLabels = computed(() => [
@@ -186,14 +182,18 @@ const featureLabels = computed(() => [
 
 const searchSettings = store.getters.getSearchSettings
 
-/** @type {import('vue').Ref<'relevance' | 'rating' | 'upload_date' | 'view_count'>} */
-const sortByValue = ref(searchSettings.sortBy)
+/** @type {import('vue').Ref<'relevance' | 'popularity'>} */
+const prioritizeValue = ref(searchSettings.prioritize)
 
-watch(sortByValue, (value) => {
-  store.commit('setSearchSortBy', value)
+watch(prioritizeValue, (value) => {
+  if (value === 'popularity' && (typeValue.value === 'channel' || typeValue.value === 'playlist')) {
+    typeValue.value = 'all'
+  }
+
+  store.commit('setSearchPrioritize', value)
 })
 
-/** @type {import('vue').Ref<'' | 'hour' | 'today' | 'week' | 'month' | 'year'>} */
+/** @type {import('vue').Ref<'' | 'today' | 'week' | 'month' | 'year'>} */
 const timeValue = ref(searchSettings.time)
 
 watch(timeValue, (value) => {
@@ -204,14 +204,16 @@ watch(timeValue, (value) => {
   store.commit('setSearchTime', value)
 })
 
-/** @type {import('vue').Ref<'all' | 'video' | 'channel' | 'playlist' | 'movie'>} */
+/** @type {import('vue').Ref<'all' | 'video' | 'shorts' | 'channel' | 'playlist' | 'movie'>} */
 const typeValue = ref(searchSettings.type)
 
 watch(typeValue, (value) => {
-  if (value === 'channel' || value === 'playlist') {
+  if (value === 'shorts') {
+    durationValue.value = ''
+  } else if (value === 'channel' || value === 'playlist') {
     timeValue.value = ''
     durationValue.value = ''
-    sortByValue.value = SORT_BY_VALUES[0]
+    prioritizeValue.value = PRIORITIZE_VALUES[0]
     if (featuresValue.value.length > 0) {
       featuresValue.value = []
     }
@@ -224,7 +226,7 @@ watch(typeValue, (value) => {
   store.commit('setSearchType', value)
 })
 
-/** @type {import('vue').Ref<'' | 'short' | 'medium' | 'long'>} */
+/** @type {import('vue').Ref<'' | 'under_three_mins' | 'three_to_twenty_mins' | 'over_twenty_mins'>} */
 const durationValue = ref(searchSettings.duration)
 
 watch(durationValue, (value) => {
@@ -247,7 +249,7 @@ watch(featuresValue, (values) => {
 }, { deep: true })
 
 const searchFilterValueChanged = computed(() => {
-  return sortByValue.value !== SORT_BY_VALUES[0] ||
+  return prioritizeValue.value !== PRIORITIZE_VALUES[0] ||
     timeValue.value !== TIME_VALUES[0] ||
     typeValue.value !== TYPE_VALUES[0] ||
     durationValue.value !== DURATION_VALUES[0] ||
@@ -270,7 +272,7 @@ function isVideoOrMovieOrAll(type) {
 }
 
 function clearFilters() {
-  sortByValue.value = SORT_BY_VALUES[0]
+  prioritizeValue.value = PRIORITIZE_VALUES[0]
   timeValue.value = TIME_VALUES[0]
   typeValue.value = TYPE_VALUES[0]
   durationValue.value = DURATION_VALUES[0]

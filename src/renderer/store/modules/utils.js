@@ -34,7 +34,7 @@ const state = {
   regionValues: [],
   recentBlogPosts: [],
   searchSettings: {
-    sortBy: 'relevance',
+    prioritize: 'relevance',
     time: '',
     type: 'all',
     duration: '',
@@ -440,7 +440,7 @@ const actions = {
 
         const searchSettings = state.searchSettings
         const query = {
-          sortBy: searchSettings.sortBy,
+          prioritize: searchSettings.prioritize,
           time: searchSettings.time,
           type: searchSettings.type,
           duration: searchSettings.duration,
@@ -739,8 +739,8 @@ const mutations = {
     state.searchFilterValueChanged = value
   },
 
-  setSearchSortBy (state, value) {
-    state.searchSettings.sortBy = value
+  setSearchPrioritize (state, value) {
+    state.searchSettings.prioritize = value
   },
 
   setSearchTime (state, value) {
