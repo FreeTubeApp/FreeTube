@@ -22,22 +22,9 @@ const TRACKING_PARAM_NAMES = [
 ]
 
 if (process.env.SUPPORTS_LOCAL_API) {
-  Platform.shim.eval = (data, env) => {
+  Platform.shim.eval = (data) => {
     return new Promise((resolve, reject) => {
-      const properties = []
-
-      if (env.n) {
-        properties.push(`n: exportedVars.nFunction("${env.n}")`)
-      }
-
-      if (env.sig) {
-        properties.push(`sig: exportedVars.sigFunction("${env.sig}")`)
-      }
-
-      // Triggers permission errors if we don't remove it (added by YouTube.js), as sessionStorage isn't accessible in sandboxed cross-origin iframes
-      const modifiedOutput = data.output.replace('const window = Object.assign({}, globalThis);', '')
-
-      const code = `${modifiedOutput}\nreturn {${properties.join(', ')}}`
+      const code = data.output
 
       // Generate a unique ID, as there may be multiple eval calls going on at the same time (e.g. DASH manifest generation)
       const messageId = process.env.IS_ELECTRON || crypto.randomUUID
@@ -108,7 +95,6 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     user_agent: navigator.userAgent,
 
     retrieve_player: !!withPlayer,
-    player_id: '9f4cc5e4',
     location: location,
     enable_safety_mode: !!safetyMode,
     client_type: clientType,
