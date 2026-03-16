@@ -8693,10 +8693,10 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-youtubei.js@^16.0.1:
-  version "16.0.1"
-  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-16.0.1.tgz#b1fb7d42f36e4d355ba3ca2c93605a0572fe0c9b"
-  integrity sha512-3802bCAGkBc2/G5WUTc0l/bO5mPYJbQAHL04d9hE9PnrDHoBUT8MN721Yqt4RCNncAXdHcfee9VdJy3Fhq1r5g==
+youtubei.js@^17.0.1:
+  version "17.0.1"
+  resolved "https://registry.yarnpkg.com/youtubei.js/-/youtubei.js-17.0.1.tgz#83bb0afded5b1c2e69fffbed9beefa7c8d2fcec8"
+  integrity sha512-1lO4b8UqMDzE0oh2qEGzbBOd4UYRdxn/4PdpRM7BGTHxM6ddsEsKZTu90jp8V9FHVgC2h1UirQyqoqLiKwl+Zg==
   dependencies:
     "@bufbuild/protobuf" "^2.0.0"
     meriyah "^6.1.4"
