@@ -623,10 +623,8 @@ About:
   Donate: Spenden
   Help: Hilfe
   these people and projects: diesen Menschen und Projekten
-  FreeTube is made possible by: FreeTube wird ermöglicht von
   Translate: Übersetzen
   room rules: Raum-Regeln
-  Please read the: Bitte lies die
   Chat on Matrix: Auf Matrix chatten
   Mastodon: Mastodon
   Please check for duplicates before posting: Bitte überprüfe vor dem Erstellen, ob eine ähnliche Issue bereits existiert
@@ -637,8 +635,10 @@ About:
   Downloads / Changelog: Downloads / Änderungsprotokoll
   Source code: Quellcode
   Discussions: Diskussionen
-  Licensed under the: Lizenziert unter der
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Lizenziert unter der {licenseLink}
+  Please read the {roomRulesLink}: Bitte lies die {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube wird ermöglicht durch {creditsPageLink}
 Channel:
   Subscribe: Abonnieren
   Unsubscribe: Deabonnieren
@@ -986,7 +986,7 @@ Tooltips:
     UseDeArrowThumbnails: Video-Miniaturansichten durch Miniaturansichten von DeArrow ersetzen.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen klicken.
 More: Mehr
-Unknown YouTube url type, cannot be opened in app: Unbekannter YouTube-URL-Typ. Kann in der App nicht geöffnet werden
+Unknown YouTube url type, cannot be opened in app: Unbekannter YouTube-URL-Typ, kann in der App nicht geöffnet werden
 Open New Window: Neues Fenster öffnen
 Default Invidious instance has been cleared: Standardmäßige Invidious-Instanz wurde gelöscht
 Default Invidious instance has been set to {instance}: Standardmäßige Invidious-Instanz wurde auf {instance} festgelegt

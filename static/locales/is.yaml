@@ -186,7 +186,7 @@ User Playlists:
   Delete Playlist: Eyða spilunarlista
   Are you sure you want to delete this playlist? This cannot be undone: Ertu viss um að þú viljir eyða þessum spilunarlista? Aðgerðin er ekki afturkallanleg.
   Add to Favorites: Bæta í {playlistName}
-  Remove from Favorites: Fjarlægja af {playlistName}
+  Remove from Favorites: Fjarlægja úr {playlistName}
   Enable Quick Bookmark With This Playlist: Virkja flýtibókamerki með þessum spilunarlista
   Playlists with Matching Videos: Spilunarlistar með samsvarandi myndskeiðum
   Quick Bookmark Enabled: Flýtibókamerki virkjuð
@@ -633,17 +633,17 @@ About:
   Email: 'Tölvupóstur'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Spjall á Matrix'
-  Please read the: 'Endilega lestu'
   room rules: 'reglur spjallsins'
   Translate: 'Þýða'
   Credits: 'Framlög'
-  FreeTube is made possible by: 'FreeTube er gert mögulegt af'
   these people and projects: 'þessu fólki og verkefnum'
   Donate: 'Styrkja'
 
   Discussions: Umræður
-  Licensed under the: Gefið út með notkunarleyfinu
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Notkunarleyfi samkvæmt {licenseLink}
+  Please read the {roomRulesLink}: Þú ættir endilega að lesa {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube er gert mögulegt af {creditsPageLink}
 Profile:
   Profile Select: 'Val á notkunarsniði'
   Profile Filter: 'Sía notkunarsnið'

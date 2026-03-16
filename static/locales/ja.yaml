@@ -518,7 +518,7 @@ Settings:
     Hide Channels: チャンネルから動画を非表示にする
     Hide Channels Placeholder: チャンネル ID
     Display Titles Without Excessive Capitalisation: 過剰な大文字や句読点のないタイトルの表示
-    Hide Channel Playlists: チャンネルの「再生リスト」タブを隠す
+    Hide Channel Playlists: チャンネルの「再生リスト」タブを非表示
     Sections:
       Side Bar: サイドバー
       Channel Page: チャンネル ページ
@@ -526,24 +526,24 @@ Settings:
       General: 一般
       Subscriptions Page: 登録チャンネル ページ
     Hide Featured Channels: おすすめチャンネルの非表示
-    Hide Channel Shorts: チャンネルの「ショート動画」タブを隠す
-    Hide Channel Podcasts: チャンネルの「ポッドキャスト」タブを隠す
+    Hide Channel Shorts: チャンネルの「ショート動画」タブを非表示
+    Hide Channel Podcasts: チャンネルの「ポッドキャスト」タブを非表示
     Hide Subscriptions Shorts: 登録チャンネルのショート動画の非表示
     Hide Subscriptions Live: 登録チャンネルのライブ配信の非表示
     Hide Subscriptions Videos: 登録チャンネルの動画の非表示
-    Hide Channel Releases: チャンネルの「新着情報」タブを隠す
-    Hide Profile Pictures in Comments: コメント欄のプロフィール写真を隠す
+    Hide Channel Releases: チャンネルの「新着情報」タブを非表示
+    Hide Profile Pictures in Comments: コメント欄のプロフィール写真を非表示
     Hide Channels Invalid: 提供されたチャンネル ID が無効です
     Hide Channels Disabled Message: 一部のチャンネルが ID を使用してブロックされ、処理されませんでした。これらの ID が更新されている間、機能はブロックされます
     Hide Channels Already Exists: チャンネル ID は既に存在します
     Hide Channels API Error: 指定されたIDのユーザーを検索する際にエラーが発生しました。IDが正しいかもう一度確認してください。
     Hide Videos, Playlists and Channels Containing Text Placeholder: 単語、単語の一部、またはフレーズ
     Hide Videos, Playlists and Channels Containing Text: 特定のテキストを含む動画と再生リストを非表示にする
-    Hide Channel Home: チャンネルの「ホーム」タブを隠す
+    Hide Channel Home: チャンネルの「ホーム」タブを非表示
     Show Added Items: 追加された項目を表示
-    Hide Channel Courses: チャンネルの「コース」タブを隠す
-    Hide Channel Posts: チャンネルの「投稿」タブを隠す
-    Hide Subscriptions Posts: 登録チャンネルの投稿を隠す
+    Hide Channel Courses: チャンネルの「コース」タブを非表示
+    Hide Channel Posts: チャンネルの「投稿」タブを非表示
+    Hide Subscriptions Posts: 登録チャンネルの投稿を非表示
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -600,8 +600,8 @@ Settings:
   Password Settings:
     Password Settings: パスワード
     Set Password To Prevent Access: 設定にアクセスするためのパスワードの設定
-    Set Password: パスワードの設定
-    Remove Password: パスワードの削除
+    Set Password: パスワードを設定
+    Remove Password: パスワードを削除
   Password Dialog:
     Enter Password To Unlock: パスワードを入力して設定を解除
     Password: パスワード
@@ -613,17 +613,15 @@ About:
   #& About
 #On Channel Page
   Donate: 寄付
-  FreeTube is made possible by: FreeTube が実現できているのは
-  these people and projects: これらの人々とプロジェクトのおかげです
+  these people and projects: これらの人々とプロジェクト
   Credits: クレジット
   Translate: 翻訳
   room rules: ルームの規則
-  Please read the: '次をお読みください：'
   Chat on Matrix: Matrix でチャット
   Mastodon: マストドン
   Email: メールアドレス
   Blog: ブログ
-  Website: WEB サイト
+  Website: ウェブサイト
   Please check for duplicates before posting: 投稿する前に重複を確認してください
   GitHub issues: GitHub の課題
   Report a problem: 問題の報告
@@ -635,8 +633,10 @@ About:
   Source code: ソースコード
   Beta: ベータ
   Discussions: 議論
-  Licensed under the: ライセンス
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: '{licenseLink} に基づいてライセンス供与されています'
+  Please read the {roomRulesLink}: '{roomRulesLink} をお読みください'
+  FreeTube is made possible by {creditsPageLink}: FreeTube は {creditsPageLink} によって支えられています
 Channel:
   Subscribe: 'チャンネル登録'
   Unsubscribe: '登録解除'
@@ -794,7 +794,7 @@ Video:
     Exit Theatre Mode: シアターモードを終了
     Exit Full Window: フルウィンドウを終了
     Full Window: フルウィンドウ
-    Hide Stats: 統計を隠す
+    Hide Stats: 統計を非表示
     Take Screenshot: スクリーンショットを撮る
     Show Stats: 統計を表示
     Autoplay is off: 自動再生 オフ

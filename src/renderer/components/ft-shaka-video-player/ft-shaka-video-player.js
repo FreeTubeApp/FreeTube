@@ -812,7 +812,7 @@ export default defineComponent({
       }
 
       /** @type {string[]} */
-      let elementList = []
+      let elementList
 
       if (onlyUseOverFlowMenu.value) {
         uiConfig.overflowMenuButtons = [
@@ -3063,6 +3063,13 @@ export default defineComponent({
 
                 if (label) {
                   variants = variants.filter(variant => variant.label === label)
+                } else if (variants.length > 1) {
+                  // default audio track
+                  const filteredVariants = variants.filter(variant => variant.audioRoles.includes('main'))
+                  // Sometimes there is nothing marked as main, don't filter in this case
+                  if (filteredVariants.length > 0) {
+                    variants = filteredVariants
+                  }
                 }
 
                 let chosenVariant

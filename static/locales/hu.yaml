@@ -623,12 +623,10 @@ About:
   About: 'Névjegy'
   #& About
   these people and projects: az alábbi emberek és projektek
-  FreeTube is made possible by: 'A FreeTube elkészítését lehetővé tették'
   Donate: Adományozás
   Credits: Készítők
   Translate: Fordítás
   room rules: szobaszabályok
-  Please read the: Olvassa el a(z)
   Chat on Matrix: Csevegés a Matrixon
   Mastodon: Mastodon
   Blog: Blog
@@ -646,7 +644,9 @@ About:
   Report a problem: Probléma jelentése
   Discussions: Vitalapok
   AGPLv3: AGPLv3
-  Licensed under the: Az AGPLv3
+  Licensed under the {licenseLink}: Licencelve a(z) {licenseLink} alatt
+  Please read the {roomRulesLink}: 'Olvassa el a következőt: {roomRulesLink}'
+  FreeTube is made possible by {creditsPageLink}: A FreeTube a {creditsPageLink} jóvoltából jöhetett létre
 Profile:
   Profile Select: 'Profil kiválasztása'
   All Channels: 'Összes csatorna'

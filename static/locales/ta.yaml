@@ -64,7 +64,7 @@ Search Listing:
     360 Video: '360 °'
     Subtitles: 'வசன வரிகள்'
     New: 'புதிய'
-    3D: 'ZD'
+    3D: '3டி'
     # Aria labels
     Closed Captions: 'மூடிய தலைப்புகள்'
   # In Filter Button
@@ -101,7 +101,7 @@ Search Filters:
     HD: 'எச்டி'
     Subtitles: 'வசன வரிகள்'
     Creative Commons: 'கிரியேட்டிவ் காமன்ச்'
-    3D: 'ZD'
+    3D: '3டி'
     Live: 'வாழ'
     4K: 'எச்.சி.'
     360 Video: '360 வீடியோ'
@@ -141,6 +141,7 @@ Trending:
   Trending: 'டிரெண்டிங்'
   Gaming: 'கேமிங்'
   Trending Tabs: 'பிரபலமான தாவல்கள்'
+  Sports: விளையாட்டு
 Most Popular: 'மிகவும் பிரபலமானது'
 Feed:
   Feed Last Updated: '{feedName} கடைசியாக புதுப்பிக்கப்பட்டது: {date}'
@@ -188,14 +189,14 @@ User Playlists:
     NameAscending: 'A-z'
     NameDescending: 'Z-A.'
 
-    LatestCreatedFirst: 'அண்மைக் காலத்தில் உருவாக்கப்பட்டது'
-    EarliestCreatedFirst: 'ஆரம்பத்தில் உருவாக்கப்பட்டது'
+    LatestCreatedFirst: 'உருவாக்கப்பட்ட தேதி (புதிது)'
+    EarliestCreatedFirst: 'உருவாக்கப்பட்ட தேதி (பழைமையானது)'
 
-    LatestUpdatedFirst: 'அண்மைக் காலத்தில் புதுப்பிக்கப்பட்டது'
-    EarliestUpdatedFirst: 'ஆரம்பத்தில் புதுப்பிக்கப்பட்டது'
+    LatestUpdatedFirst: 'புதுப்பிக்கப்பட்ட தேதி (புதிய)'
+    EarliestUpdatedFirst: 'புதுப்பிக்கப்பட்ட தேதி (பழையது)'
 
-    LatestPlayedFirst: 'அண்மைக் காலத்தில் விளையாடியது'
-    EarliestPlayedFirst: 'ஆரம்பத்தில் விளையாடியது'
+    LatestPlayedFirst: 'விளையாடிய தேதி (புதிது)'
+    EarliestPlayedFirst: 'விளையாடிய தேதி (பழைய)'
   SinglePlaylistView:
     Search for Videos: 'வீடியோக்களைத் தேடுங்கள்'
 
@@ -236,7 +237,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: 'நீங்கள் இதுவரை எந்த பிளேலிச்ட்டையும் தேர்வு செய்யவில்லை.'
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "வீடியோ(கள்) 1 பிளேலிச்ட்டில் சேர்க்கப்பட்டது | {playlistCount} பிளேலிச்ட்களில் வீடியோ(கள்) சேர்க்கப்பட்டது"
   CreatePlaylistPrompt:
     New Playlist Name: 'புதிய பிளேலிச்ட் பெயர்'
     Create: 'உருவாக்கு'
@@ -246,6 +247,7 @@ User Playlists:
       Playlist {playlistName} has been successfully created.: 'பிளேலிச்ட் {playlistName} வெற்றிகரமாக உருவாக்கப்பட்டுள்ளது.'
       There was an issue with creating the playlist.: 'பிளேலிச்ட்டை உருவாக்குவதில் சிக்கல் இருந்தது.'
   TotalTimePlaylist: 'மொத்த நேரம்: {duration}'
+  Export list of URLs: முகவரிகளின் பட்டியலை ஏற்றுமதி
 History:
   # On History Page
   History: 'வரலாறு'
@@ -254,6 +256,8 @@ History:
   Empty Search Message: 'உங்கள் வரலாற்றில் உங்கள் தேடலுடன் பொருந்தக்கூடிய வீடியோக்கள் எதுவும் இல்லை'
   Search bar placeholder: "வரலாற்றில் தேடுங்கள்"
   Case Sensitive Search: 'வழக்கு உணர்திறன் தேடல்'
+  DateOldestHistory: பார்த்த தேதி (பழையது)
+  DateNewestHistory: பார்த்த தேதி (புதிது)
 Settings:
   # On Settings Page
   Settings: 'அமைப்புகள்'
@@ -303,6 +307,7 @@ Settings:
       Ask Before Opening Link: 'இணைப்பைத் திறப்பதற்கு முன் கேளுங்கள்'
       No Action: 'நடவடிக்கை இல்லை'
     Open Deep Links In New Window: திறந்த முகவரி கள் புதிய சாளரத்தில் ஃப்ரீட்யூப்பிற்கு அனுப்பப்பட்டன
+    Minimize to system tray: கணினி தட்டில் குறை
   Theme Settings:
     Theme Settings: 'கருப்பொருள்'
     Match Top Bar with Main Color: 'முதன்மையான வண்ணத்துடன் மேல் பட்டியை பொருத்துங்கள்'
@@ -325,7 +330,7 @@ Settings:
       Solarized Dark: 'சோலரிச் இருண்ட'
       Solarized Light: 'சோலரிச் லைட்'
       Gruvbox Dark: கிரைண்ட்பாக்ச் இருண்ட
-      Gruvbox Light: GRUVBOX LIGHT
+      Gruvbox Light: சுரங்கபெட்டி ஒளி
       Catppuccin Frappe: Catppuccin வேலைநிறுத்தங்கள்
       Everforest Dark Hard: எவர் ஃபாரச்ட் டார்க் ஆர்ட்
       Everforest Dark Medium: எப்போதும் இருண்ட நடுத்தர
@@ -333,6 +338,7 @@ Settings:
       Everforest Light Hard: எப்போதும் ஒளி கடினமானது
       Everforest Light Medium: எப்போதும் ஒளி நடுத்தர
       Everforest Light Low: எப்போதும் ஒளி குறைந்த
+      Catppuccin Latte: கேட்பூசின் லேட்
     Main Color Theme:
       Main Color Theme: 'முதன்மையான வண்ண கருப்பொருள்'
       Red: 'சிவப்பு'
@@ -388,13 +394,13 @@ Settings:
       Gruvbox Dark Green: கிரைண்ட்பாக்ச் அடர் பச்சை
       Gruvbox Dark Yellow: க்ரூவாக்ச் அடர் மஞ்சள்
       Gruvbox Light Red: க்ரூவ்பாக்ச் ஒளி சிவப்பு
-      Gruvbox Light Purple: GRUVBOX LIGHT ஊதா
+      Gruvbox Light Purple: சுரங்கபெட்டி ஒளி ஊதா
       Gruvbox Light Orange: கிரைண்ட்பாக்ச் லைட் ஆரஞ்சு
       Catppuccin Frappe Rosewater: கேட் பியூசின் ரோச்வாட்டரைத் தாக்கியது
       Catppuccin Frappe Flamingo: Catppuccin ஃபிளமிங்கோவைத் தாக்கியது
       Catppuccin Frappe Pink: Catppuccin இளஞ்சிவப்பு நிறத்தில் அடிக்கிறது
       Catppuccin Frappe Mauve: Catppuccin mavev ஐத் தாக்கியது
-      Catppuccin Frappe Red: CatPPUCCIN சிவப்பு ஐ தாக்குகிறது
+      Catppuccin Frappe Red: கேட்பூசின் ஃப்ராப் சிவப்பு
       Catppuccin Frappe Maroon: Catppuccin மெரூனைத் தாக்கியது
       Catppuccin Frappe Peach: Catppuccin frappe பீச்
       Catppuccin Frappe Yellow: Catppuccin frappe மஞ்சள்
@@ -418,6 +424,8 @@ Settings:
       Everforest Light Aqua: எவர் ஃபாரெச்ட் லைட் அக்வா
       Everforest Light Blue: எவர் ஃபாரெச்ட் லைட் நீலம்
       Everforest Light Purple: எப்போதும் ஒளி ஊதா
+      Catppuccin Latte Mauve: கேட்பூசின் லட்டே மாவ்
+      Catppuccin Latte Red: கேட்பூசின் லேட் ரெட்
     Secondary Color Theme: 'இரண்டாம் நிலை வண்ண கருப்பொருள்'
         #* Main Color Theme
   Player Settings:
@@ -608,6 +616,12 @@ Settings:
     Unknown data key: 'அறியப்படாத தரவு விசை'
     How do I import my subscriptions?: 'எனது சந்தாக்களை எவ்வாறு இறக்குமதி செய்வது?'
     Manage Subscriptions: 'சந்தாக்களை நிர்வகிக்கவும்'
+    Search history file: தேடல் வரலாற்று கோப்பு
+    Search history: தேடல் வரலாறு
+    Import search history: தேடல் வரலாற்றை இறக்குமதி
+    Export search history: தேடல் வரலாறு ஏற்றுமதி
+    All search history has been successfully imported: அனைத்து தேடல் வரலாறும் வெற்றிகரமாக இறக்குமதி செய்யப்பட்டது
+    All search history has been successfully exported: அனைத்து தேடல் வரலாறும் வெற்றிகரமாக ஏற்றுமதி செய்யப்பட்டது
   Proxy Settings:
     Proxy Settings: 'பதிலாள்'
     Enable Tor / Proxy: 'டோர் / ப்ராக்சியை இயக்கவும்'
@@ -623,6 +637,8 @@ Settings:
     City: 'நகரம்'
     Error getting network information. Is your proxy configured properly?: 'பிணைய தகவல்களைப் பெறுவதில் பிழை. உங்கள் பதிலாள் சரியாக கட்டமைக்கப்பட்டுள்ளதா?'
     Proxy Warning: ஃப்ரீட்யூப்பில் ஒரு உள்ளமைக்கப்பட்ட பதிலாள் இல்லை, ஆனால் வெளிப்புற ப்ராக்சியுடன் இணைக்க முடியும், அதாவது உங்கள் கணினியில் டோர் போன்றவை அல்லது வெளிப்புற பதிலாள் போன்றவை-சில விபிஎன்களால் வழங்கப்பட்ட சாக்ச் 5 பதிலாள் போன்றவை. இயக்கப்பட்டிருந்தால், உங்கள் ப்ராக்சி/டோர் சரியாக கட்டமைக்கப்பட்டுள்ளதா என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள், அல்லது ஃப்ரீட்யூப் எந்த தரவையும் பெற முடியாது.
+    Proxy Username: பதிலாள் பயனர்பெயர்
+    Proxy Password: பதிலாள் கடவுச்சொல்
   SponsorBlock Settings:
     SponsorBlock Settings: 'ஒப்புரவாளர் தொகுதி'
     Enable SponsorBlock: 'ஒப்புரவாளர் பிளாக் இயக்கவும்'
@@ -643,6 +659,7 @@ Settings:
     Hide Unsubscribe Button: 'குழுவிலக பொத்தானை மறைக்கவும்'
     Show Family Friendly Only: 'குடும்ப நட்பை மட்டும் காட்டு'
     Hide Search Bar: 'தேடல் பட்டியை மறைக்கவும்'
+    Hide Uploader on Watch page: கண்காணிப்புப் பக்கத்தில் பதிவேற்றியவரை மறை
   Experimental Settings:
     Experimental Settings: 'சோதனை'
     Warning: 'இந்த அமைப்புகள் சோதனைக்குரியவை, அவை இயக்கப்பட்டிருக்கும் போது செயலிழப்பை ஏற்படுத்தக்கூடும். காப்புப்பிரதிகளை உருவாக்குவது மிகவும் பரிந்துரைக்கப்படுகிறது. உங்கள் சொந்த ஆபத்தில் பயன்படுத்தவும்!'
@@ -660,10 +677,9 @@ About:
   About: 'பற்றி'
   Beta: 'பீட்டா'
   Source code: 'மூலக் குறியீடு'
-  Licensed under the: 'கீழ் உரிமம் பெற்றது'
   AGPLv3: 'Agplv3'
   Downloads / Changelog: 'பதிவிறக்கங்கள் / சேஞ்ச்லாக்'
-  GitHub releases: 'அறிவிலிமையம் வெளியிடுகிறது'
+  GitHub releases: 'அறிவிலிமைய வெளியீடுகள்'
   Help: 'உதவி'
   FreeTube Wiki: 'ஒரு வாரம் freetube'
   FAQ: 'கேள்விகள்'
@@ -676,14 +692,15 @@ About:
   Email: 'மின்னஞ்சல்'
   Mastodon: 'மாச்டோடன்'
   Chat on Matrix: 'மேட்ரிக்சில் அரட்டை'
-  Please read the: 'தயவுசெய்து படிக்கவும்'
   room rules: 'அறை விதிகள்'
   Translate: 'மொழிபெயர்த்திடு'
   Credits: 'வரவு'
-  FreeTube is made possible by: 'ஃப்ரீட்யூப் சாத்தியமானது'
   these people and projects: 'இந்த நபர்கள் மற்றும் திட்டங்கள்'
   Donate: 'நன்கொடை'
 
+  Licensed under the {licenseLink}: '{licenseLink} இன் கீழ் உரிமம் பெற்றது'
+  Please read the {roomRulesLink}: '{roomRulesLink} ஐப் படிக்கவும்'
+  FreeTube is made possible by {creditsPageLink}: FreeTube ஆனது {creditsPageLink} மூலம் சாத்தியமானது
 Profile:
   Profile Settings: 'சுயவிவரம்'
   Toggle Profile List: 'சுயவிவர பட்டியலை மாற்றவும்'
@@ -928,27 +945,31 @@ Video:
   DRMProtected: டி.ஆர்.எம் பாதுகாக்கப்பட்ட வீடியோக்களை ஃப்ரீட்யூப்பில் இயக்க முடியாது, ஏனெனில் அவற்றுக்கு தனியுரிம, மூடிய மூல கூறுகள் தேவைப்படுகின்றன. இந்த வீடியோவைப் பார்க்க விரும்பினால், அதை அதிகாரப்பூர்வ YouTube இணையதளத்தில் DRM இயக்கப்பட்ட வலை உலாவியில் பார்க்கவும்.
   Save Watched Progress: பார்த்த முன்னேற்றத்தை சேமிக்கவும்
   Watched Progress Saved: முன்னேற்றம் காப்பாற்றப்பட்டது
+  Popout Live Chat: பாப்அவுட் அரட்டை
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'மீதமுள்ள முன் விளம்பர நேரம்: {நினைவூட்டும் நேர விநாடிகள்'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'மீதமுள்ள SABR பேக்ஆஃப் நேரம்: {remindingTimeSeconds}கள்'
 Playlist:
   #& About
   Playlist: 'பிளேலிச்ட்'
   View Full Playlist: 'முழு பிளேலிச்ட்டைக் காண்க'
   Last Updated On: 'கடைசியாக புதுப்பிக்கப்பட்டது'
   Sort By:
-    DateAddedNewest: 'அண்மைக் கால சேர்க்கப்பட்டது முதலில்'
-    DateAddedOldest: 'ஆரம்பத்தில் முதலில் சேர்க்கப்பட்டது'
+    DateAddedNewest: 'சேர்க்கப்பட்ட தேதி (புதிது)'
+    DateAddedOldest: 'சேர்க்கப்பட்ட தேதி (பழையது)'
     AuthorAscending: 'ஆசிரியர் (A-Z)'
     AuthorDescending: 'ஆசிரியர் (Z-A)'
     VideoTitleAscending: 'தலைப்பு (A-Z)'
     VideoTitleDescending: 'தலைப்பு (Z-A)'
-    VideoDurationAscending: 'காலம் (குறுகிய முதல்)'
-    VideoDurationDescending: 'காலம் (முதல் முதல்)'
+    VideoDurationAscending: 'கால அளவு (குறுகிய)'
+    VideoDurationDescending: 'கால அளவு (நீண்ட)'
     Custom: 'தனிப்பயன்'
 
 # On Video Watch Page
 #* Published
 #& Views
-    PublishedNewest: அண்மைக் கால முதலில் வெளியிடப்பட்டது
-    PublishedOldest: ஆரம்பத்தில் முதலில் வெளியிடப்பட்டது
+    PublishedNewest: வெளியிடப்பட்ட தேதி (புதிது)
+    PublishedOldest: வெளியிடப்பட்ட தேதி (பழையது)
 Change Format:
   Change Media Formats: 'ஊடக வடிவங்களை மாற்றவும்'
   Use Dash Formats: 'கோடு வடிவங்களைப் பயன்படுத்துங்கள்'
@@ -973,6 +994,7 @@ Share:
   YouTube URL copied to clipboard: 'YouTube முகவரி இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்டது'
   YouTube Embed URL copied to clipboard: 'YouTube உட்பொதிக்கப்பட்ட முகவரி இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்டது'
   YouTube Channel URL copied to clipboard: 'YouTube சேனல் முகவரி இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்டது'
+  Share Post: இடுகையைப் பகிரவும்
 Clipboard:
   Copy failed: 'இடைநிலைப்பலகைக்கு நகல் தோல்வியடைந்தது'
   Cannot access clipboard without a secure connection: 'பாதுகாப்பான இணைப்பு இல்லாமல் கிளிப்போர்டை அணுக முடியாது'
@@ -990,7 +1012,7 @@ Comments:
   Hide Comments: 'கருத்துகளை மறைக்கவும்'
   Top comments: 'சிறந்த கருத்துகள்'
   Newest first: 'புதிய முதல்'
-  View {replyCount} replies: '{replyCount} பதில்களைக் காண்க'
+  View {replyCount} replies: '1 பதிலைக் காண்க | {replyCount} பதில்களைக் காண்க'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
   Show More Replies: 'மேலும் பதில்களைக் காட்டு'
   There are no comments available for this video: 'இந்த வீடியோவுக்கு எந்தக் கருத்தும் கிடைக்கவில்லை'
@@ -1001,6 +1023,9 @@ Comments:
   Subscribed: 'சந்தா கட்டப்பட்டது'
   Hearted: 'இதயமுள்ள'
 
+  Hide {replyCount} replies: 1 பதிலை மறை | {replyCount} பதில்களை மறை
+  View 1 reply from {channelName}: '{channelName} இடமிருந்து 1 பதிலைக் காண்க'
+  View {replyCount} replies from {channelName} and others: '{channelName} மற்றும் பிறவற்றின் {replyCount} பதில்களைப் பார்க்கவும்'
 Up Next: 'அடுத்து'
 
 #Tooltips
@@ -1031,6 +1056,7 @@ Tooltips:
     Hide Channels: 'அனைத்து வீடியோக்கள், பிளேலிச்ட்கள் மற்றும் சேனலை தேட, பிரபலமான, மிகவும் பிரபலமான மற்றும் பரிந்துரைக்கப்படுவதிலிருந்து மறைக்க ஒரு சேனல் ஐடியை உள்ளிடவும். உள்ளிடப்பட்ட சேனல் ஐடி ஒரு முழுமையான பொருத்தமாக இருக்க வேண்டும் மற்றும் வழக்கு உணர்திறன் கொண்டது.'
     Hide Subscriptions Live: 'இந்த அமைப்பு "{appWideSetting}" இன் "{subsection}" பிரிவில், பயன்பாட்டு அளவிலான "{settingsSection}" அமைப்பால் மீறப்பட்டுள்ளது'
     Hide Videos, Playlists and Channels Containing Text: 'அனைத்து வீடியோக்களையும் பிளேலிச்ட்களையும் மறைக்க ஒரு சொல், சொல் துண்டு அல்லது சொற்றொடர் (வழக்கு உணர்வற்றது) உள்ளிடவும், அதன் அசல் தலைப்புகள் அனைத்து ஃப்ரீட்யூப் முழுவதும் உள்ளன, வரலாறு, உங்கள் பிளேலிச்ட்கள் மற்றும் வீடியோக்களை பிளேலிச்ட்களுக்குள் தவிர்த்து.'
+    Hide Videos on Watch: சந்தா மற்றும் சேனல் பக்கங்களில் உள்ள வீடியோ, சார்ட்ச் மற்றும் லைவ் டேப்களில் இருந்து பார்த்த வீடியோக்களை மறைக்கவும். இது சேனல் பக்கங்களில் உள்ள முகப்பு தாவலைப் பாதிக்காது
   Subscription Settings:
     Fetch Feeds from RSS: 'இயக்கப்பட்டால், உங்கள் சந்தா ஊட்டத்தைப் பிடிக்க அதன் இயல்புநிலை முறைக்கு பதிலாக RSS ஐப் பயன்படுத்தும். ஆர்எச்எச் வேகமானது மற்றும் ஐபி தடுப்பதைத் தடுக்கிறது, ஆனால் வீடியோ காலம், நேரடி நிலை அல்லது இடுகைகள் போன்ற சில தகவல்களை வழங்காது'
     Fetch Automatically: 'இயக்கப்பட்டால், தொடக்கத்தில் உங்கள் சந்தா ஊட்டத்தையும் புதிய சாளரம் திறக்கப்படும் போது ஃப்ரீட்யூப் தானாகவே பெறும்.'
@@ -1152,4 +1178,8 @@ KeyboardShortcutPrompt:
   Skip by Tenths: விழுக்காடு மூலம் வீடியோ மூலம் தவிர்க்கவும் (3 காலத்தின் 30% வரை)
   Home: வீடியோவின் தொடக்கத்தைத் தேடுங்கள்
   End: வீடியோவின் முடிவைத் தேடுங்கள்
+  Skip to Next Video: பிளேலிச்ட் அல்லது அடுத்த பரிந்துரைக்கப்பட்ட வீடியோவில் அடுத்த வீடியோவைத் தவிர்க்கவும்
+  Skip to Previous Video: பிளேலிச்ட்டில் உள்ள முந்தைய வீடியோவிற்கு செல்க
 shortcutLabelSeparator: ｜
+Compact side navigation: சிறிய பக்க வழிசெலுத்தல்
+Expand side navigation: பக்க வழிசெலுத்தலை விரிவாக்கு

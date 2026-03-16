@@ -39,6 +39,8 @@ Global:
     Video Count: 1 vaizdo įrašas | {count} vaizdo įrašai
     View Count: 1 peržiūrėti | {count} peržiūrų
     Watching Count: 1 žiūri | {count} žiūri
+    Like Count: 1 patinka | {count} patiko
+    Comment Count: 1 komentaras | {count} komentarai
 Version {versionNumber} is now available!  Click for more details: 'Versija {versionNumber} jau prieinama!  Spustelėkite, jei norite gauti daugiau informacijos'
 Download From Site: 'Atsisiųsti iš svetainės'
 A new blog is now available, {blogTitle}. Click to view more: 'Naujas įrašas tinklaraštyje, {blogTitle}. Spustelėkite norėdami pamatyti daugiau'
@@ -80,6 +82,7 @@ Search Filters:
   Fetch more results: 'Įkelti daugiau rezultatų'
   There are no more results for this search: 'Daugiau nėra rezultatų pagal šią paiešką'
 # Sidebar
+  Clear Filters: Išvalykite filtrus
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Prenumeratos'
@@ -89,6 +92,7 @@ Subscriptions:
   Error Channels: Kanalai su klaidomis
   Disabled Automatic Fetching: Išjungėte automatinį prenumeratų gavimą. Atnaujinkite prenumeratas, kad jas matytumėte čia.
   Empty Channels: Šiuo metu jūsų prenumeruojamuose kanaluose nėra jokių vaizdo įrašų.
+  Empty Posts: Jūsų prenumeruojami kanalai šiuo metu neturi jokių įrašų.
 More: 'Daugiau'
 Trending:
   Trending: 'Dabar populiaru'
@@ -398,11 +402,9 @@ About:
   Email: 'El. paštas'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Pokalbis Matrix'
-  Please read the: 'Prašome perskaityti'
   room rules: 'kambario taisykles'
   Translate: 'Vertimai'
   Credits: 'Projekto komanda'
-  FreeTube is made possible by: 'FreeTube sukurta dėka'
   these people and projects: 'šių žmonių ir projektų'
   Donate: 'Paremti'
 
@@ -633,6 +635,7 @@ Default Invidious instance has been cleared: Numatytasis Invidious perdavimo ša
 Default Invidious instance has been set to {instance}: Numatytasis Invidious perdavimo šaltinis buvo nustatytas į {instance}
 Search Bar:
   Clear Input: Išvalyti įvestį
+  Remove: Pašalinkite
 External link opening has been disabled in the general settings: Išorinės nuorodos atidarymas buvo išjungtas bendruosiuose nustatymuose
 Are you sure you want to open this link?: Ar tikrai norite atidaryti šią nuorodą?
 New Window: Naujas langas
@@ -662,3 +665,7 @@ KeyboardShortcutPrompt:
   Zoom In: Pritraukti
   Zoom Out: Atitolinti
   Fullscreen: Viso ekrano rėžimas
+Compact side navigation: Kompaktiška šoninė navigacija
+Expand side navigation: Išplėskite šoninę navigaciją
+Right-click or hold to see history: Dešiniuoju pelės mygtuku spustelėkite arba palaikykite, kad pamatytumėte istoriją
+Search character limit: Paieškos užklausa viršija {searchCharacterLimit} simbolių skaičiaus ribą

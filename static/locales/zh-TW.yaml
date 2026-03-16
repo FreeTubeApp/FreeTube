@@ -625,10 +625,10 @@ About:
   Donate: 捐款
   Help: 說明
   these people and projects: 這些人與專案
-  FreeTube is made possible by: FreeTube 誕生都要感謝這些人
+  FreeTube is made possible by {creditsPageLink}: FreeTube 誕生都要感謝{creditsPageLink}
   Translate: 翻譯
   room rules: 聊天室規則
-  Please read the: 請閱讀
+  Please read the {roomRulesLink}: 請閱讀{roomRulesLink}
   Chat on Matrix: 在 Matrix 上聊天
   Mastodon: Mastodon(長毛象/萬象)
   Please check for duplicates before posting: 提交前請檢查有無重複的問題
@@ -639,7 +639,7 @@ About:
   Downloads / Changelog: 下載 / 變更紀錄
   Source code: 原始碼
   Discussions: 討論
-  Licensed under the: 授權以
+  Licensed under the {licenseLink}: 遵循{licenseLink}許可協議
   AGPLv3: AGPLv3
 Channel:
   Subscribe: '訂閱'
