@@ -1,9 +1,5 @@
 import store from '../../store/index'
-import {
-  calculatePublishedDate,
-  getRelativeTimeFromDate,
-  stripHTML,
-} from '../utils'
+import { calculatePublishedDate, getRelativeTimeFromDate } from '../utils'
 import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
 import { FormatUtils, Misc, Player } from 'youtubei.js'
@@ -616,7 +612,7 @@ function parseInvidiousCommentData(response) {
       authorThumb: youtubeImageUrlToInvidious(comment.authorThumbnails.at(-1).url),
       author: comment.author,
       likes: comment.likeCount,
-      text: autolinker.link(stripHTML(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstanceUrl()))),
+      text: autolinker.link(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstanceUrl())),
       dataType: 'invidious',
       isOwner: comment.authorIsChannelOwner,
       isPinned: comment.isPinned,

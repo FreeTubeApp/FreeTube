@@ -53,9 +53,9 @@
       </p>
     </div>
     <p
+      v-safer-html="postText"
       class="postText"
       dir="auto"
-      v-html="postText"
     />
     <swiper-container
       v-if="postType === 'multiImage' && postContent.content.length > 0"
@@ -177,6 +177,7 @@ import FtListVideo from '../ft-list-video/ft-list-video.vue'
 import FtListPlaylist from '../FtListPlaylist/FtListPlaylist.vue'
 import FtCommunityPoll from '../FtCommunityPoll/FtCommunityPoll.vue'
 import FtShareButton from '../FtShareButton/FtShareButton.vue'
+import { vSaferHtml } from '../../directives/vSaferHtml.js'
 
 import store from '../../store/index'
 

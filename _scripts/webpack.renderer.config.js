@@ -200,7 +200,10 @@ const config = {
       'shaka-player$': 'shaka-player/dist/shaka-player.ui.js',
 
       // Make @fortawesome/vue-fontawesome use the trimmed down API instead of the original @fortawesome/fontawesome-svg-core
-      '@fortawesome/fontawesome-svg-core$': path.resolve(__dirname, '../src/renderer/fontawesome-minimal.js')
+      '@fortawesome/fontawesome-svg-core$': path.resolve(__dirname, '../src/renderer/fontawesome-minimal.js'),
+
+      // Fix dompurify not being tree-shaking friendly
+      dompurify$: path.resolve(__dirname, '_undefinedDefaultExport.mjs')
     },
     extensions: ['.js', '.vue']
   },
