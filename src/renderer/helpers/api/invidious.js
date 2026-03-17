@@ -557,7 +557,7 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
       sort_by: searchSettings.prioritize,
       date: searchSettings.time,
       duration: DURATION_MAP[searchSettings.duration],
-      type: searchSettings.type === 'popularity' ? 'view_count' : 'searchSettings.type',
+      type: searchSettings.type === 'popularity' ? 'view_count' : searchSettings.type,
       features: searchSettings.features.join(',')
     }
   })
