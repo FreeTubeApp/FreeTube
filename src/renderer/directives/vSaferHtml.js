@@ -33,7 +33,7 @@ export const vSaferHtml = (element, { value, oldValue, modifiers }) => {
             // live chat emojis (see parseLocalTextRuns)
             {
               name: 'img',
-              attributes: ['alt', 'height', 'loading', 'src', 'style', 'width']
+              attributes: ['alt', 'height', 'loading', 'src', 'style', 'title', 'width']
             }
           ]
         })
@@ -44,7 +44,7 @@ export const vSaferHtml = (element, { value, oldValue, modifiers }) => {
       if (domPurifyStrictConfig === undefined) {
         domPurifyStrictConfig = {
           ALLOWED_TAGS: ['br', 'b', 'i', 's', 'a', 'img'],
-          ALLOWED_ATTR: ['alt', 'data-time', 'dir', 'height', 'href', 'lang', 'loading', 'src', 'style', 'tabindex', 'width']
+          ALLOWED_ATTR: ['alt', 'data-time', 'dir', 'height', 'href', 'lang', 'loading', 'src', 'style', 'tabindex', 'title', 'width']
         }
       }
 
