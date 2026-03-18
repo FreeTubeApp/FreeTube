@@ -1578,6 +1578,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
 
       /** @type {YTNodes.ThumbnailBottomOverlayView | undefined } */
       const thumbnailBottomOverlayView = lockupView.content_image?.overlays?.firstOfType(YTNodes.ThumbnailBottomOverlayView)
+
       if (thumbnailBottomOverlayView) {
         if (thumbnailBottomOverlayView.badges.some(badge => badge.badge_style === 'THUMBNAIL_OVERLAY_BADGE_STYLE_LIVE')) {
           liveNow = true
@@ -1597,6 +1598,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
           publishedText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
         }
       }
+
       let viewCount = null
 
       const viewsText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.find(part => {
