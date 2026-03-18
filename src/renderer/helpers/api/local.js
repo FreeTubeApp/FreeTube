@@ -470,28 +470,32 @@ export async function getLocalVideoInfo(id) {
       info.playability_status.reason === 'Sign in to confirm your age') ||
     (hasTrailer && trailerIsAgeRestricted)
   ) {
-    const webEmbeddedInnertube = await createInnertube({ clientType: ClientType.WEB_EMBEDDED })
-    webEmbeddedInnertube.session.context.client.visitorData = webInnertube.session.context.client.visitorData
+    try {
+      const webEmbeddedInnertube = await createInnertube({ clientType: ClientType.WEB_EMBEDDED })
+      webEmbeddedInnertube.session.context.client.visitorData = webInnertube.session.context.client.visitorData
 
-    const videoId = hasTrailer && trailerIsAgeRestricted ? info.playability_status.error_screen.video_id : id
+      const videoId = hasTrailer && trailerIsAgeRestricted ? info.playability_status.error_screen.video_id : id
 
-    // getBasicInfo needs the signature timestamp (sts) from inside the player
-    webEmbeddedInnertube.session.player = webInnertube.session.player
+      // getBasicInfo needs the signature timestamp (sts) from inside the player
+      webEmbeddedInnertube.session.player = webInnertube.session.player
 
-    const bypassedInfo = await webEmbeddedInnertube.getBasicInfo(videoId, { client: 'WEB_EMBEDDED', po_token: contentPoToken })
+      const bypassedInfo = await webEmbeddedInnertube.getBasicInfo(videoId, { client: 'WEB_EMBEDDED', po_token: contentPoToken })
 
-    if (bypassedInfo.playability_status.status === 'OK' && bypassedInfo.streaming_data) {
-      info.playability_status = bypassedInfo.playability_status
-      info.streaming_data = bypassedInfo.streaming_data
-      info.basic_info.start_timestamp = bypassedInfo.basic_info.start_timestamp
-      info.basic_info.duration = bypassedInfo.basic_info.duration
-      info.captions = bypassedInfo.captions
-      info.storyboards = bypassedInfo.storyboards
+      if (bypassedInfo.playability_status.status === 'OK' && bypassedInfo.streaming_data) {
+        info.playability_status = bypassedInfo.playability_status
+        info.streaming_data = bypassedInfo.streaming_data
+        info.basic_info.start_timestamp = bypassedInfo.basic_info.start_timestamp
+        info.basic_info.duration = bypassedInfo.basic_info.duration
+        info.captions = bypassedInfo.captions
+        info.storyboards = bypassedInfo.storyboards
 
-      hasTrailer = false
-      trailerIsAgeRestricted = false;
+        hasTrailer = false
+        trailerIsAgeRestricted = false;
 
-      ({ clientName, clientVersion, osName, osVersion } = webEmbeddedInnertube.session.context.client)
+        ({ clientName, clientVersion, osName, osVersion } = webEmbeddedInnertube.session.context.client)
+      }
+    } catch (error) {
+      console.warn('WEB_EMBEDDED fallback errored, using the original response instead', error)
     }
   }
 
