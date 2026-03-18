@@ -554,10 +554,10 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
     params: {
       q: query,
       page,
-      sort_by: searchSettings.prioritize,
+      sort_by: searchSettings.prioritize === 'popularity' ? 'view_count' : searchSettings.prioritize,
       date: searchSettings.time,
       duration: DURATION_MAP[searchSettings.duration],
-      type: searchSettings.type === 'popularity' ? 'view_count' : searchSettings.type,
+      type: searchSettings.type,
       features: searchSettings.features.join(',')
     }
   })

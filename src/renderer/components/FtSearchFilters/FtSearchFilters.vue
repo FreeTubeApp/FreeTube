@@ -186,10 +186,6 @@ const searchSettings = store.getters.getSearchSettings
 const prioritizeValue = ref(searchSettings.prioritize)
 
 watch(prioritizeValue, (value) => {
-  if (value === 'popularity' && (typeValue.value === 'channel' || typeValue.value === 'playlist')) {
-    typeValue.value = 'all'
-  }
-
   store.commit('setSearchPrioritize', value)
 })
 
@@ -213,7 +209,6 @@ watch(typeValue, (value) => {
   } else if (value === 'channel' || value === 'playlist') {
     timeValue.value = ''
     durationValue.value = ''
-    prioritizeValue.value = PRIORITIZE_VALUES[0]
     if (featuresValue.value.length > 0) {
       featuresValue.value = []
     }
