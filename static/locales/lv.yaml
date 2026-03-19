@@ -754,19 +754,23 @@ Comments:
   Comments: 'Komentāri'
   Click to View Comments: 'Rādīt komentārus'
   Getting comment replies, please wait: 'Notiek komentāra atbilžu ielāde, lūdzu, uzgaidiet'
-  There are no more comments for this video: ''
-  Hide Comments: ''
-  Top comments: ''
-  Newest first: ''
-  View {replyCount} replies: ''
+  There are no more comments for this video: 'Šim video nav vairāk komentāru'
+  Hide Comments: 'Paslēpt komentārus'
+  Top comments: 'Populārākos augšgalā'
+  Newest first: 'Jaunākos augšgalā'
+  View {replyCount} replies: 'Rādīt 1 atbildi | Rādīt {replyCount} atbildes'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  Show More Replies: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
+  Show More Replies: 'Rādīt vairāk atbilžu'
+  There are no comments available for this video: 'Šim video nav komentāru'
+  Load More Comments: 'Ielādēt vairāk komentāru'
   Pinned by: ''
   Member: 'Biedrs'
   Subscribed: ''
   Hearted: ''
+  Hide {replyCount} replies: Paslēpt 1 atbildi | Paslēpt {replyCount} atbildes
+  View 1 reply from {channelName}: Rādīt 1 atbildi no {channelName}
+  View {replyCount} replies from {channelName} and others: Rādīt {replyCount} atbildes no {channelName} un citiem
+  There are no comments available for this post: Šai ziņai nav komentāru
 Up Next: ''
 
 #Tooltips
