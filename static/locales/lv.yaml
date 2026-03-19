@@ -48,7 +48,7 @@ Global:
 
 # Search Bar
     Like Count: 1 patikšana | {count} patikšanas
-    Comment Count: 1 viedoklis | {count} viedokļi
+    Comment Count: 1 komentārs | {count} komentāri
 Search / Go to URL: 'Meklē / Dodies uz URL'
 Search Bar:
   Clear Input: 'Tīrīt ievadi'
@@ -189,7 +189,9 @@ User Playlists:
   CreatePlaylistPrompt:
     Toast:
       There was an issue with creating the playlist.: Izveidojot atskaņošanas sarakstu radās kļūda.
+      Playlist {playlistName} has been successfully created.: '{playlistName} atskaņošanas saraksts veiksmīgi izveidots.'
     Create: Izveidot
+    New Playlist Name: Jaunā atskaņošanas saraksta nosaukums
   AddVideoPrompt:
     Save: Saglabāt
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} video jau pievienoti'
@@ -250,6 +252,7 @@ Settings:
       No Action: 'Nedarīt neko'
     Auto Load Next Page:
       Label: Autoielādē nākamo lapu
+      Tooltip: Automātiski ielādēt papildu lapas un komentārus.
   Theme Settings:
     Theme Settings: 'Izskata'
     Match Top Bar with Main Color: 'Saskaņo augšmalu ar galveno krāsu'
@@ -407,7 +410,7 @@ Settings:
     Hide Active Subscriptions: 'Paslēp aktīvos abonementus'
     Hide Video Description: 'Paslēpt video aprakstu'
     Hide Comments: 'Paslēpt komentārus'
-    Hide Profile Pictures in Comments: 'Paslēpt kontu atēlus komentāros'
+    Hide Profile Pictures in Comments: 'Paslēpt profila attēlus komentāros'
     Display Titles Without Excessive Capitalisation: 'Attēlot nosaukumus nepārspīlējot ar lielajiem burtiem un interpunkciju'
     Hide Live Streams: 'Paslēpt dzīvās straumes'
     Hide Upcoming Premieres: 'Paslēpt tuvojošās pirmizrādes'
@@ -460,6 +463,7 @@ Settings:
     Unknown data key: 'Nezināma datu atslēga'
     How do I import my subscriptions?: ''
     Manage Subscriptions: 'Pārvaldīt abonementus'
+    Search history: Meklēšanas vēsture
   Proxy Settings:
     Proxy Settings: 'Starpniekservera'
     Enable Tor / Proxy: 'Iespējot Tor / starpniekserveri'
@@ -474,6 +478,8 @@ Settings:
     Region: 'Apgabals'
     City: 'Pilsēta'
     Error getting network information. Is your proxy configured properly?: 'Kļūda saņemot tīkla informāciju. Vai jūsu starpniekserveris ir uzstādīts pareizi?'
+    Proxy Username: Starpniekservera lietotājvārds
+    Proxy Password: Starpniekservera parole
   SponsorBlock Settings:
     SponsorBlock Settings: "SponsorBlock\uFEFF"
     Enable SponsorBlock: 'Iespējot SponsorBlock'
@@ -669,7 +675,7 @@ Video:
   Scroll to Bottom: ''
   Published:
     In less than a minute: ''
-  Published on: ''
+  Published on: 'Publicēts'
   Streamed on: ''
   Started streaming on: ''
   Sponsor Block category:
@@ -708,6 +714,11 @@ Playlist:
 # On Video Watch Page
 #* Published
 #& Views
+  Sort By:
+    AuthorAscending: Autora (A-Z)
+    AuthorDescending: Autora (Z-A)
+    VideoTitleAscending: Nosaukuma (A-Z)
+    VideoTitleDescending: Nosaukuma (Z-A)
 Change Format:
   Change Media Formats: ''
   Use Dash Formats: ''
@@ -716,12 +727,12 @@ Change Format:
   Dash formats are not available for this video: ''
   Audio formats are not available for this video: ''
 Share:
-  Share Video: ''
-  Share Channel: ''
-  Share Playlist: ''
+  Share Video: 'Kopīgot video'
+  Share Channel: 'Kopīgot kanālu'
+  Share Playlist: 'Kopīgot atskaņošanas sarakstu'
   Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
+  Copy Link: 'Kopēt saiti'
+  Open Link: 'Atvērt saiti'
   Copy Embed: ''
   Open Embed: ''
   # On Click
@@ -741,8 +752,8 @@ Chapters:
 Mini Player: ''
 Comments:
   Comments: 'Komentāri'
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
+  Click to View Comments: 'Rādīt komentārus'
+  Getting comment replies, please wait: 'Notiek komentāra atbilžu ielāde, lūdzu, uzgaidiet'
   There are no more comments for this video: ''
   Hide Comments: ''
   Top comments: ''
@@ -753,7 +764,7 @@ Comments:
   There are no comments available for this video: ''
   Load More Comments: ''
   Pinned by: ''
-  Member: ''
+  Member: 'Biedrs'
   Subscribed: ''
   Hearted: ''
 Up Next: ''
@@ -840,6 +851,8 @@ KeyboardShortcutPrompt:
   Zoom In: Tuvināt
   Zoom Out: Tālināt
   Fullscreen: Pilnekrāns
+  Volume Up: Palielināt skaļumu
+  Volume Down: Samazināt skaļumu
 checkmark: ✓
 Cancel: Atcelt
 shortcutJoinOperator: +
@@ -848,3 +861,4 @@ Keys:
   ctrl: Ctrl
   shift: Shift
 shortcutLabelSeparator: ｜
+Display Label: '{label}: {value}'
