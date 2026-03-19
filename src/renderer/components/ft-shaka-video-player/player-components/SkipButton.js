@@ -20,9 +20,9 @@ export class SkipButton extends shaka.ui.Element {
     this.button_ = document.createElement('button')
     this.button_.classList.add(`skip-${type}-button`, 'shaka-tooltip', 'ft-shaka-skip-button')
 
-    /** @private */
     const icon = type === 'next' ? PlayerIcons.SKIP_NEXT_FILLED : PlayerIcons.SKIP_PREVIOUS_FILLED
-    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, icon)
+    // eslint-disable-next-line no-new
+    new shaka.ui.Icon(this.button_, icon)
 
     const label = document.createElement('label')
     label.classList.add(
