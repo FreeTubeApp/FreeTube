@@ -641,6 +641,9 @@ About:
   Credits: Заслуги
   Discussions: Дискусии
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Лицензирано под {licenseLink}
+  Please read the {roomRulesLink}: Моля, прочетете {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube е възможен, благодарение на {creditsPageLink}
 Profile:
   Profile Select: 'Избор на профил'
   All Channels: 'Всички канали'
@@ -856,6 +859,10 @@ Video:
 #& Playlists
   Watched Progress Saved: Напредъка на гледането е запазен
   Save Watched Progress: Запазване на напредъка
+  Popout Live Chat: Изскачащ чат
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Оставащо време за реклама преди видеото: {remindingTimeSeconds} сек'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Оставащо време за отлагане на SABR: {remindingTimeSeconds} сек'
 Playlist:
   #& About
   View Full Playlist: 'Преглед на пълен плейлист'
