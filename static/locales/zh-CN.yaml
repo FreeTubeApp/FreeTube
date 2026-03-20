@@ -44,6 +44,8 @@ Search Filters:
   Search Filters: '搜索过滤'
   Prioritize:
     Most Relevant: '最相关'
+    Prioritize: 优先
+    Popularity: 流行度
   Time:
     Time: '发布时间'
     Any Time: '任何时间'
