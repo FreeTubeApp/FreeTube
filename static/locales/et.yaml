@@ -51,6 +51,8 @@ Search Filters:
   Search Filters: 'Otsingufiltrid'
   Prioritize:
     Most Relevant: 'Kõige asjakohasemad'
+    Prioritize: Sea tähtsuse järjekorda
+    Popularity: Populaarsus
   Time:
     Time: 'Aeg'
     Any Time: 'Millal iganes'
