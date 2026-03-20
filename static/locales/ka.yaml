@@ -53,15 +53,11 @@ Search Bar:
   Remove: წაშლა
 Search Filters:
   Search Filters: 'ძიების ფილტრები'
-  Sort By:
+  Prioritize:
     Most Relevant: 'ყველაზე შესაბამისი'
-    Rating: 'რეიტინგის მიხედვით'
-    Upload Date: 'ატვირთვის თარიღით'
-    View Count: 'ნახვების რაოდენობით'
   Time:
     Time: 'დრო'
     Any Time: 'ნებისმიერი დრო'
-    Last Hour: 'ბოლო საათი'
     Today: 'დღეს'
     This Week: 'ამ კვირაში'
     This Month: 'ამ თვეში'
@@ -75,8 +71,8 @@ Search Filters:
   Duration:
     Duration: 'ხანგრძლივობა'
     All Durations: 'ნებისმიერი ხანგრძლივობის'
-    Short (< 4 minutes): 'მოკლე (< 4 წუთი)'
-    Long (> 20 minutes): 'გრძელი (> 20 წუთი)'
+    '< 3 minutes': '< 3 წუთი'
+    '> 20 minutes': '> 20 წუთი'
   # On Search Page
   Search Results: 'ძიების შედეგი'
   Fetching results. Please wait: 'მიმდინარეობს შედეგების მიღება. გთხოვთ, დაელოდოთ'

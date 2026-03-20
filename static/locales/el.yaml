@@ -45,15 +45,11 @@ Search / Go to URL: 'Αναζήτηση/Μετάβαση σε URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Φίλτρα αναζήτησης'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Πιο σχετικά'
-    Rating: 'Αξιολόγηση'
-    Upload Date: 'Ημερομηνία μεταφόρτωσης'
-    View Count: 'Πλήθος Προβολών'
   Time:
     Time: 'Ώρα'
     Any Time: 'Οποτεδήποτε'
-    Last Hour: 'Τελευταίας ώρας'
     Today: 'Σήμερα'
     This Week: 'Τρέχουσα Εβδομάδα'
     This Month: 'Τρέχων μήνα'
@@ -68,10 +64,9 @@ Search Filters:
   Duration:
     Duration: 'Διάρκεια'
     All Durations: 'Οποιασδήποτε Διάρκειας'
-    Short (< 4 minutes): 'Μικρό(<4 λεπτών)'
-    Long (> 20 minutes): 'Μεγάλο (>20 λεπτών)'
-  # On Search Page
-    Medium (4 - 20 minutes): Μεσαίο (4 - 20 λεπτά)
+    '< 3 minutes': '<3 λεπτών'
+    '> 20 minutes': '>20 λεπτών'
+    '3 - 20 minutes': 3 - 20 λεπτά
   Search Results: 'Αποτελέσματα αναζήτησης'
   Fetching results. Please wait: 'Aνάκτηση αποτελεσμάτων. Παρακαλώ περιμένετε'
   Fetch more results: 'Λήψη περισσότερων αποτελεσμάτων'

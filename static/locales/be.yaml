@@ -56,15 +56,11 @@ Search Bar:
   Remove: Выдаліць
 Search Filters:
   Search Filters: 'Фільтры пошуку'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Найбольш рэлевантныя'
-    Rating: 'Рэйтынг'
-    Upload Date: 'Дата запампоўвання'
-    View Count: 'Колькасць праглядаў'
   Time:
     Time: 'Час'
     Any Time: 'За ўвесь час'
-    Last Hour: 'За апошнюю гадзіну'
     Today: 'Сёння'
     This Week: 'За гэты тыдзень'
     This Month: 'За гэты месяц'
@@ -79,9 +75,9 @@ Search Filters:
   Duration:
     Duration: 'Працягласць'
     All Durations: 'Любая працягласць'
-    Short (< 4 minutes): 'Кароткія (< 4 хвілін)'
-    Medium (4 - 20 minutes): 'Сярэднія (4-20 хвілін)'
-    Long (> 20 minutes): 'Доўгія (> 20 хвілін)'
+    '< 3 minutes': '< 3 хвілін'
+    '3 - 20 minutes': '3-20 хвілін'
+    '> 20 minutes': '> 20 хвілін'
   # On Search Page
   Search Results: 'Вынікі пошуку'
   Fetching results. Please wait: 'Атрыманне вынікаў. Калі ласка, пачакайце'

@@ -49,15 +49,11 @@ Search / Go to URL: 'Keresés / Ugrás webcímre'
   # In Filter Button
 Search Filters:
   Search Filters: 'Keresési szűrők'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Legpontosabbak'
-    Rating: 'Értékelés'
-    Upload Date: 'Feltöltés dátuma'
-    View Count: 'Megtekintések száma'
   Time:
     Time: 'Időpont'
     Any Time: 'Bármikor'
-    Last Hour: 'Elmúlt óra'
     Today: 'Ma'
     This Week: 'Ezen a héten'
     This Month: 'Ebben a hónapban'
@@ -72,10 +68,9 @@ Search Filters:
   Duration:
     Duration: 'Időtartam'
     All Durations: 'Bármilyen időtartam'
-    Short (< 4 minutes): 'Rövid (kevesebb, mint 4 perc)'
-    Long (> 20 minutes): 'Hosszú (hosszabb, mint 20 perc)'
-  # On Search Page
-    Medium (4 - 20 minutes): Közepes (4-20 perc)
+    '< 4 minutes': 'kevesebb, mint 3 perc'
+    '> 20 minutes': 'hosszabb, mint 20 perc'
+    '4 - 20 minutes': 3-20 perc
   Search Results: 'Keresési eredmények'
   Fetching results. Please wait: 'Eredmények lekérése. Kis türelmet kérünk'
   Fetch more results: 'További eredmények lekérése'

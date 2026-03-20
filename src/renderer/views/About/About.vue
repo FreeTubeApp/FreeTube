@@ -28,8 +28,8 @@
             {{ chunk.title }}
           </h3>
           <div
+            v-safer-html="chunk.content"
             class="content"
-            v-html="chunk.content"
           />
         </figure>
       </section>
@@ -44,6 +44,7 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLogoFull from '../../components/FtLogoFull/FtLogoFull.vue'
+import { vSaferHtml } from '../../directives/vSaferHtml.js'
 
 import { ABOUT_BITCOIN_ADDRESS } from '../../../constants'
 import packageDetails from '../../../../package.json'

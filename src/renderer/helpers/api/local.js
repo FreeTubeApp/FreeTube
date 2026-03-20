@@ -1,5 +1,4 @@
 import { ClientType, Constants, Innertube, Misc, Mixins, Parser, Platform, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
-import { FormatXTags } from '../../../../node_modules/youtubei.js/dist/protos/generated/misc/common'
 import Autolinker from 'autolinker'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -22,22 +21,9 @@ const TRACKING_PARAM_NAMES = [
 ]
 
 if (process.env.SUPPORTS_LOCAL_API) {
-  Platform.shim.eval = (data, env) => {
+  Platform.shim.eval = (data) => {
     return new Promise((resolve, reject) => {
-      const properties = []
-
-      if (env.n) {
-        properties.push(`n: exportedVars.nFunction("${env.n}")`)
-      }
-
-      if (env.sig) {
-        properties.push(`sig: exportedVars.sigFunction("${env.sig}")`)
-      }
-
-      // Triggers permission errors if we don't remove it (added by YouTube.js), as sessionStorage isn't accessible in sandboxed cross-origin iframes
-      const modifiedOutput = data.output.replace('const window = Object.assign({}, globalThis);', '')
-
-      const code = `${modifiedOutput}\nreturn {${properties.join(', ')}}`
+      const code = data.output
 
       // Generate a unique ID, as there may be multiple eval calls going on at the same time (e.g. DASH manifest generation)
       const messageId = process.env.IS_ELECTRON || crypto.randomUUID
@@ -108,7 +94,6 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     user_agent: navigator.userAgent,
 
     retrieve_player: !!withPlayer,
-    player_id: '9f4cc5e4',
     location: location,
     enable_safety_mode: !!safetyMode,
     client_type: clientType,
@@ -485,28 +470,32 @@ export async function getLocalVideoInfo(id) {
       info.playability_status.reason === 'Sign in to confirm your age') ||
     (hasTrailer && trailerIsAgeRestricted)
   ) {
-    const webEmbeddedInnertube = await createInnertube({ clientType: ClientType.WEB_EMBEDDED })
-    webEmbeddedInnertube.session.context.client.visitorData = webInnertube.session.context.client.visitorData
+    try {
+      const webEmbeddedInnertube = await createInnertube({ clientType: ClientType.WEB_EMBEDDED })
+      webEmbeddedInnertube.session.context.client.visitorData = webInnertube.session.context.client.visitorData
 
-    const videoId = hasTrailer && trailerIsAgeRestricted ? info.playability_status.error_screen.video_id : id
+      const videoId = hasTrailer && trailerIsAgeRestricted ? info.playability_status.error_screen.video_id : id
 
-    // getBasicInfo needs the signature timestamp (sts) from inside the player
-    webEmbeddedInnertube.session.player = webInnertube.session.player
+      // getBasicInfo needs the signature timestamp (sts) from inside the player
+      webEmbeddedInnertube.session.player = webInnertube.session.player
 
-    const bypassedInfo = await webEmbeddedInnertube.getBasicInfo(videoId, { client: 'WEB_EMBEDDED', po_token: contentPoToken })
+      const bypassedInfo = await webEmbeddedInnertube.getBasicInfo(videoId, { client: 'WEB_EMBEDDED', po_token: contentPoToken })
 
-    if (bypassedInfo.playability_status.status === 'OK' && bypassedInfo.streaming_data) {
-      info.playability_status = bypassedInfo.playability_status
-      info.streaming_data = bypassedInfo.streaming_data
-      info.basic_info.start_timestamp = bypassedInfo.basic_info.start_timestamp
-      info.basic_info.duration = bypassedInfo.basic_info.duration
-      info.captions = bypassedInfo.captions
-      info.storyboards = bypassedInfo.storyboards
+      if (bypassedInfo.playability_status.status === 'OK' && bypassedInfo.streaming_data) {
+        info.playability_status = bypassedInfo.playability_status
+        info.streaming_data = bypassedInfo.streaming_data
+        info.basic_info.start_timestamp = bypassedInfo.basic_info.start_timestamp
+        info.basic_info.duration = bypassedInfo.basic_info.duration
+        info.captions = bypassedInfo.captions
+        info.storyboards = bypassedInfo.storyboards
 
-      hasTrailer = false
-      trailerIsAgeRestricted = false;
+        hasTrailer = false
+        trailerIsAgeRestricted = false;
 
-      ({ clientName, clientVersion, osName, osVersion } = webEmbeddedInnertube.session.context.client)
+        ({ clientName, clientVersion, osName, osVersion } = webEmbeddedInnertube.session.context.client)
+      }
+    } catch (error) {
+      console.warn('WEB_EMBEDDED fallback errored, using the original response instead', error)
     }
   }
 
@@ -1576,20 +1565,20 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       let isUpcoming = false
       let premiereDate
 
-      /** @type {YTNodes.ThumbnailOverlayBadgeView | undefined} */
-      const thumbnailOverlayBadgeView = lockupView.content_image?.overlays?.firstOfType(YTNodes.ThumbnailOverlayBadgeView)
+      /** @type {YTNodes.ThumbnailBottomOverlayView | undefined } */
+      const thumbnailBottomOverlayView = lockupView.content_image?.overlays?.firstOfType(YTNodes.ThumbnailBottomOverlayView)
 
-      if (thumbnailOverlayBadgeView) {
-        if (thumbnailOverlayBadgeView.badges.some(badge => badge.badge_style === 'THUMBNAIL_OVERLAY_BADGE_STYLE_LIVE')) {
+      if (thumbnailBottomOverlayView) {
+        if (thumbnailBottomOverlayView.badges.some(badge => badge.badge_style === 'THUMBNAIL_OVERLAY_BADGE_STYLE_LIVE')) {
           liveNow = true
-        } else if (thumbnailOverlayBadgeView.badges.some(badge => badge.text.toLowerCase() === 'upcoming')) {
+        } else if (thumbnailBottomOverlayView.badges.some(badge => badge.text.toLowerCase() === 'upcoming')) {
           isUpcoming = true
 
           if (lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.[1].text?.text) {
             premiereDate = new Date(lockupView.metadata.metadata.metadata_rows[1].metadata_parts[1].text.text)
           }
         } else {
-          const durationBadge = thumbnailOverlayBadgeView.badges.find(badge => /^[\d:]+$/.test(badge.text))
+          const durationBadge = thumbnailBottomOverlayView.badges.find(badge => /^[\d:]+$/.test(badge.text))
 
           if (durationBadge) {
             lengthSeconds = Utils.timeToSeconds(durationBadge.text)
@@ -1794,8 +1783,8 @@ function convertSearchFilters(filters) {
   // others have empty strings that we don't want to pass to youtubei.js
 
   if (filters) {
-    if (filters.sortBy) {
-      convertedFilters.sort_by = filters.sortBy
+    if (filters.prioritize) {
+      convertedFilters.prioritize = filters.prioritize
     }
 
     if (filters.time) {
@@ -2193,17 +2182,4 @@ export async function getLocalCommunityPostComments(postId, channelId) {
   const innertube = await createInnertube()
 
   return await innertube.getPostComments(postId, channelId)
-}
-
-/**
- * @param {Misc.Format} format
- */
-export function formatHasVoiceBoostTag(format) {
-  if (!format.xtags) {
-    return undefined
-  }
-
-  const xtags = FormatXTags.decode(Utils.base64ToU8(format.xtags)).xtags
-
-  return xtags.some(tag => tag.key === 'vb' && tag.value === '1')
 }

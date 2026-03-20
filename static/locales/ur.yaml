@@ -45,15 +45,11 @@ Search Filters:
     All Types: تمام اقسام
     Channels: چینلز
     Movies: فلمیں
-  Sort By:
+  Prioritize:
     Most Relevant: موزوں ترین
-    Rating: ریٹنگ
-    Upload Date: اپ لوڈ کی تاریخ
-    View Count: ویوز کی تعداد
   Time:
     Time: وقت
     Any Time: کسی بھی وقت
-    Last Hour: پچھلا گھنٹہ
     Today: آج
     This Week: اس ہفتے
     This Month: اس مہینے
@@ -61,9 +57,6 @@ Search Filters:
   Duration:
     Duration: دورانیہ
     All Durations: تمام دورانیے
-    Short (< 4 minutes): مختصر (< 4 منٹ)
-    Medium (4 - 20 minutes): درمیانہ (4 - 20 منٹ)
-    Long (> 20 minutes): طویل (> 20 منٹ)
   Features:
     Features: فیچرز
     HD: HD

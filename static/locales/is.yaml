@@ -49,15 +49,11 @@ Search / Go to URL: 'Leita / Fara á slóð'
   # In Filter Button
 Search Filters:
   Search Filters: 'Leitarsíur'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Mest viðeigandi'
-    Rating: 'Einkunn'
-    Upload Date: 'Dags. innsendingar'
-    View Count: 'Fjöldi áhorfa'
   Time:
     Time: 'Tími'
     Any Time: 'Hvenær sem er'
-    Last Hour: 'Síðustu klukkustund'
     Today: 'Í dag'
     This Week: 'Í þessari viku'
     This Month: 'Í þessum mánuði'
@@ -72,10 +68,9 @@ Search Filters:
   Duration:
     Duration: 'Tímalengd'
     All Durations: 'Allar tímalengdir'
-    Short (< 4 minutes): 'Stutt (< 4 mínútur)'
-    Long (> 20 minutes): 'Langt (> 20 mínútur)'
-  # On Search Page
-    Medium (4 - 20 minutes): Miðlungs (4 - 20 mínútur)
+    '< 3 minutes': '< 3 mínútur'
+    '> 20 minutes': '> 20 mínútur'
+    '3 - 20 minutes': 3 - 20 mínútur
   Search Results: 'Leitarniðurstöður'
   Fetching results. Please wait: 'Sæki niðurstöður. Hinkraðu aðeins'
   Fetch more results: 'Sækja fleiri niðurstöður'
@@ -186,7 +181,7 @@ User Playlists:
   Delete Playlist: Eyða spilunarlista
   Are you sure you want to delete this playlist? This cannot be undone: Ertu viss um að þú viljir eyða þessum spilunarlista? Aðgerðin er ekki afturkallanleg.
   Add to Favorites: Bæta í {playlistName}
-  Remove from Favorites: Fjarlægja af {playlistName}
+  Remove from Favorites: Fjarlægja úr {playlistName}
   Enable Quick Bookmark With This Playlist: Virkja flýtibókamerki með þessum spilunarlista
   Playlists with Matching Videos: Spilunarlistar með samsvarandi myndskeiðum
   Quick Bookmark Enabled: Flýtibókamerki virkjuð

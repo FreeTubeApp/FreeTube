@@ -19,7 +19,7 @@ export class TheatreModeButton extends shaka.ui.Element {
     this.button_.classList.add('theatre-button', 'shaka-tooltip')
 
     /** @private */
-    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.RECTANGLE_DEFAULT)
+    this.icon_ = new shaka.ui.Icon(this.button_, PlayerIcons.RECTANGLE_DEFAULT)
 
     const label = document.createElement('label')
     label.classList.add(

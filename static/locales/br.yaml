@@ -70,15 +70,11 @@ Search Listing:
   # In Filter Button
 Search Filters:
   Search Filters: 'Siloù evit Klask'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Ar re wellañ'
-    Rating: 'Notenn'
-    Upload Date: 'Deiziad kargañ'
-    View Count: 'Niver a selloù'
   Time:
     Time: 'Padelezh'
     Any Time: 'A-holl-viskoaz'
-    Last Hour: 'Eur diwezhañ'
     Today: 'Hiziv'
     This Week: 'Ar sizhun-mañ'
     This Month: 'Ar miz-mañ'
@@ -93,9 +89,9 @@ Search Filters:
   Duration:
     Duration: 'Padelezh'
     All Durations: 'An holl badelezhioù'
-    Short (< 4 minutes): 'Berr (< 4 munud)'
-    Medium (4 - 20 minutes): 'Etre (4 - 20 munud)'
-    Long (> 20 minutes): 'Hir (> 20 munud)'
+    '< 3 minutes': '< 3 munud'
+    '3 - 20 minutes': '3 - 20 munud'
+    '> 20 minutes': '> 20 munud'
   Features:
     Features: 'Perzhioù'
     HD: 'HD'

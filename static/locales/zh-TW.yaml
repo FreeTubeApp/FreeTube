@@ -42,15 +42,11 @@ Search / Go to URL: '搜尋/ 前往網址'
   # In Filter Button
 Search Filters:
   Search Filters: '搜尋過濾器'
-  Sort By:
+  Prioritize:
     Most Relevant: '最相關'
-    Rating: '評分'
-    Upload Date: '上傳日期'
-    View Count: '觀看次數'
   Time:
     Time: '時間'
     Any Time: '任何時間'
-    Last Hour: '最近一小時'
     Today: '今天'
     This Week: '本週'
     This Month: '本月'
@@ -65,10 +61,9 @@ Search Filters:
   Duration:
     Duration: '影片長度'
     All Durations: '所有長度'
-    Short (< 4 minutes): '短（小於4分鐘）'
-    Long (> 20 minutes): '長（大於20分鐘）'
-  # On Search Page
-    Medium (4 - 20 minutes): 中（4到20 分鐘）
+    '< 3 minutes': '小於3分鐘'
+    '> 20 minutes': '大於20分鐘'
+    '3 - 20 minutes': 3到20 分鐘
   Search Results: '搜尋結果'
   Fetching results. Please wait: '正在擷取結果。請稍候'
   Fetch more results: '擷取更多結果'

@@ -49,15 +49,11 @@ Search / Go to URL: Pesquisar / ir para o URL
   # In Filter Button
 Search Filters:
   Search Filters: Filtros de pesquisa
-  Sort By:
+  Prioritize:
     Most Relevant: Mais relevantes
-    Rating: Avaliação
-    Upload Date: Data de publicação
-    View Count: Visualizações
   Time:
     Time: Intervalo de tempo
     Any Time: Sempre
-    Last Hour: Última hora
     Today: Hoje
     This Week: Esta semana
     This Month: Este mês
@@ -72,10 +68,9 @@ Search Filters:
   Duration:
     Duration: Duração
     All Durations: Todas as durações
-    Short (< 4 minutes): Curta (< 4 minutos)
-    Long (> 20 minutes): Longa (> 20 minutos)
-  # On Search Page
-    Medium (4 - 20 minutes): Média (4 - 20 minutos)
+    '< 3 minutes': '< 3 minutos'
+    '> 20 minutes': '> 20 minutos'
+    '3 - 20 minutes': 3 - 20 minutos
   Search Results: Resultados
   Fetching results. Please wait: A procurar. Por favor aguarde
   Fetch more results: Obter mais resultados

@@ -47,15 +47,11 @@ Search / Go to URL: 'Søk/gå til nettadresse'
   # In Filter Button
 Search Filters:
   Search Filters: 'Søkefilter'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Mest relevant'
-    Rating: 'Vurdering'
-    Upload Date: 'Opplastingsdato'
-    View Count: 'Sjåartal'
   Time:
     Time: 'Tid'
     Any Time: 'Når som helst'
-    Last Hour: 'Den siste timen'
     Today: 'I dag'
     This Week: 'Denne veka'
     This Month: 'Denne månaden'
@@ -69,8 +65,8 @@ Search Filters:
   Duration:
     Duration: 'Varigheit'
     All Durations: 'Alle varigheitene'
-    Short (< 4 minutes): 'Kort (< 4 minutt)'
-    Long (> 20 minutes): 'Lang (> 20 minutt)'
+    '< 3 minutes': '< 3 minutt'
+    '> 20 minutes': '> 20 minutt'
   # On Search Page
   Search Results: 'Søkeresultat'
   Fetching results. Please wait: 'Henter resultat. Ver venleg og vent'

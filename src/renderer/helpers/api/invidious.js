@@ -1,9 +1,5 @@
 import store from '../../store/index'
-import {
-  calculatePublishedDate,
-  getRelativeTimeFromDate,
-  stripHTML,
-} from '../utils'
+import { calculatePublishedDate, getRelativeTimeFromDate } from '../utils'
 import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
 import { FormatUtils, Misc, Player } from 'youtubei.js'
@@ -540,6 +536,13 @@ export async function getInvidiousPopularFeed() {
  * @param {any} searchSettings
  */
 export async function getInvidiousSearchResults(query, page, searchSettings) {
+  const DURATION_MAP = {
+    '': '',
+    under_three_mins: 'short',
+    three_to_twenty_mins: 'medium',
+    over_twenty_mins: 'long',
+  }
+
   /** @type {Promise<(InvidiousChannelObject | InvidiousPlaylistObject | InvidiousVideoType | InvidiousHashtagObject)[] | null>} */
   let results = await invidiousAPICall({
     resource: 'search',
@@ -547,9 +550,9 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
     params: {
       q: query,
       page,
-      sort_by: searchSettings.sortBy,
+      sort_by: searchSettings.prioritize === 'popularity' ? 'view_count' : searchSettings.prioritize,
       date: searchSettings.time,
-      duration: searchSettings.duration,
+      duration: DURATION_MAP[searchSettings.duration],
       type: searchSettings.type,
       features: searchSettings.features.join(',')
     }
@@ -616,7 +619,7 @@ function parseInvidiousCommentData(response) {
       authorThumb: youtubeImageUrlToInvidious(comment.authorThumbnails.at(-1).url),
       author: comment.author,
       likes: comment.likeCount,
-      text: autolinker.link(stripHTML(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstanceUrl()))),
+      text: autolinker.link(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstanceUrl())),
       dataType: 'invidious',
       isOwner: comment.authorIsChannelOwner,
       isPinned: comment.isPinned,

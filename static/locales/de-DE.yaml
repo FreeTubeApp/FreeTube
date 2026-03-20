@@ -42,15 +42,11 @@ Search / Go to URL: Suchen / URL öffnen
   # In Filter Button
 Search Filters:
   Search Filters: Suchfilter
-  Sort By:
+  Prioritize:
     Most Relevant: Relevanz
-    Rating: Bewertung
-    Upload Date: Upload-Datum
-    View Count: Anzahl der Aufrufe
   Time:
     Time: Zeit
     Any Time: Beliebige Zeit
-    Last Hour: Letzte Stunde
     Today: Heute
     This Week: Diese Woche
     This Month: Dieser Monat
@@ -65,10 +61,9 @@ Search Filters:
   Duration:
     Duration: Dauer
     All Durations: Jede Dauer
-    Short (< 4 minutes): Kurz (< 4 Minuten)
-    Long (> 20 minutes): Lang (> 20 Minuten)
-  # On Search Page
-    Medium (4 - 20 minutes): Mittel (4–20 Minuten)
+    '< 3 minutes': < 3 Minuten
+    '> 20 minutes': '> 20 Minuten'
+    '3 - 20 minutes': 3–20 Minuten
   Search Results: Suchergebnisse
   Fetching results. Please wait: Ergebnisse werden abgerufen. Bitte warten
   Fetch more results: Weitere Ergebnisse abrufen
@@ -986,7 +981,7 @@ Tooltips:
     UseDeArrowThumbnails: Video-Miniaturansichten durch Miniaturansichten von DeArrow ersetzen.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen klicken.
 More: Mehr
-Unknown YouTube url type, cannot be opened in app: Unbekannter YouTube-URL-Typ. Kann in der App nicht geöffnet werden
+Unknown YouTube url type, cannot be opened in app: Unbekannter YouTube-URL-Typ, kann in der App nicht geöffnet werden
 Open New Window: Neues Fenster öffnen
 Default Invidious instance has been cleared: Standardmäßige Invidious-Instanz wurde gelöscht
 Default Invidious instance has been set to {instance}: Standardmäßige Invidious-Instanz wurde auf {instance} festgelegt

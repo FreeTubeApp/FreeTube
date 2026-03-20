@@ -66,10 +66,10 @@
         </h1>
       </template>
       <bdo
+        v-safer-html.lenient="updateChangelog"
         class="changeLogText"
         dir="ltr"
         lang="en"
-        v-html="updateChangelog"
       />
       <FtFlexBox>
         <FtButton
@@ -129,6 +129,7 @@ import FtPlaylistAddVideoPrompt from './components/FtPlaylistAddVideoPrompt/FtPl
 import FtCreatePlaylistPrompt from './components/FtCreatePlaylistPrompt/FtCreatePlaylistPrompt.vue'
 import FtKeyboardShortcutPrompt from './components/FtKeyboardShortcutPrompt/FtKeyboardShortcutPrompt.vue'
 import FtSearchFilters from './components/FtSearchFilters/FtSearchFilters.vue'
+import { vSaferHtml } from './directives/vSaferHtml.js'
 
 import store from './store/index'
 

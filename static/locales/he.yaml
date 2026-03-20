@@ -49,15 +49,11 @@ Search / Go to URL: 'חיפוש / מעבר לכתובת'
   # In Filter Button
 Search Filters:
   Search Filters: 'מסנני חיפוש'
-  Sort By:
+  Prioritize:
     Most Relevant: 'הכי רלוונטי'
-    Rating: 'דירוג'
-    Upload Date: 'תאריך העלאה'
-    View Count: 'מס׳ צפיות'
   Time:
     Time: 'זמן'
     Any Time: 'כל זמן'
-    Last Hour: 'מהשעה האחרונה'
     Today: 'היום'
     This Week: 'השבוע'
     This Month: 'החודש'
@@ -72,10 +68,6 @@ Search Filters:
   Duration:
     Duration: 'משך זמן'
     All Durations: 'הכול'
-    Short (< 4 minutes): 'קצר (מתחת ל־4 דקות)'
-    Long (> 20 minutes): 'ארוך (מעל 20 דקות)'
-  # On Search Page
-    Medium (4 - 20 minutes): בינוני (4 - 20‏ דקות)
   Search Results: 'תוצאות חיפוש'
   Fetching results. Please wait: 'נאספות תוצאות. נא להמתין'
   Fetch more results: 'חיפוש תוצאות נוספות'

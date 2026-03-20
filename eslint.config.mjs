@@ -270,7 +270,11 @@ export default [
     rules: {
       '@stylistic/space-before-function-paren': 'off',
       '@stylistic/comma-dangle': ['error', 'only-multiline'],
-      'vue/no-v-html': 'off',
+
+      // Ban v-html as it inserts HTML via innerHTML without sanitizing it
+      // if inserting raw HTML is unavoidable the custom v-safer-html directive should be used
+      // which sanitizes the HTML before inserting it into the DOM
+      'vue/no-v-html': 'error',
 
       'no-console': ['error', {
         allow: ['warn', 'error'],
@@ -339,6 +343,15 @@ export default [
     languageOptions: {
       globals: {
         __FREETUBE_ALLOWED_PATHS__: 'readable'
+      }
+    }
+  },
+  {
+    files: ['src/renderer/directives/vSaferHtml.js'],
+    languageOptions: {
+      globals: {
+        // Fix Sanitizer not being listed in `globals` yet, remove it when it gets added in the future
+        Sanitizer: 'readable'
       }
     }
   },
