@@ -56,15 +56,11 @@ Search Bar:
   Remove: Noņemt
 Search Filters:
   Search Filters: 'Meklēšanas atlase'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Visatbilstošākie'
-    Rating: 'Vērtējuma'
-    Upload Date: 'Augšuplādes datums'
-    View Count: 'Skatījumi'
   Time:
     Time: 'Vecums'
     Any Time: 'Jebkurā laikā'
-    Last Hour: 'Pēdējā stundā'
     Today: 'Šodienas'
     This Week: 'Šonedēļ'
     This Month: 'Šomēnes'
@@ -79,9 +75,9 @@ Search Filters:
   Duration:
     Duration: 'Ilgums'
     All Durations: 'Visi ilgumi'
-    Short (< 4 minutes): 'Īss (<4 minūtēm)'
-    Medium (4 - 20 minutes): 'Vidējs (4 - 20 minūtes)'
-    Long (> 20 minutes): 'Ilgs (> 20 minūtes)'
+    '< 3 minutes': '<3 minūtēm'
+    '3 - 20 minutes': '3 - 20 minūtes'
+    '> 20 minutes': '> 20 minūtes'
   # On Search Page
   Search Results: 'Meklēšanas rezultāti'
   Fetching results. Please wait: 'Iegūst rezultātus. Lūdzu gaidi'

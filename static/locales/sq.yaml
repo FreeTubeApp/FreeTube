@@ -71,15 +71,11 @@ Search Listing:
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtra të kërkimit'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Më të përshtatshmet'
-    Rating: 'Vlerësimi'
-    Upload Date: 'Data e ngarkimit'
-    View Count: 'Shikimet'
   Time:
     Time: 'Koha'
     Any Time: 'Përherë'
-    Last Hour: 'Ora e fundit'
     Today: 'Sot'
     This Week: 'Këtë javë'
     This Month: 'Këtë muaj'
@@ -94,9 +90,9 @@ Search Filters:
   Duration:
     Duration: 'Gjatësia'
     All Durations: 'Të gjitha gjatësitë'
-    Short (< 4 minutes): 'E shkurtër (< 4 minuta)'
-    Medium (4 - 20 minutes): 'E mesme (4 - 20 minuta)'
-    Long (> 20 minutes): 'E gjatë (> 20 minuta)'
+    '< 3 minutes': '< 3 minuta'
+    '3 - 20 minutes': '3 - 20 minuta'
+    '> 20 minutes': '> 20 minuta'
   Features:
     Features: 'Karakteristikat'
     HD: 'HD'

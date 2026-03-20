@@ -49,15 +49,11 @@ Search / Go to URL: 'Bilatu / Joan URLra'
   # In Filter Button
 Search Filters:
   Search Filters: 'Bilaketa iragazkiak'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Garrantzitsuenak'
-    Rating: 'Balorazioa'
-    Upload Date: 'Igoera-data'
-    View Count: 'Ikustaldi kopurua'
   Time:
     Time: 'Denbora'
     Any Time: 'Edozein unekoa'
-    Last Hour: 'Azken ordukoa'
     Today: 'Gaur'
     This Week: 'Aste honetan'
     This Month: 'Hilabete honetan'
@@ -72,10 +68,9 @@ Search Filters:
   Duration:
     Duration: 'Iraupena'
     All Durations: 'Edozein iraupen'
-    Short (< 4 minutes): 'Laburra (<4 minutu)'
-    Long (> 20 minutes): 'Luzea (> 20 minutu)'
-  # On Search Page
-    Medium (4 - 20 minutes): Tartekoa (4 - 20 minutu)
+    '< 3 minutes': '<3 minutu'
+    '> 20 minutes': '> 20 minutu'
+    '3 - 20 minutes': '3 - 20 minutu'
   Search Results: 'Bilaketa-emaitzak'
   Fetching results. Please wait: 'Emaitzak ekartzen. Itxaron faborez'
   Fetch more results: 'Ekarri emaitza gehiago'

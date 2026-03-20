@@ -70,15 +70,11 @@ Search Listing:
   # In Filter Button
 Search Filters:
   Search Filters: 'வடிப்பான்களைத் தேடுங்கள்'
-  Sort By:
+  Prioritize:
     Most Relevant: 'மிகவும் பொருத்தமானது'
-    Rating: 'செயல்வரம்பு'
-    Upload Date: 'பதிவேற்ற தேதி'
-    View Count: 'எண்ணிக்கை காண்க'
   Time:
     Time: 'நேரம்'
     Any Time: 'எந்த நேரத்திலும்'
-    Last Hour: 'கடைசி மணி'
     Today: 'இன்று'
     This Week: 'இந்த வாரம்'
     This Month: 'இந்த மாதம்'
@@ -93,9 +89,9 @@ Search Filters:
   Duration:
     Duration: 'காலம்'
     All Durations: 'அனைத்து காலங்களும்'
-    Short (< 4 minutes): 'குறுகிய (<4 நிமிடங்கள்)'
-    Medium (4 - 20 minutes): 'நடுத்தர (4 - 20 நிமிடங்கள்)'
-    Long (> 20 minutes): 'நீண்ட (> 20 நிமிடங்கள்)'
+    '< 3 minutes': '<3 நிமிடங்கள்'
+    '3 - 20 minutes': '3 - 20 நிமிடங்கள்'
+    '> 20 minutes': '> 20 நிமிடங்கள்'
   Features:
     Features: 'நற்பொருத்தங்கள்'
     HD: 'எச்டி'

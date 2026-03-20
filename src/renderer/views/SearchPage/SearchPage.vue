@@ -100,7 +100,7 @@ watch(route, () => {
     features = [features]
   }
   const searchSettings = {
-    sortBy: route.query.sortBy,
+    prioritize: route.query.prioritize,
     time: route.query.time,
     type: route.query.type,
     duration: route.query.duration,
@@ -130,7 +130,7 @@ onMounted(() => {
   }
 
   searchSettings.value = {
-    sortBy: route.query.sortBy,
+    prioritize: route.query.prioritize,
     time: route.query.time,
     type: route.query.type,
     duration: route.query.duration,

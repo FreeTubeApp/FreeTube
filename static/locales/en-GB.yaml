@@ -49,15 +49,13 @@ Search / Go to URL: 'Search / Go to URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Search filters'
-  Sort By:
+  Prioritize:
+    Prioritize: Prioritize
     Most Relevant: 'Most relevant'
-    Rating: 'Rating'
-    Upload Date: 'Upload date'
-    View Count: 'View count'
+    Popularity: 'Popularity'
   Time:
     Time: 'Time'
     Any Time: 'Any time'
-    Last Hour: 'Last hour'
     Today: 'Today'
     This Week: 'This week'
     This Month: 'This month'
@@ -72,10 +70,9 @@ Search Filters:
   Duration:
     Duration: 'Duration'
     All Durations: 'All durations'
-    Short (< 4 minutes): 'Short (< 4 minutes)'
-    Long (> 20 minutes): 'Long (> 20 minutes)'
-  # On Search Page
-    Medium (4 - 20 minutes): Medium (4 - 20 minutes)
+    '< 3 minutes': '< 3 minutes'
+    '> 20 minutes': '> 20 minutes'
+    '3 - 20 minutes': 3 - 20 minutes
   Search Results: 'Search results'
   Fetching results. Please wait: 'Fetching results. Please wait'
   Fetch more results: 'Fetch more results'

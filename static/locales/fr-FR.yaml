@@ -42,15 +42,11 @@ Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtres de recherche'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Plus pertinent'
-    Rating: 'Avis'
-    Upload Date: 'Date de mise en ligne'
-    View Count: 'Nombre de vues'
   Time:
     Time: 'Date'
     Any Time: 'Toutes les dates'
-    Last Hour: 'Dernière heure'
     Today: 'Aujourd’hui'
     This Week: 'Cette semaine'
     This Month: 'Ce mois-ci'
@@ -65,10 +61,9 @@ Search Filters:
   Duration:
     Duration: 'Durée'
     All Durations: 'Toutes les durées'
-    Short (< 4 minutes): 'Court (moins de 4 min)'
-    Long (> 20 minutes): 'Longue (plus de 20 min)'
-  # On Search Page
-    Medium (4 - 20 minutes): Moyenne (de 4 à 20 min)
+    '< 3 minutes': 'moins de 3 min'
+    '> 20 minutes': 'plus de 20 min'
+    '3 - 20 minutes': de 3 à 20 min
   Search Results: 'Résultats de la recherche'
   Fetching results. Please wait: 'Récupération des résultats. Veuillez patienter'
   Fetch more results: 'Afficher plus de résultats'

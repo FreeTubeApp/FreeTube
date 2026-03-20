@@ -41,15 +41,11 @@ Search / Go to URL: 'Etsi / Mene osoitteeseen'
   # In Filter Button
 Search Filters:
   Search Filters: 'Hakusuodattimet'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Osuvin'
-    Rating: 'Arvio'
-    Upload Date: 'Latauspäivämäärä'
-    View Count: 'Näyttökerrat'
   Time:
     Time: 'Aika'
     Any Time: 'Milloin tahansa'
-    Last Hour: 'Viime tunti'
     Today: 'Tänään'
     This Week: 'Tällä viikolla'
     This Month: 'Tässä kuussa'
@@ -64,10 +60,9 @@ Search Filters:
   Duration:
     Duration: 'Kesto'
     All Durations: 'Kaikki kestot'
-    Short (< 4 minutes): 'Lyhyt (alle 4 minuuttia)'
-    Long (> 20 minutes): 'Pitkä (yli 20 minuuttia)'
-  # On Search Page
-    Medium (4 - 20 minutes): Keskikokoinen (4 - 20 minuuttia)
+    '< 3 minutes': 'alle 3 minuuttia'
+    '> 20 minutes': 'yli 20 minuuttia'
+    '3 - 20 minutes': 3 - 20 minuuttia
   Search Results: 'Hakutulokset'
   Fetching results. Please wait: 'Haetaan tuloksia. Odota hetki'
   Fetch more results: 'Hae lisää tuloksia'

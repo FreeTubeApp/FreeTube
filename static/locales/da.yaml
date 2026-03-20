@@ -49,15 +49,11 @@ Search / Go to URL: 'Søg/gå til URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Søgefiltre'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Mest relevante'
-    Rating: 'Bedømmelse'
-    Upload Date: 'Dato for upload'
-    View Count: 'Visningstal'
   Time:
     Time: 'Tid'
     Any Time: 'Altid'
-    Last Hour: 'Sidste time'
     Today: 'I dag'
     This Week: 'Denne uge'
     This Month: 'Denne måned'
@@ -72,10 +68,9 @@ Search Filters:
   Duration:
     Duration: 'Varighed'
     All Durations: 'Alle varigheder'
-    Short (< 4 minutes): 'Kort (< 4 minutter)'
-    Long (> 20 minutes): 'Lang (> 20 minutter)'
-  # On Search Page
-    Medium (4 - 20 minutes): Mellemlang (4-20 minutter)
+    '< 3 minutes': '< 3 minutter'
+    '> 20 minutes': '> 20 minutter'
+    '3 - 20 minutes': 3-20 minutter
   Search Results: 'Søgeresultater'
   Fetching results. Please wait: 'Henter resultater. Vent venligst'
   Fetch more results: 'Hent flere resultater'
