@@ -51,6 +51,8 @@ Search Filters:
   Search Filters: 'Keresési szűrők'
   Prioritize:
     Most Relevant: 'Legpontosabbak'
+    Prioritize: Előnyben részesítés
+    Popularity: Népszerűség
   Time:
     Time: 'Időpont'
     Any Time: 'Bármikor'
@@ -71,6 +73,8 @@ Search Filters:
     '< 4 minutes': 'kevesebb, mint 3 perc'
     '> 20 minutes': 'hosszabb, mint 20 perc'
     '4 - 20 minutes': 3-20 perc
+    '< 3 minutes': < 3 perc
+    '3 - 20 minutes': 3 - 20 perc
   Search Results: 'Keresési eredmények'
   Fetching results. Please wait: 'Eredmények lekérése. Kis türelmet kérünk'
   Fetch more results: 'További eredmények lekérése'
