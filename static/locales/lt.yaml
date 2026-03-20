@@ -50,15 +50,11 @@ Search / Go to URL: 'Paieška / Eiti į URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Paieškos filtrai'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Aktualiausi'
-    Rating: 'Reitingas'
-    Upload Date: 'Įkėlimo data'
-    View Count: 'Peržiūrų skaičius'
   Time:
     Time: 'Laikas'
     Any Time: 'Bet kuris laikas'
-    Last Hour: 'Paskutinė valanda'
     Today: 'Šiandien'
     This Week: 'Šią savaitę'
     This Month: 'Šį mėnesį'
@@ -73,10 +69,9 @@ Search Filters:
   Duration:
     Duration: 'Trukmė'
     All Durations: 'Visos trukmės'
-    Short (< 4 minutes): 'Trumpas (< 4 minutės)'
-    Long (> 20 minutes): 'Ilgas (> 20 minutės)'
-  # On Search Page
-    Medium (4 - 20 minutes): Vidutinis (4 - 20 minučių)
+    '< 3 minutes': '< 3 minutės'
+    '> 20 minutes': '> 20 minutės'
+    '3 - 20 minutes': 3 - 20 minučių
   Search Results: 'Paieškos rezultatai'
   Fetching results. Please wait: 'Rezultatai kraunami. Prašome luktelėti'
   Fetch more results: 'Įkelti daugiau rezultatų'

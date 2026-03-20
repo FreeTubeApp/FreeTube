@@ -66,15 +66,11 @@ Search Listing:
     8K: 8K
 Search Filters:
   Search Filters: 'Zoekfilters'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Tmjist relevante'
-    Rating: 'Score'
-    Upload Date: 'Doatum dat online stoat'
-    View Count: 'Oevele dan der gekeekn eine'
   Time:
     Time: 'Den tîd'
     Any Time: 'Van geliek wanjir'
-    Last Hour: 'Tlatste eure'
     Today: 'Vandoage'
     This Week: 'Dizze weke'
     This Month: 'Dizze moande'
@@ -89,9 +85,9 @@ Search Filters:
   Duration:
     Duration: 'Oe lange dat deurt'
     All Durations: 'Al de meugelijke deuroaties'
-    Short (< 4 minutes): 'Kort (< 4 minutn)'
-    Medium (4 - 20 minutes): 'Tussen de twji (4 - 20 minutn)'
-    Long (> 20 minutes): 'Lange (> 20 minutn)'
+    '< 3 minutes': '< 3 minutn'
+    '3 - 20 minutes': '3 - 20 minutn'
+    '> 20 minutes': '> 20 minutn'
   Features:
     Features: 'Functies'
     HD: 'HD'

@@ -29,15 +29,11 @@ Search / Go to URL: 'جست و جو / برو به لینک'
   # In Filter Button
 Search Filters:
   Search Filters: 'فیلترهای جست و جو'
-  Sort By:
+  Prioritize:
     Most Relevant: 'مرتبط ترین'
-    Rating: 'امتیاز'
-    Upload Date: 'زمان بارگذاری'
-    View Count: 'تعداد بازدید'
   Time:
     Time: 'زمان'
     Any Time: 'هر زمانی'
-    Last Hour: 'یک ساعت قبل'
     Today: 'امروز'
     This Week: 'این هفته'
     This Month: 'این ماه'
@@ -52,10 +48,6 @@ Search Filters:
   Duration:
     Duration: 'طول مدت'
     All Durations: 'طول مدت همه'
-    Short (< 4 minutes): 'کوتاه(>۴ دقیقه)'
-    Long (> 20 minutes): 'طولانی(<۲۰ دقیقه)'
-  # On Search Page
-    Medium (4 - 20 minutes): متوسط (۴ تا ۲۰ دقیقه)
   Search Results: 'نتایج جست و جو'
   Fetching results. Please wait: 'دریافت نتایج.لطفا صبر کنید'
   Fetch more results: 'دریافت نتایج بیشتر'

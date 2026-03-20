@@ -38,15 +38,11 @@ Search / Go to URL: 'खोज / यूआरएल पर जाएं'
   # In Filter Button
 Search Filters:
   Search Filters: 'खोज फ़िल्टर'
-  Sort By:
+  Prioritize:
     Most Relevant: 'सबसे प्रासंगिक'
-    Rating: 'मूल्यांकन'
-    Upload Date: 'अपलोड की तारीख़'
-    View Count: 'दृश्य गणना'
   Time:
     Time: 'समय'
     Any Time: 'किसी भी समय'
-    Last Hour: 'पिछले घंटे'
     Today: 'आज'
     This Week: 'इस हफ़्ते'
     This Month: 'इस महीने'
@@ -61,10 +57,10 @@ Search Filters:
   Duration:
     Duration: 'अवधि'
     All Durations: 'सभी अवधियाँ'
-    Short (< 4 minutes): 'छोटे (<4 मिनट)'
-    Long (> 20 minutes): 'बड़े (>20 मिनट)'
+    '< 3 minutes': '<3 मिनट'
+    '> 20 minutes': '>20 मिनट'
   # On Search Page
-    Medium (4 - 20 minutes): माध्यम (4 - 20 minutes)
+    '3 - 20 minutes': 3 - 20 minutes
   Search Results: 'खोज के परिणाम'
   Fetching results. Please wait: 'परिणाम ला रहे है। कृपया प्रतीक्षा करे'
   Fetch more results: 'ज़्यादा परिणाम लाए'

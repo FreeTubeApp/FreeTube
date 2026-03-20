@@ -45,15 +45,11 @@ Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtri pretrage'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Najrelevantniji'
-    Rating: 'Ocjena'
-    Upload Date: 'Datum prijenosa'
-    View Count: 'Broj gledanja'
   Time:
     Time: 'Vrijeme'
     Any Time: 'Bilo kada'
-    Last Hour: 'Zadnji sat'
     Today: 'Danas'
     This Week: 'Ovaj tjedan'
     This Month: 'Ovaj mjesec'
@@ -68,10 +64,9 @@ Search Filters:
   Duration:
     Duration: 'Trajanje'
     All Durations: 'Sva trajanja'
-    Short (< 4 minutes): 'Kratko (< 4 min)'
-    Long (> 20 minutes): 'Dugo (> 20 min)'
-  # On Search Page
-    Medium (4 - 20 minutes): Srednje (4 do 20 minuta)
+    '< 3 minutes': '< 3 min'
+    '> 20 minutes': '> 20 min'
+    '3 - 20 minutes': 3 do 20 minuta
   Search Results: 'Rezultati pretrage'
   Fetching results. Please wait: 'Rezultati se dohvaćaju. Pričekaj'
   Fetch more results: 'Dohvati još rezultata'

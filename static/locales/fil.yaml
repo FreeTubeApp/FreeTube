@@ -28,15 +28,11 @@ Search / Go to URL: 'Maghanap / Pumunta sa URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Mga filter ng paghahanap'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Pinakanakakaugnay'
-    Rating: 'Mga Marka'
-    Upload Date: 'Petsa ng pag-upload'
-    View Count: 'Bilang ng pagtingin'
   Time:
     Time: 'Oras'
     Any Time: 'Kahit anuman oras'
-    Last Hour: 'Nakaraang Oras'
     Today: 'Ngayon'
     This Week: 'Ngayong linggo'
     This Month: 'Ngayong buwan'
@@ -50,10 +46,9 @@ Search Filters:
   Duration:
     Duration: 'Tagal'
     All Durations: 'Lahat ng mga durasyon'
-    Short (< 4 minutes): 'Maikli (< 4 minuto)'
-    Long (> 20 minutes): 'Mahaba (> 20 minuto)'
-  # On Search Page
-    Medium (4 - 20 minutes): Kalagitnaan (4 - 20 na minuto)
+    '< 3 minutes': '< 3 minuto'
+    '> 20 minutes': '> 20 minuto'
+    '3 - 20 minutes': 3 - 20 na minuto
   Search Results: 'Mga Resulta'
   Fetching results. Please wait: 'Sinusundo ang mga resulta. Maghintay lang po'
   Fetch more results: 'Magsundo ng marami pang resulta'

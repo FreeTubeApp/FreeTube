@@ -46,15 +46,11 @@ Search / Go to URL: 'Cerca / Ves a l''URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtres de cerca'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Més rellevant'
-    Rating: 'Valoració'
-    Upload Date: 'Data de pujada'
-    View Count: 'Visualitza el comptador'
   Time:
     Time: 'Data'
     Any Time: 'Qualsevol moment'
-    Last Hour: 'Última hora'
     Today: 'Avui'
     This Week: 'Aquesta setmana'
     This Month: 'Aquest mes'
@@ -69,10 +65,9 @@ Search Filters:
   Duration:
     Duration: 'Duració'
     All Durations: 'Qualsevol duració'
-    Short (< 4 minutes): 'Curts (< 4 minuts)'
-    Long (> 20 minutes): 'Llargs (> 20 minuts)'
-  # On Search Page
-    Medium (4 - 20 minutes): Mitjans (4 - 20 minuts)
+    '< 3 minutes': '< 3 minuts'
+    '> 20 minutes': '> 20 minuts'
+    '3 - 20 minutes': 3 - 20 minuts
   Search Results: 'Resultats de la cerca'
   Fetching results. Please wait: 'Obtenint resultats. Espera si us plau'
   Fetch more results: 'Obtenir més resultats'

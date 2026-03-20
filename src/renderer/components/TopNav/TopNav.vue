@@ -488,7 +488,7 @@ function goToSearch(queryText, { event }) {
         openInternalPath({
           path: `/search/${encodeURIComponent(queryText)}`,
           query: {
-            sortBy: searchSettings.value.sortBy,
+            prioritize: searchSettings.value.prioritize,
             time: searchSettings.value.time,
             type: searchSettings.value.type,
             duration: searchSettings.value.duration,

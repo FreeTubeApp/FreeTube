@@ -39,8 +39,8 @@ Search Filters:
   Duration:
     Duration: 'කාල සීමාව'
     All Durations: 'සියලුම කාල සීමාවන්'
-    Short (< 4 minutes): 'කෙටි (විනාඩි <4)'
-    Long (> 20 minutes): 'දීර්ඝ (විනාඩි > 20)'
+    '< 3 minutes': 'විනාඩි <3'
+    '> 20 minutes': 'විනාඩි > 20'
   # On Search Page
   Search Results: 'සෙවුම් ප්‍රතිඵල'
   Fetching results. Please wait: 'ප්‍රතිඵල ගෙනෙමින්. කරුණාකර රැඳී සිටින්න'

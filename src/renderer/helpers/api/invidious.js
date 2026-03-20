@@ -536,6 +536,13 @@ export async function getInvidiousPopularFeed() {
  * @param {any} searchSettings
  */
 export async function getInvidiousSearchResults(query, page, searchSettings) {
+  const DURATION_MAP = {
+    '': '',
+    under_three_mins: 'short',
+    three_to_twenty_mins: 'medium',
+    over_twenty_mins: 'long',
+  }
+
   /** @type {Promise<(InvidiousChannelObject | InvidiousPlaylistObject | InvidiousVideoType | InvidiousHashtagObject)[] | null>} */
   let results = await invidiousAPICall({
     resource: 'search',
@@ -543,9 +550,9 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
     params: {
       q: query,
       page,
-      sort_by: searchSettings.sortBy,
+      sort_by: searchSettings.prioritize === 'popularity' ? 'view_count' : searchSettings.prioritize,
       date: searchSettings.time,
-      duration: searchSettings.duration,
+      duration: DURATION_MAP[searchSettings.duration],
       type: searchSettings.type,
       features: searchSettings.features.join(',')
     }

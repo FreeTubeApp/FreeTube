@@ -45,15 +45,11 @@ Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
 Search Filters:
   Search Filters: 'فلاتر البحث'
-  Sort By:
+  Prioritize:
     Most Relevant: 'الأكثر صلة'
-    Rating: 'التقييم'
-    Upload Date: 'تاريخ الرفع'
-    View Count: 'عدد المشاهدات'
   Time:
     Time: 'الوقت'
     Any Time: 'أي وقت'
-    Last Hour: 'آخر ساعة'
     Today: 'اليوم'
     This Week: 'هذا الأسبوع'
     This Month: 'هذا الشهر'
@@ -68,10 +64,6 @@ Search Filters:
   Duration:
     Duration: 'المدة'
     All Durations: 'كل الآوقات'
-    Short (< 4 minutes): 'قصير (< 4 دقائق)'
-    Long (> 20 minutes): 'طويل (> 20 دقيقة)'
-  # On Search Page
-    Medium (4 - 20 minutes): متوسط (4 - 20 دقيقة)
   Search Results: 'نتائج البحث'
   Fetching results. Please wait: 'جاري إحضار النتائج. الرجاء الانتظار'
   Fetch more results: 'إحضار المزيد من النتائج'

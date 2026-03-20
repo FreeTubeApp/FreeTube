@@ -57,15 +57,11 @@ Search Bar:
   Remove: Tynnu
 Search Filters:
   Search Filters: 'Hidlyddion Chwilio'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Mwyaf Perthnasol'
-    Rating: 'Sgôr'
-    Upload Date: 'Dyddiad Llwytho i Fyny'
-    View Count: 'Cyfrif Golygon'
   Time:
     Time: 'Amser'
     Any Time: 'Unrhyw Bryd'
-    Last Hour: 'Yr Awr Diwethaf'
     Today: 'Heddiw'
     This Week: 'Wythnos Yma'
     This Month: 'Mis Yma'
@@ -80,9 +76,9 @@ Search Filters:
   Duration:
     Duration: 'Hyd'
     All Durations: 'Pob Hyd'
-    Short (< 4 minutes): 'Byr (< 4 munud)'
-    Medium (4 - 20 minutes): 'Canolig (4 - 20 munud)'
-    Long (> 20 minutes): 'Hir (> 20 munud)'
+    '< 3 minutes': '< 3 munud'
+    '3 - 20 minutes': '3 - 20 munud'
+    '> 20 minutes': '> 20 munud'
   # On Search Page
   Search Results: 'Canlyniadau Chwilio'
   Fetching results. Please wait: 'Wrthi''n nôl canlyniadau. Arhoswch os gwelwch yn dda'
