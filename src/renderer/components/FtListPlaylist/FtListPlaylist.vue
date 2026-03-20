@@ -47,7 +47,7 @@
       </RouterLink>
       <div class="infoLine">
         <RouterLink
-          v-if="channelId"
+          v-if="channelId && enableChannelLinks"
           class="channelName"
           dir="auto"
           :to="`/channel/${channelId}`"
@@ -267,6 +267,8 @@ const externalPlayer = computed(() => store.getters.getExternalPlayer)
 
 /** @type {import('vue').ComputedRef<number>} */
 const defaultPlayback = computed(() => store.getters.getDefaultPlayback)
+
+const enableChannelLinks = computed(() => !store.getters.getDisableChannelLinks)
 
 function handleExternalPlayer() {
   if (process.env.IS_ELECTRON) {
