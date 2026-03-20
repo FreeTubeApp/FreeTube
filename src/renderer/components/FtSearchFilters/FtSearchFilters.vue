@@ -4,12 +4,25 @@
     @click="hideSearchFilters"
   >
     <template #label="{ labelId }">
-      <h2
-        :id="labelId"
-        class="center"
-      >
-        {{ title }}
-      </h2>
+      <div class="titleContainer">
+        <h2
+          :id="labelId"
+          class="center"
+        >
+          {{ title }}
+        </h2>
+        <button
+          class="clearFilterButton"
+          :title="$t('Search Filters.Clear Filters')"
+          :style="{visibility: (searchFilterValueChanged ? 'visible' : 'hidden')}"
+          @click="clearFilters"
+        >
+          <FontAwesomeIcon
+            class="clearFilterIcon"
+            :icon="['fas', 'filter-circle-xmark']"
+          />
+        </button>
+      </div>
     </template>
 
     <FtFlexBox class="radioFlexBox">
@@ -52,8 +65,8 @@
     <div class="searchFilterCloseButtonContainer">
       <FtButton
         :label="$t('Close')"
-        background-color="var(--primary-color)"
-        text-color="var(--text-with-main-color)"
+        background-color="null"
+        text-color="null"
         @click="hideSearchFilters"
       />
     </div>
@@ -67,7 +80,7 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtRadioButton from '../FtRadioButton/FtRadioButton.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
-import FtButton from '../ft-button/ft-button.vue'
+import FtButton from '../FtButton/FtButton.vue'
 import FtCheckboxList from '../FtCheckboxList/FtCheckboxList.vue'
 
 import store from '../../store/index'
@@ -255,6 +268,15 @@ function hideSearchFilters() {
 function isVideoOrMovieOrAll(type) {
   return type === 'video' || type === 'movie' || type === 'all'
 }
+
+function clearFilters() {
+  sortByValue.value = SORT_BY_VALUES[0]
+  timeValue.value = TIME_VALUES[0]
+  typeValue.value = TYPE_VALUES[0]
+  durationValue.value = DURATION_VALUES[0]
+  featuresValue.value = []
+}
+
 </script>
 
 <style scoped src="./FtSearchFilters.css" />

@@ -45,7 +45,6 @@ class ProcessLocalesPlugin {
 
   /** @param {import('webpack').Compiler} compiler  */
   apply(compiler) {
-    const { CachedSource, RawSource } = compiler.webpack.sources
     const { Compilation, DefinePlugin } = compiler.webpack
 
     new DefinePlugin({
@@ -53,8 +52,6 @@ class ProcessLocalesPlugin {
     }).apply(compiler)
 
     compiler.hooks.thisCompilation.tap(PLUGIN_NAME, (compilation) => {
-      const IS_DEV_SERVER = !!compiler.watching
-
       compilation.hooks.processAssets.tapPromise({
         name: PLUGIN_NAME,
         stage: Compilation.PROCESS_ASSETS_STAGE_ADDITIONAL
@@ -62,7 +59,6 @@ class ProcessLocalesPlugin {
         // While running in the webpack dev server, this hook gets called for every incremental build.
         // For incremental builds we can return the already processed versions, which saves time
         // and makes webpack treat them as cached
-        const promises = []
 
         /** @type {[string, string][]} */
         const updatedLocales = []
@@ -70,56 +66,9 @@ class ProcessLocalesPlugin {
           console.warn('ProcessLocalesPlugin: Unable to live reload locales as `notifyLocaleChange` is not set.')
         }
 
-        for (let [locale, data] of this.locales) {
-          // eslint-disable-next-line no-async-promise-executor
-          promises.push(new Promise(async (resolve) => {
-            if (IS_DEV_SERVER && compiler.fileTimestamps) {
-              const filePath = join(this.inputDir, `${locale}.yaml`)
-
-              const timestamp = compiler.fileTimestamps.get(filePath)?.safeTime
-
-              if (timestamp && timestamp > (this.previousTimestamps.get(locale) ?? this.startTime)) {
-                this.previousTimestamps.set(locale, timestamp)
-
-                const contents = await readFile(filePath, 'utf-8')
-                data = loadYaml(contents)
-              } else {
-                const { filename, source } = this.cache.get(locale)
-                compilation.emitAsset(filename, source, { minimized: true })
-                resolve()
-                return
-              }
-            }
-
-            this.removeEmptyValues(data)
-
-            let filename = `${this.outputDir}/${locale}.json`
-            let output = JSON.stringify(data)
-
-            if (this.hotReload && compiler.fileTimestamps) {
-              updatedLocales.push([locale, output])
-            }
-
-            if (this.compress) {
-              filename += '.br'
-              output = await this.compressLocale(output)
-            }
-
-            let source = new RawSource(output)
-
-            if (IS_DEV_SERVER) {
-              source = new CachedSource(source)
-              this.cache.set(locale, { filename, source })
-
-              // we don't need the unmodified sources anymore, as we use the cache `this.cache`
-              // so we can clear this to free some memory
-              this.locales.set(locale, null)
-            }
-
-            compilation.emitAsset(filename, source, { minimized: true })
-
-            resolve()
-          }))
+        const promises = []
+        for (const [locale, data] of this.locales) {
+          promises.push(this.processLocale(locale, data, updatedLocales, compiler, compilation))
         }
 
         await Promise.all(promises)
@@ -131,12 +80,64 @@ class ProcessLocalesPlugin {
     })
 
     compiler.hooks.afterCompile.tap(PLUGIN_NAME, (compilation) => {
-      // eslint-disable-next-line no-extra-boolean-cast
-      if (!!compiler.watching) {
+      if (compiler.watching) {
         // watch locale files for changes
         compilation.fileDependencies.addAll(this.filePaths)
       }
     })
+  }
+
+  /**
+   * @param {string} locale
+   * @param {any} data
+   * @param {[string, string][]} updatedLocales
+   * @param {import('webpack').Compiler} compiler
+   * @param {import('webpack').Compilation} compilation
+   */
+  async processLocale(locale, data, updatedLocales, compiler, compilation) {
+    if (compiler.watching && compiler.fileTimestamps) {
+      const filePath = join(this.inputDir, `${locale}.yaml`)
+
+      const timestamp = compiler.fileTimestamps.get(filePath)?.safeTime
+
+      if (timestamp && timestamp > (this.previousTimestamps.get(locale) ?? this.startTime)) {
+        this.previousTimestamps.set(locale, timestamp)
+
+        const contents = await readFile(filePath, 'utf-8')
+        data = loadYaml(contents)
+      } else {
+        const { filename, source } = this.cache.get(locale)
+        compilation.emitAsset(filename, source, { minimized: true })
+        return
+      }
+    }
+
+    this.removeEmptyValues(data)
+
+    let filename = `${this.outputDir}/${locale}.json`
+    let output = JSON.stringify(data)
+
+    if (this.hotReload && compiler.fileTimestamps) {
+      updatedLocales.push([locale, output])
+    }
+
+    if (this.compress) {
+      filename += '.br'
+      output = await this.compressLocale(output)
+    }
+
+    let source = new compiler.webpack.sources.RawSource(output)
+
+    if (compiler.watching) {
+      source = new compiler.webpack.sources.CachedSource(source)
+      this.cache.set(locale, { filename, source })
+
+      // we don't need the unmodified sources anymore, as we use the cache `this.cache`
+      // so we can clear this to free some memory
+      this.locales.set(locale, null)
+    }
+
+    compilation.emitAsset(filename, source, { minimized: true })
   }
 
   loadLocales() {

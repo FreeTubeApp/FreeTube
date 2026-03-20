@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'West-Vlams'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Et djil van den app woar daj nu zît is nog nie gerjid. Komt were wanjir dan der
-  vorderingn gemakt zîn.
 
 # Webkit Menu Bar
 File: 'Bestand'
@@ -18,8 +14,6 @@ Copy: 'Kopiëern'
 Paste: 'Plakn'
 Delete: 'Wegdoen'
 Select all: 'Olles selecteern'
-Reload: 'Erloadn'
-Force Reload: 'Geforceert erloadn'
 Toggle Developer Tools: 'Ontwikkeloars gerjidschap anzetn'
 Actual size: '''D echte grôte'
 Zoom in: 'Vergrôtn'
@@ -47,7 +41,6 @@ Global:
   Videos: 'Videos'
   Shorts: 'Korte videos'
   Live: 'Rechtstreeks'
-  Community: 'Gemjinschap'
   Sort By: 'Azwu sorteern'
   Counts:
     Video Count: '1 video | {count} videos'
@@ -70,6 +63,7 @@ Search Listing:
     # Aria labels
     Closed Captions: 'Geslootn ondertitels'
   # In Filter Button
+    8K: 8K
 Search Filters:
   Search Filters: 'Zoekfilters'
   Sort By:
@@ -144,10 +138,7 @@ Channels:
   Unsubscribe Prompt: ''
 Trending:
   Trending: ''
-  Default: ''
-  Music: ''
   Gaming: ''
-  Movies: ''
   Trending Tabs: ''
 Most Popular: ''
 Feed:
@@ -239,8 +230,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: ''
-      "{videoCount} video(s) added to 1 playlist": ""
-      "{videoCount} video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
     New Playlist Name: ''
     Create: ''
@@ -450,7 +440,6 @@ Settings:
     Are you sure you want to remove all your playlists?: ''
   Subscription Settings:
     Subscription Settings: ''
-    Hide Videos on Watch: ''
     Fetch Feeds from RSS: ''
     Fetch Automatically: ''
     Confirm Before Unsubscribing: ''
@@ -488,16 +477,14 @@ Settings:
     Hide Channels Already Exists: ''
     Hide Featured Channels: ''
     Hide Channel Playlists: ''
-    Hide Channel Community: ''
     Hide Channel Shorts: ''
     Hide Channel Podcasts: ''
     Hide Channel Releases: ''
-    Hide Videos and Playlists Containing Text: ''
-    Hide Videos and Playlists Containing Text Placeholder: ''
+    Hide Videos, Playlists and Channels Containing Text: ''
+    Hide Videos, Playlists and Channels Containing Text Placeholder: ''
     Hide Subscriptions Videos: ''
     Hide Subscriptions Shorts: ''
     Hide Subscriptions Live: ''
-    Hide Subscriptions Community: ''
   Data Settings:
     Data Settings: ''
     Select Export Type: ''
@@ -568,13 +555,6 @@ Settings:
     Hide Unsubscribe Button: ''
     Show Family Friendly Only: ''
     Hide Search Bar: ''
-  Download Settings:
-    Download Settings: ''
-    Ask Download Path: ''
-    Choose Path: ''
-    Download Behavior: ''
-    Download in app: ''
-    Open in web browser: ''
   Experimental Settings:
     Experimental Settings: ''
     Warning: ''
@@ -592,7 +572,6 @@ About:
   About: ''
   Beta: ''
   Source code: ''
-  Licensed under the: ''
   AGPLv3: ''
   Downloads / Changelog: ''
   GitHub releases: ''
@@ -608,11 +587,9 @@ About:
   Email: ''
   Mastodon: ''
   Chat on Matrix: ''
-  Please read the: ''
   room rules: ''
   Translate: ''
   Credits: ''
-  FreeTube is made possible by: ''
   these people and projects: ''
   Donate: ''
 
@@ -647,7 +624,7 @@ Profile:
   Subscription List: ''
   Other Channels: ''
   '{number} selected': ''
-  Select All: ''
+  Select All: 'Olles selecteern'
   Select None: ''
   Delete Selected: ''
   Add Selected To Profile: ''
@@ -672,7 +649,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: ''
   Channel Tabs: ''
   Videos:
-    Videos: ''
+    Videos: 'Videos'
     This channel does not currently have any videos: ''
     Sort Types:
       Newest: ''
@@ -706,7 +683,7 @@ Channel:
     Joined: ''
     Location: ''
     Featured Channels: ''
-  Community:
+  Posts:
     This channel currently does not have any posts: ''
     votes: ''
     View Full Post: ''
@@ -739,8 +716,8 @@ Video:
   Loop Playlist: ''
   Shuffle Playlist: ''
   Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
+  Previous: ''
+  Next: ''
   Watched: ''
   Autoplay: ''
   Starting soon, please refresh the page to check again: ''
@@ -757,9 +734,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
   Show Super Chat Comment: ''
   Scroll to Bottom: ''
-  Download Video: ''
-  video only: ''
-  audio only: ''
   Published:
     In less than a minute: ''
   Published on: ''
@@ -863,8 +837,6 @@ Clipboard:
 
 Chapters:
   Chapters: ''
-  'Chapters list visible, current chapter: {chapterName}': ''
-  'Chapters list hidden, current chapter: {chapterName}': ''
 
 Mini Player: ''
 Comments:
@@ -877,13 +849,7 @@ Comments:
   Newest first: ''
   View {replyCount} replies: ''
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: ''
-  Hide: ''
-  Replies: ''
   Show More Replies: ''
-  Reply: ''
-  From {channelName}: ''
-  And others: ''
   There are no comments available for this video: ''
   There are no comments available for this post: ''
   Load More Comments: ''
@@ -918,7 +884,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: ''
     Hide Subscriptions Live: ''
-    Hide Videos and Playlists Containing Text: ''
+    Hide Videos, Playlists and Channels Containing Text: ''
   Subscription Settings:
     Fetch Feeds from RSS: ''
     Fetch Automatically: ''
@@ -952,10 +918,6 @@ Age Restricted:
   This channel is age restricted: ''
   This video is age restricted: ''
 External link opening has been disabled in the general settings: ''
-'Blocked opening potentially unsafe URL': ''
-Downloading has completed: ''
-Starting download: ''
-Downloading failed: ''
 Screenshot Success: ''
 Screenshot Error: ''
 Channel Hidden: ''
@@ -978,3 +940,8 @@ Cancel: ''
 checkmark: ''
 # French is the only language that should change this (they have a space before the colon)
 Display Label: ''
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Ontwikkeloars gerjidschap anzetn
+  Zoom Out: Verkljin
+  Zoom In: Vergrôtn
+  Fullscreen: Vul skerm anzetn

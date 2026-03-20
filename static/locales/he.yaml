@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'עברית'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  החלק הזה ביישומון עדיין לא מוכן. מזמינים אותך לשוב ולבדוק בהמשך כשנתקדם.
 
 # Webkit Menu Bar
 File: 'קובץ'
@@ -15,13 +12,11 @@ Copy: 'העתקה'
 Paste: 'הדבקה'
 Delete: 'מחיקה'
 Select all: 'בחירה בהכול'
-Reload: 'רענון'
-Force Reload: 'רענון בכוח'
 Toggle Developer Tools: 'הפעלת / השבתת כלים למפתחים'
-Actual size: 'גודל מקורי'
-Zoom in: 'הגדלה'
-Zoom out: 'הקטנה'
-Toggle fullscreen: 'כניסה / יציאה ממסך מלא'
+Actual size: 'גודל בפועל'
+Zoom in: 'התקרבות'
+Zoom out: 'התרחקות'
+Toggle fullscreen: 'מיתוג ממסך מלא'
 Window: 'חלון'
 Minimize: 'מזעור'
 Close: 'סגירה'
@@ -33,8 +28,8 @@ Forward: 'קדימה'
 Global:
   Videos: 'סרטונים'
   Shorts: Shorts
-  Live: חי
-  Community: קהילה
+  Live: בשידור חי
+  Posts: פוסטים
   Sort By: מיון לפי
 
   Counts:
@@ -45,11 +40,9 @@ Global:
     Watching Count: עוקב/ת | {count} עוקבים
     Like Count: לייק | {count} לייקים
     Comment Count: תגובה | {count} תגובות
-Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber}
-  זמינה מעתה!  לחיצה תציג פרטים נוספים'
-Download From Site: 'הורדה מהאתר'
-A new blog is now available, {blogTitle}. Click to view more: 'בלוג חדש זמין, {blogTitle}.
-  לחיצה תציג פרטים נוספים'
+Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber} זמינה מעתה!  לחיצה תציג פרטים נוספים'
+Download From Site: 'הורדה מאתר'
+A new blog is now available, {blogTitle}. Click to view more: 'בלוג חדש זמין, {blogTitle}. לחיצה תציג פרטים נוספים'
 
 # Search Bar
 Search / Go to URL: 'חיפוש / מעבר לכתובת'
@@ -100,125 +93,93 @@ Search Filters:
     VR180: VR180
     Location: מקום
     Creative Commons: קריאייטיב קומונז
+  Clear Filters: פינוי מסננים
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'מינויים'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'רשימת
-    המינויים שלך ריקה כרגע. כדי לייבא את המינויים שלך ניתן לגשת להגדרות הנתונים ולבחור
-    בייבוא מנויים או לחפש ערוצים ולהירשם אליהם.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: לפרופיל
-    זה יש מספר רב של מינויים. עוברים לעדכוני RSS כדי להימנע מהגבלות קצב
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'רשימת המינויים שלך ריקה כרגע. כדי לייבא את המינויים שלך ניתן לגשת להגדרות הנתונים ולבחור בייבוא מנויים או לחפש ערוצים ולהירשם אליהם.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: לפרופיל זה יש מספר רב של מינויים. עוברים לעדכוני RSS כדי להימנע מהגבלות קצב
   Load More Videos: לטעון סרטונים נוספים
   Error Channels: ערוצים עם שגיאות
-  Disabled Automatic Fetching: השבתת משיכת מינויים אוטומטית. יש לרענן את המינויים
-    כדי לצפות בהם כאן.
+  Disabled Automatic Fetching: השבתת משיכת מינויים אוטומטית. יש לרענן את המינויים כדי לצפות בהם כאן.
   Empty Channels: בערוצים אליהם נרשמת אין כלל סרטונים.
-  All Subscription Tabs Hidden: כל לשוניות המינויים מוסתרות. כדי לראות את התוכן כאן,
-    נא לבטל את הסתרתן של כמה מהלשוניות תחת הסעיף „{subsection}” שב„{settingsSection}”.
+  All Subscription Tabs Hidden: כל לשוניות המינויים מוסתרות. כדי לראות את התוכן כאן, נא לבטל את הסתרתן של כמה מהלשוניות תחת הסעיף „{subsection}” שב„{settingsSection}”.
   Subscriptions Tabs: לשוניות מינויים
   Load More Posts: טעינת רשומות נוספות
   Empty Posts: בערוצים אליהם נרשמת אין כרגע רשומות.
 Trending:
   Trending: 'הסרטונים החמים'
   Trending Tabs: לשוניות מובילים
-  Movies: סרטים
   Gaming: משחקים
-  Music: מוזיקה
-  Default: ברירת מחדל
+  Sports: ספורט
 Most Popular: 'הכי פופולרי'
 Playlists: 'רשימות נגינה'
 User Playlists:
   Your Playlists: 'רשימות הנגינה שלך'
   Search bar placeholder: חיפוש רשימות נגינה
   Empty Search Message: אין סרטונים ברשימת הנגינה הזו שעונים לחיפוש שלך
-  You have no playlists. Click on the create new playlist button to create a new one.: אין
-    לך רשימות נגינה. נא ללחוץ על כפתור יצירת רשימת נגינה חדשה כדי ליצור רשימת נגינה
-    חדשה.
+  You have no playlists. Click on the create new playlist button to create a new one.: אין לך רשימות נגינה. נא ללחוץ על כפתור יצירת רשימת נגינה חדשה כדי ליצור רשימת נגינה חדשה.
   Edit Playlist Info: עריכת פרטי רשימת נגינה
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: להסיר
-    סרטון משוכפל מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה. | להסיר {playlistItemCount}
-    סרטונים כפולים מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה.
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: להסיר
-    סרטון שנצפה מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה. | להסיר {playlistItemCount}
-    סרטונים שנצפו מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: להסיר סרטון משוכפל מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה. | להסיר {playlistItemCount} סרטונים כפולים מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: להסיר סרטון שנצפה מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה. | להסיר {playlistItemCount} סרטונים שנצפו מרשימת הנגינה הזאת? זאת פעולה בלתי הפיכה.
   Delete Playlist: מחיקת רשימת נגינה
   Copy Playlist: העתקת רשימת נגינה
   Remove Watched Videos: הסרת סרטונים שנצפו
   Remove Duplicate Videos: הסרת סרטונים כפולים
-  Are you sure you want to delete this playlist? This cannot be undone: למחוק את רשימת
-    הנגינה הזו? זאת פעולה בלתי הפיכה.
+  Are you sure you want to delete this playlist? This cannot be undone: למחוק את רשימת הנגינה הזו? זאת פעולה בלתי הפיכה.
   Sort By:
-    EarliestUpdatedFirst: הראשונים שעודכנו
+    EarliestUpdatedFirst: תאריך העדכון (הישן ביותר)
     NameAscending: א-ת
     NameDescending: ת-א
-    LatestPlayedFirst: האחרונים שהתנגנו
-    EarliestPlayedFirst: הראשונים שהתנגנו
-    LatestCreatedFirst: נוצרו לאחרונה
-    EarliestCreatedFirst: הראשונים שנוצרו
-    LatestUpdatedFirst: האחרונים שעודכנו
+    LatestPlayedFirst: תאריך הנגינה (החדש ביותר)
+    EarliestPlayedFirst: תאריך הנגינה (הישן ביותר)
+    LatestCreatedFirst: תאריך יצירה (החדש ביותר)
+    EarliestCreatedFirst: תאריך יצירה (הישן ביותר)
+    LatestUpdatedFirst: תאריך העדכון (החדש ביותר)
   SinglePlaylistView:
     Toast:
-      This playlist is already being used for quick bookmark.: רשימת הנגינה הזאת כבר
-        משמשת למועדפים זריזים.
-      This playlist is now used for quick bookmark: רשימת הנגינה הזאת משמשת כעת לסימניות
-        זריזות
+      This playlist is already being used for quick bookmark.: רשימת הנגינה הזאת כבר משמשת למועדפים זריזים.
+      This playlist is now used for quick bookmark: רשימת הנגינה הזאת משמשת כעת לסימניות זריזות
       This video cannot be moved up.: אי אפשר להעלות את הסרטון הזה למעלה.
       This video cannot be moved down.: אי אפשר להוריד את הסרטון הזה למטה.
       Video has been removed: הסרטון הוסר
       There was a problem with removing this video: אירעה בעיה עם הסרת הסרטון הזה
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: רשימת
-        הנגינה הזאת משמשת לסימניות מהירות במקום {oldPlaylistName}. לחיצה כאן תבטל
-        את זה
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: רשימת הנגינה הזאת משמשת לסימניות מהירות במקום {oldPlaylistName}. לחיצה כאן תבטל את זה
       This playlist does not exist: רשימת השידורים הזו לא קיימת
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: חלק
-        מהסרטונים ברשימת השידורים עדיין לא הועלו. לחץ כאן כדי להעתיק בכל זאת.
-      Playlist name cannot be empty. Please input a name.: שם רשימת השידורים לא יכול
-        להיות ריק. נא להזין שם.
-      "{videoCount} video(s) have been removed": 1 סרטון הוסר | {videoCount} סרטונים
-        הוסרו
-      This playlist is protected and cannot be removed.: רשימת השידורים הזו מוגנת
-        ולא ניתן למחוק אותה.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: חלק מהסרטונים ברשימת השידורים עדיין לא הועלו. לחץ כאן כדי להעתיק בכל זאת.
+      Playlist name cannot be empty. Please input a name.: שם רשימת השידורים לא יכול להיות ריק. נא להזין שם.
+      "{videoCount} video(s) have been removed": 1 סרטון הוסר | {videoCount} סרטונים הוסרו
+      This playlist is protected and cannot be removed.: רשימת השידורים הזו מוגנת ולא ניתן למחוק אותה.
       Playlist {playlistName} has been deleted.: רשימת השידורים {playlistName} נמחקה.
       There were no videos to remove.: א היו סרטונים להסרה.
-      Reverted to use {oldPlaylistName} for quick bookmark: חזר להשתמש ב {oldPlaylistName}
-        לסימנייה מהירה
+      Reverted to use {oldPlaylistName} for quick bookmark: חזר להשתמש ב {oldPlaylistName} לסימנייה מהירה
       Playlist has been updated.: רשימת השידורים עודכנה.
-      There was an issue with updating this playlist.: הייתה בעיה בעדכון רשימת השידורים
-        הזו.
-      This playlist has a video with a duration error: רשימת הנגינה הזאת מכילה סרטון
-        אחד לפחות שאין לו אורך, הם ימוינו כאילו המשך שלהם הוא אפס.
+      There was an issue with updating this playlist.: הייתה בעיה בעדכון רשימת השידורים הזו.
+      This playlist has a video with a duration error: רשימת הנגינה הזאת מכילה סרטון אחד לפחות שאין לו אורך, הם ימוינו כאילו המשך שלהם הוא אפס.
+      Video has been removed. Click here to undo.: הסרטון הוסר. לחיצה תחזיר אותו.
     Search for Videos: חיפוש סרטונים
-  Cannot delete the quick bookmark target playlist.: לא ניתן למחוק את רשימת הנגינה
-    ביעד הסימניות הזריזות.
+  Cannot delete the quick bookmark target playlist.: לא ניתן למחוק את רשימת הנגינה ביעד הסימניות הזריזות.
   This playlist currently has no videos.: ברשימת הנגינה אין כרגע סרטונים.
   Create New Playlist: יצירת רשימת נגינה חדשה
   Playlist Name: שם רשימת נגינה
   AddVideoPrompt:
     Save: שמירה
     Search in Playlists: חיפוש ברשימות הנגינה
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      סרטונים יתווספו'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} סרטונים יתווספו'
     Allow Adding Duplicate Video(s): לאפשר להוסיף סרטונים כפולים
     Added {count} Times: כבר נוסף | נוסף {count} פעמים
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      סרטונים כבר נוספו'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} סרטונים כבר נוספו'
     N playlists selected: '{playlistCount} נבחרו'
-    Select a playlist to add your N videos to: בחר רשימת שידורים להוספת הסרטון שלך
-      | בחר רשימת שידורים להוספת {videoCount} הסרטונים שלך
+    Select a playlist to add your N videos to: בחר רשימת שידורים להוספת הסרטון שלך | בחר רשימת שידורים להוספת {videoCount} הסרטונים שלך
     Toast:
       You haven't selected any playlist yet.: עדיין לא נבחרה רשימת שידורים.
-      "{videoCount} video(s) added to 1 playlist": סרטון נוסף לרשימת השמעה | {videoCount}
-        סרטונים נוספו לרשימת השמעה
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 סרטון הוסף ל{playlistCount}
-        רשימות שידורים | {videoCount} סרטונים הוספו ל{playlistCount} רשימות שידורים
+      "Video(s) added to {playlistCount} playlists": "סרטונים נוספו לרשימת נגינה|סרטונים נוספו ל־{playlistCount} רשימות נגינה"
   CreatePlaylistPrompt:
     Create: יצירה
     New Playlist Name: שם חדש לרשימת נגינה
     Toast:
-      There is already a playlist with this name. Please pick a different name.: קיימת
-        רשימת שידורים עם שם זה. נא לבחור שם אחר.
-      Playlist {playlistName} has been successfully created.: רשימת השידורים {playlistName}
-        נוצרה בהצלחה.
+      There is already a playlist with this name. Please pick a different name.: קיימת רשימת שידורים עם שם זה. נא לבחור שם אחר.
+      Playlist {playlistName} has been successfully created.: רשימת השידורים {playlistName} נוצרה בהצלחה.
       There was an issue with creating the playlist.: הייתה בעיה ביצירת רשימת השידורים.
   Playlists with Matching Videos: רשימות נגינה עם סרטונים תואמים
   Add to Playlist: הוספת לרשימת נגינה
@@ -234,6 +195,8 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: אפשר סימנייה מהירה עם רשימת השידורים הזו
   Export Playlist: ייצוא רשימת הנגינה הזאת
   The playlist has been successfully exported: רשימת הנגינה יוצאה בהצלחה
+  TotalTimePlaylist: 'זמן כולל: {duration}'
+  Export list of URLs: ייצוא רשימת כתובות
 History:
   # On History Page
   History: 'היסטוריה'
@@ -242,6 +205,8 @@ History:
   Search bar placeholder: חיפוש בהיסטוריה
   Empty Search Message: אין סרטונים בהיסטוריה שלך שעונים לחיפוש שלך
   Case Sensitive Search: חיפוש תלוי רישיות
+  DateOldestHistory: תאריך הצפייה (הישן ביותר)
+  DateNewestHistory: תאריך הצפייה (החדש ביותר)
 Settings:
   # On Settings Page
   Settings: 'הגדרות'
@@ -274,8 +239,7 @@ Settings:
     View all Invidious instance information: הצגת כל פרטי העותק של Invidious
     Current Invidious Instance: עותק נוכחי של Invidious
     System Default: ברירת המחדל של המערכת
-    The currently set default instance is {instance}: עותק ברירת המחדל שהוגדר הוא
-      {instance}
+    The currently set default instance is {instance}: עותק ברירת המחדל שהוגדר הוא {instance}
     Set Current Instance as Default: הגדרת העותק הנוכחי כברירת מחדל
     External Link Handling:
       Open Link: פתיחת הקישור
@@ -284,12 +248,12 @@ Settings:
       External Link Handling: טיפול בקישורים חיצוניים
     Clear Default Instance: ניקוי עותק ברירת המחדל
     No default instance has been set: לא הוגדר עותק ברירת מחדל
-    Current instance will be randomized on startup: העותק הנוכחי יעבור ערבוב אקראי
-      עם ההפעלה
+    Current instance will be randomized on startup: העותק הנוכחי יעבור ערבוב אקראי עם ההפעלה
     Auto Load Next Page:
       Label: טעינת העמוד הבא אוטומטית
       Tooltip: טען דפים ותגובות נוספים באופן אוטומטי.
     Open Deep Links In New Window: פתיחת כתובות שהועברו ל־FreeTube בחלון חדש
+    Minimize to system tray: מזעור לשורת המערכת
   Theme Settings:
     Theme Settings: 'ערכת עיצוב'
     Match Top Bar with Main Color: 'התאמת האזור העליון לצבע הראשי'
@@ -300,7 +264,7 @@ Settings:
       Light: 'בהיר'
       Dracula: 'דרקולה'
       System Default: ברירת המחדל של המערכת
-      Catppuccin Mocha: מוקה קפוצ׳ינו
+      Catppuccin Mocha: קטפוצ׳ין מוקה
       Pastel Pink: ורוד פסטל
       Hot Pink: ורוד עז
       Nordic: נורדית
@@ -308,6 +272,14 @@ Settings:
       Solarized Light: בהיר זוהר
       Gruvbox Dark: תיבת גרוב כהה
       Gruvbox Light: תיבת גרוב בהירה
+      Catppuccin Frappe: קטפוצ׳ין פראפה
+      Everforest Dark Hard: אוורפורסט כהה מאוד
+      Everforest Dark Medium: אוורפורסט כהה בינוני
+      Everforest Light Hard: אברפורסט לייט הארד
+      Everforest Light Medium: אברפורסט לייט מידיום
+      Everforest Dark Low: אברפורסט דארק לואו
+      Everforest Light Low: אברפורסט לייט לואו
+      Catppuccin Latte: קטפוצ׳ין לאטה
     Main Color Theme:
       Main Color Theme: 'צבע ראשי'
       Red: 'אדום'
@@ -365,6 +337,36 @@ Settings:
       Gruvbox Dark Orange: תיבת גרוב כתומה כהה
       Gruvbox Dark Aqua: תיבת גרוב מים כהים
       Gruvbox Light Blue: תיבת גרוב כחולה בהירה
+      Catppuccin Frappe Green: קטפוצ'ינו פרפה ירוק
+      Catppuccin Frappe Teal: קטפוצ'ינו פרפה טיל
+      Catppuccin Frappe Lavender: קטפוצ'ינו פרפה לבנדר
+      Catppuccin Frappe Yellow: קטפוצ'ינו פרפה צהוב
+      Everforest Dark Red: אברפסט אדום כהה
+      Everforest Dark Yellow: אברפורסט צהוב כהה
+      Everforest Dark Green: אברפורסט ירוק כהה
+      Everforest Dark Aqua: אברפורסט כחול מים כהה
+      Everforest Dark Blue: אברפורסט כחול כהה
+      Catppuccin Frappe Rosewater: קטפוצ'ין פרפה מי ורדים
+      Catppuccin Frappe Flamingo: קטפוצ'ין פרפה פלמינגו
+      Catppuccin Frappe Pink: קטפוצ'ין פרפה פלמינגו
+      Catppuccin Frappe Mauve: קטפוצ׳ין פראפה סגלגל
+      Catppuccin Frappe Red: קטפוצ׳ין פראפה אדום
+      Catppuccin Frappe Maroon: קטפוצ'ינו פרפה חום אדום
+      Catppuccin Frappe Peach: קטפוצ'ין פרפה אפרסק
+      Catppuccin Frappe Sky: קטפוצ'ינו פרפה סקיי
+      Catppuccin Frappe Sapphire: קטפוצ'ינו פרפה ספיר
+      Catppuccin Frappe Blue: קטפוצ'ינו פרפה כחול
+      Everforest Dark Orange: אברפורסט כתום כהה
+      Everforest Dark Purple: אברפורסט סגול כהה
+      Everforest Light Red: אברפורסט אדום בהיר
+      Everforest Light Orange: אברפורסט כתום בהיר
+      Everforest Light Yellow: אברפורסט צהוב בהיר
+      Everforest Light Green: אברפורסט ירוק בהיר
+      Everforest Light Aqua: אברפול לייט אקווה
+      Everforest Light Blue: אברפורסט כחול בהיר
+      Everforest Light Purple: אברפורסט סגול בהיר
+      Catppuccin Latte Mauve: קטפוצ׳ין לאטה סגלגל
+      Catppuccin Latte Red: קטפוצ׳ין לאטה אדום
     Secondary Color Theme: 'ערכת צבע משנית'
         #* Main Color Theme
     UI Scale: יחס גודל הממשק
@@ -374,11 +376,11 @@ Settings:
     Hide FreeTube Header Logo: הסתרת הלוגו התחתון של FreeTube
   Player Settings:
     Player Settings: 'נגן'
-    Play Next Video: 'ניגון הסרטון הבא'
+    Play Next Video: 'הפעלה אוטומטית של סרטונים מומלצים'
     Turn on Subtitles by Default: 'הפעלת כתוביות כברירת מחדל'
-    Autoplay Videos: 'הפעלה אוטומטית לסרטונים'
+    Autoplay Videos: 'הפעלת סרטונים אוטומטית'
     Proxy Videos Through Invidious: 'שימוש במתווך (פרוקסי) לניגון סרטונים דרך Invidious'
-    Autoplay Playlists: 'הפעלה אוטומטית לרשימות נגינה'
+    Autoplay Playlists: 'הפעלה אוטומטית של סרטוני פלייליסט'
     Enable Theatre Mode by Default: 'הפעלת מצב קולנוע כברירת מחדל'
     Default Volume: 'ברירת המחדל לעוצמת השמע'
     Default Playback Rate: 'ברירת המחדל למהירות הצפייה'
@@ -417,13 +419,16 @@ Settings:
       Folder Label: תיקיית צילומי מסך
       Quality Label: איכות צילום מסך
       Folder Button: בחירת תיקייה
-      File Name Tooltip: אפשר להשתמש במשתנים להלן. ‎%Y שנה ב־4 ספרות. ‎%M חודש ב־2
-        ספרות. ‎%D יום ב־2 ספרות. ‎%H שעה ב־2 ספרות. ‎%N דקה ב־2 ספרות. ‎%S שניות
-        ב־2 ספרות. ‎%T מילישניות ב־3 ספרות. ‎%s השנייה בסרטון. ‎%t מילישניות בסרטון
-        ב־3 ספרות. ‎%i מזהה הסרטון.
+      File Name Tooltip: אפשר להשתמש במשתנים להלן. ‎%Y שנה ב־4 ספרות. ‎%M חודש ב־2 ספרות. ‎%D יום ב־2 ספרות. ‎%H שעה ב־2 ספרות. ‎%N דקה ב־2 ספרות. ‎%S שניות ב־2 ספרות. ‎%T מילישניות ב־3 ספרות. ‎%s השנייה בסרטון. ‎%t מילישניות בסרטון ב־3 ספרות. ‎%i מזהה הסרטון.
     Enter Fullscreen on Display Rotate: מעבר למסך מלא עם סיבוב התצוגה
     Skip by Scrolling Over Video Player: אפשר לדלג על ידי גלילה על נגן הווידאו
     Autoplay Interruption Timer: מתזמן הפרעת ניגון אוטומטי
+    Default Viewing Mode:
+      Theater: תיאטרון
+      Default Viewing Mode: מצב צפייה כברירת מחדל
+      Full Screen: מסך מלא
+      Picture in Picture: תמונה בתוך תמונה
+      External Player: נגן חיצוני ({externalPlayerName})
   Privacy Settings:
     Privacy Settings: 'פרטיות'
     Remember History: 'לזכור את היסטוריית הצפייה'
@@ -432,26 +437,30 @@ Settings:
     Are you sure you want to clear out your search cache?: 'לנקות את מטמון החיפוש?'
     Search cache has been cleared: 'מטמון החיפוש נוקה'
     Remove Watch History: 'מחיקת הסטוריית הצפייה'
-    Are you sure you want to remove your entire watch history?: 'למחוק את היסטורית
-      הצפייה?'
+    Are you sure you want to remove your entire watch history?: 'למחוק את היסטורית הצפייה?'
     Watch history has been cleared: 'הסטוריית הצפייה נמחקה'
     Remove All Subscriptions / Profiles: 'למחק את כל המינויים / פרופילים'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'למחוק
-      כל את המינויים והפרופילים? זופעולה בלתי הפיכה.'
-    Save Watched Videos With Last Viewed Playlist: לשמור את הסרטונים שנצפו עם רשימת
-      הנגינה לאחרונים שנצפו
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'למחוק כל את המינויים והפרופילים? זופעולה בלתי הפיכה.'
+    Save Watched Videos With Last Viewed Playlist: לשמור את הסרטונים שנצפו עם רשימת הנגינה לאחרונים שנצפו
     Remove All Playlists: הסרת כל רשימות הנגינה
     All playlists have been removed: כל רשימות הנגינה הוסרו
-    Are you sure you want to remove all your playlists?: האם אתה בטוח שברצונך למחוק
-      את כל רשימות השידורים שלך?
+    Are you sure you want to remove all your playlists?: האם אתה בטוח שברצונך למחוק את כל רשימות השידורים שלך?
+    Clear Search History and Cache: פינוי היסטוריית החיפוש והמטמון
+    Are you sure you want to clear out your search history and cache?: לפנות את היסטוריית החיפוש ואת המטמון שלך?
+    Search history and cache have been cleared: היסטוריית החיפוש והמטמון נמחקו
+    Remember Search History: לזכור את היסטוריית החיפוש
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: אוטומטי
+        Never: לעולם לא
+        Semi-auto: חצי אוטומטי
+      Tooltip: אוטומטי = שמירה בכל יציאה מעמוד הווידאו, כאשר הווידאו מסתיים ונמצאת שגיאה (למשל, הגבלת קצב והפסקת מושב הצפייה). חצי-אוטומטי = כמו אוטומטי, למעט יציאה מעמוד הווידאו וניתן לשמור את ההתקדמות ידנית באמצעות כפתור שנקרא שמור התקדמות נצפתה, הממוקם מתחת לנגן הווידאו.
   Subscription Settings:
     Subscription Settings: 'מינוי'
-    Hide Videos on Watch: 'הסתרת סרטונים לאחר הצפייה'
     Fetch Feeds from RSS: 'ייבוא עדכונים בעזרת RSS'
     Fetch Automatically: משיכת ערוץ העדכונים אוטומטית
     Confirm Before Unsubscribing: אישור לפני ביטול מינוי
-    'Limit the number of videos displayed for each channel': הגבלת מספר הסרטונים שמופיעים
-      בכל ערוץ
+    'Limit the number of videos displayed for each channel': הגבלת מספר הסרטונים שמופיעים בכל ערוץ
     To: עד
   Data Settings:
     Data Settings: 'נתונים'
@@ -463,21 +472,15 @@ Settings:
     Export NewPipe: 'ייצוא בתסדיר של NewPipe'
     Import History: 'ייבוא היסטוריה'
     Export History: 'ייצוא היסטוריה'
-    Profile object has insufficient data, skipping item: 'לאובייקט הפרופיל אין מספיק
-      נתונים, מדלג על פריט זה'
-    All subscriptions and profiles have been successfully imported: 'כל המינויים והפרופילים
-      יובאו בהצלחה'
+    Profile object has insufficient data, skipping item: 'לאובייקט הפרופיל אין מספיק נתונים, מדלג על פריט זה'
+    All subscriptions and profiles have been successfully imported: 'כל המינויים והפרופילים יובאו בהצלחה'
     All subscriptions have been successfully imported: 'כל המינויים יובאו בהצלחה'
     Invalid subscriptions file: 'קובץ מינויים בלתי קריא'
-    This might take a while, please wait: 'זה עלול לקחת זמן מה, נא להמתין'
     Invalid history file: 'קובץ היסטוריה בלתי קריא'
     Subscriptions have been successfully exported: 'המינויים יוצאו בהצלחה'
-    History object has insufficient data, skipping item: 'לאובייקט ההיסטוריה אין מספיק
-      מידע, נדלג על פריט זה'
-    All watched history has been successfully imported: 'כל היסטוריית הצפייה יובאה
-      בהצלחה'
-    All watched history has been successfully exported: 'כל היסטוריית הצפייה יוצאה
-      בהצלחה'
+    History object has insufficient data, skipping item: 'לאובייקט ההיסטוריה אין מספיק מידע, נדלג על פריט זה'
+    All watched history has been successfully imported: 'כל היסטוריית הצפייה יובאה בהצלחה'
+    All watched history has been successfully exported: 'כל היסטוריית הצפייה יוצאה בהצלחה'
     Unable to read file: 'לא ניתן לקרוא את הקובץ'
     Unable to write file: 'לא ניתן ליצור את הקובץ'
     Unknown data key: 'מפתח נתון לא ידוע'
@@ -487,19 +490,20 @@ Settings:
     All playlists has been successfully imported: כל רשימות הנגינה יובאו בהצלחה
     Export Playlists: ייצוא רשימות נגינה
     Import Playlists: ייבוא רשימות נגינה
-    Playlist insufficient data: 'אין מספיק נתונים לרשימת הנגינה „{playlist}”, הפריט
-      ידולג'
+    Playlist insufficient data: 'אין מספיק נתונים לרשימת הנגינה „{playlist}”, הפריט ידולג'
     Playlist File: קובץ רשימות נגינה
     Subscription File: קובץ מינויים
     History File: קובץ היסטוריה
     Export Playlists For Older FreeTube Versions:
-      Tooltip: "אפשרות זו מייצאת סרטונים מכל הרשימות לרשימת שידורים אחת בשם 'מועדפים'.\n
-        איך לייצא ולייבא סרטונים ברשימות לגרסה ישנה של FreeTube:\n1. יצא את הרשימות
-        שלך עם אפשרות זו מופעלת.\n2. מחק את כל הרשימות הקיימות שלך באמצעות אפשרות
-        הסרת כל הרשימות בהגדרות הפרטיות.\n3. הפעל את הגרסה הישנה של FreeTube וייבא
-        את הרשימות שיוצאו."
+      Tooltip: "אפשרות זו מייצאת סרטונים מכל הרשימות לרשימת שידורים אחת בשם 'מועדפים'.\n איך לייצא ולייבא סרטונים ברשימות לגרסה ישנה של FreeTube:\n1. יצא את הרשימות שלך עם אפשרות זו מופעלת.\n2. מחק את כל הרשימות הקיימות שלך באמצעות אפשרות הסרת כל הרשימות בהגדרות הפרטיות.\n3. הפעל את הגרסה הישנה של FreeTube וייבא את הרשימות שיוצאו."
       Label: ייצוא רשימות לגרסאות ישנות של FreeTube
 
+    Search history file: קובץ היסטוריית חיפוש
+    Search history: היסטוריית חיפוש
+    Import search history: ייבוא היסטוריית חיפוש
+    Export search history: ייצוא היסטוריית חיפוש
+    All search history has been successfully imported: כל היסטוריית החיפוש ייובאה בהצלחה
+    All search history has been successfully exported: כל היסטוריית החיפוש ייוצאה בהצלחה
   Distraction Free Settings:
     Hide Live Chat: הסתרת צ׳אט חי
     Hide Popular Videos: הסתרת סרטונים נפוצים
@@ -514,17 +518,16 @@ Settings:
     Hide Playlists: הסתרת רשימות נגינה
     Hide Live Streams: הסתרת תזרימים חיים
     Hide Sharing Actions: הסתרת פעולות שיתוף
+    Hide Videos on Watch: 'הסתרת סרטונים לאחר הצפייה'
     Hide Comments: הסתרת הערות
     Hide Video Description: הסתרת תיאור וידאו
     Hide Chapters: הסתרת פרקים
     Hide Upcoming Premieres: הסתרת בכורות קרובות
     Hide Channels: הסתרת סרטונים מהערוצים
     Hide Channels Placeholder: ID של הערוץ
-    Display Titles Without Excessive Capitalisation: הצג כותרות ללא אותיות גדולות
-      וסימני פיסוק מיותרים
+    Display Titles Without Excessive Capitalisation: הצג כותרות ללא אותיות גדולות וסימני פיסוק מיותרים
     Hide Featured Channels: הסתרת ערוצים מומלצים
     Hide Channel Playlists: הסתרת לשונית „רשימות נגינה” של ערוץ
-    Hide Channel Community: הסתרת לשונית ה„קהילת” הערוץ
     Hide Channel Shorts: הסתרת לשונית ה־„Shorts” של הערוץ
     Sections:
       Watch Page: עמוד הצפייה
@@ -538,40 +541,35 @@ Settings:
     Hide Subscriptions Shorts: הסתרת Shorts של המינויים
     Hide Subscriptions Videos: הסתרת סרטוני מינוי
     Hide Profile Pictures in Comments: הסתרת תמונות הפרופיל בהערות
-    Hide Subscriptions Community: הסתרת קהילת המינויים
-    Hide Videos and Playlists Containing Text Placeholder: מילה, חלק מילה או ביטוי
+    Hide Videos, Playlists and Channels Containing Text Placeholder: מילה, חלק מילה או ביטוי
     Hide Channels Invalid: ID הערוץ שסופק לא תקין
-    Hide Channels Disabled Message: חלק מהערוצים נחסמו באמצעות ID ולא טופלו. התכונה
-      נחסמת עד שה-ID האלו מתעדכנים
+    Hide Channels Disabled Message: חלק מהערוצים נחסמו באמצעות ID ולא טופלו. התכונה נחסמת עד שה-ID האלו מתעדכנים
     Hide Channels Already Exists: ID הערוץ כבר קיים
-    Hide Channels API Error: אירעה שגיאה באיחזור משתמש עם ה-ID שסופק. נא לבדוק שוב
-      אם ה-ID נכון.
-    Hide Videos and Playlists Containing Text: הסתרת סרטונים ורשימות שידורים המכילים
-      טקסט
+    Hide Channels API Error: אירעה שגיאה באיחזור משתמש עם ה-ID שסופק. נא לבדוק שוב אם ה-ID נכון.
+    Hide Videos, Playlists and Channels Containing Text: הסתרת סרטונים ורשימות שידורים המכילים טקסט
     Hide Channel Home: הסתרת לשונית ה„בית” של הערוץ
     Show Added Items: הצגת פריטים שנוספו
-  The app needs to restart for changes to take effect. Restart and apply change?: צריך
-    להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
+    Hide Channel Posts: הסתר את לשונית "פוסטים" של הערוץ
+    Hide Subscriptions Posts: הסתר פוסטים של מנויים
+    Hide Channel Courses: הסתר את לשונית "קורסים" של הערוץ
+  The app needs to restart for changes to take effect. Restart and apply change?: צריך להפעיל את היישומון מחדש כדי שהשינויים ייכנסו לתוקף. להפעיל מחדש ולהחיל את השינוי?
   Proxy Settings:
-    Error getting network information. Is your proxy configured properly?: קבלת פרטי
-      הרשת נכשלה. המתווך שלך מוגדר כראוי?
+    Error getting network information. Is your proxy configured properly?: קבלת פרטי הרשת נכשלה. המתווך שלך מוגדר כראוי?
     City: עיר
     Region: אזור
     Country: מדינה
     Ip: IP
     Your Info: הפרטים שלך
     Test Proxy: בדיקת המתווך
-    Clicking on Test Proxy will send a request to: לחיצה על בדיקת המתווך תשלח בקשה
-      אל
+    Clicking on Test Proxy will send a request to: לחיצה על בדיקת המתווך תשלח בקשה אל
     Proxy Port Number: מספר פתחת מתווך
     Proxy Host: מארח מתווך
     Proxy Protocol: פרוטוקול מתווך
     Enable Tor / Proxy: הפעלת Tor / מתווך
     Proxy Settings: מתווך (פרוקסי)
-    Proxy Warning: ל־FreeTube אין מתווך מובנה אבל הוא יכול להתחבר למתווך חיצוני, כמו
-      למשל כזה שרץ על המחשב שלך כמו Tor או מתווך חיצוני כגון מתווך SOCKS5 שמסופק על
-      ידי איזשהו ספק VPN. אם האפשרות פעילה, נא לוודא שהמתווך/Tor שלך מוגדרים כראוי,
-      או ש־FreeTube לא יוכל למשוך נתונים כלל.
+    Proxy Warning: ל־FreeTube אין מתווך מובנה אבל הוא יכול להתחבר למתווך חיצוני, כמו למשל כזה שרץ על המחשב שלך כמו Tor או מתווך חיצוני כגון מתווך SOCKS5 שמסופק על ידי איזשהו ספק VPN. אם האפשרות פעילה, נא לוודא שהמתווך/Tor שלך מוגדרים כראוי, או ש־FreeTube לא יוכל למשוך נתונים כלל.
+    Proxy Password: סיסמת מתווך
+    Proxy Username: שם משתמש במתווך
   External Player Settings:
     External Player: נגן חיצוני
     External Player Settings: נגן חיצוני
@@ -586,8 +584,7 @@ Settings:
     Notify when sponsor segment is skipped: להודיע לגבי דילוג על קטע החסוּת
     SponsorBlock Settings: חוסם מממנים
     Enable SponsorBlock: הפעלת חוסם מממנים
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': כתובת ה־API של חוסם
-      המממנים (ברירת המחדל היא https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': כתובת ה־API של חוסם המממנים (ברירת המחדל היא https://sponsor.ajay.app)
     Skip Options:
       Skip Option: אפשרות דילוג
       Auto Skip: דילוג אוטומטי
@@ -597,25 +594,17 @@ Settings:
     Category Color: צבע קטגוריה
     UseDeArrowTitles: להשתמש בכותרות סרטונים דרך DeArrow
     UseDeArrowThumbnails: השתמש ב-DeArrow לתמונות מיניאטורה
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': כתובת
-      API של DeArrow Thumbnail Generator (ברירת מחדל היא https://dearrow-thumb.ajay.app)
-  Download Settings:
-    Download Settings: הורדה
-    Ask Download Path: לשאול מה נתיב ההורדות
-    Choose Path: בחירת נתיב
-    Download Behavior: התנהגות הורדה
-    Download in app: הורדה ביישומון
-    Open in web browser: פתיחה בדפדפן
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': כתובת API של DeArrow Thumbnail Generator (ברירת מחדל היא https://dearrow-thumb.ajay.app)
   Parental Control Settings:
     Parental Control Settings: בקרת הורים
     Hide Search Bar: הסתרת סרגל החיפוש
     Hide Unsubscribe Button: הסתרת כפתור ביטול מינוי
     Show Family Friendly Only: הצגת דברים ידידותיים למשפחה בלבד
+    Hide Uploader on Watch page: הסתרת הגורם המעלה בעמוד המעקב
   Experimental Settings:
     Experimental Settings: ניסיוני
     Replace HTTP Cache: החלפת מטמון HTTP
-    Warning: הגדרות אלו הן ניסיוניות, הן גורמות לקריסות כשהן מופעלות. מומלץ מאוד לבצע
-      גיבויים. השימוש על אחריותך בלבד!
+    Warning: הגדרות אלו הן ניסיוניות, הן גורמות לקריסות כשהן מופעלות. מומלץ מאוד לבצע גיבויים. השימוש על אחריותך בלבד!
   Password Dialog:
     Password: סיסמה
     Enter Password To Unlock: נא למלא סיסמה כדי לשחרר את ההגדרות
@@ -639,10 +628,8 @@ About:
   Donate: תרומה
   Help: עזרה
   these people and projects: האנשים והמיזמים האלו
-  FreeTube is made possible by: FreeTube קיים בזכות
   Translate: תרגום
   room rules: כללי החדר
-  Please read the: נא לקרוא את
   Chat on Matrix: צ׳אט ב־Matrix
   Mastodon: ‎Mastodon
   Please check for duplicates before posting: נא לבדוק כפילויות בטרם פרסום תקלה
@@ -654,7 +641,6 @@ About:
   Source code: קוד מקור
   Discussions: דיונים
   AGPLv3: AGPLv3
-  Licensed under the: מורשה תחת
 Profile:
   Profile Select: 'בחירת פרופיל'
   All Channels: 'כל הערוצים'
@@ -673,11 +659,9 @@ Profile:
   Your profile name cannot be empty: 'לא ניתן לרוקן את הפרופיל שלך'
   Profile has been created: 'הפרופיל נוצר'
   Profile has been updated: 'הפרופיל עודכן'
-  Your default profile has been set to {profile}: 'פרופיל ברירת המחדל שלך הוגדר לפרופיל
-    {profile}'
+  Your default profile has been set to {profile}: 'פרופיל ברירת המחדל שלך הוגדר לפרופיל {profile}'
   Removed {profile} from your profiles: '{profile} נמחק מהפרופילים שלך'
-  Your default profile has been changed to your primary profile: 'פרופיל ברירת המחדל
-    שלך השתנה לפרופיל הראשי שלך'
+  Your default profile has been changed to your primary profile: 'פרופיל ברירת המחדל שלך השתנה לפרופיל הראשי שלך'
   '{profile} is now the active profile': '{profile} הוא הפרופיל הפעיל מעתה'
   Subscription List: 'רשימת מינויים'
   Other Channels: 'ערוצים אחרים'
@@ -687,12 +671,9 @@ Profile:
   Delete Selected: 'למחוק את הנבחרים'
   Add Selected To Profile: 'הוספת הנבחרים לפרופיל'
   No channel(s) have been selected: 'לא נבחרו ערוצים'
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : 'זה הפרופיל הראשי שלך. למחוק את הערוצים שבחרת?  הערוצים האלו ימחקו מכל הפרופילים
-    בהם הם נמצאים.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'למחוק
-    את הערוצים שבחרת? הערוצים לא יימחקו משאר הפרופילים.'
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : 'זה הפרופיל הראשי שלך. למחוק את הערוצים שבחרת?  הערוצים האלו ימחקו מכל הפרופילים בהם הם נמצאים.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'למחוק את הערוצים שבחרת? הערוצים לא יימחקו משאר הפרופילים.'
 #On Channel Page
   Profile Filter: מסנן פרופילים
   Profile Settings: הפרופיל
@@ -706,8 +687,7 @@ Channel:
   Subscribe: 'הרשמה למינוי'
   Unsubscribe: 'ביטול המינוי'
   Channel has been removed from your subscriptions: 'הערוץ נמחק מרשימת המינויים שלך'
-  Removed subscription from {count} other channel(s): 'הוסר מינוי מ־{count} ערוצים
-    נוספים'
+  Removed subscription from {count} other channel(s): 'הוסר מינוי מ־{count} ערוצים נוספים'
   Added channel to your subscriptions: 'הערוץ נוסף לרשימת המנויים שלך'
   Search Channel: 'חיפוש בערוץ'
   Your search results have returned 0 results: 'לא נמצאו תוצאות'
@@ -720,8 +700,7 @@ Channel:
       Most Popular: 'הכי פופולריים'
   Playlists:
     Playlists: 'רשימות נגינה'
-    This channel does not currently have any playlists: 'לערוץ זה אין רשימות נגינה
-      כרגע'
+    This channel does not currently have any playlists: 'לערוץ זה אין רשימות נגינה כרגע'
     Sort Types:
       Last Video Added: 'הסרטון האחרון שנוסף'
       Newest: 'הכי חדשות'
@@ -739,21 +718,18 @@ Channel:
   This channel does not allow searching: הערוץ הזה לא מאפשר חיפוש
   Channel Tabs: לשוניות ערוצים
   This channel does not exist: הערוץ הזה לא קיים
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: הערוץ
-    מוגבל לפי גיל וכרגע אי אפשר לצפות בו ב־FreeTube.
-  Community:
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: הערוץ מוגבל לפי גיל וכרגע אי אפשר לצפות בו ב־FreeTube.
+  Posts:
     This channel currently does not have any posts: אין רשומות בערוץ הזה כרגע
     votes: '{votes} הצבעות'
     Reveal Answers: חשיפת התשובות
     Hide Answers: הסתרת התשובות
     View Full Post: צפה בפוסט המלא
-    Viewing Posts Only Supported By Invidious: צפייה בפוסטים מתאפשרת רק באמצעות Invidious.
-      עבור ללשונית הקהילה של הערוץ כדי לצפות בתוכן שם ללא Invidious.
+    Viewing Posts Only Supported By Invidious: צפייה בפוסטים מתאפשרת רק באמצעות Invidious. עבור ללשונית הקהילה של הערוץ כדי לצפות בתוכן שם ללא Invidious.
     Video hidden by FreeTube: סרטון מוסתר על ידי FreeTube
   Live:
     Live: חי
-    This channel does not currently have any live streams: לערוץ הזה אין שידורים חיים
-      כרגע
+    This channel does not currently have any live streams: לערוץ הזה אין שידורים חיים כרגע
   Shorts:
     This channel does not currently have any shorts: אין כרגע Shorts בערוץ הזה
   Podcasts:
@@ -765,6 +741,9 @@ Channel:
   Home:
     Home: בית
     View Playlist: הצגת רשימת נגינה
+  Courses:
+    Courses: קורסים
+    This channel does not currently have any courses: ערוץ זה אינו כולל כרגע קורסים
 Video:
   Mark As Watched: 'סימון כנצפה'
   Remove From History: 'הסרה מהיסטוריית הצפייה'
@@ -780,30 +759,24 @@ Video:
   Loop Playlist: 'ניגון רשימת נגינה במחזוריות'
   Shuffle Playlist: 'ערבוב רשימת הנגינה'
   Reverse Playlist: 'נגינת רשימת הנגינה בסדר הפוך'
-  Play Next Video: 'נגינת הסרטון הבא'
-  Play Previous Video: 'נגינת הסרטון הקודם'
+  Previous: 'הקודם'
+  Next: 'הבא'
   # Context is "X People Watching"
   Watched: 'נצפה'
   Autoplay: 'ניגון אוטומטי'
-  Starting soon, please refresh the page to check again: 'מתחילים בקרוב, נא לרענן
-    את העמוד בשביל לבדוק שוב'
+  Starting soon, please refresh the page to check again: 'מתחילים בקרוב, נא לרענן את העמוד בשביל לבדוק שוב'
   # As in a Live Video
   Live: 'שידור חי'
   Live Now: 'בשידור חי'
   Live Chat: 'צ׳אט'
   Enable Live Chat: 'הפעלת צ׳אט'
   Live Chat is currently not supported in this build.: 'הצ׳אט כרגע לא נתמך בגרסה זו.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'הצ׳אט מופעל. ההודעות
-    תופענה פה כאשר תישלחנה.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'מנגנון
-    הצ׳אט כרגע לא נתמך ע״י ה־API של Invidious. דרוש חיבור ישיר ל־YouTube.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'הצ׳אט מופעל. ההודעות תופענה פה כאשר תישלחנה.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'מנגנון הצ׳אט כרגע לא נתמך ע״י ה־API של Invidious. דרוש חיבור ישיר ל־YouTube.'
   Published:
     In less than a minute: עוד פחות מדקה
   Published on: 'פורסם'
 #& Videos
-  audio only: שמע בלבד
-  video only: סרטון בלבד
-  Download Video: להוריד סרטון
   Copy Invidious Channel Link: העתקת קישור ערוץ ה־Invidious
   Open Channel in Invidious: פתיחת הערוץ ב־Invidious
   Copy YouTube Channel Link: העתקת קישור ערוץ ה־YouTube
@@ -835,14 +808,12 @@ Video:
       reversing playlists: היפוך סדר רשימות נגינה
       shuffling playlists: ערבוב רשימות נגינה
       looping playlists: לולאה על רשימות נגינה
-      opening specific video in a playlist (falling back to opening the video): פתיחת
-        סרטון מסוים ברשימת נגינה (ייסוג לפתיחת הסרטון)
+      opening specific video in a playlist (falling back to opening the video): פתיחת סרטון מסוים ברשימת נגינה (ייסוג לפתיחת הסרטון)
   Premieres: בכורות
   Scroll to Bottom: גלילה לתחתית
   Show Super Chat Comment: הצגת הערת סופר צ׳אט
   Upcoming: בקרוב
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': הצ׳אט
-    לא זמין לשידור הזה. יכול להיות שהוא הושבת על ידי המעלה.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': הצ׳אט לא זמין לשידור הזה. יכול להיות שהוא הושבת על ידי המעלה.
   Player:
     Theatre Mode: מצב תיאטרון
     TranslatedCaptionTemplate: '{language} (תורגם מ"{originalLanguage}")'
@@ -854,7 +825,7 @@ Video:
     Show Stats: הצג נתונים
     Stats:
       Video ID: 'ID סרטון: {videoId}'
-      Resolution: 'רזולוציה: {height}‎‏x‏{width}@{frameRate}'
+      Resolution: 'רזולוציה: {height}‎‏x‏{width}{''@''}{frameRate}'
       Stats: נתונים
       Media Formats: 'פורמטים מדיה: {formats}'
       Player Dimensions: 'ממדי הנגן: {height}x‏{width}'
@@ -862,30 +833,34 @@ Video:
       Buffered: 'מטופל: %{bufferedPercentage}‏‏‎‏‏‏‏‏'
       Volume: 'עוצמת קול: %{volumePercentage}'
       Bandwidth: 'רוחב פס: kbps ‏‏‏‏‎‎‎{bandwidth}‏‎'
-      Dropped Frames / Total Frames: 'פריימים שנפלו: {droppedFrames} / פריימים כולל:
-        {totalFrames}'
+      Dropped Frames / Total Frames: 'פריימים שנפלו: {droppedFrames} / פריימים כולל: {totalFrames}'
       CodecAudio: 'קודק: {audioCodec} ({audioItag})'
       CodecsVideoAudio: 'קודקים: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'קודקים: {videoCodec} / {audioCodec}'
     Hide Stats: הסתר נתונים
     You appear to be offline: נראה שהחיבור שלך נקטע.
-    Playback will resume automatically when your connection comes back: הפלייבק יחודש
-      אוטומטית כאשר החיבור שלך יחזור.
+    Playback will resume automatically when your connection comes back: הפלייבק יחודש אוטומטית כאשר החיבור שלך יחזור.
     Skipped segment: דילגתי על {segmentCategory}
+    Autoplay is off: הפעלה אוטומטית כבויה
+    Autoplay is on: הניגון האוטומטי פעיל
   Hide Channel: הסתר ערוץ
   Unhide Channel: הצג ערוץ
   More Options: אפשרויות נוספות
-  IP block: YouTube חסמו את כתובת ה־IP לצפייה בסרטונים. נא לנסות לעבור ל־VPN או למתווך
-    אחרים.
-  MembersOnly: אי אפשר לצפות בסרטונים לחברים בלבד עם FreeTube כיוון שהם דורשים כניסה
-    ל־Google וחברות בתשלום לערוץ של מי שהעלה.
-  AgeRestricted: אי אפשר לצפות בסרטונים שמוגבלים בגיל עם FreeTube כיוון שהם דורשים
-    כניסה עם Google ושימוש בחשבון YouTube עם גיל מאומת.
+  IP block: YouTube חסמו את כתובת ה־IP לצפייה בסרטונים. נא לנסות לעבור ל־VPN או למתווך אחרים.
+  MembersOnly: אי אפשר לצפות בסרטונים לחברים בלבד עם FreeTube כיוון שהם דורשים כניסה ל־Google וחברות בתשלום לערוץ של מי שהעלה.
+  AgeRestricted: אי אפשר לצפות בסרטונים שמוגבלים בגיל עם FreeTube כיוון שהם דורשים כניסה עם Google ושימוש בחשבון YouTube עם גיל מאומת.
   Unlisted: לא מופיע
   DeArrow:
     Show Modified Details: הצגת פרטים לאחר שינוי
     Show Original Details: הצגת פרטים מקוריים
 #& Playlists
+  Save Watched Progress: שמור התקדמות נצפית
+  DRMProtected: סרטונים המוגנים ב-DRM אינם יכולים להתנגן ב-FreeTube, מכיוון שהם דורשים רכיבים סגורים ובעלים. אם אתה רוצה לצפות בסרטון הזה, אנא צפה בו באתר הרשמי של YouTube בדפדפן אינטרנט עם תמיכה ב-DRM.
+  Watched Progress Saved: התקדמות שנשמרה נצפתה
+  Popout Live Chat: צ׳אט קופץ
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'זמן שנותר לפרסומת מקדימה: {remindingTimeSeconds} שנ׳'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'זמן שנותר לטיפול בתשדיר (SABR): {remindingTimeSeconds} שנ׳'
 Playlist:
   #& About
   View Full Playlist: 'צפייה ברשימת הנגינה המלאה'
@@ -897,14 +872,16 @@ Playlist:
   Playlist: רשימת נגינה
   Sort By:
     AuthorDescending: יוצר (ת-א)
-    DateAddedOldest: הראשונים שנוספו ראשונים
+    DateAddedOldest: תאריך ההוספה (הישן ביותר)
     AuthorAscending: יוצר (א-ת)
     VideoTitleAscending: כותר (א-ת)
     Custom: מותאם
     VideoTitleDescending: כותר (ת-א)
-    DateAddedNewest: האחרונים שנוספו ראשונים
-    VideoDurationAscending: משך (קצרים בהתחלה)
-    VideoDurationDescending: משך (ארוכים בהתחלה)
+    DateAddedNewest: תאריך ההוספה (החדש ביותר)
+    VideoDurationAscending: משך (הקצרים ביותר)
+    VideoDurationDescending: משך (הארוכים ביותר)
+    PublishedNewest: תאריך הפרסום (החדש ביותר)
+    PublishedOldest: תאריך הפרסום (הישן ביותר)
 Change Format:
   Change Media Formats: 'שינוי תסדירי המדיה'
   Use Dash Formats: 'שימוש בתסדירי DASH'
@@ -912,8 +889,7 @@ Change Format:
   Use Audio Formats: 'שימוש בתסדירי שמע'
   Dash formats are not available for this video: 'לא קיימים תסדירי DASH לסרטון הזה'
   Audio formats are not available for this video: 'לא קיימים תסדירי שמע לסרטון הזה'
-  Legacy formats are not available for this video: פורמטים ישנים אינם זמינים לסרטון
-    זה
+  Legacy formats are not available for this video: פורמטים ישנים אינם זמינים לסרטון זה
 Share:
   Share Video: 'שיתוף הסרטון'
   Share Playlist: 'שיתוף רשימת נגינה'
@@ -930,6 +906,7 @@ Share:
   YouTube Channel URL copied to clipboard: כתובת ערוץ ה־YouTube הועתקה ללוח הגזירים
   Invidious Channel URL copied to clipboard: כתובת ערוץ ה־Invidious הועתק ללוח הגזירים
   Share Channel: שיתוף ערוץ
+  Share Post: שיתוף רשומה
 Mini Player: 'נגן מזערי'
 Comments:
   Comments: 'תגובות'
@@ -938,23 +915,20 @@ Comments:
   There are no more comments for this video: 'לסרטון הזה אין תגובות'
   Hide Comments: 'הסתרת תגובות'
   # Context: View 10 Replies, View 1 Reply
-  View: 'צפייה'
-  Hide: 'הסתרה'
-  Replies: 'תשובות'
-  Reply: 'תשובה'
   There are no comments available for this video: 'לסרטון זה אין תגובות'
   Load More Comments: 'טעינת תגובות נוספות'
   Newest first: החדשות ביותר תחילה
   Top comments: תגובות מובילות
   Show More Replies: הצגת תגובות נוספות
-  From {channelName}: מערוץ {channelName}
-  And others: ואחרים
   Pinned by: ננעץ על ידי
   Member: חבר
-  View {replyCount} replies: הצגת {replyCount} תגובות
+  View {replyCount} replies: הצגת תגובה|הצגת {replyCount} תגובות
   Hearted: סומן בלב
   Subscribed: נרשמת
   There are no comments available for this post: אין תגובות זמינות לפוסט זה
+  Hide {replyCount} replies: הסתרת תגובה|הסתרת {replyCount} תגובות
+  View 1 reply from {channelName}: הצגת תגובה מאת {channelName}
+  View {replyCount} replies from {channelName} and others: הצגת {replyCount} תגובות מאת {channelName} ואחרים
 Up Next: 'הסרטון הבא'
 
 # Toast Messages
@@ -962,8 +936,7 @@ Local API Error (Click to copy): 'בעיה ב־API המקומי (יש ללחוץ
 Invidious API Error (Click to copy): 'בעיה ב־API של Invidious (יש ללחוץ להעתקה)'
 Falling back to Invidious API: 'מתבצעת נסיגה ל־API של Invidious'
 Falling back to Local API: 'מתבצעת נסיגה ל־API המקומי'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: 'חסרות
-  תצורות לסרטון הזה. הדבר יכול להיגרם בגלל חוסר זמינות למדינה.'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'חסרות תצורות לסרטון הזה. הדבר יכול להיגרם בגלל חוסר זמינות למדינה.'
 Loop is now disabled: 'ניגון בלולאה מושבת'
 Loop is now enabled: 'ניגון בלולאה הופעל'
 Shuffle is now disabled: 'ערבוב מושבת'
@@ -972,73 +945,41 @@ The playlist has been reversed: 'רשימת נגינה זו התהפכה'
 Playing Next Video: 'הסרטון הבא מתנגן'
 Playing Previous Video: 'הסרטון הקודם מתנגן'
 Canceled next video autoplay: 'ניגון הסרטון הבא אוטומטית בוטל'
-'The playlist has ended. Enable loop to continue playing': 'רשימת הנגינה הסתיימה.  יש
-  להפעיל לולאה כדי להמשיך לנגן'
+'The playlist has ended. Enable loop to continue playing': 'רשימת הנגינה הסתיימה.  יש להפעיל לולאה כדי להמשיך לנגן'
 
 Yes: 'כן'
 No: 'לא'
 Tooltips:
   General Settings:
-    Fallback to Non-Preferred Backend on Failure: כאשר ל־API המועדף עליך יש בעיה,
-      FreeTube ינסה להשתמש ב־API בעדיפות הנמוכה יותר באופן אוטומטי כשיטת נסיגה כאשר
-      האפשרות פעילה.
-    Preferred API Backend: נא לבחור את המנגנון לשימוש FreeTube כדי לקבל נתונים. ה־API
-      המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
+    Fallback to Non-Preferred Backend on Failure: כאשר ל־API המועדף עליך יש בעיה, FreeTube ינסה להשתמש ב־API בעדיפות הנמוכה יותר באופן אוטומטי כשיטת נסיגה כאשר האפשרות פעילה.
+    Preferred API Backend: נא לבחור את המנגנון לשימוש FreeTube כדי לקבל נתונים. ה־API המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
     Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לקבלת פניות API.
-    Thumbnail Preference: כל התמונות הממוזערות ברחבי FreeTube יוחלפו בתמונית מתוך
-      הסרטון במקום התמונה הממוזערת כברירת המחדל.
-    External Link Handling: "נא לבחור את התנהגות ברירת המחדל כשנלחץ קישור שלא ניתן
-      לפתוח ב־FreeTube.\nכברירת מחדל FreeTube יפתח את הקישור שנלחץ בדפדפן ברירת המחדל
-      שלך.\n"
-    Region for Trending: מגמות אזוריות מאפשרות לך לבחור סרטונים חמים של איזו מדינה
-      שמעניין אותך לראות.
-    Open Deep Links In New Window: כתובות שמועברות ל־FreeTube, כגון העברת הרחבות דפדפן
-      או ארגומנטים בשורת הפקודה, תיפתחנה בחלון חדש.
+    Thumbnail Preference: כל התמונות הממוזערות ברחבי FreeTube יוחלפו בתמונית מתוך הסרטון, בצורה מטושטשת או מוסתרת במקום התמונה הממוזערת כברירת המחדל.
+    External Link Handling: "נא לבחור את התנהגות ברירת המחדל כשנלחץ קישור שלא ניתן לפתוח ב־FreeTube.\nכברירת מחדל FreeTube יפתח את הקישור שנלחץ בדפדפן ברירת המחדל שלך.\n"
+    Region for Trending: מגמות אזוריות מאפשרות לך לבחור סרטונים חמים של איזו מדינה שמעניין אותך לראות.
+    Open Deep Links In New Window: כתובות שמועברות ל־FreeTube, כגון העברת הרחבות דפדפן או ארגומנטים בשורת הפקודה, תיפתחנה בחלון חדש.
   Player Settings:
-    Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום
-      להתחבר ישירות ל־YouTube.
-    Default Video Format: קביעת התסדירים בעת ניגון סרטונים. תסדירי DASH יכולים להתנגן
-      באיכויות גבוהות יותר. התסדירים המיושנים מוגבלים ל־720 פיקסלים לכל היותר אך משתמשויםבפחות
-      רוחב פס. תסדירי שמע הם הזרמות של שמע בלבד.
-    Scroll Playback Rate Over Video Player: כאשר הסמן מעל הסרטון, יש ללחוץ ולהחזיק
-      את מקש ה־Control (או Command ב־Mac) ולגלול עם גלגלת העכבר קדימה או אחורה כדי
-      לשלוט בקצב הנגינה. לחיצה והחזקה של מקש Control (או Command ב־Mac) ולחיצה על
-      הכפתור השמאלי בעכבר מחזירה במהירות לקצב הנגינה כברירת מחדל (1x אלמלא בוצע שינוי
-      בהגדרות).
-    Skip by Scrolling Over Video Player: ניתן להשתמש בגלגלת כדי לדלג בתוך הסרטון,
-      כמו ב־MPV.
+    Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום להתחבר ישירות ל־YouTube.
+    Default Video Format: קביעת התסדירים בעת ניגון סרטונים. תסדירי DASH יכולים להתנגן באיכויות גבוהות יותר. התסדירים המיושנים מוגבלים ל־360 פיקסלים לכל היותר אך משתמשים בפחות רוחב פס. תסדירי שמע הם הזרמות של שמע בלבד.
+    Scroll Playback Rate Over Video Player: כאשר הסמן מעל הסרטון, יש ללחוץ ולהחזיק את מקש ה־Control (או Command ב־Mac) ולגלול עם גלגלת העכבר קדימה או אחורה כדי לשלוט בקצב הנגינה. לחיצה והחזקה של מקש Control (או Command ב־Mac) ולחיצה על הכפתור השמאלי בעכבר מחזירה במהירות לקצב הנגינה כברירת מחדל (1x אלמלא בוצע שינוי בהגדרות).
+    Skip by Scrolling Over Video Player: ניתן להשתמש בגלגלת כדי לדלג בתוך הסרטון, כמו ב־MPV.
   Subscription Settings:
-    Fetch Feeds from RSS: כאשר אפשרות זו פעילה. FreeTube ישתמש ב־RSS במקום בשיטת ברירת
-      המחדל לאיסוף הזנת המינויים שלך. RSS היא שיטה מהירה יותר ומונעת חסימת IP אבל
-      לא מספקת חלק מהמידע כמו אורך הסרטון, מצב שידור חי או פרסומי הקהילה
-    Fetch Automatically: כאשר האפשרות פעילה, FreeTube ימשוך את הזנת המינויים שלך אוטומטית
-      עם פתיחת חלון חדש ובעת החלפת פרופיל.
+    Fetch Feeds from RSS: כאשר זה מופעל, FreeTube ישתמש ב-RSS במקום בשיטה המוגדרת כברירת מחדל כדי לתפוס את זרם המנויים שלך. RSS מהיר יותר ומונע חסימת IP, אך אינו מספק מידע מסוים כמו משך הווידאו, מצב חי או פוסטים
+    Fetch Automatically: כאשר האפשרות מופעלת, FreeTube ימשוך אוטומטית את רשימת המנויים שלך בעת הפעלת התוכנה ובפתיחת חלון חדש.
   External Player Settings:
     DefaultCustomArgumentsTemplate: '(ברירת מחדל: ‚{defaultCustomArguments}’)'
-    Ignore Warnings: 'להשבית אזהרות כאשר הנגן החיצוני הנוכחי לא תומך בפעולה הנוכחית
-      (למשל: היפוך רשימת נגינה וכו׳).'
-    External Player: בחירה בנגן חיצוני תציג סמל, לפתיחת הווידאו (רשימת הנגינה אם יש
-      תמיכה) בנגן חיצוני, על גבי התמונה הממוזערת. אזהרה, הגדרות Invidious לא משפיעות
-      על נגנים חיצוניים.
-    Custom External Player Executable: כברירת מחדל FreeTube יניח שהנגן החיצוני הנבחר
-      נגיש דרך משתנה הסביבה PATH. במקרה הצורך, ניתן להגדיר כאן נתיב משלך.
-    Custom External Player Arguments: ארגומנטים כלשהם משלך לשורת הפקודה להעברה הלאה
-      לנגן החיצוני.
-    Ignore Default Arguments: אל תשלח אף ארגומנט סטנדרטי לנגן החיצוני, מלבד כתובת
-      הסרטון (למשל, קצב הפלייבק, כתובת הרשימה, וכו'). ארגומנטים מותאמים ימשיכו להיות
-      מועברים.
+    Ignore Warnings: 'להשבית אזהרות כאשר הנגן החיצוני הנוכחי לא תומך בפעולה הנוכחית (למשל: היפוך רשימת נגינה וכו׳).'
+    External Player: בחירה בנגן חיצוני תציג סמל, לפתיחת הווידאו (רשימת הנגינה אם יש תמיכה) בנגן חיצוני, על גבי התמונה הממוזערת. אזהרה, הגדרות Invidious לא משפיעות על נגנים חיצוניים.
+    Custom External Player Executable: כברירת מחדל FreeTube יניח שהנגן החיצוני הנבחר נגיש דרך משתנה הסביבה PATH. במקרה הצורך, ניתן להגדיר כאן נתיב משלך.
+    Custom External Player Arguments: ארגומנטים כלשהם משלך לשורת הפקודה להעברה הלאה לנגן החיצוני.
+    Ignore Default Arguments: אל תשלח אף ארגומנט סטנדרטי לנגן החיצוני, מלבד כתובת הסרטון (למשל, קצב הפלייבק, כתובת הרשימה, וכו'). ארגומנטים מותאמים ימשיכו להיות מועברים.
   Experimental Settings:
-    Replace HTTP Cache: משבית את מטמון ה־HTTP מבוסס הכונן ומפעיל מטמון תמונות מותאם
-      אישית בזיכרון. יגדיל את צריכת הזיכרון (RAM).
+    Replace HTTP Cache: משבית את מטמון ה־HTTP מבוסס הכונן ומפעיל מטמון תמונות מותאם אישית בזיכרון. יגדיל את צריכת הזיכרון (RAM).
   Distraction Free Settings:
-    Hide Channels: יש למלא את שם או מזהה הערוץ כדי להסתיר את כל הסרטונים, רשימות הנגינה
-      ואת הערוץ עצמו כך שלא יופיע בחיפוש, במובילים, בנפוצים ביותר או במומלצים. שם
-      הערוץ שמילאת צריך להיות תואם במלואו ותואם מבחינת רישיות (אותיות גדולות/קטנות).
-    Hide Subscriptions Live: הגדרה זו נדרסת על ידי ההגדרה הכללית „{appWideSetting}”,
-      בסעיף „{subsection}” שב„{settingsSection}”
-    Hide Videos and Playlists Containing Text: הכנס מילה, חלק ממילה או ביטוי (ללא
-      הבחנה בין אותיות גדולות וקטנות) כדי להסתיר את כל הסרטונים והרשימות שבשמם המקורי
-      מופיע הביטוי, בכל FreeTube, למעט ההיסטוריה, הרשימות שלך וסרטונים בתוך רשימות.
+    Hide Channels: יש למלא את שם או מזהה הערוץ כדי להסתיר את כל הסרטונים, רשימות הנגינה ואת הערוץ עצמו כך שלא יופיע בחיפוש, במובילים, בנפוצים ביותר או במומלצים. שם הערוץ שמילאת צריך להיות תואם במלואו ותואם מבחינת רישיות (אותיות גדולות/קטנות).
+    Hide Subscriptions Live: הגדרה זו נדרסת על ידי ההגדרה הכללית „{appWideSetting}”, בסעיף „{subsection}” שב„{settingsSection}”
+    Hide Videos, Playlists and Channels Containing Text: הכנס מילה, חלק ממילה או ביטוי (ללא הבחנה בין אותיות גדולות וקטנות) כדי להסתיר את כל הסרטונים והרשימות שבשמם המקורי מופיע הביטוי, בכל FreeTube, למעט ההיסטוריה, הרשימות שלך וסרטונים בתוך רשימות.
+    Hide Videos on Watch: הסתרת סרטונים שנצפו מלשוניות סרטונים, Shorts וחי בעמודי המינוי והערוץ. לא משפיע על לשונית הבית בעמודי הערוצים
   SponsorBlock Settings:
     UseDeArrowTitles: החלפת כותרות הסרטונים עם כותרות ששלחו משתמשים ב־DeArrow.
     UseDeArrowThumbnails: החלפת התמונות הממוזערות של הסרטונים בתמונות ממוזערות מ־DeArrow.
@@ -1046,20 +987,13 @@ More: עוד
 Open New Window: פתיחת חלון חדש
 Search Bar:
   Clear Input: פינוי הקלט
+  Remove: הסרה
 Are you sure you want to open this link?: לפתוח את הקישור הזה?
-Unknown YouTube url type, cannot be opened in app: סוג כתובת לא ידוע ל־YouTube, לא
-  ניתן לפתיחה ביישום
-Default Invidious instance has been set to {instance}: עותק Invidious שהוגדר כברירת
-  מחדל הוא {instance}
+Unknown YouTube url type, cannot be opened in app: סוג כתובת לא ידוע ל־YouTube, לא ניתן לפתיחה ביישום
+Default Invidious instance has been set to {instance}: עותק Invidious שהוגדר כברירת מחדל הוא {instance}
 Default Invidious instance has been cleared: נוקתה העדפת עותק ברירת המחדל של Invidious
-External link opening has been disabled in the general settings: פתיחת הקישורים החיצוניים
-  מושבתת בהגדרות הכלליות
-Downloading failed: אירעה שגיאה בהורדת "{videoTitle}"
-Starting download: 'ההורדה של „{videoTitle}” החלה'
-Downloading has completed: 'ההורדה של „{videoTitle}” הסתיימה'
-Playing Next Video Interval: הסרטון הבא יתחיל מייד. לחיצה לביטול. | הסרטון הבא יתנגן
-  בעוד שנייה. לחיצה לביטול. | הסרטון הבא יתנגן בעוד {nextVideoInterval} שניות. לחיצה
-  לביטול.
+External link opening has been disabled in the general settings: פתיחת הקישורים החיצוניים מושבתת בהגדרות הכלליות
+Playing Next Video Interval: הסרטון הבא יתחיל מייד. לחיצה לביטול. | הסרטון הבא יתנגן בעוד שנייה. לחיצה לביטול. | הסרטון הבא יתנגן בעוד {nextVideoInterval} שניות. לחיצה לביטול.
 Screenshot Success: צילום המסך נשמר
 Screenshot Error: צילום המסך נכשל. {error}
 New Window: חלון חדש
@@ -1071,16 +1005,11 @@ Channels:
   Title: רשימת ערוצים
   Unsubscribe Prompt: לבטל את המינוי על „{channelName}”?
 Chapters:
-  'Chapters list hidden, current chapter: {chapterName}': 'רשימת הפרקים מוסתרת, הפרק
-    הנוכחי: {chapterName}'
   Chapters: פרקים
-  'Chapters list visible, current chapter: {chapterName}': 'רשימת הפרקים גלויה, הפרק
-    הנוכחי: {chapterName}'
   Key Moments: רגעי שיא
 Clipboard:
   Copy failed: ההעתקה ללוח הגזירים נכשלה
-  Cannot access clipboard without a secure connection: לא ניתן לגשת ללוח הגזירים ללא
-    חיבור מאובטח
+  Cannot access clipboard without a secure connection: לא ניתן לגשת ללוח הגזירים ללא חיבור מאובטח
 Preferences: העדפות
 Ok: אישור
 Hashtag:
@@ -1109,15 +1038,13 @@ Yes, Restart: כן, להפעיל מחדש
 Yes, Delete: כן, למחוק
 Yes, Open Link: כן, לפתוח את הקישור
 Cancel: ביטול
-'Blocked opening potentially unsafe URL': 'נחסמה פתיחת כתובת שחשודה כמפוקפקת: „{url}”.'
 checkmark: ✓
 Tag already exists: התגית „{tagName}” כבר קיימת
 Moments Ago: לפני מס׳ רגעים
 Display Label: '{label}:‏ {value}'
 Channel Unhidden: '{channel} הוסר ממסנן ערוצים'
 Channel Hidden: '{channel} נוסף למסנן ערוצים'
-Trimmed input must be at least N characters long: הקלט המקוצץ חייב להיות באורך של
-  לפחות תו אחד | הקלט המקוצץ חייב להיות באורך של לפחות {length} תווים
+Trimmed input must be at least N characters long: הקלט המקוצץ חייב להיות באורך של לפחות תו אחד | הקלט המקוצץ חייב להיות באורך של לפחות {length} תווים
 Keys:
   arrowright: חץ ימינה
   arrowup: חץ למעלה
@@ -1125,11 +1052,67 @@ Keys:
   arrowleft: חץ שמאלה
   ctrl: Ctrl
   alt: Alt
+  enter: הכנס
+  plus: פלוס
+  shift: משמרת
 Right-click or hold to see history: לחיצה ימנית או החזקה כדי לראות היסטוריה
 shortcutJoinOperator: +
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Description:
   Collapse Description: להציג פחות
   Expand Description: …עוד
-Autoplay Interruption Timer: ניגון אוטומטי בוטל עקב {autoplayInterruptionIntervalHours}
-  שעות של חוסר פעילות
+Autoplay Interruption Timer: ניגון אוטומטי בוטל עקב {autoplayInterruptionIntervalHours} שעות של חוסר פעילות
+KeyboardShortcutPrompt:
+  Focus Search: התמקדות על סרגל החיפוש
+  Next Chapter: הפרק הבא
+  Search in New Window: חיפוש בחלון חדש
+  Zoom Out: התרחקות
+  Zoom In: התקרבות
+  Reset Zoom: איפוס המרחק / קנה מידת ממשק המשתמש
+  Close Window: סגירת החלון
+  Next Frame: התמונית הבאה (תוך כדי השהייה)
+  Last Frame: התמונית הקודמת (תוך כדי השהייה)
+  Last Chapter: הפרק האחרון
+  Skip by Tenths: דילוג בתוך הווידאו באחוזים (3 דילוגים ל־30% ממשך הנגינה)
+  Volume Up: הגברת עוצמת השמע
+  Volume Down: הנמכת עוצמת השמע
+  Full Window: מסך מלא/רגיל
+  Toggle Developer Tools: הצגת/הסתרת כלי פיתוח
+  Minimize Window: מזעור החלון
+  Take Screenshot: צילום המסך
+  Theatre Mode: מעבר/חזרה ממצב תיאטרון
+  Fullscreen: כניסה / יציאה ממסך מלא
+  History Backward: חזור אחורה בעמוד אחד
+  Small Fast Forward: קדימה X שניות בהתבסס על מרווח ההקדמה וקצב ההפעלה הנוכחי של הווידאו
+  Sections:
+    Video:
+      Playback: 'וידאו: השמעה'
+      General: 'וידאו: כללי'
+    App:
+      General: 'אפליקציה: כללי'
+      Situational: 'אפליקציה: מצבית'
+  Navigate to Settings: נווטו לדף ההגדרות
+  Small Rewind: חזרה אחורה ב־X שניות בהתבסס על מרווח החזרה ואחוז הנגינה הנוכחי של הסרטון
+  Play: הפעל/השהה
+  Decrease Video Speed: הפחתת מהירות הווידאו בהתאם לטווח קצב ההפעלה של הווידאו
+  Navigate to History: נווטו לדף ההיסטוריה
+  Refresh: רענן את הפיד עם התוכן העדכני ביותר
+  Focus Secondary Search: מקד את תשומת הלב על שורת החיפוש המשנית (אם יש אחת כזו)
+  Show Keyboard Shortcuts: הצג קיצורי מקלדת
+  Captions: הפעל/כבה כתוביות
+  Keyboard Shortcuts: קיצורי מקשים
+  Large Fast Forward: קדימה 10 שניות / הקפצת וידאו בהתאם לקצב ההפעלה הנוכחי
+  Mute: כבה/הפעל שקט
+  Increase Video Speed: הגדל את מהירות הווידאו בהתבסס על טווח קצב ההפעלה של הווידאו
+  Stats: הצג סטטיסטיקות וידאו
+  Picture in Picture: הפעל/י את מצב Picture-in-Picture
+  History Forward: לך קדימה עמוד אחד
+  New Window: צור חלון חדש
+  Large Rewind: חזור אחורה ב-10 שניות / חזור אחורה בסרטון בהתאם לקצב ההפעלה הנוכחי
+  Home: חתירה לתחילת הסרטון
+  End: חתירה לסוף הסרטון
+  Skip to Next Video: דילוג לסרטון הבא ברשימת הנגינה או הסרטון המומלץ הבא
+  Skip to Previous Video: דילוג לסרטון הקודם ברשימת הנגינה
+shortcutLabelSeparator: ｜
+Compact side navigation: ניווט צד מצומצם
+Expand side navigation: הרחבת ניווט צד

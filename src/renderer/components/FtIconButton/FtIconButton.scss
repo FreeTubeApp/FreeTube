@@ -1,0 +1,214 @@
+/* stylelint-disable no-descending-specificity */
+.ftIconButton {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  position: relative;
+  line-height: normal;
+  user-select: none;
+}
+
+.iconButton {
+  background-color: transparent;
+  border-radius: 50%;
+  border-style: none;
+  color: inherit;
+  cursor: pointer;
+  line-height: 1em;
+  transition: background 0.15s ease-out;
+
+  &.shadow {
+    box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
+  }
+
+  &.base {
+    background-color: var(--card-bg-color);
+    color: var(--primary-text-color);
+
+    &:not(.disabled) {
+      &:hover,
+      &:focus-visible,
+      &.pressed {
+        background-color: var(--side-nav-hover-color);
+        color: var(--side-nav-hover-text-color);
+      }
+
+      &.active {
+        background-color: var(--side-nav-active-color);
+        color: var(--side-nav-active-text-color);
+      }
+    }
+  }
+
+  &.base-no-default:not(.disabled) {
+    &:hover,
+    &:focus-visible,
+    &.pressed {
+      background-color: var(--side-nav-hover-color);
+      color: var(--side-nav-hover-text-color);
+    }
+
+    &.active {
+      background-color: var(--side-nav-active-color);
+      color: var(--side-nav-active-text-color);
+    }
+  }
+
+  &.primary {
+    background-color: var(--primary-color);
+    color: var(--text-with-main-color);
+
+    &:not(.disabled) {
+      &:hover,
+      &:focus-visible,
+      &.pressed {
+        background-color: var(--primary-color-hover);
+      }
+
+      &.active {
+        background-color: var(--primary-color-active);
+      }
+    }
+  }
+
+
+  &.secondary {
+    background-color: var(--accent-color);
+    color: var(--text-with-accent-color);
+
+    &:not(.disabled) {
+      &:hover,
+      &:focus-visible,
+      &.pressed {
+        background-color: var(--accent-color-hover);
+      }
+
+      &.active {
+        background-color: var(--accent-color-active);
+      }
+    }
+  }
+
+  &.destructive {
+    background-color: var(--destructive-color);
+    color: var(--destructive-text-color);
+
+    &:not(.disabled) {
+      &:hover,
+      &:focus-visible,
+      &.pressed {
+        background-color: var(--destructive-hover-color);
+      }
+
+      &.active {
+        background-color: var(--destructive-active-color);
+      }
+    }
+  }
+
+  &.favorite,
+  &.favorite:hover,
+  &.favorite:focus-visible {
+    color: var(--favorite-icon-color);
+
+    &:not(.disabled) {
+      color: var(--favorite-icon-color);
+    }
+  }
+}
+
+.icon {
+  inline-size: 1em;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: auto;
+  cursor: default;
+  user-select: none;
+}
+
+.iconDropdown {
+  background-color: var(--side-nav-color);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
+  color: var(--secondary-text-color);
+  display: inline;
+  font-size: 12px;
+  list-style-type: none;
+  position: absolute;
+  text-align: center;
+  user-select: none;
+  z-index: 3;
+
+  &.left {
+    inset-inline-end: calc(50% - 10px);
+  }
+
+  &.right {
+    inset-inline-start: calc(50% - 10px);
+  }
+
+  &.top {
+    inset-block-end: 45px;
+  }
+
+  &.bottom {
+    inset-block-start: 45px;
+  }
+
+  .list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  :has(.active) {
+    .checkmarkColumn {
+      min-inline-size: 12px;
+    }
+
+    .listItem {
+      display: flex;
+      gap: 6px;
+    }
+  }
+
+  .listItem {
+    cursor: pointer;
+    margin: 0;
+    padding-block: 8px;
+    padding-inline: 10px;
+    transition: background 0.2s ease-out;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus-visible,
+    &.pressed,
+    &.active {
+      background-color: var(--side-nav-hover-color);
+      color: var(--side-nav-hover-text-color);
+      transition: background 0.2s ease-in;
+    }
+
+    &.active {
+      font-weight: 600;
+      display: flex;
+      gap: 6px;
+    }
+
+    &:active {
+      background-color: var(--side-nav-active-color);
+      color: var(--side-nav-active-text-color);
+      transition: background 0.1s ease-in;
+    }
+  }
+
+  .listItemDivider {
+    border-block-start: 1px solid var(--tertiary-text-color);
+    margin-block: 1px;
+    margin-inline: auto;
+    // Too "visible" with current color
+    opacity: 0.5;
+    inline-size: 95%;
+  }
+}

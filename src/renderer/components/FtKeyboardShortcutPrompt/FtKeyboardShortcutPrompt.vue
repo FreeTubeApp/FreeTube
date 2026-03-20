@@ -61,7 +61,7 @@ import { getLocalizedShortcut } from '../../helpers/utils'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import store from '../../store/index'
 import { useI18n } from '../../composables/use-i18n-polyfill'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 
 const { t } = useI18n()
 
@@ -124,8 +124,6 @@ const localizedShortcutNameToShortcutsMappings = computed(() => {
     [t('KeyboardShortcutPrompt.New Window'), ['NEW_WINDOW']],
     [t('KeyboardShortcutPrompt.Minimize Window'), ['MINIMIZE_WINDOW']],
     [t('KeyboardShortcutPrompt.Close Window'), ['CLOSE_WINDOW']],
-    [t('KeyboardShortcutPrompt.Restart Window'), ['RESTART_WINDOW']],
-    [t('KeyboardShortcutPrompt.Force Restart Window'), ['FORCE_RESTART_WINDOW']],
     [t('KeyboardShortcutPrompt.Toggle Developer Tools'), ['TOGGLE_DEVTOOLS']],
     [t('KeyboardShortcutPrompt.Reset Zoom'), ['RESET_ZOOM']],
     [t('KeyboardShortcutPrompt.Zoom In'), ['ZOOM_IN']],
@@ -152,13 +150,17 @@ const localizedShortcutNameToShortcutsMappings = computed(() => {
     [t('KeyboardShortcutPrompt.Large Fast Forward'), ['LARGE_FAST_FORWARD']],
     [t('KeyboardShortcutPrompt.Small Rewind'), ['SMALL_REWIND']],
     [t('KeyboardShortcutPrompt.Small Fast Forward'), ['SMALL_FAST_FORWARD']],
-    [t('KeyboardShortcutPrompt.Decrease Video Speed'), ['DECREASE_VIDEO_SPEED']],
-    [t('KeyboardShortcutPrompt.Increase Video Speed'), ['INCREASE_VIDEO_SPEED']],
+    [t('KeyboardShortcutPrompt.Decrease Video Speed'), ['DECREASE_VIDEO_SPEED', 'DECREASE_VIDEO_SPEED_ALT']],
+    [t('KeyboardShortcutPrompt.Increase Video Speed'), ['INCREASE_VIDEO_SPEED', 'INCREASE_VIDEO_SPEED_ALT']],
+    [t('KeyboardShortcutPrompt.Home'), ['HOME']],
+    [t('KeyboardShortcutPrompt.End'), ['END']],
     [t('KeyboardShortcutPrompt.Skip by Tenths'), ['SKIP_N_TENTHS']],
     [t('KeyboardShortcutPrompt.Last Chapter'), ['LAST_CHAPTER']],
     [t('KeyboardShortcutPrompt.Next Chapter'), ['NEXT_CHAPTER']],
     [t('KeyboardShortcutPrompt.Last Frame'), ['LAST_FRAME']],
     [t('KeyboardShortcutPrompt.Next Frame'), ['NEXT_FRAME']],
+    [t('KeyboardShortcutPrompt.Skip to Next Video'), ['SKIP_TO_NEXT']],
+    [t('KeyboardShortcutPrompt.Skip to Previous Video'), ['SKIP_TO_PREV']],
   ]
 })
 

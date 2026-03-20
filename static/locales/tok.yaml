@@ -1,7 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'toki pona'
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  ilo ni li pona ala. tenpo kama la, o kama.
 
 # Webkit Menu Bar
 File: 'ijo'
@@ -14,8 +12,6 @@ Copy: 'jasima'
 Paste: 'pali jasima'
 Delete: 'weka'
 Select all: 'kama jo e sitelin ale'
-Reload: 'kama sin'
-Force Reload: 'o kama sin'
 Toggle Developer Tools: 'ante e ilo pi jan nasin'
 Actual size: 'suli lon'
 Zoom in: 'lukin suli'
@@ -72,7 +68,6 @@ Video:
   Live: tenpo ni
 Tooltips: {}
 Global:
-  Community: kulupu
   Videos: sitelen tawa
   Shorts: lili
   Live: tenpo ni
@@ -99,3 +94,5 @@ Channel:
   Live:
     Live: tenpo ni
 More: mute
+Profile:
+  Select All: kama jo e sitelin ale

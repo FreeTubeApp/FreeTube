@@ -1,16 +1,22 @@
 <template>
   <div>
     <ft-card class="card">
-      <h2>{{ $t('Channels.Title') }}</h2>
+      <h2>
+        <FontAwesomeIcon
+          :icon="['fas', 'user-check']"
+          class="headingIcon"
+        />
+        {{ $t('Channels.Title') }}
+      </h2>
       <ft-input
-        v-show="subscribedChannels.length > 0"
+        v-show="subscribedChannels.length > 1"
         ref="searchBarChannels"
         :placeholder="$t('Channels.Search bar placeholder')"
         :value="query"
         :show-clear-text-button="true"
         :show-action-button="false"
         :maxlength="255"
-        @input="(input) => handleQueryChange(input)"
+        @input="handleQueryChange"
         @clear="() => handleQueryChange('')"
       />
       <ft-flex-box
@@ -50,6 +56,7 @@
             </router-link>
             <router-link
               class="channelName"
+              dir="auto"
               :title="channel.name"
               :to="`/channel/${channel.id}`"
             >
@@ -74,12 +81,12 @@
 </template>
 
 <script setup>
-import { computed, onMounted, onBeforeUnmount, ref, watch } from 'vue'
-import { isNavigationFailure, NavigationFailureType } from 'vue-router'
-import { useRoute, useRouter } from 'vue-router/composables'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { computed, onMounted, onBeforeUnmount, ref, watch, useTemplateRef } from 'vue'
+import { isNavigationFailure, NavigationFailureType, useRoute, useRouter } from 'vue-router'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import FtInput from '../../components/ft-input/ft-input.vue'
+import FtInput from '../../components/FtInput/FtInput.vue'
 import FtSubscribeButton from '../../components/FtSubscribeButton/FtSubscribeButton.vue'
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getLocalChannel, parseLocalChannelHeader } from '../../helpers/api/local'
@@ -103,8 +110,7 @@ const query = ref('')
 const subscribedChannels = ref([])
 const filteredChannels = ref([])
 
-/** @type {import('vue').Ref<HTMLInputElement | null>} */
-const searchBarChannels = ref(null)
+const searchBarChannels = useTemplateRef('searchBarChannels')
 
 /** @type {import('vue').ComputedRef<object>} */
 const activeProfile = computed(() => {

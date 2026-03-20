@@ -1,5 +1,5 @@
 import { defineComponent } from 'vue'
-import FtIconButton from '../ft-icon-button/ft-icon-button.vue'
+import FtIconButton from '../FtIconButton/FtIconButton.vue'
 import { mapActions } from 'vuex'
 import {
   copyToClipboard,
@@ -14,11 +14,15 @@ import {
 } from '../../helpers/utils'
 import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock'
 import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
+import { vSaferHtml } from '../../directives/vSaferHtml.js'
 
 export default defineComponent({
   name: 'FtListVideo',
   components: {
     'ft-icon-button': FtIconButton
+  },
+  directives: {
+    'safer-html': vSaferHtml
   },
   props: {
     data: {
@@ -128,7 +132,7 @@ export default defineComponent({
     },
 
     watchProgress: function () {
-      if (!this.historyEntryExists || !this.saveWatchedProgress) {
+      if (!this.historyEntryExists || !this.watchedProgressSavingEnabled) {
         return 0
       }
 
@@ -171,6 +175,10 @@ export default defineComponent({
       // When in the history page, showing relative dates isn't very useful.
       // We want to show the exact date instead
       return this.$route.name === 'history'
+    },
+
+    inSubscriptions: function () {
+      return this.$route.name === 'subscriptions' || this.$route.name === 'default'
     },
 
     inUserPlaylist: function () {
@@ -231,15 +239,19 @@ export default defineComponent({
     },
 
     progressPercentage: function () {
-      if (typeof this.lengthSeconds !== 'number') {
+      if (typeof this.lengthSeconds !== 'number' || this.lengthSeconds === 0) {
         return 0
       }
-
-      return (this.watchProgress / this.lengthSeconds) * 100
+      const percentage = (this.watchProgress / this.lengthSeconds) * 100
+      return Math.min(percentage, 100)
     },
 
     hideSharingActions: function() {
       return this.$store.getters.getHideSharingActions
+    },
+
+    showInvidiousShareOptions: function () {
+      return this.backendPreference === 'invidious' || this.$store.getters.getBackendFallback
     },
 
     dropdownOptions: function () {
@@ -264,10 +276,12 @@ export default defineComponent({
             label: this.$t('Video.Copy YouTube Embedded Player Link'),
             value: 'copyYoutubeEmbed'
           },
-          {
-            label: this.$t('Video.Copy Invidious Link'),
-            value: 'copyInvidious'
-          },
+          ...this.showInvidiousShareOptions
+            ? [{
+                label: this.$t('Video.Copy Invidious Link'),
+                value: 'copyInvidious'
+              }]
+            : [],
           {
             type: 'divider'
           },
@@ -279,10 +293,12 @@ export default defineComponent({
             label: this.$t('Video.Open YouTube Embedded Player'),
             value: 'openYoutubeEmbed'
           },
-          {
-            label: this.$t('Video.Open in Invidious'),
-            value: 'openInvidious'
-          }
+          ...this.showInvidiousShareOptions
+            ? [{
+                label: this.$t('Video.Open in Invidious'),
+                value: 'openInvidious'
+              }]
+            : [],
         )
         if (this.channelId !== null) {
           options.push(
@@ -293,10 +309,12 @@ export default defineComponent({
               label: this.$t('Video.Copy YouTube Channel Link'),
               value: 'copyYoutubeChannel'
             },
-            {
-              label: this.$t('Video.Copy Invidious Channel Link'),
-              value: 'copyInvidiousChannel'
-            },
+            ...this.showInvidiousShareOptions
+              ? [{
+                  label: this.$t('Video.Copy Invidious Channel Link'),
+                  value: 'copyInvidiousChannel'
+                }]
+              : [],
             {
               type: 'divider'
             },
@@ -304,15 +322,17 @@ export default defineComponent({
               label: this.$t('Video.Open Channel in YouTube'),
               value: 'openYoutubeChannel'
             },
-            {
-              label: this.$t('Video.Open Channel in Invidious'),
-              value: 'openInvidiousChannel'
-            }
+            ...this.showInvidiousShareOptions
+              ? [{
+                  label: this.$t('Video.Open Channel in Invidious'),
+                  value: 'openInvidiousChannel'
+                }]
+              : [],
           )
         }
       }
 
-      if (this.channelId !== null) {
+      if (this.channelId !== null && !this.inSubscriptions) {
         const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
         const channelShouldBeHidden = hiddenChannels.some(c => c.name === this.channelId)
 
@@ -388,8 +408,11 @@ export default defineComponent({
       return this.$store.getters.getDefaultPlayback
     },
 
-    saveWatchedProgress: function () {
-      return this.$store.getters.getSaveWatchedProgress
+    watchedProgressSavingEnabled: function () {
+      return ['auto', 'semi-auto'].includes(this.$store.getters.getWatchedProgressSavingMode)
+    },
+    rememberHistory: function () {
+      return this.$store.getters.getRememberHistory
     },
 
     saveVideoHistoryWithLastViewedPlaylist: function () {
@@ -617,11 +640,10 @@ export default defineComponent({
       this.$emit('pause-player')
 
       const payload = {
-        watchProgress: this.watchProgress,
-        playbackRate: this.defaultPlayback,
         videoId: this.id,
-        videoLength: this.data.lengthSeconds,
         playlistId: this.playlistIdFinal,
+        startTime: this.watchProgress,
+        playbackRate: this.defaultPlayback,
         playlistIndex: this.playlistIndex,
         playlistReverse: this.playlistReverse,
         playlistShuffle: this.playlistShuffle,
@@ -637,9 +659,11 @@ export default defineComponent({
           playlistLoop: null,
         })
       }
-      this.openInExternalPlayer(payload)
+      if (process.env.IS_ELECTRON) {
+        window.ftElectron.openInExternalPlayer(payload)
+      }
 
-      if (this.saveWatchedProgress && !this.historyEntryExists) {
+      if (this.rememberHistory) {
         this.markAsWatched()
       }
     },
@@ -771,7 +795,10 @@ export default defineComponent({
         type: 'video'
       }
       this.updateHistory(videoData)
-      showToast(this.$t('Video.Video has been marked as watched'))
+
+      if (!this.historyEntryExists) {
+        showToast(this.$t('Video.Video has been marked as watched'))
+      }
     },
 
     removeFromWatched: function () {
@@ -846,8 +873,6 @@ export default defineComponent({
         _id: this.quickBookmarkPlaylist._id,
         videoData,
       })
-      // Update playlist's `lastUpdatedAt`
-      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
 
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been saved'))
@@ -858,32 +883,28 @@ export default defineComponent({
         // Remove all playlist items with same videoId
         videoId: this.id,
       })
-      // Update playlist's `lastUpdatedAt`
-      this.updatePlaylist({ _id: this.quickBookmarkPlaylist._id })
 
       // TODO: Maybe show playlist name
       showToast(this.$t('Video.Video has been removed from your saved list'))
     },
     moveVideoUp: function() {
-      this.$emit('move-video-up')
+      this.$emit('move-video-up', this.id, this.playlistItemId)
     },
 
     moveVideoDown: function() {
-      this.$emit('move-video-down')
+      this.$emit('move-video-down', this.id, this.playlistItemId)
     },
 
     removeFromPlaylist: function() {
-      this.$emit('remove-from-playlist')
+      this.$emit('remove-from-playlist', this.id, this.playlistItemId)
     },
 
     ...mapActions([
-      'openInExternalPlayer',
       'updateHistory',
       'removeFromHistory',
       'updateChannelsHidden',
       'showAddToPlaylistPromptForManyVideos',
       'addVideo',
-      'updatePlaylist',
       'removeVideo',
     ])
   }

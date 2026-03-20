@@ -1,0 +1,87 @@
+.ft-playlist-selector {
+  padding: 6px;
+
+  &:hover ,
+  &.selected {
+    background-color: var(--bg-color);
+
+    .thumbnailImage {
+      opacity: 0.3;
+    }
+  }
+
+  .thumbnail {
+    position: relative;
+
+    .videoCountContainer {
+      position: absolute;
+      inset-inline-end: 0;
+      inset-block: 0;
+      inline-size: 60px;
+      font-size: 20px;
+
+      .background,
+      .inner {
+        position: absolute;
+        inset: 0;
+      }
+
+      .background {
+        background-color: var(--bg-color);
+        opacity: 0.9;
+      }
+
+      .inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--primary-text-color);
+      }
+    }
+  }
+
+  .info {
+    flex: 1;
+    position: relative;
+
+    .title {
+      font-size: 20px;
+      text-decoration: none;
+      overflow-wrap: break-word;
+    }
+
+    .videoPresenceCount {
+      margin-block-start: 4px;
+    }
+  }
+
+  &.grid {
+    display: flex;
+    flex-direction: column;
+    inline-size: 245px;
+    min-block-size: 230px;
+    padding-block-end: 20px;
+
+    .thumbnail {
+      margin-block-end: 12px;
+
+      .thumbnailImage {
+        inline-size: 100%;
+        // Ensure placeholder image displayed at same aspect ratio as most other images
+        aspect-ratio: 16/9;
+      }
+    }
+
+    .title {
+      font-size: 22px;
+    }
+  }
+}
+
+.selectedIcon {
+  position: absolute;
+  inset-block-start: calc(50% - 25px);
+  inset-inline-start: calc(50% - 25px);
+  font-size: 50px;
+}

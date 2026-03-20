@@ -1,7 +1,8 @@
 const { readFileSync, readdirSync } = require('fs')
+const { join } = require('path')
 
 function getPreloadedLocales() {
-  const localesFile = readFileSync(`${__dirname}/../node_modules/shaka-player/dist/locales.js`, 'utf-8')
+  const localesFile = readFileSync(join(__dirname, '../node_modules/shaka-player/dist/locales.js'), 'utf-8')
 
   const localesLine = localesFile.match(/^\/\/ LOCALES: ([\w ,-]+)$/m)
 
@@ -13,7 +14,7 @@ function getPreloadedLocales() {
 }
 
 function getAllLocales() {
-  const filenames = readdirSync(`${__dirname}/../node_modules/shaka-player/ui/locales`)
+  const filenames = readdirSync(join(__dirname, '../node_modules/shaka-player/ui/locales'))
 
   return new Set(filenames
     .filter(filename => filename !== 'source.json' && filename.endsWith('.json'))
@@ -85,7 +86,7 @@ function getShakaLocales() {
   const shakaLocales = getAllLocales()
 
   /** @type {string[]} */
-  const freeTubeLocales = JSON.parse(readFileSync(`${__dirname}/../static/locales/activeLocales.json`, 'utf-8'))
+  const freeTubeLocales = JSON.parse(readFileSync(join(__dirname, '../static/locales/activeLocales.json'), 'utf-8'))
 
   const mappings = getMappings(shakaLocales, freeTubeLocales)
 

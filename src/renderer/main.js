@@ -1,11 +1,12 @@
-// import the styles
-import Vue from 'vue'
+import { createApp } from 'vue'
 import i18n from './i18n/index'
 import router from './router/index'
 import store from './store/index'
 import App from './App.vue'
-import { IpcChannels } from '../constants'
-import { library } from '@fortawesome/fontawesome-svg-core'
+import { showExternalPlayerUnsupportedActionToast, showToast } from './helpers/utils'
+import { library } from './fontawesome-minimal'
+// import the styles
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import { register as registerSwiper } from 'swiper/element'
 
@@ -23,7 +24,9 @@ import {
   faArrowLeft,
   faArrowRight,
   faArrowUp,
+  faArrowUpRightFromSquare,
   faBars,
+  faBarsProgress,
   faBorderAll,
   faBookmark,
   faCheck,
@@ -56,6 +59,7 @@ import {
   faFileVideo,
   faFilm,
   faFilter,
+  faFilterCircleXmark,
   faFlask,
   faFire,
   faForward,
@@ -76,14 +80,15 @@ import {
   faList,
   faLocationDot,
   faLock,
+  faMessage,
   faMoneyCheckDollar,
-  faMusic,
   faNetworkWired,
   faNewspaper,
   faPalette,
   faPhotoFilm,
   faPlay,
   faPlus,
+  faPodcast,
   faQuestionCircle,
   faRandom,
   faRetweet,
@@ -107,15 +112,18 @@ import {
   faThumbtack,
   faTimes,
   faTimesCircle,
+  faTowerBroadcast,
   faTrash,
+  faTrophy,
   faUserCheck,
   faUserLock,
   faUsers,
   faUsersSlash,
-  faWifi,
+  faVideo,
   faVolumeHigh,
   faVolumeLow,
   faVolumeMute,
+  faWifi,
   faXmark
 } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -128,11 +136,6 @@ import {
   faMastodon,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
-import PortalVue from 'portal-vue'
-
-Vue.config.devtools = process.env.NODE_ENV === 'development'
-Vue.config.performance = process.env.NODE_ENV === 'development'
-Vue.config.productionTip = process.env.NODE_ENV === 'development'
 
 // Please keep the list of constants sorted by name
 // to avoid code conflict and duplicate entries
@@ -147,7 +150,9 @@ library.add(
   faArrowLeft,
   faArrowRight,
   faArrowUp,
+  faArrowUpRightFromSquare,
   faBars,
+  faBarsProgress,
   faBorderAll,
   faBookmark,
   faCheck,
@@ -180,6 +185,7 @@ library.add(
   faFileVideo,
   faFilm,
   faFilter,
+  faFilterCircleXmark,
   faFlask,
   faFire,
   faForward,
@@ -200,14 +206,15 @@ library.add(
   faList,
   faLocationDot,
   faLock,
+  faMessage,
   faMoneyCheckDollar,
-  faMusic,
   faNetworkWired,
   faNewspaper,
   faPalette,
   faPhotoFilm,
   faPlay,
   faPlus,
+  faPodcast,
   faQuestionCircle,
   faRandom,
   faRetweet,
@@ -231,15 +238,18 @@ library.add(
   faThumbtack,
   faTimes,
   faTimesCircle,
+  faTowerBroadcast,
   faTrash,
+  faTrophy,
   faUserCheck,
   faUserLock,
   faUsers,
   faUsersSlash,
-  faWifi,
+  faVideo,
   faVolumeHigh,
   faVolumeLow,
   faVolumeMute,
+  faWifi,
   faXmark,
 
   // solid icons
@@ -254,28 +264,40 @@ library.add(
 
 registerSwiper()
 
-Vue.component('FontAwesomeIcon', FontAwesomeIcon)
-Vue.component('FontAwesomeLayers', FontAwesomeLayers)
-Vue.directive('observe-visibility', ObserveVisibility)
+const app = createApp(App)
 
-/* eslint-disable-next-line no-new */
-new Vue({
-  el: '#app',
-  router,
-  store,
-  i18n,
-  render: h => h(App)
+app.config.performance = process.env.NODE_ENV === 'development'
+
+app
+  .component('FontAwesomeIcon', FontAwesomeIcon)
+  .component('FontAwesomeLayers', FontAwesomeLayers)
+  .directive('observe-visibility', ObserveVisibility)
+
+  .use(router)
+  .use(store)
+  .use(i18n)
+
+router.isReady().then(() => {
+  app.mount('#app')
 })
-Vue.use(PortalVue)
 
 // to avoid accessing electron api from web app build
 if (process.env.IS_ELECTRON) {
-  const { ipcRenderer } = require('electron')
-
-  // handle menu event updates from main script
-  ipcRenderer.on(IpcChannels.CHANGE_VIEW, (event, data) => {
-    if (data.route) {
-      router.push(data.route)
-    }
+  window.ftElectron.handleChangeView((route) => {
+    router.push(route)
   })
+
+  window.ftElectron.handleOpenInExternalPlayerResult(
+    (externalPlayer, unsupportedActions, isPlaylist) => {
+      for (const action of unsupportedActions) {
+        showExternalPlayerUnsupportedActionToast(externalPlayer, action)
+      }
+
+      const videoOrPlaylist = isPlaylist
+        ? i18n.global.t('Video.External Player.playlist')
+        : i18n.global.t('Video.External Player.video')
+
+      showToast(i18n.global.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
+    }
+  )
 }

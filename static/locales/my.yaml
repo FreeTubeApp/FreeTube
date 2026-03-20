@@ -1,32 +1,27 @@
 # Put the name of your locale in the same language
 Locale Name: 'မြန်မာ'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  အက်ပ်၏ဤအစိတ်အပိုင်းသည် အဆင်သင့်မဖြစ်သေးပါ။ ထပ်မံပြင်ဆင် ပြီးမှ သာ ပြန်လာပါ။
 
 # Webkit Menu Bar
 File: 'ဖိုင်'
 New Window: 'ဝင်းဒိုး အသစ်'
-Preferences: ''
+Preferences: 'စိတ်ကြိုက်ဦးစားပေးများ'
 Quit: ''
-Edit: ''
-Undo: ''
-Redo: ''
-Cut: ''
-Copy: ''
-Paste: ''
-Delete: ''
-Select all: ''
-Reload: ''
-Force Reload: ''
+Edit: 'ပြင်ရန်'
+Undo: 'လုပ်ဆောင်ချက် ဖျက်သိမ်းရန်'
+Redo: 'ပြန်လုပ်ရန်'
+Cut: 'ဖြတ်ရန်'
+Copy: 'ကူးသည်'
+Paste: 'ကူးထည့်ရန်'
+Delete: 'ဖျက်ရန်'
+Select all: 'အားလုံးကိုရွေးချယ်ပါ'
 Toggle Developer Tools: ''
-Actual size: ''
-Zoom in: ''
-Zoom out: ''
-Toggle fullscreen: ''
-Window: ''
-Minimize: ''
-Close: ''
+Actual size: 'ပုံမှန် အရွယ်အစား'
+Zoom in: 'ဇူးမ်ချဲ့ရန်'
+Zoom out: 'ဇူးမ်ချုံ့ရန်'
+Toggle fullscreen: 'စခရင်အပြည့် ပြောင်းရန်'
+Window: 'ဝင်းဒိုး'
+Minimize: 'ချုံ့ရန်'
+Close: 'ပိတ်ပါ'
 Back: ''
 Forward: ''
 Right-click or hold to see history: ''
@@ -42,10 +37,10 @@ Are you sure you want to open this link?: ''
 # Global
 # Anything shared among components / views should be put here
 Global:
-  Videos: ''
+  Videos: 'ဗီဒီယိုများ'
   Shorts: ''
-  Live: ''
-  Community: ''
+  Live: 'တိုက်ရိုက်လွှင့်နေသော'
+  Posts: 'ို့စ်'
   Counts:
     Video Count: ''
     Channel Count: ''
@@ -142,10 +137,7 @@ Channels:
   Unsubscribe Prompt: ''
 Trending:
   Trending: ''
-  Default: ''
-  Music: ''
   Gaming: ''
-  Movies: ''
   Trending Tabs: ''
 Most Popular: ''
 Feed:
@@ -241,8 +233,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: ''
-      "{videoCount} video(s) added to 1 playlist": ""
-      "{videoCount} video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
     New Playlist Name: ''
     Create: ''
@@ -482,7 +473,6 @@ Settings:
     Are you sure you want to remove all your playlists?: ''
   Subscription Settings:
     Subscription Settings: ''
-    Hide Videos on Watch: ''
     Fetch Feeds from RSS: ''
     Fetch Automatically: ''
     'Limit the number of videos displayed for each channel': ''
@@ -522,17 +512,15 @@ Settings:
     Hide Channels Already Exists: ''
     Hide Featured Channels: ''
     Hide Channel Playlists: ''
-    Hide Channel Community: ''
     Hide Channel Home: ''
     Hide Channel Shorts: ''
     Hide Channel Podcasts: ''
     Hide Channel Releases: ''
-    Hide Videos and Playlists Containing Text: ''
-    Hide Videos and Playlists Containing Text Placeholder: ''
+    Hide Videos, Playlists and Channels Containing Text: ''
+    Hide Videos, Playlists and Channels Containing Text Placeholder: ''
     Hide Subscriptions Videos: ''
     Hide Subscriptions Shorts: ''
     Hide Subscriptions Live: ''
-    Hide Subscriptions Community: ''
     Show Added Items: ''
   Data Settings:
     Data Settings: ''
@@ -605,13 +593,6 @@ Settings:
     Hide Unsubscribe Button: ''
     Show Family Friendly Only: ''
     Hide Search Bar: ''
-  Download Settings:
-    Download Settings: ''
-    Ask Download Path: ''
-    Choose Path: ''
-    Download Behavior: ''
-    Download in app: ''
-    Open in web browser: ''
   Experimental Settings:
     Experimental Settings: ''
     Warning: ''
@@ -629,7 +610,6 @@ About:
   About: ''
   Beta: ''
   Source code: ''
-  Licensed under the: ''
   AGPLv3: ''
   Downloads / Changelog: ''
   GitHub releases: ''
@@ -645,11 +625,9 @@ About:
   Email: ''
   Mastodon: ''
   Chat on Matrix: ''
-  Please read the: ''
   room rules: ''
   Translate: ''
   Credits: ''
-  FreeTube is made possible by: ''
   these people and projects: ''
   Donate: ''
 
@@ -684,7 +662,7 @@ Profile:
   Subscription List: ''
   Other Channels: ''
   '{number} selected': ''
-  Select All: ''
+  Select All: 'အားလုံးကိုရွေးချယ်ပါ'
   Select None: ''
   Delete Selected: ''
   Add Selected To Profile: ''
@@ -746,7 +724,7 @@ Channel:
     Joined: ''
     Location: ''
     Featured Channels: ''
-  Community:
+  Posts:
     This channel currently does not have any posts: ''
     votes: ''
     View Full Post: ''
@@ -783,8 +761,8 @@ Video:
   Loop Playlist: ''
   Shuffle Playlist: ''
   Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
+  Previous: 'ယခင်'
+  Next: 'ရှေ့သို့'
   Watched: ''
   Autoplay: ''
   Starting soon, please refresh the page to check again: ''
@@ -802,9 +780,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
   Show Super Chat Comment: ''
   Scroll to Bottom: ''
-  Download Video: ''
-  video only: ''
-  audio only: ''
   Published:
     In less than a minute: ''
   Published on: ''
@@ -916,8 +891,6 @@ Clipboard:
 Chapters:
   Chapters: ''
   Key Moments: ''
-  'Chapters list visible, current chapter: {chapterName}': ''
-  'Chapters list hidden, current chapter: {chapterName}': ''
 
 Mini Player: ''
 Comments:
@@ -930,13 +903,7 @@ Comments:
   Newest first: ''
   View {replyCount} replies: ''
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: ''
-  Hide: ''
-  Replies: ''
   Show More Replies: ''
-  Reply: ''
-  From {channelName}: ''
-  And others: ''
   There are no comments available for this video: ''
   There are no comments available for this post: ''
   Load More Comments: ''
@@ -975,7 +942,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: ''
     Hide Subscriptions Live: ''
-    Hide Videos and Playlists Containing Text: ''
+    Hide Videos, Playlists and Channels Containing Text: ''
   Subscription Settings:
     Fetch Feeds from RSS: ''
     Fetch Automatically: ''
@@ -1010,10 +977,6 @@ Age Restricted:
   This channel is age restricted: ''
   This video is age restricted: ''
 External link opening has been disabled in the general settings: ''
-'Blocked opening potentially unsafe URL': ''
-Downloading has completed: ''
-Starting download: ''
-Downloading failed: ''
 Screenshot Success: ''
 Screenshot Error: ''
 Channel Hidden: ''
@@ -1067,7 +1030,7 @@ KeyboardShortcutPrompt:
   Focus Secondary Search: ''
   Captions: ''
   Stats: ''
-  Fullscreen: ''
+  Fullscreen: 'စခရင်အပြည့် ပြောင်းရန်'
   Picture in Picture: ''
   Large Rewind: ''
   Play: ''
@@ -1080,12 +1043,10 @@ KeyboardShortcutPrompt:
   Take Screenshot: ''
   Minimize Window: ''
   Close Window: ''
-  Restart Window: ''
-  Force Restart Window: ''
   Toggle Developer Tools: ''
   Reset Zoom: ''
-  Zoom In: ''
-  Zoom Out: ''
+  Zoom In: 'ဇူးမ်ချဲ့ရန်'
+  Zoom Out: 'ဇူးမ်ချုံ့ရန်'
   Focus Search: ''
   Search in New Window: ''
   Last Frame: ''

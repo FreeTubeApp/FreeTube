@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Filipino'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Ang bahagi ito ng aplikasyon ay hindi pa handa. Bumalik po kayo mamaya kapag nag-unsad
-  na.
 
 # Webkit Menu Bar
 File: 'File'
@@ -16,8 +12,6 @@ Copy: 'Kopya'
 Paste: 'I-paste'
 Delete: 'Alisin'
 Select all: 'Piliin lahat'
-Reload: 'I-reload'
-Force Reload: 'Puwersang i-reload'
 Toggle Developer Tools: 'I-toggle ang mga Developer Tools'
 Actual size: 'Totoong sukat'
 Zoom in: 'Palakihin'
@@ -85,7 +79,8 @@ Settings:
   Theme Settings: {}
   Player Settings: {}
 Channel:
-  Videos: {}
+  Videos:
+    Videos: Mga video
   Playlists: {}
 Download From Site: I-download mula sa website
 Open New Window: buksan ang bagong window
@@ -97,13 +92,11 @@ Global:
   Videos: Mga Video
   Shorts: Mga Shorts
   Sort By: 'Pag-uri-uriin ayon'
-  Community: Komunidad
+  Posts: Mga Post
 Search Bar:
   Clear Input: Alisin ang Input
 External link opening has been disabled in the general settings: Ang pag bukas ng
   link sa panlabas ay pinasara sa general settings
-'Blocked opening potentially unsafe URL': 'I-Blinock ang URL na possibleng hindi ligtas:
-  "{url]".'
 Age Restricted:
   This channel is age restricted: Itong channel ay pinaghihigpitan sa edad
   This video is age restricted: Ang video na ito ay pinaghihigpitan sa edad
@@ -117,3 +110,14 @@ Version {versionNumber} is now available!  Click for more details: Version {vers
   ay magamit na! . . Pindutin para sa detalye
 A new blog is now available, {blogTitle}. Click to view more: May bagong blog, {blogTitle},
   Pindutin para makita
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: I-toggle ang mga Developer Tools
+  Zoom In: Palakihin
+  Zoom Out: Paliitin
+  Fullscreen: I-fullscreen
+Search Listing:
+  Label:
+    8K: 8K
+    4K: 4K
+Profile:
+  Select All: Piliin lahat

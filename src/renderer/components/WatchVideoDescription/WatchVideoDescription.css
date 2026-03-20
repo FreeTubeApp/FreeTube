@@ -39,6 +39,10 @@
   margin-block-start: 1em;
 }
 
+.videoDescription.short .descriptionStatus:dir(rtl) {
+  background: linear-gradient(270deg, transparent 0%, var(--card-bg-color) 25%);
+}
+
 .videoDescription.short .description {
   max-block-size: 4lh;
   overflow: hidden;

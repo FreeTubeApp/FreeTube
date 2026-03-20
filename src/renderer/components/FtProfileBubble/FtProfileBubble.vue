@@ -11,13 +11,17 @@
       class="bubble"
       :style="{ background: backgroundColor, color: textColor }"
     >
-      <div class="initial">
+      <div
+        class="initial"
+        dir="auto"
+      >
         {{ profileInitial }}
       </div>
     </div>
     <div
       :id="id"
       class="profileName"
+      dir="auto"
     >
       {{ translatedProfileName }}
     </div>
@@ -25,8 +29,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useId } from '../../composables/use-id-polyfill'
+import { computed, useId } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import { getFirstCharacter } from '../../helpers/strings'
@@ -60,7 +63,7 @@ const translatedProfileName = computed(() => {
 
 const profileInitial = computed(() => {
   return props.profileName
-    ? getFirstCharacter(translatedProfileName.value, locale.value).toUpperCase()
+    ? getFirstCharacter(translatedProfileName.value, locale.value)
     : ''
 })
 

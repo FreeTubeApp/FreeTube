@@ -34,6 +34,7 @@
           >
             <h1
               class="name"
+              dir="auto"
             >
               {{ name }}
             </h1>
@@ -42,7 +43,7 @@
               v-if="subCount !== null && !hideChannelSubscriptions"
               class="subCount"
             >
-              {{ $tc('Global.Counts.Subscriber Count', subCount, { count: formattedSubCount }) }}
+              {{ $t('Global.Counts.Subscriber Count', { count: formattedSubCount }, subCount) }}
             </p>
           </div>
         </div>
@@ -81,14 +82,14 @@
             class="tab"
             :class="{ selectedTab: currentTab === 'home' }"
             role="tab"
-            :aria-selected="String(currentTab === 'home')"
+            :aria-selected="currentTab === 'home'"
             aria-controls="homePanel"
             :tabindex="(currentTab === 'home' || currentTab === 'search') ? 0 : -1"
             @click="changeTab('home')"
             @keydown.left.right="focusTab('home', $event)"
             @keydown.enter.space.prevent="changeTab('home')"
           >
-            {{ $t("Channel.Home.Home").toUpperCase() }}
+            {{ $t("Channel.Home.Home") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -97,14 +98,14 @@
             class="tab"
             :class="{ selectedTab: currentTab === 'videos' }"
             role="tab"
-            :aria-selected="String(currentTab === 'videos')"
+            :aria-selected="currentTab === 'videos'"
             aria-controls="videoPanel"
             :tabindex="(currentTab === 'videos' || currentTab === 'search') ? 0 : -1"
             @click="changeTab('videos')"
             @keydown.left.right="focusTab('videos', $event)"
             @keydown.enter.space.prevent="changeTab('videos')"
           >
-            {{ $t("Channel.Videos.Videos").toUpperCase() }}
+            {{ $t("Channel.Videos.Videos") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -113,14 +114,14 @@
             class="tab"
             :class="{ selectedTab: currentTab === 'shorts' }"
             role="tab"
-            :aria-selected="String(currentTab === 'shorts')"
+            :aria-selected="currentTab === 'shorts'"
             aria-controls="shortPanel"
             :tabindex="currentTab === 'shorts' ? 0 : -1"
             @click="changeTab('shorts')"
             @keydown.left.right="focusTab('shorts', $event)"
             @keydown.enter.space.prevent="changeTab('shorts')"
           >
-            {{ $t("Global.Shorts").toUpperCase() }}
+            {{ $t("Global.Shorts") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -129,14 +130,14 @@
             class="tab"
             :class="{ selectedTab: currentTab === 'live' }"
             role="tab"
-            :aria-selected="String(currentTab === 'live')"
+            :aria-selected="currentTab === 'live'"
             aria-controls="livePanel"
             :tabindex="currentTab === 'live' ? 0 : -1"
             @click="changeTab('live')"
             @keydown.left.right="focusTab('live', $event)"
             @keydown.enter.space.prevent="changeTab('live')"
           >
-            {{ $t("Channel.Live.Live").toUpperCase() }}
+            {{ $t("Channel.Live.Live") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -144,7 +145,7 @@
             id="releasesTab"
             class="tab"
             role="tab"
-            :aria-selected="String(currentTab === 'releases')"
+            :aria-selected="currentTab === 'releases'"
             aria-controls="releasePanel"
             :tabindex="currentTab === 'releases' ? 0 : -1"
             :class="{ selectedTab: currentTab === 'releases' }"
@@ -152,7 +153,7 @@
             @keydown.left.right="focusTab('releases', $event)"
             @keydown.enter.space.prevent="changeTab('releases')"
           >
-            {{ $t("Channel.Releases.Releases").toUpperCase() }}
+            {{ $t("Channel.Releases.Releases") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -160,7 +161,7 @@
             id="podcastsTab"
             class="tab"
             role="tab"
-            :aria-selected="String(currentTab === 'podcasts')"
+            :aria-selected="currentTab === 'podcasts'"
             aria-controls="podcastPanel"
             :tabindex="currentTab === 'podcasts' ? 0 : -1"
             :class="{ selectedTab: currentTab === 'podcasts' }"
@@ -168,7 +169,23 @@
             @keydown.left.right="focusTab('podcasts', $event)"
             @keydown.enter.space.prevent="changeTab('podcasts')"
           >
-            {{ $t("Channel.Podcasts.Podcasts").toUpperCase() }}
+            {{ $t("Channel.Podcasts.Podcasts") }}
+          </div>
+          <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
+          <div
+            v-if="visibleTabs.includes('courses')"
+            id="coursesTab"
+            class="tab"
+            role="tab"
+            :aria-selected="currentTab === 'courses'"
+            aria-controls="coursesPanel"
+            :tabindex="currentTab === 'courses' ? 0 : -1"
+            :class="{ selectedTab: currentTab === 'courses' }"
+            @click="changeTab('courses')"
+            @keydown.left.right="focusTab('courses', $event)"
+            @keydown.enter.space.prevent="changeTab('courses')"
+          >
+            {{ $t("Channel.Courses.Courses") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -176,7 +193,7 @@
             id="playlistsTab"
             class="tab"
             role="tab"
-            :aria-selected="String(currentTab === 'playlists')"
+            :aria-selected="currentTab === 'playlists'"
             aria-controls="playlistPanel"
             :tabindex="currentTab === 'playlists' ? 0 : -1"
             :class="{ selectedTab: currentTab === 'playlists' }"
@@ -184,7 +201,7 @@
             @keydown.left.right="focusTab('playlists', $event)"
             @keydown.enter.space.prevent="changeTab('playlists')"
           >
-            {{ $t("Channel.Playlists.Playlists").toUpperCase() }}
+            {{ $t("Channel.Playlists.Playlists") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
@@ -192,7 +209,7 @@
             id="communityTab"
             class="tab"
             role="tab"
-            :aria-selected="String(currentTab === 'community')"
+            :aria-selected="currentTab === 'community'"
             aria-controls="communityPanel"
             :tabindex="currentTab === 'community' ? 0 : -1"
             :class="{ selectedTab: currentTab === 'community' }"
@@ -200,14 +217,14 @@
             @keydown.left.right="focusTab('community', $event)"
             @keydown.enter.space.prevent="changeTab('community')"
           >
-            {{ $t("Global.Community").toUpperCase() }}
+            {{ $t("Global.Posts") }}
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
             id="aboutTab"
             class="tab"
             role="tab"
-            :aria-selected="String(currentTab === 'about')"
+            :aria-selected="currentTab === 'about'"
             aria-controls="aboutPanel"
             :tabindex="currentTab === 'about' ? 0 : -1"
             :class="{ selectedTab: currentTab === 'about' }"
@@ -215,7 +232,7 @@
             @keydown.left.right="focusTab('about', $event)"
             @keydown.enter.space.prevent="changeTab('about')"
           >
-            {{ $t("Channel.About.About").toUpperCase() }}
+            {{ $t("Channel.About.About") }}
           </div>
         </div>
 
@@ -235,14 +252,14 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, onBeforeUnmount, onMounted, useTemplateRef } from 'vue'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import FtCard from '../ft-card/ft-card.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtShareButton from '../ft-share-button/ft-share-button.vue'
+import FtShareButton from '../FtShareButton/FtShareButton.vue'
 import FtSubscribeButton from '../FtSubscribeButton/FtSubscribeButton.vue'
-import FtInput from '../ft-input/ft-input.vue'
+import FtInput from '../FtInput/FtInput.vue'
 
 import store from '../../store/index'
 
@@ -365,7 +382,7 @@ function search(query) {
   emit('search', query)
 }
 
-const searchBar = ref(null)
+const searchBar = useTemplateRef('searchBar')
 
 /**
  * @param {KeyboardEvent} event

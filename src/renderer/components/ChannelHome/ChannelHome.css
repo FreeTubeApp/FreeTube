@@ -1,6 +1,14 @@
+.shelfContainer {
+  max-inline-size: 85vw;
+}
+
 .shelfTitle {
   font-size: 24px;
   cursor: pointer;
+
+  /* Prevents overflow for long values */
+  max-inline-size: 100%;
+  overflow-wrap: anywhere;
 }
 
 .shelfTitle::marker {
@@ -32,4 +40,8 @@
 .shelfSubtitle {
   font-style: italic;
   color: var(--tertiary-text-color);
+
+  /* Prevents overflow for long values */
+  max-inline-size: 100%;
+  overflow-wrap: anywhere;
 }

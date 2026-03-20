@@ -2,7 +2,7 @@ const path = require('path')
 const { readFileSync, readdirSync } = require('fs')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const { VueLoaderPlugin } = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
@@ -25,6 +25,7 @@ const processLocalesPlugin = new ProcessLocalesPlugin({
   outputDir: 'static/locales',
 })
 
+/** @type {import('webpack').Configuration} */
 const config = {
   name: 'renderer',
   mode: process.env.NODE_ENV,
@@ -39,7 +40,7 @@ const config = {
     level: isDevMode ? 'info' : 'none'
   },
   output: {
-    libraryTarget: 'commonjs2',
+    scriptType: 'text/javascript',
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
   },
@@ -55,7 +56,7 @@ const config = {
         loader: 'vue-loader',
         options: {
           compilerOptions: {
-            whitespace: 'condense',
+            isCustomElement: (tag) => tag === 'swiper-container' || tag === 'swiper-slide'
           }
         }
       },
@@ -92,6 +93,12 @@ const config = {
             }
           }
         ],
+        rules: [
+          {
+            resource: path.resolve(__dirname, '../node_modules/shaka-player/dist/controls.css'),
+            use: path.join(__dirname, 'patch-shaka-player-loader.js')
+          }
+        ],
       },
       {
         test: /\.(png|jpe?g|gif|tif?f|bmp|webp|svg)(\?.*)?$/,
@@ -108,6 +115,11 @@ const config = {
         }
       },
     ],
+    generator: {
+      json: {
+        JSONParse: false
+      }
+    }
   },
   // webpack defaults to only optimising the production builds, so having this here is fine
   optimization: {
@@ -123,9 +135,16 @@ const config = {
   plugins: [
     processLocalesPlugin,
     new webpack.DefinePlugin({
+      'process.platform': `'${process.platform}'`,
       'process.env.IS_ELECTRON': true,
       'process.env.IS_ELECTRON_MAIN': false,
       'process.env.SUPPORTS_LOCAL_API': true,
+      __VUE_OPTIONS_API__: 'true',
+      __VUE_PROD_DEVTOOLS__: 'false',
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false',
+      __VUE_I18N_LEGACY_API__: 'true',
+      __VUE_I18N_FULL_INSTALL__: 'false',
+      __INTLIFY_PROD_DEVTOOLS__: 'false',
       'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
       'process.env.GEOLOCATION_NAMES': JSON.stringify(readdirSync(path.join(__dirname, '..', 'static', 'geolocations')).map(filename => filename.replace('.json', ''))),
       'process.env.SWIPER_VERSION': `'${swiperVersion}'`,
@@ -173,19 +192,22 @@ const config = {
   ],
   resolve: {
     alias: {
-      vue$: 'vue/dist/vue.runtime.esm.js',
-      'portal-vue$': 'portal-vue/dist/portal-vue.esm.js',
-
       DB_HANDLERS_ELECTRON_RENDERER_OR_WEB$: path.resolve(__dirname, '../src/datastores/handlers/electron.js'),
 
       'youtubei.js$': 'youtubei.js/web',
 
-      // change to "shaka-player.ui.debug.js" to get debug logs (update jsconfig to get updated types)
-      'shaka-player$': 'shaka-player/dist/shaka-player.ui.js',
+      // change to "shaka-player.ui-es2021.debug.js" to get debug logs (update jsconfig to get updated types)
+      'shaka-player$': 'shaka-player/dist/shaka-player.ui-es2021.js',
+
+      // Make @fortawesome/vue-fontawesome use the trimmed down API instead of the original @fortawesome/fontawesome-svg-core
+      '@fortawesome/fontawesome-svg-core$': path.resolve(__dirname, '../src/renderer/fontawesome-minimal.js'),
+
+      // Fix dompurify not being tree-shaking friendly
+      dompurify$: path.resolve(__dirname, '_undefinedDefaultExport.mjs')
     },
     extensions: ['.js', '.vue']
   },
-  target: 'electron-renderer',
+  target: 'web',
 }
 
 if (isDevMode) {

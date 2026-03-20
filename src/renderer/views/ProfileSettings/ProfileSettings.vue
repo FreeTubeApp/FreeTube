@@ -55,10 +55,10 @@ import { computed, ref, shallowRef, watch } from 'vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 import FtProfileBubble from '../../components/FtProfileBubble/FtProfileBubble.vue'
-import FtButton from '../../components/ft-button/ft-button.vue'
+import FtButton from '../../components/FtButton/FtButton.vue'
 import FtProfileEdit from '../../components/FtProfileEdit/FtProfileEdit.vue'
-import FtProfileChannelList from '../../components/ft-profile-channel-list/ft-profile-channel-list.vue'
-import FtProfileFilterChannelsList from '../../components/ft-profile-filter-channels-list/ft-profile-filter-channels-list.vue'
+import FtProfileChannelList from '../../components/FtProfileChannelList/FtProfileChannelList.vue'
+import FtProfileFilterChannelsList from '../../components/FtProfileFilterChannelsList/FtProfileFilterChannelsList.vue'
 
 import store from '../../store/index'
 

@@ -22,6 +22,8 @@
       @canplay="handleCanPlay"
       @volumechange="updateVolume"
       @timeupdate="handleTimeupdate"
+      @enterpictureinpicture="handleEnterPictureInPicture"
+      @leavepictureinpicture="handleLeavePictureInPicture"
     />
     <!--
       VR playback is only possible for VR videos with "EQUIRECTANGULAR" projection
@@ -65,7 +67,7 @@
         v-else
       >{{ $t('Video.Player.Stats.CodecsVideoAudioNoItags', stats.codecs) }}</span>
       <br>
-      <span>{{ $t('Video.Player.Stats.Player Dimensions', stats.playerDimensions) }}</span>
+      <span>{{ $t('Video.Player.Stats.Player Dimensions', playerDimensions) }}</span>
       <br>
       <template
         v-if="format !== 'audio'"
@@ -79,12 +81,13 @@
       <div
         v-if="showValueChangePopup"
         class="valueChangePopup"
+        :class="{ 'invert-content-order': invertValueChangeContentOrder }"
       >
         <font-awesome-icon
           v-if="valueChangeIcon"
           :icon="['fas', valueChangeIcon]"
         />
-        {{ valueChangeMessage }}
+        <span>{{ valueChangeMessage }}</span>
       </div>
     </Transition>
     <div
@@ -92,7 +95,6 @@
       class="offlineWrapper"
     >
       <font-awesome-layers
-        fixed-width
         class="offlineIcon"
         aria-hidden="true"
       >

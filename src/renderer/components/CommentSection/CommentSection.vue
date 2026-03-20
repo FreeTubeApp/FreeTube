@@ -67,6 +67,7 @@
           <div
             v-if="hideCommentPhotos && !comment.isOwner"
             class="commentThumbnailHidden"
+            dir="auto"
           >
             {{ comment.author.substring(1, 2) }}
           </div>
@@ -84,13 +85,14 @@
           <FontAwesomeIcon
             :icon="['fas', 'thumbtack']"
           />
-          {{ $t("Comments.Pinned by") }} {{ channelName }}
+          {{ $t("Comments.Pinned by") }} <bdi>{{ channelName }}</bdi>
         </p>
         <p
           class="commentAuthorWrapper"
         >
           <router-link
             class="commentAuthor"
+            dir="auto"
             :class="{
               commentOwner: comment.isOwner
             }"
@@ -160,13 +162,9 @@
             @keydown.space.prevent="toggleCommentReplies(index)"
             @keydown.enter.prevent="toggleCommentReplies(index)"
           >
-            <span v-if="!comment.showReplies">{{ $t("Comments.View") }}</span>
-            <span v-else>{{ $t("Comments.Hide") }}</span>
-            {{ comment.numReplies }}
-            <span v-if="comment.numReplies === 1">{{ $t("Comments.Reply").toLowerCase() }}</span>
-            <span v-else>{{ $t("Comments.Replies").toLowerCase() }}</span>
-            <span v-if="comment.hasOwnerReplied && !comment.showReplies"> {{ $t("Comments.From {channelName}", { channelName }) }}</span>
-            <span v-if="comment.numReplies > 1 && comment.hasOwnerReplied && !comment.showReplies"> {{ $t("Comments.And others") }}</span>
+            <span>
+              {{ toggleCommentRepliesLinkText(comment) }}
+            </span>
           </span>
         </p>
         <div
@@ -187,6 +185,7 @@
               <div
                 v-if="hideCommentPhotos && !reply.isOwner"
                 class="commentThumbnailHidden"
+                dir="auto"
               >
                 {{ reply.author.substring(1, 2) }}
               </div>
@@ -200,6 +199,7 @@
             <p class="commentAuthorWrapper">
               <router-link
                 class="commentAuthor"
+                dir="auto"
                 :class="{
                   commentOwner: reply.isOwner
                 }"
@@ -239,12 +239,32 @@
                 />
                 {{ reply.likes }}
               </template>
+              <span
+                v-if="reply.isHearted"
+                class="commentHeartBadge"
+              >
+                <img
+                  :src="channelThumbnail"
+                  :title="$t('Comments.Hearted')"
+                  :aria-label="$t('Comments.Hearted')"
+                  class="commentHeartBadgeImg"
+                  alt=""
+                >
+                <FontAwesomeIcon
+                  :icon="['fas', 'heart']"
+                  class="commentHeartBadgeWhite"
+                />
+                <FontAwesomeIcon
+                  :icon="['fas', 'heart']"
+                  class="commentHeartBadgeRed"
+                />
+              </span>
             </p>
             <p
               v-if="reply.numReplies > 0"
               class="commentMoreReplies"
             >
-              {{ $t('Comments.View {replyCount} replies', { replyCount: reply.numReplies }) }}
+              {{ $t('Comments.View {replyCount} replies', { replyCount: reply.numReplies }, reply.numReplies) }}
             </p>
           </div>
           <div
@@ -307,14 +327,14 @@ import { computed, ref, shallowRef } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtCard from '../ft-card/ft-card.vue'
-import FtLoader from '../ft-loader/ft-loader.vue'
-import FtSelect from '../ft-select/ft-select.vue'
+import FtLoader from '../FtLoader/FtLoader.vue'
+import FtSelect from '../FtSelect/FtSelect.vue'
 import FtTimestampCatcher from '../FtTimestampCatcher.vue'
 
 import store from '../../store/index'
 
 import { copyToClipboard, showToast } from '../../helpers/utils'
-import { getLocalComments, parseLocalComment } from '../../helpers/api/local'
+import { getLocalCommunityPostComments, getLocalComments, parseLocalComment } from '../../helpers/api/local'
 import {
   getInvidiousCommunityPostCommentReplies,
   getInvidiousCommunityPostComments,
@@ -476,7 +496,7 @@ function isSubscribedToChannel(channelId) {
 function getCommentData() {
   isLoading.value = true
 
-  if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious' || props.isPostComments) {
+  if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
     if (!props.isPostComments) {
       getCommentDataInvidious()
     } else {
@@ -491,7 +511,7 @@ function getMoreComments() {
   if (commentData.value.length === 0 || nextPageToken.value == null) {
     showToast(t('Comments.There are no more comments for this video'))
   } else {
-    if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious' || props.isPostComments) {
+    if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
       if (!props.isPostComments) {
         getCommentDataInvidious()
       } else {
@@ -501,6 +521,26 @@ function getMoreComments() {
       getCommentDataLocal(true)
     }
   }
+}
+
+/** @typedef {import('../../helpers/api/local').LocalComment | import('../../helpers/api/invidious').InvidiousComment} Comment */
+/**
+ * @param {Comment} comment
+ */
+function toggleCommentRepliesLinkText(comment) {
+  if (comment.showReplies) {
+    return t('Comments.Hide {replyCount} replies', { replyCount: comment.numReplies }, comment.numReplies)
+  }
+
+  if (comment.hasOwnerReplied) {
+    if (comment.numReplies > 1) {
+      return t('Comments.View {replyCount} replies from {channelName} and others', { replyCount: comment.numReplies, channelName: props.channelName })
+    }
+
+    return t('Comments.View 1 reply from {channelName}', { channelName: props.channelName })
+  }
+
+  return t('Comments.View {replyCount} replies', { replyCount: comment.numReplies }, comment.numReplies)
 }
 
 /**
@@ -518,7 +558,7 @@ function toggleCommentReplies(index) {
  * @param {number} index
  */
 function getCommentReplies(index) {
-  if (!process.env.SUPPORTS_LOCAL_API || commentData.value[index].dataType === 'invidious' || props.isPostComments) {
+  if (!process.env.SUPPORTS_LOCAL_API || commentData.value[index].dataType === 'invidious') {
     if (!props.isPostComments) {
       getCommentRepliesInvidious(index)
     } else {
@@ -545,9 +585,15 @@ async function getCommentDataLocal(more = false) {
       comments = await localCommentsInstance.applySort(sortNewest.value ? 'NEWEST_FIRST' : 'TOP_COMMENTS')
       localCommentsInstance = comments
     } else {
-      comments = await getLocalComments(props.id)
-      sortNewest.value = comments.header?.sort_menu?.sub_menu_items?.[1].selected ?? false
-      localCommentsInstance = comments
+      if (props.isPostComments) {
+        comments = await getLocalCommunityPostComments(props.id, props.postAuthorId)
+        sortNewest.value = comments.header?.sort_menu?.sub_menu_items?.[1].selected ?? false
+        localCommentsInstance = comments
+      } else {
+        comments = await getLocalComments(props.id)
+        sortNewest.value = comments.header?.sort_menu?.sub_menu_items?.[1].selected ?? false
+        localCommentsInstance = comments
+      }
     }
 
     const parsedComments = comments.contents
@@ -596,7 +642,11 @@ async function getCommentDataLocal(more = false) {
     if (backendFallback.value && backendPreference.value === 'local') {
       localCommentsInstance = undefined
       showToast(t('Falling back to Invidious API'))
-      getCommentDataInvidious()
+      if (props.isPostComments) {
+        getPostCommentsInvidious()
+      } else {
+        getCommentDataInvidious()
+      }
     } else {
       isLoading.value = false
     }
@@ -763,7 +813,13 @@ function getPostCommentsInvidious() {
     showToast(`${errorMessage}: ${err}`, 10000, () => {
       copyToClipboard(err)
     })
-    isLoading.value = false
+
+    if (process.env.SUPPORTS_LOCAL_API && backendFallback.value && backendPreference.value === 'invidious') {
+      showToast(t('Falling back to Local API'))
+      getCommentDataLocal()
+    } else {
+      isLoading.value = false
+    }
   })
 }
 

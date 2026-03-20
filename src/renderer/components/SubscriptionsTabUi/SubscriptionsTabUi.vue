@@ -71,13 +71,13 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 
-import FtAutoLoadNextPageWrapper from '../ft-auto-load-next-page-wrapper/ft-auto-load-next-page-wrapper.vue'
-import FtButton from '../ft-button/ft-button.vue'
-import FtChannelBubble from '../ft-channel-bubble/ft-channel-bubble.vue'
+import FtAutoLoadNextPageWrapper from '../FtAutoLoadNextPageWrapper.vue'
+import FtButton from '../FtButton/FtButton.vue'
+import FtChannelBubble from '../FtChannelBubble/FtChannelBubble.vue'
 import FtElementList from '../FtElementList/FtElementList.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtLoader from '../ft-loader/ft-loader.vue'
-import FtRefreshWidget from '../ft-refresh-widget/ft-refresh-widget.vue'
+import FtLoader from '../FtLoader/FtLoader.vue'
+import FtRefreshWidget from '../FtRefreshWidget/FtRefreshWidget.vue'
 
 import store from '../../store/index'
 
@@ -125,10 +125,10 @@ const subscriptionLimit = sessionStorage.getItem('subscriptionLimit')
 const dataLimit = ref(subscriptionLimit !== null ? parseInt(subscriptionLimit) : props.initialDataLimit)
 
 const activeVideoList = computed(() => {
-  if (props.videoList.length < dataLimit.value) {
-    return props.videoList
+  if (filteredVideoList.value.length < dataLimit.value) {
+    return filteredVideoList.value
   } else {
-    return props.videoList.slice(0, dataLimit.value)
+    return filteredVideoList.value.slice(0, dataLimit.value)
   }
 })
 
@@ -141,6 +141,24 @@ const fetchSubscriptionsAutomatically = computed(() => {
   return store.getters.getFetchSubscriptionsAutomatically
 })
 
+const historyCacheById = computed(() => {
+  return store.getters.getHistoryCacheById
+})
+
+const hideWatchedSubs = computed(() => {
+  return store.getters.getHideWatchedSubs
+})
+
+const filteredVideoList = computed(() => {
+  if (hideWatchedSubs.value && !props.isCommunity) {
+    return props.videoList.filter((video) => {
+      return historyCacheById.value[video.videoId] === undefined
+    })
+  } else {
+    return props.videoList
+  }
+})
+
 function increaseLimit() {
   dataLimit.value += props.initialDataLimit
   sessionStorage.setItem('subscriptionLimit', dataLimit.value.toFixed(0))
@@ -150,7 +168,7 @@ function increaseLimit() {
  * @param {KeyboardEvent} event
  */
 function keyboardShortcutHandler(event) {
-  if (event.ctrlKey || document.activeElement.classList.contains('ft-input')) {
+  if (document.activeElement.classList.contains('ft-input')) {
     return
   }
   // Avoid handling events due to user holding a key (not released)

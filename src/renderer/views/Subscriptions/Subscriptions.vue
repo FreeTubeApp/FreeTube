@@ -1,7 +1,13 @@
 <template>
   <div>
     <FtCard class="card">
-      <h2>{{ $t("Subscriptions.Subscriptions") }}</h2>
+      <h2>
+        <FontAwesomeIcon
+          :icon="['fas', 'rss']"
+          class="subscriptionIcon"
+        />
+        {{ $t("Subscriptions.Subscriptions") }}
+      </h2>
       <FtFlexBox
         class="tabs"
         role="tablist"
@@ -13,7 +19,7 @@
           ref="videosTab"
           class="tab"
           role="tab"
-          :aria-selected="String(currentTab === 'videos')"
+          :aria-selected="currentTab === 'videos'"
           aria-controls="subscriptionsPanel"
           :tabindex="currentTab === 'videos' ? 0 : -1"
           :class="{ selectedTab: currentTab === 'videos' }"
@@ -21,6 +27,10 @@
           @keydown.space.enter.prevent="changeTab('videos')"
           @keydown.left.right="focusTab($event, 'videos')"
         >
+          <FontAwesomeIcon
+            :icon="['fa', 'video']"
+            class="subscriptionIcon"
+          />
           {{ $t("Global.Videos") }}
         </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
@@ -29,7 +39,7 @@
           ref="shortsTab"
           class="tab"
           role="tab"
-          :aria-selected="String(currentTab === 'shorts')"
+          :aria-selected="currentTab === 'shorts'"
           aria-controls="subscriptionsPanel"
           :tabindex="currentTab === 'shorts' ? 0 : -1"
           :class="{ selectedTab: currentTab === 'shorts' }"
@@ -37,6 +47,10 @@
           @keydown.space.enter.prevent="changeTab('shorts')"
           @keydown.left.right="focusTab($event, 'shorts')"
         >
+          <FontAwesomeIcon
+            :icon="['fa', 'clapperboard']"
+            class="subscriptionIcon"
+          />
           {{ $t("Global.Shorts") }}
         </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
@@ -45,7 +59,7 @@
           ref="liveTab"
           class="tab"
           role="tab"
-          :aria-selected="String(currentTab === 'live')"
+          :aria-selected="currentTab === 'live'"
           aria-controls="subscriptionsPanel"
           :tabindex="currentTab === 'live' ? 0 : -1"
           :class="{ selectedTab: currentTab === 'live' }"
@@ -53,6 +67,10 @@
           @keydown.space.enter.prevent="changeTab('live')"
           @keydown.left.right="focusTab($event, 'live')"
         >
+          <FontAwesomeIcon
+            :icon="['fa', 'tower-broadcast']"
+            class="subscriptionIcon"
+          />
           {{ $t("Global.Live") }}
         </div>
         <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
@@ -61,7 +79,7 @@
           ref="communityTab"
           class="tab"
           role="tab"
-          :aria-selected="String(currentTab === 'community')"
+          :aria-selected="currentTab === 'community'"
           aria-controls="subscriptionsPanel"
           :tabindex="currentTab === 'community' ? 0 : -1"
           :class="{ selectedTab: currentTab === 'community' }"
@@ -69,7 +87,11 @@
           @keydown.space.enter.prevent="changeTab('community')"
           @keydown.left.right="focusTab($event, 'community')"
         >
-          {{ $t("Global.Community") }}
+          <FontAwesomeIcon
+            :icon="['fa', 'message']"
+            class="subscriptionIcon"
+          />
+          {{ $t("Global.Posts") }}
         </div>
       </FtFlexBox>
       <SubscriptionsVideos
@@ -87,7 +109,7 @@
         id="subscriptionsPanel"
         role="tabpanel"
       />
-      <SubscriptionsCommunity
+      <SubscriptionsPosts
         v-else-if="currentTab === 'community'"
         id="subscriptionsPanel"
         role="tabpanel"
@@ -103,14 +125,15 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { computed, ref, useTemplateRef, watch } from 'vue'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
-import SubscriptionsVideos from '../../components/subscriptions-videos/subscriptions-videos.vue'
-import SubscriptionsLive from '../../components/subscriptions-live/subscriptions-live.vue'
-import SubscriptionsShorts from '../../components/subscriptions-shorts/subscriptions-shorts.vue'
-import SubscriptionsCommunity from '../../components/subscriptions-community/subscriptions-community.vue'
+import SubscriptionsVideos from '../../components/SubscriptionsVideos.vue'
+import SubscriptionsLive from '../../components/SubscriptionsLive.vue'
+import SubscriptionsShorts from '../../components/SubscriptionsShorts.vue'
+import SubscriptionsPosts from '../../components/SubscriptionsPosts.vue'
 
 import store from '../../store/index'
 
@@ -216,14 +239,10 @@ function changeTab(tab) {
   }
 }
 
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const videosTab = ref(null)
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const liveTab = ref(null)
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const shortsTab = ref(null)
-/** @type {import('vue').Ref<HTMLDivElement | null>} */
-const communityTab = ref(null)
+const videosTab = useTemplateRef('videosTab')
+const liveTab = useTemplateRef('liveTab')
+const shortsTab = useTemplateRef('shortsTab')
+const communityTab = useTemplateRef('communityTab')
 
 /**
  * @param {KeyboardEvent} event

@@ -38,6 +38,16 @@ class Settings {
       await db.settings.removeAsync({ _id: 'defaultTheatreMode' })
     }
 
+    const saveWatchedProgress = await db.settings.findOneAsync({ _id: 'saveWatchedProgress' })
+    const watchedProgressSavingMode = await db.settings.findOneAsync({ _id: 'watchedProgressSavingMode' })
+    if (saveWatchedProgress && !watchedProgressSavingMode) {
+      if (!saveWatchedProgress.value) {
+        await this.upsert('watchedProgressSavingMode', 'never')
+      }
+
+      await db.settings.removeAsync({ _id: 'saveWatchedProgress' })
+    }
+
     return db.settings.findAsync({ _id: { $ne: 'bounds' } })
   }
 
@@ -49,36 +59,31 @@ class Settings {
   // Unique Electron main process handlers
   static _findAppReadyRelatedSettings() {
     return db.settings.findAsync({
-      $or: [
-        { _id: 'disableSmoothScrolling' },
-        { _id: 'useProxy' },
-        { _id: 'proxyProtocol' },
-        { _id: 'proxyHostname' },
-        { _id: 'proxyPort' }
-      ]
+      _id: {
+        $in: [
+          'disableSmoothScrolling',
+          'useProxy',
+          'proxyProtocol',
+          'proxyHostname',
+          'proxyPort',
+          'backendFallback',
+          'backendPreference',
+          'hideToTrayOnMinimize'
+        ]
+      }
     })
   }
 
-  static _findBounds() {
-    return db.settings.findOneAsync({ _id: 'bounds' })
-  }
-
-  static _findTheme() {
-    return db.settings.findOneAsync({ _id: 'baseTheme' })
+  static _findOne(_id) {
+    return db.settings.findOneAsync({ _id })
   }
 
   static _findSidenavSettings() {
     return {
       hideTrendingVideos: db.settings.findOneAsync({ _id: 'hideTrendingVideos' }),
       hidePopularVideos: db.settings.findOneAsync({ _id: 'hidePopularVideos' }),
-      backendFallback: db.settings.findOneAsync({ _id: 'backendFallback' }),
-      backendPreference: db.settings.findOneAsync({ _id: 'backendPreference' }),
       hidePlaylists: db.settings.findOneAsync({ _id: 'hidePlaylists' }),
     }
-  }
-
-  static _findScreenshotFolderPath() {
-    return db.settings.findOneAsync({ _id: 'screenshotFolderPath' })
   }
 
   static _updateBounds(value) {
@@ -180,18 +185,24 @@ class Playlists {
     return db.playlists.updateAsync({ _id: playlist._id }, { $set: playlist }, { upsert: true })
   }
 
-  static upsertVideoByPlaylistId(_id, videoData) {
+  static upsertVideoByPlaylistId(_id, lastUpdatedAt, videoData) {
     return db.playlists.updateAsync(
       { _id },
-      { $push: { videos: videoData } },
+      {
+        $push: { videos: videoData },
+        $set: { lastUpdatedAt }
+      },
       { upsert: true }
     )
   }
 
-  static upsertVideosByPlaylistId(_id, videos) {
+  static upsertVideosByPlaylistId(_id, lastUpdatedAt, videos) {
     return db.playlists.updateAsync(
       { _id },
-      { $push: { videos: { $each: videos } } },
+      {
+        $push: { videos: { $each: videos } },
+        $set: { lastUpdatedAt }
+      },
       { upsert: true }
     )
   }
@@ -200,17 +211,23 @@ class Playlists {
     return db.playlists.removeAsync({ _id, protected: { $ne: true } })
   }
 
-  static deleteVideoIdByPlaylistId(_id, videoId, playlistItemId) {
+  static deleteVideoIdByPlaylistId(_id, lastUpdatedAt, videoId, playlistItemId) {
     if (playlistItemId != null) {
       return db.playlists.updateAsync(
         { _id },
-        { $pull: { videos: { playlistItemId } } },
+        {
+          $pull: { videos: { playlistItemId } },
+          $set: { lastUpdatedAt }
+        },
         { upsert: true }
       )
     } else if (videoId != null) {
       return db.playlists.updateAsync(
         { _id },
-        { $pull: { videos: { videoId } } },
+        {
+          $pull: { videos: { videoId } },
+          $set: { lastUpdatedAt }
+        },
         { upsert: true }
       )
     } else {
@@ -218,10 +235,13 @@ class Playlists {
     }
   }
 
-  static deleteVideoIdsByPlaylistId(_id, playlistItemIds) {
+  static deleteVideoIdsByPlaylistId(_id, lastUpdatedAt, playlistItemIds) {
     return db.playlists.updateAsync(
       { _id },
-      { $pull: { videos: { playlistItemId: { $in: playlistItemIds } } } },
+      {
+        $pull: { videos: { playlistItemId: { $in: playlistItemIds } } },
+        $set: { lastUpdatedAt }
+      },
       { upsert: true }
     )
   }
@@ -250,6 +270,12 @@ class SearchHistory {
 
   static upsert(searchHistoryEntry) {
     return db.searchHistory.updateAsync({ _id: searchHistoryEntry._id }, searchHistoryEntry, { upsert: true })
+  }
+
+  static async overwrite(records) {
+    await db.searchHistory.removeAsync({}, { multi: true })
+
+    await db.searchHistory.insertAsync(records)
   }
 
   static delete(_id) {
@@ -290,37 +316,40 @@ class SubscriptionCache {
     )
   }
 
-  static updateShortsWithChannelPageShortsByChannelId(channelId, entries) {
-    return db.subscriptionCache.findOneAsync({ _id: channelId }, { shorts: 1 }).then((doc) => {
-      if (doc == null) { return }
+  static async updateShortsWithChannelPageShortsByChannelId(channelId, entries) {
+    const doc = await db.subscriptionCache.findOneAsync({ _id: channelId }, { shorts: 1 })
 
-      const shorts = doc.shorts
-      const cacheShorts = Array.isArray(shorts) ? shorts : []
+    if (!Array.isArray(doc?.shorts)) {
+      return
+    }
 
-      cacheShorts.forEach(cachedVideo => {
-        const channelVideo = entries.find(short => cachedVideo.videoId === short.videoId)
-        if (!channelVideo) { return }
+    let hasUpdates = false
 
-        // authorId probably never changes, so we don't need to update that
-        cachedVideo.title = channelVideo.title
-        cachedVideo.author = channelVideo.author
+    doc.shorts.forEach(cachedVideo => {
+      const channelVideo = entries.find(short => cachedVideo.videoId === short.videoId)
+      if (!channelVideo) { return }
 
-        // as the channel shorts page only has compact view counts for numbers above 1000 e.g. 12k
-        // and the RSS feeds include an exact value, we only want to overwrite it when the number is larger than the cached value
-        // 12345 vs 12000 => 12345
-        // 12345 vs 15000 => 15000
+      hasUpdates = true
 
-        if (channelVideo.viewCount > cachedVideo.viewCount) {
-          cachedVideo.viewCount = channelVideo.viewCount
-        }
-      })
+      // authorId probably never changes, so we don't need to update that
+      cachedVideo.title = channelVideo.title
+      cachedVideo.author = channelVideo.author
 
-      return db.subscriptionCache.updateAsync(
-        { _id: channelId },
-        { $set: { shorts: cacheShorts } },
-        { upsert: true }
-      )
+      // as the channel shorts page only has compact view counts for numbers above 1000 e.g. 12k
+      // and the RSS feeds include an exact value, we only want to overwrite it when the number is larger than the cached value
+      // 12345 vs 12000 => 12345
+      // 12345 vs 15000 => 15000
+      if (channelVideo.viewCount > cachedVideo.viewCount) {
+        cachedVideo.viewCount = channelVideo.viewCount
+      }
     })
+
+    if (hasUpdates) {
+      await db.subscriptionCache.updateAsync(
+        { _id: channelId },
+        { $set: { shorts: doc.shorts } }
+      )
+    }
   }
 
   static updateCommunityPostsByChannelId(channelId, entries, timestamp) {
@@ -338,6 +367,17 @@ class SubscriptionCache {
   static deleteAll() {
     return db.subscriptionCache.removeAsync({}, { multi: true })
   }
+}
+
+function loadDatastores() {
+  return Promise.allSettled([
+    db.settings.loadDatabaseAsync(),
+    db.history.loadDatabaseAsync(),
+    db.profiles.loadDatabaseAsync(),
+    db.playlists.loadDatabaseAsync(),
+    db.searchHistory.loadDatabaseAsync(),
+    db.subscriptionCache.loadDatabaseAsync(),
+  ])
 }
 
 function compactAllDatastores() {
@@ -359,5 +399,6 @@ export {
   SearchHistory as searchHistory,
   SubscriptionCache as subscriptionCache,
 
+  loadDatastores,
   compactAllDatastores,
 }

@@ -7,7 +7,6 @@
       {{ translatedCategoryName }}
     </div>
     <FtSelect
-      :sanitized-id="id + 'categoryColor'"
       :describe-by-id="id"
       :placeholder="$t('Settings.SponsorBlock Settings.Category Color')"
       :value="sponsorBlockValues.color"
@@ -15,11 +14,10 @@
       :select-values="COLOR_VALUES"
       :icon="['fas', 'palette']"
       :class="'sec' + sponsorBlockValues.color"
-      icon-color="var(--accent-color)"
+      icon-color="rgb(var(--accent-color-rgb))"
       @change="updateColor"
     />
     <FtSelect
-      :sanitized-id="id + 'skipOption'"
       :describe-by-id="id"
       :placeholder="$t('Settings.SponsorBlock Settings.Skip Options.Skip Option')"
       :value="sponsorBlockValues.skip"
@@ -32,11 +30,10 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useId } from '../../composables/use-id-polyfill'
+import { computed, useId } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
-import FtSelect from '../ft-select/ft-select.vue'
+import FtSelect from '../FtSelect/FtSelect.vue'
 
 import store from '../../store/index'
 

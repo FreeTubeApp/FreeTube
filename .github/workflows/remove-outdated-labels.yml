@@ -5,57 +5,66 @@ on:
       - closed
       - converted_to_draft
       - ready_for_review
-jobs:
-  remove-merged-pr-labels:
-    name: Remove merged pull request labels
-    if: github.event.pull_request.merged
-    runs-on: ubuntu-latest
-    steps:
-      - uses: mondeja/remove-labels-gh-action@v2.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          labels: |
-            PR: waiting for review
-            PR: WIP
-            PR: changes requested
-            PR: merge conflicts / rebase needed
-            PR/Issue: dependent
-            PR: stale
 
+permissions: {}
+
+jobs:
   remove-closed-pr-labels:
-    name: Remove closed pull request labels
-    if: github.event_name == 'pull_request_target' && (! github.event.pull_request.merged) && (github.event.action != 'converted_to_draft') && (github.event.action != 'ready_for_review')
-    runs-on: ubuntu-latest
+    name: Remove closed and merged pull request labels
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-slim
+
+    permissions:
+      pull-requests: write
+
     steps:
-      - uses: mondeja/remove-labels-gh-action@v2.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          labels: |
-            PR: waiting for review
-            PR: WIP
-            PR: changes requested
-            PR: merge conflicts / rebase needed
-            PR/Issue: dependent
-            PR: stale
+      - name: Remove labels
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          labels='PR: waiting for review,'
+          labels+='PR: WIP,'
+          labels+='PR: changes requested,'
+          labels+='PR: merge conflicts / rebase needed,'
+          labels+='PR/Issue: dependent,'
+          labels+='PR: stale'
+
+          gh pr edit "$PR_URL" --remove-label "$labels"
 
   remove-draft-pr-labels:
     name: Remove labels from draft pull requests
-    if: github.event_name == 'pull_request_target' && github.event.action == 'converted_to_draft'
-    runs-on: ubuntu-latest
+    if: |
+      github.event.action == 'converted_to_draft' && contains(github.event.pull_request.labels.*.name, 'PR: waiting for review')
+    runs-on: ubuntu-slim
+
+    permissions:
+      pull-requests: write
+
     steps:
-      - uses: mondeja/remove-labels-gh-action@v2.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          labels: |
-            PR: waiting for review
+      - name: Remove label
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr edit "$PR_URL" --remove-label 'PR: waiting for review'
 
   remove-ready-pr-labels:
     name: Remove labels when draft pr is marked ready for review
-    if: github.event_name == 'pull_request_target' && github.event.action == 'ready_for_review'
-    runs-on: ubuntu-latest
+    if: |
+      github.event.action == 'ready_for_review' && contains(github.event.pull_request.labels.*.name, 'PR: WIP')
+    runs-on: ubuntu-slim
+
+    permissions:
+      pull-requests: write
+
     steps:
-      - uses: mondeja/remove-labels-gh-action@v2.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          labels: |
-            PR: WIP
+      - name: Remove label
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          gh pr edit "$PR_URL" --remove-label 'PR: WIP'

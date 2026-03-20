@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Bosanski'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Ovaj dio aplikacije još nije spreman. Vratite se kasnije kad se postigne napredak.
 
 # Webkit Menu Bar
 File: 'Fajl'
@@ -15,8 +12,6 @@ Copy: 'Kopiraj'
 Paste: 'Umetni'
 Delete: 'Izbriši'
 Select all: 'Odabri sve'
-Reload: 'Ponovo učitaj'
-Force Reload: 'Silom učitaj ponovo'
 Toggle Developer Tools: 'Uključi alate za programere'
 Actual size: 'Prirodna veličina'
 Zoom in: 'Približi'
@@ -28,16 +23,16 @@ Close: 'Zatvori'
 Back: 'Nazad'
 Forward: 'Unapred'
 
-Version {versionNumber} is now available!  Click for more details: 'Verzija {versionNumber}
-  je sada dostupna! Kliknite za više detalja'
+Version {versionNumber} is now available!  Click for more details: 'Verzija {versionNumber} je sada dostupna! Kliknite za više detalja'
 Download From Site: 'Instaliraj preko stranice'
-A new blog is now available, {blogTitle}. Click to view more: 'Sada je dostupan novi
-  blog, {blogTitle}. Kliknite da vidite više'
+A new blog is now available, {blogTitle}. Click to view more: 'Sada je dostupan novi blog, {blogTitle}. Kliknite da vidite više'
 
 Global:
   Sort By: 'Poredaj po'
 
 # Search Bar
+  Live: Uživo
+  Videos: Videozapisi
 Search / Go to URL: 'Pretražite / idite na URL'
   # In Filter Button
 Search Filters:
@@ -58,7 +53,7 @@ Search Filters:
   Type:
     Type: 'Vrsta'
     All Types: 'Sve vrste'
-    Videos: 'Video'
+    Videos: 'Videozapisi'
     Channels: 'Kanali'
     #& Playlists
   Duration:
@@ -74,15 +69,12 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Pretplate'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Ovaj
-    profil ima veliki broj pretplata. Prisiljavanje RSS-a da izbjegne ograničenje
-    brzine'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaša
-    lista pretplata je trenutno prazna. Počnite dodavati pretplate da biste ih vidjeli
-    ovdje.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Ovaj profil ima veliki broj pretplata. Prisiljavanje RSS-a da izbjegne ograničenje brzine'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaša lista pretplata je trenutno prazna. Počnite dodavati pretplate da biste ih vidjeli ovdje.'
   Load More Videos: 'Očitaj više videozapisa'
 Trending:
   Trending: 'U trendu'
+  Sports: Sport
 Most Popular: 'Naj popularnije'
 Playlists: 'playliste'
 User Playlists:
@@ -95,15 +87,12 @@ History:
 Settings:
   # On Settings Page
   Settings: 'Postavke'
-  The app needs to restart for changes to take effect. Restart and apply change?: 'Aplikacija
-    se treba restartovati da bi promjene stupile na snagu. Restartuj i primijeniti
-    promjenu?'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Aplikacija se treba restartovati da bi promjene stupile na snagu. Restartuj i primijeniti promjenu?'
   General Settings:
     General Settings: 'Generalne postavke'
     Check for Updates: 'Provjeri ima li update'
     Check for Latest Blog Posts: 'Potraži najnovije objave na blogu'
-    Fallback to Non-Preferred Backend on Failure: 'Vraćanje na neželjeni backend u
-      slučaju neuspjeha'
+    Fallback to Non-Preferred Backend on Failure: 'Vraćanje na neželjeni backend u slučaju neuspjeha'
     Enable Search Suggestions: 'Omogući prijedloge pretraživanja'
     Default Landing Page: 'Zadana odredišna stranica'
     Locale Preference: 'Jezik'
@@ -127,6 +116,20 @@ Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
 Channel:
-  Videos: {}
+  Videos:
+    Videos: Videozapisi
 Tooltips: {}
 No: 'Ne'
+New Window: Novi Prozor
+Search Listing:
+  Label:
+    4K: 4K
+    8K: 8K
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Uključi alate za programere
+  Zoom In: Približi
+  Zoom Out: Umanji
+  Fullscreen: Prebaci preko cijelog ekrana
+Preferences: Postavke
+Profile:
+  Select All: Odabri sve

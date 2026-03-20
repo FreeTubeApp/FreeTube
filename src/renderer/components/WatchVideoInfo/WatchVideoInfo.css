@@ -1,0 +1,137 @@
+.watchVideoInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 8px;
+}
+
+.videoTitle {
+  display: block;
+  font-size: 22px;
+  font-weight: normal;
+  margin-block: 0;
+  margin-inline: 0;
+  overflow-wrap: break-word;
+}
+
+.videoMetrics,
+.videoButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.unlistedBadge {
+  background-color: var(--secondary-card-bg-color);
+  border-radius: 5px;
+  display: inline;
+  padding-inline: 5px;
+  padding-block: 2px;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.profileRow {
+  display: flex;
+  align-items: center;
+}
+
+.channelThumbnail {
+  border-radius: 50%;
+  cursor: pointer;
+  margin-inline-end: 10px;
+  inline-size: 56px;
+}
+
+.channelName {
+  color: inherit;
+  cursor: pointer;
+  display: block;
+  margin-inline-start: 6px;
+  margin-block-end: 3px;
+  position: relative;
+  text-decoration: inherit;
+  inset-block-start: -2px;
+}
+
+.videoMetrics {
+  font-size: 14px;
+  color: var(--tertiary-text-color);
+}
+
+.likeSection {
+  color: var(--tertiary-text-color);
+  display: flex;
+  flex-direction: column;
+  margin-inline-start: auto;
+  margin-block-start: 4px;
+  max-inline-size: 210px;
+  text-align: end;
+}
+
+.likeBar {
+  border-radius: 4px;
+  block-size: 8px;
+  margin-block-end: 4px;
+}
+
+.likeCount {
+  margin-inline-end: 0;
+  display: flex;
+  gap: 3px;
+}
+
+.videoViews {
+  white-space: nowrap;
+}
+
+.videoOptions {
+  display: flex;
+  gap: 4px;
+}
+
+.videoOptionsMobileRow {
+  display: flex;
+  gap: 4px;
+}
+
+@media screen and (width <= 730px) {
+  .videoButtons {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-block-start: 10px;
+  }
+}
+
+@media screen and (width <= 680px) {
+  .likeSection {
+    margin-inline-start: 0;
+    text-align: start;
+  }
+}
+
+@media screen and (width <= 460px) {
+  .datePublishedAndViewCount {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+  }
+
+  .seperator {
+    display: none;
+  }
+}
+
+@media screen and (width <= 380px) {
+  .videoOptions {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-block-start: 10px;
+  }
+
+  .videoOptionsMobileRow :deep(.iconDropdown) {
+    inset-inline: 0 auto;
+  }
+}
