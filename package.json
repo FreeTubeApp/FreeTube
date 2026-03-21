@@ -63,7 +63,7 @@
     "googlevideo": "^4.0.4",
     "marked": "^17.0.4",
     "process": "^0.11.10",
-    "shaka-player": "^5.0.6",
+    "shaka-player": "^5.0.7",
     "swiper": "^12.1.2",
     "vue": "^3.5.30",
     "vue-i18n": "^11.3.0",
@@ -74,7 +74,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
-    "@babel/preset-env": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
     "@double-great/stylelint-a11y": "^3.4.6",
     "@eslint/js": "^10.0.1",
     "@intlify/eslint-plugin-vue-i18n": "^4.3.0",
