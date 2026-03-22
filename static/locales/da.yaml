@@ -4,7 +4,7 @@ Locale Name: 'Dansk'
 # Webkit Menu Bar
 File: 'Fil'
 Quit: 'Afslut'
-Edit: 'Redigér'
+Edit: 'Rediger'
 Undo: 'Fortryd'
 Redo: 'Omgør'
 Cut: 'Klip'
@@ -18,10 +18,10 @@ Zoom in: 'Zoom ind'
 Zoom out: 'Zoom ud'
 Toggle fullscreen: 'Slå fuld skærm til/fra'
 Window: 'Vindue'
-Minimize: 'Minimér'
+Minimize: 'Minimer'
 Close: 'Luk'
 Back: 'Tilbage'
-Forward: 'Fremad'
+Forward: 'Frem'
 
 # Global
 # Anything shared among components / views should be put here
@@ -51,6 +51,7 @@ Search Filters:
   Search Filters: 'Søgefiltre'
   Prioritize:
     Most Relevant: 'Mest relevante'
+    Popularity: Popularitet
   Time:
     Time: 'Tid'
     Any Time: 'Altid'
@@ -88,15 +89,16 @@ Search Filters:
     360 Video: 360° video
     VR180: VR180
     Creative Commons: Creative Commons
+  Clear Filters: Ryd filtre
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: 'Abonnenter'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din abonnementsliste er tom. Hvis du vil importere dine abonnementer, gå til "Dataindstillinger" og vælg "Importér Abonnementer" – eller søg efter en kanal og abonner på den.'
+  Subscriptions: 'Abonnementer'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din abonnementsliste er tom. Hvis du vil importere dine abonnementer, gå til "Dataindstillinger" og vælg "Importér abonnementer", eller søg efter en kanal og abonner på den.'
   Load More Videos: Indlæs flere videoer
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne profil har et stort antal abonnenter. Gennemtvinger RSS for at undgå adgangsbegrænsning
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne profil har et stort antal abonnementer. Gennemtvinger RSS for at undgå adgangsbegrænsning
   Error Channels: Kanaler med fejl
   Empty Channels: De kanaler, du abonnerer på, har i øjeblikket ingen videoer.
-  Disabled Automatic Fetching: Du har deaktiveret automatisk hentning af abonnenter. Opdatér abonnenter for at se dem her.
+  Disabled Automatic Fetching: Du har deaktiveret automatisk hentning af abonnementer. Opdater abonnementer for at se dem her.
   Empty Posts: De kanaler, du abonnerer på, har i øjeblikket ingen opslag.
   Load More Posts: Indlæs flere opslag
   Subscriptions Tabs: Abonnement-faner
@@ -115,19 +117,19 @@ User Playlists:
   This playlist currently has no videos.: Denne playliste har ingen videoer.
   Create New Playlist: Opret ny playliste
   Add to Playlist: Føj til playliste
-  You have no playlists. Click on the create new playlist button to create a new one.: Du har ingen playlister. Klik på "Opret Ny Playliste"-knappen for at oprette en.
+  You have no playlists. Click on the create new playlist button to create a new one.: Du har ingen playlister. Klik på "Opret ny playliste"-knappen for at oprette en.
   Remove from Favorites: Fjern fra {playlistName}
   Move Video Up: Flyt video op
   Copy Playlist: Kopiér playliste
   Remove Watched Videos: Fjern sete videoer
   Delete Playlist: Slet playliste
   Sort By:
-    EarliestCreatedFirst: Tidligst oprettet
-    EarliestUpdatedFirst: Tidligst opdateret
-    LatestPlayedFirst: Afspillet for nyligt
-    LatestCreatedFirst: Nyligt oprettet
-    LatestUpdatedFirst: Nyligt opdateret
-    EarliestPlayedFirst: Tidligst afspillet
+    EarliestCreatedFirst: Oprettelsesdato (Ældste)
+    EarliestUpdatedFirst: Dato opdateret (Ældste)
+    LatestPlayedFirst: Dato afspillet (Nyeste)
+    LatestCreatedFirst: Oprettelsesdato (Nyeste)
+    LatestUpdatedFirst: Dato opdateret (Nyeste)
+    EarliestPlayedFirst: Dato afspillet (Ældste)
     NameDescending: Å-A
     NameAscending: A-Å
   Are you sure you want to delete this playlist? This cannot be undone: Er du sikker på, at du vil slette denne playliste? Det kan ikke fortrydes.
@@ -149,10 +151,10 @@ User Playlists:
       Playlist {playlistName} has been deleted.: Playlisten "{playlistName}" blev slettet.
       This playlist has a video with a duration error: Denne playliste indeholder mindst én video uden varighed. Den sorteres, som om dens varighed er nul.
       Video has been removed. Click here to undo.: Videoen blev fjernet. Klik her for at fortryde.
-      This playlist is now used for quick bookmark: Denne playliste bruges nu til hurtig bogmærke
+      This playlist is now used for quick bookmark: Denne playliste bruges nu til hurtigt bogmærke
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Denne playliste bruges nu som hurtigt bogmærke i stedet for {oldPlaylistName}. Klik her for at fortryde
       Reverted to use {oldPlaylistName} for quick bookmark: Tilbageført til at bruge {oldPlaylistName} til hurtigt bogmærke
-      This playlist is already being used for quick bookmark.: Denne playliste bruges allerede til hurtig bogmærke.
+      This playlist is already being used for quick bookmark.: Denne playliste bruges allerede til hurtigt bogmærke.
   AddVideoPrompt:
     Select a playlist to add your N videos to: Vælg en playliste, du vil føje videoen til | Vælg en playliste, du vil føje de {videoCount} videoer til
     N playlists selected: '{playlistCount} valgt'
@@ -175,8 +177,8 @@ User Playlists:
   Move Video Down: Flyt video ned
   Playlist Description: Playlistebeskrivelse
   Save Changes: Gem ændringer
-  Cancel: Annullér
-  Edit Playlist Info: Redigér playlisteinfo
+  Cancel: Annuller
+  Edit Playlist Info: Rediger playlisteinfo
   Add to Favorites: Føj til {playlistName}
   Remove from Playlist: Fjern fra playliste
   Playlist Name: Playlistenavn
@@ -186,10 +188,11 @@ User Playlists:
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Er du sikker på, at du vil fjerne 1 duplikatvideo fra denne playliste? Det kan ikke fortrydes. | Er du sikker på, at du vil fjerne {playlistItemCount} duplikatvideoer fra denne playliste? Det kan ikke fortrydes.
   Remove Duplicate Videos: Fjern duplikatvideoer
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Er du sikker på, at du vil fjerne 1 set video fra denne playliste? Det kan ikke fortrydes. | Er du sikker på, at du vil fjerne {playlistItemCount} sete videoer fra denne playliste? Det kan ikke fortrydes.
-  Cannot delete the quick bookmark target playlist.: Kan ikke slette den hurtige bogmærke målliste.
+  Cannot delete the quick bookmark target playlist.: Kan ikke slette målplaylisten for hurtigt bogmærke.
   Quick Bookmark Enabled: Hurtigt bogmærke aktiveret
-  Enable Quick Bookmark With This Playlist: Aktiver Hurtigt bogmærke med denne afspilningsliste
+  Enable Quick Bookmark With This Playlist: Aktivér hurtigt bogmærke med denne playliste
   TotalTimePlaylist: 'Samlet tid: {duration}'
+  Export list of URLs: Eksportér URL-liste
 History:
   # On History Page
   History: 'Historik'

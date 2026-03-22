@@ -44,6 +44,8 @@ Search Filters:
   Search Filters: '検索の絞り込み'
   Prioritize:
     Most Relevant: '関連度'
+    Prioritize: 優先順位
+    Popularity: 人気
   Time:
     Time: '日時'
     Any Time: '期間指定なし'

@@ -44,6 +44,8 @@ Search Filters:
   Search Filters: 'Фильтры поиска'
   Prioritize:
     Most Relevant: 'Наиболее актуальным'
+    Prioritize: Приоритет
+    Popularity: Популярность
   Time:
     Time: 'Время'
     Any Time: 'Любое время'
