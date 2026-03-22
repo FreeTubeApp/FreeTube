@@ -103,19 +103,27 @@ const actions = {
     const profileList = state.profileList
 
     for (const profile of profileList) {
-      const currentProfileCopy = deepCopy(profile)
+      // Only copied if something has actually changed, in which case this variable will be replaced with the copy.
+      let currentProfile = profile
       let profileUpdated = false
 
       for (const { channelThumbnailUrl, channelName, channelId } of channels) {
-        const channel = currentProfileCopy.subscriptions.find((channel) => {
+        let channel = currentProfile.subscriptions.find((channel) => {
           return channel.id === channelId
         }) ?? null
 
         if (channel === null) { continue }
 
         if (channel.name !== channelName && channelName != null) {
+          if (!profileUpdated) {
+            const index = currentProfile.subscriptions.indexOf(channel)
+
+            currentProfile = deepCopy(currentProfile)
+            channel = currentProfile.subscriptions[index]
+            profileUpdated = true
+          }
+
           channel.name = channelName
-          profileUpdated = true
         }
 
         if (channelThumbnailUrl) {
@@ -126,14 +134,21 @@ const actions = {
             .replace(/^https?:\/\/[^/]+\/ggpht/, 'https://yt3.googleusercontent.com')
 
           if (channel.thumbnail !== thumbnail) {
+            if (!profileUpdated) {
+              const index = currentProfile.subscriptions.indexOf(channel)
+
+              currentProfile = deepCopy(currentProfile)
+              channel = currentProfile.subscriptions[index]
+              profileUpdated = true
+            }
+
             channel.thumbnail = thumbnail
-            profileUpdated = true
           }
         }
       }
 
       if (profileUpdated) {
-        await dispatch('updateProfile', currentProfileCopy)
+        await dispatch('updateProfile', currentProfile)
       }
     }
   },
@@ -146,22 +161,34 @@ const actions = {
       .replace(/^https?:\/\/[^/]+\/ggpht/, 'https://yt3.googleusercontent.com') ??
       null
     const profileList = state.profileList
+
     for (const profile of profileList) {
-      const currentProfileCopy = deepCopy(profile)
-      const channel = currentProfileCopy.subscriptions.find((channel) => {
+      const index = profile.subscriptions.findIndex((channel) => {
         return channel.id === channelId
-      }) ?? null
-      if (channel === null) { continue }
-      let updated = false
-      if (channel.name !== channelName && channelName != null) {
-        channel.name = channelName
-        updated = true
+      })
+
+      if (index === -1) { continue }
+
+      // Only copied when something has actually changed
+      let currentProfileCopy
+
+      if (channelName != null && profile.subscriptions[index].name !== channelName) {
+        if (currentProfileCopy === undefined) {
+          currentProfileCopy = deepCopy(profile)
+        }
+
+        currentProfileCopy.subscriptions[index].name = channelName
       }
-      if (channel.thumbnail !== thumbnail && thumbnail != null) {
-        channel.thumbnail = thumbnail
-        updated = true
+
+      if (thumbnail != null && profile.subscriptions[index].thumbnail !== thumbnail) {
+        if (currentProfileCopy === undefined) {
+          currentProfileCopy = deepCopy(profile)
+        }
+
+        currentProfileCopy.subscriptions[index].thumbnail = thumbnail
       }
-      if (updated) {
+
+      if (currentProfileCopy !== undefined) {
         await dispatch('updateProfile', currentProfileCopy)
       } else { // channel has not been updated, stop iterating through profiles
         break
