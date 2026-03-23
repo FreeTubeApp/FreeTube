@@ -797,15 +797,18 @@ function runApp() {
   }
 
   function defaultTrayMenu() {
-    return [
+    const menuItems = [
       {
         label: 'New Window',
         click: () => createWindow({
           showWindowNow: true,
           replaceMainWindow: trayWindows.some(item => item.id === mainWindow.id)
         })
-      },
-      {
+      }
+    ]
+
+    if (trayWindows.length >= 2) {
+      menuItems.push({
         label: 'Show All Windows',
         click: () => {
           // Use while loop instead of for loop as trayClick modifies the trayWindows array
@@ -813,12 +816,15 @@ function runApp() {
             trayClick(trayWindows[0])
           }
         }
-      },
-      {
-        label: 'Quit',
-        click: handleQuit
-      }
-    ]
+      })
+    }
+
+    menuItems.push({
+      label: 'Quit',
+      click: handleQuit
+    })
+
+    return menuItems
   }
 
   function destroyTray() {
