@@ -44,6 +44,8 @@ Search Filters:
   Search Filters: 'Filtry wyszukiwania'
   Prioritize:
     Most Relevant: 'Trafność'
+    Prioritize: Ustal priorytety
+    Popularity: Popularność
   Time:
     Time: 'Czas przesłania'
     Any Time: 'Kiedykolwiek'
@@ -1010,7 +1012,7 @@ Chapters:
 Preferences: Preferencje
 Ok: Ok
 Hashtag:
-  Hashtag: Hashtag
+  Hashtag: Hasztag
   This hashtag does not currently have any videos: Nie ma na razie żadnych filmów z takim hashtagiem
 Channel Hidden: '{channel} dodany do filtra kanałów'
 Go to page: Idź do {page}
