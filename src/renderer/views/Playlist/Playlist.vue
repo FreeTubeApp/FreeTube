@@ -70,7 +70,7 @@
         />
         <AutoScrollWrapper
           v-if="visiblePlaylistItems.length > 0"
-          :hot-zone-enabled="isSortOrderCustom && isVideoDragging()"
+          :hot-zone-enabled="isSortOrderCustom && isVideoDragging"
         >
           <FtElementList
             v-if="listType === 'grid'"
@@ -89,7 +89,7 @@
             :can-remove-from-playlist="true"
             :dragged-video="draggedVideo"
             :is-sort-order-custom="isSortOrderCustom"
-            :is-video-dragging="isVideoDragging()"
+            :is-video-dragging="isVideoDragging"
             @drag-video="setDraggedVideo"
             @drag-video-end="onDragVideoEnd"
             @move-dragged-video="moveDraggedVideoTemporarilyThrottled"
@@ -122,7 +122,7 @@
               :initial-visible-state="index < 10"
               :dragged-video="draggedVideo"
               :is-sort-order-custom="isSortOrderCustom"
-              :is-video-dragging="isVideoDragging()"
+              :is-video-dragging="isVideoDragging"
               @drag-video="setDraggedVideo"
               @drag-video-end="onDragVideoEnd"
               @move-dragged-video="moveDraggedVideoTemporarilyThrottled"
@@ -811,14 +811,12 @@ function onDragVideoEnd() {
   })
 }
 
-/**
- * @returns {boolean} isVideoDragging
- */
-const isVideoDragging = () => {
+/** @type {import('vue').ComputedRef<boolean>} */
+const isVideoDragging = computed(() => {
   const { videoId, playlistItemId } = draggedVideo.value
 
-  return Boolean(videoId && playlistItemId)
-}
+  return videoId != null && playlistItemId != null
+})
 
 function moveDraggedVideoTemporarily({ videoId, playlistItemId }, { videoId: droppedVideoId, playlistItemId: droppedPlaylistItemId }) {
   // To ensure we can drag an item back to its original position in a single drag (i.e. no change), the temp items should be used
