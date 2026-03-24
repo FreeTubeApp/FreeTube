@@ -45,6 +45,9 @@ function profileSort(a, b) {
   const bNameLower = b.name.toLowerCase()
   if (aNameLower < bNameLower) return -1
   if (aNameLower > bNameLower) return 1
+  // Case-insensitive names are equal, use case-sensitive comparison as tiebreaker.
+  if (a.name < b.name) return -1
+  if (a.name > b.name) return 1
   return 0
 }
 
