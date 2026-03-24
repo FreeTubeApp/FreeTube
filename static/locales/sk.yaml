@@ -43,7 +43,9 @@ Search / Go to URL: 'Hľadať / Ísť na URL adresu'
 Search Filters:
   Search Filters: 'Vyhľadávacie filtre'
   Prioritize:
-    Most Relevant: 'Najdôležitejšie'
+    Most Relevant: 'Najrelevantnejšie'
+    Prioritize: Uprednostniť
+    Popularity: Popularita
   Time:
     Time: 'Čas'
     Any Time: 'Kedykoľvek'
