@@ -41,8 +41,10 @@ const getters = {
 function profileSort(a, b) {
   if (a._id === MAIN_PROFILE_ID) return -1
   if (b._id === MAIN_PROFILE_ID) return 1
-  if (a.name < b.name) return -1
-  if (a.name > b.name) return 1
+  const aNameLower = a.name.toLowerCase()
+  const bNameLower = b.name.toLowerCase()
+  if (aNameLower < bNameLower) return -1
+  if (aNameLower > bNameLower) return 1
   return 0
 }
 
