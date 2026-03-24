@@ -118,27 +118,17 @@ export default {
     return ipcRenderer.invoke(IpcChannels.GENERATE_PO_TOKEN, videoId, context)
   },
 
-  /**
-   * @param {0 | 1} kind
-   */
-  chooseDefaultFolder: (kind) => {
-    ipcRenderer.send(IpcChannels.CHOOSE_DEFAULT_FOLDER, kind)
+  chooseDefaultFolder: () => {
+    ipcRenderer.send(IpcChannels.CHOOSE_DEFAULT_FOLDER)
   },
 
   /**
-   * @param {0 | 1} kind
    * @param {string} filename
    * @param {ArrayBuffer} contents
+   * @returns {Promise<boolean>}
    */
-  writeToDefaultFolder: async (kind, filename, contents) => {
-    await ipcRenderer.invoke(IpcChannels.WRITE_TO_DEFAULT_FOLDER, kind, filename, contents)
-  },
-
-  /**
-   * @returns {Promise<string>}
-   */
-  getScreenshotFallbackFolder: () => {
-    return ipcRenderer.invoke(IpcChannels.GET_SCREENSHOT_FALLBACK_FOLDER)
+  writeToDefaultFolder: async (filename, contents) => {
+    return await ipcRenderer.invoke(IpcChannels.WRITE_TO_DEFAULT_FOLDER, filename, contents)
   },
 
   relaunch: () => {
@@ -146,11 +136,27 @@ export default {
   },
 
   /**
-   * @param {string} executable
-   * @param {string} args
+   * @param {import('../main/externalPlayer').ExternalPlayerPayload} payload
    */
-  openInExternalPlayer: (executable, args) => {
-    ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, executable, args)
+  openInExternalPlayer: (payload) => {
+    // require the user to have interacted with the page recently
+    if (navigator.userActivation.isActive) {
+      ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, payload)
+    }
+  },
+
+  /**
+   * @param {(
+   *   externalPlayer: string,
+   *   unsuportedActions: (import('../constants').UnsupportedPlayerAction)[],
+   *   isPlaylist: boolean
+   * ) => void} handler
+   */
+  handleOpenInExternalPlayerResult: (handler) => {
+    ipcRenderer.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER_RESULT,
+      (event, externalPlayer, unsupportedActions, isPlaylist) => {
+        handler(externalPlayer, unsupportedActions, isPlaylist)
+      })
   },
 
   /**

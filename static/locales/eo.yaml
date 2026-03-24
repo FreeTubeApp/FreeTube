@@ -31,15 +31,11 @@ Search / Go to URL: 'Serĉi / Iri al URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Serĉaj filtriloj'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Plej rilataj'
-    Rating: 'Takso'
-    Upload Date: 'Alŝuta dato'
-    View Count: 'Spektonombro'
   Time:
     Time: 'Tempo'
     Any Time: 'Ajna tempo'
-    Last Hour: 'Lasta horo'
     Today: 'Hodiaŭ'
     This Week: 'Ĉi-semajne'
     This Month: 'Ĉi-monate'
@@ -53,8 +49,8 @@ Search Filters:
   Duration:
     Duration: 'Daŭrtempo'
     All Durations: 'Ĉiuj daŭrtempoj'
-    Short (< 4 minutes): 'Mallongaj (<4 minutoj)'
-    Long (> 20 minutes): 'Longaj (> 20 minutoj)'
+    '< 3 minutes': '<3 minutoj'
+    '> 20 minutes': '> 20 minutoj'
   # On Search Page
 Subscriptions:
     # On Subscriptions Page

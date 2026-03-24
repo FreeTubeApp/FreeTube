@@ -42,15 +42,13 @@ Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtres de recherche'
-  Sort By:
-    Most Relevant: 'Plus pertinent'
-    Rating: 'Avis'
-    Upload Date: 'Date de mise en ligne'
-    View Count: 'Nombre de vues'
+  Prioritize:
+    Most Relevant: 'Pertinence'
+    Prioritize: Priorité
+    Popularity: Popularité
   Time:
     Time: 'Date'
     Any Time: 'Toutes les dates'
-    Last Hour: 'Dernière heure'
     Today: 'Aujourd’hui'
     This Week: 'Cette semaine'
     This Month: 'Ce mois-ci'
@@ -65,10 +63,9 @@ Search Filters:
   Duration:
     Duration: 'Durée'
     All Durations: 'Toutes les durées'
-    Short (< 4 minutes): 'Court (moins de 4 min)'
-    Long (> 20 minutes): 'Longue (plus de 20 min)'
-  # On Search Page
-    Medium (4 - 20 minutes): Moyenne (de 4 à 20 min)
+    '< 3 minutes': 'Moins de 3 minutes'
+    '> 20 minutes': 'Plus de 20 minutes'
+    '3 - 20 minutes': De 3 à 20 minutes
   Search Results: 'Résultats de la recherche'
   Fetching results. Please wait: 'Récupération des résultats. Veuillez patienter'
   Fetch more results: 'Afficher plus de résultats'
@@ -76,14 +73,14 @@ Search Filters:
   There are no more results for this search: Il n’y a pas plus de résultats pour cette recherche
   Features:
     Creative Commons: Creative Commons
-    Features: Fonctionnalités
+    Features: Caractéristiques
     HD: HD
     Subtitles: Sous-titres
     3D: 3D
     Live: En direct
     4K: 4K
-    360 Video: Vidéo 360
-    Location: Emplacement
+    360 Video: Vidéo 360°
+    Location: Lieu
     HDR: HDR
     VR180: VR180
   Clear Filters: Effacer les filtres
@@ -104,7 +101,7 @@ Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
   Gaming: Jeux vidéo
-  Sports: Sports
+  Sports: Sport
 Most Popular: 'Les plus populaires'
 Playlists: 'Playlists'
 User Playlists:
@@ -588,13 +585,6 @@ Settings:
       None:
         Name: Aucun
     Ignore Default Arguments: Ignorer les arguments par défaut
-  Download Settings:
-    Download Settings: 'Téléchargement'
-    Ask Download Path: 'Demander l’emplacement de téléchargement'
-    Choose Path: 'Choisir l’emplacement'
-    Download Behavior: Méthode de téléchargement
-    Download in app: Via l’application
-    Open in web browser: Ouvrir dans le navigateur web
   Parental Control Settings:
     Hide Unsubscribe Button: Masquer le bouton de désabonnement
     Hide Search Bar: Masquer la barre de recherche
@@ -615,6 +605,9 @@ Settings:
     Password Settings: Mot de passe
   Sort Settings Sections (A-Z): Trier de À à Z les rubriques des paramètres
   Return to Settings Menu: Revenir au Menu paramètres
+  SABR:
+    Label: Activer SABR comme backend DASH
+    Tooltip: SABR deviendra le seul moteur DASH dans les prochaines versions et ne pourra pas être désactivé. Cette option est disponible au cas où une implémentation préliminaire présenterait des problèmes irrémédiables.
 About:
   #On About page
   About: 'À propos'
@@ -634,9 +627,7 @@ About:
   Report a problem: Signaler un problème
   Source code: Code source
   these people and projects: ces personnes et ces projets
-  FreeTube is made possible by: FreeTube est rendu possible par
   room rules: règles du salon
-  Please read the: Veuillez lire les
   Please check for duplicates before posting: Veuillez vérifier s'il y a des doublons avant de publier
   GitHub issues: Les problèmes identifiés par la communauté sur GitHub
   FreeTube Wiki: Wiki de FreeTube
@@ -644,7 +635,9 @@ About:
   Downloads / Changelog: Téléchargements / Journal des modifications
   Discussions: Discussions
   AGPLv3: AGPLv3
-  Licensed under the: Sous licence
+  Licensed under the {licenseLink}: Sous licence {licenseLink}
+  Please read the {roomRulesLink}: Veuillez lire les {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube est rendu possible grâce à {creditsPageLink}
 Channel:
   Subscribe: 'S’abonner'
   Unsubscribe: 'Se désabonner'
@@ -722,11 +715,11 @@ Video:
   # As in a Live Video
   Live: 'En direct'
   Live Now: 'En direct maintenant'
-  Live Chat: 'Tchat en direct'
-  Enable Live Chat: 'Activer le tchat en direct'
-  Live Chat is currently not supported in this build.: 'Le tchat en direct n''est actuellement pas pris en charge dans cette version.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Le tchat en direct est activé. Les messages de tchat apparaîtront ici une fois envoyés.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Le tchat en direct n''est actuellement pas pris en charge avec l''API Invidious. Une connexion directe à YouTube est requise.'
+  Live Chat: 'Chat en direct'
+  Enable Live Chat: 'Activer le chat en direct'
+  Live Chat is currently not supported in this build.: 'Le chat en direct n''est actuellement pas pris en charge dans cette version.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Le chat en direct est activé. Les messages apparaîtront ici une fois envoyés.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Le chat en direct n''est actuellement pas pris en charge avec l''API Invidious. Une connexion directe à YouTube est requise.'
   Published:
     In less than a minute: En moins d'une minute
   Published on: 'Mise en ligne le'
@@ -738,9 +731,6 @@ Video:
   Shuffle Playlist: Mélanger la playlist
   Loop Playlist: Playlist en boucle
   Starting soon, please refresh the page to check again: Débute prochainement, veuillez actualiser la page pour vérifier à nouveau
-  audio only: audio uniquement
-  video only: vidéo uniquement
-  Download Video: Télécharger la vidéo
   Copy Invidious Channel Link: Copier le lien Invidious de la chaîne
   Open Channel in Invidious: Ouvrir la chaîne sur Invidious
   Copy YouTube Channel Link: Copier le lien de la chaîne YouTube
@@ -777,7 +767,7 @@ Video:
   Show Super Chat Comment: Afficher le commentaire Super Chat
   Scroll to Bottom: Faire défiler jusqu'en bas
   Upcoming: À venir
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Le chat en direct n'est pas disponible pour ce flux. Il a peut-être été désactivé par le téléchargeur.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Le chat en direct n'est pas disponible pour ce flux. Il a peut-être été désactivé par l'auteur de la diffusion.
   Hide Channel: Cacher la chaîne
   Unhide Channel: Rétablir la chaîne
   More Options: Plus d'options
@@ -821,6 +811,10 @@ Video:
 #& Playlists
   Save Watched Progress: Enregistrer l'état de visionnage
   Watched Progress Saved: État de visionnage enregistré
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Temps de publicité pré-roll restant : {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Temps d’attente SABR restant : {remindingTimeSeconds}s'
+  Popout Live Chat: Ouvrir le chat dans une nouvelle fenêtre
 Playlist:
   #& About
   View Full Playlist: 'Afficher la playlist complète'
@@ -903,7 +897,7 @@ Shuffle is now enabled: 'Mode aléatoire activé'
 Playing Next Video: 'Lecture de la vidéo suivante'
 Playing Previous Video: 'Lecture de la vidéo précédente'
 Canceled next video autoplay: 'Annuler la lecture automatique'
-'The playlist has ended. Enable loop to continue playing': 'La playlist est terminée. Activez la lecture en boucle pour continuer.'
+'The playlist has ended. Enable loop to continue playing': 'La playlist est terminée. Activez la lecture en boucle pour continuer'
 
 Yes: 'Oui'
 No: 'Non'
@@ -983,7 +977,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les playlists et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} » applicable à l'ensemble de l'application, dans la section « {subsection} » de la section « {settingsSection} »
-    Hide Videos, Playlists and Channels Containing Text: Saisissez un mot, un fragment de mot ou une phrase (insensible à la casse) pour masquer toutes les vidéos et sélections dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube, à l'exception de l'historique, de vos playlists et des vidéos contenues dans les playlists.
+    Hide Videos, Playlists and Channels Containing Text: Saisissez un mot, un fragment de mot ou une phrase (insensible à la casse) pour masquer toutes les vidéos, playlists et chaînes dont le titre original contient ce mot ou cette phrase dans l'ensemble de FreeTube, à l'exception de l'historique, de vos playlists et des vidéos contenues dans les playlists.
     Hide Videos on Watch: Masque les vidéos visionnées des onglets Vidéos, Shorts, En direct des pages Abonnements et Chaînes. Ceci n'a pas d'effet sur l'onglet Accueil des pages Chaînes
   SponsorBlock Settings:
     UseDeArrowTitles: Remplacer les titres des vidéos par des titres proposés par les utilisateurs de DeArrow.
@@ -999,11 +993,6 @@ Search Bar:
   Remove: Retirer
 Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
 External link opening has been disabled in the general settings: L'ouverture des liens externes a été désactivée dans les paramètres généraux
-Downloading has completed: '{videoTitle} a fini de se télécharger'
-Starting download: 'Début du téléchargement de {videoTitle}'
-Downloading failed: 'Il y a eu un problème lors du téléchargement de {videoTitle}'
-Downloading canceled: 'Le téléchargement est annulé par l''utilisateur'
-Download folder does not exist: 'Le répertoire "$" de téléchargement n''existe pas. Mode sans répertoire activé.'
 Screenshot Success: Capture d'écran enregistrée
 Screenshot Error: La capture d’écran a échoué. {error}
 New Window: Nouvelle fenêtre

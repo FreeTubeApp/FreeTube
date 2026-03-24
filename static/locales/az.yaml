@@ -38,15 +38,11 @@ Search Bar:
   Remove: Sil
 Search Filters:
   Search Filters: 'Axtarış Filtrləri'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Ən Münasib'
-    Rating: 'Qiymətləndirmə'
-    Upload Date: 'Yükləmə Tarixi'
-    View Count: 'Baxış Sayı'
   Time:
     Time: 'Vaxt'
     Any Time: 'İstənilən Vaxt'
-    Last Hour: 'Son Saat'
     Today: 'Bu gün'
     This Week: 'Bu Həftə'
     This Month: 'Bu Ay'
@@ -61,10 +57,9 @@ Search Filters:
   Duration:
     Duration: 'Müddət'
     All Durations: 'Bütün Müddətlər'
-    Short (< 4 minutes): 'Qısa (<4 dəqiqədən az)'
-    Long (> 20 minutes): 'Uzun (> 20 dəqiqədən çox)'
-  # On Search Page
-    Medium (4 - 20 minutes): Orta (4-20 dəqiqə)
+    '< 3 minutes': '<3 dəqiqədən az'
+    '> 20 minutes': '> 20 dəqiqədən çox'
+    '3 - 20 minutes': 3-20 dəqiq
   Search Results: 'Axtarış Nəticələri'
   Fetching results. Please wait: 'Nəticələr alınır. Zəhmət olmasa, gözləyin'
   Fetch more results: 'Daha çox nəticə əldə edin'

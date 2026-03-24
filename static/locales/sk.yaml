@@ -42,15 +42,13 @@ Search / Go to URL: 'Hľadať / Ísť na URL adresu'
   # In Filter Button
 Search Filters:
   Search Filters: 'Vyhľadávacie filtre'
-  Sort By:
-    Most Relevant: 'Najdôležitejšie'
-    Rating: 'Hodnotenie'
-    Upload Date: 'Dátum nahrávania'
-    View Count: 'Počet pozeraní'
+  Prioritize:
+    Most Relevant: 'Najrelevantnejšie'
+    Prioritize: Uprednostniť
+    Popularity: Popularita
   Time:
     Time: 'Čas'
     Any Time: 'Kedykoľvek'
-    Last Hour: 'Posledná hodina'
     Today: 'Dnes'
     This Week: 'Tento týždeň'
     This Month: 'Tento mesiac'
@@ -65,10 +63,9 @@ Search Filters:
   Duration:
     Duration: 'Trvanie'
     All Durations: 'Všetky trvania'
-    Short (< 4 minutes): 'Krátke (menej ako 4 minúty)'
-    Long (> 20 minutes): 'Dlhé (viac ako 20 minút)'
-  # On Search Page
-    Medium (4 - 20 minutes): Stredné (4 až 20 minút)
+    '< 3 minutes': 'menej ako 3 minúty'
+    '> 20 minutes': 'viac ako 20 minút'
+    '3 - 20 minutes': 3 až 20 minút
   Search Results: 'Výsledky vyhľadávania'
   Fetching results. Please wait: 'Načítavanie výsledkov. Čakajte, prosím'
   Fetch more results: 'Načítať viac výsledkov'
@@ -605,13 +602,7 @@ Settings:
     Replace HTTP Cache: Nahradiť medzipamäť HTTP
     Warning: Tieto nastavenia sú experimentálne a môžu spôsobiť zlyhanie systému, ak sú aktivované. Dôrazne odporúčame vytvárať zálohy. Používate na vlastné riziko!
     Experimental Settings: Experimentálne
-  Download Settings:
-    Open in web browser: Otvoriť vo webovom prehliadači
-    Download in app: Stiahnuť v aplikácii
-    Download Behavior: Správanie sťahovania
-    Choose Path: Vybrať cestu
-    Ask Download Path: Spýtať sa na cieľové umiestnenie sťahovania
-    Download Settings: Sťahovanie
+
 About:
   #On About page
   About: 'O FreeTube'
@@ -627,12 +618,10 @@ About:
   Report a problem: Nahlásiť problém
   FAQ: Otázky a odpovede
   Donate: Darujte
-  FreeTube is made possible by: FreeTube existuje vďaka
   these people and projects: týmto ľuďom a projektom
   Credits: Zásluhy
   Translate: Preložiť
   room rules: pravidlá miestností
-  Please read the: Prečítajte si
   Chat on Matrix: Napíšte nám na Matrix-e
   Mastodon: Komunikačná platforma Mastodon
   Email: Elektronická pošta
@@ -641,7 +630,9 @@ About:
   Please check for duplicates before posting: Pred odoslaním prosím skontrolujte duplicitné otázky
   Discussions: Diskusie
   AGPLv3: AGPLv3
-  Licensed under the: Licencované pod
+  Licensed under the {licenseLink}: Licencované pod {licenseLink}
+  Please read the {roomRulesLink}: Prečítajte si prosím {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube existuje vďaka {creditsPageLink}
 Channel:
   Subscribe: 'Odoberať'
   Unsubscribe: 'Odhlásiť odber'
@@ -729,9 +720,6 @@ Video:
   Starting soon, please refresh the page to check again: Čoskoro začína, obnovte stránku a znova skontrolujte
   Started streaming on: Začiatok vysielania o
   Streamed on: Odvysielané dňa
-  audio only: len zvuk
-  video only: len video
-  Download Video: Stiahnuť video
   Previous: Predchádzajúce
   Next: Ďalšie
   Reverse Playlist: Obrátiť playlist
@@ -817,6 +805,10 @@ Video:
   MembersOnly: Videá len pre členov nemôžu byť pozerané vo FreeTube, pretože vyžadujú prihlásenie Google a platené členstvo v kanáli nahrávača.
   IP block: YouTube zablokoval pozeranie videa z vašej IP adresy. Prosím skúste prepnúť na inú VPN alebo proxy.
   Scroll to Bottom: Posunúť na koniec
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Zostávajúci čas prvotnej reklamy: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Zostávajúci čas pauzy SABR: {remindingTimeSeconds} s'
+  Popout Live Chat: Popout Chat
 Playlist:
   #& About
   View Full Playlist: 'Zobraziť celý playlist'
@@ -1087,8 +1079,6 @@ shortcutJoinOperator: +
 Age Restricted:
   This video is age restricted: Toto video je vekovo obmedzené
   This channel is age restricted: Tento kanál je vekovo obmedzený
-Downloading has completed: Sťahovanie videa"{videoTitle}" je dokončené
-Starting download: Začína sa sťahovanie súboru „{videoTitle}“
 shortcutLabelSeparator: ｜
 Display Label: '{label}: {value}'
 checkmark: ✓
@@ -1106,7 +1096,6 @@ Channel Unhidden: '{channel} odstránený z filtra kanálov'
 Channel Hidden: '{channel} pridaný do filtra kanálov'
 Screenshot Error: Snímka obrazovky sa nepodarila. {error}
 Screenshot Success: Snímka obrazovky uložená
-Downloading failed: Došlo k problému so sťahovaním "{videoTitle}"
 Autoplay Interruption Timer: Automatické prehrávanie zrušené kvôli {autoplayInterruptionIntervalHours} hodinám nečinnosti
 Description:
   Collapse Description: Zobraziť menej

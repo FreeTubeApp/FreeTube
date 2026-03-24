@@ -42,15 +42,13 @@ Search / Go to URL: '搜索 / 前往URL'
   # In Filter Button
 Search Filters:
   Search Filters: '搜索过滤'
-  Sort By:
+  Prioritize:
     Most Relevant: '最相关'
-    Rating: '评分'
-    Upload Date: '上传日期'
-    View Count: '观看数量'
+    Prioritize: 优先
+    Popularity: 流行度
   Time:
     Time: '发布时间'
     Any Time: '任何时间'
-    Last Hour: '一小时内'
     Today: '今天'
     This Week: '本周'
     This Month: '本月'
@@ -65,10 +63,9 @@ Search Filters:
   Duration:
     Duration: '时长'
     All Durations: '所有时长'
-    Short (< 4 minutes): '短（< 4分钟）'
-    Long (> 20 minutes): '长（> 20分钟）'
-  # On Search Page
-    Medium (4 - 20 minutes): 中等（4-20 分钟）
+    '< 3 minutes': '< 3分钟'
+    '> 20 minutes': '> 20分钟'
+    '3 - 20 minutes': 3-20 分钟
   Search Results: '搜索结果'
   Fetching results. Please wait: '摘取结果中。请稍候'
   Fetch more results: '摘取更多结果'
@@ -588,13 +585,6 @@ Settings:
       None:
         Name: 无
     Ignore Default Arguments: 忽略默认变量
-  Download Settings:
-    Download Settings: 下载
-    Ask Download Path: 询问下载路径
-    Choose Path: 选择路径
-    Download in app: 应用内下载
-    Open in web browser: 在网络浏览器内打开
-    Download Behavior: 下载行为
   Parental Control Settings:
     Parental Control Settings: 家长控制
     Show Family Friendly Only: 仅显示“家庭友好”视频
@@ -615,6 +605,9 @@ Settings:
     Remove Password: 删除密码
   Sort Settings Sections (A-Z): 对设置部分进行排序（A-Z）
   Return to Settings Menu: 返回设置菜单
+  SABR:
+    Label: 启用 SABR 为 DASH 后端
+    Tooltip: SABR 在未来版本中将成为唯一后端，无法禁用。提供此开关是以防提早实实施有不可恢复的问题。
 About:
   #On About page
   About: '关于'
@@ -628,7 +621,6 @@ About:
   Donate: 捐款
   Credits: 贡献者
   Translate: 翻译
-  Please read the: 请阅读
   Chat on Matrix: 在 Matrix 上聊天
   Mastodon: Mastodon
   FAQ: 常见问题
@@ -641,10 +633,11 @@ About:
   Downloads / Changelog: 下载 / 更新日志
   room rules: 聊天室规则
   these people and projects: 这些人和项目
-  FreeTube is made possible by: FreeTube 的存在依赖
   Discussions: 讨论
-  Licensed under the: 许可依据
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: 在 {licenseLink} 许可证下授权
+  Please read the {roomRulesLink}: 请阅读 {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: 没有 {creditsPageLink} 就不可能有 FreeTube
 Channel:
   Subscribe: '订阅'
   Unsubscribe: '取消订阅'
@@ -738,9 +731,6 @@ Video:
   Shuffle Playlist: 随机播放列表
   Loop Playlist: 循环播放列表
   Starting soon, please refresh the page to check again: 即将开始，请刷新页面再次检查
-  audio only: 仅音频
-  video only: 仅视频
-  Download Video: 下载视频
   Copy Invidious Channel Link: 复制Invidious频道连结
   Open Channel in Invidious: 在Invidious打开频道
   Copy YouTube Channel Link: 复制YouTube频道链接
@@ -821,6 +811,10 @@ Video:
 #& Playlists
   Watched Progress Saved: 保存了已观看进度
   Save Watched Progress: 保存已观看进度
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 剩余的预滚动广告时间:：{remindingTimeSeconds} 秒
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 剩余 SABR 后退时间：{remindingTimeSeconds} 秒
+  Popout Live Chat: 弹出式聊天
 Playlist:
   #& About
   View Full Playlist: '查看完整播放列表'
@@ -999,11 +993,6 @@ External link opening has been disabled in the general settings: 外部链接打
 Default Invidious instance has been set to {instance}: 默认的 Invidious 实例已被设置为 {instance}
 Playing Next Video Interval: 马上播放下一个视频。单击取消。| {nextVideoInterval} 秒内播放下个视频。单击取消。 | {nextVideoInterval} 秒内播放下个视频。单击取消。
 Default Invidious instance has been cleared: 已清除默认的 Invidious 实例
-Downloading failed: 下载“{videoTitle}”出现一个问题
-Downloading has completed: 已完成下载 “{videoTitle}”
-Starting download: 开始下载“{videoTitle}”
-Downloading canceled: 用户取消了下载
-Download folder does not exist: 下载目录“$”不存在，退回到 “询问文件夹”模式。
 Screenshot Error: 截屏失败。{error}
 Screenshot Success: 已保存截屏
 New Window: 新窗口
@@ -1124,5 +1113,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: 跳到播放列表中下一个视频或下一个推荐的视频
   Skip to Previous Video: 跳到播放列表中前一个视频
 shortcutLabelSeparator: ｜
-Compact side navigation: 压缩侧边栏导航
+Compact side navigation: 紧凑侧边栏导航
 Expand side navigation: 扩展侧边栏导航

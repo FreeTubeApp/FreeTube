@@ -49,15 +49,11 @@ Search / Go to URL: 'Пошук / Перейти по URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Фільтри пошуку'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Найвідповідніші'
-    Rating: 'Рейтинг'
-    Upload Date: 'Час вивантаження'
-    View Count: 'Кількість переглядів'
   Time:
     Time: 'Час'
     Any Time: 'Будь-який час'
-    Last Hour: 'Остання година'
     Today: 'Сьогодні'
     This Week: 'Цього тижня'
     This Month: 'Цього місяця'
@@ -72,10 +68,9 @@ Search Filters:
   Duration:
     Duration: 'Тривалість'
     All Durations: 'Будь-яка тривалість'
-    Short (< 4 minutes): 'Короткі (< 4 хвилини)'
-    Long (> 20 minutes): 'Довгі (> 20 хвилин)'
-  # On Search Page
-    Medium (4 - 20 minutes): Середні (4 - 20 хвилин)
+    '< 3 minutes': '< 3 хвилини'
+    '> 20 minutes': '> 20 хвилин'
+    '3 - 20 minutes': 3 - 20 хвилин
   Search Results: 'Результати пошуку'
   Fetching results. Please wait: 'Завантажуються результати. Будь ласка, зачекайте'
   Fetch more results: 'Завантажити більше результатів'
@@ -579,13 +574,6 @@ Settings:
       None:
         Name: Немає
     Ignore Default Arguments: Ігнорувати стандартні аргументи
-  Download Settings:
-    Download Settings: Завантаження
-    Choose Path: Вибрати шлях
-    Ask Download Path: Запитувати шлях завантаження
-    Download Behavior: Поведінка завантаження
-    Download in app: Завантажити в застосунку
-    Open in web browser: Відкрити у переглядачі
   Parental Control Settings:
     Parental Control Settings: Батьківський контроль
     Hide Unsubscribe Button: Сховати кнопку скасування підписки
@@ -612,11 +600,9 @@ About:
   #& About
   Donate: Підтримати
   these people and projects: цим людям та проєктам
-  FreeTube is made possible by: FreeTube доступний завдяки
   Credits: Про авторів
   Translate: Перекласти
   room rules: правила кімнати
-  Please read the: Будь ласка, прочитайте
   Chat on Matrix: Чат у Matrix
   Mastodon: Mastodon
   Email: Електронна пошта
@@ -633,7 +619,6 @@ About:
   Source code: Джерельний код
   Beta: Бета
   Discussions: Обговорення
-  Licensed under the: Ліцензовано за умовами
   AGPLv3: AGPLv3
 Profile:
   Profile Select: 'Вибір профілю'
@@ -770,9 +755,6 @@ Video:
   Live Chat is currently not supported in this build.: 'Чат в режимі реального часу наразі не підтримується в цій збірці.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Чат увімкнено.  Повідомлення чату з''являться тут після надсилання.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Чат в режимі реального часу наразі не підтримується API Invidious.  Потрібне пряме з''єднання з YouTube.'
-  Download Video: 'Завантажити відео'
-  video only: 'лише відео'
-  audio only: 'лише звук'
   Published:
     In less than a minute: Менше ніж за хвилину
   Published on: 'Опубліковано'
@@ -985,11 +967,6 @@ Search Bar:
   Remove: Видалити
 External link opening has been disabled in the general settings: Відкриття зовнішнього посилання вимкнено в загальних налаштуваннях
 Are you sure you want to open this link?: Ви впевнені, що хочете відкрити це посилання?
-Downloading failed: Сталася проблема із завантаженням "{videoTitle}"
-Downloading canceled: Завантаження скасовано користувачем
-Starting download: Починається завантаження "{videoTitle}"
-Downloading has completed: '"{videoTitle}" завершив завантаження'
-Download folder does not exist: Каталог завантаження "$" не існує. Повернення до режиму «запитати теку».
 Screenshot Success: Збережений знімок екрана
 Screenshot Error: Не вдалося зробити знімок екрана. {error}
 New Window: Нове вікно

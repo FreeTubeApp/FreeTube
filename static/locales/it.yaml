@@ -45,15 +45,13 @@ Search / Go to URL: 'Ricerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtri di ricerca'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Più rilevante'
-    Rating: 'Valutazione'
-    Upload Date: 'Data di caricamento'
-    View Count: 'Visualizzazioni'
+    Popularity: Popolarità
+    Prioritize: Prioritizza
   Time:
     Time: 'Tempo'
     Any Time: 'Sempre'
-    Last Hour: 'Ultima ora'
     Today: 'Oggi'
     This Week: 'Questa settimana'
     This Month: 'Questo mese'
@@ -68,10 +66,9 @@ Search Filters:
   Duration:
     Duration: 'Durata'
     All Durations: 'Tutte le durate'
-    Short (< 4 minutes): 'Corto (< 4 minuti)'
-    Long (> 20 minutes): 'Lungo (> 20 minuti)'
-  # On Search Page
-    Medium (4 - 20 minutes): Medio (4 - 20 minuti)
+    '< 3 minutes': '< 3 minuti'
+    '> 20 minutes': '> 20 minuti'
+    '3 - 20 minutes': 3 - 20 minuti
   Search Results: 'Risultati della ricerca'
   Fetching results. Please wait: 'Caricamento risultati. Per favore attendi'
   Fetch more results: 'Carica più risultati'
@@ -591,13 +588,6 @@ Settings:
       None:
         Name: Nessuno
     Ignore Default Arguments: Ignora argomenti predefiniti
-  Download Settings:
-    Download Settings: Download
-    Ask Download Path: Chiedi il percorso di download
-    Choose Path: Scegli percorso
-    Download Behavior: Comportamento download
-    Open in web browser: Apri nel browser web
-    Download in app: Download nell'app
   Parental Control Settings:
     Hide Unsubscribe Button: Nascondi il pulsante Annulla iscrizione
     Parental Control Settings: Controllo genitori
@@ -633,11 +623,9 @@ About:
   Downloads / Changelog: Download / Registro delle modifiche
   GitHub releases: Versioni di GitHub
   these people and projects: queste persone e questi progetti
-  FreeTube is made possible by: FreeTube è reso possibile grazie a
   Credits: Crediti
   Translate: Traduzioni
   room rules: regole stanza
-  Please read the: Per favore leggi
   Chat on Matrix: Chatta su Matrix
   Mastodon: Mastodon
   Email: E-mail
@@ -647,7 +635,9 @@ About:
   Beta: Beta
   Discussions: Discussioni
   AGPLv3: AGPLv3
-  Licensed under the: Concesso con licenza
+  FreeTube is made possible by {creditsPageLink}: FreeTube è reso possibile da {creditsPageLink}
+  Licensed under the {licenseLink}: Concesso in licenza con {licenseLink}
+  Please read the {roomRulesLink}: Per favore leggi il {roomRulesLink}
 Channel:
   Subscribe: 'Iscriviti'
   Unsubscribe: 'Disiscriviti'
@@ -741,9 +731,6 @@ Video:
   Loop Playlist: Riproduzione continua playlist
   Autoplay: Riproduzione automatica
   Starting soon, please refresh the page to check again: La riproduzione partirà tra breve, aggiorna la pagina per ricontrollare
-  audio only: solo audio
-  video only: solo video
-  Download Video: Download video
   Copy Invidious Channel Link: Copia link canale Invidious
   Open Channel in Invidious: Apri il canale con Invidious
   Copy YouTube Channel Link: Copia link canale YouTube
@@ -824,6 +811,10 @@ Video:
 #& Playlists
   Watched Progress Saved: Progresso guardato salvato
   Save Watched Progress: Salva i progressi raggiunti
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': "Tempo rimanente per l'annuncio preroll: {remindingTimeSeconds}s"
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tempo di backoff SABR rimanente: {remindingTimeSeconds}s'
+  Popout Live Chat: Chat popout
 Playlist:
   #& About
   View Full Playlist: 'Guarda playlist completa'
@@ -960,7 +951,7 @@ Tooltips:
   Player Settings:
     Default Video Format: Imposta i formati usati quando un video viene riprodotto. I formati DASH possono riprodurre qualità maggiore. I formati compatibili sono limitati ad un massimo di 360p ma usano meno banda. I formati audio riproducono solo l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video invece di una connessione diretta a YouTube.
-    Scroll Playback Rate Over Video Player: Mentre il cursore è sopra il video, tieni premuto il tasto CTRL (Command su Mac) e scorri la rotella del mouse in avanti o indietro per controllare la velocità di riproduzione. Tieni premuto il tasto CTRL (Command su Mac) e fai clic con il tasto sinistro del mouse per tornare rapidamente alla velocità di riproduzione predefinita (1x a meno che non sia stata cambiata nelle Impostazioni).
+    Scroll Playback Rate Over Video Player: Mentre il cursore si trova sul video, tieni premuto il tasto Control (Command su Mac) e ruota la rotellina del mouse in avanti o all'indietro per regolare la velocità di riproduzione. Tieni premuto il tasto Control (Command su Mac) e fai clic con il tasto sinistro del mouse per tornare rapidamente alla velocità di riproduzione predefinita (1x, a meno che non sia stata modificata nelle impostazioni).
     Skip by Scrolling Over Video Player: Usa la rotella di scorrimento per saltare il video, in stile MPV.
   Subscription Settings:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard per leggere le iscrizioni. Gli RSS sono più veloci e impediscono il blocco dell'IP, ma non forniscono determinate informazioni come la durata del video, lo stato dal vivo o i post
@@ -995,15 +986,12 @@ More: Altro
 Open New Window: Apri una nuova finestra
 Default Invidious instance has been cleared: L'istanza predefinita di Invidious è stata cancellata
 Default Invidious instance has been set to {instance}: L'istanza predefinita di Invidious è stata impostata a {instance}
-Unknown YouTube url type, cannot be opened in app: Tipo di URL di YouTube sconosciuto, non può essere aperto nell'app
+Unknown YouTube url type, cannot be opened in app: Tipo di URL YouTube sconosciuto, impossibile aprirlo nell'app
 Search Bar:
   Clear Input: Pulisci ricerca
   Remove: Rimuovi
 External link opening has been disabled in the general settings: L'apertura dei link esterni è stata disabilitata nelle Impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
-Downloading has completed: 'Il download di {videoTitle} è terminato'
-Starting download: Avvio del download di "{videoTitle}"
-Downloading failed: Si è verificato un problema durante il download di "{videoTitle}"
 Screenshot Success: Screenshot salvato
 Screenshot Error: Screenshot non riuscito. {error}
 New Window: Nuova finestra

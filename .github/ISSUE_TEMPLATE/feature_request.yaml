@@ -55,9 +55,59 @@ body:
         - visual improvement
     validations:
       required: true
+  - type: input
+    attributes:
+      label: FreeTube Version
+      description: |
+        If using releases, enter the version.
+        If using nightly builds, enter commit hash or build number, you can find it via about page in the FreeTube application.
+      placeholder: v0.14.0, 8c4278
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: Operating System Version
+      description: What operating system version are you using? On Windows, click Start button > Settings > System > About. On macOS, click the Apple Menu > About This Mac. On Linux, use lsb_release or uname -a.
+      placeholder: "e.g. Windows 10 version 1909, macOS Catalina 10.15.7, or Ubuntu 20.04"
+    validations:
+      required: true
+  - type: dropdown
+    attributes:
+      label: Installation Method
+      description: If you are using an unofficial installation method, please verify that the requested feature is not already available in one of the official installation methods. If the feature only relates to an unofficial installation, please direct the request to the maintainer of that installation method instead.
+      options:
+        - .AppImage
+        - .deb
+        - .dmg
+        - .exe
+        - Flathub
+        - .pacman
+        - Portable
+        - .rpm
+        - .zip / .7z
+        - .apk (FreeTubeAndroid Unofficial)
+        - .apk (Alpine Linux Package Unofficial)
+        - AUR (Unofficial)
+        - Chocolatey (Unofficial)
+        - Homebrew (Unofficial)
+        - Nix (Unofficial)
+        - PortableApps (Unofficial)
+        - Scoop (Unofficial)
+        - Snapcraft (Unofficial)
+        - WAPT (Unofficial)
+        - winget (Unofficial)
+        - other
+    validations:
+      required: true
+  - type: upload
+    id: screenshots
+    attributes:
+      label: Upload screenshots or videos
+      description: If applicable, add screenshots or videos to help explain your request.
+    validations:
+      required: false
   - type: textarea
     attributes:
       label: Additional Information
       description: |
-        Add any other context or screenshots/videos about the feature request here.
-        You may drag-and-drop screenshots.
+        Add any other context about the feature request here.

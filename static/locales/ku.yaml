@@ -47,15 +47,11 @@ Search / Go to URL: 'گەڕان / بڕۆ بۆ لینک'
   # In Filter Button
 Search Filters:
   Search Filters: 'فیلتەری گەڕان'
-  Sort By:
+  Prioritize:
     Most Relevant: 'گرنگترین'
-    Rating: 'ڕەیتینگ'
-    Upload Date: 'کاتی بڵاوکردنەوە'
-    View Count: 'ژماری بینراو'
   Time:
     Time: 'کات'
     Any Time: 'هەرکاتێک'
-    Last Hour: 'کاتژمێری پێشوو'
     Today: 'ئەمڕۆ'
     This Week: 'ئەم هەفتەیە'
     This Month: 'ئەم مانگە'
@@ -70,10 +66,6 @@ Search Filters:
   Duration:
     Duration: 'ماوە'
     All Durations: 'گشت ماوەکان'
-    Short (< 4 minutes): 'کورت (< ٤ خولەک)'
-    Long (> 20 minutes): 'درێژ (> ٢٠ خولەک)'
-  # On Search Page
-    Medium (4 - 20 minutes): مامناوەند (٤ - ٢٠ خولەک)
   Search Results: 'ئەنجامی گەڕان'
   Fetching results. Please wait: 'هێنانی ئەنجامەکان. تکایە چاوەڕێکە'
   Fetch more results: 'ئەنجامی زیاتر بێنە'
@@ -337,10 +329,8 @@ About:
   #& About
   Donate: دۆنەیشن
   these people and projects: ئەم کەسانە و پڕۆژانە
-  FreeTube is made possible by: فریتوب بونی هەیە بەهۆی
   Translate: تەرجومە
   room rules: یاسای ژوورەکە
-  Please read the: تکایە شتەکە بخوێنەوە
   Chat on Matrix: Matrix موناقەشە کە لە
   Mastodon: ماستۆدۆن
   Email: نامەی ئەلکترۆنی

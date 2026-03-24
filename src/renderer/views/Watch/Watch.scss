@@ -83,7 +83,6 @@
       margin-inline: auto;
       max-inline-size: calc(80vh * 1.78);
       position: relative;
-      max-block-size: 81vh;
 
       .videoThumbnail {
         inline-size: 100%;
@@ -205,11 +204,6 @@
   @media only screen and (width >= 1051px) {
     .infoArea {
       scroll-margin-block-start: 76px;
-    }
-
-    .infoAreaSticky {
-      position: sticky;
-      inset-block-start: 76px;
     }
   }
 }

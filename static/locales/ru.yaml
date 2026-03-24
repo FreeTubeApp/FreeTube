@@ -42,15 +42,13 @@ Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:
   Search Filters: 'Фильтры поиска'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Наиболее актуальным'
-    Rating: 'Оценке'
-    Upload Date: 'Дате загрузки'
-    View Count: 'Количеству просмотров'
+    Prioritize: Приоритет
+    Popularity: Популярность
   Time:
     Time: 'Время'
     Any Time: 'Любое время'
-    Last Hour: 'Последний час'
     Today: 'Сегодня'
     This Week: 'На этой неделе'
     This Month: 'В этом месяце'
@@ -65,10 +63,9 @@ Search Filters:
   Duration:
     Duration: 'Длительность'
     All Durations: 'Любая длительность'
-    Short (< 4 minutes): 'Короткие (< 4 минут)'
-    Long (> 20 minutes): 'Длинные (> 20 минут)'
-  # On Search Page
-    Medium (4 - 20 minutes): Средние (4—20 мин)
+    '< 3 minutes': '< 3 минут'
+    '> 20 minutes': '> 20 минут'
+    '3 - 20 minutes': 3—20 мин
   Search Results: 'Результаты поиска'
   Fetching results. Please wait: 'Получение результатов. Подождите'
   Fetch more results: 'Получить больше результатов'
@@ -588,13 +585,6 @@ Settings:
       None:
         Name: Нет
     Ignore Default Arguments: Не учитывать аргументы по умолчанию
-  Download Settings:
-    Download Settings: Скачивание
-    Ask Download Path: Спрашивать путь для скачивания
-    Choose Path: Выберите путь
-    Download in app: Скачать в приложении
-    Download Behavior: Действие при скачивании
-    Open in web browser: Открыть в браузере
   Parental Control Settings:
     Show Family Friendly Only: Показывать только семейный контент
     Parental Control Settings: Родительский Контроль
@@ -615,6 +605,9 @@ Settings:
     Remove Password: Удалить пароль
   Sort Settings Sections (A-Z): Сортировка разделов настроек (A-Z)
   Return to Settings Menu: Вернуться в Настройки
+  SABR:
+    Label: Включить SABR как движок DASH
+    Tooltip: SABR станет единственным движком DASH в будущих версиях и не сможет быть отключён. Этот переключатель предусмотрен на случай, если ранняя реализация будет содержать неустранимые ошибки.
 About:
   #On About page
   About: 'О приложении'
@@ -622,11 +615,9 @@ About:
 #On Channel Page
   Donate: Пожертвовать
   these people and projects: этим людям и проектам
-  FreeTube is made possible by: FreeTube появился благодаря
   Credits: Участники
   Translate: Перевод
   room rules: правила комнаты
-  Please read the: Изучите
   Chat on Matrix: Чат на Matrix
   Mastodon: Mastodon
   Email: Электронная почта
@@ -643,8 +634,10 @@ About:
   Please check for duplicates before posting: Перед публикацией проблемы, проверьте нет ли дубликатов
   GitHub issues: Проблемы на GitHub
   Discussions: Обсуждения
-  Licensed under the: Лицензия выдана под
   AGPLv3: Лицензия AGPLv3
+  Licensed under the {licenseLink}: Лицензируется на условиях {licenseLink}
+  Please read the {roomRulesLink}: Пожалуйста, прочтите {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube стал возможен благодаря {creditsPageLink}
 Channel:
   Subscribe: 'Подписаться'
   Unsubscribe: 'Отписаться'
@@ -738,9 +731,6 @@ Video:
   Shuffle Playlist: Перемешать плейлист
   Loop Playlist: Повторять плейлист
   Starting soon, please refresh the page to check again: Скоро начнется, обновите страницу, чтобы проверить ещё раз
-  audio only: только звук
-  video only: только видео
-  Download Video: Скачать видео
   Copy Invidious Channel Link: Скопировать ссылку на канал Invidious
   Open Channel in Invidious: Открыть канал в Invidious
   Copy YouTube Channel Link: Скопировать ссылку на канал YouTube
@@ -821,6 +811,10 @@ Video:
   DRMProtected: Видео, защищенное DRM, не может быть воспроизведено в FreeTube, так как оно требует использования проприетарных компонентов с закрытым исходным кодом. Если вы хотите посмотреть это видео, пожалуйста, смотрите его на официальном сайте YouTube в веб-браузере с поддержкой DRM.
   Save Watched Progress: Сохранение прогресса просмотренного видео
   Watched Progress Saved: Прогресс просмотренного видео сохранён
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Оставшееся время preroll-рекламы: {remindingTimeSeconds} сек'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Оставшееся время задержки SABR: {remindingTimeSeconds} сек'
+  Popout Live Chat: Вынести чат в отдельное окно
 Playlist:
   #& About
   View Full Playlist: 'Посмотреть весь плейлист'
@@ -866,7 +860,7 @@ Share:
   YouTube Channel URL copied to clipboard: Адрес канала YouTube скопирован в буфер обмена
   Invidious Channel URL copied to clipboard: Адрес канала Invidious скопирован в буфер обмена
   Share Channel: Поделиться каналом
-  Share Post: Поделиться постом
+  Share Post: Поделиться записью
 Mini Player: 'Мини-проигрыватель'
 Comments:
   Comments: 'Комментарии'
@@ -999,9 +993,6 @@ Search Bar:
   Clear Input: Очистить
   Remove: Удалить
 Are you sure you want to open this link?: Вы действительно хотите открыть эту ссылку?
-Starting download: Скачивание «{videoTitle}»
-Downloading has completed: '«{videoTitle}» скачано'
-Downloading failed: Возникла проблема при скачивании «{videoTitle}»
 Screenshot Success: Сохраненный скриншот
 Screenshot Error: Не удалось сделать скриншот. {error}
 New Window: Новое окно
@@ -1122,3 +1113,5 @@ Description:
   Collapse Description: Показать меньше
 Autoplay Interruption Timer: Автоигра отменена из-за {autoplayInterruptionIntervalHours} часов бездействия
 shortcutLabelSeparator: ｜
+Compact side navigation: Свернуть боковую панель
+Expand side navigation: Развернуть боковую панель

@@ -21,6 +21,7 @@
           ref="player"
           :manifest-src="manifestSrc"
           :manifest-mime-type="manifestMimeType"
+          :sabr-data="sabrData"
           :legacy-formats="legacyFormats"
           :start-time="startTimeSeconds"
           :captions="captions"
@@ -41,6 +42,7 @@
           :start-in-fullwindow="startNextVideoInFullwindow"
           :start-in-pip="startNextVideoInPip"
           :current-playback-rate="currentPlaybackRate"
+          :delay-load-until-unix="adEndTimeUnixMs"
           class="videoPlayer"
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"
@@ -51,6 +53,7 @@
           @playback-rate-updated="updatePlaybackRate"
           @skip-to-next="handleSkipToNext"
           @skip-to-prev="handleSkipToPrev"
+          @player-reload-requested="onPlayerReloadRequested"
         />
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"
@@ -122,9 +125,7 @@
     />
     <div
       v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
-      ref="infoArea"
       class="infoArea"
-      :class="{ infoAreaSticky }"
     >
       <watch-video-info
         v-if="!isLoading"
@@ -143,7 +144,6 @@
         :is-live-content="isLiveContent"
         :is-live="isLive"
         :is-upcoming="isUpcoming"
-        :download-links="downloadLinks"
         :playlist-id="playlistId"
         :get-playlist-index="getPlaylistIndex"
         :get-playlist-reverse="getPlaylistReverse"
@@ -158,8 +158,6 @@
         :class="{ theatreWatchVideo: useTheatreMode }"
         @change-format="handleFormatChange"
         @pause-player="pausePlayer"
-        @set-info-area-sticky="infoAreaSticky = $event"
-        @scroll-to-info-area="$refs.infoArea.scrollIntoView()"
         @save-watched-progress="handleWatchProgressManualSave"
       />
       <watch-video-chapters

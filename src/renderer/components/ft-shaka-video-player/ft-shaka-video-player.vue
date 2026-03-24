@@ -22,6 +22,8 @@
       @canplay="handleCanPlay"
       @volumechange="updateVolume"
       @timeupdate="handleTimeupdate"
+      @enterpictureinpicture="handleEnterPictureInPicture"
+      @leavepictureinpicture="handleLeavePictureInPicture"
     />
     <!--
       VR playback is only possible for VR videos with "EQUIRECTANGULAR" projection
@@ -65,7 +67,7 @@
         v-else
       >{{ $t('Video.Player.Stats.CodecsVideoAudioNoItags', stats.codecs) }}</span>
       <br>
-      <span>{{ $t('Video.Player.Stats.Player Dimensions', stats.playerDimensions) }}</span>
+      <span>{{ $t('Video.Player.Stats.Player Dimensions', playerDimensions) }}</span>
       <br>
       <template
         v-if="format !== 'audio'"

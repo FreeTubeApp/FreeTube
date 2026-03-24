@@ -47,15 +47,11 @@ Search / Go to URL: 'Søk/gå til nettadresse'
   # In Filter Button
 Search Filters:
   Search Filters: 'Søkefilter'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Mest relevant'
-    Rating: 'Vurdering'
-    Upload Date: 'Opplastingsdato'
-    View Count: 'Sjåartal'
   Time:
     Time: 'Tid'
     Any Time: 'Når som helst'
-    Last Hour: 'Den siste timen'
     Today: 'I dag'
     This Week: 'Denne veka'
     This Month: 'Denne månaden'
@@ -69,8 +65,8 @@ Search Filters:
   Duration:
     Duration: 'Varigheit'
     All Durations: 'Alle varigheitene'
-    Short (< 4 minutes): 'Kort (< 4 minutt)'
-    Long (> 20 minutes): 'Lang (> 20 minutt)'
+    '< 3 minutes': '< 3 minutt'
+    '> 20 minutes': '> 20 minutt'
   # On Search Page
   Search Results: 'Søkeresultat'
   Fetching results. Please wait: 'Henter resultat. Ver venleg og vent'
@@ -359,13 +355,6 @@ Settings:
     Replace HTTP Cache: Erstatt HTTP-hurtiglager
     Experimental Settings: Eksperimentelle innstillingar
     Warning: Desse innstillingane er eksperimentelle, og dei kan forårsake krasjar mens dei er aktivert. Det anbefalast å ta tryggleikskopiar. Bruk på eiget ansvar.
-  Download Settings:
-    Download Settings: Nedlastinginnstillingar
-    Choose Path: Vel bane
-    Download Behavior: Nedlastingåtferd
-    Ask Download Path: Spør om nedlastingbane
-    Open in web browser: Opne i nettlesar
-    Download in app: Last ned i program
   Parental Control Settings:
     Hide Search Bar: Skjul søkefelt
     Hide Unsubscribe Button: Skjul knapp for oppheving av abonnement
@@ -397,11 +386,9 @@ About:
   Email: 'E-post'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Snakk med oss på Matrix'
-  Please read the: 'Ver venleg og les'
   room rules: 'Romreglar'
   Translate: 'Omsetje'
   Credits: 'Bidrag'
-  FreeTube is made possible by: 'FreeTube er mogleggjort av'
   these people and projects: 'desse folka og prosjekta'
   Donate: 'Doner'
 
@@ -502,9 +489,6 @@ Video:
   Live Chat is currently not supported in this build.: 'Direktechat er ikkje støtta i den noverande versjonen.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Direktechat er slått på. Chatmeldingar vil bli vist her når dei er sendt.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Direktechat er førebels ikkje støtta av Invidious-API-et. Ei direkte tilkopling til YouTube er krevja.'
-  Download Video: 'Last ned video'
-  video only: 'berre video'
-  audio only: 'berre lyd'
   Published:
     In less than a minute: Om mindre enn eit minutt
   Published on: 'Publisert på'
@@ -655,15 +639,12 @@ Channels:
   Unsubscribe Prompt: Er du sikker på at du vil avslutte abonnementet på "{channelName}"?
 Screenshot Success: Lagra skjermbilete som "{filePath}"
 Screenshot Error: Skjermbilete feila. {error}
-Downloading has completed: Nedlastinga av "{videoTitle}" er fullført
 Ok: OK
 Clipboard:
   Cannot access clipboard without a secure connection: Får ikkje tilgang til utklipptavla utan ei sikker forbinding
   Copy failed: Kopiering til utklipptavle feila
 Chapters:
   Chapters: Kapittel
-Starting download: Starter nedlastinga av "{videoTitle}"
-Downloading failed: Det oppstod eit problem under nedlastinga av "{videoTitle}"
 Default Invidious instance has been cleared: Standard-Invidious-førekomst har blitt tilbakestilt
 Default Invidious instance has been set to {instance}: Standard-Invidious-førekomst har blitt satt til {instance}
 External link opening has been disabled in the general settings: Opening av eksterne lenker har blitt deaktivert i innstillingane

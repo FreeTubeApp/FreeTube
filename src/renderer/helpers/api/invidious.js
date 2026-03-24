@@ -1,9 +1,5 @@
 import store from '../../store/index'
-import {
-  calculatePublishedDate,
-  getRelativeTimeFromDate,
-  stripHTML,
-} from '../utils'
+import { calculatePublishedDate, getRelativeTimeFromDate } from '../utils'
 import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
 import { FormatUtils, Misc, Player } from 'youtubei.js'
@@ -181,6 +177,7 @@ export async function getInvidiousChannelVideos(channelId, sortBy, continuation)
   /** @type {{continuation: string?, videos: InvidiousVideoType[]}}  */
   const response = await getInvidiousChannelTab('videos', channelId, continuation, sortBy)
 
+  normalizeManyInvidiousVideosAttributes(response.videos, channelId)
   setMultiplePublishedTimestamps(response.videos)
 
   return response
@@ -215,6 +212,7 @@ export async function getInvidiousChannelLive(channelId, sortBy, continuation) {
   /** @type {{continuation: string?, videos: InvidiousVideoType[]}}  */
   const response = await getInvidiousChannelTab('streams', channelId, continuation, sortBy)
 
+  normalizeManyInvidiousVideosAttributes(response.videos, channelId)
   setMultiplePublishedTimestamps(response.videos)
 
   return response
@@ -276,6 +274,7 @@ export async function searchInvidiousChannel(channelId, query, page) {
 
   response.forEach((item) => {
     if (item.type === 'video') {
+      normalizeOneInvidiousVideoAttributes(item, channelId)
       setPublishedTimestamp(item)
     }
   })
@@ -314,6 +313,7 @@ export async function invidiousGetPlaylistInfo(playlistId) {
     id: playlistId,
   })
 
+  normalizeManyInvidiousVideosAttributes(playlist.videos)
   setMultiplePublishedTimestamps(playlist.videos)
 
   return playlist
@@ -522,6 +522,7 @@ export async function getInvidiousPopularFeed() {
 
   items.forEach((item) => {
     if (item.type === 'video' || item.type === 'shortVideo') {
+      normalizeOneInvidiousVideoAttributes(item)
       setPublishedTimestamp(item)
     }
   })
@@ -535,6 +536,13 @@ export async function getInvidiousPopularFeed() {
  * @param {any} searchSettings
  */
 export async function getInvidiousSearchResults(query, page, searchSettings) {
+  const DURATION_MAP = {
+    '': '',
+    under_three_mins: 'short',
+    three_to_twenty_mins: 'medium',
+    over_twenty_mins: 'long',
+  }
+
   /** @type {Promise<(InvidiousChannelObject | InvidiousPlaylistObject | InvidiousVideoType | InvidiousHashtagObject)[] | null>} */
   let results = await invidiousAPICall({
     resource: 'search',
@@ -542,9 +550,9 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
     params: {
       q: query,
       page,
-      sort_by: searchSettings.sortBy,
+      sort_by: searchSettings.prioritize === 'popularity' ? 'view_count' : searchSettings.prioritize,
       date: searchSettings.time,
-      duration: searchSettings.duration,
+      duration: DURATION_MAP[searchSettings.duration],
       type: searchSettings.type,
       features: searchSettings.features.join(',')
     }
@@ -560,6 +568,7 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
 
   results.forEach((item) => {
     if (item.type === 'video') {
+      normalizeOneInvidiousVideoAttributes(item)
       setPublishedTimestamp(item)
     }
   })
@@ -610,7 +619,7 @@ function parseInvidiousCommentData(response) {
       authorThumb: youtubeImageUrlToInvidious(comment.authorThumbnails.at(-1).url),
       author: comment.author,
       likes: comment.likeCount,
-      text: autolinker.link(stripHTML(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstanceUrl()))),
+      text: autolinker.link(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstanceUrl())),
       dataType: 'invidious',
       isOwner: comment.authorIsChannelOwner,
       isPinned: comment.isPinned,
@@ -825,6 +834,7 @@ export async function getHashtagInvidious(hashtag, page = 1) {
     }
   })
 
+  normalizeManyInvidiousVideosAttributes(response.results)
   setMultiplePublishedTimestamps(response.results)
 
   return response.results
@@ -940,6 +950,28 @@ export function mapInvidiousLegacyFormat(format) {
     width: parseInt(stringWidth),
     url: format.url
   }
+}
+
+/**
+ * @param {{
+ *  authorId: string | null,
+ * }[]} videos
+ * @param {string|null} [fallbackAuthorId]
+ */
+function normalizeManyInvidiousVideosAttributes(videos, fallbackAuthorId = null) {
+  const actualFallbackAuthorId = fallbackAuthorId === '' ? null : fallbackAuthorId
+
+  videos.forEach((v) => normalizeOneInvidiousVideoAttributes(v, actualFallbackAuthorId))
+}
+
+/**
+ * @param {{
+ *  authorId: string | null,
+ * }} video
+ * @param {string|null} [fallbackAuthorId]
+ */
+function normalizeOneInvidiousVideoAttributes(video, fallbackAuthorId = null) {
+  if (video.authorId === '') video.authorId = fallbackAuthorId
 }
 
 /**

@@ -40,15 +40,11 @@ Search Bar:
   # In Filter Button
 Search Filters:
   Search Filters: 'खोजी फिल्टरहरू'
-  Sort By:
+  Prioritize:
     Most Relevant: 'सबैभन्दा प्रासङ्गिक'
-    Rating: 'रेटिङ्ग'
-    Upload Date: 'प्रकाशित मिति'
-    View Count: 'हेरिएको सङ्ख्या'
   Time:
     Time: 'समय'
     Any Time: 'जुनसुकै समय'
-    Last Hour: 'पछिल्लो घण्टा'
     Today: 'आज'
     This Week: 'यो हप्ता'
     This Month: 'यो महिना'
@@ -62,8 +58,6 @@ Search Filters:
   Duration:
     Duration: 'अवधि'
     All Durations: 'सबै अवधि'
-    Short (< 4 minutes): 'छोटो (< ४ मिनट)'
-    Long (> 20 minutes): 'लामो (> २० मिनट)'
   # On Search Page
   Search Results: 'खोजी परिणामहरू'
   Fetching results. Please wait: 'परिणामहरू खोजिँदै छ। कृपया पर्खनुहोस्'

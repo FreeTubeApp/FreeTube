@@ -5,22 +5,38 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 0 * * 0'
+
+permissions: {}
+
 jobs:
   build:
+    # As this action runs on a schedule, only run it in the FreeTubeApp/FreeTube repository to avoid unnecessary GitHub Actions usage/billing in forks.
+    # Still allow the workflow to be manually triggered.
+    # If a fork does need this workflow, they can change this condition in their fork to include their repository.
+    if: github.repository == 'FreeTubeApp/FreeTube' || github.event_name == 'workflow_dispatch'
+
     name: calibreapp/image-actions
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+        with:
+          persist-credentials: false
+
       - name: Compress Images
         id: calibre
-        uses: calibreapp/image-actions@main
+        uses: calibreapp/image-actions@03c976c29803442fc4040a9de5509669e7759b81
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           compressOnly: true
       - name: Create New Pull Request If Needed
         if: steps.calibre.outputs.markdown != ''
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@c0f553fe549906ede9cf27b5156039d195d2ece0 #v8.1.0
         with:
           title: Compressed Images Nightly
           branch-suffix: timestamp

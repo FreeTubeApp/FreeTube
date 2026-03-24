@@ -41,15 +41,33 @@
       v-else
       class="relative"
     >
-      <h4>
-        {{ t("Video.Live Chat") }}
-        <span
-          v-if="!hideVideoViews && watchingCount !== null"
-          class="watchingCount"
+      <div
+        class="titleContainer"
+      >
+        <h4
+          class="title"
         >
-          {{ t('Global.Counts.Watching Count', { count: formattedWatchingCount }, watchingCount) }}
-        </span>
-      </h4>
+          {{ t("Video.Live Chat") }}
+          <span
+            v-if="!hideVideoViews && watchingCount !== null"
+            class="watchingCount"
+          >
+            {{ t('Global.Counts.Watching Count', { count: formattedWatchingCount }, watchingCount) }}
+          </span>
+        </h4>
+        <a
+          :href="`https://www.youtube.com/live_chat?is_popout=1&v=${props.videoId}`"
+          :aria-label="t('Video.Popout Live Chat')"
+          :title="t('Video.Popout Live Chat')"
+          target="_blank"
+          class="popoutChatButton"
+        >
+          <FontAwesomeIcon
+            class="popoutChatIcon"
+            :icon="['fas', 'fa-arrow-up-right-from-square']"
+          />
+        </a>
+      </div>
       <div
         v-if="superChatComments.length > 0"
         class="superChatComments"
@@ -118,9 +136,9 @@
             </p>
           </div>
           <p
+            v-safer-html="superChat.message"
             class="chatMessage"
             dir="auto"
-            v-html="superChat.message"
           />
         </div>
       </div>
@@ -163,9 +181,9 @@
             </div>
             <p
               v-if="comment.message"
+              v-safer-html="comment.message"
               class="chatMessage"
               dir="auto"
-              v-html="comment.message"
             />
           </template>
           <template
@@ -201,8 +219,8 @@
                 >
               </span>
               <bdi
+                v-safer-html="comment.message"
                 class="chatMessage"
-                v-html="comment.message"
               />
             </p>
           </template>
@@ -237,6 +255,7 @@ import { YTNodes } from 'youtubei.js'
 import FtLoader from '../FtLoader/FtLoader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../FtButton/FtButton.vue'
+import { vSaferHtml } from '../../directives/vSaferHtml.js'
 
 import store from '../../store/index'
 
@@ -575,6 +594,7 @@ function scrollToBottom() {
   stayAtBottom = true
   showScrollToBottom.value = false
 }
+
 </script>
 
 <style scoped src="./WatchVideoLiveChat.css" />

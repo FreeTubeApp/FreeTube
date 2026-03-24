@@ -31,7 +31,8 @@ const config = {
     filename: '[name].js',
   },
   externals: {
-    'youtubei.js': '{}'
+    'youtubei.js': '{}',
+    googlevideo: '{}'
   },
   module: {
     rules: [
@@ -80,6 +81,12 @@ const config = {
             options: {
               esModule: false
             }
+          }
+        ],
+        rules: [
+          {
+            resource: path.resolve(__dirname, '../node_modules/shaka-player/dist/controls.css'),
+            use: path.join(__dirname, 'patch-shaka-player-loader.js')
           }
         ],
       },
@@ -137,7 +144,7 @@ const config = {
       'process.env.SWIPER_VERSION': `'${swiperVersion}'`
     }),
     new webpack.ProvidePlugin({
-      process: 'process/browser'
+      process: 'process/browser.js'
     }),
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
@@ -166,8 +173,8 @@ const config = {
     alias: {
       DB_HANDLERS_ELECTRON_RENDERER_OR_WEB$: path.resolve(__dirname, '../src/datastores/handlers/web.js'),
 
-      // change to "shaka-player.ui.debug.js" to get debug logs (update jsconfig to get updated types)
-      'shaka-player$': 'shaka-player/dist/shaka-player.ui.js',
+      // change to "shaka-player.ui-es2021.debug.js" to get debug logs (update jsconfig to get updated types)
+      'shaka-player$': 'shaka-player/dist/shaka-player.ui-es2021.js',
 
       // Make @fortawesome/vue-fontawesome use the trimmed down API instead of the original @fortawesome/fontawesome-svg-core
       '@fortawesome/fontawesome-svg-core$': path.resolve(__dirname, '../src/renderer/fontawesome-minimal.js')

@@ -9,11 +9,11 @@ Copy: Kopieren
 Paste: Einfügen
 Delete: Löschen
 Select all: Alles auswählen
-Toggle Developer Tools: Entwicklungswerkzeuge aktivieren/deaktivieren
+Toggle Developer Tools: Entwicklerwerkzeuge umschalten
 Actual size: Tatsächliche Größe
 Zoom in: Vergrößern
 Zoom out: Verkleinern
-Toggle fullscreen: Vollbild aktivieren/deaktivieren
+Toggle fullscreen: Vollbild umschalten
 Window: Fenster
 Minimize: Minimieren
 Close: Schließen
@@ -42,15 +42,13 @@ Search / Go to URL: Suchen / URL öffnen
   # In Filter Button
 Search Filters:
   Search Filters: Suchfilter
-  Sort By:
+  Prioritize:
     Most Relevant: Relevanz
-    Rating: Bewertung
-    Upload Date: Upload-Datum
-    View Count: Anzahl der Aufrufe
+    Prioritize: Priorisieren
+    Popularity: Beliebtheit
   Time:
     Time: Zeit
     Any Time: Beliebige Zeit
-    Last Hour: Letzte Stunde
     Today: Heute
     This Week: Diese Woche
     This Month: Dieser Monat
@@ -65,10 +63,9 @@ Search Filters:
   Duration:
     Duration: Dauer
     All Durations: Jede Dauer
-    Short (< 4 minutes): Kurz (< 4 Minuten)
-    Long (> 20 minutes): Lang (> 20 Minuten)
-  # On Search Page
-    Medium (4 - 20 minutes): Mittel (4–20 Minuten)
+    '< 3 minutes': < 3 Minuten
+    '> 20 minutes': '> 20 Minuten'
+    '3 - 20 minutes': 3–20 Minuten
   Search Results: Suchergebnisse
   Fetching results. Please wait: Ergebnisse werden abgerufen. Bitte warten
   Fetch more results: Weitere Ergebnisse abrufen
@@ -555,7 +552,7 @@ Settings:
     Country: Land
     Your Info: Deine Info
     Test Proxy: Proxy testen
-    Clicking on Test Proxy will send a request to: Indem du auf Proxy testen klickst, schickst du eine Anfrage an
+    Clicking on Test Proxy will send a request to: Indem du auf „Proxy testen“ klickst, sendest du eine Anfrage an
     Proxy Port Number: Proxy-Portnummer
     Proxy Host: Proxy-Host
     Proxy Protocol: Proxy-Protokoll
@@ -589,13 +586,6 @@ Settings:
       None:
         Name: Keine
     Ignore Default Arguments: Standardargumente ignorieren
-  Download Settings:
-    Download Settings: Herunterladen
-    Ask Download Path: Nach Zielort zum Herunterladen fragen
-    Choose Path: Pfad auswählen
-    Download Behavior: Download-Verhalten
-    Download in app: In der App herunterladen
-    Open in web browser: Im Webbrowser öffnen
   Parental Control Settings:
     Parental Control Settings: Kindersicherung
     Hide Unsubscribe Button: Schaltfläche „Deabonnieren“ ausblenden
@@ -630,10 +620,8 @@ About:
   Donate: Spenden
   Help: Hilfe
   these people and projects: diesen Menschen und Projekten
-  FreeTube is made possible by: FreeTube wird ermöglicht von
   Translate: Übersetzen
   room rules: Raum-Regeln
-  Please read the: Bitte lies die
   Chat on Matrix: Auf Matrix chatten
   Mastodon: Mastodon
   Please check for duplicates before posting: Bitte überprüfe vor dem Erstellen, ob eine ähnliche Issue bereits existiert
@@ -644,8 +632,10 @@ About:
   Downloads / Changelog: Downloads / Änderungsprotokoll
   Source code: Quellcode
   Discussions: Diskussionen
-  Licensed under the: Lizenziert unter der
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Lizenziert unter der {licenseLink}
+  Please read the {roomRulesLink}: Bitte lies die {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube wird ermöglicht durch {creditsPageLink}
 Channel:
   Subscribe: Abonnieren
   Unsubscribe: Deabonnieren
@@ -740,9 +730,6 @@ Video:
   Shuffle Playlist: Zufällige Reihenfolge
   Loop Playlist: Playlist wiederholen
   Starting soon, please refresh the page to check again: Stream startet bald. Bitte aktualisiere die Seite, um erneut nachzusehen
-  audio only: nur Audio
-  video only: nur Video
-  Download Video: Video herunterladen
   Copy Invidious Channel Link: Invidious-Kanallink kopieren
   Open Channel in Invidious: Kanal auf Invidious öffnen
   Copy YouTube Channel Link: YouTube-Kanallink kopieren
@@ -823,6 +810,10 @@ Video:
 #& Playlists
   Save Watched Progress: Videofortschritt speichern
   Watched Progress Saved: Videofortschritt gespeichert
+  Popout Live Chat: Öffnet ein neues Browserfenster mit dem aktuellen Video-Live-Chat
+  Watch:
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Verbleibende SABR Wartezeit: {remindingTimeSeconds}s'
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Verbleibende Werbezeit: {remindingTimeSeconds}s'
 Playlist:
   #& About
   View Full Playlist: Vollständige Playlist ansehen
@@ -970,7 +961,7 @@ Tooltips:
     Fetch Automatically: Wenn aktiviert, ruft FreeTube deine Abos automatisch beim Start und beim Öffnen eines neuen Fensters ab.
   Player Settings:
     Default Video Format: Lege die Formate fest, die bei der Wiedergabe eines Videos verwendet werden. DASH-Formate können höhere Auflösungen wiedergeben. Altformate sind auf maximal 360p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate sind reine Audiostreams.
-    Proxy Videos Through Invidious: Stellt eine Verbindung zu Invidious her, um Videos bereitzustellen, anstatt eine direkte Verbindung zu YouTube herzustellen.
+    Proxy Videos Through Invidious: Stellt eine Verbindung mit Invidious her, um Videos bereitzustellen, anstatt eine direkte Verbindung mit YouTube herzustellen.
     Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video befindet, halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und bewege das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit zu steuern. Halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und klicke mit der linken Maustaste, um schnell zur Standard-Wiedergabegeschwindigkeit zurückzukehren (1x, sofern sie nicht in den Einstellungen geändert wurde).
     Skip by Scrolling Over Video Player: Verwende das Scrollrad, um durch das Video zu springen, MPV-Stil.
   External Player Settings:
@@ -992,7 +983,7 @@ Tooltips:
     UseDeArrowThumbnails: Video-Miniaturansichten durch Miniaturansichten von DeArrow ersetzen.
 Playing Next Video Interval: Nächstes Video wird sofort abgespielt. Zum Abbrechen klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen klicken. | Nächstes Video wird in {nextVideoInterval} Sekunden abgespielt. Zum Abbrechen klicken.
 More: Mehr
-Unknown YouTube url type, cannot be opened in app: Unbekannter YouTube-URL-Typ. Kann in der App nicht geöffnet werden
+Unknown YouTube url type, cannot be opened in app: Unbekannter YouTube URL-Typ, kann in der App nicht geöffnet werden
 Open New Window: Neues Fenster öffnen
 Default Invidious instance has been cleared: Standardmäßige Invidious-Instanz wurde gelöscht
 Default Invidious instance has been set to {instance}: Standardmäßige Invidious-Instanz wurde auf {instance} festgelegt
@@ -1001,9 +992,6 @@ Search Bar:
   Remove: Entfernen
 Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen willst?
 External link opening has been disabled in the general settings: Das Öffnen externer Links wurde in den allgemeinen Einstellungen deaktiviert
-Downloading has completed: „{videoTitle}“ wurde vollständig heruntergeladen
-Starting download: Herunterladen von „{videoTitle}“ wird gestartet
-Downloading failed: Beim Herunterladen von „{videoTitle}“ gab es ein Problem
 Screenshot Success: Screenshot wurde gespeichert
 Screenshot Error: Screenshot fehlgeschlagen. {error}
 New Window: Neues Fenster
@@ -1124,5 +1112,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Zum nächsten Video in der Playlist bzw. nächsten empfohlenen Video springen
   Skip to Previous Video: Zum vorherigen Video in der Playlist springen
 shortcutLabelSeparator: ｜
-Compact side navigation: Kompakte Seitenleiste
+Compact side navigation: Seitenleiste minimieren
 Expand side navigation: Seitenleiste erweitern

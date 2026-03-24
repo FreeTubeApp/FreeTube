@@ -49,15 +49,11 @@ Search / Go to URL: Pesquisar / ir para o URL
   # In Filter Button
 Search Filters:
   Search Filters: Filtros de pesquisa
-  Sort By:
+  Prioritize:
     Most Relevant: Mais relevantes
-    Rating: Avaliação
-    Upload Date: Data de publicação
-    View Count: Visualizações
   Time:
     Time: Intervalo de tempo
     Any Time: Sempre
-    Last Hour: Última hora
     Today: Hoje
     This Week: Esta semana
     This Month: Este mês
@@ -72,10 +68,9 @@ Search Filters:
   Duration:
     Duration: Duração
     All Durations: Todas as durações
-    Short (< 4 minutes): Curta (< 4 minutos)
-    Long (> 20 minutes): Longa (> 20 minutos)
-  # On Search Page
-    Medium (4 - 20 minutes): Média (4 - 20 minutos)
+    '< 3 minutes': '< 3 minutos'
+    '> 20 minutes': '> 20 minutos'
+    '3 - 20 minutes': 3 - 20 minutos
   Search Results: Resultados
   Fetching results. Please wait: A procurar. Por favor aguarde
   Fetch more results: Obter mais resultados
@@ -591,13 +586,6 @@ Settings:
     Hide Unsubscribe Button: Ocultar botão "Cancelar subscrição"
     Show Family Friendly Only: Mostrar apenas "Para famílias"
     Hide Uploader on Watch page: Ocultar Nome do Autor na página de Reprodução de Vídeo
-  Download Settings:
-    Open in web browser: Abrir no navegador de Internet
-    Ask Download Path: Perguntar local para guardar
-    Choose Path: Escolher local
-    Download Behavior: Como descarregar
-    Download in app: Descarregar no FreeTube
-    Download Settings: Descargas
   Experimental Settings:
     Experimental Settings: Experimentais
     Warning: Estas definições são experimentais e podem provocar falhas se ativadas. É altamente recomendado fazer cópias de segurança. Use por sua conta e risco!
@@ -630,15 +618,12 @@ About:
   Email: E-mail
   Mastodon: Mastodon
   Chat on Matrix: Conversa no Matrix
-  Please read the: Por favor leia as
   room rules: regras da sala de conversa
   Translate: Traduzir
   Credits: Créditos
-  FreeTube is made possible by: O FreeTube existe graças a
   these people and projects: estas pessoas e projetos
   Donate: Doar
   Discussions: Discussões
-  Licensed under the: Licenciado nos termos da
   AGPLv3: AGPLv3
 Profile:
   All Channels: Todos os canais
@@ -773,9 +758,6 @@ Video:
   Live Chat is currently not supported in this build.: A conversa em direto não é permitida nesta versão.
   Live chat is enabled. Chat messages will appear here once sent.: A conversa em direto está ativada. As mensagens vão aparecer aqui.
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Atualmente, a conversa em direto não é suportada pela API Invidious. É necessária uma conexão direta ao YouTube.
-  Download Video: Descarregar vídeo
-  video only: apenas vídeo
-  audio only: apenas áudio
   Published:
     In less than a minute: Em menos de um minuto
   Published on: Publicado a
@@ -999,9 +981,6 @@ Channels:
   Count: '{number} canais encontrados.'
   Empty: A lista de canais está vazia.
   Unsubscribe Prompt: Tem a certeza de que pretende cancelar a subscrição em "{channelName}"?
-Downloading has completed: '"{videoTitle}" foi descarregado'
-Starting download: A descarregar "{videoTitle}"
-Downloading failed: Ocorreu um erro ao descarregar "{videoTitle}"
 Screenshot Success: Captura de ecrã guardada
 Screenshot Error: Erro ao capturar o ecrã. {error}
 Chapters:

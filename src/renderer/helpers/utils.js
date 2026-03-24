@@ -1,6 +1,7 @@
+import { nextTick } from 'vue'
 import i18n from '../i18n/index'
 import router from '../router/index'
-import { nextTick } from 'vue'
+import { UnsupportedPlayerActions } from '../../constants'
 
 // allowed characters in channel handle: A-Z, a-z, 0-9, -, _, .
 // https://support.google.com/youtube/answer/11585688#change_handle
@@ -431,15 +432,6 @@ export function createWebURL(path) {
 }
 
 /**
- * strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
- * @param {string} value
- * @returns {string}
- */
-export function stripHTML(value) {
-  return value.replaceAll(/(<(?!br|\/?[abis]|img>)([^>]+)>)/gi, '')
-}
-
-/**
  * This formats the duration of a video in seconds into a user friendly timestamp.
  * It will return strings like LIVE or UPCOMING, without making any changes
  * @param {string|number} lengthSeconds the video duration in seconds or the strings LIVE or UPCOMING
@@ -471,7 +463,7 @@ export function formatDurationAsTimestamp(lengthSeconds) {
     seconds = '0' + seconds
   }
 
-  let timestamp = ''
+  let timestamp
   if (hours > 0) {
     timestamp = hours + ':' + minutes + ':' + seconds
   } else {
@@ -482,12 +474,12 @@ export function formatDurationAsTimestamp(lengthSeconds) {
 }
 
 /**
- * @param {{sortBy? : string, time?: string, duration?: string, features: string[]}?} filtersA
- * @param {{sortBy? : string, time?: string, duration?: string, features: string[]}?} filtersB
+ * @param {{prioritize? : string, time?: string, duration?: string, features: string[]}?} filtersA
+ * @param {{prioritize? : string, time?: string, duration?: string, features: string[]}?} filtersB
  * @returns {boolean}
  */
 export function searchFiltersMatch(filtersA, filtersB) {
-  return filtersA?.sortBy === filtersB?.sortBy &&
+  return filtersA?.prioritize === filtersB?.prioritize &&
     filtersA?.time === filtersB?.time &&
     filtersA?.type === filtersB?.type &&
     filtersA?.duration === filtersB?.duration &&
@@ -555,8 +547,40 @@ export function extractNumberFromString(str) {
   }
 }
 
+/**
+ * @param {string} externalPlayer
+ * @param {import('../../constants').UnsupportedPlayerAction} action
+ */
 export function showExternalPlayerUnsupportedActionToast(externalPlayer, action) {
-  const message = i18n.global.t('Video.External Player.UnsupportedActionTemplate', { externalPlayer, action })
+  let actionString = ''
+
+  switch (action) {
+    case UnsupportedPlayerActions.STARTING_VIDEO_AT_OFFSET:
+      actionString = i18n.global.t('Video.External Player.Unsupported Actions.starting video at offset')
+      break
+    case UnsupportedPlayerActions.PLAYBACK_RATE:
+      actionString = i18n.global.t('Video.External Player.Unsupported Actions.setting a playback rate')
+      break
+    case UnsupportedPlayerActions.OPENING_PLAYLISTS:
+      actionString = i18n.global.t('Video.External Player.Unsupported Actions.opening playlists')
+      break
+    case UnsupportedPlayerActions.PLAYLIST_SPECIFIC_VIDEO:
+      actionString = i18n.global.t('Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)')
+      break
+    case UnsupportedPlayerActions.PLAYLIST_REVERSE:
+      actionString = i18n.global.t('Video.External Player.Unsupported Actions.reversing playlists')
+      break
+    case UnsupportedPlayerActions.PLAYLIST_SHUFFLE:
+      actionString = i18n.global.t('Video.External Player.Unsupported Actions.shuffling playlists')
+      break
+    case UnsupportedPlayerActions.PLAYLIST_LOOP:
+      actionString = i18n.global.t('Video.External Player.Unsupported Actions.looping playlists')
+      break
+  }
+
+  const message = i18n.global.t('Video.External Player.UnsupportedActionTemplate', {
+    externalPlayer, action: actionString
+  })
   showToast(message)
 }
 
@@ -598,15 +622,15 @@ export function getVideoParamsFromUrl(url) {
     // anything with /watch?v=
     function () {
       if (urlObject.pathname === '/watch' && urlObject.searchParams.has('v')) {
-        extractParams(urlObject.searchParams.get('v'))
+        extractParams(urlObject.searchParams.get('v').slice(0, 11))
         paramsObject.playlistId = urlObject.searchParams.get('list')
         return paramsObject
       }
     },
     // youtu.be
     function () {
-      if (urlObject.host === 'youtu.be' && /^\/[\w-]+$/.test(urlObject.pathname)) {
-        extractParams(urlObject.pathname.slice(1))
+      if (urlObject.host === 'youtu.be' && /^\/[\w-]{11,}/.test(urlObject.pathname)) {
+        extractParams(urlObject.pathname.slice(1, 12))
         paramsObject.playlistId = urlObject.searchParams.get('list')
         return paramsObject
       }

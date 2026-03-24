@@ -37,15 +37,11 @@ Search / Go to URL: 'Requiro / Adeo URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Requiro Filtra'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Maxime Pertinentes'
-    Rating: 'Transientes'
-    Upload Date: 'Transporto Dies'
-    View Count: 'Iteratio visibus visibile'
   Time:
     Time: 'Tempus'
     Any Time: 'Umquam'
-    Last Hour: 'Intra Horam'
     Today: 'Hodie'
     This Week: 'Hoc Septimana'
     This Month: 'Haec Mensis'
@@ -59,8 +55,8 @@ Search Filters:
   Duration:
     Duration: 'Diuturnitas'
     All Durations: 'Omnes Durationes'
-    Short (< 4 minutes): 'Brevis (< 4 minutes)'
-    Long (> 20 minutes): 'Longus (> 20 minutes)'
+    '< 3 minutes': '< 3 minutes'
+    '> 20 minutes': '> 20 minutes'
   # On Search Page
   Search Results: 'Quaerere Eventus'
   Fetching results. Please wait: 'Lignatio eventus. Placet expectare'

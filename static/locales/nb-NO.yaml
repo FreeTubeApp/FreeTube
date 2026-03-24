@@ -45,15 +45,13 @@ Search / Go to URL: 'Søk / gå til nettadresse'
   # In Filter Button
 Search Filters:
   Search Filters: 'Søkefiltre'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Mest relevant'
-    Rating: 'Vurdering'
-    Upload Date: 'Opplastingsdato'
-    View Count: 'Visninger'
+    Prioritize: Prioriter
+    Popularity: Popularitet
   Time:
     Time: 'Tid'
     Any Time: 'Når som helst'
-    Last Hour: 'Den siste timen'
     Today: 'I dag'
     This Week: 'Denne uken'
     This Month: 'Denne måneden'
@@ -68,10 +66,9 @@ Search Filters:
   Duration:
     Duration: 'Varighet'
     All Durations: 'Alle varigheter'
-    Short (< 4 minutes): 'Kort (< 4 minutter)'
-    Long (> 20 minutes): 'Lang (> 20 minutter)'
-  # On Search Page
-    Medium (4 - 20 minutes): Middels (4–20 minutter)
+    '< 3 minutes': '< 3 minutter'
+    '> 20 minutes': '> 20 minutter'
+    '3 - 20 minutes': 3–20 minutter
   Search Results: 'Søkeresultater'
   Fetching results. Please wait: 'Henter resultater. Vennligst vent'
   Fetch more results: 'Hent flere resultater'
@@ -232,7 +229,7 @@ Settings:
         #! List countries
     Check for Updates: Se etter oppdateringer
     View all Invidious instance information: Vis informasjon om alle Invidious-instanser
-    Check for Latest Blog Posts: Se etter nye blogginnlegg
+    Check for Latest Blog Posts: Vis nye blogginnlegg
     System Default: Standardinnstillinger
     Clear Default Instance: Fjern standardinstans
     Set Current Instance as Default: Bruk den gjeldende instansen som standard
@@ -248,7 +245,7 @@ Settings:
     Auto Load Next Page:
       Label: Last inn den neste siden automatisk
       Tooltip: Last inn flere sider og kommentarer automatisk.
-    Open Deep Links In New Window: Åpne linker gitt til FreeTube i et nytt vindu
+    Open Deep Links In New Window: Åpne linker sendt til FreeTube i et nytt vindu
     Minimize to system tray: Minimer til systemkurven
   Theme Settings:
     Theme Settings: 'Tema'
@@ -398,7 +395,7 @@ Settings:
       4k: '4k'
       8k: '8k'
     Next Video Interval: Nedtelling mellom videoer
-    Scroll Volume Over Video Player: Rullelydstyrkejustering i videospilleren
+    Scroll Volume Over Video Player: Juster volum ved å rulle over videospilleren
     Display Play Button In Video Player: Vis avspillingsknappen i videoavspilleren
     Fast-Forward / Rewind Interval: Intervall for spoling frem og tilbake
     Screenshot:
@@ -414,7 +411,7 @@ Settings:
       Ask Path: Spør om hvor ting skal lagres
       File Name Tooltip: Du kan bruke variablene nedenfor. %Y år, i 4 siffer. %M måned, i 2 siffer. %D dag, i to siffer. %H time, i to siffer. %N minutt, i to siffer. %s sekund, i to siffer. %T millisekunder, i tre siffer. %s videosekund. %t videomillisekunder, i tre siffer. %i video-ID.
     Max Video Playback Rate: Maksimal hastighet for videoavspilling
-    Scroll Playback Rate Over Video Player: Avspillingshastighet ved rulling over videoavspiller
+    Scroll Playback Rate Over Video Player: Juster avspillingshastighet ved rulling over videoavspiller
     Video Playback Rate Interval: Intervall for videoavspillingshastighet
     Enter Fullscreen on Display Rotate: Bytt til fullskjermsvisning når skjermen roteres
     Skip by Scrolling Over Video Player: Hopp over ved å rulle over videoavspiller
@@ -434,7 +431,7 @@ Settings:
     Search cache has been cleared: 'Hurtiglageret for søk har blitt tømt'
     Remove Watch History: 'Fjern visningshistorikk'
     Are you sure you want to remove your entire watch history?: 'Er du sikker på at du vil tømme hele visningshistorikken din?'
-    Watch history has been cleared: 'VIsningshistorikk har blitt tømt'
+    Watch history has been cleared: 'Visningshistorikken har blitt tømt'
     Remove All Subscriptions / Profiles: Fjern alle abonnementer/profiler
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Er du sikker på at du vil fjerne alle abonnementer og profiler? Dette kan ikke bli omgjort.
     Save Watched Videos With Last Viewed Playlist: Lagre sette videoer med sist sette spilleliste
@@ -591,13 +588,6 @@ Settings:
       None:
         Name: Ingen
     Ignore Default Arguments: Ignorer standardargumenter
-  Download Settings:
-    Choose Path: Velg mappe
-    Download Settings: Nedlastning
-    Download in app: Last ned i programmet
-    Open in web browser: Åpne i nettleser
-    Download Behavior: Nedlastingsadferd
-    Ask Download Path: Spør om nedlastingsmappe
   Parental Control Settings:
     Parental Control Settings: Foreldrekontroll
     Hide Search Bar: Skjul søkefeltet
@@ -607,14 +597,14 @@ Settings:
   Experimental Settings:
     Experimental Settings: Eksperimentelt
     Replace HTTP Cache: Erstatt HTTP-hurtiglager
-    Warning: Disse innstillingene er eksperimentelle, og kan forårsake krasjer. Det anbefales at du lager kopi av dataene dine. Bruk på egen risiko!
+    Warning: Disse innstillingene er eksperimentelle, og kan gjøre at programmet krasjer. Det anbefales at du tar kopi av dataene dine. Bruk på egen risiko!
   Password Settings:
     Remove Password: Fjern passord
     Password Settings: Passord
-    Set Password To Prevent Access: Sett et passord for å forhindre tilgang til innstillingene
+    Set Password To Prevent Access: Sett et passord for å låse tilgang til innstillingene
     Set Password: Sett passord
   Password Dialog:
-    Enter Password To Unlock: Skriv inn passord for å låse opp innstillinger
+    Enter Password To Unlock: Skriv inn passord for å låse opp innstillingene
     Password: Passord
   Return to Settings Menu: Gå tilbake til menyen med innstillinger
   Sort Settings Sections (A-Z): Sorter innstillingsseksjonene (A-Å)
@@ -630,24 +620,24 @@ About:
   Website: Nettsted
   Report a problem: Rapporter et problem
   Source code: Kildekode
-  Please read the: Vennligst les
   Mastodon: Mastodon
   Email: E-post
   Blog: Blogg
   Translate: Oversett
   Please check for duplicates before posting: Vennligst sjekk om problemet ditt allerede har blitt sendt inn før du sender inn en melding
   these people and projects: disse folkene og prosjektene
-  FreeTube is made possible by: FreeTube er gjort mulig av
   Credits: Bidragsytere
-  room rules: reglene for rommet
+  room rules: rommreglene
   GitHub issues: GitHub-problemsporer
   FreeTube Wiki: FreeTube-wiki
   GitHub releases: GitHub-utgivelser
   Beta: Beta
   Chat on Matrix: Snakk med oss på Matrix
   Discussions: Diskusjoner
-  Licensed under the: Lisensiert under
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Lisensiert under {licenseLink}
+  Please read the {roomRulesLink}: Les {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube blir til takket være {creditsPageLink}
 Channel:
   Subscribe: 'Abonner'
   Unsubscribe: 'Opphev abonnement'
@@ -734,9 +724,6 @@ Video:
     In less than a minute: Om mindre enn ett minutt
   Published on: 'Publisert'
 #& Videos
-  audio only: bare lyd
-  video only: bare video
-  Download Video: Last ned video
   Video has been saved: Videoen har blitt lagret
   Save Video: Lagre video
   Copy Invidious Channel Link: Kopier Invidious-kanallenke
@@ -824,6 +811,10 @@ Video:
   DeArrow:
     Show Modified Details: Vis endrede detaljer
     Show Original Details: Vis originaldetaljer
+  Popout Live Chat: Chat i eget vindu
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Tid før reklamen før videoen kan hoppes over: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tid før en SABR-strømmen blir tilgjengelig: {remindingTimeSeconds}s'
 Playlist:
   #& About
   View Full Playlist: 'Vis full spilleliste'
@@ -1016,12 +1007,9 @@ Screenshot Success: Lagret skjermbilde
 Screenshot Error: Skjermavbildning mislyktes. {error}
 Ok: OK
 Preferences: Innstillinger
-Downloading failed: Kunne ikke laste ned «{videoTitle}»
-Starting download: Starter nedlasting av «{videoTitle}»
 Clipboard:
   Cannot access clipboard without a secure connection: Får ikke tilgang til utklippstavlen uten sikker forbindelse
   Copy failed: Kunne ikke kopiere til utklippstavlen
-Downloading has completed: «{videoTitle}» har blitt lastet ned
 Hashtag:
   Hashtag: Emneknagg
   This hashtag does not currently have any videos: Denne emneknaggen har ingen videoer enda

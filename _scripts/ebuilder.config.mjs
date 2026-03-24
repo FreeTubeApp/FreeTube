@@ -3,7 +3,7 @@ import packageDetails from '../package.json' with { type: 'json' }
 /** @type {import('electron-builder').Configuration} */
 export default {
   appId: `io.freetubeapp.${packageDetails.name}`,
-  copyright: 'Copyleft © 2020-2025 freetubeapp@protonmail.com',
+  copyright: 'Copyleft © 2020-2026 freetubeapp@protonmail.com',
   // asar: false,
   // compression: 'store',
   productName: packageDetails.productName,
@@ -84,7 +84,15 @@ export default {
       ],
       CFBundleURLSchemes: [
         'freetube'
-      ]
+      ],
+
+      // Clear the default usage descriptions in the Info.plist file set by Electron that we don't need
+      // see: https://github.com/electron/electron/blob/main/shell/browser/resources/mac/Info.plist
+      NSAudioCaptureUsageDescription: undefined,
+      NSBluetoothAlwaysUsageDescription: undefined,
+      NSBluetoothPeripheralUsageDescription: undefined,
+      NSCameraUsageDescription: undefined,
+      NSMicrophoneUsageDescription: undefined,
     }
   },
   win: {

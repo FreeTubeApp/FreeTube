@@ -45,15 +45,11 @@ Search / Go to URL: 'Zoeken / Ga naar URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Zoekfilters'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Relevantie'
-    Rating: 'Beoordeling'
-    Upload Date: 'Uploaddatum'
-    View Count: 'Aantal weergaven'
   Time:
     Time: 'Lengte'
     Any Time: 'Altĳd'
-    Last Hour: 'Afgelopen uur'
     Today: 'Vandaag'
     This Week: 'Deze week'
     This Month: 'Deze maand'
@@ -68,10 +64,9 @@ Search Filters:
   Duration:
     Duration: 'Lengte'
     All Durations: 'Alle lengtes'
-    Short (< 4 minutes): 'Kort (< 4 minuten)'
-    Long (> 20 minutes): 'Lang (> 20 minuten)'
-  # On Search Page
-    Medium (4 - 20 minutes): Gemiddeld (4 - 20 minuten)
+    '< 3 minutes': '< 3 minuten'
+    '> 20 minutes': '> 20 minuten'
+    '3 - 20 minutes': 3 - 20 minuten
   Search Results: 'Zoekresultaten'
   Fetching results. Please wait: 'Resultaten ophalen, even geduld...'
   Fetch more results: 'Meer resultaten ophalen'
@@ -591,13 +586,6 @@ Settings:
       None:
         Name: Geen
     Ignore Default Arguments: Standaard­argumenten negeren
-  Download Settings:
-    Choose Path: Pad kiezen
-    Download Settings: Download
-    Ask Download Path: Om downloadpad vragen
-    Download in app: Downloaden in app
-    Open in web browser: Openen in web­browser
-    Download Behavior: Gedrag downloaden
   Parental Control Settings:
     Hide Unsubscribe Button: Deabonneer­knop verbergen
     Parental Control Settings: Ouderlijk toezicht
@@ -625,11 +613,9 @@ About:
 #On Channel Page
   Donate: Doneren
   these people and projects: deze mensen en projecten
-  FreeTube is made possible by: FreeTube is mogelijk gemaakt door
   Credits: Met dank aan
   Translate: Vertalen
   room rules: kamerregels
-  Please read the: Lees alstublieft de
   Chat on Matrix: Chat op Matrix
   Mastodon: Mastodon
   Email: E-mail
@@ -647,7 +633,6 @@ About:
   Beta: Bèta
   Discussions: Discussies
   AGPLv3: AGPLv3
-  Licensed under the: Gelicentieerd onder de
 Channel:
   Subscribe: 'Abonneren'
   Unsubscribe: 'Deabonneren'
@@ -742,9 +727,6 @@ Video:
   Shuffle Playlist: Afspeellijst in willekeurige volgorde afspelen
   Loop Playlist: Playlist herhalen
   Starting soon, please refresh the page to check again: Start binnenkort, vernieuw de pagina om opnieuw te controleren
-  audio only: alleen audio
-  video only: alleen video
-  Download Video: Video downloaden
   Copy Invidious Channel Link: Kopieer Invidious-kanaallink
   Open Channel in Invidious: Open Kanaal op Invidious
   Copy YouTube Channel Link: Link naar YouTubekanaal kopiëren
@@ -1002,11 +984,6 @@ Search Bar:
   Clear Input: Invoer wissen
   Remove: Verwĳderen
 External link opening has been disabled in the general settings: Het openen van externe links is uitgeschakeld in de algemene instellingen
-Downloading canceled: De gebruiker heeft de download geannuleerd
-Downloading has completed: '"{videoTitle}" is gedownload'
-Starting download: Begin download van "{videoTitle}"
-Downloading failed: Probleem bij download van "{videoTitle}"
-Download folder does not exist: De download map "$" bestaat niet. Valt terug op "vraag map" modus.
 New Window: Nieuw Venster
 Screenshot Success: Schermafbeelding opgeslagen
 Channels:
@@ -1127,3 +1104,4 @@ Keys:
 Autoplay Interruption Timer: Automatisch afspelen geannuleerd door {autoplayInterruptionIntervalHours} uur aan inactiviteit
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
+Compact side navigation: Minimaliseer Zijbar

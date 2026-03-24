@@ -37,7 +37,6 @@ Are you sure you want to open this link?: 'Bisch du sicher, dass du de Link ufma
 Search / Go to URL: 'Sueche / Gang zu de URL'
 Search Filters:
   Time:
-    Last Hour: letzte stunde
     Time: Zeit
     Any Time: jederzeit
     Today: Hüt
@@ -46,10 +45,10 @@ Search Filters:
     This Month: Diesen Monet
   Duration:
     Duration: Dauer
-    Long (> 20 minutes): Lang (> 20 Minute)
+    '> 20 minutes': '> 20 Minute'
     All Durations: Alli Dauere
-    Short (< 4 minutes): Churz (< 4 Minute)
-    Medium (4 - 20 minutes): Mittel (< 4 - 20 Minute)
+    '< 3 minutes': < 3 Minute)
+    '3 - 20 minutes': < 3 - 20 Minute)
   Features:
     HD: HD
     Location: Ort
@@ -63,11 +62,8 @@ Search Filters:
     Live: Live
     360 Video: 360-Grad Video
   Search Results: Suechresultat
-  Sort By:
+  Prioritize:
     Most Relevant: Am Beschte Passend
-    Upload Date: Uflad-Datum
-    Rating: Bewärtig
-    View Count: Ansichtszahl
   Type:
     All Types: Alli Typa
     Videos: Vidéos

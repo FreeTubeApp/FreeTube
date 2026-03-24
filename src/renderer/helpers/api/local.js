@@ -1,4 +1,4 @@
-import { ClientType, Innertube, Misc, Mixins, Parser, Platform, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
+import { ClientType, Constants, Innertube, Misc, Mixins, Parser, Platform, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -21,22 +21,9 @@ const TRACKING_PARAM_NAMES = [
 ]
 
 if (process.env.SUPPORTS_LOCAL_API) {
-  Platform.shim.eval = (data, env) => {
+  Platform.shim.eval = (data) => {
     return new Promise((resolve, reject) => {
-      const properties = []
-
-      if (env.n) {
-        properties.push(`n: exportedVars.nFunction("${env.n}")`)
-      }
-
-      if (env.sig) {
-        properties.push(`sig: exportedVars.sigFunction("${env.sig}")`)
-      }
-
-      // Triggers permission errors if we don't remove it (added by YouTube.js), as sessionStorage isn't accessible in sandboxed cross-origin iframes
-      const modifiedOutput = data.output.replace('const window = Object.assign({}, globalThis);', '')
-
-      const code = `${modifiedOutput}\nreturn {${properties.join(', ')}}`
+      const code = data.output
 
       // Generate a unique ID, as there may be multiple eval calls going on at the same time (e.g. DASH manifest generation)
       const messageId = process.env.IS_ELECTRON || crypto.randomUUID
@@ -86,9 +73,10 @@ if (process.env.SUPPORTS_LOCAL_API) {
  * @param {boolean} options.safetyMode whether to hide mature content
  * @param {import('youtubei.js').ClientType} options.clientType use an alterate client
  * @param {boolean} options.generateSessionLocally generate the session locally or let YouTube generate it (local is faster, remote is more accurate)
+ * @param {?import('youtubei.js').FetchFunction} options.fetchFunc optional custom fetch function
  * @returns the Innertube instance
  */
-async function createInnertube({ withPlayer = false, location = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true } = {}) {
+async function createInnertube({ withPlayer = false, location = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true, fetchFunc = null } = {}) {
   let cache
   if (withPlayer) {
     if (process.env.IS_ELECTRON) {
@@ -111,49 +99,7 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     client_type: clientType,
 
     // use browser fetch
-    fetch: !withPlayer
-      ? (input, init) => fetch(input, init)
-      : async (input, init) => {
-        if (input.url?.startsWith('https://www.youtube.com/youtubei/v1/player') && init?.headers?.get('X-Youtube-Client-Name') === '2') {
-          const response = await fetch(input, init)
-
-          const responseText = await response.text()
-
-          const json = JSON.parse(responseText)
-
-          if (Array.isArray(json.adSlots)) {
-            let waitSeconds = 0
-
-            for (const adSlot of json.adSlots) {
-              if (adSlot.adSlotRenderer?.adSlotMetadata?.triggerEvent === 'SLOT_TRIGGER_EVENT_BEFORE_CONTENT') {
-                const playerVars = adSlot.adSlotRenderer.fulfillmentContent?.fulfilledLayout?.playerBytesAdLayoutRenderer
-                  ?.renderingContent?.instreamVideoAdRenderer?.playerVars
-
-                if (playerVars) {
-                  const match = playerVars.match(/length_seconds=([\d.]+)/)
-
-                  if (match) {
-                    waitSeconds += parseFloat(match[1])
-                  }
-                }
-              }
-            }
-
-            if (waitSeconds > 0) {
-              await new Promise((resolve) => setTimeout(resolve, waitSeconds * 1000))
-            }
-          }
-
-          // Need to return a new response object, as you can only read the response body once.
-          return new Response(responseText, {
-            status: response.status,
-            statusText: response.statusText,
-            headers: response.headers
-          })
-        }
-
-        return fetch(input, init)
-      },
+    fetch: (fetchFunc ?? ((input, init) => fetch(input, init))),
     cache,
     generate_session_locally: !!generateSessionLocally
   })
@@ -429,9 +375,67 @@ export async function getLocalSearchContinuation(continuationData) {
 
 /**
  * @param {string} id
+ * @returns {Promise<{
+ *   info: import('youtubei.js').YT.VideoInfo,
+ *   poToken: string | undefined,
+ *   clientInfo: {
+ *     clientName: number,
+ *     clientVersion: string,
+ *     osName: string,
+ *     osVersion: string
+ *   },
+ *   adEndTimeUnixMs: number
+ * }>}
  */
 export async function getLocalVideoInfo(id) {
-  const webInnertube = await createInnertube({ withPlayer: true, generateSessionLocally: false })
+  let responseTime = Date.now()
+  let totalAdTimeMilliseconds = 0
+
+  const webInnertube = await createInnertube({
+    withPlayer: true,
+    generateSessionLocally: false,
+    fetchFunc: async (input, init) => {
+      if (!(input.url?.startsWith('https://www.youtube.com/youtubei/v1/player'))) {
+        return fetch(input, init)
+      }
+
+      const response = await fetch(input, init)
+
+      const responseText = await response.text()
+
+      responseTime = Date.now()
+
+      const json = JSON.parse(responseText)
+
+      if (Array.isArray(json.adSlots)) {
+        for (const adSlot of json.adSlots) {
+          if (adSlot.adSlotRenderer?.adSlotMetadata?.triggerEvent === 'SLOT_TRIGGER_EVENT_BEFORE_CONTENT') {
+            const instreamVideoAdRenderer = adSlot.adSlotRenderer.fulfillmentContent?.fulfilledLayout?.playerBytesAdLayoutRenderer
+              ?.renderingContent?.instreamVideoAdRenderer
+
+            if (instreamVideoAdRenderer) {
+              if (typeof instreamVideoAdRenderer.skipOffsetMilliseconds === 'number') {
+                totalAdTimeMilliseconds += instreamVideoAdRenderer.skipOffsetMilliseconds
+              } else if (instreamVideoAdRenderer.playerVars) {
+                const match = instreamVideoAdRenderer.playerVars.match(/length_seconds=([\d.]+)/)
+
+                if (match) {
+                  totalAdTimeMilliseconds += parseFloat(match[1]) * 1000
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // Need to return a new response object, as you can only read the response body once.
+      return new Response(responseText, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: response.headers
+      })
+    }
+  })
 
   // based on the videoId
   let contentPoToken
@@ -450,32 +454,13 @@ export async function getLocalVideoInfo(id) {
     }
   }
 
-  let clientName = webInnertube.session.context.client.clientName
-
   const info = await webInnertube.getInfo(id, { po_token: contentPoToken })
 
-  // #region temporary workaround for SABR-only responses
+  // Some time would be used for parsing and maybe additional requests so end time should be calculated sooner to reduce actual waiting time
+  // Legacy format requires this
+  const adEndTimeUnixMs = responseTime + totalAdTimeMilliseconds
 
-  // MWEB doesn't have an audio track selector so it picks the audio track on the server based on the request language.
-
-  const originalAudioTrackFormat = info.streaming_data?.adaptive_formats.find(format => {
-    return format.has_audio && format.is_original && format.language
-  })
-
-  if (originalAudioTrackFormat) {
-    webInnertube.session.context.client.hl = originalAudioTrackFormat.language
-  }
-
-  const mwebInfo = await webInnertube.getBasicInfo(id, { client: 'MWEB', po_token: contentPoToken })
-
-  if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data) {
-    info.playability_status = mwebInfo.playability_status
-    info.streaming_data = mwebInfo.streaming_data
-
-    clientName = 'MWEB'
-  }
-
-  // #endregion temporary workaround for SABR-only responses
+  let { clientName, clientVersion, osName, osVersion } = webInnertube.session.context.client
 
   let hasTrailer = info.has_trailer
   let trailerIsAgeRestricted = info.getTrailerInfo() === null
@@ -485,34 +470,45 @@ export async function getLocalVideoInfo(id) {
       info.playability_status.reason === 'Sign in to confirm your age') ||
     (hasTrailer && trailerIsAgeRestricted)
   ) {
-    const webEmbeddedInnertube = await createInnertube({ clientType: ClientType.WEB_EMBEDDED })
-    webEmbeddedInnertube.session.context.client.visitorData = webInnertube.session.context.client.visitorData
+    try {
+      const webEmbeddedInnertube = await createInnertube({ clientType: ClientType.WEB_EMBEDDED })
+      webEmbeddedInnertube.session.context.client.visitorData = webInnertube.session.context.client.visitorData
 
-    const videoId = hasTrailer && trailerIsAgeRestricted ? info.playability_status.error_screen.video_id : id
+      const videoId = hasTrailer && trailerIsAgeRestricted ? info.playability_status.error_screen.video_id : id
 
-    // getBasicInfo needs the signature timestamp (sts) from inside the player
-    webEmbeddedInnertube.session.player = webInnertube.session.player
+      // getBasicInfo needs the signature timestamp (sts) from inside the player
+      webEmbeddedInnertube.session.player = webInnertube.session.player
 
-    const bypassedInfo = await webEmbeddedInnertube.getBasicInfo(videoId, { client: 'WEB_EMBEDDED', po_token: contentPoToken })
+      const bypassedInfo = await webEmbeddedInnertube.getBasicInfo(videoId, { client: 'WEB_EMBEDDED', po_token: contentPoToken })
 
-    if (bypassedInfo.playability_status.status === 'OK' && bypassedInfo.streaming_data) {
-      info.playability_status = bypassedInfo.playability_status
-      info.streaming_data = bypassedInfo.streaming_data
-      info.basic_info.start_timestamp = bypassedInfo.basic_info.start_timestamp
-      info.basic_info.duration = bypassedInfo.basic_info.duration
-      info.captions = bypassedInfo.captions
-      info.storyboards = bypassedInfo.storyboards
+      if (bypassedInfo.playability_status.status === 'OK' && bypassedInfo.streaming_data) {
+        info.playability_status = bypassedInfo.playability_status
+        info.streaming_data = bypassedInfo.streaming_data
+        info.basic_info.start_timestamp = bypassedInfo.basic_info.start_timestamp
+        info.basic_info.duration = bypassedInfo.basic_info.duration
+        info.captions = bypassedInfo.captions
+        info.storyboards = bypassedInfo.storyboards
 
-      hasTrailer = false
-      trailerIsAgeRestricted = false
+        hasTrailer = false
+        trailerIsAgeRestricted = false;
 
-      clientName = webEmbeddedInnertube.session.context.client.clientName
+        ({ clientName, clientVersion, osName, osVersion } = webEmbeddedInnertube.session.context.client)
+      }
+    } catch (error) {
+      console.warn('WEB_EMBEDDED fallback errored, using the original response instead', error)
     }
+  }
+
+  const clientInfo = {
+    clientName: Constants.CLIENT_NAME_IDS[clientName],
+    clientVersion,
+    osName,
+    osVersion
   }
 
   if ((info.playability_status.status === 'UNPLAYABLE' && (!hasTrailer || trailerIsAgeRestricted)) ||
     info.playability_status.status === 'LOGIN_REQUIRED') {
-    return info
+    return { info, poToken: undefined, clientInfo }
   }
 
   if (hasTrailer && info.playability_status.status !== 'OK') {
@@ -531,24 +527,30 @@ export async function getLocalVideoInfo(id) {
   }
 
   if (info.streaming_data) {
-    await decipherFormats(info.streaming_data.formats, webInnertube.session.player)
+    const player = webInnertube.session.player
 
-    const firstFormat = info.streaming_data.adaptive_formats[0]
+    await decipherFormats(info.streaming_data.formats, player)
 
-    if (firstFormat.url || firstFormat.signature_cipher || firstFormat.cipher) {
-      await decipherFormats(info.streaming_data.adaptive_formats, webInnertube.session.player)
+    if (info.streaming_data.server_abr_streaming_url) {
+      info.streaming_data.server_abr_streaming_url = await player.decipher(info.streaming_data.server_abr_streaming_url)
     }
 
     if (info.streaming_data.dash_manifest_url) {
-      let url = info.streaming_data.dash_manifest_url
+      info.streaming_data.dash_manifest_url = await decipherManifestUrl(
+        info.streaming_data.dash_manifest_url,
+        webInnertube.session.player,
+        contentPoToken,
+        true
+      )
+    }
 
-      if (url.includes('?')) {
-        url += `&pot=${encodeURIComponent(contentPoToken)}&mpd_version=7`
-      } else {
-        url += `${url.endsWith('/') ? '' : '/'}pot/${encodeURIComponent(contentPoToken)}/mpd_version/7`
-      }
-
-      info.streaming_data.dash_manifest_url = url
+    if (info.streaming_data.hls_manifest_url) {
+      info.streaming_data.hls_manifest_url = await decipherManifestUrl(
+        info.streaming_data.hls_manifest_url,
+        webInnertube.session.player,
+        contentPoToken,
+        false
+      )
     }
   }
 
@@ -568,7 +570,12 @@ export async function getLocalVideoInfo(id) {
     }
   }
 
-  return info
+  return {
+    info,
+    poToken: contentPoToken,
+    clientInfo,
+    adEndTimeUnixMs,
+  }
 }
 
 /**
@@ -598,6 +605,59 @@ async function decipherFormats(formats, player) {
     // it breaks because the n param would get deciphered twice and then be incorrect
     format.freeTubeUrl = await format.decipher(player)
   }
+}
+
+/**
+ * @param {string} url
+ * @param {import('youtubei.js').Player} player
+ * @param {string} poToken
+ * @param {boolean} isDash
+ */
+async function decipherManifestUrl(url, player, poToken, isDash) {
+  const urlObject = new URL(url)
+
+  if (urlObject.searchParams.size > 0) {
+    urlObject.searchParams.set('pot', poToken)
+
+    if (isDash) {
+      urlObject.searchParams.set('mpd_version', '7')
+    }
+
+    return await player.decipher(urlObject.toString())
+  }
+
+  const pathPrefix = isDash ? '/api/manifest/dash' : '/api/manifest/hls_variant'
+
+  // Convert path params to query params
+  const pathParts = urlObject.pathname
+    .replace(pathPrefix, '')
+    .split('/')
+    .filter(part => part.length > 0)
+
+  urlObject.pathname = pathPrefix
+
+  for (let i = 0; i + 1 < pathParts.length; i += 2) {
+    urlObject.searchParams.set(pathParts[i], decodeURIComponent(pathParts[i + 1]))
+  }
+
+  // decipher
+  const deciphered = await player.decipher(urlObject.toString())
+
+  // convert query parameters back to path parameters
+  const decipheredUrlObject = new URL(deciphered)
+
+  for (const [key, value] of decipheredUrlObject.searchParams) {
+    decipheredUrlObject.pathname += `/${key}/${encodeURIComponent(value)}`
+  }
+
+  decipheredUrlObject.search = ''
+  decipheredUrlObject.pathname += `/pot/${encodeURIComponent(poToken)}`
+
+  if (isDash) {
+    decipheredUrlObject.pathname += '/mpd_version/7'
+  }
+
+  return decipheredUrlObject.toString()
 }
 
 /**
@@ -1039,7 +1099,7 @@ export function parseShort(short, channelId, channelName) {
     return {
       type: 'video',
       videoId: reelItem.id,
-      title: reelItem.title.text,
+      title: reelItem.title.text?.trim(),
       author: channelName,
       authorId: channelId,
       viewCount: reelItem.views.isEmpty() ? null : parseLocalSubscriberCount(reelItem.views.text),
@@ -1052,7 +1112,7 @@ export function parseShort(short, channelId, channelName) {
     return {
       type: 'video',
       videoId: shortsLockupView.on_tap_endpoint.payload.videoId,
-      title: shortsLockupView.overlay_metadata.primary_text.text,
+      title: shortsLockupView.overlay_metadata.primary_text.text?.trim(),
       author: channelName,
       authorId: channelId,
       viewCount: shortsLockupView.overlay_metadata.secondary_text ? parseLocalSubscriberCount(shortsLockupView.overlay_metadata.secondary_text.text) : null,
@@ -1247,7 +1307,7 @@ export function parseLocalPlaylistVideo(video) {
     return {
       type: 'video',
       videoId: short.id,
-      title: short.title.text,
+      title: short.title.text?.trim(),
       viewCount: parseLocalSubscriberCount(short.views.text),
       lengthSeconds: ''
     }
@@ -1283,7 +1343,7 @@ export function parseLocalPlaylistVideo(video) {
     return {
       type: 'video',
       videoId: shortsLockupView.on_tap_endpoint.payload.videoId,
-      title: shortsLockupView.overlay_metadata.primary_text.text,
+      title: shortsLockupView.overlay_metadata.primary_text.text?.trim(),
       viewCount,
       lengthSeconds: ''
     }
@@ -1329,9 +1389,9 @@ export function parseLocalPlaylistVideo(video) {
     return {
       type: 'video',
       videoId: video_.id,
-      title: video_.title.text,
+      title: video_.title.text?.trim(),
       author: video_.author.name,
-      authorId: video_.author.id,
+      authorId: (video_.author?.id != null && video_.author.id !== 'N/A') ? video_.author.id : null,
       viewCount,
       published,
       lengthSeconds: isNaN(video_.duration.seconds) ? '' : video_.duration.seconds,
@@ -1355,7 +1415,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
     return {
       type: 'video',
       videoId: movie.id,
-      title: movie.title.text,
+      title: movie.title.text?.trim(),
       author: movie.author.name !== 'N/A' ? movie.author.name : channelName,
       authorId: movie.author.id !== 'N/A' ? movie.author.id : channelId,
       description: movie.description_snippet?.text,
@@ -1385,9 +1445,9 @@ export function parseLocalListVideo(item, channelId, channelName) {
     return {
       type: 'video',
       videoId: video.video_id,
-      title: video.title.text,
+      title: video.title.text?.trim(),
       author: video.author?.name ?? channelName,
-      authorId: video.author?.id ?? channelId,
+      authorId: (video.author?.id != null && video.author.id !== 'N/A') ? video.author.id : channelId,
       viewCount: video.views.text == null ? null : extractNumberFromString(video.views.text),
       published,
       lengthSeconds: isLive ? '' : Utils.timeToSeconds(video.duration.text),
@@ -1436,7 +1496,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
     return {
       type: 'video',
       videoId: video.video_id,
-      title: video.title.text,
+      title: video.title.text?.trim(),
       author: video.author.name !== 'N/A' ? video.author.name : channelName,
       authorId: video.author.id !== 'N/A' ? video.author.id : channelId,
       description: video.description,
@@ -1505,20 +1565,20 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       let isUpcoming = false
       let premiereDate
 
-      /** @type {YTNodes.ThumbnailOverlayBadgeView | undefined} */
-      const thumbnailOverlayBadgeView = lockupView.content_image?.overlays?.firstOfType(YTNodes.ThumbnailOverlayBadgeView)
+      /** @type {YTNodes.ThumbnailBottomOverlayView | undefined } */
+      const thumbnailBottomOverlayView = lockupView.content_image?.overlays?.firstOfType(YTNodes.ThumbnailBottomOverlayView)
 
-      if (thumbnailOverlayBadgeView) {
-        if (thumbnailOverlayBadgeView.badges.some(badge => badge.badge_style === 'THUMBNAIL_OVERLAY_BADGE_STYLE_LIVE')) {
+      if (thumbnailBottomOverlayView) {
+        if (thumbnailBottomOverlayView.badges.some(badge => badge.badge_style === 'THUMBNAIL_OVERLAY_BADGE_STYLE_LIVE')) {
           liveNow = true
-        } else if (thumbnailOverlayBadgeView.badges.some(badge => badge.text.toLowerCase() === 'upcoming')) {
+        } else if (thumbnailBottomOverlayView.badges.some(badge => badge.text.toLowerCase() === 'upcoming')) {
           isUpcoming = true
 
           if (lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.[1].text?.text) {
             premiereDate = new Date(lockupView.metadata.metadata.metadata_rows[1].metadata_parts[1].text.text)
           }
         } else {
-          const durationBadge = thumbnailOverlayBadgeView.badges.find(badge => /^[\d:]+$/.test(badge.text))
+          const durationBadge = thumbnailBottomOverlayView.badges.find(badge => /^[\d:]+$/.test(badge.text))
 
           if (durationBadge) {
             lengthSeconds = Utils.timeToSeconds(durationBadge.text)
@@ -1545,7 +1605,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       return {
         type: 'video',
         videoId: lockupView.content_id,
-        title: lockupView.metadata.title.text,
+        title: lockupView.metadata.title.text?.trim(),
         author: lockupView.metadata.metadata?.metadata_rows[0].metadata_parts?.[0].text?.text,
         authorId: lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.payload.browseId,
         viewCount,
@@ -1593,13 +1653,12 @@ function parseListItem(item, channelId, channelName) {
       /** @type {import('youtubei.js').YTNodes.GridChannel} */
       const channel = item
       let subscribers = null
-      let videos = null
 
       if (channel.subscribers?.text) {
         subscribers = parseLocalSubscriberCount(channel.subscribers.text)
       }
 
-      videos = extractNumberFromString(channel.video_count.text)
+      const videos = extractNumberFromString(channel.video_count.text)
 
       return {
         type: 'channel',
@@ -1686,7 +1745,7 @@ export function parseLocalWatchNextVideo(video) {
     return {
       type: 'video',
       videoId: video.id,
-      title: video.title.text,
+      title: video.title.text?.trim(),
       author: video.author.name,
       authorId: video.author.id,
       lengthSeconds: video.duration.seconds
@@ -1705,7 +1764,7 @@ export function parseLocalWatchNextVideo(video) {
     return {
       type: 'video',
       videoId: video.video_id,
-      title: video.title.text,
+      title: video.title.text?.trim(),
       author: video.author.name,
       authorId: video.author.id,
       viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
@@ -1724,8 +1783,8 @@ function convertSearchFilters(filters) {
   // others have empty strings that we don't want to pass to youtubei.js
 
   if (filters) {
-    if (filters.sortBy) {
-      convertedFilters.sort_by = filters.sortBy
+    if (filters.prioritize) {
+      convertedFilters.prioritize = filters.prioritize
     }
 
     if (filters.time) {

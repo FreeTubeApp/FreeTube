@@ -48,7 +48,7 @@ Global:
 
 # Search Bar
     Like Count: 1 patikšana | {count} patikšanas
-    Comment Count: 1 viedoklis | {count} viedokļi
+    Comment Count: 1 komentārs | {count} komentāri
 Search / Go to URL: 'Meklē / Dodies uz URL'
 Search Bar:
   Clear Input: 'Tīrīt ievadi'
@@ -56,15 +56,11 @@ Search Bar:
   Remove: Noņemt
 Search Filters:
   Search Filters: 'Meklēšanas atlase'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Visatbilstošākie'
-    Rating: 'Vērtējuma'
-    Upload Date: 'Augšuplādes datums'
-    View Count: 'Skatījumi'
   Time:
     Time: 'Vecums'
     Any Time: 'Jebkurā laikā'
-    Last Hour: 'Pēdējā stundā'
     Today: 'Šodienas'
     This Week: 'Šonedēļ'
     This Month: 'Šomēnes'
@@ -79,9 +75,9 @@ Search Filters:
   Duration:
     Duration: 'Ilgums'
     All Durations: 'Visi ilgumi'
-    Short (< 4 minutes): 'Īss (<4 minūtēm)'
-    Medium (4 - 20 minutes): 'Vidējs (4 - 20 minūtes)'
-    Long (> 20 minutes): 'Ilgs (> 20 minūtes)'
+    '< 3 minutes': '<3 minūtēm'
+    '3 - 20 minutes': '3 - 20 minūtes'
+    '> 20 minutes': '> 20 minūtes'
   # On Search Page
   Search Results: 'Meklēšanas rezultāti'
   Fetching results. Please wait: 'Iegūst rezultātus. Lūdzu gaidi'
@@ -136,12 +132,12 @@ User Playlists:
   Sort By:
     NameDescending: Z-A
     NameAscending: A-Z
-    EarliestUpdatedFirst: Visagrāk atjaunināti
-    LatestPlayedFirst: Nesen atskaņoti
-    LatestUpdatedFirst: Nesen atjaunināti
-    LatestCreatedFirst: Nesen izveidoti
-    EarliestCreatedFirst: Visagrāk izveidoti
-    EarliestPlayedFirst: Visagrāk atskaņoti
+    EarliestUpdatedFirst: Atjaunināšanas datums (vecākos augšgalā)
+    LatestPlayedFirst: Atskaņošanas datums (jaunākos augšgalā)
+    LatestUpdatedFirst: Atjaunināšanas datums (jaunākos augšgalā)
+    LatestCreatedFirst: Izveidošanas datums (jaunākos augšgalā)
+    EarliestCreatedFirst: Izveidošanas datums (vecākos augšgalā)
+    EarliestPlayedFirst: Atskaņošanas datums (vecākos augšgalā)
   Cannot delete the quick bookmark target playlist.: Nevar izdzēst ātrās grāmatzīmes mērķa atskaņošanas sarakstu.
   Delete Playlist: Dzēs atskaņošanas sarakstu
   Remove from Favorites: Noņem no {playlistName}
@@ -189,6 +185,9 @@ User Playlists:
   CreatePlaylistPrompt:
     Toast:
       There was an issue with creating the playlist.: Izveidojot atskaņošanas sarakstu radās kļūda.
+      Playlist {playlistName} has been successfully created.: '{playlistName} atskaņošanas saraksts veiksmīgi izveidots.'
+    Create: Izveidot
+    New Playlist Name: Jaunā atskaņošanas saraksta nosaukums
   AddVideoPrompt:
     Save: Saglabāt
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} video jau pievienoti'
@@ -249,6 +248,7 @@ Settings:
       No Action: 'Nedarīt neko'
     Auto Load Next Page:
       Label: Autoielādē nākamo lapu
+      Tooltip: Automātiski ielādēt papildu lapas un komentārus.
   Theme Settings:
     Theme Settings: 'Izskata'
     Match Top Bar with Main Color: 'Saskaņo augšmalu ar galveno krāsu'
@@ -406,7 +406,7 @@ Settings:
     Hide Active Subscriptions: 'Paslēp aktīvos abonementus'
     Hide Video Description: 'Paslēpt video aprakstu'
     Hide Comments: 'Paslēpt komentārus'
-    Hide Profile Pictures in Comments: 'Paslēpt kontu atēlus komentāros'
+    Hide Profile Pictures in Comments: 'Paslēpt profila attēlus komentāros'
     Display Titles Without Excessive Capitalisation: 'Attēlot nosaukumus nepārspīlējot ar lielajiem burtiem un interpunkciju'
     Hide Live Streams: 'Paslēpt dzīvās straumes'
     Hide Upcoming Premieres: 'Paslēpt tuvojošās pirmizrādes'
@@ -459,6 +459,7 @@ Settings:
     Unknown data key: 'Nezināma datu atslēga'
     How do I import my subscriptions?: ''
     Manage Subscriptions: 'Pārvaldīt abonementus'
+    Search history: Meklēšanas vēsture
   Proxy Settings:
     Proxy Settings: 'Starpniekservera'
     Enable Tor / Proxy: 'Iespējot Tor / starpniekserveri'
@@ -473,6 +474,8 @@ Settings:
     Region: 'Apgabals'
     City: 'Pilsēta'
     Error getting network information. Is your proxy configured properly?: 'Kļūda saņemot tīkla informāciju. Vai jūsu starpniekserveris ir uzstādīts pareizi?'
+    Proxy Username: Starpniekservera lietotājvārds
+    Proxy Password: Starpniekservera parole
   SponsorBlock Settings:
     SponsorBlock Settings: "SponsorBlock\uFEFF"
     Enable SponsorBlock: 'Iespējot SponsorBlock'
@@ -492,13 +495,6 @@ Settings:
     Hide Unsubscribe Button: 'Paslēpt Atabonēt pogu'
     Show Family Friendly Only: 'Rādīt tikai ģimenei draudzīgi'
     Hide Search Bar: 'Paslēp meklēšanas joslu'
-  Download Settings:
-    Download Settings: 'Lejuplādes'
-    Ask Download Path: 'Jautāt lejuplādes ceļu'
-    Choose Path: 'Izvēlēties ceļu'
-    Download Behavior: 'Lejuplādes uzvedība'
-    Download in app: 'Lejuplādēt aplikācijā'
-    Open in web browser: 'Atvērt tīkla pārlūkā'
   Experimental Settings:
     Experimental Settings: 'Izmēģinājuma'
     Warning: ''
@@ -532,15 +528,12 @@ About:
   Email: 'E-pasts'
   Mastodon: "Mastodon\uFEFF"
   Chat on Matrix: 'Tērzēt Matrixā'
-  Please read the: 'Lūdzu izlasi'
   room rules: 'istabas noteikumi'
   Translate: 'Tulkot'
   Credits: 'Nopelni'
-  FreeTube is made possible by: 'FreeTube padarīja iespējamu'
   these people and projects: 'šie cilvēki un apvienības'
   Donate: 'Ziedot'
 
-  Licensed under the: Licenzēts ar
   AGPLv3: "AGPLv3\uFEFF"
 Profile:
   Profile Settings: 'Profila'
@@ -634,6 +627,8 @@ Channel:
     votes: ''
     Reveal Answers: 'Atklāj atbildes'
     Hide Answers: 'Paslēp atbildes'
+  Courses:
+    Courses: Kursi
 Video:
   Mark As Watched: 'Atzīmē kā skatītu'
   Remove From History: 'Noņem no vēstures'
@@ -674,27 +669,24 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
   Show Super Chat Comment: ''
   Scroll to Bottom: ''
-  Download Video: ''
-  video only: ''
-  audio only: ''
   Published:
     In less than a minute: ''
-  Published on: ''
+  Published on: 'Publicēts'
   Streamed on: ''
   Started streaming on: ''
   Sponsor Block category:
-    sponsor: ''
+    sponsor: 'Sponsors'
     intro: ''
     outro: ''
-    self-promotion: ''
+    self-promotion: 'Pašreklāma'
     interaction: ''
     music offtopic: ''
     recap: ''
     filler: ''
   External Player:
     OpenInTemplate: ''
-    video: ''
-    playlist: ''
+    video: 'video'
+    playlist: 'atskaņošanas saraksts'
     OpeningTemplate: ''
     UnsupportedActionTemplate: ''
     Unsupported Actions:
@@ -706,15 +698,23 @@ Video:
       shuffling playlists: ''
       looping playlists: ''
 #& Playlists
+  Player:
+    Stats:
+      Stats: Statistika
 Playlist:
   #& About
-  Playlist: ''
+  Playlist: 'Atskaņošanas saraksts'
   View Full Playlist: ''
   Last Updated On: ''
 
 # On Video Watch Page
 #* Published
 #& Views
+  Sort By:
+    AuthorAscending: Autora (A-Z)
+    AuthorDescending: Autora (Z-A)
+    VideoTitleAscending: Nosaukuma (A-Z)
+    VideoTitleDescending: Nosaukuma (Z-A)
 Change Format:
   Change Media Formats: ''
   Use Dash Formats: ''
@@ -723,12 +723,12 @@ Change Format:
   Dash formats are not available for this video: ''
   Audio formats are not available for this video: ''
 Share:
-  Share Video: ''
-  Share Channel: ''
-  Share Playlist: ''
+  Share Video: 'Kopīgot video'
+  Share Channel: 'Kopīgot kanālu'
+  Share Playlist: 'Kopīgot atskaņošanas sarakstu'
   Include Timestamp: ''
-  Copy Link: ''
-  Open Link: ''
+  Copy Link: 'Kopēt saiti'
+  Open Link: 'Atvērt saiti'
   Copy Embed: ''
   Open Embed: ''
   # On Click
@@ -743,26 +743,30 @@ Clipboard:
   Cannot access clipboard without a secure connection: ''
 
 Chapters:
-  Chapters: ''
+  Chapters: 'Nodaļas'
 
 Mini Player: ''
 Comments:
-  Comments: ''
-  Click to View Comments: ''
-  Getting comment replies, please wait: ''
-  There are no more comments for this video: ''
-  Hide Comments: ''
-  Top comments: ''
-  Newest first: ''
-  View {replyCount} replies: ''
+  Comments: 'Komentāri'
+  Click to View Comments: 'Rādīt komentārus'
+  Getting comment replies, please wait: 'Notiek komentāra atbilžu ielāde, lūdzu, uzgaidiet'
+  There are no more comments for this video: 'Šim video nav vairāk komentāru'
+  Hide Comments: 'Paslēpt komentārus'
+  Top comments: 'Populārākos augšgalā'
+  Newest first: 'Jaunākos augšgalā'
+  View {replyCount} replies: 'Rādīt 1 atbildi | Rādīt {replyCount} atbildes'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  Show More Replies: ''
-  There are no comments available for this video: ''
-  Load More Comments: ''
+  Show More Replies: 'Rādīt vairāk atbilžu'
+  There are no comments available for this video: 'Šim video nav komentāru'
+  Load More Comments: 'Ielādēt vairāk komentāru'
   Pinned by: ''
-  Member: ''
+  Member: 'Biedrs'
   Subscribed: ''
   Hearted: ''
+  Hide {replyCount} replies: Paslēpt 1 atbildi | Paslēpt {replyCount} atbildes
+  View 1 reply from {channelName}: Rādīt 1 atbildi no {channelName}
+  View {replyCount} replies from {channelName} and others: Rādīt {replyCount} atbildes no {channelName} un citiem
+  There are no comments available for this post: Šai ziņai nav komentāru
 Up Next: ''
 
 #Tooltips
@@ -817,18 +821,15 @@ Default Invidious instance has been set to {instance}: ''
 Default Invidious instance has been cleared: ''
 'The playlist has ended. Enable loop to continue playing': ''
 External link opening has been disabled in the general settings: ''
-Downloading has completed: ''
-Starting download: ''
-Downloading failed: ''
 Screenshot Success: ''
 Screenshot Error: ''
 
 Hashtag:
-  Hashtag: ''
+  Hashtag: 'Mirkļbirka, tēmturis'
   This hashtag does not currently have any videos: ''
-Yes: ''
-No: ''
-Ok: ''
+Yes: 'Jā'
+No: 'Nē'
+Ok: 'Labi'
 Search character limit: Meklējamā frāze pārsniedz {searchCharacterLimit} simbolu ierobežojumu
 Feed:
   Refresh Feed: Atsvaidzini {subscriptionName}
@@ -850,3 +851,14 @@ KeyboardShortcutPrompt:
   Zoom In: Tuvināt
   Zoom Out: Tālināt
   Fullscreen: Pilnekrāns
+  Volume Up: Palielināt skaļumu
+  Volume Down: Samazināt skaļumu
+checkmark: ✓
+Cancel: Atcelt
+shortcutJoinOperator: +
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  shift: Shift
+shortcutLabelSeparator: ｜
+Display Label: '{label}: {value}'

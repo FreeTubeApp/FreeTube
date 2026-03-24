@@ -13,7 +13,7 @@ Toggle Developer Tools: 'Włącz/wyłącz narzędzia deweloperskie'
 Actual size: 'Rzeczywisty rozmiar'
 Zoom in: 'Powiększ'
 Zoom out: 'Zmniejsz'
-Toggle fullscreen: 'Włącz/wyłącz tryb pełnoekranowy'
+Toggle fullscreen: 'Przełącz na cały ekran'
 Window: 'Okno'
 Minimize: 'Zminimalizuj'
 Close: 'Zamknij'
@@ -42,15 +42,13 @@ Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtry wyszukiwania'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Trafność'
-    Rating: 'Ocena'
-    Upload Date: 'Data przesłania'
-    View Count: 'Liczba wyświetleń'
+    Prioritize: Ustal priorytety
+    Popularity: Popularność
   Time:
     Time: 'Czas przesłania'
     Any Time: 'Kiedykolwiek'
-    Last Hour: 'Ostatnia godzina'
     Today: 'Dzisiaj'
     This Week: 'W tym tygodniu'
     This Month: 'W tym miesiącu'
@@ -65,10 +63,9 @@ Search Filters:
   Duration:
     Duration: 'Długość'
     All Durations: 'Każda'
-    Short (< 4 minutes): 'Krótkie (< 4 minuty)'
-    Long (> 20 minutes): 'Długie (> 20 minut)'
-  # On Search Page
-    Medium (4 - 20 minutes): Średnie (4 - 20 minut)
+    '< 3 minutes': '< 3 minuty'
+    '> 20 minutes': '> 20 minut'
+    '3 - 20 minutes': 3 - 20 minut
   Search Results: 'Wyniki wyszukiwania'
   Fetching results. Please wait: 'Trwa wyszukiwanie. Proszę poczekać'
   Fetch more results: 'Pokaż więcej wyników'
@@ -219,7 +216,7 @@ Settings:
       List: 'Lista'
     Thumbnail Preference:
       Thumbnail Preference: 'Ustawienia miniaturek'
-      Default: 'Domyślna'
+      Default: 'Domyślnie'
       Beginning: 'Początek'
       Middle: 'Środek'
       End: 'Koniec'
@@ -413,7 +410,7 @@ Settings:
         Forbidden Characters: Niedozwolone znaki
         Empty File Name: Pusta nazwa pliku
       Enable: Włącz zrzuty ekranu
-    Enter Fullscreen on Display Rotate: Przyłącz na tryb pełnoekranowy przy zmianie orientacji ekranu
+    Enter Fullscreen on Display Rotate: Przyłącz na cały ekran przy obrocie wyświetlacza
     Skip by Scrolling Over Video Player: Przewijaj film kółkiem myszy na obszarze odtwarzacza
     Autoplay Interruption Timer: Czas do przerwania autoodtwarzania
     Default Viewing Mode:
@@ -421,7 +418,7 @@ Settings:
       Picture in Picture: Obraz w obrazie
       External Player: Zewnętrzny odtwarzacz ({externalPlayerName})
       Default Viewing Mode: Domyślny tryb odtwarzania
-      Full Screen: Pełny ekran
+      Full Screen: Cały ekran
   Subscription Settings:
     Subscription Settings: 'Subskrypcje'
     Fetch Feeds from RSS: Pobierz subskrypcje z RSS
@@ -588,13 +585,6 @@ Settings:
       None:
         Name: Żaden
     Ignore Default Arguments: Zignoruj argumenty domyślne
-  Download Settings:
-    Ask Download Path: Pytaj o lokalizację pobierania
-    Download Settings: Pobieranie
-    Choose Path: Wybierz folder
-    Download Behavior: Sposób pobierania
-    Download in app: Pobierz w aplikacji
-    Open in web browser: Otwórz w przeglądarce
   Parental Control Settings:
     Parental Control Settings: Kontrola rodzicielska
     Hide Unsubscribe Button: Schowaj przycisk „Odsubskrybuj”
@@ -615,6 +605,9 @@ Settings:
     Remove Password: Usuń hasło
   Sort Settings Sections (A-Z): Sortuj sekcje ustawień (A-Z)
   Return to Settings Menu: Wróć do menu „Ustawienia”
+  SABR:
+    Label: Włącz SABR jako back-end dla DASH-a
+    Tooltip: W przyszłości SABR będzie jedynym back-endem DASH-a i nie będzie można go wyłączyć. Ten przełącznik został wprowadzony na wypadek, gdyby wczesna implementacja powodowała problemy.
 About:
   #On About page
   About: 'O projekcie'
@@ -633,7 +626,6 @@ About:
   room rules: zasady pokoju
   Chat on Matrix: Czat na Matrix
   Mastodon: Mastodon
-  Please read the: Proszę przeczytać
   Please check for duplicates before posting: Proszę poszukać duplikatów przed wysłaniem
   GitHub issues: problemy na GitHub
   Report a problem: Zgłoś problem
@@ -641,10 +633,11 @@ About:
   GitHub releases: Wydania na GitHub
   Downloads / Changelog: Wydania / Lista zmian
   Source code: Kod źródłowy
-  FreeTube is made possible by: FreeTube powstał dzięki
   Discussions: Dyskusje
-  Licensed under the: Licencjonowany na
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Licencjonowany na {licenseLink}
+  Please read the {roomRulesLink}: Proszę przeczytać {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube powstał dzięki {creditsPageLink}
 Channel:
   Subscribe: 'Zasubskrybuj'
   Unsubscribe: 'Odsubskrybuj'
@@ -738,9 +731,6 @@ Video:
   Shuffle Playlist: Losuj z playlisty
   Loop Playlist: Zapętl playlistę
   Starting soon, please refresh the page to check again: Wkrótce się zacznie. Proszę odświeżyć stronę, aby ponownie sprawdzić
-  audio only: tylko audio
-  video only: tylko wideo
-  Download Video: Pobierz film
   Copy Invidious Channel Link: Skopiuj odnośnik do kanału na stronie Invidious
   Open Channel in Invidious: Otwórz kanał na stronie Invidious
   Copy YouTube Channel Link: Skopiuj odnośnik do kanału na stronie YouTube
@@ -786,7 +776,7 @@ Video:
     Audio Tracks: Ścieżki audio
     Theatre Mode: Tryb kina
     Exit Theatre Mode: Wyłącz tryb kina
-    Exit Full Window: Wyłącz pełny ekran
+    Exit Full Window: Wyłącz pełne okno
     Take Screenshot: Zrób zrzut ekranu
     Show Stats: Pokaż statystyki
     Hide Stats: Schowaj statystyki
@@ -807,7 +797,7 @@ Video:
     You appear to be offline: Zdaje się, że jesteś rozłączony.
     Playback will resume automatically when your connection comes back: Odtwarzanie zostanie wznowione, jak tylko połączenie zostanie odzyskane.
     Skipped segment: Pominięto segment {segmentCategory}
-    Full Window: Pełny ekran
+    Full Window: Pełne okno
     Autoplay is off: Autoodtwarzanie jest wyłączone
     Autoplay is on: Autoodtwarzanie jest włączone
   IP block: YouTube uniemożliwił odtworzenie filmów blokując Twój adres IP. Możesz spróbować przełączyć się na inny, korzystając z VPN lub proxy.
@@ -821,6 +811,10 @@ Video:
 #& Playlists
   Watched Progress Saved: Postęp odtwarzania zapisany
   Save Watched Progress: Zapisz postęp odtwarzania
+  Popout Live Chat: Czat w okienku
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Do końca reklamy z początku pozostało: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'SABR – do przeczekania pozostało: {remindingTimeSeconds}s'
 Playlist:
   #& About
   View Full Playlist: 'Zobacz całą playlistę'
@@ -999,11 +993,6 @@ Search Bar:
   Remove: Usuń
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych odnośników zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
-Downloading has completed: '„{videoTitle}” został pobrany'
-Starting download: Rozpoczęto pobieranie „{videoTitle}”
-Downloading failed: Wystąpił problem z pobieraniem „{videoTitle}”
-Downloading canceled: Pobieranie zostało przerwane przez użytkownika
-Download folder does not exist: Katalog pobierania "$" nie istnieje. Przełączono na tryb "pytaj o folder".
 Screenshot Error: Wykonanie zrzutu nie powiodło się. {error}
 Screenshot Success: Zapisano zrzut ekranu jako „{filePath}”
 New Window: Nowe okno
@@ -1023,7 +1012,7 @@ Chapters:
 Preferences: Preferencje
 Ok: Ok
 Hashtag:
-  Hashtag: Hashtag
+  Hashtag: Hasztag
   This hashtag does not currently have any videos: Nie ma na razie żadnych filmów z takim hashtagiem
 Channel Hidden: '{channel} dodany do filtra kanałów'
 Go to page: Idź do {page}
@@ -1090,7 +1079,7 @@ KeyboardShortcutPrompt:
   History Forward: Dalej o jedną stronę
   Refresh: Wczytaj ponownie subskrypcje z nową zawartością
   History Backward: Wróć o jedną stronę
-  Fullscreen: Przełącz na pełny ekran
+  Fullscreen: Przełącz na cały ekran
   Picture in Picture: Przełącz na tryb obraz w obrazie
   Decrease Video Speed: Zwolnij odtwarzanie filmu o wartość przeskoku w wyborze prędkości odtwarzania filmu
   Full Window: Przełącz na pełne okno

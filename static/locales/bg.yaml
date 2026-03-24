@@ -49,15 +49,11 @@ Search / Go to URL: 'Търсене / Отиване на адрес'
   # In Filter Button
 Search Filters:
   Search Filters: 'Филтри за търсене'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Най-уместно'
-    Rating: 'Оценка'
-    Upload Date: 'Дата на качване'
-    View Count: 'Брой показвания'
   Time:
     Time: 'Време'
     Any Time: 'Независимо кога'
-    Last Hour: 'Последния час'
     Today: 'Днес'
     This Week: 'Тази седмица'
     This Month: 'Този месец'
@@ -72,10 +68,9 @@ Search Filters:
   Duration:
     Duration: 'Продължителност'
     All Durations: 'Всички продължителности'
-    Short (< 4 minutes): 'Кратки (< 4 минути)'
-    Long (> 20 minutes): 'Дълги (> 20 минути)'
-  # On Search Page
-    Medium (4 - 20 minutes): Средни (4 - 20 минути)
+    '< 3 minutes': '< 3 минути'
+    '> 20 minutes': '> 20 минути'
+    '3 - 20 minutes': 3 - 20 минути
   Search Results: 'Резултати от търсенето'
   Fetching results. Please wait: 'Събиране на резултати. Моля, изчакайте'
   Fetch more results: 'Намиране на още резултати'
@@ -595,13 +590,6 @@ Settings:
       None:
         Name: Няма
     Ignore Default Arguments: Игнориране на аргументите по подразбиране
-  Download Settings:
-    Download Settings: Изтегляне
-    Choose Path: Избор на път
-    Ask Download Path: Питане за пътя за изтегляне
-    Download Behavior: Поведение при изтегляне
-    Download in app: Изтегляне в приложението
-    Open in web browser: Отваряне в уеб браузър
   Parental Control Settings:
     Parental Control Settings: Родителски контрол
     Hide Unsubscribe Button: Скриване на бутона за отписване
@@ -628,10 +616,8 @@ About:
   #& About
   Donate: Дарение
   these people and projects: тези хора и проекти
-  FreeTube is made possible by: FreeTube благодарение на
   Translate: Превод
   room rules: Правилата за общуване
-  Please read the: Моля, прочетете
   Chat on Matrix: Чат в Matrix
   Mastodon: Mastodon
   Email: Електронна поща
@@ -649,8 +635,10 @@ About:
   Beta: Бета
   Credits: Заслуги
   Discussions: Дискусии
-  Licensed under the: Лицензирано под
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Лицензирано под {licenseLink}
+  Please read the {roomRulesLink}: Моля, прочетете {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube е възможен, благодарение на {creditsPageLink}
 Profile:
   Profile Select: 'Избор на профил'
   All Channels: 'Всички канали'
@@ -786,9 +774,6 @@ Video:
     In less than a minute: След по-малко от минута
   Published on: 'Публикувано на'
 #& Videos
-  audio only: само аудио
-  video only: само видео
-  Download Video: Сваляне на видео
   Copy Invidious Channel Link: Копиране на връзка за канала в Invidious
   Open Channel in Invidious: Отваряне на канала в Invidious
   Copy YouTube Channel Link: Копиране на връзка за канала в YouTube
@@ -869,6 +854,10 @@ Video:
 #& Playlists
   Watched Progress Saved: Напредъка на гледането е запазен
   Save Watched Progress: Запазване на напредъка
+  Popout Live Chat: Изскачащ чат
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Оставащо време за реклама преди видеото: {remindingTimeSeconds} сек'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Оставащо време за отлагане на SABR: {remindingTimeSeconds} сек'
 Playlist:
   #& About
   View Full Playlist: 'Преглед на пълен плейлист'
@@ -1002,9 +991,6 @@ Search Bar:
   Clear Input: Изчистване на въведеното
   Remove: Премахване
 Are you sure you want to open this link?: Сигурни ли сте, че искате да отворите тази връзка?
-Downloading has completed: '"{videoTitle}" приключи изтеглянето'
-Starting download: Започва изтегляне на "{videoTitle}"
-Downloading failed: Имаше проблем при изтеглянето на "{videoTitle}"
 Screenshot Error: Снимката на екрана е неуспешна. {error}
 Screenshot Success: Запазена снимка на екрана
 New Window: Нов прозорец
@@ -1124,4 +1110,6 @@ KeyboardShortcutPrompt:
   End: Преминаване към края на видеото
   Skip to Next Video: Преминаване към следващото видео в плейлиста или към следващото препоръчано
   Skip to Previous Video: Преминаване към предходното видео в плейлиста
-shortcutLabelSeparator: '|'
+shortcutLabelSeparator: '{''|''}'
+Compact side navigation: Компактна странична навигация
+Expand side navigation: Разширена странична навигация

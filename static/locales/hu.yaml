@@ -49,15 +49,13 @@ Search / Go to URL: 'Keresés / Ugrás webcímre'
   # In Filter Button
 Search Filters:
   Search Filters: 'Keresési szűrők'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Legpontosabbak'
-    Rating: 'Értékelés'
-    Upload Date: 'Feltöltés dátuma'
-    View Count: 'Megtekintések száma'
+    Prioritize: Előnyben részesítés
+    Popularity: Népszerűség
   Time:
     Time: 'Időpont'
     Any Time: 'Bármikor'
-    Last Hour: 'Elmúlt óra'
     Today: 'Ma'
     This Week: 'Ezen a héten'
     This Month: 'Ebben a hónapban'
@@ -72,10 +70,11 @@ Search Filters:
   Duration:
     Duration: 'Időtartam'
     All Durations: 'Bármilyen időtartam'
-    Short (< 4 minutes): 'Rövid (kevesebb, mint 4 perc)'
-    Long (> 20 minutes): 'Hosszú (hosszabb, mint 20 perc)'
-  # On Search Page
-    Medium (4 - 20 minutes): Közepes (4-20 perc)
+    '< 4 minutes': 'kevesebb, mint 3 perc'
+    '> 20 minutes': 'hosszabb, mint 20 perc'
+    '4 - 20 minutes': 3-20 perc
+    '< 3 minutes': < 3 perc
+    '3 - 20 minutes': 3 - 20 perc
   Search Results: 'Keresési eredmények'
   Fetching results. Please wait: 'Eredmények lekérése. Kis türelmet kérünk'
   Fetch more results: 'További eredmények lekérése'
@@ -595,13 +594,6 @@ Settings:
       None:
         Name: Nincs
     Ignore Default Arguments: Alapértelmezett argumentumok mellőzése
-  Download Settings:
-    Ask Download Path: Rákérdezés a letöltés elérési útjára
-    Choose Path: Elérési út kiválasztása
-    Download Settings: Letöltés
-    Download Behavior: Letöltés viselkedése
-    Open in web browser: Megnyitás böngészőben
-    Download in app: Letöltés az alkalmazásban
   Parental Control Settings:
     Parental Control Settings: Szülői felügyelet
     Show Family Friendly Only: Csak a családbarát videók megjelenítése
@@ -622,17 +614,18 @@ Settings:
     Remove Password: Jelszó eltávolítása
   Sort Settings Sections (A-Z): Beállítások rendezése (A-Z)
   Return to Settings Menu: Vissza a „Beállítások” menübe
+  SABR:
+    Label: SABR engedélyezése mint DASH-háttérprogram
+    Tooltip: A SABR lesz az egyetlen DASH-háttérprogram a jövőbeli kiadásokban, és nem lehet majd letiltani. Ez a kapcsoló arra az esetre szolgál, ha a korai megvalósítása helyrehozhatatlan problémákat okozna.
 About:
   #On About page
   About: 'Névjegy'
   #& About
   these people and projects: az alábbi emberek és projektek
-  FreeTube is made possible by: 'A FreeTube elkészítését lehetővé tették'
   Donate: Adományozás
   Credits: Készítők
   Translate: Fordítás
   room rules: szobaszabályok
-  Please read the: Olvassa el a(z)
   Chat on Matrix: Csevegés a Matrixon
   Mastodon: Mastodon
   Blog: Blog
@@ -650,7 +643,9 @@ About:
   Report a problem: Probléma jelentése
   Discussions: Vitalapok
   AGPLv3: AGPLv3
-  Licensed under the: Az AGPLv3
+  Licensed under the {licenseLink}: Licencelve a(z) {licenseLink} alatt
+  Please read the {roomRulesLink}: 'Olvassa el a következőt: {roomRulesLink}'
+  FreeTube is made possible by {creditsPageLink}: A FreeTube a {creditsPageLink} jóvoltából jöhetett létre
 Profile:
   Profile Select: 'Profil kiválasztása'
   All Channels: 'Összes csatorna'
@@ -786,9 +781,6 @@ Video:
     In less than a minute: Kevesebb, mint egy perce
   Published on: 'Megjelent'
 #& Videos
-  audio only: csak hang
-  video only: csak videó
-  Download Video: Videó letöltése
   Copy Invidious Channel Link: Invidious csatorna hivatkozása másolása
   Copy YouTube Channel Link: YouTube-csatorna hivatkozás másolása
   Open Channel in YouTube: Csatorna megnyitása a YouTube-on
@@ -869,6 +861,10 @@ Video:
 #& Playlists
   Save Watched Progress: Megtekintett videó folyamatának mentése
   Watched Progress Saved: Megtekintett videó folyamata elmentve
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Hátralévő előzetes hirdetési idő: {remindingTimeSeconds} mp'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Hátralévő várakozási idő a SABR-re: {remindingTimeSeconds} mp'
+  Popout Live Chat: Felugró csevegés
 Playlist:
   #& About
   View Full Playlist: 'Teljes lejátszási lista megtekintése'
@@ -1010,9 +1006,6 @@ Channels:
   Count: '{number} csatorna találat.'
   Empty: A csatornalistája jelenleg üres.
   Unsubscribe Prompt: Biztosan le szeretne iratkozni a(z) „{channelName}” csatornáról?
-Downloading failed: Hiba történt a(z) „{videoTitle}” letöltésekor
-Starting download: „{videoTitle}” letöltésének indítása
-Downloading has completed: A(z) „{videoTitle}” letöltése befejeződött
 Screenshot Success: Képernyőkép elmentve
 Chapters:
   Chapters: Fejezetek
@@ -1126,4 +1119,4 @@ KeyboardShortcutPrompt:
   Skip to Previous Video: Ugrás a lejátszási lista előző videójára
 shortcutLabelSeparator: ｜
 Compact side navigation: Kompakt oldalsó navigáció
-Expand side navigation: Oldal navigáció kibontása
+Expand side navigation: Oldalsó navigáció kibontása

@@ -49,15 +49,13 @@ Search / Go to URL: 'Hledat / Přejít na URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Vyhledávací filtry'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Nejrelevantnější'
-    Rating: 'Hodnocení'
-    Upload Date: 'Datum nahrání'
-    View Count: 'Počet zhlédnutí'
+    Prioritize: Prioritizace
+    Popularity: Popularita
   Time:
     Time: 'Čas'
     Any Time: 'Kdykoliv'
-    Last Hour: 'Poslední hodina'
     Today: 'Dnes'
     This Week: 'Tento týden'
     This Month: 'Tento měsíc'
@@ -72,10 +70,9 @@ Search Filters:
   Duration:
     Duration: 'Trvání'
     All Durations: 'Všechny trvání'
-    Short (< 4 minutes): 'Krátké (< 4 minuty)'
-    Long (> 20 minutes): 'Dlouhé (> 20 minut)'
-  # On Search Page
-    Medium (4 - 20 minutes): Střední (4 - 20 minut)
+    '< 3 minutes': '< 3 minuty'
+    '> 20 minutes': '> 20 minut'
+    '3 - 20 minutes': 3 - 20 minut
   Search Results: 'Výsledky hledání'
   Fetching results. Please wait: 'Načítání výsledků. Prosím, čekejte'
   Fetch more results: 'Načíst více výsledků'
@@ -595,13 +592,6 @@ Settings:
       None:
         Name: Žádný
     Ignore Default Arguments: Ignorovat výchozí argumenty
-  Download Settings:
-    Ask Download Path: Zeptat se na cestu umístění souboru
-    Download Settings: Stahování
-    Choose Path: Zvolit cestu
-    Download in app: Stáhnout v aplikaci
-    Open in web browser: Otevřít v prohlížeči
-    Download Behavior: Chování stahování
   Parental Control Settings:
     Parental Control Settings: Rodičovská kontrola
     Hide Search Bar: Skrýt lištu vyhledávání
@@ -622,6 +612,9 @@ Settings:
     Set Password: Nastavit heslo
   Sort Settings Sections (A-Z): Seřadit sekce nastavení (A-Z)
   Return to Settings Menu: Vrátit se do nastavení
+  SABR:
+    Label: Povolti SABR jako backend DASH
+    Tooltip: SABR se v budoucím vydání stane jediným backendem DASH a nelze jej zakázat. Tento přepínač je poskytnut v případě, že má raná implementace závažné problémy.
 About:
   #On About page
   About: 'O aplikaci'
@@ -631,7 +624,6 @@ About:
   Donate: Přispět
   Credits: Poděkování
   room rules: pravidla místnosti
-  Please read the: Přečtěte si prosím
   Chat on Matrix: Chat na síti Matrix
   Mastodon: Mastodon
   Email: E-mail
@@ -642,15 +634,16 @@ About:
   Downloads / Changelog: Ke stažení / Seznam změn
   Translate: Překlady
   these people and projects: těmto lidem a projektům
-  FreeTube is made possible by: FreeTube je možné dělat díky
   Please check for duplicates before posting: Před odesláním prosím zkontrolujte duplicity
   GitHub issues: Chyby na GitHub
   Report a problem: Nahlásit problém
   Help: Nápověda
   GitHub releases: Vydání na GitHubu
   Discussions: Diskuze
-  Licensed under the: Licencováno pod
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Licencováno pod {licenseLink}
+  Please read the {roomRulesLink}: Přečtěte si prosím {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube existuje díky {creditsPageLink}
 Profile:
   Profile Select: 'Výběr profilu'
   All Channels: 'Všechny kanály'
@@ -786,9 +779,6 @@ Video:
   Live Chat is currently not supported in this build.: 'Živý chat není v této verzi programu podporován.'
   Live chat is enabled. Chat messages will appear here once sent.: 'Živý chat je povolen.  Po odeslání se zde zobrazí zprávy chatu.'
   'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Živý chat momentálně není podporován s Invidious API. Je vyžadováno přímé připojení k YouTube.'
-  Download Video: 'Stáhnout Video'
-  video only: 'pouze video'
-  audio only: 'pouze zvuk'
   Published:
     In less than a minute: Za méně než minutu
   Published on: 'Publikováno'
@@ -869,6 +859,10 @@ Video:
 #& Playlists
   Save Watched Progress: Uložit průběh sledování
   Watched Progress Saved: Průběh sledování uložen
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Zbývající čas prvotní reklamy: {remindingTimeSeconds} s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Zbývající čas pauzy SABR: {remindingTimeSeconds} s'
+  Popout Live Chat: Vyskakovací chat
 Playlist:
   #& About
   View Full Playlist: 'Zobrazit celý seznam skladeb'
@@ -1005,9 +999,6 @@ Search Bar:
   Remove: Odstranit
 External link opening has been disabled in the general settings: Otevírání externích odkazů bylo zakázáno v obecných nastaveních
 Are you sure you want to open this link?: Opravdu chcete otevřít tento dokaz?
-Downloading has completed: Bylo dokončeno stahování "{videoTitle}"
-Downloading failed: Došlo k problému při stahování "{videoTitle}"
-Starting download: Zahájení stahování "{videoTitle}"
 New Window: Nové okno
 Channels:
   Channels: Kanály

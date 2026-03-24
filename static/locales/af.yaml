@@ -70,15 +70,11 @@ Search Listing:
     8K: 8K
 Search Filters:
   Search Filters: 'Soekfilters'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Mees relevant'
-    Rating: 'Gradering'
-    Upload Date: 'Oplaaddatum'
-    View Count: 'Beskouingsaantal'
   Time:
     Time: 'Tyd'
     Any Time: 'Enige tyd'
-    Last Hour: 'Laaste uur'
     Today: 'Vandag'
     This Week: 'Hierdie week'
     This Month: 'Hierdie maand'
@@ -93,9 +89,9 @@ Search Filters:
   Duration:
     Duration: 'Duur'
     All Durations: 'Alle durasies'
-    Short (< 4 minutes): 'Kort (<4 minute)'
-    Medium (4 - 20 minutes): 'Medium (4 - 20 minute)'
-    Long (> 20 minutes): 'Lank (> 20 minute)'
+    '< 3 minutes': '<3 minute'
+    '3 - 20 minutes': '3 - 20 minute'
+    '> 20 minutes': '> 20 minute'
   Features:
     Features: 'Funksies'
     HD: 'HD'
@@ -128,7 +124,7 @@ Subscriptions:
   Load More Posts: ''
   Subscriptions Tabs: ''
   All Subscription Tabs Hidden: ''
-More: ''
+More: 'Meer'
 Channels:
   Channels: ''
   Title: ''
@@ -141,7 +137,7 @@ Trending:
   Gaming: ''
   Trending Tabs: ''
   Sports: Sport
-Most Popular: ''
+Most Popular: 'Mees Populêr'
 Feed:
   Feed Last Updated: ''
   Refresh Feed: ''
@@ -626,13 +622,6 @@ Settings:
     Hide Unsubscribe Button: 'Versteek uittekenknop'
     Show Family Friendly Only: 'Toon slegs gesinsvriendelike inhoud'
     Hide Search Bar: 'Versteek soekbalk'
-  Download Settings:
-    Download Settings: 'Laai af'
-    Ask Download Path: 'Vra vir aflaaipad'
-    Choose Path: 'Kies pad'
-    Download Behavior: 'Aflaaigedrag'
-    Download in app: 'Laai in toep af'
-    Open in web browser: 'Open in webblaaier'
   Experimental Settings:
     Experimental Settings: 'Eksperimenteel'
     Warning: 'Dit is eksperimentele instellings wat die toep kan laat uitbom indien geaktiveer. Dit word aanbeveel om rugsteune te maak. Gebruik op eie risiko!'
@@ -650,7 +639,6 @@ About:
   About: 'Oor'
   Beta: 'Beta'
   Source code: 'Bronkode'
-  Licensed under the: 'Gelisensieer onder die'
   AGPLv3: 'AGPLv3'
   Downloads / Changelog: 'Aflaaie / Veranderingslogboek'
   GitHub releases: 'GitHub-vrystellings'
@@ -666,11 +654,9 @@ About:
   Email: 'E-pos'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Klets op Matrix'
-  Please read the: 'Lees asb. die'
   room rules: 'kamerreëls'
   Translate: 'Vertaal'
   Credits: 'Danksegging'
-  FreeTube is made possible by: 'FreeTube is moontlik gemaak deur'
   these people and projects: 'hierdie mense en projekte'
   Donate: 'Skenk'
 
@@ -817,9 +803,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'Regstreekse klets is nie vir hierdie stroom beskikbaar nie. Die oplaaier het dit gedeaktiveer.'
   Show Super Chat Comment: 'Toon superkletskommentaar'
   Scroll to Bottom: 'Rol na onderent'
-  Download Video: 'Laai video af'
-  video only: 'slegs video'
-  audio only: 'slegs oudio'
   Published:
     In less than a minute: 'Oor minder as een minuut'
   Published on: 'Gepubliseer op'
@@ -1009,7 +992,7 @@ Invidious API Error (Click to copy): 'Invidious API-fout (Klik om te kopieer)'
 Falling back to Invidious API: 'Val terug op Invidious API'
 Falling back to Local API: 'Val terug op lokale API'
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Hierdie video is onbeskikbaar vanweë ontbrekende formate. Dit kan gebeur weens video-onbeskikbaarheid in u land.'
-Unknown YouTube url type, cannot be opened in app: 'Onbekende YouTube-URL; die URL kan nie in die toep geopen word nie'
+Unknown YouTube url type, cannot be opened in app: 'Onbekende YouTube-bronadres, die URL kan nie in die toep geopen word nie'
 Loop is now disabled: 'Herhaling is nou gedeaktiveer'
 Loop is now enabled: 'Herhaling is nou geaktiveer'
 Shuffle is now disabled: 'Skommel is nou gedeaktiveer'
@@ -1027,9 +1010,6 @@ Age Restricted:
   This channel is age restricted: 'Hierdie kanaal het ’n ouderdomsperk'
   This video is age restricted: 'Hierdie video het ’n ouderdomsperk'
 External link opening has been disabled in the general settings: 'Die open van eksterne skakels is gedeaktiveer in die algemene instellings'
-Downloading has completed: '“{videoTitle}” is afgelaai'
-Starting download: 'Begin aflaai van “{videoTitle}”'
-Downloading failed: 'Daar was ’n probleem by die aflaai van “{videoTitle}”'
 Screenshot Success: 'Bewaarde skermkiekie'
 Screenshot Error: 'Skermkiekie het misluk. {error}'
 Channel Hidden: '{channel} tot kanaalfilter toegevoeg'

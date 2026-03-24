@@ -52,15 +52,11 @@ Search Bar:
   # In Filter Button
 Search Filters:
   Search Filters: ''
-  Sort By:
+  Prioritize:
     Most Relevant: ''
-    Rating: ''
-    Upload Date: ''
-    View Count: ''
   Time:
     Time: ''
     Any Time: ''
-    Last Hour: ''
     Today: ''
     This Week: ''
     This Month: ''
@@ -75,9 +71,6 @@ Search Filters:
   Duration:
     Duration: ''
     All Durations: ''
-    Short (< 4 minutes): ''
-    Medium (4 - 20 minutes): ''
-    Long (> 20 minutes): ''
   # On Search Page
   Search Results: ''
   Fetching results. Please wait: ''
@@ -402,13 +395,6 @@ Settings:
     Hide Unsubscribe Button: ''
     Show Family Friendly Only: ''
     Hide Search Bar: ''
-  Download Settings:
-    Download Settings: ''
-    Ask Download Path: ''
-    Choose Path: ''
-    Download Behavior: ''
-    Download in app: ''
-    Open in web browser: ''
   Experimental Settings:
     Experimental Settings: ''
     Warning: ''
@@ -440,11 +426,9 @@ About:
   Email: ''
   Mastodon: ''
   Chat on Matrix: ''
-  Please read the: ''
   room rules: ''
   Translate: ''
   Credits: ''
-  FreeTube is made possible by: ''
   these people and projects: ''
   Donate: ''
 
@@ -578,9 +562,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
   Show Super Chat Comment: ''
   Scroll to Bottom: ''
-  Download Video: ''
-  video only: ''
-  audio only: ''
   Published:
     In less than a minute: ''
   Published on: ''
@@ -721,9 +702,6 @@ Default Invidious instance has been set to {instance}: ''
 Default Invidious instance has been cleared: ''
 'The playlist has ended. Enable loop to continue playing': ''
 External link opening has been disabled in the general settings: ''
-Downloading has completed: ''
-Starting download: ''
-Downloading failed: ''
 Screenshot Success: ''
 Screenshot Error: ''
 

@@ -210,7 +210,7 @@ function filterHistory() {
     return
   }
 
-  let filteredQuery = []
+  let filteredQuery
   if (doCaseSensitiveSearch.value) {
     filteredQuery = filterVideosWithQuery(historyCacheSorted.value, query.value)
   } else {

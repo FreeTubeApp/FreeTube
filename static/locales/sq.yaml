@@ -71,15 +71,11 @@ Search Listing:
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtra të kërkimit'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Më të përshtatshmet'
-    Rating: 'Vlerësimi'
-    Upload Date: 'Data e ngarkimit'
-    View Count: 'Shikimet'
   Time:
     Time: 'Koha'
     Any Time: 'Përherë'
-    Last Hour: 'Ora e fundit'
     Today: 'Sot'
     This Week: 'Këtë javë'
     This Month: 'Këtë muaj'
@@ -94,9 +90,9 @@ Search Filters:
   Duration:
     Duration: 'Gjatësia'
     All Durations: 'Të gjitha gjatësitë'
-    Short (< 4 minutes): 'E shkurtër (< 4 minuta)'
-    Medium (4 - 20 minutes): 'E mesme (4 - 20 minuta)'
-    Long (> 20 minutes): 'E gjatë (> 20 minuta)'
+    '< 3 minutes': '< 3 minuta'
+    '3 - 20 minutes': '3 - 20 minuta'
+    '> 20 minutes': '> 20 minuta'
   Features:
     Features: 'Karakteristikat'
     HD: 'HD'
@@ -635,13 +631,6 @@ Settings:
     Hide Unsubscribe Button: ''
     Show Family Friendly Only: ''
     Hide Search Bar: ''
-  Download Settings:
-    Download Settings: ''
-    Ask Download Path: ''
-    Choose Path: ''
-    Download Behavior: ''
-    Download in app: ''
-    Open in web browser: ''
   Experimental Settings:
     Experimental Settings: ''
     Warning: ''
@@ -659,7 +648,6 @@ About:
   About: ''
   Beta: ''
   Source code: ''
-  Licensed under the: ''
   AGPLv3: ''
   Downloads / Changelog: ''
   GitHub releases: ''
@@ -675,11 +663,9 @@ About:
   Email: ''
   Mastodon: ''
   Chat on Matrix: ''
-  Please read the: ''
   room rules: ''
   Translate: ''
   Credits: ''
-  FreeTube is made possible by: ''
   these people and projects: ''
   Donate: ''
 
@@ -836,9 +822,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
   Show Super Chat Comment: ''
   Scroll to Bottom: ''
-  Download Video: ''
-  video only: ''
-  audio only: ''
   Published:
     In less than a minute: ''
   Published on: ''
@@ -1038,9 +1021,6 @@ Age Restricted:
   This channel is age restricted: ''
   This video is age restricted: ''
 External link opening has been disabled in the general settings: ''
-Downloading has completed: ''
-Starting download: ''
-Downloading failed: ''
 Screenshot Success: ''
 Screenshot Error: ''
 Channel Hidden: ''

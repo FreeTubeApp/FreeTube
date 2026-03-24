@@ -42,15 +42,11 @@ Search / Go to URL: 'Buscar / Ir a la URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtros de búsqueda'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Más relevante'
-    Rating: 'Clasificación'
-    Upload Date: 'Fecha de carga'
-    View Count: 'Recuento de vistas'
   Time:
     Time: 'Tiempo'
     Any Time: 'Cualquier momento'
-    Last Hour: 'Última hora'
     Today: 'Hoy'
     This Week: 'Esta semana'
     This Month: 'Este mes'
@@ -65,10 +61,9 @@ Search Filters:
   Duration:
     Duration: 'Duración'
     All Durations: 'Todas las duraciones'
-    Short (< 4 minutes): 'Corto (< 4 minutos)'
-    Long (> 20 minutes): 'Largo (> 20 minutos)'
-  # On Search Page
-    Medium (4 - 20 minutes): Medio (4 - 20 minutos)
+    '< 3 minutes': '< 3 minutos'
+    '> 20 minutes': '> 20 minutos'
+    '3 - 20 minutes': 3 - 20 minutos
   Search Results: 'Resultados de búsqueda'
   Fetching results. Please wait: 'Obteniendo más resultados. Por favor espere'
   Fetch more results: 'Obtener más resultados'
@@ -416,10 +411,6 @@ Settings:
     Hide Channels Invalid: El ID del canal proporcionado no es válido.
     Hide Sharing Actions: Ocultar acciones de compartición
     Hide Videos on Watch: 'Ocultar videos vistos'
-  Download Settings:
-    Choose Path: Elegir ubicación
-    Ask Download Path: Preguntar dónde se descarga
-    Download Settings: Configuración de descargas
   External Player Settings:
     External Player: 'Reproductor externo:'
     Ignore Unsupported Action Warnings: Ignorar advertencias de acciones inválidas
@@ -458,9 +449,7 @@ About:
   GitHub issues: Reportar en GitHub
   room rules: reglas de la sala
   Chat on Matrix: Contáctenos en Matrix
-  Please read the: Por favor lea las
   Translate: Traducir
-  FreeTube is made possible by: FreeTube existe gracias a
   these people and projects: estas personas y proyectos
   Donate: Donar
   Credits: Créditos
@@ -549,13 +538,10 @@ Video:
   Save Video: Guardar video
   Streamed on: Transmitido en
   Open Channel in YouTube: Abrir canal en YouTube
-  video only: sólo video
-  audio only: sólo audio
   Started streaming on: Empezó a transmitir
   Open Channel in Invidious: Abrir canal en Invidious
   Copy Invidious Channel Link: Copiar link del canal en Invidious
   Copy YouTube Channel Link: Copiar link del canal en YouTube
-  Download Video: Descargar video
 #& Playlists
 Playlist:
   #& About
@@ -689,11 +675,8 @@ Tooltips:
     Fetch Feeds from RSS: Si se habilita, FreeTube usará RSS en lugar del método predeterminado para recibir videos de sus suscripciones. RSS es más rápido y previene que bloqueen su IP, pero no es capaz de proveer ciertos datos del video, como su duración, o si está en directo
   Distraction Free Settings:
     Hide Subscriptions Live: Esta configuración se reemplaza por la configuración «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
-Downloading has completed: '"{videoTitle}" ha acabado de descargarse'
 Default Invidious instance has been cleared: La dirección de Invidious predeterminada se ha borrado
 External link opening has been disabled in the general settings: La apertura de links externos está deshabilitada en la configuración general
-Starting download: Comenzando descarga de "{videoTitle}"
-Downloading failed: Ha habido un error al descargar "{videoTitle}"
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este video no está disponible debido a que no se encontraron formatos. Esto puede suceder a causa de indisponibilidad en su región.
 Default Invidious instance has been set to {instance}: La dirección de Invidious predeterminada se ha establecido en {instance}
 Unknown YouTube url type, cannot be opened in app: Tipo de URL de YouTube desconocida, imposible de abrir en la app

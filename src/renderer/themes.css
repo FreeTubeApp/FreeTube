@@ -44,12 +44,14 @@ body {
 /*************** RULE TWEAKS ***************/
 
 /* Default sidenav hover text color and primary input color not needed to be changed for most themes */
+/* stylelint-disable-next-line selector-no-qualifying-type */
 body:not(.hotPink) {
   --primary-input-color: rgb(0 0 0 / 50%);
   --side-nav-hover-text-color: var(--primary-text-color);
 }
 
 /* Default side nav active text color and scrollbar text color hover not needed to be changed for most themes */
+/* stylelint-disable-next-line selector-no-qualifying-type */
 body:not(.hotPink, .pastelPink) {
   --side-nav-active-text-color: var(--primary-text-color);
   --scrollbar-text-color-hover: var(--primary-text-color);
@@ -2158,6 +2160,7 @@ a:visited {
 
 /***** REMOVE MAIN SCROLLBAR WHEN PROMPT IS OPEN ******/
 
+/* stylelint-disable-next-line selector-no-qualifying-type */
 body:has(.prompt) {
   overflow: hidden;
 }

@@ -6,6 +6,7 @@
     <input
       :id="id"
       v-model.number="currentValue"
+      class="input"
       :disabled="disabled"
       type="range"
       :min="minValue"
@@ -13,7 +14,7 @@
       :step="step"
       @change="change"
     >
-    <span>
+    <span class="label">
       {{ $t('Display Label', {label: label, value: displayLabel}) }}
     </span>
   </label>
