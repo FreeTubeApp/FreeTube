@@ -38,17 +38,15 @@ const getters = {
   },
 }
 
+const collator = new Intl.Collator('en', {
+  caseFirst: 'upper',
+  sensitivity: 'case'
+})
+
 function profileSort(a, b) {
   if (a._id === MAIN_PROFILE_ID) return -1
   if (b._id === MAIN_PROFILE_ID) return 1
-  const aNameLower = a.name.toLowerCase()
-  const bNameLower = b.name.toLowerCase()
-  if (aNameLower < bNameLower) return -1
-  if (aNameLower > bNameLower) return 1
-  // Case-insensitive names are equal, use case-sensitive comparison as tiebreaker.
-  if (a.name < b.name) return -1
-  if (a.name > b.name) return 1
-  return 0
+  return collator.compare(a.name, b.name)
 }
 
 const actions = {
