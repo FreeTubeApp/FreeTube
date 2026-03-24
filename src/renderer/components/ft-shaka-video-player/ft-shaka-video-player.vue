@@ -81,7 +81,10 @@
       <div
         v-if="showValueChangePopup"
         class="valueChangePopup"
-        :class="{ 'invert-content-order': invertValueChangeContentOrder }"
+        :class="[
+          { 'invert-content-order': invertValueChangeContentOrder },
+          `position-${valueChangePopupPosition}`
+        ]"
       >
         <font-awesome-icon
           v-if="valueChangeIcon"

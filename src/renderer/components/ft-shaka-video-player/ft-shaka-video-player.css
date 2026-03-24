@@ -61,8 +61,6 @@
 .valueChangePopup {
   position: absolute;
   top: 70px;
-  left: 50%;
-  transform: translateX(-50%);
   padding: 10px;
   border-radius: 5px;
   font-size: 1.1em;
@@ -75,6 +73,26 @@
   gap: 4px;
   z-index: 2;
   pointer-events: none;
+}
+
+.valueChangePopup.position-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.valueChangePopup.position-left,
+.valueChangePopup.position-right {
+  top: 50%;
+  right: 15%;
+  transform: translateY(-50%);
+}
+
+.valueChangePopup.position-left {
+  left: 15%;
+}
+
+.valueChangePopup.position-right {
+  left: auto;
 }
 
 .valueChangePopup.invert-content-order {

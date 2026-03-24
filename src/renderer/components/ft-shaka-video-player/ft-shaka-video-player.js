@@ -2090,11 +2090,11 @@ export default defineComponent({
       }
       if (showPopUp) {
         const popUpLayout = seconds > 0
-          ? { icon: 'arrow-right', invertContentOrder: true }
-          : { icon: 'arrow-left', invertContentOrder: false }
+          ? { icon: 'arrow-right', invertContentOrder: true, position: 'right' }
+          : { icon: 'arrow-left', invertContentOrder: false, position: 'left' }
         // `+value` converts string back to float
         const formattedSeconds = +Math.abs(seconds).toFixed(2)
-        showValueChange(`${formattedSeconds}s`, popUpLayout.icon, popUpLayout.invertContentOrder)
+        showValueChange(`${formattedSeconds}s`, popUpLayout.icon, popUpLayout.invertContentOrder, popUpLayout.position)
       }
 
       showOverlayControls()
@@ -3266,6 +3266,7 @@ export default defineComponent({
     const valueChangeMessage = ref('')
     const valueChangeIcon = ref(null)
     const invertValueChangeContentOrder = ref(false)
+    const valueChangePopupPosition = ref('center')
     let valueChangeTimeout = null
 
     function showOverlayControls() {
@@ -3277,12 +3278,14 @@ export default defineComponent({
      * @param {string} message - The message to display.
      * @param {string} icon - The icon to display.
      * @param {boolean} invertContentOrder - Whether to invert the order of the icon and message.
+     * @param {string} position - The position of the popup: 'left', 'center', or 'right'.
      */
-    function showValueChange(message, icon = null, invertContentOrder = false) {
+    function showValueChange(message, icon = null, invertContentOrder = false, position = 'center') {
       valueChangeMessage.value = message
       valueChangeIcon.value = icon
       showValueChangePopup.value = true
       invertValueChangeContentOrder.value = invertContentOrder
+      valueChangePopupPosition.value = position
 
       if (valueChangeTimeout) {
         clearTimeout(valueChangeTimeout)
@@ -3327,6 +3330,7 @@ export default defineComponent({
       valueChangeIcon,
       showValueChangePopup,
       invertValueChangeContentOrder,
+      valueChangePopupPosition,
     }
   }
 })
