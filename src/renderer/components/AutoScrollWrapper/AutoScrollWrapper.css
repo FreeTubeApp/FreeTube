@@ -1,16 +1,22 @@
 
 .hotZone {
+  --usable-zone-height: 50px;
+  --zone-height: var(--usable-zone-height);
+
   position: fixed;
   inset-inline-start: 0;
   inline-size: 100%;
-  block-size: 150px;
+  block-size: var(--zone-height);
   z-index: 99;
 }
 
 .topZone {
+  /* top nav height manually inspected to be 60px */
+  --zone-height: calc(var(--usable-zone-height) + 60px);
+
   inset-block-start: 0;
 }
 
 .bottomZone {
-  inset-block-start: calc(100% - 150px);
+  inset-block-start: calc(100% - var(--zone-height));
 }

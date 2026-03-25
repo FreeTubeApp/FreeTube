@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-if="hotZoneEnabled"
+      v-if="hotZoneShown"
       class="hotZone topZone"
       @dragenter="setScrollDirection('up')"
       @dragleave="clearScrollDirection"
@@ -10,7 +10,7 @@
     <slot />
 
     <div
-      v-if="hotZoneEnabled"
+      v-if="hotZoneShown"
       class="hotZone bottomZone"
       @dragenter="setScrollDirection('down')"
       @dragleave="clearScrollDirection"
@@ -21,11 +21,26 @@
 <script setup>
 import { ref, watch, onWatcherCleanup } from 'vue'
 
-defineProps({
+const props = defineProps({
   hotZoneEnabled: {
     type: Boolean,
     default: false,
   },
+})
+
+const hotZoneShown = ref(false)
+
+watch(() => props.hotZoneEnabled, hotZoneEnabled => {
+  // No need to wait when disabled
+  if (!hotZoneEnabled) {
+    hotZoneShown.value = false
+    return
+  }
+
+  // Show zone later to prevent `dragend` event
+  setTimeout(() => {
+    hotZoneShown.value = true
+  }, 0)
 })
 
 /** @import { Ref } from 'vue' */
