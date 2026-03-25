@@ -83,12 +83,12 @@
 .valueChangePopup.position-left,
 .valueChangePopup.position-right {
   top: 50%;
-  right: 15%;
+  right: 5%;
   transform: translateY(-50%);
 }
 
 .valueChangePopup.position-left {
-  left: 15%;
+  left: 5%;
 }
 
 .valueChangePopup.position-right {
