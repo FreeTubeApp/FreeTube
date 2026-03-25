@@ -15,12 +15,16 @@ import {
 } from '../../helpers/utils'
 import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock'
 import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
+import { vSaferHtml } from '../../directives/vSaferHtml.js'
 
 export default defineComponent({
   name: 'FtListVideo',
   components: {
     'ft-icon-button': FtIconButton,
     'ft-awesome-icon': FontAwesomeIcon,
+  },
+  directives: {
+    'safer-html': vSaferHtml
   },
   props: {
     data: {

@@ -44,15 +44,11 @@ Search / Go to URL: 'Tìm kiếm / Đi đến URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Lọc tìm kiếm'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Liên quan nhất'
-    Rating: 'Đánh giá'
-    Upload Date: 'Ngày tải lên'
-    View Count: 'Lượt xem'
   Time:
     Time: 'Thời gian'
     Any Time: 'Mọi lúc'
-    Last Hour: 'Giờ vừa qua'
     Today: 'Hôm nay'
     This Week: 'Tuần này'
     This Month: 'Tháng này'
@@ -67,10 +63,9 @@ Search Filters:
   Duration:
     Duration: 'Thời lượng'
     All Durations: 'Tất cả thời lượng'
-    Short (< 4 minutes): 'Ngắn (<4 phút)'
-    Long (> 20 minutes): 'Dài (> 20 phút)'
-  # On Search Page
-    Medium (4 - 20 minutes): Vừa (4 - 20 phút)
+    '< 3 minutes': '<3 phút'
+    '> 20 minutes': '> 20 phút'
+    '3 - 20 minutes': 3 - 20 phút
   Search Results: 'Kết quả tìm kiếm'
   Fetching results. Please wait: 'Đang lấy kết quả. Xin hãy chờ'
   Fetch more results: 'Lấy thêm kết quả'

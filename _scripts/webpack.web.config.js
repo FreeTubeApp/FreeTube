@@ -173,8 +173,8 @@ const config = {
     alias: {
       DB_HANDLERS_ELECTRON_RENDERER_OR_WEB$: path.resolve(__dirname, '../src/datastores/handlers/web.js'),
 
-      // change to "shaka-player.ui.debug.js" to get debug logs (update jsconfig to get updated types)
-      'shaka-player$': 'shaka-player/dist/shaka-player.ui.js',
+      // change to "shaka-player.ui-es2021.debug.js" to get debug logs (update jsconfig to get updated types)
+      'shaka-player$': 'shaka-player/dist/shaka-player.ui-es2021.js',
 
       // Make @fortawesome/vue-fontawesome use the trimmed down API instead of the original @fortawesome/fontawesome-svg-core
       '@fortawesome/fontawesome-svg-core$': path.resolve(__dirname, '../src/renderer/fontawesome-minimal.js')

@@ -258,9 +258,9 @@
       </div>
       <p
         v-if="description && effectiveListTypeIsList && appearance === 'result'"
+        v-safer-html="description"
         class="description"
         dir="auto"
-        v-html="description"
       />
       <div
         v-if="effectiveListTypeIsList"

@@ -432,15 +432,6 @@ export function createWebURL(path) {
 }
 
 /**
- * strip html tags but keep <br>, <b>, </b> <s>, </s>, <i>, </i>
- * @param {string} value
- * @returns {string}
- */
-export function stripHTML(value) {
-  return value.replaceAll(/(<(?!br|\/?[abis]|img>)([^>]+)>)/gi, '')
-}
-
-/**
  * This formats the duration of a video in seconds into a user friendly timestamp.
  * It will return strings like LIVE or UPCOMING, without making any changes
  * @param {string|number} lengthSeconds the video duration in seconds or the strings LIVE or UPCOMING
@@ -483,12 +474,12 @@ export function formatDurationAsTimestamp(lengthSeconds) {
 }
 
 /**
- * @param {{sortBy? : string, time?: string, duration?: string, features: string[]}?} filtersA
- * @param {{sortBy? : string, time?: string, duration?: string, features: string[]}?} filtersB
+ * @param {{prioritize? : string, time?: string, duration?: string, features: string[]}?} filtersA
+ * @param {{prioritize? : string, time?: string, duration?: string, features: string[]}?} filtersB
  * @returns {boolean}
  */
 export function searchFiltersMatch(filtersA, filtersB) {
-  return filtersA?.sortBy === filtersB?.sortBy &&
+  return filtersA?.prioritize === filtersB?.prioritize &&
     filtersA?.time === filtersB?.time &&
     filtersA?.type === filtersB?.type &&
     filtersA?.duration === filtersB?.duration &&

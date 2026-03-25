@@ -45,15 +45,11 @@ Search / Go to URL: 'Zoeken / Ga naar URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Zoekfilters'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Relevantie'
-    Rating: 'Beoordeling'
-    Upload Date: 'Uploaddatum'
-    View Count: 'Aantal weergaven'
   Time:
     Time: 'Lengte'
     Any Time: 'Altĳd'
-    Last Hour: 'Afgelopen uur'
     Today: 'Vandaag'
     This Week: 'Deze week'
     This Month: 'Deze maand'
@@ -68,10 +64,9 @@ Search Filters:
   Duration:
     Duration: 'Lengte'
     All Durations: 'Alle lengtes'
-    Short (< 4 minutes): 'Kort (< 4 minuten)'
-    Long (> 20 minutes): 'Lang (> 20 minuten)'
-  # On Search Page
-    Medium (4 - 20 minutes): Gemiddeld (4 - 20 minuten)
+    '< 3 minutes': '< 3 minuten'
+    '> 20 minutes': '> 20 minuten'
+    '3 - 20 minutes': 3 - 20 minuten
   Search Results: 'Zoekresultaten'
   Fetching results. Please wait: 'Resultaten ophalen, even geduld...'
   Fetch more results: 'Meer resultaten ophalen'

@@ -49,15 +49,13 @@ Search / Go to URL: 'Hledat / Přejít na URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Vyhledávací filtry'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Nejrelevantnější'
-    Rating: 'Hodnocení'
-    Upload Date: 'Datum nahrání'
-    View Count: 'Počet zhlédnutí'
+    Prioritize: Prioritizace
+    Popularity: Popularita
   Time:
     Time: 'Čas'
     Any Time: 'Kdykoliv'
-    Last Hour: 'Poslední hodina'
     Today: 'Dnes'
     This Week: 'Tento týden'
     This Month: 'Tento měsíc'
@@ -72,10 +70,9 @@ Search Filters:
   Duration:
     Duration: 'Trvání'
     All Durations: 'Všechny trvání'
-    Short (< 4 minutes): 'Krátké (< 4 minuty)'
-    Long (> 20 minutes): 'Dlouhé (> 20 minut)'
-  # On Search Page
-    Medium (4 - 20 minutes): Střední (4 - 20 minut)
+    '< 3 minutes': '< 3 minuty'
+    '> 20 minutes': '> 20 minut'
+    '3 - 20 minutes': 3 - 20 minut
   Search Results: 'Výsledky hledání'
   Fetching results. Please wait: 'Načítání výsledků. Prosím, čekejte'
   Fetch more results: 'Načíst více výsledků'

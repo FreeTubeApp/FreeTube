@@ -17,7 +17,7 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
     this.menu.classList.add('legacy-qualities')
 
     /** @type {SVGElement} */
-    const checkmarkIcon = new shaka.ui.MaterialSVGIcon(null, PlayerIcons.DONE_FILLED).getSvgElement()
+    const checkmarkIcon = new shaka.ui.Icon(null, PlayerIcons.DONE_FILLED).getSvgElement()
     checkmarkIcon.classList.add('shaka-chosen-item')
     checkmarkIcon.ariaHidden = 'true'
 
@@ -62,6 +62,16 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
       this.activeLegacyFormat_ = event.detail.format
       this.updateResolutionSelection_()
     })
+
+    if (this.isSubMenu) {
+      this.eventManager.listen(this.controls, 'submenuopen', () => {
+        this.button.classList.add('shaka-hidden')
+      })
+
+      this.eventManager.listen(this.controls, 'submenuclose', () => {
+        this.button.classList.remove('shaka-hidden')
+      })
+    }
 
     this.updateResolutionSelection_()
   }
@@ -116,12 +126,12 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
     const activeCaptionIndex = this.player.getTextTracks().findIndex(caption => caption.active)
     let restoreCaptionIndex = null
 
-    if (activeCaptionIndex >= 0 && this.player.isTextTrackVisible()) {
+    if (activeCaptionIndex >= 0) {
       restoreCaptionIndex = activeCaptionIndex
 
       // hide captions before switching as shaka/the browser doesn't clean up the displayed captions
       // when switching away from the legacy formats
-      await this.player.setTextTrackVisibility(false)
+      this.player.selectTextTrack(null)
     }
 
     this.events_.dispatchEvent(new CustomEvent('setLegacyFormat', {

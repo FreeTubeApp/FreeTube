@@ -136,9 +136,9 @@
             </p>
           </div>
           <p
+            v-safer-html="superChat.message"
             class="chatMessage"
             dir="auto"
-            v-html="superChat.message"
           />
         </div>
       </div>
@@ -181,9 +181,9 @@
             </div>
             <p
               v-if="comment.message"
+              v-safer-html="comment.message"
               class="chatMessage"
               dir="auto"
-              v-html="comment.message"
             />
           </template>
           <template
@@ -219,8 +219,8 @@
                 >
               </span>
               <bdi
+                v-safer-html="comment.message"
                 class="chatMessage"
-                v-html="comment.message"
               />
             </p>
           </template>
@@ -255,6 +255,7 @@ import { YTNodes } from 'youtubei.js'
 import FtLoader from '../FtLoader/FtLoader.vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtButton from '../FtButton/FtButton.vue'
+import { vSaferHtml } from '../../directives/vSaferHtml.js'
 
 import store from '../../store/index'
 

@@ -42,15 +42,13 @@ Search / Go to URL: 'Hľadať / Ísť na URL adresu'
   # In Filter Button
 Search Filters:
   Search Filters: 'Vyhľadávacie filtre'
-  Sort By:
-    Most Relevant: 'Najdôležitejšie'
-    Rating: 'Hodnotenie'
-    Upload Date: 'Dátum nahrávania'
-    View Count: 'Počet pozeraní'
+  Prioritize:
+    Most Relevant: 'Najrelevantnejšie'
+    Prioritize: Uprednostniť
+    Popularity: Popularita
   Time:
     Time: 'Čas'
     Any Time: 'Kedykoľvek'
-    Last Hour: 'Posledná hodina'
     Today: 'Dnes'
     This Week: 'Tento týždeň'
     This Month: 'Tento mesiac'
@@ -65,10 +63,9 @@ Search Filters:
   Duration:
     Duration: 'Trvanie'
     All Durations: 'Všetky trvania'
-    Short (< 4 minutes): 'Krátke (menej ako 4 minúty)'
-    Long (> 20 minutes): 'Dlhé (viac ako 20 minút)'
-  # On Search Page
-    Medium (4 - 20 minutes): Stredné (4 až 20 minút)
+    '< 3 minutes': 'menej ako 3 minúty'
+    '> 20 minutes': 'viac ako 20 minút'
+    '3 - 20 minutes': 3 až 20 minút
   Search Results: 'Výsledky vyhľadávania'
   Fetching results. Please wait: 'Načítavanie výsledkov. Čakajte, prosím'
   Fetch more results: 'Načítať viac výsledkov'

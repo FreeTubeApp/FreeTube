@@ -49,15 +49,13 @@ Search / Go to URL: 'Otsi aadressi või ava see'
   # In Filter Button
 Search Filters:
   Search Filters: 'Otsingufiltrid'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Kõige asjakohasemad'
-    Rating: 'Hinnagud'
-    Upload Date: 'Üleslaadimise kuupäev'
-    View Count: 'Vaatamiste arv'
+    Prioritize: Sea tähtsuse järjekorda
+    Popularity: Populaarsus
   Time:
     Time: 'Aeg'
     Any Time: 'Millal iganes'
-    Last Hour: 'Viimase tunni kestel'
     Today: 'Täna'
     This Week: 'Sel nädalal'
     This Month: 'Sel kuul'
@@ -72,10 +70,9 @@ Search Filters:
   Duration:
     Duration: 'Kestus'
     All Durations: 'Kõik kestused'
-    Short (< 4 minutes): 'Lühikesed (alla 4 minuti)'
-    Long (> 20 minutes): 'Pikad (üle 20 minuti)'
-  # On Search Page
-    Medium (4 - 20 minutes): Keskmine (4 - 20 minutit)
+    '< 3 minutes': 'alla 3 minuti'
+    '> 20 minutes': 'üle 20 minuti'
+    '3 - 20 minutes': 3 - 20 minutit
   Search Results: 'Otsingutulemused'
   Fetching results. Please wait: 'Laadin tulemusi. Palun oota üks hetk'
   Fetch more results: 'Laadi veel andmeid'

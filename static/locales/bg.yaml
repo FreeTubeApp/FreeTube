@@ -49,15 +49,11 @@ Search / Go to URL: 'Търсене / Отиване на адрес'
   # In Filter Button
 Search Filters:
   Search Filters: 'Филтри за търсене'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Най-уместно'
-    Rating: 'Оценка'
-    Upload Date: 'Дата на качване'
-    View Count: 'Брой показвания'
   Time:
     Time: 'Време'
     Any Time: 'Независимо кога'
-    Last Hour: 'Последния час'
     Today: 'Днес'
     This Week: 'Тази седмица'
     This Month: 'Този месец'
@@ -72,10 +68,9 @@ Search Filters:
   Duration:
     Duration: 'Продължителност'
     All Durations: 'Всички продължителности'
-    Short (< 4 minutes): 'Кратки (< 4 минути)'
-    Long (> 20 minutes): 'Дълги (> 20 минути)'
-  # On Search Page
-    Medium (4 - 20 minutes): Средни (4 - 20 минути)
+    '< 3 minutes': '< 3 минути'
+    '> 20 minutes': '> 20 минути'
+    '3 - 20 minutes': 3 - 20 минути
   Search Results: 'Резултати от търсенето'
   Fetching results. Please wait: 'Събиране на резултати. Моля, изчакайте'
   Fetch more results: 'Намиране на още резултати'
@@ -641,6 +636,9 @@ About:
   Credits: Заслуги
   Discussions: Дискусии
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Лицензирано под {licenseLink}
+  Please read the {roomRulesLink}: Моля, прочетете {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube е възможен, благодарение на {creditsPageLink}
 Profile:
   Profile Select: 'Избор на профил'
   All Channels: 'Всички канали'
@@ -856,6 +854,10 @@ Video:
 #& Playlists
   Watched Progress Saved: Напредъка на гледането е запазен
   Save Watched Progress: Запазване на напредъка
+  Popout Live Chat: Изскачащ чат
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Оставащо време за реклама преди видеото: {remindingTimeSeconds} сек'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Оставащо време за отлагане на SABR: {remindingTimeSeconds} сек'
 Playlist:
   #& About
   View Full Playlist: 'Преглед на пълен плейлист'

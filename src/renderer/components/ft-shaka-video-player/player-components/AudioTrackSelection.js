@@ -17,7 +17,7 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
     this.menu.classList.add('audio-tracks')
 
     /** @type {SVGElement} */
-    const checkmarkIcon = new shaka.ui.MaterialSVGIcon(null, PlayerIcons.DONE_FILLED).getSvgElement()
+    const checkmarkIcon = new shaka.ui.Icon(null, PlayerIcons.DONE_FILLED).getSvgElement()
     checkmarkIcon.classList.add('shaka-chosen-item')
     checkmarkIcon.ariaHidden = 'true'
 
@@ -43,6 +43,16 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
     this.eventManager.listen(this.player, 'adaptation', () => {
       this.updateAudioTracks_()
     })
+
+    if (this.isSubMenu) {
+      this.eventManager.listen(this.controls, 'submenuopen', () => {
+        this.updateAudioTracks_()
+      })
+
+      this.eventManager.listen(this.controls, 'submenuclose', () => {
+        this.updateAudioTracks_()
+      })
+    }
 
     this.updateLocalisedStrings_()
 
@@ -94,7 +104,7 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
 
     this.button.setAttribute('shaka-status', this.currentSelection.innerText)
 
-    if (count > 1) {
+    if (count > 1 && !this.isSubMenuOpened) {
       this.button.classList.remove('shaka-hidden')
     } else {
       this.button.classList.add('shaka-hidden')

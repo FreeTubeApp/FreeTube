@@ -49,15 +49,13 @@ Search / Go to URL: 'Sök / Gå till URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Sökfilter'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Mest relevanta'
-    Rating: 'Betyg'
-    Upload Date: 'Uppladdningsdatum'
-    View Count: 'Antal visningar'
+    Prioritize: Prioritera
+    Popularity: Popularitet
   Time:
     Time: 'Tid'
     Any Time: 'När som helst'
-    Last Hour: 'Senaste timmen'
     Today: 'Idag'
     This Week: 'Den här veckan'
     This Month: 'Den här månaden'
@@ -72,10 +70,9 @@ Search Filters:
   Duration:
     Duration: 'Längd'
     All Durations: 'Alla längder'
-    Short (< 4 minutes): 'Kort (< 4 minuter)'
-    Long (> 20 minutes): 'Lång (> 20 minuter)'
-  # On Search Page
-    Medium (4 - 20 minutes): Mellan (4 - 20 minuter)
+    '< 3 minutes': '< 3 minuter'
+    '> 20 minutes': '> 20 minuter'
+    '3 - 20 minutes': 3 - 20 minuter
   Search Results: 'Sökresultat'
   Fetching results. Please wait: 'Hämtar resultat. Vänta'
   Fetch more results: 'Hämta fler resultat'

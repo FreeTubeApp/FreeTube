@@ -19,7 +19,7 @@ export class StatsButton extends shaka.ui.Element {
     this.button_.classList.add('stats-button')
 
     /** @private */
-    this.icon_ = new shaka.ui.MaterialSVGIcon(this.button_, PlayerIcons.INSERT_CHART_DEFAULT)
+    this.icon_ = new shaka.ui.Icon(this.button_, PlayerIcons.INSERT_CHART_DEFAULT)
 
     const label = document.createElement('label')
     label.classList.add('shaka-overflow-button-label', 'shaka-simple-overflow-button-label-inline')

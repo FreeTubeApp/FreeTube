@@ -48,15 +48,11 @@ Search / Go to URL: 'Căutare / Accesați URL-ul'
   # In Filter Button
 Search Filters:
   Search Filters: 'Filtre de căutare'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Cele mai relevante'
-    Rating: 'Evaluare'
-    Upload Date: 'Data încărcării'
-    View Count: 'Numărul de vizualizări'
   Time:
     Time: 'Timp'
     Any Time: 'Oricând'
-    Last Hour: 'Ultima oră'
     Today: 'Astăzi'
     This Week: 'Săptămâna aceasta'
     This Month: 'Luna aceasta'
@@ -71,10 +67,9 @@ Search Filters:
   Duration:
     Duration: 'Durată'
     All Durations: 'Toate duratele'
-    Short (< 4 minutes): 'Scurt (< 4 minute)'
-    Long (> 20 minutes): 'Lung (> 20 minute)'
-  # On Search Page
-    Medium (4 - 20 minutes): Mediu (4 - 20 minute)
+    '< 3 minutes': '< 3 minute'
+    '> 20 minutes': '> 20 minute'
+    '3 - 20 minutes': 3 - 20 minute
   Search Results: 'Rezultatele căutării'
   Fetching results. Please wait: 'Se obțin rezultatele. Vă rugăm să așteptați'
   Fetch more results: 'Obțineți mai multe rezultate'

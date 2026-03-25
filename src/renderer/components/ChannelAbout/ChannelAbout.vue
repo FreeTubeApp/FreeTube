@@ -7,9 +7,9 @@
     >
       <h2>{{ $t("Channel.About.Channel Description") }}</h2>
       <div
+        v-safer-html="description"
         class="aboutInfo"
         dir="auto"
-        v-html="description"
       />
     </template>
     <template
@@ -121,6 +121,7 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtChannelBubble from '../../components/FtChannelBubble/FtChannelBubble.vue'
 import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
+import { vSaferHtml } from '../../directives/vSaferHtml.js'
 
 import store from '../../store/index'
 

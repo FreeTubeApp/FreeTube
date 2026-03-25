@@ -42,15 +42,13 @@ Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:
   Search Filters: 'Фильтры поиска'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Наиболее актуальным'
-    Rating: 'Оценке'
-    Upload Date: 'Дате загрузки'
-    View Count: 'Количеству просмотров'
+    Prioritize: Приоритет
+    Popularity: Популярность
   Time:
     Time: 'Время'
     Any Time: 'Любое время'
-    Last Hour: 'Последний час'
     Today: 'Сегодня'
     This Week: 'На этой неделе'
     This Month: 'В этом месяце'
@@ -65,10 +63,9 @@ Search Filters:
   Duration:
     Duration: 'Длительность'
     All Durations: 'Любая длительность'
-    Short (< 4 minutes): 'Короткие (< 4 минут)'
-    Long (> 20 minutes): 'Длинные (> 20 минут)'
-  # On Search Page
-    Medium (4 - 20 minutes): Средние (4—20 мин)
+    '< 3 minutes': '< 3 минут'
+    '> 20 minutes': '> 20 минут'
+    '3 - 20 minutes': 3—20 мин
   Search Results: 'Результаты поиска'
   Fetching results. Please wait: 'Получение результатов. Подождите'
   Fetch more results: 'Получить больше результатов'

@@ -49,15 +49,13 @@ Search / Go to URL: 'Ara / URL''ye git'
   # In Filter Button
 Search Filters:
   Search Filters: 'Arama Süzgeçleri'
-  Sort By:
+  Prioritize:
     Most Relevant: 'En Uygun'
-    Rating: 'Derecelendirme'
-    Upload Date: 'Yükleme Tarihi'
-    View Count: 'İzlenme Sayısı'
+    Prioritize: Öncelik Ver
+    Popularity: Popülerlik
   Time:
     Time: 'Zaman'
     Any Time: 'Herhangi Bir Zaman'
-    Last Hour: 'Son Bir Saat'
     Today: 'Bugün'
     This Week: 'Bu Hafta'
     This Month: 'Bu Ay'
@@ -72,10 +70,9 @@ Search Filters:
   Duration:
     Duration: 'Süre'
     All Durations: 'Tüm Süreler'
-    Short (< 4 minutes): 'Kısa (4 dakikadan az)'
-    Long (> 20 minutes): 'Uzun (20 dakikadan fazla)'
-  # On Search Page
-    Medium (4 - 20 minutes): Orta (4 - 20 dakika)
+    '< 3 minutes': '3 dakikadan az'
+    '> 20 minutes': '20 dakikadan fazla'
+    '3 - 20 minutes': 3 - 20 dakika
   Search Results: 'Arama Sonuçları'
   Fetching results. Please wait: 'Sonuçlar getiriliyor. Lütfen bekleyin'
   Fetch more results: 'Daha fazla sonuç getir'

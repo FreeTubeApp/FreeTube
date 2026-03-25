@@ -197,11 +197,7 @@
   opacity: 1;
 }
 
-:deep(.shaka-controls-container > .shaka-play-button-container > .shaka-play-button) {
-  padding: min(calc(15% / 2), 55px);
-}
-
-:deep(.shaka-controls-button-panel>.ft-shaka-skip-button .material-svg-icon) {
+:deep(.shaka-controls-button-panel>.ft-shaka-skip-button .shaka-ui-icon) {
   font-size: 32px;
 }
 
