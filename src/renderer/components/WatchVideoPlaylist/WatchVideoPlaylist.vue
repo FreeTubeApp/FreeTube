@@ -790,7 +790,7 @@ const videoIsLastInInPlaylistItems = computed(() => {
 
 const shouldStopDueToPlaylistEnd = computed(() => {
   // Loop enabled = should not stop
-  return videoIsLastInInPlaylistItems.value || !loopEnabled.value
+  return videoIsLastInInPlaylistItems.value && !loopEnabled.value
 })
 
 defineExpose({
