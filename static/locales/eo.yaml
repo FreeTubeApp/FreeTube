@@ -106,6 +106,32 @@ Playlists: 'Ludlistoj'
 User Playlists:
   Your Playlists: 'Viaj ludlistoj'
   You have no playlists. Click on the create new playlist button to create a new one.: Vi havas neniun ludliston. Alklaku la butonon de Krei novan ludliston por krei unu.
+  Empty Search Message: Estas neniu videaĵo en tiu ĉi ludlisto kiu kongruas kun via serĉo
+  Search bar placeholder: Serĉi ludlistojn
+  Playlists with Matching Videos: Ludlistoj kun kongruaj videaĵoj
+  This playlist currently has no videos.: Tiu ĉi ludlisto nuntempe havas neniun filmeton.
+  Create New Playlist: Krei novan ludliston
+  Add to Playlist: Aldoni al ludlisto
+  Add to Favorites: Aldoni al {playlistName}
+  Remove from Favorites: Forigi el {playlistName}
+  Move Video Up: Movi videaĵon supren
+  Move Video Down: Movi videaĵon malsupren
+  Remove from Playlist: Forigi el ludlisto
+  Playlist Name: Nomo de ludlisto
+  Playlist Description: Priskribo de ludlisto
+  Save Changes: Konservi ŝanĝojn
+  Cancel: Nuligi
+  Edit Playlist Info: Redakti ludlistajn informojn
+  Copy Playlist: Kopii ludliston
+  Remove Duplicate Videos: Forigi ripetitajn videaĵojn
+  Remove Watched Videos: Forigi spektitajn videaĵojn
+  Enable Quick Bookmark With This Playlist: Ebligi rapidajn legosignojn kun tiu ĉi ludlisto
+  Quick Bookmark Enabled: Rapida legosigno ŝaltita
+  Export Playlist: Elporti tiun ĉi ludliston
+  Export list of URLs: Elporti liston de URL-oj
+  The playlist has been successfully exported: La ludlisto estis sukcese elportita
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ĉu vi certas, ke vi volas forigi 1 ripetitan videaĵon el tiu ĉi ludlisto? Tio ĉi ne malfareblas. | Ĉu vi certas, ke vi volas forigi {playlistItemCount} ripetitajn videaĵojn el tiu ĉi ludlisto? Tio ĉi ne malfareblas.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ĉu vi certas, ke vi volas forigi 1 spektitan videaĵon el tiu ĉi ludlisto? Tio ĉi ne malfareblas. | Ĉu vi certas, ke vi volas forigi {playlistItemCount} spektitajn videaĵojn el tiu ĉi ludlisto? Tio ĉi ne malfareblas.
 History:
   # On History Page
   History: 'Historio'
