@@ -24,8 +24,18 @@ Global:
   Sort By: 'Ordigi laŭ'
 
   Videos: Videaĵoj
-Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber}
-  disponeblas nun!  Alklaki por pli informoj.'
+  Shorts: Videaĵetoj
+  Live: Tujelsendoj
+  Posts: Afiŝoj
+  Counts:
+    Video Count: 1 videaĵo | {count} videaĵoj
+    Channel Count: 1 kanalo | {count} kanaloj
+    Subscriber Count: 1 abonanto | {count} abonantoj
+    View Count: 1 rigardo | {count} rigardoj
+    Like Count: 1 ŝato | {count} ŝatoj
+    Comment Count: 1 komento | {count} komentoj
+    Watching Count: 1 spektanto | {count} spektantoj
+Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber} disponeblas nun!  Alklaku por pli da informoj'
 Download From Site: 'Elŝuti el retejo'
 Search / Go to URL: 'Serĉi / Iri al URL'
   # In Filter Button
@@ -33,6 +43,8 @@ Search Filters:
   Search Filters: 'Serĉaj filtriloj'
   Prioritize:
     Most Relevant: 'Plej rilataj'
+    Prioritize: Prioritatigi
+    Popularity: Populareco
   Time:
     Time: 'Tempo'
     Any Time: 'Ajna tempo'
@@ -46,23 +58,54 @@ Search Filters:
     Videos: 'Videaĵoj'
     Channels: 'Kanaloj'
     #& Playlists
+    Movies: Filmoj
   Duration:
     Duration: 'Daŭrtempo'
     All Durations: 'Ĉiuj daŭrtempoj'
-    '< 3 minutes': '<3 minutoj'
+    '< 3 minutes': '< 3 minutoj'
     '> 20 minutes': '> 20 minutoj'
   # On Search Page
+    '3 - 20 minutes': 3 - 20 minutoj
+  Features:
+    Features: Trajtoj
+    HD: HD
+    Subtitles: Subtekstoj
+    Creative Commons: Krea Komunaĵo
+    3D: 3D
+    Live: Tujelsendo
+    4K: 4K
+    360 Video: 360°-a videaĵo
+    Location: Loko
+    HDR: HDR
+    VR180: VR180
+  Search Results: Serĉorezultoj
+  Fetching results. Please wait: Venigado de rezultoj. Bonvolu atendi
+  Fetch more results: Venigi pli da rezultoj
+  There are no more results for this search: Ne estas pli da rezultoj por tiu ĉi serĉo
+  Clear Filters: Viŝi filtrilojn
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonoj'
   Load More Videos: Ŝargi pli videaĵojn
+  Error Channels: Kanaloj kun eraroj
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Tiu ĉi profilo havas multajn abonojn. Perforte uzante RSS por eviti blokojn pro eksceso da petoj
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Via abonlisto nuntempe malplenas. Se vi volas enporti viajn abonojn, vi povas iri al la datumaj agordoj kaj elekti Enporti abonojn, aŭ vi povas serĉi kanalon kaj aboni ĝin.
+  Disabled Automatic Fetching: Vi malŝaltis aŭtomatan venigadon de abonoj. Aktualigu la abonojn por vidi ilin ĉi tie.
+  Empty Channels: Viaj abonitaj kanaloj nuntempe havas neniun filmeton.
+  Empty Posts: Viaj abonitaj kanaloj nuntempe havas neniun afiŝon.
+  Load More Posts: Ŝargi pli da afiŝoj
+  Subscriptions Tabs: Abonaj langetoj
+  All Subscription Tabs Hidden: Ĉiuj abonaj langetoj estas kaŝitaj. Por vidi enhavon ĉi tie, bonvolu malkaŝi kelkajn langetojn en la sekcio "{subsection}" en "{settingsSection}".
 Trending:
   Trending: 'Popularaj'
   Gaming: Ludismo
+  Sports: Sportoj
+  Trending Tabs: Tendencaj langetoj
 Most Popular: 'Plej popularaj'
 Playlists: 'Ludlistoj'
 User Playlists:
   Your Playlists: 'Viaj ludlistoj'
+  You have no playlists. Click on the create new playlist button to create a new one.: Vi havas neniun ludliston. Alklaku la butonon de Krei novan ludliston por krei unu.
 History:
   # On History Page
   History: 'Historio'
@@ -72,8 +115,8 @@ Settings:
   # On Settings Page
   Settings: 'Agordoj'
   General Settings:
-    General Settings: 'Ĝeneralaj agordoj'
-    Check for Updates: 'Kontroli por ĝisdatigi'
+    General Settings: 'Ĝenerala'
+    Check for Updates: 'Kontroli ĝisdatigojn'
     Enable Search Suggestions: 'Ŝalti serĉproponoj'
     Video View Type:
       Grid: 'Krado'
@@ -104,9 +147,10 @@ Video: {}
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon
+  Remove: Forigi
 Are you sure you want to open this link?: Ĉu vi certe volas malfermi ĉi-ligilon?
 Open New Window: Malfermi novan fenestron
-Preferences: Agordoj
+Preferences: Preferoj
 New Window: Nova Fenestro
 Go to page: Iri al {page}
 Actual size: Reala grando
@@ -116,3 +160,30 @@ KeyboardShortcutPrompt:
   Zoom In: Zomi
   Zoom Out: Malzomi
   Fullscreen: Baskuli tutekranon
+Toggle Developer Tools: Baskuli ilojn por programistoj
+Compact side navigation: Kompakta flankonavigo
+Expand side navigation: Pligrandigi flankonavigon
+Right-click or hold to see history: Dekstra aŭ longa alklako por vidi historion
+Close Banner: Fermi rubandon
+A new blog is now available, {blogTitle}. Click to view more: Nova blogoskribaĵo disponeblas, {blogTitle}. Alklaku por plu vidi
+Search character limit: La informpeto superas la limon de {searchCharacterLimit} karakteroj
+Search Listing:
+  Label:
+    4K: 4K
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    Subtitles: Subtekstoj
+    New: Nova
+    3D: 3D
+    Closed Captions: Fermita apudskribo
+Channels:
+  Channels: Kanaloj
+  Title: Kanalolisto
+  Search bar placeholder: Serĉi kanalojn
+  Count: '{number} kanalo(j) trovitaj.'
+  Empty: Via kanalolisto nuntempe malplenas.
+  Unsubscribe Prompt: Ĉu vi certas, ke vi volas malaboni "{channelName}"?
+Feed:
+  Feed Last Updated: 'Abonfluo {feedName} laste ĝisdatigita: {date}'
+  Refresh Feed: Aktualigi {subscriptionName}
