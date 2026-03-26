@@ -871,6 +871,7 @@ function runApp() {
   }
 
   const htmlFullscreenWindowIds = new Set()
+  const windowFullscreenBeforeHtmlFullscreen = new Map()
 
   async function createWindow(
     {
@@ -1159,16 +1160,20 @@ function runApp() {
     }
 
     newWindow.on('enter-html-full-screen', () => {
+      windowFullscreenBeforeHtmlFullscreen.set(newWindow.id, newWindow.isFullScreen())
       htmlFullscreenWindowIds.add(newWindow.id)
     })
 
     newWindow.on('leave-html-full-screen', () => {
       htmlFullscreenWindowIds.delete(newWindow.id)
+      windowFullscreenBeforeHtmlFullscreen.delete(newWindow.id)
     })
 
     newWindow.once('close', async () => {
       // returns true if the element existed in the set
       const htmlFullscreen = htmlFullscreenWindowIds.delete(newWindow.id)
+      const wasFullscreenBeforeHtml = windowFullscreenBeforeHtmlFullscreen.get(newWindow.id) ?? false
+      windowFullscreenBeforeHtmlFullscreen.delete(newWindow.id)
 
       if (BrowserWindow.getAllWindows().length !== 1) {
         return
@@ -1179,7 +1184,8 @@ function runApp() {
         maximized: newWindow.isMaximized(),
 
         // Don't save the full screen state if it was triggered by an HTML API e.g. the video player
-        fullScreen: newWindow.isFullScreen() && !htmlFullscreen
+        // But do save it if the window was already in fullscreen before entering HTML fullscreen
+        fullScreen: newWindow.isFullScreen() && (!htmlFullscreen || wasFullscreenBeforeHtml)
       }
 
       await baseHandlers.settings._updateBounds(value)
