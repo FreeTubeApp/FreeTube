@@ -132,6 +132,60 @@ User Playlists:
   The playlist has been successfully exported: La ludlisto estis sukcese elportita
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ĉu vi certas, ke vi volas forigi 1 ripetitan videaĵon el tiu ĉi ludlisto? Tio ĉi ne malfareblas. | Ĉu vi certas, ke vi volas forigi {playlistItemCount} ripetitajn videaĵojn el tiu ĉi ludlisto? Tio ĉi ne malfareblas.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ĉu vi certas, ke vi volas forigi 1 spektitan videaĵon el tiu ĉi ludlisto? Tio ĉi ne malfareblas. | Ĉu vi certas, ke vi volas forigi {playlistItemCount} spektitajn videaĵojn el tiu ĉi ludlisto? Tio ĉi ne malfareblas.
+  Delete Playlist: Forigi ludliston
+  Cannot delete the quick bookmark target playlist.: Ne eblas forigi la ciblan rapidan legosignan ludliston.
+  Are you sure you want to delete this playlist? This cannot be undone: Ĉu vi certas, ke vi volas forigi tiun ĉi ludliston? Tio ĉi ne malfareblas.
+  TotalTimePlaylist: 'Tuta daŭro: {duration}'
+  Sort By:
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestCreatedFirst: Dato de kreo (plej nova)
+    EarliestCreatedFirst: Dato de kreo (plej malnova)
+    LatestUpdatedFirst: Dato de ĝisdatigo (plej nova)
+    EarliestUpdatedFirst: Dato de ĝisdatigo (plej malnova)
+    LatestPlayedFirst: Dato de ludo (plej nova)
+    EarliestPlayedFirst: Dato de ludo (plej malnova)
+  SinglePlaylistView:
+    Search for Videos: Serĉi videaĵojn
+    Toast:
+      This video cannot be moved up.: Ne eblas movi tiun ĉi videaĵon supren.
+      This video cannot be moved down.: Ne eblas movi tiun ĉi videaĵon malsupren.
+      Video has been removed: La videaĵo estis forigita
+      Video has been removed. Click here to undo.: La videaĵo estis forigita. Alklaku ĉi tie por malfari.
+      There was a problem with removing this video: Estis problemo dum la forigado de tiu ĉi videaĵo
+      This playlist is already being used for quick bookmark.: Tiu ĉi ludlisto jam estas uzata por rapida legosigno.
+      This playlist is now used for quick bookmark: Tiu ĉi ludlisto nun estas uzata por rapida legosigno
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Tiu ĉi ludlisto nun estas uzata por rapida legosigno anstataŭ {oldPlaylistName}. Alklaku ĉi tie por malfari
+      Reverted to use {oldPlaylistName} for quick bookmark: Revenis al {oldPlaylistName} por rapida legosigno
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Kelkaj videaĵoj en la ludlisto ankoraŭ ne estas ŝargitaj. Alklaku ĉi tie por kopii malgraŭe.
+      Playlist name cannot be empty. Please input a name.: Nomo de ludlisto de povas malpleni. Bonvolu enigi nomon.
+      Playlist has been updated.: La ludlisto estis ĝisdatigita.
+      There was an issue with updating this playlist.: Estis problemo dum la ĝisdatigado de tiu ĉi ludlisto.
+      "{videoCount} video(s) have been removed": 1 videaĵo estis forigita | {videoCount} videaĵoj estis forigitaj
+      There were no videos to remove.: Estis neniu videaĵo por forigi.
+      This playlist is protected and cannot be removed.: Tiu ĉi ludlisto estas protektita kaj ne forigeblas.
+      Playlist {playlistName} has been deleted.: La ludlisto {playlistName} estis forigita.
+      This playlist does not exist: Tiu ĉi ludlisto ne ekzistas
+      This playlist has a video with a duration error: Tiu ĉi ludlisto enhavas almenaŭ unu videaĵon sen daŭro. Ĝi estos ordigita kvazaŭ iliaj daŭroj estas nulo.
+  AddVideoPrompt:
+    Select a playlist to add your N videos to: Elektu ludliston al kiu aldoni vian videaĵon | Elektu ludliston al kiu aldoni viajn {videoCount} videaĵojn
+    N playlists selected: '{playlistCount} elektitaj'
+    Search in Playlists: Serĉi en ludlistoj
+    Allow Adding Duplicate Video(s): Permesi aldoni ripetitajn videaĵojn
+    Save: Konservi
+    Added {count} Times: Jam aldonita | Aldonita {count} fojojn
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videaĵoj estos aldonitaj'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videaĵoj jam aldonitaj'
+    Toast:
+      You haven't selected any playlist yet.: Vi ankoraŭ ne elektis iun ajn ludliston.
+      "Video(s) added to {playlistCount} playlists": Videaĵo(j) aldonita(j) al 1 ludlisto | Videaĵo(j) aldonita(j) al {playlistCount} ludlistoj
+  CreatePlaylistPrompt:
+    New Playlist Name: Nomo de nova ludlisto
+    Create: Krei
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: Jam estas ludlisto kun tiu ĉi nomo. Bonvolu elekti alian nomon.
+      Playlist {playlistName} has been successfully created.: La ludlisto {playlistName} estis sukcese kreita.
+      There was an issue with creating the playlist.: Estis problemo dum la kreado de la ludlisto.
 History:
   # On History Page
   History: 'Historio'
@@ -192,7 +246,7 @@ Expand side navigation: Pligrandigi flankonavigon
 Right-click or hold to see history: Dekstra aŭ longa alklako por vidi historion
 Close Banner: Fermi rubandon
 A new blog is now available, {blogTitle}. Click to view more: Nova blogoskribaĵo disponeblas, {blogTitle}. Alklaku por plu vidi
-Search character limit: La informpeto superas la limon de {searchCharacterLimit} karakteroj
+Search character limit: La informpeto superas la limon de {searchCharacterLimit} signoj
 Search Listing:
   Label:
     4K: 4K
