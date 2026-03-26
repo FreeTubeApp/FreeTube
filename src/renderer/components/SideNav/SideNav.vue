@@ -316,12 +316,12 @@ const hideActiveSubscriptions = computed(() => {
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideText = computed(() => {
-  return store.getters.getHideLabelsSideBar
+  return !isOpen.value && store.getters.getHideLabelsSideBar
 })
 
 const applyNavIconExpand = computed(() => {
   return {
-    navIconExpand: hideText.value && !store.getters.getIsSideNavOpen
+    navIconExpand: hideText.value
   }
 })
 

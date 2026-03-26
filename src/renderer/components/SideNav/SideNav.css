@@ -72,9 +72,6 @@
 }
 
 .navIcon.fa-user-check {
-  /* This icon is too big by default */
-  block-size: 1.15em;
-
   /* Align icon according to torso */
   transform: translateX(0.2em);
 }
@@ -178,9 +175,8 @@
     margin-inline-start: 10px;
   }
 
-  .opened .navIconExpand.fa-user-check {
-    /* This icon is too big by default */
-    inline-size: 1em;
+  .opened .navIcon.fa-user-check {
+    block-size: 1em;
   }
 
   .opened .navOption {
