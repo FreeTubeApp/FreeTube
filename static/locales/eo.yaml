@@ -191,6 +191,11 @@ History:
   History: 'Historio'
   Watch History: 'Spekthistorio'
   Your history list is currently empty.: 'Via historia listo nune malplenas.'
+  Empty Search Message: Neniu videaĵo en via historio kongruas kun via serĉo
+  Search bar placeholder: Serĉi en historio
+  Case Sensitive Search: Usklecodistinga serĉo
+  DateOldestHistory: Dato de spekto (plej malnova)
+  DateNewestHistory: Dato de spekto (plej nova)
 Settings:
   # On Settings Page
   Settings: 'Agordoj'
@@ -208,11 +213,15 @@ Settings:
       Middle: 'Mezo'
       End: 'Fino'
     System Default: Operaciuma defaŭlto
+    Check for Latest Blog Posts: Kontroli novajn blogoskribaĵojn
   Theme Settings:
     Base Theme:
       Dark: 'Malluma'
       Light: 'Luma'
   Player Settings: {}
+  Sort Settings Sections (A-Z): Ordigi agordosekciojn (A-Z)
+  Return to Settings Menu: Reveni al agordomenuo
+  The app needs to restart for changes to take effect. Restart and apply change?: Necesas restartigi la aplikaĵon por ke ŝanĝoj estu aplikitaj. Ĉu restarti kaj apliki ŝanĝojn?
 About:
   #On About page
   Blog: Blogo
