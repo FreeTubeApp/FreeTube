@@ -111,7 +111,7 @@ User Playlists:
     NameAscending: A-Ö
     NameDescending: Ö-A
     LatestCreatedFirst: Luontipäivämäärä (Uusin)
-    EarliestCreatedFirst: Luontipäivämäärä (Vanhin)
+    EarliestCreatedFirst: Vanhin
     LatestUpdatedFirst: Viimeksi päivitetty (Uusin)
     EarliestUpdatedFirst: Viimeksi päivitetty (Vanhin)
     LatestPlayedFirst: Viimeksi toistettu (Uusin)
@@ -158,7 +158,7 @@ User Playlists:
     Save: Tallenna
     Toast:
       You haven't selected any playlist yet.: Et ole valinnut yhtäkään soittolistaa.
-      "Video(s) added to {playlistCount} playlists": "Video(ta) lisätty 1 soittolistaan | Video(ta) lisätty {playlistCount} soittolistaan"
+      "Video(s) added to {playlistCount} playlists": "Video(t) lisätty 1 listalle | Video(t) lisätty {playlistCount} listalle"
     Added {count} Times: Jo lisätty | Lisätty {count} kertaa
     Search in Playlists: Haku soittolistoista
     Select a playlist to add your N videos to: Valitse soittoluettelo, johon haluat lisätä videosi | Valitse soittoluettelo, johon haluat lisätä {videoCount}-videot
@@ -185,7 +185,7 @@ User Playlists:
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Haluatko varmasti poistaa 1 päällekkäisen videon tästä soittolistasta? Tätä ei voi peruuttaa. | Haluatko varmasti poistaa {playlistItemCount} päällekkäiset videot tästä soittolistasta? Tätä ei voi peruuttaa.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Haluatko varmasti poistaa 1 katsotun videon tästä soittolistasta? Tätä ei voi peruuttaa. | Haluatko varmasti poistaa {playlistItemCount} katsotut videot tästä soittolistasta? Tätä ei voi peruuttaa.
   Cannot delete the quick bookmark target playlist.: Pikakirjanmerkin kohdesoittolistaa ei voi poistaa.
-  Export list of URLs: Vie URL-osoitteiden lista
+  Export list of URLs: Vie URL-lista
 History:
   # On History Page
   History: 'Historia'
@@ -242,7 +242,7 @@ Settings:
       Label: Lataa seuraava sivu automaattisesti
       Tooltip: Lataa lisäsivut ja kommentit automaattisesti.
     Open Deep Links In New Window: Avaa FreeTube uudelleenohjatut URL-osoitteet uudessa ikkunassa
-    Minimize to system tray: Pienennä työkalupalkkiin
+    Minimize to system tray: Pienennä tehtäväpalkkiin
   Theme Settings:
     Theme Settings: 'Teema'
     Match Top Bar with Main Color: 'Käytä pääväriä yläpalkissa'
@@ -323,6 +323,9 @@ Settings:
       Catppuccin Frappe Blue: Catppuccin Frappe Blue
       Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
       Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Red
+      Gruvbox Dark Green: Gruvbox Dark Green
+      Gruvbox Dark Yellow: Gruvbox Dark Yellow
     Secondary Color Theme: 'Toissijainen väriteema'
         #* Main Color Theme
     UI Scale: Käyttöliittymän koko
@@ -378,12 +381,19 @@ Settings:
       File Name Tooltip: Voit käyttää allanäkyviä muuttujia. %Y Vuosi 4 numeroa. %M Kuukausi 2 numeroa. %D Päivä 2 numeroa. %H Tunnit 2 numeroa. %N Minuutit 2 numeroa. %S Sekunnit 2 numeroa. %T Millisekunnit 3 numeroa. %s Videosekunnit. %t Videon Millisekunnit 3 numeroa. %i Videotunniste eli ID.
     Enter Fullscreen on Display Rotate: Siirry koko näytön tilaan näyttöä kiertäessä
     Skip by Scrolling Over Video Player: Ohita vierittämällä videosoittimen yli
+    Default Viewing Mode:
+      Theater: Teatteri
+      Default Viewing Mode: Oletuskatselutila
+      Full Screen: Koko ruutu
+      Picture in Picture: Kuva kuvassa (PiP)
+      External Player: Ulkoinen soitin ({externalPlayerName})
   Subscription Settings:
     Subscription Settings: 'Tilaus'
     Fetch Feeds from RSS: Nouda RSS-syöte
     Fetch Automatically: Nouda syöte automaattisesti
     'Limit the number of videos displayed for each channel': Rajoita kanavilta näytettyjen videoiden määrää
     Confirm Before Unsubscribing: Vahvista ennen tilauksen peruuttamista
+    To: Kohteeseen
   Privacy Settings:
     Watch history has been cleared: Katseluhistoria poistettiin
     Are you sure you want to remove your entire watch history?: Haluatko varmasti poistaa katseluhistorian?
@@ -443,6 +453,12 @@ Settings:
     Subscription File: Tilaustiedosto
     Export Playlists For Older FreeTube Versions:
       Label: Vie soittolistat FreeTuben vanhempiin versioihin
+    Search history file: Hakuhistoriatiedosto
+    Search history: Hakuhistoria
+    Import search history: Tuo hakuhistoria
+    Export search history: Vie hakuhistoria
+    All search history has been successfully imported: Koko hakuhistoria on onnistuneesti tuotu
+    All search history has been successfully exported: Koko hakuhistoria on onnistuneesti viety
   Distraction Free Settings:
     Hide Live Chat: Piilota Live-keskustelu
     Hide Popular Videos: Piilota suositut videot
@@ -481,6 +497,13 @@ Settings:
     Hide Profile Pictures in Comments: Piilota profiilikuvat kommenteissa
     Hide Channels Invalid: Annettu kanavatunnus oli virheellinen
     Hide Subscriptions Shorts: Piilota tilattujen kanavien Shorts-videot
+    Hide Channels Already Exists: Kanava-ID on jo olemassa
+    Hide Channel Posts: Piilota kanavan Julkaisut-välilehti
+    Hide Channel Home: Piilota kanavan Koti-välilehti
+    Hide Channel Courses: Piilota kanavan Kurssit-välilehti
+    Hide Videos, Playlists and Channels Containing Text: Piilota videot, soittolistat ja kanavat, jotka sisältävät tekstiä
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Sana, sanan osa tai fraasi
+    Show Added Items: Näytä lisätyt kohteet
   The app needs to restart for changes to take effect. Restart and apply change?: Sovellus on käynnistettävä uudelleen, jotta muutokset tulevat voimaan. Käynnistetäänkö uudelleen?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Virhe verkkoyhteyden tietojen saamisessa. Onko välityspalvelin määritetty oikein?
@@ -491,12 +514,14 @@ Settings:
     Region: Alue
     City: Kaupunki
     Proxy Port Number: Välityspalvelimen portin numero
-    Proxy Host: Välityspalvelin
+    Proxy Host: Välityspalvelimen isäntä
     Proxy Settings: Välityspalvelin
     Enable Tor / Proxy: Ota käyttöön Tor / välityspalvelin
     Proxy Protocol: Välityspalvelimen protokolla
     Clicking on Test Proxy will send a request to: Napsauttamalla testaa välityspalvelinta lähettää pyynnön kohteeseen
     Proxy Warning: FreeTubella ei ole sisäänrakennettua välityspalvelinta, mutta voit yhdistää ulkoisella välityspalvelimella, kuten Tor:lla tai jonkin VPN-tarjoajan Socks5:llä.
+    Proxy Username: Välityspalvelimen käyttäjänimi
+    Proxy Password: Välityspalvelimen salasana
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Ilmoita sponsoriosuuden yli hypättäessä
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock-sponsorieston API-ohjelmointirajapinnan Url-osoite (vakio-osoite on https://sponsor.ajay.app)
@@ -511,6 +536,7 @@ Settings:
     Category Color: Luokan väri
     UseDeArrowTitles: Käytä DeArrow video-otsikoita
     UseDeArrowThumbnails: Käytä DeArrow pikkukuvia
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow'n pienoiskuvageneraattorin API Url (Oletus on https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Omavalintaisen ulkoisen toisto-ohjelman määritykset
     Custom External Player Executable: Omavalintaisen ulkoisen toisto-ohjelman ajettava tiedosto
@@ -520,11 +546,13 @@ Settings:
     Players:
       None:
         Name: Ei mitään
+    Ignore Default Arguments: Ohita oletusargumentit
   Parental Control Settings:
     Parental Control Settings: Perheasetukset
     Hide Unsubscribe Button: Piilota Peruuta tilaus -paninike
     Show Family Friendly Only: Näytä vain koko perheelle sopiva sisältö
     Hide Search Bar: Piilota hakupalkki
+    Hide Uploader on Watch page: Piilota videon lataaja katselusivulla
   Experimental Settings:
     Experimental Settings: Kokeelliset asetukset
     Warning: Nämä asetukset ovat kokeellisia ja ne voivat aiheuttavat kaatumisia, kun ne ovat käytössä. Varmuuskopioiden tekeminen on erittäin suositeltavaa. Käytä omalla vastuullasi!
@@ -566,6 +594,9 @@ About:
   Source code: Lähdekoodi
   Discussions: Keskustelut
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: 'Lisenssi: {licenseLink}'
+  Please read the {roomRulesLink}: 'Lue: {roomRulesLink}'
+  FreeTube is made possible by {creditsPageLink}: 'FreeTuben on mahdollistanut: {creditsPageLink}'
 Channel:
   Subscribe: 'Tilaa'
   Unsubscribe: 'Peruuta tilaus'
@@ -608,6 +639,7 @@ Channel:
     Hide Answers: Piilota vastaukset
     votes: '{votes} ääntä'
     Video hidden by FreeTube: Video on piilotettu FreeTuben toimesta
+    View Full Post: Näytä koko julkaisu
   Live:
     Live: Livenä
     This channel does not currently have any live streams: Tällä kanavalla ei ole tällä hetkellä yhtään suoraa lähetystä
@@ -619,6 +651,12 @@ Channel:
   Releases:
     Releases: Julkaisut
     This channel does not currently have any releases: Tällä kanavalla ei ole yhtäkään julkaisua
+  Home:
+    Home: Koti
+    View Playlist: Näytä soittolista
+  Courses:
+    Courses: Kurssit
+    This channel does not currently have any courses: Tällä kanavalla ei ole yhtään kursseja
 Video:
   Open in YouTube: 'Avaa YouTubessa'
   Copy YouTube Link: 'Kopioi YouTube-linkki'
@@ -691,6 +729,46 @@ Video:
   Unhide Channel: Näytä kanava
   Hide Channel: Piilota kanava
 #& Playlists
+  IP block: YouTube on estänyt IP-osoitteesi, joten et voi katsella videoita. Yritä vaihtaa toiseen VPN:ään tai välityspalvelimeen.
+  MembersOnly: Vain jäsenille suunnattuja videoita ei voida katsoa FreeTubessa, koska ne vaativat Google-kirjautumisen ja maksullisen jäsenyyden videon lataajan kanavalle.
+  AgeRestricted: Ikärajoitettuja vidoita ei voida katsoa FreeTubessa, koska ne vaativat Google-kirjautumisen ja ikävahvistetun YouTube-tilin.
+  DRMProtected: DRM-suojattuja videoita ei voida katsoa FreeTubessa, koska ne vaativat ei-vapaita, suljetun koodin osia. Jos haluat katsoa tätä videota, katso se YouTuben virallisilla verkkosivuilla DRM sallittuna verkkoselaimen asetuksista.
+  More Options: Lisää valintoja
+  Save Watched Progress: Tallenna katselun edistyminen
+  Watched Progress Saved: Katselun edistyminen tallennettu
+  Unlisted: Listaamaton
+  DeArrow:
+    Show Original Details: Näytä alkuperäiset tiedot
+    Show Modified Details: Näytä muokatut yksityiskohdat
+  Player:
+    TranslatedCaptionTemplate: '{language} (käännetty kielestä "{originalLanguage}")'
+    Autoplay is off: Automaattinen toisto on pois päältä
+    Autoplay is on: Automaattinen toisto on päällä
+    Theatre Mode: Teatteritila
+    Exit Theatre Mode: Poistu teatteritilasta
+    Full Window: Koko ikkuna
+    Exit Full Window: Poistu koko ikkunan tilasta
+    Take Screenshot: Ota kuvakaappaus
+    Show Stats: Näytä tilastot
+    Hide Stats: Piilota tilastot
+    Stats:
+      Stats: Tilastot
+      Video ID: 'Video ID: {videoId}'
+      Media Formats: 'Mediaformaatit: {formats}'
+      Resolution: "Resoluutio: {width}x{height}{'@'}{frameRate}"
+      Player Dimensions: 'Soittimen koko : {width}x{height}'
+      Bitrate: 'Bittinopeus: {bitrate} kbps'
+      Volume: 'Äänenvoimakkuus: {volumePercentage}%'
+      Bandwidth: 'Kaistanleveys: {bandwidth} kbps'
+      Buffered: 'Puskuroitu: {bufferedPercentage}%'
+      CodecAudio: 'Koodekki: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Koodekit: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Koodekit: {videoCodec} / {audioCodec}'
+    You appear to be offline: Näytät olevan offline-tilassa.
+    Playback will resume automatically when your connection comes back: Toisto jatkuu automaattisesti, kun verkkoyhteytesi palautuu.
+    Skipped segment: Ohitettu {segmentCategory} osio
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Mainosta jäljellä: {remindingTimeSeconds} s'
 Playlist:
   #& About
   View Full Playlist: 'Näytä koko soittolista'
@@ -705,6 +783,13 @@ Playlist:
     DateAddedNewest: Viimeksi lisätty ensin
     AuthorAscending: Tekijä (A-Ö)
     AuthorDescending: Tekijä (Ö-A)
+    PublishedNewest: Uusin
+    PublishedOldest: Vanhin
+    VideoTitleAscending: Otsikko (A-Z)
+    VideoTitleDescending: Otsikko (Z-A)
+    VideoDurationAscending: Lyhyin
+    VideoDurationDescending: Pisin
+    Custom: Muokattu
 Change Format:
   Change Media Formats: 'Vaihda videoformaattia'
   Use Dash Formats: 'Käytä DASH-formaatteja'
@@ -712,6 +797,7 @@ Change Format:
   Use Audio Formats: 'Käytä ääniformaatteja'
   Audio formats are not available for this video: Audioformaatit eivät ole saatavilla tähän videoon
   Dash formats are not available for this video: DASH-formaatit eivät ole saatavilla tähän videoon
+  Legacy formats are not available for this video: Legacy-formaatteja ei ole saatavilla tåhän videoon
 Share:
   Share Video: 'Jaa video'
   Share Playlist: 'Jaa soittolista'
@@ -728,6 +814,7 @@ Share:
   YouTube Channel URL copied to clipboard: Kanavan Youtube URL kopioitu leikepöydälle
   Invidious Channel URL copied to clipboard: Kanavan Invidious URL kopioutu leikepöydälle
   Share Channel: Jaa kanava
+  Share Post: Jaa julkaisu
 Mini Player: 'Pieni soitin'
 Comments:
   Comments: 'Kommentit'
@@ -746,6 +833,10 @@ Comments:
   View {replyCount} replies: Näytä 1 vastaus | Näytä {replyCount} vastausta
   Hearted: Tykätty
   Subscribed: Tilattu
+  Hide {replyCount} replies: Piilota 1 vastaus | Piilota {replyCount} vastausta
+  View 1 reply from {channelName}: Näytä 1 vastaus kanavalta {channelName}
+  View {replyCount} replies from {channelName} and others: Näytä {replyCount} vastausta kanavalta {channelName} ja muilta
+  There are no comments available for this post: Tässä julkaisussa ei ole kommentteja
 Up Next: 'Seuraavaksi'
 
 # Toast Messages
@@ -764,7 +855,7 @@ Canceled next video autoplay: 'Peruttiin seuraavan videon toistaminen'
 
 Yes: 'Kyllä'
 No: 'Ei'
-Locale Name: suomi
+Locale Name: Englanti (US)
 The playlist has been reversed: Soittolista on muutettu käänteiseksi
 Profile:
   '{profile} is now the active profile': '{profile} on nyt aktiivinen profiili'
@@ -817,13 +908,14 @@ Tooltips:
     Thumbnail Preference: Kaikki pikkukuvat Freetubessa korvataan ruudulla videosta sumennettuna tai piilotettuna alkuperäisen pikkukuvan sijaan.
     Fallback to Non-Preferred Backend on Failure: Kun valitsemasi API kohtaa ongelman, Freetube yrittää automaattisestia käyttää toissijaista vaihtoehtoa.
     External Link Handling: "Valitse oletuskäyttäytyminen, kun linkkiä, jota ei voi avata FreeTubessa, napsautetaan.\nOletusarvoisesti FreeTube avaa napsautetun linkin oletusselaimessasi.\n"
+    Open Deep Links In New Window: FreeTubeen syötetyt URL:t, esimerkiksi selaimen uudelleenohjauslisäosista tai komentoriviargumenteista johtuen, avataan uudessa ikkunassa.
   Subscription Settings:
     Fetch Feeds from RSS: Kun valittuna, FreeTube käyttää RSS-syötettä oletusmetodin sijaan tilauslistasi hakemisessa. RSS on nopeampi ja ehkäisee IP-estoa, mutta ei anna tietoja, kuten videon kesto tai livetila
     Fetch Automatically: Kun tämä on käytössä, FreeTube hakee automaattisesti tilauksesi syötteen, kun uusi ikkuna avataan.
   Player Settings:
     Default Video Format: Aseta videon toistamisessa käytätettävä formaatti. DASH-formaatit toistavat korkealaatuisempia videoita. Legacy-formaatit ovat rajoitettu 360p-resoluutioon, mutta käyttävät vähemmän dataa. Audioformaatit ovat vain äänistriimeihin.
     Proxy Videos Through Invidious: Yhdistää Invidious-palvelimeen suoran YouTuben-yhteyden sijaan.
-    Scroll Playback Rate Over Video Player: Kursorin ollessa videon päällä, paina CTRL (Komentopainike MAC-tietokoneessa) pohjaan ja käytä hiiren rullaa muuttaaksesi toiston nopeutta. Palataksesi alkuperäiseen toistonopeuteen (1x ellei toisin määritelty asetuksissa), pidä CTRL-painike (Komentopainike MAC-tietokoneessa) painettuna ja paina hiiren vasenta näppäintä.
+    Scroll Playback Rate Over Video Player: Kursorin ollessa videon päällä, paina Ctrl (Komentopainike Mac-tietokoneessa) pohjaan ja käytä hiiren rullaa muuttaaksesi toiston nopeutta. Palataksesi alkuperäiseen toistonopeuteen (1x ellei toisin määritelty asetuksissa), pidä Ctrl-painike (Komentopainike Mac-tietokoneessa) painettuna ja paina hiiren vasenta näppäintä.
     Skip by Scrolling Over Video Player: Käytä vieritysrullaa videon selaamiseen, MPV-tyyliin.
   External Player Settings:
     Custom External Player Arguments: Kaikki ne omavalintaiset komentorivin määreet, jotka haluat siirtää eteenpäin ulkoiselle toisto-ohjelmalle.
@@ -831,13 +923,17 @@ Tooltips:
     Custom External Player Executable: Vakiollisesti FreeTube olettaa, että valittu ulkoinen toisto-ohjelma voidaan löytää PATH-polkuympäristömuuttujan kautta. Mikäli tarvetta ilmenee, voidaan asettaa omavalintainen polku tähän.
     External Player: Ulkoisen soittimen valitsemisen johdosta näkyy kuvake videon avaamiseen (soittoluettelonkin avaamiseen jos tuettu) ulkoisessa toistimessa. Varoitus, Invidious-asetukset eivät vaikuta ulkoisiin toistimiin.
     DefaultCustomArgumentsTemplate: "(Oletus: '{defaultCustomArguments}')"
+    Ignore Default Arguments: Älä lähetä mitään oletusargumentteja ulkoiseen toistimeen videon URL:n lisäksi (esim. toistonopeus, soittolistan URL, jne). Muokatut argumentit kuitenkin lähetetään.
   Experimental Settings:
     Replace HTTP Cache: Poistaa Electronin levypohjaisen HTTP-välimuistin käytöstä ja ottaa käyttöön mukautetun muistissa olevan kuvavälimuistin. Lisää välimuistin käyttöä.
   Distraction Free Settings:
     Hide Channels: Anna kanava-ID piilottaaksesi kaikki videot, soittolistat ja itse kanavan näkymästä haussa, trendaamisessa, suosituimmissa ja suositelluissa. Annetun kanava-ID:n on oltava täysin oikein ja kirjainkoolla on merkitystä.
     Hide Subscriptions Live: Tämä asetus ohitetaan koko sovelluksen laajuisella ”{appWideSetting}” asetuksella, joka on ”{subsection}” osion ”{settingsSection}” osiossa
+    Hide Videos, Playlists and Channels Containing Text: Syötä sana, sanan osa tai fraasi (kirjainkoolla merkitystä) piilottaaksesi kaikki videot, soittolistat ja kanavat, joissa piilotettava merkkijono esiintyy. Tämä asetus vaikuttaa koko FreeTubeen, poislukien historian, omat soittolistat ja soittolistojen sisällä olevat videot.
+    Hide Videos on Watch: Piilottaa katsotut videot Videot, Lyhyet ja Live -välilehdistä tilaus- ja kanavasivuilla. Tämä ei vaikuta Koti-välilehteen kanavasivuilla
   SponsorBlock Settings:
     UseDeArrowTitles: Korvaa videon otsikot käyttäjien lähettämillä DeArrow’n otsikoilla.
+    UseDeArrowThumbnails: Korvaa videoiden pienoiskuvat DeArrow'n pienoiskuvakkeilla.
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi.
 Open New Window: Avaa uusi ikkuna
@@ -864,8 +960,9 @@ Clipboard:
   Cannot access clipboard without a secure connection: Leikepöytää ei voi käyttää ilman suojattua yhteyttä
 Chapters:
   Chapters: Luvut
+  Key Moments: Avainhetket
 Preferences: Asetukset
-Ok: OK
+Ok: Ok
 Hashtag:
   Hashtag: Avainsana
   This hashtag does not currently have any videos: Tällä avainsanalla ei ole tällä hetkellä yhtään videota
@@ -895,7 +992,7 @@ Yes, Restart: Kyllä, käynnistä uudelleen
 Yes, Open Link: Kyllä, avaa linkki
 Right-click or hold to see history: Näytä historia napsauttamalla hiiren kakkospainiketta tai pitämällä painettuna
 Close Banner: Sulje Banneri
-Search character limit: Hakukysely ylittää {searchCharacterLimit}-merkkirajan.
+Search character limit: Hakukysely ylittää {searchCharacterLimit} merkin rajan
 KeyboardShortcutPrompt:
   Toggle Developer Tools: Kehittäjän työkalut päällä/pois
   Zoom In: Lähennä
@@ -932,5 +1029,36 @@ KeyboardShortcutPrompt:
   Last Chapter: Edellinen osio
   Next Chapter: Seuraava osio
   Skip by Tenths: Siirry videon läpi prosentteina (3 kelausta vastaa 30% kestosta)
-Compact side navigation: Kompakti reunanavigaatio
-Expand side navigation: Laajenna reunanavigaatiota
+  Skip to Previous Video: Siirry edelliseen videoon soittolistalla
+  Sections:
+    Video:
+      Playback: 'Video: Toisto'
+      General: 'Video: Yleinen'
+    App:
+      General: 'Sovellus: Yleinen'
+  Home: Siirry videon alkuun
+  End: Siirry videon loppuun
+  Skip to Next Video: Siirry seuraavaan videoon soittolistalla tai seuraavaan suositeltuun videoon
+  Small Fast Forward: Pikakelaa X sekuntia perustuen pikakelausintervalliin ja nykyiseen videon toistonopeuteen
+  Small Rewind: Pikakelaa X sekuntia perustuen pikakelausintervalliin ja nykyisen videon toistonopeuteen
+Compact side navigation: Pienennä sivupalkki
+Expand side navigation: Näytä sivupalkki
+Description:
+  Expand Description: '...lisää'
+  Collapse Description: Näytä vähemmän
+Autoplay Interruption Timer: Automaattinen toisto keskeytetty johtuen {autoplayInterruptionIntervalHours} tunnin inaktiivisuudesta
+Tag already exists: '"{tagName}" tagi on jo olemassa'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+shortcutLabelSeparator: ｜
+Keys:
+  alt: Alt
+  ctrl: Ctrl
+  shift: Shift
+  enter: Enter
+  plus: Plus
+  arrowdown: Alanuoli
+  arrowleft: Vasen nuoli
+  arrowright: Oikea nuoli
+  arrowup: Ylänuoli
+Moments Ago: hetki sitten
