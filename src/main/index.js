@@ -871,7 +871,7 @@ function runApp() {
   }
 
   const htmlFullscreenWindowIds = new Set()
-  const windowFullscreenBeforeHtmlFullscreen = new Map()
+  const nativeFullscreenWindowIds = new Set()
 
   async function createWindow(
     {
@@ -1160,20 +1160,27 @@ function runApp() {
     }
 
     newWindow.on('enter-html-full-screen', () => {
-      windowFullscreenBeforeHtmlFullscreen.set(newWindow.id, newWindow.isFullScreen())
       htmlFullscreenWindowIds.add(newWindow.id)
     })
 
     newWindow.on('leave-html-full-screen', () => {
       htmlFullscreenWindowIds.delete(newWindow.id)
-      windowFullscreenBeforeHtmlFullscreen.delete(newWindow.id)
+    })
+
+    newWindow.on('enter-full-screen', () => {
+      // Only track as native fullscreen if not triggered by HTML fullscreen
+      if (!htmlFullscreenWindowIds.has(newWindow.id)) {
+        nativeFullscreenWindowIds.add(newWindow.id)
+      }
+    })
+
+    newWindow.on('leave-full-screen', () => {
+      nativeFullscreenWindowIds.delete(newWindow.id)
     })
 
     newWindow.once('close', async () => {
-      // returns true if the element existed in the set
-      const htmlFullscreen = htmlFullscreenWindowIds.delete(newWindow.id)
-      const wasFullscreenBeforeHtml = windowFullscreenBeforeHtmlFullscreen.get(newWindow.id) ?? false
-      windowFullscreenBeforeHtmlFullscreen.delete(newWindow.id)
+      htmlFullscreenWindowIds.delete(newWindow.id)
+      const nativeFullscreen = nativeFullscreenWindowIds.delete(newWindow.id)
 
       if (BrowserWindow.getAllWindows().length !== 1) {
         return
@@ -1183,9 +1190,8 @@ function runApp() {
         ...newWindow.getNormalBounds(),
         maximized: newWindow.isMaximized(),
 
-        // Don't save the full screen state if it was triggered by an HTML API e.g. the video player
-        // But do save it if the window was already in fullscreen before entering HTML fullscreen
-        fullScreen: newWindow.isFullScreen() && (!htmlFullscreen || wasFullscreenBeforeHtml)
+        // Only save fullscreen if it was triggered by native fullscreen (F11), not HTML API (video player)
+        fullScreen: nativeFullscreen
       }
 
       await baseHandlers.settings._updateBounds(value)
