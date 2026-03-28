@@ -38,12 +38,21 @@ const getters = {
   },
 }
 
+const collator = new Intl.Collator(undefined, {
+  usage: 'sort',
+  caseFirst: 'upper',
+  sensitivity: 'case',
+  numeric: true
+})
+
 function profileSort(a, b) {
   if (a._id === MAIN_PROFILE_ID) return -1
   if (b._id === MAIN_PROFILE_ID) return 1
-  if (a.name < b.name) return -1
-  if (a.name > b.name) return 1
-  return 0
+
+  const nameA = a.name.normalize('NFC')
+  const nameB = b.name.normalize('NFC')
+
+  return collator.compare(nameA, nameB)
 }
 
 const actions = {

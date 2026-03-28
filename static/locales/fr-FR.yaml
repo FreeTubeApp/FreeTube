@@ -103,11 +103,11 @@ Trending:
   Gaming: Jeux vidéo
   Sports: Sport
 Most Popular: 'Les plus populaires'
-Playlists: 'Listes de lecture'
+Playlists: 'Playlists'
 User Playlists:
-  Your Playlists: 'Vos listes de lecture'
-  Search bar placeholder: Rechercher des listes de lecture
-  Empty Search Message: Aucune des vidéos de cette liste de lecture ne correspond à votre recherche
+  Your Playlists: 'Vos playlists'
+  Search bar placeholder: Rechercher des playlists
+  Empty Search Message: Aucune des vidéos de cette playlist ne correspond à votre recherche
   AddVideoPrompt:
     Search in Playlists: Recherche dans les playlists
     Save: Sauvegarder
@@ -161,7 +161,7 @@ User Playlists:
       There was an issue with creating the playlist.: Il y a eu un problème lors de la création de la playlist.
       Playlist {playlistName} has been successfully created.: La playlist {playlistName} a été créée avec succès.
       There is already a playlist with this name. Please pick a different name.: Il existe déjà une playlist portant ce nom. Veuillez choisir un autre nom.
-    New Playlist Name: Nom de la nouvelle liste de lecture
+    New Playlist Name: Nom de la nouvelle playlist
   This playlist currently has no videos.: Cette playlist ne contient actuellement aucune vidéo.
   Add to Playlist: Ajouter à la playlist
   Move Video Down: Déplacer la vidéo vers le bas
@@ -170,14 +170,14 @@ User Playlists:
   Move Video Up: Déplacer la vidéo vers le haut
   Cancel: Annuler
   Delete Playlist: Supprimer la playlist
-  Create New Playlist: Nouvelle liste de lecture
+  Create New Playlist: Créer une nouvelle playlist
   Edit Playlist Info: Modifier les informations de la playlist
   Copy Playlist: Copier la playlist
   Playlist Description: Description de la playlist
   Add to Favorites: Ajouter à {playlistName}
   Remove from Favorites: Retirer de {playlistName}
   Enable Quick Bookmark With This Playlist: Activer le marque-page rapide avec cette playlist
-  Playlists with Matching Videos: Listes comportant des vidéos correspondantes
+  Playlists with Matching Videos: Playlists comportant des vidéos correspondantes
   Quick Bookmark Enabled: Signet rapide activé
   Cannot delete the quick bookmark target playlist.: Impossible de supprimer la playlist cible des signets rapides.
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Êtes-vous sûr(e) de vouloir retirer 1 vidéo en double de cette playlist ? Cette opération est irréversible. | Êtes-vous sûr(e) de vouloir retirer {playlistItemCount} vidéos en double de cette playlist ? Cette opération est irréversible.

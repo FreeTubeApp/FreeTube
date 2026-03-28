@@ -436,18 +436,14 @@ export default defineComponent({
 
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
-        const recommendedVideos = result.watch_next_feed
+        this.recommendedVideos = result.watch_next_feed
           ?.filter((item) => {
             return item.type === 'CompactVideo' || item.type === 'CompactMovie' ||
               (item.type === 'LockupView' && item.content_type === 'VIDEO')
           })
-          .map(parseLocalWatchNextVideo) ?? []
-
-        // place watched recommended videos last
-        this.recommendedVideos = [
-          ...recommendedVideos.filter((video) => !this.isRecommendedVideoWatched(video.videoId)),
-          ...recommendedVideos.filter((video) => this.isRecommendedVideoWatched(video.videoId))
-        ]
+          .map(parseLocalWatchNextVideo)
+          // place watched recommended videos last
+          .sort(this.sortWatchedVideosLast) ?? []
 
         if (this.showFamilyFriendlyOnly && !this.isFamilyFriendly) {
           this.isLoading = false
@@ -933,10 +929,8 @@ export default defineComponent({
           })
 
           // place watched recommended videos last
-          this.recommendedVideos = [
-            ...recommendedVideos.filter((video) => !this.isRecommendedVideoWatched(video.videoId)),
-            ...recommendedVideos.filter((video) => this.isRecommendedVideoWatched(video.videoId))
-          ]
+          this.recommendedVideos = recommendedVideos.sort(this.sortWatchedVideosLast)
+
           this.isLive = result.liveNow
           this.isFamilyFriendly = result.isFamilyFriendly
           this.isPostLiveDvr = !!result.isPostLiveDvr
@@ -1202,8 +1196,25 @@ export default defineComponent({
       })
     },
 
+    /**
+     * @param {{ videoId: string }} a
+     * @param {{ videoId: string }} b
+     */
+    sortWatchedVideosLast: function (a, b) {
+      const aWasWatched = this.isRecommendedVideoWatched(a.videoId)
+      const bWasWatched = this.isRecommendedVideoWatched(b.videoId)
+
+      if (aWasWatched && !bWasWatched) {
+        return 1
+      } else if (!aWasWatched && bWasWatched) {
+        return -1
+      } else {
+        return 0
+      }
+    },
+
     isRecommendedVideoWatched: function (videoId) {
-      return !!this.$store.getters.getHistoryCacheById[videoId]
+      return Object.hasOwn(this.$store.getters.getHistoryCacheById, videoId)
     },
 
     handleVideoLoaded: function () {
