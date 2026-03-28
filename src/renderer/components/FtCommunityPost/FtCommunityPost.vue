@@ -158,6 +158,7 @@
           :icon="['fas', 'comment']"
         /> {{ commentCount }}</span>
       <FtShareButton
+        v-if="!hideSharingActions"
         :id="postId"
         share-target-type="Post"
         class="shareButton"
@@ -222,6 +223,9 @@ const forbiddenTitles = computed(() => {
 const hideVideo = computed(() => {
   return forbiddenTitles.value.some((text) => props.data.postContent.content.title?.toLowerCase().includes(text.toLowerCase()))
 })
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideSharingActions = computed(() => store.getters.getHideSharingActions)
 
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
 const backendPreference = computed(() => {
