@@ -14,8 +14,8 @@
           :channel-id="channel.id"
           :channel-name="channel.name"
           :channel-thumbnail="channel.thumbnail"
-          selectable
-          :selected="selected.includes(channel.id)"
+          :selectable="true"
+          :selected="selected.has(channel.id)"
           @change="handleChannelToggle(channel.id)"
         />
       </FtFlexBox>
@@ -48,7 +48,7 @@
 </template>
 
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, reactive, ref, shallowRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 
 import FtCard from '../ft-card/ft-card.vue'
@@ -77,6 +77,7 @@ import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 const { locale, t } = useI18n()
 
 const props = defineProps({
+  /** @type {import('vue').PropType<Profile>} */
   profile: {
     type: Object,
     required: true
@@ -101,11 +102,10 @@ const intlCollator = computed(() => {
   return new Intl.Collator([locale.value, 'en'], { sensitivity: 'base' })
 })
 
-/** @type {import('vue').Ref<Profile['subscriptions']>} */
-const subscriptions = ref([])
+/** @type {import('vue').ShallowRef<Profile['subscriptions']>} */
+const subscriptions = shallowRef([])
 
 function loadSubscriptions() {
-  /** @type {Profile['subscriptions']} */
   const subscriptions_ = deepCopy(props.profile.subscriptions)
 
   const collator = intlCollator.value
@@ -132,35 +132,31 @@ watch(() => props.profile, () => {
   selectNone()
 }, { deep: true })
 
-/**
- * TODO: Replace with a Set with Vue 3
- *
- * @type {import('vue').Ref<string[]>}
- */
-const selected = ref([])
+/** @type {import('vue').Reactive<Set<string>>} */
+const selected = reactive(new Set())
 
 const selectedText = computed(() => {
-  return t('Profile.{number} selected', { number: selected.value.length })
+  return t('Profile.{number} selected', { number: selected.size })
 })
 
 function selectAll() {
-  selected.value = subscriptions.value.map(channel => channel.id)
+  subscriptions.value.forEach(channel => {
+    return selected.add(channel.id)
+  })
 }
 
 function selectNone() {
-  selected.value = []
+  selected.clear()
 }
 
 /**
  * @param {string} channelId
  */
 function handleChannelToggle(channelId) {
-  const index = selected.value.indexOf(channelId)
-
-  if (index === -1) {
-    selected.value.push(channelId)
+  if (selected.has(channelId)) {
+    selected.delete(channelId)
   } else {
-    selected.value.splice(index, 1)
+    selected.add(channelId)
   }
 }
 
@@ -187,7 +183,7 @@ const deletePromptMessage = computed(() => {
 })
 
 function displayDeletePrompt() {
-  if (selected.value.length === 0) {
+  if (selected.size === 0) {
     showToast(t('Profile.No channel(s) have been selected'))
   } else {
     showDeletePrompt.value = true
@@ -199,18 +195,16 @@ function displayDeletePrompt() {
  */
 function handleDeletePromptClick(value) {
   if (value === 'delete') {
-    const selected_ = selected.value
+    subscriptions.value = subscriptions.value.filter((channel) => {
+      return !selected.has(channel.id)
+    })
 
     if (props.isMainProfile) {
-      subscriptions.value = subscriptions.value.filter((channel) => {
-        return !selected_.includes(channel.id)
-      })
-
       profileList.value.forEach((x) => {
         const profile = deepCopy(x)
 
         profile.subscriptions = profile.subscriptions.filter((channel) => {
-          return !selected_.includes(channel.id)
+          return !selected.has(channel.id)
         })
 
         // Only update changed profiles
@@ -222,10 +216,6 @@ function handleDeletePromptClick(value) {
       showToast(t('Profile.Profile has been updated'))
       selectNone()
     } else {
-      subscriptions.value = subscriptions.value.filter((channel) => {
-        return !selected_.includes(channel.id)
-      })
-
       /** @type {Profile} */
       const profile = {
         ...props.profile,

@@ -8,7 +8,7 @@
       class="author-div"
     >
       <template
-        v-if="authorThumbnails.length > 0"
+        v-if="authorThumbnail"
       >
         <router-link
           v-if="authorId"
@@ -17,14 +17,14 @@
           aria-hidden="true"
         >
           <img
-            :src="getBestQualityImage(authorThumbnails)"
+            :src="authorThumbnail"
             class="communityThumbnail"
             alt=""
           >
         </router-link>
         <img
           v-else
-          :src="getBestQualityImage(authorThumbnails)"
+          :src="authorThumbnail"
           class="communityThumbnail"
           alt=""
         >
@@ -158,6 +158,7 @@
           :icon="['fas', 'comment']"
         /> {{ commentCount }}</span>
       <FtShareButton
+        v-if="!hideSharingActions"
         :id="postId"
         share-target-type="Post"
         class="shareButton"
@@ -183,7 +184,6 @@ import store from '../../store/index'
 
 import {
   createWebURL,
-  deepCopy,
   formatNumber,
   getRelativeTimeFromDate,
 } from '../../helpers/utils'
@@ -223,6 +223,9 @@ const hideVideo = computed(() => {
   return forbiddenTitles.value.some((text) => props.data.postContent.content.title?.toLowerCase().includes(text.toLowerCase()))
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideSharingActions = computed(() => store.getters.getHideSharingActions)
+
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
 const backendPreference = computed(() => {
   return store.getters.getBackendPreference
@@ -231,8 +234,7 @@ const backendPreference = computed(() => {
 let postType = ''
 let postText = ''
 let postId = ''
-/** @type {string[]?} */
-let authorThumbnails = null
+let authorThumbnail = ''
 let postContent = ''
 let author = ''
 let authorId = ''
@@ -267,12 +269,10 @@ function parseCommunityData() {
     postText = 'Shared post'
     postType = 'text'
 
-    authorThumbnails = ['', 'https://yt3.ggpht.com/ytc/AAUvwnjm-0qglHJkAHqLFsCQQO97G7cCNDuDLldsrn25Lg=s88-c-k-c0x00ffffff-no-rj']
+    authorThumbnail = 'https://yt3.ggpht.com/ytc/AAUvwnjm-0qglHJkAHqLFsCQQO97G7cCNDuDLldsrn25Lg=s88-c-k-c0x00ffffff-no-rj'
 
     if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
-      authorThumbnails.forEach(thumbnail => {
-        thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
-      })
+      authorThumbnail = youtubeImageUrlToInvidious(authorThumbnail)
     }
 
     return
@@ -287,18 +287,12 @@ function parseCommunityData() {
   author = props.data.author
   authorId = props.data.authorId
 
-  authorThumbnails = deepCopy(props.data.authorThumbnails)
+  authorThumbnail = getBestQualityImage(props.data.authorThumbnails)
 
   if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
-    authorThumbnails.forEach(thumbnail => {
-      thumbnail.url = youtubeImageUrlToInvidious(thumbnail.url)
-    })
-  } else {
-    authorThumbnails.forEach(thumbnail => {
-      if (thumbnail.url.startsWith('//')) {
-        thumbnail.url = 'https:' + thumbnail.url
-      }
-    })
+    authorThumbnail = youtubeImageUrlToInvidious(authorThumbnail)
+  } else if (authorThumbnail.startsWith('//')) {
+    authorThumbnail = 'https:' + authorThumbnail
   }
 }
 

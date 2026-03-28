@@ -27,20 +27,6 @@
 
     <FtFlexBox class="radioFlexBox">
       <FtRadioButton
-        v-model="prioritizeValue"
-        :title="$t('Search Filters.Prioritize.Prioritize')"
-        :labels="prioritizeLabels"
-        :values="PRIORITIZE_VALUES"
-        class="searchRadio"
-      />
-      <FtRadioButton
-        v-model="timeValue"
-        :title="$t('Search Filters.Time.Time')"
-        :labels="timeLabels"
-        :values="TIME_VALUES"
-        class="searchRadio"
-      />
-      <FtRadioButton
         v-model="typeValue"
         :title="$t('Search Filters.Type.Type')"
         :labels="typeLabels"
@@ -54,11 +40,25 @@
         :values="DURATION_VALUES"
         class="searchRadio"
       />
+      <FtRadioButton
+        v-model="timeValue"
+        :title="$t('Search Filters.Time.Time')"
+        :labels="timeLabels"
+        :values="TIME_VALUES"
+        class="searchRadio"
+      />
       <FtCheckboxList
         v-model="featuresValue"
         :title="$t('Search Filters.Features.Features')"
         :labels="featureLabels"
         :values="FEATURE_VALUES"
+        class="searchRadio"
+      />
+      <FtRadioButton
+        v-model="prioritizeValue"
+        :title="$t('Search Filters.Prioritize.Prioritize')"
+        :labels="prioritizeLabels"
+        :values="PRIORITIZE_VALUES"
         class="searchRadio"
       />
     </FtFlexBox>
@@ -117,16 +117,16 @@ const DURATION_VALUES = [
 ]
 
 const FEATURE_VALUES = [
+  'live',
+  '4k',
   'hd',
   'subtitles',
   'creative_commons',
-  '3d',
-  'live',
-  '4k',
   '360',
-  'location',
+  'vr180',
+  '3d',
   'hdr',
-  'vr180'
+  'location',
 ]
 
 const NOT_ALLOWED_FOR_MOVIES_FEATURES = [
@@ -168,16 +168,16 @@ const durationLabels = computed(() => [
 ])
 
 const featureLabels = computed(() => [
+  t('Search Filters.Features.Live'),
+  t('Search Filters.Features.4K'),
   t('Search Filters.Features.HD'),
   t('Search Filters.Features.Subtitles'),
   t('Search Filters.Features.Creative Commons'),
-  t('Search Filters.Features.3D'),
-  t('Search Filters.Features.Live'),
-  t('Search Filters.Features.4K'),
   t('Search Filters.Features.360 Video'),
-  t('Search Filters.Features.Location'),
+  t('Search Filters.Features.VR180'),
+  t('Search Filters.Features.3D'),
   t('Search Filters.Features.HDR'),
-  t('Search Filters.Features.VR180')
+  t('Search Filters.Features.Location'),
 ])
 
 const searchSettings = store.getters.getSearchSettings
