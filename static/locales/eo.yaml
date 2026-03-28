@@ -97,7 +97,7 @@ Subscriptions:
   Subscriptions Tabs: Abonaj langetoj
   All Subscription Tabs Hidden: Ĉiuj abonaj langetoj estas kaŝitaj. Por vidi enhavon ĉi tie, bonvolu malkaŝi kelkajn langetojn en la sekcio "{subsection}" en "{settingsSection}".
 Trending:
-  Trending: 'Popularaj'
+  Trending: 'Tendencoj'
   Gaming: Ludismo
   Sports: Sportoj
   Trending Tabs: Tendencaj langetoj
@@ -202,22 +202,95 @@ Settings:
   General Settings:
     General Settings: 'Ĝenerala'
     Check for Updates: 'Kontroli ĝisdatigojn'
-    Enable Search Suggestions: 'Ŝalti serĉproponoj'
+    Enable Search Suggestions: 'Ŝalti serĉproponojn'
     Video View Type:
       Grid: 'Krado'
       List: 'Listo'
+      Video View Type: Aranĝo de videaĵoj
     Thumbnail Preference:
       Thumbnail Preference: 'Bildeta agordo'
       Default: 'Defaŭlta'
       Beginning: 'Komenco'
       Middle: 'Mezo'
       End: 'Fino'
+      Hidden: Kaŝita
+      Blur: Nebula
     System Default: Operaciuma defaŭlto
     Check for Latest Blog Posts: Kontroli novajn blogoskribaĵojn
+    Fallback to Non-Preferred Backend on Failure: Retropaŝi al malpreferita interna API post malsukceso
+    Open Deep Links In New Window: Malfermi URL-ojn donitajn al FreeTube en nova fenestro
+    Minimize to system tray: Minimumigi al la taskopleto
+    Auto Load Next Page:
+      Label: Aŭtomate ŝargi sekvan paĝon
+      Tooltip: Aŭtomate ŝargi pliajn paĝojn kaj komentojn.
+    Default Landing Page: Defaŭlta eka paĝo
+    Locale Preference: Lokaĵaro
+    Preferred API Backend:
+      Preferred API Backend: Preferita interna API
+      Local API: Loka API
+      Invidious API: API de Invidious
+    Current Invidious Instance: Aktuala Invidious-servilo
+    The currently set default instance is {instance}: La aktuala defaŭlta servilo estas {instance}
+    No default instance has been set: Neniu defaŭlta servilo difinita
+    Current instance will be randomized on startup: La aktuala servilo estos hazardigita je startigo
+    Set Current Instance as Default: Difini aktualan servilon kiel defaŭlta
+    Clear Default Instance: Viŝi defaŭltan servilon
+    View all Invidious instance information: Vidi informojn de ĉiuj Invidious-serviloj
+    Region for Trending: Regiono por tendencoj
+    External Link Handling:
+      External Link Handling: Traktado de eksteraj ligiloj
+      Open Link: Malfermi ligilon
+      Ask Before Opening Link: Demandi antaŭ ol malfermi ligilon
+      No Action: Nenion fari
   Theme Settings:
     Base Theme:
       Dark: 'Malluma'
       Light: 'Luma'
+      Base Theme: Baza etoso
+      Black: Nigro
+      System Default: Operaciuma defaŭlto
+      Dracula: Dracula
+      Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Latte: Catppuccin Latte
+      Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Paŝtela rozkoloro
+      Hot Pink: Forta rozkoloro
+      Nordic: Nordic
+      Gruvbox Dark: Gruvbox malluma
+      Gruvbox Light: Gruvbox luma
+      Solarized Dark: Solarized malluma
+      Solarized Light: Solarized luma
+      Everforest Dark Hard: Everforest malluma forta
+      Everforest Dark Medium: Everforest malluma meza
+      Everforest Dark Low: Everforest malluma malforta
+      Everforest Light Hard: Everforest luma forta
+      Everforest Light Medium: Everforest luma meza
+      Everforest Light Low: Everforest luma malforta
+    Theme Settings: Etoso
+    Match Top Bar with Main Color: Igi suprobreton kongrui kun ĉefa koloro
+    Expand Side Bar by Default: Defaŭlte pligrandigi flankobreton
+    Disable Smooth Scrolling: Malŝalti glatan rulumon
+    UI Scale: Interfaca skalo
+    Hide Side Bar Labels: Kaŝi flankobretajn etikedojn
+    Hide FreeTube Header Logo: Kaŝi FreeTube-emblemon en kapo
+    Main Color Theme:
+      Main Color Theme: Ĉefa koloro
+      Red: Ruĝo
+      Pink: Rozkoloro
+      Purple: Purpuro
+      Deep Purple: Malhela purpuro
+      Indigo: Indigo
+      Blue: Bluo
+      Light Blue: Hela bluo
+      Cyan: Ciankoloro
+      Teal: Blua verdo
+      Green: Verdo
+      Light Green: Hela verdo
+      Lime: Limeo
+      Yellow: Flavo
+      Amber: Sukceno
+      Orange: Oranĝkoloro
+      Deep Orange: Malhela oranĝkoloro
   Player Settings: {}
   Sort Settings Sections (A-Z): Ordigi agordosekciojn (A-Z)
   Return to Settings Menu: Reveni al agordomenuo
