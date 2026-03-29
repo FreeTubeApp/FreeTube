@@ -17,7 +17,7 @@
           @change="updateShowFamilyFriendlyOnly"
         />
         <FtToggleSwitch
-          :label="$t('Settings.Parental Control Settings.Disable Channel Link on Videos')"
+          :label="$t('Settings.Parental Control Settings.Disable Channel Links')"
           compact
           :default-value="disableChannelLinks"
           @change="updateDisableChannelLinks"
