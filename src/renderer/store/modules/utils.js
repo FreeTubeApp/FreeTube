@@ -404,7 +404,7 @@ const actions = {
     switch (urlType) {
       case 'playlist': {
         if (!url.searchParams.has('list')) {
-          throw new Error('Playlist: "list" field not found')
+          return { urlType: 'unknown' }
         }
 
         const playlistId = url.searchParams.get('list')
@@ -435,7 +435,7 @@ const actions = {
           url.searchParams.delete('q')
         }
         if (searchQuery == null) {
-          throw new Error('Search: "search_query" field not found')
+          return { urlType: 'unknown' }
         }
 
         const searchSettings = state.searchSettings
@@ -509,7 +509,7 @@ const actions = {
         const match = url.pathname.match(channelPattern)
         const channelId = match.groups.channelId
         if (!channelId) {
-          throw new Error('Channel: could not extract id')
+          return { urlType: 'unknown' }
         }
 
         let subPath
