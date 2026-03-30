@@ -12,7 +12,6 @@ concurrency:
 
 jobs:
   lint:
-    name: Linter
     runs-on: ubuntu-latest
 
     permissions:
