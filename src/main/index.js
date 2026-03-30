@@ -872,6 +872,8 @@ function runApp() {
 
   const htmlFullscreenWindowIds = new Set()
   const nativeFullscreenWindowIds = new Set()
+  const nativeFullscreenBeforeHtmlFullscreen = new Map()
+  const recentFullscreenEvents = new Map() // Track recent enter-full-screen events
 
   async function createWindow(
     {
@@ -1161,13 +1163,34 @@ function runApp() {
 
     newWindow.on('enter-html-full-screen', () => {
       htmlFullscreenWindowIds.add(newWindow.id)
+
+      // Check if enter-full-screen fired recently (within 100ms) - indicates race condition
+      const recentEvent = recentFullscreenEvents.get(newWindow.id)
+      const now = Date.now()
+
+      if (recentEvent && (now - recentEvent) < 100) {
+        // enter-full-screen fired just before this event - it was triggered by HTML fullscreen
+        // So the window was NOT in native fullscreen before
+        nativeFullscreenBeforeHtmlFullscreen.set(newWindow.id, false)
+        nativeFullscreenWindowIds.delete(newWindow.id) // Remove the incorrectly added entry
+      } else {
+        // enter-full-screen did not fire recently, so check current state
+        nativeFullscreenBeforeHtmlFullscreen.set(newWindow.id, nativeFullscreenWindowIds.has(newWindow.id))
+      }
+
+      recentFullscreenEvents.delete(newWindow.id)
     })
 
     newWindow.on('leave-html-full-screen', () => {
       htmlFullscreenWindowIds.delete(newWindow.id)
+      nativeFullscreenBeforeHtmlFullscreen.delete(newWindow.id)
+      recentFullscreenEvents.delete(newWindow.id)
     })
 
     newWindow.on('enter-full-screen', () => {
+      // Track when this event fired
+      recentFullscreenEvents.set(newWindow.id, Date.now())
+
       // Only track as native fullscreen if not triggered by HTML fullscreen
       if (!htmlFullscreenWindowIds.has(newWindow.id)) {
         nativeFullscreenWindowIds.add(newWindow.id)
@@ -1175,12 +1198,19 @@ function runApp() {
     })
 
     newWindow.on('leave-full-screen', () => {
-      nativeFullscreenWindowIds.delete(newWindow.id)
+      // Only remove from native fullscreen tracking if not in HTML fullscreen
+      // or if we're leaving both native and HTML fullscreen together
+      if (!htmlFullscreenWindowIds.has(newWindow.id)) {
+        nativeFullscreenWindowIds.delete(newWindow.id)
+      }
     })
 
     newWindow.once('close', async () => {
-      htmlFullscreenWindowIds.delete(newWindow.id)
-      const nativeFullscreen = nativeFullscreenWindowIds.delete(newWindow.id)
+      const wasHtmlFullscreen = htmlFullscreenWindowIds.delete(newWindow.id)
+      const wasNativeFullscreen = nativeFullscreenWindowIds.delete(newWindow.id)
+      const wasNativeBeforeHtml = nativeFullscreenBeforeHtmlFullscreen.get(newWindow.id) ?? false
+      nativeFullscreenBeforeHtmlFullscreen.delete(newWindow.id)
+      recentFullscreenEvents.delete(newWindow.id)
 
       if (BrowserWindow.getAllWindows().length !== 1) {
         return
@@ -1191,7 +1221,8 @@ function runApp() {
         maximized: newWindow.isMaximized(),
 
         // Only save fullscreen if it was triggered by native fullscreen (F11), not HTML API (video player)
-        fullScreen: nativeFullscreen
+        // If HTML fullscreen is active at close, only save fullscreen if window was already fullscreen before video
+        fullScreen: wasNativeFullscreen && (!wasHtmlFullscreen || wasNativeBeforeHtml)
       }
 
       await baseHandlers.settings._updateBounds(value)
