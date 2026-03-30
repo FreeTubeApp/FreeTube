@@ -206,19 +206,8 @@ const props = defineProps({
     type: String,
     default: null
   },
-  getPlaylistIndex: {
-    type: Function,
-    required: true
-  },
-  getPlaylistReverse: {
-    type: Function,
-    required: true
-  },
-  getPlaylistShuffle: {
-    type: Function,
-    required: true
-  },
-  getPlaylistLoop: {
+  /** @type {import('vue').PropType<() => { index: number, reverse: boolean, shuffle: boolean, loop: boolean }>} */
+  getPlaylistState: {
     type: Function,
     required: true
   },
@@ -356,15 +345,17 @@ function handleExternalPlayer() {
       playbackRate: defaultPlayback.value,
     }
   } else {
+    const playlistState = props.getPlaylistState()
+
     payload = {
       videoId: props.id,
       playlistId: props.playlistId,
       startTime: props.getTimestamp(),
       playbackRate: defaultPlayback.value,
-      playlistIndex: props.getPlaylistIndex(),
-      playlistReverse: props.getPlaylistReverse(),
-      playlistShuffle: props.getPlaylistShuffle(),
-      playlistLoop: props.getPlaylistLoop()
+      playlistIndex: playlistState.index,
+      playlistReverse: playlistState.reverse,
+      playlistShuffle: playlistState.shuffle,
+      playlistLoop: playlistState.loop
     }
   }
 
