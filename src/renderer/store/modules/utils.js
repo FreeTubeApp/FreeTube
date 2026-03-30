@@ -32,7 +32,6 @@ const state = {
   newPlaylistVideoObject: [],
   regionNames: [],
   regionValues: [],
-  recentBlogPosts: [],
   searchSettings: {
     prioritize: 'relevance',
     time: '',
@@ -138,10 +137,6 @@ const getters = {
 
   getRegionValues(state) {
     return state.regionValues
-  },
-
-  getRecentBlogPosts(state) {
-    return state.recentBlogPosts
   },
 
   getExternalPlayerNames(state) {
@@ -765,10 +760,6 @@ const mutations = {
 
   setRegionValues (state, value) {
     state.regionValues = value
-  },
-
-  setRecentBlogPosts (state, value) {
-    state.recentBlogPosts = value
   },
 
   setExternalPlayerNames (state, value) {

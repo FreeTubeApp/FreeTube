@@ -224,7 +224,6 @@ Settings:
       Blur: Flou
     Region for Trending: 'Pays pour les tendances'
         #! List countries
-    Check for Latest Blog Posts: Consulter les derniers billets du blog
     Check for Updates: Vérifier les mises à jour
     View all Invidious instance information: Voir les informations de toutes les instances Invidious
     System Default: Système par défaut
@@ -616,7 +615,6 @@ About:
   Website: Site web
   Email: Courriel
   Help: Aide
-  Blog: Blog
   Credits: Crédits
   FAQ: FAQ
   Beta: Bêta
@@ -944,7 +942,6 @@ Profile:
   Edit Profile Name: Modifier le nom du profil
   Create Profile Name: Créer un nom de profil
 The playlist has been reversed: La playlist a été inversée
-A new blog is now available, {blogTitle}. Click to view more: Un nouveau billet de blog est maintenant disponible, {blogTitle}. Cliquez pour en savoir plus
 Download From Site: Télécharger depuis le site
 Version {versionNumber} is now available!  Click for more details: La version {versionNumber} est maintenant disponible !  Cliquez pour plus de détails
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Cette vidéo est indisponible car elle n'est pas dans un format valide. Cela peut arriver en raison de restrictions d'accès dans certains pays.

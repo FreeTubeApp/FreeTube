@@ -42,7 +42,6 @@ Global:
     Like Count: 1개 좋아요 | {count}개 좋아요
 Version {versionNumber} is now available!  Click for more details: '{versionNumber} 버전이 사용가능합니다! 클릭하여 자세한 정보를 확인하세요'
 Download From Site: '사이트로부터 다운로드'
-A new blog is now available, {blogTitle}. Click to view more: '새로운 블로그가 업로드되었습니다, {blogTitle}. 클릭하여 확인하세요'
 
 # Search Bar
 Search / Go to URL: '검색 / URL로 이동'
@@ -131,7 +130,6 @@ Settings:
   General Settings:
     General Settings: '일반 설정'
     Check for Updates: '업데이트 확인하기'
-    Check for Latest Blog Posts: '최신 블로그포스트 확인하기'
     Fallback to Non-Preferred Backend on Failure: '실패시 선호되지않는 백엔드로 대체하기'
     Enable Search Suggestions: '검색추천 허용'
     Default Landing Page: '기본 페이지'
@@ -404,7 +402,6 @@ About:
   Chat on Matrix: 매트릭스 채팅
   Mastodon: 마스토돈
   Email: 이메일
-  Blog: 블로그
   Website: 웹사이트
   Please check for duplicates before posting: 게시하기 전에 중복 항목을 확인하십시오
   GitHub issues: GitHub 이슈

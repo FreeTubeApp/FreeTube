@@ -221,7 +221,6 @@ Settings:
       Blur: 'Θάμπωμα'
     Region for Trending: 'Περιοχή που καθορίζει την καρτέλα των τάσεων'
         #! List countries
-    Check for Latest Blog Posts: Ελέγξτε για τις τελευταίες δημοσιεύσεις ιστολογίου (Blogposts)
     Check for Updates: Έλεγχος για ενημερώσεις
     View all Invidious instance information: Δείτε όλες τις πληροφορίες προσβλητικών περιπτώσεων
     System Default: Προεπιλογή συστήματος
@@ -601,7 +600,6 @@ About:
   Chat on Matrix: Συνομιλία στο Matrix
   Mastodon: Μάστοντον
   Email: Ηλεκτρονικό ταχυδρομείο
-  Blog: Ιστολόγιο
   Website: Ιστότοπος
   Please check for duplicates before posting: Παρακαλώ ελέγξτε για διπλότυπα πριν δημοσιεύσετε
   GitHub issues: Προβλήματα GitHub
@@ -913,7 +911,6 @@ Canceled next video autoplay: 'Η αναπαραγωγή του επόμενου
 
 Yes: 'Ναι'
 No: 'Όχι'
-A new blog is now available, {blogTitle}. Click to view more: Ένα καινούριο ιστολόγιο είναι πλέον διαθέσιμο, {blogTitle}. Για περισσότερες λεπτομέρειες κάντε κλικ εδώ
 Download From Site: Κάντε λήψη από την Ιστοσελίδα
 Version {versionNumber} is now available!  Click for more details: Η έκδοση {versionNumber} είναι πλέον διαθέσιμη. Κάντε κλικ για περισσότερες λεπτομέρειες
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Αυτό το βίντεο δεν είναι διαθέσιμο λόγω έλλειψης μορφών. Αυτό μπορεί να συμβαίνει λόγω μη διαθεσιμότητας του βίντεο στη χώρα σας.

@@ -30,7 +30,6 @@ Close Banner: 'Serriñ ar Giton'
 
 Version {versionNumber} is now available!  Click for more details: 'Stumm {versionNumber} a zo hegerz !  Klikit amañ evit gouzout hiroc''h'
 Download From Site: 'Pellgargañ diwar al lec''hienn'
-A new blog is now available, {blogTitle}. Click to view more: 'Embannet ez eus bet ur pennad nevez, {blogTitle}. Klikit amañ evit gouzout hiroc''h'
 Are you sure you want to open this link?: 'Ha sur oc''h e faot deoc''h digeriñ al liamm-mañ ?'
 
 # Global
@@ -268,7 +267,6 @@ Settings:
   General Settings:
     General Settings: 'Hollek'
     Check for Updates: 'Klask Hizivadurioù'
-    Check for Latest Blog Posts: 'Diskouez pennadoù diwezhañ ar Blog'
     Fallback to Non-Preferred Backend on Failure: 'Distreiñ d''ar Backend ha n''eo ket hoc''h hini karetañ ma c''hoarvez ur gudenn'
     Enable Search Suggestions: 'Gweredekaat Kinnigoù klask'
     Auto Load Next Page:
@@ -691,7 +689,6 @@ About:
   GitHub issues: 'Kudennoù renablet war GitHub'
   Please check for duplicates before posting: 'Gwiriekait an doublennoù a-raok embann, mar-plij'
   Website: 'Lec''hienn web'
-  Blog: 'Blog'
   Email: 'Chomlec’h postel'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Flapañ war Matrix'

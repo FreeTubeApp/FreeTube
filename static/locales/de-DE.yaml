@@ -225,7 +225,6 @@ Settings:
       Blur: Unschärfe
     Region for Trending: Region für Trends
         #! List countries
-    Check for Latest Blog Posts: Nach neuen Blogeinträgen suchen
     Check for Updates: Auf Updates prüfen
     View all Invidious instance information: Alle Informationen zur Invidious-Instanz anzeigen
     System Default: Systemvorgabe
@@ -612,7 +611,6 @@ About:
   #& About
 #On Channel Page
   Website: Website
-  Blog: Blog
   Credits: Danksagungen
   FAQ: Häufig gestellte Fragen
   Email: E-Mail
@@ -944,7 +942,6 @@ Profile:
   Open Profile Dropdown: Profil-Klappliste öffnen
   Close Profile Dropdown: Profil-Klappliste schließen
 The playlist has been reversed: Die Playlist wurde umgedreht
-A new blog is now available, {blogTitle}. Click to view more: 'Ein neuer Blogeintrag ist verfügbar: „{blogTitle}“. Klicke, um mehr zu sehen'
 Download From Site: Von der Website herunterladen
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} ist jetzt verfügbar!  Für mehr Details klicken
 Tooltips:

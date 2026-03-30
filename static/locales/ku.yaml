@@ -25,7 +25,6 @@ Forward: 'چونەپێشەوە'
 
 Version {versionNumber} is now available!  Click for more details: 'ئێستا وەشانی {versionNumber} بەردەستە..بۆ زانیاری زۆرتر کرتە بکە'
 Download From Site: 'لە وێبگەوە دایگرە'
-A new blog is now available, {blogTitle}. Click to view more: 'بڵۆگێکی نوێ بەردەستە، {blogTitle}. کلیک بکە بۆ بینینی زیاتر'
 
 Global:
   Sort By: 'بگەڕی بە'
@@ -198,7 +197,6 @@ Settings:
   General Settings:
     General Settings: 'دەستکاریکردنی گشتی'
     Check for Updates: 'بزانە تازەکاری هاتووە'
-    Check for Latest Blog Posts: 'چێکی تازەترین بلۆگ بکە'
     Fallback to Non-Preferred Backend on Failure: 'گەڕانەوە بۆ سیستەمە ناخوازراوەکە لەکاتی فەشەلدا'
     Enable Search Suggestions: 'پێشنیارکردن بەکاربخە لەکاتی گەڕاندا'
     Locale Preference: پەسەندکردنی ناوچەیی
@@ -334,7 +332,6 @@ About:
   Chat on Matrix: Matrix موناقەشە کە لە
   Mastodon: ماستۆدۆن
   Email: نامەی ئەلکترۆنی
-  Blog: بلۆگ
   Website: وێبسایت
   Please check for duplicates before posting: تکایە چێک بکە بۆ دووبارە پێش پۆستکردن
   GitHub issues: GitHub کێشاکانی

@@ -42,7 +42,6 @@ Global:
     Comment Count: 1 коментар | {count} коментара
 Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber} е вече налична! Щракнете за повече детайли'
 Download From Site: 'Сваляне от сайта'
-A new blog is now available, {blogTitle}. Click to view more: 'Нова публикация в блога, {blogTitle}. Щракнете за преглед'
 
 # Search Bar
 Search / Go to URL: 'Търсене / Отиване на адрес'
@@ -208,7 +207,6 @@ Settings:
   General Settings:
     General Settings: 'Общи'
     Check for Updates: 'Проверка за актуализации'
-    Check for Latest Blog Posts: 'Проверка за нови публикации в блога'
     Fallback to Non-Preferred Backend on Failure: 'При грешка, връщане към непредпочитан интерфейс'
     Enable Search Suggestions: 'Активиране на препоръките при търсене'
     Default Landing Page: 'Страница по подразбиране'
@@ -621,7 +619,6 @@ About:
   Chat on Matrix: Чат в Matrix
   Mastodon: Mastodon
   Email: Електронна поща
-  Blog: Блог
   Website: Уебсайт
   Please check for duplicates before posting: Моля, проверете за дубликати преди публикуване
   GitHub issues: GitHub проблеми

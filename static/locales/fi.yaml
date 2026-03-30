@@ -223,7 +223,6 @@ Settings:
       Blur: Sumennettu
     Region for Trending: 'Nousussa-sivun alue'
         #! List countries
-    Check for Latest Blog Posts: Tarkista tuoreimmat blogimerkinnät
     Check for Updates: Tarkista päivitykset
     View all Invidious instance information: Invidious instancen tiedot
     System Default: Järjestelmän oletus
@@ -575,7 +574,6 @@ About:
   GitHub issues: GitHub-ongelmat
   Report a problem: Ilmoita ongelmasta
   FAQ: UKK
-  Blog: Blogi
   Email: Sähköposti
   Chat on Matrix: Matrix
   these people and projects: nämä henkilöt ja projektit
@@ -898,7 +896,6 @@ Profile:
   Toggle Profile List: Profiililista päällä/pois
 Version {versionNumber} is now available!  Click for more details: Versio {versionNumber} on nyt saatavilla! Napsauta saadaksesi lisätietoja
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Tämä video ei ole saatavilla puuttuvien formaattien takia. Tämä voi tapahtua koska video ei ole saatavilla maassasi.
-A new blog is now available, {blogTitle}. Click to view more: Uusi blogi on saatavilla, {blogTitle}. Klikkaa nähdäksesi lisää
 Download From Site: Lataa sivustolta
 Tooltips:
   General Settings:

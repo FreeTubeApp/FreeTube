@@ -224,7 +224,6 @@ Settings:
       Hidden: Скрыть
     Region for Trending: 'Регион для В тренде'
         #! List countries
-    Check for Latest Blog Posts: Проверять последние записи в блоге
     Check for Updates: Проверять наличие новых версий
     View all Invidious instance information: Просмотреть все инстанции Invidious
     System Default: Системные настройки по умолчанию
@@ -621,7 +620,6 @@ About:
   Chat on Matrix: Чат на Matrix
   Mastodon: Mastodon
   Email: Электронная почта
-  Blog: Блог
   Website: Сайт
   Report a problem: Сообщить о проблеме
   FAQ: ЧАВО
@@ -944,7 +942,6 @@ Profile:
   Close Profile Dropdown: Закрыть выпадающий список профилей
   Open Profile Dropdown: Открыть выпадающий список профилей
 The playlist has been reversed: Порядок плейлиста был обёрнут
-A new blog is now available, {blogTitle}. Click to view more: Теперь доступен новый блог, {blogTitle}. Нажмите, чтобы посмотреть больше
 Download From Site: Скачать с сайта
 Version {versionNumber} is now available!  Click for more details: Версия {versionNumber} теперь доступна!  Нажмите для получения более подробной информации
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Это видео недоступно из-за отсутствия форматов. Это может произойти из-за региональных ограничений.

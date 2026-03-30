@@ -40,7 +40,6 @@ Global:
   Sort By: 'Sorter etter'
 Version {versionNumber} is now available!  Click for more details: 'Versjon {versionNumber} er no tilgjengeleg! Klikk for meir informasjon'
 Download From Site: 'Last ned frå nettstaden'
-A new blog is now available, {blogTitle}. Click to view more: 'Eit nytt blogginnlegg er tilgjengeleg, {blogTitle}. Klikk her for å sjå meir'
 
 # Search Bar
 Search / Go to URL: 'Søk/gå til nettadresse'
@@ -107,7 +106,6 @@ Settings:
   General Settings:
     General Settings: 'Generelle innstillingar'
     Check for Updates: 'Sjå etter oppdateringar'
-    Check for Latest Blog Posts: 'Sjå etter nye blogginnlegg'
     Fallback to Non-Preferred Backend on Failure: 'Tilbakefall til ikkje-føretrekte backend ved feil'
     Enable Search Suggestions: 'Slå på søkeforslag'
     Default Landing Page: 'Standardlandingside'
@@ -382,7 +380,6 @@ About:
   GitHub issues: 'GitHub-problemsporar'
   Please check for duplicates before posting: 'Ver venleg og sjå etter duplikat før du poster noko'
   Website: 'Nettstad'
-  Blog: 'Blogg'
   Email: 'E-post'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Snakk med oss på Matrix'

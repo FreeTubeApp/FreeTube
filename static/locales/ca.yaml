@@ -39,7 +39,6 @@ Global:
     View Count: 1 visualització | {count} visualitzacions
 Version {versionNumber} is now available!  Click for more details: 'La versió {versionNumber} està disponible! Fes clic per a més detalls'
 Download From Site: 'Descarrega des del web'
-A new blog is now available, {blogTitle}. Click to view more: 'Nova publicació al blog disponible, {blogTitle}. Fes clic per saber-ne més'
 
 # Search Bar
 Search / Go to URL: 'Cerca / Ves a l''URL'
@@ -105,7 +104,6 @@ Settings:
   General Settings:
     General Settings: 'Paràmetres generals'
     Check for Updates: 'Comprovar si hi ha actualitzacions'
-    Check for Latest Blog Posts: 'Consultar les darreres entrades al blog'
     Fallback to Non-Preferred Backend on Failure: 'Torna al motor per defecte en cas d''error'
     Enable Search Suggestions: 'Habilitar els suggeriments de cerca'
     Default Landing Page: 'Pàgina d''aterratge per defecte'
@@ -302,7 +300,6 @@ About:
   #On About page
   About: 'Quant a'
   #& About
-  Blog: Blog
   Website: Lloc web
   Email: Correu-e
   Help: Ajuda

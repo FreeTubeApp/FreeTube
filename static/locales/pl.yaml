@@ -224,7 +224,6 @@ Settings:
       Blur: Rozmyte
     Region for Trending: '„Na czasie” z obszaru'
         #! List countries
-    Check for Latest Blog Posts: Sprawdź ostatnie wpisy na blogu
     Check for Updates: Szukaj aktualizacji
     View all Invidious instance information: Pokaż informacje o wszystkich instancjach Invidious
     System Default: Ustawienie systemowe
@@ -614,7 +613,6 @@ About:
   #& About
 #On Channel Page
   Website: Strona internetowa
-  Blog: Blog
   Credits: Zasługi
   FAQ: FAQ
   Email: E-mail
@@ -944,7 +942,6 @@ Profile:
   Edit Profile Name: Edytuj nazwę profilu
   Create Profile Name: Nadaj nazwę profilowi
 The playlist has been reversed: Playlista została odwrócona
-A new blog is now available, {blogTitle}. Click to view more: 'Nowy wpis na blogu jest dostępny, {blogTitle}. Kliknij, aby zobaczyć więcej'
 Download From Site: Pobierz ze strony
 Version {versionNumber} is now available!  Click for more details: Wersja {versionNumber} jest już dostępna!  Kliknij po więcej szczegółów
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ten film jest niedostępny z powodu brakujących formatów. Przyczyną może być blokada regionalna.

@@ -42,7 +42,6 @@ Global:
     Comment Count: 1 yorum | {count} yorum
 Version {versionNumber} is now available!  Click for more details: '{versionNumber} sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
-A new blog is now available, {blogTitle}. Click to view more: 'Yeni blog gönderisi var, {blogTitle}. Daha fazlasını görüntülemek için tıklayın'
 
 # Search Bar
 Search / Go to URL: 'Ara / URL''ye git'
@@ -210,7 +209,6 @@ Settings:
   General Settings:
     General Settings: 'Genel'
     Check for Updates: 'Güncellemeleri Denetle'
-    Check for Latest Blog Posts: 'En Yeni Blog Gönderilerini Denetle'
     Fallback to Non-Preferred Backend on Failure: 'Hata Durumunda Tercih Edilmeyen Arka Uca Geç'
     Enable Search Suggestions: 'Arama Önerilerini Etkinleştir'
     Default Landing Page: 'Öntanımlı Açılış Ekranı'
@@ -620,7 +618,6 @@ About:
   About: 'Hakkında'
   #& About
   Website: Web sitesi
-  Blog: Blog
   Credits: Katkıda Bulunanlar
   FAQ: SSS
   Email: E-posta

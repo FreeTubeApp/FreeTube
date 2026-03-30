@@ -42,7 +42,6 @@ Global:
     Comment Count: 1 hozzászólás | {count} hozzászólás
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber} verzió már elérhető! Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
-A new blog is now available, {blogTitle}. Click to view more: 'Egy új blog érhető el: {blogTitle}. Kattintson a további információk megtekintéséhez'
 
 # Search Bar
 Search / Go to URL: 'Keresés / Ugrás webcímre'
@@ -212,7 +211,6 @@ Settings:
   General Settings:
     General Settings: 'Általános'
     Check for Updates: 'Frissítések keresése'
-    Check for Latest Blog Posts: 'Legújabb blogbejegyzések keresése'
     Fallback to Non-Preferred Backend on Failure: 'A nem előnyben részesített háttéralkalmazás visszatérése meghibásodás esetén'
     Enable Search Suggestions: 'Keresési javaslatok engedélyezése'
     Default Landing Page: 'Alapértelmezett kezdőlap'
@@ -628,7 +626,6 @@ About:
   room rules: szobaszabályok
   Chat on Matrix: Csevegés a Matrixon
   Mastodon: Mastodon
-  Blog: Blog
   Email: E-mail
   Website: Honlap
   Please check for duplicates before posting: Beküldés előtt ellenőrizze, nincs-e már azonos

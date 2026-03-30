@@ -26,7 +26,6 @@ Forward: 'آگے'
 Open New Window: 'نئی ونڈو کھولیں'
 
 Download From Site: 'سائٹ سے ڈاؤن لوڈ کریں'
-A new blog is now available, {blogTitle}. Click to view more: 'ایک نیا بلاگ اب دستیاب ہے، {blogTitle}. مزید دیکھنے کے لیے کلک کریں'
 Are you sure you want to open this link?: 'کیا واقعی آپ اس لنک کو کھولنا چاہتے ہیں؟'
 
 # Search Bar
@@ -193,7 +192,6 @@ Settings:
   General Settings:
     General Settings: 'عام'
     Check for Updates: 'اپ ڈیٹ کے لیے چیک کریں'
-    Check for Latest Blog Posts: 'تازہ ترین بلاگ پوسٹس چیک کریں'
     Fallback to Non-Preferred Backend on Failure: 'غیر ترجیحی بیک اینڈ پر فال بیک ناکامی پر'
     Enable Search Suggestions: 'تلاش کی تجاویز کو فعال کریں'
     Default Landing Page: 'ڈیفالٹ لینڈنگ پیج'
@@ -602,7 +600,6 @@ About:
   Report a problem: مسئلہ رپورٹ کریں
   GitHub issues: گِٹ ہب مسائل
   Website: ویب سائٹ
-  Blog: بلاگ
   Email: ای میل
   Mastodon: Mastodon
   Chat on Matrix: ۔Matrix پر چیٹ کریں

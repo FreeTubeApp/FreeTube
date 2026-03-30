@@ -225,7 +225,6 @@ Settings:
     Region for Trending: 'Região para conteúdos em alta'
         #! List countries
     Check for Updates: Buscar por atualizações
-    Check for Latest Blog Posts: Verificar se há novas postagens no blog
     View all Invidious instance information: Ver todas as informações da instância Invidious
     System Default: Definido pelo Sistema
     No default instance has been set: Nenhuma instância padrão foi definida
@@ -627,7 +626,6 @@ About:
   Chat on Matrix: Chat no Matrix
   Mastodon: Mastodon
   Email: E-mail
-  Blog: Blog
   Website: Site
   Please check for duplicates before posting: Por favor verifique se este problema já foi informado
   Discussions: Discussões
@@ -941,7 +939,6 @@ Profile:
   Open Profile Dropdown: Abrir menu de perfis
   Close Profile Dropdown: Fechar menu de perfis
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber} já está disponível! Clique para mais detalhes
-A new blog is now available, {blogTitle}. Click to view more: 'Um novo post do blog está disponível: {blogTitle}. Clique para ver mais'
 Download From Site: Baixar do site
 The playlist has been reversed: A playlist foi invertida
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este vídeo não está disponível devido à falta de formatos. Isto pode acontecer devido à indisponibilidade do país.

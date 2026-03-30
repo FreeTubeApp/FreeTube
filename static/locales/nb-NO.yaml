@@ -229,7 +229,6 @@ Settings:
         #! List countries
     Check for Updates: Se etter oppdateringer
     View all Invidious instance information: Vis informasjon om alle Invidious-instanser
-    Check for Latest Blog Posts: Vis nye blogginnlegg
     System Default: Standardinnstillinger
     Clear Default Instance: Fjern standardinstans
     Set Current Instance as Default: Bruk den gjeldende instansen som standard
@@ -622,7 +621,6 @@ About:
   Source code: Kildekode
   Mastodon: Mastodon
   Email: E-post
-  Blog: Blogg
   Translate: Oversett
   Please check for duplicates before posting: Vennligst sjekk om problemet ditt allerede har blitt sendt inn før du sender inn en melding
   these people and projects: disse folkene og prosjektene
@@ -977,7 +975,6 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Erstatt videonavn med brukerinnsendte navn fra DeArrow.
     UseDeArrowThumbnails: Erstatt miniatyrbilder på videoer med bilder fra DeArrow.
-A new blog is now available, {blogTitle}. Click to view more: Et nytt blogginnlegg er tilgjengelig, {blogTitle}. Klikk her for å se mer
 The playlist has been reversed: Spillelisten har blitt snudd
 Download From Site: Last ned fra nettside
 Version {versionNumber} is now available!  Click for more details: Versjon {versionNumber} er nå tilgjengelig! Klikk her for detaljer
