@@ -44,6 +44,8 @@ Search Filters:
   Search Filters: '搜尋過濾器'
   Prioritize:
     Most Relevant: '最相關'
+    Prioritize: 設定優先順序
+    Popularity: 人氣
   Time:
     Time: '時間'
     Any Time: '任何時間'
