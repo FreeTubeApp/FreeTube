@@ -6,12 +6,28 @@ name: Build
 on:
   push:
     branches: [ master, development, '**-RC' ]
+    paths-ignore:
+      - 'README.md'
+      - '.github/**/*.md'
+      - '.github/workflows/autoMerge.yml'
+      - '.github/workflows/calibreapp-image-actions.yml'
+      - '.github/workflows/codeql.yml'
+      - '.github/workflows/conflicts.yml'
+      - '.github/workflows/label-issue.yml'
+      - '.github/workflows/label-pr.yml'
+      - '.github/workflows/no-response.yml'
+      - '.github/workflows/release.yml'
+      - '.github/workflows/remove-outdated-labels.yml'
+      - '.github/workflows/stale.yml'
+      - '.github/workflows/updateSite.yml'
+
   workflow_dispatch:
 
 permissions: {}
 
 jobs:
   build:
+    name: Build
 
     # As this action runs on every push to the default branch and uses quite a lot of resources (both minutes and caches),
     # only run it in the FreeTubeApp/FreeTube repository to avoid unnecessary GitHub Actions usage/billing in forks.
