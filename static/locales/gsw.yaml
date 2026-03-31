@@ -25,11 +25,9 @@ Back: 'Zrugg'
 Forward: 'Füre'
 Open New Window: 'Nois Fäischter ufmache'
 
-Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber}
-  isch jetzt verfüegbar! Klick für meh Details.'
+Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} isch jetzt verfüegbar! Klick für meh Details.'
 Download From Site: 'Vo de Website abelade'
-Are you sure you want to open this link?: 'Bisch du sicher, dass du de Link ufmache
-  wotsch?'
+Are you sure you want to open this link?: 'Bisch du sicher, dass du de Link ufmache wotsch?'
 
 # Search Bar
 Search / Go to URL: 'Sueche / Gang zu de URL'
@@ -101,8 +99,7 @@ Global:
   Live: live
   Shorts: shorts
   Sort By: Sortieren nach
-Search character limit: Die Suchanfrage ist länger als das erlaubte Limit von {searchCharacterLimit}
-  Zeichen
+Search character limit: Die Suchanfrage ist länger als das erlaubte Limit von {searchCharacterLimit} Zeichen
 Preferences: Ihstellige
 Go to page: gehe zu
 Close Banner: Banner schließen
