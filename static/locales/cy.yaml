@@ -29,7 +29,6 @@ Go to page: 'Mynd i {page}'
 
 Version {versionNumber} is now available!  Click for more details: 'Mae Fersiwn {versionNumber} bellach ar gael!  Cliciwch am fwy o manylion'
 Download From Site: 'Llwytho i lawr o''r Wefan'
-A new blog is now available, {blogTitle}. Click to view more: 'Mae blogiad newydd bellach ar gael, {blogTitle}. Cliciwch i weld mwy'
 Are you sure you want to open this link?: 'Ydych chi wir eisiau agor y ddolen hon?'
 
 # Global
@@ -227,7 +226,6 @@ Settings:
   General Settings:
     General Settings: 'Cyffredinol'
     Check for Updates: 'Chwilio am Ddiweddariadau'
-    Check for Latest Blog Posts: 'Gwirio am y Postiadau Blog Diweddaraf'
     Fallback to Non-Preferred Backend on Failure: 'Nôl i''r Cefn Diddewis ar Fethiant'
     Enable Search Suggestions: 'Galluogi Awgrymiadau Chwilio'
     Default Landing Page: 'Tudalen Glanio Ragosodedig'
@@ -642,7 +640,6 @@ About:
   GitHub issues: 'Materion GitHub'
   Please check for duplicates before posting: 'Gwirio am ddyblygiadau cyn postio'
   Website: 'Gwefan'
-  Blog: 'Blog'
   Email: 'E-bost'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Sgwrsio ar Matrix'

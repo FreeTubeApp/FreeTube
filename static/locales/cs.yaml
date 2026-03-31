@@ -42,7 +42,6 @@ Global:
     Comment Count: 1 komentář | {count} komentářů
 Version {versionNumber} is now available!  Click for more details: 'Je k dispozici verze {versionNumber}! Klikněte pro více informací'
 Download From Site: 'Stáhnout ze stránky'
-A new blog is now available, {blogTitle}. Click to view more: 'Je dostupný nový článek na blogu: {blogTitle}. Kliknutím zobrazíte více'
 
 # Search Bar
 Search / Go to URL: 'Hledat / Přejít na URL'
@@ -211,7 +210,6 @@ Settings:
   General Settings:
     General Settings: 'Obecné'
     Check for Updates: 'Kontrolovat aktualizace'
-    Check for Latest Blog Posts: 'Kontrolovat nejnovější příspěvky na blogu'
     Fallback to Non-Preferred Backend on Failure: 'Při chybě přepnout na nepreferovaný backend'
     Enable Search Suggestions: 'Zapnout návrhy vyhledávání'
     Default Landing Page: 'Výchozí vstupní stránka'
@@ -627,7 +625,6 @@ About:
   Chat on Matrix: Chat na síti Matrix
   Mastodon: Mastodon
   Email: E-mail
-  Blog: Blog
   Website: Webové stránky
   FAQ: Často kladené dotazy
   FreeTube Wiki: Wiki FreeTube

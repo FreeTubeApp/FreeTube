@@ -34,7 +34,6 @@ Global:
   Sort By: 'Ordenar por'
 Version {versionNumber} is now available!  Click for more details: 'A versión {versionNumber} está dispoñible!  Fai clic para veres máis detalles'
 Download From Site: 'Descargar do sitio'
-A new blog is now available, {blogTitle}. Click to view more: 'Hai unha nova entrada no blog dispoñible, {blogTitle}. Fai clic para veres máis'
 
 # Search Bar
 Search / Go to URL: 'Buscar / Ir a URL'
@@ -101,7 +100,6 @@ Settings:
   General Settings:
     General Settings: 'Axustes xerais'
     Check for Updates: 'Comprobar actualizacións'
-    Check for Latest Blog Posts: 'Comprobar se hai novas entradas no blog'
     Fallback to Non-Preferred Backend on Failure: 'Usar motor API non preferido en caso de falla'
     Enable Search Suggestions: 'Activar suxestións de busca'
     Default Landing Page: 'Páxina inicial'
@@ -376,7 +374,6 @@ About:
   Chat on Matrix: Conversa en Matrix
   Mastodon: Mastodon
   Email: Correo electrónico
-  Blog: Blog
   Website: Páxina web
   Please check for duplicates before posting: Comprobe se hai duplicados antes de publicar
   GitHub issues: Problemas de GitHub

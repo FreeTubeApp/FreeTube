@@ -42,7 +42,6 @@ Global:
   Sort By: Urut Menurut
 Version {versionNumber} is now available!  Click for more details: 'Versi {versionNumber} sekarang tersedia!  Klik untuk detail lebih lanjut'
 Download From Site: 'Unduh dari Situs'
-A new blog is now available, {blogTitle}. Click to view more: 'Pos blog baru tersedia, {blogTitle}. Klik untuk lihat lebih lanjut'
 
 # Search Bar
 Search / Go to URL: 'Cari / Pergi ke URL'
@@ -208,7 +207,6 @@ Settings:
   General Settings:
     General Settings: 'Umum'
     Check for Updates: 'Cek Pembaruan'
-    Check for Latest Blog Posts: 'Cek Kiriman Blog Terbaru'
     Fallback to Non-Preferred Backend on Failure: 'Beralih ke Layanan Cadangan saat terjadi Kegagalan'
     Enable Search Suggestions: 'Aktifkan Saran Pencarian'
     Default Landing Page: 'Halaman Awal Baku'
@@ -622,7 +620,6 @@ About:
   Chat on Matrix: Mengobrol di Matrix
   Mastodon: mastodon
   Email: Surel
-  Blog: Blog
   Website: Situs web
   Please check for duplicates before posting: Silakan periksa duplikat sebelum melaporkan
   GitHub issues: Isu GitHub

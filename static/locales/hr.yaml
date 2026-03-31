@@ -225,7 +225,6 @@ Settings:
       Blur: Neoštro
     Region for Trending: 'Regija za videa u trendu'
         #! List countries
-    Check for Latest Blog Posts: Traži najnovije objave na blogu
     Check for Updates: Traži nove verzije
     View all Invidious instance information: Pogledaj podatke svih Invidious instanci
     System Default: Standard sustava
@@ -611,7 +610,6 @@ About:
   About: 'Informacije'
   #& About
   Website: Web-stranica
-  Blog: Blog
   Credits: Zasluge
   FAQ: Često postavljena pitanja
   Email: E-adresa
@@ -941,7 +939,6 @@ Canceled next video autoplay: 'Automatska reprodukcija sljedećeg videa je preki
 Yes: 'Da'
 No: 'Ne'
 The playlist has been reversed: Redoslijed zbirke je obrnut
-A new blog is now available, {blogTitle}. Click to view more: Dostupan je novi blog, {blogTitle}. Pritisni za prikaz detalja
 Download From Site: Preuzmi s web-stranice
 Version {versionNumber} is now available!  Click for more details: Dostupna je verzija {versionNumber}! Pritisni za prikaz detalja
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ovaj video nije dostupan zbog nedostajućih formata. Uzrok tome može biti nedostupnost u zemlji.

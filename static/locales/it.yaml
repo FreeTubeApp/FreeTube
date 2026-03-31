@@ -227,7 +227,6 @@ Settings:
       Blur: Sfocatura
     Region for Trending: 'Regione per le tendenze'
         #! List countries
-    Check for Latest Blog Posts: Controlla gli ultimi post del blog
     Check for Updates: Controlla gli aggiornamenti
     View all Invidious instance information: Visualizza tutti i dati dell'istanza Invidious
     Clear Default Instance: Cancella istanza predefinita
@@ -614,7 +613,6 @@ About:
   #& About
 #On Channel Page
   Donate: Dona
-  Blog: Blog
   GitHub issues: Segnalazioni GitHub
   Report a problem: Segnala un problema
   FAQ: Domande frequenti
@@ -901,9 +899,8 @@ Canceled next video autoplay: 'Riproduzione automatica del prossimo video annull
 
 Yes: 'Sì'
 No: 'No'
-A new blog is now available, {blogTitle}. Click to view more: 'Un nuovo blog è ora disponibile, {blogTitle}. Fai clic per saperne di più'
 Version {versionNumber} is now available!  Click for more details: La versione {versionNumber} è ora disponibile! Fai clic per maggiori dettagli
-Download From Site: Scarica dal sito
+Download From Site: 'Scarica dal sito: clicca per i dettagli'
 The playlist has been reversed: La playlist è stata invertita
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Sei sicuro di voler eliminare i canali selezionati? L'operazione non eliminerà i canali da nessun altro profilo.

@@ -10,7 +10,7 @@ import WatchVideoChapters from '../../components/WatchVideoChapters/WatchVideoCh
 import WatchVideoDescription from '../../components/WatchVideoDescription/WatchVideoDescription.vue'
 import CommentSection from '../../components/CommentSection/CommentSection.vue'
 import WatchVideoLiveChat from '../../components/WatchVideoLiveChat/WatchVideoLiveChat.vue'
-import WatchVideoPlaylist from '../../components/watch-video-playlist/watch-video-playlist.vue'
+import WatchVideoPlaylist from '../../components/WatchVideoPlaylist/WatchVideoPlaylist.vue'
 import WatchVideoRecommendations from '../../components/WatchVideoRecommendations/WatchVideoRecommendations.vue'
 import FtAgeRestricted from '../../components/FtAgeRestricted/FtAgeRestricted.vue'
 import packageDetails from '../../../../package.json'
@@ -1799,24 +1799,9 @@ export default defineComponent({
       return Math.floor(this.getWatchedProgress())
     },
 
-    getPlaylistIndex: function () {
-      return this.$refs.watchVideoPlaylist
-        ? this.getPlaylistReverse()
-          ? this.$refs.watchVideoPlaylist.playlistItems.length - this.$refs.watchVideoPlaylist.currentVideoIndexOneBased
-          : this.$refs.watchVideoPlaylist.currentVideoIndexZeroBased
-        : -1
-    },
-
-    getPlaylistReverse: function () {
-      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.reversePlaylist : false
-    },
-
-    getPlaylistShuffle: function () {
-      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.shuffleEnabled : false
-    },
-
-    getPlaylistLoop: function () {
-      return this.$refs.watchVideoPlaylist ? this.$refs.watchVideoPlaylist.loopEnabled : false
+    getPlaylistState: function () {
+      return this.$refs.watchVideoPlaylist?.getState() ??
+        { index: -1, reverse: false, shuffle: false, loop: false }
     },
 
     updateTitle: function () {

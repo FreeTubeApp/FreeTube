@@ -32,7 +32,6 @@ Global:
   Live: V živo
 Version {versionNumber} is now available!  Click for more details: 'Na voljo je različica {versionNumber}!·  Za več podrobnosti kliknite tukaj'
 Download From Site: 'Prenesi iz spletne strani'
-A new blog is now available, {blogTitle}. Click to view more: 'Na voljo je nov članek, {blogTitle}. Kliknite tukaj, če ga želite prebrati'
 
 # Search Bar
 Search / Go to URL: 'Išči/pojdi na URL naslov'
@@ -98,7 +97,6 @@ Settings:
   General Settings:
     General Settings: 'Splošne nastavitve'
     Check for Updates: 'Preveri posodobitve'
-    Check for Latest Blog Posts: 'Preveri najnovejše članke na blogu'
     Fallback to Non-Preferred Backend on Failure: 'Ob napaki začasno uporabi sekundarni zaledni sistem'
     Enable Search Suggestions: 'Vklopi iskalne predloge'
     Default Landing Page: 'Prevzeta vstopna stran'
@@ -327,7 +325,6 @@ About:
   Chat on Matrix: Klepetajte na Matrixu
   Mastodon: Mastodon
   Email: E-pošta
-  Blog: Blog
   Website: Spletna stran
   Please check for duplicates before posting: Prosimo, da pred pošiljanjem preverite, da ni dvojnikov
   GitHub issues: GitHub težave

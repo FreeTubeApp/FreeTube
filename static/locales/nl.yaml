@@ -225,7 +225,6 @@ Settings:
       Blur: Vervagen
     Region for Trending: 'Regio voor trending'
         #! List countries
-    Check for Latest Blog Posts: Op nieuwe blogpost controleren
     Check for Updates: Controleer op updates
     View all Invidious instance information: Bekijk alle Invidious-instantiegegevens
     System Default: Systeemstandaard
@@ -619,7 +618,6 @@ About:
   Chat on Matrix: Chat op Matrix
   Mastodon: Mastodon
   Email: E-mail
-  Blog: Blog
   Website: Website
   Please check for duplicates before posting: Controleer eerst of een probleem al gerapporteerd is
   GitHub issues: GitHub-issues
@@ -935,7 +933,6 @@ Profile:
   Create Profile Name: Profiel­naam aanmaken
   Close Profile Dropdown: Profiel­menu sluiten
   Open Profile Dropdown: Profiel­menu openen
-A new blog is now available, {blogTitle}. Click to view more: 'Een nieuwe blogpost is beschikbaar: {blogTitle}. Klik voor meer informatie'
 Download From Site: Van website downloaden
 Version {versionNumber} is now available!  Click for more details: Versie {versionNumber} is nu beschikbaar! Klik voor meer informatie
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Deze video is niet beschikbaar vanwege ontbrekende videoformaten. Dit kan gebeuren als de video niet in uw land beschikbaar is.

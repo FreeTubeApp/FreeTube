@@ -43,7 +43,6 @@ Global:
     Comment Count: 1 komentaras | {count} komentarai
 Version {versionNumber} is now available!  Click for more details: 'Versija {versionNumber} jau prieinama!  Spustelėkite, jei norite gauti daugiau informacijos'
 Download From Site: 'Atsisiųsti iš svetainės'
-A new blog is now available, {blogTitle}. Click to view more: 'Naujas įrašas tinklaraštyje, {blogTitle}. Spustelėkite norėdami pamatyti daugiau'
 
 # Search Bar
 Search / Go to URL: 'Paieška / Eiti į URL'
@@ -114,7 +113,6 @@ Settings:
   General Settings:
     General Settings: 'Bendrieji nustatymai'
     Check for Updates: 'Tikrinti ar yra atnaujinimų'
-    Check for Latest Blog Posts: 'Tikrinti ar yra naujų tinklaraščio įrašų'
     Fallback to Non-Preferred Backend on Failure: 'Nepavykus rinktis alternatyvią posistemę'
     Enable Search Suggestions: 'Įjungti paieškos pasiūlymus'
     Default Landing Page: 'Numatytasis pradinis puslapis'
@@ -393,7 +391,6 @@ About:
   GitHub issues: 'GitHub problemos'
   Please check for duplicates before posting: 'Prieš pranešdami patikrinkite, ar užklausa nesidubliuos su jau esančia'
   Website: 'Tinklalapis'
-  Blog: 'Tinklaraštis'
   Email: 'El. paštas'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Pokalbis Matrix'

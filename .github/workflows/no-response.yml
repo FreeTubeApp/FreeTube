@@ -13,9 +13,15 @@ permissions: {}
 
 jobs:
   noResponse:
+    name: No Response
+
     # As this action runs on a schedule, only run it in the FreeTubeApp/FreeTube repository to avoid unnecessary GitHub Actions usage/billing in forks.
     # If a fork does need this workflow, they can change this condition in their fork to include their repository.
-    if: github.repository == 'FreeTubeApp/FreeTube'
+    if: |
+      github.repository == 'FreeTubeApp/FreeTube' &&
+      (github.event_name == 'schedule' ||
+      (github.event.comment.user.id == github.event.issue.user.id &&
+      contains(github.event.issue.labels.*.name, 'U: Waiting for Response from Author')))
 
     runs-on: ubuntu-slim
 

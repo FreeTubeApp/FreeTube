@@ -1,3 +1,8 @@
+/* TODO: Revert when auto is fixed */
+:deep(.shaka-enable-abr-button) {
+  display: none !important;
+}
+
 /* stylelint-disable liberty/use-logical-spec */
 .ftVideoPlayer {
   display: flex;
@@ -60,7 +65,7 @@
 
 .valueChangePopup {
   position: absolute;
-  top: 20px;
+  top: 70px;
   left: 50%;
   transform: translateX(-50%);
   padding: 10px;

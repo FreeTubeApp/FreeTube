@@ -42,7 +42,6 @@ Global:
     Comment Count: 1 athugasemd | {count} athugasemdir
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber} er tiltæk!  Smelltu til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'
-A new blog is now available, {blogTitle}. Click to view more: 'Ný bloggfærsla er núna er tiltæk, {blogTitle}. Smelltu til að skoða nánar'
 
 # Search Bar
 Search / Go to URL: 'Leita / Fara á slóð'
@@ -212,7 +211,6 @@ Settings:
   General Settings:
     General Settings: 'Almennt'
     Check for Updates: 'Athuga með uppfærslur'
-    Check for Latest Blog Posts: 'Athuga með nýjustu bloggfærslur'
     Fallback to Non-Preferred Backend on Failure: 'Nota varaleið um ekki-forgangsbakenda þegar villa kemur upp'
     Enable Search Suggestions: 'Virkja tillögur í leit'
     Default Landing Page: 'Sjálfgefin upphafssíða'
@@ -626,7 +624,6 @@ About:
   GitHub issues: 'GitHub verkbeiðnir'
   Please check for duplicates before posting: 'Athugaðu hvort fyrir séu eins fyrirspurnir áður en þú sendir nýja'
   Website: 'Vefsvæði'
-  Blog: 'Blogg'
   Email: 'Tölvupóstur'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Spjall á Matrix'

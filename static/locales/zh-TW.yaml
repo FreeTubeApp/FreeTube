@@ -224,7 +224,6 @@ Settings:
       Blur: 模糊
     Region for Trending: '發燒影片區域'
         #! List countries
-    Check for Latest Blog Posts: 檢查最新的部落格貼文
     Check for Updates: 檢查更新
     View all Invidious instance information: 檢視所有 Invidious 站台的資訊
     System Default: 系統預設值
@@ -614,7 +613,6 @@ About:
   #& About
 #On Channel Page
   Website: 網站
-  Blog: 部落格
   Credits: 貢獻者
   FAQ: 常見問題
   Email: 電子郵件
@@ -944,8 +942,7 @@ Profile:
   Edit Profile Name: 修改設定檔名稱
   Create Profile Name: 建立設定檔名稱
 The playlist has been reversed: 播放清單已反轉
-A new blog is now available, {blogTitle}. Click to view more: 已有新的部落格文章，{blogTitle}。點擊以檢視更多
-Download From Site: 從網站下載
+Download From Site: 從網站下載 點擊檢視更多
 Version {versionNumber} is now available!  Click for more details: 有新版本！最新版本是 {versionNumber} ！按此取得更多資訊
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
 Tooltips:
