@@ -128,7 +128,7 @@ jobs:
       run: |
         sudo apt install desktop-file-utils
         cd build
-        appimage="FreeTube-${VERSION}.AppImage"
+        appimage="FreeTube-${VERSION}-armv7l.AppImage"
         wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
         wget "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" -O runtime
         chmod +x ./"$appimage" ./appimagetool.AppImage ./runtime
@@ -146,7 +146,7 @@ jobs:
       run: |
         sudo apt install desktop-file-utils
         cd build
-        appimage="FreeTube-${VERSION}.AppImage"
+        appimage="FreeTube-${VERSION}-arm64.AppImage"
         wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
         wget "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" -O runtime
         chmod +x ./"$appimage" ./appimagetool.AppImage ./runtime
