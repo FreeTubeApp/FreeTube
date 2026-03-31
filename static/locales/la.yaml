@@ -23,8 +23,7 @@ Close: 'Claude'
 Back: 'Redeo'
 Forward: 'Promoveo'
 
-Version {versionNumber} is now available!  Click for more details: 'Editio {versionNumber}
-  nunc praesto! Tactus pro magis singula res'
+Version {versionNumber} is now available!  Click for more details: 'Editio {versionNumber} nunc praesto! Tactus pro magis singula res'
 Download From Site: 'Adepto ex situ'
 
 Global:
@@ -64,11 +63,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscriptio'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Subscription
-    vestri album sit vacua. Incipe addere subscriptions videre hic.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Subscription vestri album sit vacua. Incipe addere subscriptions videre hic.'
   Load More Videos: Voce plus Movens Imaginibus
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Haec
-    profile copia subscriptioni habet. Impono RSS ut impedio restrictionis per celeritatis
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Haec profile copia subscriptioni habet. Impono RSS ut impedio restrictionis per celeritatis
 Trending:
   Trending: 'Inclinant'
 Most Popular: 'Maxime Popular'
@@ -86,8 +83,7 @@ Settings:
   General Settings:
     General Settings: 'Generalis Occasus'
     Check for Updates: 'Reprehendo pro Updates'
-    Fallback to Non-Preferred Backend on Failure: 'Revertere ad secundarium ratio
-      cum defectum'
+    Fallback to Non-Preferred Backend on Failure: 'Revertere ad secundarium ratio cum defectum'
     Enable Search Suggestions: 'Permitte Quaerere Conmendatio'
     Default Landing Page: 'Usitatus Portum Pagina'
     Locale Preference: 'Locus Praedilectionis'
