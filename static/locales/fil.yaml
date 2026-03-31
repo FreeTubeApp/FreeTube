@@ -60,11 +60,8 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Mga Suskripsyon'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ang
-    iyong listahan ng Suskripsyon ay kasalukuyang walang laman. Simulang magdagdag
-    ng mga suskripsyon upang makita ang mga ito dito.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Maraming
-    subscriptions itong profile.   Pilitin na iwasan ang rate limiting
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ang iyong listahan ng Suskripsyon ay kasalukuyang walang laman. Simulang magdagdag ng mga suskripsyon upang makita ang mga ito dito.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Maraming subscriptions itong profile.   Pilitin na iwasan ang rate limiting
 Trending:
   Trending: 'Nagte-trend'
 Most Popular: 'Pinakasikat'
@@ -90,19 +87,16 @@ Global:
   Posts: Mga Post
 Search Bar:
   Clear Input: Alisin ang Input
-External link opening has been disabled in the general settings: Ang pag bukas ng
-  link sa panlabas ay pinasara sa general settings
+External link opening has been disabled in the general settings: Ang pag bukas ng link sa panlabas ay pinasara sa general settings
 Age Restricted:
   This channel is age restricted: Itong channel ay pinaghihigpitan sa edad
   This video is age restricted: Ang video na ito ay pinaghihigpitan sa edad
 Close Banner: I-Sara ang banner
 Are you sure you want to open this link?: Sigurado mo na buksan itong link?
-Search character limit: Na sobrahan ng {searchCharacterLimit} na tilik ang Search
-  query
+Search character limit: Na sobrahan ng {searchCharacterLimit} na tilik ang Search query
 Go to page: Pumunta sa {page}
 Preferences: Preferences
-Version {versionNumber} is now available!  Click for more details: Version {versionNumber}
-  ay magamit na! . . Pindutin para sa detalye
+Version {versionNumber} is now available!  Click for more details: Version {versionNumber} ay magamit na! . . Pindutin para sa detalye
 KeyboardShortcutPrompt:
   Toggle Developer Tools: I-toggle ang mga Developer Tools
   Zoom In: Palakihin
