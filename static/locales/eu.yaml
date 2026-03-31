@@ -41,8 +41,7 @@ Global:
   Posts: Argitalpenak
   Sort By: Ordenatu honen arabera
 Version {versionNumber} is now available!  Click for more details: '{versionNumber} bertsioa erabilgarri! Klikatu azalpen gehiagorako'
-Download From Site: 'Jaitsi webgunetik'
-A new blog is now available, {blogTitle}. Click to view more: 'Blog berri bat erabilgarri dago, {blogTitle}. Klikatu gehiagorako'
+Download From Site: 'Jaitsi webgunetik Egin klik gehiago ikusteko'
 
 # Search Bar
 Search / Go to URL: 'Bilatu / Joan URLra'
@@ -51,6 +50,8 @@ Search Filters:
   Search Filters: 'Bilaketa iragazkiak'
   Prioritize:
     Most Relevant: 'Garrantzitsuenak'
+    Prioritize: Lehentasuna eman
+    Popularity: Ospea
   Time:
     Time: 'Denbora'
     Any Time: 'Edozein unekoa'
@@ -210,7 +211,6 @@ Settings:
   General Settings:
     General Settings: 'Orokorra'
     Check for Updates: 'Bilatu eguneraketak'
-    Check for Latest Blog Posts: 'Egiaztatu blogeko azken argitalpenak'
     Fallback to Non-Preferred Backend on Failure: 'Hutsegitean, joan hobetsi gabeko motorrera'
     Enable Search Suggestions: 'Gaitu bilaketa-iradokizunak'
     Default Landing Page: 'Lehenetsitako hasierako orria'
@@ -624,7 +624,6 @@ About:
   GitHub issues: 'Github-en gaiak'
   Please check for duplicates before posting: 'Mesedez, egiaztatu bikoiztutakoak ote dauden argitaratu aurretik'
   Website: 'Webgunea'
-  Blog: 'Bloga'
   Email: 'Posta elektronikoa'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Matrix-en txata'

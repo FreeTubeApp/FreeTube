@@ -42,7 +42,6 @@ Global:
     Comment Count: 1 comment | {count} comments
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} is now available!  Click for more details'
 Download From Site: 'Download from site'
-A new blog is now available, {blogTitle}. Click to view more: 'A new blog is now available, {blogTitle}. Click to view more'
 
 # Search Bar
 Search / Go to URL: 'Search / Go to URL'
@@ -211,7 +210,6 @@ Settings:
   General Settings:
     General Settings: 'General'
     Check for Updates: 'Check for updates'
-    Check for Latest Blog Posts: 'Check for latest blog posts'
     Fallback to Non-Preferred Backend on Failure: 'Revert to non-preferred backend on failure'
     Enable Search Suggestions: 'Enable search suggestions'
     Default Landing Page: 'Default landing page'
@@ -622,7 +620,6 @@ About:
   Email: E-mail
   FAQ: FAQ
   Credits: Credits
-  Blog: Blog
   Website: Website
 
   these people and projects: these people and projects

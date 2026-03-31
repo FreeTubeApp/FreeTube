@@ -225,7 +225,6 @@ Settings:
       Blur: Difuminar
     Region for Trending: 'Región de las tendencias'
         #! List countries
-    Check for Latest Blog Posts: Buscar últimas publicaciones del blog
     Check for Updates: Buscar actualizaciones
     View all Invidious instance information: Ver toda la información sobre la instancia de Invidious
     System Default: Predeterminado del sistema
@@ -618,7 +617,6 @@ About:
   Chat on Matrix: Chat en Matrix
   Mastodon: Mastodon (red social)
   Email: Correo electrónico
-  Blog: Blog
   Website: Sitio web
   Please check for duplicates before posting: Por favor, antes de publicar asegúrate de no duplicar temas
   GitHub issues: Sugerencias en GitHub
@@ -940,7 +938,6 @@ Canceled next video autoplay: 'La reproducción del vídeo siguiente se ha cance
 
 Yes: 'Sí'
 No: 'No'
-A new blog is now available, {blogTitle}. Click to view more: 'Nueva publicación del blog disponible, {blogTitle}. Haga clic para saber más'
 Download From Site: Descargar desde el sitio web
 Version {versionNumber} is now available!  Click for more details: ¡La versión {versionNumber} está disponible! Haz clic para saber más
 The playlist has been reversed: Orden de lista de reproducción invertido

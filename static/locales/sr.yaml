@@ -42,7 +42,6 @@ Global:
   Sort By: Сортирање по
 Version {versionNumber} is now available!  Click for more details: 'Верзија {versionNumber} је сада достуна!  Кликните за више детаља'
 Download From Site: 'Преузми са сајта'
-A new blog is now available, {blogTitle}. Click to view more: 'Нови блог је сада доступан, {blogTitle}. Кликните да бисте видели више'
 
 # Search Bar
 Search / Go to URL: 'Претрага / Иди на URL'
@@ -208,7 +207,6 @@ Settings:
   General Settings:
     General Settings: 'Опште'
     Check for Updates: 'Провера ажурирања'
-    Check for Latest Blog Posts: 'Провера најновијих објава на блогу'
     Fallback to Non-Preferred Backend on Failure: 'Повратак на непреферирани бек-енд у случају неуспеха'
     Enable Search Suggestions: 'Омогући предлоге за претрагу'
     Default Landing Page: 'Подразумевана почетна страница'
@@ -611,7 +609,6 @@ About:
   GitHub issues: 'Пријава проблема на GitHub-у'
   Please check for duplicates before posting: 'Проверите да ли има дупликата пре објављивања'
   Website: 'Веб-сајт'
-  Blog: 'Блог'
   Email: 'Имејл'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Ћаскање на Matrix-у'

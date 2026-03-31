@@ -42,7 +42,6 @@ Global:
     Comment Count: 1 kommentar | {count} kommentarer
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} är nu tillgänglig!  Klicka för mer detaljer'
 Download From Site: 'Ladda ner från webbplatsen'
-A new blog is now available, {blogTitle}. Click to view more: 'En ny blogg finns nu tillgänglig, {blogTitle}. Klicka för att se mer'
 
 # Search Bar
 Search / Go to URL: 'Sök / Gå till URL'
@@ -210,7 +209,6 @@ Settings:
   General Settings:
     General Settings: 'Allmänt'
     Check for Updates: 'Sök efter uppdateringar'
-    Check for Latest Blog Posts: 'Sök efter de senaste blogginläggen'
     Fallback to Non-Preferred Backend on Failure: 'Falla tillbaka till icke-föredragen Backend vid felet'
     Enable Search Suggestions: 'Aktivera sökförslag'
     Default Landing Page: 'Standardsida'
@@ -624,7 +622,6 @@ About:
   Chat on Matrix: Chatta på Matrix
   Mastodon: Mastodon
   Email: E-post
-  Blog: Blogg
   Website: Webbplats
   Please check for duplicates before posting: Kontrollera om det finns dubbletter innan du publicerar
   GitHub issues: GitHub-problem

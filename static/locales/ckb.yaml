@@ -28,7 +28,6 @@ Open New Window: 'کردنەوەی پەنجەرەیەکی نوێ'
 
 Version {versionNumber} is now available!  Click for more details: 'ئێستا وەشانی {versionNumber} بەردەستە..بۆ زانیاری زۆرتر کرتە بکە'
 Download From Site: 'لە وێبگەوە دایگرە'
-A new blog is now available, {blogTitle}. Click to view more: 'بلۆگێکی نوێ بەردەستە، {blogTitle}. کرتە بکە بۆ بینینی'
 Are you sure you want to open this link?: 'دڵنیایت دەتەوێت ئەم بەستەرە بکەیتەوە؟'
 
 # Global
@@ -207,7 +206,6 @@ Settings:
   General Settings:
     General Settings: 'گشتیی'
     Check for Updates: 'بۆ وەشانی نوێ بپشکنە'
-    Check for Latest Blog Posts: ''
     Fallback to Non-Preferred Backend on Failure: ''
     Enable Search Suggestions: 'کاراکردنی پێشنیارەکانی گەڕان'
     Default Landing Page: ''
@@ -532,7 +530,6 @@ About:
   GitHub issues: ''
   Please check for duplicates before posting: ''
   Website: 'وێبگە'
-  Blog: 'بلۆگ'
   Email: 'ئیمێڵ'
   Mastodon: 'ماستادۆن'
   Chat on Matrix: ''

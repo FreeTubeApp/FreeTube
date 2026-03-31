@@ -277,7 +277,10 @@ export default defineComponent({
     /** @type {import('vue').ComputedRef<number | 'auto'>} */
     const defaultQuality = computed(() => {
       const value = store.getters.getDefaultQuality
-      if (value === 'auto') { return value }
+
+      // TODO: Revert when auto is fixed (720 is the default setttings value)
+      if (value === 'auto') { return 720 }
+      // if (value === 'auto') { return value }
 
       return parseInt(value)
     })

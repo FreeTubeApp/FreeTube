@@ -30,7 +30,6 @@ Close Banner: 'Sluit baniere'
 
 Version {versionNumber} is now available!  Click for more details: 'Weergawe {versionNumber} is nou beskikbaar! Klik vir meer besonderhede'
 Download From Site: 'Laai af van die webwerf'
-A new blog is now available, {blogTitle}. Click to view more: '''n Nuwe blog is nou beskikbaar, {blogTitle}. Klik om meer te sien'
 Are you sure you want to open this link?: 'Is jy seker jy wil hierdie skakel oopmaak?'
 
 # Global
@@ -252,7 +251,6 @@ Settings:
   General Settings:
     General Settings: ''
     Check for Updates: ''
-    Check for Latest Blog Posts: ''
     Fallback to Non-Preferred Backend on Failure: 'Val terug op nie-voorkeur agterent by faling'
     Enable Search Suggestions: 'Aktiveer soekvoorstelle'
     Auto Load Next Page:
@@ -650,7 +648,6 @@ About:
   GitHub issues: 'GitHub-probleme'
   Please check for duplicates before posting: 'Gaan na vir duplikate voor u dit plaas'
   Website: 'Webwerf'
-  Blog: 'Woernaal'
   Email: 'E-pos'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Klets op Matrix'

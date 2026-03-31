@@ -187,7 +187,6 @@ Settings:
   General Settings:
     General Settings: 'عمومی'
     Check for Updates: 'بررسی برای به روزرسانی ها'
-    Check for Latest Blog Posts: 'بررسی آخرین مطالب وبلاگ'
     Fallback to Non-Preferred Backend on Failure: 'بازگشت به Backend غیر ترجیحی در صورت شکست'
     Enable Search Suggestions: 'فعال کردن پیشنهادات جستجو'
     Default Landing Page: 'صفحه اول پیشفرض'
@@ -802,7 +801,6 @@ About:
   FAQ: پرسش و پاسخ
   room rules: قوانین اتاق
   Translate: ترجمه
-  Blog: وبلاگ
   Chat on Matrix: چت در ماتریکس
   these people and projects: این افراد و پروژه ها
   Report a problem: گزارش یک مشکل
@@ -814,7 +812,6 @@ About:
 New Window: پنجره جدید
 Preferences: تنظیمات
 Version {versionNumber} is now available!  Click for more details: نسخه {versionNumber} در دسترس است!  برای مشاهده جزئیات کلیک کنید
-A new blog is now available, {blogTitle}. Click to view more: یک مطلب جدید در دسترس است, {blogTitle}. برای مشاهده بیشتر کلیک کنید
 Channels:
   Channels: کانال ها
   Unsubscribe Prompt: آیا مطمئنید که می‌خواهید اشتراک «{channelName}» را لغو کنید؟

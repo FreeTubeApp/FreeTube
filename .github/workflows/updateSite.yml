@@ -1,9 +1,5 @@
-# This is a basic workflow that is manually triggered
-
 name: Update Site Version Number
 
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
   workflow_dispatch:
   release:
@@ -11,9 +7,9 @@ on:
 
 permissions: {}
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
+    name: 'Update Site Version Number'
     runs-on: ubuntu-latest
 
     permissions:
@@ -26,55 +22,44 @@ jobs:
         token: ${{ secrets.FLATHUB_TOKEN }}
         persist-credentials: true
 
-    - name: Get Repo Release List
-      uses: moustacheful/github-api-exec-action@2135aaccb1220f81e6fa4f14c90cc20efba069fe #v0
-      id: list_results
-      with:
-        # Command to execute, (e.g: `pulls.create`), see https://octokit.github.io/rest.js/ for available commands
-        command: repos.listReleases
-        payload: >
-            {
-              "owner": "FreeTubeApp",
-              "repo": "FreeTube"
-            }
+    - name: Get releases
+      id: releases
+      shell: bash
       env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Create Current Version Variable
-      uses: bluwy/substitute-string-action@70ff0b17357670ffd3fee68e95b6de9963b66bad #v3.0.0
-      id: current
-      with:
-        _input-text: ${{ fromJson(steps.list_results.outputs.result)[0].tag_name }}
-        -beta: ''
-        v: ''
-    - name: Create Previous Version Variable
-      uses: bluwy/substitute-string-action@70ff0b17357670ffd3fee68e95b6de9963b66bad #v3.0.0
-      id: previous
-      with:
-        _input-text: ${{ fromJson(steps.list_results.outputs.result)[1].tag_name }}
-        -beta: ''
-        v: ''
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Fetch 4 releases as filtering out drafts happens on the client side and we are unlikely to have more than 2 drafts open at the same time
+      run: |
+        tags="$(gh release list --repo "$GITHUB_REPOSITORY" --exclude-drafts --json tagName --limit 4)"
+
+        {
+          echo 'versions<<EOF'
+          echo "$tags" | jq --compact-output 'map(.tagName | ltrimstr("v") | rtrimstr("-beta"))'
+          echo EOF
+        } >> "$GITHUB_OUTPUT"
+
     - name: Set Master Branch
     # Currently the default branch is master, but if that changes later, then this acts as a failsafe.
       shell: bash
       run: |
         git checkout master
+
     - name: Update index.php
       shell: bash
       env:
-        CURRENT: ${{ steps.current.outputs.result }}
-        PREVIOUS: ${{ steps.previous.outputs.result }}
+        CURRENT: ${{ fromJson(steps.releases.outputs.versions)[0] }}
+        PREVIOUS: ${{ fromJson(steps.releases.outputs.versions)[1] }}
       run: |
         sed -i "s/${PREVIOUS}/${CURRENT}/g" src/index.php
-    - name: Commit Files
-      uses: stefanzweifel/git-auto-commit-action@04702edda442b2e678b25b537cec683a1493fcb9 #v7.1.0
-      with:
-        # Optional but recommended
-        # Defaults to "Apply automatic changes"
-        commit_message: Update version number to v${{ steps.current.outputs.result }}
 
-        # Optional options appended to `git-commit`
-        # See https://git-scm.com/docs/git-commit for a list of available options
-        commit_options: '--no-verify --signoff'
-
-        # Optional: Disable dirty check and always try to create a commit and push
-        skip_dirty_check: true
+    - name: Commit and push
+      shell: bash
+      env:
+        CURRENT: ${{ fromJson(steps.releases.outputs.versions)[0] }}
+      run: |
+        git fetch --depth=1
+        git add src/index.php
+        git -c user.name='github-actions[bot]' \
+            -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m "Update version number to v$CURRENT" \
+            --no-verify --signoff
+        git push --set-upstream origin master

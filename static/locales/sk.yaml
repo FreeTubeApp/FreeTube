@@ -224,7 +224,6 @@ Settings:
       Blur: Rozmazané
     Region for Trending: 'Región pre trendy'
         #! List countries
-    Check for Latest Blog Posts: Kontrolovať najnovšie príspevky na blogu
     Check for Updates: Kontrolovať aktualizácie
     View all Invidious instance information: Zobraziť všetky informácie o inštancii Invidious
     System Default: Podľa systému
@@ -625,7 +624,6 @@ About:
   Chat on Matrix: Napíšte nám na Matrix-e
   Mastodon: Komunikačná platforma Mastodon
   Email: Elektronická pošta
-  Blog: Blog
   Website: Webstránka
   Please check for duplicates before posting: Pred odoslaním prosím skontrolujte duplicitné otázky
   Discussions: Diskusie
@@ -972,7 +970,6 @@ Profile:
   Create Profile Name: Vytvoriť názov profilu
   Edit Profile Name: Upraviť názov profilu
   Toggle Profile List: Prepnúť zoznam profilov
-A new blog is now available, {blogTitle}. Click to view more: 'Dostupný nový článok na blogu: {blogTitle}. Kliknite pre viac info'
 Download From Site: Stiahnuť z webu
 Version {versionNumber} is now available!  Click for more details: Verzia {versionNumber} je k dispozícii! Kliknite pre viac podrobností
 Locale Name: Slovenčina

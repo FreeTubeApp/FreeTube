@@ -31,7 +31,6 @@ Close Banner: 'Mbyll bannerin'
 
 Version {versionNumber} is now available!  Click for more details: 'Versioni {versionNumber} është i disponueshëm! Kliko për më shumë detaje'
 Download From Site: 'Shkarko nga faqja'
-A new blog is now available, {blogTitle}. Click to view more: 'Një blog i ri është i disponueshëm, {blogTitle}. Kliko për të shikuar më shumë'
 Are you sure you want to open this link?: 'A je i sigurt që dëshiron ta hapësh këtë link?'
 
 # Global
@@ -261,7 +260,6 @@ Settings:
   General Settings:
     General Settings: ''
     Check for Updates: ''
-    Check for Latest Blog Posts: ''
     Fallback to Non-Preferred Backend on Failure: ''
     Enable Search Suggestions: ''
     Open Deep Links In New Window: ''
@@ -659,7 +657,6 @@ About:
   GitHub issues: ''
   Please check for duplicates before posting: ''
   Website: ''
-  Blog: ''
   Email: ''
   Mastodon: ''
   Chat on Matrix: ''

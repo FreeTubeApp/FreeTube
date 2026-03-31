@@ -45,6 +45,16 @@ export class ScreenshotButton extends shaka.ui.Element {
       this.updateLocalisedStrings_()
     })
 
+    if (this.isSubMenu) {
+      this.eventManager.listen(this.controls, 'submenuopen', () => {
+        this.updateVisibility_()
+      })
+
+      this.eventManager.listen(this.controls, 'submenuclose', () => {
+        this.updateVisibility_()
+      })
+    }
+
     this.updateLocalisedStrings_()
   }
 
@@ -55,5 +65,14 @@ export class ScreenshotButton extends shaka.ui.Element {
       KeyboardShortcuts.VIDEO_PLAYER.GENERAL.TAKE_SCREENSHOT
     )
     this.nameSpan_.textContent = this.button_.ariaLabel = label
+  }
+
+  /** @private */
+  updateVisibility_() {
+    if (this.isSubMenuOpened) {
+      this.button_.classList.add('shaka-hidden')
+    } else {
+      this.button_.classList.remove('shaka-hidden')
+    }
   }
 }

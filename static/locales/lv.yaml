@@ -28,7 +28,6 @@ Open New Window: 'Atvērt jaunu logu'
 
 Version {versionNumber} is now available!  Click for more details: 'Versija {versionNumber} tagad ir pieejama!  Spied, lai skatītu detaļas'
 Download From Site: 'Lejuplādēt no vietnes'
-A new blog is now available, {blogTitle}. Click to view more: 'Jauns emuāra ieraksts ir pieejams, {blogTitle}. Spied, lai skatītu vairāk'
 Are you sure you want to open this link?: 'Vai esi pārliecināts, ka vēlies atvērt šo saiti?'
 
 # Global
@@ -210,7 +209,6 @@ Settings:
   General Settings:
     General Settings: 'Vispārīgie'
     Check for Updates: 'Pārbaudīt atjauninājumus'
-    Check for Latest Blog Posts: 'Skatīt jaunākos bloga ierakstus'
     Fallback to Non-Preferred Backend on Failure: ''
     Enable Search Suggestions: 'Iespējo meklēšanas ieteikumus'
     Default Landing Page: 'Noklusējuma sākumlapa'
@@ -524,7 +522,6 @@ About:
   GitHub issues: 'GitHub problēmas'
   Please check for duplicates before posting: 'Lūdzu pārbaudi dublikātus pirms publicēšanas'
   Website: 'Vietne'
-  Blog: 'Emuārs'
   Email: 'E-pasts'
   Mastodon: "Mastodon\uFEFF"
   Chat on Matrix: 'Tērzēt Matrixā'

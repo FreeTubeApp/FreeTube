@@ -18,8 +18,7 @@ Zoom out: 'කුඩාලනය'
 Minimize: 'හකුලන්න'
 Close: 'වසන්න'
 Back: 'ආපසු'
-Version {versionNumber} is now available!  Click for more details: '{versionNumber}
-  අනුවාදය දැන් ලබා ගත හැකිය!  වැඩි විස්තර සඳහා ඔබන්න'
+Version {versionNumber} is now available!  Click for more details: '{versionNumber} අනුවාදය දැන් ලබා ගත හැකිය!  වැඩි විස්තර සඳහා ඔබන්න'
 Download From Site: 'අඩවියෙන් බාගන්න'
 Search / Go to URL: 'සොයන්න / ඒ.ස.නි.(URL) වෙත යන්න'
   # In Filter Button

@@ -25,7 +25,6 @@ Forward: 'आगे जाएँ'
 
 Version {versionNumber} is now available!  Click for more details: 'संस्करण {versionNumber} अब उपलब्ध है! अधिक विवरण के लिए क्लिक करें'
 Download From Site: 'साइट से डाउनलोड करें'
-A new blog is now available, {blogTitle}. Click to view more: 'एक नया ब्लॉग अब उपलब्ध है, {blogTitle}। अधिक देखने के लिए क्लिक करें'
 
 Global:
   Sort By: 'इसके अनुसार क्रमबद्ध करें'
@@ -108,7 +107,6 @@ Settings:
   General Settings:
     General Settings: 'जनरल सेटिंग्स'
     Check for Updates: 'अपडेट के लिए जाँच शुरु करें'
-    Check for Latest Blog Posts: 'नवीनतम ब्लॉग पोस्ट के लिए जाँच करें'
     Fallback to Non-Preferred Backend on Failure: 'विफलता पर गैर-पसंदीदा बैकएंड पर फ़ॉलबैक'
     Enable Search Suggestions: 'खोज सुझाव सक्षम करें'
     Default Landing Page: 'डिफ़ॉल्ट लैंडिंग पृष्ठ'

@@ -41,7 +41,6 @@ Global:
     Like Count: 1 apreciere | {count} aprecieri
 Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber} este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
-A new blog is now available, {blogTitle}. Click to view more: 'Un nou blog este acum disponibil, {blogTitle}. Faceți clic pentru a vedea mai multe'
 
 # Search Bar
 Search / Go to URL: 'Căutare / Accesați URL-ul'
@@ -206,7 +205,6 @@ Settings:
   General Settings:
     General Settings: 'Setări generale'
     Check for Updates: 'Căutați actualizări'
-    Check for Latest Blog Posts: 'Verificați pentru cele mai recente postări pe blog'
     Fallback to Non-Preferred Backend on Failure: 'Revenire la backend-ul nepreferat în caz de eroare'
     Enable Search Suggestions: 'Activați sugestiile de căutare'
     Default Landing Page: 'Pagina de pornire implicită'
@@ -608,7 +606,6 @@ About:
   Translate: Traduceți
   room rules: regulile camerei
   Chat on Matrix: Chat pe Matrix
-  Blog: Blog
   Website: Site web
   Please check for duplicates before posting: Vă rugăm să verificați dacă există dubluri înainte de a posta
   GitHub issues: Issues pe GitHub

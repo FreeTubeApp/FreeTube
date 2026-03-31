@@ -29,11 +29,8 @@ Open New Window: 'नई बिंडो खोला'
 Go to page: '{page} पै जा'
 Close Banner: 'बैनर बंद करा'
 
-Version {versionNumber} is now available!  Click for more details: 'वर्जन {versionNumber}
-  अब मौजूद अहइ! अउर जानकारी के बरे क्लिक करा'
+Version {versionNumber} is now available!  Click for more details: 'वर्जन {versionNumber} अब मौजूद अहइ! अउर जानकारी के बरे क्लिक करा'
 Download From Site: 'साइट से डाउनलोड करा'
-A new blog is now available, {blogTitle}. Click to view more: 'एक नया ब्लॉग अब मौजूद
-  बाटै, {blogTitle}। अउर देखै की ताईं क्लिक करा'
 Are you sure you want to open this link?: 'का तू पक्का ई लिंक खोलै चाहत हौ?'
 
 # Global
@@ -57,8 +54,7 @@ Search / Go to URL: 'हेरा / यूआरएल पै जा'
 Search Bar:
   Clear Input: 'इनपुट साफ़ करा'
   Remove: 'हटावा'
-Search character limit: 'सर्च क्वेरी {searchCharacterLimit} करेक्टर सीमा से उप्पर
-  है'
+Search character limit: 'सर्च क्वेरी {searchCharacterLimit} करेक्टर सीमा से उप्पर है'
 Search Listing:
   Label:
     4K: '4के'
@@ -108,23 +104,16 @@ Search Filters:
   Search Results: 'खोजा गवा परिनाम'
   Fetching results. Please wait: 'परिनाम लावत अहै। इन्तजार करा'
   Fetch more results: 'अउर परिनाम लावा'
-  There are no more results for this search: 'यहि खोज के बरे अउर कवनो परिनाम नाही
-    है'
+  There are no more results for this search: 'यहि खोज के बरे अउर कवनो परिनाम नाही है'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'सब्सक्रिप्सन'
   # channels that were likely deleted
   Error Channels: 'गलती वाले चैनल'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'यहि
-    प्रोफ़ाइल के पास ढेर सब्सक्रिप्शनस है।  RSS का जोर से परयोग कइके रेट लिमिटिंग
-    से बचावा'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'तोहाय
-    सदस्सता सूची येह समय खाली अहै। अगर तू आपन सदस्यता इम्पोर्ट करै चाहत हैं तौ तू
-    डेटा सेटिंग्स मा जाइ सकत हौ अउर सदस्सता इम्पोर्ट करै का चुनि सकत हौ या तू एक चैनल
-    हेर सकत हौ अउर उनकै सदस्सता लइ सकत हौ।'
-  Disabled Automatic Fetching: 'तू अपने आप सदस्सता लावै का स्वचालित सदस्यता लावै का
-    बंद केहे अहा। उनका हिंया देखै की ताईं सदस्सता का रिफ्रेस करा।'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'यहि प्रोफ़ाइल के पास ढेर सब्सक्रिप्शनस है।  RSS का जोर से परयोग कइके रेट लिमिटिंग से बचावा'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'तोहाय सदस्सता सूची येह समय खाली अहै। अगर तू आपन सदस्यता इम्पोर्ट करै चाहत हैं तौ तू डेटा सेटिंग्स मा जाइ सकत हौ अउर सदस्सता इम्पोर्ट करै का चुनि सकत हौ या तू एक चैनल हेर सकत हौ अउर उनकै सदस्सता लइ सकत हौ।'
+  Disabled Automatic Fetching: 'तू अपने आप सदस्सता लावै का स्वचालित सदस्यता लावै का बंद केहे अहा। उनका हिंया देखै की ताईं सदस्सता का रिफ्रेस करा।'
   Empty Channels: 'तुम्हार सब्सक्राइब कीन गवा चैनल पै येह समय कवनो वीडियो नाही है।'
   Empty Posts: 'तोहरे सब्सक्राइब किहे चैनलन मा फिलहाल कौनो पोस्ट नाय अहै।'
   Load More Videos: 'अउर वीडियो अपलोड करैं'
@@ -264,7 +253,6 @@ Settings:
   General Settings:
     General Settings: ''
     Check for Updates: ''
-    Check for Latest Blog Posts: ''
     Fallback to Non-Preferred Backend on Failure: ''
     Enable Search Suggestions: ''
     Open Deep Links In New Window: ''
@@ -632,7 +620,6 @@ About:
   GitHub issues: ''
   Please check for duplicates before posting: ''
   Website: ''
-  Blog: ''
   Email: ''
   Mastodon: ''
   Chat on Matrix: ''
@@ -678,8 +665,7 @@ Profile:
   Delete Selected: ''
   Add Selected To Profile: ''
   No channel(s) have been selected: ''
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
   : ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
   Close Profile Dropdown: ''

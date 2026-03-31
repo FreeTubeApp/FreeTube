@@ -209,7 +209,6 @@ Settings:
     Region for Trending: 'Tendencia por región'
         #! List countries
     Check for Updates: Buscar actualizaciones
-    Check for Latest Blog Posts: Compruebe las últimas publicaciones del blog
     Current instance will be randomized on startup: La dirección actual será aleatorizada al iniciar la app
     System Default: Por defecto
     Current Invidious Instance: 'Dirección de Invidious actual:'
@@ -433,7 +432,6 @@ About:
   About: 'Acerca de'
   #& About
 #On Channel Page
-  Blog: Blog
   Website: Sitio web
   Email: Correo electrónico
   Mastodon: Mastodon
@@ -644,7 +642,6 @@ Profile:
   Profile Filter: Filtro de Perfil
   Profile Settings: Configuración de perfil
 The playlist has been reversed: La lista de reproducción ha sido invertida
-A new blog is now available, {blogTitle}. Click to view more: Un nuevo blog ya está disponible, {blogTitle}. Presione para ver más
 Download From Site: Descargar desde el sitio
 Version {versionNumber} is now available!  Click for more details: Versión {versionNumber} ya está disponible! Presione para más detalles
 Open New Window: Abrir nueva ventana
