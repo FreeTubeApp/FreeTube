@@ -41,7 +41,7 @@ Global:
     Like Count: 1 embernek tetszik | {count} embernek tetszik
     Comment Count: 1 hozzászólás | {count} hozzászólás
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber} verzió már elérhető! Kattintson a további részletekért'
-Download From Site: 'Letöltés a webhelyről'
+Download From Site: 'Letöltés a webhelyről, kattintson ide a további részletek megtekintéséhez'
 
 # Search Bar
 Search / Go to URL: 'Keresés / Ugrás webcímre'
