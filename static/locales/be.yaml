@@ -28,7 +28,6 @@ Open New Window: 'Адкрыць новае акно'
 
 Version {versionNumber} is now available!  Click for more details: 'Даступна версія {versionNumber}!  Націсніце, каб даведацца больш'
 Download From Site: 'Спампаваць з сайта'
-A new blog is now available, {blogTitle}. Click to view more: 'Даступны новы блог, {blogTitle}. Націсніце, каб паглядзець больш'
 Are you sure you want to open this link?: 'Сапраўды хочаце адкрыць гэтую спасылку?'
 
 # Global
@@ -223,7 +222,6 @@ Settings:
   General Settings:
     General Settings: 'Агульныя'
     Check for Updates: 'Правяраць наяўнасць абнаўленняў'
-    Check for Latest Blog Posts: 'Правяраць апошнія паведамленні ў блогу'
     Fallback to Non-Preferred Backend on Failure: 'Вяртанне да непераважнага бэкэнда ў выпадку няўдачы'
     Enable Search Suggestions: 'Уключыць прапановы пошуку'
     Default Landing Page: 'Хатняя старонка'
@@ -625,7 +623,6 @@ About:
   GitHub issues: 'Праблемы на GitHub'
   Please check for duplicates before posting: 'Перад публікацыяй праверце наяўнасць дублікатаў'
   Website: 'Вэб-сайт'
-  Blog: 'Блог'
   Email: 'Электронная пошта'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Чат у Matrix'

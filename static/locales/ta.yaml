@@ -30,7 +30,6 @@ Close Banner: 'மூடு பேனர்'
 
 Version {versionNumber} is now available!  Click for more details: 'பதிப்பு {versionNumber} இப்போது கிடைக்கிறது! மேலும் விவரங்களுக்கு சொடுக்கு செய்க'
 Download From Site: 'தளத்திலிருந்து பதிவிறக்கவும்'
-A new blog is now available, {blogTitle}. Click to view more: 'ஒரு புதிய வலைப்பதிவு இப்போது கிடைக்கிறது, {blogTitle}. மேலும் காண சொடுக்கு செய்க'
 Are you sure you want to open this link?: 'இந்த இணைப்பை நீங்கள் திறக்க விரும்புகிறீர்களா?'
 
 # Global
@@ -263,7 +262,6 @@ Settings:
   General Settings:
     General Settings: 'பொது'
     Check for Updates: 'புதுப்பிப்புகளை சரிபார்க்கவும்'
-    Check for Latest Blog Posts: 'அண்மைக் கால வலைப்பதிவு இடுகைகளை சரிபார்க்கவும்'
     Fallback to Non-Preferred Backend on Failure: 'தோல்வியில் முதலீடு செய்யப்படாத பின்தளத்தில் குறைவடையும்'
     Enable Search Suggestions: 'தேடல் பரிந்துரைகளை இயக்கவும்'
     Auto Load Next Page:
@@ -684,7 +682,6 @@ About:
   GitHub issues: 'அறிவிலிமையம் சிக்கல்கள்'
   Please check for duplicates before posting: 'இடுகையிடுவதற்கு முன் நகல்களை சரிபார்க்கவும்'
   Website: 'வலைத்தளம்'
-  Blog: 'வலைப்பதிவு'
   Email: 'மின்னஞ்சல்'
   Mastodon: 'மாச்டோடன்'
   Chat on Matrix: 'மேட்ரிக்சில் அரட்டை'
@@ -943,7 +940,6 @@ Video:
   Watched Progress Saved: முன்னேற்றம் காப்பாற்றப்பட்டது
   Popout Live Chat: பாப்அவுட் அரட்டை
   Watch:
-    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'மீதமுள்ள முன் விளம்பர நேரம்: {நினைவூட்டும் நேர விநாடிகள்'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'மீதமுள்ள SABR பேக்ஆஃப் நேரம்: {remindingTimeSeconds}கள்'
 Playlist:
   #& About

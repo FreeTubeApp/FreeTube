@@ -42,7 +42,6 @@ Global:
     Comment Count: 1 коментар | {count} коментарів
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
 Download From Site: 'Завантажити з сайту'
-A new blog is now available, {blogTitle}. Click to view more: 'Доступний новий блог, {blogTitle}. Натисніть, щоб переглянути більше'
 
 # Search Bar
 Search / Go to URL: 'Пошук / Перейти по URL'
@@ -206,7 +205,6 @@ Settings:
   General Settings:
     General Settings: 'Загальні'
     Check for Updates: 'Перевірити наявність оновлень'
-    Check for Latest Blog Posts: 'Перевірити останні повідомлення в блозі'
     Fallback to Non-Preferred Backend on Failure: 'Коли у вашого головного API виникає проблема, FreeTube спробує автоматично використати допоміжний API у якості резервного, якщо він увімкнений'
     Enable Search Suggestions: 'Увімкнути рекомендації пошуку'
     Default Landing Page: 'Типова головна сторінка'
@@ -606,7 +604,6 @@ About:
   Chat on Matrix: Чат у Matrix
   Mastodon: Mastodon
   Email: Електронна пошта
-  Blog: Блог
   Website: Вебсайт
   Please check for duplicates before posting: Будь ласка, перевірте наявність повторів перед публікацією
   GitHub issues: Проблеми на GitHub

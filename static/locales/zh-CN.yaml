@@ -225,7 +225,6 @@ Settings:
     Region for Trending: '热门区域'
         #! List countries
     Check for Updates: 检查更新
-    Check for Latest Blog Posts: 检查最新的博客贴
     View all Invidious instance information: 浏览所有Invidious实例
     System Default: 系统默认
     The currently set default instance is {instance}: 当前设置的默认实例是 {instance}
@@ -616,7 +615,6 @@ About:
   Source code: 源代码
   Beta: 测试版
   Website: 网站
-  Blog: 博客
   Email: 电子邮件
   Donate: 捐款
   Credits: 贡献者
@@ -944,7 +942,6 @@ Profile:
   Edit Profile Name: 编辑配置文件名
   Create Profile Name: 创建配置文件名
 The playlist has been reversed: 播放列表已反转
-A new blog is now available, {blogTitle}. Click to view more: 已有新的博客，{blogTitle}。点击以查看更多
 Download From Site: 从网站下载
 Version {versionNumber} is now available!  Click for more details: 版本{versionNumber}已可使用！  点击以取得更多信息
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 没有这个视频因为缺少格式。这个可能发生由于国家不可用。

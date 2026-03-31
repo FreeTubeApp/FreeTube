@@ -25,7 +25,6 @@ Forward: 'Unapred'
 
 Version {versionNumber} is now available!  Click for more details: 'Verzija {versionNumber} je sada dostupna! Kliknite za više detalja'
 Download From Site: 'Instaliraj preko stranice'
-A new blog is now available, {blogTitle}. Click to view more: 'Sada je dostupan novi blog, {blogTitle}. Kliknite da vidite više'
 
 Global:
   Sort By: 'Poredaj po'
@@ -87,7 +86,6 @@ Settings:
   General Settings:
     General Settings: 'Generalne postavke'
     Check for Updates: 'Provjeri ima li update'
-    Check for Latest Blog Posts: 'Potraži najnovije objave na blogu'
     Fallback to Non-Preferred Backend on Failure: 'Vraćanje na neželjeni backend u slučaju neuspjeha'
     Enable Search Suggestions: 'Omogući prijedloge pretraživanja'
     Default Landing Page: 'Zadana odredišna stranica'

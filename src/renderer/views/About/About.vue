@@ -92,11 +92,6 @@ const chunks = computed(() => [
     content: '<a href="https://freetubeapp.io/">https://freetubeapp.io/</a>',
   },
   {
-    icon: ['fas', 'newspaper'],
-    title: t('About.Blog'),
-    content: '<a href="https://blog.freetubeapp.io">https://blog.freetubeapp.io</a>',
-  },
-  {
     icon: ['fas', 'envelope'],
     title: t('About.Email'),
     content: '<a href="mailto:FreeTubeApp@protonmail.com">FreeTubeApp@protonmail.com</a>',

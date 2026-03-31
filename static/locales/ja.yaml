@@ -224,7 +224,6 @@ Settings:
       Blur: ぼかし
     Region for Trending: '急上昇の地域設定'
         #! List countries
-    Check for Latest Blog Posts: 新着ブログの確認
     Check for Updates: 更新の確認
     View all Invidious instance information: すべての Invidious インスタンス情報の表示
     System Default: システム初期設定
@@ -617,7 +616,6 @@ About:
   Chat on Matrix: Matrix でチャット
   Mastodon: マストドン
   Email: メールアドレス
-  Blog: ブログ
   Website: ウェブサイト
   Please check for duplicates before posting: 投稿する前に重複を確認してください
   GitHub issues: GitHub の課題
@@ -940,7 +938,6 @@ Profile:
   Close Profile Dropdown: プロフィールドロップダウンを閉じる
   Open Profile Dropdown: プロフィールドロップダウンを開く
 The playlist has been reversed: 再生リストを逆順にしました
-A new blog is now available, {blogTitle}. Click to view more: '新着ブログ公開、{blogTitle}。クリックしてブログを読む'
 Download From Site: サイトからダウンロード
 Version {versionNumber} is now available!  Click for more details: 最新バージョン {versionNumber} が利用可能！　詳細はこちらをクリック
 This video is unavailable because of missing formats. This can happen due to country unavailability.: この動画は、動画形式の情報が利用できないため再生できません。再生が許可されていない国で発生します。

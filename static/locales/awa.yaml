@@ -32,8 +32,6 @@ Close Banner: 'बैनर बंद करा'
 Version {versionNumber} is now available!  Click for more details: 'वर्जन {versionNumber}
   अब मौजूद अहइ! अउर जानकारी के बरे क्लिक करा'
 Download From Site: 'साइट से डाउनलोड करा'
-A new blog is now available, {blogTitle}. Click to view more: 'एक नया ब्लॉग अब मौजूद
-  बाटै, {blogTitle}। अउर देखै की ताईं क्लिक करा'
 Are you sure you want to open this link?: 'का तू पक्का ई लिंक खोलै चाहत हौ?'
 
 # Global
@@ -264,7 +262,6 @@ Settings:
   General Settings:
     General Settings: ''
     Check for Updates: ''
-    Check for Latest Blog Posts: ''
     Fallback to Non-Preferred Backend on Failure: ''
     Enable Search Suggestions: ''
     Open Deep Links In New Window: ''
@@ -632,7 +629,6 @@ About:
   GitHub issues: ''
   Please check for duplicates before posting: ''
   Website: ''
-  Blog: ''
   Email: ''
   Mastodon: ''
   Chat on Matrix: ''

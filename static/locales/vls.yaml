@@ -31,8 +31,6 @@ Close Banner: 'Banner toedeoene'
 Version {versionNumber} is now available!  Click for more details: 'Versie {versionNumber}
   is beschikboar!..Klikt ier vo mjir details'
 Download From Site: 'Download van de site'
-A new blog is now available, {blogTitle}. Click to view more: 'Der is ne nieuwn blog
-  ût, {blogTitle}. Klikt ier vo mjir te ziene'
 Are you sure you want to open this link?: 'Ziej zeker daj die link wilt opendoene?'
 
 # Global
@@ -251,7 +249,6 @@ Settings:
   General Settings:
     General Settings: ''
     Check for Updates: ''
-    Check for Latest Blog Posts: ''
     Fallback to Non-Preferred Backend on Failure: ''
     Enable Search Suggestions: ''
     Auto Load Next Page:
@@ -579,7 +576,6 @@ About:
   GitHub issues: ''
   Please check for duplicates before posting: ''
   Website: ''
-  Blog: ''
   Email: ''
   Mastodon: ''
   Chat on Matrix: ''

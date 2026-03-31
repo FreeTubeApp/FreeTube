@@ -26,8 +26,6 @@ Forward: 'Promoveo'
 Version {versionNumber} is now available!  Click for more details: 'Editio {versionNumber}
   nunc praesto! Tactus pro magis singula res'
 Download From Site: 'Adepto ex situ'
-A new blog is now available, {blogTitle}. Click to view more: 'Novum scripturam creata
-  est, {blogTitle}. Tangere hic pro magis notitia'
 
 Global:
   Sort By: 'Disponere Per'
@@ -88,7 +86,6 @@ Settings:
   General Settings:
     General Settings: 'Generalis Occasus'
     Check for Updates: 'Reprehendo pro Updates'
-    Check for Latest Blog Posts: 'Reprehendo pro recentissimus diurnus ingressum'
     Fallback to Non-Preferred Backend on Failure: 'Revertere ad secundarium ratio
       cum defectum'
     Enable Search Suggestions: 'Permitte Quaerere Conmendatio'

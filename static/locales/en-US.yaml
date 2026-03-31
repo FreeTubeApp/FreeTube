@@ -34,7 +34,6 @@ Close Banner: Close Banner
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
   for more details
 Download From Site: Download From Site
-A new blog is now available, {blogTitle}. Click to view more: A new blog is now available, {blogTitle}.
   Click to view more
 Are you sure you want to open this link?: Are you sure you want to open this link?
 
@@ -273,7 +272,6 @@ Settings:
   General Settings:
     General Settings: General
     Check for Updates: Check for Updates
-    Check for Latest Blog Posts: Check for Latest Blog Posts
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
@@ -700,7 +698,6 @@ About:
   GitHub issues: GitHub issues
   Please check for duplicates before posting: Please check for duplicates before posting
   Website: Website
-  Blog: Blog
   Email: Email
   Mastodon: Mastodon
   Chat on Matrix: Chat on Matrix

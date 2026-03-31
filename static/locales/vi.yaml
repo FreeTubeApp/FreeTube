@@ -224,7 +224,6 @@ Settings:
       Hidden: Ẩn
     Region for Trending: 'Phổ biến theo quốc gia'
         #! List countries
-    Check for Latest Blog Posts: Kiểm tra bài đăng mới nhất
     Check for Updates: Kiểm tra cập nhật
     Current Invidious Instance: Phiên bản Invidious hiện tại
     The currently set default instance is {instance}: Phiên bản Invidious mặc định hiện được đặt thành {instance}
@@ -617,7 +616,6 @@ About:
   Help: Trợ giúp
   Translate: Phiên dịch
   Website: Trang web
-  Blog: Blog
   Credits: Ghi công
   Donate: Quyên tặng
   GitHub issues: Sự cố GitHub
@@ -938,7 +936,6 @@ Profile:
   Open Profile Dropdown: Mở danh sách hồ sơ
   Create Profile Name: Tạo tên hồ sơ
   Close Profile Dropdown: Đóng danh sách hồ sơ
-A new blog is now available, {blogTitle}. Click to view more: Một blog mới đã có, {blogTitle}. Nhấn để xem chi tiết
 Download From Site: Tải từ website
 Version {versionNumber} is now available!  Click for more details: Phiên bản {versionNumber} đã có! Click để xem chi tiết
 Open New Window: Mở cửa sổ mới

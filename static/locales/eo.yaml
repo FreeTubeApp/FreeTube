@@ -216,7 +216,6 @@ Settings:
       Hidden: Kaŝita
       Blur: Nebula
     System Default: Operaciuma defaŭlto
-    Check for Latest Blog Posts: Kontroli novajn blogoskribaĵojn
     Fallback to Non-Preferred Backend on Failure: Retropaŝi al malpreferita interna API post malsukceso
     Open Deep Links In New Window: Malfermi URL-ojn donitajn al FreeTube en nova fenestro
     Minimize to system tray: Minimumigi al la taskopleto
@@ -297,7 +296,6 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: Necesas restartigi la aplikaĵon por ke ŝanĝoj estu aplikitaj. Ĉu restarti kaj apliki ŝanĝojn?
 About:
   #On About page
-  Blog: Blogo
   Website: Retejo
   Email: Retpoŝto
 Channel:
@@ -327,7 +325,6 @@ Compact side navigation: Kompakta flankonavigo
 Expand side navigation: Pligrandigi flankonavigon
 Right-click or hold to see history: Dekstra aŭ longa alklako por vidi historion
 Close Banner: Fermi rubandon
-A new blog is now available, {blogTitle}. Click to view more: Nova blogoskribaĵo disponeblas, {blogTitle}. Alklaku por plu vidi
 Search character limit: La informpeto superas la limon de {searchCharacterLimit} signoj
 Search Listing:
   Label:

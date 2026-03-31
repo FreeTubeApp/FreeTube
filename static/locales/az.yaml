@@ -27,7 +27,6 @@ Open New Window: 'Yeni Pəncərə Aç'
 
 Version {versionNumber} is now available!  Click for more details: '{versionNumber} versiyası indi mövcuddur!  Daha çox məlumat üçün kliklə'
 Download From Site: 'Saytdan Yüklə'
-A new blog is now available, {blogTitle}. Click to view more: 'İndi yeni elan mövcuddur, {blogTitle}. Daha çoxun görmək üçün kliklə'
 Are you sure you want to open this link?: 'Bu linki açmaq istədiyinizə əminsiniz?'
 
 # Search Bar
@@ -191,7 +190,6 @@ Settings:
   General Settings:
     General Settings: 'Ümumi'
     Check for Updates: 'Yeniləmələri Yoxlayın'
-    Check for Latest Blog Posts: 'Ən Son Elanları Yoxlayın'
     Fallback to Non-Preferred Backend on Failure: 'Uğursuzluqda Üstünlük Verilməyən Arxa Uca Qayıdış'
     Enable Search Suggestions: 'Axtarış Təkliflərini Aktivləşdirin'
     Default Landing Page: 'İlkin Açılış Səhifəsi'

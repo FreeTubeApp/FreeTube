@@ -27,7 +27,6 @@ Open New Window: 'ახალი ფანჯრის გახსნა'
 
 Version {versionNumber} is now available!  Click for more details: 'ხელმისაწვდომია {versionNumber} ვერსია!  დააჭირეთ დამატებითი ინფორმაციისთვის'
 Download From Site: 'საიტიდან ჩამოტვირთვა'
-A new blog is now available, {blogTitle}. Click to view more: 'ხელმისაწვდომია ახალი ბლოგი, {blogTitle}. დააჭირეთ დამატებითი ინფორმაციისთვის'
 Are you sure you want to open this link?: 'დარწმუნებული ხართ, რომ გსურთ ამ ბმულის გახსნა?'
 
 Global:
@@ -120,7 +119,6 @@ Settings:
   General Settings:
     General Settings: 'ზოგადი'
     Check for Updates: 'განახლებების შემოწმება'
-    Check for Latest Blog Posts: 'უახლესი ბლოგპოსტების შემოწმება'
     Fallback to Non-Preferred Backend on Failure: 'შეფერხების შემთხვევაში არაუპირატეს ძრავაზე დაბრუნება'
     Enable Search Suggestions: 'ძიების შემოთავაზებების ჩართვა'
     Default Landing Page: 'შესვლის სტანდარტული გვერდი'

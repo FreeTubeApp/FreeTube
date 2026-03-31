@@ -42,7 +42,6 @@ Global:
     Comment Count: 1 kommentaar | {count} kommentaari
 Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber} in nüüd saadaval! Lisateavet leiad siit'
 Download From Site: 'Laadi veebisaidist alla'
-A new blog is now available, {blogTitle}. Click to view more: 'Uus blogiartikkel on saadaval. Loe siit {blogTitle}'
 
 # Search Bar
 Search / Go to URL: 'Otsi aadressi või ava see'
@@ -210,7 +209,6 @@ Settings:
   General Settings:
     General Settings: 'Üldist'
     Check for Updates: 'Kontrolli uuendusi'
-    Check for Latest Blog Posts: 'Vaata viimaseid blogipostitusi'
     Fallback to Non-Preferred Backend on Failure: 'Luba vigade korral kasutada teist taustateenust'
     Enable Search Suggestions: 'Kasuta otsingusoovitusi'
     Default Landing Page: 'Vaikimisi avaleht'
@@ -623,7 +621,6 @@ About:
   room rules: jututoa reeglitega
   Chat on Matrix: Vestle meiega Matrixi võrgus
   Mastodon: Mikroblogiteenus Mastodon
-  Blog: Blogi
   Website: Veebisait
   Please check for duplicates before posting: Enne uue veateate tegemist palun kontrolli, kas sellest on juba meile teada antud
   GitHub issues: Teata vigadest GitHub'i vahendusel

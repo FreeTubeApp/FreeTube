@@ -42,7 +42,6 @@ Global:
     Comment Count: תגובה | {count} תגובות
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber} זמינה מעתה!  לחיצה תציג פרטים נוספים'
 Download From Site: 'הורדה מאתר'
-A new blog is now available, {blogTitle}. Click to view more: 'בלוג חדש זמין, {blogTitle}. לחיצה תציג פרטים נוספים'
 
 # Search Bar
 Search / Go to URL: 'חיפוש / מעבר לכתובת'
@@ -205,7 +204,6 @@ Settings:
   General Settings:
     General Settings: 'כללי'
     Check for Updates: 'לבדוק אם קיימים עדכונים'
-    Check for Latest Blog Posts: 'לבדוק אם קיימים פוסטים חדשים בבלוג'
     Fallback to Non-Preferred Backend on Failure: 'נסיגה למנגנון שאינו מועדף בעת כשל'
     Enable Search Suggestions: 'לאפשר הצעות לחיפוש'
     Default Landing Page: 'דף נחיתה כברירת מחדל'
@@ -612,7 +610,6 @@ About:
   About: 'על אודות'
   #& About
   Website: אתר
-  Blog: בלוג
   Credits: תודות
   FAQ: שו״ת
   Email: דוא״ל

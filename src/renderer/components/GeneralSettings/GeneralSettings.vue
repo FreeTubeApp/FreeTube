@@ -25,21 +25,8 @@
           :tooltip="t('Settings.General Settings.Auto Load Next Page.Tooltip')"
           @change="updateGeneralAutoLoadMorePaginatedItemsEnabled"
         />
-        <FtToggleSwitch
-          v-if="!IS_MAC && USING_ELECTRON"
-          :label="t('Settings.General Settings.Minimize to system tray')"
-          :default-value="hideToTrayOnMinimize"
-          :compact="true"
-          @change="updateHideToTrayOnMinimize"
-        />
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.General Settings.Check for Latest Blog Posts')"
-          :default-value="checkForBlogPosts"
-          :compact="true"
-          @change="updateCheckForBlogPosts"
-        />
         <FtToggleSwitch
           :label="t('Settings.General Settings.Enable Search Suggestions')"
           :default-value="enableSearchSuggestions"
@@ -53,6 +40,13 @@
           :compact="true"
           :tooltip="t('Tooltips.General Settings.Open Deep Links In New Window')"
           @change="updateOpenDeepLinksInNewWindow"
+        />
+        <FtToggleSwitch
+          v-if="!IS_MAC && USING_ELECTRON"
+          :label="t('Settings.General Settings.Minimize to system tray')"
+          :default-value="hideToTrayOnMinimize"
+          :compact="true"
+          @change="updateHideToTrayOnMinimize"
         />
       </div>
     </div>
@@ -236,16 +230,6 @@ const hideToTrayOnMinimize = computed(() => store.getters.getHideToTrayOnMinimiz
  */
 function updateHideToTrayOnMinimize(value) {
   store.dispatch('updateHideToTrayOnMinimize', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const checkForBlogPosts = computed(() => store.getters.getCheckForBlogPosts)
-
-/**
- * @param {boolean} value
- */
-function updateCheckForBlogPosts(value) {
-  store.dispatch('updateCheckForBlogPosts', value)
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */

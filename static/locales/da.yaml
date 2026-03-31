@@ -42,7 +42,6 @@ Global:
   Shorts: Shorts
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} er nu tilgængelig!  Klik for flere detaljer'
 Download From Site: 'Hent fra websted'
-A new blog is now available, {blogTitle}. Click to view more: 'En ny blog er nu tilgængelig, {blogTitle}. Klik for at se mere'
 
 # Search Bar
 Search / Go to URL: 'Søg/gå til URL'
@@ -207,7 +206,6 @@ Settings:
   General Settings:
     General Settings: 'Generel'
     Check for Updates: 'Søg efter opdateringer'
-    Check for Latest Blog Posts: 'Søg efter seneste blogindlæg'
     Fallback to Non-Preferred Backend on Failure: 'Fallback til ikke-foretrukken backend ved fejl'
     Enable Search Suggestions: 'Aktivér søgeforslag'
     Default Landing Page: 'Standard landingsside'
@@ -607,7 +605,6 @@ About:
   Chat on Matrix: Chat på Matrix
   Mastodon: Mastodon
   Email: E-mail
-  Blog: Blog
   Website: Websted
   Please check for duplicates before posting: Kontrollér venligst for duplikater før opslag
   GitHub issues: GitHub-problemer

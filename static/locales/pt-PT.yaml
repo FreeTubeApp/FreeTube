@@ -42,7 +42,6 @@ Global:
     Comment Count: 1 comentários | {count} comentários
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber} está disponível! Clique aqui para mais informações.
 Download From Site: Descarregar do site
-A new blog is now available, {blogTitle}. Click to view more: 'Está disponível um novo blogue, {blogTitle}. Clique para ver mais'
 
 # Search Bar
 Search / Go to URL: Pesquisar / ir para o URL
@@ -209,7 +208,6 @@ Settings:
   General Settings:
     General Settings: Geral
     Check for Updates: Procurar atualizações
-    Check for Latest Blog Posts: Verificar se há novas publicações no blogue
     Fallback to Non-Preferred Backend on Failure: Utilizar sistema de ligação secundário, em caso de falha
     Enable Search Suggestions: Ativar sugestões de pesquisa
     Default Landing Page: Página inicial
@@ -614,7 +612,6 @@ About:
   GitHub issues: Problemas no GitHub
   Please check for duplicates before posting: Antes de reportar verifique se alguém já reportou o mesmo problema
   Website: Página web
-  Blog: Blogue
   Email: E-mail
   Mastodon: Mastodon
   Chat on Matrix: Conversa no Matrix
