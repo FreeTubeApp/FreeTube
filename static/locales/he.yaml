@@ -41,7 +41,7 @@ Global:
     Like Count: לייק | {count} לייקים
     Comment Count: תגובה | {count} תגובות
 Version {versionNumber} is now available!  Click for more details: 'גרסה {versionNumber} זמינה מעתה!  לחיצה תציג פרטים נוספים'
-Download From Site: 'הורדה מאתר'
+Download From Site: 'הורדה מאתר. לחיצה תציג עוד'
 
 # Search Bar
 Search / Go to URL: 'חיפוש / מעבר לכתובת'
@@ -50,6 +50,8 @@ Search Filters:
   Search Filters: 'מסנני חיפוש'
   Prioritize:
     Most Relevant: 'הכי רלוונטי'
+    Prioritize: תיעדוף
+    Popularity: פופולריות
   Time:
     Time: 'זמן'
     Any Time: 'כל זמן'
@@ -67,6 +69,9 @@ Search Filters:
   Duration:
     Duration: 'משך זמן'
     All Durations: 'הכול'
+    '< 3 minutes': < 3 דקות
+    '3 - 20 minutes': 3 - 20 דקות
+    '> 20 minutes': '> 20 דקות'
   Search Results: 'תוצאות חיפוש'
   Fetching results. Please wait: 'נאספות תוצאות. נא להמתין'
   Fetch more results: 'חיפוש תוצאות נוספות'
@@ -630,6 +635,9 @@ About:
   Source code: קוד מקור
   Discussions: דיונים
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: כפוף לרישיון {licenseLink}
+  Please read the {roomRulesLink}: נא לקרוא את {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube קיים בזכות {creditsPageLink}
 Profile:
   Profile Select: 'בחירת פרופיל'
   All Channels: 'כל הערוצים'
