@@ -1,4 +1,3 @@
-import { set as vueSet } from 'vue'
 import { createWebURL } from '../../helpers/utils'
 
 // replace with a Map after the Vue 3 and Pinia migrations
@@ -23,7 +22,7 @@ const actions = {
 
 const mutations = {
   addPlayerLocaleToCache(state, { locale, data }) {
-    vueSet(state.cachedPlayerLocales, locale, data)
+    state.cachedPlayerLocales[locale] = data
   }
 }
 

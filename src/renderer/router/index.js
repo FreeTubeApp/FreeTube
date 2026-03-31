@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Subscriptions from '../views/Subscriptions/Subscriptions.vue'
 import SubscribedChannels from '../views/SubscribedChannels/SubscribedChannels.vue'
 import ProfileSettings from '../views/ProfileSettings/ProfileSettings.vue'
@@ -9,16 +8,15 @@ import UserPlaylists from '../views/UserPlaylists/UserPlaylists.vue'
 import History from '../views/History/History.vue'
 import Settings from '../views/Settings/Settings.vue'
 import About from '../views/About/About.vue'
-import Search from '../views/Search/Search.vue'
+import SearchPage from '../views/SearchPage/SearchPage.vue'
 import Playlist from '../views/Playlist/Playlist.vue'
 import Channel from '../views/Channel/Channel.vue'
 import Watch from '../views/Watch/Watch.vue'
 import Hashtag from '../views/Hashtag/Hashtag.vue'
 import Post from '../views/Post.vue'
 
-Vue.use(Router)
-
-const router = new Router({
+const router = createRouter({
+  history: createWebHashHistory(),
   routes: [
     {
       path: '/',
@@ -44,14 +42,16 @@ const router = new Router({
       },
       component: SubscribedChannels
     },
-    {
-      path: '/trending',
-      name: 'trending',
-      meta: {
-        title: 'Trending'
-      },
-      component: Trending
-    },
+    ...(process.env.SUPPORTS_LOCAL_API
+      ? [{
+          path: '/trending',
+          name: 'trending',
+          meta: {
+            title: 'Trending'
+          },
+          component: Trending
+        }]
+      : []),
     {
       path: '/popular',
       name: 'popular',
@@ -105,7 +105,7 @@ const router = new Router({
       meta: {
         title: 'Search Results'
       },
-      component: Search
+      component: SearchPage
     },
     {
       path: '/playlist/:id',
@@ -149,43 +149,11 @@ const router = new Router({
         if (savedPosition !== null) {
           resolve(savedPosition)
         } else {
-          resolve({ x: 0, y: 0 })
+          resolve({ left: 0, top: 0 })
         }
       }, 500)
     })
   }
 })
-
-const originalPush = router.push.bind(router)
-
-router.push = (location) => {
-  // only navigates if the location is not identical to the current location
-
-  const currentQueryUSP = new URLSearchParams(router.currentRoute.query)
-  let newPath = ''
-  let newQueryUSP = new URLSearchParams()
-
-  if (typeof location === 'string') {
-    if (location.includes('?')) {
-      const urlParts = location.split('?')
-      newPath = urlParts[0]
-      newQueryUSP = new URLSearchParams(urlParts[1])
-    } else {
-      newPath = location
-      // newQueryUSP already empty
-    }
-  } else {
-    newPath = location.path
-    newQueryUSP = new URLSearchParams(location.query)
-  }
-
-  const pathsAreDiff = router.currentRoute.path !== newPath
-  // Comparing `URLSearchParams` objects directly will always be different
-  const queriesAreDiff = newQueryUSP.toString() !== currentQueryUSP.toString()
-
-  if (pathsAreDiff || queriesAreDiff) {
-    return originalPush(location)
-  }
-}
 
 export default router

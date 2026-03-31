@@ -1,0 +1,233 @@
+.playlistTitle {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.playlistTitleLink,
+.channelName {
+  text-decoration: none;
+  color: inherit;
+}
+
+.channelName {
+  font-size: 15px;
+  position: relative;
+  inset-block-end: 15px;
+}
+
+.playlistIndex {
+  position: relative;
+  inset-block-end: 15px;
+  color: var(--tertiary-text-color);
+}
+
+.playlistProgressBarContainer {
+  margin-inline-start: 10px;
+  position: relative;
+  padding-block: 8px;
+}
+
+.playlistProgressBar {
+  cursor: pointer;
+  background-color: var(--secondary-text-color);
+  block-size: 6px;
+  border-radius: 3px;
+  overflow: visible;
+  position: relative;
+  transition: block-size 0.2s ease, margin-block 0.2s ease;
+}
+
+.playlistProgressBar.expanded {
+  block-size: 12px;
+  margin-block: -3px;
+}
+
+.playlistProgressBarFill {
+  block-size: 100%;
+  background-color: var(--accent-color);
+  border-radius: inherit;
+  transition: inline-size 0.2s ease;
+}
+
+.progressBarPreview {
+  position: absolute;
+  inset-block-start: -65px;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.previewTooltip {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--primary-border-color);
+  border-radius: 8px;
+  padding-block: 8px;
+  padding-inline: 12px;
+  font-size: 12px;
+  color: var(--primary-text-color);
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 50%);
+  margin-block-end: 4px;
+  display: grid;
+  grid-template:
+    'thumb index title' auto /
+    max-content max-content max-content;
+  align-items: center;
+  gap: 8px;
+}
+
+.previewThumbnail {
+  grid-area: thumb;
+  block-size: 36px;
+  inline-size: 48px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.previewText {
+  grid-area: index;
+}
+
+.previewVideoTitle {
+  grid-area: title;
+  font-weight: 400;
+  color: var(--secondary-text-color);
+  inline-size: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.progressBarTick.current {
+  background-color: var(--accent-color);
+  opacity: 0.8;
+  inline-size: 3px;
+}
+
+.playlistProgressBar.expanded .progressBarTick {
+  opacity: 0.5;
+}
+
+.playlistProgressBar.expanded .progressBarTick.current {
+  opacity: 1;
+}
+
+.playlistButtons {
+  margin-block: 8px;
+}
+
+.playlistButton {
+  background-color: transparent;
+  font-size: 20px;
+  line-height: 1em;
+  padding: 10px;
+  margin-block-start: -25px;
+  cursor: pointer;
+  border-radius: 50%;
+  border-style: none;
+  color: var(--tertiary-text-color);
+  transition: background 0.2s ease-out;
+  stroke-width: 20;
+  stroke: var(--bg-color);
+}
+
+.playlistButton:hover {
+  background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
+  stroke-width: 20;
+  stroke: var(--side-nav-hover-color);
+  transition: background 0.2s ease-in;
+}
+
+.playlistButtonActive {
+  color: var(--accent-color);
+  stroke-width: 10;
+  stroke: var(--accent-color);
+}
+
+.playlistButtonActive:hover {
+  background-color: var(--side-nav-hover-color);
+  color: var(--accent-color-hover);
+  stroke-width: 10;
+  stroke: var(--accent-color-hover);
+  transition: background 0.2s ease-in;
+}
+
+.playlistIcon {
+  inline-size: 1em;
+}
+
+.playlistItemsWrapper {
+  overflow-y: auto;
+  block-size: 360px;
+}
+
+.playlistItem {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  align-items: center;
+  transition: background 0.2s ease-out;
+}
+
+.playlistItem:not(:last-child) {
+  margin-block-end: 8px;
+}
+
+.playlistItem:hover {
+  background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
+  transition: background 0.2s ease-in;
+}
+
+.videoInfo {
+  margin-inline-start: 30px;
+  position: relative;
+  inset-block-end: 7px;
+}
+
+@media only screen and (width <= 768px) {
+  .previewTooltip {
+    inline-size: auto;
+    padding: 6px;
+    grid-template:
+      'thumb index' auto
+      'title title' auto /
+      auto auto;
+    column-gap: 0;
+  }
+
+  .previewThumbnail {
+    inline-size: 32px;
+    block-size: 24px;
+  }
+
+  .previewText {
+    justify-self: start;
+  }
+
+  .previewVideoTitle {
+    inline-size: 200px;
+    text-align: center;
+  }
+}
+
+@media only screen and (width <= 500px) {
+  .previewVideoTitle {
+    inline-size: 150px;
+  }
+}
+
+/* The primary input mechanism does not include a pointing device or includes a pointing device of limited accuracy, such as a finger on a touchscreen. */
+@media (pointer: none), (pointer: coarse) {
+  .progressBarPreview {
+    display: none;
+  }
+
+  /* Show progress bar as always expanded */
+  .playlistProgressBar {
+    block-size: 12px;
+    margin-block: -3px;
+  }
+}

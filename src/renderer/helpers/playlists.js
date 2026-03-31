@@ -84,3 +84,25 @@ function compareTwoPlaylistItems(a, b, sortOrder, collator) {
       return 0
   }
 }
+
+export const generateRandomUniqueId = crypto.randomUUID
+  ? crypto.randomUUID.bind(crypto)
+  : () => `id-${Date.now()}-${Math.floor(Math.random() * 10000)}`
+
+/**
+ * @param {any} videoData
+ */
+export function processToBeAddedPlaylistVideo(videoData) {
+  if (videoData.timeAdded == null) {
+    videoData.timeAdded = Date.now()
+  }
+
+  if (videoData.playlistItemId == null) {
+    videoData.playlistItemId = generateRandomUniqueId()
+  }
+
+  // For backward compatibility
+  if (videoData.type == null) {
+    videoData.type = 'video'
+  }
+}

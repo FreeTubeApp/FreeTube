@@ -4,8 +4,33 @@
   margin-inline: auto;
 }
 
+.optionsRow {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  align-items: center;
+}
+
+@media only screen and (width <= 800px) {
+  .optionsRow {
+    /* Switch to 2 rows from 2 columns */
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    align-items: stretch;
+  }
+}
+
+.sortSelect {
+  /* Put it on the right */
+  margin-inline-start: auto;
+}
+
 .message {
   color: var(--tertiary-text-color);
+}
+
+.headingIcon {
+  color: var(--primary-color);
 }
 
 @media only screen and (width <= 680px) {

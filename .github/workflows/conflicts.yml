@@ -8,12 +8,23 @@ on:
   pull_request_target:
     types: [synchronize]
 
+permissions: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   main:
-    runs-on: ubuntu-latest
+    name: Check for conflicts
+    runs-on: ubuntu-slim
+
+    permissions:
+      pull-requests: write
+
     steps:
       - name: check if prs are dirty
-        uses: eps1lon/actions-label-merge-conflict@v3
+        uses: eps1lon/actions-label-merge-conflict@1df065ebe6e3310545d4f4c4e862e43bdca146f0 #v3.0.3
         with:
           dirtyLabel: "PR: merge conflicts / rebase needed"
           removeOnDirtyLabel: "PR: waiting for review"

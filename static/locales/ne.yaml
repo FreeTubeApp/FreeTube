@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'नेपाली'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  एपको यो भाग अझै तयार भएको छैन। केहि प्रगति भएपछि आउनु होला।
 
 # Webkit Menu Bar
 File: 'फाइल'
@@ -15,8 +12,6 @@ Copy: 'सार्नुहोस्'
 Paste: 'पेस्ट गर्नुहोस्'
 Delete: 'मेटाउनुहोस्'
 Select all: 'सबै रोज्नुहोस्'
-Reload: 'फेरि लोड गर्नुहोस्'
-Force Reload: 'फेरि लोड गर्न बल गर्नुहोस्'
 Toggle Developer Tools: 'Developer Tools टगल गर्नुहोस्'
 Actual size: 'वास्तविक आकार'
 Zoom in: 'अझ ठुलो बनाउनुहोस्'
@@ -29,31 +24,26 @@ Back: 'पछाडि'
 Forward: 'अगाडि'
 Open New Window: 'नयाँ विन्डो खोल्नुहोस्'
 
-Version {versionNumber} is now available!  Click for more details: 'भर्जन {versionNumber}
-  उपलब्ध छ! थप बुझ्न यहाँ थिच्नुहोस्'
+Version {versionNumber} is now available!  Click for more details: 'भर्जन {versionNumber} उपलब्ध छ! थप बुझ्न यहाँ थिच्नुहोस्'
 Download From Site: 'साइटबाट डाउनलोड गर्नुहोस्'
-A new blog is now available, {blogTitle}. Click to view more: 'एउटा नयाँ ब्लग उपलब्ध
-  छ, {blogTitle}। थप बुझ्न यहाँ थिच्नुहोस्'
 
 Global:
   Sort By: 'क्रमबद्ध गर्नुहोस्'
 
 # Search Bar
+  Videos: भिडियोहरू
+  Live: लाइभ
 Search / Go to URL: 'खोज्नुहोस् / URL मा जानुहोस्'
 Search Bar:
   Clear Input: 'इन्पुट खाली गर्नुहोस्'
   # In Filter Button
 Search Filters:
   Search Filters: 'खोजी फिल्टरहरू'
-  Sort By:
+  Prioritize:
     Most Relevant: 'सबैभन्दा प्रासङ्गिक'
-    Rating: 'रेटिङ्ग'
-    Upload Date: 'प्रकाशित मिति'
-    View Count: 'हेरिएको सङ्ख्या'
   Time:
     Time: 'समय'
     Any Time: 'जुनसुकै समय'
-    Last Hour: 'पछिल्लो घण्टा'
     Today: 'आज'
     This Week: 'यो हप्ता'
     This Month: 'यो महिना'
@@ -67,8 +57,6 @@ Search Filters:
   Duration:
     Duration: 'अवधि'
     All Durations: 'सबै अवधि'
-    Short (< 4 minutes): 'छोटो (< ४ मिनट)'
-    Long (> 20 minutes): 'लामो (> २० मिनट)'
   # On Search Page
   Search Results: 'खोजी परिणामहरू'
   Fetching results. Please wait: 'परिणामहरू खोजिँदै छ। कृपया पर्खनुहोस्'
@@ -78,19 +66,15 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'सदस्यताहरु'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'यो
-    प्रोफाइलमा ठुलो सङ्ख्यामा सदस्यताहरू छन्। दर सिमित हुनबाट बच्न RSS लाई बल गरिँदै'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'तपाईँको
-    सदस्यता सूची अहिले खाली छ। तिनीहरूलाई यहाँ हेर्न सदस्यताहरू थप्न सुरु गर्नुहोस्।'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'यो प्रोफाइलमा ठुलो सङ्ख्यामा सदस्यताहरू छन्। दर सिमित हुनबाट बच्न RSS लाई बल गरिँदै'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'तपाईँको सदस्यता सूची अहिले खाली छ। तिनीहरूलाई यहाँ हेर्न सदस्यताहरू थप्न सुरु गर्नुहोस्।'
   Load More Videos: 'थप भिडियोहरू लोड गर्नुहोस्'
 More: 'थप'
 Trending:
   Trending: 'प्रचलित'
-  Default: 'पूर्वनिर्धारित'
-  Music: 'सङ्गीत'
   Gaming: 'गेमिङ्ग'
-  Movies: 'चलचित्रहरू'
   Trending Tabs: 'प्रचलित ट्याबहरू'
+  Sports: खेलकुद
 Most Popular: 'सबैभन्दा लोकप्रिय'
 Playlists: 'प्लेसूचीहरू'
 User Playlists:
@@ -99,5 +83,21 @@ Settings:
   # On Settings Page
   Theme Settings: {}
 Channel:
-  Videos: {}
+  Videos:
+    Videos: भिडियोहरू
 Tooltips: {}
+Close Banner: ब्यानर बन्द गर्नुहोस्
+Preferences: प्राथमिकताहरू
+Are you sure you want to open this link?: के तपाईं यो लिङ्क खोल्न निश्चित हुनुहुन्छ?
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Developer Tools टगल गर्नुहोस्
+  Zoom Out: अझ सानो बनाउनुहोस्
+  Zoom In: अझ ठुलो बनाउनुहोस्
+  Fullscreen: फुलस्क्रिन टगल गर्नुहोस्
+Search Listing:
+  Label:
+    8K: 8K
+    4K: 4K
+New Window: नयाँ सञ्झ्याल
+Profile:
+  Select All: सबै रोज्नुहोस्

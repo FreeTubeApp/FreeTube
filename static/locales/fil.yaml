@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Filipino'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Ang bahagi ito ng aplikasyon ay hindi pa handa. Bumalik po kayo mamaya kapag nag-unsad
-  na.
 
 # Webkit Menu Bar
 File: 'File'
@@ -16,8 +12,6 @@ Copy: 'Kopya'
 Paste: 'I-paste'
 Delete: 'Alisin'
 Select all: 'Piliin lahat'
-Reload: 'I-reload'
-Force Reload: 'Puwersang i-reload'
 Toggle Developer Tools: 'I-toggle ang mga Developer Tools'
 Actual size: 'Totoong sukat'
 Zoom in: 'Palakihin'
@@ -34,15 +28,11 @@ Search / Go to URL: 'Maghanap / Pumunta sa URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Mga filter ng paghahanap'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Pinakanakakaugnay'
-    Rating: 'Mga Marka'
-    Upload Date: 'Petsa ng pag-upload'
-    View Count: 'Bilang ng pagtingin'
   Time:
     Time: 'Oras'
     Any Time: 'Kahit anuman oras'
-    Last Hour: 'Nakaraang Oras'
     Today: 'Ngayon'
     This Week: 'Ngayong linggo'
     This Month: 'Ngayong buwan'
@@ -56,10 +46,9 @@ Search Filters:
   Duration:
     Duration: 'Tagal'
     All Durations: 'Lahat ng mga durasyon'
-    Short (< 4 minutes): 'Maikli (< 4 minuto)'
-    Long (> 20 minutes): 'Mahaba (> 20 minuto)'
-  # On Search Page
-    Medium (4 - 20 minutes): Kalagitnaan (4 - 20 na minuto)
+    '< 3 minutes': '< 3 minuto'
+    '> 20 minutes': '> 20 minuto'
+    '3 - 20 minutes': 3 - 20 na minuto
   Search Results: 'Mga Resulta'
   Fetching results. Please wait: 'Sinusundo ang mga resulta. Maghintay lang po'
   Fetch more results: 'Magsundo ng marami pang resulta'
@@ -71,11 +60,8 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Mga Suskripsyon'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ang
-    iyong listahan ng Suskripsyon ay kasalukuyang walang laman. Simulang magdagdag
-    ng mga suskripsyon upang makita ang mga ito dito.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Maraming
-    subscriptions itong profile.   Pilitin na iwasan ang rate limiting
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Ang iyong listahan ng Suskripsyon ay kasalukuyang walang laman. Simulang magdagdag ng mga suskripsyon upang makita ang mga ito dito.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Maraming subscriptions itong profile.   Pilitin na iwasan ang rate limiting
 Trending:
   Trending: 'Nagte-trend'
 Most Popular: 'Pinakasikat'
@@ -85,7 +71,8 @@ Settings:
   Theme Settings: {}
   Player Settings: {}
 Channel:
-  Videos: {}
+  Videos:
+    Videos: Mga video
   Playlists: {}
 Download From Site: I-download mula sa website
 Open New Window: buksan ang bagong window
@@ -97,23 +84,27 @@ Global:
   Videos: Mga Video
   Shorts: Mga Shorts
   Sort By: 'Pag-uri-uriin ayon'
-  Community: Komunidad
+  Posts: Mga Post
 Search Bar:
   Clear Input: Alisin ang Input
-External link opening has been disabled in the general settings: Ang pag bukas ng
-  link sa panlabas ay pinasara sa general settings
-'Blocked opening potentially unsafe URL': 'I-Blinock ang URL na possibleng hindi ligtas:
-  "{url]".'
+External link opening has been disabled in the general settings: Ang pag bukas ng link sa panlabas ay pinasara sa general settings
 Age Restricted:
   This channel is age restricted: Itong channel ay pinaghihigpitan sa edad
   This video is age restricted: Ang video na ito ay pinaghihigpitan sa edad
 Close Banner: I-Sara ang banner
 Are you sure you want to open this link?: Sigurado mo na buksan itong link?
-Search character limit: Na sobrahan ng {searchCharacterLimit} na tilik ang Search
-  query
+Search character limit: Na sobrahan ng {searchCharacterLimit} na tilik ang Search query
 Go to page: Pumunta sa {page}
 Preferences: Preferences
-Version {versionNumber} is now available!  Click for more details: Version {versionNumber}
-  ay magamit na! . . Pindutin para sa detalye
-A new blog is now available, {blogTitle}. Click to view more: May bagong blog, {blogTitle},
-  Pindutin para makita
+Version {versionNumber} is now available!  Click for more details: Version {versionNumber} ay magamit na! . . Pindutin para sa detalye
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: I-toggle ang mga Developer Tools
+  Zoom In: Palakihin
+  Zoom Out: Paliitin
+  Fullscreen: I-fullscreen
+Search Listing:
+  Label:
+    8K: 8K
+    4K: 4K
+Profile:
+  Select All: Piliin lahat

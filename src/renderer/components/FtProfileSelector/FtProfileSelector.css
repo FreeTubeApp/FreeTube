@@ -1,0 +1,92 @@
+.colorOption {
+  inline-size: 40px;
+  block-size: 40px;
+  cursor: pointer;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.colorOption:hover {
+  box-shadow: 0 0 0 2px var(--side-nav-hover-color);
+}
+
+.initial {
+  font-size: 20px;
+  line-height: 1em;
+  text-align: center;
+  user-select: none;
+}
+
+.profileList {
+  display: inline;
+  position: absolute;
+  inset-block-start: 60px;
+  inset-inline-end: 10px;
+  min-inline-size: 250px;
+  block-size: auto;
+  padding: 5px;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 0 4px var(--scrollbar-color-hover);
+}
+
+.profileWrapper {
+  margin-block-start: 60px;
+  block-size: auto;
+  overflow-y: auto;
+
+  /*
+  profile list max height: 90% of window size - 100 px. It's scaled to be 340px on 800x600 resolution.
+  Offset of 100px is to compensate for the fixed size of elements above the list, which takes more screen space on lower resolutions
+  */
+  max-block-size: calc(90vh - 100px);
+  min-block-size: 340px;
+}
+
+/* Navbar changes position to horizontal with this media rule.
+Height adjust for profile list so it won't cover navbar.  */
+@media only screen and (width <= 680px) {
+  .profileWrapper {
+    max-block-size: calc(95vh - 180px);
+  }
+}
+
+.profile {
+  cursor: pointer;
+  block-size: 50px;
+  transition: background 0.2s ease-out;
+}
+
+.profile:hover {
+  background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
+  transition: background 0.2s ease-in;
+}
+
+.profile .colorOption {
+  float: inline-start;
+  position: relative;
+  inset-block-end: 5px;
+  margin: 10px;
+}
+
+.profileName {
+  display: flex;
+  align-items: center;
+  block-size: 50px;
+  padding-inline-end: 10px;
+}
+
+.profileListTitle {
+  position: absolute;
+  margin: 0;
+  inset-inline-start: 10px;
+}
+
+.profileSettings {
+  float: inline-end;
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-end: 5px;
+}

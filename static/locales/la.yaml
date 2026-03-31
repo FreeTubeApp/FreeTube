@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Latina'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Haec programmatis pars perfecta non est. Remea cum in hac profectum sit.
 
 # Webkit Menu Bar
 File: 'tabula'
@@ -15,8 +12,6 @@ Copy: 'Effinge'
 Paste: 'Agglutina'
 Delete: 'Dele'
 Select all: 'Omnia selige'
-Reload: 'renovare'
-Force Reload: 'Vi Reficite'
 Toggle Developer Tools: 'Mutatio Constitutor Instrumenta'
 Actual size: 'Vera magnitudine'
 Zoom in: 'Visum propius'
@@ -28,11 +23,8 @@ Close: 'Claude'
 Back: 'Redeo'
 Forward: 'Promoveo'
 
-Version {versionNumber} is now available!  Click for more details: 'Editio {versionNumber}
-  nunc praesto! Tactus pro magis singula res'
+Version {versionNumber} is now available!  Click for more details: 'Editio {versionNumber} nunc praesto! Tactus pro magis singula res'
 Download From Site: 'Adepto ex situ'
-A new blog is now available, {blogTitle}. Click to view more: 'Novum scripturam creata
-  est, {blogTitle}. Tangere hic pro magis notitia'
 
 Global:
   Sort By: 'Disponere Per'
@@ -42,15 +34,11 @@ Search / Go to URL: 'Requiro / Adeo URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Requiro Filtra'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Maxime Pertinentes'
-    Rating: 'Transientes'
-    Upload Date: 'Transporto Dies'
-    View Count: 'Iteratio visibus visibile'
   Time:
     Time: 'Tempus'
     Any Time: 'Umquam'
-    Last Hour: 'Intra Horam'
     Today: 'Hodie'
     This Week: 'Hoc Septimana'
     This Month: 'Haec Mensis'
@@ -64,8 +52,8 @@ Search Filters:
   Duration:
     Duration: 'Diuturnitas'
     All Durations: 'Omnes Durationes'
-    Short (< 4 minutes): 'Brevis (< 4 minutes)'
-    Long (> 20 minutes): 'Longus (> 20 minutes)'
+    '< 3 minutes': '< 3 minutes'
+    '> 20 minutes': '> 20 minutes'
   # On Search Page
   Search Results: 'Quaerere Eventus'
   Fetching results. Please wait: 'Lignatio eventus. Placet expectare'
@@ -75,11 +63,9 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscriptio'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Subscription
-    vestri album sit vacua. Incipe addere subscriptions videre hic.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Subscription vestri album sit vacua. Incipe addere subscriptions videre hic.'
   Load More Videos: Voce plus Movens Imaginibus
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Haec
-    profile copia subscriptioni habet. Impono RSS ut impedio restrictionis per celeritatis
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Haec profile copia subscriptioni habet. Impono RSS ut impedio restrictionis per celeritatis
 Trending:
   Trending: 'Inclinant'
 Most Popular: 'Maxime Popular'
@@ -97,9 +83,7 @@ Settings:
   General Settings:
     General Settings: 'Generalis Occasus'
     Check for Updates: 'Reprehendo pro Updates'
-    Check for Latest Blog Posts: 'Reprehendo pro recentissimus diurnus ingressum'
-    Fallback to Non-Preferred Backend on Failure: 'Revertere ad secundarium ratio
-      cum defectum'
+    Fallback to Non-Preferred Backend on Failure: 'Revertere ad secundarium ratio cum defectum'
     Enable Search Suggestions: 'Permitte Quaerere Conmendatio'
     Default Landing Page: 'Usitatus Portum Pagina'
     Locale Preference: 'Locus Praedilectionis'
@@ -156,3 +140,10 @@ Video: {}
 No: 'nullum'
 More: plus
 Open New Window: aperiere fenestram novum
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Mutatio Constitutor Instrumenta
+  Zoom Out: Visi repostus
+  Zoom In: Visum propius
+  Fullscreen: Totus mutatur ostentationem
+Profile:
+  Select All: Omnia selige

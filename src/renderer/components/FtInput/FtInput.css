@@ -1,0 +1,256 @@
+/* stylelint-disable no-descending-specificity */
+.ft-input-component {
+  position: relative;
+}
+
+body[dir='rtl'] .ft-input-component.search.showClearTextButton .inputAction {
+  inset-inline-end: -30px;
+}
+
+body[dir='rtl'] .ft-input-component.search.clearTextButtonVisible .inputAction,
+body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inputAction {
+  inset-inline-end: 0;
+}
+
+.ft-input-component.search.showClearTextButton {
+  padding-inline-start: 30px;
+}
+
+.ft-input-component.search.clearTextButtonVisible,
+.ft-input-component.search.showClearTextButton:focus-within {
+  padding-inline-start: 0;
+}
+
+.ft-input-component.showClearTextButton:not(.search) .ft-input {
+  padding-inline-start: 46px;
+}
+
+/* Main search input */
+.clearTextButtonVisible.search .ft-input,
+.ft-input-component.search.showClearTextButton:focus-within .ft-input {
+  padding-inline-start: 46px;
+}
+
+.ft-input-component:focus-within .clearInputTextButton,
+.ft-input-component.showOptions .clearInputTextButton {
+  opacity: 0.5;
+}
+
+
+.ft-input-component.inputDataPresent .clearInputTextButton.visible,
+.clearTextButtonVisible:not(.showOptions) .clearInputTextButton.visible,
+.ft-input-component:focus-within:not(.showOptions) .clearInputTextButton.visible {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.clearInputTextButton {
+  position: absolute;
+  inset-block-start: 5px;
+  inset-inline-start: 0;
+
+  /* To be higher than `.inputWrapper` */
+  z-index: 1;
+  margin-block: 0;
+  margin-inline: 3px;
+  padding: 10px;
+  border-radius: 100%;
+  border-style: none;
+  background-color: transparent;
+  color: var(--primary-text-color);
+  font-size: 1em;
+  line-height: 1em;
+  opacity: 0;
+  transition: background 0.2s ease-in;
+}
+
+.clearInputTextButton.visible:hover {
+  background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
+}
+
+.forceTextColor .clearInputTextButton:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.clearInputTextButton.visible:active {
+  background-color: var(--tertiary-text-color);
+  color: var(--side-nav-active-text-color);
+  transition: background 0.2s ease-in;
+}
+
+.search .clearInputTextButton {
+  inset-block-start: 12px;
+}
+
+.forceTextColor .clearInputTextButton {
+  color: #eee;
+}
+
+.forceTextColor .clearInputTextButton:active {
+  background-color: var(--primary-color-active);
+}
+
+.ft-input {
+  box-sizing: border-box;
+  outline: none;
+  inline-size: 100%;
+  padding: 1rem;
+  border: 0;
+  margin-block-end: 10px;
+  font-size: 16px;
+  block-size: 45px;
+  color: var(--secondary-text-color);
+  border-radius: 5px;
+  background-color: var(--search-bar-color);
+}
+
+.ftcomponent ::placeholder {
+  color: var(--tertiary-text-color);
+  user-select: none;
+}
+
+.forceTextColor .ft-input {
+  color: #eee;
+  background-color: var(--primary-input-color);
+}
+
+.forceTextColor .ft-input:focus {
+  box-shadow: 0 0 1rem 0 var(--primary-input-color);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.forceTextColor ::placeholder {
+  color: #eee;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.buttonIcon {
+  inline-size: 1em;
+}
+
+.inputAction {
+  position: absolute;
+  margin-block: 0;
+  margin-inline: 3px;
+  padding: 10px;
+  inset-block-start: -8px;
+  inset-inline-end: 0;
+  border-style: none;
+  border-radius: 100%;
+  background-color: transparent;
+  color: var(--primary-text-color);
+  font-size: 1em;
+  line-height: 1em;
+
+  /* this should look disabled by default */
+  opacity: 0.5;
+}
+
+.inputAction.enabled {
+  opacity: 1;
+
+  /* Only look respond to cursor when enabled */
+  cursor: pointer;
+}
+
+
+.search ::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.forceTextColor .inputAction {
+  color: #eee;
+}
+
+.ft-input-component.showActionButton .ft-input {
+  /*
+  With arrow present means
+  the text might get under the arrow with normal padding
+   */
+  padding-inline-end: calc(36px + 6px);
+}
+
+.inputAction.enabled:hover {
+  background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
+  transition: background 0.2s ease-in;
+}
+
+.forceTextColor .inputAction.enabled:hover {
+  background-color: var(--primary-color-hover);
+}
+
+.inputAction.enabled:active {
+  background-color: var(--tertiary-text-color);
+  color: var(--side-nav-active-text-color);
+  transition: background 0.2s ease-in;
+}
+
+.forceTextColor .inputAction.enabled:active {
+  background-color: var(--primary-color-active);
+}
+
+.list {
+  position: absolute;
+  inline-size: 100%;
+  list-style: none;
+  margin: 0;
+  padding-block: 5px;
+  padding-inline: 0;
+  z-index: 10;
+  border-radius: 0 0 5px 5px;
+  overflow-wrap: break-word;
+  box-shadow: 0 0 10px var(--scrollbar-color-hover);
+  background-color: var(--search-bar-color);
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 0;
+  line-height: 2rem;
+  padding-inline: 15px;
+}
+
+.optionWrapper {
+  display: flex;
+  align-items: baseline;
+  overflow: hidden;
+}
+
+.optionWrapper span {
+  overflow: hidden;
+}
+
+.searchResultIcon {
+  opacity: 0.6;
+  padding-inline-end: 10px;
+  inline-size: 16px;
+  block-size: 16px;
+}
+
+.removeButton {
+  text-decoration: none;
+  float: inline-end;
+  font-size: 13px;
+}
+
+.removeButton:hover,
+.removeButtonSelected {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.hover {
+  background-color: var(--scrollbar-color-hover);
+  color: var(--scrollbar-text-color-hover);
+}

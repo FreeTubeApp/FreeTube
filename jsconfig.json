@@ -1,8 +1,10 @@
 {
   "vueCompilerOptions": {
-    "target": 2.7
+    "target": 3.5
   },
   "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "strictNullChecks": true,
     "baseUrl": "./",
     "paths": {
@@ -11,7 +13,7 @@
         "src/datastores/handlers/web"
       ],
       "shaka-player": [
-        "./node_modules/shaka-player/dist/shaka-player.ui"
+        "./node_modules/shaka-player/dist/shaka-player.ui-es2021"
       ]
     }
   }

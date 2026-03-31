@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'English (US)'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  ऐप का यह हिस्सा अभी तैयार नहीं है। बाद में वापस आएँ जब प्रगति हुई हो
+Locale Name: 'हिन्दी'
 
 # Webkit Menu Bar
 File: 'फ़ाइल'
@@ -15,8 +12,6 @@ Copy: 'कापी करें'
 Paste: 'पेस्ट करें'
 Delete: 'मिटाएं'
 Select all: 'सबको चुनें'
-Reload: 'फिरसे लोड करे'
-Force Reload: 'फोर्स रीलोड'
 Toggle Developer Tools: 'डेवलपर टूल टॉगल करें'
 Actual size: 'वास्तविक आकार'
 Zoom in: 'ज़ूम इन'
@@ -28,29 +23,25 @@ Close: 'बंद करें'
 Back: 'पीछे जाएँ'
 Forward: 'आगे जाएँ'
 
-Version {versionNumber} is now available!  Click for more details: 'संस्करण {versionNumber}
-  अब उपलब्ध है! अधिक विवरण के लिए क्लिक करें'
+Version {versionNumber} is now available!  Click for more details: 'संस्करण {versionNumber} अब उपलब्ध है! अधिक विवरण के लिए क्लिक करें'
 Download From Site: 'साइट से डाउनलोड करें'
-A new blog is now available, {blogTitle}. Click to view more: 'एक नया ब्लॉग अब उपलब्ध
-  है, {blogTitle}। अधिक देखने के लिए क्लिक करें'
 
 Global:
   Sort By: 'इसके अनुसार क्रमबद्ध करें'
 
 # Search Bar
+  Shorts: शॉर्ट्स
+  Videos: वीडियो
+  Live: लाइव
 Search / Go to URL: 'खोज / यूआरएल पर जाएं'
   # In Filter Button
 Search Filters:
   Search Filters: 'खोज फ़िल्टर'
-  Sort By:
+  Prioritize:
     Most Relevant: 'सबसे प्रासंगिक'
-    Rating: 'रेटिंग'
-    Upload Date: 'अपलोड की तारीख़'
-    View Count: 'दृश्य गणना'
   Time:
     Time: 'समय'
     Any Time: 'किसी भी समय'
-    Last Hour: 'पिछले घंटे'
     Today: 'आज'
     This Week: 'इस हफ़्ते'
     This Month: 'इस महीने'
@@ -61,65 +52,62 @@ Search Filters:
     Videos: 'वीडियो'
     Channels: 'चैनल'
     #& Playlists
+    Movies: चलचित्र
   Duration:
     Duration: 'अवधि'
     All Durations: 'सभी अवधियाँ'
-    Short (< 4 minutes): 'छोटे (<4 मिनट)'
-    Long (> 20 minutes): 'बड़े (>20 मिनट)'
+    '< 3 minutes': '<3 मिनट'
+    '> 20 minutes': '>20 मिनट'
   # On Search Page
+    '3 - 20 minutes': 3 - 20 minutes
   Search Results: 'खोज के परिणाम'
   Fetching results. Please wait: 'परिणाम ला रहे है। कृपया प्रतीक्षा करे'
   Fetch more results: 'ज़्यादा परिणाम लाए'
 # Sidebar
   There are no more results for this search: इस खोज के लिए और कोई परिणाम नहीं है
+  Features:
+    Location: जगह
+    Features: विशेषताएँ
+    HD: HD
+    3D: 3D
+    Live: सीधा प्रसारण
+    4K: 4K
+    Subtitles: उपशीर्षक
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'सब्सक्रिप्शन'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'यह
-    प्रोफ़ाइल के पास बहुत सारे सब्सक्रिप्शनस है।  RSS को बलपूर्वक प्रयोग करके रेट
-    लिमिटिंग से बचाएं'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'आपके
-    सब्सक्रिप्शन सूची वर्तमान में ख़ाली है। उन्हें यहां देखने के लिए सब्सक्रिप्शन
-    जोड़ना प्रारंभ करें।'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'यह प्रोफ़ाइल के पास बहुत सारे सब्सक्रिप्शनस है।  RSS को बलपूर्वक प्रयोग करके रेट लिमिटिंग से बचाएं'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'आपके सब्सक्रिप्शन सूची वर्तमान में ख़ाली है। उन्हें यहां देखने के लिए सब्सक्रिप्शन जोड़ना प्रारंभ करें।'
   Load More Videos: 'और वीडियो लोड करें'
   Error Channels: त्रुटि वाले चैनल
-  Disabled Automatic Fetching: आपने स्वचालित सदस्यता लाना अक्षम कर दिया है। सदस्यताओं
-    को यहां देखने के लिए उन्हें रीफ़्रेश करें।
+  Disabled Automatic Fetching: आपने स्वचालित सदस्यता लाना अक्षम कर दिया है। सदस्यताओं को यहां देखने के लिए उन्हें रीफ़्रेश करें।
   Empty Channels: आपके सब्सक्राइब किए गए चैनल में वर्तमान में कोई वीडियो नहीं है।
 Trending:
   Trending: 'रुझान में'
-  Music: संगीत
-  Default: डिफ़ॉल्ट
-  Movies: मूवीज
   Trending Tabs: ट्रेंडिंग टैब्स
   Gaming: गेमिंग
+  Sports: खेल-कूद
 Most Popular: 'सबसे लोकप्रिय'
 Playlists: 'प्लेलिस्ट'
 User Playlists:
   Your Playlists: 'आपकी प्लेलिस्ट'
-  Empty Search Message: इस प्लेलिस्ट में आपकी खोज से मेल खाने वाला कोई वीडियो नहीं
-    है
+  Empty Search Message: इस प्लेलिस्ट में आपकी खोज से मेल खाने वाला कोई वीडियो नहीं है
   Search bar placeholder: प्लेलिस्ट में खोजें
 History:
   # On History Page
   History: 'इतिहास'
   Watch History: 'देखने का इतिहास'
   Your history list is currently empty.: 'आपकी इतिहास सूची वर्तमान में खाली है।'
-  Empty Search Message: आपके इतिहास में ऐसा कोई वीडियो नहीं है जो आपकी खोज से मेल
-    खाता हो
+  Empty Search Message: आपके इतिहास में ऐसा कोई वीडियो नहीं है जो आपकी खोज से मेल खाता हो
   Search bar placeholder: इतिहास में खोजें
 Settings:
   # On Settings Page
   Settings: 'सेटिंग्स'
-  The app needs to restart for changes to take effect. Restart and apply change?: 'परिवर्तनों
-    को प्रभावी करने के लिए ऐप को पुनः आरंभ करने की आवश्यकता है। पुनः आरंभ करें और
-    परिवर्तन लागू करें?'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'परिवर्तनों को प्रभावी करने के लिए ऐप को पुनः आरंभ करने की आवश्यकता है। पुनः आरंभ करें और परिवर्तन लागू करें?'
   General Settings:
     General Settings: 'जनरल सेटिंग्स'
     Check for Updates: 'अपडेट के लिए जाँच शुरु करें'
-    Check for Latest Blog Posts: 'नवीनतम ब्लॉग पोस्ट के लिए जाँच करें'
-    Fallback to Non-Preferred Backend on Failure: 'विफलता पर गैर-पसंदीदा बैकएंड पर
-      फ़ॉलबैक'
+    Fallback to Non-Preferred Backend on Failure: 'विफलता पर गैर-पसंदीदा बैकएंड पर फ़ॉलबैक'
     Enable Search Suggestions: 'खोज सुझाव सक्षम करें'
     Default Landing Page: 'डिफ़ॉल्ट लैंडिंग पृष्ठ'
     Locale Preference: 'स्थानीय प्रेफरन्स'
@@ -146,10 +134,8 @@ Settings:
       External Link Handling: बाहरी लिंक हैंडलिंग
       No Action: कोई कार्रवाई नहीं
     System Default: सिस्टम डिफ़ॉल्ट
-    Current instance will be randomized on startup: स्टार्टअप पर वर्तमान इंस्टेंस
-      यादृच्छिक किया जाएगा
-    The currently set default instance is {instance}: वर्तमान में निर्धारित डिफ़ॉल्ट
-      इंस्टेंस {instance} है
+    Current instance will be randomized on startup: स्टार्टअप पर वर्तमान इंस्टेंस यादृच्छिक किया जाएगा
+    The currently set default instance is {instance}: वर्तमान में निर्धारित डिफ़ॉल्ट इंस्टेंस {instance} है
     Clear Default Instance: डिफ़ॉल्ट इंस्टेंस साफ़ करें
     View all Invidious instance information: इनविडियस इंस्टेंस की सभी जानकारी देखें
     Set Current Instance as Default: वर्तमान इंस्टेंस को डिफ़ॉल्ट के रूप में सेट करें
@@ -162,37 +148,28 @@ Settings:
 About:
   #On About page
   Email: ईमेल करें
-Channel: {}
+Channel:
+  Videos:
+    Videos: वीडियो
 Video:
   Open in Invidious: 'इनविडियस में खोलें'
   Copy Invidious Link: 'इनविडियस लिंक को कॉपी करें'
   Open Channel in Invidious: 'इनविडियस में चैनल खोलें'
   Copy Invidious Channel Link: 'इनवीडियस चैनल लिंक कॉपी करें'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'लाइव
-    चैट वर्तमान में Invidious API के साथ समर्थित नहीं है। YouTube से सीधा कनेक्शन
-    आवश्यक है।'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'लाइव चैट वर्तमान में Invidious API के साथ समर्थित नहीं है। YouTube से सीधा कनेक्शन आवश्यक है।'
 Share:
   Invidious URL copied to clipboard: 'इनवीडियस URL क्लिपबोर्ड पर कापी किया गया'
-  Invidious Embed URL copied to clipboard: 'इनवीडियस एम्बेड URL क्लिपबोर्ड पर कापी
-    किया गया'
-  Invidious Channel URL copied to clipboard: 'इनविडियस चैनल URL क्लिपबोर्ड पर कॉपी
-    किया गया'
+  Invidious Embed URL copied to clipboard: 'इनवीडियस एम्बेड URL क्लिपबोर्ड पर कापी किया गया'
+  Invidious Channel URL copied to clipboard: 'इनविडियस चैनल URL क्लिपबोर्ड पर कॉपी किया गया'
 Tooltips:
   General Settings:
-    Preferred API Backend: 'वह बैकएंड चुनें जिसका उपयोग FreeTube डेटा प्राप्त करने
-      के लिए करता है। स्थानीय एपीआई एक अंतर्निहित चिमटा है। Invidious API को कनेक्ट
-      करने के लिए Invidious सर्वर की आवश्यकता होती है।'
-    Invidious Instance: 'वह इनविडियस इंस्टेंस जिससे FreeTube API कॉल के लिए कनेक्ट
-      होगा।'
+    Preferred API Backend: 'वह बैकएंड चुनें जिसका उपयोग FreeTube डेटा प्राप्त करने के लिए करता है। स्थानीय एपीआई एक अंतर्निहित चिमटा है। Invidious API को कनेक्ट करने के लिए Invidious सर्वर की आवश्यकता होती है।'
+    Invidious Instance: 'वह इनविडियस इंस्टेंस जिससे FreeTube API कॉल के लिए कनेक्ट होगा।'
   Player Settings:
-    Proxy Videos Through Invidious: 'YouTube से सीधा संबंध बनाने के बजाय वीडियो परोसने
-      के लिए Invidious से जुड़ेंगे। एपीआई वरीयता को ओवरराइड करता है।'
+    Proxy Videos Through Invidious: 'YouTube से सीधा संबंध बनाने के बजाय वीडियो परोसने के लिए Invidious से जुड़ेंगे। एपीआई वरीयता को ओवरराइड करता है।'
   External Player Settings:
-    External Player: बाहरी प्लेयर चुनने पर, थंबनेल पर बाहरी प्लेयर में वीडियो खोलने
-      के लिए (प्लेलिस्ट अगर समर्थित है) एक आइकन प्रदर्शित होगा। चेतावनी, द्वेषपूर्ण
-      सेटिंग्स बाहरी खिलाड़ियों को प्रभावित नहीं करती हैं।
-Invidious API Error (Click to copy): 'कपटपूर्ण एपीआई त्रुटि (कॉपी करने के लिए क्लिक
-  करें)'
+    External Player: बाहरी प्लेयर चुनने पर, थंबनेल पर बाहरी प्लेयर में वीडियो खोलने के लिए (प्लेलिस्ट अगर समर्थित है) एक आइकन प्रदर्शित होगा। चेतावनी, द्वेषपूर्ण सेटिंग्स बाहरी खिलाड़ियों को प्रभावित नहीं करती हैं।
+Invidious API Error (Click to copy): 'कपटपूर्ण एपीआई त्रुटि (कॉपी करने के लिए क्लिक करें)'
 Falling back to Invidious API: 'Invidious API पर वापस आना'
 More: अधिक
 New Window: नई विंडो
@@ -207,8 +184,25 @@ Channels:
 Are you sure you want to open this link?: क्या आप वाकई इस लिंक को खोलना चाहते हैं?
 Search Bar:
   Clear Input: इनपुट खाली करें
-Default Invidious instance has been set to {instance}: डिफ़ॉल्ट इनविडियस इंस्टेंस
-  को {instance} पर सेट कर दिया गया है
-Default Invidious instance has been cleared: डिफ़ॉल्ट इनविडियस इंस्टेंस साफ़ कर दिया
-  गया है
+  Remove: हटाए
+Default Invidious instance has been set to {instance}: डिफ़ॉल्ट इनविडियस इंस्टेंस को {instance} पर सेट कर दिया गया है
+Default Invidious instance has been cleared: डिफ़ॉल्ट इनविडियस इंस्टेंस साफ़ कर दिया गया है
 Preferences: प्रेफरन्स
+Search character limit: खोज क्वेरी {searchCharacterLimit} वर्ण सीमा से अधिक है
+Right-click or hold to see history: इतिहास देखने के लिए दायाँ क्लिक करें या दबाए रखें
+Go to page: जाओ
+Close Banner: बैनर बंद करें
+Search Listing:
+  Label:
+    Subtitles: उपशीर्षक
+    Closed Captions: सीमित अनुशीर्षक
+    New: नया
+    4K: 4K
+    8K: 8K
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: डेवलपर टूल टॉगल करें
+  Zoom In: ज़ूम इन
+  Zoom Out: ज़ूम आउट
+  Fullscreen: फ़ुलस्क्रीन टॉगल करें
+Profile:
+  Select All: सबको चुनें

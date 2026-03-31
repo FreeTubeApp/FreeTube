@@ -4,7 +4,7 @@
   >
     <FtListLazyWrapper
       v-for="(result, index) in data"
-      :key="`${dataType || result.type}-${result.videoId || result.playlistId || result.postId || result.id || result._id || result.authorId || result.title}-${index}-${result.lastUpdatedAt || 0}`"
+      :key="`${dataType || result.type}-${result.videoId || result.playlistId || result.postId || result.id || result._id || result.authorId || result.title}-${result.playlistItemId || index}-${result.lastUpdatedAt || 0}`"
       appearance="result"
       :data="result"
       :data-type="dataType || result.type"
@@ -22,9 +22,9 @@
       :playlist-id="playlistId"
       :playlist-type="playlistType"
       :playlist-item-id="result.playlistItemId"
-      @move-video-up="moveVideoUp(result.videoId, result.playlistItemId)"
-      @move-video-down="moveVideoDown(result.videoId, result.playlistItemId)"
-      @remove-from-playlist="removeFromPlaylist(result.videoId, result.playlistItemId)"
+      @move-video-up="moveVideoUp"
+      @move-video-down="moveVideoDown"
+      @remove-from-playlist="removeFromPlaylist"
     />
   </FtAutoGrid>
 </template>

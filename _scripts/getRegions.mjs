@@ -119,6 +119,9 @@ for (const { youTube, freeTube } of languagesToScrape) {
   processGeolocations(freeTube, youTube, response)
 }
 
+/**
+ * @param {string} youTubeLanguageCode
+ */
 async function scrapeLanguage(youTubeLanguageCode) {
   const session = await Innertube.create({
     retrieve_player: false,
@@ -129,7 +132,13 @@ async function scrapeLanguage(youTubeLanguageCode) {
   return await session.actions.execute('/account/account_menu')
 }
 
+/**
+ * @param {string} freeTubeLanguage
+ * @param {string} youTubeLanguage
+ * @param {import('youtubei.js').ApiResponse} response
+ */
 function processGeolocations(freeTubeLanguage, youTubeLanguage, response) {
+  /** @type {{ name: string, code: string }[]} */
   const geolocations = response.data.actions[0].openPopupAction.popup.multiPageMenuRenderer.sections[0].multiPageMenuSectionRenderer.items[4].compactLinkRenderer.serviceEndpoint.signalServiceEndpoint.actions[0].getMultiPageMenuAction.menu.multiPageMenuRenderer.sections[0].multiPageMenuSectionRenderer.items
     .map(({ compactLinkRenderer }) => {
       return {
@@ -158,5 +167,10 @@ function processGeolocations(freeTubeLanguage, youTubeLanguage, response) {
     geolocations.sort((a, b) => collator.compare(a.name, b.name))
   }
 
-  writeFileSync(`${STATIC_DIRECTORY}/geolocations/${freeTubeLanguage}.json`, JSON.stringify(geolocations))
+  const output = {
+    names: geolocations.map(entry => entry.name),
+    codes: geolocations.map(entry => entry.code)
+  }
+
+  writeFileSync(`${STATIC_DIRECTORY}/geolocations/${freeTubeLanguage}.json`, JSON.stringify(output))
 }

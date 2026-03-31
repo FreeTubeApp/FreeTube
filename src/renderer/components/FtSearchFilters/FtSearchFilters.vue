@@ -4,29 +4,28 @@
     @click="hideSearchFilters"
   >
     <template #label="{ labelId }">
-      <h2
-        :id="labelId"
-        class="center"
-      >
-        {{ title }}
-      </h2>
+      <div class="titleContainer">
+        <h2
+          :id="labelId"
+          class="center"
+        >
+          {{ title }}
+        </h2>
+        <button
+          class="clearFilterButton"
+          :title="$t('Search Filters.Clear Filters')"
+          :style="{visibility: (searchFilterValueChanged ? 'visible' : 'hidden')}"
+          @click="clearFilters"
+        >
+          <FontAwesomeIcon
+            class="clearFilterIcon"
+            :icon="['fas', 'filter-circle-xmark']"
+          />
+        </button>
+      </div>
     </template>
 
     <FtFlexBox class="radioFlexBox">
-      <FtRadioButton
-        v-model="sortByValue"
-        :title="$t('Global.Sort By')"
-        :labels="sortByLabels"
-        :values="SORT_BY_VALUES"
-        class="searchRadio"
-      />
-      <FtRadioButton
-        v-model="timeValue"
-        :title="$t('Search Filters.Time.Time')"
-        :labels="timeLabels"
-        :values="TIME_VALUES"
-        class="searchRadio"
-      />
       <FtRadioButton
         v-model="typeValue"
         :title="$t('Search Filters.Type.Type')"
@@ -41,6 +40,13 @@
         :values="DURATION_VALUES"
         class="searchRadio"
       />
+      <FtRadioButton
+        v-model="timeValue"
+        :title="$t('Search Filters.Time.Time')"
+        :labels="timeLabels"
+        :values="TIME_VALUES"
+        class="searchRadio"
+      />
       <FtCheckboxList
         v-model="featuresValue"
         :title="$t('Search Filters.Features.Features')"
@@ -48,12 +54,19 @@
         :values="FEATURE_VALUES"
         class="searchRadio"
       />
+      <FtRadioButton
+        v-model="prioritizeValue"
+        :title="$t('Search Filters.Prioritize.Prioritize')"
+        :labels="prioritizeLabels"
+        :values="PRIORITIZE_VALUES"
+        class="searchRadio"
+      />
     </FtFlexBox>
     <div class="searchFilterCloseButtonContainer">
       <FtButton
         :label="$t('Close')"
-        background-color="var(--primary-color)"
-        text-color="var(--text-with-main-color)"
+        background-color="null"
+        text-color="null"
         @click="hideSearchFilters"
       />
     </div>
@@ -67,23 +80,20 @@ import { useI18n } from '../../composables/use-i18n-polyfill'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtRadioButton from '../FtRadioButton/FtRadioButton.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
-import FtButton from '../ft-button/ft-button.vue'
+import FtButton from '../FtButton/FtButton.vue'
 import FtCheckboxList from '../FtCheckboxList/FtCheckboxList.vue'
 
 import store from '../../store/index'
 
 const { t } = useI18n()
 
-const SORT_BY_VALUES = [
+const PRIORITIZE_VALUES = [
   'relevance',
-  'rating',
-  'upload_date',
-  'view_count'
+  'popularity'
 ]
 
 const TIME_VALUES = [
   '',
-  'hour',
   'today',
   'week',
   'month',
@@ -93,6 +103,7 @@ const TIME_VALUES = [
 const TYPE_VALUES = [
   'all',
   'video',
+  'shorts',
   'channel',
   'playlist',
   'movie'
@@ -100,22 +111,22 @@ const TYPE_VALUES = [
 
 const DURATION_VALUES = [
   '',
-  'short',
-  'medium',
-  'long'
+  'under_three_mins',
+  'three_to_twenty_mins',
+  'over_twenty_mins'
 ]
 
 const FEATURE_VALUES = [
+  'live',
+  '4k',
   'hd',
   'subtitles',
   'creative_commons',
-  '3d',
-  'live',
-  '4k',
   '360',
-  'location',
+  'vr180',
+  '3d',
   'hdr',
-  'vr180'
+  'location',
 ]
 
 const NOT_ALLOWED_FOR_MOVIES_FEATURES = [
@@ -127,16 +138,13 @@ const NOT_ALLOWED_FOR_MOVIES_FEATURES = [
 
 const title = computed(() => t('Search Filters.Search Filters'))
 
-const sortByLabels = computed(() => [
-  t('Search Filters.Sort By.Most Relevant'),
-  t('Search Filters.Sort By.Rating'),
-  t('Search Filters.Sort By.Upload Date'),
-  t('Search Filters.Sort By.View Count')
+const prioritizeLabels = computed(() => [
+  t('Search Filters.Prioritize.Most Relevant'),
+  t('Search Filters.Prioritize.Popularity')
 ])
 
 const timeLabels = computed(() => [
   t('Search Filters.Time.Any Time'),
-  t('Search Filters.Time.Last Hour'),
   t('Search Filters.Time.Today'),
   t('Search Filters.Time.This Week'),
   t('Search Filters.Time.This Month'),
@@ -146,6 +154,7 @@ const timeLabels = computed(() => [
 const typeLabels = computed(() => [
   t('Search Filters.Type.All Types'),
   t('Search Filters.Type.Videos'),
+  t('Global.Shorts'),
   t('Search Filters.Type.Channels'),
   t('Playlists'),
   t('Search Filters.Type.Movies')
@@ -153,34 +162,34 @@ const typeLabels = computed(() => [
 
 const durationLabels = computed(() => [
   t('Search Filters.Duration.All Durations'),
-  t('Search Filters.Duration.Short (< 4 minutes)'),
-  t('Search Filters.Duration.Medium (4 - 20 minutes)'),
-  t('Search Filters.Duration.Long (> 20 minutes)')
+  t('Search Filters.Duration.< 3 minutes'),
+  t('Search Filters.Duration.3 - 20 minutes'),
+  t('Search Filters.Duration.> 20 minutes')
 ])
 
 const featureLabels = computed(() => [
+  t('Search Filters.Features.Live'),
+  t('Search Filters.Features.4K'),
   t('Search Filters.Features.HD'),
   t('Search Filters.Features.Subtitles'),
   t('Search Filters.Features.Creative Commons'),
-  t('Search Filters.Features.3D'),
-  t('Search Filters.Features.Live'),
-  t('Search Filters.Features.4K'),
   t('Search Filters.Features.360 Video'),
-  t('Search Filters.Features.Location'),
+  t('Search Filters.Features.VR180'),
+  t('Search Filters.Features.3D'),
   t('Search Filters.Features.HDR'),
-  t('Search Filters.Features.VR180')
+  t('Search Filters.Features.Location'),
 ])
 
 const searchSettings = store.getters.getSearchSettings
 
-/** @type {import('vue').Ref<'relevance' | 'rating' | 'upload_date' | 'view_count'>} */
-const sortByValue = ref(searchSettings.sortBy)
+/** @type {import('vue').Ref<'relevance' | 'popularity'>} */
+const prioritizeValue = ref(searchSettings.prioritize)
 
-watch(sortByValue, (value) => {
-  store.commit('setSearchSortBy', value)
+watch(prioritizeValue, (value) => {
+  store.commit('setSearchPrioritize', value)
 })
 
-/** @type {import('vue').Ref<'' | 'hour' | 'today' | 'week' | 'month' | 'year'>} */
+/** @type {import('vue').Ref<'' | 'today' | 'week' | 'month' | 'year'>} */
 const timeValue = ref(searchSettings.time)
 
 watch(timeValue, (value) => {
@@ -191,14 +200,15 @@ watch(timeValue, (value) => {
   store.commit('setSearchTime', value)
 })
 
-/** @type {import('vue').Ref<'all' | 'video' | 'channel' | 'playlist' | 'movie'>} */
+/** @type {import('vue').Ref<'all' | 'video' | 'shorts' | 'channel' | 'playlist' | 'movie'>} */
 const typeValue = ref(searchSettings.type)
 
 watch(typeValue, (value) => {
-  if (value === 'channel' || value === 'playlist') {
+  if (value === 'shorts') {
+    durationValue.value = ''
+  } else if (value === 'channel' || value === 'playlist') {
     timeValue.value = ''
     durationValue.value = ''
-    sortByValue.value = SORT_BY_VALUES[0]
     if (featuresValue.value.length > 0) {
       featuresValue.value = []
     }
@@ -211,7 +221,7 @@ watch(typeValue, (value) => {
   store.commit('setSearchType', value)
 })
 
-/** @type {import('vue').Ref<'' | 'short' | 'medium' | 'long'>} */
+/** @type {import('vue').Ref<'' | 'under_three_mins' | 'three_to_twenty_mins' | 'over_twenty_mins'>} */
 const durationValue = ref(searchSettings.duration)
 
 watch(durationValue, (value) => {
@@ -234,7 +244,7 @@ watch(featuresValue, (values) => {
 }, { deep: true })
 
 const searchFilterValueChanged = computed(() => {
-  return sortByValue.value !== SORT_BY_VALUES[0] ||
+  return prioritizeValue.value !== PRIORITIZE_VALUES[0] ||
     timeValue.value !== TIME_VALUES[0] ||
     typeValue.value !== TYPE_VALUES[0] ||
     durationValue.value !== DURATION_VALUES[0] ||
@@ -255,6 +265,15 @@ function hideSearchFilters() {
 function isVideoOrMovieOrAll(type) {
   return type === 'video' || type === 'movie' || type === 'all'
 }
+
+function clearFilters() {
+  prioritizeValue.value = PRIORITIZE_VALUES[0]
+  timeValue.value = TIME_VALUES[0]
+  typeValue.value = TYPE_VALUES[0]
+  durationValue.value = DURATION_VALUES[0]
+  featuresValue.value = []
+}
+
 </script>
 
 <style scoped src="./FtSearchFilters.css" />

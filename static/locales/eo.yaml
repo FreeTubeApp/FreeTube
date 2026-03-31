@@ -1,6 +1,6 @@
 # Put the name of your locale in the same language
 Locale Name: 'Esperanto'
-# Currently on Subscriptions, Playlists, and History
+
 File: 'Dosiero'
 Quit: 'Eliri'
 Edit: 'Redakti'
@@ -21,25 +21,33 @@ Back: 'Reen'
 Forward: 'Antaŭen'
 
 Global:
-  Community: Komunumo
   Sort By: 'Ordigi laŭ'
 
-Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber}
-  disponeblas nun!  Alklaki por pli informoj.'
+  Videos: Videaĵoj
+  Shorts: Videaĵetoj
+  Live: Tujelsendoj
+  Posts: Afiŝoj
+  Counts:
+    Video Count: 1 videaĵo | {count} videaĵoj
+    Channel Count: 1 kanalo | {count} kanaloj
+    Subscriber Count: 1 abonanto | {count} abonantoj
+    View Count: 1 rigardo | {count} rigardoj
+    Like Count: 1 ŝato | {count} ŝatoj
+    Comment Count: 1 komento | {count} komentoj
+    Watching Count: 1 spektanto | {count} spektantoj
+Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber} disponeblas nun!  Alklaku por pli da informoj'
 Download From Site: 'Elŝuti el retejo'
 Search / Go to URL: 'Serĉi / Iri al URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Serĉaj filtriloj'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Plej rilataj'
-    Rating: 'Takso'
-    Upload Date: 'Alŝuta dato'
-    View Count: 'Spektonombro'
+    Prioritize: Prioritatigi
+    Popularity: Populareco
   Time:
     Time: 'Tempo'
     Any Time: 'Ajna tempo'
-    Last Hour: 'Lasta horo'
     Today: 'Hodiaŭ'
     This Week: 'Ĉi-semajne'
     This Month: 'Ĉi-monate'
@@ -50,68 +58,291 @@ Search Filters:
     Videos: 'Videaĵoj'
     Channels: 'Kanaloj'
     #& Playlists
+    Movies: Filmoj
   Duration:
     Duration: 'Daŭrtempo'
     All Durations: 'Ĉiuj daŭrtempoj'
-    Short (< 4 minutes): 'Mallongaj (<4 minutoj)'
-    Long (> 20 minutes): 'Longaj (> 20 minutoj)'
+    '< 3 minutes': '< 3 minutoj'
+    '> 20 minutes': '> 20 minutoj'
   # On Search Page
+    '3 - 20 minutes': 3 - 20 minutoj
+  Features:
+    Features: Trajtoj
+    HD: HD
+    Subtitles: Subtekstoj
+    Creative Commons: Krea Komunaĵo
+    3D: 3D
+    Live: Tujelsendo
+    4K: 4K
+    360 Video: 360°-a videaĵo
+    Location: Loko
+    HDR: HDR
+    VR180: VR180
+  Search Results: Serĉorezultoj
+  Fetching results. Please wait: Venigado de rezultoj. Bonvolu atendi
+  Fetch more results: Venigi pli da rezultoj
+  There are no more results for this search: Ne estas pli da rezultoj por tiu ĉi serĉo
+  Clear Filters: Viŝi filtrilojn
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonoj'
   Load More Videos: Ŝargi pli videaĵojn
+  Error Channels: Kanaloj kun eraroj
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Tiu ĉi profilo havas multajn abonojn. Perforte uzante RSS por eviti blokojn pro eksceso da petoj
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Via abonlisto nuntempe malplenas. Se vi volas enporti viajn abonojn, vi povas iri al la datumaj agordoj kaj elekti Enporti abonojn, aŭ vi povas serĉi kanalon kaj aboni ĝin.
+  Disabled Automatic Fetching: Vi malŝaltis aŭtomatan venigadon de abonoj. Aktualigu la abonojn por vidi ilin ĉi tie.
+  Empty Channels: Viaj abonitaj kanaloj nuntempe havas neniun filmeton.
+  Empty Posts: Viaj abonitaj kanaloj nuntempe havas neniun afiŝon.
+  Load More Posts: Ŝargi pli da afiŝoj
+  Subscriptions Tabs: Abonaj langetoj
+  All Subscription Tabs Hidden: Ĉiuj abonaj langetoj estas kaŝitaj. Por vidi enhavon ĉi tie, bonvolu malkaŝi kelkajn langetojn en la sekcio "{subsection}" en "{settingsSection}".
 Trending:
-  Trending: 'Popularaj'
+  Trending: 'Tendencoj'
   Gaming: Ludismo
-  Movies: Filmoj
-  Music: Muziko
-  Default: Defaŭlte
+  Sports: Sportoj
+  Trending Tabs: Tendencaj langetoj
 Most Popular: 'Plej popularaj'
 Playlists: 'Ludlistoj'
 User Playlists:
   Your Playlists: 'Viaj ludlistoj'
+  You have no playlists. Click on the create new playlist button to create a new one.: Vi havas neniun ludliston. Alklaku la butonon de Krei novan ludliston por krei unu.
+  Empty Search Message: Estas neniu videaĵo en tiu ĉi ludlisto kiu kongruas kun via serĉo
+  Search bar placeholder: Serĉi ludlistojn
+  Playlists with Matching Videos: Ludlistoj kun kongruaj videaĵoj
+  This playlist currently has no videos.: Tiu ĉi ludlisto nuntempe havas neniun filmeton.
+  Create New Playlist: Krei novan ludliston
+  Add to Playlist: Aldoni al ludlisto
+  Add to Favorites: Aldoni al {playlistName}
+  Remove from Favorites: Forigi el {playlistName}
+  Move Video Up: Movi videaĵon supren
+  Move Video Down: Movi videaĵon malsupren
+  Remove from Playlist: Forigi el ludlisto
+  Playlist Name: Nomo de ludlisto
+  Playlist Description: Priskribo de ludlisto
+  Save Changes: Konservi ŝanĝojn
+  Cancel: Nuligi
+  Edit Playlist Info: Redakti ludlistajn informojn
+  Copy Playlist: Kopii ludliston
+  Remove Duplicate Videos: Forigi ripetitajn videaĵojn
+  Remove Watched Videos: Forigi spektitajn videaĵojn
+  Enable Quick Bookmark With This Playlist: Ebligi rapidajn legosignojn kun tiu ĉi ludlisto
+  Quick Bookmark Enabled: Rapida legosigno ŝaltita
+  Export Playlist: Elporti tiun ĉi ludliston
+  Export list of URLs: Elporti liston de URL-oj
+  The playlist has been successfully exported: La ludlisto estis sukcese elportita
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Ĉu vi certas, ke vi volas forigi 1 ripetitan videaĵon el tiu ĉi ludlisto? Tio ĉi ne malfareblas. | Ĉu vi certas, ke vi volas forigi {playlistItemCount} ripetitajn videaĵojn el tiu ĉi ludlisto? Tio ĉi ne malfareblas.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Ĉu vi certas, ke vi volas forigi 1 spektitan videaĵon el tiu ĉi ludlisto? Tio ĉi ne malfareblas. | Ĉu vi certas, ke vi volas forigi {playlistItemCount} spektitajn videaĵojn el tiu ĉi ludlisto? Tio ĉi ne malfareblas.
+  Delete Playlist: Forigi ludliston
+  Cannot delete the quick bookmark target playlist.: Ne eblas forigi la ciblan rapidan legosignan ludliston.
+  Are you sure you want to delete this playlist? This cannot be undone: Ĉu vi certas, ke vi volas forigi tiun ĉi ludliston? Tio ĉi ne malfareblas.
+  TotalTimePlaylist: 'Tuta daŭro: {duration}'
+  Sort By:
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestCreatedFirst: Dato de kreo (plej nova)
+    EarliestCreatedFirst: Dato de kreo (plej malnova)
+    LatestUpdatedFirst: Dato de ĝisdatigo (plej nova)
+    EarliestUpdatedFirst: Dato de ĝisdatigo (plej malnova)
+    LatestPlayedFirst: Dato de ludo (plej nova)
+    EarliestPlayedFirst: Dato de ludo (plej malnova)
+  SinglePlaylistView:
+    Search for Videos: Serĉi videaĵojn
+    Toast:
+      This video cannot be moved up.: Ne eblas movi tiun ĉi videaĵon supren.
+      This video cannot be moved down.: Ne eblas movi tiun ĉi videaĵon malsupren.
+      Video has been removed: La videaĵo estis forigita
+      Video has been removed. Click here to undo.: La videaĵo estis forigita. Alklaku ĉi tie por malfari.
+      There was a problem with removing this video: Estis problemo dum la forigado de tiu ĉi videaĵo
+      This playlist is already being used for quick bookmark.: Tiu ĉi ludlisto jam estas uzata por rapida legosigno.
+      This playlist is now used for quick bookmark: Tiu ĉi ludlisto nun estas uzata por rapida legosigno
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Tiu ĉi ludlisto nun estas uzata por rapida legosigno anstataŭ {oldPlaylistName}. Alklaku ĉi tie por malfari
+      Reverted to use {oldPlaylistName} for quick bookmark: Revenis al {oldPlaylistName} por rapida legosigno
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Kelkaj videaĵoj en la ludlisto ankoraŭ ne estas ŝargitaj. Alklaku ĉi tie por kopii malgraŭe.
+      Playlist name cannot be empty. Please input a name.: Nomo de ludlisto de povas malpleni. Bonvolu enigi nomon.
+      Playlist has been updated.: La ludlisto estis ĝisdatigita.
+      There was an issue with updating this playlist.: Estis problemo dum la ĝisdatigado de tiu ĉi ludlisto.
+      "{videoCount} video(s) have been removed": 1 videaĵo estis forigita | {videoCount} videaĵoj estis forigitaj
+      There were no videos to remove.: Estis neniu videaĵo por forigi.
+      This playlist is protected and cannot be removed.: Tiu ĉi ludlisto estas protektita kaj ne forigeblas.
+      Playlist {playlistName} has been deleted.: La ludlisto {playlistName} estis forigita.
+      This playlist does not exist: Tiu ĉi ludlisto ne ekzistas
+      This playlist has a video with a duration error: Tiu ĉi ludlisto enhavas almenaŭ unu videaĵon sen daŭro. Ĝi estos ordigita kvazaŭ iliaj daŭroj estas nulo.
+  AddVideoPrompt:
+    Select a playlist to add your N videos to: Elektu ludliston al kiu aldoni vian videaĵon | Elektu ludliston al kiu aldoni viajn {videoCount} videaĵojn
+    N playlists selected: '{playlistCount} elektitaj'
+    Search in Playlists: Serĉi en ludlistoj
+    Allow Adding Duplicate Video(s): Permesi aldoni ripetitajn videaĵojn
+    Save: Konservi
+    Added {count} Times: Jam aldonita | Aldonita {count} fojojn
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videaĵoj estos aldonitaj'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videaĵoj jam aldonitaj'
+    Toast:
+      You haven't selected any playlist yet.: Vi ankoraŭ ne elektis iun ajn ludliston.
+      "Video(s) added to {playlistCount} playlists": Videaĵo(j) aldonita(j) al 1 ludlisto | Videaĵo(j) aldonita(j) al {playlistCount} ludlistoj
+  CreatePlaylistPrompt:
+    New Playlist Name: Nomo de nova ludlisto
+    Create: Krei
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: Jam estas ludlisto kun tiu ĉi nomo. Bonvolu elekti alian nomon.
+      Playlist {playlistName} has been successfully created.: La ludlisto {playlistName} estis sukcese kreita.
+      There was an issue with creating the playlist.: Estis problemo dum la kreado de la ludlisto.
 History:
   # On History Page
   History: 'Historio'
   Watch History: 'Spekthistorio'
   Your history list is currently empty.: 'Via historia listo nune malplenas.'
+  Empty Search Message: Neniu videaĵo en via historio kongruas kun via serĉo
+  Search bar placeholder: Serĉi en historio
+  Case Sensitive Search: Usklecodistinga serĉo
+  DateOldestHistory: Dato de spekto (plej malnova)
+  DateNewestHistory: Dato de spekto (plej nova)
 Settings:
   # On Settings Page
   Settings: 'Agordoj'
   General Settings:
-    General Settings: 'Ĝeneralaj agordoj'
-    Check for Updates: 'Kontroli por ĝisdatigi'
-    Enable Search Suggestions: 'Ŝalti serĉproponoj'
+    General Settings: 'Ĝenerala'
+    Check for Updates: 'Kontroli ĝisdatigojn'
+    Enable Search Suggestions: 'Ŝalti serĉproponojn'
     Video View Type:
       Grid: 'Krado'
       List: 'Listo'
+      Video View Type: Aranĝo de videaĵoj
     Thumbnail Preference:
       Thumbnail Preference: 'Bildeta agordo'
       Default: 'Defaŭlta'
       Beginning: 'Komenco'
       Middle: 'Mezo'
       End: 'Fino'
+      Hidden: Kaŝita
+      Blur: Nebula
     System Default: Operaciuma defaŭlto
+    Fallback to Non-Preferred Backend on Failure: Retropaŝi al malpreferita interna API post malsukceso
+    Open Deep Links In New Window: Malfermi URL-ojn donitajn al FreeTube en nova fenestro
+    Minimize to system tray: Minimumigi al la taskopleto
+    Auto Load Next Page:
+      Label: Aŭtomate ŝargi sekvan paĝon
+      Tooltip: Aŭtomate ŝargi pliajn paĝojn kaj komentojn.
+    Default Landing Page: Defaŭlta eka paĝo
+    Locale Preference: Lokaĵaro
+    Preferred API Backend:
+      Preferred API Backend: Preferita interna API
+      Local API: Loka API
+      Invidious API: API de Invidious
+    Current Invidious Instance: Aktuala Invidious-servilo
+    The currently set default instance is {instance}: La aktuala defaŭlta servilo estas {instance}
+    No default instance has been set: Neniu defaŭlta servilo difinita
+    Current instance will be randomized on startup: La aktuala servilo estos hazardigita je startigo
+    Set Current Instance as Default: Difini aktualan servilon kiel defaŭlta
+    Clear Default Instance: Viŝi defaŭltan servilon
+    View all Invidious instance information: Vidi informojn de ĉiuj Invidious-serviloj
+    Region for Trending: Regiono por tendencoj
+    External Link Handling:
+      External Link Handling: Traktado de eksteraj ligiloj
+      Open Link: Malfermi ligilon
+      Ask Before Opening Link: Demandi antaŭ ol malfermi ligilon
+      No Action: Nenion fari
   Theme Settings:
     Base Theme:
       Dark: 'Malluma'
       Light: 'Luma'
+      Base Theme: Baza etoso
+      Black: Nigro
+      System Default: Operaciuma defaŭlto
+      Dracula: Dracula
+      Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Latte: Catppuccin Latte
+      Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Paŝtela rozkoloro
+      Hot Pink: Forta rozkoloro
+      Nordic: Nordic
+      Gruvbox Dark: Gruvbox malluma
+      Gruvbox Light: Gruvbox luma
+      Solarized Dark: Solarized malluma
+      Solarized Light: Solarized luma
+      Everforest Dark Hard: Everforest malluma forta
+      Everforest Dark Medium: Everforest malluma meza
+      Everforest Dark Low: Everforest malluma malforta
+      Everforest Light Hard: Everforest luma forta
+      Everforest Light Medium: Everforest luma meza
+      Everforest Light Low: Everforest luma malforta
+    Theme Settings: Etoso
+    Match Top Bar with Main Color: Igi suprobreton kongrui kun ĉefa koloro
+    Expand Side Bar by Default: Defaŭlte pligrandigi flankobreton
+    Disable Smooth Scrolling: Malŝalti glatan rulumon
+    UI Scale: Interfaca skalo
+    Hide Side Bar Labels: Kaŝi flankobretajn etikedojn
+    Hide FreeTube Header Logo: Kaŝi FreeTube-emblemon en kapo
+    Main Color Theme:
+      Main Color Theme: Ĉefa koloro
+      Red: Ruĝo
+      Pink: Rozkoloro
+      Purple: Purpuro
+      Deep Purple: Malhela purpuro
+      Indigo: Indigo
+      Blue: Bluo
+      Light Blue: Hela bluo
+      Cyan: Ciankoloro
+      Teal: Blua verdo
+      Green: Verdo
+      Light Green: Hela verdo
+      Lime: Limeo
+      Yellow: Flavo
+      Amber: Sukceno
+      Orange: Oranĝkoloro
+      Deep Orange: Malhela oranĝkoloro
   Player Settings: {}
+  Sort Settings Sections (A-Z): Ordigi agordosekciojn (A-Z)
+  Return to Settings Menu: Reveni al agordomenuo
+  The app needs to restart for changes to take effect. Restart and apply change?: Necesas restartigi la aplikaĵon por ke ŝanĝoj estu aplikitaj. Ĉu restarti kaj apliki ŝanĝojn?
 About:
   #On About page
-  Blog: Blogo
   Website: Retejo
   Email: Retpoŝto
 Channel:
   About:
     Details: Detaloj
+  Videos:
+    Videos: Videaĵoj
 Video: {}
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon
+  Remove: Forigi
 Are you sure you want to open this link?: Ĉu vi certe volas malfermi ĉi-ligilon?
 Open New Window: Malfermi novan fenestron
-Reload: Reŝarĝi
-Preferences: Agordoj
+Preferences: Preferoj
 New Window: Nova Fenestro
 Go to page: Iri al {page}
+Actual size: Reala grando
+Profile:
+  Select All: Elekti ĉiujn
+KeyboardShortcutPrompt:
+  Zoom In: Zomi
+  Zoom Out: Malzomi
+  Fullscreen: Baskuli tutekranon
+Toggle Developer Tools: Baskuli ilojn por programistoj
+Compact side navigation: Kompakta flankonavigo
+Expand side navigation: Pligrandigi flankonavigon
+Right-click or hold to see history: Dekstra aŭ longa alklako por vidi historion
+Close Banner: Fermi rubandon
+Search character limit: La informpeto superas la limon de {searchCharacterLimit} signoj
+Search Listing:
+  Label:
+    4K: 4K
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    Subtitles: Subtekstoj
+    New: Nova
+    3D: 3D
+    Closed Captions: Fermita apudskribo
+Channels:
+  Channels: Kanaloj
+  Title: Kanalolisto
+  Search bar placeholder: Serĉi kanalojn
+  Count: '{number} kanalo(j) trovitaj.'
+  Empty: Via kanalolisto nuntempe malplenas.
+  Unsubscribe Prompt: Ĉu vi certas, ke vi volas malaboni "{channelName}"?
+Feed:
+  Feed Last Updated: 'Abonfluo {feedName} laste ĝisdatigita: {date}'
+  Refresh Feed: Aktualigi {subscriptionName}

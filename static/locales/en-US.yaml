@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: English (US)
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  This part of the app is not ready yet. Come back later when progress has been made.
 
 # Webkit Menu Bar
 File: File
@@ -17,8 +14,6 @@ Copy: Copy
 Paste: Paste
 Delete: Delete
 Select all: Select all
-Reload: Reload
-Force Reload: Force Reload
 Toggle Developer Tools: Toggle Developer Tools
 Actual size: Actual size
 Zoom in: Zoom in
@@ -27,6 +22,8 @@ Toggle fullscreen: Toggle fullscreen
 Window: Window
 Minimize: Minimize
 Close: Close
+Compact side navigation: Compact side navigation
+Expand side navigation: Expand side navigation
 Back: Back
 Forward: Forward
 Right-click or hold to see history: Right-click or hold to see history
@@ -37,7 +34,6 @@ Close Banner: Close Banner
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
   for more details
 Download From Site: Download From Site
-A new blog is now available, {blogTitle}. Click to view more: A new blog is now available, {blogTitle}.
   Click to view more
 Are you sure you want to open this link?: Are you sure you want to open this link?
 
@@ -47,7 +43,7 @@ Global:
   Videos: Videos
   Shorts: Shorts
   Live: Live
-  Community: Community
+  Posts: Posts
   Sort By: Sort By
   Counts:
     Video Count: 1 video | {count} videos
@@ -78,15 +74,13 @@ Search Listing:
   # In Filter Button
 Search Filters:
   Search Filters: Search Filters
-  Sort By:
+  Prioritize:
+    Prioritize: Prioritize
     Most Relevant: Most Relevant
-    Rating: Rating
-    Upload Date: Upload Date
-    View Count: View Count
+    Popularity: Popularity
   Time:
     Time: Time
     Any Time: Any Time
-    Last Hour: Last Hour
     Today: Today
     This Week: This Week
     This Month: This Month
@@ -101,9 +95,9 @@ Search Filters:
   Duration:
     Duration: Duration
     All Durations: All Durations
-    Short (< 4 minutes): Short (< 4 minutes)
-    Medium (4 - 20 minutes): Medium (4 - 20 minutes)
-    Long (> 20 minutes): Long (> 20 minutes)
+    '< 3 minutes': < 3 minutes
+    '3 - 20 minutes': 3 - 20 minutes
+    '> 20 minutes': '> 20 minutes'
   Features:
     Features: Features
     HD: HD
@@ -121,6 +115,7 @@ Search Filters:
   Fetching results. Please wait: Fetching results. Please wait
   Fetch more results: Fetch more results
   There are no more results for this search: There are no more results for this search
+  Clear Filters: Clear Filters
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
@@ -147,10 +142,8 @@ Channels:
   Unsubscribe Prompt: Are you sure you want to unsubscribe from "{channelName}"?
 Trending:
   Trending: Trending
-  Default: Default
-  Music: Music
   Gaming: Gaming
-  Movies: Movies
+  Sports: Sports
   Trending Tabs: Trending Tabs
 Most Popular: Most Popular
 Feed:
@@ -188,6 +181,7 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Enable Quick Bookmark With This Playlist
   Quick Bookmark Enabled: Quick Bookmark Enabled
   Export Playlist: Export This Playlist
+  Export list of URLs: Export list of URLs
   The playlist has been successfully exported: The playlist has been successfully exported
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Are you sure you want to remove 1 duplicate video from this playlist? This cannot be undone. | Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Are you sure you want to remove 1 watched video from this playlist? This cannot be undone. | Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone.
@@ -195,18 +189,20 @@ User Playlists:
   Cannot delete the quick bookmark target playlist.: Cannot delete the quick bookmark target playlist.
   Are you sure you want to delete this playlist? This cannot be undone: Are you sure you want to delete this playlist? This cannot be undone.
 
+  TotalTimePlaylist: "Total time: {duration}"
+
   Sort By:
     NameAscending: 'A-Z'
     NameDescending: 'Z-A'
 
-    LatestCreatedFirst: 'Recently Created'
-    EarliestCreatedFirst: 'Earliest Created'
+    LatestCreatedFirst: 'Date Created (Newest)'
+    EarliestCreatedFirst: 'Date Created (Oldest)'
 
-    LatestUpdatedFirst: 'Recently Updated'
-    EarliestUpdatedFirst: 'Earliest Updated'
+    LatestUpdatedFirst: 'Date Updated (Newest)'
+    EarliestUpdatedFirst: 'Date Updated (Oldest)'
 
-    LatestPlayedFirst: 'Recently Played'
-    EarliestPlayedFirst: 'Earliest Played'
+    LatestPlayedFirst: 'Date Played (Newest)'
+    EarliestPlayedFirst: 'Date Played (Oldest)'
   SinglePlaylistView:
     Search for Videos: Search for Videos
 
@@ -247,8 +243,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: You haven't selected any playlist yet.
-      "{videoCount} video(s) added to 1 playlist": "1 video added to 1 playlist | {videoCount} videos added to 1 playlist"
-      "{videoCount} video(s) added to {playlistCount} playlists": "1 video added to {playlistCount} playlists | {videoCount} videos added to  {playlistCount} playlists"
+      "Video(s) added to {playlistCount} playlists": "Video(s) added to 1 playlist | Video(s) added to {playlistCount} playlists"
   CreatePlaylistPrompt:
     New Playlist Name: New Playlist Name
     Create: Create
@@ -265,6 +260,8 @@ History:
   Empty Search Message: There are no videos in your history that match your search
   Search bar placeholder: "Search in History"
   Case Sensitive Search: Case Sensitive Search
+  DateOldestHistory: Date Watched (Oldest)
+  DateNewestHistory: Date Watched (Newest)
 Settings:
   # On Settings Page
   Settings: Settings
@@ -275,11 +272,11 @@ Settings:
   General Settings:
     General Settings: General
     Check for Updates: Check for Updates
-    Check for Latest Blog Posts: Check for Latest Blog Posts
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
     Open Deep Links In New Window: Open URLs Passed to FreeTube in a New Window
+    Minimize to system tray: Minimize to system tray
     Auto Load Next Page:
       Label: Auto Load Next Page
       Tooltip: Load additional pages and comments automatically.
@@ -332,6 +329,7 @@ Settings:
       Light: Light
       Dracula: Dracula
       Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Latte: Catppuccin Latte
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Pink
       Hot Pink: Hot Pink
@@ -340,6 +338,12 @@ Settings:
       Gruvbox Light: Gruvbox Light
       Solarized Dark: Solarized Dark
       Solarized Light: Solarized Light
+      Everforest Dark Hard: Everforest Dark Hard
+      Everforest Dark Medium: Everforest Dark Medium
+      Everforest Dark Low: Everforest Dark Low
+      Everforest Light Hard: Everforest Light Hard
+      Everforest Light Medium: Everforest Light Medium
+      Everforest Light Low: Everforest Light Low
     Main Color Theme:
       Main Color Theme: Main Color Theme
       Red: Red
@@ -379,6 +383,8 @@ Settings:
       Catppuccin Frappe Sapphire: Catppuccin Frappe Sapphire
       Catppuccin Frappe Blue: Catppuccin Frappe Blue
       Catppuccin Frappe Lavender: Catppuccin Frappe Lavender
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Red
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
       Catppuccin Mocha Pink: Catppuccin Mocha Pink
@@ -411,6 +417,20 @@ Settings:
       Solarized Blue: Solarized Blue
       Solarized Cyan: Solarized Cyan
       Solarized Green: Solarized Green
+      Everforest Dark Red: Everforest Dark Red
+      Everforest Dark Orange: Everforest Dark Orange
+      Everforest Dark Yellow: Everforest Dark Yellow
+      Everforest Dark Green: Everforest Dark Green
+      Everforest Dark Aqua: Everforest Dark Aqua
+      Everforest Dark Blue: Everforest Dark Blue
+      Everforest Dark Purple: Everforest Dark Purple
+      Everforest Light Red: Everforest Light Red
+      Everforest Light Orange: Everforest Light Orange
+      Everforest Light Yellow: Everforest Light Yellow
+      Everforest Light Green: Everforest Light Green
+      Everforest Light Aqua: Everforest Light Aqua
+      Everforest Light Blue: Everforest Light Blue
+      Everforest Light Purple: Everforest Light Purple
     Secondary Color Theme: Secondary Color Theme
         #* Main Color Theme
   Player Settings:
@@ -484,6 +504,13 @@ Settings:
     Remember History: Remember Watch History
     Remember Search History: Remember Search History
     Save Watched Progress: Save Watched Progress
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Auto
+        Semi-auto: Semi-auto
+        Never: Never
+      Tooltip:
+        Auto = Save on every video page exit, when video ended and error encountered (e.g. ratelimited and watch session expired). Semi-auto = Like Auto except on video page exit and can save progress manually via a button called Save Watched Progress, located beneath the video player.
     Save Watched Videos With Last Viewed Playlist: Save Watched Videos With Last Viewed Playlist
     Clear Search History and Cache: Clear Search History and Cache
     Are you sure you want to clear out your search history and cache?: Are you sure you want to
@@ -502,7 +529,6 @@ Settings:
     Are you sure you want to remove all your playlists?: Are you sure you want to remove all your playlists?
   Subscription Settings:
     Subscription Settings: Subscription
-    Hide Videos on Watch: Hide Videos on Watch
     Fetch Feeds from RSS: Fetch Feeds from RSS
     Fetch Automatically: Fetch Feed Automatically
     'Limit the number of videos displayed for each channel': 'Limit the number of videos displayed for each channel'
@@ -533,6 +559,7 @@ Settings:
     Hide Live Streams: Hide Live Streams
     Hide Upcoming Premieres: Hide Upcoming Premieres
     Hide Sharing Actions: Hide Sharing Actions
+    Hide Videos on Watch: Hide Videos on Watch
     Hide Chapters: Hide Chapters
     Hide Channels: Hide Videos From Channels
     Hide Channels Disabled Message: Some channels were blocked using ID and weren't processed. Feature is blocked while those IDs are updating
@@ -542,17 +569,18 @@ Settings:
     Hide Channels Already Exists: Channel ID already exists
     Hide Featured Channels: Hide Featured Channels
     Hide Channel Playlists: Hide Channel "Playlists" Tab
-    Hide Channel Community: Hide Channel "Community" Tab
+    Hide Channel Posts: Hide Channel "Posts" Tab
     Hide Channel Home: Hide Channel "Home" Tab
     Hide Channel Shorts: Hide Channel "Shorts" Tab
     Hide Channel Podcasts: Hide Channel "Podcasts" Tab
     Hide Channel Releases: Hide Channel "Releases" Tab
-    Hide Videos and Playlists Containing Text: Hide Videos and Playlists Containing Text
-    Hide Videos and Playlists Containing Text Placeholder: Word, Word Fragment, or Phrase
+    Hide Channel Courses: Hide Channel "Courses" Tab
+    Hide Videos, Playlists and Channels Containing Text: Hide Videos, Playlists and Channels Containing Text
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Word, Word Fragment, or Phrase
     Hide Subscriptions Videos: Hide Subscriptions Videos
     Hide Subscriptions Shorts: Hide Subscriptions Shorts
     Hide Subscriptions Live: Hide Subscriptions Live
-    Hide Subscriptions Community: Hide Subscriptions Community
+    Hide Subscriptions Posts: Hide Subscriptions Posts
     Show Added Items: Show Added Items
   Data Settings:
     Data Settings: Data
@@ -561,6 +589,7 @@ Settings:
     Subscription File: Subscription File
     History File: History File
     Playlist File: Playlist File
+    Search history file: Search history file
     Export Subscriptions: Export Subscriptions
     Export FreeTube: Export FreeTube
     Export YouTube: Export YouTube
@@ -569,15 +598,9 @@ Settings:
     Export History: Export History
     Import Playlists: Import Playlists
     Export Playlists: Export Playlists
-    Export Playlists For Older FreeTube Versions:
-      Label: Export Playlists For Older FreeTube Versions
-      # |- = Keep newlines, No newline at end
-      Tooltip: |-
-        This option exports videos from all playlists into one playlist named 'Favorites'.
-        How to export & import videos in playlists for an older version of FreeTube:
-        1. Export your playlists with this option enabled.
-        2. Delete all of your existing playlists using the Remove All Playlists option under Privacy Settings.
-        3. Launch the older version of FreeTube and import the exported playlists."
+    Search history: Search history
+    Import search history: Import search history
+    Export search history: Export search history
     Profile object has insufficient data, skipping item: Profile object has insufficient
       data, skipping item
     All subscriptions and profiles have been successfully imported: All subscriptions
@@ -599,6 +622,10 @@ Settings:
       successfully imported
     All playlists has been successfully exported: All playlists has been
       successfully exported
+    All search history has been successfully imported: All search history has been
+      successfully imported
+    All search history has been successfully exported: All search history has been
+      successfully exported
     Unable to read file: Unable to read file
     Unable to write file: Unable to write file
     Unknown data key: Unknown data key
@@ -611,6 +638,8 @@ Settings:
     Proxy Protocol: Proxy Protocol
     Proxy Host: Proxy Host
     Proxy Port Number: Proxy Port Number
+    Proxy Username: Proxy Username
+    Proxy Password: Proxy Password
     Clicking on Test Proxy will send a request to: Clicking on Test Proxy will send a request to
     Test Proxy: Test Proxy
     Your Info: Your Info
@@ -637,15 +666,9 @@ Settings:
   Parental Control Settings:
     Parental Control Settings: Parental Control
     Hide Unsubscribe Button: Hide Unsubscribe Button
+    Hide Uploader on Watch page: Hide Uploader on Watch page
     Show Family Friendly Only: Show Family Friendly Only
     Hide Search Bar: Hide Search Bar
-  Download Settings:
-    Download Settings: Download
-    Ask Download Path: Ask for download path
-    Choose Path: Choose Path
-    Download Behavior: Download Behavior
-    Download in app: Download in app
-    Open in web browser: Open in web browser
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
@@ -663,10 +686,10 @@ About:
   About: About
   Beta: Beta
   Source code: Source code
-  Licensed under the: Licensed under the
+  Licensed under the {licenseLink}: Licensed under the {licenseLink}
   AGPLv3: AGPLv3
   Downloads / Changelog: Downloads / Changelog
-  GitHub releases: GitHub releases
+  GitHub releases: GitHub Releases
   Help: Help
   FreeTube Wiki: FreeTube Wiki
   FAQ: FAQ
@@ -675,15 +698,14 @@ About:
   GitHub issues: GitHub issues
   Please check for duplicates before posting: Please check for duplicates before posting
   Website: Website
-  Blog: Blog
   Email: Email
   Mastodon: Mastodon
   Chat on Matrix: Chat on Matrix
-  Please read the: Please read the
+  Please read the {roomRulesLink}: Please read the {roomRulesLink}
   room rules: room rules
   Translate: Translate
   Credits: Credits
-  FreeTube is made possible by: FreeTube is made possible by
+  FreeTube is made possible by {creditsPageLink}: FreeTube is made possible by {creditsPageLink}
   these people and projects: these people and projects
   Donate: Donate
 
@@ -780,6 +802,9 @@ Channel:
   Releases:
     Releases: Releases
     This channel does not currently have any releases: This channel does not currently have any releases
+  Courses:
+    Courses: Courses
+    This channel does not currently have any courses: This channel does not currently have any courses
   About:
     About: About
     Channel Description: Channel Description
@@ -790,14 +815,13 @@ Channel:
     Joined: Joined
     Location: Location
     Featured Channels: Featured Channels
-  Community:
+  Posts:
     This channel currently does not have any posts: This channel currently does not have any posts
     votes: '{votes} votes'
     View Full Post: View Full Post
     Reveal Answers: Reveal Answers
     Hide Answers: Hide Answers
     Video hidden by FreeTube: Video hidden by FreeTube
-    Viewing Posts Only Supported By Invidious: Viewing Posts is only supported by Invidious. Head to a channel's community tab to view content there without Invidious.
 Video:
   IP block: 'YouTube has blocked your IP address from watching videos. Please try switching to a different VPN or proxy.'
   MembersOnly: Members-only videos cannot be watched with FreeTube as they require Google login and paid membership to the uploader's channel.
@@ -808,6 +832,8 @@ Video:
   Remove From History: Remove From History
   Video has been marked as watched: Video has been marked as watched
   Video has been removed from your history: Video has been removed from your history
+  Save Watched Progress: Save Watched Progress
+  Watched Progress Saved: Watched Progress Saved
   Save Video: Save Video
   Video has been saved: Video has been saved
   Video has been removed from your saved list: Video has been removed from your saved list
@@ -827,8 +853,8 @@ Video:
   Loop Playlist: Loop Playlist
   Shuffle Playlist: Shuffle Playlist
   Reverse Playlist: Reverse Playlist
-  Play Next Video: Play Next Video
-  Play Previous Video: Play Previous Video
+  Previous: Previous
+  Next: Next
   Watched: Watched
   Autoplay: Autoplay
   Starting soon, please refresh the page to check again: Starting soon, please refresh
@@ -841,6 +867,7 @@ Video:
   Live Now: Live Now
   Live Chat: Live Chat
   Enable Live Chat: Enable Live Chat
+  Popout Live Chat: Popout Chat
   Live Chat is currently not supported in this build.: Live Chat is currently not
     supported in this build.
   Live chat is enabled. Chat messages will appear here once sent.: Live chat is enabled.  Chat
@@ -851,9 +878,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': 'Live Chat is unavailable for this stream. It may have been disabled by the uploader.'
   Show Super Chat Comment: Show Super Chat Comment
   Scroll to Bottom: Scroll to Bottom
-  Download Video: Download Video
-  video only: video only
-  audio only: audio only
   Published:
     In less than a minute: In less than a minute
   Published on: Published on
@@ -901,7 +925,7 @@ Video:
       Stats: Stats
       Video ID: 'Video ID: {videoId}'
       Media Formats: 'Media Formats: {formats}'
-      Resolution: 'Resolution: {width}x{height}@{frameRate}'
+      Resolution: 'Resolution: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Player Dimensions: {width}x{height}'
       Bitrate: 'Bitrate: {bitrate} kbps'
       Volume: 'Volume: {volumePercentage}%'
@@ -914,6 +938,9 @@ Video:
     You appear to be offline: You appear to be offline.
     Playback will resume automatically when your connection comes back: Playback will resume automatically when your connection comes back.
     Skipped segment: 'Skipped {segmentCategory} segment'
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Remaining preroll-ad time: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Remaining SABR backoff time: {remindingTimeSeconds}s'
 #& Playlists
 Playlist:
   #& About
@@ -921,16 +948,16 @@ Playlist:
   View Full Playlist: View Full Playlist
   Last Updated On: Last Updated On
   Sort By:
-    DateAddedNewest: Latest added first
-    DateAddedOldest: Earliest added first
-    PublishedNewest: Latest published first
-    PublishedOldest: Earliest published first
+    DateAddedNewest: Date added (Newest)
+    DateAddedOldest: Date added (Oldest)
+    PublishedNewest: Date published (Newest)
+    PublishedOldest: Date published (Oldest)
     AuthorAscending: Author (A-Z)
     AuthorDescending: Author (Z-A)
     VideoTitleAscending: Title (A-Z)
     VideoTitleDescending: Title (Z-A)
-    VideoDurationAscending: Duration (Shortest first)
-    VideoDurationDescending: Duration (Longest first)
+    VideoDurationAscending: Duration (Shortest)
+    VideoDurationDescending: Duration (Longest)
     Custom: Custom
 
 # On Video Watch Page
@@ -949,6 +976,7 @@ Change Format:
     for this video
 Share:
   Share Video: Share Video
+  Share Post: Share Post
   Share Channel: Share Channel
   Share Playlist: Share Playlist
   Include Timestamp: Include Timestamp
@@ -970,8 +998,6 @@ Clipboard:
 Chapters:
   Chapters: Chapters
   Key Moments: Key Moments
-  'Chapters list visible, current chapter: {chapterName}': 'Chapters list visible, current chapter: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Chapters list hidden, current chapter: {chapterName}'
 
 Mini Player: Mini Player
 Comments:
@@ -982,15 +1008,11 @@ Comments:
   Hide Comments: Hide Comments
   Top comments: Top comments
   Newest first: Newest First
-  View {replyCount} replies: View {replyCount} replies
-  # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: View
-  Hide: Hide
-  Replies: Replies
+  View {replyCount} replies: View 1 reply | View {replyCount} replies
+  Hide {replyCount} replies: Hide 1 reply | Hide {replyCount} replies
+  View 1 reply from {channelName}: View 1 reply from {channelName}
+  View {replyCount} replies from {channelName} and others: View {replyCount} replies from {channelName} and others
   Show More Replies: Show More Replies
-  Reply: Reply
-  From {channelName}: from {channelName}
-  And others: and others
   There are no comments available for this video: There are no comments available
     for this video
   There are no comments available for this post: There are no comments available for this post
@@ -1053,11 +1075,12 @@ Tooltips:
     Hide Channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
        The channel ID entered must be a complete match and is case sensitive.
     Hide Subscriptions Live: 'This setting is overridden by the app-wide "{appWideSetting}" setting, in the "{subsection}" section of the "{settingsSection}"'
-    Hide Videos and Playlists Containing Text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos & playlists whose original titles contain it throughout all of FreeTube, excluding only History, Your Playlists, and videos inside of playlists.
+    Hide Videos, Playlists and Channels Containing Text: Enter a word, word fragment, or phrase (case insensitive) to hide all videos, playlists and channels whose original titles contain it throughout all of FreeTube, excluding only History, Your Playlists, and videos inside of playlists.
+    Hide Videos on Watch: 'Hides watched videos from the Videos, Shorts, and Live tabs on the Subscription and Channel pages. This does not affect the Home tab on Channel pages'
   Subscription Settings:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
-      but doesn't provide certain information like video duration, live status or community posts
+      but doesn't provide certain information like video duration, live status or posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch
       your subscription feed on startup and when a new window is opened.
   Experimental Settings:
@@ -1094,10 +1117,6 @@ Age Restricted:
   This channel is age restricted: This channel is age restricted
   This video is age restricted: This video is age restricted
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
-'Blocked opening potentially unsafe URL': 'Blocked opening potentially unsafe URL: "{url}".'
-Downloading has completed: '"{videoTitle}" has finished downloading'
-Starting download: 'Starting download of "{videoTitle}"'
-Downloading failed: 'There was an issue downloading "{videoTitle}"'
 Screenshot Success: Saved screenshot
 Screenshot Error: Screenshot failed. {error}
 Channel Hidden: '{channel} added to channel filter'
@@ -1166,8 +1185,6 @@ KeyboardShortcutPrompt:
   Take Screenshot: Take screenshot
   Minimize Window: Miminize window
   Close Window: Close window
-  Restart Window: Restart window
-  Force Restart Window: Force restart window
   Toggle Developer Tools: Toggle developer tools
   Reset Zoom: Reset zoom level / UI scale
   Zoom In: Zoom in
@@ -1183,3 +1200,7 @@ KeyboardShortcutPrompt:
   Last Chapter: Last Chapter
   Next Chapter: Next Chapter
   Skip by Tenths: Skip through video by percentage (3 skips to 30% of duration)
+  Home: Seek to the beginning of the video
+  End: Seek to the end of the video
+  Skip to Next Video: Skip to the next video in a playlist or next recommended video
+  Skip to Previous Video: Skip to the previous video in a playlist

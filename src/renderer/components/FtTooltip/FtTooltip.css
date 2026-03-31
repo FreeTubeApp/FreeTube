@@ -1,0 +1,96 @@
+.button {
+  background-color: transparent;
+  border-style: none;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+}
+
+.text {
+  background-color: color-mix(in srgb, var(--primary-text-color) 80%, transparent);
+  border-radius: 20px;
+  color: var(--card-bg-color);
+  font-size: 1rem;
+  line-height: 120%;
+  margin: 0;
+  max-inline-size: max-content;
+  min-inline-size: 15em;
+  opacity: 0;
+  padding-block: 10px;
+  padding-inline: 8px;
+  pointer-events: none;
+  position: absolute;
+  text-align: center;
+  transition-duration: 275ms;
+  transition-property: opacity, transform, visibility;
+  visibility: hidden;
+  z-index: 2;
+}
+
+.text.bottom {
+  margin-block-start: 1em;
+  inset-block-start: 100%;
+  inset-inline-start: 50%;
+  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), -1em);
+}
+
+.text.bottom-left {
+  margin-block-start: 1em;
+  inset-block-start: 100%;
+  inset-inline-start: -100px;
+  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), -1em);
+}
+
+.text.left {
+  margin-inline-end: 1em;
+  inset-inline-end: 100%;
+  inset-block-start: 50%;
+  transform: translate(calc(1em * var(--horizontal-directionality-coefficient)), -50%);
+}
+
+.text.right {
+  inset-inline-start: 100%;
+  margin-inline-start: 1em;
+  inset-block-start: 50%;
+  transform: translate(calc(-1em * var(--horizontal-directionality-coefficient)), -50%);
+}
+
+.text.top {
+  inset-block-end: 100%;
+  inset-inline-start: 50%;
+  margin-block-end: 1em;
+  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 1em);
+}
+
+.button:focus + .text,
+.button:hover + .text {
+  opacity: 1;
+  visibility: visible;
+}
+
+.button:focus + .text.bottom,
+.button:hover + .text.bottom,
+.button:hover + .text.bottom-left,
+.button:focus + .text.top,
+.button:hover + .text.top {
+  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 0);
+}
+
+.button:focus + .text.left,
+.button:hover + .text.left,
+.button:focus + .text.right,
+.button:hover + .text.right {
+  transform: translate(0, -50%);
+}
+
+.text.allowNewlines {
+  white-space: pre-wrap;
+  text-align: start;
+  inline-size: 55vw;
+}
+
+.tooltip {
+  display: inline-block;
+  position: relative;
+}

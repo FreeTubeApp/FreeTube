@@ -42,6 +42,9 @@
   position: relative;
   padding: 5px;
   min-block-size: 35px;
+}
+
+.navOption {
   -webkit-user-drag: none;
 }
 
@@ -60,7 +63,7 @@
 .navOption .navLabel {
   margin-inline-start: 40px;
   overflow: hidden;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .navOption:hover,
@@ -93,10 +96,18 @@
 
 .navChannel .navLabel {
   overflow: hidden;
-  margin-inline-start: 40px;
-  word-wrap: break-word;
+  /* stylelint-disable-next-line liberty/use-logical-spec */
+  margin-left: 40px;
+  overflow-wrap: break-word;
   font-size: 12px;
 }
+
+/* stylelint-disable liberty/use-logical-spec */
+:global(body[dir='rtl'] .navChannel .navLabel) {
+  margin-left: initial;
+  margin-right: 40px;
+}
+/* stylelint-enable liberty/use-logical-spec */
 
 .thumbnailContainer {
   inline-size: 35px;
@@ -161,7 +172,7 @@
 }
 
 .closed .navLabel {
-  margin-inline-start: 0;
+  margin-inline: 0;
   inline-size: 100%;
   text-align: center;
   inset-inline-start: 0;
@@ -234,7 +245,7 @@
   }
 
   .navLabel {
-    margin-inline-start: 0;
+    margin-inline: 0;
     inline-size: 100%;
     text-align: center;
     inset-inline-start: 0;

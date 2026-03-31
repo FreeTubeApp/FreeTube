@@ -1,9 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'West-Vlams'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Et djil van den app woar daj nu zît is nog nie gerjid. Komt were wanjir dan der
-  vorderingn gemakt zîn.
 
 # Webkit Menu Bar
 File: 'Bestand'
@@ -18,8 +14,6 @@ Copy: 'Kopiëern'
 Paste: 'Plakn'
 Delete: 'Wegdoen'
 Select all: 'Olles selecteern'
-Reload: 'Erloadn'
-Force Reload: 'Geforceert erloadn'
 Toggle Developer Tools: 'Ontwikkeloars gerjidschap anzetn'
 Actual size: '''D echte grôte'
 Zoom in: 'Vergrôtn'
@@ -34,11 +28,8 @@ Open New Window: 'Nieuw koader opendoen'
 Go to page: 'Na dizn {page} goane'
 Close Banner: 'Banner toedeoene'
 
-Version {versionNumber} is now available!  Click for more details: 'Versie {versionNumber}
-  is beschikboar!..Klikt ier vo mjir details'
+Version {versionNumber} is now available!  Click for more details: 'Versie {versionNumber} is beschikboar!..Klikt ier vo mjir details'
 Download From Site: 'Download van de site'
-A new blog is now available, {blogTitle}. Click to view more: 'Der is ne nieuwn blog
-  ût, {blogTitle}. Klikt ier vo mjir te ziene'
 Are you sure you want to open this link?: 'Ziej zeker daj die link wilt opendoene?'
 
 # Global
@@ -47,7 +38,6 @@ Global:
   Videos: 'Videos'
   Shorts: 'Korte videos'
   Live: 'Rechtstreeks'
-  Community: 'Gemjinschap'
   Sort By: 'Azwu sorteern'
   Counts:
     Video Count: '1 video | {count} videos'
@@ -70,17 +60,14 @@ Search Listing:
     # Aria labels
     Closed Captions: 'Geslootn ondertitels'
   # In Filter Button
+    8K: 8K
 Search Filters:
   Search Filters: 'Zoekfilters'
-  Sort By:
+  Prioritize:
     Most Relevant: 'Tmjist relevante'
-    Rating: 'Score'
-    Upload Date: 'Doatum dat online stoat'
-    View Count: 'Oevele dan der gekeekn eine'
   Time:
     Time: 'Den tîd'
     Any Time: 'Van geliek wanjir'
-    Last Hour: 'Tlatste eure'
     Today: 'Vandoage'
     This Week: 'Dizze weke'
     This Month: 'Dizze moande'
@@ -95,9 +82,9 @@ Search Filters:
   Duration:
     Duration: 'Oe lange dat deurt'
     All Durations: 'Al de meugelijke deuroaties'
-    Short (< 4 minutes): 'Kort (< 4 minutn)'
-    Medium (4 - 20 minutes): 'Tussen de twji (4 - 20 minutn)'
-    Long (> 20 minutes): 'Lange (> 20 minutn)'
+    '< 3 minutes': '< 3 minutn'
+    '3 - 20 minutes': '3 - 20 minutn'
+    '> 20 minutes': '> 20 minutn'
   Features:
     Features: 'Functies'
     HD: 'HD'
@@ -114,8 +101,7 @@ Search Filters:
   Search Results: 'Zoek resultoatn'
   Fetching results. Please wait: 'Resultoatn ant ipoaln. Efkes geduld alsjeblieft'
   Fetch more results: 'Mjir resultoatn ipoaln'
-  There are no more results for this search: 'Der zin gin resultoatn nimji vo dize
-    zoekipdracht'
+  There are no more results for this search: 'Der zin gin resultoatn nimji vo dize zoekipdracht'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
@@ -123,11 +109,8 @@ Subscriptions:
   # channels that were likely deleted
   Error Channels: 'Kanoaln me foutn'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: ''
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tstoat
-    vo de moment nietn in jon lîste van abonnees. Vo der te ziene goaj moetn startn
-    me joe te abonneern.'
-  Disabled Automatic Fetching: 'Gêit otomoatisch abonnees ipoaln ofgezet. Erload jon
-    abonnees voor ze ier te ziene.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Tstoat vo de moment nietn in jon lîste van abonnees. Vo der te ziene goaj moetn startn me joe te abonneern.'
+  Disabled Automatic Fetching: 'Gêit otomoatisch abonnees ipoaln ofgezet. Erload jon abonnees voor ze ier te ziene.'
   Empty Channels: 'Jon geabonneerde kanoaln ein vo de moment gin videos.'
   Empty Posts: 'Der zin vo de moment gin berichtn van jon geabonneerde kanoaln.'
   Load More Videos: 'Mjir videos loadn'
@@ -144,10 +127,7 @@ Channels:
   Unsubscribe Prompt: ''
 Trending:
   Trending: ''
-  Default: ''
-  Music: ''
   Gaming: ''
-  Movies: ''
   Trending Tabs: ''
 Most Popular: ''
 Feed:
@@ -239,8 +219,7 @@ User Playlists:
 
     Toast:
       You haven't selected any playlist yet.: ''
-      "{videoCount} video(s) added to 1 playlist": ""
-      "{videoCount} video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": ""
   CreatePlaylistPrompt:
     New Playlist Name: ''
     Create: ''
@@ -265,7 +244,6 @@ Settings:
   General Settings:
     General Settings: ''
     Check for Updates: ''
-    Check for Latest Blog Posts: ''
     Fallback to Non-Preferred Backend on Failure: ''
     Enable Search Suggestions: ''
     Auto Load Next Page:
@@ -450,7 +428,6 @@ Settings:
     Are you sure you want to remove all your playlists?: ''
   Subscription Settings:
     Subscription Settings: ''
-    Hide Videos on Watch: ''
     Fetch Feeds from RSS: ''
     Fetch Automatically: ''
     Confirm Before Unsubscribing: ''
@@ -488,16 +465,14 @@ Settings:
     Hide Channels Already Exists: ''
     Hide Featured Channels: ''
     Hide Channel Playlists: ''
-    Hide Channel Community: ''
     Hide Channel Shorts: ''
     Hide Channel Podcasts: ''
     Hide Channel Releases: ''
-    Hide Videos and Playlists Containing Text: ''
-    Hide Videos and Playlists Containing Text Placeholder: ''
+    Hide Videos, Playlists and Channels Containing Text: ''
+    Hide Videos, Playlists and Channels Containing Text Placeholder: ''
     Hide Subscriptions Videos: ''
     Hide Subscriptions Shorts: ''
     Hide Subscriptions Live: ''
-    Hide Subscriptions Community: ''
   Data Settings:
     Data Settings: ''
     Select Export Type: ''
@@ -568,13 +543,6 @@ Settings:
     Hide Unsubscribe Button: ''
     Show Family Friendly Only: ''
     Hide Search Bar: ''
-  Download Settings:
-    Download Settings: ''
-    Ask Download Path: ''
-    Choose Path: ''
-    Download Behavior: ''
-    Download in app: ''
-    Open in web browser: ''
   Experimental Settings:
     Experimental Settings: ''
     Warning: ''
@@ -592,7 +560,6 @@ About:
   About: ''
   Beta: ''
   Source code: ''
-  Licensed under the: ''
   AGPLv3: ''
   Downloads / Changelog: ''
   GitHub releases: ''
@@ -604,15 +571,12 @@ About:
   GitHub issues: ''
   Please check for duplicates before posting: ''
   Website: ''
-  Blog: ''
   Email: ''
   Mastodon: ''
   Chat on Matrix: ''
-  Please read the: ''
   room rules: ''
   Translate: ''
   Credits: ''
-  FreeTube is made possible by: ''
   these people and projects: ''
   Donate: ''
 
@@ -647,13 +611,12 @@ Profile:
   Subscription List: ''
   Other Channels: ''
   '{number} selected': ''
-  Select All: ''
+  Select All: 'Olles selecteern'
   Select None: ''
   Delete Selected: ''
   Add Selected To Profile: ''
   No channel(s) have been selected: ''
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
   : ''
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: ''
   Close Profile Dropdown: ''
@@ -672,7 +635,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: ''
   Channel Tabs: ''
   Videos:
-    Videos: ''
+    Videos: 'Videos'
     This channel does not currently have any videos: ''
     Sort Types:
       Newest: ''
@@ -706,7 +669,7 @@ Channel:
     Joined: ''
     Location: ''
     Featured Channels: ''
-  Community:
+  Posts:
     This channel currently does not have any posts: ''
     votes: ''
     View Full Post: ''
@@ -739,8 +702,8 @@ Video:
   Loop Playlist: ''
   Shuffle Playlist: ''
   Reverse Playlist: ''
-  Play Next Video: ''
-  Play Previous Video: ''
+  Previous: ''
+  Next: ''
   Watched: ''
   Autoplay: ''
   Starting soon, please refresh the page to check again: ''
@@ -757,9 +720,6 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': ''
   Show Super Chat Comment: ''
   Scroll to Bottom: ''
-  Download Video: ''
-  video only: ''
-  audio only: ''
   Published:
     In less than a minute: ''
   Published on: ''
@@ -863,8 +823,6 @@ Clipboard:
 
 Chapters:
   Chapters: ''
-  'Chapters list visible, current chapter: {chapterName}': ''
-  'Chapters list hidden, current chapter: {chapterName}': ''
 
 Mini Player: ''
 Comments:
@@ -877,13 +835,7 @@ Comments:
   Newest first: ''
   View {replyCount} replies: ''
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
-  View: ''
-  Hide: ''
-  Replies: ''
   Show More Replies: ''
-  Reply: ''
-  From {channelName}: ''
-  And others: ''
   There are no comments available for this video: ''
   There are no comments available for this post: ''
   Load More Comments: ''
@@ -918,7 +870,7 @@ Tooltips:
   Distraction Free Settings:
     Hide Channels: ''
     Hide Subscriptions Live: ''
-    Hide Videos and Playlists Containing Text: ''
+    Hide Videos, Playlists and Channels Containing Text: ''
   Subscription Settings:
     Fetch Feeds from RSS: ''
     Fetch Automatically: ''
@@ -952,10 +904,6 @@ Age Restricted:
   This channel is age restricted: ''
   This video is age restricted: ''
 External link opening has been disabled in the general settings: ''
-'Blocked opening potentially unsafe URL': ''
-Downloading has completed: ''
-Starting download: ''
-Downloading failed: ''
 Screenshot Success: ''
 Screenshot Error: ''
 Channel Hidden: ''
@@ -978,3 +926,8 @@ Cancel: ''
 checkmark: ''
 # French is the only language that should change this (they have a space before the colon)
 Display Label: ''
+KeyboardShortcutPrompt:
+  Toggle Developer Tools: Ontwikkeloars gerjidschap anzetn
+  Zoom Out: Verkljin
+  Zoom In: Vergrôtn
+  Fullscreen: Vul skerm anzetn

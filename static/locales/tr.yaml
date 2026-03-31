@@ -1,8 +1,5 @@
 # Put the name of your locale in the same language
 Locale Name: 'Türkçe'
-# Currently on Subscriptions, Playlists, and History
-'This part of the app is not ready yet. Come back later when progress has been made.': >-
-  Uygulamanın bu bölümü henüz hazır değil. Tamamlanınca geri gelin.
 
 # Webkit Menu Bar
 File: 'Dosya'
@@ -14,14 +11,12 @@ Cut: 'Kes'
 Copy: 'Kopyala'
 Paste: 'Yapıştır'
 Delete: 'Sil'
-Select all: 'Tümünü Seç'
-Reload: 'Yeniden Yükle'
-Force Reload: 'Zorla Yeniden Yükle'
-Toggle Developer Tools: 'Geliştirici Seçeneklerini Aç/Kapat'
-Actual size: 'Gerçek Boyut'
+Select all: 'Tümünü seç'
+Toggle Developer Tools: 'Geliştirici Araçlarını Aç/Kapat'
+Actual size: 'Gerçek boyut'
 Zoom in: 'Yakınlaştır'
 Zoom out: 'Uzaklaştır'
-Toggle fullscreen: 'Tam Ekran Yap'
+Toggle fullscreen: 'Tam Ekran'
 Window: 'Pencere'
 Minimize: 'Küçült'
 Close: 'Kapat'
@@ -34,7 +29,7 @@ Global:
   Videos: 'Videolar'
   Shorts: Kısa Videolar
   Live: Canlı
-  Community: Topluluk
+  Posts: Gönderiler
   Sort By: Sıralama ölçütü
 
   Counts:
@@ -45,26 +40,21 @@ Global:
     Watching Count: 1 izliyor | {count} izliyor
     Like Count: 1 beğenme | {count} beğenme
     Comment Count: 1 yorum | {count} yorum
-Version {versionNumber} is now available!  Click for more details: '{versionNumber}
-  sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
+Version {versionNumber} is now available!  Click for more details: '{versionNumber} sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
-A new blog is now available, {blogTitle}. Click to view more: 'Yeni blog gönderisi
-  var, {blogTitle}. Daha fazlasını görüntülemek için tıklayın'
 
 # Search Bar
 Search / Go to URL: 'Ara / URL''ye git'
   # In Filter Button
 Search Filters:
-  Search Filters: 'Filtreler'
-  Sort By:
+  Search Filters: 'Arama Süzgeçleri'
+  Prioritize:
     Most Relevant: 'En Uygun'
-    Rating: 'Derecelendirme'
-    Upload Date: 'Yükleme Tarihi'
-    View Count: 'İzlenme Sayısı'
+    Prioritize: Öncelik Ver
+    Popularity: Popülerlik
   Time:
     Time: 'Zaman'
     Any Time: 'Herhangi Bir Zaman'
-    Last Hour: 'Son Bir Saat'
     Today: 'Bugün'
     This Week: 'Bu Hafta'
     This Month: 'Bu Ay'
@@ -79,13 +69,12 @@ Search Filters:
   Duration:
     Duration: 'Süre'
     All Durations: 'Tüm Süreler'
-    Short (< 4 minutes): 'Kısa (4 dakikadan az)'
-    Long (> 20 minutes): 'Uzun (20 dakikadan fazla)'
-  # On Search Page
-    Medium (4 - 20 minutes): Orta (4 - 20 dakika)
+    '< 3 minutes': '3 dakikadan az'
+    '> 20 minutes': '20 dakikadan fazla'
+    '3 - 20 minutes': 3 - 20 dakika
   Search Results: 'Arama Sonuçları'
-  Fetching results. Please wait: 'Sonuçlar yükleniyor. Lütfen bekleyin'
-  Fetch more results: 'Daha fazla sonuç yükle'
+  Fetching results. Please wait: 'Sonuçlar getiriliyor. Lütfen bekleyin'
+  Fetch more results: 'Daha fazla sonuç getir'
 # Sidebar
   There are no more results for this search: Bu arama için başka sonuç yok
   Features:
@@ -100,40 +89,32 @@ Search Filters:
     360 Video: 360 Video
     Location: Konum
     VR180: VR180
+  Clear Filters: Süzgeci Temizle
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonelikler'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abonelik
-    listeniz şu anda boş. Aboneliklerinizi içe aktarmak istiyorsanız Veri Ayarları''na
-    gidip Abonelikleri İçe Aktar''ı seçebilir veya bir kanal arayıp abone olabilirsiniz.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Bu
-    profilin çok sayıda abonesi var.  Hız sınırlamalarından kaçınmak için RSS zorlanıyor
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abonelik listeniz şu anda boş. Aboneliklerinizi içe aktarmak istiyorsanız Veri Ayarları''na gidip Abonelikleri İçe Aktar''ı seçebilir veya bir kanal arayıp abone olabilirsiniz.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Bu profilin çok sayıda abonesi var.  Hız sınırlamalarından kaçınmak için RSS zorlanıyor
   Load More Videos: Daha Fazla Video Yükle
   Error Channels: Hatalı Kanallar
-  Disabled Automatic Fetching: Otomatik abonelik getirmeyi devre dışı bıraktınız.
-    Abonelikleri burada görmek için yenileyin.
+  Disabled Automatic Fetching: Otomatik abonelik getirmeyi devre dışı bıraktınız. Abonelikleri burada görmek için yenileyin.
   Empty Channels: Abone olduğunuz kanallarda şu anda herhangi bir video yok.
   Subscriptions Tabs: Abonelikler Sekmeleri
-  All Subscription Tabs Hidden: Tüm abonelik sekmeleri gizlidir. Buradaki içeriği
-    görmek için lütfen "{settingsSection}" içindeki "{subsection}" bölümündeki bazı
-    sekmelerin gizliliğini kaldırın.
+  All Subscription Tabs Hidden: Tüm abonelik sekmeleri gizlidir. Buradaki içeriği görmek için lütfen "{settingsSection}" içindeki "{subsection}" bölümündeki bazı sekmelerin gizliliğini kaldırın.
   Load More Posts: Daha Fazla Gönderi Yükle
   Empty Posts: Abone olduğunuz kanallarda şu anda herhangi bir gönderi yok.
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
-  Movies: Film
   Gaming: Oyun
-  Music: Müzik
-  Default: Öntanımlı
+  Sports: Spor
 Most Popular: 'Popüler Olanlar'
 Playlists: 'Oynatma Listeleri'
 User Playlists:
   Your Playlists: 'Oynatma Listelerin'
   Search bar placeholder: Oynatma Listesi Ara
   Empty Search Message: Bu oynatma listesinde aramanızla eşleşen video yok
-  This playlist currently has no videos.: Bu oynatma listesinde şu anda hiç video
-    yok.
+  This playlist currently has no videos.: Bu oynatma listesinde şu anda hiç video yok.
   Create New Playlist: Yeni Oynatma Listesi Oluştur
   Add to Playlist: Oynatma Listesine Ekle
   Remove from Playlist: Oynatma Listesinden Kaldır
@@ -143,80 +124,55 @@ User Playlists:
   Sort By:
     NameAscending: A-Z
     NameDescending: Z-A
-    LatestCreatedFirst: Son Oluşturulan
-    EarliestCreatedFirst: En Eski Oluşturulan
-    LatestUpdatedFirst: Son Güncellenen
-    EarliestUpdatedFirst: En Eski Güncellenen
-    LatestPlayedFirst: Son Oynatılan
-    EarliestPlayedFirst: En Eski Oynatılan
+    LatestCreatedFirst: Oluşturulma Tarihi (En Yeni)
+    EarliestCreatedFirst: Oluşturulma Tarihi (En Eski)
+    LatestUpdatedFirst: Güncellenme Tarihi (En Yeni)
+    EarliestUpdatedFirst: Güncellenme Tarihi (En Eski)
+    LatestPlayedFirst: Oynatılma Tarihi (En Yeni)
+    EarliestPlayedFirst: Oynatılma Tarihi (En Eski)
   SinglePlaylistView:
     Toast:
       This video cannot be moved up.: Bu video yukarı taşınamaz.
       This video cannot be moved down.: Bu video aşağı taşınamaz.
-      Playlist name cannot be empty. Please input a name.: Oynatma listesi adı boş
-        olamaz. Lütfen bir ad girin.
+      Playlist name cannot be empty. Please input a name.: Oynatma listesi adı boş olamaz. Lütfen bir ad girin.
       Playlist has been updated.: Oynatma listesi güncellendi.
-      There was an issue with updating this playlist.: Bu oynatma listesi güncellenirken
-        bir sorun oluştu.
-      "{videoCount} video(s) have been removed": 1 video kaldırıldı | {videoCount}
-        video kaldırıldı
+      There was an issue with updating this playlist.: Bu oynatma listesi güncellenirken bir sorun oluştu.
+      "{videoCount} video(s) have been removed": 1 video kaldırıldı | {videoCount} video kaldırıldı
       Playlist {playlistName} has been deleted.: '{playlistName} oynatma listesi silindi.'
       Video has been removed: Video kaldırıldı
-      There was a problem with removing this video: Bu videoyu kaldırırken bir sorun
-        oluştu
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Oynatma
-        listesindeki bazı videolar henüz yüklenmedi. Yine de kopyalamak için buraya
-        tıklayın.
-      This playlist is protected and cannot be removed.: Bu oynatma listesi korumalıdır
-        ve kaldırılamaz.
+      There was a problem with removing this video: Bu videoyu kaldırırken bir sorun oluştu
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Oynatma listesindeki bazı videolar henüz yüklenmedi. Yine de kopyalamak için buraya tıklayın.
+      This playlist is protected and cannot be removed.: Bu oynatma listesi korumalıdır ve kaldırılamaz.
       There were no videos to remove.: Kaldırılacak video yok.
       This playlist does not exist: Bu oynatma listesi yok
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Bu
-        oynatma listesi artık {oldPlaylistName} yerine hızlı yer imi için kullanılıyor.
-        Geri almak için buraya tıklayın
-      Reverted to use {oldPlaylistName} for quick bookmark: Hızlı yer imi için {oldPlaylistName}
-        kullanımına geri dönüldü
-      This playlist is now used for quick bookmark: Bu oynatma listesi artık hızlı
-        yer imi için kullanılıyor
-      This playlist is already being used for quick bookmark.: Bu oynatma listesi
-        zaten hızlı yer imi için kullanılıyor.
-      This playlist has a video with a duration error: Bu oynatma listesi süresi olmayan
-        en az bir video içeriyor, süreleri sıfırmış gibi sıralanacaktır.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Bu oynatma listesi artık {oldPlaylistName} yerine hızlı yer imi için kullanılıyor. Geri almak için buraya tıklayın
+      Reverted to use {oldPlaylistName} for quick bookmark: Hızlı yer imi için {oldPlaylistName} kullanımına geri dönüldü
+      This playlist is now used for quick bookmark: Bu oynatma listesi artık hızlı yer imi için kullanılıyor
+      This playlist is already being used for quick bookmark.: Bu oynatma listesi zaten hızlı yer imi için kullanılıyor.
+      This playlist has a video with a duration error: Bu oynatma listesi süresi olmayan en az bir video içeriyor, süreleri sıfırmış gibi sıralanacaktır.
+      Video has been removed. Click here to undo.: Video kaldırıldı. Geri almak için buraya tıklayın.
     Search for Videos: Video Ara
   AddVideoPrompt:
-    Select a playlist to add your N videos to: Videonuzu eklemek için bir oynatma
-      listesi seçin | {videoCount} videonuzu eklemek için bir oynatma listesi seçin
+    Select a playlist to add your N videos to: Videonuzu eklemek için bir oynatma listesi seçin | {videoCount} videonuzu eklemek için bir oynatma listesi seçin
     Save: Kaydet
     Toast:
       You haven't selected any playlist yet.: Henüz bir oynatma listesi seçmediniz.
-      "{videoCount} video(s) added to {playlistCount} playlists": 1 video {playlistCount}
-        oynatma listesine eklendi | {videoCount} video {playlistCount} oynatma listesine
-        eklendi
-      "{videoCount} video(s) added to 1 playlist": 1 video 1 oynatma listesine eklendi
-        | {videoCount} video 1 oynatma listesine eklendi
+      "Video(s) added to {playlistCount} playlists": "Video(lar) 1 oynatma listesine eklendi | Video(lar) {playlistCount} oynatma listesine eklendi"
     N playlists selected: '{playlistCount} Seçildi'
     Search in Playlists: Oynatma Listelerinde Ara
     Added {count} Times: 'Zaten Eklendi | {count} Defa Eklendi'
     Allow Adding Duplicate Video(s): Yinelenen Video(lar) Eklemeye İzin Ver
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount}
-      Video Zaten Eklendi'
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount}
-      Video Eklenecek'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Video Zaten Eklendi'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Video Eklenecek'
   CreatePlaylistPrompt:
     New Playlist Name: Yeni Oynatma Listesi Adı
     Create: Oluştur
     Toast:
-      There was an issue with creating the playlist.: Oynatma listesi oluşturulurken
-        bir sorun oluştu.
-      There is already a playlist with this name. Please pick a different name.: Bu
-        ada sahip bir oynatma listesi zaten var. Lütfen farklı bir ad seçin.
-      Playlist {playlistName} has been successfully created.: '{playlistName} oynatma
-        listesi başarıyla oluşturuldu.'
-  You have no playlists. Click on the create new playlist button to create a new one.: Hiç
-    oynatma listeniz yok. Yeni bir oynatma listesi oluşturmak için yeni oynatma listesi
-    oluştur düğmesine tıklayın.
-  Are you sure you want to delete this playlist? This cannot be undone: Bu oynatma
-    listesini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.
+      There was an issue with creating the playlist.: Oynatma listesi oluşturulurken bir sorun oluştu.
+      There is already a playlist with this name. Please pick a different name.: Bu ada sahip bir oynatma listesi zaten var. Lütfen farklı bir ad seçin.
+      Playlist {playlistName} has been successfully created.: '{playlistName} oynatma listesi başarıyla oluşturuldu.'
+  You have no playlists. Click on the create new playlist button to create a new one.: Hiç oynatma listeniz yok. Yeni bir oynatma listesi oluşturmak için yeni oynatma listesi oluştur düğmesine tıklayın.
+  Are you sure you want to delete this playlist? This cannot be undone: Bu oynatma listesini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.
   Move Video Up: Videoyu Yukarı Taşı
   Move Video Down: Videoyu Aşağı Taşı
   Playlist Description: Oynatma Listesi Açıklaması
@@ -224,26 +180,19 @@ User Playlists:
   Edit Playlist Info: Oynatma Listesi Bilgilerini Düzenle
   Copy Playlist: Oynatma Listesini Kopyala
   Remove Watched Videos: İzlenen Videoları Kaldır
-  Add to Favorites: '{playlistName} oynatma listesine ekle'
-  Remove from Favorites: '{playlistName} oynatma listesinden kaldır'
-  Enable Quick Bookmark With This Playlist: Bu Oynatma Listesiyle Hızlı Yer İmini
-    Etkinleştir
+  Add to Favorites: '{playlistName} listesine ekle'
+  Remove from Favorites: '{playlistName} listesinden kaldır'
+  Enable Quick Bookmark With This Playlist: Bu Oynatma Listesiyle Hızlı Yer İmini Etkinleştir
   Playlists with Matching Videos: Eşleşen Videoları İçeren Oynatma Listeleri
   Quick Bookmark Enabled: Hızlı Yer İmi Etkin
-  Cannot delete the quick bookmark target playlist.: Hızlı yer imi hedef oynatma listesi
-    silinemiyor.
+  Cannot delete the quick bookmark target playlist.: Hızlı yer imi hedef oynatma listesi silinemiyor.
   Remove Duplicate Videos: Yinelenen Videoları Kaldır
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Bu
-    oynatma listesinden izlenen 1 videoyu kaldırmak istediğinizden emin misiniz? Bu
-    geri alınamaz. | Bu oynatma listesinden izlenen {playlistItemCount} videoyu kaldırmak
-    istediğinizden emin misiniz? Bu geri alınamaz.
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Bu
-    oynatma listesinden 1 yinelenen videoyu kaldırmak istediğinizden emin misiniz?
-    Bu geri alınamaz. | Bu oynatma listesinden {playlistItemCount} yinelenen videoyu
-    kaldırmak istediğinizden emin misiniz? Bu geri alınamaz.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Bu oynatma listesinden izlenen 1 videoyu kaldırmak istediğinizden emin misiniz? Bu geri alınamaz. | Bu oynatma listesinden izlenen {playlistItemCount} videoyu kaldırmak istediğinizden emin misiniz? Bu geri alınamaz.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Bu oynatma listesinden 1 yinelenen videoyu kaldırmak istediğinizden emin misiniz? Bu geri alınamaz. | Bu oynatma listesinden {playlistItemCount} yinelenen videoyu kaldırmak istediğinizden emin misiniz? Bu geri alınamaz.
   Export Playlist: Bu Oynatma Listesini Dışa Aktar
-  The playlist has been successfully exported: Oynatma listesi başarılı bir şekilde
-    dışa aktarıldı
+  The playlist has been successfully exported: Oynatma listesi başarılı bir şekilde dışa aktarıldı
+  TotalTimePlaylist: 'Toplam süre: {duration}'
+  Export list of URLs: URL'lerin listesini dışa aktar
 History:
   # On History Page
   History: 'Geçmiş'
@@ -252,15 +201,15 @@ History:
   Search bar placeholder: Geçmişte Ara
   Empty Search Message: Geçmişinizde aramanızla eşleşen video yok
   Case Sensitive Search: Büyük/Küçük Harfe Duyarlı Ara
+  DateOldestHistory: İzlenme Tarihi (En Eski)
+  DateNewestHistory: İzlenme Tarihi (En Yeni)
 Settings:
   # On Settings Page
   Settings: 'Ayarlar'
   General Settings:
     General Settings: 'Genel'
     Check for Updates: 'Güncellemeleri Denetle'
-    Check for Latest Blog Posts: 'En Yeni Blog Gönderilerini Denetle'
-    Fallback to Non-Preferred Backend on Failure: 'Hata Durumunda Tercih Edilmeyen
-      Arka Uca Geç'
+    Fallback to Non-Preferred Backend on Failure: 'Hata Durumunda Tercih Edilmeyen Arka Uca Geç'
     Enable Search Suggestions: 'Arama Önerilerini Etkinleştir'
     Default Landing Page: 'Öntanımlı Açılış Ekranı'
     Locale Preference: 'Tercih Edilen Yerel Ayar'
@@ -286,11 +235,9 @@ Settings:
     System Default: Sistem Öntanımlı Değeri
     Clear Default Instance: Öntanımlı Örneği Temizle
     Set Current Instance as Default: Geçerli Örneği Öntanımlı Olarak Ayarla
-    Current instance will be randomized on startup: Geçerli örnek başlangıçta rastgele
-      olacak
+    Current instance will be randomized on startup: Geçerli örnek başlangıçta rastgele olacak
     No default instance has been set: Öntanımlı örnek ayarlanmadı
-    The currently set default instance is {instance}: Şu anda ayarlanan öntanımlı
-      örnek {instance}
+    The currently set default instance is {instance}: Şu anda ayarlanan öntanımlı örnek {instance}
     Current Invidious Instance: Geçerli Invidious Örneği
     External Link Handling:
       No Action: Eylem Yok
@@ -301,6 +248,7 @@ Settings:
       Label: Sonraki Sayfayı Otomatik Yükle
       Tooltip: Sonraki sayfaları ve yorumları otomatik olarak yükle.
     Open Deep Links In New Window: FreeTube'a Geçen URL'leri Yeni Pencerede Aç
+    Minimize to system tray: Sistem tepsisine küçült
   Theme Settings:
     Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Üst Barı Ana Renk ile Eşleştir'
@@ -310,15 +258,23 @@ Settings:
       Dark: 'Koyu'
       Light: 'Açık'
       Dracula: 'Drakula'
-      System Default: Sistem Öntanımlı Değeri
+      System Default: Sistem Varsayılanı
       Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Pastel Pembe
       Hot Pink: Sıcak Pembe
-      Nordic: Nord
+      Nordic: Kuzey
       Solarized Light: Solarized Açık
       Solarized Dark: Solarized Koyu
-      Gruvbox Dark: Gruvbox Karanlık
+      Gruvbox Dark: Gruvbox Dark
       Gruvbox Light: Gruvbox Aydınlık
+      Catppuccin Frappe: Catppuccin Frappe
+      Everforest Dark Medium: Everforest Koyu Orta
+      Everforest Dark Hard: Everforest Koyu Sert
+      Everforest Dark Low: Everforest Koyu Düşük
+      Everforest Light Hard: Everforest Açık Sert
+      Everforest Light Medium: Everforest Açık Orta
+      Everforest Light Low: Everforest Açık Düşük
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Ana Renk Teması'
       Red: 'Kırmızı'
@@ -358,14 +314,14 @@ Settings:
       Catppuccin Mocha Yellow: Catppuccin Mocha Sarı
       Catppuccin Mocha Green: Catppuccin Mocha Yeşil
       Catppuccin Mocha Lavender: Catppuccin Mocha Lavanta
-      Solarized Yellow: Solarized Sarı
-      Solarized Orange: Solarized Turuncu
-      Solarized Magenta: Solarized Eflatun
-      Solarized Violet: Solarized Menekşe
-      Solarized Red: Solarized Kırmızı
-      Solarized Blue: Solarized Mavi
-      Solarized Cyan: Solarized Camgöbeği
-      Solarized Green: Solarized Yeşil
+      Solarized Yellow: Güneş Yanığı Sarısı
+      Solarized Orange: Güneş Yanığı Turuncusu
+      Solarized Magenta: Güneş Yanığı Eflatunu
+      Solarized Violet: Güneş Yanığı Menekşesi
+      Solarized Red: Güneş Yanığı Kırmızısı
+      Solarized Blue: Güneş Yanığı Mavisi
+      Solarized Cyan: Güneş Yanığı Camgöbeği
+      Solarized Green: Güneş Yanığı Yeşili
       Gruvbox Dark Green: Gruvbox Koyu Yeşil
       Gruvbox Dark Yellow: Gruvbox Koyu Sarı
       Gruvbox Dark Aqua: Gruvbox Koyu Deniz Mavisi
@@ -374,8 +330,38 @@ Settings:
       Gruvbox Dark Orange: Gruvbox Koyu Turuncu
       Gruvbox Light Purple: Gruvbox Açık Mor
       Gruvbox Light Orange: Gruvbox Açık Turuncu
-      Gruvbox Light Red: Gruvbox Açık Kırmızı
+      Gruvbox Light Red: Gruvbox Parlak Kırmızı
       Gruvbox Light Blue: Gruvbox Açık Mavi
+      Catppuccin Frappe Pink: Catppuccin Frappe Pembe
+      Catppuccin Frappe Red: Catppuccin Frappe Kırmızı
+      Catppuccin Frappe Maroon: Catppuccin Frappe Bordo
+      Catppuccin Frappe Peach: Catppuccin Frappe Şeftali
+      Catppuccin Frappe Sky: Catppuccin Frappe Gök
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Safir
+      Catppuccin Frappe Lavender: Catppuccin Frappe Lavanta
+      Catppuccin Frappe Teal: Catppuccin Frappe Deniz
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Gül Rengi
+      Catppuccin Frappe Yellow: Catppuccin Frappe Sarı
+      Catppuccin Frappe Mauve: Catppuccin Frappe Eflatun
+      Catppuccin Frappe Green: Catppuccin Frappe Yeşil
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Blue: Catppuccin Frappe Mavi
+      Everforest Dark Red: Everforest Koyu Kırmızı
+      Everforest Dark Orange: Everforest Koyu Portakal
+      Everforest Dark Yellow: Everforest Koyu Sarı
+      Everforest Dark Green: Everforest Koyu Yeşil
+      Everforest Dark Aqua: Everforest Koyu Deniz
+      Everforest Dark Blue: Everforest Koyu Mavi
+      Everforest Dark Purple: Everforest Koyu Mor
+      Everforest Light Red: Everforest Açık Kırmızı
+      Everforest Light Orange: Everforest Açık Portakal
+      Everforest Light Yellow: Everforest Açık Sarı
+      Everforest Light Green: Everforest Açık Yeşil
+      Everforest Light Aqua: Everforest Açık Deniz
+      Everforest Light Blue: Everforest Açık Mavi
+      Everforest Light Purple: Everforest Açık Mor
+      Catppuccin Latte Mauve: Catppuccin Latte Eflatun
+      Catppuccin Latte Red: Catppuccin Latte Kırmızı
     Secondary Color Theme: 'İkincil Renk Teması'
         #* Main Color Theme
     UI Scale: Kullanıcı Arayüzü Ölçeği
@@ -385,11 +371,11 @@ Settings:
     Hide FreeTube Header Logo: FreeTube Başlık Logosunu Gizle
   Player Settings:
     Player Settings: 'Oynatıcı'
-    Play Next Video: 'Sonraki Videoyu Oynat'
-    Turn on Subtitles by Default: 'Alt Yazıları Öntanımlı Olarak Aç'
-    Autoplay Videos: 'Videoları Otomatik Başlat'
+    Play Next Video: 'Önerilen Videoları Otomatik Oynat'
+    Turn on Subtitles by Default: 'Altyazıları Sürekli Etkinleştir'
+    Autoplay Videos: 'Videoları Otomatik Oynat'
     Proxy Videos Through Invidious: 'Videolari Invidious Üzerinden Aktar'
-    Autoplay Playlists: 'Oytma Listelerini Otomatik Başlat'
+    Autoplay Playlists: 'Oynatma Listelerini Otomatik Oynat'
     Enable Theatre Mode by Default: 'Sinema Modunu Öntanımlı Olarak Etkinleştir'
     Default Volume: 'Öntanımlı Ses Düzeyi'
     Default Playback Rate: 'Öntanımlı Oynatma Hızı'
@@ -414,8 +400,7 @@ Settings:
     Scroll Volume Over Video Player: Ses Düzeyini Video Oynatıcı Üzerinden Kaydır
     Display Play Button In Video Player: Video Oynatıcıda Oynatma Düğmesini Göster
     Fast-Forward / Rewind Interval: Hızlı İleri / Geri Sarma Aralığı
-    Scroll Playback Rate Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Oynatma
-      Hızını Denetle
+    Scroll Playback Rate Over Video Player: Video Oynatıcı Üzerinde Kaydırma Oynatma Oranı
     Video Playback Rate Interval: Video Oynatma Hızı Aralığı
     Max Video Playback Rate: En Yüksek Video Oynatma Hızı
     Screenshot:
@@ -429,43 +414,49 @@ Settings:
       Format Label: Ekran Görüntüsü Biçimi
       Enable: Ekran Görüntüsünü Etkinleştir
       Folder Button: Klasör Seç
-      File Name Tooltip: Aşağıda değişkenleri kullanabilirsiniz. %Y Yıl 4 basamak.
-        %M Ay 2 basamak. %D Gün 2 basamak. %H Saat 2 basamak. %N Dakika 2 basamak.
-        %S Saniye 2 basamak. %T Milisaniye 3 basamak. %s Video Saniyesi. %t Video
-        Milisaniyesi 3 basamak. %i Video Kimliği.
+      File Name Tooltip: Aşağıda değişkenleri kullanabilirsiniz. %Y Yıl 4 basamak. %M Ay 2 basamak. %D Gün 2 basamak. %H Saat 2 basamak. %N Dakika 2 basamak. %S Saniye 2 basamak. %T Milisaniye 3 basamak. %s Video Saniyesi. %t Video Milisaniyesi 3 basamak. %i Video Kimliği.
     Enter Fullscreen on Display Rotate: Ekran Döndürüldüğünde Tam Ekrana Geç
     Skip by Scrolling Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Atla
     Autoplay Interruption Timer: Otomatik Oynatma Durdurma Sayacı
+    Default Viewing Mode:
+      Picture in Picture: Resim içinde Resim
+      Full Screen: Tam Ekran
+      Default Viewing Mode: Varsayılan Görüntüleme Modu
+      Theater: Sinema
+      External Player: Harici Oynatıcı ({externalPlayerName})
   Privacy Settings:
     Privacy Settings: 'Gizlilik'
-    Remember History: 'Geçmişi Hatırla'
+    Remember History: 'İzleme Geçmişini Hatırla'
     Save Watched Progress: 'Kaldığım Yeri Hatırla'
     Clear Search Cache: 'Arama Önbelleğini Temizle'
-    Are you sure you want to clear out your search cache?: 'Arama önbelleğini temizlemek
-      istediğinizden emin misiniz?'
+    Are you sure you want to clear out your search cache?: 'Arama önbelleğini temizlemek istediğinizden emin misiniz?'
     Search cache has been cleared: 'Arama önbelleği temizlendi'
     Remove Watch History: 'İzleme Geçmişini Temizle'
-    Are you sure you want to remove your entire watch history?: 'Tüm izleme geçmişini
-      silmek istediğinizden emin misiniz?'
+    Are you sure you want to remove your entire watch history?: 'Tüm izleme geçmişini silmek istediğinizden emin misiniz?'
     Watch history has been cleared: 'İzleme geçmişi temizlendi'
     Remove All Subscriptions / Profiles: 'Tüm Abonelikler/Profilleri Temizle'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tüm
-      abonelikler/profilleri temizlemek istediğinizden emin misiniz?  Geri alınamaz.'
-    Save Watched Videos With Last Viewed Playlist: İzlenen Videoları Son Görüntülenen
-      Oynatma Listesiyle Kaydet
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Tüm abonelikler/profilleri temizlemek istediğinizden emin misiniz?  Geri alınamaz.'
+    Save Watched Videos With Last Viewed Playlist: İzlenen Videoları Son Görüntülenen Oynatma Listesiyle Kaydet
     All playlists have been removed: Tüm oynatma listeleri kaldırıldı
     Remove All Playlists: Tüm Oynatma Listelerini Kaldır
-    Are you sure you want to remove all your playlists?: Tüm oynatma listelerinizi
-      kaldırmak istediğinizden emin misiniz?
+    Are you sure you want to remove all your playlists?: Tüm oynatma listelerinizi kaldırmak istediğinizden emin misiniz?
+    Remember Search History: Arama Geçmişini Hatırla
+    Are you sure you want to clear out your search history and cache?: Arama geçmişinizi ve önbelleğinizi temizlemek istediğinizden emin misiniz?
+    Search history and cache have been cleared: Arama geçmişi ve önbellek temizlendi
+    Clear Search History and Cache: Arama Geçmişini ve Önbelleği Temizle
+    Watched Progress Saving Mode:
+      Modes:
+        Never: Asla
+        Auto: Otomatik
+        Semi-auto: Yarı otomatik
+      Tooltip: Otomatik = Video sona erdiğinde ve hatayla karşılaşıldığında (ör. hız sınırlı ve izleme oturumu sona erdiğinde) her video sayfası çıkışında kaydet. Yarı otomatik = Video sayfasından çıkış haricinde Otomatik gibi ve video oynatıcının altında bulunan İzlenen İlerlemeyi Kaydet adı verilen bir düğme aracılığıyla ilerlemeyi manuel olarak kaydedebilir.
   Subscription Settings:
     Subscription Settings: 'Abonelik'
-    Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
     Fetch Feeds from RSS: 'Akışları RSS''den Getir'
     Fetch Automatically: Akışı Otomatik Olarak Getir
     Confirm Before Unsubscribing: Abonelikten Çıkmadan Önce Onayla
-    'Limit the number of videos displayed for each channel': Her kanal için gösterilen
-      video sayısını sınırlayın
-    To: Kadar
+    'Limit the number of videos displayed for each channel': Her kanal için gösterilen video sayısını sınırlayın
+    To: To
   Data Settings:
     Data Settings: 'Veri'
     Select Export Type: 'Dışa Aktarma Türünü Seç'
@@ -476,49 +467,38 @@ Settings:
     Export NewPipe: 'NewPipe Biçiminde Dışa Aktar'
     Import History: 'Geçmişi İçe Aktar'
     Export History: 'Geçmişi Dışa Aktar'
-    Profile object has insufficient data, skipping item: 'Profil nesnesinde yetersiz
-      veri var, öğe atlanıyor'
-    All subscriptions and profiles have been successfully imported: 'Tüm abonelikler
-      ve profiller başarılı bir şekilde içe aktarıldı'
-    All subscriptions have been successfully imported: 'Tüm abonelikler başarılı bir
-      şekilde içe aktarıldı'
+    Profile object has insufficient data, skipping item: 'Profil nesnesinde yetersiz veri var, öğe atlanıyor'
+    All subscriptions and profiles have been successfully imported: 'Tüm abonelikler ve profiller başarılı bir şekilde içe aktarıldı'
+    All subscriptions have been successfully imported: 'Tüm abonelikler başarılı bir şekilde içe aktarıldı'
     Invalid subscriptions file: 'Geçersiz aboneler dosyası'
-    This might take a while, please wait: 'Biraz uzun sürebilir, lütfen bekleyin'
     Invalid history file: 'Geçersiz geçmiş dosyası'
-    Subscriptions have been successfully exported: 'Tüm abonelikler başarılı bir şekilde
-      dışa aktarıldı'
-    History object has insufficient data, skipping item: 'Geçmiş nesnesinde yetersiz
-      veri var, öğe atlanıyor'
-    All watched history has been successfully imported: 'Tüm izleme geçmişi başarılı
-      bir şekilde içe aktarıldı'
-    All watched history has been successfully exported: 'Tüm izleme geçmişi başarılı
-      bir şekilde dışa aktarıldı'
+    Subscriptions have been successfully exported: 'Tüm abonelikler başarılı bir şekilde dışa aktarıldı'
+    History object has insufficient data, skipping item: 'Geçmiş nesnesinde yetersiz veri var, öğe atlanıyor'
+    All watched history has been successfully imported: 'Tüm izleme geçmişi başarılı bir şekilde içe aktarıldı'
+    All watched history has been successfully exported: 'Tüm izleme geçmişi başarılı bir şekilde dışa aktarıldı'
     Unable to read file: 'Dosya okunamadı'
     Unable to write file: 'Dosya yazılamadı'
     Unknown data key: 'Bilinmeyen veri anahtarı'
     How do I import my subscriptions?: 'Aboneliklerimi nasıl içe artarırım?'
     Manage Subscriptions: Abonelikleri Yönet
     Export Playlists: Oynatma Listelerini Dışa Aktar
-    All playlists has been successfully imported: Tüm oynatma listeleri başarıyla
-      içe aktarıldı
-    Playlist insufficient data: '"{playlist}" oynatma listesi için yetersiz veri,
-      öge atlanıyor'
+    All playlists has been successfully imported: Tüm oynatma listeleri başarıyla içe aktarıldı
+    Playlist insufficient data: '"{playlist}" oynatma listesi için yetersiz veri, öge atlanıyor'
     Import Playlists: Oynatma Listelerini İçe Aktar
-    All playlists has been successfully exported: Tüm oynatma listeleri başarıyla
-      dışa aktarıldı
+    All playlists has been successfully exported: Tüm oynatma listeleri başarıyla dışa aktarıldı
     Playlist File: Oynatma Listesi Dosyası
     Subscription File: Abonelik Dosyası
     History File: Geçmiş Dosyası
     Export Playlists For Older FreeTube Versions:
       Label: Eski FreeTube Sürümleri İçin Oynatma Listelerini Dışa Aktar
-      Tooltip: "Bu seçenek, tüm oynatma listelerindeki videoları 'Favoriler' adlı
-        tek bir oynatma listesine aktarır.\nFreeTube'un eski bir sürümü için oynatma
-        listelerindeki videolar nasıl dışa ve içe aktarılır:\n1. Oynatma listelerinizi
-        bu seçenek etkinken dışa aktarın.\n2. Gizlilik Ayarları altındaki Tüm Oynatma
-        Listelerini Kaldır seçeneğini kullanarak var olan tüm oynatma listelerinizi
-        silin.\n3. FreeTube'un eski sürümünü başlatın ve dışa aktarılan oynatma listelerini
-        içe aktarın.\""
+      Tooltip: "Bu seçenek, tüm oynatma listelerindeki videoları 'Favoriler' adlı tek bir oynatma listesine aktarır.\nFreeTube'un eski bir sürümü için oynatma listelerindeki videolar nasıl dışa ve içe aktarılır:\n1. Oynatma listelerinizi bu seçenek etkinken dışa aktarın.\n2. Gizlilik Ayarları altındaki Tüm Oynatma Listelerini Kaldır seçeneğini kullanarak var olan tüm oynatma listelerinizi silin.\n3. FreeTube'un eski sürümünü başlatın ve dışa aktarılan oynatma listelerini içe aktarın.\""
 
+    Search history file: Arama geçmişi dosyası
+    Search history: Arama geçmişi
+    Import search history: Arama geçmişini içe aktar
+    Export search history: Arama geçmişini dışa aktar
+    All search history has been successfully imported: Tüm arama geçmişi başarıyla içe aktarıldı
+    All search history has been successfully exported: Tüm arama geçmişi başarıyla dışa aktarıldı
   Distraction Free Settings:
     Hide Live Chat: Canlı Sohbeti Gizle
     Hide Popular Videos: Popüler Videoları Gizle
@@ -533,69 +513,61 @@ Settings:
     Hide Playlists: Oynatma Listelerini Gizle
     Hide Live Streams: Canlı Yayınları Gizle
     Hide Sharing Actions: Paylaşım Eylemlerini Gizle
+    Hide Videos on Watch: 'İzlenmiş Videoları Gizle'
     Hide Video Description: Video Açıklamasını Gizle
     Hide Comments: Yorumları Gizle
     Hide Chapters: Bölümleri Gizle
     Hide Upcoming Premieres: Yaklaşan İlk Gösterimleri Gizle
     Hide Channels Placeholder: Kanal Kimliği
     Hide Channels: Kanallardan Videoları Gizle
-    Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf ve
-      Noktalama İşaretleri Kullanmadan Görüntüle
+    Display Titles Without Excessive Capitalisation: Başlıkları Aşırı Büyük Harf ve Noktalama İşaretleri Kullanmadan Görüntüle
     Hide Featured Channels: Öne Çıkan Kanalları Gizle
-    Hide Channel Playlists: Kanal "Oynatma Listelerini" Gizle Sekmesi
-    Hide Channel Community: Kanal "Topluluğunu" Gizle Sekmesi
-    Hide Channel Shorts: Kanal "Kısa Videolarını" Gizle Sekmesi
+    Hide Channel Playlists: Kanal "Oynatma Listelerini" Sekmesini Gizle
+    Hide Channel Shorts: Kanal "Kısa Videolar" Sekmesini Gizle
     Sections:
       Side Bar: Kenar Çubuğu
       Channel Page: Kanal Sayfası
       Watch Page: İzleme Sayfası
       General: Genel
       Subscriptions Page: Abonelikler Sayfası
-    Hide Channel Releases: Kanal "Yayınlarını" Gizle Sekmesi
-    Hide Channel Podcasts: Kanal "Podcast'lerini" Gizle Sekmesi
+    Hide Channel Releases: Kanal "Yayınlar" Sekmesini Gizle
+    Hide Channel Podcasts: Kanal "Podcastler" Sekmesini Gizle
     Hide Subscriptions Videos: Abonelik Videolarını Gizle
     Hide Subscriptions Shorts: Abonelik Kısa Videolarını Gizle
     Hide Subscriptions Live: Abonelik Canlı Yayınlarını Gizle
     Hide Profile Pictures in Comments: Yorumlardaki Profil Resimlerini Gizle
-    Hide Subscriptions Community: Abonelik Topluluğunu Gizle
     Hide Channels Invalid: Belirtilen kanal kimliği geçersiz
-    Hide Channels Disabled Message: Bazı kanallar kimliği kullanılarak engellendi
-      ve işlenmedi. Bu kimlikler güncellenirken özellik engellenir
+    Hide Channels Disabled Message: Bazı kanallar kimliği kullanılarak engellendi ve işlenmedi. Bu kimlikler güncellenirken özellik engellenir
     Hide Channels Already Exists: Kanal kimliği zaten var
-    Hide Channels API Error: Belirtilen kimliğe sahip kullanıcı alınırken hata oluştu.
-      Lütfen kimliğin doğru olup olmadığını tekrar gözden geçirin.
-    Hide Videos and Playlists Containing Text: Metin İçeren Videoları ve Oynatma Listelerini
-      Gizle
-    Hide Videos and Playlists Containing Text Placeholder: Sözcük, Sözcük Parçası
-      veya İfade
-    Hide Channel Home: Kanal "Ana Sayfasını" Gizle Sekmesi
-  The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin
-    etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın
-    ve değişiklikler uygulansın mı?
+    Hide Channels API Error: Belirtilen kimliğe sahip kullanıcı alınırken hata oluştu. Lütfen kimliğin doğru olup olmadığını tekrar gözden geçirin.
+    Hide Videos, Playlists and Channels Containing Text: Metin İçeren Videoları ve Oynatma Listelerini Gizle
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Sözcük, Sözcük Parçası veya İfade
+    Hide Channel Home: Kanal "Ana Sayfa" Sekmesini Gizle
+    Show Added Items: Eklenen Öğeleri Göster
+    Hide Channel Courses: Kanal "Kurslar" Sekmesini Gizle
+    Hide Channel Posts: Kanalın "Gönderiler" sekmesini gizle
+    Hide Subscriptions Posts: Abonelik gönderilerini gizle
+  The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın ve değişiklikler uygulansın mı?
   Proxy Settings:
-    Error getting network information. Is your proxy configured properly?: Ağ bilgileri
-      alınırken hata oluştu. Vekil sunucunuz doğru yapılandırıldı mı?
+    Error getting network information. Is your proxy configured properly?: Ağ bilgileri alınırken hata oluştu. Vekil sunucunuz doğru yapılandırıldı mı?
     City: Şehir
     Region: Bölge
     Country: Ülke
     Ip: IP
     Your Info: Bilgileriniz
     Test Proxy: Vekil Sunucuyu Test Et
-    Clicking on Test Proxy will send a request to: Vekil Sunucuyu Test Et düğmesine
-      tıklamak, şu adrese bir istek gönderecek
+    Clicking on Test Proxy will send a request to: Vekil Sunucuyu Test Et düğmesine tıklamak, şu adrese bir istek gönderecek
     Proxy Port Number: Vekil Sunucu Bağlantı Noktası Numarası
     Proxy Host: Vekil Sunucu Ana Makinesi
     Proxy Protocol: Vekil Sunucu Protokolü
     Enable Tor / Proxy: Tor / Vekil Sunucu Etkinleştir
     Proxy Settings: Vekil Sunucu
-    Proxy Warning: FreeTube yerleşik bir proxy'ye sahip değildir, ancak Tor gibi makinenizde
-      çalışan bir proxy veya bazı VPN'ler tarafından sağlanan SOCKS5 proxy gibi harici
-      bir proxy'ye bağlanabilir. Etkinleştirilmişse, proxy/Tor'unuzun düzgün yapılandırıldığından
-      emin olun, aksi takdirde FreeTube herhangi bir veri alamayacaktır.
+    Proxy Warning: FreeTube yerleşik bir vekil sunucusu sağlamaz fakat cihazınızda çalışan Tor veya bazı VPN'ler tarafından sağlanan harici vekil sunucu SOCKS5 gibi harici bir vekil sunucuya bağlanabilir. İzin verildiği takdirde, vekil sunucu/Tor ağının düzgün ayarlandığından emin olun, aksi takdirde FreeTube herhangi bir veri sağlayamayacaktır.
+    Proxy Username: Vekil Kullanıcı Adı
+    Proxy Password: Vekil Parolası
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Sponsor bölümü atlandığında bildir
-    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API
-      URL'si (Öntanımlı olarak https://sponsor.ajay.app)
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API bağlantısı (Varsayılan https://sponsor.ajay.app)
     Enable SponsorBlock: SponsorBlock'u Etkinleştir
     SponsorBlock Settings: SponsorBlock
     Skip Options:
@@ -607,8 +579,7 @@ Settings:
     Category Color: Kategori Rengi
     UseDeArrowTitles: DeArrow Video Başlıklarını Kullan
     UseDeArrowThumbnails: Önizleme görselleri için DeArrow kullan
-    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow
-      Önizleme Görseli Oluşturucu API URL'si (Öntanımlı https://dearrow-thumb.ajay.app)
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Önizleme Görseli Oluşturucu API URL'si (Öntanımlı https://dearrow-thumb.ajay.app)
   External Player Settings:
     Custom External Player Arguments: Özel Harici Oynatıcı Argümanları
     Custom External Player Executable: Özel Harici Oynatıcı Çalıştırılabilir Dosyası
@@ -619,23 +590,15 @@ Settings:
       None:
         Name: Yok
     Ignore Default Arguments: Öntanımlı Argümanları Yoksay
-  Download Settings:
-    Choose Path: Yol Seç
-    Ask Download Path: İndirme yolu için sor
-    Download Settings: İndirme
-    Download Behavior: İndirme Davranışı
-    Download in app: Uygulamada indir
-    Open in web browser: Web tarayıcısında aç
   Parental Control Settings:
     Parental Control Settings: Ebeveyn Denetimi
     Show Family Friendly Only: Yalnızca Aileye Uygun Olanları Göster
     Hide Unsubscribe Button: Abonelikten Çık Düğmesini Gizle
     Hide Search Bar: Arama Çubuğunu Gizle
+    Hide Uploader on Watch page: İzleme sayfasında yükleyiciyi gizle
   Experimental Settings:
     Replace HTTP Cache: HTTP Önbelleğini Değiştir
-    Warning: Bu ayarlar deneyseldir, etkin durumdayken çökmelere neden olabilirler.
-      Yedekleme yapılması şiddetle tavsiye edilir. Kullanmanız durumunda risk size
-      aittir!
+    Warning: Bu ayarlar deneyseldir, etkin durumdayken çökmelere neden olabilirler. Yedekleme yapılması şiddetle tavsiye edilir. Kullanmanız durumunda risk size aittir!
     Experimental Settings: Deneysel
   Password Dialog:
     Password: Parola
@@ -647,12 +610,14 @@ Settings:
     Set Password: Parola Ayarla
   Sort Settings Sections (A-Z): Ayarlar Bölümlerini Sırala (A-Z)
   Return to Settings Menu: Ayarlar Menüsüne Dön
+  SABR:
+    Label: DASH arka ucu olarak SABR etkinleştir
+    Tooltip: SABR, gelecek sürümlerde tek DASH arka ucu olacak ve devre dışı bırakılamayacaktır. Bu seçenek, erken uygulamada kurtarılamaz sorunlar olması ihtimaline karşı sunulmaktadır.
 About:
   #On About page
   About: 'Hakkında'
   #& About
-  Website: İnternet Sitesi
-  Blog: Blog
+  Website: Web sitesi
   Credits: Katkıda Bulunanlar
   FAQ: SSS
   Email: E-posta
@@ -660,23 +625,22 @@ About:
   Donate: Bağış Yap
   Help: Yardım
   these people and projects: bu kişiler ve projeler
-  FreeTube is made possible by: FreeTube'e katkıda bulunanlar
   Translate: Çevir
   room rules: oda kuralları
-  Please read the: Lütfen okuyun
   Chat on Matrix: Matrix'te sohbet et
   Mastodon: Mastodon
-  Please check for duplicates before posting: Lütfen bildirmeden önce bildirilmiş
-    olup olmadığına bakın
+  Please check for duplicates before posting: Lütfen bildirmeden önce bildirilmiş olup olmadığına bakın
   GitHub issues: GitHub sorunları
   Report a problem: Sorun bildir
   FreeTube Wiki: FreeTube Wiki
-  GitHub releases: GitHub yayınları
+  GitHub releases: GitHub Sürümleri
   Downloads / Changelog: İndirmeler / Değişiklikler
   Source code: Kaynak kodları
   Discussions: Tartışmalar
-  Licensed under the: 'Lisans:'
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: '{licenseLink} altında lisanslanmıştır'
+  Please read the {roomRulesLink}: 'Lütfen okuyun: {roomRulesLink}'
+  FreeTube is made possible by {creditsPageLink}: 'FreeTube için emeği geçenler: {creditsPageLink}'
 Profile:
   Profile Select: 'Profil Seçimi'
   All Channels: 'Tüm Kanallar'
@@ -690,17 +654,14 @@ Profile:
   Update Profile: 'Profili Güncelle'
   Make Default Profile: 'Öntanımlı Profil Yap'
   Delete Profile: 'Profili Sil'
-  Are you sure you want to delete this profile?: 'Bu profili silmek istediğinizden
-    emin misiniz?'
+  Are you sure you want to delete this profile?: 'Bu profili silmek istediğinizden emin misiniz?'
   All subscriptions will also be deleted.: 'Tüm abonelikler de silinecek.'
   Your profile name cannot be empty: 'Profil adı boş bırakılamaz'
   Profile has been created: 'Profil oluşturuldu'
   Profile has been updated: 'Profil güncellendi'
-  Your default profile has been set to {profile}: 'Öntanımlı profiliniz {profile}
-    olarak ayarlandı'
+  Your default profile has been set to {profile}: 'Öntanımlı profiliniz {profile} olarak ayarlandı'
   Removed {profile} from your profiles: '{profile} Profillerinizden kaldırıldı'
-  Your default profile has been changed to your primary profile: 'Öntanımlı profiliniz
-    birincil profiliniz olarak değiştirildi'
+  Your default profile has been changed to your primary profile: 'Öntanımlı profiliniz birincil profiliniz olarak değiştirildi'
   '{profile} is now the active profile': '{profile} artık etkin profil'
   Subscription List: 'Abonelik Listesi'
   Other Channels: 'Diğer Kanallar'
@@ -710,15 +671,11 @@ Profile:
   Delete Selected: 'Seçilenleri Sil'
   Add Selected To Profile: 'Seçilenleri Profile Ekle'
   No channel(s) have been selected: 'Hiçbir kanal seçilmedi'
-  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The
-    same channels will be deleted in any profile they are found in.
-  : 'Bu birincil profilinizdir. Seçili kanalları silmek istediğinizden emin misiniz?
-    Aynı kanallar bulundukları tüm profillerden silinecek.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Seçili
-    kanalları silmek istediğinizden emin misiniz?  Bu, kanalı başka bir profilden
-    silmez.'
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : 'Bu birincil profilinizdir. Seçili kanalları silmek istediğinizden emin misiniz? Aynı kanallar bulundukları tüm profillerden silinecek.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Seçili kanalları silmek istediğinizden emin misiniz?  Bu, kanalı başka bir profilden silmez.'
 #On Channel Page
-  Profile Filter: Profil Filtresi
+  Profile Filter: Profil Süzgeci
   Profile Settings: Profil
   Toggle Profile List: Profil Listesini Aç/Kapat
   Profile Name: Profil Adı
@@ -730,23 +687,20 @@ Channel:
   Subscribe: 'Abone ol'
   Unsubscribe: 'Abonelikten çık'
   Channel has been removed from your subscriptions: 'Kanal aboneliklerinizden kaldırıldı'
-  Removed subscription from {count} other channel(s): 'Diğer {count} kanallarından
-    abonelik kaldırıldı'
+  Removed subscription from {count} other channel(s): 'Diğer {count} kanallarından abonelik kaldırıldı'
   Added channel to your subscriptions: 'Kanal aboneliklerinize eklendi'
   Search Channel: 'Kanalda ara'
   Your search results have returned 0 results: 'Arama sonuçlarınız 0 sonuç verdi'
   Videos:
     Videos: 'Videolar'
-    This channel does not currently have any videos: 'Bu kanalda şu anda herhangi
-      bir video yok'
+    This channel does not currently have any videos: 'Bu kanalda şu anda herhangi bir video yok'
     Sort Types:
       Newest: 'En yeni'
       Oldest: 'En eski'
       Most Popular: 'En Popüler'
   Playlists:
     Playlists: 'Oynatma Listeleri'
-    This channel does not currently have any playlists: 'Bu kanalda şu anda herhangi
-      bir oynatma listesi yok'
+    This channel does not currently have any playlists: 'Bu kanalda şu anda herhangi bir oynatma listesi yok'
     Sort Types:
       Last Video Added: 'Son Eklenen Video'
       Newest: 'En yeni'
@@ -761,40 +715,35 @@ Channel:
     Details: Ayrıntılar
     Joined: Katıldı
     Location: Konum
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: Bu kanal
-    yaş sınırlamasına tabidir ve şu anda FreeTube'da görüntülenememektedir.
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Bu kanal yaş sınırlamasına tabidir ve şu anda FreeTube'da görüntülenememektedir.
   Channel Tabs: Kanal Sekmeleri
   This channel does not allow searching: Bu kanal aramaya izin vermiyor
   This channel does not exist: Bu kanal mevcut değil
-  Community:
-    This channel currently does not have any posts: Bu kanalda şu anda herhangi bir
-      gönderi yok
+  Posts:
+    This channel currently does not have any posts: Bu kanalda şu anda herhangi bir gönderi yok
     votes: '{votes} oy'
     Reveal Answers: Yanıtları Göster
     Hide Answers: Yanıtları Gizle
     Video hidden by FreeTube: FreeTube tarafından gizlenen video
     View Full Post: Gönderinin Tamamını Görüntüle
-    Viewing Posts Only Supported By Invidious: Gönderileri görüntüleme yalnızca Invidious
-      tarafından desteklenir. Invidious olmadan içeriği görüntülemek için bir kanalın
-      topluluk sekmesine gidin.
+    Viewing Posts Only Supported By Invidious: Gönderileri görüntüleme yalnızca Invidious tarafından desteklenir. Invidious olmadan içeriği görüntülemek için bir kanalın topluluk sekmesine gidin.
   Live:
     Live: Canlı
-    This channel does not currently have any live streams: Bu kanalda şu anda herhangi
-      bir canlı yayın yok
+    This channel does not currently have any live streams: Bu kanalda şu anda herhangi bir canlı yayın yok
   Shorts:
-    This channel does not currently have any shorts: Bu kanalda şu anda hiç kısa video
-      yok
+    This channel does not currently have any shorts: Bu kanalda şu anda hiç kısa video yok
   Podcasts:
     Podcasts: Podcast'ler
-    This channel does not currently have any podcasts: Bu kanalda şu anda herhangi
-      bir podcast yok
+    This channel does not currently have any podcasts: Bu kanalda şu anda herhangi bir podcast yok
   Releases:
-    This channel does not currently have any releases: Bu kanalda şu anda herhangi
-      bir yayın yok
+    This channel does not currently have any releases: Bu kanalda şu anda herhangi bir yayın yok
     Releases: Yayınlar
   Home:
     Home: Ana Sayfa
     View Playlist: Oynatma Listesini Gözat
+  Courses:
+    Courses: Kurslar
+    This channel does not currently have any courses: Bu kanalda şu anda herhangi bir kurs bulunmamaktadır
 Video:
   Mark As Watched: 'İzlendi Olarak İşaretle'
   Remove From History: 'Geçmişten Kaldır'
@@ -807,33 +756,26 @@ Video:
   Open in Invidious: 'Invidious''da aç'
   Copy Invidious Link: 'Invidious Bağlantısını Kopyala'
   Views: 'İzlenme'
-  Loop Playlist: 'Oynatma Listesini Döngüye Al'
+  Loop Playlist: 'Listeyi Döngüye Al'
   Shuffle Playlist: 'Oynatma Listesini Karıştır'
   Reverse Playlist: 'Oynatma Listesini Geriden Oynat'
-  Play Next Video: 'Sonraki Videoyu Oynat'
-  Play Previous Video: 'Önceki Videoyu Oynat'
+  Previous: 'Önceki'
+  Next: 'Sonraki'
   Watched: 'İzlendi'
-  Autoplay: 'Otomatik oynatma'
-  Starting soon, please refresh the page to check again: 'Yakında başlayacak, lütfen
-    tekrar denetlemek için sayfayı yenileyin'
+  Autoplay: 'Otomatik Oynat'
+  Starting soon, please refresh the page to check again: 'Yakında başlayacak, lütfen tekrar denetlemek için sayfayı yenileyin'
   # As in a Live Video
   Live: 'Canlı'
   Live Now: 'Şimdi Canlı'
   Live Chat: 'Canlı Sohbet'
   Enable Live Chat: 'Canlı Sohbeti Etkinleştir'
   Live Chat is currently not supported in this build.: 'Canlı Sohbet bu sürümde desteklenmiyor.'
-  Live chat is enabled. Chat messages will appear here once sent.: 'Canlı Sohbet etkinleştirildi.
-    Sohbet mesajları gönderildikten sonra burada görünecektir.'
-  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Canlı
-    Sohbet şu anda Invidious API ile desteklenmemektedir. YouTube ile doğrudan bağlantı
-    gerekli.'
+  Live chat is enabled. Chat messages will appear here once sent.: 'Canlı Sohbet etkinleştirildi. Sohbet mesajları gönderildikten sonra burada görünecektir.'
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': 'Canlı Sohbet şu anda Invidious API ile desteklenmemektedir. YouTube ile doğrudan bağlantı gerekli.'
   Published:
     In less than a minute: Bir dakikadan kısa sürede
   Published on: 'Yayımlanma tarihi'
 #& Videos
-  audio only: yalnızca ses
-  video only: yalnızca video
-  Download Video: Video İndir
   Copy Invidious Channel Link: Invidious Kanalı Bağlantısını Kopyala
   Open Channel in Invidious: İnvidious'da Kanal Aç
   Copy YouTube Channel Link: Youtube Kanalı Bağlantısını Kopyala
@@ -854,13 +796,12 @@ Video:
     filler: Dolgu
   External Player:
     Unsupported Actions:
-      looping playlists: oynatma listelerini döngüye alma
+      looping playlists: döngüsel oynatma listeleri
       shuffling playlists: oynatma listelerini karıştırma
-      reversing playlists: çalma listelerini ters çevirme
-      opening specific video in a playlist (falling back to opening the video): oynatma
-        listesinde belirli bir videoyu açma (yedek olarak videoyu açma)
-      opening playlists: çalma listelerini açma
-      setting a playback rate: oynatma hızı ayarlama
+      reversing playlists: oynatma listelerini ters çevir
+      opening specific video in a playlist (falling back to opening the video): oynatma listesinde belirli bir videoyu açma (yedek olarak videoyu açma)
+      opening playlists: oynatma listelerini aç
+      setting a playback rate: oynatma hızını ayarla
       starting video at offset: belirli bir konumda video başlatma
     UnsupportedActionTemplate: '{externalPlayer} desteklemiyor: {action}'
     OpeningTemplate: '{videoOrPlaylist}, {externalPlayer} içinde açılıyor...'
@@ -871,9 +812,7 @@ Video:
   Scroll to Bottom: Aşağıya Kaydır
   Show Super Chat Comment: Süper Sohbet Yorumunu Göster
   Upcoming: Yakında
-  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Canlı
-    sohbet bu yayın için kullanılamıyor. Yükleyen tarafından devre dışı bırakılmış
-    olabilir.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Canlı sohbet bu yayın için kullanılamıyor. Yükleyen tarafından devre dışı bırakılmış olabilir.
   Unhide Channel: Kanalı Göster
   Hide Channel: Kanalı Gizle
   More Options: Daha Fazla Seçenek
@@ -886,16 +825,14 @@ Video:
       CodecsVideoAudioNoItags: 'Kod Çözücüler: {videoCodec} / {audioCodec}'
       Stats: İstatistikler
       Video ID: 'Video Kimliği: {videoId}'
-      Resolution: 'Çözünürlük: {width}x{height}@{frameRate}'
+      Resolution: 'Çözünürlük: {width}x{height}{''@''}{frameRate}'
       Player Dimensions: 'Oynatıcı Boyutları: {width}x{height}'
       Volume: 'Ses Düzeyi: {volumePercentage}%'
       Bandwidth: 'Bant Genişliği: {bandwidth} kbps'
       Buffered: 'Ara Belleğe Alınan: {bufferedPercentage}%'
-      Dropped Frames / Total Frames: 'Kaybedilen Çerçeve: {droppedFrames} / Toplam
-        Çerçeve: {totalFrames}'
+      Dropped Frames / Total Frames: 'Kaybedilen Çerçeve: {droppedFrames} / Toplam Çerçeve: {totalFrames}'
       CodecAudio: 'Kod Çözücü: {audioCodec} ({audioItag})'
-      CodecsVideoAudio: 'Kod Çözücüler: {videoCodec} ({videoItag}) / {audioCodec}
-        ({audioItag})'
+      CodecsVideoAudio: 'Kod Çözücüler: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
     Theatre Mode: Tiyatro Modu
     Exit Theatre Mode: Tiyatro Modundan Çık
     Full Window: Tam Pencere
@@ -904,21 +841,25 @@ Video:
     Show Stats: İstatistikleri Göster
     Hide Stats: İstatistikleri Gizle
     You appear to be offline: Çevrim dışı görünüyorsunuz.
-    Playback will resume automatically when your connection comes back: Bağlantınız
-      geri geldiğinde oynatma otomatik olarak devam edecektir.
+    Playback will resume automatically when your connection comes back: Bağlantınız geri geldiğinde oynatma otomatik olarak devam edecektir.
     Skipped segment: '{segmentCategory} bölümü atlandı'
-  IP block: YouTube, IP adresinizin video izlemesini engelledi. Lütfen farklı bir
-    VPN veya vekil sunucuya geçmeyi deneyin.
+    Autoplay is off: Otomatik Oynat Kapalı
+    Autoplay is on: Otomatik Oynat Açık
+  IP block: YouTube, IP adresinizin video izlemesini engelledi. Lütfen farklı bir VPN veya vekil sunucuya geçmeyi deneyin.
   Unlisted: Listelenmemiş
-  AgeRestricted: Yaş sınırlamalı videolar, Google hesabına giriş ve yaş doğrulaması
-    yapılmış bir YouTube hesabının kullanımını gerektirdiği için FreeTube üzerinden
-    izlenemez.
-  MembersOnly: Yalnızca üyelere özel videolar, Google girişi ve yükleyicinin kanalına
-    ücretli üyelik gerektirdiğinden FreeTube ile izlenemez.
+  AgeRestricted: Yaş sınırlamalı videolar, Google hesabına giriş ve yaş doğrulaması yapılmış bir YouTube hesabının kullanımını gerektirdiği için FreeTube üzerinden izlenemez.
+  MembersOnly: Sadece üyelere özel videolar, Google hesabına giriş ve yükleyicinin kanalına ücretli abonelik gerektirdiği için FreeTube üzerinden izlenemez.
   DeArrow:
     Show Original Details: Düzenlenmemiş Detayları Göster
     Show Modified Details: Düzenlenmiş Detayları Göster
 #& Playlists
+  DRMProtected: DRM korumalı videolar, özel kapalı kaynak bileşenleri gerektirdiğinden FreeTube ile oynatılamaz. Bu videoyu izlemek istiyorsanız lütfen resmi YouTube web sitesinde DRM etkinleştirilmiş bir web tarayıcısında izleyin.
+  Watched Progress Saved: İzlenen İlerleme Kaydedildi
+  Save Watched Progress: İzlenen İlerlemeyi Kaydet
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Kalan ön reklam süresi: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Kalan SABR bekleme süresi: {remindingTimeSeconds}s'
+  Popout Live Chat: Açılır Sohbet
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'
@@ -929,26 +870,25 @@ Playlist:
 #& Views
   Playlist: Oynatma Listesi
   Sort By:
-    DateAddedNewest: Son eklenen önce
+    DateAddedNewest: Eklenme Tarihi (En Yeni)
     AuthorAscending: Yazar (A-Z)
     AuthorDescending: Yazar (Z-A)
     VideoTitleAscending: Başlık (A-Z)
     VideoTitleDescending: Başlık (Z-A)
-    DateAddedOldest: İlk eklenen önce
+    DateAddedOldest: Eklenme Tarihi (En Eski)
     Custom: Özel
-    VideoDurationAscending: Süre (Önce en kısa)
-    VideoDurationDescending: Süre (Önce en uzun)
+    VideoDurationAscending: Süre (En Kısa)
+    VideoDurationDescending: Süre (En Uzun)
+    PublishedOldest: Yayınlanma Tarihi (En Eski)
+    PublishedNewest: Yayınlanma Tarihi (En Yeni)
 Change Format:
   Change Media Formats: 'Medya Biçimlerini Değiştir'
   Use Dash Formats: 'DASH Biçimlerini Kullan'
   Use Legacy Formats: 'Eski Biçimleri Kullan'
   Use Audio Formats: 'Ses Biçimlerini Kullan'
-  Dash formats are not available for this video: 'DASH biçimleri bu video için kullanılabilir
-    değil'
-  Audio formats are not available for this video: 'Ses biçimleri bu video için kullanılabilir
-    değil'
-  Legacy formats are not available for this video: Eski biçimler bu video için kullanılabilir
-    değil
+  Dash formats are not available for this video: 'DASH biçimleri bu video için kullanılabilir değil'
+  Audio formats are not available for this video: 'Ses biçimleri bu video için kullanılabilir değil'
+  Legacy formats are not available for this video: Eski biçimler bu video için kullanılabilir değil
 Share:
   Share Video: 'Videoyu Paylaş'
   Share Playlist: 'Oynatma Listesini Paylaş'
@@ -959,14 +899,13 @@ Share:
   Open Embed: 'Bütünleşik Oynatıcı Aç'
   # On Click
   Invidious URL copied to clipboard: 'Invidious bağlantısı panoya kopyalandı'
-  Invidious Embed URL copied to clipboard: 'Invidious bütünleşik oynatıcı bağlantısı
-    panoya kopyalandı'
+  Invidious Embed URL copied to clipboard: 'Invidious bütünleşik oynatıcı bağlantısı panoya kopyalandı'
   YouTube URL copied to clipboard: 'YouTube bağlantısı panoya kopyalandı'
-  YouTube Embed URL copied to clipboard: 'YouTube bütünleşik oynatıcı bağlantısı panoya
-    kopyalandı'
+  YouTube Embed URL copied to clipboard: 'YouTube bütünleşik oynatıcı bağlantısı panoya kopyalandı'
   YouTube Channel URL copied to clipboard: Youtube Kanalı Adresi panoya kopyalandı
   Invidious Channel URL copied to clipboard: Invidious Kanalı Adresi panoya kopyalandı
   Share Channel: Kanalı Paylaş
+  Share Post: Gönderiyi Paylaş
 Mini Player: 'Mini Oynatıcı'
 Comments:
   Comments: 'Yorumlar'
@@ -975,23 +914,20 @@ Comments:
   There are no more comments for this video: 'Bu video için daha fazla yorum yok'
   Hide Comments: 'Yorumları Gizle'
   # Context: View 10 Replies, View 1 Reply
-  View: 'Görüntüle'
-  Hide: 'Gizle'
-  Replies: 'Yanıtlar'
-  Reply: 'Yanıt'
   There are no comments available for this video: 'Bu videoya hiç yorum yapılmamış'
   Load More Comments: 'Daha Fazla Yorum Yükle'
   Newest first: En yeni ilk önce
   Top comments: En iyi yorumlar
   Show More Replies: Daha Fazla Yanıt Göster
-  From {channelName}: "{channelName}'den"
-  And others: ve diğerleri
   Pinned by: Sabitleyen
   Member: Üye
-  View {replyCount} replies: '{replyCount} yanıtı görüntüle'
+  View {replyCount} replies: '1 yanıtı görüntüle | {replyCount} yanıtı görüntüle'
   Hearted: Kalplendi
   Subscribed: Abone olundu
   There are no comments available for this post: Bu gönderi için hiç yorum yok
+  Hide {replyCount} replies: 1 yanıtı gizle | {replyCount} yanıtı gizle
+  View 1 reply from {channelName}: '{channelName} kanalından 1 yanıtı görüntüle'
+  View {replyCount} replies from {channelName} and others: '{channelName} kanalından ve diğerlerinden {replyCount} yanıtı görüntüle'
 Up Next: 'Sonraki'
 
 # Toast Messages
@@ -1003,119 +939,61 @@ Loop is now disabled: 'Döngü artık devre dışı'
 Loop is now enabled: 'Döngü artık etkin'
 Shuffle is now disabled: 'Karıştır artık devre dışı'
 Shuffle is now enabled: 'Karıştır artık etkin'
-The playlist has been reversed: 'Çalma listesi tersine çevrildi'
+The playlist has been reversed: 'Oynatma listesi tersine çevrildi'
 Playing Next Video: 'Sonraki Video Oynatılıyor'
 Playing Previous Video: 'Önceki Video Oynatılıyor'
-Canceled next video autoplay: 'Sonraki videoyu otomatik oynatma iptal edildi'
-'The playlist has ended. Enable loop to continue playing': 'Çalma listesi sona erdi.  Çalmaya
-  devam etmek için döngüyü etkinleştir'
+Canceled next video autoplay: 'Sonraki video otomatik oynatımı iptal edildi'
+'The playlist has ended. Enable loop to continue playing': 'Oynatma listesi sona erdi.  Devam etmek için döngüyü etkinleştir'
 
 Yes: 'Evet'
 No: 'Hayır'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: Eksik
-  biçimler nedeniyle bu video kullanılamıyor. Bu durum, ülke kullanılamazlığı nedeniyle
-  gerçekleşebilir.
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Eksik biçimler nedeniyle bu video kullanılamıyor. Bu durum, ülke kullanılamazlığı nedeniyle gerçekleşebilir.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Etkinleştirildiğinde, FreeTube abonelik akışınızı almak
-      için öntanımlı yönteminin yerine RSS'yi kullanır. RSS daha hızlıdır ve IP engellemesinin
-      önüne geçer, ancak video süresi, canlı yayın durumu veya topluluk gönderileri
-      gibi belirli bilgileri sağlamaz
-    Fetch Automatically: Etkinleştirildiğinde, FreeTube yeni bir pencere açıldığında
-      ve profil değiştirirken abonelik akışınızı otomatik olarak getirecektir.
+    Fetch Feeds from RSS: Etkinleştirildiğinde, FreeTube abonelik akışınızı almak için varsayılan yöntemi yerine RSS kullanacaktır. RSS daha hızlıdır ve IP engellemesini önler, ancak video süresi, canlı durum veya gönderiler gibi belirli bilgileri sağlamaz
+    Fetch Automatically: Etkinleştirildiğinde, FreeTube başlangıçta ve yeni bir pencere açıldığında abonelik beslemenizi otomatik olarak getirecektir.
   Player Settings:
-    Default Video Format: Bir video oynatılırken kullanılan biçimleri ayarlayın. DASH
-      biçimleri daha yüksek kalitelerde oynatabilir. Eski biçimler en fazla 720p ile
-      sınırlıdır ancak daha az bant genişliği kullanır. Ses biçimleri yalnızca ses
-      akışlarıdır.
-    Proxy Videos Through Invidious: Videoları sunmak için YouTube ile doğrudan bağlantı
-      kurmak yerine Invidious'a bağlanılacak.
-    Scroll Playback Rate Over Video Player: Oynatma hızını denetlemek için, imleç
-      videonun üzerindeyken Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve oynatma
-      hızını denetlemek için fare tekerleğini ileri veya geri kaydırın. Öntanımlı
-      oynatma hızına (ayarlarda değiştirilmediği sürece 1x) hızlı bir şekilde dönmek
-      için Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve fareye sol tıklayın.
-    Skip by Scrolling Over Video Player: MPV'deki gibi videoda atlamak için kaydırma
-      tekerleğini kullanın.
+    Default Video Format: Bir video oynatılırken kullanılan biçimleri ayarlayın. DASH biçimleri daha yüksek kalitelerde oynatabilir. Eski biçimler en fazla 360p ile sınırlıdır ancak daha az bant genişliği kullanır. Ses biçimleri yalnızca ses akışlarıdır.
+    Proxy Videos Through Invidious: Videoları sunmak için YouTube ile doğrudan bağlantı kurmak yerine Invidious'a bağlanılacak.
+    Scroll Playback Rate Over Video Player: Oynatma hızını denetlemek için, imleç videonun üzerindeyken Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve oynatma hızını denetlemek için fare tekerleğini ileri veya geri kaydırın. Öntanımlı oynatma hızına (ayarlarda değiştirilmediği sürece 1x) hızlı bir şekilde dönmek için Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve fareye sol tıklayın.
+    Skip by Scrolling Over Video Player: MPV'deki gibi videoda atlamak için kaydırma tekerleğini kullanın.
   General Settings:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
-    Thumbnail Preference: FreeTube'daki tüm önizleme görselleri, öntanımlı önizleme
-      görseli yerine videonun bir karesiyle değiştirilecektir.
-    Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz
-      API'de bir sorun olduğunda FreeTube otomatik olarak tercih edilmeyen API'nizi
-      yedek yöntem olarak kullanmaya çalışır.
-    Preferred API Backend: FreeTube'un veri elde etmek için kullandığı arka ucu seçin.
-      Yerel API yerleşik bir çıkarıcıdır. Invidious API'si, bağlanmak için bir Invidious
-      sunucusu gerektirir.
-    Region for Trending: Öne çıkanların bölgesi, hangi ülkenin öne çıkan videolarını
-      görüntülemek istediğinizi seçmenize olanak tanır.
-    External Link Handling: "FreeTube'da açılamayan bir bağlantı tıklandığında öntanımlı
-      davranışı seçin.\nÖntanımlı olarak FreeTube, tıklanan bağlantıyı öntanımlı tarayıcınızda
-      açacaktır.\n"
-    Open Deep Links In New Window: Yeniden yönlendirilmiş tarayıcı eklentileri veya
-      komut satırı bağımsız değişkenleri gibi FreeTube'a yönlendirilen URL'ler, yeni
-      pencerede açılırlar.
+    Thumbnail Preference: FreeTube'daki tüm küçük resimler, varsayılan küçük resim yerine videonun bir karesiyle, bulanık veya gizli şekilde değiştirilecektir.
+    Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz API'de bir sorun olduğunda FreeTube otomatik olarak tercih edilmeyen API'nizi yedek yöntem olarak kullanmaya çalışır.
+    Preferred API Backend: FreeTube'un veri elde etmek için kullandığı arka ucu seçin. Yerel API yerleşik bir çıkarıcıdır. Invidious API'si, bağlanmak için bir Invidious sunucusu gerektirir.
+    Region for Trending: Öne çıkanların bölgesi, hangi ülkenin öne çıkan videolarını görüntülemek istediğinizi seçmenize olanak tanır.
+    External Link Handling: "FreeTube'da açılamayan bir bağlantı tıklandığında öntanımlı davranışı seçin.\nÖntanımlı olarak FreeTube, tıklanan bağlantıyı öntanımlı tarayıcınızda açacaktır.\n"
+    Open Deep Links In New Window: Yeniden yönlendirilmiş tarayıcı eklentileri veya komut satırı bağımsız değişkenleri gibi FreeTube'a yönlendirilen URL'ler, yeni pencerede açılırlar.
   External Player Settings:
-    Custom External Player Arguments: Harici oynatıcıya iletmek isteyeceğiniz, herhangi
-      özel komut satırı argümanları.
-    Ignore Warnings: Geçerli harici oynatıcının geçerli eylemi desteklemediği durumlar
-      için uyarıları bastır (örn. çalma listelerini ters çevirme vb.).
-    Custom External Player Executable: Öntanımlı olarak FreeTube, seçilen harici oynatıcının
-      PATH ortam değişkeni aracılığıyla bulunabileceğini varsayacaktır. Gerekirse,
-      burada özel bir yol ayarlanabilir.
-    External Player: 'Harici bir oynatıcı seçmek, videoyu (destekleniyorsa oynatma
-      listesini) harici oynatıcıda açmak için önizleme görselinde bir simge görüntüleyecektir.
-      Uyarı: Invidious ayarları harici oynatıcıları etkilemez.'
+    Custom External Player Arguments: Harici oynatıcıya iletmek isteyeceğiniz, herhangi özel komut satırı argümanları.
+    Ignore Warnings: Mevcut harici oynatıcının geçerli eylemi desteklemediği durumlar için uyarıları bastır (örn. oynatma listelerini ters çevirme vb.).
+    Custom External Player Executable: Öntanımlı olarak FreeTube, seçilen harici oynatıcının PATH ortam değişkeni aracılığıyla bulunabileceğini varsayacaktır. Gerekirse, burada özel bir yol ayarlanabilir.
+    External Player: 'Harici bir oynatıcı seçmek, videoyu (destekleniyorsa oynatma listesini) harici oynatıcıda açmak için önizleme görselinde bir simge görüntüleyecektir. Uyarı: Invidious ayarları harici oynatıcıları etkilemez.'
     DefaultCustomArgumentsTemplate: "(Öntanımlı: '{defaultCustomArguments}')"
-    Ignore Default Arguments: Harici oynatıcıya video URL'si dışında herhangi bir
-      öntanımlı argüman gönderme (örn. oynatma hızı, oynatma listesi URL'si vb.).
-      Özel argümanlar yine de gönderilecektir.
+    Ignore Default Arguments: Harici oynatıcıya video URL'si dışında herhangi bir öntanımlı argüman gönderme (örn. oynatma hızı, oynatma listesi URL'si vb.). Özel argümanlar yine de gönderilecektir.
   Experimental Settings:
-    Replace HTTP Cache: Electron'un disk tabanlı HTTP önbelleğini devre dışı bırakır
-      ve özel bir bellek içi resim önbelleğini etkinleştirir. RAM kullanımının artmasına
-      neden olacaktır.
+    Replace HTTP Cache: Electron'un disk tabanlı HTTP önbelleğini devre dışı bırakır ve özel bir bellek içi resim önbelleğini etkinleştirir. RAM kullanımının artmasına neden olacaktır.
   Distraction Free Settings:
-    Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama,
-      öne çıkanlar, en popüler ve tavsiye edilenlerde görünmesini engellemek için
-      bir kanal kimliği girin. Girilen kanal kimliği tam olarak eşleşmelidir ve büyük/küçük
-      harfe duyarlıdır.
-    Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}"
-      kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz
-      kılınıyor
-    Hide Videos and Playlists Containing Text: Yalnızca Geçmiş, Oynatma Listeleriniz
-      ve oynatma listelerindeki videolar hariç olmak üzere, FreeTube'un tamamında
-      orijinal başlıkları bu sözcüğü içeren tüm videoları ve oynatma listelerini gizlemek
-      için bir sözcük, sözcük parçası veya ifade girin (büyük/küçük harfe duyarlı
-      değildir).
+    Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama, öne çıkanlar, en popüler ve tavsiye edilenlerde görünmesini engellemek için bir kanal kimliği girin. Girilen kanal kimliği tam olarak eşleşmelidir ve büyük/küçük harfe duyarlıdır.
+    Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}" kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz kılınıyor
+    Hide Videos, Playlists and Channels Containing Text: Yalnızca Geçmiş, Oynatma Listeleriniz ve oynatma listelerindeki videolar hariç olmak üzere, FreeTube'un tamamında orijinal başlıkları bu sözcüğü içeren tüm videoları ve oynatma listelerini gizlemek için bir sözcük, sözcük parçası veya ifade girin (büyük/küçük harfe duyarlı değildir).
+    Hide Videos on Watch: Abonelik ve kanal sayfalarındaki videolar, kısalar ve canlı sekmelerindeki izlenen videoları gizler. Bu, kanal sayfalarındaki ana sayfa sekmesini etkilemez
   SponsorBlock Settings:
-    UseDeArrowTitles: Video başlıklarını DeArrow'dan kullanıcıların gönderdiği başlıklarla
-      değiştir.
-    UseDeArrowThumbnails: Video önizleme görsellerini DeArrow'dan önizleme görselleriyle
-      değiştirin.
-Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın.
-  | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için
-  tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek
-  için tıklayın.
+    UseDeArrowTitles: Video başlıklarını DeArrow'dan kullanıcıların gönderdiği başlıklarla değiştir.
+    UseDeArrowThumbnails: Video önizleme görsellerini DeArrow'dan önizleme görselleriyle değiştirin.
+Playing Next Video Interval: Sonraki video hemen oynatılıyor. İptal etmek için tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için tıklayın. | Sonraki video {nextVideoInterval} saniye içinde oynatılıyor. İptal etmek için tıklayın.
 More: Daha Fazla
-Unknown YouTube url type, cannot be opened in app: Bilinmeyen YouTube URL türü, uygulamada
-  açılamıyor
+Unknown YouTube url type, cannot be opened in app: Bilinmeyen YouTube URL türü, uygulamada açılamıyor
 Open New Window: Yeni Pencere Aç
 Default Invidious instance has been cleared: Öntanımlı Invidious örneği temizlendi
-Default Invidious instance has been set to {instance}: Öntanımlı Invidious örneği
-  {instance} olarak ayarlandı
+Default Invidious instance has been set to {instance}: Öntanımlı Invidious örneği {instance} olarak ayarlandı
 Search Bar:
   Clear Input: Girişi Temizle
-External link opening has been disabled in the general settings: Harici bağlantı açma
-  genel ayarlarda devre dışı bırakıldı
-Are you sure you want to open this link?: Bu bağlantıyı açmak istediğinizden emin
-  misiniz?
-Downloading canceled: İndirme, kullanıcı tarafından iptal edildi
-Starting download: '"{videoTitle}" indirme işlemi başlatılıyor'
-Downloading has completed: '"{videoTitle}" indirme işlemi tamamlandı'
-Downloading failed: '"{videoTitle}" indirilirken bir sorun oluştu'
-Download folder does not exist: İndirme dizini "$" mevcut değil. "Klasör sor" moduna
-  geri dönülüyor.
-Screenshot Success: Ekran görüntüsü "{filePath}" olarak kaydedildi
+  Remove: Kaldır
+External link opening has been disabled in the general settings: Harici bağlantı açma genel ayarlarda devre dışı bırakıldı
+Are you sure you want to open this link?: Bu bağlantıyı açmak istediğinizden emin misiniz?
+Screenshot Success: Ekran görüntüsü kaydedildi
 Screenshot Error: Ekran görüntüsü başarısız oldu. {error}
 New Window: Yeni Pencere
 Channels:
@@ -1127,26 +1005,19 @@ Channels:
   Unsubscribe Prompt: '"{channelName}" aboneliğinden çıkmak istediğinizden emin misiniz?'
 Clipboard:
   Copy failed: Panoya kopyalanamadı
-  Cannot access clipboard without a secure connection: Güvenli bağlantı olmadan panoya
-    erişilemiyor
+  Cannot access clipboard without a secure connection: Güvenli bağlantı olmadan panoya erişilemiyor
 Chapters:
   Chapters: Bölümler
-  'Chapters list visible, current chapter: {chapterName}': 'Bölüm listesi görünür,
-    geçerli bölüm: {chapterName}'
-  'Chapters list hidden, current chapter: {chapterName}': 'Bölüm listesi gizli, geçerli
-    bölüm: {chapterName}'
   Key Moments: Kilit Anlar
 Preferences: Tercihler
 Ok: Tamam
 Hashtag:
   Hashtag: Hashtag
-  This hashtag does not currently have any videos: Bu hashtag'in şu anda herhangi
-    bir videosu yok
-Channel Hidden: '{channel} kanal filtresine eklendi'
+  This hashtag does not currently have any videos: Bu hashtag'in şu anda herhangi bir videosu yok
+Channel Hidden: '{channel} kanal süzgecine eklendi'
 Go to page: '{page}. sayfaya git'
-Channel Unhidden: '{channel} kanal filtresinden kaldırıldı'
-Trimmed input must be at least N characters long: Kırpılan girdi en az 1 karakter
-  uzunluğunda olmalıdır | Kırpılan girdi en az {length} karakter uzunluğunda olmalıdır
+Channel Unhidden: '{channel} kanal süzgecinden kaldırıldı'
+Trimmed input must be at least N characters long: Kırpılan girdi en az 1 karakter uzunluğunda olmalıdır | Kırpılan girdi en az {length} karakter uzunluğunda olmalıdır
 Tag already exists: '"{tagName}" etiketi zaten var'
 Close Banner: Afişi Kapat
 Age Restricted:
@@ -1162,8 +1033,7 @@ Yes, Restart: Evet, yeniden başlat
 Yes, Open Link: Evet, bağlantıyı aç
 Yes, Delete: Evet, sil
 Cancel: İptal
-Search character limit: Arama sorgusu karakter sınırının ({searchCharacterLimit})
-  üzerinde
+Search character limit: Arama sorgusu karakter sınırının ({searchCharacterLimit}) üzerinde
 Search Listing:
   Label:
     Closed Captions: Kapalı Alt Yazılar
@@ -1174,8 +1044,6 @@ Search Listing:
     New: Yeni
     3D: 3B
     8K: 8K
-'Blocked opening potentially unsafe URL': "Güvenli olmayabilir URL'nin açılması engellendi:
-  \"{url}\"."
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Keys:
   arrowdown: Aşağı Ok
@@ -1184,11 +1052,66 @@ Keys:
   ctrl: Ctrl
   arrowright: Sağ Ok
   alt: Alt
+  enter: Enter
+  shift: Shift
+  plus: Plus
 shortcutJoinOperator: +
-Right-click or hold to see history: Geçmişi görmek için sağ tıklayın ya da basılı
-  tutun
+Right-click or hold to see history: Geçmişi görmek için sağ tıklayın ya da basılı tutun
 Description:
   Expand Description: '...devamı'
   Collapse Description: Daha az göster
-Autoplay Interruption Timer: Otomatik oynatma, {autoplayInterruptionIntervalHours}
-  saattir aktif olmadığı için iptal edildi
+Autoplay Interruption Timer: Otomatik oynatma, {autoplayInterruptionIntervalHours} saattir aktif olmadığı için iptal edildi
+shortcutLabelSeparator: ｜
+KeyboardShortcutPrompt:
+  Full Window: Tam pencereyi değiştir
+  Theatre Mode: Sinema modunu değiştir
+  Close Window: Pencereyi kapat
+  Fullscreen: Tam Ekran
+  Increase Video Speed: Video Oynatma Hızı Aralığına göre video hızını artır
+  Large Rewind: 10 saniye geri sar / Mevcut Video Oynatma Hızına göre videoyu geri sar
+  Minimize Window: Pencereyi küçült
+  Take Screenshot: Ekran görüntüsü al
+  History Backward: Bir sayfa geriye git
+  Skip by Tenths: Videoyu yüzdeye göre atla (3 atlayışla sürenin %30'una ulaş)
+  Refresh: Beslemeyi en son içerikle yenileyin
+  Focus Secondary Search: İkincil arama çubuğuna odaklan (varsa)
+  New Window: Yeni bir pencere oluştur
+  Navigate to History: Geçmiş sayfasına git
+  Navigate to Settings: Ayarlar sayfasına git
+  Captions: Altyazıları AÇ/KAPAT
+  Stats: Video istatistiklerini göster
+  Play: Oynat/duraklat değiştir
+  Mute: Sesi kapat
+  Decrease Video Speed: Video Oynatma Hızı Aralığına göre video hızını azalt
+  Large Fast Forward: 10 saniye ileri / Mevcut Video Oynatma Hızına göre videoyu ileri sar
+  Keyboard Shortcuts: Klavye Kısayolları
+  History Forward: Bir sayfa ileri git
+  Picture in Picture: Resim içinde Resim modu değiştir
+  Volume Up: Ses seviyesini artır
+  Next Chapter: Sonraki Bölüm
+  Zoom Out: Uzaklaştır
+  Focus Search: Arama çubuğuna odaklan
+  Search in New Window: Yeni bir pencerede ara
+  Last Frame: Önceki kare (duraklatılmışken)
+  Reset Zoom: Yakınlaştırma seviyesini / UI ölçeğini sıfırla
+  Zoom In: Yakınlaştır
+  Next Frame: Sonraki kare (duraklatılmışken)
+  Small Fast Forward: Hızlı İleri Sarma Aralığı ve geçerli Video Oynatma Hızına göre X saniye ileri sar
+  Small Rewind: Geri Sarma Aralığı ve geçerli Video Oynatma Hızına göre X saniye geri sar
+  Toggle Developer Tools: Geliştirici araçlarını aç kapat
+  Volume Down: Ses seviyesini azalt
+  Sections:
+    App:
+      General: Uygulama: Genel
+      Situational: 'Uygulama: Durumsal'
+    Video:
+      General: Video: Genel
+      Playback: Video: Oynatım
+  Last Chapter: Son Bölüm
+  Show Keyboard Shortcuts: Klavye kısayollarını göster
+  End: Videonun sonuna git
+  Home: Videonun başına git
+  Skip to Next Video: Oynatma listesindeki sonraki videoya veya sonraki önerilen videoya atla
+  Skip to Previous Video: Oynatma listesindeki bir önceki videoya atla
+Compact side navigation: Yan gezinmeyi daralt
+Expand side navigation: Yan gezinmeyi genişlet

@@ -21,7 +21,6 @@
             :icon="['fas', 'rss']"
             class="navIcon"
             :class="applyNavIconExpand"
-            fixed-width
           />
         </div>
         <p
@@ -44,7 +43,6 @@
             :icon="['fas', 'user-check']"
             class="navIcon"
             :class="applyNavIconExpand"
-            fixed-width
           />
         </div>
         <p
@@ -55,7 +53,7 @@
         </p>
       </router-link>
       <router-link
-        v-if="!hideTrendingVideos"
+        v-if="SUPPORTS_LOCAL_API && !hideTrendingVideos && (backendFallback || backendPreference === 'local')"
         class="navOption mobileHidden"
         role="button"
         to="/trending"
@@ -68,7 +66,6 @@
             :icon="['fas', 'fire']"
             class="navIcon"
             :class="applyNavIconExpand"
-            fixed-width
           />
         </div>
         <p
@@ -92,7 +89,6 @@
             :icon="['fas', 'users']"
             class="navIcon"
             :class="applyNavIconExpand"
-            fixed-width
           />
         </div>
         <p
@@ -116,7 +112,6 @@
             :icon="['fas', 'bookmark']"
             class="navIcon"
             :class="applyNavIconExpand"
-            fixed-width
           />
         </div>
         <p
@@ -140,7 +135,6 @@
             :icon="['fas', 'history']"
             class="navIcon"
             :class="applyNavIconExpand"
-            fixed-width
           />
         </div>
         <p
@@ -164,7 +158,6 @@
             :icon="['fas', 'sliders-h']"
             class="navIcon"
             :class="applyNavIconExpand"
-            fixed-width
           />
         </div>
         <p
@@ -187,7 +180,6 @@
             :icon="['fas', 'info-circle']"
             class="navIcon"
             :class="applyNavIconExpand"
-            fixed-width
           />
         </div>
         <p
@@ -200,10 +192,11 @@
       <hr>
       <div
         v-if="!hideActiveSubscriptions"
+        class="mobileHidden"
       >
         <router-link
-          v-for="(channel, index) in activeSubscriptions"
-          :key="index"
+          v-for="channel in activeSubscriptions"
+          :key="channel.id"
           :to="`/channel/${channel.id}`"
           class="navChannel channelLink mobileHidden"
           :title="channel.name"
@@ -230,6 +223,7 @@
           <p
             v-if="isOpen"
             class="navLabel"
+            dir="auto"
           >
             {{ channel.name }}
           </p>
@@ -254,6 +248,8 @@ import { deepCopy, localizeAndAddKeyboardShortcutToActionTitle } from '../../hel
 import { KeyboardShortcuts } from '../../../constants'
 
 const { locale, t } = useI18n()
+
+const SUPPORTS_LOCAL_API = process.env.SUPPORTS_LOCAL_API
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const isOpen = computed(() => {

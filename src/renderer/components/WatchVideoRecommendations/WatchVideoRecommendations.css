@@ -4,7 +4,7 @@
 
 .watchVideoRecommendations {
   display: grid;
-  grid-gap: 8px;
+  gap: 8px;
 }
 
 .VideoRecommendationsTopBar {

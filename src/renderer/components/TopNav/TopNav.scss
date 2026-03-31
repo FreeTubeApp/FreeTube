@@ -1,0 +1,226 @@
+@mixin top-nav-is-colored {
+  @at-root {
+    .topNavBarColor &,
+    .topNavBarColor#{&} {
+      @content;
+    }
+  }
+}
+
+.topNav {
+  align-content: center;
+  align-items: center;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
+  display: flex;
+  block-size: 60px;
+  inset-inline: 0;
+  line-height: 60px;
+  position: sticky;
+  inset-block-start: 0;
+  inline-size: 100%;
+  z-index: 4;
+
+  @media only screen and (width >= 961px) {
+    display: grid;
+    grid-template-columns: 1fr 440px 1fr;
+  }
+
+  @include top-nav-is-colored {
+    background-color: var(--primary-color);
+  }
+
+  @media only screen and (width <= 680px) {
+    position: fixed;
+
+    &:has(+ .sideNav + .routerView .floatingRefreshSection) {
+      box-shadow: none;
+    }
+  }
+}
+
+.menuButton {
+  @media only screen and (width <= 680px) {
+    display: none;
+  }
+}
+
+.arrowDisabled :deep(.iconButton) {
+  filter: grayscale(1);
+  background-color: inherit;
+  opacity: 0.4;
+  pointer-events: auto;
+  cursor: default;
+  user-select: none;
+}
+
+.navButton {
+  border-radius: 50%;
+  border-style: none;
+  background-color: transparent;
+  color: var(--primary-text-color);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1em;
+  padding: 10px;
+  transition: background 0.2s ease-out;
+}
+
+.navButton,
+:deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
+  &:hover {
+    background-color: var(--side-nav-hover-color);
+    color: var(--side-nav-hover-text-color);
+    transition: background 0.2s ease-in;
+  }
+
+  &:active {
+    background-color: var(--tertiary-text-color);
+    color: var(--side-nav-active-text-color);
+    transition: background 0.2s ease-in;
+  }
+}
+
+.navIcon {
+  inline-size: 1em;
+}
+
+.topNavBarColor .navButton,
+.topNavBarColor :deep(.ftIconButton:not(.arrowDisabled) .iconButton) {
+  color: var(--text-with-main-color);
+
+  &:hover {
+    background-color: var(--primary-color-hover);
+  }
+
+  &:active {
+    background-color: var(--primary-color-active);
+  }
+}
+
+
+.navFilterButton {
+  $effect-distance: 20px;
+
+  margin-inline-start: $effect-distance;
+
+  &.filterChanged {
+    /* stylelint-disable-next-line declaration-property-value-no-unknown */
+    box-shadow: 0 0 $effect-distance var(--primary-color);
+    color: var(--primary-color);
+
+    @include top-nav-is-colored {
+      box-shadow: 0 0 $effect-distance var(--text-with-main-color);
+      color: var(--text-with-main-color);
+    }
+  }
+}
+
+.side {
+  align-items: center;
+  display: flex;
+  gap: 3px;
+  margin-block: 0;
+  margin-inline: 6px;
+
+  &.profiles {
+    justify-content: flex-end;
+  }
+
+  .navSearchButton {
+    @media only screen and (width >= 681px) {
+      display: none;
+    }
+  }
+
+  .navNewWindowButton {
+    @media only screen and (width <= 680px) {
+      display: none;
+    }
+  }
+
+  .logo {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    padding-block: 0;
+    padding-inline: 10px 25px;
+
+    &:hover {
+      background-color: var(--side-nav-hover-color);
+      color: var(--side-nav-hover-text-color);
+      transition: background 0.2s ease-in;
+
+      @include top-nav-is-colored {
+        background-color: var(--primary-color-hover);
+      }
+    }
+
+    &:active {
+      background-color: var(--tertiary-text-color);
+      transition: background 0.2s ease-in;
+
+      @include top-nav-is-colored {
+        background-color: var(--primary-color-active);
+      }
+    }
+
+    .logoIcon {
+      background-image: var(--logo-icon);
+      background-position: right top;
+      background-repeat: no-repeat;
+      background-size: 25px;
+      block-size: 25px;
+      inline-size: 25px;
+
+      @include top-nav-is-colored {
+        background-image: var(--logo-icon-bar-color);
+      }
+    }
+
+    .logoText {
+      background-image: var(--logo-text);
+      background-position: right top;
+      background-repeat: no-repeat;
+      background-size: 100px;
+      block-size: 40px;
+      margin-inline-start: 5px;
+      position: relative;
+      inset-block-start: -3px;
+      inline-size: 100px;
+
+      @media only screen and (width <= 680px) {
+        display: none;
+      }
+
+      @include top-nav-is-colored {
+        background-image: var(--logo-text-bar-color);
+      }
+    }
+  }
+}
+
+.middle {
+  flex: 1;
+  max-inline-size: 440px;
+
+  .searchContainer {
+    align-items: center;
+    display: flex;
+
+    @media only screen and (width <= 680px) {
+      background-color: var(--side-nav-color);
+      inset-inline: 0;
+      position: fixed;
+      inset-block-start: 60px;
+
+      @include top-nav-is-colored {
+        background-color: var(--primary-color-hover);
+      }
+    }
+
+    .searchInput {
+      flex: 1;
+    }
+  }
+}

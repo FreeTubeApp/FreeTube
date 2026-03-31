@@ -24,6 +24,12 @@
           :default-value="hideSearchBar"
           @change="updateHideSearchBar"
         />
+        <FtToggleSwitch
+          :label="$t('Settings.Parental Control Settings.Hide Uploader on Watch page')"
+          compact
+          :default-value="hideUploader"
+          @change="updateHideUploader"
+        />
       </div>
     </div>
   </FtSettingsSection>
@@ -33,7 +39,7 @@
 import { computed } from 'vue'
 
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
-import FtToggleSwitch from './ft-toggle-switch/ft-toggle-switch.vue'
+import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
 
 import store from '../store/index'
 
@@ -43,6 +49,10 @@ const hideSearchBar = computed(() => {
 
 const hideUnsubscribeButton = computed(() => {
   return store.getters.getHideUnsubscribeButton
+})
+
+const hideUploader = computed(() => {
+  return store.getters.getHideUploader
 })
 
 const showFamilyFriendlyOnly = computed(() => {
@@ -61,6 +71,13 @@ function updateHideSearchBar(value) {
  */
 function updateHideUnsubscribeButton(value) {
   store.dispatch('updateHideUnsubscribeButton', value)
+}
+
+/**
+ * @param {boolean} value
+ */
+function updateHideUploader(value) {
+  store.dispatch('updateHideUploader', value)
 }
 
 /**

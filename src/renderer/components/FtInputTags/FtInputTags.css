@@ -1,0 +1,80 @@
+.ft-input-tags-component {
+  position: relative;
+  background-color: var(--bg-color);
+  padding: 20px;
+  border-radius: 5px;
+  display: block;
+  inline-size: 60%;
+}
+
+.disabledMsg {
+  color: rgb(233 255 108);
+  padding-block-end: 10px;
+}
+
+.ft-tag-box ul {
+  overflow: visible;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
+.ft-tag-box li {
+  list-style: none;
+  background-color: var(--card-bg-color);
+  margin: 5px;
+  border-radius: 5px;
+  display: flex;
+  float: inline-start;
+}
+
+.ft-tag-box li>span {
+  padding-block: 10px;
+  padding-inline: 10px;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  hyphens: auto;
+  user-select: text;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  accent-color: var(--accent-color);
+}
+
+.tag-icon {
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.tag-icon-link {
+  margin: auto;
+  margin-inline-start: 10px;
+}
+
+.removeTagButton {
+  background-color: transparent;
+  border-style: none;
+  color: var(--primary-text-color);
+  font-size: 1em;
+  line-height: 1em;
+  opacity: 0.5;
+  padding: 10px;
+  padding-inline-start: 0;
+}
+
+.removeTagButton:hover {
+  cursor: pointer;
+}
+
+:deep(.ft-input-component .ft-input) {
+  margin-block-start: 10px;
+}
+
+@media only screen and (width <= 576px) {
+  .ft-input-tags-component {
+    inline-size: 100%;
+  }
+}

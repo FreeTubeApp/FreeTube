@@ -1,13 +1,17 @@
 <template>
+  <!-- eslint-disable-next-line vuejs-accessibility/click-events-have-key-events -->
   <p
-    @timestamp-clicked="catchTimestampClick"
-    v-html="displayText"
+    v-safer-html="displayText"
+    dir="auto"
+    @click="catchTimestampClick"
   />
 </template>
 
 <script setup>
 import { computed } from 'vue'
-import { useRouter } from 'vue-router/composables'
+import { useRouter } from 'vue-router'
+
+import { vSaferHtml } from '../directives/vSaferHtml.js'
 
 const props = defineProps({
   inputHtml: {
@@ -21,7 +25,7 @@ const props = defineProps({
 })
 
 const router = useRouter()
-const videoId = router.currentRoute.params.id
+const videoId = router.currentRoute.value.params.id
 
 /** @type {import('vue').ComputedRef<string>} */
 const displayText = computed(() => props.inputHtml.replaceAll(/(?:(\d+):)?(\d+):(\d+)/g, (timestamp, hours, minutes, seconds) => {
@@ -39,15 +43,27 @@ const displayText = computed(() => props.inputHtml.replaceAll(/(?:(\d+):)?(\d+):
   }).href
 
   // Adding the URL lets the user open the video in a new window at this timestamp
-  return `<a tabindex="${props.linkTabIndex}" href="${url}" onclick="event.preventDefault();this.dispatchEvent(new CustomEvent('timestamp-clicked',{bubbles:true,detail:${time}}));window.scrollTo(0,0)">${timestamp}</a>`
+  return `<a tabindex="${props.linkTabIndex}" href="${url}" data-time="${time}">${timestamp}</a>`
 }))
 
 const emit = defineEmits(['timestamp-event'])
 
 /**
- * @param {CustomEvent} event
+ * @param {PointerEvent} event
  */
 function catchTimestampClick(event) {
-  emit('timestamp-event', event.detail)
+  /** @type {HTMLAnchorElement} */
+  const target = event.target
+
+  if (target.tagName === 'A' && target.dataset.time) {
+    const timeSeconds = parseInt(target.dataset.time)
+
+    if (!isNaN(timeSeconds)) {
+      event.preventDefault()
+
+      emit('timestamp-event', timeSeconds)
+      window.scrollTo(0, 0)
+    }
+  }
 }
 </script>

@@ -1,0 +1,94 @@
+/* Thanks to Guus Lieben for the Material Design Switch */
+
+.switch-ctn {
+  margin-block: 20px;
+  margin-inline: 16px;
+  position: relative;
+
+  &.compact {
+    margin: 0;
+  }
+}
+
+.switch-input {
+  appearance: none;
+  block-size: 20px;
+  inset-inline-start: -3px;
+  position: absolute;
+  inset-block-start: calc(50% - 3px);
+  transform: translate(0, -50%);
+  inline-size: 34px;
+}
+
+.switch-label {
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  padding-block: 12px;
+  padding-inline: 44px 0;
+  position: relative;
+  text-align: start;
+
+  &::before,
+  &::after {
+    content: '';
+    margin: 0;
+    outline: 0;
+    position: absolute;
+    inset-block-start: 50%;
+    transform: translate(0, -50%);
+    transition: all 0.3s ease;
+  }
+
+  &::before {
+    background-color: #9e9e9e;
+    border-radius: 8px;
+    block-size: 14px;
+    inset-inline-start: 1px;
+    inline-size: 34px;
+
+    .switch-input:checked + & {
+      background-color: var(--accent-color-light);
+    }
+
+    .switch-input:disabled + & {
+      background-color: #9e9e9e;
+    }
+  }
+
+  &::after {
+    background-color: #fafafa;
+    border-radius: 50%;
+    box-shadow: 0 3px 1px -2px rgb(0 0 0 / 14%), 0 2px 2px 0 rgb(0 0 0 / 9.8%), 0 1px 5px 0 rgb(0 0 0 / 8.4%);
+    block-size: 20px;
+    inset-inline-start: 0;
+    inline-size: 20px;
+
+    .switch-input:checked + & {
+      background-color: var(--accent-color);
+      transform: translate(calc(80% * var(--horizontal-directionality-coefficient)), -50%);
+    }
+
+    .switch-input:disabled + & {
+      background-color: #bdbdbd;
+    }
+  }
+
+  @media (width <= 680px) {
+    max-inline-size: 250px;
+  }
+}
+
+.containsTooltip .switch-label-text {
+  margin-inline-end: 5px;
+}
+
+.disabled {
+  .switch-label {
+    cursor: not-allowed;
+  }
+
+  .switch-label-text {
+    opacity: 0.4;
+  }
+}

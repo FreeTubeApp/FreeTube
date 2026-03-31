@@ -2,9 +2,14 @@
   overflow-y: hidden;
 }
 
-.chaptersTitle {
+.chaptersSummary {
   margin-block: 10px 0;
   cursor: pointer;
+  list-style: none;
+}
+
+.chaptersTitle {
+  margin-block: 0;
 }
 
 .currentChapter {
@@ -28,8 +33,12 @@
   vertical-align: middle;
 }
 
-.chaptersChevron.open {
-  margin-inline-start: 4px;
+.chaptersDetails[open] .chaptersChevron {
+  transform: translateX(4px) rotate(90deg);
+}
+
+.chaptersDetails[open]:dir(rtl) .chaptersChevron {
+  transform: translateX(-4px) rotate(90deg);
 }
 
 .chapter {
@@ -38,7 +47,6 @@
     'thumbnail title' 2fr
     'thumbnail timestamp' 2fr / auto 1fr;
   column-gap: 10px;
-  justify-items: start;
   cursor: pointer;
   font-size: 15px;
 }
@@ -71,7 +79,7 @@
 
 .chapterTimestamp {
   grid-area: timestamp;
-  align-self: flex-start;
+  place-self: flex-start start;
   padding-block: 3px;
   padding-inline: 4px;
   border-radius: 5px;

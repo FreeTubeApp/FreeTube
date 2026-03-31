@@ -1,0 +1,9 @@
+@media only screen and (width <= 800px) {
+  .hide-on-mobile {
+    display: none;
+  }
+}
+
+.containingTextFlexBox {
+  margin-block-end: 2em;
+}

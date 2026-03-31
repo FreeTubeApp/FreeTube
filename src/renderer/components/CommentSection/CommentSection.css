@@ -28,7 +28,7 @@
 }
 
 .commentSort {
-  float: var(--float-right-ltr-rtl-value);
+  float: inline-end;
 }
 
 @media only screen and (width <= 1000px) {
@@ -50,14 +50,14 @@
 }
 
 .commentThumbnail {
-  float: var(--float-left-ltr-rtl-value);
+  float: inline-start;
   inline-size: 60px;
   block-size: 60px;
   border-radius: 200px;
 }
 
 .commentThumbnailHidden {
-  float: var(--float-left-ltr-rtl-value);
+  float: inline-start;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +65,6 @@
   block-size: 60px;
   font-size: 20px;
   line-height: 1em;
-  text-transform: capitalize;
   color: rgb(0 0 0);
   background-color: rgb(235 160 172);
   border-radius: 50%;
@@ -76,7 +75,7 @@
   font-size: 14px;
   margin-inline-start: 68px;
   margin-block-start: 0;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .commentOwner {
@@ -94,10 +93,18 @@
 .commentText {
   white-space: pre-wrap;
   font-size: 14px;
-  margin-block-start: -10px;
+  /* stylelint-disable-next-line liberty/use-logical-spec */
+  margin-left: -10px;
   margin-inline-start: 70px;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
+
+/* stylelint-disable liberty/use-logical-spec */
+:global(body[dir='rtl'] .commentText) {
+  margin-left: initial;
+  margin-right: -10px;
+}
+/* stylelint-enable liberty/use-logical-spec */
 
 .commentPinned {
   font-weight: normal;

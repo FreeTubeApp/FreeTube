@@ -21,7 +21,7 @@
 
 .about-chunks {
   display: grid;
-  grid-gap: 16px;
+  gap: 16px;
   grid-template-columns: 1fr 1fr;
   margin-inline: auto;
   max-inline-size: 860px;
@@ -33,12 +33,13 @@
   border-radius: 8px;
   box-shadow: 0 1px 4px -1px rgb(0 0 0 / 50%);
   display: grid;
-  grid-gap: 6px 14px;
+  gap: 6px 14px;
   grid-template: 'icon title' auto 'icon content' 1fr / auto 1fr;
   justify-content: start;
   margin: 0;
   padding: 18px;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 .icon {
@@ -53,6 +54,10 @@
 
 .content {
   grid-area: content;
+}
+
+.headingIcon {
+  color: var(--primary-color);
 }
 
 @media only screen and (width <=650px) {

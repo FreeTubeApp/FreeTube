@@ -1,0 +1,31 @@
+.getNextPage {
+  background-color: var(--search-bar-color);
+  inline-size: 100%;
+  block-size: 45px;
+  line-height: 45px;
+  text-align: center;
+  cursor: pointer;
+  margin-block-start: 16px;
+}
+
+.getNextPage:hover,
+.getNextPage:focus {
+  background-color: var(--side-nav-hover-color);
+  color: var(--side-nav-hover-text-color);
+}
+
+.card {
+  inline-size: 85%;
+  margin-block: 0 60px;
+  margin-inline: auto;
+}
+
+.headingIcon {
+  color: var(--primary-color);
+}
+
+@media only screen and (width <= 680px) {
+  .card {
+    inline-size: 90%;
+  }
+}

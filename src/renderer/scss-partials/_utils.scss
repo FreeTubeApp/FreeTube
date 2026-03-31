@@ -33,6 +33,7 @@
   }
 
   @media only screen and (width <= 680px) {
+    /* stylelint-disable-next-line no-invalid-position-declaration */
     inline-size: 100%;
 
     @include is-side-nav-open {

@@ -25,7 +25,10 @@
         class="title"
         :to="url"
       >
-        <h3 class="h3Title">
+        <h3
+          class="h3Title"
+          dir="auto"
+        >
           {{ title }}
         </h3>
       </router-link>
@@ -34,14 +37,14 @@
           v-if="channelCount"
           class="channelCount"
         >
-          {{ $tc('Global.Counts.Channel Count', channelCount, {count: formattedChannelCount}) }}
+          {{ $t('Global.Counts.Channel Count', {count: formattedChannelCount}, channelCount) }}
         </span>
         <span
           v-if="videoCount"
           class="videoCount"
         >
           <template v-if="channelCount"> • </template>
-          {{ $tc('Global.Counts.Video Count', videoCount, {count: formattedVideosCount}) }}
+          {{ $t('Global.Counts.Video Count', {count: formattedVideosCount}, videoCount) }}
         </span>
       </div>
     </div>

@@ -56,6 +56,10 @@
   color: var(--tertiary-text-color);
 }
 
+.headingIcon {
+  color: var(--primary-color);
+}
+
 @media only screen and (width <= 680px) {
   .card {
     inline-size: 90%;

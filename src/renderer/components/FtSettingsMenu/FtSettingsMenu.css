@@ -14,6 +14,10 @@
   margin-block: 0 10px;
 }
 
+.headingIcon {
+  color: var(--primary-color);
+}
+
 .title {
   text-decoration: none;
   color: var(--tertiary-text-color);
@@ -103,6 +107,11 @@
 
   .header {
     font-size: 32px;
+  }
+
+  /* hide the settings icon on mobile to avoid confusion */
+  .headingIcon {
+    display: none;
   }
 }
 

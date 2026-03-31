@@ -1,20 +1,11 @@
-import fs from 'fs/promises'
-import path from 'path'
 import i18n from '../../i18n/index'
-import { set as vueSet } from 'vue'
 
-import { IpcChannels } from '../../../constants'
-import { pathExists } from '../../helpers/filesystem'
 import {
   CHANNEL_HANDLE_REGEX,
   createWebURL,
   getVideoParamsFromUrl,
-  openExternalLink,
   replaceFilenameForbiddenChars,
   searchFiltersMatch,
-  showExternalPlayerUnsupportedActionToast,
-  showSaveDialog,
-  showToast
 } from '../../helpers/utils'
 
 const state = {
@@ -23,10 +14,9 @@ const state = {
   sessionSearchHistory: [],
   popularCache: null,
   trendingCache: {
-    default: null,
-    music: null,
     gaming: null,
-    movies: null
+    sports: null,
+    podcasts: null
   },
   cachedPlaylist: null,
   deArrowCache: {},
@@ -42,9 +32,8 @@ const state = {
   newPlaylistVideoObject: [],
   regionNames: [],
   regionValues: [],
-  recentBlogPosts: [],
   searchSettings: {
-    sortBy: 'relevance',
+    prioritize: 'relevance',
     time: '',
     type: 'all',
     duration: '',
@@ -55,18 +44,18 @@ const state = {
   externalPlayerCmdArguments: {},
   lastPopularRefreshTimestamp: '',
   lastTrendingRefreshTimestamp: {
-    default: '',
-    music: '',
     gaming: '',
-    movies: ''
+    sports: '',
+    podcasts: ''
   },
   subscriptionFirstAutoFetchRunData: {
     videos: false,
     liveStreams: false,
     shorts: false,
-    communityPosts: false,
+    posts: false,
   },
-  appTitle: ''
+  appTitle: '',
+  openPrompts: new Set()
 }
 
 const getters = {
@@ -150,10 +139,6 @@ const getters = {
     return state.regionValues
   },
 
-  getRecentBlogPosts(state) {
-    return state.recentBlogPosts
-  },
-
   getExternalPlayerNames(state) {
     return state.externalPlayerNames
   },
@@ -183,11 +168,14 @@ const getters = {
   getSubscriptionForShortsFirstAutoFetchRun (state) {
     return state.subscriptionFirstAutoFetchRunData.shorts === true
   },
-  getSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
-    return state.subscriptionFirstAutoFetchRunData.communityPosts === true
+  getSubscriptionForPostsFirstAutoFetchRun (state) {
+    return state.subscriptionFirstAutoFetchRunData.posts === true
   },
   getAppTitle (state) {
     return state.appTitle
+  },
+  isAnyPromptOpen(state) {
+    return state.openPrompts.size > 0
   }
 }
 
@@ -198,91 +186,6 @@ const actions = {
 
   hideOutlines({ commit }) {
     commit('setOutlinesHidden', true)
-  },
-
-  async downloadMedia({ rootState }, { url, title, extension }) {
-    if (!process.env.IS_ELECTRON) {
-      openExternalLink(url)
-      return
-    }
-
-    const fileName = `${replaceFilenameForbiddenChars(title)}.${extension}`
-    const errorMessage = i18n.t('Downloading failed', { videoTitle: title })
-    const askFolderPath = rootState.settings.downloadAskPath
-    let folderPath = rootState.settings.downloadFolderPath
-
-    if (askFolderPath) {
-      const options = {
-        defaultPath: fileName,
-        filters: [
-          {
-            name: extension.toUpperCase(),
-            extensions: [extension]
-          }
-        ]
-      }
-      const response = await showSaveDialog(options)
-
-      if (response.canceled || response.filePath === '') {
-        // User canceled the save dialog
-        return
-      }
-
-      folderPath = response.filePath
-    } else {
-      if (!(await pathExists(folderPath))) {
-        try {
-          await fs.mkdir(folderPath, { recursive: true })
-        } catch (err) {
-          console.error(err)
-          showToast(err)
-          return
-        }
-      }
-      folderPath = path.join(folderPath, fileName)
-    }
-
-    showToast(i18n.t('Starting download', { videoTitle: title }))
-
-    const response = await fetch(url).catch((error) => {
-      console.error(error)
-      showToast(errorMessage)
-    })
-
-    const reader = response.body.getReader()
-    const chunks = []
-
-    const handleError = (err) => {
-      console.error(err)
-      showToast(errorMessage)
-    }
-
-    const processText = async ({ done, value }) => {
-      if (done) {
-        return
-      }
-
-      chunks.push(value)
-      // Can be used in the future to determine download percentage
-      // const contentLength = response.headers.get('Content-Length')
-      // const receivedLength = value.length
-      // const percentage = receivedLength / contentLength
-      await reader.read().then(processText).catch(handleError)
-    }
-
-    await reader.read().then(processText).catch(handleError)
-
-    const blobFile = new Blob(chunks)
-    const buffer = await blobFile.arrayBuffer()
-
-    try {
-      await fs.writeFile(folderPath, new DataView(buffer))
-
-      showToast(i18n.t('Downloading has completed', { videoTitle: title }))
-    } catch (err) {
-      console.error(err)
-      showToast(errorMessage)
-    }
   },
 
   parseScreenshotCustomFileName: function({ rootState }, payload) {
@@ -306,11 +209,11 @@ const actions = {
     }
 
     if (parsedString !== replaceFilenameForbiddenChars(parsedString)) {
-      throw new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Forbidden Characters'))
+      throw new Error(i18n.global.t('Settings.Player Settings.Screenshot.Error.Forbidden Characters'))
     }
 
     if (!parsedString) {
-      throw new Error(i18n.t('Settings.Player Settings.Screenshot.Error.Empty File Name'))
+      throw new Error(i18n.global.t('Settings.Player Settings.Screenshot.Error.Empty File Name'))
     }
 
     return parsedString
@@ -327,9 +230,11 @@ const actions = {
       const requiredVideoKeys = [
         'videoId',
         'title',
-        'author',
-        'authorId',
         'lengthSeconds',
+
+        // These two properties will be missing for shorts added to a playlist from anywhere but the watch page
+        // 'author',
+        // 'authorId',
 
         // `timeAdded` should be generated when videos are added
         // Not when a prompt is displayed
@@ -384,10 +289,6 @@ const actions = {
     commit('setNewPlaylistVideoObject', data)
   },
 
-  hideCreatePlaylistPrompt ({ commit }) {
-    commit('setShowCreatePlaylistPrompt', false)
-  },
-
   showKeyboardShortcutPrompt ({ commit }) {
     commit('setIsKeyboardShortcutPromptShown', true)
   },
@@ -415,11 +316,8 @@ const actions = {
 
     const countries = await (await fetch(url)).json()
 
-    const regionNames = countries.map((entry) => { return entry.name })
-    const regionValues = countries.map((entry) => { return entry.code })
-
-    commit('setRegionNames', regionNames)
-    commit('setRegionValues', regionValues)
+    commit('setRegionNames', countries.names)
+    commit('setRegionValues', countries.codes)
   },
 
   async getYoutubeUrlInfo({ rootState, state }, urlStr) {
@@ -475,17 +373,19 @@ const actions = {
     let urlType = 'unknown'
 
     const channelPattern =
-      /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(?<tab>join|featured|videos|shorts|live|streams|podcasts|releases|playlists|about|community|channels))?\/?$/
+      /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(?<tab>join|featured|videos|shorts|live|streams|podcasts|releases|courses|playlists|about|community|channels))?\/?$/
 
     const hashtagPattern = /^\/hashtag\/(?<tag>[^#&/?]+)$/
 
     const postPattern = /^\/post\/(?<postId>.+)/
+    const feedPattern = /^\/feed\/(?<type>trending|subscriptions|history|playlists|you|library)/
     const typePatterns = new Map([
       ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/],
       ['search', /^\/results|search\/?$/],
       ['hashtag', hashtagPattern],
+      ['post', postPattern],
+      ['feed', feedPattern],
       ['channel', channelPattern],
-      ['post', postPattern]
     ])
 
     for (const [type, pattern] of typePatterns) {
@@ -499,7 +399,7 @@ const actions = {
     switch (urlType) {
       case 'playlist': {
         if (!url.searchParams.has('list')) {
-          throw new Error('Playlist: "list" field not found')
+          return { urlType: 'unknown' }
         }
 
         const playlistId = url.searchParams.get('list')
@@ -530,12 +430,12 @@ const actions = {
           url.searchParams.delete('q')
         }
         if (searchQuery == null) {
-          throw new Error('Search: "search_query" field not found')
+          return { urlType: 'unknown' }
         }
 
         const searchSettings = state.searchSettings
         const query = {
-          sortBy: searchSettings.sortBy,
+          prioritize: searchSettings.prioritize,
           time: searchSettings.time,
           type: searchSettings.type,
           duration: searchSettings.duration,
@@ -604,10 +504,10 @@ const actions = {
         const match = url.pathname.match(channelPattern)
         const channelId = match.groups.channelId
         if (!channelId) {
-          throw new Error('Channel: could not extract id')
+          return { urlType: 'unknown' }
         }
 
-        let subPath = null
+        let subPath
         switch (match.groups.tab) {
           case 'shorts':
             subPath = 'shorts'
@@ -621,6 +521,9 @@ const actions = {
             break
           case 'podcasts':
             subPath = 'podcasts'
+            break
+          case 'courses':
+            subPath = 'courses'
             break
           case 'releases':
             subPath = 'releases'
@@ -658,6 +561,17 @@ const actions = {
           url: `https://www.youtube.com${url.pathname}`
         }
       }
+      case 'feed': {
+        /** @type {'trending' | 'subscriptions' | 'history' | 'playlists' | 'you' | 'library'} */
+        const feedType = url.pathname.match(feedPattern).groups.type
+
+        if (feedType === 'playlists' || feedType === 'you' || feedType === 'library') {
+          return { urlType: 'userplaylists' }
+        } else if (process.env.SUPPORTS_LOCAL_API || feedType !== 'trending') {
+          return { urlType: feedType }
+        }
+        // Can fall through if a trending URL is detected in a build without the local API
+      }
 
       default: {
         // Unknown URL type
@@ -691,122 +605,6 @@ const actions = {
     commit('setExternalPlayerValues', externalPlayerValues)
     commit('setExternalPlayerCmdArguments', externalPlayerCmdArguments)
   },
-
-  openInExternalPlayer ({ state, rootState }, payload) {
-    const args = []
-    const externalPlayer = rootState.settings.externalPlayer
-    const cmdArgs = state.externalPlayerCmdArguments[externalPlayer]
-    const executable = rootState.settings.externalPlayerExecutable !== ''
-      ? rootState.settings.externalPlayerExecutable
-      : cmdArgs.defaultExecutable
-    const ignoreWarnings = rootState.settings.externalPlayerIgnoreWarnings
-    const ignoreDefaultArgs = rootState.settings.externalPlayerIgnoreDefaultArgs
-    const customArgs = rootState.settings.externalPlayerCustomArgs
-
-    if (ignoreDefaultArgs) {
-      if (typeof customArgs === 'string' && customArgs !== '[]') {
-        const custom = JSON.parse(customArgs)
-        args.push(...custom)
-      }
-      if (payload.videoId != null) args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
-    } else {
-      // Append custom user-defined arguments,
-      // or use the default ones specified for the external player.
-      if (typeof customArgs === 'string' && customArgs !== '[]') {
-        const custom = JSON.parse(customArgs)
-        args.push(...custom)
-      } else if (Array.isArray(cmdArgs.defaultCustomArguments)) {
-        args.push(...cmdArgs.defaultCustomArguments)
-      }
-
-      if (payload.watchProgress > 0 && payload.watchProgress < payload.videoLength - 10) {
-        if (typeof cmdArgs.startOffset === 'string') {
-          if (cmdArgs.defaultExecutable.startsWith('mpc')) {
-            // For mpc-hc and mpc-be, which require startOffset to be in milliseconds
-            args.push(cmdArgs.startOffset, (Math.trunc(payload.watchProgress) * 1000))
-          } else if (cmdArgs.startOffset.endsWith('=')) {
-            // For players using `=` in arguments
-            // e.g. vlc --start-time=xxxxx
-            args.push(`${cmdArgs.startOffset}${payload.watchProgress}`)
-          } else {
-            // For players using space in arguments
-            // e.g. smplayer -start xxxxx
-            args.push(cmdArgs.startOffset, Math.trunc(payload.watchProgress))
-          }
-        } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.starting video at offset'))
-        }
-      }
-
-      if (payload.playbackRate != null) {
-        if (typeof cmdArgs.playbackRate === 'string') {
-          args.push(`${cmdArgs.playbackRate}${payload.playbackRate}`)
-        } else if (!ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.setting a playback rate'))
-        }
-      }
-
-      // Check whether the video is in a playlist
-      if (typeof cmdArgs.playlistUrl === 'string' && payload.playlistId != null && payload.playlistId !== '') {
-        if (payload.playlistIndex != null) {
-          if (typeof cmdArgs.playlistIndex === 'string') {
-            args.push(`${cmdArgs.playlistIndex}${payload.playlistIndex}`)
-          } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.opening specific video in a playlist (falling back to opening the video)'))
-          }
-        }
-
-        if (payload.playlistReverse) {
-          if (typeof cmdArgs.playlistReverse === 'string') {
-            args.push(cmdArgs.playlistReverse)
-          } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.reversing playlists'))
-          }
-        }
-
-        if (payload.playlistShuffle) {
-          if (typeof cmdArgs.playlistShuffle === 'string') {
-            args.push(cmdArgs.playlistShuffle)
-          } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.shuffling playlists'))
-          }
-        }
-
-        if (payload.playlistLoop) {
-          if (typeof cmdArgs.playlistLoop === 'string') {
-            args.push(cmdArgs.playlistLoop)
-          } else if (!ignoreWarnings) {
-            showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.looping playlists'))
-          }
-        }
-
-        // If the player supports opening playlists but not indexes, send only the video URL if an index is specified
-        if (cmdArgs.playlistIndex == null && payload.playlistIndex != null && payload.playlistIndex !== '') {
-          args.push(`${cmdArgs.videoUrl}https://youtube.com/watch?v=${payload.videoId}`)
-        } else {
-          args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
-        }
-      } else {
-        if (payload.playlistId != null && payload.playlistId !== '' && !ignoreWarnings) {
-          showExternalPlayerUnsupportedActionToast(externalPlayer, i18n.t('Video.External Player.Unsupported Actions.opening playlists'))
-        }
-        if (payload.videoId != null) {
-          args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
-        }
-      }
-    }
-
-    const videoOrPlaylist = payload.playlistId != null && payload.playlistId !== ''
-      ? i18n.t('Video.External Player.playlist')
-      : i18n.t('Video.External Player.video')
-
-    showToast(i18n.t('Video.External Player.OpeningTemplate', { videoOrPlaylist, externalPlayer }))
-
-    if (process.env.IS_ELECTRON) {
-      const { ipcRenderer } = require('electron')
-      ipcRenderer.send(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, { executable, args })
-    }
-  },
 }
 
 const mutations = {
@@ -838,14 +636,12 @@ const mutations = {
     const sameVideo = state.deArrowCache[payload.videoId]
 
     if (!sameVideo) {
-      // setting properties directly doesn't trigger watchers in Vue 2,
-      // so we need to use Vue's set function
-      vueSet(state.deArrowCache, payload.videoId, payload)
+      state.deArrowCache[payload.videoId] = payload
     }
   },
 
   addThumbnailToDeArrowCache (state, payload) {
-    vueSet(state.deArrowCache, payload.videoId, payload)
+    state.deArrowCache[payload.videoId] = payload
   },
 
   removeFromSessionSearchHistory (state, query) {
@@ -912,7 +708,7 @@ const mutations = {
 
   /**
    * @param {typeof state} state
-   * @param {{page: 'default' | 'music' | 'gaming' | 'movies', timestamp: Date}} param1
+   * @param {{page: 'gaming' | 'sports' | 'podcasts', timestamp: Date}} param1
    */
   setLastTrendingRefreshTimestamp (state, { page, timestamp }) {
     state.lastTrendingRefreshTimestamp[page] = timestamp
@@ -924,7 +720,7 @@ const mutations = {
 
   /**
    * @param {typeof state} state
-   * @param {'default' | 'music' | 'gaming' | 'movies'} page
+   * @param {'gaming' | 'sports' | 'podcasts'} page
    */
   clearTrendingCache(state, page) {
     state.trendingCache[page] = null
@@ -938,8 +734,8 @@ const mutations = {
     state.searchFilterValueChanged = value
   },
 
-  setSearchSortBy (state, value) {
-    state.searchSettings.sortBy = value
+  setSearchPrioritize (state, value) {
+    state.searchSettings.prioritize = value
   },
 
   setSearchTime (state, value) {
@@ -966,10 +762,6 @@ const mutations = {
     state.regionValues = value
   },
 
-  setRecentBlogPosts (state, value) {
-    state.recentBlogPosts = value
-  },
-
   setExternalPlayerNames (state, value) {
     state.externalPlayerNames = value
   },
@@ -987,6 +779,14 @@ const mutations = {
     state.appTitle = value
   },
 
+  addOpenPrompt(state, id) {
+    state.openPrompts.add(id)
+  },
+
+  removeOpenPrompt(state, id) {
+    state.openPrompts.delete(id)
+  },
+
   setSubscriptionForVideosFirstAutoFetchRun (state) {
     state.subscriptionFirstAutoFetchRunData.videos = true
   },
@@ -996,8 +796,8 @@ const mutations = {
   setSubscriptionForShortsFirstAutoFetchRun (state) {
     state.subscriptionFirstAutoFetchRunData.shorts = true
   },
-  setSubscriptionForCommunityPostsFirstAutoFetchRun (state) {
-    state.subscriptionFirstAutoFetchRunData.communityPosts = true
+  setSubscriptionForPostsFirstAutoFetchRun (state) {
+    state.subscriptionFirstAutoFetchRunData.posts = true
   }
 }
 

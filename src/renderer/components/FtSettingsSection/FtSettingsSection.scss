@@ -16,14 +16,14 @@
   background-color: var(--card-bg-color);
   padding-block: 10px;
 
-  > div {
+  > :deep(div) {
     box-sizing: border-box;
     padding-block: 0;
     padding-inline: 20px;
     inline-size: 100%;
   }
 
-  > div:not(:last-child, .ft-flex-box) {
+  > :deep(div:not(:last-child, .ft-flex-box)) {
     @media only screen and (width <= 800px) {
       margin-block-end: 20px;
     }
@@ -34,10 +34,6 @@
   user-select: none;
   margin-inline-start: 20px;
   margin-block: 0.5em;
-}
-
-.dataSettingsBox {
-  justify-content: center;
 }
 
 :deep(.groupTitle) {
@@ -90,10 +86,8 @@
 
 @media only screen and (width <= 680px) {
   .settingsSection {
-    > div {
-      :deep(.text.bottom) {
-        inset-inline-start: -85px;
-      }
+    > :deep(div .text.bottom) {
+      inset-inline-start: -85px;
     }
 
     :deep(.switch-ctn.containsTooltip) {
@@ -103,16 +97,14 @@
       padding-inline: 10px;
     }
 
-    :not(.select, .selectLabel) {
-      > :deep(.tooltip) {
-        display: inline-block;
-        position: absolute;
-        inset-inline-end: -25px;
-        inset-block-start: 12px;
-      }
+    :deep(:not(.select, .selectLabel) > .tooltip) {
+      display: inline-block;
+      position: absolute;
+      inset-inline-end: -25px;
+      inset-block-start: 12px;
     }
 
-    .settingsFlexStart460px :deep(.tooltip) {
+    :deep(.settingsFlexStart460px .tooltip) {
       inset-inline-end: 0;
       inset-block-start: -2px;
     }

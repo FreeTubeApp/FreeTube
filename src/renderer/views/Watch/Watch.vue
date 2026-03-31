@@ -17,10 +17,11 @@
     >
       <div class="videoAreaMargin">
         <ft-shaka-video-player
-          v-if="!isLoading && !isUpcoming && !errorMessage"
+          v-if="!isLoading && (!isUpcoming || playabilityStatus === 'OK') && !errorMessage"
           ref="player"
           :manifest-src="manifestSrc"
           :manifest-mime-type="manifestMimeType"
+          :sabr-data="sabrData"
           :legacy-formats="legacyFormats"
           :start-time="startTimeSeconds"
           :captions="captions"
@@ -35,11 +36,13 @@
           :use-theatre-mode="useTheatreMode"
           :autoplay-possible="autoplayPossible"
           :autoplay-enabled="autoplayEnabled"
+          :watching-playlist="watchingPlaylist"
           :vr-projection="vrProjection"
           :start-in-fullscreen="startNextVideoInFullscreen"
           :start-in-fullwindow="startNextVideoInFullwindow"
           :start-in-pip="startNextVideoInPip"
           :current-playback-rate="currentPlaybackRate"
+          :delay-load-until-unix="adEndTimeUnixMs"
           class="videoPlayer"
           @error="handlePlayerError"
           @loaded="handleVideoLoaded"
@@ -48,12 +51,16 @@
           @toggle-theatre-mode="useTheatreMode = !useTheatreMode"
           @toggle-autoplay="toggleAutoplay"
           @playback-rate-updated="updatePlaybackRate"
+          @skip-to-next="handleSkipToNext"
+          @skip-to-prev="handleSkipToPrev"
+          @player-reload-requested="onPlayerReloadRequested"
         />
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"
           class="videoPlayer"
         >
           <img
+            v-if="!isUpcoming || playabilityStatus !== 'OK'"
             :src="thumbnail"
             class="videoThumbnail"
             alt=""
@@ -61,6 +68,7 @@
           <div
             v-if="isUpcoming"
             class="premiereDate"
+            :class="{trailer: isUpcoming && playabilityStatus === 'OK'}"
           >
             <font-awesome-icon
               :icon="['fas', 'satellite-dish']"
@@ -117,14 +125,11 @@
     />
     <div
       v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
-      ref="infoArea"
       class="infoArea"
-      :class="{ infoAreaSticky }"
     >
       <watch-video-info
         v-if="!isLoading"
         :id="videoId"
-        :is-unlisted="isUnlisted"
         :title="videoTitle"
         :channel-id="channelId"
         :channel-name="channelName"
@@ -139,21 +144,18 @@
         :is-live-content="isLiveContent"
         :is-live="isLive"
         :is-upcoming="isUpcoming"
-        :download-links="downloadLinks"
         :playlist-id="playlistId"
-        :get-playlist-index="getPlaylistIndex"
-        :get-playlist-reverse="getPlaylistReverse"
-        :get-playlist-shuffle="getPlaylistShuffle"
-        :get-playlist-loop="getPlaylistLoop"
+        :get-playlist-state="getPlaylistState"
         :length-seconds="videoLengthSeconds"
         :video-thumbnail="thumbnail"
         :in-user-playlist="!!selectedUserPlaylist"
+        :is-unlisted="isUnlisted"
+        :can-save-watched-progress="canSaveWatchProgress"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @change-format="handleFormatChange"
         @pause-player="pausePlayer"
-        @set-info-area-sticky="infoAreaSticky = $event"
-        @scroll-to-info-area="$refs.infoArea.scrollIntoView()"
+        @save-watched-progress="handleWatchProgressManualSave"
       />
       <watch-video-chapters
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"
@@ -218,6 +220,7 @@
           watchVideoRecommendationsLowerCard: watchingPlaylist || isLive,
           watchVideoRecommendationsNoCard: !watchingPlaylist || !isLive
         }"
+        @pause-player="pausePlayer"
       />
     </div>
   </div>
