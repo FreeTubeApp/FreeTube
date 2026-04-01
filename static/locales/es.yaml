@@ -850,7 +850,7 @@ Video:
   DRMProtected: Los videos restringidos con DRM no pueden reproducirse en FreeTube, dado que requieren componentes propietarias de fuente cerrada. Si desea ver este video, por favor véalo en la página oficial de YouTube con un buscador que tenga DRM habilitado.
   Watched Progress Saved: Progreso de visualización guardado
   Save Watched Progress: Guardar progreso de visualización
-  Popout Live Chat: Chat popout
+  Popout Live Chat: Ventana emergente de chat
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Tiempo restante previo al anuncio: {remindingTimeSeconds} s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tiempo restante de retroceso de SABR: {remindingTimeSeconds} s'
@@ -940,7 +940,7 @@ Canceled next video autoplay: 'La reproducción del vídeo siguiente se ha cance
 
 Yes: 'Sí'
 No: 'No'
-Download From Site: Descargar desde el sitio web
+Download From Site: Descargar desde el sitio web Clic para ver más
 Version {versionNumber} is now available!  Click for more details: ¡La versión {versionNumber} está disponible! Haz clic para saber más
 The playlist has been reversed: Orden de lista de reproducción invertido
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Este vídeo no está disponible por no tener un formato válido. Esto puede suceder por la falta de acceso de este formato a tu región.
@@ -979,7 +979,7 @@ Tooltips:
     UseDeArrowTitles: Sustituye los títulos de los vídeos por títulos enviados por los usuarios desde DeArrow.
     UseDeArrowThumbnails: Sustituye las miniaturas de vídeo por miniaturas de DeArrow.
 More: Más
-Unknown YouTube url type, cannot be opened in app: Tipo de URL desconocido. No se puede abrir en la aplicación
+Unknown YouTube url type, cannot be opened in app: Tipo de URL de YouTube desconocido. No se puede abrir en la aplicación
 Open New Window: Abrir ventana nueva
 Playing Next Video Interval: Reproduciendo el vídeo a continuación. Haz clic para cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos. Haz clic para cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos. Haz clic para cancelar.
 Default Invidious instance has been cleared: La instancia de Invidious predeterminada ha sido borrada
