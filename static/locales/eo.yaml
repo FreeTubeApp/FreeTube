@@ -36,7 +36,7 @@ Global:
     Comment Count: 1 komento | {count} komentoj
     Watching Count: 1 spektanto | {count} spektantoj
 Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber} disponeblas nun!  Alklaku por pli da informoj'
-Download From Site: 'Elŝuti el retejo'
+Download From Site: 'Elŝuti el retejo - Alklaku por plu vidi'
 Search / Go to URL: 'Serĉi / Iri al URL'
   # In Filter Button
 Search Filters:
@@ -290,6 +290,61 @@ Settings:
       Amber: Sukceno
       Orange: Oranĝkoloro
       Deep Orange: Malhela oranĝkoloro
+      Dracula Cyan: Dracula ciankoloro
+      Dracula Green: Dracula verdo
+      Dracula Orange: Dracula oranĝkoloro
+      Dracula Pink: Dracula rozkoloro
+      Dracula Purple: Dracula purpuro
+      Dracula Red: Dracula ruĝo
+      Dracula Yellow: Dracula flavo
+      Catppuccin Frappe Rosewater: Catppuccin Frappe rozakvo
+      Catppuccin Frappe Flamingo: Catppuccin Frappe flamengo
+      Catppuccin Frappe Pink: Catppuccin Frappe rozkoloro
+      Catppuccin Frappe Mauve: Catppuccin Frappe purpuro
+      Catppuccin Frappe Red: Catppuccin Frappe ruĝo
+      Catppuccin Frappe Maroon: Catppuccin Frappe bruno
+      Catppuccin Frappe Peach: Catppuccin Frappe persikarbo
+      Catppuccin Frappe Yellow: Catppuccin Frappe flavo
+      Catppuccin Frappe Green: Catppuccin Frappe verdo
+      Catppuccin Frappe Teal: Catppuccin Frappe blua verdo
+      Catppuccin Frappe Sky: Catppuccin Frappe ĉielo
+      Catppuccin Frappe Sapphire: Catppuccin Frappe safiro
+      Catppuccin Frappe Blue: Catppuccin Frappe bluo
+      Catppuccin Frappe Lavender: Catppuccin Frappe lavendo
+      Catppuccin Latte Mauve: Catppuccin Latte purpuro
+      Catppuccin Latte Red: Catppuccin Latte ruĝo
+      Catppuccin Mocha Rosewater: Catppuccin Mocha rozakvo
+      Catppuccin Mocha Flamingo: Catppuccin Mocha flamengo
+      Catppuccin Mocha Pink: Catppuccin Mocha rozkoloro
+      Catppuccin Mocha Mauve: Catppuccin Mocha purpuro
+      Catppuccin Mocha Red: Catppuccin Mocha ruĝo
+      Catppuccin Mocha Maroon: Catppuccin Mocha bruno
+      Catppuccin Mocha Peach: Catppuccin Mocha persikarbo
+      Catppuccin Mocha Yellow: Catppuccin Mocha flavo
+      Catppuccin Mocha Green: Catppuccin Mocha verdo
+      Catppuccin Mocha Teal: Catppuccin Mocha blua verdo
+      Catppuccin Mocha Sky: Catppuccin Mocha ĉielo
+      Catppuccin Mocha Sapphire: Catppuccin Mocha safiro
+      Catppuccin Mocha Blue: Catppuccin Mocha bluo
+      Catppuccin Mocha Lavender: Catppuccin Mocha lavendo
+      Gruvbox Dark Green: Gruvbox malhela verdo
+      Gruvbox Dark Yellow: Gruvbox malhela flavo
+      Gruvbox Dark Blue: Gruvbox malhela bluo
+      Gruvbox Dark Purple: Gruvbox malhela purpuro
+      Gruvbox Dark Aqua: Gruvbox malhela verda bluo
+      Gruvbox Dark Orange: Gruvbox malhela oranĝkoloro
+      Gruvbox Light Red: Gruvbox hela ruĝo
+      Gruvbox Light Blue: Gruvbox hela bluo
+      Gruvbox Light Purple: Gruvbox hela purpuro
+      Gruvbox Light Orange: Gruvbox hela oranĝkoloro
+      Solarized Yellow: Solarized flavo
+      Solarized Orange: Solarized oranĝkoloro
+      Solarized Red: Solarized ruĝo
+      Solarized Magenta: Solarized maĝento
+      Solarized Violet: Solarized violkoloro
+      Solarized Blue: Solarized bluo
+      Solarized Cyan: Solarized cejano
+      Solarized Green: Solarized verdo
   Player Settings: {}
   Sort Settings Sections (A-Z): Ordigi agordosekciojn (A-Z)
   Return to Settings Menu: Reveni al agordomenuo
