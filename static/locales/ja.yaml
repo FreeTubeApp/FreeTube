@@ -977,7 +977,7 @@ Tooltips:
     UseDeArrowThumbnails: 動画のサムネイルを DeArrow からのサムネイルに置き換えます。
 Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
-Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL タイプのため、アプリで開くことができません
+Unknown YouTube url type, cannot be opened in app: 不明な YouTube url タイプのため、アプリで開くことができません
 Open New Window: 新しいウィンドウを開く
 Default Invidious instance has been cleared: デフォルトの Invidious インスタンスがクリアされました
 Default Invidious instance has been set to {instance}: デフォルトの Invidious インスタンスは{instance}に設定されました
