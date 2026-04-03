@@ -83,7 +83,7 @@
     "copy-webpack-plugin": "^14.0.0",
     "css-loader": "^7.1.4",
     "css-minimizer-webpack-plugin": "^8.0.0",
-    "electron": "^41.1.0",
+    "electron": "^41.1.1",
     "electron-builder": "^26.8.1",
     "eslint": "^10.1.0",
     "eslint-plugin-import-x": "^4.16.2",
