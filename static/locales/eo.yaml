@@ -345,7 +345,39 @@ Settings:
       Solarized Blue: Solarized bluo
       Solarized Cyan: Solarized cejano
       Solarized Green: Solarized verdo
-  Player Settings: {}
+      Everforest Dark Red: Everforest malhela ruĝo
+      Everforest Dark Orange: Everforest malhela oranĝkoloro
+      Everforest Dark Yellow: Everforest malhela flavo
+      Everforest Dark Green: Everforest malhela verdo
+      Everforest Dark Aqua: Everforest malhela verda bluo
+      Everforest Dark Blue: Everforest malhela bluo
+      Everforest Dark Purple: Everforest malhela purpuro
+      Everforest Light Red: Everforest hela ruĝo
+      Everforest Light Orange: Everforest hela oranĝkoloro
+      Everforest Light Yellow: Everforest hela flavo
+      Everforest Light Green: Everforest hela verdo
+      Everforest Light Aqua: Everforest hela verda bluo
+      Everforest Light Blue: Everforest hela bluo
+      Everforest Light Purple: Everforest hela purpuro
+    Secondary Color Theme: Sekundara koloro
+  Player Settings:
+    Player Settings: Ludilo
+    Play Next Video: Aŭtomate ludi rekomenditajn videaĵojn
+    Autoplay Playlists: Aŭtomate ludi videaĵojn de ludlistoj
+    Autoplay Videos: Aŭtomate komenci videaĵojn
+    Turn on Subtitles by Default: Defaŭlte ŝalti subtekstojn
+    Proxy Videos Through Invidious: Uzi Invidious kiel prokurilo
+    Default Viewing Mode:
+      Theater: Teatro
+      Default Viewing Mode: Defaŭlta spektoreĝimo
+      Full Screen: Plenekrane
+      Picture in Picture: Bildenbildo
+      External Player: Ekstera ludilo ({externalPlayerName})
+    Scroll Volume Over Video Player: Ŝanĝi laŭtecon per rulumi sur ludilo
+    Scroll Playback Rate Over Video Player: Ŝanĝi ludrapidon per rulumi sur ludilo
+    Skip by Scrolling Over Video Player: Salti per rulumi sur ludilo
+    Display Play Button In Video Player: Montri ludbutonon en ludlio
+    Enter Fullscreen on Display Rotate: Eniri en plenan ekranon je rotacio de la ekrano
   Sort Settings Sections (A-Z): Ordigi agordosekciojn (A-Z)
   Return to Settings Menu: Reveni al agordomenuo
   The app needs to restart for changes to take effect. Restart and apply change?: Necesas restartigi la aplikaĵon por ke ŝanĝoj estu aplikitaj. Ĉu restarti kaj apliki ŝanĝojn?
