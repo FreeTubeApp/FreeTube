@@ -3,14 +3,14 @@ File: 'Súbor'
 Quit: 'Ukončiť'
 Edit: 'Upraviť'
 Undo: 'Vrátiť späť'
-Redo: 'Znovu vykonať'
+Redo: 'Vykonať znova'
 Cut: 'Vystrihnúť'
 Copy: 'Kopírovať'
 Paste: 'Vložiť'
 Delete: 'Vymazať'
 Select all: 'Vybrať všetko'
 Toggle Developer Tools: 'Prepnúť vývojárske nástroje'
-Actual size: 'Aktuálna veľkosť'
+Actual size: 'Reálna veľkosť'
 Zoom in: 'Priblížiť'
 Zoom out: 'Oddialiť'
 Toggle fullscreen: 'Prepnúť na celú obrazovku'
@@ -972,7 +972,7 @@ Profile:
   Toggle Profile List: Prepnúť zoznam profilov
 Download From Site: Stiahnuť zo stránky Kliknutím zobrazíte viac
 Version {versionNumber} is now available!  Click for more details: Verzia {versionNumber} je k dispozícii! Kliknite pre viac podrobností
-Locale Name: Slovenčina
+Locale Name: Angličtina (US)
 Playing Next Video Interval: Prehrávanie ďalšieho videa okamžite. Kliknite pre zrušenie. | Prehrávanie ďalšieho videa o {nextVideoInterval} sekundu. Kliknite pre zrušenie. | Prehrávanie ďalšieho videa o {nextVideoInterval} sekúnd. Kliknite pre zrušenie.
 More: Viac
 Unknown YouTube url type, cannot be opened in app: Neznámy typ adresy URL YouTube, nemôže byť otvorený v aplikácii
@@ -1008,7 +1008,7 @@ Search Listing:
 Feed:
   Feed Last Updated: 'Kanál {feedName} naposledy aktualizovaný: {date}'
   Refresh Feed: Obnoviť {subscriptionName}
-Go to page: Prejsť na {page}
+Go to page: Prejsť na {stránka}
 Right-click or hold to see history: Podržte alebo kliknite pravým tlačidlom pre zobrazenie histórie
 KeyboardShortcutPrompt:
   Toggle Developer Tools: Prepnúť nástroje pre vývojárov
