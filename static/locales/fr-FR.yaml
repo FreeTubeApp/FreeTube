@@ -773,7 +773,7 @@ Video:
     Audio Tracks: Pistes audio
     Theatre Mode: Mode théâtre
     Exit Theatre Mode: Quitter le mode théâtre
-    Full Window: Fenêtre pleine
+    Full Window: Plein écran
     Show Stats: Afficher les stats
     Hide Stats: Masquer les stats
     Stats:
@@ -792,7 +792,7 @@ Video:
       Dropped Frames / Total Frames: 'Images perdues : {droppedFrames} / Images totales : {totalFrames}'
     Skipped segment: Segment {segmentCategory} ignoré
     TranslatedCaptionTemplate: '{language} (traduit depuis : {originalLanguage})'
-    Exit Full Window: Quitter la fenêtre pleine
+    Exit Full Window: Quitter le plein écran
     Take Screenshot: Prendre une capture d'écran
     You appear to be offline: Vous semblez être hors ligne.
     Playback will resume automatically when your connection comes back: La lecture reprendra automatiquement quand votre connexion reviendra.
