@@ -34,13 +34,13 @@ Global:
 
 # Search Bar
   Counts:
-    Video Count: 1 فيديو | {count} مقاطع فيديو
-    Channel Count: 1 قناة | {count} قنوات
-    Subscriber Count: 1 مشترك | {count} مشتركين
-    View Count: 1 مشاهدة | {count} مشاهدات
-    Watching Count: 1 مشاهد | {count} مشاهدون
-    Like Count: إعجاب واحد |{count} إعجاب
-    Comment Count: تعليق واحد | {count} تعليقًا
+    Video Count: 1 فيديو | {عدد} مقاطع فيديو
+    Channel Count: 1 قناة | {عدد} قنوات
+    Subscriber Count: 1 مشترك | {عدد} مشتركين
+    View Count: 1 مشاهدة | {عدد} مشاهدات
+    Watching Count: 1 مشاهد | {عدد} مشاهدون
+    Like Count: إعجاب واحد |{عدد} إعجابات
+    Comment Count: تعليق واحد | {عدد} تعليقًا
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
 Search Filters:
@@ -67,6 +67,8 @@ Search Filters:
     Duration: 'المدة'
     All Durations: 'كل الآوقات'
     '< 3 minutes': أقل من 3 دقائق
+    '3 - 20 minutes': 3 - 20 دقيقة
+    '> 20 minutes': أكثر من 20 دقيقة
   Search Results: 'نتائج البحث'
   Fetching results. Please wait: 'جاري إحضار النتائج. الرجاء الانتظار'
   Fetch more results: 'إحضار المزيد من النتائج'
