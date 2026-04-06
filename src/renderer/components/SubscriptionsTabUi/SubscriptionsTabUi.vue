@@ -149,14 +149,47 @@ const hideWatchedSubs = computed(() => {
   return store.getters.getHideWatchedSubs
 })
 
+const onlyShowLatestFromChannel = computed(() => {
+  return store.getters.getOnlyShowLatestFromChannel
+})
+
+const onlyShowLatestFromChannelNumber = computed(() => {
+  return store.getters.getOnlyShowLatestFromChannelNumber
+})
+
 const filteredVideoList = computed(() => {
+  let videoList = props.videoList
+
   if (hideWatchedSubs.value && !props.isCommunity) {
-    return props.videoList.filter((video) => {
+    videoList = videoList.filter((video) => {
       return historyCacheById.value[video.videoId] === undefined
     })
-  } else {
-    return props.videoList
   }
+
+  if (onlyShowLatestFromChannel.value && !props.isCommunity) {
+    const authors = new Map()
+    videoList = videoList.filter((video) => {
+      if (!video.authorId) {
+        return true
+      }
+
+      if (!authors.has(video.authorId)) {
+        authors.set(video.authorId, 1)
+        return true
+      } else {
+        const currentVideos = authors.get(video.authorId)
+
+        if (currentVideos < onlyShowLatestFromChannelNumber.value) {
+          authors.set(video.authorId, currentVideos + 1)
+          return true
+        }
+      }
+
+      return false
+    })
+  }
+
+  return videoList
 })
 
 function increaseLimit() {
