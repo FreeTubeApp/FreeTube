@@ -56,10 +56,15 @@ export function updateVideoListAfterProcessing(videos) {
     })
   }
 
-  videoList.sort((a, b) => {
-    return b.published - a.published
-  })
-
+  if (store.getters.getRandomizeSubscriptionOrder) {
+    const shuffled = videoList.map(value => ({ value, sort: Math.random() }))
+    shuffled.sort((a, b) => a.sort - b.sort)
+    videoList = shuffled.map(item => item.value)
+  } else {
+    videoList.sort((a, b) => {
+      return b.published - a.published
+    })
+  }
   return videoList
 }
 

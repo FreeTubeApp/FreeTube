@@ -226,6 +226,7 @@ const state = {
   maxVideoPlaybackRate: 3,
   onlyShowLatestFromChannel: false,
   onlyShowLatestFromChannelNumber: 1,
+  randomizeSubscriptionOrder: false,
   openDeepLinksInNewWindow: false,
   playNextVideo: false,
   proxyHostname: '127.0.0.1',
