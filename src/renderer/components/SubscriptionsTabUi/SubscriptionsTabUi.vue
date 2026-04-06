@@ -158,15 +158,19 @@ const onlyShowLatestFromChannelNumber = computed(() => {
 })
 
 const filteredVideoList = computed(() => {
+  if (props.isCommunity) {
+    return props.videoList
+  }
+
   let videoList = props.videoList
 
-  if (hideWatchedSubs.value && !props.isCommunity) {
+  if (hideWatchedSubs.value) {
     videoList = videoList.filter((video) => {
       return historyCacheById.value[video.videoId] === undefined
     })
   }
 
-  if (onlyShowLatestFromChannel.value && !props.isCommunity) {
+  if (onlyShowLatestFromChannel.value) {
     const authors = new Map()
     videoList = videoList.filter((video) => {
       if (!video.authorId) {
