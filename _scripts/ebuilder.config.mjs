@@ -21,7 +21,7 @@ export default {
   files: [
     '_icons/iconColor.*',
     'icon.svg',
-    './dist/**/*',
+    'dist/**/*',
     '!dist/web/*',
     '!node_modules/**/*',
   ],
