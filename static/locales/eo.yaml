@@ -36,7 +36,7 @@ Global:
     Comment Count: 1 komento | {count} komentoj
     Watching Count: 1 spektanto | {count} spektantoj
 Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber} disponeblas nun!  Alklaku por pli da informoj'
-Download From Site: 'Elŝuti el retejo - Alklaku por plu vidi'
+Download From Site: 'Elŝuti el retejo'
 Search / Go to URL: 'Serĉi / Iri al URL'
   # In Filter Button
 Search Filters:
@@ -378,6 +378,8 @@ Settings:
     Skip by Scrolling Over Video Player: Salti per rulumi sur ludilo
     Display Play Button In Video Player: Montri ludbutonon en ludlio
     Enter Fullscreen on Display Rotate: Eniri en plenan ekranon je rotacio de la ekrano
+    Next Video Interval: Retronombrado de aŭtomata ludado
+    Autoplay Interruption Timer: Interrompo de aŭtomata ludado
   Sort Settings Sections (A-Z): Ordigi agordosekciojn (A-Z)
   Return to Settings Menu: Reveni al agordomenuo
   The app needs to restart for changes to take effect. Restart and apply change?: Necesas restartigi la aplikaĵon por ke ŝanĝoj estu aplikitaj. Ĉu restarti kaj apliki ŝanĝojn?
