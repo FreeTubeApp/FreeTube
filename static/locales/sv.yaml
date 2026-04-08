@@ -1007,7 +1007,7 @@ Clipboard:
   Copy failed: Kopiera till urklipp misslyckades
 Chapters:
   Chapters: Kapitel
-  Key Moments: Viktiga Ögonblick
+  Key Moments: Viktiga ögonblick
 Hashtag:
   Hashtag: Hashtaggar
   This hashtag does not currently have any videos: Den här hashtaggen har för närvarande inga videor
@@ -1035,7 +1035,7 @@ Yes, Restart: Ja, starta om
 Age Restricted:
   This video is age restricted: Den här videon är åldersbegränsad
   This channel is age restricted: Denna kanal är åldersbegränsad
-Moments Ago: ögonblick sedan
+Moments Ago: för några ögonblick sedan
 Cancel: Avbryt
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Tag already exists: Taggen "{tagName}" finns redan
