@@ -438,6 +438,53 @@ Settings:
         Semi-auto: Semiaŭtomata
         Never: Neniam
       Tooltip: Aŭtomata = Konservi je eliro de ĉiu videopaĝo, je fino de videaĵo kaj je eraro (ekz. bloko pro eksceso da petoj kaj seanco kadukis). Semiaŭtomata = Kiel aŭtomata krom eliro de videopaĝo, kaj progreso permane konserveblas per butono de "Konservi spektoprogreson" sub la videaĵoludilo.
+    Save Watched Videos With Last Viewed Playlist: Konservi spektitajn videaĵojn kun ludlisto de laste spektitaj
+    Clear Search History and Cache: Viŝi serĉan historion kaj kaŝmemoron
+    Are you sure you want to clear out your search history and cache?: Ĉu vi certas, ke vi volas viŝi viajn serĉan historion kaj kaŝmemoron?
+    Search history and cache have been cleared: Serĉa historio kaj kaŝmemoro estis viŝitaj
+    Remove Watch History: Forigi videaĵan historion
+    Are you sure you want to remove your entire watch history?: Ĉu vi certas, ke vi volas forigi vian tutan videaĵan historion?
+    Watch history has been cleared: Videaĵa historio estis forigita
+    Remove All Subscriptions / Profiles: Forigi ĉiujn abonojn/profilojn
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Ĉu vi certas, ke vi volas forigi ĉiujn abonojn kaj profilojn?  Tio ĉi ne malfareblas.
+    Remove All Playlists: Forigi ĉiujn ludlistojn
+    All playlists have been removed: Ĉiuj ludlistoj estis forigitaj
+    Are you sure you want to remove all your playlists?: Ĉi vi certas, ke vi volas forigi ĉiujn viajn ludlistojn?
+  Subscription Settings:
+    Subscription Settings: Abono
+    Fetch Feeds from RSS: Venigi fluojn per RSS
+    Fetch Automatically: Venigi fluon aŭtomate
+    'Limit the number of videos displayed for each channel': Limi la kvanton de montrataj videaĵoj por ĉiu kanalo
+    To: Limo
+    Confirm Before Unsubscribing: Konfirmi antaŭ ol malaboni
+  Distraction Free Settings:
+    Distraction Free Settings: Sendistre
+    Sections:
+      Side Bar: Flankobreto
+      Subscriptions Page: Abonopaĝo
+      Channel Page: Kanalopaĝo
+      Watch Page: Spektopaĝo
+      General: Ĝenerala
+    Hide Video Views: Kaŝi spektojn de videaĵoj
+    Hide Video Likes And Dislikes: Kaŝi ŝatojn kaj malŝatojn de videaĵoj
+    Hide Channel Subscribers: Kaŝi abonojn de kanaloj
+    Hide Comment Likes: Kaŝi ŝatojn de komentoj
+    Hide Recommended Videos: Kaŝi rekomenditajn videaĵojn
+    Hide Trending Videos: Kaŝi tendencajn videaĵojn
+    Hide Popular Videos: Kaŝi popularajn videaĵojn
+    Hide Playlists: Kaŝi ludlistojn
+    Hide Live Chat: Kaŝi tujelsendan babilejon
+    Hide Active Subscriptions: Kaŝi aktivajn abonojn
+    Hide Video Description: Kaŝi priskribojn de videaĵoj
+    Hide Comments: Kaŝi komentojn
+    Hide Profile Pictures in Comments: Kaŝi avatarojn en komentoj
+    Display Titles Without Excessive Capitalisation: Montri titolojn sen ekscesaj majuskloj kaj interpunkcio
+    Hide Live Streams: Kaŝi tujelsendojn
+    Hide Upcoming Premieres: Kaŝi venontajn premierojn
+    Hide Sharing Actions: Kaŝi kunhavigajn agojn
+    Hide Videos on Watch: Kaŝi spektitajn videaĵojn
+    Hide Chapters: Kaŝi ĉapitrojn
+    Hide Channels: Kaŝi videaĵojn de kanaloj
 About:
   #On About page
   Website: Retejo
