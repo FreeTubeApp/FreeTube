@@ -380,9 +380,64 @@ Settings:
     Enter Fullscreen on Display Rotate: Eniri en plenan ekranon je rotacio de la ekrano
     Next Video Interval: Retronombrado de aŭtomata ludado
     Autoplay Interruption Timer: Interrompo de aŭtomata ludado
+    Fast-Forward / Rewind Interval: Rapidpluiga/revolva intervalo
+    Default Volume: Defaŭlta laŭteco
+    Default Playback Rate: Defaŭlta ludrapido
+    Max Video Playback Rate: Maksimuma ludrapido
+    Video Playback Rate Interval: Ludrapida intervalo
+    Default Video Format:
+      Default Video Format: Defaŭlta videaĵoformo
+      Dash Formats: DASH-aj formoj
+      Legacy Formats: Heredaĵaj formoj
+      Audio Formats: Aŭdioformoj
+    Default Quality:
+      Default Quality: Defaŭlta kvalito
+      Auto: Aŭtomata
+      144p: 144p
+      240p: 240p
+      360p: 360p
+      480p: 480p
+      720p: 720p
+      1080p: 1080p
+      1440p: 1440p
+      4k: 4k
+      8k: 8k
+    Screenshot:
+      Enable: Ebligi ekrankopiojn
+      Format Label: Dosiertipo de ekrankopioj
+      Quality Label: Kvalito de ekrankopioj
+      Ask Path: Peti konservan dosierujon
+      Folder Label: Dosierujo de ekrankopioj
+      Folder Button: Elekti dosierujon
+      File Name Label: Dosiernoma ŝablono
+      File Name Tooltip: La jenaj variabloj uzeblas. %Y Jaro (4 ciferoj). %M Monato (2 ciferoj). %D Tago (2 ciferoj). %H Horo (2 ciferoj). %N Minuto (2 ciferoj). %S Sekundo (2 ciferoj). %T Milisekundo (3 ciferoj). %s Sekundo de videaĵo. %t Milisekundo de videaĵo (3 ciferoj). %i Identigilo de videaĵo.
+      Error:
+        Forbidden Characters: Malpermesitaj signoj
+        Empty File Name: Malplena dosiernomo
   Sort Settings Sections (A-Z): Ordigi agordosekciojn (A-Z)
   Return to Settings Menu: Reveni al agordomenuo
   The app needs to restart for changes to take effect. Restart and apply change?: Necesas restartigi la aplikaĵon por ke ŝanĝoj estu aplikitaj. Ĉu restarti kaj apliki ŝanĝojn?
+  External Player Settings:
+    External Player Settings: Ekstera ludilo
+    External Player: Ekstera ludilo
+    Ignore Unsupported Action Warnings: Ignori avertojn de nesubtenitaj agoj
+    Ignore Default Arguments: Ignori defaŭltajn argumentojn
+    Custom External Player Executable: Plenumeblo de laŭmenda ekstera ludilo
+    Custom External Player Arguments: Argumentoj de laŭmenda ekstera ludilo
+    Players:
+      None:
+        Name: Nenio
+  Privacy Settings:
+    Privacy Settings: Privateco
+    Remember History: Memori videaĵan historion
+    Remember Search History: Memori serĉan historion
+    Save Watched Progress: Konservi progreson de ludado
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Aŭtomata
+        Semi-auto: Semiaŭtomata
+        Never: Neniam
+      Tooltip: Aŭtomata = Konservi je eliro de ĉiu videopaĝo, je fino de videaĵo kaj je eraro (ekz. bloko pro eksceso da petoj kaj seanco kadukis). Semiaŭtomata = Kiel aŭtomata krom eliro de videopaĝo, kaj progreso permane konserveblas per butono de "Konservi spektoprogreson" sub la videaĵoludilo.
 About:
   #On About page
   Website: Retejo
