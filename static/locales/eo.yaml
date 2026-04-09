@@ -485,6 +485,30 @@ Settings:
     Hide Videos on Watch: Kaŝi spektitajn videaĵojn
     Hide Chapters: Kaŝi ĉapitrojn
     Hide Channels: Kaŝi videaĵojn de kanaloj
+    Hide Channels Disabled Message: Kelkaj kanaloj estis blokitaj pro siaj identigiloj kaj ne estis traktitaj. La funkcio estas blokita dum tiuj identigiloj ĝisdatiĝas
+    Hide Channels Placeholder: Kanala identigilo
+    Hide Channels Invalid: La provizita kanala identigilo ne validis
+    Hide Channels API Error: Eraro dum serĉado de uzanto per la provizita identigilo. Bonvolu recertigi, ke la identigilo ĝustas.
+    Hide Channels Already Exists: La kanala identigilo jam ekzistas
+    Hide Featured Channels: Kaŝi rekomenditajn kanalojn
+    Hide Channel Playlists: Kaŝi ludlisto-langeton de kanaloj
+    Hide Channel Posts: Kaŝi afiŝo-langeton de kanaloj
+    Hide Channel Home: Kaŝi hejmo-langeton de kanaloj
+    Hide Channel Shorts: Kaŝi videaĵeto-langeton de kanaloj
+    Hide Channel Podcasts: Kaŝi podkasto-langeton de kanaloj
+    Hide Channel Releases: Kaŝi publikaĵo-langeton de kanaloj
+    Hide Channel Courses: Kaŝi kurso-langeton de kanaloj
+    Hide Videos, Playlists and Channels Containing Text: Kaŝi videaĵojn, ludlistojn kaj kanalojn kiuj enhavas tekston
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Vorto, vortparto aŭ frazo
+    Hide Subscriptions Videos: Kaŝi videaĵojn de abonoj
+    Hide Subscriptions Shorts: Kaŝi videaĵetojn de abonoj
+    Hide Subscriptions Live: Kaŝi tujelsendojn de abonoj
+    Hide Subscriptions Posts: Kaŝi afiŝojn de abonoj
+    Show Added Items: Montri aldonitajn elementojn
+  Data Settings:
+    Data Settings: Datumoj
+    Select Export Type: Elekti elportotipon
+    Import Subscriptions: Enporti abonojn
 About:
   #On About page
   Website: Retejo
