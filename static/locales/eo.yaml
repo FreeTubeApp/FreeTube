@@ -509,6 +509,21 @@ Settings:
     Data Settings: Datumoj
     Select Export Type: Elekti elportotipon
     Import Subscriptions: Enporti abonojn
+    Subscription File: Abona dosiero
+    History File: Historia dosiero
+    Playlist File: Ludlista dosiero
+    Search history file: Serĉa historia dosiero
+    Export Subscriptions: Elporti abonojn
+    Export FreeTube: Elporti FreeTube
+    Export YouTube: Elporti YouTube
+    Export NewPipe: Elporti NewPipe
+    Import History: Enporti historion
+    Export History: Elporti historion
+    Import Playlists: Enporti ludlistojn
+    Export Playlists: Elporti ludlistojn
+    Search history: Serĉa historio
+    Import search history: Enporti serĉan historion
+    Export search history: Elporti serĉan historion
 About:
   #On About page
   Website: Retejo
