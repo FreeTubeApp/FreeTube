@@ -95,6 +95,16 @@
         @change="updateCurrentLocale"
       />
       <FtSelect
+        v-if="backendPreference === 'local' || backendFallback"
+        :placeholder="t('Settings.General Settings.Avoid translation.Avoid translation')"
+        :value="avoidTranslation"
+        :select-names="avoidTranslationNames"
+        :select-values="AVOID_TRANSLATION_VALUES"
+        :tooltip="t('Tooltips.General Settings.Avoid translation')"
+        :icon="['fas', 'language']"
+        @change="updateAvoidTranslation"
+      />
+      <FtSelect
         v-if="regionDataLoaded"
         :placeholder="t('Settings.General Settings.Region for Trending')"
         :value="region"
@@ -393,6 +403,24 @@ const currentLocale = computed(() => store.getters.getCurrentLocale)
 function updateCurrentLocale(value) {
   store.dispatch('updateCurrentLocale', value)
 }
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const avoidTranslation = computed(() => store.getters.getAvoidTranslation)
+
+/**
+ * @param {'disabled'| 'watch_only'| 'entire_app'} value
+ */
+function updateAvoidTranslation(value) {
+  store.dispatch('updateAvoidTranslation', value)
+}
+
+const AVOID_TRANSLATION_VALUES = ['disabled', 'watch_only', 'entire_app']
+
+const avoidTranslationNames = computed(() => [
+  t('Settings.General Settings.Avoid translation.Disabled'),
+  t('Settings.General Settings.Avoid translation.Watch Only'),
+  t('Settings.General Settings.Avoid translation.Entire App'),
+])
 
 /** @type {import('vue').ComputedRef<string[]>} */
 const regionNames = computed(() => store.getters.getRegionNames)

@@ -10,7 +10,8 @@ import {
   showToast,
   toDistractionFreeTitle,
   deepCopy,
-  debounce
+  debounce,
+  getOembedTitle
 } from '../../helpers/utils'
 import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock'
 import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
@@ -720,6 +721,14 @@ export default defineComponent({
       this.id = this.data.videoId
       this.title = this.data.title
       // this.thumbnail = this.data.videoThumbnails[4].url
+
+      if (this.$store.getters.getAvoidTranslation === 'entire_app' && this.id) {
+        getOembedTitle(this.id).then((title) => {
+          if (title) {
+            this.title = title
+          }
+        })
+      }
 
       this.channelName = this.data.author ?? null
       this.channelId = this.data.authorId ?? null
