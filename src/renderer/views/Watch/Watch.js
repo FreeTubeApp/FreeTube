@@ -866,11 +866,16 @@ export default defineComponent({
           copyToClipboard(err)
         })
         console.error(err)
-        if (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private')) {
+        if (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private') && !err.toString().includes('unavailable')) {
           showToast(this.$t('Falling back to Invidious API'))
           this.getVideoInformationInvidious()
         } else {
           this.isLoading = false
+
+          if (!this.thumbnail) {
+            this.thumbnail = `https://i.ytimg.com/vi/${this.videoId}/maxresdefault.jpg`
+          }
+          this.errorMessage = err.message || err.toString()
         }
       }
     },
@@ -1051,12 +1056,16 @@ export default defineComponent({
           showToast(`${errorMessage}: ${err}`, 10000, () => {
             copyToClipboard(err)
           })
-          console.error(err)
           if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
             showToast(this.$t('Falling back to Local API'))
             this.getVideoInformationLocal()
           } else {
             this.isLoading = false
+
+            if (!this.thumbnail) {
+              this.thumbnail = `https://i.ytimg.com/vi/${this.videoId}/maxresdefault.jpg`
+            }
+            this.errorMessage = err.message || err.toString()
           }
         })
     },
