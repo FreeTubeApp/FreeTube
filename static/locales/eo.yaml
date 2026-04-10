@@ -583,10 +583,43 @@ Settings:
     Hide Search Bar: Kaŝi serĉobreton
   Experimental Settings:
     Experimental Settings: Eksperimenta
+    Warning: Ĉi tiuj agordoj estas eksperimentaj kaj povus kaŭzi kolapsojn dum ŝaltitaj. Savkopioj ege farindas. Vi estas avertita!
+    Replace HTTP Cache: Anstataŭigi HTTP-kaŝmemoron
+  Password Dialog:
+    Password: Pasvorto
+    Enter Password To Unlock: Enigu pasvorton por malŝlosi agordojn
+  Password Settings:
+    Password Settings: Pasvorto
+    Set Password To Prevent Access: Difini pasvorton por malebligi atingon al agordoj
+    Set Password: Difini pasvorton
+    Remove Password: Forigi pasvorton
 About:
   #On About page
   Website: Retejo
   Email: Retpoŝto
+  About: Pri
+  Beta: Beta
+  Source code: Fontkodo
+  Licensed under the {licenseLink}: Permesita per {licenseLink}
+  AGPLv3: AGPLv3
+  Downloads / Changelog: Elŝutoj/Ŝanĝoprotokolo
+  GitHub releases: Eldonoj sur GitHub
+  Help: Helpo
+  FreeTube Wiki: FreeTube-vikio
+  FAQ: Oftaj demandoj
+  Discussions: Diskutoj
+  Report a problem: Raporti problemon
+  GitHub issues: Raportitaj problemoj sur GitHub
+  Please check for duplicates before posting: Bonvolu certigi, ke vi ne duobligas afiŝojn antaŭ publikigi
+  Mastodon: Mastodon
+  Chat on Matrix: Babili sur Matrix
+  Please read the {roomRulesLink}: Bonvolu legi la {roomRulesLink}
+  room rules: ĉambroregulojn
+  Translate: Traduki
+  Credits: Dankoj
+  FreeTube is made possible by {creditsPageLink}: FreeTube eblas pro la helpo de {creditsPageLink}
+  these people and projects: ĉi tiuj personoj kaj projektoj
+  Donate: Donaci
 Channel:
   About:
     Details: Detaloj
@@ -605,6 +638,7 @@ Go to page: Iri al {page}
 Actual size: Reala grando
 Profile:
   Select All: Elekti ĉiujn
+  Profile Settings: Profilo
 KeyboardShortcutPrompt:
   Zoom In: Zomi
   Zoom Out: Malzomi
