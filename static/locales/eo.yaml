@@ -524,6 +524,41 @@ Settings:
     Search history: Serĉa historio
     Import search history: Enporti serĉan historion
     Export search history: Elporti serĉan historion
+    Profile object has insufficient data, skipping item: Profila objekto havas nesufiĉajn datumojn, elemento estos saltita
+    All subscriptions and profiles have been successfully imported: Ĉiuj abonoj kaj profiloj estis sukcese enportitaj
+    All subscriptions have been successfully imported: Ĉiuj abonoj estis sukcese enportitaj
+    Invalid subscriptions file: Nevalida abona dosiero
+    Invalid history file: Nevalida historia dosiero
+    Subscriptions have been successfully exported: Abonoj estis sukcese elportitaj
+    History object has insufficient data, skipping item: Historia objekto havas nesufiĉajn datumojn, elemento estos saltita
+    All watched history has been successfully imported: Videaĵa historio estis sukcese enportita
+    All watched history has been successfully exported: Videaĵa historio estis sukcese elportita
+    Playlist insufficient data: Nesufiĉaj datumoj por la ludlisto "{playlist}", elemento estos ŝaltita
+    All playlists has been successfully imported: Ĉiuj ludlistoj estis sukcese enportitaj
+    All playlists has been successfully exported: Ĉiuj ludlistoj estis sukcese elportitaj
+    All search history has been successfully imported: Serĉa historio estis sukcese enportita
+    All search history has been successfully exported: Serĉa historio estis sukcese elportita
+    Unable to read file: Malsukcesis legi dosieron
+    Unable to write file: Malsukcesis skribi dosieron
+    Unknown data key: Nekonata datuma ŝlosilo
+    How do I import my subscriptions?: Kiel mi enportas miajn abonojn?
+    Manage Subscriptions: Administri abonojn
+  Proxy Settings:
+    Proxy Settings: Prokurilo
+    Proxy Warning: FreeTube ne provizas prokurilon, sed ĝi kapablas konektiĝi al ekstera prokurilo, ekzemple prokurilo sur via maŝino kiel Tor aŭ ekstera prokurilo kiel SOCKS5 provizita de kelkaj VPR-oj. Se ŝaltita, certigu ke via prokurilo/Tor estas ĝuste agordita, aŭ FreeTube ne povos venigi iun ajn datumon.
+    Enable Tor / Proxy: Ŝalti Tor/prokurilon
+    Proxy Protocol: Prokurila protokolo
+    Proxy Host: Prokurila gastigo
+    Proxy Port Number: Prokurila pordonombro
+    Proxy Username: Prokurila uzantnomo
+    Proxy Password: Prokurila pasvorto
+    Clicking on Test Proxy will send a request to: Alklaki "Kontroli prokurilon" sendos peton al
+    Test Proxy: Kontroli prokurilon
+    Your Info: Viaj informoj
+    Ip: IP-adreso
+    Country: Lando
+    Region: Regiono
+    City: Urbo
 About:
   #On About page
   Website: Retejo
