@@ -559,6 +559,30 @@ Settings:
     Country: Lando
     Region: Regiono
     City: Urbo
+    Error getting network information. Is your proxy configured properly?: Malsukcesis akiri retajn informojn. Ĉu via prokurilo estas ĝuste agordita?
+  SponsorBlock Settings:
+    SponsorBlock Settings: SponsorBlock
+    Enable SponsorBlock: Ŝalti SponsorBlock
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de API de Sponsorblock (defaŭlte https://sponsor.ajay.app)
+    Notify when sponsor segment is skipped: Sciigi kiam sponsora segmento estas saltita
+    UseDeArrowTitles: Uzi videaĵotitolojn de DeArrow
+    UseDeArrowThumbnails: Uzi bildetojn de DeArrow
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL de API de bildetogenerilo de DeArrow (defaŭlte https://dearrow-thumb.ajay.app)
+    Skip Options:
+      Skip Option: Saltoagordo
+      Auto Skip: Salti aŭtomate
+      Show In Seek Bar: Montri en serĉobreto
+      Prompt To Skip: Inviti por salti
+      Do Nothing: Nenion fari
+    Category Color: Koloro de kategorio
+  Parental Control Settings:
+    Parental Control Settings: Gepatraj enhavlimigoj
+    Hide Unsubscribe Button: Kaŝi butonon de malaboni
+    Hide Uploader on Watch page: Kaŝi kanalon sur spektopaĝo
+    Show Family Friendly Only: Nur montri enhavon taŭgan por familioj
+    Hide Search Bar: Kaŝi serĉobreton
+  Experimental Settings:
+    Experimental Settings: Eksperimenta
 About:
   #On About page
   Website: Retejo
