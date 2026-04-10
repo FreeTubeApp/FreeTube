@@ -429,7 +429,10 @@ export default defineComponent({
       }
 
       try {
-        const videoInfo = await getLocalVideoInfo(this.videoId)
+        const useLocaleForContent = this.$store.getters.getUseLocaleForContent
+        const region = useLocaleForContent ? this.$store.getters.getRegion : undefined
+        const lang = useLocaleForContent ? this.$i18n.locale.split('-')[0] : undefined
+        const videoInfo = await getLocalVideoInfo(this.videoId, region, lang)
         const { info: result, poToken, clientInfo, adEndTimeUnixMs } = videoInfo
 
         this.adEndTimeUnixMs = adEndTimeUnixMs

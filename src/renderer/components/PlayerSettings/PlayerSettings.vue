@@ -73,6 +73,12 @@
           :default-value="enterFullscreenOnDisplayRotate"
           @change="updateEnterFullscreenOnDisplayRotate"
         />
+        <FtToggleSwitch
+          :label="t('Settings.Player Settings.Enable Loop by Default')"
+          :compact="true"
+          :default-value="enableLoopByDefault"
+          @change="updateEnableLoopByDefault"
+        />
       </div>
     </div>
     <FtFlexBox>
@@ -379,6 +385,16 @@ const enterFullscreenOnDisplayRotate = computed(() => store.getters.getEnterFull
  */
 function updateEnterFullscreenOnDisplayRotate(value) {
   store.dispatch('updateEnterFullscreenOnDisplayRotate', value)
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const enableLoopByDefault = computed(() => store.getters.getEnableLoopByDefault)
+
+/**
+ * @param {boolean} value
+ */
+function updateEnableLoopByDefault(value) {
+  store.dispatch('updateEnableLoopByDefault', value)
 }
 
 /** @type {import('vue').ComputedRef<string>} */

@@ -70,13 +70,14 @@ if (process.env.SUPPORTS_LOCAL_API) {
  * @param {object} options
  * @param {boolean} options.withPlayer set to true to get an Innertube instance that can decode the streaming URLs
  * @param {string|undefined} options.location the geolocation to pass to YouTube get different content
+ * @param {string|undefined} options.lang the language code (e.g. 'pt') for localized content
  * @param {boolean} options.safetyMode whether to hide mature content
  * @param {import('youtubei.js').ClientType} options.clientType use an alterate client
  * @param {boolean} options.generateSessionLocally generate the session locally or let YouTube generate it (local is faster, remote is more accurate)
  * @param {?import('youtubei.js').FetchFunction} options.fetchFunc optional custom fetch function
  * @returns the Innertube instance
  */
-async function createInnertube({ withPlayer = false, location = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true, fetchFunc = null } = {}) {
+async function createInnertube({ withPlayer = false, location = undefined, lang = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true, fetchFunc = null } = {}) {
   let cache
   if (withPlayer) {
     if (process.env.IS_ELECTRON) {
@@ -94,6 +95,7 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     user_agent: navigator.userAgent,
 
     retrieve_player: !!withPlayer,
+    lang: lang,
     location: location,
     enable_safety_mode: !!safetyMode,
     client_type: clientType,
@@ -350,9 +352,11 @@ export async function getLocalTrending(location, tab) {
  * @param {string} query
  * @param {object} filters
  * @param {boolean} safetyMode
+ * @param {string} [location] the region/location code (e.g. 'BR') to get region-relevant results
+ * @param {string} [lang] the language code (e.g. 'pt') for localized results
  */
-export async function getLocalSearchResults(query, filters, safetyMode) {
-  const innertube = await createInnertube({ safetyMode })
+export async function getLocalSearchResults(query, filters, safetyMode, location, lang) {
+  const innertube = await createInnertube({ safetyMode, location, lang })
   const response = await innertube.search(query, convertSearchFilters(filters))
 
   return handleSearchResponse(response)
@@ -387,13 +391,15 @@ export async function getLocalSearchContinuation(continuationData) {
  *   adEndTimeUnixMs: number
  * }>}
  */
-export async function getLocalVideoInfo(id) {
+export async function getLocalVideoInfo(id, location, lang) {
   let responseTime = Date.now()
   let totalAdTimeMilliseconds = 0
 
   const webInnertube = await createInnertube({
     withPlayer: true,
     generateSessionLocally: false,
+    location,
+    lang,
     fetchFunc: async (input, init) => {
       if (!(input.url?.startsWith('https://www.youtube.com/youtubei/v1/player'))) {
         return fetch(input, init)

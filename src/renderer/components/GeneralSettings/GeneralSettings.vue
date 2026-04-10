@@ -34,6 +34,13 @@
           @change="updateEnableSearchSuggestions"
         />
         <FtToggleSwitch
+          :label="t('Settings.General Settings.Use Locale for Content')"
+          :default-value="useLocaleForContent"
+          :compact="true"
+          :tooltip="t('Tooltips.General Settings.Use Locale for Content')"
+          @change="updateUseLocaleForContent"
+        />
+        <FtToggleSwitch
           v-if="USING_ELECTRON"
           :label="t('Settings.General Settings.Open Deep Links In New Window')"
           :default-value="openDeepLinksInNewWindow"
@@ -410,6 +417,16 @@ const region = computed(() => store.getters.getRegion)
  */
 function updateRegion(value) {
   store.dispatch('updateRegion', value)
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const useLocaleForContent = computed(() => store.getters.getUseLocaleForContent)
+
+/**
+ * @param {boolean} value
+ */
+function updateUseLocaleForContent(value) {
+  store.dispatch('updateUseLocaleForContent', value)
 }
 
 const EXTERNAL_LINK_HANDLING_VALUES = ['', 'openLinkAfterPrompt', 'doNothing']

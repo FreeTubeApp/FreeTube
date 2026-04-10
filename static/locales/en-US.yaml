@@ -274,6 +274,7 @@ Settings:
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
     Enable Search Suggestions: Enable Search Suggestions
+    Use Locale for Content: Use Region & Language for Search and Video Titles
     Open Deep Links In New Window: Open URLs Passed to FreeTube in a New Window
     Minimize to system tray: Minimize to system tray
     Auto Load Next Page:
@@ -450,6 +451,7 @@ Settings:
     Skip by Scrolling Over Video Player: Skip by Scrolling Over Video Player
     Display Play Button In Video Player: Display Play Button In Video Player
     Enter Fullscreen on Display Rotate: Enter Fullscreen on Display Rotate
+    Enable Loop by Default: Enable Loop by Default
     Next Video Interval: Autoplay Countdown Timer
     Autoplay Interruption Timer: Autoplay Interruption Timer
     Fast-Forward / Rewind Interval: Fast-Forward / Rewind Interval
@@ -1041,6 +1043,9 @@ Tooltips:
       calls.
     Region for Trending: The region of trends allows you to pick which country's trending
       videos you want to have displayed.
+    Use Locale for Content: When enabled, search results and video titles will use
+      your selected region and language, showing content and titles localized for
+      your language instead of English.
     External Link Handling: |
       Choose the default behavior when a link, which cannot be opened in FreeTube, is clicked.
       By default FreeTube will open the clicked link in your default browser.

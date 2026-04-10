@@ -534,8 +534,10 @@ export async function getInvidiousPopularFeed() {
  * @param {string} query
  * @param {number} page
  * @param {any} searchSettings
+ * @param {string} [region] the region code (e.g. 'BR') to get region-relevant results
+ * @param {string} [lang] the language code (e.g. 'pt') for localized results
  */
-export async function getInvidiousSearchResults(query, page, searchSettings) {
+export async function getInvidiousSearchResults(query, page, searchSettings, region, lang) {
   const DURATION_MAP = {
     '': '',
     under_three_mins: 'short',
@@ -543,19 +545,29 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
     over_twenty_mins: 'long',
   }
 
+  const params = {
+    q: query,
+    page,
+    sort_by: searchSettings.prioritize === 'popularity' ? 'view_count' : searchSettings.prioritize,
+    date: searchSettings.time,
+    duration: DURATION_MAP[searchSettings.duration],
+    type: searchSettings.type,
+    features: searchSettings.features.join(','),
+  }
+
+  if (region) {
+    params.region = region
+  }
+
+  if (lang) {
+    params.hl = lang
+  }
+
   /** @type {Promise<(InvidiousChannelObject | InvidiousPlaylistObject | InvidiousVideoType | InvidiousHashtagObject)[] | null>} */
   let results = await invidiousAPICall({
     resource: 'search',
     id: '',
-    params: {
-      q: query,
-      page,
-      sort_by: searchSettings.prioritize === 'popularity' ? 'view_count' : searchSettings.prioritize,
-      date: searchSettings.time,
-      duration: DURATION_MAP[searchSettings.duration],
-      type: searchSettings.type,
-      features: searchSettings.features.join(',')
-    }
+    params
   })
 
   if (!results) {

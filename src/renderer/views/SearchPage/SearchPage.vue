@@ -63,7 +63,7 @@ import {
 import { getInvidiousSearchResults } from '../../helpers/api/invidious'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
-const { t } = useI18n()
+const { locale, t } = useI18n()
 const route = useRoute()
 
 const isLoading = ref(false)
@@ -91,6 +91,15 @@ const showFamilyFriendlyOnly = computed(() => store.getters.getShowFamilyFriendl
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const rememberSearchHistory = computed(() => store.getters.getRememberSearchHistory)
+
+/** @type {import('vue').ComputedRef<string>} */
+const region = computed(() => store.getters.getRegion)
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const useLocaleForContent = computed(() => store.getters.getUseLocaleForContent)
+
+const searchRegion = computed(() => useLocaleForContent.value ? region.value : undefined)
+const searchLang = computed(() => useLocaleForContent.value ? locale.value.split('-')[0] : undefined)
 
 watch(route, () => {
   const query_ = route.params.query.trim()
@@ -196,7 +205,9 @@ async function performSearchLocal(payload) {
     const { results, continuationData } = await getLocalSearchResults(
       payload.query,
       payload.searchSettings,
-      showFamilyFriendlyOnly.value
+      showFamilyFriendlyOnly.value,
+      searchRegion.value,
+      searchLang.value
     )
 
     apiUsed.value = 'local'
@@ -285,7 +296,7 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
   }
 
   try {
-    const results = await getInvidiousSearchResults(payload.query, searchPage.value, payload.searchSettings)
+    const results = await getInvidiousSearchResults(payload.query, searchPage.value, payload.searchSettings, searchRegion.value, searchLang.value)
     if (!results) {
       return
     }

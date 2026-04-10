@@ -169,6 +169,7 @@ const state = {
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
   displayVideoPlayButton: false,
+  enableLoopByDefault: false,
   enableSearchSuggestions: true,
   enableSubtitlesByDefault: false,
   enterFullscreenOnDisplayRotate: false,
@@ -235,6 +236,7 @@ const state = {
   proxyProtocol: 'socks5',
   proxyVideos: !process.env.SUPPORTS_LOCAL_API,
   region: 'US',
+  useLocaleForContent: false,
   rememberHistory: true,
   rememberSearchHistory: true,
   // 'auto', 'semi-auto', 'never'

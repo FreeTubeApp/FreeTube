@@ -204,6 +204,7 @@ Settings:
     General Settings: 'Geral'
     Fallback to Non-Preferred Backend on Failure: 'Usar mecanismo de busca alternativo em caso de falha'
     Enable Search Suggestions: 'Habilitar sugestões de busca'
+    Use Locale for Content: 'Usar região e idioma para buscas e títulos de vídeos'
     Default Landing Page: 'Página inicial preferida'
     Locale Preference: 'Idioma'
     Preferred API Backend:
@@ -410,6 +411,7 @@ Settings:
       Quality Label: Qualidade da captura de tela
       File Name Tooltip: 'Você pode usar estas variáveis: %Y - ano com 4 dígitos, %M - mês com 2 dígitos, %D - dia com 2 dígitos, %H - hora com 2 dígitos, %N - minuto com 2 dígitos, %S - segundos com 2 dígitos, %T - milissegundos com 3 dígitos, %s - segundos do vídeo, %t - milissegundos do vídeo com 3 dígitos, %i - id do vídeo.'
     Enter Fullscreen on Display Rotate: Entrar em tela cheia ao girar o dispositivo para o modo paisagem
+    Enable Loop by Default: Ativar repetição por padrão
     Skip by Scrolling Over Video Player: Avançar ou retroceder com o botão de rolagem do mouse com o cursor sobre a reprodução
     Autoplay Interruption Timer: Mostrar temporizador de interrupções para reprodução automática
     Default Viewing Mode:
@@ -953,6 +955,7 @@ Tooltips:
     Skip by Scrolling Over Video Player: Use o botão de rolagem do mouse para avançar ou retroceder o vídeo, estilo MPV.
   General Settings:
     Region for Trending: A região de tendências permite que você escolha os vídeos em alta do país que deseja exibir.
+    Use Locale for Content: Quando ativado, os resultados de busca e títulos de vídeos usarão a região e idioma selecionados, mostrando conteúdo e títulos no seu idioma em vez de inglês.
     Invidious Instance: A instância Invidious à qual o FreeTube se conectará para chamadas de API.
     Thumbnail Preference: Todas as miniaturas no FreeTube serão substituídas por um quadro do vídeo, desfocado ou oculto, em vez da miniatura padrão.
     Fallback to Non-Preferred Backend on Failure: Quando sua API preferida tiver um problema, o FreeTube tentará automaticamente usar sua API não preferencial como método alternativo quando habilitada.
