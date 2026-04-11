@@ -639,6 +639,39 @@ Actual size: Reala grando
 Profile:
   Select All: Elekti ĉiujn
   Profile Settings: Profilo
+  Toggle Profile List: Baskuli profiloliston
+  Profile Select: Elekti profilon
+  Profile Filter: Filtrado de profiloj
+  All Channels: Ĉiuj kanaloj
+  Profile Manager: Profiloadministrilo
+  Create New Profile: Krei novan profilon
+  Edit Profile: Redakti profilon
+  Edit Profile Name: Redakti profilnomon
+  Create Profile Name: Krei profilnomon
+  Profile Name: Profilnomo
+  Color Picker: Kolorelektilo
+  Custom Color: Laŭmenda koloro
+  Profile Preview: Antaŭrigardo de profilo
+  Create Profile: Krei profilon
+  Update Profile: Ĝisdatigi profilon
+  Make Default Profile: Igi defaŭlta profilo
+  Delete Profile: Forigi profilon
+  Are you sure you want to delete this profile?: Ĉu vi certas, ke vi volas forigi tiun ĉi profilon?
+  All subscriptions will also be deleted.: Ĉiuj abonoj ankaŭ estos forigitaj.
+  Your profile name cannot be empty: La nomo de via profilo ne devas esti malplena
+  Profile has been created: La profilo estis kreita
+  Profile has been updated: La profilo estis ĝisdatigita
+  Your default profile has been set to {profile}: Via defaŭlta profilo estis difinita kiel {profile}
+  Removed {profile} from your profiles: Forigis {profile} el viaj profiloj
+  Your default profile has been changed to your primary profile: Via defaŭlta profilo estis ŝanĝita al via ĉefa profilo
+  '{profile} is now the active profile': '{profile} nun estas la aktiva profilo'
+  Subscription List: Abonolisto
+  Other Channels: Aliaj kanaloj
+  '{number} selected': '{number} elektita(j)'
+  Select None: Elekti neniun
+  Delete Selected: Forigi elektitajn
+  Add Selected To Profile: Aldoni elektitajn al profilo
+  No channel(s) have been selected: Neniu kanalo estis elektita
 KeyboardShortcutPrompt:
   Zoom In: Zomi
   Zoom Out: Malzomi
