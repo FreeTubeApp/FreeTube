@@ -818,7 +818,7 @@ function updatePageTitle() {
 
   if (channelName_) {
     if (titleText.length > 0) {
-      titleText += `| ${channelName_}`
+      titleText += ` | ${channelName_}`
     } else {
       titleText = channelName_
     }
