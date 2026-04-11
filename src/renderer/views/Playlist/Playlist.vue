@@ -42,6 +42,7 @@
         :search-query-text="searchQueryTextRequested"
         :theme="listType === 'list' ? 'base' : 'top-bar'"
         class="playlistInfo"
+        @dragstart.prevent
         @enter-edit-mode="playlistInEditMode = true"
         @exit-edit-mode="playlistInEditMode = false"
         @search-video-query-change="handleVideoSearchQueryChange"
@@ -67,8 +68,9 @@
           :icon="sortOrderIcon"
           @change="updateUserPlaylistSortOrder"
         />
-        <template
+        <AutoScrollWrapper
           v-if="visiblePlaylistItems.length > 0"
+          :hot-zone-enabled="isSortOrderCustom && isVideoDragging"
         >
           <FtElementList
             v-if="listType === 'grid'"
@@ -85,6 +87,12 @@
             :can-move-video-down="canMoveVideos"
             :playlist-items-length="shownPlaylistItems.length"
             :can-remove-from-playlist="true"
+            :dragged-video="draggedVideo"
+            :is-sort-order-custom="isSortOrderCustom"
+            :is-video-dragging="isVideoDragging"
+            @drag-video="setDraggedVideo"
+            @drag-video-end="onDragVideoEnd"
+            @move-dragged-video="moveDraggedVideoTemporarilyThrottled"
             @move-video-up="moveVideoUp"
             @move-video-down="moveVideoDown"
             @remove-from-playlist="removeVideoFromPlaylist"
@@ -112,6 +120,12 @@
               :can-remove-from-playlist="true"
               :video-index="playlistInVideoSearchMode ? shownPlaylistItems.findIndex(i => i === item) : index"
               :initial-visible-state="index < 10"
+              :dragged-video="draggedVideo"
+              :is-sort-order-custom="isSortOrderCustom"
+              :is-video-dragging="isVideoDragging"
+              @drag-video="setDraggedVideo"
+              @drag-video-end="onDragVideoEnd"
+              @move-dragged-video="moveDraggedVideoTemporarilyThrottled"
               @move-video-up="moveVideoUp"
               @move-video-down="moveVideoDown"
               @remove-from-playlist="removeVideoFromPlaylist"
@@ -136,7 +150,7 @@
           >
             <FtLoader />
           </div>
-        </template>
+        </AutoScrollWrapper>
         <FtFlexBox
           v-else
         >
@@ -170,6 +184,7 @@ import FtButton from '../../components/FtButton/FtButton.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtSelect from '../../components/FtSelect/FtSelect.vue'
 import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrapper.vue'
+import AutoScrollWrapper from '../../components/AutoScrollWrapper/AutoScrollWrapper.vue'
 
 import store from '../../store/index'
 
@@ -185,6 +200,7 @@ import {
   getIconForSortPreference,
   showToast,
   deepCopy,
+  throttle,
 } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getSortedPlaylistItems, videoDurationPresent, videoDurationWithFallback, SORT_BY_VALUES } from '../../helpers/playlists'
@@ -210,6 +226,12 @@ const channelThumbnail = ref('')
 const channelId = ref('')
 const infoSource = ref('local')
 const playlistItems = ref([])
+/** @type {import('vue').ComputedRef<any[] | null>} */
+const tempShownPlaylistItems = ref(null)
+/** @import { VideoData } from '../../helpers/dragAndDrop' */
+/** @import { Ref } from 'vue' */
+/** @type {Ref<VideoData>} draggedVideo */
+const draggedVideo = ref({ videoId: null, playlistItemId: null })
 const userPlaylistVisibleLimit = ref(100)
 /** @type {import('vue').ShallowRef<import('youtubei.js').YT.Playlist | null>} */
 const continuationData = shallowRef(null)
@@ -392,6 +414,7 @@ const isDurationApproximate = computed(() => {
 const noPlaylistItemsPendingDeletion = computed(() => toBeDeletedPlaylistItemIds.value.length === 0)
 
 const shownPlaylistItems = computed(() => {
+  if (tempShownPlaylistItems.value != null) { return tempShownPlaylistItems.value }
   if (noPlaylistItemsPendingDeletion.value) {
     return playlistItems.value
   }
@@ -749,6 +772,73 @@ function moveVideoDown(videoId, playlistItemId) {
     console.error(e)
   }
 }
+
+/**
+ * @param {VideoData} video
+ */
+function setDraggedVideo(video) {
+  draggedVideo.value = video
+}
+
+function onDragVideoEnd() {
+  if (tempShownPlaylistItems.value != null) {
+    // Save on drag end ONLY
+    const playlist = {
+      playlistName: playlistTitle.value,
+      protected: selectedUserPlaylist.value.protected,
+      description: playlistDescription.value,
+      // Save whatever is shown
+      videos: deepCopy(tempShownPlaylistItems.value),
+      _id: playlistId.value
+    }
+
+    try {
+      store.dispatch('updatePlaylist', playlist)
+      playlistItems.value = tempShownPlaylistItems.value
+    } catch (e) {
+      showToast(t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+      console.error(e)
+    }
+  }
+
+  // Cleanup
+  tempShownPlaylistItems.value = null
+
+  // Unset dragged video
+  setDraggedVideo({
+    videoId: null,
+    playlistItemId: null,
+  })
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const isVideoDragging = computed(() => {
+  const { videoId, playlistItemId } = draggedVideo.value
+
+  return videoId != null && playlistItemId != null
+})
+
+function moveDraggedVideoTemporarily({ videoId, playlistItemId }, { videoId: droppedVideoId, playlistItemId: droppedPlaylistItemId }) {
+  // To ensure we can drag an item back to its original position in a single drag (i.e. no change), the temp items should be used
+  const playlistItems_ = tempShownPlaylistItems.value != null ? tempShownPlaylistItems.value.slice() : playlistItems.value.slice()
+
+  const draggedOverIndex = playlistItems_.findIndex((video) => {
+    return video.videoId === videoId && video.playlistItemId === playlistItemId
+  })
+
+  const droppedVideoOriginalIndex = playlistItems_.findIndex((video) => {
+    return video.videoId === droppedVideoId && video.playlistItemId === droppedPlaylistItemId
+  })
+
+  const playlistItemToBeMoved = playlistItems_.splice(droppedVideoOriginalIndex, 1)[0]
+  playlistItems_.splice(draggedOverIndex, 0, playlistItemToBeMoved)
+
+  tempShownPlaylistItems.value = playlistItems_
+}
+
+// Only fire once per 100ms to prevent items moving up and down repeatedly during transition
+// 100ms is manually tested value (50ms won't work)
+const moveDraggedVideoTemporarilyThrottled = throttle(moveDraggedVideoTemporarily, 100)
 
 /**
  * @param {string} videoId
