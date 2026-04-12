@@ -431,7 +431,7 @@ Settings:
     Privacy Settings: Privateco
     Remember History: Memori videaĵan historion
     Remember Search History: Memori serĉan historion
-    Save Watched Progress: Konservi progreson de ludado
+    Save Watched Progress: Konservi spektoprogreson
     Watched Progress Saving Mode:
       Modes:
         Auto: Aŭtomata
@@ -623,9 +623,113 @@ About:
 Channel:
   About:
     Details: Detaloj
+    About: Pri
+    Channel Description: Kanala priskribo
+    Tags:
+      Tags: Etikedoj
+      Search for: Serĉi "{tag}"
+    Joined: Enskribiĝis
+    Location: Loko
+    Featured Channels: Rekomenditaj kanaloj
   Videos:
     Videos: Videaĵoj
-Video: {}
+    This channel does not currently have any videos: Tiu ĉi kanalo aktuale ne havas iun ajn videaĵon
+    Sort Types:
+      Newest: Plej novaj
+      Oldest: Plej malnovaj
+      Most Popular: Plej popularaj
+  Subscribe: Aboni
+  Unsubscribe: Malaboni
+  Channel has been removed from your subscriptions: La kanalo estis forigita el viaj abonoj
+  Removed subscription from {count} other channel(s): Forigis abonon el {count} alia(j) kanalo(j)
+  Added channel to your subscriptions: Aldonis kanalon al viaj abonoj
+  Search Channel: Serĉi en kanalo
+  Your search results have returned 0 results: Via serĉo liveras 0 rezultojn
+  This channel does not exist: Tiu ĉi kanalo ne ekzistas
+  This channel does not allow searching: Tiu ĉi kanalo ne permesas serĉadon
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Tiu ĉi kanalo estas limigita de aĝo kaj ne aktuale videblas per FreeTube.
+  Channel Tabs: Kanalaj langetoj
+  Shorts:
+    This channel does not currently have any shorts: Tiu ĉi kanalo aktuale ne havas iun ajn videaĵeton
+  Live:
+    Live: Tujelsendoj
+    This channel does not currently have any live streams: Tiu ĉi kanalo aktuale ne havas iun ajn tujelsendon
+  Playlists:
+    Playlists: Ludlistoj
+    This channel does not currently have any playlists: Tiu ĉi kanalo aktuale ne havas iun ajn ludliston
+    Sort Types:
+      Last Video Added: Lasta videaĵo aldonita
+      Newest: Plej novaj
+      Oldest: Plej malnovaj
+  Home:
+    Home: Hejmo
+    View Playlist: Vidi ludliston
+  Podcasts:
+    Podcasts: Podkastoj
+    This channel does not currently have any podcasts: Tiu ĉi kanalo aktuale ne havas iun ajn podkaston
+  Releases:
+    Releases: Eldonoj
+    This channel does not currently have any releases: Tiu ĉi kanalo aktuale ne havas iun ajn aldonon
+  Courses:
+    Courses: Kursoj
+    This channel does not currently have any courses: Tiu ĉi kanalo aktuale ne havas iun ajn kurson
+  Posts:
+    This channel currently does not have any posts: Tiu ĉi kanalo aktuale ne havas iun ajn afiŝon
+    votes: '{votes} voĉdonoj'
+    View Full Post: Vidi tutan afiŝon
+    Reveal Answers: Montri respondojn
+    Hide Answers: Kaŝi respondojn
+    Video hidden by FreeTube: Videaĵo kaŝita de FreeTube
+Video:
+  IP block: YouTube blokis vian IP-adreson por spekti videaĵojn. Bonvolu provi ŝanĝiĝi de VPN aŭ prokurilo.
+  MembersOnly: Videaĵoj nur por membroj ne spekteblas per FreeTube ĉar ili postulas ensaluton de Google kaj pagitan membrecon de la publikiganta kanalo.
+  AgeRestricted: Videaĵoj limigitaj de aĝo ne spekteblas per FreeTube ĉar ili postulas ensaluton de Google kaj konton de YouTube kun konfirmita aĝo.
+  DRMProtected: Videaĵoj protektitaj de DRM ne spekteblas per FreeTube, ĉar ili postulas proprietajn fermitkodajn komponaĵojn. Se vi volas spekti ĉi tiun videaĵon, bonvolu spekti ĝin per la oficiala retejo de YouTube en retumilo kiu subtenas DRM.
+  More Options: Pli da opcioj
+  Mark As Watched: Marki kiel spektita
+  Remove From History: Forigi el historio
+  Video has been marked as watched: La videaĵo estis markita kiel spektita
+  Video has been removed from your history: La videaĵo estis forigita de via historio
+  Save Watched Progress: Konservi spektoprogreson
+  Watched Progress Saved: Konservis spektoprogreson
+  Save Video: Konservi videaĵon
+  Video has been saved: La videaĵo estis konservita
+  Video has been removed from your saved list: La videaĵo estis forigita el via konservita listo
+  Open in YouTube: Malfermi per YouTube
+  Copy YouTube Link: Kopii ligilon de YouTube
+  Open YouTube Embedded Player: Malfermi per enkorpa ludilo de YouTube
+  Copy YouTube Embedded Player Link: Kopii ligilon de enkorpa ludilo de YouTube
+  Open in Invidious: Malfermi per Invidious
+  Copy Invidious Link: Kopii ligilon de Invidious
+  Open Channel in YouTube: Malfermi kanalon per YouTube
+  Copy YouTube Channel Link: Kopii ligilon de kanalo de YouTube
+  Open Channel in Invidious: Malfermi kanalon per Invidious
+  Copy Invidious Channel Link: Kopii ligilon de kanalo de Invidious
+  Hide Channel: Kaŝi kanalon
+  Unhide Channel: Montri kanalon
+  Views: Rigardoj
+  Loop Playlist: Ripeti ludliston
+  Shuffle Playlist: Miksi ludliston
+  Reverse Playlist: Inversigi ludliston
+  Previous: Malsekva
+  Next: Sekva
+  Watched: Spektita
+  Autoplay: Aŭtomata ludado
+  Starting soon, please refresh the page to check again: Baldaŭ komenciĝos, bonvolu aktualigi la paĝon por kontroli denove
+  Premieres: Premieroj
+  Upcoming: Venontaj
+  Unlisted: Nelistigita
+  Live: Tujelsendo
+  Live Now: Elsendas nun
+  Live Chat: Tujelsenda babilejo
+  Enable Live Chat: Ŝalti tujelsendan babilejon
+  Popout Live Chat: Malfermi babilejon en nova fenestro
+  Live Chat is currently not supported in this build.: La tujelsenda babilejo ne estas subtenita en tiu ĉi versio.
+  Live chat is enabled. Chat messages will appear here once sent.: La tujelsenda babilejo estas ŝaltita.  Mesaĝoj aperos ĉi tie post esti senditaj.
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': La tujelsenda babilejo aktuale ne estas subtenite kun la API de Invidious.  Rekta konekto al YouTube estas postulata.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': La tujelsenda babilejo ne disponeblas por tiu ĉi fluo. La alŝutanto eble malŝaltis ĝin.
+  Show Super Chat Comment: Montri komenton de Super Chat
+  Scroll to Bottom: Rulumi al malsupro
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon
@@ -672,6 +776,11 @@ Profile:
   Delete Selected: Forigi elektitajn
   Add Selected To Profile: Aldoni elektitajn al profilo
   No channel(s) have been selected: Neniu kanalo estis elektita
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : Tio ĉi estas via ĉefa profilo.  Ĉu vi certas, ke vi volas forigi la elektitajn kanalojn?  Tiuj samaj kanaloj estos forigitaj en iu ajn profilo kie ili troviĝas.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Ĉi vi certas, ke vi volas forigi la elektitajn kanalojn?  Tio ĉi ne forigas kanalon el iu ajn alia profilo.
+  Close Profile Dropdown: Fermi profilan falmenuon
+  Open Profile Dropdown: Malfermi profilan falmenuon
 KeyboardShortcutPrompt:
   Zoom In: Zomi
   Zoom Out: Malzomi
