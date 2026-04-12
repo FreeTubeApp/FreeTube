@@ -763,6 +763,36 @@ Video:
       looping playlists: ripeti ludlistojn
   Player:
     TranslatedCaptionTemplate: '{language} (tradukita el "{originalLanguage}")'
+    Audio Tracks: Aŭdiofluoj
+    Autoplay is off: Aŭtomata ludado estas malŝaltita
+    Autoplay is on: Aŭtomata ludado estas ŝaltita
+    Theatre Mode: Teatroreĝimo
+    Exit Theatre Mode: Eliri el teatroreĝimo
+    Full Window: Plenekrane
+    Exit Full Window: Eliri el plenekrana reĝimo
+    Take Screenshot: Fari ekrankopion
+    Show Stats: Montri statistikojn
+    Hide Stats: Kaŝi statistikojn
+    Stats:
+      Stats: Statistikoj
+      Video ID: 'Identigilo de videaĵo: {videoId}'
+      Media Formats: 'Medioformoj: {formats}'
+      Resolution: "Distingivo: {width}x{height}{'@'}{frameRate}"
+      Player Dimensions: 'Ludilaj dimensioj: {width}x{height}'
+      Bitrate: 'Bitrapido: {bitrate} kbps'
+      Volume: 'Laŭteco: {volumePercentage}%'
+      Bandwidth: 'Kapacito: {bandwidth} kbps'
+      Buffered: 'Bufrita: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Perditaj bildoj: {droppedFrames} / Tutaj bildoj: {totalFrames}'
+      CodecAudio: 'Kodeko: {audioCodec} ({audioltag})'
+      CodecsVideoAudio: 'Kodekoj: {videoCodec} ({videoltag}) / {audioCodec} ({audioltag})'
+      CodecsVideoAudioNoItags: 'Kodekoj: {videoCodec} / {audioCodec}'
+    You appear to be offline: Vi ŝajne ne havas retkonekton.
+    Playback will resume automatically when your connection comes back: La ludado ados aŭtomate kiam via retkonekto revenos.
+    Skipped segment: Saltis segmenton de {segmentCategory}
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Restanta tempo de komenca anonco: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Restanta tempo de atendo por SABR: {remindingTimeSeconds}s'
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon
@@ -844,3 +874,19 @@ Channels:
 Feed:
   Feed Last Updated: 'Abonfluo {feedName} laste ĝisdatigita: {date}'
   Refresh Feed: Aktualigi {subscriptionName}
+Playlist:
+  Playlist: Ludlisto
+  View Full Playlist: Vidi tutan ludliston
+  Last Updated On: Laste ĝisdatigita
+  Sort By:
+    DateAddedNewest: Date de aldono (plej nova)
+    DateAddedOldest: Date de aldono (plej malnova)
+    PublishedNewest: Date de publikigo (plej nova)
+    PublishedOldest: Date de publikigo (plej malnova)
+    AuthorAscending: Verkisto (A-Z)
+    AuthorDescending: Verkisto (Z-A)
+    VideoTitleAscending: Titolo (A-Z)
+    VideoTitleDescending: Titolo (Z-A)
+    VideoDurationAscending: Daŭro (plej mallonga)
+    VideoDurationDescending: Daŭro (plej longa)
+    Custom: Laŭmenda
