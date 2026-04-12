@@ -730,6 +730,39 @@ Video:
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': La tujelsenda babilejo ne disponeblas por tiu ĉi fluo. La alŝutanto eble malŝaltis ĝin.
   Show Super Chat Comment: Montri komenton de Super Chat
   Scroll to Bottom: Rulumi al malsupro
+  Published:
+    In less than a minute: En malpli ol minuto
+  Published on: Publikigita
+  Streamed on: Elsendita
+  Started streaming on: Ekelsendita
+  DeArrow:
+    Show Original Details: Montri originajn detalojn
+    Show Modified Details: Montri modifitajn detalojn
+  Sponsor Block category:
+    sponsor: Sponsoro
+    intro: Enkonduko
+    outro: Konkludo
+    self-promotion: Mem-anonco
+    interaction: Interago
+    music offtopic: Senrilata muziko
+    recap: Resumo
+    filler: Plenigo
+  External Player:
+    OpenInTemplate: Malfermi per {externalPlayer}
+    video: videaĵo
+    playlist: ludlisto
+    OpeningTemplate: Malfermado de {videoOrPlaylist} per {externalPlayer}...
+    UnsupportedActionTemplate: '{externalPlayer} ne subtenas: {action}'
+    Unsupported Actions:
+      starting video at offset: komenci videaĵon je specifa pozicio
+      setting a playback rate: difini ludrapidon
+      opening playlists: malfermi ludliston
+      opening specific video in a playlist (falling back to opening the video): malfermi specifan videaĵon en ludlisto (retropaŝis al malfermi la videaĵon)
+      reversing playlists: inversigi ludlistojn
+      shuffling playlists: miksi ludlistojn
+      looping playlists: ripeti ludlistojn
+  Player:
+    TranslatedCaptionTemplate: '{language} (tradukita el "{originalLanguage}")'
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon
