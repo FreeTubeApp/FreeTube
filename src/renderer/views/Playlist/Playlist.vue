@@ -204,7 +204,6 @@ import {
 } from '../../helpers/utils'
 import { invidiousGetPlaylistInfo, youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getSortedPlaylistItems, videoDurationPresent, videoDurationWithFallback, SORT_BY_VALUES } from '../../helpers/playlists'
-import packageDetails from '../../../../package.json'
 import { MOBILE_WIDTH_THRESHOLD, PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD } from '../../../constants'
 
 const { locale, t } = useI18n()
@@ -908,13 +907,13 @@ function updatePageTitle() {
 
   if (channelName_) {
     if (titleText.length > 0) {
-      titleText += `| ${channelName_}`
+      titleText += ` | ${channelName_}`
     } else {
       titleText = channelName_
     }
   }
 
-  store.commit('setAppTitle', `${titleText} - ${packageDetails.productName}`)
+  store.commit('setAppTitle', titleText)
 }
 
 /**

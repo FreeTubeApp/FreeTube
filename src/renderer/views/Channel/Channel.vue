@@ -283,7 +283,6 @@ import FtSelect from '../../components/FtSelect/FtSelect.vue'
 
 import store from '../../store/index'
 
-import packageDetails from '../../../../package.json'
 import {
   copyToClipboard,
   extractNumberFromString,
@@ -681,7 +680,7 @@ async function getChannelLocal() {
       channelName.value = channelName
       thumbnailUrl.value = channelThumbnailUrl
 
-      store.commit('setAppTitle', `${channelName_} - ${packageDetails.productName}`)
+      store.commit('setAppTitle', channelName_)
 
       store.dispatch('updateSubscriptionDetails', { channelThumbnailUrl, channelName: channelName_, channelId: id.value })
 
@@ -729,7 +728,7 @@ async function getChannelLocal() {
     }
     tags.value = tags_
 
-    store.commit('setAppTitle', `${channelName_} - ${packageDetails.productName}`)
+    store.commit('setAppTitle', channelName_)
 
     if (subscriberText) {
       const subCount_ = parseLocalSubscriberCount(subscriberText)
@@ -944,7 +943,7 @@ async function getChannelInfoInvidious() {
     const channelName_ = response.author
     const channelId = response.authorId
     channelName.value = channelName_
-    store.commit('setAppTitle', `${channelName_} - ${packageDetails.productName}`)
+    store.commit('setAppTitle', channelName_)
     id.value = channelId
     isFamilyFriendly.value = response.isFamilyFriendly
     subCount.value = response.subCount

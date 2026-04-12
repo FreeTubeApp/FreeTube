@@ -13,7 +13,6 @@ import WatchVideoLiveChat from '../../components/WatchVideoLiveChat/WatchVideoLi
 import WatchVideoPlaylist from '../../components/WatchVideoPlaylist/WatchVideoPlaylist.vue'
 import WatchVideoRecommendations from '../../components/WatchVideoRecommendations/WatchVideoRecommendations.vue'
 import FtAgeRestricted from '../../components/FtAgeRestricted/FtAgeRestricted.vue'
-import packageDetails from '../../../../package.json'
 import {
   buildVTTFileLocally,
   copyToClipboard,
@@ -1805,7 +1804,7 @@ export default defineComponent({
     },
 
     updateTitle: function () {
-      this.setAppTitle(`${this.videoTitle} - ${packageDetails.productName}`)
+      this.setAppTitle(this.videoTitle)
     },
 
     isHiddenVideo: function (forbiddenTitles, channelsHidden, video) {

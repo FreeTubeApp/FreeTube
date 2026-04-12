@@ -28,7 +28,6 @@
 <script setup>
 import { computed, onMounted, ref, shallowRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import packageDetails from '../../../package.json'
 import { useI18n } from '../composables/use-i18n-polyfill'
 
 import FtCard from '../components/ft-card/ft-card.vue'
@@ -74,7 +73,7 @@ onMounted(async () => {
 })
 
 function updateTitleAndRoute() {
-  store.commit('setAppTitle', `${post.value.author} - ${packageDetails.productName}`)
+  store.commit('setAppTitle', post.value.author)
   isLoading.value = false
 
   // If the authorId is missing from the URL we should add it,
