@@ -950,3 +950,9 @@ Tooltips:
     Preferred API Backend: Elektu la internan API ke FreeTube uzas por akiri datumojn. La loka API estas integrita elĉerpilo. La API de Invidious bezonas Invidious-servilon al kiu konektiĝi.
     Fallback to Non-Preferred Backend on Failure: Kiam via prefera API havas problemon, FreeTube aŭtomate klopodos uzi la nepreferitan API kiel retropaŝo kiam ŝaltita.
     Thumbnail Preference: Ĉiuj bildetoj en FreeTube estos anstataŭigitaj de bildo de la videaĵo, nebuligitaj, aŭ kaŝitaj anstataŭ la defaŭltaj bildetoj.
+    Invidious Instance: La Invidious-servilo al kiu FreeTube konektiĝos por API-vokoj.
+    Region for Trending: La regiono de tendencoj permesas al vi elekti la landon kies plej popularaj videaĵoj estos montrataj.
+    External Link Handling: |
+      Elektu la defaŭltan agon kiam ligilo kiu ne malfermeblas per FreeTube estas alklakita.
+      Defaŭlte, FreeTube malfermos la alklakitan ligilon per via defaŭlta retumilo.
+    Open Deep Links In New Window: URL-oj donataj al FreeTube, ekzemple de retumilaj etendaĵoj de alidirekto aŭ de komandliniaj argumentoj, estos malfermitaj en nova fenestro.
