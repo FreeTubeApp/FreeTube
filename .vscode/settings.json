@@ -13,7 +13,6 @@
       "postcss",
       "scss"
   ],
-  "eslint.packageManager": "yarn",
   "eslint.probe": [
       "javascript",
       "vue",
@@ -29,6 +28,5 @@
     "jsonc",
     "yml",
     "yaml"
-  ],
-  "javascript.preferences.importModuleSpecifier": "relative"
+  ]
 }

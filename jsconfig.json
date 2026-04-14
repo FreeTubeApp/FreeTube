@@ -6,11 +6,10 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "strictNullChecks": true,
-    "baseUrl": "./",
     "paths": {
       "DB_HANDLERS_ELECTRON_RENDERER_OR_WEB": [
-        "src/datastores/handlers/electron",
-        "src/datastores/handlers/web"
+        "./src/datastores/handlers/electron",
+        "./src/datastores/handlers/web"
       ],
       "shaka-player": [
         "./node_modules/shaka-player/dist/shaka-player.ui-es2021"
