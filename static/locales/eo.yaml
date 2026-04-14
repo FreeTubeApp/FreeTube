@@ -389,7 +389,7 @@ Settings:
       Default Video Format: Defaŭlta videaĵoformo
       Dash Formats: DASH-aj formoj
       Legacy Formats: Heredaĵaj formoj
-      Audio Formats: Aŭdioformoj
+      Audio Formats: Aŭdiaj formoj
     Default Quality:
       Default Quality: Defaŭlta kvalito
       Auto: Aŭtomata
@@ -890,3 +890,63 @@ Playlist:
     VideoDurationAscending: Daŭro (plej mallonga)
     VideoDurationDescending: Daŭro (plej longa)
     Custom: Laŭmenda
+Change Format:
+  Change Media Formats: Ŝanĝi medioformojn
+  Use Dash Formats: Uzi DASH-ajn formojn
+  Use Legacy Formats: Uzi heredaĵajn formojn
+  Use Audio Formats: Uzi aŭdiajn formojn
+  Dash formats are not available for this video: DASH-aj formoj ne disponeblas por tiu ĉi videaĵo
+  Audio formats are not available for this video: Aŭdiaj formoj ne disponeblas por tiu ĉi videaĵo
+  Legacy formats are not available for this video: Heredaĵaj formoj ne disponeblas por tiu ĉi videaĵo
+Share:
+  Share Video: Kunhavigi videaĵon
+  Share Post: Kunhavigi afiŝon
+  Share Channel: Kunhavigi kanalon
+  Share Playlist: Kunhavigi ludliston
+  Include Timestamp: Inkluzivi tempindikon
+  Copy Link: Kopii ligilon
+  Open Link: Malfermi ligilon
+  Copy Embed: Kopii enkorpan
+  Open Embed: Malfermi enkorpan
+  Invidious URL copied to clipboard: URL de Invidious kopiita al la tondujo
+  Invidious Embed URL copied to clipboard: Enkorpa URL de Invidious kopiita al la tondujo
+  Invidious Channel URL copied to clipboard: URL de kanalo de Invidious kopiita al la tondujo
+  YouTube URL copied to clipboard: URL de YouTube kopiita al la tondujo
+  YouTube Embed URL copied to clipboard: Enkorpa URL de YouTube kopiita al la tondujo
+  YouTube Channel URL copied to clipboard: URL de kanalo de YouTube kopiita al la tondujo
+Clipboard:
+  Copy failed: Malsukcesis kopii al la tondujo
+  Cannot access clipboard without a secure connection: Ne eblas atingi tondujon sen sekura konekto
+Chapters:
+  Chapters: Ĉapitroj
+  Key Moments: Ŝlosilaj momentoj
+Mini Player: Ludileto
+Comments:
+  Comments: Komentoj
+  Click to View Comments: Alklaku por vidi komentojn
+  Getting comment replies, please wait: Venigado de respondoj, bonvolu atendi
+  There are no more comments for this video: Ne estas pli da komentoj por tiu ĉi videaĵo
+  Hide Comments: Kaŝi komentojn
+  Top comments: Plej bonaj komentoj
+  Newest first: Plej novaj unue
+  View {replyCount} replies: Vidi 1 respondon | Vidi {replyCount} respondojn
+  Hide {replyCount} replies: Kaŝi 1 respondon | Kaŝi {replyCount} respondojn
+  View 1 reply from {channelName}: Vidi 1 respondon de {channelName}
+  View {replyCount} replies from {channelName} and others: Vidi {replyCount} respondojn de {channelName} kaj aliaj
+  Show More Replies: Montri pli da respondoj
+  There are no comments available for this video: Neniu komento disponeblas por tiu ĉi videaĵo
+  There are no comments available for this post: Neniu komento disponeblas por tiu ĉi afiŝo
+  Load More Comments: Ŝargi pli da komentoj
+  Pinned by: Alpinglita de
+  Member: Membro
+  Subscribed: Abonata
+  Hearted: Koro
+Up Next: Sekve
+Description:
+  Expand Description: '...pli'
+  Collapse Description: Montri malpli
+Tooltips:
+  General Settings:
+    Preferred API Backend: Elektu la internan API ke FreeTube uzas por akiri datumojn. La loka API estas integrita elĉerpilo. La API de Invidious bezonas Invidious-servilon al kiu konektiĝi.
+    Fallback to Non-Preferred Backend on Failure: Kiam via prefera API havas problemon, FreeTube aŭtomate klopodos uzi la nepreferitan API kiel retropaŝo kiam ŝaltita.
+    Thumbnail Preference: Ĉiuj bildetoj en FreeTube estos anstataŭigitaj de bildo de la videaĵo, nebuligitaj, aŭ kaŝitaj anstataŭ la defaŭltaj bildetoj.
