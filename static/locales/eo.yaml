@@ -848,6 +848,25 @@ KeyboardShortcutPrompt:
   Zoom In: Zomi
   Zoom Out: Malzomi
   Fullscreen: Baskuli tutekranon
+  Keyboard Shortcuts: Fulmoklavoj
+  Sections:
+    Video:
+      Playback: 'Videaĵo: Ludado'
+      General: 'Videaĵo: Ĝenerala'
+    App:
+      Situational: 'Aplikaĵo: Situacia'
+      General: 'Aplikaĵo: Ĝenerala'
+  Show Keyboard Shortcuts: Montri fulmoklavojn
+  History Backward: Retropaŝi unu paĝon
+  History Forward: Avanci unu paĝon
+  New Window: Krei novan fenestron
+  Navigate to Settings: Iri al la paĝo de agordoj
+  Navigate to History: Iri al la paĝo de historio
+  Refresh: Aktualigi fluon kun plej nova enhavo
+  Focus Secondary Search: Enfokusigi duarangan serĉobreton (se estanta)
+  Captions: Ŝalti/malŝalti apudskribon
+  Stats: Montri videaĵajn statistikojn
+  Picture in Picture: Ŝalti/malŝalti bildenbildan reĝimon
 Toggle Developer Tools: Baskuli ilojn por programistoj
 Compact side navigation: Kompakta flankonavigo
 Expand side navigation: Pligrandigi flankonavigon
@@ -981,3 +1000,58 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Anstataŭigi titolojn de videaĵoj per titoloj provizitaj de uzantoj de DeArrow.
     UseDeArrowThumbnails: Anstataŭigi videaĵajn bildetojn per bildetoj de DeArrow.
+Local API Error (Click to copy): Eraro de loka API (alklaku por kopii)
+Invidious API Error (Click to copy): Eraro de API de Invidious (alklaku por kopii)
+Falling back to Invidious API: Retropaŝo al la API de Invidious
+Falling back to Local API: Retropaŝo al la loka API
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Tiu ĉi videaĵo ne disponeblas pro mankantaj videaĵoformoj. Tio ĉi povas okazi pro blokado de specifaj landoj.
+Unknown YouTube url type, cannot be opened in app: Nerekonata tipo de URL de YouTube. Ne malfermeblas per la aplikaĵo
+Loop is now disabled: Ripetado nun estas malŝaltita
+Loop is now enabled: Ripetado nun estas ŝaltita
+Shuffle is now disabled: Miksado nun estas malŝaltita
+Shuffle is now enabled: Miksado nun estas ŝaltita
+The playlist has been reversed: La ludlisto estis inversigita
+Playing Next Video: Ludado de la sekva videaĵo
+Playing Previous Video: Ludado de la malsekva videaĵo
+Playing Next Video Interval: Tuja ludado de la sekva videaĵo. Alklaku por nuligi. | Ludado de la sekva videaĵo en {nextVideoInterval} sekundo. Alklaku por nuligi. | Ludado de la sekva videaĵo en {nextVideoInterval} sekundoj. Alklaku por nuligi.
+Canceled next video autoplay: Nuligis aŭtomatan ludadon de la sekva videaĵo
+Autoplay Interruption Timer: Aŭtomata ludado nuligita pro {autoplayInterruptionIntervalHours} horoj de malaktiveco
+Default Invidious instance has been set to {instance}: La defaŭlta Invidious-servilo estis difinita kiel {instance}
+Default Invidious instance has been cleared: La defaŭlta Invidious-servilo estis viŝita
+'The playlist has ended. Enable loop to continue playing': La ludlisto finiĝis.  Ŝaltu la ripetadon por ade ludi
+Age Restricted:
+  This channel is age restricted: Tiu ĉi kanalo estas limigita de aĝo
+  This video is age restricted: Tiu ĉi videaĵo estas limigita de aĝo
+External link opening has been disabled in the general settings: La malfermado de eksteraj ligiloj estis malŝaltita en la ĝeneralaj agordoj
+Screenshot Success: Konservis ekrankopion
+Screenshot Error: Ekrankopio malsukcesis. {error}
+Channel Hidden: Aldonis {channel} al la kanala filtrilo
+Channel Unhidden: Forigis {channel} el la kanala filtrilo
+Trimmed input must be at least N characters long: La mallongigita enigo devas esti almenaŭ 1 signo | La mallongigita enigo devas esti almenaŭ {length} signoj
+Tag already exists: La etikedo "{tagName}" jam ekzistas
+Hashtag:
+  Hashtag: Kradvorto
+  This hashtag does not currently have any videos: Tiu ĉi kradvorto nuntempe havas neniun videaĵon
+Moments Ago: momentoj antaŭe
+Yes: Jes
+No: Ne
+Ok: Okej
+Yes, Delete: Jes, forigi
+Yes, Restart: Jes, restartigi
+Yes, Open Link: Jes, malfermi ligilon
+Cancel: Nuligi
+checkmark: ✓
+Display Label: '{label}: {value}'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+shortcutLabelSeparator: ｜
+Keys:
+  alt: Alt
+  ctrl: Stir
+  shift: Maj
+  enter: Enigo
+  plus: Plus
+  arrowdown: Malsupra sago
+  arrowleft: Maldekstra sago
+  arrowright: Dekstra sago
+  arrowup: Supra sago
