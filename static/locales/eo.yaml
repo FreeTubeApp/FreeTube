@@ -956,3 +956,28 @@ Tooltips:
       Elektu la defaŭltan agon kiam ligilo kiu ne malfermeblas per FreeTube estas alklakita.
       Defaŭlte, FreeTube malfermos la alklakitan ligilon per via defaŭlta retumilo.
     Open Deep Links In New Window: URL-oj donataj al FreeTube, ekzemple de retumilaj etendaĵoj de alidirekto aŭ de komandliniaj argumentoj, estos malfermitaj en nova fenestro.
+  Player Settings:
+    Proxy Videos Through Invidious: Konektiĝos al Invidious por servi videaĵojn anstataŭ konektiĝi rekte al YouTube.
+    Default Video Format: Difinas la videaĵoformojn uzatajn por la ludado. DASH-aj formoj ofertas pli altajn kvalitojn. Heredaĵaj formoj estas limigitaj al 360p maksimume sed uzas malpli da kapacito. Aŭdiaj formoj nur enhavas sonon.
+    Scroll Playback Rate Over Video Player: Kiam la kursoro estas sur la videaĵo, ade premu la stirklavon (komandklavon sur Mac) kaj rulumi supre aŭ malsupre por regi la ludrapidon. Ade premu la stirklavon (komandklavon sur Mac) kaj alklaku por tuje reveni al la defaŭlta ludrapido (1x krom se tio estis ŝanĝita en la agordoj).
+    Skip by Scrolling Over Video Player: Rulumi por salti tra la videaĵo, kiel MPV.
+  External Player Settings:
+    External Player: 'Elekti eksteran ludilon montros sur la bildeto ikonon por malfermi la videaĵon (aŭ ludliston, se subtenita) per la ekstera ludilo. Averto: agordoj de Invidious de afektas eksterajn ludilojn.'
+    Custom External Player Executable: Defaŭlte, FreeTube supozas, ke la elektita ekstera ludilo troveblas per la ĉirkaŭaĵa variablo PATH. Se necese, eblas difini laŭmendan vojon ĉi tie.
+    Ignore Warnings: Kaŝi avertojn kiam la aktuala ekstera ludilo ne subtenas donatan agon (ekz. inversigi ludliston, ktp.).
+    Ignore Default Arguments: Ne sendu defaŭltajn argumentojn al la ekstera ludilo krom la URL de la videaĵo (ekz. ludrapido, URL de ludlisto, ktp.). Laŭmendaj argumentoj ankoraŭ estos donataj.
+    Custom External Player Arguments: Iuj ajn laŭmendaj komandliniaj argumentoj, ke vi volas doni al la ekstera ludilo.
+    DefaultCustomArgumentsTemplate: "(Defaŭlto: '{defaultCustomArguments}')"
+  Distraction Free Settings:
+    Hide Channels: Enigi kanalan identigilon por kaŝi ĉiujn videaĵojn, ludlistojn kaj la kanalon mem en serĉoj, tendencoj, plej popularaj kaj rekomenditaj videaĵoj. La identigilo devas kongrui ekzakte kaj estas usklecodistinga.
+    Hide Subscriptions Live: Tiu ĉi agordo estas regita de la ĉiea agordo "{appWideSetting}" en la sekcio "{subsection}" de "{settingsSection}"
+    Hide Videos, Playlists and Channels Containing Text: Enigu vorton, vortparton aŭ frazon (usklecodistinga) por kaŝi ĉiujn videaĵojn, ludlistojn kaj kanalojn kies originaj titoloj enhavas ĝin ĉie en FreeTube, krom historio, viaj ludlistoj kaj videaĵoj en ludlistoj.
+    Hide Videos on Watch: Kaŝas spektitajn videaĵojn en la langetoj de videaĵoj, videaĵetoj kaj tujelsendoj sur la paĝo de abonoj kaj kanalaj paĝoj. Tio ĉi ne afektas la hejman langeton en kanalaj paĝoj
+  Subscription Settings:
+    Fetch Feeds from RSS: Dum ŝaltita, FreeTube uzos RSS anstataŭ sian defaŭltan metodon por venigi viajn abonfluojn. RSS pli rapidas kaj evitas IP-blokojn, sed ne provizas kelkajn informojn kiel la daŭroj de videaĵoj, la stato de tujelsendoj aŭ afiŝoj
+    Fetch Automatically: Dum ŝaltita, FreeTube aŭtomate venigos viajn abonfluojn je startigo kaj kiam nova fenestro malfermiĝas.
+  Experimental Settings:
+    Replace HTTP Cache: Malŝaltas la HTTP-kaŝmemoron de Electron en la disko kaj ŝaltas laŭmendan bildkaŝmemoron en ĉefmemoro. La uzata memoro pligrandiĝos.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Anstataŭigi titolojn de videaĵoj per titoloj provizitaj de uzantoj de DeArrow.
+    UseDeArrowThumbnails: Anstataŭigi videaĵajn bildetojn per bildetoj de DeArrow.
