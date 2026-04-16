@@ -2,7 +2,7 @@ import {
   app, BrowserWindow, dialog, Menu, ipcMain,
   powerSaveBlocker, screen, session, shell,
   nativeTheme, net, protocol, clipboard,
-  Tray
+  Tray, utilityProcess
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -370,6 +370,11 @@ function runApp() {
   }
 
   let proxyUrl
+  let proxyChainProcess
+  let proxyProcessPath = path.join(__dirname, 'proxyProcess.js')
+  if (app.isPackaged) {
+    proxyProcessPath = proxyProcessPath.replace('app.asar', 'app.asar.unpacked')
+  }
 
   app.on('ready', async (_, __) => {
     if (process.platform === 'darwin') {
@@ -530,7 +535,25 @@ function runApp() {
     }
 
     if (useProxy) {
-      proxyUrl = `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+      const proxyUsername = (await baseHandlers.settings._findOne('proxyUsername'))?.value
+      const proxyPassword = (await baseHandlers.settings._findOne('proxyPassword'))?.value
+
+      if (proxyProtocol.startsWith('socks') && proxyUsername && proxyPassword) {
+        if (proxyChainProcess) {
+          proxyChainProcess.kill()
+          proxyChainProcess = undefined
+        }
+        proxyChainProcess = utilityProcess.fork(proxyProcessPath)
+        proxyChainProcess.postMessage({ protocol: proxyProtocol, hostname: proxyHostname, port: proxyPort, username: proxyUsername, password: proxyPassword })
+        const localPort = await new Promise((resolve) => {
+          proxyChainProcess.once('message', (port) => {
+            resolve(port)
+          })
+        })
+        proxyUrl = `http://127.0.0.1:${localPort}`
+      } else {
+        proxyUrl = `${proxyProtocol}://${proxyHostname}:${proxyPort}`
+      }
 
       session.defaultSession.setProxy({
         proxyRules: proxyUrl
@@ -1267,15 +1290,36 @@ function runApp() {
     }
   })
 
-  ipcMain.on(IpcChannels.ENABLE_PROXY, (event, url) => {
+  ipcMain.on(IpcChannels.ENABLE_PROXY, async (event, url) => {
     if (!isFreeTubeUrl(event.senderFrame.url)) {
       return
     }
+    const proxyUsername = (await baseHandlers.settings._findOne('proxyUsername'))?.value
+    const proxyPassword = (await baseHandlers.settings._findOne('proxyPassword'))?.value
+
+    if (url.startsWith('socks') && proxyUsername && proxyPassword) {
+      const proxyProtocol = url.slice(0, 6)
+      const proxyHostname = url.split(':')[1].replaceAll('/', '')
+      const proxyPort = url.split(':')[2]
+      if (proxyChainProcess) {
+        proxyChainProcess.kill()
+        proxyChainProcess = undefined
+      }
+      proxyChainProcess = utilityProcess.fork(proxyProcessPath)
+      proxyChainProcess.postMessage({ protocol: proxyProtocol, hostname: proxyHostname, port: proxyPort, username: proxyUsername, password: proxyPassword })
+      const localPort = await new Promise((resolve) => {
+        proxyChainProcess.once('message', (port) => {
+          resolve(port)
+        })
+      })
+      proxyUrl = `http://127.0.0.1:${localPort}`
+    } else {
+      proxyUrl = url
+    }
 
     session.defaultSession.setProxy({
-      proxyRules: url
+      proxyRules: proxyUrl
     })
-    proxyUrl = url
     session.defaultSession.closeAllConnections()
   })
 

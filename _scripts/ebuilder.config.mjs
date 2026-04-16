@@ -4,6 +4,7 @@ import packageDetails from '../package.json' with { type: 'json' }
 export default {
   appId: `io.freetubeapp.${packageDetails.name}`,
   copyright: 'Copyleft © 2020-2026 freetubeapp@protonmail.com',
+  asarUnpack: ['dist/proxyProcess.js'],
   // asar: false,
   // compression: 'store',
   productName: packageDetails.productName,

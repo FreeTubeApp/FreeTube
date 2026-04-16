@@ -12,6 +12,7 @@ const config = {
   devtool: isDevMode ? 'eval-cheap-module-source-map' : false,
   entry: {
     main: path.join(__dirname, '../src/main/index.js'),
+    proxyProcess: path.join(__dirname, '../src/main/proxyProcess.js'),
   },
   module: {
     rules: [
