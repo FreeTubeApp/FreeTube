@@ -96,7 +96,7 @@ export async function handleOpenInExternalPlayer(event, payload) {
       } else if (!ignoreWarnings) {
         unsupportedActions.push(UnsupportedPlayerActions.OPENING_PLAYLISTS)
       }
-    } else {
+    } else if (hasValidVideoId) {
       args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
     }
   } else {
