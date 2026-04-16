@@ -13,7 +13,7 @@ Delete: 'Forigi'
 Select all: 'Elekti ĉiujn'
 Zoom in: 'Zomi'
 Zoom out: 'Malzomi'
-Toggle fullscreen: 'Baskuli tutekranon'
+Toggle fullscreen: 'Plenekrane'
 Window: 'Fenestro'
 Minimize: 'Minimumigi'
 Close: 'Fermi'
@@ -867,6 +867,34 @@ KeyboardShortcutPrompt:
   Captions: Ŝalti/malŝalti apudskribon
   Stats: Montri videaĵajn statistikojn
   Picture in Picture: Ŝalti/malŝalti bildenbildan reĝimon
+  Large Rewind: Revolvi 10 sekundojn / Revolvi videaĵon laŭ aktuala ludrapido
+  Play: Ludi/paŭzigi
+  Large Fast Forward: Salti 10 sekundojn / Salti laŭ aktuala ludrapidon
+  Mute: Silentigi/malsilentigi
+  Decrease Video Speed: Malpligrandigi ludrapidon laŭ ludrapida intervalo
+  Increase Video Speed: Pligrandigi ludrapidon laŭ ludrapida intervalo
+  Full Window: Aktivigi/malaktivigi maksimumigitan fenestron
+  Theatre Mode: Aktivigi/malaktivigi teatran reĝimon
+  Take Screenshot: Fari ekrankopion
+  Minimize Window: Minimumigi fenestron
+  Close Window: Fermi fenestron
+  Toggle Developer Tools: Akvigiti/malaktivigi ilojn por programistoj
+  Reset Zoom: Rekomencigi zomon / interfaco-skalon
+  Focus Search: Enfokusigi la serĉobreton
+  Search in New Window: Serĉi en nova fenestro
+  Last Frame: Malsekva bildo (dum paŭzo)
+  Next Frame: Sekva bildo (dum paŭzo)
+  Volume Up: Pligrandigi laŭtecon
+  Volume Down: Malpligrandigi laŭtecon
+  Small Rewind: Revolvi X sekundojn laŭ la revolva intervalo kaj aktuala ludrapido
+  Small Fast Forward: Salti X sekundojn laŭ la rapidpluiga intervalo kaj aktuala ludrapido
+  Last Chapter: Fina ĉapitro
+  Next Chapter: Sekva ĉapitro
+  Skip by Tenths: Salti tra videaĵon laŭ procento (3 saltas al 30% de la daŭro)
+  Home: Iri al la komenco de la videaĵo
+  End: Iri al la fino de la videaĵo
+  Skip to Next Video: Salti al la sekva videaĵo en ludlisto aŭ al la sekva rekomendita videaĵo
+  Skip to Previous Video: Reveni al la malsekva videaĵo en ludlisto
 Toggle Developer Tools: Baskuli ilojn por programistoj
 Compact side navigation: Kompakta flankonavigo
 Expand side navigation: Pligrandigi flankonavigon
