@@ -102,7 +102,7 @@ jobs:
 
     - name: Restore yarn cache
       id: restore_cache
-      uses: actions/cache/restore@668228422ae6a00e4ad889ee87cd7109ec5666a7 #v5.0.4
+      uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae #v5.0.5
       with:
         key: ${{ format('node-cache-{0}-{1}-yarn-{2}', runner.os, runner.arch, hashFiles('yarn.lock')) }}
         path: ${{ steps.cache_dir.outputs.cache_dir }}
@@ -377,7 +377,7 @@ jobs:
         path: build/freetube-${{ steps.versionNumber.outputs.version }}-arm64-mac.7z
 
     - name: Save yarn cache
-      uses: actions/cache/save@668228422ae6a00e4ad889ee87cd7109ec5666a7 #v5.0.4
+      uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae #v5.0.5
       # Only save the cache if we weren't able to restore an existing one above
       if: steps.restore_cache.outputs.cache-primary-key != steps.restore_cache.outputs.cache-matched-key
       with:
