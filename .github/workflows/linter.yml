@@ -42,7 +42,7 @@ jobs:
     # so we only restore the yarn cache, we don't save it to avoid cache poisoning
     - name: Restore yarn cache
       id: restore_cache
-      uses: actions/cache/restore@668228422ae6a00e4ad889ee87cd7109ec5666a7 #v5.0.4
+      uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae #v5.0.5
       with:
         key: ${{ format('node-cache-{0}-{1}-yarn-{2}', runner.os, runner.arch, hashFiles('yarn.lock')) }}
         path: ${{ steps.cache_dir.outputs.cache_dir }}
