@@ -225,9 +225,9 @@ Settings:
     Thumbnail Preference:
       Thumbnail Preference: 'Sīktēlu iestatījums'
       Default: 'Noklusējums'
-      Beginning: 'Sākums'
-      Middle: 'Vidus'
-      End: 'Beigas'
+      Beginning: 'Video sākuma kadrs'
+      Middle: 'Video vidus kadrs'
+      End: 'Video beigu kadrs'
       Hidden: 'Paslēpts'
       Blur: Aizmiglo
     Current Invidious Instance: 'Pašreizējais Invidious gadījums'
@@ -380,10 +380,17 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
     All playlists have been removed: Visi atskaņošanas saraksti tika noņemti
     Remove All Playlists: Noņemt visus atskaņošanas sarakstus
+    Remember Search History: Saglabāt meklēšanas vēsturi
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Automātiski
+        Semi-auto: Pusautomātiski
+        Never: Nekad
   Subscription Settings:
     Subscription Settings: 'Abonementu'
     Fetch Feeds from RSS: 'Iegūt plūsmu no RSS'
     Fetch Automatically: 'Iegūt plūsmu automātiski'
+    To: Līdz
   Distraction Free Settings:
     Distraction Free Settings: 'Beztraucēšanas'
     Sections:
@@ -626,6 +633,8 @@ Channel:
     Hide Answers: 'Paslēp atbildes'
   Courses:
     Courses: Kursi
+  Home:
+    Home: Sākums
 Video:
   Mark As Watched: 'Atzīmē kā skatītu'
   Remove From History: 'Noņem no vēstures'
@@ -698,6 +707,7 @@ Video:
   Player:
     Stats:
       Stats: Statistika
+  Unlisted: Nav iekļauts sarakstos
 Playlist:
   #& About
   Playlist: 'Atskaņošanas saraksts'
@@ -758,8 +768,8 @@ Comments:
   Load More Comments: 'Ielādēt vairāk komentāru'
   Pinned by: ''
   Member: 'Biedrs'
-  Subscribed: ''
-  Hearted: ''
+  Subscribed: 'Abonēts'
+  Hearted: 'Man patīk'
   Hide {replyCount} replies: Paslēpt 1 atbildi | Paslēpt {replyCount} atbildes
   View 1 reply from {channelName}: Rādīt 1 atbildi no {channelName}
   View {replyCount} replies from {channelName} and others: Rādīt {replyCount} atbildes no {channelName} un citiem
@@ -809,8 +819,8 @@ Loop is now enabled: ''
 Shuffle is now disabled: ''
 Shuffle is now enabled: ''
 The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
+Playing Next Video: 'Atskaņo nākamo video'
+Playing Previous Video: 'Atskaņo iepriekšējo video'
 Playing Next Video Interval: ''
 Canceled next video autoplay: ''
 
@@ -844,12 +854,31 @@ Search Listing:
     Closed Captions: Slēgtie paraksti
     4K: 4K
 KeyboardShortcutPrompt:
-  Toggle Developer Tools: Ieslēgt izstrādātāja rīkus
+  Toggle Developer Tools: Ieslēgt/izslēgt izstrādātāja rīkus
   Zoom In: Tuvināt
   Zoom Out: Tālināt
   Fullscreen: Pilnekrāns
   Volume Up: Palielināt skaļumu
   Volume Down: Samazināt skaļumu
+  Keyboard Shortcuts: Īsinājumtaustiņi
+  Sections:
+    Video:
+      Playback: Video: Atskaņošana
+  Show Keyboard Shortcuts: Rādīt īsinājumtaustiņus
+  History Backward: Atgriezties vienu lapu atpakaļ
+  History Forward: Doties vienu lapu uz priekšu
+  New Window: Izveidot jaunu logu
+  Navigate to Settings: Doties uz iestatījumu lapu
+  Navigate to History: Doties uz vēstures lapu
+  Captions: Ieslēgt/izslēgt subtitrus
+  Stats: Rādīt video statistiku
+  Take Screenshot: Uzņemt ekrānuzņēmumu
+  Minimize Window: Minimizēt logu
+  Close Window: Aizvērt logu
+  Home: Pozicionēt uz video sākumu
+  End: Pozicionēt uz video beigām
+  Skip to Next Video: Pāriet uz nākamo video atskaņošanas sarakstā vai nākamo ieteikto video
+  Skip to Previous Video: Pāriet uz iepriekšējo video atskaņošanas sarakstā
 checkmark: ✓
 Cancel: Atcelt
 shortcutJoinOperator: +
@@ -857,5 +886,14 @@ Keys:
   alt: Alt
   ctrl: Ctrl
   shift: Shift
+  arrowdown: Uz leju
+  arrowleft: Pa kreisi
+  arrowright: Pa labi
+  arrowup: Uz augšu
 shortcutLabelSeparator: ｜
 Display Label: '{label}: {value}'
+Description:
+  Expand Description: …rādīt visu
+Yes, Delete: Jā, dzēst
+Yes, Restart: Jā, palaist pa jaunu
+Yes, Open Link: Jā, atvērt saiti

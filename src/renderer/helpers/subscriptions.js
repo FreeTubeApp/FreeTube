@@ -65,6 +65,7 @@ export function updateVideoListAfterProcessing(videos) {
       return b.published - a.published
     })
   }
+
   return videoList
 }
 

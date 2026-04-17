@@ -221,7 +221,11 @@ $watched-transition-duration: 0.5s;
     grid-template:
       'title optionsExternalButton' auto
       'infoLine optionsExternalButton' auto
-      'description optionsExternalButton' auto / 1fr auto;
+      'description optionsExternalButton' auto
+      'videoTagLine optionsExternalButton' auto
+      'restArea empty' 1fr / 1fr auto;
+    // Draggable items cannot have text selected by default
+    user-select: text;
 
     .buttonStack {
       grid-area: optionsExternalButton;
@@ -267,6 +271,10 @@ $watched-transition-duration: 0.5s;
       }
     }
 
+    .videoTagLine {
+      grid-area: videoTagLine;
+    }
+
     .description {
       font-size: 14px;
       grid-area: description;
@@ -275,11 +283,18 @@ $watched-transition-duration: 0.5s;
 
       @include low-contrast-when-watched(var(--secondary-text-color));
     }
+
+    .restArea {
+      grid-area: restArea;
+    }
   }
 
   &.list {
     align-items: flex-start;
-    display: flex;
+    display: grid;
+    grid-template:
+      'grabBar thumbnail info' auto /
+      auto auto 1fr;
 
     @include is-sidebar-item {
       .videoThumbnail {
@@ -312,9 +327,28 @@ $watched-transition-duration: 0.5s;
     }
 
 
+    .grabBar {
+      grid-area: grabBar;
+    }
+
+    .videoThumbnail {
+      grid-area: thumbnail;
+    }
+
     .videoThumbnail,
     .channelThumbnail {
+      grid-area: thumbnail;
       margin-inline-end: 20px;
+    }
+
+    .info,
+    .infoAndSubscribe {
+      grid-area: info;
+    }
+
+    .info {
+      // To allow `.restArea` to cover the empty space
+      block-size: 100%;
     }
 
     .info .description {
@@ -332,7 +366,8 @@ $watched-transition-duration: 0.5s;
 
     .videoThumbnail,
     .channelThumbnail {
-      margin-block-end: 12px;
+      // Using padding not margin to avoid being able to drag on empty space
+      padding-block-end: 12px;
 
       .thumbnailImage {
         // Ensure placeholder image displayed at same aspect ratio as most other images
@@ -355,6 +390,10 @@ $watched-transition-duration: 0.5s;
     .infoLine {
       font-size: 13px;
       margin-block-start: 8px;
+    }
+
+    .restArea {
+      display: none;
     }
   }
 

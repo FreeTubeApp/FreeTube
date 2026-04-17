@@ -246,7 +246,7 @@ Settings:
       External Link Handling: Hantering av extern länk
     Auto Load Next Page:
       Tooltip: Ladda ytterligare sidor och kommentarer automatiskt.
-      Label: Ladda Nästa Sida Automatiskt
+      Label: Ladda nästa sida automatiskt
     Open Deep Links In New Window: Öppna URL:er som skickats till FreeTube i ett nytt fönster
     Minimize to system tray: Minimera till systemfältet
   Theme Settings:
@@ -371,7 +371,7 @@ Settings:
     Hide FreeTube Header Logo: Dölj FreeTube-sidhuvudlogotypen
   Player Settings:
     Player Settings: 'Spelare'
-    Play Next Video: 'Autospela Rekommenderade Videor'
+    Play Next Video: 'Spela upp rekommenderade videor automatiskt'
     Turn on Subtitles by Default: 'Aktivera undertexter som standard'
     Autoplay Videos: 'Starta Videor Automatiskt'
     Proxy Videos Through Invidious: 'Proxyvideor via Invidious'
@@ -396,7 +396,7 @@ Settings:
       1440p: '1440p'
       4k: '4k'
       8k: '8k'
-    Next Video Interval: Autospela Nedräkningstimer
+    Next Video Interval: Nedräkningstimer för automatisk uppspelning
     Display Play Button In Video Player: Visa uppspelningsknappen i videospelaren
     Scroll Volume Over Video Player: Rullvolym i videospelaren
     Fast-Forward / Rewind Interval: Spola fram / spola bak intervall
@@ -1007,7 +1007,7 @@ Clipboard:
   Copy failed: Kopiera till urklipp misslyckades
 Chapters:
   Chapters: Kapitel
-  Key Moments: Viktiga Ögonblick
+  Key Moments: Viktiga ögonblick
 Hashtag:
   Hashtag: Hashtaggar
   This hashtag does not currently have any videos: Den här hashtaggen har för närvarande inga videor
@@ -1035,7 +1035,7 @@ Yes, Restart: Ja, starta om
 Age Restricted:
   This video is age restricted: Den här videon är åldersbegränsad
   This channel is age restricted: Denna kanal är åldersbegränsad
-Moments Ago: ögonblick sedan
+Moments Ago: för några ögonblick sedan
 Cancel: Avbryt
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Tag already exists: Taggen "{tagName}" finns redan

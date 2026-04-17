@@ -13,7 +13,7 @@ Delete: 'Forigi'
 Select all: 'Elekti ĉiujn'
 Zoom in: 'Zomi'
 Zoom out: 'Malzomi'
-Toggle fullscreen: 'Baskuli tutekranon'
+Toggle fullscreen: 'Plenekrane'
 Window: 'Fenestro'
 Minimize: 'Minimumigi'
 Close: 'Fermi'
@@ -36,7 +36,7 @@ Global:
     Comment Count: 1 komento | {count} komentoj
     Watching Count: 1 spektanto | {count} spektantoj
 Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber} disponeblas nun!  Alklaku por pli da informoj'
-Download From Site: 'Elŝuti el retejo - Alklaku por plu vidi'
+Download From Site: 'Elŝuti el retejo'
 Search / Go to URL: 'Serĉi / Iri al URL'
   # In Filter Button
 Search Filters:
@@ -378,19 +378,421 @@ Settings:
     Skip by Scrolling Over Video Player: Salti per rulumi sur ludilo
     Display Play Button In Video Player: Montri ludbutonon en ludlio
     Enter Fullscreen on Display Rotate: Eniri en plenan ekranon je rotacio de la ekrano
+    Next Video Interval: Retronombrado de aŭtomata ludado
+    Autoplay Interruption Timer: Interrompo de aŭtomata ludado
+    Fast-Forward / Rewind Interval: Rapidpluiga/revolva intervalo
+    Default Volume: Defaŭlta laŭteco
+    Default Playback Rate: Defaŭlta ludrapido
+    Max Video Playback Rate: Maksimuma ludrapido
+    Video Playback Rate Interval: Ludrapida intervalo
+    Default Video Format:
+      Default Video Format: Defaŭlta videaĵoformo
+      Dash Formats: DASH-aj formoj
+      Legacy Formats: Heredaĵaj formoj
+      Audio Formats: Aŭdiaj formoj
+    Default Quality:
+      Default Quality: Defaŭlta kvalito
+      Auto: Aŭtomata
+      144p: 144p
+      240p: 240p
+      360p: 360p
+      480p: 480p
+      720p: 720p
+      1080p: 1080p
+      1440p: 1440p
+      4k: 4k
+      8k: 8k
+    Screenshot:
+      Enable: Ebligi ekrankopiojn
+      Format Label: Dosiertipo de ekrankopioj
+      Quality Label: Kvalito de ekrankopioj
+      Ask Path: Peti konservan dosierujon
+      Folder Label: Dosierujo de ekrankopioj
+      Folder Button: Elekti dosierujon
+      File Name Label: Dosiernoma ŝablono
+      File Name Tooltip: La jenaj variabloj uzeblas. %Y Jaro (4 ciferoj). %M Monato (2 ciferoj). %D Tago (2 ciferoj). %H Horo (2 ciferoj). %N Minuto (2 ciferoj). %S Sekundo (2 ciferoj). %T Milisekundo (3 ciferoj). %s Sekundo de videaĵo. %t Milisekundo de videaĵo (3 ciferoj). %i Identigilo de videaĵo.
+      Error:
+        Forbidden Characters: Malpermesitaj signoj
+        Empty File Name: Malplena dosiernomo
   Sort Settings Sections (A-Z): Ordigi agordosekciojn (A-Z)
   Return to Settings Menu: Reveni al agordomenuo
   The app needs to restart for changes to take effect. Restart and apply change?: Necesas restartigi la aplikaĵon por ke ŝanĝoj estu aplikitaj. Ĉu restarti kaj apliki ŝanĝojn?
+  External Player Settings:
+    External Player Settings: Ekstera ludilo
+    External Player: Ekstera ludilo
+    Ignore Unsupported Action Warnings: Ignori avertojn de nesubtenitaj agoj
+    Ignore Default Arguments: Ignori defaŭltajn argumentojn
+    Custom External Player Executable: Plenumeblo de laŭmenda ekstera ludilo
+    Custom External Player Arguments: Argumentoj de laŭmenda ekstera ludilo
+    Players:
+      None:
+        Name: Nenio
+  Privacy Settings:
+    Privacy Settings: Privateco
+    Remember History: Memori videaĵan historion
+    Remember Search History: Memori serĉan historion
+    Save Watched Progress: Konservi spektoprogreson
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Aŭtomata
+        Semi-auto: Semiaŭtomata
+        Never: Neniam
+      Tooltip: Aŭtomata = Konservi je eliro de ĉiu videopaĝo, je fino de videaĵo kaj je eraro (ekz. bloko pro eksceso da petoj kaj seanco kadukis). Semiaŭtomata = Kiel aŭtomata krom eliro de videopaĝo, kaj progreso permane konserveblas per butono de "Konservi spektoprogreson" sub la videaĵoludilo.
+    Save Watched Videos With Last Viewed Playlist: Konservi spektitajn videaĵojn kun ludlisto de laste spektitaj
+    Clear Search History and Cache: Viŝi serĉan historion kaj kaŝmemoron
+    Are you sure you want to clear out your search history and cache?: Ĉu vi certas, ke vi volas viŝi viajn serĉan historion kaj kaŝmemoron?
+    Search history and cache have been cleared: Serĉa historio kaj kaŝmemoro estis viŝitaj
+    Remove Watch History: Forigi videaĵan historion
+    Are you sure you want to remove your entire watch history?: Ĉu vi certas, ke vi volas forigi vian tutan videaĵan historion?
+    Watch history has been cleared: Videaĵa historio estis forigita
+    Remove All Subscriptions / Profiles: Forigi ĉiujn abonojn/profilojn
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Ĉu vi certas, ke vi volas forigi ĉiujn abonojn kaj profilojn?  Tio ĉi ne malfareblas.
+    Remove All Playlists: Forigi ĉiujn ludlistojn
+    All playlists have been removed: Ĉiuj ludlistoj estis forigitaj
+    Are you sure you want to remove all your playlists?: Ĉi vi certas, ke vi volas forigi ĉiujn viajn ludlistojn?
+  Subscription Settings:
+    Subscription Settings: Abono
+    Fetch Feeds from RSS: Venigi fluojn per RSS
+    Fetch Automatically: Venigi fluon aŭtomate
+    'Limit the number of videos displayed for each channel': Limi la kvanton de montrataj videaĵoj por ĉiu kanalo
+    To: Limo
+    Confirm Before Unsubscribing: Konfirmi antaŭ ol malaboni
+  Distraction Free Settings:
+    Distraction Free Settings: Sendistre
+    Sections:
+      Side Bar: Flankobreto
+      Subscriptions Page: Abonopaĝo
+      Channel Page: Kanalopaĝo
+      Watch Page: Spektopaĝo
+      General: Ĝenerala
+    Hide Video Views: Kaŝi spektojn de videaĵoj
+    Hide Video Likes And Dislikes: Kaŝi ŝatojn kaj malŝatojn de videaĵoj
+    Hide Channel Subscribers: Kaŝi abonojn de kanaloj
+    Hide Comment Likes: Kaŝi ŝatojn de komentoj
+    Hide Recommended Videos: Kaŝi rekomenditajn videaĵojn
+    Hide Trending Videos: Kaŝi tendencajn videaĵojn
+    Hide Popular Videos: Kaŝi popularajn videaĵojn
+    Hide Playlists: Kaŝi ludlistojn
+    Hide Live Chat: Kaŝi tujelsendan babilejon
+    Hide Active Subscriptions: Kaŝi aktivajn abonojn
+    Hide Video Description: Kaŝi priskribojn de videaĵoj
+    Hide Comments: Kaŝi komentojn
+    Hide Profile Pictures in Comments: Kaŝi avatarojn en komentoj
+    Display Titles Without Excessive Capitalisation: Montri titolojn sen ekscesaj majuskloj kaj interpunkcio
+    Hide Live Streams: Kaŝi tujelsendojn
+    Hide Upcoming Premieres: Kaŝi venontajn premierojn
+    Hide Sharing Actions: Kaŝi kunhavigajn agojn
+    Hide Videos on Watch: Kaŝi spektitajn videaĵojn
+    Hide Chapters: Kaŝi ĉapitrojn
+    Hide Channels: Kaŝi videaĵojn de kanaloj
+    Hide Channels Disabled Message: Kelkaj kanaloj estis blokitaj pro siaj identigiloj kaj ne estis traktitaj. La funkcio estas blokita dum tiuj identigiloj ĝisdatiĝas
+    Hide Channels Placeholder: Kanala identigilo
+    Hide Channels Invalid: La provizita kanala identigilo ne validis
+    Hide Channels API Error: Eraro dum serĉado de uzanto per la provizita identigilo. Bonvolu recertigi, ke la identigilo ĝustas.
+    Hide Channels Already Exists: La kanala identigilo jam ekzistas
+    Hide Featured Channels: Kaŝi rekomenditajn kanalojn
+    Hide Channel Playlists: Kaŝi ludlisto-langeton de kanaloj
+    Hide Channel Posts: Kaŝi afiŝo-langeton de kanaloj
+    Hide Channel Home: Kaŝi hejmo-langeton de kanaloj
+    Hide Channel Shorts: Kaŝi videaĵeto-langeton de kanaloj
+    Hide Channel Podcasts: Kaŝi podkasto-langeton de kanaloj
+    Hide Channel Releases: Kaŝi publikaĵo-langeton de kanaloj
+    Hide Channel Courses: Kaŝi kurso-langeton de kanaloj
+    Hide Videos, Playlists and Channels Containing Text: Kaŝi videaĵojn, ludlistojn kaj kanalojn kiuj enhavas tekston
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Vorto, vortparto aŭ frazo
+    Hide Subscriptions Videos: Kaŝi videaĵojn de abonoj
+    Hide Subscriptions Shorts: Kaŝi videaĵetojn de abonoj
+    Hide Subscriptions Live: Kaŝi tujelsendojn de abonoj
+    Hide Subscriptions Posts: Kaŝi afiŝojn de abonoj
+    Show Added Items: Montri aldonitajn elementojn
+  Data Settings:
+    Data Settings: Datumoj
+    Select Export Type: Elekti elportotipon
+    Import Subscriptions: Enporti abonojn
+    Subscription File: Abona dosiero
+    History File: Historia dosiero
+    Playlist File: Ludlista dosiero
+    Search history file: Serĉa historia dosiero
+    Export Subscriptions: Elporti abonojn
+    Export FreeTube: Elporti FreeTube
+    Export YouTube: Elporti YouTube
+    Export NewPipe: Elporti NewPipe
+    Import History: Enporti historion
+    Export History: Elporti historion
+    Import Playlists: Enporti ludlistojn
+    Export Playlists: Elporti ludlistojn
+    Search history: Serĉa historio
+    Import search history: Enporti serĉan historion
+    Export search history: Elporti serĉan historion
+    Profile object has insufficient data, skipping item: Profila objekto havas nesufiĉajn datumojn, elemento estos saltita
+    All subscriptions and profiles have been successfully imported: Ĉiuj abonoj kaj profiloj estis sukcese enportitaj
+    All subscriptions have been successfully imported: Ĉiuj abonoj estis sukcese enportitaj
+    Invalid subscriptions file: Nevalida abona dosiero
+    Invalid history file: Nevalida historia dosiero
+    Subscriptions have been successfully exported: Abonoj estis sukcese elportitaj
+    History object has insufficient data, skipping item: Historia objekto havas nesufiĉajn datumojn, elemento estos saltita
+    All watched history has been successfully imported: Videaĵa historio estis sukcese enportita
+    All watched history has been successfully exported: Videaĵa historio estis sukcese elportita
+    Playlist insufficient data: Nesufiĉaj datumoj por la ludlisto "{playlist}", elemento estos ŝaltita
+    All playlists has been successfully imported: Ĉiuj ludlistoj estis sukcese enportitaj
+    All playlists has been successfully exported: Ĉiuj ludlistoj estis sukcese elportitaj
+    All search history has been successfully imported: Serĉa historio estis sukcese enportita
+    All search history has been successfully exported: Serĉa historio estis sukcese elportita
+    Unable to read file: Malsukcesis legi dosieron
+    Unable to write file: Malsukcesis skribi dosieron
+    Unknown data key: Nekonata datuma ŝlosilo
+    How do I import my subscriptions?: Kiel mi enportas miajn abonojn?
+    Manage Subscriptions: Administri abonojn
+  Proxy Settings:
+    Proxy Settings: Prokurilo
+    Proxy Warning: FreeTube ne provizas prokurilon, sed ĝi kapablas konektiĝi al ekstera prokurilo, ekzemple prokurilo sur via maŝino kiel Tor aŭ ekstera prokurilo kiel SOCKS5 provizita de kelkaj VPR-oj. Se ŝaltita, certigu ke via prokurilo/Tor estas ĝuste agordita, aŭ FreeTube ne povos venigi iun ajn datumon.
+    Enable Tor / Proxy: Ŝalti Tor/prokurilon
+    Proxy Protocol: Prokurila protokolo
+    Proxy Host: Prokurila gastigo
+    Proxy Port Number: Prokurila pordonombro
+    Proxy Username: Prokurila uzantnomo
+    Proxy Password: Prokurila pasvorto
+    Clicking on Test Proxy will send a request to: Alklaki "Kontroli prokurilon" sendos peton al
+    Test Proxy: Kontroli prokurilon
+    Your Info: Viaj informoj
+    Ip: IP-adreso
+    Country: Lando
+    Region: Regiono
+    City: Urbo
+    Error getting network information. Is your proxy configured properly?: Malsukcesis akiri retajn informojn. Ĉu via prokurilo estas ĝuste agordita?
+  SponsorBlock Settings:
+    SponsorBlock Settings: SponsorBlock
+    Enable SponsorBlock: Ŝalti SponsorBlock
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL de API de Sponsorblock (defaŭlte https://sponsor.ajay.app)
+    Notify when sponsor segment is skipped: Sciigi kiam sponsora segmento estas saltita
+    UseDeArrowTitles: Uzi videaĵotitolojn de DeArrow
+    UseDeArrowThumbnails: Uzi bildetojn de DeArrow
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL de API de bildetogenerilo de DeArrow (defaŭlte https://dearrow-thumb.ajay.app)
+    Skip Options:
+      Skip Option: Saltoagordo
+      Auto Skip: Salti aŭtomate
+      Show In Seek Bar: Montri en serĉobreto
+      Prompt To Skip: Inviti por salti
+      Do Nothing: Nenion fari
+    Category Color: Koloro de kategorio
+  Parental Control Settings:
+    Parental Control Settings: Gepatraj enhavlimigoj
+    Hide Unsubscribe Button: Kaŝi butonon de malaboni
+    Hide Uploader on Watch page: Kaŝi kanalon sur spektopaĝo
+    Show Family Friendly Only: Nur montri enhavon taŭgan por familioj
+    Hide Search Bar: Kaŝi serĉobreton
+  Experimental Settings:
+    Experimental Settings: Eksperimenta
+    Warning: Ĉi tiuj agordoj estas eksperimentaj kaj povus kaŭzi kolapsojn dum ŝaltitaj. Savkopioj ege farindas. Vi estas avertita!
+    Replace HTTP Cache: Anstataŭigi HTTP-kaŝmemoron
+  Password Dialog:
+    Password: Pasvorto
+    Enter Password To Unlock: Enigu pasvorton por malŝlosi agordojn
+  Password Settings:
+    Password Settings: Pasvorto
+    Set Password To Prevent Access: Difini pasvorton por malebligi atingon al agordoj
+    Set Password: Difini pasvorton
+    Remove Password: Forigi pasvorton
 About:
   #On About page
   Website: Retejo
   Email: Retpoŝto
+  About: Pri
+  Beta: Beta
+  Source code: Fontkodo
+  Licensed under the {licenseLink}: Permesita per {licenseLink}
+  AGPLv3: AGPLv3
+  Downloads / Changelog: Elŝutoj/Ŝanĝoprotokolo
+  GitHub releases: Eldonoj sur GitHub
+  Help: Helpo
+  FreeTube Wiki: FreeTube-vikio
+  FAQ: Oftaj demandoj
+  Discussions: Diskutoj
+  Report a problem: Raporti problemon
+  GitHub issues: Raportitaj problemoj sur GitHub
+  Please check for duplicates before posting: Bonvolu certigi, ke vi ne duobligas afiŝojn antaŭ publikigi
+  Mastodon: Mastodon
+  Chat on Matrix: Babili sur Matrix
+  Please read the {roomRulesLink}: Bonvolu legi la {roomRulesLink}
+  room rules: ĉambroregulojn
+  Translate: Traduki
+  Credits: Dankoj
+  FreeTube is made possible by {creditsPageLink}: FreeTube eblas pro la helpo de {creditsPageLink}
+  these people and projects: ĉi tiuj personoj kaj projektoj
+  Donate: Donaci
 Channel:
   About:
     Details: Detaloj
+    About: Pri
+    Channel Description: Kanala priskribo
+    Tags:
+      Tags: Etikedoj
+      Search for: Serĉi "{tag}"
+    Joined: Enskribiĝis
+    Location: Loko
+    Featured Channels: Rekomenditaj kanaloj
   Videos:
     Videos: Videaĵoj
-Video: {}
+    This channel does not currently have any videos: Tiu ĉi kanalo aktuale ne havas iun ajn videaĵon
+    Sort Types:
+      Newest: Plej novaj
+      Oldest: Plej malnovaj
+      Most Popular: Plej popularaj
+  Subscribe: Aboni
+  Unsubscribe: Malaboni
+  Channel has been removed from your subscriptions: La kanalo estis forigita el viaj abonoj
+  Removed subscription from {count} other channel(s): Forigis abonon el {count} alia(j) kanalo(j)
+  Added channel to your subscriptions: Aldonis kanalon al viaj abonoj
+  Search Channel: Serĉi en kanalo
+  Your search results have returned 0 results: Via serĉo liveras 0 rezultojn
+  This channel does not exist: Tiu ĉi kanalo ne ekzistas
+  This channel does not allow searching: Tiu ĉi kanalo ne permesas serĉadon
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Tiu ĉi kanalo estas limigita de aĝo kaj ne aktuale videblas per FreeTube.
+  Channel Tabs: Kanalaj langetoj
+  Shorts:
+    This channel does not currently have any shorts: Tiu ĉi kanalo aktuale ne havas iun ajn videaĵeton
+  Live:
+    Live: Tujelsendoj
+    This channel does not currently have any live streams: Tiu ĉi kanalo aktuale ne havas iun ajn tujelsendon
+  Playlists:
+    Playlists: Ludlistoj
+    This channel does not currently have any playlists: Tiu ĉi kanalo aktuale ne havas iun ajn ludliston
+    Sort Types:
+      Last Video Added: Lasta videaĵo aldonita
+      Newest: Plej novaj
+      Oldest: Plej malnovaj
+  Home:
+    Home: Hejmo
+    View Playlist: Vidi ludliston
+  Podcasts:
+    Podcasts: Podkastoj
+    This channel does not currently have any podcasts: Tiu ĉi kanalo aktuale ne havas iun ajn podkaston
+  Releases:
+    Releases: Eldonoj
+    This channel does not currently have any releases: Tiu ĉi kanalo aktuale ne havas iun ajn aldonon
+  Courses:
+    Courses: Kursoj
+    This channel does not currently have any courses: Tiu ĉi kanalo aktuale ne havas iun ajn kurson
+  Posts:
+    This channel currently does not have any posts: Tiu ĉi kanalo aktuale ne havas iun ajn afiŝon
+    votes: '{votes} voĉdonoj'
+    View Full Post: Vidi tutan afiŝon
+    Reveal Answers: Montri respondojn
+    Hide Answers: Kaŝi respondojn
+    Video hidden by FreeTube: Videaĵo kaŝita de FreeTube
+Video:
+  IP block: YouTube blokis vian IP-adreson por spekti videaĵojn. Bonvolu provi ŝanĝiĝi de VPN aŭ prokurilo.
+  MembersOnly: Videaĵoj nur por membroj ne spekteblas per FreeTube ĉar ili postulas ensaluton de Google kaj pagitan membrecon de la publikiganta kanalo.
+  AgeRestricted: Videaĵoj limigitaj de aĝo ne spekteblas per FreeTube ĉar ili postulas ensaluton de Google kaj konton de YouTube kun konfirmita aĝo.
+  DRMProtected: Videaĵoj protektitaj de DRM ne spekteblas per FreeTube, ĉar ili postulas proprietajn fermitkodajn komponaĵojn. Se vi volas spekti ĉi tiun videaĵon, bonvolu spekti ĝin per la oficiala retejo de YouTube en retumilo kiu subtenas DRM.
+  More Options: Pli da opcioj
+  Mark As Watched: Marki kiel spektita
+  Remove From History: Forigi el historio
+  Video has been marked as watched: La videaĵo estis markita kiel spektita
+  Video has been removed from your history: La videaĵo estis forigita de via historio
+  Save Watched Progress: Konservi spektoprogreson
+  Watched Progress Saved: Konservis spektoprogreson
+  Save Video: Konservi videaĵon
+  Video has been saved: La videaĵo estis konservita
+  Video has been removed from your saved list: La videaĵo estis forigita el via konservita listo
+  Open in YouTube: Malfermi per YouTube
+  Copy YouTube Link: Kopii ligilon de YouTube
+  Open YouTube Embedded Player: Malfermi per enkorpa ludilo de YouTube
+  Copy YouTube Embedded Player Link: Kopii ligilon de enkorpa ludilo de YouTube
+  Open in Invidious: Malfermi per Invidious
+  Copy Invidious Link: Kopii ligilon de Invidious
+  Open Channel in YouTube: Malfermi kanalon per YouTube
+  Copy YouTube Channel Link: Kopii ligilon de kanalo de YouTube
+  Open Channel in Invidious: Malfermi kanalon per Invidious
+  Copy Invidious Channel Link: Kopii ligilon de kanalo de Invidious
+  Hide Channel: Kaŝi kanalon
+  Unhide Channel: Montri kanalon
+  Views: Rigardoj
+  Loop Playlist: Ripeti ludliston
+  Shuffle Playlist: Miksi ludliston
+  Reverse Playlist: Inversigi ludliston
+  Previous: Malsekva
+  Next: Sekva
+  Watched: Spektita
+  Autoplay: Aŭtomata ludado
+  Starting soon, please refresh the page to check again: Baldaŭ komenciĝos, bonvolu aktualigi la paĝon por kontroli denove
+  Premieres: Premieroj
+  Upcoming: Venontaj
+  Unlisted: Nelistigita
+  Live: Tujelsendo
+  Live Now: Elsendas nun
+  Live Chat: Tujelsenda babilejo
+  Enable Live Chat: Ŝalti tujelsendan babilejon
+  Popout Live Chat: Malfermi babilejon en nova fenestro
+  Live Chat is currently not supported in this build.: La tujelsenda babilejo ne estas subtenita en tiu ĉi versio.
+  Live chat is enabled. Chat messages will appear here once sent.: La tujelsenda babilejo estas ŝaltita.  Mesaĝoj aperos ĉi tie post esti senditaj.
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': La tujelsenda babilejo aktuale ne estas subtenite kun la API de Invidious.  Rekta konekto al YouTube estas postulata.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': La tujelsenda babilejo ne disponeblas por tiu ĉi fluo. La alŝutanto eble malŝaltis ĝin.
+  Show Super Chat Comment: Montri komenton de Super Chat
+  Scroll to Bottom: Rulumi al malsupro
+  Published:
+    In less than a minute: En malpli ol minuto
+  Published on: Publikigita
+  Streamed on: Elsendita
+  Started streaming on: Ekelsendita
+  DeArrow:
+    Show Original Details: Montri originajn detalojn
+    Show Modified Details: Montri modifitajn detalojn
+  Sponsor Block category:
+    sponsor: Sponsoro
+    intro: Enkonduko
+    outro: Konkludo
+    self-promotion: Mem-anonco
+    interaction: Interago
+    music offtopic: Senrilata muziko
+    recap: Resumo
+    filler: Plenigo
+  External Player:
+    OpenInTemplate: Malfermi per {externalPlayer}
+    video: videaĵo
+    playlist: ludlisto
+    OpeningTemplate: Malfermado de {videoOrPlaylist} per {externalPlayer}...
+    UnsupportedActionTemplate: '{externalPlayer} ne subtenas: {action}'
+    Unsupported Actions:
+      starting video at offset: komenci videaĵon je specifa pozicio
+      setting a playback rate: difini ludrapidon
+      opening playlists: malfermi ludliston
+      opening specific video in a playlist (falling back to opening the video): malfermi specifan videaĵon en ludlisto (retropaŝis al malfermi la videaĵon)
+      reversing playlists: inversigi ludlistojn
+      shuffling playlists: miksi ludlistojn
+      looping playlists: ripeti ludlistojn
+  Player:
+    TranslatedCaptionTemplate: '{language} (tradukita el "{originalLanguage}")'
+    Audio Tracks: Aŭdiofluoj
+    Autoplay is off: Aŭtomata ludado estas malŝaltita
+    Autoplay is on: Aŭtomata ludado estas ŝaltita
+    Theatre Mode: Teatroreĝimo
+    Exit Theatre Mode: Eliri el teatroreĝimo
+    Full Window: Plenekrane
+    Exit Full Window: Eliri el plenekrana reĝimo
+    Take Screenshot: Fari ekrankopion
+    Show Stats: Montri statistikojn
+    Hide Stats: Kaŝi statistikojn
+    Stats:
+      Stats: Statistikoj
+      Video ID: 'Identigilo de videaĵo: {videoId}'
+      Media Formats: 'Medioformoj: {formats}'
+      Resolution: "Distingivo: {width}x{height}{'@'}{frameRate}"
+      Player Dimensions: 'Ludilaj dimensioj: {width}x{height}'
+      Bitrate: 'Bitrapido: {bitrate} kbps'
+      Volume: 'Laŭteco: {volumePercentage}%'
+      Bandwidth: 'Kapacito: {bandwidth} kbps'
+      Buffered: 'Bufrita: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'Perditaj bildoj: {droppedFrames} / Tutaj bildoj: {totalFrames}'
+      CodecAudio: 'Kodeko: {audioCodec} ({audioltag})'
+      CodecsVideoAudio: 'Kodekoj: {videoCodec} ({videoltag}) / {audioCodec} ({audioltag})'
+      CodecsVideoAudioNoItags: 'Kodekoj: {videoCodec} / {audioCodec}'
+    You appear to be offline: Vi ŝajne ne havas retkonekton.
+    Playback will resume automatically when your connection comes back: La ludado ados aŭtomate kiam via retkonekto revenos.
+    Skipped segment: Saltis segmenton de {segmentCategory}
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Restanta tempo de komenca anonco: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Restanta tempo de atendo por SABR: {remindingTimeSeconds}s'
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon
@@ -403,10 +805,96 @@ Go to page: Iri al {page}
 Actual size: Reala grando
 Profile:
   Select All: Elekti ĉiujn
+  Profile Settings: Profilo
+  Toggle Profile List: Baskuli profiloliston
+  Profile Select: Elekti profilon
+  Profile Filter: Filtrado de profiloj
+  All Channels: Ĉiuj kanaloj
+  Profile Manager: Profiloadministrilo
+  Create New Profile: Krei novan profilon
+  Edit Profile: Redakti profilon
+  Edit Profile Name: Redakti profilnomon
+  Create Profile Name: Krei profilnomon
+  Profile Name: Profilnomo
+  Color Picker: Kolorelektilo
+  Custom Color: Laŭmenda koloro
+  Profile Preview: Antaŭrigardo de profilo
+  Create Profile: Krei profilon
+  Update Profile: Ĝisdatigi profilon
+  Make Default Profile: Igi defaŭlta profilo
+  Delete Profile: Forigi profilon
+  Are you sure you want to delete this profile?: Ĉu vi certas, ke vi volas forigi tiun ĉi profilon?
+  All subscriptions will also be deleted.: Ĉiuj abonoj ankaŭ estos forigitaj.
+  Your profile name cannot be empty: La nomo de via profilo ne devas esti malplena
+  Profile has been created: La profilo estis kreita
+  Profile has been updated: La profilo estis ĝisdatigita
+  Your default profile has been set to {profile}: Via defaŭlta profilo estis difinita kiel {profile}
+  Removed {profile} from your profiles: Forigis {profile} el viaj profiloj
+  Your default profile has been changed to your primary profile: Via defaŭlta profilo estis ŝanĝita al via ĉefa profilo
+  '{profile} is now the active profile': '{profile} nun estas la aktiva profilo'
+  Subscription List: Abonolisto
+  Other Channels: Aliaj kanaloj
+  '{number} selected': '{number} elektita(j)'
+  Select None: Elekti neniun
+  Delete Selected: Forigi elektitajn
+  Add Selected To Profile: Aldoni elektitajn al profilo
+  No channel(s) have been selected: Neniu kanalo estis elektita
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : Tio ĉi estas via ĉefa profilo.  Ĉu vi certas, ke vi volas forigi la elektitajn kanalojn?  Tiuj samaj kanaloj estos forigitaj en iu ajn profilo kie ili troviĝas.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Ĉi vi certas, ke vi volas forigi la elektitajn kanalojn?  Tio ĉi ne forigas kanalon el iu ajn alia profilo.
+  Close Profile Dropdown: Fermi profilan falmenuon
+  Open Profile Dropdown: Malfermi profilan falmenuon
 KeyboardShortcutPrompt:
   Zoom In: Zomi
   Zoom Out: Malzomi
   Fullscreen: Baskuli tutekranon
+  Keyboard Shortcuts: Fulmoklavoj
+  Sections:
+    Video:
+      Playback: 'Videaĵo: Ludado'
+      General: 'Videaĵo: Ĝenerala'
+    App:
+      Situational: 'Aplikaĵo: Situacia'
+      General: 'Aplikaĵo: Ĝenerala'
+  Show Keyboard Shortcuts: Montri fulmoklavojn
+  History Backward: Retropaŝi unu paĝon
+  History Forward: Avanci unu paĝon
+  New Window: Krei novan fenestron
+  Navigate to Settings: Iri al la paĝo de agordoj
+  Navigate to History: Iri al la paĝo de historio
+  Refresh: Aktualigi fluon kun plej nova enhavo
+  Focus Secondary Search: Enfokusigi duarangan serĉobreton (se estanta)
+  Captions: Ŝalti/malŝalti apudskribon
+  Stats: Montri videaĵajn statistikojn
+  Picture in Picture: Ŝalti/malŝalti bildenbildan reĝimon
+  Large Rewind: Revolvi 10 sekundojn / Revolvi videaĵon laŭ aktuala ludrapido
+  Play: Ludi/paŭzigi
+  Large Fast Forward: Salti 10 sekundojn / Salti laŭ aktuala ludrapidon
+  Mute: Silentigi/malsilentigi
+  Decrease Video Speed: Malpligrandigi ludrapidon laŭ ludrapida intervalo
+  Increase Video Speed: Pligrandigi ludrapidon laŭ ludrapida intervalo
+  Full Window: Aktivigi/malaktivigi maksimumigitan fenestron
+  Theatre Mode: Aktivigi/malaktivigi teatran reĝimon
+  Take Screenshot: Fari ekrankopion
+  Minimize Window: Minimumigi fenestron
+  Close Window: Fermi fenestron
+  Toggle Developer Tools: Akvigiti/malaktivigi ilojn por programistoj
+  Reset Zoom: Rekomencigi zomon / interfaco-skalon
+  Focus Search: Enfokusigi la serĉobreton
+  Search in New Window: Serĉi en nova fenestro
+  Last Frame: Malsekva bildo (dum paŭzo)
+  Next Frame: Sekva bildo (dum paŭzo)
+  Volume Up: Pligrandigi laŭtecon
+  Volume Down: Malpligrandigi laŭtecon
+  Small Rewind: Revolvi X sekundojn laŭ la revolva intervalo kaj aktuala ludrapido
+  Small Fast Forward: Salti X sekundojn laŭ la rapidpluiga intervalo kaj aktuala ludrapido
+  Last Chapter: Fina ĉapitro
+  Next Chapter: Sekva ĉapitro
+  Skip by Tenths: Salti tra videaĵon laŭ procento (3 saltas al 30% de la daŭro)
+  Home: Iri al la komenco de la videaĵo
+  End: Iri al la fino de la videaĵo
+  Skip to Next Video: Salti al la sekva videaĵo en ludlisto aŭ al la sekva rekomendita videaĵo
+  Skip to Previous Video: Reveni al la malsekva videaĵo en ludlisto
 Toggle Developer Tools: Baskuli ilojn por programistoj
 Compact side navigation: Kompakta flankonavigo
 Expand side navigation: Pligrandigi flankonavigon
@@ -433,3 +921,165 @@ Channels:
 Feed:
   Feed Last Updated: 'Abonfluo {feedName} laste ĝisdatigita: {date}'
   Refresh Feed: Aktualigi {subscriptionName}
+Playlist:
+  Playlist: Ludlisto
+  View Full Playlist: Vidi tutan ludliston
+  Last Updated On: Laste ĝisdatigita
+  Sort By:
+    DateAddedNewest: Date de aldono (plej nova)
+    DateAddedOldest: Date de aldono (plej malnova)
+    PublishedNewest: Date de publikigo (plej nova)
+    PublishedOldest: Date de publikigo (plej malnova)
+    AuthorAscending: Verkisto (A-Z)
+    AuthorDescending: Verkisto (Z-A)
+    VideoTitleAscending: Titolo (A-Z)
+    VideoTitleDescending: Titolo (Z-A)
+    VideoDurationAscending: Daŭro (plej mallonga)
+    VideoDurationDescending: Daŭro (plej longa)
+    Custom: Laŭmenda
+Change Format:
+  Change Media Formats: Ŝanĝi medioformojn
+  Use Dash Formats: Uzi DASH-ajn formojn
+  Use Legacy Formats: Uzi heredaĵajn formojn
+  Use Audio Formats: Uzi aŭdiajn formojn
+  Dash formats are not available for this video: DASH-aj formoj ne disponeblas por tiu ĉi videaĵo
+  Audio formats are not available for this video: Aŭdiaj formoj ne disponeblas por tiu ĉi videaĵo
+  Legacy formats are not available for this video: Heredaĵaj formoj ne disponeblas por tiu ĉi videaĵo
+Share:
+  Share Video: Kunhavigi videaĵon
+  Share Post: Kunhavigi afiŝon
+  Share Channel: Kunhavigi kanalon
+  Share Playlist: Kunhavigi ludliston
+  Include Timestamp: Inkluzivi tempindikon
+  Copy Link: Kopii ligilon
+  Open Link: Malfermi ligilon
+  Copy Embed: Kopii enkorpan
+  Open Embed: Malfermi enkorpan
+  Invidious URL copied to clipboard: URL de Invidious kopiita al la tondujo
+  Invidious Embed URL copied to clipboard: Enkorpa URL de Invidious kopiita al la tondujo
+  Invidious Channel URL copied to clipboard: URL de kanalo de Invidious kopiita al la tondujo
+  YouTube URL copied to clipboard: URL de YouTube kopiita al la tondujo
+  YouTube Embed URL copied to clipboard: Enkorpa URL de YouTube kopiita al la tondujo
+  YouTube Channel URL copied to clipboard: URL de kanalo de YouTube kopiita al la tondujo
+Clipboard:
+  Copy failed: Malsukcesis kopii al la tondujo
+  Cannot access clipboard without a secure connection: Ne eblas atingi tondujon sen sekura konekto
+Chapters:
+  Chapters: Ĉapitroj
+  Key Moments: Ŝlosilaj momentoj
+Mini Player: Ludileto
+Comments:
+  Comments: Komentoj
+  Click to View Comments: Alklaku por vidi komentojn
+  Getting comment replies, please wait: Venigado de respondoj, bonvolu atendi
+  There are no more comments for this video: Ne estas pli da komentoj por tiu ĉi videaĵo
+  Hide Comments: Kaŝi komentojn
+  Top comments: Plej bonaj komentoj
+  Newest first: Plej novaj unue
+  View {replyCount} replies: Vidi 1 respondon | Vidi {replyCount} respondojn
+  Hide {replyCount} replies: Kaŝi 1 respondon | Kaŝi {replyCount} respondojn
+  View 1 reply from {channelName}: Vidi 1 respondon de {channelName}
+  View {replyCount} replies from {channelName} and others: Vidi {replyCount} respondojn de {channelName} kaj aliaj
+  Show More Replies: Montri pli da respondoj
+  There are no comments available for this video: Neniu komento disponeblas por tiu ĉi videaĵo
+  There are no comments available for this post: Neniu komento disponeblas por tiu ĉi afiŝo
+  Load More Comments: Ŝargi pli da komentoj
+  Pinned by: Alpinglita de
+  Member: Membro
+  Subscribed: Abonata
+  Hearted: Koro
+Up Next: Sekve
+Description:
+  Expand Description: '...pli'
+  Collapse Description: Montri malpli
+Tooltips:
+  General Settings:
+    Preferred API Backend: Elektu la internan API ke FreeTube uzas por akiri datumojn. La loka API estas integrita elĉerpilo. La API de Invidious bezonas Invidious-servilon al kiu konektiĝi.
+    Fallback to Non-Preferred Backend on Failure: Kiam via prefera API havas problemon, FreeTube aŭtomate klopodos uzi la nepreferitan API kiel retropaŝo kiam ŝaltita.
+    Thumbnail Preference: Ĉiuj bildetoj en FreeTube estos anstataŭigitaj de bildo de la videaĵo, nebuligitaj, aŭ kaŝitaj anstataŭ la defaŭltaj bildetoj.
+    Invidious Instance: La Invidious-servilo al kiu FreeTube konektiĝos por API-vokoj.
+    Region for Trending: La regiono de tendencoj permesas al vi elekti la landon kies plej popularaj videaĵoj estos montrataj.
+    External Link Handling: |
+      Elektu la defaŭltan agon kiam ligilo kiu ne malfermeblas per FreeTube estas alklakita.
+      Defaŭlte, FreeTube malfermos la alklakitan ligilon per via defaŭlta retumilo.
+    Open Deep Links In New Window: URL-oj donataj al FreeTube, ekzemple de retumilaj etendaĵoj de alidirekto aŭ de komandliniaj argumentoj, estos malfermitaj en nova fenestro.
+  Player Settings:
+    Proxy Videos Through Invidious: Konektiĝos al Invidious por servi videaĵojn anstataŭ konektiĝi rekte al YouTube.
+    Default Video Format: Difinas la videaĵoformojn uzatajn por la ludado. DASH-aj formoj ofertas pli altajn kvalitojn. Heredaĵaj formoj estas limigitaj al 360p maksimume sed uzas malpli da kapacito. Aŭdiaj formoj nur enhavas sonon.
+    Scroll Playback Rate Over Video Player: Kiam la kursoro estas sur la videaĵo, ade premu la stirklavon (komandklavon sur Mac) kaj rulumi supre aŭ malsupre por regi la ludrapidon. Ade premu la stirklavon (komandklavon sur Mac) kaj alklaku por tuje reveni al la defaŭlta ludrapido (1x krom se tio estis ŝanĝita en la agordoj).
+    Skip by Scrolling Over Video Player: Rulumi por salti tra la videaĵo, kiel MPV.
+  External Player Settings:
+    External Player: 'Elekti eksteran ludilon montros sur la bildeto ikonon por malfermi la videaĵon (aŭ ludliston, se subtenita) per la ekstera ludilo. Averto: agordoj de Invidious de afektas eksterajn ludilojn.'
+    Custom External Player Executable: Defaŭlte, FreeTube supozas, ke la elektita ekstera ludilo troveblas per la ĉirkaŭaĵa variablo PATH. Se necese, eblas difini laŭmendan vojon ĉi tie.
+    Ignore Warnings: Kaŝi avertojn kiam la aktuala ekstera ludilo ne subtenas donatan agon (ekz. inversigi ludliston, ktp.).
+    Ignore Default Arguments: Ne sendu defaŭltajn argumentojn al la ekstera ludilo krom la URL de la videaĵo (ekz. ludrapido, URL de ludlisto, ktp.). Laŭmendaj argumentoj ankoraŭ estos donataj.
+    Custom External Player Arguments: Iuj ajn laŭmendaj komandliniaj argumentoj, ke vi volas doni al la ekstera ludilo.
+    DefaultCustomArgumentsTemplate: "(Defaŭlto: '{defaultCustomArguments}')"
+  Distraction Free Settings:
+    Hide Channels: Enigi kanalan identigilon por kaŝi ĉiujn videaĵojn, ludlistojn kaj la kanalon mem en serĉoj, tendencoj, plej popularaj kaj rekomenditaj videaĵoj. La identigilo devas kongrui ekzakte kaj estas usklecodistinga.
+    Hide Subscriptions Live: Tiu ĉi agordo estas regita de la ĉiea agordo "{appWideSetting}" en la sekcio "{subsection}" de "{settingsSection}"
+    Hide Videos, Playlists and Channels Containing Text: Enigu vorton, vortparton aŭ frazon (usklecodistinga) por kaŝi ĉiujn videaĵojn, ludlistojn kaj kanalojn kies originaj titoloj enhavas ĝin ĉie en FreeTube, krom historio, viaj ludlistoj kaj videaĵoj en ludlistoj.
+    Hide Videos on Watch: Kaŝas spektitajn videaĵojn en la langetoj de videaĵoj, videaĵetoj kaj tujelsendoj sur la paĝo de abonoj kaj kanalaj paĝoj. Tio ĉi ne afektas la hejman langeton en kanalaj paĝoj
+  Subscription Settings:
+    Fetch Feeds from RSS: Dum ŝaltita, FreeTube uzos RSS anstataŭ sian defaŭltan metodon por venigi viajn abonfluojn. RSS pli rapidas kaj evitas IP-blokojn, sed ne provizas kelkajn informojn kiel la daŭroj de videaĵoj, la stato de tujelsendoj aŭ afiŝoj
+    Fetch Automatically: Dum ŝaltita, FreeTube aŭtomate venigos viajn abonfluojn je startigo kaj kiam nova fenestro malfermiĝas.
+  Experimental Settings:
+    Replace HTTP Cache: Malŝaltas la HTTP-kaŝmemoron de Electron en la disko kaj ŝaltas laŭmendan bildkaŝmemoron en ĉefmemoro. La uzata memoro pligrandiĝos.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Anstataŭigi titolojn de videaĵoj per titoloj provizitaj de uzantoj de DeArrow.
+    UseDeArrowThumbnails: Anstataŭigi videaĵajn bildetojn per bildetoj de DeArrow.
+Local API Error (Click to copy): Eraro de loka API (alklaku por kopii)
+Invidious API Error (Click to copy): Eraro de API de Invidious (alklaku por kopii)
+Falling back to Invidious API: Retropaŝo al la API de Invidious
+Falling back to Local API: Retropaŝo al la loka API
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Tiu ĉi videaĵo ne disponeblas pro mankantaj videaĵoformoj. Tio ĉi povas okazi pro blokado de specifaj landoj.
+Unknown YouTube url type, cannot be opened in app: Nerekonata tipo de URL de YouTube. Ne malfermeblas per la aplikaĵo
+Loop is now disabled: Ripetado nun estas malŝaltita
+Loop is now enabled: Ripetado nun estas ŝaltita
+Shuffle is now disabled: Miksado nun estas malŝaltita
+Shuffle is now enabled: Miksado nun estas ŝaltita
+The playlist has been reversed: La ludlisto estis inversigita
+Playing Next Video: Ludado de la sekva videaĵo
+Playing Previous Video: Ludado de la malsekva videaĵo
+Playing Next Video Interval: Tuja ludado de la sekva videaĵo. Alklaku por nuligi. | Ludado de la sekva videaĵo en {nextVideoInterval} sekundo. Alklaku por nuligi. | Ludado de la sekva videaĵo en {nextVideoInterval} sekundoj. Alklaku por nuligi.
+Canceled next video autoplay: Nuligis aŭtomatan ludadon de la sekva videaĵo
+Autoplay Interruption Timer: Aŭtomata ludado nuligita pro {autoplayInterruptionIntervalHours} horoj de malaktiveco
+Default Invidious instance has been set to {instance}: La defaŭlta Invidious-servilo estis difinita kiel {instance}
+Default Invidious instance has been cleared: La defaŭlta Invidious-servilo estis viŝita
+'The playlist has ended. Enable loop to continue playing': La ludlisto finiĝis.  Ŝaltu la ripetadon por ade ludi
+Age Restricted:
+  This channel is age restricted: Tiu ĉi kanalo estas limigita de aĝo
+  This video is age restricted: Tiu ĉi videaĵo estas limigita de aĝo
+External link opening has been disabled in the general settings: La malfermado de eksteraj ligiloj estis malŝaltita en la ĝeneralaj agordoj
+Screenshot Success: Konservis ekrankopion
+Screenshot Error: Ekrankopio malsukcesis. {error}
+Channel Hidden: Aldonis {channel} al la kanala filtrilo
+Channel Unhidden: Forigis {channel} el la kanala filtrilo
+Trimmed input must be at least N characters long: La mallongigita enigo devas esti almenaŭ 1 signo | La mallongigita enigo devas esti almenaŭ {length} signoj
+Tag already exists: La etikedo "{tagName}" jam ekzistas
+Hashtag:
+  Hashtag: Kradvorto
+  This hashtag does not currently have any videos: Tiu ĉi kradvorto nuntempe havas neniun videaĵon
+Moments Ago: momentoj antaŭe
+Yes: Jes
+No: Ne
+Ok: Okej
+Yes, Delete: Jes, forigi
+Yes, Restart: Jes, restartigi
+Yes, Open Link: Jes, malfermi ligilon
+Cancel: Nuligi
+checkmark: ✓
+Display Label: '{label}: {value}'
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+shortcutLabelSeparator: ｜
+Keys:
+  alt: Alt
+  ctrl: Stir
+  shift: Maj
+  enter: Enigo
+  plus: Plus
+  arrowdown: Malsupra sago
+  arrowleft: Maldekstra sago
+  arrowright: Dekstra sago
+  arrowup: Supra sago
