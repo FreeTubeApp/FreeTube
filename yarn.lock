@@ -1168,10 +1168,10 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "7.2.0"
 
-"@fortawesome/vue-fontawesome@^3.1.3":
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-3.1.3.tgz#3184bc26cd5cf20904e7e937e9c68860039c6dab"
-  integrity sha512-OHHUTLPEzdwP8kcYIzhioUdUOjZ4zzmi+midwa4bqscza4OJCOvTKJEHkXNz8PgZ23kWci1HkKVX0bm8f9t9gQ==
+"@fortawesome/vue-fontawesome@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-3.2.0.tgz#259f3f65d3cb2d44453e633a21e458d4b87adbea"
+  integrity sha512-7BwGjTZn8QDvVEIu8fvkHhsDRRv//tq7jtsldaDhF3dE1fyWLIQcEg3zvIzy33su7kcppWsZZ6XRYP5wp3UCgQ==
 
 "@humanfs/core@^0.19.1":
   version "0.19.1"
