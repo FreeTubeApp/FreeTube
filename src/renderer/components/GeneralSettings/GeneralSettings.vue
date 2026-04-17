@@ -95,7 +95,7 @@
         @change="updateCurrentLocale"
       />
       <FtSelect
-        v-if="backendPreference === 'local' || backendFallback"
+        v-if="SUPPORTS_LOCAL_API && (backendPreference === 'local' || backendFallback)"
         :placeholder="t('Settings.General Settings.Avoid translation.Avoid translation')"
         :value="avoidTranslation"
         :select-names="avoidTranslationNames"
@@ -404,7 +404,7 @@ function updateCurrentLocale(value) {
   store.dispatch('updateCurrentLocale', value)
 }
 
-/** @type {import('vue').ComputedRef<boolean>} */
+/** @type {import('vue').ComputedRef<string>} */
 const avoidTranslation = computed(() => store.getters.getAvoidTranslation)
 
 /**

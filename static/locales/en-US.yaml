@@ -1034,8 +1034,7 @@ Description:
 #Tooltips
 Tooltips:
   General Settings:
-    Avoid translation:
-      Disable YouTube's autotranslation of title, description and chapters of a video.
+    Avoid translation: Disable YouTube's autotranslation of title, description and chapters of a video.
       Too many requests (like video research) may lead to temporary malfunction of the app.
     Preferred API Backend: Choose the backend that FreeTube uses to obtain data. The
       local API is a built-in extractor. The Invidious API requires an Invidious server
