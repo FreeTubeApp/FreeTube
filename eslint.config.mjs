@@ -346,15 +346,6 @@ export default [
       }
     }
   },
-  {
-    files: ['src/renderer/directives/vSaferHtml.js'],
-    languageOptions: {
-      globals: {
-        // Fix Sanitizer not being listed in `globals` yet, remove it when it gets added in the future
-        Sanitizer: 'readable'
-      }
-    }
-  },
 
   ...eslintPluginJsonc.configs.base,
   {
