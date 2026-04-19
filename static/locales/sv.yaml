@@ -172,7 +172,7 @@ User Playlists:
       This video cannot be moved down.: Den här videon kan inte flyttas nedåt.
       Video has been removed. Click here to undo.: Videon har tagits bort. Klicka här för att ångra.
       This playlist has a video with a duration error: Den här spellistan innehåller minst en video som inte har någon varaktighet, den sorteras som om deras varaktighet är noll.
-      This playlist is already being used for quick bookmark.: Den här spellistan används redan för snabbbokmärken.
+      This playlist is already being used for quick bookmark.: Den här spellistan används redan för snabbokmärken.
     Search for Videos: Sök efter videor
   Playlists with Matching Videos: Spellistor med passande videor
   Enable Quick Bookmark With This Playlist: Aktivera snabbokmärke med den här spellistan
@@ -218,7 +218,7 @@ Settings:
       Local API: 'Lokalt API'
       Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: 'Video visningtypen'
+      Video View Type: 'Videovisningstyp'
       Grid: 'Rutnät'
       List: 'Lista'
     Thumbnail Preference:
@@ -408,7 +408,7 @@ Settings:
         Forbidden Characters: Förbjudna symboler
       Ask Path: Fråga efter sparmapp
       Folder Label: Skärmdumpsmapp
-      Quality Label: Skärmdumpskvalité
+      Quality Label: Skärmdumpskvalitet
       Format Label: Skärmdumpsformat
       File Name Tooltip: Du kan använda variablerna nedan. %Y År 4 siffror. %M Månad 2 siffror. %D Dag 2 siffror. %H Timme 2 siffror. %N Minut 2 siffror. %S Sekund 2 siffror. %T Millisekund 3 siffror. %s Video Sekund. %t Video Millisekund 3 siffror. %i Video ID.
       Folder Button: Välj mapp
@@ -422,8 +422,8 @@ Settings:
       Theater: Teater
       Picture in Picture: Bild i Bild
       Full Screen: Helskärm
-      External Player: Extern Spelare ({externalPlayerName})
-    Autoplay Interruption Timer: Autoplay Avbrottstimer
+      External Player: Extern spelare ({externalPlayerName})
+    Autoplay Interruption Timer: Avbrottstimer för autouppspelning
   Privacy Settings:
     Privacy Settings: 'Integritet'
     Remember History: 'Kom ihåg visningshistorik'
@@ -433,7 +433,7 @@ Settings:
     Search cache has been cleared: 'Sök cachen har blivit rensad'
     Remove Watch History: 'Rensa hela visningshistoriken'
     Are you sure you want to remove your entire watch history?: 'Vill du verkligen rensa hela visningshistoriken?'
-    Watch history has been cleared: 'Visningshistoriken är rensad'
+    Watch history has been cleared: 'Visningshistoriken ar rensats'
     Remove All Subscriptions / Profiles: 'Ta bort alla prenumerationer / profiler'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Vill du verkligen ta bort alla prenumerationer och profiler?  Detta kan inte ångras.'
     Save Watched Videos With Last Viewed Playlist: Spara visade videor med senast visade spellista
@@ -441,7 +441,7 @@ Settings:
     Clear Search History and Cache: Rensa sökhistorik och cache
     All playlists have been removed: Alla spellistor har tagits bort
     Are you sure you want to remove all your playlists?: Är du säker på att du vill ta bort alla dina spellistor?
-    Search history and cache have been cleared: Sökhistorik och cache har rensats
+    Search history and cache have been cleared: Sökhistoriken och cachen har rensats
     Remove All Playlists: Ta bort alla spellistor
     Are you sure you want to clear out your search history and cache?: Är du säker på att du vill rensa din sökhistorik och cache?
     Watched Progress Saving Mode:
@@ -563,8 +563,8 @@ Settings:
     Enable Tor / Proxy: Aktivera Tor / Proxy
     Proxy Settings: Proxy
     Proxy Warning: FreeTube har ingen inbyggd proxy men kan ansluta till en extern proxy, till exempel en som körs på din maskin som Tor eller en extern proxy, såsom en SOCKS5 proxy som tillhandahålls av vissa VPN. Om den är aktiverad, se till att din proxy/Tor är korrekt konfigurerad, annars kommer FreeTube inte att kunna hämta någon data.
-    Proxy Username: Proxy användarnamn
-    Proxy Password: Proxy lösenord
+    Proxy Username: Proxy-användarnamn
+    Proxy Password: Proxy-lösenord
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notifikation när sponsorsegmentet är åsidosatt
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-URL (standard är https://sponsor.ajay.app)
@@ -575,7 +575,7 @@ Settings:
       Show In Seek Bar: Visa i sökpanelen
       Do Nothing: Gör ingenting
       Auto Skip: Hoppa över automatiskt
-      Prompt To Skip: Prompt för att hoppa över
+      Prompt To Skip: Fråga för att hoppa över
     Category Color: Kategorifärg
     UseDeArrowTitles: Använd DeArrow-videotitlar
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow-miniatyrbildsgenerator API-URL (standard är https://dearrow-thumb.ajay.app)
@@ -583,9 +583,9 @@ Settings:
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorera händelsevarningar som inte stöds
     External Player: Extern spelare
-    External Player Settings: Extern Spelare
+    External Player Settings: Extern spelare
     Custom External Player Arguments: Anpassade externa spelargument
-    Custom External Player Executable: Anpassad extern spelare körbar
+    Custom External Player Executable: Anpassad extern spelare körbar fil
     Players:
       None:
         Name: Ingen
@@ -712,7 +712,7 @@ Channel:
     Details: Detaljer
     Joined: Gick med
     Location: Plats
-  This channel does not exist: Denna kanalen finns inte
+  This channel does not exist: Denna kanal finns inte
   This channel does not allow searching: Denna kanalen tillåter inte sökning
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Denna kanalen är ålderbegränsad och kan inte ses i FreeTube.
   Channel Tabs: Kanalflikar
@@ -839,7 +839,7 @@ Video:
     Autoplay is on: Autouppspelning är på
     Theatre Mode: Teaterläge
     Exit Theatre Mode: Avsluta Teaterläget
-    Take Screenshot: Ta Skärmdump
+    Take Screenshot: Ta skärmdump
     Show Stats: Visa statistik
     TranslatedCaptionTemplate: '{language} (översatt från "{originalLanguage}")'
   More Options: Fler Alternativ
@@ -938,9 +938,9 @@ Loop is now enabled: 'Slinga är nu aktiverad'
 Shuffle is now disabled: 'Blandning är nu inaktiverad'
 Shuffle is now enabled: 'Blandning är nu aktiverad'
 The playlist has been reversed: 'Spellistan är omvänd'
-Playing Next Video: 'Spelar video'
+Playing Next Video: 'Spelar nästa video'
 Playing Previous Video: 'Spelar föregående video'
-Canceled next video autoplay: 'Avbröts nästa autoplay'
+Canceled next video autoplay: 'Avbröt automatisk uppspelning av nästa video'
 'The playlist has ended. Enable loop to continue playing': 'Spellistan har avslutats.  Aktivera slinga för att fortsätta spela'
 
 Yes: 'Ja'
@@ -998,7 +998,7 @@ Channels:
   Unsubscribe Prompt: Är du säker på att du vill avprenumerera från "{channelName}"?
   Count: '{number} kanal(er) hittade.'
   Empty: Din kanallista är tom.
-Preferences: Preferenser
+Preferences: Inställningar
 Ok: Okej
 Screenshot Success: Sparad skärmdump
 Screenshot Error: Skärmdump misslyckades {error}
@@ -1029,7 +1029,7 @@ Search Listing:
     New: Ny
     3D: 3D
     8K: 8K
-    Closed Captions: Dold Bildtext
+    Closed Captions: Dold bildtext
 Yes, Open Link: Ja, öppna länken
 Yes, Restart: Ja, starta om
 Age Restricted:
