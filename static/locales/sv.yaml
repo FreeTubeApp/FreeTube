@@ -433,7 +433,7 @@ Settings:
     Search cache has been cleared: 'Sök cachen har blivit rensad'
     Remove Watch History: 'Rensa hela visningshistoriken'
     Are you sure you want to remove your entire watch history?: 'Vill du verkligen rensa hela visningshistoriken?'
-    Watch history has been cleared: 'Visningshistoriken ar rensats'
+    Watch history has been cleared: 'Visningshistoriken har rensats'
     Remove All Subscriptions / Profiles: 'Ta bort alla prenumerationer / profiler'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Vill du verkligen ta bort alla prenumerationer och profiler?  Detta kan inte ångras.'
     Save Watched Videos With Last Viewed Playlist: Spara visade videor med senast visade spellista
@@ -998,7 +998,7 @@ Channels:
   Unsubscribe Prompt: Är du säker på att du vill avprenumerera från "{channelName}"?
   Count: '{number} kanal(er) hittade.'
   Empty: Din kanallista är tom.
-Preferences: Inställningar
+Preferences: Preferenser
 Ok: Okej
 Screenshot Success: Sparad skärmdump
 Screenshot Error: Skärmdump misslyckades {error}
