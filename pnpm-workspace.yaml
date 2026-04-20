@@ -1,2 +1,6 @@
 # https://github.com/pnpm/pnpm/issues/11070
 dedupePeers: true
+
+# https://pnpm.io/next/settings#allowbuilds
+allowBuilds:
+  electron: true
