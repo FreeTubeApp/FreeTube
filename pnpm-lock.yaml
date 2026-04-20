@@ -54,6 +54,9 @@ importers:
       swiper:
         specifier: ^12.1.3
         version: 12.1.3
+      terser:
+        specifier: ^5.46.1
+        version: 5.46.1
       vue:
         specifier: ^3.5.32
         version: 3.5.32(typescript@6.0.3)
@@ -4772,8 +4775,8 @@ packages:
       uglify-js:
         optional: true
 
-  terser@5.39.0:
-    resolution: {integrity: sha512-LBAhFyLho16harJoWMg/nZsQYgTrg5jXOn2nCYjRUcZZEdE3qa2zb8QEDRUGVZBW4rlazf2fxkg8tztybTaqWw==}
+  terser@5.46.1:
+    resolution: {integrity: sha512-vzCjQO/rgUuK9sf8VJZvjqiqiHFaZLnOiimmUuOKODxWL8mm/xua7viT7aqX7dgPY60otQjUotzFMmCB4VdmqQ==}
     engines: {node: '>=10'}
     hasBin: true
 
@@ -8473,7 +8476,7 @@ snapshots:
       he: 1.2.0
       param-case: 3.0.4
       relateurl: 0.2.7
-      terser: 5.39.0
+      terser: 5.46.1
 
   html-tags@5.1.0: {}
 
@@ -10265,10 +10268,10 @@ snapshots:
       '@jridgewell/trace-mapping': 0.3.29
       jest-worker: 27.5.1
       schema-utils: 4.3.3
-      terser: 5.39.0
+      terser: 5.46.1
       webpack: 5.106.2(webpack-cli@7.0.2)
 
-  terser@5.39.0:
+  terser@5.46.1:
     dependencies:
       '@jridgewell/source-map': 0.3.5
       acorn: 8.16.0
