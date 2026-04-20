@@ -1,5 +1,5 @@
 {
-  "stylelint.packageManager": "yarn",
+  "stylelint.packageManager": "pnpm",
   "stylelint.snippet": [
       "css",
       "less",
