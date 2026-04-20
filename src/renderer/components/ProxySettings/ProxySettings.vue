@@ -53,7 +53,7 @@
         />
       </FtFlexBox>
       <FtFlexBox
-        v-if="isCredentialsSupported"
+        v-if="areCredentialsSupported"
       >
         <FtInput
           :placeholder="$t('Settings.Proxy Settings.Proxy Username')"
@@ -205,7 +205,7 @@ const proxyTestUrl = computed(() => {
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */
-const isCredentialsSupported = computed(() => {
+const areCredentialsSupported = computed(() => {
   return proxyProtocol.value === 'http' || proxyProtocol.value === 'https'
 })
 
