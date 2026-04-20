@@ -2,7 +2,7 @@ import {
   app, BrowserWindow, dialog, Menu, ipcMain,
   powerSaveBlocker, screen, session, shell,
   nativeTheme, net, protocol, clipboard,
-  Tray
+  Tray, nativeImage,
 } from 'electron'
 import path from 'path'
 import cp from 'child_process'
@@ -1446,6 +1446,11 @@ function runApp() {
     }
 
     return true
+  })
+
+  ipcMain.handle(IpcChannels.WRITE_IMAGE_TO_CLIPBOARD, (_, arrayBuffer, width, height) => {
+    const image = nativeImage.createFromBuffer(Buffer.from(arrayBuffer), { width, height })
+    clipboard.writeImage(image)
   })
 
   /** @type {Map<number, number>} */

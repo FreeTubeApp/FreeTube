@@ -485,6 +485,8 @@ Settings:
       File Name Tooltip: You can use variables below. %Y Year 4 digits. %M Month 2 digits.
         %D Day 2 digits. %H Hour 2 digits. %N Minute 2 digits. %S Second 2 digits. %T Millisecond 3 digits.
         %s Video Second. %t Video Millisecond 3 digits. %i Video ID.
+      Save On Disk: Save on Disk
+      Copy To Clipboard: Copy to Clipboard
       Error:
         Forbidden Characters: Forbidden Characters
         Empty File Name: Empty File Name
@@ -1117,7 +1119,9 @@ Age Restricted:
   This video is age restricted: This video is age restricted
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
 Screenshot Success: Saved screenshot
+Screenshot Clipboard Success: Saved screenshot to clipboard
 Screenshot Error: Screenshot failed. {error}
+Screenshot Clipboard Error: Screenshot copy to clipboard failed. {error}
 Channel Hidden: '{channel} added to channel filter'
 Channel Unhidden: '{channel} removed from channel filter'
 Trimmed input must be at least N characters long: Trimmed input must be at least 1 character long | Trimmed input must be at least {length} characters long

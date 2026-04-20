@@ -197,58 +197,72 @@
       </FtFlexBox>
       <FtFlexBox v-if="USING_ELECTRON">
         <FtToggleSwitch
-          :label="t('Settings.Player Settings.Screenshot.Ask Path')"
-          :default-value="screenshotAskPath"
-          @change="updateScreenshotAskPath"
+          :label="t('Settings.Player Settings.Screenshot.Copy To Clipboard')"
+          :default-value="screenshotCopyToClipboard"
+          @change="updateScreenshotCopyToClipboard"
+        />
+        <FtToggleSwitch
+          :label="t('Settings.Player Settings.Screenshot.Save On Disk')"
+          :default-value="screenshotSaveOnDisk"
+          @change="updateScreenshotSaveOnDisk"
         />
       </FtFlexBox>
-      <FtFlexBox
-        v-if="USING_ELECTRON && !screenshotAskPath"
-        class="screenshotFolderContainer"
-      >
-        <p class="screenshotFolderLabel">
-          {{ t('Settings.Player Settings.Screenshot.Folder Label') }}
-        </p>
-        <FtInput
-          class="screenshotFolderPath"
-          :placeholder="screenshotFolder"
-          :show-action-button="false"
-          :show-label="false"
-          :disabled="true"
-        />
-        <FtButton
-          :label="t('Settings.Player Settings.Screenshot.Folder Button')"
-          class="screenshotFolderButton"
-          @click="chooseScreenshotFolder"
-        />
-      </FtFlexBox>
-      <FtFlexBox
-        class="screenshotFolderContainer"
-      >
-        <p class="screenshotFilenamePatternTitle">
-          {{ t('Settings.Player Settings.Screenshot.File Name Label') }}
-          <FtTooltip
-            class="selectTooltip"
-            position="bottom"
-            :tooltip="t('Settings.Player Settings.Screenshot.File Name Tooltip')"
+      <div v-if="screenshotSaveOnDisk">
+        <FtFlexBox>
+          <FtToggleSwitch
+            :label="t('Settings.Player Settings.Screenshot.Ask Path')"
+            :default-value="screenshotAskPath"
+            @change="updateScreenshotAskPath"
           />
-        </p>
-        <FtInput
-          class="screenshotFilenamePatternInput"
-          placeholder=""
-          :value="screenshotFilenamePattern"
-          :show-action-button="false"
-          :show-label="false"
-          @input="handleScreenshotFilenamePatternChanged"
-        />
-        <FtInput
-          class="screenshotFilenamePatternExample"
-          :placeholder="screenshotFilenameExample"
-          :show-action-button="false"
-          :show-label="false"
-          :disabled="true"
-        />
-      </FtFlexBox>
+        </FtFlexBox>
+        <FtFlexBox
+          v-if="USING_ELECTRON && !screenshotAskPath"
+          class="screenshotFolderContainer"
+        >
+          <p class="screenshotFolderLabel">
+            {{ t('Settings.Player Settings.Screenshot.Folder Label') }}
+          </p>
+          <FtInput
+            class="screenshotFolderPath"
+            :placeholder="screenshotFolder"
+            :show-action-button="false"
+            :show-label="false"
+            :disabled="true"
+          />
+          <FtButton
+            :label="t('Settings.Player Settings.Screenshot.Folder Button')"
+            class="screenshotFolderButton"
+            @click="chooseScreenshotFolder"
+          />
+        </FtFlexBox>
+        <FtFlexBox
+          class="screenshotFolderContainer"
+        >
+          <p class="screenshotFilenamePatternTitle">
+            {{ t('Settings.Player Settings.Screenshot.File Name Label') }}
+            <FtTooltip
+              class="selectTooltip"
+              position="bottom"
+              :tooltip="t('Settings.Player Settings.Screenshot.File Name Tooltip')"
+            />
+          </p>
+          <FtInput
+            class="screenshotFilenamePatternInput"
+            placeholder=""
+            :value="screenshotFilenamePattern"
+            :show-action-button="false"
+            :show-label="false"
+            @input="handleScreenshotFilenamePatternChanged"
+          />
+          <FtInput
+            class="screenshotFilenamePatternExample"
+            :placeholder="screenshotFilenameExample"
+            :show-action-button="false"
+            :show-label="false"
+            :disabled="true"
+          />
+        </FtFlexBox>
+      </div>
       <br>
     </div>
   </FtSettingsSection>
@@ -670,6 +684,26 @@ async function getScreenshotFilenameExample(pattern) {
     screenshotFilenameExample.value = `❗ ${err.message}`
     return false
   }
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const screenshotCopyToClipboard = computed(() => store.getters.getScreenshotCopyToClipboard)
+
+/**
+ * @param {boolean} value
+ */
+function updateScreenshotCopyToClipboard(value) {
+  store.dispatch('updateScreenshotCopyToClipboard', value)
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const screenshotSaveOnDisk = computed(() => store.getters.getScreenshotSaveOnDisk)
+
+/**
+ * @param {boolean} value
+ */
+function updateScreenshotSaveOnDisk(value) {
+  store.dispatch('updateScreenshotSaveOnDisk', value)
 }
 </script>
 

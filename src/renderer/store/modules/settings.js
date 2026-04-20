@@ -291,6 +291,8 @@ const state = {
   screenshotAskPath: !process.env.IS_ELECTRON,
   screenshotFolderPath: '',
   screenshotFilenamePattern: '%Y%M%D-%H%N%S',
+  screenshotCopyToClipboard: false,
+  screenshotSaveOnDisk: true,
   settingsSectionSortEnabled: false,
   fetchSubscriptionsAutomatically: true,
   settingsPassword: '',

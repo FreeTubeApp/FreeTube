@@ -356,6 +356,16 @@ export default defineComponent({
     })
 
     /** @type {import('vue').ComputedRef<boolean>} */
+    const screenshotCopyToClipboard = computed(() => {
+      return store.getters.getScreenshotCopyToClipboard
+    })
+
+    /** @type {import('vue').ComputedRef<boolean>} */
+    const screenshotSaveOnDisk = computed(() => {
+      return store.getters.getScreenshotSaveOnDisk
+    })
+
+    /** @type {import('vue').ComputedRef<boolean>} */
     const videoVolumeMouseScroll = computed(() => {
       return store.getters.getVideoVolumeMouseScroll
     })
@@ -1739,25 +1749,42 @@ export default defineComponent({
         /** @type {Blob} */
         const blob = await new Promise((resolve) => canvas.toBlob(resolve, mimeType, imageQuality))
 
-        if (!process.env.IS_ELECTRON || screenshotAskPath.value) {
-          const saved = await writeFileWithPicker(
-            filenameWithExtension,
-            blob,
-            format.toUpperCase(),
-            mimeType,
-            `.${format}`,
-            'player-screenshots',
-            'pictures'
-          )
-
-          if (saved) {
-            showToast(t('Screenshot Success'))
+        if (screenshotCopyToClipboard.value) {
+          try {
+            // Clipboard API only supports JPEG and PNG, so we need to convert if necessary
+            const clipboardBlob = format === 'jpg' || format === 'jpeg' || format === 'png'
+              ? blob
+              : await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'))
+            const clipboardArrayBuffer = await clipboardBlob.arrayBuffer()
+            window.ftElectron.writeImageToClipboard(clipboardArrayBuffer, width, height)
+            showToast(t('Screenshot Clipboard Success'))
+          } catch (error) {
+            console.error(error)
+            showToast(t('Screenshot Clipboard Error', { error }))
           }
-        } else {
-          const arrayBuffer = await blob.arrayBuffer()
+        }
 
-          if (await window.ftElectron.writeToDefaultFolder(filenameWithExtension, arrayBuffer)) {
-            showToast(t('Screenshot Success'))
+        if (screenshotSaveOnDisk.value) {
+          if (!process.env.IS_ELECTRON || screenshotAskPath.value) {
+            const saved = await writeFileWithPicker(
+              filenameWithExtension,
+              blob,
+              format.toUpperCase(),
+              mimeType,
+              `.${format}`,
+              'player-screenshots',
+              'pictures'
+            )
+
+            if (saved) {
+              showToast(t('Screenshot Success'))
+            }
+          } else {
+            const arrayBuffer = await blob.arrayBuffer()
+
+            if (await window.ftElectron.writeToDefaultFolder(filenameWithExtension, arrayBuffer)) {
+              showToast(t('Screenshot Success'))
+            }
           }
         }
       } catch (error) {

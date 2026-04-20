@@ -131,6 +131,15 @@ export default {
     return await ipcRenderer.invoke(IpcChannels.WRITE_TO_DEFAULT_FOLDER, filename, contents)
   },
 
+  /**
+   * @param {ArrayBuffer} arrayBuffer
+   * @param {number} width
+   * @param {number} height
+   */
+  writeImageToClipboard: async (arrayBuffer, width, height) => {
+    return await ipcRenderer.invoke(IpcChannels.WRITE_IMAGE_TO_CLIPBOARD, arrayBuffer, width, height)
+  },
+
   relaunch: () => {
     ipcRenderer.send(IpcChannels.RELAUNCH_REQUEST)
   },
