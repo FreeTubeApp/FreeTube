@@ -168,13 +168,16 @@
     </FtFlexBox>
     <br>
     <FtFlexBox>
-      <FtToggleSwitch
-        :label="t('Settings.Player Settings.Screenshot.Enable')"
-        :default-value="enableScreenshot"
-        @change="updateEnableScreenshot"
+      <FtSelect
+        :placeholder="t('Settings.Player Settings.Screenshot.Mode')"
+        :value="screenshotMode"
+        :select-names="screenshotModeNames"
+        :select-values="SCREENSHOT_MODE_VALUES"
+        :icon="['fas', 'expand']"
+        @change="handleUpdateScreenshotMode"
       />
     </FtFlexBox>
-    <div v-if="enableScreenshot">
+    <div v-if="screenshotMode !== 'disabled'">
       <FtFlexBox>
         <FtSelect
           :placeholder="t('Settings.Player Settings.Screenshot.Format Label')"
@@ -195,19 +198,7 @@
           @change="updateScreenshotQuality"
         />
       </FtFlexBox>
-      <FtFlexBox v-if="USING_ELECTRON">
-        <FtToggleSwitch
-          :label="t('Settings.Player Settings.Screenshot.Copy To Clipboard')"
-          :default-value="screenshotCopyToClipboard"
-          @change="updateScreenshotCopyToClipboard"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Player Settings.Screenshot.Save On Disk')"
-          :default-value="screenshotSaveOnDisk"
-          @change="updateScreenshotSaveOnDisk"
-        />
-      </FtFlexBox>
-      <div v-if="screenshotSaveOnDisk">
+      <div v-if="USING_ELECTRON && (screenshotMode === 'disk' || screenshotMode === 'both')">
         <FtFlexBox>
           <FtToggleSwitch
             :label="t('Settings.Player Settings.Screenshot.Ask Path')"
@@ -216,7 +207,7 @@
           />
         </FtFlexBox>
         <FtFlexBox
-          v-if="USING_ELECTRON && !screenshotAskPath"
+          v-if="!screenshotAskPath"
           class="screenshotFolderContainer"
         >
           <p class="screenshotFolderLabel">
@@ -588,14 +579,22 @@ function updateMaxVideoPlaybackRate(value) {
   store.dispatch('updateMaxVideoPlaybackRate', value)
 }
 
-/** @type {import('vue').ComputedRef<boolean>} */
-const enableScreenshot = computed(() => store.getters.getEnableScreenshot)
+const SCREENSHOT_MODE_VALUES = ['disabled', 'disk', 'clipboard', 'both']
+const screenshotModeNames = computed(() => [
+  t('Settings.Player Settings.Screenshot.Modes.Disabled'),
+  t('Settings.Player Settings.Screenshot.Modes.Disk'),
+  t('Settings.Player Settings.Screenshot.Modes.Clipboard'),
+  t('Settings.Player Settings.Screenshot.Modes.Both'),
+])
+
+/** @type {import('vue').ComputedRef<'disabled' | 'disk' | 'clipboard' | 'both'>} */
+const screenshotMode = computed(() => store.getters.getScreenshotMode)
 
 /**
- * @param {boolean} value
+ * @param {'disabled' | 'disk' | 'clipboard' | 'both'} mode
  */
-function updateEnableScreenshot(value) {
-  store.dispatch('updateEnableScreenshot', value)
+async function handleUpdateScreenshotMode(mode) {
+  await store.dispatch('updateScreenshotMode', mode)
 }
 
 const SCREENSHOT_FORMAT_NAMES = ['PNG', 'JPEG', 'WebP']
@@ -684,26 +683,6 @@ async function getScreenshotFilenameExample(pattern) {
     screenshotFilenameExample.value = `❗ ${err.message}`
     return false
   }
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const screenshotCopyToClipboard = computed(() => store.getters.getScreenshotCopyToClipboard)
-
-/**
- * @param {boolean} value
- */
-function updateScreenshotCopyToClipboard(value) {
-  store.dispatch('updateScreenshotCopyToClipboard', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const screenshotSaveOnDisk = computed(() => store.getters.getScreenshotSaveOnDisk)
-
-/**
- * @param {boolean} value
- */
-function updateScreenshotSaveOnDisk(value) {
-  store.dispatch('updateScreenshotSaveOnDisk', value)
 }
 </script>
 

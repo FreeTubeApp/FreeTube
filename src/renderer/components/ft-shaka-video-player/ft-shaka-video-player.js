@@ -335,9 +335,9 @@ export default defineComponent({
       })
     })
 
-    /** @type {import('vue').ComputedRef<boolean>} */
-    const enableScreenshot = computed(() => {
-      return store.getters.getEnableScreenshot
+    /** @type {import('vue').ComputedRef<string>} */
+    const screenshotMode = computed(() => {
+      return store.getters.getScreenshotMode
     })
 
     /** @type {import('vue').ComputedRef<string>} */
@@ -353,16 +353,6 @@ export default defineComponent({
     /** @type {import('vue').ComputedRef<boolean>} */
     const screenshotAskPath = computed(() => {
       return store.getters.getScreenshotAskPath
-    })
-
-    /** @type {import('vue').ComputedRef<boolean>} */
-    const screenshotCopyToClipboard = computed(() => {
-      return store.getters.getScreenshotCopyToClipboard
-    })
-
-    /** @type {import('vue').ComputedRef<boolean>} */
-    const screenshotSaveOnDisk = computed(() => {
-      return store.getters.getScreenshotSaveOnDisk
     })
 
     /** @type {import('vue').ComputedRef<boolean>} */
@@ -868,7 +858,7 @@ export default defineComponent({
         elementList = uiConfig.controlPanelElements
       }
 
-      if (!enableScreenshot.value || props.format === 'audio') {
+      if (screenshotMode.value === 'disabled' || props.format === 'audio') {
         removeFromArrayIfExists(elementList, 'ft_screenshot')
       }
 
@@ -1749,7 +1739,7 @@ export default defineComponent({
         /** @type {Blob} */
         const blob = await new Promise((resolve) => canvas.toBlob(resolve, mimeType, imageQuality))
 
-        if (screenshotCopyToClipboard.value) {
+        if (screenshotMode.value === 'clipboard' || screenshotMode.value === 'both') {
           try {
             // Clipboard API only supports JPEG and PNG, so we need to convert if necessary
             const clipboardBlob = format === 'jpg' || format === 'jpeg' || format === 'png'
@@ -1764,7 +1754,7 @@ export default defineComponent({
           }
         }
 
-        if (screenshotSaveOnDisk.value) {
+        if (screenshotMode.value === 'disk' || screenshotMode.value === 'both') {
           if (!process.env.IS_ELECTRON || screenshotAskPath.value) {
             const saved = await writeFileWithPicker(
               filenameWithExtension,
@@ -2531,7 +2521,7 @@ export default defineComponent({
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.TAKE_SCREENSHOT:
-          if (enableScreenshot.value && props.format !== 'audio') {
+          if (screenshotMode.value !== 'disabled' && props.format !== 'audio') {
             event.preventDefault()
             // Take screenshot
             takeScreenshot()
