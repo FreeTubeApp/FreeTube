@@ -1,24 +1,24 @@
 # Put the name of your locale in the same language
-Locale Name: 'Български'
+Locale Name: 'Bulgarian'
 
 # Webkit Menu Bar
 File: 'Файл'
-Quit: 'Изход'
+Quit: 'Излез'
 Edit: 'Редакция'
-Undo: 'Отмяна'
-Redo: 'Възстановяване'
+Undo: 'Отмени'
+Redo: 'Върни'
 Cut: 'Изрязване'
 Copy: 'Копиране'
 Paste: 'Поставяне'
 Delete: 'Изтриване'
-Select all: 'Избиране на всичко'
+Select all: 'Избери всичко'
 Toggle Developer Tools: 'Показване на инструменти за разработчици'
-Actual size: 'Действителен размер'
-Zoom in: 'Увеличаване'
-Zoom out: 'Намаляване'
+Actual size: 'Реален размер'
+Zoom in: 'Увеличи'
+Zoom out: 'Намали'
 Toggle fullscreen: 'Превключване на цял екран'
 Window: 'Прозорец'
-Minimize: 'Минимизиране'
+Minimize: 'Свиване'
 Close: 'Затваряне'
 Back: 'Назад'
 Forward: 'Напред'
@@ -27,7 +27,7 @@ Forward: 'Напред'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Видеа'
-  Shorts: Кратки видеа
+  Shorts: Кратки
   Live: На живо
   Posts: Публикации
   Sort By: Подреждане по
@@ -40,8 +40,8 @@ Global:
     Watching Count: 1 гледане | {count} гледания
     Like Count: 1 харесване | {count} харесвания
     Comment Count: 1 коментар | {count} коментара
-Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber} е вече налична! Щракнете за повече детайли'
-Download From Site: 'Сваляне от сайта'
+Version {versionNumber} is now available!  Click for more details: 'Вече е налична версия {versionNumber} !  Щракнете за повече детайли'
+Download From Site: 'Изтегли от сайта'
 
 # Search Bar
 Search / Go to URL: 'Търсене / Отиване на адрес'
@@ -50,6 +50,8 @@ Search Filters:
   Search Filters: 'Филтри за търсене'
   Prioritize:
     Most Relevant: 'Най-уместно'
+    Popularity: Популярност
+    Prioritize: Приоритизирай
   Time:
     Time: 'Време'
     Any Time: 'Независимо кога'
@@ -59,19 +61,19 @@ Search Filters:
     This Year: 'Тази година'
   Type:
     Type: 'Тип'
-    All Types: 'Всички типове'
+    All Types: 'Всички видове'
     Videos: 'Видеа'
     Channels: 'Канали'
     #& Playlists
     Movies: Филми
   Duration:
     Duration: 'Продължителност'
-    All Durations: 'Всички продължителности'
+    All Durations: 'Всички времетраения'
     '< 3 minutes': '< 3 минути'
     '> 20 minutes': '> 20 минути'
     '3 - 20 minutes': 3 - 20 минути
   Search Results: 'Резултати от търсенето'
-  Fetching results. Please wait: 'Събиране на резултати. Моля, изчакайте'
+  Fetching results. Please wait: 'Извличане на резултати. Моля, изчакайте'
   Fetch more results: 'Намиране на още резултати'
 # Sidebar
   There are no more results for this search: Няма повече резултати за това търсене
@@ -87,18 +89,18 @@ Search Filters:
     HD: HD
     3D: 3D
     4K: 4K
-  Clear Filters: Изчистване на филтрите
+  Clear Filters: Изчисти филтрите
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Абонаменти'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Списъкът с абонаменти е празен. Ако искате да внесете абонаментите си, отидете в "Настройки на данни" и изберете "Внасяне на абонаменти" или можете да потърсите канал и да се абонирате за него.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Този профил има голям брой абонаменти. Принудително използване на RSS за заобикаляне на ограниченията
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Списъкът с абонаменти е празен. Ако искате да внесете абонаментите си, отидете в "Настройки на данни" и изберете "Внасяне на абонаменти" или да потърсете канал и да се абонирате за него.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Този профил има голям брой абонаменти. Принудително използване на RSS, за да се избегне ограничаването на скоростта
   Load More Videos: Зареждане на още видеа
   Error Channels: Канали с грешки
   Disabled Automatic Fetching: Автоматичното извличане на абонаменти е деактивирано. Обновете абонаментите, за да ги видите тук.
   Empty Channels: Каналите, за които сте абонирани, в момента нямат никакви видеа.
   Subscriptions Tabs: Раздели с абонаменти
-  All Subscription Tabs Hidden: Всички раздели на абонамента са скрити. За да виждате съдържанието тук, моля, премахнете скриването на някои раздели в секция "{subsection}" на "{settingsSection}".
+  All Subscription Tabs Hidden: Всички раздели на абонамента са скрити. За да видите съдържанието тук, моля, премахнете скриването на някои раздели в секция "{subsection}" на "{settingsSection}".
   Load More Posts: Зареждане на още публикации
   Empty Posts: В момента в абонираните от вас канали няма публикации.
 Trending:
@@ -980,13 +982,13 @@ Tooltips:
 More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ. | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ. | Пускане на следващото видео след {nextVideoInterval} секунди. Щракнете за отказ.
 Unknown YouTube url type, cannot be opened in app: Неизвестен тип URL адрес за YouTube, не може да се отвори в приложението
-Open New Window: Отваряне на нов прозорец
+Open New Window: Отвори нов прозорец
 Default Invidious instance has been cleared: Сървъра по подразбиране за Invidious е изчистен
 Default Invidious instance has been set to {instance}: Сървъра по подразбиране за Invidious е зададен на {instance}
 External link opening has been disabled in the general settings: Отварянето на външни връзки е изключено в общите настройки
 Search Bar:
-  Clear Input: Изчистване на въведеното
-  Remove: Премахване
+  Clear Input: Изчисти въведеното
+  Remove: Премахни
 Are you sure you want to open this link?: Сигурни ли сте, че искате да отворите тази връзка?
 Screenshot Error: Снимката на екрана е неуспешна. {error}
 Screenshot Success: Запазена снимка на екрана
@@ -1004,20 +1006,20 @@ Clipboard:
 Chapters:
   Chapters: Глави
   Key Moments: Основни моменти
-Preferences: Предпочитания
+Preferences: Настройки
 Ok: Добре
 Hashtag:
   Hashtag: Хаштаг
   This hashtag does not currently have any videos: В момента този хаштаг няма видеа
 Channel Hidden: '{channel} е добавен към филтъра за канали'
 Channel Unhidden: '{channel} е премахнат от филтъра за канали'
-Go to page: Отиване на {page}
+Go to page: Отиди на {page}
 Tag already exists: Етикетът "{tagName}" вече съществува
 Trimmed input must be at least N characters long: Орязаният вход трябва да бъде дълъг поне 1 символ | Орязаният вход трябва да бъде дълъг поне {length} символа
 Age Restricted:
   This channel is age restricted: Този канал е с възрастово ограничение
   This video is age restricted: Това видео е с възрастово ограничение
-Close Banner: Затваряне на банер
+Close Banner: Затвори банера
 Search character limit: Заявката за търсене е над лимита от {searchCharacterLimit} символа
 Feed:
   Feed Last Updated: 'Последна актуализация на емисията {feedName}: {date}'
@@ -1033,7 +1035,7 @@ Search Listing:
   Label:
     4K: 4K
     Subtitles: Субтитри
-    Closed Captions: Затворени субтитри
+    Closed Captions: Скрити субтитри
     VR180: VR180
     3D: 3D
     8K: 8K
@@ -1054,7 +1056,7 @@ Keys:
   plus: Плюс
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
-Right-click or hold to see history: Щракнете с десния бутон на мишката или задръжте, за да видите историята
+Right-click or hold to see history: Щракнете с десния бутон или задръжте, за да видите историята
 Autoplay Interruption Timer: Автоматичното възпроизвеждане е отменено поради {autoplayInterruptionIntervalHours} час(а) неактивност
 KeyboardShortcutPrompt:
   Keyboard Shortcuts: Бързи клавиши
@@ -1108,5 +1110,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Преминаване към следващото видео в плейлиста или към следващото препоръчано
   Skip to Previous Video: Преминаване към предходното видео в плейлиста
 shortcutLabelSeparator: '{''|''}'
-Compact side navigation: Компактна странична навигация
-Expand side navigation: Разширена странична навигация
+Compact side navigation: Компактно странично меню
+Expand side navigation: Разгърни страничното меню
