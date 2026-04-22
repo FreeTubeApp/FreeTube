@@ -120,7 +120,7 @@ User Playlists:
   SinglePlaylistView:
     Toast:
       Reverted to use {oldPlaylistName} for quick bookmark: Възстановено е използването на {oldPlaylistName} за бързи отметки
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Някои видеа в плейлиста все още не са заредени. Щракнете тук, за да копирате.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Някои видеа в плейлиста все още не са заредени. Щракнете тук, за да копирате все пак.
       Playlist {playlistName} has been deleted.: Плейлиста {playlistName} е изтрит.
       There were no videos to remove.: Няма видеа за премахване.
       This video cannot be moved up.: Видеото не може да се премести нагоре.
@@ -131,9 +131,9 @@ User Playlists:
       This playlist is now used for quick bookmark: Този плейлист ще се използва за бързи отметки
       Playlist name cannot be empty. Please input a name.: Името на плейлиста не може да бъде празно. Моля, въведете име.
       Playlist has been updated.: Плейлиста е актуализиран.
-      There was an issue with updating this playlist.: Имаше проблем с актуализирането на този плейлист.
+      There was an issue with updating this playlist.: Възникна проблем при актуализирането на този плейлист.
       "{videoCount} video(s) have been removed": 1 видео е премахнато | {videoCount} видеа са премахнати
-      This playlist is protected and cannot be removed.: Този плейлист е защитен и не може да бъде премахнат.
+      This playlist is protected and cannot be removed.: Този плейлист е защитен и не може да бъде изтрит.
       This playlist does not exist: Този плейлист не съществува
       This playlist is already being used for quick bookmark.: Този плейлист вече се използва за бързи отметки.
       This playlist has a video with a duration error: Този плейлист съдържа поне едно видео, което няма продължителност, той ще бъде подреден така, сякаш продължителността му е нула.
@@ -141,11 +141,11 @@ User Playlists:
     Search for Videos: Търсене на видеа
   CreatePlaylistPrompt:
     Toast:
-      Playlist {playlistName} has been successfully created.: Плейлиста {playlistName} е създаден успешно.
+      Playlist {playlistName} has been successfully created.: Плейлистът {playlistName} е създаден успешно.
       There is already a playlist with this name. Please pick a different name.: Вече има плейлист с това име. Моля, изберете друго.
-      There was an issue with creating the playlist.: Имаше проблем при създаването на плейлиста.
+      There was an issue with creating the playlist.: Възникна проблем при създаването на плейлиста.
     New Playlist Name: Име на нов плейлист
-    Create: Създаване
+    Create: Създай
   You have no playlists. Click on the create new playlist button to create a new one.: Нямате плейлисти. Кликнете върху бутона „Създай нов плейлист“, за да създадете такъв.
   Create New Playlist: Създай нов плейлист
   Add to Playlist: Добави към плейлист
@@ -172,7 +172,7 @@ User Playlists:
     Added {count} Times: Вече е добавено | Добавено {count} пъти
     "{videoCount}/{totalVideoCount} Videos Already Added": Вече са добавени {videoCount}/{totalVideoCount} видеа
     "{videoCount}/{totalVideoCount} Videos Will Be Added": Ще бъдат добавени {videoCount}/{totalVideoCount} видеа
-    Allow Adding Duplicate Video(s): Разрешаване на добавянето на дублиращи се видеа
+    Allow Adding Duplicate Video(s): Разреши добавяне на дублиращи се видеа
   Remove from Playlist: Премахни от плейлиста
   Playlist Name: Име на плейлиста
   Save Changes: Запази промените
@@ -196,11 +196,11 @@ User Playlists:
 History:
   # On History Page
   History: 'История'
-  Watch History: 'История на гледане'
-  Your history list is currently empty.: 'Плейлиста с история на гледанията е празен.'
+  Watch History: 'История на гледанията'
+  Your history list is currently empty.: 'Списъкът с историята ви е празен.'
   Search bar placeholder: Търсене в историята
   Empty Search Message: В историята няма видеа, които да отговарят на търсенето ви
-  Case Sensitive Search: Главни / малки букви
+  Case Sensitive Search: Търсене с различаване на главни и малки букви
   DateOldestHistory: Дата на гледане (най-стари)
   DateNewestHistory: Дата на гледане (най-нови)
 Settings:
@@ -547,7 +547,7 @@ Settings:
     Hide Channel Courses: Скриване на раздел "Курсове"
     Hide Channel Posts: Скриване на раздел "Публикации"
     Hide Subscriptions Posts: Скриване на публикациите в абонаментите
-  The app needs to restart for changes to take effect. Restart and apply change?: Приложението трябва да се рестартира за да се приложат промените. Рестартиране?
+  The app needs to restart for changes to take effect. Restart and apply change?: Приложението трябва да се рестартира, за да се приложат промените. Рестартиране?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Грешка при получаване на информация за мрежата. Правилно ли е конфигуриран вашият прокси сървър?
     City: Град
@@ -608,8 +608,8 @@ Settings:
   Password Dialog:
     Enter Password To Unlock: Въведете парола за отключване на настройките
     Password: Парола
-  Sort Settings Sections (A-Z): Подреждане на секциите на настройките (А-Я)
-  Return to Settings Menu: Връщане към менюто с настройки
+  Sort Settings Sections (A-Z): Подреждане на разделите по настройките (А-Я)
+  Return to Settings Menu: Върни се към менюто „Настройки“
 About:
   #On About page
   About: 'Относно'
@@ -916,7 +916,7 @@ Comments:
   Newest first: Първо най-новите
   Top comments: Последни коментари
   Show More Replies: Показване на още отговори
-  Pinned by: Прихванато от
+  Pinned by: Закачено от
   Member: Член
   View {replyCount} replies: Преглед на 1 отговор | Преглед на {replyCount} отговора
   Hearted: Сърдечно
