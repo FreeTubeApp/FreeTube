@@ -90,7 +90,13 @@ export async function handleOpenInExternalPlayer(event, payload) {
   }
 
   if (ignoreDefaultArgs) {
-    if (hasValidVideoId) {
+    if (hasValidPlaylistId && !hasValidVideoId) {
+      if (typeof cmdArgs.playlistUrl === 'string') {
+        args.push(`${cmdArgs.playlistUrl}https://youtube.com/playlist?list=${payload.playlistId}`)
+      } else if (!ignoreWarnings) {
+        unsupportedActions.push(UnsupportedPlayerActions.OPENING_PLAYLISTS)
+      }
+    } else if (hasValidVideoId) {
       args.push(`${cmdArgs.videoUrl}https://www.youtube.com/watch?v=${payload.videoId}`)
     }
   } else {
