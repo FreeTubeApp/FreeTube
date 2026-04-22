@@ -97,7 +97,7 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denna profil har ett stort antal prenumerationer. Tvingar RSS för att undvika hastighetsbegränsning
   Load More Videos: Se mer
   Error Channels: Kanaler med fel
-  Disabled Automatic Fetching: Du har avaktiverat automatisk prenumerationshämtning. Uppdatera prenumerationerna för att se dem här.
+  Disabled Automatic Fetching: Du har inaktiverat automatisk prenumerationshämtning. Uppdatera prenumerationerna för att se dem här.
   Empty Channels: Dina prenumererade kanaler har inga filmer.
   Subscriptions Tabs: Prenumerationsflikar
   All Subscription Tabs Hidden: Alla prenumerationsflikar är dolda. För att se innehåll här, sluta dölja vissa flikar i avsnittet "{subsection}" i "{settingsSection}".
@@ -174,7 +174,7 @@ User Playlists:
       This playlist has a video with a duration error: Den här spellistan innehåller minst en video som inte har någon varaktighet, den sorteras som om deras varaktighet är noll.
       This playlist is already being used for quick bookmark.: Den här spellistan används redan för snabbokmärken.
     Search for Videos: Sök efter videor
-  Playlists with Matching Videos: Spellistor med passande videor
+  Playlists with Matching Videos: Spellistor med matchande videor
   Enable Quick Bookmark With This Playlist: Aktivera snabbokmärke med den här spellistan
   Remove Watched Videos: Ta bort sedda videor
   CreatePlaylistPrompt:
@@ -200,9 +200,9 @@ History:
   Your history list is currently empty.: 'Historiken är för närvarande tom.'
   Empty Search Message: Det finns inga videor i din historik som matchar din sökning
   Search bar placeholder: Sök i historiken
-  Case Sensitive Search: Skiftlägeskänslig Sökning
-  DateOldestHistory: Datum sedda (äldst)
-  DateNewestHistory: Datum sedda (nyast)
+  Case Sensitive Search: Skiftlägeskänslig sökning
+  DateOldestHistory: Datum sett (äldst)
+  DateNewestHistory: Datum sett (nyast)
 Settings:
   # On Settings Page
   Settings: 'Inställningar'
@@ -1016,7 +1016,7 @@ Go to page: Gå till {page}
 Channel Unhidden: '{channel} har tagits bort från kanalfiltret'
 Close Banner: Stäng bannern
 Feed:
-  Feed Last Updated: '{feedName} flödet senast uppdaterat: {date}'
+  Feed Last Updated: '{feedName}-flödet senast uppdaterat: {date}'
   Refresh Feed: Uppdatera {subscriptionName}
 checkmark: ✓
 Display Label: '{label}: {value}'
