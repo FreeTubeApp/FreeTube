@@ -104,8 +104,8 @@ Subscriptions:
   Load More Posts: Зареждане на още публикации
   Empty Posts: В момента в абонираните от вас канали няма публикации.
 Trending:
-  Trending: 'Набиращи популярност'
-  Trending Tabs: Раздели за набиращи популярност
+  Trending: 'Популярни'
+  Trending Tabs: Популярни раздели
   Gaming: Игри
   Sports: Спорт
 Most Popular: 'Най-популярни'
@@ -114,7 +114,7 @@ User Playlists:
   Your Playlists: 'Вашите плейлисти'
   Search bar placeholder: Търсене за плейлисти
   Empty Search Message: В този плейлист няма видеа, които да отговарят на търсенето ви
-  This playlist currently has no videos.: В този плейлист в момента няма видеа.
+  This playlist currently has no videos.: Този плейлист е празен.
   Add to Favorites: Добавяне към {playlistName}
   Are you sure you want to delete this playlist? This cannot be undone: Сигурни ли сте, че искате да изтриете този плейлист? Това не може да бъде отменено.
   SinglePlaylistView:
@@ -123,12 +123,12 @@ User Playlists:
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Някои видеа в плейлиста все още не са заредени. Щракнете тук, за да копирате.
       Playlist {playlistName} has been deleted.: Плейлиста {playlistName} е изтрит.
       There were no videos to remove.: Няма видеа за премахване.
-      This video cannot be moved up.: Това видео не може да бъде преместено нагоре.
-      This video cannot be moved down.: Това видео не може да бъде преместено надолу.
+      This video cannot be moved up.: Видеото не може да се премести нагоре.
+      This video cannot be moved down.: Видеото не може да се премести надолу.
       Video has been removed: Видеото е премахнато
       There was a problem with removing this video: Имаше проблем с премахването на това видео
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Този плейлист вече се използва за бързи отметки вместо {oldPlaylistName}. Щракнете тук, за отмяна
-      This playlist is now used for quick bookmark: Този плейлист вече се използва за бързи отметки
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Този плейлист ще се използва за бързи отметки вместо {oldPlaylistName}. Щракнете тук, за отмяна
+      This playlist is now used for quick bookmark: Този плейлист ще се използва за бързи отметки
       Playlist name cannot be empty. Please input a name.: Името на плейлиста не може да бъде празно. Моля, въведете име.
       Playlist has been updated.: Плейлиста е актуализиран.
       There was an issue with updating this playlist.: Имаше проблем с актуализирането на този плейлист.
@@ -138,7 +138,7 @@ User Playlists:
       This playlist is already being used for quick bookmark.: Този плейлист вече се използва за бързи отметки.
       This playlist has a video with a duration error: Този плейлист съдържа поне едно видео, което няма продължителност, той ще бъде подреден така, сякаш продължителността му е нула.
       Video has been removed. Click here to undo.: Видеото е премахнато. Щракнете тук, за отмяна.
-    Search for Videos: Търсене за видеа
+    Search for Videos: Търсене на видеа
   CreatePlaylistPrompt:
     Toast:
       Playlist {playlistName} has been successfully created.: Плейлиста {playlistName} е създаден успешно.
@@ -146,21 +146,21 @@ User Playlists:
       There was an issue with creating the playlist.: Имаше проблем при създаването на плейлиста.
     New Playlist Name: Име на нов плейлист
     Create: Създаване
-  You have no playlists. Click on the create new playlist button to create a new one.: Нямате плейлисти. Щракнете върху бутона за създаване на нов плейлист, за да създадете нов.
-  Create New Playlist: Създаване на нов
-  Add to Playlist: Добавяне към плейлист за изпълнение
-  Move Video Up: Преместване нагоре
+  You have no playlists. Click on the create new playlist button to create a new one.: Нямате плейлисти. Кликнете върху бутона „Създай нов плейлист“, за да създадете такъв.
+  Create New Playlist: Създай нов плейлист
+  Add to Playlist: Добави към плейлист
+  Move Video Up: Премести нагоре
   Playlist Description: Описание
   Cancel: Отказ
   Sort By:
     LatestCreatedFirst: Дата на създаване (най-нови)
     EarliestCreatedFirst: Дата на създаване (най-стари)
-    EarliestPlayedFirst: Дата на възпроизвеждане (най-стари)
-    NameAscending: A-Z
-    NameDescending: Z-A
+    EarliestPlayedFirst: Дата на показване (най-стари)
+    NameAscending: А-Я
+    NameDescending: Я-А
     LatestUpdatedFirst: Дата на обновяване (най-нови)
     EarliestUpdatedFirst: Дата на обновяване (най-стари)
-    LatestPlayedFirst: Дата на възпроизвеждане (най-нови)
+    LatestPlayedFirst: Дата на показване (най-нови)
   AddVideoPrompt:
     Search in Playlists: Търсене в плейлисти
     Select a playlist to add your N videos to: Изберете плейлист, в който да добавите своето видео | Изберете плейлист, в който да добавите своите {videoCount} видеа
@@ -173,26 +173,26 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Already Added": Вече са добавени {videoCount}/{totalVideoCount} видеа
     "{videoCount}/{totalVideoCount} Videos Will Be Added": Ще бъдат добавени {videoCount}/{totalVideoCount} видеа
     Allow Adding Duplicate Video(s): Разрешаване на добавянето на дублиращи се видеа
-  Remove from Playlist: Премахване от плейлиста за изпълнение
+  Remove from Playlist: Премахни от плейлиста
   Playlist Name: Име на плейлиста
-  Save Changes: Запазване на промените
+  Save Changes: Запази промените
   Edit Playlist Info: Редактиране на инфо
-  Copy Playlist: Копиране на плейлиста
-  Remove Watched Videos: Премахване на гледаните видеа
-  Enable Quick Bookmark With This Playlist: Активиране на бърза отметка с този плейлист
+  Copy Playlist: Копирай плейлиста
+  Remove Watched Videos: Премахни изгледаните видеа
+  Enable Quick Bookmark With This Playlist: Активирай "бърза отметка" с този плейлист
   Delete Playlist: Изтриване на плейлиста
   Remove from Favorites: Премахване от {playlistName}
-  Move Video Down: Преместване надолу
-  Playlists with Matching Videos: Плейлисти със съвпадащи видеа
+  Move Video Down: Премести надолу
+  Playlists with Matching Videos: Плейлисти със съответстващи видеа
   Quick Bookmark Enabled: Бързите отметки са активирани
-  Cannot delete the quick bookmark target playlist.: Не може да се изтрие целевия списък за плейлисти с бързи отметки.
-  Remove Duplicate Videos: Премахване на дублирани видеа
+  Cannot delete the quick bookmark target playlist.: Не е възможно да се изтрие плейлистът, зададен като бърза отметка.
+  Remove Duplicate Videos: Премахни дублирани видеа
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Сигурни ли сте, че искате да премахнете 1 дублиращо се видео от този плейлист? Това не може да бъде отменено. | Сигурни ли сте, че искате да премахнете {playlistItemCount} дублиращи се видеа от този плейлист? Това не може да бъде отменено.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Сигурни ли сте, че искате да премахнете 1 гледано видео от този плейлист? Това не може да бъде отменено. | Сигурни ли сте, че искате да премахнете {playlistItemCount} гледани видеа от този плейлист? Това не може да бъде отменено.
   Export Playlist: Изнасяне на плейлиста
-  The playlist has been successfully exported: Плейлистът е изнесен успешно
+  The playlist has been successfully exported: Плейлистът беше успешно експортиран
   TotalTimePlaylist: 'Общо време: {duration}'
-  Export list of URLs: Изнасяне на списък с URL адреси
+  Export list of URLs: Експортиране на списък с URL адреси
 History:
   # On History Page
   History: 'История'
@@ -999,7 +999,7 @@ Channels:
   Search bar placeholder: Търсене на канали
   Channels: Канали
   Title: Списък с канали
-  Empty: Списъкът с канали в момента е празен.
+  Empty: Вашият писък с канали е празен.
 Clipboard:
   Cannot access clipboard without a secure connection: Не може да се получи достъп до клипборда без защитена връзка
   Copy failed: Неуспешно копиране в клипборда
@@ -1022,7 +1022,7 @@ Age Restricted:
 Close Banner: Затвори банера
 Search character limit: Заявката за търсене е над лимита от {searchCharacterLimit} символа
 Feed:
-  Feed Last Updated: 'Последна актуализация на емисията {feedName}: {date}'
+  Feed Last Updated: 'Последна актуализация на {feedName}: {date}'
   Refresh Feed: Обновяване на {subscriptionName}
 Yes, Delete: Да, изтрий
 Yes, Restart: Да, рестартирай
