@@ -60,7 +60,7 @@
         class="comment"
       >
         <component
-          :is="enableChannelLinks ? 'router-link' : 'span'"
+          :is="enableChannelLinks ? 'router-link' : 'div'"
           :to="`/channel/${comment.authorLink}`"
           tabindex="-1"
         >
@@ -180,7 +180,7 @@
             class="comment"
           >
             <component
-              :is="enableChannelLinks ? 'router-link' : 'span'"
+              :is="enableChannelLinks ? 'router-link' : 'div'"
               :to="`/channel/${reply.authorLink}`"
               tabindex="-1"
             >

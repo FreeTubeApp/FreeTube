@@ -123,17 +123,15 @@
         </h3>
       </router-link>
       <div class="infoLine">
-        <router-link
-          v-if="channelId !== null && !disableChannelLinks"
+        <component
+          :is="disableChannelLinks ? 'span' : 'router-link'"
+          v-if="channelId !== null"
           class="channelName"
           dir="auto"
           :to="`/channel/${channelId}`"
         >
           {{ channelName }}
-        </router-link>
-        <bdi v-else-if="channelName !== null || disableChannelLinks">
-          {{ channelName }}
-        </bdi>
+        </component>
         <span
           v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null"
           class="viewCount"

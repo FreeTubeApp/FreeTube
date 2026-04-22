@@ -41,8 +41,8 @@
         <div
           v-if="!hideUploader"
         >
-          <RouterLink
-            v-if="enableChannelLinks"
+          <component
+            :is="enableChannelLinks ? 'RouterLink' : 'div'"
             :to="`/channel/${channelId}`"
           >
             <img
@@ -50,32 +50,21 @@
               class="channelThumbnail"
               alt=""
             >
-          </RouterLink>
-          <img
-            v-if="!enableChannelLinks"
-            :src="channelThumbnail"
-            class="channelThumbnail initialCursor"
-            alt=""
-          >
+          </component>
         </div>
         <div>
           <div
             v-if="!hideUploader"
           >
-            <RouterLink
-              v-if="enableChannelLinks"
+            <component
+              :is="enableChannelLinks ? 'RouterLink' : 'span'"
               :to="`/channel/${channelId}`"
+              :class="enableChannelLinks ? '' : 'initialCursor'"
               class="channelName"
               dir="auto"
             >
               {{ channelName }}
-            </RouterLink>
-            <div
-              v-if="!enableChannelLinks"
-              class="channelName initialCursor"
-            >
-              {{ channelName }}
-            </div>
+            </component>
           </div>
           <FtSubscribeButton
             v-if="!hideUnsubscribeButton"

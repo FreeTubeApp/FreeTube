@@ -8,8 +8,8 @@
     }"
   >
     <div class="channelThumbnail">
-      <router-link
-        v-if="enableChannelLinks"
+      <component
+        :is="enableChannelLinks ? 'router-link' : 'div'"
         :to="`/channel/${id}`"
         class="channelThumbnailLink"
         tabindex="-1"
@@ -20,22 +20,12 @@
           :class="!isGame ? 'channelImage' : 'gameImage'"
           alt=""
         >
-      </router-link>
-      <div
-        v-if="!enableChannelLinks"
-        class="channelThumbnailLink"
-      >
-        <img
-          :src="thumbnail"
-          :class="!isGame ? 'channelImage' : 'gameImage'"
-          alt=""
-        >
-      </div>
+      </component>
     </div>
     <div class="infoAndSubscribe">
       <div class="info">
-        <router-link
-          v-if="enableChannelLinks"
+        <component
+          :is="enableChannelLinks ? 'router-link' : 'span'"
           class="title"
           :to="`/channel/${id}`"
         >
@@ -45,30 +35,17 @@
           >
             {{ name }}
           </h3>
-        </router-link>
-        <div
-          v-if="!enableChannelLinks"
-          class="title"
-        >
-          <h3 class="h3Title">
-            {{ name }}
-          </h3>
-        </div>
+        </component>
         <div class="infoLine">
-          <router-link
-            v-if="handle !== null && enableChannelLinks"
+          <component
+            :is="enableChannelLinks ? 'router-link' : 'span'"
+            v-if="handle !== null"
             class="handle"
             dir="auto"
             :to="`/channel/${id}`"
           >
             {{ handle }}
-          </router-link>
-          <bdi
-            v-if="handle !== null && !enableChannelLinks"
-            class="handle"
-          >
-            {{ handle }}
-          </bdi>
+          </component>
           <span
             v-if="subscriberCount !== null && !hideChannelSubscriptions"
             class="subscriberCount"
