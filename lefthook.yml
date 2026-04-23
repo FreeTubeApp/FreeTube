@@ -7,12 +7,12 @@ pre-commit:
       # Only runs when any file with filename
       # matching the glob is being committed
       glob: "*.{js,vue}"
-      run: yarn run eslint --no-color {staged_files}
+      run: pnpm exec eslint --no-color {staged_files}
       skip:
         - rebase
     stylelint:
       glob: "*.{css,scss}"
-      run: yarn stylelint --no-color --allow-empty-input {staged_files}
+      run: pnpm exec stylelint --no-color --allow-empty-input {staged_files}
       skip:
         - rebase
 

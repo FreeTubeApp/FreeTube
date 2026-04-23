@@ -75,21 +75,6 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - name: 'Use faster D: drive for yarn cache on Windows'
-      if: startsWith(matrix.os, 'windows')
-      shell: cmd
-      run: yarn config set cache-folder D:\ft_yarn_cache
-
-    - name: Get yarn cache directory
-      id: cache_dir
-      shell: bash
-      run: |
-        {
-          echo 'cache_dir<<EOF'
-          yarn cache dir
-          echo EOF
-        } >> "$GITHUB_OUTPUT"
-
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
       with:
         persist-credentials: false
@@ -100,18 +85,34 @@ jobs:
         node-version: ${{ matrix.node-version }}
         package-manager-cache: false
 
-    - name: Restore yarn cache
+    - name: Install pnpm
+      uses: pnpm/action-setup@fc06bc1257f339d1d5d8b3a19a8cae5388b55320 #v5.0.0
+      with:
+        version: 10
+        cache: false
+
+    - name: Get pnpm cache directory
+      id: cache_dir
+      shell: bash
+      run: |
+        {
+          echo 'cache_dir<<EOF'
+          pnpm store path
+          echo EOF
+        } >> "$GITHUB_OUTPUT"
+
+    - name: Restore pnpm cache
       id: restore_cache
       uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae #v5.0.5
       with:
-        key: ${{ format('node-cache-{0}-{1}-yarn-{2}', runner.os, runner.arch, hashFiles('yarn.lock')) }}
+        key: ${{ format('node-cache-{0}-{1}-pnpm-{2}', runner.os, runner.arch, hashFiles('pnpm-lock.yaml')) }}
         path: ${{ steps.cache_dir.outputs.cache_dir }}
 
-    - run: yarn run ci
+    - run: pnpm run ci
       shell: bash
       env:
         ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
-    - run: yarn run lint
+    - run: pnpm run lint
       shell: bash
     - name: Set version number
       id: versionNumber
@@ -143,17 +144,17 @@ jobs:
     - name: Build x64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'x64')
       shell: bash
-      run: yarn run build
+      run: pnpm run build
 
     - name: Build ARMv7l with Node.js ${{ matrix.node-version}}
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
       shell: bash
-      run: yarn run build:arm32
+      run: pnpm run build:arm32
 
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'arm64')
       shell: bash
-      run: yarn run build:arm64
+      run: pnpm run build:arm64
 
     - name: Convert X64 AppImage to static runtime
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
@@ -376,7 +377,7 @@ jobs:
         name: freetube-${{ steps.versionNumber.outputs.version }}-mac-arm64.7z
         path: build/freetube-${{ steps.versionNumber.outputs.version }}-arm64-mac.7z
 
-    - name: Save yarn cache
+    - name: Save pnpm cache
       uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae #v5.0.5
       # Only save the cache if we weren't able to restore an existing one above
       if: steps.restore_cache.outputs.cache-primary-key != steps.restore_cache.outputs.cache-matched-key
