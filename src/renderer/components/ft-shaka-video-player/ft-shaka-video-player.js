@@ -1013,12 +1013,6 @@ export default defineComponent({
         }
       }
 
-      // we need to pass capture to ensure that our handler gets called before shaka-player's handler,
-      // we call preventDefault() and stopPropagation() so shaka-player's one isn't called.
-      // We register our own one, as shaka-player's one uses an inverted (the wrong) scroll direction
-      // ours: scroll up -> volume up, shaka-player's: scroll up -> volume down
-      container.value.querySelector('.shaka-volume-bar').addEventListener('wheel', mouseScrollVolumeHandler, { capture: true })
-
       // title overlay when the video is fullscreened
       // placing this inside the controls container so that we can fade it in and out at the same time as the controls
       const fullscreenTitleOverlay = document.createElement('h1')
