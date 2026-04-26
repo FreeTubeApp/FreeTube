@@ -336,6 +336,11 @@ export default defineComponent({
       })
     })
 
+    /** @type {import('vue').ComputedRef<boolean>} */
+    const enableScreenshot = computed(() => {
+      return store.getters.getEnableScreenshot
+    })
+
     /** @type {import('vue').ComputedRef<string>} */
     const screenshotMode = computed(() => {
       return store.getters.getScreenshotMode
@@ -349,11 +354,6 @@ export default defineComponent({
     /** @type {import('vue').ComputedRef<number>} */
     const screenshotQuality = computed(() => {
       return store.getters.getScreenshotQuality
-    })
-
-    /** @type {import('vue').ComputedRef<boolean>} */
-    const screenshotAskPath = computed(() => {
-      return store.getters.getScreenshotAskPath
     })
 
     /** @type {import('vue').ComputedRef<boolean>} */
@@ -859,7 +859,7 @@ export default defineComponent({
         elementList = uiConfig.controlPanelElements
       }
 
-      if (screenshotMode.value === 'disabled' || props.format === 'audio') {
+      if (!enableScreenshot.value || props.format === 'audio') {
         removeFromArrayIfExists(elementList, 'ft_screenshot')
       }
 
@@ -1726,7 +1726,7 @@ export default defineComponent({
       const filenameWithExtension = `${filename}.${format}`
 
       const wasPlaying = !video_.paused
-      if ((!process.env.IS_ELECTRON || screenshotAskPath.value) && wasPlaying) {
+      if ((!process.env.IS_ELECTRON || screenshotMode.value === 'ask') && wasPlaying) {
         video_.pause()
       }
 
@@ -1743,7 +1743,7 @@ export default defineComponent({
         }
 
         if (screenshotMode.value === 'disk' || screenshotMode.value === 'both') {
-          if (!process.env.IS_ELECTRON || screenshotAskPath.value) {
+          if (!process.env.IS_ELECTRON || screenshotMode.value === 'ask') {
             const saved = await writeFileWithPicker(
               filenameWithExtension,
               blob,
@@ -1771,7 +1771,7 @@ export default defineComponent({
       } finally {
         canvas.remove()
 
-        if ((!process.env.IS_ELECTRON || screenshotAskPath.value) && wasPlaying) {
+        if ((!process.env.IS_ELECTRON || screenshotMode.value === 'ask') && wasPlaying) {
           video_.play()
         }
       }
@@ -2509,7 +2509,7 @@ export default defineComponent({
           }
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.TAKE_SCREENSHOT:
-          if (screenshotMode.value !== 'disabled' && props.format !== 'audio') {
+          if (enableScreenshot.value && props.format !== 'audio') {
             event.preventDefault()
             // Take screenshot
             takeScreenshot()

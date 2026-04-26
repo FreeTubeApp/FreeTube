@@ -478,13 +478,11 @@ Settings:
       Enable: Enable Screenshot
       Mode: Screenshot Mode
       Modes:
-        Disabled: Disabled
-        Disk: Save to Disk
+        Ask Path: Ask for Save Folder
+        Do Not Ask Path: Do not ask for Save Folder
         Clipboard: Copy to Clipboard
-        Both: Save to Disk & Copy to Clipboard
       Format Label: Screenshot Format
       Quality Label: Screenshot Quality
-      Ask Path: Ask for Save Folder
       Folder Label: Screenshot Folder
       Folder Button: Select Folder
       File Name Label: Filename Pattern

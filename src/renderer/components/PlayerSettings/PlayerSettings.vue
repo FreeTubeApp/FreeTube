@@ -168,16 +168,13 @@
     </FtFlexBox>
     <br>
     <FtFlexBox>
-      <FtSelect
-        :placeholder="t('Settings.Player Settings.Screenshot.Mode')"
-        :value="screenshotMode"
-        :select-names="screenshotModeNames"
-        :select-values="SCREENSHOT_MODE_VALUES"
-        :icon="['fas', 'expand']"
-        @change="handleUpdateScreenshotMode"
+      <FtToggleSwitch
+        :label="t('Settings.Player Settings.Screenshot.Enable')"
+        :default-value="enableScreenshot"
+        @change="updateEnableScreenshot"
       />
     </FtFlexBox>
-    <div v-if="screenshotMode !== 'disabled'">
+    <div v-if="enableScreenshot">
       <FtFlexBox>
         <FtSelect
           :placeholder="t('Settings.Player Settings.Screenshot.Format Label')"
@@ -198,62 +195,63 @@
           @change="updateScreenshotQuality"
         />
       </FtFlexBox>
-      <div v-if="USING_ELECTRON && (screenshotMode === 'disk' || screenshotMode === 'both')">
-        <FtFlexBox>
-          <FtToggleSwitch
-            :label="t('Settings.Player Settings.Screenshot.Ask Path')"
-            :default-value="screenshotAskPath"
-            @change="updateScreenshotAskPath"
+      <FtFlexBox v-if="USING_ELECTRON">
+        <FtSelect
+          :placeholder="t('Settings.Player Settings.Screenshot.Mode')"
+          :value="screenshotMode"
+          :select-names="screenshotModeNames"
+          :select-values="screenshotModeValues"
+          :icon="['fas', 'expand']"
+          @change="handleUpdateScreenshotMode"
+        />
+      </FtFlexBox>
+      <FtFlexBox
+        v-if="USING_ELECTRON && screenshotMode === 'do_not_ask'"
+        class="screenshotFolderContainer"
+      >
+        <p class="screenshotFolderLabel">
+          {{ t('Settings.Player Settings.Screenshot.Folder Label') }}
+        </p>
+        <FtInput
+          class="screenshotFolderPath"
+          :placeholder="screenshotFolder"
+          :show-action-button="false"
+          :show-label="false"
+          :disabled="true"
+        />
+        <FtButton
+          :label="t('Settings.Player Settings.Screenshot.Folder Button')"
+          class="screenshotFolderButton"
+          @click="chooseScreenshotFolder"
+        />
+      </FtFlexBox>
+      <FtFlexBox
+        class="screenshotFolderContainer"
+      >
+        <p class="screenshotFilenamePatternTitle">
+          {{ t('Settings.Player Settings.Screenshot.File Name Label') }}
+          <FtTooltip
+            class="selectTooltip"
+            position="bottom"
+            :tooltip="t('Settings.Player Settings.Screenshot.File Name Tooltip')"
           />
-        </FtFlexBox>
-        <FtFlexBox
-          v-if="!screenshotAskPath"
-          class="screenshotFolderContainer"
-        >
-          <p class="screenshotFolderLabel">
-            {{ t('Settings.Player Settings.Screenshot.Folder Label') }}
-          </p>
-          <FtInput
-            class="screenshotFolderPath"
-            :placeholder="screenshotFolder"
-            :show-action-button="false"
-            :show-label="false"
-            :disabled="true"
-          />
-          <FtButton
-            :label="t('Settings.Player Settings.Screenshot.Folder Button')"
-            class="screenshotFolderButton"
-            @click="chooseScreenshotFolder"
-          />
-        </FtFlexBox>
-        <FtFlexBox
-          class="screenshotFolderContainer"
-        >
-          <p class="screenshotFilenamePatternTitle">
-            {{ t('Settings.Player Settings.Screenshot.File Name Label') }}
-            <FtTooltip
-              class="selectTooltip"
-              position="bottom"
-              :tooltip="t('Settings.Player Settings.Screenshot.File Name Tooltip')"
-            />
-          </p>
-          <FtInput
-            class="screenshotFilenamePatternInput"
-            placeholder=""
-            :value="screenshotFilenamePattern"
-            :show-action-button="false"
-            :show-label="false"
-            @input="handleScreenshotFilenamePatternChanged"
-          />
-          <FtInput
-            class="screenshotFilenamePatternExample"
-            :placeholder="screenshotFilenameExample"
-            :show-action-button="false"
-            :show-label="false"
-            :disabled="true"
-          />
-        </FtFlexBox>
-      </div>
+        </p>
+        <FtInput
+          class="screenshotFilenamePatternInput"
+          placeholder=""
+          :value="screenshotFilenamePattern"
+          :show-action-button="false"
+          :show-label="false"
+          @input="handleScreenshotFilenamePatternChanged"
+        />
+        <FtInput
+          class="screenshotFilenamePatternExample"
+          :placeholder="screenshotFilenameExample"
+          :show-action-button="false"
+          :show-label="false"
+          :disabled="true"
+        />
+      </FtFlexBox>
       <br>
     </div>
   </FtSettingsSection>
@@ -579,22 +577,14 @@ function updateMaxVideoPlaybackRate(value) {
   store.dispatch('updateMaxVideoPlaybackRate', value)
 }
 
-const SCREENSHOT_MODE_VALUES = ['disabled', 'disk', 'clipboard', 'both']
-const screenshotModeNames = computed(() => [
-  t('Settings.Player Settings.Screenshot.Modes.Disabled'),
-  t('Settings.Player Settings.Screenshot.Modes.Disk'),
-  t('Settings.Player Settings.Screenshot.Modes.Clipboard'),
-  t('Settings.Player Settings.Screenshot.Modes.Both'),
-])
-
-/** @type {import('vue').ComputedRef<'disabled' | 'disk' | 'clipboard' | 'both'>} */
-const screenshotMode = computed(() => store.getters.getScreenshotMode)
+/** @type {import('vue').ComputedRef<boolean>} */
+const enableScreenshot = computed(() => store.getters.getEnableScreenshot)
 
 /**
- * @param {'disabled' | 'disk' | 'clipboard' | 'both'} mode
+ * @param {boolean} value
  */
-async function handleUpdateScreenshotMode(mode) {
-  await store.dispatch('updateScreenshotMode', mode)
+function updateEnableScreenshot(value) {
+  store.dispatch('updateEnableScreenshot', value)
 }
 
 const SCREENSHOT_FORMAT_NAMES = ['PNG', 'JPEG', 'WebP']
@@ -611,6 +601,27 @@ async function handleUpdateScreenshotFormat(format) {
   getScreenshotFilenameExample(screenshotFilenamePattern.value)
 }
 
+const screenshotModeNames = computed(() => [
+  t('Settings.Player Settings.Screenshot.Modes.Ask Path'),
+  ...process.env.IS_ELECTRON ? [t('Settings.Player Settings.Screenshot.Modes.Do Not Ask Path')] : [],
+  t('Settings.Player Settings.Screenshot.Modes.Clipboard'),
+])
+const screenshotModeValues = computed(() => [
+  'ask',
+  ...process.env.IS_ELECTRON ? ['do_not_ask'] : [],
+  'clipboard'
+])
+
+/** @type {import('vue').ComputedRef<'ask' | 'do_not_ask' | 'clipboard'>} */
+const screenshotMode = computed(() => store.getters.getScreenshotMode)
+
+/**
+ * @param {'ask' | 'do_not_ask' | 'clipboard'} mode
+ */
+async function handleUpdateScreenshotMode(mode) {
+  await store.dispatch('updateScreenshotMode', mode)
+}
+
 /** @type {import('vue').ComputedRef<number>} */
 const screenshotQuality = computed(() => store.getters.getScreenshotQuality)
 
@@ -619,16 +630,6 @@ const screenshotQuality = computed(() => store.getters.getScreenshotQuality)
  */
 function updateScreenshotQuality(value) {
   store.dispatch('updateScreenshotQuality', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const screenshotAskPath = computed(() => store.getters.getScreenshotAskPath)
-
-/**
- * @param {boolean} value
- */
-function updateScreenshotAskPath(value) {
-  store.dispatch('updateScreenshotAskPath', value)
 }
 
 /** @type {import('vue').ComputedRef<string>} */
