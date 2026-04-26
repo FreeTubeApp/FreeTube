@@ -2,29 +2,29 @@
 Locale Name: 'Bosanski'
 
 # Webkit Menu Bar
-File: 'Fajl'
+File: 'Datoteka'
 Quit: 'Napusti'
 Edit: 'Uredi'
-Undo: 'Ukini'
+Undo: 'Poništi'
 Redo: 'Ponovi'
 Cut: 'Izreži'
 Copy: 'Kopiraj'
-Paste: 'Umetni'
+Paste: 'Zalijepi'
 Delete: 'Izbriši'
-Select all: 'Odabri sve'
+Select all: 'Odaberi sve'
 Toggle Developer Tools: 'Uključi alate za programere'
-Actual size: 'Prirodna veličina'
-Zoom in: 'Približi'
+Actual size: 'Stvarna veličina'
+Zoom in: 'Uvećaj'
 Zoom out: 'Umanji'
-Toggle fullscreen: 'Prebaci preko cijelog ekrana'
+Toggle fullscreen: 'Uključi/isključi cijeli ekran'
 Window: 'Prozor'
-Minimize: 'Smanji'
+Minimize: 'Umanji'
 Close: 'Zatvori'
 Back: 'Nazad'
-Forward: 'Unapred'
+Forward: 'Naprijed'
 
 Version {versionNumber} is now available!  Click for more details: 'Verzija {versionNumber} je sada dostupna! Kliknite za više detalja'
-Download From Site: 'Instaliraj preko stranice'
+Download From Site: 'Preuzmi sa stranice'
 
 Global:
   Sort By: 'Poredaj po'
@@ -32,7 +32,8 @@ Global:
 # Search Bar
   Live: Uživo
   Videos: Videozapisi
-Search / Go to URL: 'Pretražite / idite na URL'
+  Shorts: Shorts
+Search / Go to URL: 'Pretraži / idi na URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Pretraži filtere'
@@ -127,3 +128,10 @@ KeyboardShortcutPrompt:
 Preferences: Postavke
 Profile:
   Select All: Odabri sve
+Compact side navigation: Kompaktna bočna navigacija
+Expand side navigation: Proširi bočnu navigaciju
+Right-click or hold to see history: Kliknite desnim tasterom miša ili zadržite da biste vidjeli istoriju
+Open New Window: Otvori novi prozor
+Go to page: Idi na {page}
+Close Banner: Zatvori baner
+Are you sure you want to open this link?: Jeste li sigurni da želite otvoriti ovaj link?
