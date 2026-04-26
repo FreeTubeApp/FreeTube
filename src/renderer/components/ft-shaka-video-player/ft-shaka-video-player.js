@@ -27,6 +27,7 @@ import {
   throttle,
   debounce,
   removeFromArrayIfExists,
+  copyToClipboard,
 } from '../../helpers/utils'
 import { MANIFEST_TYPE_SABR } from '../../helpers/player/SabrManifestParser'
 import { setupSabrScheme } from '../../helpers/player/SabrSchemePlugin'
@@ -1734,18 +1735,11 @@ export default defineComponent({
         const blob = await new Promise((resolve) => canvas.toBlob(resolve, mimeType, imageQuality))
 
         if (screenshotMode.value === 'clipboard' || screenshotMode.value === 'both') {
-          try {
-            // Clipboard API only supports JPEG and PNG, so we need to convert if necessary
-            const clipboardBlob = format === 'jpg' || format === 'jpeg' || format === 'png'
-              ? blob
-              : await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'))
-            const clipboardArrayBuffer = await clipboardBlob.arrayBuffer()
-            window.ftElectron.writeImageToClipboard(clipboardArrayBuffer, width, height)
-            showToast(t('Screenshot Clipboard Success'))
-          } catch (error) {
-            console.error(error)
-            showToast(t('Screenshot Clipboard Error', { error }))
-          }
+          // Navigator Clipboard API only supports PNG
+          const clipboardBlob = format === 'png'
+            ? blob
+            : await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'))
+          await copyToClipboard(clipboardBlob, { messageOnSuccess: t('Screenshot Clipboard Success'), messageOnError: t('Screenshot Clipboard Error') })
         }
 
         if (screenshotMode.value === 'disk' || screenshotMode.value === 'both') {
