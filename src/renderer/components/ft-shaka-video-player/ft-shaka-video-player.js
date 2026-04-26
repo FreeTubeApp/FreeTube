@@ -1734,7 +1734,7 @@ export default defineComponent({
         /** @type {Blob} */
         const blob = await new Promise((resolve) => canvas.toBlob(resolve, mimeType, imageQuality))
 
-        if (screenshotMode.value === 'clipboard' || screenshotMode.value === 'both') {
+        if (screenshotMode.value === 'clipboard') {
           // Navigator Clipboard API only supports PNG
           const clipboardBlob = format === 'png'
             ? blob
@@ -1742,7 +1742,7 @@ export default defineComponent({
           await copyToClipboard(clipboardBlob, { messageOnSuccess: t('Screenshot Clipboard Success'), messageOnError: t('Screenshot Clipboard Error') })
         }
 
-        if (screenshotMode.value === 'disk' || screenshotMode.value === 'both') {
+        if (screenshotMode.value === 'ask' || screenshotMode.value === 'do_not_ask') {
           if (!process.env.IS_ELECTRON || screenshotMode.value === 'ask') {
             const saved = await writeFileWithPicker(
               filenameWithExtension,
