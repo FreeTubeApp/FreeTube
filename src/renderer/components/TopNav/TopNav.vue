@@ -46,6 +46,8 @@
       <button
         v-if="!hideSearchBar"
         class="navSearchButton navButton"
+        :aria-label="t('Search Bar.Open Search Container')"
+        :title="t('Search Bar.Open Search Container')"
         @click="toggleSearchContainer"
       >
         <FontAwesomeIcon
