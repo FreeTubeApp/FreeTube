@@ -38,9 +38,9 @@ Search / Go to URL: 'Pretraži / idi na URL'
 Search Filters:
   Search Filters: 'Pretraži filtere'
   Prioritize:
-    Most Relevant: 'Naj relevantnije'
+    Most Relevant: 'Najrelevantnije'
   Time:
-    Time: 'Vrjeme'
+    Time: 'Vrijeme'
     Any Time: 'Bilo kada'
     Today: 'Danas'
     This Week: 'Ove sedmice'
@@ -59,57 +59,57 @@ Search Filters:
     '> 20 minutes': '>20 minuta'
   # On Search Page
   Search Results: 'Rezultati pretrage'
-  Fetching results. Please wait: 'Dohvaćanje rezultata. Molimo sačekajte'
-  Fetch more results: 'Dohvati više rezultata'
+  Fetching results. Please wait: 'Pribavljanje rezultata. Molim pričekajte'
+  Fetch more results: 'Prikaži više rezultata'
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Pretplate'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Ovaj profil ima veliki broj pretplata. Prisiljavanje RSS-a da izbjegne ograničenje brzine'
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaša lista pretplata je trenutno prazna. Počnite dodavati pretplate da biste ih vidjeli ovdje.'
-  Load More Videos: 'Očitaj više videozapisa'
+  Load More Videos: 'Učitaj još videa'
 Trending:
   Trending: 'U trendu'
-  Sports: Sport
-Most Popular: 'Naj popularnije'
-Playlists: 'playliste'
+  Sports: Sportovi
+Most Popular: 'Najpopularnije'
+Playlists: 'Plejliste'
 User Playlists:
-  Your Playlists: 'Tvoje playliste'
+  Your Playlists: 'Tvoje plejliste'
 History:
   # On History Page
   History: 'Istorija'
-  Watch History: 'Istorija gledanja'
-  Your history list is currently empty.: 'Vaša lista istorije je trenutno prazna.'
+  Watch History: 'Historija gledanja'
+  Your history list is currently empty.: 'Vaša lista historije je trenutno prazna.'
 Settings:
   # On Settings Page
   Settings: 'Postavke'
-  The app needs to restart for changes to take effect. Restart and apply change?: 'Aplikacija se treba restartovati da bi promjene stupile na snagu. Restartuj i primijeniti promjenu?'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Aplikacija se mora ponovo pokrenuti da bi promjene stupile na snagu. Ponovo pokrenuti i primijeniti promjene?'
   General Settings:
     General Settings: 'Generalne postavke'
-    Check for Updates: 'Provjeri ima li update'
-    Fallback to Non-Preferred Backend on Failure: 'Vraćanje na neželjeni backend u slučaju neuspjeha'
+    Check for Updates: 'Provjeri ažuriranja'
+    Fallback to Non-Preferred Backend on Failure: 'Povratak na nepreferirani backend u slučaju kvara'
     Enable Search Suggestions: 'Omogući prijedloge pretraživanja'
     Default Landing Page: 'Zadana odredišna stranica'
-    Locale Preference: 'Jezik'
+    Locale Preference: 'Preferencija lokacije'
     Preferred API Backend:
       Preferred API Backend: 'Poželjni API Backend'
       Local API: 'Lokalni API'
       Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: 'Način prikazanja videa'
-      Grid: 'Popločan'
-      List: 'Popis'
+      Video View Type: 'Vrsta pregleda videa'
+      Grid: 'Mreža'
+      List: 'Lista'
     Thumbnail Preference:
-      Thumbnail Preference: 'Preferencija minijature'
-      Default: 'Standard'
+      Thumbnail Preference: 'Preferencija za sličice'
+      Default: 'Zadano'
       Beginning: 'Početak'
-      Middle: 'Sredina'
+      Middle: 'Srednji'
       End: 'Kraj'
-    Region for Trending: 'Regiona za trend'
+    Region for Trending: 'Regija za trendove'
         #! List countries
   Theme Settings:
     Theme Settings: 'Postavke teme'
-    Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
+    Match Top Bar with Main Color: 'Uskladite gornju traku s glavnom bojom'
 Channel:
   Videos:
     Videos: Videozapisi
@@ -121,13 +121,13 @@ Search Listing:
     4K: 4K
     8K: 8K
 KeyboardShortcutPrompt:
-  Toggle Developer Tools: Uključi alate za programere
-  Zoom In: Približi
+  Toggle Developer Tools: Uključi/isključi alate za razvojne programere
+  Zoom In: Uvećaj
   Zoom Out: Umanji
-  Fullscreen: Prebaci preko cijelog ekrana
+  Fullscreen: Uključi/isključi cijeli ekran
 Preferences: Postavke
 Profile:
-  Select All: Odabri sve
+  Select All: Odaberi sve
 Compact side navigation: Kompaktna bočna navigacija
 Expand side navigation: Proširi bočnu navigaciju
 Right-click or hold to see history: Kliknite desnim tasterom miša ili zadržite da biste vidjeli istoriju
