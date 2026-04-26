@@ -1,0 +1,10 @@
+# https://github.com/pnpm/pnpm/issues/11070
+# Disable until GitHub dependabot got pnpm >= 10.33.0 installed
+# dedupePeers: true
+
+# https://pnpm.io/next/settings#allowbuilds
+allowBuilds:
+  electron: true # Downloading electron executables for development
+  electron-winstaller: false # We build NSIS installers on Windows, not squirrel ones
+  lefthook: true # Installing git hooks
+  unrs-resolver: false # Works around an npm specific optional dependencies bug, so we don't need it with pnpm

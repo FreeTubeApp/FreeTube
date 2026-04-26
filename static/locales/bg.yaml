@@ -1,24 +1,24 @@
 # Put the name of your locale in the same language
-Locale Name: 'Български'
+Locale Name: 'Bulgarian'
 
 # Webkit Menu Bar
 File: 'Файл'
-Quit: 'Изход'
+Quit: 'Излез'
 Edit: 'Редакция'
-Undo: 'Отмяна'
-Redo: 'Възстановяване'
+Undo: 'Отмени'
+Redo: 'Върни'
 Cut: 'Изрязване'
 Copy: 'Копиране'
 Paste: 'Поставяне'
 Delete: 'Изтриване'
-Select all: 'Избиране на всичко'
+Select all: 'Избери всичко'
 Toggle Developer Tools: 'Показване на инструменти за разработчици'
-Actual size: 'Действителен размер'
-Zoom in: 'Увеличаване'
-Zoom out: 'Намаляване'
+Actual size: 'Реален размер'
+Zoom in: 'Увеличи'
+Zoom out: 'Намали'
 Toggle fullscreen: 'Превключване на цял екран'
 Window: 'Прозорец'
-Minimize: 'Минимизиране'
+Minimize: 'Свиване'
 Close: 'Затваряне'
 Back: 'Назад'
 Forward: 'Напред'
@@ -27,7 +27,7 @@ Forward: 'Напред'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Видеа'
-  Shorts: Кратки видеа
+  Shorts: Кратки
   Live: На живо
   Posts: Публикации
   Sort By: Подреждане по
@@ -40,8 +40,8 @@ Global:
     Watching Count: 1 гледане | {count} гледания
     Like Count: 1 харесване | {count} харесвания
     Comment Count: 1 коментар | {count} коментара
-Version {versionNumber} is now available!  Click for more details: 'Версия {versionNumber} е вече налична! Щракнете за повече детайли'
-Download From Site: 'Сваляне от сайта'
+Version {versionNumber} is now available!  Click for more details: 'Вече е налична версия {versionNumber} !  Щракнете за повече детайли'
+Download From Site: 'Изтегли от сайта'
 
 # Search Bar
 Search / Go to URL: 'Търсене / Отиване на адрес'
@@ -50,6 +50,8 @@ Search Filters:
   Search Filters: 'Филтри за търсене'
   Prioritize:
     Most Relevant: 'Най-уместно'
+    Popularity: Популярност
+    Prioritize: Приоритизирай
   Time:
     Time: 'Време'
     Any Time: 'Независимо кога'
@@ -59,19 +61,19 @@ Search Filters:
     This Year: 'Тази година'
   Type:
     Type: 'Тип'
-    All Types: 'Всички типове'
+    All Types: 'Всички видове'
     Videos: 'Видеа'
     Channels: 'Канали'
     #& Playlists
     Movies: Филми
   Duration:
     Duration: 'Продължителност'
-    All Durations: 'Всички продължителности'
+    All Durations: 'Всички времетраения'
     '< 3 minutes': '< 3 минути'
     '> 20 minutes': '> 20 минути'
     '3 - 20 minutes': 3 - 20 минути
   Search Results: 'Резултати от търсенето'
-  Fetching results. Please wait: 'Събиране на резултати. Моля, изчакайте'
+  Fetching results. Please wait: 'Извличане на резултати. Моля, изчакайте'
   Fetch more results: 'Намиране на още резултати'
 # Sidebar
   There are no more results for this search: Няма повече резултати за това търсене
@@ -87,23 +89,23 @@ Search Filters:
     HD: HD
     3D: 3D
     4K: 4K
-  Clear Filters: Изчистване на филтрите
+  Clear Filters: Изчисти филтрите
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Абонаменти'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Списъкът с абонаменти е празен. Ако искате да внесете абонаментите си, отидете в "Настройки на данни" и изберете "Внасяне на абонаменти" или можете да потърсите канал и да се абонирате за него.'
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Този профил има голям брой абонаменти. Принудително използване на RSS за заобикаляне на ограниченията
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Списъкът с абонаменти е празен. Ако искате да внесете абонаментите си, отидете в "Настройки на данни" и изберете "Внасяне на абонаменти" или да потърсете канал и да се абонирате за него.'
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Този профил има голям брой абонаменти. Принудително използване на RSS, за да се избегне ограничаването на скоростта
   Load More Videos: Зареждане на още видеа
   Error Channels: Канали с грешки
   Disabled Automatic Fetching: Автоматичното извличане на абонаменти е деактивирано. Обновете абонаментите, за да ги видите тук.
   Empty Channels: Каналите, за които сте абонирани, в момента нямат никакви видеа.
   Subscriptions Tabs: Раздели с абонаменти
-  All Subscription Tabs Hidden: Всички раздели на абонамента са скрити. За да виждате съдържанието тук, моля, премахнете скриването на някои раздели в секция "{subsection}" на "{settingsSection}".
+  All Subscription Tabs Hidden: Всички раздели на абонамента са скрити. За да видите съдържанието тук, моля, премахнете скриването на някои раздели в секция "{subsection}" на "{settingsSection}".
   Load More Posts: Зареждане на още публикации
   Empty Posts: В момента в абонираните от вас канали няма публикации.
 Trending:
-  Trending: 'Набиращи популярност'
-  Trending Tabs: Раздели за набиращи популярност
+  Trending: 'Популярни'
+  Trending Tabs: Популярни раздели
   Gaming: Игри
   Sports: Спорт
 Most Popular: 'Най-популярни'
@@ -112,53 +114,53 @@ User Playlists:
   Your Playlists: 'Вашите плейлисти'
   Search bar placeholder: Търсене за плейлисти
   Empty Search Message: В този плейлист няма видеа, които да отговарят на търсенето ви
-  This playlist currently has no videos.: В този плейлист в момента няма видеа.
+  This playlist currently has no videos.: Този плейлист е празен.
   Add to Favorites: Добавяне към {playlistName}
   Are you sure you want to delete this playlist? This cannot be undone: Сигурни ли сте, че искате да изтриете този плейлист? Това не може да бъде отменено.
   SinglePlaylistView:
     Toast:
       Reverted to use {oldPlaylistName} for quick bookmark: Възстановено е използването на {oldPlaylistName} за бързи отметки
-      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Някои видеа в плейлиста все още не са заредени. Щракнете тук, за да копирате.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Някои видеа в плейлиста все още не са заредени. Щракнете тук, за да копирате все пак.
       Playlist {playlistName} has been deleted.: Плейлиста {playlistName} е изтрит.
       There were no videos to remove.: Няма видеа за премахване.
-      This video cannot be moved up.: Това видео не може да бъде преместено нагоре.
-      This video cannot be moved down.: Това видео не може да бъде преместено надолу.
+      This video cannot be moved up.: Видеото не може да се премести нагоре.
+      This video cannot be moved down.: Видеото не може да се премести надолу.
       Video has been removed: Видеото е премахнато
       There was a problem with removing this video: Имаше проблем с премахването на това видео
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Този плейлист вече се използва за бързи отметки вместо {oldPlaylistName}. Щракнете тук, за отмяна
-      This playlist is now used for quick bookmark: Този плейлист вече се използва за бързи отметки
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Този плейлист ще се използва за бързи отметки вместо {oldPlaylistName}. Щракнете тук, за отмяна
+      This playlist is now used for quick bookmark: Този плейлист ще се използва за бързи отметки
       Playlist name cannot be empty. Please input a name.: Името на плейлиста не може да бъде празно. Моля, въведете име.
       Playlist has been updated.: Плейлиста е актуализиран.
-      There was an issue with updating this playlist.: Имаше проблем с актуализирането на този плейлист.
+      There was an issue with updating this playlist.: Възникна проблем при актуализирането на този плейлист.
       "{videoCount} video(s) have been removed": 1 видео е премахнато | {videoCount} видеа са премахнати
-      This playlist is protected and cannot be removed.: Този плейлист е защитен и не може да бъде премахнат.
+      This playlist is protected and cannot be removed.: Този плейлист е защитен и не може да бъде изтрит.
       This playlist does not exist: Този плейлист не съществува
       This playlist is already being used for quick bookmark.: Този плейлист вече се използва за бързи отметки.
       This playlist has a video with a duration error: Този плейлист съдържа поне едно видео, което няма продължителност, той ще бъде подреден така, сякаш продължителността му е нула.
       Video has been removed. Click here to undo.: Видеото е премахнато. Щракнете тук, за отмяна.
-    Search for Videos: Търсене за видеа
+    Search for Videos: Търсене на видеа
   CreatePlaylistPrompt:
     Toast:
-      Playlist {playlistName} has been successfully created.: Плейлиста {playlistName} е създаден успешно.
+      Playlist {playlistName} has been successfully created.: Плейлистът {playlistName} е създаден успешно.
       There is already a playlist with this name. Please pick a different name.: Вече има плейлист с това име. Моля, изберете друго.
-      There was an issue with creating the playlist.: Имаше проблем при създаването на плейлиста.
+      There was an issue with creating the playlist.: Възникна проблем при създаването на плейлиста.
     New Playlist Name: Име на нов плейлист
-    Create: Създаване
-  You have no playlists. Click on the create new playlist button to create a new one.: Нямате плейлисти. Щракнете върху бутона за създаване на нов плейлист, за да създадете нов.
-  Create New Playlist: Създаване на нов
-  Add to Playlist: Добавяне към плейлист за изпълнение
-  Move Video Up: Преместване нагоре
+    Create: Създай
+  You have no playlists. Click on the create new playlist button to create a new one.: Нямате плейлисти. Кликнете върху бутона „Създай нов плейлист“, за да създадете такъв.
+  Create New Playlist: Създай нов плейлист
+  Add to Playlist: Добави към плейлист
+  Move Video Up: Премести нагоре
   Playlist Description: Описание
   Cancel: Отказ
   Sort By:
     LatestCreatedFirst: Дата на създаване (най-нови)
     EarliestCreatedFirst: Дата на създаване (най-стари)
-    EarliestPlayedFirst: Дата на възпроизвеждане (най-стари)
-    NameAscending: A-Z
-    NameDescending: Z-A
+    EarliestPlayedFirst: Дата на показване (най-стари)
+    NameAscending: А-Я
+    NameDescending: Я-А
     LatestUpdatedFirst: Дата на обновяване (най-нови)
     EarliestUpdatedFirst: Дата на обновяване (най-стари)
-    LatestPlayedFirst: Дата на възпроизвеждане (най-нови)
+    LatestPlayedFirst: Дата на показване (най-нови)
   AddVideoPrompt:
     Search in Playlists: Търсене в плейлисти
     Select a playlist to add your N videos to: Изберете плейлист, в който да добавите своето видео | Изберете плейлист, в който да добавите своите {videoCount} видеа
@@ -170,35 +172,35 @@ User Playlists:
     Added {count} Times: Вече е добавено | Добавено {count} пъти
     "{videoCount}/{totalVideoCount} Videos Already Added": Вече са добавени {videoCount}/{totalVideoCount} видеа
     "{videoCount}/{totalVideoCount} Videos Will Be Added": Ще бъдат добавени {videoCount}/{totalVideoCount} видеа
-    Allow Adding Duplicate Video(s): Разрешаване на добавянето на дублиращи се видеа
-  Remove from Playlist: Премахване от плейлиста за изпълнение
+    Allow Adding Duplicate Video(s): Разреши добавяне на дублиращи се видеа
+  Remove from Playlist: Премахни от плейлиста
   Playlist Name: Име на плейлиста
-  Save Changes: Запазване на промените
+  Save Changes: Запази промените
   Edit Playlist Info: Редактиране на инфо
-  Copy Playlist: Копиране на плейлиста
-  Remove Watched Videos: Премахване на гледаните видеа
-  Enable Quick Bookmark With This Playlist: Активиране на бърза отметка с този плейлист
+  Copy Playlist: Копирай плейлиста
+  Remove Watched Videos: Премахни изгледаните видеа
+  Enable Quick Bookmark With This Playlist: Активирай "бърза отметка" с този плейлист
   Delete Playlist: Изтриване на плейлиста
   Remove from Favorites: Премахване от {playlistName}
-  Move Video Down: Преместване надолу
-  Playlists with Matching Videos: Плейлисти със съвпадащи видеа
+  Move Video Down: Премести надолу
+  Playlists with Matching Videos: Плейлисти със съответстващи видеа
   Quick Bookmark Enabled: Бързите отметки са активирани
-  Cannot delete the quick bookmark target playlist.: Не може да се изтрие целевия списък за плейлисти с бързи отметки.
-  Remove Duplicate Videos: Премахване на дублирани видеа
+  Cannot delete the quick bookmark target playlist.: Не е възможно да се изтрие плейлистът, зададен като бърза отметка.
+  Remove Duplicate Videos: Премахни дублирани видеа
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Сигурни ли сте, че искате да премахнете 1 дублиращо се видео от този плейлист? Това не може да бъде отменено. | Сигурни ли сте, че искате да премахнете {playlistItemCount} дублиращи се видеа от този плейлист? Това не може да бъде отменено.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Сигурни ли сте, че искате да премахнете 1 гледано видео от този плейлист? Това не може да бъде отменено. | Сигурни ли сте, че искате да премахнете {playlistItemCount} гледани видеа от този плейлист? Това не може да бъде отменено.
   Export Playlist: Изнасяне на плейлиста
-  The playlist has been successfully exported: Плейлистът е изнесен успешно
+  The playlist has been successfully exported: Плейлистът беше успешно експортиран
   TotalTimePlaylist: 'Общо време: {duration}'
-  Export list of URLs: Изнасяне на списък с URL адреси
+  Export list of URLs: Експортиране на списък с URL адреси
 History:
   # On History Page
   History: 'История'
-  Watch History: 'История на гледане'
-  Your history list is currently empty.: 'Плейлиста с история на гледанията е празен.'
+  Watch History: 'История на гледанията'
+  Your history list is currently empty.: 'Списъкът с историята ви е празен.'
   Search bar placeholder: Търсене в историята
   Empty Search Message: В историята няма видеа, които да отговарят на търсенето ви
-  Case Sensitive Search: Главни / малки букви
+  Case Sensitive Search: Търсене с различаване на главни и малки букви
   DateOldestHistory: Дата на гледане (най-стари)
   DateNewestHistory: Дата на гледане (най-нови)
 Settings:
@@ -545,7 +547,7 @@ Settings:
     Hide Channel Courses: Скриване на раздел "Курсове"
     Hide Channel Posts: Скриване на раздел "Публикации"
     Hide Subscriptions Posts: Скриване на публикациите в абонаментите
-  The app needs to restart for changes to take effect. Restart and apply change?: Приложението трябва да се рестартира за да се приложат промените. Рестартиране?
+  The app needs to restart for changes to take effect. Restart and apply change?: Приложението трябва да се рестартира, за да се приложат промените. Рестартиране?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Грешка при получаване на информация за мрежата. Правилно ли е конфигуриран вашият прокси сървър?
     City: Град
@@ -606,8 +608,8 @@ Settings:
   Password Dialog:
     Enter Password To Unlock: Въведете парола за отключване на настройките
     Password: Парола
-  Sort Settings Sections (A-Z): Подреждане на секциите на настройките (А-Я)
-  Return to Settings Menu: Връщане към менюто с настройки
+  Sort Settings Sections (A-Z): Подреждане на разделите по настройките (А-Я)
+  Return to Settings Menu: Върни се към менюто „Настройки“
 About:
   #On About page
   About: 'Относно'
@@ -914,7 +916,7 @@ Comments:
   Newest first: Първо най-новите
   Top comments: Последни коментари
   Show More Replies: Показване на още отговори
-  Pinned by: Прихванато от
+  Pinned by: Закачено от
   Member: Член
   View {replyCount} replies: Преглед на 1 отговор | Преглед на {replyCount} отговора
   Hearted: Сърдечно
@@ -980,13 +982,13 @@ Tooltips:
 More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ. | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ. | Пускане на следващото видео след {nextVideoInterval} секунди. Щракнете за отказ.
 Unknown YouTube url type, cannot be opened in app: Неизвестен тип URL адрес за YouTube, не може да се отвори в приложението
-Open New Window: Отваряне на нов прозорец
+Open New Window: Отвори нов прозорец
 Default Invidious instance has been cleared: Сървъра по подразбиране за Invidious е изчистен
 Default Invidious instance has been set to {instance}: Сървъра по подразбиране за Invidious е зададен на {instance}
 External link opening has been disabled in the general settings: Отварянето на външни връзки е изключено в общите настройки
 Search Bar:
-  Clear Input: Изчистване на въведеното
-  Remove: Премахване
+  Clear Input: Изчисти въведеното
+  Remove: Премахни
 Are you sure you want to open this link?: Сигурни ли сте, че искате да отворите тази връзка?
 Screenshot Error: Снимката на екрана е неуспешна. {error}
 Screenshot Success: Запазена снимка на екрана
@@ -997,30 +999,30 @@ Channels:
   Search bar placeholder: Търсене на канали
   Channels: Канали
   Title: Списък с канали
-  Empty: Списъкът с канали в момента е празен.
+  Empty: Вашият писък с канали е празен.
 Clipboard:
   Cannot access clipboard without a secure connection: Не може да се получи достъп до клипборда без защитена връзка
   Copy failed: Неуспешно копиране в клипборда
 Chapters:
   Chapters: Глави
   Key Moments: Основни моменти
-Preferences: Предпочитания
+Preferences: Настройки
 Ok: Добре
 Hashtag:
   Hashtag: Хаштаг
   This hashtag does not currently have any videos: В момента този хаштаг няма видеа
 Channel Hidden: '{channel} е добавен към филтъра за канали'
 Channel Unhidden: '{channel} е премахнат от филтъра за канали'
-Go to page: Отиване на {page}
+Go to page: Отиди на {page}
 Tag already exists: Етикетът "{tagName}" вече съществува
 Trimmed input must be at least N characters long: Орязаният вход трябва да бъде дълъг поне 1 символ | Орязаният вход трябва да бъде дълъг поне {length} символа
 Age Restricted:
   This channel is age restricted: Този канал е с възрастово ограничение
   This video is age restricted: Това видео е с възрастово ограничение
-Close Banner: Затваряне на банер
+Close Banner: Затвори банера
 Search character limit: Заявката за търсене е над лимита от {searchCharacterLimit} символа
 Feed:
-  Feed Last Updated: 'Последна актуализация на емисията {feedName}: {date}'
+  Feed Last Updated: 'Последна актуализация на {feedName}: {date}'
   Refresh Feed: Обновяване на {subscriptionName}
 Yes, Delete: Да, изтрий
 Yes, Restart: Да, рестартирай
@@ -1033,7 +1035,7 @@ Search Listing:
   Label:
     4K: 4K
     Subtitles: Субтитри
-    Closed Captions: Затворени субтитри
+    Closed Captions: Скрити субтитри
     VR180: VR180
     3D: 3D
     8K: 8K
@@ -1054,7 +1056,7 @@ Keys:
   plus: Плюс
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
-Right-click or hold to see history: Щракнете с десния бутон на мишката или задръжте, за да видите историята
+Right-click or hold to see history: Щракнете с десния бутон или задръжте, за да видите историята
 Autoplay Interruption Timer: Автоматичното възпроизвеждане е отменено поради {autoplayInterruptionIntervalHours} час(а) неактивност
 KeyboardShortcutPrompt:
   Keyboard Shortcuts: Бързи клавиши
@@ -1108,5 +1110,5 @@ KeyboardShortcutPrompt:
   Skip to Next Video: Преминаване към следващото видео в плейлиста или към следващото препоръчано
   Skip to Previous Video: Преминаване към предходното видео в плейлиста
 shortcutLabelSeparator: '{''|''}'
-Compact side navigation: Компактна странична навигация
-Expand side navigation: Разширена странична навигация
+Compact side navigation: Компактно странично меню
+Expand side navigation: Разгърни страничното меню

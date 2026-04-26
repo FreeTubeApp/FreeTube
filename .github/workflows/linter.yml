@@ -18,44 +18,48 @@ jobs:
       contents: read
 
     steps:
-    - name: Get yarn cache directory
-      id: cache_dir
-      shell: bash
-      run: |
-        {
-          echo 'cache_dir<<EOF'
-          yarn cache dir
-          echo EOF
-        } >> "$GITHUB_OUTPUT"
-
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
       with:
         persist-credentials: false
 
     - name: Use Node.js 24.x
-      uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f #v6.3.0
+      uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e #v6.4.0
       with:
         node-version: 24.x
         package-manager-cache: false
 
-    # This workflow runs on pull requests which are untrusted
-    # so we only restore the yarn cache, we don't save it to avoid cache poisoning
-    - name: Restore yarn cache
+    - name: Install pnpm
+      uses: pnpm/action-setup@903f9c1a6ebcba6cf41d87230be49611ac97822e #v6.0.3
+      with:
+        version: 10
+        cache: false
+
+    - name: Get pnpm cache directory
+      id: cache_dir
+      shell: bash
+      run: |
+        {
+          echo 'cache_dir<<EOF'
+          pnpm store path
+          echo EOF
+        } >> "$GITHUB_OUTPUT"
+
+    - name: Restore pnpm cache
       id: restore_cache
       uses: actions/cache/restore@27d5ce7f107fe9357f9df03efb73ab90386fccae #v5.0.5
       with:
-        key: ${{ format('node-cache-{0}-{1}-yarn-{2}', runner.os, runner.arch, hashFiles('yarn.lock')) }}
+        key: ${{ format('node-cache-{0}-{1}-pnpm-{2}', runner.os, runner.arch, hashFiles('pnpm-lock.yaml')) }}
         path: ${{ steps.cache_dir.outputs.cache_dir }}
 
-    - run: yarn run ci
+    - run: pnpm run ci
       shell: bash
       env:
         ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
-    - run: yarn run lint
+    - run: pnpm run lint
       shell: bash
     # let's verify that webpack is able to package the project
-    - run: yarn run pack
+    - run: pnpm run pack
       shell: bash
     # verify that webpack is able to package the project using the web config
-    - run: yarn run pack:web
+    - run: pnpm run pack:web
       shell: bash
