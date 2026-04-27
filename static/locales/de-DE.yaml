@@ -159,7 +159,7 @@ User Playlists:
     Save: Speichern
     Toast:
       You haven't selected any playlist yet.: Du hast noch keine Playlist ausgewählt.
-      "Video(s) added to {playlistCount} playlists": "Video(s) wurden zu 1 Playlist hinzugefügt | Video(s) wurden zu {playlistCount} Playlists hinzugefügt"
+      "Video(s) added to {playlistCount} playlists": "Video(s) wurde(n) zu 1 Playlist hinzugefügt | Video(s) wurde(n) zu {playlistCount} Playlists hinzugefügt"
     Select a playlist to add your N videos to: Wähle eine Playlist, der du dein Video hinzufügen möchtest | Wähle eine Playlist, der du deine {videoCount} Videos hinzufügen möchtest
     Added {count} Times: 'Bereits hinzugefügt | {count} Mal hinzugefügt'
     Allow Adding Duplicate Video(s): Hinzufügen doppelter Videos zulassen
@@ -810,7 +810,7 @@ Video:
   Watched Progress Saved: Videofortschritt gespeichert
   Popout Live Chat: Öffnet ein neues Browserfenster mit dem aktuellen Video-Live-Chat
   Watch:
-    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Verbleibende SABR Wartezeit: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Verbleibende SABR-Wartezeit: {remindingTimeSeconds}s'
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Verbleibende Werbezeit: {remindingTimeSeconds}s'
 Playlist:
   #& About
