@@ -196,7 +196,7 @@
           @change="updateScreenshotQuality"
         />
       </FtFlexBox>
-      <FtFlexBox v-if="USING_ELECTRON">
+      <FtFlexBox>
         <FtSelect
           :placeholder="t('Settings.Player Settings.Screenshot.Mode')"
           :value="screenshotMode"
