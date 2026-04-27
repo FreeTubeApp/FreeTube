@@ -47,6 +47,8 @@ Search Filters:
   Search Filters: 'Zoekfilters'
   Prioritize:
     Most Relevant: 'Relevantie'
+    Prioritize: Prioriteer
+    Popularity: Populariteit
   Time:
     Time: 'Lengte'
     Any Time: 'Altĳd'
@@ -1102,3 +1104,4 @@ Autoplay Interruption Timer: Automatisch afspelen geannuleerd door {autoplayInte
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Compact side navigation: Minimaliseer Zijbar
+Expand side navigation: Maximaliseer zijbar
