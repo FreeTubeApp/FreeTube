@@ -182,6 +182,7 @@
           :select-names="SCREENSHOT_FORMAT_NAMES"
           :select-values="SCREENSHOT_FORMAT_VALUES"
           :icon="['fas', 'file-image']"
+          :disabled="screenshotMode === 'clipboard'"
           @change="handleUpdateScreenshotFormat"
         />
         <FtSlider
@@ -191,19 +192,22 @@
           :max-value="100"
           :step="1"
           value-extension="%"
-          :disabled="screenshotFormat === 'png'"
+          :disabled="screenshotFormat === 'png' || screenshotMode === 'clipboard'"
           @change="updateScreenshotQuality"
         />
       </FtFlexBox>
-      <FtFlexBox v-if="USING_ELECTRON">
-        <FtToggleSwitch
-          :label="t('Settings.Player Settings.Screenshot.Ask Path')"
-          :default-value="screenshotAskPath"
-          @change="updateScreenshotAskPath"
+      <FtFlexBox>
+        <FtSelect
+          :placeholder="t('Settings.Player Settings.Screenshot.Mode')"
+          :value="screenshotMode"
+          :select-names="screenshotModeNames"
+          :select-values="screenshotModeValues"
+          :icon="['fas', 'expand']"
+          @change="handleUpdateScreenshotMode"
         />
       </FtFlexBox>
       <FtFlexBox
-        v-if="USING_ELECTRON && !screenshotAskPath"
+        v-if="USING_ELECTRON && screenshotMode === 'do_not_ask'"
         class="screenshotFolderContainer"
       >
         <p class="screenshotFolderLabel">
@@ -223,6 +227,7 @@
         />
       </FtFlexBox>
       <FtFlexBox
+        v-if="screenshotMode !== 'clipboard'"
         class="screenshotFolderContainer"
       >
         <p class="screenshotFilenamePatternTitle">
@@ -598,6 +603,27 @@ async function handleUpdateScreenshotFormat(format) {
   getScreenshotFilenameExample(screenshotFilenamePattern.value)
 }
 
+const screenshotModeNames = computed(() => [
+  t('Settings.Player Settings.Screenshot.Modes.Ask Path'),
+  ...process.env.IS_ELECTRON ? [t('Settings.Player Settings.Screenshot.Modes.Do Not Ask Path')] : [],
+  t('Settings.Player Settings.Screenshot.Modes.Clipboard'),
+])
+const screenshotModeValues = computed(() => [
+  'ask',
+  ...process.env.IS_ELECTRON ? ['do_not_ask'] : [],
+  'clipboard'
+])
+
+/** @type {import('vue').ComputedRef<'ask' | 'do_not_ask' | 'clipboard'>} */
+const screenshotMode = computed(() => store.getters.getScreenshotMode)
+
+/**
+ * @param {'ask' | 'do_not_ask' | 'clipboard'} mode
+ */
+async function handleUpdateScreenshotMode(mode) {
+  await store.dispatch('updateScreenshotMode', mode)
+}
+
 /** @type {import('vue').ComputedRef<number>} */
 const screenshotQuality = computed(() => store.getters.getScreenshotQuality)
 
@@ -606,16 +632,6 @@ const screenshotQuality = computed(() => store.getters.getScreenshotQuality)
  */
 function updateScreenshotQuality(value) {
   store.dispatch('updateScreenshotQuality', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const screenshotAskPath = computed(() => store.getters.getScreenshotAskPath)
-
-/**
- * @param {boolean} value
- */
-function updateScreenshotAskPath(value) {
-  store.dispatch('updateScreenshotAskPath', value)
 }
 
 /** @type {import('vue').ComputedRef<string>} */
