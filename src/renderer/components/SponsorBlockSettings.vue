@@ -20,6 +20,13 @@
         :tooltip="$t('Tooltips.SponsorBlock Settings.UseDeArrowThumbnails')"
         @change="handleUpdateUseDeArrowThumbnails"
       />
+      <FtToggleSwitch
+        v-if="useDeArrowTitles || useDeArrowThumbnails"
+        :label="$t('Settings.SponsorBlock Settings.DeArrowCasualMode')"
+        :default-value="deArrowCasualMode"
+        :tooltip="$t('Tooltips.SponsorBlock Settings.DeArrowCasualMode')"
+        @change="handleUpdateDeArrowCasualMode"
+      />
     </FtFlexBox>
     <template
       v-if="useSponsorBlock || useDeArrowTitles || useDeArrowThumbnails"
@@ -106,6 +113,9 @@ const useDeArrowTitles = computed(() => store.getters.getUseDeArrowTitles)
 /** @type {import('vue').ComputedRef<boolean>} */
 const useDeArrowThumbnails = computed(() => store.getters.getUseDeArrowThumbnails)
 
+/** @type {import('vue').ComputedRef<boolean>} */
+const deArrowCasualMode = computed(() => store.getters.getDeArrowCasualMode)
+
 /** @type {import('vue').ComputedRef<string>} */
 const deArrowThumbnailGeneratorUrl = computed(() => store.getters.getDeArrowThumbnailGeneratorUrl)
 
@@ -128,6 +138,13 @@ function handleUpdateUseDeArrowTitles(value) {
  */
 function handleUpdateUseDeArrowThumbnails(value) {
   store.dispatch('updateUseDeArrowThumbnails', value)
+}
+
+/**
+ * @param {boolean} value
+ */
+function handleUpdateDeArrowCasualMode(value) {
+  store.dispatch('updateDeArrowCasualMode', value)
 }
 
 /**
