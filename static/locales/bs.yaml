@@ -33,12 +33,23 @@ Global:
   Live: Uživo
   Videos: Videozapisi
   Shorts: Shorts
+  Posts: Objave
+  Counts:
+    Video Count: 1 video | {count} video zapisa
+    Channel Count: 1 kanal | {count} kanala
+    Subscriber Count: 1 pretplatnik | {count} pretplatnika
+    View Count: 1 pregled | {count} pregleda
+    Like Count: 1 sviđanje | {count} sviđanja
+    Comment Count: 1 komentar | {count} komentara
+    Watching Count: 1 gleda | {count} gleda
 Search / Go to URL: 'Pretraži / idi na URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Pretraži filtere'
   Prioritize:
     Most Relevant: 'Najrelevantnije'
+    Prioritize: Prioritiraj
+    Popularity: Popularnost
   Time:
     Time: 'Vrijeme'
     Any Time: 'Bilo kada'
@@ -52,16 +63,25 @@ Search Filters:
     Videos: 'Videozapisi'
     Channels: 'Kanali'
     #& Playlists
+    Movies: Filmovi
   Duration:
     Duration: 'Trajanje'
     All Durations: 'Sva trajanja'
     '< 3 minutes': '<3 minute'
     '> 20 minutes': '>20 minuta'
   # On Search Page
+    '3 - 20 minutes': 3 - 20 minuta
   Search Results: 'Rezultati pretrage'
   Fetching results. Please wait: 'Pribavljanje rezultata. Molim pričekajte'
   Fetch more results: 'Prikaži više rezultata'
 # Sidebar
+  Features:
+    Features: Karakteristike
+    HD: HD
+    Subtitles: Titlovi
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Uživo
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Pretplate'
@@ -120,6 +140,12 @@ Search Listing:
   Label:
     4K: 4K
     8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    Subtitles: Titlovi
+    New: Novi
+    3D: 3D
+    Closed Captions: Zatvoreni Titlovi
 KeyboardShortcutPrompt:
   Toggle Developer Tools: Uključi/isključi alate za razvojne programere
   Zoom In: Uvećaj
@@ -135,3 +161,7 @@ Open New Window: Otvori novi prozor
 Go to page: Idi na {page}
 Close Banner: Zatvori baner
 Are you sure you want to open this link?: Jeste li sigurni da želite otvoriti ovaj link?
+Search Bar:
+  Clear Input: Obriši unos
+  Remove: Ukloni
+Search character limit: Upit za pretragu prelazi ograničenje broja znakova od {searchCharacterLimit}
