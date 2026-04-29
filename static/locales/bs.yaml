@@ -82,30 +82,132 @@ Search Filters:
     Creative Commons: Creative Commons
     3D: 3D
     Live: Uživo
+    4K: 4K
+    360 Video: 360 Video
+    Location: Lokacija
+    HDR: HDR
+    VR180: VR180
+  There are no more results for this search: Nema više rezultata za ovu pretragu
+  Clear Filters: Obriši filtere
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Pretplate'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Ovaj profil ima veliki broj pretplata. Prisiljavanje RSS-a da izbjegne ograničenje brzine'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaša lista pretplata je trenutno prazna. Počnite dodavati pretplate da biste ih vidjeli ovdje.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaša lista pretplata je trenutno prazna. Ako želite uvesti svoje pretplate, možete otići u Postavke podataka i odabrati Uvezi pretplate ili možete potražiti kanal i pretplatiti se na njega.'
   Load More Videos: 'Učitaj još videa'
+  Error Channels: Kanali s greškama
+  Disabled Automatic Fetching: Onemogućili ste automatsko preuzimanje pretplata. Osvježite pretplate da biste ih vidjeli ovdje.
+  Empty Channels: Vaši pretplaćeni kanali trenutno nemaju videozapise.
+  Empty Posts: Vaši pretplaćeni kanali trenutno nemaju objava.
+  Load More Posts: Učitaj još objava
+  Subscriptions Tabs: Kartice pretplata
+  All Subscription Tabs Hidden: Sve kartice pretplata su skrivene. Da biste vidjeli sadržaj ovdje, molimo vas da otkrijete neke kartice u odjeljku "{subsection}" u "{settingsSection}".
 Trending:
   Trending: 'U trendu'
   Sports: Sportovi
+  Gaming: Igre
+  Trending Tabs: Trendovi u karticama
 Most Popular: 'Najpopularnije'
 Playlists: 'Plejliste'
 User Playlists:
   Your Playlists: 'Tvoje plejliste'
+  You have no playlists. Click on the create new playlist button to create a new one.: Nemate plejlista. Kliknite na dugme "Kreiraj novu plejlistu" da biste kreirali novu.
+  Empty Search Message: Na ovoj plejlisti nema videozapisa koji odgovaraju vašoj pretrazi
+  Search bar placeholder: Pretraživanje plejlista
+  Playlists with Matching Videos: Liste za reprodukciju s odgovarajućim videozapisima
+  This playlist currently has no videos.: Ova plejlista trenutno nema videozapisa.
+  Create New Playlist: Kreiraj novu listu za reprodukciju
+  Add to Playlist: Dodaj na plejlistu
+  Add to Favorites: Dodaj na {playlistName}
+  Remove from Favorites: Ukloni sa {playlistName}
+  Move Video Up: Pomakni video gore
+  Move Video Down: Pomakni video dolje
+  Remove from Playlist: Ukloni s popisa za reprodukciju
+  Playlist Name: Naziv plejliste
+  Playlist Description: Opis plejliste
+  Save Changes: Sačuvaj promjene
+  Cancel: Otkaži
+  Edit Playlist Info: Uredi informacije o plejlisti
+  Copy Playlist: Kopiraj plejlistu
+  Remove Duplicate Videos: Ukloni duplikate videozapisa
+  Remove Watched Videos: Ukloni gledane videozapise
+  Enable Quick Bookmark With This Playlist: Omogući brzo označavanje s ovom plejlistom
+  Quick Bookmark Enabled: Brzo označavanje omogućeno
+  Export Playlist: Izvezi ovu plejlistu
+  Export list of URLs: Izvoz liste URL-ova
+  The playlist has been successfully exported: Plejlista je uspješno izvezena
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Jeste li sigurni da želite ukloniti 1 duplikat videozapisa s ove liste za reprodukciju? Ovo se ne može poništiti. | Jeste li sigurni da želite ukloniti {playlistItemCount} duplikata videozapisa s ove liste za reprodukciju? Ovo se ne može poništiti.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Jeste li sigurni da želite ukloniti 1 gledani video sa ove liste za reprodukciju? Ovo se ne može poništiti. | Jeste li sigurni da želite ukloniti {playlistItemCount} gledanih videa sa ove liste za reprodukciju? Ovo se ne može poništiti.
+  Delete Playlist: Izbriši listu za reprodukciju
+  Cannot delete the quick bookmark target playlist.: Nije moguće izbrisati listu za reprodukciju cilja brzog označavanja.
+  Are you sure you want to delete this playlist? This cannot be undone: Jeste li sigurni da želite izbrisati ovu plejlistu? Ova radnja se ne može poništiti.
+  TotalTimePlaylist: 'Ukupno vrijeme: {duration}'
+  Sort By:
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestCreatedFirst: Datum kreiranja (najnoviji)
+    EarliestCreatedFirst: Datum kreiranja (najstariji)
+    LatestUpdatedFirst: Datum ažuriranja (najnoviji)
+    EarliestUpdatedFirst: Datum ažuriranja (najstariji)
+    LatestPlayedFirst: Datum gledanja (najnoviji)
+    EarliestPlayedFirst: Datum gledanja (najstariji)
+  SinglePlaylistView:
+    Search for Videos: Pretraži videozapise
+    Toast:
+      This video cannot be moved up.: Ovaj video se ne može pomaknuti gore.
+      This video cannot be moved down.: Ovaj video se ne može pomaknuti dolje.
+      Video has been removed: Video je uklonjen
+      Video has been removed. Click here to undo.: Video je uklonjen. Klikni ovdje da poništite.
+      There was a problem with removing this video: Došlo je do problema s uklanjanjem ovog videa
+      This playlist is already being used for quick bookmark.: Ova lista za reprodukciju se već koristi za brzo označavanje.
+      This playlist is now used for quick bookmark: Ova plejlista se sada koristi za brzo označavanje
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ova lista za reprodukciju se sada koristi za brzo označavanje umjesto {oldPlaylistName}. Klikni ovdje za poništavanje
+      Reverted to use {oldPlaylistName} for quick bookmark: Vraćeno na korištenje {oldPlaylistName} za brzo označavanje
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Neki videozapisi na popisu za reprodukciju još nisu učitani. Klikni ovdje da bi ih ipak kopirali.
+      Playlist name cannot be empty. Please input a name.: Naziv plejliste ne može biti prazan. Molim unesite naziv.
+      Playlist has been updated.: Plejlista je ažurirana.
+      There was an issue with updating this playlist.: Došlo je do problema s ažuriranjem ove plejliste.
+      "{videoCount} video(s) have been removed": 1 videozapis je uklonjen | {videoCount} videozapisa je uklonjeno
+      There were no videos to remove.: Nije bilo videozapisa za uklanjanje.
+      This playlist is protected and cannot be removed.: Ova plejlista je zaštićena i ne može se ukloniti.
+      Playlist {playlistName} has been deleted.: Plejlista {playlistName} je izbrisana.
+      This playlist does not exist: Ova plejlista ne postoji
+      This playlist has a video with a duration error: Ova lista za reprodukciju sadrži barem jedan video koji nema trajanje, bit će sortiran kao da mu je trajanje nula.
+  AddVideoPrompt:
+    Select a playlist to add your N videos to: Odaberite listu za reprodukciju na koju ćete dodati svoj video | Odaberite listu za reprodukciju na koju ćete dodati svoje {videoCount} video zapise
+    N playlists selected: 'Odabrano: {playlistCount}'
+    Search in Playlists: Pretraživanje u plejlistama
+    Allow Adding Duplicate Video(s): Dozvoli dodavanje duplih videa
+    Save: Sačuvaj
+    Added {count} Times: Već dodano | Dodano {count} puta
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videozapisa će biti dodano'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videozapisi su već dodani'
+    Toast:
+      You haven't selected any playlist yet.: Još niste odabrali nijednu plejlistu.
+      "Video(s) added to {playlistCount} playlists": Video(i) dodani na 1 plejlistu | Video(i) dodani na {playlistCount} plejlista
+  CreatePlaylistPrompt:
+    New Playlist Name: Naziv nove plejliste
+    Create: Kreiraj
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: Već postoji plejlista s ovim nazivom. Molim odaberite drugi naziv.
+      Playlist {playlistName} has been successfully created.: Plejlista {playlistName} je uspješno kreirana.
+      There was an issue with creating the playlist.: Došlo je do problema prilikom kreiranja liste za reprodukciju.
 History:
   # On History Page
   History: 'Istorija'
   Watch History: 'Historija gledanja'
   Your history list is currently empty.: 'Vaša lista historije je trenutno prazna.'
+  Empty Search Message: U vašoj historiji nema videozapisa koji odgovaraju vašoj pretrazi
+  Search bar placeholder: Pretraži u historiji
+  Case Sensitive Search: Pretraga koja razlikuje velika i mala slova
+  DateOldestHistory: Datum gledanja (najstariji)
+  DateNewestHistory: Datum gledanja (najnoviji)
 Settings:
   # On Settings Page
   Settings: 'Postavke'
   The app needs to restart for changes to take effect. Restart and apply change?: 'Aplikacija se mora ponovo pokrenuti da bi promjene stupile na snagu. Ponovo pokrenuti i primijeniti promjene?'
   General Settings:
-    General Settings: 'Generalne postavke'
+    General Settings: 'Općenito'
     Check for Updates: 'Provjeri ažuriranja'
     Fallback to Non-Preferred Backend on Failure: 'Povratak na nepreferirani backend u slučaju kvara'
     Enable Search Suggestions: 'Omogući prijedloge pretraživanja'
@@ -127,9 +229,17 @@ Settings:
       End: 'Kraj'
     Region for Trending: 'Regija za trendove'
         #! List countries
+    Open Deep Links In New Window: Otvori URL-ove proslijeđene FreeTube-u u novom prozoru
+    Minimize to system tray: Minimiziraj u sistemsku traku
+    Auto Load Next Page:
+      Label: Automatsko učitavanje sljedeće stranice
+      Tooltip: Automatski učitaj dodatne stranice i komentare.
+    System Default: Zadano sistemski
   Theme Settings:
     Theme Settings: 'Postavke teme'
     Match Top Bar with Main Color: 'Uskladite gornju traku s glavnom bojom'
+  Sort Settings Sections (A-Z): Postavke sortiranja po odjeljcima (A-Z)
+  Return to Settings Menu: Povratak na meni postavki
 Channel:
   Videos:
     Videos: Videozapisi
@@ -165,3 +275,14 @@ Search Bar:
   Clear Input: Obriši unos
   Remove: Ukloni
 Search character limit: Upit za pretragu prelazi ograničenje broja znakova od {searchCharacterLimit}
+More: Više
+Channels:
+  Channels: Kanali
+  Title: Lista kanala
+  Search bar placeholder: Pretraži kanale
+  Count: Pronađen je {number} kanal(a).
+  Empty: Vaša lista kanala je trenutno prazna.
+  Unsubscribe Prompt: Jeste li sigurni da želite odjaviti pretplatu na "{channelName}"?
+Feed:
+  Feed Last Updated: '{feedName} feed je zadnji put ažuriran: {date}'
+  Refresh Feed: Osvježi {subscriptionName}
