@@ -227,6 +227,8 @@ Settings:
       Beginning: 'Početak'
       Middle: 'Srednji'
       End: 'Kraj'
+      Hidden: Skriveno
+      Blur: Zamućenje
     Region for Trending: 'Regija za trendove'
         #! List countries
     Open Deep Links In New Window: Otvori URL-ove proslijeđene FreeTube-u u novom prozoru
@@ -235,9 +237,97 @@ Settings:
       Label: Automatsko učitavanje sljedeće stranice
       Tooltip: Automatski učitaj dodatne stranice i komentare.
     System Default: Zadano sistemski
+    Current Invidious Instance: Trenutna invazivni primjer
+    The currently set default instance is {instance}: Trenutno postavljen zadani primjer je {instance}
+    No default instance has been set: Nije postavljen zadani primjer
+    Current instance will be randomized on startup: Trenutni primjer će biti nasumično odabran pri pokretanju
+    Set Current Instance as Default: Postavi trenutni primjer kao zadani
+    Clear Default Instance: Obriši zadani primjer
+    View all Invidious instance information: Pogledajte sve informacije o uvredljivim primjerima
+    External Link Handling:
+      External Link Handling: Rukovanje vanjskim linkovima
+      Open Link: Otvori link
+      Ask Before Opening Link: Pitaj prije otvaranja linka
+      No Action: Nema akcije
   Theme Settings:
-    Theme Settings: 'Postavke teme'
+    Theme Settings: 'Tema'
     Match Top Bar with Main Color: 'Uskladite gornju traku s glavnom bojom'
+    Expand Side Bar by Default: Proširi bočnu traku prema zadanim postavkama
+    Disable Smooth Scrolling: Onemogući glatko skrolovanje
+    UI Scale: UI Skala
+    Hide Side Bar Labels: Sakrij oznake bočne trake
+    Hide FreeTube Header Logo: Sakrij logotip zaglavlja FreeTube-a
+    Base Theme:
+      Base Theme: Osnovna tema
+      Black: Crno
+      Dark: Tamno
+      System Default: Sistemski zadano
+      Light: Svijetlo
+      Dracula: Drakula
+      Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Latte: Catppuccin Latte
+      Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastelno ružičasta
+      Hot Pink: Vruća ružičasta
+      Nordic: Nordijska
+      Gruvbox Dark: Grubakutija tamno
+      Gruvbox Light: Grubakutija svijetlo
+      Solarized Dark: Solarizirano tamno
+      Solarized Light: Solarizirano svijetlo
+      Everforest Dark Hard: Vječna šuma solidno tamno
+      Everforest Dark Medium: Vječna šuma srednje tamno
+      Everforest Dark Low: Vječna šuma nisko tamno
+      Everforest Light Hard: Vječna šuma lagano solidno
+      Everforest Light Medium: Vječna šuma srednje svijetlo
+      Everforest Light Low: Vječna šuma nisko svijetlo
+    Main Color Theme:
+      Main Color Theme: Glavna tema boja
+      Red: Crvena
+      Pink: Ružičasta
+      Purple: Ljubičasta
+      Deep Purple: Tamno ljubičasta
+      Indigo: Modra
+      Blue: Plava
+      Light Blue: Svijetloplava
+      Cyan: Cijan
+      Teal: Tirkiz
+      Green: Zelena
+      Light Green: Svijetlozelena
+      Lime: Limeta
+      Yellow: Žuta
+      Amber: Ćilibar
+      Orange: Narandžasta
+      Deep Orange: Tamno narandžasta
+      Dracula Cyan: Drakula Cijan
+      Dracula Green: Drakula zelena
+      Dracula Orange: Drakula narandžasta
+      Dracula Pink: Drakula ružičasta
+      Dracula Purple: Drakula ljubičasta
+      Dracula Red: Drakula crvena
+      Dracula Yellow: Drakula žuta
+      Catppuccin Frappe Rosewater: Catppuccin Frappe ružina vodica
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe ružičasta
+      Catppuccin Frappe Mauve: Catppuccin Frappe svijetloljubičasta
+      Catppuccin Frappe Red: Crveni Catppuccin Frappe
+      Catppuccin Frappe Maroon: Catppuccin Frappe smeđe-grimiz
+      Catppuccin Frappe Peach: Catppuccin Frappe breskva
+      Catppuccin Frappe Yellow: Žuti Catppuccin Frappe
+      Catppuccin Frappe Green: Zeleni Catppuccin Frappe
+      Catppuccin Frappe Teal: Catppuccin Frappe tirkiz
+      Catppuccin Frappe Sky: Catppuccin Frappe nebo
+      Catppuccin Frappe Sapphire: Catppuccin Frappe safir
+      Catppuccin Frappe Blue: Catppuccin Frappe plava
+      Catppuccin Frappe Lavender: Catpuccin Frappe lavanda
+      Catppuccin Latte Mauve: Catppuccin Latte svijetloljubičasto
+      Catppuccin Latte Red: Crveni Catpuccin Latte
+      Catppuccin Mocha Rosewater: Catppuccin Mocha ružina vodica
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha ružičasto
+      Catppuccin Mocha Mauve: Catppuccin Mocca svijetloljubičasto
+      Catppuccin Mocha Red: Crvena Catppuccin Mocha
+      Catppuccin Mocha Maroon: Catppuccin Mocha smeđe-grimizna
+      Catppuccin Mocha Peach: Catpuccin Mocca breskva
   Sort Settings Sections (A-Z): Postavke sortiranja po odjeljcima (A-Z)
   Return to Settings Menu: Povratak na meni postavki
 Channel:
