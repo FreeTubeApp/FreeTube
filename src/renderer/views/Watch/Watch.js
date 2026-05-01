@@ -55,6 +55,20 @@ import { MANIFEST_TYPE_SABR } from '../../helpers/player/SabrManifestParser'
 
 const MANIFEST_TYPE_DASH = 'application/dash+xml'
 const MANIFEST_TYPE_HLS = 'application/x-mpegurl'
+const UNAVAILABLE_VIDEO_THUMBNAILS = {
+  light: 'https://www.youtube.com/img/desktop/unavailable/unavailable_video.png',
+  dark: 'https://www.youtube.com/img/desktop/unavailable/unavailable_video_dark_theme.png'
+}
+const LIGHT_BASE_THEMES = new Set([
+  'light',
+  'pastelPink',
+  'catppuccinLatte',
+  'solarizedLight',
+  'gruvboxLight',
+  'everforestLightHard',
+  'everforestLightMedium',
+  'everforestLightLow'
+])
 
 export default defineComponent({
   name: 'Watch',
@@ -190,6 +204,9 @@ export default defineComponent({
     },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+    baseTheme: function () {
+      return this.$store.getters.getBaseTheme
     },
     currentInvidiousInstanceUrl: function () {
       return this.$store.getters.getCurrentInvidiousInstanceUrl
@@ -872,7 +889,7 @@ export default defineComponent({
           this.isLoading = false
 
           if (!this.thumbnail) {
-            this.thumbnail = `https://i.ytimg.com/vi/${this.videoId}/maxresdefault.jpg`
+            this.thumbnail = this.getUnavailableVideoThumbnail()
           }
           this.errorMessage = err.message || err.toString()
         }
@@ -1062,7 +1079,7 @@ export default defineComponent({
             this.isLoading = false
 
             if (!this.thumbnail) {
-              this.thumbnail = `https://i.ytimg.com/vi/${this.videoId}/maxresdefault.jpg`
+              this.thumbnail = this.getUnavailableVideoThumbnail()
             }
             this.errorMessage = err.message || err.toString()
           }
@@ -1073,6 +1090,16 @@ export default defineComponent({
       const expireString = new URL(url).searchParams.get('expire')
 
       return new Date(parseInt(expireString) * 1000)
+    },
+
+    getUnavailableVideoThumbnail: function () {
+      const baseTheme = this.baseTheme || 'system'
+      const isLightTheme = LIGHT_BASE_THEMES.has(baseTheme) ||
+        (baseTheme === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches)
+
+      return isLightTheme
+        ? UNAVAILABLE_VIDEO_THUMBNAILS.light
+        : UNAVAILABLE_VIDEO_THUMBNAILS.dark
     },
 
     /**
