@@ -344,8 +344,49 @@ Settings:
       Gruvbox Light Red: Grubakutija svijetlo crvena
       Gruvbox Light Blue: Grubakutija svijetloplava
       Gruvbox Light Purple: Grubakutija svijetlo ljubičasta
+      Gruvbox Light Orange: Grubakutija svijetlo narandžasta
+      Solarized Yellow: Solarizirana žuta
+      Solarized Orange: Solarizirana narandžasta
+      Solarized Red: Solarizirana crvena
+      Solarized Magenta: Solarizirana purpurnocrvena
+      Solarized Violet: Solarizirana ljubičasta
+      Solarized Blue: Solarizirana plava
+      Solarized Cyan: Solarizirana cijan
+      Solarized Green: Solarizirana zelena
+      Everforest Dark Red: Zimzelena tamnocrvena
+      Everforest Dark Orange: Zimzelena tamno narandžasta
+      Everforest Dark Yellow: Zimzelena tamnožuta
+      Everforest Dark Green: Tamnozelena zimzelena
+      Everforest Dark Aqua: Zimzelena tamno akva
+      Everforest Dark Blue: Tamnoplava zimzelena šuma
+      Everforest Dark Purple: Zimzelena tamnoljubičasta
+      Everforest Light Red: Zimzelena svijetlocrvena
+      Everforest Light Orange: Zimzelena svijetlonarandžasta
+      Everforest Light Yellow: Zimzelena svijetložuta
+      Everforest Light Green: Svijetlozelena zimzelena
+      Everforest Light Aqua: Zimzelena svijetla akva
+      Everforest Light Blue: Zimzelena svijetloplava
+      Everforest Light Purple: Zimzelena svijetloljubičasta
+    Secondary Color Theme: Sekundarna tema boja
   Sort Settings Sections (A-Z): Postavke sortiranja po odjeljcima (A-Z)
   Return to Settings Menu: Povratak na meni postavki
+  Player Settings:
+    Player Settings: Plejer
+    Play Next Video: Automatska reprodukcija preporučenih videozapisa
+    Autoplay Playlists: Videozapisi s automatske reprodukcije s plejliste
+    Autoplay Videos: Automatsko pokretanje videa
+    Turn on Subtitles by Default: Omogući titlove prema zadanim postavkama
+    Proxy Videos Through Invidious: Proksi videozapisi putem uvrjedljivosti
+    Default Viewing Mode:
+      Theater: Teatar
+      Default Viewing Mode: Zadani način prikaza
+      Full Screen: Cijeli ekran
+      Picture in Picture: Slika u slici
+      External Player: Vanjski plejer ({externalPlayerName})
+    Scroll Volume Over Video Player: Pomicanje jačine zvuka preko video plejera
+    Scroll Playback Rate Over Video Player: Brzina reprodukcije pomicanja preko video playera
+    Skip by Scrolling Over Video Player: Preskoči skrolovanjem preko video plejera
+    Display Play Button In Video Player: Prikaži dugme za reprodukciju u video plejeru
 Channel:
   Videos:
     Videos: Videozapisi
