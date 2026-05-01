@@ -13,6 +13,7 @@ import WatchVideoLiveChat from '../../components/WatchVideoLiveChat/WatchVideoLi
 import WatchVideoPlaylist from '../../components/WatchVideoPlaylist/WatchVideoPlaylist.vue'
 import WatchVideoRecommendations from '../../components/WatchVideoRecommendations/WatchVideoRecommendations.vue'
 import FtAgeRestricted from '../../components/FtAgeRestricted/FtAgeRestricted.vue'
+import { calculateColorLuminance } from '../../helpers/colors'
 import {
   buildVTTFileLocally,
   copyToClipboard,
@@ -59,16 +60,6 @@ const UNAVAILABLE_VIDEO_THUMBNAILS = {
   light: 'https://www.youtube.com/img/desktop/unavailable/unavailable_video.png',
   dark: 'https://www.youtube.com/img/desktop/unavailable/unavailable_video_dark_theme.png'
 }
-const LIGHT_BASE_THEMES = new Set([
-  'light',
-  'pastelPink',
-  'catppuccinLatte',
-  'solarizedLight',
-  'gruvboxLight',
-  'everforestLightHard',
-  'everforestLightMedium',
-  'everforestLightLow'
-])
 
 export default defineComponent({
   name: 'Watch',
@@ -204,9 +195,6 @@ export default defineComponent({
     },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
-    },
-    baseTheme: function () {
-      return this.$store.getters.getBaseTheme
     },
     currentInvidiousInstanceUrl: function () {
       return this.$store.getters.getCurrentInvidiousInstanceUrl
@@ -1093,9 +1081,8 @@ export default defineComponent({
     },
 
     getUnavailableVideoThumbnail: function () {
-      const baseTheme = this.baseTheme || 'system'
-      const isLightTheme = LIGHT_BASE_THEMES.has(baseTheme) ||
-        (baseTheme === 'system' && !window.matchMedia('(prefers-color-scheme: dark)').matches)
+      const backgroundColor = window.getComputedStyle(document.body).backgroundColor
+      const isLightTheme = calculateColorLuminance(backgroundColor) === '#000000'
 
       return isLightTheme
         ? UNAVAILABLE_VIDEO_THUMBNAILS.light
