@@ -50,6 +50,8 @@ Search Filters:
   Search Filters: 'Фільтри пошуку'
   Prioritize:
     Most Relevant: 'Найвідповідніші'
+    Prioritize: Пріоритетність
+    Popularity: Популярність
   Time:
     Time: 'Час'
     Any Time: 'Будь-який час'
@@ -130,14 +132,14 @@ User Playlists:
   Remove Watched Videos: Вилучити з переглянутих відео
   Delete Playlist: Видалити добірку
   Sort By:
-    LatestPlayedFirst: Нещодавно переглянуті
-    EarliestPlayedFirst: Найдавніше переглянуті
+    LatestPlayedFirst: Дата відтворення (найновіша)
+    EarliestPlayedFirst: Дата відтворення (найстаріша)
     NameAscending: А-Я
-    LatestCreatedFirst: Нещодавно створено
-    EarliestCreatedFirst: Створено найраніше
+    LatestCreatedFirst: Дата створення (найновіша)
+    EarliestCreatedFirst: Дата створення (найстаріша)
     NameDescending: Я-А
-    EarliestUpdatedFirst: Найстаріші оновлення
-    LatestUpdatedFirst: Останні оновлення
+    EarliestUpdatedFirst: Дата оновлення (найстаріша)
+    LatestUpdatedFirst: Дата оновлення (найновіша)
   SinglePlaylistView:
     Toast:
       This playlist is now used for quick bookmark: Ця добірка тепер використовується для швидких закладок
@@ -178,7 +180,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Відео буде додано'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Відео вже додано'
     Toast:
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Відео додано до 1 списку відтворення | Відео додано до {playlistCount} списків відтворення"
       You haven't selected any playlist yet.: Ви ще не вибрали жодної добірки.
     N playlists selected: '{playlistCount} вибрано'
     Select a playlist to add your N videos to: Виберіть добірку, до якої ви хочете додати своє відео | Виберіть добірку, до якої ви хочете додати свої {videoCount} відео
@@ -190,6 +192,7 @@ User Playlists:
       There is already a playlist with this name. Please pick a different name.: Вже існує добірка з такою назвою. Будь ласка, виберіть іншу назву.
     New Playlist Name: Нова назва добірки
   TotalTimePlaylist: 'Загальний час: {duration}'
+  Export list of URLs: Експорт списку URL-адрес
 History:
   # On History Page
   History: 'Історія'
@@ -198,14 +201,16 @@ History:
   Search bar placeholder: Шукати в історії
   Empty Search Message: У вашій історії немає відео, що відповідають вашому пошуку
   Case Sensitive Search: Пошук з урахуванням регістру
+  DateOldestHistory: Дата перегляду (найстаріша)
+  DateNewestHistory: Дата перегляду (найновіша)
 Settings:
   # On Settings Page
   Settings: 'Налаштування'
   The app needs to restart for changes to take effect. Restart and apply change?: 'Щоб зміни набули чинності, необхідно перезавантижити застосунок. Перезавантажити та застосувати зміни?'
   General Settings:
     General Settings: 'Загальні'
-    Check for Updates: 'Перевірити наявність оновлень'
-    Fallback to Non-Preferred Backend on Failure: 'Коли у вашого головного API виникає проблема, FreeTube спробує автоматично використати допоміжний API у якості резервного, якщо він увімкнений'
+    Check for Updates: 'Перевіряти наявність оновлень'
+    Fallback to Non-Preferred Backend on Failure: 'Повернення до допоміжного бекенду у разі невдачі'
     Enable Search Suggestions: 'Увімкнути рекомендації пошуку'
     Default Landing Page: 'Типова головна сторінка'
     Locale Preference: 'Локальні налаштування'
@@ -244,11 +249,12 @@ Settings:
       Label: Автозавантаження наступної сторінки
       Tooltip: Автоматично завантажувати додаткові сторінки та коментарі.
     Open Deep Links In New Window: Відкривати URL-адреси, передані в FreeTube, в новому вікні
+    Minimize to system tray: Згорнути в системний трей
   Theme Settings:
     Theme Settings: 'Теми'
     Match Top Bar with Main Color: 'Верхня панель основного кольору'
-    Expand Side Bar by Default: 'Усталено розгортати бічну панель'
-    Disable Smooth Scrolling: 'Відключити плавну прокрутку'
+    Expand Side Bar by Default: 'Розгортати бічну панель за замовчуванням'
+    Disable Smooth Scrolling: 'Вимкнути плавне прокручування'
     UI Scale: 'Масштаб інтерфейсу'
     Base Theme:
       Base Theme: 'Базова тема'
@@ -272,6 +278,7 @@ Settings:
       Everforest Light Hard: Everforest Light Твердий
       Everforest Light Medium: Everforest Light Середній
       Everforest Light Low: вічнозелене світло низьке
+      Catppuccin Latte: Катпучін Латте
     Main Color Theme:
       Main Color Theme: 'Основна кольорова тема'
       Red: 'Червона'
@@ -307,7 +314,7 @@ Settings:
       Catppuccin Mocha Sapphire: Catppuccin Mocha Sapphire
       Catppuccin Mocha Blue: Catppuccin Mocha Blue
       Catppuccin Mocha Maroon: Catppuccin Mocha Maroon
-      Catppuccin Mocha Lavender: Catppuccin Mocha Lavender
+      Catppuccin Mocha Lavender: Catppuccin Мокко Лаванда
       Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
       Catppuccin Mocha Yellow: Catppuccin Mocha Yellow
       Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
@@ -357,17 +364,19 @@ Settings:
       Everforest Light Aqua: Еверфорест Лайт Аква
       Everforest Light Blue: Еверфорест Світло-блакитний
       Everforest Light Purple: Світло-фіолетовий Everforest
+      Catppuccin Latte Mauve: Катпучін Латте Маув
+      Catppuccin Latte Red: Катпучін Латте Червоний
     Secondary Color Theme: 'Другорядна кольорова тема'
         #* Main Color Theme
-    Hide Side Bar Labels: Сховати мітки бічної панелі
-    Hide FreeTube Header Logo: Сховати логотип FreeTube із заголовка
+    Hide Side Bar Labels: Приховати мітки бічної панелі
+    Hide FreeTube Header Logo: Приховати логотип FreeTube із заголовка
   Player Settings:
-    Player Settings: 'Плеєр'
+    Player Settings: 'Програвач'
     Play Next Video: 'Автовідтворення рекомендованих відео'
     Turn on Subtitles by Default: 'Увімкнути субтитри за замовчуванням'
     Autoplay Videos: 'Автоматично запускати відео'
     Proxy Videos Through Invidious: 'Проксі-відео через Invidious'
-    Autoplay Playlists: 'Автовідтворення відео з добірки'
+    Autoplay Playlists: 'Автовідтворювати відео з добірки'
     Enable Theatre Mode by Default: 'Типово увімкнути режим театру'
     Default Volume: 'Типова гучність'
     Default Playback Rate: 'Типова швидкість відтворення'
@@ -389,10 +398,10 @@ Settings:
       4k: '4k'
       8k: '8k'
     Next Video Interval: Таймер автозапуску
-    Scroll Volume Over Video Player: Прокручування гучності на відеопрогравачі
+    Scroll Volume Over Video Player: Змінювати гучність над відеопрогравачем
     Display Play Button In Video Player: Показувати кнопку відтворення у відеопрогравачі
     Fast-Forward / Rewind Interval: Інтервал перемотування вперед/назад
-    Scroll Playback Rate Over Video Player: Контроль швидкості відтворення коліщам миші у відеопрогравачі
+    Scroll Playback Rate Over Video Player: Змінювати швидкість відтворення прокручуванням над відеопрогравачем
     Video Playback Rate Interval: Інтервал швидкості відтворення відео
     Max Video Playback Rate: Максимальна швидкість відтворення відео
     Screenshot:
@@ -413,7 +422,7 @@ Settings:
     Default Viewing Mode:
       Picture in Picture: Картинка в картинці
       Theater: Театр
-      External Player: Зовнішній плеєр ({externalPlayerName})
+      External Player: Зовнішній програвач ({externalPlayerName})
       Default Viewing Mode: Режим перегляду за замовчуванням
       Full Screen: Повноекранний режим
   Privacy Settings:
@@ -428,7 +437,7 @@ Settings:
     Watch history has been cleared: 'Історію переглядів було очищено'
     Remove All Subscriptions / Profiles: 'Видалити всі підписки / профілі'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Справді хочете вилучити всі підписки та профілі? Цю дію не можна скасувати.'
-    Save Watched Videos With Last Viewed Playlist: Зберегти переглянуті відео у список відтворення, який ви переглядали останнім часом
+    Save Watched Videos With Last Viewed Playlist: Зберегти переглянуті відео з останнім переглянутим списком відтворення
     All playlists have been removed: Усі добірки були видалені
     Remove All Playlists: Видалити всі добірки
     Are you sure you want to remove all your playlists?: Ви впевнені, що хочете видалити всі свої добірки?
@@ -437,66 +446,66 @@ Settings:
     Clear Search History and Cache: Очистити історію пошуку та кеш
     Are you sure you want to clear out your search history and cache?: Ви впевнені, що хочете очистити історію пошуку та кеш?
     Watched Progress Saving Mode:
-      Tooltip: Авто = Зберігати при кожному виході зі сторінки відео, коли відео завершене або виникла помилка (наприклад, обмеження швидкості або завершення сеансу перегляду). Напівавтомат = Як і Авто, але без збереження при виході зі сторінки відео; можна зберегти прогрес вручну через кнопку "Зберегти переглянутий прогрес", що розташована під відеоплеєром.
+      Tooltip: Авто = Зберігати при кожному виході зі сторінки відео, коли відео завершене або виникла помилка (наприклад, обмеження швидкості або завершення сеансу перегляду). Напівавтомат = Як і Авто, але без збереження при виході зі сторінки відео; можна зберегти прогрес вручну через кнопку "Зберегти переглянутий прогрес", що розташована під відеопрогравачем.
       Modes:
         Auto: Авто
         Semi-auto: Напівавтомат
         Never: Ніколи
   Subscription Settings:
     Subscription Settings: 'Підписка'
-    Fetch Feeds from RSS: 'Отримати канали з RSS'
+    Fetch Feeds from RSS: 'Отримувати канали з RSS'
     Fetch Automatically: Автоматично отримувати стрічку
     Confirm Before Unsubscribing: Підтвердити перед скасуванням підписки
     'Limit the number of videos displayed for each channel': Обмежити кількість відео, що відображаються для кожного каналу
     To: До
   Distraction Free Settings:
     Distraction Free Settings: 'Без відволікань'
-    Hide Video Views: 'Сховати перегляди відео'
+    Hide Video Views: 'Приховати перегляди відео'
     Hide Video Likes And Dislikes: 'Приховати вподобайки до відео'
-    Hide Channel Subscribers: 'Не показувати підписників каналу'
-    Hide Comment Likes: 'Не показувати уподобання коментарів'
-    Hide Recommended Videos: 'Не показувати рекомендовані відео'
-    Hide Trending Videos: 'Не показувати тренди відео'
-    Hide Popular Videos: 'Не показувати популярні відео'
-    Hide Live Chat: 'Не показувати живий чат'
-    Hide Active Subscriptions: Сховати активні підписки
-    Hide Playlists: Сховати добірки
-    Hide Video Description: Сховати опис відео
-    Hide Comments: Сховати коментарі
-    Hide Sharing Actions: Сховати дії поширення
-    Hide Videos on Watch: 'Ховати відео при перегляді'
-    Hide Live Streams: Сховати прямі трансляції
-    Hide Chapters: Сховати розділи
-    Hide Upcoming Premieres: Сховати майбутні прем'єри
-    Hide Channels: Сховати відео з каналів
+    Hide Channel Subscribers: 'Приховати підписників каналу'
+    Hide Comment Likes: 'Приховати вподобання коментарів'
+    Hide Recommended Videos: 'Приховати рекомендовані відео'
+    Hide Trending Videos: 'Приховати трендові відео'
+    Hide Popular Videos: 'Приховати популярні відео'
+    Hide Live Chat: 'Приховати живий чат'
+    Hide Active Subscriptions: Приховати активні підписки
+    Hide Playlists: Приховати добірки
+    Hide Video Description: Приховати опис відео
+    Hide Comments: Приховати коментарі
+    Hide Sharing Actions: Приховати дії поширення
+    Hide Videos on Watch: 'Приховати відео при перегляді'
+    Hide Live Streams: Приховати прямі трансляції
+    Hide Chapters: Приховати розділи
+    Hide Upcoming Premieres: Приховати майбутні прем'єри
+    Hide Channels: Приховати відео з каналів
     Hide Channels Placeholder: ID каналу
     Display Titles Without Excessive Capitalisation: Відображати заголовки без зайвої капіталізації та пунктуації
-    Hide Featured Channels: Сховати пропоновані канали
-    Hide Channel Playlists: Сховати добірки каналу
-    Hide Channel Shorts: Сховати вкладку "Shorts" каналу
+    Hide Featured Channels: Приховати пропоновані канали
+    Hide Channel Playlists: Приховати добірки каналу
+    Hide Channel Shorts: Приховати вкладку "Shorts" каналу
     Sections:
       Side Bar: Бічна панель
       Channel Page: Сторінка каналу
       Watch Page: Сторінка перегляду
       General: Загальні
       Subscriptions Page: Сторінка підписок
-    Hide Subscriptions Videos: Сховати відео з підписок
-    Hide Channel Podcasts: Сховати вкладку "Подкасти" каналу
-    Hide Channel Releases: Сховати вкладку "Випуски" каналу
-    Hide Subscriptions Shorts: Сховати Shorts із підписок
-    Hide Subscriptions Live: Сховати трансляції з підписок
-    Hide Profile Pictures in Comments: Сховати зображення профілю в коментарях
+    Hide Subscriptions Videos: Приховати відео з підписок
+    Hide Channel Podcasts: Приховати вкладку "Подкасти" каналу
+    Hide Channel Releases: Приховати вкладку "Випуски" каналу
+    Hide Subscriptions Shorts: Приховати Shorts із підписок
+    Hide Subscriptions Live: Приховати трансляції з підписок
+    Hide Profile Pictures in Comments: Приховати зображення профілю в коментарях
     Hide Channels Invalid: Вказаний ID каналу недійсний
     Hide Channels Disabled Message: Деякі канали були заблоковані за допомогою ID і не були оброблені. Функція заблокована в той час, як ці ID оновлювалися
     Hide Channels Already Exists: ID каналу вже існує
     Hide Channels API Error: Помилка під час пошуку користувача з наданим ID. Перевірте ще раз, чи правильний ID.
-    Hide Channel Home: Сховати вкладку "Головна" каналу
+    Hide Channel Home: Приховати вкладку "Головна" каналу
     Hide Videos, Playlists and Channels Containing Text Placeholder: Слово, фрагмент слова або фраза
-    Hide Videos, Playlists and Channels Containing Text: Сховати відео та добірки, що містять текст
+    Hide Videos, Playlists and Channels Containing Text: Приховати відео та добірки, що містять текст
     Show Added Items: Показати додані елементи
     Hide Channel Courses: Приховати вкладку «Курси» каналу
-    Hide Channel Posts: Сховати вкладку "Пости" каналу
-    Hide Subscriptions Posts: Сховати пости підписок
+    Hide Channel Posts: Приховати вкладку "Пости" каналу
+    Hide Subscriptions Posts: Приховати пости підписок
   Data Settings:
     Data Settings: 'Дані'
     Select Export Type: 'Оберіть тип експорту'
@@ -532,6 +541,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Експортувати добірки для старих версій FreeTube
       Tooltip: "Ця опція експортує відео з усіх добірок в одну добірку під назвою \"Улюблені\".\nЯк експортувати та імпортувати відео з добірок для старої версії FreeTube:\n1. Експортуйте свої добірки увімкнувши цю опцію.\n2. Видаліть усі свої наявні добірки за допомогою опції \"Вилучити всі добірки\" в налаштуваннях приватності..\n3. Запустіть стару версію FreeTube та імпортуйте експортовані добірки."
+    Search history file: Файл історії пошуку
+    Search history: Історія пошуку
+    Import search history: Імпортувати історію пошуку
+    Export search history: Експортувати історію пошуку
+    All search history has been successfully imported: Всю історію пошуку успішно імпортовано
+    All search history has been successfully exported: Всю історію пошуку успішно експортовано
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Помилка отримання відомостей про мережу. Чи правильно налаштовано ваш проксі?
     City: Місто
@@ -547,6 +562,8 @@ Settings:
     Enable Tor / Proxy: Увімкнути Tor / Проксі
     Proxy Settings: Проксі
     Proxy Warning: FreeTube не має вбудованого проксі, але може підключатися до зовнішнього проксі, такого як Tor, що працює на вашому комп'ютері, або зовнішній проксі, наприклад, SOCKS5 проксі, який надають деякі VPN-сервіси. Якщо ця опція увімкнена, переконайтеся, що ваш проксі/Tor налаштовані правильно, інакше FreeTube не зможе завантажувати дані.
+    Proxy Username: Ім'я користувача проксі-сервера
+    Proxy Password: Пароль проксі-сервера
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Сповіщати про пропуск спонсорованого відтинка
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL-адреса API SponsorBlock (типово https://sponsor.ajay.app)
@@ -564,24 +581,24 @@ Settings:
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'URL API генератора ескізів DeArrow (за замовчуванням: https://dearrow-thumb.ajay.app)'
   External Player Settings:
     Custom External Player Arguments: Власні аргументи зовнішнього програвача
-    Custom External Player Executable: Власний виконуваний зовнішній програвач
+    Custom External Player Executable: Власний виконуваний файл зовнішнього програвача
     Ignore Unsupported Action Warnings: Нехтувати попередженнями про непідтримувані дії
     External Player: Зовнішній програвач
-    External Player Settings: Зовнішній плеєр
+    External Player Settings: Зовнішній програвач
     Players:
       None:
         Name: Немає
     Ignore Default Arguments: Ігнорувати стандартні аргументи
   Parental Control Settings:
     Parental Control Settings: Батьківський контроль
-    Hide Unsubscribe Button: Сховати кнопку скасування підписки
-    Show Family Friendly Only: Показати лише для сімейного перегляду
-    Hide Search Bar: Сховати панель пошуку
-    Hide Uploader on Watch page: Приховати Канал на Сторінці перегляду
+    Hide Unsubscribe Button: Приховати кнопку скасування підписки
+    Show Family Friendly Only: Показувати лише для сімейного перегляду
+    Hide Search Bar: Приховати панель пошуку
+    Hide Uploader on Watch page: Приховати канал на сторінці перегляду
   Experimental Settings:
     Replace HTTP Cache: Заміна кешу HTTP
     Experimental Settings: Експериментальні
-    Warning: Ці налаштування експериментальні, їхнє ввімкнення може призводити до збоїв. Радимо робити резервні копії. Використовуйте на свій страх і ризик!
+    Warning: Ці налаштування експериментальні, вони можуть спричиняти збої, якщо їх увімкнути. Наполегливо рекомендується створювати резервні копії. Використовуйте їх на свій страх і ризик!
   Password Dialog:
     Enter Password To Unlock: Введіть пароль, щоб розблокувати налаштування
     Password: Пароль
@@ -611,12 +628,15 @@ About:
   FAQ: ЧаПи
   FreeTube Wiki: Вікі FreeTube
   Help: Довідка
-  GitHub releases: Випуски GitHub
+  GitHub releases: Релізи GitHub
   Downloads / Changelog: Завантаження / Журнал змін
   Source code: Джерельний код
   Beta: Бета
   Discussions: Обговорення
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Ліцензовано за ліцензією {licenseLink}
+  Please read the {roomRulesLink}: Будь ласка, прочитайте {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube став можливим завдяки {creditsPageLink}
 Profile:
   Profile Select: 'Вибір профілю'
   All Channels: 'Усі канали'
@@ -699,7 +719,7 @@ Channel:
     This channel currently does not have any posts: Зараз на цьому каналі немає публікацій
     votes: 'Голосів: {votes}'
     Reveal Answers: Розгорнути відповіді
-    Hide Answers: Сховати відповіді
+    Hide Answers: Приховати відповіді
     Video hidden by FreeTube: Відео приховане FreeTube
     View Full Post: Переглянути повний пост
     Viewing Posts Only Supported By Invidious: Перегляд постів підтримується лише через Invidious. Перейдіть до вкладки спільноти каналу, щоб переглядати контент без Invidious.
@@ -790,7 +810,7 @@ Video:
   Upcoming: Незабаром
   'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Спілкування наживо недоступне для цієї трансляції. Можливо, вивантажувач вимкнув його.
   Unhide Channel: Показати канал
-  Hide Channel: Сховати канал
+  Hide Channel: Приховати канал
   Player:
     TranslatedCaptionTemplate: '{language} (перекладено з "{originalLanguage}")'
     Stats:
@@ -800,7 +820,7 @@ Video:
       Volume: 'Гучність: {volumePercentage}%'
       Buffered: 'Буферизація: {bufferedPercentage}%'
       Dropped Frames / Total Frames: 'Втрачені кадри: {droppedFrames} / Загальні кадри: {totalFrames}'
-      Player Dimensions: 'Розміри плеєра: {width}x{height}'
+      Player Dimensions: 'Розміри програвача: {width}x{height}'
       CodecAudio: 'Кодек: {audioCodec} ({audioItag})'
       Stats: Статистика
       Video ID: 'ID відео: {videoId}'
@@ -816,7 +836,7 @@ Video:
     Exit Full Window: Вийти з повного екрану
     Audio Tracks: Аудіотреки
     Theatre Mode: Режим кінотеатру
-    Hide Stats: Сховати статистику
+    Hide Stats: Приховати статистику
     Skipped segment: Пропущено сегмент {segmentCategory}
     Autoplay is off: Автовідтворення вимкнено
     Autoplay is on: Автовідтворення увімкнено
@@ -832,6 +852,10 @@ Video:
 #& Playlists
   Save Watched Progress: Зберегти переглянутий прогрес
   Watched Progress Saved: Переглянутий прогрес збережено
+  Popout Live Chat: Випадаючий чат
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Залишок часу до початку реклами: {remindingTimeSeconds}с'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Залишок часу відкладення SABR: {remindingTimeSeconds}с'
 Playlist:
   #& About
   View Full Playlist: 'Переглянути весь список відтворення'
@@ -842,17 +866,17 @@ Playlist:
 #& Views
   Playlist: Список відтворення
   Sort By:
-    VideoDurationDescending: Тривалість (спочатку найдовші)
+    VideoDurationDescending: Тривалість (найдовші)
     Custom: Користувацький
     VideoTitleDescending: Заголовок (Я-А)
     VideoTitleAscending: Заголовок (А-Я)
-    DateAddedOldest: Спочатку найстаріші добавлені
+    DateAddedOldest: Дата додавання (найстаріша)
     AuthorAscending: Автор (А-Я)
     AuthorDescending: Автор (Я-А)
-    VideoDurationAscending: Тривалість (спочатку найкоротші)
-    DateAddedNewest: Спочатку новіші добавлені
-    PublishedNewest: Останні опубліковані першими
-    PublishedOldest: Найдавніші опубліковані першими
+    VideoDurationAscending: Тривалість (найкоротші)
+    DateAddedNewest: Дата додавання (найновіша)
+    PublishedNewest: Дата публікації (найновіша)
+    PublishedOldest: Дата публікації (найстаріша)
 Change Format:
   Change Media Formats: 'Зміна форматів відео'
   Use Dash Formats: 'Використовувати формати DASH'
@@ -878,13 +902,14 @@ Share:
   YouTube Channel URL copied to clipboard: 'URL-адресу каналу YouTube скопійовано до буфера обміну'
 
   Share Channel: Поділитися каналом
+  Share Post: Поділитися публікацією
 Mini Player: 'Мініпрогравач'
 Comments:
   Comments: 'Коментарі'
   Click to View Comments: 'Клацніть, щоб переглянути коментарі'
   Getting comment replies, please wait: 'Отримання відповідей на коментарі, зачекайте'
   There are no more comments for this video: 'Більше немає коментарів до цього відео'
-  Hide Comments: 'Сховати коментарі'
+  Hide Comments: 'Приховати коментарі'
   Top comments: 'Найпопулярніші коментарі'
   Newest first: 'Спочатку новіші'
   # Context: View 10 Replies, View 1 Reply
@@ -894,9 +919,12 @@ Comments:
   Pinned by: Закріплено
   Member: Учасник
   Hearted: З сердечком
-  View {replyCount} replies: Переглянути {replyCount} відповідей
+  View {replyCount} replies: Переглянути 1 відповідь | Переглянути {replyCount} відповідей
   Subscribed: Слідкують
   There are no comments available for this post: Коментарі для цього поста відсутні
+  Hide {replyCount} replies: Приховати 1 відповідь | Приховати {replyCount} відповідей
+  View 1 reply from {channelName}: Переглянути 1 відповідь від {channelName}
+  View {replyCount} replies from {channelName} and others: Переглянути {replyCount} відповідей від {channelName} та інших
 Up Next: 'Далі'
 
 #Tooltips
@@ -920,16 +948,16 @@ Tooltips:
 # Toast Messages
     Fetch Automatically: При увімкненні, FreeTube автоматично завантажуватиме фід ваших підписок під час запуску та коли відкривається нове вікно.
   External Player Settings:
-    Custom External Player Arguments: Будь-які користувацькі аргументи командного рядка, які ви хочете передати зовнішньому плеєру.
+    Custom External Player Arguments: Будь-які користувацькі аргументи командного рядка, які ви хочете передати зовнішньому програвачу.
     Ignore Warnings: Заборонити попередження, якщо поточний зовнішній програвач не підтримує поточну дію (наприклад, зворотна почерговість відтворення добірок тощо).
-    Custom External Player Executable: Усталено FreeTube вважатиме, що вибраний зовнішній програвач можна знайти за допомогою змінної середовища PATH. Якщо потрібно, тут можна призначити нетиповий шлях.
+    Custom External Player Executable: За замовчуванням FreeTube вважатиме, що вибраний зовнішній програвач можна знайти за допомогою змінної середовища PATH. Якщо потрібно, тут можна призначити нетиповий шлях.
     External Player: Якщо обрано зовнішній програвач, з'явиться піктограма для відкриття відео (список відтворення, якщо підтримується) у зовнішньому програвачі, на мініатюрі. Увага, налаштування Invidious не застосовуються до сторонніх програвачів.
     DefaultCustomArgumentsTemplate: "(Типово: '{defaultCustomArguments}')"
-    Ignore Default Arguments: Не надсилати жодних стандартних аргументів зовнішньому плеєру, окрім URL-адреси відео (наприклад, швидкість відтворення, URL-адреса добірки тощо). Користувацькі аргументи все одно будуть передаватися.
+    Ignore Default Arguments: Не надсилати жодних стандартних аргументів зовнішньому програвачу, окрім URL-адреси відео (наприклад, швидкість відтворення, URL-адреса добірки тощо). Користувацькі аргументи все одно будуть передаватися.
   Experimental Settings:
     Replace HTTP Cache: Вимикає дисковий HTTP-кеш Electron і вмикає власний кеш зображень у пам'яті. Призведе до збільшення використання оперативної пам'яті.
   Distraction Free Settings:
-    Hide Channels: Введіть ID, щоб сховати всі відео, добірки та сам канал від появи в пошуку, тренді, найпопулярніших і рекомендованих. Введений ID каналу повинен повністю збігатися і чутливий до регістру.
+    Hide Channels: Введіть ідентифікатор каналу, щоб приховати всі відео, списки відтворення та сам канал від відображення в пошуку, трендах, найпопулярніших та рекомендованих. Введений ідентифікатор каналу має бути повним збігом і враховувати регістр.
     Hide Subscriptions Live: Цей параметр перевизначається загальнодоступним налаштуванням "{appWideSetting}" у розділі "{subsection}" "{settingsSection}"
     Hide Videos, Playlists and Channels Containing Text: Введіть слово, фрагмент слова або фразу (незалежно від регістру), щоб приховати всі відео та добірки, у заголовках яких вона міститься, по всьому FreeTube, за винятком Історії, Ваших Добірок і відео в межах добірок.
     Hide Videos on Watch: Приховує переглянуті відео з вкладок Відео,Shorts, та Наживо на сторінках підписок та каналу. Це не впливає на Домашню вкладку сторінок каналів
@@ -955,7 +983,7 @@ Yes: 'Так'
 No: 'Ні'
 Playing Next Video Interval: Відтворення наступного відео в будь-який час. Клацніть, щоб скасувати. | Відтворення наступного відео через {nextVideoInterval} секунду. Клацніть, щоб скасувати. | Відтворення наступного відео через {nextVideoInterval} секунд. Клацніть, щоб скасувати.
 More: Докладніше
-Unknown YouTube url type, cannot be opened in app: Невідомий тип URL-адреси YouTube, його не можна відкрити в застосункові
+Unknown YouTube url type, cannot be opened in app: Невідомий тип URL-адреси YouTube, не вдається відкрити в додатку
 Open New Window: Відкрити нове вікно
 Default Invidious instance has been cleared: Типовий екземпляр Invidious очищено
 Default Invidious instance has been set to {instance}: 'Типовим екземпляром Invidious встановлено {instance}'
@@ -992,7 +1020,7 @@ Close Banner: Закрити банер
 Search character limit: Запит перевищує ліміт у {searchCharacterLimit} символів
 Feed:
   Refresh Feed: Оновити {subscriptionName}
-  Feed Last Updated: 'Останнє оновлення фіда {feedName}: {date}'
+  Feed Last Updated: 'Останнє оновлення стрічки {feedName}: {date}'
 Search Listing:
   Label:
     4K: 4K
@@ -1002,8 +1030,8 @@ Search Listing:
     360 Video: 360°
     New: Новинка
     3D: 3D
-    Closed Captions: Закриті субтитри
-Right-click or hold to see history: ПКМ або утримуйте для перегляду історії
+    Closed Captions: Субтитри
+Right-click or hold to see history: Клацніть правою кнопкою миші або утримуйте, щоб переглянути історію
 Display Label: '{label}: {value}'
 Tag already exists: Тег "{tagName}" вже існує
 shortcutJoinOperator: +
@@ -1082,4 +1110,7 @@ KeyboardShortcutPrompt:
   End: Перемотати вкінець відео
   Skip to Next Video: Перейти до наступного відео у списку відтворення або до наступного рекомендованого відео
   Skip to Previous Video: Пеерейти до минулого відео у списку відтворенн
+  Home: Перейти на початок відео
 shortcutLabelSeparator: ｜
+Compact side navigation: Компактна бічна навігація
+Expand side navigation: Розгорнути бічну навігацію
