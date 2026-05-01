@@ -814,7 +814,7 @@ Video:
   Hide Channel: Dölj kanal
 #& Playlists
   Player:
-    Full Window: Helt Fönster
+    Full Window: Helt fönster
     Exit Full Window: Stäng Hela Fönstret
     Stats:
       CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
