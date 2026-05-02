@@ -387,6 +387,147 @@ Settings:
     Scroll Playback Rate Over Video Player: Brzina reprodukcije pomicanja preko video playera
     Skip by Scrolling Over Video Player: Preskoči skrolovanjem preko video plejera
     Display Play Button In Video Player: Prikaži dugme za reprodukciju u video plejeru
+    Enter Fullscreen on Display Rotate: Uključi cijeli ekran pri rotiranju ekrana
+    Next Video Interval: Tajmer za odbrojavanje automatske reprodukcije
+    Autoplay Interruption Timer: Tajmer prekida automatske reprodukcije
+    Fast-Forward / Rewind Interval: Interval premotavanja naprijed/nazad
+    Default Volume: Zadana jačina zvuka
+    Default Playback Rate: Zadana brzina reprodukcije
+    Max Video Playback Rate: Maksimalna brzina reprodukcije videa
+    Video Playback Rate Interval: Interval brzine reprodukcije videa
+    Default Video Format:
+      Default Video Format: Zadani video format
+      Dash Formats: DASH formati
+      Legacy Formats: Zastarjeli formati
+      Audio Formats: Audio formati
+    Default Quality:
+      Default Quality: Zadani kvalitet
+      Auto: Automatski
+      144p: 144p
+      240p: 240p
+      360p: 360p
+      480p: 480p
+      720p: 720p
+      1080p: 1080p
+      1440p: 1440p
+      4k: 4k
+      8k: 8k
+    Screenshot:
+      Enable: Omogući snimak ekrana
+      Format Label: Format snimke ekrana
+      Quality Label: Kvalitet snimke ekrana
+      Ask Path: Zatraži spremanje mape
+      Folder Label: Mapa sa snimcima ekrana
+      Folder Button: Odaberite mapu
+      File Name Label: Uzorak naziva datoteke
+      File Name Tooltip: Možete koristiti varijable u nastavku. %Y Godina 4 cifre. %M Mjesec 2 cifre. %D Dan 2 cifre. %H Sat 2 cifre. %N Minuta 2 cifre. %S Sekunda 2 cifre. %T Milisekunda 3 cifre. %s Video sekunda. %t Video milisekunda 3 cifre. %i ID videa.
+      Error:
+        Forbidden Characters: Zabranjeni likovi
+        Empty File Name: Prazan naziv datoteke
+  External Player Settings:
+    External Player Settings: Vanjski plejer
+    External Player: Vanjski plejer
+    Ignore Unsupported Action Warnings: Ignoriraj upozorenja o nepodržanim radnjama
+    Ignore Default Arguments: Zanemari zadane argumente
+    Custom External Player Executable: Prilagođeni izvršni fajl za eksterni plejer
+    Custom External Player Arguments: Prilagođeni argumenti vanjskog plejera
+    Players:
+      None:
+        Name: Nijedan
+  Privacy Settings:
+    Privacy Settings: Privatnost
+    Remember History: Zapamti historiju gledanja
+    Remember Search History: Zapamti historiju pretraživanja
+    Save Watched Progress: Sačuvaj napredak gledanja
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Automatski
+        Semi-auto: Poluautomatski
+        Never: Nikad
+      Tooltip: Automatski = Sačuvaj pri svakom izlasku iz video stranice, kada se video završi i dođe do greške (npr. ograničenje brzine gledanja i istek sesije gledanja). Poluautomatski = Kao automatski, osim pri izlasku iz video stranice i mogućnost ručnog spremanja napretka putem dugmeta pod nazivom Sačuvaj napredak gledanja, koje se nalazi ispod video plejera.
+    Save Watched Videos With Last Viewed Playlist: Sačuvaj gledane videozapise s posljednje gledanom plejlistom
+    Clear Search History and Cache: Obriši historiju pretrage i predmemoriju
+    Are you sure you want to clear out your search history and cache?: Jeste li sigurni da želite obrisati historiju pretrage i predmemoriju?
+    Search history and cache have been cleared: Historija pretrage i keš memorija su obrisani
+    Remove Watch History: Ukloni historiju gledanja
+    Are you sure you want to remove your entire watch history?: Jeste li sigurni da želite ukloniti cijelu historiju gledanja?
+    Watch history has been cleared: Historija gledanja je obrisana
+    Remove All Subscriptions / Profiles: Ukloni sve pretplate / profile
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Jeste li sigurni da želite ukloniti sve pretplate i profile? Ova radnja se ne može poništiti.
+    Remove All Playlists: Ukloni sve liste za reprodukciju
+    All playlists have been removed: Sve plejliste su uklonjene
+    Are you sure you want to remove all your playlists?: Jeste li sigurni da želite ukloniti sve svoje liste za reprodukciju?
+  Subscription Settings:
+    Subscription Settings: Pretplata
+    Fetch Feeds from RSS: Dohvati napajanja sa RSS-a
+    Fetch Automatically: Automatsko dohvaćanje napajanja
+    'Limit the number of videos displayed for each channel': Ograničite broj prikazanih videa za svaki kanal
+    To: Na
+    Confirm Before Unsubscribing: Potvrdi prije odjave
+  Distraction Free Settings:
+    Distraction Free Settings: Bez ometanja
+    Sections:
+      Side Bar: Bočna traka
+      Subscriptions Page: Stranica s pretplatama
+      Channel Page: Stranica kanala
+      Watch Page: Stranica za gledanje
+      General: Općenito
+    Hide Video Views: Sakrij preglede videa
+    Hide Video Likes And Dislikes: Sakrij sviđanja i nesviđanja za video
+    Hide Channel Subscribers: Sakrij pretplatnike kanala
+    Hide Comment Likes: Sakrij sviđanja za komentare
+    Hide Recommended Videos: Sakrij preporučene videozapise
+    Hide Trending Videos: Sakrij videozapise u trendu
+    Hide Popular Videos: Sakrij popularne videozapise
+    Hide Playlists: Sakrij liste za reprodukciju
+    Hide Live Chat: Sakrij chat uživo
+    Hide Active Subscriptions: Sakrij aktivne pretplate
+    Hide Video Description: Sakrij opis videa
+    Hide Comments: Sakrij komentare
+    Hide Profile Pictures in Comments: Sakrij slike profila u komentarima
+    Display Titles Without Excessive Capitalisation: Prikažite naslove bez prekomjernog korištenja velikih slova i interpunkcije
+    Hide Live Streams: Sakrij prijenose uživo
+    Hide Upcoming Premieres: Sakrij nadolazeće premijere
+    Hide Sharing Actions: Sakrij radnje dijeljenja
+    Hide Videos on Watch: Sakrij videozapise na gledanju
+    Hide Chapters: Sakrij poglavlja
+    Hide Channels: Sakrij videozapise s kanala
+    Hide Channels Disabled Message: Neki kanali su blokirani pomoću ID-a i nisu obrađeni. Funkcija je blokirana dok se ti ID-ovi ažuriraju
+    Hide Channels Placeholder: ID kanala
+    Hide Channels Invalid: Uneseni ID kanala je bio nevažeći
+    Hide Channels API Error: Greška prilikom preuzimanja korisnika s navedenim ID-om. Molimo provjerite ponovo je li ID ispravan.
+    Hide Channels Already Exists: ID kanala već postoji
+    Hide Featured Channels: Sakrij istaknute kanale
+    Hide Channel Playlists: Sakrij karticu kanala "Plejliste"
+    Hide Channel Posts: Sakrij karticu kanala "Objave"
+    Hide Channel Home: Sakrij karticu kanala "Početna"
+    Hide Channel Shorts: Sakrij karticu kanala "Shorts"
+    Hide Channel Podcasts: Sakrij karticu kanala "Podcasti"
+    Hide Channel Releases: Sakrij karticu kanala "Izdanja"
+    Hide Channel Courses: Sakrij karticu kanala "Kursevi"
+    Hide Videos, Playlists and Channels Containing Text: Sakrij videozapise, popise za reprodukciju i kanale koji sadrže tekst
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Riječ, fragment riječi ili fraza
+    Hide Subscriptions Videos: Sakrij videozapise pretplata
+    Hide Subscriptions Shorts: Sakrij kratke filmove pretplata
+    Hide Subscriptions Live: Sakrij pretplate uživo
+    Hide Subscriptions Posts: Sakrij objave o pretplatama
+    Show Added Items: Prikaži dodane stavke
+  Data Settings:
+    Data Settings: Podaci
+    Select Export Type: Odaberite vrstu izvoza
+    Import Subscriptions: Uvoz pretplata
+    Subscription File: Datoteka pretplate
+    History File: Datoteka historije
+    Playlist File: Datoteka popisa za reprodukciju
+    Search history file: Datoteka historije pretraživanja
+    Export Subscriptions: Izvoz pretplata
+    Export FreeTube: Izvoz FreeTube-a
+    Export YouTube: Izvoz s YouTubea
+    Export NewPipe: Izvoz NewPipe
+    Import History: Historija uvoza
+    Export History: Historija izvoza
+    Import Playlists: Uvoz plejlista
+    Export Playlists: Izvoz plejlista
 Channel:
   Videos:
     Videos: Videozapisi
