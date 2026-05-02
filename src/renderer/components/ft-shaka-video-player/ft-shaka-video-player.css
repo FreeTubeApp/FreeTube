@@ -160,7 +160,13 @@
   background-color: var(--primary-color);
 }
 
-:deep(.sponsorBlockMarker) {
+:deep(.chapterMarker) {
+  width: 2px;
+  background-color: #000;
+}
+
+:deep(.sponsorBlockMarker),
+:deep(.chapterMarker) {
   position: absolute;
   opacity: 0.6;
   height: 100%;

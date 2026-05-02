@@ -904,7 +904,9 @@ export default defineComponent({
           enableTooltips: true,
           seekBarColors: {
             played: 'var(--primary-color)',
-            chapters: 'rgba(0, 0, 0, 0.6)'
+            // Shaka's native chapter marker gradient renders blurry on
+            // Chromium, so FreeTube keeps drawing the visual markers itself.
+            chapters: 'transparent'
           },
           showAudioCodec: false,
           showVideoCodec: false,
@@ -1021,6 +1023,10 @@ export default defineComponent({
       fullscreenTitleOverlay.className = 'playerFullscreenTitleOverlay'
       fullscreenTitleOverlay.dir = 'auto'
       controlsContainer.appendChild(fullscreenTitleOverlay)
+
+      if (hasLoaded.value && props.chapters.length > 0) {
+        createChapterMarkers()
+      }
 
       if (useSponsorBlock.value && sponsorBlockSegments.length > 0) {
         let duration
@@ -2579,25 +2585,73 @@ export default defineComponent({
       )
     }
 
+    function createChapterMarkers() {
+      const { start, end } = player.seekRange()
+      const duration = end - start
+
+      if (!Number.isFinite(duration) || duration <= 0) {
+        return
+      }
+
+      /**
+       * @type {{
+       *   title: string,
+       *   timestamp: string,
+       *   startSeconds: number,
+       *   endSeconds: number,
+       *   thumbnail?: string
+       * }[]}
+       */
+      const chapters = props.chapters
+
+      addMarkers(
+        chapters.flatMap(chapter => {
+          if (!Number.isFinite(chapter.startSeconds)) {
+            return []
+          }
+
+          const startFraction = (chapter.startSeconds - start) / duration
+
+          if (startFraction < 0 || startFraction > 1) {
+            return []
+          }
+
+          const markerDiv = document.createElement('div')
+
+          markerDiv.title = chapter.title
+          markerDiv.className = 'chapterMarker'
+          markerDiv.style.left = `calc(${startFraction * 100}% - 1px)`
+
+          return [markerDiv]
+        }),
+        'chapterMarker'
+      )
+    }
+
     /**
      * @param {HTMLDivElement[]} markers
+     * @param {string} [markerClassName]
      */
-    function addMarkers(markers) {
+    function addMarkers(markers, markerClassName) {
       const seekBarContainer = container.value.querySelector('.shaka-seek-bar-container')
 
+      /** @type {HTMLDivElement} */
+      let markerBar
+
       if (seekBarContainer.firstElementChild?.classList.contains('markerContainer')) {
-        /** @type {HTMLDivElement} */
-        const markerBar = seekBarContainer.firstElementChild
-
-        markers.forEach(marker => markerBar.appendChild(marker))
+        markerBar = seekBarContainer.firstElementChild
       } else {
-        const markerBar = document.createElement('div')
+        markerBar = document.createElement('div')
         markerBar.className = 'markerContainer'
-
-        markers.forEach(marker => markerBar.appendChild(marker))
 
         seekBarContainer.insertBefore(markerBar, seekBarContainer.firstElementChild)
       }
+
+      if (markerClassName) {
+        markerBar.querySelectorAll(`.${markerClassName}`).forEach(marker => marker.remove())
+      }
+
+      markers.forEach(marker => markerBar.appendChild(marker))
     }
 
     // #endregion seek bar markers
@@ -2989,6 +3043,10 @@ export default defineComponent({
           await player.addChaptersTrack(chaptersVttUrl, 'und', 'text/vtt')
             .catch(error => logShakaError(error, 'addChaptersTrack', props.videoId, props.chapters))
         }
+      }
+
+      if (props.chapters.length > 0) {
+        createChapterMarkers()
       }
 
       if (restoreCaptionIndex !== null) {
