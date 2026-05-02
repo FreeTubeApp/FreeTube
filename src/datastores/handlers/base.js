@@ -59,7 +59,7 @@ class Settings {
         await this.upsert('screenshotMode', 'default_folder')
       }
 
-      await db.settings.removeAsync({ _id: 'screenshotMode' })
+      await db.settings.removeAsync({ _id: 'screenshotAskPath' })
     }
 
     return db.settings.findAsync({ _id: { $ne: 'bounds' } })
