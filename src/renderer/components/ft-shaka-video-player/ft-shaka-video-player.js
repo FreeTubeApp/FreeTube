@@ -903,7 +903,8 @@ export default defineComponent({
           contextMenuElements: ['ft_stats'],
           enableTooltips: true,
           seekBarColors: {
-            played: 'var(--primary-color)'
+            played: 'var(--primary-color)',
+            chapters: 'rgba(0, 0, 0, 0.6)'
           },
           showAudioCodec: false,
           showVideoCodec: false,
@@ -1020,10 +1021,6 @@ export default defineComponent({
       fullscreenTitleOverlay.className = 'playerFullscreenTitleOverlay'
       fullscreenTitleOverlay.dir = 'auto'
       controlsContainer.appendChild(fullscreenTitleOverlay)
-
-      if (hasLoaded.value && props.chapters.length > 0) {
-        createChapterMarkers()
-      }
 
       if (useSponsorBlock.value && sponsorBlockSegments.length > 0) {
         let duration
@@ -2582,34 +2579,6 @@ export default defineComponent({
       )
     }
 
-    function createChapterMarkers() {
-      const { start, end } = player.seekRange()
-      const duration = end - start
-
-      /**
-       * @type {{
-       *   title: string,
-       *   timestamp: string,
-       *   startSeconds: number,
-       *   endSeconds: number,
-       *   thumbnail?: string
-       * }[]}
-       */
-      const chapters = props.chapters
-
-      addMarkers(
-        chapters.map(chapter => {
-          const markerDiv = document.createElement('div')
-
-          markerDiv.title = chapter.title
-          markerDiv.className = 'chapterMarker'
-          markerDiv.style.left = `calc(${(chapter.startSeconds / duration) * 100}% - 1px)`
-
-          return markerDiv
-        })
-      )
-    }
-
     /**
      * @param {HTMLDivElement[]} markers
      */
@@ -2632,6 +2601,64 @@ export default defineComponent({
     }
 
     // #endregion seek bar markers
+
+    // #region chapters
+
+    /**
+     * @param {number} seconds
+     * @returns {string}
+     */
+    function formatSecondsForVtt(seconds) {
+      const milliseconds = Math.round(seconds * 1000)
+      const hours = Math.floor(milliseconds / 3_600_000)
+      const minutes = Math.floor((milliseconds % 3_600_000) / 60_000)
+      const wholeSeconds = Math.floor((milliseconds % 60_000) / 1000)
+      const millisecondsRemainder = milliseconds % 1000
+
+      return [
+        hours.toString().padStart(2, '0'),
+        minutes.toString().padStart(2, '0'),
+        wholeSeconds.toString().padStart(2, '0')
+      ].join(':') + `.${millisecondsRemainder.toString().padStart(3, '0')}`
+    }
+
+    /**
+     * @returns {string|null}
+     */
+    function createChaptersVttUrl() {
+      let vtt = 'WEBVTT\n\n'
+      let hasValidChapter = false
+
+      for (const chapter of props.chapters) {
+        if (
+          !Number.isFinite(chapter.startSeconds) ||
+          !Number.isFinite(chapter.endSeconds) ||
+          chapter.endSeconds <= chapter.startSeconds
+        ) {
+          continue
+        }
+
+        const title = String(chapter.title ?? '')
+          .replaceAll(/\s+/g, ' ')
+          .trim()
+
+        if (title.length === 0) {
+          continue
+        }
+
+        hasValidChapter = true
+
+        vtt += [
+          `${formatSecondsForVtt(chapter.startSeconds)} --> ${formatSecondsForVtt(chapter.endSeconds)}`,
+          title,
+          ''
+        ].join('\n') + '\n'
+      }
+
+      return hasValidChapter ? `data:text/vtt;charset=utf-8,${encodeURIComponent(vtt)}` : null
+    }
+
+    // #endregion chapters
 
     // #region offline message
 
@@ -2955,6 +2982,15 @@ export default defineComponent({
         await Promise.all(promises)
       }
 
+      if (!isLive.value && props.chapters.length > 0) {
+        const chaptersVttUrl = createChaptersVttUrl()
+
+        if (chaptersVttUrl !== null) {
+          await player.addChaptersTrack(chaptersVttUrl, 'und', 'text/vtt')
+            .catch(error => logShakaError(error, 'addChaptersTrack', props.videoId, props.chapters))
+        }
+      }
+
       if (restoreCaptionIndex !== null) {
         const index = restoreCaptionIndex
         restoreCaptionIndex = null
@@ -2964,10 +3000,6 @@ export default defineComponent({
         if (textTrack) {
           player.selectTextTrack(textTrack)
         }
-      }
-
-      if (props.chapters.length > 0) {
-        createChapterMarkers()
       }
 
       if (startInFullscreen && process.env.IS_ELECTRON) {
