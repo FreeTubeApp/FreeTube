@@ -3040,12 +3040,15 @@ export default defineComponent({
         const chaptersVttUrl = createChaptersVttUrl()
 
         if (chaptersVttUrl !== null) {
-          await player.addChaptersTrack(chaptersVttUrl, 'und', 'text/vtt')
-            .catch(error => logShakaError(error, 'addChaptersTrack', props.videoId, props.chapters))
+          try {
+            await player.addChaptersTrack(chaptersVttUrl, 'und', 'text/vtt')
+          } catch (error) {
+            logShakaError(error, 'addChaptersTrack', props.videoId, props.chapters)
+          }
         }
       }
 
-      if (props.chapters.length > 0) {
+      if (!isLive.value && props.chapters.length > 0) {
         createChapterMarkers()
       }
 
