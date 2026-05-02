@@ -1,3 +1,4 @@
+import { screen } from 'electron/main'
 import * as db from '../index'
 
 class Settings {
@@ -46,6 +47,20 @@ class Settings {
       }
 
       await db.settings.removeAsync({ _id: 'saveWatchedProgress' })
+    }
+
+    // In FreeTube 0.24.0, the "Screenshot Mode" setting only had two options that were represented as a toggle named "Ask path"
+    // This is a one time migration to preserve users' Screenshot prompt preference through this change.
+    const screenshotAskPath = await db.settings.findOneAsync({ _id: 'screenshotAskPath' })
+
+    if (screenshotAskPath) {
+      if (screenshotAskPath.value) {
+        await this.upsert('screenshotMode', 'prompt_folder')
+      } else {
+        await this.upsert('screenshotMode', 'default_folder')
+      }
+
+      await db.settings.removeAsync({ _id: 'screenshotMode' })
     }
 
     return db.settings.findAsync({ _id: { $ne: 'bounds' } })
