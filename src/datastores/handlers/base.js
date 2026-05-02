@@ -1,4 +1,3 @@
-import { screen } from 'electron/main'
 import * as db from '../index'
 
 class Settings {
