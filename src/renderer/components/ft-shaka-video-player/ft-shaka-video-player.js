@@ -1726,7 +1726,7 @@ export default defineComponent({
       const filenameWithExtension = `${filename}.${format}`
 
       const wasPlaying = !video_.paused
-      if ((!process.env.IS_ELECTRON || screenshotMode.value === 'ask') && wasPlaying) {
+      if ((!process.env.IS_ELECTRON || screenshotMode.value === 'prompt_folder') && wasPlaying) {
         video_.pause()
       }
 
@@ -1740,10 +1740,8 @@ export default defineComponent({
             ? blob
             : await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'))
           await copyToClipboard(clipboardBlob, { messageOnSuccess: t('Screenshot Clipboard Success'), messageOnError: t('Screenshot Clipboard Error') })
-        }
-
-        if (screenshotMode.value === 'ask' || screenshotMode.value === 'do_not_ask') {
-          if (!process.env.IS_ELECTRON || screenshotMode.value === 'ask') {
+        } else if (screenshotMode.value === 'prompt_folder' || screenshotMode.value === 'default_folder') {
+          if (!process.env.IS_ELECTRON || screenshotMode.value === 'prompt_folder') {
             const saved = await writeFileWithPicker(
               filenameWithExtension,
               blob,
@@ -1771,7 +1769,7 @@ export default defineComponent({
       } finally {
         canvas.remove()
 
-        if ((!process.env.IS_ELECTRON || screenshotMode.value === 'ask') && wasPlaying) {
+        if ((!process.env.IS_ELECTRON || screenshotMode.value === 'prompt_folder') && wasPlaying) {
           video_.play()
         }
       }

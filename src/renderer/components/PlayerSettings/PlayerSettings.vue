@@ -207,7 +207,7 @@
         />
       </FtFlexBox>
       <FtFlexBox
-        v-if="USING_ELECTRON && screenshotMode === 'do_not_ask'"
+        v-if="USING_ELECTRON && screenshotMode === 'default_folder'"
         class="screenshotFolderContainer"
       >
         <p class="screenshotFolderLabel">
@@ -609,16 +609,16 @@ const screenshotModeNames = computed(() => [
   t('Settings.Player Settings.Screenshot.Modes.Clipboard'),
 ])
 const screenshotModeValues = computed(() => [
-  'ask',
-  ...process.env.IS_ELECTRON ? ['do_not_ask'] : [],
+  'prompt_folder',
+  ...process.env.IS_ELECTRON ? ['default_folder'] : [],
   'clipboard'
 ])
 
-/** @type {import('vue').ComputedRef<'ask' | 'do_not_ask' | 'clipboard'>} */
+/** @type {import('vue').ComputedRef<'prompt_folder' | 'default_folder' | 'clipboard'>} */
 const screenshotMode = computed(() => store.getters.getScreenshotMode)
 
 /**
- * @param {'ask' | 'do_not_ask' | 'clipboard'} mode
+ * @param {'prompt_folder' | 'default_folder' | 'clipboard'} mode
  */
 async function handleUpdateScreenshotMode(mode) {
   await store.dispatch('updateScreenshotMode', mode)

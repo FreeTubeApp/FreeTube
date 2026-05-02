@@ -286,7 +286,7 @@ const state = {
   videoSkipMouseScroll: false,
   videoPlaybackRateInterval: 0.25,
   enableScreenshot: false,
-  screenshotMode: 'ask',
+  screenshotMode: 'prompt_folder',
   screenshotFormat: 'png',
   screenshotQuality: 95,
   screenshotFolderPath: '',
