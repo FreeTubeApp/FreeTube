@@ -40,7 +40,7 @@ Global:
     Channel Count: 1 kanal | {count} kanaler
     Like Count: 1 gillning | {count} gillningar
     Comment Count: 1 kommentar | {count} kommentarer
-Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} är nu tillgänglig!  Klicka för mer detaljer'
+Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} är nu tillgänglig!  Klicka för mer information'
 Download From Site: 'Ladda ner från webbplats'
 
 # Search Bar
@@ -93,14 +93,14 @@ Search Filters:
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Prenumerationer'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din prenumerationslista är för närvarande tom. Om du vill importera dina prenumerationer kan du gå till Datainställningar och välja Importera prenumerationer eller så kan du söka efter en kanal och prenumerera på dem.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Din prenumerationslista är för närvarande tom. Om du vill importera dina prenumerationer kan du gå till Datainställningar och välja Importera prenumerationer eller så kan du söka efter en kanal och prenumerera på den.'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denna profil har ett stort antal prenumerationer. Tvingar RSS för att undvika hastighetsbegränsning
-  Load More Videos: Se mer
+  Load More Videos: Ladda fler videor
   Error Channels: Kanaler med fel
   Disabled Automatic Fetching: Du har inaktiverat automatisk prenumerationshämtning. Uppdatera prenumerationerna för att se dem här.
   Empty Channels: Dina prenumererade kanaler har inga videor.
   Subscriptions Tabs: Prenumerationsflikar
-  All Subscription Tabs Hidden: Alla prenumerationsflikar är dolda. För att se innehåll här, sluta dölja vissa flikar i avsnittet "{subsection}" i "{settingsSection}".
+  All Subscription Tabs Hidden: Alla prenumerationsflikar är dolda. För att se innehåll här, sluta dölja några flikar i avsnittet "{subsection}" i "{settingsSection}".
   Load More Posts: Ladda fler inlägg
   Empty Posts: Dina prenumererade kanaler har för närvarande inga inlägg.
 Trending:
@@ -131,14 +131,14 @@ User Playlists:
   This playlist currently has no videos.: Denna spellista har för närvarande inga videor.
   Add to Playlist: Lägg till spellista
   Sort By:
-    EarliestPlayedFirst: Datum spelad (äldst)
-    EarliestUpdatedFirst: Datum uppdaterad (äldst)
+    EarliestPlayedFirst: Speldatum (äldst)
+    EarliestUpdatedFirst: Uppdateringsdatum (äldst)
     NameAscending: A-Z
     NameDescending: Z-A
-    LatestCreatedFirst: Datum skapad (nyast)
-    EarliestCreatedFirst: Datum skapad (äldst)
-    LatestUpdatedFirst: Datum uppdaterad (nyast)
-    LatestPlayedFirst: Datum spelad (nyast)
+    LatestCreatedFirst: Skapelsedatum (nyast)
+    EarliestCreatedFirst: Skapelsedatum (äldst)
+    LatestUpdatedFirst: Uppdateringsdatum (nyast)
+    LatestPlayedFirst: Speldatum (nyast)
   Are you sure you want to delete this playlist? This cannot be undone: Är du säker på att du vill ta bort den här spellistan? Detta kan inte ångras.
   AddVideoPrompt:
     Added {count} Times: Redan tillagd | Tillagd {count} gånger
@@ -201,8 +201,8 @@ History:
   Empty Search Message: Det finns inga videor i din historik som matchar din sökning
   Search bar placeholder: Sök i historiken
   Case Sensitive Search: Skiftlägeskänslig sökning
-  DateOldestHistory: Datum sett (äldst)
-  DateNewestHistory: Datum sett (nyast)
+  DateOldestHistory: Visningsdatum (äldst)
+  DateNewestHistory: Visningsdatum (nyast)
 Settings:
   # On Settings Page
   Settings: 'Inställningar'
@@ -231,13 +231,13 @@ Settings:
       Blur: Oskärpa
     Region for Trending: 'Region för trender'
         #! List countries
-    View all Invidious instance information: Visa all Invidious-instansinformation
+    View all Invidious instance information: Visa all information om Invidious-instansen
     System Default: Standardinställningar
     Clear Default Instance: Rensa standardinstansen
     Set Current Instance as Default: Välj den nuvarande instansen som standard
     Current instance will be randomized on startup: Instansen kommer att väljas slumpmässigt vid start
     No default instance has been set: Ingen standardinstans är vald
-    The currently set default instance is {instance}: Den nuvarande aktiva instansen är {instance}
+    The currently set default instance is {instance}: Den aktuella standardinstansen är {instance}
     Current Invidious Instance: Aktiv Invidious-instans
     External Link Handling:
       No Action: Ingen åtgärd
@@ -378,7 +378,7 @@ Settings:
     Autoplay Playlists: 'Spela upp videor i spellistan automatiskt'
     Enable Theatre Mode by Default: 'Aktivera Bioläge som standard'
     Default Volume: 'Standardvolym'
-    Default Playback Rate: 'Standard uppspelningshastighet'
+    Default Playback Rate: 'Standardhastighet för uppspelning'
     Default Video Format:
       Default Video Format: 'Standardvideoformat'
       Dash Formats: 'DASH-format'
@@ -398,7 +398,7 @@ Settings:
       8k: '8k'
     Next Video Interval: Nedräkningstimer för automatisk uppspelning
     Display Play Button In Video Player: Visa uppspelningsknappen i videospelaren
-    Scroll Volume Over Video Player: Rullvolym i videospelaren
+    Scroll Volume Over Video Player: Justera volymen genom att skrolla över videospelaren
     Fast-Forward / Rewind Interval: Intervall för framåt-/bakåtspolning
     Screenshot:
       File Name Label: Filnamnsformat
@@ -410,7 +410,7 @@ Settings:
       Folder Label: Skärmdumpsmapp
       Quality Label: Skärmdumpskvalitet
       Format Label: Skärmdumpsformat
-      File Name Tooltip: Du kan använda variablerna nedan. %Y År 4 siffror. %M Månad 2 siffror. %D Dag 2 siffror. %H Timme 2 siffror. %N Minut 2 siffror. %S Sekund 2 siffror. %T Millisekund 3 siffror. %s Videosekund. %t Videomillisekund 3 siffror. %i Video-ID.
+      File Name Tooltip: Du kan använda variablerna nedan. %Y år 4 siffror. %M månad 2 siffror. %D dag 2 siffror. %H timme 2 siffror. %N minut 2 siffror. %S sekund 2 siffror. %T millisekund 3 siffror. %s videosekund. %t videomillisekund 3 siffror. %i video-ID.
       Folder Button: Välj mapp
     Skip by Scrolling Over Video Player: Hoppa över genom att skrolla över videospelaren
     Max Video Playback Rate: Maximal uppspelningshastighet
@@ -431,7 +431,7 @@ Settings:
     Clear Search Cache: 'Rensa sökcache'
     Are you sure you want to clear out your search cache?: 'Vill du verkligen rensa din sökcache?'
     Search cache has been cleared: 'Sök cachen har blivit rensad'
-    Remove Watch History: 'Rensa hela visningshistoriken'
+    Remove Watch History: 'Rensa visningshistoriken'
     Are you sure you want to remove your entire watch history?: 'Vill du verkligen rensa hela visningshistoriken?'
     Watch history has been cleared: 'Visningshistoriken har rensats'
     Remove All Subscriptions / Profiles: 'Ta bort alla prenumerationer / profiler'
@@ -445,7 +445,7 @@ Settings:
     Remove All Playlists: Ta bort alla spellistor
     Are you sure you want to clear out your search history and cache?: Är du säker på att du vill rensa din sökhistorik och cache?
     Watched Progress Saving Mode:
-      Tooltip: Automatiskt = Sparar vid varje avslut av en videosida, när videon avslutas och vid fel (t.ex. hastighetsbegränsning eller utgången tittarsession). Semiautomatiskt = Som automatiskt, förutom vid avslut av videosida. Framsteg kan sparas manuellt via en knapp som heter Spara visningsframsteg, placerad under videospelaren.
+      Tooltip: Automatiskt = Sparar när en videosida stängs, när videon avslutas och vid fel (t.ex. hastighetsbegränsning eller utgången tittarsession). Semiautomatiskt = Som automatiskt, förutom vid avslut av videosida. Framsteg kan sparas manuellt via en knapp som heter Spara visningsframsteg, placerad under videospelaren.
       Modes:
         Semi-auto: Semiautomatiskt
         Auto: Automatiskt
@@ -473,7 +473,7 @@ Settings:
     Invalid subscriptions file: 'Ogiltig prenumerationsarkiv'
     Invalid history file: 'Ogiltigt historikarkiv'
     Subscriptions have been successfully exported: 'Alla prenumerationer har exporterats'
-    History object has insufficient data, skipping item: 'Historikarkivet har otillräcklig data, objektet utelämnas'
+    History object has insufficient data, skipping item: 'Historikobjektet har otillräckliga data, objektet utelämnas'
     All watched history has been successfully imported: 'Hela visningshistoriken har importerats'
     All watched history has been successfully exported: 'Hela visningshistoriken har exporterats'
     Unable to read file: 'Kan inte läsa arkivet'
@@ -516,7 +516,7 @@ Settings:
     Hide Channels: Dölj videor från kanaler
     Hide Video Description: Dölj videobeskrivning
     Hide Sharing Actions: Dölj delningsåtgärder
-    Hide Videos on Watch: 'Dölj videor under visning'
+    Hide Videos on Watch: 'Dölj videor på visningssidan'
     Hide Live Streams: Dölj liveströmningar
     Hide Upcoming Premieres: Dölj kommande premiärer
     Display Titles Without Excessive Capitalisation: Visa titlar utan överdriven användning av versaler och interpunktion
@@ -540,7 +540,7 @@ Settings:
     Hide Channels Disabled Message: Vissa kanaler blockerades med ID och bearbetades inte. Funktionen är blockerad medan dessa ID:n uppdateras
     Hide Channels Already Exists: Kanal-ID finns redan
     Hide Channels API Error: Fel vid hämtning av användaren med det angivna ID:t. Kontrollera igen om ID:t är korrekt.
-    Hide Videos, Playlists and Channels Containing Text: Dölj videor och spellistor som innehåller text
+    Hide Videos, Playlists and Channels Containing Text: Dölj videor, spellistor och kanaler som innehåller text
     Hide Videos, Playlists and Channels Containing Text Placeholder: Ord, ordfragment eller fras
     Hide Channel Courses: Dölj kanalfliken "Kurser"
     Hide Channel Home: Dölj kanalfliken "Hem"
@@ -566,7 +566,7 @@ Settings:
     Proxy Username: Proxy-användarnamn
     Proxy Password: Proxy-lösenord
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Notifikation när ett sponsorsegment hoppas över
+    Notify when sponsor segment is skipped: Avisering när ett sponsorsegment hoppas över
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-URL (standard är https://sponsor.ajay.app)
     Enable SponsorBlock: Använd sponsorblockering (SponsorBlock)
     SponsorBlock Settings: Sponsorblockering
@@ -594,7 +594,7 @@ Settings:
     Hide Unsubscribe Button: Dölj knappen Avprenumerera
     Parental Control Settings: Föräldrakontroll
     Show Family Friendly Only: Visa endast barnvänligt innehåll
-    Hide Search Bar: Dölj sökpanel
+    Hide Search Bar: Dölj sökfältet
     Hide Uploader on Watch page: Dölj uppladdaren på visningssidan
   Password Dialog:
     Password: Lösenord
@@ -605,7 +605,7 @@ Settings:
     Set Password: Välj lösenord
     Set Password To Prevent Access: Ange lösenord för att förhindra tillgång till inställningar
   Experimental Settings:
-    Experimental Settings: Experimentella
+    Experimental Settings: Experimentellt
     Warning: Dessa inställningar är experimentella och kan orsaka krascher när de är aktiverade. Det rekommenderas starkt att säkerhetskopiera. Användning sker på egen risk!
     Replace HTTP Cache: Ersätt HTTP-cache
   Return to Settings Menu: Återgå till inställningsmenyn
@@ -624,7 +624,7 @@ About:
   Email: E-post
   Website: Webbplats
   Please check for duplicates before posting: Kontrollera om det finns dubbletter innan du publicerar
-  GitHub issues: GitHub-problem
+  GitHub issues: GitHub-ärenden
   Report a problem: Rapportera ett problem
   FAQ: Frågor och svar
   FreeTube Wiki: FreeTube Wiki
@@ -657,7 +657,7 @@ Profile:
   Profile has been created: 'Profil har skapats'
   Profile has been updated: 'Profilen har uppdaterats'
   Your default profile has been set to {profile}: 'Din standardprofil har ställts in på {profile}'
-  Removed {profile} from your profiles: 'Borttagen {profile} från dina profiler'
+  Removed {profile} from your profiles: '{profile} har tagits bort från dina profiler'
   Your default profile has been changed to your primary profile: 'Din standardprofil har ändrats till din primära profil'
   '{profile} is now the active profile': '{profile} är nu den aktiva profilen'
   Subscription List: 'Prenumerationslista'
@@ -667,7 +667,7 @@ Profile:
   Select None: 'Markera ingen'
   Delete Selected: 'Ta bort markerade'
   Add Selected To Profile: 'Lägg till markerade i profilen'
-  No channel(s) have been selected: 'Ingen kanal(er) har markerats'
+  No channel(s) have been selected: 'Inga kanaler har markerats'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
   : 'Det här är din primära profil.  Är du säker på att du vill ta bort de valda kanalerna?  Samma kanaler kommer att tas bort i alla profiler där de finns.'
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Är du säker på att du vill ta bort de markerade kanalerna?   Detta tar inte bort kanalen från någon annan profil.'
@@ -699,7 +699,7 @@ Channel:
     Playlists: 'Spellistor'
     This channel does not currently have any playlists: 'Den här kanalen har för närvarande inga spellistor'
     Sort Types:
-      Last Video Added: 'Senaste video tillagd'
+      Last Video Added: 'Senast tillagda video'
       Newest: 'Nyaste'
       Oldest: 'Äldsta'
   About:
@@ -777,7 +777,7 @@ Video:
   Open Channel in Invidious: Öppna kanalen i Invidious
   Copy YouTube Channel Link: Kopiera YouTube-kanallänk
   Open Channel in YouTube: Öppna kanal i YouTube
-  Started streaming on: Började streamas på
+  Started streaming on: Började streamas den
   Streamed on: Strömmas på
   Video has been removed from your saved list: Videon har tagits bort från din sparade lista
   Video has been saved: Videon har sparats
@@ -850,7 +850,7 @@ Video:
     Show Original Details: Visa originaldetaljer
     Show Modified Details: Visa ändrade detaljer
   Unlisted: Olistade
-  MembersOnly: Videoklipp endast för medlemmar kan inte ses med FreeTube eftersom de kräver Google-inloggning och betalmedlemskap till uppladdarens kanal.
+  MembersOnly: Videor endast för medlemmar kan inte ses med FreeTube eftersom de kräver Google-inloggning och betalt medlemskap på uppladdarens kanal.
   Watched Progress Saved: Visningsframsteg sparade
   Save Watched Progress: Spara visningsframsteg
   Popout Live Chat: Popout-chatt
@@ -871,12 +871,12 @@ Playlist:
     VideoDurationDescending: Längd (längst)
     AuthorDescending: Upphovsman (Ö-A)
     VideoDurationAscending: Längd (kortast)
-    DateAddedOldest: Datum tillagd (äldst)
+    DateAddedOldest: Tilläggningsdatum (äldst)
     VideoTitleAscending: Titel (A-Ö)
     VideoTitleDescending: Titel (Ö-A)
-    DateAddedNewest: Datum tillagd (nyast)
-    PublishedNewest: Datum publicerad (nyast)
-    PublishedOldest: Datum publicerad (äldst)
+    DateAddedNewest: Tilläggningsdatum (nyast)
+    PublishedNewest: Publiceringsdatum (nyast)
+    PublishedOldest: Publiceringsdatum (äldst)
     Custom: Anpassad
 Change Format:
   Change Media Formats: 'Ändra videoformat'
@@ -900,7 +900,7 @@ Share:
   YouTube URL copied to clipboard: 'Youtube-URL kopierad till urklipp'
   YouTube Embed URL copied to clipboard: 'YouTube-inbäddnings-URL kopierad till urklipp'
   YouTube Channel URL copied to clipboard: YouTube-kanalens URL kopierad till urklipp
-  Invidious Channel URL copied to clipboard: Invidious kanal-URL kopierad till urklipp
+  Invidious Channel URL copied to clipboard: Invidious-kanal-URL kopierad till urklipp
   Share Channel: Dela kanal
   Share Post: Dela inlägg
 Mini Player: 'Minispelare'
@@ -996,12 +996,12 @@ Channels:
   Title: Kanallista
   Search bar placeholder: Sök kanaler
   Unsubscribe Prompt: Är du säker på att du vill avprenumerera från "{channelName}"?
-  Count: '{number} kanal/kanaler hittade.'
+  Count: '{number} kanal hittad/kanaler hittade.'
   Empty: Din kanallista är tom.
 Preferences: Preferenser
 Ok: Okej
-Screenshot Success: Sparad skärmdump
-Screenshot Error: Skärmdump misslyckades {error}
+Screenshot Success: Skärmdump sparad
+Screenshot Error: Skärmdump misslyckades. {error}
 Clipboard:
   Cannot access clipboard without a secure connection: Kan inte komma åt urklipp utan en säker anslutning
   Copy failed: Kopiera till urklipp misslyckades
@@ -1059,7 +1059,7 @@ KeyboardShortcutPrompt:
   History Forward: Gå framåt en sida
   New Window: Skapa ett nytt fönster
   History Backward: Gå tillbaka en sida
-  Captions: Växla bildtexter PÅ/AV
+  Captions: Växla undertexter på/av
   Stats: Visa videostatistik
   Fullscreen: Växla helskärmsläge
   Minimize Window: Minimera fönstret
@@ -1082,7 +1082,7 @@ KeyboardShortcutPrompt:
   Show Keyboard Shortcuts: Visa tangentbordsgenvägar
   Large Fast Forward: Framåt 10 sekunder / Snabbspolning framåt baserat på aktuell videouppspelningshastighet
   Increase Video Speed: Öka videohastigheten baserat på videouppspelningshastighetsintervall
-  Full Window: Växla helfönster
+  Full Window: Växla helfönsterläge
   Theatre Mode: Växla teaterläge
   Navigate to History: Navigera till sidan Historik
   Last Frame: Föregående bildruta (medan pausad)
@@ -1091,7 +1091,7 @@ KeyboardShortcutPrompt:
   Large Rewind: Spola tillbaka 10 sekunder / Spola tillbaka video baserat på aktuell videouppspelningshastighet
   Reset Zoom: Återställ zoomnivå / Användargränssnittsskala
   Volume Down: Minska volymen
-  Last Chapter: Sista kapitlet
+  Last Chapter: Föregående kapitel
   Small Rewind: Spola tillbaka X antal sekunder baserat på återspolningsintervallet och aktuell videouppspelningshastighet
   Picture in Picture: Växla bild-i-bild-läge
   Home: Sök till början av videon
@@ -1111,4 +1111,4 @@ Keys:
   arrowright: Högerpil
   arrowup: Uppåtpil
 Compact side navigation: Kompakt sidonavigering
-Expand side navigation: Expandera sidnavigeringen
+Expand side navigation: Expandera sidonavigeringen
