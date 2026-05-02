@@ -865,12 +865,12 @@ export default defineComponent({
         this.isLoading = false
         this.updateTitle()
       } catch (err) {
-        const errorMessage = this.$t('Local API Error (Click to copy)')
-        showToast(`${errorMessage}: ${err}`, 10000, () => {
-          copyToClipboard(err)
-        })
         console.error(err)
         if (this.backendPreference === 'local' && this.backendFallback && !err.toString().includes('private') && !err.toString().includes('unavailable')) {
+          const errorMessage = this.$t('Local API Error (Click to copy)')
+          showToast(`${errorMessage}: ${err}`, 10000, () => {
+            copyToClipboard(err)
+          })
           showToast(this.$t('Falling back to Invidious API'))
           this.getVideoInformationInvidious()
         } else {
@@ -1056,11 +1056,11 @@ export default defineComponent({
         })
         .catch(err => {
           console.error(err)
-          const errorMessage = this.$t('Invidious API Error (Click to copy)')
-          showToast(`${errorMessage}: ${err}`, 10000, () => {
-            copyToClipboard(err)
-          })
           if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
+            const errorMessage = this.$t('Invidious API Error (Click to copy)')
+            showToast(`${errorMessage}: ${err}`, 10000, () => {
+              copyToClipboard(err)
+            })
             showToast(this.$t('Falling back to Local API'))
             this.getVideoInformationLocal()
           } else {
