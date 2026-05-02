@@ -44,7 +44,7 @@ Version {versionNumber} is now available!  Click for more details: 'Version {ver
 Download From Site: 'Ladda ner från webbplats'
 
 # Search Bar
-Search / Go to URL: 'Sök / Gå till URL'
+Search / Go to URL: 'Sök / gå till URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Sökfilter'
@@ -78,7 +78,7 @@ Search Filters:
 # Sidebar
   There are no more results for this search: Det finns inga fler resultat för denna sökning
   Features:
-    360 Video: 360 Video
+    360 Video: 360-video
     Location: Plats
     HDR: HDR
     HD: HD
@@ -98,7 +98,7 @@ Subscriptions:
   Load More Videos: Se mer
   Error Channels: Kanaler med fel
   Disabled Automatic Fetching: Du har inaktiverat automatisk prenumerationshämtning. Uppdatera prenumerationerna för att se dem här.
-  Empty Channels: Dina prenumererade kanaler har inga filmer.
+  Empty Channels: Dina prenumererade kanaler har inga videor.
   Subscriptions Tabs: Prenumerationsflikar
   All Subscription Tabs Hidden: Alla prenumerationsflikar är dolda. För att se innehåll här, sluta dölja vissa flikar i avsnittet "{subsection}" i "{settingsSection}".
   Load More Posts: Ladda fler inlägg
@@ -127,7 +127,7 @@ User Playlists:
   Move Video Up: Flytta upp video
   Move Video Down: Flytta ner video
   Remove from Playlist: Ta bort från spellista
-  You have no playlists. Click on the create new playlist button to create a new one.: Du har inga spellistor. Klicka på Skapa ny spellista-knappen för att skapa en ny.
+  You have no playlists. Click on the create new playlist button to create a new one.: Du har inga spellistor. Klicka på knappen Skapa ny spellista för att skapa en ny.
   This playlist currently has no videos.: Denna spellista har för närvarande inga videor.
   Add to Playlist: Lägg till spellista
   Sort By:
@@ -150,8 +150,8 @@ User Playlists:
       You haven't selected any playlist yet.: Du har inte valt någon spellista ännu.
       "Video(s) added to {playlistCount} playlists": "Videor tillagda i 1 spellista | Videor tillagda i {playlistCount} spellistor"
     Allow Adding Duplicate Video(s): Tillåt tilläggning av dubblettvideor
-    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videor Kommer Att Läggas Till'
-    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videor är redan tillagda'
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videor kommer att läggas till'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videor är redan tillagda'
   SinglePlaylistView:
     Toast:
       Video has been removed: Videon har tagits bort
@@ -171,7 +171,7 @@ User Playlists:
       This playlist does not exist: Den här spellistan finns inte
       This video cannot be moved down.: Den här videon kan inte flyttas nedåt.
       Video has been removed. Click here to undo.: Videon har tagits bort. Klicka här för att ångra.
-      This playlist has a video with a duration error: Den här spellistan innehåller minst en video som inte har någon varaktighet, den sorteras som om deras varaktighet är noll.
+      This playlist has a video with a duration error: Den här spellistan innehåller minst en video som inte har någon längd, den sorteras som om längden är noll.
       This playlist is already being used for quick bookmark.: Den här spellistan används redan för snabbokmärken.
     Search for Videos: Sök efter videor
   Playlists with Matching Videos: Spellistor med matchande videor
@@ -209,7 +209,7 @@ Settings:
   General Settings:
     General Settings: 'Allmänt'
     Check for Updates: 'Sök efter uppdateringar'
-    Fallback to Non-Preferred Backend on Failure: 'Falla tillbaka till icke-föredragen Backend vid felet'
+    Fallback to Non-Preferred Backend on Failure: 'Använd icke-föredragen backend vid fel'
     Enable Search Suggestions: 'Aktivera sökförslag'
     Default Landing Page: 'Standardsida'
     Locale Preference: 'Språk'
@@ -260,8 +260,8 @@ Settings:
       Dracula: 'Dracula'
       System Default: Systemstandard
       Catppuccin Mocha: Catppuccin Mocha
-      Hot Pink: Het Rosa
-      Pastel Pink: Pastell Rosa
+      Hot Pink: Hetrosa
+      Pastel Pink: Pastellrosa
       Solarized Dark: Solarized mörk
       Nordic: Nordisk
       Everforest Dark Hard: Everforest mörk stark
@@ -292,7 +292,7 @@ Settings:
       Yellow: 'Gul'
       Amber: 'Bärnsten'
       Orange: 'Brandgul'
-      Deep Orange: 'Djup Orange'
+      Deep Orange: 'Djuporange'
       Dracula Cyan: 'Dracula cyangrön'
       Dracula Green: 'Dracula grön'
       Dracula Orange: 'Dracula orange'
@@ -310,7 +310,7 @@ Settings:
       Catppuccin Mocha Yellow: Catppuccin Mocha gul
       Catppuccin Mocha Green: Catppuccin Mocha grön
       Catppuccin Mocha Sapphire: Catppuccin Mocha safir
-      Catppuccin Mocha Lavender: Catppuccin Mocha lavender
+      Catppuccin Mocha Lavender: Catppuccin Mocha lavendel
       Catppuccin Mocha Blue: Catppuccin Mocha blå
       Catppuccin Mocha Teal: Catppuccin Mocha turkos
       Catppuccin Mocha Sky: Catppuccin Mocha himmel
@@ -360,8 +360,8 @@ Settings:
       Solarized Violet: Solariserad violett
       Everforest Dark Orange: Everforest mörkorange
       Everforest Light Orange: Everforest ljusorange
-      Catppuccin Latte Red: Catppuccin Latte Röd
-      Catppuccin Latte Mauve: Catppuccin Latte Malva
+      Catppuccin Latte Red: Catppuccin Latte röd
+      Catppuccin Latte Mauve: Catppuccin Latte malva
     Secondary Color Theme: 'Sekundärfärg'
         #* Main Color Theme
     UI Scale: Skala för användargränssnitt
@@ -373,14 +373,14 @@ Settings:
     Player Settings: 'Spelare'
     Play Next Video: 'Spela upp rekommenderade videor automatiskt'
     Turn on Subtitles by Default: 'Aktivera undertexter som standard'
-    Autoplay Videos: 'Starta Videor Automatiskt'
+    Autoplay Videos: 'Spela upp videor automatiskt'
     Proxy Videos Through Invidious: 'Proxyvideor via Invidious'
     Autoplay Playlists: 'Spela upp videor i spellistan automatiskt'
     Enable Theatre Mode by Default: 'Aktivera Bioläge som standard'
     Default Volume: 'Standardvolym'
     Default Playback Rate: 'Standard uppspelningshastighet'
     Default Video Format:
-      Default Video Format: 'Standard videoformat'
+      Default Video Format: 'Standardvideoformat'
       Dash Formats: 'DASH-format'
       Legacy Formats: 'Äldre format'
       Audio Formats: 'Ljudformat'
@@ -399,7 +399,7 @@ Settings:
     Next Video Interval: Nedräkningstimer för automatisk uppspelning
     Display Play Button In Video Player: Visa uppspelningsknappen i videospelaren
     Scroll Volume Over Video Player: Rullvolym i videospelaren
-    Fast-Forward / Rewind Interval: Spola fram / spola bak intervall
+    Fast-Forward / Rewind Interval: Intervall för framåt-/bakåtspolning
     Screenshot:
       File Name Label: Filnamnsformat
       Enable: Aktivera skärmdump
@@ -410,7 +410,7 @@ Settings:
       Folder Label: Skärmdumpsmapp
       Quality Label: Skärmdumpskvalitet
       Format Label: Skärmdumpsformat
-      File Name Tooltip: Du kan använda variablerna nedan. %Y År 4 siffror. %M Månad 2 siffror. %D Dag 2 siffror. %H Timme 2 siffror. %N Minut 2 siffror. %S Sekund 2 siffror. %T Millisekund 3 siffror. %s Video Sekund. %t Video Millisekund 3 siffror. %i Video ID.
+      File Name Tooltip: Du kan använda variablerna nedan. %Y År 4 siffror. %M Månad 2 siffror. %D Dag 2 siffror. %H Timme 2 siffror. %N Minut 2 siffror. %S Sekund 2 siffror. %T Millisekund 3 siffror. %s Videosekund. %t Videomillisekund 3 siffror. %i Video-ID.
       Folder Button: Välj mapp
     Skip by Scrolling Over Video Player: Hoppa över genom att skrolla över videospelaren
     Max Video Playback Rate: Maximal uppspelningshastighet
@@ -420,7 +420,7 @@ Settings:
     Default Viewing Mode:
       Default Viewing Mode: Standardvisningsläge
       Theater: Teater
-      Picture in Picture: Bild i Bild
+      Picture in Picture: Bild-i-bild
       Full Screen: Helskärm
       External Player: Extern spelare ({externalPlayerName})
     Autoplay Interruption Timer: Avbrottstimer för autouppspelning
@@ -436,7 +436,7 @@ Settings:
     Watch history has been cleared: 'Visningshistoriken har rensats'
     Remove All Subscriptions / Profiles: 'Ta bort alla prenumerationer / profiler'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Vill du verkligen ta bort alla prenumerationer och profiler?  Detta kan inte ångras.'
-    Save Watched Videos With Last Viewed Playlist: Spara visade videor med senast visade spellista
+    Save Watched Videos With Last Viewed Playlist: Spara sedda videor med senast visade spellista
     Remember Search History: Kom ihåg sökhistorik
     Clear Search History and Cache: Rensa sökhistorik och cache
     All playlists have been removed: Alla spellistor har tagits bort
@@ -445,7 +445,7 @@ Settings:
     Remove All Playlists: Ta bort alla spellistor
     Are you sure you want to clear out your search history and cache?: Är du säker på att du vill rensa din sökhistorik och cache?
     Watched Progress Saving Mode:
-      Tooltip: Automatiskt = Sparar vid varje avslut av en videosida, när videon avslutas och vid fel (t.ex. hastighetsbegränsning eller utgången tittarsession). Semiautomatiskt = Som automatiskt, förutom vid avslut av videosida. Framsteg kan sparas manuellt via en knapp som heter Spara tittade framsteg, placerad under videospelaren.
+      Tooltip: Automatiskt = Sparar vid varje avslut av en videosida, när videon avslutas och vid fel (t.ex. hastighetsbegränsning eller utgången tittarsession). Semiautomatiskt = Som automatiskt, förutom vid avslut av videosida. Framsteg kan sparas manuellt via en knapp som heter Spara visningsframsteg, placerad under videospelaren.
       Modes:
         Semi-auto: Semiautomatiskt
         Auto: Automatiskt
@@ -459,7 +459,7 @@ Settings:
     Confirm Before Unsubscribing: Bekräfta innan du avslutar prenumerationen
   Data Settings:
     Data Settings: 'Data'
-    Select Export Type: 'Välj export-typen'
+    Select Export Type: 'Välj exporttyp'
     Import Subscriptions: 'Importera prenumerationer'
     Export Subscriptions: 'Exportera prenumerationer'
     Export FreeTube: 'Exportera FreeTube'
@@ -470,7 +470,7 @@ Settings:
     Profile object has insufficient data, skipping item: 'Profilobjekt har otillräckliga data, hoppar över objekt'
     All subscriptions and profiles have been successfully imported: 'Alla prenumerationer och profiler har importerats'
     All subscriptions have been successfully imported: 'Alla prenumerationer har importerats'
-    Invalid subscriptions file: 'Ogiltigt prenumerationsarkiv'
+    Invalid subscriptions file: 'Ogiltig prenumerationsarkiv'
     Invalid history file: 'Ogiltigt historikarkiv'
     Subscriptions have been successfully exported: 'Alla prenumerationer har exporterats'
     History object has insufficient data, skipping item: 'Historikarkivet har otillräcklig data, objektet utelämnas'
@@ -481,14 +481,14 @@ Settings:
     Unknown data key: 'Okänd datanyckel'
     How do I import my subscriptions?: 'Hur importerar jag mina prenumerationer?'
     Manage Subscriptions: Hantera prenumerationer
-    History File: Historikfil
-    Subscription File: Prenumerationsfil
+    History File: Historikarkiv
+    Subscription File: Prenumerationsarkiv
     Playlist File: Spellistefil
     Export Playlists: Exportera spellistor
     All playlists has been successfully imported: Alla spellistor har importerats
     All playlists has been successfully exported: Alla spellistor har exporterats
     Import Playlists: Importera spellistor
-    Playlist insufficient data: Otillräcklig data för "{playlist}" spellista, hoppar över objekt
+    Playlist insufficient data: Otillräckliga data för spellistan "{playlist}", hoppar över objekt
 
     Export Playlists For Older FreeTube Versions:
       Label: Exportera spellistor för äldre versioner av FreeTube
@@ -497,8 +497,8 @@ Settings:
     Search history: Sökhistorik
     Import search history: Importera sökhistorik
     Export search history: Exportera sökhistorik
-    All search history has been successfully imported: All sökhistorik har importerats
-    All search history has been successfully exported: All sökhistorik har exporterats
+    All search history has been successfully imported: Hela sökhistoriken har importerats
+    All search history has been successfully exported: Hela sökhistoriken har exporterats
   Distraction Free Settings:
     Hide Live Chat: Dölj livechatt
     Hide Popular Videos: Dölj mest populära
@@ -534,7 +534,7 @@ Settings:
     Hide Channel Releases: Dölj kanalfliken "Utgåvor"
     Hide Subscriptions Videos: Dölj prenumerationsvideor
     Hide Subscriptions Shorts: Dölj prenumerationsshorts
-    Hide Subscriptions Live: Dölj prenumerationer live-sändningar
+    Hide Subscriptions Live: Dölj livesändningar från prenumerationer
     Hide Profile Pictures in Comments: Dölj profilbilder i kommentarer
     Hide Channels Invalid: Det angivna kanal-ID:t var ogiltigt
     Hide Channels Disabled Message: Vissa kanaler blockerades med ID och bearbetades inte. Funktionen är blockerad medan dessa ID:n uppdateras
@@ -556,7 +556,7 @@ Settings:
     Ip: IP
     Your Info: Din info
     Test Proxy: Testa proxy
-    Clicking on Test Proxy will send a request to: Om du klickar på TestProxy skickas en begäran till
+    Clicking on Test Proxy will send a request to: Om du klickar på Testa proxy skickas en begäran till
     Proxy Port Number: Proxy-portnummer
     Proxy Host: Proxyvärd
     Proxy Protocol: Proxy-protokoll
@@ -566,7 +566,7 @@ Settings:
     Proxy Username: Proxy-användarnamn
     Proxy Password: Proxy-lösenord
   SponsorBlock Settings:
-    Notify when sponsor segment is skipped: Notifikation när sponsorsegmentet är åsidosatt
+    Notify when sponsor segment is skipped: Notifikation när ett sponsorsegment hoppas över
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API-URL (standard är https://sponsor.ajay.app)
     Enable SponsorBlock: Använd sponsorblockering (SponsorBlock)
     SponsorBlock Settings: Sponsorblockering
@@ -581,11 +581,11 @@ Settings:
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow-miniatyrbildsgenerator API-URL (standard är https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Använd DeArrow för miniatyrer
   External Player Settings:
-    Ignore Unsupported Action Warnings: Ignorera händelsevarningar som inte stöds
+    Ignore Unsupported Action Warnings: Ignorera varningar för åtgärder som inte stöds
     External Player: Extern spelare
     External Player Settings: Extern spelare
-    Custom External Player Arguments: Anpassade externa spelargument
-    Custom External Player Executable: Anpassad extern spelare körbar fil
+    Custom External Player Arguments: Anpassade argument för extern spelare
+    Custom External Player Executable: Körbar fil för anpassad extern spelare
     Players:
       None:
         Name: Ingen
@@ -616,7 +616,7 @@ About:
   #& About
   Donate: Donera
   these people and projects: dessa människor och projekt
-  Credits: Erkännande
+  Credits: Tack till
   Translate: Översätt
   room rules: Rumsregler
   Chat on Matrix: Chatta på Matrix
@@ -637,7 +637,7 @@ About:
   AGPLv3: AGPLv3
   Licensed under the {licenseLink}: Licensierad under {licenseLink}
   Please read the {roomRulesLink}: Läs {roomRulesLink}
-  FreeTube is made possible by {creditsPageLink}: FreeTube möjliggörs av {creditsPageLink}
+  FreeTube is made possible by {creditsPageLink}: FreeTube är möjligt tack vare {creditsPageLink}
 Profile:
   Profile Select: 'Välj profil'
   All Channels: 'Alla kanaler'
@@ -684,7 +684,7 @@ Channel:
   Subscribe: 'Prenumerera'
   Unsubscribe: 'Avsluta prenumeration'
   Channel has been removed from your subscriptions: 'Kanalen har tagits bort från dina prenumerationer'
-  Removed subscription from {count} other channel(s): 'Borttagen prenumeration från {count} annan kanal(er)'
+  Removed subscription from {count} other channel(s): 'Borttagen prenumeration från {count} annan kanal/andra kanaler'
   Added channel to your subscriptions: 'Kanal tillagd i dina prenumerationer'
   Search Channel: 'Sök i kanal'
   Your search results have returned 0 results: 'Din sökning gav inget resultat'
@@ -713,8 +713,8 @@ Channel:
     Joined: Gick med
     Location: Plats
   This channel does not exist: Denna kanal finns inte
-  This channel does not allow searching: Denna kanalen tillåter inte sökning
-  This channel is age-restricted and currently cannot be viewed in FreeTube.: Denna kanalen är ålderbegränsad och kan inte ses i FreeTube.
+  This channel does not allow searching: Den här kanalen tillåter inte sökning
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Den här kanalen är åldersbegränsad och kan inte ses i FreeTube.
   Channel Tabs: Kanalflikar
   Posts:
     This channel currently does not have any posts: Denna kanal har för närvarande inga inlägg
@@ -730,8 +730,8 @@ Channel:
     Live: Live
     This channel does not currently have any live streams: Den här kanalen har för närvarande inga liveströmmar
   Releases:
-    Releases: Släpp
-    This channel does not currently have any releases: Den här kanalen har för närvarande inga släpp
+    Releases: Utgåvor
+    This channel does not currently have any releases: Den här kanalen har för närvarande inga utgåvor
   Podcasts:
     Podcasts: Poddsändningar
     This channel does not currently have any podcasts: Den här kanalen har inga poddsändningar
@@ -758,7 +758,7 @@ Video:
   Reverse Playlist: 'Omvänd spellista'
   Previous: 'Föregående'
   Next: 'Nästa'
-  Watched: 'Visad'
+  Watched: 'Sedd'
   Autoplay: 'Autospelning'
   Starting soon, please refresh the page to check again: 'Börjar snart, uppdatera sidan för att kontrollera igen'
   # As in a Live Video
@@ -783,9 +783,9 @@ Video:
   Video has been saved: Videon har sparats
   Save Video: Spara video
   Sponsor Block category:
-    music offtopic: Musikfritt segment
+    music offtopic: Musik utanför ämnet
     interaction: Interaktion
-    self-promotion: Självbefordran
+    self-promotion: Självmarknadsföring
     outro: Avslut
     intro: intro
     sponsor: sponsor
@@ -799,8 +799,8 @@ Video:
       opening playlists: öppnar spellistor
       setting a playback rate: ställer in en uppspelningshastighet
       starting video at offset: startar video vid offset
-      looping playlists: Spellistor i slinga
-    UnsupportedActionTemplate: '{externalPlayer} stöder inte :{action}'
+      looping playlists: spellistor i slinga
+    UnsupportedActionTemplate: '{externalPlayer} stöder inte: {action}'
     OpeningTemplate: Öppnar {videoOrPlaylist} i {externalPlayer}...
     playlist: spellista
     video: video
@@ -814,12 +814,12 @@ Video:
   Hide Channel: Dölj kanal
 #& Playlists
   Player:
-    Full Window: Helt fönster
-    Exit Full Window: Stäng hela fönstret
+    Full Window: Helfönster
+    Exit Full Window: Avsluta helfönsterläge
     Stats:
       CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
       Media Formats: 'Mediaformat: {formats}'
-      Video ID: 'Video ID: {videoId}'
+      Video ID: 'Video-ID: {videoId}'
       Player Dimensions: 'Spelarmått: {width}x{height}'
       Bandwidth: 'Bandbredd: {bandwidth} kbps'
       Buffered: 'Buffrad: {bufferedPercentage} %'
@@ -829,11 +829,11 @@ Video:
       Bitrate: 'Bithastighet: {bitrate} kbps'
       Volume: 'Volym: {volumePercentage}%'
       CodecsVideoAudio: 'Kodekar: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
-      Dropped Frames / Total Frames: 'Bildrutefall: {droppedFrames} / Totalt antal bildrutor: {totalFrames}'
+      Dropped Frames / Total Frames: 'Tappade bildrutor: {droppedFrames} / Totalt antal bildrutor: {totalFrames}'
     Hide Stats: Dölj statistik
     You appear to be offline: Du verkar vara frånkopplad.
     Playback will resume automatically when your connection comes back: Uppspelningen återupptas automatiskt när din anslutning kommer tillbaka.
-    Skipped segment: Hoppade över {segmentCategory} segmentet
+    Skipped segment: Hoppade över {segmentCategory}-segmentet
     Audio Tracks: Ljudspår
     Autoplay is off: Autouppspelning är avstängd
     Autoplay is on: Autouppspelning är på
@@ -842,7 +842,7 @@ Video:
     Take Screenshot: Ta skärmdump
     Show Stats: Visa statistik
     TranslatedCaptionTemplate: '{language} (översatt från "{originalLanguage}")'
-  More Options: Fler Alternativ
+  More Options: Fler alternativ
   AgeRestricted: Åldersbegränsade videor kan inte ses med FreeTube eftersom de kräver Google-inloggning och användning av ett åldersverifierat YouTube-konto.
   IP block: YouTube har blockerat din IP-adress från att titta på videor. Försök att byta till en annan VPN eller proxy.
   DRMProtected: DRM-skyddade videor kan inte spelas upp i FreeTube, eftersom de kräver proprietära, slutna källkodskomponenter. Om du vill titta på den här videon, se den på den officiella YouTube-webbplatsen i en DRM-aktiverad webbläsare.
@@ -851,8 +851,8 @@ Video:
     Show Modified Details: Visa ändrade detaljer
   Unlisted: Olistade
   MembersOnly: Videoklipp endast för medlemmar kan inte ses med FreeTube eftersom de kräver Google-inloggning och betalmedlemskap till uppladdarens kanal.
-  Watched Progress Saved: Tittade framsteg sparade
-  Save Watched Progress: Spara tittade framsteg
+  Watched Progress Saved: Visningsframsteg sparade
+  Save Watched Progress: Spara visningsframsteg
   Popout Live Chat: Popout-chatt
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Återstående tid före annonsstart: {remindingTimeSeconds}s'
@@ -868,9 +868,9 @@ Playlist:
   Playlist: Spellista
   Sort By:
     AuthorAscending: Upphovsman (A-Ö)
-    VideoDurationDescending: Varaktighet (längst)
+    VideoDurationDescending: Längd (längst)
     AuthorDescending: Upphovsman (Ö-A)
-    VideoDurationAscending: Varaktighet (kortast)
+    VideoDurationAscending: Längd (kortast)
     DateAddedOldest: Datum tillagd (äldst)
     VideoTitleAscending: Titel (A-Ö)
     VideoTitleDescending: Titel (Ö-A)
@@ -901,7 +901,7 @@ Share:
   YouTube Embed URL copied to clipboard: 'YouTube-inbäddnings-URL kopierad till urklipp'
   YouTube Channel URL copied to clipboard: YouTube-kanalens URL kopierad till urklipp
   Invidious Channel URL copied to clipboard: Invidious kanal-URL kopierad till urklipp
-  Share Channel: Dela Kanal
+  Share Channel: Dela kanal
   Share Post: Dela inlägg
 Mini Player: 'Minispelare'
 Comments:
@@ -931,8 +931,8 @@ Up Next: 'Kommer härnäst'
 Local API Error (Click to copy): 'Lokalt API-fel (Klicka för att kopiera koden)'
 Invidious API Error (Click to copy): 'Invidious API-fel (klicka för att kopiera)'
 Falling back to Invidious API: 'Faller tillbaka till Invidious API'
-Falling back to Local API: 'Faller tillbaka till lokal API'
-This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Den här videon är inte tillgänglig på grund av format som saknas. Detta kan hända på grund av landets otillgänglighet.'
+Falling back to Local API: 'Faller tillbaka till lokalt API'
+This video is unavailable because of missing formats. This can happen due to country unavailability.: 'Den här videon är inte tillgänglig på grund av format som saknas. Detta kan hända eftersom videon inte är tillgänglig i ditt land.'
 Loop is now disabled: 'Slinga är nu inaktiverad'
 Loop is now enabled: 'Slinga är nu aktiverad'
 Shuffle is now disabled: 'Blandning är nu inaktiverad'
@@ -950,16 +950,16 @@ Tooltips:
     Fetch Feeds from RSS: När det är aktiverat använder FreeTube RSS istället för standardmetoden för att hämta ditt prenumerationsflöde. RSS är snabbare och förhindrar IP-blockering, men ger inte viss information som videolängd, livestatus eller inlägg
     Fetch Automatically: När det är aktiverat hämtar FreeTube automatiskt ditt prenumerationsflöde vid start och när ett nytt fönster öppnas.
   Player Settings:
-    Default Video Format: Ställ in de format som används när en video spelas upp. DASH-format kan spela högre kvaliteter. Äldre format är begränsade till max 360p men använder mindre bandbredd. Ljudformat är endast ljudströmmningar.
+    Default Video Format: Ställ in de format som används när en video spelas upp. DASH-format kan spela högre kvaliteter. Äldre format är begränsade till max 360p men använder mindre bandbredd. Ljudformat är endast ljudströmningar.
     Proxy Videos Through Invidious: Kommer att ansluta till Invidious för att visa videor istället för att skapa en direktanslutning till YouTube.
-    Skip by Scrolling Over Video Player: Använd scrollhjulet för att snabbspola igenom videon, MPV stil.
+    Skip by Scrolling Over Video Player: Använd scrollhjulet för att snabbspola igenom videon, MPV-stil.
     Scroll Playback Rate Over Video Player: Medan markören är över videon, håll ner Ctrl-tangenten (Kommandotangenten på Mac) och skrolla mushjulet framåt eller bakåt för att styra uppspelningshastigheten. Håll ner Ctrl-tangenten (Kommandotangenten på Mac) och vänsterklicka med musen för att snabbt återgå till standarduppspelningshastigheten (1x om den inte har ändrats i inställningarna).
   General Settings:
     Region for Trending: Med trenderegionen kan du välja vilket lands trendiga videor du vill ska visas.
     Invidious Instance: Invidious-instansen som FreeTube kommer att ansluta till för API-anrop.
     Thumbnail Preference: Alla miniatyrbilder på FreeTube kommer att ersättas med en bildruta från videon, suddig eller dold istället för standardminiatyrbilden.
     Fallback to Non-Preferred Backend on Failure: När ditt föredragna API har ett problem, kommer FreeTube automatiskt att försöka använda ditt icke-föredragna API som reservmetod när det är aktiverat.
-    Preferred API Backend: Välj den resurs som FreeTube använder för att få fram data. Det lokala API:et är en inbyggd utdragare. Invidious API kräver en Invidious server att ansluta till.
+    Preferred API Backend: Välj den resurs som FreeTube använder för att få fram data. Det lokala API:et är en inbyggd utdragare. Invidious API kräver en Invidious-server att ansluta till.
     External Link Handling: "Välj standardbeteendet när en länk som inte kan öppnas i FreeTube klickas.\nSom standard öppnar FreeTube den klickade länken i din standardwebbläsare.\n"
     Open Deep Links In New Window: URL:er som skickas till FreeTube, till exempel via omdirigering av webbläsartillägg eller kommandoradsargument, öppnas i ett nytt fönster.
   External Player Settings:
@@ -968,12 +968,12 @@ Tooltips:
     Custom External Player Executable: Som standard antar FreeTube att den valda externa spelaren kan hittas via PATH-miljövariabeln. Om det behövs kan en anpassad sökväg ställas in här.
     External Player: Att välja en extern spelare visar en ikon för att öppna videon (spellista om den stöds) i den externa spelaren på miniatyrbilden. Varning, Invidious-inställningar påverkar inte externa videospelare.
     DefaultCustomArgumentsTemplate: "(Standard: '{defaultCustomArguments}')"
-    Ignore Default Arguments: Skicka inga standardargument till den externa spelaren förutom videons URL (t.ex. uppspelningshastighet, spellista URL, etc.). Anpassade argument kommer fortfarande att föras vidare.
+    Ignore Default Arguments: Skicka inga standardargument till den externa spelaren förutom videons URL (t.ex. uppspelningshastighet, spelliste-URL, etc.). Anpassade argument kommer fortfarande att föras vidare.
   Distraction Free Settings:
     Hide Channels: Ange ett kanal-ID för att dölja alla videor, spellistor och själva kanalen från att visas i sökningar, trender, mest populära och rekommenderade. Det angivna kanal-ID:t måste vara en fullständig matchning och är skiftlägeskänsligt.
-    Hide Subscriptions Live: Den här inställningen åsidosätts av den program omfattande "{appWideSetting}"-inställningen, i avsnittet "{subsection}" i "{settingsSection}"
+    Hide Subscriptions Live: Den här inställningen åsidosätts av den programövergripande "{appWideSetting}"-inställningen, i avsnittet "{subsection}" i "{settingsSection}"
     Hide Videos, Playlists and Channels Containing Text: Ange ett ord, ordfragment eller en fras (okänsligt för skiftlägen) för att dölja alla videor och spellistor vars originaltitlar innehåller det i hela FreeTube, exklusive endast historik, dina spellistor och videor i spellistor.
-    Hide Videos on Watch: Döljer visade videor från flikarna videor, shorts och live på sidorna prenumeration och kanal. Detta påverkar inte fliken hem på kanalsidorna
+    Hide Videos on Watch: Döljer sedda videor från flikarna videor, shorts och live på sidorna prenumeration och kanal. Detta påverkar inte fliken hem på kanalsidorna
   Experimental Settings:
     Replace HTTP Cache: Inaktiverar Electrons diskbaserade HTTP-cache och aktiverar en anpassad bildcache i minnet. Kommer att leda till ökad RAM-användning.
   SponsorBlock Settings:
@@ -988,7 +988,7 @@ Default Invidious instance has been set to {instance}: Standard Invidious-instan
 External link opening has been disabled in the general settings: Öppning av externa länkar har inaktiverats i de allmänna inställningarna
 Search Bar:
   Clear Input: Rensa inmatning
-  Remove: Ta Bort
+  Remove: Ta bort
 Are you sure you want to open this link?: Är du säker på att du vill öppna den här länken?
 New Window: Nytt fönster
 Channels:
@@ -996,14 +996,14 @@ Channels:
   Title: Kanallista
   Search bar placeholder: Sök kanaler
   Unsubscribe Prompt: Är du säker på att du vill avprenumerera från "{channelName}"?
-  Count: '{number} kanal(er) hittade.'
+  Count: '{number} kanal/kanaler hittade.'
   Empty: Din kanallista är tom.
 Preferences: Preferenser
 Ok: Okej
 Screenshot Success: Sparad skärmdump
 Screenshot Error: Skärmdump misslyckades {error}
 Clipboard:
-  Cannot access clipboard without a secure connection: Har inte tillgång till urklipp utan en säker anslutning
+  Cannot access clipboard without a secure connection: Kan inte komma åt urklipp utan en säker anslutning
   Copy failed: Kopiera till urklipp misslyckades
 Chapters:
   Chapters: Kapitel
@@ -1029,7 +1029,7 @@ Search Listing:
     New: Ny
     3D: 3D
     8K: 8K
-    Closed Captions: Dold bildtext
+    Closed Captions: Dolda undertexter
 Yes, Open Link: Ja, öppna länken
 Yes, Restart: Ja, starta om
 Age Restricted:
@@ -1039,7 +1039,7 @@ Moments Ago: för några ögonblick sedan
 Cancel: Avbryt
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Tag already exists: Taggen "{tagName}" finns redan
-Trimmed input must be at least N characters long: Trimmad inmatning måste vara minst 1 tecken lång | Trimmad inmatning måste vara minst {length} tecken lång
+Trimmed input must be at least N characters long: Inmatningen måste efter trimning vara minst 1 tecken lång | Inmatningen måste efter trimning vara minst {length} tecken lång
 Description:
   Expand Description: '...mer'
   Collapse Description: Visa mindre
@@ -1070,7 +1070,7 @@ KeyboardShortcutPrompt:
   Search in New Window: Sök i ett nytt fönster
   Close Window: Stäng fönstret
   Next Frame: Nästa bildruta (medan pausad)
-  Skip by Tenths: Hoppa igenom videon efter procentandel (3 hopp till 30 % av varaktigheten)
+  Skip by Tenths: Hoppa igenom videon efter procentandel (3 hopp till 30 % av längden)
   Keyboard Shortcuts: Tangentbordsgenvägar
   Sections:
     App:
@@ -1093,7 +1093,7 @@ KeyboardShortcutPrompt:
   Volume Down: Minska volymen
   Last Chapter: Sista kapitlet
   Small Rewind: Spola tillbaka X antal sekunder baserat på återspolningsintervallet och aktuell videouppspelningshastighet
-  Picture in Picture: Växla Bild-i-Bild-läge
+  Picture in Picture: Växla bild-i-bild-läge
   Home: Sök till början av videon
   End: Sök till slutet av videon
   Skip to Next Video: Hoppa till nästa video i en spellista eller nästa rekommenderade video
