@@ -11,6 +11,7 @@ import {
   getChannelPlaylistId,
   getRelativeTimeFromDate,
 } from '../utils'
+import i18n from '../../i18n'
 
 const TRACKING_PARAM_NAMES = [
   'utm_source',
@@ -95,6 +96,7 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
 
     retrieve_player: !!withPlayer,
     location: location,
+    lang: i18n.global.locale,
     enable_safety_mode: !!safetyMode,
     client_type: clientType,
 
