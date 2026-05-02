@@ -815,7 +815,7 @@ Video:
 #& Playlists
   Player:
     Full Window: Helt fönster
-    Exit Full Window: Stäng Hela Fönstret
+    Exit Full Window: Stäng hela fönstret
     Stats:
       CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
       Media Formats: 'Mediaformat: {formats}'
@@ -838,7 +838,7 @@ Video:
     Autoplay is off: Autouppspelning är avstängd
     Autoplay is on: Autouppspelning är på
     Theatre Mode: Teaterläge
-    Exit Theatre Mode: Avsluta Teaterläget
+    Exit Theatre Mode: Avsluta teaterläget
     Take Screenshot: Ta skärmdump
     Show Stats: Visa statistik
     TranslatedCaptionTemplate: '{language} (översatt från "{originalLanguage}")'
