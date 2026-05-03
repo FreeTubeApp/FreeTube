@@ -47,6 +47,8 @@ Search Filters:
   Search Filters: 'Φίλτρα αναζήτησης'
   Prioritize:
     Most Relevant: 'Πιο σχετικά'
+    Prioritize: Προτεραιότητα
+    Popularity: Δημοτικότητα
   Time:
     Time: 'Ώρα'
     Any Time: 'Οποτεδήποτε'
@@ -84,6 +86,7 @@ Search Filters:
     Features: Χαρακτηριστικά
     HD: HD
     Creative Commons: Κοινά Δημιουργήματα
+  Clear Filters: Кαθαρισμός Φίλτρων
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'συνδρομές'
@@ -129,23 +132,23 @@ User Playlists:
       "{videoCount} video(s) have been removed": 1 βίντεο έχει αφαιρεθεί | {videoCount} Τα βίντεο έχουν αφαιρεθεί
       This playlist is protected and cannot be removed.: Αυτή η λίστα αναπαραγωγής προστατεύεται και δεν μπορεί να αφαιρεθεί.
       This playlist has a video with a duration error: Αυτή η λίστα περιέχει τουλάχιστον ένα βίντεο το οποίο δεν έχει διάρκεια, θα ταξινομηθεί σαν η διάρκεια του να είναι μηδενική.
-    Search for Videos: Αναζήτηση για βίντεο
+    Search for Videos: Αναζήτηση για Βίντεο
   Playlists with Matching Videos: Λίστες αναπαραγωγής με βίντεο που ταιριάζουν
   Sort By:
     NameAscending: Α-Ζ
     NameDescending: Ζ-Α
-    EarliestCreatedFirst: Δημιουργήθηκε Νωρίτερα
-    LatestCreatedFirst: Δημιουργήθηκε Πρόσφατα
-    LatestPlayedFirst: Πρόσφατα Παίχτηκε
-    EarliestUpdatedFirst: Ενημερώθηκε Νωρίτερα
-    EarliestPlayedFirst: Νωρίτερα Παίχτηκε
-    LatestUpdatedFirst: Πρόσφατα Ενημερώθηκε
+    EarliestCreatedFirst: Ημερομηνία Δημιουργίας (Παλαιότερη)
+    LatestCreatedFirst: Ημερομηνία Δημιουργίας (Πρόσφατη)
+    LatestPlayedFirst: Ημερομηνία Εκτέλεσης (Πρόσφατη)
+    EarliestUpdatedFirst: Ημερομηνία ενημέρωσης (Παλαιότερη)
+    EarliestPlayedFirst: Ημερομηνία Εκτέλεσης (Παλαιότερη)
+    LatestUpdatedFirst: Ημερομηνία Ενημέρωσης (Πρόσφατη)
   Are you sure you want to delete this playlist? This cannot be undone: Σίγουρα θέλετε να διαγράψετε αυτή τη λίστα αναπαραγωγής; Αυτό δεν μπορεί να αναιρεθεί.
   AddVideoPrompt:
     Search in Playlists: Αναζήτηση σε λίστες αναπαραγωγής
     Toast:
       You haven't selected any playlist yet.: Δεν έχετε επιλέξει καμία λίστα αναπαραγωγής ακόμα.
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Προστέθηκαν βίντεο σε 1 λίστα αναπαραγωγής | Προστέθηκαν βίντεο σε {playlistCount} λίστες αναπαραγωγής"
     Allow Adding Duplicate Video(s): Επίτρεψε την προσθήκη διπλών βίντεο( ών)
     Added {count} Times: Προστέθηκε ήδη | Προστέθηκε {count} Φορές
     Save: Αποθήκευση
@@ -186,6 +189,7 @@ User Playlists:
       There is already a playlist with this name. Please pick a different name.: Υπάρχει ήδη μια λίστα με αυτό το όνομα. Παρακαλώ επιλέξτε ένα διαφορετικό όνομα.
       There was an issue with creating the playlist.: Υπήρχε ένα πρόβλημα με τη δημιουργία της λίστας αναπαραγωγής.
     Create: Δημιουργία
+  Export list of URLs: Εξαγωγή λίστας URL
 History:
   # On History Page
   History: 'Ιστορικό'
@@ -194,6 +198,8 @@ History:
   Search bar placeholder: Αναζήτηση στο Ιστορικό
   Empty Search Message: Δεν υπάρχουν βίντεο στο ιστορικό σας που να ταιριάζουν με την αναζήτησή σας
   Case Sensitive Search: Ευαίσθητη αναζήτηση περίπτωσης
+  DateOldestHistory: Ημερομηνία Προβολής (Παλαιότερη)
+  DateNewestHistory: Ημερομηνία Προβολής (Νεότερη)
 Settings:
   # On Settings Page
   Settings: 'Ρυθμίσεις'
@@ -239,6 +245,7 @@ Settings:
       Label: Αυτόματη φόρτωση επόμενης σελίδας
       Tooltip: Φόρτωση πρόσθετων σελίδων και σχολίων αυτόματα.
     Open Deep Links In New Window: Άνοιγμα URL που πέρασαν στο FreeTube σε ένα νέο παράθυρο
+    Minimize to system tray: Ελαχιστοποίηση στη γραμμή εργασιών
   Theme Settings:
     Theme Settings: 'Θέματα'
     Match Top Bar with Main Color: 'Αντιστοίχηση Κύριου Χρώματος με την Μπάρα Κορυφής'
@@ -249,32 +256,33 @@ Settings:
       Light: 'Φωτεινό'
       Dracula: 'Δράκουλας'
       System Default: Προεπιλογή Συστήματος
-      Catppuccin Mocha: Κατπουτσίνο Μόκα
+      Catppuccin Mocha: Catppuccin Mocha
       Pastel Pink: Παστέλ Ρόζ
-      Hot Pink: Ζεστό Ρόζ
-      Gruvbox Dark: Gruvbox Σκοτεινό
-      Gruvbox Light: Gruvbox Φωτεινό
-      Solarized Light: Ηλιακό φως
-      Catppuccin Frappe: Κατπουτσίν Φραππέ
-      Nordic: Νορδικό
-      Solarized Dark: Ηλιακό σκοτάδι
-      Everforest Dark Hard: Everforest Σκοτεινό σκληρό
-      Everforest Dark Medium: Everforest Σκοτεινό μεσαίο
-      Everforest Dark Low: Everforest Σκοτεινό Χαμηλό
-      Everforest Light Hard: Everforest φως σκληρό
-      Everforest Light Medium: Everforest φως Μεσαίο
-      Everforest Light Low: Everforest φως Χαμηλό
+      Hot Pink: Έντονο ροζ
+      Gruvbox Dark: Gruvbox Σκούρο
+      Gruvbox Light: Gruvbox Ανοιχτό
+      Solarized Light: Solarized Ανοιχτό
+      Catppuccin Frappe: Catppuccin Frappe
+      Nordic: Σκανδιναβικό
+      Solarized Dark: Solarized Σκούρο
+      Everforest Dark Hard: Everforest Σκούρο Έντονο
+      Everforest Dark Medium: Everforest Σκούρο Μέτριο
+      Everforest Dark Low: Everforest Σκούρο Απαλό
+      Everforest Light Hard: Everforest Ανοιχτό Έντονο
+      Everforest Light Medium: Everforest Ανοιχτό Μέτριο
+      Everforest Light Low: Everforest Ανοιχτό Απαλό
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Κύριο Χρώμα Θέματος'
       Red: 'Κόκκινο'
       Pink: 'Ροζ'
       Purple: 'Μωβ'
-      Deep Purple: 'Βαθύ/Σκούρο Μωβ'
+      Deep Purple: 'Βαθύ Μωβ'
       Indigo: 'Μωβ-μπλε (Indigo)'
       Blue: 'Μπλε'
       Light Blue: 'Γαλάζιο'
       Cyan: 'Κυανό'
-      Teal: 'Βαθύ Κυανό'
+      Teal: 'Τιρκουάζ'
       Green: 'Πράσινο'
       Light Green: 'Ανοιχτό Πράσινο'
       Lime: 'Λαχανί'
@@ -282,44 +290,44 @@ Settings:
       Amber: 'Χρυσοκίτρινο'
       Orange: 'Πορτοκαλί'
       Deep Orange: 'Βαθύ Πορτοκαλί'
-      Dracula Cyan: 'Δράκουλας Κυανό'
-      Dracula Green: 'Δράκουλας Πράσινο'
-      Dracula Orange: 'Δράκουλας Πορτοκαλί'
-      Dracula Pink: 'Δράκουλας Ροζ'
-      Dracula Purple: 'Δράκουλας Μωβ'
-      Dracula Red: 'Δράκουλας Κόκκινο'
-      Dracula Yellow: 'Δράκουλας Κίτρινο'
-      Catppuccin Mocha Teal: Κατπουτσίν Μόκα Teal
-      Catppuccin Mocha Green: Κατπουτσίν Μόκα Πράσινο
-      Catppuccin Mocha Sky: Κατπουτσίν Μόκα του Ουρανού
-      Catppuccin Mocha Blue: Κατπουτσίν Μόκα μπλε
-      Catppuccin Mocha Sapphire: Κατπουτσίν Μόκα του Ζαφειριού
-      Catppuccin Mocha Lavender: Κατπουτσίν Μόκα Λεβάντα
-      Catppuccin Mocha Rosewater: Κατπουτσίνο Μόκα Ροδόνερο
-      Catppuccin Mocha Flamingo: Κατπουτσίνο Μόκα Φλαμίνγκο
-      Catppuccin Mocha Pink: Κατπουτσίνο Μόκα Ροζ
-      Catppuccin Mocha Mauve: Κατπουτσίν Μόκα Μωβ
-      Catppuccin Mocha Red: Κατπουτσίν Μόκα Κόκκινο
-      Catppuccin Mocha Maroon: Κατπουτσίν Μόκα Μαρούν
-      Catppuccin Mocha Peach: Κατπουτσίν Μόκα Ροδάκινο
-      Catppuccin Mocha Yellow: Κατπουτσίν Μόκα Κίτρινο
+      Dracula Cyan: 'Dracula Κυανό'
+      Dracula Green: 'Dracula Πράσινο'
+      Dracula Orange: 'Dracula Πορτοκαλί'
+      Dracula Pink: 'Dracula Ροζ'
+      Dracula Purple: 'Dracula Μωβ'
+      Dracula Red: 'Dracula Κόκκινο'
+      Dracula Yellow: 'Dracula Κίτρινο'
+      Catppuccin Mocha Teal: Catppuccin Mocha Τιρκουάζ
+      Catppuccin Mocha Green: Catppuccin Mocha Πράσινο
+      Catppuccin Mocha Sky: Catppuccin Mocha Ουρανός
+      Catppuccin Mocha Blue: Catppuccin Mocha Μπλε
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Ζαφείρι
+      Catppuccin Mocha Lavender: Catppuccin Mocha Λεβάντα
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Ροδόνερο
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Φλαμίνγκο
+      Catppuccin Mocha Pink: Catppuccin Mocha Ροζ
+      Catppuccin Mocha Mauve: Catppuccin Mocha Μωβ
+      Catppuccin Mocha Red: Catppuccin Mocha Κόκκινο
+      Catppuccin Mocha Maroon: Catppuccin Mocha Καφέ
+      Catppuccin Mocha Peach: Catppuccin Mocha Ροδακινί
+      Catppuccin Mocha Yellow: Catppuccin Mocha Κίτρινο
       Catppuccin Frappe Rosewater: Catppuccin Frappe Ροδόνερο
       Catppuccin Frappe Flamingo: Catppuccin Frappe Φλαμίνγκο
       Catppuccin Frappe Pink: Catppuccin Frappe Ροζ
       Catppuccin Frappe Lavender: Catppuccin Frappe Λεβάντα
-      Gruvbox Light Purple: Gruvbox Ανοιχτό Μοβ
+      Gruvbox Light Purple: Gruvbox Ανοιχτό Μωβ
       Gruvbox Dark Green: Gruvbox Σκούρο Πράσινο
-      Catppuccin Frappe Peach: Catppuccin Frappe Ροδάκινο
+      Catppuccin Frappe Peach: Catppuccin Frappe Ροδακινί
       Catppuccin Frappe Blue: Catppuccin Frappe Μπλε
       Catppuccin Frappe Red: Catppuccin Frappe Κόκκινο
-      Catppuccin Frappe Maroon: Catppuccin Frappe καφέ
+      Catppuccin Frappe Maroon: Catppuccin Frappe Καφέ
       Catppuccin Frappe Yellow: Catppuccin Frappe Κίτρινο
-      Catppuccin Frappe Teal: Catppuccin Frappe Γαλαζοπράσινο
+      Catppuccin Frappe Teal: Catppuccin Frappe Τιρκουάζ
       Catppuccin Frappe Sapphire: Catppuccin Frappe Ζαφείρι
       Gruvbox Dark Yellow: Gruvbox Σκούρο Κίτρινο
       Gruvbox Dark Blue: Gruvbox Σκούρο Μπλε
-      Gruvbox Dark Purple: Gruvbox Σκούρο Μοβ
-      Gruvbox Dark Aqua: Gruvbox Σκούρο Aqua
+      Gruvbox Dark Purple: Gruvbox Σκούρο Μωβ
+      Gruvbox Dark Aqua: Gruvbox Σκούρο Γαλαζοπράσινο
       Gruvbox Dark Orange: Gruvbox Σκούρο Πορτοκαλί
       Gruvbox Light Red: Gruvbox Ανοιχτό Κόκκινο
       Gruvbox Light Blue: Gruvbox Ανοιχτό Μπλε
@@ -327,18 +335,18 @@ Settings:
       Catppuccin Frappe Green: Catppuccin Frappe Πράσινο
       Catppuccin Frappe Sky: Catppuccin Frappe Ουρανός
       Catppuccin Frappe Mauve: Catppuccin Frappe Μωβ
-      Solarized Green: Ηλιακό Πράσινο
-      Solarized Yellow: Ηλιακό Κίτρινο
-      Solarized Orange: Ηλιακό Πορτοκαλί
-      Solarized Cyan: Ηλιακό Κυανό
-      Solarized Red: Ηλιακό Κόκκινο
-      Solarized Magenta: Ηλιακό Μωβ
-      Solarized Blue: Ηλιακό Μπλε
+      Solarized Green: Solarized Πράσινο
+      Solarized Yellow: Solarized Κίτρινο
+      Solarized Orange: Solarized Πορτοκαλί
+      Solarized Cyan: Solarized Κυανό
+      Solarized Red: Solarized Κόκκινο
+      Solarized Magenta: Solarized Ματζέντα
+      Solarized Blue: Solarized Μπλε
       Everforest Dark Yellow: Everforest Σκούρο Κίτρινο
       Everforest Dark Green: Everforest Σκούρο Πράσινο
-      Everforest Dark Aqua: Everforest Σκούρο Ακουα
+      Everforest Dark Aqua: Everforest Σκούρο Γαλαζοπράσινο
       Everforest Dark Blue: Everforest Σκούρο Μπλε
-      Solarized Violet: Ηλιακό Βιολετί
+      Solarized Violet: Solarized Βιολετί
       Everforest Dark Red: Everforest Σκούρο Κόκκινο
       Everforest Dark Orange: Everforest Σκούρο Πορτοκαλί
       Everforest Dark Purple: Everforest Σκούρο Μωβ
@@ -349,12 +357,14 @@ Settings:
       Everforest Light Aqua: Everforest Ανοιχτό Γαλαζοπράσινο
       Everforest Light Blue: Everforest Ανοιχτό Μπλε
       Everforest Light Purple: Everforest Ανοιχτό Μωβ
+      Catppuccin Latte Mauve: Catppuccin Latte Μωβ
+      Catppuccin Latte Red: Catppuccin Latte Κόκκινο
     Secondary Color Theme: 'Δευτερεύων Χρώμα Θέματος'
         #* Main Color Theme
-    UI Scale: Μέγεθος κλίμακας διεπαφής χρήστη
-    Expand Side Bar by Default: Λειτουργία προεπιλογής πλάγιας Μπάρας
+    UI Scale: Κλίμακα διεπαφής χρήστη
+    Expand Side Bar by Default: Ανάπτυξη της πλευρικής μπάρας από προεπιλογή
     Disable Smooth Scrolling: Απενεργοποίηση ομαλής κύλισης
-    Hide Side Bar Labels: Απόκρυψη ετικετών πλευρικής γραμμής
+    Hide Side Bar Labels: Απόκρυψη ετικετών πλευρικής μπάρας
     Hide FreeTube Header Logo: Απόκρυψη Λογότυπου Κεφαλίδας FreeTube
   Player Settings:
     Player Settings: 'Πρόγραμμα αναπαραγωγής'
@@ -480,6 +490,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Εξαγωγή λιστών αναπαραγωγής για παλαιότερες εκδόσεις FreeTube
       Tooltip: "Αυτή η επιλογή εξάγει βίντεο από όλες τις λίστες αναπαραγωγής σε μία λίστα αναπαραγωγής με το όνομα “Αγαπημένα”.\nΠώς να εξάγετε & να εισάγετε βίντεο σε λίστες αναπαραγωγής για μια παλαιότερη έκδοση του FreeTube:\n1. Εξάγετε τις λίστες αναπαραγωγής σας με ενεργοποιημένη αυτή την επιλογή.\n 2. Διαγράψτε όλες τις υπάρχουσες λίστες αναπαραγωγής σας χρησιμοποιώντας την επιλογή Κατάργηση όλων των λιστών αναπαραγωγής στις Ρυθμίσεις απορρήτου.\n 3. Εκκινήστε την παλαιότερη έκδοση του FreeTube και εισαγάγετε τις εξαχθείσες λίστες αναπαραγωγής.\""
+    Search history file: Αρχείο ιστορικού αναζήτησης
+    Search history: Ιστορικό αναζήτησης
+    Import search history: Εισαγωγή ιστορικού αναζήτησης
+    Export search history: Εξαγωγή ιστορικού αναζήτησης
+    All search history has been successfully imported: Όλο το ιστορικό αναζήτησης έχει εισαχθεί με επιτυχία
+    All search history has been successfully exported: Όλο το ιστορικό αναζήτησης έχει εξαχθεί με επιτυχία
   Distraction Free Settings:
     Distraction Free Settings: Χωρίς απόσπαση
     Hide Live Chat: Απόκρυψη Ζωντανής συνομιλίας
@@ -544,6 +560,8 @@ Settings:
     Enable Tor / Proxy: Ενεργοποίηση Tor / Proxy
     Proxy Settings: Διακομιστής μεσολάβησης
     Proxy Warning: Το FreeTube δεν διαθέτει ενσωματωμένο διακομιστή μεσολάβησης, αλλά μπορεί να συνδεθεί σε έναν εξωτερικό διακομιστή μεσολάβησης, όπως έναν που εκτελείται στο μηχάνημά σας, όπως το Tor, ή έναν εξωτερικό διακομιστή μεσολάβησης, όπως ένας διακομιστής μεσολάβησης SOCKS5 που παρέχεται από ορισμένα VPN. Εάν είναι ενεργοποιημένο, βεβαιωθείτε ότι ο διακομιστής μεσολάβησης/το Tor έχει ρυθμιστεί σωστά, αλλιώς το FreeTube δεν θα μπορεί να αντλήσει δεδομένα.
+    Proxy Username: Όνομα χρήστη διακομιστή μεσολάβησης
+    Proxy Password: Κωδικός πρόσβασης διακομιστή μεσολάβησης
   External Player Settings:
     External Player Settings: Εξωτερικό πρόγραμμα αναπαραγωγής
     External Player: Εξωτερικό πρόγραμμα αναπαραγωγής
@@ -586,6 +604,7 @@ Settings:
     Show Family Friendly Only: Εμφάνιση Μόνο Για Οικογένειες
     Hide Unsubscribe Button: Απόκρυψη Κουμπιού Απεγγραφής
     Hide Search Bar: Απόκρυψη Μπάρας Αναζήτησης
+    Hide Uploader on Watch page: Απόκρυψη καναλιού στη σελίδα αναπαραγωγής
   Return to Settings Menu: Επιστροφή στο μενού ρυθμίσεων
   Sort Settings Sections (A-Z): Ταξινόμηση τμημάτων ρυθμίσεων (A-Z)
 About:
@@ -613,6 +632,9 @@ About:
   Beta: Βήτα
   Discussions: Συζητήσεις
   AGPLv3: 'AGPLv3'
+  Licensed under the {licenseLink}: Διατίθεται υπό την άδεια {licenseLink}
+  Please read the {roomRulesLink}: Παρακαλώ διαβάστε τους {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: Το FreeTube υποστηρίζεται από τους {creditsPageLink}
 Profile:
   Profile Select: 'Επιλογή Προφίλ'
   All Channels: 'Όλα τα κανάλια'
@@ -828,6 +850,10 @@ Video:
     Show Modified Details: Εμφάνιση τροποποιημένων λεπτομερειών
   More Options: Περισσότερες Επιλογές
   DRMProtected: Τα βίντεο που προστατεύονται με DRM δεν μπορούν να αναπαραχθούν στο FreeTube, καθώς απαιτούν ιδιόκτητα εξαρτήματα κλειστού κώδικα. Αν θέλετε να παρακολουθήσετε αυτό το βίντεο, παρακαλούμε να το παρακολουθήσετε στον επίσημο ιστότοπο του YouTube σε ένα πρόγραμμα περιήγησης ιστού με δυνατότητα DRM.
+  Popout Live Chat: Αναδυόμενο παράθυρο συνομιλίας
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Υπόλοιπος χρόνος διαφήμισης πριν το βίντεο: {remindingTimeSeconds} δευτερόλεπτα'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Υπόλοιπος χρόνος αναμονής SABR: {remindingTimeSeconds} δευτερόλεπτα'
 Playlist:
   #& About
   View Full Playlist: 'Προβολή πλήρους λίστας αναπαραγωγής'
@@ -838,8 +864,8 @@ Playlist:
 #& Views
   Playlist: Λίστα αναπαραγωγής
   Sort By:
-    DateAddedOldest: Το νωρίτερο προστέθηκε πρώτο
-    DateAddedNewest: Τα τελευταία προστέθηκαν πρώτα
+    DateAddedOldest: Ημερομηνία προσθήκης (Παλαιότερη)
+    DateAddedNewest: Ημερομηνία προσθήκης (Πρόσφατη)
     AuthorDescending: Συγγραφέας (Ω-Α)
     AuthorAscending: Συγγραφέας (Α-Ω)
     VideoTitleAscending: Τίτλος (Α-Ω)
@@ -847,8 +873,8 @@ Playlist:
     VideoDurationAscending: Διάρκεια (συντομότερο πρώτο)
     VideoDurationDescending: Διάρκεια (μεγαλύτερο πρώτο)
     Custom: Προσαρμοσμένη
-    PublishedOldest: Το νωρίτερο δημοσιεύτηκε πρώτο
-    PublishedNewest: Το παλαιώτερο προστέθηκε πρώτο
+    PublishedOldest: Ημερομηνία δημοσίευσης (Παλαιότερη)
+    PublishedNewest: Ημερομηνία δημοσίευσης (Πρόσφατη)
 Change Format:
   Change Media Formats: 'Αλλαγή μορφής του βίντεο'
   Use Dash Formats: 'Χρησιμοποίηση μορφών Dash'
@@ -873,6 +899,7 @@ Share:
   YouTube Channel URL copied to clipboard: Ο σύνδεσμος καναλιού Youtube αντιγράφηκε στο πρόχειρο
   Invidious Channel URL copied to clipboard: Ο σύνδεσμος καναλιού Invidious αντιγράφηκε στο πρόχειρο
   Share Channel: Κοινή χρήση Καναλιού
+  Share Post: Κοινοποίηση Ανάρτησης
 Mini Player: 'Μικρή πλατφόρμα αναπαραγωγής'
 Comments:
   Comments: 'Σχόλια'
@@ -892,6 +919,9 @@ Comments:
   View {replyCount} replies: Προβολή {replyCount} απαντήσεων
   Subscribed: Εγγεγραμμένος
   There are no comments available for this post: Δεν υπάρχουν διαθέσιμα σχόλια για αυτή τη ανάρτηση
+  Hide {replyCount} replies: Απόκρυψη 1 απάντησης | Απόκρυψη {replyCount} απαντήσεων
+  View 1 reply from {channelName}: Δείτε 1 απάντηση από το {channelName}
+  View {replyCount} replies from {channelName} and others: Δείτε {replyCount} απαντήσεις από το {channelName} και άλλους
 Up Next: 'Επόμενο'
 
 # Toast Messages
@@ -944,6 +974,7 @@ Tooltips:
     Hide Channels: Εισαγάγετε ένα αναγνωριστικό καναλιού για να αποκρύψετε όλα τα βίντεο, τις λίστες αναπαραγωγής και το ίδιο το κανάλι, ώστε να μην εμφανίζονται στην αναζήτηση, τα ανερχόμενα, τα πιο δημοφιλή και προτεινόμενα. Το αναγνωριστικό καναλιού που καταχωρίσατε πρέπει να αντιστοιχεί πλήρως και να κάνει διάκριση πεζών-κεφαλαίων.
     Hide Subscriptions Live: Αυτή η ρύθμιση παρακάμπτεται από τη ρύθμιση "{appWideSetting}" σε όλη την εφαρμογή, στην ενότητα "{subsection}" του "{settingsSection}"
     Hide Videos, Playlists and Channels Containing Text: Εισάγετε μια λέξη, ένα τμήμα λέξης ή μια φράση (χωρίς ευαισθησία στην πεζότητα) για να αποκρύψετε όλα τα βίντεο και τις λίστες αναπαραγωγής των οποίων οι αρχικοί τίτλοι την περιέχουν σε όλο το FreeTube, εξαιρώντας μόνο το Ιστορικό, τις Λίστες αναπαραγωγής σας και τα βίντεο μέσα σε λίστες αναπαραγωγής.
+    Hide Videos on Watch: Αποκρύπτει τα βίντεο που παρακολουθήσατε στις καρτέλες Βίντεο, Σύντομα και Ζωντανά στις σελίδες Συνδρομές και Κανάλια. Αυτό δεν επηρεάζει την καρτέλα Αρχική σελίδα στις σελίδες του Καναλιού
   SponsorBlock Settings:
     UseDeArrowTitles: Αντικαταστήστε τους τίτλους βίντεο με τίτλους που υποβλήθηκαν από τους χρήστες από το DeArrow.
     UseDeArrowThumbnails: Αντικαταστήστε τις μικρογραφίες βίντεο με μικρογραφίες από το DeArrow.
@@ -1045,6 +1076,9 @@ KeyboardShortcutPrompt:
   Zoom Out: Σμίκρυνση
   Volume Up: Αύξηση έντασης
   Last Chapter: Τελευταίο κεφάλαιο
+  Home: Μετάβαση στην αρχή του βίντεο
+  End: Μετάβαση στο τέλος του βίντεο
+  Skip to Next Video: Μετάβαση στο επόμενο βίντεο της λίστας αναπαραγωγής ή στο επόμενο προτεινόμενο βίντεο
 Yes, Open Link: Ναι, Άνοιγμα συνδέσμου
 Description:
   Expand Description: '...περισσότερα'
@@ -1074,3 +1108,5 @@ checkmark: ✓
 Display Label: '{label}: {value}'
 Yes, Restart: Ναι, Επανεκκίνηση
 shortcutLabelSeparator: ｜
+Compact side navigation: Συμπαγής πλευρική πλοήγηση
+Expand side navigation: Επέκταση της πλευρικής πλοήγησης
