@@ -870,8 +870,8 @@ Playlist:
     AuthorAscending: Συγγραφέας (Α-Ω)
     VideoTitleAscending: Τίτλος (Α-Ω)
     VideoTitleDescending: Τίτλος (Ω-Α)
-    VideoDurationAscending: Διάρκεια (συντομότερο πρώτο)
-    VideoDurationDescending: Διάρκεια (μεγαλύτερο πρώτο)
+    VideoDurationAscending: Διάρκεια (Συντομότερη)
+    VideoDurationDescending: Διάρκεια (Μακρύτερη)
     Custom: Προσαρμοσμένη
     PublishedOldest: Ημερομηνία δημοσίευσης (Παλαιότερη)
     PublishedNewest: Ημερομηνία δημοσίευσης (Πρόσφατη)
@@ -916,7 +916,7 @@ Comments:
   Pinned by: Καρφώθηκε από
   Member: Μέλος
   Hearted: Αγαπημένο
-  View {replyCount} replies: Προβολή {replyCount} απαντήσεων
+  View {replyCount} replies: Προβολή 1 απάντησης | Προβολή {replyCount} απαντήσεων
   Subscribed: Εγγεγραμμένος
   There are no comments available for this post: Δεν υπάρχουν διαθέσιμα σχόλια για αυτή τη ανάρτηση
   Hide {replyCount} replies: Απόκρυψη 1 απάντησης | Απόκρυψη {replyCount} απαντήσεων
@@ -1079,6 +1079,7 @@ KeyboardShortcutPrompt:
   Home: Μετάβαση στην αρχή του βίντεο
   End: Μετάβαση στο τέλος του βίντεο
   Skip to Next Video: Μετάβαση στο επόμενο βίντεο της λίστας αναπαραγωγής ή στο επόμενο προτεινόμενο βίντεο
+  Skip to Previous Video: Μετάβαση στο προηγούμενο βίντεο της λίστας αναπαραγωγής
 Yes, Open Link: Ναι, Άνοιγμα συνδέσμου
 Description:
   Expand Description: '...περισσότερα'
