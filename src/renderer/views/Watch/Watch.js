@@ -350,18 +350,11 @@ export default defineComponent({
 
       // react to route changes...
       this.videoId = this.$route.params.id
+      this.resetVideoState()
 
       this.firstLoad = true
       this.videoPlayerLoaded = false
-      this.errorMessage = null
-      this.customErrorIcon = null
       this.activeFormat = this.defaultVideoFormat
-      this.sabrData = null
-      this.videoStoryboardSrc = ''
-      this.captions = []
-      this.vrProjection = null
-      this.videoCurrentChapterIndex = 0
-      this.videoGenreIsMusic = false
 
       this.checkIfTimestamp()
       this.checkIfPlaylist()
@@ -375,6 +368,53 @@ export default defineComponent({
           break
       }
     },
+
+    resetVideoState: function () {
+      this.isLoading = true
+      this.isFamilyFriendly = false
+      this.isLive = false
+      this.liveChat = null
+      this.isLiveContent = false
+      this.isUpcoming = false
+      this.isPostLiveDvr = false
+      this.isUnlisted = false
+      this.upcomingTimestamp = null
+      this.upcomingTimeLeft = null
+      this.thumbnail = ''
+      this.videoTitle = ''
+      this.videoDescription = ''
+      this.videoDescriptionHtml = ''
+      this.license = ''
+      this.videoViewCount = 0
+      this.videoLikeCount = 0
+      this.videoDislikeCount = 0
+      this.videoLengthSeconds = 0
+      this.videoChapters = []
+      this.videoCurrentChapterIndex = 0
+      this.videoChaptersKind = 'chapters'
+      this.channelName = ''
+      this.channelThumbnail = ''
+      this.channelId = ''
+      this.channelSubscriptionCountText = ''
+      this.videoPublished = 0
+      this.premiereDate = undefined
+      this.videoStoryboardSrc = ''
+      this.manifestSrc = null
+      this.manifestMimeType = MANIFEST_TYPE_DASH
+      this.sabrData = null
+      this.legacyFormats = []
+      this.captions = []
+      this.vrProjection = null
+      this.recommendedVideos = []
+      this.playabilityStatus = ''
+      this.adEndTimeUnixMs = 0
+      this.errorMessage = null
+      this.customErrorIcon = null
+      this.videoGenreIsMusic = false
+      this.streamingDataExpiryDate = null
+      this.updateTitle()
+    },
+
     onMountedDependOnLocalStateLoading() {
       // Prevent running twice
       if (this.onMountedRun) { return }
