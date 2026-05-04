@@ -528,6 +528,26 @@ Settings:
     Export History: Historija izvoza
     Import Playlists: Uvoz plejlista
     Export Playlists: Izvoz plejlista
+    Search history: Historija pretraživanja
+    Import search history: Uvezi historiju pretraživanja
+    Export search history: Izvezi historiju pretraživanja
+    Profile object has insufficient data, skipping item: Objekt profila nema dovoljno podataka, preskače se stavka
+    All subscriptions and profiles have been successfully imported: Sve pretplate i profili su uspješno uvezeni
+    All subscriptions have been successfully imported: Sve pretplate su uspješno uvezene
+    Invalid subscriptions file: Nevažeća datoteka pretplata
+    Invalid history file: Nevažeća datoteka historije
+    Subscriptions have been successfully exported: Pretplate su uspješno izvezene
+    History object has insufficient data, skipping item: Objekt historije nema dovoljno podataka, preskače se stavka
+    All watched history has been successfully imported: Sva historija gledanja je uspješno uvezena
+    All watched history has been successfully exported: Sva historija gledanja je uspješno izvezena
+    Playlist insufficient data: Nedovoljno podataka za plejlistu "{playlist}", preskačem stavku
+    All playlists has been successfully imported: Sve liste za reprodukciju su uspješno uvezene
+    All playlists has been successfully exported: Sve liste za reprodukciju su uspješno izvezene
+    All search history has been successfully imported: Sva historija pretraživanja je uspješno uvezena
+    All search history has been successfully exported: Sva historija pretraživanja je uspješno izvezena
+    Unable to read file: Nije moguće pročitati datoteku
+    Unable to write file: Nije moguće pisati u datoteku
+    Unknown data key: Nepoznati ključ podataka
 Channel:
   Videos:
     Videos: Videozapisi
