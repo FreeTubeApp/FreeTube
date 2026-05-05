@@ -31,9 +31,40 @@ export function updateVideoListAfterProcessing(videos) {
     })
   }
 
-  videoList.sort((a, b) => {
-    return b.published - a.published
-  })
+  // ordered last to show first eligible video from channel
+  // if the first one incidentally failed one of the above checks
+  if (store.getters.getOnlyShowLatestFromChannel) {
+    const authors = new Map()
+    videoList = videoList.filter((video) => {
+      if (!video.authorId) {
+        return true
+      }
+
+      if (!authors.has(video.authorId)) {
+        authors.set(video.authorId, 1)
+        return true
+      } else {
+        const currentVideos = authors.get(video.authorId)
+
+        if (currentVideos < store.getters.getOnlyShowLatestFromChannelNumber) {
+          authors.set(video.authorId, currentVideos + 1)
+          return true
+        }
+      }
+
+      return false
+    })
+  }
+
+  if (store.getters.getRandomizeSubscriptionOrder) {
+    const shuffled = videoList.map(value => ({ value, sort: Math.random() }))
+    shuffled.sort((a, b) => a.sort - b.sort)
+    videoList = shuffled.map(item => item.value)
+  } else {
+    videoList.sort((a, b) => {
+      return b.published - a.published
+    })
+  }
 
   return videoList
 }

@@ -24,6 +24,12 @@
           compact
           @change="updateUnsubscriptionPopupStatus"
         />
+        <FtToggleSwitch
+          :label="$t('Settings.Subscription Settings.Randomize Order')"
+          :default-value="randomizeSubscriptionOrder"
+          compact
+          @change="updateRandomizeSubscriptionOrder"
+        />
       </div>
       <div class="switchColumn">
         <FtToggleSwitch
@@ -85,6 +91,16 @@ const unsubscriptionPopupStatus = computed(() => store.getters.getUnsubscription
  */
 function updateUnsubscriptionPopupStatus(value) {
   store.dispatch('updateUnsubscriptionPopupStatus', value)
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const randomizeSubscriptionOrder = computed(() => store.getters.getRandomizeSubscriptionOrder)
+
+/**
+ * @param {boolean} value
+ */
+function updateRandomizeSubscriptionOrder(value) {
+  store.dispatch('updateRandomizeSubscriptionOrder', value)
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */
