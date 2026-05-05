@@ -108,12 +108,14 @@
     <div
       class="channelShareWrapper"
     >
-      <router-link
+      <component
+        :is="enableChannelLinks ? 'router-link' : 'div'"
         v-if="!isUserPlaylist && channelId"
         class="playlistChannel"
         :to="`/channel/${channelId}`"
       >
         <img
+          v-if="channelThumbnail"
           class="channelThumbnail"
           :src="channelThumbnail"
           alt=""
@@ -124,18 +126,7 @@
         >
           {{ channelName }}
         </h3>
-      </router-link>
-      <div
-        v-else
-        class="playlistChannel"
-      >
-        <h3
-          class="channelName"
-          dir="auto"
-        >
-          {{ channelName }}
-        </h3>
-      </div>
+      </component>
 
       <div class="playlistOptionsAndSearch">
         <div class="playlistOptions">
@@ -957,6 +948,8 @@ onMounted(() => {
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', keyboardShortcutHandler)
 })
+
+const enableChannelLinks = computed(() => !store.getters.getDisableChannelLinks)
 </script>
 
 <style scoped lang="scss" src="./PlaylistInfo.scss" />

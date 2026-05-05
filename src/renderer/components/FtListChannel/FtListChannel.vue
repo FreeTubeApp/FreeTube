@@ -8,7 +8,8 @@
     }"
   >
     <div class="channelThumbnail">
-      <router-link
+      <component
+        :is="enableChannelLinks ? 'router-link' : 'div'"
         :to="`/channel/${id}`"
         class="channelThumbnailLink"
         tabindex="-1"
@@ -19,11 +20,12 @@
           :class="!isGame ? 'channelImage' : 'gameImage'"
           alt=""
         >
-      </router-link>
+      </component>
     </div>
     <div class="infoAndSubscribe">
       <div class="info">
-        <router-link
+        <component
+          :is="enableChannelLinks ? 'router-link' : 'span'"
           class="title"
           :to="`/channel/${id}`"
         >
@@ -33,16 +35,17 @@
           >
             {{ name }}
           </h3>
-        </router-link>
+        </component>
         <div class="infoLine">
-          <router-link
+          <component
+            :is="enableChannelLinks ? 'router-link' : 'span'"
             v-if="handle !== null"
             class="handle"
             dir="auto"
             :to="`/channel/${id}`"
           >
             {{ handle }}
-          </router-link>
+          </component>
           <span
             v-if="subscriberCount !== null && !hideChannelSubscriptions"
             class="subscriberCount"
@@ -117,6 +120,8 @@ const hideChannelSubscriptions = computed(() => {
 const hideUnsubscribeButton = computed(() => {
   return store.getters.getHideUnsubscribeButton
 })
+
+const enableChannelLinks = computed(() => !store.getters.getDisableChannelLinks)
 
 let id = ''
 let thumbnail = ''
