@@ -53,11 +53,7 @@ class Settings {
     const screenshotAskPath = await db.settings.findOneAsync({ _id: 'screenshotAskPath' })
 
     if (screenshotAskPath) {
-      if (screenshotAskPath.value) {
-        await this.upsert('screenshotMode', 'prompt_folder')
-      } else {
-        await this.upsert('screenshotMode', 'default_folder')
-      }
+      await this.upsert('screenshotMode', screenshotAskPath.value ? 'prompt_folder' : 'default_folder')
 
       await db.settings.removeAsync({ _id: 'screenshotAskPath' })
     }
