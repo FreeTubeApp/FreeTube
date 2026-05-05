@@ -145,6 +145,12 @@
   border-radius: 20px;
   background-color: rgb(0 0 0 / 80%);
   color: #fff;
+  text-align: center;
+}
+
+.unskipInstruction {
+  font-size: 0.8em;
+  opacity: 0.8;
 }
 
 :deep(.markerContainer) {
