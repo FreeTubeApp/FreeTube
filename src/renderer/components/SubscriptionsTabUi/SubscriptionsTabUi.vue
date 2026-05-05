@@ -9,7 +9,7 @@
       <h3> {{ $t("Subscriptions.Error Channels") }}</h3>
       <FtFlexBox>
         <FtChannelBubble
-          v-for="channel in errorChannels"
+          v-for="channel in errorChannels.toSorted((a, b) => a.name.localeCompare(b.name))"
           :key="channel.id"
           :channel-name="channel.name"
           :channel-id="channel.id"
