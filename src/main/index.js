@@ -66,14 +66,23 @@ function runApp() {
     : new Set()
 
   if (process.env.NODE_ENV === 'production') {
-    protocol.registerSchemesAsPrivileged([{
-      scheme: 'app',
-      privileges: {
-        standard: true,
-        secure: true,
-        supportFetchAPI: true
+    protocol.registerSchemesAsPrivileged([
+      {
+        scheme: 'app',
+        privileges: {
+          standard: true,
+          secure: true,
+          supportFetchAPI: true
+        }
+      },
+      {
+        scheme: 'imagecache',
+        privileges: {
+          secure: true,
+          corsEnabled: true
+        }
       }
-    }])
+    ])
   }
 
   const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
