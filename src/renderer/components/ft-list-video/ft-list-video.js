@@ -545,6 +545,9 @@ export default defineComponent({
     useDeArrowThumbnails: function () {
       return this.$store.getters.getUseDeArrowThumbnails
     },
+    deArrowCasualMode: function () {
+      return this.$store.getters.getDeArrowCasualMode
+    },
     deArrowChangedContent: function () {
       return (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail) ||
         (this.useDeArrowTitles && this.deArrowCache?.title &&
@@ -608,9 +611,13 @@ export default defineComponent({
       const videoId = this.id
       const data = await deArrowData(this.id)
       const cacheData = { videoId, title: null, videoDuration: null, thumbnail: null, thumbnailTimestamp: null }
-      if (Array.isArray(data?.titles) && data.titles.length > 0 && (data.titles[0].locked || data.titles[0].votes >= 0)) {
-        // remove dearrow formatting markers https://github.com/ajayyy/DeArrow/blob/0da266485be902fe54259214c3cd7c942f2357c5/src/titles/titleFormatter.ts#L460
-        cacheData.title = data.titles[0].title.replaceAll(/(^|\s)>(\S)/g, '$1$2').trim()
+      if (Array.isArray(data?.titles) && data.titles.length > 0) {
+        const selectedTitle = this.selectDeArrowTitle(data.titles, data.casualMode)
+        if (selectedTitle) {
+          // remove dearrow formatting markers
+          // https://github.com/ajayyy/DeArrow/blob/0da266485be902fe54259214c3cd7c942f2357c5/src/titles/titleFormatter.ts#L460
+          cacheData.title = selectedTitle.replaceAll(/(^|\s)>(\S)/g, '$1$2').trim()
+        }
       }
       if (Array.isArray(data?.thumbnails) && data.thumbnails.length > 0 && (data.thumbnails[0].locked || data.thumbnails[0].votes >= 0)) {
         cacheData.thumbnailTimestamp = data.thumbnails.at(0).timestamp
@@ -630,6 +637,31 @@ export default defineComponent({
 
         this.debounceGetDeArrowThumbnail()
       }
+    },
+    selectDeArrowTitle: function(titles, casualMode) {
+      if (!Array.isArray(titles) || titles.length === 0) {
+        return null
+      }
+
+      if (casualMode) {
+        // Prefer a community-approved original title in casual mode.
+        const goodOriginal = titles.find(
+          (t) => t.original && (t.locked || t.votes >= 0)
+        )
+        if (goodOriginal) {
+          return goodOriginal.title
+        }
+
+        // No well-voted original — use the best custom title instead.
+        const bestCustom = titles.find(
+          (t) => !t.original && (t.locked || t.votes >= 0)
+        )
+        return bestCustom ? bestCustom.title : null
+      }
+
+      // Classic mode: use the first (highest-quality) title if it is trusted.
+      const best = titles[0]
+      return (best.locked || best.votes >= 0) ? best.title : null
     },
     toggleDeArrow() {
       if (!this.deArrowChangedContent) {
