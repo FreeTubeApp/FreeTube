@@ -1704,7 +1704,8 @@ export default defineComponent({
       canvas.height = height
       canvas.getContext('2d').drawImage(video_, 0, 0)
 
-      const format = screenshotFormat.value
+      // Navigator Clipboard API only supports PNG
+      const format = screenshotMode.value === 'clipboard' ? 'png' : screenshotFormat.value
       const mimeType = `image/${format === 'jpg' ? 'jpeg' : format}`
       // imageQuality is ignored for pngs, so it is still okay to pass the quality value
       const imageQuality = screenshotQuality.value / 100
@@ -1735,11 +1736,7 @@ export default defineComponent({
         const blob = await new Promise((resolve) => canvas.toBlob(resolve, mimeType, imageQuality))
 
         if (screenshotMode.value === 'clipboard') {
-          // Navigator Clipboard API only supports PNG
-          const clipboardBlob = format === 'png'
-            ? blob
-            : await new Promise((resolve) => canvas.toBlob(resolve, 'image/png'))
-          await copyToClipboard(clipboardBlob, { messageOnSuccess: t('Screenshot Clipboard Success'), messageOnError: t('Screenshot Clipboard Error') })
+          await copyToClipboard(blob, { messageOnSuccess: t('Screenshot Clipboard Success'), messageOnError: t('Screenshot Clipboard Error') })
         } else if (screenshotMode.value === 'prompt_folder' || screenshotMode.value === 'default_folder') {
           if (!process.env.IS_ELECTRON || screenshotMode.value === 'prompt_folder') {
             const saved = await writeFileWithPicker(
