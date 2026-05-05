@@ -190,7 +190,7 @@ export function showToast(message, time = null, action = null, abortSignal = nul
  * This writes to the clipboard. If an error occurs during the copy,
  * a toast with the error is shown. If the copy is successful and
  * there is a success message, a toast with that message is shown.
- * @param {string} content the content to be copied to the clipboard
+ * @param {string|Blob} content the content to be copied to the clipboard (text or image Blob)
  * @param {object} [options] - Optional settings for the copy operation.
  * @param {null|string} options.messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
  * @param {null|string} options.messageOnError the message to be displayed as a toast when the copy fails (optional)
@@ -198,12 +198,25 @@ export function showToast(message, time = null, action = null, abortSignal = nul
 export async function copyToClipboard(content, { messageOnSuccess = null, messageOnError = null } = {}) {
   if (navigator.clipboard !== undefined && window.isSecureContext) {
     try {
-      await navigator.clipboard.writeText(content)
+      if (content instanceof Blob) {
+        await navigator.clipboard.write([
+          new ClipboardItem({
+            [content.type]: content
+          })
+        ])
+      } else {
+        await navigator.clipboard.writeText(content)
+      }
+
       if (messageOnSuccess !== null) {
         showToast(messageOnSuccess)
       }
     } catch (error) {
-      console.error(`Failed to copy ${content} to clipboard`, error)
+      if (content instanceof Blob) {
+        console.error(`Failed to data of type "${content.type}" to clipboard`, error)
+      } else {
+        console.error(`Failed to copy ${content} to clipboard`, error)
+      }
       if (messageOnError !== null) {
         showToast(`${messageOnError}: ${error}`, 5000)
       } else {

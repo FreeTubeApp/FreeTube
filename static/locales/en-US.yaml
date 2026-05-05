@@ -476,9 +476,13 @@ Settings:
       8k: 8k
     Screenshot:
       Enable: Enable Screenshot
+      Mode: Screenshot Mode
+      Modes:
+        Ask Path: Ask for Save Folder
+        Save Screenshot To: Save Screenshot to
+        Clipboard: Copy to Clipboard
       Format Label: Screenshot Format
       Quality Label: Screenshot Quality
-      Ask Path: Ask for Save Folder
       Folder Label: Screenshot Folder
       Folder Button: Select Folder
       File Name Label: Filename Pattern
@@ -1117,7 +1121,9 @@ Age Restricted:
   This video is age restricted: This video is age restricted
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
 Screenshot Success: Saved screenshot
+Screenshot Clipboard Success: Saved screenshot to clipboard
 Screenshot Error: Screenshot failed. {error}
+Screenshot Clipboard Error: Screenshot copy to clipboard failed
 Channel Hidden: '{channel} added to channel filter'
 Channel Unhidden: '{channel} removed from channel filter'
 Trimmed input must be at least N characters long: Trimmed input must be at least 1 character long | Trimmed input must be at least {length} characters long
