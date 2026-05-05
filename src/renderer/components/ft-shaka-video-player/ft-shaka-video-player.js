@@ -1710,22 +1710,6 @@ export default defineComponent({
       // imageQuality is ignored for pngs, so it is still okay to pass the quality value
       const imageQuality = screenshotQuality.value / 100
 
-      let filename
-      try {
-        filename = await store.dispatch('parseScreenshotCustomFileName', {
-          date: new Date(),
-          playerTime: video_.currentTime,
-          videoId: props.videoId
-        })
-      } catch (err) {
-        console.error(`Parse failed: ${err.message}`)
-        showToast(t('Screenshot Error', { error: err.message }))
-        canvas.remove()
-        return
-      }
-
-      const filenameWithExtension = `${filename}.${format}`
-
       const wasPlaying = !video_.paused
       if ((!process.env.IS_ELECTRON || screenshotMode.value === 'prompt_folder') && wasPlaying) {
         video_.pause()
@@ -1738,6 +1722,22 @@ export default defineComponent({
         if (screenshotMode.value === 'clipboard') {
           await copyToClipboard(blob, { messageOnSuccess: t('Screenshot Clipboard Success'), messageOnError: t('Screenshot Clipboard Error') })
         } else if (screenshotMode.value === 'prompt_folder' || screenshotMode.value === 'default_folder') {
+          let filename
+          try {
+            filename = await store.dispatch('parseScreenshotCustomFileName', {
+              date: new Date(),
+              playerTime: video_.currentTime,
+              videoId: props.videoId
+            })
+          } catch (err) {
+            console.error(`Parse failed: ${err.message}`)
+            showToast(t('Screenshot Error', { error: err.message }))
+            canvas.remove()
+            return
+          }
+
+          const filenameWithExtension = `${filename}.${format}`
+
           if (!process.env.IS_ELECTRON || screenshotMode.value === 'prompt_folder') {
             const saved = await writeFileWithPicker(
               filenameWithExtension,
