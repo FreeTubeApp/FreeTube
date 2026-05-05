@@ -20,15 +20,22 @@ const config = {
         use: 'babel-loader',
         exclude: /node_modules/,
       },
-      {
-        resource: path.resolve(__dirname, '../node_modules/mime-db/db.json'),
-        use: path.join(__dirname, 'mime-db-shrinking-loader.js')
-      }
     ],
     generator: {
       json: {
         JSONParse: false
       }
+    }
+  },
+  resolve: {
+    alias: {
+      // electron-context-menu only needs mime-db for its "save as" feature.
+      // As we only activate the save image and save as image features,
+      // we can remove all other mimetypes, as they will never get used.
+      // Which results in quite a significant reduction in file size.
+      //
+      // Only the extensions field is needed, see: https://github.com/kevva/ext-list/blob/v2.2.2/index.js
+      'mime-db$': path.join(__dirname, 'image-extensions-only-mime-db.json')
     }
   },
   // webpack defaults to only optimising the production builds, so having this here is fine
