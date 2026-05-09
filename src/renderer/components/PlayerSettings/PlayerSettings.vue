@@ -193,7 +193,6 @@
             :select-names="SCREENSHOT_FORMAT_NAMES"
             :select-values="SCREENSHOT_FORMAT_VALUES"
             :icon="['fas', 'file-image']"
-            :disabled="screenshotMode === 'clipboard'"
             @change="handleUpdateScreenshotFormat"
           />
           <FtSlider
@@ -203,7 +202,7 @@
             :max-value="100"
             :step="1"
             value-extension="%"
-            :disabled="screenshotFormat === 'png' || screenshotMode === 'clipboard'"
+            :disabled="screenshotFormat === 'png'"
             @change="updateScreenshotQuality"
           />
         </FtFlexBox>
