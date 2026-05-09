@@ -185,27 +185,29 @@
           @change="handleUpdateScreenshotMode"
         />
       </FtFlexBox>
-      <FtFlexBox>
-        <FtSelect
-          :placeholder="t('Settings.Player Settings.Screenshot.Format Label')"
-          :value="screenshotFormat"
-          :select-names="SCREENSHOT_FORMAT_NAMES"
-          :select-values="SCREENSHOT_FORMAT_VALUES"
-          :icon="['fas', 'file-image']"
-          :disabled="screenshotMode === 'clipboard'"
-          @change="handleUpdateScreenshotFormat"
-        />
-        <FtSlider
-          :label="t('Settings.Player Settings.Screenshot.Quality Label')"
-          :default-value="screenshotQuality"
-          :min-value="0"
-          :max-value="100"
-          :step="1"
-          value-extension="%"
-          :disabled="screenshotFormat === 'png' || screenshotMode === 'clipboard'"
-          @change="updateScreenshotQuality"
-        />
-      </FtFlexBox>
+      <div v-if="screenshotMode !== 'clipboard'">
+        <FtFlexBox>
+          <FtSelect
+            :placeholder="t('Settings.Player Settings.Screenshot.Format Label')"
+            :value="screenshotFormat"
+            :select-names="SCREENSHOT_FORMAT_NAMES"
+            :select-values="SCREENSHOT_FORMAT_VALUES"
+            :icon="['fas', 'file-image']"
+            :disabled="screenshotMode === 'clipboard'"
+            @change="handleUpdateScreenshotFormat"
+          />
+          <FtSlider
+            :label="t('Settings.Player Settings.Screenshot.Quality Label')"
+            :default-value="screenshotQuality"
+            :min-value="0"
+            :max-value="100"
+            :step="1"
+            value-extension="%"
+            :disabled="screenshotFormat === 'png' || screenshotMode === 'clipboard'"
+            @change="updateScreenshotQuality"
+          />
+        </FtFlexBox>
+      </div>
       <FtFlexBox
         v-if="USING_ELECTRON && screenshotMode === 'default_folder'"
         class="screenshotFolderContainer"
