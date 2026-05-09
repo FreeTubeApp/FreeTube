@@ -177,6 +177,16 @@
     <div v-if="enableScreenshot">
       <FtFlexBox>
         <FtSelect
+          :placeholder="t('Settings.Player Settings.Screenshot.Mode')"
+          :value="screenshotMode"
+          :select-names="screenshotModeNames"
+          :select-values="screenshotModeValues"
+          :icon="['fas', 'expand']"
+          @change="handleUpdateScreenshotMode"
+        />
+      </FtFlexBox>
+      <FtFlexBox>
+        <FtSelect
           :placeholder="t('Settings.Player Settings.Screenshot.Format Label')"
           :value="screenshotFormat"
           :select-names="SCREENSHOT_FORMAT_NAMES"
@@ -194,16 +204,6 @@
           value-extension="%"
           :disabled="screenshotFormat === 'png' || screenshotMode === 'clipboard'"
           @change="updateScreenshotQuality"
-        />
-      </FtFlexBox>
-      <FtFlexBox>
-        <FtSelect
-          :placeholder="t('Settings.Player Settings.Screenshot.Mode')"
-          :value="screenshotMode"
-          :select-names="screenshotModeNames"
-          :select-values="screenshotModeValues"
-          :icon="['fas', 'expand']"
-          @change="handleUpdateScreenshotMode"
         />
       </FtFlexBox>
       <FtFlexBox
