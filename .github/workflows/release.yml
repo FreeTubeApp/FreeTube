@@ -76,8 +76,6 @@ jobs:
 
     - run: pnpm run ci
       shell: bash
-      env:
-        ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
     - run: pnpm run lint
       shell: bash
 
