@@ -54,7 +54,6 @@ class Settings {
 
     if (screenshotAskPath) {
       await this.upsert('screenshotMode', screenshotAskPath.value ? 'prompt_folder' : 'default_folder')
-
       await db.settings.removeAsync({ _id: 'screenshotAskPath' })
     }
 
