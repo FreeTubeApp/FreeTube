@@ -964,7 +964,7 @@ export default defineComponent({
         classList.contains('shaka-fast-foward-container') ||
         classList.contains('shaka-rewind-container') ||
         classList.contains('shaka-play-button-container') ||
-        classList.contains('shaka-play-button') ||
+        classList.contains('sc') ||
         classList.contains('shaka-controls-container')) {
         //
 
@@ -2291,11 +2291,22 @@ export default defineComponent({
         return
       }
 
-      // Clear focus to prevent tooltip from staying visible
-      function blurButton(buttonClass) {
-        const button = document.querySelector(`.${buttonClass}`)
-        if (button) {
-          button.blur()
+      // Blur player buttons to remove :focus-visible state, preventing tooltips from staying visible
+      function blurTooltipButtons() {
+        const buttonWithTooltipClasses = [
+          'shaka-play-button',
+          'shaka-fullscreen-button',
+          'shaka-mute-button',
+          'shaka-pip-button',
+          'full-window-button',
+          'theatre-button',
+          'screenshot-button'
+        ]
+        for (const buttonClass of buttonWithTooltipClasses) {
+          const button = document.querySelector(`.${buttonClass}`)
+          if (button) {
+            button.blur()
+          }
         }
       }
 
@@ -2306,7 +2317,7 @@ export default defineComponent({
           // Toggle Play/Pause
           event.preventDefault()
           video_.paused ? video_.play() : video_.pause()
-          blurButton('shaka-play-button')
+          blurTooltipButtons()
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_REWIND:
           // Rewind by 2x the time-skip interval (in seconds)
@@ -2334,7 +2345,7 @@ export default defineComponent({
           // Toggle full screen
           event.preventDefault()
           ui.getControls().toggleFullScreen()
-          blurButton('shaka-fullscreen-button')
+          blurTooltipButtons()
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE:
           // Toggle mute only if metakey is not pressed
@@ -2347,7 +2358,7 @@ export default defineComponent({
             const message = isMuted ? '0%' : `${Math.round(video_.volume * 100)}%`
             showValueChange(message, messageIcon)
           }
-          blurButton('shaka-mute-button')
+          blurTooltipButtons()
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS: {
           // Toggle caption/subtitles
@@ -2412,7 +2423,7 @@ export default defineComponent({
               controls.togglePiP()
             }
           }
-          blurButton('shaka-pip-button')
+          blurTooltipButtons()
           break
         case '0':
         case '1':
@@ -2498,7 +2509,7 @@ export default defineComponent({
           events.dispatchEvent(new CustomEvent('setFullWindow', {
             detail: !fullWindowEnabled.value
           }))
-          blurButton('full-window-button')
+          blurTooltipButtons()
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.THEATRE_MODE:
           // Toggle theatre mode
@@ -2509,7 +2520,7 @@ export default defineComponent({
               detail: !props.useTheatreMode
             }))
           }
-          blurButton('theatre-button')
+          blurTooltipButtons()
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.TAKE_SCREENSHOT:
           if (enableScreenshot.value && props.format !== 'audio') {
@@ -2517,7 +2528,7 @@ export default defineComponent({
             // Take screenshot
             takeScreenshot()
           }
-          blurButton('screenshot-button')
+          blurTooltipButtons()
           break
       }
     }
