@@ -419,6 +419,9 @@ const customState = {
 }
 
 const customGetters = {
+  getUserSettings: (state) => {
+    return state
+  }
 }
 
 const customMutations = {}
@@ -632,6 +635,10 @@ const customActions = {
         }
       })
     }
+  },
+
+  getDefaultUpdaterId: (_, settingId) => {
+    return defaultUpdaterId(settingId)
   }
 }
 

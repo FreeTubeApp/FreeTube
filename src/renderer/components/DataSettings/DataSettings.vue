@@ -65,6 +65,19 @@
         @click="showExportSearchHistoryPrompt = true"
       />
     </FtFlexBox>
+    <h4 class="groupTitle">
+      {{ t('Settings') }}
+    </h4>
+    <FtFlexBox class="box">
+      <FtButton
+        :label="t('Settings.Data Settings.Import Settings')"
+        @click="importSettings"
+      />
+      <FtButton
+        :label="t('Settings.Data Settings.Export Settings')"
+        @click="exportSettings"
+      />
+    </FtFlexBox>
     <FtPrompt
       v-if="showExportSubscriptionsPrompt"
       :label="$t('Settings.Data Settings.Select Export Type')"
@@ -1465,6 +1478,71 @@ async function exportYouTubeSearchHistory() {
 }
 
 // #endregion search history
+
+// #region settings
+
+/** @type {import('vue').ComputedRef<object>} */
+const settingsEntries = computed(() => {
+  return store.getters.getUserSettings
+})
+
+async function importSettings() {
+  let response
+  try {
+    response = await readFileWithPicker(
+      t('Settings.Data Settings.Settings File'),
+      {
+        'application/x-freetube-db': '.db',
+        'application/json': '.json'
+      },
+      IMPORT_DIRECTORY_ID,
+      START_IN_DIRECTORY
+    )
+  } catch (err) {
+    const message = t('Settings.Data Settings.Unable to read file')
+    showToast(`${message}: ${err}`)
+    return
+  }
+
+  if (response === null) {
+    return
+  }
+
+  const { content } = response
+  const settings = JSON.parse(content)
+
+  const settingsDb = settingsEntries.value
+
+  for (const [key, value] of Object.entries(settings)) {
+    if (Object.hasOwn(settingsDb, key)) {
+      const updaterId = await store.dispatch('getDefaultUpdaterId', key)
+      await store.dispatch(updaterId, value)
+    } else {
+      const message = `${t('Settings.Data Settings.Unknown setting key')}: ${key}`
+      showToast(message)
+    }
+  }
+
+  showToast(t('Settings.Data Settings.All settings have been successfully imported'))
+}
+
+async function exportSettings() {
+  const settingsDb = JSON.stringify(settingsEntries.value)
+  const dateStr = getTodayDateStrLocalTimezone()
+  const exportFileName = 'freetube-settings-' + dateStr + '.db'
+
+  await promptAndWriteToFile(
+    exportFileName,
+    settingsDb,
+    t('Settings.Data Settings.Settings File'),
+    'application/x-freetube-db',
+    '.db',
+    t('Settings.Data Settings.All settings have been successfully exported')
+  )
+}
+
+// #endregion settings
+
 </script>
 
 <style scoped src="./DataSettings.css" />
