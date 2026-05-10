@@ -2291,6 +2291,14 @@ export default defineComponent({
         return
       }
 
+      // Clear focus to prevent tooltip from staying visible
+      function blurButton(buttonClass) {
+        const button = document.querySelector(`.${buttonClass}`)
+        if (button) {
+          button.blur()
+        }
+      }
+
       switch (event.key.toLowerCase()) {
         case ' ':
         case 'spacebar': // older browsers might return spacebar instead of a space character
@@ -2298,7 +2306,7 @@ export default defineComponent({
           // Toggle Play/Pause
           event.preventDefault()
           video_.paused ? video_.play() : video_.pause()
-          document.activeElement.blur() // Clear focus to prevent tooltip from staying visible
+          blurButton('shaka-play-button')
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_REWIND:
           // Rewind by 2x the time-skip interval (in seconds)
@@ -2326,7 +2334,7 @@ export default defineComponent({
           // Toggle full screen
           event.preventDefault()
           ui.getControls().toggleFullScreen()
-          document.activeElement.blur() // Clear focus to prevent tooltip from staying visible
+          blurButton('shaka-fullscreen-button')
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE:
           // Toggle mute only if metakey is not pressed
@@ -2339,7 +2347,7 @@ export default defineComponent({
             const message = isMuted ? '0%' : `${Math.round(video_.volume * 100)}%`
             showValueChange(message, messageIcon)
           }
-          document.activeElement.blur() // Clear focus to prevent tooltip from staying visible
+          blurButton('shaka-mute-button')
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS: {
           // Toggle caption/subtitles
@@ -2404,7 +2412,7 @@ export default defineComponent({
               controls.togglePiP()
             }
           }
-          document.activeElement.blur() // Clear focus to prevent tooltip from staying visible
+          blurButton('shaka-pip-button')
           break
         case '0':
         case '1':
@@ -2490,7 +2498,7 @@ export default defineComponent({
           events.dispatchEvent(new CustomEvent('setFullWindow', {
             detail: !fullWindowEnabled.value
           }))
-          document.activeElement.blur() // Clear focus to prevent tooltip from staying visible
+          blurButton('full-window-button')
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.THEATRE_MODE:
           // Toggle theatre mode
@@ -2501,6 +2509,7 @@ export default defineComponent({
               detail: !props.useTheatreMode
             }))
           }
+          blurButton('theatre-button')
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.TAKE_SCREENSHOT:
           if (enableScreenshot.value && props.format !== 'audio') {
@@ -2508,6 +2517,7 @@ export default defineComponent({
             // Take screenshot
             takeScreenshot()
           }
+          blurButton('screenshot-button')
           break
       }
     }
