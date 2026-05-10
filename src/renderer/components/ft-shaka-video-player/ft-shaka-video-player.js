@@ -32,7 +32,7 @@ import { MANIFEST_TYPE_SABR } from '../../helpers/player/SabrManifestParser'
 import { setupSabrScheme } from '../../helpers/player/SabrSchemePlugin'
 
 /** @typedef {import('../../helpers/sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
-/** @typedef {{ fontScaleFactor: number, positionArea: string }} CaptionStyleConfig */
+/** @typedef {{ fontScaleFactor: number, positionArea: shaka.config.PositionArea }} CaptionStyleConfig */
 
 // The UTF-8 characters "h", "t", "t", and "p".
 const HTTP_IN_HEX = 0x68747470
@@ -647,7 +647,7 @@ export default defineComponent({
     }
 
     /**
-     * @returns {{ fontScaleFactor?: number, positionArea?: string }}
+     * @returns {{ fontScaleFactor?: number, positionArea?: shaka.config.PositionArea }}
      */
     function getSavedCaptionStyleConfig() {
       let captionSettings
@@ -662,7 +662,7 @@ export default defineComponent({
         return {}
       }
 
-      /** @type {{ fontScaleFactor?: number, positionArea?: string }} */
+      /** @type {{ fontScaleFactor?: number, positionArea?: shaka.config.PositionArea }} */
       const captionStyleConfig = {}
       const { fontScaleFactor, positionArea } = captionSettings
 
