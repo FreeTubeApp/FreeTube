@@ -964,7 +964,7 @@ export default defineComponent({
         classList.contains('shaka-fast-foward-container') ||
         classList.contains('shaka-rewind-container') ||
         classList.contains('shaka-play-button-container') ||
-        classList.contains('sc') ||
+        classList.contains('shaka-play-button') ||
         classList.contains('shaka-controls-container')) {
         //
 
