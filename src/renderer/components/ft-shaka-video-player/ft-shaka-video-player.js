@@ -2298,6 +2298,7 @@ export default defineComponent({
           // Toggle Play/Pause
           event.preventDefault()
           video_.paused ? video_.play() : video_.pause()
+          document.activeElement.blur() // Clear focus to prevent tooltip from staying visible
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.LARGE_REWIND:
           // Rewind by 2x the time-skip interval (in seconds)
@@ -2325,6 +2326,7 @@ export default defineComponent({
           // Toggle full screen
           event.preventDefault()
           ui.getControls().toggleFullScreen()
+          document.activeElement.blur() // Clear focus to prevent tooltip from staying visible
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE:
           // Toggle mute only if metakey is not pressed
@@ -2337,6 +2339,7 @@ export default defineComponent({
             const message = isMuted ? '0%' : `${Math.round(video_.volume * 100)}%`
             showValueChange(message, messageIcon)
           }
+          document.activeElement.blur() // Clear focus to prevent tooltip from staying visible
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS: {
           // Toggle caption/subtitles
@@ -2401,6 +2404,7 @@ export default defineComponent({
               controls.togglePiP()
             }
           }
+          document.activeElement.blur() // Clear focus to prevent tooltip from staying visible
           break
         case '0':
         case '1':
@@ -2486,6 +2490,7 @@ export default defineComponent({
           events.dispatchEvent(new CustomEvent('setFullWindow', {
             detail: !fullWindowEnabled.value
           }))
+          document.activeElement.blur() // Clear focus to prevent tooltip from staying visible
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.THEATRE_MODE:
           // Toggle theatre mode
