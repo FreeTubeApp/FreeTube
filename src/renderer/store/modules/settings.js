@@ -121,6 +121,16 @@ import { getSystemLocale, showToast } from '../../helpers/utils'
  * to evaluate if it is truly necessary
  * and to ensure that the implementation works as intended.
  *
+ ***
+ * `nonExportableSettings`
+ * This array contains setting keys
+ * that should not be exported when a user chooses to "Export settings".
+ *
+ * When adding a new setting, it should be considered
+ * whether this setting can be exported or not. For example, settings
+ * that are OS or user specific like paths or executables should not
+ * be exported.
+ *
  ****
  * ENDING NOTES
  *
@@ -415,30 +425,31 @@ const sideEffectHandlers = {
 
 const settingsWithSideEffects = Object.keys(sideEffectHandlers)
 
+const nonExportableSettings = [
+  // Passwords
+  'settingsPassword',
+  // Proxy
+  'proxyHostname',
+  'proxyPort',
+  'proxyUsername',
+  'proxyPassword',
+  'proxyProtocol',
+  'proxyVideos',
+  // External player
+  'externalPlayer',
+  'externalPlayerExecutable',
+  'externalPlayerCustomArgs',
+  // Screenshot
+  'screenshotAskPath',
+  'screenshotFolderPath'
+]
+
 const customState = {
 }
 
 const customGetters = {
   getExportableSettings: (state) => {
-    const excludedSettings = [
-      // Passwords
-      'settingsPassword',
-      // Proxy
-      'proxyHostname',
-      'proxyPort',
-      'proxyUsername',
-      'proxyPassword',
-      'proxyProtocol',
-      'proxyVideos',
-      // External player
-      'externalPlayer',
-      'externalPlayerExecutable',
-      'externalPlayerCustomArgs',
-      // Screenshot
-      'screenshotAskPath',
-      'screenshotFolderPath'
-    ]
-    const exportableSettings = Object.keys(state).filter(key => !excludedSettings.includes(key))
+    const exportableSettings = Object.keys(state).filter(key => !nonExportableSettings.includes(key))
     return exportableSettings
   }
 }
