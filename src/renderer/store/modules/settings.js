@@ -426,8 +426,6 @@ const sideEffectHandlers = {
 const settingsWithSideEffects = Object.keys(sideEffectHandlers)
 
 const nonExportableSettings = [
-  // Passwords
-  'settingsPassword',
   // Proxy
   'proxyHostname',
   'proxyPort',
