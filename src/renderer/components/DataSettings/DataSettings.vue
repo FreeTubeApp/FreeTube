@@ -1482,8 +1482,8 @@ async function exportYouTubeSearchHistory() {
 // #region settings
 
 /** @type {import('vue').ComputedRef<object>} */
-const settingsEntries = computed(() => {
-  return store.getters.getUserSettings
+const exportableSettingsEntries = computed(() => {
+  return store.getters.getExportableSettings
 })
 
 async function importSettings() {
@@ -1509,12 +1509,12 @@ async function importSettings() {
   }
 
   const { content } = response
-  const settings = JSON.parse(content)
+  const importedSettings = JSON.parse(content)
 
-  const settingsDb = settingsEntries.value
+  const exportableSettings = exportableSettingsEntries.value
 
-  for (const [key, value] of Object.entries(settings)) {
-    if (Object.hasOwn(settingsDb, key)) {
+  for (const [key, value] of Object.entries(importedSettings)) {
+    if (Object.hasOwn(exportableSettings, key)) {
       const updaterId = await store.dispatch('getDefaultUpdaterId', key)
       await store.dispatch(updaterId, value)
     } else {
@@ -1527,13 +1527,13 @@ async function importSettings() {
 }
 
 async function exportSettings() {
-  const settingsDb = JSON.stringify(settingsEntries.value)
   const dateStr = getTodayDateStrLocalTimezone()
-  const exportFileName = 'freetube-settings-' + dateStr + '.db'
+  const exportFileName = `freetube-settings-${dateStr}.db`
+  const exportableSettings = JSON.stringify(exportableSettingsEntries.value)
 
   await promptAndWriteToFile(
     exportFileName,
-    settingsDb,
+    exportableSettings,
     t('Settings.Data Settings.Settings File'),
     'application/x-freetube-db',
     '.db',

@@ -419,8 +419,27 @@ const customState = {
 }
 
 const customGetters = {
-  getUserSettings: (state) => {
-    return state
+  getExportableSettings: (state) => {
+    const excludedSettings = [
+      // Passwords
+      'settingsPassword',
+      // Proxy
+      'proxyHostname',
+      'proxyPort',
+      'proxyUsername',
+      'proxyPassword',
+      'proxyProtocol',
+      'proxyVideos',
+      // External player
+      'externalPlayer',
+      'externalPlayerExecutable',
+      'externalPlayerCustomArgs',
+      // Screenshot
+      'screenshotAskPath',
+      'screenshotFolderPath'
+    ]
+    const exportableSettings = Object.keys(state).filter(key => !excludedSettings.includes(key))
+    return exportableSettings
   }
 }
 
