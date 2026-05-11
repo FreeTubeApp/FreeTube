@@ -65,9 +65,15 @@
         @click="showExportSearchHistoryPrompt = true"
       />
     </FtFlexBox>
-    <h4 class="groupTitle">
-      {{ t('Settings') }}
-    </h4>
+    <FtFlexBox class="titleTooltip">
+      <h4 class="groupTitle">
+        {{ t('Settings') }}
+      </h4>
+      <FtTooltip
+        class="selectTooltip"
+        :tooltip="t('Settings.Data Settings.Settings Tooltip')"
+      />
+    </FtFlexBox>
     <FtFlexBox class="box">
       <FtButton
         :label="t('Settings.Data Settings.Import Settings')"
@@ -111,6 +117,7 @@ import FtButton from '../FtButton/FtButton.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
+import FtTooltip from '../FtTooltip/FtTooltip.vue'
 
 import store from '../../store/index'
 
