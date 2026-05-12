@@ -122,7 +122,7 @@ import { getSystemLocale, showToast } from '../../helpers/utils'
  * and to ensure that the implementation works as intended.
  *
  ***
- * `nonExportableSettings`
+ * `nonExportableKeys`
  * This array contains setting keys
  * that should not be exported when a user chooses to "Export settings".
  *
@@ -425,7 +425,7 @@ const sideEffectHandlers = {
 
 const settingsWithSideEffects = Object.keys(sideEffectHandlers)
 
-const nonExportableSettings = [
+const nonExportableKeys = new Set([
   // Proxy
   'proxyHostname',
   'proxyPort',
@@ -440,15 +440,25 @@ const nonExportableSettings = [
   // Screenshot
   'screenshotAskPath',
   'screenshotFolderPath'
-]
+])
+
+const restartNeededKeys = new Set([
+  'disableSmoothScrolling'
+])
 
 const customState = {
 }
 
 const customGetters = {
   getExportableSettings: (state) => {
-    const exportableSettings = Object.keys(state).filter(key => !nonExportableSettings.includes(key))
+    const exportableSettings = Object.fromEntries(
+      Object.entries(state).filter(([key]) => !nonExportableKeys.has(key))
+    )
     return exportableSettings
+  },
+
+  getRestartNeededKeys: () => {
+    return restartNeededKeys
   }
 }
 
@@ -667,6 +677,10 @@ const customActions = {
 
   getDefaultUpdaterId: (_, settingId) => {
     return defaultUpdaterId(settingId)
+  },
+
+  getDefaultGetterId: (_, settingId) => {
+    return defaultGetterId(settingId)
   }
 }
 

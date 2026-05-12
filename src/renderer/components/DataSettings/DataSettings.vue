@@ -105,6 +105,13 @@
       :option-values="WATCH_SEARCH_HISTORY_PROMPT_VALUES"
       @click="exportSearchHistory"
     />
+    <FtPrompt
+      v-if="showRestartPrompt"
+      :label="$t('Settings[\'The app needs to restart for changes to take effect. Restart and apply change?\']')"
+      :option-names="[$t('Yes, Restart'), $t('Cancel')]"
+      :option-values="['restart', 'cancel']"
+      @click="handleRestart"
+    />
   </FtSettingsSection>
 </template>
 
@@ -1489,9 +1496,18 @@ async function exportYouTubeSearchHistory() {
 // #region settings
 
 /** @type {import('vue').ComputedRef<object>} */
-const exportableSettingsEntries = computed(() => {
+const exportableSettings = computed(() => {
   return store.getters.getExportableSettings
 })
+
+/** @type {import('vue').ComputedRef<string[]>} */
+const restartNeededKeys = computed(() => {
+  return store.getters.getRestartNeededKeys
+})
+
+const showRestartPrompt = ref(false)
+
+const pendingSettings = new Map()
 
 async function importSettings() {
   let response
@@ -1518,15 +1534,28 @@ async function importSettings() {
   const { content } = response
   const importedSettings = JSON.parse(content)
 
-  const exportableSettings = exportableSettingsEntries.value
+  const currentSettings = exportableSettings.value
 
-  for (const [key, value] of Object.entries(importedSettings)) {
-    if (Object.hasOwn(exportableSettings, key)) {
-      const updaterId = await store.dispatch('getDefaultUpdaterId', key)
-      await store.dispatch(updaterId, value)
-    } else {
-      const message = `${t('Settings.Data Settings.Unknown setting key')}: ${key}`
+  for (const [importedKey, importedValue] of Object.entries(importedSettings)) {
+    if (!Object.hasOwn(currentSettings, importedKey)) {
+      const message = `${t('Settings.Data Settings.Unknown setting key')}: ${importedKey}`
       showToast(message)
+      continue
+    }
+
+    const currentValue = currentSettings[importedKey]
+    const areValuesEqual = currentValue === importedValue ||
+      (typeof importedValue === 'object' && JSON.stringify(currentValue) === JSON.stringify(importedValue))
+    if (areValuesEqual) {
+      continue
+    }
+
+    if (restartNeededKeys.value.has(importedKey)) {
+      pendingSettings.set(importedKey, importedValue)
+      showRestartPrompt.value = true
+    } else {
+      const updaterId = await store.dispatch('getDefaultUpdaterId', importedKey)
+      await store.dispatch(updaterId, importedValue)
     }
   }
 
@@ -1536,16 +1565,39 @@ async function importSettings() {
 async function exportSettings() {
   const dateStr = getTodayDateStrLocalTimezone()
   const exportFileName = `freetube-settings-${dateStr}.db`
-  const exportableSettings = JSON.stringify(exportableSettingsEntries.value)
+  const settingsContent = JSON.stringify(exportableSettings.value)
 
   await promptAndWriteToFile(
     exportFileName,
-    exportableSettings,
+    settingsContent,
     t('Settings.Data Settings.Settings File'),
     'application/x-freetube-db',
     '.db',
     t('Settings.Data Settings.All settings have been successfully exported')
   )
+}
+
+/**
+ * @param {'restart' | 'cancel' | null} value
+ */
+function handleRestart(value) {
+  showRestartPrompt.value = false
+
+  if (value === null || value === 'cancel') {
+    pendingSettings.clear()
+    return
+  }
+
+  if (process.env.IS_ELECTRON) {
+    Promise.all(
+      Array.from(pendingSettings, async ([settingKey, settingValue]) => {
+        const updaterId = await store.dispatch('getDefaultUpdaterId', settingKey)
+        return store.dispatch(updaterId, settingValue)
+      })
+    ).then(() => {
+      window.ftElectron.relaunch()
+    })
+  }
 }
 
 // #endregion settings
