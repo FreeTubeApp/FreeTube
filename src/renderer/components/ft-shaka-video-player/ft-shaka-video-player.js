@@ -2292,16 +2292,16 @@ export default defineComponent({
       }
 
       // Blur player buttons to remove :focus-visible state, preventing tooltips from staying visible
+      const buttonWithTooltipClasses = [
+        'shaka-play-button',
+        'shaka-fullscreen-button',
+        'shaka-mute-button',
+        'shaka-pip-button',
+        'full-window-button',
+        'theatre-button',
+        'screenshot-button',
+      ]
       function blurTooltipButtons() {
-        const buttonWithTooltipClasses = [
-          'shaka-play-button',
-          'shaka-fullscreen-button',
-          'shaka-mute-button',
-          'shaka-pip-button',
-          'full-window-button',
-          'theatre-button',
-          'screenshot-button'
-        ]
         for (const buttonClass of buttonWithTooltipClasses) {
           const button = document.querySelector(`.${buttonClass}`)
           if (button) {
