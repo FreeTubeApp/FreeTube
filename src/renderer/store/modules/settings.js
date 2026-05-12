@@ -151,10 +151,10 @@ import { getSystemLocale, showToast } from '../../helpers/utils'
 
 // HELPERS
 const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1)
-const defaultGetterId = settingId => 'get' + capitalize(settingId)
-const defaultMutationId = settingId => 'set' + capitalize(settingId)
-const defaultUpdaterId = settingId => 'update' + capitalize(settingId)
-const defaultSideEffectsTriggerId = settingId =>
+export const defaultGetterId = settingId => 'get' + capitalize(settingId)
+export const defaultMutationId = settingId => 'set' + capitalize(settingId)
+export const defaultUpdaterId = settingId => 'update' + capitalize(settingId)
+export const defaultSideEffectsTriggerId = settingId =>
   'trigger' + capitalize(settingId) + 'SideEffects'
 /*****/
 
@@ -442,7 +442,7 @@ const nonExportableKeys = new Set([
   'screenshotFolderPath'
 ])
 
-const restartNeededKeys = new Set([
+export const restartNeededKeys = new Set([
   'disableSmoothScrolling'
 ])
 
@@ -455,10 +455,6 @@ const customGetters = {
       Object.entries(state).filter(([key]) => !nonExportableKeys.has(key))
     )
     return exportableSettings
-  },
-
-  getRestartNeededKeys: () => {
-    return restartNeededKeys
   }
 }
 
@@ -673,14 +669,6 @@ const customActions = {
         }
       })
     }
-  },
-
-  getDefaultUpdaterId: (_, settingId) => {
-    return defaultUpdaterId(settingId)
-  },
-
-  getDefaultGetterId: (_, settingId) => {
-    return defaultGetterId(settingId)
   }
 }
 
