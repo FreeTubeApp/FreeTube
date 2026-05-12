@@ -1,3 +1,8 @@
+.screenshotModeSelect {
+  inline-size: fit-content;
+  padding-inline-end: 15px;
+}
+
 .screenshotFolderContainer {
   align-items: center;
   column-gap: 1rem;
