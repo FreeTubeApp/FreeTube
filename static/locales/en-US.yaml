@@ -479,7 +479,7 @@ Settings:
       Mode: Screenshot Mode
       Modes:
         Ask Path: Ask for Save Folder
-        Save Screenshot To Folder: Save Screenshot to Folder
+        Save To Folder: Save to Folder
         Clipboard: Copy to Clipboard
       Format Label: Screenshot Format
       Quality Label: Screenshot Quality

@@ -177,7 +177,6 @@
     <div v-if="enableScreenshot">
       <FtFlexBox>
         <FtSelect
-          class="screenshotModeSelect"
           :placeholder="t('Settings.Player Settings.Screenshot.Mode')"
           :value="screenshotMode"
           :select-names="screenshotModeNames"
@@ -605,7 +604,7 @@ async function handleUpdateScreenshotFormat(format) {
 
 const screenshotModeNames = computed(() => [
   t('Settings.Player Settings.Screenshot.Modes.Ask Path'),
-  ...process.env.IS_ELECTRON ? [t('Settings.Player Settings.Screenshot.Modes.Save Screenshot To Folder')] : [],
+  ...process.env.IS_ELECTRON ? [t('Settings.Player Settings.Screenshot.Modes.Save To Folder')] : [],
   t('Settings.Player Settings.Screenshot.Modes.Clipboard'),
 ])
 const screenshotModeValues = computed(() => [
