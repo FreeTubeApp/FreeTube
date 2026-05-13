@@ -577,6 +577,7 @@ export default defineComponent({
             clearInterval(existingSkip.intervalId)
 
             existingSkip.timeLeft = 4
+            existingSkip.segmentTimeLeft = 0
             existingSkip.intervalId = setInterval(() => {
               existingSkip.timeLeft--
             }, 1000)
@@ -589,6 +590,7 @@ export default defineComponent({
               endTime,
               unskipped: false,
               timeLeft: 4,
+              segmentTimeLeft: 0,
               intervalId: null,
               timeoutId: null
             }
@@ -1256,6 +1258,14 @@ export default defineComponent({
 
         if (useSponsorBlock.value && sponsorBlockSegments.length > 0 && canSeek()) {
           skipSponsorBlockSegments(currentTime)
+        }
+
+        if (useSponsorBlock.value) {
+          for (const segment of skippedSponsorBlockSegments.value) {
+            if (segment.unskipped) {
+              segment.segmentTimeLeft = Math.max(0, segment.endTime - currentTime)
+            }
+          }
         }
       }
     }
@@ -2339,6 +2349,7 @@ export default defineComponent({
               clearTimeout(segment.timeoutId)
               clearInterval(segment.intervalId)
               segment.timeLeft = null
+              segment.segmentTimeLeft = Math.max(0, segment.endTime - video_.currentTime)
               ignoredSponsorBlockSegments.add(segment.uuid)
             }
           }

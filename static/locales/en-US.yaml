@@ -938,7 +938,7 @@ Video:
     Playback will resume automatically when your connection comes back: Playback will resume automatically when your connection comes back.
     Skipped segment: 'Skipped {segmentCategory} segment'
     Press Enter to unskip: 'Press Enter to unskip ({timeLeft}s)'
-    Press Enter to reskip: 'Press Enter to reskip'
+    Press Enter to reskip: 'Press Enter to reskip ({timeLeft}s remaining)'
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Remaining preroll-ad time: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Remaining SABR backoff time: {remindingTimeSeconds}s'
