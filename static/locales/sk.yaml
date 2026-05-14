@@ -972,7 +972,7 @@ Profile:
   Toggle Profile List: Prepnúť zoznam profilov
 Download From Site: Stiahnuť zo stránky
 Version {versionNumber} is now available!  Click for more details: Verzia {versionNumber} je k dispozícii! Kliknite pre viac podrobností
-Locale Name: Angličtina (US)
+Locale Name: Slovenčina
 Playing Next Video Interval: Prehrávanie ďalšieho videa okamžite. Kliknite pre zrušenie. | Prehrávanie ďalšieho videa o {nextVideoInterval} sekundu. Kliknite pre zrušenie. | Prehrávanie ďalšieho videa o {nextVideoInterval} sekúnd. Kliknite pre zrušenie.
 More: Viac
 Unknown YouTube url type, cannot be opened in app: Neznámy typ adresy URL YouTube, nemôže byť otvorený v aplikácii
@@ -1008,7 +1008,7 @@ Search Listing:
 Feed:
   Feed Last Updated: 'Kanál {feedName} naposledy aktualizovaný: {date}'
   Refresh Feed: Obnoviť {subscriptionName}
-Go to page: Prejsť na {stránka}
+Go to page: Prejsť na {page}
 Right-click or hold to see history: Podržte alebo kliknite pravým tlačidlom pre zobrazenie histórie
 KeyboardShortcutPrompt:
   Toggle Developer Tools: Prepnúť nástroje pre vývojárov
