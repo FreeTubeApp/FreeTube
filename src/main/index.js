@@ -73,19 +73,17 @@ function runApp() {
         corsEnabled: true
       }
     },
+    ...(process.env.NODE_ENV === 'production'
+      ? [{
+          scheme: 'app',
+          privileges: {
+            standard: true,
+            secure: true,
+            supportFetchAPI: true
+          }
+        }]
+      : []),
   ])
-  if (process.env.NODE_ENV === 'production') {
-    protocol.registerSchemesAsPrivileged([
-      {
-        scheme: 'app',
-        privileges: {
-          standard: true,
-          secure: true,
-          supportFetchAPI: true
-        }
-      }
-    ])
-  }
 
   const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
 
