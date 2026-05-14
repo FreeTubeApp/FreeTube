@@ -65,6 +65,15 @@ function runApp() {
     ? new Set(__FREETUBE_ALLOWED_PATHS__)
     : new Set()
 
+  protocol.registerSchemesAsPrivileged([
+    {
+      scheme: 'imagecache',
+      privileges: {
+        secure: true,
+        corsEnabled: true
+      }
+    },
+  ])
   if (process.env.NODE_ENV === 'production') {
     protocol.registerSchemesAsPrivileged([
       {
@@ -73,13 +82,6 @@ function runApp() {
           standard: true,
           secure: true,
           supportFetchAPI: true
-        }
-      },
-      {
-        scheme: 'imagecache',
-        privileges: {
-          secure: true,
-          corsEnabled: true
         }
       }
     ])
