@@ -59,7 +59,11 @@
                 loading="lazy"
               >
             </RouterLink>
-            <bdi>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</bdi>
+            <bdi
+              class="name"
+            >
+              {{ (tag.preferredName) ? tag.preferredName : tag.name }}
+            </bdi>
           </template>
           <bdi v-else>{{ tag }}</bdi>
           <button

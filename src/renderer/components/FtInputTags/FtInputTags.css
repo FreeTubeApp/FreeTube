@@ -28,7 +28,7 @@
   float: inline-start;
 }
 
-.ft-tag-box li>span {
+.ft-tag-box li > .name {
   padding-block: 10px;
   padding-inline: 10px;
   overflow-wrap: break-word;
