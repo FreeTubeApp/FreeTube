@@ -122,14 +122,21 @@ import { getSystemLocale, showToast } from '../../helpers/utils'
  * and to ensure that the implementation works as intended.
  *
  ***
- * `nonExportableKeys`
- * This array contains setting keys
+ * `settingsNotExportable`
+ * This set contains setting keys
  * that should not be exported when a user chooses to "Export settings".
  *
  * When adding a new setting, it should be considered
  * whether this setting can be exported or not. For example, settings
- * that are OS or user specific like paths or executables should not
- * be exported.
+ * that are OS or user specific like paths should not be exported.
+ *
+ ***
+ * `settingsNeedingRestart`
+ * This set contains setting keys
+ * that require an application restart to take effect.
+ *
+ * When adding a new setting that needs a restart for the
+ * change to apply, it should be added to this set.
  *
  ****
  * ENDING NOTES
@@ -425,7 +432,7 @@ const sideEffectHandlers = {
 
 const settingsWithSideEffects = Object.keys(sideEffectHandlers)
 
-const nonExportableKeys = new Set([
+const settingsNotExportable = new Set([
   // Proxy
   'proxyHostname',
   'proxyPort',
@@ -442,7 +449,7 @@ const nonExportableKeys = new Set([
   'screenshotFolderPath'
 ])
 
-export const restartNeededKeys = new Set([
+export const settingsNeedingRestart = new Set([
   'disableSmoothScrolling'
 ])
 
@@ -451,9 +458,12 @@ const customState = {
 
 const customGetters = {
   getExportableSettings: (state) => {
-    const exportableSettings = Object.fromEntries(
-      Object.entries(state).filter(([key]) => !nonExportableKeys.has(key))
-    )
+    const exportableSettings = {}
+    for (const [key, value] of Object.entries(state)) {
+      if (!settingsNotExportable.has(key)) {
+        exportableSettings[key] = value
+      }
+    }
     return exportableSettings
   }
 }

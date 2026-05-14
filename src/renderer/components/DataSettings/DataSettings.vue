@@ -127,7 +127,7 @@ import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtTooltip from '../FtTooltip/FtTooltip.vue'
 
 import store from '../../store/index'
-import { defaultUpdaterId, restartNeededKeys } from '../../store/modules/settings'
+import { defaultUpdaterId, settingsNeedingRestart } from '../../store/modules/settings'
 
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
@@ -1546,7 +1546,7 @@ async function importSettings() {
       continue
     }
 
-    if (restartNeededKeys.has(importedKey)) {
+    if (settingsNeedingRestart.has(importedKey)) {
       pendingSettings.set(importedKey, importedValue)
       showRestartPrompt.value = true
     } else {
