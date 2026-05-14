@@ -467,7 +467,8 @@ Settings:
       Enable: 'Gweredekaat Tapadennoù-skramm'
       Format Label: 'Furmad an tapadennoù-skramm'
       Quality Label: 'Kalite an tapadennoù-skramm'
-      Ask Path: 'Goulenn war-lerc''h an teuliad enrollañ'
+      Modes:
+        Ask Path: 'Goulenn war-lerc''h an teuliad enrollañ'
       Folder Label: 'Teuliad an tapadennoù-skramm'
       Folder Button: 'Diuzañ un teuliad'
       File Name Label: 'Patrom anv restr'

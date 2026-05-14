@@ -403,7 +403,8 @@ Settings:
     Display Play Button In Video Player: Lejátszás gomb megjelenítése a videolejátszóban
     Fast-Forward / Rewind Interval: Gyors előre- és visszatekerési időköz
     Screenshot:
-      Ask Path: Rákérdezés a Mentési mappára
+      Modes:
+        Ask Path: Rákérdezés a Mentési mappára
       File Name Label: Fájlnévminta
       Folder Label: Képernyőképek mappa
       Folder Button: Mappa kiválasztása

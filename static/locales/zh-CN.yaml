@@ -400,7 +400,8 @@ Settings:
     Screenshot:
       Format Label: 截屏格式
       Quality Label: 截屏质量
-      Ask Path: 询问保存文件夹
+      Modes:
+        Ask Path: 询问保存文件夹
       File Name Label: 文件名模式
       Error:
         Forbidden Characters: 禁止的字符

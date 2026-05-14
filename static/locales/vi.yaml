@@ -401,7 +401,8 @@ Settings:
       Quality Label: Chất lượng chụp màn hình
       File Name Label: Mẫu tên tệp
       Folder Label: Thư mục ảnh chụp màn hình
-      Ask Path: Yêu cầu thư mục lưu
+      Modes:
+        Ask Path: Yêu cầu thư mục lưu
       Folder Button: Chọn thư mục
       Error:
         Empty File Name: Tên tệp trống

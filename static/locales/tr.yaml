@@ -405,7 +405,8 @@ Settings:
     Max Video Playback Rate: En Yüksek Video Oynatma Hızı
     Screenshot:
       Quality Label: Ekran Görüntüsü Kalitesi
-      Ask Path: Kaydedileceği Klasörü Sor
+      Modes:
+        Ask Path: Kaydedileceği Klasörü Sor
       Folder Label: Ekran Görüntüsü Klasörü
       File Name Label: Dosya Adı Kalıbı
       Error:

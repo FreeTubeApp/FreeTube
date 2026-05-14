@@ -406,7 +406,8 @@ Settings:
     Screenshot:
       Enable: Включване на снимки на екрана
       Quality Label: Качество
-      Ask Path: Питане за папка за запазване
+      Modes:
+        Ask Path: Питане за папка за запазване
       Folder Label: Папка
       File Name Label: Модел за име на файл
       Error:

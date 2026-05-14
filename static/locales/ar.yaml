@@ -403,7 +403,8 @@ Settings:
         Empty File Name: اسم المِلَفّ فارغ
       Folder Button: اختر مجلد
       File Name Label: نمط اسم المِلَفّ
-      Ask Path: اسأل عن موقع الحفظ
+      Modes:
+        Ask Path: اسأل عن موقع الحفظ
       Folder Label: موقع لقطة الشاشة
       Format Label: صيغة لقطة الشاشة
       Quality Label: جودة لقطة الشاشة

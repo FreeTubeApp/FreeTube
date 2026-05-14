@@ -406,7 +406,8 @@ Settings:
     Screenshot:
       Enable: הפעלת צילום מסך
       Format Label: תצורת צילום מסך
-      Ask Path: לשאול באיזו תיקייה לשמור
+      Modes:
+        Ask Path: לשאול באיזו תיקייה לשמור
       File Name Label: תבנית שם קובץ
       Error:
         Forbidden Characters: תווים אסורים

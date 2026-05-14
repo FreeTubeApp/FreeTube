@@ -418,7 +418,8 @@ Settings:
       Enable: 'Уключыць здымак экрана'
       Format Label: 'Фармат здымка'
       Quality Label: 'Якасць здымка'
-      Ask Path: 'Пытаць папку для захоўвання'
+      Modes:
+        Ask Path: 'Пытаць папку для захоўвання'
       Folder Label: 'Папка для здымкаў'
       Folder Button: 'Выбраць папку'
       File Name Label: 'Шаблон назвы файла'

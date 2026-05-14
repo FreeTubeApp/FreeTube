@@ -402,7 +402,8 @@ Settings:
       Enable: Schermafdruk inschakelen
       Format Label: Schermafdruk­formaat
       Quality Label: Schermafdruk­kwaliteit
-      Ask Path: Vragen in welke map op te slaan
+      Modes:
+        Ask Path: Vragen in welke map op te slaan
       Folder Label: Schermafdruk­map
       Folder Button: Map selecteren
       Error:

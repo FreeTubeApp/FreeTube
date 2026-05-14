@@ -403,7 +403,8 @@ Settings:
       Enable: Permitir capturas de ecrã
       Format Label: Formato das capturas de ecrã
       Quality Label: Qualidade da captura de ecrã
-      Ask Path: Perguntar onde guardar
+      Modes:
+        Ask Path: Perguntar onde guardar
       Folder Label: Pasta para as capturas de ecrã
       Folder Button: Selecionar pasta
       Error:

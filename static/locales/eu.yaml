@@ -408,7 +408,8 @@ Settings:
         Forbidden Characters: Debekatutako karaktereak
       Format Label: Pantaila-argazkiaren formatua
       Quality Label: Pantaila-argazkiaren kalitatea
-      Ask Path: Galdetu zein karpetan gordeko den
+      Modes:
+        Ask Path: Galdetu zein karpetan gordeko den
       Folder Label: Pantaila-argazkien karpeta
       Folder Button: Hautatu karpeta
       File Name Label: Fitxategi-izenen eredua

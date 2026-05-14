@@ -410,7 +410,8 @@ Settings:
       Format Label: Formato de las capturas de pantalla
       File Name Label: Patrón de nombre de archivo
       Folder Label: Carpeta de capturas de pantalla
-      Ask Path: Pedir la Carpeta para Guardar
+      Modes:
+        Ask Path: Pedir la Carpeta para Guardar
       File Name Tooltip: Puede utilizar las siguientes variables. %Y Año 4 dígitos. %M Mes 2 dígitos. %D Día 2 dígitos. %H Hora 2 dígitos. %N Minuto 2 dígitos. %S Segundo 2 dígitos. %T Milisegundo 3 dígitos. %s Video Segundo. %t Video Milisegundo 3 dígitos. %i Video ID.
     Enter Fullscreen on Display Rotate: Entrar en pantalla completa al girar la pantalla
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor de vídeo

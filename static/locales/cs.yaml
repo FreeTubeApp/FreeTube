@@ -410,7 +410,8 @@ Settings:
         Empty File Name: Prázdný název souboru
       File Name Label: Vzor názvu souboru
       File Name Tooltip: Můžete použít proměnné níže. %Y Rok 4 číslice. %M Měsíc 2 číslice. %D Den 2 číslice. %H Hodina 2 číslice. %N Minuta 2 číslice. %S Sekunda 2 číslice. %T Milisekunda 3 číslice. %s Sekunda videa. %t Milisekunda videa 3 číslice. %i ID videa.
-      Ask Path: Zeptat se na složku pro uložení
+      Modes:
+        Ask Path: Zeptat se na složku pro uložení
       Folder Label: Složka snímků obrazovky
       Enable: Povolit snímek obrazovky
       Format Label: Formát snímku obrazovky

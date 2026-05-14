@@ -398,7 +398,8 @@ Settings:
     Max Video Playback Rate: Предельная скорость воспроизведения
     Video Playback Rate Interval: Интервал скорости воспроизведения видео
     Screenshot:
-      Ask Path: Спрашивать папку для сохранения
+      Modes:
+        Ask Path: Спрашивать папку для сохранения
       Error:
         Forbidden Characters: Запрещенные символы
         Empty File Name: Пустое имя файла

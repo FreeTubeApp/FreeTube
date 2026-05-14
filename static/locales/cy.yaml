@@ -428,7 +428,8 @@ Settings:
       Enable: 'Galluogi Lluniau Sgrin'
       Format Label: 'Fformat Lluniau Sgrin'
       Quality Label: 'Ansawdd Llun Sgrin'
-      Ask Path: 'Gofyn am Ffolder Cadw'
+      Modes:
+        Ask Path: 'Gofyn am Ffolder Cadw'
       Folder Label: 'Ffolder Llun Sgrin'
       Folder Button: 'Dewis Ffolder'
       File Name Label: 'Patrwm Enw Ffeil'

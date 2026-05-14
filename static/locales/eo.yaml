@@ -406,7 +406,8 @@ Settings:
       Enable: Ebligi ekrankopiojn
       Format Label: Dosiertipo de ekrankopioj
       Quality Label: Kvalito de ekrankopioj
-      Ask Path: Peti konservan dosierujon
+      Modes:
+        Ask Path: Peti konservan dosierujon
       Folder Label: Dosierujo de ekrankopioj
       Folder Button: Elekti dosierujon
       File Name Label: Dosiernoma ŝablono

@@ -406,7 +406,8 @@ Settings:
       Error:
         Empty File Name: Tomt filnamn
         Forbidden Characters: Förbjudna symboler
-      Ask Path: Fråga efter sparmapp
+      Modes:
+        Ask Path: Fråga efter sparmapp
       Folder Label: Skärmdumpsmapp
       Quality Label: Skärmdumpskvalitet
       Format Label: Skärmdumpsformat

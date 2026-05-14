@@ -403,7 +403,8 @@ Settings:
       File Name Label: Vzor názvu súboru
       Folder Button: Vybrať priečinok
       Folder Label: Priečinok snímky obrazovky
-      Ask Path: Spýtať sa na priečinok uloženia
+      Modes:
+        Ask Path: Spýtať sa na priečinok uloženia
       Quality Label: Kvalita snímky obrazovky
       Format Label: Formát snímky obrazovky
       Enable: Povoliť snímku obrazovky

@@ -402,7 +402,8 @@ Settings:
       Enable: Screenshots aktivieren
       Format Label: Format von Screenshots
       Quality Label: Qualität von Screenshots
-      Ask Path: Nach dem Ordner zum Speichern fragen
+      Modes:
+        Ask Path: Nach dem Ordner zum Speichern fragen
       Folder Label: Ordner für Screenshots
       Folder Button: Ordner auswählen
       File Name Label: Dateinamen-Muster

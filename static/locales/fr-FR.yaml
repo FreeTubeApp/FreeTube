@@ -399,7 +399,8 @@ Settings:
     Max Video Playback Rate: Vitesse maximale de lecture vidéo
     Screenshot:
       Enable: Activer les captures d’écran
-      Ask Path: Demander le dossier de sauvegarde
+      Modes:
+        Ask Path: Demander le dossier de sauvegarde
       Folder Button: Sélectionner un dossier
       Error:
         Forbidden Characters: Caractères interdits

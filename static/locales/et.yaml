@@ -404,7 +404,8 @@ Settings:
     Max Video Playback Rate: Video suurim taasesituskiirus
     Video Playback Rate Interval: Video taasesituskiiruse intervall
     Screenshot:
-      Ask Path: Küsi salvestuskausta
+      Modes:
+        Ask Path: Küsi salvestuskausta
       Folder Label: Kuvatõmmise kaust
       Format Label: Kuvatõmmise vorming
       Quality Label: Kuvatõmmise kvaliteet

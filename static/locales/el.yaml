@@ -396,7 +396,8 @@ Settings:
         Empty File Name: Κενό Όνομα Αρχείου
       Enable: Ενεργοποίηση Στιγμιότυπου οθόνης
       Quality Label: Ποιότητα Στιγμιότυπου Οθόνης
-      Ask Path: Ερώτηση για Αποθήκευση Φακέλου
+      Modes:
+        Ask Path: Ερώτηση για Αποθήκευση Φακέλου
       Folder Button: Επιλέξτε φάκελο
       Folder Label: Φάκελος Στιγμιότυπου Οθόνης
       File Name Label: Μοτίβο ονόματος αρχείου

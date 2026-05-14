@@ -415,7 +415,8 @@ Settings:
       Quality Label: Screenshot quality
       Folder Label: Screenshot folder
       Format Label: Screenshot format
-      Ask Path: Ask for Save Folder
+      Modes:
+        Ask Path: Ask for Save Folder
       File Name Label: Filename pattern
     Skip by Scrolling Over Video Player: Skip by scrolling over video player
     Autoplay Interruption Timer: Autoplay Interruption Timer

@@ -319,7 +319,8 @@ Settings:
       Folder Button: Seleccionar carpeta
       Format Label: Formato de las capturas de pantalla
       Enable: Habilitar capturas de pantalla
-      Ask Path: Solicitar Carpeta de Guardado
+      Modes:
+        Ask Path: Solicitar Carpeta de Guardado
       Quality Label: Calidad de Captura de Pantalla
       File Name Tooltip: 'Podés utilizar las siguientes variables: %Y Año (4 dígitos). %M Mes (2 dígitos). %D Día (2 dígitos). %H Hora (2 dígitos). %N Minuto (2 dígitos). %S Segundo (2 dígitos). %T Milisegundo (3 dígitos). %s Segundo del Video. %t Milisegundo del Video (3 dígitos). %i ID del Video.'
       File Name Label: Formato de Nombre de Archivo

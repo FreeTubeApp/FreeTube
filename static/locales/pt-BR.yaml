@@ -400,7 +400,8 @@ Settings:
     Screenshot:
       File Name Label: Padrão para nome de arquivo
       Enable: Habilitar captura de tela
-      Ask Path: Perguntar onde salvar os arquivos
+      Modes:
+        Ask Path: Perguntar onde salvar os arquivos
       Folder Label: Pasta de capturas de tela
       Folder Button: Selecionar pasta
       Error:

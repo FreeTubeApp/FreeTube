@@ -409,7 +409,8 @@ Settings:
       Folder Button: Pilih Folder
       Format Label: Format Tangkapan Layar
       Enable: Aktifkan Tangkapan Layar
-      Ask Path: Tanya Lokasi Penyimpanan
+      Modes:
+        Ask Path: Tanya Lokasi Penyimpanan
       Quality Label: Kualitas Tangkapan Layar
       File Name Label: Pola Nama Berkas
       File Name Tooltip: Anda dapat menggunakan variabel di bawah ini. %Y Tahun 4 digit. %M Bulan 2 digit. %D Hari 2 digit. %H Jam 2 digit. %N Menit 2 digit. %S Detik 2 digit. %T Milidetik 3 digit. %s Detik Video. %t Milidetik Video 3 digit. %i ID Video.

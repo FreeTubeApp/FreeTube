@@ -395,7 +395,8 @@ Settings:
     Scroll Volume Over Video Player: Derulați volumul peste playerul video
     Screenshot:
       Quality Label: Calitatea capturii de ecran
-      Ask Path: Întreabă pentru dosarul de salvare
+      Modes:
+        Ask Path: Întreabă pentru dosarul de salvare
       Folder Label: Dosarul pentru capturi de ecran
       Folder Button: Selectează dosar
       File Name Label: Tiparul denumirii fișierelor

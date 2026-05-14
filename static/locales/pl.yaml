@@ -400,7 +400,8 @@ Settings:
     Screenshot:
       Format Label: Format zrzutu
       Quality Label: Jakość zrzutu
-      Ask Path: Pytaj o folder zapisu
+      Modes:
+        Ask Path: Pytaj o folder zapisu
       Folder Label: Folder ze zrzutami
       Folder Button: Wybierz folder
       File Name Label: Wzorzec nazwy pliku

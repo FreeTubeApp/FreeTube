@@ -347,7 +347,8 @@ Settings:
       Enable: 'Iespējot ekrānšāviņu'
       Format Label: 'Ekrānšāviņa formāti'
       Quality Label: 'Ekrānšāviņa kvalitāte'
-      Ask Path: 'Jautāt saglabāšanas mapi'
+      Modes:
+        Ask Path: 'Jautāt saglabāšanas mapi'
       Folder Label: 'Ekrānšāviņa mape'
       Folder Button: 'Izvēlēties mapi'
       File Name Label: 'Nosaukuma šablons'
