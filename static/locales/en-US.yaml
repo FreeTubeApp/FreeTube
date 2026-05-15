@@ -607,7 +607,7 @@ Settings:
     Export search history: Export search history
     Import Settings: Import Settings
     Export Settings: Export Settings
-    Settings Tooltip: Settings that are OS/user-specific or experimental cannot be exported or imported (e.g., proxy, screenshot path, external player path...)
+    Settings Tooltip: Settings that are OS/user-specific or experimental cannot be exported or imported (e.g., proxy, external player, screenshot folder...)
     Profile object has insufficient data, skipping item: Profile object has insufficient
       data, skipping item
     All subscriptions and profiles have been successfully imported: All subscriptions
