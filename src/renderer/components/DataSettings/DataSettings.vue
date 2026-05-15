@@ -1529,7 +1529,6 @@ async function importSettings() {
 
   const { content } = response
   const importedSettings = JSON.parse(content)
-
   const currentSettings = exportableSettings.value
 
   for (const [importedKey, importedValue] of Object.entries(importedSettings)) {
