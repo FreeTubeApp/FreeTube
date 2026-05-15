@@ -225,7 +225,7 @@ function updateSecColor(value) {
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const expandSideBar = computed(() => {
-  return store.getters.getexpandSideBar
+  return store.getters.getExpandSideBar
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */
