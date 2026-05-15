@@ -65,15 +65,14 @@
         @click="showExportSearchHistoryPrompt = true"
       />
     </FtFlexBox>
-    <FtFlexBox class="titleTooltip">
-      <h4 class="groupTitle">
-        {{ t('Settings') }}
-      </h4>
+    <h4 class="groupTitle">
+      {{ t('Settings') }}
       <FtTooltip
         class="selectTooltip"
+        position="top"
         :tooltip="t('Settings.Data Settings.Settings Tooltip')"
       />
-    </FtFlexBox>
+    </h4>
     <FtFlexBox class="box">
       <FtButton
         :label="t('Settings.Data Settings.Import Settings')"
