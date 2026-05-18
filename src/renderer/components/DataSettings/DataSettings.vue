@@ -1496,8 +1496,8 @@ async function exportYouTubeSearchHistory() {
 // #region settings
 
 /** @type {import('vue').ComputedRef<object>} */
-const exportableSettings = computed(() => {
-  return store.getters.getExportableSettings
+const transferrableSettings = computed(() => {
+  return store.getters.getTransferrableSettings
 })
 
 const showRestartPrompt = ref(false)
@@ -1528,7 +1528,7 @@ async function importSettings() {
 
   const { content } = response
   const importedSettings = JSON.parse(content)
-  const currentSettings = exportableSettings.value
+  const currentSettings = transferrableSettings.value
 
   for (const [importedKey, importedValue] of Object.entries(importedSettings)) {
     if (!Object.hasOwn(currentSettings, importedKey)) {
@@ -1562,7 +1562,7 @@ async function importSettings() {
 async function exportSettings() {
   const dateStr = getTodayDateStrLocalTimezone()
   const exportFileName = `freetube-settings-${dateStr}.db`
-  const settingsContent = JSON.stringify(exportableSettings.value)
+  const settingsContent = JSON.stringify(transferrableSettings.value)
 
   await promptAndWriteToFile(
     exportFileName,
