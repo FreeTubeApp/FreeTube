@@ -130,14 +130,6 @@ import { getSystemLocale, showToast } from '../../helpers/utils'
  * whether this setting can be exported or not. For example, settings
  * that are OS or user specific like paths should not be exported.
  *
- ***
- * `settingsNeedingRestart`
- * This set contains setting keys
- * that require an application restart to take effect.
- *
- * When adding a new setting that needs a restart for the
- * change to apply, it should be added to this set.
- *
  ****
  * ENDING NOTES
  *
@@ -433,33 +425,31 @@ const sideEffectHandlers = {
 const settingsWithSideEffects = Object.keys(sideEffectHandlers)
 
 const settingsNotTransferrable = new Set([
-
-  // Depends on process.env.IS_ELECTRON
-  'disableSmoothScrolling',
-  'hideToTrayOnMinimize',
+  /* Depends on process.env.IS_ELECTRON */
+  // ProxySettings
   'useProxy',
   'proxyProtocol',
   'proxyHostname',
   'proxyPort',
   'proxyUsername',
   'proxyPassword',
+  // ExternalPlayerSettings
   'externalPlayer',
   'externalPlayerExecutable',
   'externalPlayerIgnoreWarnings',
   'externalPlayerIgnoreDefaultArgs',
   'externalPlayerCustomArgs',
   'showAddedExternalPlayerCustomArgs',
+  // Others
+  'disableSmoothScrolling',
+  'hideToTrayOnMinimize',
   'screenshotAskPath',
   'screenshotFolderPath',
 
-  // Depends on process.env.SUPPORTS_LOCAL_API
+  /* Depends on process.env.SUPPORTS_LOCAL_API */
   'backendFallback',
   'backendPreference',
   'proxyVideos',
-])
-
-export const settingsNeedingRestart = new Set([
-  'disableSmoothScrolling'
 ])
 
 const customState = {

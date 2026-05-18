@@ -104,13 +104,6 @@
       :option-values="WATCH_SEARCH_HISTORY_PROMPT_VALUES"
       @click="exportSearchHistory"
     />
-    <FtPrompt
-      v-if="showRestartPrompt"
-      :label="$t('Settings[\'The app needs to restart for changes to take effect. Restart and apply change?\']')"
-      :option-names="[$t('Yes, Restart'), $t('Cancel')]"
-      :option-values="['restart', 'cancel']"
-      @click="handleRestart"
-    />
   </FtSettingsSection>
 </template>
 
@@ -126,7 +119,7 @@ import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtTooltip from '../FtTooltip/FtTooltip.vue'
 
 import store from '../../store/index'
-import { defaultUpdaterId, settingsNeedingRestart } from '../../store/modules/settings'
+import { defaultUpdaterId } from '../../store/modules/settings'
 
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
@@ -1500,10 +1493,6 @@ const transferrableSettings = computed(() => {
   return store.getters.getTransferrableSettings
 })
 
-const showRestartPrompt = ref(false)
-
-const pendingSettings = new Map()
-
 async function importSettings() {
   let response
   try {
@@ -1544,16 +1533,8 @@ async function importSettings() {
       continue
     }
 
-    if (settingsNeedingRestart.has(importedKey)) {
-      pendingSettings.set(importedKey, importedValue)
-    } else {
-      const updaterId = defaultUpdaterId(importedKey)
-      await store.dispatch(updaterId, importedValue)
-    }
-  }
-
-  if (pendingSettings.size > 0) {
-    showRestartPrompt.value = true
+    const updaterId = defaultUpdaterId(importedKey)
+    await store.dispatch(updaterId, importedValue)
   }
 
   showToast(t('Settings.Data Settings.All settings have been successfully imported'))
@@ -1572,29 +1553,6 @@ async function exportSettings() {
     '.db',
     t('Settings.Data Settings.All settings have been successfully exported')
   )
-}
-
-/**
- * @param {'restart' | 'cancel' | null} value
- */
-function handleRestart(value) {
-  showRestartPrompt.value = false
-
-  if (value === null || value === 'cancel') {
-    pendingSettings.clear()
-    return
-  }
-
-  if (process.env.IS_ELECTRON) {
-    Promise.all(
-      Array.from(pendingSettings, ([settingKey, settingValue]) => {
-        const updaterId = defaultUpdaterId(settingKey)
-        return store.dispatch(updaterId, settingValue)
-      })
-    ).then(() => {
-      window.ftElectron.relaunch()
-    })
-  }
 }
 
 // #endregion settings
