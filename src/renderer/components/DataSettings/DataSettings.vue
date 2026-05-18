@@ -1546,11 +1546,14 @@ async function importSettings() {
 
     if (settingsNeedingRestart.has(importedKey)) {
       pendingSettings.set(importedKey, importedValue)
-      showRestartPrompt.value = true
     } else {
       const updaterId = defaultUpdaterId(importedKey)
       await store.dispatch(updaterId, importedValue)
     }
+  }
+
+  if (pendingSettings.size > 0) {
+    showRestartPrompt.value = true
   }
 
   showToast(t('Settings.Data Settings.All settings have been successfully imported'))
