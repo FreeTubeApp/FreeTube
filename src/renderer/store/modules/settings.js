@@ -433,13 +433,16 @@ const sideEffectHandlers = {
 const settingsWithSideEffects = Object.keys(sideEffectHandlers)
 
 const settingsNotTransferrable = new Set([
+
+  // Depends on process.env.IS_ELECTRON
+  'disableSmoothScrolling',
+  'hideToTrayOnMinimize',
   'useProxy',
+  'proxyProtocol',
   'proxyHostname',
   'proxyPort',
   'proxyUsername',
   'proxyPassword',
-  'proxyProtocol',
-  'proxyVideos',
   'externalPlayer',
   'externalPlayerExecutable',
   'externalPlayerIgnoreWarnings',
@@ -448,7 +451,11 @@ const settingsNotTransferrable = new Set([
   'showAddedExternalPlayerCustomArgs',
   'screenshotAskPath',
   'screenshotFolderPath',
-  'backendPreference'
+
+  // Depends on process.env.SUPPORTS_LOCAL_API
+  'backendFallback',
+  'backendPreference',
+  'proxyVideos',
 ])
 
 export const settingsNeedingRestart = new Set([
