@@ -641,6 +641,7 @@ Settings:
     Unable to write file: Unable to write file
     Unknown data key: Unknown data key
     Unknown setting key: Unknown setting key
+    Non-transferable setting key: Non-transferable setting key
     How do I import my subscriptions?: How do I import my subscriptions?
     Manage Subscriptions: Manage Subscriptions
   Proxy Settings:

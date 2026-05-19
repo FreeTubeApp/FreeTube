@@ -1517,7 +1517,8 @@ async function importSettings() {
 
   const { content } = response
   const importedSettings = JSON.parse(content)
-  const currentSettings = transferableSettings.value
+  const currentTransferableSettings = transferableSettings.value
+  const currentSettings = store.state.settings
 
   for (const [importedKey, importedValue] of Object.entries(importedSettings)) {
     if (!Object.hasOwn(currentSettings, importedKey)) {
@@ -1526,7 +1527,13 @@ async function importSettings() {
       continue
     }
 
-    const currentValue = currentSettings[importedKey]
+    if (!Object.hasOwn(currentTransferableSettings, importedKey)) {
+      const message = `${t('Settings.Data Settings.Non-transferable setting key')}: ${importedKey}`
+      showToast(message)
+      continue
+    }
+
+    const currentValue = currentTransferableSettings[importedKey]
     const areValuesEqual = currentValue === importedValue ||
       (typeof importedValue === 'object' && JSON.stringify(currentValue) === JSON.stringify(importedValue))
     if (areValuesEqual) {
