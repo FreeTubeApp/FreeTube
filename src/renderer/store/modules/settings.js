@@ -122,7 +122,7 @@ import { getSystemLocale, showToast } from '../../helpers/utils'
  * and to ensure that the implementation works as intended.
  *
  ***
- * `settingsNotTransferrable`
+ * `settingsNotTransferable`
  * This set contains setting keys
  * that should not be exported when a user chooses to "Export settings".
  *
@@ -424,7 +424,7 @@ const sideEffectHandlers = {
 
 const settingsWithSideEffects = Object.keys(sideEffectHandlers)
 
-const settingsNotTransferrable = new Set([
+const settingsNotTransferable = new Set([
   /* Depends on process.env.IS_ELECTRON */
   // ProxySettings
   'useProxy',
@@ -456,14 +456,14 @@ const customState = {
 }
 
 const customGetters = {
-  getTransferrableSettings: (state) => {
-    const transferrableSettings = {}
+  getTransferableSettings: (state) => {
+    const transferableSettings = {}
     for (const [key, value] of Object.entries(state)) {
-      if (!settingsNotTransferrable.has(key)) {
-        transferrableSettings[key] = value
+      if (!settingsNotTransferable.has(key)) {
+        transferableSettings[key] = value
       }
     }
-    return transferrableSettings
+    return transferableSettings
   }
 }
 
