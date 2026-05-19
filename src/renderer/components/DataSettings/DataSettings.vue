@@ -66,7 +66,7 @@
       />
     </FtFlexBox>
     <h4 class="groupTitle">
-      {{ t('Settings') }}
+      {{ t('Settings.Settings') }}
       <FtTooltip
         class="selectTooltip"
         position="top"
