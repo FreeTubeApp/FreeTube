@@ -47,6 +47,7 @@
           >
             <img
               :src="channelThumbnail"
+              :class="enableChannelLinks ? '' : 'initialCursor'"
               class="channelThumbnail"
               alt=""
             >
