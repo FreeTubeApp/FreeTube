@@ -280,6 +280,7 @@ const state = {
   useProxy: false,
   userPlaylistSortOrder: 'date_added_descending',
   useRssFeeds: false,
+  limitRequestFallbackWithoutRss: false,
   useSponsorBlock: false,
   videoVolumeMouseScroll: false,
   videoPlaybackRateMouseScroll: false,

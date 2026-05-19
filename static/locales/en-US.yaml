@@ -537,6 +537,7 @@ Settings:
     'Limit the number of videos displayed for each channel': 'Limit the number of videos displayed for each channel'
     To: To
     Confirm Before Unsubscribing: Confirm Before Unsubscribing
+    Limit Request Fallback Without RSS: Limit Request Fallback Without RSS
   Distraction Free Settings:
     Distraction Free Settings: Distraction Free
     Sections:
@@ -1086,6 +1087,10 @@ Tooltips:
       but doesn't provide certain information like video duration, live status or posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch
       your subscription feed on startup and when a new window is opened.
+    Limit Request Fallback Without RSS: When enabled, FreeTube will split
+      subscription requests into smaller chunks instead of forcing RSS for large
+      subscription lists. This prevents rate limiting while preserving video duration,
+      live status and other metadata that RSS does not provide
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
   SponsorBlock Settings:

@@ -24,6 +24,13 @@
           compact
           @change="updateUnsubscriptionPopupStatus"
         />
+        <FtToggleSwitch
+          :label="$t('Settings.Subscription Settings.Limit Request Fallback Without RSS')"
+          :default-value="limitRequestFallbackWithoutRss"
+          :tooltip="$t('Tooltips.Subscription Settings.Limit Request Fallback Without RSS')"
+          compact
+          @change="updateLimitRequestFallbackWithoutRss"
+        />
       </div>
       <div class="switchColumn">
         <FtToggleSwitch
@@ -85,6 +92,16 @@ const unsubscriptionPopupStatus = computed(() => store.getters.getUnsubscription
  */
 function updateUnsubscriptionPopupStatus(value) {
   store.dispatch('updateUnsubscriptionPopupStatus', value)
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const limitRequestFallbackWithoutRss = computed(() => store.getters.getLimitRequestFallbackWithoutRss)
+
+/**
+ * @param {boolean} value
+ */
+function updateLimitRequestFallbackWithoutRss(value) {
+  store.dispatch('updateLimitRequestFallbackWithoutRss', value)
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */

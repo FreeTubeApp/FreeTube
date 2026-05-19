@@ -167,6 +167,11 @@ const useRssFeeds = computed(() => {
   return store.getters.getUseRssFeeds
 })
 
+/** @type {import('vue').ComputedRef<boolean>} */
+const limitRequestFallbackWithoutRss = computed(() => {
+  return store.getters.getLimitRequestFallbackWithoutRss
+})
+
 /** @type {import('vue').Ref<'videos' | 'shorts' | 'live' | 'community' | null>} */
 const currentTab = ref('videos')
 
@@ -196,7 +201,7 @@ const visibleTabs = computed(() => {
   }
 
   // community does not support rss
-  if (!hideSubscriptionsCommunity.value && !useRssFeeds.value && activeSubscriptionList.value.length < 125) {
+  if (!hideSubscriptionsCommunity.value && !useRssFeeds.value && (limitRequestFallbackWithoutRss.value || activeSubscriptionList.value.length < 125)) {
     tabs.push('community')
   }
 
