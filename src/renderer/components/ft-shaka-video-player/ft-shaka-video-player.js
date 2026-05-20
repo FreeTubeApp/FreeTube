@@ -2338,10 +2338,21 @@ export default defineComponent({
             const segment = skippedSponsorBlockSegments.value[skippedSponsorBlockSegments.value.length - 1]
             if (segment.unskipped) {
               video_.currentTime = segment.endTime
-              const index = skippedSponsorBlockSegments.value.indexOf(segment)
-              if (index !== -1) {
-                skippedSponsorBlockSegments.value.splice(index, 1)
-              }
+              segment.unskipped = false
+              segment.timeLeft = 4
+              segment.segmentTimeLeft = 0
+              clearTimeout(segment.timeoutId)
+              clearInterval(segment.intervalId)
+              segment.intervalId = setInterval(() => {
+                segment.timeLeft--
+              }, 1000)
+              segment.timeoutId = setTimeout(() => {
+                const index = skippedSponsorBlockSegments.value.indexOf(segment)
+                if (index !== -1) {
+                  skippedSponsorBlockSegments.value.splice(index, 1)
+                }
+                ignoredSponsorBlockSegments.delete(segment.uuid)
+              }, 4000)
               ignoredSponsorBlockSegments.delete(segment.uuid)
             } else {
               video_.currentTime = segment.startTime
