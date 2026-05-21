@@ -1574,7 +1574,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         } else if (thumbnailBottomOverlayView.badges.some(badge => badge.text.toLowerCase() === 'upcoming')) {
           isUpcoming = true
 
-          if (lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.[1].text?.text) {
+          if (lockupView.metadata.metadata?.metadata_rows[1]?.metadata_parts?.[1]?.text?.text) {
             premiereDate = new Date(lockupView.metadata.metadata.metadata_rows[1].metadata_parts[1].text.text)
           }
         } else {
@@ -1584,15 +1584,31 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
             lengthSeconds = Utils.timeToSeconds(durationBadge.text)
           }
 
-          publishedText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
+          if (lockupView.metadata.metadata?.metadata_rows != null) {
+            for (const row of lockupView.metadata.metadata.metadata_rows) {
+              const foundText = row.metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
+              if (foundText != null) {
+                publishedText = foundText
+                break
+              }
+            }
+          }
         }
       }
 
       let viewCount = null
-
-      const viewsText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.find(part => {
-        return part.text?.text && VIEWS_OR_WATCHING_REGEX.test(part.text.text)
-      })?.text?.text
+      let viewsText = null
+      if (lockupView.metadata.metadata?.metadata_rows != null) {
+        for (const row of lockupView.metadata.metadata.metadata_rows) {
+          const foundText = row.metadata_parts?.find(part => {
+            return part.text?.text && VIEWS_OR_WATCHING_REGEX.test(part.text.text)
+          })?.text?.text
+          if (foundText != null) {
+            viewsText = foundText
+            break
+          }
+        }
+      }
 
       if (viewsText) {
         const views = parseLocalSubscriberCount(viewsText)
