@@ -1468,6 +1468,8 @@ export function parseLocalListVideo(item, channelId, channelName) {
       isUpcoming: movie.is_upcoming,
       premiereDate: movie.upcoming
     }
+  } else if (item.type === 'LockupView') {
+    return parseLockupView(item, channelId, channelName)
   } else {
     /** @type {import('youtubei.js').YTNodes.Video} */
     const video = item
@@ -1618,12 +1620,14 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         }
       }
 
+      const maybeAuthorText = lockupView.metadata.metadata?.metadata_rows[0].metadata_parts?.[0].text?.text
+
       return {
         type: 'video',
         videoId: lockupView.content_id,
         title: lockupView.metadata.title.text?.trim(),
-        author: lockupView.metadata.metadata?.metadata_rows[0].metadata_parts?.[0].text?.text,
-        authorId: lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.payload.browseId,
+        author: maybeAuthorText !== viewsText ? maybeAuthorText : channelName,
+        authorId: lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.payload.browseId ?? channelId,
         viewCount,
         published: calculatePublishedDate(publishedText, liveNow, isUpcoming, premiereDate),
         lengthSeconds,
