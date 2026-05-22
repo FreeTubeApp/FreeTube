@@ -440,7 +440,7 @@ export default defineComponent({
             return item.type === 'CompactVideo' || item.type === 'CompactMovie' ||
               (item.type === 'LockupView' && item.content_type === 'VIDEO')
           })
-          .map(parseLocalWatchNextVideo)
+          .map(parseLocalWatchNextVideo).filter(_ => _)
           // place watched recommended videos last
           .sort(this.sortWatchedVideosLast) ?? []
 

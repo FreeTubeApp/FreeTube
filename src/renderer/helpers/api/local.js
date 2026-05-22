@@ -343,7 +343,7 @@ export async function getLocalTrending(location, tab) {
   const response = await innertube.actions.execute('/browse', args)
   const feed = new Mixins.Feed(innertube.actions, response)
 
-  return feed.videos.map(video => parseLocalListVideo(video))
+  return feed.videos.map(video => parseLocalListVideo(video)).filter(_ => _)
 }
 
 /**
@@ -1080,7 +1080,10 @@ export function parseLocalChannelVideos(videos, channelId, channelName) {
     if (video.is(YTNodes.Video) && video.badges.some(badge => badge.style === 'BADGE_STYLE_TYPE_MEMBERS_ONLY')) {
       continue
     }
-    parsedVideos.push(parseLocalListVideo(video, channelId, channelName))
+    const parsedVideo = parseLocalListVideo(video, channelId, channelName)
+    if (parsedVideo != null) {
+      parsedVideos.push(parsedVideo)
+    }
   }
 
   return parsedVideos
@@ -1283,7 +1286,7 @@ export function parseChannelHomeTab(homeTab, channelId, channelName) {
         const shelf = section.content
         shelves.push({
           title: shelf.title?.text,
-          content: shelf.contents.map(e => parseListItem(e.content, channelId, channelName)),
+          content: shelf.contents.map(e => parseListItem(e.content, channelId, channelName)).filter(_ => _),
           subtitle: shelf.subtitle?.text,
           playlistId: shelf.endpoint?.metadata.url.includes('/playlist') ? shelf.endpoint?.metadata.url.replace('/playlist?list=', '') : null
         })
@@ -1567,6 +1570,13 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       let liveNow = false
       let isUpcoming = false
       let premiereDate
+
+      const isMemberOnly = lockupView.metadata.metadata?.metadata_rows.some(row => {
+        return row.badges.some(badge => badge.style === 'BADGE_MEMBERS_ONLY')
+      })
+      if (isMemberOnly) {
+        return null
+      }
 
       /** @type {YTNodes.ThumbnailBottomOverlayView | undefined } */
       const thumbnailBottomOverlayView = lockupView.content_image?.overlays?.firstOfType(YTNodes.ThumbnailBottomOverlayView)
