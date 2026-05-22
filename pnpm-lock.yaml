@@ -51,8 +51,8 @@ importers:
         specifier: ^0.11.10
         version: 0.11.10
       shaka-player:
-        specifier: ^5.1.4
-        version: 5.1.4
+        specifier: ^5.1.5
+        version: 5.1.5
       swiper:
         specifier: ^12.1.4
         version: 12.1.4
@@ -4656,8 +4656,8 @@ packages:
   setprototypeof@1.2.0:
     resolution: {integrity: sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==}
 
-  shaka-player@5.1.4:
-    resolution: {integrity: sha512-dy2obag4JViqWKktUxGCapwcjqZW8V2HHGXWleXNJ+nRFxlK31n9EHpqp81LKBxdPx5nW417Rxwvial1FdSaRA==}
+  shaka-player@5.1.5:
+    resolution: {integrity: sha512-wn8Aznf33kU3toXZ99/qssPnXpOrhQ2WkMFkMGqnzbwhUdYOIdO9gpyf/oEr1u8ZwrkEZRUxigvNmCfX6+xrZg==}
     engines: {node: '>=18'}
 
   shallow-clone@3.0.1:
@@ -10321,7 +10321,7 @@ snapshots:
 
   setprototypeof@1.2.0: {}
 
-  shaka-player@5.1.4: {}
+  shaka-player@5.1.5: {}
 
   shallow-clone@3.0.1:
     dependencies:
