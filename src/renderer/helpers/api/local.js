@@ -1353,7 +1353,7 @@ export function parseLocalPlaylistVideo(video) {
 
     let viewCount = null
 
-    const viewsText = video_.video_info.runs?.find(run => VIEWS_OR_WATCHING_REGEX.test(run.text))?.text
+    const viewsText = video_.video_info.runs?.find(run => VIEWS_OR_WATCHING_REGEX.test(run.text) || VIEWS_IN_NUMBER_ONLY.test(run.text))?.text
 
     if (viewsText) {
       const views = parseLocalSubscriberCount(viewsText)
@@ -1520,6 +1520,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
 }
 
 const VIEWS_OR_WATCHING_REGEX = /views?|watching/i
+const VIEWS_IN_NUMBER_ONLY = /^\d+[km]?$/i
 
 /**
  * @param {import('youtubei.js').YTNodes.LockupView} lockupView
@@ -1603,7 +1604,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       if (lockupView.metadata.metadata?.metadata_rows != null) {
         for (const row of lockupView.metadata.metadata.metadata_rows) {
           const foundText = row.metadata_parts?.find(part => {
-            return part.text?.text && VIEWS_OR_WATCHING_REGEX.test(part.text.text)
+            return part.text?.text && (VIEWS_OR_WATCHING_REGEX.test(part.text.text) || VIEWS_IN_NUMBER_ONLY.test(part.text.text))
           })?.text?.text
           if (foundText != null) {
             viewsText = foundText
