@@ -109,8 +109,8 @@ importers:
         specifier: ^8.0.0
         version: 8.0.0(webpack@5.106.2)
       electron:
-        specifier: ^42.1.0
-        version: 42.1.0
+        specifier: ^42.2.0
+        version: 42.2.0
       electron-builder:
         specifier: ^26.8.1
         version: 26.8.1(electron-builder-squirrel-windows@26.8.1)
@@ -1444,8 +1444,8 @@ packages:
   '@types/node@24.12.4':
     resolution: {integrity: sha512-GUUEShf+PBCGW2KaXwcIt3Yk+e3pkKwWKb9GSyM9WQVE+ep2jzmHdGsHzu4wgcZy5fN9FBdVzjpBQsYlpfpgLA==}
 
-  '@types/node@25.8.0':
-    resolution: {integrity: sha512-TCFSk8IZh+iLX1xtksoBVtdmgL+1IX0fC9BeU4QqFSuNdN/K+HUlhqOzEmSYYpZUVsLYcPqc9KX+60iDuninSQ==}
+  '@types/node@25.9.1':
+    resolution: {integrity: sha512-xfrlY7UD5rMJk3ZVJP8BNzS28J36YJg+xp+LPXV1TdWxr8uMH5A860QNxYDGQe/ylDSgjxE52Q9VnO7p75tJxg==}
 
   '@types/plist@3.0.2':
     resolution: {integrity: sha512-ULqvZNGMv0zRFvqn8/4LSPtnmN4MfhlPNtJCTpKuIIxGVGZ2rYWzFXrvEBoh9CVyqSE7D6YFRJ1hydLHI6kbWw==}
@@ -2513,8 +2513,8 @@ packages:
     resolution: {integrity: sha512-bO3y10YikuUwUuDUQRM4KfwNkKhnpVO7IPdbsrejwN9/AABJzzTQ4GeHwyzNSrVO+tEH3/Np255a3sVZpZDjvg==}
     engines: {node: '>=8.0.0'}
 
-  electron@42.1.0:
-    resolution: {integrity: sha512-0szNwC/0dWtkvNce5j3ThiuL0TxBNrZN/BZhdOiGwbLreiD/+u3MGpkct4hA5Ycagb8MXjpEr5/oosi+FwuKRQ==}
+  electron@42.2.0:
+    resolution: {integrity: sha512-b2Tc7sIKiZEl0tBVwFM5GJ+FT5KYhmy9QJHjx8BGVZPVW2SctXWEvrE959ElB56qw7H05dBkhlikDA1DmpaAMw==}
     engines: {node: '>= 22.12.0'}
     hasBin: true
 
@@ -4629,6 +4629,11 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
+  semver@7.8.1:
+    resolution: {integrity: sha512-rkVq3IXh+4FDGch+KwzX3aV9W3kO54GyEgpvBzSyctDA6Xtd7RJQV1xmXbeQp5v7+VzLOfVqiutSE6GICgPFvg==}
+    engines: {node: '>=10'}
+    hasBin: true
+
   send@0.19.2:
     resolution: {integrity: sha512-VMbMxbDeehAxpOtWJXlcUS5E8iXh6QmN+BkRX1GARS3wRaXEEgzCcB10gTQazO42tpNIya8xIyNx8fll1OFPrg==}
     engines: {node: '>= 0.8.0'}
@@ -6173,7 +6178,7 @@ snapshots:
       env-paths: 3.0.0
       graceful-fs: 4.2.11
       progress: 2.0.3
-      semver: 7.8.0
+      semver: 7.8.1
       sumchecker: 3.0.1
     optionalDependencies:
       undici: 7.25.0
@@ -6416,7 +6421,7 @@ snapshots:
 
   '@jest/pattern@30.0.1':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
       jest-regex-util: 30.0.1
 
   '@jest/schemas@30.0.5':
@@ -6429,7 +6434,7 @@ snapshots:
       '@jest/schemas': 30.0.5
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
       '@types/yargs': 17.0.35
       chalk: 4.1.2
 
@@ -6647,7 +6652,7 @@ snapshots:
 
   '@npmcli/fs@4.0.0':
     dependencies:
-      semver: 7.7.4
+      semver: 7.8.1
 
   '@ota-meshi/ast-token-store@0.3.0': {}
 
@@ -6858,27 +6863,27 @@ snapshots:
   '@types/body-parser@1.19.6':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
 
   '@types/bonjour@3.5.13':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
 
   '@types/cacheable-request@6.0.3':
     dependencies:
       '@types/http-cache-semantics': 4.2.0
       '@types/keyv': 3.1.4
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
       '@types/responselike': 1.0.3
 
   '@types/connect-history-api-fallback@1.5.4':
     dependencies:
       '@types/express-serve-static-core': 4.19.8
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
 
   '@types/debug@4.1.7':
     dependencies:
@@ -6902,7 +6907,7 @@ snapshots:
 
   '@types/express-serve-static-core@4.19.8':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
       '@types/qs': 6.15.1
       '@types/range-parser': 1.2.7
       '@types/send': 1.2.1
@@ -6916,7 +6921,7 @@ snapshots:
 
   '@types/fs-extra@9.0.13':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
 
   '@types/html-minifier-terser@6.1.0': {}
 
@@ -6926,7 +6931,7 @@ snapshots:
 
   '@types/http-proxy@1.17.17':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
 
   '@types/istanbul-lib-coverage@2.0.6': {}
 
@@ -6944,7 +6949,7 @@ snapshots:
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
 
   '@types/mime@1.3.5': {}
 
@@ -6954,13 +6959,13 @@ snapshots:
     dependencies:
       undici-types: 7.16.0
 
-  '@types/node@25.8.0':
+  '@types/node@25.9.1':
     dependencies:
       undici-types: 7.24.6
 
   '@types/plist@3.0.2':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
       xmlbuilder: 15.1.1
     optional: true
 
@@ -6970,18 +6975,18 @@ snapshots:
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
 
   '@types/retry@0.12.2': {}
 
   '@types/send@0.17.6':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
 
   '@types/send@1.2.1':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
 
   '@types/serve-index@1.9.4':
     dependencies:
@@ -6990,12 +6995,12 @@ snapshots:
   '@types/serve-static@1.15.10':
     dependencies:
       '@types/http-errors': 2.0.5
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
       '@types/send': 0.17.6
 
   '@types/sockjs@0.3.36':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
 
   '@types/trusted-types@2.0.7':
     optional: true
@@ -7005,7 +7010,7 @@ snapshots:
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
 
   '@types/yargs-parser@21.0.0': {}
 
@@ -7015,7 +7020,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 24.12.4
+      '@types/node': 25.9.1
     optional: true
 
   '@typescript-eslint/types@8.58.0': {}
@@ -8163,7 +8168,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  electron@42.1.0:
+  electron@42.2.0:
     dependencies:
       '@electron/get': 5.0.0
       '@types/node': 24.12.4
@@ -8253,7 +8258,7 @@ snapshots:
   eslint-compat-utils@0.5.1(eslint@10.3.0(jiti@2.4.2)):
     dependencies:
       eslint: 10.3.0(jiti@2.4.2)
-      semver: 7.8.0
+      semver: 7.8.1
 
   eslint-compat-utils@0.6.5(eslint@10.3.0(jiti@2.4.2)):
     dependencies:
@@ -8786,7 +8791,7 @@ snapshots:
       es6-error: 4.1.1
       matcher: 3.0.0
       roarr: 2.15.4
-      semver: 7.7.4
+      semver: 7.8.1
       serialize-error: 7.0.1
     optional: true
 
@@ -9160,7 +9165,7 @@ snapshots:
   jest-util@30.2.0:
     dependencies:
       '@jest/types': 30.2.0
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
       chalk: 4.1.2
       ci-info: 4.4.0
       graceful-fs: 4.2.11
@@ -9168,13 +9173,13 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
   jest-worker@30.2.0:
     dependencies:
-      '@types/node': 25.8.0
+      '@types/node': 25.9.1
       '@ungap/structured-clone': 1.3.0
       jest-util: 30.2.0
       merge-stream: 2.0.0
@@ -9566,7 +9571,7 @@ snapshots:
 
   node-abi@4.14.0:
     dependencies:
-      semver: 7.7.4
+      semver: 7.8.1
 
   node-addon-api@1.7.2:
     optional: true
@@ -9576,7 +9581,7 @@ snapshots:
 
   node-api-version@0.2.1:
     dependencies:
-      semver: 7.7.4
+      semver: 7.8.1
 
   node-gyp@11.4.2:
     dependencies:
@@ -9586,7 +9591,7 @@ snapshots:
       make-fetch-happen: 14.0.3
       nopt: 8.1.0
       proc-log: 5.0.0
-      semver: 7.7.4
+      semver: 7.8.1
       tar: 7.5.11
       tinyglobby: 0.2.16
       which: 5.0.0
@@ -10263,6 +10268,8 @@ snapshots:
   semver@7.7.4: {}
 
   semver@7.8.0: {}
+
+  semver@7.8.1: {}
 
   send@0.19.2:
     dependencies:
