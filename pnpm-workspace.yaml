@@ -7,3 +7,6 @@ allowBuilds:
   electron-winstaller: false # We build NSIS installers on Windows, not squirrel ones
   lefthook: true # Installing git hooks
   unrs-resolver: false # Works around an npm specific optional dependencies bug, so we don't need it with pnpm
+
+overrides:
+  uuid@<11.1.1: '>=11.1.1'
