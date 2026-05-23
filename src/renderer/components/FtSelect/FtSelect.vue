@@ -36,7 +36,9 @@
         class="select-icon"
         :color="iconColor"
       />
-      {{ placeholder }}
+      <span class="select-label-text">
+        {{ placeholder }}
+      </span>
     </label>
     <FtTooltip
       v-if="tooltip !== ''"

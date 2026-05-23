@@ -24,7 +24,7 @@
 .select {
   position: relative;
   inline-size: 200px;
-  margin-block-start: 30px;
+  margin-block-start: 45px;
 }
 
 .select-text {
@@ -90,23 +90,32 @@
   font-weight: normal;
   position: absolute;
   display: flex;
+  align-items: flex-start;
   column-gap: 6px;
   inset-inline-start: 0;
   inset-block-start: 10px;
+  max-inline-size: 100%;
+  line-height: 1.2;
   transition: 0.2s ease all;
   color: var(--tertiary-text-color);
 }
 
 .select-icon {
+  flex: 0 0 auto;
   inline-size: 14px;
   block-size: 14px;
+}
+
+.select-label-text {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
 }
 
 /* active state */
 .select-text:focus ~ .select-label,
 .select-text:valid ~ .select-label {
   color: var(--accent-color);
-  inset-block-start: -20px;
+  inset-block-start: -42px;
   transition: 0.2s ease all;
   font-size: 14px;
 }
