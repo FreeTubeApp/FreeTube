@@ -1,4 +1,4 @@
-import { MINUTE, HOUR, DAY, WEEK, MONTH, YEAR, parseRelativeTime, formatRelativeTime, isHan } from '../relativeTime'
+import { MINUTE, HOUR, DAY, WEEK, MONTH, YEAR, parseRelativeTime, isRelativeTime, formatRelativeTime, isHan } from '../relativeTime'
 
 describe('containsAsianCharacters', () => {
   test('returns true for Japanese text', () => {
@@ -1789,6 +1789,184 @@ describe('parseRelativeTime', () => {
 
     test('returns 0 for unparseable text', () => {
       expect(parseRelativeTime('something random')).toBe(0)
+    })
+  })
+})
+
+describe('isRelativeTime', () => {
+  describe('English', () => {
+    test('returns true for seconds', () => {
+      expect(isRelativeTime('30 seconds ago')).toBe(true)
+    })
+
+    test('returns true for minutes', () => {
+      expect(isRelativeTime('5 minutes ago')).toBe(true)
+    })
+
+    test('returns true for hours', () => {
+      expect(isRelativeTime('2 hours ago')).toBe(true)
+    })
+
+    test('returns true for days', () => {
+      expect(isRelativeTime('9 days ago')).toBe(true)
+    })
+
+    test('returns true for weeks', () => {
+      expect(isRelativeTime('3 weeks ago')).toBe(true)
+    })
+
+    test('returns true for months', () => {
+      expect(isRelativeTime('1 month ago')).toBe(true)
+    })
+
+    test('returns true for years', () => {
+      expect(isRelativeTime('1 year ago')).toBe(true)
+    })
+
+    test('returns true for text without numbers', () => {
+      expect(isRelativeTime('a day ago')).toBe(true)
+    })
+  })
+
+  describe('German', () => {
+    test('returns true for seconds', () => {
+      expect(isRelativeTime('vor 30 Sekunden')).toBe(true)
+    })
+
+    test('returns true for minutes', () => {
+      expect(isRelativeTime('vor 5 Minuten')).toBe(true)
+    })
+
+    test('returns true for hours', () => {
+      expect(isRelativeTime('vor 2 Stunden')).toBe(true)
+    })
+
+    test('returns true for days', () => {
+      expect(isRelativeTime('vor 9 Tagen')).toBe(true)
+    })
+  })
+
+  describe('French', () => {
+    test('returns true for hours', () => {
+      expect(isRelativeTime('il y a 2 heures')).toBe(true)
+    })
+
+    test('returns true for days', () => {
+      expect(isRelativeTime('il y a 9 jours')).toBe(true)
+    })
+  })
+
+  describe('Spanish', () => {
+    test('returns true for hours', () => {
+      expect(isRelativeTime('hace 2 horas')).toBe(true)
+    })
+
+    test('returns true for days', () => {
+      expect(isRelativeTime('hace 9 días')).toBe(true)
+    })
+  })
+
+  describe('Japanese', () => {
+    test('returns true for seconds', () => {
+      expect(isRelativeTime('30秒前')).toBe(true)
+    })
+
+    test('returns true for minutes', () => {
+      expect(isRelativeTime('5分前')).toBe(true)
+    })
+
+    test('returns true for hours', () => {
+      expect(isRelativeTime('2時間前')).toBe(true)
+    })
+
+    test('returns true for days', () => {
+      expect(isRelativeTime('3日前')).toBe(true)
+    })
+
+    test('returns true for weeks', () => {
+      expect(isRelativeTime('3週間前')).toBe(true)
+    })
+
+    test('returns true for months', () => {
+      expect(isRelativeTime('８か月')).toBe(true)
+    })
+
+    test('returns true for years', () => {
+      expect(isRelativeTime('１年前')).toBe(true)
+    })
+  })
+
+  describe('Chinese', () => {
+    test('returns true for seconds', () => {
+      expect(isRelativeTime('30秒前')).toBe(true)
+    })
+
+    test('returns true for minutes', () => {
+      expect(isRelativeTime('5分钟前')).toBe(true)
+    })
+
+    test('returns true for hours', () => {
+      expect(isRelativeTime('2小时前')).toBe(true)
+    })
+
+    test('returns true for days', () => {
+      expect(isRelativeTime('3天前')).toBe(true)
+    })
+
+    test('returns true for weeks', () => {
+      expect(isRelativeTime('3周前')).toBe(true)
+    })
+
+    test('returns true for months', () => {
+      expect(isRelativeTime('8个月前')).toBe(true)
+    })
+
+    test('returns true for years', () => {
+      expect(isRelativeTime('1年前')).toBe(true)
+    })
+  })
+
+  describe('non-relative time strings', () => {
+    test('returns false for plain text', () => {
+      expect(isRelativeTime('something random')).toBe(false)
+    })
+
+    test('returns false for regular date', () => {
+      expect(isRelativeTime('January 15, 2024')).toBe(false)
+    })
+
+    test('returns false for ISO date string', () => {
+      expect(isRelativeTime('2024-01-15')).toBe(false)
+    })
+
+    test('returns false for text with numbers but no time keywords', () => {
+      expect(isRelativeTime('I have 5 apples')).toBe(false)
+    })
+
+    test('returns false for random CJK text', () => {
+      expect(isRelativeTime('これはテストです')).toBe(false)
+    })
+  })
+
+  describe('edge cases', () => {
+    test('returns false for null', () => {
+      expect(isRelativeTime(null)).toBe(false)
+    })
+
+    test('returns false for empty string', () => {
+      expect(isRelativeTime('')).toBe(false)
+    })
+
+    test('returns false for undefined', () => {
+      expect(isRelativeTime(undefined)).toBe(false)
+    })
+
+    test('returns false for whitespace only', () => {
+      expect(isRelativeTime('   ')).toBe(false)
+    })
+
+    test('returns true for text with extra whitespace', () => {
+      expect(isRelativeTime('2  hours  ago')).toBe(true)
     })
   })
 })

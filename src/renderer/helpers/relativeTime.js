@@ -847,7 +847,7 @@ function getTrie() {
  * CJK time unit keywords
  * Array of [keyword, multiplier] sorted by length (longest first)
  */
-const CJK_KEYWORDS = [
+const HAN_KEYWORDS = [
   // Japanese (longer patterns first)
   ['週間', WEEK],
   ['か月', MONTH],
@@ -869,6 +869,9 @@ const CJK_KEYWORDS = [
   ['週', WEEK],
   ['年', YEAR]
 ]
+
+// Simplified array to make isRelativeTime more performant
+const HAN_PARTS = ['秒', '分', '時', '时', '天', '日', '周', '週', '月', '年']
 
 /**
  * Check if text contains Chinese/Japanese characters
@@ -910,9 +913,9 @@ export function parseRelativeTime(text) {
   // Fixes cases such as 'A year ago'
   num = num === null ? 1 : num
 
-  // Handle CJK with contains-based matching (longest match wins)
+  // Handle Hanzi/Kanji with contains-based matching (longest match wins)
   if (isHan(text)) {
-    for (const [keyword, multiplier] of CJK_KEYWORDS) {
+    for (const [keyword, multiplier] of HAN_KEYWORDS) {
       if (text.includes(keyword)) {
         return num * multiplier
       }
@@ -933,6 +936,37 @@ export function parseRelativeTime(text) {
   }
 
   return 0
+}
+
+export function isRelativeTime(text) {
+  if (!text || text.length === 0) {
+    return false
+  }
+
+  // Handle hanzi/kanji with contains-based matching
+  if (isHan(text)) {
+    for (const keyword of HAN_PARTS) {
+      if (text.includes(keyword)) {
+        return true
+      }
+    }
+    return false
+  }
+
+  // Split into words for trie-based keyword matching
+  const words = text.toLowerCase().split(/[\d\s]+/).filter(w => w.length > 0)
+
+  const trie = getTrie()
+
+  // Try to match from each position in the word array
+  for (let i = 0; i < words.length; i++) {
+    const result = trie.lookup(words.slice(i))
+    if (result) {
+      return true
+    }
+  }
+
+  return false
 }
 
 /**

@@ -2,6 +2,7 @@ import { ClientType, Constants, Innertube, Misc, Mixins, Parser, Platform, Unive
 import Autolinker from 'autolinker'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 import store from '../../store/index'
+import { isRelativeTime } from '../relativeTime'
 
 import { PlayerCache } from './PlayerCache'
 import {
@@ -1596,18 +1597,12 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
           }
 
           if (lockupView.metadata.metadata?.metadata_rows != null) {
-            // It seems like the publishedText value is always the second array object. On the other hand, the first one is the view count.
-            // Keeping the for-loop lookup so that the experimental multilingual feature doesn't break anything when not enabled.
-            const foundText = lockupView.metadata.metadata?.metadata_rows[1]?.metadata_parts?.[1]?.text?.text
-            if (store.state.settings.experimentalMultilingualText && foundText) {
-              publishedText = lockupView.metadata.metadata.metadata_rows[1].metadata_parts[1].text.text
-            } else {
-              for (const row of lockupView.metadata.metadata.metadata_rows) {
-                const foundText = row.metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
-                if (foundText != null) {
-                  publishedText = foundText
-                  break
-                }
+            const isRelativeTimeFunc = store.state.settings.experimentalMultilingualText ? (part) => isRelativeTime(part.text?.text) : (part) => part.text?.text?.endsWith('ago')
+            for (const row of lockupView.metadata.metadata.metadata_rows) {
+              const foundText = row.metadata_parts?.find(isRelativeTimeFunc)?.text?.text
+              if (foundText != null) {
+                publishedText = foundText
+                break
               }
             }
           }
