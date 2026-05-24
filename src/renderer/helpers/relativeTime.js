@@ -877,7 +877,8 @@ export function containsAsianCharacters(text) {
 }
 
 /**
- * Extract a number from text
+ * Extract a number from text.
+ * @returns {text} as number or null if parsing fails
  */
 function extractNumber(text) {
   // Convert full-width digits to ASCII digits
@@ -888,7 +889,7 @@ function extractNumber(text) {
   })
 
   const match = normalizedText.match(/\d+/)
-  return match ? parseInt(match[0], 10) : 0
+  return match ? parseInt(match[0], 10) : null
 }
 
 /**
@@ -904,7 +905,9 @@ export function parseRelativeTime(text) {
   }
 
   let num = extractNumber(text)
-  num = num === 0 ? 1 : num
+  // falback to 1
+  // Fixes cases such as 'A year ago'
+  num = num === null ? 1 : num
 
   // Handle CJK with contains-based matching (longest match wins)
   if (containsAsianCharacters(text)) {
