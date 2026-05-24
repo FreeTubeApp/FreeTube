@@ -831,6 +831,15 @@ function getTrie() {
   word('مہینہ', MONTH)
   word('سال', YEAR)
 
+  // Korean
+  word('초', SECOND)
+  word('분', MINUTE)
+  word('일', DAY)
+  word('시간', HOUR)
+  word('개월', MONTH)
+  word('주', WEEK)
+  word('년', YEAR)
+
   return TRIE
 }
 
@@ -851,9 +860,6 @@ const CJK_KEYWORDS = [
   ['小時', HOUR],
   ['个月', MONTH],
   ['個月', MONTH],
-  // Korean
-  ['시간', HOUR],
-  ['개월', MONTH],
   // Single chars (shorter, checked last)
   ['秒', SECOND],
   ['分', MINUTE],
@@ -861,12 +867,7 @@ const CJK_KEYWORDS = [
   ['日', DAY],
   ['周', WEEK],
   ['週', WEEK],
-  ['年', YEAR],
-  ['초', SECOND],
-  ['분', MINUTE], // Korean minutes
-  ['일', DAY],
-  ['주', WEEK],
-  ['년', YEAR],
+  ['年', YEAR]
 ]
 
 /**
