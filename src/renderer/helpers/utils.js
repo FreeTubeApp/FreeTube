@@ -2,6 +2,8 @@ import { nextTick } from 'vue'
 import i18n from '../i18n/index'
 import router from '../router/index'
 import { UnsupportedPlayerActions } from '../../constants'
+import { parseRelativeTime, formatRelativeTime } from './relativeTime'
+import store from '../store'
 
 // allowed characters in channel handle: A-Z, a-z, 0-9, -, _, .
 // https://support.google.com/youtube/answer/11585688#change_handle
@@ -71,6 +73,11 @@ export function calculatePublishedDate(publishedText, isLive = false, isUpcoming
   if (!publishedText) {
     console.error("publishedText is missing but the video isn't live or upcoming")
     return undefined
+  }
+
+  if (store.state.settings.experimentalMultilingualText) {
+    // Use experimental parser for multilingual relative time
+    return now - (parseRelativeTime(publishedText) * 1000)
   }
 
   const match = publishedText.match(PUBLISHED_TEXT_REGEX)

@@ -15,6 +15,13 @@
         :tooltip="$t('Tooltips.Experimental Settings.Replace HTTP Cache')"
         @change="handleRestartPrompt"
       />
+      <FtToggleSwitch
+        :label="$t('Settings.Experimental Settings.Experimental Multilingual Text Parsing')"
+        compact
+        :default-value="experimentalMultilingualText"
+        :tooltip="$t('Tooltips.Experimental Settings.Experimental Multilingual Text Parsing')"
+        @change="updateExperimentalMultilingualText"
+      />
     </FtFlexBox>
     <FtPrompt
       v-if="showRestartPrompt"
@@ -27,16 +34,34 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, computed } from 'vue'
 
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 
+// Access Vuex store
+import { useStore } from 'vuex'
+
 const replaceHttpCacheLoading = ref(true)
 const replaceHttpCache = ref(false)
 const showRestartPrompt = ref(false)
+const store = useStore()
+
+// Computed property for experimentalMultilingualText
+const experimentalMultilingualText = computed({
+  get: () => store.state.settings.experimentalMultilingualText,
+  set: (value) => store.dispatch('updateExperimentalMultilingualText', value)
+})
+
+/**
+ * Handler for experimentalMultilingualText toggle
+ * @param {boolean} value
+ */
+function updateExperimentalMultilingualText(value) {
+  store.dispatch('updateExperimentalMultilingualText', value)
+}
 
 onMounted(async () => {
   if (process.env.IS_ELECTRON) {

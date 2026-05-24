@@ -676,6 +676,7 @@ Settings:
     Experimental Settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
     Replace HTTP Cache: Replace HTTP Cache
+    Experimental Multilingual Text Parsing: Experimental Multilingual Text Parsing
   Password Dialog:
     Password: Password
     Enter Password To Unlock: Enter password to unlock settings
@@ -1088,6 +1089,7 @@ Tooltips:
       your subscription feed on startup and when a new window is opened.
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
+    Experimental Multilingual Text Parsing: Enables multilingual parsing of text for relative time. Makes it possible to retrieve video titles in whatever language you prefer.
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
     UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow.

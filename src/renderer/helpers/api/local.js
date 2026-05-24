@@ -1,6 +1,7 @@
 import { ClientType, Constants, Innertube, Misc, Mixins, Parser, Platform, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
+import store from '../../store/index'
 
 import { PlayerCache } from './PlayerCache'
 import {
@@ -11,6 +12,7 @@ import {
   getChannelPlaylistId,
   getRelativeTimeFromDate,
 } from '../utils'
+import { parseRelativeTime } from '../relativeTime'
 
 const TRACKING_PARAM_NAMES = [
   'utm_source',
@@ -1585,11 +1587,18 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
           }
 
           if (lockupView.metadata.metadata?.metadata_rows != null) {
-            for (const row of lockupView.metadata.metadata.metadata_rows) {
-              const foundText = row.metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
-              if (foundText != null) {
-                publishedText = foundText
-                break
+            // It seems like the publishedText value is always the second array object. On the other hand, the first one is the view count.
+            // Keeping the for-loop lookup so that the experimental multilingual feature doesn't break anything when not enabled.
+            const foundText = lockupView.metadata.metadata?.metadata_rows[1]?.metadata_parts?.[1]?.text?.text
+            if (store.state.settings.experimentalMultilingualText && foundText) {
+              publishedText = formatRelativeTime(parseRelativeTime(lockupView.metadata.metadata.metadata_rows[1].metadata_parts[1].text.text))
+            } else {
+              for (const row of lockupView.metadata.metadata.metadata_rows) {
+                const foundText = row.metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
+                if (foundText != null) {
+                  publishedText = foundText
+                  break
+                }
               }
             }
           }
