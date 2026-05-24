@@ -75,6 +75,11 @@ export function calculatePublishedDate(publishedText, isLive = false, isUpcoming
 
   const match = publishedText.match(PUBLISHED_TEXT_REGEX)
 
+  if (!match) {
+    console.error('publishedText did not match the expected format', publishedText)
+    return undefined
+  }
+
   const timeFrame = match[2]
   const timeAmount = parseInt(match[1])
   let timeSpan = null

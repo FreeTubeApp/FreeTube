@@ -735,8 +735,14 @@ export async function getLocalChannelVideos(id) {
 
     // if the channel doesn't have a videos tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
-    if (videosTab.current_tab?.endpoint.metadata.url?.endsWith('/videos')) {
-      videos = parseLocalChannelVideos(videosTab.videos, channelId, name)
+    // YouTube may append query params (e.g. ?view=0&sort=dd&flow=grid) so use includes instead of endsWith
+    if (videosTab.current_tab?.endpoint.metadata.url?.includes('/videos')) {
+      // YouTube's new channel page returns videos as LockupView nodes (lockupVideoRenderer),
+      // but Feed.getVideosFromMemo (used by videosTab.videos) does not include LockupView
+      // in its type search, so those items are invisible to .videos and the array comes back empty.
+      // Pull LockupView items directly from the memo and merge them in.
+      const lockupViewItems = videosTab.memo.getType(YTNodes.LockupView)
+      videos = parseLocalChannelVideos([...videosTab.videos, ...lockupViewItems], channelId, name)
     } else if (name.endsWith('- Topic') && !!videosTab.metadata.music_artist_name) {
       try {
         const playlist = await innertube.getPlaylist(getChannelPlaylistId(channelId, 'videos', 'newest'))
@@ -792,14 +798,16 @@ export async function getLocalChannelLiveStreams(id) {
 
     // if the channel doesn't have a live tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
-    if (liveStreamsTab.current_tab?.endpoint.metadata.url?.endsWith('/streams')) {
+    // YouTube may append query params so use includes instead of endsWith
+    if (liveStreamsTab.current_tab?.endpoint.metadata.url?.includes('/streams')) {
       // work around YouTube bug where it will return a bunch of responses with only continuations in them
       // e.g. https://www.youtube.com/@TWLIVES/streams
 
-      let tempVideos = liveStreamsTab.videos
+      // Also merge LockupView items from memo (same issue as videos tab — see getLocalChannelVideos)
+      let tempVideos = [...liveStreamsTab.videos, ...liveStreamsTab.memo.getType(YTNodes.LockupView)]
       while (tempVideos.length === 0 && liveStreamsTab.has_continuation) {
         liveStreamsTab = await liveStreamsTab.getContinuation()
-        tempVideos = liveStreamsTab.videos
+        tempVideos = [...liveStreamsTab.videos, ...liveStreamsTab.memo.getType(YTNodes.LockupView)]
       }
 
       videos = parseLocalChannelVideos(tempVideos, channelId, name)
@@ -837,7 +845,8 @@ export async function getLocalChannelCommunity(id) {
 
     // if the channel doesn't have a community tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
-    if (communityTab.current_tab?.endpoint.metadata.url?.endsWith('/posts')) {
+    // YouTube may append query params so use includes instead of endsWith
+    if (communityTab.current_tab?.endpoint.metadata.url?.includes('/posts')) {
       return parseLocalCommunityPosts(communityTab.posts)
     } else {
       return []
@@ -1080,7 +1089,18 @@ export function parseLocalChannelVideos(videos, channelId, channelName) {
     if (video.is(YTNodes.Video) && video.badges.some(badge => badge.style === 'BADGE_STYLE_TYPE_MEMBERS_ONLY')) {
       continue
     }
-    parsedVideos.push(parseLocalListVideo(video, channelId, channelName))
+
+    // YouTube's new channel page design returns LockupView items instead of Video/GridVideo
+    let parsed
+    if (video.type === 'LockupView') {
+      parsed = parseLockupView(video, channelId, channelName)
+    } else {
+      parsed = parseLocalListVideo(video, channelId, channelName)
+    }
+
+    if (parsed != null) {
+      parsedVideos.push(parsed)
+    }
   }
 
   return parsedVideos
@@ -1586,7 +1606,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
 
           if (lockupView.metadata.metadata?.metadata_rows != null) {
             for (const row of lockupView.metadata.metadata.metadata_rows) {
-              const foundText = row.metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
+              const foundText = row.metadata_parts?.find(part => part.text?.text?.includes('ago'))?.text?.text
               if (foundText != null) {
                 publishedText = foundText
                 break
