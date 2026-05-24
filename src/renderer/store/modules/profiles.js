@@ -162,7 +162,7 @@ const actions = {
     }
   },
 
-  async updateSubscriptionDetails({ dispatch, state }, { channelThumbnailUrl, channelName, channelId }) {
+  async updateSubscriptionDetails({ dispatch, state }, { channelThumbnailUrl, channelName, channelId, preferredLanguage }) {
     const thumbnail = channelThumbnailUrl
       // change thumbnail size if different
       ?.replace(/=s\d*/, '=s176')
@@ -195,6 +195,14 @@ const actions = {
         }
 
         currentProfileCopy.subscriptions[index].thumbnail = thumbnail
+      }
+
+      if (preferredLanguage !== undefined && profile.subscriptions[index].preferredLanguage !== preferredLanguage) {
+        if (currentProfileCopy === undefined) {
+          currentProfileCopy = deepCopy(profile)
+        }
+
+        currentProfileCopy.subscriptions[index].preferredLanguage = preferredLanguage
       }
 
       if (currentProfileCopy !== undefined) {

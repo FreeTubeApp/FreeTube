@@ -2,7 +2,7 @@ import { nextTick } from 'vue'
 import i18n from '../i18n/index'
 import router from '../router/index'
 import { UnsupportedPlayerActions } from '../../constants'
-import { parseRelativeTime, formatRelativeTime } from './relativeTime'
+import { parseRelativeTime } from './relativeTime'
 import store from '../store'
 
 // allowed characters in channel handle: A-Z, a-z, 0-9, -, _, .

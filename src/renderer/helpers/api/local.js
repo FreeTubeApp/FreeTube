@@ -12,7 +12,6 @@ import {
   getChannelPlaylistId,
   getRelativeTimeFromDate,
 } from '../utils'
-import { parseRelativeTime } from '../relativeTime'
 
 const TRACKING_PARAM_NAMES = [
   'utm_source',
@@ -1591,7 +1590,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
             // Keeping the for-loop lookup so that the experimental multilingual feature doesn't break anything when not enabled.
             const foundText = lockupView.metadata.metadata?.metadata_rows[1]?.metadata_parts?.[1]?.text?.text
             if (store.state.settings.experimentalMultilingualText && foundText) {
-              publishedText = formatRelativeTime(parseRelativeTime(lockupView.metadata.metadata.metadata_rows[1].metadata_parts[1].text.text))
+              publishedText = lockupView.metadata.metadata.metadata_rows[1].metadata_parts[1].text.text
             } else {
               for (const row of lockupView.metadata.metadata.metadata_rows) {
                 const foundText = row.metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text

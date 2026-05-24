@@ -230,7 +230,8 @@ function handleSubscription(profile) {
       channel: {
         id: props.channelId,
         name: props.channelName,
-        thumbnail: props.channelThumbnail
+        thumbnail: props.channelThumbnail,
+        preferredLanguage: null // This has to be set after the fact from channel view
       },
       profileIds
     })

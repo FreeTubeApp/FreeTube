@@ -79,6 +79,15 @@
           :icon="getIconForSortPreference(playlistSortBy)"
           @change="playlistSortBy = $event"
         />
+        <FtSelect
+          v-if="isSubscribed"
+          :value="channelPreferredLanguage"
+          :select-names="languageSelectNames"
+          :select-values="LANGUAGE_SELECT_VALUES"
+          :placeholder="$t('Channel.Preferred Language')"
+          :icon="['fas', 'language']"
+          @change="updateChannelPreferredLanguage"
+        />
       </div>
       <FtLoader
         v-if="isCurrentTabLoading"
@@ -322,6 +331,7 @@ import {
   parseLocalPlaylistVideo,
   parseChannelHomeTab
 } from '../../helpers/api/local'
+import allLocales from '../../../../static/locales/activeLocales.json'
 
 const { t } = useI18n()
 const route = useRoute()
@@ -415,6 +425,8 @@ const channelTabs = shallowRef([
   'about'
 ])
 
+const LANGUAGE_SELECT_VALUES = ['default', ...allLocales]
+
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
 const backendPreference = computed(() => store.getters.getBackendPreference)
 
@@ -443,6 +455,26 @@ const isSubscribed = computed(() => subscriptionInfo.value !== null)
 const isSubscribedInAnyProfile = computed(() => {
   return store.getters.getSubscribedChannelIdSet.has(id.value)
 })
+
+const languageSelectNames = computed(() => [
+  t('Channel.Use Default Language'),
+  ...process.env.LOCALE_NAMES
+])
+
+const channelPreferredLanguage = computed(() => {
+  return subscriptionInfo.value?.preferredLanguage ?? 'default'
+})
+
+function updateChannelPreferredLanguage(newLanguage) {
+  const languageValue = newLanguage === 'default' ? null : newLanguage
+
+  store.dispatch('updateSubscriptionDetails', {
+    channelId: id.value,
+    preferredLanguage: languageValue
+  })
+
+  showToast(t('Channel.Channel language preference updated'))
+}
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideChannelHome = computed(() => store.getters.getHideChannelHome)
