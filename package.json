@@ -47,7 +47,10 @@
     "pack:web": "webpack --mode=production --config-node-env=production --config _scripts/webpack.web.config.js",
     "pack:botGuardScript": "webpack --config _scripts/webpack.botGuardScript.config.js",
     "checkforbadtemplates": "node _scripts/findMissingTemplates.mjs",
-    "ci": "pnpm install --frozen-lockfile"
+    "ci": "pnpm install --frozen-lockfile",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.2.0",
@@ -116,6 +119,7 @@
     "vue-loader": "^17.4.2",
     "webpack": "^5.107.1",
     "webpack-cli": "^7.0.2",
-    "webpack-dev-server": "^5.2.4"
+    "webpack-dev-server": "^5.2.4",
+    "jest": "^30.4.2"
   }
 }
