@@ -71,13 +71,22 @@ if (process.env.SUPPORTS_LOCAL_API) {
  * @param {object} options
  * @param {boolean} options.withPlayer set to true to get an Innertube instance that can decode the streaming URLs
  * @param {string|undefined} options.location the geolocation to pass to YouTube get different content
+ * @param {string|undefined} options.language the language to pass to YouTube for localized content
  * @param {boolean} options.safetyMode whether to hide mature content
  * @param {import('youtubei.js').ClientType} options.clientType use an alterate client
  * @param {boolean} options.generateSessionLocally generate the session locally or let YouTube generate it (local is faster, remote is more accurate)
  * @param {?import('youtubei.js').FetchFunction} options.fetchFunc optional custom fetch function
  * @returns the Innertube instance
  */
-async function createInnertube({ withPlayer = false, location = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true, fetchFunc = null } = {}) {
+async function createInnertube({
+  withPlayer = false,
+  location = undefined,
+  language = undefined,
+  safetyMode = false,
+  clientType = undefined,
+  generateSessionLocally = true,
+  fetchFunc = null,
+} = {}) {
   let cache
   if (withPlayer) {
     if (process.env.IS_ELECTRON) {
@@ -96,6 +105,7 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
 
     retrieve_player: !!withPlayer,
     location: location,
+    lang: language,
     enable_safety_mode: !!safetyMode,
     client_type: clientType,
 
@@ -128,8 +138,8 @@ export function clearLocalSearchSuggestionsSession() {
   searchSuggestionsSession = null
 }
 
-export async function getLocalPlaylist(id) {
-  const innertube = await createInnertube()
+export async function getLocalPlaylist(id, language = undefined) {
+  const innertube = await createInnertube({ language })
   return await innertube.getPlaylist(id)
 }
 
@@ -698,8 +708,8 @@ export async function getLocalChannelId(url, doLogError = false) {
  * Returns the channel or the channel termination reason
  * @param {string} id
  */
-export async function getLocalChannel(id) {
-  const innertube = await createInnertube()
+export async function getLocalChannel(id, language = undefined) {
+  const innertube = await createInnertube({ language })
   let result
   try {
     result = await innertube.getChannel(id)
@@ -718,8 +728,8 @@ export async function getLocalChannel(id) {
 /**
  * @param {string} id
  */
-export async function getLocalChannelVideos(id) {
-  const innertube = await createInnertube()
+export async function getLocalChannelVideos(id, language = undefined) {
+  const innertube = await createInnertube({ language })
 
   try {
     const response = await innertube.actions.execute('/browse', {
@@ -823,8 +833,8 @@ export async function getLocalChannelLiveStreams(id) {
   }
 }
 
-export async function getLocalChannelCommunity(id) {
-  const innertube = await createInnertube()
+export async function getLocalChannelCommunity(id, language = undefined) {
+  const innertube = await createInnertube({ language })
 
   try {
     const response = await innertube.actions.execute('/browse', {

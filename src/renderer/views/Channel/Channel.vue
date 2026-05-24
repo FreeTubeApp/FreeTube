@@ -425,7 +425,7 @@ const channelTabs = shallowRef([
   'about'
 ])
 
-const LANGUAGE_SELECT_VALUES = ['default', ...allLocales]
+const LANGUAGE_SELECT_VALUES = allLocales
 
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
 const backendPreference = computed(() => store.getters.getBackendPreference)
@@ -456,21 +456,18 @@ const isSubscribedInAnyProfile = computed(() => {
   return store.getters.getSubscribedChannelIdSet.has(id.value)
 })
 
-const languageSelectNames = computed(() => [
-  t('Channel.Use Default Language'),
-  ...process.env.LOCALE_NAMES
-])
+const languageSelectNames = computed(() =>
+  process.env.LOCALE_NAMES
+)
 
 const channelPreferredLanguage = computed(() => {
-  return subscriptionInfo.value?.preferredLanguage ?? 'default'
+  return subscriptionInfo.value?.preferredLanguage ?? 'en'
 })
 
 function updateChannelPreferredLanguage(newLanguage) {
-  const languageValue = newLanguage === 'default' ? null : newLanguage
-
   store.dispatch('updateSubscriptionDetails', {
     channelId: id.value,
-    preferredLanguage: languageValue
+    preferredLanguage: newLanguage
   })
 
   showToast(t('Channel.Channel language preference updated'))
@@ -684,7 +681,7 @@ function currentOrFirstTab(currentTab) {
 
 async function ensureChannelInstance() {
   if (!channelInstance) {
-    channelInstance = await getLocalChannel(id.value)
+    channelInstance = await getLocalChannel(id.value, channelPreferredLanguage.value)
   }
 }
 
