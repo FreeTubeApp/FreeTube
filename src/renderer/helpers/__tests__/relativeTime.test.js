@@ -1,28 +1,28 @@
-import { MINUTE, HOUR, DAY, WEEK, MONTH, YEAR, parseRelativeTime, formatRelativeTime, containsAsianCharacters } from '../relativeTime'
+import { MINUTE, HOUR, DAY, WEEK, MONTH, YEAR, parseRelativeTime, formatRelativeTime, isHan } from '../relativeTime'
 
 describe('containsAsianCharacters', () => {
   test('returns true for Japanese text', () => {
-    expect(containsAsianCharacters('3週間前')).toBe(true)
+    expect(isHan('3週間前')).toBe(true)
   })
 
   test('returns true for Japanese text with spacing', () => {
-    expect(containsAsianCharacters('3 週間前')).toBe(true)
+    expect(isHan('3 週間前')).toBe(true)
   })
 
   test('returns true for Chinese text', () => {
-    expect(containsAsianCharacters('3天前')).toBe(true)
+    expect(isHan('3天前')).toBe(true)
   })
 
   test('returns true for Korean text', () => {
-    expect(containsAsianCharacters('3주 전')).toBe(true)
+    expect(isHan('3주 전')).toBe(true)
   })
 
   test('returns false for English text', () => {
-    expect(containsAsianCharacters('3 days ago')).toBe(false)
+    expect(isHan('3 days ago')).toBe(false)
   })
 
   test('returns false for German text', () => {
-    expect(containsAsianCharacters('vor 3 Tagen')).toBe(false)
+    expect(isHan('vor 3 Tagen')).toBe(false)
   })
 })
 

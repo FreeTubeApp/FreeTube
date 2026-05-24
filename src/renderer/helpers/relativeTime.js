@@ -871,9 +871,9 @@ const CJK_KEYWORDS = [
 ]
 
 /**
- * Check if text contains Asian characters (CJK, Korean, Thai, etc.)
+ * Check if text contains Chinese/Japanese characters
  */
-export function containsAsianCharacters(text) {
+export function isHan(text) {
   return /[\u0E00-\u0E7F\u1100-\u11FF\u3040-\u30FF\u3400-\u4DBF\u4E00-\u9FFF\uAC00-\uD7AF\uF900-\uFAFF]/.test(text)
 }
 
@@ -911,7 +911,7 @@ export function parseRelativeTime(text) {
   num = num === null ? 1 : num
 
   // Handle CJK with contains-based matching (longest match wins)
-  if (containsAsianCharacters(text)) {
+  if (isHan(text)) {
     for (const [keyword, multiplier] of CJK_KEYWORDS) {
       if (text.includes(keyword)) {
         return num * multiplier
