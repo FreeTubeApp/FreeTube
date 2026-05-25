@@ -736,7 +736,16 @@ export async function getLocalChannelVideos(id) {
     // if the channel doesn't have a videos tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
     if (videosTab.current_tab?.endpoint.metadata.url?.endsWith('/videos')) {
-      videos = parseLocalChannelVideos(videosTab.videos, channelId, name)
+      let videoItems = videosTab.videos
+
+      // YouTube has started returning LockupView nodes instead of Video nodes
+      // for channel videos tabs. videosTab.videos only includes Video nodes,
+      // so we need to also check for LockupView nodes when the list is empty.
+      if (videoItems.length === 0) {
+        videoItems = extractLockupVideos(videosTab)
+      }
+
+      videos = parseLocalChannelVideos(videoItems, channelId, name)
     } else if (name.endsWith('- Topic') && !!videosTab.metadata.music_artist_name) {
       try {
         const playlist = await innertube.getPlaylist(getChannelPlaylistId(channelId, 'videos', 'newest'))
@@ -797,9 +806,19 @@ export async function getLocalChannelLiveStreams(id) {
       // e.g. https://www.youtube.com/@TWLIVES/streams
 
       let tempVideos = liveStreamsTab.videos
+
+      // YouTube has started returning LockupView nodes instead of Video nodes
+      if (tempVideos.length === 0) {
+        tempVideos = extractLockupVideos(liveStreamsTab)
+      }
+
       while (tempVideos.length === 0 && liveStreamsTab.has_continuation) {
         liveStreamsTab = await liveStreamsTab.getContinuation()
         tempVideos = liveStreamsTab.videos
+
+        if (tempVideos.length === 0) {
+          tempVideos = extractLockupVideos(liveStreamsTab)
+        }
       }
 
       videos = parseLocalChannelVideos(tempVideos, channelId, name)
@@ -1068,7 +1087,18 @@ export function parseLocalChannelHeader(channel, onlyIdNameThumbnail = false) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.Video[]} videos
+ * Extracts LockupView nodes with VIDEO content type from a channel tab's memo.
+ * YouTube has started returning LockupView instead of Video nodes for channel tabs.
+ * @param {YT.Channel} channelTab
+ * @returns {import('youtubei.js').YTNodes.LockupView[]}
+ */
+function extractLockupVideos(channelTab) {
+  const lockups = channelTab.memo.get('LockupView') || []
+  return lockups.filter(lockup => lockup.content_type === 'VIDEO')
+}
+
+/**
+ * @param {(import('youtubei.js').YTNodes.Video | import('youtubei.js').YTNodes.LockupView)[]} videos
  * @param {string} channelId
  * @param {string} channelName
  */
@@ -1076,11 +1106,18 @@ export function parseLocalChannelVideos(videos, channelId, channelName) {
   const parsedVideos = []
 
   for (const video of videos) {
-    // `BADGE_STYLE_TYPE_MEMBERS_ONLY` used for both `members only` and `members first` videos
-    if (video.is(YTNodes.Video) && video.badges.some(badge => badge.style === 'BADGE_STYLE_TYPE_MEMBERS_ONLY')) {
-      continue
+    if (video.is(YTNodes.LockupView)) {
+      const parsed = parseLockupView(video, channelId, channelName)
+      if (parsed) {
+        parsedVideos.push(parsed)
+      }
+    } else {
+      // `BADGE_STYLE_TYPE_MEMBERS_ONLY` used for both `members only` and `members first` videos
+      if (video.is(YTNodes.Video) && video.badges.some(badge => badge.style === 'BADGE_STYLE_TYPE_MEMBERS_ONLY')) {
+        continue
+      }
+      parsedVideos.push(parseLocalListVideo(video, channelId, channelName))
     }
-    parsedVideos.push(parseLocalListVideo(video, channelId, channelName))
   }
 
   return parsedVideos
@@ -1622,8 +1659,8 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         type: 'video',
         videoId: lockupView.content_id,
         title: lockupView.metadata.title.text?.trim(),
-        author: lockupView.metadata.metadata?.metadata_rows[0].metadata_parts?.[0].text?.text,
-        authorId: lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.payload.browseId,
+        author: lockupView.metadata.metadata?.metadata_rows[0].metadata_parts?.[0].text?.text ?? channelName,
+        authorId: lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.payload.browseId ?? channelId,
         viewCount,
         published: calculatePublishedDate(publishedText, liveNow, isUpcoming, premiereDate),
         lengthSeconds,
