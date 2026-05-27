@@ -1477,6 +1477,11 @@ export function parseLocalListVideo(item, channelId, channelName) {
     /** @type {import('youtubei.js').YTNodes.Video} */
     const video = item
 
+    // When video is passed in via like community post attachment
+    if (video.title?.text === 'This video isn\'t publicly available') {
+      return null
+    }
+
     let publishedText
 
     if (video.published != null && !video.published.isEmpty()) {
@@ -2148,9 +2153,12 @@ function parseLocalAttachment(attachment) {
       content: attachment.image
     }
   } else if (attachment.type === 'Video') {
+    const parsedVideo = parseLocalListVideo(attachment)
+    if (parsedVideo == null) return null
+
     return {
       type: 'video',
-      content: parseLocalListVideo(attachment)
+      content: parsedVideo
     }
   } else if (attachment.type === 'Playlist') {
     return {
