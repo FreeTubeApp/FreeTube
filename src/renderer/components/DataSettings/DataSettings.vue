@@ -869,7 +869,7 @@ async function importFreeTubeWatchHistory(textDecode) {
       console.error('Missing Keys: ', missingKeys, historyData)
     } else {
       // FreeTube history export does not have this data if the video was marked as watched manually, setting default value
-      historyObject.description = ''
+      historyObject.description = historyObject.description ?? ''
 
       historyItems.set(historyObject.videoId, historyObject)
     }
