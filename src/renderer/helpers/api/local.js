@@ -736,7 +736,9 @@ export async function getLocalChannelVideos(id) {
     // if the channel doesn't have a videos tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
     if (videosTab.current_tab?.endpoint.metadata.url?.endsWith('/videos')) {
-      videos = parseLocalChannelVideos(videosTab.videos, channelId, name)
+      // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
+      // videos = parseLocalChannelVideos(videosTab.videos, channelId, name)
+      videos = parseLocalChannelVideos([...videosTab.memo.getType(YTNodes.LockupView)], channelId, name)
     } else if (name.endsWith('- Topic') && !!videosTab.metadata.music_artist_name) {
       try {
         const playlist = await innertube.getPlaylist(getChannelPlaylistId(channelId, 'videos', 'newest'))
@@ -796,10 +798,14 @@ export async function getLocalChannelLiveStreams(id) {
       // work around YouTube bug where it will return a bunch of responses with only continuations in them
       // e.g. https://www.youtube.com/@TWLIVES/streams
 
-      let tempVideos = liveStreamsTab.videos
+      // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
+      // let tempVideos = liveStreamsTab.videos
+      let tempVideos = [...liveStreamsTab.memo.getType(YTNodes.LockupView)]
       while (tempVideos.length === 0 && liveStreamsTab.has_continuation) {
         liveStreamsTab = await liveStreamsTab.getContinuation()
-        tempVideos = liveStreamsTab.videos
+        // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
+        // tempVideos = liveStreamsTab.videos
+        tempVideos = [...liveStreamsTab.memo.getType(YTNodes.LockupView)]
       }
 
       videos = parseLocalChannelVideos(tempVideos, channelId, name)
