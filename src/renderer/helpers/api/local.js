@@ -1564,6 +1564,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         videoCount: extractNumberFromString(thumbnailOverlayBadgeView.badges[0].text)
       }
     }
+    case 'SHORT':
     case 'VIDEO': {
       let publishedText
       let lengthSeconds = ''
