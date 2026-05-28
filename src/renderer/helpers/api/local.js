@@ -1362,7 +1362,7 @@ export function parseLocalPlaylistVideo(video) {
 
     let viewCount = null
 
-    const viewsText = video_.video_info.runs?.find(run => VIEWS_OR_WATCHING_REGEX.test(run.text) || VIEWS_IN_NUMBER_ONLY.test(run.text))?.text
+    const viewsText = video_.video_info.runs?.find(run => isViewCountText(run.text))?.text
 
     if (viewsText) {
       const views = parseLocalSubscriberCount(viewsText)
@@ -1533,8 +1533,10 @@ export function parseLocalListVideo(item, channelId, channelName) {
   }
 }
 
-const VIEWS_OR_WATCHING_REGEX = /views?|watching/i
+const VIEWS_OR_WATCHING_REGEX = /views?|watching|waiting/i
+const WAITING_REGEX = /waiting/i
 const VIEWS_IN_NUMBER_ONLY = /^\d+(\.\d)?[km]?$/i
+const PREMIERES_TIME_REGEX = /^premieres /i
 
 /**
  * @param {string | undefined} text
@@ -1543,6 +1545,24 @@ function isViewCountText(text) {
   if (typeof text !== 'string') { return false }
 
   return VIEWS_OR_WATCHING_REGEX.test(text) || VIEWS_IN_NUMBER_ONLY.test(text)
+}
+
+/**
+ * @param {string | undefined} text
+ */
+function isViewOrWaitingCountText(text) {
+  if (typeof text !== 'string') { return false }
+
+  return WAITING_REGEX.test(text) || isViewCountText(text)
+}
+
+/**
+ * @param {string | undefined} text
+ */
+function isPremieresTimeText(text) {
+  if (typeof text !== 'string') { return false }
+
+  return PREMIERES_TIME_REGEX.test(text)
 }
 
 /**
@@ -1608,8 +1628,12 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         } else if (thumbnailBottomOverlayView.badges.some(badge => badge.text.toLowerCase() === 'upcoming')) {
           isUpcoming = true
 
-          if (lockupView.metadata.metadata?.metadata_rows[1]?.metadata_parts?.[1]?.text?.text) {
-            premiereDate = new Date(lockupView.metadata.metadata.metadata_rows[1].metadata_parts[1].text.text)
+          for (const row of lockupView.metadata.metadata.metadata_rows) {
+            const foundText = row.metadata_parts?.find(part => isPremieresTimeText(part.text?.text))?.text?.text
+            if (foundText != null) {
+              premiereDate = new Date(foundText)
+              break
+            }
           }
         } else {
           const durationBadge = thumbnailBottomOverlayView.badges.find(badge => /^[\d:]+$/.test(badge.text))
@@ -1658,7 +1682,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         type: 'video',
         videoId: lockupView.content_id,
         title: lockupView.metadata.title.text?.trim(),
-        author: maybeAuthorText && !isViewCountText(maybeAuthorText) ? maybeAuthorText : channelName,
+        author: maybeAuthorText && !isViewOrWaitingCountText(maybeAuthorText) ? maybeAuthorText : channelName,
         authorId: lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.payload.browseId ?? channelId,
         viewCount,
         published: calculatePublishedDate(publishedText, liveNow, isUpcoming, premiereDate),
