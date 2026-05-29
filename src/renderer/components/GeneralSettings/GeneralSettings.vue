@@ -46,6 +46,7 @@
           :label="t('Settings.General Settings.Minimize to system tray')"
           :default-value="hideToTrayOnMinimize"
           :compact="true"
+          :tooltip="t('Tooltips.General Settings.Minimize to system tray')"
           @change="updateHideToTrayOnMinimize"
         />
       </div>
