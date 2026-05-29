@@ -46,7 +46,7 @@
           :label="t('Settings.General Settings.Minimize to system tray')"
           :default-value="hideToTrayOnMinimize"
           :compact="true"
-          :tooltip="t('Tooltips.General Settings.Minimize to system tray')"
+          :tooltip="IS_LINUX ? t('Tooltips.General Settings.Minimize to system tray') : ''"
           @change="updateHideToTrayOnMinimize"
         />
       </div>
@@ -187,6 +187,7 @@ import { translateWindowTitle } from '../../helpers/strings'
 const USING_ELECTRON = !!process.env.IS_ELECTRON
 const SUPPORTS_LOCAL_API = !!process.env.SUPPORTS_LOCAL_API
 const IS_MAC = process.platform === 'darwin'
+const IS_LINUX = process.platform === 'linux'
 
 const { t } = useI18n()
 const router = useRouter()
