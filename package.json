@@ -114,8 +114,8 @@
     "tree-kill": "1.2.2",
     "vue-eslint-parser": "^10.2.0",
     "vue-loader": "^17.4.2",
-    "webpack": "^5.107.1",
-    "webpack-cli": "^7.0.2",
+    "webpack": "^5.107.2",
+    "webpack-cli": "^7.0.3",
     "webpack-dev-server": "^5.2.4"
   }
 }
