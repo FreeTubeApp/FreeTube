@@ -476,6 +476,21 @@ export default defineComponent({
         const videoInfo = await getLocalVideoInfo(this.videoId)
         const { info: result, poToken, clientInfo, adEndTimeUnixMs } = videoInfo
 
+        const playabilityStatus = result.playability_status
+        this.playabilityStatus = playabilityStatus.status
+
+        if (playabilityStatus.status === 'LOGIN_REQUIRED' && playabilityStatus.error_screen?.reason?.text === 'Private video') {
+          // Private videos cannot be played in FreeTube, as they require to be logged as the owner of the video
+          // so there is no point continuing or trying any other backends as it will always fail
+          this.errorMessage = this.$t('Video.Private')
+          // TODO: Migrate to use https://github.com/FreeTubeApp/FreeTube/pull/8991 once merged
+          this.thumbnail = 'https://www.youtube.com/img/desktop/unavailable/unavailable_video_dark_theme.png'
+          this.isLoading = false
+          // TODO: Check but it should work after merging 8991 as it will restore videoTitle
+          this.updateTitle()
+          return
+        }
+
         this.adEndTimeUnixMs = adEndTimeUnixMs
 
         this.isFamilyFriendly = result.basic_info.is_family_safe
@@ -627,9 +642,6 @@ export default defineComponent({
         }
 
         this.videoChapters = chapters
-
-        const playabilityStatus = result.playability_status
-        this.playabilityStatus = playabilityStatus.status
 
         // The apostrophe is intentionally that one (char code 8217), because that is the one YouTube uses
         const BOT_MESSAGE = 'Sign in to confirm you’re not a bot'
@@ -1095,6 +1107,18 @@ export default defineComponent({
           this.isLoading = false
         })
         .catch(err => {
+          if (err.message === "Sign in if you've been granted access to this video") {
+            // Private videos cannot be played in FreeTube, as they require to be logged as the owner of the video
+            // so there is no point continuing or trying any other backends as it will always fail
+            this.errorMessage = this.$t('Video.Private')
+            // TODO: Migrate to use https://github.com/FreeTubeApp/FreeTube/pull/8991 once merged
+            this.thumbnail = 'https://www.youtube.com/img/desktop/unavailable/unavailable_video_dark_theme.png'
+            this.isLoading = false
+            // TODO: Check but it should work after merging 8991 as it will restore videoTitle
+            this.updateTitle()
+            return
+          }
+
           console.error(err)
           if (process.env.SUPPORTS_LOCAL_API && this.backendPreference === 'invidious' && this.backendFallback) {
             const errorMessage = this.$t('Invidious API Error (Click to copy)')
