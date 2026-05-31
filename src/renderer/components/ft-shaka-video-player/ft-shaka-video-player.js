@@ -915,7 +915,10 @@ export default defineComponent({
           contextMenuElements: ['ft_stats'],
           enableTooltips: true,
           seekBarColors: {
-            chapters: '#000',
+            // shaka-player's chapter markers only show up part of the time for the DASH and audio formats
+            // the issue is clearly on the FreeTube side as shaka-player's demo page works fine and they show up all the time for the legacy formats.
+            // As I have spent way too much time debugging it and still cannot make sense of it, we'll stick with FreeTube's own chapter markers for now.
+            chapters: 'transparent',
             played: 'var(--primary-color)'
           },
           showAudioCodec: false,
@@ -1033,6 +1036,10 @@ export default defineComponent({
       fullscreenTitleOverlay.className = 'playerFullscreenTitleOverlay'
       fullscreenTitleOverlay.dir = 'auto'
       controlsContainer.appendChild(fullscreenTitleOverlay)
+
+      if (hasLoaded.value && props.chapters.length > 0) {
+        createChapterMarkers()
+      }
 
       if (useSponsorBlock.value && sponsorBlockSegments.length > 0) {
         let duration
@@ -2596,6 +2603,34 @@ export default defineComponent({
       )
     }
 
+    function createChapterMarkers() {
+      const { start, end } = player.seekRange()
+      const duration = end - start
+
+      /**
+       * @type {{
+       *   title: string,
+       *   timestamp: string,
+       *   startSeconds: number,
+       *   endSeconds: number,
+       *   thumbnail?: string
+       * }[]}
+       */
+      const chapters = props.chapters
+
+      addMarkers(
+        chapters.map(chapter => {
+          const markerDiv = document.createElement('div')
+
+          markerDiv.title = chapter.title
+          markerDiv.className = 'chapterMarker'
+          markerDiv.style.left = `calc(${(chapter.startSeconds / duration) * 100}% - 1px)`
+
+          return markerDiv
+        })
+      )
+    }
+
     /**
      * @param {HTMLDivElement[]} markers
      */
@@ -2959,6 +2994,10 @@ export default defineComponent({
         if (textTrack) {
           player.selectTextTrack(textTrack)
         }
+      }
+
+      if (props.chapters.length > 0) {
+        createChapterMarkers()
       }
 
       if (startInFullscreen && process.env.IS_ELECTRON) {
