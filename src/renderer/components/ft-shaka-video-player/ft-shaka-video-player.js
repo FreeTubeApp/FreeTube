@@ -103,6 +103,10 @@ export default defineComponent({
       type: Number,
       default: 0
     },
+    chaptersSrc: {
+      type: String,
+      default: ''
+    },
     storyboardSrc: {
       type: String,
       default: ''
@@ -787,22 +791,18 @@ export default defineComponent({
 
     const uiConfig = computed(() => {
       const controlPanelElements = [
+        'ft_skip_previous',
         'play_pause',
+        'ft_skip_next',
         'mute',
         'volume',
         'time_and_duration',
         'spacer'
       ]
-      const controlPanelElementsWithSkipButtons = [
-        ...controlPanelElements.slice(0, 1),
-        'ft_skip_previous',
-        'ft_skip_next',
-        ...controlPanelElements.slice(1)
-      ]
 
       /** @type {shaka.extern.UIConfiguration} */
       const uiConfig = {
-        controlPanelElements: props.watchingPlaylist ? controlPanelElementsWithSkipButtons : controlPanelElements,
+        controlPanelElements: controlPanelElements,
         overflowMenuButtons: [],
 
         // only set this to label when we actually have labels, so that the warning doesn't show up
@@ -824,6 +824,7 @@ export default defineComponent({
           'playback_rate',
           'captions',
           'ft_audio_tracks',
+          'chapter',
           'loop',
           'ft_screenshot',
           'picture_in_picture',
@@ -851,6 +852,7 @@ export default defineComponent({
           'captions',
           'playback_rate',
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
+          'chapter',
           'loop',
           'recenter_vr',
           'toggle_stereoscopic',
@@ -884,6 +886,15 @@ export default defineComponent({
         removeFromArrayIfExists(uiConfig.overflowMenuButtons, 'toggle_stereoscopic')
       }
 
+      if (!props.watchingPlaylist) {
+        removeFromArrayIfExists(uiConfig.controlPanelElements, 'ft_skip_previous')
+        removeFromArrayIfExists(uiConfig.controlPanelElements, 'ft_skip_next')
+      }
+
+      if (props.chapters.length === 0) {
+        removeFromArrayIfExists(uiConfig.overflowMenuButtons, 'chapter')
+      }
+
       return uiConfig
     })
 
@@ -904,6 +915,7 @@ export default defineComponent({
           contextMenuElements: ['ft_stats'],
           enableTooltips: true,
           seekBarColors: {
+            chapters: '#000',
             played: 'var(--primary-color)'
           },
           showAudioCodec: false,
@@ -1021,10 +1033,6 @@ export default defineComponent({
       fullscreenTitleOverlay.className = 'playerFullscreenTitleOverlay'
       fullscreenTitleOverlay.dir = 'auto'
       controlsContainer.appendChild(fullscreenTitleOverlay)
-
-      if (hasLoaded.value && props.chapters.length > 0) {
-        createChapterMarkers()
-      }
 
       if (useSponsorBlock.value && sponsorBlockSegments.length > 0) {
         let duration
@@ -2588,34 +2596,6 @@ export default defineComponent({
       )
     }
 
-    function createChapterMarkers() {
-      const { start, end } = player.seekRange()
-      const duration = end - start
-
-      /**
-       * @type {{
-       *   title: string,
-       *   timestamp: string,
-       *   startSeconds: number,
-       *   endSeconds: number,
-       *   thumbnail?: string
-       * }[]}
-       */
-      const chapters = props.chapters
-
-      addMarkers(
-        chapters.map(chapter => {
-          const markerDiv = document.createElement('div')
-
-          markerDiv.title = chapter.title
-          markerDiv.className = 'chapterMarker'
-          markerDiv.style.left = `calc(${(chapter.startSeconds / duration) * 100}% - 1px)`
-
-          return markerDiv
-        })
-      )
-    }
-
     /**
      * @param {HTMLDivElement[]} markers
      */
@@ -2885,7 +2865,7 @@ export default defineComponent({
         sabrManifest = player.getManifest()
       }
 
-      // For SABR we include the thumbnails and subtitles in the manifest
+      // For SABR we include the thumbnails, chapters and subtitles in the manifest
       if (!process.env.SUPPORTS_LOCAL_API || props.format === 'legacy' || props.manifestMimeType !== MANIFEST_TYPE_SABR) {
         const promises = []
 
@@ -2958,6 +2938,15 @@ export default defineComponent({
           )
         }
 
+        if (!isLive.value && props.chaptersSrc.length > 0) {
+          promises.push(
+            // Only log the error, as the chapters are a nice to have (we have our own UI outside of the player too)
+            // If an error occurs with them, it is not critical
+            player.addChaptersTrack(props.chaptersSrc, 'und', 'text/vtt')
+              .catch(error => logShakaError(error, 'addChaptersTrack', props.videoId, props.chaptersSrc))
+          )
+        }
+
         await Promise.all(promises)
       }
 
@@ -2970,10 +2959,6 @@ export default defineComponent({
         if (textTrack) {
           player.selectTextTrack(textTrack)
         }
-      }
-
-      if (props.chapters.length > 0) {
-        createChapterMarkers()
       }
 
       if (startInFullscreen && process.env.IS_ELECTRON) {

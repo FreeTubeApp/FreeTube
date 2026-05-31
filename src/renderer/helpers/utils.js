@@ -161,6 +161,36 @@ export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
   return vttString
 }
 
+/**
+ * @param {{ startSeconds: number, endSeconds: number, title: string }[]} chapters
+ */
+export function buildChaptersVttFile(chapters) {
+  const blocks = ['WEBVTT']
+
+  for (const chapter of chapters) {
+    blocks.push(`\
+${secondsToVttTimestamp(chapter.startSeconds)} --> ${secondsToVttTimestamp(chapter.endSeconds)}
+${chapter.title.trim()}`)
+  }
+
+  return blocks.join('\n\n') + '\n'
+}
+
+/**
+ * @param {number} seconds
+ */
+function secondsToVttTimestamp(seconds) {
+  const formattedHours = Math.trunc(seconds / 3600).toFixed(0).padStart(2, '0')
+  seconds %= 3600
+
+  const formattedMinutes = Math.trunc(seconds / 60).toFixed(0).padStart(2, '0')
+  seconds %= 60
+
+  const formattedSeconds = seconds.toFixed(3).padStart(6, '0')
+
+  return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`
+}
+
 export const ToastEventBus = new EventTarget()
 
 /**

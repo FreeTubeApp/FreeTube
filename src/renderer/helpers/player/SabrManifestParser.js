@@ -55,6 +55,16 @@ import { parseMp4SegmentIndex } from './Mp4SegmentIndexParser'
  *     thumbnailHeight: number,
  *     storyboardCount: number,
  *     interval: number
+ *   }[],
+ *   chapters: {
+ *     title: string,
+ *     startSeconds: number,
+ *     endSeconds: number,
+ *     thumbnail?: {
+ *       url: string,
+ *       width: number,
+ *       height: number
+ *     }
  *   }[]
  * }} SabrManifest
  */
@@ -237,6 +247,9 @@ class SabrManifestParser {
     currentId += textStreams.length
 
     const imageStreams = /** @__NOINLINE__ */ createImageStreams(manifestData.storyboards, presentationTimeline, currentId)
+    currentId += imageStreams.length
+
+    const chapterStreams = /** @__NOINLINE__ */ createChapterStreams(manifestData.chapters, currentId)
 
     /** @type {shaka.extern.Manifest} */
     const manifest = {
@@ -245,7 +258,7 @@ class SabrManifestParser {
       variants,
       textStreams,
       imageStreams,
-      chapterStreams: [],
+      chapterStreams,
       presentationTimeline,
 
       gapCount: 0,
@@ -610,6 +623,84 @@ function createImageStreams(storyboards, presentationTimeline, currentId) {
 
     return stream
   })
+}
+
+/**
+ * @param {SabrManifest['chapters']} chapters
+ * @param {number} currentId
+ */
+function createChapterStreams(chapters, currentId) {
+  if (chapters.length === 0) {
+    return []
+  }
+
+  /** @type {shaka.media.SegmentReference[]} */
+  const references = []
+
+  for (const chapter of chapters) {
+    const reference = new shaka.media.SegmentReference(
+      chapter.startSeconds,
+      chapter.endSeconds,
+      () => [],
+      /* startByte= */ 0,
+      /* endByte= */ null,
+      /* initSegmentReference= */ null,
+      /* timestampOffset= */ 0,
+      /* appendWindowStart= */ 0,
+      /* appendWindowEnd= */ Infinity
+    )
+
+    reference.setMetadata({
+      title: chapter.title,
+      images: chapter.thumbnail
+        ? [{
+            url: chapter.thumbnail.url,
+            width: chapter.thumbnail.width,
+            height: chapter.thumbnail.height,
+          }]
+        : []
+    })
+
+    references.push(reference)
+  }
+
+  /** @type {shaka.extern.Stream} */
+  const stream = {
+    id: currentId,
+    originalId: null,
+    groupId: null,
+    createSegmentIndex: () => Promise.resolve(),
+    segmentIndex: new shaka.media.SegmentIndex(references),
+    mimeType: 'text/plain',
+    codecs: '',
+    supplementalCodecs: '',
+    kind: '',
+    encrypted: false,
+    drmInfos: [],
+    keyIds: new Set(),
+    language: 'und',
+    originalLanguage: 'und',
+    label: null,
+    type: 'chapter',
+    primary: false,
+    trickModeVideo: null,
+    dependencyStream: null,
+    emsgSchemeIdUris: null,
+    roles: [],
+    forced: false,
+    channelsCount: null,
+    audioSamplingRate: null,
+    spatialAudio: false,
+    closedCaptions: null,
+    accessibilityPurpose: null,
+    external: true,
+    fastSwitching: false,
+    fullMimeTypes: new Set(['text/plain']),
+    isAudioMuxedInVideo: false,
+    baseOriginalId: null
+  }
+
+  return [stream]
 }
 
 /**
