@@ -372,6 +372,7 @@ function handleOptionClick(index) {
   }
 
   searchState.showOptions = false
+  searchState.isPointerInList = false
   inputData.value = visibleDataList.value[index]
   emit('input', inputData.value)
   handleClick()
