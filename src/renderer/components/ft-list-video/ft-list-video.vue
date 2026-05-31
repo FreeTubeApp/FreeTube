@@ -132,6 +132,9 @@
         >
           {{ channelName }}
         </component>
+        <bdi v-else-if="channelName !== null">
+          {{ channelName }}
+        </bdi>
         <span
           v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null"
           class="viewCount"
