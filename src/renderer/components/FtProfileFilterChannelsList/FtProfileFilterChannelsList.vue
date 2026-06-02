@@ -14,7 +14,10 @@
           @change="handleProfileFilterChange"
         />
       </FtFlexBox>
-      <p class="selected">
+      <p
+        v-if="!hideUnsubscribeButton"
+        class="selected"
+      >
         {{ selectedText }}
       </p>
       <FtFlexBox>
@@ -24,12 +27,14 @@
           :channel-id="channel.id"
           :channel-name="channel.name"
           :channel-thumbnail="channel.thumbnail"
-          :selectable="true"
+          :selectable="!hideUnsubscribeButton"
           :selected="selected.has(channel.id)"
           @change="handleChannelToggle(channel.id)"
         />
       </FtFlexBox>
-      <FtFlexBox>
+      <FtFlexBox
+        v-if="!hideUnsubscribeButton"
+      >
         <FtButton
           :label="$t('Profile.Select All')"
           @click="selectAll"
@@ -109,6 +114,11 @@ const currentInvidiousInstanceUrl = computed(() => {
 
 const intlCollator = computed(() => {
   return new Intl.Collator([locale.value, 'en'], { sensitivity: 'base' })
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideUnsubscribeButton = computed(() => {
+  return store.getters.getHideUnsubscribeButton
 })
 
 const filteredProfileIndex = ref(0)
