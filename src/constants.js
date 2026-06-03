@@ -3,6 +3,7 @@ const IpcChannels = {
   ENABLE_PROXY: 'enable-proxy',
   DISABLE_PROXY: 'disable-proxy',
   GET_SYSTEM_LOCALE: 'get-system-locale',
+  GET_CMD_SWITCH_VALUE: 'get-cmd-switch-value',
   GET_NAVIGATION_HISTORY: 'get-navigation-history',
   STOP_POWER_SAVE_BLOCKER: 'stop-power-save-blocker',
   START_POWER_SAVE_BLOCKER: 'start-power-save-blocker',

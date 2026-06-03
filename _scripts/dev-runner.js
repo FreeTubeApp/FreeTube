@@ -70,7 +70,8 @@ async function restartElectron() {
     path.join(__dirname, '../dist/main.js'),
     // '--enable-logging', // Enable to show logs from all electron processes
     remoteDebugging ? '--inspect=9222' : '',
-    remoteDebugging ? '--remote-debugging-port=9223' : ''
+    remoteDebugging ? '--remote-debugging-port=9223' : '',
+    // '--ozone-platform=x11'
   ],
     // { stdio: 'inherit' } // required for logs to actually appear in the stdout
   )

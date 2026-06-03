@@ -31,6 +31,13 @@ export default {
   },
 
   /**
+   * @returns {Promise<string>}
+   */
+  getCmdSwitchValue: (name) => {
+    return ipcRenderer.invoke(IpcChannels.GET_CMD_SWITCH_VALUE, name)
+  },
+
+  /**
    * @param {string} path
    * @param {Record<string, string> | null | undefined} query
    * @param {string | null | undefined} searchQueryText

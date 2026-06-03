@@ -42,11 +42,10 @@
           @change="updateOpenDeepLinksInNewWindow"
         />
         <FtToggleSwitch
-          v-if="!IS_MAC && USING_ELECTRON"
+          v-if="!IS_MAC && !isLinuxWayland && USING_ELECTRON"
           :label="t('Settings.General Settings.Minimize to system tray')"
           :default-value="hideToTrayOnMinimize"
           :compact="true"
-          :tooltip="IS_LINUX ? t('Tooltips.General Settings.Minimize to system tray') : ''"
           @change="updateHideToTrayOnMinimize"
         />
       </div>
@@ -167,7 +166,7 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount } from 'vue'
+import { computed, onMounted, onBeforeUnmount, ref } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRouter } from 'vue-router'
 
@@ -187,10 +186,17 @@ import { translateWindowTitle } from '../../helpers/strings'
 const USING_ELECTRON = !!process.env.IS_ELECTRON
 const SUPPORTS_LOCAL_API = !!process.env.SUPPORTS_LOCAL_API
 const IS_MAC = process.platform === 'darwin'
-const IS_LINUX = process.platform === 'linux'
 
 const { t } = useI18n()
 const router = useRouter()
+
+// The 'minimize' event doesn't fire on wayland
+// https://github.com/electron/electron/issues/51766
+const isLinuxWayland = ref(false)
+onMounted(async () => {
+  isLinuxWayland.value = process.platform === 'linux' &&
+  (await window.ftElectron.getCmdSwitchValue('ozone-platform')) === 'wayland'
+})
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const checkForUpdates = computed(() => store.getters.getCheckForUpdates)

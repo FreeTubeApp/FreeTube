@@ -1346,6 +1346,12 @@ function runApp() {
     }
   })
 
+  ipcMain.handle(IpcChannels.GET_CMD_SWITCH_VALUE, (event, name) => {
+    if (isFreeTubeUrl(event.senderFrame.url)) {
+      return app.commandLine.getSwitchValue(name)
+    }
+  })
+
   /**
    * @param {import('electron').WebContents} webContents
    * @param {string | undefined} [currentPath]

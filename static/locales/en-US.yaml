@@ -1050,7 +1050,6 @@ Tooltips:
       By default FreeTube will open the clicked link in your default browser.
     Open Deep Links In New Window: URLs passed to FreeTube, such as by redirect
       browser extensions or command line arguments, are opened in a new window.
-    Minimize to system tray: Not available on Wayland.
   Player Settings:
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead
       of making a direct connection to YouTube.
