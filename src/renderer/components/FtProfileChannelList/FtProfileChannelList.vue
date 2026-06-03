@@ -5,7 +5,7 @@
         {{ $t("Profile.Subscription List") }}
       </h2>
       <p
-        v-if="!hideUnsubscribeButton"
+        v-if="showUnsubscribeButton"
         class="selectedCount"
       >
         {{ selectedText }}
@@ -17,13 +17,13 @@
           :channel-id="channel.id"
           :channel-name="channel.name"
           :channel-thumbnail="channel.thumbnail"
-          :selectable="!hideUnsubscribeButton"
+          :selectable="showUnsubscribeButton"
           :selected="selected.has(channel.id)"
           @change="handleChannelToggle(channel.id)"
         />
       </FtFlexBox>
       <FtFlexBox
-        v-if="!hideUnsubscribeButton"
+        v-if="showUnsubscribeButton"
       >
         <FtButton
           :label="$t('Profile.Select All')"
@@ -108,8 +108,8 @@ const intlCollator = computed(() => {
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */
-const hideUnsubscribeButton = computed(() => {
-  return store.getters.getHideUnsubscribeButton
+const showUnsubscribeButton = computed(() => {
+  return !store.getters.getHideUnsubscribeButton
 })
 
 /** @type {import('vue').ShallowRef<Profile['subscriptions']>} */
