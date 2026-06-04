@@ -1158,7 +1158,9 @@ async function getChannelVideosLocalMore() {
        */
       const continuation = await videoContinuationData.value.getContinuation()
 
-      latestVideos.value = latestVideos.value.concat(parseLocalChannelVideos(continuation.videos, id.value, channelName.value))
+      // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
+      // latestVideos.value = latestVideos.value.concat(parseLocalChannelVideos(continuation.videos, id.value, channelName.value))
+      latestVideos.value = latestVideos.value.concat(parseLocalChannelVideos([...continuation.memo.getType(YTNodes.LockupView)], id.value, channelName.value))
       videoContinuationData.value = continuation.has_continuation ? continuation : null
     }
   } catch (err) {
@@ -1439,7 +1441,9 @@ async function getChannelLiveLocalMore() {
      */
     const continuation = await liveContinuationData.value.getContinuation()
 
-    latestLive.value = latestLive.value.concat(parseLocalChannelVideos(continuation.videos, id.value, channelName.value))
+    // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
+    // latestLive.value = latestLive.value.concat(parseLocalChannelVideos(continuation.videos, id.value, channelName.value))
+    latestLive.value = latestLive.value.concat(parseLocalChannelVideos([...continuation.memo.getType(YTNodes.LockupView)], id.value, channelName.value))
     liveContinuationData.value = continuation.has_continuation ? continuation : null
   } catch (err) {
     console.error(err)
