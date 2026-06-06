@@ -194,8 +194,7 @@ const router = useRouter()
 // https://github.com/electron/electron/issues/51766
 const isLinuxWayland = ref(false)
 onMounted(async () => {
-  isLinuxWayland.value = process.platform === 'linux' &&
-  (await window.ftElectron.getCmdSwitchValue('ozone-platform')) === 'wayland'
+  isLinuxWayland.value = process.platform === 'linux' && await window.ftElectron.getWaylandPlatform()
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */

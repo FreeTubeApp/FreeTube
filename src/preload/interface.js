@@ -31,10 +31,10 @@ export default {
   },
 
   /**
-   * @returns {Promise<string>}
+   * @returns {Promise<boolean>}
    */
-  getCmdSwitchValue: (name) => {
-    return ipcRenderer.invoke(IpcChannels.GET_CMD_SWITCH_VALUE, name)
+  getWaylandPlatform: () => {
+    return ipcRenderer.invoke(IpcChannels.GET_WAYLAND_PLATFORM)
   },
 
   /**
