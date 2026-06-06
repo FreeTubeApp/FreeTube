@@ -400,6 +400,8 @@ Settings:
     Screenshot:
       Modes:
         Ask Path: Спрашивать папку для сохранения
+        Save To Folder: Сохранить в папку
+        Clipboard: Скопировать в буфер обмена
       Error:
         Forbidden Characters: Запрещенные символы
         Empty File Name: Пустое имя файла

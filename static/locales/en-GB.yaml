@@ -417,7 +417,10 @@ Settings:
       Format Label: Screenshot format
       Modes:
         Ask Path: Ask for Save Folder
+        Save To Folder: Save to Folder
+        Clipboard: Copy to Clipboard
       File Name Label: Filename pattern
+      Mode: Screenshot Mode
     Skip by Scrolling Over Video Player: Skip by scrolling over video player
     Autoplay Interruption Timer: Autoplay Interruption Timer
     Default Viewing Mode:
@@ -1114,3 +1117,5 @@ KeyboardShortcutPrompt:
 shortcutLabelSeparator: ｜
 Compact side navigation: Compact side navigation
 Expand side navigation: Expand side navigation
+Screenshot Clipboard Success: Saved screenshot to clipboard
+Screenshot Clipboard Error: Screenshot copy to clipboard failed
