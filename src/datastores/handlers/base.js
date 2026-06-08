@@ -1,3 +1,4 @@
+import { app } from 'electron'
 import * as db from '../index'
 
 class Settings {
@@ -55,6 +56,19 @@ class Settings {
     if (screenshotAskPath) {
       await this.upsert('screenshotMode', screenshotAskPath.value ? 'prompt_folder' : 'default_folder')
       await db.settings.removeAsync({ _id: 'screenshotAskPath' })
+    }
+
+    // In FreeTube 0.24.1 and earlier, the 'Minimize to system tray' setting could be enabled on Wayland despite lacking support.
+    // The setting is now hidden from Wayland users.
+    // This migration disables the setting for existing users who had it enabled.
+    // This prevents users from being stuck with an enabled setting they can no longer change
+    // if Wayland gains 'minimize' state support in the future.
+    // Note: This will have to be removed if support is added back in the future
+    const hideToTrayOnMinimize = await db.settings.findOneAsync({ _id: 'hideToTrayOnMinimize' })
+
+    if (hideToTrayOnMinimize && hideToTrayOnMinimize.value &&
+      process.platform === 'linux' && app.commandLine.getSwitchValue('ozone-platform') === 'wayland') {
+      await this.upsert('hideToTrayOnMinimize', false)
     }
 
     return db.settings.findAsync({ _id: { $ne: 'bounds' } })
