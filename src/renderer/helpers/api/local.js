@@ -343,7 +343,7 @@ export async function getLocalTrending(location, tab) {
   const response = await innertube.actions.execute('/browse', args)
   const feed = new Mixins.Feed(innertube.actions, response)
 
-  return feed.videos.map(video => parseLocalListVideo(video))
+  return feed.videos.map(video => parseLocalListVideo(video)).filter(_ => _)
 }
 
 /**
@@ -736,7 +736,9 @@ export async function getLocalChannelVideos(id) {
     // if the channel doesn't have a videos tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
     if (videosTab.current_tab?.endpoint.metadata.url?.endsWith('/videos')) {
-      videos = parseLocalChannelVideos(videosTab.videos, channelId, name)
+      // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
+      // videos = parseLocalChannelVideos(videosTab.videos, channelId, name)
+      videos = parseLocalChannelVideos([...videosTab.memo.getType(YTNodes.LockupView)], channelId, name)
     } else if (name.endsWith('- Topic') && !!videosTab.metadata.music_artist_name) {
       try {
         const playlist = await innertube.getPlaylist(getChannelPlaylistId(channelId, 'videos', 'newest'))
@@ -796,10 +798,14 @@ export async function getLocalChannelLiveStreams(id) {
       // work around YouTube bug where it will return a bunch of responses with only continuations in them
       // e.g. https://www.youtube.com/@TWLIVES/streams
 
-      let tempVideos = liveStreamsTab.videos
+      // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
+      // let tempVideos = liveStreamsTab.videos
+      let tempVideos = [...liveStreamsTab.memo.getType(YTNodes.LockupView)]
       while (tempVideos.length === 0 && liveStreamsTab.has_continuation) {
         liveStreamsTab = await liveStreamsTab.getContinuation()
-        tempVideos = liveStreamsTab.videos
+        // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
+        // tempVideos = liveStreamsTab.videos
+        tempVideos = [...liveStreamsTab.memo.getType(YTNodes.LockupView)]
       }
 
       videos = parseLocalChannelVideos(tempVideos, channelId, name)
@@ -1080,7 +1086,10 @@ export function parseLocalChannelVideos(videos, channelId, channelName) {
     if (video.is(YTNodes.Video) && video.badges.some(badge => badge.style === 'BADGE_STYLE_TYPE_MEMBERS_ONLY')) {
       continue
     }
-    parsedVideos.push(parseLocalListVideo(video, channelId, channelName))
+    const parsedVideo = parseLocalListVideo(video, channelId, channelName)
+    if (parsedVideo != null) {
+      parsedVideos.push(parsedVideo)
+    }
   }
 
   return parsedVideos
@@ -1283,7 +1292,7 @@ export function parseChannelHomeTab(homeTab, channelId, channelName) {
         const shelf = section.content
         shelves.push({
           title: shelf.title?.text,
-          content: shelf.contents.map(e => parseListItem(e.content, channelId, channelName)),
+          content: shelf.contents.map(e => parseListItem(e.content, channelId, channelName)).filter(_ => _),
           subtitle: shelf.subtitle?.text,
           playlistId: shelf.endpoint?.metadata.url.includes('/playlist') ? shelf.endpoint?.metadata.url.replace('/playlist?list=', '') : null
         })
@@ -1353,7 +1362,7 @@ export function parseLocalPlaylistVideo(video) {
 
     let viewCount = null
 
-    const viewsText = video_.video_info.runs?.find(run => VIEWS_OR_WATCHING_REGEX.test(run.text))?.text
+    const viewsText = video_.video_info.runs?.find(run => isViewCountText(run.text))?.text
 
     if (viewsText) {
       const views = parseLocalSubscriberCount(viewsText)
@@ -1468,9 +1477,16 @@ export function parseLocalListVideo(item, channelId, channelName) {
       isUpcoming: movie.is_upcoming,
       premiereDate: movie.upcoming
     }
+  } else if (item.type === 'LockupView') {
+    return parseLockupView(item, channelId, channelName)
   } else {
     /** @type {import('youtubei.js').YTNodes.Video} */
     const video = item
+
+    // When video is passed in via like community post attachment
+    if (video.title?.text === 'This video isn\'t publicly available') {
+      return null
+    }
 
     let publishedText
 
@@ -1517,7 +1533,37 @@ export function parseLocalListVideo(item, channelId, channelName) {
   }
 }
 
-const VIEWS_OR_WATCHING_REGEX = /views?|watching/i
+const VIEWS_OR_WATCHING_REGEX = /views?|watching|waiting/i
+const WAITING_REGEX = /waiting/i
+const VIEWS_IN_NUMBER_ONLY = /^\d+(\.\d)?[km]?$/i
+const PREMIERES_TIME_REGEX = /^premieres /i
+
+/**
+ * @param {string | undefined} text
+ */
+function isViewCountText(text) {
+  if (typeof text !== 'string') { return false }
+
+  return VIEWS_OR_WATCHING_REGEX.test(text) || VIEWS_IN_NUMBER_ONLY.test(text)
+}
+
+/**
+ * @param {string | undefined} text
+ */
+function isViewOrWaitingCountText(text) {
+  if (typeof text !== 'string') { return false }
+
+  return WAITING_REGEX.test(text) || isViewCountText(text)
+}
+
+/**
+ * @param {string | undefined} text
+ */
+function isPremieresTimeText(text) {
+  if (typeof text !== 'string') { return false }
+
+  return PREMIERES_TIME_REGEX.test(text)
+}
 
 /**
  * @param {import('youtubei.js').YTNodes.LockupView} lockupView
@@ -1558,12 +1604,20 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         videoCount: extractNumberFromString(thumbnailOverlayBadgeView.badges[0].text)
       }
     }
+    case 'SHORT':
     case 'VIDEO': {
       let publishedText
       let lengthSeconds = ''
       let liveNow = false
       let isUpcoming = false
       let premiereDate
+
+      const isMemberOnly = lockupView.metadata.metadata?.metadata_rows.some(row => {
+        return row.badges.some(badge => badge.style === 'BADGE_MEMBERS_ONLY')
+      })
+      if (isMemberOnly) {
+        return null
+      }
 
       /** @type {YTNodes.ThumbnailBottomOverlayView | undefined } */
       const thumbnailBottomOverlayView = lockupView.content_image?.overlays?.firstOfType(YTNodes.ThumbnailBottomOverlayView)
@@ -1574,8 +1628,12 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         } else if (thumbnailBottomOverlayView.badges.some(badge => badge.text.toLowerCase() === 'upcoming')) {
           isUpcoming = true
 
-          if (lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.[1].text?.text) {
-            premiereDate = new Date(lockupView.metadata.metadata.metadata_rows[1].metadata_parts[1].text.text)
+          for (const row of lockupView.metadata.metadata.metadata_rows) {
+            const foundText = row.metadata_parts?.find(part => isPremieresTimeText(part.text?.text))?.text?.text
+            if (foundText != null) {
+              premiereDate = new Date(foundText)
+              break
+            }
           }
         } else {
           const durationBadge = thumbnailBottomOverlayView.badges.find(badge => /^[\d:]+$/.test(badge.text))
@@ -1584,15 +1642,31 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
             lengthSeconds = Utils.timeToSeconds(durationBadge.text)
           }
 
-          publishedText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
+          if (lockupView.metadata.metadata?.metadata_rows != null) {
+            for (const row of lockupView.metadata.metadata.metadata_rows) {
+              const foundText = row.metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
+              if (foundText != null) {
+                publishedText = foundText
+                break
+              }
+            }
+          }
         }
       }
 
       let viewCount = null
-
-      const viewsText = lockupView.metadata.metadata?.metadata_rows[1].metadata_parts?.find(part => {
-        return part.text?.text && VIEWS_OR_WATCHING_REGEX.test(part.text.text)
-      })?.text?.text
+      let viewsText = null
+      if (lockupView.metadata.metadata?.metadata_rows != null) {
+        for (const row of lockupView.metadata.metadata.metadata_rows) {
+          const foundText = row.metadata_parts?.find(part => {
+            return isViewCountText(part.text?.text)
+          })?.text?.text
+          if (foundText != null) {
+            viewsText = foundText
+            break
+          }
+        }
+      }
 
       if (viewsText) {
         const views = parseLocalSubscriberCount(viewsText)
@@ -1602,12 +1676,14 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         }
       }
 
+      const maybeAuthorText = lockupView.metadata.metadata?.metadata_rows[0].metadata_parts?.[0].text?.text
+
       return {
         type: 'video',
         videoId: lockupView.content_id,
         title: lockupView.metadata.title.text?.trim(),
-        author: lockupView.metadata.metadata?.metadata_rows[0].metadata_parts?.[0].text?.text,
-        authorId: lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.payload.browseId,
+        author: maybeAuthorText && !isViewOrWaitingCountText(maybeAuthorText) ? maybeAuthorText : channelName,
+        authorId: lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.payload.browseId ?? channelId,
         viewCount,
         published: calculatePublishedDate(publishedText, liveNow, isUpcoming, premiereDate),
         lengthSeconds,
@@ -2116,9 +2192,12 @@ function parseLocalAttachment(attachment) {
       content: attachment.image
     }
   } else if (attachment.type === 'Video') {
+    const parsedVideo = parseLocalListVideo(attachment)
+    if (parsedVideo == null) return null
+
     return {
       type: 'video',
-      content: parseLocalListVideo(attachment)
+      content: parsedVideo
     }
   } else if (attachment.type === 'Playlist') {
     return {
