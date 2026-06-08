@@ -1346,7 +1346,7 @@ function runApp() {
     }
   })
 
-  ipcMain.handle(IpcChannels.GET_WAYLAND_PLATFORM, (event) => {
+  ipcMain.handle(IpcChannels.IS_WAYLAND_PLATFORM, (event) => {
     if (isFreeTubeUrl(event.senderFrame.url)) {
       return app.commandLine.getSwitchValue('ozone-platform') === 'wayland'
     }

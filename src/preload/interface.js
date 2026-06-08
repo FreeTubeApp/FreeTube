@@ -33,8 +33,8 @@ export default {
   /**
    * @returns {Promise<boolean>}
    */
-  getWaylandPlatform: () => {
-    return ipcRenderer.invoke(IpcChannels.GET_WAYLAND_PLATFORM)
+  isWaylandPlatform: () => {
+    return ipcRenderer.invoke(IpcChannels.IS_WAYLAND_PLATFORM)
   },
 
   /**
