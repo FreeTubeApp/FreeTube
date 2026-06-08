@@ -193,9 +193,11 @@ const router = useRouter()
 // The 'minimize' event doesn't fire on wayland
 // https://github.com/electron/electron/issues/51766
 const isLinuxWayland = ref(false)
-onMounted(async () => {
-  isLinuxWayland.value = process.platform === 'linux' && await window.ftElectron.isWaylandPlatform()
-})
+if (process.env.IS_ELECTRON && process.platform === 'linux') {
+  onMounted(async () => {
+    isLinuxWayland.value = await window.ftElectron.isWaylandPlatform()
+  })
+}
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const checkForUpdates = computed(() => store.getters.getCheckForUpdates)
