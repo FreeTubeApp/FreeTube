@@ -151,6 +151,8 @@ const KeyboardShortcuts = {
       CLOSE_WINDOW: 'ctrl+W',
       TOGGLE_DEVTOOLS: 'ctrl+shift+I',
       FOCUS_SEARCH: 'alt+D',
+      FOCUS_SEARCH_ALT: 'ctrl+L',
+      FOCUS_SEARCH_ALT_MAC: 'cmd+L',
       SEARCH_IN_NEW_WINDOW: 'shift+enter',
       RESET_ZOOM: 'ctrl+0',
       ZOOM_IN: 'ctrl+plus',
