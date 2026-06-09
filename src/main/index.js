@@ -541,9 +541,7 @@ function runApp() {
     if (useProxy) {
       proxyUrl = `${proxyProtocol}://${proxyHostname}:${proxyPort}`
 
-      session.defaultSession.setProxy({
-        proxyRules: proxyUrl
-      })
+      app.commandLine.appendSwitch('proxy-server', proxyUrl)
     }
 
     const fixedUserAgent = session.defaultSession.getUserAgent()
