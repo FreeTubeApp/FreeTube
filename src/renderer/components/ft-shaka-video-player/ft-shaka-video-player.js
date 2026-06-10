@@ -2298,7 +2298,7 @@ export default defineComponent({
         return
       }
 
-      // allow copying text
+      // allow focusing on search bar without affecting the playback
       if ((process.platform === 'darwin' && event.metaKey) && event.key.toLowerCase() === 'l') {
         return
       }
