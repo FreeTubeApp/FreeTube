@@ -104,7 +104,7 @@
     "mini-css-extract-plugin": "^2.10.2",
     "postcss": "^8.5.15",
     "postcss-scss": "^4.0.9",
-    "sass": "^1.100.0",
+    "sass": "^1.101.0",
     "sass-loader": "^17.0.0",
     "stylelint": "^17.13.0",
     "stylelint-config-sass-guidelines": "^13.0.0",
@@ -116,6 +116,6 @@
     "vue-loader": "^17.4.2",
     "webpack": "^5.107.2",
     "webpack-cli": "^7.0.3",
-    "webpack-dev-server": "^5.2.4"
+    "webpack-dev-server": "^5.2.5"
   }
 }
