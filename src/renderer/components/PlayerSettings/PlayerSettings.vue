@@ -73,6 +73,13 @@
           :default-value="enterFullscreenOnDisplayRotate"
           @change="updateEnterFullscreenOnDisplayRotate"
         />
+        <FtToggleSwitch
+          :label="t('Settings.Player Settings.Scale Playback Time')"
+          :compact="true"
+          :default-value="scalePlaybackTime"
+          :tooltip="t('Tooltips.Player Settings.Scale Playback Time')"
+          @change="updateScalePlaybackTime"
+        />
       </div>
     </div>
     <FtFlexBox>
@@ -576,6 +583,16 @@ const maxVideoPlaybackRate = computed(() => store.getters.getMaxVideoPlaybackRat
  */
 function updateMaxVideoPlaybackRate(value) {
   store.dispatch('updateMaxVideoPlaybackRate', value)
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const scalePlaybackTime = computed(() => store.getters.getScalePlaybackTime)
+
+/**
+ * @param {boolean} value
+ */
+function updateScalePlaybackTime(value) {
+  store.dispatch('updateScalePlaybackTime', value)
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */

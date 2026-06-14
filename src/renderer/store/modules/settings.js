@@ -289,6 +289,7 @@ const state = {
   enableScreenshot: false,
   screenshotMode: 'prompt_folder',
   screenshotFormat: 'png',
+  scalePlaybackTime: false,
   screenshotQuality: 95,
   screenshotFolderPath: '',
   screenshotFilenamePattern: '%Y%M%D-%H%N%S',

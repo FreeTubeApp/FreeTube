@@ -341,6 +341,11 @@ export default defineComponent({
     })
 
     /** @type {import('vue').ComputedRef<boolean>} */
+    const scalePlaybackTime = computed(() => {
+      return store.getters.getScalePlaybackTime
+    })
+
+    /** @type {import('vue').ComputedRef<boolean>} */
     const enableScreenshot = computed(() => {
       return store.getters.getEnableScreenshot
     })
@@ -1012,6 +1017,72 @@ export default defineComponent({
       }
     }
 
+    /** @type {HTMLElement|null} */
+    let currentTimeButton = null
+    /** @type {number|null} */
+    let timeScaleRafId = null
+
+    /**
+     * Formats seconds into a time string like "5:30" or "1:05:30".
+     * @param {number} totalSeconds
+     * @param {boolean} showHours
+     * @returns {string}
+     */
+    function formatTime(totalSeconds, showHours) {
+      const s = Math.floor(totalSeconds)
+      const hours = Math.floor(s / 3600)
+      const minutes = Math.floor((s % 3600) / 60)
+      const seconds = s % 60
+
+      if (showHours || hours > 0) {
+        return `${hours}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
+      }
+      return `${minutes}:${String(seconds).padStart(2, '0')}`
+    }
+
+    /**
+     * Scales the time display text by dividing time values by the current playback rate.
+     * Uses requestAnimationFrame to read and write after Shaka has updated.
+     */
+    function scaleTimeDisplay() {
+      if (!currentTimeButton) return
+
+      const text = currentTimeButton.textContent
+      if (!text || text === '0:00' || text.includes('LIVE')) return
+
+      if (!scalePlaybackTime.value || !video.value) return
+
+      const rate = video.value.playbackRate
+      if (rate <= 0 || rate === 1) return
+
+      // Match time patterns like "5:30", "1:05:30", with optional leading "-"
+      const scaled = text.replaceAll(/(\d+):(\d+)(?::(\d+))?/g, (match, p1, p2, p3) => {
+        let seconds
+        if (p3 !== undefined) {
+          seconds = parseInt(p1) * 3600 + parseInt(p2) * 60 + parseInt(p3)
+        } else {
+          seconds = parseInt(p1) * 60 + parseInt(p2)
+        }
+        const scaledSeconds = seconds / rate
+        const showHours = p3 !== undefined
+        return formatTime(scaledSeconds, showHours)
+      })
+
+      if (scaled !== text) {
+        currentTimeButton.textContent = scaled
+      }
+    }
+
+    function onTimeUpdated() {
+      if (!hasLoaded.value || !currentTimeButton) return
+
+      if (timeScaleRafId) {
+        cancelAnimationFrame(timeScaleRafId)
+      }
+      // Use rAF so Shaka has time to update the DOM before we read it
+      timeScaleRafId = requestAnimationFrame(scaleTimeDisplay)
+    }
+
     function addUICustomizations() {
       /** @type {HTMLDivElement} */
       const controlsContainer = ui.getControls().getControlsContainer()
@@ -1036,6 +1107,9 @@ export default defineComponent({
       fullscreenTitleOverlay.className = 'playerFullscreenTitleOverlay'
       fullscreenTitleOverlay.dir = 'auto'
       controlsContainer.appendChild(fullscreenTitleOverlay)
+
+      // Store reference to the time display button for scaling
+      currentTimeButton = controlsContainer.querySelector('.shaka-current-time')
 
       if (hasLoaded.value && props.chapters.length > 0) {
         createChapterMarkers()
@@ -2771,6 +2845,10 @@ export default defineComponent({
       controls.addEventListener('uiupdated', addUICustomizations)
       configureUI(true)
 
+      // Scale time display when Shaka updates it
+      controls.addEventListener('timeandseekrangeupdated', onTimeUpdated)
+      videoElement.addEventListener('ratechange', onTimeUpdated)
+
       document.removeEventListener('keydown', keyboardShortcutHandler)
       document.addEventListener('keydown', keyboardShortcutHandler)
       document.addEventListener('fullscreenchange', fullscreenChangeHandler)
@@ -3178,7 +3256,13 @@ export default defineComponent({
 
     onBeforeUnmount(() => {
       hasLoaded.value = false
+      currentTimeButton = null
       document.body.classList.remove('playerFullWindow')
+
+      if (timeScaleRafId) {
+        cancelAnimationFrame(timeScaleRafId)
+        timeScaleRafId = null
+      }
 
       document.removeEventListener('keydown', keyboardShortcutHandler)
       document.removeEventListener('fullscreenchange', fullscreenChangeHandler)
