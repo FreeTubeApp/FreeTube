@@ -2238,6 +2238,23 @@ export default defineComponent({
       seekBySeconds(dist, true)
     }
 
+    // Blur player buttons to remove :focus-visible state, preventing tooltips from staying visible
+    const buttonWithTooltipClasses = [
+      'shaka-play-button',
+      'shaka-fullscreen-button',
+      'shaka-mute-button',
+      'shaka-pip-button',
+      'full-window-button',
+      'theatre-button',
+      'screenshot-button',
+    ]
+    function blurTooltipButtons() {
+      const element = document.activeElement
+      if (buttonWithTooltipClasses.some(className => element.classList.contains(className))) {
+        element.blur()
+      }
+    }
+
     /**
      * @param {KeyboardEvent} event
      */
@@ -2289,25 +2306,6 @@ export default defineComponent({
       if (event.shiftKey && event.key.toLowerCase() === 'p') {
         emit('skip-to-prev')
         return
-      }
-
-      // Blur player buttons to remove :focus-visible state, preventing tooltips from staying visible
-      const buttonWithTooltipClasses = [
-        'shaka-play-button',
-        'shaka-fullscreen-button',
-        'shaka-mute-button',
-        'shaka-pip-button',
-        'full-window-button',
-        'theatre-button',
-        'screenshot-button',
-      ]
-      function blurTooltipButtons() {
-        for (const buttonClass of buttonWithTooltipClasses) {
-          const button = document.querySelector(`.${buttonClass}`)
-          if (button) {
-            button.blur()
-          }
-        }
       }
 
       switch (event.key.toLowerCase()) {
