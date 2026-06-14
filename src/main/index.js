@@ -1736,6 +1736,15 @@ function runApp() {
           )
           return null
 
+        case DBActions.HISTORY.UNSET_PLAYLIST:
+          await baseHandlers.history.unsetLastViewedPlaylist(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_HISTORY,
+            event,
+            { event: SyncEvents.HISTORY.UNSET_PLAYLIST, data }
+          )
+          return null
+
         case DBActions.GENERAL.DELETE:
           await baseHandlers.history.delete(data)
           syncOtherWindows(

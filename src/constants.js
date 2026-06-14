@@ -67,6 +67,7 @@ const DBActions = {
   HISTORY: {
     UPDATE_WATCH_PROGRESS: 20,
     UPDATE_PLAYLIST: 21,
+    UNSET_PLAYLIST: 22,
   },
 
   PROFILES: {
