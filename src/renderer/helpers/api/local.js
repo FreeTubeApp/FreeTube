@@ -1306,9 +1306,11 @@ export function parseChannelHomeTab(homeTab, channelId, channelName) {
   return shelves
 }
 /**
- * @param {import('youtubei.js').YTNodes.PlaylistVideo|import('youtubei.js').YTNodes.ReelItem|import('youtubei.js').YTNodes.ShortsLockupView} video
+ * @param {import('youtubei.js').YTNodes.PlaylistVideo|import('youtubei.js').YTNodes.ReelItem|import('youtubei.js').YTNodes.ShortsLockupView|import('youtubei.js').YTNodes.LockupView} video
+ * @param {string} [channelId]
+ * @param {string} [channelName]
  */
-export function parseLocalPlaylistVideo(video) {
+export function parseLocalPlaylistVideo(video, channelId, channelName) {
   if (video.type === 'ReelItem') {
     /** @type {import('youtubei.js').YTNodes.ReelItem} */
     const short = video
@@ -1356,6 +1358,8 @@ export function parseLocalPlaylistVideo(video) {
       viewCount,
       lengthSeconds: ''
     }
+  } else if (video.type === 'LockupView') {
+    return parseLockupView(video, channelId, channelName)
   } else {
     /** @type {import('youtubei.js').YTNodes.PlaylistVideo} */
     const video_ = video
@@ -1566,7 +1570,7 @@ function isPremieresTimeText(text) {
 }
 
 /**
- * @param {import('youtubei.js').YTNodes.LockupView} lockupView
+ * @param {YTNodes.LockupView} lockupView
  * @param {string | undefined} channelId
  * @param {string | undefined} channelName
  */
@@ -1815,8 +1819,10 @@ function parseListItem(item, channelId, channelName) {
 
 /**
  * @param {YTNodes.CompactVideo | YTNodes.CompactMovie | YTNodes.LockupView} video
+ * @param {string} [channelId]
+ * @param {string} [channelName]
  */
-export function parseLocalWatchNextVideo(video) {
+export function parseLocalWatchNextVideo(video, channelId, channelName) {
   if (video.is(YTNodes.CompactMovie)) {
     return {
       type: 'video',
@@ -1827,7 +1833,7 @@ export function parseLocalWatchNextVideo(video) {
       lengthSeconds: video.duration.seconds
     }
   } else if (video.is(YTNodes.LockupView)) {
-    return parseLockupView(video)
+    return parseLockupView(video, channelId, channelName)
   } else {
     let publishedText
 

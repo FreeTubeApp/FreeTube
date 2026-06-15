@@ -174,6 +174,7 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import { isNavigationFailure, NavigationFailureType, onBeforeRouteLeave, useRoute, useRouter } from 'vue-router'
+import { YTNodes } from 'youtubei.js'
 
 import FtLoader from '../../components/FtLoader/FtLoader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
@@ -466,7 +467,11 @@ async function getPlaylistLocal() {
       }
     }
 
-    const playlistItems_ = result.items.map(parseLocalPlaylistVideo)
+    channelName.value = channelName_ ?? ''
+    channelId.value = result.info.author?.id
+    // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
+    // const playlistItems_ = result.items.map(parseLocalPlaylistVideo)
+    const playlistItems_ = [...result.memo.getType(YTNodes.LockupView)].map(video => parseLocalPlaylistVideo(video, channelId.value, channelName.value))
 
     playlistTitle.value = result.info.title
     playlistDescription.value = result.info.description ?? ''
@@ -475,9 +480,7 @@ async function getPlaylistLocal() {
     viewCount.value = result.info.views.toLowerCase() === 'no views' ? 0 : extractNumberFromString(result.info.views)
     videoCount.value = extractNumberFromString(result.info.total_items)
     lastUpdated.value = result.info.last_updated ?? ''
-    channelName.value = channelName_ ?? ''
     channelThumbnail.value = result.info.author?.best_thumbnail?.url ?? ''
-    channelId.value = result.info.author?.id
     infoSource.value = 'local'
 
     store.dispatch('updateSubscriptionDetails', {
