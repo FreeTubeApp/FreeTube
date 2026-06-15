@@ -471,7 +471,7 @@ async function getPlaylistLocal() {
     channelId.value = result.info.author?.id
     // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
     // const playlistItems_ = result.items.map(parseLocalPlaylistVideo)
-    const playlistItems_ = [...result.memo.getType(YTNodes.LockupView)].map(video => parseLocalPlaylistVideo(video, channelId.value, channelName.value))
+    const playlistItems_ = [...result.memo.getType(YTNodes.LockupView), ...result.memo.getType(YTNodes.ShortsLockupView)].map(video => parseLocalPlaylistVideo(video, channelId.value, channelName.value))
 
     playlistTitle.value = result.info.title
     playlistDescription.value = result.info.description ?? ''
