@@ -1069,7 +1069,7 @@ export default defineComponent({
       })
 
       if (scaled !== text) {
-        currentTimeButton.textContent = scaled
+        currentTimeButton.textContent = text + ' (' + scaled + ')'
       }
     }
 

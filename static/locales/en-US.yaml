@@ -1063,7 +1063,7 @@ Tooltips:
       the playback rate. Press and hold the Control key (Command Key on Mac) and left click the mouse
       to quickly return to the default playback rate (1x unless it has been changed in the settings).
     Skip by Scrolling Over Video Player: Use the scroll wheel to skip through the video, MPV style.
-    Scale Playback Time: When enabled, the time display in the video player will be divided by the current playback speed. For example, at 2x speed a 10-minute video will show as 5 minutes total.
+    Scale Playback Time: When enabled, the video player time display will show the scaled time in parentheses next to the original time. For example, at 2x speed a 10-minute video at the 3-minute mark will show as 3:00/10:00 (1:30/5:00).
   External Player Settings:
     External Player: Choosing an external player will display an icon, for opening the
       video (playlist if supported) in the external player, on the thumbnail. Warning, Invidious settings do not affect external players.
