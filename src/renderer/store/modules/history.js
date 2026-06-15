@@ -102,10 +102,10 @@ const actions = {
     }
   },
 
-  async unsetLastViewedPlaylist({ commit }, videoIds) {
+  async unsetLastViewedPlaylist({ commit }, { videoIds, playlistId }) {
     try {
-      await DBHistoryHandlers.unsetLastViewedPlaylist(videoIds)
-      commit('unsetRecordsLastViewedPlaylistIdInHistoryCache', videoIds)
+      await DBHistoryHandlers.unsetLastViewedPlaylist(videoIds, playlistId)
+      commit('unsetRecordsLastViewedPlaylistIdInHistoryCache', { videoIds, playlistId })
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -162,15 +162,15 @@ const mutations = {
     }
   },
 
-  unsetRecordsLastViewedPlaylistIdInHistoryCache(state, videoIds) {
+  unsetRecordsLastViewedPlaylistIdInHistoryCache(state, { videoIds, playlistId }) {
     for (const videoId of videoIds) {
       // historyCacheById and historyCacheSorted reference the same object instances,
       // so modifying an existing object in one of them will update both.
 
       const record = state.historyCacheById[videoId]
 
-      // Don't unset if the item is not part of the watch history
-      if (record) {
+      // Don't unset if the item is not part of the watch history or if the playlist does not match
+      if (record && record.lastViewedPlaylistId === playlistId) {
         delete record.lastViewedPlaylistId
         delete record.lastViewedPlaylistType
         delete record.lastViewedPlaylistItemId

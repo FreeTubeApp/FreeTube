@@ -894,10 +894,11 @@ async function removeToBeDeletedVideosSometimes() {
       playlistItemIds: [...toBeDeletedPlaylistItemIds.value],
     })
 
-    await store.dispatch('unsetLastViewedPlaylist',
+    await store.dispatch('unsetLastViewedPlaylist', {
+      playlistId: playlistId.value,
       // Create a new non-reactive array to avoid Electron erroring about Proxy objects not being clonable
-      [...videosWithPlaylistToUnset.value]
-    )
+      videoIds: [...videosWithPlaylistToUnset.value],
+    })
 
     toBeDeletedPlaylistItemIds.value = []
     videosWithPlaylistToUnset.value = []
