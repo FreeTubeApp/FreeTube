@@ -1306,13 +1306,13 @@ export function parseChannelHomeTab(homeTab, channelId, channelName) {
   return shelves
 }
 /**
- * @param {import('youtubei.js').YTNodes.PlaylistVideo|import('youtubei.js').YTNodes.ReelItem|import('youtubei.js').YTNodes.ShortsLockupView|import('youtubei.js').YTNodes.LockupView} video
+ * @param {YTNodes.PlaylistVideo|YTNodes.ReelItem|YTNodes.ShortsLockupView|YTNodes.LockupView} video
  * @param {string} [channelId]
  * @param {string} [channelName]
  */
 export function parseLocalPlaylistVideo(video, channelId, channelName) {
   if (video.type === 'ReelItem') {
-    /** @type {import('youtubei.js').YTNodes.ReelItem} */
+    /** @type {YTNodes.ReelItem} */
     const short = video
 
     return {
@@ -1323,7 +1323,7 @@ export function parseLocalPlaylistVideo(video, channelId, channelName) {
       lengthSeconds: ''
     }
   } else if (video.type === 'ShortsLockupView') {
-    /** @type {import('youtubei.js').YTNodes.ShortsLockupView} */
+    /** @type {YTNodes.ShortsLockupView} */
     const shortsLockupView = video
 
     let viewCount = null
@@ -1361,7 +1361,7 @@ export function parseLocalPlaylistVideo(video, channelId, channelName) {
   } else if (video.type === 'LockupView') {
     return parseLockupView(video, channelId, channelName)
   } else {
-    /** @type {import('youtubei.js').YTNodes.PlaylistVideo} */
+    /** @type {YTNodes.PlaylistVideo} */
     const video_ = video
 
     let viewCount = null
