@@ -491,15 +491,12 @@ export default defineComponent({
 
         this.isFamilyFriendly = result.basic_info.is_family_safe
 
-        const channelId = result.basic_info.channel_id ?? result.secondary_info.owner?.author.id
-        const channelName = result.basic_info.author ?? result.secondary_info.owner?.author.name
-
         this.recommendedVideos = result.watch_next_feed
           ?.filter((item) => {
             return item.type === 'CompactVideo' || item.type === 'CompactMovie' ||
               (item.type === 'LockupView' && item.content_type === 'VIDEO')
           })
-          .map(v => parseLocalWatchNextVideo(v, channelId, channelName)).filter(_ => _)
+          .map(parseLocalWatchNextVideo).filter(_ => _)
           // place watched recommended videos last
           .sort(this.sortWatchedVideosLast) ?? []
 
@@ -514,8 +511,8 @@ export default defineComponent({
         this.videoViewCount = result.basic_info.view_count ?? (result.primary_info.view_count ? extractNumberFromString(result.primary_info.view_count.text) : null)
         this.license = result.secondary_info.metadata.rows.find(element => element.title?.text === 'License')?.contents[0]?.text
 
-        this.channelId = channelId
-        this.channelName = channelName
+        this.channelId = result.basic_info.channel_id ?? result.secondary_info.owner?.author.id
+        this.channelName = result.basic_info.author ?? result.secondary_info.owner?.author.name
 
         if (result.secondary_info.owner?.author) {
           this.channelThumbnail = result.secondary_info.owner.author.best_thumbnail?.url ?? ''

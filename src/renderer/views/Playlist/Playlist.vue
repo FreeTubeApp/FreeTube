@@ -467,11 +467,9 @@ async function getPlaylistLocal() {
       }
     }
 
-    channelName.value = channelName_ ?? ''
-    channelId.value = result.info.author?.id
     // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
     // const playlistItems_ = result.items.map(parseLocalPlaylistVideo)
-    const playlistItems_ = [...result.memo.getType(YTNodes.LockupView), ...result.memo.getType(YTNodes.ShortsLockupView)].map(video => parseLocalPlaylistVideo(video, channelId.value, channelName.value))
+    const playlistItems_ = [...result.memo.getType(YTNodes.LockupView), ...result.memo.getType(YTNodes.ShortsLockupView)].map(video => parseLocalPlaylistVideo(video))
 
     playlistTitle.value = result.info.title
     playlistDescription.value = result.info.description ?? ''
@@ -480,7 +478,9 @@ async function getPlaylistLocal() {
     viewCount.value = result.info.views.toLowerCase() === 'no views' ? 0 : extractNumberFromString(result.info.views)
     videoCount.value = extractNumberFromString(result.info.total_items)
     lastUpdated.value = result.info.last_updated ?? ''
+    channelName.value = channelName_ ?? ''
     channelThumbnail.value = result.info.author?.best_thumbnail?.url ?? ''
+    channelId.value = result.info.author?.id
     infoSource.value = 'local'
 
     store.dispatch('updateSubscriptionDetails', {

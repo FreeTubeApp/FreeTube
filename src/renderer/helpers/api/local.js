@@ -1307,10 +1307,8 @@ export function parseChannelHomeTab(homeTab, channelId, channelName) {
 }
 /**
  * @param {YTNodes.PlaylistVideo|YTNodes.ReelItem|YTNodes.ShortsLockupView|YTNodes.LockupView} video
- * @param {string} [channelId]
- * @param {string} [channelName]
  */
-export function parseLocalPlaylistVideo(video, channelId, channelName) {
+export function parseLocalPlaylistVideo(video) {
   if (video.type === 'ReelItem') {
     /** @type {YTNodes.ReelItem} */
     const short = video
@@ -1359,7 +1357,8 @@ export function parseLocalPlaylistVideo(video, channelId, channelName) {
       lengthSeconds: ''
     }
   } else if (video.type === 'LockupView') {
-    return parseLockupView(video, channelId, channelName)
+    // No way to assume channel details for a playlist
+    return parseLockupView(video, undefined, undefined)
   } else {
     /** @type {YTNodes.PlaylistVideo} */
     const video_ = video
@@ -1819,10 +1818,8 @@ function parseListItem(item, channelId, channelName) {
 
 /**
  * @param {YTNodes.CompactVideo | YTNodes.CompactMovie | YTNodes.LockupView} video
- * @param {string} [channelId]
- * @param {string} [channelName]
  */
-export function parseLocalWatchNextVideo(video, channelId, channelName) {
+export function parseLocalWatchNextVideo(video) {
   if (video.is(YTNodes.CompactMovie)) {
     return {
       type: 'video',
@@ -1833,7 +1830,8 @@ export function parseLocalWatchNextVideo(video, channelId, channelName) {
       lengthSeconds: video.duration.seconds
     }
   } else if (video.is(YTNodes.LockupView)) {
-    return parseLockupView(video, channelId, channelName)
+    // No way to assume channel details for a playlist
+    return parseLockupView(video, undefined, undefined)
   } else {
     let publishedText
 
