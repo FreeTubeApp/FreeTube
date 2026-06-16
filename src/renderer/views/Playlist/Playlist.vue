@@ -888,14 +888,16 @@ async function removeToBeDeletedVideosSometimes() {
   if (isLoading.value) { return }
 
   if (toBeDeletedPlaylistItemIds.value.length > 0) {
+    // Needed because route params could change while the first store dispatch is awaited
+    const playlistIdCopy = playlistId.value
     await store.dispatch('removeVideos', {
-      _id: playlistId.value,
+      _id: playlistIdCopy,
       // Create a new non-reactive array to avoid Electron erroring about Proxy objects not being clonable
       playlistItemIds: [...toBeDeletedPlaylistItemIds.value],
     })
 
     await store.dispatch('unsetLastViewedPlaylist', {
-      playlistId: playlistId.value,
+      playlistId: playlistIdCopy,
       // Create a new non-reactive array to avoid Electron erroring about Proxy objects not being clonable
       videoIds: [...videosWithPlaylistToUnset.value],
     })
