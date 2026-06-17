@@ -593,7 +593,9 @@ async function loadCachedPlaylistInformation(cachedPlaylist) {
     videos.push(...[...continuationData.memo.getType(YTNodes.LockupView), ...continuationData.memo.getType(YTNodes.ShortsLockupView)].map(parseLocalPlaylistVideo))
 
     await untilEndOfLocalPlayList(continuationData, (p) => {
-      videos.push(...p.items.map(parseLocalPlaylistVideo))
+      // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
+      // videos.push(...p.items.map(parseLocalPlaylistVideo))
+      videos.push(...[...p.memo.getType(YTNodes.LockupView), ...p.memo.getType(YTNodes.ShortsLockupView)].map(parseLocalPlaylistVideo))
     }, { runCallbackOnceFirst: false })
 
     playlistItems.value = videos
@@ -625,7 +627,9 @@ async function getPlaylistInformationLocal() {
 
     const videos = []
     await untilEndOfLocalPlayList(playlist, (p) => {
-      videos.push(...p.items.map(parseLocalPlaylistVideo))
+      // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
+      // videos.push(...p.items.map(parseLocalPlaylistVideo))
+      videos.push(...[...p.memo.getType(YTNodes.LockupView), ...p.memo.getType(YTNodes.ShortsLockupView)].map(parseLocalPlaylistVideo))
     })
 
     playlistItems.value = videos
