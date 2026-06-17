@@ -176,6 +176,7 @@ import {
 } from '../../helpers/api/local'
 import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
 import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
+import { YTNodes } from 'youtubei.js'
 
 const props = defineProps({
   playlistId: {
@@ -587,7 +588,9 @@ async function loadCachedPlaylistInformation(cachedPlaylist) {
     const videos = cachedPlaylist.items
 
     const continuationData = await getLocalCachedFeedContinuation('playlist', cachedPlaylist.continuationData)
-    videos.push(...continuationData.items.map(parseLocalPlaylistVideo))
+    // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
+    // videos.push(...continuationData.items.map(parseLocalPlaylistVideo))
+    videos.push(...[...continuationData.memo.getType(YTNodes.LockupView), ...continuationData.memo.getType(YTNodes.ShortsLockupView)].map(parseLocalPlaylistVideo))
 
     await untilEndOfLocalPlayList(continuationData, (p) => {
       videos.push(...p.items.map(parseLocalPlaylistVideo))
