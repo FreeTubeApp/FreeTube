@@ -1092,7 +1092,9 @@ async function getChannelVideosLocal() {
         return
       }
 
-      latestVideos.value = playlist.items.map(parseLocalPlaylistVideo)
+      // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
+      // latestVideos.value = playlist.items.map(parseLocalPlaylistVideo)
+      latestVideos.value = [...playlist.memo.getType(YTNodes.LockupView)].map(video => parseLocalPlaylistVideo(video))
       videoContinuationData.value = playlist.has_continuation ? playlist : null
       isElementListLoading.value = false
     } else {
