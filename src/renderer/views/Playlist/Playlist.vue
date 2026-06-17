@@ -678,7 +678,9 @@ async function getNextPageLocal() {
   let shouldGetNextPage = false
 
   if (result) {
-    const parsedVideos = result.items.map(parseLocalPlaylistVideo)
+    // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
+    // const playlistItems_ = result.items.map(parseLocalPlaylistVideo)
+    const parsedVideos = [...result.memo.getType(YTNodes.LockupView), ...result.memo.getType(YTNodes.ShortsLockupView)].map(video => parseLocalPlaylistVideo(video))
     playlistItems.value = playlistItems.value.concat(parsedVideos)
 
     if (result.has_continuation) {
