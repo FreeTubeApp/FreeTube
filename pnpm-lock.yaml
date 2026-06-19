@@ -85,8 +85,8 @@ importers:
         specifier: ^7.29.7
         version: 7.29.7(@babel/core@7.29.7)
       '@double-great/stylelint-a11y':
-        specifier: ^3.4.14
-        version: 3.4.14(stylelint@17.13.0(typescript@6.0.3))
+        specifier: ^3.4.15
+        version: 3.4.15(stylelint@17.13.0(typescript@6.0.3))
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.5.0(jiti@2.7.0))
@@ -796,8 +796,8 @@ packages:
     resolution: {integrity: sha512-Xc3VhU02wqZ1HvHRJUwL09HkZSTvidqY5Ya0NXBSYOxAp+Ln9dcJr9fySI+CkONzP3PekQo9WdzCv0PGER/mOA==}
     engines: {node: '>=14.17.0'}
 
-  '@double-great/stylelint-a11y@3.4.14':
-    resolution: {integrity: sha512-yytlwspk4QCm9KcdlNtO+2zfZsThiciXEI+sAZrKV4OY35SLrvJHUWUkk1pVQ9FUY+xkQxXU6BD9gdbohmESlw==}
+  '@double-great/stylelint-a11y@3.4.15':
+    resolution: {integrity: sha512-yMpE5UpdXt4ezKv7fxf69k61ycOrJ7xa+Wt6p1XuV8r1y2PKWyVGp1qxFcc4BMEpptOA0XhWPhKHrpbP3+tmuw==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
       stylelint: '>=16.0.0'
@@ -5980,7 +5980,7 @@ snapshots:
 
   '@discoveryjs/json-ext@1.1.0': {}
 
-  '@double-great/stylelint-a11y@3.4.14(stylelint@17.13.0(typescript@6.0.3))':
+  '@double-great/stylelint-a11y@3.4.15(stylelint@17.13.0(typescript@6.0.3))':
     dependencies:
       postcss: 8.5.15
       stylelint: 17.13.0(typescript@6.0.3)
