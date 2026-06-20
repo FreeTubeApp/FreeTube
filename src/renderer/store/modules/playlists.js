@@ -405,7 +405,7 @@ const actions = {
     }
   },
 
-  async removeVideo({ commit }, payload) {
+  async removeVideo({ commit, dispatch }, payload) {
     try {
       const { _id, videoId, playlistItemId } = payload
 
@@ -416,14 +416,16 @@ const actions = {
       payload.lastUpdatedAt = lastUpdatedAt
 
       commit('removeVideo', payload)
+
+      await dispatch('unsetLastViewedPlaylist', { videoIds: [videoId], playlistId: _id })
     } catch (errMessage) {
       console.error(errMessage)
     }
   },
 
-  async removeVideos({ commit }, payload) {
+  async removeVideos({ commit, dispatch }, payload) {
     try {
-      const { _id, playlistItemIds } = payload
+      const { _id, playlistItemIds, videoIds } = payload
 
       const lastUpdatedAt = Date.now()
 
@@ -432,6 +434,8 @@ const actions = {
       payload.lastUpdatedAt = lastUpdatedAt
 
       commit('removeVideos', payload)
+
+      await dispatch('unsetLastViewedPlaylist', { videoIds, playlistId: _id })
     } catch (errMessage) {
       console.error(errMessage)
     }
