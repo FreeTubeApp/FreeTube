@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue'
 import FtIconButton from '../FtIconButton/FtIconButton.vue'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { mapActions } from 'vuex'
 import {
   copyToClipboard,
@@ -19,7 +20,8 @@ import { vSaferHtml } from '../../directives/vSaferHtml.js'
 export default defineComponent({
   name: 'FtListVideo',
   components: {
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-awesome-icon': FontAwesomeIcon,
   },
   directives: {
     'safer-html': vSaferHtml
@@ -86,6 +88,14 @@ export default defineComponent({
       default: false,
     },
     canRemoveFromPlaylist: {
+      type: Boolean,
+      default: false,
+    },
+    layout: {
+      type: String,
+      default: 'list',
+    },
+    showGrabBar: {
       type: Boolean,
       default: false,
     },
@@ -535,9 +545,6 @@ export default defineComponent({
     useDeArrowThumbnails: function () {
       return this.$store.getters.getUseDeArrowThumbnails
     },
-    deArrowCasualMode: function () {
-      return this.$store.getters.getDeArrowCasualMode
-    },
     deArrowChangedContent: function () {
       return (this.useDeArrowThumbnails && this.deArrowCache?.thumbnail) ||
         (this.useDeArrowTitles && this.deArrowCache?.title &&
@@ -552,6 +559,10 @@ export default defineComponent({
 
     deArrowCache: function () {
       return this.$store.getters.getDeArrowCache[this.id]
+    },
+
+    disableChannelLinks: function () {
+      return this.$store.getters.getDisableChannelLinks
     },
   },
   watch: {
@@ -569,11 +580,19 @@ export default defineComponent({
     this.showDeArrowTitle = this.useDeArrowTitles
     this.showDeArrowThumbnail = this.useDeArrowThumbnails
 
-    if ((this.showDeArrowTitle || this.showDeArrowThumbnail) && !this.deArrowCache) {
+    // A cache entry fetched under a different DeArrow Casual Mode setting
+    // is stale: the title that was selected for it depended on the mode
+    // active at fetch time. Without this check, toggling Casual Mode
+    // mid-session leaves already-cached videos showing titles selected
+    // under the old mode, while newly-viewed videos use the new mode —
+    // producing inconsistent results across the video list.
+    const cacheIsStale = this.deArrowCache != null && this.deArrowCache.casualMode !== this.deArrowCasualMode
+
+    if ((this.showDeArrowTitle || this.showDeArrowThumbnail) && (!this.deArrowCache || cacheIsStale)) {
       this.fetchDeArrowData()
     }
 
-    if (this.showDeArrowThumbnail && this.deArrowCache && this.deArrowCache.thumbnail == null) {
+    if (this.showDeArrowThumbnail && this.deArrowCache && !cacheIsStale && this.deArrowCache.thumbnail == null) {
       if (this.debounceGetDeArrowThumbnail == null) {
         this.debounceGetDeArrowThumbnail = debounce(this.fetchDeArrowThumbnail, 1000)
       }
@@ -581,26 +600,25 @@ export default defineComponent({
       this.debounceGetDeArrowThumbnail()
     }
   },
+
+  // ----- fetchDeArrowData() method — REPLACE existing version ---------
+
   methods: {
-    handleWatchPageLinkClick: function() {
-      if (this.externalPlayerIsDefaultViewingMode) {
-        this.handleExternalPlayer()
-      }
-    },
-    fetchDeArrowThumbnail: async function() {
-      if (this.thumbnailPreference === 'hidden') { return }
+    async fetchDeArrowData() {
       const videoId = this.id
-      const thumbnail = await deArrowThumbnail(videoId, this.deArrowCache.thumbnailTimestamp)
-      if (thumbnail) {
-        const deArrowCacheClone = deepCopy(this.deArrowCache)
-        deArrowCacheClone.thumbnail = thumbnail
-        this.$store.commit('addThumbnailToDeArrowCache', deArrowCacheClone)
-      }
-    },
-    fetchDeArrowData: async function() {
-      const videoId = this.id
+      const casualModeUsed = this.deArrowCasualMode
       const data = await deArrowData(this.id)
-      const cacheData = { videoId, title: null, videoDuration: null, thumbnail: null, thumbnailTimestamp: null }
+      const cacheData = {
+        videoId,
+        title: null,
+        videoDuration: null,
+        thumbnail: null,
+        thumbnailTimestamp: null,
+        // Record which mode this entry was fetched under, so future
+        // `created()` calls can detect staleness if the setting changes.
+        casualMode: casualModeUsed
+      }
+
       if (Array.isArray(data?.titles) && data.titles.length > 0) {
         const selectedTitle = this.selectDeArrowTitle(data.titles, data.casualMode)
         if (selectedTitle) {
@@ -627,31 +645,6 @@ export default defineComponent({
 
         this.debounceGetDeArrowThumbnail()
       }
-    },
-    selectDeArrowTitle: function(titles, casualMode) {
-      if (!Array.isArray(titles) || titles.length === 0) {
-        return null
-      }
-
-      if (casualMode) {
-        // Prefer a community-approved original title in casual mode.
-        const goodOriginal = titles.find(
-          (t) => t.original && (t.locked || t.votes >= 0)
-        )
-        if (goodOriginal) {
-          return goodOriginal.title
-        }
-
-        // No well-voted original — use the best custom title instead.
-        const bestCustom = titles.find(
-          (t) => !t.original && (t.locked || t.votes >= 0)
-        )
-        return bestCustom ? bestCustom.title : null
-      }
-
-      // Classic mode: use the first (highest-quality) title if it is trusted.
-      const best = titles[0]
-      return (best.locked || best.votes >= 0) ? best.title : null
     },
     toggleDeArrow() {
       if (!this.deArrowChangedContent) {
@@ -929,6 +922,14 @@ export default defineComponent({
 
     removeFromPlaylist: function() {
       this.$emit('remove-from-playlist', this.id, this.playlistItemId)
+    },
+
+    onDragStart(event) {
+      // Prevent drag event except links
+      if (event.target.nodeName === 'A') { return }
+
+      event.preventDefault()
+      event.stopPropagation()
     },
 
     ...mapActions([

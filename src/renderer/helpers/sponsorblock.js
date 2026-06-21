@@ -60,12 +60,11 @@ export async function deArrowData(videoId) {
   const videoIdHashPrefix = await getVideoHash(videoId)
   const deArrowCasualMode = store.getters.getDeArrowCasualMode
 
-  // When casual mode is enabled we request all titles (including those with
-  // negative scores) so that upvoted original titles are also included in the
-  // response.  The server already returns data in quality order, so we can
-  // still rely on position when picking the best non-original title as a
-  // fallback.
-  const requestUrl = `${store.getters.getSponsorBlockUrl}/api/branding/${videoIdHashPrefix}${deArrowCasualMode ? '?fetchAll=true' : ''}`
+  // Note: entries with votes < 0 are hidden by the server by default
+  // (fetchAll=false), which already includes upvoted (votes >= 0) original
+  // titles. There's no need to request fetchAll=true here — doing so only
+  // adds untrusted/negative-score noise that we filter out anyway.
+  const requestUrl = `${store.getters.getSponsorBlockUrl}/api/branding/${videoIdHashPrefix}`
 
   try {
     const response = await fetch(requestUrl)
@@ -82,8 +81,9 @@ export async function deArrowData(videoId) {
       return undefined
     }
 
-    // Attach the current mode so the consumer can make the right selection
-    // decision without having to reach back into the store.
+    // Tag the result with the mode that was active for this fetch, so the
+    // cache consumer can tell whether a cached entry is stale relative to
+    // the user's current setting.
     return { ...videoData, casualMode: deArrowCasualMode }
   } catch (error) {
     console.error('failed to fetch DeArrow data', requestUrl, error)
