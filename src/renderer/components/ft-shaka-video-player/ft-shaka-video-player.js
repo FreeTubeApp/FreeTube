@@ -1472,7 +1472,11 @@ export default defineComponent({
       const isPortrait = variants[0].height > variants[0].width
 
       let matches = variants.filter(variant => {
-        return quality === (isPortrait ? variant.width : variant.height)
+        const { width, height } = variant
+        const [primary, secondary] = isPortrait ? [width, height] : [height, width]
+        const aspectRatio = secondary / primary
+        const resolution = aspectRatio > 16 / 9 ? Math.round(secondary * 9 / 16) : primary
+        return quality === resolution
       })
 
       if (matches.length === 0) {
