@@ -369,8 +369,15 @@ const actions = {
     }
   },
 
-  async removeAllPlaylists({ commit }) {
+  async removeAllPlaylists({ commit, dispatch, getters }) {
     try {
+      const playlists = getters.getAllPlaylists()
+      for (const playlist of playlists) {
+        const videoIds = playlist.videos.map(video => video.videoId)
+        const playlistId = playlist._id
+        await dispatch('unsetLastViewedPlaylist', { videoIds, playlistId })
+      }
+
       await DBPlaylistHandlers.deleteAll()
       commit('removeAllPlaylists')
     } catch (errMessage) {
@@ -378,8 +385,12 @@ const actions = {
     }
   },
 
-  async removeAllVideos({ commit }, _id) {
+  async removeAllVideos({ commit, dispatch, getters }, _id) {
     try {
+      const playlist = getters.getPlaylist(_id)
+      const videoIds = playlist.videos.map(video => video.videoId)
+      await dispatch('unsetLastViewedPlaylist', { videoIds, playlistId: _id })
+
       await DBPlaylistHandlers.deleteAllVideosByPlaylistId(_id)
       commit('removeAllVideos', _id)
     } catch (errMessage) {
@@ -387,8 +398,12 @@ const actions = {
     }
   },
 
-  async removePlaylist({ commit }, playlistId) {
+  async removePlaylist({ commit, dispatch, getters }, playlistId) {
     try {
+      const playlist = getters.getPlaylist(playlistId)
+      const videoIds = playlist.videos.map(video => video.videoId)
+      await dispatch('unsetLastViewedPlaylist', { videoIds, playlistId })
+
       await DBPlaylistHandlers.delete(playlistId)
       commit('removePlaylist', playlistId)
     } catch (errMessage) {
@@ -396,8 +411,14 @@ const actions = {
     }
   },
 
-  async removePlaylists({ commit }, playlistIds) {
+  async removePlaylists({ commit, dispatch, getters }, playlistIds) {
     try {
+      for (const playlistId of playlistIds) {
+        const playlist = getters.getPlaylist(playlistId)
+        const videoIds = playlist.videos.map(video => video.videoId)
+        await dispatch('unsetLastViewedPlaylist', { videoIds, playlistId })
+      }
+
       await DBPlaylistHandlers.deleteMultiple(playlistIds)
       commit('removePlaylists', playlistIds)
     } catch (errMessage) {
