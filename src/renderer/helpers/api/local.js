@@ -1537,6 +1537,8 @@ const VIEWS_OR_WATCHING_REGEX = /views?|watching|waiting/i
 const WAITING_REGEX = /waiting/i
 const VIEWS_IN_NUMBER_ONLY = /^\d+(\.\d)?[km]?$/i
 const PREMIERES_TIME_REGEX = /^(premieres|scheduled for) /i
+// Sometimes got `Streamed N (unit) ago`
+const PUBLISH_TIME_REGEX = /^(streamed+ )?\d+ \w+? ago/i
 
 /**
  * @param {string | undefined} text
@@ -1563,6 +1565,15 @@ function isPremieresTimeText(text) {
   if (typeof text !== 'string') { return false }
 
   return PREMIERES_TIME_REGEX.test(text)
+}
+
+/**
+ * @param {string | undefined} text
+ */
+function isPublishTimeText(text) {
+  if (typeof text !== 'string') { return false }
+
+  return PUBLISH_TIME_REGEX.test(text)
 }
 
 /**
@@ -1644,7 +1655,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
 
           if (lockupView.metadata.metadata?.metadata_rows != null) {
             for (const row of lockupView.metadata.metadata.metadata_rows) {
-              const foundText = row.metadata_parts?.find(part => part.text?.text?.endsWith('ago'))?.text?.text
+              const foundText = row.metadata_parts?.find(part => isPublishTimeText(part.text?.text))?.text?.text
               if (foundText != null) {
                 publishedText = foundText
                 break
