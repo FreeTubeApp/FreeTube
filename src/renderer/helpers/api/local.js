@@ -1677,12 +1677,16 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       }
 
       const maybeAuthorText = lockupView.metadata.metadata?.metadata_rows[0].metadata_parts?.[0].text?.text
+      let author = channelName
+      if (maybeAuthorText && !isViewOrWaitingCountText(maybeAuthorText) && !isPremieresTimeText(maybeAuthorText)) {
+        author = maybeAuthorText
+      }
 
       return {
         type: 'video',
         videoId: lockupView.content_id,
         title: lockupView.metadata.title.text?.trim(),
-        author: maybeAuthorText && !isViewOrWaitingCountText(maybeAuthorText) ? maybeAuthorText : channelName,
+        author,
         authorId: lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.payload.browseId ?? channelId,
         viewCount,
         published: calculatePublishedDate(publishedText, liveNow, isUpcoming, premiereDate),
