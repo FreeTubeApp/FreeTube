@@ -1536,7 +1536,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
 const VIEWS_OR_WATCHING_REGEX = /views?|watching|waiting/i
 const WAITING_REGEX = /waiting/i
 const VIEWS_IN_NUMBER_ONLY = /^\d+(\.\d)?[km]?$/i
-const PREMIERES_TIME_REGEX = /^premieres /i
+const PREMIERES_TIME_REGEX = /^(premieres|scheduled for) /i
 
 /**
  * @param {string | undefined} text
