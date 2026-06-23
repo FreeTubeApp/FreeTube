@@ -2280,45 +2280,7 @@ export default defineComponent({
      * @param {KeyboardEvent} event
      */
     function keyboardShortcutHandler(event) {
-      switch (event.key.toLowerCase()) {
-        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN:
-          // Toggle full screen
-          event.preventDefault()
-          ui.getControls().toggleFullScreen()
-          blurTooltipButtons()
-          break
-        case 'escape':
-          // Exit full window
-          if (fullWindowEnabled.value) {
-            event.preventDefault()
-
-            events.dispatchEvent(new CustomEvent('setFullWindow', {
-              detail: false
-            }))
-          }
-          break
-        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLWINDOW:
-          // Toggle full window mode
-          event.preventDefault()
-          events.dispatchEvent(new CustomEvent('setFullWindow', {
-            detail: !fullWindowEnabled.value
-          }))
-          blurTooltipButtons()
-          break
-        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.THEATRE_MODE:
-          // Toggle theatre mode
-          if (props.theatrePossible) {
-            event.preventDefault()
-
-            events.dispatchEvent(new CustomEvent('toggleTheatreMode', {
-              detail: !props.useTheatreMode
-            }))
-          }
-          blurTooltipButtons()
-          break
-      }
-
-      if (!player || !hasLoaded.value) {
+      if (!player) {
         return
       }
 
@@ -2369,6 +2331,48 @@ export default defineComponent({
       // Skip to previous video in playlist
       if (event.shiftKey && event.key.toLowerCase() === 'p') {
         emit('skip-to-prev')
+        return
+      }
+
+      switch (event.key.toLowerCase()) {
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN:
+          // Toggle full screen
+          event.preventDefault()
+          ui.getControls().toggleFullScreen()
+          blurTooltipButtons()
+          break
+        case 'escape':
+          // Exit full window
+          if (fullWindowEnabled.value) {
+            event.preventDefault()
+
+            events.dispatchEvent(new CustomEvent('setFullWindow', {
+              detail: false
+            }))
+          }
+          break
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLWINDOW:
+          // Toggle full window mode
+          event.preventDefault()
+          events.dispatchEvent(new CustomEvent('setFullWindow', {
+            detail: !fullWindowEnabled.value
+          }))
+          blurTooltipButtons()
+          break
+        case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.THEATRE_MODE:
+          // Toggle theatre mode
+          if (props.theatrePossible) {
+            event.preventDefault()
+
+            events.dispatchEvent(new CustomEvent('toggleTheatreMode', {
+              detail: !props.useTheatreMode
+            }))
+          }
+          blurTooltipButtons()
+          break
+      }
+
+      if (!hasLoaded.value) {
         return
       }
 
