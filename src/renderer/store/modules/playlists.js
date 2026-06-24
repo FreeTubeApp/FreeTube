@@ -430,6 +430,8 @@ const actions = {
     try {
       const { _id, videoId, playlistItemId } = payload
 
+      await dispatch('unsetLastViewedPlaylist', { videoIds: [videoId], playlistId: _id })
+
       const lastUpdatedAt = Date.now()
 
       await DBPlaylistHandlers.deleteVideoIdByPlaylistId(_id, lastUpdatedAt, videoId, playlistItemId)
@@ -437,8 +439,6 @@ const actions = {
       payload.lastUpdatedAt = lastUpdatedAt
 
       commit('removeVideo', payload)
-
-      await dispatch('unsetLastViewedPlaylist', { videoIds: [videoId], playlistId: _id })
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -448,6 +448,8 @@ const actions = {
     try {
       const { _id, playlistItemIds, videoIds } = payload
 
+      await dispatch('unsetLastViewedPlaylist', { videoIds, playlistId: _id })
+
       const lastUpdatedAt = Date.now()
 
       await DBPlaylistHandlers.deleteVideoIdsByPlaylistId(_id, lastUpdatedAt, playlistItemIds)
@@ -455,8 +457,6 @@ const actions = {
       payload.lastUpdatedAt = lastUpdatedAt
 
       commit('removeVideos', payload)
-
-      await dispatch('unsetLastViewedPlaylist', { videoIds, playlistId: _id })
     } catch (errMessage) {
       console.error(errMessage)
     }
