@@ -192,6 +192,7 @@ const hideLiveStreams = computed(() => {
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideUpcomingPremieres = computed(() => {
   if (!props.useHideUpcomingPremieresPreference) { return false }
+
   return store.getters.getHideUpcomingPremieres
 })
 
