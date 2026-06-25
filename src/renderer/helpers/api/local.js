@@ -1350,6 +1350,8 @@ export function parseLocalPlaylistVideo(video) {
       viewCount,
       lengthSeconds: ''
     }
+  } else if (video.type === 'LockupView') {
+    return parseLockupView(video)
   } else {
     /** @type {import('youtubei.js').YTNodes.PlaylistVideo} */
     const video_ = video
