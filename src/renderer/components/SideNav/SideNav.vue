@@ -30,6 +30,7 @@
         </p>
       </router-link>
       <router-link
+        v-if="!hideChannels"
         class="navOption mobileHidden"
         role="button"
         to="/subscribedchannels"
@@ -312,6 +313,11 @@ const hideTrendingVideos = computed(() => {
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideActiveSubscriptions = computed(() => {
   return store.getters.getHideActiveSubscriptions
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideChannels = computed(() => {
+  return store.getters.getHideChannels
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */

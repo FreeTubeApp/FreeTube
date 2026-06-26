@@ -570,6 +570,7 @@ Settings:
     Hide Channels Invalid: Channel ID provided was invalid
     Hide Channels API Error: Error retrieving user with the ID provided. Please check again if the ID is correct.
     Hide Channels Already Exists: Channel ID already exists
+    Hide Channels in Sidebar: Hide Channels
     Hide Featured Channels: Hide Featured Channels
     Hide Channel Playlists: Hide Channel "Playlists" Tab
     Hide Channel Posts: Hide Channel "Posts" Tab

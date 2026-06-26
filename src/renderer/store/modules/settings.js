@@ -182,6 +182,7 @@ const state = {
   showAddedExternalPlayerCustomArgs: true,
   expandSideBar: false,
   hideActiveSubscriptions: false,
+  hideChannels: false,
   hideChannelCommunity: false,
   hideChannelHome: false,
   hideChannelPlaylists: false,

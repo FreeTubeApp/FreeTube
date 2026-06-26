@@ -110,6 +110,12 @@
           :default-value="disableHidePopularVideos || hidePopularVideos"
           @change="updateHidePopularVideos"
         />
+        <FtToggleSwitch
+          :label="t('Settings.Distraction Free Settings.Hide Channels in Sidebar')"
+          :compact="true"
+          :default-value="hideChannels"
+          @change="updateHideChannels"
+        />
       </div>
       <div class="switchColumn">
         <FtToggleSwitch
@@ -390,6 +396,16 @@ const disableHidePopularVideos = computed(() => backendPreference.value !== 'inv
  */
 function updateHidePopularVideos(value) {
   store.dispatch('updateHidePopularVideos', value)
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideChannels = computed(() => store.getters.getHideChannels)
+
+/**
+ * @param {boolean} value
+ */
+function updateHideChannels(value) {
+  store.dispatch('updateHideChannels', value)
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */
