@@ -1330,7 +1330,7 @@ export function parseLocalPlaylistVideo(video) {
     if (shortsLockupView.accessibility_text) {
       // the `.*\s+` at the start of the regex, ensures we match the last occurence
       // just in case the video title also contains that pattern
-      const match = shortsLockupView.accessibility_text.match(/.*\s+(\d+(?:[,.]\d+)?\s?(?:[BKMbkm]|million)?|no)\s+views?/)
+      const match = shortsLockupView.accessibility_text.match(/.*\s+(\d+(?:[,.]\d+)?\s?(?:[BKMbkm]|thousand|[bm]illion)?|no)\s+views?/)
 
       if (match) {
         const count = match[1]
@@ -2098,7 +2098,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
  * @param {string} text
  */
 export function parseLocalSubscriberCount(text) {
-  const match = text.match(/(\d+)(?:[,.](\d+))?\s?([BKMbkm]|million)\b/)
+  const match = text.match(/(\d+)(?:[,.](\d+))?\s?([BKMbkm]|thousand|[bm]illion)\b/)
 
   if (match) {
     let multiplier = 0
@@ -2106,6 +2106,7 @@ export function parseLocalSubscriberCount(text) {
     switch (match[3]) {
       case 'K':
       case 'k':
+      case 'thousand':
         multiplier = 3
         break
       case 'M':
@@ -2115,6 +2116,7 @@ export function parseLocalSubscriberCount(text) {
         break
       case 'B':
       case 'b':
+      case 'billion':
         multiplier = 9
         break
     }
