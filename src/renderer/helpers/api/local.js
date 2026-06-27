@@ -140,22 +140,22 @@ export async function getLocalPlaylist(id) {
  */
 
 /**
- * @param {import('youtubei.js').YTNodes.ContinuationItem} continuationItem
+ * @param {import('youtubei.js').YTNodes.ContinuationItem | import('youtubei.js').YTNodes.ContinuationItemView} continuationItemOrView
  * @param {import('youtubei.js').Actions} actions
  */
-function serializeContinuationItem(continuationItem, actions) {
+function serializeContinuation(continuationItemOrView, actions) {
   let path, payload
 
   // Based on YouTube.js' NavigationEndpoint#call()
-  if (continuationItem.endpoint.command.is(YTNodes.CommandExecutorCommand)) {
+  if (continuationItemOrView.endpoint.command.is(YTNodes.CommandExecutorCommand)) {
     /** @type {import('youtubei.js').Helpers.YTNode & import('youtubei.js').APIResponseTypes.IEndpoint} */
-    const command = continuationItem.endpoint.command.commands.at(-1)
+    const command = continuationItemOrView.endpoint.command.commands.at(-1)
 
     path = command.getApiPath()
     payload = command.buildRequest()
   } else {
-    path = continuationItem.endpoint.metadata.api_url
-    payload = continuationItem.endpoint.payload
+    path = continuationItemOrView.endpoint.metadata.api_url
+    payload = continuationItemOrView.endpoint.payload
   }
 
   /** @type {SerializedContinuation} */
@@ -169,18 +169,21 @@ function serializeContinuationItem(continuationItem, actions) {
 }
 
 /**
+ * @template {import('youtubei.js').YTNodes} N
  * @param {import('youtubei.js').Mixins.Feed} feed
+ * @param {N.constructor} type
+ * @return {N}
  */
-function extractFeedContinuationItem(feed) {
+function extractFeedContinuation(feed, type = YTNodes.ContinuationItem) {
   let continuationItem
 
   if (feed.page.header_memo) {
-    const headerContinuations = feed.page.header_memo.getType(YTNodes.ContinuationItem)
-    continuationItem = feed.memo.getType(YTNodes.ContinuationItem).find(
+    const headerContinuations = feed.page.header_memo.getType(type)
+    continuationItem = feed.memo.getType(type).find(
       (continuation) => !headerContinuations.includes(continuation)
     )
   } else {
-    continuationItem = feed.memo.getType(YTNodes.ContinuationItem)[0]
+    continuationItem = feed.memo.getType(type)[0]
   }
 
   if (!continuationItem) {
@@ -198,21 +201,25 @@ export function extractLocalCacheablePlaylistContinuation(playlist) {
   const sectionList = playlist.memo.getType(YTNodes.SectionList)[0]
 
   let continuationItem
+  let continuationItemView
 
   // No section list means there can't be additional continuation nodes here,
   // so no need to check.
   if (!sectionList) {
-    continuationItem = extractFeedContinuationItem(playlist)
+    continuationItem = extractFeedContinuation(playlist, YTNodes.ContinuationItem)
+    continuationItemView = extractFeedContinuation(playlist, YTNodes.ContinuationItemView)
   } else {
     continuationItem = playlist.memo.getType(YTNodes.ContinuationItem)
       .find((node) => !sectionList.contents.includes(node))
+    continuationItemView = playlist.memo.getType(YTNodes.ContinuationItemView)
+      .find((node) => !sectionList.contents.includes(node))
   }
 
-  if (!continuationItem) {
+  if (!continuationItem && !continuationItemView) {
     throw new Utils.InnertubeError('There are no continuations.')
   }
 
-  return serializeContinuationItem(continuationItem, playlist.actions)
+  return serializeContinuation(continuationItem || continuationItemView, playlist.actions)
 }
 
 /**
@@ -221,9 +228,9 @@ export function extractLocalCacheablePlaylistContinuation(playlist) {
  * @returns {SerializedContinuation}
  */
 export function extractLocalCacheableSearchContinuation(search) {
-  const continuationItem = extractFeedContinuationItem(search)
+  const continuationItem = extractFeedContinuation(search, YTNodes.ContinuationItem)
 
-  return serializeContinuationItem(continuationItem, search.actions)
+  return serializeContinuation(continuationItem, search.actions)
 }
 
 /**
