@@ -8,7 +8,7 @@
       appearance="result"
       :data="result"
       :data-type="dataType || result.type"
-      :first-screen="index < 16"
+      :first-screen="!renderAllItemsLazily && index < 16"
       :layout="displayValue"
       :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
       :use-channels-hidden-preference="useChannelsHiddenPreference"
@@ -51,6 +51,10 @@ const props = defineProps({
   dataType: {
     type: String,
     default: null,
+  },
+  renderAllItemsLazily: {
+    type: Boolean,
+    default: false
   },
   display: {
     type: String,
