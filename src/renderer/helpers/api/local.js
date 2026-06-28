@@ -171,19 +171,19 @@ function serializeContinuation(continuationItemOrView, actions) {
 /**
  * @template {import('youtubei.js').YTNodes} N
  * @param {import('youtubei.js').Mixins.Feed} feed
- * @param {N.constructor} type
+ * @param {import('youtubei.js').YTNodeConstructor<N>[]} types
  * @return {N}
  */
-function extractFeedContinuation(feed, type = YTNodes.ContinuationItem) {
+function extractFeedContinuation(feed, types) {
   let continuationItem
 
   if (feed.page.header_memo) {
-    const headerContinuations = feed.page.header_memo.getType(type)
-    continuationItem = feed.memo.getType(type).find(
+    const headerContinuations = feed.page.header_memo.getType(...types)
+    continuationItem = feed.memo.getType(...types).find(
       (continuation) => !headerContinuations.includes(continuation)
     )
   } else {
-    continuationItem = feed.memo.getType(type)[0]
+    continuationItem = feed.memo.getType(types)[0]
   }
 
   if (!continuationItem) {
@@ -200,26 +200,22 @@ function extractFeedContinuation(feed, type = YTNodes.ContinuationItem) {
 export function extractLocalCacheablePlaylistContinuation(playlist) {
   const sectionList = playlist.memo.getType(YTNodes.SectionList)[0]
 
-  let continuationItem
-  let continuationItemView
+  let continuationItemOrView
 
   // No section list means there can't be additional continuation nodes here,
   // so no need to check.
   if (!sectionList) {
-    continuationItem = extractFeedContinuation(playlist, YTNodes.ContinuationItem)
-    continuationItemView = extractFeedContinuation(playlist, YTNodes.ContinuationItemView)
+    continuationItemOrView = extractFeedContinuation(playlist, [YTNodes.ContinuationItem, YTNodes.ContinuationItemView])
   } else {
-    continuationItem = playlist.memo.getType(YTNodes.ContinuationItem)
-      .find((node) => !sectionList.contents.includes(node))
-    continuationItemView = playlist.memo.getType(YTNodes.ContinuationItemView)
+    continuationItemOrView = playlist.memo.getType(YTNodes.ContinuationItem, YTNodes.ContinuationItemView)
       .find((node) => !sectionList.contents.includes(node))
   }
 
-  if (!continuationItem && !continuationItemView) {
+  if (!continuationItemOrView) {
     throw new Utils.InnertubeError('There are no continuations.')
   }
 
-  return serializeContinuation(continuationItem || continuationItemView, playlist.actions)
+  return serializeContinuation(continuationItemOrView, playlist.actions)
 }
 
 /**
@@ -228,7 +224,7 @@ export function extractLocalCacheablePlaylistContinuation(playlist) {
  * @returns {SerializedContinuation}
  */
 export function extractLocalCacheableSearchContinuation(search) {
-  const continuationItem = extractFeedContinuation(search, YTNodes.ContinuationItem)
+  const continuationItem = extractFeedContinuation(search, [YTNodes.ContinuationItem])
 
   return serializeContinuation(continuationItem, search.actions)
 }
