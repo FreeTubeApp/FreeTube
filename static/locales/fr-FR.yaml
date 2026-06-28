@@ -202,7 +202,7 @@ Settings:
   Settings: 'Paramètres'
   General Settings:
     General Settings: 'Général'
-    Fallback to Non-Preferred Backend on Failure: 'Revenir à l’API interne non préférentielle en cas d’échec'
+    Fallback to Non-Preferred Backend on Failure: 'Basculer vers un backend non préféré en cas d''échec'
     Enable Search Suggestions: 'Activer les suggestions de recherche'
     Default Landing Page: 'Page de lancement par défaut'
     Locale Preference: 'Paramètres régionaux'

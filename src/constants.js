@@ -4,6 +4,7 @@ const IpcChannels = {
   DISABLE_PROXY: 'disable-proxy',
   GET_SYSTEM_LOCALE: 'get-system-locale',
   GET_NAVIGATION_HISTORY: 'get-navigation-history',
+  IS_WAYLAND_PLATFORM: 'is-wayland-platform',
   STOP_POWER_SAVE_BLOCKER: 'stop-power-save-blocker',
   START_POWER_SAVE_BLOCKER: 'start-power-save-blocker',
   CREATE_NEW_WINDOW: 'create-new-window',
