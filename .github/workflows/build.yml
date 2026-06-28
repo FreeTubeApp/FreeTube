@@ -154,22 +154,6 @@ jobs:
       shell: bash
       run: pnpm run build:arm64
 
-    - name: Convert X64 AppImage to static runtime
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
-      shell: bash
-      env:
-        VERSION: ${{ steps.versionNumber.outputs.version }}
-      run: |
-        sudo apt install desktop-file-utils
-        cd build
-        appimage="FreeTube-${VERSION}.AppImage"
-        wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
-        chmod +x ./"$appimage" ./appimagetool.AppImage
-        ./"$appimage" --appimage-extract && rm -f ./"$appimage"
-        ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
-          -n ./squashfs-root ./"$appimage"
-        rm -rf ./squashfs-root ./appimagetool.AppImage
-
     - name: Upload Linux .zip x64 Artifact
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
