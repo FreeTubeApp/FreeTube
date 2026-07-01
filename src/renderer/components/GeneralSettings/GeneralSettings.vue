@@ -42,7 +42,7 @@
           @change="updateOpenDeepLinksInNewWindow"
         />
         <FtToggleSwitch
-          v-if="!IS_MAC && USING_ELECTRON"
+          v-if="!IS_MAC && !isLinuxWayland && USING_ELECTRON"
           :label="t('Settings.General Settings.Minimize to system tray')"
           :default-value="hideToTrayOnMinimize"
           :compact="true"
@@ -166,7 +166,7 @@
 </template>
 
 <script setup>
-import { computed, onBeforeUnmount } from 'vue'
+import { computed, onMounted, onBeforeUnmount, ref } from 'vue'
 import { useI18n } from '../../composables/use-i18n-polyfill'
 import { useRouter } from 'vue-router'
 
@@ -189,6 +189,15 @@ const IS_MAC = process.platform === 'darwin'
 
 const { t } = useI18n()
 const router = useRouter()
+
+// The 'minimize' event doesn't fire on wayland
+// https://github.com/electron/electron/issues/51766
+const isLinuxWayland = ref(false)
+if (process.env.IS_ELECTRON && process.platform === 'linux') {
+  onMounted(async () => {
+    isLinuxWayland.value = await window.ftElectron.isWaylandPlatform()
+  })
+}
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const checkForUpdates = computed(() => store.getters.getCheckForUpdates)

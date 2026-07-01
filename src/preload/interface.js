@@ -31,6 +31,13 @@ export default {
   },
 
   /**
+   * @returns {Promise<boolean>}
+   */
+  isWaylandPlatform: () => {
+    return ipcRenderer.invoke(IpcChannels.IS_WAYLAND_PLATFORM)
+  },
+
+  /**
    * @param {string} path
    * @param {Record<string, string> | null | undefined} query
    * @param {string | null | undefined} searchQueryText

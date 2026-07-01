@@ -69,7 +69,6 @@ export function calculatePublishedDate(publishedText, isLive = false, isUpcoming
   }
 
   if (!publishedText) {
-    console.error("publishedText is missing but the video isn't live or upcoming")
     return undefined
   }
 

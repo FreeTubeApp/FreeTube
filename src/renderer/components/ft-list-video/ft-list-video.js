@@ -252,7 +252,7 @@ export default defineComponent({
       if (typeof this.lengthSeconds !== 'number' || this.lengthSeconds === 0) {
         return 0
       }
-      const percentage = (this.watchProgress / this.lengthSeconds) * 100
+      const percentage = (Math.ceil(this.watchProgress) / this.lengthSeconds) * 100
       return Math.min(percentage, 100)
     },
 

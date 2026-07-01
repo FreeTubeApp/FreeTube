@@ -895,17 +895,21 @@ async function importYouTubeWatchHistory(historyData) {
   // remove 'Watched' and translated variants from start of title
   // so we get the common string prefix for all the titles
   const getCommonStart = (allTitles) => {
-    const watchedTitle = allTitles[0].split(' ')
-    allTitles.forEach((title) => {
-      const splitTitle = title.split(' ')
-      for (let wtIndex = 0; wtIndex <= watchedTitle.length; wtIndex++) {
-        if (!splitTitle.includes(watchedTitle[wtIndex])) {
-          watchedTitle.splice(wtIndex, watchedTitle.length - wtIndex)
+    if (allTitles.length < 2) {
+      return ''
+    }
+
+    let commonStart = allTitles[0]
+    for (let i = 1; i < allTitles.length; i++) {
+      while (!allTitles[i].startsWith(commonStart)) {
+        commonStart = commonStart.slice(0, -1)
+        if (commonStart === '') {
+          return ''
         }
       }
-    })
+    }
 
-    return watchedTitle.join(' ')
+    return commonStart
   }
 
   const commonStart = getCommonStart(filteredHistoryData.map(e => e.title))
