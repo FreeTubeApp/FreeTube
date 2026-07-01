@@ -447,7 +447,7 @@ Settings:
       External Player: External Player ({externalPlayerName})
       Full Window (Always On): Full Window (Always On)
       Full Screen (Always On): Full Screen (Always On)
-      Tooltip: Most default viewing modes are only applied when switching to watch page (e.g. playing another video in a playlist won't be applied selected view mode again). Those modes with '(Always On)' are applied every time.
+      Tooltip: Most default viewing modes are only applied when switching to watch page (e.g. playing another video in a playlist won't be applied selected view mode again). Always-on viewing modes are applied whenever you switch to a new video, regardless of any viewing mode changes made when viewing the previous video.
     Scroll Volume Over Video Player: Scroll Volume Over Video Player
     Scroll Playback Rate Over Video Player: Scroll Playback Rate Over Video Player
     Skip by Scrolling Over Video Player: Skip by Scrolling Over Video Player
