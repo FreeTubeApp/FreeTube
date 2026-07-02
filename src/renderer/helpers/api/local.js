@@ -140,22 +140,22 @@ export async function getLocalPlaylist(id) {
  */
 
 /**
- * @param {import('youtubei.js').YTNodes.ContinuationItem} continuationItem
+ * @param {import('youtubei.js').YTNodes.ContinuationItem | import('youtubei.js').YTNodes.ContinuationItemView} continuationItemOrView
  * @param {import('youtubei.js').Actions} actions
  */
-function serializeContinuationItem(continuationItem, actions) {
+function serializeContinuation(continuationItemOrView, actions) {
   let path, payload
 
   // Based on YouTube.js' NavigationEndpoint#call()
-  if (continuationItem.endpoint.command.is(YTNodes.CommandExecutorCommand)) {
+  if (continuationItemOrView.endpoint.command.is(YTNodes.CommandExecutorCommand)) {
     /** @type {import('youtubei.js').Helpers.YTNode & import('youtubei.js').APIResponseTypes.IEndpoint} */
-    const command = continuationItem.endpoint.command.commands.at(-1)
+    const command = continuationItemOrView.endpoint.command.commands.at(-1)
 
     path = command.getApiPath()
     payload = command.buildRequest()
   } else {
-    path = continuationItem.endpoint.metadata.api_url
-    payload = continuationItem.endpoint.payload
+    path = continuationItemOrView.endpoint.metadata.api_url
+    payload = continuationItemOrView.endpoint.payload
   }
 
   /** @type {SerializedContinuation} */
@@ -169,18 +169,21 @@ function serializeContinuationItem(continuationItem, actions) {
 }
 
 /**
+ * @template {import('youtubei.js').YTNodes} N
  * @param {import('youtubei.js').Mixins.Feed} feed
+ * @param {import('youtubei.js').YTNodeConstructor<N>[]} types
+ * @return {N}
  */
-function extractFeedContinuationItem(feed) {
+function extractFeedContinuation(feed, types) {
   let continuationItem
 
   if (feed.page.header_memo) {
-    const headerContinuations = feed.page.header_memo.getType(YTNodes.ContinuationItem)
-    continuationItem = feed.memo.getType(YTNodes.ContinuationItem).find(
+    const headerContinuations = feed.page.header_memo.getType(...types)
+    continuationItem = feed.memo.getType(...types).find(
       (continuation) => !headerContinuations.includes(continuation)
     )
   } else {
-    continuationItem = feed.memo.getType(YTNodes.ContinuationItem)[0]
+    continuationItem = feed.memo.getType(types)[0]
   }
 
   if (!continuationItem) {
@@ -197,22 +200,22 @@ function extractFeedContinuationItem(feed) {
 export function extractLocalCacheablePlaylistContinuation(playlist) {
   const sectionList = playlist.memo.getType(YTNodes.SectionList)[0]
 
-  let continuationItem
+  let continuationItemOrView
 
   // No section list means there can't be additional continuation nodes here,
   // so no need to check.
   if (!sectionList) {
-    continuationItem = extractFeedContinuationItem(playlist)
+    continuationItemOrView = extractFeedContinuation(playlist, [YTNodes.ContinuationItem, YTNodes.ContinuationItemView])
   } else {
-    continuationItem = playlist.memo.getType(YTNodes.ContinuationItem)
+    continuationItemOrView = playlist.memo.getType(YTNodes.ContinuationItem, YTNodes.ContinuationItemView)
       .find((node) => !sectionList.contents.includes(node))
   }
 
-  if (!continuationItem) {
+  if (!continuationItemOrView) {
     throw new Utils.InnertubeError('There are no continuations.')
   }
 
-  return serializeContinuationItem(continuationItem, playlist.actions)
+  return serializeContinuation(continuationItemOrView, playlist.actions)
 }
 
 /**
@@ -221,9 +224,9 @@ export function extractLocalCacheablePlaylistContinuation(playlist) {
  * @returns {SerializedContinuation}
  */
 export function extractLocalCacheableSearchContinuation(search) {
-  const continuationItem = extractFeedContinuationItem(search)
+  const continuationItem = extractFeedContinuation(search, [YTNodes.ContinuationItem])
 
-  return serializeContinuationItem(continuationItem, search.actions)
+  return serializeContinuation(continuationItem, search.actions)
 }
 
 /**
@@ -736,9 +739,7 @@ export async function getLocalChannelVideos(id) {
     // if the channel doesn't have a videos tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
     if (videosTab.current_tab?.endpoint.metadata.url?.endsWith('/videos')) {
-      // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
-      // videos = parseLocalChannelVideos(videosTab.videos, channelId, name)
-      videos = parseLocalChannelVideos([...videosTab.memo.getType(YTNodes.LockupView)], channelId, name)
+      videos = parseLocalChannelVideos(videosTab.videos, channelId, name)
     } else if (name.endsWith('- Topic') && !!videosTab.metadata.music_artist_name) {
       try {
         const playlist = await innertube.getPlaylist(getChannelPlaylistId(channelId, 'videos', 'newest'))
@@ -798,14 +799,10 @@ export async function getLocalChannelLiveStreams(id) {
       // work around YouTube bug where it will return a bunch of responses with only continuations in them
       // e.g. https://www.youtube.com/@TWLIVES/streams
 
-      // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
-      // let tempVideos = liveStreamsTab.videos
-      let tempVideos = [...liveStreamsTab.memo.getType(YTNodes.LockupView)]
+      let tempVideos = liveStreamsTab.videos
       while (tempVideos.length === 0 && liveStreamsTab.has_continuation) {
         liveStreamsTab = await liveStreamsTab.getContinuation()
-        // TODO: restore usage of official API instead of memo after youtubei.js 17.1.0 released
-        // tempVideos = liveStreamsTab.videos
-        tempVideos = [...liveStreamsTab.memo.getType(YTNodes.LockupView)]
+        tempVideos = liveStreamsTab.videos
       }
 
       videos = parseLocalChannelVideos(tempVideos, channelId, name)
@@ -1356,6 +1353,8 @@ export function parseLocalPlaylistVideo(video) {
       viewCount,
       lengthSeconds: ''
     }
+  } else if (video.type === 'LockupView') {
+    return parseLockupView(video)
   } else {
     /** @type {import('youtubei.js').YTNodes.PlaylistVideo} */
     const video_ = video
