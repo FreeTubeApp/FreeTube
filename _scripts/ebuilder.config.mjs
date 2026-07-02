@@ -73,6 +73,9 @@ export default {
       'libsecret-1-0'
     ]
   },
+  toolsets: {
+    appimage: '1.0.3'
+  },
   mac: {
     category: 'public.app-category.utilities',
     icon: '_icons/iconMac.icns',
