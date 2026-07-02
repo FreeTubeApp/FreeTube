@@ -102,7 +102,7 @@ const chunks = computed(() => [
     content: '<a href="https://fosstodon.org/@FreeTube">@FreeTube@fosstodon.org</a>',
   },
   {
-    icon: ['fas', 'comment-dots'],
+    icon: ['fab', 'matrix'],
     title: t('About.Chat on Matrix'),
     content: [
       '<a href="https://matrix.to/#/#freetube:matrix.org">#freetube:matrix.org</a>',
