@@ -62,7 +62,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useI18n } from '../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
 import FtSelect from './FtSelect/FtSelect.vue'

@@ -5,7 +5,7 @@ import activeLocales from '../../../static/locales/activeLocales.json'
 
 const i18n = createI18n({
   locale: 'en-US',
-  legacy: true,
+  legacy: false,
   fallbackLocale: {
     // https://vue-i18n.intlify.dev/guide/essentials/fallback.html
 
@@ -25,7 +25,7 @@ const i18n = createI18n({
 export async function loadLocale(locale) {
   // don't need to load it if it's already loaded
   if (i18n.global.availableLocales.includes(locale) &&
-    Object.keys(i18n.global.messages[locale]).length > 0) {
+    Object.keys(i18n.global.messages.value[locale]).length > 0) {
     return
   }
   if (!activeLocales.includes(locale)) {
@@ -60,7 +60,7 @@ if (process.env.HOT_RELOAD_LOCALES) {
       for (const [locale, data] of message.data) {
         // Only update locale data if it was already loaded
         if (i18n.global.availableLocales.includes(locale) &&
-          Object.keys(i18n.global.messages[locale]).length > 0) {
+          Object.keys(i18n.global.messages.value[locale]).length > 0) {
           const localeData = JSON.parse(data)
 
           i18n.global.setLocaleMessage(locale, localeData)
