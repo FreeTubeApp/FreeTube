@@ -61,7 +61,7 @@
     <swiper-container
       v-if="postType === 'multiImage' && postContent.content.length > 0"
       ref="swiperContainerRef"
-      init="false"
+      :init="false"
       class="sliderContainer"
     >
       <swiper-slide
