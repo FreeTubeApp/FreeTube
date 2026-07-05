@@ -1537,7 +1537,7 @@ const WAITING_REGEX = /waiting/i
 const VIEWS_IN_NUMBER_ONLY = /^\d+(\.\d)?[km]?$/i
 const PREMIERES_TIME_REGEX = /^(premieres|scheduled for) /i
 // Sometimes got `Streamed N (unit) ago`
-const PUBLISH_TIME_REGEX = /^(streamed )?\d+ \w+? ago/i
+const PUBLISH_TIME_REGEX = /^(streamed )?\d+ ?\w+? ago/i
 
 /**
  * @param {string | undefined} text
