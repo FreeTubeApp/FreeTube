@@ -48,3 +48,10 @@ updates:
     labels:
       - "PR: waiting for review"
       - "PR: dependencies"
+    groups:
+      "actions/cache":
+        patterns:
+          - "actions/cache/*"
+      "github/codeql-action":
+        patterns:
+          - "github/codeql-action/*"
