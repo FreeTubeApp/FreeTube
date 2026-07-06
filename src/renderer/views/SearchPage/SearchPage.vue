@@ -39,7 +39,7 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, onMounted, ref, shallowRef, watch } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
 import FtLoader from '../../components/FtLoader/FtLoader.vue'

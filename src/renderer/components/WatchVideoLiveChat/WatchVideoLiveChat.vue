@@ -249,7 +249,7 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import autolinker from 'autolinker'
 import { computed, nextTick, onBeforeUnmount, ref, shallowReactive, useTemplateRef } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 import { YTNodes } from 'youtubei.js'
 
 import FtLoader from '../FtLoader/FtLoader.vue'

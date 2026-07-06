@@ -131,7 +131,7 @@ export function translateSponsorBlockCategory(category) {
  * }[]} captions
  */
 export function sortCaptions(captions) {
-  const currentLocale = i18n.global.locale
+  const currentLocale = i18n.global.locale.value
   const userLocale = currentLocale.split('-') // ex. [en,US]
 
   const collator = new Intl.Collator([currentLocale, 'en'])

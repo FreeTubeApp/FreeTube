@@ -91,7 +91,7 @@ import FtSubscribeButton from '../../components/FtSubscribeButton/FtSubscribeBut
 import { invidiousGetChannelInfo, youtubeImageUrlToInvidious, invidiousImageUrlToInvidious } from '../../helpers/api/invidious'
 import { getLocalChannel, parseLocalChannelHeader } from '../../helpers/api/local'
 import { ctrlFHandler, debounce } from '../../helpers/utils'
-import { useI18n } from '../../composables/use-i18n-polyfill.js'
+import { useI18n } from 'vue-i18n'
 import store from '../../store/index'
 
 const route = useRoute()

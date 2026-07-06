@@ -44,7 +44,7 @@
 
 <script setup>
 import { computed, nextTick, onMounted, ref, useTemplateRef } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 
 import FtButton from '../FtButton/FtButton.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'

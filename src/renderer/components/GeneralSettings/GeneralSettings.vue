@@ -167,7 +167,7 @@
 
 <script setup>
 import { computed, onMounted, onBeforeUnmount, ref } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
