@@ -594,6 +594,7 @@ Settings:
     Show Family Friendly Only: Pokazuj tylko filmy przyjazne rodzinie
     Hide Search Bar: Schowaj pole wyszukiwania
     Hide Uploader on Watch page: Ukryj przesyłającego na stronie obserwowanych
+    Disable Channel Links: Wyłącz linki kanałów
   Experimental Settings:
     Replace HTTP Cache: Zastąp pamięć podręczną HTTP
     Experimental Settings: Eksperymentalne
@@ -817,6 +818,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Do końca reklamy z początku pozostało: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'SABR – do przeczekania pozostało: {remindingTimeSeconds}s'
+  Private: Prywatnych filmów nie można oglądać w serwisie FreeTube, ponieważ do oglądania filmu wymagane jest zalogowanie się przez Google i potwierdzenie, że jest się właścicielem filmu.
 Playlist:
   #& About
   View Full Playlist: 'Zobacz całą playlistę'

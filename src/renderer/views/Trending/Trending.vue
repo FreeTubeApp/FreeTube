@@ -101,7 +101,7 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, useTemplateRef } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLoader from '../../components/FtLoader/FtLoader.vue'

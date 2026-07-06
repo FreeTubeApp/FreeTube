@@ -119,7 +119,7 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, reactive, ref, shallowRef, useId, useTemplateRef, watch } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 
 import FtTooltip from '../FtTooltip/FtTooltip.vue'
 

@@ -56,7 +56,7 @@
 
 <script setup>
 import { computed, reactive, ref, shallowRef, watch } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 
 import FtCard from '../ft-card/ft-card.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'

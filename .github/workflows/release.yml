@@ -35,12 +35,15 @@ jobs:
         include:
         - runtime: linux-x64
           os: ubuntu-latest
+          appimage-arch: amd64
 
         - runtime: linux-armv7l
           os: ubuntu-latest
+          appimage-arch: armv7l
 
         - runtime: linux-arm64
           os: ubuntu-latest
+          appimage-arch: arm64
 
         - runtime: osx-x64
           os: macOS-latest
@@ -107,58 +110,24 @@ jobs:
       shell: bash
       run: pnpm run build:arm64
 
-    - name: Convert X64 AppImage to static runtime and add update information
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+    - name: Add update information to AppImage
+      if: startsWith(matrix.os, 'ubuntu')
       shell: bash
       env:
         VERSION: ${{ steps.getPackageInfo.outputs.version }}
+        APPIMAGE_ARCH: ${{ matrix.appimage-arch }}
       run: |
-        sudo apt install desktop-file-utils
-        cd build
-        appimage="FreeTube-${VERSION}.AppImage"
-        wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
-        chmod +x ./"$appimage" ./appimagetool.AppImage
-        update_information='gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-amd64.AppImage.zsync'
-        ./"$appimage" --appimage-extract && rm -f ./"$appimage"
-        ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
-          -u "$update_information" -n ./squashfs-root ./"$appimage"
-        rm -rf ./squashfs-root ./appimagetool.AppImage
+        update_info="gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-${APPIMAGE_ARCH}.AppImage.zsync"
 
-    - name: Convert ARMv7l AppImage to static runtime and add update information
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      shell: bash
-      env:
-        VERSION: ${{ steps.getPackageInfo.outputs.version }}
-      run: |
-        sudo apt install desktop-file-utils
         cd build
-        appimage="FreeTube-${VERSION}-armv7l.AppImage"
-        wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
-        wget "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" -O runtime
-        chmod +x ./"$appimage" ./appimagetool.AppImage ./runtime
-        update_information='gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-armv7l.AppImage.zsync'
-        TARGET_APPIMAGE="$appimage" ./runtime --appimage-extract && rm -f ./"$appimage"
-        ARCH=armhf ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
-          -u "$update_information" -n ./squashfs-root ./"$appimage"
-        rm -rf ./squashfs-root ./appimagetool.AppImage ./runtime
 
-    - name: Convert ARM64 AppImage to static runtime and add update information
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
-      shell: bash
-      env:
-        VERSION: ${{ steps.getPackageInfo.outputs.version }}
-      run: |
-        sudo apt install desktop-file-utils
-        cd build
-        appimage="FreeTube-${VERSION}-arm64.AppImage"
-        wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
-        wget "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" -O runtime
-        chmod +x ./"$appimage" ./appimagetool.AppImage ./runtime
-        update_information='gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-arm64.AppImage.zsync'
-        TARGET_APPIMAGE="$appimage" ./runtime --appimage-extract && rm -f ./"$appimage"
-        ARCH=aarch64 ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
-          -u "$update_information" -n ./squashfs-root ./"$appimage"
-        rm -rf ./squashfs-root ./appimagetool.AppImage ./runtime
+        section_offset_hex="$(objdump --section-headers ./FreeTube-${VERSION}*.AppImage | awk '$2 == ".upd_info" { printf $6 }')"
+
+        script='const fd = fs.openSync(process.argv[3], "r+"); fs.writeSync(fd, process.argv[2], parseInt(process.argv[1], 16)); fs.closeSync(fd)'
+
+        node -e "$script" $section_offset_hex "$update_info" ./FreeTube-${VERSION}*.AppImage
+
+        zsyncmake -u "freetube-${VERSION}-beta-${APPIMAGE_ARCH}.AppImage" ./FreeTube-${VERSION}*.AppImage
 
     - name: Upload Linux .zip x64 Release
       uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2

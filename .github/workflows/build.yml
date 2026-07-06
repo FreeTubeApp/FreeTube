@@ -103,7 +103,7 @@ jobs:
 
     - name: Restore pnpm cache
       id: restore_cache
-      uses: actions/cache/restore@2c8a9bd7457de244a408f35966fab2fb45fda9c8 #v6.0.0
+      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 #v6.1.0
       with:
         key: ${{ format('node-cache-{0}-{1}-pnpm-{2}', runner.os, runner.arch, hashFiles('pnpm-lock.yaml')) }}
         path: ${{ steps.cache_dir.outputs.cache_dir }}
@@ -153,22 +153,6 @@ jobs:
       if: contains(matrix.runtime, 'arm64')
       shell: bash
       run: pnpm run build:arm64
-
-    - name: Convert X64 AppImage to static runtime
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
-      shell: bash
-      env:
-        VERSION: ${{ steps.versionNumber.outputs.version }}
-      run: |
-        sudo apt install desktop-file-utils
-        cd build
-        appimage="FreeTube-${VERSION}.AppImage"
-        wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
-        chmod +x ./"$appimage" ./appimagetool.AppImage
-        ./"$appimage" --appimage-extract && rm -f ./"$appimage"
-        ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
-          -n ./squashfs-root ./"$appimage"
-        rm -rf ./squashfs-root ./appimagetool.AppImage
 
     - name: Upload Linux .zip x64 Artifact
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
@@ -376,7 +360,7 @@ jobs:
         path: build/freetube-${{ steps.versionNumber.outputs.version }}-arm64-mac.7z
 
     - name: Save pnpm cache
-      uses: actions/cache/save@2c8a9bd7457de244a408f35966fab2fb45fda9c8 #v6.0.0
+      uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 #v6.1.0
       # Only save the cache if we weren't able to restore an existing one above
       if: steps.restore_cache.outputs.cache-primary-key != steps.restore_cache.outputs.cache-matched-key
       with:

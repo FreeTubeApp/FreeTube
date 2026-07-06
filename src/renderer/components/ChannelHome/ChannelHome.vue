@@ -44,6 +44,7 @@
           :data="shelf.content"
           :use-channels-hidden-preference="false"
           :display="shelf.isCommunity ? 'list' : ''"
+          :render-all-items-lazily="index > 2"
         />
       </details>
     </div>

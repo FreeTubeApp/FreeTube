@@ -82,7 +82,7 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 import { isNavigationFailure, NavigationFailureType, useRoute, useRouter } from 'vue-router'
 
 import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrapper.vue'

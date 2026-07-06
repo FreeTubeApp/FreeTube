@@ -75,7 +75,7 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtRadioButton from '../FtRadioButton/FtRadioButton.vue'
