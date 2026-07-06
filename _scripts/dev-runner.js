@@ -180,7 +180,7 @@ function startRenderer(callback) {
         watch: {
           ignored: [
             /(dashFiles|storyboards)\/*/,
-            '/**/.DS_Store',
+            '**/.DS_Store',
             '**/static/locales/*'
           ]
         },
@@ -231,7 +231,7 @@ function startWeb () {
       watch: {
         ignored: [
           /(dashFiles|storyboards)\/*/,
-          '/**/.DS_Store',
+          '**/.DS_Store',
           '**/static/locales/*'
         ]
       }
