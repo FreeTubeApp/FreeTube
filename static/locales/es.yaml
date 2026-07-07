@@ -597,6 +597,7 @@ Settings:
     Parental Control Settings: Control parental
     Show Family Friendly Only: Mostrar solo lo apto para las familias
     Hide Uploader on Watch page: Ocultar Canal en la página de Reproducción
+    Disable Channel Links: Deshabilitar Links de Canales
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: Estas configuraciones son experimentales, pueden causar fallos mientras están habilitadas. Es muy recomendable hacer copias de seguridad. ¡Úselo bajo su propio riesgo!
@@ -858,6 +859,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Tiempo restante previo al anuncio: {remindingTimeSeconds} s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tiempo restante de retroceso de SABR: {remindingTimeSeconds} s'
+  Private: Videos privados no pueden ser vistos en FreeTube, se necesita iniciar sesión con Google y permiso del dueño del video.
 Playlist:
   #& About
   View Full Playlist: 'Ver la lista de reproducción completa'
