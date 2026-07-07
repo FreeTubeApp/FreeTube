@@ -4,7 +4,7 @@ FreeTube: 'FreeTube'
 
 # Webkit Menu Bar
 File: 'Fayl'
-Quit: 'Çıxış'
+Quit: 'Çıx'
 Edit: 'Düzəliş et'
 Undo: 'Geri al'
 Redo: 'Təkrarla'
@@ -13,11 +13,11 @@ Copy: 'Köçür'
 Paste: 'Yapışdır'
 Delete: 'Sil'
 Select all: 'Hamısını seç'
-Toggle Developer Tools: 'Tərtibatçı Seçimlərini Aç/Bağla'
-Actual size: 'Həqiqi Ölçü'
+Toggle Developer Tools: 'Tərtibatçı Vasitələrini İcra Et'
+Actual size: 'Həqiqi ölçü'
 Zoom in: 'Yaxınlaşdır'
 Zoom out: 'Uzaqlaşdır'
-Toggle fullscreen: 'Tam ekran göstər'
+Toggle fullscreen: 'Tam ekranı tənzimlə'
 Window: 'Pəncərə'
 Minimize: 'Kiçilt'
 Close: 'Bağla'
@@ -25,7 +25,7 @@ Back: 'Geri'
 Forward: 'İrəli'
 Open New Window: 'Yeni Pəncərə Aç'
 
-Version {versionNumber} is now available!  Click for more details: '{versionNumber} versiyası indi mövcuddur!  Daha çox məlumat üçün kliklə'
+Version {versionNumber} is now available!  Click for more details: '{versionNumber} versiyası indi mövcuddur!  Daha çox təfərrüat üçün kliklə'
 Download From Site: 'Saytdan Yüklə'
 Are you sure you want to open this link?: 'Bu linki açmaq istədiyinizə əminsiniz?'
 
@@ -311,16 +311,16 @@ Global:
     Video Count: 1 video | {count} video
     Watching Count: 1 baxır | {count} baxır
     Channel Count: 1 kanal | {count} kanal
-    Like Count: 1 bəyəni | {count} bəyənmələr
-    Comment Count: 1 şərh | {count} şərhlər
+    Like Count: 1 bəyənmə | {count} bəyənmə
+    Comment Count: 1 şərh | {count} şərh
   Videos: Videolar
   Live: Canlı
-  Posts: Postlar
+  Posts: Elanlar
   Shorts: Shorts
-  Sort By: 'Çeşidləmə'
+  Sort By: 'Çeşidlə'
 Search Listing:
   Label:
-    Closed Captions: Titrlər Bağlandı
+    Closed Captions: Titrlər Bağlanıldı
     4K: 4K
     Subtitles: Titrlər
     8K: 8K
@@ -339,8 +339,8 @@ Feed:
   Feed Last Updated: '{feedName} axının son yeniləmə: {date}'
   Refresh Feed: '{subscriptionName} / yenilə'
 Search character limit: Axtarış sorğusu {searchCharacterLimit} simvol həddindən çoxdur
-Go to page: '{page} səhifəyə keç'
-Close Banner: Banneri Bağla
+Go to page: '{səhifəyə} keç'
+Close Banner: Paneli Bağla
 Display Label: '{label}: {value}'
 Yes, Delete: Bəli, Sil
 Yes, Restart: Bəli, Yenidən Başlat
@@ -349,7 +349,7 @@ checkmark: ✓
 Yes: Bəli
 Ok: Oldu
 No: Xeyr
-Right-click or hold to see history: Tarixçəni görmək üçün sağ düyməyə klik edin və ya sıxıb saxlayın
+Right-click or hold to see history: Tarixçəni görmək üçün sağ klikləyin və ya saxlayın
 KeyboardShortcutPrompt:
   Toggle Developer Tools: Tərtibatçı Seçimlərini Aç/Bağla
   Zoom Out: Uzaqlaşdır

@@ -258,14 +258,14 @@ Settings:
       Hot Pink: 亮粉紅色
       Nordic: 北歐
       Solarized Dark: 暖色調 暗色
-      Solarized Light: Solarized Light
+      Solarized Light: 暖色調 暗色
       Gruvbox Dark: Gruvbox 深色
       Gruvbox Light: Gruvbox 淺色
       Catppuccin Frappe: Catppuccin Frappe
       Everforest Light Low: 永恆森林 輕度 淺色
       Everforest Dark Hard: 永恆森林 重度 深色
       Everforest Dark Medium: 永恆森林 中度 深色
-      Everforest Dark Low: 永恆森林 輕度 深色
+      Everforest Dark Low: 永恆森林 低度 深色
       Everforest Light Hard: 永恆森林 重度 淺色
       Everforest Light Medium: 永恆森林 中度 淺色
       Catppuccin Latte: Catppuccin Latte
@@ -406,9 +406,13 @@ Settings:
       Error:
         Forbidden Characters: 禁止的字元
         Empty File Name: 空的檔案名稱
-      Ask Path: 詢問儲存的資料夾
+      Modes:
+        Ask Path: 詢問儲存的資料夾
+        Save To Folder: 儲存至資料夾
+        Clipboard: 複製到剪貼簿
       Folder Label: 螢幕截圖資料夾
       File Name Tooltip: 您可以使用下方的變數。%Y 為四位數的年份。%M 為兩位數的月份。%D 為兩位數的日。%H 為兩位數的小時。%N 為兩位數的分鐘。%S 為兩位數的秒數。%T 為三位數的毫秒。%s 為影片的秒數。%t 為三位數的影片毫秒數。%i 為影片 ID。
+      Mode: 螢幕截圖模式
     Enter Fullscreen on Display Rotate: 在顯示旋轉時進入全螢幕
     Skip by Scrolling Over Video Player: 捲動影片播放器跳過
     Autoplay Interruption Timer: 自動播放中斷計時器
@@ -590,6 +594,7 @@ Settings:
     Hide Search Bar: 隱藏搜尋列
     Parental Control Settings: 家長控制
     Hide Uploader on Watch page: 在觀看頁面隱藏上傳者
+    Disable Channel Links: 停用頻道連結
   Experimental Settings:
     Replace HTTP Cache: 取代 HTTP 快取
     Warning: 這些設定是實驗性的，它們啟用時可能會導致當機。強烈建議做好備份。使用時風險自負！
@@ -813,6 +818,7 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 剩餘前置廣告時間：{remindingTimeSeconds}秒
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 剩餘 SABR 後退時間：{remindingTimeSeconds}秒
   Popout Live Chat: 彈出式聊天
+  Private: 無法在 FreeTube 觀看私人影片，因為觀看私人影片需要 Google 登入和影片所有權。
 Playlist:
   #& About
   View Full Playlist: '觀看完整播放清單'
@@ -942,7 +948,7 @@ Profile:
   Edit Profile Name: 修改設定檔名稱
   Create Profile Name: 建立設定檔名稱
 The playlist has been reversed: 播放清單已反轉
-Download From Site: 從網站下載 點擊檢視更多
+Download From Site: 從網站下載
 Version {versionNumber} is now available!  Click for more details: 有新版本！最新版本是 {versionNumber} ！按此取得更多資訊
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 沒有這個影片因為缺少格式。這個可能發生由於國家不可用。
 Tooltips:
@@ -1112,3 +1118,5 @@ KeyboardShortcutPrompt:
 shortcutLabelSeparator: ｜
 Compact side navigation: 簡潔側邊導航
 Expand side navigation: 展開側邊導航
+Screenshot Clipboard Success: 儲存螢幕截圖至剪貼簿
+Screenshot Clipboard Error: 複製螢幕截圖到剪貼簿失敗

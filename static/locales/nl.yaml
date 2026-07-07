@@ -47,6 +47,8 @@ Search Filters:
   Search Filters: 'Zoekfilters'
   Prioritize:
     Most Relevant: 'Relevantie'
+    Prioritize: Prioriteer
+    Popularity: Populariteit
   Time:
     Time: 'Lengte'
     Any Time: 'Altĳd'
@@ -402,7 +404,8 @@ Settings:
       Enable: Schermafdruk inschakelen
       Format Label: Schermafdruk­formaat
       Quality Label: Schermafdruk­kwaliteit
-      Ask Path: Vragen in welke map op te slaan
+      Modes:
+        Ask Path: Vragen in welke map op te slaan
       Folder Label: Schermafdruk­map
       Folder Button: Map selecteren
       Error:
@@ -1102,3 +1105,4 @@ Autoplay Interruption Timer: Automatisch afspelen geannuleerd door {autoplayInte
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 Compact side navigation: Minimaliseer Zijbar
+Expand side navigation: Maximaliseer zijbar

@@ -238,7 +238,8 @@ Settings:
     Screenshot:
       Enable: Įgalinti ekrano kopijas
       Format Label: Ekrano kopijos formatas
-      Ask Path: Prašyti aplanko kuriame išsaugoti
+      Modes:
+        Ask Path: Prašyti aplanko kuriame išsaugoti
       Folder Label: Ekrano kopijų aplankas
       Folder Button: Pasirinkite aplanką
       File Name Label: Failo pavadinimo šablonas

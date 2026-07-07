@@ -65,16 +65,25 @@ function runApp() {
     ? new Set(__FREETUBE_ALLOWED_PATHS__)
     : new Set()
 
-  if (process.env.NODE_ENV === 'production') {
-    protocol.registerSchemesAsPrivileged([{
-      scheme: 'app',
+  protocol.registerSchemesAsPrivileged([
+    {
+      scheme: 'imagecache',
       privileges: {
-        standard: true,
         secure: true,
-        supportFetchAPI: true
+        corsEnabled: true
       }
-    }])
-  }
+    },
+    ...(process.env.NODE_ENV === 'production'
+      ? [{
+          scheme: 'app',
+          privileges: {
+            standard: true,
+            secure: true,
+            supportFetchAPI: true
+          }
+        }]
+      : []),
+  ])
 
   const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
 
@@ -281,6 +290,7 @@ function runApp() {
   let trayOnMinimize = false
   let trayWindows = []
   const trayMaximizedWindows = {}
+  const isTrayOnMinimizeSupported = process.platform !== 'darwin' && (process.platform !== 'linux' || app.commandLine.getSwitchValue('ozone-platform') !== 'wayland')
 
   const userDataPath = app.getPath('userData')
 
@@ -337,7 +347,7 @@ function runApp() {
         if (!openDeepLinksInNewWindow) {
           // Just focus the main window (instead of starting a new instance)
           if (mainWindow.isMinimized()) {
-            if (process.platform !== 'darwin' && trayOnMinimize) {
+            if (isTrayOnMinimizeSupported && trayOnMinimize) {
               trayClick(mainWindow)
             } else {
               mainWindow.restore()
@@ -515,7 +525,7 @@ function runApp() {
             backendPreference = doc.value
             break
           case 'hideToTrayOnMinimize':
-            if (process.platform !== 'darwin') {
+            if (isTrayOnMinimizeSupported) {
               trayOnMinimize = doc.value
             }
             break
@@ -1023,7 +1033,7 @@ function runApp() {
 
     // endregion Ensure child windows use same options since electron 14
 
-    if (process.platform !== 'darwin') {
+    if (isTrayOnMinimizeSupported) {
       function manageTray(window, removeWindow = false) {
         if (tray) {
           if (!removeWindow) {
@@ -1135,7 +1145,7 @@ function runApp() {
         return
       }
 
-      if (process.platform !== 'darwin' && trayOnMinimize && trayWindows.length > 0) {
+      if (isTrayOnMinimizeSupported && trayOnMinimize && trayWindows.length > 0) {
         trayClick(newWindow)
       } else {
         newWindow.show()
@@ -1334,6 +1344,12 @@ function runApp() {
     if (isFreeTubeUrl(event.senderFrame.url)) {
       // we should switch to getPreferredSystemLanguages at some point and iterate through until we find a supported locale
       return app.getSystemLocale()
+    }
+  })
+
+  ipcMain.handle(IpcChannels.IS_WAYLAND_PLATFORM, (event) => {
+    if (isFreeTubeUrl(event.senderFrame.url)) {
+      return app.commandLine.getSwitchValue('ozone-platform') === 'wayland'
     }
   })
 
@@ -1647,7 +1663,7 @@ function runApp() {
               await setMenu()
               break
             case 'hideToTrayOnMinimize':
-              if (process.platform !== 'darwin') {
+              if (isTrayOnMinimizeSupported) {
                 trayOnMinimize = data.value
                 if (!trayOnMinimize) { showHiddenWindows() }
               }
@@ -2105,7 +2121,7 @@ function runApp() {
     })
   }
 
-  if (process.platform !== 'darwin') {
+  if (isTrayOnMinimizeSupported) {
     app.on('before-quit', () => {
       if (tray) { tray.destroy() }
     })

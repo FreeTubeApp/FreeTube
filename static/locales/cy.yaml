@@ -58,6 +58,8 @@ Search Filters:
   Search Filters: 'Hidlyddion Chwilio'
   Prioritize:
     Most Relevant: 'Mwyaf Perthnasol'
+    Prioritize: Blaenoriaethu
+    Popularity: Poblogrwydd
   Time:
     Time: 'Amser'
     Any Time: 'Unrhyw Bryd'
@@ -426,7 +428,8 @@ Settings:
       Enable: 'Galluogi Lluniau Sgrin'
       Format Label: 'Fformat Lluniau Sgrin'
       Quality Label: 'Ansawdd Llun Sgrin'
-      Ask Path: 'Gofyn am Ffolder Cadw'
+      Modes:
+        Ask Path: 'Gofyn am Ffolder Cadw'
       Folder Label: 'Ffolder Llun Sgrin'
       Folder Button: 'Dewis Ffolder'
       File Name Label: 'Patrwm Enw Ffeil'

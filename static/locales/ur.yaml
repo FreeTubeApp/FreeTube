@@ -356,7 +356,8 @@ Settings:
       Enable: اسکرین شاٹ فعال کریں
       Format Label: اسکرین شاٹ فارمیٹ
       Quality Label: اسکرین شاٹ کوالٹی
-      Ask Path: محفوظ کرنے کے لیے فولڈر کا پوچھیں
+      Modes:
+        Ask Path: محفوظ کرنے کے لیے فولڈر کا پوچھیں
       Folder Label: اسکرین شاٹ فولڈر
       Folder Button: فولڈر منتخب کریں
       File Name Label: فائل کا نام رکھنے کا انداز

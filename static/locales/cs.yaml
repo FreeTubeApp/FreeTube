@@ -410,12 +410,16 @@ Settings:
         Empty File Name: Prázdný název souboru
       File Name Label: Vzor názvu souboru
       File Name Tooltip: Můžete použít proměnné níže. %Y Rok 4 číslice. %M Měsíc 2 číslice. %D Den 2 číslice. %H Hodina 2 číslice. %N Minuta 2 číslice. %S Sekunda 2 číslice. %T Milisekunda 3 číslice. %s Sekunda videa. %t Milisekunda videa 3 číslice. %i ID videa.
-      Ask Path: Zeptat se na složku pro uložení
+      Modes:
+        Ask Path: Zeptat se na složku pro uložení
+        Save To Folder: Uložit do složky
+        Clipboard: Kopírovat do schránky
       Folder Label: Složka snímků obrazovky
       Enable: Povolit snímek obrazovky
       Format Label: Formát snímku obrazovky
       Quality Label: Kvalita snímku obrazovky
       Folder Button: Vybrat složku
+      Mode: Režim snímků obrazovky
     Enter Fullscreen on Display Rotate: Při otočení displeje přejít na celou obrazovku
     Skip by Scrolling Over Video Player: Posouvat čas posuvem kolečka myši na přehrávači
     Autoplay Interruption Timer: Čas přerušení automatického přehrávání
@@ -596,6 +600,7 @@ Settings:
     Show Family Friendly Only: Zobrazit pouze obsah vhodný pro rodiny
     Hide Unsubscribe Button: Skrýt tlačítko ke zrušení odběru
     Hide Uploader on Watch page: Skrýt autora na stránce sledování
+    Disable Channel Links: Vypnout odkazy kanálu
   Experimental Settings:
     Experimental Settings: Experimentální
     Warning: Tato nastavení jsou experimentální, při jejich aktivaci může docházet k pádům. Důrazně doporučujeme vytvářet zálohy. Používejte na vlastní nebezpečí!
@@ -860,6 +865,7 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Zbývající čas prvotní reklamy: {remindingTimeSeconds} s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Zbývající čas pauzy SABR: {remindingTimeSeconds} s'
   Popout Live Chat: Vyskakovací chat
+  Private: Soukromá videa nelze sledovat v aplikaci FreeTube, jelikož vyžadují přihlášení k účtu Google a vlastnictví videa.
 Playlist:
   #& About
   View Full Playlist: 'Zobrazit celý seznam skladeb'
@@ -1118,3 +1124,5 @@ KeyboardShortcutPrompt:
 shortcutLabelSeparator: ｜
 Compact side navigation: Kompaktní boční navigace
 Expand side navigation: Rozbalit boční navigaci
+Screenshot Clipboard Success: Snímek uložen do schránky
+Screenshot Clipboard Error: Nepodařilo se uložit snímek do schránky

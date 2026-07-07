@@ -3,14 +3,14 @@ File: 'Súbor'
 Quit: 'Ukončiť'
 Edit: 'Upraviť'
 Undo: 'Vrátiť späť'
-Redo: 'Znovu vykonať'
+Redo: 'Vykonať znova'
 Cut: 'Vystrihnúť'
 Copy: 'Kopírovať'
 Paste: 'Vložiť'
 Delete: 'Vymazať'
 Select all: 'Vybrať všetko'
 Toggle Developer Tools: 'Prepnúť vývojárske nástroje'
-Actual size: 'Aktuálna veľkosť'
+Actual size: 'Reálna veľkosť'
 Zoom in: 'Priblížiť'
 Zoom out: 'Oddialiť'
 Toggle fullscreen: 'Prepnúť na celú obrazovku'
@@ -403,10 +403,14 @@ Settings:
       File Name Label: Vzor názvu súboru
       Folder Button: Vybrať priečinok
       Folder Label: Priečinok snímky obrazovky
-      Ask Path: Spýtať sa na priečinok uloženia
+      Modes:
+        Ask Path: Spýtať sa na priečinok uloženia
+        Save To Folder: Uložiť do priečinka
+        Clipboard: Kopírovať do schránky
       Quality Label: Kvalita snímky obrazovky
       Format Label: Formát snímky obrazovky
       Enable: Povoliť snímku obrazovky
+      Mode: Režim snímky obrazovky
     Video Playback Rate Interval: Interval rýchlosti prehrávania videa
     Max Video Playback Rate: Maximálna rýchlosť prehrávania videa
     Autoplay Interruption Timer: Časovač prerušenia automatického prehrávania
@@ -589,6 +593,7 @@ Settings:
     Hide Uploader on Watch page: Skryť nahrávača na stránke pozerania
     Hide Unsubscribe Button: Skryť tlačidlo odhlásenia
     Parental Control Settings: Rodičovská kontrola
+    Disable Channel Links: Vypnüť odkazy na kanál
   Password Settings:
     Remove Password: Odstrániť heslo
     Set Password: Nastaviť heslo
@@ -807,6 +812,7 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Zostávajúci čas prvotnej reklamy: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Zostávajúci čas pauzy SABR: {remindingTimeSeconds} s'
   Popout Live Chat: Popout Chat
+  Private: Súkromné videá nie je možné pozerať vo FreeTube, pretože si vyžadujú prihlásenie cez Google a vlastníctvo daného videa.
 Playlist:
   #& About
   View Full Playlist: 'Zobraziť celý playlist'
@@ -970,7 +976,7 @@ Profile:
   Create Profile Name: Vytvoriť názov profilu
   Edit Profile Name: Upraviť názov profilu
   Toggle Profile List: Prepnúť zoznam profilov
-Download From Site: Stiahnuť z webu
+Download From Site: Stiahnuť zo stránky
 Version {versionNumber} is now available!  Click for more details: Verzia {versionNumber} je k dispozícii! Kliknite pre viac podrobností
 Locale Name: Slovenčina
 Playing Next Video Interval: Prehrávanie ďalšieho videa okamžite. Kliknite pre zrušenie. | Prehrávanie ďalšieho videa o {nextVideoInterval} sekundu. Kliknite pre zrušenie. | Prehrávanie ďalšieho videa o {nextVideoInterval} sekúnd. Kliknite pre zrušenie.
@@ -992,7 +998,7 @@ Channels:
   Search bar placeholder: Vyhľadať kanály
   Empty: Váš zoznam kanálov je momentálne prázdny.
   Unsubscribe Prompt: Určite sa chcete odhlásiť z odberu "{channelName}"?
-Preferences: Predvoľby
+Preferences: Preferencie
 Close Banner: Zatvoriť banner
 Search character limit: Hľadaný výraz presahuje povolený limit {searchCharacterLimit} znakov
 Search Listing:
@@ -1106,3 +1112,5 @@ Clipboard:
 Tag already exists: Označenie "{tagName}" už existuje
 Compact side navigation: Kompaktná bočná navigácia
 Expand side navigation: Rozbaliť bočnú navigáciu
+Screenshot Clipboard Success: Snímka obrazovky uložená do schránky
+Screenshot Clipboard Error: Kopírovanie snímky obrazovky do schránky sa nepodarilo

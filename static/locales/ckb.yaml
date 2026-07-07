@@ -343,7 +343,8 @@ Settings:
       Enable: ''
       Format Label: ''
       Quality Label: ''
-      Ask Path: 'بۆ بوخچەی پاشەکەوت بپرسە'
+      Modes:
+        Ask Path: 'بۆ بوخچەی پاشەکەوت بپرسە'
       Folder Label: ''
       Folder Button: 'دیاریکردنی بوخچە'
       File Name Label: ''

@@ -168,6 +168,7 @@ const state = {
   defaultViewingMode: 'default',
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
+  disableChannelLinks: false,
   displayVideoPlayButton: false,
   enableSearchSuggestions: true,
   enableSubtitlesByDefault: false,
@@ -286,9 +287,9 @@ const state = {
   videoSkipMouseScroll: false,
   videoPlaybackRateInterval: 0.25,
   enableScreenshot: false,
+  screenshotMode: 'prompt_folder',
   screenshotFormat: 'png',
   screenshotQuality: 95,
-  screenshotAskPath: !process.env.IS_ELECTRON,
   screenshotFolderPath: '',
   screenshotFilenamePattern: '%Y%M%D-%H%N%S',
   settingsSectionSortEnabled: false,
@@ -375,7 +376,7 @@ const sideEffectHandlers = {
 
     await Promise.allSettled(loadPromises)
 
-    i18n.global.locale = targetLocale
+    i18n.global.locale.value = targetLocale
     await dispatch('getRegionData', targetLocale)
   },
 

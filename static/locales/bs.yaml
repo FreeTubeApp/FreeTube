@@ -2,29 +2,29 @@
 Locale Name: 'Bosanski'
 
 # Webkit Menu Bar
-File: 'Fajl'
+File: 'Datoteka'
 Quit: 'Napusti'
 Edit: 'Uredi'
-Undo: 'Ukini'
+Undo: 'Poništi'
 Redo: 'Ponovi'
 Cut: 'Izreži'
 Copy: 'Kopiraj'
-Paste: 'Umetni'
+Paste: 'Zalijepi'
 Delete: 'Izbriši'
-Select all: 'Odabri sve'
+Select all: 'Odaberi sve'
 Toggle Developer Tools: 'Uključi alate za programere'
-Actual size: 'Prirodna veličina'
-Zoom in: 'Približi'
+Actual size: 'Stvarna veličina'
+Zoom in: 'Uvećaj'
 Zoom out: 'Umanji'
-Toggle fullscreen: 'Prebaci preko cijelog ekrana'
+Toggle fullscreen: 'Uključi/isključi cijeli ekran'
 Window: 'Prozor'
-Minimize: 'Smanji'
+Minimize: 'Umanji'
 Close: 'Zatvori'
 Back: 'Nazad'
-Forward: 'Unapred'
+Forward: 'Naprijed'
 
 Version {versionNumber} is now available!  Click for more details: 'Verzija {versionNumber} je sada dostupna! Kliknite za više detalja'
-Download From Site: 'Instaliraj preko stranice'
+Download From Site: 'Preuzmi sa stranice'
 
 Global:
   Sort By: 'Poredaj po'
@@ -32,14 +32,26 @@ Global:
 # Search Bar
   Live: Uživo
   Videos: Videozapisi
-Search / Go to URL: 'Pretražite / idite na URL'
+  Shorts: Shorts
+  Posts: Objave
+  Counts:
+    Video Count: 1 video | {count} video zapisa
+    Channel Count: 1 kanal | {count} kanala
+    Subscriber Count: 1 pretplatnik | {count} pretplatnika
+    View Count: 1 pregled | {count} pregleda
+    Like Count: 1 sviđanje | {count} sviđanja
+    Comment Count: 1 komentar | {count} komentara
+    Watching Count: 1 gleda | {count} gleda
+Search / Go to URL: 'Pretraži / idi na URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Pretraži filtere'
   Prioritize:
-    Most Relevant: 'Naj relevantnije'
+    Most Relevant: 'Najrelevantnije'
+    Prioritize: Prioritiraj
+    Popularity: Popularnost
   Time:
-    Time: 'Vrjeme'
+    Time: 'Vrijeme'
     Any Time: 'Bilo kada'
     Today: 'Danas'
     This Week: 'Ove sedmice'
@@ -51,64 +63,491 @@ Search Filters:
     Videos: 'Videozapisi'
     Channels: 'Kanali'
     #& Playlists
+    Movies: Filmovi
   Duration:
     Duration: 'Trajanje'
     All Durations: 'Sva trajanja'
     '< 3 minutes': '<3 minute'
     '> 20 minutes': '>20 minuta'
   # On Search Page
+    '3 - 20 minutes': 3 - 20 minuta
   Search Results: 'Rezultati pretrage'
-  Fetching results. Please wait: 'Dohvaćanje rezultata. Molimo sačekajte'
-  Fetch more results: 'Dohvati više rezultata'
+  Fetching results. Please wait: 'Pribavljanje rezultata. Molim pričekajte'
+  Fetch more results: 'Prikaži više rezultata'
 # Sidebar
+  Features:
+    Features: Karakteristike
+    HD: HD
+    Subtitles: Titlovi
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Uživo
+    4K: 4K
+    360 Video: 360 Video
+    Location: Lokacija
+    HDR: HDR
+    VR180: VR180
+  There are no more results for this search: Nema više rezultata za ovu pretragu
+  Clear Filters: Obriši filtere
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Pretplate'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Ovaj profil ima veliki broj pretplata. Prisiljavanje RSS-a da izbjegne ograničenje brzine'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaša lista pretplata je trenutno prazna. Počnite dodavati pretplate da biste ih vidjeli ovdje.'
-  Load More Videos: 'Očitaj više videozapisa'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Vaša lista pretplata je trenutno prazna. Ako želite uvesti svoje pretplate, možete otići u Postavke podataka i odabrati Uvezi pretplate ili možete potražiti kanal i pretplatiti se na njega.'
+  Load More Videos: 'Učitaj još videa'
+  Error Channels: Kanali s greškama
+  Disabled Automatic Fetching: Onemogućili ste automatsko preuzimanje pretplata. Osvježite pretplate da biste ih vidjeli ovdje.
+  Empty Channels: Vaši pretplaćeni kanali trenutno nemaju videozapise.
+  Empty Posts: Vaši pretplaćeni kanali trenutno nemaju objava.
+  Load More Posts: Učitaj još objava
+  Subscriptions Tabs: Kartice pretplata
+  All Subscription Tabs Hidden: Sve kartice pretplata su skrivene. Da biste vidjeli sadržaj ovdje, molimo vas da otkrijete neke kartice u odjeljku "{subsection}" u "{settingsSection}".
 Trending:
   Trending: 'U trendu'
-  Sports: Sport
-Most Popular: 'Naj popularnije'
-Playlists: 'playliste'
+  Sports: Sportovi
+  Gaming: Igre
+  Trending Tabs: Trendovi u karticama
+Most Popular: 'Najpopularnije'
+Playlists: 'Plejliste'
 User Playlists:
-  Your Playlists: 'Tvoje playliste'
+  Your Playlists: 'Tvoje plejliste'
+  You have no playlists. Click on the create new playlist button to create a new one.: Nemate plejlista. Kliknite na dugme "Kreiraj novu plejlistu" da biste kreirali novu.
+  Empty Search Message: Na ovoj plejlisti nema videozapisa koji odgovaraju vašoj pretrazi
+  Search bar placeholder: Pretraživanje plejlista
+  Playlists with Matching Videos: Liste za reprodukciju s odgovarajućim videozapisima
+  This playlist currently has no videos.: Ova plejlista trenutno nema videozapisa.
+  Create New Playlist: Kreiraj novu listu za reprodukciju
+  Add to Playlist: Dodaj na plejlistu
+  Add to Favorites: Dodaj na {playlistName}
+  Remove from Favorites: Ukloni sa {playlistName}
+  Move Video Up: Pomakni video gore
+  Move Video Down: Pomakni video dolje
+  Remove from Playlist: Ukloni s popisa za reprodukciju
+  Playlist Name: Naziv plejliste
+  Playlist Description: Opis plejliste
+  Save Changes: Sačuvaj promjene
+  Cancel: Otkaži
+  Edit Playlist Info: Uredi informacije o plejlisti
+  Copy Playlist: Kopiraj plejlistu
+  Remove Duplicate Videos: Ukloni duplikate videozapisa
+  Remove Watched Videos: Ukloni gledane videozapise
+  Enable Quick Bookmark With This Playlist: Omogući brzo označavanje s ovom plejlistom
+  Quick Bookmark Enabled: Brzo označavanje omogućeno
+  Export Playlist: Izvezi ovu plejlistu
+  Export list of URLs: Izvoz liste URL-ova
+  The playlist has been successfully exported: Plejlista je uspješno izvezena
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Jeste li sigurni da želite ukloniti 1 duplikat videozapisa s ove liste za reprodukciju? Ovo se ne može poništiti. | Jeste li sigurni da želite ukloniti {playlistItemCount} duplikata videozapisa s ove liste za reprodukciju? Ovo se ne može poništiti.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Jeste li sigurni da želite ukloniti 1 gledani video sa ove liste za reprodukciju? Ovo se ne može poništiti. | Jeste li sigurni da želite ukloniti {playlistItemCount} gledanih videa sa ove liste za reprodukciju? Ovo se ne može poništiti.
+  Delete Playlist: Izbriši listu za reprodukciju
+  Cannot delete the quick bookmark target playlist.: Nije moguće izbrisati listu za reprodukciju cilja brzog označavanja.
+  Are you sure you want to delete this playlist? This cannot be undone: Jeste li sigurni da želite izbrisati ovu plejlistu? Ova radnja se ne može poništiti.
+  TotalTimePlaylist: 'Ukupno vrijeme: {duration}'
+  Sort By:
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestCreatedFirst: Datum kreiranja (najnoviji)
+    EarliestCreatedFirst: Datum kreiranja (najstariji)
+    LatestUpdatedFirst: Datum ažuriranja (najnoviji)
+    EarliestUpdatedFirst: Datum ažuriranja (najstariji)
+    LatestPlayedFirst: Datum gledanja (najnoviji)
+    EarliestPlayedFirst: Datum gledanja (najstariji)
+  SinglePlaylistView:
+    Search for Videos: Pretraži videozapise
+    Toast:
+      This video cannot be moved up.: Ovaj video se ne može pomaknuti gore.
+      This video cannot be moved down.: Ovaj video se ne može pomaknuti dolje.
+      Video has been removed: Video je uklonjen
+      Video has been removed. Click here to undo.: Video je uklonjen. Klikni ovdje da poništite.
+      There was a problem with removing this video: Došlo je do problema s uklanjanjem ovog videa
+      This playlist is already being used for quick bookmark.: Ova lista za reprodukciju se već koristi za brzo označavanje.
+      This playlist is now used for quick bookmark: Ova plejlista se sada koristi za brzo označavanje
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Ova lista za reprodukciju se sada koristi za brzo označavanje umjesto {oldPlaylistName}. Klikni ovdje za poništavanje
+      Reverted to use {oldPlaylistName} for quick bookmark: Vraćeno na korištenje {oldPlaylistName} za brzo označavanje
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Neki videozapisi na popisu za reprodukciju još nisu učitani. Klikni ovdje da bi ih ipak kopirali.
+      Playlist name cannot be empty. Please input a name.: Naziv plejliste ne može biti prazan. Molim unesite naziv.
+      Playlist has been updated.: Plejlista je ažurirana.
+      There was an issue with updating this playlist.: Došlo je do problema s ažuriranjem ove plejliste.
+      "{videoCount} video(s) have been removed": 1 videozapis je uklonjen | {videoCount} videozapisa je uklonjeno
+      There were no videos to remove.: Nije bilo videozapisa za uklanjanje.
+      This playlist is protected and cannot be removed.: Ova plejlista je zaštićena i ne može se ukloniti.
+      Playlist {playlistName} has been deleted.: Plejlista {playlistName} je izbrisana.
+      This playlist does not exist: Ova plejlista ne postoji
+      This playlist has a video with a duration error: Ova lista za reprodukciju sadrži barem jedan video koji nema trajanje, bit će sortiran kao da mu je trajanje nula.
+  AddVideoPrompt:
+    Select a playlist to add your N videos to: Odaberite listu za reprodukciju na koju ćete dodati svoj video | Odaberite listu za reprodukciju na koju ćete dodati svoje {videoCount} video zapise
+    N playlists selected: 'Odabrano: {playlistCount}'
+    Search in Playlists: Pretraživanje u plejlistama
+    Allow Adding Duplicate Video(s): Dozvoli dodavanje duplih videa
+    Save: Sačuvaj
+    Added {count} Times: Već dodano | Dodano {count} puta
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videozapisa će biti dodano'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videozapisi su već dodani'
+    Toast:
+      You haven't selected any playlist yet.: Još niste odabrali nijednu plejlistu.
+      "Video(s) added to {playlistCount} playlists": Video(i) dodani na 1 plejlistu | Video(i) dodani na {playlistCount} plejlista
+  CreatePlaylistPrompt:
+    New Playlist Name: Naziv nove plejliste
+    Create: Kreiraj
+    Toast:
+      There is already a playlist with this name. Please pick a different name.: Već postoji plejlista s ovim nazivom. Molim odaberite drugi naziv.
+      Playlist {playlistName} has been successfully created.: Plejlista {playlistName} je uspješno kreirana.
+      There was an issue with creating the playlist.: Došlo je do problema prilikom kreiranja liste za reprodukciju.
 History:
   # On History Page
   History: 'Istorija'
-  Watch History: 'Istorija gledanja'
-  Your history list is currently empty.: 'Vaša lista istorije je trenutno prazna.'
+  Watch History: 'Historija gledanja'
+  Your history list is currently empty.: 'Vaša lista historije je trenutno prazna.'
+  Empty Search Message: U vašoj historiji nema videozapisa koji odgovaraju vašoj pretrazi
+  Search bar placeholder: Pretraži u historiji
+  Case Sensitive Search: Pretraga koja razlikuje velika i mala slova
+  DateOldestHistory: Datum gledanja (najstariji)
+  DateNewestHistory: Datum gledanja (najnoviji)
 Settings:
   # On Settings Page
   Settings: 'Postavke'
-  The app needs to restart for changes to take effect. Restart and apply change?: 'Aplikacija se treba restartovati da bi promjene stupile na snagu. Restartuj i primijeniti promjenu?'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Aplikacija se mora ponovo pokrenuti da bi promjene stupile na snagu. Ponovo pokrenuti i primijeniti promjene?'
   General Settings:
-    General Settings: 'Generalne postavke'
-    Check for Updates: 'Provjeri ima li update'
-    Fallback to Non-Preferred Backend on Failure: 'Vraćanje na neželjeni backend u slučaju neuspjeha'
+    General Settings: 'Općenito'
+    Check for Updates: 'Provjeri ažuriranja'
+    Fallback to Non-Preferred Backend on Failure: 'Povratak na nepreferirani backend u slučaju kvara'
     Enable Search Suggestions: 'Omogući prijedloge pretraživanja'
     Default Landing Page: 'Zadana odredišna stranica'
-    Locale Preference: 'Jezik'
+    Locale Preference: 'Preferencija lokacije'
     Preferred API Backend:
       Preferred API Backend: 'Poželjni API Backend'
       Local API: 'Lokalni API'
       Invidious API: 'Invidious API'
     Video View Type:
-      Video View Type: 'Način prikazanja videa'
-      Grid: 'Popločan'
-      List: 'Popis'
+      Video View Type: 'Vrsta pregleda videa'
+      Grid: 'Mreža'
+      List: 'Lista'
     Thumbnail Preference:
-      Thumbnail Preference: 'Preferencija minijature'
-      Default: 'Standard'
+      Thumbnail Preference: 'Preferencija za sličice'
+      Default: 'Zadano'
       Beginning: 'Početak'
-      Middle: 'Sredina'
+      Middle: 'Srednji'
       End: 'Kraj'
-    Region for Trending: 'Regiona za trend'
+      Hidden: Skriveno
+      Blur: Zamućenje
+    Region for Trending: 'Regija za trendove'
         #! List countries
+    Open Deep Links In New Window: Otvori URL-ove proslijeđene FreeTube-u u novom prozoru
+    Minimize to system tray: Minimiziraj u sistemsku traku
+    Auto Load Next Page:
+      Label: Automatsko učitavanje sljedeće stranice
+      Tooltip: Automatski učitaj dodatne stranice i komentare.
+    System Default: Zadano sistemski
+    Current Invidious Instance: Trenutna invazivni primjer
+    The currently set default instance is {instance}: Trenutno postavljen zadani primjer je {instance}
+    No default instance has been set: Nije postavljen zadani primjer
+    Current instance will be randomized on startup: Trenutni primjer će biti nasumično odabran pri pokretanju
+    Set Current Instance as Default: Postavi trenutni primjer kao zadani
+    Clear Default Instance: Obriši zadani primjer
+    View all Invidious instance information: Pogledajte sve informacije o uvredljivim primjerima
+    External Link Handling:
+      External Link Handling: Rukovanje vanjskim linkovima
+      Open Link: Otvori link
+      Ask Before Opening Link: Pitaj prije otvaranja linka
+      No Action: Nema akcije
   Theme Settings:
-    Theme Settings: 'Postavke teme'
-    Match Top Bar with Main Color: 'Koristi glavnu boju u gornjoj traci'
+    Theme Settings: 'Tema'
+    Match Top Bar with Main Color: 'Uskladite gornju traku s glavnom bojom'
+    Expand Side Bar by Default: Proširi bočnu traku prema zadanim postavkama
+    Disable Smooth Scrolling: Onemogući glatko skrolovanje
+    UI Scale: UI Skala
+    Hide Side Bar Labels: Sakrij oznake bočne trake
+    Hide FreeTube Header Logo: Sakrij logotip zaglavlja FreeTube-a
+    Base Theme:
+      Base Theme: Osnovna tema
+      Black: Crno
+      Dark: Tamno
+      System Default: Sistemski zadano
+      Light: Svijetlo
+      Dracula: Drakula
+      Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Latte: Catppuccin Latte
+      Catppuccin Mocha: Catppuccin Mocha
+      Pastel Pink: Pastelno ružičasta
+      Hot Pink: Vruća ružičasta
+      Nordic: Nordijska
+      Gruvbox Dark: Grubakutija tamno
+      Gruvbox Light: Grubakutija svijetlo
+      Solarized Dark: Solarizirano tamno
+      Solarized Light: Solarizirano svijetlo
+      Everforest Dark Hard: Vječna šuma solidno tamno
+      Everforest Dark Medium: Vječna šuma srednje tamno
+      Everforest Dark Low: Vječna šuma nisko tamno
+      Everforest Light Hard: Vječna šuma lagano solidno
+      Everforest Light Medium: Vječna šuma srednje svijetlo
+      Everforest Light Low: Vječna šuma nisko svijetlo
+    Main Color Theme:
+      Main Color Theme: Glavna tema boja
+      Red: Crvena
+      Pink: Ružičasta
+      Purple: Ljubičasta
+      Deep Purple: Tamno ljubičasta
+      Indigo: Modra
+      Blue: Plava
+      Light Blue: Svijetloplava
+      Cyan: Cijan
+      Teal: Tirkiz
+      Green: Zelena
+      Light Green: Svijetlozelena
+      Lime: Limeta
+      Yellow: Žuta
+      Amber: Ćilibar
+      Orange: Narandžasta
+      Deep Orange: Tamno narandžasta
+      Dracula Cyan: Drakula Cijan
+      Dracula Green: Drakula zelena
+      Dracula Orange: Drakula narandžasta
+      Dracula Pink: Drakula ružičasta
+      Dracula Purple: Drakula ljubičasta
+      Dracula Red: Drakula crvena
+      Dracula Yellow: Drakula žuta
+      Catppuccin Frappe Rosewater: Catppuccin Frappe ružina vodica
+      Catppuccin Frappe Flamingo: Catppuccin Frappe Flamingo
+      Catppuccin Frappe Pink: Catppuccin Frappe ružičasta
+      Catppuccin Frappe Mauve: Catppuccin Frappe svijetloljubičasta
+      Catppuccin Frappe Red: Crveni Catppuccin Frappe
+      Catppuccin Frappe Maroon: Catppuccin Frappe smeđe-grimiz
+      Catppuccin Frappe Peach: Catppuccin Frappe breskva
+      Catppuccin Frappe Yellow: Žuti Catppuccin Frappe
+      Catppuccin Frappe Green: Zeleni Catppuccin Frappe
+      Catppuccin Frappe Teal: Catppuccin Frappe tirkiz
+      Catppuccin Frappe Sky: Catppuccin Frappe nebo
+      Catppuccin Frappe Sapphire: Catppuccin Frappe safir
+      Catppuccin Frappe Blue: Catppuccin Frappe plava
+      Catppuccin Frappe Lavender: Catpuccin Frappe lavanda
+      Catppuccin Latte Mauve: Catppuccin Latte svijetloljubičasto
+      Catppuccin Latte Red: Crveni Catpuccin Latte
+      Catppuccin Mocha Rosewater: Catppuccin Mocha ružina vodica
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha ružičasto
+      Catppuccin Mocha Mauve: Catppuccin Mocca svijetloljubičasto
+      Catppuccin Mocha Red: Crvena Catppuccin Mocha
+      Catppuccin Mocha Maroon: Catppuccin Mocha smeđe-grimizna
+      Catppuccin Mocha Peach: Catpuccin Mocca breskva
+      Catppuccin Mocha Yellow: Catppuccin Mocca žuta
+      Catppuccin Mocha Green: Catppuccin Mocha zelena
+      Catppuccin Mocha Teal: Catppuccin Mocha tirkiz
+      Catppuccin Mocha Sky: Catppuccin Mocha nebo
+      Catppuccin Mocha Sapphire: Catppuccin Mocha safir
+      Catppuccin Mocha Blue: Catppuccin Mocha plava
+      Catppuccin Mocha Lavender: Catppuccin Mocha lavander
+      Gruvbox Dark Green: Grubakutija tamnozelena
+      Gruvbox Dark Yellow: Grubakutija tamnožuta
+      Gruvbox Dark Blue: Grubakutija tamnoplava
+      Gruvbox Dark Purple: Grubakutija tamno ljubičasta
+      Gruvbox Dark Aqua: Grubakutija tamno akva
+      Gruvbox Dark Orange: Grubakutija tamno narandžasta
+      Gruvbox Light Red: Grubakutija svijetlo crvena
+      Gruvbox Light Blue: Grubakutija svijetloplava
+      Gruvbox Light Purple: Grubakutija svijetlo ljubičasta
+      Gruvbox Light Orange: Grubakutija svijetlo narandžasta
+      Solarized Yellow: Solarizirana žuta
+      Solarized Orange: Solarizirana narandžasta
+      Solarized Red: Solarizirana crvena
+      Solarized Magenta: Solarizirana purpurnocrvena
+      Solarized Violet: Solarizirana ljubičasta
+      Solarized Blue: Solarizirana plava
+      Solarized Cyan: Solarizirana cijan
+      Solarized Green: Solarizirana zelena
+      Everforest Dark Red: Zimzelena tamnocrvena
+      Everforest Dark Orange: Zimzelena tamno narandžasta
+      Everforest Dark Yellow: Zimzelena tamnožuta
+      Everforest Dark Green: Tamnozelena zimzelena
+      Everforest Dark Aqua: Zimzelena tamno akva
+      Everforest Dark Blue: Tamnoplava zimzelena šuma
+      Everforest Dark Purple: Zimzelena tamnoljubičasta
+      Everforest Light Red: Zimzelena svijetlocrvena
+      Everforest Light Orange: Zimzelena svijetlonarandžasta
+      Everforest Light Yellow: Zimzelena svijetložuta
+      Everforest Light Green: Svijetlozelena zimzelena
+      Everforest Light Aqua: Zimzelena svijetla akva
+      Everforest Light Blue: Zimzelena svijetloplava
+      Everforest Light Purple: Zimzelena svijetloljubičasta
+    Secondary Color Theme: Sekundarna tema boja
+  Sort Settings Sections (A-Z): Postavke sortiranja po odjeljcima (A-Z)
+  Return to Settings Menu: Povratak na meni postavki
+  Player Settings:
+    Player Settings: Plejer
+    Play Next Video: Automatska reprodukcija preporučenih videozapisa
+    Autoplay Playlists: Videozapisi s automatske reprodukcije s plejliste
+    Autoplay Videos: Automatsko pokretanje videa
+    Turn on Subtitles by Default: Omogući titlove prema zadanim postavkama
+    Proxy Videos Through Invidious: Proksi videozapisi putem uvrjedljivosti
+    Default Viewing Mode:
+      Theater: Teatar
+      Default Viewing Mode: Zadani način prikaza
+      Full Screen: Cijeli ekran
+      Picture in Picture: Slika u slici
+      External Player: Vanjski plejer ({externalPlayerName})
+    Scroll Volume Over Video Player: Pomicanje jačine zvuka preko video plejera
+    Scroll Playback Rate Over Video Player: Brzina reprodukcije pomicanja preko video playera
+    Skip by Scrolling Over Video Player: Preskoči skrolovanjem preko video plejera
+    Display Play Button In Video Player: Prikaži dugme za reprodukciju u video plejeru
+    Enter Fullscreen on Display Rotate: Uključi cijeli ekran pri rotiranju ekrana
+    Next Video Interval: Tajmer za odbrojavanje automatske reprodukcije
+    Autoplay Interruption Timer: Tajmer prekida automatske reprodukcije
+    Fast-Forward / Rewind Interval: Interval premotavanja naprijed/nazad
+    Default Volume: Zadana jačina zvuka
+    Default Playback Rate: Zadana brzina reprodukcije
+    Max Video Playback Rate: Maksimalna brzina reprodukcije videa
+    Video Playback Rate Interval: Interval brzine reprodukcije videa
+    Default Video Format:
+      Default Video Format: Zadani video format
+      Dash Formats: DASH formati
+      Legacy Formats: Zastarjeli formati
+      Audio Formats: Audio formati
+    Default Quality:
+      Default Quality: Zadani kvalitet
+      Auto: Automatski
+      144p: 144p
+      240p: 240p
+      360p: 360p
+      480p: 480p
+      720p: 720p
+      1080p: 1080p
+      1440p: 1440p
+      4k: 4k
+      8k: 8k
+    Screenshot:
+      Enable: Omogući snimak ekrana
+      Format Label: Format snimke ekrana
+      Quality Label: Kvalitet snimke ekrana
+      Ask Path: Zatraži spremanje mape
+      Folder Label: Mapa sa snimcima ekrana
+      Folder Button: Odaberite mapu
+      File Name Label: Uzorak naziva datoteke
+      File Name Tooltip: Možete koristiti varijable u nastavku. %Y Godina 4 cifre. %M Mjesec 2 cifre. %D Dan 2 cifre. %H Sat 2 cifre. %N Minuta 2 cifre. %S Sekunda 2 cifre. %T Milisekunda 3 cifre. %s Video sekunda. %t Video milisekunda 3 cifre. %i ID videa.
+      Error:
+        Forbidden Characters: Zabranjeni likovi
+        Empty File Name: Prazan naziv datoteke
+  External Player Settings:
+    External Player Settings: Vanjski plejer
+    External Player: Vanjski plejer
+    Ignore Unsupported Action Warnings: Ignoriraj upozorenja o nepodržanim radnjama
+    Ignore Default Arguments: Zanemari zadane argumente
+    Custom External Player Executable: Prilagođeni izvršni fajl za eksterni plejer
+    Custom External Player Arguments: Prilagođeni argumenti vanjskog plejera
+    Players:
+      None:
+        Name: Nijedan
+  Privacy Settings:
+    Privacy Settings: Privatnost
+    Remember History: Zapamti historiju gledanja
+    Remember Search History: Zapamti historiju pretraživanja
+    Save Watched Progress: Sačuvaj napredak gledanja
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Automatski
+        Semi-auto: Poluautomatski
+        Never: Nikad
+      Tooltip: Automatski = Sačuvaj pri svakom izlasku iz video stranice, kada se video završi i dođe do greške (npr. ograničenje brzine gledanja i istek sesije gledanja). Poluautomatski = Kao automatski, osim pri izlasku iz video stranice i mogućnost ručnog spremanja napretka putem dugmeta pod nazivom Sačuvaj napredak gledanja, koje se nalazi ispod video plejera.
+    Save Watched Videos With Last Viewed Playlist: Sačuvaj gledane videozapise s posljednje gledanom plejlistom
+    Clear Search History and Cache: Obriši historiju pretrage i predmemoriju
+    Are you sure you want to clear out your search history and cache?: Jeste li sigurni da želite obrisati historiju pretrage i predmemoriju?
+    Search history and cache have been cleared: Historija pretrage i keš memorija su obrisani
+    Remove Watch History: Ukloni historiju gledanja
+    Are you sure you want to remove your entire watch history?: Jeste li sigurni da želite ukloniti cijelu historiju gledanja?
+    Watch history has been cleared: Historija gledanja je obrisana
+    Remove All Subscriptions / Profiles: Ukloni sve pretplate / profile
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Jeste li sigurni da želite ukloniti sve pretplate i profile? Ova radnja se ne može poništiti.
+    Remove All Playlists: Ukloni sve liste za reprodukciju
+    All playlists have been removed: Sve plejliste su uklonjene
+    Are you sure you want to remove all your playlists?: Jeste li sigurni da želite ukloniti sve svoje liste za reprodukciju?
+  Subscription Settings:
+    Subscription Settings: Pretplata
+    Fetch Feeds from RSS: Dohvati napajanja sa RSS-a
+    Fetch Automatically: Automatsko dohvaćanje napajanja
+    'Limit the number of videos displayed for each channel': Ograničite broj prikazanih videa za svaki kanal
+    To: Na
+    Confirm Before Unsubscribing: Potvrdi prije odjave
+  Distraction Free Settings:
+    Distraction Free Settings: Bez ometanja
+    Sections:
+      Side Bar: Bočna traka
+      Subscriptions Page: Stranica s pretplatama
+      Channel Page: Stranica kanala
+      Watch Page: Stranica za gledanje
+      General: Općenito
+    Hide Video Views: Sakrij preglede videa
+    Hide Video Likes And Dislikes: Sakrij sviđanja i nesviđanja za video
+    Hide Channel Subscribers: Sakrij pretplatnike kanala
+    Hide Comment Likes: Sakrij sviđanja za komentare
+    Hide Recommended Videos: Sakrij preporučene videozapise
+    Hide Trending Videos: Sakrij videozapise u trendu
+    Hide Popular Videos: Sakrij popularne videozapise
+    Hide Playlists: Sakrij liste za reprodukciju
+    Hide Live Chat: Sakrij chat uživo
+    Hide Active Subscriptions: Sakrij aktivne pretplate
+    Hide Video Description: Sakrij opis videa
+    Hide Comments: Sakrij komentare
+    Hide Profile Pictures in Comments: Sakrij slike profila u komentarima
+    Display Titles Without Excessive Capitalisation: Prikažite naslove bez prekomjernog korištenja velikih slova i interpunkcije
+    Hide Live Streams: Sakrij prijenose uživo
+    Hide Upcoming Premieres: Sakrij nadolazeće premijere
+    Hide Sharing Actions: Sakrij radnje dijeljenja
+    Hide Videos on Watch: Sakrij videozapise na gledanju
+    Hide Chapters: Sakrij poglavlja
+    Hide Channels: Sakrij videozapise s kanala
+    Hide Channels Disabled Message: Neki kanali su blokirani pomoću ID-a i nisu obrađeni. Funkcija je blokirana dok se ti ID-ovi ažuriraju
+    Hide Channels Placeholder: ID kanala
+    Hide Channels Invalid: Uneseni ID kanala je bio nevažeći
+    Hide Channels API Error: Greška prilikom preuzimanja korisnika s navedenim ID-om. Molimo provjerite ponovo je li ID ispravan.
+    Hide Channels Already Exists: ID kanala već postoji
+    Hide Featured Channels: Sakrij istaknute kanale
+    Hide Channel Playlists: Sakrij karticu kanala "Plejliste"
+    Hide Channel Posts: Sakrij karticu kanala "Objave"
+    Hide Channel Home: Sakrij karticu kanala "Početna"
+    Hide Channel Shorts: Sakrij karticu kanala "Shorts"
+    Hide Channel Podcasts: Sakrij karticu kanala "Podcasti"
+    Hide Channel Releases: Sakrij karticu kanala "Izdanja"
+    Hide Channel Courses: Sakrij karticu kanala "Kursevi"
+    Hide Videos, Playlists and Channels Containing Text: Sakrij videozapise, popise za reprodukciju i kanale koji sadrže tekst
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Riječ, fragment riječi ili fraza
+    Hide Subscriptions Videos: Sakrij videozapise pretplata
+    Hide Subscriptions Shorts: Sakrij kratke filmove pretplata
+    Hide Subscriptions Live: Sakrij pretplate uživo
+    Hide Subscriptions Posts: Sakrij objave o pretplatama
+    Show Added Items: Prikaži dodane stavke
+  Data Settings:
+    Data Settings: Podaci
+    Select Export Type: Odaberite vrstu izvoza
+    Import Subscriptions: Uvoz pretplata
+    Subscription File: Datoteka pretplate
+    History File: Datoteka historije
+    Playlist File: Datoteka popisa za reprodukciju
+    Search history file: Datoteka historije pretraživanja
+    Export Subscriptions: Izvoz pretplata
+    Export FreeTube: Izvoz FreeTube-a
+    Export YouTube: Izvoz s YouTubea
+    Export NewPipe: Izvoz NewPipe
+    Import History: Historija uvoza
+    Export History: Historija izvoza
+    Import Playlists: Uvoz plejlista
+    Export Playlists: Izvoz plejlista
+    Search history: Historija pretraživanja
+    Import search history: Uvezi historiju pretraživanja
+    Export search history: Izvezi historiju pretraživanja
+    Profile object has insufficient data, skipping item: Objekt profila nema dovoljno podataka, preskače se stavka
+    All subscriptions and profiles have been successfully imported: Sve pretplate i profili su uspješno uvezeni
+    All subscriptions have been successfully imported: Sve pretplate su uspješno uvezene
+    Invalid subscriptions file: Nevažeća datoteka pretplata
+    Invalid history file: Nevažeća datoteka historije
+    Subscriptions have been successfully exported: Pretplate su uspješno izvezene
+    History object has insufficient data, skipping item: Objekt historije nema dovoljno podataka, preskače se stavka
+    All watched history has been successfully imported: Sva historija gledanja je uspješno uvezena
+    All watched history has been successfully exported: Sva historija gledanja je uspješno izvezena
+    Playlist insufficient data: Nedovoljno podataka za plejlistu "{playlist}", preskačem stavku
+    All playlists has been successfully imported: Sve liste za reprodukciju su uspješno uvezene
+    All playlists has been successfully exported: Sve liste za reprodukciju su uspješno izvezene
+    All search history has been successfully imported: Sva historija pretraživanja je uspješno uvezena
+    All search history has been successfully exported: Sva historija pretraživanja je uspješno izvezena
+    Unable to read file: Nije moguće pročitati datoteku
+    Unable to write file: Nije moguće pisati u datoteku
+    Unknown data key: Nepoznati ključ podataka
 Channel:
   Videos:
     Videos: Videozapisi
@@ -119,11 +558,39 @@ Search Listing:
   Label:
     4K: 4K
     8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    Subtitles: Titlovi
+    New: Novi
+    3D: 3D
+    Closed Captions: Zatvoreni Titlovi
 KeyboardShortcutPrompt:
-  Toggle Developer Tools: Uključi alate za programere
-  Zoom In: Približi
+  Toggle Developer Tools: Uključi/isključi alate za razvojne programere
+  Zoom In: Uvećaj
   Zoom Out: Umanji
-  Fullscreen: Prebaci preko cijelog ekrana
+  Fullscreen: Uključi/isključi cijeli ekran
 Preferences: Postavke
 Profile:
-  Select All: Odabri sve
+  Select All: Odaberi sve
+Compact side navigation: Kompaktna bočna navigacija
+Expand side navigation: Proširi bočnu navigaciju
+Right-click or hold to see history: Kliknite desnim tasterom miša ili zadržite da biste vidjeli istoriju
+Open New Window: Otvori novi prozor
+Go to page: Idi na {page}
+Close Banner: Zatvori baner
+Are you sure you want to open this link?: Jeste li sigurni da želite otvoriti ovaj link?
+Search Bar:
+  Clear Input: Obriši unos
+  Remove: Ukloni
+Search character limit: Upit za pretragu prelazi ograničenje broja znakova od {searchCharacterLimit}
+More: Više
+Channels:
+  Channels: Kanali
+  Title: Lista kanala
+  Search bar placeholder: Pretraži kanale
+  Count: Pronađen je {number} kanal(a).
+  Empty: Vaša lista kanala je trenutno prazna.
+  Unsubscribe Prompt: Jeste li sigurni da želite odjaviti pretplatu na "{channelName}"?
+Feed:
+  Feed Last Updated: '{feedName} feed je zadnji put ažuriran: {date}'
+  Refresh Feed: Osvježi {subscriptionName}

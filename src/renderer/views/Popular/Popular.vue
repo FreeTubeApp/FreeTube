@@ -40,7 +40,7 @@ import store from '../../store/index'
 
 import { getInvidiousPopularFeed } from '../../helpers/api/invidious'
 import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 import { KeyboardShortcuts } from '../../../constants'
 
 const { t } = useI18n()

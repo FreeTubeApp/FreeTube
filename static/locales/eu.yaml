@@ -41,7 +41,7 @@ Global:
   Posts: Argitalpenak
   Sort By: Ordenatu honen arabera
 Version {versionNumber} is now available!  Click for more details: '{versionNumber} bertsioa erabilgarri! Klikatu azalpen gehiagorako'
-Download From Site: 'Jaitsi webgunetik Egin klik gehiago ikusteko'
+Download From Site: 'Jaitsi webgunetik'
 
 # Search Bar
 Search / Go to URL: 'Bilatu / Joan URLra'
@@ -253,7 +253,7 @@ Settings:
     Minimize to system tray: Minimizatu sistemaren erretiluan
   Theme Settings:
     Theme Settings: 'Gaia'
-    Match Top Bar with Main Color: 'Lotu goiko barra kolore nagusiarekin'
+    Match Top Bar with Main Color: 'Margotu goiko barra kolore nagusiarekin'
     Expand Side Bar by Default: 'Zabaldu alboko barra lehenespenez'
     Disable Smooth Scrolling: 'Desgaitu korritze leuna'
     UI Scale: 'Erabiltzaile interfazearen eskala'
@@ -408,11 +408,15 @@ Settings:
         Forbidden Characters: Debekatutako karaktereak
       Format Label: Pantaila-argazkiaren formatua
       Quality Label: Pantaila-argazkiaren kalitatea
-      Ask Path: Galdetu zein karpetan gordeko den
+      Modes:
+        Ask Path: Galdetu zein karpetan gordeko den
+        Save To Folder: Karpetan gorde
+        Clipboard: Kopiatu arbelean
       Folder Label: Pantaila-argazkien karpeta
       Folder Button: Hautatu karpeta
       File Name Label: Fitxategi-izenen eredua
       File Name Tooltip: Hurrengo aldagaiak balia ditzakezu. %U Urtea 4 digitu. %H Hilabetea 2 digitu. %E Eguna 2 digitu. %O Ordua 2 digitu. %M Minutu 2 digitu. %S segundo 2 digitu. %T milisegundo 3 digitu. %s Bideoaren segundoa. %t Bideoaren milisegundoa 3 digitu. %i Bideoaren Identifikatzailea.
+      Mode: Pantaila-argazkia modua
     Scroll Playback Rate Over Video Player: Aldatu erreprodukzio-tasa bideo-erreproduzitzailean
     Display Play Button In Video Player: Bistaratu erreproduzitzeko botoia bideo-erreproduzitzailean
     Max Video Playback Rate: Bideoen gehieneko erreprodukzio-tasa
@@ -460,7 +464,7 @@ Settings:
     'Limit the number of videos displayed for each channel': Mugatu kanal bakoitzeko bistaratzen den bideo kopurua
     To: Hona
   Distraction Free Settings:
-    Distraction Free Settings: 'Arreta-galerarik gabea'
+    Distraction Free Settings: 'Arreta hobetzekoak'
     Hide Video Views: 'Ezkutatu bideoen ikustaldi kopurua'
     Hide Video Likes And Dislikes: 'Ezkutatu bideoen atsegiteak eta desatsegiteak'
     Hide Channel Subscribers: 'Ezkutatu kanalaren harpidedun kopurua'
@@ -586,7 +590,7 @@ Settings:
     Notify when sponsor segment is skipped: Jakinarazi babesleen segmentua saltatzen denean
     Enable SponsorBlock: Gaitu babesleak blokeatzea
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': Babesleak blokeatzeko API Url (lehenetsia https://sponsor.ajay.app da)
-    SponsorBlock Settings: Babesleak blokeatu
+    SponsorBlock Settings: Babesleen blokeoa
     UseDeArrowTitles: Erabili DeArrow bideo-izenburuak
     UseDeArrowThumbnails: Erabili DeArrow irudi txikietarako
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Thumbnail Generator API URLa (lehenetsia https://dearrow-thumb.ajay.app da)
@@ -596,6 +600,7 @@ Settings:
     Parental Control Settings: Gurasoen kontrola
     Hide Search Bar: Ezkutatu bilaketa-barra
     Hide Uploader on Watch page: Ezkutatu igotzailea ikusitakoen orrian
+    Disable Channel Links: Desgaitu kanalaren estekak
   Password Dialog:
     Password: Pasahitza
     Enter Password To Unlock: Sartu pasahitza ezarpenak desblokeatzeko
@@ -857,6 +862,7 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Aurre-iragarkiaren gainerako denbora: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'SABR atzerapen denbora geratzen da: {remindingTimeSeconds}s'
   Popout Live Chat: Erakutsi txata
+  Private: Bideo pribatuak ezin dira ikusi FreeTube-n, Google-ren saioa irekitzea eta bideoaren jabetza behar baitute.
 Playlist:
   #& About
   View Full Playlist: 'Ikusi erreprodukzio-zerrenda osoa'
@@ -1114,3 +1120,5 @@ KeyboardShortcutPrompt:
 shortcutLabelSeparator: ｜
 Compact side navigation: Trinkotu alboko nabigazioa
 Expand side navigation: Zabaldu alboko nabigazioa
+Screenshot Clipboard Success: Pantaila-argazkia arbelean gorde da
+Screenshot Clipboard Error: Pantaila-argazkia arbelean kopiatzeak huts egin du

@@ -3,23 +3,40 @@
     v-observe-visibility="visible ? false : {
       callback: onVisibilityChanged
     }"
-    :class="{ placeholder: !visible }"
+    :class="{
+      placeholder: !visible,
+      draggable: canBecomeDraggable,
+      draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId && draggedVideo.playlistItemId === data.playlistItemId,
+    }"
+    :draggable="canBecomeDraggable"
+    v-on="canBecomeDraggable ? draggableEventHandlers : {}"
   >
     <template
       v-if="visible"
     >
       <p
-        class="videoIndex"
+        class="videoIndexArea"
       >
         <FontAwesomeIcon
           v-if="isCurrentVideo"
           class="videoIndexIcon"
           :icon="['fas', 'play']"
         />
+
         <template
           v-else
         >
-          {{ videoIndex + 1 }}
+          <FontAwesomeIcon
+            v-if="canBecomeDraggable"
+            class="grabBar"
+            :icon="['fas', 'fa-bars']"
+          />
+
+          <span
+            class="videoIndex"
+          >
+            {{ videoIndex + 1 }}
+          </span>
         </template>
       </p>
       <FtListVideo
@@ -49,7 +66,9 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
+
+import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 
 import FtListVideo from '../ft-list-video/ft-list-video.vue'
 
@@ -114,6 +133,18 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  draggedVideo: {
+    type: Object,
+    default: () => ({ videoId: null, playlistItemId: null }),
+  },
+  isSortOrderCustom: {
+    type: Boolean,
+    default: null
+  },
+  isVideoDragging: {
+    type: Boolean,
+    default: false,
+  },
   videoIndex: {
     type: Number,
     default: -1
@@ -124,9 +155,23 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist'])
-
+const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
 const visible = ref(props.initialVisibleState)
+
+const inUserPlaylist = props.playlistType === 'user'
+const canBecomeDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom && (props.canMoveVideoUp || props.canMoveVideoDown))
+const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
+const draggableEventHandlers = {
+  dragstart: onDragVideo,
+  dragover: event => event.preventDefault(),
+  dragenter: () => {
+    if (props.isVideoDragging) {
+      moveDraggedVideo(videoData, props.draggedVideo)
+    }
+  },
+  dragend: afterDrag,
+  drop: event => event.preventDefault(),
+}
 
 let stopWatchingInitialVisibleState = null
 
@@ -170,6 +215,21 @@ function moveVideoUp(videoId, playlistItemId) {
  */
 function moveVideoDown(videoId, playlistItemId) {
   emit('move-video-down', videoId, playlistItemId)
+}
+
+function onDragVideo(event) {
+  // Only allow dragging via the drag bar
+  if (!event.target.classList.contains('draggable')) { return }
+
+  dragVideo(event, videoData)
+}
+
+/** @import { VideoData } from '../../helpers/dragAndDrop' */
+
+/** @type {VideoData} */
+const videoData = {
+  videoId: props.data.videoId,
+  playlistItemId: props.playlistItemId,
 }
 
 /**

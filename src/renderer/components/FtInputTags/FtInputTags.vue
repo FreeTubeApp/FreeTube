@@ -59,7 +59,11 @@
                 loading="lazy"
               >
             </RouterLink>
-            <bdi>{{ (tag.preferredName) ? tag.preferredName : tag.name }}</bdi>
+            <bdi
+              class="name"
+            >
+              {{ (tag.preferredName) ? tag.preferredName : tag.name }}
+            </bdi>
           </template>
           <bdi v-else>{{ tag }}</bdi>
           <button
@@ -80,7 +84,7 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useId, useTemplateRef } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 
 import FtInput from '../FtInput/FtInput.vue'
 

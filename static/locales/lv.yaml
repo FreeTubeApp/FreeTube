@@ -39,15 +39,15 @@ Global:
   Posts: 'Ziņas'
   Sort By: Kārto pēc
   Counts:
-    Video Count: '1 video | {count} video'
-    Channel Count: '1 kanāls | {count} kanāli'
-    Subscriber Count: '1 abonents | {count} abonenti'
-    View Count: '1 skatījums | {count} skatījumi'
-    Watching Count: '1 skatās | {count} skatās'
+    Video Count: '0 video | {count} video | {count} video'
+    Channel Count: '0 kanālu | {count} kanāls | {count} kanāli'
+    Subscriber Count: '0 abonentu | {count} abonents | {count} abonenti'
+    View Count: 'nav skatījumu | {count} skatījums | {count} skatījumi'
+    Watching Count: 'neviens neskatās | {count} skatās | {count} skatās'
 
 # Search Bar
-    Like Count: 1 patikšana | {count} patikšanas
-    Comment Count: 1 komentārs | {count} komentāri
+    Like Count: 0 patikšanu | {count} patikšana | {count} patikšanas
+    Comment Count: nav komentāru | {count} komentārs | {count} komentāri
 Search / Go to URL: 'Meklē / Dodies uz URL'
 Search Bar:
   Clear Input: 'Tīrīt ievadi'
@@ -162,7 +162,7 @@ User Playlists:
       This playlist is protected and cannot be removed.: Šis atskaņošanas saraksts ir aizsargāts un nevar tikt noņemts.
       There were no videos to remove.: Nebija video, ko noņemt.
       Playlist {playlistName} has been deleted.: '{playlistName} atskaņošanas saraksts tika dzēsts.'
-      "{videoCount} video(s) have been removed": 1 video tika noņemts | {videoCount} video tika noņemti
+      "{videoCount} video(s) have been removed": '{videoCount} video tika noņemts | {videoCount} video tika noņemti'
       This playlist does not exist: Šis atskaņošanas saraksts neeksistē
     Search for Videos: Meklē video
   You have no playlists. Click on the create new playlist button to create a new one.: Tev nav atskaņošanas sarakstu. Spied uz "Izveido jaunu atskaņošanas sarakstu", lai izveidotu jaunu.
@@ -170,14 +170,14 @@ User Playlists:
   Add to Favorites: Pievieno pie {playlistName}
   Move Video Down: Pārvieto video lejup
   Cancel: Atcel
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Vai esi drošs, ka vēlies noņemt 1 skatīto video no šī atskaņošanas saraksta? To nevar atcelt. | Vai esi drošs, ka vēlies noņemt {playlistItemCount} skatītos video no šī atskaņošanas saraksta? To nevar atcelt.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Vai tiešām vēlaties noņemt {playlistItemCount} skatīto video no šī atskaņošanas saraksta? Šo darbību nevar atsaukt. | Vai tiešām vēlaties noņemt {playlistItemCount} skatītos video no šī atskaņošanas saraksta? Šo darbību nevar atsaukt.
   Are you sure you want to delete this playlist? This cannot be undone: Vai esi drošs, ka vēlies dzēst šo atskaņošanas sarakstu? To nevar atcelt.
   Playlist Name: Atskaņošanas saraksta nosaukums
   Create New Playlist: Izveido jaunu atskaņošanas sarakstu
   Playlists with Matching Videos: Atskaņošanas saraksti ar atbilstošiem video
   Remove Duplicate Videos: Noņem video dublikātus
   Enable Quick Bookmark With This Playlist: Iespējo ātro grāmatzīmi ar šo atskaņošanas sarakstu
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Vai esi drošs, ka vēlies noņemt 1 video dublikātu no šī atskaņošanas saraksta? To nevar atcelt. | Vai esi drošs, ka vēlies noņemt {playlistItemCount} video dublikātus no šī atskaņošanas saraksta? To nevar atcelt.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Vai tiešām vēlaties noņemt {playlistItemCount} video dublikātu no šī atskaņošanas saraksta? Šo darbību nevar atsaukt. | Vai tiešām vēlaties noņemt {playlistItemCount} video dublikātus no šī atskaņošanas saraksta? Šo darbību nevar atsaukt.
   Add to Playlist: Pievieno atskaņošanas sarakstam
   Remove from Playlist: Noņem no atskaņošanas saraksta
   Quick Bookmark Enabled: Atrā grāmatzīme iespējota
@@ -191,6 +191,10 @@ User Playlists:
     Save: Saglabāt
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} video jau pievienoti'
     N playlists selected: '{playlistCount} atlasīti'
+    Select a playlist to add your N videos to: Atlasiet atskaņošanas sarakstu, kam pievienot {videoCount} video | Atlasiet atskaņošanas sarakstu, kam pievienot {videoCount} video
+    Added {count} Times: Pievienots {count} reizi | Pievienots {count} reizes
+    Toast:
+      "Video(s) added to {playlistCount} playlists": Video pievienots(-i) {playlistCount} atskaņošanas sarakstam | Video pievienots(-i) {playlistCount} atskaņošanas sarakstiem
   Export Playlist: Eksportēt šo atskaņošanas sarakstu
   The playlist has been successfully exported: Atskaņošanas saraksts ir veiksmīgi eksportēts
   TotalTimePlaylist: 'Kopējais laiks: {duration}'
@@ -225,9 +229,9 @@ Settings:
     Thumbnail Preference:
       Thumbnail Preference: 'Sīktēlu iestatījums'
       Default: 'Noklusējums'
-      Beginning: 'Sākums'
-      Middle: 'Vidus'
-      End: 'Beigas'
+      Beginning: 'Video sākuma kadrs'
+      Middle: 'Video vidus kadrs'
+      End: 'Video beigu kadrs'
       Hidden: 'Paslēpts'
       Blur: Aizmiglo
     Current Invidious Instance: 'Pašreizējais Invidious gadījums'
@@ -347,7 +351,8 @@ Settings:
       Enable: 'Iespējot ekrānšāviņu'
       Format Label: 'Ekrānšāviņa formāti'
       Quality Label: 'Ekrānšāviņa kvalitāte'
-      Ask Path: 'Jautāt saglabāšanas mapi'
+      Modes:
+        Ask Path: 'Jautāt saglabāšanas mapi'
       Folder Label: 'Ekrānšāviņa mape'
       Folder Button: 'Izvēlēties mapi'
       File Name Label: 'Nosaukuma šablons'
@@ -380,10 +385,17 @@ Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: ''
     All playlists have been removed: Visi atskaņošanas saraksti tika noņemti
     Remove All Playlists: Noņemt visus atskaņošanas sarakstus
+    Remember Search History: Saglabāt meklēšanas vēsturi
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Automātiski
+        Semi-auto: Pusautomātiski
+        Never: Nekad
   Subscription Settings:
     Subscription Settings: 'Abonementu'
     Fetch Feeds from RSS: 'Iegūt plūsmu no RSS'
     Fetch Automatically: 'Iegūt plūsmu automātiski'
+    To: Līdz
   Distraction Free Settings:
     Distraction Free Settings: 'Beztraucēšanas'
     Sections:
@@ -626,6 +638,8 @@ Channel:
     Hide Answers: 'Paslēp atbildes'
   Courses:
     Courses: Kursi
+  Home:
+    Home: Sākums
 Video:
   Mark As Watched: 'Atzīmē kā skatītu'
   Remove From History: 'Noņem no vēstures'
@@ -698,11 +712,26 @@ Video:
   Player:
     Stats:
       Stats: Statistika
+      Video ID: 'Video identifikators (ID): {videoId}'
+      Resolution: "Izšķirtspēja: {width}x{height}{'@'}{frameRate}"
+      Player Dimensions: 'Atskaņotāja izmēri: {width}x{height}'
+      Bitrate: 'Bitu pārraides ātrums: {bitrate} kbit/s'
+      Volume: 'Skaļums: {volumePercentage}%'
+      Dropped Frames / Total Frames: 'Izlaisti kadri: {droppedFrames} / Kopējais kadru skaits: {totalFrames}'
+      CodecAudio: 'Kodeks: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Kodeki: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Kodeki: {videoCodec} / {audioCodec}'
+    Audio Tracks: Audio celiņi
+    Autoplay is off: Automātiskā atskaņošana izslēgta
+    Autoplay is on: Automātiskā atskaņošana ieslēgta
+    Show Stats: Rādīt statistiku
+    Hide Stats: Paslēpt statistiku
+  Unlisted: Nav iekļauts sarakstos
 Playlist:
   #& About
   Playlist: 'Atskaņošanas saraksts'
-  View Full Playlist: ''
-  Last Updated On: ''
+  View Full Playlist: 'Skatīt visu atskaņošanas sarakstu'
+  Last Updated On: 'Pēdējoreiz atjaunināts'
 
 # On Video Watch Page
 #* Published
@@ -751,16 +780,16 @@ Comments:
   Hide Comments: 'Paslēpt komentārus'
   Top comments: 'Populārākos augšgalā'
   Newest first: 'Jaunākos augšgalā'
-  View {replyCount} replies: 'Rādīt 1 atbildi | Rādīt {replyCount} atbildes'
+  View {replyCount} replies: 'Rādīt {replyCount} atbildi | Rādīt {replyCount} atbildes'
   # Context: View 10 Replies, View 1 Reply, View 1 Reply from Owner, View 2 Replies from Owner and others
   Show More Replies: 'Rādīt vairāk atbilžu'
   There are no comments available for this video: 'Šim video nav komentāru'
   Load More Comments: 'Ielādēt vairāk komentāru'
   Pinned by: ''
   Member: 'Biedrs'
-  Subscribed: ''
-  Hearted: ''
-  Hide {replyCount} replies: Paslēpt 1 atbildi | Paslēpt {replyCount} atbildes
+  Subscribed: 'Abonēts'
+  Hearted: 'Man patīk'
+  Hide {replyCount} replies: Paslēpt {replyCount} atbildi | Paslēpt {replyCount} atbildes
   View 1 reply from {channelName}: Rādīt 1 atbildi no {channelName}
   View {replyCount} replies from {channelName} and others: Rādīt {replyCount} atbildes no {channelName} un citiem
   There are no comments available for this post: Šai ziņai nav komentāru
@@ -809,9 +838,9 @@ Loop is now enabled: ''
 Shuffle is now disabled: ''
 Shuffle is now enabled: ''
 The playlist has been reversed: ''
-Playing Next Video: ''
-Playing Previous Video: ''
-Playing Next Video Interval: ''
+Playing Next Video: 'Atskaņo nākamo video'
+Playing Previous Video: 'Atskaņo iepriekšējo video'
+Playing Next Video Interval: 'Nekavējoties atskaņo nākamo video. Noklikšķiniet, lai atceltu. | Atskaņos nākamo video pēc {nextVideoInterval} sekundes. Noklikšķiniet, lai atceltu. | Atskaņos nākamo video pēc {nextVideoInterval} sekundēm. Noklikšķiniet, lai atceltu.'
 Canceled next video autoplay: ''
 
 Default Invidious instance has been set to {instance}: ''
@@ -844,12 +873,31 @@ Search Listing:
     Closed Captions: Slēgtie paraksti
     4K: 4K
 KeyboardShortcutPrompt:
-  Toggle Developer Tools: Ieslēgt izstrādātāja rīkus
+  Toggle Developer Tools: Ieslēgt/izslēgt izstrādātāja rīkus
   Zoom In: Tuvināt
   Zoom Out: Tālināt
   Fullscreen: Pilnekrāns
   Volume Up: Palielināt skaļumu
   Volume Down: Samazināt skaļumu
+  Keyboard Shortcuts: Īsinājumtaustiņi
+  Sections:
+    Video:
+      Playback: Video: Atskaņošana
+  Show Keyboard Shortcuts: Rādīt īsinājumtaustiņus
+  History Backward: Atgriezties vienu lapu atpakaļ
+  History Forward: Doties vienu lapu uz priekšu
+  New Window: Izveidot jaunu logu
+  Navigate to Settings: Doties uz iestatījumu lapu
+  Navigate to History: Doties uz vēstures lapu
+  Captions: Ieslēgt/izslēgt subtitrus
+  Stats: Rādīt video statistiku
+  Take Screenshot: Uzņemt ekrānuzņēmumu
+  Minimize Window: Minimizēt logu
+  Close Window: Aizvērt logu
+  Home: Pozicionēt uz video sākumu
+  End: Pozicionēt uz video beigām
+  Skip to Next Video: Pāriet uz nākamo video atskaņošanas sarakstā vai nākamo ieteikto video
+  Skip to Previous Video: Pāriet uz iepriekšējo video atskaņošanas sarakstā
 checkmark: ✓
 Cancel: Atcelt
 shortcutJoinOperator: +
@@ -857,5 +905,17 @@ Keys:
   alt: Alt
   ctrl: Ctrl
   shift: Shift
+  arrowdown: Uz leju
+  arrowleft: Pa kreisi
+  arrowright: Pa labi
+  arrowup: Uz augšu
 shortcutLabelSeparator: ｜
 Display Label: '{label}: {value}'
+Description:
+  Expand Description: …rādīt visu
+Yes, Delete: Jā, dzēst
+Yes, Restart: Jā, palaist pa jaunu
+Yes, Open Link: Jā, atvērt saiti
+Expand side navigation: Izvērst sānjoslu
+Compact side navigation: Sakļaut sānjoslu
+Trimmed input must be at least N characters long: Apgrieztajai ievadei jābūt vismaz {length} rakstzīmi garai | Apgrieztajai ievadei jābūt vismaz {length} rakstzīmes garai

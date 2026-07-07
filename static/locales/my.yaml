@@ -428,7 +428,8 @@ Settings:
       Enable: ''
       Format Label: ''
       Quality Label: ''
-      Ask Path: ''
+      Modes:
+        Ask Path: ''
       Folder Label: ''
       Folder Button: ''
       File Name Label: ''

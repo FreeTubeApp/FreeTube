@@ -410,8 +410,12 @@ Settings:
       Quality Label: Qualità screenshot
       Enable: Abilita screenshot
       Format Label: Formato screenshot
-      Ask Path: Chiedi cartella di salvataggio
+      Modes:
+        Ask Path: Chiedi cartella di salvataggio
+        Save To Folder: Salva nella cartella
+        Clipboard: Copia negli appunti
       File Name Tooltip: Puoi usare le seguenti variabili. %Y Anno 4 cifre. %M Mese 2 cifre. %D Giorno 2 cifre. %H Ora 2 cifre. %N Minuto 2 cifre. %S Secondo 2 cifre. %T Millisecondo 3 cifre. %s Durata in secondi del video. %t Millisecondi del video 3 cifre. %i ID video.
+      Mode: Modalità screenshot
     Enter Fullscreen on Display Rotate: Entra a schermo intero su Ruota schermo
     Skip by Scrolling Over Video Player: Salta tramite scorrimento sul lettore video
     Autoplay Interruption Timer: Timer di interruzione della riproduzione automatica
@@ -442,7 +446,7 @@ Settings:
     Remember Search History: Ricorda la Cronologia delle ricerche
     Clear Search History and Cache: Cancella la Cronologia delle ricerche e la cache
     Watched Progress Saving Mode:
-      Tooltip: Automaico = Salva a ogni uscita dalla pagina video, quando il video è terminato e si è verificato un errore (ad esempio, ratelimited e sessione di visione scaduta). Semiautomatico = Come Automaico, tranne all'uscita dalla pagina video e può salvare manualmente i progressi tramite un pulsante denominato Salva i progressi guardati, situato sotto il lettore video.
+      Tooltip: Automatico = Salva a ogni uscita dalla pagina video, quando il video è terminato e si è verificato un errore (ad esempio, ratelimited e sessione di visione scaduta). Semiautomatico = Come Automatico, tranne all'uscita dalla pagina video e può salvare manualmente i progressi tramite un pulsante denominato Salva i progressi guardati, situato sotto il lettore video.
       Modes:
         Never: Mai
         Semi-auto: Semiautomatico
@@ -593,6 +597,7 @@ Settings:
     Show Family Friendly Only: Mostra Solo per famiglie
     Hide Search Bar: Nascondi la barra di ricerca
     Hide Uploader on Watch page: Nascondi l'autore del caricamento dalla Pagina di visualizzazione
+    Disable Channel Links: Disabilita i collegamenti del canale
   Experimental Settings:
     Replace HTTP Cache: Sostituisci la cache HTTP
     Experimental Settings: Sperimentale
@@ -797,7 +802,7 @@ Video:
     Playback will resume automatically when your connection comes back: La riproduzione riprenderà automaticamente quando verrà ripristinata la connessione.
     Skipped segment: Segmento {segmentCategory} saltato
     Autoplay is off: La riproduzione automatica è disattivata
-    Autoplay is on: La riproduzione automatica è attiva
+    Autoplay is on: La riproduzione automatica è attivata
   IP block: YouTube ha bloccato il tuo indirizzo IP impedendogli di guardare i video. Prova a passare a una VPN o a un proxy diverso.
   Unlisted: Non elencato
   MembersOnly: I video riservati agli abbonati non possono essere guardati con FreeTube, poiché richiedono l'accesso a Google e l'iscrizione a pagamento al canale dell'utente che li ha caricati.
@@ -813,6 +818,7 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': "Tempo rimanente per l'annuncio preroll: {remindingTimeSeconds}s"
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tempo di backoff SABR rimanente: {remindingTimeSeconds}s'
   Popout Live Chat: Chat popout
+  Private: Su FreeTube non è possibile guardare video privati, poiché richiedono l'accesso tramite account Google e la proprietà del video.
 Playlist:
   #& About
   View Full Playlist: 'Guarda playlist completa'
@@ -894,13 +900,13 @@ Shuffle is now disabled: 'La riproduzione casuale è disabilitata'
 Shuffle is now enabled: 'La riproduzione casuale è abilitata'
 Playing Next Video: 'Riproduzione del video successivo'
 Playing Previous Video: 'Riproduzione del video precedente'
-Canceled next video autoplay: 'Riproduzione automatica del prossimo video annullata'
+Canceled next video autoplay: 'Riproduzione automatica del video successivo annullata'
 'The playlist has ended. Enable loop to continue playing': 'La playlist è terminata. Abilita la riproduzione a ciclo continuo per continuare la riproduzione'
 
 Yes: 'Sì'
 No: 'No'
 Version {versionNumber} is now available!  Click for more details: La versione {versionNumber} è ora disponibile! Fai clic per maggiori dettagli
-Download From Site: 'Scarica dal sito: clicca per i dettagli'
+Download From Site: 'Scarica dal sito'
 The playlist has been reversed: La playlist è stata invertita
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Sei sicuro di voler eliminare i canali selezionati? L'operazione non eliminerà i canali da nessun altro profilo.
@@ -1111,3 +1117,5 @@ KeyboardShortcutPrompt:
 shortcutLabelSeparator: ｜
 Expand side navigation: Espandi la navigazione laterale
 Compact side navigation: Compatta la navigazione laterale
+Screenshot Clipboard Success: Screenshot salvato negli appunti
+Screenshot Clipboard Error: Impossibile copiare lo screenshot negli appunti

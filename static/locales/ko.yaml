@@ -256,7 +256,8 @@ Settings:
     Video Playback Rate Interval: 비디오 재생 속도 간격
     Screenshot:
       Folder Label: 스크린샷 폴더
-      Ask Path: 폴더 저장 요청
+      Modes:
+        Ask Path: 폴더 저장 요청
       Folder Button: 폴더 선택
       Error:
         Empty File Name: 빈 파일 이름

@@ -1,5 +1,7 @@
 import { defineComponent } from 'vue'
 import FtIconButton from '../FtIconButton/FtIconButton.vue'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { useI18n } from 'vue-i18n'
 import { mapActions } from 'vuex'
 import {
   copyToClipboard,
@@ -19,7 +21,8 @@ import { vSaferHtml } from '../../directives/vSaferHtml.js'
 export default defineComponent({
   name: 'FtListVideo',
   components: {
-    'ft-icon-button': FtIconButton
+    'ft-icon-button': FtIconButton,
+    'ft-awesome-icon': FontAwesomeIcon,
   },
   directives: {
     'safer-html': vSaferHtml
@@ -89,8 +92,21 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    layout: {
+      type: String,
+      default: 'list',
+    },
+    showGrabBar: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ['move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist'],
+  setup: function () {
+    const { t, locale } = useI18n()
+
+    return { t, currentLocale: locale }
+  },
   data: function () {
     return {
       id: '',
@@ -242,7 +258,7 @@ export default defineComponent({
       if (typeof this.lengthSeconds !== 'number' || this.lengthSeconds === 0) {
         return 0
       }
-      const percentage = (this.watchProgress / this.lengthSeconds) * 100
+      const percentage = (Math.ceil(this.watchProgress) / this.lengthSeconds) * 100
       return Math.min(percentage, 100)
     },
 
@@ -258,8 +274,8 @@ export default defineComponent({
       const options = [
         {
           label: this.historyEntryExists
-            ? this.$t('Video.Remove From History')
-            : this.$t('Video.Mark As Watched'),
+            ? this.t('Video.Remove From History')
+            : this.t('Video.Mark As Watched'),
           value: 'history'
         }
       ]
@@ -269,16 +285,16 @@ export default defineComponent({
             type: 'divider'
           },
           {
-            label: this.$t('Video.Copy YouTube Link'),
+            label: this.t('Video.Copy YouTube Link'),
             value: 'copyYoutube'
           },
           {
-            label: this.$t('Video.Copy YouTube Embedded Player Link'),
+            label: this.t('Video.Copy YouTube Embedded Player Link'),
             value: 'copyYoutubeEmbed'
           },
           ...this.showInvidiousShareOptions
             ? [{
-                label: this.$t('Video.Copy Invidious Link'),
+                label: this.t('Video.Copy Invidious Link'),
                 value: 'copyInvidious'
               }]
             : [],
@@ -286,16 +302,16 @@ export default defineComponent({
             type: 'divider'
           },
           {
-            label: this.$t('Video.Open in YouTube'),
+            label: this.t('Video.Open in YouTube'),
             value: 'openYoutube'
           },
           {
-            label: this.$t('Video.Open YouTube Embedded Player'),
+            label: this.t('Video.Open YouTube Embedded Player'),
             value: 'openYoutubeEmbed'
           },
           ...this.showInvidiousShareOptions
             ? [{
-                label: this.$t('Video.Open in Invidious'),
+                label: this.t('Video.Open in Invidious'),
                 value: 'openInvidious'
               }]
             : [],
@@ -306,12 +322,12 @@ export default defineComponent({
               type: 'divider'
             },
             {
-              label: this.$t('Video.Copy YouTube Channel Link'),
+              label: this.t('Video.Copy YouTube Channel Link'),
               value: 'copyYoutubeChannel'
             },
             ...this.showInvidiousShareOptions
               ? [{
-                  label: this.$t('Video.Copy Invidious Channel Link'),
+                  label: this.t('Video.Copy Invidious Channel Link'),
                   value: 'copyInvidiousChannel'
                 }]
               : [],
@@ -319,12 +335,12 @@ export default defineComponent({
               type: 'divider'
             },
             {
-              label: this.$t('Video.Open Channel in YouTube'),
+              label: this.t('Video.Open Channel in YouTube'),
               value: 'openYoutubeChannel'
             },
             ...this.showInvidiousShareOptions
               ? [{
-                  label: this.$t('Video.Open Channel in Invidious'),
+                  label: this.t('Video.Open Channel in Invidious'),
                   value: 'openInvidiousChannel'
                 }]
               : [],
@@ -343,11 +359,11 @@ export default defineComponent({
 
           channelShouldBeHidden
             ? {
-                label: this.$t('Video.Unhide Channel'),
+                label: this.t('Video.Unhide Channel'),
                 value: 'unhideChannel'
               }
             : {
-                label: this.$t('Video.Hide Channel'),
+                label: this.t('Video.Hide Channel'),
                 value: 'hideChannel'
               }
         )
@@ -390,10 +406,6 @@ export default defineComponent({
 
     addWatchedStyle: function () {
       return this.historyEntryExists && !this.inHistory
-    },
-
-    currentLocale: function () {
-      return this.$i18n.locale
     },
 
     externalPlayer: function () {
@@ -502,8 +514,8 @@ export default defineComponent({
         playlistName: this.quickBookmarkPlaylist.playlistName,
       }
       return this.isInQuickBookmarkPlaylist
-        ? this.$t('User Playlists.Remove from Favorites', translationProperties)
-        : this.$t('User Playlists.Add to Favorites', translationProperties)
+        ? this.t('User Playlists.Remove from Favorites', translationProperties)
+        : this.t('User Playlists.Add to Favorites', translationProperties)
     },
     quickBookmarkIconTheme: function () {
       return this.isInQuickBookmarkPlaylist ? 'base favorite' : 'base'
@@ -543,12 +555,16 @@ export default defineComponent({
 
     deArrowToggleTitle: function() {
       return this.deArrowTogglePinned
-        ? this.$t('Video.DeArrow.Show Modified Details')
-        : this.$t('Video.DeArrow.Show Original Details')
+        ? this.t('Video.DeArrow.Show Modified Details')
+        : this.t('Video.DeArrow.Show Original Details')
     },
 
     deArrowCache: function () {
       return this.$store.getters.getDeArrowCache[this.id]
+    },
+
+    disableChannelLinks: function () {
+      return this.$store.getters.getDisableChannelLinks
     },
   },
   watch: {
@@ -678,31 +694,31 @@ export default defineComponent({
           }
           break
         case 'copyYoutube':
-          copyToClipboard(this.youtubeShareUrl, { messageOnSuccess: this.$t('Share.YouTube URL copied to clipboard') })
+          copyToClipboard(this.youtubeShareUrl, { messageOnSuccess: this.t('Share.YouTube URL copied to clipboard') })
           break
         case 'openYoutube':
           openExternalLink(this.youtubeUrl)
           break
         case 'copyYoutubeEmbed':
-          copyToClipboard(this.youtubeEmbedUrl, { messageOnSuccess: this.$t('Share.YouTube Embed URL copied to clipboard') })
+          copyToClipboard(this.youtubeEmbedUrl, { messageOnSuccess: this.t('Share.YouTube Embed URL copied to clipboard') })
           break
         case 'openYoutubeEmbed':
           openExternalLink(this.youtubeEmbedUrl)
           break
         case 'copyInvidious':
-          copyToClipboard(this.invidiousUrl, { messageOnSuccess: this.$t('Share.Invidious URL copied to clipboard') })
+          copyToClipboard(this.invidiousUrl, { messageOnSuccess: this.t('Share.Invidious URL copied to clipboard') })
           break
         case 'openInvidious':
           openExternalLink(this.invidiousUrl)
           break
         case 'copyYoutubeChannel':
-          copyToClipboard(this.youtubeChannelUrl, { messageOnSuccess: this.$t('Share.YouTube Channel URL copied to clipboard') })
+          copyToClipboard(this.youtubeChannelUrl, { messageOnSuccess: this.t('Share.YouTube Channel URL copied to clipboard') })
           break
         case 'openYoutubeChannel':
           openExternalLink(this.youtubeChannelUrl)
           break
         case 'copyInvidiousChannel':
-          copyToClipboard(this.invidiousChannelUrl, { messageOnSuccess: this.$t('Share.Invidious Channel URL copied to clipboard') })
+          copyToClipboard(this.invidiousChannelUrl, { messageOnSuccess: this.t('Share.Invidious Channel URL copied to clipboard') })
           break
         case 'openInvidiousChannel':
           openExternalLink(this.invidiousChannelUrl)
@@ -797,14 +813,14 @@ export default defineComponent({
       this.updateHistory(videoData)
 
       if (!this.historyEntryExists) {
-        showToast(this.$t('Video.Video has been marked as watched'))
+        showToast(this.t('Video.Video has been marked as watched'))
       }
     },
 
     removeFromWatched: function () {
       this.removeFromHistory(this.id)
 
-      showToast(this.$t('Video.Video has been removed from your history'))
+      showToast(this.t('Video.Video has been removed from your history'))
     },
 
     togglePlaylistPrompt: function () {
@@ -835,14 +851,14 @@ export default defineComponent({
       hiddenChannels.push({ name: channelId, preferredName: channelName })
       this.updateChannelsHidden(JSON.stringify(hiddenChannels))
 
-      showToast(this.$t('Channel Hidden', { channel: channelName }))
+      showToast(this.t('Channel Hidden', { channel: channelName }))
     },
 
     unhideChannel: function(channelName, channelId) {
       const hiddenChannels = JSON.parse(this.$store.getters.getChannelsHidden)
       this.updateChannelsHidden(JSON.stringify(hiddenChannels.filter(c => c.name !== channelId)))
 
-      showToast(this.$t('Channel Unhidden', { channel: channelName }))
+      showToast(this.t('Channel Unhidden', { channel: channelName }))
     },
 
     toggleQuickBookmarked() {
@@ -875,7 +891,7 @@ export default defineComponent({
       })
 
       // TODO: Maybe show playlist name
-      showToast(this.$t('Video.Video has been saved'))
+      showToast(this.t('Video.Video has been saved'))
     },
     removeFromQuickBookmarkPlaylist() {
       this.removeVideo({
@@ -885,7 +901,7 @@ export default defineComponent({
       })
 
       // TODO: Maybe show playlist name
-      showToast(this.$t('Video.Video has been removed from your saved list'))
+      showToast(this.t('Video.Video has been removed from your saved list'))
     },
     moveVideoUp: function() {
       this.$emit('move-video-up', this.id, this.playlistItemId)
@@ -897,6 +913,14 @@ export default defineComponent({
 
     removeFromPlaylist: function() {
       this.$emit('remove-from-playlist', this.id, this.playlistItemId)
+    },
+
+    onDragStart(event) {
+      // Prevent drag event except links
+      if (event.target.nodeName === 'A') { return }
+
+      event.preventDefault()
+      event.stopPropagation()
     },
 
     ...mapActions([

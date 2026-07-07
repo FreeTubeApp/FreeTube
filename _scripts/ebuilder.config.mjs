@@ -21,7 +21,7 @@ export default {
   files: [
     '_icons/iconColor.*',
     'icon.svg',
-    './dist/**/*',
+    'dist/**/*',
     '!dist/web/*',
     '!node_modules/**/*',
   ],
@@ -72,6 +72,9 @@ export default {
       'libuuid1',
       'libsecret-1-0'
     ]
+  },
+  toolsets: {
+    appimage: '1.0.3'
   },
   mac: {
     category: 'public.app-category.utilities',

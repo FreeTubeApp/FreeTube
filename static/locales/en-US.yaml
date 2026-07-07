@@ -34,7 +34,6 @@ Close Banner: Close Banner
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} is now available!  Click
   for more details
 Download From Site: Download From Site
-  Click to view more
 Are you sure you want to open this link?: Are you sure you want to open this link?
 
 # Global
@@ -477,9 +476,13 @@ Settings:
       8k: 8k
     Screenshot:
       Enable: Enable Screenshot
+      Mode: Screenshot Mode
+      Modes:
+        Ask Path: Ask for Save Folder
+        Save To Folder: Save to Folder
+        Clipboard: Copy to Clipboard
       Format Label: Screenshot Format
       Quality Label: Screenshot Quality
-      Ask Path: Ask for Save Folder
       Folder Label: Screenshot Folder
       Folder Button: Select Folder
       File Name Label: Filename Pattern
@@ -669,6 +672,7 @@ Settings:
     Hide Uploader on Watch page: Hide Uploader on Watch page
     Show Family Friendly Only: Show Family Friendly Only
     Hide Search Bar: Hide Search Bar
+    Disable Channel Links: Disable Channel Links
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
@@ -827,6 +831,7 @@ Video:
   MembersOnly: Members-only videos cannot be watched with FreeTube as they require Google login and paid membership to the uploader's channel.
   AgeRestricted: Age-restricted videos cannot be watched with FreeTube as they require Google login and using an age-verified YouTube account.
   DRMProtected: DRM protected videos cannot be played in FreeTube, as they require proprietary, closed source components. If you want to watch this video please watch it on the official YouTube website in a DRM enabled web browser.
+  Private: Private videos cannot be watched in FreeTube as they require Google login and ownership of the video.
   More Options: More Options
   Mark As Watched: Mark As Watched
   Remove From History: Remove From History
@@ -1118,7 +1123,9 @@ Age Restricted:
   This video is age restricted: This video is age restricted
 External link opening has been disabled in the general settings: 'External link opening has been disabled in the general settings'
 Screenshot Success: Saved screenshot
+Screenshot Clipboard Success: Saved screenshot to clipboard
 Screenshot Error: Screenshot failed. {error}
+Screenshot Clipboard Error: Screenshot copy to clipboard failed
 Channel Hidden: '{channel} added to channel filter'
 Channel Unhidden: '{channel} removed from channel filter'
 Trimmed input must be at least N characters long: Trimmed input must be at least 1 character long | Trimmed input must be at least {length} characters long

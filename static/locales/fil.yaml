@@ -43,6 +43,7 @@ Search Filters:
     Videos: 'Mga video'
     Channels: 'Mga channel'
     #& Playlists
+    Movies: Mga pelikula
   Duration:
     Duration: 'Tagal'
     All Durations: 'Lahat ng mga durasyon'
@@ -56,6 +57,7 @@ Search Filters:
   Features:
     Features: Mga Feature
     Location: Lokasyon
+    HD: HD
   There are no more results for this search: Wala nang resulta sa search na ito
 Subscriptions:
     # On Subscriptions Page
@@ -64,12 +66,37 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Maraming subscriptions itong profile.   Pilitin na iwasan ang rate limiting
 Trending:
   Trending: 'Nagte-trend'
+  Gaming: Laro
 Most Popular: 'Pinakasikat'
 Settings:
   # On Settings Page
-  General Settings: {}
-  Theme Settings: {}
-  Player Settings: {}
+  General Settings:
+    General Settings: Pangkalahatan
+    Thumbnail Preference:
+      Beginning: Simula
+      Middle: Gitna
+      End: Huli
+      Hidden: Nakatago
+    External Link Handling:
+      External Link Handling: Aksiyon sa Link na Palabas
+      Open Link: Buksan ang Link
+      Ask Before Opening Link: Magtanong Muna Bago Buksan ang Link
+      No Action: Walang Gagawin
+  Theme Settings:
+    Theme Settings: Tema
+    Expand Side Bar by Default: Palaparin nang Kusa ang Tagiliran
+    UI Scale: Laki ng UI
+  Player Settings:
+    Default Quality:
+      144p: 144p
+      240p: 240p
+      360p: 360p
+      480p: 480p
+      720p: 720p
+      1080p: 1080p
+      1440p: 1440p
+      4k: 4k
+      8k: 8k
 Channel:
   Videos:
     Videos: Mga video
@@ -87,6 +114,7 @@ Global:
   Posts: Mga Post
 Search Bar:
   Clear Input: Alisin ang Input
+  Remove: Tanggalin
 External link opening has been disabled in the general settings: Ang pag bukas ng link sa panlabas ay pinasara sa general settings
 Age Restricted:
   This channel is age restricted: Itong channel ay pinaghihigpitan sa edad
@@ -108,3 +136,15 @@ Search Listing:
     4K: 4K
 Profile:
   Select All: Piliin lahat
+Compact side navigation: Paliitin ang tagilirang nabigasyon
+Expand side navigation: Palakihin ang tagilirang nabigasyon
+More: Higit Pa
+User Playlists:
+  Sort By:
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestCreatedFirst: Petsa ng Pagkakagawa (Bago Muna)
+    EarliestCreatedFirst: Petsa ng Pagkakagawa (Luma Muna)
+Share:
+  Copy Link: Kopyahin ang Link
+  Open Link: Buksan ang Link

@@ -159,7 +159,7 @@ User Playlists:
     Save: Speichern
     Toast:
       You haven't selected any playlist yet.: Du hast noch keine Playlist ausgewählt.
-      "Video(s) added to {playlistCount} playlists": "Video(s) wurden zu 1 Playlist hinzugefügt | Video(s) wurden zu {playlistCount} Playlists hinzugefügt"
+      "Video(s) added to {playlistCount} playlists": "Video(s) wurde(n) zu 1 Playlist hinzugefügt | Video(s) wurde(n) zu {playlistCount} Playlists hinzugefügt"
     Select a playlist to add your N videos to: Wähle eine Playlist, der du dein Video hinzufügen möchtest | Wähle eine Playlist, der du deine {videoCount} Videos hinzufügen möchtest
     Added {count} Times: 'Bereits hinzugefügt | {count} Mal hinzugefügt'
     Allow Adding Duplicate Video(s): Hinzufügen doppelter Videos zulassen
@@ -402,7 +402,10 @@ Settings:
       Enable: Screenshots aktivieren
       Format Label: Format von Screenshots
       Quality Label: Qualität von Screenshots
-      Ask Path: Nach dem Ordner zum Speichern fragen
+      Modes:
+        Ask Path: Nach dem Ordner zum Speichern fragen
+        Save To Folder: In Ordner speichern
+        Clipboard: In die Zwischenablage kopieren
       Folder Label: Ordner für Screenshots
       Folder Button: Ordner auswählen
       File Name Label: Dateinamen-Muster
@@ -410,6 +413,7 @@ Settings:
         Forbidden Characters: Unerlaubte Zeichen
         Empty File Name: Leerer Dateiname
       File Name Tooltip: Du kannst die folgenden Variablen verwenden. %Y Jahr 4-stellig. %M Monat 2 Ziffern. %D Tag 2 Ziffern. %H Stunde 2 Ziffern. %N Minute 2 Ziffern. %S Sekunde 2 Ziffern. %T Millisekunde 3 Ziffern. %s Video-Sekunde. %t Video Millisekunde 3 Ziffern. %i Video-ID.
+      Mode: Screenshot-Modus
     Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen
     Autoplay Interruption Timer: Abbruch-Timer für Automatische Wiedergabe
@@ -591,6 +595,7 @@ Settings:
     Show Family Friendly Only: Nur familienfreundliche Inhalte anzeigen
     Hide Search Bar: Suchleiste ausblenden
     Hide Uploader on Watch page: Uploader auf der Videoseite ausblenden
+    Disable Channel Links: Kanal-Links deaktivieren
   Experimental Settings:
     Experimental Settings: Experimentell
     Warning: Diese Einstellungen sind experimentell und können zu Abstürzen führen, wenn sie aktiviert sind. Es wird dringend empfohlen, Backups zu erstellen. Verwendung auf eigene Gefahr!
@@ -810,8 +815,9 @@ Video:
   Watched Progress Saved: Videofortschritt gespeichert
   Popout Live Chat: Öffnet ein neues Browserfenster mit dem aktuellen Video-Live-Chat
   Watch:
-    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Verbleibende SABR Wartezeit: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Verbleibende SABR-Wartezeit: {remindingTimeSeconds}s'
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Verbleibende Werbezeit: {remindingTimeSeconds}s'
+  Private: Private Videos können in FreeTube nicht angesehen werden, da sie Google-Anmeldung und den Besitz des Videos erfordern.
 Playlist:
   #& About
   View Full Playlist: Vollständige Playlist ansehen
@@ -942,7 +948,7 @@ Profile:
   Open Profile Dropdown: Profil-Klappliste öffnen
   Close Profile Dropdown: Profil-Klappliste schließen
 The playlist has been reversed: Die Playlist wurde umgedreht
-Download From Site: Von der Website herunterladen - Klicken Sie hier, um mehr anzuzeigen
+Download From Site: Von der Website herunterladen
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} ist jetzt verfügbar!  Für mehr Details klicken
 Tooltips:
   General Settings:
@@ -1111,3 +1117,5 @@ KeyboardShortcutPrompt:
 shortcutLabelSeparator: ｜
 Compact side navigation: Seitenleiste minimieren
 Expand side navigation: Seitenleiste erweitern
+Screenshot Clipboard Success: Screenshot in der Zwischenablage gespeichert
+Screenshot Clipboard Error: Screenshot-Kopie in die Zwischenablage ist fehlgeschlagen

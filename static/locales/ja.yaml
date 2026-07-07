@@ -68,7 +68,7 @@ Search Filters:
     '3 - 20 minutes': 3 - 20 分間
   Search Results: '検索結果'
   Fetching results. Please wait: '結果の取得中。お待ちください'
-  Fetch more results: 'もっと見る'
+  Fetch more results: '他の結果を表示'
 # Sidebar
   There are no more results for this search: 検索結果はこれ以上ありません
   Features:
@@ -102,7 +102,7 @@ Trending:
   Trending Tabs: 急上昇のタブ
   Gaming: ゲーム
   Sports: スポーツ
-Most Popular: '人気'
+Most Popular: '一番人気'
 Playlists: '再生リスト'
 User Playlists:
   Your Playlists: 'あなたの再生リスト'
@@ -204,7 +204,7 @@ Settings:
     General Settings: '一般'
     Fallback to Non-Preferred Backend on Failure: 'データ取得の問題発生時には取得方法を自動変更'
     Enable Search Suggestions: '検索候補の有効化'
-    Default Landing Page: '起動時の表示'
+    Default Landing Page: '既定の言語ページ'
     Locale Preference: '言語設定'
     Preferred API Backend:
       Preferred API Backend: 'データ取得方法の選択'
@@ -222,7 +222,7 @@ Settings:
       End: '最後'
       Hidden: 非表示
       Blur: ぼかし
-    Region for Trending: '急上昇の地域設定'
+    Region for Trending: '流行の地域設定'
         #! List countries
     Check for Updates: 更新の確認
     View all Invidious instance information: すべての Invidious インスタンス情報の表示
@@ -245,7 +245,7 @@ Settings:
     Minimize to system tray: システムトレイに最小化
   Theme Settings:
     Theme Settings: 'テーマ'
-    Match Top Bar with Main Color: '上部のバーをメインカラーに合わせる'
+    Match Top Bar with Main Color: '上部バーを主要色に合わせる'
     Base Theme:
       Base Theme: 'テーマの選択'
       Black: '黒'
@@ -407,8 +407,12 @@ Settings:
       Quality Label: スクリーンショットの品質
       Enable: スクリーンショットの有効化
       Format Label: スクリーンショットの形式
-      Ask Path: 保存フォルダを尋ねる
+      Modes:
+        Ask Path: 保存フォルダを尋ねる
+        Save To Folder: フォルダーへ保存
+        Clipboard: クリップボードへコピー
       Folder Button: フォルダの選択
+      Mode: スクリーンショットモード
     Enter Fullscreen on Display Rotate: 画面の回転時に全画面表示にする
     Skip by Scrolling Over Video Player: 動画プレーヤーをスクロールして動画をスキップ
     Autoplay Interruption Timer: 自動再生の停止タイマー
@@ -589,6 +593,7 @@ Settings:
     Show Family Friendly Only: ファミリー向けのみ表示
     Hide Unsubscribe Button: 登録解除ボタンの非表示
     Hide Uploader on Watch page: 視聴ページで投稿者情報を非表示
+    Disable Channel Links: チャンネルリンクを無効にする
   Experimental Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 試験的
@@ -605,7 +610,7 @@ Settings:
   Return to Settings Menu: 設定に戻る
 About:
   #On About page
-  About: '概要'
+  About: 'FreeTube について'
   #& About
 #On Channel Page
   Donate: 寄付
@@ -809,6 +814,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': '残りのプレロール広告時間: {remindingTimeSeconds}秒'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': '残りのSABRバックオフ時間: {remindingTimeSeconds}秒'
+  Private: 非公開動画は、Googleアカウントでのログインと動画の所有権が必要なため、FreeTubeでは視聴できません。
 Playlist:
   #& About
   View Full Playlist: '完全な再生リストの表示'
@@ -868,7 +874,7 @@ Comments:
   Top comments: 評価順
   Newest first: 新しい順
   Show More Replies: 返信をもっと見る
-  Pinned by: 固定
+  Pinned by: ピン留め
   Member: メンバー
   Hearted: ハート
   View {replyCount} replies: '1 件の返信を見る | {replyCount} 件の返信を見る'
@@ -907,7 +913,7 @@ Profile:
   All subscriptions will also be deleted.: すべての登録チャンネルも削除されます。
   Are you sure you want to delete this profile?: このプロファイルを削除しますか？
   Delete Profile: プロファイルの削除
-  Make Default Profile: 標準のプロファイルに設定
+  Make Default Profile: 既定のプロファイルに設定
   Create Profile: プロファイルの作成
   Update Profile: プロファイルの更新
   Profile Preview: プロファイルのプレビュー
@@ -977,7 +983,7 @@ Tooltips:
     UseDeArrowThumbnails: 動画のサムネイルを DeArrow からのサムネイルに置き換えます。
 Playing Next Video Interval: すぐに次の動画を再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。|次の動画を {nextVideoInterval} 秒で再生します。クリックするとキャンセル。
 More: もっと見る
-Unknown YouTube url type, cannot be opened in app: 不明な YouTube URL タイプのため、アプリで開くことができません
+Unknown YouTube url type, cannot be opened in app: 不明な YouTube url タイプのため、アプリで開くことができません
 Open New Window: 新しいウィンドウを開く
 Default Invidious instance has been cleared: デフォルトの Invidious インスタンスがクリアされました
 Default Invidious instance has been set to {instance}: デフォルトの Invidious インスタンスは{instance}に設定されました
@@ -1108,3 +1114,5 @@ KeyboardShortcutPrompt:
 shortcutLabelSeparator: ｜
 Compact side navigation: サイドナビゲーションを折りたたむ
 Expand side navigation: サイドナビゲーションを展開
+Screenshot Clipboard Success: スクリーンショットをクリップボードに保存しました
+Screenshot Clipboard Error: スクリーンショットのクリップボードへのコピーに失敗しました

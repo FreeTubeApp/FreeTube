@@ -91,7 +91,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
 import FtButton from '../FtButton/FtButton.vue'
@@ -818,7 +818,6 @@ async function importFreeTubeWatchHistory(textDecode) {
   const requiredKeys = [
     'author',
     'authorId',
-    'description',
     'isLive',
     'lengthSeconds',
     'published',
@@ -836,6 +835,7 @@ async function importFreeTubeWatchHistory(textDecode) {
     'lastViewedPlaylistItemId',
     'lastViewedPlaylistType',
     'viewCount',
+    'description',
   ]
 
   const ignoredKeys = [
@@ -868,6 +868,9 @@ async function importFreeTubeWatchHistory(textDecode) {
       showToast(t('Settings.Data Settings.History object has insufficient data, skipping item'))
       console.error('Missing Keys: ', missingKeys, historyData)
     } else {
+      // FreeTube history export does not have this data if the video was marked as watched manually, setting default value
+      historyObject.description = historyObject.description ?? ''
+
       historyItems.set(historyObject.videoId, historyObject)
     }
   })
@@ -892,17 +895,21 @@ async function importYouTubeWatchHistory(historyData) {
   // remove 'Watched' and translated variants from start of title
   // so we get the common string prefix for all the titles
   const getCommonStart = (allTitles) => {
-    const watchedTitle = allTitles[0].split(' ')
-    allTitles.forEach((title) => {
-      const splitTitle = title.split(' ')
-      for (let wtIndex = 0; wtIndex <= watchedTitle.length; wtIndex++) {
-        if (!splitTitle.includes(watchedTitle[wtIndex])) {
-          watchedTitle.splice(wtIndex, watchedTitle.length - wtIndex)
+    if (allTitles.length < 2) {
+      return ''
+    }
+
+    let commonStart = allTitles[0]
+    for (let i = 1; i < allTitles.length; i++) {
+      while (!allTitles[i].startsWith(commonStart)) {
+        commonStart = commonStart.slice(0, -1)
+        if (commonStart === '') {
+          return ''
         }
       }
-    })
+    }
 
-    return watchedTitle.join(' ')
+    return commonStart
   }
 
   const commonStart = getCommonStart(filteredHistoryData.map(e => e.title))
@@ -1196,7 +1203,7 @@ async function importPlaylists() {
       shouldAddDuplicateVideos = existingPlaylist.videos.length > existingVideoIdSet.size
     }
 
-    const playlistVideos = [...existingPlaylist.videos]
+    const playlistVideos = deepCopy(existingPlaylist.videos)
 
     playlistObject.videos.forEach((video) => {
       let videoExists = false

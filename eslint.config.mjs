@@ -14,8 +14,6 @@ import eslintPluginImportX from 'eslint-plugin-import-x'
 import eslintPluginN from 'eslint-plugin-n'
 import eslintPluginPromise from 'eslint-plugin-promise'
 
-import freetube from './_scripts/eslint-rules/plugin.mjs'
-
 import activeLocales from './static/locales/activeLocales.json' with { type: 'json' }
 
 export default [
@@ -246,7 +244,6 @@ export default [
     plugins: {
       unicorn: eslintPluginUnicorn,
       jsdoc,
-      freetube,
     },
 
     languageOptions: {
@@ -333,8 +330,6 @@ export default [
       'jsdoc/check-types': 'error',
       'jsdoc/no-bad-blocks': 'error',
       'jsdoc/no-multi-asterisks': 'error',
-
-      'freetube/prefer-use-i18n-polyfill': 'error',
     },
   },
 
@@ -343,15 +338,6 @@ export default [
     languageOptions: {
       globals: {
         __FREETUBE_ALLOWED_PATHS__: 'readable'
-      }
-    }
-  },
-  {
-    files: ['src/renderer/directives/vSaferHtml.js'],
-    languageOptions: {
-      globals: {
-        // Fix Sanitizer not being listed in `globals` yet, remove it when it gets added in the future
-        Sanitizer: 'readable'
       }
     }
   },

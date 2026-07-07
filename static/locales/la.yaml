@@ -12,30 +12,42 @@ Copy: 'Effinge'
 Paste: 'Agglutina'
 Delete: 'Dele'
 Select all: 'Omnia selige'
-Toggle Developer Tools: 'Mutatio Constitutor Instrumenta'
+Toggle Developer Tools: 'Alterna Instrumenta Constitutoribus'
 Actual size: 'Vera magnitudine'
 Zoom in: 'Visum propius'
 Zoom out: 'Visi repostus'
 Toggle fullscreen: 'Totus mutatur ostentationem'
-Window: 'fenestram'
-Minimize: 'Redigo'
+Window: 'Fenestram'
+Minimize: 'Redige'
 Close: 'Claude'
 Back: 'Redeo'
 Forward: 'Promoveo'
 
-Version {versionNumber} is now available!  Click for more details: 'Editio {versionNumber} nunc praesto! Tactus pro magis singula res'
-Download From Site: 'Adepto ex situ'
+Version {versionNumber} is now available!  Click for more details: 'Editio {versionNumber} nunc praesto!  Tange pro magis singula res'
+Download From Site: 'Adipiscere ex situ'
 
 Global:
-  Sort By: 'Disponere Per'
+  Sort By: 'Dispone Per'
 
 # Search Bar
+  Videos: Visiones
+  Shorts: Visiones breves
+  Posts: Libelli
+  Counts:
+    Video Count: 1 visio | {count} visiones
+    Channel Count: 1 canalis | {count} canales
+    Subscriber Count: 1 subscriptor | {count} subscriptores
+    View Count: 1 spectator | {count} spectatores
+    Like Count: 1 amator | {count} amatores
+    Comment Count: 1 adnotatio | {count} adnotationes
+    Watching Count: 1 spectat | {count} spectant
 Search / Go to URL: 'Requiro / Adeo URL'
   # In Filter Button
 Search Filters:
   Search Filters: 'Requiro Filtra'
   Prioritize:
     Most Relevant: 'Maxime Pertinentes'
+    Popularity: Popularitas
   Time:
     Time: 'Tempus'
     Any Time: 'Umquam'
@@ -49,25 +61,40 @@ Search Filters:
     Videos: 'Movens Imaginibus'
     Channels: 'Canalis'
     #& Playlists
+    Movies: Pelliculae
   Duration:
     Duration: 'Diuturnitas'
     All Durations: 'Omnes Durationes'
-    '< 3 minutes': '< 3 minutes'
-    '> 20 minutes': '> 20 minutes'
+    '< 3 minutes': '< 3 minuta'
+    '> 20 minutes': '> 20 minuta'
   # On Search Page
+    '3 - 20 minutes': 3 - 20 minuta
   Search Results: 'Quaerere Eventus'
   Fetching results. Please wait: 'Lignatio eventus. Placet expectare'
   Fetch more results: 'Adepto plus eventus'
 # Sidebar
   There are no more results for this search: Adepto plus eventus non possunt
+  Features:
+    HD: HD
+    Subtitles: Subtituli
+    3D: 3D
+    4K: 4K
+    Location: Locus
+    HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Subscriptio'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Subscription vestri album sit vacua. Incipe addere subscriptions videre hic.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Index subscriptionum tuus vacuus est. Si vis subscriptiones tuas importare, potes ire ad "Configurationes Datorum" et "Subscriptiones Importare" eligere, sive potes canalem quaerere et ei subscribere.'
   Load More Videos: Voce plus Movens Imaginibus
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Haec profile copia subscriptioni habet. Impono RSS ut impedio restrictionis per celeritatis
+  Error Channels: Canales cum erroribus
+  Empty Channels: Canales, quibus subscriptus es, visionem ne habent.
+  Empty Posts: Canales, quibus subscriptus es, libellum ne habent.
 Trending:
   Trending: 'Inclinant'
+  Gaming: Ludi computatrales
+  Sports: Disportus
 Most Popular: 'Maxime Popular'
 Playlists: 'Album ludere'
 User Playlists:
@@ -133,13 +160,15 @@ Settings:
       Dracula Red: 'Dracula Ruber'
       Dracula Yellow: 'Dracula Flavum'
   Player Settings: {}
+  Data Settings:
+    Import Subscriptions: Subscriptiones Importare
 Channel:
   Videos: {}
   Playlists: {}
 Video: {}
 No: 'nullum'
 More: plus
-Open New Window: aperiere fenestram novum
+Open New Window: Aperi fenestram novam
 KeyboardShortcutPrompt:
   Toggle Developer Tools: Mutatio Constitutor Instrumenta
   Zoom Out: Visi repostus
@@ -147,3 +176,26 @@ KeyboardShortcutPrompt:
   Fullscreen: Totus mutatur ostentationem
 Profile:
   Select All: Omnia selige
+New Window: Nova Fenestra
+Preferences: Praepositionis
+Compact side navigation: Redige tabulam lateralem
+Expand side navigation: Expande tabulam lateralem
+Go to page: Vade {page}
+Close Banner: Claude tabulam
+Are you sure you want to open this link?: Esne tibi certum aperire illum nexum?
+Search Bar:
+  Remove: Aufer
+Search Listing:
+  Label:
+    4K: 4K
+    8K: 8K
+    VR180: VR180
+    360 Video: 360°
+    New: Novum
+    3D: 3D
+    Subtitles: Subtituli
+Channels:
+  Channels: Canales
+  Title: Index canalium
+  Count: '{number} canalis/canales inveniebatur.'
+  Empty: Index canalium tuus vacuus est.

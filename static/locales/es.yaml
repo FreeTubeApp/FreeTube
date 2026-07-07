@@ -47,6 +47,8 @@ Search Filters:
   Search Filters: 'Filtros de búsqueda'
   Prioritize:
     Most Relevant: 'Más relevantes'
+    Prioritize: Priorizar
+    Popularity: Popularidad
   Time:
     Time: 'Publicado en'
     Any Time: 'Cualquier momento'
@@ -408,8 +410,12 @@ Settings:
       Format Label: Formato de las capturas de pantalla
       File Name Label: Patrón de nombre de archivo
       Folder Label: Carpeta de capturas de pantalla
-      Ask Path: Pedir la Carpeta para Guardar
+      Modes:
+        Ask Path: Pedir la Carpeta para Guardar
+        Save To Folder: Guardar en carpeta
+        Clipboard: Copiar al Portapapeles
       File Name Tooltip: Puede utilizar las siguientes variables. %Y Año 4 dígitos. %M Mes 2 dígitos. %D Día 2 dígitos. %H Hora 2 dígitos. %N Minuto 2 dígitos. %S Segundo 2 dígitos. %T Milisegundo 3 dígitos. %s Video Segundo. %t Video Milisegundo 3 dígitos. %i Video ID.
+      Mode: Modo Captura De Pantalla
     Enter Fullscreen on Display Rotate: Entrar en pantalla completa al girar la pantalla
     Skip by Scrolling Over Video Player: Omitir al desplazarse sobre el reproductor de vídeo
     Autoplay Interruption Timer: Temporizador de interrupción de reproducción automática
@@ -591,6 +597,7 @@ Settings:
     Parental Control Settings: Control parental
     Show Family Friendly Only: Mostrar solo lo apto para las familias
     Hide Uploader on Watch page: Ocultar Canal en la página de Reproducción
+    Disable Channel Links: Deshabilitar Links de Canales
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: Estas configuraciones son experimentales, pueden causar fallos mientras están habilitadas. Es muy recomendable hacer copias de seguridad. ¡Úselo bajo su propio riesgo!
@@ -848,10 +855,11 @@ Video:
   DRMProtected: Los videos restringidos con DRM no pueden reproducirse en FreeTube, dado que requieren componentes propietarias de fuente cerrada. Si desea ver este video, por favor véalo en la página oficial de YouTube con un buscador que tenga DRM habilitado.
   Watched Progress Saved: Progreso de visualización guardado
   Save Watched Progress: Guardar progreso de visualización
-  Popout Live Chat: Chat popout
+  Popout Live Chat: Ventana emergente de chat
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Tiempo restante previo al anuncio: {remindingTimeSeconds} s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tiempo restante de retroceso de SABR: {remindingTimeSeconds} s'
+  Private: Videos privados no pueden ser vistos en FreeTube, se necesita iniciar sesión con Google y permiso del dueño del video.
 Playlist:
   #& About
   View Full Playlist: 'Ver la lista de reproducción completa'
@@ -977,7 +985,7 @@ Tooltips:
     UseDeArrowTitles: Sustituye los títulos de los vídeos por títulos enviados por los usuarios desde DeArrow.
     UseDeArrowThumbnails: Sustituye las miniaturas de vídeo por miniaturas de DeArrow.
 More: Más
-Unknown YouTube url type, cannot be opened in app: Tipo de URL desconocido. No se puede abrir en la aplicación
+Unknown YouTube url type, cannot be opened in app: Tipo de URL de YouTube desconocido. No se puede abrir en la aplicación
 Open New Window: Abrir ventana nueva
 Playing Next Video Interval: Reproduciendo el vídeo a continuación. Haz clic para cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos. Haz clic para cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos. Haz clic para cancelar.
 Default Invidious instance has been cleared: La instancia de Invidious predeterminada ha sido borrada
@@ -1109,3 +1117,5 @@ KeyboardShortcutPrompt:
 shortcutLabelSeparator: ｜
 Compact side navigation: Navegación lateral compacta
 Expand side navigation: Expandir navegación lateral
+Screenshot Clipboard Success: Captura de pantalla guardada en el portapapeles
+Screenshot Clipboard Error: Error al copiar la captura de pantalla al portapapeles

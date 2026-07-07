@@ -400,7 +400,10 @@ Settings:
     Screenshot:
       Format Label: Format zrzutu
       Quality Label: Jakość zrzutu
-      Ask Path: Pytaj o folder zapisu
+      Modes:
+        Ask Path: Pytaj o folder zapisu
+        Save To Folder: Zapisz w folderze
+        Clipboard: Skopiuj do schowka
       Folder Label: Folder ze zrzutami
       Folder Button: Wybierz folder
       File Name Label: Wzorzec nazwy pliku
@@ -409,6 +412,7 @@ Settings:
         Forbidden Characters: Niedozwolone znaki
         Empty File Name: Pusta nazwa pliku
       Enable: Włącz zrzuty ekranu
+      Mode: Tryb - zrzut ekranu
     Enter Fullscreen on Display Rotate: Przyłącz na cały ekran przy obrocie wyświetlacza
     Skip by Scrolling Over Video Player: Przewijaj film kółkiem myszy na obszarze odtwarzacza
     Autoplay Interruption Timer: Czas do przerwania autoodtwarzania
@@ -590,6 +594,7 @@ Settings:
     Show Family Friendly Only: Pokazuj tylko filmy przyjazne rodzinie
     Hide Search Bar: Schowaj pole wyszukiwania
     Hide Uploader on Watch page: Ukryj przesyłającego na stronie obserwowanych
+    Disable Channel Links: Wyłącz linki kanałów
   Experimental Settings:
     Replace HTTP Cache: Zastąp pamięć podręczną HTTP
     Experimental Settings: Eksperymentalne
@@ -813,6 +818,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Do końca reklamy z początku pozostało: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'SABR – do przeczekania pozostało: {remindingTimeSeconds}s'
+  Private: Prywatnych filmów nie można oglądać w serwisie FreeTube, ponieważ do oglądania filmu wymagane jest zalogowanie się przez Google i potwierdzenie, że jest się właścicielem filmu.
 Playlist:
   #& About
   View Full Playlist: 'Zobacz całą playlistę'
@@ -981,7 +987,7 @@ Tooltips:
     UseDeArrowThumbnails: Zastąp miniaturki filmów miniaturkami z DeArrow.
 Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśnij aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekundę. Wciśnij aby przerwać. | Odtwarzanie kolejnego filmu za {nextVideoInterval} sekund. Wciśnij aby przerwać.
 More: Więcej
-Unknown YouTube url type, cannot be opened in app: Nieznany typ adresu URL YouTube, nie można go otworzyć w aplikacji
+Unknown YouTube url type, cannot be opened in app: Nieznany typ adresu URL YouTube. Nie można go otworzyć w aplikacji
 Open New Window: Otwórz nowe okno
 Default Invidious instance has been cleared: Domyślna instancja Invidious została wyczyszczona
 Default Invidious instance has been set to {instance}: Domyślna instancja Invidious została ustawiona na {instance}
@@ -1001,7 +1007,7 @@ Channels:
   Channels: Kanały
   Search bar placeholder: Przeszukaj kanały
 Clipboard:
-  Copy failed: Skopiowanie do zasobnika nie powiodło się
+  Copy failed: Skopiowanie do schowka nie powiodło się
   Cannot access clipboard without a secure connection: Bez bezpiecznego połączenia nie można uzyskać dostępu do schowka
 Chapters:
   Chapters: Rozdziały
@@ -1010,7 +1016,7 @@ Preferences: Preferencje
 Ok: Ok
 Hashtag:
   Hashtag: Hasztag
-  This hashtag does not currently have any videos: Nie ma na razie żadnych filmów z takim hashtagiem
+  This hashtag does not currently have any videos: Nie ma na razie żadnych filmów z takim hasztagiem
 Channel Hidden: '{channel} dodany do filtra kanałów'
 Go to page: Idź do {page}
 Channel Unhidden: '{channel} usunięty z filtra kanału'
@@ -1112,3 +1118,5 @@ KeyboardShortcutPrompt:
 shortcutLabelSeparator: ｜
 Compact side navigation: Skompresuj boczną nawigację
 Expand side navigation: Rozwiń boczną nawigację
+Screenshot Clipboard Success: Zapisano zrzut ekranu do schowka
+Screenshot Clipboard Error: Zapisanie kopii zrzutu do schowka nie powiodło się

@@ -47,7 +47,7 @@
       </RouterLink>
       <div class="infoLine">
         <RouterLink
-          v-if="channelId"
+          v-if="channelId && enableChannelLinks"
           class="channelName"
           dir="auto"
           :to="`/channel/${channelId}`"
@@ -92,7 +92,7 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 
 import FtIconButton from '../FtIconButton/FtIconButton.vue'
 
@@ -267,6 +267,8 @@ const externalPlayer = computed(() => store.getters.getExternalPlayer)
 
 /** @type {import('vue').ComputedRef<number>} */
 const defaultPlayback = computed(() => store.getters.getDefaultPlayback)
+
+const enableChannelLinks = computed(() => !store.getters.getDisableChannelLinks)
 
 function handleExternalPlayer() {
   if (process.env.IS_ELECTRON) {
