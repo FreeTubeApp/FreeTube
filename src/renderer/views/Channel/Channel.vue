@@ -41,6 +41,7 @@
       <div class="select-container">
         <FtButton
           v-if="showPlayAllButton"
+          style="margin-top: 33px;"
           :label="$t('Channel.Play All')"
           @click="router.push(currentTabPlayAllRoute)"
         />
