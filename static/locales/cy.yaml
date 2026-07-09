@@ -430,6 +430,8 @@ Settings:
       Quality Label: 'Ansawdd Llun Sgrin'
       Modes:
         Ask Path: 'Gofyn am Ffolder Cadw'
+        Save To Folder: Cadw i Ffolder
+        Clipboard: Copïo i'r Clipfwrdd
       Folder Label: 'Ffolder Llun Sgrin'
       Folder Button: 'Dewis Ffolder'
       File Name Label: 'Patrwm Enw Ffeil'
@@ -437,6 +439,7 @@ Settings:
       Error:
         Forbidden Characters: 'Nodau Gwaharddedig'
         Empty File Name: 'Enw Ffeil Gwag'
+      Mode: Modd Llun Sgrin
     Autoplay Interruption Timer: Amserydd Oedi Awtochwarae
     Default Viewing Mode:
       Default Viewing Mode: Y Modd Gwylio Rhagosodedig
@@ -614,6 +617,7 @@ Settings:
     Show Family Friendly Only: 'Dangos Dim ond Addas i Deuluoedd'
     Hide Search Bar: 'Cuddio''r Bar Chwilio'
     Hide Uploader on Watch page: Cuddio'r Llwythwr ar y dudalen Gwylio
+    Disable Channel Links: Analluogi Dolenni Sianeli
   Experimental Settings:
     Experimental Settings: 'Arbrofol'
     Warning: 'Mae''r gosodiadau hyn yn arbrofol, gallan nhw achosi chwalu wrth eu galluogi. Rydym yn argymell yn gryf gwneud copïau wrth gefn. Defnyddiwch ar eich menter eich hun!'
@@ -875,6 +879,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Amser hysbysiadau cyn cyflwyniad: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': "Amser cefnu SABR sy'n weddill: {remindingTimeSeconds}s"
+  Private: Does dim modd gwylio fideos preifat yn FreeTube gan fod angen mewngofnodiad Google arnyn nhw a pherchnogaeth o'r fideo.
 Playlist:
   #& About
   Playlist: 'Rhestr chwarae'
@@ -1120,3 +1125,5 @@ Autoplay Interruption Timer: Diddymwyd awtochwarae oherwydd {autoplayInterruptio
 shortcutLabelSeparator: ｜
 Compact side navigation: Ochr llywio cryno
 Expand side navigation: Ehangu llywio ochr
+Screenshot Clipboard Success: Wedi cadw llun sgrin i'r clipfwrdd
+Screenshot Clipboard Error: Methodd copïo llun sgrin i'r clipfwrdd
