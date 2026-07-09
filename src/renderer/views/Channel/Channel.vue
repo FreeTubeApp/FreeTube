@@ -40,10 +40,10 @@
       />
       <div class="select-container">
         <FtButton
-          v-if="showPlayAllButton"
+          v-if="showViewAllButton"
           style="margin-top: 33px;"
-          :label="$t('Channel.Play All')"
-          @click="router.push(currentTabPlayAllRoute)"
+          :label="$t('Channel.View All')"
+          @click="router.push(currentTabViewAllRoute)"
         />
         <FtSelect
           v-if="showVideoSortBy"
@@ -517,7 +517,7 @@ const tabInfoValues = computed(() => {
   return values
 })
 
-const showPlayAllButton = computed(() => {
+const showViewAllButton = computed(() => {
   switch (currentTab.value) {
     case 'videos': return (videoSortBy.value === 'newest' || videoSortBy.value === 'popular') && (showFetchMoreButton.value || filteredVideos.value.length > 1)
     case 'shorts': return (shortSortBy.value === 'newest' || shortSortBy.value === 'popular') && (showFetchMoreButton.value || filteredShorts.value.length > 1)
@@ -526,7 +526,7 @@ const showPlayAllButton = computed(() => {
   }
 })
 
-const currentTabPlayAllRoute = computed(() => {
+const currentTabViewAllRoute = computed(() => {
   switch (currentTab.value) {
     case 'videos': return `/playlist/${getChannelPlaylistId(id.value, 'videos', videoSortBy.value)}`
     case 'shorts': return `/playlist/${getChannelPlaylistId(id.value, 'shorts', shortSortBy.value)}`
