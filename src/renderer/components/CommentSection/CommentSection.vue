@@ -380,6 +380,7 @@ const props = defineProps({
 })
 
 const isLoading = ref(false)
+const isCommentRepliesLoading = ref(false)
 const showComments = ref(false)
 const nextPageToken = shallowRef(null)
 
@@ -563,16 +564,22 @@ function toggleCommentReplies(index) {
 /**
  * @param {number} index
  */
-function getCommentReplies(index) {
+async function getCommentReplies(index) {
+  if (isCommentRepliesLoading.value) return
+
+  isCommentRepliesLoading.value = true
+
   if (!process.env.SUPPORTS_LOCAL_API || commentData.value[index].dataType === 'invidious') {
     if (!props.isPostComments) {
-      getCommentRepliesInvidious(index)
+      await getCommentRepliesInvidious(index)
     } else {
-      getPostCommentRepliesInvidious(index)
+      await getPostCommentRepliesInvidious(index)
     }
   } else {
-    getCommentRepliesLocal(index)
+    await getCommentRepliesLocal(index)
   }
+
+  isCommentRepliesLoading.value = false
 }
 
 /** @type {Map<string, (import('youtubei.js').YTNodes.CommentThread | string)>} */
@@ -649,9 +656,9 @@ async function getCommentDataLocal(more = false) {
       localCommentsInstance = undefined
       showToast(t('Falling back to Invidious API'))
       if (props.isPostComments) {
-        getPostCommentsInvidious()
+        await getPostCommentsInvidious()
       } else {
-        getCommentDataInvidious()
+        await getCommentDataInvidious()
       }
     } else {
       isLoading.value = false
@@ -701,7 +708,7 @@ async function getCommentRepliesLocal(index) {
     })
     if (backendFallback.value && backendPreference.value === 'local') {
       showToast(t('Falling back to Invidious API'))
-      getCommentDataInvidious()
+      await getCommentDataInvidious()
     } else {
       isLoading.value = false
     }
@@ -752,7 +759,7 @@ async function getCommentDataInvidious() {
 
     if (process.env.SUPPORTS_LOCAL_API && backendFallback.value && backendPreference.value === 'invidious') {
       showToast(t('Falling back to Local API'))
-      getCommentDataLocal()
+      await getCommentDataLocal()
     } else {
       isLoading.value = false
     }
@@ -793,13 +800,15 @@ async function getCommentRepliesInvidious(index) {
   }
 }
 
-function getPostCommentsInvidious() {
-  const fetchComments = nextPageToken.value == null
-    ? getInvidiousCommunityPostComments({ postId: props.id, authorId: props.postAuthorId })
-    : getInvidiousCommunityPostCommentReplies({ postId: props.id, replyToken: nextPageToken.value, authorId: props.postAuthorId })
+async function getPostCommentsInvidious() {
+  try {
+    const fetchComments = nextPageToken.value == null
+      ? getInvidiousCommunityPostComments({ postId: props.id, authorId: props.postAuthorId })
+      : getInvidiousCommunityPostCommentReplies({ postId: props.id, replyToken: nextPageToken.value, authorId: props.postAuthorId })
 
-  fetchComments.then(({ response, commentData: comments, continuation }) => {
-    comments = comments.map(({ replyToken, ...comment }) => {
+    const { response, commentData: comments, continuation } = await fetchComments
+
+    const parsedComments = comments.map(({ replyToken, ...comment }) => {
       if (comment.hasReplyToken) {
         replyTokens.set(comment.id, replyToken)
       } else {
@@ -809,11 +818,11 @@ function getPostCommentsInvidious() {
       return comment
     })
 
-    commentData.value = commentData.value.concat(comments)
+    commentData.value = commentData.value.concat(parsedComments)
     nextPageToken.value = response?.continuation ?? continuation
     isLoading.value = false
     showComments.value = true
-  }).catch((err) => {
+  } catch (err) {
     console.error(err)
     const errorMessage = t('Invidious API Error (Click to copy)')
     showToast(`${errorMessage}: ${err}`, 10000, () => {
@@ -822,11 +831,11 @@ function getPostCommentsInvidious() {
 
     if (process.env.SUPPORTS_LOCAL_API && backendFallback.value && backendPreference.value === 'invidious') {
       showToast(t('Falling back to Local API'))
-      getCommentDataLocal()
+      await getCommentDataLocal()
     } else {
       isLoading.value = false
     }
-  })
+  }
 }
 
 async function getPostCommentRepliesInvidious(index) {
