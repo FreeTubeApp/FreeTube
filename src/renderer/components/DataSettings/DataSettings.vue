@@ -1516,45 +1516,47 @@ async function importSettings() {
   }
 
   const { content } = response
-  const importedSettings = JSON.parse(content)
+  const textDecode = content.split('\n')
+  textDecode.pop()
+
   const currentTransferableSettings = transferableSettings.value
   const currentSettings = store.state.settings
 
-  for (const [importedKey, importedValue] of Object.entries(importedSettings)) {
-    if (!Object.hasOwn(currentSettings, importedKey)) {
-      const message = `${t('Settings.Data Settings.Unknown setting key')}: ${importedKey}`
+  textDecode.forEach((rawEntry) => {
+    const entry = JSON.parse(rawEntry)
+    if (typeof entry._id !== 'string') {
+      showToast(t('Settings.Data Settings.Setting object has insufficient data, skipping item'))
+      console.error('Missing keys:', entry)
+    } else if (!Object.hasOwn(currentSettings, entry._id)) {
+      const message = `${t('Settings.Data Settings.Unknown setting key')}: ${entry._id}`
       showToast(message)
-      continue
-    }
-
-    if (!Object.hasOwn(currentTransferableSettings, importedKey)) {
-      const message = `${t('Settings.Data Settings.Non-transferable setting key')}: ${importedKey}`
+    } else if (!Object.hasOwn(currentTransferableSettings, entry._id)) {
+      const message = `${t('Settings.Data Settings.Non-transferable setting key')}: ${entry._id}`
       showToast(message)
-      continue
+    } else {
+      const currentValue = currentTransferableSettings[entry._id]
+      const areValuesEqual = currentValue === entry.value ||
+        (typeof entry.value === 'object' && JSON.stringify(currentValue) === JSON.stringify(entry.value))
+      if (!areValuesEqual) {
+        const updaterId = defaultUpdaterId(entry._id)
+        store.dispatch(updaterId, entry.value)
+      }
     }
-
-    const currentValue = currentTransferableSettings[importedKey]
-    const areValuesEqual = currentValue === importedValue ||
-      (typeof importedValue === 'object' && JSON.stringify(currentValue) === JSON.stringify(importedValue))
-    if (areValuesEqual) {
-      continue
-    }
-
-    const updaterId = defaultUpdaterId(importedKey)
-    await store.dispatch(updaterId, importedValue)
-  }
+  })
 
   showToast(t('Settings.Data Settings.All settings have been successfully imported'))
 }
 
 async function exportSettings() {
+  const settingDb = Object.entries(transferableSettings.value)
+    .map(([_id, value]) => JSON.stringify({ _id, value }))
+    .join('\n') + '\n'
   const dateStr = getTodayDateStrLocalTimezone()
-  const exportFileName = `freetube-settings-${dateStr}.db`
-  const settingsContent = JSON.stringify(transferableSettings.value)
+  const exportFileName = 'freetube-settings-' + dateStr + '.db'
 
   await promptAndWriteToFile(
     exportFileName,
-    settingsContent,
+    settingDb,
     t('Settings.Data Settings.Settings File'),
     'application/x-freetube-db',
     '.db',

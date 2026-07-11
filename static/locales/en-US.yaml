@@ -640,6 +640,7 @@ Settings:
     Unable to read file: Unable to read file
     Unable to write file: Unable to write file
     Unknown data key: Unknown data key
+    Setting object has insufficient data, skipping item: Setting object has insufficient data, skipping item
     Unknown setting key: Unknown setting key
     Non-transferable setting key: Non-transferable setting key
     How do I import my subscriptions?: How do I import my subscriptions?
