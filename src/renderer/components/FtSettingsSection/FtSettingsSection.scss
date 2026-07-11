@@ -97,7 +97,7 @@
       padding-inline: 10px;
     }
 
-    :deep(:not(.select, .selectLabel) > .tooltip) {
+    :deep(:not(.select, .selectLabel, .groupTitle) > .tooltip) {
       display: inline-block;
       position: absolute;
       inset-inline-end: -25px;
