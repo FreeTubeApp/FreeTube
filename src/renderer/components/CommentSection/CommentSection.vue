@@ -380,7 +380,7 @@ const props = defineProps({
 })
 
 const isLoading = ref(false)
-const isCommentRepliesLoading = ref(false)
+const commentRepliesLoading = new Set()
 const showComments = ref(false)
 const nextPageToken = shallowRef(null)
 
@@ -565,9 +565,9 @@ function toggleCommentReplies(index) {
  * @param {number} index
  */
 async function getCommentReplies(index) {
-  if (isCommentRepliesLoading.value) return
+  if (commentRepliesLoading.has(index)) return
 
-  isCommentRepliesLoading.value = true
+  commentRepliesLoading.add(index)
 
   if (!process.env.SUPPORTS_LOCAL_API || commentData.value[index].dataType === 'invidious') {
     if (!props.isPostComments) {
@@ -579,7 +579,7 @@ async function getCommentReplies(index) {
     await getCommentRepliesLocal(index)
   }
 
-  isCommentRepliesLoading.value = false
+  commentRepliesLoading.delete(index)
 }
 
 /** @type {Map<string, (import('youtubei.js').YTNodes.CommentThread | string)>} */
