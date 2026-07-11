@@ -381,6 +381,7 @@ const props = defineProps({
 
 const isLoading = ref(false)
 const commentRepliesLoading = new Set()
+const isMoreCommentsLoading = ref(false)
 const showComments = ref(false)
 const nextPageToken = shallowRef(null)
 
@@ -421,7 +422,7 @@ const canPerformInitialCommentLoading = computed(() => {
 })
 
 const canPerformMoreCommentLoading = computed(() => {
-  return commentData.value.length > 0 && !isLoading.value && showComments.value && !!nextPageToken.value
+  return commentData.value.length > 0 && !isLoading.value && showComments.value && !!nextPageToken.value && !isMoreCommentsLoading.value
 })
 
 const observeVisibilityOptions = computed(() => {
@@ -514,19 +515,25 @@ function getCommentData() {
   }
 }
 
-function getMoreComments() {
+async function getMoreComments() {
   if (commentData.value.length === 0 || nextPageToken.value == null) {
     showToast(t('Comments.There are no more comments for this video'))
   } else {
+    if (isMoreCommentsLoading.value) return
+
+    isMoreCommentsLoading.value = true
+
     if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
       if (!props.isPostComments) {
-        getCommentDataInvidious()
+        await getCommentDataInvidious()
       } else {
-        getPostCommentsInvidious()
+        await getPostCommentsInvidious()
       }
     } else {
-      getCommentDataLocal(true)
+      await getCommentDataLocal(true)
     }
+
+    isMoreCommentsLoading.value = false
   }
 }
 
