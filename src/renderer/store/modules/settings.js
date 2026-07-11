@@ -122,7 +122,7 @@ import { getSystemLocale, showToast } from '../../helpers/utils'
  * and to ensure that the implementation works as intended.
  *
  ***
- * `settingsNotTransferable`
+ * `NON_TRANSFERABLE_SETTINGS`
  * This set contains setting keys
  * that should not be exported when a user chooses to "Export settings".
  *
@@ -150,10 +150,10 @@ import { getSystemLocale, showToast } from '../../helpers/utils'
 
 // HELPERS
 const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1)
-export const defaultGetterId = settingId => 'get' + capitalize(settingId)
-export const defaultMutationId = settingId => 'set' + capitalize(settingId)
+const defaultGetterId = settingId => 'get' + capitalize(settingId)
+const defaultMutationId = settingId => 'set' + capitalize(settingId)
 export const defaultUpdaterId = settingId => 'update' + capitalize(settingId)
-export const defaultSideEffectsTriggerId = settingId =>
+const defaultSideEffectsTriggerId = settingId =>
   'trigger' + capitalize(settingId) + 'SideEffects'
 /*****/
 
@@ -424,7 +424,7 @@ const sideEffectHandlers = {
 
 const settingsWithSideEffects = Object.keys(sideEffectHandlers)
 
-const settingsNotTransferable = new Set([
+export const NON_TRANSFERABLE_SETTINGS = new Set([
   /* Depends on process.env.IS_ELECTRON */
   // ProxySettings
   'useProxy',
@@ -457,10 +457,10 @@ const customState = {
 
 const customGetters = {
   getTransferableSettings: (state) => {
-    const transferableSettings = {}
-    for (const [key, value] of Object.entries(state)) {
-      if (!settingsNotTransferable.has(key)) {
-        transferableSettings[key] = value
+    const transferableSettings = []
+    for (const [_id, value] of Object.entries(state)) {
+      if (!NON_TRANSFERABLE_SETTINGS.has(_id)) {
+        transferableSettings.push({ _id, value })
       }
     }
     return transferableSettings

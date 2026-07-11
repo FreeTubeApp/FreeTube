@@ -119,7 +119,7 @@ import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtTooltip from '../FtTooltip/FtTooltip.vue'
 
 import store from '../../store/index'
-import { defaultUpdaterId } from '../../store/modules/settings'
+import { defaultUpdaterId, NON_TRANSFERABLE_SETTINGS } from '../../store/modules/settings'
 
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
@@ -1488,7 +1488,7 @@ async function exportYouTubeSearchHistory() {
 
 // #region settings
 
-/** @type {import('vue').ComputedRef<object>} */
+/** @type {import('vue').ComputedRef<object[]>} */
 const transferableSettings = computed(() => {
   return store.getters.getTransferableSettings
 })
@@ -1515,26 +1515,24 @@ async function importSettings() {
     return
   }
 
-  const { content } = response
-  const textDecode = content.split('\n')
+  const textDecode = response.content.split('\n')
   textDecode.pop()
 
-  const currentTransferableSettings = transferableSettings.value
   const currentSettings = store.state.settings
 
   textDecode.forEach((rawEntry) => {
     const entry = JSON.parse(rawEntry)
-    if (typeof entry._id !== 'string') {
+    if (typeof entry._id !== 'string' || !Object.hasOwn(entry, 'value')) {
       showToast(t('Settings.Data Settings.Setting object has insufficient data, skipping item'))
       console.error('Missing keys:', entry)
     } else if (!Object.hasOwn(currentSettings, entry._id)) {
       const message = `${t('Settings.Data Settings.Unknown setting key')}: ${entry._id}`
       showToast(message)
-    } else if (!Object.hasOwn(currentTransferableSettings, entry._id)) {
+    } else if (NON_TRANSFERABLE_SETTINGS.has(entry._id)) {
       const message = `${t('Settings.Data Settings.Non-transferable setting key')}: ${entry._id}`
       showToast(message)
     } else {
-      const currentValue = currentTransferableSettings[entry._id]
+      const currentValue = currentSettings[entry._id]
       const areValuesEqual = currentValue === entry.value ||
         (typeof entry.value === 'object' && JSON.stringify(currentValue) === JSON.stringify(entry.value))
       if (!areValuesEqual) {
@@ -1548,9 +1546,9 @@ async function importSettings() {
 }
 
 async function exportSettings() {
-  const settingDb = Object.entries(transferableSettings.value)
-    .map(([_id, value]) => JSON.stringify({ _id, value }))
-    .join('\n') + '\n'
+  const settingDb = transferableSettings.value.map((settingEntry) => {
+    return JSON.stringify(settingEntry)
+  }).join('\n') + '\n'
   const dateStr = getTodayDateStrLocalTimezone()
   const exportFileName = 'freetube-settings-' + dateStr + '.db'
 
