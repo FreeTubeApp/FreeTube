@@ -1488,11 +1488,6 @@ async function exportYouTubeSearchHistory() {
 
 // #region settings
 
-/** @type {import('vue').ComputedRef<object[]>} */
-const transferableSettings = computed(() => {
-  return store.getters.getTransferableSettings
-})
-
 async function importSettings() {
   let response
   try {
@@ -1526,10 +1521,10 @@ async function importSettings() {
       showToast(t('Settings.Data Settings.Setting object has insufficient data, skipping item'))
       console.error('Missing keys:', entry)
     } else if (!Object.hasOwn(currentSettings, entry._id)) {
-      const message = `${t('Settings.Data Settings.Unknown setting key')}: ${entry._id}`
+      const message = t('Settings.Data Settings.Unknown setting key', { key: entry._id })
       showToast(message)
     } else if (NON_TRANSFERABLE_SETTINGS.has(entry._id)) {
-      const message = `${t('Settings.Data Settings.Non-transferable setting key')}: ${entry._id}`
+      const message = t('Settings.Data Settings.Non-transferable setting key', { key: entry._id })
       showToast(message)
     } else {
       const currentValue = currentSettings[entry._id]
@@ -1546,9 +1541,10 @@ async function importSettings() {
 }
 
 async function exportSettings() {
-  const settingDb = transferableSettings.value.map((settingEntry) => {
-    return JSON.stringify(settingEntry)
-  }).join('\n') + '\n'
+  const settingDb = Object.entries(store.state.settings)
+    .filter(([_id]) => !NON_TRANSFERABLE_SETTINGS.has(_id))
+    .map(([_id, value]) => JSON.stringify({ _id, value }))
+    .join('\n') + '\n'
   const dateStr = getTodayDateStrLocalTimezone()
   const exportFileName = 'freetube-settings-' + dateStr + '.db'
 

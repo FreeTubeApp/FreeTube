@@ -456,15 +456,6 @@ const customState = {
 }
 
 const customGetters = {
-  getTransferableSettings: (state) => {
-    const transferableSettings = []
-    for (const [_id, value] of Object.entries(state)) {
-      if (!NON_TRANSFERABLE_SETTINGS.has(_id)) {
-        transferableSettings.push({ _id, value })
-      }
-    }
-    return transferableSettings
-  }
 }
 
 const customMutations = {}
