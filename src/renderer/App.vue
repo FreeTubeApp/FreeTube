@@ -130,6 +130,7 @@ import packageDetails from '../../package.json'
 import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 import { translateWindowTitle } from './helpers/strings'
 import { loadLocale } from './i18n/index'
+import { initRemoteControl } from './helpers/remote-control'
 
 const route = useRoute()
 const router = useRouter()
@@ -194,6 +195,7 @@ onMounted(async () => {
       document.addEventListener('auxclick', handleAuxClick)
       enableOpenUrl()
       store.dispatch('getExternalPlayerCmdArgumentsData')
+      initRemoteControl(router)
     }
 
     dataReady.value = true

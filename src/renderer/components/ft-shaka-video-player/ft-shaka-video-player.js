@@ -3255,8 +3255,31 @@ export default defineComponent({
       return video.value.paused
     }
 
+    function play() {
+      video.value.play()
+    }
+
     function pause() {
       video.value.pause()
+    }
+
+    /**
+     * @param {number} volume a value between 0 and 100
+     */
+    function setVolume(volume) {
+      const video_ = video.value
+      const clamped = Math.min(100, Math.max(0, volume)) / 100
+
+      video_.muted = clamped === 0
+      video_.volume = clamped
+    }
+
+    /**
+     * @returns {number} a value between 0 and 100
+     */
+    function getVolume() {
+      const video_ = video.value
+      return video_.muted ? 0 : Math.round(video_.volume * 100)
     }
 
     function getCurrentTime() {
@@ -3324,7 +3347,10 @@ export default defineComponent({
       hasLoaded,
 
       isPaused,
+      play,
       pause,
+      setVolume,
+      getVolume,
       getCurrentTime,
       setCurrentTime,
       destroyPlayer

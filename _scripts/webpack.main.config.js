@@ -55,6 +55,11 @@ const config = {
     new webpack.DefinePlugin({
       'process.platform': `'${process.platform}'`,
       'process.env.IS_ELECTRON_MAIN': true
+    }),
+    // `ws` conditionally requires these optional native performance addons and handles
+    // them missing at runtime, but webpack can't resolve them at bundle time.
+    new webpack.IgnorePlugin({
+      resourceRegExp: /^(bufferutil|utf-8-validate)$/
     })
   ],
   output: {

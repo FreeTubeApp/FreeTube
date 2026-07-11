@@ -47,7 +47,14 @@ const IpcChannels = {
   WRITE_TO_DEFAULT_FOLDER: 'write-to-default-folder',
 
   OPEN_IN_EXTERNAL_PLAYER: 'open-in-external-player',
-  OPEN_IN_EXTERNAL_PLAYER_RESULT: 'open-in-external-player-result'
+  OPEN_IN_EXTERNAL_PLAYER_RESULT: 'open-in-external-player-result',
+
+  REMOTE_CONTROL_START: 'remote-control-start',
+  REMOTE_CONTROL_STOP: 'remote-control-stop',
+  REMOTE_CONTROL_COMMAND: 'remote-control-command',
+  REMOTE_CONTROL_SEARCH_REQUEST: 'remote-control-search-request',
+  REMOTE_CONTROL_SEARCH_RESULT: 'remote-control-search-result',
+  REMOTE_CONTROL_STATE: 'remote-control-state'
 }
 
 const DBActions = {

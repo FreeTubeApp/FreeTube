@@ -1,0 +1,33 @@
+.remoteControlWarning {
+  padding-block: 12px;
+  padding-inline: 4%;
+  background-color: var(--accent-color);
+  color: var(--text-with-accent-color);
+  font-weight: bold;
+}
+
+.warning-icon {
+  font-size: large;
+}
+
+.qrWrapper {
+  display: flex;
+  justify-content: center;
+  padding-block: 12px;
+}
+
+.qrImage {
+  inline-size: 220px;
+  block-size: 220px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.connectionUrl {
+  overflow-wrap: break-word;
+  font-family: monospace;
+}
+
+.errorMessage {
+  color: var(--error-color, #d92929);
+}

@@ -651,6 +651,13 @@ Settings:
     Region: Region
     City: City
     Error getting network information. Is your proxy configured properly?: Error getting network information. Is your proxy configured properly?
+  Remote Control Settings:
+    Remote Control Settings: Remote Control
+    Warning: Anyone on your local network who has the link or scans the QR code below will be able to control playback and search for videos, until you turn this off. Only enable it on networks you trust.
+    Enable Remote Control: Enable Remote Control
+    QR Code Alt: QR code linking to the remote control page
+    Regenerate Link: Regenerate Link
+    Failed to start: Failed to start the remote control server. The port may already be in use.
   SponsorBlock Settings:
     SponsorBlock Settings: SponsorBlock
     Enable SponsorBlock: Enable SponsorBlock

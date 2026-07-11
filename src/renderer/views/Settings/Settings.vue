@@ -73,6 +73,7 @@ import PrivacySettings from '../../components/PrivacySettings.vue'
 import DataSettings from '../../components/DataSettings/DataSettings.vue'
 import DistractionSettings from '../../components/DistractionSettings/DistractionSettings.vue'
 import ProxySettings from '../../components/ProxySettings/ProxySettings.vue'
+import RemoteControlSettings from '../../components/RemoteControlSettings/RemoteControlSettings.vue'
 import SponsorBlockSettings from '../../components/SponsorBlockSettings.vue'
 import ParentalControlSettings from '../../components/ParentalControlSettings.vue'
 import ExperimentalSettings from '../../components/ExperimentalSettings/ExperimentalSettings.vue'
@@ -155,6 +156,12 @@ const settingsComponentsData = computed(() => {
             title: t('Settings.Proxy Settings.Proxy Settings'),
             icon: ['fas', 'network-wired'],
             component: ProxySettings
+          },
+          {
+            type: 'remote-control',
+            title: t('Settings.Remote Control Settings.Remote Control Settings'),
+            icon: ['fas', 'mobile-screen-button'],
+            component: RemoteControlSettings
           }
         ]
       : []),

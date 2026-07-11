@@ -28,6 +28,7 @@ import packageDetails from '../../package.json'
 import { handleOpenInExternalPlayer } from './externalPlayer'
 import { generatePoToken } from './poTokenGenerator'
 import { isFreeTubeUrl } from './utils'
+import * as remoteControlServer from './remoteControlServer'
 
 const brotliDecompressAsync = promisify(brotliDecompress)
 
@@ -1299,6 +1300,44 @@ function runApp() {
     session.defaultSession.closeAllConnections()
   })
 
+  // #region remote control
+
+  ipcMain.handle(IpcChannels.REMOTE_CONTROL_START, (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
+    return remoteControlServer.start(event.sender)
+  })
+
+  ipcMain.on(IpcChannels.REMOTE_CONTROL_STOP, (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url) || !remoteControlServer.isOwner(event.sender)) {
+      return
+    }
+
+    remoteControlServer.stop()
+  })
+
+  // Only the window that started the server may report state or resolve searches for it,
+  // so other (possibly private) windows' playback never gets broadcast to connected remotes.
+  ipcMain.on(IpcChannels.REMOTE_CONTROL_STATE, (event, state) => {
+    if (!isFreeTubeUrl(event.senderFrame.url) || !remoteControlServer.isOwner(event.sender)) {
+      return
+    }
+
+    remoteControlServer.broadcastState(state)
+  })
+
+  ipcMain.on(IpcChannels.REMOTE_CONTROL_SEARCH_RESULT, (event, payload) => {
+    if (!isFreeTubeUrl(event.senderFrame.url) || !remoteControlServer.isOwner(event.sender)) {
+      return
+    }
+
+    remoteControlServer.resolveSearch(payload)
+  })
+
+  // #endregion remote control
+
   // #region navigation history
 
   const NAV_HISTORY_DISPLAY_LIMIT = 15
@@ -2140,6 +2179,8 @@ function runApp() {
     if (resourcesCleanUpDone) {
       return
     }
+
+    remoteControlServer.stop()
 
     await Promise.allSettled([
       baseHandlers.compactAllDatastores(),

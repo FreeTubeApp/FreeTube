@@ -41,6 +41,7 @@ import {
 import { sortCaptions } from '../../helpers/player/utils'
 import { MANIFEST_TYPE_SABR } from '../../helpers/player/SabrManifestParser'
 import { useI18n } from 'vue-i18n'
+import { registerActivePlayer, unregisterActivePlayer, reportState, isRemoteControlRunning } from '../../helpers/remote-control'
 
 /**
  * @typedef {{
@@ -353,8 +354,49 @@ export default defineComponent({
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()
+
+    if (process.env.IS_ELECTRON) {
+      this._remoteControlAdapter = {
+        play: () => this.$refs.player?.play(),
+        pause: () => this.$refs.player?.pause(),
+        setVolume: (volume) => this.$refs.player?.setVolume(volume),
+        seek: (seconds) => this.$refs.player?.setCurrentTime(seconds)
+      }
+      registerActivePlayer(this._remoteControlAdapter)
+
+      this._remoteControlPollInterval = setInterval(() => {
+        this.reportRemoteControlState()
+      }, 1000)
+    }
+  },
+  beforeUnmount: function () {
+    if (process.env.IS_ELECTRON) {
+      unregisterActivePlayer(this._remoteControlAdapter)
+      clearInterval(this._remoteControlPollInterval)
+    }
   },
   methods: {
+    reportRemoteControlState: function (immediate = false) {
+      if (!isRemoteControlRunning()) {
+        return
+      }
+
+      const player = this.$refs.player
+      if (!player?.hasLoaded) {
+        return
+      }
+
+      reportState({
+        title: this.videoTitle,
+        videoId: this.videoId,
+        thumbnail: this.thumbnail,
+        paused: player.isPaused(),
+        currentTime: player.getCurrentTime(),
+        duration: this.videoLengthSeconds,
+        volume: player.getVolume()
+      }, { immediate })
+    },
+
     async reloadView() {
       await this.handleRouteChange()
 
@@ -1331,6 +1373,8 @@ export default defineComponent({
 
         this.updateLocalPlaylistLastPlayedAtSometimes()
       }
+
+      this.reportRemoteControlState(true)
     },
 
     checkIfPlaylist: function () {
@@ -1444,6 +1488,7 @@ export default defineComponent({
     },
 
     handleVideoEnded: function () {
+      this.reportRemoteControlState(true)
       this.handleWatchProgressAutoSaveWhenProgressEnabled()
       if (!this.autoplayEnabled) {
         return

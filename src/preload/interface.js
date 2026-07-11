@@ -321,5 +321,50 @@ export default {
     ipcRenderer.on(IpcChannels.SYNC_SUBSCRIPTION_CACHE, (_, { event, data }) => {
       handler(event, data)
     })
+  },
+
+  /**
+   * @returns {Promise<{ url: string, addresses: string[], port: number }>}
+   */
+  startRemoteControlServer: () => {
+    return ipcRenderer.invoke(IpcChannels.REMOTE_CONTROL_START)
+  },
+
+  stopRemoteControlServer: () => {
+    ipcRenderer.send(IpcChannels.REMOTE_CONTROL_STOP)
+  },
+
+  /**
+   * @param {(command: { action: string, value?: string|number }) => void} handler
+   */
+  handleRemoteControlCommand: (handler) => {
+    ipcRenderer.on(IpcChannels.REMOTE_CONTROL_COMMAND, (_, command) => {
+      handler(command)
+    })
+  },
+
+  /**
+   * @param {(requestId: string, query: string) => void} handler
+   */
+  handleRemoteControlSearchRequest: (handler) => {
+    ipcRenderer.on(IpcChannels.REMOTE_CONTROL_SEARCH_REQUEST, (_, { requestId, query }) => {
+      handler(requestId, query)
+    })
+  },
+
+  /**
+   * @param {string} requestId
+   * @param {any[] | undefined} results
+   * @param {string | undefined} error
+   */
+  sendRemoteControlSearchResult: (requestId, results, error) => {
+    ipcRenderer.send(IpcChannels.REMOTE_CONTROL_SEARCH_RESULT, { requestId, results, error })
+  },
+
+  /**
+   * @param {object} state
+   */
+  sendRemoteControlState: (state) => {
+    ipcRenderer.send(IpcChannels.REMOTE_CONTROL_STATE, state)
   }
 }
