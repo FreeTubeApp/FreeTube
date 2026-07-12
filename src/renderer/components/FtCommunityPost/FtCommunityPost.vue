@@ -175,7 +175,7 @@ import autolinker from 'autolinker'
 import { A11y, Navigation, Pagination } from 'swiper/modules'
 import { computed, onMounted, useTemplateRef } from 'vue'
 
-import FtListVideo from '../ft-list-video/ft-list-video.vue'
+import FtListVideo from '../FtListVideo/FtListVideo.vue'
 import FtListPlaylist from '../FtListPlaylist/FtListPlaylist.vue'
 import FtCommunityPoll from '../FtCommunityPoll/FtCommunityPoll.vue'
 import FtShareButton from '../FtShareButton/FtShareButton.vue'

@@ -66,7 +66,7 @@ import { computed, ref } from 'vue'
 
 import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 
-import FtListVideo from '../ft-list-video/ft-list-video.vue'
+import FtListVideo from '../FtListVideo/FtListVideo.vue'
 import FtListChannel from '../FtListChannel/FtListChannel.vue'
 import FtListPlaylist from '../FtListPlaylist/FtListPlaylist.vue'
 import FtCommunityPost from '../FtCommunityPost/FtCommunityPost.vue'
