@@ -31,11 +31,16 @@ export function initRemoteControl(router) {
   window.ftElectron.handleRemoteControlSearchRequest(handleSearchRequest)
 }
 
+/**
+ * @returns {boolean} whether the remote control server was started via {@linkcode startRemoteControlServer}
+ */
 export function isRemoteControlRunning() {
   return serverRunning
 }
 
 /**
+ * Starts the remote control server and remembers that it's running, so
+ * {@linkcode reportState} knows whether it's worth reporting state at all.
  * @returns {Promise<{ url: string, addresses: string[], port: number }>}
  */
 export async function startRemoteControlServer() {
@@ -87,6 +92,8 @@ export function reportState(state, options = {}) {
 }
 
 /**
+ * Applies a command received from a connected remote to the currently active player,
+ * or navigates to a new video for the 'open' action.
  * @param {{ action: string, value?: string|number }} command
  */
 function handleCommand(command) {
@@ -96,6 +103,9 @@ function handleCommand(command) {
       break
     case 'pause':
       activePlayer?.pause()
+      break
+    case 'fullscreen':
+      window.ftElectron.requestFullscreen()
       break
     case 'volume':
       if (typeof command.value === 'number') {
@@ -160,7 +170,9 @@ async function performSearch(query) {
 }
 
 /**
+ * Reduces a local-API video result to the safe subset of fields the remote page needs.
  * @param {object} item
+ * @returns {{ videoId: string, title: string, author: string, thumbnail: string }}
  */
 function mapLocalResult(item) {
   return {
@@ -172,7 +184,9 @@ function mapLocalResult(item) {
 }
 
 /**
+ * Reduces an Invidious-API video result to the safe subset of fields the remote page needs.
  * @param {object} item
+ * @returns {{ videoId: string, title: string, author: string, thumbnail: string }}
  */
 function mapInvidiousResult(item) {
   const thumbnail = item.videoThumbnails?.find(t => t.quality === 'medium') ?? item.videoThumbnails?.[0]

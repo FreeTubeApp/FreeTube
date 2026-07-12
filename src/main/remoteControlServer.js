@@ -56,6 +56,9 @@ function parseUrl(requestUrl, host) {
   }
 }
 
+/**
+ * @returns {string[]} the machine's non-internal IPv4 addresses, used to build a LAN-reachable URL
+ */
 function getLocalNetworkAddresses() {
   const interfaces = networkInterfaces()
   const addresses = []
@@ -71,12 +74,18 @@ function getLocalNetworkAddresses() {
   return addresses
 }
 
+/**
+ * @returns {boolean} whether the remote control server is currently listening
+ */
 export function isRunning() {
   return httpServer !== null
 }
 
 /**
+ * Only the window that started the server is allowed to report state or resolve
+ * searches for it, so another window's playback is never exposed to connected remotes.
  * @param {import('electron').WebContents} webContents
+ * @returns {boolean}
  */
 export function isOwner(webContents) {
   return targetWebContents !== null && targetWebContents === webContents
@@ -159,6 +168,9 @@ export function start(webContents, preferredPort = DEFAULT_PORT) {
   return startPromise
 }
 
+/**
+ * @returns {string} the URL a phone should open, including the auth token
+ */
 function buildConnectionUrl() {
   const addresses = getLocalNetworkAddresses()
   const primaryAddress = addresses[0] ?? '127.0.0.1'
@@ -255,6 +267,7 @@ function handleHttpRequest(req, res) {
 }
 
 /**
+ * Wires up heartbeat tracking and message handling for a newly connected client.
  * @param {import('ws').WebSocket} ws
  */
 function setupConnection(ws) {
@@ -290,6 +303,7 @@ function send(ws, payload) {
 }
 
 /**
+ * Parses and routes an incoming WS message to the matching command handler.
  * @param {import('ws').WebSocket} ws
  * @param {import('ws').RawData} data
  */
@@ -312,6 +326,7 @@ function handleClientMessage(ws, data) {
   switch (message.type) {
     case 'play':
     case 'pause':
+    case 'fullscreen':
       targetWebContents.send(IpcChannels.REMOTE_CONTROL_COMMAND, { action: message.type })
       break
 

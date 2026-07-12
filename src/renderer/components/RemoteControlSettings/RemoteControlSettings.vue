@@ -16,36 +16,34 @@
         @change="handleToggle"
       />
     </FtFlexBox>
-    <template v-if="isRunning">
-      <FtLoader
-        v-if="isLoading"
-      />
-      <template v-else-if="connectionUrl">
-        <div class="qrWrapper">
-          <img
-            v-if="qrDataUrl"
-            :src="qrDataUrl"
-            :alt="$t('Settings.Remote Control Settings.QR Code Alt')"
-            class="qrImage"
-          >
-        </div>
-        <p class="center connectionUrl">
-          {{ connectionUrl }}
-        </p>
-        <FtFlexBox>
-          <FtButton
-            :label="$t('Settings.Remote Control Settings.Regenerate Link')"
-            @click="regenerate"
-          />
-        </FtFlexBox>
-      </template>
-      <p
-        v-if="errorMessage"
-        class="center errorMessage"
-      >
-        {{ errorMessage }}
+    <FtLoader
+      v-if="isLoading"
+    />
+    <template v-else-if="isRunning && connectionUrl">
+      <div class="qrWrapper">
+        <img
+          v-if="qrDataUrl"
+          :src="qrDataUrl"
+          :alt="$t('Settings.Remote Control Settings.QR Code Alt')"
+          class="qrImage"
+        >
+      </div>
+      <p class="center connectionUrl">
+        {{ connectionUrl }}
       </p>
+      <FtFlexBox>
+        <FtButton
+          :label="$t('Settings.Remote Control Settings.Regenerate Link')"
+          @click="regenerate"
+        />
+      </FtFlexBox>
     </template>
+    <p
+      v-if="errorMessage"
+      class="center errorMessage"
+    >
+      {{ errorMessage }}
+    </p>
   </FtSettingsSection>
 </template>
 

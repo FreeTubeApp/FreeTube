@@ -90,7 +90,7 @@ export function getRemoteControlPageHtml(nonce) {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
   }
-  .controls { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.9rem; }
+  .controls { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-top: 0.9rem; }
   button.iconBtn {
     border: none;
     background: var(--accent);
@@ -101,10 +101,38 @@ export function getRemoteControlPageHtml(nonce) {
     font-size: 1.1rem;
     flex-shrink: 0;
   }
-  button.iconBtn:active { opacity: 0.8; }
+  button.iconBtn.secondary {
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    width: 2.6rem;
+    height: 2.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+  button.iconBtn:active { opacity: 0.7; }
+  button.iconBtn:disabled { opacity: 0.4; }
   input[type="range"] { width: 100%; }
   .rangeRow { display: flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; color: var(--muted); margin-top: 0.6rem; }
   .rangeRow input { flex: 1; }
+  button.muteBtn {
+    border: none;
+    background: transparent;
+    color: var(--text);
+    font-size: 1.1rem;
+    padding: 0;
+    width: 1.5rem;
+    flex-shrink: 0;
+  }
+  body.disconnected .controls button,
+  body.disconnected .rangeRow input,
+  body.disconnected .rangeRow button,
+  body.disconnected #searchInput,
+  body.disconnected #searchBtn,
+  body.disconnected .result {
+    opacity: 0.5;
+    pointer-events: none;
+  }
   form#searchForm { display: flex; gap: 0.5rem; }
   input#searchInput {
     flex: 1;
@@ -169,18 +197,19 @@ export function getRemoteControlPageHtml(nonce) {
       <div id="npTitle">Nothing playing</div>
     </div>
     <div class="controls">
+      <button type="button" id="skipBackBtn" class="iconBtn secondary" aria-label="Skip back 10 seconds">-10</button>
       <button type="button" id="playPauseBtn" class="iconBtn" aria-label="Play/Pause">&#9654;</button>
-      <div style="flex:1">
-        <div class="rangeRow">
-          <span>&#128266;</span>
-          <input type="range" id="volumeRange" min="0" max="100" value="100">
-        </div>
-        <div class="rangeRow">
-          <span id="currentTimeLabel">0:00</span>
-          <input type="range" id="seekRange" min="0" max="0" value="0">
-          <span id="durationLabel">0:00</span>
-        </div>
-      </div>
+      <button type="button" id="skipFwdBtn" class="iconBtn secondary" aria-label="Skip forward 10 seconds">+10</button>
+      <button type="button" id="fullscreenBtn" class="iconBtn secondary" aria-label="Toggle fullscreen">&#9974;</button>
+    </div>
+    <div class="rangeRow">
+      <button type="button" id="muteBtn" class="muteBtn" aria-label="Mute/Unmute">&#128266;</button>
+      <input type="range" id="volumeRange" min="0" max="100" value="100">
+    </div>
+    <div class="rangeRow">
+      <span id="currentTimeLabel">0:00</span>
+      <input type="range" id="seekRange" min="0" max="0" value="0">
+      <span id="durationLabel">0:00</span>
     </div>
   </div>
 
@@ -195,11 +224,11 @@ export function getRemoteControlPageHtml(nonce) {
 </main>
 
 <script nonce="${nonce}">
-(function () {
+(() => {
   'use strict';
 
-  var params = new URLSearchParams(window.location.search);
-  var token = params.get('t');
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('t');
 
   if (!token) {
     document.getElementById('tokenError').style.display = 'block';
@@ -208,79 +237,110 @@ export function getRemoteControlPageHtml(nonce) {
 
   document.getElementById('app').style.display = 'flex';
   document.getElementById('app').style.flexDirection = 'column';
+  // Controls start disabled until the first successful WS connection (see setStatus below).
+  document.body.classList.add('disconnected');
 
-  var statusEl = document.getElementById('status');
-  var statusTextEl = document.getElementById('statusText');
-  var npCard = document.getElementById('nowPlayingCard');
-  var npThumb = document.getElementById('npThumb');
-  var npTitle = document.getElementById('npTitle');
-  var playPauseBtn = document.getElementById('playPauseBtn');
-  var volumeRange = document.getElementById('volumeRange');
-  var seekRange = document.getElementById('seekRange');
-  var currentTimeLabel = document.getElementById('currentTimeLabel');
-  var durationLabel = document.getElementById('durationLabel');
-  var searchForm = document.getElementById('searchForm');
-  var searchInput = document.getElementById('searchInput');
-  var searchMessage = document.getElementById('searchMessage');
-  var resultsEl = document.getElementById('results');
+  const statusEl = document.getElementById('status');
+  const statusTextEl = document.getElementById('statusText');
+  const npCard = document.getElementById('nowPlayingCard');
+  const npThumb = document.getElementById('npThumb');
+  const npTitle = document.getElementById('npTitle');
+  const playPauseBtn = document.getElementById('playPauseBtn');
+  const skipBackBtn = document.getElementById('skipBackBtn');
+  const skipFwdBtn = document.getElementById('skipFwdBtn');
+  const fullscreenBtn = document.getElementById('fullscreenBtn');
+  const muteBtn = document.getElementById('muteBtn');
+  const volumeRange = document.getElementById('volumeRange');
+  const seekRange = document.getElementById('seekRange');
+  const currentTimeLabel = document.getElementById('currentTimeLabel');
+  const durationLabel = document.getElementById('durationLabel');
+  const searchForm = document.getElementById('searchForm');
+  const searchInput = document.getElementById('searchInput');
+  const searchMessage = document.getElementById('searchMessage');
+  const resultsEl = document.getElementById('results');
 
-  var lastPaused = true;
-  var isSeeking = false;
-  var isAdjustingVolume = false;
-  var pendingRequestId = null;
-  var ws = null;
-  var reconnectDelay = 1000;
+  let lastPaused = true;
+  let lastNonZeroVolume = 100;
+  // While the user is dragging the seek/volume sliders we ignore incoming state
+  // updates for that control, otherwise the slider would jump back mid-drag.
+  let isSeeking = false;
+  let isAdjustingVolume = false;
+  let pendingRequestId = null;
+  let ws = null;
+  let reconnectDelay = 1000;
 
-  function formatTime(totalSeconds) {
-    var s = Math.max(0, Math.floor(totalSeconds || 0));
-    var m = Math.floor(s / 60);
-    var sec = s % 60;
+  /**
+   * @param {number} totalSeconds
+   * @returns {string} formatted as m:ss
+   */
+  const formatTime = (totalSeconds) => {
+    const s = Math.max(0, Math.floor(totalSeconds || 0));
+    const m = Math.floor(s / 60);
+    const sec = s % 60;
     return m + ':' + (sec < 10 ? '0' : '') + sec;
-  }
+  };
 
-  function setStatus(connected) {
+  const vibrate = () => {
+    if (navigator.vibrate) {
+      navigator.vibrate(10);
+    }
+  };
+
+  /**
+   * @param {boolean} connected
+   */
+  const setStatus = (connected) => {
     statusEl.className = connected ? 'connected' : 'disconnected';
-    statusTextEl.textContent = connected ? 'Connected' : 'Disconnected';
-  }
+    statusTextEl.textContent = connected ? 'Connected' : 'Reconnecting…';
+    // Disable all controls while disconnected, since sending a command would be a no-op anyway.
+    document.body.classList.toggle('disconnected', !connected);
+  };
 
-  function send(obj) {
+  /**
+   * @param {object} obj
+   */
+  const send = (obj) => {
     if (ws && ws.readyState === WebSocket.OPEN) {
       ws.send(JSON.stringify(obj));
     }
-  }
+  };
 
-  function connect() {
-    var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    var url = protocol + '//' + window.location.host + '/ws?t=' + encodeURIComponent(token);
+  const connect = () => {
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const url = protocol + '//' + window.location.host + '/ws?t=' + encodeURIComponent(token);
     ws = new WebSocket(url);
 
-    ws.addEventListener('open', function () {
+    ws.addEventListener('open', () => {
       setStatus(true);
       reconnectDelay = 1000;
     });
 
-    ws.addEventListener('close', function () {
+    ws.addEventListener('close', () => {
       setStatus(false);
+      // Reconnect with capped exponential backoff, e.g. after the desktop app restarts.
       setTimeout(connect, reconnectDelay);
       reconnectDelay = Math.min(reconnectDelay * 1.5, 8000);
     });
 
-    ws.addEventListener('error', function () {
+    ws.addEventListener('error', () => {
       ws.close();
     });
 
-    ws.addEventListener('message', function (event) {
-      var msg;
+    ws.addEventListener('message', (event) => {
+      let msg;
       try {
         msg = JSON.parse(event.data);
-      } catch (e) {
+      } catch {
         return;
       }
       handleMessage(msg);
     });
-  }
+  };
 
-  function handleMessage(msg) {
+  /**
+   * @param {{ type: string, [key: string]: any }} msg
+   */
+  const handleMessage = (msg) => {
     if (!msg || typeof msg.type !== 'string') {
       return;
     }
@@ -300,9 +360,12 @@ export function getRemoteControlPageHtml(nonce) {
         }
         break;
     }
-  }
+  };
 
-  function applyState(state) {
+  /**
+   * @param {{ title?: string, thumbnail?: string, paused?: boolean, volume?: number, duration?: number, currentTime?: number }} state
+   */
+  const applyState = (state) => {
     if (state.title) {
       npCard.classList.add('active');
       npTitle.textContent = state.title;
@@ -319,6 +382,10 @@ export function getRemoteControlPageHtml(nonce) {
 
     if (typeof state.volume === 'number' && !isAdjustingVolume) {
       volumeRange.value = String(Math.round(state.volume));
+      updateMuteIcon(state.volume);
+      if (state.volume > 0) {
+        lastNonZeroVolume = state.volume;
+      }
     }
 
     if (typeof state.duration === 'number' && state.duration > 0) {
@@ -330,51 +397,99 @@ export function getRemoteControlPageHtml(nonce) {
       seekRange.value = String(Math.floor(state.currentTime));
       currentTimeLabel.textContent = formatTime(state.currentTime);
     }
-  }
+  };
 
-  playPauseBtn.addEventListener('click', function () {
+  /**
+   * @param {number} volume 0-100
+   */
+  const updateMuteIcon = (volume) => {
+    muteBtn.textContent = volume > 0 ? '🔊' : '🔇';
+  };
+
+  playPauseBtn.addEventListener('click', () => {
+    vibrate();
     send({ type: lastPaused ? 'play' : 'pause' });
   });
 
-  volumeRange.addEventListener('input', function () { isAdjustingVolume = true; });
-  volumeRange.addEventListener('change', function () {
-    send({ type: 'volume', value: Number(volumeRange.value) });
+  /**
+   * @param {number} deltaSeconds positive to skip forward, negative to rewind
+   */
+  const skip = (deltaSeconds) => {
+    vibrate();
+    const duration = Number(seekRange.max) || 0;
+    const newTime = Math.max(0, Math.min(duration, Number(seekRange.value) + deltaSeconds));
+    seekRange.value = String(newTime);
+    currentTimeLabel.textContent = formatTime(newTime);
+    send({ type: 'seek', value: newTime });
+  };
+
+  skipBackBtn.addEventListener('click', () => skip(-10));
+  skipFwdBtn.addEventListener('click', () => skip(10));
+
+  fullscreenBtn.addEventListener('click', () => {
+    vibrate();
+    send({ type: 'fullscreen' });
+  });
+
+  muteBtn.addEventListener('click', () => {
+    vibrate();
+    const current = Number(volumeRange.value);
+    const target = current > 0 ? 0 : lastNonZeroVolume;
+    if (current > 0) {
+      lastNonZeroVolume = current;
+    }
+    volumeRange.value = String(target);
+    updateMuteIcon(target);
+    send({ type: 'volume', value: target });
+  });
+
+  volumeRange.addEventListener('input', () => { isAdjustingVolume = true; });
+  volumeRange.addEventListener('change', () => {
+    const value = Number(volumeRange.value);
+    if (value > 0) {
+      lastNonZeroVolume = value;
+    }
+    updateMuteIcon(value);
+    send({ type: 'volume', value });
     isAdjustingVolume = false;
   });
 
-  seekRange.addEventListener('input', function () {
+  seekRange.addEventListener('input', () => {
     isSeeking = true;
     currentTimeLabel.textContent = formatTime(Number(seekRange.value));
   });
-  seekRange.addEventListener('change', function () {
+  seekRange.addEventListener('change', () => {
     send({ type: 'seek', value: Number(seekRange.value) });
     isSeeking = false;
   });
 
-  function renderResults(results) {
+  /**
+   * @param {{ videoId: string, title: string, author: string, thumbnail: string }[]} results
+   */
+  const renderResults = (results) => {
     searchMessage.textContent = results.length === 0 ? 'No results' : '';
     resultsEl.textContent = '';
 
-    results.forEach(function (result) {
-      var item = document.createElement('div');
+    results.forEach((result) => {
+      const item = document.createElement('div');
       item.className = 'result';
       item.setAttribute('role', 'button');
       item.tabIndex = 0;
 
-      var img = document.createElement('img');
+      const img = document.createElement('img');
       if (typeof result.thumbnail === 'string' && result.thumbnail.indexOf('https://') === 0) {
         img.src = result.thumbnail;
       }
       img.alt = '';
 
-      var meta = document.createElement('div');
+      const meta = document.createElement('div');
       meta.className = 'meta';
 
-      var title = document.createElement('div');
+      const title = document.createElement('div');
       title.className = 'title';
       title.textContent = result.title || '';
 
-      var author = document.createElement('div');
+      const author = document.createElement('div');
       author.className = 'author';
       author.textContent = result.author || '';
 
@@ -383,13 +498,14 @@ export function getRemoteControlPageHtml(nonce) {
       item.appendChild(img);
       item.appendChild(meta);
 
-      var open = function () {
+      const open = () => {
         if (result.videoId) {
+          vibrate();
           send({ type: 'open', videoId: result.videoId });
         }
       };
       item.addEventListener('click', open);
-      item.addEventListener('keydown', function (e) {
+      item.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
           open();
@@ -398,11 +514,11 @@ export function getRemoteControlPageHtml(nonce) {
 
       resultsEl.appendChild(item);
     });
-  }
+  };
 
-  searchForm.addEventListener('submit', function (e) {
+  searchForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    var query = searchInput.value.trim();
+    const query = searchInput.value.trim();
     if (!query) {
       return;
     }
@@ -410,7 +526,7 @@ export function getRemoteControlPageHtml(nonce) {
     pendingRequestId = Date.now().toString(36) + Math.random().toString(36).slice(2);
     searchMessage.textContent = 'Searching…';
     resultsEl.textContent = '';
-    send({ type: 'search', requestId: pendingRequestId, query: query });
+    send({ type: 'search', requestId: pendingRequestId, query });
   });
 
   connect();

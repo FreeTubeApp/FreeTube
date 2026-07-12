@@ -376,6 +376,10 @@ export default defineComponent({
     }
   },
   methods: {
+    /**
+     * Pushes the current playback state to any connected remote controls.
+     * @param {boolean} [immediate] bypass the throttling applied to frequent (polled) updates
+     */
     reportRemoteControlState: function (immediate = false) {
       if (!isRemoteControlRunning()) {
         return
