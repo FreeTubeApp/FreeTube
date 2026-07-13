@@ -156,7 +156,7 @@
             />
           </span>
           <span
-            v-if="comment.numReplies > 0"
+            v-if="comment.numReplies > 0 && !commentRepliesLoading.has(index)"
             class="commentMoreReplies"
             role="button"
             tabindex="0"
@@ -166,6 +166,15 @@
           >
             <span>
               {{ toggleCommentRepliesLinkText(comment) }}
+            </span>
+          </span>
+          <span
+            v-else-if="comment.numReplies > 0 && commentRepliesLoading.has(index)"
+            class="commentLoadingMoreReplies"
+            tabindex="0"
+          >
+            <span>
+              {{ $t("Comments.Loading replies") }}
             </span>
           </span>
         </p>
@@ -272,7 +281,7 @@
             </p>
           </div>
           <div
-            v-if="comment.hasReplyToken"
+            v-if="comment.hasReplyToken && !commentRepliesLoading.has(index)"
             class="showMoreReplies"
             role="button"
             tabindex="0"
@@ -281,6 +290,13 @@
             @keydown.enter.prevent="getCommentReplies(index)"
           >
             <span>{{ $t("Comments.Show More Replies") }}</span>
+          </div>
+          <div
+            v-else-if="comment.hasReplyToken && commentRepliesLoading.has(index)"
+            class="loadingMoreReplies"
+            tabindex="0"
+          >
+            <span>{{ $t("Comments.Loading replies") }}</span>
           </div>
         </div>
       </div>
@@ -380,7 +396,7 @@ const props = defineProps({
 })
 
 const isLoading = ref(false)
-const commentRepliesLoading = new Set()
+const commentRepliesLoading = ref(new Set())
 const isMoreCommentsLoading = ref(false)
 const showComments = ref(false)
 const nextPageToken = shallowRef(null)
@@ -572,9 +588,9 @@ function toggleCommentReplies(index) {
  * @param {number} index
  */
 async function getCommentReplies(index) {
-  if (commentRepliesLoading.has(index)) return
+  if (commentRepliesLoading.value.has(index)) return
 
-  commentRepliesLoading.add(index)
+  commentRepliesLoading.value.add(index)
 
   if (!process.env.SUPPORTS_LOCAL_API || commentData.value[index].dataType === 'invidious') {
     if (!props.isPostComments) {
@@ -586,7 +602,7 @@ async function getCommentReplies(index) {
     await getCommentRepliesLocal(index)
   }
 
-  commentRepliesLoading.delete(index)
+  commentRepliesLoading.value.delete(index)
 }
 
 /** @type {Map<string, (import('youtubei.js').YTNodes.CommentThread | string)>} */
@@ -677,8 +693,6 @@ async function getCommentDataLocal(more = false) {
  * @param {number} index
  */
 async function getCommentRepliesLocal(index) {
-  showToast(t('Comments.Getting comment replies, please wait'))
-
   try {
     const comment = commentData.value[index]
     /** @type {import('youtubei.js').YTNodes.CommentThread} */
@@ -777,8 +791,6 @@ async function getCommentDataInvidious() {
  * @param {number} index
  */
 async function getCommentRepliesInvidious(index) {
-  showToast(t('Comments.Getting comment replies, please wait'))
-
   const comment = commentData.value[index]
   const replyToken = replyTokens.get(comment.id)
 
@@ -846,8 +858,6 @@ async function getPostCommentsInvidious() {
 }
 
 async function getPostCommentRepliesInvidious(index) {
-  showToast(t('Comments.Getting comment replies, please wait'))
-
   const comment = commentData.value[index]
   const replyToken = replyTokens.get(comment.id)
 
