@@ -12,6 +12,7 @@
       :layout="displayValue"
       :show-video-with-last-viewed-playlist="showVideoWithLastViewedPlaylist"
       :use-channels-hidden-preference="useChannelsHiddenPreference"
+      :use-hide-upcoming-premieres-preference="useHideUpcomingPremieresPreference"
       :hide-forbidden-titles="hideForbiddenTitles"
       :always-show-add-to-playlist-button="alwaysShowAddToPlaylistButton"
       :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
@@ -66,6 +67,10 @@ const props = defineProps({
     default: false
   },
   useChannelsHiddenPreference: {
+    type: Boolean,
+    default: true,
+  },
+  useHideUpcomingPremieresPreference: {
     type: Boolean,
     default: true,
   },

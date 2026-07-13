@@ -593,6 +593,7 @@ Settings:
     History File: History File
     Playlist File: Playlist File
     Search history file: Search history file
+    Settings File: Settings File
     Export Subscriptions: Export Subscriptions
     Export FreeTube: Export FreeTube
     Export YouTube: Export YouTube
@@ -604,6 +605,9 @@ Settings:
     Search history: Search history
     Import search history: Import search history
     Export search history: Export search history
+    Import Settings: Import Settings
+    Export Settings: Export Settings
+    Settings Tooltip: Settings that are OS/user-specific or experimental cannot be exported or imported (e.g., proxy, external player, screenshot folder...)
     Profile object has insufficient data, skipping item: Profile object has insufficient
       data, skipping item
     All subscriptions and profiles have been successfully imported: All subscriptions
@@ -629,9 +633,16 @@ Settings:
       successfully imported
     All search history has been successfully exported: All search history has been
       successfully exported
+    All settings have been successfully imported: All settings have been
+      successfully imported
+    All settings have been successfully exported: All settings have been
+      successfully exported
     Unable to read file: Unable to read file
     Unable to write file: Unable to write file
     Unknown data key: Unknown data key
+    Setting object has insufficient data, skipping item: Setting object has insufficient data, skipping item
+    Unknown setting key: 'Unknown setting key: {key}'
+    Non-transferable setting key: 'Non-transferable setting key: {key}'
     How do I import my subscriptions?: How do I import my subscriptions?
     Manage Subscriptions: Manage Subscriptions
   Proxy Settings:
@@ -775,6 +786,7 @@ Channel:
   This channel does not allow searching: This channel does not allow searching
   This channel is age-restricted and currently cannot be viewed in FreeTube.: This channel is age-restricted and currently cannot be viewed in FreeTube.
   Channel Tabs: Channel Tabs
+  View All: View All
   Videos:
     Videos: Videos
     This channel does not currently have any videos: This channel does not currently
