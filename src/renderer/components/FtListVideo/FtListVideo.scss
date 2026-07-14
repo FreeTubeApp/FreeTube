@@ -31,6 +31,10 @@
   aspect-ratio: 16/9 auto;
 }
 
+.blur {
+  filter: blur(20px);
+}
+
 .videoTagLine {
   margin-block-start: 3px;
 }

@@ -33,7 +33,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 
-import FtListVideo from './ft-list-video/ft-list-video.vue'
+import FtListVideo from './FtListVideo/FtListVideo.vue'
 
 import store from '../store/index'
 

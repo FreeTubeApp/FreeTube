@@ -70,7 +70,7 @@ import { computed, ref, watch } from 'vue'
 
 import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 
-import FtListVideo from '../ft-list-video/ft-list-video.vue'
+import FtListVideo from '../FtListVideo/FtListVideo.vue'
 
 const props = defineProps({
   data: {
