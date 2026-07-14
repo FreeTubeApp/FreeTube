@@ -93,6 +93,10 @@
   column-gap: 6px;
   inset-inline-start: 0;
   inset-block-start: 10px;
+  inline-size: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   transition: 0.2s ease all;
   color: var(--tertiary-text-color);
 }
