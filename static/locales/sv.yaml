@@ -953,7 +953,7 @@ Yes: 'Ja'
 No: 'Nej'
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: När det är aktiverat använder FreeTube RSS istället för standardmetoden för att hämta ditt prenumerationsflöde. RSS är snabbare och förhindrar IP-blockering, men ger inte all information som videolängd, livestatus eller inlägg
+    Fetch Feeds from RSS: När det är aktiverat använder FreeTube RSS i stället för standardmetoden för att hämta ditt prenumerationsflöde. RSS är snabbare och förhindrar IP-blockering, men ger inte all information som videolängd, livestatus eller inlägg
     Fetch Automatically: När det är aktiverat hämtar FreeTube automatiskt ditt prenumerationsflöde vid start och när ett nytt fönster öppnas.
   Player Settings:
     Default Video Format: Ställ in de format som används när en video spelas upp. DASH-format kan spela upp högre kvaliteter. Äldre format är begränsade till max 360p men använder mindre bandbredd. Ljudformat är endast ljudströmningar.
@@ -963,7 +963,7 @@ Tooltips:
   General Settings:
     Region for Trending: Med regionen för trender kan du välja vilket lands populära videor som ska visas.
     Invidious Instance: Invidious-instansen som FreeTube kommer att ansluta till för API-anrop.
-    Thumbnail Preference: Alla miniatyrbilder på FreeTube kommer att ersättas med en bildruta från videon, suddig eller dold istället för standardminiatyrbilden.
+    Thumbnail Preference: Alla miniatyrbilder på FreeTube kommer att ersättas med en bildruta från videon, suddig eller dold i stället för standardminiatyrbilden.
     Fallback to Non-Preferred Backend on Failure: När ditt föredragna API har ett problem, kommer FreeTube automatiskt att försöka använda ditt icke-föredragna API som reservmetod när det är aktiverat.
     Preferred API Backend: Välj vilken datakälla FreeTube ska använda för att hämta data. Det lokala API:et är en inbyggd utdragare. Invidious API kräver en Invidious-server att ansluta till.
     External Link Handling: "Välj standardbeteende när man klickar på en länk som inte kan öppnas i FreeTube.\nSom standard öppnar FreeTube den klickade länken i din standardwebbläsare.\n"
