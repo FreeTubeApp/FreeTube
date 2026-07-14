@@ -3,6 +3,10 @@
   gap: 20px;
 }
 
+.settingsContent {
+  min-inline-size: 0;
+}
+
 .settingsSections,
 .switchRow {
   overflow-x: hidden;
