@@ -1733,6 +1733,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
       title: video.title.text?.trim(),
       author: video.author.name !== 'N/A' ? video.author.name : channelName,
       authorId: video.author.id !== 'N/A' ? video.author.id : channelId,
+      collaboratorIds: video.author.collaborators.map(collaborator => collaborator.id),
       description: video.description,
       viewCount,
       published,
