@@ -552,6 +552,15 @@ Settings:
     Export search history: Exportovat historii vyhledávání
     All search history has been successfully imported: Veškerá historie vyhledávání byla úspěšně importována
     All search history has been successfully exported: Veškerá historie vyhledávání byla úspěšně exportována
+    Settings File: Soubor nastavení
+    Import Settings: Importovat nastavení
+    Export Settings: Exportovat nastavení
+    Settings Tooltip: Nastavení týkající se systému nebo uživatele nebo která jsou experimentální nelze exportovat ani importovat (např. proxy, externí přehrávač, složka snímků…)
+    All settings have been successfully imported: Všechna nastavení byla úspěšně importována
+    All settings have been successfully exported: Všechna nastavení byla úspěšně exportována
+    Setting object has insufficient data, skipping item: Objekt nastavení nemá dostatek dat, přeskakování položky
+    Unknown setting key: 'Neznámý klíč nastavení: {key}'
+    Non-transferable setting key: 'Nepřenositelný klíč nastavení: {key}'
   Proxy Settings:
     Proxy Settings: Proxy
     City: Město
@@ -749,6 +758,7 @@ Channel:
   Courses:
     Courses: Kurzy
     This channel does not currently have any courses: Tento kanál momentálně nemá žádné kurzy
+  View All: Zobrazit vše
 Video:
   Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'
