@@ -3,7 +3,7 @@ process.env.NODE_ENV = 'development'
 const electron = require('electron')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const kill = require('tree-kill')
+const kill = require('@magda/tree-kill')
 
 const path = require('path')
 const { spawn } = require('child_process')
