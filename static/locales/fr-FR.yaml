@@ -497,6 +497,15 @@ Settings:
     Export search history: Exporter l'historique des recherches
     All search history has been successfully imported: Tous les historiques de recherche ont été importées avec succès
     All search history has been successfully exported: Tous les historiques de recherche ont été exportées avec succès
+    Settings File: Fichier de paramètres
+    Import Settings: Paramètres d'importation
+    Export Settings: Paramètres d'exportation
+    Settings Tooltip: "Les paramètres spécifiques au système d'exploitation ou à l'utilisateur, ou encore ceux de nature expérimentale, ne peuvent être ni exportés ni importés (par exemple : proxy, lecteur externe, dossier de captures d'écran...)"
+    All settings have been successfully imported: Tous les paramètres ont été importés avec succès
+    All settings have been successfully exported: Tous les paramètres ont été exportés avec succès
+    Setting object has insufficient data, skipping item: Les données de l'objet de configuration sont insuffisantes ; l'élément est ignoré
+    Unknown setting key: 'Clé de paramètre inconnue : {key}'
+    Non-transferable setting key: 'Clé de configuration non transférable : {key}'
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Masquer les J’aime et Je n’aime pas des vidéos
     Hide Comment Likes: Masquer les J’aime dans les commentaires
@@ -702,6 +711,7 @@ Channel:
   Courses:
     Courses: Cours
     This channel does not currently have any courses: Cette chaîne n'a actuellement pas de cours
+  View All: Tout afficher
 Video:
   Mark As Watched: 'Marquer comme vu'
   Remove From History: 'Supprimer de l''historique'
