@@ -1915,7 +1915,6 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       let collaboratorIds = []
       if (maybeCollaborators) {
         collaboratorIds = maybeCollaborators.map(item => item.renderer_context?.command_context?.on_tap?.payload?.browseId)
-          .filter(collabChannelId => collabChannelId)
       }
 
       return {
