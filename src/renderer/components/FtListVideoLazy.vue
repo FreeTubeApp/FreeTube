@@ -141,7 +141,7 @@ const shouldBeVisible = computed(() => {
   const lowerCaseTitle = props.data.title?.toLowerCase()
   const lowerCaseAuthor = props.data.author?.toLowerCase()
 
-  return !(channelsHidden.value.some(ch => ch.name === props.data.authorId || (props.data.collaboratorIds.length > 0 && ch.name === props.data.collaboratorIds[0])) ||
+  return !(channelsHidden.value.some(ch => ch.name === props.data.authorId || (props.data.collaboratorIds?.length > 0 && ch.name === props.data.collaboratorIds[0])) ||
     channelsHidden.value.some(ch => ch.name === props.data.author) ||
     (lowerCaseTitle && forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text))) ||
     (hideChannelsBasedOnText.value && lowerCaseAuthor && forbiddenTitles.value.some((text) => lowerCaseAuthor.includes(text))))
