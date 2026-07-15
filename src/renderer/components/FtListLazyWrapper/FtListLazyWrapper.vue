@@ -258,7 +258,7 @@ const showResult = computed(() => {
     }
 
     const lowerCaseAuthor = props.data.author?.toLowerCase()
-    if (channelsHidden.value.some(ch => ch.name === props.data.authorId || (props.data.collaboratorIds.length > 0 && ch.name === props.data.collaboratorIds[0])) ||
+    if (channelsHidden.value.some(ch => ch.name === props.data.authorId || (props.data.collaboratorIds?.length > 0 && ch.name === props.data.collaboratorIds[0])) ||
     channelsHidden.value.some(ch => ch.name === props.data.author) ||
     forbiddenTitles.value.some((text) => lowerCaseAuthor.includes(text))) {
       // hide videos by author
