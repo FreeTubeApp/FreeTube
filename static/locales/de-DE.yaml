@@ -498,6 +498,15 @@ Settings:
     Export search history: Suchverlauf exportieren
     All search history has been successfully imported: Der gesamte Suchverlauf wurde erfolgreich importiert
     All search history has been successfully exported: Der gesamte Suchverlauf wurde erfolgreich exportiert
+    Settings File: Einstellungsdatei
+    Import Settings: Einstellungen importieren
+    Export Settings: Einstellungen exportieren
+    Settings Tooltip: Einstellungen, die Betriebssystem-/benutzerspezifisch oder experimentell sind, können nicht exportiert oder importiert werden (z. B. Proxy, externer Player, Screenshot-Ordner...)
+    All settings have been successfully imported: Alle Einstellungen wurden erfolgreich importiert
+    All settings have been successfully exported: Alle Einstellungen wurden erfolgreich exportiert
+    Setting object has insufficient data, skipping item: Das Objekt enthält unzureichende Daten, Element wird übersprungen
+    Unknown setting key: 'Unbekannter Einstellungsschlüssel: {key}'
+    Non-transferable setting key: 'Nicht übertragbarer Einstellungsschlüssel: {key}'
   Distraction Free Settings:
     Hide Live Chat: Live-Chat ausblenden
     Hide Popular Videos: Beliebte Videos ausblenden
@@ -700,6 +709,7 @@ Channel:
   Courses:
     This channel does not currently have any courses: Dieser Kanal hat derzeit keine Kurse
     Courses: Kurse
+  View All: Alles anzeigen
 Video:
   Open in YouTube: In YouTube öffnen
   Copy YouTube Link: YouTube-Link kopieren

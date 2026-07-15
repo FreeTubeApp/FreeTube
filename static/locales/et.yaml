@@ -502,6 +502,15 @@ Settings:
     Export search history: Ekspordi otsinguajalugu
     All search history has been successfully imported: Kogu otsinguajaloo importimine õnnestus
     All search history has been successfully exported: Kogu otsinguajaloo eksportimine õnnestus
+    Settings File: Seadistuste fail
+    Import Settings: Impordi seadistused
+    Export Settings: Ekspordi seadistused
+    Settings Tooltip: Operatsioonisüsteemi- või kasutajaspetsiifilisi ning katselisi seadistusi ei saa importida ega eksportida (nt. kasutatav proksi, väline meediapleier, ekraanitõmmiste kaust, jne)
+    All settings have been successfully imported: Kõik seadistused on kenasti imporditud
+    All settings have been successfully exported: Kõik seadistused on kenasti eksporditud
+    Setting object has insufficient data, skipping item: Seadistuste objekti andmed on puudulikud ja jäävad vahele
+    Unknown setting key: 'Tundmatu seadistuste võti: {key}'
+    Non-transferable setting key: 'Mitteedastatav seadistuste võti: {key}'
   Distraction Free Settings:
     Hide Active Subscriptions: Peida aktiivsed tellimused
     Hide Live Chat: Peida veebivestlused
@@ -745,6 +754,7 @@ Channel:
   Courses:
     Courses: Kursused
     This channel does not currently have any courses: Sellel kanalil pole hetkel kursuseid
+  View All: Vaata kõiki
 Video:
   Mark As Watched: 'Märgi vaadatuks'
   Remove From History: 'Kustuta ajaloost'

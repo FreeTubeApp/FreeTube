@@ -1446,7 +1446,8 @@ function runApp() {
     const filePath = path.resolve(directory, filename)
 
     // Ensure that we are only writing inside of the expected directory
-    if (path.dirname(filePath) !== directory) {
+    // 'path.dirname' does not return trailing slash, remove it from 'directory' path to ensure consistent comparison
+    if (path.dirname(filePath) !== directory.replace(/\/$/, '')) {
       throw new Error('Invalid save location')
     }
 

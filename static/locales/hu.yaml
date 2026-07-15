@@ -505,6 +505,15 @@ Settings:
     Export search history: Keresési előzmények exportálása
     All search history has been successfully imported: Az összes keresési előzmény sikeresen importálva
     All search history has been successfully exported: Az összes keresési előzmény sikeresen exportálva
+    Settings File: Beállításfájl
+    Import Settings: Beállítások importálása
+    Export Settings: Beállítások exportálása
+    Settings Tooltip: Az operációs rendszerre/felhasználóra jellemző vagy kísérleti beállítások nem exportálhatók vagy importálhatók (pl. proxy, külső lejátszó, képernyőkép mappája...)
+    All settings have been successfully imported: Az összes beállítás sikeresen importálva
+    All settings have been successfully exported: Az összes beállítás sikeresen exportálva
+    Setting object has insufficient data, skipping item: Az objektum beállításához nincs elegendő adat, elem kihagyása
+    Unknown setting key: 'Ismeretlen beállítási kulcs: {key}'
+    Non-transferable setting key: 'Nem átruházható beállítási kulcs: {key}'
   Distraction Free Settings:
     Hide Live Chat: Élő csevegés elrejtése
     Hide Popular Videos: Népszerű videók elrejtése
@@ -751,6 +760,7 @@ Channel:
   Courses:
     This channel does not currently have any courses: Ezen a csatornán jelenleg nincsenek tanfolyamok
     Courses: Tanfolyamok
+  View All: Összes megtekintése
 Video:
   Mark As Watched: 'Megjelölés megtekintettként'
   Remove From History: 'Eltávolítás az előzményekből'

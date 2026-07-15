@@ -157,11 +157,6 @@ const hideSubscriptionsCommunity = computed(() => {
   return store.getters.getHideSubscriptionsCommunity
 })
 
-/** @type {import('vue').ComputedRef<any[]>} */
-const activeSubscriptionList = computed(() => {
-  return store.getters.getActiveProfile.subscriptions
-})
-
 /** @type {import('vue').ComputedRef<boolean>} */
 const useRssFeeds = computed(() => {
   return store.getters.getUseRssFeeds
@@ -196,7 +191,7 @@ const visibleTabs = computed(() => {
   }
 
   // community does not support rss
-  if (!hideSubscriptionsCommunity.value && !useRssFeeds.value && activeSubscriptionList.value.length < 125) {
+  if (!hideSubscriptionsCommunity.value && !useRssFeeds.value) {
     tabs.push('community')
   }
 
