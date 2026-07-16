@@ -372,6 +372,7 @@ export default defineComponent({
 
       this.checkIfTimestamp()
       this.checkIfPlaylist()
+      this.setViewingModeOnRouteChange()
 
       switch (this.backendPreference) {
         case 'local':
@@ -463,13 +464,26 @@ export default defineComponent({
           this.useTheatreMode = this.theatrePossible
           break
         case 'fullscreen':
+        case 'fullscreen_always_on':
           this.startNextVideoInFullscreen = true
           break
         case 'fullwindow':
+        case 'fullwindow_always_on':
           this.startNextVideoInFullwindow = true
           break
         case 'pip':
           this.startNextVideoInPip = true
+      }
+    },
+
+    setViewingModeOnRouteChange: function () {
+      switch (this.defaultViewingMode) {
+        case 'fullscreen_always_on':
+          this.startNextVideoInFullscreen = true
+          break
+        case 'fullwindow_always_on':
+          this.startNextVideoInFullwindow = true
+          break
       }
     },
 
