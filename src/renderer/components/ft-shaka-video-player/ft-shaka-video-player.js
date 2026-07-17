@@ -977,11 +977,12 @@ export default defineComponent({
       const classList = event.target.classList
 
       if (classList.contains('shaka-scrim-container') ||
-        classList.contains('shaka-fast-foward-container') ||
+        classList.contains('shaka-fast-forward-container') ||
         classList.contains('shaka-rewind-container') ||
         classList.contains('shaka-play-button-container') ||
         classList.contains('shaka-play-button') ||
-        classList.contains('shaka-controls-container')) {
+        classList.contains('shaka-controls-container') ||
+        classList.contains('shaka-spacer')) {
         //
 
         if (event.ctrlKey || event.metaKey) {
