@@ -227,7 +227,8 @@ Settings:
     Display Play Button In Video Player: Vis videoavspelingsknappen i videoavspelaren
     Scroll Volume Over Video Player: Juster volum ved å bla på video
     Screenshot:
-      Ask Path: Spør om kvar ting skal lagrast
+      Modes:
+        Ask Path: Spør om kvar ting skal lagrast
       Error:
         Forbidden Characters: Forbodne teikn
         Empty File Name: Tomt filnamn

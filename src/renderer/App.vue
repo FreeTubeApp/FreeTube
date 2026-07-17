@@ -107,7 +107,7 @@
 <script setup>
 import { marked } from 'marked'
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
-import { useI18n } from './composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
 
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
@@ -545,13 +545,7 @@ const windowTitle = computed(() => {
     !routePath.startsWith('/playlist/') &&
     !routePath.startsWith('/search/')
   ) {
-    let title = translateWindowTitle(route.meta.title)
-    if (!title) {
-      title = packageDetails.productName
-    } else {
-      title = `${title} - ${packageDetails.productName}`
-    }
-    return title
+    return translateWindowTitle(route.meta.title) ?? ''
   } else {
     return null
   }
@@ -561,7 +555,11 @@ const windowTitle = computed(() => {
 const appTitle = computed(() => store.getters.getAppTitle)
 
 watch(appTitle, (value) => {
-  document.title = value
+  if (value.length > 0) {
+    document.title = `${value} - ${packageDetails.productName}`
+  } else {
+    document.title = packageDetails.productName
+  }
 })
 
 watch(windowTitle, setWindowTitle)

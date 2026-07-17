@@ -12,7 +12,7 @@
 
 <script setup>
 import { computed, onMounted, ref, shallowRef, watch } from 'vue'
-import { useI18n } from '../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 
 import SubscriptionsTabUi from './SubscriptionsTabUi/SubscriptionsTabUi.vue'
 
@@ -184,14 +184,7 @@ async function loadVideosForSubscriptionsFromRemote() {
   let channelCount = 0
   isLoading.value = true
 
-  let useRss = useRssFeeds.value
-  if (channelsToLoadFromRemote.length >= 125 && !useRss) {
-    showToast(
-      t('Subscriptions["This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting"]'),
-      10000
-    )
-    useRss = true
-  }
+  const useRss = useRssFeeds.value
 
   store.commit('setShowProgressBar', true)
   store.commit('setProgressBarPercentage', 0)
@@ -199,8 +192,9 @@ async function loadVideosForSubscriptionsFromRemote() {
 
   errorChannels.value = []
   const subscriptionUpdates = []
+  const videoListFromRemote = []
 
-  const videoListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
+  const processChannel = async (channel) => {
     let videos, name, thumbnailUrl
 
     if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
@@ -237,7 +231,25 @@ async function loadVideosForSubscriptionsFromRemote() {
     }
 
     return videos ?? []
-  }))).flat()
+  }
+
+  if (useRss) {
+    const results = await Promise.all(channelsToLoadFromRemote.map(processChannel))
+    videoListFromRemote.push(...results.flat())
+  } else {
+    const CHUNK_SIZE = 80
+    const CHUNK_DELAY_MS = 2000
+
+    for (let i = 0; i < channelsToLoadFromRemote.length; i += CHUNK_SIZE) {
+      if (i > 0) {
+        await new Promise(resolve => setTimeout(resolve, CHUNK_DELAY_MS))
+      }
+
+      const chunk = channelsToLoadFromRemote.slice(i, i + CHUNK_SIZE)
+      const chunkResults = await Promise.all(chunk.map(processChannel))
+      videoListFromRemote.push(...chunkResults.flat())
+    }
+  }
 
   videoList.value = updateVideoListAfterProcessing(videoListFromRemote)
   isLoading.value = false

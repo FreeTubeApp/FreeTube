@@ -58,12 +58,11 @@ import FtLoader from '../../components/FtLoader/FtLoader.vue'
 import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrapper.vue'
 import store from '../../store/index'
 import { useRoute } from 'vue-router'
-import packageDetails from '../../../../package.json'
 import { getHashtagLocal, parseLocalListVideo } from '../../helpers/api/local'
 import { copyToClipboard, showToast } from '../../helpers/utils'
 import { isNullOrEmpty } from '../../helpers/strings'
 import { getHashtagInvidious } from '../../helpers/api/invidious'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 const route = useRoute()
@@ -115,7 +114,7 @@ async function getHashtag() {
   } else {
     await getInvidiousHashtag()
   }
-  store.commit('setAppTitle', `#${hashtag.value} - ${packageDetails.productName}`)
+  store.commit('setAppTitle', `#${hashtag.value}`)
 }
 
 /**

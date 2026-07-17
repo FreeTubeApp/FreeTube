@@ -84,7 +84,7 @@
 
 <script setup>
 import { computed, nextTick, ref, useId, useTemplateRef } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
 import FtCard from '../ft-card/ft-card.vue'

@@ -71,6 +71,8 @@ Search Filters:
   Search Filters: 'Siloù evit Klask'
   Prioritize:
     Most Relevant: 'Ar re wellañ'
+    Prioritize: Prioriziñ
+    Popularity: Dre vrud
   Time:
     Time: 'Padelezh'
     Any Time: 'A-holl-viskoaz'
@@ -467,7 +469,8 @@ Settings:
       Enable: 'Gweredekaat Tapadennoù-skramm'
       Format Label: 'Furmad an tapadennoù-skramm'
       Quality Label: 'Kalite an tapadennoù-skramm'
-      Ask Path: 'Goulenn war-lerc''h an teuliad enrollañ'
+      Modes:
+        Ask Path: 'Goulenn war-lerc''h an teuliad enrollañ'
       Folder Label: 'Teuliad an tapadennoù-skramm'
       Folder Button: 'Diuzañ un teuliad'
       File Name Label: 'Patrom anv restr'
@@ -698,6 +701,9 @@ About:
   these people and projects: 'an dud-se hag ar raktresoù-se'
   Donate: 'Ober un donezon'
 
+  Licensed under the {licenseLink}: Dindan an aotre-implijout {licenseLink}
+  Please read the {roomRulesLink}: Mar-plij, lennit {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: Bez ez eus deus FreeTube a-drugarez da {creditsPageLink}
 Profile:
   Profile Settings: 'Profil'
   Toggle Profile List: 'Diskouez roll ar profiloù'
@@ -913,6 +919,10 @@ Video:
   DeArrow:
     Show Original Details: Diskouez ar munudoù orin
     Show Modified Details: Diskouez ar munudoù kemmet
+  Popout Live Chat: Digeriñ ar flapañ war-eeun e-barzh ur prenestr nevez
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Amzer bruderezh pre-roll hag a chom : {remindingTimeSeconds}'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Amzer gortoz SABR hag a chom : {remindingTimeSeconds}'
 Playlist:
   #& About
   Playlist: 'Roll-videoioù'

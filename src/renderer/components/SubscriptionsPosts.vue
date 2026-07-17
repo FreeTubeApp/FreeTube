@@ -14,7 +14,7 @@
 
 <script setup>
 import { computed, onMounted, ref, shallowRef, watch } from 'vue'
-import { useI18n } from '../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 
 import SubscriptionsTabUi from './SubscriptionsTabUi/SubscriptionsTabUi.vue'
 
@@ -190,8 +190,9 @@ async function loadPostsForSubscriptionsFromRemote() {
 
   errorChannels.value = []
   const subscriptionUpdates = []
+  const postListFromRemote = []
 
-  const postListFromRemote = (await Promise.all(channelsToLoadFromRemote.map(async (channel) => {
+  const processChannel = async (channel) => {
     let posts
     if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
       posts = await getChannelPostsInvidious(channel)
@@ -231,7 +232,20 @@ async function loadPostsForSubscriptionsFromRemote() {
 
     posts = posts.filter(post => !forbiddenTitles.value.some(text => post.author.toLowerCase().includes(text)))
     return posts
-  }))).flat()
+  }
+
+  const CHUNK_SIZE = 80
+  const CHUNK_DELAY_MS = 2000
+
+  for (let i = 0; i < channelsToLoadFromRemote.length; i += CHUNK_SIZE) {
+    if (i > 0) {
+      await new Promise(resolve => setTimeout(resolve, CHUNK_DELAY_MS))
+    }
+
+    const chunk = channelsToLoadFromRemote.slice(i, i + CHUNK_SIZE)
+    const chunkResults = await Promise.all(chunk.map(processChannel))
+    postListFromRemote.push(...chunkResults.flat())
+  }
 
   postListFromRemote.sort((a, b) => {
     return b.publishedTime - a.publishedTime

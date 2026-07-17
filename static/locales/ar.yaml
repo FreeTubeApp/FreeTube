@@ -39,7 +39,7 @@ Global:
     Subscriber Count: 1 مشترك | {count} مشتركين
     View Count: 1 مشاهدة | {count} مشاهدات
     Watching Count: 1 مشاهد | {count} مشاهدون
-    Like Count: إعجاب واحد |{count} إعجاب
+    Like Count: إعجاب واحد |{count} إعجابات
     Comment Count: تعليق واحد | {count} تعليقًا
 Search / Go to URL: 'ابحث / اذهب إلى رابط'
   # In Filter Button
@@ -67,6 +67,8 @@ Search Filters:
     Duration: 'المدة'
     All Durations: 'كل الآوقات'
     '< 3 minutes': أقل من 3 دقائق
+    '3 - 20 minutes': 3 - 20 دقيقة
+    '> 20 minutes': أكثر من 20 دقيقة
   Search Results: 'نتائج البحث'
   Fetching results. Please wait: 'جاري إحضار النتائج. الرجاء الانتظار'
   Fetch more results: 'إحضار المزيد من النتائج'
@@ -123,14 +125,14 @@ User Playlists:
   Cancel: إلغاء
   Delete Playlist: حذف قائمة التشغيل
   Sort By:
-    LatestCreatedFirst: تم إنشاؤها مؤخرًا
-    LatestUpdatedFirst: تم تحديثه مؤخرا
+    LatestCreatedFirst: تاريخ الإنشاء (Newest)
+    LatestUpdatedFirst: تاريخ التحديث (Newest)
     NameAscending: أ-ي
     NameDescending: ي-أ
-    EarliestCreatedFirst: الاقدم إنشائا
-    EarliestUpdatedFirst: الاحدث إنشائا
-    LatestPlayedFirst: تم تشغيلها مؤخرا
-    EarliestPlayedFirst: الاقدم تشغيلا
+    EarliestCreatedFirst: تاريخ الإنشاء (Oldest)
+    EarliestUpdatedFirst: تاريخ التحديث (Oldest)
+    LatestPlayedFirst: تاريخ المشاهدة (Newest)
+    EarliestPlayedFirst: تاريخ المشاهدة (Oldest)
   SinglePlaylistView:
     Toast:
       This video cannot be moved up.: ‬لا يمكن نقل هذا الفيديو لأعلى.
@@ -157,7 +159,7 @@ User Playlists:
     Select a playlist to add your N videos to: حدد قائمة تشغيل لإضافة الفيديو الخاص بك إلى | حدد قائمة تشغيل لإضافة مقاطع الفيديو {videoCount} إليها
     Toast:
       You haven't selected any playlist yet.: لم تقم بتحديد أي قائمة تشغيل حتى الآن.
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "تمت إضافة فيديو/فيديوهات إلى قائمة تشغيل واحدة | تمت إضافة فيديو/فيديوهات إلى {playlistCount} قائمة تشغيل"
     Save: حفظ
     Search in Playlists: البحث في قوائم التشغيل
     N playlists selected: تم تحديد {playlistCount}
@@ -187,6 +189,7 @@ User Playlists:
   Export Playlist: تصدير قائمة التشغيل هذه
   The playlist has been successfully exported: تم تصدير قائمة التشغيل بنجاح
   TotalTimePlaylist: 'الوقت الإجمالي: {duration}'
+  Export list of URLs: تصدير قائمة عناوين
 History:
   # On History Page
   History: 'السجلّ'
@@ -195,8 +198,8 @@ History:
   Search bar placeholder: البحث في السجل
   Empty Search Message: لا توجد مقاطع فيديو في السجل الخاص بك تطابق بحثك
   Case Sensitive Search: ‘بحث مميِّز لحالة الأحرف
-  DateOldestHistory: أول مشاهدة تم مشاهدته أولا
-  DateNewestHistory: آخر مشاهدة تم مشاهدته أولا
+  DateOldestHistory: تاريخ المشاهدة (الأقدم)
+  DateNewestHistory: تاريخ المشاهدة (الأحدث)
 Settings:
   # On Settings Page
   Settings: 'الإعدادات'
@@ -268,6 +271,7 @@ Settings:
       Everforest Light Hard: إيفرفورست الفاتح القوي
       Everforest Light Medium: إيفرفورست الفاتح المتوسط
       Everforest Light Low: إيفرفورست الفاتح المنخفض
+      Catppuccin Latte: لاتيه الكاتشب
     Main Color Theme:
       Main Color Theme: 'لون السِمة الأساسي'
       Red: 'أحمر'
@@ -353,6 +357,8 @@ Settings:
       Everforest Light Green: إيفرفورست الأخضر الفاتح
       Everforest Light Blue: إيفرفورست الأزرق الفاتح
       Everforest Light Purple: إيفرفورست الأرجواني الفاتح
+      Catppuccin Latte Mauve: لاتيه كاتشبوتشي موف
+      Catppuccin Latte Red: لاتيه كاتشبوتشي أحمر
     Secondary Color Theme: 'لون السِمة الثانوي'
         #* Main Color Theme
     UI Scale: مقياس واجهة المستخدم
@@ -401,11 +407,15 @@ Settings:
         Empty File Name: اسم المِلَفّ فارغ
       Folder Button: اختر مجلد
       File Name Label: نمط اسم المِلَفّ
-      Ask Path: اسأل عن موقع الحفظ
+      Modes:
+        Ask Path: اسأل عن موقع الحفظ
+        Save To Folder: حفظ في مجلد
+        Clipboard: انسخ إلى الحافظة
       Folder Label: موقع لقطة الشاشة
       Format Label: صيغة لقطة الشاشة
       Quality Label: جودة لقطة الشاشة
       File Name Tooltip: يمكنك استخدام المتغيرات أدناه. %Y السنة 4 أرقام. %M الشهر رقمان. %D اليوم رقمان. %H الساعة رقمان. %N الدقيقة رقمان. %S الثانية رقمان. %T الجزء من الثانية 3 أرقام. %s الثانية للفيديو رقمان. %t الجزء من الثانية للفيديو 3 أرقام. %i رقم معرف الفيديو.
+      Mode: ­وضع لقطة الشاشة
     Enter Fullscreen on Display Rotate: وضع ملء الشاشة عند تدوير الشاشة
     Skip by Scrolling Over Video Player: تخطي بالتمرير فوق مشغل الفيديو
     Default Viewing Mode:
@@ -484,6 +494,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: تصدير قوائم التشغيل لإصدارات FreeTube الأقدم
       Tooltip: "يقوم هذا الخيار بتصدير مقاطع الفيديو من جميع قوائم التشغيل إلى قائمة تشغيل واحدة تسمى \"المفضلة\".\nكيفية تصدير واستيراد مقاطع الفيديو في قوائم التشغيل لإصدار أقدم من FreeTube:\n1. قم بتصدير قوائم التشغيل الخاصة بك مع تمكين هذا الخيار.\n2. احذف جميع قوائم التشغيل الموجودة لديك باستخدام خيار إزالة جميع قوائم التشغيل ضمن إعدادات الخصوصية.\n3. قم بتشغيل الإصدار الأقدم من FreeTube واستورد قوائم التشغيل المصدرة.\""
+    Search history file: ملف سجل البحث
+    Search history: سجل البحث
+    Import search history: استيراد سجل البحث
+    Export search history: تصدير سجل البحث
+    All search history has been successfully imported: تم استيراد جميع سجلات البحث بنجاح
+    All search history has been successfully exported: ­تم تصدير جميع سجلات البحث بنجاح.
   Distraction Free Settings:
     Hide Live Chat: اخفي الدردشة المباشرة
     Hide Popular Videos: اخفي الفيديوهات الأكثر شعبية
@@ -548,6 +564,8 @@ Settings:
     Error getting network information. Is your proxy configured properly?: هنالك خطأ في جلب معلومات الشبكة. هل ضبطت إعدادات وكيلك بصورة صحيحة؟
     Clicking on Test Proxy will send a request to: النقر على اختبار البروكسي سيؤدي إلى إرسال طلب إلى
     Proxy Warning: لا يحتوي FreeTube على وكيل مدمج ولكن يمكنه الاتصال بوكيل خارجي، مثل وكيل يعمل على جهازك مثل Tor أو وكيل خارجي مثل وكيل SOCKS5 الذي توفره بعض شبكات VPN. إذا تم التمكين، فتأكد من تكوين الوكيل/الاختصاص الخاص بك بشكل صحيح، وإلا فلن يتمكن FreeTube من جلب أي بيانات.
+    Proxy Username: اسم مستخدم الوكيل
+    Proxy Password: كلمة مرور الوكيل
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: تنبيه عندما يتم تخطي شريحة الراعي
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': SponsorBlock API عنوان (الافتراضي هو https://sponsor.ajay.app)
@@ -618,6 +636,9 @@ About:
   Downloads / Changelog: التحميلات\التغييرات
   Discussions: المناقشات
   AGPLv3: رخصة أفيرو العمومية الإصدار ٣
+  Licensed under the {licenseLink}: مرخص بموجب {licenseLink}
+  Please read the {roomRulesLink}: ­يرجى قراءة {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: أصبح موقع FreeTube ممكناً بفضل {creditsPageLink}
 Profile:
   All Channels: 'جميع القنوات'
   Profile Manager: 'مدير الملف الشخصي'
@@ -833,6 +854,10 @@ Video:
   DRMProtected: لا يمكن تشغيل مقاطع الفيديو المحمية بنظام إدارة الحقوق الرقمية في FreeTube، لأنها تتطلب مكونات خاصة ومغلقة المصدر. إذا كنت ترغب في مشاهدة هذا الفيديو، فيرجى مشاهدته على موقع يوتيوب الرسمي في متصفح ويب يدعم إدارة الحقوق الرقمية.
   Save Watched Progress: حفظ التقدم الذي تمت مشاهدته
   Watched Progress Saved: تم مشاهدة التقدم المحفوظ
+  Popout Live Chat: دردشة منبثقة
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': '–الوقت المتبقي لعرض الإعلان التمهيدي: {remindingTimeSeconds} ثانية'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'الوقت المتبقي لتراجع SABR: {remindingTimeSeconds} ثانية'
 Playlist:
   #& About
   View Full Playlist: 'عرض قائمة التشغيل بالكامل'
@@ -843,17 +868,17 @@ Playlist:
 #& Views
   Playlist: قائمة التشغيل
   Sort By:
-    DateAddedNewest: آخر مضاف أولا
-    DateAddedOldest: الأقدم إضافتا أولا
+    DateAddedNewest: تاريخ الإضافة (الأحدث)
+    DateAddedOldest: تاريخ الإضافة (الأقدم)
     AuthorAscending: الكاتب (A-Z)
     AuthorDescending: الكاتب (Z-A)
     VideoTitleAscending: العنوان (A-Z)
     VideoTitleDescending: العنوان (Z-A)
     Custom: مُخصّص
-    VideoDurationDescending: المدة (الاطول أولاً)
-    VideoDurationAscending: المدة (الأقصر أولاً)
-    PublishedNewest: أحدث منشور أولاً
-    PublishedOldest: أقدم منشور أولاً
+    VideoDurationDescending: المدة (الأطول)
+    VideoDurationAscending: المدة (الأقصر)
+    PublishedNewest: تاريخ النشر (الأحدث)
+    PublishedOldest: تاريخ النشر (الأقدم)
 Change Format:
   Change Media Formats: 'تغيير تنسيقات الفيديو'
   Use Dash Formats: 'استخدم تنسيقات DASH'
@@ -878,6 +903,7 @@ Share:
   YouTube Channel URL copied to clipboard: تم نسخ رابط قناة اليوتيوب
   Invidious Channel URL copied to clipboard: تم نسخ رابط قناة انفيديوس
   Share Channel: مشاركة القناة
+  Share Post: مشاركة المنشور
 Mini Player: 'المشغل المصغّر'
 Comments:
   Comments: 'التعليقات'
@@ -897,6 +923,9 @@ Comments:
   Hearted: القلب
   Subscribed: مشترك
   There are no comments available for this post: لا توجد تعليقات متاحة لهذا المنشور
+  Hide {replyCount} replies: ­إخفاء رد واحد | إخفاء {عدد الردود}
+  View 1 reply from {channelName}: عرض رد واحد من {channelName}
+  View {replyCount} replies from {channelName} and others: عرض {replyCount} ردًا من {channelName} وآخرين
 Up Next: 'التالي'
 
 # Toast Messages
@@ -1086,3 +1115,5 @@ shortcutLabelSeparator: '{''|''}'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Compact side navigation: قائمة جانبية مُختصرة
 Expand side navigation: عرض تفاصيل القائمة
+Screenshot Clipboard Success: تم حفظ لقطة الشاشة في الحافظة
+Screenshot Clipboard Error: فشلت عملية نسخ لقطة الشاشة إلى الحافظة

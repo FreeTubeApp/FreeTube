@@ -39,7 +39,7 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, onMounted, ref, shallowRef, watch } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
 import FtLoader from '../../components/FtLoader/FtLoader.vue'
@@ -49,7 +49,6 @@ import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrappe
 
 import store from '../../store'
 
-import packageDetails from '../../../../package.json'
 import {
   copyToClipboard,
   searchFiltersMatch,
@@ -115,13 +114,13 @@ watch(route, () => {
 
   query.value = query_
 
-  store.commit('setAppTitle', `${processedQuery.value} - ${packageDetails.productName}`)
+  store.commit('setAppTitle', processedQuery.value)
   checkSearchCache(payload)
 }, { deep: true })
 
 onMounted(() => {
   query.value = route.params.query
-  store.commit('setAppTitle', `${processedQuery.value} - ${packageDetails.productName}`)
+  store.commit('setAppTitle', processedQuery.value)
 
   let features = route.query.features
   // if page gets refreshed and there's only one feature then it will be a string

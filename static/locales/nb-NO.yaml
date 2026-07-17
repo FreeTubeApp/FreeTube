@@ -407,7 +407,8 @@ Settings:
       Folder Button: Velg mappe
       Format Label: Skjermbildeformat
       Quality Label: Skjermbildekvalitet
-      Ask Path: Spør om hvor ting skal lagres
+      Modes:
+        Ask Path: Spør om hvor ting skal lagres
       File Name Tooltip: Du kan bruke variablene nedenfor. %Y år, i 4 siffer. %M måned, i 2 siffer. %D dag, i to siffer. %H time, i to siffer. %N minutt, i to siffer. %s sekund, i to siffer. %T millisekunder, i tre siffer. %s videosekund. %t videomillisekunder, i tre siffer. %i video-ID.
     Max Video Playback Rate: Maksimal hastighet for videoavspilling
     Scroll Playback Rate Over Video Player: Juster avspillingshastighet ved rulling over videoavspiller
@@ -976,7 +977,7 @@ Tooltips:
     UseDeArrowTitles: Erstatt videonavn med brukerinnsendte navn fra DeArrow.
     UseDeArrowThumbnails: Erstatt miniatyrbilder på videoer med bilder fra DeArrow.
 The playlist has been reversed: Spillelisten har blitt snudd
-Download From Site: Last ned fra nettside
+Download From Site: Last ned fra siden
 Version {versionNumber} is now available!  Click for more details: Versjon {versionNumber} er nå tilgjengelig! Klikk her for detaljer
 Playing Next Video Interval: Spiller av neste video nå. Klikk her for å avbryte. | Spiller av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte. | Spiller av neste video om {nextVideoInterval} sekunder. Klikk her for å avbryte.
 More: Mer

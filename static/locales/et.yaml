@@ -404,17 +404,21 @@ Settings:
     Max Video Playback Rate: Video suurim taasesituskiirus
     Video Playback Rate Interval: Video taasesituskiiruse intervall
     Screenshot:
-      Ask Path: Küsi salvestuskausta
-      Folder Label: Kuvatõmmise kaust
-      Format Label: Kuvatõmmise vorming
-      Quality Label: Kuvatõmmise kvaliteet
+      Modes:
+        Ask Path: Küsi salvestuskausta
+        Save To Folder: Salvesta kausta
+        Clipboard: Kopeeri lõikelauale
+      Folder Label: Ekraanitõmmise kaust
+      Format Label: Ekraanitõmmise vorming
+      Quality Label: Ekraanitõmmise kvaliteet
       Folder Button: Vali kaust
       File Name Label: Failinime muster
       Error:
         Forbidden Characters: Keelatud tähemärgid
         Empty File Name: Puuduv failinimi
-      Enable: Luba kuvatõmmise tegemine
+      Enable: Luba ekraanitõmmise tegemine
       File Name Tooltip: Võid kasutada allpool näidatud muutujaid. %Y 4-numbriline aasta. %M 2-numbriline kuu. %D 2-numbriline päev. %H 2-numbriline tund 2. %N 2-numbriline minut. %S 2-numbriline sekund. %T 3-numbriline millisekund. %s 2-numbriline videosekund. %t 3-numbriline video millisekund. %i video tunnus.
+      Mode: Ekraanitõmmise tegemise viis
     Skip by Scrolling Over Video Player: Jäta vahele, kerides üle videopleieri
     Enter Fullscreen on Display Rotate: Ekraani pööramisel ava täisekraanivaade
     Autoplay Interruption Timer: Viivituse taimer järgmise video esitamise katkestamisel
@@ -498,6 +502,15 @@ Settings:
     Export search history: Ekspordi otsinguajalugu
     All search history has been successfully imported: Kogu otsinguajaloo importimine õnnestus
     All search history has been successfully exported: Kogu otsinguajaloo eksportimine õnnestus
+    Settings File: Seadistuste fail
+    Import Settings: Impordi seadistused
+    Export Settings: Ekspordi seadistused
+    Settings Tooltip: Operatsioonisüsteemi- või kasutajaspetsiifilisi ning katselisi seadistusi ei saa importida ega eksportida (nt. kasutatav proksi, väline meediapleier, ekraanitõmmiste kaust, jne)
+    All settings have been successfully imported: Kõik seadistused on kenasti imporditud
+    All settings have been successfully exported: Kõik seadistused on kenasti eksporditud
+    Setting object has insufficient data, skipping item: Seadistuste objekti andmed on puudulikud ja jäävad vahele
+    Unknown setting key: 'Tundmatu seadistuste võti: {key}'
+    Non-transferable setting key: 'Mitteedastatav seadistuste võti: {key}'
   Distraction Free Settings:
     Hide Active Subscriptions: Peida aktiivsed tellimused
     Hide Live Chat: Peida veebivestlused
@@ -595,6 +608,7 @@ Settings:
     Show Family Friendly Only: Näita ainult peresõbralikku sisu
     Hide Search Bar: Peida otsinguriba
     Hide Uploader on Watch page: Peida üleslaadija videovaate lehelt
+    Disable Channel Links: Lülita kanalite lingid välja
   Experimental Settings:
     Experimental Settings: Katsed
     Warning: Tegemist on katseliste seadistustega ja sisselülitamisel võivad põhjustada rakenduse kokkujooksmist. Kindlasti ära unusta oma andmete varundamist. Jätka omal vastutusel!
@@ -740,6 +754,7 @@ Channel:
   Courses:
     Courses: Kursused
     This channel does not currently have any courses: Sellel kanalil pole hetkel kursuseid
+  View All: Vaata kõiki
 Video:
   Mark As Watched: 'Märgi vaadatuks'
   Remove From History: 'Kustuta ajaloost'
@@ -856,6 +871,7 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Järelejäänud sisueelse reklaami aeg: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Järelejäänud aeg SABR-protokollist loobumiseks: {remindingTimeSeconds}s'
   Popout Live Chat: Vestlus hüpikaknas
+  Private: Privaatseid videoid FreeTube'is vaadata ei saa - nad vajavad sisselogimist Google'i teenusega ja video omandi kinnitust.
 Playlist:
   #& About
   View Full Playlist: 'Näita kogu esitusloendit'
@@ -990,7 +1006,7 @@ Search Bar:
 External link opening has been disabled in the general settings: Väliste linkide avamine on üldistes seadistustes keelatud
 Are you sure you want to open this link?: Oled kindel, et soovid seda linki avada?
 New Window: Uus aken
-Screenshot Error: Kuvatõmmise tegemine ei õnnestunud. {error}
+Screenshot Error: Ekraanitõmmise tegemine ei õnnestunud. {error}
 Channels:
   Channels: Kanalid
   Title: Kanalite loend
@@ -1111,3 +1127,5 @@ KeyboardShortcutPrompt:
 shortcutLabelSeparator: ｜
 Compact side navigation: Näita külgpaani kompaktsena
 Expand side navigation: Näita külgpaani avatuna
+Screenshot Clipboard Success: Ekraanitõmmis on salvestatud lõikelauale
+Screenshot Clipboard Error: Ekraanitõmmise salvestamine lõikelauale ei õnnestunud

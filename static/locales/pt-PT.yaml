@@ -36,23 +36,25 @@ Global:
     Video Count: 1 vídeo | {count} vídeos
     Subscriber Count: 1 subscritor | {count} subscritores
     View Count: 1 visualização | {count} visualizações
-    Watching Count: 1 assistindo | {count} assistindo
+    Watching Count: 1 a ver| {count} a ver
     Channel Count: 1 canal | {count} canais
-    Like Count: 1 curtida | {count} curtidas
+    Like Count: 1 gosto | {count} gostos
     Comment Count: 1 comentários | {count} comentários
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber} está disponível! Clique aqui para mais informações.
 Download From Site: Descarregar do site
 
 # Search Bar
-Search / Go to URL: Pesquisar / ir para o URL
+Search / Go to URL: Pesquisar/Ir para o URL
   # In Filter Button
 Search Filters:
   Search Filters: Filtros de pesquisa
   Prioritize:
     Most Relevant: Mais relevantes
+    Prioritize: Priorizar
+    Popularity: Popularidade
   Time:
     Time: Intervalo de tempo
-    Any Time: Sempre
+    Any Time: Desde sempre
     Today: Hoje
     This Week: Esta semana
     This Month: Este mês
@@ -71,7 +73,7 @@ Search Filters:
     '> 20 minutes': '> 20 minutos'
     '3 - 20 minutes': 3 - 20 minutos
   Search Results: Resultados
-  Fetching results. Please wait: A procurar. Por favor aguarde
+  Fetching results. Please wait: A procurar. Por favor aguarde...
   Fetch more results: Obter mais resultados
   There are no more results for this search: Não existem mais resultados
 # Sidebar
@@ -87,11 +89,11 @@ Search Filters:
     HDR: HDR
     360 Video: Vídeo 360
     VR180: VR180
-  Clear Filters: Limpar Filtros
+  Clear Filters: Limpar filtros
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Subscrições
-  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este perfil contém um elevado número de subscrições. A forçar utilização de RSS para evitar que a sua rede seja bloqueada.
+  This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este perfil contém um grande número de subscrições. A impor RSS para evitar que a sua rede seja bloqueada.
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': A sua lista de subscrições está vazia. Se quiser importar subscrições, pode aceder às definições de dados e selecionar Importar subscrições. Em alternativa, pode procurar os canais e efetuar a subscrição.
   Load More Videos: Carregar mais vídeos
   Error Channels: Canais com erros
@@ -112,7 +114,7 @@ User Playlists:
   Your Playlists: As suas listas de reprodução
   Search bar placeholder: Procurar listas de reprodução
   Empty Search Message: Não há vídeos nesta lista de reprodução que coincidam com a sua pesquisa
-  Are you sure you want to delete this playlist? This cannot be undone: Tem certeza de que pretende eliminar esta lista de reprodução? Isto não pode ser revertido.
+  Are you sure you want to delete this playlist? This cannot be undone: Tem a certeza de que pretende eliminar esta lista de reprodução? Esta ação não pode ser revertida.
   SinglePlaylistView:
     Toast:
       Video has been removed: O vídeo foi removido
@@ -128,26 +130,26 @@ User Playlists:
       There were no videos to remove.: Não existiam vídeos para remover.
       This playlist is protected and cannot be removed.: Esta lista de reprodução está protegida e não pode ser removida.
       This playlist does not exist: Esta lista de reprodução não existe
-      This playlist is now used for quick bookmark: Esta playlist agora está sendo usado como marcador
+      This playlist is now used for quick bookmark: Esta lista de reprodução está agora a ser utilizada para marcador rápido
       Video has been removed. Click here to undo.: O vídeo foi removido. Clique aqui para desfazer.
-      Reverted to use {oldPlaylistName} for quick bookmark: Revertido para utilizar {oldPlaylistName} para o marcador rápido
+      Reverted to use {oldPlaylistName} for quick bookmark: Revertido para {oldPlaylistName} como marcador rápido
       This playlist is already being used for quick bookmark.: Esta lista de reprodução já está a ser usada como marcador rápido.
       This playlist has a video with a duration error: Esta lista de reprodução contém pelo menos um vídeo que não tem uma duração. Será ordenada como se a sua duração fosse zero.
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: A playlist agora é usada como marcador ao invés da {oldPlaylistName}. Clique aqui para desfazer
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Esta lista de reprodução está a ser usada como marcador ao invés da {oldPlaylistName}. Clique aqui para desfazer
     Search for Videos: Procurar vídeos
-  You have no playlists. Click on the create new playlist button to create a new one.: Não tem listas de reprodução. Clique no botão de criar uma nova lista de reprodução para criar uma.
+  You have no playlists. Click on the create new playlist button to create a new one.: Não tem listas de reprodução. Clique no botão para criar uma lista de reprodução.
   Remove from Playlist: Remover da lista de reprodução
   Save Changes: Guardar alterações
   Sort By:
-    LatestCreatedFirst: Data de Criação (Mais Recente)
+    LatestCreatedFirst: Data de criação (Mais recente)
     NameDescending: Z-A
-    LatestUpdatedFirst: Data de Atualização (Mais Recente)
+    LatestUpdatedFirst: Data de atualização (Mais recente)
     NameAscending: A-Z
-    EarliestCreatedFirst: Data de Criação (Mais Antigo)
-    EarliestUpdatedFirst: Data de Atualização (Mais Antigo)
-    LatestPlayedFirst: Data de Reprodução (Mais Recente)
-    EarliestPlayedFirst: Data de Reprodução (Mais Antigo)
-  This playlist currently has no videos.: Esta lista de reprodução não tem vídeos atualmente.
+    EarliestCreatedFirst: Data de criação (Mais antiga)
+    EarliestUpdatedFirst: Data de atualização (Mais antiga)
+    LatestPlayedFirst: Data de reprodução (Mais recente)
+    EarliestPlayedFirst: Data de reprodução (Mais antiga)
+  This playlist currently has no videos.: Esta lista de reprodução não tem vídeos.
   Add to Playlist: Adicionar à lista de reprodução
   Move Video Down: Mover vídeo para baixo
   Playlist Name: Nome da lista de reprodução
@@ -161,7 +163,7 @@ User Playlists:
   Playlist Description: Descrição da lista de reprodução
   AddVideoPrompt:
     Toast:
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Vídeo(s) adicionado(s) a 1 playlist | Vídeo(s) adicionado(s) a {playlistCount} playlists"
       You haven't selected any playlist yet.: Ainda não selecionou uma lista de reprodução.
     Select a playlist to add your N videos to: Selecione uma lista de reprodução à qual adicionar o seu vídeo | Selecione uma lista de reprodução à qual adicionar os seus {videoCount} vídeos
     N playlists selected: '{playlistCount} selecionados'
@@ -179,15 +181,15 @@ User Playlists:
       Playlist {playlistName} has been successfully created.: A lista de reprodução {playlistName} foi criada com sucesso.
       There was an issue with creating the playlist.: Ocorreu um erro ao criar a lista de reprodução.
   Remove from Favorites: Remover de {playlistName}
-  Enable Quick Bookmark With This Playlist: Habilitar marcador para esta playlist
+  Enable Quick Bookmark With This Playlist: Ativar marcador rápido para esta lista de reprodução
   Playlists with Matching Videos: Listas de reprodução coincidentes
   Add to Favorites: Adicionar a {playlistName}
   Quick Bookmark Enabled: Marcador rápido ativado
   Remove Duplicate Videos: Remover duplicados
   Export Playlist: Exportar lista de reprodução
   The playlist has been successfully exported: Lista de reprodução exportada com sucesso
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Tem a certeza de que pretende remover 1 vídeo visualizado desta lista de reprodução? Esta remoção não pode ser revertida. | Tem a certeza de que pretende remover {playlistItemCount} vídeos visualizados desta lista de reprodução? Esta remoção não pode ser revertida.
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Tem a certeza de que pretende remover 1 vídeo duplicado desta lista de reprodução? Esta remoção não pode ser revertida. | Tem a certeza de que pretende remover {playlistItemCount} vídeos duplicados desta lista de reprodução? Esta remoção não pode ser revertida.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Tem a certeza de que pretende remover 1 vídeo visualizado desta lista de reprodução? Esta ação não pode ser revertida. | Tem a certeza de que pretende remover {playlistItemCount} vídeos visualizados desta lista de reprodução? Esta ação não pode ser revertida.
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Tem a certeza de que pretende remover 1 vídeo duplicado desta lista de reprodução? Esta ação não pode ser revertida. | Tem a certeza de que pretende remover {playlistItemCount} vídeos duplicados desta lista de reprodução? Esta ação não pode ser revertida.
   Cannot delete the quick bookmark target playlist.: Não é possível eliminar a lista de reprodução de destino do marcador rápido.
   TotalTimePlaylist: 'Duração total: {duration}'
   Export list of URLs: Exportar lista de URLs
@@ -276,6 +278,7 @@ Settings:
       Everforest Dark Hard: Floresta escura dura
       Everforest Dark Medium: Everforest Dark médio
       Everforest Light Low: Everforest Light baixo
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: Cor principal
       Red: Vermelho
@@ -361,6 +364,8 @@ Settings:
       Everforest Light Green: Verde claro Everforest
       Everforest Light Aqua: Everforest Light Aquático
       Everforest Light Purple: Everforest Púrpura claro
+      Catppuccin Latte Mauve: Catppuccin Latte Mauve
+      Catppuccin Latte Red: Catppuccin Latte Red
     Secondary Color Theme: Cor secundária
         #* Main Color Theme
     Hide Side Bar Labels: Ocultar texto na barra lateral
@@ -401,13 +406,17 @@ Settings:
       Enable: Permitir capturas de ecrã
       Format Label: Formato das capturas de ecrã
       Quality Label: Qualidade da captura de ecrã
-      Ask Path: Perguntar onde guardar
+      Modes:
+        Ask Path: Perguntar onde guardar
+        Save To Folder: Guardar para Pasta
+        Clipboard: Guardar para a Área de Transferência
       Folder Label: Pasta para as capturas de ecrã
       Folder Button: Selecionar pasta
       Error:
         Forbidden Characters: Caracteres proibidos
         Empty File Name: Nome de ficheiro vazio
       File Name Tooltip: 'Pode utilizar estas variáveis: %Y ano com 4 dígitos, %M mês com 2 dígitos, %D dia com 2 dígitos, %H hora com 2 dígitos, %N minuto com 2 dígitos, %S segundos com 2 dígitos, %T milissegundos com 3 dígitos, %s segundos do vídeo, %t milissegundos do vídeo com 3 dígitos, %i ID do vídeo.'
+      Mode: Modo de Captura de Ecrã
     Max Video Playback Rate: Velocidade máxima de reprodução
     Video Playback Rate Interval: Intervalo entre velocidades de reprodução
     Scroll Playback Rate Over Video Player: Alterar velocidade de reprodução com a roda do rato
@@ -536,6 +545,12 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Exportar listas de reprodução para versões mais antigas do FreeTube
       Tooltip: "Esta opção exporta os vídeos de todas as listas de reprodução para uma lista de reprodução chamada \"Favoritos\".\nComo exportar e importar vídeos em listas de reprodução para uma versão mais antiga do FreeTube:\n1. Exporte as suas listas de reprodução com esta opção ativada.\n2. Elimine todas as listas de reprodução existentes usando a opção \"Remover todas as listas de reprodução\" em \"Definições de privacidade\".\n3. Abra a versão mais antiga do FreeTube e importe as listas de reprodução."
+    Search history file: Procurar histórico de ficheiro
+    Search history: Histórico de pesquisa
+    Import search history: Importar histórico de pesquisa
+    Export search history: Exportar histórico de pesquisa
+    All search history has been successfully imported: Todo o histórico de pesquisa foi importado com sucesso
+    All search history has been successfully exported: Todo o histórico de pesquisa foi exportado com sucesso
   Proxy Settings:
     Proxy Settings: Proxy
     Enable Tor / Proxy: Ativar Tor / proxy
@@ -545,7 +560,7 @@ Settings:
     Clicking on Test Proxy will send a request to: Carregar em "Testar proxy" irá enviar um pedido a
     Test Proxy: Testar proxy
     Your Info: A sua informação
-    Ip: IP
+    Ip: Ip
     Country: País
     Region: Região
     City: Cidade
@@ -584,6 +599,7 @@ Settings:
     Hide Unsubscribe Button: Ocultar botão "Cancelar subscrição"
     Show Family Friendly Only: Mostrar apenas "Para famílias"
     Hide Uploader on Watch page: Ocultar Nome do Autor na página de Reprodução de Vídeo
+    Disable Channel Links: Desativar Links de Canal
   Experimental Settings:
     Experimental Settings: Experimentais
     Warning: Estas definições são experimentais e podem provocar falhas se ativadas. É altamente recomendado fazer cópias de segurança. Use por sua conta e risco!
@@ -622,6 +638,9 @@ About:
   Donate: Doar
   Discussions: Discussões
   AGPLv3: AGPLv3
+  Licensed under the {licenseLink}: Licenciado ao abrigo de {licenseLink}
+  Please read the {roomRulesLink}: Por favor leia o {roomRulesLink}
+  FreeTube is made possible by {creditsPageLink}: O FreeTube é possível graças a {creditsPageLink}
 Profile:
   All Channels: Todos os canais
   Profile Manager: Gestor de perfis
@@ -837,6 +856,10 @@ Video:
   DRMProtected: Os vídeos protegidos por DRM não podem ser reproduzidos no FreeTube, uma vez que requerem componentes proprietários e de código fechado. Se quiser ver este vídeo, veja-o no sítio Web oficial do YouTube num navegador Web com DRM.
   Save Watched Progress: Gravar progresso de visualização
   Watched Progress Saved: O Progresso de Visualização foi gravado
+  Popout Live Chat: Colocar o Chat numa Janela
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Tempo restante do anúncio pré-roll: {remindingTimeSeconds}s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tempo restante de espera SABR: {remindingTimeSeconds}s'
 Playlist:
   #& About
   View Full Playlist: Ver lista de reprodução completa
@@ -883,6 +906,7 @@ Share:
   YouTube Channel URL copied to clipboard: URL do canal do YouTube copiado para a área de transferência
 
   Share Channel: Partilhar canal
+  Share Post: Partilhar Publicação
 Mini Player: Mini-reprodutor
 Comments:
   Comments: Comentários
@@ -898,10 +922,13 @@ Comments:
   Show More Replies: Mostrar mais respostas
   Pinned by: Fixado por
   Member: Membro
-  View {replyCount} replies: Ver {replyCount} respostas
+  View {replyCount} replies: Ver 1 resposta | Ver {replyCount} respostas
   Hearted: Favorito
   Subscribed: Subscrito
   There are no comments available for this post: Não existem comentários para esta publicação
+  Hide {replyCount} replies: Esconder 1 resposta | Esconder {replyCount} respostas
+  View 1 reply from {channelName}: Ver 1 resposta de {channelName}
+  View {replyCount} replies from {channelName} and others: Ver {replyCount} respostas de {channelName} e outros
 Up Next: Próximo
 
 #Tooltips
@@ -961,7 +988,7 @@ No: Não
 The playlist has been reversed: A lista de reprodução foi invertida
 Playing Next Video Interval: A reproduzir o vídeo seguinte imediatamente. Clique para cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundo. Clique para cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundos. Clique para cancelar.
 More: Mais
-Unknown YouTube url type, cannot be opened in app: O tipo de URL YouTube é desconhecido e não pode ser aberto na aplicação
+Unknown YouTube url type, cannot be opened in app: O tipo de url do YouTube é desconhecido e não pode ser aberto na aplicação
 Open New Window: Abrir nova janela
 Default Invidious instance has been cleared: A instância Invidious padrão foi removida
 Default Invidious instance has been set to {instance}: A instância Invidious padrão foi definida para {instance}
@@ -969,7 +996,7 @@ External link opening has been disabled in the general settings: A abertura de h
 Search Bar:
   Clear Input: Limpar entrada
   Remove: Remover
-Are you sure you want to open this link?: Tem a certeza de que deseja abrir esta hiperligação?
+Are you sure you want to open this link?: Tem a certeza de que deseja abrir esta ligação?
 New Window: Nova janela
 Channels:
   Channels: Canais
@@ -977,7 +1004,7 @@ Channels:
   Search bar placeholder: Procurar canais
   Count: '{number} canais encontrados.'
   Empty: A lista de canais está vazia.
-  Unsubscribe Prompt: Tem a certeza de que pretende cancelar a subscrição em "{channelName}"?
+  Unsubscribe Prompt: Tem a certeza de que deseja cancelar a subscrição de"{channelName}"?
 Screenshot Success: Captura de ecrã guardada
 Screenshot Error: Erro ao capturar o ecrã. {error}
 Chapters:
@@ -987,7 +1014,7 @@ Preferences: Preferências
 Clipboard:
   Copy failed: Falha ao copiar para a área de transferência
   Cannot access clipboard without a secure connection: Não é possível aceder à área de transferência sem uma conexão segura
-Ok: OK
+Ok: Ok
 Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Esta 'hashtag' não tem quaisquer vídeos
@@ -1090,3 +1117,7 @@ Right-click or hold to see history: Clique com o botão direito do rato ou mante
 Description:
   Expand Description: '...mais'
   Collapse Description: Mostrar menos
+Compact side navigation: Navegação lateral compacta
+Expand side navigation: Expandir navegação lateral
+Screenshot Clipboard Success: Captura de ecrã guardada para a área de transferência
+Screenshot Clipboard Error: Falha ao guardar a captura de ecrã para a área de transferência

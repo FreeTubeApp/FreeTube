@@ -50,6 +50,8 @@ Search Filters:
   Search Filters: 'Filter Pencarian'
   Prioritize:
     Most Relevant: 'Paling Relevan'
+    Prioritize: Prioritaskan
+    Popularity: Popularitas
   Time:
     Time: 'Durasi'
     Any Time: 'Kapan Saja'
@@ -409,10 +411,14 @@ Settings:
       Folder Button: Pilih Folder
       Format Label: Format Tangkapan Layar
       Enable: Aktifkan Tangkapan Layar
-      Ask Path: Tanya Lokasi Penyimpanan
+      Modes:
+        Ask Path: Tanya Lokasi Penyimpanan
+        Save To Folder: Simpan ke Folder
+        Clipboard: Salin ke Papan klip
       Quality Label: Kualitas Tangkapan Layar
       File Name Label: Pola Nama Berkas
       File Name Tooltip: Anda dapat menggunakan variabel di bawah ini. %Y Tahun 4 digit. %M Bulan 2 digit. %D Hari 2 digit. %H Jam 2 digit. %N Menit 2 digit. %S Detik 2 digit. %T Milidetik 3 digit. %s Detik Video. %t Milidetik Video 3 digit. %i ID Video.
+      Mode: Mode Tangkapan Layar
     Enter Fullscreen on Display Rotate: Masuk ke Layar Penuh ketika Perangkat Diputar
     Skip by Scrolling Over Video Player: Lewati dengan Menggulir Di Atas Pemutar Video
     Default Viewing Mode:
@@ -606,6 +612,7 @@ Settings:
     Show Family Friendly Only: Tampilkan Hanya yang Ramah Keluarga
     Hide Search Bar: Sembunyikan Kotak Pencarian
     Hide Uploader on Watch page: Sembunyikan Pengunggah pada Halaman Tontonan
+    Disable Channel Links: Nonaktifkan Tautan Saluran
   Return to Settings Menu: Kembali ke Menu Pengaturan
   Sort Settings Sections (A-Z): Urutkan Bagian Pengaturan (A-Z)
 About:
@@ -855,6 +862,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Waktu iklan pra-putar yang tersisa: {remindingTimeSeconds}detik'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Waktu tunggu SABR yang tersisa: {remindingTimeSeconds}detik'
+  Private: Video pribadi tidak dapat ditonton di FreeTube karena memerlukan login Google dan hak kepemilikan atas video tersebut.
 Playlist:
   #& About
   View Full Playlist: 'Tampilkan Daftar Putar Penuh'
@@ -1111,3 +1119,5 @@ Description:
   Expand Description: '...lanjutan'
 Compact side navigation: Navigasi samping ringkas
 Expand side navigation: Perluas navigasi samping
+Screenshot Clipboard Success: Tangkapan layar telah disimpan ke papan klip
+Screenshot Clipboard Error: Gagal menyalin tangkapan layar ke papan klip

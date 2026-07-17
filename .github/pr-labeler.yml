@@ -5,4 +5,4 @@
 'PR: dependencies':
 - any:
   - changed-files:
-    - any-glob-to-any-file: ['yarn.lock', 'package.json']
+    - any-glob-to-any-file: ['pnpm-lock.yaml', 'package.json']

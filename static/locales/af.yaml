@@ -447,7 +447,8 @@ Settings:
       Enable: 'Aktiveer skermkiekie'
       Format Label: 'Skermkiekieformaat'
       Quality Label: 'Skermkiekiekwaliteit'
-      Ask Path: 'Vra watter vouer om in te bewaar'
+      Modes:
+        Ask Path: 'Vra watter vouer om in te bewaar'
       Folder Label: 'Skermkiekievouer'
       Folder Button: 'Kies vouer'
       File Name Label: 'Lêernaampatroon'

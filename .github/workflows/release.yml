@@ -35,12 +35,15 @@ jobs:
         include:
         - runtime: linux-x64
           os: ubuntu-latest
+          appimage-arch: amd64
 
         - runtime: linux-armv7l
           os: ubuntu-latest
+          appimage-arch: armv7l
 
         - runtime: linux-arm64
           os: ubuntu-latest
+          appimage-arch: arm64
 
         - runtime: osx-x64
           os: macOS-latest
@@ -57,22 +60,26 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+    - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 #v7.0.0
       with:
         persist-credentials: false
 
-    # Do not restore the yarn cache, to avoid cache poisoning affecting releases
+    # Do not restore the pnpm cache, to avoid cache poisoning affecting releases
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f #v6.3.0
+      uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e #v6.4.0
       with:
         node-version: ${{ matrix.node-version }}
         package-manager-cache: false
 
-    - run: yarn run ci
+    - name: Install pnpm
+      uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 #v6.0.9
+      with:
+        version: 10
+        cache: false
+
+    - run: pnpm run ci
       shell: bash
-      env:
-        ELECTRON_SKIP_BINARY_DOWNLOAD: '1'
-    - run: yarn run lint
+    - run: pnpm run lint
       shell: bash
 
     - name: Get Version Number
@@ -91,70 +98,36 @@ jobs:
     - name: Build x64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'x64')
       shell: bash
-      run: yarn run build
+      run: pnpm run build
 
     - name: Build ARMv7l with Node.js ${{ matrix.node-version}}
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
       shell: bash
-      run: yarn run build:arm32
+      run: pnpm run build:arm32
 
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'arm64')
       shell: bash
-      run: yarn run build:arm64
+      run: pnpm run build:arm64
 
-    - name: Convert X64 AppImage to static runtime and add update information
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
+    - name: Add update information to AppImage
+      if: startsWith(matrix.os, 'ubuntu')
       shell: bash
       env:
         VERSION: ${{ steps.getPackageInfo.outputs.version }}
+        APPIMAGE_ARCH: ${{ matrix.appimage-arch }}
       run: |
-        sudo apt install desktop-file-utils
-        cd build
-        appimage="FreeTube-${VERSION}.AppImage"
-        wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
-        chmod +x ./"$appimage" ./appimagetool.AppImage
-        update_information='gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-amd64.AppImage.zsync'
-        ./"$appimage" --appimage-extract && rm -f ./"$appimage"
-        ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
-          -u "$update_information" -n ./squashfs-root ./"$appimage"
-        rm -rf ./squashfs-root ./appimagetool.AppImage
+        update_info="gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-${APPIMAGE_ARCH}.AppImage.zsync"
 
-    - name: Convert ARMv7l AppImage to static runtime and add update information
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      shell: bash
-      env:
-        VERSION: ${{ steps.getPackageInfo.outputs.version }}
-      run: |
-        sudo apt install desktop-file-utils
         cd build
-        appimage="FreeTube-${VERSION}-armv7l.AppImage"
-        wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
-        wget "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" -O runtime
-        chmod +x ./"$appimage" ./appimagetool.AppImage ./runtime
-        update_information='gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-armv7l.AppImage.zsync'
-        TARGET_APPIMAGE="$appimage" ./runtime --appimage-extract && rm -f ./"$appimage"
-        ARCH=armhf ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
-          -u "$update_information" -n ./squashfs-root ./"$appimage"
-        rm -rf ./squashfs-root ./appimagetool.AppImage ./runtime
 
-    - name: Convert ARM64 AppImage to static runtime and add update information
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
-      shell: bash
-      env:
-        VERSION: ${{ steps.getPackageInfo.outputs.version }}
-      run: |
-        sudo apt install desktop-file-utils
-        cd build
-        appimage="FreeTube-${VERSION}-arm64.AppImage"
-        wget "https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage" -O ./appimagetool.AppImage
-        wget "https://github.com/AppImage/type2-runtime/releases/download/continuous/runtime-x86_64" -O runtime
-        chmod +x ./"$appimage" ./appimagetool.AppImage ./runtime
-        update_information='gh-releases-zsync|FreeTubeApp|FreeTube|latest-all|freetube-*-arm64.AppImage.zsync'
-        TARGET_APPIMAGE="$appimage" ./runtime --appimage-extract && rm -f ./"$appimage"
-        ARCH=aarch64 ./appimagetool.AppImage --comp zstd --mksquashfs-opt -Xcompression-level --mksquashfs-opt 20 \
-          -u "$update_information" -n ./squashfs-root ./"$appimage"
-        rm -rf ./squashfs-root ./appimagetool.AppImage ./runtime
+        section_offset_hex="$(objdump --section-headers ./FreeTube-${VERSION}*.AppImage | awk '$2 == ".upd_info" { printf $6 }')"
+
+        script='const fd = fs.openSync(process.argv[3], "r+"); fs.writeSync(fd, process.argv[2], parseInt(process.argv[1], 16)); fs.closeSync(fd)'
+
+        node -e "$script" $section_offset_hex "$update_info" ./FreeTube-${VERSION}*.AppImage
+
+        zsyncmake -u "freetube-${VERSION}-beta-${APPIMAGE_ARCH}.AppImage" ./FreeTube-${VERSION}*.AppImage
 
     - name: Upload Linux .zip x64 Release
       uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2

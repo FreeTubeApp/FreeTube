@@ -95,7 +95,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { useI18n } from '../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
 import FtSelect from './FtSelect/FtSelect.vue'
@@ -225,7 +225,7 @@ function updateSecColor(value) {
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const expandSideBar = computed(() => {
-  return store.getters.getexpandSideBar
+  return store.getters.getExpandSideBar
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */

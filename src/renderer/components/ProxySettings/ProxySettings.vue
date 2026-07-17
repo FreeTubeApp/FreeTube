@@ -52,7 +52,9 @@
           @keydown.enter="testProxy"
         />
       </FtFlexBox>
-      <FtFlexBox>
+      <FtFlexBox
+        v-if="areCredentialsSupported"
+      >
         <FtInput
           :placeholder="$t('Settings.Proxy Settings.Proxy Username')"
           :show-action-button="false"
@@ -112,7 +114,7 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, onBeforeUnmount, ref } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
@@ -200,6 +202,11 @@ const proxyTestUrl = computed(() => {
   }
 
   return proxyTestUrl
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const areCredentialsSupported = computed(() => {
+  return proxyProtocol.value === 'http' || proxyProtocol.value === 'https'
 })
 
 /**

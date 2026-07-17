@@ -34,7 +34,7 @@
   color: var(--tertiary-text-color);
   padding: 0;
   margin: 0;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 :deep(.liveChatEmoji) {

@@ -79,6 +79,10 @@
   grid-template-columns: auto minmax(min-content, 1fr);
 }
 
+.channelShareWrapper > :only-child {
+  grid-column: 1 / -1;
+}
+
 .playlistOptions {
   display: grid;
   grid-auto-flow: column;

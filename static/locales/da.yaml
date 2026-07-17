@@ -399,7 +399,8 @@ Settings:
         Forbidden Characters: Forbudte tegn
         Empty File Name: Tomt filnavn
       File Name Tooltip: Du kan bruge variablerne nedenfor. %Y – år (4 cifre). %M – måned (2 cifre). %D – dag (2 cifre). %H – time (2 cifre). %N – minut (2 cifre). %S – sekund (2 cifre). %T – millisekund (3 cifre). %s – video-sekund. %t – video-millisekund (3 cifre). %i – video-ID.
-      Ask Path: Bed om lagringsmappe
+      Modes:
+        Ask Path: Bed om lagringsmappe
       Folder Label: Skærmbilledmappe
     Next Video Interval: Nedtællingstimer til auto-afspilning
     Max Video Playback Rate: Maks. videoafspilningshastighed

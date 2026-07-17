@@ -60,7 +60,7 @@ import { KeyboardShortcuts } from '../../../constants'
 import { getLocalizedShortcut } from '../../helpers/utils'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import store from '../../store/index'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 import FtIconButton from '../FtIconButton/FtIconButton.vue'
 
 const { t } = useI18n()
@@ -128,7 +128,10 @@ const localizedShortcutNameToShortcutsMappings = computed(() => {
     [t('KeyboardShortcutPrompt.Reset Zoom'), ['RESET_ZOOM']],
     [t('KeyboardShortcutPrompt.Zoom In'), ['ZOOM_IN']],
     [t('KeyboardShortcutPrompt.Zoom Out'), ['ZOOM_OUT']],
-    [t('KeyboardShortcutPrompt.Focus Search'), ['FOCUS_SEARCH']],
+    [t('KeyboardShortcutPrompt.Focus Search'), [
+      'FOCUS_SEARCH',
+      'FOCUS_SEARCH_ALT',
+    ]],
     [t('KeyboardShortcutPrompt.Search in New Window'), ['SEARCH_IN_NEW_WINDOW']],
 
     [t('KeyboardShortcutPrompt.Refresh'), ['REFRESH']],

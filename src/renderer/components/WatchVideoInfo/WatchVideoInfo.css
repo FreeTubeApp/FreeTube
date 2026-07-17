@@ -97,6 +97,10 @@
   gap: 4px;
 }
 
+.initialCursor {
+  cursor: initial;
+}
+
 @media screen and (width <= 730px) {
   .videoButtons {
     flex-direction: column;

@@ -405,7 +405,10 @@ Settings:
     Max Video Playback Rate: En Yüksek Video Oynatma Hızı
     Screenshot:
       Quality Label: Ekran Görüntüsü Kalitesi
-      Ask Path: Kaydedileceği Klasörü Sor
+      Modes:
+        Ask Path: Kaydedileceği Klasörü Sor
+        Save To Folder: Klasöre Kaydet
+        Clipboard: Panoya Kopyala
       Folder Label: Ekran Görüntüsü Klasörü
       File Name Label: Dosya Adı Kalıbı
       Error:
@@ -415,6 +418,7 @@ Settings:
       Enable: Ekran Görüntüsünü Etkinleştir
       Folder Button: Klasör Seç
       File Name Tooltip: Aşağıda değişkenleri kullanabilirsiniz. %Y Yıl 4 basamak. %M Ay 2 basamak. %D Gün 2 basamak. %H Saat 2 basamak. %N Dakika 2 basamak. %S Saniye 2 basamak. %T Milisaniye 3 basamak. %s Video Saniyesi. %t Video Milisaniyesi 3 basamak. %i Video Kimliği.
+      Mode: Ekran Görüntüsü Modu
     Enter Fullscreen on Display Rotate: Ekran Döndürüldüğünde Tam Ekrana Geç
     Skip by Scrolling Over Video Player: Video Oynatıcı Üzerinde Kaydırarak Atla
     Autoplay Interruption Timer: Otomatik Oynatma Durdurma Sayacı
@@ -596,6 +600,7 @@ Settings:
     Hide Unsubscribe Button: Abonelikten Çık Düğmesini Gizle
     Hide Search Bar: Arama Çubuğunu Gizle
     Hide Uploader on Watch page: İzleme sayfasında yükleyiciyi gizle
+    Disable Channel Links: Kanal Bağlantılarını Devre Dışı Bırak
   Experimental Settings:
     Replace HTTP Cache: HTTP Önbelleğini Değiştir
     Warning: Bu ayarlar deneyseldir, etkin durumdayken çökmelere neden olabilirler. Yedekleme yapılması şiddetle tavsiye edilir. Kullanmanız durumunda risk size aittir!
@@ -860,6 +865,7 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Kalan ön reklam süresi: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Kalan SABR bekleme süresi: {remindingTimeSeconds}s'
   Popout Live Chat: Açılır Sohbet
+  Private: Özel videolar, Google ile oturum açma ve videonun sahibi olma gerekliliği nedeniyle FreeTube'da izlenemez.
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'
@@ -1115,3 +1121,5 @@ KeyboardShortcutPrompt:
   Skip to Previous Video: Oynatma listesindeki bir önceki videoya atla
 Compact side navigation: Yan gezinmeyi daralt
 Expand side navigation: Yan gezinmeyi genişlet
+Screenshot Clipboard Success: Ekran görüntüsü panoya kaydedildi
+Screenshot Clipboard Error: Ekran görüntüsü panoya kopyalanamadı

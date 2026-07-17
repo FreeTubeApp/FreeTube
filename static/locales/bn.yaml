@@ -5,17 +5,17 @@ Locale Name: 'বাংলা'
 File: 'ফাইল'
 Quit: 'প্রস্থান'
 Edit: 'সম্পাদনা'
-Undo: 'পূর্বাবস্থায় ফিরো'
-Redo: 'আবার করো'
-Cut: 'কাটো'
+Undo: 'পূর্বাবস্থায় ফিরুন'
+Redo: 'আবার করুন'
+Cut: 'কাটুন'
 Copy: 'অনুলিপি'
-Paste: 'লেপন'
-Delete: 'মুছো'
-Select all: 'সব নির্বাচন করো'
+Paste: 'পেস্ট করুন'
+Delete: 'মুছুন'
+Select all: 'সব নির্বাচন করুন'
 Toggle Developer Tools: 'ডেভেলপার যন্ত্র টগল করো'
 Actual size: 'প্রকৃত আকার'
-Zoom in: 'সম্প্রসারিত করো (জুম)'
-Zoom out: 'সংকুচিত করো(জুম)'
+Zoom in: 'সম্প্রসারিত করুন (জুম)'
+Zoom out: 'সংকুচিত করুন (জুম)'
 Toggle fullscreen: 'পূর্ণ-স্ক্রিন'
 Window: 'উইন্ডো'
 Minimize: 'ক্ষুদ্রকরণ'
@@ -23,16 +23,18 @@ Close: 'বন্ধ'
 Back: 'পিছনে'
 Forward: 'সামনে'
 
-Version {versionNumber} is now available!  Click for more details: 'সংস্করণ {versionNumber} এসে গেছে!  আরো জানতে টিপ দাও'
-Download From Site: 'সাইট থেকে ডাউনলোড করো'
+Version {versionNumber} is now available!  Click for more details: 'সংস্করণ {versionNumber} এসে গেছে!  আরো জানতে ক্লিক করুন'
+Download From Site: 'সাইট থেকে ডাউনলোড করুন'
 
 # Search Bar
-Search / Go to URL: 'অনুসন্ধান / ইউআরএলে যাও'
+Search / Go to URL: 'অনুসন্ধান / ইউআরএলে যান'
   # In Filter Button
 Search Filters:
   Search Filters: 'অনুসন্ধান ছাঁকনি'
   Prioritize:
     Most Relevant: 'সবচেয়ে প্রাসঙ্গিক'
+    Prioritize: গুরুত্ব দিন
+    Popularity: জনপ্রিয়তা
   Time:
     Time: 'সময়'
     Any Time: 'যেকোনো সময়'
@@ -59,6 +61,8 @@ Search Filters:
     Live: সরাসরি
     Location: স্থান
     360 Video: ৩৬০ ভিডিও
+    HD: HD
+    Subtitles: উপশিরোনাম
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'সদস্যতা'
@@ -91,29 +95,33 @@ Channel:
   Videos:
     Videos: ভিডিও
   Playlists: {}
-Video: {}
+Video:
+  Video has been saved: ভিডিও সেভ করা হয়েছে
+  Starting soon, please refresh the page to check again: শীঘ্রই শুরু হতে চলেছে, অনুগ্রহ করে পাতাটি রিফ্রেশ করে আবার দেখুন
+  Unhide Channel: চ্যানেল দেখুন
+  Video has been removed from your history: আপনার ইতিহাস থেকে ভিডিওটি বাদ দেওয়া হয়েছে
 Tooltips: {}
-Open New Window: নতুন জানালা খুলো
-New Window: নতুন জানালা
+Open New Window: নতুন উইন্ডো খুলুন
+New Window: নতুন উইন্ডো
 Search Bar:
-  Clear Input: ইনপুট পরিষ্কার করো
-  Remove: মুছুন
+  Clear Input: ইনপুট পরিষ্কার করুন
+  Remove: বাদ দিন
 Global:
   Videos: ভিডিও
-  Shorts: খাটো
+  Shorts: শর্ট ভিডিও
   Live: লাইভ
   Sort By: 'সাজানোর পদ্ধতি'
   Counts:
     Video Count: ১ ভিডিও |{count}ভিডিও
     Subscriber Count: ১ সাবস্ক্রাইবার |{count}সাবস্ক্রাইবার
-    View Count: ১ দেখা হয়েছে |{count}দর্শন সংখ্যা
-    Watching Count: ১ দেখছি |{count}দেখছেন
+    View Count: ১ বার দেখা হয়েছে |{count} বার দেখা হয়েছে
+    Watching Count: ১ জন দেখছেন |{count} জন দেখছেন
     Channel Count: ১ চ্যানেল |{count}চ্যানেল সমূহ
     Like Count: ১টি পছন্দ | {count} পছন্দ করা হয়েছে
     Comment Count: ১টি মন্তব্য | {count} মন্তব্য করা হয়েছে
   Posts: পোস্ট
 External link opening has been disabled in the general settings: সাধারণ পছন্দসমূহে বহিঃসংযোগ খোলা নিষ্ক্রিয় রাখা হয়েছে
-Are you sure you want to open this link?: তুমি কি এই সংযোগটি খোলার ব্যাপারে নিশ্চিত?
+Are you sure you want to open this link?: আপনি কি এই সংযোগটি খোলার ব্যাপারে নিশ্চিত?
 Preferences: পছন্দসমূহ
 Most Popular: অতিপরিচিত
 Channels:
@@ -170,6 +178,9 @@ Search Listing:
     New: নতুন
     8K: 8K
     4K: 4K
+    VR180: VR180
+    3D: ত্রিমাত্রিক
+    Subtitles: উপশিরোনাম
 Right-click or hold to see history: ইতিহাস দেখতে রাইট-ক্লিক করুন অথবা ধরে রাখুন
 KeyboardShortcutPrompt:
   Toggle Developer Tools: ডেভেলপার যন্ত্র টগল করো
@@ -178,3 +189,5 @@ KeyboardShortcutPrompt:
   Fullscreen: পূর্ণ-স্ক্রিন
 Profile:
   Select All: সব নির্বাচন করো
+Compact side navigation: সংক্ষিপ্ত পার্শ্ব নেভিগেশন
+Expand side navigation: প্রসারিত পার্শ্ব নেভিগেশন

@@ -81,6 +81,7 @@
         :value="defaultViewingMode"
         :select-names="viewingModeNames"
         :select-values="viewingModeValues"
+        :tooltip="t('Settings.Player Settings.Default Viewing Mode.Tooltip')"
         :icon="['fas', 'expand']"
         @change="updateDefaultViewingMode"
       />
@@ -177,6 +178,16 @@
     <div v-if="enableScreenshot">
       <FtFlexBox>
         <FtSelect
+          :placeholder="t('Settings.Player Settings.Screenshot.Mode')"
+          :value="screenshotMode"
+          :select-names="screenshotModeNames"
+          :select-values="screenshotModeValues"
+          :icon="['fas', 'expand']"
+          @change="handleUpdateScreenshotMode"
+        />
+      </FtFlexBox>
+      <FtFlexBox v-if="screenshotMode !== 'clipboard'">
+        <FtSelect
           :placeholder="t('Settings.Player Settings.Screenshot.Format Label')"
           :value="screenshotFormat"
           :select-names="SCREENSHOT_FORMAT_NAMES"
@@ -195,15 +206,8 @@
           @change="updateScreenshotQuality"
         />
       </FtFlexBox>
-      <FtFlexBox v-if="USING_ELECTRON">
-        <FtToggleSwitch
-          :label="t('Settings.Player Settings.Screenshot.Ask Path')"
-          :default-value="screenshotAskPath"
-          @change="updateScreenshotAskPath"
-        />
-      </FtFlexBox>
       <FtFlexBox
-        v-if="USING_ELECTRON && !screenshotAskPath"
+        v-if="USING_ELECTRON && screenshotMode === 'default_folder'"
         class="screenshotFolderContainer"
       >
         <p class="screenshotFolderLabel">
@@ -223,6 +227,7 @@
         />
       </FtFlexBox>
       <FtFlexBox
+        v-if="screenshotMode !== 'clipboard'"
         class="screenshotFolderContainer"
       >
         <p class="screenshotFilenamePatternTitle">
@@ -256,7 +261,7 @@
 
 <script setup>
 import { computed, onMounted, ref } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtSelect from '../FtSelect/FtSelect.vue'
@@ -401,10 +406,12 @@ const viewingModeNames = computed(() => {
     t('Settings.General Settings.Thumbnail Preference.Default'),
     t('Settings.Player Settings.Default Viewing Mode.Theater'),
     t('Video.Player.Full Window'),
+    t('Settings.Player Settings.Default Viewing Mode.Full Window (Always On)'),
 
     ...process.env.IS_ELECTRON
       ? [
           t('Settings.Player Settings.Default Viewing Mode.Full Screen'),
+          t('Settings.Player Settings.Default Viewing Mode.Full Screen (Always On)'),
           t('Settings.Player Settings.Default Viewing Mode.Picture in Picture')
         ]
       : []
@@ -424,9 +431,14 @@ const viewingModeValues = computed(() => {
     'default',
     'theatre',
     'fullwindow',
+    'fullwindow_always_on',
 
     ...process.env.IS_ELECTRON
-      ? ['fullscreen', 'pip']
+      ? [
+          'fullscreen',
+          'fullscreen_always_on',
+          'pip',
+        ]
       : []
   ]
 
@@ -598,6 +610,27 @@ async function handleUpdateScreenshotFormat(format) {
   getScreenshotFilenameExample(screenshotFilenamePattern.value)
 }
 
+const screenshotModeNames = computed(() => [
+  t('Settings.Player Settings.Screenshot.Modes.Ask Path'),
+  ...process.env.IS_ELECTRON ? [t('Settings.Player Settings.Screenshot.Modes.Save To Folder')] : [],
+  t('Settings.Player Settings.Screenshot.Modes.Clipboard'),
+])
+const screenshotModeValues = computed(() => [
+  'prompt_folder',
+  ...process.env.IS_ELECTRON ? ['default_folder'] : [],
+  'clipboard'
+])
+
+/** @type {import('vue').ComputedRef<'prompt_folder' | 'default_folder' | 'clipboard'>} */
+const screenshotMode = computed(() => store.getters.getScreenshotMode)
+
+/**
+ * @param {'prompt_folder' | 'default_folder' | 'clipboard'} mode
+ */
+async function handleUpdateScreenshotMode(mode) {
+  await store.dispatch('updateScreenshotMode', mode)
+}
+
 /** @type {import('vue').ComputedRef<number>} */
 const screenshotQuality = computed(() => store.getters.getScreenshotQuality)
 
@@ -606,16 +639,6 @@ const screenshotQuality = computed(() => store.getters.getScreenshotQuality)
  */
 function updateScreenshotQuality(value) {
   store.dispatch('updateScreenshotQuality', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const screenshotAskPath = computed(() => store.getters.getScreenshotAskPath)
-
-/**
- * @param {boolean} value
- */
-function updateScreenshotAskPath(value) {
-  store.dispatch('updateScreenshotAskPath', value)
 }
 
 /** @type {import('vue').ComputedRef<string>} */

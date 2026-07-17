@@ -41,27 +41,31 @@
         <div
           v-if="!hideUploader"
         >
-          <RouterLink
+          <component
+            :is="enableChannelLinks ? 'RouterLink' : 'div'"
             :to="`/channel/${channelId}`"
           >
             <img
               :src="channelThumbnail"
+              :class="enableChannelLinks ? '' : 'initialCursor'"
               class="channelThumbnail"
               alt=""
             >
-          </RouterLink>
+          </component>
         </div>
         <div>
           <div
             v-if="!hideUploader"
           >
-            <RouterLink
+            <component
+              :is="enableChannelLinks ? 'RouterLink' : 'span'"
               :to="`/channel/${channelId}`"
+              :class="enableChannelLinks ? '' : 'initialCursor'"
               class="channelName"
               dir="auto"
             >
               {{ channelName }}
-            </RouterLink>
+            </component>
           </div>
           <FtSubscribeButton
             v-if="!hideUnsubscribeButton"
@@ -130,7 +134,7 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, onMounted } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 
 import FtCard from '../ft-card/ft-card.vue'
 import FtIconButton from '../FtIconButton/FtIconButton.vue'
@@ -494,6 +498,8 @@ function removeFromQuickBookmarkPlaylist() {
   // TODO: Maybe show playlist name
   showToast(t('Video.Video has been removed from your saved list'))
 }
+
+const enableChannelLinks = computed(() => !store.getters.getDisableChannelLinks)
 </script>
 
 <style scoped src="./WatchVideoInfo.css" />

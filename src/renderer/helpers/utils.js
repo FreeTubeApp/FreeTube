@@ -69,7 +69,6 @@ export function calculatePublishedDate(publishedText, isLive = false, isUpcoming
   }
 
   if (!publishedText) {
-    console.error("publishedText is missing but the video isn't live or upcoming")
     return undefined
   }
 
@@ -161,6 +160,36 @@ export function buildVTTFileLocally(storyboard, videoLengthSeconds) {
   return vttString
 }
 
+/**
+ * @param {{ startSeconds: number, endSeconds: number, title: string }[]} chapters
+ */
+export function buildChaptersVttFile(chapters) {
+  const blocks = ['WEBVTT']
+
+  for (const chapter of chapters) {
+    blocks.push(`\
+${secondsToVttTimestamp(chapter.startSeconds)} --> ${secondsToVttTimestamp(chapter.endSeconds)}
+${chapter.title.trim()}`)
+  }
+
+  return blocks.join('\n\n') + '\n'
+}
+
+/**
+ * @param {number} seconds
+ */
+function secondsToVttTimestamp(seconds) {
+  const formattedHours = Math.trunc(seconds / 3600).toFixed(0).padStart(2, '0')
+  seconds %= 3600
+
+  const formattedMinutes = Math.trunc(seconds / 60).toFixed(0).padStart(2, '0')
+  seconds %= 60
+
+  const formattedSeconds = seconds.toFixed(3).padStart(6, '0')
+
+  return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`
+}
+
 export const ToastEventBus = new EventTarget()
 
 /**
@@ -190,7 +219,7 @@ export function showToast(message, time = null, action = null, abortSignal = nul
  * This writes to the clipboard. If an error occurs during the copy,
  * a toast with the error is shown. If the copy is successful and
  * there is a success message, a toast with that message is shown.
- * @param {string} content the content to be copied to the clipboard
+ * @param {string|Blob} content the content to be copied to the clipboard (text or image Blob)
  * @param {object} [options] - Optional settings for the copy operation.
  * @param {null|string} options.messageOnSuccess the message to be displayed as a toast when the copy succeeds (optional)
  * @param {null|string} options.messageOnError the message to be displayed as a toast when the copy fails (optional)
@@ -198,12 +227,25 @@ export function showToast(message, time = null, action = null, abortSignal = nul
 export async function copyToClipboard(content, { messageOnSuccess = null, messageOnError = null } = {}) {
   if (navigator.clipboard !== undefined && window.isSecureContext) {
     try {
-      await navigator.clipboard.writeText(content)
+      if (content instanceof Blob) {
+        await navigator.clipboard.write([
+          new ClipboardItem({
+            [content.type]: content
+          })
+        ])
+      } else {
+        await navigator.clipboard.writeText(content)
+      }
+
       if (messageOnSuccess !== null) {
         showToast(messageOnSuccess)
       }
     } catch (error) {
-      console.error(`Failed to copy ${content} to clipboard`, error)
+      if (content instanceof Blob) {
+        console.error(`Failed to data of type "${content.type}" to clipboard`, error)
+      } else {
+        console.error(`Failed to copy ${content} to clipboard`, error)
+      }
       if (messageOnError !== null) {
         showToast(`${messageOnError}: ${error}`, 5000)
       } else {
@@ -706,7 +748,7 @@ export function toDistractionFreeTitle(title, minUpperCase = 3) {
  * @returns {string}
  */
 export function formatNumber(number, options = undefined) {
-  return Intl.NumberFormat([i18n.global.locale, 'en'], options).format(number)
+  return Intl.NumberFormat([i18n.global.locale.value, 'en'], options).format(number)
 }
 
 export function getTodayDateStrLocalTimezone() {
@@ -779,7 +821,7 @@ export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayM
 
   // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
   // Notice that the value is turned to negative to be displayed as "ago"
-  return new Intl.RelativeTimeFormat([i18n.global.locale, 'en']).format(Math.ceil(-timeDiffFromNow), timeUnit)
+  return new Intl.RelativeTimeFormat([i18n.global.locale.value, 'en']).format(Math.ceil(-timeDiffFromNow), timeUnit)
 }
 
 /**

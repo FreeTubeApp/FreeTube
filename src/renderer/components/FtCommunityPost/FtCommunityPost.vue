@@ -10,7 +10,8 @@
       <template
         v-if="authorThumbnail"
       >
-        <router-link
+        <component
+          :is="enableChannelLinks ? 'router-link' : 'div'"
           v-if="authorId"
           :to="`/channel/${authorId}`"
           tabindex="-1"
@@ -21,7 +22,7 @@
             class="communityThumbnail"
             alt=""
           >
-        </router-link>
+        </component>
         <img
           v-else
           :src="authorThumbnail"
@@ -34,7 +35,7 @@
         dir="auto"
       >
         <router-link
-          v-if="authorId"
+          v-if="authorId && enableChannelLinks"
           :to="`/channel/${authorId}`"
           class="authorNameLink"
         >
@@ -60,7 +61,7 @@
     <swiper-container
       v-if="postType === 'multiImage' && postContent.content.length > 0"
       ref="swiperContainerRef"
-      init="false"
+      :init="false"
       class="sliderContainer"
     >
       <swiper-slide
@@ -174,7 +175,7 @@ import autolinker from 'autolinker'
 import { A11y, Navigation, Pagination } from 'swiper/modules'
 import { computed, onMounted, useTemplateRef } from 'vue'
 
-import FtListVideo from '../ft-list-video/ft-list-video.vue'
+import FtListVideo from '../FtListVideo/FtListVideo.vue'
 import FtListPlaylist from '../FtListPlaylist/FtListPlaylist.vue'
 import FtCommunityPoll from '../FtCommunityPoll/FtCommunityPoll.vue'
 import FtShareButton from '../FtShareButton/FtShareButton.vue'
@@ -337,6 +338,8 @@ if (postType === 'multiImage' && postContent.content.length > 0) {
     swiperContainerRef.value.initialize()
   })
 }
+
+const enableChannelLinks = computed(() => !store.getters.getDisableChannelLinks)
 </script>
 
 <style scoped src="./FtCommunityPost.scss" lang="scss" />

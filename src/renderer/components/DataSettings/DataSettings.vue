@@ -65,6 +65,24 @@
         @click="showExportSearchHistoryPrompt = true"
       />
     </FtFlexBox>
+    <h4 class="groupTitle">
+      {{ t('Settings.Settings') }}
+      <FtTooltip
+        class="selectTooltip"
+        position="top"
+        :tooltip="t('Settings.Data Settings.Settings Tooltip')"
+      />
+    </h4>
+    <FtFlexBox class="box">
+      <FtButton
+        :label="t('Settings.Data Settings.Import Settings')"
+        @click="importSettings"
+      />
+      <FtButton
+        :label="t('Settings.Data Settings.Export Settings')"
+        @click="exportSettings"
+      />
+    </FtFlexBox>
     <FtPrompt
       v-if="showExportSubscriptionsPrompt"
       :label="$t('Settings.Data Settings.Select Export Type')"
@@ -91,15 +109,17 @@
 
 <script setup>
 import { computed, ref } from 'vue'
-import { useI18n } from '../../composables/use-i18n-polyfill'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
 import FtButton from '../FtButton/FtButton.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
+import FtTooltip from '../FtTooltip/FtTooltip.vue'
 
 import store from '../../store/index'
+import { defaultUpdaterId, NON_TRANSFERABLE_SETTINGS } from '../../store/modules/settings'
 
 import { MAIN_PROFILE_ID } from '../../../constants'
 import { calculateColorLuminance, getRandomColor } from '../../helpers/colors'
@@ -818,7 +838,6 @@ async function importFreeTubeWatchHistory(textDecode) {
   const requiredKeys = [
     'author',
     'authorId',
-    'description',
     'isLive',
     'lengthSeconds',
     'published',
@@ -836,6 +855,7 @@ async function importFreeTubeWatchHistory(textDecode) {
     'lastViewedPlaylistItemId',
     'lastViewedPlaylistType',
     'viewCount',
+    'description',
   ]
 
   const ignoredKeys = [
@@ -868,6 +888,9 @@ async function importFreeTubeWatchHistory(textDecode) {
       showToast(t('Settings.Data Settings.History object has insufficient data, skipping item'))
       console.error('Missing Keys: ', missingKeys, historyData)
     } else {
+      // FreeTube history export does not have this data if the video was marked as watched manually, setting default value
+      historyObject.description = historyObject.description ?? ''
+
       historyItems.set(historyObject.videoId, historyObject)
     }
   })
@@ -892,17 +915,21 @@ async function importYouTubeWatchHistory(historyData) {
   // remove 'Watched' and translated variants from start of title
   // so we get the common string prefix for all the titles
   const getCommonStart = (allTitles) => {
-    const watchedTitle = allTitles[0].split(' ')
-    allTitles.forEach((title) => {
-      const splitTitle = title.split(' ')
-      for (let wtIndex = 0; wtIndex <= watchedTitle.length; wtIndex++) {
-        if (!splitTitle.includes(watchedTitle[wtIndex])) {
-          watchedTitle.splice(wtIndex, watchedTitle.length - wtIndex)
+    if (allTitles.length < 2) {
+      return ''
+    }
+
+    let commonStart = allTitles[0]
+    for (let i = 1; i < allTitles.length; i++) {
+      while (!allTitles[i].startsWith(commonStart)) {
+        commonStart = commonStart.slice(0, -1)
+        if (commonStart === '') {
+          return ''
         }
       }
-    })
+    }
 
-    return watchedTitle.join(' ')
+    return commonStart
   }
 
   const commonStart = getCommonStart(filteredHistoryData.map(e => e.title))
@@ -1196,7 +1223,7 @@ async function importPlaylists() {
       shouldAddDuplicateVideos = existingPlaylist.videos.length > existingVideoIdSet.size
     }
 
-    const playlistVideos = [...existingPlaylist.videos]
+    const playlistVideos = deepCopy(existingPlaylist.videos)
 
     playlistObject.videos.forEach((video) => {
       let videoExists = false
@@ -1458,6 +1485,81 @@ async function exportYouTubeSearchHistory() {
 }
 
 // #endregion search history
+
+// #region settings
+
+async function importSettings() {
+  let response
+  try {
+    response = await readFileWithPicker(
+      t('Settings.Data Settings.Settings File'),
+      {
+        'application/x-freetube-db': '.db',
+        'application/json': '.json'
+      },
+      IMPORT_DIRECTORY_ID,
+      START_IN_DIRECTORY
+    )
+  } catch (err) {
+    const message = t('Settings.Data Settings.Unable to read file')
+    showToast(`${message}: ${err}`)
+    return
+  }
+
+  if (response === null) {
+    return
+  }
+
+  const textDecode = response.content.split('\n')
+  textDecode.pop()
+
+  const currentSettings = store.state.settings
+
+  textDecode.forEach((rawEntry) => {
+    const entry = JSON.parse(rawEntry)
+    if (typeof entry._id !== 'string' || !Object.hasOwn(entry, 'value')) {
+      showToast(t('Settings.Data Settings.Setting object has insufficient data, skipping item'))
+      console.error('Missing keys:', entry)
+    } else if (!Object.hasOwn(currentSettings, entry._id)) {
+      const message = t('Settings.Data Settings.Unknown setting key', { key: entry._id })
+      showToast(message)
+    } else if (NON_TRANSFERABLE_SETTINGS.has(entry._id)) {
+      const message = t('Settings.Data Settings.Non-transferable setting key', { key: entry._id })
+      showToast(message)
+    } else {
+      const currentValue = currentSettings[entry._id]
+      const areValuesEqual = currentValue === entry.value ||
+        (typeof entry.value === 'object' && JSON.stringify(currentValue) === JSON.stringify(entry.value))
+      if (!areValuesEqual) {
+        const updaterId = defaultUpdaterId(entry._id)
+        store.dispatch(updaterId, entry.value)
+      }
+    }
+  })
+
+  showToast(t('Settings.Data Settings.All settings have been successfully imported'))
+}
+
+async function exportSettings() {
+  const settingDb = Object.entries(store.state.settings)
+    .filter(([_id]) => !NON_TRANSFERABLE_SETTINGS.has(_id))
+    .map(([_id, value]) => JSON.stringify({ _id, value }))
+    .join('\n') + '\n'
+  const dateStr = getTodayDateStrLocalTimezone()
+  const exportFileName = 'freetube-settings-' + dateStr + '.db'
+
+  await promptAndWriteToFile(
+    exportFileName,
+    settingDb,
+    t('Settings.Data Settings.Settings File'),
+    'application/x-freetube-db',
+    '.db',
+    t('Settings.Data Settings.All settings have been successfully exported')
+  )
+}
+
+// #endregion settings
+
 </script>
 
 <style scoped src="./DataSettings.css" />

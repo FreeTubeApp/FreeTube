@@ -400,7 +400,10 @@ Settings:
     Screenshot:
       Format Label: 截屏格式
       Quality Label: 截屏质量
-      Ask Path: 询问保存文件夹
+      Modes:
+        Ask Path: 询问保存文件夹
+        Save To Folder: 保存到文件夹
+        Clipboard: 复制到剪贴板
       File Name Label: 文件名模式
       Error:
         Forbidden Characters: 禁止的字符
@@ -409,6 +412,7 @@ Settings:
       File Name Tooltip: 你可以使用下面的变量。 %Y 年份 4 位数。 %M 月份 2 位数。 %D 天 2 位数。 %H 小时 2 位数。 %N 分钟 2 位数。 %S 秒 2 位数。 %T 毫秒 3 位数。 %s 视频秒。 %t 视频毫秒 3 位数。 %i 视频 ID。
       Enable: 启用截屏图标
       Folder Label: 截屏文件夹
+      Mode: 截屏模式
     Enter Fullscreen on Display Rotate: 屏幕旋转时进入全屏
     Skip by Scrolling Over Video Player: 从视频播放器一侧滚动到另一侧来跳过视频
     Autoplay Interruption Timer: 自动播放中断计时器
@@ -590,6 +594,7 @@ Settings:
     Hide Search Bar: 隐藏搜索栏
     Hide Unsubscribe Button: 隐藏“取消订阅”按钮
     Hide Uploader on Watch page: 在观看页面隐藏上传者
+    Disable Channel Links: 禁用频道链接
   Experimental Settings:
     Experimental Settings: 实验性
     Warning: 这些设置是实验性的，启用可能导致崩溃。强烈建议进行备份。使用风险自负！
@@ -813,6 +818,7 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 剩余的预滚动广告时间:：{remindingTimeSeconds} 秒
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 剩余 SABR 后退时间：{remindingTimeSeconds} 秒
   Popout Live Chat: 弹出式聊天
+  Private: 无法在 FreeTube 中观看私密视频，因它们需要 Google 登录和视频所有权。
 Playlist:
   #& About
   View Full Playlist: '查看完整播放列表'
@@ -942,7 +948,7 @@ Profile:
   Edit Profile Name: 编辑配置文件名
   Create Profile Name: 创建配置文件名
 The playlist has been reversed: 播放列表已反转
-Download From Site: 从网站下载 单击查看更多
+Download From Site: 从网站下载
 Version {versionNumber} is now available!  Click for more details: 版本{versionNumber}已可使用！  点击以取得更多信息
 This video is unavailable because of missing formats. This can happen due to country unavailability.: 没有这个视频因为缺少格式。这个可能发生由于国家不可用。
 Tooltips:
@@ -1112,3 +1118,5 @@ KeyboardShortcutPrompt:
 shortcutLabelSeparator: ｜
 Compact side navigation: 紧凑侧边栏导航
 Expand side navigation: 扩展侧边栏导航
+Screenshot Clipboard Success: 已保存截屏到剪贴板
+Screenshot Clipboard Error: 复制截屏到剪贴板失败

@@ -462,7 +462,8 @@ Settings:
       Enable: 'ச்கிரீன்சாட்டை இயக்கவும்'
       Format Label: 'திரைக்காட்சி வடிவம்'
       Quality Label: 'திரைக்காட்சி தகுதி'
-      Ask Path: 'சேமி கோப்புறையைக் கேளுங்கள்'
+      Modes:
+        Ask Path: 'சேமி கோப்புறையைக் கேளுங்கள்'
       Folder Label: 'திரைக்காட்சி கோப்புறை'
       Folder Button: 'கோப்புறையைத் தேர்ந்தெடு'
       File Name Label: 'கோப்பு பெயர் முறை'

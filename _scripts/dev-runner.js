@@ -3,7 +3,7 @@ process.env.NODE_ENV = 'development'
 const electron = require('electron')
 const webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
-const kill = require('tree-kill')
+const kill = require('@magda/tree-kill')
 
 const path = require('path')
 const { spawn } = require('child_process')
@@ -168,11 +168,6 @@ function startRenderer(callback) {
   const compiler = webpack(rendererConfig)
   const { name } = compiler
 
-  compiler.hooks.afterEmit.tap('afterEmit', () => {
-    console.log(`\nCompiled ${name} script!`)
-    console.log(`\nWatching file changes for ${name} script...`)
-  })
-
   const server = new WebpackDevServer({
     client: {
       overlay: {
@@ -185,7 +180,7 @@ function startRenderer(callback) {
         watch: {
           ignored: [
             /(dashFiles|storyboards)\/*/,
-            '/**/.DS_Store',
+            '**/.DS_Store',
             '**/static/locales/*'
           ]
         },
@@ -201,25 +196,33 @@ function startRenderer(callback) {
       }
     ],
     port
-  }, compiler)
+  })
 
-  server.startCallback(err => {
+  server.apply(compiler)
+
+  setupNotifyLocaleUpdate(compiler, server)
+
+  let firstTime = true
+
+  compiler.watch({ aggregateTimeout: 250 }, (err, result) => {
     if (err) console.error(err)
 
-    setupNotifyLocaleUpdate(compiler, server)
+    if (result) {
+      console.log('\n' + result.toString({ colors: true }))
+    }
 
-    callback()
+    console.log(`\nCompiled ${name} script!\n\nWatching file changes for ${name} script...`)
+
+    if (firstTime) {
+      firstTime = false
+      callback()
+    }
   })
 }
 
 function startWeb () {
   const compiler = webpack(webConfig)
   const { name } = compiler
-
-  compiler.hooks.afterEmit.tap('afterEmit', () => {
-    console.log(`\nCompiled ${name} script!`)
-    console.log(`\nWatching file changes for ${name} script...`)
-  })
 
   const server = new WebpackDevServer({
     open: true,
@@ -228,18 +231,26 @@ function startWeb () {
       watch: {
         ignored: [
           /(dashFiles|storyboards)\/*/,
-          '/**/.DS_Store',
+          '**/.DS_Store',
           '**/static/locales/*'
         ]
       }
     },
     port
-  }, compiler)
+  })
 
-  server.startCallback(err => {
+  server.apply(compiler)
+
+  setupNotifyLocaleUpdate(compiler, server)
+
+  compiler.watch({ aggregateTimeout: 250 }, (err, result) => {
     if (err) console.error(err)
 
-    setupNotifyLocaleUpdate(compiler, server)
+    if (result) {
+      console.log('\n' + result.toString({ colors: true }))
+    }
+
+    console.log(`\nCompiled ${name} script!\n\nWatching file changes for ${name} script...`)
   })
 }
 if (!web) {
