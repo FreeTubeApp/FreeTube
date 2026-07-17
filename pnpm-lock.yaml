@@ -42,8 +42,8 @@ importers:
         specifier: ^4.1.2
         version: 4.1.2
       googlevideo:
-        specifier: ^4.0.4
-        version: 4.0.4
+        specifier: ^4.1.1
+        version: 4.1.1
       marked:
         specifier: ^18.0.6
         version: 18.0.6
@@ -717,6 +717,9 @@ packages:
 
   '@bufbuild/protobuf@2.1.0':
     resolution: {integrity: sha512-+2Mx67Y3skJ4NCD/qNSdBJNWtu6x6Qr53jeNg+QcwiL6mt0wK+3jwHH2x1p7xaYH6Ve2JKOVn0OxU35WsmqI9A==}
+
+  '@bufbuild/protobuf@2.12.1':
+    resolution: {integrity: sha512-BvAMfS6LrgZiryOAZ4pBYucu4wG/Ei/9o9DZ9akbREnMLbPJiom2i8b9C8IsKErQoiKqVhrerzt3kOT/RrzLHg==}
 
   '@cacheable/memory@2.2.0':
     resolution: {integrity: sha512-CTLKqLItRCEixEAewD3/j9DB3/o96gpTPD4eJ1v+DGOlxZRZncRQkGYqqnAGCscYd6RNeXfGeiuCphsPtqyIfQ==}
@@ -2959,8 +2962,8 @@ packages:
   globrex@0.1.2:
     resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
 
-  googlevideo@4.0.4:
-    resolution: {integrity: sha512-S/rfuoPBI+qXCEUPJeVhXsHoISMgVhOz8hHSpGWa0OztfHhh+g9EKaEcqAb/+ttO7meoNQNqIy9dfIpz7HPc4g==}
+  googlevideo@4.1.1:
+    resolution: {integrity: sha512-14o64O+CXXlQ1stYZK/+ypCEwZb25lzEuzhbFYYEzf26R+HhBDOR+Dkdk7MKkZ3qXeIjvZfeC0AJlVKjwQCFjw==}
 
   gopd@1.2.0:
     resolution: {integrity: sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg==}
@@ -5771,6 +5774,8 @@ snapshots:
 
   '@bufbuild/protobuf@2.1.0': {}
 
+  '@bufbuild/protobuf@2.12.1': {}
+
   '@cacheable/memory@2.2.0':
     dependencies:
       '@cacheable/utils': 2.5.0
@@ -8336,9 +8341,9 @@ snapshots:
 
   globrex@0.1.2: {}
 
-  googlevideo@4.0.4:
+  googlevideo@4.1.1:
     dependencies:
-      '@bufbuild/protobuf': 2.1.0
+      '@bufbuild/protobuf': 2.12.1
 
   gopd@1.2.0: {}
 
