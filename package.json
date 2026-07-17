@@ -60,7 +60,7 @@
     "bgutils-js": "^3.2.0",
     "dompurify": "^3.4.11",
     "electron-context-menu": "^4.1.2",
-    "googlevideo": "^4.0.4",
+    "googlevideo": "^4.1.1",
     "marked": "^18.0.6",
     "process": "^0.11.10",
     "shaka-player": "^5.1.12",
