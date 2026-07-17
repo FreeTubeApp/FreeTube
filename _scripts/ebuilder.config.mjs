@@ -96,7 +96,12 @@ export default {
       NSBluetoothPeripheralUsageDescription: undefined,
       NSCameraUsageDescription: undefined,
       NSMicrophoneUsageDescription: undefined,
-    }
+    },
+
+    // Enable ad-hoc signing
+    // If we skip signing entirely, macOS says that the application is damaged, which makes users open bug reports.
+    // With an ad-hoc signature it still refuses to launch by default but with the reason that it cannot verify the signature
+    identity: '-'
   },
   win: {
     icon: '_icons/icon.ico',
