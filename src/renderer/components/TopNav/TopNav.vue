@@ -140,6 +140,8 @@ const { t } = useI18n()
 const router = useRouter()
 const route = useRoute()
 
+const emit = defineEmits(['search-query-update'])
+
 const showSearchContainer = ref(true)
 /** @type {import('vue').ShallowRef<string[]>} */
 const navigationHistoryDropdownOptions = shallowRef([])
@@ -363,6 +365,9 @@ function toggleSideNav() {
 const searchFilterValueChanged = computed(() => store.getters.getSearchFilterValueChanged)
 
 function showSearchFilters() {
+  // Emit the current search query text so that the search filters modal
+  // can trigger a search with the selected filters when the "Search" button is clicked
+  emit('search-query-update', searchInput.value?.getText?.() ?? '')
   store.dispatch('showSearchFilters')
 }
 
