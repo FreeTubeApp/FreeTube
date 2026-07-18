@@ -11,6 +11,7 @@
   >
     <TopNav
       :inert="isAnyPromptOpen"
+      @search-query-update="handleSearchQueryUpdate"
     />
     <SideNav
       :inert="isAnyPromptOpen"
@@ -87,6 +88,7 @@
     />
     <FtSearchFilters
       v-if="showSearchFilters"
+      :search-query="currentSearchQuery"
     />
     <FtKeyboardShortcutPrompt
       v-if="isKeyboardShortcutPromptShown"
@@ -146,6 +148,16 @@ const isAnyPromptOpen = computed(() => store.getters.isAnyPromptOpen)
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const showSearchFilters = computed(() => store.getters.getShowSearchFilters)
+
+/** @type {import('vue').Ref<string>} */
+const currentSearchQuery = ref('')
+
+/**
+ * @param {string} query
+ */
+function handleSearchQueryUpdate(query) {
+  currentSearchQuery.value = query
+}
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const isKeyboardShortcutPromptShown = computed(() => store.getters.getIsKeyboardShortcutPromptShown)
