@@ -69,6 +69,10 @@
         text-color="null"
         @click="hideSearchFilters"
       />
+      <FtButton
+        :label="$t('Search Filters.Search')"
+        @click="searchWithFilters"
+      />
     </div>
   </FtPrompt>
 </template>
@@ -84,8 +88,16 @@ import FtButton from '../FtButton/FtButton.vue'
 import FtCheckboxList from '../FtCheckboxList/FtCheckboxList.vue'
 
 import store from '../../store/index'
+import { openInternalPath } from '../../helpers/utils'
 
 const { t } = useI18n()
+
+const props = defineProps({
+  searchQuery: {
+    type: String,
+    default: ''
+  }
+})
 
 const PRIORITIZE_VALUES = [
   'relevance',
@@ -257,6 +269,34 @@ watch(searchFilterValueChanged, (value) => {
 
 function hideSearchFilters() {
   store.dispatch('hideSearchFilters')
+}
+
+/**
+ * Triggers a search with the current filter values and the search query
+ * that was in the search bar when the filters modal was opened.
+ * @param {MouseEvent} [event]
+ */
+function searchWithFilters(event) {
+  const doCreateNewWindow = event && event.shiftKey
+
+  store.dispatch('hideSearchFilters')
+
+  if (!props.searchQuery || props.searchQuery.trim() === '') {
+    return
+  }
+
+  openInternalPath({
+    path: `/search/${encodeURIComponent(props.searchQuery)}`,
+    query: {
+      prioritize: prioritizeValue.value,
+      time: timeValue.value,
+      type: typeValue.value,
+      duration: durationValue.value,
+      features: [...featuresValue.value],
+    },
+    doCreateNewWindow,
+    searchQueryText: props.searchQuery,
+  })
 }
 
 /**
