@@ -512,6 +512,10 @@ defineExpose({
     inputData.value = text
   },
 
+  getText: () => {
+    return inputData.value
+  },
+
   clear: () => {
     handleClearTextClick()
   }
