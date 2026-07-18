@@ -42,8 +42,11 @@ defineProps({
 
 const emit = defineEmits(['click'])
 
-function click() {
-  emit('click')
+/**
+ * @param {MouseEvent} event
+ */
+function click(event) {
+  emit('click', event)
 }
 </script>
 
