@@ -164,7 +164,16 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'move-video-to-the-top', 'move-video-to-the-bottom', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
+const emit = defineEmits([
+  'move-dragged-video',
+  'move-video-down',
+  'move-video-up',
+  'move-video-to-the-top',
+  'move-video-to-the-bottom',
+  'remove-from-playlist',
+  'drag-video',
+  'drag-video-end'
+])
 
 const inUserPlaylist = props.playlistType === 'user'
 const isDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom && (props.canMoveVideoUp || props.canMoveVideoDown))

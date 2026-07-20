@@ -801,7 +801,7 @@ function moveVideoToTheTop(videoId, playlistItemId) {
   }
 
   if (index === 0) {
-    showToast(t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved to the top."]'))
+    showToast(t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved up."]'))
     return
   }
 
@@ -842,7 +842,7 @@ function moveVideoToTheBottom(videoId, playlistItemId) {
   }
 
   if (index === playlistItems_.length - 1) {
-    showToast(t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved to the bottom."]'))
+    showToast(t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved down."]'))
     return
   }
 

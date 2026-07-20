@@ -160,7 +160,14 @@ function onVisibilityChanged(isVisible) {
   }
 }
 
-const emit = defineEmits(['pause-player', 'move-video-up', 'move-video-down', 'move-video-to-the-top', 'move-video-to-the-bottom', 'remove-from-playlist'])
+const emit = defineEmits([
+  'pause-player',
+  'move-video-up',
+  'move-video-down',
+  'move-video-to-the-top',
+  'move-video-to-the-bottom',
+  'remove-from-playlist'
+])
 
 function pausePlayer() {
   emit('pause-player')

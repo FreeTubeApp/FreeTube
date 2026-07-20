@@ -373,7 +373,14 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['move-video-down', 'move-video-up', 'move-video-to-the-top', 'move-video-to-the-bottom', 'pause-player', 'remove-from-playlist'])
+const emit = defineEmits([
+  'move-video-down',
+  'move-video-up',
+  'move-video-to-the-top',
+  'move-video-to-the-bottom',
+  'pause-player',
+  'remove-from-playlist'
+])
 
 const { locale, t } = useI18n()
 const route = useRoute()
@@ -488,22 +495,24 @@ const dropdownOptions = computed(() => {
       value: 'history'
     },
   ]
-  if (inUserPlaylist.value && (props.canMoveVideoUp || props.canMoveVideoDown)) {
-    options.push({
-      type: 'divider'
-    })
-  }
-  if (props.canMoveVideoUp && inUserPlaylist.value) {
-    options.push({
-      label: t('User Playlists.Move Video to the Top'),
-      value: 'moveVideoTop'
-    })
-  }
-  if (props.canMoveVideoDown && inUserPlaylist.value) {
-    options.push({
-      label: t('User Playlists.Move Video to the Bottom'),
-      value: 'moveVideoBottom'
-    })
+  if (inUserPlaylist.value) {
+    if (props.canMoveVideoUp || props.canMoveVideoDown) {
+      options.push({
+        type: 'divider'
+      })
+    }
+    if (props.canMoveVideoUp) {
+      options.push({
+        label: t('User Playlists.Move Video to the Top'),
+        value: 'moveVideoTop'
+      })
+    }
+    if (props.canMoveVideoDown) {
+      options.push({
+        label: t('User Playlists.Move Video to the Bottom'),
+        value: 'moveVideoBottom'
+      })
+    }
   }
   if (!hideSharingActions.value) {
     options.push(
