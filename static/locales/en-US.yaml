@@ -1085,7 +1085,8 @@ Tooltips:
       method for grabbing your subscription feed. RSS is faster and prevents IP blocking,
       but doesn't provide certain information like video duration, live status or posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch
-      your subscription feed on startup and when a new window is opened.
+      your subscription feed on startup, when a new window is opened, and the
+      first time each profile is viewed in a session.
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
   SponsorBlock Settings:
