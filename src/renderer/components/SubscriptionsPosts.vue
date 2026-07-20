@@ -141,10 +141,20 @@ function loadPostsFromCacheSometimes() {
 
   // Check if this profile needs to be auto-fetched for the first time
   if (fetchSubscriptionsAutomatically.value && !store.getters.getSubscriptionForPostsFirstAutoFetchRun) {
-    // `isLoading.value = false` is called inside `loadPostsForSubscriptionsFromRemote` when needed
     alreadyLoadedRemotely = true
-    loadPostsForSubscriptionsFromRemote()
     store.commit('setSubscriptionForPostsFirstAutoFetchRun', activeProfileId.value)
+
+    const postsCache = store.getters.getPostsCache
+    const channelsMissingFromCache = activeSubscriptionList.value.filter((channel) => postsCache[channel.id] == null)
+
+    if (channelsMissingFromCache.length === 0) {
+      // Every channel already has a cache entry from another profile this session, nothing to fetch
+      loadPostsFromCacheForAllActiveProfileChannels()
+      return
+    }
+
+    // `isLoading.value = false` is called inside `loadPostsForSubscriptionsFromRemote` when needed
+    loadPostsForSubscriptionsFromRemote(channelsMissingFromCache)
     return
   }
 
@@ -178,14 +188,13 @@ function loadPostsFromCacheForAllActiveProfileChannels() {
   isLoading.value = false
 }
 
-async function loadPostsForSubscriptionsFromRemote() {
+async function loadPostsForSubscriptionsFromRemote(channelsToLoadFromRemote = activeSubscriptionList.value) {
   if (activeSubscriptionList.value.length === 0) {
     isLoading.value = false
     postList.value = []
     return
   }
 
-  const channelsToLoadFromRemote = activeSubscriptionList.value
   let channelCount = 0
   isLoading.value = true
 
@@ -238,11 +247,22 @@ async function loadPostsForSubscriptionsFromRemote() {
     return posts
   }))).flat()
 
-  postListFromRemote.sort((a, b) => {
+  // When only fetching the channels missing from the session cache (e.g. on profile switch),
+  // merge in the already-cached posts for the channels that weren't just fetched
+  const postsCache = store.getters.getPostsCache
+  const fetchedChannelIds = new Set(channelsToLoadFromRemote.map((channel) => channel.id))
+  const cachedPostsForUnfetchedChannels = activeSubscriptionList.value
+    .filter((channel) => !fetchedChannelIds.has(channel.id))
+    .flatMap((channel) => postsCache[channel.id]?.posts ?? [])
+    .filter((post) => !forbiddenTitles.value.some((text) => post.author.toLowerCase().includes(text)))
+
+  const postListMerged = [...postListFromRemote, ...cachedPostsForUnfetchedChannels]
+
+  postListMerged.sort((a, b) => {
     return b.publishedTime - a.publishedTime
   })
 
-  postList.value = postListFromRemote
+  postList.value = postListMerged
   isLoading.value = false
   store.commit('setShowProgressBar', false)
   lastRemoteRefreshSuccessTimestamp.value = Date.now()

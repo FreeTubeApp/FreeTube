@@ -146,10 +146,20 @@ function loadVideosFromCacheSometimes() {
 
   // Check if this profile needs to be auto-fetched for the first time
   if (fetchSubscriptionsAutomatically.value && !store.getters.getSubscriptionForShortsFirstAutoFetchRun) {
-    // `isLoading.value = false` is called inside `loadVideosForSubscriptionsFromRemote` when needed
     alreadyLoadedRemotely = true
-    loadVideosForSubscriptionsFromRemote()
     store.commit('setSubscriptionForShortsFirstAutoFetchRun', activeProfileId.value)
+
+    const shortsCache = store.getters.getShortsCache
+    const channelsMissingFromCache = activeSubscriptionList.value.filter((channel) => shortsCache[channel.id] == null)
+
+    if (channelsMissingFromCache.length === 0) {
+      // Every channel already has a cache entry from another profile this session, nothing to fetch
+      loadVideosFromCacheForAllActiveProfileChannels()
+      return
+    }
+
+    // `isLoading.value = false` is called inside `loadVideosForSubscriptionsFromRemote` when needed
+    loadVideosForSubscriptionsFromRemote(channelsMissingFromCache)
     return
   }
 
@@ -174,14 +184,13 @@ function loadVideosFromCacheForAllActiveProfileChannels() {
   isLoading.value = false
 }
 
-async function loadVideosForSubscriptionsFromRemote() {
+async function loadVideosForSubscriptionsFromRemote(channelsToLoadFromRemote = activeSubscriptionList.value) {
   if (activeSubscriptionList.value.length === 0) {
     isLoading.value = false
     videoList.value = []
     return
   }
 
-  const channelsToLoadFromRemote = activeSubscriptionList.value
   let channelCount = 0
   isLoading.value = true
   store.commit('setShowProgressBar', true)
@@ -221,7 +230,15 @@ async function loadVideosForSubscriptionsFromRemote() {
     return videos ?? []
   }))).flat()
 
-  videoList.value = updateVideoListAfterProcessing(videoListFromRemote)
+  // When only fetching the channels missing from the session cache (e.g. on profile switch),
+  // merge in the already-cached videos for the channels that weren't just fetched
+  const shortsCache = store.getters.getShortsCache
+  const fetchedChannelIds = new Set(channelsToLoadFromRemote.map((channel) => channel.id))
+  const cachedVideosForUnfetchedChannels = activeSubscriptionList.value
+    .filter((channel) => !fetchedChannelIds.has(channel.id))
+    .flatMap((channel) => shortsCache[channel.id]?.videos ?? [])
+
+  videoList.value = updateVideoListAfterProcessing([...videoListFromRemote, ...cachedVideosForUnfetchedChannels])
   isLoading.value = false
   store.commit('setShowProgressBar', false)
   lastRemoteRefreshSuccessTimestamp.value = Date.now()
