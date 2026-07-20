@@ -618,6 +618,7 @@ function runApp() {
         }
       }
 
+      // eslint-disable-next-line n/no-callback-literal
       callback({ requestHeaders })
     })
 
@@ -629,6 +630,7 @@ function runApp() {
         delete responseHeaders['set-cookie']
       }
 
+      // eslint-disable-next-line n/no-callback-literal
       callback({ responseHeaders })
     })
 
@@ -724,6 +726,7 @@ function runApp() {
           redirectURL += `#${details.webContents.id}`
         }
 
+        // eslint-disable-next-line n/no-callback-literal
         callback({
           redirectURL
         })
