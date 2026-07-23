@@ -1736,12 +1736,21 @@ function runApp() {
           )
           return null
 
-        case DBActions.HISTORY.UNSET_PLAYLIST:
-          await baseHandlers.history.unsetLastViewedPlaylist(data.videoIds, data.playlistId)
+        case DBActions.HISTORY.UNSET_PLAYLIST_FOR_VIDEOS:
+          await baseHandlers.history.unsetLastViewedPlaylistForVideos(data.videoIds, data.lastViewedPlaylistId)
           syncOtherWindows(
             IpcChannels.SYNC_HISTORY,
             event,
-            { event: SyncEvents.HISTORY.UNSET_PLAYLIST, data }
+            { event: SyncEvents.HISTORY.UNSET_PLAYLIST_FOR_VIDEOS, data }
+          )
+          return null
+
+        case DBActions.HISTORY.UNSET_PLAYLISTS:
+          await baseHandlers.history.unsetLastViewedPlaylists(data.lastViewedPlaylistIds)
+          syncOtherWindows(
+            IpcChannels.SYNC_HISTORY,
+            event,
+            { event: SyncEvents.HISTORY.UNSET_PLAYLISTS, data }
           )
           return null
 

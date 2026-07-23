@@ -371,12 +371,8 @@ const actions = {
 
   async removeAllPlaylists({ commit, dispatch, getters }) {
     try {
-      const playlists = getters.getAllPlaylists()
-      for (const playlist of playlists) {
-        const videoIds = playlist.videos.map(video => video.videoId)
-        const playlistId = playlist._id
-        await dispatch('unsetLastViewedPlaylist', { videoIds, playlistId })
-      }
+      const playlistIds = getters.getAllPlaylists().map(playlist => playlist._id)
+      await dispatch('unsetLastViewedPlaylists', { lastViewedPlaylistIds: playlistIds })
 
       await DBPlaylistHandlers.deleteAll()
       commit('removeAllPlaylists')
@@ -385,11 +381,9 @@ const actions = {
     }
   },
 
-  async removeAllVideos({ commit, dispatch, getters }, _id) {
+  async removeAllVideos({ commit, dispatch }, _id) {
     try {
-      const playlist = getters.getPlaylist(_id)
-      const videoIds = playlist.videos.map(video => video.videoId)
-      await dispatch('unsetLastViewedPlaylist', { videoIds, playlistId: _id })
+      await dispatch('unsetLastViewedPlaylists', { lastViewedPlaylistIds: [_id] })
 
       await DBPlaylistHandlers.deleteAllVideosByPlaylistId(_id)
       commit('removeAllVideos', _id)
@@ -398,11 +392,9 @@ const actions = {
     }
   },
 
-  async removePlaylist({ commit, dispatch, getters }, playlistId) {
+  async removePlaylist({ commit, dispatch }, playlistId) {
     try {
-      const playlist = getters.getPlaylist(playlistId)
-      const videoIds = playlist.videos.map(video => video.videoId)
-      await dispatch('unsetLastViewedPlaylist', { videoIds, playlistId })
+      await dispatch('unsetLastViewedPlaylists', { lastViewedPlaylistId: [playlistId] })
 
       await DBPlaylistHandlers.delete(playlistId)
       commit('removePlaylist', playlistId)
@@ -411,13 +403,9 @@ const actions = {
     }
   },
 
-  async removePlaylists({ commit, dispatch, getters }, playlistIds) {
+  async removePlaylists({ commit, dispatch }, playlistIds) {
     try {
-      for (const playlistId of playlistIds) {
-        const playlist = getters.getPlaylist(playlistId)
-        const videoIds = playlist.videos.map(video => video.videoId)
-        await dispatch('unsetLastViewedPlaylist', { videoIds, playlistId })
-      }
+      await dispatch('unsetLastViewedPlaylists', { lastViewedPlaylistIds: playlistIds })
 
       await DBPlaylistHandlers.deleteMultiple(playlistIds)
       commit('removePlaylists', playlistIds)
@@ -430,7 +418,7 @@ const actions = {
     try {
       const { _id, videoId, playlistItemId } = payload
 
-      await dispatch('unsetLastViewedPlaylist', { videoIds: [videoId], playlistId: _id })
+      await dispatch('unsetLastViewedPlaylistForVideos', { videoIds: [videoId], lastViewedPlaylistId: _id })
 
       const lastUpdatedAt = Date.now()
 
@@ -448,7 +436,7 @@ const actions = {
     try {
       const { _id, playlistItemIds, videoIds } = payload
 
-      await dispatch('unsetLastViewedPlaylist', { videoIds, playlistId: _id })
+      await dispatch('unsetLastViewedPlaylistForVideos', { videoIds, lastViewedPlaylistId: _id })
 
       const lastUpdatedAt = Date.now()
 

@@ -124,11 +124,21 @@ class History {
     return db.history.updateAsync({ videoId }, { $set: { lastViewedPlaylistId, lastViewedPlaylistType, lastViewedPlaylistItemId } }, { upsert: true })
   }
 
-  static unsetLastViewedPlaylist(videoIds, playlistId) {
+  static unsetLastViewedPlaylistForVideos(videoIds, lastViewedPlaylistId) {
     return db.history.updateAsync(
       {
         videoId: { $in: videoIds },
-        lastViewedPlaylistId: playlistId
+        lastViewedPlaylistId: lastViewedPlaylistId
+      },
+      { $unset: { lastViewedPlaylistId: '', lastViewedPlaylistType: '', lastViewedPlaylistItemId: '' } },
+      { multi: true }
+    )
+  }
+
+  static unsetLastViewedPlaylists(lastViewedPlaylistIds) {
+    return db.history.updateAsync(
+      {
+        lastViewedPlaylistId: { $in: lastViewedPlaylistIds }
       },
       { $unset: { lastViewedPlaylistId: '', lastViewedPlaylistType: '', lastViewedPlaylistItemId: '' } },
       { multi: true }
