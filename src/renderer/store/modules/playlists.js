@@ -371,7 +371,7 @@ const actions = {
 
   async removeAllPlaylists({ commit, dispatch, getters }) {
     try {
-      const playlistIds = getters.getAllPlaylists().map(playlist => playlist._id)
+      const playlistIds = getters.getAllPlaylists.map(playlist => playlist._id)
       await dispatch('unsetLastViewedPlaylists', playlistIds)
 
       await DBPlaylistHandlers.deleteAll()
