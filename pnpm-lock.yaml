@@ -54,8 +54,8 @@ importers:
         specifier: ^5.1.12
         version: 5.1.12
       swiper:
-        specifier: ^14.0.5
-        version: 14.0.5
+        specifier: ^14.0.6
+        version: 14.0.6
       terser:
         specifier: ^5.49.0
         version: 5.49.0
@@ -4751,8 +4751,8 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
-  swiper@14.0.5:
-    resolution: {integrity: sha512-SMSKS0sj+lPIFzngfIKb5cyBtzmAuJw7rXgXdyYiDReb+pSpJXuNljHYgT4DXa5Stnl2Ew2/Lam5ipv4PIqZ7A==}
+  swiper@14.0.6:
+    resolution: {integrity: sha512-ArptjmcZMBvpLCbvzSKuqvQpjjITCbZdymiGOrbZQffQ3ZSjgpvMByXX0WZBUt+FV4PPIumdYfZ9ZdBbFsdH6g==}
     engines: {node: '>= 4.7.0'}
 
   synckit@0.11.13:
@@ -10076,7 +10076,7 @@ snapshots:
       picocolors: 1.1.1
       sax: 1.6.0
 
-  swiper@14.0.5: {}
+  swiper@14.0.6: {}
 
   synckit@0.11.13:
     dependencies:
