@@ -343,7 +343,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, ref, shallowRef } from 'vue'
+import { computed, ref, shallowRef, reactive } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import FtCard from '../ft-card/ft-card.vue'
@@ -396,7 +396,7 @@ const props = defineProps({
 })
 
 const isLoading = ref(false)
-const commentRepliesLoading = ref(new Set())
+const commentRepliesLoading = reactive(new Set())
 const isMoreCommentsLoading = ref(false)
 const showComments = ref(false)
 const nextPageToken = shallowRef(null)
@@ -588,9 +588,9 @@ function toggleCommentReplies(index) {
  * @param {number} index
  */
 async function getCommentReplies(index) {
-  if (commentRepliesLoading.value.has(index)) return
+  if (commentRepliesLoading.has(index)) return
 
-  commentRepliesLoading.value.add(index)
+  commentRepliesLoading.add(index)
 
   if (!process.env.SUPPORTS_LOCAL_API || commentData.value[index].dataType === 'invidious') {
     if (!props.isPostComments) {
@@ -602,7 +602,7 @@ async function getCommentReplies(index) {
     await getCommentRepliesLocal(index)
   }
 
-  commentRepliesLoading.value.delete(index)
+  commentRepliesLoading.delete(index)
 }
 
 /** @type {Map<string, (import('youtubei.js').YTNodes.CommentThread | string)>} */
