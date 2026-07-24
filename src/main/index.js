@@ -1746,7 +1746,7 @@ function runApp() {
           return null
 
         case DBActions.HISTORY.UNSET_PLAYLISTS:
-          await baseHandlers.history.unsetLastViewedPlaylists(data.lastViewedPlaylistIds)
+          await baseHandlers.history.unsetLastViewedPlaylists(data)
           syncOtherWindows(
             IpcChannels.SYNC_HISTORY,
             event,

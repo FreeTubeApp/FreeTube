@@ -111,10 +111,10 @@ const actions = {
     }
   },
 
-  async unsetLastViewedPlaylists({ commit }, { lastViewedPlaylistIds }) {
+  async unsetLastViewedPlaylists({ commit }, lastViewedPlaylistIds) {
     try {
       await DBHistoryHandlers.unsetLastViewedPlaylists(lastViewedPlaylistIds)
-      commit('unsetRecordsLastViewedPlaylistIdsInHistoryCache', { lastViewedPlaylistIds })
+      commit('unsetRecordsLastViewedPlaylistIdsInHistoryCache', lastViewedPlaylistIds)
     } catch (errMessage) {
       console.error(errMessage)
     }
@@ -187,7 +187,7 @@ const mutations = {
     }
   },
 
-  unsetRecordsLastViewedPlaylistIdsInHistoryCache(state, { playlistIds }) {
+  unsetRecordsLastViewedPlaylistIdsInHistoryCache(state, playlistIds) {
     const playlistIdSet = new Set(playlistIds)
 
     for (const record of state.historyCacheSorted) {

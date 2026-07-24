@@ -372,7 +372,7 @@ const actions = {
   async removeAllPlaylists({ commit, dispatch, getters }) {
     try {
       const playlistIds = getters.getAllPlaylists().map(playlist => playlist._id)
-      await dispatch('unsetLastViewedPlaylists', { lastViewedPlaylistIds: playlistIds })
+      await dispatch('unsetLastViewedPlaylists', playlistIds)
 
       await DBPlaylistHandlers.deleteAll()
       commit('removeAllPlaylists')
@@ -383,7 +383,7 @@ const actions = {
 
   async removeAllVideos({ commit, dispatch }, _id) {
     try {
-      await dispatch('unsetLastViewedPlaylists', { lastViewedPlaylistIds: [_id] })
+      await dispatch('unsetLastViewedPlaylists', [_id])
 
       await DBPlaylistHandlers.deleteAllVideosByPlaylistId(_id)
       commit('removeAllVideos', _id)
@@ -394,7 +394,7 @@ const actions = {
 
   async removePlaylist({ commit, dispatch }, playlistId) {
     try {
-      await dispatch('unsetLastViewedPlaylists', { lastViewedPlaylistId: [playlistId] })
+      await dispatch('unsetLastViewedPlaylists', [playlistId])
 
       await DBPlaylistHandlers.delete(playlistId)
       commit('removePlaylist', playlistId)
@@ -405,7 +405,7 @@ const actions = {
 
   async removePlaylists({ commit, dispatch }, playlistIds) {
     try {
-      await dispatch('unsetLastViewedPlaylists', { lastViewedPlaylistIds: playlistIds })
+      await dispatch('unsetLastViewedPlaylists', playlistIds)
 
       await DBPlaylistHandlers.deleteMultiple(playlistIds)
       commit('removePlaylists', playlistIds)
