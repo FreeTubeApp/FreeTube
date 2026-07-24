@@ -24,8 +24,8 @@ importers:
         specifier: ^7.3.1
         version: 7.3.1
       '@fortawesome/vue-fontawesome':
-        specifier: ^3.3.2
-        version: 3.3.2(@fortawesome/fontawesome-svg-core@7.3.1)(vue@3.5.40(typescript@6.0.3))
+        specifier: ^3.3.3
+        version: 3.3.3(@fortawesome/fontawesome-svg-core@7.3.1)(vue@3.5.40(typescript@6.0.3))
       '@seald-io/nedb':
         specifier: ^4.1.2
         version: 4.1.2
@@ -918,8 +918,8 @@ packages:
     resolution: {integrity: sha512-v0BLa0eqg7ubvVWeNSHVBs8fWH/GJicERZoJaxJ3FE/lj67VSqzoMg9pzfZVOfLMX10y0pGwQAuxoRVVH2patg==}
     engines: {node: '>=6'}
 
-  '@fortawesome/vue-fontawesome@3.3.2':
-    resolution: {integrity: sha512-VcqlN1LPJyoc20q5VfipIzcY0iiNvCQwB1panC7/xWhX+PGsBfVKvxxNmlcRezvhSaEbkcVAKCunYYwmR0CkMA==}
+  '@fortawesome/vue-fontawesome@3.3.3':
+    resolution: {integrity: sha512-Jbjze98gGcVBSdkscLbnDlHECumMAFVWDarMtycctn9qL3p92ApnV36VW4PwVrcm9IWrHnnE6ZL9x7MXStSCfA==}
     peerDependencies:
       '@fortawesome/fontawesome-svg-core': ~1 || ~6 || ~7
       vue: '>= 3.0.0 < 4'
@@ -2873,8 +2873,8 @@ packages:
     resolution: {integrity: sha512-eKpRKAovdpZtR1WopLHxlBWvAgPny3c4gX1G5Jhwmmw4XJj0ifSD5qB5TOo8hmA0wlRKDAOAhEE1yVPgs6Fgcg==}
     engines: {node: '>=14.14'}
 
-  fs-extra@11.3.6:
-    resolution: {integrity: sha512-w8ZNZr2mKIc7qeNaQ9AVPT1+iFaI+Avd4xudVOvdDJ8VytREi1Ft5Ih7hd9jjehod8vAM5GMsfQ/TpPf4EyoEA==}
+  fs-extra@11.4.0:
+    resolution: {integrity: sha512-EQsFzMUJkCKGr1ePqlYADkIUmHW1s3ZXr5Yqy6wbGrfUCphpl2maM/kyOIRA2HpP3AaFQTZXD4ldjek+nccddA==}
     engines: {node: '>=14.14'}
 
   fs-extra@7.0.1:
@@ -5971,7 +5971,7 @@ snapshots:
     dependencies:
       cross-dirname: 0.1.0
       debug: 4.4.3
-      fs-extra: 11.3.6
+      fs-extra: 11.4.0
       minimist: 1.2.8
       postject: 1.0.0-alpha.6
     transitivePeerDependencies:
@@ -6075,7 +6075,7 @@ snapshots:
     dependencies:
       '@fortawesome/fontawesome-common-types': 7.3.1
 
-  '@fortawesome/vue-fontawesome@3.3.2(@fortawesome/fontawesome-svg-core@7.3.1)(vue@3.5.40(typescript@6.0.3))':
+  '@fortawesome/vue-fontawesome@3.3.3(@fortawesome/fontawesome-svg-core@7.3.1)(vue@3.5.40(typescript@6.0.3))':
     dependencies:
       '@fortawesome/fontawesome-svg-core': 7.3.1
       vue: 3.5.40(typescript@6.0.3)
@@ -8280,7 +8280,7 @@ snapshots:
       jsonfile: 6.2.1
       universalify: 2.0.1
 
-  fs-extra@11.3.6:
+  fs-extra@11.4.0:
     dependencies:
       graceful-fs: 4.2.11
       jsonfile: 6.2.1
