@@ -38,8 +38,7 @@
           :aria-selected="index === currentIndex"
           :class="{ current: index === currentIndex }"
           @click="changeChapter(index)"
-          @keydown.space.stop.prevent="changeChapter(index)"
-          @keydown.enter.stop.prevent="changeChapter(index)"
+          @keydown.enter.space.stop.prevent="changeChapter(index)"
         >
           <!-- Setting the aspect ratio avoids layout shifts when the images load -->
           <img

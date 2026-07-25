@@ -81,8 +81,7 @@
           role="button"
           tabindex="0"
           @click="showSuperChatComment(comment)"
-          @keydown.space.prevent="showSuperChatComment(comment)"
-          @keydown.enter.prevent="showSuperChatComment(comment)"
+          @keydown.enter.space.prevent="showSuperChatComment(comment)"
         >
           <img
             :src="comment.author.thumbnailUrl"
@@ -107,8 +106,7 @@
         role="button"
         tabindex="0"
         @click="hideSuperChat"
-        @keydown.space.prevent="hideSuperChat"
-        @keydown.enter.prevent="hideSuperChat"
+        @keydown.enter.space.prevent="hideSuperChat"
       >
         <div
           class="superChatMessage"
@@ -233,8 +231,7 @@
         role="button"
         tabindex="0"
         @click="scrollToBottom"
-        @keydown.space.prevent="scrollToBottom"
-        @keydown.enter.prevent="scrollToBottom"
+        @keydown.enter.space.prevent="scrollToBottom"
       >
         <FontAwesomeIcon
           class="icon"
