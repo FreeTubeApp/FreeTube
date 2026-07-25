@@ -1,4 +1,6 @@
-import { BG, buildURL, GOOG_API_KEY } from 'bgutils-js'
+import { BotGuardClient } from 'bgutils-js/botguard'
+import { buildURL, GOOG_API_KEY } from 'bgutils-js/utils'
+import { WebPoMinter } from 'bgutils-js/webpo'
 
 // This script has it's own webpack config, as it gets passed as a string to Electron's evaluateJavaScript function
 // in src/main/poTokenGenerator.js
@@ -55,10 +57,10 @@ export default async function (videoId, context) {
     throw new Error('Could not load VM.')
   }
 
-  const botGuard = await BG.BotGuardClient.create({
+  const botGuard = await BotGuardClient.create({
     program: challengeData.bgChallenge.program,
     globalName: challengeData.bgChallenge.globalName,
-    globalObj: window
+    globalObject: window
   })
 
   const webPoSignalOutput = []
@@ -80,7 +82,7 @@ export default async function (videoId, context) {
     throw new Error('Could not get integrity token')
   }
 
-  const integrityTokenBasedMinter = await BG.WebPoMinter.create({ integrityToken: response[0] }, webPoSignalOutput)
+  const integrityTokenBasedMinter = await WebPoMinter.create({ integrityToken: response[0] }, webPoSignalOutput)
 
   return await integrityTokenBasedMinter.mintAsWebsafeString(videoId)
 }
