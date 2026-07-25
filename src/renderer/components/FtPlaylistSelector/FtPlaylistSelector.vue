@@ -3,8 +3,7 @@
     class="ft-playlist-selector grid"
     :class="{ selected }"
     @click="toggleSelection"
-    @keydown.enter.prevent="toggleSelection"
-    @keydown.space.prevent="toggleSelection"
+    @keydown.enter.space.prevent="toggleSelection"
   >
     <div
       class="thumbnail"

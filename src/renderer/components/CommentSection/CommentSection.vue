@@ -12,8 +12,7 @@
         role="button"
         tabindex="0"
         @click="showComments = false"
-        @keydown.space.prevent="showComments = false"
-        @keydown.enter.prevent="showComments = false"
+        @keydown.enter.space.prevent="showComments = false"
       >
         {{ $t("Comments.Hide Comments") }}
       </span>
@@ -24,8 +23,7 @@
       role="button"
       tabindex="0"
       @click="getCommentData"
-      @keydown.space.prevent="getCommentData"
-      @keydown.enter.prevent="getCommentData"
+      @keydown.enter.space.prevent="getCommentData"
     >
       {{ $t("Comments.Click to View Comments") }}
     </h4>
@@ -35,8 +33,7 @@
       role="button"
       tabindex="0"
       @click="showComments = true"
-      @keydown.space.prevent="showComments = true"
-      @keydown.enter.prevent="showComments = true"
+      @keydown.enter.space.prevent="showComments = true"
     >
       {{ $t("Comments.Click to View Comments") }}
     </h4>
@@ -161,8 +158,7 @@
             role="button"
             tabindex="0"
             @click="toggleCommentReplies(index)"
-            @keydown.space.prevent="toggleCommentReplies(index)"
-            @keydown.enter.prevent="toggleCommentReplies(index)"
+            @keydown.enter.space.prevent="toggleCommentReplies(index)"
           >
             <span>
               {{ toggleCommentRepliesLinkText(comment) }}
@@ -286,8 +282,7 @@
             role="button"
             tabindex="0"
             @click="getCommentReplies(index)"
-            @keydown.space.prevent="getCommentReplies(index)"
-            @keydown.enter.prevent="getCommentReplies(index)"
+            @keydown.enter.space.prevent="getCommentReplies(index)"
           >
             <span>{{ $t("Comments.Show More Replies") }}</span>
           </div>
@@ -323,8 +318,7 @@
       role="button"
       tabindex="0"
       @click="getMoreComments"
-      @keydown.space.prevent="getMoreComments"
-      @keydown.enter.prevent="getMoreComments"
+      @keydown.enter.space.prevent="getMoreComments"
     >
       {{ $t("Comments.Load More Comments") }}
     </h4>

@@ -27,8 +27,7 @@
           role="button"
           tabindex="0"
           @click="nextPage"
-          @keydown.enter.prevent="nextPage"
-          @keydown.space.prevent="nextPage"
+          @keydown.enter.space.prevent="nextPage"
         >
           <FontAwesomeIcon :icon="['fas', 'search']" /> {{ t("Search Filters.Fetch more results") }}
         </div>

@@ -9,8 +9,7 @@
       role="button"
       tabindex="0"
       @click="expandDescription"
-      @keydown.space.prevent="expandDescription"
-      @keydown.enter.prevent="expandDescription"
+      @keydown.enter.space.prevent="expandDescription"
     >
       {{ $t("Description.Expand Description") }}
     </span>
@@ -34,8 +33,7 @@
       role="button"
       tabindex="0"
       @click="collapseDescription"
-      @keydown.space.prevent="collapseDescription"
-      @keydown.enter.prevent="collapseDescription"
+      @keydown.enter.space.prevent="collapseDescription"
     >
       {{ $t("Description.Collapse Description") }}
     </span>

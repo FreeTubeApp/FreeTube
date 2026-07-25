@@ -49,8 +49,7 @@
       tabindex="0"
       role="button"
       @click="revealAnswer = !revealAnswer"
-      @keydown.enter.prevent="revealAnswer = !revealAnswer"
-      @keydown.space.prevent="revealAnswer = !revealAnswer"
+      @keydown.enter.space.prevent="revealAnswer = !revealAnswer"
     >
       <div
         v-if="!revealAnswer"
