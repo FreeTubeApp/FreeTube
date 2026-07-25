@@ -58,6 +58,8 @@
         @pause-player="pausePlayer"
         @move-video-up="moveVideoUp"
         @move-video-down="moveVideoDown"
+        @move-video-to-the-top="moveVideoToTheTop"
+        @move-video-to-the-bottom="moveVideoToTheBottom"
         @remove-from-playlist="removeFromPlaylist"
       />
     </template>
@@ -155,7 +157,17 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
+const emit = defineEmits([
+  'move-dragged-video',
+  'move-video-down',
+  'move-video-up',
+  'move-video-to-the-top',
+  'move-video-to-the-bottom',
+  'pause-player',
+  'remove-from-playlist',
+  'drag-video',
+  'drag-video-end'
+])
 const visible = ref(props.initialVisibleState)
 
 const inUserPlaylist = props.playlistType === 'user'
@@ -215,6 +227,22 @@ function moveVideoUp(videoId, playlistItemId) {
  */
 function moveVideoDown(videoId, playlistItemId) {
   emit('move-video-down', videoId, playlistItemId)
+}
+
+/**
+ * @param {string} videoId
+ * @param {string} playlistItemId
+ */
+function moveVideoToTheTop(videoId, playlistItemId) {
+  emit('move-video-to-the-top', videoId, playlistItemId)
+}
+
+/**
+ * @param {string} videoId
+ * @param {string} playlistItemId
+ */
+function moveVideoToTheBottom(videoId, playlistItemId) {
+  emit('move-video-to-the-bottom', videoId, playlistItemId)
 }
 
 function onDragVideo(event) {
