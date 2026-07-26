@@ -187,6 +187,8 @@ User Playlists:
   Export Playlist: Exporter cette liste de lecture
   TotalTimePlaylist: 'Durée totale : {duration}'
   Export list of URLs: Exporter la liste des URL
+  Move Video to the Top: Déplacer la vidéo en haut de la page
+  Move Video to the Bottom: Déplacer la vidéo vers le bas de la page
 History:
   # On History Page
   History: 'Historique'
@@ -422,6 +424,9 @@ Settings:
       External Player: Lecteur externe ({externalPlayerName})
       Full Screen: Plein écran
       Theater: Mode cinéma
+      Full Window (Always On): Plein écran (toujours affiché)
+      Full Screen (Always On): Plein écran (toujours activé)
+      Tooltip: La plupart des modes d'affichage par défaut ne s'appliquent qu'au début de chaque session de visionnage. Les modifications apportées au cours de la session sont conservées jusqu'à la fin de celle-ci. Les modes d'affichage permanents s'appliquent chaque fois que vous passez à une nouvelle vidéo, quelles que soient les modifications de mode d'affichage effectuées lors du visionnage de la vidéo précédente.
   Subscription Settings:
     Subscription Settings: 'Abonnements'
     Fetch Feeds from RSS: Récupération de flux RSS
@@ -895,6 +900,7 @@ Comments:
   Hide {replyCount} replies: Masquer 1 réponse | Masquer {replyCount} réponses
   View 1 reply from {channelName}: Voir 1 réponse de {channelName}
   View {replyCount} replies from {channelName} and others: Afficher {replyCount} réponses de {channelName} et autres
+  Loading replies: Chargement des réponses...
 Up Next: 'À suivre'
 
 # Toast Messages
