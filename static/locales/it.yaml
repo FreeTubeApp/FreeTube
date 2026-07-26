@@ -500,6 +500,11 @@ Settings:
     Export search history: Esporta cronologia ricerche
     All search history has been successfully imported: Tutta la cronologia ricerche è stata importata correttamente
     All search history has been successfully exported: Tutta la cronologia ricerche è stata esportata correttamente
+    Settings File: File di impostazioni
+    Import Settings: Importa le impostazioni
+    Export Settings: Esporta le impostazioni
+    All settings have been successfully imported: Tutte le impostazioni sono state importate con sucesso
+    All settings have been successfully exported: Tutte le impostazioni sono state esportate con sucesso
   Distraction Free Settings:
     Hide Popular Videos: Nascondi i video più popolari
     Hide Trending Videos: Nascondi le tendenze
@@ -523,16 +528,16 @@ Settings:
     Hide Channels Placeholder: ID del canale
     Display Titles Without Excessive Capitalisation: Visualizza i titoli senza maiuscole e punteggiatura eccessive
     Hide Featured Channels: Nascondi i canali in evidenza
-    Hide Channel Playlists: Nascondi la scheda "Playlist" del canale
-    Hide Channel Shorts: Nascondi i "Video brevi" del canale
+    Hide Channel Playlists: Nascondi la scheda Playlist del canale
+    Hide Channel Shorts: Nascondi i Video brevi del canale
     Sections:
       General: Generale
       Watch Page: Pagina di visualizzazione
       Side Bar: Barra laterale
       Channel Page: Pagina del canale
       Subscriptions Page: Pagina delle iscrizioni
-    Hide Channel Podcasts: Nascondi la scheda "Podcast" del canale
-    Hide Channel Releases: Nascondi la scheda "Rilasci" del canale
+    Hide Channel Podcasts: Nascondi la scheda Podcast del canale
+    Hide Channel Releases: Nascondi la scheda Rilasci del canale
     Hide Subscriptions Live: Nascondi le iscrizioni dal vivo
     Hide Subscriptions Videos: Nascondi i video delle iscrizioni
     Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
@@ -543,10 +548,10 @@ Settings:
     Hide Channels API Error: Errore durante il recupero dell'utente con l'ID fornito. Controlla di nuovo se l'ID è corretto.
     Hide Videos, Playlists and Channels Containing Text: Nascondi i video e le playlist contenenti il testo
     Hide Videos, Playlists and Channels Containing Text Placeholder: Parola, frammento di parola o frase
-    Hide Channel Home: Nascondi la scheda "Pagina iniziale" del canale
+    Hide Channel Home: Nascondi la scheda Pagina iniziale del canale
     Show Added Items: Mostra elementi aggiunti
-    Hide Channel Courses: Nascondi la scheda "Corsi" del canale
-    Hide Channel Posts: Nascondi la scheda "Post" del canale
+    Hide Channel Courses: Nascondi la scheda Corsi del canale
+    Hide Channel Posts: Nascondi la scheda Post del canale
     Hide Subscriptions Posts: Nascondi i post delle iscrizioni
   The app needs to restart for changes to take effect. Restart and apply change?: L'app deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare la modifica?
   Proxy Settings:
@@ -701,6 +706,7 @@ Channel:
   Courses:
     This channel does not currently have any courses: Questo canale al momento non ha corsi
     Courses: Corsi
+  View All: Vedi tutto
 Video:
   Mark As Watched: 'Contrassegna come guardato'
   Remove From History: 'Rimuovi dalla Cronologia'

@@ -497,6 +497,15 @@ Settings:
     Export search history: 导出搜索历史
     All search history has been successfully imported: 成功导入了所有搜索历史
     All search history has been successfully exported: 成功导出了所有搜索历史
+    Settings File: 设置文件
+    Import Settings: 导入设置
+    Export Settings: 导出设置
+    Settings Tooltip: 无法导出或导入特定系统/用户的设置或实验性设置（如代理、外部播放器、屏幕截图文件夹…）
+    All settings have been successfully imported: 成功导入了所有设置
+    All settings have been successfully exported: 成功导出了所有设置
+    Setting object has insufficient data, skipping item: 设置对象数据不足，跳过项目
+    Unknown setting key: 未知的设置键：{key}
+    Non-transferable setting key: 不可传输的设置键：{key}
   Distraction Free Settings:
     Hide Popular Videos: 隐藏流行视频
     Hide Trending Videos: 隐藏热门视频
@@ -701,6 +710,7 @@ Channel:
   Courses:
     Courses: 课程
     This channel does not currently have any courses: 此频道当前没有任何课程
+  View All: 查看全部
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'
