@@ -167,6 +167,10 @@
   }
 
   .watchVideoPlaylist {
+    &.isCollapsed {
+      block-size: auto;
+    }
+
     :deep(.videoThumbnail) {
       margin-block: auto;
     }
