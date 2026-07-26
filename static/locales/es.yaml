@@ -190,6 +190,8 @@ User Playlists:
   The playlist has been successfully exported: La playlist se ha exportado correctamente
   TotalTimePlaylist: 'Duración total: {duration}'
   Export list of URLs: Exportar lista de URLs
+  Move Video to the Top: Mover vídeo al principio
+  Move Video to the Bottom: Mover vídeo al final
 History:
   # On History Page
   History: 'Historial'

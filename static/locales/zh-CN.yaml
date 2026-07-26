@@ -187,6 +187,8 @@ User Playlists:
   The playlist has been successfully exported: 成功导出播放清单
   TotalTimePlaylist: 总时间：{duration}
   Export list of URLs: 导出 URL 列表
+  Move Video to the Top: 移动视频到顶部
+  Move Video to the Bottom: 移动视频到底部
 History:
   # On History Page
   History: '历史记录'
@@ -422,6 +424,9 @@ Settings:
       External Player: 外部播放器({externalPlayerName})
       Theater: 影院
       Full Screen: 全屏
+      Full Window (Always On): 整个窗口（始终开启）
+      Full Screen (Always On): 整个屏幕（始终开启）
+      Tooltip: 多数默认观看模式仅在每个观看会话开始时应用。会话期间所做的更改持续到会话结束。每当切换到新视频时应用“始终开启”观看模式，不论观看上个视频时做了什么观看模式更改。
   Subscription Settings:
     Subscription Settings: '订阅'
     Fetch Feeds from RSS: 从RSS摘取推送
@@ -895,6 +900,7 @@ Comments:
   Hide {replyCount} replies: 隐藏 1 条回复| 隐藏 {replyCount} 条回复
   View 1 reply from {channelName}: 查看 1 条来自 {channelName}的回复
   View {replyCount} replies from {channelName} and others: 查看 {replyCount} 条来自 {channelName} 和其他频道的回复
+  Loading replies: 正在加载回复…
 Up Next: 'Up Next'
 
 # Toast Messages
