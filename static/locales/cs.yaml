@@ -193,6 +193,8 @@ User Playlists:
   The playlist has been successfully exported: Playlist byl úspěšně exportován
   TotalTimePlaylist: 'Celkový čas: {duration}'
   Export list of URLs: Exportovat seznam adres URL
+  Move Video to the Top: Přesunout video na začátek
+  Move Video to the Bottom: Přesunout video na konec
 History:
   # On History Page
   History: 'Historie'
@@ -429,6 +431,9 @@ Settings:
       Full Screen: Celá obrazovka
       External Player: Externí přehrávač ({externalPlayerName})
       Picture in Picture: Obraz v obraze
+      Full Window (Always On): Celé okno (vždy zapnuto)
+      Full Screen (Always On): Celá obrazovka (vždy zapnuto)
+      Tooltip: Nejvíce výchozí režimy sledování jsou použity pouze na začátku každé relace sledování. Změny provedené během relace se zachovají do jejího konce. Režimy s popisem „vždy zapnuto“ budou použity vždy, když přepnete na nové video, nezávisle na změnách režimu sledování provedených během sledování předchozího videa.
   Privacy Settings:
     Privacy Settings: 'Soukromí'
     Remember History: 'Zapamatovat historii sledování'
@@ -943,6 +948,7 @@ Comments:
   Hide {replyCount} replies: Skrýt 1 odpověď | Skrýt {replyCount} odpovědí
   View 1 reply from {channelName}: Zobrazit 1 odpověď od {channelName}
   View {replyCount} replies from {channelName} and others: Zobrazit {replyCount} odpovědí od {channelName} a dalších
+  Loading replies: Načítání odpovědí…
 Up Next: 'Další'
 
 #Tooltips
