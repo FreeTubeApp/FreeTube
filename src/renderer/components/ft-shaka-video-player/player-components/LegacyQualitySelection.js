@@ -39,6 +39,8 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
 
     for (const format of sortedLegacyFormats) {
       const button = document.createElement('button')
+      button.role = 'menuitemradio'
+      button.ariaChecked = 'false'
       button.classList.add('legacy-resolution')
 
       this.eventManager.listen(button, 'click', () => {
@@ -63,17 +65,16 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
       this.updateResolutionSelection_()
     })
 
-    if (this.isSubMenu) {
-      this.eventManager.listen(this.controls, 'submenuopen', () => {
-        this.button.classList.add('shaka-hidden')
-      })
-
-      this.eventManager.listen(this.controls, 'submenuclose', () => {
-        this.button.classList.remove('shaka-hidden')
-      })
-    }
-
     this.updateResolutionSelection_()
+  }
+
+  /** @overide */
+  checkAvailability() {
+    if (this.isSubMenuOpened) {
+      this.button.classList.add('shaka-hidden')
+    } else {
+      this.button.classList.remove('shaka-hidden')
+    }
   }
 
   /** @private */
@@ -89,7 +90,7 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
       previousSpan.classList.remove('shaka-chosen-item')
 
       const button = previousSpan.parentElement
-      button.ariaSelected = 'false'
+      button.ariaChecked = 'false'
       this._checkmarkIcon.remove()
     }
 
@@ -100,7 +101,7 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
     const button = this.menu.querySelectorAll('.legacy-resolution')[index]
     const span = button.querySelector('span')
 
-    button.ariaSelected = 'true'
+    button.ariaChecked = 'true'
 
     span.classList.add('shaka-chosen-item')
 

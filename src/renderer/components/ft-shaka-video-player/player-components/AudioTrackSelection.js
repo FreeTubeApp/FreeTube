@@ -44,18 +44,13 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
       this.updateAudioTracks_()
     })
 
-    if (this.isSubMenu) {
-      this.eventManager.listen(this.controls, 'submenuopen', () => {
-        this.updateAudioTracks_()
-      })
-
-      this.eventManager.listen(this.controls, 'submenuclose', () => {
-        this.updateAudioTracks_()
-      })
-    }
-
     this.updateLocalisedStrings_()
 
+    this.updateAudioTracks_()
+  }
+
+  /** @override */
+  checkAvailability() {
     this.updateAudioTracks_()
   }
 
@@ -79,6 +74,7 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
 
     for (const track of tracks) {
       const button = document.createElement('button')
+      button.role = 'menuitemradio'
       button.addEventListener('click', () => {
         this.onAudioTrackSelected_(track)
       })
@@ -92,8 +88,10 @@ export class AudioTrackSelection extends shaka.ui.SettingsMenu {
         button.appendChild(this._checkmarkIcon)
 
         span.classList.add('shaka-chosen-item')
-        button.ariaSelected = 'true'
+        button.ariaChecked = 'true'
         this.currentSelection.textContent = span.textContent
+      } else {
+        button.ariaChecked = 'false'
       }
 
       menu.appendChild(button)
