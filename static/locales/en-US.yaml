@@ -682,6 +682,12 @@ Settings:
       Prompt To Skip: Prompt To Skip
       Do Nothing: Do Nothing
     Category Color: Category Color
+    Allowed Channels Disabled Message: Some channels were allowed using ID and weren't processed. Feature is blocked while those IDs are updating
+    Allowed Channels: Allowed Channels
+    Allowed Channels Placeholder: Channel ID
+    Allowed Channels Invalid: Channel ID provided was invalid
+    Allowed Channels API Error: Error retrieving user with the ID provided. Please check again if the ID is correct.
+    Allowed Channels Already Exists: Channel ID already exists
   Parental Control Settings:
     Parental Control Settings: Parental Control
     Hide Unsubscribe Button: Hide Unsubscribe Button
@@ -870,6 +876,8 @@ Video:
   Copy Invidious Channel Link: Copy Invidious Channel Link
   Hide Channel: Hide Channel
   Unhide Channel: Show Channel
+  SponsorBlock Allow Channel: Allow Channel in SponsorBlock
+  SponsorBlock Disallow Channel: Disallow Channel in SponsorBlock
   Views: Views
   Loop Playlist: Loop Playlist
   Shuffle Playlist: Shuffle Playlist
@@ -1109,6 +1117,8 @@ Tooltips:
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
     UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow.
+    Allowed Channels: Enter a channel ID to not use SponsorBlock on. Sponsor segments in videos from this channel won't be skipped.
+       The channel ID entered must be a complete match and is case sensitive.
 
 # Toast Messages
 Local API Error (Click to copy): Local API Error (Click to copy)
@@ -1144,6 +1154,8 @@ Screenshot Error: Screenshot failed. {error}
 Screenshot Clipboard Error: Screenshot copy to clipboard failed
 Channel Hidden: '{channel} added to channel filter'
 Channel Unhidden: '{channel} removed from channel filter'
+SponsorBlock Channel Allowed: '{channel} added to SponsorBlock allowed list'
+SponsorBlock Channel Disallowed: '{channel} removed from SponsorBlock allowed list'
 Trimmed input must be at least N characters long: Trimmed input must be at least 1 character long | Trimmed input must be at least {length} characters long
 Tag already exists: '"{tagName}" tag already exists'
 

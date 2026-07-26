@@ -44,6 +44,25 @@
           @blur="handleUpdateSponsorBlockUrl"
         />
       </FtFlexBox>
+      <FtFlexBox>
+        <FtInputTags
+          :disabled="sponsorBlockChannelAllowedDisabled"
+          :disabled-msg="t('Settings.SponsorBlock Settings.Allowed Channels Disabled Message')"
+          :label="t('Settings.SponsorBlock Settings.Allowed Channels')"
+          :tag-name-placeholder="t('Settings.SponsorBlock Settings.Allowed Channels Placeholder')"
+          :tag-list="sponsorBlockChannelsAllowed"
+          :tooltip="t('Tooltips.SponsorBlock Settings.Allowed Channels')"
+          :validate-tag-name="checkYoutubeChannelId"
+          :find-tag-info="findChannelTagInfoWrapper"
+          :are-channel-tags="true"
+          :show-tags="sponsorBlockShowAddedChannelsAllowed"
+          @invalid-name="handleInvalidChannel"
+          @error-find-tag-info="handleChannelAPIError"
+          @change="handleSponsorBlockChannelsAllowed"
+          @already-exists="handleChannelsExists"
+          @toggle-show-tags="handleSponsorBlockShowAddedChannelsAllowed"
+        />
+      </FtFlexBox>
       <FtFlexBox
         v-if="useDeArrowThumbnails"
       >
@@ -72,15 +91,22 @@
 </template>
 
 <script setup>
-import { computed, useTemplateRef } from 'vue'
+import { computed, ref, useTemplateRef } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
 import FtInput from './FtInput/FtInput.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
 import FtSponsorBlockCategory from './FtSponsorBlockCategory/FtSponsorBlockCategory.vue'
+import FtInputTags from './FtInputTags/FtInputTags.vue'
 
 import store from '../store/index'
+
+import { showToast } from '../helpers/utils'
+import { checkYoutubeChannelId, findChannelTagInfo } from '../helpers/channels.js'
+
+const { t } = useI18n()
 
 const CATEGORIES = [
   'sponsor',
@@ -92,6 +118,8 @@ const CATEGORIES = [
   'music offtopic',
   'filler'
 ]
+
+const sponsorBlockChannelAllowedDisabled = ref(false)
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const useSponsorBlock = computed(() => store.getters.getUseSponsorBlock)
@@ -113,6 +141,34 @@ const deArrowThumbnailGeneratorUrl = computed(() => store.getters.getDeArrowThum
 
 const sponsorBlockUrlInputRef = useTemplateRef('sponsorBlockUrlInput')
 const deArrowThumbnailGeneratorUrlRef = useTemplateRef('deArrowThumbnailGeneratorUrl')
+
+/** @type {import('vue').ComputedRef<any[]>} */
+const sponsorBlockChannelsAllowed = computed(() => JSON.parse(store.getters.getSponsorBlockChannelsAllowed))
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const sponsorBlockShowAddedChannelsAllowed = computed(() => store.getters.getSponsorBlockShowAddedChannelsAllowed)
+
+/** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
+const backendPreference = computed(() => store.getters.getBackendPreference)
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const backendFallback = computed(() => store.getters.getBackendFallback)
+
+const backendOptions = computed(() => ({
+  preference: backendPreference.value,
+  fallback: backendFallback.value
+}))
+
+/**
+ * @param {any[]} value
+ */
+function handleSponsorBlockChannelsAllowed(value) {
+  store.dispatch('updateSponsorBlockChannelsAllowed', JSON.stringify(value))
+}
+
+function handleSponsorBlockShowAddedChannelsAllowed() {
+  store.dispatch('updateSponsorBlockShowAddedChannelsAllowed', !sponsorBlockShowAddedChannelsAllowed.value)
+}
 
 /**
  * @param {boolean} value
@@ -166,6 +222,18 @@ function handleUpdateDeArrowThumbnailGeneratorUrl(value) {
   }
 }
 
+function handleInvalidChannel() {
+  showToast(t('Settings.SponsorBlock Settings.Allowed Channels Invalid'))
+}
+
+function handleChannelAPIError() {
+  showToast(t('Settings.SponsorBlock Settings.Allowed Channels API Error'))
+}
+
+function handleChannelsExists() {
+  showToast(t('Settings.SponsorBlock Settings.Allowed Channels Already Exists'))
+}
+
 /**
  * @param {string} url
  */
@@ -174,4 +242,12 @@ function cleanupUrl(url) {
     .replace(/\/+$/, '')
     .replace(/\/api$/, '')
 }
+
+/**
+ * @param {string} text
+ */
+async function findChannelTagInfoWrapper(text) {
+  return await findChannelTagInfo(text, backendOptions.value)
+}
+
 </script>

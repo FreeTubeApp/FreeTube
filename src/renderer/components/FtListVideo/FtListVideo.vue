@@ -474,6 +474,9 @@ const progressPercentage = computed(() => {
 /** @type {import('vue').ComputedRef<any[]>} */
 const hiddenChannels = computed(() => JSON.parse(store.getters.getChannelsHidden))
 
+/** @type {import('vue').ComputedRef<any[]>} */
+const sponsorBlockAllowedChannels = computed(() => JSON.parse(store.getters.getSponsorBlockChannelsAllowed))
+
 const playlistSharable = computed(() => {
   // `playlistId` can be undefined
   // User playlist ID should not be shared
@@ -601,6 +604,20 @@ const dropdownOptions = computed(() => {
             value: 'hideChannel'
           }
     )
+
+    const sponsorBlockChannelShouldBeAllowed = sponsorBlockAllowedChannels.value.some(c => c.name === channelId.value)
+
+    options.push(
+      sponsorBlockChannelShouldBeAllowed
+        ? {
+            label: t('Video.SponsorBlock Disallow Channel'),
+            value: 'sponsorBlockDisallowChannel'
+          }
+        : {
+            label: t('Video.SponsorBlock Allow Channel'),
+            value: 'sponsorBlockAllowChannel'
+          }
+    )
   }
 
   return options
@@ -697,6 +714,12 @@ function handleOptionsClick(option) {
       break
     case 'unhideChannel':
       unhideChannel(channelName.value, channelId.value)
+      break
+    case 'sponsorBlockAllowChannel':
+      sponsorBlockAllowChannel(channelName.value, channelId.value)
+      break
+    case 'sponsorBlockDisallowChannel':
+      sponsorBlockDisallowChannel(channelName.value, channelId.value)
       break
   }
 }
@@ -1131,6 +1154,28 @@ function unhideChannel(channelName, channelId) {
   store.dispatch('updateChannelsHidden', JSON.stringify(hiddenChannels.value.filter(c => c.name !== channelId)))
 
   showToast(t('Channel Unhidden', { channel: channelName }))
+}
+
+/**
+ * @param {string} channelName
+ * @param {string} channelId
+ */
+function sponsorBlockAllowChannel(channelName, channelId) {
+  const newAllowedChannels = [...sponsorBlockAllowedChannels.value, { name: channelId, preferredName: channelName }]
+
+  store.dispatch('updateSponsorBlockChannelsAllowed', JSON.stringify(newAllowedChannels))
+
+  showToast(t('SponsorBlock Channel Allowed', { channel: channelName }))
+}
+
+/**
+ * @param {string} channelName
+ * @param {string} channelId
+ */
+function sponsorBlockDisallowChannel(channelName, channelId) {
+  store.dispatch('updateSponsorBlockChannelsAllowed', JSON.stringify(sponsorBlockAllowedChannels.value.filter(c => c.name !== channelId)))
+
+  showToast(t('SponsorBlock Channel Disallowed', { channel: channelName }))
 }
 
 function toggleQuickBookmarked() {

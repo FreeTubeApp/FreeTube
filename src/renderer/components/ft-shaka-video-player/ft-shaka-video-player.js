@@ -115,6 +115,10 @@ export default defineComponent({
       type: String,
       default: ''
     },
+    channelId: {
+      type: String,
+      default: ''
+    },
     title: {
       type: String,
       default: ''
@@ -375,9 +379,14 @@ export default defineComponent({
       return store.getters.getVideoSkipMouseScroll
     })
 
+    /** @type {import('vue').ComputedRef<any[]>} */
+    const sponsorBlockChannelsAllowed = computed(() => {
+      return JSON.parse(store.getters.getSponsorBlockChannelsAllowed)
+    })
+
     /** @type {import('vue').ComputedRef<boolean>} */
     const useSponsorBlock = computed(() => {
-      return store.getters.getUseSponsorBlock
+      return store.getters.getUseSponsorBlock && !sponsorBlockChannelsAllowed.value.some(c => c.name === props.channelId)
     })
 
     /** @type {import('vue').ComputedRef<boolean>} */
