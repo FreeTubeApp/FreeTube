@@ -241,6 +241,8 @@ const showProgressBarPreview = ref(false)
 const previewPosition = ref(0)
 const previewVideoIndex = ref(1)
 const windowWidth = ref(window.innerWidth)
+const savedScrollTop = ref(0)
+const lastScrolledVideoId = ref(null)
 
 let prevVideoBeforeDeletion = null
 let getPlaylistInfoRun = false
@@ -357,6 +359,10 @@ watch(selectedUserPlaylistLastUpdatedAt, () => {
 })
 
 watch(() => props.videoId, (newId, oldId) => {
+  if (!isCollapsed.value) {
+    nextTick(scrollToCurrentVideo)
+  }
+
   // Check if next video is from the shuffled list or if the user clicked a different video
   if (shuffleEnabled.value) {
     const newVideoIndex = randomizedPlaylistItems.value.findIndex((item) => {
@@ -471,6 +477,29 @@ function getPlaylistInfoWithDelay() {
     getPlaylistInformationLocal()
   }
 }
+
+function saveScrollState() {
+  if (playlistItemsWrapper.value) {
+    savedScrollTop.value = playlistItemsWrapper.value.scrollTop
+    lastScrolledVideoId.value = props.videoId
+  }
+}
+
+function restoreScrollState() {
+  if (lastScrolledVideoId.value !== props.videoId) {
+    scrollToCurrentVideo()
+  } else if (playlistItemsWrapper.value) {
+    playlistItemsWrapper.value.scrollTop = savedScrollTop.value
+  }
+}
+
+watch(isCollapsed, (collapsed) => {
+  if (collapsed) {
+    saveScrollState()
+  } else {
+    nextTick(restoreScrollState)
+  }
+})
 
 function toggleCollapse() {
   isCollapsed.value = !isCollapsed.value
@@ -762,6 +791,7 @@ function scrollToVideo(index) {
 }
 
 function scrollToCurrentVideo() {
+  if (isCollapsed.value) return
   scrollToVideo(currentVideoIndexZeroBased.value)
 }
 
