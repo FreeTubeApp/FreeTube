@@ -876,8 +876,8 @@ Video:
   Copy Invidious Channel Link: Copy Invidious Channel Link
   Hide Channel: Hide Channel
   Unhide Channel: Show Channel
-  SponsorBlock Allow Channel: Allow Channel in SponsorBlock
-  SponsorBlock Disallow Channel: Disallow Channel in SponsorBlock
+  SponsorBlock Include Channel: Include Channel to SponsorBlock
+  SponsorBlock Exclude Channel: Exclude Channel from SponsorBlock
   Views: Views
   Loop Playlist: Loop Playlist
   Shuffle Playlist: Shuffle Playlist
@@ -1154,8 +1154,8 @@ Screenshot Error: Screenshot failed. {error}
 Screenshot Clipboard Error: Screenshot copy to clipboard failed
 Channel Hidden: '{channel} added to channel filter'
 Channel Unhidden: '{channel} removed from channel filter'
-SponsorBlock Channel Allowed: '{channel} added to SponsorBlock allowed list'
-SponsorBlock Channel Disallowed: '{channel} removed from SponsorBlock allowed list'
+SponsorBlock Channel Excluded: '{channel} excluded from SponsorBlock filter'
+SponsorBlock Channel Included: '{channel} included in SponsorBlock filter'
 Trimmed input must be at least N characters long: Trimmed input must be at least 1 character long | Trimmed input must be at least {length} characters long
 Tag already exists: '"{tagName}" tag already exists'
 

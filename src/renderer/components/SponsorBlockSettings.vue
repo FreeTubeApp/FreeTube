@@ -50,17 +50,17 @@
           :disabled-msg="t('Settings.SponsorBlock Settings.Allowed Channels Disabled Message')"
           :label="t('Settings.SponsorBlock Settings.Allowed Channels')"
           :tag-name-placeholder="t('Settings.SponsorBlock Settings.Allowed Channels Placeholder')"
-          :tag-list="sponsorBlockChannelsAllowed"
+          :tag-list="sponsorBlockExcludedChannels"
           :tooltip="t('Tooltips.SponsorBlock Settings.Allowed Channels')"
           :validate-tag-name="checkYoutubeChannelId"
           :find-tag-info="findChannelTagInfoWrapper"
           :are-channel-tags="true"
-          :show-tags="sponsorBlockShowAddedChannelsAllowed"
+          :show-tags="sponsorBlockShowAddedExcludedChannels"
           @invalid-name="handleInvalidChannel"
           @error-find-tag-info="handleChannelAPIError"
-          @change="handleSponsorBlockChannelsAllowed"
+          @change="handleSponsorBlockExcludedChannels"
           @already-exists="handleChannelsExists"
-          @toggle-show-tags="handleSponsorBlockShowAddedChannelsAllowed"
+          @toggle-show-tags="handleSponsorBlockShowAddedExcludedChannels"
         />
       </FtFlexBox>
       <FtFlexBox
@@ -143,10 +143,10 @@ const sponsorBlockUrlInputRef = useTemplateRef('sponsorBlockUrlInput')
 const deArrowThumbnailGeneratorUrlRef = useTemplateRef('deArrowThumbnailGeneratorUrl')
 
 /** @type {import('vue').ComputedRef<any[]>} */
-const sponsorBlockChannelsAllowed = computed(() => JSON.parse(store.getters.getSponsorBlockChannelsAllowed))
+const sponsorBlockExcludedChannels = computed(() => JSON.parse(store.getters.getSponsorBlockExcludedChannels))
 
 /** @type {import('vue').ComputedRef<boolean>} */
-const sponsorBlockShowAddedChannelsAllowed = computed(() => store.getters.getSponsorBlockShowAddedChannelsAllowed)
+const sponsorBlockShowAddedExcludedChannels = computed(() => store.getters.getSponsorBlockShowAddedExcludedChannels)
 
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
 const backendPreference = computed(() => store.getters.getBackendPreference)
@@ -162,12 +162,12 @@ const backendOptions = computed(() => ({
 /**
  * @param {any[]} value
  */
-function handleSponsorBlockChannelsAllowed(value) {
-  store.dispatch('updateSponsorBlockChannelsAllowed', JSON.stringify(value))
+function handleSponsorBlockExcludedChannels(value) {
+  store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(value))
 }
 
-function handleSponsorBlockShowAddedChannelsAllowed() {
-  store.dispatch('updateSponsorBlockShowAddedChannelsAllowed', !sponsorBlockShowAddedChannelsAllowed.value)
+function handleSponsorBlockShowAddedExcludedChannels() {
+  store.dispatch('updateSponsorBlockShowAddedExcludedChannels', !sponsorBlockShowAddedExcludedChannels.value)
 }
 
 /**

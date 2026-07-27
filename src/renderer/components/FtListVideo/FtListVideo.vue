@@ -478,7 +478,7 @@ const hiddenChannels = computed(() => JSON.parse(store.getters.getChannelsHidden
 const useSponsorBlock = computed(() => store.getters.getUseSponsorBlock)
 
 /** @type {import('vue').ComputedRef<any[]>} */
-const sponsorBlockAllowedChannels = computed(() => JSON.parse(store.getters.getSponsorBlockChannelsAllowed))
+const sponsorBlockExcludedChannels = computed(() => JSON.parse(store.getters.getSponsorBlockExcludedChannels))
 
 const playlistSharable = computed(() => {
   // `playlistId` can be undefined
@@ -609,21 +609,21 @@ const dropdownOptions = computed(() => {
     )
 
     if (useSponsorBlock.value) {
-      const sponsorBlockChannelShouldBeAllowed = sponsorBlockAllowedChannels.value.some(c => c.name === channelId.value)
+      const isSponsorBlockChannelExcluded = sponsorBlockExcludedChannels.value.some(c => c.name === channelId.value)
 
       options.push(
         {
           type: 'divider'
         },
 
-        sponsorBlockChannelShouldBeAllowed
+        isSponsorBlockChannelExcluded
           ? {
-              label: t('Video.SponsorBlock Disallow Channel'),
-              value: 'sponsorBlockDisallowChannel'
+              label: t('Video.SponsorBlock Include Channel'),
+              value: 'sponsorBlockIncludeChannel'
             }
           : {
-              label: t('Video.SponsorBlock Allow Channel'),
-              value: 'sponsorBlockAllowChannel'
+              label: t('Video.SponsorBlock Exclude Channel'),
+              value: 'sponsorBlockExcludeChannel'
             }
       )
     }
@@ -724,11 +724,11 @@ function handleOptionsClick(option) {
     case 'unhideChannel':
       unhideChannel(channelName.value, channelId.value)
       break
-    case 'sponsorBlockAllowChannel':
-      sponsorBlockAllowChannel(channelName.value, channelId.value)
+    case 'sponsorBlockExcludeChannel':
+      sponsorBlockExcludeChannel(channelName.value, channelId.value)
       break
-    case 'sponsorBlockDisallowChannel':
-      sponsorBlockDisallowChannel(channelName.value, channelId.value)
+    case 'sponsorBlockIncludeChannel':
+      sponsorBlockIncludeChannel(channelName.value, channelId.value)
       break
   }
 }
@@ -1169,22 +1169,22 @@ function unhideChannel(channelName, channelId) {
  * @param {string} channelName
  * @param {string} channelId
  */
-function sponsorBlockAllowChannel(channelName, channelId) {
-  const newAllowedChannels = [...sponsorBlockAllowedChannels.value, { name: channelId, preferredName: channelName }]
+function sponsorBlockExcludeChannel(channelName, channelId) {
+  const newExcludedChannels = [...sponsorBlockExcludedChannels.value, { name: channelId, preferredName: channelName }]
 
-  store.dispatch('updateSponsorBlockChannelsAllowed', JSON.stringify(newAllowedChannels))
+  store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(newExcludedChannels))
 
-  showToast(t('SponsorBlock Channel Allowed', { channel: channelName }))
+  showToast(t('SponsorBlock Channel Excluded', { channel: channelName }))
 }
 
 /**
  * @param {string} channelName
  * @param {string} channelId
  */
-function sponsorBlockDisallowChannel(channelName, channelId) {
-  store.dispatch('updateSponsorBlockChannelsAllowed', JSON.stringify(sponsorBlockAllowedChannels.value.filter(c => c.name !== channelId)))
+function sponsorBlockIncludeChannel(channelName, channelId) {
+  store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(sponsorBlockExcludedChannels.value.filter(c => c.name !== channelId)))
 
-  showToast(t('SponsorBlock Channel Disallowed', { channel: channelName }))
+  showToast(t('SponsorBlock Channel Included', { channel: channelName }))
 }
 
 function toggleQuickBookmarked() {

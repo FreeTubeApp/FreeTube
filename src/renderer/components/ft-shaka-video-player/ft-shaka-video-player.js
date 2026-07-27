@@ -380,13 +380,13 @@ export default defineComponent({
     })
 
     /** @type {import('vue').ComputedRef<any[]>} */
-    const sponsorBlockChannelsAllowed = computed(() => {
-      return JSON.parse(store.getters.getSponsorBlockChannelsAllowed)
+    const sponsorBlockExcludedChannels = computed(() => {
+      return JSON.parse(store.getters.getSponsorBlockExcludedChannels)
     })
 
     /** @type {import('vue').ComputedRef<boolean>} */
     const useSponsorBlock = computed(() => {
-      return store.getters.getUseSponsorBlock && !sponsorBlockChannelsAllowed.value.some(c => c.name === props.channelId)
+      return store.getters.getUseSponsorBlock && !sponsorBlockExcludedChannels.value.some(c => c.name === props.channelId)
     })
 
     /** @type {import('vue').ComputedRef<boolean>} */
