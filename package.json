@@ -8,6 +8,7 @@
   "private": true,
   "author": {
     "name": "FreeTube Team",
+    "email": "noreply@example.com",
     "url": "https://github.com/FreeTubeApp/FreeTube"
   },
   "repository": {
