@@ -56,9 +56,6 @@ importers:
       swiper:
         specifier: ^14.0.6
         version: 14.0.6
-      terser:
-        specifier: ^5.49.0
-        version: 5.49.0
       vue:
         specifier: ^3.5.40
         version: 3.5.40(typescript@6.0.3)
@@ -192,6 +189,9 @@ importers:
       stylelint-use-logical-spec:
         specifier: ^5.0.1
         version: 5.0.1(stylelint@17.14.1(typescript@6.0.3))
+      terser:
+        specifier: ^5.49.0
+        version: 5.49.0
       vue-eslint-parser:
         specifier: ^10.4.1
         version: 10.4.1(eslint@10.7.0(jiti@2.7.0))
