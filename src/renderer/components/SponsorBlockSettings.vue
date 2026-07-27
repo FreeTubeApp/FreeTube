@@ -51,7 +51,7 @@
           :label="t('Settings.SponsorBlock Settings.Excluded Channels.Excluded Channels')"
           :tag-name-placeholder="t('Settings.SponsorBlock Settings.Excluded Channels.Placeholder')"
           :tag-list="sponsorBlockExcludedChannels"
-          :tooltip="t('Tooltips.SponsorBlock Settings.Allowed Channels')"
+          :tooltip="t('Settings.SponsorBlock Settings.Excluded Channels.Tooltip')"
           :validate-tag-name="checkYoutubeChannelId"
           :find-tag-info="findChannelTagInfoWrapper"
           :are-channel-tags="true"
