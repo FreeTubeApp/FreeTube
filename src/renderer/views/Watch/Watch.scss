@@ -175,8 +175,9 @@
       margin-block: auto;
     }
 
-    @media (width <= 768px) {
+    @media (width <= 1050px) {
       block-size: auto;
+      margin-inline: 0;
     }
   }
 
