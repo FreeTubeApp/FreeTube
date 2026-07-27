@@ -183,6 +183,7 @@
   flex: 1;
   min-inline-size: 0;
   margin: 0;
+  padding-block-start: 8px;
 }
 
 .playlistIcon {
