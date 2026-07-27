@@ -689,7 +689,7 @@ Settings:
       Invalid Channel: Channel ID provided was invalid
       API Error: Error retrieving user with the ID provided. Please check again if the ID is correct.
       Already Exists: Channel ID already exists
-      Tooltip: Enter a channel ID to not use SponsorBlock on. Sponsor segments in videos from this channel won't be skipped.
+      Tooltip: Enter a channel ID to have SponsorBlock disabled. Sponsor segments in videos from this channel won't be skipped.
         The channel ID entered must be a complete match and is case sensitive.
   Parental Control Settings:
     Parental Control Settings: Parental Control
