@@ -386,7 +386,12 @@ export default defineComponent({
 
     /** @type {import('vue').ComputedRef<boolean>} */
     const useSponsorBlock = computed(() => {
-      return store.getters.getUseSponsorBlock && !sponsorBlockExcludedChannels.value.some(c => c.name === props.channelId)
+      return store.getters.getUseSponsorBlock
+    })
+
+    /** @type {import('vue').ComputedRef<boolean>} */
+    const shouldUseSponsorBlockForChannel = computed(() => {
+      return useSponsorBlock.value && !sponsorBlockExcludedChannels.value.some(c => c.name === props.channelId)
     })
 
     /** @type {import('vue').ComputedRef<boolean>} */
@@ -396,7 +401,7 @@ export default defineComponent({
 
     const sponsorSkips = computed(() => {
       // save some work when sponsorblock is disabled
-      if (!useSponsorBlock.value) {
+      if (!shouldUseSponsorBlockForChannel.value) {
         return {}
       }
 
@@ -1051,7 +1056,7 @@ export default defineComponent({
         createChapterMarkers()
       }
 
-      if (useSponsorBlock.value && sponsorBlockSegments.length > 0) {
+      if (shouldUseSponsorBlockForChannel.value && sponsorBlockSegments.length > 0) {
         let duration
         if (hasLoaded.value) {
           const seekRange = player.seekRange()
@@ -1250,7 +1255,7 @@ export default defineComponent({
           updateStats()
         }
 
-        if (useSponsorBlock.value && sponsorBlockSegments.length > 0 && canSeek()) {
+        if (shouldUseSponsorBlockForChannel.value && sponsorBlockSegments.length > 0 && canSeek()) {
           skipSponsorBlockSegments(currentTime)
         }
       }
@@ -2847,7 +2852,7 @@ export default defineComponent({
         forceAspectRatio.value = firstFormat.width / firstFormat.height < 1.5
       }
 
-      if (useSponsorBlock.value && sponsorSkips.value.seekBar.length > 0) {
+      if (shouldUseSponsorBlockForChannel.value && sponsorSkips.value.seekBar.length > 0) {
         setupSponsorBlock()
       }
 
