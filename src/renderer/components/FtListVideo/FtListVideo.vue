@@ -474,6 +474,9 @@ const progressPercentage = computed(() => {
 /** @type {import('vue').ComputedRef<any[]>} */
 const hiddenChannels = computed(() => JSON.parse(store.getters.getChannelsHidden))
 
+/** @type {import('vue').ComputedRef<boolean>} */
+const useSponsorBlock = computed(() => store.getters.getUseSponsorBlock)
+
 /** @type {import('vue').ComputedRef<any[]>} */
 const sponsorBlockAllowedChannels = computed(() => JSON.parse(store.getters.getSponsorBlockChannelsAllowed))
 
@@ -605,19 +608,25 @@ const dropdownOptions = computed(() => {
           }
     )
 
-    const sponsorBlockChannelShouldBeAllowed = sponsorBlockAllowedChannels.value.some(c => c.name === channelId.value)
+    if (useSponsorBlock.value) {
+      const sponsorBlockChannelShouldBeAllowed = sponsorBlockAllowedChannels.value.some(c => c.name === channelId.value)
 
-    options.push(
-      sponsorBlockChannelShouldBeAllowed
-        ? {
-            label: t('Video.SponsorBlock Disallow Channel'),
-            value: 'sponsorBlockDisallowChannel'
-          }
-        : {
-            label: t('Video.SponsorBlock Allow Channel'),
-            value: 'sponsorBlockAllowChannel'
-          }
-    )
+      options.push(
+        {
+          type: 'divider'
+        },
+
+        sponsorBlockChannelShouldBeAllowed
+          ? {
+              label: t('Video.SponsorBlock Disallow Channel'),
+              value: 'sponsorBlockDisallowChannel'
+            }
+          : {
+              label: t('Video.SponsorBlock Allow Channel'),
+              value: 'sponsorBlockAllowChannel'
+            }
+      )
+    }
   }
 
   return options
