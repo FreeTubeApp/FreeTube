@@ -46,7 +46,7 @@
       </FtFlexBox>
       <FtFlexBox>
         <FtInputTags
-          :disabled="sponsorBlockChannelAllowedDisabled"
+          :disabled="sponsorBlockExcludedChannelsDisabled"
           :disabled-msg="t('Settings.SponsorBlock Settings.Excluded Channels.Disabled Message')"
           :label="t('Settings.SponsorBlock Settings.Excluded Channels.Excluded Channels')"
           :tag-name-placeholder="t('Settings.SponsorBlock Settings.Excluded Channels.Placeholder')"
@@ -119,7 +119,7 @@ const CATEGORIES = [
   'filler'
 ]
 
-const sponsorBlockChannelAllowedDisabled = ref(false)
+const sponsorBlockExcludedChannelsDisabled = ref(false)
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const useSponsorBlock = computed(() => store.getters.getUseSponsorBlock)
