@@ -47,9 +47,9 @@
       <FtFlexBox>
         <FtInputTags
           :disabled="sponsorBlockChannelAllowedDisabled"
-          :disabled-msg="t('Settings.SponsorBlock Settings.Allowed Channels Disabled Message')"
-          :label="t('Settings.SponsorBlock Settings.Allowed Channels')"
-          :tag-name-placeholder="t('Settings.SponsorBlock Settings.Allowed Channels Placeholder')"
+          :disabled-msg="t('Settings.SponsorBlock Settings.Excluded Channels.Disabled Message')"
+          :label="t('Settings.SponsorBlock Settings.Excluded Channels.Excluded Channels')"
+          :tag-name-placeholder="t('Settings.SponsorBlock Settings.Excluded Channels.Placeholder')"
           :tag-list="sponsorBlockExcludedChannels"
           :tooltip="t('Tooltips.SponsorBlock Settings.Allowed Channels')"
           :validate-tag-name="checkYoutubeChannelId"
@@ -223,15 +223,15 @@ function handleUpdateDeArrowThumbnailGeneratorUrl(value) {
 }
 
 function handleInvalidChannel() {
-  showToast(t('Settings.SponsorBlock Settings.Allowed Channels Invalid'))
+  showToast(t('Settings.SponsorBlock Settings.Excluded Channels.Invalid Channel'))
 }
 
 function handleChannelAPIError() {
-  showToast(t('Settings.SponsorBlock Settings.Allowed Channels API Error'))
+  showToast(t('Settings.SponsorBlock Settings.Excluded Channels.API Error'))
 }
 
 function handleChannelsExists() {
-  showToast(t('Settings.SponsorBlock Settings.Allowed Channels Already Exists'))
+  showToast(t('Settings.SponsorBlock Settings.Excluded Channels.Already Exists'))
 }
 
 /**

@@ -682,12 +682,13 @@ Settings:
       Prompt To Skip: Prompt To Skip
       Do Nothing: Do Nothing
     Category Color: Category Color
-    Allowed Channels Disabled Message: Some channels were allowed using ID and weren't processed. Feature is blocked while those IDs are updating
-    Allowed Channels: Allowed Channels
-    Allowed Channels Placeholder: Channel ID
-    Allowed Channels Invalid: Channel ID provided was invalid
-    Allowed Channels API Error: Error retrieving user with the ID provided. Please check again if the ID is correct.
-    Allowed Channels Already Exists: Channel ID already exists
+    Excluded Channels:
+      Disabled Message: Some channels were excluded using ID and weren't processed. Feature is blocked while those IDs are updating
+      Excluded Channels: Excluded Channels
+      Placeholder: Channel ID
+      Invalid Channel: Channel ID provided was invalid
+      API Error: Error retrieving user with the ID provided. Please check again if the ID is correct.
+      Already Exists: Channel ID already exists
   Parental Control Settings:
     Parental Control Settings: Parental Control
     Hide Unsubscribe Button: Hide Unsubscribe Button
