@@ -91,7 +91,7 @@
 </template>
 
 <script setup>
-import { computed, ref, useTemplateRef } from 'vue'
+import { computed, ref, useTemplateRef, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
@@ -158,6 +158,10 @@ const backendOptions = computed(() => ({
   preference: backendPreference.value,
   fallback: backendFallback.value
 }))
+
+onMounted(() => {
+  verifySponsorBlockExcludedChannels()
+})
 
 /**
  * @param {any[]} value
@@ -248,6 +252,34 @@ function cleanupUrl(url) {
  */
 async function findChannelTagInfoWrapper(text) {
   return await findChannelTagInfo(text, backendOptions.value)
+}
+
+async function verifySponsorBlockExcludedChannels() {
+  const excludedChannelsCpy = [...sponsorBlockExcludedChannels.value]
+
+  for (let i = 0; i < excludedChannelsCpy.length; i++) {
+    const tag = excludedChannelsCpy[i]
+
+    // if channel has been processed and confirmed as non existent, skip
+    if (tag.invalid) continue
+
+    // process if no preferred name and is possibly a YouTube ID
+    if ((tag.preferredName === '' || !tag.icon) && checkYoutubeChannelId(tag.name)) {
+      sponsorBlockExcludedChannelsDisabled.value = true
+
+      const { preferredName, icon, iconHref, invalidId } = await findChannelTagInfoWrapper(tag.name)
+      if (invalidId) {
+        excludedChannelsCpy[i] = { name: tag.name, invalid: invalidId }
+      } else {
+        excludedChannelsCpy[i] = { name: tag.name, preferredName, icon, iconHref }
+      }
+
+      // update on every tag in case it closes
+      handleSponsorBlockExcludedChannels(excludedChannelsCpy)
+    }
+  }
+
+  sponsorBlockExcludedChannelsDisabled.value = false
 }
 
 </script>
