@@ -14,7 +14,6 @@
       :class="{
         grabBarDisabled: !grabBarEnabled,
       }"
-      :draggable="!grabBarEnabled"
     >
       <FontAwesomeIcon
         :icon="['fas', 'fa-bars']"
