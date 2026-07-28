@@ -28,7 +28,7 @@
 }
 
 /* prevent hover styling from showing on title click for mobile */
-@media (hover: hover) {
+@media (hover: hover) and (not (any-pointer: coarse)) {
   .title:hover {
     color: var(--primary-text-color);
   }

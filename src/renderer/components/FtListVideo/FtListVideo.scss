@@ -20,7 +20,7 @@
 }
 
 // If touch screen device, always show grab bar.
-@media (hover: none) {
+@media (hover: none) or (any-pointer: coarse) {
   .draggable:not(.draggable:only-child) .grabBar {
     display: revert;
   }

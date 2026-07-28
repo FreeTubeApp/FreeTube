@@ -402,7 +402,7 @@ $watched-transition-duration: 0.5s;
     opacity: $thumbnail-overlay-opacity;
   }
 
-  @media (hover: hover) {
+  @media (hover: hover) and (not (any-pointer: coarse)) {
     &:hover .quickBookmarkVideoIcon:not(.alwaysVisible),
     .quickBookmarkVideoIcon.bookmarked:not(.alwaysVisible),
     &:hover .addToPlaylistIcon:not(.alwaysVisible),
