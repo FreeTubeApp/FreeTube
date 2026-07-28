@@ -618,12 +618,12 @@ const dropdownOptions = computed(() => {
 
         isSponsorBlockChannelExcluded
           ? {
-              label: t('Video.SponsorBlock Include Channel'),
-              value: 'sponsorBlockIncludeChannel'
+              label: t('Video.Enable SponsorBlock on Channel'),
+              value: 'enableSponsorBlockOnChannel'
             }
           : {
-              label: t('Video.SponsorBlock Exclude Channel'),
-              value: 'sponsorBlockExcludeChannel'
+              label: t('Video.Disable SponsorBlock on Channel'),
+              value: 'disableSponsorBlockOnChannel'
             }
       )
     }
@@ -724,11 +724,11 @@ function handleOptionsClick(option) {
     case 'unhideChannel':
       unhideChannel(channelName.value, channelId.value)
       break
-    case 'sponsorBlockExcludeChannel':
-      sponsorBlockExcludeChannel(channelName.value, channelId.value)
+    case 'disableSponsorBlockOnChannel':
+      disableSponsorBlockOnChannel(channelName.value, channelId.value)
       break
-    case 'sponsorBlockIncludeChannel':
-      sponsorBlockIncludeChannel(channelName.value, channelId.value)
+    case 'enableSponsorBlockOnChannel':
+      enableSponsorBlockOnChannel(channelName.value, channelId.value)
       break
   }
 }
@@ -1169,22 +1169,22 @@ function unhideChannel(channelName, channelId) {
  * @param {string} channelName
  * @param {string} channelId
  */
-function sponsorBlockExcludeChannel(channelName, channelId) {
+function disableSponsorBlockOnChannel(channelName, channelId) {
   const newExcludedChannels = [...sponsorBlockExcludedChannels.value, { name: channelId, preferredName: channelName }]
 
   store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(newExcludedChannels))
 
-  showToast(t('SponsorBlock Channel Excluded', { channel: channelName }))
+  showToast(t('SponsorBlock Disabled on Channel', { channel: channelName }))
 }
 
 /**
  * @param {string} channelName
  * @param {string} channelId
  */
-function sponsorBlockIncludeChannel(channelName, channelId) {
+function enableSponsorBlockOnChannel(channelName, channelId) {
   store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(sponsorBlockExcludedChannels.value.filter(c => c.name !== channelId)))
 
-  showToast(t('SponsorBlock Channel Included', { channel: channelName }))
+  showToast(t('SponsorBlock Enabled on Channel', { channel: channelName }))
 }
 
 function toggleQuickBookmarked() {
