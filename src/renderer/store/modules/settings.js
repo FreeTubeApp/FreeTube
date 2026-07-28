@@ -308,7 +308,7 @@ const state = {
   useDeArrowThumbnails: false,
   deArrowThumbnailGeneratorUrl: 'https://dearrow-thumb.ajay.app',
   sponsorBlockExcludedChannels: '[]',
-  sponsorBlockShowAddedExcludedChannels: true,
+  sponsorBlockShowExcludedChannels: true,
   // This makes the `favorites` playlist uses as quick bookmark target
   // If the playlist is removed quick bookmark is disabled
   quickBookmarkTargetPlaylistId: 'favorites',

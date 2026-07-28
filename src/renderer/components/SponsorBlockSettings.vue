@@ -55,12 +55,12 @@
           :validate-tag-name="checkYoutubeChannelId"
           :find-tag-info="findChannelTagInfoWrapper"
           :are-channel-tags="true"
-          :show-tags="sponsorBlockShowAddedExcludedChannels"
+          :show-tags="sponsorBlockShowExcludedChannels"
           @invalid-name="handleInvalidChannel"
           @error-find-tag-info="handleChannelAPIError"
           @change="handleSponsorBlockExcludedChannels"
           @already-exists="handleChannelsExists"
-          @toggle-show-tags="handleSponsorBlockShowAddedExcludedChannels"
+          @toggle-show-tags="handleSponsorBlockShowExcludedChannels"
         />
       </FtFlexBox>
       <FtFlexBox
@@ -146,7 +146,7 @@ const deArrowThumbnailGeneratorUrlRef = useTemplateRef('deArrowThumbnailGenerato
 const sponsorBlockExcludedChannels = computed(() => JSON.parse(store.getters.getSponsorBlockExcludedChannels))
 
 /** @type {import('vue').ComputedRef<boolean>} */
-const sponsorBlockShowAddedExcludedChannels = computed(() => store.getters.getSponsorBlockShowAddedExcludedChannels)
+const sponsorBlockShowExcludedChannels = computed(() => store.getters.getSponsorBlockShowExcludedChannels)
 
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
 const backendPreference = computed(() => store.getters.getBackendPreference)
@@ -170,8 +170,8 @@ function handleSponsorBlockExcludedChannels(value) {
   store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(value))
 }
 
-function handleSponsorBlockShowAddedExcludedChannels() {
-  store.dispatch('updateSponsorBlockShowAddedExcludedChannels', !sponsorBlockShowAddedExcludedChannels.value)
+function handleSponsorBlockShowExcludedChannels() {
+  store.dispatch('updateSponsorBlockShowExcludedChannels', !sponsorBlockShowExcludedChannels.value)
 }
 
 /**
