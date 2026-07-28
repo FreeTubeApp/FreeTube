@@ -589,24 +589,26 @@ const dropdownOptions = computed(() => {
     }
   }
 
-  if (channelId.value !== null && !inSubscriptions.value) {
-    const channelShouldBeHidden = hiddenChannels.value.some(c => c.name === channelId.value)
+  if (channelId.value !== null) {
+    if (!inSubscriptions.value) {
+      const channelShouldBeHidden = hiddenChannels.value.some(c => c.name === channelId.value)
 
-    options.push(
-      {
-        type: 'divider'
-      },
+      options.push(
+        {
+          type: 'divider'
+        },
 
-      channelShouldBeHidden
-        ? {
-            label: t('Video.Unhide Channel'),
-            value: 'unhideChannel'
-          }
-        : {
-            label: t('Video.Hide Channel'),
-            value: 'hideChannel'
-          }
-    )
+        channelShouldBeHidden
+          ? {
+              label: t('Video.Unhide Channel'),
+              value: 'unhideChannel'
+            }
+          : {
+              label: t('Video.Hide Channel'),
+              value: 'hideChannel'
+            }
+      )
+    }
 
     if (useSponsorBlock.value) {
       const isSponsorBlockChannelExcluded = sponsorBlockExcludedChannels.value.some(c => c.name === channelId.value)
