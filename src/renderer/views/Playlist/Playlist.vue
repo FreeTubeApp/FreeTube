@@ -609,6 +609,12 @@ watch(selectedUserPlaylistVideoCount, async () => {
   // So length is monitored instead
   // Assuming in user playlist video cannot be swapped without length change
 
+  // This watch function can be triggered while a debounced `getPlaylistInfoDebounce`
+  // call is still pending from another watch function. If we let it execute, we'd have
+  // two close calls to fetch playlist info in quick succession.
+  // See https://github.com/FreeTubeApp/FreeTube/issues/9517
+  getPlaylistInfoDebounce.cancel()
+
   // Re-fetch from local store when current user playlist videos updated
   // MUST NOT use `getPlaylistInfoDebounce` as it will cause delay in data update
   // Causing deleted videos to reappear for one frame
