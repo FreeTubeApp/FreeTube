@@ -166,6 +166,7 @@
   align-items: center;
   gap: 10px;
   margin-block-end: 4px;
+  padding-block-start: 8px;
 }
 
 .playlistHeader .playlistCollapseButton {
