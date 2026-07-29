@@ -130,10 +130,18 @@ import packageDetails from '../../package.json'
 import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 import { translateWindowTitle } from './helpers/strings'
 import { loadLocale } from './i18n/index'
+import { getLocalClip } from './helpers/api/local.js'
+import { getClipInvidious } from './helpers/api/invidious.js'
 
 const route = useRoute()
 const router = useRouter()
 const { locale, t } = useI18n()
+
+/** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
+const backendPreference = computed(() => store.getters.getBackendPreference)
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const backendFallback = computed(() => store.getters.getBackendFallback)
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const isSideNavOpen = computed(() => store.getters.getIsSideNavOpen)
@@ -431,8 +439,18 @@ async function handleYoutubeLink(href, { doCreateNewWindow = false } = {}) {
   const result = await store.dispatch('getYoutubeUrlInfo', href)
 
   switch (result.urlType) {
+    case 'clip':
     case 'video': {
-      const { videoId, timestamp, playlistId } = result
+      let videoId, timestamp, playlistId
+
+      if (result.urlType === 'video') {
+        videoId = result.videoId
+        timestamp = result.timestamp
+        playlistId = result.playlistId
+      } else if (result.urlType === 'clip') {
+        const clipResult = await getClip(result.clipId)
+        videoId = clipResult.videoId
+      }
 
       const query = {}
       if (timestamp) {
@@ -722,6 +740,37 @@ function handleDragStart(event) {
     event.stopPropagation()
   }
 }
+
+async function getClip(clipId) {
+  if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
+    try {
+      return await getClipInvidious(clipId)
+    } catch (err) {
+      console.error(err)
+
+      if (process.env.SUPPORTS_LOCAL_API && backendFallback.value) {
+        console.error(
+          'Error resolving clip URL.  Falling back to Local API'
+        )
+        return await getLocalClip(clipId)
+      }
+    }
+  } else {
+    try {
+      return await getLocalClip(clipId)
+    } catch (err) {
+      console.error(err)
+
+      if (backendFallback.value) {
+        console.error(
+          'Error resolving clip URL.  Falling back to Invidious API'
+        )
+        return await getClipInvidious(clipId)
+      }
+    }
+  }
+}
+
 </script>
 
 <style src="./themes.css" />

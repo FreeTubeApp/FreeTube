@@ -333,6 +333,7 @@ async function handleActionIconChange() {
       case 'subscriptions':
       case 'history':
       case 'userplaylists':
+      case 'clip':
         isYoutubeLink = true
         break
 

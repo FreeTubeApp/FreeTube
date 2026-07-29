@@ -860,6 +860,13 @@ export async function getHashtagInvidious(hashtag, page = 1) {
   return response.results
 }
 
+export async function getClipInvidious(clipId) {
+  // todo: invidious does have a clip endpoint for the api but
+  // it currently makes an expensive get_video request that we might want to avoid.
+  const response = await resolveUrl('https://www.youtube.com/clip/' + clipId)
+  return response
+}
+
 /**
  * Generates a DASH manifest locally from Invidious' adaptive formats and manifest,
  * doing so allows us to support multiple audio tracks, which Invidious doesn't support yet

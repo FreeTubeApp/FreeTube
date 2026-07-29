@@ -2486,3 +2486,18 @@ export async function getLocalCommunityPostComments(postId, channelId) {
 
   return await innertube.getPostComments(postId, channelId)
 }
+
+export async function getLocalClip(clipId) {
+  const innertube = await createInnertube()
+
+  const clipResponse = await innertube.resolveURL('https://www.youtube.com/clip/' + clipId)
+
+  const videoId = clipResponse?.payload?.videoId
+
+  // todo: figure out how we should parse additional properties from payload params protobuf
+  // const params = clipResponse?.payload.params
+
+  return {
+    videoId // todo: parse params like done in Invidious?
+  }
+}
