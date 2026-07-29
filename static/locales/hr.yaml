@@ -27,7 +27,7 @@ Forward: 'Naprijed'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videa'
-  Shorts: Shorts videozapisi
+  Shorts: Kratka videa
   Live: Uživo
   Posts: Objave
   Sort By: Redoslijed
@@ -373,7 +373,7 @@ Settings:
     Play Next Video: 'Automatski reproduciraj preporučena videa'
     Turn on Subtitles by Default: 'Standardno uključi titlove'
     Autoplay Videos: 'Pokreni videa automatski'
-    Proxy Videos Through Invidious: 'Koristi Invidious kao posrednika videa'
+    Proxy Videos Through Invidious: 'Koristi Invidious kao proxy videa'
     Autoplay Playlists: 'Automatski reproduciraj videa zbirki'
     Enable Theatre Mode by Default: 'Standardno aktiviraj kazališni modus'
     Default Volume: 'Standardna glasnoća'
@@ -429,6 +429,7 @@ Settings:
       External Player: Eksterni player ({externalPlayerName})
       Full Window (Always On): Cijeli prozor (uvijek uključeno)
       Full Screen (Always On): Cijeli ekran (uvijek uključeno)
+      Tooltip: Većina standardnih modusa gledanja primjenjuje se samo na početku svake sesije gledanja. Učinjene promjene tijekom sesije ostaju do njenog završetka. Modusi gledanja „Uvijek uključeno” primjenjuju se svaki put kada prijeđeš na novi video, bez obzira na bilo koje učinjene promjene u modusa gledanja tijekom gledanja prethodnog videa.
   Privacy Settings:
     Privacy Settings: 'Privatnost'
     Remember History: 'Zapamti povijest gledanja'
@@ -564,21 +565,21 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
     Country: Zemlja
-    Error getting network information. Is your proxy configured properly?: Greška pri dohvaćanju mrežnih podataka. Je li tvoj posrednik pravilno konfiguriran?
+    Error getting network information. Is your proxy configured properly?: Greška pri dohvaćanju mrežnih podataka. Je li tvoj proxy pravilno konfiguriran?
     City: Grad
     Region: Regija
     Ip: IP
     Your Info: Tvoji podaci
-    Test Proxy: Testiraj posrednika
-    Clicking on Test Proxy will send a request to: Pritiskom gumba „Testiraj posrednika” šalje se zahtjev na
-    Proxy Port Number: Broj priključka posrednika
-    Proxy Host: Računalo posrednika
-    Proxy Protocol: Protokol posrednika
-    Enable Tor / Proxy: Aktiviraj Tor/Posrednik
-    Proxy Settings: Posrednik
+    Test Proxy: Testiraj proxy
+    Clicking on Test Proxy will send a request to: Pritiskom gumba „Testiraj proxy” šalje se zahtjev na
+    Proxy Port Number: Proxy broj porta
+    Proxy Host: Proxy računalo
+    Proxy Protocol: Proxy protokol
+    Enable Tor / Proxy: Aktiviraj Tor/Proxy
+    Proxy Settings: Proxy
     Proxy Warning: FreeTube nema ugrađeni proxy, ali se može povezati s eksternim proxyjem, poput onog koji radi na tvom računalu poput Tor-a ili eksternog proxyja, poput SOCKS5 proxyja koji pružaju neki VPN-ovi. Ako je aktiviran, provjeri je li tvoj proxy/Tor pravilno konfiguriran, inače FreeTube neće moći dohvatiti nikoje podatke.
-    Proxy Username: Korisničko ime za proxy
-    Proxy Password: Lozinka za proxy
+    Proxy Username: Proxy korisničko ime
+    Proxy Password: Proxy lozinka
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Obavijesti kad se preskoči segment sponzora
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API-a za blokiranja sponzora (standardno je https://sponsor.ajay.app)
