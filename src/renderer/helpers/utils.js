@@ -1066,10 +1066,15 @@ export function localizeAndAddKeyboardShortcutToActionTitle(localizedActionTitle
 }
 
 /**
+ * @template {Function} U
+ * @typedef {{cancel: () => void} & U} ReturnedFunc
+ */
+
+/**
  * @template {Function} T
  * @param {T} func
  * @param {number} wait
- * @returns {{ (...args: any[]): any, cancel: () => void }}
+ * @returns {ReturnedFunc<T>}
  */
 export function debounce(func, wait) {
   let timeout
