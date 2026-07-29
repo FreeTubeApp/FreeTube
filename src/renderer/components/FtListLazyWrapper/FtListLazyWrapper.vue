@@ -155,11 +155,11 @@ const props = defineProps({
     type: Object,
     default: () => ({ videoId: null, playlistItemId: null }),
   },
-  isSortOrderCustom: {
+  isVideoDragging: {
     type: Boolean,
     default: false,
   },
-  isVideoDragging: {
+  videoDraggingPossible: {
     type: Boolean,
     default: false,
   },
@@ -177,7 +177,7 @@ const emit = defineEmits([
 ])
 
 const inUserPlaylist = props.playlistType === 'user'
-const showGrabBar = computed(() => inUserPlaylist && props.isSortOrderCustom)
+const showGrabBar = computed(() => inUserPlaylist && props.videoDraggingPossible)
 const isDraggable = computed(() => showGrabBar.value && (props.canMoveVideoUp || props.canMoveVideoDown))
 const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
 const draggableEventHandlers = {
