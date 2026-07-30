@@ -30,7 +30,7 @@ Download From Site: 'Saytdan Yüklə'
 Are you sure you want to open this link?: 'Bu linki açmaq istədiyinizə əminsiniz?'
 
 # Search Bar
-Search / Go to URL: 'Axtarış / URL-ə Keçin'
+Search / Go to URL: 'Axtarın / URL-ə Keçin'
 Search Bar:
   Clear Input: 'Girişi Təmizlə'
   # In Filter Button
@@ -52,7 +52,7 @@ Search Filters:
     Videos: 'Videolar'
     Channels: 'Kanallar'
     #& Playlists
-    Movies: Film
+    Movies: Filmlər
   Duration:
     Duration: 'Müddət'
     All Durations: 'Bütün Müddətlər'
@@ -67,7 +67,7 @@ Search Filters:
   Features:
     Features: Xüsusiyyətlər
     HD: HD
-    Creative Commons: Yaradıcı İnsanlar
+    Creative Commons: Creative Commons
     3D: 3D
     Subtitles: Titrlər
     Live: Canlı
@@ -80,16 +80,16 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abunəliklər'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Bu profilin çoxlu sayda abunəsi var. Sürət məhdudiyyətinin qarşısını almaq üçün RSS-i zorlanır'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abunəlik siyahınız hazırda boşdur. Abunəliklərinizi idxal etmək istəyirsinizsə, Məlumat Parametrlərinə gedib ''Abunəlikləri İdxal Et'' seçimini edə bilərsiniz və ya bir kanal axtarıb abunə ola bilərsiniz.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abunəlik siyahınız hazırda boşdur. Abunəliklərinizi idxal etmək istəyirsinizsə, Məlumat Tənzimləmələrinə keçib Abunəlikləri İdxal Et seçimini edə və ya bir kanal axtarıb abunə ola bilərsiniz.'
   Load More Videos: 'Daha çox Video Yüklə'
   Error Channels: Xətalı Kanallar
-  Load More Posts: Daha çox elan yüklə
+  Load More Posts: Daha çox Elan Yüklə
   Subscriptions Tabs: Abunəliklər Səhifələri
   All Subscription Tabs Hidden: Bütün abunəlik səhifələri gizlidir. Məzmunu burada görmək üçün "{settingsSection}" bölməsində "{subsection}"-da bəzi səhifələri gizlətməyin.
   Empty Channels: Abunə olduğunuz kanallarda hazırda heç bir video yoxdur.
   Empty Posts: Abunə olduğunuz kanallarda hazırda heç bir elan yoxdur.
   Disabled Automatic Fetching: Siz avtomatik abunəlik əldə etməyi bağlamısız. Abunəlikləri burada görmək üçün yeniləyin.
-More: 'Daha Çox'
+More: 'Daha çox'
 Trending:
   Trending: 'Trenddədir'
   Gaming: 'Oyun'
@@ -100,8 +100,8 @@ User Playlists:
   Your Playlists: 'Pleylistləriniz'
   Empty Search Message: 'Bu pleylistdə axtarışınıza uyğun video yoxdur'
   Search bar placeholder: 'Pleylist Axtar'
-  Playlists with Matching Videos: Uyğun videolar olan pleylistlər
-  Add to Playlist: Pleylistə əlavə et
+  Playlists with Matching Videos: Uyğun Videolar Olan Pleylistlər
+  Add to Playlist: Pleylistə Əlavə Et
   You have no playlists. Click on the create new playlist button to create a new one.: Pleylistiniz yoxdur. Yenisini yaratmaq üçün yeni pleylist yarat düyməsini kliklə.
   Create New Playlist: Yeni Pleylist Yarat
   This playlist currently has no videos.: Bu pleylistdə hazırda video yoxdur.
@@ -113,8 +113,8 @@ User Playlists:
   Playlist Name: Pleylist Adı
   Playlist Description: Pleylist Açıqlaması
   Cancel: Ləğv et
-  Edit Playlist Info: Pleylist məlumatına düzəliş et
-  Enable Quick Bookmark With This Playlist: Bu Pleylistlə Tez Əlfəcini Aktivləşdir
+  Edit Playlist Info: Pleylist Məlumatına Düzəliş Et
+  Enable Quick Bookmark With This Playlist: Bu Pleylistlə Cəld Əlfəcinləməni Aktivləşdir
   Copy Playlist: Pleylisti Köçür
   Remove Watched Videos: Baxılan Videoları Sil
   Delete Playlist: Pleylisti Sil
@@ -125,19 +125,19 @@ User Playlists:
       Video has been removed: Video silindi
       There was a problem with removing this video: Bu videonu silərkən problem yarandı
       Playlist name cannot be empty. Please input a name.: Pleylist adı boş ola bilməz. Xahiş olunur, ad daxil edin.
-      Playlist {playlistName} has been deleted.: '{playlistName} pleylist silindi.'
+      Playlist {playlistName} has been deleted.: '{playlistName} pleylisti silindi.'
       This playlist does not exist: Bu pleylist yoxdur
       This playlist is protected and cannot be removed.: Bu pleylist qorunur və silinə bilməz.
       There were no videos to remove.: Silinəcək video yox idi.
-      This playlist is already being used for quick bookmark.: Bu pleylist artıq sürətli əlfəcin üçün istifadə olunur.
-      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Bu pleylist indi {oldPlaylistName} əvəzinə sürətli əlfəcin üçün istifadə olunur. Geri almaq üçün bura kliklə
+      This playlist is already being used for quick bookmark.: Bu pleylist artıq cəld əlfəcin üçün istifadə olunur.
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Bu pleylist indi {oldPlaylistName} əvəzinə cəld əlfəcin üçün istifadə olunur. Geri almaq üçün bura kliklə
       Playlist has been updated.: Pleylist yeniləndi.
-      Reverted to use {oldPlaylistName} for quick bookmark: Sürətli əlfəcin üçün {oldPlaylistName} istifadəsinə geri qaytarıldı
-      This playlist is now used for quick bookmark: Bu pleylist indi sürətli əlfəcin üçün istifadə olunur
+      Reverted to use {oldPlaylistName} for quick bookmark: Cəld əlfəcin üçün {oldPlaylistName} istifadəsinə qayıdıldı
+      This playlist is now used for quick bookmark: Bu pleylist indi cəld əlfəcin üçün istifadə olunur
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Pleylistdəki bəzi videolar hələ yüklənməyib. Yenə də köçürmək üçün bura klikləyin.
       There was an issue with updating this playlist.: Bu pleylisti yeniləyərkən problem oldu.
       "{videoCount} video(s) have been removed": 1 video silindi | {videoCount} video silindi
-      Video has been removed. Click here to undo.: Video silindi. Geri gətirmək üçün klik edin.
+      Video has been removed. Click here to undo.: Video silindi. Geri almaq üçün bura kliklə.
     Search for Videos: Videoları Axtar
   Sort By:
     EarliestUpdatedFirst: Ən Tez Yenilənib
@@ -149,32 +149,32 @@ User Playlists:
     LatestPlayedFirst: Yenicə Oynadılıb
     EarliestPlayedFirst: Daha Tez Oynadılıb
   Save Changes: Dəyişiklikləri Saxla
-  Quick Bookmark Enabled: Tez Əlfəcin Aktivləşdirildi
+  Quick Bookmark Enabled: Cəld Əlfəcinləmə Aktivləşdirildi
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 1 baxılmış videonu bu pleylistdən silmək istədiyinizə əminsiniz? Bu geri alına bilməz. | {playlistItemCount} baxılmış videonu bu pleylistdən silmək istədiyinizə əminsiniz? Bu geri alına bilməz.
   AddVideoPrompt:
     N playlists selected: '{playlistCount} Seçildi'
     Search in Playlists: Pleylistlərdə Axtar
     Select a playlist to add your N videos to: Videonuzu |-ə əlavə etmək üçün pleylist seçin {videoCount} videonuzu əlavə etmək üçün pleylist seçin
-    Allow Adding Duplicate Video(s): Eyni Video(lar) Əlavə Etməyə İcazə Ver
+    Allow Adding Duplicate Video(s): Təkrar Video(lar) Əlavə Etməyə İcazə Ver
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videolar Əlavə Olunacaq'
     Save: Saxla
-    Added {count} Times: Artıq Əlavə Edilib | {count} dəfə əlavə edildi
+    Added {count} Times: Artıq Əlavə Edilib | {count} Dəfə Əlavə Edildi
     Toast:
       You haven't selected any playlist yet.: Siz hələ heç bir pleylist seçməmisiniz.
       "Video(s) added to {playlistCount} playlists": ""
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Video Artıq Əlavə Edilib'
-  Remove Duplicate Videos: Eyni Videoları Sil
-  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Bu pleylistdən 1 eyni videonu silmək istədiyinizə əminsiniz? Bu geri alına bilməz | {playlistItemCount} eyni videonu bu pleylistdən silmək istədiyinizə əminsiniz? Bu geri alına bilməz.
-  Cannot delete the quick bookmark target playlist.: Sürətli əlfəcin hədəf pleylisti silinmir.
+  Remove Duplicate Videos: Təkrar Videoları Sil
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Bu pleylistdən 1 təkrar videonu silmək istədiyinizə əminsiniz? Bu geri alına bilməz | {playlistItemCount} təkrar videonu bu pleylistdən silmək istədiyinizə əminsiniz? Bu geri alına bilməz.
+  Cannot delete the quick bookmark target playlist.: Cəld əlfəcin hədəf pleylistin silmək olmur.
   Are you sure you want to delete this playlist? This cannot be undone: Bu pleylisti silmək istədiyinizə əminsiniz? Bu geri alına bilməz.
   CreatePlaylistPrompt:
     New Playlist Name: Yeni Pleylist Adı
     Toast:
       There is already a playlist with this name. Please pick a different name.: Artıq bu adda pleylist var. Lütfən, fərqli ad seçin.
-      Playlist {playlistName} has been successfully created.: '{playlistName} pleylist uğurla yaradıldı.'
-      There was an issue with creating the playlist.: Pleylist yaradarkən problem oldu.
+      Playlist {playlistName} has been successfully created.: '{playlistName} pleylisti uğurla yaradıldı.'
+      There was an issue with creating the playlist.: Pleylist yaradılarkən problem oldu.
     Create: Yarat
-  The playlist has been successfully exported: Bu pleylist uğurla ixrac edildi
+  The playlist has been successfully exported: Pleylist uğurla ixrac olundu
   Export Playlist: Bu Pleylisti İxrac Et
 History:
   # On History Page
@@ -339,8 +339,8 @@ Feed:
   Feed Last Updated: '{feedName} axının son yeniləmə: {date}'
   Refresh Feed: '{subscriptionName} / yenilə'
 Search character limit: Axtarış sorğusu {searchCharacterLimit} simvol həddindən çoxdur
-Go to page: '{səhifəyə} keç'
-Close Banner: Paneli Bağla
+Go to page: '{page} səhifəsinə keçin'
+Close Banner: Afişanı Bağla
 Display Label: '{label}: {value}'
 Yes, Delete: Bəli, Sil
 Yes, Restart: Bəli, Yenidən Başlat
@@ -349,7 +349,7 @@ checkmark: ✓
 Yes: Bəli
 Ok: Oldu
 No: Xeyr
-Right-click or hold to see history: Tarixçəni görmək üçün sağ klikləyin və ya saxlayın
+Right-click or hold to see history: Tarixçəni görmək üçün sağ klikləyin və ya basın
 KeyboardShortcutPrompt:
   Toggle Developer Tools: Tərtibatçı Seçimlərini Aç/Bağla
   Zoom Out: Uzaqlaşdır
