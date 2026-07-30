@@ -186,17 +186,17 @@ History:
 Settings:
   # On Settings Page
   Settings: 'Tənzimləmələr'
-  The app needs to restart for changes to take effect. Restart and apply change?: 'Dəyişikliklərin qüvvəyə minməsi üçün tətbiq yenidən başladılmalıdır. Yenidən başladılsın və dəyişiklik tətbiq edilsin?'
+  The app needs to restart for changes to take effect. Restart and apply change?: 'Dəyişiklikləri işə salmaq üçün tətbiq yenidən başladılmalıdır. Yenidən başladılsın və dəyişiklik tətbiq edilsin?'
   General Settings:
     General Settings: 'Ümumi'
     Check for Updates: 'Yeniləmələri Yoxlayın'
     Fallback to Non-Preferred Backend on Failure: 'Uğursuzluqda Üstünlük Verilməyən Arxa Uca Qayıdış'
     Enable Search Suggestions: 'Axtarış Təkliflərini Aktivləşdirin'
     Default Landing Page: 'İlkin Açılış Səhifəsi'
-    Locale Preference: 'Yerləşdirilən Seçim'
+    Locale Preference: 'Bölgə Üstünlüyü'
     System Default: 'Sistem Standartı'
     Preferred API Backend:
-      Preferred API Backend: 'Tərcih Edilən API Arxa Ucu'
+      Preferred API Backend: 'Üstünlük Verilən API Arxa Ucu'
       Local API: 'Yerli API'
       Invidious API: 'Invidious API'
     Video View Type:
@@ -293,8 +293,8 @@ Settings:
   Player Settings:
     Screenshot: {}
   SponsorBlock Settings: {}
-  Sort Settings Sections (A-Z): Tənzimləmələr Bölmələrin Çeşidlə (AZ)
-  Return to Settings Menu: Parametrlər Menyusuna Qayıt
+  Sort Settings Sections (A-Z): Tənzimləmələr Bölmələrin Çeşidlə (A-Z)
+  Return to Settings Menu: Tənzimləmələr Menyusuna Qayıt
 Channel:
   Videos:
     Videos: Videolar
