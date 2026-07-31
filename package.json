@@ -101,7 +101,7 @@
     "json-minimizer-webpack-plugin": "^5.0.1",
     "lefthook": "^2.1.10",
     "mini-css-extract-plugin": "^2.10.2",
-    "postcss": "^8.5.22",
+    "postcss": "^8.5.23",
     "postcss-scss": "^4.0.9",
     "sass": "^1.101.7",
     "sass-loader": "^17.0.0",
