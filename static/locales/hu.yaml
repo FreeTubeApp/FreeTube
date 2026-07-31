@@ -642,14 +642,14 @@ About:
   Donate: Adakozás
   Credits: Köszönetnyilvánítások
   Translate: Fordítás
-  room rules: szobaszabályok
+  room rules: szobaszabályzat
   Chat on Matrix: Csevegés a Matrixon
   Mastodon: Mastodon
   Website: Weboldal
-  Please check for duplicates before posting: Beküldés előtt ellenőrizze, nincs-e már azonos
-  GitHub issues: GitHub hibajegyek
+  Please check for duplicates before posting: Beküldés előtt ellenőrizze, nincs-e már hasonló
+  GitHub issues: GitHub-hibajegyek
   Help: Súgó
-  GitHub releases: GitHub kiadások
+  GitHub releases: GitHub-kiadások
   Downloads / Changelog: Letöltések / Változáslista
   FreeTube Wiki: FreeTube Wiki
   Source code: Forráskód
@@ -660,7 +660,7 @@ About:
   AGPLv3: AGPLv3
   Licensed under the {licenseLink}: Licencelve a(z) {licenseLink} alatt
   Please read the {roomRulesLink}: 'Olvassa el a következőt: {roomRulesLink}'
-  FreeTube is made possible by {creditsPageLink}: A FreeTube a {creditsPageLink} jóvoltából jöhetett létre
+  FreeTube is made possible by {creditsPageLink}: A FreeTube {creditsPageLink} jóvoltából jöhetett létre
 Profile:
   Profile Select: 'Profil kiválasztása'
   All Channels: 'Összes csatorna'
