@@ -255,7 +255,7 @@ Settings:
       Green: Yaşıl
       Deep Orange: Tünd Narıncı
       Red: Qırmızı
-      Purple: Bənövşəyi
+      Purple: Moruğu
       Blue: Mavi
       Light Green: Açıq Yaşıl
       Yellow: Sarı
@@ -281,6 +281,55 @@ Settings:
       Catppuccin Frappe Teal: Catppuccin Frappe Tünd Firuzəyi
       Catppuccin Frappe Sky: Catppuccin Frappe Göy
       Catppuccin Frappe Sapphire: Catppuccin Frappe Sapfir
+      Catppuccin Frappe Rosewater: Catppuccin Frappe Rosewater
+      Catppuccin Latte Mauve: Catppuccin Latte Çəhrayı-Bənövşəyi
+      Catppuccin Latte Red: Catppuccin Latte Qırmızı
+      Catppuccin Mocha Rosewater: Catppuccin Mocha Rosewater
+      Catppuccin Mocha Flamingo: Catppuccin Mocha Flamingo
+      Catppuccin Mocha Pink: Catppuccin Mocha Çəhrayı
+      Catppuccin Mocha Mauve: Catppuccin Mocha Çəhrayı-Bənövşəyi
+      Catppuccin Mocha Red: Catppuccin Mocha Qırmızı
+      Catppuccin Mocha Maroon: Catppuccin Mocha Şabalıdı
+      Catppuccin Mocha Peach: Catppuccin Mocha Şaftalı
+      Catppuccin Mocha Yellow: Catppuccin Mocha Sarı
+      Catppuccin Mocha Green: Catppuccin Mocha Yaşıl
+      Catppuccin Mocha Teal: Catppuccin Mocha Tünd Firuzəyi
+      Catppuccin Mocha Sky: Catppuccin Mocha Göy
+      Catppuccin Mocha Sapphire: Catppuccin Mocha Sapfir
+      Catppuccin Mocha Blue: Catppuccin Mocha Mavi
+      Catppuccin Mocha Lavender: Catppuccin Mocha Lavanda
+      Gruvbox Dark Green: Gruvbox Tünd Yaşıl
+      Gruvbox Dark Yellow: Gruvbox Tünd Sarı
+      Gruvbox Dark Blue: Gruvbox Tünd Mavi
+      Gruvbox Dark Purple: Gruvbox Tünd Moruğu Rəng
+      Gruvbox Dark Aqua: Gruvbox Dark Firuzəyi
+      Gruvbox Dark Orange: Gruvbox Tünd Narıncı
+      Gruvbox Light Red: Gruvbox Açıq Qırmızı
+      Gruvbox Light Blue: Gruvbox Açıq Mavi
+      Gruvbox Light Purple: Gruvbox Açıq Bənövşəyi
+      Gruvbox Light Orange: Gruvbox Açıq Narıncı
+      Solarized Yellow: Günəşli Sarı
+      Solarized Orange: Günəşli Narıncı
+      Solarized Red: Günəşli Qırmızı
+      Solarized Magenta: Günəşli Tünd Çəhrayı
+      Solarized Violet: Günəşli Bənövşəyi
+      Solarized Blue: Günəşli Mavi
+      Solarized Cyan: Günəşli Firuzəyi
+      Solarized Green: Günəşli Yaşıl
+      Everforest Dark Red: Everforest Tünd Qırmızı
+      Everforest Dark Orange: Everforest Tünd Narıncı
+      Everforest Dark Yellow: Everforest Tünd Sarı
+      Everforest Dark Green: Everforest Tünd Yaşıl
+      Everforest Dark Aqua: Everforest Tünd Firuzəyi
+      Everforest Dark Blue: Everforest Tünd Mavi
+      Everforest Dark Purple: Everforest Tünd Moruğu
+      Everforest Light Red: Everforest Açıq Qırmızı
+      Everforest Light Orange: Everforest Açıq Narıncı
+      Everforest Light Yellow: Everforest Açıq Sarı
+      Everforest Light Green: Everforest Açıq Yaşıl
+      Everforest Light Aqua: Everforest Açıq Firuzəyi
+      Everforest Light Blue: Everforest Açıq Mavi
+      Everforest Light Purple: Everforest Açıq Bənövşəyi
     UI Scale: İnterfeys Miqyası
     Base Theme:
       Pastel Pink: Pastel Çəhrayısı
@@ -311,8 +360,10 @@ Settings:
     Theme Settings: Kolorit
     Expand Side Bar by Default: Kənar Cərgəni İlkin Olaraq Genişləndir
     Hide FreeTube Header Logo: FreeTube Başlıq Simvolunu Gizlət
+    Secondary Color Theme: İkinci Dərəcəli Rəng Koloriti
   Player Settings:
     Screenshot: {}
+    Player Settings: Oynadıcı
   SponsorBlock Settings: {}
   Sort Settings Sections (A-Z): Tənzimləmələr Bölmələrin Çeşidlə (A-Z)
   Return to Settings Menu: Tənzimləmələr Menyusuna Qayıt
