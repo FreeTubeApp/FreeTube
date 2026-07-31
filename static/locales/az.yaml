@@ -39,6 +39,8 @@ Search Filters:
   Search Filters: 'Axtarış Filtrləri'
   Prioritize:
     Most Relevant: 'Ən Münasib'
+    Prioritize: Üstünlük Ver
+    Popularity: Məşhurluq
   Time:
     Time: 'Vaxt'
     Any Time: 'İstənilən Vaxt'
@@ -76,6 +78,7 @@ Search Filters:
     VR180: VR180
     4K: 4K
     Location: Məkan
+  Clear Filters: Filtrləri Təmizlə
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abunəliklər'
@@ -94,6 +97,7 @@ Trending:
   Trending: 'Trenddədir'
   Gaming: 'Oyun'
   Trending Tabs: 'Trend Səhifələr'
+  Sports: İdman
 Most Popular: 'Ən Tanınmış'
 Playlists: 'Pleylistlər'
 User Playlists:
@@ -138,16 +142,17 @@ User Playlists:
       There was an issue with updating this playlist.: Bu pleylisti yeniləyərkən problem oldu.
       "{videoCount} video(s) have been removed": 1 video silindi | {videoCount} video silindi
       Video has been removed. Click here to undo.: Video silindi. Geri almaq üçün bura kliklə.
+      This playlist has a video with a duration error: Bu pleylistin müddəti bəlli olmayan azı bir videosu var, onlar müddəti sıfır kimi nəzərə alınaraq çeşidlənəcək.
     Search for Videos: Videoları Axtar
   Sort By:
-    EarliestUpdatedFirst: Ən Tez Yenilənib
-    EarliestCreatedFirst: Ən Tez Yaradılıb
+    EarliestUpdatedFirst: Yenilənmə Tarixi (Ən Köhnə)
+    EarliestCreatedFirst: Yaradılma Tarixi (Ən Köhnə)
     NameAscending: A-Z
     NameDescending: Z-A
-    LatestCreatedFirst: Yenicə Yaradılıb
-    LatestUpdatedFirst: Yenicə Yenilənib
-    LatestPlayedFirst: Yenicə Oynadılıb
-    EarliestPlayedFirst: Daha Tez Oynadılıb
+    LatestCreatedFirst: Yaradılma Tarixi (Ən Yeni)
+    LatestUpdatedFirst: Yenilənmə Tarixi (Ən Yeni)
+    LatestPlayedFirst: Oynadılma Tarixi (Ən Yeni)
+    EarliestPlayedFirst: Oynadılma Tarixi (Ən Köhnə)
   Save Changes: Dəyişiklikləri Saxla
   Quick Bookmark Enabled: Cəld Əlfəcinləmə Aktivləşdirildi
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: 1 baxılmış videonu bu pleylistdən silmək istədiyinizə əminsiniz? Bu geri alına bilməz. | {playlistItemCount} baxılmış videonu bu pleylistdən silmək istədiyinizə əminsiniz? Bu geri alına bilməz.
@@ -161,7 +166,7 @@ User Playlists:
     Added {count} Times: Artıq Əlavə Edilib | {count} Dəfə Əlavə Edildi
     Toast:
       You haven't selected any playlist yet.: Siz hələ heç bir pleylist seçməmisiniz.
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Video(lar) 1 pleylistə əlavə edildi | Video(lar) {playlistCount} pleylistə əlavə edildi"
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Video Artıq Əlavə Edilib'
   Remove Duplicate Videos: Təkrar Videoları Sil
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Bu pleylistdən 1 təkrar videonu silmək istədiyinizə əminsiniz? Bu geri alına bilməz | {playlistItemCount} təkrar videonu bu pleylistdən silmək istədiyinizə əminsiniz? Bu geri alına bilməz.
@@ -176,6 +181,10 @@ User Playlists:
     Create: Yarat
   The playlist has been successfully exported: Pleylist uğurla ixrac olundu
   Export Playlist: Bu Pleylisti İxrac Et
+  Move Video to the Top: Videonu Ən Yuxarıya Keçir
+  Move Video to the Bottom: Videonu Ən Aşağıya Keçir
+  Export list of URLs: URL-lərin siyahısını ixrac et
+  TotalTimePlaylist: 'Ümumi vaxt: {duration}'
 History:
   # On History Page
   History: 'Tarixçə'
@@ -183,6 +192,9 @@ History:
   Your history list is currently empty.: 'Tarixçə siyahınız hazırda boşdur.'
   Empty Search Message: 'Tarixçənizdə axtarışınıza uyğun video yoxdur'
   Search bar placeholder: "Tarixçədə Axtarın"
+  Case Sensitive Search: Böyük-kiçik Hərfə Həssas Axtarış
+  DateOldestHistory: Baxılma Tarixi (Ən Köhnə)
+  DateNewestHistory: Baxılma Tarixi (Ən Yeni)
 Settings:
   # On Settings Page
   Settings: 'Tənzimləmələr'
@@ -228,6 +240,8 @@ Settings:
     Auto Load Next Page:
       Label: Növbəti Səhifəni Avtomatik Yüklə
       Tooltip: Əlavə səhifələri və şərhləri avtomatik yüklə.
+    Open Deep Links In New Window: FreeTube-a Ötürülən URL-ləri Yeni Pəncərədə Aç
+    Minimize to system tray: Sistem sahəsinə qədər kiçilt
   Theme Settings:
     Main Color Theme:
       Pink: Çəhrayı
@@ -246,7 +260,7 @@ Settings:
       Light Green: Açıq Yaşıl
       Yellow: Sarı
       Dracula Red: Dracula Qırmızısı
-      Dracula Cyan: Dracula Cyan
+      Dracula Cyan: Dracula Firuzəyi
       Dracula Green: Dracula Yaşılı
       Dracula Orange: Dracula Narıncısı
       Dracula Pink: Dracula Çəhrayısı
@@ -264,9 +278,9 @@ Settings:
       Catppuccin Frappe Mauve: Catppuccin Frappe Çəhrayı-Bənövşəyi
       Catppuccin Frappe Yellow: Catppuccin Frappe Sarı
       Catppuccin Frappe Green: Catppuccin Frappe Yaşıl
-      Catppuccin Frappe Teal: Catppuccin Frappe Dəniz rəngi
-      Catppuccin Frappe Sky: Catppuccin Frappe Səma rəngi
-      Catppuccin Frappe Sapphire: Catppuccin Frappe Yaqut
+      Catppuccin Frappe Teal: Catppuccin Frappe Tünd Firuzəyi
+      Catppuccin Frappe Sky: Catppuccin Frappe Göy
+      Catppuccin Frappe Sapphire: Catppuccin Frappe Sapfir
     UI Scale: İnterfeys Miqyası
     Base Theme:
       Pastel Pink: Pastel Çəhrayısı
@@ -284,6 +298,13 @@ Settings:
       Gruvbox Dark: Gruvbox Dark
       Gruvbox Light: Gruvbox Light
       Catppuccin Frappe: Catppuccin Frappe
+      Catppuccin Latte: Catppuccin Latte
+      Everforest Dark Hard: Everforest Qaranlıq Sərt
+      Everforest Dark Medium: Everforest Qaranlıq Orta
+      Everforest Dark Low: Everforest Qaranlıq Zəif
+      Everforest Light Hard: Everforest İşıqlı Sərt
+      Everforest Light Medium: Everforest İşıqlı Orta
+      Everforest Light Low: Everforest İşıqlı Zəif
     Match Top Bar with Main Color: Üst Cərgəni Əsas Rənglə Uyğunlaşdır
     Disable Smooth Scrolling: Səlis Sürüşdürməni Qapat
     Hide Side Bar Labels: Kənar Cərgə Etiketlərini Gizlət
@@ -351,9 +372,11 @@ Ok: Oldu
 No: Xeyr
 Right-click or hold to see history: Tarixçəni görmək üçün sağ klikləyin və ya basın
 KeyboardShortcutPrompt:
-  Toggle Developer Tools: Tərtibatçı Seçimlərini Aç/Bağla
+  Toggle Developer Tools: Tərtibatçı Alətlərini Aç/Bağla
   Zoom Out: Uzaqlaşdır
   Zoom In: Yaxınlaşdır
-  Fullscreen: Tam ekran göstər
+  Fullscreen: Tam ekrana keçir
 Profile:
-  Select All: Hamısını seç
+  Select All: Hamısını Seç
+Compact side navigation: Yığcam yan naviqasiya
+Expand side navigation: Yan paneli genişləndir
