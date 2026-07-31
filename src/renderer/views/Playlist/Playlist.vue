@@ -461,7 +461,7 @@ function resetState() {
   playlistThumbnail.value = ''
   viewCount.value = 0
   videoCount.value = 0
-  lastUpdated.value = ''
+  lastUpdated.value = undefined
   channelName.value = ''
   channelThumbnail.value = ''
   channelId.value = ''
