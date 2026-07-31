@@ -96,14 +96,14 @@
     "eslint-plugin-vuejs-accessibility": "^2.5.0",
     "eslint-plugin-yml": "^3.6.0",
     "globals": "^17.8.0",
-    "html-webpack-plugin": "^5.6.7",
+    "html-webpack-plugin": "^5.6.8",
     "js-yaml": "^5.2.2",
     "json-minimizer-webpack-plugin": "^5.0.1",
     "lefthook": "^2.1.10",
     "mini-css-extract-plugin": "^2.10.2",
     "postcss": "^8.5.23",
     "postcss-scss": "^4.0.9",
-    "sass": "^1.101.7",
+    "sass": "^1.102.0",
     "sass-loader": "^17.0.0",
     "stylelint": "^17.14.1",
     "stylelint-config-sass-guidelines": "^13.0.0",
@@ -114,8 +114,8 @@
     "@magda/tree-kill": "1.2.3",
     "vue-eslint-parser": "^10.4.1",
     "vue-loader": "^17.4.2",
-    "webpack": "^5.109.0",
-    "webpack-cli": "^7.2.1",
+    "webpack": "^5.109.2",
+    "webpack-cli": "^7.2.2",
     "webpack-dev-server": "^6.0.0"
   }
 }
